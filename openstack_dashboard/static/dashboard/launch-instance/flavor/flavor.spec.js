@@ -85,7 +85,7 @@
           spyOn(ctrl, 'validateFlavor').and.returnValue();
 
           // Initialize the watchers with default data
-          scope.$digest();
+          scope.$apply();
 
           // Reset the spies now that we have initialized the watchers
           // so that tests don't see the calls made during setup
@@ -107,13 +107,13 @@
 
           it("sets the control novaLimits", function () {
             model.novaLimits = "new";
-            scope.$digest();
+            scope.$apply();
             expect(ctrl.novaLimits).toBe('new');
           });
 
           it("calls updateFlavorFacades()", function () {
             model.novaLimits = "new";
-            scope.$digest();
+            scope.$apply();
             expect(ctrl.updateFlavorFacades.calls.count()).toBe(1);
           });
         });
@@ -122,19 +122,19 @@
 
           it("sets the control instanceCount when 1 or more", function () {
             model.newInstanceSpec.instance_count = 5;
-            scope.$digest();
+            scope.$apply();
             expect(ctrl.instanceCount).toBe(5);
           });
 
           it("sets the control instanceCount to 1 when less than 1", function () {
             model.newInstanceSpec.instance_count = 0;
-            scope.$digest();
+            scope.$apply();
             expect(ctrl.instanceCount).toBe(1);
           });
 
           it("does nothing when new value is not defined", function () {
             delete model.newInstanceSpec.instance_count;
-            scope.$digest();
+            scope.$apply();
             expect(ctrl.instanceCount).toBe(1);
             expect(ctrl.updateFlavorFacades).not.toHaveBeenCalled();
             expect(ctrl.validateFlavor).not.toHaveBeenCalled();
@@ -142,13 +142,13 @@
 
           it("calls updateFlavorFacades()", function () {
             model.newInstanceSpec.instance_count = 5;
-            scope.$digest();
+            scope.$apply();
             expect(ctrl.updateFlavorFacades.calls.count()).toBe(1);
           });
 
           it("calls validateFlavor()", function () {
             model.newInstanceSpec.instance_count = 5;
-            scope.$digest();
+            scope.$apply();
             expect(ctrl.validateFlavor.calls.count()).toBe(1);
           });
         });
@@ -157,13 +157,13 @@
 
           it("sets the control flavors", function () {
             model.flavors = "new";
-            scope.$digest();
+            scope.$apply();
             expect(ctrl.flavors).toBe("new");
           });
 
           it("calls updateFlavorFacades", function () {
             model.flavors = "new";
-            scope.$digest();
+            scope.$apply();
             expect(ctrl.updateFlavorFacades.calls.count()).toBe(1);
           });
         });
@@ -173,33 +173,33 @@
           it("deletes flavor if falsy facade", function () {
             model.newInstanceSpec.flavor = "to be removed";
             ctrl.allocatedFlavorFacades = false;
-            scope.$digest();
+            scope.$apply();
             expect(model.newInstanceSpec.flavor).not.toBeDefined();
           });
 
           it("deletes flavor if empty facade", function () {
             // First set a non-empty allocated facade
             ctrl.allocatedFlavorFacades = [{flavor: "non-empty", enabled: "true"}];
-            scope.$digest();
+            scope.$apply();
             expect(model.newInstanceSpec.flavor).toBe("non-empty");
 
             // Now set the empty allocated facade and prove that the flavor is
             // cleaned up.
             model.newInstanceSpec.flavor = "to be removed";
             ctrl.allocatedFlavorFacades = [];
-            scope.$digest();
+            scope.$apply();
             expect(model.newInstanceSpec.flavor).not.toBeDefined();
           });
 
           it("sets the model's flavor", function () {
             ctrl.allocatedFlavorFacades = [{flavor: "raspberry", enabled: "true"}];
-            scope.$digest();
+            scope.$apply();
             expect(model.newInstanceSpec.flavor).toEqual("raspberry");
           });
 
           it("calls validateFlavor", function () {
             ctrl.allocatedFlavorFacades = [{flavor: "non-empty", enabled: "true"}];
-            scope.$digest();
+            scope.$apply();
             expect(ctrl.validateFlavor.calls.count()).toBe(1);
           });
         });
@@ -208,39 +208,39 @@
 
           it("sets the source", function () {
             model.newInstanceSpec.source = ["new"];
-            scope.$digest();
+            scope.$apply();
             expect(ctrl.source).toBe("new");
           });
 
           it("sets the source to null if not provided", function () {
             model.newInstanceSpec.source = ["new"];
-            scope.$digest();
+            scope.$apply();
             expect(ctrl.source).toBe("new");
 
             delete model.newInstanceSpec.source;
-            scope.$digest();
+            scope.$apply();
             expect(ctrl.source).toBeNull();
           });
 
           it("sets the source to null if not an array", function () {
             model.newInstanceSpec.source = ["new"];
-            scope.$digest();
+            scope.$apply();
             expect(ctrl.source).toBe("new");
 
             model.newInstanceSpec.source = 1;
-            scope.$digest();
+            scope.$apply();
             expect(ctrl.source).toBeNull();
           });
 
           it("calls updateFlavorFacades", function () {
             model.newInstanceSpec.source = ["new"];
-            scope.$digest();
+            scope.$apply();
             expect(ctrl.updateFlavorFacades.calls.count()).toBe(1);
           });
 
           it("calls validateFlavor", function () {
             model.newInstanceSpec.source = ["new"];
-            scope.$digest();
+            scope.$apply();
             expect(ctrl.validateFlavor.calls.count()).toBe(1);
           });
         });
