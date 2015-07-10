@@ -31,6 +31,7 @@
    */
   var horizonBuiltInModules = [
     'horizon.auth',
+    'horizon.app.core',
     'hz.dashboard',
     'horizon.framework',
     'horizon.openstack-service-api'

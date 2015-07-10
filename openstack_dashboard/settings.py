@@ -309,6 +309,11 @@ fd.populate_horizon_config(
     os.path.join(ROOT_PATH, 'static/'),
     sub_path='openstack-service-api/'
 )
+fd.populate_horizon_config(
+    HORIZON_CONFIG,
+    os.path.join(ROOT_PATH, 'static/'),
+    sub_path='app/core/'
+)
 
 # Load the pluggable dashboard settings
 import openstack_dashboard.enabled
