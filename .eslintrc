@@ -4,10 +4,6 @@
 # By default, ESLint uses Espree as its parser.
 parser: espree
 
-# Enable eslint-plugin-angular
-plugins:
-  - angular
-
 # Set up globals
 globals:
   angular: false
@@ -794,7 +790,7 @@ rules:
   # specify the maximum length of a line in your program
   # http://eslint.org/docs/rules/max-len
   max-len:
-    - 2 # TODO(krotscheck): Activate & Fix
+    - 2
     - 100
 
   # Limits the number of parameters that can be used in function declaration.
