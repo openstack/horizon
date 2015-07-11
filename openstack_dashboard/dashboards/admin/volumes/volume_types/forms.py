@@ -72,11 +72,16 @@ class CreateQosSpec(forms.SelfHandlingForm):
                              _('Successfully created QoS Spec: %s')
                              % data['name'])
             return qos_spec
-        except Exception:
-            redirect = reverse("horizon:admin:volumes:index")
-            exceptions.handle(request,
-                              _('Unable to create QoS Spec.'),
-                              redirect=redirect)
+        except Exception as ex:
+            if getattr(ex, 'code', None) == 409:
+                msg = _('QoS Spec name "%s" already '
+                        'exists.') % data['name']
+                self._errors['name'] = self.error_class([msg])
+            else:
+                redirect = reverse("horizon:admin:volumes:index")
+                exceptions.handle(request,
+                                  _('Unable to create QoS Spec.'),
+                                  redirect=redirect)
 
 
 class CreateVolumeTypeEncryption(forms.SelfHandlingForm):
