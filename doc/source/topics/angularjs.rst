@@ -164,13 +164,13 @@ To manually add files, add the following arrays and file paths to the enabled fi
 
   ADD_JS_FILES = [
     ...
-    'path_to/my_angular_code.js',
+    'path-to/my-angular-code.js',
     ...
   ]
 
   ADD_JS_SPEC_FILES = [
     ...
-    'path_to/my_angular_code.spec.js',
+    'path-to/my-angular-code.spec.js',
     ...
   ]
 
@@ -192,7 +192,7 @@ defined in your enabled file, and add the relevant filepath, as below:
 
   ADD_SCSS_FILES = [
     ...
-    'path_to/my_styles.scss',
+    'path-to/my-styles.scss',
     ...
   ]
 
