@@ -20,6 +20,7 @@ import json
 import logging
 
 from oslo_utils import units
+import six
 
 from django import conf
 from django.core.urlresolvers import reverse
@@ -170,7 +171,7 @@ class UpdateMetadataView(forms.ModalFormView):
         reserved_props = getattr(conf.settings,
                                  'IMAGE_RESERVED_CUSTOM_PROPERTIES', [])
         image.properties = dict((k, v)
-                                for (k, v) in image.properties.iteritems()
+                                for (k, v) in six.iteritems(image.properties)
                                 if k not in reserved_props)
         context['existing_metadata'] = json.dumps(image.properties)
         args = (self.kwargs['id'],)
@@ -195,7 +196,7 @@ class UpdateMetadataView(forms.ModalFormView):
                     if hasattr(details, 'properties'):
                         details.properties = dict(
                             (k, v)
-                            for (k, v) in details.properties.iteritems()
+                            for (k, v) in six.iteritems(details.properties)
                             if k not in reserved_props
                         )
 
@@ -203,7 +204,7 @@ class UpdateMetadataView(forms.ModalFormView):
                         for obj in details.objects:
                             obj['properties'] = dict(
                                 (k, v)
-                                for (k, v) in obj['properties'].iteritems()
+                                for (k, v) in six.iteritems(obj['properties'])
                                 if k not in reserved_props
                             )
 

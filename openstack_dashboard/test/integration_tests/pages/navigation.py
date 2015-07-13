@@ -13,6 +13,8 @@
 import importlib
 import types
 
+import six
+
 
 class Navigation(object):
     """Provide basic navigation among pages.
@@ -296,7 +298,7 @@ class Navigation(object):
 
         def rec(items, sub_menus):
             if isinstance(items, dict):
-                for sub_menu, sub_item in items.iteritems():
+                for sub_menu, sub_item in six.iteritems(items):
                     rec(sub_item, sub_menus + (sub_menu,))
             elif isinstance(items, tuple):
                 # exclude ITEMS element from sub_menus

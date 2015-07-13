@@ -123,7 +123,8 @@ def update_dashboards(modules, horizon_config, installed_apps):
                 base_path = os.path.join(module.__path__[0], 'static/')
                 fd.populate_horizon_config(horizon_config, base_path)
 
-        for category, exc_list in config.get('ADD_EXCEPTIONS', {}).iteritems():
+        add_exceptions = six.iteritems(config.get('ADD_EXCEPTIONS', {}))
+        for category, exc_list in add_exceptions:
             exceptions[category] = tuple(set(exceptions.get(category, ())
                                              + exc_list))
 

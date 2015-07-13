@@ -10,13 +10,15 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
+import six
+
 
 class ObjDictWrapper(object):
     """ObjDictWrapper is a container that provides both dictionary-like and
     object-like attribute access.
     """
     def __init__(self, **kwargs):
-        for key, value in kwargs.iteritems():
+        for key, value in six.iteritems(kwargs):
             setattr(self, key, value)
 
     def __getitem__(self, item):
@@ -32,4 +34,4 @@ class ObjDictWrapper(object):
         return hasattr(self, item)
 
     def __iter__(self):
-        return iter(self.__dict__.itervalues())
+        return iter(six.itervalues(self.__dict__))
