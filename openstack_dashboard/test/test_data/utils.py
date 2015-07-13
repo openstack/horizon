@@ -113,7 +113,8 @@ class TestDataContainer(object):
         def get_match(obj):
             return hasattr(obj, key) and getattr(obj, key) == value
 
-        return self.filter(filtered=filter(get_match, filtered), **kwargs)
+        filtered = [obj for obj in filtered if get_match(obj)]
+        return self.filter(filtered=filtered, **kwargs)
 
     def get(self, **kwargs):
         """Returns the single object in this container whose attributes match
