@@ -1052,24 +1052,27 @@ class DataTableMetaclass(type):
     def __new__(mcs, name, bases, attrs):
         # Process options from Meta
         class_name = name
-        attrs["_meta"] = opts = DataTableOptions(attrs.get("Meta", None))
+        dt_attrs = {}
+        dt_attrs["_meta"] = opts = DataTableOptions(attrs.get("Meta", None))
 
         # Gather columns; this prevents the column from being an attribute
         # on the DataTable class and avoids naming conflicts.
         columns = []
         for attr_name, obj in attrs.items():
-            if issubclass(type(obj), (opts.column_class, Column)):
-                column_instance = attrs.pop(attr_name)
+            if isinstance(obj, (opts.column_class, Column)):
+                column_instance = attrs[attr_name]
                 column_instance.name = attr_name
                 column_instance.classes.append('normal_column')
                 columns.append((attr_name, column_instance))
+            else:
+                dt_attrs[attr_name] = obj
         columns.sort(key=lambda x: x[1].creation_counter)
 
         # Iterate in reverse to preserve final order
-        for base in bases[::-1]:
+        for base in reversed(bases):
             if hasattr(base, 'base_columns'):
-                columns = base.base_columns.items() + columns
-        attrs['base_columns'] = SortedDict(columns)
+                columns[0:0] = base.base_columns.items()
+        dt_attrs['base_columns'] = SortedDict(columns)
 
         # If the table is in a ResourceBrowser, the column number must meet
         # these limits because of the width of the browser.
@@ -1087,7 +1090,7 @@ class DataTableMetaclass(type):
                 if column_data[0] not in opts.columns:
                     columns.pop(columns.index(column_data))
             # Re-order based on declared columns
-            columns.sort(key=lambda x: attrs['_meta'].columns.index(x[0]))
+            columns.sort(key=lambda x: dt_attrs['_meta'].columns.index(x[0]))
         # Add in our auto-generated columns
         if opts.multi_select and opts.browser_table != "navigation":
             multi_select = opts.column_class("multi_select",
@@ -1102,7 +1105,7 @@ class DataTableMetaclass(type):
             actions_column.classes.append('actions_column')
             columns.append(("actions", actions_column))
         # Store this set of columns internally so we can copy them per-instance
-        attrs['_columns'] = SortedDict(columns)
+        dt_attrs['_columns'] = SortedDict(columns)
 
         # Gather and register actions for later access since we only want
         # to instantiate them once.
@@ -1112,13 +1115,13 @@ class DataTableMetaclass(type):
         actions.sort(key=attrgetter('name'))
         actions_dict = SortedDict([(action.name, action())
                                    for action in actions])
-        attrs['base_actions'] = actions_dict
+        dt_attrs['base_actions'] = actions_dict
         if opts._filter_action:
             # Replace our filter action with the instantiated version
             opts._filter_action = actions_dict[opts._filter_action.name]
 
         # Create our new class!
-        return type.__new__(mcs, name, bases, attrs)
+        return type.__new__(mcs, name, bases, dt_attrs)
 
 
 @six.add_metaclass(DataTableMetaclass)
