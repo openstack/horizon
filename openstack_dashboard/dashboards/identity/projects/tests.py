@@ -24,8 +24,8 @@ from django.test.utils import override_settings
 from django.utils import timezone
 from django.utils import unittest
 
-from mox import IgnoreArg  # noqa
-from mox import IsA  # noqa
+from mox3.mox import IgnoreArg  # noqa
+from mox3.mox import IsA  # noqa
 
 from horizon import exceptions
 from horizon.workflows import views

@@ -21,7 +21,7 @@ from django.core.urlresolvers import reverse
 from django import http
 from django.utils.http import urlencode
 
-from mox import IsA  # noqa
+from mox3.mox import IsA  # noqa
 
 from openstack_dashboard import api
 from openstack_dashboard.dashboards.project.access_and_security \

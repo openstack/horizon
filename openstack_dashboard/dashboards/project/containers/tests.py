@@ -24,7 +24,7 @@ from django.core.files.uploadedfile import InMemoryUploadedFile  # noqa
 from django import http
 from django.utils import http as utils_http
 
-from mox import IsA  # noqa
+from mox3.mox import IsA  # noqa
 
 from openstack_dashboard import api
 from openstack_dashboard.dashboards.project.containers import forms

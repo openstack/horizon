@@ -20,7 +20,7 @@ from django.core.urlresolvers import reverse
 from django import http
 from django.utils import unittest
 
-from mox import IsA  # noqa
+from mox3.mox import IsA  # noqa
 
 from horizon import exceptions
 from openstack_dashboard import api

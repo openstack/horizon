@@ -18,7 +18,7 @@ from django.utils.html import escape
 
 from horizon.workflows import views
 
-from mox import IsA  # noqa
+from mox3.mox import IsA  # noqa
 
 from openstack_dashboard import api
 from openstack_dashboard.dashboards.project.networks.subnets import tables\

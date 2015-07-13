@@ -16,8 +16,8 @@
 from django.core.urlresolvers import reverse
 from django import http
 
-from mox import IgnoreArg  # noqa
-from mox import IsA  # noqa
+from mox3.mox import IgnoreArg  # noqa
+from mox3.mox import IsA  # noqa
 
 from horizon.workflows import views
 

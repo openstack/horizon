@@ -25,7 +25,7 @@ from django.forms.widgets import HiddenInput  # noqa
 from django import http
 from django.test.utils import override_settings
 
-from mox import IsA  # noqa
+from mox3.mox import IsA  # noqa
 
 from horizon import tables as horizon_tables
 from openstack_dashboard import api
