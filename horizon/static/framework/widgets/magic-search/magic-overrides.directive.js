@@ -2,7 +2,8 @@
   'use strict';
 
   angular
-    .module('MagicSearch', [ 'ui.bootstrap' ])
+    .module('MagicSearch')
+    .directive('magicOverrides', magicOverrides);
 
   /**
    * @ngdoc directive
@@ -58,15 +59,13 @@
    * <div class="magic-search" magic-overrides>
    * ```
    */
-  .directive('magicOverrides', magicOverrides);
-
   function magicOverrides() {
     var directive =  {
       restrict: 'A',
-      controller: magicOverridesCtrl
+      controller: MagicOverridesController
     };
 
-    magicOverridesCtrl.$inject = [
+    MagicOverridesController.$inject = [
       '$scope',
       '$timeout',
       '$window'
@@ -74,7 +73,7 @@
 
     return directive;
 
-    function magicOverridesCtrl($scope, $timeout, $window) {
+    function MagicOverridesController($scope, $timeout, $window) {
       /**
        * showMenu and hideMenu depend on Foundation's dropdown. They need
        * to be modified to work with another dropdown implementation.
@@ -97,11 +96,14 @@
        * Broadcast event when facet options are returned via AJAX.
        * Should magic_search.js absorb this?
        */
-      $scope.$on('facetsChanged', function () {
+      var facetsChangedWatcher = $scope.$on('facetsChanged', function () {
         $timeout(function () {
           $scope.currentSearch = [];
           $scope.initSearch();
         });
+      });
+      $scope.$on('$destroy', function () {
+        facetsChangedWatcher();
       });
 
       /**
@@ -124,7 +126,7 @@
           var facetParts = facet.split('=');
           angular.forEach($scope.facetsObj, function (value) {
             if (value.name == facetParts[0]) {
-              if (value.options === undefined) {
+              if (angular.isUndefined(value.options)) {
                 $scope.currentSearch.push({
                   'name': facet,
                   'label': [value.label, facetParts[1]]
@@ -154,7 +156,7 @@
             }
           });
         });
-        if ($scope.textSearch !== undefined) {
+        if (angular.isDefined($scope.textSearch)) {
           $scope.currentSearch.push({
             'name': 'text=' + $scope.textSearch,
             'label': [$scope.strings.text, $scope.textSearch]
@@ -174,11 +176,11 @@
       $scope.removeFacet = function ($index) {
         var removed = $scope.currentSearch[$index].name;
         $scope.currentSearch.splice($index, 1);
-        if ($scope.facetSelected === undefined) {
+        if (angular.isUndefined($scope.facetSelected)) {
           $scope.emitQuery(removed);
         } else {
           $scope.resetState();
-          $('.search-input').val('');
+          angular.element('.search-input').val('');
         }
         if ($scope.currentSearch.length === 0) {
           $scope.strings.prompt = $scope.promptString;
@@ -193,5 +195,4 @@
       };
     }
   }
-
 })();

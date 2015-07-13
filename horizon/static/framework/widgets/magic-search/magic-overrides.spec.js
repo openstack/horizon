@@ -90,9 +90,9 @@
 
       $element = $compile(angular.element(markup))($scope);
 
-      $scope.$digest();
+      $scope.$apply();
 
-      $magicScope = $scope.$$childTail;
+      $magicScope = $scope.$$childTail; // eslint-disable-line angular/ng_no_private_call
 
       spyOn($magicScope, '$emit');
       spyOn($magicScope, 'emitQuery');
