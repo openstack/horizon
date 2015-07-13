@@ -809,10 +809,6 @@ rules:
   # http://eslint.org/docs/rules/no-plusplus
   no-plusplus: 0
 
-  # Disable check for the watch on scope
-  # This rule is not part of John Papa's ruleset
-  # https://github.com/Gillespie59/eslint-plugin-angular/issues/114
-  angular/ng_on_watch: 0
 
 # We only support ECMA5, disable everything else.
 ecmaFeatures:
