@@ -15,11 +15,13 @@ from __future__ import division
 from csv import DictWriter  # noqa
 from csv import writer  # noqa
 
-from StringIO import StringIO
 
 from django.http import HttpResponse  # noqa
 from django import template as django_template
 from django import VERSION  # noqa
+import six
+
+from six import StringIO
 
 
 class CsvDataMixin(object):
@@ -61,7 +63,7 @@ class CsvDataMixin(object):
     def encode(self, value):
         # csv and StringIO cannot work with mixed encodings,
         # so encode all with utf-8
-        return unicode(value).encode('utf-8')
+        return six.text_type(value).encode('utf-8')
 
 
 class BaseCsvResponse(CsvDataMixin, HttpResponse):

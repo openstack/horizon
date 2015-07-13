@@ -284,7 +284,7 @@ class Column(html.HTMLElement):
             self.transform = transform
             self.name = "<%s callable>" % transform.__name__
         else:
-            self.transform = unicode(transform)
+            self.transform = six.text_type(transform)
             self.name = self.transform
 
         # Empty string is a valid value for verbose_name
@@ -336,7 +336,7 @@ class Column(html.HTMLElement):
             self.classes.append('anchor')
 
     def __unicode__(self):
-        return unicode(self.verbose_name)
+        return six.text_type(self.verbose_name)
 
     def __repr__(self):
         return '<%s: %s>' % (self.__class__.__name__, self.name)
@@ -395,9 +395,10 @@ class Column(html.HTMLElement):
                 except Exception:
                     msg = ("Filter '%(filter)s' failed with data "
                            "'%(data)s' on column '%(col_name)s'")
-                    LOG.warning(msg, {'filter': filter_func.func_name,
-                                      'data': data,
-                                      'col_name': unicode(self.verbose_name)})
+                    args = {'filter': filter_func.func_name,
+                            'data': data,
+                            'col_name': six.text_type(self.verbose_name)}
+                    LOG.warning(msg, args)
 
         if data and self.truncate:
             data = truncatechars(data, self.truncate)
@@ -664,7 +665,7 @@ class Cell(html.HTMLElement):
                 widget = forms.CheckboxInput(check_test=lambda value: False)
                 # Convert value to string to avoid accidental type conversion
                 data = widget.render('object_ids',
-                                     unicode(table.get_object_id(datum)),
+                                     six.text_type(table.get_object_id(datum)),
                                      {'class': 'table-row-multi-select'})
             table._data_cache[column][table.get_object_id(datum)] = data
         elif column.auto == "form_field":
@@ -674,7 +675,7 @@ class Cell(html.HTMLElement):
 
             widget_name = "%s__%s" % \
                 (column.name,
-                 unicode(table.get_object_id(datum)))
+                 six.text_type(table.get_object_id(datum)))
 
             # Create local copy of attributes, so it don't change column
             # class form_field_attributes
@@ -710,7 +711,7 @@ class Cell(html.HTMLElement):
     @property
     def id(self):
         return ("%s__%s" % (self.column.name,
-                unicode(self.row.table.get_object_id(self.datum))))
+                six.text_type(self.row.table.get_object_id(self.datum))))
 
     @property
     def value(self):
@@ -741,7 +742,7 @@ class Cell(html.HTMLElement):
             data = mark_safe('<a href="%s" %s>%s</a>' % (
                              (escape(self.url),
                               link_attrs,
-                              escape(unicode(data)))))
+                              escape(six.text_type(data)))))
         return data
 
     @property
@@ -763,10 +764,10 @@ class Cell(html.HTMLElement):
         if self.column.status or \
                 self.column.name in self.column.table._meta.status_columns:
             # returns the first matching status found
-            data_status_lower = unicode(
+            data_status_lower = six.text_type(
                 self.column.get_raw_data(self.datum)).lower()
             for status_name, status_value in self.column.status_choices:
-                if unicode(status_name).lower() == data_status_lower:
+                if six.text_type(status_name).lower() == data_status_lower:
                     self._status = status_value
                     return self._status
         self._status = None
@@ -1011,9 +1012,9 @@ class DataTableOptions(object):
                                          'row_actions_row.html')
         self.table_actions_template = \
             'horizon/common/_data_table_table_actions.html'
-        self.context_var_name = unicode(getattr(options,
-                                                'context_var_name',
-                                                'table'))
+        self.context_var_name = six.text_type(getattr(options,
+                                                      'context_var_name',
+                                                      'table'))
         self.actions_column = getattr(options,
                                       'actions_column',
                                       len(self.row_actions) > 0)
@@ -1173,7 +1174,7 @@ class DataTable(object):
                                       for col in self.columns.values()])
 
     def __unicode__(self):
-        return unicode(self._meta.verbose_name)
+        return six.text_type(self._meta.verbose_name)
 
     def __repr__(self):
         return '<%s: %s>' % (self.__class__.__name__, self._meta.name)
@@ -1312,13 +1313,13 @@ class DataTable(object):
 
         Uses :meth:`~horizon.tables.DataTable.get_object_id` internally.
         """
-        if not isinstance(lookup, unicode):
-            lookup = unicode(str(lookup), 'utf-8')
+        if not isinstance(lookup, six.text_type):
+            lookup = six.text_type(str(lookup), 'utf-8')
         matches = []
         for datum in self.data:
             obj_id = self.get_object_id(datum)
-            if not isinstance(obj_id, unicode):
-                obj_id = unicode(str(obj_id), 'utf-8')
+            if not isinstance(obj_id, six.text_type):
+                obj_id = six.text_type(str(obj_id), 'utf-8')
             if obj_id == lookup:
                 matches.append(datum)
         if len(matches) > 1:
