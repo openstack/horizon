@@ -18,7 +18,7 @@
 
 from __future__ import absolute_import
 
-from mox import IsA  # noqa
+from mox3.mox import IsA  # noqa
 
 from horizon import exceptions
 

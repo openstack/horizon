@@ -22,7 +22,7 @@ from socket import timeout as socket_timeout  # noqa
 from django.core.urlresolvers import reverse
 from django import http
 
-from mox import IsA  # noqa
+from mox3.mox import IsA  # noqa
 
 from horizon import exceptions
 

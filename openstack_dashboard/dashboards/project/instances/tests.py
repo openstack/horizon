@@ -27,8 +27,8 @@ import django.test
 from django.utils.datastructures import SortedDict
 from django.utils import encoding
 from django.utils.http import urlencode
-from mox import IgnoreArg  # noqa
-from mox import IsA  # noqa
+from mox3.mox import IgnoreArg  # noqa
+from mox3.mox import IsA  # noqa
 
 from horizon import exceptions
 from horizon import forms

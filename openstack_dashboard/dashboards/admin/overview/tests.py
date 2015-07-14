@@ -23,7 +23,7 @@ from django import http
 from django.utils import encoding
 from django.utils import timezone
 
-from mox import IsA  # noqa
+from mox3.mox import IsA  # noqa
 
 from horizon.templatetags import sizeformat
 

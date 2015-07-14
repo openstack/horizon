@@ -38,7 +38,7 @@ from heatclient import client as heat_client
 import httplib2
 from keystoneclient.v2_0 import client as keystone_client
 import mock
-import mox
+from mox3 import mox
 from neutronclient.v2_0 import client as neutron_client
 from novaclient.v2 import client as nova_client
 from openstack_auth import user

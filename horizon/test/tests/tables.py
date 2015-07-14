@@ -19,7 +19,7 @@ from django import http
 from django import shortcuts
 from django.template import defaultfilters
 
-from mox import IsA  # noqa
+from mox3.mox import IsA  # noqa
 
 from horizon import tables
 from horizon.tables import formset as table_formset

@@ -58,7 +58,7 @@ except ImportError as e:
     os.environ['WITH_SELENIUM'] = ''
 
 
-import mox
+from mox3 import mox
 
 from horizon import middleware
 

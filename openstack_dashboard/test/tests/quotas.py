@@ -20,7 +20,7 @@
 from __future__ import absolute_import
 
 from django import http
-from mox import IsA  # noqa
+from mox3.mox import IsA  # noqa
 
 from openstack_dashboard import api
 from openstack_dashboard.api import cinder
