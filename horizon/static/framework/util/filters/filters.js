@@ -16,14 +16,16 @@
 (function () {
   'use strict';
 
-  /**
-   * @ngdoc overview
-   * @name horizon.framework.util.filters
-   * @description
-   * horizon.framework.util.filters provides common filters to be used within Horizon.
-   *
-   */
-  angular.module('horizon.framework.util.filters', ['horizon.framework.util.i18n'])
+  angular
+    .module('horizon.framework.util.filters')
+    .filter('yesno', yesNoFilter)
+    .filter('gb', gbFilter)
+    .filter('mb', mbFilter)
+    .filter('title', titleFilter)
+    .filter('noUnderscore', noUnderscoreFilter)
+    .filter('decode', decodeFilter)
+    .filter('bytes', bytesFilter)
+    .filter('itemCount', itemCountFilter);
 
   /**
    * @ngdoc filter
@@ -32,11 +34,12 @@
    * Evaluates given input for standard truthiness and returns translation
    * of 'Yes' and 'No' for true/false respectively.
    */
-  .filter('yesno', ['horizon.framework.util.i18n.gettext', function (gettext) {
+  yesNoFilter.$inject = ['horizon.framework.util.i18n.gettext'];
+  function yesNoFilter(gettext) {
     return function (input) {
       return (input ? gettext("Yes") : gettext("No"));
     };
-  }])
+  }
 
   /**
    * @ngdoc filter
@@ -45,7 +48,7 @@
    * Expects numeric value and suffixes translated 'GB' with spacing.
    * Returns empty string if input is not a number or is null.
    */
-  .filter('gb', function () {
+  function gbFilter() {
     return function (input) {
       if (isNaN(input) || null === input) {
         return '';
@@ -53,7 +56,7 @@
         return interpolate(gettext("%s GB"), [input.toString()]);
       }
     };
-  })
+  }
 
   /**
    * @ngdoc filter
@@ -62,7 +65,7 @@
    * Expects numeric value and suffixes translated 'MB' with spacing.
    * Returns empty string if input is not a number or is null.
    */
-  .filter('mb', function () {
+  function mbFilter() {
     return function (input) {
       if (isNaN(input) || null === input) {
         return '';
@@ -70,7 +73,7 @@
         return interpolate(gettext("%s MB"), [input.toString()]);
       }
     };
-  })
+  }
 
   /**
    * @ngdoc filter
@@ -78,16 +81,16 @@
    * @description
    * Capitalizes leading characters of individual words.
    */
-  .filter('title', function () {
+  function titleFilter() {
     return function (input) {
-      if (typeof input !== 'string') {
+      if (!angular.isString(input)) {
         return input;
       }
       return input.replace(/(?:^|\s)\S/g, function (a) {
         return a.toUpperCase();
       });
     };
-  })
+  }
 
   /**
    * @ngdoc filter
@@ -95,14 +98,14 @@
    * @description
    * Replaces all underscores with spaces.
    */
-  .filter('noUnderscore', function () {
+  function noUnderscoreFilter() {
     return function (input) {
-      if (typeof input !== 'string') {
+      if (!angular.isString(input)) {
         return input;
       }
       return input.replace(/_/g, ' ');
     };
-  })
+  }
 
   /**
    * @ngdoc filter
@@ -112,12 +115,12 @@
    * in given mapping, return key.  This is useful when translations for
    * codes are present.
    */
-  .filter('decode', function () {
+  function decodeFilter() {
     return function (input, mapping) {
       var val = mapping[input];
       return angular.isDefined(val) ? val : input;
     };
-  })
+  }
 
   /**
    * @ngdoc filter
@@ -126,7 +129,7 @@
    * Returns a human-readable approximation of the input of bytes,
    * converted to a useful unit of measure.  Uses 1024-based notation.
    */
-  .filter('bytes', function () {
+  function bytesFilter() {
     return function (input) {
       var kb = 1024;
       var mb = kb * 1024;
@@ -146,7 +149,7 @@
         return interpolate(gettext("%s bytes"), [Math.floor(input)]);
       }
     };
-  })
+  }
 
   /**
    * @ngdoc filter
@@ -155,7 +158,7 @@
    * Displays translated count in table footer.
    * Takes only finite numbers.
    */
-  .filter('itemCount', function () {
+  function itemCountFilter() {
     return function (input) {
       var isNumeric = (input !== null && isFinite(input));
       var number = isNumeric ? Math.round(input) : 0;
@@ -163,6 +166,5 @@
       var format = ngettext('Displaying %s item', 'Displaying %s items', count);
       return interpolate(format, [count]);
     };
-  });
-
-}());
+  }
+})();
