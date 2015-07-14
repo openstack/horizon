@@ -59,7 +59,7 @@
 
         ctrl = $controller('LaunchInstanceSourceController', { $scope: scope });
 
-        scope.$digest();
+        scope.$apply();
       }));
 
       it('has its own labels', function() {
@@ -163,7 +163,7 @@
 
           it('should update maxInstanceCount when maxTotalInstances changes', function() {
             scope.model.novaLimits.maxTotalInstances = 9;
-            scope.$digest();
+            scope.$apply();
 
             expect(ctrl.maxInstanceCount).toBe(9);
 
@@ -179,7 +179,7 @@
 
           it('should update chart stats when totalInstancesUsed changes', function() {
             scope.model.novaLimits.totalInstancesUsed = 1;
-            scope.$digest();
+            scope.$apply();
 
             expect(ctrl.maxInstanceCount).toBe(9);
 
@@ -205,7 +205,7 @@
             function() {
               ctrl.tableData.allocated.push({ name: 'image-1', size: 0, min_disk: 0 });
               scope.model.newInstanceSpec.instance_count = 11;
-              scope.$digest();
+              scope.$apply();
 
               // check chart data and labels
               expect(ctrl.instanceStats.label).toBe('110%');
@@ -222,21 +222,21 @@
 
           it('should reset instance count to 1 if instance count set to 0', function() {
             scope.model.newInstanceSpec.instance_count = 0;
-            scope.$digest();
+            scope.$apply();
 
             expect(scope.model.newInstanceSpec.instance_count).toBe(1);
           });
 
           it('should reset instance count to 1 if instance count set to -1', function() {
             scope.model.newInstanceSpec.instance_count = -1;
-            scope.$digest();
+            scope.$apply();
 
             expect(scope.model.newInstanceSpec.instance_count).toBe(1);
           });
 
           it('should update chart stats if instance count = 2 and no source selected', function() {
             scope.model.newInstanceSpec.instance_count = 2;
-            scope.$digest();
+            scope.$apply();
 
             // check chart data and labels
             expect(ctrl.instanceStats.label).toBe('20%');
@@ -248,7 +248,7 @@
           it('should update chart stats if instance count = 2 and source selected', function() {
             ctrl.tableData.allocated.push({ name: 'image-1', size: 0, min_disk: 0 });
             scope.model.newInstanceSpec.instance_count = 2;
-            scope.$digest();
+            scope.$apply();
 
             // check chart data and labels
             expect(ctrl.instanceStats.label).toBe('20%');
@@ -262,7 +262,7 @@
 
           it('should update chart stats if source allocated', function() {
             ctrl.tableData.allocated.push({ name: 'image-1', size: 0, min_disk: 0 });
-            scope.$digest();
+            scope.$apply();
 
             // check chart data and labels
             expect(ctrl.instanceStats.label).toBe('10%');
@@ -274,7 +274,7 @@
           it('should set minVolumeSize to 1 if source allocated and size = min_disk = 1GB',
             function() {
               ctrl.tableData.allocated.push({ name: 'image-1', size: 1000000000, min_disk: 1 });
-              scope.$digest();
+              scope.$apply();
 
               expect(ctrl.minVolumeSize).toBe(1);
             }
@@ -283,7 +283,7 @@
           it('should set minVolumeSize to 1 if source allocated and size = 1GB and min_disk = 0GB',
             function() {
               ctrl.tableData.allocated.push({ name: 'image-1', size: 1000000000, min_disk: 0 });
-              scope.$digest();
+              scope.$apply();
 
               expect(ctrl.minVolumeSize).toBe(1);
             }
@@ -292,7 +292,7 @@
           it('should set minVolumeSize to 2 if source allocated and size = 1GB and min_disk = 2GB',
             function() {
               ctrl.tableData.allocated.push({ name: 'image-1', size: 1000000000, min_disk: 2 });
-              scope.$digest();
+              scope.$apply();
 
               expect(ctrl.minVolumeSize).toBe(2);
             }
@@ -301,7 +301,7 @@
           it('should set minVolumeSize to 0 if source allocated and size = min_disk = 0',
             function() {
               ctrl.tableData.allocated.push({ name: 'image-1', size: 0, min_disk: 0 });
-              scope.$digest();
+              scope.$apply();
 
               expect(ctrl.minVolumeSize).toBe(0);
             }
@@ -310,7 +310,7 @@
           it('should set minVolumeSize to 2 if source allocated and size = 1.5GB and min_disk = 0',
             function() {
               ctrl.tableData.allocated.push({ name: 'image-1', size: 1500000000, min_disk: 0 });
-              scope.$digest();
+              scope.$apply();
 
               // minVolumeSize should use Math.ceil()
               expect(ctrl.minVolumeSize).toBe(2);
@@ -322,7 +322,7 @@
             ctrl.updateBootSourceSelection(selSource);
 
             expect(ctrl.currentBootSource).toEqual('volume');
-            scope.$digest();
+            scope.$apply();
 
             expect(ctrl.minVolumeSize).toBeUndefined();
           });

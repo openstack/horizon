@@ -19,9 +19,7 @@
   describe('Launch Instance Model', function() {
 
     describe('launchInstanceModel Factory', function() {
-      var model;
-      var scope;
-      var $q;
+      var model, scope, $q;
       var cinderEnabled = false;
       var neutronEnabled = false;
       var novaExtensionsEnabled = false;
@@ -244,7 +242,7 @@
 
         it('should init model with no networks/volumes if neutron & cinder disabled', function() {
           model.initialize(true);
-          scope.$digest();
+          scope.$apply();
 
           expect(model.initializing).toBe(false);
           expect(model.initialized).toBe(true);
@@ -264,7 +262,7 @@
           neutronEnabled = true;
           cinderEnabled = false;
           model.initialize(true);
-          scope.$digest();
+          scope.$apply();
 
           expect(model.neutronEnabled).toBe(true);
           expect(model.networks.length).toBe(2);
@@ -275,7 +273,7 @@
           neutronEnabled = false;
           cinderEnabled = true;
           model.initialize(true);
-          scope.$digest();
+          scope.$apply();
 
           expect(model.networks.length).toBe(0);
           expect(model.volumes.length).toBe(2);
@@ -286,7 +284,7 @@
           neutronEnabled = true;
           cinderEnabled = true;
           model.initialize(true);
-          scope.$digest();
+          scope.$apply();
 
           expect(model.networks.length).toBe(2);
           expect(model.volumes.length).toBe(2);
@@ -297,7 +295,7 @@
           cinderEnabled = true;
           novaExtensionsEnabled = false;
           model.initialize(true);
-          scope.$digest();
+          scope.$apply();
 
           expect(model.allowCreateVolumeFromImage).toBe(false);
         });
