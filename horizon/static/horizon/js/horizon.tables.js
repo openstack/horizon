@@ -242,7 +242,11 @@ horizon.datatables.confirm = function (action) {
   }
   modal.find('.btn-primary').click(function () {
     form = $action.closest('form');
-    form.append("<input type='hidden' name='" + $action.attr('name') + "' value='" + $action.attr('value') + "'/>");
+    var el = document.createElement("input");
+    el.type='hidden';
+    el.name = $action.attr('name');
+    el.value = $action.attr('value');
+    form.append(el);
     form.submit();
     modal.modal('hide');
     horizon.modals.modal_spinner(gettext("Working"));
