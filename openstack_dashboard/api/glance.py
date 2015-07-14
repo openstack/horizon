@@ -38,6 +38,7 @@ from horizon.utils import functions as utils
 from horizon.utils.memoized import memoized  # noqa
 from openstack_dashboard.api import base
 
+from horizon import messages
 
 LOG = logging.getLogger(__name__)
 VERSIONS = base.APIVersionManager("image", preferred_version=2)
@@ -129,6 +130,34 @@ def image_create(request, **kwargs):
     copy_from = kwargs.pop('copy_from', None)
     data = kwargs.pop('data', None)
     location = kwargs.pop('location', None)
+    
+    
+    file_extension_list = ["png", "jpg", "jpeg","bmp","dib","gif","tif","jfif"]
+    fileNotMatched = False
+    if data:
+        file_name = str(data).split(".")
+        file_name_ext = file_name[len(file_name)-1]
+        for ext in file_extension_list:
+            if( file_name_ext.lower()  == ext):
+                fileNotMatched = True
+                break
+                
+    if copy_from:
+        file_name = str(copy_from).split(".")
+        file_name_ext = file_name[len(file_name)-1]
+        for ext in file_extension_list:
+            if( file_name_ext.lower()  == ext):
+                fileNotMatched = True
+                break
+
+    
+    if(fileNotMatched):
+        print ("\n**INVALID IMAGE ============ CHECK IMAGE ext.")
+        error_message = "You must provide valid image type (.png, .jpeg, .bmp are not valid)"
+        messages.error(request, error_message)
+        return False
+    
+    
 
     image = glanceclient(request).images.create(**kwargs)
 
