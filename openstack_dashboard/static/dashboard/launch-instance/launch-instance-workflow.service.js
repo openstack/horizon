@@ -22,7 +22,7 @@
 
   launchInstanceWorkflow.$inject = [
     'dashboardBasePath',
-    'hz.dashboard.workflow.factory'
+    'horizon.app.core.workflow.factory'
   ];
 
   function launchInstanceWorkflow(path, dashboardWorkflow) {

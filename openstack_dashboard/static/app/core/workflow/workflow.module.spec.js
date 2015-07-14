@@ -16,21 +16,10 @@
 (function () {
   'use strict';
 
-  /**
-   * @ngdoc overview
-   * @name hz.dashboard.workflow
-   * @description
-   *
-   * # hz.dashboard.workflow
-   *
-   * This module provides utility function factory `dashboardWorkflow` and
-   * `dashboardWorkflowDecorator`.
-   *
-   * | Factories                                                                                      |
-   * |------------------------------------------------------------------------------------------------|
-   * | {@link hz.dashboard.workflow.factory:dashboardWorkflowDecorator `dashboardWorkflowDecorator`}  |
-   *
-   */
-  angular.module('hz.dashboard.workflow', []);
+  describe('horizon.app.core.workflow module', function () {
+    it('should have been defined', function () {
+      expect(angular.module('horizon.app.core.workflow')).toBeDefined();
+    });
+  });
 
 })();

@@ -27,6 +27,8 @@
    * components added to Horizon via its plugin mechanism.
    */
   angular
-    .module('horizon.app.core', []);
+    .module('horizon.app.core', [
+      'horizon.app.core.workflow'
+    ]);
 
 })();

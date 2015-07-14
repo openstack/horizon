@@ -18,15 +18,15 @@
 
   /**
    * @ngdoc factory
-   * @name hz.dashboard.workflow.factory:hz.dashboard.workflow.factory
-   * @module hz.dashboard.workflow
+   * @name horizon.app.core.workflow.factory:horizon.app.core.workflow.factory
+   * @module horizon.app.core.workflow
    * @kind function
    * @description
    *
    * Injected dependencies:
    * - workflow {@link horizon.framework.util.workflow.service:workflow `workflow`}
-   * - dashboardWorkflowDecorator {@link hz.dashboard.workflow.factory
-   *    :hz.dashboard.workflow.decorator `dashboardWorkflowDecorator`}
+   * - dashboardWorkflowDecorator {@link horizon.app.core.workflow.factory
+   *    :horizon.app.core.workflow.decorator `dashboardWorkflowDecorator`}
    *
    * @param {Object} The input workflow specification object
    * @returns {Object} The decorated workflow specification object, the same
@@ -34,12 +34,12 @@
    *
    */
   angular
-    .module('hz.dashboard.workflow')
-    .factory('hz.dashboard.workflow.factory', dashboardWorkflow);
+    .module('horizon.app.core.workflow')
+    .factory('horizon.app.core.workflow.factory', dashboardWorkflow);
 
   dashboardWorkflow.$inject = [
     'horizon.framework.util.workflow.service',
-    'hz.dashboard.workflow.decorator'
+    'horizon.app.core.workflow.decorator'
   ];
 
   /////////////
