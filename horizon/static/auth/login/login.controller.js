@@ -26,8 +26,8 @@
      * authentication method user picked.
      */
     .controller('hzLoginController', function() {
-      var vm = this;
-      vm.auth_type = 'credentials';
+      var ctrl = this;
+      ctrl.auth_type = 'credentials';
     });
 
 })();
