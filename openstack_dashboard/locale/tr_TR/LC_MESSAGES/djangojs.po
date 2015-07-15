@@ -3,28 +3,27 @@
 # This file is distributed under the same license as the PROJECT project.
 #
 # Translators:
-# 刘俊朋 <liujunpeng@inspur.com>, 2015
 msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2015-07-15 00:44+0000\n"
-"PO-Revision-Date: 2015-07-13 20:02+0000\n"
-"Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
-"Language-Team: Chinese (China) (http://www.transifex.com/p/horizon/language/"
-"zh_CN/)\n"
+"PO-Revision-Date: 2015-07-14 12:15+0000\n"
+"Last-Translator: İşbaran Akçayır <isbaran@gmail.com>\n"
+"Language-Team: Turkish (Turkey) (http://www.transifex.com/p/horizon/language/"
+"tr_TR/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 1.3\n"
-"Language: zh_CN\n"
+"Language: tr_TR\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
 msgid "(Max: 16Kb)"
-msgstr "(最大:16Kb)"
+msgstr "(Mak: 16Kb)"
 
 msgid "(None)"
-msgstr "(无)"
+msgstr "(Hiçbiri)"
 
 msgid ""
 "<li><b>Image (with Create New Volume checked)</b>: This options uses an "
@@ -32,24 +31,31 @@ msgid ""
 "data. You can specify volume size and whether to delete the volume on "
 "termination of the instance.</li>"
 msgstr ""
-"<li><b>镜像 (创建新卷)</b>：这个选项使用一个镜像启动实例，创建一个新卷用来持"
-"久化数据。您可以指定卷大小和在销毁实例时是否删除卷。</li>"
+"<li><b>İmaj (Yeni Hacim Oluştur seçeneği ile birlikte)</b>: Bu seçenek "
+"sunucuyu başlatmak için bir imaj kullanır ve kalıcı sunucu verisi için yeni "
+"bir hacim oluşturur. Hacim boyutunu belirleyebilir ve sunucu silindiğinde "
+"hacmin silinip silinmeyeceğini belirtebilirsiniz.</li>"
 
 msgid "<li><b>Image</b>: This option uses an image to boot the instance.</li>"
-msgstr "<li><b>镜像</b>：本选项使用一个镜像启动实例。</li>"
+msgstr ""
+"<li><b>İmaj</b>: Bu seçenek sunucuyu başlatmak için bir imaj kullanır.</li>"
 
 msgid ""
 "<li><b>Instance Snapshot</b>: This option uses an instance snapshot to boot "
 "the instance.</li>"
-msgstr "<li><b>实例快照</b>: 本选项使用一个实例快照启动实例。</li>"
+msgstr ""
+"<li><b>Sunucu Anlık Görüntüsü</b>: Bu seçenek sunucuyu başlatmak için bir "
+"sunucu anlık görüntüsü kullanır.</li>"
 
 msgid ""
 "<li><b>Volume Snapshot</b>: This option uses a volume snapshot to boot the "
 "instance, and creates a new volume to persist instance data. You can choose "
 "to delete the volume on termination of the instance.</li>"
 msgstr ""
-"<li><b>卷快照</b>：这选项使用一个卷快照启动实例，并且创建一个新卷来持久化实例"
-"数据。您可以选择在销毁实例时删除这个卷。</li>"
+"<li><b>Hacim Anlık Görüntüsü</b>: Bu seçenek sunucuyu başlatmak için bir "
+"hacmin anlık görüntüsünü kullanır ve kalıcı sunucu verisi için yani bir "
+"hacim oluşturur. Sunucu silindiğinde hacmin de silinmesini "
+"tanımlayabilirsiniz.</li>"
 
 msgid ""
 "<li><b>Volume</b>: This option uses a volume that already exists. It does "
@@ -57,8 +63,9 @@ msgid ""
 "of the instance. <em>Note: when selecting Volume, you can only launch one "
 "instance.</em></li>"
 msgstr ""
-"<li><b>卷</b>：这个选项使用一个已存在的卷。它不创建一个新卷。您可以选择在销毁"
-"实例时删除卷。 <em>注意：当选择卷时，您只可以启动一个实例。</em></li>"
+"<li><b>Hacim</b>: Bu seçenek mevcut bir hacmi kullanır. Yeni bir hacim "
+"oluşturmaz. Sunucu silindiğinde hacmin de silinmesini tanımlayabilirsiniz. "
+"<em>Not: Hacmi seçerken sadece bir sunucu başlatabilirsiniz.</em></li>"
 
 msgid ""
 "A floating IP allows instances to be addressable from an external network. "
@@ -68,28 +75,32 @@ msgid ""
 "instance. Then, select the <b>Associate Floating IP</b> option and enter the "
 "necessary details."
 msgstr ""
-"浮动IP允许实例可以从外部网络访问。创建实例时不分配浮动IPs，可以在创建实例后分"
-"配浮动IPs。为了绑定一个浮动IP，到<b>实例</b>视图，点击一个实例右边的<b>动作</"
-"b>菜单。然后，选择 <b>分配浮动IP</b> 选项，填写必须的详细信息。"
+"Değişken IP adresleri sunucunuzun harici bir ağdan erişilebilir olmasına "
+"imkan verirler. Değişken IP adresleri sunuculara oluşturulma zamanında "
+"atanmazlar ve sunucu oluşturulduktan sonra kullanılabilirler. Bir değişken "
+"IP adresi eklemek için <b>Sunucular</b> görünümüne gidin ve <b>Eylemler</b> "
+"menüsüne tıklayın. <b>Değişken IP İlişkilendir</b> seçeneğini işaretleyin ve "
+"gereken ayarları girin."
 
 msgid ""
 "A key pair allows you to SSH into your newly created instance. You may "
 "select an existing key pair, import a key pair, or generate a new key pair."
 msgstr ""
-"秘钥对允许您SSH到您新创建的实例。你可以选择一个已存在、导入或生成一个新的秘钥"
-"对。"
+"Bir anahtar çifti yeni oluşturduğunuz sunucuda SSH ile oturum açmanıza izin "
+"verir. Mevcut anahtar çiftinizi kullanabilir, bir anahtar çiftini içe "
+"aktarabilir veya yeni bir çift oluşturabilirsiniz."
 
 msgid "A name is required for your instance."
-msgstr "您的实例名字是必须的。"
+msgstr "Sunucunuz için bir isim gerekiyor."
 
 msgid "Actions"
-msgstr "动作"
+msgstr "İşlemler"
 
 msgid "Active"
-msgstr "运行中"
+msgstr "Etkin"
 
 msgid "Admin State"
-msgstr "管理员状态"
+msgstr "Yönetici Durumu"
 
 msgid ""
 "Administrators are responsible for creating and managing flavors. A custom "
@@ -97,14 +108,16 @@ msgid ""
 "with the users assigned to that project. If you need a custom flavor, "
 "contact your administrator."
 msgstr ""
-"管理员负责创建和管理类型。可以为您或特定的项目创建一个自定义类型，特定的项目"
-"与另外一个项目的用户共享这个类型。如果您需要一个自定义类型，请联系您的管理"
-"员。"
+"Yöneticiler niteliklerin oluşturulmasından ve yönetilmesinden sorumludurlar. "
+"Bir özel nitelik sizin için veya projenize atanan kullanıcılarla paylaşmak "
+"için oluşturulabilir. özel bir niteliğe ihtiyacınız olduğunda yöneticiniz "
+"ile iletişime geçin."
 
 msgid ""
 "Administrators set up the pool of floating IPs that are available to attach "
 "to instances."
-msgstr "管理员建立可以绑定到实例的浮动IP池。"
+msgstr ""
+"Yöneticiler sunuculara atanabilecek değişken IP adresi havuzunu ayarlarlar."
 
 msgid ""
 "An <b>External</b> network is set up by an administrator. If you want an "
@@ -113,9 +126,10 @@ msgid ""
 "use the <b>Network Topology</b> view to connect the router to the two "
 "networks."
 msgstr ""
-"管理员创建一个 <b>外部</b>网络。如果你想要一个实例与数据中心外部通信，您需要"
-"在<b>项目</b>网络和<b>External</b> 网络之间绑定一个路由器。您可以使用 <b>网络"
-"拓扑</b> 视图在两个网络之间连接路由器。"
+"<b>Harici</b> bir ağ yönetici tarafından kurulur. Eğer veri merkezinin "
+"dışıyla iletişime geçecek bir sunucuya ihtiyacınız varsa <b>Proje</b> ağınız "
+"ile <b>Harici</b> ağ arasına bir yönlendirici yerleştirin. Yönlendiricinizi "
+"iki ağı birleştirmek için <b>Ağ Topolojisi</b> görünümünü kullanabilirsiniz."
 
 msgid ""
 "An advanced option available when launching an instance is disk "
@@ -123,63 +137,68 @@ msgid ""
 "b> resizes the disk and sets it to a single partition. Selecting <b>Manual</"
 "b> allows you to create multiple partitions on the disk."
 msgstr ""
-"当启动实例时，一个可用的高级选项是磁盘分区。有两种磁盘分区选项目。选择<b>自动"
-"</b>调整磁盘并设置为一个单独的分区。选择<b>手动</b>允许您在一个磁盘上创建多个"
-"分区。"
+"Bir sunucuyu başlatırken kullanılabilecek gelişmiş bir seçenek de disk "
+"bölümlendirmesidir. İki disk bölümleme seçeneği mevcuttur. <b>Otomatik</b> "
+"seçildiğinde disk yeniden boyutlandırılır ve tek bir bölüme ayarlanır. "
+"<b>Elle</b> seçeneği ise disk üzerinde çoklu disk bölümü oluşturmanıza imkan "
+"verir."
 
 msgid ""
 "An instance name is required and used to help you uniquely identify your "
 "instance in the dashboard."
-msgstr "实例名是必须的，用来帮助您在仪表盘中区分实例。"
+msgstr ""
+"Bir sunucu adı onu benzersiz bir şekilde tanımlayabilmeniz için gereklidir."
 
 msgid "Automatic"
-msgstr "自动"
+msgstr "Otomatik"
 
 msgid "Availability Zone"
-msgstr "可用域"
+msgstr "Kullanılabilirlik Alanı"
 
 msgid "Cancel"
-msgstr "取消"
+msgstr "İptal"
 
 msgid "Cannot get service catalog from keystone."
-msgstr "无法从认证获取服务目录。"
+msgstr "Servis kataloğu keystone'den getirilemedi."
 
 msgid "Cannot get the Nova extension list."
-msgstr "无法查询Nova扩展列表。"
+msgstr "Nova eklenti listesi alınamadı."
 
 msgid "Change Password"
-msgstr "修改密码"
+msgstr "Parolayı Değiştir"
 
 msgid ""
 "Check the <b>Configuration Drive</b> box if you want to write metadata to a "
 "special configuration drive. When the instance boots, it attaches to the "
 "<b>Configuration Drive</b> and accesses the metadata."
 msgstr ""
-"如果您想将元数据希尔某个指定的配置驱动器中，请选中<b>配置驱动</b> 复选框。"
+"Bir özel yapılandırma aygıtına üst veriyi yazmak istiyorsanız "
+"<b>Yapılandırma Aygıtı</b> kutusunu işaretleyin. Sunucu başlarken "
+"<b>Yapılandırma Aygıtını</b> bağlar ve üst veriye erişir."
 
 msgid "Configuration"
-msgstr "配置"
+msgstr "Yapılandırma"
 
 msgid "Configuration Drive"
-msgstr "配置驱动器"
+msgstr "Yapılandırma Sürücüsü"
 
 msgid "Configuration Help"
-msgstr "配置帮助"
+msgstr "Yapılandırma Yardımı"
 
 msgid "Count"
-msgstr "计数"
+msgstr "Sayı"
 
 msgid "Create Key Pair"
-msgstr "创建秘钥对"
+msgstr "Anahtar Çifti Oluştur"
 
 msgid "Create New Volume"
-msgstr "创建新卷"
+msgstr "Yeni Hacim Oluştur"
 
 msgid "Create User"
-msgstr "创建用户"
+msgstr "Kullanıcı Oluştur"
 
 msgid "Created"
-msgstr "已创建"
+msgstr "Oluşturuldu"
 
 #, python-format
 msgid ""
@@ -188,81 +207,84 @@ msgid ""
 "%(cloutInit)s</samp> inside a guest operating system, you can use a custom "
 "script to get a public key and add it to the user account."
 msgstr ""
-"当实例启动时，自定义脚本被绑定到实例执行特定的动作。比如，如果你无法在客户机"
-"操作系统内安装<samp>%(cloutInit)s</samp>，你可以使用自定义脚本获取一个公钥并"
-"把它添加到用户账户中。"
+"Özel betikler sunuculara başlatıldıklarında özel eylemleri "
+"gerçekleştirmeleri için eklenirler. Örneğin, misafir işletim sistemi içine "
+"<samp>%(cloutInit)s</samp> kuramıyorsanız özel bir betik ile bir açık "
+"anahtar alabilir ve onu kullanıcı hesabına ekletebilirsiniz."
 
 msgid "Customization Script"
-msgstr "自定义脚本"
+msgstr "Özelleştirme Betiği"
 
 msgid "Delete"
-msgstr "删除"
+msgstr "Sil"
 
 msgid "Delete Users"
-msgstr "删除用户"
+msgstr "Kullanıcıları Sil"
 
 msgid "Delete Volume on Terminate"
-msgstr "终止后删除卷"
+msgstr "Kapatıldığında Hacmi Sil"
 
 msgid "Description"
-msgstr "描述"
+msgstr "Tanımlama"
 
 msgid "Device Name"
-msgstr "设备名称"
+msgstr "Aygıt Adı"
 
 msgid "Direction"
-msgstr "直连"
+msgstr "Yön"
 
 msgid "Disable"
-msgstr "禁用"
+msgstr "Pasif"
 
 msgid "Disk Partition"
-msgstr "磁盘分区"
+msgstr "Disk Bölümü"
 
 msgid "Domain ID"
-msgstr "域ID"
+msgstr "Alan ID"
 
 msgid "Down"
-msgstr "停止"
+msgstr "Kapalı"
 
 msgid "Edit"
-msgstr "编辑"
+msgstr "Değiştir"
 
 msgid "Email"
-msgstr "邮箱"
+msgstr "Eposta"
 
 msgid "Enable"
-msgstr "激活"
+msgstr "Aktif"
 
 msgid "Enabled"
-msgstr "激活"
+msgstr "Etkin"
 
 msgid "Ephemeral Disk"
-msgstr "临时磁盘"
+msgstr "Geçici Disk"
 
 msgid "Ether Type"
-msgstr "以太网类型"
+msgstr "Ethernet Türü"
 
 #, python-format
 msgid "Extension is not enabled: %(extension)s."
-msgstr "扩展没有启用：%(extension)s。"
+msgstr "Eklenti etkin değil: %(extension)s."
 
 msgid "External Network"
-msgstr "外部网络"
+msgstr "Harici Ağ"
 
 msgid "Fingerprint"
-msgstr "指纹"
+msgstr "Parmak izi"
 
 msgid "Flavor"
-msgstr "云主机类型"
+msgstr "Şablon"
 
 msgid "Flavor Help"
-msgstr "类型帮助"
+msgstr "Nitelik Yardımı"
 
 msgid ""
 "Flavors manage the sizing for the compute, memory and storage capacity of "
 "the instance."
-msgstr "类型管理实例的计算、内存和存储容量的大小。"
+msgstr ""
+"Nitelikler sunucuların hesaplama, bellek ve depolama kapasitelerini "
+"belirlerler."
 
 #, python-format
 msgid ""
@@ -271,236 +293,250 @@ msgid ""
 "public key in the red highlighted box to your <samp>%(authorizeKeysFile)s</"
 "samp> file."
 msgstr ""
-"从一个Windows系统，你可以使用PuTTYGen生成公/私秘钥。使用PuTTY的秘钥生成器创建"
-"和保存这些值，然后从红色高亮框中复制公钥到您的<samp>%(authorizeKeysFile)s</"
-"samp>文件。"
+"Bir Windows sisteminde gizli/açık anahtar çiftini oluşturmak için PuTTYGen "
+"kullanabilirsiniz. Anahtarları oluşturmak ve kaydetmek için PuTTY Anahtar "
+"Üreticisini kullandıktan sonra açık anahtarınızı <samp>"
+"%(authorizeKeysFile)s</samp> dosyasında kırmızı işaretli kutuya kopyalayın."
 
 msgid "ID"
-msgstr "ID"
+msgstr "KİMLİK"
 
 msgid ""
 "If a network is shared, then all users in the project can access the network."
-msgstr "如果网络是共享的，在一个项目中的所有用户都可以访问这个网络。"
+msgstr "Bir ağ paylaşılıyorsa projenin tüm kullanıcıları bu ağa erişebilir."
 
 msgid ""
 "If a security group is not associated with an instance before it is "
 "launched, then you will have very limited access to the instance after it is "
 "deployed. You will only be able to access the instance from a VNC console."
 msgstr ""
-"如果实例启动前没有绑定安全组，在实例部署后您将只有非常有限的访问权限。您只能"
-"从VNC控制台访问实例。"
+"Eğer bir sunucu başlatılmadan bir güvenlik grubu ile ilişkilendirilmezse çok "
+"sınırlı bir erişiminiz olur. Sadece VNC terminali ile erişimde "
+"bulunabilirsiniz."
 
 msgid ""
 "If you select an availability zone and plan to use the boot from volume "
 "option, make sure that the availability zone you select for the instance is "
 "the same availability zone where your bootable volume resides."
 msgstr ""
-"如果您选择一个可用域并且计划使用从卷选项启动，确保您为实例选择的可用域与您启"
-"动卷所在的域是同一个。"
+"Bir kullanılabilirlik alanını seçer ve hacimden başlatma seçeneğini "
+"kullanmak isterseniz sunucunuz içe başlatılabilir hacmin aynı "
+"kullanılabilirlik alanında olduğundan emin olun."
 
 msgid ""
 "If you want to create an instance that uses ephemeral storage, meaning the "
 "instance data is lost when the instance is deleted, then choose one of the "
 "following boot sources:"
 msgstr ""
-"如果您想使用临时存储创建实例，意味着当实例被删除时实例数据也丢失，那么从以下"
-"启动源中选择一个："
+"Geçici bir depolama kullanan yani sunucu silindiğinde verileri kaybolacak "
+"bir sunucu oluşturmak istediğinizde aşağıdaki başlatma kaynaklarından birini "
+"seçin:"
 
 msgid ""
 "If you want to create an instance that uses persistent storage, meaning the "
 "instance data is saved when the instance is deleted, then select one of the "
 "following boot options:"
 msgstr ""
-"如果您想创建一个使用持久存储的实例，意味着当实例被删除时数据被保存，那么选择"
-"从以下启动项中选择一个："
+"Kalıcı bir depolama alanını kullanan bir sunucu oluşturmak isterseniz, yani "
+"sunucuyu silmeniz durumunda verilerin saklanmasını istediğinizde, aşağıdaki "
+"başlatma seçeneklerinden birini seçin:"
 
 msgid "Image"
-msgstr "镜像"
+msgstr "İmaj"
 
 msgid "Impact on your quota"
-msgstr "影响您的配额"
+msgstr "Kotanız etkisi"
 
 msgid "Import Key Pair"
-msgstr "导入秘钥对"
+msgstr "Anahtar Çiftini İçe Aktar"
 
 msgid "Import Key Pair Help"
-msgstr "导入密钥对帮助"
+msgstr "Anahtar Çifti Yardımını İçe Aktar"
 
 msgid "Instance Details"
-msgstr "实例详情"
+msgstr "Sunucu Ayrıntıları"
 
 msgid "Instance Name"
-msgstr "实例名字"
+msgstr "Sunucu Adı"
 
 msgid "Instance Snapshot"
-msgstr "云主机快照"
+msgstr "Sunucu Anlık Görüntüsü"
 
 msgid "Instance Source"
-msgstr "云主机源"
+msgstr "Sunucu Kaynağı"
 
 msgid "Instance count is required and must be an integer of at least 1"
-msgstr "实例数是必须的而且必须是至少为1的整数。"
+msgstr "Bir sunucu sayısı girilmeli ve bu sayı 1'den büyük olmalıdır."
 
 msgid ""
 "Instance source is the template used to create an instance. You can use a "
 "snapshot of an existing instance, an image, or a volume (if enabled). You "
 "can also choose to use persistent storage by creating a new volume."
 msgstr ""
-"实例源时用来创建一个实例的模板。您可以用已存在实例的快照、镜像或者卷(如果启"
-"用)。您也可以选择一个持久存储来创建一个新的卷。"
+"Sunucu kaynağı onu oluşturmak için kullanılan şablondur. Mevcut bir "
+"sunucunun anlık görüntüsünü, bir imajı veya (etkinleştirilmişse) bir hacmi "
+"de kullanabilirsiniz. Yeni bir hacim oluşturarak kalıcı bir depolama alanını "
+"da kullanabilirsiniz."
 
 msgid "Insufficient privilege level to view user information."
-msgstr "查看用户信息权限不足。"
+msgstr "Kullanıcı bilgisi göstermek için yetersiz ayrıcalık seviyesi."
 
 msgid "Key Pair"
-msgstr "密钥对"
+msgstr "Anahtar Çifti"
 
 msgid "Key Pair Help"
-msgstr "秘钥对帮助"
+msgstr "Anahtar Çifti Yardımı"
 
 msgid "Key Pair Name"
-msgstr "密钥对名字"
+msgstr "Anahtar Çifti Adı"
 
 msgid ""
 "Key Pairs are how you login to your instance after it is launched. Choose a "
 "key pair name you will recognize and paste your SSH public key into the "
 "space provided."
 msgstr ""
-"密钥对是您在实例启动后登陆进去的一种方式。选择一个您易于识别的密钥对名字，粘"
-"贴您的SSH公钥到空白处。"
+"Anahtar Çiftleri sunucunuz başlatıldığında nasıl oturum açacağınızı "
+"belirler. Anahtar çiftinize hatırlayabileceğiniz bir isim verin ve SSH açık "
+"anahtarınızı gösterilen alana kopyalayın."
 
 msgid ""
 "Key Pairs are how you login to your instance after it is launched. Choose a "
 "key pair name you will recognize."
 msgstr ""
-"密钥对是您在实例启动后登陆进去的一种方式。选择一个您易于识别的密钥对名字。"
+"Anahtar Çiftleri sunucunun başlatıldığında ona nasıl erişeceğinizi belirtir. "
+"Anahtar çiftinize hatırlayabileceğiniz bir isim verin."
 
 msgid "Launch Instance"
-msgstr "启动实例"
+msgstr "Sunucuyu Başlat"
 
 msgid "Load script from a file"
-msgstr "从文件加载脚本"
+msgstr "Betiği dosyadan yükle"
 
 msgid "Manual"
-msgstr "手动"
+msgstr "Elle"
 
 msgid "Max Port"
-msgstr "最大端口"
+msgstr "En yüksek bağlantı noktası"
 
 msgid "Min Disk"
-msgstr "最小磁盘"
+msgstr "En az Disk"
 
 msgid "Min Port"
-msgstr "最小端口"
+msgstr "En düşük bağlantı noktası"
 
 msgid "Min Ram"
-msgstr "最小内存"
+msgstr "En az Bellek"
 
 msgid "Modified"
-msgstr "修改"
+msgstr "Değiştirilmiş"
 
 msgid "Name"
-msgstr "名称"
+msgstr "Ad"
 
 msgid "Network"
-msgstr "网络"
+msgstr "Ağ"
 
 msgid "Network Help"
-msgstr "网络帮助"
+msgstr "Ağ Yardımı"
 
 msgid "Network characteristics"
-msgstr "网络特性"
+msgstr "Ağ Özellikleri"
 
 msgid "Networks"
-msgstr "网络"
+msgstr "Ağlar"
 
 msgid "Networks provide the communication channels for instances in the cloud."
-msgstr "在云中，网络为实例提供通信通道。"
+msgstr "Ağlar buluttaki sunucular için iletişim kanalları sağlarlar."
 
 msgid "No"
-msgstr "否"
+msgstr "Hayır"
 
 msgid "OK"
-msgstr "确定"
+msgstr "Tamam"
 
 msgid "Physical Network"
-msgstr "物理网络"
+msgstr "Fiziksel Ağ"
 
 msgid ""
 "Please provide the initial host name for the instance, the availability zone "
 "where it will be deployed, and the instance count. Increase the Count to "
 "create multiple instances with the same settings."
 msgstr ""
-"请提供实例初始化名字，它部署的可用区域和实例数。减少数量来创建与设置数一样的"
-"实例。"
+"Lütfen sunucu için bir başlangıç ismi, kullanılabilirlik alanı ve sunucu "
+"sayısı belirtin. Aynı sunucudan birden çok oluşturmak için sunucu sayısını "
+"arttırabilirsiniz."
 
 msgid "Policy check failed."
-msgstr "策略检查失败。"
+msgstr "Politika kontrolü yapılamadı."
 
 msgid "Private"
-msgstr "私有"
+msgstr "Özel"
 
 msgid "Private Key"
-msgstr "私钥"
+msgstr "Özel Anahtar"
 
 msgid "Profile"
-msgstr "概要"
+msgstr "Profil"
 
 msgid "Project"
-msgstr "项目"
+msgstr "Proje"
 
 msgid "Project ID"
-msgstr "项目ID"
+msgstr "Proje ID"
 
 msgid ""
 "Project networks are created by users. These networks are fully isolated and "
 "are project-specific."
-msgstr "用户创建项目网络。这些网络完全隔离，并且属于具体的项目"
+msgstr ""
+"Proje ağlarını kullanıcılar oluşturur. Bu ağlar tamamen soyutlanmış "
+"projelere özel ağlardır."
 
 msgid "Protocol"
-msgstr "协议"
+msgstr "İletişim Kuralı"
 
 msgid "Provider Network"
-msgstr "提供者网络"
+msgstr "Sağlayıcı Ağı"
 
 msgid ""
 "Provider networks are created by administrators. These networks map to an "
 "existing physical network in the data center."
-msgstr "管理员创建提供者网络。这些网络映射到数据中心中存在的物理网络。"
+msgstr ""
+"Sağlayıcı ağları yönetici tarafından oluşturuldu. Bu ağlar veri merkezindeki "
+"fiziksel ağlara karşılık gelir."
 
 msgid "Public"
-msgstr "公有"
+msgstr "Genel"
 
 msgid "Public Key"
-msgstr "公钥"
+msgstr "Açık Anahtar"
 
 msgid "RAM"
-msgstr "内存"
+msgstr "Bellek"
 
 msgid "Remote"
-msgstr "远程"
+msgstr "Uzak"
 
 msgid "Required"
-msgstr "必须"
+msgstr "Gerekli"
 
 msgid "Root Disk"
-msgstr "根磁盘"
+msgstr "Kök Diski"
 
 msgid "Script size"
-msgstr "脚本大小"
+msgstr "Betik boyutu"
 
 msgid "Script size > 16Kb"
-msgstr "脚本大小 > 16Kb"
+msgstr "Betik boyutu > 16Kb"
 
 msgid "Security Groups"
-msgstr "安全组"
+msgstr "Güvenlik Grupları"
 
 msgid "Security Groups Help"
-msgstr "安全组帮助"
+msgstr "Güvenlik Grubu Yardımları"
 
 msgid ""
 "Security groups are project-specific and cannot be shared across projects."
-msgstr "安全组为具体项目专用，不能跨项目共享。"
+msgstr "Güvenlik grupları projelere özeldir ve projeler arasında paylaşılamaz."
 
 msgid ""
 "Security groups define a set of IP filter rules that determine how network "
@@ -510,82 +546,85 @@ msgid ""
 "Security</b> view, then find the security group and click <b>Manage Rules</"
 "b>."
 msgstr ""
-"安全组定义了IP过滤规则集合，这些规则决定网络流量如何到达和离开实例。为了将来"
-"为实例定义访问可选规则，用户可以往一个已存在的安全组添加额外的规则。创建额外"
-"规则，到<b>计算 |访问&安全</b>视图，然后找到安全组，点击<b>规则管理</b>"
+"Güvenlik grupları bir sunucudan ağ trafiğinin nasıl akacağını belirleyen bir "
+"grup IP adresi filtreleme kuralı tanımlarlar. Kullanıcılar da mevcut "
+"güvenlik gruplarına yeni kurallar ekleyebilirler. Yeni kural eklemek için "
+"<b>Hesaplama | Erişim ve Güvenlik</b> menüsünden güvenlik grubunu bulup "
+"<b>Kuralları Yönet</b> linkine tıklayın."
 
 msgid "Segmentation ID"
-msgstr "段ID"
+msgstr "Bölünme ID'si"
 
 msgid "Select Boot Source"
-msgstr "选择源"
+msgstr "Yükleme Kaynağını Seçin"
 
 msgid "Select Source"
-msgstr "选择源"
+msgstr "Kaynağı Seç"
 
 msgid "Select Source Help"
-msgstr "选择源帮助"
+msgstr "Yardım Kaynağını Seçin"
 
 msgid "Select a key pair from the available key pairs below."
-msgstr "从以下可用的秘钥对选择一个"
+msgstr "Aşağıdaki kullanılabilir anahtar çiftlerinden birini seçin."
 
 msgid "Select a source from those listed below."
-msgstr "从以下列表选择一个源。"
+msgstr "Listeden bir kaynak seçin."
 
 msgid "Select at least one network"
-msgstr "至少选择一个网络"
+msgstr "En az bir ağ seçmelisiniz"
 
 msgid "Select networks from those listed below."
-msgstr "从下拉列表选择网络"
+msgstr "Aşağıda listelenen ağlar içinden seçim yapın."
 
 msgid "Select one"
-msgstr "选择一个"
+msgstr "Birini seçin"
 
 msgid "Select one or more"
-msgstr "选择一个或多个"
+msgstr "Bir veya daha fazla seçin"
 
 msgid "Select one or more security groups from the available groups below."
-msgstr "从以下可用的组中选择一个或多个安全组。"
+msgstr "Aşağıdaki güvenlik gruplarından bir veya daha fazlasını seçin."
 
 msgid "Select the security groups."
-msgstr "选择安全组。"
+msgstr "Güvenlik gruplarını seçin."
 
 #, python-format
 msgid "Service type is not enabled: %(desiredType)s"
-msgstr "服务类型未激活：%(desiredType)s"
+msgstr "Servis türü etkin değil: %(desiredType)s"
 
 #, python-format
 msgid "Setting is not enabled: %(setting)s"
-msgstr "配置没有启用：%(setting)s"
+msgstr "Ayarlar etkin değil: %(setting)s"
 
 msgid "Shared"
-msgstr "共享的"
+msgstr "Paylaşılan"
 
 msgid "Size"
-msgstr "大小"
+msgstr "Boyut"
 
 msgid "Size (GB)"
-msgstr "大小(GB)"
+msgstr "Boyut (GB)"
 
 msgid "Status"
-msgstr "状态"
+msgstr "Statü"
 
 msgid "Subnets Associated"
-msgstr "子网已连接"
+msgstr "Alt Ağlar İlişkilendirildi"
 
 #, python-format
 msgid "Successfully created key pair %(name)s"
-msgstr "成功创建密钥对%(name)s"
+msgstr "%(name)s anahtar çifti başarıyla oluşturuldu"
 
 #, python-format
 msgid "Successfully imported key pair %(name)s"
-msgstr "成功导入密钥对%(name)s"
+msgstr "%(name)s anahtar çifti başarıyla içe aktarıldı"
 
 msgid ""
 "The flavor you select for an instance determines the amount of compute, "
 "storage and memory resources that will be carved out for the instance."
 msgstr ""
-"您为实例选择的类型决定计算、存储和内存资源数量，这些资源将会决定实例配置。"
+"Bir sunucu için seçtiğiniz nitelik onun hesaplama, depolama ve bellek "
+"kaynaklarını belirler."
 
 msgid ""
 "The flavor you select must have enough resources allocated to support the "
@@ -593,20 +632,21 @@ msgid ""
 "resources for your instance are identified on the <b>Available</b> table "
 "with a yellow warning icon."
 msgstr ""
-"你选择的类型必须有足够的资源分配用来支持您准备创建的实例类型。类型不能为您的"
-"虚拟机提供资源将在 <b>可用</b>表格中用黄色告警图标标识。"
+"Seçtiğiniz nitelik oluşturmaya çalıştığınız sunucu türü için sağlanan "
+"yeterli kaynaklara sahip olmalıdır. Yeterli kaynağa sahip olmayan nitelikler "
+"<b>Kullanılabilir</b> tablosunda sarı uyarı simgesiyle işaretlenir."
 
 #, python-format
 msgid ""
 "The instance count must not exceed your quota available of "
 "%(maxInstanceCount)s instances"
-msgstr "实例数不能超过您的最大可用%(maxInstanceCount)s 实例数"
+msgstr "Sunucu sayısı en fazla %(maxInstanceCount)s olabilir"
 
 msgid "The key pair allows you to SSH into the instance."
-msgstr "密钥对允许您SSH登陆实例。"
+msgstr "Anahtar çifti sunucuya SSH ile bağlanmanıza izin veriyor."
 
 msgid "The maximum script size is 16Kb."
-msgstr "最大脚本大小是16Kb。"
+msgstr "En büyük betik boyutu 16Kb'dır."
 
 #, python-format
 msgid ""
@@ -614,284 +654,293 @@ msgid ""
 "root disk. Select a flavor with a larger root disk or use a different image "
 "source."
 msgstr ""
-"选择的源镜像需要一个至少%(minDisk)s GB根磁盘的类型。请选择一个更大根磁盘的类"
-"型或使用一个不同源镜像。"
+"Seçilen imaj kaynağı en azından %(minDisk)s GB kök disk alanına ihtiyaç "
+"duyuyor. Daha büyük bir kök diske sahip bir nitelik seçin veya başka bir "
+"imaj kaynağı kullanın."
 
 #, python-format
 msgid ""
 "The selected image source requires a flavor with at least %(minRam)s MB of "
 "RAM. Select a flavor with more RAM or use a different image source."
 msgstr ""
-"选择的源镜像需要一个至少%(minRam)s MB内存的类型。请选择一个更大内存的类型或使"
-"用一个不同源镜像。"
+"Seçilen imaj kaynağı en azından %(minRam)s MB belleğe ihtiyaç duyuyor. Daha "
+"fazla belleğe sahip bir nitelik seçin veya başka bir imaj kaynağı kullanın."
 
 msgid "The status indicates whether the network has an active connection."
-msgstr "状态表明网络是否处于活跃连接。"
+msgstr "Durum ağın etkin bağlantı içerip içermediğini belirtir."
 
 msgid ""
 "The subnet identifies a sub-section of a network. A subnet is specified in "
 "CIDR format. A typical CIDR format looks like <samp>192.xxx.x.x/24</samp>."
 msgstr ""
-"子网标识一个网络的子集。子网通过CIDR格式指定。典型的CIDR格式如下<samp>192."
-"xxx.x.x/24</samp>。"
+"Alt ağ bir ağın alt bölümünü temsil eder. Bir alt ağ CUDR biçiminde "
+"tanımlanır. Örnek bir CIDR gösterimi <samp>192.xxx.x.x/24</samp> şeklindedir."
 
 #, python-format
 msgid "The volume size must be at least %(minVolumeSize)s GB"
-msgstr "卷大小至少%(minVolumeSize)s GB"
+msgstr "Hacmin boyutu en az %(minVolumeSize)s GB olmalıdır"
 
 #, python-format
 msgid ""
 "There are two ways to generate a key pair. From a Linux system, generate the "
 "key pair with the <samp>%(genKeyPairCmd)s</samp> command:"
 msgstr ""
-"有两种方式创建秘钥对。从一个Linux系统，使用<samp>%(genKeyPairCmd)s</samp> 命"
-"令生成秘钥对。"
+"Bir anahtar çifti oluşturmanın iki yolu vardır. Bir Linux sistemde <samp>"
+"%(genKeyPairCmd)s</samp> komutuyla anahtar çiftini oluşturun:"
 
 #, python-format
 msgid ""
 "This command generates a pair of keys: a private key (%(privateKeyPath)s) "
 "and a public key (%(publicKeyPath)s)."
 msgstr ""
-"这个命令生成一个秘钥对：私钥(%(privateKeyPath)s)和公钥(%(publicKeyPath)s)。"
+"Bu komut bir anahtar çifti oluşturur: bir özel (%(privateKeyPath)s) bir de "
+"açık anahtar (%(publicKeyPath)s)."
 
 msgid ""
 "This flavor requires more RAM than your quota allows. Please select a "
 "smaller flavor or decrease the instance count."
 msgstr ""
-"这个类型需要比您的配额允许的更多的内存。请选择一个小的类型或减少实例数。"
+"Bu nitelik kotanızın izin verdiğinden daha fazla RAM'e ihtiyaç duyuyor. "
+"Lütfen daha küçük bir nitelik seçin veya sunucu sayısını azaltın."
 
 msgid ""
 "This flavor requires more VCPUs than your quota allows. Please select a "
 "smaller flavor or decrease the instance count."
 msgstr ""
-"这个类型需要比您的配额允许的更多的虚拟处理器核数。请选择一个小的类型或减少实"
-"例数。"
+"Bu nitelik kotanızın izin verdiğinden daha fazla VCPU'ya ihtiyaç duyuyor. "
+"Lütfen daha küçük bir nitelik seçin veya sunucu sayısını azaltın."
 
 msgid "This is your new key pair. Copy this information and keep it secure."
-msgstr "这是您新的密钥对。复制这些信息并安全保存。"
+msgstr ""
+"Bu sizin yeni anahtar çiftiniz. Bu bilgiyi kopyalayın ve güvenli bir şekilde "
+"saklayın."
 
 msgid "Total Disk"
-msgstr "磁盘总计"
+msgstr "Toplam Disk"
 
 msgid "Total Instances"
-msgstr "实例总计"
+msgstr "Toplam Sunucular"
 
 msgid "Total RAM"
-msgstr "内存总计"
+msgstr "Toplam RAM"
 
 msgid "Total VCPUs"
-msgstr "虚拟机处理器总计"
+msgstr "Toplam VCPU"
 
 msgid "Type"
-msgstr "类型"
+msgstr "Tür"
 
 msgid ""
 "Type your script directly into the Customization Script field. If your "
 "browser supports the HTML5 File API, you may choose to load your script from "
 "a file. The size of your script should not exceed 16 Kb."
 msgstr ""
-"直接在自定义脚本输入框中写入您的脚本。如果您的浏览器支持HTML5文件API，你可以"
-"选择从文件加载您的脚本。您的脚本的大小不能超过16Kb。"
+"Betiğinizi doğrudan Özelleştirme Betiği alanına yazın. Tarayıcınız HTML5 "
+"Dosya API'sini destekliyorsa betiğinizi dosyadan yüklemeyi seçebilirsiniz. "
+"Betiğinizin boyutu en fazla 16 Kb olabilir."
 
 msgid "Unable to create the domain."
-msgstr "无法创建域。"
+msgstr "Alan oluşturulamadı."
 
 msgid "Unable to create the keypair."
-msgstr "无法创建密钥对。"
+msgstr "Anahtar çifti oluşturulamadı."
 
 msgid "Unable to create the network."
-msgstr "无法创建网络。"
+msgstr "Ağ oluşturulamadı."
 
 msgid "Unable to create the project."
-msgstr "无法创建项目。"
+msgstr "Proje oluşturulamadı."
 
 msgid "Unable to create the role."
-msgstr "无法创建角色。"
+msgstr "Rol oluşturulamadı."
 
 msgid "Unable to create the server."
-msgstr "无法创建服务器。"
+msgstr "Sunucu oluşturulamadı."
 
 msgid "Unable to create the subnet."
-msgstr "无法创建子网。"
+msgstr "Alt ağ oluşturulamadı."
 
 msgid "Unable to create the user."
-msgstr "无法创建用户。"
+msgstr "Kullanıcı oluşturulamadı."
 
 msgid "Unable to delete the domain."
-msgstr "无法删除域。"
+msgstr "Alan silinemedi."
 
 msgid "Unable to delete the domains."
-msgstr "无法删除域。"
+msgstr "Alanlar silinemedi."
 
 msgid "Unable to delete the project."
-msgstr "无法删除项目。"
+msgstr "Proje silinemedi."
 
 msgid "Unable to delete the projects."
-msgstr "无法删除项目。"
+msgstr "Projeler silinemedi."
 
 msgid "Unable to delete the role."
-msgstr "无法删除角色。"
+msgstr "Rol silinemedi."
 
 msgid "Unable to delete the roles."
-msgstr "无法删除角色。"
+msgstr "Roller silinemedi."
 
 msgid "Unable to delete the user."
-msgstr "无法删除用户。"
+msgstr "Kullanıcı silinemedi."
 
 msgid "Unable to delete the users."
-msgstr "无法删除用户。"
+msgstr "Kullanıcılar silinemedi."
 
 msgid "Unable to edit the domain."
-msgstr "无法编辑域。"
+msgstr "Alan düzenlenemedi."
 
 msgid "Unable to edit the project."
-msgstr "无法编辑项目。"
+msgstr "Proje düzenlenemedi."
 
 msgid "Unable to edit the role."
-msgstr "无法编辑角色。"
+msgstr "Rol düzenlenemedi."
 
 msgid "Unable to edit the user."
-msgstr "无法编辑用户。"
+msgstr "Kullanıcı düzenlenemedi."
 
 msgid "Unable to fetch the service catalog."
-msgstr "无法取得服务目录"
+msgstr "Servis kataloğu getirilemedi."
 
 msgid "Unable to grant the role."
-msgstr "无法授予角色"
+msgstr "Rol verilemedi."
 
 msgid "Unable to import the keypair."
-msgstr "无法导入密钥对。"
+msgstr "Anahtar çift içe aktarılamadı."
 
 msgid "Unable to retrieve settings."
-msgstr "无法获取配置。"
+msgstr "Ayarlar alınamadı."
 
 msgid "Unable to retrieve the availability zones."
-msgstr "无法获取可用域。"
+msgstr "Kullanılabilirlik alanları alınamadı."
 
 msgid "Unable to retrieve the current user session."
-msgstr "无法获取当前用户会话。"
+msgstr "Geçerli kullanıcı oturumu alınamadı."
 
 msgid "Unable to retrieve the domain."
-msgstr "无法获取域。"
+msgstr "Alan alınamadı."
 
 msgid "Unable to retrieve the domains."
-msgstr "无法获取域。"
+msgstr "Alanlar alınamadı."
 
 msgid "Unable to retrieve the extensions."
-msgstr "无法获取扩展。"
+msgstr "Eklentiler alınamadı."
 
 msgid "Unable to retrieve the flavor extra specs."
-msgstr "无法获取类型额外的规格。"
+msgstr "Ek bilgi nitelikleri alınamadı."
 
 msgid "Unable to retrieve the flavor."
-msgstr "无法获取类型。"
+msgstr "Nitelik alınamadı."
 
 msgid "Unable to retrieve the flavors."
-msgstr "无法获取类型。"
+msgstr "Nitelikler alınamadı."
 
 msgid "Unable to retrieve the image."
-msgstr "无法获取镜像。"
+msgstr "İmaj alınamadı."
 
 msgid "Unable to retrieve the images."
-msgstr "无法获取镜像。"
+msgstr "İmajlar alınamadı."
 
 msgid "Unable to retrieve the keypairs."
-msgstr "无法获取密钥对。"
+msgstr "Anahtar çiftleri alınamadı."
 
 msgid "Unable to retrieve the limits."
-msgstr "无法获取限制。"
+msgstr "Sınırlar alınamadı."
 
 msgid "Unable to retrieve the namespaces."
-msgstr "无法获取命名空间。"
+msgstr "İsim alanları alınamadı."
 
 msgid "Unable to retrieve the networks."
-msgstr "无法获取网络。"
+msgstr "Ağlar alınamadı."
 
 msgid "Unable to retrieve the ports."
-msgstr "无法获取端口。"
+msgstr "Bağlantı noktaları alınamadı."
 
 msgid "Unable to retrieve the project."
-msgstr "无法获取项目。"
+msgstr "Proje alınamadı."
 
 msgid "Unable to retrieve the projects."
-msgstr "无法获取项目。"
+msgstr "Projeler alınamadı."
 
 msgid "Unable to retrieve the role."
-msgstr "无法获取角色。"
+msgstr "Rol alınamadı."
 
 msgid "Unable to retrieve the roles."
-msgstr "无法获取角色。"
+msgstr "Roller alınamadı."
 
 msgid "Unable to retrieve the security groups."
-msgstr "无法获取安全组。"
+msgstr "Güvenlik grupları alınamadı."
 
 msgid "Unable to retrieve the server."
-msgstr "无法获取服务器。"
+msgstr "Sunucu alınamadı."
 
 msgid "Unable to retrieve the subnets."
-msgstr "无法获取子网。"
+msgstr "Alt ağlar alınamadı."
 
 msgid "Unable to retrieve the user."
-msgstr "无法获取用户。"
+msgstr "Kullanıcı alınamadı."
 
 msgid "Unable to retrieve the users."
-msgstr "无法获取用户。"
+msgstr "Kullanıcılar alınamadı."
 
 msgid "Unable to retrieve the volume snapshots."
-msgstr "无法获取卷快照。"
+msgstr "Hacim anlık görüntüleri alınamadı."
 
 msgid "Unable to retrieve the volumes."
-msgstr "无法获取卷。"
+msgstr "Hacimler alınamadı."
 
 msgid "Up"
-msgstr "正常"
+msgstr "Açık"
 
 msgid "Updated"
-msgstr "已更新"
+msgstr "Güncellendi"
 
 msgid "User ID"
-msgstr "用户ID"
+msgstr "Kullanıcı ID"
 
 msgid "User Name"
-msgstr "用户名"
+msgstr "Kullanıcı Adı"
 
 msgid "VCPUs"
-msgstr "虚拟处理器（VCPU）"
+msgstr "VPCU'lar"
 
 msgid "Visibility"
-msgstr "可见"
+msgstr "Görünürlük"
 
 msgid "Volume"
-msgstr "卷"
+msgstr "Hacim"
 
 msgid "Volume Snapshot"
-msgstr "卷快照"
+msgstr "Hacim Anlık Görüntüsü"
 
 msgid "Volume size is required and must be an integer"
-msgstr "卷大小是必须的而且必须为整数。"
+msgstr "Hacim boyutu bir tam sayı olarak girilmelidir"
 
 msgid ""
 "Volumes can only be attached to 1 active instance at a time. Please either "
 "set your instance count to 1 or select a different source type."
 msgstr ""
-"同一时刻，卷只能绑定到一个活跃的实例。请设置您的实例数为1或者选择一个不同的源"
-"类型。"
+"Hacimler bir defada sadece bir etkin sunucuya eklenebilirler. Lütfen ya "
+"sunucu sayınızı 1 olarak değiştirin ya da başka bir kaynak türü seçin."
 
 msgid ""
 "When selecting volume as boot source, please ensure the instance's "
 "availability zone is compatible with your volume's availability zone."
-msgstr "当选择卷为启动源时，请确保实例可用域与您的卷可用域兼容。"
+msgstr ""
+"Bir hacmi başlatma kaynağı olarak seçerken sunucu ile aynı kullanılabilirlik "
+"alanında olduğundan emin olun."
 
 msgid ""
 "When the <b>Admin State</b> for a network is set to <b>Up</b>, then the "
 "network is available for use. You can set the <b>Admin State</b> to <b>Down</"
 "b> if you are not ready for other users to access the network."
 msgstr ""
-"当网络的<b>管理员状态</b>设置为 <b>启用</b>，网络才可用。如果您准备不允许其它"
-"用户访问这个网络，你可以将<b>管理员状态</b> 设置为<b>停用</b>。"
+"<b>Yönetici Durumu</b> eğer <b>Açık</b> olarak ayarlandığında ağ kullanıma "
+"uygun olur. <b>Yönetici Durumunu</b> <b>Kapalı</b> hale getirirseniz diğer "
+"kullanıcılar bu ağa erişmeye hazır olmazlar."
 
 msgid "Yes"
-msgstr "是"
+msgstr "Evet"
 
 msgid "bytes"
-msgstr "字节数"
+msgstr "bayt"

@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-07-03 09:12+0000\n"
-"PO-Revision-Date: 2015-06-15 15:01+0000\n"
+"POT-Creation-Date: 2015-07-15 00:43+0000\n"
+"PO-Revision-Date: 2015-07-11 05:32+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Slovenian (Slovenia) (http://www.transifex.com/p/horizon/"
 "language/sl_SI/)\n"
@@ -19,6 +19,16 @@ msgstr ""
 "Language: sl_SI\n"
 "Plural-Forms: nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || n"
 "%100==4 ? 2 : 3);\n"
+
+msgid ""
+"\n"
+"      If you are not sure which authentication method to use, contact your "
+"administrator.\n"
+"    "
+msgstr ""
+"\n"
+"Če niste prepričani, katero metodo uporabiti za avtentikacijo, se obrnite na "
+"skrbnika storitve."
 
 #, python-format
 msgctxt "past"
@@ -65,8 +75,17 @@ msgstr "%s ni bil/a uspešno dokončan/a"
 msgid "-"
 msgstr "-"
 
+msgid "0 Bytes"
+msgstr "0 bajtov"
+
 msgid "Actions"
 msgstr "Operacije"
+
+msgid "Active Instances:"
+msgstr "Aktivne instance:"
+
+msgid "Active RAM:"
+msgstr "Uporabljen RAM"
 
 msgid "Add a row"
 msgstr "Dodaj vrstico"
@@ -82,6 +101,9 @@ msgstr "Nazaj"
 
 msgid "Cancel"
 msgstr "Prekliči"
+
+msgid "Connect"
+msgstr "Poveži"
 
 msgid "Delete"
 msgstr "Izbriši"
@@ -128,6 +150,9 @@ msgstr ""
 
 msgid "Members"
 msgstr "Člani"
+
+msgid "More Actions"
+msgstr "Več operacij"
 
 msgid "N/A"
 msgstr "N/A"
@@ -209,6 +234,15 @@ msgstr "Atribut  %(attr)s za %(obj)s ne obstaja."
 
 msgid "The date should be in YYYY-mm-dd format."
 msgstr "Datum mora biti v obliki YYYY-mm-dd"
+
+msgid "This Period's RAM-Hours:"
+msgstr "RAM-ure za to obdobje"
+
+msgid "This Period's VCPU-Hours:"
+msgstr "VCPU-ure za to obdobje"
+
+msgid "This action cannot be undone."
+msgstr "Te operacije ni mogoče preklicati."
 
 #, python-format
 msgid "Unable to %(action)s: %(objs)s"

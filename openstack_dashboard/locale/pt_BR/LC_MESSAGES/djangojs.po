@@ -9,9 +9,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-07-03 09:12+0000\n"
-"PO-Revision-Date: 2015-07-06 07:23+0000\n"
-"Last-Translator: Lafaiet <coldmetall@gmail.com>\n"
+"POT-Creation-Date: 2015-07-15 00:44+0000\n"
+"PO-Revision-Date: 2015-07-13 20:02+0000\n"
+"Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Portuguese (Brazil) (http://www.transifex.com/p/horizon/"
 "language/pt_BR/)\n"
 "MIME-Version: 1.0\n"
@@ -29,6 +29,9 @@ msgstr "(Nenhum)"
 
 msgid "A name is required for your instance."
 msgstr "É preciso um nome para sua instância."
+
+msgid "Actions"
+msgstr "Ações"
 
 msgid "Active"
 msgstr "Ativo"
@@ -74,6 +77,9 @@ msgstr "Não é possível obter o catálogo de serviços a partir do keystone."
 msgid "Cannot get the Nova extension list."
 msgstr "Não é possível obter lista de extensão do Nova."
 
+msgid "Change Password"
+msgstr "Alterar Senha"
+
 msgid ""
 "Check the <b>Configuration Drive</b> box if you want to write metadata to a "
 "special configuration drive. When the instance boots, it attaches to the "
@@ -101,6 +107,9 @@ msgstr "Criar par de chaves"
 msgid "Create New Volume"
 msgstr "Criar um Novo Volume"
 
+msgid "Create User"
+msgstr "Criar Usuário"
+
 msgid "Created"
 msgstr "Criado"
 
@@ -120,6 +129,12 @@ msgstr ""
 msgid "Customization Script"
 msgstr "Script de Customização"
 
+msgid "Delete"
+msgstr "Excluir"
+
+msgid "Delete Users"
+msgstr "Excluir Usuários"
+
 msgid "Delete Volume on Terminate"
 msgstr "Excluir Volume ao Finalizar"
 
@@ -132,11 +147,29 @@ msgstr "Nome do Dispositivo"
 msgid "Direction"
 msgstr "Direção"
 
+msgid "Disable"
+msgstr "Desabilitar"
+
 msgid "Disk Partition"
 msgstr "Partição de Disco"
 
+msgid "Domain ID"
+msgstr "ID do Domínio"
+
 msgid "Down"
 msgstr "Inativo"
+
+msgid "Edit"
+msgstr "Editar"
+
+msgid "Email"
+msgstr "Email"
+
+msgid "Enable"
+msgstr "Habilitar"
+
+msgid "Enabled"
+msgstr "Habilitado"
 
 msgid "Ephemeral Disk"
 msgstr "Disco Temporário"
@@ -196,6 +229,10 @@ msgstr "Origem da Instância"
 
 msgid "Instance count is required and must be an integer of at least 1"
 msgstr "Quantidade de instância é requerido e deve ser de no mínimo 1"
+
+msgid "Insufficient privilege level to view user information."
+msgstr ""
+"Nível de privilégios insuficientes para visualizar informações de usuário."
 
 msgid "Key Pair"
 msgstr "Par de chaves"
@@ -268,6 +305,9 @@ msgstr "Perfil"
 
 msgid "Project"
 msgstr "Projeto"
+
+msgid "Project ID"
+msgstr "ID do Projeto"
 
 msgid "Protocol"
 msgstr "Protocolo"
@@ -589,6 +629,12 @@ msgstr "Ativo"
 
 msgid "Updated"
 msgstr "Atualizado"
+
+msgid "User ID"
+msgstr "ID de Usuário"
+
+msgid "User Name"
+msgstr "Nome do Usuário"
 
 msgid "VCPUs"
 msgstr "vCPUs"

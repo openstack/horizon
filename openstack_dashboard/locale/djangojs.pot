@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-07-03 06:05+0000\n"
+"POT-Creation-Date: 2015-07-15 06:04+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,23 +17,87 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 1.3\n"
 
+#: dashboards/identity/static/dashboard/identity/users/table/table-batch-actions.html:14
+msgid "Create User"
+msgstr ""
+
+#: dashboards/identity/static/dashboard/identity/users/table/table-batch-actions.html:24
+msgid "Delete Users"
+msgstr ""
+
+#: dashboards/identity/static/dashboard/identity/users/table/table-header.html:16
+#: dashboards/identity/static/dashboard/identity/users/table/table-row-details.html:17
+msgid "User Name"
+msgstr ""
+
+#: dashboards/identity/static/dashboard/identity/users/table/table-header.html:20
+#: dashboards/identity/static/dashboard/identity/users/table/table-row-details.html:20
+msgid "Email"
+msgstr ""
+
+#: dashboards/identity/static/dashboard/identity/users/table/table-header.html:24
+#: dashboards/identity/static/dashboard/identity/users/table/table-row-details.html:23
+msgid "User ID"
+msgstr ""
+
+#: dashboards/identity/static/dashboard/identity/users/table/table-header.html:28
+#: dashboards/identity/static/dashboard/identity/users/table/table-row-details.html:26
+msgid "Enabled"
+msgstr ""
+
+#: dashboards/identity/static/dashboard/identity/users/table/table-header.html:32
+msgid "Actions"
+msgstr ""
+
+#: dashboards/identity/static/dashboard/identity/users/table/table-row-actions.html:12
+msgid "Edit"
+msgstr ""
+
+#: dashboards/identity/static/dashboard/identity/users/table/table-row-actions.html:19
+msgid "Change Password"
+msgstr ""
+
+#: dashboards/identity/static/dashboard/identity/users/table/table-row-actions.html:26
+msgid "Disable"
+msgstr ""
+
+#: dashboards/identity/static/dashboard/identity/users/table/table-row-actions.html:27
+msgid "Enable"
+msgstr ""
+
+#: dashboards/identity/static/dashboard/identity/users/table/table-row-actions.html:35
+msgid "Delete"
+msgstr ""
+
+#: dashboards/identity/static/dashboard/identity/users/table/table-row-details.html:11
+msgid "Domain ID"
+msgstr ""
+
+#: dashboards/identity/static/dashboard/identity/users/table/table-row-details.html:14
+msgid "Project ID"
+msgstr ""
+
+#: dashboards/identity/static/dashboard/identity/users/table/table.controller.js:67
+msgid "Insufficient privilege level to view user information."
+msgstr ""
+
 #: static/dashboard/launch-instance/launch-instance-model.js:374
-#: static/dashboard/launch-instance/source/source.controller.js:98
+#: static/dashboard/launch-instance/source/source.controller.js:100
 msgid "Image"
 msgstr ""
 
 #: static/dashboard/launch-instance/launch-instance-model.js:385
-#: static/dashboard/launch-instance/source/source.controller.js:99
+#: static/dashboard/launch-instance/source/source.controller.js:101
 msgid "Instance Snapshot"
 msgstr ""
 
 #: static/dashboard/launch-instance/launch-instance-model.js:393
-#: static/dashboard/launch-instance/source/source.controller.js:100
+#: static/dashboard/launch-instance/source/source.controller.js:102
 msgid "Volume"
 msgstr ""
 
 #: static/dashboard/launch-instance/launch-instance-model.js:397
-#: static/dashboard/launch-instance/source/source.controller.js:101
+#: static/dashboard/launch-instance/source/source.controller.js:103
 msgid "Volume Snapshot"
 msgstr ""
 
@@ -60,7 +124,7 @@ msgid "Networks"
 msgstr ""
 
 #: static/dashboard/launch-instance/launch-instance-workflow.service.js:53
-#: static/dashboard/launch-instance/security-groups/security-groups.controller.js:35
+#: static/dashboard/launch-instance/security-groups/security-groups.controller.js:36
 msgid "Security Groups"
 msgstr ""
 
@@ -191,7 +255,7 @@ msgid ""
 msgstr ""
 
 #: static/dashboard/launch-instance/flavor/flavor.controller.js:46
-#: static/dashboard/launch-instance/source/source.controller.js:232
+#: static/dashboard/launch-instance/source/source.controller.js:233
 msgid "Total Instances"
 msgstr ""
 
@@ -236,11 +300,11 @@ msgstr ""
 
 #: static/dashboard/launch-instance/flavor/select-flavor-table.directive.js:118
 #: static/dashboard/launch-instance/keypair/keypair.js:29
-#: static/dashboard/launch-instance/security-groups/security-groups.controller.js:37
-#: static/dashboard/launch-instance/source/source.controller.js:149
-#: static/dashboard/launch-instance/source/source.controller.js:156
-#: static/dashboard/launch-instance/source/source.controller.js:163
-#: static/dashboard/launch-instance/source/source.controller.js:170
+#: static/dashboard/launch-instance/security-groups/security-groups.controller.js:38
+#: static/dashboard/launch-instance/source/source.controller.js:150
+#: static/dashboard/launch-instance/source/source.controller.js:157
+#: static/dashboard/launch-instance/source/source.controller.js:164
+#: static/dashboard/launch-instance/source/source.controller.js:171
 msgid "Name"
 msgstr ""
 
@@ -265,7 +329,7 @@ msgid "Ephemeral Disk"
 msgstr ""
 
 #: static/dashboard/launch-instance/flavor/select-flavor-table.directive.js:124
-#: static/dashboard/launch-instance/source/source.controller.js:179
+#: static/dashboard/launch-instance/source/source.controller.js:180
 msgid "Public"
 msgstr ""
 
@@ -277,9 +341,9 @@ msgid ""
 msgstr ""
 
 #: static/dashboard/launch-instance/keypair/keypair.js:30
-#: static/dashboard/launch-instance/security-groups/security-groups.controller.js:38
-#: static/dashboard/launch-instance/source/source.controller.js:164
-#: static/dashboard/launch-instance/source/source.controller.js:171
+#: static/dashboard/launch-instance/security-groups/security-groups.controller.js:39
+#: static/dashboard/launch-instance/source/source.controller.js:165
+#: static/dashboard/launch-instance/source/source.controller.js:172
 msgid "Description"
 msgstr ""
 
@@ -490,7 +554,7 @@ msgid "Admin State"
 msgstr ""
 
 #: static/dashboard/launch-instance/network/network.controller.js:41
-#: static/dashboard/launch-instance/source/source.controller.js:174
+#: static/dashboard/launch-instance/source/source.controller.js:175
 msgid "Status"
 msgstr ""
 
@@ -503,7 +567,7 @@ msgid "(None)"
 msgstr ""
 
 #: static/dashboard/launch-instance/network/network.controller.js:44
-#: static/dashboard/launch-instance/source/source.controller.js:73
+#: static/dashboard/launch-instance/source/source.controller.js:75
 msgid "ID"
 msgstr ""
 
@@ -520,9 +584,9 @@ msgid "Provider Network"
 msgstr ""
 
 #: static/dashboard/launch-instance/network/network.controller.js:48
-#: static/dashboard/launch-instance/source/source.controller.js:152
-#: static/dashboard/launch-instance/source/source.controller.js:159
-#: static/dashboard/launch-instance/source/source.controller.js:166
+#: static/dashboard/launch-instance/source/source.controller.js:153
+#: static/dashboard/launch-instance/source/source.controller.js:160
+#: static/dashboard/launch-instance/source/source.controller.js:167
 msgid "Type"
 msgstr ""
 
@@ -581,31 +645,31 @@ msgid ""
 "console."
 msgstr ""
 
-#: static/dashboard/launch-instance/security-groups/security-groups.controller.js:36
+#: static/dashboard/launch-instance/security-groups/security-groups.controller.js:37
 msgid "Select the security groups."
 msgstr ""
 
-#: static/dashboard/launch-instance/security-groups/security-groups.controller.js:42
+#: static/dashboard/launch-instance/security-groups/security-groups.controller.js:43
 msgid "Direction"
 msgstr ""
 
-#: static/dashboard/launch-instance/security-groups/security-groups.controller.js:43
+#: static/dashboard/launch-instance/security-groups/security-groups.controller.js:44
 msgid "Ether Type"
 msgstr ""
 
-#: static/dashboard/launch-instance/security-groups/security-groups.controller.js:44
+#: static/dashboard/launch-instance/security-groups/security-groups.controller.js:45
 msgid "Protocol"
 msgstr ""
 
-#: static/dashboard/launch-instance/security-groups/security-groups.controller.js:45
+#: static/dashboard/launch-instance/security-groups/security-groups.controller.js:46
 msgid "Min Port"
 msgstr ""
 
-#: static/dashboard/launch-instance/security-groups/security-groups.controller.js:46
+#: static/dashboard/launch-instance/security-groups/security-groups.controller.js:47
 msgid "Max Port"
 msgstr ""
 
-#: static/dashboard/launch-instance/security-groups/security-groups.controller.js:47
+#: static/dashboard/launch-instance/security-groups/security-groups.controller.js:48
 msgid "Remote"
 msgstr ""
 
@@ -622,7 +686,7 @@ msgid "Select Source Help"
 msgstr ""
 
 #: static/dashboard/launch-instance/source/source-help.controller.js:34
-#: static/dashboard/launch-instance/source/source.controller.js:57
+#: static/dashboard/launch-instance/source/source.controller.js:59
 msgid "Instance Details"
 msgstr ""
 
@@ -640,7 +704,7 @@ msgid ""
 msgstr ""
 
 #: static/dashboard/launch-instance/source/source-help.controller.js:42
-#: static/dashboard/launch-instance/source/source.controller.js:64
+#: static/dashboard/launch-instance/source/source.controller.js:66
 msgid "Instance Source"
 msgstr ""
 
@@ -691,132 +755,132 @@ msgid ""
 "choose to delete the volume on termination of the instance.</li>"
 msgstr ""
 
-#: static/dashboard/launch-instance/source/source.controller.js:59
+#: static/dashboard/launch-instance/source/source.controller.js:61
 msgid ""
 "Please provide the initial host name for the instance, the availability "
 "zone where it will be deployed, and the instance count. Increase the "
 "Count to create multiple instances with the same settings."
 msgstr ""
 
-#: static/dashboard/launch-instance/source/source.controller.js:61
+#: static/dashboard/launch-instance/source/source.controller.js:63
 msgid "Instance Name"
 msgstr ""
 
-#: static/dashboard/launch-instance/source/source.controller.js:62
-#: static/dashboard/launch-instance/source/source.controller.js:167
+#: static/dashboard/launch-instance/source/source.controller.js:64
+#: static/dashboard/launch-instance/source/source.controller.js:168
 msgid "Availability Zone"
 msgstr ""
 
-#: static/dashboard/launch-instance/source/source.controller.js:63
+#: static/dashboard/launch-instance/source/source.controller.js:65
 msgid "Count"
 msgstr ""
 
-#: static/dashboard/launch-instance/source/source.controller.js:66
+#: static/dashboard/launch-instance/source/source.controller.js:68
 msgid ""
 "Instance source is the template used to create an instance. You can use a"
 " snapshot of an existing instance, an image, or a volume (if enabled). "
 "You can also choose to use persistent storage by creating a new volume."
 msgstr ""
 
-#: static/dashboard/launch-instance/source/source.controller.js:68
+#: static/dashboard/launch-instance/source/source.controller.js:70
 msgid "Select Boot Source"
 msgstr ""
 
-#: static/dashboard/launch-instance/source/source.controller.js:69
+#: static/dashboard/launch-instance/source/source.controller.js:71
 msgid "Size (GB)"
 msgstr ""
 
-#: static/dashboard/launch-instance/source/source.controller.js:70
+#: static/dashboard/launch-instance/source/source.controller.js:72
 msgid "Create New Volume"
 msgstr ""
 
-#: static/dashboard/launch-instance/source/source.controller.js:71
+#: static/dashboard/launch-instance/source/source.controller.js:73
 msgid "Device Name"
 msgstr ""
 
-#: static/dashboard/launch-instance/source/source.controller.js:72
+#: static/dashboard/launch-instance/source/source.controller.js:74
 msgid "Delete Volume on Terminate"
 msgstr ""
 
-#: static/dashboard/launch-instance/source/source.controller.js:74
+#: static/dashboard/launch-instance/source/source.controller.js:76
 msgid "Min Ram"
 msgstr ""
 
-#: static/dashboard/launch-instance/source/source.controller.js:75
+#: static/dashboard/launch-instance/source/source.controller.js:77
 msgid "Min Disk"
 msgstr ""
 
-#: static/dashboard/launch-instance/source/source.controller.js:80
+#: static/dashboard/launch-instance/source/source.controller.js:82
 msgid ""
 "Volumes can only be attached to 1 active instance at a time. Please "
 "either set your instance count to 1 or select a different source type."
 msgstr ""
 
-#: static/dashboard/launch-instance/source/source.controller.js:82
+#: static/dashboard/launch-instance/source/source.controller.js:84
 msgid "A name is required for your instance."
 msgstr ""
 
-#: static/dashboard/launch-instance/source/source.controller.js:83
+#: static/dashboard/launch-instance/source/source.controller.js:85
 msgid "Instance count is required and must be an integer of at least 1"
 msgstr ""
 
-#: static/dashboard/launch-instance/source/source.controller.js:86
+#: static/dashboard/launch-instance/source/source.controller.js:88
 msgid "Volume size is required and must be an integer"
 msgstr ""
 
-#: static/dashboard/launch-instance/source/source.controller.js:90
+#: static/dashboard/launch-instance/source/source.controller.js:92
 msgid "Yes"
 msgstr ""
 
-#: static/dashboard/launch-instance/source/source.controller.js:91
+#: static/dashboard/launch-instance/source/source.controller.js:93
 msgid "No"
-msgstr ""
-
-#: static/dashboard/launch-instance/source/source.controller.js:150
-#: static/dashboard/launch-instance/source/source.controller.js:157
-msgid "Updated"
 msgstr ""
 
 #: static/dashboard/launch-instance/source/source.controller.js:151
 #: static/dashboard/launch-instance/source/source.controller.js:158
-#: static/dashboard/launch-instance/source/source.controller.js:165
-#: static/dashboard/launch-instance/source/source.controller.js:172
+msgid "Updated"
+msgstr ""
+
+#: static/dashboard/launch-instance/source/source.controller.js:152
+#: static/dashboard/launch-instance/source/source.controller.js:159
+#: static/dashboard/launch-instance/source/source.controller.js:166
+#: static/dashboard/launch-instance/source/source.controller.js:173
 msgid "Size"
 msgstr ""
 
-#: static/dashboard/launch-instance/source/source.controller.js:153
-#: static/dashboard/launch-instance/source/source.controller.js:160
+#: static/dashboard/launch-instance/source/source.controller.js:154
+#: static/dashboard/launch-instance/source/source.controller.js:161
 msgid "Visibility"
 msgstr ""
 
-#: static/dashboard/launch-instance/source/source.controller.js:173
+#: static/dashboard/launch-instance/source/source.controller.js:174
 msgid "Created"
 msgstr ""
 
-#: static/dashboard/launch-instance/source/source.controller.js:179
+#: static/dashboard/launch-instance/source/source.controller.js:180
 msgid "Private"
 msgstr ""
 
-#: static/dashboard/launch-instance/source/source.controller.js:357
+#: static/dashboard/launch-instance/source/source.controller.js:358
 msgid "Select a source from those listed below."
 msgstr ""
 
-#: static/dashboard/launch-instance/source/source.controller.js:358
+#: static/dashboard/launch-instance/source/source.controller.js:359
 msgid "Select one"
 msgstr ""
 
-#: static/dashboard/launch-instance/source/source.controller.js:360
+#: static/dashboard/launch-instance/source/source.controller.js:361
 msgid ""
 "When selecting volume as boot source, please ensure the instance's "
 "availability zone is compatible with your volume's availability zone."
 msgstr ""
 
-#: static/dashboard/launch-instance/source/source.controller.js:414
+#: static/dashboard/launch-instance/source/source.controller.js:415
 #, python-format
 msgid "The volume size must be at least %(minVolumeSize)s GB"
 msgstr ""
 
-#: static/dashboard/launch-instance/source/source.controller.js:426
+#: static/dashboard/launch-instance/source/source.controller.js:427
 #, python-format
 msgid ""
 "The instance count must not exceed your quota available of "

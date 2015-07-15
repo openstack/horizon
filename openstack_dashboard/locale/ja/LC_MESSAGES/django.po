@@ -12,9 +12,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-07-03 09:12+0000\n"
-"PO-Revision-Date: 2015-07-06 22:54+0000\n"
-"Last-Translator: myamamot <myamamot@redhat.com>\n"
+"POT-Creation-Date: 2015-07-15 00:44+0000\n"
+"PO-Revision-Date: 2015-07-10 19:11+0000\n"
+"Last-Translator: Akihiro Motoki <amotoki@gmail.com>\n"
 "Language-Team: Japanese (http://www.transifex.com/p/horizon/language/ja/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1103,6 +1103,10 @@ msgstr "パスワード（確認）"
 msgid "Confirm Rebuild Password"
 msgstr "再作成するパスワード（確認）"
 
+msgctxt "Action log of an instance"
+msgid "Confirm Resize"
+msgstr "リサイズの確定"
+
 msgid "Confirm Resize/Migrate"
 msgstr "リサイズ/マイグレーションの確定"
 
@@ -1693,6 +1697,10 @@ msgctxt "Admin state of a Firewall"
 msgid "DOWN"
 msgstr "DOWN"
 
+msgctxt "Admin state of a Load balancer"
+msgid "DOWN"
+msgstr "DOWN"
+
 msgctxt "Admin state of a Network"
 msgid "DOWN"
 msgstr "DOWN"
@@ -1786,6 +1794,9 @@ msgstr "遅延"
 
 msgid "Delay must be greater than or equal to Timeout"
 msgstr "「遅延」の値は「タイムアウト」以上でなければいけません。"
+
+msgid "Delay must be greater than or equal to timeout"
+msgstr "遅延の値はタイムアウト以上でなければいけません。"
 
 msgid "Delete Backup"
 msgid_plural "Delete Backups"
@@ -2560,6 +2571,9 @@ msgstr "ネットワークの編集"
 msgid "Edit Network Profile"
 msgstr "ネットワークプロファイルの編集"
 
+msgid "Edit Node Group Template"
+msgstr "ノードグループテンプレートの編集"
+
 msgid "Edit Policy"
 msgstr "ポリシーの編集"
 
@@ -2979,6 +2993,9 @@ msgstr "インタフェース追加に失敗しました: %s"
 #, python-format
 msgid "Failed to check Neutron '%s' extension is not supported"
 msgstr "Neutron が '%s' 拡張に対応しているか確認できませんでした。"
+
+msgid "Failed to check if Neutron extraroute extension is supported"
+msgstr "Neutron が extraroute 拡張に対応しているか確認できませんでした"
 
 #, python-format
 msgid "Failed to create a port for network %s"
@@ -4044,6 +4061,9 @@ msgstr "中止"
 msgid "Kwapi"
 msgstr "Kwapi"
 
+msgid "LB Method"
+msgstr "負荷分散方法"
+
 msgid "LUKS Volume Snapshots"
 msgstr "LUKS ボリュームスナップショット"
 
@@ -4133,6 +4153,10 @@ msgid ""
 msgstr ""
 "複数インスタンスの起動は、イメージとインスタンスのスナップショットについての"
 "みサポートされています。"
+
+msgctxt "load balancing method"
+msgid "Least Connections"
+msgstr "最小コネクション数"
 
 msgid "Length of Injected File Path"
 msgstr "注入ファイルのパス長"
@@ -4760,6 +4784,10 @@ msgstr "ボリューム種別の指定なし"
 
 msgid "No volumes available"
 msgstr "利用可能なボリュームがありません"
+
+#, python-format
+msgid "Node Group Template %s updated"
+msgstr "ノードグループテンプレート %s が更新されました。"
 
 msgid "Node Group Template Details"
 msgstr "ノードグループテンプレートの詳細"
@@ -5745,6 +5773,10 @@ msgstr "ルートディスク"
 msgid "Root Disk (GB)"
 msgstr "ルートディスク (GB)"
 
+msgctxt "load balancing method"
+msgid "Round Robin"
+msgstr "ラウンドロビン"
+
 msgid "Router"
 msgstr "ルーター"
 
@@ -6357,6 +6389,10 @@ msgstr "送信元CIDR"
 msgid "Source IP"
 msgstr "送信元 IP アドレス"
 
+msgctxt "load balancing method"
+msgid "Source IP"
+msgstr "送信元 IP"
+
 msgid "Source IP Address/Subnet"
 msgstr "送信元 IP アドレス/サブネット"
 
@@ -6916,6 +6952,13 @@ msgid "The instance password encrypted with your public key."
 msgstr "秘密鍵で暗号化されたインスタンスのパスワード"
 
 msgid ""
+"The maximum time in seconds for a monitor to wait for a reply. It must be "
+"less than or equal to delay"
+msgstr ""
+"モニターが応答を待つ最大時間（秒単位）。遅延で指定する値以下でなければいけま"
+"せん。"
+
+msgid ""
 "The minimum disk size required to boot the image. If unspecified, this value "
 "defaults to 0 (no minimum)."
 msgstr ""
@@ -7048,6 +7091,11 @@ msgstr "%(prefix)s の解析中に問題がありました: %(error)s"
 msgid "This action cannot be undone."
 msgstr "この操作は取り消せません。"
 
+msgid "This application requires JavaScript to be enabled in your web browser."
+msgstr ""
+"このアプリケーションを使うには、ブラウザーで JavaScript を有効にする必要があ"
+"ります。"
+
 msgid ""
 "This is required for operations to be performed throughout the lifecycle of "
 "the stack"
@@ -7159,6 +7207,10 @@ msgid "UP"
 msgstr "UP"
 
 msgctxt "Admin state of a Firewall"
+msgid "UP"
+msgstr "UP"
+
+msgctxt "Admin state of a Load balancer"
 msgid "UP"
 msgstr "UP"
 
@@ -7920,6 +7972,10 @@ msgstr "キーペア \"%s\" の詳細を取得できません。"
 #, python-format
 msgid "Unable to retrieve details for network \"%s\"."
 msgstr "ネットワーク \"%s\" の詳細を取得できません。"
+
+#, python-format
+msgid "Unable to retrieve details for node group template \"%s\"."
+msgstr "ノードグループテンプレート \"%s\" の詳細を取得できません。"
 
 #, python-format
 msgid "Unable to retrieve details for parent backup: %s"
@@ -8727,6 +8783,9 @@ msgstr "使用状況 (時間)"
 
 msgid "Usage Report"
 msgstr "使用状況レポート"
+
+msgid "Use HBase Common library"
+msgstr "HBase 共通ライブラリーを使用"
 
 msgid "Use Server Default"
 msgstr "デフォルト設定を使用"

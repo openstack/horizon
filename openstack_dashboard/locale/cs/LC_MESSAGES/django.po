@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-07-03 09:12+0000\n"
-"PO-Revision-Date: 2015-07-09 15:27+0000\n"
+"POT-Creation-Date: 2015-07-15 00:44+0000\n"
+"PO-Revision-Date: 2015-07-10 12:57+0000\n"
 "Last-Translator: Zbyněk Schwarz <zbynek.schwarz@gmail.com>\n"
 "Language-Team: Czech (http://www.transifex.com/p/horizon/language/cs/)\n"
 "MIME-Version: 1.0\n"
@@ -814,6 +814,9 @@ msgstr "Nelze nalézt instanci %s."
 msgid "Cannot get console for instance %s."
 msgstr "Nelze získat konzoli instance %s."
 
+msgid "Cannot specify both file and direct input."
+msgstr "Nelze zadat soubor i přímý vstup najednou."
+
 msgid "Centralized"
 msgstr "Centralizované"
 
@@ -1268,6 +1271,9 @@ msgstr "Vytvořit směrovač (Kvóta překročena)"
 
 msgid "Create Security Group"
 msgstr "Vytvořit bezpečnostní skupinu"
+
+msgid "Create Security Group (Quota exceeded)"
+msgstr "Vytvořit bezpečnostní skupinu (Kvóta překročena)"
 
 msgid "Create Snapshot"
 msgstr "Vytvořit snímek"
@@ -2368,6 +2374,9 @@ msgstr "Chyba při úpravě spotřebitele QoS."
 msgid "Error getting database backup list."
 msgstr "Chyba při získávání seznamu záloh databáze."
 
+msgid "Error getting metadata definitions."
+msgstr "Chyba při získávání určení popisných dat."
+
 msgid "Error getting resource type associations."
 msgstr "Chyba při získávání přidružení k typu zdroje"
 
@@ -2895,6 +2904,9 @@ msgstr "GET"
 
 msgid "GMT"
 msgstr "GMT"
+
+msgid "GRE"
+msgstr "GRE"
 
 msgid "Gateway IP"
 msgstr "IP brány"
@@ -3689,6 +3701,13 @@ msgstr "Správa přidružení specifikace QoS"
 msgid "Manage Rules"
 msgstr "Správa pravidel"
 
+msgid ""
+"Manage Security Group Rules: {{ security_group.name }} ({{ security_group."
+"id }})"
+msgstr ""
+"Správa pravidel bezpečnostní skupiny: {{ security_group.name }} "
+"({{ security_group.id }})"
+
 msgid "Manage Specs"
 msgstr "Správa specifikací"
 
@@ -3860,6 +3879,9 @@ msgstr "Rozsah vícesměrových IP"
 msgid "Multicast IPv4 range(e.g. 224.0.1.0-224.0.1.100)"
 msgstr "Rozsah vícesměrových IP (např. 224.0.1.0-224.0.1.100)"
 
+msgid "Must specify start of period"
+msgstr "Začátek období musí být zadán"
+
 msgid "N/A"
 msgstr "Nedostupné"
 
@@ -3894,6 +3916,9 @@ msgstr "Jmenný prostor %s byl vytvořen."
 
 msgid "Namespace Definition Source"
 msgstr "Zdroj vymezení jmenného prostoru"
+
+msgid "Namespace Details: {{ namespace.namespace }}"
+msgstr "Podrobnosti jmenného prostoru: {{ namespace.namespace }}"
 
 msgid "Namespace JSON"
 msgstr "JSON jmenného prostoru"
@@ -4082,6 +4107,9 @@ msgstr "Žádné obrazy nejsou dostupné"
 
 msgid "No images available."
 msgstr "Žádné obrazy nejsou dostupné."
+
+msgid "No input was provided for the namespace content."
+msgstr "Nebyl zadán žádná vstup pro obsah jmenného prostoru."
 
 msgid "No instances available"
 msgstr "Žádné dostupné instance"
@@ -5372,6 +5400,12 @@ msgid "Select source"
 msgstr "Vyberte zdroj"
 
 msgid ""
+"Select the IP address you wish to associate with the selected instance or "
+"port."
+msgstr ""
+"Vyberte IP adresu, kterou chcete přidružit k vybrané instanci nebo portu."
+
+msgid ""
 "Select the projects where the flavors will be used. If no projects are "
 "selected, then the flavor will be available in all projects."
 msgstr ""
@@ -5692,6 +5726,9 @@ msgstr "Počáteční adresa je větší než koncová (value=%s)"
 msgid "Start and end addresses must be specified (value=%s)"
 msgstr "Musí být zadány počáteční a koncové adresy (hodnota=%s)"
 
+msgid "Start must be earlier than end of period."
+msgstr "Začátek období musí předcházet jeho konci."
+
 #, python-format
 msgid "Starting evacuation from %(current)s to %(target)s."
 msgstr "Zahájeno vyklizení z %(current)s do %(target)s."
@@ -6002,8 +6039,14 @@ msgstr "Typ ICMP není v rozsahu (-1, 255)"
 msgid "The ID \"%s\" is already used by another flavor."
 msgstr "ID \"%s\" již je využíván jinou konfigurací."
 
+msgid "The JSON formatted contents of a namespace."
+msgstr "Obsah jmenného prostoru ve formátu JSON."
+
 msgid "The Key Pair name that was associated with the instance"
 msgstr "Název páru klíče přidruženého k instanci"
+
+msgid "The VNIC type that is bound to the neutron port"
+msgstr "Typ VNIC který je spojen s portem pro neutron"
 
 #, python-format
 msgid ""
@@ -6094,6 +6137,10 @@ msgid ""
 msgstr ""
 "Požadovanou instanci nelze spustit. Následující požadované zdroje překročily "
 "kvóty: %s."
+
+msgid ""
+"The requested instance port is already associated with another floating IP."
+msgstr "Port požadované instance již je přidružen k jiné plovoucí IP adrese."
 
 msgid "The specified port is invalid."
 msgstr "Zadaný port je neplatný."
@@ -6213,6 +6260,9 @@ msgstr "Celková velikost Svazků a Snímků (GB)"
 
 msgid "Total disk usage (GB * Hours Used) for the project"
 msgstr "Celkové využití disku (GB * Počet hodin provozu) pro projekt"
+
+msgid "Total memory usage (MB * Hours Used) for the project"
+msgstr "Celkové využití paměti (MB * Počet hodin provozu) pro projekt"
 
 msgid "Total size of stored objects"
 msgstr "Celková velikost uložených objetků"
@@ -6630,6 +6680,9 @@ msgstr "Nelze najít hlavní instanci!"
 msgid "Unable to generate process choices."
 msgstr "Nelze vytvořit možnosti procesu."
 
+msgid "Unable to get EC2 credentials"
+msgstr "Nelze získat přihlašovací údaje pro EC2."
+
 #, python-format
 msgid "Unable to get RDP console for instance \"%s\"."
 msgstr "Nelze získat konzoli RDP pro instanci \"%s\"."
@@ -6952,6 +7005,10 @@ msgstr "Nelze získat podrobnosti instance databáze: \"%s\"."
 #, python-format
 msgid "Unable to retrieve details for instance \"%s\"."
 msgstr "Nelze získat podrobnosti instance \"%s\"."
+
+#, python-format
+msgid "Unable to retrieve details for keypair \"%s\"."
+msgstr "Nelze získat podrobnosti páru klíčů \"%s\"."
 
 #, python-format
 msgid "Unable to retrieve details for network \"%s\"."
@@ -7865,6 +7922,9 @@ msgstr "Verze"
 msgid "View Container"
 msgstr "Zobrazit kontejner"
 
+msgid "View Credentials"
+msgstr "Zobrazit ověření"
+
 msgid "View Details"
 msgstr "Zobrazit podrobnosti"
 
@@ -8024,6 +8084,9 @@ msgstr "Již využíváte všechny vaše dostupné svazky."
 
 msgid "You cannot disable the user you are currently logged in as."
 msgstr "Nemůžete zakázat uživatele pod kterým jste zrovna přihlášeni."
+
+msgid "You cannot disable your current project"
+msgstr "Váš současný projekt nemůžete zakázat"
 
 msgid ""
 "You cannot revoke your administrative privileges from the domain you are "

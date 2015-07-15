@@ -3,15 +3,16 @@
 # This file is distributed under the same license as the PROJECT project.
 #
 # Translators:
+# İşbaran Akçayır <isbaran@gmail.com>, 2015
 # Mücahit Büyükyılmaz <mucahit@konya.edu.tr>, 2015
 # sercanaydogan <sercanaydogan@gmail.com>, 2014
 msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-07-03 09:12+0000\n"
-"PO-Revision-Date: 2015-07-08 09:31+0000\n"
-"Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
+"POT-Creation-Date: 2015-07-15 00:43+0000\n"
+"PO-Revision-Date: 2015-07-10 12:38+0000\n"
+"Last-Translator: İşbaran Akçayır <isbaran@gmail.com>\n"
 "Language-Team: Turkish (Turkey) (http://www.transifex.com/p/horizon/language/"
 "tr_TR/)\n"
 "MIME-Version: 1.0\n"
@@ -99,8 +100,14 @@ msgstr "Şifre Çözülemedi"
 msgid "Could not read the file"
 msgstr "Dosya okunamadı"
 
+msgid "Current Usage"
+msgstr "Mevcut Kullanım"
+
 msgid "Custom"
 msgstr "Özel"
+
+msgid "Danger"
+msgstr "Tehlike"
 
 msgid "Danger: "
 msgstr "Tehlike:"
@@ -154,6 +161,9 @@ msgstr "Şablon"
 
 msgid "ID"
 msgstr "KİMLİK"
+
+msgid "Info"
+msgstr "Bilgi"
 
 msgid "Integer required"
 msgstr "Tamsayı gerekli"
@@ -227,8 +237,14 @@ msgstr "Model Uyumsuzluğu"
 msgid "Please confirm your selection. "
 msgstr "Lütfen seçiminizi onaylayın"
 
+msgid "Prompt"
+msgstr "İleti"
+
 msgid "Re-order items using drag and drop"
 msgstr "Sürükle ve bırak kullanarak ögeleri yeniden sipariş ver"
+
+msgid "Remaining"
+msgstr "Kalan"
 
 msgid "Remove"
 msgstr "Sil"
@@ -248,6 +264,9 @@ msgstr "Aşağıdaki kullanılabilir öğelerden birini seçin."
 msgid "Select one"
 msgstr "Birini seç"
 
+msgid "Shutdown"
+msgstr "Kapat"
+
 msgid "Status"
 msgstr "Statü"
 
@@ -258,8 +277,17 @@ msgstr "Durum: %s"
 msgid "Submit"
 msgstr "Gönder"
 
+msgid "Success"
+msgstr "Başarılı"
+
 msgid "Success: "
 msgstr "Başarılı:"
+
+msgid "Terminate Instance"
+msgstr "Sunucuyu Sonlandır"
+
+msgid "Text"
+msgstr "Metin"
 
 msgid ""
 "The action cannot be performed. The contents of this row have errors or are "
@@ -272,6 +300,9 @@ msgstr "Sunucu ile iletişimde bir sorun var, lütfen tekrar deneyin."
 msgid "There was an error submitting the form. Please try again."
 msgstr "Formu gönderirken bir hata oluştu. Lütfen tekrar deneyin."
 
+msgid "Total"
+msgstr "Toplam"
+
 msgid "View Details"
 msgstr "Ayrıntıları Göster"
 
@@ -280,6 +311,9 @@ msgstr "Örnek detayları görüntüleme"
 
 msgid "View Router Details"
 msgstr "Router Ayrıntıları"
+
+msgid "Warning"
+msgstr "Uyarı"
 
 msgid "Warning: "
 msgstr "Uyarı:"
@@ -303,3 +337,9 @@ msgstr ""
 #, python-format
 msgid "You have selected %s. "
 msgstr "Seçili %s var."
+
+msgid "m1.small"
+msgstr "m1.small"
+
+msgid "m1.tiny"
+msgstr "m1.tiny"
