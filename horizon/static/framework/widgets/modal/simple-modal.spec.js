@@ -16,7 +16,7 @@
 (function() {
   "use strict";
 
-  describe('horizon.framework.widgets.modal module', function() {
+  describe('horizon.framework.widgets.simple-modal', function() {
 
     beforeEach(module('horizon.framework.widgets.modal'));
 
@@ -64,7 +64,7 @@
 
     });
 
-    describe('horizon.framework.widgets.modal.service', function() {
+    describe('horizon.framework.widgets.modal.simple-modal.service', function() {
       var service, modal;
 
       beforeEach(module(function($provide) {
@@ -74,7 +74,7 @@
       }));
 
       beforeEach(inject(function($injector) {
-        service = $injector.get('horizon.framework.widgets.modal.service');
+        service = $injector.get('horizon.framework.widgets.modal.simple-modal.service');
       }));
 
       it('defines the service', function() {
