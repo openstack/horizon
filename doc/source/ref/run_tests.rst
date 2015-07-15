@@ -170,7 +170,7 @@ common errors that may create unexpected behavior.
 To run eslint for Horizon and Dashboard using the `run_tests.sh`
 script::
 
-    ./run_tests.sh --karma
+    ./run_tests.sh --eslint
 
 To run eslint for Horizon and Dashboard using `npm`::
 
