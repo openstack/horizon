@@ -648,8 +648,6 @@ def network_create(request, **kwargs):
     """
     LOG.debug("network_create(): kwargs = %s" % kwargs)
     # In the case network profiles are being used, profile id is needed.
-    if 'net_profile_id' in kwargs:
-        kwargs['n1kv:profile_id'] = kwargs.pop('net_profile_id')
     if 'tenant_id' not in kwargs:
         kwargs['tenant_id'] = request.user.project_id
     body = {'network': kwargs}

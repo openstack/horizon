@@ -52,16 +52,6 @@ def _get_profiles(request, type_p):
         profiles = []
         msg = _('Network Profiles could not be retrieved.')
         exceptions.handle(request, msg)
-    if profiles:
-        # Set project name
-        tenant_dict = _get_tenant_list(request)
-        bindings = api.neutron.profile_bindings_list(request, type_p)
-        bindings_dict = datastructures.SortedDict(
-            [(b.profile_id, b.tenant_id) for b in bindings])
-        for p in profiles:
-            project_id = bindings_dict.get(p.id)
-            project = tenant_dict.get(project_id)
-            p.project_name = getattr(project, 'name', None)
     return profiles
 
 
@@ -89,8 +79,7 @@ class IndexTabGroup(tabs.TabGroup):
 
 
 class IndexView(tables.MultiTableView):
-    table_classes = (profiletables.NetworkProfile,
-                     profiletables.PolicyProfile,)
+    table_classes = (profiletables.PolicyProfile,)
     template_name = 'router/nexus1000v/index.html'
     page_title = _("Cisco Nexus 1000V")
 
