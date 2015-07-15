@@ -50,13 +50,12 @@
 
     ////////////////////////////////
 
-
     function init() {
       // if user has permission
       // fetch table data and populate it
       var rules = [['identity', 'identity:list_users']];
       policy.check({ rules: rules }).success(policySuccess);
-    };
+    }
 
     function policySuccess(response) {
       if (response.allowed) {
