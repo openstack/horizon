@@ -31,7 +31,6 @@ LAUNCH_INST = 'dashboard/launch-instance/'
 
 ADD_JS_FILES = [
     'dashboard/dashboard.module.js',
-    'dashboard/cloud-services/cloud-services.js',
     LAUNCH_INST + 'launch-instance.module.js',
     LAUNCH_INST + 'launch-instance-workflow.service.js',
     LAUNCH_INST + 'launch-instance-modal.controller.js',
@@ -57,7 +56,6 @@ ADD_JS_FILES = [
 
 ADD_JS_SPEC_FILES = [
     'dashboard/dashboard.module.spec.js',
-    'dashboard/cloud-services/cloud-services.spec.js',
     LAUNCH_INST + 'launch-instance.module.spec.js',
     LAUNCH_INST + 'launch-instance-workflow.service.spec.js',
     LAUNCH_INST + 'launch-instance-modal.controller.spec.js',

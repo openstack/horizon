@@ -17,14 +17,14 @@
 (function () {
   'use strict';
 
-  describe('hz.dashboard', function () {
+  describe('horizon.app.core', function () {
 
     // factory:cloudServices
 
     describe('factory:cloudServices', function () {
       var cloudServices;
 
-      beforeEach(module('hz.dashboard', function ($provide) {
+      beforeEach(module('horizon.app.core', function ($provide) {
         $provide.value('horizon.openstack-service-api.cinder', {});
         $provide.value('horizon.openstack-service-api.glance', {});
         $provide.value('horizon.openstack-service-api.keystone', {});
@@ -80,7 +80,7 @@
           $q,
           cloudServices;
 
-      beforeEach(module('hz.dashboard', function ($provide) {
+      beforeEach(module('horizon.app.core', function ($provide) {
         $q = {
           all: function () {
             return {
@@ -155,7 +155,7 @@
       var createDirectiveSpec,
           ifFeaturesEnabled;
 
-      beforeEach(module('hz.dashboard', function ($provide) {
+      beforeEach(module('horizon.app.core', function ($provide) {
         ifFeaturesEnabled = function () {
           return {
             then: function () {
@@ -212,7 +212,7 @@
           ].join('');
       var element;
 
-      beforeEach(module('hz.dashboard', function ($provide) {
+      beforeEach(module('horizon.app.core', function ($provide) {
         $provide.value('ifFeaturesEnabled', function () {
           return {
             then: function (successCallback) {
@@ -262,7 +262,7 @@
           ].join('');
       var element;
 
-      beforeEach(module('hz.dashboard', function ($provide) {
+      beforeEach(module('horizon.app.core', function ($provide) {
         $provide.value('ifFeaturesEnabled', function () {
           return {
             then: function (successCallback) {
