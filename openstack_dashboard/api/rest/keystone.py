@@ -24,6 +24,19 @@ from openstack_dashboard.api.rest import urls
 
 
 @urls.register
+class Version(generic.View):
+    """API for active keystone version.
+    """
+    url_regex = r'keystone/version/$'
+
+    @rest_utils.ajax()
+    def get(self, request):
+        """Get active keystone version.
+        """
+        return {'version': api.keystone.get_version()}
+
+
+@urls.register
 class Users(generic.View):
     """API for keystone users.
     """

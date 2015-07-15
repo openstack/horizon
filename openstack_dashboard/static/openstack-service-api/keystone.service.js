@@ -24,6 +24,14 @@ limitations under the License.
                          'horizon.framework.widgets.toast.service'];
 
   function KeystoneAPI(apiService, toastService) {
+    // Version
+    this.getVersion = function() {
+      return apiService.get('/api/keystone/version/')
+        .error(function () {
+          toastService.add('error', gettext('Unable to get the Keystone service version.'));
+        });
+    };
+
     // Users
     this.getUsers = function(params) {
       var config = (params) ? {'params': params} : {};

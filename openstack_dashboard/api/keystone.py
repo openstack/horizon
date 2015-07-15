@@ -739,3 +739,7 @@ def keystone_backend_name():
         return settings.OPENSTACK_KEYSTONE_BACKEND['name']
     else:
         return 'unknown'
+
+
+def get_version():
+    return VERSIONS.active
