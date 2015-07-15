@@ -1076,6 +1076,18 @@ http://tinyurl.com/anticlickjack
   ``False`` to exclude the frame-busting code and allow iframe embedding.
 
 
+``OPENSTACK_NOVA_EXTENSIONS_BLACKLIST``
+---------------------------------------
+
+.. versionadded:: 8.0.0(Liberty)
+
+Default: ``[]``
+
+Ignore all listed Nova extensions, and behave as if they were unsupported.
+Can be used to selectively disable certain costly extensions for performance
+reasons.
+
+
 Django Settings (Partial)
 =========================
 

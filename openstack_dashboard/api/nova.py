@@ -935,7 +935,15 @@ def interface_detach(request, server, port_id):
 
 @memoized
 def list_extensions(request):
-    return nova_list_extensions.ListExtManager(novaclient(request)).show_all()
+    """List all nova extensions, except the ones in the blacklist."""
+
+    blacklist = set(getattr(settings,
+                            'OPENSTACK_NOVA_EXTENSIONS_BLACKLIST', []))
+    return [
+        extension for extension in
+        nova_list_extensions.ListExtManager(novaclient(request)).show_all()
+        if extension.name not in blacklist
+    ]
 
 
 @memoized
