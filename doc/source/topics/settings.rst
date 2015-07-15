@@ -1030,6 +1030,18 @@ provided see: ``"/horizon/openstack_dashboard/static/themes/webroot"``
         Alias /dashboard/media %HORIZON_DIR%/openstack_dashboard/static
 
 
+``OPENSTACK_NOVA_EXTENSIONS_BLACKLIST``
+---------------------------------------
+
+.. versionadded:: 8.0.0(Liberty)
+
+Default: ``[]``
+
+Ignore all listed Nova extensions, and behave as if they were unsupported.
+Can be used to selectively disable certain costly extensions for performance
+reasons.
+
+
 Django Settings (Partial)
 =========================
 
