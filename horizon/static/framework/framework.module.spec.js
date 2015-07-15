@@ -18,12 +18,25 @@
   'use strict';
 
   describe('horizon.framework', function() {
-    beforeEach(module('horizon.framework'));
+    // Mock $window. This allows our mock $window to be used
+    // by horizon.framework's config block instead of the
+    // real $window service. This prevents accidentally redirecting
+    // the browser during testing.
+    beforeEach(module('horizon.framework', function($windowProvider) {
+      var window = {
+        location: {
+          replace: jasmine.createSpy()
+        }
+      };
+
+      $windowProvider.$get = function() {
+        return window;
+      };
+    }));
 
     describe('when unauthorized', function() {
       it('should redirect to /auth/logout', inject(function($http, $httpBackend, $window) {
 
-        spyOn($window.location, 'replace');
         $httpBackend.when('GET', '/api').respond(401, '');
 
         $http.get('/api').error(function() {
