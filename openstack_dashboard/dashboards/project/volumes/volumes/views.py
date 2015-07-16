@@ -52,6 +52,13 @@ class DetailView(tabs.TabView):
         context["volume"] = volume
         context["url"] = self.get_redirect_url()
         context["actions"] = table.render_row_actions(volume)
+        status_label = [label for (value, label) in
+                        project_tables.VolumesTableBase.STATUS_DISPLAY_CHOICES
+                        if value.lower() == (volume.status or '').lower()]
+        if status_label:
+            volume.status_label = status_label[0]
+        else:
+            volume.status_label = volume.status
         return context
 
     @memoized.memoized_method
