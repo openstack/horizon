@@ -85,7 +85,7 @@ horizon.addInitFunction(function() {
     // in the other browser tab with mouse wheel or mouse lbutton + modifier
     if ( ev.which !== MOUSE_WHEEL_CODE_NORMALIZED &&
       !( ev.which === MOUSE_LBUTTON_CODE_NORMALIZED &&
-            ( ev.shiftKey || ev.ctrlKey ) ) ) {
+            ( ev.shiftKey || ev.ctrlKey || ev.metaKey ) ) ) {
       horizon.modals.modal_spinner(gettext("Loading"));
     }
   });
