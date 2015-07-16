@@ -17,7 +17,7 @@
    *
    *  ExampleCtrl.$inject = [
    *    '$scope',
-   *    'horizon.framework.widgets.modal.service'
+   *    'horizon.framework.widgets.modal.simple-modal.service'
    *  ];
    *
    *  function ExampleCtrl($scope, simpleModalService) {
@@ -36,7 +36,7 @@
    */
   angular
     .module('horizon.framework.widgets.modal')
-    .factory('horizon.framework.widgets.modal.service', modalService);
+    .factory('horizon.framework.widgets.modal.simple-modal.service', modalService);
 
   modalService.$inject = [
     '$modal',

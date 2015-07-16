@@ -26,10 +26,10 @@
   ];
 
   function SimpleModalController($modalInstance, context) {
-    var modalCtrl = this;
-    modalCtrl.context = context;
-    modalCtrl.submit = function() { $modalInstance.close(); };
-    modalCtrl.cancel = function() { $modalInstance.dismiss('cancel'); };
+    var ctrl = this;
+    ctrl.context = context;
+    ctrl.submit = function() { $modalInstance.close(); };
+    ctrl.cancel = function() { $modalInstance.dismiss('cancel'); };
   } // end of function
 
 })();
