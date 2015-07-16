@@ -57,7 +57,7 @@
         $element = angular.element(markup);
         $compile($element)($scope);
 
-        $scope.$digest();
+        $scope.$apply();
       }));
 
       it('should have one dropdown button', function () {
@@ -112,7 +112,7 @@
         $element = angular.element(markup);
         $compile($element)($scope);
 
-        $scope.$digest();
+        $scope.$apply();
       }));
 
       it('should have one dropdown button', function () {
@@ -169,7 +169,7 @@
         $element = angular.element(markup);
         $compile($element)($scope);
 
-        $scope.$digest();
+        $scope.$apply();
       }));
 
       it('should have 3 buttons in group', function () {
