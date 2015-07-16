@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-07-15 00:44+0000\n"
-"PO-Revision-Date: 2015-07-10 12:57+0000\n"
+"POT-Creation-Date: 2015-07-16 03:10+0000\n"
+"PO-Revision-Date: 2015-07-15 13:22+0000\n"
 "Last-Translator: Zbyněk Schwarz <zbynek.schwarz@gmail.com>\n"
 "Language-Team: Czech (http://www.transifex.com/p/horizon/language/cs/)\n"
 "MIME-Version: 1.0\n"
@@ -2383,6 +2383,10 @@ msgstr "Chyba při získávání přidružení k typu zdroje"
 msgid "Error updating QoS Spec association."
 msgstr "Chyba při aktualizaci přidružení specifikace QoS."
 
+#, python-format
+msgid "Error updating resource types for namespace %s."
+msgstr "Chyba při aktualizaci typu zdroje jmenného prostoru %s."
+
 msgid "Error when adding or removing hosts."
 msgstr "Chyba při přidávání nebo odstraňování hostitelů."
 
@@ -3659,6 +3663,9 @@ msgstr "Protokol"
 msgid "Log Lines Per Instance"
 msgstr "Řádky záznamu na instanci"
 
+msgid "Log length must be a nonnegative integer."
+msgstr "Délka záznamu musí být nezáporné celé číslo."
+
 msgid "MAC Learning State"
 msgstr "Stav naučení adres MAC"
 
@@ -4909,6 +4916,9 @@ msgstr "Replikovat z instance"
 msgid "Request ID"
 msgstr "ID požadavku"
 
+msgid "Requested snapshot would exceed the allowed quota."
+msgstr "Požadovaný snímek by překročil povolenou kvótu."
+
 msgid "Required for APP_COOKIE persistence; Ignored otherwise."
 msgstr "Vyžadováno pro vyrvání APP_COOKIE; Jinak ignorováno."
 
@@ -5393,6 +5403,9 @@ msgstr "Vyberte zásuvný modul a verzi hadoop pro clusteru"
 msgid "Select plugin and hadoop version for cluster template"
 msgstr "Vyberte zásuvný modul a verzi Hadoop pro šablonu clusteru"
 
+msgid "Select routers for your firewall."
+msgstr "Zvolte směrovače pro vaši bránu firewall."
+
 msgid "Select rules for your policy."
 msgstr "Vytvořit pravidla pro vaši zásadu."
 
@@ -5650,6 +5663,9 @@ msgstr ""
 "DHCPv6 se stavem/DHCPv6 bez stavu, které poskytuje OpenStack, nebo nezadat "
 "nic. Pokud nezvolíte žádnou volbu, budete muset adresy nastavovat ručně, "
 "nebo toto přenechat systému mimo OpenStack."
+
+msgid "Specifies that the volume can be used to launch an instance"
+msgstr "Udává, že svazek může být použit ke spuštění instance"
 
 msgid "Specify \"Network Address\""
 msgstr "Zadejte \"Síťovou adresu\""
@@ -6257,6 +6273,12 @@ msgstr "Celková velikost Svazků LUKS a Snímků (GB)"
 
 msgid "Total Size of Volumes and Snapshots (GB)"
 msgstr "Celková velikost Svazků a Snímků (GB)"
+
+msgid ""
+"Total VCPU usage (Number of VCPU in instance * Hours Used) for the project"
+msgstr ""
+"Celkové využití VCPU (Počet VCPU v instanci * Počet hodin provozu) pro "
+"projekt"
 
 msgid "Total disk usage (GB * Hours Used) for the project"
 msgstr "Celkové využití disku (GB * Počet hodin provozu) pro projekt"

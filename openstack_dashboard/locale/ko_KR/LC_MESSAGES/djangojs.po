@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-07-15 00:44+0000\n"
-"PO-Revision-Date: 2015-07-13 20:02+0000\n"
+"POT-Creation-Date: 2015-07-16 03:10+0000\n"
+"PO-Revision-Date: 2015-07-15 21:17+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Korean (Korea) (http://www.transifex.com/p/horizon/language/"
 "ko_KR/)\n"
@@ -102,7 +102,7 @@ msgid "Count"
 msgstr "개수"
 
 msgid "Create Key Pair"
-msgstr "캐 패어 생성"
+msgstr "캐 페어 생성"
 
 msgid "Create New Volume"
 msgstr "새로운 볼륨 생성"
@@ -192,17 +192,26 @@ msgstr "Flavor"
 msgid "Flavor Help"
 msgstr "Flavor 도움말"
 
+msgid ""
+"Flavors manage the sizing for the compute, memory and storage capacity of "
+"the instance."
+msgstr ""
+"Flavor는 인스턴스의 컴퓨트, 메모리 및 스토리지 용량에 대한 크기를 관리합니다."
+
 msgid "ID"
 msgstr "ID"
 
 msgid "Image"
 msgstr "이미지"
 
+msgid "Impact on your quota"
+msgstr "쿼터에 미치는 영향"
+
 msgid "Import Key Pair"
-msgstr "키 패어 등록"
+msgstr "키 페어 등록"
 
 msgid "Import Key Pair Help"
-msgstr "키 패어 등록 도움말"
+msgstr "키 페어 등록 도움말"
 
 msgid "Instance Details"
 msgstr "인스턴스 세부정보"
@@ -220,16 +229,31 @@ msgid "Instance count is required and must be an integer of at least 1"
 msgstr "인스턴스 개수가 필수이며 적어도 1 이상의 정수값이어야 합니다"
 
 msgid "Insufficient privilege level to view user information."
-msgstr "불충분한 권한 수준으로 사용자 정보를 볼 수 있습니다."
+msgstr "사용자 정보를 보기에 불충분한 권한 수준입니다."
 
 msgid "Key Pair"
-msgstr "키 패어"
+msgstr "키 페어"
 
 msgid "Key Pair Help"
-msgstr "키 패어 도움말"
+msgstr "키 페어 도움말"
 
 msgid "Key Pair Name"
-msgstr "키 패어 이름"
+msgstr "키 페어 이름"
+
+msgid ""
+"Key Pairs are how you login to your instance after it is launched. Choose a "
+"key pair name you will recognize and paste your SSH public key into the "
+"space provided."
+msgstr ""
+"키 페어는 인스턴스가 구동된 후 로그인하는 방법에 대한 것입니다. 인식하고자 하"
+"는 키 페어 이름을 선택하고 SSH 공개키를 제공된 공간에 붙여넣기합니다."
+
+msgid ""
+"Key Pairs are how you login to your instance after it is launched. Choose a "
+"key pair name you will recognize."
+msgstr ""
+"키 페어는 인스턴스가 구동된 후 로그인하는 방법에 대한 것입니다. 인식하고자 하"
+"는 키 페어 이름을 선택합니다."
 
 msgid "Launch Instance"
 msgstr "인스턴스 시작"
@@ -265,7 +289,7 @@ msgid "Network Help"
 msgstr "네트워크 도움말"
 
 msgid "Network characteristics"
-msgstr "내트워크 특징"
+msgstr "네트워크 특징"
 
 msgid "Networks"
 msgstr "네트워크"
@@ -354,7 +378,10 @@ msgid "Select Source Help"
 msgstr "소스 도움말 선택"
 
 msgid "Select a key pair from the available key pairs below."
-msgstr "아래의 사용 가능한 키 패어중 하나를 선택합니다."
+msgstr "아래의 사용 가능한 키 페어 중 하나를 선택합니다."
+
+msgid "Select a source from those listed below."
+msgstr "해당 아래 목록으로부터 소스를 선택합니다."
 
 msgid "Select at least one network"
 msgstr "적어도 하나 이상 네트워크를 선택합니다."
@@ -399,11 +426,11 @@ msgstr "서브넷 특징"
 
 #, python-format
 msgid "Successfully created key pair %(name)s"
-msgstr "키 패어 %(name)s를 성공적으로 생성하였습니다."
+msgstr "키 페어 %(name)s를 성공적으로 생성하였습니다."
 
 #, python-format
 msgid "Successfully imported key pair %(name)s"
-msgstr "키 패어  %(name)s를 성공적으로 등록하였습니다."
+msgstr "키 페어  %(name)s를 성공적으로 등록하였습니다."
 
 msgid ""
 "The flavor you select for an instance determines the amount of compute, "
@@ -420,6 +447,9 @@ msgstr ""
 "인스턴스 개수는 %(maxInstanceCount)s 인스턴스 중 사용 가능한 쿼터량을 초과하"
 "지 않아야 합니다"
 
+msgid "The key pair allows you to SSH into the instance."
+msgstr "키 페어를 통해 인스턴스에 SSH 접속을 할 수 있습니다."
+
 msgid "The maximum script size is 16Kb."
 msgstr "최대 스크립트 크기는 16Kb 입니다."
 
@@ -430,8 +460,22 @@ msgstr "해당 상태는 네트워크가 활성화된 연결을 이루고 있는
 msgid "The volume size must be at least %(minVolumeSize)s GB"
 msgstr "볼륨 크기는 최소 %(minVolumeSize)s GB여야 합니다."
 
+msgid ""
+"This flavor requires more RAM than your quota allows. Please select a "
+"smaller flavor or decrease the instance count."
+msgstr ""
+"해당 flavor는 쿼터에서 허용하는 것보다 많은 RAM을 필요로합니다. 보다 작은 "
+"flavor를 선택하거나 인스턴스 개수를 줄여 주세요."
+
+msgid ""
+"This flavor requires more VCPUs than your quota allows. Please select a "
+"smaller flavor or decrease the instance count."
+msgstr ""
+"해당 flavor는 쿼터에서 허용하는 것보다 많은 VCPU를 필요로 합니다. 보다 작은 "
+"flavor를 선택하거나 인스턴스 개수를 줄여 주세요."
+
 msgid "This is your new key pair. Copy this information and keep it secure."
-msgstr "당신의 새로운 키 패어입니다. 이 정보를 복사하여 보안을 유지하십시오."
+msgstr "당신의 새로운 키 페어입니다. 이 정보를 복사하여 보안을 유지하십시오."
 
 msgid "Total Disk"
 msgstr "모든 디스크"
@@ -633,6 +677,13 @@ msgstr "볼륨 스냅샷"
 
 msgid "Volume size is required and must be an integer"
 msgstr "볼륨 크기가 필요하고 정수값이어야 합니다"
+
+msgid ""
+"When selecting volume as boot source, please ensure the instance's "
+"availability zone is compatible with your volume's availability zone."
+msgstr ""
+"볼륨을 부팅 소스로 선택시, 인스턴스의 가용성 존이 볼륨의 가용성 존과 호환되는"
+"지 확인해주세요."
 
 msgid "Yes"
 msgstr "예"

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-07-15 06:04+0000\n"
+"POT-Creation-Date: 2015-07-16 06:05+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -907,120 +907,124 @@ msgstr ""
 msgid "Unable to retrieve the namespaces."
 msgstr ""
 
-#: static/openstack-service-api/keystone.service.js:32
+#: static/openstack-service-api/keystone.service.js:31
+msgid "Unable to get the Keystone service version."
+msgstr ""
+
+#: static/openstack-service-api/keystone.service.js:40
 msgid "Unable to retrieve the users."
 msgstr ""
 
-#: static/openstack-service-api/keystone.service.js:39
+#: static/openstack-service-api/keystone.service.js:47
 msgid "Unable to create the user."
 msgstr ""
 
-#: static/openstack-service-api/keystone.service.js:46
+#: static/openstack-service-api/keystone.service.js:54
 msgid "Unable to delete the users."
 msgstr ""
 
-#: static/openstack-service-api/keystone.service.js:81
+#: static/openstack-service-api/keystone.service.js:89
 msgid "Unable to retrieve the current user session."
 msgstr ""
 
-#: static/openstack-service-api/keystone.service.js:88
+#: static/openstack-service-api/keystone.service.js:96
 msgid "Unable to retrieve the user."
 msgstr ""
 
-#: static/openstack-service-api/keystone.service.js:96
+#: static/openstack-service-api/keystone.service.js:104
 msgid "Unable to edit the user."
 msgstr ""
 
-#: static/openstack-service-api/keystone.service.js:103
+#: static/openstack-service-api/keystone.service.js:111
 msgid "Unable to delete the user."
 msgstr ""
 
-#: static/openstack-service-api/keystone.service.js:111
+#: static/openstack-service-api/keystone.service.js:119
 msgid "Unable to retrieve the roles."
 msgstr ""
 
-#: static/openstack-service-api/keystone.service.js:118
+#: static/openstack-service-api/keystone.service.js:126
 msgid "Unable to create the role."
 msgstr ""
 
-#: static/openstack-service-api/keystone.service.js:125
+#: static/openstack-service-api/keystone.service.js:133
 msgid "Unable to delete the roles."
 msgstr ""
 
-#: static/openstack-service-api/keystone.service.js:132
+#: static/openstack-service-api/keystone.service.js:140
 msgid "Unable to retrieve the role."
 msgstr ""
 
-#: static/openstack-service-api/keystone.service.js:140
+#: static/openstack-service-api/keystone.service.js:148
 msgid "Unable to edit the role."
 msgstr ""
 
-#: static/openstack-service-api/keystone.service.js:147
+#: static/openstack-service-api/keystone.service.js:155
 msgid "Unable to delete the role."
 msgstr ""
 
-#: static/openstack-service-api/keystone.service.js:155
+#: static/openstack-service-api/keystone.service.js:163
 msgid "Unable to retrieve the domains."
 msgstr ""
 
-#: static/openstack-service-api/keystone.service.js:162
+#: static/openstack-service-api/keystone.service.js:170
 msgid "Unable to create the domain."
 msgstr ""
 
-#: static/openstack-service-api/keystone.service.js:169
+#: static/openstack-service-api/keystone.service.js:177
 msgid "Unable to delete the domains."
 msgstr ""
 
-#: static/openstack-service-api/keystone.service.js:176
+#: static/openstack-service-api/keystone.service.js:184
 msgid "Unable to retrieve the domain."
 msgstr ""
 
-#: static/openstack-service-api/keystone.service.js:184
+#: static/openstack-service-api/keystone.service.js:192
 msgid "Unable to edit the domain."
 msgstr ""
 
-#: static/openstack-service-api/keystone.service.js:191
+#: static/openstack-service-api/keystone.service.js:199
 msgid "Unable to delete the domain."
 msgstr ""
 
-#: static/openstack-service-api/keystone.service.js:200
+#: static/openstack-service-api/keystone.service.js:208
 msgid "Unable to retrieve the projects."
 msgstr ""
 
-#: static/openstack-service-api/keystone.service.js:207
+#: static/openstack-service-api/keystone.service.js:215
 msgid "Unable to create the project."
 msgstr ""
 
-#: static/openstack-service-api/keystone.service.js:214
+#: static/openstack-service-api/keystone.service.js:222
 msgid "Unable to delete the projects."
 msgstr ""
 
-#: static/openstack-service-api/keystone.service.js:221
+#: static/openstack-service-api/keystone.service.js:229
 msgid "Unable to retrieve the project."
 msgstr ""
 
-#: static/openstack-service-api/keystone.service.js:229
+#: static/openstack-service-api/keystone.service.js:237
 msgid "Unable to edit the project."
 msgstr ""
 
-#: static/openstack-service-api/keystone.service.js:236
+#: static/openstack-service-api/keystone.service.js:244
 msgid "Unable to delete the project."
 msgstr ""
 
-#: static/openstack-service-api/keystone.service.js:244
+#: static/openstack-service-api/keystone.service.js:252
 msgid "Unable to grant the role."
 msgstr ""
 
-#: static/openstack-service-api/keystone.service.js:258
+#: static/openstack-service-api/keystone.service.js:266
 msgid "Unable to fetch the service catalog."
 msgstr ""
 
-#: static/openstack-service-api/keystone.service.js:402
+#: static/openstack-service-api/keystone.service.js:410
 #, python-format
 msgid "Service type is not enabled: %(desiredType)s"
 msgstr ""
 
-#: static/openstack-service-api/keystone.service.js:409
+#: static/openstack-service-api/keystone.service.js:417
 msgid "Cannot get service catalog from keystone."
 msgstr ""
 
