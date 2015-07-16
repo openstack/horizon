@@ -77,6 +77,27 @@ class FloatingIpViewTests(test.TestCase):
         # Verify that our "associated" floating IP isn't in the choices list.
         self.assertTrue(self.floating_ips.first() not in choices)
 
+    @test.create_stubs({api.network: ('floating_ip_target_list',
+                                      'tenant_floating_ip_list',)})
+    def test_associate_with_port_id(self):
+        targets = [api.nova.FloatingIpTarget(s) for s in self.servers.list()]
+        targets[0].port_id = '101'
+        api.network.floating_ip_target_list(IsA(http.HttpRequest)) \
+            .AndReturn(targets)
+        api.network.tenant_floating_ip_list(IsA(http.HttpRequest)) \
+            .AndReturn(self.floating_ips.list())
+        self.mox.ReplayAll()
+
+        base_url = reverse('%s:associate' % NAMESPACE)
+        params = urlencode({'port_id': '101'})
+        url = '?'.join([base_url, params])
+        res = self.client.get(url)
+        self.assertTemplateUsed(res, views.WorkflowView.template_name)
+        workflow = res.context['workflow']
+        choices = dict(workflow.steps[0].action.fields['ip_id'].choices)
+        # Verify that our "associated" floating IP isn't in the choices list.
+        self.assertTrue(self.floating_ips.first() not in choices)
+
     @test.create_stubs({api.network: ('floating_ip_associate',
                                       'floating_ip_target_list',
                                       'tenant_floating_ip_list',)})

@@ -586,6 +586,7 @@ def data(TEST):
                 'admin_state_up': True}
     TEST.api_vips.add(vip_dict)
     TEST.vips.add(lbaas.Vip(vip_dict))
+    setattr(TEST.pools.first(), 'vip', TEST.vips.first())
 
     # 2nd vip.
     vip_dict = {'id': 'f0881d38-c3eb-4fee-9763-12de3338041d',

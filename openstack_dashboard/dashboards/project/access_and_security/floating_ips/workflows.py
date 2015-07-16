@@ -55,11 +55,19 @@ class AssociateIPAction(workflows.Action):
         # to get an association target based on a received instance_id
         # and set the initial value of instance_id ChoiceField.
         q_instance_id = self.request.GET.get('instance_id')
+        q_port_id = self.request.GET.get('port_id')
         if q_instance_id:
             targets = self._get_target_list()
             target_id = api.network.floating_ip_target_get_by_instance(
                 self.request, q_instance_id, targets)
             self.initial['instance_id'] = target_id
+        elif q_port_id:
+            targets = self._get_target_list()
+            for target in targets:
+                if (hasattr(target, 'port_id') and
+                        target.port_id == q_port_id):
+                    self.initial['instance_id'] = target.id
+                    break
 
     def populate_ip_id_choices(self, request, context):
         ips = []

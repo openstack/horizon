@@ -10,6 +10,7 @@
 # License for the specific language governing permissions and limitations
 # under the License.
 
+from mox3.mox import IgnoreArg  # noqa
 from mox3.mox import IsA  # noqa
 
 from django.core.urlresolvers import reverse
@@ -69,6 +70,12 @@ class LoadBalancerTests(test.TestCase):
             IsA(http.HttpRequest), tenant_id=self.tenant.id).MultipleTimes() \
             .AndReturn(self.monitors.list())
 
+        api.network.floating_ip_supported(IgnoreArg()).MultipleTimes() \
+            .AndReturn(True)
+
+        api.network.floating_ip_simple_associate_supported(IgnoreArg()).MultipleTimes() \
+            .AndReturn(True)
+
     def set_up_expect_with_exception(self):
         api.lbaas.pool_list(
             IsA(http.HttpRequest), tenant_id=self.tenant.id) \
@@ -81,7 +88,10 @@ class LoadBalancerTests(test.TestCase):
             .AndRaise(self.exceptions.neutron)
 
     @test.create_stubs({api.lbaas: ('pool_list', 'member_list',
-                                    'pool_health_monitor_list')})
+                                    'pool_health_monitor_list'),
+                        api.network: ('floating_ip_supported',
+                                      'floating_ip_simple_associate_supported')
+                        })
     def test_index_pools(self):
         self.set_up_expect()
 
@@ -96,7 +106,10 @@ class LoadBalancerTests(test.TestCase):
                          len(self.pools.list()))
 
     @test.create_stubs({api.lbaas: ('pool_list', 'member_list',
-                                    'pool_health_monitor_list')})
+                                    'pool_health_monitor_list'),
+                        api.network: ('floating_ip_supported',
+                                      'floating_ip_simple_associate_supported')
+                        })
     def test_index_members(self):
         self.set_up_expect()
 
@@ -111,7 +124,10 @@ class LoadBalancerTests(test.TestCase):
                          len(self.members.list()))
 
     @test.create_stubs({api.lbaas: ('pool_list', 'member_list',
-                                    'pool_health_monitor_list')})
+                                    'pool_health_monitor_list'),
+                        api.network: ('floating_ip_supported',
+                                      'floating_ip_simple_associate_supported')
+                        })
     def test_index_monitors(self):
         self.set_up_expect()
 
@@ -901,6 +917,21 @@ class LoadBalancerTests(test.TestCase):
         form_data = {"action": "poolstable__deletevip__%s" % pool.id}
         res = self.client.post(self.INDEX_URL, form_data)
 
+        self.assertNoFormErrors(res)
+
+    @test.create_stubs({api.lbaas: ('pool_get', ),
+                        api.network: ('tenant_floating_ip_list',
+                                      'floating_ip_disassociate', )})
+    def test_disassociate_vip_fip(self):
+        pool = self.pools.first()
+        fips = self.floating_ips.list()
+        api.lbaas.pool_get(IsA(http.HttpRequest), pool.id).AndReturn(pool)
+        api.network.tenant_floating_ip_list(IsA(http.HttpRequest)).\
+            AndReturn(fips)
+        api.network.floating_ip_disassociate(IsA(http.HttpRequest), 3)
+        self.mox.ReplayAll()
+        form_data = {"action": "poolstable__disassociate__%s" % pool.id}
+        res = self.client.post(self.INDEX_URL, form_data)
         self.assertNoFormErrors(res)
 
     @test.create_stubs({api.lbaas: ('member_list', 'member_delete')})

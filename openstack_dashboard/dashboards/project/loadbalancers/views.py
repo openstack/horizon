@@ -43,9 +43,17 @@ class IndexView(tabs.TabbedTableView):
     page_title = _("Load Balancer")
 
     def post(self, request, *args, **kwargs):
+        """This method is messy because table actions
+        were not implemented correctly.  ideally,
+        this code can be refactored to move items into
+        table actions
+        """
         obj_ids = request.POST.getlist('object_ids')
         action = request.POST['action']
-        m = re.search('.delete([a-z]+)', action).group(1)
+        results = re.search('.delete([a-z]+)', action)
+        if not results:
+            return super(IndexView, self).post(request, *args, **kwargs)
+        m = results.group(1)
         if obj_ids == []:
             obj_ids.append(re.search('([0-9a-z-]+)$', action).group(1))
         if m == 'monitor':

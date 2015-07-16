@@ -14,17 +14,23 @@
 
 
 from django.core.urlresolvers import reverse
+from django import shortcuts
 from django import template
 from django.template import defaultfilters as filters
 from django.utils import http
+from django.utils.http import urlencode
 from django.utils.translation import pgettext_lazy
 from django.utils.translation import ugettext_lazy as _
 from django.utils.translation import ungettext_lazy
 
+from horizon import conf
 from horizon import exceptions
+from horizon import messages
 from horizon import tables
 
 from openstack_dashboard import api
+from openstack_dashboard.dashboards.project.access_and_security.floating_ips \
+    import workflows
 from openstack_dashboard import policy
 
 
@@ -259,6 +265,85 @@ class DeletePMAssociationLink(policy.PolicyTargetMixin,
         return True
 
 
+class AddVIPFloatingIP(policy.PolicyTargetMixin, tables.LinkAction):
+    """Add floating ip to VIP
+
+    This class is extremely similar to AssociateIP from
+    the instances page
+    """
+    name = "associate"
+    verbose_name = _("Associate Floating IP")
+    url = "horizon:project:access_and_security:floating_ips:associate"
+    classes = ("ajax-modal",)
+    icon = "link"
+    policy_rules = (("compute", "network:associate_floating_ip"),)
+
+    def allowed(self, request, pool):
+        if not api.network.floating_ip_supported(request):
+            return False
+        if api.network.floating_ip_simple_associate_supported(request):
+            return False
+        if hasattr(pool, "vip") and pool.vip:
+            vip = pool.vip
+            return not (hasattr(vip, "fip") and vip.fip)
+        return True
+
+    def get_link_url(self, datum):
+        base_url = reverse(self.url)
+        next_url = self.table.get_full_url()
+        params = {
+            workflows.IPAssociationWorkflow.redirect_param_name: next_url}
+        if hasattr(datum, "vip") and datum.vip:
+            vip = datum.vip
+            params['port_id'] = vip.port_id
+        params = urlencode(params)
+        return "?".join([base_url, params])
+
+
+class RemoveVIPFloatingIP(policy.PolicyTargetMixin, tables.Action):
+    """Remove floating IP from VIP
+
+    This class is extremely similar to the project instance table
+    SimpleDisassociateIP feature, but just different enough to not
+    be able to share much code
+    """
+    name = "disassociate"
+    preempt = True
+    icon = "unlink"
+    verbose_name = _("Disassociate Floating IP")
+    classes = ("btn-danger", "btn-disassociate",)
+    policy_rules = (("compute", "network:disassociate_floating_ip"),)
+
+    def allowed(self, request, pool):
+        if not api.network.floating_ip_supported(request):
+            return False
+        if not conf.HORIZON_CONFIG["simple_ip_management"]:
+            return False
+        if hasattr(pool, "vip") and pool.vip:
+            vip = pool.vip
+            return (hasattr(vip, "fip") and vip.fip)
+        return False
+
+    def single(self, table, request, pool_id):
+        try:
+            pool = api.lbaas.pool_get(request, pool_id)
+            fips = api.network.tenant_floating_ip_list(request)
+            vip_fips = [fip for fip in fips
+                        if fip.port_id == pool.vip.port_id]
+            if not vip_fips:
+                messages.info(request, _("No floating IPs to disassociate."))
+            else:
+                api.network.floating_ip_disassociate(request,
+                                                     vip_fips[0].id)
+                messages.success(request,
+                                 _("Successfully disassociated "
+                                   "floating IP: %s") % fip.ip)
+        except Exception:
+            exceptions.handle(request,
+                              _("Unable to disassociate floating IP."))
+        return shortcuts.redirect(request.get_full_path())
+
+
 class UpdatePoolsRow(tables.Row):
     ajax = True
 
@@ -358,7 +443,8 @@ class PoolsTable(tables.DataTable):
         table_actions = (AddPoolLink, DeletePoolLink)
         row_actions = (UpdatePoolLink, AddVipLink, UpdateVipLink,
                        DeleteVipLink, AddPMAssociationLink,
-                       DeletePMAssociationLink, DeletePoolLink)
+                       DeletePMAssociationLink, DeletePoolLink,
+                       AddVIPFloatingIP, RemoveVIPFloatingIP)
 
 
 def get_pool_link(member):
