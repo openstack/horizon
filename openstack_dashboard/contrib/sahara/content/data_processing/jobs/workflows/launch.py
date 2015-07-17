@@ -296,7 +296,7 @@ class JobConfig(workflows.Step):
         context["job_config"] = {"configs": job_config}
         context["job_config"]["args"] = job_args_array
 
-        if job_type in ["Java", "Spark"]:
+        if job_type in ["Java", "Spark", "Storm"]:
             context["job_config"]["configs"][JobConfigAction.MAIN_CLASS] = (
                 data.get("main_class", ""))
             context["job_config"]["configs"][JobConfigAction.JAVA_OPTS] = (

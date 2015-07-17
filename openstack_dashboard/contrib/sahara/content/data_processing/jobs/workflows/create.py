@@ -91,6 +91,7 @@ class GeneralConfigAction(workflows.Action):
                 'data-jobtype-hive': _("Choose a main binary"),
                 'data-jobtype-shell': _("Choose a shell script"),
                 'data-jobtype-spark': _("Choose a main binary"),
+                'data-jobtype-storm': _("Choose a main binary"),
                 'data-jobtype-mapreduce.streaming': _("Choose a main binary")
             }))
 
