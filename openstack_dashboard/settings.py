@@ -25,6 +25,7 @@ import django
 from django.utils.translation import ugettext_lazy as _
 
 from openstack_dashboard import exceptions
+from openstack_dashboard.static_settings import find_static_files  # noqa
 from openstack_dashboard.static_settings import get_staticfiles_dirs  # noqa
 
 
@@ -305,31 +306,7 @@ STATICFILES_DIRS.append(
 
 # populate HORIZON_CONFIG with auto-discovered JavaScript sources, mock files,
 # specs files and external templates.
-from horizon.utils import file_discovery as fd
-
-# note the path must end in a '/' or the resultant file paths will have a
-# leading "/"
-fd.populate_horizon_config(
-    HORIZON_CONFIG,
-    os.path.join(ROOT_PATH, '..', 'horizon', 'static/')
-)
-
-# filter out non-angular javascript code and lib
-HORIZON_CONFIG['js_files'] = ([f for f in HORIZON_CONFIG['js_files']
-                               if not f.startswith('horizon/')])
-
-# note the path must end in a '/' or the resultant file paths will have a
-# leading "/"
-fd.populate_horizon_config(
-    HORIZON_CONFIG,
-    os.path.join(ROOT_PATH, 'static/'),
-    sub_path='openstack-service-api/'
-)
-fd.populate_horizon_config(
-    HORIZON_CONFIG,
-    os.path.join(ROOT_PATH, 'static/'),
-    sub_path='app/core/'
-)
+find_static_files(ROOT_PATH, HORIZON_CONFIG)
 
 # Load the pluggable dashboard settings
 import openstack_dashboard.enabled
