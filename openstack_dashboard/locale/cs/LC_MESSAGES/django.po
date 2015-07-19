@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-07-16 03:10+0000\n"
-"PO-Revision-Date: 2015-07-15 13:22+0000\n"
+"POT-Creation-Date: 2015-07-16 22:49+0000\n"
+"PO-Revision-Date: 2015-07-16 15:32+0000\n"
 "Last-Translator: Zbyněk Schwarz <zbynek.schwarz@gmail.com>\n"
 "Language-Team: Czech (http://www.transifex.com/p/horizon/language/cs/)\n"
 "MIME-Version: 1.0\n"
@@ -1078,6 +1078,9 @@ msgstr "Kontejnery"
 msgid "Contents"
 msgstr "Obsahy"
 
+msgid "Control access to instances of the node group."
+msgstr "Řízení přístupu k instancím ze skupiny uzlu."
+
 msgid ""
 "Control access to your instance via key pairs, security groups, and other "
 "mechanisms."
@@ -1449,6 +1452,9 @@ msgstr "Vytvořit šifrovaný typ svazku."
 
 msgid "Create security group for this Node Group."
 msgstr "Vytvořit bezpečnostní skupinu pro tuto skupinu uzlu."
+
+msgid "Create volumes in this availability zone."
+msgstr "Vytvořit svazky v této zóně dostupnosti."
 
 msgid "Created"
 msgstr "Vytvořeno"
@@ -3242,6 +3248,9 @@ msgstr "Obraz byl úspěšně aktualizován."
 msgid "Images"
 msgstr "Obrazy"
 
+msgid "Implementation"
+msgstr "Zavedení"
+
 msgid "Import Key Pair"
 msgstr "Importovat pár klíče %s"
 
@@ -4325,6 +4334,13 @@ msgstr "Stará konfigurace"
 msgid "On Demand"
 msgstr "Na žádost"
 
+msgid ""
+"Once a floating IP is released, there is no guarantee the same IP can be "
+"allocated again."
+msgstr ""
+"Jakmile je plovoucí IP adresa uvolněna, neexistuje žádná záruka, že stejná "
+"IP bude znovu přidělena."
+
 msgid "Open Port"
 msgstr "Otevřít port"
 
@@ -4988,6 +5004,10 @@ msgstr "Typy zdrojů"
 msgid "Resource Usage"
 msgstr "Využití zdrojů."
 
+#, python-format
+msgid "Resource types updated for namespace %s."
+msgstr "Typy zdroje ve jmenném prostoru %s aktualizovány."
+
 msgid "Resources"
 msgstr "Zdroje"
 
@@ -5167,6 +5187,13 @@ msgstr "Spuštěn typ přesunutí instance"
 
 msgid "SLAAC: Address discovered from OpenStack Router"
 msgstr "SLAAC: Adresa zjištěna ze směrovače OpenStack"
+
+msgid ""
+"Sahara will use instances of this node group to access other cluster "
+"instances."
+msgstr ""
+"Sahara použije instance této skupiny uzlu pro přístup k ostatním instancím "
+"clusteru."
 
 msgid "Save"
 msgstr "Uložit"
@@ -5808,6 +5835,10 @@ msgstr "Podsítě"
 
 msgid "Subnets Associated"
 msgstr "Podsítě připojeny"
+
+msgctxt "Current status of a Job"
+msgid "Succeeded"
+msgstr "Úspěšně provedeno"
 
 #, python-format
 msgid "Successfully accepted volume transfer: \"%s\""
@@ -8028,6 +8059,13 @@ msgid ""
 msgstr ""
 "Svazek nemůže být rozšířen na %(req)iGB, protože máte dostupných pouze "
 "%(avail)iGB z vaší kvóty."
+
+msgid ""
+"Volume mount point (e.g. 'vda' mounts at '/dev/vda'). Leave this field blank "
+"to let the system choose a device name for you."
+msgstr ""
+"Bod připojení svazku (např.  'vda' je připojeno v '/dev/vda'). Nechejte toto "
+"pole prázdné, aby systém zvolil název zařízení za Vás."
 
 msgid "Volume name to be assigned"
 msgstr "Název svazku který bude přidělen"
