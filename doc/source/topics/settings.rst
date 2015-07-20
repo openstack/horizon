@@ -654,7 +654,8 @@ with Keystone V3. All entities will be created in the default domain.
 Default: ``"_member_"``
 
 The name of the role which will be assigned to a user when added to a project.
-This name must correspond to a role name in Keystone.
+This value must correspond to an existing role name in Keystone. In general,
+the value should match the ``member_role_name`` defined in ``keystone.conf``.
 
 
 ``OPENSTACK_KEYSTONE_MULTIDOMAIN_SUPPORT``
