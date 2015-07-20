@@ -52,10 +52,12 @@ that Horizon supports in DevStack when `stack.sh` is run.
     enable_service q-meta
     enable_service q-metering
     enable_service neutron
-    enable_service q-lbaas
     enable_service q-fwaas
     enable_service q-vpn
     # end group
+
+    # enable lbaas plugin to neutron
+    enable_plugin neutron-lbaas git://git.openstack.org/openstack/neutron-lbaas
 
     # Enable Ceilometer (Metering)
     enable_service ceilometer-acompute ceilometer-acentral ceilometer-anotification ceilometer-collector ceilometer-api
