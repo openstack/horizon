@@ -890,10 +890,14 @@ class LoadBalancerTests(test.TestCase):
 
     @test.create_stubs({api.lbaas: ('pool_list', 'pool_delete')})
     def test_delete_pool(self):
-        pool = self.pools.first()
+        pool_list = self.pools.list()
+        pool = pool_list[0]
+        # the test pool needs to have no vip
+        # in order to be able to be deleted
+        pool.vip_id = None
         api.lbaas.pool_list(
             IsA(http.HttpRequest), tenant_id=self.tenant.id) \
-            .AndReturn(self.pools.list())
+            .AndReturn(pool_list)
         api.lbaas.pool_delete(IsA(http.HttpRequest), pool.id)
         self.mox.ReplayAll()
 
