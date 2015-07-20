@@ -46,10 +46,84 @@ local tests. An explanation of the options, and details of others you may want
 to use, can be found in the
 `ESLint user guide <http://eslint.org/docs/user-guide/configuring>`_.
 
+Application Structure
+=====================
+
+OpenStack Dashboard is an example of a Horizon-based Angular application. Other
+applications built on the Horizon framework can follow a similar structure. It
+is composed of two key Angular modules:
+
+**app.module.js** - The root of the application. Defines the modules required by
+    the application, and includes modules from its pluggable dashboards.
+
+**framework.module.js** - Reusable Horizon components. It is one of the
+    application dependencies.
+
 .. _js_file_structure:
 
 File Structure
 ==============
+
+Horizon has three kinds of angular code:
+
+1. Specific to one dashboard in the OpenStack Dashboard application
+2. Specific to the OpenStack Dashboard application, but reusable by multiple
+   dashboards
+3. Reusable by any application based on the Horizon framework
+
+When adding code to horizon, consider whether it is dashboard-specific or should be
+broken out as a reusable utility or widget.
+
+Code specific to one dashboard
+------------------------------
+
+Code that isn't shared beyond a single dashboard is placed in
+``openstack_dashboard/dashboards/mydashboard/static``. Entire dashboards may be
+enabled or disabled using Horizon's plugin mechanism. Therefore no dashboards
+other than ``mydashboard`` can safely use this code.
+
+The ``openstack_dashboard/dashboards/static`` directory structure determines
+how the code is deployed and matches the module structure.
+For example:
+::
+
+  openstack_dashboard/dashboards/identity/static/dashboard/identity/
+  ├── identity.module.js
+  ├── identity.module.spec.js
+  └── identity.scss
+
+Because the code is in ``openstack_dashboard/dashboards/identity`` we know it
+is specific to just the ``identity`` dashboard and not used by any others.
+
+Code shared by multiple dashboards
+----------------------------------
+
+Views or utilities needed by multiple dashboards are placed in
+``openstack_dashboard/static/app``. For example:
+::
+
+  openstack_dashboard/static/app/core/cloud-services/
+  ├── cloud-services.js
+  └── cloud-services.spec.js
+
+The ``cloud-services`` module is used by panels in multiple dashboards. It
+cannot be placed within ``openstack_dashboard/dashboards/mydashboard`` because
+disabling that one dashboard would break others. Therefore, it is included as
+part of the application ``core`` module. Code in ``app/`` is guaranteed to
+always be present, even if all other dashboards are disabled.
+
+Reusable components
+-------------------
+
+Finally, components that are easily reused by any application are placed in
+``horizon/static/framework/``. These do not contain URLs or business logic
+that is specific to any application (even the OpenStack Dashboard application).
+
+The modal directive ``horizon/static/framework/widgets/modal/`` is a good
+example of a reusable component.
+
+One folder per component
+------------------------
 
 Each component should have its own folder, with the code broken up into one JS
 component per file. (See `Single Responsibility <https://github.com/johnpapa/angular-styleguide#single-responsibility>`_
@@ -58,36 +132,84 @@ Each folder may include styling (``.scss``), as well as templates(``.html``)
 and tests (``.spec.js``).
 You may also include examples, by appending ``.example``.
 
-Reusable components are in ``horizon/static/framework/``. These are a
-collection of pieces, such as modals or wizards where the functionality
-is likely to be used across many parts of horizon.
-When adding code to horizon, consider whether it is panel-specific or should be
-broken out as a reusable utility or widget.
-
-The modal directive is a good example of the file structure. This is a reusable
-component:
-::
-
-  horizon/static/framework/widgets/modal/
-  ├── modal.controller.js
-  ├── modal.module.js
-  ├── modal.service.js
-  ├── modal.spec.js
-  └── simple-modal.html
-
-Panel-specific code is in ``openstack_dashboard/static/dashboard/``. For example:
-::
-
-  openstack_dashboard/static/dashboard/workflow/
-  ├── decorator.service.js
-  ├── workflow.module.js
-  ├── workflow.module.spec.js
-  └── workflow.service.js
-
 For larger components, such as workflows with multiple steps, consider breaking
-the code down further. The Angular **Launch Instance** workflow,
-for example, has one directory per step
-(``openstack_dashboard/static/dashboard/launch-instance/``)
+the code down further. For example, the Launch Instance workflow, has one
+directory per step. See
+``openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/``
+
+SCSS files
+----------
+
+The top-level SCSS file in ``openstack_dashboard/static/app/app.scss``. It
+includes any styling that is part of the application ``core`` and may be
+reused by multiple dashboards. SCSS files that are specific to a particular
+dashboard are linked to the application by adding them in that dashboard's
+enabled file. For example, `_1000_project.py` is the enabled file for the
+``Project`` dashboard and includes:
+::
+
+    ADD_SCSS_FILES = [
+        'dashboard/project/project.scss',
+    ]
+
+Styling files are hierarchical, and include any direct child SCSS files. For
+example, ``project.scss`` includes the ``workflow`` SCSS file, which in turn
+includes any launch instance styling:
+::
+
+    @import "workflow/workflow";
+
+This allows the application to easily include all needed styling, simply by
+including a dashboards top-level SCSS file.
+
+Module Structure
+================
+
+Horizon Angular modules use names that map to the source code directory structure.
+This provides namespace isolation for modules and services, which makes
+dependency injection clearer. It also reduces code conflicts where two
+different modules define a module, service or constant of the same name. For
+example:
+::
+
+  openstack_dashboard/dashboards/identity/static/dashboard/identity/
+  └── identity.module.js
+
+The preferred Angular module name in this example is
+``horizon.dashboard.identity``. The ``horizon`` part of the module name maps to
+the ``static`` directory and indicates this is a ``horizon`` based application.
+``dashboard.identity`` maps to folders that are created within ``static``. This
+allows a direct mapping between the angular module name of
+``horizon.dashboard.identity`` and the source code directory of
+``static\dashboard\identity``.
+
+Services and constants within these modules should all start with their module
+name to avoid dependency injection collisions. For example:
+::
+
+    $provide.constant('horizon.dashboard.identity.basePath', path);
+
+Directives do not require the module name but are encouraged to begin with the
+``hz`` prefix. For example:
+::
+
+    .directive('hzMagicSearchBar', hzMagicSearchBar);
+
+Finally, each module lists its child modules as a dependency. This allows the
+root module to be included by an application, which will automatically define
+all child modules. For example:
+::
+
+    .module('horizon.framework', [
+      'horizon.framework.conf',
+      'horizon.framework.util',
+      'horizon.framework.widgets'
+    ])
+
+``horizon.framework`` declares a dependency on ``horizon.framework.widgets``,
+which declares dependencies on each individual widget. This allows the
+application to access any widget, simply by depending on the top-level
+``horizon.framework`` module.
 
 Testing
 =======
@@ -103,25 +225,47 @@ For more detailed information, see :doc:`javascript_testing`.
 Translation (Internationalization and Localization)
 ===================================================
 
-.. Note::
-  This is likely to change soon, after the
-  `Angular Translation <https://blueprints.launchpad.net/horizon/+spec/angular-translate-makemessages>`_
-  blueprint has been completed.
-
 Translations are handled in Transifex, as with Django. They are merged daily
 with the horizon upstream codebase. See
 `Translations <https://wiki.openstack.org/wiki/Translations>`_ in the
 OpenStack wiki to learn more about this process.
 
-Use either ``gettext`` (singular) or ``ngettext`` (plural):
+To translate text in HTML files, you may use the ``translate`` directive or
+filter. The directive be used as an element, or an attribute:
 ::
 
-  gettext('text to be translated');
-  ngettext('text to be translated');
+  // Translate singular, as element
+  <translate>Lorem ipsum</translate>
+
+  // Translate singular, as attribute
+  <h1 translate>Lorem ipsum</h1>
+
+  // Translate plural (attribute only)
+  <div translate translate-n="count" translate-plural="apples">apple</div>
+
+  // Filter singular
+  <input type="text" placeholder="{$ 'Username' | translate $}" />
+
+  // Comments for translators, to add context
+  <h1 translate-comment="Verb" translate>File</h1>
+
+.. Note::
+
+  The filter does not support plural strings.
+
+To translate text in JS files, such as Angular controllers, use either
+``gettext`` (singular) or ``ngettext`` (plural):
+::
+
+  gettext('apple');
+  ngettext('apple', 'apples', count);
 
 The :ref:`translatability` section contains information about the
 pseudo translation tool, and how to make sure your translations are working
 locally.
+
+Horizon uses the `angular-gettext <https://angular-gettext.rocketeer.be>`_
+library to provide directives and filters for extracting translatable text.
 
 Creating your own panel
 =======================
