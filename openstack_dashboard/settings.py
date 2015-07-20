@@ -283,6 +283,19 @@ STATIC_URL = WEBROOT + 'static/'
 STATICFILES_DIRS = get_staticfiles_dirs(WEBROOT)
 
 CUSTOM_THEME = os.path.join(ROOT_PATH, CUSTOM_THEME_PATH)
+
+# If a custom template directory exists within our custom theme, then prepend
+# it to our first-come, first-serve TEMPLATE_DIRS
+if os.path.exists(os.path.join(CUSTOM_THEME, 'templates')):
+    TEMPLATE_DIRS = \
+        (os.path.join(CUSTOM_THEME_PATH, 'templates'),) + TEMPLATE_DIRS
+
+# Only expose the subdirectory 'static' if it exists from a custom theme,
+# allowing other logic to live with a theme that we might not want to expose
+# statically
+if os.path.exists(os.path.join(CUSTOM_THEME, 'static')):
+    CUSTOM_THEME = os.path.join(CUSTOM_THEME, 'static')
+
 STATICFILES_DIRS.append(
     ('custom', CUSTOM_THEME),
 )
