@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-07-16 22:49+0000\n"
-"PO-Revision-Date: 2015-07-16 15:32+0000\n"
+"POT-Creation-Date: 2015-07-19 22:22+0000\n"
+"PO-Revision-Date: 2015-07-19 19:21+0000\n"
 "Last-Translator: Zbyněk Schwarz <zbynek.schwarz@gmail.com>\n"
 "Language-Team: Czech (http://www.transifex.com/p/horizon/language/cs/)\n"
 "MIME-Version: 1.0\n"
@@ -3601,6 +3601,9 @@ msgstr "Spustit instanci s tímto profilem zásad"
 msgid "Launch instances in these security groups."
 msgstr "Spouštět instance v těchto bezpečnostních skupinách."
 
+msgid "Launch instances in this availability zone."
+msgstr "Spustit instance v této zóně dostupnosti."
+
 #, python-format
 msgid "Launched %(count)s named \"%(name)s\"."
 msgstr "Spuštěno %(count)s pojmenovaných \"%(name)s\"."
@@ -3803,6 +3806,9 @@ msgstr "Popisná data"
 
 msgid "Metadata Definition File"
 msgstr "Soubor vymezení popisných dat"
+
+msgid "Metadata Definitions"
+msgstr "Určení popisných dat"
 
 msgid "Metadata Items"
 msgstr "Položky popisných dat"
@@ -6085,6 +6091,13 @@ msgstr "Typ ICMP není v rozsahu (-1, 255)"
 #, python-format
 msgid "The ID \"%s\" is already used by another flavor."
 msgstr "ID \"%s\" již je využíván jinou konfigurací."
+
+msgid ""
+"The ID of the host where the port is allocated. In some cases, different "
+"implementations can run on different hosts."
+msgstr ""
+"ID hostitele, kde je port přidělen. V některých případech mohou různá "
+"zavedení běžet na různých hostitelích."
 
 msgid "The JSON formatted contents of a namespace."
 msgstr "Obsah jmenného prostoru ve formátu JSON."
