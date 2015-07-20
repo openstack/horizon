@@ -50,6 +50,20 @@ class CreateNetworkInfoAction(workflows.Action):
                                     required=False,
                                     help_text=_("The state to start"
                                                 " the network in."))
+    with_subnet = forms.BooleanField(label=_("Create Subnet"),
+                                     widget=forms.CheckboxInput(attrs={
+                                         'class': 'switchable',
+                                         'data-slug': 'with_subnet',
+                                         'data-hide-tab': 'create_network__'
+                                                          'createsubnetinfo'
+                                                          'action,'
+                                                          'create_network__'
+                                                          'createsubnetdetail'
+                                                          'action,',
+                                         'data-hide-on-checked': 'false'
+                                     }),
+                                     initial=True,
+                                     required=False)
 
     def __init__(self, request, *args, **kwargs):
         super(CreateNetworkInfoAction, self).__init__(request,
@@ -84,35 +98,56 @@ class CreateNetworkInfoAction(workflows.Action):
 
 class CreateNetworkInfo(workflows.Step):
     action_class = CreateNetworkInfoAction
-    contributes = ("net_name", "admin_state", "net_profile_id")
+    contributes = ("net_name", "admin_state", "net_profile_id", "with_subnet")
 
 
 class CreateSubnetInfoAction(workflows.Action):
-    with_subnet = forms.BooleanField(label=_("Create Subnet"),
-                                     widget=forms.CheckboxInput(attrs={
-                                         'class': 'switchable',
-                                         'data-slug': 'with_subnet',
-                                         'data-hide-tab': 'create_network__'
-                                                          'createsubnetdetail'
-                                                          'action',
-                                         'data-hide-on-checked': 'false'
-                                     }),
-                                     initial=True,
-                                     required=False)
     subnet_name = forms.CharField(max_length=255,
                                   widget=forms.TextInput(attrs={
-                                      'class': 'switched',
-                                      'data-switch-on': 'with_subnet',
                                   }),
                                   label=_("Subnet Name"),
                                   required=False)
+
+    address_source = forms.ChoiceField(
+        required=False,
+        label=_('Network Address Source'),
+        choices=[('manual', _('Enter Network Address manually')),
+                 ('subnetpool', _('Allocate Network Address from a pool'))],
+        widget=forms.Select(attrs={
+            'class': 'switchable',
+            'data-slug': 'source',
+        }))
+
+    subnetpool = forms.ChoiceField(
+        label=_("Address pool"),
+        widget=forms.SelectWidget(attrs={
+            'class': 'switched switchable',
+            'data-slug': 'subnetpool',
+            'data-switch-on': 'source',
+            'data-source-subnetpool': _('Address pool')},
+            data_attrs=('name', 'prefixes',
+                        'ip_version',
+                        'min_prefixlen',
+                        'max_prefixlen',
+                        'default_prefixlen'),
+            transform=lambda x: "%s (%s)" % (x.name, ", ".join(x.prefixes))
+                                if 'prefixes' in x else "%s" % (x.name)),
+        required=False)
+
+    prefixlen = forms.ChoiceField(widget=forms.Select(attrs={
+                                  'class': 'switched',
+                                  'data-switch-on': 'subnetpool',
+                                  }),
+                                  label=_('Network Mask'),
+                                  required=False)
+
     cidr = forms.IPField(label=_("Network Address"),
                          required=False,
                          initial="",
                          widget=forms.TextInput(attrs={
                              'class': 'switched',
-                             'data-switch-on': 'with_subnet',
-                             'data-is-required': 'true'
+                             'data-switch-on': 'source',
+                             'data-source-manual': _("Network Address"),
                          }),
                          help_text=_("Network address in CIDR format "
                                      "(e.g. 192.168.0.0/24, 2001:DB8::/48)"),
@@ -120,16 +155,17 @@ class CreateSubnetInfoAction(workflows.Action):
                          mask=True)
     ip_version = forms.ChoiceField(choices=[(4, 'IPv4'), (6, 'IPv6')],
                                    widget=forms.Select(attrs={
-                                       'class': 'switchable switched',
+                                       'class': 'switchable',
                                        'data-slug': 'ipversion',
-                                       'data-switch-on': 'with_subnet'
                                    }),
-                                   label=_("IP Version"))
+                                   label=_("IP Version"),
+                                   required=False)
     gateway_ip = forms.IPField(
         label=_("Gateway IP"),
         widget=forms.TextInput(attrs={
             'class': 'switched',
-            'data-switch-on': 'with_subnet gateway_ip'
+            'data-switch-on': 'source gateway_ip',
+            'data-source-manual': _("Gateway IP")
         }),
         required=False,
         initial="",
@@ -145,37 +181,109 @@ class CreateSubnetInfoAction(workflows.Action):
         mask=False)
     no_gateway = forms.BooleanField(label=_("Disable Gateway"),
                                     widget=forms.CheckboxInput(attrs={
-                                        'class': 'switched switchable',
+                                        'class': 'switchable',
                                         'data-slug': 'gateway_ip',
-                                        'data-switch-on': 'with_subnet',
                                         'data-hide-on-checked': 'true'
                                     }),
                                     initial=False,
                                     required=False)
-    msg = _('Specify "Network Address" or '
+    msg = _('Specify "Network Address", "Address pool" or '
             'clear "Create Subnet" checkbox.')
 
     class Meta(object):
         name = _("Subnet")
-        help_text = _('Create a subnet associated with the new network, '
-                      'in which case "Network Address" must be specified. '
-                      'If you wish to create a network without a subnet, '
-                      'uncheck the "Create Subnet" checkbox.')
+        help_text = _('Create a subnet associated with the network. '
+                      'Advanced configuration is available by clicking on the '
+                      '"Subnet Details" tab.')
 
     def __init__(self, request, context, *args, **kwargs):
         super(CreateSubnetInfoAction, self).__init__(request, context, *args,
                                                      **kwargs)
+        if 'with_subnet' in context:
+            self.fields['with_subnet'] = forms.BooleanField(
+                initial=context['with_subnet'],
+                required=False,
+                widget=forms.HiddenInput()
+            )
+
         if not getattr(settings, 'OPENSTACK_NEUTRON_NETWORK',
                        {}).get('enable_ipv6', True):
             self.fields['ip_version'].widget = forms.HiddenInput()
             self.fields['ip_version'].initial = 4
+
+        try:
+            if api.neutron.is_extension_supported(request,
+                                                  'subnet_allocation'):
+                self.fields['subnetpool'].choices = \
+                    self.get_subnetpool_choices(request)
+            else:
+                self.hide_subnetpool_choices()
+        except Exception:
+            self.hide_subnetpool_choices()
+            msg = _('Unable to initialize subnetpools')
+            exceptions.handle(request, msg)
+        if len(self.fields['subnetpool'].choices):
+            # Pre-populate prefixlen choices to satisfy Django
+            # ChoiceField Validation. This is overridden w/data from
+            # subnetpool on select.
+            self.fields['prefixlen'].choices = \
+                zip(list(range(0, 128 + 1)),
+                    list(range(0, 128 + 1)))
+            # Populate data-fields for switching the prefixlen field
+            # when user selects a subnetpool other than
+            # "Provider default pool"
+            for (id, name) in self.fields['subnetpool'].choices:
+                if not len(id):
+                    continue
+                key = 'data-subnetpool-' + id
+                self.fields['prefixlen'].widget.attrs[key] = \
+                    _('Network Mask')
+        else:
+            self.hide_subnetpool_choices()
+
+    def get_subnetpool_choices(self, request):
+        subnetpool_choices = [('', _('Select a pool'))]
+        default_ipv6_subnet_pool_label = \
+            getattr(settings, 'OPENSTACK_NEUTRON_NETWORK', {}).get(
+                'default_ipv6_subnet_pool_label', None)
+        default_ipv4_subnet_pool_label = \
+            getattr(settings, 'OPENSTACK_NEUTRON_NETWORK', {}).get(
+                'default_ipv4_subnet_pool_label', None)
+
+        if default_ipv6_subnet_pool_label:
+            subnetpool_dict = {'ip_version': 6,
+                               'name': default_ipv6_subnet_pool_label}
+            subnetpool = api.neutron.SubnetPool(subnetpool_dict)
+            subnetpool_choices.append(('', subnetpool))
+
+        if default_ipv4_subnet_pool_label:
+            subnetpool_dict = {'ip_version': 4,
+                               'name': default_ipv4_subnet_pool_label}
+            subnetpool = api.neutron.SubnetPool(subnetpool_dict)
+            subnetpool_choices.append(('', subnetpool))
+
+        for subnetpool in api.neutron.subnetpool_list(request):
+            subnetpool_choices.append((subnetpool.id, subnetpool))
+        return subnetpool_choices
+
+    def hide_subnetpool_choices(self):
+        self.fields['address_source'].widget = forms.HiddenInput()
+        self.fields['subnetpool'].choices = []
+        self.fields['subnetpool'].widget = forms.HiddenInput()
+        self.fields['prefixlen'].widget = forms.HiddenInput()
 
     def _check_subnet_data(self, cleaned_data, is_create=True):
         cidr = cleaned_data.get('cidr')
         ip_version = int(cleaned_data.get('ip_version'))
         gateway_ip = cleaned_data.get('gateway_ip')
         no_gateway = cleaned_data.get('no_gateway')
-        if not cidr:
+        address_source = cleaned_data.get('address_source')
+
+        # When creating network from a pool it is allowed to supply empty
+        # subnetpool_id signalling that Neutron should choose the default
+        # pool configured by the operator. This is also part of the IPv6
+        # Prefix Delegation Workflow.
+        if not cidr and address_source != 'subnetpool':
             raise forms.ValidationError(self.msg)
         if cidr:
             subnet = netaddr.IPNetwork(cidr)
@@ -207,8 +315,9 @@ class CreateSubnetInfoAction(workflows.Action):
 
 class CreateSubnetInfo(workflows.Step):
     action_class = CreateSubnetInfoAction
-    contributes = ("with_subnet", "subnet_name", "cidr",
-                   "ip_version", "gateway_ip", "no_gateway")
+    contributes = ("subnet_name", "cidr", "ip_version",
+                   "gateway_ip", "no_gateway", "subnetpool",
+                   "prefixlen", "address_source")
 
 
 class CreateSubnetDetailAction(workflows.Action):
@@ -421,7 +530,7 @@ class CreateNetwork(workflows.Workflow):
         try:
             params = {'network_id': network_id,
                       'name': data['subnet_name'],
-                      'cidr': data['cidr'],
+                      'cidr': data['cidr'] if len(data['cidr']) else None,
                       'ip_version': int(data['ip_version'])}
             if tenant_id:
                 params['tenant_id'] = tenant_id
@@ -429,6 +538,10 @@ class CreateNetwork(workflows.Workflow):
                 params['gateway_ip'] = None
             elif data['gateway_ip']:
                 params['gateway_ip'] = data['gateway_ip']
+            if 'subnetpool' in data and len(data['subnetpool']):
+                params['subnetpool_id'] = data['subnetpool']
+                if 'prefixlen' in data and len(data['prefixlen']):
+                    params['prefixlen'] = data['prefixlen']
 
             self._setup_subnet_parameters(params, data)
 

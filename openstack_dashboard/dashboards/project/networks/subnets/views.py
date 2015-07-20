@@ -118,6 +118,14 @@ class DetailView(tabs.TabView):
                     subnet.ipv6_ra_mode, subnet.ipv6_address_mode)
                 subnet.ipv6_modes_desc = utils.IPV6_MODE_MAP.get(ipv6_modes)
 
+            if ('subnetpool_id' in subnet and
+                subnet.subnetpool_id and
+                api.neutron.is_extension_supported(self.request,
+                                                   'subnet_allocation')):
+                subnetpool = api.neutron.subnetpool_get(self.request,
+                                                        subnet.subnetpool_id)
+                subnet.subnetpool_name = subnetpool.name
+
         return subnet
 
     def get_context_data(self, **kwargs):
