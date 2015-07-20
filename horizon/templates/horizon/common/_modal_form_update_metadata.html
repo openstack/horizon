@@ -7,9 +7,9 @@
 {% block ng_controller %}hzModalFormUpdateMetadataCtrl{% endblock %}
 
 {% block modal-body %}
-  <hz-metadata-tree available="available"
+  <metadata-tree available="available"
                     existing="existing"
-                    model="tree"></hz-metadata-tree>
+                    model="tree"></metadata-tree>
   <script type="text/javascript">
     var existing_metadata = JSON.parse('{{ existing_metadata|escapejs }}');
     var available_metadata = JSON.parse('{{ available_metadata|escapejs }}');

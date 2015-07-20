@@ -1,4 +1,6 @@
 /*
+ * Copyright 2015, Intel Corp.
+ *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -14,9 +16,9 @@
 (function () {
   'use strict';
 
-  describe('horizon.framework.widgets.metadata-display module', function () {
+  describe('horizon.framework.widgets.metadata.display module', function () {
     it('should have been defined', function () {
-      expect(angular.module('horizon.framework.widgets.metadata-display')).toBeDefined();
+      expect(angular.module('horizon.framework.widgets.metadata.display')).toBeDefined();
     });
 
     var namespaces = [
@@ -102,13 +104,14 @@
       'test:B:B:1': 'bar'
     };
 
-    describe('hzMetadataDisplay directive', function () {
+    describe('metadataDisplay directive', function () {
       var $scope, $element;
 
       beforeEach(module('templates'));
       beforeEach(module('horizon.framework.widgets'));
-      beforeEach(module('horizon.framework.widgets.metadata-tree'));
-      beforeEach(module('horizon.framework.widgets.metadata-display'));
+      beforeEach(module('horizon.framework.widgets.metadata'));
+      beforeEach(module('horizon.framework.widgets.metadata.tree'));
+      beforeEach(module('horizon.framework.widgets.metadata.display'));
       beforeEach(inject(function ($injector) {
         var $compile = $injector.get('$compile');
         $scope = $injector.get('$rootScope').$new();
@@ -116,14 +119,14 @@
         $scope.available = namespaces;
         $scope.existing = existing;
 
-        var markup = '<hz-metadata-display' +
+        var markup = '<metadata-display' +
                      '  available="available"' +
                      '  existing="existing">' +
-                     '</hz-metadata-display>';
+                     '</metadata-display>';
 
         $element = angular.element(markup);
         $compile($element)($scope);
-        $scope.$digest();
+        $scope.$apply();
       }));
 
       it('should have 3 rows in selector list', function () {

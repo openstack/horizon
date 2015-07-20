@@ -22,17 +22,17 @@
 
     <div class="col-sm-12">
       <div ng-if="row.properties && model.metadataDefs.image">
-        <hz-metadata-display
+        <metadata-display
             available="::model.metadataDefs.image"
             existing="::row.properties">
-        </hz-metadata-display>
+        </metadata-display>
       </div>
 
       <div ng-if="row.volume_image_metadata && model.metadataDefs.volume">
-        <hz-metadata-display
+        <metadata-display
             available="::model.metadataDefs.volume"
             existing="::row.volume_image_metadata">
-        </hz-metadata-display>
+        </metadata-display>
       </div>
     </div>
 

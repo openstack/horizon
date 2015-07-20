@@ -1,0 +1,115 @@
+<div class="metadata-tree-item" ng-form="itemForm">
+  <div class="input-group input-group-sm"
+       ng-switch on="ctrl.item.leaf.type"
+       ng-if="ctrl.item.leaf.type !== 'array'"
+       ng-class="{'has-error': itemForm.property.$invalid && itemForm.property.$dirty}">
+    <span class="input-group-addon"
+          title="{$ ::ctrl.item.leaf.name $}"
+          ng-bind="::ctrl.item.leaf.name">
+    </span>
+    <input ng-switch-when="string"
+           ng-if="!ctrl.item.leaf.enum"
+           name="property"
+           type="text"
+           class="form-control"
+           pattern="{$ ::ctrl.item.leaf.pattern $}"
+           required
+           ng-model="ctrl.item.leaf.value"
+           ng-minlength="{$ ::ctrl.item.leaf.minLength $}"
+           ng-maxlength="{$ ::ctrl.item.leaf.maxLength $}"
+           ng-disabled="ctrl.item.leaf.readonly"/>
+    <select ng-switch-when="string"
+            ng-if="ctrl.item.leaf.enum"
+            name="property"
+            class="form-control"
+            required
+            ng-model="ctrl.item.leaf.value"
+            ng-options="op for op in ctrl.item.leaf.enum"
+            ng-disabled="ctrl.item.leaf.readonly">
+    </select>
+    <input ng-switch-when="integer"
+           name="property"
+           type="number"
+           class="form-control"
+           required
+           ng-model="ctrl.item.leaf.value"
+           ng-pattern="/^-?\d+$/"
+           min="{$ ::ctrl.item.leaf.minimum $}"
+           max="{$ ::ctrl.item.leaf.maximum $}"
+           step="1"
+           ng-disabled="ctrl.item.leaf.readonly"/>
+    <input ng-switch-when="number"
+           name="property"
+           type="number"
+           class="form-control"
+           required
+           ng-model="ctrl.item.leaf.value"
+           min="{$ ::ctrl.item.leaf.minimum $}"
+           max="{$ ::ctrl.item.leaf.maximum $}"
+           ng-disabled="ctrl.item.leaf.readonly"/>
+    <div class="input-group-addon bool"
+         ng-switch-when="boolean">
+      <input name="property"
+             type="checkbox"
+             ng-model="ctrl.item.leaf.value"
+             ng-disabled="ctrl.item.leaf.readonly"/>
+    </div>
+    <div class="input-group-btn">
+      <a class="btn btn-default"
+         ng-click="ctrl.action()">
+        <span class="fa fa-minus"></span>
+      </a>
+    </div>
+  </div>
+  <div ng-if="ctrl.item.leaf.type === 'array'"
+       class="panel panel-default multiselect">
+    <div class="panel-heading">
+      <div ng-click="ctrl.switchOpened()">
+        <span class="fa fa-fw"
+              ng-class="ctrl.item.leaf.readonly ? '' : ctrl.opened ? 'fa-chevron-down' : 'fa-chevron-right'">
+        </span>
+        <span ng-bind="::ctrl.item.leaf.name"></span>
+        <div class="text-right">
+          <a class="btn btn-xs btn-default" ng-click="ctrl.action()">
+            <i class="fa fa-minus"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="panel-body values"
+         ng-class="{disabled: ctrl.item.leaf.readonly}">
+      <span ng-repeat="val in ctrl.item.leaf.value">
+        <span class="label label-default"
+              ng-click="ctrl.removeValue(val)">
+          <span ng-bind="::val"></span>
+          <span class="fa fa-times" ng-if="!ctrl.item.leaf.readonly"></span>
+        </span>
+      </span>
+    </div>
+    <ul class="list-group options" ng-show="ctrl.opened">
+      <li class="list-group-item"
+          ng-repeat="val in ctrl.values"
+          ng-click="ctrl.addValue(val)">
+        <span ng-bind="::val"></span>
+      </li>
+    </ul>
+    <div class="panel-footer" ng-show="ctrl.opened">
+      <div class="form-inline clearfix">
+        <div class="form-group pull-right">
+          <label>Operator</label>
+          <select class="form-control input-sm"
+                  ng-model="ctrl.item.leaf.operator"
+                  ng-options="val for val in ctrl.item.leaf.operators">
+          </select>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="label label-info">
+    <span ng-bind="::ctrl.item.breadcrumb()"></span>
+  </div>
+  <div class="label label-danger"
+       ng-if="itemForm.$invalid && itemForm.$dirty">
+    <span ng-bind="ctrl.formatErrorMessage(ctrl.item, itemForm.property.$error)"></span>
+  </div>
+</div>

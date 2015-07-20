@@ -1,9 +1,24 @@
+/*
+ * Copyright 2015, Intel Corp.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *    http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
 (function () {
   'use strict';
 
-  describe('horizon.framework.widgets.metadata-tree module', function () {
+  describe('horizon.framework.widgets.metadata.tree module', function () {
     it('should have been defined', function () {
-      expect(angular.module('horizon.framework.widgets.metadata-tree')).toBeDefined();
+      expect(angular.module('horizon.framework.widgets.metadata.tree')).toBeDefined();
     });
 
     var namespaces = [
@@ -89,9 +104,10 @@
       beforeEach(module('templates'));
       beforeEach(module('horizon.framework'));
       beforeEach(module('horizon.framework.widgets'));
-      beforeEach(module('horizon.framework.widgets.metadata-tree'));
+      beforeEach(module('horizon.framework.widgets.metadata'));
+      beforeEach(module('horizon.framework.widgets.metadata.tree'));
 
-      describe('hzMetadataTree directive', function () {
+      describe('metadataTree directive', function () {
 
         beforeEach(inject(function ($injector) {
           var $compile = $injector.get('$compile');
@@ -100,14 +116,14 @@
           $scope.available = namespaces;
           $scope.existing = { 'test:B:A:1':'foo' };
 
-          var markup = '<hz-metadata-tree' +
+          var markup = '<metadata-tree' +
                        '  available="available"' +
                        '  existing="existing">' +
-                       '</hz-metadata-tree>';
+                       '</metadata-tree>';
 
           $element = angular.element(markup);
           $compile($element)($scope);
-          $scope.$digest();
+          $scope.$apply();
         }));
 
         it('should have 2 rows in available list', function () {
@@ -161,31 +177,31 @@
         });
       });
 
-      describe('hzMetadataTreeItem directive', function () {
+      describe('metadataTreeItem directive', function () {
         var $scope, $element, item;
 
         beforeEach(inject(function ($injector) {
           var $compile = $injector.get('$compile');
           $scope = $injector.get('$rootScope').$new();
 
-          var serviceName = 'horizon.framework.widgets.metadata-tree.service';
+          var serviceName = 'horizon.framework.widgets.metadata.tree.service';
           item = new ($injector.get(serviceName).Item)();
           $scope.item = item.fromProperty('test', namespaces[0].properties['test:A:6']);
 
-          var markup = '<hz-metadata-tree-item' +
+          var markup = '<metadata-tree-item' +
                        '  item="item" text="text" action="">' +
-                       '</hz-metadata-tree-item>';
+                       '</metadata-tree-item>';
 
           $element = angular.element(markup);
           $compile($element)($scope);
-          $scope.$digest();
+          $scope.$apply();
         }));
 
         it('should have additional methods for array ', function () {
-          expect($element.isolateScope().opened).toBe(false);
-          expect($element.isolateScope().add).toBeDefined();
-          expect($element.isolateScope().remove).toBeDefined();
-          expect($element.isolateScope().open).toBeDefined();
+          expect($element.isolateScope().ctrl.opened).toBe(false);
+          expect($element.isolateScope().ctrl.addValue).toBeDefined();
+          expect($element.isolateScope().ctrl.removeValue).toBeDefined();
+          expect($element.isolateScope().ctrl.switchOpened).toBeDefined();
         });
 
         it('should add values to array ', function () {

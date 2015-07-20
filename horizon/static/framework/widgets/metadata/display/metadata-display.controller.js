@@ -1,4 +1,6 @@
 /*
+ * Copyright 2015, Intel Corp.
+ *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -14,26 +16,23 @@
 (function () {
   'use strict';
 
-  /**
-   * @ngdoc controller
-   * @name horizon.framework.widgets.metadata-display.controller:HzMetadataDisplayController
-   * @description
-   * Controller used by `hzMetadataDisplay`
-   */
   angular
-    .module('horizon.framework.widgets.metadata-display')
-    .controller('HzMetadataDisplayController', HzMetadataDisplayController);
+    .module('horizon.framework.widgets.metadata.display')
+    .controller('MetadataDisplayController', MetadataDisplayController);
 
-  HzMetadataDisplayController.$inject = [
-    '$scope',
-    'horizon.framework.widgets.metadata-tree.service',
-    'horizon.framework.widgets.metadata-display.defaults'
+  MetadataDisplayController.$inject = [
+    'horizon.framework.widgets.metadata.tree.service'
   ];
 
-  function HzMetadataDisplayController($scope, metadataTreeService, defaults) {
+  /**
+   * @ngdoc controller
+   * @name MetadataDisplayController
+   * @description
+   * Controller used by `metadataDisplay`
+   */
+  function MetadataDisplayController(metadataTreeService) {
     var ctrl = this;
 
-    ctrl.text = angular.extend({}, defaults.text, $scope.text);
     ctrl.tree = null;
     ctrl.selected = null;
     ctrl.hide = true;
@@ -55,7 +54,7 @@
     init();
 
     function init() {
-      ctrl.tree = new metadataTreeService.Tree($scope.available, $scope.existing);
+      ctrl.tree = new metadataTreeService.Tree(ctrl.available, ctrl.existing);
       angular.forEach(ctrl.tree.flatTree, function (item) {
         if (item.added) {
           if (!item.leaf) {

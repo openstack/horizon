@@ -1,4 +1,6 @@
 /*
+ * Copyright 2015, Intel Corp.
+ *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -14,33 +16,36 @@
 (function () {
   'use strict';
 
+  angular
+    .module('horizon.framework.widgets.metadata.display')
+    .directive('metadataDisplay', metadataDisplay);
+
+  metadataDisplay.$inject = ['horizon.framework.widgets.metadata.display.basePath'];
+
   /**
    * @ngdoc directive
-   * @name horizon.framework.widgets.metadata-display.directive:hzMetadataDisplay
+   * @name metadataDisplay
+   * @restrict E
    * @scope
    *
    * @description
-   * The `hzMetadataDisplay` displays existing metadata.
+   * The `metadataDisplay` displays existing metadata.
    *
    * @param {object[]} available List of available namespaces
    * @param {object} existing Key-value pairs with existing properties
    * @param {object=} text Text override
    */
-  angular
-    .module('horizon.framework.widgets.metadata-display')
-    .directive('hzMetadataDisplay', hzMetadataDisplay);
-
-  hzMetadataDisplay.$inject = ['horizon.framework.widgets.basePath'];
-
-  function hzMetadataDisplay(path) {
+  function metadataDisplay(path) {
     var directive = {
-      controller: 'HzMetadataDisplayController as ctrl',
+      bindToController: true,
+      controller: 'MetadataDisplayController as ctrl',
+      restrict: 'E',
       scope: {
         available: '=',
         existing: '=',
         text: '=?'
       },
-      templateUrl: path + 'metadata-display/metadata-display.html'
+      templateUrl: path + 'metadata-display.html'
     };
 
     return directive;
