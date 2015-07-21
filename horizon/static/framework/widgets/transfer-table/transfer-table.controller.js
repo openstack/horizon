@@ -17,6 +17,21 @@
 (function() {
   'use strict';
 
+  angular
+    .module('horizon.framework.widgets.transfer-table')
+    .controller('transferTableController', TransferTableController);
+
+  TransferTableController.$inject = [
+    'horizon.framework.widgets.basePath',
+    '$scope',
+    '$timeout',
+    '$parse',
+    '$attrs',
+    '$log',
+    'horizon.framework.widgets.transfer-table.helpText',
+    'horizon.framework.widgets.transfer-table.limits'
+  ];
+
   /**
     * @ngdoc controller
     * @name horizon.framework.widgets.transfer-table.controller:transferTableController
@@ -57,21 +72,6 @@
     *     </action-list>
     *
     */
-  angular
-    .module('horizon.framework.widgets.transfer-table')
-    .controller('transferTableController', TransferTableController);
-
-  TransferTableController.$inject = [
-    'horizon.framework.widgets.basePath',
-    '$scope',
-    '$timeout',
-    '$parse',
-    '$attrs',
-    '$log',
-    'horizon.framework.widgets.transfer-table.helpText',
-    'horizon.framework.widgets.transfer-table.limits'
-  ];
-
   function TransferTableController(path, $scope, $timeout, $parse, $attrs, $log, helpText, limits) {
     var trModel = $parse($attrs.trModel)($scope);
     var trHelpText = $parse($attrs.helpText)($scope);
@@ -81,53 +81,34 @@
       $log.error('Allocated is not an array as required.');
     }
 
-    var model = this;
+    var ctrl = this;
 
-    model.allocate = allocate;
-    model.deallocate = deallocate;
-    model.toggleView = toggleView;
-    model.updateAllocated = updateAllocated;
-    model.numAllocated = numAllocated;
-    model.numDisplayedAvailable = numDisplayedAvailable;
+    ctrl.allocate = allocate;
+    ctrl.deallocate = deallocate;
+    ctrl.toggleView = toggleView;
+    ctrl.updateAllocated = updateAllocated;
+    ctrl.numAllocated = numAllocated;
+    ctrl.numDisplayedAvailable = numDisplayedAvailable;
 
-    model.helpText = angular.extend({}, helpText, trHelpText);
-    model.limits = angular.extend({}, limits, trLimits);
-    model.numAvailable = trModel.available ? trModel.available.length : 0;
-    model.views = { allocated: true, available: true };
+    ctrl.helpText = angular.extend({}, helpText, trHelpText);
+    ctrl.limits = angular.extend({}, limits, trLimits);
+    ctrl.numAvailable = trModel.available ? trModel.available.length : 0;
+    ctrl.views = { allocated: true, available: true };
 
     // Tooltip model
-    model.tooltipModel = {
+    ctrl.tooltipModel = {
       templateUrl: path + 'action-list/warning-tooltip.html',
       data: {
         clickMessage: gettext('Click here to expand the row and view the errors.'),
-        expandDetail: function() {
-          var row = this.element.closest('tr');
-          if (!row.hasClass('expanded')) {
-            // Timeout needed to prevent
-            // $apply already in progress error
-            $timeout(function() {
-              row.find('[hz-expand-detail]').click();
-            }, 0, false);
-          }
-        }
+        expandDetail: expandDetail
       }
     };
 
     // Update tracking of allocated IDs when allocated changed
-    $scope.$watchCollection(function() {
-      return trModel.allocated;
-    }, function(newAllocated) {
-      setAllocatedIds(newAllocated);
-    });
+    $scope.$watchCollection(allocatedCollection, onNewAllocated);
 
     // Update available count when available changed
-    $scope.$watchCollection(function() {
-      return trModel.available;
-    }, function(newAvailable) {
-      var numAvailable = newAvailable ? newAvailable.length : 0;
-      var numAllocated = trModel.allocated ? trModel.allocated.length : 0;
-      model.numAvailable = numAvailable - numAllocated;
-    });
+    $scope.$watchCollection(availableCollection, onNewAvailable);
 
     // Initialize tracking of allocated IDs
     setAllocatedIds(trModel.allocated);
@@ -135,17 +116,31 @@
     //////////
 
     // helper function
+    function expandDetail() {
+      /*eslint-disable angular/ng_controller_as_vm */
+      // 'this' referred here is the this for the function not the controller
+      var row = this.element.closest('tr');
+      /*eslint-enable angular/ng_controller_as_vm */
+      if (!row.hasClass('expanded')) {
+        // Timeout needed to prevent
+        // $apply already in progress error
+        $timeout(function() {
+          row.find('[hz-expand-detail]').click();
+        }, 0, false);
+      }
+    }
+
     function setAllocatedIds(allocatedRows) {
-      model.allocatedIds = {};
+      ctrl.allocatedIds = {};
       if (allocatedRows) {
         angular.forEach(allocatedRows, function(alloc) {
-          model.allocatedIds[alloc.id] = true;
+          ctrl.allocatedIds[alloc.id] = true;
         });
 
         if (trModel.available) {
-          model.numAvailable = trModel.available.length - allocatedRows.length;
+          ctrl.numAvailable = trModel.available.length - allocatedRows.length;
         } else {
-          model.numAvailable = 0;
+          ctrl.numAvailable = 0;
         }
       } else {
         trModel.allocated = [];
@@ -154,13 +149,13 @@
     }
 
     function allocate(row) {
-      if (model.limits.maxAllocation < 0 ||
-          trModel.allocated.length < model.limits.maxAllocation) {
+      if (ctrl.limits.maxAllocation < 0 ||
+          trModel.allocated.length < ctrl.limits.maxAllocation) {
         // Add to allocated only if limit not reached
         trModel.allocated.push(row);
 
-        model.numAvailable -= 1;
-      } else if (model.limits.maxAllocation === 1) {
+        ctrl.numAvailable -= 1;
+      } else if (ctrl.limits.maxAllocation === 1) {
         // Swap out rows if only one allocation allowed
         trModel.allocated.pop();
 
@@ -175,7 +170,7 @@
     }
 
     function deallocate(row) {
-      model.numAvailable += 1;
+      ctrl.numAvailable += 1;
 
       var allocLen = trModel.allocated.length;
       for (var i = allocLen - 1; i >= 0; i--) {
@@ -187,8 +182,8 @@
 
     // Show/hide allocated or available sections
     function toggleView(view) {
-      var show = model.views[view];
-      model.views[view] = !show;
+      var show = ctrl.views[view];
+      ctrl.views[view] = !show;
     }
 
     // Allocated array needs to be updated when rows re-ordered
@@ -205,12 +200,30 @@
     function numDisplayedAvailable() {
       if (trModel.displayedAvailable) {
         var filtered = trModel.displayedAvailable.filter(function(avail) {
-          return !model.allocatedIds[avail.id];
+          return !ctrl.allocatedIds[avail.id];
         });
 
         return filtered.length;
       }
       return 0;
+    }
+
+    function allocatedCollection() {
+      return trModel.allocated;
+    }
+
+    function onNewAllocated(newAllocated) {
+      setAllocatedIds(newAllocated);
+    }
+
+    function availableCollection() {
+      return trModel.available;
+    }
+
+    function onNewAvailable(newAvailable) {
+      var numAvailable = newAvailable ? newAvailable.length : 0;
+      var numAllocated = trModel.allocated ? trModel.allocated.length : 0;
+      ctrl.numAvailable = numAvailable - numAllocated;
     }
   }
 

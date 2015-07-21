@@ -86,7 +86,7 @@
         $element = angular.element(markup);
         $compile($element)($scope);
 
-        $scope.$digest();
+        $scope.$apply();
       }));
 
       it('should have 0 allocated rows', function() {
@@ -185,7 +185,7 @@
         $element = angular.element(markup);
         $compile($element)($scope);
 
-        $scope.$digest();
+        $scope.$apply();
       }));
 
       it('should have 0 allocated rows', function() {
