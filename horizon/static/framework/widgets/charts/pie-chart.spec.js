@@ -100,7 +100,7 @@
       $elementTotal = angular.element(markupTotal);
       $compile($elementTotal)($scope);
 
-      $scope.$digest();
+      $scope.$apply();
     }));
 
     it('Max chart should be compiled', function () {

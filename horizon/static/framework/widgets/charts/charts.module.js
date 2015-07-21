@@ -111,6 +111,7 @@
     remainingLabel: gettext('Remaining'),
     remainingColorClass: 'remaining'
   })
+  .filter('showKeyFilter', showKeyFilter);
 
   /**
    * @ngdoc filter
@@ -119,8 +120,6 @@
    * @returns {function} A filtered list of keys to show in legend
    *
    */
-  .filter('showKeyFilter', showKeyFilter);
-
   function showKeyFilter() {
     return function (items) {
       return items.filter(function (item) {

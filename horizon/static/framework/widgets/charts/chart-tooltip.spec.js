@@ -40,7 +40,7 @@
       var markup = '<chart-tooltip tooltip-data="tooltipData"></chart-tooltip>';
       $element = angular.element(markup);
       $compile($element)($scope);
-      $scope.$digest();
+      $scope.$apply();
     }));
 
     it('compiles', function () {
@@ -61,7 +61,7 @@
 
     it('disables correctly', function () {
       $scope.tooltipData.enabled = false;
-      $scope.$digest();
+      $scope.$apply();
       expect($element.find('div').hasClass('tooltip-enabled')).toBe(false);
     });
 
