@@ -1,4 +1,3 @@
-/* global STATIC_URL, console */
 /* Namespace for core functionality related to DataTables. */
 horizon.datatables = {
   update: function () {
@@ -70,7 +69,8 @@ horizon.datatables = {
               var imagePath = $new_row.find('.btn-action-required').length > 0 ?
                 "dashboard/img/action_required.png":
                 "dashboard/img/loading.gif";
-              imagePath = STATIC_URL + imagePath;
+
+              imagePath = window.STATIC_URL + imagePath;
               spinner_elm.prepend(
                 $("<div>")
                   .addClass("loading_gif")

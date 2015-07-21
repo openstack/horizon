@@ -7,16 +7,20 @@
       'horizon.framework.util',
       'horizon.framework.widgets'
     ])
-    .constant('horizon.framework.basePath', '/static/framework/')
-    .config(frameworkConfiguration);
+    .config(config);
 
-  frameworkConfiguration.$inject = [
+  config.$inject = [
+    '$provide',
     '$interpolateProvider',
     '$httpProvider',
     '$windowProvider'
   ];
 
-  function frameworkConfiguration($interpolateProvider, $httpProvider, $windowProvider) {
+  function config($provide, $interpolateProvider, $httpProvider, $windowProvider) {
+
+    var path = $windowProvider.$get().STATIC_URL + 'framework/';
+    $provide.constant('horizon.framework.basePath', path);
+
     // Replacing the default angular symbol
     // allow us to mix angular with django templates
     $interpolateProvider.startSymbol('{$');

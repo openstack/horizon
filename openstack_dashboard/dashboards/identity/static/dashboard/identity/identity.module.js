@@ -29,15 +29,11 @@
       'hz.dashboard.identity.users',
       'hz.dashboard.identity.projects'
     ])
+    .config(config);
 
-    /**
-     * @name hz.dashboard.identity.basePath
-     * @description Base path for the identity dashboard
-     */
-    .constant('hz.dashboard.identity.basePath', getBasePath());
-
-  function getBasePath() {
-    return (window.WEBROOT || '') + '/static/dashboard/identity/';
+  function config($provide, $windowProvider) {
+    var path = $windowProvider.$get().STATIC_URL + 'dashboard/identity/';
+    $provide.constant('hz.dashboard.identity.basePath', path);
   }
 
 })();

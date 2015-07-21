@@ -90,9 +90,7 @@ var horizonPlugInModules = [];
   globals.npgettext = django.npgettext;
   globals.interpolate = django.interpolate;
   globals.get_format = django.get_format;
+  globals.STATIC_URL = '/static/';
+  globals.WEBROOT = '/';
 
 }(this));
-
-
-
-

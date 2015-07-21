@@ -21,11 +21,17 @@ limitations under the License.
     .module('horizon.framework.util.http', [])
     .service('horizon.framework.util.http.service', ApiService);
 
-  ApiService.$inject = ['$http'];
+  ApiService.$inject = ['$http', '$window'];
 
-  function ApiService($http) {
+  function ApiService($http, $window) {
 
     var httpCall = function (method, url, data, config) {
+      /* eslint-disable angular/ng_window_service */
+      url = $window.WEBROOT + url;
+      /* eslint-enable angular/ng_window_service */
+
+      url = url.replace(/\/+/g, '/');
+
       if (angular.isUndefined(config)) {
         config = {};
       }

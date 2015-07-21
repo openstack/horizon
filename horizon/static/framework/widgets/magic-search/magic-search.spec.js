@@ -79,11 +79,14 @@
         }
       ];
 
-      var markup = '<magic-search ' +
-                     'template="/static/framework/widgets/magic-search/magic-search.html" ' +
-                     'strings="filterStrings" ' +
-                     'facets="{{ filterFacets }}">' +
-                   '</magic-search>';
+      /* eslint-disable angular/ng_window_service */
+      var markup =
+        '<magic-search ' +
+          'template="' + window.STATIC_URL + 'framework/widgets/magic-search/magic-search.html" ' +
+          'strings="filterStrings" ' +
+          'facets="{{ filterFacets }}">' +
+        '</magic-search>';
+      /* eslint-enable angular/ng_window_service */
 
       $element = $compile(angular.element(markup))($scope);
 

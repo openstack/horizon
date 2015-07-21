@@ -24,10 +24,11 @@
    */
   angular
     .module('hz.dashboard.identity.projects', [])
-    .constant('hz.dashboard.identity.projects.basePath', basePath());
+    .config(config);
 
-  function basePath() {
-    return (window.WEBROOT || '') + '/static/dashboard/identity/projects/';
+  function config($provide, $windowProvider) {
+    var path = $windowProvider.$get().STATIC_URL + 'dashboard/identity/projects/';
+    $provide.constant('hz.dashboard.identity.projects.basePath', path);
   }
 
 })();
