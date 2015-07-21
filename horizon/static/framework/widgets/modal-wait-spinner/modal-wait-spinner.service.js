@@ -1,6 +1,12 @@
 (function () {
   'use strict';
 
+  angular
+    .module('horizon.framework.widgets.modal-wait-spinner')
+    .factory('horizon.framework.widgets.modal-wait-spinner.service', WaitSpinnerService);
+
+  WaitSpinnerService.$inject = ['$modal'];
+
   /*
    * @ngdoc factory
    * @name horizon.framework.widgets.modal-wait-spinner.factory:WaitSpinnerService
@@ -12,12 +18,6 @@
    * Over time, uses of the existing Horizon spinner ( horizon.modals.modal_spinner() )
    * can be phased out, or refactored to use this component.
    */
-  angular
-    .module('horizon.framework.widgets.modal-wait-spinner')
-    .factory('horizon.framework.widgets.modal-wait-spinner.service', WaitSpinnerService);
-
-  WaitSpinnerService.$inject = ['$modal'];
-
   function WaitSpinnerService ($modal) {
     var spinner = this;
     var service = {
@@ -46,7 +46,7 @@
     function hideModalSpinner() {
       if (spinner.modalInstance) {
         spinner.modalInstance.dismiss();
-        delete(spinner.modalInstance);
+        delete spinner.modalInstance;
       }
     }
   }
