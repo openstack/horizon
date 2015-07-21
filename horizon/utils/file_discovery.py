@@ -32,7 +32,7 @@ def discover_files(base_path, sub_path='', ext='', trim_base_path=False):
         file_list.extend([path.join(root, file_name)
                           for file_name in files
                           if file_name.endswith(ext)])
-    return file_list
+    return sorted(file_list)
 
 
 def sort_js_files(js_files):
