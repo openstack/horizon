@@ -19,9 +19,7 @@
 import os
 import socket
 
-from openstack_dashboard.static_settings import get_staticfiles_dirs  # noqa
-
-STATICFILES_DIRS = get_staticfiles_dirs()
+from openstack_dashboard.utils import settings as settings_utils
 
 socket.setdefaulttimeout(1)
 
@@ -126,6 +124,10 @@ HORIZON_CONFIG = {
     'bug_url': None,
     'help_url': "http://example.com",
 }
+
+STATICFILES_DIRS = settings_utils.get_xstatic_dirs(
+    settings_utils.BASE_XSTATIC_MODULES, HORIZON_CONFIG
+)
 
 COMPRESS_ENABLED = True
 COMPRESS_OFFLINE = False

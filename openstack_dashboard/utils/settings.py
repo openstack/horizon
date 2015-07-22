@@ -17,7 +17,8 @@ import os
 import pkgutil
 import six
 
-from horizon.utils import file_discovery as fd
+from horizon.utils import file_discovery
+from openstack_dashboard import theme_settings
 
 
 def import_submodules(module):
@@ -121,7 +122,8 @@ def update_dashboards(modules, horizon_config, installed_apps):
             for _app in _apps:
                 module = import_module(_app)
                 base_path = os.path.join(module.__path__[0], 'static/')
-                fd.populate_horizon_config(horizon_config, base_path)
+                file_discovery.populate_horizon_config(horizon_config,
+                                                       base_path)
 
         add_exceptions = six.iteritems(config.get('ADD_EXCEPTIONS', {}))
         for category, exc_list in add_exceptions:
@@ -168,3 +170,173 @@ def update_dashboards(modules, horizon_config, installed_apps):
     # so we save the reference to it before we append to installed_apps
     horizon_config.setdefault('plugins', []).extend(apps)
     installed_apps[0:0] = apps
+
+
+# Order matters, list the xstatic module name and the entry point file(s) for
+# that module (this is often defined as the "main" in bower.json, and
+# as the xstatic module MAIN variable in the very few compliant xstatic
+# modules). If the xstatic module does define a MAIN then set the files
+# list to None.
+# This list is to be used as the base list which is potentially added to in
+# local_settings.py before being passed to get_xstatic_dirs()
+BASE_XSTATIC_MODULES = [
+    ('xstatic.pkg.jquery', ['jquery.js']),
+    ('xstatic.pkg.jquery_migrate', ['jquery-migrate.js']),
+    ('xstatic.pkg.angular', [
+        'angular.js',
+        'angular-cookies.js',
+        'angular-sanitize.js',
+        'angular-route.js'
+    ]),
+    ('xstatic.pkg.angular_bootstrap', ['angular-bootstrap.js']),
+    ('xstatic.pkg.angular_gettext', ['angular-gettext.js']),
+    ('xstatic.pkg.angular_lrdragndrop', None),
+    ('xstatic.pkg.angular_smart_table', None),
+    ('xstatic.pkg.angular_fileupload', ['ng-file-upload-all.js']),
+    ('xstatic.pkg.d3', ['d3.js']),
+    ('xstatic.pkg.jquery_quicksearch', ['jquery.quicksearch.js']),
+    ('xstatic.pkg.jquery_tablesorter', ['jquery.tablesorter.js']),
+    ('xstatic.pkg.spin', ['spin.js', 'spin.jquery.js']),
+    ('xstatic.pkg.jquery_ui', ['jquery-ui.js']),
+    ('xstatic.pkg.bootstrap_scss', ['js/bootstrap.js']),
+    ('xstatic.pkg.bootstrap_datepicker', ['bootstrap-datepicker.js']),
+    ('xstatic.pkg.hogan', ['hogan.js']),
+    ('xstatic.pkg.rickshaw', ['rickshaw.js']),
+    ('xstatic.pkg.jsencrypt', ['jsencrypt.js']),
+    ('xstatic.pkg.objectpath', ['ObjectPath.js']),
+    ('xstatic.pkg.tv4', ['tv4.js']),
+    ('xstatic.pkg.angular_schema_form', ['schema-form.js']),
+
+    # @imported in scss files diectly
+    ('xstatic.pkg.font_awesome', []),
+    ('xstatic.pkg.bootswatch', []),
+    ('xstatic.pkg.roboto_fontface', []),
+    ('xstatic.pkg.mdi', []),
+
+    # testing only, not included in application
+    ('xstatic.pkg.jasmine', []),
+    ('xstatic.pkg.termjs', []),
+]
+
+
+def get_xstatic_dirs(XSTATIC_MODULES, HORIZON_CONFIG):
+    """Discover static file configuration of the xstatic modules.
+
+    For each entry in the XSTATIC_MODULES list we determine the entry
+    point files (which may come from the xstatic MAIN var) and then
+    determine where in the Django static tree the xstatic package's contents
+    should be placed.
+
+    For jquery.bootstrap.wizard.js the module name is None the static file is
+    actually a 3rd-party file but resides in the Horizon source tree and not
+    an xstatic package.
+
+    The xstatic.pkg.jquery_ui package had its contents moved by packagers so
+    it must be handled as a special case.
+    """
+    STATICFILES_DIRS = []
+    HORIZON_CONFIG['xstatic_lib_files'] = []
+    for module_name, files in XSTATIC_MODULES:
+        module = import_module(module_name)
+        if module_name == 'xstatic.pkg.jquery_ui':
+            # determine the correct path for jquery-ui which packagers moved
+            if module.VERSION.startswith('1.10.'):
+                # The 1.10.x versions already contain 'ui' directory.
+                files = ['ui/' + files[0]]
+
+        STATICFILES_DIRS.append(
+            ('horizon/lib/' + module.NAME, module.BASE_DIR)
+        )
+
+        # pull the file entry points from the xstatic package MAIN if possible
+        if hasattr(module, 'MAIN'):
+            files = module.MAIN
+            if not isinstance(files, list):
+                files = [files]
+
+            # just the Javascript files, please (don't <script> css, etc
+            # which is explicitly included in style/themes as appropriate)
+            files = [file for file in files if file.endswith('.js')]
+
+        # add to the list of files to link in the HTML
+        for file in files:
+            file = 'horizon/lib/' + module.NAME + '/' + file
+            HORIZON_CONFIG['xstatic_lib_files'].append(file)
+
+    return STATICFILES_DIRS
+
+
+def find_static_files(
+        HORIZON_CONFIG,
+        AVAILABLE_THEMES,
+        THEME_COLLECTION_DIR,
+        ROOT_PATH):
+    import horizon
+    import openstack_dashboard
+
+    os_dashboard_home_dir = openstack_dashboard.__path__[0]
+    horizon_home_dir = horizon.__path__[0]
+
+    # note the path must end in a '/' or the resultant file paths will have a
+    # leading "/"
+    file_discovery.populate_horizon_config(
+        HORIZON_CONFIG,
+        os.path.join(horizon_home_dir, 'static/')
+    )
+
+    # filter out non-angular javascript code and lib
+    HORIZON_CONFIG['js_files'] = ([f for f in HORIZON_CONFIG['js_files']
+                                   if not f.startswith('horizon/')])
+
+    # note the path must end in a '/' or the resultant file paths will have a
+    # leading "/"
+    file_discovery.populate_horizon_config(
+        HORIZON_CONFIG,
+        os.path.join(os_dashboard_home_dir, 'static/'),
+        sub_path='app/'
+    )
+
+    # Discover theme static resources, and in particular any
+    # static HTML (client-side) that the theme overrides
+    theme_static_files = {}
+    theme_info = theme_settings.get_theme_static_dirs(
+        AVAILABLE_THEMES,
+        THEME_COLLECTION_DIR,
+        ROOT_PATH)
+
+    for url, path in theme_info:
+        discovered_files = {}
+
+        # discover static files provided by the theme
+        file_discovery.populate_horizon_config(
+            discovered_files,
+            path
+        )
+
+        # Get the theme name from the theme url
+        theme_name = url.split('/')[-1]
+
+        # build a dictionary of this theme's static HTML templates.
+        # For each overridden template, strip off the '/templates/' part of the
+        # theme filename then use that name as the key, and the location in the
+        # theme directory as the value. This allows the quick lookup of
+        # theme path for any file overridden by a theme template
+        template_overrides = {}
+        for theme_file in discovered_files['external_templates']:
+            # Example:
+            #   external_templates_dict[
+            #       'framework/widgets/help-panel/help-panel.html'
+            #   ] = 'themes/material/templates/framework/widgets/\
+            #        help-panel/help-panel.html'
+            (templates_part, override_path) = theme_file.split('/templates/')
+            template_overrides[override_path] = 'themes/' + \
+                                                theme_name + theme_file
+
+        discovered_files['template_overrides'] = template_overrides
+
+        # Save all of the discovered file info for this theme in our
+        # 'theme_files' object using the theme name as the key
+        theme_static_files[theme_name] = discovered_files
+
+    # Add the theme file info to the horizon config for use by template tags
+    HORIZON_CONFIG['theme_static_files'] = theme_static_files

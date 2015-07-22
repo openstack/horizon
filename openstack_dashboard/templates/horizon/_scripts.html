@@ -11,28 +11,13 @@
 
 {% include "horizon/_script_i18n.html" %}
 
-{% comment %} Compress jQuery, Angular, Plugins, Bootstrap, Hogan.js and Horizon-specific JS. {% endcomment %}
+{% comment %} Compress Horizon-specific JS. {% endcomment %}
 {% compress js %}
 <script type="text/javascript">
   var STATIC_URL = "{{ STATIC_URL }}";
   var WEBROOT = "{{ WEBROOT }}";
 </script>
-<script src='{{ STATIC_URL }}horizon/lib/angular/angular-cookies.js'></script>
-<script src='{{ STATIC_URL }}horizon/lib/angular/angular-gettext.js'></script>
-<script src='{{ STATIC_URL }}horizon/lib/angular/angular-sanitize.js'></script>
-<script src="{{ STATIC_URL }}horizon/lib/angular/lrdragndrop.js"></script>
-<script src="{{ STATIC_URL }}horizon/lib/angular/smart-table.js"></script>
-<script src="{{ STATIC_URL }}horizon/lib/angular/ng-file-upload-all.js"></script>
-<script src="{{ STATIC_URL }}horizon/lib/d3.js"></script>
-<script src='{{ STATIC_URL }}horizon/lib/jquery/jquery.quicksearch.js'></script>
-<script src="{{ STATIC_URL }}horizon/lib/jquery/jquery.tablesorter.js"></script>
-<script src="{{ STATIC_URL }}horizon/lib/spin.js"></script>
-<script src="{{ STATIC_URL }}horizon/lib/spin.jquery.js"></script>
-<script src="{{ STATIC_URL }}horizon/lib/jquery-ui/ui/jquery-ui.js"></script>
 <script src="{{ STATIC_URL }}horizon/lib/jquery/jquery.bootstrap.wizard.js"></script>
-<script src="{{ STATIC_URL }}bootstrap/js/bootstrap.js"></script>
-<script src='{{ STATIC_URL }}horizon/lib/bootstrap_datepicker/bootstrap-datepicker.js'></script>
-<script src="{{ STATIC_URL }}horizon/lib/hogan.js"></script>
 <script src='{{ STATIC_URL }}horizon/js/horizon.string.js'></script>
 <script src='{{ STATIC_URL }}horizon/js/horizon.communication.js'></script>
 <script src='{{ STATIC_URL }}horizon/js/horizon.datepickers.js'></script>
@@ -60,15 +45,10 @@
 <script src='{{ STATIC_URL }}horizon/js/horizon.networktopology.js'></script>
 <script src='{{ STATIC_URL }}horizon/js/horizon.d3piechart.js'></script>
 <script src='{{ STATIC_URL }}horizon/js/horizon.heattop.js'></script>
-<script src='{{ STATIC_URL }}horizon/lib/rickshaw.js'></script>
 <script src='{{ STATIC_URL }}horizon/js/horizon.d3linechart.js'></script>
 <script src='{{ STATIC_URL }}horizon/js/horizon.d3barchart.js'></script>
 <script src='{{ STATIC_URL }}horizon/js/horizon.firewalls.js'></script>
 <script src='{{ STATIC_URL }}horizon/js/horizon.volumes.js'></script>
-<script src='{{ STATIC_URL }}horizon/lib/jsencrypt/jsencrypt.js'></script>
-<script src='{{ STATIC_URL }}horizon/lib/objectpath/ObjectPath.js'></script>
-<script src='{{ STATIC_URL }}horizon/lib/tv4/tv4.js'></script>
-<script src='{{ STATIC_URL }}horizon/lib/angular/schema-form.js'></script>
 
 {% for file in HORIZON_CONFIG.js_files %}
     <script src='{{ STATIC_URL }}{{ file }}'></script>

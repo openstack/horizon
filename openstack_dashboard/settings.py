@@ -25,9 +25,8 @@ from django.utils.translation import pgettext_lazy
 from django.utils.translation import ugettext_lazy as _
 
 from openstack_dashboard import exceptions
-from openstack_dashboard.static_settings import find_static_files  # noqa
-from openstack_dashboard.static_settings import get_staticfiles_dirs  # noqa
 from openstack_dashboard import theme_settings
+from openstack_dashboard.utils import settings as settings_utils
 
 from horizon.utils.escape import monkeypatch_escape
 
@@ -299,6 +298,8 @@ CSRF_COOKIE_AGE = None
 COMPRESS_OFFLINE_CONTEXT = 'horizon.themes.offline_context'
 
 # Notice all customizable configurations should be above this line
+XSTATIC_MODULES = settings_utils.BASE_XSTATIC_MODULES
+
 try:
     from local.local_settings import *  # noqa
 except ImportError:
@@ -360,12 +361,6 @@ AVAILABLE_THEMES, DEFAULT_THEME = theme_settings.get_available_themes(
     DEFAULT_THEME
 )
 
-STATICFILES_DIRS = get_staticfiles_dirs(STATIC_URL) + \
-    theme_settings.get_theme_static_dirs(
-        AVAILABLE_THEMES,
-        THEME_COLLECTION_DIR,
-        ROOT_PATH)
-
 if CUSTOM_THEME_PATH is not None:
     logging.warning("CUSTOM_THEME_PATH has been deprecated.  Please convert "
                     "your settings to make use of AVAILABLE_THEMES.")
@@ -374,10 +369,12 @@ if DEFAULT_THEME_PATH is not None:
     logging.warning("DEFAULT_THEME_PATH has been deprecated.  Please convert "
                     "your settings to make use of AVAILABLE_THEMES.")
 
-# populate HORIZON_CONFIG with auto-discovered JavaScript sources, mock files,
-# specs files and external templates.
-find_static_files(HORIZON_CONFIG, AVAILABLE_THEMES,
-                  THEME_COLLECTION_DIR, ROOT_PATH)
+# Discover all the directories that contain static files; at the same time
+# discover all the xstatic module entry points to embed in our HTML
+STATICFILES_DIRS = settings_utils.get_xstatic_dirs(
+    XSTATIC_MODULES, HORIZON_CONFIG)
+STATICFILES_DIRS += theme_settings.get_theme_static_dirs(
+    AVAILABLE_THEMES, THEME_COLLECTION_DIR, ROOT_PATH)
 
 # Ensure that we always have a SECRET_KEY set, even when no local_settings.py
 # file is present. See local_settings.py.example for full documentation on the
@@ -391,13 +388,18 @@ if not SECRET_KEY:
     SECRET_KEY = secret_key.generate_or_read_from_file(os.path.join(LOCAL_PATH,
                                                        '.secret_key_store'))
 
+# populate HORIZON_CONFIG with auto-discovered JavaScript sources, mock files,
+# specs files and external templates.
+settings_utils.find_static_files(HORIZON_CONFIG, AVAILABLE_THEMES,
+                                 THEME_COLLECTION_DIR, ROOT_PATH)
+
+
 # Load the pluggable dashboard settings
 import openstack_dashboard.enabled
 import openstack_dashboard.local.enabled
-from openstack_dashboard.utils import settings
 
 INSTALLED_APPS = list(INSTALLED_APPS)  # Make sure it's mutable
-settings.update_dashboards(
+settings_utils.update_dashboards(
     [
         openstack_dashboard.enabled,
         openstack_dashboard.local.enabled,

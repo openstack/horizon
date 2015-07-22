@@ -16,8 +16,6 @@ from django.utils.translation import pgettext_lazy
 from horizon.test.settings import *  # noqa
 from horizon.utils import secret_key
 from openstack_dashboard import exceptions
-from openstack_dashboard.static_settings import find_static_files  # noqa
-from openstack_dashboard.static_settings import get_staticfiles_dirs  # noqa
 
 from horizon.utils.escape import monkeypatch_escape
 
@@ -25,7 +23,7 @@ from horizon.utils.escape import monkeypatch_escape
 # enabling in our test setup to find any issues it might cause
 monkeypatch_escape()
 
-STATICFILES_DIRS = get_staticfiles_dirs()
+from openstack_dashboard.utils import settings as settings_utils
 
 TEST_DIR = os.path.dirname(os.path.abspath(__file__))
 ROOT_PATH = os.path.abspath(os.path.join(TEST_DIR, ".."))
@@ -99,14 +97,19 @@ HORIZON_CONFIG = {
     'images_panel': 'legacy',
 }
 
+STATICFILES_DIRS = settings_utils.get_xstatic_dirs(
+    settings_utils.BASE_XSTATIC_MODULES, HORIZON_CONFIG
+)
+
 # Load the pluggable dashboard settings
 import openstack_dashboard.enabled
-from openstack_dashboard.utils import settings
+import openstack_dashboard.local.enabled
 
 INSTALLED_APPS = list(INSTALLED_APPS)  # Make sure it's mutable
-settings.update_dashboards(
+settings_utils.update_dashboards(
     [
         openstack_dashboard.enabled,
+        openstack_dashboard.local.enabled
     ],
     HORIZON_CONFIG,
     INSTALLED_APPS,
@@ -116,8 +119,8 @@ settings.update_dashboards(
 # the stacks MappingsTests are updated with the new URL path.
 HORIZON_CONFIG['swift_panel'] = 'legacy'
 
-find_static_files(HORIZON_CONFIG, AVAILABLE_THEMES,
-                  THEME_COLLECTION_DIR, ROOT_PATH)
+settings_utils.find_static_files(HORIZON_CONFIG, AVAILABLE_THEMES,
+                                 THEME_COLLECTION_DIR, ROOT_PATH)
 
 # Set to 'legacy' or 'direct' to allow users to upload images to glance via
 # Horizon server. When enabled, a file form field will appear on the create
