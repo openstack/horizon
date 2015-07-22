@@ -122,7 +122,7 @@ class UpdateView(forms.ModalFormView):
                    'tenant_id': port['tenant_id'],
                    'name': port['name'],
                    'admin_state': port['admin_state_up']}
-        if port['binding__vnic_type']:
+        if port.get('binding__vnic_type'):
             initial['binding__vnic_type'] = port['binding__vnic_type']
         try:
             initial['mac_state'] = port['mac_learning_enabled']
