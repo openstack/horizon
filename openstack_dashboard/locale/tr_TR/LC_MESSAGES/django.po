@@ -10,11 +10,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-07-15 00:44+0000\n"
-"PO-Revision-Date: 2015-07-15 04:09+0000\n"
-"Last-Translator: Akihiro Motoki <amotoki@gmail.com>\n"
-"Language-Team: Turkish (Turkey) (http://www.transifex.com/p/horizon/language/"
-"tr_TR/)\n"
+"POT-Creation-Date: 2015-07-19 22:22+0000\n"
+"PO-Revision-Date: 2015-07-22 22:06+0000\n"
+"Last-Translator: Mücahit Büyükyılmaz <mucahit@konya.edu.tr>\n"
+"Language-Team: Turkish (Turkey) (http://www.transifex.com/projects/p/horizon/"
+"language/tr_TR/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -753,7 +753,7 @@ msgid "Backups"
 msgstr "Yedekler"
 
 msgid "Base Image"
-msgstr "Taban İmaj"
+msgstr "Temel İmaj"
 
 msgid "Before"
 msgstr "Önce"
@@ -769,7 +769,7 @@ msgid "Block Device Mapping"
 msgstr "Blok Aygıt Haritası"
 
 msgid "Block Migration"
-msgstr "Blok Geçiş"
+msgstr "Blok Göç"
 
 msgid "Block Storage Services"
 msgstr "Blok Depolama Servisleri"
@@ -783,7 +783,7 @@ msgid "Blocked"
 msgstr "Bloklanmış"
 
 msgid "Boot from image"
-msgstr "İmajdan ön yükle"
+msgstr "İmajdan başlat"
 
 msgid "Boot from image (creates a new volume)"
 msgstr "İmajdan ön yükle (yeni bir mantıksal sürücü oluşturur)"
@@ -910,7 +910,7 @@ msgid "Choose a main binary"
 msgstr "Bir ana ikilik seç"
 
 msgid "Choose a new instance flavor."
-msgstr "Yeni bir sunucu niteliği seçin."
+msgstr "Yeni bir sunucu şablon seçin."
 
 msgid "Choose a snapshot"
 msgstr "Anlık görüntü seçin"
@@ -925,7 +925,7 @@ msgid "Choose an DHCP Agent to attach to."
 msgstr "Bağlanılacak bir DHCP Ajanı seçin."
 
 msgid "Choose an image"
-msgstr "İmaj seçin"
+msgstr "İmaj seç"
 
 msgid "Choose associated QoS Spec."
 msgstr "İlişkilendirilmiş QoS Özelliği seçin."
@@ -952,7 +952,7 @@ msgid "Choose the binary which should be used in this Job."
 msgstr "Bu işte kullanılması gereken bir ikilik seç."
 
 msgid "Choose the flavor to launch."
-msgstr "Başlatılacak nitelik seçin."
+msgstr "Başlatma için şablon seçin."
 
 msgid "Cinder"
 msgstr "Cinder"
@@ -1260,7 +1260,7 @@ msgid "Create Firewall"
 msgstr "Güvenlik Duvarı Oluştur"
 
 msgid "Create Flavor"
-msgstr "Nitelik Oluştur"
+msgstr "Şablon Oluştur"
 
 msgid "Create Group"
 msgstr "Grup Oluştur"
@@ -1569,7 +1569,7 @@ msgstr "Yeni alan \"%s\" oluşturuldu."
 
 #, python-format
 msgid "Created new flavor \"%s\"."
-msgstr "Yeni nitelik \"%s\" oluşturuldu."
+msgstr "Yeni şablon oluşturuldu \"%s\"."
 
 #, python-format
 msgid "Created new host aggregate \"%s\"."
@@ -1840,7 +1840,7 @@ msgstr[0] "Güvenlik Duvarlarını Sil"
 
 msgid "Delete Flavor"
 msgid_plural "Delete Flavors"
-msgstr[0] "Nitelikleri Sil"
+msgstr[0] "Şablonları Sil"
 
 msgid "Delete Group"
 msgid_plural "Delete Groups"
@@ -2334,7 +2334,7 @@ msgstr "Devredışı"
 
 msgid "Disabled User"
 msgid_plural "Disabled Users"
-msgstr[0] "Kullanıcılar Devre Dışı"
+msgstr[0] "Etkin Olmayan Kullanıcılar"
 
 #, python-format
 msgid "Disabled compute service for host: %s."
@@ -2497,7 +2497,7 @@ msgstr "Openstack RC Dosyası İndir"
 
 #, python-format
 msgid "Duration of instance type %s (openstack flavor)"
-msgstr "Sunucu türü %s'in açık kalma süresi (openstack niteliği)"
+msgstr "Sunucu türü %s'in açık kalma süresi (openstack şablonu)"
 
 msgid "Edit"
 msgstr "Değiştir"
@@ -2525,7 +2525,7 @@ msgid "Edit Firewall {{ name }}"
 msgstr "Güvenlik Duvarını Düzenle {{ name }}"
 
 msgid "Edit Flavor"
-msgstr "Nitelik Düzenle"
+msgstr "Şablon Düzenle"
 
 msgid "Edit Group"
 msgstr "Grup Düzenle"
@@ -2673,7 +2673,7 @@ msgstr[0] "Servisler Etkinleştirildi"
 
 msgid "Enabled User"
 msgid_plural "Enabled Users"
-msgstr[0] "Kullanıcılar Etkinleştirildi"
+msgstr[0] "Etkin Kullanıcılar"
 
 msgid "Encapsulation mode"
 msgstr "Sarmalama kipi"
@@ -3295,16 +3295,16 @@ msgid "Flat"
 msgstr "Düz"
 
 msgid "Flavor"
-msgstr "Nitelik"
+msgstr "Şablon"
 
 msgid "Flavor Access"
-msgstr "Nitelik Erişimi"
+msgstr "Şablon Erişimi"
 
 msgid "Flavor Choice"
-msgstr "Nitelik Seçimi"
+msgstr "Şablon Seçimi"
 
 msgid "Flavor ID ="
-msgstr "Nitelik ID'si ="
+msgstr "Şablon ID'si ="
 
 msgid ""
 "Flavor ID should be UUID4 or integer. Leave this field blank or use 'auto' "
@@ -3314,13 +3314,13 @@ msgstr ""
 "bu alanı boş bırakın veya 'oto' kullanın."
 
 msgid "Flavor Information"
-msgstr "Nitelik Bilgisi"
+msgstr "Şablon Bilgisi"
 
 msgid "Flavor Name"
-msgstr "Nitelik İsmi"
+msgstr "Şablon İsmi"
 
 msgid "Flavors"
-msgstr "Nitelikler"
+msgstr "Şablonlar"
 
 msgid ""
 "Flavors define the sizes for RAM, disk, number of cores, and other resources "
@@ -3488,7 +3488,7 @@ msgid "Hive"
 msgstr "Hive"
 
 msgid "Home"
-msgstr "Ev"
+msgstr "Anasayfa"
 
 msgid "Host"
 msgstr "İstemci"
@@ -3688,7 +3688,7 @@ msgstr "İmaj"
 
 msgctxt "Type of an image"
 msgid "Image"
-msgstr "Resim"
+msgstr "İmaj"
 
 msgctxt "Task status of an Instance"
 msgid "Image Backup"
@@ -3710,7 +3710,7 @@ msgid "Image Name"
 msgstr "İmaj Adı"
 
 msgid "Image Name ="
-msgstr "İmaj İsmi ="
+msgstr "İmaj Adı ="
 
 msgctxt "Task status of an Instance"
 msgid "Image Pending Upload"
@@ -4166,7 +4166,7 @@ msgid "Limit"
 msgstr "Limit"
 
 msgid "Live Migrate"
-msgstr "Canlı Geçiş"
+msgstr "Canlı Göç"
 
 msgid "Live Migrate Instance"
 msgstr "Sunucu Canlı Geçişi"
@@ -4586,7 +4586,7 @@ msgid "New DHCP Agent"
 msgstr "Yeni DHCP Ajanı"
 
 msgid "New Flavor"
-msgstr "Yeni Nitelik"
+msgstr "Yeni Şablon"
 
 msgid "New Host"
 msgstr "Yeni İstemci"
@@ -4911,7 +4911,7 @@ msgid "Objects"
 msgstr "Nesneler"
 
 msgid "Old Flavor"
-msgstr "Eski Nitelik"
+msgstr "Eski Şablon"
 
 msgid "On Demand"
 msgstr "İstenildiğinde"
@@ -4978,7 +4978,7 @@ msgid "Parent Backup"
 msgstr "Üst Yedek"
 
 msgid "Password"
-msgstr "Parola"
+msgstr "Şifre"
 
 msgctxt "Current status of an Instance"
 msgid "Password"
@@ -5003,7 +5003,7 @@ msgstr "Yol"
 
 msgctxt "Action log of an instance"
 msgid "Pause"
-msgstr "Durdur"
+msgstr "Duraklat"
 
 msgid "Pause Instance"
 msgid_plural "Pause Instances"
@@ -5991,7 +5991,7 @@ msgid "Segmentation ID"
 msgstr "Bölünme ID'si"
 
 msgid "Select Flavor"
-msgstr "Nitelik Seçin"
+msgstr "Şablon Seçin"
 
 msgid "Select IKE Policy"
 msgstr "IKE İlkesi Seçin"
@@ -6036,7 +6036,7 @@ msgid "Select a Monitor"
 msgstr "Bir İzleyici Seçin"
 
 msgid "Select a New Flavor"
-msgstr "Yeni bir Nitelik Seç"
+msgstr "Yeni bir Şablon Seç"
 
 msgid "Select a Policy"
 msgstr "Bir İlke Seçin"
@@ -6980,7 +6980,7 @@ msgstr ""
 
 #, python-format
 msgid "The name \"%s\" is already used by another flavor."
-msgstr "\"%s\" adı başka bir nitelik tarafından kullanılıyor."
+msgstr "\"%s\" adı başka bir şablon tarafından kullanılıyor."
 
 #, python-format
 msgid "The name \"%s\" is already used by another host aggregate."
@@ -7351,10 +7351,10 @@ msgstr "Şifrelenmiş mantıksal sürücü türü oluşturulamadı."
 
 #, python-format
 msgid "Unable to create flavor \"%s\"."
-msgstr "Nitelik \"%s\" oluşturulamadı."
+msgstr "Şablon \"%s\" oluşturulamadı."
 
 msgid "Unable to create flavor."
-msgstr "Nitelik oluşturulamadı."
+msgstr "Şablon oluşturulamadı."
 
 msgid "Unable to create group."
 msgstr "Grup oluşturulamıyor."
@@ -7653,7 +7653,7 @@ msgid "Unable to get events for stack \"%s\"."
 msgstr "Yığın \"%s\" için olaylar alınamıyor."
 
 msgid "Unable to get flavor list"
-msgstr "Nitelik listesi alınamadı"
+msgstr "Şablon listesi alınamadı"
 
 #, python-format
 msgid "Unable to get health monitor %(monitor_id)s for pool %(pool)s."
@@ -8027,7 +8027,7 @@ msgid "Unable to retrieve flavor access list. Please try again later."
 msgstr "Nitelik erişim listesi alınamıyor. Lütfen daha sonra tekrar deneyin."
 
 msgid "Unable to retrieve flavor details."
-msgstr "Nitelik detayları alınamadı."
+msgstr "Şablon özellikleri alınamadı."
 
 #, python-format
 msgid ""
@@ -8039,7 +8039,7 @@ msgid "Unable to retrieve flavor information for instance \"%s\"."
 msgstr "\"%s\" sunucusu için nitelik bilgisi alınamadı."
 
 msgid "Unable to retrieve flavor list."
-msgstr "Nitelik listesi alınamadı."
+msgstr "Şablon listesi alınamadı."
 
 msgid "Unable to retrieve flavors."
 msgstr "Nitelikler alınamıyor."
@@ -8544,7 +8544,7 @@ msgid "Unable to update the group."
 msgstr "Grup güncellemesi başarısız."
 
 msgid "Unable to update the image metadata."
-msgstr "İmaj metadata'sı güncellenemedi."
+msgstr "İmaj üstverisi güncellenemedi."
 
 msgid "Unable to update the user password."
 msgstr "Kullanıcı parolası değiştirilemedi."
@@ -8664,7 +8664,7 @@ msgid "Update Failed"
 msgstr "Güncelleme Başarısız"
 
 msgid "Update Flavor Metadata"
-msgstr "Nitelik Metadata'sı Güncelle"
+msgstr "Şablon Üstverisini Güncelle"
 
 msgid "Update Group"
 msgstr "Grup Güncelle"
@@ -8673,7 +8673,7 @@ msgid "Update Image"
 msgstr "İmaj Değiştir"
 
 msgid "Update Image Metadata"
-msgstr "İmaj Metadata'sını Güncelle"
+msgstr "İmaj Üstverisini Güncelle"
 
 msgctxt "current status of stack"
 msgid "Update In Progress"
