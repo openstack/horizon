@@ -9,9 +9,10 @@ msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2015-07-19 22:22+0000\n"
-"PO-Revision-Date: 2015-07-19 19:21+0000\n"
+"PO-Revision-Date: 2015-07-22 10:50+0000\n"
 "Last-Translator: Zbyněk Schwarz <zbynek.schwarz@gmail.com>\n"
-"Language-Team: Czech (http://www.transifex.com/p/horizon/language/cs/)\n"
+"Language-Team: Czech (http://www.transifex.com/projects/p/horizon/language/"
+"cs/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -134,6 +135,9 @@ msgstr "Místní prostředí pro nahrání."
 msgid "A local image to upload."
 msgstr "Místní obraz pro nahrání."
 
+msgid "A local metadata definition file to upload."
+msgstr "Místní soubor určení popisných dat pro nahrání."
+
 msgid "A local template to upload."
 msgstr "Místní šablona pro nahrání."
 
@@ -168,6 +172,14 @@ msgstr "POVOLIT"
 #, python-format
 msgid "ALLOW %(ethertype)s %(proto_port)s %(direction)s %(remote)s"
 msgstr "POVOLIT %(ethertype)s %(proto_port)s %(direction)s %(remote)s"
+
+#, python-format
+msgid "ALLOW %(from)s:%(to)s/%(ip_protocol)s from %(cidr)s"
+msgstr "Povolit %(from)s:%(to)s/%(ip_protocol)s z %(cidr)s"
+
+#, python-format
+msgid "ALLOW %(from)s:%(to)s/%(ip_protocol)s from %(group)s"
+msgstr "Povolit %(from)s:%(to)s/%(ip_protocol)s z %(group)s"
 
 msgid "AMI - Amazon Machine Image"
 msgstr "AMI - Obraz stroje Amazon"
@@ -338,11 +350,20 @@ msgstr "Přidat směrovače"
 msgid "Add Rule"
 msgstr "Přidat pravidlo"
 
+msgid "Add Static Route"
+msgstr "Přidat statickou cestu"
+
 msgid "Add Subnet"
 msgstr "Přidat podsíť"
 
 msgid "Add Subnet (Quota exceeded)"
 msgstr "Přidat podsíť (Kvóta překročena)"
+
+msgid "Add User"
+msgid_plural "Add Users"
+msgstr[0] "Přidat uživatele"
+msgstr[1] "Přidat uživatele"
+msgstr[2] "Přidat uživatele"
 
 msgid "Add Users"
 msgstr "Přidat uživatele"
@@ -426,6 +447,12 @@ msgstr "Přidána zásada \"%s\"."
 #, python-format
 msgid "Added Rule \"%s\"."
 msgstr "Přidáno pravidlo \"%s\"."
+
+msgid "Added User"
+msgid_plural "Added Users"
+msgstr[0] "Uživatel přidán"
+msgstr[1] "Uživatelé přidáni"
+msgstr[2] "Uživatelé přidáni"
 
 #, python-format
 msgid "Added VIP \"%s\"."
@@ -525,6 +552,9 @@ msgstr "Přidělit IP"
 msgid "Allocate IP To Project"
 msgstr "Přidělit IP do projektu"
 
+msgid "Allocated"
+msgstr "Přiděleno"
+
 #, python-format
 msgid "Allocated Floating IP %(ip)s."
 msgstr "Přidělené plovoucí IP %(ip)s."
@@ -596,6 +626,9 @@ msgstr "Musí být zadán alespoň jeden člen"
 msgid "At least one network must be specified."
 msgstr "Musí být zadána alespoň jedna síť."
 
+msgid "Attach Interface"
+msgstr "Připojit rozhraní"
+
 msgid "Attach to Instance"
 msgstr "Připojit k instanci"
 
@@ -620,6 +653,10 @@ msgid "Attaching"
 msgstr "Připojování"
 
 #, python-format
+msgid "Attaching interface for instance %s."
+msgstr "Připojování rozhraní k instanci %s."
+
+#, python-format
 msgid "Attaching volume %(vol)s to instance %(inst)s on %(dev)s."
 msgstr "Připojování svazku %(vol)s k instanci %(inst)s na %(dev)s."
 
@@ -628,6 +665,9 @@ msgstr "Připojené svazky"
 
 msgid "Audited"
 msgstr "Zkotnrolováno"
+
+msgid "Authorization Key"
+msgstr "Klíč pro schválení"
 
 msgid "Authorization algorithm"
 msgstr "Algoritmus oprávnění"
@@ -693,6 +733,10 @@ msgstr "Průměrná míra odchozích paketů za sekundu v síťovém rozhraní V
 msgid "Average volume of writes"
 msgstr "Průměrná míra zápisů"
 
+msgctxt "Current status of a Volume"
+msgid "Backing Up"
+msgstr "Zálohování"
+
 msgid "Backup"
 msgstr "Záloha"
 
@@ -708,6 +752,9 @@ msgstr "Podrobnosti zálohy: {{ backup.name }}"
 
 msgid "Backup File"
 msgstr "Zálohovat soubor"
+
+msgid "Backup Gigabytes"
+msgstr "Záloha v Gigabajtech"
 
 msgid "Backup Name"
 msgstr "Název zálohy"
@@ -850,6 +897,18 @@ msgctxt "current status of stack"
 msgid "Check In Progress"
 msgstr "Probíhá kontrola"
 
+msgid "Check Stack"
+msgid_plural "Check Stacks"
+msgstr[0] "Zkontrolovat zásobník"
+msgstr[1] "Zkontrolovat zásobníky"
+msgstr[2] "Zkontrolovat zásobníky"
+
+msgid "Checked Stack"
+msgid_plural "Checked Stacks"
+msgstr[0] "Zásobník zkontrolován"
+msgstr[1] "Zásobníky zkontrolovány"
+msgstr[2] "Zásobníky zkontrolovány"
+
 msgid "Choose Your Boot Source Type."
 msgstr "Zvolte typ svého zdroje zavedení."
 
@@ -910,6 +969,13 @@ msgstr "Zvolte konfiguraci ke spuštění."
 msgid "Cinder"
 msgstr "Cinder"
 
+msgid ""
+"Cinder host on which the existing volume resides; takes the form: "
+"host@backend-name#pool"
+msgstr ""
+"Hostitel Cinder, na kterém je existující svazek umístěn; má formát: "
+"hostitel@název-podpůrné-vrstvy#zásoba"
+
 msgid "Cipher"
 msgstr "Šifra"
 
@@ -924,6 +990,18 @@ msgstr "Classless Inter-Domain Routing (např. 192.168.0.0/24)"
 
 msgid "Clear Domain Context"
 msgstr "Vyčistit kontext domény"
+
+msgid "Clear Gateway"
+msgid_plural "Clear Gateways"
+msgstr[0] "Vyčistit bránu"
+msgstr[1] "Vyčistit brány"
+msgstr[2] "Vyčistit brány"
+
+msgid "Cleared Gateway"
+msgid_plural "Cleared Gateways"
+msgstr[0] "Brána vyčištěna"
+msgstr[1] "Brány vyčištěny"
+msgstr[2] "Brány vyčištěny"
 
 msgid "Close"
 msgstr "Zavřít"
@@ -984,6 +1062,9 @@ msgctxt "Current status of a Database Backup"
 msgid "Completed"
 msgstr "Dokončené"
 
+msgid "Component"
+msgstr "Součásti"
+
 msgid "Compute"
 msgstr "Výpočet"
 
@@ -1026,6 +1107,10 @@ msgstr "Potvrdit heslo"
 
 msgid "Confirm Rebuild Password"
 msgstr "Potvrdit znovu sestavení hesla"
+
+msgctxt "Action log of an instance"
+msgid "Confirm Resize"
+msgstr "Potvrdit změnu velikosti"
 
 msgid "Confirm Resize/Migrate"
 msgstr "Potvrdit Změnu velikosti/Migraci"
@@ -1077,6 +1162,9 @@ msgstr "Kontejnery"
 
 msgid "Contents"
 msgstr "Obsahy"
+
+msgid "Control Location"
+msgstr "Ovládací místo"
 
 msgid "Control access to instances of the node group."
 msgstr "Řízení přístupu k instancím ze skupiny uzlu."
@@ -1610,6 +1698,10 @@ msgctxt "Admin state of a Firewall"
 msgid "DOWN"
 msgstr "DOLŮ"
 
+msgctxt "Admin state of a Load balancer"
+msgid "DOWN"
+msgstr "DOLŮ"
+
 msgctxt "Admin state of a Network"
 msgid "DOWN"
 msgstr "DOLŮ"
@@ -1621,6 +1713,9 @@ msgstr "DOLŮ"
 msgctxt "Admin state of a Router"
 msgid "DOWN"
 msgstr "DOLŮ"
+
+msgid "DPD Timeout must be greater than DPD Interval"
+msgstr "Časový limit DPD musí být větší než interval DPD"
 
 msgid "Daily Usage Report"
 msgstr "Denní zpráva o využití"
@@ -1697,9 +1792,45 @@ msgstr "Výchozí"
 msgid "Delay"
 msgstr "Zpoždění"
 
+msgid "Delay must be greater than or equal to Timeout"
+msgstr "Zpoždění musí být větší nebo rovno časovému limitu"
+
+msgid "Delay must be greater than or equal to timeout"
+msgstr "Zpoždění musí být větší nebo rovno časovému limitu"
+
+msgid "Delete Backup"
+msgid_plural "Delete Backups"
+msgstr[0] "Smazat zálohu"
+msgstr[1] "Smazat zálohy"
+msgstr[2] "Smazat zálohy"
+
+msgid "Delete Cluster"
+msgid_plural "Delete Clusters"
+msgstr[0] "Smazat cluster"
+msgstr[1] "Smazat clustery"
+msgstr[2] "Smazat clustery"
+
 msgctxt "current status of stack"
 msgid "Delete Complete"
 msgstr "Smazání dokončeno"
+
+msgid "Delete Container"
+msgid_plural "Delete Containers"
+msgstr[0] "Smazat kontejner"
+msgstr[1] "Smazat kontejnery"
+msgstr[2] "Smazat kontejnery"
+
+msgid "Delete Data Source"
+msgid_plural "Delete Data Sources"
+msgstr[0] "Smazat zdroj dat"
+msgstr[1] "Smazat zdroje dat"
+msgstr[2] "Smazat zdroje dat"
+
+msgid "Delete Database"
+msgid_plural "Delete Databases"
+msgstr[0] "Smazat databázi"
+msgstr[1] "Smazat databáze"
+msgstr[2] "Smazat databáze"
 
 msgid "Delete Domain"
 msgid_plural "Delete Domains"
@@ -1713,6 +1844,12 @@ msgstr[0] "Smazat šifrování"
 msgstr[1] "Smazat šifrování"
 msgstr[2] "Smazat šifrování"
 
+msgid "Delete Extra Spec"
+msgid_plural "Delete Extra Specs"
+msgstr[0] "Smazat dodatečnou specifikaci"
+msgstr[1] "Smazat dodatečné specifikace"
+msgstr[2] "Smazat dodatečné specifikace"
+
 msgctxt "Current status of a Database Backup"
 msgid "Delete Failed"
 msgstr "Smazání selhalo"
@@ -1721,15 +1858,213 @@ msgctxt "current status of stack"
 msgid "Delete Failed"
 msgstr "Smazání selhalo"
 
+msgid "Delete Firewall"
+msgid_plural "Delete Firewalls"
+msgstr[0] "Smazat bránu firewall"
+msgstr[1] "Smazat brány firewall"
+msgstr[2] "Smazat brány firewall"
+
 msgid "Delete Group"
 msgid_plural "Delete Groups"
 msgstr[0] "Smazat skupinu"
 msgstr[1] "Smazat skupiny"
 msgstr[2] "Smazat skupiny"
 
+msgid "Delete IKE Policy"
+msgid_plural "Delete IKE Policies"
+msgstr[0] "Smazat zásadu IKE"
+msgstr[1] "Smazat zásady IKE"
+msgstr[2] "Smazat zásady IKE"
+
+msgid "Delete IPSec Policy"
+msgid_plural "Delete IPSec Policies"
+msgstr[0] "Smazat zásadu IPSec "
+msgstr[1] "Smazat zásady IPSec "
+msgstr[2] "Smazat zásady IPSec "
+
+msgid "Delete IPSec Site Connection"
+msgid_plural "Delete IPSec Site Connections"
+msgstr[0] "IPSec připojení k místu smazáno"
+msgstr[1] "IPSec připojení k místu smazáno"
+msgstr[2] "IPSec připojení k místu smazáno"
+
+msgid "Delete Image"
+msgid_plural "Delete Images"
+msgstr[0] "Smazat obraz"
+msgstr[1] "Smazat obrazy"
+msgstr[2] "Smazat obrazy"
+
 msgctxt "current status of stack"
 msgid "Delete In Progress"
 msgstr "Probíhá mazání"
+
+msgid "Delete Interface"
+msgid_plural "Delete Interfaces"
+msgstr[0] "Smazat rozhraní"
+msgstr[1] "Smazat rozhraní"
+msgstr[2] "Smazat rozhraní"
+
+msgid "Delete Job"
+msgid_plural "Delete Jobs"
+msgstr[0] "Smazat úkol"
+msgstr[1] "Smazat úkoly"
+msgstr[2] "Smazat úkoly"
+
+msgid "Delete Job Binary"
+msgid_plural "Delete Job Binaries"
+msgstr[0] "Smazat binární soubor úkolu"
+msgstr[1] "Smazat binární soubory úkolu"
+msgstr[2] "Smazat binární soubory úkolu"
+
+msgid "Delete Job Template"
+msgid_plural "Delete Job Templates"
+msgstr[0] "Smazat šablonu úkolu"
+msgstr[1] "Smazat šablony úkolu"
+msgstr[2] "Smazat šablony úkolu"
+
+msgid "Delete Key Pair"
+msgid_plural "Delete Key Pairs"
+msgstr[0] "Smazat pár klíčů"
+msgstr[1] "Smazat páry klíčů"
+msgstr[2] "Smazat páry klíčů"
+
+msgid "Delete Member"
+msgid_plural "Delete Members"
+msgstr[0] "Smazat člena"
+msgstr[1] "Smazat členy"
+msgstr[2] "Smazat členy"
+
+msgid "Delete Monitor"
+msgid_plural "Delete Monitors"
+msgstr[0] "Smazat monitor"
+msgstr[1] "Smazat monitory"
+msgstr[2] "Smazat monitory"
+
+msgid "Delete Namespace"
+msgid_plural "Delete Namespaces"
+msgstr[0] "Smazat jmenný prostor"
+msgstr[1] "Smazat jmenné prostory"
+msgstr[2] "Smazat jmenné prostory"
+
+msgid "Delete Network Profile"
+msgid_plural "Delete Network Profiles"
+msgstr[0] "Smazat síťový profil"
+msgstr[1] "Smazat síťové profily"
+msgstr[2] "Smazat síťové profily"
+
+msgid "Delete Object"
+msgid_plural "Delete Objects"
+msgstr[0] "Smazat objekt"
+msgstr[1] "Smazat objekty"
+msgstr[2] "Smazat objekty"
+
+msgid "Delete Policy"
+msgid_plural "Delete Policies"
+msgstr[0] "Smazat zásadu"
+msgstr[1] "Smazat zásady"
+msgstr[2] "Smazat zásady"
+
+msgid "Delete Pool"
+msgid_plural "Delete Pools"
+msgstr[0] "Smazat zásobu"
+msgstr[1] "Smazat zásoby"
+msgstr[2] "Smazat zásoby"
+
+msgid "Delete Project"
+msgid_plural "Delete Projects"
+msgstr[0] "Smazat projekt"
+msgstr[1] "Smazat projekty"
+msgstr[2] "Smazat projekty"
+
+msgid "Delete QoS Spec"
+msgid_plural "Delete QoS Specs"
+msgstr[0] "Smazat specifikaci QoS"
+msgstr[1] "Smazat specifikace QoS"
+msgstr[2] "Smazat specifikace QoS"
+
+msgid "Delete Role"
+msgid_plural "Delete Roles"
+msgstr[0] "Smazat roli"
+msgstr[1] "Smazat role"
+msgstr[2] "Smazat role"
+
+msgid "Delete Router"
+msgid_plural "Delete Routers"
+msgstr[0] "Smazat směrovač"
+msgstr[1] "Smazat směrovače"
+msgstr[2] "Smazat směrovače"
+
+msgid "Delete Router Rule"
+msgid_plural "Delete Router Rules"
+msgstr[0] "Smazat pravidlo směrovače"
+msgstr[1] "Smazat pravidla směrovače"
+msgstr[2] "Smazat pravidla směrovače"
+
+msgid "Delete Rule"
+msgid_plural "Delete Rules"
+msgstr[0] "Smazat pravidlo"
+msgstr[1] "Smazat pravidla"
+msgstr[2] "Smazat pravidla"
+
+msgid "Delete Security Group"
+msgid_plural "Delete Security Groups"
+msgstr[0] "Smazat bezpečnostní skupinu"
+msgstr[1] "Smazat bezpečnostní skupiny"
+msgstr[2] "Smazat bezpečnostní skupiny"
+
+msgid "Delete Stack"
+msgid_plural "Delete Stacks"
+msgstr[0] "Smazat zásobník"
+msgstr[1] "Smazat zásobníky"
+msgstr[2] "Smazat zásobníky"
+
+msgid "Delete Static Route"
+msgid_plural "Delete Static Routes"
+msgstr[0] "Smazat statickou cestu"
+msgstr[1] "Smazat statické cesty"
+msgstr[2] "Smazat statické cesty"
+
+msgid "Delete Template"
+msgid_plural "Delete Templates"
+msgstr[0] "Smazat šablonu"
+msgstr[1] "Smazat šablony"
+msgstr[2] "Smazat šablony"
+
+msgid "Delete User"
+msgid_plural "Delete Users"
+msgstr[0] "Smazat uživatele"
+msgstr[1] "Smazat uživatele"
+msgstr[2] "Smazat uživatele"
+
+msgid "Delete VIP"
+msgid_plural "Delete VIPs"
+msgstr[0] "Smazat VIP"
+msgstr[1] "Smazat VIP"
+msgstr[2] "Smazat VIP"
+
+msgid "Delete VPN Service"
+msgid_plural "Delete VPN Services"
+msgstr[0] "Smazat službu VPN"
+msgstr[1] "Smazat služby VPN"
+msgstr[2] "Smazat služby VPN"
+
+msgid "Delete Volume"
+msgid_plural "Delete Volumes"
+msgstr[0] "Smazat svazek"
+msgstr[1] "Smazat svazky"
+msgstr[2] "Smazat svazky"
+
+msgid "Delete Volume Snapshot"
+msgid_plural "Delete Volume Snapshots"
+msgstr[0] "Smazat snímrk svazku"
+msgstr[1] "Smazat snímky svazku"
+msgstr[2] "Smazat snímky svazku"
+
+msgid "Delete Volume Type"
+msgid_plural "Delete Volume Types"
+msgstr[0] "Smazat typ svazku"
+msgstr[1] "Smazat typy svazku"
+msgstr[2] "Smazat typy svazku"
 
 msgid "Delete on Terminate"
 msgstr "Odstranit při ukončení"
@@ -1752,6 +2087,42 @@ msgctxt "Current status of an Instance"
 msgid "Deleted"
 msgstr "Smazáno"
 
+msgid "Deleted Backup"
+msgid_plural "Deleted Backups"
+msgstr[0] "Záloha smazána"
+msgstr[1] "Zálohy smazány"
+msgstr[2] "Zálohy smazány"
+
+msgid "Deleted Cluster"
+msgid_plural "Deleted Clusters"
+msgstr[0] "Cluster smazán"
+msgstr[1] "Clustery smazány"
+msgstr[2] "Clustery smazány"
+
+msgid "Deleted Container"
+msgid_plural "Deleted Containers"
+msgstr[0] "Kontejner smazán"
+msgstr[1] "Kontejnery smazány"
+msgstr[2] "Kontejnery smazány"
+
+msgid "Deleted Data Source"
+msgid_plural "Deleted Data Sources"
+msgstr[0] "Zdroj dat smazán"
+msgstr[1] "Zdroje dat smazány"
+msgstr[2] "Zdroje dat smazány"
+
+msgid "Deleted Database"
+msgid_plural "Deleted Databases"
+msgstr[0] "Databáze smazána"
+msgstr[1] "Databáze smazány"
+msgstr[2] "Databáze smazány"
+
+msgid "Deleted Domain"
+msgid_plural "Deleted Domains"
+msgstr[0] "Doména smazána"
+msgstr[1] "Domény smazány"
+msgstr[2] "Domény smazány"
+
 msgid "Deleted Encryption"
 msgid_plural "Deleted Encryptions"
 msgstr[0] "Šifrování smazáno"
@@ -1763,6 +2134,12 @@ msgid_plural "Deleted Extra Specs"
 msgstr[0] "Dodatečná specifikace smazána"
 msgstr[1] "Dodatečné specifikace smazány"
 msgstr[2] "Dodatečné specifikace smazány"
+
+msgid "Deleted Group"
+msgid_plural "Deleted Groups"
+msgstr[0] "Skupina smazána"
+msgstr[1] "Skupiny smazány"
+msgstr[2] "Skupiny smazány"
 
 #, python-format
 msgid "Deleted IKE Policy %s"
@@ -1776,6 +2153,126 @@ msgstr "Smazána zásada IPSec %s"
 msgid "Deleted IPSec Site Connection %s"
 msgstr "Smazáno IPSec připojení k místu %s"
 
+msgid "Deleted Image"
+msgid_plural "Deleted Images"
+msgstr[0] "Obraz smazán"
+msgstr[1] "Obrazy smazány"
+msgstr[2] "Obrazy smazány"
+
+msgid "Deleted Interface"
+msgid_plural "Deleted Interfaces"
+msgstr[0] "Rozhraní smazáno"
+msgstr[1] "Rozhraní smazána"
+msgstr[2] "Rozhraní smazána"
+
+msgid "Deleted Job"
+msgid_plural "Deleted Jobs"
+msgstr[0] "Úkol smazán"
+msgstr[1] "Úkoly smazány"
+msgstr[2] "Úkoly smazány"
+
+msgid "Deleted Job Binary"
+msgid_plural "Deleted Job Binaries"
+msgstr[0] "Binární soubory úkolu smazán"
+msgstr[1] "Binární soubory úkolu smazány"
+msgstr[2] "Binární soubory úkolu smazány"
+
+msgid "Deleted Job Template"
+msgid_plural "Deleted Jobs Templates"
+msgstr[0] "Šablona úkolu smazána"
+msgstr[1] "Šablony úkolu smazány"
+msgstr[2] "Šablony úkolu smazány"
+
+msgid "Deleted Key Pair"
+msgid_plural "Deleted Key Pairs"
+msgstr[0] "Pár klíčů smazán"
+msgstr[1] "Páry klíčů smazány"
+msgstr[2] "Páry klíčů smazány"
+
+msgid "Deleted Namespace"
+msgid_plural "Deleted Namespaces"
+msgstr[0] "Jmenný prostor smazán"
+msgstr[1] "Jmenné prostory smazány"
+msgstr[2] "Jmenné prostory smazány"
+
+msgid "Deleted Network Profile"
+msgid_plural "Deleted Network Profiles"
+msgstr[0] "Síťový profil smazán"
+msgstr[1] "Síťové profily smazány"
+msgstr[2] "Síťové profily smazány"
+
+msgid "Deleted Object"
+msgid_plural "Deleted Objects"
+msgstr[0] "Objekt smazán"
+msgstr[1] "Objekty smazány"
+msgstr[2] "Objekty smazány"
+
+msgid "Deleted Project"
+msgid_plural "Deleted Projects"
+msgstr[0] "Projekt smazán"
+msgstr[1] "Projekty smazány"
+msgstr[2] "Projekty smazány"
+
+msgid "Deleted QoS Spec"
+msgid_plural "Deleted QoS Specs"
+msgstr[0] "Specifikace QoS smazána"
+msgstr[1] "Specifikace QoS smazány"
+msgstr[2] "Specifikace QoS smazány"
+
+msgid "Deleted Role"
+msgid_plural "Deleted Roles"
+msgstr[0] "Role smazána"
+msgstr[1] "Role smazány"
+msgstr[2] "Role smazány"
+
+msgid "Deleted Router"
+msgid_plural "Deleted Routers"
+msgstr[0] "Směrovač smazán"
+msgstr[1] "Směrovače smazány"
+msgstr[2] "Směrovače smazány"
+
+msgid "Deleted Router Rule"
+msgid_plural "Deleted Router Rules"
+msgstr[0] "Pravidlo směrovače smazána"
+msgstr[1] "Pravidla směrovače smazána"
+msgstr[2] "Pravidla směrovače smazána"
+
+msgid "Deleted Rule"
+msgid_plural "Deleted Rules"
+msgstr[0] "Pravidlo smazáno"
+msgstr[1] "Pravidla smazána"
+msgstr[2] "Pravidla smazána"
+
+msgid "Deleted Security Group"
+msgid_plural "Deleted Security Groups"
+msgstr[0] "Bezpečnostní skupina smazána"
+msgstr[1] "Bezpečnostní skupiny smazány"
+msgstr[2] "Bezpečnostní skupiny smazány"
+
+msgid "Deleted Stack"
+msgid_plural "Deleted Stacks"
+msgstr[0] "Zásobník smazán"
+msgstr[1] "Zásobníky smazány"
+msgstr[2] "Zásobníky smazány"
+
+msgid "Deleted Static Route"
+msgid_plural "Deleted Static Routes"
+msgstr[0] "Statická cesta smazána"
+msgstr[1] "Statické cesty smazány"
+msgstr[2] "Statické cesty smazány"
+
+msgid "Deleted Template"
+msgid_plural "Deleted Templates"
+msgstr[0] "Šablona smazána"
+msgstr[1] "Šablony smazány"
+msgstr[2] "Šablony smazány"
+
+msgid "Deleted User"
+msgid_plural "Deleted Users"
+msgstr[0] "Uživatel smazán"
+msgstr[1] "Uživatelé smazáni"
+msgstr[2] "Uživatelé smazáni"
+
 #, python-format
 msgid "Deleted VIP %s"
 msgstr "Smazán VIP %s"
@@ -1783,6 +2280,12 @@ msgstr "Smazán VIP %s"
 #, python-format
 msgid "Deleted VPN Service %s"
 msgstr "Smazána služba VPN %s"
+
+msgid "Deleted Volume Type"
+msgid_plural "Deleted Volume Types"
+msgstr[0] "Typ svazku smazán"
+msgstr[1] "Typy svazku smazány"
+msgstr[2] "Typy svazku smazány"
 
 #, python-format
 msgid "Deleted firewall %s"
@@ -1859,11 +2362,36 @@ msgstr "Cílový název objektu"
 msgid "Destination port (integer in [1, 65535] or range in a:b)"
 msgstr "Cílový port (celé číslo v intervalu [1, 65535] nebo rozsahu a:b)"
 
+msgid "Detach Interface"
+msgstr "Odpojit rozhraní"
+
+msgid "Detach Replica"
+msgid_plural "Detach Replicas"
+msgstr[0] "Odpojit repliku"
+msgstr[1] "Odpojit repliky"
+msgstr[2] "Odpojit repliky"
+
+msgid "Detach Volume"
+msgid_plural "Detach Volumes"
+msgstr[0] "Odpojit svazek"
+msgstr[1] "Odpojit svazky"
+msgstr[2] "Odpojit svazky"
+
 msgid "Detached"
 msgstr "Odpojeno"
 
+#, python-format
+msgid "Detached interface %(port)s for instance %(instance)s."
+msgstr "Rozhraní %(port)s odpojeno od instance %(instance)s."
+
 msgid "Detaching"
 msgstr "Odpojování"
+
+msgid "Detaching Volume"
+msgid_plural "Detaching Volumes"
+msgstr[0] "Odpojování svazku"
+msgstr[1] "Odpojování svazků"
+msgstr[2] "Odpojování svazků"
 
 msgid "Details"
 msgstr "Podrobnosti"
@@ -1907,12 +2435,24 @@ msgstr "Zakázat režim HA"
 msgid "Disable Service"
 msgstr "Zakázat službu"
 
+msgid "Disable User"
+msgid_plural "Disable Users"
+msgstr[0] "Zakázat uživatele"
+msgstr[1] "Zakázat uživatele"
+msgstr[2] "Zakázat uživatele"
+
 msgid "Disabled"
 msgstr "Zakázáno"
 
 msgctxt "Current status of a Hypervisor"
 msgid "Disabled"
 msgstr "Zakázáno"
+
+msgid "Disabled User"
+msgid_plural "Disabled Users"
+msgstr[0] "Uživatel zakázán"
+msgstr[1] "Uživatelé zakázáni"
+msgstr[2] "Uživatelé zakázáni"
 
 #, python-format
 msgid "Disabled compute service for host: %s."
@@ -1953,6 +2493,13 @@ msgstr "Oddíl disku"
 
 msgid "Distributed"
 msgstr "Distribuované"
+
+msgid "Docker"
+msgstr "Dokař"
+
+msgctxt "Image format for display in table"
+msgid "Docker"
+msgstr "Dokař"
 
 #, python-format
 msgid "Domain \"%s\" must be disabled before it can be deleted."
@@ -2134,6 +2681,9 @@ msgstr "Upravit síť"
 msgid "Edit Network Profile"
 msgstr "Upravit síťový profil"
 
+msgid "Edit Node Group Template"
+msgstr "Upravit šablonu skupiny uzlu"
+
 msgid "Edit Policy"
 msgstr "Upravit zásadu"
 
@@ -2216,6 +2766,12 @@ msgstr "Povolit DHCP"
 msgid "Enable HA mode"
 msgstr "Povolit režim HA"
 
+msgid "Enable User"
+msgid_plural "Enable Users"
+msgstr[0] "Povolit uživatele"
+msgstr[1] "Povolit uživatele"
+msgstr[2] "Povolit uživatele"
+
 msgid "Enable rollback on create/update failure."
 msgstr "Povolit zpětné vrácení při chybě ve vytváření/aktualizaci."
 
@@ -2225,6 +2781,12 @@ msgstr "Povoleno"
 msgctxt "Current status of a Hypervisor"
 msgid "Enabled"
 msgstr "Povoleno"
+
+msgid "Enabled User"
+msgid_plural "Enabled Users"
+msgstr[0] "Uživatel povolen"
+msgstr[1] "Uživatelé povoleni"
+msgstr[2] "Uživatelé povoleni"
 
 msgid "Encapsulation mode"
 msgstr "Režim zapouzdření"
@@ -2362,11 +2924,23 @@ msgctxt "Current status of a Volume"
 msgid "Error Extending"
 msgstr "Chyba při rozšiřování"
 
+msgctxt "Current status of a Volume"
+msgid "Error Restoring"
+msgstr "Chyba při obnovování"
+
+msgctxt "Current status of a Volume Backup"
+msgid "Error Restoring"
+msgstr "Chyba při obnovování"
+
 msgid "Error adding Hosts to the aggregate."
 msgstr "Chyba při přidávání hostitelů do agregátu."
 
 msgid "Error creating database backup."
 msgstr "Chyba při vytváření zálohy databáze."
+
+msgctxt "Current status of a Volume"
+msgid "Error deleting"
+msgstr "Chyba při mazání"
 
 msgid "Error deleting database on instance."
 msgstr "Chyba při mazání databáze v instanci."
@@ -2446,6 +3020,10 @@ msgstr ""
 msgid "Extend Volume"
 msgstr "Rozšířit svazek"
 
+msgctxt "Current status of a Volume"
+msgid "Extending"
+msgstr "Rozšiřování"
+
 #, python-format
 msgid "Extending volume: \"%s\""
 msgstr "Rozšiřování svazku: \"%s\""
@@ -2500,6 +3078,10 @@ msgid "Failed to add agent %(agent_name)s for network %(network)s."
 msgstr "Nelze přidat agenta %(agent_name)s do sítě %(network)s."
 
 #, python-format
+msgid "Failed to add route : %s"
+msgstr "Nelze přidat cestu : %s"
+
+#, python-format
 msgid "Failed to add router rule %s"
 msgstr "Nelze přidat pravidlo směrovače %s"
 
@@ -2514,6 +3096,10 @@ msgstr "Nelze přidat rozhraní: %s"
 #, python-format
 msgid "Failed to check Neutron '%s' extension is not supported"
 msgstr "Nelze zkontrolovat. Rozšíření Neutron '%s' není podporováno"
+
+msgid "Failed to check if Neutron extraroute extension is supported"
+msgstr ""
+"Nelze zkontrolovat, zda rozšíření Neutron pro dodatečné cesty je podporováno."
 
 #, python-format
 msgid "Failed to create a port for network %s"
@@ -2658,6 +3244,14 @@ msgid "Failed to obtain network profile binding"
 msgstr "Nelze získat svázání síťového profilu"
 
 #, python-format
+msgid ""
+"Failed to perform requested operation on instance \"%s\", the instance has "
+"an error status"
+msgstr ""
+"Nelze provést požadovanou operaci v instanci \"%s\", instance je v chybovém "
+"stavu"
+
+#, python-format
 msgid "Failed to remove router(s) from firewall %(name)s: %(reason)s"
 msgstr "Nelze odstranit směrovače z brány firewall %(name)s: %(reason)s"
 
@@ -2762,6 +3356,9 @@ msgstr "Nelze aktualizovat podsíť \"%(sub)s\": %(reason)s"
 #, python-format
 msgid "Failed to verify extension support %(reason)s"
 msgstr "Nelze ověřit podporu rozšíření: %(reason)s"
+
+msgid "False"
+msgstr "Nepravda"
 
 msgid "Fan RPM"
 msgstr "Otáčky ventilátoru"
@@ -2955,6 +3552,12 @@ msgstr "Skupina byla úspěšně aktualizována."
 msgid "Groups"
 msgstr "Skupiny"
 
+msgid "Guided Cluster Creation"
+msgstr "Vytvoření clusteru s průvodcem"
+
+msgid "Guided Job Execution"
+msgstr "Spuštění úkolu s průvodcem"
+
 msgid "Guides"
 msgstr "Průvodci"
 
@@ -2976,6 +3579,18 @@ msgstr "HTTPS"
 msgctxt "Current status of an Instance"
 msgid "Hard Reboot"
 msgstr "Tvrdý restart"
+
+msgid "Hard Reboot Instance"
+msgid_plural "Hard Reboot Instances"
+msgstr[0] "Tvrdě restartovat instanci"
+msgstr[1] "Tvrdě restartovat instance"
+msgstr[2] "Tvrdě restartovat instance"
+
+msgid "Hard Rebooted Instance"
+msgid_plural "Hard Rebooted Instances"
+msgstr[0] "Instance tvrdě restartována"
+msgstr[1] "Instance tvrdě restartovány"
+msgstr[2] "Instance tvrdě restartovány"
 
 #, python-format
 msgid "Health monitor %s was successfully updated."
@@ -3417,6 +4032,10 @@ msgstr "Interní binární soubor"
 msgid "Invalid date format: Using today as default."
 msgstr "neplatný formát data: Dnešek použit jako výchozí."
 
+#, python-format
+msgid "Invalid format for routes : %s"
+msgstr "Neplatný formát cest : %s"
+
 msgid ""
 "Invalid time period. The end date should be more recent than the start date."
 msgstr ""
@@ -3489,6 +4108,9 @@ msgstr "Zvolen typ úkolu"
 msgid "Jobs"
 msgstr "Úkoly"
 
+msgid "Kernel"
+msgstr "Kernel"
+
 msgid "Kernel ID"
 msgstr "ID kernelu"
 
@@ -3537,6 +4159,9 @@ msgstr "Ukončit"
 msgid "Kwapi"
 msgstr "Kwapi"
 
+msgid "LB Method"
+msgstr "Metoda LB"
+
 msgid "LUKS Volume Snapshots"
 msgstr "Snímky svazku LUKS"
 
@@ -3577,6 +4202,12 @@ msgstr "Spustit databázi"
 msgid "Launch Instance"
 msgstr "Spustit instanci"
 
+msgid "Launch Job"
+msgid_plural "Launch Jobs"
+msgstr[0] "Spustit úkol"
+msgstr[1] "Spustit úkoly"
+msgstr[2] "Spustit úkoly"
+
 msgid "Launch On Existing Cluster"
 msgstr "Spustit na existujícím clusteru"
 
@@ -3612,10 +4243,20 @@ msgstr "Spuštěno %(count)s pojmenovaných \"%(name)s\"."
 msgid "Launched Cluster %s"
 msgstr "Cluster %s spuštěn"
 
+msgid "Launched Job"
+msgid_plural "Launched Jobs"
+msgstr[0] "Úkol spuštěny"
+msgstr[1] "Úkoly spuštěny"
+msgstr[2] "Úkoly spuštěny"
+
 msgid ""
 "Launching multiple instances is only supported for images and instance "
 "snapshots."
 msgstr "Spouštění více instancí je podporováno pouze obrazy a snímky instancí."
+
+msgctxt "load balancing method"
+msgid "Least Connections"
+msgstr "Nejméně připojení"
 
 msgid "Length of Injected File Path"
 msgstr "Délka vložené cesty souboru"
@@ -3668,6 +4309,18 @@ msgstr "Místní kapacita (celkem)"
 
 msgid "Local Storage (used)"
 msgstr "Místní kapacita (použitá)"
+
+msgid "Lock Instance"
+msgid_plural "Lock Instances"
+msgstr[0] "Uzamknout instanci"
+msgstr[1] "Uzamknout instance"
+msgstr[2] "Uzamknout instance"
+
+msgid "Locked Instance"
+msgid_plural "Locked Instances"
+msgstr[0] "Instance uzamčena"
+msgstr[1] "Instance uzamčeny"
+msgstr[2] "Instance uzamčeny"
 
 msgid "Log"
 msgstr "Protokol"
@@ -3798,6 +4451,9 @@ msgstr "Člen(ové)"
 msgid "Members"
 msgstr "Členové"
 
+msgid "Memory MB Hours"
+msgstr "Hodiny MB paměti"
+
 msgid "Message"
 msgstr "Zpráva"
 
@@ -3819,6 +4475,12 @@ msgstr "Popisná data úspěšně aktualizována"
 msgid "Meter"
 msgstr "Metr"
 
+msgid "Migrated Host"
+msgid_plural "Migrated Hosts"
+msgstr[0] "Hostitel přesunut"
+msgstr[1] "Hostitelé přesunuti"
+msgstr[2] "Hostitelé přesunuti"
+
 msgctxt "Current status of an Instance"
 msgid "Migrating"
 msgstr "Přesunování"
@@ -3826,6 +4488,9 @@ msgstr "Přesunování"
 msgctxt "Task status of an Instance"
 msgid "Migrating"
 msgstr "Přesunování"
+
+msgid "Migrating instances may cause some unrecoverable results."
+msgstr "Přesunutí instancí může mít neopravitelné následky."
 
 msgid "Migration Policy"
 msgstr "Zásada přesunu"
@@ -4060,6 +4725,9 @@ msgstr "Nová velikost musí být větší než současná."
 msgid "Next"
 msgstr "Další"
 
+msgid "Next Hop"
+msgstr "Další skok"
+
 msgid "Next Hops"
 msgstr "Další skoky"
 
@@ -4074,6 +4742,9 @@ msgstr "Žádní hostitelé nenalezeni."
 
 msgid "No Images Available"
 msgstr "Žádné obrazy nejsou dostupné"
+
+msgid "No Ports available"
+msgstr "Nejsou dostupné žádné porty"
 
 msgid "No Session Persistence"
 msgstr "Žádné trvání sezení"
@@ -4145,14 +4816,23 @@ msgstr "Žádný pár klíčů"
 msgid "No networks available"
 msgstr "Žádné dostupné sítě"
 
+msgid "No new QoS spec available"
+msgstr "Není dostupná žádná nová specifikace QoS"
+
 msgid "No options specified"
 msgstr "Nezadány žádné volby"
 
 msgid "No other agents available."
 msgstr "Žádní další agenti nejsou dostupní."
 
+msgid "No other hosts available"
+msgstr "Žádní další hostitelé nejsou dostupní"
+
 msgid "No other hosts available."
 msgstr "Žádní další hostitelé nejsou dostupní."
+
+msgid "No other volume types available"
+msgstr "Žádné další typy svazku nejsou dostupné"
 
 msgid "No ports available"
 msgstr "Nejsou dostupné žádné porty"
@@ -4210,6 +4890,10 @@ msgstr "Žádný typ svazku"
 msgid "No volumes available"
 msgstr "Žádné svazky nejsou dostupné"
 
+#, python-format
+msgid "Node Group Template %s updated"
+msgstr "Šablona skupiny uzlu %s byla aktualizována"
+
 msgid "Node Group Template Details"
 msgstr "Podrobnosti šablony skupiny uzlu"
 
@@ -4238,6 +4922,9 @@ msgstr "Žádný"
 msgctxt "Task status of an Instance"
 msgid "None"
 msgstr "Žádný"
+
+msgid "None (removes spec)"
+msgstr "Žádná (odstraní specifikaci)"
 
 msgid "Normal"
 msgstr "Normální"
@@ -4283,6 +4970,13 @@ msgstr "Počet příchozích paketů pro rozhraní VM"
 
 msgid "Number of instances to launch."
 msgstr "Počet instancí ke spuštění."
+
+msgid ""
+"Number of items to show per page (applies to the pages that have API "
+"supported pagination)"
+msgstr ""
+"Počet položek zobrazených na stránce (týká se stránek, které podporují "
+"stránkování pomocí API)"
 
 msgid "Number of log lines to be shown per instance"
 msgstr "Počet řádků záznamu zobrazených na instanci"
@@ -4371,6 +5065,9 @@ msgstr "Orchestrace"
 msgid "Orchestration Services"
 msgstr "Služby Orchestration"
 
+msgid "Orchestration service is disabled."
+msgstr "Služba Orchestrace byla zakázána"
+
 msgid "Other"
 msgstr "Ostatní"
 
@@ -4426,6 +5123,12 @@ msgctxt "Action log of an instance"
 msgid "Pause"
 msgstr "Pozastavit"
 
+msgid "Pause Instance"
+msgid_plural "Pause Instances"
+msgstr[0] "Pozastavit instanci"
+msgstr[1] "Pozastavit instance"
+msgstr[2] "Pozastavit instance"
+
 msgctxt "Current status of an Instance"
 msgid "Paused"
 msgstr "Pozastaveno"
@@ -4433,6 +5136,12 @@ msgstr "Pozastaveno"
 msgctxt "Power state of an Instance"
 msgid "Paused"
 msgstr "Pozastaveno"
+
+msgid "Paused Instance"
+msgid_plural "Paused Instances"
+msgstr[0] "Instance pozastavena"
+msgstr[1] "Instance pozastaveny"
+msgstr[2] "Instance pozastaveny"
 
 msgctxt "Task status of an Instance"
 msgid "Pausing"
@@ -4688,6 +5397,9 @@ msgstr "Název projektu"
 msgid "Project Usage"
 msgstr "Využití projektu"
 
+msgid "Project name is already in use. Please use a different name."
+msgstr "Název projektu se již používá. Prosím zvolte jiný název."
+
 msgid "Projects"
 msgstr "Projekty"
 
@@ -4788,6 +5500,9 @@ msgstr "RAM (Využitá)"
 #, python-format
 msgid "RAM(Available: %(avail)s, Requested: %(req)s)"
 msgstr "RAM(Dostupná: %(avail)s, Vyžadovaná: %(req)s)"
+
+msgid "Ramdisk"
+msgstr "Ramdisk"
 
 msgid "Ramdisk ID"
 msgstr "ID ramdisku"
@@ -4898,8 +5613,23 @@ msgstr "Znovu spustit na existujícím clusteru"
 msgid "Relaunch On New Cluster"
 msgstr "Znovu spustit na novém clusteru"
 
+msgid "Release Floating IP"
+msgid_plural "Release Floating IPs"
+msgstr[0] "Uvolnit plovoucí IP adresu"
+msgstr[1] "Uvolnit plovoucí IP adresy"
+msgstr[2] "Uvolnit plovoucí IP adresy"
+
+msgid "Released Floating IP"
+msgid_plural "Released Floating IPs"
+msgstr[0] "Plovoucí IP adresa uvolněna"
+msgstr[1] "Plovoucí IP adresy uvolněny"
+msgstr[2] "Plovoucí IP adresy uvolněny"
+
 msgid "Remote"
 msgstr "Vzdálené"
+
+msgid "Remote IP Prefix"
+msgstr "Předpona vzdálené adresy IP"
 
 msgid "Remote Security Group"
 msgstr "Vzdálená bezpečnostní skupina"
@@ -4931,6 +5661,18 @@ msgid_plural "Remove Users"
 msgstr[0] "Odstranit uživatele"
 msgstr[1] "Odstranit uživatele"
 msgstr[2] "Odstranit uživatele"
+
+msgid "Removed User"
+msgid_plural "Removed Users"
+msgstr[0] "Uživatel odstraněn"
+msgstr[1] "Uživatelé odstraněni"
+msgstr[2] "Uživatelé odstraněni"
+
+msgid "Replica Detached"
+msgid_plural "Replicas Detached"
+msgstr[0] "Replika odpojena"
+msgstr[1] "Repliky odpojeny"
+msgstr[2] "Repliky odpojeny"
 
 msgid "Replicate from Instance"
 msgstr "Replikovat z instance"
@@ -5020,9 +5762,26 @@ msgstr "Zdroje"
 msgid "Resources Usage Overview"
 msgstr "Přehled využití zdrojů"
 
+msgid "Restart Instance"
+msgid_plural "Restart Instances"
+msgstr[0] "Restartovat instanci"
+msgstr[1] "Restartovat instance"
+msgstr[2] "Restartovat instance"
+
 msgctxt "Current status of a Database Instance"
 msgid "Restart Required"
 msgstr "Vyžadován restart"
+
+msgid "Restarted Instance"
+msgid_plural "Restarted Instances"
+msgstr[0] "Instance restartována"
+msgstr[1] "Instance restartovány"
+msgstr[2] "Instance restartovány"
+
+msgid "Restarted instances will lose any data not saved in persistent storage."
+msgstr ""
+"Restartované instance ztratí veškerá data, jenž nejsou uložená v trvalém "
+"úložišti."
 
 msgid "Restore Backup"
 msgstr "Obnovit zálohu"
@@ -5047,6 +5806,10 @@ msgctxt "Task status of an Instance"
 msgid "Restoring"
 msgstr "Obnovování"
 
+msgctxt "Current status of a Volume"
+msgid "Restoring Backup"
+msgstr "Obnovování zálohy"
+
 msgctxt "Action log of an instance"
 msgid "Resume"
 msgstr "Obnovit"
@@ -5062,6 +5825,30 @@ msgstr "Obnovení selhalo"
 msgctxt "current status of stack"
 msgid "Resume In Progress"
 msgstr "Probíhá obnovení"
+
+msgid "Resume Instance"
+msgid_plural "Resume Instances"
+msgstr[0] "Obnovit instanci"
+msgstr[1] "Obnovit instance"
+msgstr[2] "Obnovit instance"
+
+msgid "Resume Stack"
+msgid_plural "Resume Stacks"
+msgstr[0] "Obnovit zásobník"
+msgstr[1] "Obnovit zásobníky"
+msgstr[2] "Obnovit zásobníky"
+
+msgid "Resumed Instance"
+msgid_plural "Resumed Instances"
+msgstr[0] "Instance obnovena"
+msgstr[1] "Instance obnoveny"
+msgstr[2] "Instance obnoveny"
+
+msgid "Resumed Stack"
+msgid_plural "Resumed Stacks"
+msgstr[0] "Zásobník obnoven"
+msgstr[1] "Zásobníky obnoveny"
+msgstr[2] "Zásobníky obnoveny"
 
 msgctxt "Task status of an Instance"
 msgid "Resuming"
@@ -5122,6 +5909,10 @@ msgstr "Kořenový disk"
 
 msgid "Root Disk (GB)"
 msgstr "Kořenový disk (GB)"
+
+msgctxt "load balancing method"
+msgid "Round Robin"
+msgstr "Cyklická obsluha"
 
 msgid "Router"
 msgstr "Směrovač"
@@ -5184,6 +5975,9 @@ msgstr "Pravidlo %s bylo úspěšně aktualizováno"
 msgid "Rules"
 msgstr "Pravidla"
 
+msgid "Run HBase EDP Jobs with common HBase library on HDFS"
+msgstr "Spouštět úkoly HBase EDP se společnou knihovnou HBase na HDFS"
+
 msgctxt "Power state of an Instance"
 msgid "Running"
 msgstr "Běží"
@@ -5243,9 +6037,99 @@ msgstr "Naplánována záloha \"%(name)s\"."
 msgid "Scheduled deletion of %(data_type)s"
 msgstr "Naplánováné smazání %(data_type)s"
 
+msgid "Scheduled deletion of Firewall"
+msgid_plural "Scheduled deletion of Firewalls"
+msgstr[0] "Smazání brany Firewall naplánováno"
+msgstr[1] "Smazání bran Firewall naplánováno"
+msgstr[2] "Smazání bran Firewall naplánováno"
+
+msgid "Scheduled deletion of IKE Policy"
+msgid_plural "Scheduled deletion of IKE Policies"
+msgstr[0] "Smazání zásady IKE naplánováno"
+msgstr[1] "Smazání zásad IKE naplánováno"
+msgstr[2] "Smazání zásad IKE naplánováno"
+
+msgid "Scheduled deletion of IPSec Policy"
+msgid_plural "Scheduled deletion of IPSec Policies"
+msgstr[0] "Smazání zásady IPSec naplánováno"
+msgstr[1] "Smazání zásad IPSec naplánováno"
+msgstr[2] "Smazání zásad IPSec naplánováno"
+
+msgid "Scheduled deletion of IPSec Site Connection"
+msgid_plural "Scheduled deletion of IPSec Site Connections"
+msgstr[0] "Smazání IPSec připojení k místu naplánováno"
+msgstr[1] "Smazání IPSec připojení k místu naplánováno"
+msgstr[2] "Smazání IPSec připojení k místu naplánováno"
+
+msgid "Scheduled deletion of Member"
+msgid_plural "Scheduled deletion of Members"
+msgstr[0] "Smazání člena naplánováno"
+msgstr[1] "Smazání členů naplánováno"
+msgstr[2] "Smazání členů naplánováno"
+
+msgid "Scheduled deletion of Monitor"
+msgid_plural "Scheduled deletion of Monitors"
+msgstr[0] "Smazání monitoru naplánováno"
+msgstr[1] "Smazání monitorů naplánováno"
+msgstr[2] "Smazání monitorů naplánováno"
+
+msgid "Scheduled deletion of Policy"
+msgid_plural "Scheduled deletion of Policies"
+msgstr[0] "Smazání zásady naplánováno"
+msgstr[1] "Smazání zásad naplánováno"
+msgstr[2] "Smazání zásad naplánováno"
+
+msgid "Scheduled deletion of Pool"
+msgid_plural "Scheduled deletion of Pools"
+msgstr[0] "Smazání zásoby naplánováno"
+msgstr[1] "Smazání zásob naplánováno"
+msgstr[2] "Smazání zásob naplánováno"
+
+msgid "Scheduled deletion of Rule"
+msgid_plural "Scheduled deletion of Rules"
+msgstr[0] "Smazání pravidla naplánováno"
+msgstr[1] "Smazání pravidel naplánováno"
+msgstr[2] "Smazání pravidel naplánováno"
+
+msgid "Scheduled deletion of VIP"
+msgid_plural "Scheduled deletion of VIPs"
+msgstr[0] "Smazání VIP naplánováno"
+msgstr[1] "Smazání VIP naplánováno"
+msgstr[2] "Smazání VIP naplánováno"
+
+msgid "Scheduled deletion of VPN Service"
+msgid_plural "Scheduled deletion of VPN Services"
+msgstr[0] "Smazání služby VPN naplánováno"
+msgstr[1] "Smazání služeb VPN naplánováno"
+msgstr[2] "Smazání služeb VPN naplánováno"
+
+msgid "Scheduled deletion of Volume"
+msgid_plural "Scheduled deletion of Volumes"
+msgstr[0] "Smazání svazku naplánováno"
+msgstr[1] "Smazání svazků naplánováno"
+msgstr[2] "Smazání svazků naplánováno"
+
+msgid "Scheduled deletion of Volume Snapshot"
+msgid_plural "Scheduled deletion of Volume Snapshots"
+msgstr[0] "Smazání snímku svazku naplánováno"
+msgstr[1] "Smazání snímků svazku naplánováno"
+msgstr[2] "Smazání snímků svazku naplánováno"
+
+msgid "Scheduled migration (pending confirmation) of Instance"
+msgid_plural "Scheduled migration (pending confirmation) of Instances"
+msgstr[0] "Naplánován přesun (čeká se na potvrzení) instance"
+msgstr[1] "Naplánován přesun (čeká se na potvrzení) instancí"
+msgstr[2] "Naplánován přesun (čeká se na potvrzení) instancí"
+
 #, python-format
 msgid "Scheduled resize of instance \"%s\"."
 msgstr "Naplánovaná změna velikosti instance \"%s\"."
+
+msgid "Scheduled termination of Instance"
+msgid_plural "Scheduled termination of Instances"
+msgstr[0] "Ukončení instance naplánováno"
+msgstr[1] "Ukončení instancí naplánováno"
+msgstr[2] "Ukončení instancí naplánováno"
 
 msgctxt "Task status of an Instance"
 msgid "Scheduling"
@@ -5301,6 +6185,9 @@ msgstr "Vyberte snímek instance"
 
 msgid "Select Network"
 msgstr "Vyberte síť"
+
+msgid "Select Port"
+msgstr "Vyberte port"
 
 msgid "Select Script Source"
 msgstr "Vyberte zdroj skriptu"
@@ -5361,6 +6248,9 @@ msgstr "Vyberte hlavní instanci"
 msgid "Select a monitor template for %s"
 msgstr "Vyberte šablonu monitoru pro %s"
 
+msgid "Select a new QoS spec"
+msgstr "Zvolte novou specifikaci QoS"
+
 msgid "Select a new agent"
 msgstr "Vyberte nového agenta"
 
@@ -5375,6 +6265,9 @@ msgstr "Vyberte novou šablonu pro náhled zásobníku."
 
 msgid "Select a new template to re-launch a stack."
 msgstr "Vyberte novou šablonu pro znovu spuštění zásobníku."
+
+msgid "Select a new volume type"
+msgstr "Vyberte nový typ svazku"
 
 msgid "Select a port"
 msgstr "Vyberte port"
@@ -5476,6 +6369,12 @@ msgstr "Měření senzoru teploty"
 msgid "Sensor Voltage Reading"
 msgstr "Měření senzoru napětí"
 
+msgid "Server Group Members"
+msgstr "Členové skupiny serveru"
+
+msgid "Server Groups"
+msgstr "Skupiny serveru"
+
 msgid "Server error"
 msgstr "Chyba serveru"
 
@@ -5559,6 +6458,20 @@ msgctxt "Power state of an Instance"
 msgid "Shut Off"
 msgstr "Vypnuto"
 
+msgctxt "Action to perform (the instance is currently running)"
+msgid "Shut Off Instance"
+msgid_plural "Shut Off Instances"
+msgstr[0] "Vypnout instanci"
+msgstr[1] "Vypnout instance"
+msgstr[2] "Vypnout instance"
+
+msgctxt "Past action (the instance is currently already Shut Off)"
+msgid "Shut Off Instance"
+msgid_plural "Shut Off Instances"
+msgstr[0] "Instance vypnuta"
+msgstr[1] "Instance vypnuty"
+msgstr[2] "Instance vypnuty"
+
 msgctxt "Current status of a Database Instance"
 msgid "Shutdown"
 msgstr "Vypnout"
@@ -5640,12 +6553,28 @@ msgctxt "Task status of an Instance"
 msgid "Soft Deleting"
 msgstr "Měkké smazání"
 
+msgid "Soft Reboot Instance"
+msgid_plural "Soft Reboot Instances"
+msgstr[0] "Měkce restartovat instanci"
+msgstr[1] "Měkce restartovat instance"
+msgstr[2] "Měkce restartovat instance"
+
+msgid "Soft Rebooted Instance"
+msgid_plural "Soft Rebooted Instances"
+msgstr[0] "Instance měkce restartována"
+msgstr[1] "Instance měkce restartovány"
+msgstr[2] "Instance měkce restartovány"
+
 msgid "Something went wrong!"
 msgstr "Něco se pokazilo"
 
 msgid "Source CIDR"
 msgstr "Zdrojové CIDR"
 
+msgid "Source IP"
+msgstr "Zdrojová IP"
+
+msgctxt "load balancing method"
 msgid "Source IP"
 msgstr "Zdrojová IP"
 
@@ -5697,6 +6626,9 @@ msgstr ""
 "nic. Pokud nezvolíte žádnou volbu, budete muset adresy nastavovat ručně, "
 "nebo toto přenechat systému mimo OpenStack."
 
+msgid "Specifies that the newly created volume should be marked as bootable"
+msgstr "Určuje, zda nové vytvořený svazek by měl být označen jako zaveditelný"
+
 msgid "Specifies that the volume can be used to launch an instance"
 msgstr "Udává, že svazek může být použit ke spuštění instance"
 
@@ -5723,6 +6655,14 @@ msgstr "Zadejte IP adresu vytvořeného rozhraní (např. 192.168.0.254)."
 
 msgid "Specify member IP address"
 msgstr "Zadejte IP adresu člena"
+
+msgid ""
+"Specify this option to copy image data to the image service. If unspecified, "
+"image data will be used in its current location."
+msgstr ""
+"Zadejte tuto volbu, pokud chcete zkopírovat data obrazu do služby obrazů. "
+"Nezadáte-li tuto volbu, budou data obrazu použita v jejich současném "
+"umístění."
 
 msgid "Specs"
 msgstr "Specifikace"
@@ -5764,6 +6704,12 @@ msgctxt "Action log of an instance"
 msgid "Start"
 msgstr "Začátek"
 
+msgid "Start Instance"
+msgid_plural "Start Instances"
+msgstr[0] "Spustit instanci"
+msgstr[1] "Spustit instance"
+msgstr[2] "Spustit instance"
+
 msgid "Start Time"
 msgstr "Čas spuštění"
 
@@ -5778,6 +6724,12 @@ msgstr "Musí být zadány počáteční a koncové adresy (hodnota=%s)"
 msgid "Start must be earlier than end of period."
 msgstr "Začátek období musí předcházet jeho konci."
 
+msgid "Started Instance"
+msgid_plural "Started Instances"
+msgstr[0] "Instance spuštěna"
+msgstr[1] "Instance spuštěny"
+msgstr[2] "Instance spuštěny"
+
 #, python-format
 msgid "Starting evacuation from %(current)s to %(target)s."
 msgstr "Zahájeno vyklizení z %(current)s do %(target)s."
@@ -5788,6 +6740,12 @@ msgstr "Zahájeno přesunutí hostitele: %(current)s"
 
 msgid "State"
 msgstr "Stav"
+
+msgid "Static Routes"
+msgstr "Statické cesty"
+
+msgid "Static route added"
+msgstr "Statická cesta přidána"
 
 msgid "Stats"
 msgstr "Statistiky"
@@ -5800,6 +6758,10 @@ msgstr "Stav ="
 
 msgid "Status Reason"
 msgstr "Důvod stavu"
+
+msgctxt "Action log of an instance"
+msgid "Stop"
+msgstr "Zastavit"
 
 msgid "Storage location"
 msgstr "Umístění úložiště"
@@ -5969,6 +6931,18 @@ msgctxt "current status of stack"
 msgid "Suspend In Progress"
 msgstr "Probíhá uspání"
 
+msgid "Suspend Instance"
+msgid_plural "Suspend Instances"
+msgstr[0] "Uspat instanci"
+msgstr[1] "Uspat instance"
+msgstr[2] "Uspat instance"
+
+msgid "Suspend Stack"
+msgid_plural "Suspend Stacks"
+msgstr[0] "Uspat zásobník"
+msgstr[1] "Uspat zásobníky"
+msgstr[2] "Uspat zásobníky"
+
 msgctxt "Current status of an Instance"
 msgid "Suspended"
 msgstr "Uspáno"
@@ -5976,6 +6950,18 @@ msgstr "Uspáno"
 msgctxt "Power state of an Instance"
 msgid "Suspended"
 msgstr "Uspáno"
+
+msgid "Suspended Instance"
+msgid_plural "Suspended Instances"
+msgstr[0] "Instance uspána"
+msgstr[1] "Instance uspány"
+msgstr[2] "Instance uspány"
+
+msgid "Suspended Stack"
+msgid_plural "Suspended Stacks"
+msgstr[0] "Zásobník uspán"
+msgstr[1] "Zásobníky uspány"
+msgstr[2] "Zásobníky uspány"
 
 msgctxt "Task status of an Instance"
 msgid "Suspending"
@@ -6020,6 +7006,9 @@ msgstr "Měření využití paměti systému"
 msgid "System Outlet Temperature Reading"
 msgstr "Měření výstupní teploty systému"
 
+msgid "System Temperature Reading"
+msgstr "Měření teploty systému"
+
 msgid "TCP"
 msgstr "TCP"
 
@@ -6049,6 +7038,12 @@ msgstr "Zdroj šablony"
 
 msgid "Template URL"
 msgstr "URL šablony"
+
+msgid "Terminate Instance"
+msgid_plural "Terminate Instances"
+msgstr[0] "Ukončit instanci"
+msgstr[1] "Ukončit instance"
+msgstr[2] "Ukončit instance"
 
 msgid "Terminated instances are not recoverable."
 msgstr "Ukončené instance nelze obnovit"
@@ -6122,6 +7117,13 @@ msgstr "Heslo správce není správné."
 msgid "The container cannot be deleted since it is not empty."
 msgstr "Kontejner nelze smazat protože není prázdný."
 
+msgid ""
+"The data will remain in the volume and another instance will be able to "
+"access the data if you attach this volume to it."
+msgstr ""
+"Data zůstanou ve svazku a ostatní instance budou mít k nim přístup, pokud k "
+"nim připojíte tento svazek."
+
 msgid "The dates haven't been recognized"
 msgstr "Data nebyla rozeznána"
 
@@ -6141,6 +7143,13 @@ msgid "The instance password encrypted with your public key."
 msgstr "Heslo instance zašifrované pomocí vašeho veřejného klíče."
 
 msgid ""
+"The maximum time in seconds for a monitor to wait for a reply. It must be "
+"less than or equal to delay"
+msgstr ""
+"Maximální doba ve vteřinách kdy monitor čeká na odpověď. Musí být menší nebo "
+"rovna zpoždění"
+
+msgid ""
 "The minimum disk size required to boot the image. If unspecified, this value "
 "defaults to 0 (no minimum)."
 msgstr ""
@@ -6154,6 +7163,13 @@ msgstr ""
 "Minimální velikost paměti, jež je vyžadována pro zavedení obrazu. Pokud není "
 "zadána, je výchozí hodnota 0 (žádné minimum)."
 
+msgid ""
+"The minimum time in seconds between regular checks of a member. It must be "
+"greater than or equal to timeout"
+msgstr ""
+"Minimální doba ve vteřinách mezi pravidelnými kontrolami člena. Musí být "
+"stejná nebo větší než časový limit."
+
 #, python-format
 msgid "The name \"%s\" is already used by another flavor."
 msgstr "Název \"%s\" již je používán jinou konfigurací."
@@ -6161,6 +7177,9 @@ msgstr "Název \"%s\" již je používán jinou konfigurací."
 #, python-format
 msgid "The name \"%s\" is already used by another host aggregate."
 msgstr "Název \"%s\" již je používán jiným agregátem hostitele."
+
+msgid "The name is already in use."
+msgstr "Název již je používán."
 
 msgid ""
 "The name of the physical network over which the virtual network is "
@@ -6192,6 +7211,31 @@ msgstr ""
 
 #, python-format
 msgid ""
+"The requested instance cannot be launched as you only have %(avail)i of your "
+"quota available. "
+msgid_plural ""
+"The requested %(req)i instances cannot be launched as you only have "
+"%(avail)i of your quota available."
+msgstr[0] ""
+"Požadovanou instanci nelze spustit, protože z vaší kvóty Vám zbývá pouze "
+"%(avail)i."
+msgstr[1] ""
+"Požadovaných %(req)i instancí nelze spustit, protože z vaší kvóty Vám zbývá "
+"pouze %(avail)i."
+msgstr[2] ""
+"Požadovaných %(req)i instancí nelze spustit, protože z vaší kvóty Vám zbývá "
+"pouze %(avail)i."
+
+#, python-format
+msgid ""
+"The requested instance cannot be launched. Requested volume exceeds quota: "
+"Available: %(avail)s, Requested: %(req)s."
+msgstr ""
+"Požadovanou instanci nelze spustit. Požadovaný svazek překračuje kvótu: "
+"Dostupné: %(avail)s, Požadované: %(req)s."
+
+#, python-format
+msgid ""
 "The requested instance cannot be launched. The following requested "
 "resource(s) exceed quota(s): %s."
 msgstr ""
@@ -6214,6 +7258,9 @@ msgstr "Stav v kterém sít spustit."
 #, python-format
 msgid "The subnet in the Network Address is too small (/%s)."
 msgstr "Podsíť v síťové adrese je příliš malá (/%s)."
+
+msgid "The time delta must be a number representing the time span in days"
+msgstr "Časová delta musí být číslo odpovídající časovému období ve dnech"
 
 #, python-format
 msgid "The volume size cannot be less than the image minimum disk size (%sGB)"
@@ -6251,6 +7298,9 @@ msgstr "Při zpracování %(prefix)s nastal problém: %(error)s"
 
 msgid "This action cannot be undone."
 msgstr "Toto nelze vrátit."
+
+msgid "This application requires JavaScript to be enabled in your web browser."
+msgstr "Tato aplikace povolení JavaScriptu ve vašem internetovém prohlížeči."
 
 msgid ""
 "This is required for operations to be performed throughout the lifecycle of "
@@ -6294,6 +7344,9 @@ msgstr "Do"
 
 msgid "To Port"
 msgstr "Do portu"
+
+msgid "To date to must be greater than From date."
+msgstr "Do dne musí být větší než Ode dne."
 
 msgid "To power off a specific instance."
 msgstr "Pro vypnutí konkrétní instance."
@@ -6351,6 +7404,9 @@ msgstr "Typ"
 msgid "Type and version of datastore."
 msgstr "Typ a verze datového úložiště"
 
+msgid "Type of backend device identifier provided"
+msgstr "Typ poskytnutého identifikátoru podpůrného zařízení"
+
 msgid "UDP"
 msgstr "UDP"
 
@@ -6358,6 +7414,10 @@ msgid "UP"
 msgstr "NAHORU"
 
 msgctxt "Admin state of a Firewall"
+msgid "UP"
+msgstr "NAHORU"
+
+msgctxt "Admin state of a Load balancer"
 msgid "UP"
 msgstr "NAHORU"
 
@@ -6449,6 +7509,9 @@ msgstr "Nelze přidružit plovoucí IP."
 
 msgid "Unable to associate monitor."
 msgstr "Nelze přidružit monitor."
+
+msgid "Unable to attach interface."
+msgstr "Nelze připojit rozhraní."
 
 msgid "Unable to attach volume."
 msgstr "Nelze připojit svazek."
@@ -6637,6 +7700,9 @@ msgstr "Nelze smazat pravidlo. %s"
 msgid "Unable to delete volume transfer."
 msgstr "Nelze smazat přenos svazku."
 
+msgid "Unable to detach interface."
+msgstr "Nelze odpojit rozhraní."
+
 msgid "Unable to determine if availability zones extension is supported."
 msgstr "Nelze zjistit podporu rozšíření zón dostupnosti."
 
@@ -6749,6 +7815,9 @@ msgstr "Nelze vytvořit možnosti procesu."
 msgid "Unable to get EC2 credentials"
 msgstr "Nelze získat přihlašovací údaje pro EC2."
 
+msgid "Unable to get Orchestration service list."
+msgstr "Nelze získat seznam služby Orchestrace."
+
 #, python-format
 msgid "Unable to get RDP console for instance \"%s\"."
 msgstr "Nelze získat konzoli RDP pro instanci \"%s\"."
@@ -6780,6 +7849,10 @@ msgstr "Nelze získat události zásobníku \"%s\"."
 
 msgid "Unable to get flavor list"
 msgstr "Nelze získat seznam konfigurací"
+
+#, python-format
+msgid "Unable to get health monitor %(monitor_id)s for pool %(pool)s."
+msgstr "Nelze získat monitor funkčnosti %(monitor_id)s zásoby %(pool)s."
 
 msgid "Unable to get host aggregate list"
 msgstr "Nelze získat seznam agregátů hostitele."
@@ -7065,6 +8138,18 @@ msgid "Unable to retrieve details for backup: %s"
 msgstr "Nelze získat podrobnosti zálohy: %s."
 
 #, python-format
+msgid "Unable to retrieve details for cluster \"%s\"."
+msgstr "Nelze získat podrobnosti clusteru \"%s\"."
+
+#, python-format
+msgid "Unable to retrieve details for cluster template \"%s\"."
+msgstr "Nelze získat podrobnosti šablony clusteru \"%s\"."
+
+#, python-format
+msgid "Unable to retrieve details for data source \"%s\"."
+msgstr "Nelze získat podrobnosti zdroje dat \"%s\"."
+
+#, python-format
 msgid "Unable to retrieve details for database instance: %s"
 msgstr "Nelze získat podrobnosti instance databáze: \"%s\"."
 
@@ -7073,12 +8158,28 @@ msgid "Unable to retrieve details for instance \"%s\"."
 msgstr "Nelze získat podrobnosti instance \"%s\"."
 
 #, python-format
+msgid "Unable to retrieve details for job \"%s\"."
+msgstr "Nelze získat podrobnosti úkolu \"%s\"."
+
+#, python-format
+msgid "Unable to retrieve details for job binary \"%s\"."
+msgstr "Nelze získat podrobnosti binárního souboru úkolu \"%s\"."
+
+#, python-format
+msgid "Unable to retrieve details for job template \"%s\"."
+msgstr "Nelze získat podrobnosti šablony úkolu \"%s\"."
+
+#, python-format
 msgid "Unable to retrieve details for keypair \"%s\"."
 msgstr "Nelze získat podrobnosti páru klíčů \"%s\"."
 
 #, python-format
 msgid "Unable to retrieve details for network \"%s\"."
 msgstr "Nelze získat podrovností pro síť \"%s\"."
+
+#, python-format
+msgid "Unable to retrieve details for node group template \"%s\"."
+msgstr "Nelze získat podrobnosti šablony skupiny uzlu \"%s\"."
 
 #, python-format
 msgid "Unable to retrieve details for parent backup: %s"
@@ -7099,6 +8200,9 @@ msgstr "Nelze získat informace o doméně."
 
 msgid "Unable to retrieve domain list."
 msgstr "Nelze získat seznam domén."
+
+msgid "Unable to retrieve extensions information"
+msgstr "Nelze získat informace o rozšířeních"
 
 msgid "Unable to retrieve extensions information."
 msgstr "Nelze získat informace o rozšířeních."
@@ -7123,6 +8227,10 @@ msgid ""
 "Unable to retrieve flavor information for instance \"%(name)s\" (%(id)s)."
 msgstr ""
 "Nelze získat informace o konfiguraci pro instanci \"%(name)s\" (%(id)s)."
+
+#, python-format
+msgid "Unable to retrieve flavor information for instance \"%s\"."
+msgstr "Nelze získat informace o konfiguraci pro instanci \"%s\"."
 
 msgid "Unable to retrieve flavor list."
 msgstr "Nelze získat seznam konfigurací."
@@ -7331,6 +8439,9 @@ msgstr "Nelze získat podrobnosti portu"
 
 msgid "Unable to retrieve port details."
 msgstr "Nelze získat podrobnosti portu."
+
+msgid "Unable to retrieve ports information."
+msgstr "Nelze získat informace o portech."
 
 msgid "Unable to retrieve project details."
 msgstr "Nelze získat podrobnosti projektu."
@@ -7672,6 +8783,18 @@ msgstr "Neznámá instance"
 msgid "Unknown instance (None)"
 msgstr "Neznámá instance (Žádná)"
 
+msgid "Unlock Instance"
+msgid_plural "Unlock Instances"
+msgstr[0] "Odemknout instanci"
+msgstr[1] "Odemknout instance"
+msgstr[2] "Odemknout instance"
+
+msgid "Unlocked Instance"
+msgid_plural "Unlocked Instances"
+msgstr[0] "Instance odemčena"
+msgstr[1] "Instance odemčeny"
+msgstr[2] "Instance odemčeny"
+
 msgid "Unmanage"
 msgstr "Zrušit správu"
 
@@ -7681,9 +8804,28 @@ msgstr "Zrušit správu svazku"
 msgid "Unmanage a Volume"
 msgstr "Zrušit správu svazku"
 
+msgctxt "Action log of an instance"
+msgid "Unpause"
+msgstr "Zrušit pozastavení"
+
+msgid "Unregister Image"
+msgid_plural "Unregister Images"
+msgstr[0] "Zrušit registraci obrazu"
+msgstr[1] "Zrušit registrace obrazů"
+msgstr[2] "Zrušit registrace obrazů"
+
+msgid "Unregistered Image"
+msgid_plural "Unregistered Images"
+msgstr[0] "Registrace obrazu zrušena"
+msgstr[1] "Registrace obrazů zrušena"
+msgstr[2] "Registrace obrazů zrušena"
+
 msgctxt "Task status of an Instance"
 msgid "Unrescuing"
 msgstr "Ručení záchrany"
+
+msgid "Unselect the router(s) to be removed from firewall."
+msgstr "Odznačte směrovače, které budou odebrány z brány firewall."
 
 msgctxt "Task status of an Instance"
 msgid "Unshelving"
@@ -7854,6 +8996,9 @@ msgstr "Využití (Hodiny)"
 msgid "Usage Report"
 msgstr "Zpráva o využití"
 
+msgid "Use HBase Common library"
+msgstr "Použít společnou knihovnu HBase"
+
 msgid "Use Server Default"
 msgstr "Použít výchozí serveru"
 
@@ -7976,6 +9121,12 @@ msgstr "VXLAN"
 msgid "Valid integer greater than the DPD interval"
 msgstr "Platné celé číslo větší než interval ZMK"
 
+msgid "Valid integer lesser than DPD timeout"
+msgstr "Platné celé číslo menší než časový limit DPD"
+
+msgid "Valid integer lesser than the DPD timeout"
+msgstr "Platné celé číslo menší než časový limit DPD"
+
 msgid "Value"
 msgstr "Hodnota"
 
@@ -8049,6 +9200,9 @@ msgstr "Snímky svazku"
 
 msgid "Volume Source"
 msgstr "Zdroj svazku"
+
+msgid "Volume Storage"
+msgstr "Úložiště svazků"
 
 msgid "Volume Transfer"
 msgstr "Přenos svazuk"
@@ -8179,8 +9333,24 @@ msgstr ""
 "nyní přihlášeni. Prosím přejděte do jiného projektu se stejnými oprávněními, "
 "nebo odstraňte roli správce ručně pomocí příkazového řádku."
 
+msgid ""
+"You do not have the required\n"
+"          privileges to access this content. If you believe this message to\n"
+"          be in error, please contact your project manager."
+msgstr ""
+"Nemáte požadovaná oprávnění\n"
+"          pro přístup k tomuto obsahu. Pokud si myslíte, že tato\n"
+"          zpráva je mylná, kontaktujte prosím vašeho správce projektu."
+
 msgid "You may have mistyped the address or the page may have moved."
 msgstr "Možná jste napsali špatně adresu nebo stránka byla přesunuta."
+
+msgid ""
+"You may reset the gateway later by using the set gateway action, but the "
+"gateway IP may change."
+msgstr ""
+"Bránu můžete resetovat později pomocí jejího nastavení, ale IP brány se může "
+"změnit."
 
 msgid "You must select a datastore type and version."
 msgstr "Musíte zvolit typ datového úložiště a verzi."

@@ -10,11 +10,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-07-15 00:43+0000\n"
-"PO-Revision-Date: 2015-07-10 12:38+0000\n"
-"Last-Translator: İşbaran Akçayır <isbaran@gmail.com>\n"
-"Language-Team: Turkish (Turkey) (http://www.transifex.com/p/horizon/language/"
-"tr_TR/)\n"
+"POT-Creation-Date: 2015-07-19 22:22+0000\n"
+"PO-Revision-Date: 2015-07-22 06:32+0000\n"
+"Last-Translator: Mücahit Büyükyılmaz <mucahit@konya.edu.tr>\n"
+"Language-Team: Turkish (Turkey) (http://www.transifex.com/projects/p/horizon/"
+"language/tr_TR/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -52,7 +52,7 @@ msgid "Added"
 msgstr "Eklendi"
 
 msgid "Allocated"
-msgstr "Ayrılan"
+msgstr "Ayrılmış"
 
 msgid "An error occurred while updating."
 msgstr "Güncelleme sırasında bir hata oluştu."
@@ -64,7 +64,7 @@ msgid "Available"
 msgstr "Uygun"
 
 msgid "Available Metadata"
-msgstr "Geçerli metaveri"
+msgstr "Geçerli üstveri"
 
 msgid "Back"
 msgstr "Geri"
@@ -142,7 +142,7 @@ msgid "Error: "
 msgstr "Hata:"
 
 msgid "Existing Metadata"
-msgstr "Varolan üstveri"
+msgstr "Mevcut üstveri"
 
 msgid "Expand to see allocated items"
 msgstr "Öğeleri görmek için genişlet"
@@ -175,10 +175,10 @@ msgid "Loading"
 msgstr "Yükleniyor"
 
 msgid "Max"
-msgstr "Maximum"
+msgstr "Maksimum"
 
 msgid "Max length"
-msgstr "Maximum Uzunluk"
+msgstr "Maksimum Uzunluk"
 
 msgid "Min"
 msgstr "Minimum"
@@ -199,7 +199,7 @@ msgid "No available items"
 msgstr "Uygun parça yok"
 
 msgid "No available metadata"
-msgstr "Üstveri mevcut değil"
+msgstr "Üstveri uygun değil"
 
 msgid "No data available."
 msgstr "Veri yok."
@@ -250,7 +250,7 @@ msgid "Remove"
 msgstr "Sil"
 
 msgid "Required"
-msgstr "Gereken"
+msgstr "Gerekli"
 
 msgid "Roles"
 msgstr "Roller"
@@ -262,13 +262,13 @@ msgid "Select an item from Available items below"
 msgstr "Aşağıdaki kullanılabilir öğelerden birini seçin."
 
 msgid "Select one"
-msgstr "Birini seç"
+msgstr "Birini seçin"
 
 msgid "Shutdown"
 msgstr "Kapat"
 
 msgid "Status"
-msgstr "Statü"
+msgstr "Durum"
 
 #, python-format
 msgid "Status: %s"

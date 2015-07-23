@@ -10,11 +10,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-07-03 09:12+0000\n"
-"PO-Revision-Date: 2015-06-26 08:44+0000\n"
+"POT-Creation-Date: 2015-07-19 22:22+0000\n"
+"PO-Revision-Date: 2015-07-21 08:21+0000\n"
 "Last-Translator: Mücahit Büyükyılmaz <mucahit@konya.edu.tr>\n"
-"Language-Team: Turkish (Turkey) (http://www.transifex.com/p/horizon/language/"
-"tr_TR/)\n"
+"Language-Team: Turkish (Turkey) (http://www.transifex.com/projects/p/horizon/"
+"language/tr_TR/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -45,7 +45,7 @@ msgid ""
 "    "
 msgstr ""
 "\n"
-" Eğer hangi kimlik doğrulama yöntemini kullanıcağınızdan emin değilseniz , "
+"Hangi kimlik doğrulama yöntemini kullanıcağınızdan emin değilseniz , "
 "yöneticinize başvurunuz."
 
 #, python-format
@@ -107,7 +107,7 @@ msgid "&laquo;&nbsp;Prev"
 msgstr "&laquo;&nbsp;Geri"
 
 msgid "(No Limit)"
-msgstr "Limitsiz"
+msgstr "(Limitsiz)"
 
 msgid "-"
 msgstr "-"
@@ -186,7 +186,8 @@ msgid "Info: "
 msgstr "Bilgi:"
 
 msgid "Invalid metadata entry. Use comma-separated key=value pairs"
-msgstr "Geçersiz meta veri girişi. Virgül Kulanın."
+msgstr ""
+"Geçersiz metadata girdisi. Virgülle ayrılmış anahtar=değer çiftleri kullanın"
 
 msgid "Invalid subnet mask"
 msgstr "Geçersiz subnet maskesi"
@@ -236,7 +237,7 @@ msgstr "Görüntülenecek öğe yok."
 
 #, python-format
 msgid "No match returned for the id \"%s\"."
-msgstr "\"%s\" ID'si için bir eşleşme bulunamadı."
+msgstr "\"%s\" ID'si için eşleşme bulunamadı."
 
 msgid "No members."
 msgstr "Üye yok."
@@ -347,7 +348,7 @@ msgid "Usage Summary"
 msgstr "Kullanım Özeti"
 
 msgid "Used"
-msgstr "İkinci El"
+msgstr "Kullanımda"
 
 msgid "Warning: "
 msgstr "Uyarı:"
@@ -362,3 +363,6 @@ msgstr "%s e erişim yetkiniz bulunmuyor"
 
 msgid "You do not have permission to access the resource:"
 msgstr "Kaynağa erişim için yetkiniz bulunmuyor:"
+
+msgid "of"
+msgstr "/"
