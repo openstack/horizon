@@ -14,11 +14,11 @@
 
 import datetime
 import os
-from StringIO import StringIO
 
 from django.core.exceptions import ValidationError  # noqa
 import django.template
 from django.template import defaultfilters
+from six import StringIO
 
 from horizon import forms
 from horizon.test import helpers as test

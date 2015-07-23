@@ -38,6 +38,7 @@ from django.utils.functional import SimpleLazyObject  # noqa
 from django.utils.importlib import import_module  # noqa
 from django.utils.module_loading import module_has_submodule  # noqa
 from django.utils.translation import ugettext_lazy as _
+import six
 
 from horizon import conf
 from horizon.decorators import _current_component  # noqa
@@ -537,7 +538,7 @@ class Dashboard(Registry, HorizonComponent):
         panel_groups = []
         # If we have a flat iterable of panel names, wrap it again so
         # we have a consistent structure for the next step.
-        if all([isinstance(i, basestring) for i in self.panels]):
+        if all([isinstance(i, six.string_types) for i in self.panels]):
             self.panels = [self.panels]
 
         # Now iterate our panel sets.
@@ -769,7 +770,7 @@ class Site(Registry, HorizonComponent):
         if user_home:
             if callable(user_home):
                 return user_home(user)
-            elif isinstance(user_home, basestring):
+            elif isinstance(user_home, six.string_types):
                 # Assume we've got a URL if there's a slash in it
                 if '/' in user_home:
                     return user_home
