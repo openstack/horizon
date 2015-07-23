@@ -17,8 +17,6 @@ try:
 except ImportError:
     from HTMLParser import HTMLParser
 
-import re
-
 
 class AngularGettextHTMLParser(HTMLParser):
     """Parse HTML to find translate directives.
@@ -36,6 +34,10 @@ class AngularGettextHTMLParser(HTMLParser):
         self.in_translate = False
         self.data = ''
         self.strings = []
+        self.line = 0
+        self.plural = False
+        self.plural_form = ''
+        self.comments = []
 
     def handle_starttag(self, tag, attrs):
         if tag == 'translate' or \
@@ -43,21 +45,35 @@ class AngularGettextHTMLParser(HTMLParser):
                 self.in_translate = True
                 self.line = self.getpos()[0]
 
+                self.plural_form = ''
+                for attr, value in attrs:
+                    if attr == 'translate-plural':
+                        self.plural = True
+                        self.plural_form = value
+                    if attr == 'translate-comment':
+                        self.comments.append(value)
+
     def handle_data(self, data):
         if self.in_translate:
             self.data += data
 
     def handle_endtag(self, tag):
         if self.in_translate:
+            if self.plural_form:
+                messages = (
+                    self.data,
+                    self.plural_form
+                )
+                func_name = u'ngettext'
+            else:
+                messages = self.data
+                func_name = u'gettext'
             self.strings.append(
-                (self.line, u'gettext', self.interpolate(), [])
+                (self.line, func_name, messages, self.comments)
             )
             self.in_translate = False
             self.data = ''
-
-    def interpolate(self):
-        interpolation_regex = r"""{\$([\w\."'\]\[\(\)]+)\$}"""
-        return re.sub(interpolation_regex, r'%(\1)', self.data)
+            self.comments = []
 
 
 def extract_angular(fileobj, keywords, comment_tags, options):
