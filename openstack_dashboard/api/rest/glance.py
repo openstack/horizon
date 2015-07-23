@@ -15,7 +15,7 @@
 """API for the glance service.
 """
 
-from itertools import izip
+from six.moves import zip as izip
 from django.views import generic
 
 from openstack_dashboard import api
