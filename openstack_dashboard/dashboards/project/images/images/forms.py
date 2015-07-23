@@ -101,7 +101,7 @@ class CreateImageForm(forms.SelfHandlingForm):
                                    'data-source-url': _('Image Location'),
                                    'ng-model': 'copyFrom',
                                    'ng-change':
-                                   'selectImageFormat(copyFrom)'}),
+                                   'ctrl.selectImageFormat(copyFrom)'}),
                                required=False)
     image_file = forms.FileField(label=_("Image File"),
                                  help_text=_("A local image to upload."),
@@ -111,7 +111,7 @@ class CreateImageForm(forms.SelfHandlingForm):
                                      'data-source-file': _('Image File'),
                                      'ng-model': 'imageFile',
                                      'ng-change':
-                                     'selectImageFormat(imageFile.name)',
+                                     'ctrl.selectImageFormat(imageFile.name)',
                                      'image-file-on-change': None}),
                                  required=False)
     kernel = forms.ChoiceField(
@@ -130,7 +130,7 @@ class CreateImageForm(forms.SelfHandlingForm):
                                     choices=[],
                                     widget=forms.Select(attrs={
                                         'class': 'switchable',
-                                        'ng-model': 'diskFormat'}))
+                                        'ng-model': 'ctrl.diskFormat'}))
     architecture = forms.CharField(max_length=255, label=_("Architecture"),
                                    required=False)
     minimum_disk = forms.IntegerField(

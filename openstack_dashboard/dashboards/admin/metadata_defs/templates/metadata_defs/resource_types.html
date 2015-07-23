@@ -2,7 +2,7 @@
 
 {% load i18n %}
 
-{% block ng_controller %}hzNamespaceResourceTypeFormController{% endblock %}
+{% block ng_controller %}hzNamespaceResourceTypeFormController as ctrl{% endblock %}
 {% block form_name %}manageResourceTypesForm{% endblock %}
 {% block form_validation %}novalidate{% endblock %}
 
@@ -26,7 +26,7 @@
 
         <div class="fake_table fake_update_members_table">
           <div class="available_members available_update_members">
-            <ul ng-repeat="resource_type in resource_types  | filter:searchResource"
+            <ul ng-repeat="resource_type in ctrl.resource_types  | filter:searchResource"
                 class="nav nav-pills btn-group {$$last ? ' last_stripe': ''$}"
                 ng-class-odd="'dark_stripe'"
                 ng-class-even="'light_stripe'"
@@ -76,9 +76,9 @@
 {% block modal-footer %}
   <div>
     <input class="btn btn-primary pull-right" type="submit"
-           ng:click="saveResourceTypes()" value="{% trans "Save" %}"/>
+           ng:click="ctrl.saveResourceTypes()" value="{% trans "Save" %}"/>
     <a class="btn btn-default secondary cancel close">{% trans "Cancel" %}</a>
-    <input type="hidden" name="resource_types" ng-value="resource_types"
-           ng-model="resource_types">
+    <input type="hidden" name="resource_types" ng-value="ctrl.resource_types"
+           ng-model="ctrl.resource_types">
   </div>
 {% endblock %}

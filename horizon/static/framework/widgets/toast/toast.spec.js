@@ -116,7 +116,7 @@
 
       var markup = '<toast></toast>';
       $element = $compile(markup)($scope);
-      $scope.$digest();
+      $scope.$apply();
     }));
 
     it('should create toasts using ng-repeat', function() {
