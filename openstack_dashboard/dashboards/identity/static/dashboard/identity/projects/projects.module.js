@@ -26,6 +26,8 @@
     .module('hz.dashboard.identity.projects', [])
     .config(config);
 
+  config.$inject = ['$provide', '$windowProvider'];
+
   function config($provide, $windowProvider) {
     var path = $windowProvider.$get().STATIC_URL + 'dashboard/identity/projects/';
     $provide.constant('hz.dashboard.identity.projects.basePath', path);
