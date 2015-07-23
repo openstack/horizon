@@ -11,8 +11,7 @@ hacking<0.11,>=0.10.0
 #
 coverage>=3.6
 django-nose>=1.2
-mock!=1.1.4,>=1.1;python_version!='2.6'
-mock==1.0.1;python_version=='2.6'
+mock>=1.2
 mox3>=0.7.0
 nodeenv>=0.9.4 # BSD License
 nose
