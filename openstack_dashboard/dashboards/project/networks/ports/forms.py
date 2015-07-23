@@ -51,19 +51,21 @@ class UpdatePort(forms.SelfHandlingForm):
                                        'OPENSTACK_NEUTRON_NETWORK', {})
             supported_vnic_types = neutron_settings.get(
                 'supported_vnic_types', ['*'])
-            if supported_vnic_types == ['*']:
-                vnic_type_choices = VNIC_TYPES
-            else:
-                vnic_type_choices = [
-                    vnic_type for vnic_type in VNIC_TYPES
-                    if vnic_type[0] in supported_vnic_types
-                ]
+            if supported_vnic_types:
+                if supported_vnic_types == ['*']:
+                    vnic_type_choices = VNIC_TYPES
+                else:
+                    vnic_type_choices = [
+                        vnic_type for vnic_type in VNIC_TYPES
+                        if vnic_type[0] in supported_vnic_types
+                    ]
 
-            self.fields['binding__vnic_type'] = forms.ChoiceField(
-                choices=vnic_type_choices,
-                label=_("Binding: VNIC Type"),
-                help_text=_("The VNIC type that is bound to the neutron port"),
-                required=False)
+                self.fields['binding__vnic_type'] = forms.ChoiceField(
+                    choices=vnic_type_choices,
+                    label=_("Binding: VNIC Type"),
+                    help_text=_(
+                        "The VNIC type that is bound to the neutron port"),
+                    required=False)
 
         if api.neutron.is_extension_supported(request, 'mac-learning'):
             self.fields['mac_state'] = forms.BooleanField(

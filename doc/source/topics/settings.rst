@@ -892,6 +892,8 @@ types will be available to choose from.
 
 Example ``['normal', 'direct']``
 
+To disable VNIC type selection, set an empty list or None.
+
 ``segmentation_id_range``:
 
 .. versionadded:: 2014.2(Juno)
