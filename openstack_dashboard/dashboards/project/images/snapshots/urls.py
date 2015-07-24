@@ -24,7 +24,7 @@ from openstack_dashboard.dashboards.project.images.snapshots import views
 
 urlpatterns = patterns(
     '',
-    url(r'^(?P<instance_id>[^/]+)/create',
+    url(r'^(?P<instance_id>[^/]+)/create/$',
         views.CreateView.as_view(),
         name='create')
 )
