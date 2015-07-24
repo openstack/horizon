@@ -16,6 +16,12 @@
 (function () {
   'use strict';
 
+  angular
+    .module('horizon.framework.widgets.charts')
+    .directive('chartTooltip', chartTooltip);
+
+  chartTooltip.$inject = ['horizon.framework.widgets.basePath'];
+
   /**
    * @ngdoc directive
    * @name horizon.framework.widgets.charts.directive:chartTooltip
@@ -47,12 +53,6 @@
    * ```
    *
    */
-  angular
-    .module('horizon.framework.widgets.charts')
-    .directive('chartTooltip', chartTooltip);
-
-  chartTooltip.$inject = ['horizon.framework.widgets.basePath'];
-
   function chartTooltip(path) {
     var directive = {
       restrict: 'E',

@@ -16,6 +16,16 @@
 (function () {
   'use strict';
 
+  angular
+    .module('horizon.framework.widgets.charts')
+    .directive('pieChart', pieChart);
+
+  pieChart.$inject = [
+    'horizon.framework.widgets.basePath',
+    'horizon.framework.widgets.charts.donutChartSettings'
+  ];
+
+  /*eslint-disable max-len */
   /**
    * @ngdoc directive
    * @name horizon.framework.widgets.charts.directive:pieChart
@@ -87,15 +97,7 @@
    * ```
    *
    */
-  angular
-    .module('horizon.framework.widgets.charts')
-    .directive('pieChart', pieChart);
-
-  pieChart.$inject = [
-    'horizon.framework.widgets.basePath',
-    'horizon.framework.widgets.charts.donutChartSettings'
-  ];
-
+  /*eslint-enable max-len */
   function pieChart(path, donutChartSettings) {
     var directive = {
       link: link,
