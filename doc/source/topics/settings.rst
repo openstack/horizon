@@ -1059,6 +1059,40 @@ provided see: ``"/horizon/openstack_dashboard/static/themes/webroot"``
     path.  For example, you'd replace ``/`` with ``/dashboard`` for the
     alias.
 
+``STATIC_ROOT``
+--------------
+
+.. versionadded:: 8.0.0(Liberty)
+
+Default: ``<path_to_horizon>/static``
+
+The absolute path to the directory where static files are collected when
+collectstatic is run.
+
+For more information see:
+https://docs.djangoproject.com/en/1.7/ref/settings/#static-root
+
+``STATIC_URL``
+--------------
+
+.. versionadded:: 8.0.0(Liberty)
+
+Default: ``/static/``
+
+URL that refers to files in STATIC_ROOT.
+
+By default this value is ``WEBROOT/static/``.
+
+This value can be changed from the default. When changed, the alias in your
+webserver configuration should be updated to match.
+
+.. note::
+
+    The value for STATIC_URL must end in '/'.
+
+For more information see:
+https://docs.djangoproject.com/en/1.7/ref/settings/#static-url
+
 
 ``DISALLOW_IFRAME_EMBED``
 -------------------------
