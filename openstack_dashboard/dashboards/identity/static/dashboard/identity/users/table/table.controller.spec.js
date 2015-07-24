@@ -14,7 +14,7 @@
  * under the License.
  */
 
-(function(){
+(function() {
   'use strict';
 
   describe('Identity users table controller', function() {
@@ -26,25 +26,21 @@
           callback(policy);
         }
       };
-    };
+    }
 
     function fakePromise() {
       return {
         success: function() {}
       };
-    };
+    }
 
     function fakeToast() {
       return {
         add: function(type, msg) {}
       };
-    };
+    }
 
-    var controller;
-    var toastService;
-    var policyAPI;
-    var keystoneAPI;
-    var staticUrl;
+    var controller, toastService, policyAPI, keystoneAPI, staticUrl;
 
     ///////////////////////
 
@@ -56,7 +52,7 @@
     beforeEach(module('hz.dashboard'));
     beforeEach(module('hz.dashboard.identity'));
     beforeEach(module('hz.dashboard.identity.users'));
-    beforeEach(inject(function($injector){
+    beforeEach(inject(function($injector) {
 
       toastService = $injector.get('horizon.framework.widgets.toast.service');
       policyAPI = $injector.get('horizon.openstack-service-api.policy');
@@ -70,7 +66,7 @@
       spyOn(keystoneAPI, 'getCurrentUserSession').and.callFake(fakePromise);
     }));
 
-    function createController(){
+    function createController() {
       return controller('identityUsersTableController', {
         toast: toastService,
         policyAPI: policyAPI,
@@ -101,4 +97,5 @@
     });
 
   });
+
 })();
