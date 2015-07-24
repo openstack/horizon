@@ -1,0 +1,755 @@
+# Translations template for PROJECT.
+# Copyright (C) 2015 ORGANIZATION
+# This file is distributed under the same license as the PROJECT project.
+#
+# Translators:
+# Zbyněk Schwarz <zbynek.schwarz@gmail.com>, 2015
+msgid ""
+msgstr ""
+"Project-Id-Version: Horizon\n"
+"Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
+"POT-Creation-Date: 2015-07-19 22:22+0000\n"
+"PO-Revision-Date: 2015-07-23 20:38+0000\n"
+"Last-Translator: Zbyněk Schwarz <zbynek.schwarz@gmail.com>\n"
+"Language-Team: Czech (http://www.transifex.com/projects/p/horizon/language/"
+"cs/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 1.3\n"
+"Language: cs\n"
+"Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
+
+msgid "(Max: 16Kb)"
+msgstr "(Maximálně 16Kb)"
+
+msgid "(None)"
+msgstr "(Žádný)"
+
+msgid "<li><b>Image</b>: This option uses an image to boot the instance.</li>"
+msgstr "<li><b>Obraz</b>: Tato volba používá obraz k zavedení instance.</li>"
+
+msgid ""
+"<li><b>Instance Snapshot</b>: This option uses an instance snapshot to boot "
+"the instance.</li>"
+msgstr ""
+"<li><b>Snímek instance</b>: Tato volba využije snímek instance pro její "
+"zavedení.</li>"
+
+msgid "A name is required for your instance."
+msgstr "Název vaší instance je vyžadován."
+
+msgid "Actions"
+msgstr "Činnost"
+
+msgid "Active"
+msgstr "Aktivní"
+
+msgid "Admin State"
+msgstr "Stav správce"
+
+msgid ""
+"Administrators are responsible for creating and managing flavors. A custom "
+"flavor can be created for you or for a specific project where it is shared "
+"with the users assigned to that project. If you need a custom flavor, "
+"contact your administrator."
+msgstr ""
+"Správci jsou zodpovědní za vytváření a správu konfigurací. Vlastní "
+"konfigurace lze vytvořit přímo pro Vás, nebo pro konkrétní projekt, kde je "
+"sdílena s ostatními uživateli přidělenými do tohoto projektu. Pokud "
+"potřebujete vlastní konfiguraci, kontaktujte svého správce."
+
+msgid ""
+"Administrators set up the pool of floating IPs that are available to attach "
+"to instances."
+msgstr ""
+"Správci vytvářejí zásobu plovoucích adres IP, které je možno připojit k "
+"instancím."
+
+msgid "Automatic"
+msgstr "Automaticky"
+
+msgid "Availability Zone"
+msgstr "Zóna dostupnosti"
+
+msgid "Cancel"
+msgstr "Zrušit"
+
+msgid "Cannot get service catalog from keystone."
+msgstr "Nelze získat katalog služeb z keystone."
+
+msgid "Cannot get the Nova extension list."
+msgstr "Nelze získat seznam rozšíření Nova."
+
+msgid "Change Password"
+msgstr "Změnit heslo"
+
+msgid ""
+"Check the <b>Configuration Drive</b> box if you want to write metadata to a "
+"special configuration drive. When the instance boots, it attaches to the "
+"<b>Configuration Drive</b> and accesses the metadata."
+msgstr ""
+"Zaškrtněte políčko <b>Konfigurační jednotka</b> pokud chcete zapsat popisná "
+"data do zvláštní konfigurační jednotky: Při zavádění je instance k této "
+"jednotce připojena a tím získá přístup k těmto datům."
+
+msgid "Configuration"
+msgstr "Konfigurace"
+
+msgid "Configuration Drive"
+msgstr "Konfigurační jednotka"
+
+msgid "Configuration Help"
+msgstr "Nápověda pro nastavení"
+
+msgid "Count"
+msgstr "Počet"
+
+msgid "Create Key Pair"
+msgstr "Vytvořit pár klíče"
+
+msgid "Create New Volume"
+msgstr "Vytvořit nový svazek"
+
+msgid "Create User"
+msgstr "Vytvořit uživatele"
+
+msgid "Created"
+msgstr "Vytvořeno"
+
+#, python-format
+msgid ""
+"Custom scripts are attached to instances to perform specific actions when "
+"the instance is launched. For example, if you are unable to install <samp>"
+"%(cloutInit)s</samp> inside a guest operating system, you can use a custom "
+"script to get a public key and add it to the user account."
+msgstr ""
+"Vlastní skripty jsou připojeny k instancím k provedení konkrétních činností "
+"při spuštění instance. Například, pokud nemůžete nainstalovat <samp>"
+"%(cloutInit)s</samp> v hostovaném operačním systému, můžete využít vlastní "
+"skript pro získání veřejného klíče, který pak přidáte do uživatelského účtu."
+
+msgid "Customization Script"
+msgstr "Skript přizpůsobení"
+
+msgid "Delete"
+msgstr "Smazat"
+
+msgid "Delete Users"
+msgstr "Smazat uživatele"
+
+msgid "Delete Volume on Terminate"
+msgstr "Odstranit svazek při ukončení"
+
+msgid "Description"
+msgstr "Popis"
+
+msgid "Device Name"
+msgstr "Název zařízení"
+
+msgid "Direction"
+msgstr "Směr"
+
+msgid "Disable"
+msgstr "Zakázat"
+
+msgid "Disk Partition"
+msgstr "Oddíl disku"
+
+msgid "Domain ID"
+msgstr "ID domény"
+
+msgid "Down"
+msgstr "Zavřen"
+
+msgid "Edit"
+msgstr "Upravit"
+
+msgid "Email"
+msgstr "E-mail"
+
+msgid "Enable"
+msgstr "Povolit"
+
+msgid "Enabled"
+msgstr "Povoleno"
+
+msgid "Ephemeral Disk"
+msgstr "Efemérní disk"
+
+msgid "Ether Type"
+msgstr "Typ ethernetu"
+
+#, python-format
+msgid "Extension is not enabled: %(extension)s."
+msgstr "Rozšíření není povoleno: %(extension)s."
+
+msgid "External Network"
+msgstr "Vnější síť"
+
+msgid "Fingerprint"
+msgstr "Otisk"
+
+msgid "Flavor"
+msgstr "Konfigurace"
+
+msgid "Flavor Help"
+msgstr "Nápověda ke konfiguracím"
+
+msgid ""
+"Flavors manage the sizing for the compute, memory and storage capacity of "
+"the instance."
+msgstr ""
+"Konfigurace určují velikost výpočetních, pamětních a úložných možností "
+"instance."
+
+#, python-format
+msgid ""
+"From a Windows system, you can use PuTTYGen to create private/public keys. "
+"Use the PuTTY Key Generator to create and save the keys, then copy the "
+"public key in the red highlighted box to your <samp>%(authorizeKeysFile)s</"
+"samp> file."
+msgstr ""
+"V systému Windows můžete použít program PuTTYGen pro vytvoření klíčů. "
+"Použijte generátor klíčů PuTTY a pro jejich vytvoření a uložení, pak "
+"zkopírujte veřejný klíč v červeně vyznačeném rámečku do avšeho souboru <samp>"
+"%(authorizeKeysFile)s</samp>."
+
+msgid "ID"
+msgstr "ID"
+
+msgid ""
+"If a network is shared, then all users in the project can access the network."
+msgstr ""
+"Pokud je síť sdílená, pak všichni uživatelé v projektu mohou do sítě "
+"vstoupit."
+
+msgid "Image"
+msgstr "Obraz"
+
+msgid "Impact on your quota"
+msgstr "Dopad na vaši kvótu"
+
+msgid "Import Key Pair"
+msgstr "Importovat pár klíče"
+
+msgid "Instance Details"
+msgstr "Podrobnosti instance"
+
+msgid "Instance Name"
+msgstr "Název instance"
+
+msgid "Instance Snapshot"
+msgstr "Snímek instance"
+
+msgid "Instance Source"
+msgstr "Zdroj instance"
+
+msgid "Instance count is required and must be an integer of at least 1"
+msgstr "Počet instanci je vyžadován - musí být celé číslo a alespoň 1."
+
+msgid "Insufficient privilege level to view user information."
+msgstr "Nedostatečná úroveň oprávnění pro zobrazení informací o uživateli."
+
+msgid "Key Pair"
+msgstr "Pár klíčů"
+
+msgid "Key Pair Name"
+msgstr "Název páru klíčů"
+
+msgid ""
+"Key Pairs are how you login to your instance after it is launched. Choose a "
+"key pair name you will recognize."
+msgstr ""
+"Pár klíčů je způsob jak se přihlásit do instance po jejím spuštění. Zvolte "
+"název páru klíčů, který si zapamatujete."
+
+msgid "Launch Instance"
+msgstr "Spustit instanci"
+
+msgid "Load script from a file"
+msgstr "Načíst skript ze souboru"
+
+msgid "Manual"
+msgstr "Ručně"
+
+msgid "Min Disk"
+msgstr "Minimální disk"
+
+msgid "Min Ram"
+msgstr "Minimální RAM"
+
+msgid "Modified"
+msgstr "Změněno"
+
+msgid "Name"
+msgstr "Název"
+
+msgid "Network"
+msgstr "Síť"
+
+msgid "Network Help"
+msgstr "Nápověda k síti"
+
+msgid "Network characteristics"
+msgstr "Prvky sítě"
+
+msgid "Networks"
+msgstr "Sítě"
+
+msgid "Networks provide the communication channels for instances in the cloud."
+msgstr "Sítě poskytují komunikační kanály pro instance v cloudu."
+
+msgid "No"
+msgstr "Ne"
+
+msgid "OK"
+msgstr "OK"
+
+msgid "Physical Network"
+msgstr "Fyzická síť"
+
+msgid "Policy check failed."
+msgstr "Kontrola zásady selhala."
+
+msgid "Private"
+msgstr "Soukromé"
+
+msgid "Private Key"
+msgstr "Soukromý klíč"
+
+msgid "Profile"
+msgstr "Profil"
+
+msgid "Project"
+msgstr "Projekt"
+
+msgid "Project ID"
+msgstr "ID projektu"
+
+msgid ""
+"Project networks are created by users. These networks are fully isolated and "
+"are project-specific."
+msgstr ""
+"Sítě projektu vytvářejí uživatelé. Tyto projekty jsou zcela odděleny a patří "
+"ke konkrétním projektům."
+
+msgid "Protocol"
+msgstr "Protokol"
+
+msgid "Provider Network"
+msgstr "Síť poskytovatele"
+
+msgid "Public"
+msgstr "Veřejné"
+
+msgid "Public Key"
+msgstr "Veřejný klíč"
+
+msgid "RAM"
+msgstr "RAM"
+
+msgid "Remote"
+msgstr "Vzdálené"
+
+msgid "Required"
+msgstr "Vyžadováno"
+
+msgid "Root Disk"
+msgstr "Kořenový disk"
+
+msgid "Script size"
+msgstr "Velikost skriptu"
+
+msgid "Script size > 16Kb"
+msgstr "Velikost skriptu > 16Kb"
+
+msgid "Security Groups"
+msgstr "Bezpečnostní skupiny"
+
+msgid "Security Groups Help"
+msgstr "Nápověda pro bezpečnostní skupiny"
+
+msgid ""
+"Security groups are project-specific and cannot be shared across projects."
+msgstr ""
+"Bezpečnostní skupiny se vztahují k jednotlivým projektům a nelze je mezi "
+"nimi sdílet."
+
+msgid ""
+"Security groups define a set of IP filter rules that determine how network "
+"traffic flows to and from an instance. Users can add additional rules to an "
+"existing security group to further define the access options for an "
+"instance. To create additional rules, go to the <b>Compute | Access & "
+"Security</b> view, then find the security group and click <b>Manage Rules</"
+"b>."
+msgstr ""
+"Bezpečnostní skupiny určují sadu filtrů IP adres, které určují jak přenosy "
+"po síti putují z a do instance. Uživatelé mohou do existující bezpečnostní "
+"skupiny přidat dodatečná pravidla, která podrobněji určují možnosti pro "
+"přístup k instanci. Pro vytvoření dalších pravidel přejděte na <b>Compute | "
+"Přístup a zabezpečení</b>, pak klikněte na bezpečnostní skupinu a klikněte "
+"na <b>Správa pravidel</b>."
+
+msgid "Segmentation ID"
+msgstr "ID členění"
+
+msgid "Select Boot Source"
+msgstr "Vyberte zdroj zavedení"
+
+msgid "Select Source"
+msgstr "Vyberte zdroj"
+
+msgid "Select Source Help"
+msgstr "Nápověda k výběru zdroje"
+
+msgid "Select a key pair from the available key pairs below."
+msgstr "Vyberte pár klíčů ze seznamu dostupných níže."
+
+msgid "Select a source from those listed below."
+msgstr "Vyberte zdroj ze seznamu níže"
+
+msgid "Select at least one network"
+msgstr "Vyberte alespoň jednu síť"
+
+msgid "Select networks from those listed below."
+msgstr "Vyberte sítě ze seznamu níže."
+
+msgid "Select one"
+msgstr "Zvolte jeden"
+
+msgid "Select one or more"
+msgstr "Zvolte jeden nebo více"
+
+msgid "Select the security groups."
+msgstr "Vyberte bezpečnostní skupiny"
+
+#, python-format
+msgid "Service type is not enabled: %(desiredType)s"
+msgstr "Typ služby není povolen: %(desiredType)s"
+
+#, python-format
+msgid "Setting is not enabled: %(setting)s"
+msgstr "Nastavení není povoleno: %(setting)s"
+
+msgid "Shared"
+msgstr "Sdíleno"
+
+msgid "Size"
+msgstr "Velikost"
+
+msgid "Size (GB)"
+msgstr "Velikost (GB)"
+
+msgid "Status"
+msgstr "Stav"
+
+msgid "Subnets Associated"
+msgstr "Podsítě přidruženy"
+
+#, python-format
+msgid "Successfully created key pair %(name)s"
+msgstr "Pár klíčů %(name)s úspěšně vytvořen"
+
+#, python-format
+msgid "Successfully imported key pair %(name)s"
+msgstr "Pár klíčů %(name)s úspěšně importován"
+
+msgid ""
+"The flavor you select for an instance determines the amount of compute, "
+"storage and memory resources that will be carved out for the instance."
+msgstr ""
+"Zvolená konfigurace instance zajišťuje množství výpočetních, úložných a "
+"pamětních zdrojů, které budou vyhrazeny pro instanci."
+
+msgid ""
+"The flavor you select must have enough resources allocated to support the "
+"type of instance you are trying to create. Flavors that don't provide enough "
+"resources for your instance are identified on the <b>Available</b> table "
+"with a yellow warning icon."
+msgstr ""
+"Zvolená konfigurace musí mít dostatek přidělených zdrojů, aby mohla "
+"podporovat typ vámi vytvářené instance. Konfigurace, které vaší instanci "
+"neposkytují dostatek zdrojů, jsou v tabulce <b>Dostupné</b> uvedeny se "
+"žlutou ikonkou s vykřičníkem."
+
+msgid "The key pair allows you to SSH into the instance."
+msgstr "Pár klíčů Vám umožňuje se do této instance připojit pomocí SSH."
+
+msgid "The maximum script size is 16Kb."
+msgstr "Maximální velikost skriptu ke 16Kb"
+
+#, python-format
+msgid ""
+"The selected image source requires a flavor with at least %(minDisk)s GB of "
+"root disk. Select a flavor with a larger root disk or use a different image "
+"source."
+msgstr ""
+"Zvolený zdroj obrazu vyžaduje konfiguraci mající minimálně %(minDisk)s GB na "
+"kořenovém disku. Vyberte konfiguraci s větším kořenovým diskem, nebo "
+"použijte jiný zdroj obrazu."
+
+#, python-format
+msgid ""
+"The selected image source requires a flavor with at least %(minRam)s MB of "
+"RAM. Select a flavor with more RAM or use a different image source."
+msgstr ""
+"Zvolený zdroj obrazu vyžaduje konfiguraci mající minimálně %(minRam)s MB "
+"RAM. Vyberte konfiguraci s větší pamětí RAM, nebo použijte jiný zdroj obrazu."
+
+msgid "The status indicates whether the network has an active connection."
+msgstr "Stav udává, zda síť má aktivní připojení."
+
+msgid ""
+"The subnet identifies a sub-section of a network. A subnet is specified in "
+"CIDR format. A typical CIDR format looks like <samp>192.xxx.x.x/24</samp>."
+msgstr ""
+"Podsíť určuje podsekci sítě. Podsíť je zadávána ve formátu CIDR. Typický "
+"příklad formátu CIDR je <samp>192.xxx.x.x/24</samp>."
+
+#, python-format
+msgid "The volume size must be at least %(minVolumeSize)s GB"
+msgstr "Velikost svazku musí být alespoň %(minVolumeSize)s GB"
+
+#, python-format
+msgid ""
+"There are two ways to generate a key pair. From a Linux system, generate the "
+"key pair with the <samp>%(genKeyPairCmd)s</samp> command:"
+msgstr ""
+"Existují dva způsoby jak vytvořit pár klíčů. V systému Linux se vytváří "
+"pomocí příkazu <samp>%(genKeyPairCmd)s</samp> ."
+
+#, python-format
+msgid ""
+"This command generates a pair of keys: a private key (%(privateKeyPath)s) "
+"and a public key (%(publicKeyPath)s)."
+msgstr ""
+"Tento příkaz vytvoří pár klíčů: soukromý (%(privateKeyPath)s) a veřejný  "
+"(%(publicKeyPath)s)."
+
+msgid ""
+"This flavor requires more RAM than your quota allows. Please select a "
+"smaller flavor or decrease the instance count."
+msgstr ""
+"Tato konfigurace vyžaduje více RAM než vaše kvóta umožňuje. Prosím zvolte "
+"menší konfiguraci, nebo snižte počet instancí."
+
+msgid ""
+"This flavor requires more VCPUs than your quota allows. Please select a "
+"smaller flavor or decrease the instance count."
+msgstr ""
+"Tato konfigurace vyžaduje více VCPU než vaše kvóta umožňuje. Prosím zvolte "
+"menší konfiguraci, nebo snižte počet instancí."
+
+msgid "This is your new key pair. Copy this information and keep it secure."
+msgstr "Toto je váš nový pár klíčů. Tyto údaje si zkopírujte a opatrujte je."
+
+msgid "Total Disk"
+msgstr "Celková kapacita"
+
+msgid "Total Instances"
+msgstr "Celkem instancí"
+
+msgid "Total RAM"
+msgstr "Celkem RAM"
+
+msgid "Total VCPUs"
+msgstr "Celkem VCPU"
+
+msgid "Type"
+msgstr "Typ"
+
+msgid ""
+"Type your script directly into the Customization Script field. If your "
+"browser supports the HTML5 File API, you may choose to load your script from "
+"a file. The size of your script should not exceed 16 Kb."
+msgstr ""
+"Zadejte svůj skript přímo do pole Skriptu přizpůsobení,. Pokud váš "
+"internetový prohlížeč podporuje HTML5 API pro soubory, můžete ho načíst ze "
+"souboru. Velikost vašeho skriptu by neměla překročit 16Kb."
+
+msgid "Unable to create the domain."
+msgstr "Nelze vytvořit doménu."
+
+msgid "Unable to create the keypair."
+msgstr "Nelze vytvořit pár klíčů."
+
+msgid "Unable to create the network."
+msgstr "Nelze vytvořit síť."
+
+msgid "Unable to create the project."
+msgstr "Nelze vytvořit projekt."
+
+msgid "Unable to create the role."
+msgstr "Nelze vytvořit roli."
+
+msgid "Unable to create the server."
+msgstr "Nelze vytvořit server."
+
+msgid "Unable to create the subnet."
+msgstr "Nelze vytvořit podsíť."
+
+msgid "Unable to create the user."
+msgstr "Nelze vytvořit uživatele."
+
+msgid "Unable to delete the domain."
+msgstr "Nelze smazat doménu."
+
+msgid "Unable to delete the domains."
+msgstr "Nelze smazat domény."
+
+msgid "Unable to delete the project."
+msgstr "Nelze smazat projekt."
+
+msgid "Unable to delete the projects."
+msgstr "Nelze smazat projekty."
+
+msgid "Unable to delete the role."
+msgstr "Nelze smazat roli."
+
+msgid "Unable to delete the roles."
+msgstr "Nelze smazat role."
+
+msgid "Unable to delete the user."
+msgstr "Nelze smazat uživatele."
+
+msgid "Unable to delete the users."
+msgstr "Nelze smazat uživatele."
+
+msgid "Unable to edit the domain."
+msgstr "Nelze upravit doménu."
+
+msgid "Unable to edit the project."
+msgstr "Nelze upravit projekt."
+
+msgid "Unable to edit the role."
+msgstr "Nelze upravit roli."
+
+msgid "Unable to edit the user."
+msgstr "Nelze upravit uživatele."
+
+msgid "Unable to fetch the service catalog."
+msgstr "Nelze získat katalog služeb."
+
+msgid "Unable to get the Keystone service version."
+msgstr "Nelze získat verzi služby Keystone."
+
+msgid "Unable to grant the role."
+msgstr "Nelze udělit roli."
+
+msgid "Unable to import the keypair."
+msgstr "Nelze importovat pár klíčů."
+
+msgid "Unable to retrieve settings."
+msgstr "Nelze získat nastavení."
+
+msgid "Unable to retrieve the availability zones."
+msgstr "Nelze získat zóny dostupnosti."
+
+msgid "Unable to retrieve the current user session."
+msgstr "Nelze získat současné sezení uživatele."
+
+msgid "Unable to retrieve the domain."
+msgstr "Nelze získat doménu."
+
+msgid "Unable to retrieve the domains."
+msgstr "Nelze získat domény."
+
+msgid "Unable to retrieve the extensions."
+msgstr "Nelze získat rozšíření."
+
+msgid "Unable to retrieve the flavor extra specs."
+msgstr "Nelze získat dodatečné specifikace konfigurace."
+
+msgid "Unable to retrieve the flavor."
+msgstr "Nelze získat konfiguraci."
+
+msgid "Unable to retrieve the flavors."
+msgstr "Nelze získat konfigurace."
+
+msgid "Unable to retrieve the image."
+msgstr "Nelze získat obraz."
+
+msgid "Unable to retrieve the images."
+msgstr "Nelze získat obrazy."
+
+msgid "Unable to retrieve the keypairs."
+msgstr "Nelze získat páry klíčů."
+
+msgid "Unable to retrieve the limits."
+msgstr "Nelze získat limity."
+
+msgid "Unable to retrieve the namespaces."
+msgstr "Nelze získat jmenné prostory."
+
+msgid "Unable to retrieve the networks."
+msgstr "Nelze získat sítě."
+
+msgid "Unable to retrieve the ports."
+msgstr "Nelze získat porty."
+
+msgid "Unable to retrieve the project."
+msgstr "Nelze získat projekt."
+
+msgid "Unable to retrieve the projects."
+msgstr "Nelze získat projekty."
+
+msgid "Unable to retrieve the role."
+msgstr "Nelze získat roli."
+
+msgid "Unable to retrieve the roles."
+msgstr "Nelze získat role."
+
+msgid "Unable to retrieve the security groups."
+msgstr "Nelze získat bezpečnostní skupiny."
+
+msgid "Unable to retrieve the server."
+msgstr "Nelze získat server."
+
+msgid "Unable to retrieve the subnets."
+msgstr "Nelze získat podsítě."
+
+msgid "Unable to retrieve the user."
+msgstr "Nelze získat uživatele."
+
+msgid "Unable to retrieve the users."
+msgstr "Nelze získat uživatele"
+
+msgid "Unable to retrieve the volume snapshots."
+msgstr "Nelze získat svazky snímků."
+
+msgid "Unable to retrieve the volumes."
+msgstr "Nelze získat svazky."
+
+msgid "Up"
+msgstr "Otevřen"
+
+msgid "Updated"
+msgstr "Aktualizováno"
+
+msgid "User ID"
+msgstr "ID uživatele"
+
+msgid "User Name"
+msgstr "Uživatelské jméno"
+
+msgid "VCPUs"
+msgstr "VCPU"
+
+msgid "Visibility"
+msgstr "Viditelnost"
+
+msgid "Volume"
+msgstr "Svazek"
+
+msgid "Volume Snapshot"
+msgstr "Snímek svazku"
+
+msgid "Volume size is required and must be an integer"
+msgstr "Velikost svazku je vyžadována musí být celé číslo"
+
+msgid "Yes"
+msgstr "Ano"
+
+msgid "bytes"
+msgstr "bajtů"

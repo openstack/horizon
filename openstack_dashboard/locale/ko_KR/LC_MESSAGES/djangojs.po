@@ -10,8 +10,8 @@ msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2015-07-19 22:22+0000\n"
-"PO-Revision-Date: 2015-07-22 01:20+0000\n"
-"Last-Translator: Ian Y. Choi <ianyrchoi@gmail.com>\n"
+"PO-Revision-Date: 2015-07-23 13:22+0000\n"
+"Last-Translator: Sungjin Kang <potopro@gmail.com>\n"
 "Language-Team: Korean (Korea) (http://www.transifex.com/projects/p/horizon/"
 "language/ko_KR/)\n"
 "MIME-Version: 1.0\n"
@@ -463,6 +463,15 @@ msgstr "키 페어를 통해 인스턴스에 SSH 접속을 할 수 있습니다.
 
 msgid "The maximum script size is 16Kb."
 msgstr "최대 스크립트 크기는 16Kb 입니다."
+
+#, python-format
+msgid ""
+"The selected image source requires a flavor with at least %(minDisk)s GB of "
+"root disk. Select a flavor with a larger root disk or use a different image "
+"source."
+msgstr ""
+"선택한 이미지 소스는 root 디스크가 최소 %(minDisk)s GB인 flavor가 필요합니"
+"다. Root 디스크가 더 큰 flavor를 선택하거나 다른 이미지 소스를 사용하십시오."
 
 msgid "The status indicates whether the network has an active connection."
 msgstr "해당 상태는 네트워크가 활성화된 연결을 이루고 있는지를 가리킵니다."

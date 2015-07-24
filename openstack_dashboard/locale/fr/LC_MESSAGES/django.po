@@ -8,6 +8,7 @@
 # zopanix <christophe.vandekerchove-ext@cloudwatt.com>, 2015
 # Combebias <jb.combebias@gmail.com>, 2015
 # Corina Roe <croe@redhat.com>, 2015
+# Corinne Verheyde <cverheyd@hotmail.com>, 2015
 # Damien Grauet, 2015
 # François Bureau, 2015
 # François Bureau, 2015
@@ -24,8 +25,8 @@ msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2015-07-19 22:22+0000\n"
-"PO-Revision-Date: 2015-07-21 01:17+0000\n"
-"Last-Translator: JF Taltavull <jftalta@gmail.com>\n"
+"PO-Revision-Date: 2015-07-23 23:30+0000\n"
+"Last-Translator: Corinne Verheyde <cverheyd@hotmail.com>\n"
 "Language-Team: French (http://www.transifex.com/projects/p/horizon/language/"
 "fr/)\n"
 "MIME-Version: 1.0\n"
@@ -773,6 +774,9 @@ msgstr "Détails de la sauvegarde: {{ backup.name }}"
 
 msgid "Backup File"
 msgstr "Fichier de sauvegarde"
+
+msgid "Backup Gigabytes"
+msgstr "Gigabytes de Sauvegarde"
 
 msgid "Backup Name"
 msgstr "Nom de la sauvegarde"
@@ -2979,6 +2983,10 @@ msgstr ""
 msgid "Extend Volume"
 msgstr "Étendre un volume."
 
+msgctxt "Current status of a Volume"
+msgid "Extending"
+msgstr "En cours d'extension"
+
 #, python-format
 msgid "Extending volume: \"%s\""
 msgstr "Volume étendu: \"%s\""
@@ -4917,6 +4925,9 @@ msgctxt "Task status of an Instance"
 msgid "None"
 msgstr "Aucun"
 
+msgid "None (removes spec)"
+msgstr "Aucune (supprimer les spécifications)"
+
 msgid "Normal"
 msgstr "Normal"
 
@@ -5955,6 +5966,10 @@ msgstr "La règle %s a été mise à jour avec succès."
 
 msgid "Rules"
 msgstr "Règles"
+
+msgid "Run HBase EDP Jobs with common HBase library on HDFS"
+msgstr ""
+"Exécuter les travaux HBase EDP avec la bibliothèque HBase commune sur HDFS"
 
 msgctxt "Power state of an Instance"
 msgid "Running"
@@ -8999,6 +9014,9 @@ msgstr "Utilisation (Heures)"
 
 msgid "Usage Report"
 msgstr "Rapport d'utilisation"
+
+msgid "Use HBase Common library"
+msgstr "Utiliser la bibliothèque commune HBase"
 
 msgid "Use Server Default"
 msgstr "Utiliser la valeur par défaut du serveur"
