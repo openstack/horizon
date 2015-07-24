@@ -92,5 +92,5 @@ class BaseWebObject(unittest.TestCase):
                          timeout)
 
     def _wait_till_element_disappears(self, element, timeout=None):
-        self._wait_until(lambda x: self._is_element_displayed(element),
+        self._wait_until(lambda x: not self._is_element_displayed(element),
                          timeout)
