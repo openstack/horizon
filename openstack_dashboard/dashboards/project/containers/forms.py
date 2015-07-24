@@ -34,6 +34,11 @@ no_slash_validator = validators.RegexValidator(r'^(?u)[^/]+$',
                                                _("Slash is not an allowed "
                                                  "character."),
                                                code="noslash")
+no_begin_or_end_slash = validators.RegexValidator(r'^[^\/](?u).+[^\/]$',
+                                                  _("Slash is not allowed at "
+                                                    "the beginning or end of "
+                                                    "your string."),
+                                                  code="nobeginorendslash")
 
 
 class CreateContainer(forms.SelfHandlingForm):
@@ -158,7 +163,8 @@ class CreatePseudoFolder(forms.SelfHandlingForm):
                            required=False,
                            widget=forms.HiddenInput)
     name = forms.CharField(max_length=255,
-                           label=_("Pseudo-folder Name"))
+                           label=_("Pseudo-folder Name"),
+                           validators=[no_begin_or_end_slash])
     container_name = forms.CharField(widget=forms.HiddenInput())
 
     def _set_pseudo_folder_path(self, data):
