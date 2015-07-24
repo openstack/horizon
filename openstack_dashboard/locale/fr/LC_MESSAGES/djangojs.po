@@ -4,13 +4,14 @@
 #
 # Translators:
 # Corina Roe <croe@redhat.com>, 2015
+# Corinne Verheyde <cverheyd@hotmail.com>, 2015
 msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2015-07-19 22:22+0000\n"
-"PO-Revision-Date: 2015-07-21 01:17+0000\n"
-"Last-Translator: Corina Roe <croe@redhat.com>\n"
+"PO-Revision-Date: 2015-07-23 23:16+0000\n"
+"Last-Translator: Corinne Verheyde <cverheyd@hotmail.com>\n"
 "Language-Team: French (http://www.transifex.com/projects/p/horizon/language/"
 "fr/)\n"
 "MIME-Version: 1.0\n"
@@ -205,6 +206,9 @@ msgstr "Créer un nouveau volume"
 msgid "Create User"
 msgstr "Créer un utilisateur"
 
+msgid "Created"
+msgstr "Créé"
+
 #, python-format
 msgid ""
 "Custom scripts are attached to instances to perform specific actions when "
@@ -247,6 +251,9 @@ msgstr "Partition Disque"
 
 msgid "Domain ID"
 msgstr "ID Domaine"
+
+msgid "Down"
+msgstr "Bas"
 
 msgid "Edit"
 msgstr "Editer"
@@ -482,6 +489,9 @@ msgstr ""
 
 msgid "Policy check failed."
 msgstr "La vérification de la stratégie a échoué."
+
+msgid "Private"
+msgstr "Privé"
 
 msgid "Private Key"
 msgstr "Clé privée"
@@ -919,6 +929,12 @@ msgstr "Impossible de récupérer les instantanés de volume."
 
 msgid "Unable to retrieve the volumes."
 msgstr "Impossible de récupérer les volumes."
+
+msgid "Up"
+msgstr "Haut"
+
+msgid "Updated"
+msgstr "Mis à jour"
 
 msgid "User ID"
 msgstr "ID Utilisateur"
