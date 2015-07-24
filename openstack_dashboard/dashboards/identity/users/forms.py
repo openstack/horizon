@@ -147,14 +147,15 @@ class CreateUserForm(PasswordMixin, BaseUserForm):
             desc = data["description"]
             if "email" in data:
                 data['email'] = data['email'] or None
-            new_user = api.keystone.user_create(request,
-                                                name=data['name'],
-                                                email=data['email'],
-                                                description=desc,
-                                                password=data['password'],
-                                                project=data['project'],
-                                                enabled=data['enabled'],
-                                                domain=domain.id)
+            new_user = \
+                api.keystone.user_create(request,
+                                         name=data['name'],
+                                         email=data['email'],
+                                         description=desc,
+                                         password=data['password'],
+                                         project=data['project'] or None,
+                                         enabled=data['enabled'],
+                                         domain=domain.id)
             messages.success(request,
                              _('User "%s" was successfully created.')
                              % data['name'])
