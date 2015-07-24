@@ -13,6 +13,8 @@
     ])
     .config(config);
 
+  config.$inject = ['$provide', '$windowProvider'];
+
   function config($provide, $windowProvider) {
     var path = $windowProvider.$get().STATIC_URL + 'framework/util/';
     $provide.constant('horizon.framework.util.basePath', path);
