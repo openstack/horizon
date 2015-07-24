@@ -86,7 +86,7 @@
       $element = angular.element(markup);
       $compile($element)($scope);
 
-      $scope.$digest();
+      $scope.$apply();
     }));
 
     it("creates a p element", function() {
