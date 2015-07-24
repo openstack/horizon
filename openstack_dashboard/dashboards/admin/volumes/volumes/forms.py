@@ -179,7 +179,7 @@ class UpdateStatus(forms.SelfHandlingForm):
     status = forms.ChoiceField(label=_("Status"))
 
     def __init__(self, request, *args, **kwargs):
-        super(forms.SelfHandlingForm, self).__init__(request, *args, **kwargs)
+        super(UpdateStatus, self).__init__(request, *args, **kwargs)
 
         # This set of states was culled from cinder's admin_actions.py
         self.fields['status'].choices = (
