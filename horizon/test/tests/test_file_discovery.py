@@ -53,6 +53,12 @@ def fake_walk(path):
             yield root, [], files
 
 
+def another_fake_walk(path):
+    for root, files in reversed(test_structure):
+        if root.startswith(path):
+            yield root, [], files
+
+
 class FinderTests(unittest.TestCase):
     def setUp(self):
         self.old_walk = fd.walk
@@ -196,13 +202,50 @@ class FinderTests(unittest.TestCase):
         self.assertEqual(len(test_files), 8)
         self.assertEqual(len(templates), 2)
 
-        self.assertTrue(sources[0].endswith('.module.js'))
-        self.assertTrue(sources[1].endswith('.module.js'))
+        self.assertTrue(sources[0].endswith('a.module.js'))
+        self.assertTrue(sources[1].endswith('b.module.js'))
 
-        self.assertTrue(sources[2].endswith('.controller.js'))
-        self.assertTrue(sources[3].endswith('.directive.js'))
-        self.assertTrue(sources[4].endswith('.controller.js'))
-        self.assertTrue(sources[5].endswith('.directive.js'))
+        self.assertTrue(sources[2].endswith('a.controller.js'))
+        self.assertTrue(sources[3].endswith('a.directive.js'))
+        self.assertTrue(sources[4].endswith('b.controller.js'))
+        self.assertTrue(sources[5].endswith('b.directive.js'))
+
+        self.assertTrue(test_files[0].endswith('.mock.js'))
+        self.assertTrue(test_files[1].endswith('.mock.js'))
+
+        self.assertTrue(test_files[2].endswith('.spec.js'))
+        self.assertTrue(test_files[3].endswith('.spec.js'))
+        self.assertTrue(test_files[4].endswith('.spec.js'))
+        self.assertTrue(test_files[5].endswith('.spec.js'))
+        self.assertTrue(test_files[6].endswith('.spec.js'))
+        self.assertTrue(test_files[7].endswith('.spec.js'))
+
+        self.assertTrue(templates[0].endswith('.html'))
+        self.assertTrue(templates[1].endswith('.html'))
+
+    #
+    # populate_horizon_config()
+    #
+    def test_populate_horizon_config_consistent_result(self):
+        fd.walk = another_fake_walk
+        horizon_config = {}
+
+        fd.populate_horizon_config(horizon_config, base_path)
+        sources = horizon_config['js_files']
+        test_files = horizon_config['js_spec_files']
+        templates = horizon_config['external_templates']
+
+        self.assertEqual(len(sources), 6)
+        self.assertEqual(len(test_files), 8)
+        self.assertEqual(len(templates), 2)
+
+        self.assertTrue(sources[0].endswith('a.module.js'))
+        self.assertTrue(sources[1].endswith('b.module.js'))
+
+        self.assertTrue(sources[2].endswith('a.controller.js'))
+        self.assertTrue(sources[3].endswith('a.directive.js'))
+        self.assertTrue(sources[4].endswith('b.controller.js'))
+        self.assertTrue(sources[5].endswith('b.directive.js'))
 
         self.assertTrue(test_files[0].endswith('.mock.js'))
         self.assertTrue(test_files[1].endswith('.mock.js'))
