@@ -80,11 +80,26 @@ Installation
 
     $ sudo apt-get install apache2 libapache2-mod-wsgi
 
+   You will either use the provided ``openstack_dashboard/wsgi/django.wsgi`` or
+   generate an ``openstack_dashboard/wsgi/horizon.wsgi`` file with the
+   following command (which detects if you use a virtual environment or not to
+   automatically build an adapted wsgi file)::
+
+    $ ./manage.py make_web_conf --wsgi
+
    Then configure the web server to host OpenStack dashboard via WSGI.
    For apache2 web server, you may need to create
    ``/etc/apache2/sites-available/horizon.conf``.
    The template in devstack is a good example of the file.
    http://git.openstack.org/cgit/openstack-dev/devstack/tree/files/apache-horizon.template
+   Or, if you previously generated an ``openstack_dashboard/wsgi/horizon.wsgi``
+   you can automatically generate an apache configuration file::
+
+    $ ./manage.py make_web_conf --apache > /etc/apache2/sites-available/horizon.conf
+
+   Same as above but if you want ssl support:
+
+    $ ./manage.py make_web_conf --apache --ssl --sslkey=/path/to/ssl/key --sslcert=/path/to/ssl/cert > /etc/apache2/sites-available/horizon.conf
 
 6. Finally, enable the above configuration and restart the web server::
 
