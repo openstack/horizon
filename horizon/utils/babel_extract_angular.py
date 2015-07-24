@@ -12,14 +12,31 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
-try:
-    from html.parser import HTMLParser
-except ImportError:
-    from HTMLParser import HTMLParser
+import re
+
+from six.moves import html_parser
 
 
-class AngularGettextHTMLParser(HTMLParser):
+# regex to find filter translation expressions
+filter_regex = re.compile(
+    r"""{\$\s*('([^']|\\')+'|"([^"]|\\")+")\s*\|\s*translate\s*\$}"""
+)
+
+
+class AngularGettextHTMLParser(html_parser.HTMLParser):
     """Parse HTML to find translate directives.
+
+    Currently this parses for these forms of translation:
+
+    <translate>content</translate>
+        The content will be translated. Angular value templating will be
+        recognised and transformed into gettext-familiar translation
+        strings (i.e. "{$ expression $}" becomes "%(expression)")
+    <p translate>content</p>
+        The content will be translated. As above.
+    {$ 'content' | translate $}
+        The string will be translated, minus expression handling (i.e. just
+        bare strings are allowed.)
 
     Note: This will not cope with nested tags (which I don't think make any
     sense)
@@ -27,9 +44,10 @@ class AngularGettextHTMLParser(HTMLParser):
 
     def __init__(self):
         try:
-            super(self.__class__, self).__init__()
+            super(html_parser.HTMLParser, self).__init__()
         except TypeError:
-            HTMLParser.__init__(self)
+            # handle HTMLParser not being a type in < Py3k
+            html_parser.HTMLParser.__init__(self)
 
         self.in_translate = False
         self.data = ''
@@ -40,11 +58,10 @@ class AngularGettextHTMLParser(HTMLParser):
         self.comments = []
 
     def handle_starttag(self, tag, attrs):
+        self.line = self.getpos()[0]
         if tag == 'translate' or \
                 (attrs and 'translate' in [attr[0] for attr in attrs]):
                 self.in_translate = True
-                self.line = self.getpos()[0]
-
                 self.plural_form = ''
                 for attr, value in attrs:
                     if attr == 'translate-plural':
@@ -52,10 +69,24 @@ class AngularGettextHTMLParser(HTMLParser):
                         self.plural_form = value
                     if attr == 'translate-comment':
                         self.comments.append(value)
+        else:
+            for attr in attrs:
+                if not attr[1]:
+                    continue
+                for match in filter_regex.findall(attr[1]):
+                    if match:
+                        self.strings.append(
+                            (self.line, u'gettext', match[0][1:-1], [])
+                        )
 
     def handle_data(self, data):
         if self.in_translate:
             self.data += data
+        else:
+            for match in filter_regex.findall(data):
+                self.strings.append(
+                    (self.line, u'gettext', match[0][1:-1], [])
+                )
 
     def handle_endtag(self, tag):
         if self.in_translate:

@@ -124,3 +124,30 @@ class ExtractAngularTestCase(test.TestCase):
                  ])
             ],
             messages)
+
+    def test_filter(self):
+        # test also for some forms that should not match
+        buf = StringIO(
+            """
+            <img alt="{$ 'hello world1' | translate $}">
+            <p>{$'hello world2'|translate$}</p>
+            <img alt="something {$'hello world3'|translate$} something
+            {$'hello world4'|translate$}">
+            <img alt="{$expr()|translate$}">
+            <img alt="{$'some other thing'$}">
+            <p>{$'"it\\'s awesome"'|translate$}</p>
+            <p>{$"oh \\"hello\\" there"|translate$}</p>
+            """
+        )
+
+        messages = list(extract_angular(buf, default_keys, [], {}))
+        self.assertEqual(
+            [
+                (2, u'gettext', 'hello world1', []),
+                (3, u'gettext', 'hello world2', []),
+                (4, u'gettext', 'hello world3', []),
+                (4, u'gettext', 'hello world4', []),
+                (8, u'gettext', '"it\\\'s awesome"', []),
+                (9, u'gettext', 'oh \\"hello\\" there', []),
+            ],
+            messages)
