@@ -663,7 +663,7 @@ def network_create(request, **kwargs):
     LOG.debug("network_create(): kwargs = %s" % kwargs)
     # In the case network profiles are being used, profile id is needed.
     if 'net_profile_id' in kwargs:
-        kwargs['n1kv:profile_id'] = kwargs.pop('net_profile_id')
+        kwargs['n1kv:profile'] = kwargs.pop('net_profile_id')
     if 'tenant_id' not in kwargs:
         kwargs['tenant_id'] = request.user.project_id
     body = {'network': kwargs}
@@ -767,7 +767,7 @@ def port_create(request, network_id, **kwargs):
     LOG.debug("port_create(): netid=%s, kwargs=%s" % (network_id, kwargs))
     # In the case policy profiles are being used, profile id is needed.
     if 'policy_profile_id' in kwargs:
-        kwargs['n1kv:profile_id'] = kwargs.pop('policy_profile_id')
+        kwargs['n1kv:profile'] = kwargs.pop('policy_profile_id')
     kwargs = unescape_port_kwargs(**kwargs)
     body = {'port': {'network_id': network_id}}
     if 'tenant_id' not in kwargs:
