@@ -59,20 +59,11 @@
       .concat(horizonPlugInModules)
     )
 
-    .constant('horizon.app.conf', {
-      // Placeholders; updated by Django.
-      static_url: null,
-      ajax: {
-        queue_limit: null
-      }
-    })
-
     .run(updateHorizon);
 
   updateHorizon.$inject = [
     'gettextCatalog',
     'horizon.framework.conf.spinner_options',
-    'horizon.app.conf',
     'horizon.framework.util.tech-debt.helper-functions',
     '$cookieStore',
     '$http',
@@ -82,7 +73,6 @@
   function updateHorizon(
     gettextCatalog,
     spinnerOptions,
-    hzConfig,
     hzUtils,
     $cookieStore,
     $http,
@@ -93,9 +83,7 @@
     //expose the configuration for horizon legacy variable
     horizon.utils = hzUtils;
 
-    horizon.conf = angular.extend({
-      spinner_options: spinnerOptions
-    }, hzConfig);
+    horizon.conf.spinner_options = spinnerOptions;
 
     horizon.cookies = angular.extend({}, $cookieStore, {
       put: put,
