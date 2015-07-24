@@ -13,7 +13,8 @@
       'horizon.framework.widgets.action-list',
       'horizon.framework.widgets.metadata-tree',
       'horizon.framework.widgets.metadata-display',
-      'horizon.framework.widgets.toast'
+      'horizon.framework.widgets.toast',
+      'MagicSearch'
     ])
     .config(config);
 
