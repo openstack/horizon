@@ -15,6 +15,7 @@ import json
 import logging
 
 from django.utils.translation import ugettext_lazy as _
+import six
 
 from horizon import exceptions
 from horizon import forms
@@ -232,7 +233,7 @@ class JobConfigAction(workflows.Action):
 
     def clean_edp_configs(self, configs):
         edp_configs = {}
-        for key, value in configs.iteritems():
+        for key, value in six.iteritems(configs):
             if key.startswith(self.EDP_PREFIX):
                 edp_configs[key] = value
         for rmkey in edp_configs.keys():

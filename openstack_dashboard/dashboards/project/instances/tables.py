@@ -27,6 +27,7 @@ from django.utils.translation import pgettext_lazy
 from django.utils.translation import string_concat  # noqa
 from django.utils.translation import ugettext_lazy as _
 from django.utils.translation import ungettext_lazy
+import six
 
 from horizon import conf
 from horizon import exceptions
@@ -853,7 +854,7 @@ def get_ips(instance):
     template_name = 'project/instances/_instance_ips.html'
     ip_groups = {}
 
-    for ip_group, addresses in instance.addresses.iteritems():
+    for ip_group, addresses in six.iteritems(instance.addresses):
         ip_groups[ip_group] = {}
         ip_groups[ip_group]["floating"] = []
         ip_groups[ip_group]["non_floating"] = []
