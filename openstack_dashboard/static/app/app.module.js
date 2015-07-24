@@ -22,6 +22,7 @@
    * angular's extensions.
    */
   var libraryModules = [
+    'gettext',
     'ngCookies'
   ];
 
@@ -69,6 +70,7 @@
     .run(updateHorizon);
 
   updateHorizon.$inject = [
+    'gettextCatalog',
     'horizon.framework.conf.spinner_options',
     'horizon.app.conf',
     'horizon.framework.util.tech-debt.helper-functions',
@@ -77,7 +79,15 @@
     '$cookies'
   ];
 
-  function updateHorizon(spinnerOptions, hzConfig, hzUtils, $cookieStore, $http, $cookies) {
+  function updateHorizon(
+    gettextCatalog,
+    spinnerOptions,
+    hzConfig,
+    hzUtils,
+    $cookieStore,
+    $http,
+    $cookies) {
+
     $http.defaults.headers.post['X-CSRFToken'] = $cookies.csrftoken;
 
     //expose the configuration for horizon legacy variable
@@ -91,6 +101,10 @@
       put: put,
       getRaw: getRaw
     });
+
+    // rewire the angular-gettext catalog to use django catalog
+    gettextCatalog.setCurrentLanguage(horizon.languageCode);
+    gettextCatalog.setStrings(horizon.languageCode, django.catalog);
 
     /*
      * cookies are updated at the end of current $eval, so for the horizon
