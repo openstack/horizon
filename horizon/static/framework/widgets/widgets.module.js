@@ -3,6 +3,7 @@
 
   angular
     .module('horizon.framework.widgets', [
+      'horizon.framework.widgets.headers',
       'horizon.framework.widgets.help-panel',
       'horizon.framework.widgets.wizard',
       'horizon.framework.widgets.table',
