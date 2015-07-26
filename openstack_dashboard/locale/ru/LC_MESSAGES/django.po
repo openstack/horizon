@@ -5,6 +5,7 @@
 # Translators:
 # Ainur Shakirov <ainur.shakirov.tt@gmail.com>, 2015
 # Dasha Sher <sher.dasha@gmail.com>, 2014
+# Denis Gubanov <v12aml@gmail.com>, 2015
 # Fedor Tarasenko <feodor.tarasenko@gmail.com>, 2015
 # Ilya Alekseyev <ilyaalekseyev@acm.org>, 2015
 # Kyrylo Romanenko <kromanenko@mirantis.com>, 2015
@@ -14,9 +15,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-07-19 22:22+0000\n"
-"PO-Revision-Date: 2015-07-05 16:23+0000\n"
-"Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
+"POT-Creation-Date: 2015-07-25 00:06+0000\n"
+"PO-Revision-Date: 2015-07-25 10:04+0000\n"
+"Last-Translator: Denis Gubanov <v12aml@gmail.com>\n"
 "Language-Team: Russian (http://www.transifex.com/projects/p/horizon/language/"
 "ru/)\n"
 "MIME-Version: 1.0\n"
@@ -350,6 +351,9 @@ msgstr "Добавить машрутизаторы"
 
 msgid "Add Rule"
 msgstr "Добавить правило"
+
+msgid "Add Static Route"
+msgstr "Добавить статический маршрут"
 
 msgid "Add Subnet"
 msgstr "Добавить подсеть"
@@ -725,6 +729,10 @@ msgstr ""
 
 msgid "Average volume of writes"
 msgstr "Средний объем записи"
+
+msgctxt "Current status of a Volume"
+msgid "Backing Up"
+msgstr "Создание резервной копии"
 
 msgid "Backup"
 msgstr "Резервная копия"
@@ -1673,7 +1681,7 @@ msgid ""
 "DHCPv6 stateless: Address discovered from OpenStack Router and additional "
 "information from OpenStack DHCP"
 msgstr ""
-"DHCPv6 stateless: Адрес обнаруженый на маршрутизаторе OpenStack и "
+"DHCPv6 stateless: Адрес полученный с маршуризатора OpenStack и "
 "дополнительная информация из OpenStack DHCP"
 
 msgid "DNS Name Servers"
@@ -2051,6 +2059,13 @@ msgstr[1] "Удалить стеки"
 msgstr[2] ""
 msgstr[3] "Удалить стеки"
 
+msgid "Delete Static Route"
+msgid_plural "Delete Static Routes"
+msgstr[0] "Удалить статический маршрут"
+msgstr[1] "Удалить статические маршруты"
+msgstr[2] "Удалить статические маршруты"
+msgstr[3] "Удалить статические маршруты"
+
 msgid "Delete Template"
 msgid_plural "Delete Templates"
 msgstr[0] "Удалить шаблон"
@@ -2349,6 +2364,13 @@ msgstr[0] "Стек удален"
 msgstr[1] "Стеки удалены"
 msgstr[2] ""
 msgstr[3] "Стеки удалены"
+
+msgid "Deleted Static Route"
+msgid_plural "Deleted Static Routes"
+msgstr[0] "Статический маршрут удален"
+msgstr[1] "Статические маршруты удалены"
+msgstr[2] "Статические маршруты удалены"
+msgstr[3] "Статические маршруты удалены"
 
 msgid "Deleted Subnet"
 msgid_plural "Deleted Subnets"
@@ -3171,6 +3193,10 @@ msgstr "Не удалось добавить %s группы проекта и �
 #, python-format
 msgid "Failed to add agent %(agent_name)s for network %(network)s."
 msgstr "Не удалось добавить агент %(agent_name)s в сеть %(network)s"
+
+#, python-format
+msgid "Failed to add route : %s"
+msgstr "Неудалось добавить маршрут : %s"
 
 #, python-format
 msgid "Failed to add router rule %s"
@@ -4131,6 +4157,10 @@ msgstr "Внутренний исполняемый файл"
 msgid "Invalid date format: Using today as default."
 msgstr "Неверный формат даты: используется текущая по умолчанию."
 
+#, python-format
+msgid "Invalid format for routes : %s"
+msgstr "Неверный формат маршрутов : %s"
+
 msgid ""
 "Invalid time period. The end date should be more recent than the start date."
 msgstr "Неверный временной период. Конечная дата должна быть после начальной."
@@ -4668,7 +4698,7 @@ msgid "Multicast IP Range"
 msgstr "Multicast диапазон"
 
 msgid "Multicast IPv4 range(e.g. 224.0.1.0-224.0.1.100)"
-msgstr "Многоадресный диапазон IPv4 (напр. 224.0.1.0-224.0.1.100)"
+msgstr "Диапазон Multicast IPv4 (напр. 224.0.1.0-224.0.1.100)"
 
 msgid "Must specify start of period"
 msgstr "Необходимо указать начало периода"
@@ -5884,6 +5914,10 @@ msgctxt "Task status of an Instance"
 msgid "Restoring"
 msgstr "Восстановление"
 
+msgctxt "Current status of a Volume"
+msgid "Restoring Backup"
+msgstr "Восстановление резервной копии"
+
 msgctxt "Action log of an instance"
 msgid "Resume"
 msgstr "Продолжить"
@@ -6059,7 +6093,7 @@ msgid "Running Instance Migration Type"
 msgstr "Тип миграции запущенных инстансов."
 
 msgid "SLAAC: Address discovered from OpenStack Router"
-msgstr "SLAAC: Адрес обнаруженный на маршрутизаторе OpenStack"
+msgstr "SLAAC: Адрес полученный с маршрутизатора OpenStack"
 
 msgid ""
 "Sahara will use instances of this node group to access other cluster "
@@ -6695,9 +6729,9 @@ msgid ""
 "manually or configured by a non-OpenStack system."
 msgstr ""
 "Указывает как настраиваются IPv6-адресы и дополнительная информация. Можно "
-"указать SLAAC/DHCPv6 stateful/DHCPv6 stateless provided by OpenStack или не "
-"указывать ничего. Без указания опции адресы необходимо настраивать вручную "
-"или внешними системами независимыми от OpenStack."
+"указать SLAAC/DHCPv6 stateful/DHCPv6 stateless предоставляемый OpenStack или "
+"не указывать ничего. Без указания опции адресы необходимо настраивать "
+"вручную или внешними системами независимыми от OpenStack."
 
 msgid "Specifies that the newly created volume should be marked as bootable"
 msgstr "Указывает что создаваемый диск должен быть помечен как загрузочный"
@@ -6815,6 +6849,12 @@ msgstr "Запуск миграции узла: %(current)s"
 
 msgid "State"
 msgstr "Состояние"
+
+msgid "Static Routes"
+msgstr "Статические маршруты"
+
+msgid "Static route added"
+msgstr "Статический маршрут добавлен"
 
 msgid "Stats"
 msgstr "Статистика"
@@ -7328,6 +7368,11 @@ msgstr "Возникла проблема при разборе %(prefix)s: %(er
 msgid "This action cannot be undone."
 msgstr "Это действие не может быть отменено."
 
+msgid "This application requires JavaScript to be enabled in your web browser."
+msgstr ""
+"JavaScript должен быть включен в вашем web-браузере для работы этого "
+"приложения ."
+
 msgid ""
 "This is required for operations to be performed throughout the lifecycle of "
 "the stack"
@@ -7359,7 +7404,7 @@ msgid "Timeout"
 msgstr "Таймаут"
 
 msgid "Timezone"
-msgstr "Временная зона"
+msgstr "Часовой пояс"
 
 msgid "Title"
 msgstr "Заглавие"
