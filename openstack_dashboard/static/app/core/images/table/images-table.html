@@ -1,0 +1,18 @@
+<table ng-controller="imagesTableController as table"
+  hz-table ng-cloak
+  st-table="table.images"
+  st-safe-src="table.imagesSrc"
+  default-sort="name"
+  default-sort-reverse="false"
+  class="table-striped table-rsp table-detail modern">
+
+  <thead>
+    <tr ng-include="table.path + 'images-table-batch-actions.html'"></tr>
+    <tr ng-include="table.path + 'images-table-header.html'"></tr>
+  </thead>
+  <tbody ng-include="table.path + 'images-table-rows.html'"></tbody>
+  <tfoot>
+    <tr ng-include="table.path + 'images-table-footer.html'"></tr>
+  </tfoot>
+
+</table>
