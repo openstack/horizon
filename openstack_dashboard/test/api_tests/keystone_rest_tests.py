@@ -136,7 +136,7 @@ class KeystoneRestTestCase(test.TestCase):
         )
 
     @mock.patch.object(keystone.api, 'keystone')
-    def _test_user_create(self, supplied_body, expected_call, kc):
+    def _test_user_create(self, supplied_body, add_user_call, kc):
         request = self.mock_rest_request(body=supplied_body)
         kc.get_default_domain.return_value = mock.Mock(**{'id': 'the_domain'})
         kc.user_create.return_value.id = 'user123'
@@ -151,7 +151,7 @@ class KeystoneRestTestCase(test.TestCase):
                          '/api/keystone/users/user123')
         self.assertEqual(response.content, '{"id": "user123", '
                          '"name": "bob"}')
-        kc.user_create.assert_called_once_with(request, **expected_call)
+        kc.user_create.assert_called_once_with(request, **add_user_call)
 
     @mock.patch.object(keystone.api, 'keystone')
     def test_user_delete_many(self, kc):

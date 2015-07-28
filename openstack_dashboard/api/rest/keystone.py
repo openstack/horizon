@@ -93,14 +93,6 @@ class Users(generic.View):
             domain=domain.id
         )
 
-        # assign role to user
-        api.keystone.add_tenant_user_role(
-            request,
-            project=request.DATA.get('project_id'),
-            user=new_user.id,
-            role=request.DATA.get('role_id')
-        )
-
         return rest_utils.CreatedResponse(
             '/api/keystone/users/%s' % new_user.id,
             new_user.to_dict()
