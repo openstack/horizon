@@ -48,6 +48,7 @@ LOGIN_URL = None
 LOGOUT_URL = None
 LOGIN_REDIRECT_URL = None
 STATIC_ROOT = None
+STATIC_URL = None
 
 ROOT_URLCONF = 'openstack_dashboard.urls'
 
@@ -283,8 +284,10 @@ MEDIA_URL = WEBROOT + 'media/'
 if STATIC_ROOT is None:
     STATIC_ROOT = os.path.abspath(os.path.join(ROOT_PATH, '..', 'static'))
 
-STATIC_URL = WEBROOT + 'static/'
-STATICFILES_DIRS = get_staticfiles_dirs(WEBROOT)
+if STATIC_URL is None:
+    STATIC_URL = WEBROOT + 'static/'
+
+STATICFILES_DIRS = get_staticfiles_dirs(STATIC_URL)
 
 CUSTOM_THEME = os.path.join(ROOT_PATH, CUSTOM_THEME_PATH)
 
