@@ -2,6 +2,6 @@
   'use strict';
 
   angular
-    .module('hz.dashboard', []);
+    .module('horizon.dashboard', []);
 
 })();

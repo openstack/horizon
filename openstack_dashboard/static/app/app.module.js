@@ -36,7 +36,7 @@
     'horizon.app.core',
     'horizon.app.tech-debt',
     'horizon.auth',
-    'hz.dashboard',
+    'horizon.dashboard',
     'horizon.framework'
   ];
 

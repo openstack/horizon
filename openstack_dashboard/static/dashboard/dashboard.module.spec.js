@@ -16,9 +16,9 @@
 (function () {
   'use strict';
 
-  describe('hz.dashboard', function () {
+  describe('horizon.dashboard', function () {
     it('should be defined', function () {
-      expect(angular.module('hz.dashboard')).toBeDefined();
+      expect(angular.module('horizon.dashboard')).toBeDefined();
     });
   });
 

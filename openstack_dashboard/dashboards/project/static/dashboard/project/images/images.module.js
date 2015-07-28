@@ -19,14 +19,14 @@
 
   /**
    * @ngdoc overview
-   * @ngname hz.dashboard.project.images
+   * @ngname horizon.dashboard.project.images
    *
    * @description
    * Provides the services and widgets required
    * to support and display the project images panel.
    */
   angular
-    .module('hz.dashboard.project.images', [])
+    .module('horizon.dashboard.project.images', [])
     .config(config);
 
   config.$inject = [
@@ -35,12 +35,12 @@
   ];
 
   /**
-   * @name hz.dashboard.project.images.basePath
+   * @name horizon.dashboard.project.images.basePath
    * @description Base path for the project dashboard
    */
   function config($provide, $windowProvider) {
     var path = $windowProvider.$get().STATIC_URL + 'dashboard/project/images/';
-    $provide.constant('hz.dashboard.project.images.basePath', path);
+    $provide.constant('horizon.dashboard.project.images.basePath', path);
   }
 
 })();

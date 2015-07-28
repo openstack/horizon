@@ -49,9 +49,9 @@
     beforeEach(module('horizon.framework.widgets.toast'));
     beforeEach(module('horizon.app.core.openstack-service-api'));
 
-    beforeEach(module('hz.dashboard'));
-    beforeEach(module('hz.dashboard.identity'));
-    beforeEach(module('hz.dashboard.identity.users'));
+    beforeEach(module('horizon.dashboard'));
+    beforeEach(module('horizon.dashboard.identity'));
+    beforeEach(module('horizon.dashboard.identity.users'));
     beforeEach(inject(function($injector) {
 
       toastService = $injector.get('horizon.framework.widgets.toast.service');

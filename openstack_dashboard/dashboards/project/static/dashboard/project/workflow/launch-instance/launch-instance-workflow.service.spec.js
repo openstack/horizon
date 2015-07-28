@@ -22,7 +22,7 @@
     beforeEach(module('horizon.app.core'));
     beforeEach(module('horizon.dashboard.project'));
     beforeEach(module(function($provide) {
-      // Need to mock hz.framework.workflow from 'horizon'
+      // Need to mock horizon.framework.workflow from 'horizon'
       var workflow = function(spec, decorators) {
         angular.forEach(decorators, function(decorator) {
           decorator(spec);
