@@ -57,6 +57,10 @@ limitations under the License.
       return httpCall('PATCH', url, data, config);
     };
 
+    this.put = function(url, data, config) {
+      return httpCall('PUT', url, data, config);
+    };
+
     // NOTE the deviation from $http.delete which does not have the data param
     this.delete = function (url, data, config) {
       return httpCall('DELETE', url, data, config);
