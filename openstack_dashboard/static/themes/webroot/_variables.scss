@@ -1,3 +1,5 @@
 /* This variable changes the web root of horizon to /dashboard rather
 than the default '/' */
 $webroot: "/dashboard";
+
+@import "../themes/default/variables";
