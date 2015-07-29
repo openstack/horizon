@@ -38,6 +38,11 @@ var Horizon = function () {
       .replace(/\//g, '&#x2F;');
   };
 
+  /* Storage for backend configuration variables which the frontend
+   * should be aware of.
+   */
+  horizon.conf = {};
+
   return horizon;
 };
 
