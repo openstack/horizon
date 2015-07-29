@@ -22,7 +22,8 @@ from horizon import exceptions
 from horizon import forms
 from horizon.utils import memoized
 from horizon import workflows
-from openstack_dashboard import api
+from openstack_dashboard import api as dash_api
+from openstack_dashboard.contrib.trove import api
 
 from openstack_dashboard.dashboards.project.instances \
     import utils as instance_utils
@@ -151,7 +152,8 @@ class SetNetworkAction(workflows.Action):
     def populate_network_choices(self, request, context):
         try:
             tenant_id = self.request.user.tenant_id
-            networks = api.neutron.network_list_for_tenant(request, tenant_id)
+            networks = dash_api.neutron.network_list_for_tenant(request,
+                                                                tenant_id)
             network_list = [(network.id, network.name_or_id)
                             for network in networks]
         except Exception:

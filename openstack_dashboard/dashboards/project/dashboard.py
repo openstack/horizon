@@ -21,5 +21,4 @@ class Project(horizon.Dashboard):
     name = _("Project")
     slug = "project"
 
-
 horizon.register(Project)

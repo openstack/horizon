@@ -23,8 +23,8 @@ from horizon import tables
 from horizon.templatetags import sizeformat
 from horizon.utils import filters
 
-from openstack_dashboard import api
-from openstack_dashboard.dashboards.project.database_backups \
+from openstack_dashboard.contrib.trove import api
+from openstack_dashboard.contrib.trove.content.database_backups \
     import tables as backup_tables
 
 

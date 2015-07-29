@@ -23,7 +23,8 @@ from django.utils import unittest
 from mox3.mox import IsA  # noqa
 
 from horizon import exceptions
-from openstack_dashboard import api
+from openstack_dashboard import api as dash_api
+from openstack_dashboard.contrib.trove import api
 from openstack_dashboard.test import helpers as test
 
 from troveclient import common
@@ -125,7 +126,7 @@ class DatabaseTests(test.TestCase):
         api.trove: ('flavor_list', 'backup_list',
                     'datastore_list', 'datastore_version_list',
                     'instance_list'),
-        api.neutron: ('network_list',)})
+        dash_api.neutron: ('network_list',)})
     def test_launch_instance(self):
         api.trove.flavor_list(IsA(http.HttpRequest)).AndReturn(
             self.flavors.list())
@@ -140,14 +141,14 @@ class DatabaseTests(test.TestCase):
         api.trove.datastore_version_list(IsA(http.HttpRequest), IsA(str)).\
             AndReturn(self.datastore_versions.list())
 
-        api.neutron.network_list(IsA(http.HttpRequest),
-                                 tenant_id=self.tenant.id,
-                                 shared=False).AndReturn(
-                                     self.networks.list()[:1])
+        dash_api.neutron.network_list(IsA(http.HttpRequest),
+                                      tenant_id=self.tenant.id,
+                                      shared=False).AndReturn(
+                                          self.networks.list()[:1])
 
-        api.neutron.network_list(IsA(http.HttpRequest),
-                                 shared=True).AndReturn(
-                                     self.networks.list()[1:])
+        dash_api.neutron.network_list(IsA(http.HttpRequest),
+                                      shared=True).AndReturn(
+                                          self.networks.list()[1:])
 
         self.mox.ReplayAll()
         res = self.client.get(LAUNCH_URL)
@@ -188,7 +189,7 @@ class DatabaseTests(test.TestCase):
         api.trove: ('flavor_list', 'backup_list', 'instance_create',
                     'datastore_list', 'datastore_version_list',
                     'instance_list'),
-        api.neutron: ('network_list',)})
+        dash_api.neutron: ('network_list',)})
     def test_create_simple_instance(self):
         api.trove.flavor_list(IsA(http.HttpRequest)).AndReturn(
             self.flavors.list())
@@ -207,14 +208,14 @@ class DatabaseTests(test.TestCase):
         api.trove.datastore_version_list(IsA(http.HttpRequest), IsA(str))\
             .AndReturn(self.datastore_versions.list())
 
-        api.neutron.network_list(IsA(http.HttpRequest),
-                                 tenant_id=self.tenant.id,
-                                 shared=False).AndReturn(
-                                     self.networks.list()[:1])
+        dash_api.neutron.network_list(IsA(http.HttpRequest),
+                                      tenant_id=self.tenant.id,
+                                      shared=False).AndReturn(
+                                          self.networks.list()[:1])
 
-        api.neutron.network_list(IsA(http.HttpRequest),
-                                 shared=True).AndReturn(
-                                     self.networks.list()[1:])
+        dash_api.neutron.network_list(IsA(http.HttpRequest),
+                                      shared=True).AndReturn(
+                                          self.networks.list()[1:])
 
         nics = [{"net-id": self.networks.first().id, "v4-fixed-ip": ''}]
 
@@ -248,7 +249,7 @@ class DatabaseTests(test.TestCase):
         api.trove: ('flavor_list', 'backup_list', 'instance_create',
                     'datastore_list', 'datastore_version_list',
                     'instance_list'),
-        api.neutron: ('network_list',)})
+        dash_api.neutron: ('network_list',)})
     def test_create_simple_instance_exception(self):
         trove_exception = self.exceptions.nova
         api.trove.flavor_list(IsA(http.HttpRequest)).AndReturn(
@@ -268,14 +269,14 @@ class DatabaseTests(test.TestCase):
         api.trove.datastore_version_list(IsA(http.HttpRequest), IsA(str))\
             .AndReturn(self.datastore_versions.list())
 
-        api.neutron.network_list(IsA(http.HttpRequest),
-                                 tenant_id=self.tenant.id,
-                                 shared=False).AndReturn(
-                                     self.networks.list()[:1])
+        dash_api.neutron.network_list(IsA(http.HttpRequest),
+                                      tenant_id=self.tenant.id,
+                                      shared=False).AndReturn(
+                                          self.networks.list()[:1])
 
-        api.neutron.network_list(IsA(http.HttpRequest),
-                                 shared=True).AndReturn(
-                                     self.networks.list()[1:])
+        dash_api.neutron.network_list(IsA(http.HttpRequest),
+                                      shared=True).AndReturn(
+                                          self.networks.list()[1:])
 
         nics = [{"net-id": self.networks.first().id, "v4-fixed-ip": ''}]
 
@@ -481,7 +482,7 @@ class DatabaseTests(test.TestCase):
         api.trove: ('flavor_list', 'backup_list', 'instance_create',
                     'datastore_list', 'datastore_version_list',
                     'instance_list', 'instance_get'),
-        api.neutron: ('network_list',)})
+        dash_api.neutron: ('network_list',)})
     def test_create_replica_instance(self):
         api.trove.flavor_list(IsA(http.HttpRequest)).AndReturn(
             self.flavors.list())
@@ -499,13 +500,13 @@ class DatabaseTests(test.TestCase):
                                          IsA(str))\
             .AndReturn(self.datastore_versions.list())
 
-        api.neutron.network_list(IsA(http.HttpRequest),
-                                 tenant_id=self.tenant.id,
-                                 shared=False).\
+        dash_api.neutron.network_list(IsA(http.HttpRequest),
+                                      tenant_id=self.tenant.id,
+                                      shared=False).\
             AndReturn(self.networks.list()[:1])
 
-        api.neutron.network_list(IsA(http.HttpRequest),
-                                 shared=True).\
+        dash_api.neutron.network_list(IsA(http.HttpRequest),
+                                      shared=True).\
             AndReturn(self.networks.list()[1:])
 
         nics = [{"net-id": self.networks.first().id, "v4-fixed-ip": ''}]

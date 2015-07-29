@@ -15,12 +15,19 @@
 from django.conf.urls import patterns
 from django.conf.urls import url
 
-from openstack_dashboard.dashboards.project.database_backups import views
+from openstack_dashboard.contrib.trove.content.databases import views
+
+
+INSTANCES = r'^(?P<instance_id>[^/]+)/%s$'
+
 
 urlpatterns = patterns(
     '',
     url(r'^$', views.IndexView.as_view(), name='index'),
-    url(r'^create$', views.BackupView.as_view(), name='create'),
-    url(r'^(?P<backup_id>[^/]+)/$', views.DetailView.as_view(),
-        name='detail'),
+    url(r'^launch$', views.LaunchInstanceView.as_view(), name='launch'),
+    url(INSTANCES % '', views.DetailView.as_view(), name='detail'),
+    url(INSTANCES % 'resize_volume', views.ResizeVolumeView.as_view(),
+        name='resize_volume'),
+    url(INSTANCES % 'resize_instance', views.ResizeInstanceView.as_view(),
+        name='resize_instance')
 )

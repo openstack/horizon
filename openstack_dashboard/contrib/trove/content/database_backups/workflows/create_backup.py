@@ -20,8 +20,8 @@ from horizon import exceptions
 from horizon import forms
 from horizon import workflows
 
-from openstack_dashboard import api
-from openstack_dashboard.dashboards.project.databases \
+from openstack_dashboard.contrib.trove import api
+from openstack_dashboard.contrib.trove.content.databases \
     import tables as project_tables
 
 
