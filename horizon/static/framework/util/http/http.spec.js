@@ -72,6 +72,14 @@
       testBadCall(api.patch, 'PATCH');
     });
 
+    it('should call success on a good PUT response', function () {
+      testGoodCall(api.put, 'PUT');
+    });
+
+    it('should call error on a bad PUT response', function () {
+      testBadCall(api.put, 'PUT');
+    });
+
     it('should call success on a good DELETE response', function () {
       testGoodCall(api.delete, 'DELETE');
     });
