@@ -8,14 +8,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-07-16 06:05+0000\n"
+"POT-Creation-Date: 2015-07-29 06:23+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Generated-By: Babel 1.3\n"
+"Generated-By: Babel 2.0\n"
 
 #: dashboards/identity/static/dashboard/identity/users/table/table-batch-actions.html:14
 msgid "Create User"
@@ -77,13 +77,95 @@ msgstr ""
 msgid "Project ID"
 msgstr ""
 
-#: dashboards/identity/static/dashboard/identity/users/table/table.controller.js:67
+#: dashboards/identity/static/dashboard/identity/users/table/table.controller.js:66
 msgid "Insufficient privilege level to view user information."
 msgstr ""
 
+#: static/app/core/images/filters/image-status.filter.js:35
+#: static/dashboard/launch-instance/network/network.controller.js:54
+msgid "Active"
+msgstr ""
+
+#: static/app/core/images/filters/image-status.filter.js:36
+msgid "Saving"
+msgstr ""
+
+#: static/app/core/images/filters/image-status.filter.js:37
+msgid "Queued"
+msgstr ""
+
+#: static/app/core/images/filters/image-status.filter.js:38
+msgid "Pending Delete"
+msgstr ""
+
+#: static/app/core/images/filters/image-status.filter.js:39
+msgid "Killed"
+msgstr ""
+
+#: static/app/core/images/filters/image-status.filter.js:40
+msgid "Deleted"
+msgstr ""
+
+#: static/app/core/images/filters/image-type.filter.js:39
+msgid "Snapshot"
+msgstr ""
+
+#: static/app/core/images/filters/image-type.filter.js:41
 #: static/dashboard/launch-instance/launch-instance-model.js:374
 #: static/dashboard/launch-instance/source/source.controller.js:100
 msgid "Image"
+msgstr ""
+
+#: static/app/core/images/table/images-table-header.html:16
+msgid "Image Name"
+msgstr ""
+
+#: static/app/core/images/table/images-table-header.html:20
+#: static/dashboard/launch-instance/network/network.controller.js:48
+#: static/dashboard/launch-instance/source/source.controller.js:153
+#: static/dashboard/launch-instance/source/source.controller.js:160
+#: static/dashboard/launch-instance/source/source.controller.js:167
+msgid "Type"
+msgstr ""
+
+#: static/app/core/images/table/images-table-header.html:24
+#: static/dashboard/launch-instance/network/network.controller.js:41
+#: static/dashboard/launch-instance/source/source.controller.js:175
+msgid "Status"
+msgstr ""
+
+#: static/app/core/images/table/images-table-header.html:28
+#: static/app/core/images/table/images-table-row-details.html:13
+#: static/dashboard/launch-instance/flavor/select-flavor-table.directive.js:124
+#: static/dashboard/launch-instance/source/source.controller.js:180
+msgid "Public"
+msgstr ""
+
+#: static/app/core/images/table/images-table-header.html:32
+#: static/app/core/images/table/images-table-row-details.html:19
+msgid "Protected"
+msgstr ""
+
+#: static/app/core/images/table/images-table-header.html:36
+#: static/app/core/images/table/images-table-row-details.html:25
+msgid "Format"
+msgstr ""
+
+#: static/app/core/images/table/images-table-header.html:40
+#: static/app/core/images/table/images-table-row-details.html:31
+#: static/dashboard/launch-instance/source/source.controller.js:152
+#: static/dashboard/launch-instance/source/source.controller.js:159
+#: static/dashboard/launch-instance/source/source.controller.js:166
+#: static/dashboard/launch-instance/source/source.controller.js:173
+msgid "Size"
+msgstr ""
+
+#: static/app/core/images/table/images-table-row-details.html:41
+msgid "Min Disk (GB)"
+msgstr ""
+
+#: static/app/core/images/table/images-table-row-details.html:47
+msgid "Min RAM (MB)"
 msgstr ""
 
 #: static/dashboard/launch-instance/launch-instance-model.js:385
@@ -328,11 +410,6 @@ msgstr ""
 msgid "Ephemeral Disk"
 msgstr ""
 
-#: static/dashboard/launch-instance/flavor/select-flavor-table.directive.js:124
-#: static/dashboard/launch-instance/source/source.controller.js:180
-msgid "Public"
-msgstr ""
-
 #: static/dashboard/launch-instance/keypair/keypair.js:27
 msgid ""
 "A key pair allows you to SSH into your newly created instance. You may "
@@ -553,11 +630,6 @@ msgstr ""
 msgid "Admin State"
 msgstr ""
 
-#: static/dashboard/launch-instance/network/network.controller.js:41
-#: static/dashboard/launch-instance/source/source.controller.js:175
-msgid "Status"
-msgstr ""
-
 #: static/dashboard/launch-instance/network/network.controller.js:42
 msgid "Profile"
 msgstr ""
@@ -583,23 +655,12 @@ msgstr ""
 msgid "Provider Network"
 msgstr ""
 
-#: static/dashboard/launch-instance/network/network.controller.js:48
-#: static/dashboard/launch-instance/source/source.controller.js:153
-#: static/dashboard/launch-instance/source/source.controller.js:160
-#: static/dashboard/launch-instance/source/source.controller.js:167
-msgid "Type"
-msgstr ""
-
 #: static/dashboard/launch-instance/network/network.controller.js:49
 msgid "Segmentation ID"
 msgstr ""
 
 #: static/dashboard/launch-instance/network/network.controller.js:50
 msgid "Physical Network"
-msgstr ""
-
-#: static/dashboard/launch-instance/network/network.controller.js:54
-msgid "Active"
 msgstr ""
 
 #: static/dashboard/launch-instance/network/network.controller.js:55
@@ -839,13 +900,6 @@ msgstr ""
 #: static/dashboard/launch-instance/source/source.controller.js:151
 #: static/dashboard/launch-instance/source/source.controller.js:158
 msgid "Updated"
-msgstr ""
-
-#: static/dashboard/launch-instance/source/source.controller.js:152
-#: static/dashboard/launch-instance/source/source.controller.js:159
-#: static/dashboard/launch-instance/source/source.controller.js:166
-#: static/dashboard/launch-instance/source/source.controller.js:173
-msgid "Size"
 msgstr ""
 
 #: static/dashboard/launch-instance/source/source.controller.js:154

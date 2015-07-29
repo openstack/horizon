@@ -17,15 +17,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-07-19 22:22+0000\n"
-"PO-Revision-Date: 2015-07-06 07:12+0000\n"
-"Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
+"POT-Creation-Date: 2015-07-28 12:34+0000\n"
+"PO-Revision-Date: 2015-07-27 13:37+0000\n"
+"Last-Translator: Gabriel Wainer\n"
 "Language-Team: Portuguese (Brazil) (http://www.transifex.com/projects/p/"
 "horizon/language/pt_BR/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Generated-By: Babel 1.3\n"
+"Generated-By: Babel 2.0\n"
 "Language: pt_BR\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
@@ -555,6 +555,9 @@ msgstr "Alocar IP"
 msgid "Allocate IP To Project"
 msgstr "Alocar IP para Projeto"
 
+msgid "Allocated"
+msgstr "Alocado"
+
 #, python-format
 msgid "Allocated Floating IP %(ip)s."
 msgstr "Alocado IP Flutuante %(ip)s"
@@ -625,6 +628,9 @@ msgstr "Ao menos um membro precisa ser especificado"
 
 msgid "At least one network must be specified."
 msgstr "Ao menos uma rede deve ser espeicifacada."
+
+msgid "Attach Interface"
+msgstr "Conectar Interface."
 
 msgid "Attach to Instance"
 msgstr "Anexar em uma Instância."
@@ -1704,6 +1710,10 @@ msgctxt "Admin state of a Firewall"
 msgid "DOWN"
 msgstr "BAIXO"
 
+msgctxt "Admin state of a Load balancer"
+msgid "DOWN"
+msgstr "DOWN"
+
 msgctxt "Admin state of a Network"
 msgid "DOWN"
 msgstr "BAIXO"
@@ -1796,6 +1806,9 @@ msgstr "Atraso"
 
 msgid "Delay must be greater than or equal to Timeout"
 msgstr "O atraso deve ser maior ou igual do que o tempo limite"
+
+msgid "Delay must be greater than or equal to timeout"
+msgstr "Tempo de espera deve ser maior ou igual ao tempo limite"
 
 msgid "Delete Backup"
 msgid_plural "Delete Backups"
@@ -2349,6 +2362,9 @@ msgstr "Nome do objeto de destino"
 msgid "Destination port (integer in [1, 65535] or range in a:b)"
 msgstr "Porta destino (inteiro em [1, 65535] ou faixa em a:b)"
 
+msgid "Detach Interface"
+msgstr "Desconectar interface"
+
 msgid "Detach Volume"
 msgid_plural "Detach Volumes"
 msgstr[0] "Desanexar Volume"
@@ -2356,6 +2372,10 @@ msgstr[1] "Desanexar Volumes"
 
 msgid "Detached"
 msgstr "Desanexado"
+
+#, python-format
+msgid "Detached interface %(port)s for instance %(instance)s."
+msgstr "Interface desconectada %(port)s para instância %(instance)s."
 
 msgid "Detaching"
 msgstr "Desanexando"
@@ -2650,6 +2670,9 @@ msgstr "Editar Rede"
 
 msgid "Edit Network Profile"
 msgstr "Editar Perfil de Rede"
+
+msgid "Edit Node Group Template"
+msgstr "Editar Modelo de Grupo de Nodo"
 
 msgid "Edit Policy"
 msgstr "Editar Política"
@@ -4145,6 +4168,9 @@ msgstr "Morto"
 msgid "Kwapi"
 msgstr "Kwapi"
 
+msgid "LB Method"
+msgstr "Método LB"
+
 msgid "LUKS Volume Snapshots"
 msgstr "Snapshots de Volumes LUKS "
 
@@ -4236,6 +4262,10 @@ msgid ""
 msgstr ""
 "O disparo de múltiplas instâncias é suportada apenas para imagens e "
 "snapshots de instâncias."
+
+msgctxt "load balancing method"
+msgid "Least Connections"
+msgstr "Menor número de conexões"
 
 msgid "Length of Injected File Path"
 msgstr "Tamanho do Caminho do Arquivo Injetado"
@@ -4805,6 +4835,9 @@ msgstr "Sem par de chaves"
 msgid "No networks available"
 msgstr "Não há redes disponíveis"
 
+msgid "No new QoS spec available"
+msgstr "Nenhuma nova especificação QoS disponível"
+
 msgid "No options specified"
 msgstr "Nenhuma opção especificada"
 
@@ -4816,6 +4849,9 @@ msgstr "Não há hosts disponível"
 
 msgid "No other hosts available."
 msgstr "Nenhum outro host disponível."
+
+msgid "No other volume types available"
+msgstr "Nenhum outro tipo de volume disponível"
 
 msgid "No ports available"
 msgstr "Sem portas disponíveis"
@@ -4872,6 +4908,10 @@ msgstr "Sem tipo de volume"
 msgid "No volumes available"
 msgstr "Nenhum volume disponível"
 
+#, python-format
+msgid "Node Group Template %s updated"
+msgstr "Modelo de grupo de nodo \"%s\" atualizado."
+
 msgid "Node Group Template Details"
 msgstr "Detalhes de modelo do Node group"
 
@@ -4900,6 +4940,9 @@ msgstr "Nenhum"
 msgctxt "Task status of an Instance"
 msgid "None"
 msgstr "Nenhum"
+
+msgid "None (removes spec)"
+msgstr "Nenhum (remove especificação)"
 
 msgid "Normal"
 msgstr "Normal"
@@ -5480,6 +5523,9 @@ msgstr "RAM (utilizado)"
 msgid "RAM(Available: %(avail)s, Requested: %(req)s)"
 msgstr "RAM(Disponível: %(avail)s, Requisitado: %(req)s)"
 
+msgid "Ramdisk"
+msgstr "Ramdisk"
+
 msgid "Ramdisk ID"
 msgstr "ID do Ramdisk"
 
@@ -5869,6 +5915,10 @@ msgstr "Disco Raiz"
 msgid "Root Disk (GB)"
 msgstr "Disco Raíz (GB)"
 
+msgctxt "load balancing method"
+msgid "Round Robin"
+msgstr "Round Robin"
+
 msgid "Router"
 msgstr "Roteador"
 
@@ -6188,6 +6238,9 @@ msgstr "Selecione a instância mestre"
 msgid "Select a monitor template for %s"
 msgstr "Selecione um modelo de monitor para %s"
 
+msgid "Select a new QoS spec"
+msgstr "Selecione uma nova especificação QoS"
+
 msgid "Select a new agent"
 msgstr "Selecione um novo agente"
 
@@ -6202,6 +6255,9 @@ msgstr "Selecione um novo modelo para visualizar uma pilha."
 
 msgid "Select a new template to re-launch a stack."
 msgstr "Selecione um novo modelo para relançar uma pilha."
+
+msgid "Select a new volume type"
+msgstr "Selecione um novo tipo de volume"
 
 msgid "Select a port"
 msgstr "Selecione uma porta"
@@ -6437,6 +6493,9 @@ msgstr "Tamanho do volume em GB."
 msgid "Size of volume"
 msgstr "Tamanho do volume"
 
+msgid "Slash is not allowed at the beginning or end of your string."
+msgstr "O caractere barra não é permitido no início ou final de uma string."
+
 msgid "Slash is not an allowed character."
 msgstr "Barra não é um caracter permitido."
 
@@ -6503,6 +6562,10 @@ msgstr "Algo deu errado!"
 msgid "Source CIDR"
 msgstr "Origem CIDR"
 
+msgid "Source IP"
+msgstr "IP de origem"
+
+msgctxt "load balancing method"
 msgid "Source IP"
 msgstr "IP de origem"
 
@@ -7075,6 +7138,13 @@ msgid "The instance password encrypted with your public key."
 msgstr "A senha da instância criptografada com sua chave pública."
 
 msgid ""
+"The maximum time in seconds for a monitor to wait for a reply. It must be "
+"less than or equal to delay"
+msgstr ""
+"O tempo máximo em segundos para um monitor esperar por uma resposta. Deve "
+"ser menor ou igual ao tempo de espera"
+
+msgid ""
 "The minimum disk size required to boot the image. If unspecified, this value "
 "defaults to 0 (no minimum)."
 msgstr ""
@@ -7087,6 +7157,13 @@ msgid ""
 msgstr ""
 "O mínimo do tamanho de memória necessário para inicializar a imagem. Se não "
 "for especificado, o valor padrão será 0 (sem mínimo)."
+
+msgid ""
+"The minimum time in seconds between regular checks of a member. It must be "
+"greater than or equal to timeout"
+msgstr ""
+"O tempo mínimo em segundos entre verificações regulares de um membro. Deve "
+"ser maior ou igual ao tempo limite"
 
 #, python-format
 msgid "The name \"%s\" is already used by another flavor."
@@ -7221,6 +7298,10 @@ msgstr "Houve um problema ao analisar o  %(prefix)s: %(error)s"
 msgid "This action cannot be undone."
 msgstr "Esta ação não pode ser desfeita."
 
+msgid "This application requires JavaScript to be enabled in your web browser."
+msgstr ""
+"Esta aplicação requer que o JavaScript esteja habilitado no seu navegador."
+
 msgid ""
 "This is required for operations to be performed throughout the lifecycle of "
 "the stack"
@@ -7335,6 +7416,10 @@ msgstr "CIMA"
 msgctxt "Admin state of a Firewall"
 msgid "UP"
 msgstr "CIMA"
+
+msgctxt "Admin state of a Load balancer"
+msgid "UP"
+msgstr "UP"
 
 msgctxt "Admin state of a Network"
 msgid "UP"
@@ -7616,6 +7701,9 @@ msgstr "Não foi possível excluir regra. %s"
 
 msgid "Unable to delete volume transfer."
 msgstr "Não é possível excluir a transferência de volume."
+
+msgid "Unable to detach interface."
+msgstr "Não foi possível desconectar interface."
 
 msgid "Unable to determine if availability zones extension is supported."
 msgstr "Não é possível determinar se zonas de disponibilidade são suportadas"
@@ -8057,6 +8145,18 @@ msgid "Unable to retrieve details for backup: %s"
 msgstr "Não foi possível obter detalhes do backup: %s"
 
 #, python-format
+msgid "Unable to retrieve details for cluster \"%s\"."
+msgstr "Não foi possível obter detalhes para o cluster \"%s\"."
+
+#, python-format
+msgid "Unable to retrieve details for cluster template \"%s\"."
+msgstr "Não foi possível obter detalhes para o modelo de cluster \"%s\"."
+
+#, python-format
+msgid "Unable to retrieve details for data source \"%s\"."
+msgstr "Não foi possível obter detalhes para a fonte de dados \"%s\"."
+
+#, python-format
 msgid "Unable to retrieve details for database instance: %s"
 msgstr "Não foi possível obter detalhes para a instância da base de dados: %s"
 
@@ -8065,12 +8165,28 @@ msgid "Unable to retrieve details for instance \"%s\"."
 msgstr "Não foi possível recuperar os detalhes da instância \"%s\"."
 
 #, python-format
+msgid "Unable to retrieve details for job \"%s\"."
+msgstr "Não foi possível obter detalhes para o job \"%s\"."
+
+#, python-format
+msgid "Unable to retrieve details for job binary \"%s\"."
+msgstr "Não foi possível obter detalhes para o job binário \"%s\"."
+
+#, python-format
+msgid "Unable to retrieve details for job template \"%s\"."
+msgstr "Não foi possível obter detalhes para o modelo de job \"%s\"."
+
+#, python-format
 msgid "Unable to retrieve details for keypair \"%s\"."
 msgstr "Não é possível recuperar detalhes para o par de chaves \"%s\"."
 
 #, python-format
 msgid "Unable to retrieve details for network \"%s\"."
 msgstr "Não foi possível obter detalhes de rede \"%s\"."
+
+#, python-format
+msgid "Unable to retrieve details for node group template \"%s\"."
+msgstr "Não foi possível obter detalhes para o modelo de grupo de nodo \"%s\"."
 
 #, python-format
 msgid "Unable to retrieve details for parent backup: %s"
@@ -8091,6 +8207,9 @@ msgstr "Não é possivel recuperar informações do domínio."
 
 msgid "Unable to retrieve domain list."
 msgstr "Não foi possível recuperar a lista de domínios."
+
+msgid "Unable to retrieve extensions information"
+msgstr "Não é possível recuperar informações de extensões."
 
 msgid "Unable to retrieve extensions information."
 msgstr "Não é possível recuperar informações de extensões."
@@ -8332,6 +8451,9 @@ msgstr "Não foi possível obter detalhes da porta."
 
 msgid "Unable to retrieve port details."
 msgstr "Não foi possível obter detalhes da porta."
+
+msgid "Unable to retrieve ports information."
+msgstr "Não foi possível obter informações de portas."
 
 msgid "Unable to retrieve project details."
 msgstr "Não foi possível obter detalhes da projeto."
@@ -9098,6 +9220,9 @@ msgstr "Snapshots de Volume"
 
 msgid "Volume Source"
 msgstr "Origem do Volume"
+
+msgid "Volume Storage"
+msgstr "Armazenamento de volume"
 
 msgid "Volume Transfer"
 msgstr " Transferência de Volume"

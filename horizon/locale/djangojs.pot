@@ -8,52 +8,52 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-06-29 06:04+0000\n"
+"POT-Creation-Date: 2015-07-29 06:23+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Generated-By: Babel 1.3\n"
+"Generated-By: Babel 2.0\n"
 
-#: static/framework/util/filters/filters.js:37
+#: static/framework/util/filters/filters.js:40
 msgid "Yes"
 msgstr ""
 
-#: static/framework/util/filters/filters.js:37
+#: static/framework/util/filters/filters.js:40
 msgid "No"
 msgstr ""
 
-#: static/framework/util/filters/filters.js:53
-#: static/framework/util/filters/filters.js:140
+#: static/framework/util/filters/filters.js:56
+#: static/framework/util/filters/filters.js:143
 #, python-format
 msgid "%s GB"
 msgstr ""
 
-#: static/framework/util/filters/filters.js:70
-#: static/framework/util/filters/filters.js:142
+#: static/framework/util/filters/filters.js:73
+#: static/framework/util/filters/filters.js:145
 #, python-format
 msgid "%s MB"
 msgstr ""
 
-#: static/framework/util/filters/filters.js:138
+#: static/framework/util/filters/filters.js:141
 #, python-format
 msgid "%s TB"
 msgstr ""
 
-#: static/framework/util/filters/filters.js:144
+#: static/framework/util/filters/filters.js:147
 #, python-format
 msgid "%s KB"
 msgstr ""
 
-#: static/framework/util/filters/filters.js:146
+#: static/framework/util/filters/filters.js:149
 #, python-format
 msgid "%s bytes"
 msgstr ""
 
-#: static/framework/util/filters/filters.js:163
-#: static/horizon/js/horizon.tables.js:423
+#: static/framework/util/filters/filters.js:166
+#: static/horizon/js/horizon.tables.js:427
 #, python-format
 msgid "Displaying %s item"
 msgid_plural "Displaying %s items"
@@ -78,68 +78,92 @@ msgstr ""
 msgid "Remaining"
 msgstr ""
 
-#: static/framework/widgets/charts/pie-chart.directive.js:152
+#: static/framework/widgets/charts/pie-chart.directive.js:154
 #: static/framework/widgets/metadata-tree/metadata-tree.module.js:39
 msgid "Max"
 msgstr ""
 
-#: static/framework/widgets/charts/pie-chart.directive.js:155
+#: static/framework/widgets/charts/pie-chart.directive.js:157
 msgid "Total"
 msgstr ""
 
-#: static/framework/widgets/magic-search/magic-search.spec.js:50
-#: static/framework/widgets/modal/modal.factory.js:66
-#: static/framework/widgets/wizard/wizard.js:10
+#: static/framework/widgets/magic-search/hz-magic-search-bar.spec.js:35
+#: static/framework/widgets/magic-search/magic-overrides.spec.js:50
+#: static/framework/widgets/magic-search/st-magic-search.spec.js:43
+#: static/framework/widgets/modal/simple-modal.service.js:66
+#: static/framework/widgets/wizard/wizard.module.js:47
 #: static/horizon/js/horizon.modals.js:33
 msgid "Cancel"
 msgstr ""
 
-#: static/framework/widgets/magic-search/magic-search.spec.js:51
+#: static/framework/widgets/magic-search/hz-magic-search-bar.spec.js:36
+#: static/framework/widgets/magic-search/magic-overrides.spec.js:51
+#: static/framework/widgets/magic-search/st-magic-search.spec.js:44
 msgid "Prompt"
 msgstr ""
 
-#: static/framework/widgets/magic-search/magic-search.spec.js:52
+#: static/framework/widgets/magic-search/hz-magic-search-bar.spec.js:37
+#: static/framework/widgets/magic-search/magic-overrides.spec.js:52
+#: static/framework/widgets/magic-search/st-magic-search.spec.js:45
 msgid "Remove"
 msgstr ""
 
-#: static/framework/widgets/magic-search/magic-search.spec.js:53
+#: static/framework/widgets/magic-search/hz-magic-search-bar.spec.js:38
+#: static/framework/widgets/magic-search/magic-overrides.spec.js:53
+#: static/framework/widgets/magic-search/st-magic-search.spec.js:46
 msgid "Text"
 msgstr ""
 
-#: static/framework/widgets/magic-search/magic-search.spec.js:59
+#: static/framework/widgets/magic-search/hz-magic-search-bar.spec.js:44
+#: static/framework/widgets/magic-search/magic-overrides.spec.js:59
+#: static/framework/widgets/magic-search/st-magic-search.spec.js:52
 msgid "Name"
 msgstr ""
 
-#: static/framework/widgets/magic-search/magic-search.spec.js:64
+#: static/framework/widgets/magic-search/hz-magic-search-bar.spec.js:49
+#: static/framework/widgets/magic-search/magic-overrides.spec.js:64
+#: static/framework/widgets/magic-search/st-magic-search.spec.js:57
 msgid "Status"
 msgstr ""
 
-#: static/framework/widgets/magic-search/magic-search.spec.js:66
+#: static/framework/widgets/magic-search/hz-magic-search-bar.spec.js:51
+#: static/framework/widgets/magic-search/magic-overrides.spec.js:66
+#: static/framework/widgets/magic-search/st-magic-search.spec.js:59
 msgid "Active"
 msgstr ""
 
-#: static/framework/widgets/magic-search/magic-search.spec.js:67
+#: static/framework/widgets/magic-search/hz-magic-search-bar.spec.js:52
+#: static/framework/widgets/magic-search/magic-overrides.spec.js:67
+#: static/framework/widgets/magic-search/st-magic-search.spec.js:60
 msgid "Shutdown"
 msgstr ""
 
-#: static/framework/widgets/magic-search/magic-search.spec.js:68
-#: static/framework/widgets/toast/toast.factory.js:59
+#: static/framework/widgets/magic-search/hz-magic-search-bar.spec.js:53
+#: static/framework/widgets/magic-search/magic-overrides.spec.js:68
+#: static/framework/widgets/magic-search/st-magic-search.spec.js:61
+#: static/framework/widgets/toast/toast.service.js:59
 msgid "Error"
 msgstr ""
 
-#: static/framework/widgets/magic-search/magic-search.spec.js:73
+#: static/framework/widgets/magic-search/hz-magic-search-bar.spec.js:58
+#: static/framework/widgets/magic-search/magic-overrides.spec.js:73
+#: static/framework/widgets/magic-search/st-magic-search.spec.js:66
 msgid "Flavor"
 msgstr ""
 
-#: static/framework/widgets/magic-search/magic-search.spec.js:76
+#: static/framework/widgets/magic-search/hz-magic-search-bar.spec.js:61
+#: static/framework/widgets/magic-search/magic-overrides.spec.js:76
+#: static/framework/widgets/magic-search/st-magic-search.spec.js:69
 msgid "m1.tiny"
 msgstr ""
 
-#: static/framework/widgets/magic-search/magic-search.spec.js:77
+#: static/framework/widgets/magic-search/hz-magic-search-bar.spec.js:62
+#: static/framework/widgets/magic-search/magic-overrides.spec.js:77
+#: static/framework/widgets/magic-search/st-magic-search.spec.js:70
 msgid "m1.small"
 msgstr ""
 
-#: static/framework/widgets/metadata-display/metadata-display.js:33
+#: static/framework/widgets/metadata-display/metadata-display.module.js:47
 msgid "Detail Information"
 msgstr ""
 
@@ -209,23 +233,23 @@ msgstr ""
 msgid "No existing metadata"
 msgstr ""
 
-#: static/framework/widgets/modal/modal.factory.js:65
+#: static/framework/widgets/modal/simple-modal.service.js:65
 msgid "Submit"
 msgstr ""
 
-#: static/framework/widgets/toast/toast.factory.js:55
+#: static/framework/widgets/toast/toast.service.js:55
 msgid "Danger"
 msgstr ""
 
-#: static/framework/widgets/toast/toast.factory.js:56
+#: static/framework/widgets/toast/toast.service.js:56
 msgid "Warning"
 msgstr ""
 
-#: static/framework/widgets/toast/toast.factory.js:57
+#: static/framework/widgets/toast/toast.service.js:57
 msgid "Info"
 msgstr ""
 
-#: static/framework/widgets/toast/toast.factory.js:58
+#: static/framework/widgets/toast/toast.service.js:58
 msgid "Success"
 msgstr ""
 
@@ -273,19 +297,19 @@ msgstr ""
 msgid "Click to see more details"
 msgstr ""
 
-#: static/framework/widgets/wizard/wizard.js:11
+#: static/framework/widgets/wizard/wizard.module.js:48
 msgid "Back"
 msgstr ""
 
-#: static/framework/widgets/wizard/wizard.js:12
+#: static/framework/widgets/wizard/wizard.module.js:49
 msgid "Next"
 msgstr ""
 
-#: static/framework/widgets/wizard/wizard.js:13
+#: static/framework/widgets/wizard/wizard.module.js:50
 msgid "Finish"
 msgstr ""
 
-#: static/horizon/js/horizon.accordion_nav.js:80
+#: static/horizon/js/horizon.accordion_nav.js:89
 #: static/horizon/js/horizon.modals.js:318 static/horizon/js/horizon.tabs.js:21
 msgid "Loading"
 msgstr ""
@@ -345,7 +369,7 @@ msgid "Error: "
 msgstr ""
 
 #: static/horizon/js/horizon.modals.js:229
-#: static/horizon/js/horizon.tables.js:248
+#: static/horizon/js/horizon.tables.js:252
 msgid "Working"
 msgstr ""
 
@@ -406,12 +430,12 @@ msgstr ""
 msgid "View Instance Details"
 msgstr ""
 
-#: static/horizon/js/horizon.tables.js:46
-#: static/horizon/js/horizon.tables.js:436
+#: static/horizon/js/horizon.tables.js:45
+#: static/horizon/js/horizon.tables.js:440
 msgid "No items to display."
 msgstr ""
 
-#: static/horizon/js/horizon.tables.js:59
+#: static/horizon/js/horizon.tables.js:58
 #: static/horizon/js/horizon.tables.js:130
 msgid "An error occurred while updating."
 msgstr ""

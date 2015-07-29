@@ -8,15 +8,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-07-19 22:22+0000\n"
-"PO-Revision-Date: 2015-07-22 06:32+0000\n"
-"Last-Translator: Mücahit Büyükyılmaz <mucahit@konya.edu.tr>\n"
+"POT-Creation-Date: 2015-07-28 12:34+0000\n"
+"PO-Revision-Date: 2015-07-28 12:35+0000\n"
+"Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Turkish (Turkey) (http://www.transifex.com/projects/p/horizon/"
 "language/tr_TR/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Generated-By: Babel 1.3\n"
+"Generated-By: Babel 2.0\n"
 "Language: tr_TR\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
@@ -225,6 +225,9 @@ msgstr "Kullanıcıları Sil"
 msgid "Delete Volume on Terminate"
 msgstr "Kapatıldığında Hacmi Sil"
 
+msgid "Deleted"
+msgstr "Silinmiş"
+
 msgid "Description"
 msgstr "Tanımlama"
 
@@ -287,6 +290,9 @@ msgstr ""
 "Şablonlar sunucuların hesaplama, bellek ve depolama kapasitelerini "
 "belirlerler."
 
+msgid "Format"
+msgstr "Biçim"
+
 #, python-format
 msgid ""
 "From a Windows system, you can use PuTTYGen to create private/public keys. "
@@ -344,6 +350,9 @@ msgstr ""
 
 msgid "Image"
 msgstr "İmaj"
+
+msgid "Image Name"
+msgstr "İmaj Adı"
 
 msgid "Impact on your quota"
 msgstr "Kotanız etkisi"
@@ -407,6 +416,9 @@ msgstr ""
 "Anahtar Çiftleri sunucunun başlatıldığında ona nasıl erişeceğinizi belirtir. "
 "Anahtar çiftinize hatırlayabileceğiniz bir isim verin."
 
+msgid "Killed"
+msgstr "Öldürüldü"
+
 msgid "Launch Instance"
 msgstr "Sunucuyu Başlat"
 
@@ -455,6 +467,9 @@ msgstr "Hayır"
 msgid "OK"
 msgstr "Tamam"
 
+msgid "Pending Delete"
+msgstr "Silme Beklemede"
+
 msgid "Physical Network"
 msgstr "Fiziksel Ağ"
 
@@ -492,6 +507,9 @@ msgstr ""
 "Proje ağlarını kullanıcılar oluşturur. Bu ağlar tamamen soyutlanmış "
 "projelere özel ağlardır."
 
+msgid "Protected"
+msgstr "Korumalı"
+
 msgid "Protocol"
 msgstr "İletişim Kuralı"
 
@@ -511,6 +529,9 @@ msgstr "Genel"
 msgid "Public Key"
 msgstr "Açık Anahtar"
 
+msgid "Queued"
+msgstr "Kuyrukta"
+
 msgid "RAM"
 msgstr "Bellek"
 
@@ -522,6 +543,9 @@ msgstr "Gerekli"
 
 msgid "Root Disk"
 msgstr "Kök Diski"
+
+msgid "Saving"
+msgstr "Kaydediliyor"
 
 msgid "Script size"
 msgstr "Betik boyutu"
@@ -605,6 +629,9 @@ msgstr "Boyut"
 
 msgid "Size (GB)"
 msgstr "Boyut (GB)"
+
+msgid "Snapshot"
+msgstr "Anlık Görüntü"
 
 msgid "Status"
 msgstr "Statü"

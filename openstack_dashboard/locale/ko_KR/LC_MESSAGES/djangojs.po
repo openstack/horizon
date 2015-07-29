@@ -9,15 +9,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-07-19 22:22+0000\n"
-"PO-Revision-Date: 2015-07-23 13:22+0000\n"
-"Last-Translator: Sungjin Kang <potopro@gmail.com>\n"
+"POT-Creation-Date: 2015-07-28 12:34+0000\n"
+"PO-Revision-Date: 2015-07-28 12:35+0000\n"
+"Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Korean (Korea) (http://www.transifex.com/projects/p/horizon/"
 "language/ko_KR/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Generated-By: Babel 1.3\n"
+"Generated-By: Babel 2.0\n"
 "Language: ko_KR\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
@@ -66,6 +66,13 @@ msgstr ""
 "두 가지 디스크 파티션 옵션이 있습니다. <b>자동</b>으로 선택하면 디스크 크기"
 "를 재조정하여 단일 파티션으로 설정합니다. <b>수동</b>으로 선택하면 해당 디스"
 "크에 여러 파티션을 생성할 수 있습니다."
+
+msgid ""
+"An instance name is required and used to help you uniquely identify your "
+"instance in the dashboard."
+msgstr ""
+"인스턴스 이름은 필수이며 대시보드에서 인스턴스를 식별 및 구별 가능하기 위해 "
+"사용됩니다."
 
 msgid "Automatic"
 msgstr "자동"
@@ -142,6 +149,9 @@ msgstr "사용자 삭제"
 msgid "Delete Volume on Terminate"
 msgstr "종료시 볼륨 삭제"
 
+msgid "Deleted"
+msgstr "삭제됨"
+
 msgid "Description"
 msgstr "설명"
 
@@ -203,6 +213,9 @@ msgid ""
 msgstr ""
 "Flavor는 인스턴스의 컴퓨트, 메모리 및 스토리지 용량에 대한 크기를 관리합니다."
 
+msgid "Format"
+msgstr "포멧"
+
 msgid "ID"
 msgstr "ID"
 
@@ -214,6 +227,9 @@ msgstr ""
 
 msgid "Image"
 msgstr "이미지"
+
+msgid "Image Name"
+msgstr "이미지 이름"
 
 msgid "Impact on your quota"
 msgstr "쿼터에 미치는 영향"
@@ -266,6 +282,9 @@ msgstr ""
 "키 페어는 인스턴스가 구동된 후 로그인하는 방법에 대한 것입니다. 인식하고자 하"
 "는 키 페어 이름을 선택합니다."
 
+msgid "Killed"
+msgstr "Killed"
+
 msgid "Launch Instance"
 msgstr "인스턴스 시작"
 
@@ -314,6 +333,9 @@ msgstr "아니오"
 msgid "OK"
 msgstr "OK"
 
+msgid "Pending Delete"
+msgstr "Pending Delete"
+
 msgid "Physical Network"
 msgstr "물리적인 네트워크"
 
@@ -335,17 +357,37 @@ msgstr "프로젝트"
 msgid "Project ID"
 msgstr "프로젝트 ID"
 
+msgid ""
+"Project networks are created by users. These networks are fully isolated and "
+"are project-specific."
+msgstr ""
+"프로젝트 네트워크는 사용자에 의해 생성됩니다. 해당 네트워크는 완벽히 격리되"
+"어 있고 프로젝트 별로 관리됩니다."
+
+msgid "Protected"
+msgstr "보호됨"
+
 msgid "Protocol"
 msgstr "프로토콜"
 
 msgid "Provider Network"
 msgstr "공급자 네트워크"
 
+msgid ""
+"Provider networks are created by administrators. These networks map to an "
+"existing physical network in the data center."
+msgstr ""
+"프로바이더 네트워크는 관리자에 의해 생성됩니다. 해당 네트워크는 데이터 센터 "
+"내 현존하는 물리 네트워크와 매핑됩니다."
+
 msgid "Public"
 msgstr "공용"
 
 msgid "Public Key"
 msgstr "공개 키"
+
+msgid "Queued"
+msgstr "Queued"
 
 msgid "RAM"
 msgstr "RAM"
@@ -358,6 +400,9 @@ msgstr "필요한"
 
 msgid "Root Disk"
 msgstr "Root 디스크"
+
+msgid "Saving"
+msgstr "Saving"
 
 msgid "Script size"
 msgstr "스크립트 크기"
@@ -429,6 +474,9 @@ msgstr "크기"
 msgid "Size (GB)"
 msgstr "크기 (GB)"
 
+msgid "Snapshot"
+msgstr "스냅샷"
+
 msgid "Status"
 msgstr "상태"
 
@@ -475,6 +523,13 @@ msgstr ""
 
 msgid "The status indicates whether the network has an active connection."
 msgstr "해당 상태는 네트워크가 활성화된 연결을 이루고 있는지를 가리킵니다."
+
+msgid ""
+"The subnet identifies a sub-section of a network. A subnet is specified in "
+"CIDR format. A typical CIDR format looks like <samp>192.xxx.x.x/24</samp>."
+msgstr ""
+"서브넷은 네트워크의 서브 섹션을 식별합ㄴ디ㅏ. 서브넷은 CIDR 포맷으로 지정합니"
+"다. 일반적인 CIDR 포맷은 <samp>192.xxx.x.x/24</samp>와 같습니다."
 
 #, python-format
 msgid "The volume size must be at least %(minVolumeSize)s GB"
@@ -708,6 +763,13 @@ msgstr "볼륨 스냅샷"
 
 msgid "Volume size is required and must be an integer"
 msgstr "볼륨 크기가 필요하고 정수값이어야 합니다"
+
+msgid ""
+"Volumes can only be attached to 1 active instance at a time. Please either "
+"set your instance count to 1 or select a different source type."
+msgstr ""
+"볼륨은 1개의 활성화된 인스턴스에만 동시에 부착될 수 있습니다. 인스턴스 개수"
+"를 1로 설정하거나 다른 소스 타입을 선택하세요."
 
 msgid ""
 "When selecting volume as boot source, please ensure the instance's "

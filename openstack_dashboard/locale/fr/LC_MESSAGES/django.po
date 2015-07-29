@@ -24,15 +24,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-07-19 22:22+0000\n"
-"PO-Revision-Date: 2015-07-23 23:30+0000\n"
-"Last-Translator: Corinne Verheyde <cverheyd@hotmail.com>\n"
+"POT-Creation-Date: 2015-07-28 12:34+0000\n"
+"PO-Revision-Date: 2015-07-27 22:03+0000\n"
+"Last-Translator: JF Taltavull <jftalta@gmail.com>\n"
 "Language-Team: French (http://www.transifex.com/projects/p/horizon/language/"
 "fr/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Generated-By: Babel 1.3\n"
+"Generated-By: Babel 2.0\n"
 "Language: fr\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
@@ -3043,11 +3043,11 @@ msgstr "Echec de l'ajout de l'agent %(agent_name)s au réseau %(network)s."
 
 #, python-format
 msgid "Failed to add route : %s"
-msgstr "Echec d'ajout de la route: %s"
+msgstr "Echec lors de l'ajout de la route: %s"
 
 #, python-format
 msgid "Failed to add router rule %s"
-msgstr "Impossible d'ajouter la règle de routage %s"
+msgstr "Echec lors de l'ajout de la règle de routage %s"
 
 #, python-format
 msgid "Failed to add router(s) to firewall %(name)s: %(reason)s"
@@ -3056,7 +3056,7 @@ msgstr ""
 
 #, python-format
 msgid "Failed to add_interface: %s"
-msgstr "L'ajout de l'interface %s a échoué"
+msgstr "Echec lors de l'ajout de l'interface: %s"
 
 #, python-format
 msgid "Failed to check Neutron '%s' extension is not supported"
@@ -3080,7 +3080,7 @@ msgstr "Echec lors de la création du réseau %s"
 
 #, python-format
 msgid "Failed to create network profile %s"
-msgstr "Échec de la création du profil réseau %s"
+msgstr "Échec lors de la création du profil réseau %s"
 
 #, python-format
 msgid "Failed to create router \"%s\"."
@@ -3095,7 +3095,7 @@ msgstr ""
 
 #, python-format
 msgid "Failed to delete agent: %s"
-msgstr "Impossible de supprimer l'agent: %s"
+msgstr "Echec lors de la suppression de l'agent: %s"
 
 #, python-format
 msgid "Failed to delete interface %s"
@@ -3111,15 +3111,15 @@ msgstr "Echec lors de la suppression du réseau %s"
 
 #, python-format
 msgid "Failed to delete network profile (%s)."
-msgstr "Echec de la suppression du profil réseau (%s)."
+msgstr "Echec lors de la suppression du profil réseau (%s)."
 
 #, python-format
 msgid "Failed to delete port %s"
-msgstr "La suppression du port %s a échoué"
+msgstr "Echec lors de la suppression du port %s"
 
 #, python-format
 msgid "Failed to delete port: %s"
-msgstr "Impossible de supprimer le port: %s"
+msgstr "Echec lors de la suppression du port: %s"
 
 #, python-format
 msgid "Failed to delete subnet %s"
@@ -3145,7 +3145,7 @@ msgstr "Impossible d'obtenir la liste des fichiers binaires internes."
 
 #, python-format
 msgid "Failed to get network list %s"
-msgstr "Echec de la récupération de la liste des réseaux %s"
+msgstr "Echec lors de la récupération de la liste des réseaux %s"
 
 msgid "Failed to get network list {0}"
 msgstr "Impossible d'obtenir la liste des réseaux"
@@ -3155,7 +3155,7 @@ msgstr "Impossible d'obtenir la liste des réseaux."
 
 #, python-format
 msgid "Failed to get the resource name: %s"
-msgstr "Impossible d'accéder à la ressource : %s"
+msgstr "Echec lors de la récupération du nom de la ressource : %s"
 
 #, python-format
 msgid "Failed to insert rule to policy %(name)s: %(reason)s"
@@ -3168,7 +3168,7 @@ msgstr "Échec de la migration dynamique de l'hôte \"%s\"."
 
 #, python-format
 msgid "Failed to migrate host \"%s\"."
-msgstr "N'a pas pu migrer l'hôte \"%s\"."
+msgstr "Echec lors de la migration de l'hôte \"%s\"."
 
 #, python-format
 msgid "Failed to migrate instances: %s"
@@ -3195,13 +3195,13 @@ msgstr "Echec de modification de  %d groupes de sécurité de l'instance"
 
 #, python-format
 msgid "Failed to modify %s domain groups."
-msgstr "Impossible de modifier les groupes du domaine %s."
+msgstr "Echec lors de la modification des groupes du domaine %s."
 
 #, python-format
 msgid "Failed to modify %s project members and update domain groups."
 msgstr ""
-"Échec de modification des membres du projet %s et de la mise à jour des "
-"groupes de domaine.  "
+"Échec lors de la modification des membres du projet %s et de la mise à jour "
+"des groupes de domaine.  "
 
 #, python-format
 msgid ""
@@ -3251,11 +3251,11 @@ msgstr ""
 "%(reason)s"
 
 msgid "Failed to retrieve health monitors."
-msgstr "Echec de la récupération du moniteur de santé"
+msgstr "Echec lors de la récupération des moniteurs de santé"
 
 #, python-format
 msgid "Failed to retrieve network %s for a subnet"
-msgstr "Echec de la récupération du réseau %s pour un sous-réseau"
+msgstr "Echec lors de la récupération du réseau %s pour un sous-réseau"
 
 #, python-format
 msgid "Failed to set gateway %s"
@@ -3275,7 +3275,7 @@ msgstr "Impossible de mettre à jour la connexion IPSec de site %s"
 
 #, python-format
 msgid "Failed to update VIP %s"
-msgstr "Echec de la mise à jour de la VIP %s"
+msgstr "Echec lors de la mise à jour de la VIP %s"
 
 #, python-format
 msgid "Failed to update VPN Service %s"
@@ -3310,7 +3310,7 @@ msgstr "Échec de la mise à jour de la stratégie %(name)s : %(reason)s"
 
 #, python-format
 msgid "Failed to update pool %s"
-msgstr "Echec de la mise à jour du pool %s"
+msgstr "Echec lors de la mise à jour du pool %s"
 
 #, python-format
 msgid "Failed to update port %s"
@@ -4965,10 +4965,11 @@ msgid "Number of incoming bytes"
 msgstr "Nombre d'octets entrants"
 
 msgid "Number of incoming bytes on the network for a VM interface"
-msgstr "Nombre d'octets entrant sur le réseau pour une interface VM"
+msgstr ""
+"Nombre d'octets entrant sur le réseau pour une interface de machine virtuelle"
 
 msgid "Number of incoming packets for a VM interface"
-msgstr "Nombre de paquets entrants pour une interface de VM"
+msgstr "Nombre de paquets entrant pour une interface de machine virtuelle"
 
 msgid "Number of instances to launch."
 msgstr "Nombre d'instances de l'image à lancer."
@@ -4990,10 +4991,11 @@ msgid "Number of outgoing bytes"
 msgstr "Nombre d'octets sortants"
 
 msgid "Number of outgoing bytes on the network for a VM interface"
-msgstr "Nombre d'octets sortant sur le réseau pour une interface VM"
+msgstr ""
+"Nombre d'octets sortant sur le réseau pour une interface de machine virtuelle"
 
 msgid "Number of outgoing packets for a VM interface"
-msgstr "Nombre de paquets sortants pour une interface de VM"
+msgstr "Nombre de paquets sortant pour une interface de machine virtuelle"
 
 msgid ""
 "Number of permissible failures before changing the status of member to "
@@ -5674,7 +5676,7 @@ msgid "Replicate from Instance"
 msgstr "Réplication depuis l'instance"
 
 msgid "Request ID"
-msgstr "ID de la Requête"
+msgstr "ID de la requête"
 
 msgid "Requested snapshot would exceed the allowed quota."
 msgstr "L'instantané demandé dépasserait le quota disponible."
@@ -6477,6 +6479,11 @@ msgstr "Taille du volume en Go"
 msgid "Size of volume"
 msgstr "Taille du volume"
 
+msgid "Slash is not allowed at the beginning or end of your string."
+msgstr ""
+"La barre oblique (slash) n'est pas autorisée comme caractère de début ou de "
+"fin de chaîne."
+
 msgid "Slash is not an allowed character."
 msgstr "Le caractère Slash ('/')  n'est pas autorisé."
 
@@ -6852,8 +6859,7 @@ msgstr "Demande de gestion du volume réussie : %s"
 
 #, python-format
 msgid "Successfully sent the request to unmanage volume: %s"
-msgstr ""
-"Demande de ne pas gérer « non-géré » envoyée avec succès pour le volume : %s"
+msgstr "Demande de non-gestion du volume réussie : %s"
 
 #, python-format
 msgid ""
@@ -7212,9 +7218,7 @@ msgstr ""
 
 msgid ""
 "The requested instance port is already associated with another floating IP."
-msgstr ""
-"Le port de l'instance demandée correspond déjà à une autre adresse IP "
-"flottante."
+msgstr "Le port d'instance demandé est déjà associé à une autre IP flottante."
 
 msgid "The specified port is invalid."
 msgstr "Le port spécifié est invalide."
