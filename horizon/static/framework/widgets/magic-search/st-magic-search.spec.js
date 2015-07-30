@@ -24,6 +24,17 @@
     beforeEach(module('smart-table'));
     beforeEach(module('horizon.framework.widgets'));
     beforeEach(module('MagicSearch'));
+    beforeEach(module(function ($provide) {
+      $provide.value('$window', {
+        location: {
+          search: '',
+          href: ''
+        },
+        history: {
+          pushState: angular.noop
+        }
+      });
+    }));
 
     beforeEach(inject(function ($injector) {
       var $compile = $injector.get('$compile');
