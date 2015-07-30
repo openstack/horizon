@@ -235,7 +235,8 @@ class UsersTable(tables.DataTable):
                                     widget=forms.Textarea(attrs={'rows': 4}),
                                     required=False),
                                 update_action=UpdateCell)
-    email = tables.Column('email', verbose_name=_('Email'),
+    email = tables.Column(lambda obj: getattr(obj, 'email', None),
+                          verbose_name=_('Email'),
                           form_field=forms.EmailField(required=False),
                           update_action=UpdateCell,
                           filters=(lambda v: defaultfilters
