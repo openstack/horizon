@@ -124,21 +124,10 @@
     </tr>
 
   </tbody>
-
-  <tfoot>
-    <tr>
-      <!--
-        Table-footer:
-        This is where we display number of items and pagination controls.
-        Ensure colspan is greater or equal to number of column-headers.
-        To be replaced by hz-table-footer:
-        https://review.openstack.org/#/c/207631/
-      -->
-      <td colspan="100">
-        <span class="display">{$ table.images.length|itemCount $}</span>
-        <div st-pagination="" st-items-by-page="10"st-displayed-pages="10"></div>
-      </td>
-    </tr>
-  </tfoot>
+  <!--
+    Table-footer:
+    This is where we display number of items and pagination controls.
+  -->
+  <tfoot hz-table-footer items="table.images"></tfoot>
 
 </table>

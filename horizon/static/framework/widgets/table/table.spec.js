@@ -244,5 +244,47 @@
         /*eslint-enable angular/ng_timeout_service */
       });
     });
+
+  });
+
+  describe('hzTableFooter directive', function () {
+    var $scope, $compile, $element;
+
+    beforeEach(module('templates'));
+    beforeEach(module('horizon.framework'));
+
+    beforeEach(inject(function ($injector) {
+      $compile = $injector.get('$compile');
+      $scope = $injector.get('$rootScope').$new();
+
+      $scope.safeTableData = [
+        { id: '1', animal: 'cat' },
+        { id: '2', animal: 'dog' },
+        { id: '3', animal: 'fish' }
+      ];
+
+      $scope.fakeTableData = [];
+
+      var markup =
+        '<table st-table="fakeTableData" st-safe-src="safeTableData" hz-table>' +
+          '<tfoot hz-table-footer items="safeTableData">' +
+          '</tfoot>' +
+        '</table>';
+
+      $element = angular.element(markup);
+      $compile($element)($scope);
+      $scope.$apply();
+    }));
+
+    it('displays the correct number of items', function() {
+      expect($element).toBeDefined();
+      expect($element.find('span').length).toBe(1);
+      expect($element.find('span').text()).toBe('Displaying 3 items');
+    });
+
+    it('includes pagination', function() {
+      expect($element.find('div').attr('st-items-by-page')).toEqual('20');
+    });
+
   });
 }());

@@ -11,8 +11,6 @@
     <tr ng-include="table.path + 'table-header.html'"></tr>
   </thead>
   <tbody ng-include="table.path + 'table-rows.html'"></tbody>
-  <tfoot>
-    <tr ng-include="table.path + 'table-footer.html'"></tr>
-  </tfoot>
+  <tfoot hz-table-footer items="table.iusers"></tfoot>
 
 </table>
