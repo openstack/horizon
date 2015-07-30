@@ -151,6 +151,17 @@ class GeneralConfigAction(workflows.Action):
                 choices=pool_choices,
                 required=False)
 
+        self.fields["use_autoconfig"] = forms.BooleanField(
+            label=_("Auto-configure"),
+            help_text=_("If selected, instances of a node group will be "
+                        "automatically configured during cluster "
+                        "creation. Otherwise you should manually specify "
+                        "configuration values."),
+            required=False,
+            widget=forms.CheckboxInput(),
+            initial=True,
+        )
+
         self.fields["proxygateway"] = forms.BooleanField(
             label=_("Proxy Gateway"),
             widget=forms.CheckboxInput(),
@@ -172,7 +183,6 @@ class GeneralConfigAction(workflows.Action):
             widget=forms.HiddenInput(),
             initial=hadoop_version
         )
-
         node_parameters = hlps.get_general_node_group_configs(plugin,
                                                               hadoop_version)
         for param in node_parameters:
@@ -384,7 +394,8 @@ class ConfigureNodegroupTemplate(workflow_helpers.ServiceParametersWorkflow,
                 security_groups=context["security_groups"],
                 auto_security_group=context["security_autogroup"],
                 is_proxy_gateway=context["general_proxygateway"],
-                availability_zone=context["general_availability_zone"])
+                availability_zone=context["general_availability_zone"],
+                use_autoconfig=context['general_use_autoconfig'])
 
             hlps = helpers.Helpers(request)
             if hlps.is_from_guide():

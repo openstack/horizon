@@ -15,6 +15,8 @@
     <dd><a href="{% url 'horizon:project:data_processing.data_plugins:details' template.plugin_name %}">{{ template.plugin_name }}</a></dd>
     <dt>{% trans "Version" %}</dt>
     <dd>{{ template.hadoop_version }}</dd>
+    <dt>{% trans "Use auto-configuration" %}</dt>
+    <dd>{{ template.use_autoconfig }}</dd>
   </dl>
   <dl class="dl-horizontal">
     <dt>{% trans "Anti-affinity enabled for" %}</dt>
