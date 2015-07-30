@@ -2,55 +2,69 @@
 {% load url from future %}
 {% load context_selection %}
 
-<h1 class="brand"><a href="{% site_branding_link %}">{% site_branding %}</a></h1>
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
+        <span class="sr-only">{% trans "Toggle navigation" %}</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="{% site_branding_link %}">
+        <img class="openstack-logo" src="{{ STATIC_URL }}dashboard/img/logo.png" alt="{% site_branding %}">
+      </a>
+    </div>
 
-<div class="switcher_bar">
-  <div class="dropdown context-selection">
-    <button class="btn btn-default btn-topnav dropdown-toggle">
-        {% show_overview %}
-    </button>
-    <div class="dropdown-menu topbar-dropdown-menu">
-      <div class="context-lists">
-        {% show_domain_list %}
-        {% show_project_list %}
-        {% show_region_list %}
-      </div>
-    </div><!-- end of dropdown-menu -->
-  </div><!-- end of context-selection -->
-</div><!-- end of context-box -->
-
-<div id="user_info" class="pull-right">
-  <div id="profile_editor_switcher" class="dropdown switcher_bar" tabindex='1'>
-    <button class="btn btn-default btn-topnav dropdown-toggle">
-      <span class="fa fa-user"></span>
-      {{ request.user.username }}
-      <span class="fa fa-caret-down"></span>
-    </button>
-    <ul id="editor_list" class="dropdown-menu topbar-dropdown-menu pull-right">
-      <li>
-        <a href="{% url 'horizon:settings:user:index' %}">
-          <span class="fa fa-cog"></span>
-          {% trans "Settings" %}
-        </a>
-      </li>
-      {% if HORIZON_CONFIG.help_url %}
-        <li>
-          <a href="{{ HORIZON_CONFIG.help_url }}" target="_blank">
-            <span class="fa fa-question-circle"></span>
-            {% trans "Help" %}
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="navbar-collapse">
+      <ul class="nav navbar-nav">
+        <li class="dropdown context-selection">
+          <a href="#" class="dropdown-toggle" role="button" aria-expanded="false">
+            {% show_overview %}
+            <span class="fa fa-caret-down"></span>
           </a>
+          {% show_domain_list %}
+          {% show_project_list %}
+          {% show_region_list %}
         </li>
-      {% endif %}
-      <li class="divider"></li>
-      <li>
-        <a href="{% url 'logout' %}">
-          <span class="fa fa-sign-out"></span>
-          {% trans "Sign Out" %}
-        </a>
-      </li>
-    </ul>
-  </div>
+      </ul>
 
-  {% include "horizon/common/_region_selector.html" %}
-</div>
+      {% include "horizon/common/_region_selector.html" %}
 
+      <ul class="nav navbar-nav navbar-right">
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" role="button" aria-expanded="false">
+            <span class="fa fa-user"></span>
+            {{ request.user.username }}
+            <span class="fa fa-caret-down"></span>
+          </a>
+          <ul id="editor_list" class="dropdown-menu">
+            <li>
+              <a href="{% url 'horizon:settings:user:index' %}">
+                <span class="fa fa-cog"></span>
+                {% trans "Settings" %}
+              </a>
+            </li>
+            {% if HORIZON_CONFIG.help_url %}
+              <li>
+                <a href="{{ HORIZON_CONFIG.help_url }}" target="_blank">
+                  <span class="fa fa-question-circle"></span>
+                  {% trans "Help" %}
+                </a>
+              </li>
+            {% endif %}
+            <li class="divider"></li>
+            <li>
+              <a href="{% url 'logout' %}">
+                <span class="fa fa-sign-out"></span>
+                {% trans "Sign Out" %}
+              </a>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>

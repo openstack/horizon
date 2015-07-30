@@ -343,24 +343,24 @@ $container-lg:                 $container-large-desktop !default;
 //##
 
 // Basics of a navbar
-$navbar-height:                    50px !default;
+$navbar-height:                    36px !default;
 $navbar-margin-bottom:             $line-height-computed !default;
-$navbar-border-radius:             $border-radius-base !default;
+$navbar-border-radius:             0 !default;
 $navbar-padding-horizontal:        floor(($grid-gutter-width / 2)) !default;
 $navbar-padding-vertical:          (($navbar-height - $line-height-computed) / 2) !default;
 $navbar-collapse-max-height:       340px !default;
 
-$navbar-default-color:             #777 !default;
-$navbar-default-bg:                #f8f8f8 !default;
-$navbar-default-border:            darken($navbar-default-bg, 6.5%) !default;
+$navbar-default-color:             #333 !default;
+$navbar-default-bg:                #eee !default;
+$navbar-default-border:            #ccc !default;
 
 // Navbar links
-$navbar-default-link-color:                #777 !default;
-$navbar-default-link-hover-color:          #333 !default;
-$navbar-default-link-hover-bg:             transparent !default;
-$navbar-default-link-active-color:         #555 !default;
-$navbar-default-link-active-bg:            darken($navbar-default-bg, 6.5%) !default;
-$navbar-default-link-disabled-color:       #ccc !default;
+$navbar-default-link-color:                $navbar-default-color !default;
+$navbar-default-link-hover-color:          $navbar-default-color !default;
+$navbar-default-link-hover-bg:             #d5d5d5 !default;
+$navbar-default-link-active-color:         $navbar-default-color !default;
+$navbar-default-link-active-bg:            $navbar-default-link-hover-bg !default;
+$navbar-default-link-disabled-color:       $gray-light !default;
 $navbar-default-link-disabled-bg:          transparent !default;
 
 // Navbar brand label
