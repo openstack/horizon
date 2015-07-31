@@ -970,6 +970,19 @@ are using. Allowed values are the algorithms supported by Python's hashlib
 library.
 
 
+``OPENSTACK_TOKEN_HASH_ENABLED``
+--------------------------------
+
+.. versionadded:: 8.0.0(Liberty)
+
+Default: ``True``
+
+Hashing tokens from Keystone keeps the Horizon session data smaller, but it
+doesn't work in some cases when using PKI tokens.  Uncomment this value and
+set it to False if using PKI tokens and there are 401 errors due to token
+hashing.
+
+
 ``POLICY_FILES``
 ----------------
 
