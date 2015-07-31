@@ -253,6 +253,7 @@ OPENSTACK_NEUTRON_NETWORK = {
     # types in this list will be available to choose from when creating a
     # port.
     # VNIC types include 'normal', 'macvtap' and 'direct'.
+    # Set to empty list or None to disable VNIC type selection.
     'supported_vnic_types': ['*']
 }
 
