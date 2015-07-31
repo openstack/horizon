@@ -99,7 +99,8 @@ class EditNodegroupTemplate(copy_flow.CopyNodegroupTemplate):
                 security_groups=context["security_groups"],
                 auto_security_group=context["security_autogroup"],
                 availability_zone=context["general_availability_zone"],
-                use_autoconfig=context['general_use_autoconfig'])
+                use_autoconfig=context['general_use_autoconfig'],
+                is_proxy_gateway=context["general_proxygateway"])
             return True
         except api_base.APIException as e:
             self.error_description = str(e.message)

@@ -91,6 +91,7 @@ class EditClusterTemplate(copy_flow.CopyClusterTemplate):
                 cluster_configs=configs_dict,
                 node_groups=node_groups,
                 anti_affinity=context["anti_affinity_info"],
+                use_autoconfig=context['general_use_autoconfig']
             )
             return True
         except exceptions.Conflict as e:
