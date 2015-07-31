@@ -1,0 +1,84 @@
+// Sidebar specific helper variables need to fallback to Bootstrap
+// variables.  This allows this specific _sidenav user experience
+// to easily cascade to a different Bootstrap theme
+$sidebar-active-color: $brand-primary !default;
+$sidebar-box-shadow:  -3px 2px 6px -2px $gray-light inset, -1px 0 0 0 $gray-light inset !default;
+
+
+#sidebar {
+  background-color: $sidebar-background-color;
+  @include box-shadow($sidebar-box-shadow);
+  height: 100%;
+
+  // Legacy padding at the top of nav ... we should remove this.
+  padding-top: $line-height-computed;
+
+  .nav-header > a > .nav-header-title {
+    text-align: left;
+    text-transform: none;
+    padding: $padding-small-vertical 0;
+    border-bottom: $padding-base-vertical/2 solid $gray-light;
+  }
+
+  .panel {
+    background-color: transparent;
+  }
+
+  .openstack-dashboard {
+    & > a {
+      border-radius: 0;
+    }
+  }
+
+  .openstack-panel {
+    & > a {
+      color: $gray;
+      padding: $padding-large-vertical $padding-large-horizontal;
+    }
+
+    &.active > a {
+      font-weight: normal;
+      color: $sidebar-active-color;
+      background: $body-bg;
+      border-bottom: 1px solid $dropdown-divider-bg;
+      border-left: $sidebar-active-indicator-width solid $sidebar-active-color;
+      border-top: 1px solid $dropdown-divider-bg;
+      @include box-shadow($sidebar-active-box-shadow $sidebar-box-shadow-color);
+    }
+  }
+
+  .openstack-panel > a,
+  .openstack-dashboard > a.collapsed,
+  .nav-header > a {
+    background-color: transparent;
+  }
+
+  .openstack-dashboard > a:hover,
+  .openstack-dashboard > a:focus,
+  li > a {
+    background-color: $nav-pills-active-link-hover-bg;
+  }
+
+  li > a {
+    @include transition(all 0.3s ease 0s);
+    outline: 0;
+  }
+
+  // Sets the arrow toggles for each dashboard list
+  .openstack-dashboard [data-toggle="collapse"] {
+
+    .openstack-toggle.fa {
+      font-size: $font-size-small;
+
+      &::before {
+        content: $fa-var-angle-up;
+      }
+    }
+
+    &.collapsed {
+      .openstack-toggle.fa {
+        @include rotate(180deg);
+      }
+    }
+  }
+}

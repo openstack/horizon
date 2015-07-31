@@ -1,0 +1,66 @@
+#sidebar {
+  margin-left: -$sidebar-width;
+  left: $sidebar-width;
+  width: $sidebar-width;
+  position: absolute;
+  z-index: 0;
+
+  // Sets the arrow toggles for each dashboard list
+  [data-toggle="collapse"] {
+    .openstack-toggle.fa {
+      line-height: $line-height-computed;
+      width: $line-height-computed;
+      height: $line-height-computed;
+      text-align: center;
+      @include transition(transform 0.3s ease 0s);
+      @extend .fa-chevron-down;
+    }
+
+    &.collapsed {
+      .openstack-toggle.fa {
+        @include rotate(270deg);
+      }
+    }
+  }
+
+  // Styles for the Dashboard Names
+  .openstack-dashboard {
+    & > a {
+      border-radius: $border-radius-base $border-radius-base 0 0;
+    }
+  }
+
+  // Styles for the Panel Names
+  .openstack-panel {
+    & > a {
+      text-align: right;
+      color: $text-color;
+    }
+
+    &.active > a {
+      color: $brand-primary;
+      font-weight: bold;
+    }
+  }
+
+  .panel {
+    border: none;
+    border-radius: 0;
+    @include box-shadow(none);
+    margin-bottom: 0;
+  }
+}
+
+// Bootstrap 3 removed nav headers, lets add them back
+.nav .nav-header > a > .nav-header-title {
+  font-size: $font-size-base;
+  font-weight: bold;
+  text-transform: uppercase;
+  text-align: center;
+  width: 100%;
+  display: inline-block;
+
+  &:hover {
+    background-color: transparent;
+  }
+}

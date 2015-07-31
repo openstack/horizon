@@ -15,7 +15,7 @@
 // Dashboard Components
 @import "splash";
 @import "components/resource_browser";
-@import "components/accordion_nav";
+@import "components/sidebar";
 @import "components/inline_edit";
 @import "components/charts";
 @import "components/workflow";
@@ -55,13 +55,6 @@
 }
 
 body {
-  background-color: $body-bg;
-  &:not(#splash) {
-    background-image: url('../img/sidebar_bg.png');
-    background-repeat: repeat-y;
-    background-position: -200px top;
-  }
-  color: $text-color;
 }
 
 small {
@@ -120,33 +113,6 @@ h2 {
 #create_container_form .modal-footer{
   margin-top: 190px;
 }
-
-.sidebar {
-  background-color: $sidebar-background-color;
-  padding-top: 20px;
-  margin-left: -$sidebar-width;
-  left: $sidebar-width;
-  width: $sidebar-width;
-  position: absolute;
-  z-index: 0;
-  -webkit-box-shadow:inset -3px 2px 6px -2px #C7C7C7, inset -1px 0 0 0 #cccccc;
-  box-shadow:inset -3px 2px 6px -2px #C7C7C7, inset -1px 0 0 0 #cccccc;
-}
-
-.sidebar h4 {
-  margin-left: 14px;
-  color: $headings-color;
-}
-
-.sidebar .nav-tabs {
-  margin-top: -34px;
-}
-
-.sidebar .nav-tabs li.active a {
-  background-color: $body-bg;
-}
-
-
 
 
 /* Tenant Dropdown */
