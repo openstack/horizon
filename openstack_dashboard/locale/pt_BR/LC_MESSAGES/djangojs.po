@@ -11,8 +11,8 @@ msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2015-07-28 12:34+0000\n"
-"PO-Revision-Date: 2015-07-28 12:35+0000\n"
-"Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
+"PO-Revision-Date: 2015-07-30 12:33+0000\n"
+"Last-Translator: Gabriel Wainer\n"
 "Language-Team: Portuguese (Brazil) (http://www.transifex.com/projects/p/"
 "horizon/language/pt_BR/)\n"
 "MIME-Version: 1.0\n"
@@ -27,6 +27,41 @@ msgstr "(Max: 16Kb)"
 
 msgid "(None)"
 msgstr "(Nenhum)"
+
+msgid "<li><b>Image</b>: This option uses an image to boot the instance.</li>"
+msgstr ""
+"<li><b>Imagem</b>:  Esta opção utilizar uma imagem para inicializar a "
+"instância.</li>"
+
+msgid ""
+"<li><b>Instance Snapshot</b>: This option uses an instance snapshot to boot "
+"the instance.</li>"
+msgstr ""
+"<li><b>Instantâneo de Instância</b>: Esta opção utiliza um instantâneo de "
+"instância para inicializar a instância.</li>"
+
+msgid ""
+"A floating IP allows instances to be addressable from an external network. "
+"Floating IPs are not allocated to instances at creation time and may be "
+"assigned after the instance is created. To attach a floating IP, go to the "
+"<b>Instances</b> view and click the <b>Actions</b> menu to the right of an "
+"instance. Then, select the <b>Associate Floating IP</b> option and enter the "
+"necessary details."
+msgstr ""
+"Um endereço IP flutuante permite que instâncias sejam endereçáveis de uma "
+"fonte externa. IPs flutuantes não são alocados para instâncias no momento da "
+"criação e podem ser atribuídos após a criação da instância. Para anexar um "
+"IP flutuante, vá para a visão <b>Instâncias</b> e clique no menu <b>Ações</"
+"b> à direita da instância. Então, selecione a opção <b>Associar IP "
+"flutuante</b> e digite os detalhes necessários."
+
+msgid ""
+"A key pair allows you to SSH into your newly created instance. You may "
+"select an existing key pair, import a key pair, or generate a new key pair."
+msgstr ""
+"Um par de chaves permite que você faça SSH para sua instância recém criada. "
+"Você pode selecionar um par de chaves existente, importar um par de chaves "
+"ou gerar um novo."
 
 msgid "A name is required for your instance."
 msgstr "É preciso um nome para sua instância."
@@ -50,6 +85,19 @@ msgstr ""
 "customizado pode ser criado para um projeto específico one ele é "
 "compartilhado com usuários designados aquele projeto. Se você precisar de um "
 "flavor customizado, contacte seu administrador."
+
+msgid ""
+"An <b>External</b> network is set up by an administrator. If you want an "
+"instance to communicate outside of the data center, then attach a router "
+"between your <b>Project</b> network and the <b>External</b> network. You can "
+"use the <b>Network Topology</b> view to connect the router to the two "
+"networks."
+msgstr ""
+"Uma rede <b>Externa</b> é configurada por um administrador. Se você quer uma "
+"instância para se comunicar externamente ao data center, então conecte um "
+"roteador entre a rede do seu <b>Projeto</b> e a rede <b>Externa</b>. Você "
+"pode utilizar a visão de <b>Topologia de Rede</b> para conectar o roteador "
+"às duas redes."
 
 msgid ""
 "An advanced option available when launching an instance is disk "
@@ -207,6 +255,18 @@ msgstr ""
 msgid "Format"
 msgstr "Formato"
 
+#, python-format
+msgid ""
+"From a Windows system, you can use PuTTYGen to create private/public keys. "
+"Use the PuTTY Key Generator to create and save the keys, then copy the "
+"public key in the red highlighted box to your <samp>%(authorizeKeysFile)s</"
+"samp> file."
+msgstr ""
+"A partir de um sistema Windows, você pode utilizar o PuTTYGen para criar "
+"chaves privadas/públicas. Utilize o PuTTY Key Generator para criar e salvar "
+"as chaves, então copie a chave pública na caixa destacada em vermelho para o "
+"seu arquivo <samp>%(authorizeKeysFile)s</samp>."
+
 msgid "ID"
 msgstr "ID"
 
@@ -253,6 +313,22 @@ msgstr "Ajuda em Par de chaves"
 msgid "Key Pair Name"
 msgstr "Nome do par de chaves"
 
+msgid ""
+"Key Pairs are how you login to your instance after it is launched. Choose a "
+"key pair name you will recognize and paste your SSH public key into the "
+"space provided."
+msgstr ""
+"Par de chaves é a maneira de logar na sua instância após sua inicialização. "
+"Escolha um nome de par de chaves que você irá reconhecer e cole sua chave "
+"SSH pública no espaço fornecido."
+
+msgid ""
+"Key Pairs are how you login to your instance after it is launched. Choose a "
+"key pair name you will recognize."
+msgstr ""
+"Par de chaves é a maneira de logar na sua instância após sua inicialização. "
+"Escolha um nome de par de chaves que você irá reconhecer."
+
 msgid "Killed"
 msgstr "Morto"
 
@@ -271,8 +347,14 @@ msgstr "Máx. Porta"
 msgid "Min Disk"
 msgstr "Mín. Disco"
 
+msgid "Min Disk (GB)"
+msgstr "Mín. Disco (GB)"
+
 msgid "Min Port"
 msgstr "Mín. Porta"
+
+msgid "Min RAM (MB)"
+msgstr "Mín. RAM (MB)"
 
 msgid "Min Ram"
 msgstr "Mín. RAM"
@@ -325,6 +407,13 @@ msgstr "Projeto"
 msgid "Project ID"
 msgstr "ID do Projeto"
 
+msgid ""
+"Project networks are created by users. These networks are fully isolated and "
+"are project-specific."
+msgstr ""
+"Redes de projeto são criadas pelos usuários. Estas redes são completamente "
+"isoladas e são específicas de um projeto."
+
 msgid "Protected"
 msgstr "Protegido"
 
@@ -333,6 +422,13 @@ msgstr "Protocolo"
 
 msgid "Provider Network"
 msgstr "Rede do Provedor"
+
+msgid ""
+"Provider networks are created by administrators. These networks map to an "
+"existing physical network in the data center."
+msgstr ""
+"Redes de provedor são criadas por administradores. Estas redes mapeiam para "
+"uma rede física existente no data center."
 
 msgid "Public"
 msgstr "Público"
@@ -433,6 +529,10 @@ msgstr "Sub-redes Associadas"
 msgid "Successfully created key pair %(name)s"
 msgstr "Par de chaves %(name)s criado com sucesso"
 
+#, python-format
+msgid "Successfully imported key pair %(name)s"
+msgstr "Par de chaves %(name)s importado com sucesso."
+
 msgid ""
 "The flavor you select for an instance determines the amount of compute, "
 "storage and memory resources that will be carved out for the instance."
@@ -460,12 +560,49 @@ msgstr ""
 "A quantidade de instâncias não deve exceder sua cota disponível de "
 "%(maxInstanceCount)s instâncias"
 
+msgid "The key pair allows you to SSH into the instance."
+msgstr "O par de chaves permite que você faça SSH para a instância."
+
 msgid "The maximum script size is 16Kb."
 msgstr "O tamanho máximo do script é 16Kb."
 
 #, python-format
+msgid ""
+"The selected image source requires a flavor with at least %(minDisk)s GB of "
+"root disk. Select a flavor with a larger root disk or use a different image "
+"source."
+msgstr ""
+"A imagem selecionada requer um flavor com pelo menos %(minDisk)s GB no disco "
+"raiz. Selecione um flavor com um disco raiz maior ou utilize uma imagem "
+"diferente."
+
+#, python-format
+msgid ""
+"The selected image source requires a flavor with at least %(minRam)s MB of "
+"RAM. Select a flavor with more RAM or use a different image source."
+msgstr ""
+"A imagem selecionada requer um flavor com pelo menos %(minRam)s MB de RAM. "
+"Selecione um flavor com mais RAM ou utilize uma imagem diferente."
+
+#, python-format
 msgid "The volume size must be at least %(minVolumeSize)s GB"
 msgstr "O tamanho do volume total deve ser de no mínimo %(minVolumeSize)s GB"
+
+#, python-format
+msgid ""
+"There are two ways to generate a key pair. From a Linux system, generate the "
+"key pair with the <samp>%(genKeyPairCmd)s</samp> command:"
+msgstr ""
+"Existem duas maneiras de gerar um par de chaves. De um sistema Linux, gere o "
+"par de chaves com o comando <samp>%(genKeyPairCmd)s</samp>:"
+
+#, python-format
+msgid ""
+"This command generates a pair of keys: a private key (%(privateKeyPath)s) "
+"and a public key (%(publicKeyPath)s)."
+msgstr ""
+"Este comando gera um par de chaves: uma chave privada (%(privateKeyPath)s) e "
+"uma chave pública (%(publicKeyPath)s)."
 
 msgid ""
 "This flavor requires more RAM than your quota allows. Please select a "
@@ -571,6 +708,9 @@ msgstr "Não foi possível editar o usuário."
 
 msgid "Unable to fetch the service catalog."
 msgstr "Não é possível obter o catálogo de serviços."
+
+msgid "Unable to get the Keystone service version."
+msgstr "Não foi possível obter a versão do serviço Keystone."
 
 msgid "Unable to grant the role."
 msgstr "Não foi possível permitir o papel."
