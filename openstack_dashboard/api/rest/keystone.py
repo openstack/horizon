@@ -506,7 +506,7 @@ class Project(generic.View):
 @urls.register
 class ProjectRole(generic.View):
     url_regex = r'keystone/projects/(?P<project_id>[0-9a-f]+)/' \
-                ' (?P<role_id>[0-9a-f]+)/(?P<user_id>[0-9a-f]+)$'
+                '(?P<role_id>[0-9a-f]+)/(?P<user_id>[0-9a-f]+)$'
 
     @rest_utils.ajax()
     def put(self, request, project_id, role_id, user_id):
