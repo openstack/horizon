@@ -307,6 +307,13 @@ STATICFILES_DIRS.append(
     ('custom', CUSTOM_THEME),
 )
 
+# Load the subdirectory 'img' of a custom theme if it exists, thereby allowing
+# very granular theme overrides of all dashboard img files using the first-come
+# first-serve filesystem loader.
+if os.path.exists(os.path.join(CUSTOM_THEME, 'img')):
+    STATICFILES_DIRS.insert(0, ('dashboard/img',
+                            os.path.join(CUSTOM_THEME, 'img')))
+
 # populate HORIZON_CONFIG with auto-discovered JavaScript sources, mock files,
 # specs files and external templates.
 find_static_files(ROOT_PATH, HORIZON_CONFIG)

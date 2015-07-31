@@ -411,6 +411,11 @@ If the static theme folder also contains a sub-folder 'templates', then
 the path to that sub-folder will be prepended to TEMPLATE_DIRS tuple
 to allow for theme specific template customizations.
 
+If the theme folder (or its static folder) contain an 'img' directory,
+then all images contained within dashboard/img can be overridden by providing
+a file with the same name.  This makes it very easy to customize logo.png,
+logo-splash.png and favicon.ico.
+
 ``DROPDOWN_MAX_ITEMS``
 ----------------------
 
