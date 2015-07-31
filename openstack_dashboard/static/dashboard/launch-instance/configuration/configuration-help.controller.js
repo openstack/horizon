@@ -14,6 +14,10 @@
 (function () {
   'use strict';
 
+  angular
+    .module('hz.dashboard.launch-instance')
+    .controller('LaunchInstanceConfigHelpController', LaunchInstanceConfigHelpController);
+
   /**
    * @ngdoc controller
    * @name LaunchInstanceConfigHelpController
@@ -23,10 +27,6 @@
    * Launch Instance Wizard.
    *
    */
-  angular
-    .module('hz.dashboard.launch-instance')
-    .controller('LaunchInstanceConfigHelpController', LaunchInstanceConfigHelpController);
-
   function LaunchInstanceConfigHelpController() {
     var ctrl = this;
 

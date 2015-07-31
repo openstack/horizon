@@ -19,8 +19,7 @@
   describe('Launch Instance Configuration Step', function() {
 
     describe('LaunchInstanceConfigurationController', function() {
-      var scope;
-      var ctrl;
+      var scope, ctrl;
 
       beforeEach(module('hz.dashboard.launch-instance'));
 
