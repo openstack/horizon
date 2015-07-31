@@ -15,6 +15,12 @@
 (function() {
   'use strict';
 
+  angular
+    .module('horizon.framework.widgets.help-panel')
+    .directive('helpPanel', helpPanel);
+
+  helpPanel.$inject = [ 'horizon.framework.widgets.basePath' ];
+
   /**
    * @ngdoc directive
    * @name horizon.framework.widgets.help-panel.directive:helpPanel
@@ -32,17 +38,13 @@
    * </div>
    * ```
    */
-  angular
-    .module('horizon.framework.widgets.help-panel', [])
-    .directive('helpPanel', helpPanel);
-
-  helpPanel.$inject = [ 'horizon.framework.widgets.basePath' ];
-
   function helpPanel(path) {
-    return {
+    var directive = {
       templateUrl: path + 'help-panel/help-panel.html',
       transclude: true
     };
+
+    return directive;
   }
 
 })();
