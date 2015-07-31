@@ -68,10 +68,15 @@ class EditNodegroupTemplate(copy_flow.CopyNodegroupTemplate):
             volumes_per_node = None
             volumes_size = None
             volumes_availability_zone = None
+            volume_type = None
+            volume_local_to_instance = False
 
             if context["general_storage"] == "cinder_volume":
                 volumes_per_node = context["general_volumes_per_node"]
                 volumes_size = context["general_volumes_size"]
+                volume_type = context["general_volume_type"]
+                volume_local_to_instance = \
+                    context["general_volume_local_to_instance"]
                 volumes_availability_zone = \
                     context["general_volumes_availability_zone"]
 
@@ -85,6 +90,8 @@ class EditNodegroupTemplate(copy_flow.CopyNodegroupTemplate):
                 description=context["general_description"],
                 volumes_per_node=volumes_per_node,
                 volumes_size=volumes_size,
+                volume_type=volume_type,
+                volume_local_to_instance=volume_local_to_instance,
                 volumes_availability_zone=volumes_availability_zone,
                 node_processes=processes,
                 node_configs=configs_dict,

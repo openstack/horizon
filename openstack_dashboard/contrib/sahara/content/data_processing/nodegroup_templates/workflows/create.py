@@ -20,6 +20,7 @@ from saharaclient.api import base as api_base
 from horizon import exceptions
 from horizon import forms
 from horizon import workflows
+from openstack_dashboard.api import cinder
 from openstack_dashboard.api import network
 from openstack_dashboard.contrib.sahara.api import sahara as saharaclient
 
@@ -81,6 +82,28 @@ class GeneralConfigAction(workflows.Action):
             "class": "volume_size_field switched",
             "data-switch-on": "storage_loc",
             "data-storage_loc-cinder_volume": _('Volumes size (GB)')
+        })
+    )
+
+    volume_type = forms.ChoiceField(
+        label=_("Volumes type"),
+        required=False,
+        widget=forms.Select(attrs={
+            "class": "volume_type_field switched",
+            "data-switch-on": "storage_loc",
+            "data-storage_loc-cinder_volume": _('Volumes type')
+        })
+    )
+
+    volume_local_to_instance = forms.BooleanField(
+        label=_("Volume local to instance"),
+        required=False,
+        help_text=_("Instance and attached volumes will be created on the "
+                    "same physical host"),
+        widget=forms.CheckboxInput(attrs={
+            "class": "volume_local_to_instance_field switched",
+            "data-switch-on": "storage_loc",
+            "data-storage_loc-cinder_volume": _('Volume local to instance')
         })
     )
 
@@ -160,6 +183,16 @@ class GeneralConfigAction(workflows.Action):
                 required=False,
                 widget=forms.HiddenInput(),
                 initial=request.REQUEST.get("guide_template_type"))
+
+        try:
+            volume_types = cinder.volume_type_list(request)
+        except Exception:
+            exceptions.handle(request,
+                              _("Unable to get volume type list."))
+
+        self.fields['volume_type'].choices = [(None, _("No volume type"))] + \
+                                             [(type.name, type.name)
+                                              for type in volume_types]
 
     def populate_flavor_choices(self, request, context):
         flavors = nova_utils.flavor_list(request)
@@ -321,12 +354,17 @@ class ConfigureNodegroupTemplate(workflow_helpers.ServiceParametersWorkflow,
             volumes_per_node = None
             volumes_size = None
             volumes_availability_zone = None
+            volume_type = None
+            volume_local_to_instance = False
 
             if context["general_storage"] == "cinder_volume":
                 volumes_per_node = context["general_volumes_per_node"]
                 volumes_size = context["general_volumes_size"]
                 volumes_availability_zone = \
                     context["general_volumes_availability_zone"]
+                volume_type = context["general_volume_type"]
+                volume_local_to_instance = \
+                    context["general_volume_local_to_instance"]
 
             ngt = saharaclient.nodegroup_template_create(
                 request,
@@ -338,6 +376,8 @@ class ConfigureNodegroupTemplate(workflow_helpers.ServiceParametersWorkflow,
                 volumes_per_node=volumes_per_node,
                 volumes_size=volumes_size,
                 volumes_availability_zone=volumes_availability_zone,
+                volume_type=volume_type,
+                volume_local_to_instance=volume_local_to_instance,
                 node_processes=processes,
                 node_configs=configs_dict,
                 floating_ip_pool=context.get("general_floating_ip_pool"),
