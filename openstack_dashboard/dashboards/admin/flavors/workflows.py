@@ -50,8 +50,12 @@ class CreateFlavorInfoAction(workflows.Action):
     disk_gb = forms.IntegerField(label=_("Root Disk (GB)"),
                                  min_value=0)
     eph_gb = forms.IntegerField(label=_("Ephemeral Disk (GB)"),
+                                required=False,
+                                initial=0,
                                 min_value=0)
     swap_mb = forms.IntegerField(label=_("Swap Disk (MB)"),
+                                 required=False,
+                                 initial=0,
                                  min_value=0)
 
     class Meta(object):
@@ -188,6 +192,8 @@ class CreateFlavor(workflows.Workflow):
 
     def handle(self, request, data):
         flavor_id = data.get('flavor_id') or 'auto'
+        swap = data.get('swap_mb') or 0
+        ephemeral = data.get('eph_gb') or 0
         flavor_access = data['flavor_access']
         is_public = not flavor_access
 
@@ -198,8 +204,8 @@ class CreateFlavor(workflows.Workflow):
                                                  memory=data['memory_mb'],
                                                  vcpu=data['vcpus'],
                                                  disk=data['disk_gb'],
-                                                 ephemeral=data['eph_gb'],
-                                                 swap=data['swap_mb'],
+                                                 ephemeral=ephemeral,
+                                                 swap=swap,
                                                  flavorid=flavor_id,
                                                  is_public=is_public)
         except Exception:
