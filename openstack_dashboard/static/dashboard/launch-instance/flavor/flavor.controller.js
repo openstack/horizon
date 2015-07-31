@@ -81,7 +81,7 @@
     };
 
     // Flavor facades and the new instance chart depend on nova limit data
-    $scope.$watch(function () {
+    var novaLimitsWatcher = $scope.$watch(function () {
       return launchInstanceModel.novaLimits;
     }, function (newValue, oldValue, scope) {
       var ctrl = scope.selectFlavorCtrl;
@@ -90,7 +90,7 @@
     }, true);
 
     // Flavor facades depend on flavors
-    $scope.$watchCollection(function() {
+    var flavorsWatcher = $scope.$watchCollection(function() {
       return launchInstanceModel.flavors;
     }, function (newValue, oldValue, scope) {
       var ctrl = scope.selectFlavorCtrl;
@@ -99,7 +99,7 @@
     });
 
     // Flavor quota charts depend on the current instance count
-    $scope.$watch(function () {
+    var instanceCountWatcher = $scope.$watch(function () {
       return launchInstanceModel.newInstanceSpec.instance_count;
     }, function (newValue, oldValue, scope) {
       if (angular.isDefined(newValue)) {
@@ -112,7 +112,8 @@
     });
 
     // Update the new instance model when the allocated flavor changes
-    $scope.$watchCollection("selectFlavorCtrl.allocatedFlavorFacades",
+    var facadesWatcher = $scope.$watchCollection(
+      "selectFlavorCtrl.allocatedFlavorFacades",
       function (newValue, oldValue, scope) {
         if (newValue && newValue.length > 0) {
           launchInstanceModel.newInstanceSpec.flavor = newValue[0].flavor;
@@ -123,13 +124,22 @@
       }
     );
 
-    $scope.$watchCollection(function() {
+    var sourceWatcher = $scope.$watchCollection(function() {
       return launchInstanceModel.newInstanceSpec.source;
     }, function (newValue, oldValue, scope) {
       var ctrl = scope.selectFlavorCtrl;
       ctrl.source = newValue && newValue.length ? newValue[0] : null;
       ctrl.updateFlavorFacades();
       ctrl.validateFlavor();
+    });
+
+    //
+    $scope.$on('$destroy', function() {
+      novaLimitsWatcher();
+      flavorsWatcher();
+      instanceCountWatcher();
+      facadesWatcher();
+      sourceWatcher();
     });
 
     //////////
@@ -160,8 +170,8 @@
      * data, such as charts, as that per-flavor data is modified.
      */
     function buildFlavorFacades() {
-      var facade;
-      var flavor;
+      var facade, flavor;
+
       for (var i = 0; i < ctrl.flavors.length; i++) {
         flavor = ctrl.flavors[i];
         facade = {
