@@ -21,7 +21,4 @@ ADD_INSTALLED_APPS = [
 ]
 
 ADD_JS_FILES = [
-    'dashboard/tech-debt/tech-debt.module.js',
-    'dashboard/tech-debt/namespace-ctrl.js',
-    'dashboard/tech-debt/image-form-ctrl.js',
 ]
