@@ -48,9 +48,6 @@ INSTALLED_APPS = (
     'compressor',
     'horizon',
     'openstack_dashboard',
-    # TODO(david-lyle) remove this in later patch, issue with enabled vs
-    # non-enabled panels/dashs for testing.
-    'openstack_dashboard.dashboards.router',
 )
 
 AUTHENTICATION_BACKENDS = ('openstack_auth.backend.KeystoneBackend',)
