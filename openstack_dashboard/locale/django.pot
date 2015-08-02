@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-07-29 06:23+0000\n"
+"POT-Creation-Date: 2015-08-02 06:03+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -621,7 +621,6 @@ msgstr ""
 #: dashboards/project/vpn/workflows.py:111
 #: dashboards/project/vpn/workflows.py:214
 #: dashboards/project/vpn/workflows.py:317
-#: dashboards/router/nexus1000v/forms.py:47
 msgid "Name"
 msgstr ""
 
@@ -1260,7 +1259,7 @@ msgstr[1] ""
 #: dashboards/project/volumes/volumes/forms.py:113
 #: dashboards/project/volumes/volumes/forms.py:118
 #: dashboards/project/volumes/volumes/forms.py:119
-#: dashboards/project/volumes/volumes/forms.py:745
+#: dashboards/project/volumes/volumes/forms.py:746
 #: dashboards/project/volumes/volumes/tables.py:428
 msgid "Type"
 msgstr ""
@@ -1442,7 +1441,6 @@ msgstr ""
 #: dashboards/project/routers/forms.py:121 dashboards/project/vpn/forms.py:33
 #: dashboards/project/vpn/forms.py:68 dashboards/project/vpn/forms.py:147
 #: dashboards/project/vpn/forms.py:225
-#: dashboards/router/nexus1000v/forms.py:174
 msgid "ID"
 msgstr ""
 
@@ -3003,10 +3001,6 @@ msgstr ""
 #: dashboards/project/dashboard.py:62
 #: dashboards/project/images/images/tables.py:176
 #: dashboards/project/instances/workflows/create_instance.py:54
-#: dashboards/router/nexus1000v/forms.py:119
-#: dashboards/router/nexus1000v/forms.py:177
-#: dashboards/router/nexus1000v/tables.py:73
-#: dashboards/router/nexus1000v/tables.py:95
 msgid "Project"
 msgstr ""
 
@@ -3451,7 +3445,6 @@ msgid "Last year"
 msgstr ""
 
 #: dashboards/admin/metering/forms.py:30
-#: dashboards/router/nexus1000v/forms.py:59
 msgid "Other"
 msgstr ""
 
@@ -3580,8 +3573,6 @@ msgid "Flat"
 msgstr ""
 
 #: dashboards/admin/networks/forms.py:30
-#: dashboards/router/nexus1000v/forms.py:49
-#: dashboards/router/nexus1000v/forms.py:69
 msgid "VLAN"
 msgstr ""
 
@@ -3595,9 +3586,6 @@ msgstr ""
 
 #: dashboards/admin/networks/forms.py:45
 #: dashboards/project/networks/workflows.py:43
-#: dashboards/router/nexus1000v/tables.py:72
-#: dashboards/router/nexus1000v/tables.py:87
-#: dashboards/router/nexus1000v/tabs.py:19
 msgid "Network Profile"
 msgstr ""
 
@@ -3611,8 +3599,6 @@ msgstr ""
 
 #: dashboards/admin/networks/forms.py:58 dashboards/admin/networks/forms.py:65
 #: dashboards/admin/networks/forms.py:66
-#: dashboards/router/nexus1000v/forms.py:112
-#: dashboards/router/nexus1000v/forms.py:118
 msgid "Physical Network"
 msgstr ""
 
@@ -3724,7 +3710,6 @@ msgid "External Network"
 msgstr ""
 
 #: dashboards/admin/networks/forms.py:91 dashboards/identity/users/forms.py:81
-#: dashboards/router/nexus1000v/forms.py:29
 msgid "Select a project"
 msgstr ""
 
@@ -3747,7 +3732,6 @@ msgstr ""
 #: dashboards/admin/networks/forms.py:155
 #: dashboards/project/instances/workflows/create_instance.py:744
 #: dashboards/project/networks/workflows.py:72
-#: dashboards/router/nexus1000v/views.py:53
 msgid "Network Profiles could not be retrieved."
 msgstr ""
 
@@ -4279,7 +4263,7 @@ msgstr ""
 #: dashboards/project/volumes/volumes/forms.py:596
 #: dashboards/project/volumes/volumes/forms.py:635
 #: dashboards/project/volumes/volumes/forms.py:694
-#: dashboards/project/volumes/volumes/forms.py:742
+#: dashboards/project/volumes/volumes/forms.py:743
 msgid "Volume Name"
 msgstr ""
 
@@ -5235,7 +5219,6 @@ msgstr ""
 
 #: dashboards/identity/projects/views.py:59
 #: dashboards/identity/projects/views.py:104
-#: dashboards/router/nexus1000v/views.py:42
 msgid "Unable to retrieve project information."
 msgstr ""
 
@@ -7633,7 +7616,6 @@ msgstr ""
 #: dashboards/project/volumes/snapshots/views.py:37
 #: dashboards/project/vpn/views.py:277 dashboards/project/vpn/views.py:313
 #: dashboards/project/vpn/views.py:356 dashboards/project/vpn/views.py:398
-#: dashboards/router/nexus1000v/views.py:122
 msgid "Save Changes"
 msgstr ""
 
@@ -11918,58 +11900,58 @@ msgstr ""
 msgid "Unable to upload volume to image for volume: \"%s\""
 msgstr ""
 
-#: dashboards/project/volumes/volumes/forms.py:711
+#: dashboards/project/volumes/volumes/forms.py:710
 msgid "New size must be greater than current size."
 msgstr ""
 
-#: dashboards/project/volumes/volumes/forms.py:717
+#: dashboards/project/volumes/volumes/forms.py:718
 #, python-format
 msgid ""
 "Volume cannot be extended to %(req)iGB as you only have %(avail)iGB of "
 "your quota available."
 msgstr ""
 
-#: dashboards/project/volumes/volumes/forms.py:731
+#: dashboards/project/volumes/volumes/forms.py:732
 #, python-format
 msgid "Extending volume: \"%s\""
 msgstr ""
 
-#: dashboards/project/volumes/volumes/forms.py:737
+#: dashboards/project/volumes/volumes/forms.py:738
 msgid "Unable to extend volume."
 msgstr ""
 
-#: dashboards/project/volumes/volumes/forms.py:746
+#: dashboards/project/volumes/volumes/forms.py:747
 msgid "Never"
 msgstr ""
 
-#: dashboards/project/volumes/volumes/forms.py:747
+#: dashboards/project/volumes/volumes/forms.py:748
 msgid "On Demand"
 msgstr ""
 
-#: dashboards/project/volumes/volumes/forms.py:748
+#: dashboards/project/volumes/volumes/forms.py:749
 msgid "Migration Policy"
 msgstr ""
 
-#: dashboards/project/volumes/volumes/forms.py:761
+#: dashboards/project/volumes/volumes/forms.py:762
 msgid "Unable to retrieve the volume type list."
 msgstr ""
 
-#: dashboards/project/volumes/volumes/forms.py:770
+#: dashboards/project/volumes/volumes/forms.py:771
 msgid "Select a new volume type"
 msgstr ""
 
-#: dashboards/project/volumes/volumes/forms.py:772
+#: dashboards/project/volumes/volumes/forms.py:773
 msgid "No other volume types available"
 msgstr ""
 
-#: dashboards/project/volumes/volumes/forms.py:784
+#: dashboards/project/volumes/volumes/forms.py:785
 #, python-format
 msgid ""
 "Successfully sent the request to change the volume type to \"%(vtype)s\" "
 "for volume: \"%(name)s\""
 msgstr ""
 
-#: dashboards/project/volumes/volumes/forms.py:794
+#: dashboards/project/volumes/volumes/forms.py:795
 #, python-format
 msgid "Unable to change the volume type for volume: \"%s\""
 msgstr ""
@@ -12683,7 +12665,6 @@ msgid "Inactive"
 msgstr ""
 
 #: dashboards/project/vpn/tables.py:290 dashboards/project/vpn/workflows.py:29
-#: dashboards/router/dashboard.py:19
 msgid "Router"
 msgstr ""
 
@@ -12958,150 +12939,6 @@ msgstr ""
 #: dashboards/project/vpn/workflows.py:502
 #, python-format
 msgid "Unable to add IPSec Site Connection \"%s\"."
-msgstr ""
-
-#: dashboards/router/nexus1000v/forms.py:34
-msgid "Projects could not be retrieved."
-msgstr ""
-
-#: dashboards/router/nexus1000v/forms.py:48
-#: dashboards/router/nexus1000v/tables.py:75
-msgid "Segment Type"
-msgstr ""
-
-#: dashboards/router/nexus1000v/forms.py:50
-msgid "Overlay"
-msgstr ""
-
-#: dashboards/router/nexus1000v/forms.py:51
-msgid "Trunk"
-msgstr ""
-
-#: dashboards/router/nexus1000v/forms.py:56
-#: dashboards/router/nexus1000v/forms.py:66
-#: dashboards/router/nexus1000v/forms.py:68
-#: dashboards/router/nexus1000v/forms.py:75
-#: dashboards/router/nexus1000v/tables.py:77
-msgid "Sub Type"
-msgstr ""
-
-#: dashboards/router/nexus1000v/forms.py:57
-msgid "Native VXLAN"
-msgstr ""
-
-#: dashboards/router/nexus1000v/forms.py:58
-msgid "Enhanced VXLAN"
-msgstr ""
-
-#: dashboards/router/nexus1000v/forms.py:77
-#: dashboards/router/nexus1000v/forms.py:83
-#: dashboards/router/nexus1000v/forms.py:85
-#: dashboards/router/nexus1000v/tables.py:79
-msgid "Segment Range"
-msgstr ""
-
-#: dashboards/router/nexus1000v/forms.py:86
-msgid "1-4093 for VLAN; 5000 and above for Overlay"
-msgstr ""
-
-#: dashboards/router/nexus1000v/forms.py:89
-#: dashboards/router/nexus1000v/forms.py:96
-#: dashboards/router/nexus1000v/tables.py:81
-msgid "Multicast IP Range"
-msgstr ""
-
-#: dashboards/router/nexus1000v/forms.py:97
-msgid "Multicast IPv4 range(e.g. 224.0.1.0-224.0.1.100)"
-msgstr ""
-
-#: dashboards/router/nexus1000v/forms.py:101
-#: dashboards/router/nexus1000v/forms.py:108
-msgid "Sub Type Value (Manual Input)"
-msgstr ""
-
-#: dashboards/router/nexus1000v/forms.py:110
-msgid "Enter parameter (e.g. GRE)"
-msgstr ""
-
-#: dashboards/router/nexus1000v/forms.py:160
-#, python-format
-msgid "Network Profile %s was successfully created."
-msgstr ""
-
-#: dashboards/router/nexus1000v/forms.py:167
-#, python-format
-msgid "Failed to create network profile %s"
-msgstr ""
-
-#: dashboards/router/nexus1000v/forms.py:201
-#, python-format
-msgid "Network Profile %s was successfully updated."
-msgstr ""
-
-#: dashboards/router/nexus1000v/forms.py:207
-#, python-format
-msgid "Failed to update network profile (%s)."
-msgstr ""
-
-#: dashboards/router/nexus1000v/panel.py:20
-msgid "Cisco Nexus 1000v"
-msgstr ""
-
-#: dashboards/router/nexus1000v/tables.py:29
-#: dashboards/router/nexus1000v/views.py:107
-#: dashboards/router/nexus1000v/views.py:109
-#: dashboards/router/nexus1000v/views.py:113
-msgid "Create Network Profile"
-msgstr ""
-
-#: dashboards/router/nexus1000v/tables.py:38
-msgid "Delete Network Profile"
-msgid_plural "Delete Network Profiles"
-msgstr[0] ""
-msgstr[1] ""
-
-#: dashboards/router/nexus1000v/tables.py:46
-msgid "Deleted Network Profile"
-msgid_plural "Deleted Network Profiles"
-msgstr[0] ""
-msgstr[1] ""
-
-#: dashboards/router/nexus1000v/tables.py:56
-#, python-format
-msgid "Failed to delete network profile (%s)."
-msgstr ""
-
-#: dashboards/router/nexus1000v/tables.py:64
-#: dashboards/router/nexus1000v/views.py:119
-msgid "Edit Network Profile"
-msgstr ""
-
-#: dashboards/router/nexus1000v/tables.py:83
-msgid "Physical Network Name"
-msgstr ""
-
-#: dashboards/router/nexus1000v/tables.py:94
-#: dashboards/router/nexus1000v/tables.py:99
-#: dashboards/router/nexus1000v/tabs.py:28
-msgid "Policy Profile"
-msgstr ""
-
-#: dashboards/router/nexus1000v/views.py:71
-#: dashboards/router/nexus1000v/views.py:80
-#: dashboards/router/nexus1000v/views.py:95
-msgid "Cisco Nexus 1000V"
-msgstr ""
-
-#: dashboards/router/nexus1000v/views.py:125
-msgid "Update Network Profile"
-msgstr ""
-
-#: dashboards/router/nexus1000v/views.py:145
-msgid "Unable to retrieve network profile details."
-msgstr ""
-
-#: dashboards/router/nexus1000v/views.py:156
-msgid "Failed to obtain network profile binding"
 msgstr ""
 
 #: dashboards/settings/dashboard.py:22 templates/_header.html:33

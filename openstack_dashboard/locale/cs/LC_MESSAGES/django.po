@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2015-07-28 12:34+0000\n"
-"PO-Revision-Date: 2015-07-26 12:51+0000\n"
+"PO-Revision-Date: 2015-08-01 15:19+0000\n"
 "Last-Translator: Zbyněk Schwarz <zbynek.schwarz@gmail.com>\n"
 "Language-Team: Czech (http://www.transifex.com/projects/p/horizon/language/"
 "cs/)\n"
@@ -1066,13 +1066,13 @@ msgid "Component"
 msgstr "Součásti"
 
 msgid "Compute"
-msgstr "Výpočet"
+msgstr "Výpočty"
 
 msgid "Compute Host"
-msgstr "Hostitel Compute"
+msgstr "Hostitel výpočtu"
 
 msgid "Compute Services"
-msgstr "Služby Compute"
+msgstr "Služby výpočtu"
 
 msgid "Configuration Drive"
 msgstr "Konfigurační jednotka"
@@ -5063,7 +5063,7 @@ msgid "Orchestration"
 msgstr "Orchestrace"
 
 msgid "Orchestration Services"
-msgstr "Služby Orchestration"
+msgstr "Služby Orchestrace"
 
 msgid "Orchestration service is disabled."
 msgstr "Služba Orchestrace byla zakázána"
@@ -6971,10 +6971,10 @@ msgid "Suspending"
 msgstr "Uspávání"
 
 msgid "Swap Disk"
-msgstr "Swap disk"
+msgstr "Odkládací disk"
 
 msgid "Swap Disk (MB)"
-msgstr "Swap disk (MB)"
+msgstr "Odkládací disk (MB)"
 
 msgid "Swift"
 msgstr "Swift"
@@ -8113,7 +8113,7 @@ msgid "Unable to retrieve backup details."
 msgstr "Nelze získat podrobnosti zálohy."
 
 msgid "Unable to retrieve compute host information."
-msgstr "Nelze získat informace o hostiteli compute."
+msgstr "Nelze získat informace o hostiteli výpočtu."
 
 msgid "Unable to retrieve compute limit information."
 msgstr "Nelze získat informace o omezení výpočtů."
