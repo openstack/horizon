@@ -19,6 +19,14 @@
   var DEFAULT_USER_DATA = '';
   var DEFAULT_DISK_CONFIG = 'AUTO';
 
+  angular
+    .module('hz.dashboard.launch-instance')
+    .controller('LaunchInstanceConfigurationController', LaunchInstanceConfigurationController);
+
+  LaunchInstanceConfigurationController.$inject = [
+    '$scope'
+  ];
+
   /**
    * @ngdoc controller
    * @name LaunchInstanceConfigurationController
@@ -31,26 +39,18 @@
    * @property {string} disk_config, default to `AUTO`.
    * @property {boolean} config_drive, default to false.
    */
-  angular
-    .module('hz.dashboard.launch-instance')
-    .controller('LaunchInstanceConfigurationController', LaunchInstanceConfigurationController);
-
-  LaunchInstanceConfigurationController.$inject = [
-    '$scope'
-  ];
-
   function LaunchInstanceConfigurationController($scope) {
+    var ctrl = this;
 
-    var config = this;
     var newInstanceSpec = $scope.model.newInstanceSpec;
 
     newInstanceSpec.user_data = DEFAULT_USER_DATA;
     newInstanceSpec.disk_config = DEFAULT_DISK_CONFIG;
     newInstanceSpec.config_drive = DEFAULT_CONFIG_DRIVE;
 
-    config.MAX_SCRIPT_SIZE = MAX_SCRIPT_SIZE;
+    ctrl.MAX_SCRIPT_SIZE = MAX_SCRIPT_SIZE;
 
-    config.label = {
+    ctrl.label = {
       title: gettext('Configuration'),
       subtitle: '',
       customizationScript: gettext('Customization Script'),
@@ -65,7 +65,7 @@
       scriptSizeHoverWarningMsg: gettext('The maximum script size is 16Kb.')
     };
 
-    config.diskConfigOptions = [
+    ctrl.diskConfigOptions = [
       { value: 'AUTO', text: gettext('Automatic') },
       { value: 'MANUAL', text: gettext('Manual') }
     ];
