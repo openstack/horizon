@@ -14,12 +14,6 @@
 (function () {
   'use strict';
 
-  /**
-   * @ngdoc controller
-   * @name hz.dashboard.launch-instance.LaunchInstanceSecurityGroupsController
-   * @description
-   * Allows selection of security groups.
-   */
   angular
     .module('hz.dashboard.launch-instance')
     .controller('LaunchInstanceSecurityGroupsController', LaunchInstanceSecurityGroupsController);
@@ -29,17 +23,23 @@
     'dashboardBasePath'
   ];
 
+  /**
+   * @ngdoc controller
+   * @name hz.dashboard.launch-instance.LaunchInstanceSecurityGroupsController
+   * @description
+   * Allows selection of security groups.
+   */
   function LaunchInstanceSecurityGroupsController(launchInstanceModel, basePath) {
-    var vm = this;
+    var ctrl = this;
 
-    vm.label = {
+    ctrl.label = {
       title: gettext('Security Groups'),
       subtitle: gettext('Select the security groups.'),
       name: gettext('Name'),
       description: gettext('Description')
     };
 
-    vm.tableLabels = {
+    ctrl.tableLabels = {
       direction: gettext('Direction'),
       ethertype: gettext('Ether Type'),
       protocol: gettext('Protocol'),
@@ -48,23 +48,23 @@
       remote_ip_prefix: gettext('Remote')
     };
 
-    vm.tableData = {
+    ctrl.tableData = {
       available: launchInstanceModel.securityGroups,
       allocated: launchInstanceModel.newInstanceSpec.security_groups,
       displayedAvailable: [],
       displayedAllocated: []
     };
 
-    vm.tableDetails = basePath + 'launch-instance/security-groups/security-group-details.html';
+    ctrl.tableDetails = basePath + 'launch-instance/security-groups/security-group-details.html';
 
-    vm.tableHelp = {
+    ctrl.tableHelp = {
       /*eslint-disable max-len */
       noneAllocText: gettext('Select one or more security groups from the available groups below.'),
       /*eslint-enable max-len */
       availHelpText: gettext('Select one or more')
     };
 
-    vm.tableLimits = {
+    ctrl.tableLimits = {
       maxAllocation: -1
     };
   }
