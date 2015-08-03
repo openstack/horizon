@@ -1,37 +1,35 @@
+/*
+ * Copyright 2015, Intel Corp.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *    http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
 (function () {
   'use strict';
 
-  angular.module('horizon.framework.widgets.metadata-tree')
+  angular
+    .module('horizon.framework.widgets.metadata.tree')
+    .factory('horizon.framework.widgets.metadata.tree.service', metadataTreeService);
 
   /**
    * @ngdoc service
-   * @name horizon.framework.widgets.metadata-tree.metadataTreeService
+   * @name metadataTreeService
    */
-  .factory('horizon.framework.widgets.metadata-tree.service', [ function () {
-
-    /**
-     * Parse value into boolean
-     *
-     * @param {(string|boolean)} value
-     * @returns {boolean}
-     */
-    function parseBool(value) {
-      var valueType = typeof(value);
-
-      if (valueType === 'boolean') {
-        return value;
-      } else if (valueType === 'string') {
-        value = value.toLowerCase();
-
-        if (value === 'true') {
-          return true;
-        } else if (value === 'false') {
-          return false;
-        }
-      }
-
-      return null;
-    }
+  function metadataTreeService() {
+    var service = {
+      Item: Item,
+      Property: Property,
+      Tree: Tree
+    };
 
     /**
      * Construct a new property
@@ -76,28 +74,36 @@
       }
 
       switch (this.type) {
-        case 'integer': this.value = parseInt(value); break;
-        case 'number': this.value = parseFloat(value); break;
+        case 'integer':
+          this.value = parseInt(value);
+          break;
+        case 'number':
+          this.value = parseFloat(value);
+          break;
         case 'array':
           var data = /^(<.*?>) (.*)$/.exec(value);
           if (data) {
             this.operator = data[1];
             this.value = data[2].split(',');
-          } break;
-        case 'boolean': this.value = parseBool(value); break;
-        default: this.value = value;
+          }
+          break;
+        case 'boolean':
+          this.value = parseBool(value);
+          break;
+        default:
+          this.value = value;
       }
     };
 
     /**
      * Serialize {@link Property#value} and returns it
      *
-     * @returns {*}
+     * @returns {string}
      */
     Property.prototype.getValue = function () {
       switch (this.type) {
         case 'array': return this.operator + ' ' + this.value.join(',');
-        default: return this.value;
+        default: return '' + this.value;
       }
     };
 
@@ -105,7 +111,7 @@
      * Construct a new tree node
      *
      * @class Item
-     * @param {Item} parent
+     * @param {Item=} parent
      *
      * @property {Item} parent Item parent
      * @property {Item[]} children Item children
@@ -114,7 +120,7 @@
     function Item(parent) {
       // parent as property to prevent infinite recursion in angular filter
       Object.defineProperty(this, 'parent', {
-        value: typeof parent !== 'undefined' ? parent : null
+        value: parent || null
       });
       this.children = [];
       // Node properties
@@ -197,7 +203,7 @@
      * Load Item values from property definition and mark as custom
      *
      * @param {string} name Property name
-     * @param {object} property Metadata property definition
+     * @param {object=} property Metadata property definition
      * @returns {Item}
      */
     Item.prototype.customProperty = function (name, property) {
@@ -210,7 +216,7 @@
     /**
      * Expand Item by marking all children as visible
      *
-     * @param {boolean} deep Whether to recursively expand all child Items
+     * @param {boolean=} deep Whether to recursively expand all child Items
      */
     Item.prototype.expand = function (deep) {
       this.expanded = true;
@@ -487,10 +493,28 @@
       this.selected = item;
     };
 
-    return {
-      Item: Item,
-      Property: Property,
-      Tree: Tree
-    };
-  }]);
+    /**
+     * Parse value into boolean
+     *
+     * @param {(string|boolean)} value
+     * @returns {boolean}
+     */
+    function parseBool(value) {
+      if (value === true || value === false) {
+        return value;
+      } else if (angular.isString(value)) {
+        value = value.toLowerCase();
+
+        if (value === 'true') {
+          return true;
+        } else if (value === 'false') {
+          return false;
+        }
+      }
+
+      return null;
+    }
+
+    return service;
+  }
 })();

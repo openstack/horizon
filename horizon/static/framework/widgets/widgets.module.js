@@ -12,8 +12,7 @@
       'horizon.framework.widgets.transfer-table',
       'horizon.framework.widgets.charts',
       'horizon.framework.widgets.action-list',
-      'horizon.framework.widgets.metadata-tree',
-      'horizon.framework.widgets.metadata-display',
+      'horizon.framework.widgets.metadata',
       'horizon.framework.widgets.toast',
       'MagicSearch'
     ])

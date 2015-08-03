@@ -1,25 +1,25 @@
 <div class="metadata-tree">
   <div class="row">
     <p class="col-md-12">
-      <span ng-bind="::text.help"></span>
+      <span ng-bind="::ctrl.text.help"></span>
     </p>
   </div>
 
   <div class="row">
     <div class="col-md-6">
-      <div class="panel panel-default" ng-form="treeForm">
+      <div class="panel panel-default">
         <div class="panel-heading">
           <div class="row">
             <div class="col-md-6 v-align">
               <strong>
-                <span ng-bind="::text.available"></span>
+                <span ng-bind="::ctrl.text.available"></span>
               </strong>
             </div>
             <div class="col-md-6">
               <div class="has-feedback">
                 <input class="form-control input-sm"
-                       type="text" placeholder="{$ ::text.filter $}"
-                       ng-model="filterText.available"/>
+                       type="text" placeholder="{$ ::ctrl.text.filter $}"
+                       ng-model="ctrl.filterText.available"/>
                 <span class="fa fa-search form-control-feedback"></span>
               </div>
             </div>
@@ -29,30 +29,30 @@
           <li class="list-group-item" ng-form="customItemForm">
             <div class="input-group input-group-sm"
                  ng-class="{'has-error': customItemForm.$invalid && customItemForm.$dirty}">
-              <span class="input-group-addon" ng-bind="::text.custom"></span>
+              <span class="input-group-addon" ng-bind="::ctrl.text.custom"></span>
               <input class="form-control" type="text" name="customItem"
-                     ng-model="customItem"
-                     hz-metadata-tree-unique/>
+                     ng-model="ctrl.customItem"
+                     metadata-tree-unique/>
               <span class="input-group-btn">
                 <button type='button' class="btn btn-primary"
-                   ng-click="tree.addCustom(customItem)"
-                   ng-disabled="!customItem || customItemForm.$invalid">
+                   ng-click="ctrl.tree.addCustom(ctrl.customItem); ctrl.customItem=''"
+                   ng-disabled="!ctrl.customItem || customItemForm.$invalid">
                   <span class="fa fa-plus"></span>
                 </button>
               </span>
             </div>
             <div class="label label-danger"
                  ng-if="customItemForm.$invalid && customItemForm.$dirty">
-              <span ng-bind="::text.duplicate"></span>
+              <span ng-bind="::ctrl.text.duplicate"></span>
             </div>
           </li>
 
-          <li ng-repeat="item in availableList = (tree.flatTree | filter: {$: filterText.available} | filter: availableFilter)"
-              ng-class="'level-' + item.level + (tree.selected===item?' active':'')"
+          <li ng-repeat="item in availableList = (ctrl.tree.flatTree | filter: {$: ctrl.filterText.available} | filter: ctrl.availableFilter)"
+              ng-class="'level-' + item.level + (ctrl.tree.selected===item?' active':'')"
               ng-class-odd="'dark-stripe'"
               ng-class-even="'light-stripe'"
               class="list-group-item"
-              ng-click="tree.select(item)">
+              ng-click="ctrl.tree.select(item)">
             <div class="clearfix">
               <div class="pull-left">
               <span ng-class="{leaf: item.leaf}">
@@ -63,7 +63,7 @@
               </div>
               <div class="pull-right">
                 <a class="btn btn-primary btn-xs"
-                   ng-click="tree.markAsAdded(item)">
+                   ng-click="ctrl.tree.markAsAdded(item)">
                   <span class="fa fa-plus"></span>
                 </a>
               </div>
@@ -71,7 +71,7 @@
           </li>
           <li class="list-group-item disabled"
               ng-show="availableList.length===0">
-            <span ng-bind="::text.noAvailable"></span>
+            <span ng-bind="::ctrl.text.noAvailable"></span>
           </li>
         </ul>
       </div>
@@ -83,33 +83,33 @@
           <div class="row">
             <div class="col-md-6 v-align">
               <strong>
-                <span ng-bind="::text.existing"></span>
+                <span ng-bind="::ctrl.text.existing"></span>
               </strong>
             </div>
             <div class="col-md-6">
               <div class="has-feedback">
                 <input class="form-control input-sm"
-                       type="text" placeholder="{$ ::text.filter $}"
-                       ng-model="filterText.existing"/>
+                       type="text" placeholder="{$ ::ctrl.text.filter $}"
+                       ng-model="ctrl.filterText.existing"/>
                 <span class="fa fa-search form-control-feedback"></span>
               </div>
             </div>
           </div>
         </div>
-        <ul class="list-group metadata-list-group" ng-cloak>
-          <li ng-repeat="item in existingList = (tree.flatTree | filter:{$:filterText.existing, added:true, leaf:'!null'} | orderBy:'leaf.name')"
-              ng-class="{'active': tree.selected===item}"
+        <ul class="list-group metadata-list-group" ng-form="ctrl.metadataForm" ng-cloak>
+          <li ng-repeat="item in existingList = (ctrl.tree.flatTree | filter:{$:ctrl.filterText.existing, added:true, leaf:'!null'} | orderBy:'leaf.name')"
+              ng-class="{'active': ctrl.tree.selected===item}"
               ng-class-odd="'dark-stripe'"
               ng-class-even="'light-stripe'"
               class="list-group-item"
-              ng-click="tree.select(item)">
-            <hz-metadata-tree-item item="item" text="text"
-                                   action="tree.unmarkAsAdded(item)">
-            </hz-metadata-tree-item>
+              ng-click="ctrl.tree.select(item)">
+            <metadata-tree-item item="item" text="ctrl.text"
+                                   action="ctrl.tree.unmarkAsAdded(item)">
+            </metadata-tree-item>
           </li>
           <li class="list-group-item disabled"
               ng-show="existingList.length===0">
-            <span ng-bind="::text.noExisting"></span>
+            <span ng-bind="::ctrl.text.noExisting"></span>
           </li>
         </ul>
       </div>
@@ -117,18 +117,18 @@
   </div>
 
   <div class="well">
-    <div ng-show="tree.selected">
+    <div ng-show="ctrl.tree.selected">
       <p>
         <strong>
-          <span ng-bind="tree.selected.label"></span>
+          <span ng-bind="ctrl.tree.selected.label"></span>
         </strong>
-        <span ng-show="tree.selected.leaf">(<em><span ng-bind="tree.selected.leaf.name"></span></em>)</span>
+        <span ng-show="ctrl.tree.selected.leaf">(<em><span ng-bind="ctrl.tree.selected.leaf.name"></span></em>)</span>
       </p>
 
-      <p><span ng-bind="tree.selected.description"></span></p>
+      <p><span ng-bind="ctrl.tree.selected.description"></span></p>
     </div>
-    <div ng-hide="tree.selected">
-      <span ng-bind="::text.help"></span>
+    <div ng-hide="ctrl.tree.selected">
+      <span ng-bind="::ctrl.text.help"></span>
     </div>
   </div>
 </div>
