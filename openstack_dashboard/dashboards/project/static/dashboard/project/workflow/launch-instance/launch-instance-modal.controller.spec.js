@@ -17,10 +17,7 @@
   'use strict';
 
   describe('LaunchInstanceModalController tests', function() {
-    var ctrl;
-    var modal;
-    var scope;
-    var $window;
+    var ctrl, modal, $window;
 
     beforeEach(module('horizon.dashboard.project'));
     beforeEach(module(function($provide) {
@@ -40,8 +37,7 @@
     }));
 
     beforeEach(inject(function($controller) {
-      scope = {};
-      ctrl = $controller('LaunchInstanceModalController', { $scope: scope });
+      ctrl = $controller('LaunchInstanceModalController');
     }));
 
     it('defines the controller', function() {
@@ -49,15 +45,14 @@
     });
 
     it('defines openLaunchInstanceWizard', function() {
-      expect(scope.openLaunchInstanceWizard).toBeDefined();
+      expect(ctrl.openLaunchInstanceWizard).toBeDefined();
     });
 
     describe('openLaunchInstanceWizard function tests', function() {
-      var func;
-      var launchContext;
+      var func, launchContext;
 
       beforeEach(function() {
-        func = scope.openLaunchInstanceWizard;
+        func = ctrl.openLaunchInstanceWizard;
         launchContext = {};
       });
 
@@ -79,8 +74,7 @@
       });
 
       it('sets up the correct success and failure paths', function() {
-        var successFunc;
-        var errFunc;
+        var successFunc, errFunc;
 
         launchContext = { successUrl: '/good/path', dismissUrl: '/bad/path' };
         spyOn(modal, 'open').and
@@ -97,8 +91,7 @@
       });
 
       it("doesn't redirect if not configured to", function() {
-        var successFunc;
-        var errFunc;
+        var successFunc, errFunc;
         launchContext = {};
         spyOn(modal, 'open').and
           .returnValue({

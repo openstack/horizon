@@ -21,16 +21,15 @@
     .controller('LaunchInstanceModalController', LaunchInstanceModalController);
 
   LaunchInstanceModalController.$inject = [
-    '$scope',
     '$modal',
     '$window',
     'horizon.dashboard.project.workflow.launch-instance.modal-spec'
   ];
 
-  function LaunchInstanceModalController($scope, $modal, $window, modalSpec) {
-    $scope.openLaunchInstanceWizard = openLaunchInstanceWizard;
+  function LaunchInstanceModalController($modal, $window, modalSpec) {
+    var ctrl = this;
 
-    function openLaunchInstanceWizard(launchContext) {
+    ctrl.openLaunchInstanceWizard = function (launchContext) {
       var localSpec = {
         resolve: {
           launchContext: function () {
@@ -51,7 +50,7 @@
         handleModalClose('successUrl'),
         handleModalClose('dismissUrl')
       );
-    }
+    };
   }
 
 })();

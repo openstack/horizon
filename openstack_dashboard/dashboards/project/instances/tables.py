@@ -352,13 +352,16 @@ class LaunchLinkNG(LaunchLink):
     name = "launch-ng"
     url = "horizon:project:instances:index"
     ajax = False
-    classes = ("btn-launch")
+    classes = ("btn-launch", )
 
     def get_default_attrs(self):
         url = urlresolvers.reverse(self.url)
-        ngclick = "openLaunchInstanceWizard({ successUrl: '%s' })" % url
-        self.attrs.update({'ng-controller': 'LaunchInstanceModalController',
-                           'ng-click': ngclick})
+        ngclick = "modal.openLaunchInstanceWizard(" \
+            "{ successUrl: '%s' })" % url
+        self.attrs.update({
+            'ng-controller': 'LaunchInstanceModalController as modal',
+            'ng-click': ngclick
+        })
         return super(LaunchLinkNG, self).get_default_attrs()
 
     def get_link_url(self, datum=None):

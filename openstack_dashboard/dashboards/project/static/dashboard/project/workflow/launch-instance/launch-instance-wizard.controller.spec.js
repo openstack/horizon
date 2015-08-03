@@ -30,14 +30,12 @@
     beforeEach(module(function ($provide) {
       $provide.value('serviceCatalog', {});
       $provide.value('launchInstanceModel', model);
-      $provide.value('horizon.dashboard.project.workflow.launch-instance.workflow', { thing: true });
+      $provide.value('horizon.dashboard.project.workflow.launch-instance.workflow',
+        { thing: true });
     }));
     beforeEach(inject(function ($controller) {
       spyOn(model, 'initialize');
-      var locals = {
-        $scope: scope
-      };
-      ctrl = $controller('LaunchInstanceWizardController', locals);
+      ctrl = $controller('LaunchInstanceWizardController', {$scope: scope});
     }));
 
     it('defines the controller', function() {
