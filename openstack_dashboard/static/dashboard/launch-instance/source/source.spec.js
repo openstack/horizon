@@ -93,9 +93,6 @@
         expect(ctrl.tableBodyCells.length).toEqual(5);
         expect(ctrl.tableData).toBeDefined();
         expect(Object.keys(ctrl.tableData).length).toEqual(4);
-        // TODO really confused but the use of this helpText variable
-        // in the code, esp. the use of extend, rather than just setting it
-        // once.
         expect(ctrl.helpText).toBeDefined();
         expect(ctrl.helpText.noneAllocText).toBeDefined();
         expect(ctrl.helpText.availHelpText).toBeDefined();

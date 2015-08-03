@@ -252,7 +252,7 @@
       ]
     };
 
-    $scope.$watch(
+    var newSpecWatcher = $scope.$watch(
       function () {
         return $scope.model.newInstanceSpec.instance_count;
       },
@@ -264,7 +264,7 @@
       }
     );
 
-    $scope.$watch(
+    var maxInstancesWatcher = $scope.$watch(
       function () {
         return $scope.model.novaLimits.maxTotalInstances;
       },
@@ -277,7 +277,7 @@
       }
     );
 
-    $scope.$watch(
+    var instancesUsedWatcher = $scope.$watch(
       function () {
         return $scope.model.novaLimits.totalInstancesUsed;
       },
@@ -290,7 +290,7 @@
       }
     );
 
-    $scope.$watch(
+    var allocatedWatcher = $scope.$watch(
       function () {
         return ctrl.tableData.allocated.length;
       },
@@ -302,7 +302,7 @@
       }
     );
 
-    $scope.$watchCollection(
+    var imagesWatcher = $scope.$watchCollection(
       function () {
         return $scope.model.images;
       },
@@ -316,6 +316,15 @@
         });
       }
     );
+
+    // Explicitly remove watchers on desruction of this controller
+    $scope.$on('$destroy', function() {
+      newSpecWatcher();
+      maxInstancesWatcher();
+      instancesUsedWatcher();
+      allocatedWatcher();
+      imagesWatcher();
+    });
 
     // Initialize
     changeBootSource(ctrl.bootSourcesOptions[0].type);
