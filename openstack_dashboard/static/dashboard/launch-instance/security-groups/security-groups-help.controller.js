@@ -14,23 +14,23 @@
 (function () {
   'use strict';
 
+  angular
+    .module('hz.dashboard.launch-instance')
+    .controller('LaunchInstanceSecurityGroupsHelpController',
+      LaunchInstanceSecurityGroupsHelpController);
+
   /**
    * @ngdoc controller
    * @name hz.dashboard.launch-instance.LaunchInstanceSecurityGroupsHelpController
    * @description
    * Provide help for selection of security groups and key pairs.
    */
-  angular
-    .module('hz.dashboard.launch-instance')
-    .controller('LaunchInstanceSecurityGroupsHelpController',
-      LaunchInstanceSecurityGroupsHelpController);
-
   function LaunchInstanceSecurityGroupsHelpController() {
-    var vm = this;
+    var ctrl = this;
 
-    vm.title = gettext('Security Groups Help');
+    ctrl.title = gettext('Security Groups Help');
 
-    vm.paragraphs = [
+    ctrl.paragraphs = [
       /*eslint-disable max-len */
       gettext('Security groups define a set of IP filter rules that determine how network traffic flows to and from an instance. Users can add additional rules to an existing security group to further define the access options for an instance. To create additional rules, go to the <b>Compute | Access & Security</b> view, then find the security group and click <b>Manage Rules</b>.'),
       gettext('Security groups are project-specific and cannot be shared across projects.'),
