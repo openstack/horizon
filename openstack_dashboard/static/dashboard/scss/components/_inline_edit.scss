@@ -41,7 +41,7 @@ td.inline_edit_available div.table_cell_wrapper .table_cell_action button.ajax-i
     margin-top: 0px;
     *margin-right: .3em;
     line-height: 14px;
-    background-image: url($icons);
+    @if $icons != None { background-image: url($icons); }
     background-position: $x $y;
     background-repeat: no-repeat;
     position: absolute;
