@@ -466,7 +466,8 @@ class SetInstanceDetailsAction(workflows.Action):
     def populate_volume_id_choices(self, request, context):
         volumes = []
         try:
-            if base.is_service_enabled(request, 'volume'):
+            if (base.is_service_enabled(request, 'volume')
+                    or base.is_service_enabled(request, 'volumev2')):
                 available = api.cinder.VOLUME_STATE_AVAILABLE
                 volumes = [self._get_volume_display_name(v)
                            for v in cinder.volume_list(self.request,
@@ -483,7 +484,8 @@ class SetInstanceDetailsAction(workflows.Action):
     def populate_volume_snapshot_id_choices(self, request, context):
         snapshots = []
         try:
-            if base.is_service_enabled(request, 'volume'):
+            if (base.is_service_enabled(request, 'volume')
+                    or base.is_service_enabled(request, 'volumev2')):
                 available = api.cinder.VOLUME_STATE_AVAILABLE
                 snapshots = [self._get_volume_display_name(s)
                              for s in cinder.volume_snapshot_list(
