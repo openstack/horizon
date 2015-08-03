@@ -21,6 +21,8 @@ from openstack_dashboard.dashboards.admin.info import panel as info_panel
 from openstack_dashboard.test import helpers as test
 from openstack_dashboard.test.test_panels.plugin_panel \
     import panel as plugin_panel
+from openstack_dashboard.test.test_panels.nonloading_panel \
+    import panel as nonloading_panel
 from openstack_dashboard.test.test_plugins import panel_config
 from openstack_dashboard.utils import settings as util_settings
 
@@ -70,3 +72,8 @@ class PanelPluginTests(test.PluginTestCase):
     def test_default_panel(self):
         dashboard = horizon.get_dashboard("admin")
         self.assertEqual('defaults', dashboard.default_panel)
+
+    def test_panel_not_added(self):
+        dashboard = horizon.get_dashboard("admin")
+        self.assertNotIn(nonloading_panel.NonloadingPanel,
+                         [p.__class__ for p in dashboard.get_panels()])

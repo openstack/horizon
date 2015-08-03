@@ -17,14 +17,13 @@ from django.utils.translation import ugettext_lazy as _
 
 import horizon
 
-from openstack_dashboard.dashboards.admin import dashboard
-
 
 class Routers(horizon.Panel):
     name = _("Routers")
     slug = 'routers'
     permissions = ('openstack.services.network',)
 
-network_config = getattr(settings, 'OPENSTACK_NEUTRON_NETWORK', {})
-if network_config.get('enable_router', True):
-    dashboard.Admin.register(Routers)
+    @staticmethod
+    def can_register():
+        network_config = getattr(settings, 'OPENSTACK_NEUTRON_NETWORK', {})
+        return network_config.get('enable_router', True)

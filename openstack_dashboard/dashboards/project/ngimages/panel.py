@@ -16,13 +16,8 @@ from django.utils.translation import ugettext_lazy as _
 
 import horizon
 
-from openstack_dashboard.dashboards.project import dashboard
-
 
 class NGImages(horizon.Panel):
     name = _("Images")
     slug = 'ngimages'
     permissions = ('openstack.services.image',)
-
-
-dashboard.Project.register(NGImages)

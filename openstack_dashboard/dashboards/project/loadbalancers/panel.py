@@ -17,7 +17,6 @@ from django.utils.translation import ugettext_lazy as _
 import horizon
 
 from openstack_dashboard.api import neutron
-from openstack_dashboard.dashboards.project import dashboard
 
 LOG = logging.getLogger(__name__)
 
@@ -44,6 +43,3 @@ class LoadBalancer(horizon.Panel):
         if not super(LoadBalancer, self).allowed(context):
             return False
         return True
-
-
-dashboard.Project.register(LoadBalancer)

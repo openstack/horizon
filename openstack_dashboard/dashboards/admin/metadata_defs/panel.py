@@ -18,7 +18,6 @@ from django.utils.translation import ugettext_lazy as _
 import horizon
 
 from openstack_dashboard.api import glance
-from openstack_dashboard.dashboards.admin import dashboard
 
 
 class MetadataDefinitions(horizon.Panel):
@@ -26,6 +25,6 @@ class MetadataDefinitions(horizon.Panel):
     slug = 'metadata_defs'
     permissions = ('openstack.roles.admin',)
 
-
-if glance.VERSIONS.active >= 2:
-    dashboard.Admin.register(MetadataDefinitions)
+    @staticmethod
+    def can_register():
+        return glance.VERSIONS.active >= 2

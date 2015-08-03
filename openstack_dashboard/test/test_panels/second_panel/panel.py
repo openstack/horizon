@@ -16,3 +16,7 @@ import horizon
 class SecondPanel(horizon.Panel):
     name = "Second Plugin Panel"
     slug = 'second_panel'
+
+    @staticmethod
+    def can_register():
+        return True
