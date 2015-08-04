@@ -27,10 +27,10 @@ TEST = TestData(neutron_data.data)
 
 
 class NeutronNetworksTestCase(test.TestCase):
-    @classmethod
-    def setUpClass(cls):
-        cls._networks = [mock_factory(n)
-                         for n in TEST.api_networks.list()]
+    def setUp(self):
+        super(NeutronNetworksTestCase, self).setUp()
+        self._networks = [mock_factory(n)
+                          for n in TEST.api_networks.list()]
 
     @mock.patch.object(neutron.api, 'neutron')
     def test_get_list_for_tenant(self, client):
@@ -71,12 +71,12 @@ class NeutronNetworksTestCase(test.TestCase):
 
 
 class NeutronSubnetsTestCase(test.TestCase):
-    @classmethod
-    def setUpClass(cls):
-        cls._networks = [mock_factory(n)
-                         for n in TEST.api_networks.list()]
-        cls._subnets = [mock_factory(n)
-                        for n in TEST.api_subnets.list()]
+    def setUp(self):
+        super(NeutronSubnetsTestCase, self).setUp()
+        self._networks = [mock_factory(n)
+                          for n in TEST.api_networks.list()]
+        self._subnets = [mock_factory(n)
+                         for n in TEST.api_subnets.list()]
 
     @mock.patch.object(neutron.api, 'neutron')
     def test_get(self, client):
@@ -105,12 +105,12 @@ class NeutronSubnetsTestCase(test.TestCase):
 
 
 class NeutronPortsTestCase(test.TestCase):
-    @classmethod
-    def setUpClass(cls):
-        cls._networks = [mock_factory(n)
-                         for n in TEST.api_networks.list()]
-        cls._ports = [mock_factory(n)
-                      for n in TEST.api_ports.list()]
+    def setUp(self):
+        super(NeutronPortsTestCase, self).setUp()
+        self._networks = [mock_factory(n)
+                          for n in TEST.api_networks.list()]
+        self._ports = [mock_factory(n)
+                       for n in TEST.api_ports.list()]
 
     @mock.patch.object(neutron.api, 'neutron')
     def test_get(self, client):
