@@ -19,6 +19,7 @@
 import json
 import sys
 
+import django
 from django.conf import settings
 from django.core.urlresolvers import reverse
 from django.forms import widgets
@@ -3289,13 +3290,17 @@ class InstanceTests(helpers.TestCase):
                                  "Quota exceeded")
 
         res = self.client.get(INDEX_URL)
+        if django.VERSION < (1, 8, 0):
+            resp_charset = res._charset
+        else:
+            resp_charset = res.charset
         expected_string = encoding.smart_str(u'''
             <a href="%s" title="%s" class="%s disabled"
             data-update-url=
             "/project/instances/?action=launch&amp;table=instances"
             id="instances__action_launch">
             <span class="fa fa-cloud-upload"></span>%s</a>
-            ''' % (url, link_name, " ".join(classes), link_name), res._charset)
+            ''' % (url, link_name, " ".join(classes), link_name), resp_charset)
 
         self.assertContains(res, expected_string, html=True,
                             msg_prefix="The launch button is not disabled")
