@@ -18,14 +18,14 @@
   'use strict';
 
   angular
-    .module('horizon.openstack-service-api')
-    .factory('horizon.openstack-service-api.settings', settingsService);
+    .module('horizon.app.core.openstack-service-api')
+    .factory('horizon.app.core.openstack-service-api.settings', settingsService);
 
   settingsService.$inject = ['$q', 'horizon.framework.util.http.service'];
 
   /**
    * @ngdoc service
-   * @name horizon.openstack-service-api.settings
+   * @name horizon.app.core.openstack-service-api.settings
    * @description
    * Provides utilities to the cached settings data. This helps
    * with asynchronous data loading.
@@ -46,7 +46,7 @@
     var service = {};
 
     /**
-     * @name horizon.openstack-service-api.config.getSettings
+     * @name horizon.app.core.openstack-service-api.config.getSettings
      * @description
      * Gets all the allowed settings
      *
@@ -74,7 +74,7 @@
     };
 
     /**
-     * @name horizon.openstack-service-api.settings.getSetting
+     * @name horizon.app.core.openstack-service-api.settings.getSetting
      * @description
      * This retrieves a specific setting.
      *
@@ -143,7 +143,7 @@
     };
 
     /**
-     * @name horizon.openstack-service-api.settings.ifEnabled
+     * @name horizon.app.core.openstack-service-api.settings.ifEnabled
      * @description
      * Checks if the desired setting is enabled. This returns a promise.
      * If the setting is enabled, the promise will be resolved.

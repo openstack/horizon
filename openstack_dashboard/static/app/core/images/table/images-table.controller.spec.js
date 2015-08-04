@@ -35,13 +35,13 @@
 
     beforeEach(module('horizon.framework.util.http'));
     beforeEach(module('horizon.framework.widgets.toast'));
-    beforeEach(module('horizon.openstack-service-api'));
+    beforeEach(module('horizon.app.core.openstack-service-api'));
 
     beforeEach(module('horizon.app.core'));
     beforeEach(module('horizon.app.core.images'));
     beforeEach(inject(function($injector) {
 
-      glanceAPI = $injector.get('horizon.openstack-service-api.glance');
+      glanceAPI = $injector.get('horizon.app.core.openstack-service-api.glance');
       controller = $injector.get('$controller');
       staticUrl = $injector.get('$window').STATIC_URL;
 

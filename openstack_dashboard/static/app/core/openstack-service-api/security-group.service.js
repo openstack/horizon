@@ -16,21 +16,21 @@ limitations under the License.
 (function () {
   'use strict';
 
-  angular.module('horizon.openstack-service-api')
-    .service('horizon.openstack-service-api.security-group', SecurityGroupAPI);
+  angular.module('horizon.app.core.openstack-service-api')
+    .service('horizon.app.core.openstack-service-api.security-group', SecurityGroupAPI);
 
   SecurityGroupAPI.$inject = ['horizon.framework.util.http.service',
                               'horizon.framework.widgets.toast.service'];
 
   /**
    * @ngdoc service
-   * @name horizon.openstack-service-api.security-group
+   * @name horizon.app.core.openstack-service-api.security-group
    * @description Provides access to Security Groups
    */
   function SecurityGroupAPI(apiService, toastService) {
 
     /**
-     * @name horizon.openstack-service-api.security-group.list
+     * @name horizon.app.core.openstack-service-api.security-group.list
      * @description
      * Get a list of security groups.
      *

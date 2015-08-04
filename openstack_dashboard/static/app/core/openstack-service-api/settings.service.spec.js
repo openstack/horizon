@@ -32,14 +32,14 @@
     return responseMockOpts.succeed ? [200, testData, {}] : [500, 'Fail', {}];
   }
 
-  describe('horizon.openstack-service-api.settings', function () {
+  describe('horizon.app.core.openstack-service-api.settings', function () {
     var settingsService;
 
-    beforeEach(module('horizon.openstack-service-api'));
+    beforeEach(module('horizon.app.core.openstack-service-api'));
     beforeEach(module('horizon.framework.util.http'));
     beforeEach(inject(function (_$httpBackend_, $injector) {
       responseMockOpts.succeed = true;
-      settingsService = $injector.get('horizon.openstack-service-api.settings');
+      settingsService = $injector.get('horizon.app.core.openstack-service-api.settings');
       $httpBackend = _$httpBackend_;
       $httpBackend.whenGET('/api/settings/').respond(responseMockReturn);
       $httpBackend.expectGET('/api/settings/');

@@ -17,15 +17,15 @@
   'use strict';
 
   angular
-    .module('horizon.openstack-service-api')
-    .service('horizon.openstack-service-api.neutron', NeutronAPI);
+    .module('horizon.app.core.openstack-service-api')
+    .service('horizon.app.core.openstack-service-api.neutron', NeutronAPI);
 
   NeutronAPI.$inject = ['horizon.framework.util.http.service',
                         'horizon.framework.widgets.toast.service'];
 
   /**
    * @ngdoc service
-   * @name horizon.openstack-service-api.neutron
+   * @name horizon.app.core.openstack-service-api.neutron
    * @description Provides access to Neutron APIs.
    */
   function NeutronAPI(apiService, toastService) {
@@ -33,7 +33,7 @@
     // Networks
 
     /**
-     * @name horizon.openstack-service-api.neturonAPI.getNetworks
+     * @name horizon.app.core.openstack-service-api.neturonAPI.getNetworks
      * @description
      * Get a list of networks for a tenant.
      *
@@ -48,7 +48,7 @@
     };
 
     /**
-     * @name horizon.openstack-service-api.neutron.createNetwork
+     * @name horizon.app.core.openstack-service-api.neutron.createNetwork
      * @description
      * Create a new network.
      * @returns The new network object on success.
@@ -99,7 +99,7 @@
     // Subnets
 
     /**
-     * @name horizon.openstack-service-api.neutron.getSubnets
+     * @name horizon.app.core.openstack-service-api.neutron.getSubnets
      * @description
      * Get a list of subnets for a network.
      *
@@ -117,7 +117,7 @@
     };
 
     /**
-     * @name horizon.openstack-service-api.neutron.createSubnet
+     * @name horizon.app.core.openstack-service-api.neutron.createSubnet
      * @description
      * Create a Subnet for given Network.
      * @returns The JSON representation of Subnet on success.
@@ -183,7 +183,7 @@
     // Ports
 
     /**
-     * @name horizon.openstack-service-api.neutron.getPorts
+     * @name horizon.app.core.openstack-service-api.neutron.getPorts
      * @description
      * Get a list of ports for a network.
      *

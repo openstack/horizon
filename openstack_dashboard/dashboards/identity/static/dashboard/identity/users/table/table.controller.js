@@ -33,8 +33,8 @@
     'hz.dashboard.identity.basePath',
     'horizon.framework.widgets.toast.service',
     'horizon.framework.util.i18n.gettext',
-    'horizon.openstack-service-api.policy',
-    'horizon.openstack-service-api.keystone'
+    'horizon.app.core.openstack-service-api.policy',
+    'horizon.app.core.openstack-service-api.keystone'
   ];
 
   function identityUsersTableController(basepath, toast, gettext, policy, keystone) {

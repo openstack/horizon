@@ -17,19 +17,19 @@
 (function() {
   'use strict';
 
-  describe('Neutron API', function() {
+  describe('Glance API', function() {
     var service;
     var apiService = {};
     var toastService = {};
 
-    beforeEach(module('horizon.openstack-service-api'));
+    beforeEach(module('horizon.app.core.openstack-service-api'));
 
     beforeEach(module(function($provide) {
       window.apiTest.initServices($provide, apiService, toastService);
     }));
 
-    beforeEach(inject(['horizon.openstack-service-api.neutron', function(neutronAPI) {
-      service = neutronAPI;
+    beforeEach(inject(['horizon.app.core.openstack-service-api.glance', function(glanceAPI) {
+      service = glanceAPI;
     }]));
 
     it('defines the service', function() {
@@ -37,54 +37,60 @@
     });
 
     var tests = [
-
       {
-        "func": "getNetworks",
+        "func": "getImage",
         "method": "get",
-        "path": "/api/neutron/networks/",
-        "error": "Unable to retrieve the networks."
-      },
-      {
-        "func": "createNetwork",
-        "method": "post",
-        "path": "/api/neutron/networks/",
-        "data": "new net",
-        "error": "Unable to create the network.",
-        "testInput": [
-          "new net"
-        ]
-      },
-      {
-        "func": "getSubnets",
-        "method": "get",
-        "path": "/api/neutron/subnets/",
-        "data": 42,
-        "error": "Unable to retrieve the subnets.",
+        "path": "/api/glance/images/42",
+        "error": "Unable to retrieve the image.",
         "testInput": [
           42
         ]
       },
       {
-        "func": "createSubnet",
-        "method": "post",
-        "path": "/api/neutron/subnets/",
-        "data": "new subnet",
-        "error": "Unable to create the subnet.",
+        "func": "getImages",
+        "method": "get",
+        "path": "/api/glance/images/",
+        "data": {
+          "params": "config"
+        },
+        "error": "Unable to retrieve the images.",
         "testInput": [
-          "new subnet"
+          "config"
         ]
       },
       {
-        "func": "getPorts",
+        "func": "getImages",
         "method": "get",
-        "path": "/api/neutron/ports/",
-        "data": 42,
-        "error": "Unable to retrieve the ports.",
+        "path": "/api/glance/images/",
+        "data": {},
+        "error": "Unable to retrieve the images."
+      },
+      {
+        "func": "getNamespaces",
+        "method": "get",
+        "path": "/api/glance/metadefs/namespaces/",
+        "data": {
+          "params": {
+            "orig": true
+          },
+          "cache": true
+        },
+        "error": "Unable to retrieve the namespaces.",
         "testInput": [
-          42
+          {
+            "orig": true
+          }
         ]
+      },
+      {
+        "func": "getNamespaces",
+        "method": "get",
+        "path": "/api/glance/metadefs/namespaces/",
+        "data": {
+          "cache": true
+        },
+        "error": "Unable to retrieve the namespaces."
       }
-
     ];
 
     // Iterate through the defined tests and apply as Jasmine specs.
@@ -93,6 +99,11 @@
         var callParams = [apiService, service, toastService, params];
         window.apiTest.testCall.apply(this, callParams);
       });
+    });
+
+    it('supresses the error if instructed for getNamespaces', function() {
+      spyOn(apiService, 'get').and.returnValue("promise");
+      expect(service.getNamespaces("whatever", true)).toBe("promise");
     });
 
   });

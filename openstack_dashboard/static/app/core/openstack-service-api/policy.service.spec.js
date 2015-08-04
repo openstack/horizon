@@ -17,19 +17,19 @@
 (function() {
   'use strict';
 
-  describe('Cinder API', function() {
+  describe('Policy API', function() {
     var service;
     var apiService = {};
     var toastService = {};
 
-    beforeEach(module('horizon.openstack-service-api'));
+    beforeEach(module('horizon.app.core.openstack-service-api'));
 
     beforeEach(module(function($provide) {
       window.apiTest.initServices($provide, apiService, toastService);
     }));
 
-    beforeEach(inject(['horizon.openstack-service-api.cinder', function(cinderAPI) {
-      service = cinderAPI;
+    beforeEach(inject(['horizon.app.core.openstack-service-api.policy', function(policyAPI) {
+      service = policyAPI;
     }]));
 
     it('defines the service', function() {
@@ -37,31 +37,18 @@
     });
 
     var tests = [
-      { func: 'getVolumes',
-        method: 'get',
-        path: '/api/cinder/volumes/',
-        data: { params: 'config' },
-        error: 'Unable to retrieve the volumes.',
-        testInput: [ 'config' ] },
-
-      { func: 'getVolumes',
-        method: 'get',
-        path: '/api/cinder/volumes/',
-        data: {},
-        error: 'Unable to retrieve the volumes.' },
-
-      { func: 'getVolumeSnapshots',
-        method: 'get',
-        path: '/api/cinder/volumesnapshots/',
-        data: {},
-        error: 'Unable to retrieve the volume snapshots.' },
-
-      { func: 'getVolumeSnapshots',
-        method: 'get',
-        path: '/api/cinder/volumesnapshots/',
-        data: { params: 'config' },
-        error: 'Unable to retrieve the volume snapshots.',
-        testInput: [ 'config' ] } ] ;
+      {
+        "func": "check",
+        "method": "post",
+        "path": "/api/policy/",
+        "data": "rules",
+        "error": "Policy check failed.",
+        "testInput": [
+          "rules"
+        ],
+        "messageType": "warning"
+      }
+    ];
 
     // Iterate through the defined tests and apply as Jasmine specs.
     angular.forEach(tests, function(params) {

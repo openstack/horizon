@@ -15,22 +15,22 @@ limitations under the License.
   'use strict';
 
   angular
-    .module('horizon.openstack-service-api')
-    .service('horizon.openstack-service-api.policy', PolicyService);
+    .module('horizon.app.core.openstack-service-api')
+    .service('horizon.app.core.openstack-service-api.policy', PolicyService);
 
   PolicyService.$inject = ['horizon.framework.util.http.service',
                            'horizon.framework.widgets.toast.service'];
 
   /**
    * @ngdoc service
-   * @name horizon.openstack-service-api.policy
+   * @name horizon.app.core.openstack-service-api.policy
    * @description Provides a direct pass through to the policy engine in
    * Horizon.
    */
   function PolicyService(apiService, toastService) {
 
     /**
-     * @name horizon.openstack-service-api.policy.check
+     * @name horizon.app.core.openstack-service-api.policy.check
      * @description
      * Check the passed in policy rule list to determine if the user has
      * permission to perform the actions specified by the rules. The service

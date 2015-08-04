@@ -17,15 +17,15 @@ limitations under the License.
   'use strict';
 
   angular
-    .module('horizon.openstack-service-api')
-    .service('horizon.openstack-service-api.nova', NovaAPI);
+    .module('horizon.app.core.openstack-service-api')
+    .service('horizon.app.core.openstack-service-api.nova', NovaAPI);
 
   NovaAPI.$inject = ['horizon.framework.util.http.service',
                      'horizon.framework.widgets.toast.service'];
 
   /**
    * @ngdoc service
-   * @name horizon.openstack-service-api.nova
+   * @name horizon.app.core.openstack-service-api.nova
    * @description Provides access to Nova APIs.
    */
   function NovaAPI(apiService, toastService) {
@@ -33,7 +33,7 @@ limitations under the License.
     // Keypairs
 
     /**
-     * @name horizon.openstack-service-api.nova.getKeypairs
+     * @name horizon.app.core.openstack-service-api.nova.getKeypairs
      * @description
      * Get a list of keypairs.
      *
@@ -48,7 +48,7 @@ limitations under the License.
     };
 
     /**
-     * @name horizon.openstack-service-api.nova.createKeypair
+     * @name horizon.app.core.openstack-service-api.nova.createKeypair
      * @description
      * Create a new keypair.  This returns the new keypair object on success.
      *
@@ -75,7 +75,7 @@ limitations under the License.
     // Availability Zones
 
     /**
-     * @name horizon.openstack-service-api.nova.getAvailabilityZones
+     * @name horizon.app.core.openstack-service-api.nova.getAvailabilityZones
      * @description
      * Get a list of Availability Zones.
      *
@@ -93,7 +93,7 @@ limitations under the License.
     // Limits
 
     /**
-     * @name horizon.openstack-service-api.nova.getLimits
+     * @name horizon.app.core.openstack-service-api.nova.getLimits
      * @description
      * Returns current limits.
      *
@@ -131,7 +131,7 @@ limitations under the License.
     // Servers
 
     /**
-     * @name horizon.openstack-service-api.nova.createServer
+     * @name horizon.app.core.openstack-service-api.nova.createServer
      * @description
      * Create a server using the parameters supplied in the
      * newServer. The required parameters:
@@ -156,7 +156,7 @@ limitations under the License.
     };
 
     /**
-     * @name horizon.openstack-service-api.nova.getServer
+     * @name horizon.app.core.openstack-service-api.nova.getServer
      * @description
      * Get a single server by ID
      * @param {string} id
@@ -170,7 +170,7 @@ limitations under the License.
     };
 
     /**
-     * @name horizon.openstack-service-api.nova.getExtensions
+     * @name horizon.app.core.openstack-service-api.nova.getExtensions
      * @description
      * Returns a list of enabled extensions.
      *
@@ -200,7 +200,7 @@ limitations under the License.
     };
 
     /**
-     * @name horizon.openstack-service-api.nova.getFlavors
+     * @name horizon.app.core.openstack-service-api.nova.getFlavors
      * @description
      * Returns a list of flavors.
      *
@@ -245,7 +245,7 @@ limitations under the License.
     };
 
     /**
-     * @name horizon.openstack-service-api.nova.getFlavor
+     * @name horizon.app.core.openstack-service-api.nova.getFlavor
      * @description
      * Get a single flavor by ID.
      * @param {string} id
@@ -263,7 +263,7 @@ limitations under the License.
     };
 
     /**
-     * @name horizon.openstack-service-api.nova.getFlavorExtraSpecs
+     * @name horizon.app.core.openstack-service-api.nova.getFlavorExtraSpecs
      * @description
      * Get a single flavor's extra specs by ID.
      * @param {string} id
@@ -279,7 +279,7 @@ limitations under the License.
 
   /**
    * @ngdoc service
-   * @name horizon.openstack-service-api.novaExtensions
+   * @name horizon.app.core.openstack-service-api.novaExtensions
    * @description
    * Provides cached access to Nova Extensions with utilities to help
    * with asynchronous data loading. The cache may be reset at any time
@@ -291,16 +291,16 @@ limitations under the License.
    * this saved between 30 - 100 ms per request.
    */
   angular
-    .module('horizon.openstack-service-api')
-    .factory('horizon.openstack-service-api.novaExtensions', NovaExtensionsAPI);
+    .module('horizon.app.core.openstack-service-api')
+    .factory('horizon.app.core.openstack-service-api.novaExtensions', NovaExtensionsAPI);
 
   NovaExtensionsAPI.$inject = ['$cacheFactory',
                                '$q',
-                               'horizon.openstack-service-api.nova'];
+                               'horizon.app.core.openstack-service-api.nova'];
 
   function NovaExtensionsAPI($cacheFactory, $q, novaAPI) {
     var service = {};
-    service.cache = $cacheFactory('horizon.openstack-service-api.novaExtensions', {capacity: 1});
+    service.cache = $cacheFactory('horizon.app.core.openstack-service-api.novaExtensions', {capacity: 1});
 
     service.get = function () {
       return novaAPI.getExtensions({cache: service.cache})

@@ -22,13 +22,13 @@
     var apiService = {};
     var toastService = {};
 
-    beforeEach(module('horizon.openstack-service-api'));
+    beforeEach(module('horizon.app.core.openstack-service-api'));
 
     beforeEach(module(function($provide) {
       window.apiTest.initServices($provide, apiService, toastService);
     }));
 
-    beforeEach(inject(['horizon.openstack-service-api.nova', function(novaAPI) {
+    beforeEach(inject(['horizon.app.core.openstack-service-api.nova', function(novaAPI) {
       service = novaAPI;
     }]));
 
@@ -247,18 +247,18 @@
   describe("novaExtensions", function() {
     var factory, q, novaAPI;
 
-    beforeEach(module('horizon.openstack-service-api'));
+    beforeEach(module('horizon.app.core.openstack-service-api'));
 
     beforeEach(module(function($provide) {
       novaAPI = {getExtensions: function() {return {then: angular.noop};}};
       q = {defer: function() { return {resolve: angular.noop}; }};
       $provide.value('$cacheFactory', function() {return "cache";});
       $provide.value('$q', q);
-      $provide.value('horizon.openstack-service-api.nova', novaAPI);
+      $provide.value('horizon.app.core.openstack-service-api.nova', novaAPI);
     }));
 
     beforeEach(inject(function($injector) {
-      factory = $injector.get('horizon.openstack-service-api.novaExtensions');
+      factory = $injector.get('horizon.app.core.openstack-service-api.novaExtensions');
     }));
 
     it("is defined", function() {

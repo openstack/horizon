@@ -31,7 +31,7 @@
 
   ImagesTableController.$inject = [
     'horizon.app.core.images.basePath',
-    'horizon.openstack-service-api.glance'
+    'horizon.app.core.openstack-service-api.glance'
   ];
 
   function ImagesTableController(basepath, glance) {

@@ -28,14 +28,14 @@
    */
 
   module.factory('launchInstanceModel', ['$q', '$log',
-    'horizon.openstack-service-api.cinder',
-    'horizon.openstack-service-api.glance',
-    'horizon.openstack-service-api.keystone',
-    'horizon.openstack-service-api.neutron',
-    'horizon.openstack-service-api.nova',
-    'horizon.openstack-service-api.novaExtensions',
-    'horizon.openstack-service-api.security-group',
-    'horizon.openstack-service-api.serviceCatalog',
+    'horizon.app.core.openstack-service-api.cinder',
+    'horizon.app.core.openstack-service-api.glance',
+    'horizon.app.core.openstack-service-api.keystone',
+    'horizon.app.core.openstack-service-api.neutron',
+    'horizon.app.core.openstack-service-api.nova',
+    'horizon.app.core.openstack-service-api.novaExtensions',
+    'horizon.app.core.openstack-service-api.security-group',
+    'horizon.app.core.openstack-service-api.serviceCatalog',
 
     function ($q,
               $log,

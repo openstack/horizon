@@ -22,13 +22,13 @@
     var apiService = {};
     var toastService = {};
 
-    beforeEach(module('horizon.openstack-service-api'));
+    beforeEach(module('horizon.app.core.openstack-service-api'));
 
     beforeEach(module(function($provide) {
       window.apiTest.initServices($provide, apiService, toastService);
     }));
 
-    beforeEach(inject(['horizon.openstack-service-api.keystone', function(keystoneAPI) {
+    beforeEach(inject(['horizon.app.core.openstack-service-api.keystone', function(keystoneAPI) {
       service = keystoneAPI;
     }]));
 
@@ -391,15 +391,15 @@
   describe("userSession", function() {
     var factory, keystoneAPI;
 
-    beforeEach(module('horizon.openstack-service-api'));
+    beforeEach(module('horizon.app.core.openstack-service-api'));
 
     beforeEach(module(function($provide) {
       keystoneAPI = {getCurrentUserSession: angular.noop};
-      $provide.value('horizon.openstack-service-api.keystone', keystoneAPI);
+      $provide.value('horizon.app.core.openstack-service-api.keystone', keystoneAPI);
       $provide.value('$cacheFactory', function() { return 'cache'; });
     }));
 
-    beforeEach(inject(['horizon.openstack-service-api.userSession', function(userSession) {
+    beforeEach(inject(['horizon.app.core.openstack-service-api.userSession', function(userSession) {
       factory = userSession;
     }]));
 
@@ -439,13 +439,13 @@
   describe("serviceCatalog", function() {
     var factory, q, keystoneAPI, userSession, deferred;
 
-    beforeEach(module('horizon.openstack-service-api'));
+    beforeEach(module('horizon.app.core.openstack-service-api'));
 
     beforeEach(module(function($provide) {
       keystoneAPI = {serviceCatalog: angular.noop};
-      $provide.value('horizon.openstack-service-api.keystone', keystoneAPI);
+      $provide.value('horizon.app.core.openstack-service-api.keystone', keystoneAPI);
       userSession = {get: angular.noop};
-      $provide.value('horizon.openstack-service-api.userSession', userSession);
+      $provide.value('horizon.app.core.openstack-service-api.userSession', userSession);
       deferred = {promise: angular.noop, reject: angular.noop, resolve: angular.noop};
       q = {all: function() {return {then: angular.noop};},
            defer: function() { return deferred;}};
@@ -453,7 +453,7 @@
       $provide.value('$cacheFactory', function() { return 'cache'; });
     }));
 
-    beforeEach(inject(['horizon.openstack-service-api.serviceCatalog', function(serviceCatalog) {
+    beforeEach(inject(['horizon.app.core.openstack-service-api.serviceCatalog', function(serviceCatalog) {
       factory = serviceCatalog;
     }]));
 

@@ -47,7 +47,7 @@
     beforeEach(module('horizon.framework.util.http'));
     beforeEach(module('horizon.framework.util.i18n'));
     beforeEach(module('horizon.framework.widgets.toast'));
-    beforeEach(module('horizon.openstack-service-api'));
+    beforeEach(module('horizon.app.core.openstack-service-api'));
 
     beforeEach(module('hz.dashboard'));
     beforeEach(module('hz.dashboard.identity'));
@@ -55,8 +55,8 @@
     beforeEach(inject(function($injector) {
 
       toastService = $injector.get('horizon.framework.widgets.toast.service');
-      policyAPI = $injector.get('horizon.openstack-service-api.policy');
-      keystoneAPI = $injector.get('horizon.openstack-service-api.keystone');
+      policyAPI = $injector.get('horizon.app.core.openstack-service-api.policy');
+      keystoneAPI = $injector.get('horizon.app.core.openstack-service-api.keystone');
       controller = $injector.get('$controller');
       staticUrl = $injector.get('$window').STATIC_URL;
 
