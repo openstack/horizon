@@ -9,10 +9,10 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-07-28 12:34+0000\n"
-"PO-Revision-Date: 2015-07-24 20:13+0000\n"
+"POT-Creation-Date: 2015-08-04 04:10+0000\n"
+"PO-Revision-Date: 2015-08-04 00:51+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
-"Language-Team: English (United Kingdom) (http://www.transifex.com/projects/p/"
+"Language-Team: English (United Kingdom) (http://www.transifex.com/openstack/"
 "horizon/language/en_GB/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -116,9 +116,6 @@ msgstr "-"
 
 msgid "-- not selected --"
 msgstr "-- not selected --"
-
-msgid "1-4093 for VLAN; 5000 and above for Overlay"
-msgstr "1-4093 for VLAN; 5000 and above for Overlay"
 
 msgid "3des"
 msgstr "3des"
@@ -955,12 +952,6 @@ msgstr ""
 msgid "Cipher"
 msgstr "Cipher"
 
-msgid "Cisco Nexus 1000V"
-msgstr "Cisco Nexus 1000V"
-
-msgid "Cisco Nexus 1000v"
-msgstr "Cisco Nexus 1000v"
-
 msgid "Classless Inter-Domain Routing (e.g. 192.168.0.0/24)"
 msgstr "Classless Inter-Domain Routing (e.g. 192.168.0.0/24)"
 
@@ -1297,9 +1288,6 @@ msgstr "Create Network"
 
 msgid "Create Network (Quota exceeded)"
 msgstr "Create Network (Quota exceeded)"
-
-msgid "Create Network Profile"
-msgstr "Create Network Profile"
 
 msgid "Create Node Group Template"
 msgstr "Create Node Group Template"
@@ -2498,9 +2486,6 @@ msgstr "Edit Monitor"
 msgid "Edit Network"
 msgstr "Edit Network"
 
-msgid "Edit Network Profile"
-msgstr "Edit Network Profile"
-
 msgid "Edit Policy"
 msgstr "Edit Policy"
 
@@ -2632,9 +2617,6 @@ msgstr "Encryption algorithm"
 msgid "Engine Id"
 msgstr "Engine Id"
 
-msgid "Enhanced VXLAN"
-msgstr "Enhanced VXLAN"
-
 msgid "Enter a value for ICMP code in the range (-1: 255)"
 msgstr "Enter a value for ICMP code in the range (-1: 255)"
 
@@ -2653,9 +2635,6 @@ msgid ""
 msgstr ""
 "Enter an integer value between 1 and 65535. The same port will be used for "
 "all the selected members and can be modified later."
-
-msgid "Enter parameter (e.g. GRE)"
-msgstr "Enter parameter (e.g. GRE)"
 
 msgid "Environment Data"
 msgstr "Environment Data"
@@ -2937,10 +2916,6 @@ msgid "Failed to create network %s"
 msgstr "Failed to create network %s"
 
 #, python-format
-msgid "Failed to create network profile %s"
-msgstr "Failed to create network profile %s"
-
-#, python-format
 msgid "Failed to create router \"%s\"."
 msgstr "Failed to create router \"%s\"."
 
@@ -2965,10 +2940,6 @@ msgstr "Failed to delete network \"%s\""
 #, python-format
 msgid "Failed to delete network %s"
 msgstr "Failed to delete network %s"
-
-#, python-format
-msgid "Failed to delete network profile (%s)."
-msgstr "Failed to delete network profile (%s)."
 
 #, python-format
 msgid "Failed to delete port %s"
@@ -3064,9 +3035,6 @@ msgstr ""
 "Failed to modify %s project members, update project groups and update "
 "project quotas."
 
-msgid "Failed to obtain network profile binding"
-msgstr "Failed to obtain network profile binding"
-
 #, python-format
 msgid ""
 "Failed to perform requested operation on instance \"%s\", the instance has "
@@ -3148,10 +3116,6 @@ msgstr "Failed to update member %s"
 #, python-format
 msgid "Failed to update network %s"
 msgstr "Failed to update network %s"
-
-#, python-format
-msgid "Failed to update network profile (%s)."
-msgstr "Failed to update network profile (%s)."
 
 #, python-format
 msgid "Failed to update policy %(name)s: %(reason)s"
@@ -4374,12 +4338,6 @@ msgstr "Monitors"
 msgid "Month to date"
 msgstr "Month to date"
 
-msgid "Multicast IP Range"
-msgstr "Multicast IP Range"
-
-msgid "Multicast IPv4 range(e.g. 224.0.1.0-224.0.1.100)"
-msgstr "Multicast IPv4 range(e.g. 224.0.1.0-224.0.1.100)"
-
 msgid "Must specify start of period"
 msgstr "Must specify start of period"
 
@@ -4430,9 +4388,6 @@ msgstr "Namespace Overview"
 msgid "Namespaces"
 msgstr "Namespaces"
 
-msgid "Native VXLAN"
-msgstr "Native VXLAN"
-
 msgid "Network"
 msgstr "Network"
 
@@ -4468,14 +4423,6 @@ msgstr "Network Name"
 
 msgid "Network Profile"
 msgstr "Network Profile"
-
-#, python-format
-msgid "Network Profile %s was successfully created."
-msgstr "Network Profile %s was successfully created."
-
-#, python-format
-msgid "Network Profile %s was successfully updated."
-msgstr "Network Profile %s was successfully updated."
 
 msgid "Network Profiles could not be retrieved."
 msgstr "Network Profiles could not be retrieved."
@@ -4873,9 +4820,6 @@ msgstr "Other Protocol"
 msgid "Output"
 msgstr "Output"
 
-msgid "Overlay"
-msgstr "Overlay"
-
 msgid "Overview"
 msgstr "Overview"
 
@@ -5012,9 +4956,6 @@ msgstr "Persist cluster after job exit"
 msgid "Physical Network"
 msgstr "Physical Network"
 
-msgid "Physical Network Name"
-msgstr "Physical Network Name"
-
 msgid "Pig"
 msgstr "Pig"
 
@@ -5060,9 +5001,6 @@ msgstr "Policy"
 #, python-format
 msgid "Policy %s was successfully updated."
 msgstr "Policy %s was successfully updated."
-
-msgid "Policy Profile"
-msgstr "Policy Profile"
 
 msgid "Policy Profiles"
 msgstr "Policy Profiles"
@@ -5193,9 +5131,6 @@ msgstr "Project Usage"
 
 msgid "Projects"
 msgstr "Projects"
-
-msgid "Projects could not be retrieved."
-msgstr "Projects could not be retrieved."
 
 msgid "Projects:"
 msgstr "Projects:"
@@ -5891,12 +5826,6 @@ msgstr "Security Group Rules"
 msgid "Security Groups"
 msgstr "Security Groups"
 
-msgid "Segment Range"
-msgstr "Segment Range"
-
-msgid "Segment Type"
-msgstr "Segment Type"
-
 msgid "Segmentation ID"
 msgstr "Segmentation ID"
 
@@ -6484,12 +6413,6 @@ msgstr "Storage type"
 
 msgid "Streaming MapReduce"
 msgstr "Streaming MapReduce"
-
-msgid "Sub Type"
-msgstr "Sub Type"
-
-msgid "Sub Type Value (Manual Input)"
-msgstr "Sub Type Value (Manual Input)"
 
 msgid "Subnet"
 msgstr "Subnet"
@@ -7101,9 +7024,6 @@ msgstr "Transfer Name"
 
 msgid "Transform Protocol"
 msgstr "Transform Protocol"
-
-msgid "Trunk"
-msgstr "Trunk"
 
 msgid "Type"
 msgstr "Type"
@@ -8047,9 +7967,6 @@ msgstr "Unable to retrieve namespace details."
 msgid "Unable to retrieve network details."
 msgstr "Unable to retrieve network details."
 
-msgid "Unable to retrieve network profile details."
-msgstr "Unable to retrieve network profile details."
-
 msgid "Unable to retrieve network quota information."
 msgstr "Unable to retrieve network quota information."
 
@@ -8533,9 +8450,6 @@ msgstr "Update Metadata"
 
 msgid "Update Network"
 msgstr "Update Network"
-
-msgid "Update Network Profile"
-msgstr "Update Network Profile"
 
 msgid "Update Object"
 msgstr "Update Object"

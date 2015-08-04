@@ -18,10 +18,10 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-07-28 12:34+0000\n"
-"PO-Revision-Date: 2015-07-26 12:52+0000\n"
+"POT-Creation-Date: 2015-08-04 04:10+0000\n"
+"PO-Revision-Date: 2015-08-04 00:51+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
-"Language-Team: Chinese (China) (http://www.transifex.com/projects/p/horizon/"
+"Language-Team: Chinese (China) (http://www.transifex.com/openstack/horizon/"
 "language/zh_CN/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -125,9 +125,6 @@ msgstr "-"
 
 msgid "-- not selected --"
 msgstr "-- 未选择 --"
-
-msgid "1-4093 for VLAN; 5000 and above for Overlay"
-msgstr "VLAn是1-4093; Overlay是5000及以上"
 
 msgid "3des"
 msgstr "3des"
@@ -966,12 +963,6 @@ msgstr ""
 msgid "Cipher"
 msgstr "Cipher"
 
-msgid "Cisco Nexus 1000V"
-msgstr "Cisco Nexus 1000V"
-
-msgid "Cisco Nexus 1000v"
-msgstr "Cisco Nexus 1000v"
-
 msgid "Classless Inter-Domain Routing (e.g. 192.168.0.0/24)"
 msgstr "无类别域间路由(e.g. 192.168.0.0/24)"
 
@@ -1312,9 +1303,6 @@ msgstr "创建网络"
 
 msgid "Create Network (Quota exceeded)"
 msgstr "创建网络 (配额用尽)"
-
-msgid "Create Network Profile"
-msgstr "创建网络配置概要"
 
 msgid "Create Node Group Template"
 msgstr "创建节点组模板"
@@ -1887,10 +1875,6 @@ msgid "Delete Network"
 msgid_plural "Delete Networks"
 msgstr[0] "删除网络"
 
-msgid "Delete Network Profile"
-msgid_plural "Delete Network Profiles"
-msgstr[0] "删除网络配置概要"
-
 msgid "Delete Object"
 msgid_plural "Delete Objects"
 msgstr[0] "删除对象"
@@ -2087,10 +2071,6 @@ msgstr[0] "删除命名空间"
 msgid "Deleted Network"
 msgid_plural "Deleted Networks"
 msgstr[0] "已删除的网络"
-
-msgid "Deleted Network Profile"
-msgid_plural "Deleted Network Profiles"
-msgstr[0] "已删除的网络配置概要"
 
 msgid "Deleted Object"
 msgid_plural "Deleted Objects"
@@ -2538,9 +2518,6 @@ msgstr "编辑监控"
 msgid "Edit Network"
 msgstr "编辑网络"
 
-msgid "Edit Network Profile"
-msgstr "编辑网络配置概要"
-
 msgid "Edit Node Group Template"
 msgstr "编辑节点组模板"
 
@@ -2670,9 +2647,6 @@ msgstr "加密算法"
 msgid "Engine Id"
 msgstr "Engine Id"
 
-msgid "Enhanced VXLAN"
-msgstr "增强VXLAN"
-
 msgid "Enter a value for ICMP code in the range (-1: 255)"
 msgstr "请输入ICMP代码范围 (-1: 255)"
 
@@ -2690,9 +2664,6 @@ msgid ""
 "all the selected members and can be modified later."
 msgstr ""
 "请输入一个1到65535的整数.同一端口将用于所有选定的成员，可以稍后进行修改."
-
-msgid "Enter parameter (e.g. GRE)"
-msgstr "输入参数(例如GRE)"
 
 msgid "Environment Data"
 msgstr "环境数据"
@@ -2969,10 +2940,6 @@ msgid "Failed to create network %s"
 msgstr "创建网络 %s 失败"
 
 #, python-format
-msgid "Failed to create network profile %s"
-msgstr "创建网络配置概要 %s 失败。"
-
-#, python-format
 msgid "Failed to create router \"%s\"."
 msgstr "新建路由\"%s\"失败"
 
@@ -2996,10 +2963,6 @@ msgstr "删除网络失败\"%s\""
 #, python-format
 msgid "Failed to delete network %s"
 msgstr "网络 %s 删除失败。"
-
-#, python-format
-msgid "Failed to delete network profile (%s)."
-msgstr "删除网络概要(%s)失败"
 
 #, python-format
 msgid "Failed to delete port %s"
@@ -3090,9 +3053,6 @@ msgid ""
 "project quotas."
 msgstr "无法修改 %s 项目成员，更新项目组和项目配额。"
 
-msgid "Failed to obtain network profile binding"
-msgstr "获取网络简况绑定失败"
-
 #, python-format
 msgid ""
 "Failed to perform requested operation on instance \"%s\", the instance has "
@@ -3172,10 +3132,6 @@ msgstr "无法更新成员 %s。"
 #, python-format
 msgid "Failed to update network %s"
 msgstr "网络 %s 更新失败。"
-
-#, python-format
-msgid "Failed to update network profile (%s)."
-msgstr "网络配置概要  更新失败 (%s)。"
 
 #, python-format
 msgid "Failed to update policy %(name)s: %(reason)s"
@@ -4383,12 +4339,6 @@ msgstr "监控"
 msgid "Month to date"
 msgstr "月累计"
 
-msgid "Multicast IP Range"
-msgstr "组播IP范围"
-
-msgid "Multicast IPv4 range(e.g. 224.0.1.0-224.0.1.100)"
-msgstr "多播IPv4范围(例如 224.0.1.0-224.0.1.100)"
-
 msgid "Must specify start of period"
 msgstr "必须指定起始时间段"
 
@@ -4437,9 +4387,6 @@ msgstr "命名空间概况"
 msgid "Namespaces"
 msgstr "命名空间"
 
-msgid "Native VXLAN"
-msgstr " 原生VXLAN"
-
 msgid "Network"
 msgstr "网络"
 
@@ -4475,14 +4422,6 @@ msgstr "网络名称"
 
 msgid "Network Profile"
 msgstr "网络配置概要"
-
-#, python-format
-msgid "Network Profile %s was successfully created."
-msgstr "成功创建 %s 网络配置概要。"
-
-#, python-format
-msgid "Network Profile %s was successfully updated."
-msgstr "网络配置概要 %s 更新成功。"
 
 msgid "Network Profiles could not be retrieved."
 msgstr "无法获取网络配置概要"
@@ -4891,9 +4830,6 @@ msgstr "其他协议"
 msgid "Output"
 msgstr "输出"
 
-msgid "Overlay"
-msgstr "覆盖"
-
 msgid "Overview"
 msgstr "概况"
 
@@ -5026,9 +4962,6 @@ msgstr "任务退出后保留集群"
 msgid "Physical Network"
 msgstr "物理网络"
 
-msgid "Physical Network Name"
-msgstr "物理网络名称"
-
 msgid "Pig"
 msgstr "Pig"
 
@@ -5074,9 +5007,6 @@ msgstr "策略"
 #, python-format
 msgid "Policy %s was successfully updated."
 msgstr "策略 %s 被成功更新。"
-
-msgid "Policy Profile"
-msgstr "策略概要"
 
 msgid "Policy Profiles"
 msgstr "策略概要"
@@ -5210,9 +5140,6 @@ msgstr "项目名已使用。请使用一个不同的名字。"
 
 msgid "Projects"
 msgstr "项目"
-
-msgid "Projects could not be retrieved."
-msgstr "无法获取项目。"
 
 msgid "Projects:"
 msgstr "项目："
@@ -5906,12 +5833,6 @@ msgstr "安全组规则"
 msgid "Security Groups"
 msgstr "安全组"
 
-msgid "Segment Range"
-msgstr "段范围"
-
-msgid "Segment Type"
-msgstr "段类型"
-
 msgid "Segmentation ID"
 msgstr "段ID"
 
@@ -6502,12 +6423,6 @@ msgstr "存储类型"
 msgid "Streaming MapReduce"
 msgstr "MapReduce流"
 
-msgid "Sub Type"
-msgstr "子类型"
-
-msgid "Sub Type Value (Manual Input)"
-msgstr "子类型值(手动输入)"
-
 msgid "Subnet"
 msgstr "子网"
 
@@ -7086,9 +7001,6 @@ msgstr "迁移名称"
 
 msgid "Transform Protocol"
 msgstr "转换协议"
-
-msgid "Trunk"
-msgstr "分支"
 
 msgid "Type"
 msgstr "类型"
@@ -8070,9 +7982,6 @@ msgstr "无法检索到命名空间细节。"
 msgid "Unable to retrieve network details."
 msgstr "无法获取wangluo详情"
 
-msgid "Unable to retrieve network profile details."
-msgstr "无法获取网络配置概要的详细信息。"
-
 msgid "Unable to retrieve network quota information."
 msgstr "无法获取网络配额信息。"
 
@@ -8565,9 +8474,6 @@ msgstr "更新元数据"
 
 msgid "Update Network"
 msgstr "更新网络"
-
-msgid "Update Network Profile"
-msgstr "更新网络配置概要"
 
 msgid "Update Object"
 msgstr "更新对象"

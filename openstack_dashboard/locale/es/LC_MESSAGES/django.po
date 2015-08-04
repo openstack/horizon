@@ -16,10 +16,10 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-07-28 12:34+0000\n"
-"PO-Revision-Date: 2015-07-24 20:13+0000\n"
+"POT-Creation-Date: 2015-08-04 04:10+0000\n"
+"PO-Revision-Date: 2015-08-04 00:51+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
-"Language-Team: Spanish (http://www.transifex.com/projects/p/horizon/language/"
+"Language-Team: Spanish (http://www.transifex.com/openstack/horizon/language/"
 "es/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -125,9 +125,6 @@ msgstr "-"
 
 msgid "-- not selected --"
 msgstr "-- no seleccionado --"
-
-msgid "1-4093 for VLAN; 5000 and above for Overlay"
-msgstr "1-4093 para VLAN; igual o mayor a 5000 para Overlay"
 
 msgid "3des"
 msgstr "3des"
@@ -986,12 +983,6 @@ msgstr ""
 msgid "Cipher"
 msgstr "Cifrado"
 
-msgid "Cisco Nexus 1000V"
-msgstr "Cisco Nexus 1000v"
-
-msgid "Cisco Nexus 1000v"
-msgstr "Cisco Nexus 1000v"
-
 msgid "Classless Inter-Domain Routing (e.g. 192.168.0.0/24)"
 msgstr "Classless Inter-Domain Routing (p. ej. 192.168.0.0/24)"
 
@@ -1331,9 +1322,6 @@ msgstr "Crear red"
 
 msgid "Create Network (Quota exceeded)"
 msgstr "Crear Red (Cuota superada)"
-
-msgid "Create Network Profile"
-msgstr "Crear perfil de red"
 
 msgid "Create Node Group Template"
 msgstr "Crear Plantilla de Agrupación de Nodos"
@@ -2325,9 +2313,6 @@ msgstr "Editar monitor"
 msgid "Edit Network"
 msgstr "Editar red"
 
-msgid "Edit Network Profile"
-msgstr "Editar perfil de red"
-
 msgid "Edit Node Group Template"
 msgstr "Editar Plantilla del Grupo de Nodo"
 
@@ -2452,9 +2437,6 @@ msgstr "Algoritmo de cifrado"
 msgid "Engine Id"
 msgstr "Identificación del motor"
 
-msgid "Enhanced VXLAN"
-msgstr "VXLAN mejorada"
-
 msgid "Enter a value for ICMP code in the range (-1: 255)"
 msgstr "Introduzca un valor para el código ICMP en el rango (-1:255)"
 
@@ -2473,9 +2455,6 @@ msgid ""
 msgstr ""
 "Introduzca un valor entero entre 1 y 65535. Se utilizará el mismo puerto "
 "para todos los miembros seleccionados y podrá ser modificado más tarde."
-
-msgid "Enter parameter (e.g. GRE)"
-msgstr "Introduzca parámetro (por ejemplo GRE)"
 
 msgid "Environment Data"
 msgstr "Datos de Entorno"
@@ -2762,10 +2741,6 @@ msgid "Failed to create network %s"
 msgstr "Ha ocurrido un fallo al crear red %s"
 
 #, python-format
-msgid "Failed to create network profile %s"
-msgstr "Ha habido un fallo al crear el perfil de red %s"
-
-#, python-format
 msgid "Failed to create router \"%s\"."
 msgstr "Ha ocurrido un fallo al crear el router \"%s\"."
 
@@ -2791,10 +2766,6 @@ msgstr "Ha ocurrido un fallo al borrar la red \"%s\""
 #, python-format
 msgid "Failed to delete network %s"
 msgstr "Ha habido un fallo al eliminar red %s"
-
-#, python-format
-msgid "Failed to delete network profile (%s)."
-msgstr "Ha ocurrido un fallo al eliminar el perfil de red (%s)."
 
 #, python-format
 msgid "Failed to delete port %s"
@@ -2895,9 +2866,6 @@ msgstr ""
 "Ha habido un fallo al modificar %s miembros del proyecto, actualizar los "
 "grupos del proyecto y actualizar las cuotas del proyecto."
 
-msgid "Failed to obtain network profile binding"
-msgstr "Ha ocurrido un fallo al obtener la vinculación al perfil de red"
-
 #, python-format
 msgid ""
 "Failed to perform requested operation on instance \"%s\", the instance has "
@@ -2988,10 +2956,6 @@ msgstr "Ha ocurrido un fallo al actualizar el miembro %s"
 #, python-format
 msgid "Failed to update network %s"
 msgstr "Ha habido un fallo al actualizar la red %s"
-
-#, python-format
-msgid "Failed to update network profile (%s)."
-msgstr "Ha habido un fallo al actualizar perfil de red (%s)."
 
 #, python-format
 msgid "Failed to update policy %(name)s: %(reason)s"
@@ -4209,12 +4173,6 @@ msgstr "Monitores"
 msgid "Month to date"
 msgstr "Mes a datar"
 
-msgid "Multicast IP Range"
-msgstr "Rango de IP multicast"
-
-msgid "Multicast IPv4 range(e.g. 224.0.1.0-224.0.1.100)"
-msgstr "rango multicast IPV4 (e.g. 224.0.1.0 - 224.0.1.100)"
-
 msgid "Must specify start of period"
 msgstr "Debe especificar el inicio del periodo"
 
@@ -4266,9 +4224,6 @@ msgstr "Vista general de Espacios de Nombres"
 msgid "Namespaces"
 msgstr "Espacios de Nombres"
 
-msgid "Native VXLAN"
-msgstr "VXLAN nativa"
-
 msgid "Network"
 msgstr "Red"
 
@@ -4304,14 +4259,6 @@ msgstr "Nombre de la red"
 
 msgid "Network Profile"
 msgstr "Perfil de red"
-
-#, python-format
-msgid "Network Profile %s was successfully created."
-msgstr "Se ha creado correctamente el perfil de red %s."
-
-#, python-format
-msgid "Network Profile %s was successfully updated."
-msgstr "Se ha actualizado correctamente el perfil de red %s."
 
 msgid "Network Profiles could not be retrieved."
 msgstr "No ha sido posible obtener la lista de perfiles de red."
@@ -4729,9 +4676,6 @@ msgstr "Otro protocolo"
 msgid "Output"
 msgstr "Salida"
 
-msgid "Overlay"
-msgstr "Overlay"
-
 msgid "Overview"
 msgstr "Vista general"
 
@@ -4860,9 +4804,6 @@ msgstr "Mantener clúster después de la finalización del trabajo"
 msgid "Physical Network"
 msgstr "Red física"
 
-msgid "Physical Network Name"
-msgstr "Nombre de la red física"
-
 msgid "Pig"
 msgstr "Pig"
 
@@ -4908,9 +4849,6 @@ msgstr "Política"
 #, python-format
 msgid "Policy %s was successfully updated."
 msgstr "La política %s se ha actualizado correctamente."
-
-msgid "Policy Profile"
-msgstr "Perfil de la política"
 
 msgid "Policy Profiles"
 msgstr "Perfiles de la política."
@@ -5044,9 +4982,6 @@ msgstr "El nombre del proyecto ya existe. Por favor utilice uno diferente."
 
 msgid "Projects"
 msgstr "Proyectos"
-
-msgid "Projects could not be retrieved."
-msgstr "No ha sido posible obtener los proyectos."
 
 msgid "Projects:"
 msgstr "Proyectos:"
@@ -5684,12 +5619,6 @@ msgstr "Reglas del grupo de seguridad"
 msgid "Security Groups"
 msgstr "Grupos de seguridad"
 
-msgid "Segment Range"
-msgstr "Rango de segmentos"
-
-msgid "Segment Type"
-msgstr "Tipo de segmento"
-
 msgid "Segmentation ID"
 msgstr "ID de segmentación"
 
@@ -6276,12 +6205,6 @@ msgstr "Tipo de almacenamiento"
 
 msgid "Streaming MapReduce"
 msgstr "Flujo MapReduce"
-
-msgid "Sub Type"
-msgstr "Subtipo"
-
-msgid "Sub Type Value (Manual Input)"
-msgstr "Valor subtipo (Entrada manual)"
 
 msgid "Subnet"
 msgstr "Subred"
@@ -6883,9 +6806,6 @@ msgstr "Transferir Nombre"
 
 msgid "Transform Protocol"
 msgstr "Protocolo de transformación"
-
-msgid "Trunk"
-msgstr "Trunk"
 
 msgid "Type"
 msgstr "Tipo"
@@ -7908,9 +7828,6 @@ msgstr "No ha sido posible recuperar los detalles del namespace"
 msgid "Unable to retrieve network details."
 msgstr "No ha sido posible obtener los detalles de la red."
 
-msgid "Unable to retrieve network profile details."
-msgstr "No ha sido posible obtener los detalles del perfil de la red."
-
 msgid "Unable to retrieve network quota information."
 msgstr "No ha sido posible obtener la información de la cuota de la red."
 
@@ -8405,9 +8322,6 @@ msgstr "Actualizar metadatos"
 
 msgid "Update Network"
 msgstr "Actualizar red"
-
-msgid "Update Network Profile"
-msgstr "Actualizar perfil de red"
 
 msgid "Update Object"
 msgstr "Actualizar objeto"

@@ -16,10 +16,10 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-07-28 12:34+0000\n"
-"PO-Revision-Date: 2015-07-30 16:27+0000\n"
-"Last-Translator: Ilya Shakhat <shakhat@gmail.com>\n"
-"Language-Team: Russian (http://www.transifex.com/projects/p/horizon/language/"
+"POT-Creation-Date: 2015-08-04 04:10+0000\n"
+"PO-Revision-Date: 2015-08-04 00:51+0000\n"
+"Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
+"Language-Team: Russian (http://www.transifex.com/openstack/horizon/language/"
 "ru/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -127,9 +127,6 @@ msgstr "-"
 
 msgid "-- not selected --"
 msgstr "-- не выбран --"
-
-msgid "1-4093 for VLAN; 5000 and above for Overlay"
-msgstr "1-4093 для VLAN; 5000 и больше для Overlay"
 
 msgid "3des"
 msgstr "3des"
@@ -983,12 +980,6 @@ msgstr ""
 msgid "Cipher"
 msgstr "Шифр"
 
-msgid "Cisco Nexus 1000V"
-msgstr "Cisco Nexus 1000V"
-
-msgid "Cisco Nexus 1000v"
-msgstr "Cisco Nexus 1000v"
-
 msgid "Classless Inter-Domain Routing (e.g. 192.168.0.0/24)"
 msgstr "CIDR (т.е. 192.168.0.0/24)"
 
@@ -1339,9 +1330,6 @@ msgstr "Создать сеть"
 
 msgid "Create Network (Quota exceeded)"
 msgstr "Создать сеть (превышена квота)"
-
-msgid "Create Network Profile"
-msgstr "Создать Сетевой профиль"
 
 msgid "Create Node Group Template"
 msgstr "Создать шаблон узла группы"
@@ -1990,13 +1978,6 @@ msgstr[1] "Удалить пространства имен"
 msgstr[2] ""
 msgstr[3] "Удалить пространства имен"
 
-msgid "Delete Network Profile"
-msgid_plural "Delete Network Profiles"
-msgstr[0] "Удалить профиль сети"
-msgstr[1] "Удалить профили сети"
-msgstr[2] ""
-msgstr[3] "Удалить профили сети"
-
 msgid "Delete Object"
 msgid_plural "Delete Objects"
 msgstr[0] "Удалить объект"
@@ -2302,13 +2283,6 @@ msgstr[0] "Сеть удалена"
 msgstr[1] "Сети удалены"
 msgstr[2] ""
 msgstr[3] "Сети удалены"
-
-msgid "Deleted Network Profile"
-msgid_plural "Deleted Network Profiles"
-msgstr[0] "Профиль сети удален"
-msgstr[1] "Профили сети удалены"
-msgstr[2] ""
-msgstr[3] "Профили сети удалены"
 
 msgid "Deleted Object"
 msgid_plural "Deleted Objects"
@@ -2815,9 +2789,6 @@ msgstr "Редактировать монитор"
 msgid "Edit Network"
 msgstr "Редактировать сеть"
 
-msgid "Edit Network Profile"
-msgstr "Редактировать Сетевой профиль"
-
 msgid "Edit Policy"
 msgstr "Редактировать политику"
 
@@ -2957,9 +2928,6 @@ msgstr "Алгоритм шифрования"
 msgid "Engine Id"
 msgstr "ID движка"
 
-msgid "Enhanced VXLAN"
-msgstr "Расширенный VXLAN"
-
 msgid "Enter a value for ICMP code in the range (-1: 255)"
 msgstr "Введите значение кода ICMP из диапазона (-1:255)"
 
@@ -2979,9 +2947,6 @@ msgid ""
 msgstr ""
 "Ввести целое значение между 1 и 65535. Тот же порт будет использован для "
 "всех выбранных участников и может быть изменен позже."
-
-msgid "Enter parameter (e.g. GRE)"
-msgstr "Ввести параметр (напр. GRE)"
 
 msgid "Environment Data"
 msgstr "Данные среды"
@@ -3262,10 +3227,6 @@ msgid "Failed to create network %s"
 msgstr "Не удалось создать сеть %s"
 
 #, python-format
-msgid "Failed to create network profile %s"
-msgstr "Не удалось создать сетевой профиль %s"
-
-#, python-format
 msgid "Failed to create router \"%s\"."
 msgstr "Не удалось создать маршрутизатор \"%s\"."
 
@@ -3290,10 +3251,6 @@ msgstr "Неудалось удалить сеть \"%s\""
 #, python-format
 msgid "Failed to delete network %s"
 msgstr "Не удалось удалить сеть %s"
-
-#, python-format
-msgid "Failed to delete network profile (%s)."
-msgstr "Не удалось удалить Сетевой профиль (%s)."
 
 #, python-format
 msgid "Failed to delete port %s"
@@ -3390,9 +3347,6 @@ msgstr ""
 "Не удалось изменить пользователей %s в проекте, обновить группы и квоты "
 "проекта."
 
-msgid "Failed to obtain network profile binding"
-msgstr "Не удалось получить сетевой профиль связывания."
-
 #, python-format
 msgid ""
 "Failed to perform requested operation on instance \"%s\", the instance has "
@@ -3478,10 +3432,6 @@ msgstr "Неудалось обновить участника %s"
 #, python-format
 msgid "Failed to update network %s"
 msgstr "Не удалось обновить сеть %s"
-
-#, python-format
-msgid "Failed to update network profile (%s)."
-msgstr "Не удалось обновить профиль сети (%s)."
 
 #, python-format
 msgid "Failed to update policy %(name)s: %(reason)s"
@@ -4738,12 +4688,6 @@ msgstr "Мониторы"
 msgid "Month to date"
 msgstr "Месяц до текущего дня"
 
-msgid "Multicast IP Range"
-msgstr "Multicast диапазон"
-
-msgid "Multicast IPv4 range(e.g. 224.0.1.0-224.0.1.100)"
-msgstr "Диапазон Multicast IPv4 (напр. 224.0.1.0-224.0.1.100)"
-
 msgid "Must specify start of period"
 msgstr "Необходимо указать начало периода"
 
@@ -4795,9 +4739,6 @@ msgstr "Обзор пространств имен"
 msgid "Namespaces"
 msgstr "Пространства Имён"
 
-msgid "Native VXLAN"
-msgstr "Родной VXLAN"
-
 msgid "Network"
 msgstr "Сеть"
 
@@ -4833,14 +4774,6 @@ msgstr "Название сети"
 
 msgid "Network Profile"
 msgstr "Профиль сети"
-
-#, python-format
-msgid "Network Profile %s was successfully created."
-msgstr "Сетевой профиль %s был успешно создан."
-
-#, python-format
-msgid "Network Profile %s was successfully updated."
-msgstr "Сетевой профиль %s был успешно обновлен."
 
 msgid "Network Profiles could not be retrieved."
 msgstr "Не удалось получить список профилей сети."
@@ -5232,9 +5165,6 @@ msgstr "Другой Протокол"
 msgid "Output"
 msgstr "Вывод"
 
-msgid "Overlay"
-msgstr "Overlay"
-
 msgid "Overview"
 msgstr "Обзор"
 
@@ -5375,9 +5305,6 @@ msgstr "Сохранить кластера после завершения за
 msgid "Physical Network"
 msgstr "Физическая сеть"
 
-msgid "Physical Network Name"
-msgstr "Название Физической сети"
-
 msgid "Pig"
 msgstr "Pig"
 
@@ -5423,9 +5350,6 @@ msgstr "Политика"
 #, python-format
 msgid "Policy %s was successfully updated."
 msgstr "Политика %s была успешно обновлена."
-
-msgid "Policy Profile"
-msgstr "Профиль политики"
 
 msgid "Policy Profiles"
 msgstr "Профили политики"
@@ -5556,9 +5480,6 @@ msgstr "Использование проекта"
 
 msgid "Projects"
 msgstr "Проекты"
-
-msgid "Projects could not be retrieved."
-msgstr "Не удалось получить список Проектов."
 
 msgid "Projects:"
 msgstr "Проекты:"
@@ -6335,12 +6256,6 @@ msgstr "Правила группы безопасности"
 msgid "Security Groups"
 msgstr "Группы безопасности"
 
-msgid "Segment Range"
-msgstr "Диапазон сегмента"
-
-msgid "Segment Type"
-msgstr "Тип сегмента."
-
 msgid "Segmentation ID"
 msgstr "ID сегмента"
 
@@ -6945,12 +6860,6 @@ msgstr "Тип хранения"
 msgid "Streaming MapReduce"
 msgstr "Поточный MapReduce"
 
-msgid "Sub Type"
-msgstr "Подкатегория"
-
-msgid "Sub Type Value (Manual Input)"
-msgstr "Подкатегория значения (Ручной ввод)"
-
 msgid "Subnet"
 msgstr "Подсеть"
 
@@ -7544,9 +7453,6 @@ msgstr "Название передачи"
 
 msgid "Transform Protocol"
 msgstr "Протокол трансформации"
-
-msgid "Trunk"
-msgstr "Trunk"
 
 msgid "Type"
 msgstr "Тип"
@@ -8524,9 +8430,6 @@ msgstr "Не удалось получить детали пространств
 msgid "Unable to retrieve network details."
 msgstr "Не удалось получить детали сети."
 
-msgid "Unable to retrieve network profile details."
-msgstr "Не удалось получить информацию о профиле сети"
-
 msgid "Unable to retrieve network quota information."
 msgstr "Не удалось получить информацию о сетевых квотах."
 
@@ -9035,9 +8938,6 @@ msgstr "Обновить метаданные"
 
 msgid "Update Network"
 msgstr "Обновить сеть"
-
-msgid "Update Network Profile"
-msgstr "Обновить профиль сети"
 
 msgid "Update Object"
 msgstr "Обновить объект"

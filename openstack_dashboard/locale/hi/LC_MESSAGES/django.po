@@ -9,10 +9,10 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-07-28 12:34+0000\n"
-"PO-Revision-Date: 2015-07-24 20:13+0000\n"
+"POT-Creation-Date: 2015-08-04 04:10+0000\n"
+"PO-Revision-Date: 2015-08-04 00:51+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
-"Language-Team: Hindi (http://www.transifex.com/projects/p/horizon/language/"
+"Language-Team: Hindi (http://www.transifex.com/openstack/horizon/language/"
 "hi/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -695,12 +695,6 @@ msgstr "लांच करने के लिए फ्लेवर चुन�
 msgid "Cinder"
 msgstr "सिंडर"
 
-msgid "Cisco Nexus 1000V"
-msgstr "सिस्को संबंध 1000v"
-
-msgid "Cisco Nexus 1000v"
-msgstr "सिस्को संबंध 1000v"
-
 msgid "Classless Inter-Domain Routing (e.g. 192.168.0.0/24)"
 msgstr "वर्गहीन अंतर डोमेन रूटिंग (जैसे 192.168.0.0/24)"
 
@@ -946,9 +940,6 @@ msgstr " कुंजी युग्म बनाएं"
 
 msgid "Create Network"
 msgstr "संजाल बनायें"
-
-msgid "Create Network Profile"
-msgstr "नेटवर्क प्रोफ़ाइल बनाएँ"
 
 msgid "Create Port"
 msgstr "पोर्ट बनाएँ"
@@ -1325,11 +1316,6 @@ msgid_plural "Delete Networks"
 msgstr[0] "संजाल मिटाएँसंजाल मिटाएँ"
 msgstr[1] "संजाल मिटाएँ"
 
-msgid "Delete Network Profile"
-msgid_plural "Delete Network Profiles"
-msgstr[0] "नेटवर्क प्रोफ़ाइल मिटाएँ"
-msgstr[1] "नेटवर्क प्रोफ़ाइल मिटाएँ"
-
 msgid "Delete Object"
 msgid_plural "Delete Objects"
 msgstr[0] "वस्तु मिटाएँ"
@@ -1487,11 +1473,6 @@ msgid "Deleted Network"
 msgid_plural "Deleted Networks"
 msgstr[0] "मिटाया संजाल"
 msgstr[1] "मिटाया संजाल"
-
-msgid "Deleted Network Profile"
-msgid_plural "Deleted Network Profiles"
-msgstr[0] "मिटाया नेटवर्क प्रोफ़ाइल"
-msgstr[1] "मिटाया नेटवर्क प्रोफ़ाइल"
 
 msgid "Deleted Object"
 msgid_plural "Deleted Objects"
@@ -1860,9 +1841,6 @@ msgstr " मॉनिटर संपादित करें"
 msgid "Edit Network"
 msgstr "संजाल संपादित करें"
 
-msgid "Edit Network Profile"
-msgstr "संपादित नेटवर्क प्रोफ़ाइल"
-
 msgid "Edit Policy"
 msgstr "नीति संपादित करें"
 
@@ -1963,9 +1941,6 @@ msgstr "गोपित पासवर्ड"
 msgid "Encryption algorithm"
 msgstr "गोपन अलगोरिथम"
 
-msgid "Enhanced VXLAN"
-msgstr "बढ़ी हुई VXLAN"
-
 msgid "Enter a value for ICMP code in the range (-1: 255)"
 msgstr " ICMP कोड के लिए एक मूल्य दर्ज (: 255 -1) रेंज में"
 
@@ -1977,9 +1952,6 @@ msgstr "0 और 255 (या -1 वाइल्डकार्ड का अर�
 
 msgid "Enter an integer value between 1 and 65535."
 msgstr "1 और 65535 के बीच एक पूर्णांक मान दर्ज करें."
-
-msgid "Enter parameter (e.g. GRE)"
-msgstr "पैरामीटर दर्ज करें (जैसे जीआरई)"
 
 msgid "Environment Data"
 msgstr "वातावरण डाटा"
@@ -2148,10 +2120,6 @@ msgid "Failed to create network %s"
 msgstr "संजाल %s निर्माण में विफल "
 
 #, python-format
-msgid "Failed to create network profile %s"
-msgstr "%s नेटवर्क प्रोफाइल बनाने में विफल"
-
-#, python-format
 msgid "Failed to create router \"%s\"."
 msgstr " \"%s\" रूटर बनाने में विफल."
 
@@ -2175,10 +2143,6 @@ msgstr "\"%s\" संजाल को मिटा पाने में वि
 #, python-format
 msgid "Failed to delete network %s"
 msgstr "%s संजाल को मिटा पाने में विफल"
-
-#, python-format
-msgid "Failed to delete network profile (%s)."
-msgstr "नेटवर्क प्रोफ़ाइल हटाने में विफल (%s)."
 
 #, python-format
 msgid "Failed to delete port %s"
@@ -2308,10 +2272,6 @@ msgstr "सदस्य %s अपडेट करने में विफल"
 #, python-format
 msgid "Failed to update network %s"
 msgstr "%s संजाल अद्यतन करने में विफल"
-
-#, python-format
-msgid "Failed to update network profile (%s)."
-msgstr "संजाल प्रोफ़ाइल (%s) अद्यतन करने में विफल."
 
 #, python-format
 msgid "Failed to update policy %(name)s: %(reason)s"
@@ -3214,12 +3174,6 @@ msgstr "मॉनीटर"
 msgid "Month to date"
 msgstr "माह से दिनांक तक"
 
-msgid "Multicast IP Range"
-msgstr "मल्टीकास्ट आईपी रेंज"
-
-msgid "Multicast IPv4 range(e.g. 224.0.1.0-224.0.1.100)"
-msgstr "मल्टीकास्ट IPv4 रेंज (जैसे 224.0.1.0-224.0.1.100)"
-
 msgid "N/A"
 msgstr "लागू नहीं"
 
@@ -3243,9 +3197,6 @@ msgstr "बनाने के लिए ढेर का नाम."
 #, python-format
 msgid "Name: %(name)s ID: %(uuid)s"
 msgstr "नाम: %(name)s ID: %(uuid)s"
-
-msgid "Native VXLAN"
-msgstr "मूल VXLAN"
 
 msgid "Network"
 msgstr "संजाल"
@@ -3279,14 +3230,6 @@ msgstr "संजाल नाम"
 
 msgid "Network Profile"
 msgstr "नेटवर्क प्रोफ़ाइल"
-
-#, python-format
-msgid "Network Profile %s was successfully created."
-msgstr "नेटवर्क प्रोफ़ाइल %s सफलतापूर्वक बनाया गया था."
-
-#, python-format
-msgid "Network Profile %s was successfully updated."
-msgstr "नेटवर्क प्रोफ़ाइल %s सफलतापूर्वक अद्यतन किया गया था."
 
 msgid "Network Profiles could not be retrieved."
 msgstr "नेटवर्क प्रोफाइल प्राप्त नहीं किया जा सकता है."
@@ -3584,9 +3527,6 @@ msgstr "अन्य प्रोटोकॉल"
 msgid "Output"
 msgstr "आउटपुट"
 
-msgid "Overlay"
-msgstr "ओवरले"
-
 msgid "Overview"
 msgstr "सारांश"
 
@@ -3664,9 +3604,6 @@ msgstr "अनुमति दीजिए"
 msgid "Physical Network"
 msgstr "भौतिक संजाल"
 
-msgid "Physical Network Name"
-msgstr "भौतिक नेटवर्क नाम"
-
 msgid "Pig"
 msgstr "शूकर"
 
@@ -3712,9 +3649,6 @@ msgstr "नीति"
 #, python-format
 msgid "Policy %s was successfully updated."
 msgstr "नीति %s सफलतापूर्वक अपडेट किया गया था."
-
-msgid "Policy Profile"
-msgstr "नीति प्रोफ़ाइल"
 
 msgid "Policy Profiles"
 msgstr "नीति प्रोफाइल"
@@ -3809,9 +3743,6 @@ msgstr "परियोजना उपयोग"
 
 msgid "Projects"
 msgstr "परियोजनाएँ"
-
-msgid "Projects could not be retrieved."
-msgstr "परियोजनाओं प्राप्त नहीं किया जा सकता है."
 
 msgid "Projects:"
 msgstr "परियोजनाएँ:"
@@ -4209,12 +4140,6 @@ msgstr "सुरक्षा समूह नियम"
 msgid "Security Groups"
 msgstr "सुरक्षा समूह"
 
-msgid "Segment Range"
-msgstr "अनुभाग रेंज"
-
-msgid "Segment Type"
-msgstr "अनुभाग प्रकार"
-
 msgid "Segmentation ID"
 msgstr "विभाजन आईडी"
 
@@ -4563,12 +4488,6 @@ msgstr "स्थिति का कारण"
 
 msgid "Storage type"
 msgstr "भंडारण प्रकार"
-
-msgid "Sub Type"
-msgstr "उप प्रकार"
-
-msgid "Sub Type Value (Manual Input)"
-msgstr "उप प्रकार मान (मैनुअल इनपुट)"
 
 msgid "Subnet"
 msgstr "सबनेट"
@@ -4919,9 +4838,6 @@ msgstr "भंडारित वस्तुओं का कुल आका�
 
 msgid "Transform Protocol"
 msgstr "प्रोटोकॉल रूपांतरण"
-
-msgid "Trunk"
-msgstr "धड़"
 
 msgid "Type"
 msgstr "प्रकार"
@@ -5622,9 +5538,6 @@ msgstr "मॉनिटर सूची को प्राप्त करन�
 msgid "Unable to retrieve network details."
 msgstr "नेटवर्क जानकारी प्राप्त करने में असमर्थ."
 
-msgid "Unable to retrieve network profile details."
-msgstr "नेटवर्क प्रोफ़ाइल विवरण प्राप्त करने में असमर्थ."
-
 msgid "Unable to retrieve network quota information."
 msgstr "नेटवर्क कोटा जानकारी प्राप्त करने में असमर्थ."
 
@@ -5978,9 +5891,6 @@ msgstr "मेटाडाटा अद्यतन करें"
 
 msgid "Update Network"
 msgstr " संजाल अद्यतन करें"
-
-msgid "Update Network Profile"
-msgstr "अद्यतन नेटवर्क प्रोफ़ाइल"
 
 msgid "Update Object"
 msgstr " ऑब्जेक्ट अद्यतन करें"

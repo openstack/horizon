@@ -8,10 +8,10 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-07-28 12:34+0000\n"
-"PO-Revision-Date: 2015-08-01 15:19+0000\n"
-"Last-Translator: Zbyněk Schwarz <zbynek.schwarz@gmail.com>\n"
-"Language-Team: Czech (http://www.transifex.com/projects/p/horizon/language/"
+"POT-Creation-Date: 2015-08-04 04:10+0000\n"
+"PO-Revision-Date: 2015-08-04 00:51+0000\n"
+"Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
+"Language-Team: Czech (http://www.transifex.com/openstack/horizon/language/"
 "cs/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -116,9 +116,6 @@ msgstr "-"
 
 msgid "-- not selected --"
 msgstr "-- nezvoleno --"
-
-msgid "1-4093 for VLAN; 5000 and above for Overlay"
-msgstr "1-4093 pro VLAN; 5000 a výše pro Overlay"
 
 msgid "3des"
 msgstr "3des"
@@ -979,12 +976,6 @@ msgstr ""
 msgid "Cipher"
 msgstr "Šifra"
 
-msgid "Cisco Nexus 1000V"
-msgstr "Cisco Nexus 1000V"
-
-msgid "Cisco Nexus 1000v"
-msgstr "Cisco Nexus 1000v"
-
 msgid "Classless Inter-Domain Routing (e.g. 192.168.0.0/24)"
 msgstr "Classless Inter-Domain Routing (např. 192.168.0.0/24)"
 
@@ -1332,9 +1323,6 @@ msgstr "Vytvořit síť"
 
 msgid "Create Network (Quota exceeded)"
 msgstr "Vytvořit síť (Kvóta překročena)"
-
-msgid "Create Network Profile"
-msgstr "Vytvořit síťový profil"
 
 msgid "Create Node Group Template"
 msgstr "Vytvořit šablonu skupiny uzlu"
@@ -1946,12 +1934,6 @@ msgstr[0] "Smazat jmenný prostor"
 msgstr[1] "Smazat jmenné prostory"
 msgstr[2] "Smazat jmenné prostory"
 
-msgid "Delete Network Profile"
-msgid_plural "Delete Network Profiles"
-msgstr[0] "Smazat síťový profil"
-msgstr[1] "Smazat síťové profily"
-msgstr[2] "Smazat síťové profily"
-
 msgid "Delete Object"
 msgid_plural "Delete Objects"
 msgstr[0] "Smazat objekt"
@@ -2194,12 +2176,6 @@ msgid_plural "Deleted Namespaces"
 msgstr[0] "Jmenný prostor smazán"
 msgstr[1] "Jmenné prostory smazány"
 msgstr[2] "Jmenné prostory smazány"
-
-msgid "Deleted Network Profile"
-msgid_plural "Deleted Network Profiles"
-msgstr[0] "Síťový profil smazán"
-msgstr[1] "Síťové profily smazány"
-msgstr[2] "Síťové profily smazány"
 
 msgid "Deleted Object"
 msgid_plural "Deleted Objects"
@@ -2678,9 +2654,6 @@ msgstr "Upravit monitor"
 msgid "Edit Network"
 msgstr "Upravit síť"
 
-msgid "Edit Network Profile"
-msgstr "Upravit síťový profil"
-
 msgid "Edit Node Group Template"
 msgstr "Upravit šablonu skupiny uzlu"
 
@@ -2806,9 +2779,6 @@ msgstr "Algoritmus šifrování"
 msgid "Engine Id"
 msgstr "Id jádra"
 
-msgid "Enhanced VXLAN"
-msgstr "Rozšířený VXLAN"
-
 msgid "Enter a value for ICMP code in the range (-1: 255)"
 msgstr "Zadejte hodnotu pro kód ICMP v rozsahu (-1: 255)"
 
@@ -2829,9 +2799,6 @@ msgid ""
 msgstr ""
 "Zadejte celočíselnou hodnotu mezi 1 a 65535. Pro všechny vybrané členy bude "
 "použit zvolený port, který může být později změněn."
-
-msgid "Enter parameter (e.g. GRE)"
-msgstr "Zadejte parametr (Např. GRE)"
 
 msgid "Environment Data"
 msgstr "Data prostředí"
@@ -3114,10 +3081,6 @@ msgid "Failed to create network %s"
 msgstr "Vytváření sítě %s selhalo"
 
 #, python-format
-msgid "Failed to create network profile %s"
-msgstr "Nelze vytvořit síťový profil %s"
-
-#, python-format
 msgid "Failed to create router \"%s\"."
 msgstr "Nelze vytvořit směrovač \"%s\"."
 
@@ -3141,10 +3104,6 @@ msgstr "Nelze smazat síť \"%s\""
 #, python-format
 msgid "Failed to delete network %s"
 msgstr "Nelze smazat síť %s"
-
-#, python-format
-msgid "Failed to delete network profile (%s)."
-msgstr "Nelze smazat síťový profil (%s)."
 
 #, python-format
 msgid "Failed to delete port %s"
@@ -3240,9 +3199,6 @@ msgstr ""
 "Nelze změnit %s členů projektu, aktualizovat skupiny projektu a kvóty "
 "projektu."
 
-msgid "Failed to obtain network profile binding"
-msgstr "Nelze získat svázání síťového profilu"
-
 #, python-format
 msgid ""
 "Failed to perform requested operation on instance \"%s\", the instance has "
@@ -3324,10 +3280,6 @@ msgstr "Aktualizace člena %s selhala"
 #, python-format
 msgid "Failed to update network %s"
 msgstr "Aktualizace sítě %s selhala"
-
-#, python-format
-msgid "Failed to update network profile (%s)."
-msgstr "Nelze aktualizovat síťový profil (%s)."
 
 #, python-format
 msgid "Failed to update policy %(name)s: %(reason)s"
@@ -4560,12 +4512,6 @@ msgstr "Monitory"
 msgid "Month to date"
 msgstr "Měsíc k dnešnímu dny"
 
-msgid "Multicast IP Range"
-msgstr "Rozsah vícesměrových IP"
-
-msgid "Multicast IPv4 range(e.g. 224.0.1.0-224.0.1.100)"
-msgstr "Rozsah vícesměrových IP (např. 224.0.1.0-224.0.1.100)"
-
 msgid "Must specify start of period"
 msgstr "Začátek období musí být zadán"
 
@@ -4616,9 +4562,6 @@ msgstr "Přehled jmenného prostoru"
 msgid "Namespaces"
 msgstr "Jmenné prostory"
 
-msgid "Native VXLAN"
-msgstr "Přirozený VXLAN"
-
 msgid "Network"
 msgstr "Síť"
 
@@ -4654,14 +4597,6 @@ msgstr "Název sítě"
 
 msgid "Network Profile"
 msgstr "Síťový profil"
-
-#, python-format
-msgid "Network Profile %s was successfully created."
-msgstr "Síťový profil %s byl úspěšně vytvořen."
-
-#, python-format
-msgid "Network Profile %s was successfully updated."
-msgstr "Síťový profil %s byl úspěšně aktualizován."
 
 msgid "Network Profiles could not be retrieved."
 msgstr "Nelze získat síťový profil"
@@ -5077,9 +5012,6 @@ msgstr "Ostatní protokoly"
 msgid "Output"
 msgstr "Výstup"
 
-msgid "Overlay"
-msgstr "Překryv"
-
 msgid "Overview"
 msgstr "Přehled"
 
@@ -5218,9 +5150,6 @@ msgstr "Cluster nebude zrušen po dokončení úkolu"
 msgid "Physical Network"
 msgstr "Fyzická síť"
 
-msgid "Physical Network Name"
-msgstr "Název fyzické sítě"
-
 msgid "Pig"
 msgstr "Pig"
 
@@ -5266,9 +5195,6 @@ msgstr "Zásada"
 #, python-format
 msgid "Policy %s was successfully updated."
 msgstr "Zásada %s byla úspěšně aktualizována"
-
-msgid "Policy Profile"
-msgstr "Profil zásad"
 
 msgid "Policy Profiles"
 msgstr "Profily zásad"
@@ -5402,9 +5328,6 @@ msgstr "Název projektu se již používá. Prosím zvolte jiný název."
 
 msgid "Projects"
 msgstr "Projekty"
-
-msgid "Projects could not be retrieved."
-msgstr "Nelze získat projekty."
 
 msgid "Projects:"
 msgstr "Projekty:"
@@ -6159,12 +6082,6 @@ msgstr "Pravidla bezpečnostní skupiny"
 msgid "Security Groups"
 msgstr "Bezpečnostní skupiny"
 
-msgid "Segment Range"
-msgstr "Rozsah částí"
-
-msgid "Segment Type"
-msgstr "Typ části"
-
 msgid "Segmentation ID"
 msgstr "ID členění"
 
@@ -6774,12 +6691,6 @@ msgstr "Typ úložiště"
 
 msgid "Streaming MapReduce"
 msgstr "Streamování Mapreduce"
-
-msgid "Sub Type"
-msgstr "Podtyp"
-
-msgid "Sub Type Value (Manual Input)"
-msgstr "Hodnota podtypu (Ruční vstup)"
 
 msgid "Subnet"
 msgstr "Podsíť"
@@ -7397,9 +7308,6 @@ msgstr "Název přenosu"
 
 msgid "Transform Protocol"
 msgstr "Protokol transformace"
-
-msgid "Trunk"
-msgstr "Kmen"
 
 msgid "Type"
 msgstr "Typ"
@@ -8382,9 +8290,6 @@ msgstr "Nelze získat podrobnosti jmenného prostoru. "
 msgid "Unable to retrieve network details."
 msgstr "Nelze získat podrobnosti sítě."
 
-msgid "Unable to retrieve network profile details."
-msgstr "Nelze získat podrobnosti síťového profilu."
-
 msgid "Unable to retrieve network quota information."
 msgstr "Nelze získat informace o kvótě sítě."
 
@@ -8885,9 +8790,6 @@ msgstr "Aktualizovat popisná data"
 
 msgid "Update Network"
 msgstr "Aktualizovat síť"
-
-msgid "Update Network Profile"
-msgstr "Aktualizovat síťový profil"
 
 msgid "Update Object"
 msgstr "Aktualizovat objekt"

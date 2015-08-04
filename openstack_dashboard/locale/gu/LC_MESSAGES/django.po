@@ -7,11 +7,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-07-28 12:34+0000\n"
-"PO-Revision-Date: 2015-07-24 20:13+0000\n"
+"POT-Creation-Date: 2015-08-04 04:10+0000\n"
+"PO-Revision-Date: 2015-08-04 00:51+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
-"Language-Team: Gujarati (http://www.transifex.com/projects/p/horizon/"
-"language/gu/)\n"
+"Language-Team: Gujarati (http://www.transifex.com/openstack/horizon/language/"
+"gu/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -110,9 +110,6 @@ msgstr "-"
 
 msgid "-- not selected --"
 msgstr "--પસંદ કરેલ નહી--"
-
-msgid "1-4093 for VLAN; 5000 and above for Overlay"
-msgstr "VLAN માટે 1-4093; 5000 અને તેની ઉપરના ઓવરલે માટે"
 
 msgid "3des"
 msgstr "3des"
@@ -783,12 +780,6 @@ msgstr "સિન્ડેર"
 msgid "Cipher"
 msgstr "સીફર"
 
-msgid "Cisco Nexus 1000V"
-msgstr "સિસ્કો નેક્સસ 1000 v"
-
-msgid "Cisco Nexus 1000v"
-msgstr "સિસ્કો નેક્સસ 1000v"
-
 msgid "Classless Inter-Domain Routing (e.g. 192.168.0.0/24)"
 msgstr "ક્લાસલેસ ઇન્ટર-ડોમેન રાઉંટીંગ (દા.ત. 192.168.0.0/24)"
 
@@ -1067,9 +1058,6 @@ msgstr "નેટવર્ક બનાવો"
 
 msgid "Create Network (Quota exceeded)"
 msgstr "નેટવર્ક બનાવો (ક્વોટા વટાવેલ)"
-
-msgid "Create Network Profile"
-msgstr "નેટવર્કની રૂપરેખા બનાવો"
 
 msgid "Create Node Group Template"
 msgstr "નોડ ગ્રુપ ટેમ્પલેટ બનાવો"
@@ -1822,9 +1810,6 @@ msgstr "મોનિટરમા ફેરફાર કરો"
 msgid "Edit Network"
 msgstr "નેટવર્ક સંપાદિત કરો"
 
-msgid "Edit Network Profile"
-msgstr "નેટવર્ક રૂપરેખામા ફેરફાર કરો"
-
 msgid "Edit Policy"
 msgstr "પોલિસીમા ફેરફાર કરો"
 
@@ -1923,9 +1908,6 @@ msgstr "એન્ક્રિપ્શન"
 msgid "Encryption algorithm"
 msgstr "Encryption algorithm"
 
-msgid "Enhanced VXLAN"
-msgstr "ઉન્નત કરેલ VXLAN"
-
 msgid "Enter a value for ICMP code in the range (-1: 255)"
 msgstr "ICMP કોડ માટે રેન્જમાં મૂલ્ય દાખલ કરો (-1: 255)"
 
@@ -1944,9 +1926,6 @@ msgid ""
 msgstr ""
 "1 અને 65535 વચ્ચેની પૂર્ણાંક કિંમત દાખલ કરો. પસંદ કરેલ તમામ સભ્યો માટે સમાન પોર્ટ વપરાયેલ "
 "હશે અને પાછળથી સુધારી શકાય છે."
-
-msgid "Enter parameter (e.g. GRE)"
-msgstr "પરિમાણને દાખલ કરો  (દા.ત. GRE)"
 
 msgid "Environment Data"
 msgstr "પર્યાવરણના ડેટા"
@@ -2162,10 +2141,6 @@ msgid "Failed to create network %s"
 msgstr "નેટવર્ક %s બનાવવામાં નિષ્ફળ થયા"
 
 #, python-format
-msgid "Failed to create network profile %s"
-msgstr "નેટવર્કની રૂપરેખા %s બનાવવામાં નિષ્ફળ"
-
-#, python-format
 msgid "Failed to create router \"%s\"."
 msgstr "\"%s\" રૂટર બનાવવામાં નિષ્ફળ."
 
@@ -2189,10 +2164,6 @@ msgstr " \"%s\" નેટવર્ક કાઢી નાખવા નિષ્�
 #, python-format
 msgid "Failed to delete network %s"
 msgstr "%s નેટવર્ક કાઢી નાખવા માટે નિષ્ફળ"
-
-#, python-format
-msgid "Failed to delete network profile (%s)."
-msgstr "નેટવર્ક રૂપરેખા (%s) કાઢવામાં નિષ્ફળ."
 
 #, python-format
 msgid "Failed to delete port %s"
@@ -2269,9 +2240,6 @@ msgid ""
 msgstr ""
 "%s પ્રોજેક્ટ સભ્યો, પ્રોજેક્ટ જૂથોના સુધારા અને પ્રોજેક્ટ ક્વોટા સુધારા સંશોધિત કરવામાં નિષ્ફળ."
 
-msgid "Failed to obtain network profile binding"
-msgstr "બાયડીંગ નેટવર્કની રૂપરેખા મેળવવામા નિષ્ફળ"
-
 #, python-format
 msgid "Failed to remove rule from policy %(name)s: %(reason)s"
 msgstr "પોલીસી માંથી નિયમ દૂર કરવામાં નિષ્ફળ %(name)s: %(reason)s"
@@ -2333,10 +2301,6 @@ msgstr "%s સભ્ય સુધારવામા નિષ્ફળ"
 #, python-format
 msgid "Failed to update network %s"
 msgstr "%s નેટવર્કને અદ્યતન કરવામાં નિષ્ફળ"
-
-#, python-format
-msgid "Failed to update network profile (%s)."
-msgstr "નેટવર્કની રૂપરેખા (%s) અદ્યતન કરવામાં નિષ્ફળ."
 
 #, python-format
 msgid "Failed to update policy %(name)s: %(reason)s"
@@ -3351,12 +3315,6 @@ msgstr "મોનિટરો"
 msgid "Month to date"
 msgstr "મંથ ટુ ડેટ"
 
-msgid "Multicast IP Range"
-msgstr "મલ્ટીકાસ્ટ IP રેન્જ"
-
-msgid "Multicast IPv4 range(e.g. 224.0.1.0-224.0.1.100)"
-msgstr "મલ્ટીકાસ્ટ IPv4 રેન્જ (દા.ત. 224.0.1.0-224.0.1.100)"
-
 msgid "Must specify start of period"
 msgstr "પ્રારંભ સમયગાળાનો ઉલ્લેખ કરવો જ પડશે"
 
@@ -3383,9 +3341,6 @@ msgstr "બનાવવા માટે સ્ટેકના નામ."
 #, python-format
 msgid "Name: %(name)s ID: %(uuid)s"
 msgstr "નામ: %(name)s આઈડી:%(uuid)s"
-
-msgid "Native VXLAN"
-msgstr "નેટિવ VXLAN"
 
 msgid "Network"
 msgstr "નેટવર્ક"
@@ -3419,14 +3374,6 @@ msgstr "નેટવર્કનું નામ"
 
 msgid "Network Profile"
 msgstr "નેટવર્ક પ્રોફાઇલ"
-
-#, python-format
-msgid "Network Profile %s was successfully created."
-msgstr "નેટવર્ક રૂપરેખા %s સફળતાપૂર્વક બનાવવામાં આવી હતી."
-
-#, python-format
-msgid "Network Profile %s was successfully updated."
-msgstr "નેટવર્કની રૂપરેખા %s સફળતાપૂર્વક અદ્યતન કરવામાં આવી."
 
 msgid "Network Profiles could not be retrieved."
 msgstr "નેટવર્ક પ્રોફાઇલ્સ પુનઃપ્રાપ્ત કરી શક્યા નથી."
@@ -3776,9 +3723,6 @@ msgstr "અન્ય પ્રોટોકોલ"
 msgid "Output"
 msgstr "આઉટપુટ"
 
-msgid "Overlay"
-msgstr "ઓવરલે"
-
 msgid "Overview"
 msgstr "અવલોકન"
 
@@ -3858,9 +3802,6 @@ msgstr "જોબ પૂરી થયા પછી ક્લસ્ટર હા�
 msgid "Physical Network"
 msgstr "ફિઝિકલ નેટવર્ક"
 
-msgid "Physical Network Name"
-msgstr "ભૌતિક નેટવર્ક નામ"
-
 msgid "Pig"
 msgstr "પિગ"
 
@@ -3906,9 +3847,6 @@ msgstr "પોલીસી"
 #, python-format
 msgid "Policy %s was successfully updated."
 msgstr "પોલિસી% s સફળતાપૂર્વક અદ્યતન કરવામાં આવી."
-
-msgid "Policy Profile"
-msgstr "પોલિસીની રૂપરેખા"
 
 msgid "Policy Profiles"
 msgstr "પોલિસીની રૂપરેખાઓ"
@@ -4017,9 +3955,6 @@ msgstr "પ્રોજેક્ટ વપરાશ"
 
 msgid "Projects"
 msgstr "પ્રોજેક્ટ"
-
-msgid "Projects could not be retrieved."
-msgstr "પ્રોજેક્ટ પુનઃપ્રાપ્ત કરી શકાયો નહી."
 
 msgid "Projects:"
 msgstr "પ્રોજેક્ટો:"
@@ -4463,12 +4398,6 @@ msgstr "સુરક્ષા જૂથ નિયમો"
 
 msgid "Security Groups"
 msgstr "સુરક્ષા જૂથો"
-
-msgid "Segment Range"
-msgstr "સેગમેન્ટ રેન્જ"
-
-msgid "Segment Type"
-msgstr "સેગમેન્ટ પ્રકાર"
 
 msgid "Segmentation ID"
 msgstr "સેગ્મેન્ટેશન ID"
@@ -4924,12 +4853,6 @@ msgstr "સંગ્રહ પ્રકાર"
 msgid "Streaming MapReduce"
 msgstr "સ્ટ્રીમિંગ મેપ ઘટાડો"
 
-msgid "Sub Type"
-msgstr "પેટા પ્રકાર"
-
-msgid "Sub Type Value (Manual Input)"
-msgstr "પેટા પ્રકાર મૂલ્ય (મેન્યુઅલ ઇનપુટ)"
-
 msgid "Subnet"
 msgstr "સબનેટ"
 
@@ -5345,9 +5268,6 @@ msgstr "સંગ્રહિત વસ્તુઓના કુલ કદ"
 
 msgid "Transform Protocol"
 msgstr "પ્રોટોકોલ પરિવર્તન"
-
-msgid "Trunk"
-msgstr "ટ્રંક"
 
 msgid "Type"
 msgstr "પ્રકાર"
@@ -6183,9 +6103,6 @@ msgstr "મોનિટર યાદી પુનઃપ્રાપ્ત કર
 msgid "Unable to retrieve network details."
 msgstr "નેટવર્કની વિગતો પુનઃપ્રાપ્ત કરવામા અસમર્થ."
 
-msgid "Unable to retrieve network profile details."
-msgstr "નેટવર્ક રૂપરેખાની વિગતો પુનઃપ્રાપ્ત કરવામા અસમર્થ."
-
 msgid "Unable to retrieve network quota information."
 msgstr "નેટવર્ક ક્વોટા જાણકારી પુનઃપ્રાપ્ત કરવામા અસમર્થ."
 
@@ -6574,9 +6491,6 @@ msgstr "મેટાડેટા સુધારો"
 
 msgid "Update Network"
 msgstr "નેટવર્ક સુધારો"
-
-msgid "Update Network Profile"
-msgstr "નેટવર્કની રૂપરેખા સુધારો"
 
 msgid "Update Object"
 msgstr "ઑબ્જેક્ટને સુધારો"

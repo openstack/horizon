@@ -12,10 +12,10 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-07-28 12:34+0000\n"
-"PO-Revision-Date: 2015-07-28 06:08+0000\n"
-"Last-Translator: Ian Y. Choi <ianyrchoi@gmail.com>\n"
-"Language-Team: Korean (Korea) (http://www.transifex.com/projects/p/horizon/"
+"POT-Creation-Date: 2015-08-04 04:10+0000\n"
+"PO-Revision-Date: 2015-08-04 00:51+0000\n"
+"Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
+"Language-Team: Korean (Korea) (http://www.transifex.com/openstack/horizon/"
 "language/ko_KR/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -119,9 +119,6 @@ msgstr "-"
 
 msgid "-- not selected --"
 msgstr "- 선택하지 않음 -"
-
-msgid "1-4093 for VLAN; 5000 and above for Overlay"
-msgstr "VLAN은 1-4093까지, 오버레이는 5000 이상을 사용합니다."
 
 msgid "3des"
 msgstr "3des"
@@ -973,12 +970,6 @@ msgstr ""
 msgid "Cipher"
 msgstr "암호화 방식"
 
-msgid "Cisco Nexus 1000V"
-msgstr "Cisco Nexus 1000V"
-
-msgid "Cisco Nexus 1000v"
-msgstr "Cisco Nexus 1000v"
-
 msgid "Classless Inter-Domain Routing (e.g. 192.168.0.0/24)"
 msgstr "내부 도메인 라우팅 클레스가 정해지지 않았습니다. (예. 192.168.0.0/24)"
 
@@ -1323,9 +1314,6 @@ msgstr "네트워크 생성"
 
 msgid "Create Network (Quota exceeded)"
 msgstr "네트워크 생성 (Quota 초과)"
-
-msgid "Create Network Profile"
-msgstr "네트워크 프로필 생성"
 
 msgid "Create Node Group Template"
 msgstr "노드 그룹 템플릿 생성"
@@ -1908,10 +1896,6 @@ msgid "Delete Network"
 msgid_plural "Delete Networks"
 msgstr[0] "네트워크 삭제"
 
-msgid "Delete Network Profile"
-msgid_plural "Delete Network Profiles"
-msgstr[0] "네트워크 정책 삭제"
-
 msgid "Delete Object"
 msgid_plural "Delete Objects"
 msgstr[0] "오브젝트 삭제"
@@ -2108,10 +2092,6 @@ msgstr[0] "삭제된 네임스페이스"
 msgid "Deleted Network"
 msgid_plural "Deleted Networks"
 msgstr[0] "네트워크 삭제함"
-
-msgid "Deleted Network Profile"
-msgid_plural "Deleted Network Profiles"
-msgstr[0] "네트워크 정책 삭제함"
 
 msgid "Deleted Object"
 msgid_plural "Deleted Objects"
@@ -2561,9 +2541,6 @@ msgstr "모니터 편집"
 msgid "Edit Network"
 msgstr "네트워크 편집"
 
-msgid "Edit Network Profile"
-msgstr "네트워크 프로필 수정"
-
 msgid "Edit Node Group Template"
 msgstr "노드 그룹 템플릿 편집"
 
@@ -2693,9 +2670,6 @@ msgstr "암호화 알고리즘"
 msgid "Engine Id"
 msgstr "Engine Id"
 
-msgid "Enhanced VXLAN"
-msgstr "Enhanced VXLAN"
-
 msgid "Enter a value for ICMP code in the range (-1: 255)"
 msgstr "ICMP 코드의 범위 값을 입력하세요. (-1: 255)"
 
@@ -2714,9 +2688,6 @@ msgid ""
 msgstr ""
 "정수 1 ~ 65535의 값을 입력합니다. 선택한 모든 멤버는 같은 포트를 사용할 수 있"
 "으며, 나중에 수정 가능합니다."
-
-msgid "Enter parameter (e.g. GRE)"
-msgstr "변수 입력 (예, GRE)"
 
 msgid "Environment Data"
 msgstr "Environment 데이터"
@@ -3000,10 +2971,6 @@ msgid "Failed to create network %s"
 msgstr "네트워크 %s 생성하지 못하였습니다."
 
 #, python-format
-msgid "Failed to create network profile %s"
-msgstr "네트워크 프로필 %s를 생성하지 못하였습니다."
-
-#, python-format
 msgid "Failed to create router \"%s\"."
 msgstr "라우터 \"%s\"를 생성하지 못하였습니다."
 
@@ -3029,10 +2996,6 @@ msgstr "네트워크 \"%s\"를 삭제하지 못하였습니다."
 #, python-format
 msgid "Failed to delete network %s"
 msgstr "네트워크 %s 삭제하지 못하였습니다."
-
-#, python-format
-msgid "Failed to delete network profile (%s)."
-msgstr "네트워크 프로필(%s)을 삭제하지 못하였습니다."
 
 #, python-format
 msgid "Failed to delete port %s"
@@ -3128,9 +3091,6 @@ msgstr ""
 "%s 프로젝트 멤버를 수정하고, 프로젝트 그룹과 프로젝트 quota를 업데이트하는데 "
 "실패했습니다."
 
-msgid "Failed to obtain network profile binding"
-msgstr "네트워크 프로파일 바인딩을 가져오지 못 했습니다."
-
 #, python-format
 msgid ""
 "Failed to perform requested operation on instance \"%s\", the instance has "
@@ -3212,10 +3172,6 @@ msgstr "멤버 %s 업데이트 실패하였습니다."
 #, python-format
 msgid "Failed to update network %s"
 msgstr "네트워크 %s 업데이트를 하지 못하였습니다."
-
-#, python-format
-msgid "Failed to update network profile (%s)."
-msgstr "네트워크 프로필(%s)를 업데이트 하지 못하였습니다."
 
 #, python-format
 msgid "Failed to update policy %(name)s: %(reason)s"
@@ -4442,12 +4398,6 @@ msgstr "모니터"
 msgid "Month to date"
 msgstr "이번달 오늘까지"
 
-msgid "Multicast IP Range"
-msgstr "멀티 캐스트 IP 범위"
-
-msgid "Multicast IPv4 range(e.g. 224.0.1.0-224.0.1.100)"
-msgstr "멀티 캐스트 IPv4 범위 (예. 224.0.1.0-224.0.1.100)"
-
 msgid "Must specify start of period"
 msgstr "시작 기간을 정해야 합니다."
 
@@ -4497,9 +4447,6 @@ msgstr "네임스페이스 개요"
 msgid "Namespaces"
 msgstr "네임스페이스"
 
-msgid "Native VXLAN"
-msgstr "Native VXLAN"
-
 msgid "Network"
 msgstr "네트워크"
 
@@ -4535,14 +4482,6 @@ msgstr "네트워크 이름"
 
 msgid "Network Profile"
 msgstr "네트워크 프로필"
-
-#, python-format
-msgid "Network Profile %s was successfully created."
-msgstr "네트워크 프로필 %s를 성공적으로 생성하였습니다."
-
-#, python-format
-msgid "Network Profile %s was successfully updated."
-msgstr "네트워크 프로필 %s를 성공적으로 업데이트 하였습니다."
 
 msgid "Network Profiles could not be retrieved."
 msgstr "네트워크 프로필을 찾을 수 없습니다."
@@ -4956,9 +4895,6 @@ msgstr "다른 프로토콜"
 msgid "Output"
 msgstr "출력"
 
-msgid "Overlay"
-msgstr "Overlay"
-
 msgid "Overview"
 msgstr "개요"
 
@@ -5093,9 +5029,6 @@ msgstr "작업 종료 후 클러스터 지속"
 msgid "Physical Network"
 msgstr "물리적인 네트워크"
 
-msgid "Physical Network Name"
-msgstr "물리 네트워크 이름"
-
 msgid "Pig"
 msgstr "Pig"
 
@@ -5141,9 +5074,6 @@ msgstr "정책"
 #, python-format
 msgid "Policy %s was successfully updated."
 msgstr "정책 %s를 성공적으로 업데이트 하였습니다."
-
-msgid "Policy Profile"
-msgstr "정책 프로필"
 
 msgid "Policy Profiles"
 msgstr "정책 프로필"
@@ -5277,9 +5207,6 @@ msgstr "프로젝트 이름이 이미 사용 중입니다. 다른 이름을 사�
 
 msgid "Projects"
 msgstr "프로젝트"
-
-msgid "Projects could not be retrieved."
-msgstr "프로젝트를 검색할 수 없습니다."
 
 msgid "Projects:"
 msgstr "프로젝트:"
@@ -5979,12 +5906,6 @@ msgstr "시큐리티 그룹 규칙"
 msgid "Security Groups"
 msgstr "시큐리티 그룹"
 
-msgid "Segment Range"
-msgstr "구분 범위"
-
-msgid "Segment Type"
-msgstr "구분 타입"
-
 msgid "Segmentation ID"
 msgstr "구분 ID"
 
@@ -6580,12 +6501,6 @@ msgstr "스토리지 타입"
 
 msgid "Streaming MapReduce"
 msgstr "스트리밍 MapReduce"
-
-msgid "Sub Type"
-msgstr "서브 타입"
-
-msgid "Sub Type Value (Manual Input)"
-msgstr "서브 타입 값 (직접 입력)"
 
 msgid "Subnet"
 msgstr "서브넷"
@@ -7184,9 +7099,6 @@ msgstr "전송 이름"
 
 msgid "Transform Protocol"
 msgstr "변환 프로토콜"
-
-msgid "Trunk"
-msgstr "Trunk"
 
 msgid "Type"
 msgstr "유형"
@@ -8171,9 +8083,6 @@ msgstr "네임스페이스의 세부 정보를 찾지 못했습니다."
 msgid "Unable to retrieve network details."
 msgstr "네트워크 세부 정보를 찾지 못 했습니다."
 
-msgid "Unable to retrieve network profile details."
-msgstr "네트워크 프로필 세부 정보를 찾지 못 했습니다."
-
 msgid "Unable to retrieve network quota information."
 msgstr "네트워크 quota 정보를 찾지 못 했습니다."
 
@@ -8668,9 +8577,6 @@ msgstr "메타데이터 업데이트"
 
 msgid "Update Network"
 msgstr "네트워크 업데이트"
-
-msgid "Update Network Profile"
-msgstr "네트워크 프로필 업데이트"
 
 msgid "Update Object"
 msgstr "오브젝트 업데이트"
