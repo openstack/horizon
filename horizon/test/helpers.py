@@ -218,12 +218,24 @@ class TestCase(django_test.TestCase):
 
     def assertNotContains(self, response, text, status_code=200,
                           msg_prefix='', html=False):
+        # Prior to Django 1.7 assertContains and assertNotContains behaved
+        # differently regarding response's 'streaming' flag
+        if django.VERSION < (1, 7):
+            return self._assertNotContains(response, text, status_code,
+                                           msg_prefix, html)
+        else:
+            return super(TestCase, self).assertNotContains(
+                response, text, status_code, msg_prefix, html)
+
+    def _assertNotContains(self, response, text, status_code=200,
+                           msg_prefix='', html=False):
         """Asserts that a response indicates that some content was retrieved
         successfully, (i.e., the HTTP status code was as expected), and that
         ``text`` doesn't occurs in the content of the response.
 
         This is an override of django_test.TestCase.assertNotContains method,
-        which is able to work with StreamingHttpResponse.
+        which is able to work with StreamingHttpResponse. Should be called
+        for Django versions prior to 1.7.
         """
         # If the response supports deferred rendering and hasn't been rendered
         # yet, then ensure that it does get rendered before proceeding further.
