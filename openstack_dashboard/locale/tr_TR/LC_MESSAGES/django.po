@@ -10,10 +10,10 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-07-28 12:34+0000\n"
-"PO-Revision-Date: 2015-08-02 18:30+0000\n"
-"Last-Translator: Mücahit Büyükyılmaz <mucahit@konya.edu.tr>\n"
-"Language-Team: Turkish (Turkey) (http://www.transifex.com/projects/p/horizon/"
+"POT-Creation-Date: 2015-08-04 04:10+0000\n"
+"PO-Revision-Date: 2015-08-04 00:51+0000\n"
+"Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
+"Language-Team: Turkish (Turkey) (http://www.transifex.com/openstack/horizon/"
 "language/tr_TR/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -118,9 +118,6 @@ msgstr "-"
 
 msgid "-- not selected --"
 msgstr "-- seçilmedi --"
-
-msgid "1-4093 for VLAN; 5000 and above for Overlay"
-msgstr "VLAN için 1-4093; Overlay için 5000 ve yukarısı"
 
 msgid "3des"
 msgstr "3des"
@@ -967,12 +964,6 @@ msgstr ""
 msgid "Cipher"
 msgstr "Şifreleme"
 
-msgid "Cisco Nexus 1000V"
-msgstr "Cisco Nexus 1000V"
-
-msgid "Cisco Nexus 1000v"
-msgstr "Cisco Nexus 1000v"
-
 msgid "Classless Inter-Domain Routing (e.g. 192.168.0.0/24)"
 msgstr "Sınıfsız Alan-Dahilinde Yönlendirme (örn. 192.168.0.0/24)"
 
@@ -1318,9 +1309,6 @@ msgstr "Ağ Oluştur"
 
 msgid "Create Network (Quota exceeded)"
 msgstr "Ağ Oluştur (Kota aşıldı)"
-
-msgid "Create Network Profile"
-msgstr "Ağ Profili Oluştur"
 
 msgid "Create Node Group Template"
 msgstr "Düğüm Grubu Şablonu Oluştur"
@@ -1906,10 +1894,6 @@ msgid "Delete Network"
 msgid_plural "Delete Networks"
 msgstr[0] "Ağları Sil"
 
-msgid "Delete Network Profile"
-msgid_plural "Delete Network Profiles"
-msgstr[0] "Ağ Profillerini Sil"
-
 msgid "Delete Object"
 msgid_plural "Delete Objects"
 msgstr[0] "Nesneleri Sil"
@@ -2106,10 +2090,6 @@ msgstr[0] "İsim Uzayları Silindi"
 msgid "Deleted Network"
 msgid_plural "Deleted Networks"
 msgstr[0] "Ağlar Silindi"
-
-msgid "Deleted Network Profile"
-msgid_plural "Deleted Network Profiles"
-msgstr[0] "Ağ Profilleri Silindi"
 
 msgid "Deleted Object"
 msgid_plural "Deleted Objects"
@@ -2560,9 +2540,6 @@ msgstr "İzleyici Düzenle"
 msgid "Edit Network"
 msgstr "Ağ Değiştir"
 
-msgid "Edit Network Profile"
-msgstr "Ağ Profilini Düzenle"
-
 msgid "Edit Node Group Template"
 msgstr "Düğüm Grup Şablonunu Düzenle"
 
@@ -2693,9 +2670,6 @@ msgstr "Şifreleme algoritması"
 msgid "Engine Id"
 msgstr "Motor Id'si"
 
-msgid "Enhanced VXLAN"
-msgstr "Geliştirilmiş VXLAN"
-
 msgid "Enter a value for ICMP code in the range (-1: 255)"
 msgstr "ICMP kodu için (-1: 255) aralığında bir değer girin. "
 
@@ -2714,9 +2688,6 @@ msgid ""
 msgstr ""
 "1 ile 65535 aralığında tam sayı değeri girin. Aynı bağlantı noktası seçili "
 "tüm üyelere uygulanır ve daha sonra değiştirilebilir."
-
-msgid "Enter parameter (e.g. GRE)"
-msgstr "Parametre girin (örn. GRE)"
 
 msgid "Environment Data"
 msgstr "Çevre Verisi"
@@ -2999,10 +2970,6 @@ msgid "Failed to create network %s"
 msgstr "%s ağı oluşturulamadı"
 
 #, python-format
-msgid "Failed to create network profile %s"
-msgstr "Ağ profili %s oluşturulamadı"
-
-#, python-format
 msgid "Failed to create router \"%s\"."
 msgstr "Yönlendirici \"%s\" oluşturulamadı."
 
@@ -3026,10 +2993,6 @@ msgstr "\"%s\" ağı silinemedi"
 #, python-format
 msgid "Failed to delete network %s"
 msgstr "%s ağı silinemedi"
-
-#, python-format
-msgid "Failed to delete network profile (%s)."
-msgstr "Ağ profili silinemedi (%s)."
 
 #, python-format
 msgid "Failed to delete port %s"
@@ -3127,9 +3090,6 @@ msgstr ""
 "%s proje üyeleri düzenleme, proje groupları ve proje kotaları güncelleme "
 "başarısız oldu."
 
-msgid "Failed to obtain network profile binding"
-msgstr "Ağ profili bağı elde edilemedi"
-
 #, python-format
 msgid ""
 "Failed to perform requested operation on instance \"%s\", the instance has "
@@ -3207,10 +3167,6 @@ msgstr "Üye %s güncellenemedi"
 #, python-format
 msgid "Failed to update network %s"
 msgstr "%s ağı değiştirilemedi"
-
-#, python-format
-msgid "Failed to update network profile (%s)."
-msgstr "Ağ profili (%s) güncellenemedi"
 
 #, python-format
 msgid "Failed to update policy %(name)s: %(reason)s"
@@ -4442,12 +4398,6 @@ msgstr "İzleyiciler"
 msgid "Month to date"
 msgstr "Aydan güne"
 
-msgid "Multicast IP Range"
-msgstr "Multicast IP Aralığı"
-
-msgid "Multicast IPv4 range(e.g. 224.0.1.0-224.0.1.100)"
-msgstr "Multicast IPv4 aralığı(örn. 224.0.1.0-224.0.1.100)"
-
 msgid "Must specify start of period"
 msgstr "Dönemin başlangıcını belirtmelisiniz"
 
@@ -4497,9 +4447,6 @@ msgstr "İsim Uzayı Genel Bakış"
 msgid "Namespaces"
 msgstr "İsim Uzayları"
 
-msgid "Native VXLAN"
-msgstr "Doğal VXLAN"
-
 msgid "Network"
 msgstr "Ağ"
 
@@ -4535,14 +4482,6 @@ msgstr "Ağ Adı"
 
 msgid "Network Profile"
 msgstr "Ağ Profili"
-
-#, python-format
-msgid "Network Profile %s was successfully created."
-msgstr "Ağ Profili %s başarıyla oluşturuldu."
-
-#, python-format
-msgid "Network Profile %s was successfully updated."
-msgstr "Ağ Profili %s başarıyla güncellendi."
 
 msgid "Network Profiles could not be retrieved."
 msgstr "Ağ profilleri alınamadı."
@@ -4959,9 +4898,6 @@ msgstr "Diğer İletişim Kuralı"
 msgid "Output"
 msgstr "Çıktı"
 
-msgid "Overlay"
-msgstr "Overlay"
-
 msgid "Overview"
 msgstr "Önizleme"
 
@@ -5096,9 +5032,6 @@ msgstr "İş bitiminde küme kalsın"
 msgid "Physical Network"
 msgstr "Fiziksel Ağ"
 
-msgid "Physical Network Name"
-msgstr "Fiziksel Ağ Adı"
-
 msgid "Pig"
 msgstr "Pig"
 
@@ -5144,9 +5077,6 @@ msgstr "İlke"
 #, python-format
 msgid "Policy %s was successfully updated."
 msgstr "%s ilkesi başarıyla güncellendi."
-
-msgid "Policy Profile"
-msgstr "İlke Profili"
 
 msgid "Policy Profiles"
 msgstr "İlke Profilleri"
@@ -5280,9 +5210,6 @@ msgstr "Proje ismi zaten kullanımda. Lütfen başka bir isim kullanın."
 
 msgid "Projects"
 msgstr "Projeler"
-
-msgid "Projects could not be retrieved."
-msgstr "Projeler alınamadı"
 
 msgid "Projects:"
 msgstr "Projeler:"
@@ -5981,12 +5908,6 @@ msgstr "Güvenlik Grup Rolleri"
 msgid "Security Groups"
 msgstr "Güvenlik Grupları"
 
-msgid "Segment Range"
-msgstr "Dilim Aralığı"
-
-msgid "Segment Type"
-msgstr "Dilim Türü"
-
 msgid "Segmentation ID"
 msgstr "Bölünme ID'si"
 
@@ -6586,12 +6507,6 @@ msgstr "Depolama türü"
 
 msgid "Streaming MapReduce"
 msgstr "MapReduce Akışı"
-
-msgid "Sub Type"
-msgstr "Alt Tür"
-
-msgid "Sub Type Value (Manual Input)"
-msgstr "Alt Tür Değeri (Elle Giriş)"
 
 msgid "Subnet"
 msgstr "Subnet"
@@ -7197,9 +7112,6 @@ msgstr "Aktarım Adı"
 
 msgid "Transform Protocol"
 msgstr "Dönüştürme İletişim Kuralı"
-
-msgid "Trunk"
-msgstr "Trunk"
 
 msgid "Type"
 msgstr "Tür"
@@ -8185,9 +8097,6 @@ msgstr "İsim uzayı ayrıntıları getirilemedi."
 msgid "Unable to retrieve network details."
 msgstr "Ağ detayları alınamadı."
 
-msgid "Unable to retrieve network profile details."
-msgstr "Ağ profili detayları alınamadı."
-
 msgid "Unable to retrieve network quota information."
 msgstr "Ağ kota bilgisi alınamıyor."
 
@@ -8684,9 +8593,6 @@ msgstr "Metadata Güncelle"
 
 msgid "Update Network"
 msgstr "Ağı Güncelle"
-
-msgid "Update Network Profile"
-msgstr "Ağ Profilini Güncelle"
 
 msgid "Update Object"
 msgstr "Nesneyi Güncelle"

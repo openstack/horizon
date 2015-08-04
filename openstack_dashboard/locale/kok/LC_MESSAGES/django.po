@@ -7,10 +7,10 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-07-28 12:34+0000\n"
-"PO-Revision-Date: 2015-07-24 20:13+0000\n"
+"POT-Creation-Date: 2015-08-04 04:10+0000\n"
+"PO-Revision-Date: 2015-08-04 00:51+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
-"Language-Team: Konkani (http://www.transifex.com/projects/p/horizon/language/"
+"Language-Team: Konkani (http://www.transifex.com/openstack/horizon/language/"
 "kok/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -110,9 +110,6 @@ msgstr "-"
 
 msgid "-- not selected --"
 msgstr "--निवडिल्ले ना--"
-
-msgid "1-4093 for VLAN; 5000 and above for Overlay"
-msgstr "VLAN खातीर 1-4093; ओव्हरले खातीर 5000 आनी वयर"
 
 msgid "3des"
 msgstr "3des"
@@ -783,12 +780,6 @@ msgstr "सिंडर"
 msgid "Cipher"
 msgstr "सायफर"
 
-msgid "Cisco Nexus 1000V"
-msgstr "सिस्को नेक्सस 1000V"
-
-msgid "Cisco Nexus 1000v"
-msgstr "सिस्को नेक्सस 1000v"
-
 msgid "Classless Inter-Domain Routing (e.g. 192.168.0.0/24)"
 msgstr "वर्गविरहित आंतर-डोमेन रूटिंग (देखीक. 192.168.0.0/24)"
 
@@ -1067,9 +1058,6 @@ msgstr "नेटवर्क तयार करात"
 
 msgid "Create Network (Quota exceeded)"
 msgstr "नेटवर्क तयार करात (कोटा वाडला)"
-
-msgid "Create Network Profile"
-msgstr "नेटवर्क प्रोफायल तयार करात"
 
 msgid "Create Node Group Template"
 msgstr "नोड गट टेंप्लेट तयार करात"
@@ -1819,9 +1807,6 @@ msgstr "निरीक्षक संपादित करात"
 msgid "Edit Network"
 msgstr "नेटवर्क संपादित करात"
 
-msgid "Edit Network Profile"
-msgstr "नेटवर्क प्रोफायल संपादित करात"
-
 msgid "Edit Policy"
 msgstr "धोरण संपादित करात"
 
@@ -1920,9 +1905,6 @@ msgstr "एनक्रिप्शन"
 msgid "Encryption algorithm"
 msgstr "एनक्रिप्शन एलॉगॅरिथम"
 
-msgid "Enhanced VXLAN"
-msgstr "एनहानस्ड VXLAN"
-
 msgid "Enter a value for ICMP code in the range (-1: 255)"
 msgstr "  ICMP कोडाखातीर (-1: 255) व्याप्तीन मोल दियात"
 
@@ -1941,9 +1923,6 @@ msgid ""
 msgstr ""
 "1 आनी 65535 मदीं पूर्णांक मोल दियात. सगळ्या निवडिल्ल्या सदस्यांखातीर तोच पोर्ट वापल्लो "
 "वतलो आनी मागीर बदल्लो वतलो."
-
-msgid "Enter parameter (e.g. GRE)"
-msgstr "परिमाणआं दियात (देखीक GRE)"
 
 msgid "Environment Data"
 msgstr "वातावरण डेटा"
@@ -2159,10 +2138,6 @@ msgid "Failed to create network %s"
 msgstr "%s नेटवर्क तयार करपाक असफळ"
 
 #, python-format
-msgid "Failed to create network profile %s"
-msgstr "नेटवर्क प्रोफायल %s निर्माण करपाक असफळ."
-
-#, python-format
 msgid "Failed to create router \"%s\"."
 msgstr "\"%s\" राऊटर तयार करपाक शकना."
 
@@ -2186,10 +2161,6 @@ msgstr "\"%s\" नेटवर्क काडून उडोवपाक अ�
 #, python-format
 msgid "Failed to delete network %s"
 msgstr "%s नेटवर्क काडून उडोवपाक अपेस"
-
-#, python-format
-msgid "Failed to delete network profile (%s)."
-msgstr "नेटवर्क प्रोफायल %s काडून उडोवपाक शकना."
 
 #, python-format
 msgid "Failed to delete port %s"
@@ -2264,9 +2235,6 @@ msgid ""
 "project quotas."
 msgstr "%s प्रकल्प सदस्य सुदारपाक, प्रकल्प गट सुदारपाक आणि प्रकल्प कोटा सुदारपाक जाले ना."
 
-msgid "Failed to obtain network profile binding"
-msgstr "नेटवर्क प्रोफायल बांयंडिंग मेळोवपाक अपेस."
-
 #, python-format
 msgid "Failed to remove rule from policy %(name)s: %(reason)s"
 msgstr "%(name)s धोरणातल्यान नियम काडपाक अपेस: %(reason)s"
@@ -2328,10 +2296,6 @@ msgstr "सदस्य %s सुदारपाक शकना."
 #, python-format
 msgid "Failed to update network %s"
 msgstr "%s नेटवर्क सुदारपाक असफळ."
-
-#, python-format
-msgid "Failed to update network profile (%s)."
-msgstr "नेटवर्क प्रोफायल %s सुदारपाक अपेस."
 
 #, python-format
 msgid "Failed to update policy %(name)s: %(reason)s"
@@ -3343,12 +3307,6 @@ msgstr "निरीक्षक "
 msgid "Month to date"
 msgstr "म्हयनो ते तारीक"
 
-msgid "Multicast IP Range"
-msgstr "मल्टीकास्ट  IP वळेरी"
-
-msgid "Multicast IPv4 range(e.g. 224.0.1.0-224.0.1.100)"
-msgstr "भौभूमीका IPv4 व्याप्ती(देखीक. 224.0.1.0-224.0.1.100)"
-
 msgid "Must specify start of period"
 msgstr "काळाची सुरवात स्पश्ट करपाक जाय"
 
@@ -3376,9 +3334,6 @@ msgstr "तयार करपाच्या स्टॅकाचे नाव
 #, python-format
 msgid "Name: %(name)s ID: %(uuid)s"
 msgstr "नाव: %(name)s ID: %(uuid)s"
-
-msgid "Native VXLAN"
-msgstr "नेटिव्ह VXLAN"
 
 msgid "Network"
 msgstr "नेटवर्क"
@@ -3412,14 +3367,6 @@ msgstr "नेटवर्काचे नाव"
 
 msgid "Network Profile"
 msgstr "नेटवर्क प्रोफायल"
-
-#, python-format
-msgid "Network Profile %s was successfully created."
-msgstr "नेटवर्क प्रोफायल %s यशस्विपणान तयार जाला."
-
-#, python-format
-msgid "Network Profile %s was successfully updated."
-msgstr "नेटवर्क प्रोफायल %s यशस्विपणान सुदारला."
 
 msgid "Network Profiles could not be retrieved."
 msgstr "नेटवर्क प्रोफायल्स परत मेळोवपाक शकना."
@@ -3768,9 +3715,6 @@ msgstr "हेर शिष्टाचार"
 msgid "Output"
 msgstr "आवटपुट"
 
-msgid "Overlay"
-msgstr "ओव्हरले"
-
 msgid "Overview"
 msgstr "अवलोकन"
 
@@ -3850,9 +3794,6 @@ msgstr "काम बंद केल्याउपरांत क्लस्
 msgid "Physical Network"
 msgstr "प्रत्यक्ष नेटवर्क"
 
-msgid "Physical Network Name"
-msgstr "प्रत्यक्ष नेटवर्क नाव"
-
 msgid "Pig"
 msgstr "पीग"
 
@@ -3898,9 +3839,6 @@ msgstr "धोरण"
 #, python-format
 msgid "Policy %s was successfully updated."
 msgstr "%s धोरण यशस्विपणान सुदारला."
-
-msgid "Policy Profile"
-msgstr "धोरण प्रोफायल"
 
 msgid "Policy Profiles"
 msgstr "धारेण प्रोफायल"
@@ -4009,9 +3947,6 @@ msgstr "प्रकल्प वापर"
 
 msgid "Projects"
 msgstr "प्रकल्प"
-
-msgid "Projects could not be retrieved."
-msgstr "प्रकल्प परत मेळोवपाक शकना."
 
 msgid "Projects:"
 msgstr "प्रकल्प:"
@@ -4455,12 +4390,6 @@ msgstr "सुरक्षा गट नियम"
 
 msgid "Security Groups"
 msgstr "सुरक्षा गट"
-
-msgid "Segment Range"
-msgstr "भागाची व्याप्ती"
-
-msgid "Segment Type"
-msgstr "विभाग प्रकार"
 
 msgid "Segmentation ID"
 msgstr "विभागीकरण ID"
@@ -4916,12 +4845,6 @@ msgstr "साठ्याचो प्रकार"
 msgid "Streaming MapReduce"
 msgstr "मॅपरेड्युस स्ट्रिमिंग करता"
 
-msgid "Sub Type"
-msgstr "उप प्रकार"
-
-msgid "Sub Type Value (Manual Input)"
-msgstr "उप प्रकार मोल (मॅन्युअल इनपुट)"
-
 msgid "Subnet"
 msgstr "उपनेट"
 
@@ -5336,9 +5259,6 @@ msgstr "साठयल्ल्या वस्तींचो एकूण आ
 
 msgid "Transform Protocol"
 msgstr "हस्तांतर प्रोटोकॉल"
-
-msgid "Trunk"
-msgstr "ट्रँक"
 
 msgid "Type"
 msgstr "प्रकार"
@@ -6172,9 +6092,6 @@ msgstr "निरीक्षक वळेरी परत मेळयात."
 msgid "Unable to retrieve network details."
 msgstr "नेटवर्क तपशील परत मेळोवपाक शकना."
 
-msgid "Unable to retrieve network profile details."
-msgstr "नेटवर्क प्रोफायल तपशील मेळोवपाक अपेस."
-
 msgid "Unable to retrieve network quota information."
 msgstr "नेटवर्क कोटाची माहिती परत मेळोवपाक असफळ."
 
@@ -6563,9 +6480,6 @@ msgstr "मेटाडेटा सुदारात"
 
 msgid "Update Network"
 msgstr "नेटवर्क सुदारात"
-
-msgid "Update Network Profile"
-msgstr "नेटवर्क प्रोफायल सुदारात"
 
 msgid "Update Object"
 msgstr "वस्त सुदारात"

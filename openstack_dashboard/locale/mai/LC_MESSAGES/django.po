@@ -7,11 +7,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-07-28 12:34+0000\n"
-"PO-Revision-Date: 2015-07-24 20:13+0000\n"
+"POT-Creation-Date: 2015-08-04 04:10+0000\n"
+"PO-Revision-Date: 2015-08-04 00:51+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
-"Language-Team: Maithili (http://www.transifex.com/projects/p/horizon/"
-"language/mai/)\n"
+"Language-Team: Maithili (http://www.transifex.com/openstack/horizon/language/"
+"mai/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -110,9 +110,6 @@ msgstr "-"
 
 msgid "-- not selected --"
 msgstr "-- नहि चयनित --"
-
-msgid "1-4093 for VLAN; 5000 and above for Overlay"
-msgstr "VLAN क लेल 1-4093; ओवरले क लेल 5000 आओर एकरासँ बेसी"
 
 msgid "3des"
 msgstr "3des"
@@ -782,12 +779,6 @@ msgstr "सिंडर"
 msgid "Cipher"
 msgstr "सिफर"
 
-msgid "Cisco Nexus 1000V"
-msgstr "सिस्को संबंध 1000v"
-
-msgid "Cisco Nexus 1000v"
-msgstr "सिस्को संबंध 1000v"
-
 msgid "Classless Inter-Domain Routing (e.g. 192.168.0.0/24)"
 msgstr "वर्गहीन अंतर डोमेन रूटिंग (जहिना 192.168.0.0/24)"
 
@@ -1066,9 +1057,6 @@ msgstr "सँजाल बनाउ"
 
 msgid "Create Network (Quota exceeded)"
 msgstr "संजाल बनाउ (कोटा सँ बेसी भ' गेल)"
-
-msgid "Create Network Profile"
-msgstr "संजाल प्रोफाइल बनाउ"
 
 msgid "Create Node Group Template"
 msgstr "नोड समूह नमूना बनाउ"
@@ -1820,9 +1808,6 @@ msgstr " मानिटर संपादित करू"
 msgid "Edit Network"
 msgstr "सँजाल संपादित करू"
 
-msgid "Edit Network Profile"
-msgstr "संपादित संजाल प्रोफाइल"
-
 msgid "Edit Policy"
 msgstr "नीति संपादित करू"
 
@@ -1922,9 +1907,6 @@ msgstr "गोपन"
 msgid "Encryption algorithm"
 msgstr "गोपन अलगोरिथम"
 
-msgid "Enhanced VXLAN"
-msgstr "बढ़ी भेल VXLAN"
-
 msgid "Enter a value for ICMP code in the range (-1: 255)"
 msgstr " ICMP कोड क लेल एकटा मूल्य दर्ज (: 255 -1) रेंज मे"
 
@@ -1943,9 +1925,6 @@ msgid ""
 msgstr ""
 "1 आओर 65535 क बीच एकटा पूर्णांक मान दर्ज करू. इसी पोर्ट क उपयोग सबहि चयनित सदस्य क "
 "लेल कएल जएताह आओर एकरा बाद मे संशोधित कएल जाए सकैत अछि."
-
-msgid "Enter parameter (e.g. GRE)"
-msgstr "पैरामीटर दर्ज करू (जहिना जीआरई)"
 
 msgid "Environment Data"
 msgstr "वातावरण डाटा"
@@ -2162,10 +2141,6 @@ msgid "Failed to create network %s"
 msgstr "सँजाल %s निर्माण मे बिफल "
 
 #, python-format
-msgid "Failed to create network profile %s"
-msgstr "%s संजाल प्रोफाइल बनाबै मे बिफल"
-
-#, python-format
 msgid "Failed to create router \"%s\"."
 msgstr " \"%s\" रूटर बनाबै मे बिफल."
 
@@ -2189,10 +2164,6 @@ msgstr "\"%s\" सँजाल केँ मेटाय पाबै मे ब
 #, python-format
 msgid "Failed to delete network %s"
 msgstr "%s सँजाल केँ मेटाय पाबै मे बिफल"
-
-#, python-format
-msgid "Failed to delete network profile (%s)."
-msgstr "संजाल प्रोफाइल हटाएब मे बिफल (%s)."
 
 #, python-format
 msgid "Failed to delete port %s"
@@ -2269,9 +2240,6 @@ msgstr ""
 " %s परियोजना क सदस्य, अद्यतन परियोजना समूह आओर अद्यतन परियोजना कोटा संशोधित करब मे "
 "बिफल."
 
-msgid "Failed to obtain network profile binding"
-msgstr "संजाल प्रोफाइल बाइंडिंग प्राप्त करबामे बिफल रहल"
-
 #, python-format
 msgid "Failed to remove rule from policy %(name)s: %(reason)s"
 msgstr "%(name)s नीति सँ नियम केँ हटाएब मे बिफल: %(reason)s"
@@ -2333,10 +2301,6 @@ msgstr "सदस्य %s अपडेट करबामे बिफल"
 #, python-format
 msgid "Failed to update network %s"
 msgstr "%s सँजाल अद्यतन करबामे बिफल"
-
-#, python-format
-msgid "Failed to update network profile (%s)."
-msgstr "सँजाल प्रोफाइल (%s) अद्यतन करबामे बिफल."
 
 #, python-format
 msgid "Failed to update policy %(name)s: %(reason)s"
@@ -3355,12 +3319,6 @@ msgstr "मानिटर"
 msgid "Month to date"
 msgstr "माह सँ दिनांक तक"
 
-msgid "Multicast IP Range"
-msgstr "मल्टीकास्ट आईपी रेंज"
-
-msgid "Multicast IPv4 range(e.g. 224.0.1.0-224.0.1.100)"
-msgstr "मल्टीकास्ट IPv4 रेंज (जहिना 224.0.1.0-224.0.1.100)"
-
 msgid "Must specify start of period"
 msgstr "अवधि क प्रारंभ अवश्य निर्दिष्ट करू"
 
@@ -3387,9 +3345,6 @@ msgstr "बनाने क लेल ढेर क नाम."
 #, python-format
 msgid "Name: %(name)s ID: %(uuid)s"
 msgstr "नाम: %(name)s ID: %(uuid)s"
-
-msgid "Native VXLAN"
-msgstr "मूल VXLAN"
 
 msgid "Network"
 msgstr "सँजाल"
@@ -3423,14 +3378,6 @@ msgstr "सँजाल नाम"
 
 msgid "Network Profile"
 msgstr "संजाल प्रोफाइल"
-
-#, python-format
-msgid "Network Profile %s was successfully created."
-msgstr "संजाल प्रोफाइल %s सफलतापूर्वक बनाएल गेल छल."
-
-#, python-format
-msgid "Network Profile %s was successfully updated."
-msgstr "संजाल प्रोफाइल %s सफलतापूर्वक अद्यतन कएल गेल छल."
 
 msgid "Network Profiles could not be retrieved."
 msgstr "संजाल प्रोफाइल प्राप्त नहि कएल जाए सकैत अछि."
@@ -3781,9 +3728,6 @@ msgstr "आन प्रोटोकाल"
 msgid "Output"
 msgstr "आउटपुट"
 
-msgid "Overlay"
-msgstr "ओवरले"
-
 msgid "Overview"
 msgstr "सारांश"
 
@@ -3863,9 +3807,6 @@ msgstr "काज सँ निकलब क बाद क्लस्टर क
 msgid "Physical Network"
 msgstr "भौतिक सँजाल"
 
-msgid "Physical Network Name"
-msgstr "भौतिक संजाल नाम"
-
 msgid "Pig"
 msgstr "शूकर"
 
@@ -3911,9 +3852,6 @@ msgstr "नीति"
 #, python-format
 msgid "Policy %s was successfully updated."
 msgstr "नीति %s सफलतापूर्वक अपडेट कएल गेल छल."
-
-msgid "Policy Profile"
-msgstr "नीति प्रोफाइल"
 
 msgid "Policy Profiles"
 msgstr "नीति प्रोफाइल"
@@ -4022,9 +3960,6 @@ msgstr "परियोजना उपयोग"
 
 msgid "Projects"
 msgstr "परियोजना"
-
-msgid "Projects could not be retrieved."
-msgstr "परियोजना प्राप्त नहि कएल जाए सकैत अछि."
 
 msgid "Projects:"
 msgstr "परियोजना:"
@@ -4468,12 +4403,6 @@ msgstr "सुरक्षा समूह नियम"
 
 msgid "Security Groups"
 msgstr "सुरक्षा समूह"
-
-msgid "Segment Range"
-msgstr "अनुभाग रेंज"
-
-msgid "Segment Type"
-msgstr "अनुभाग प्रकार"
 
 msgid "Segmentation ID"
 msgstr "विभाजन आईडी"
@@ -4932,12 +4861,6 @@ msgstr "भंडारण प्रकार"
 msgid "Streaming MapReduce"
 msgstr "MapReduce स्ट्रीमिंग"
 
-msgid "Sub Type"
-msgstr "उप प्रकार"
-
-msgid "Sub Type Value (Manual Input)"
-msgstr "उप प्रकार मान (मैनुअल इनपुट)"
-
 msgid "Subnet"
 msgstr "सबनेट"
 
@@ -5350,9 +5273,6 @@ msgstr "भंडारित वस्तु क कुल आकार"
 
 msgid "Transform Protocol"
 msgstr "प्रोटोकाल रूपांतरण"
-
-msgid "Trunk"
-msgstr "धड़"
 
 msgid "Type"
 msgstr "प्रकार"
@@ -6188,9 +6108,6 @@ msgstr "मानिटर सूची केँ प्राप्त कर�
 msgid "Unable to retrieve network details."
 msgstr "संजाल जानकारी प्राप्त करबामे असमर्थ."
 
-msgid "Unable to retrieve network profile details."
-msgstr "संजाल प्रोफाइल विवरण प्राप्त करबामे असमर्थ."
-
 msgid "Unable to retrieve network quota information."
 msgstr "संजाल कोटा जानकारी प्राप्त करबामे असमर्थ."
 
@@ -6579,9 +6496,6 @@ msgstr "मेटाडाटा अद्यतन करू"
 
 msgid "Update Network"
 msgstr " सँजाल अद्यतन करू"
-
-msgid "Update Network Profile"
-msgstr "अद्यतन संजाल प्रोफाइल"
 
 msgid "Update Object"
 msgstr " वस्तु अद्यतन करू"

@@ -8,11 +8,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-07-28 12:34+0000\n"
-"PO-Revision-Date: 2015-07-26 12:51+0000\n"
+"POT-Creation-Date: 2015-08-04 04:10+0000\n"
+"PO-Revision-Date: 2015-08-04 00:51+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
-"Language-Team: Panjabi (Punjabi) (India) (http://www.transifex.com/projects/"
-"p/horizon/language/pa_IN/)\n"
+"Language-Team: Panjabi (Punjabi) (India) (http://www.transifex.com/openstack/"
+"horizon/language/pa_IN/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -106,9 +106,6 @@ msgstr "-"
 
 msgid "-- not selected --"
 msgstr "-- منتخب نہیں كیا گیا --"
-
-msgid "1-4093 for VLAN; 5000 and above for Overlay"
-msgstr "VLAN کے لئے 1-4093؛ 5000 اور اس سے اوپر چڑھائیں"
 
 msgid "3des"
 msgstr "3des"
@@ -753,12 +750,6 @@ msgstr "سنڈر"
 msgid "Cipher"
 msgstr "صفر"
 
-msgid "Cisco Nexus 1000V"
-msgstr "سسكو اتصال 1000V"
-
-msgid "Cisco Nexus 1000v"
-msgstr "سسكو اتصال 1000v"
-
 msgid "Classless Inter-Domain Routing (e.g. 192.168.0.0/24)"
 msgstr "غیرسماجی انٹر ڈومین روٹنگ(e.g. 192.168.0.0/24)"
 
@@ -1027,9 +1018,6 @@ msgstr "نیٹ ورک بنائیں"
 
 msgid "Create Network (Quota exceeded)"
 msgstr "نیٹ ورك كی تخلیق كریں(کوٹہ سے زیادہ ہو گیا)"
-
-msgid "Create Network Profile"
-msgstr "نیٹورك پروفائل كی تخلیق كریں"
 
 msgid "Create Node Group Template"
 msgstr "نوڈ گروپ ٹیمپلیٹ كی تخلیق كریں"
@@ -1783,9 +1771,6 @@ msgstr "مانیٹركی ترمیم كریں"
 msgid "Edit Network"
 msgstr "نیٹ ورک میں ترمیم کریں"
 
-msgid "Edit Network Profile"
-msgstr "نیٹورك پروفائل كی ترمیم كریں"
-
 msgid "Edit Policy"
 msgstr "پالیسی ترمیم كریں"
 
@@ -1885,9 +1870,6 @@ msgstr "خفیہ کاری"
 msgid "Encryption algorithm"
 msgstr "خفیہ کاری کا الگورتھم"
 
-msgid "Enhanced VXLAN"
-msgstr "VXLAN میں اضافہ كیا"
-
 msgid "Enter a value for ICMP code in the range (-1: 255)"
 msgstr "(: 255 -1) رینج میں ICMP کوڈ کے لئے ایک قیمت درج كریں"
 
@@ -1907,9 +1889,6 @@ msgid ""
 msgstr ""
 "1 اور 65535 کے درمیان ایک انٹیگر ویلو درج کریں. اسی پورٹ کا استعمال تمام "
 "منتخب شدہ ممبران کے لئے کیا جائے گا اور اسے بعد میں نظر ثانی کی جا سکتا ہے."
-
-msgid "Enter parameter (e.g. GRE)"
-msgstr "پیرامیٹر درج كریں (e.g. GRE)"
 
 msgid "Environment Data"
 msgstr "ماحولیات ڈیٹا"
@@ -2129,10 +2108,6 @@ msgid "Failed to create network %s"
 msgstr "نیٹ ورک %s تعمیر میں ناکام"
 
 #, python-format
-msgid "Failed to create network profile %s"
-msgstr "نیٹ ورك پروفائل %s كی تخلیق ناكام رہی"
-
-#, python-format
 msgid "Failed to create router \"%s\"."
 msgstr " \"%s\" روٹركی تخلیق كرنے میں ناکام."
 
@@ -2157,10 +2132,6 @@ msgstr "\"%s\" نیٹ ورک کو خارج كرنے میں ناکام"
 #, python-format
 msgid "Failed to delete network %s"
 msgstr "%s نیٹ ورک کو مٹا پانے میں ناکام"
-
-#, python-format
-msgid "Failed to delete network profile (%s)."
-msgstr "نیٹ ورك پروفائل (%s) خارج كرنے میں ناكام ۔"
 
 #, python-format
 msgid "Failed to delete port %s"
@@ -2241,9 +2212,6 @@ msgstr ""
 "%s پروجیكٹ کے ارکان، اپ ڈیٹ منصوبے گروپوں اور اپ ڈیٹ پروجیكٹ کوٹہ نظر ثانی "
 "کرنے میں ناکام."
 
-msgid "Failed to obtain network profile binding"
-msgstr "نیٹ ورک کی بیڈینگ حاصل کرنے میں ناکام رہے"
-
 #, python-format
 msgid "Failed to remove rule from policy %(name)s: %(reason)s"
 msgstr "%(name)s پالیسی سے قوانین کو نكالنے میں ناکام : %(reason)s"
@@ -2305,10 +2273,6 @@ msgstr "رکن %s طرف کرنے میں ناکام"
 #, python-format
 msgid "Failed to update network %s"
 msgstr "%s نیٹ ورک کو اپ ڈیٹ کرنے میں ناکام"
-
-#, python-format
-msgid "Failed to update network profile (%s)."
-msgstr "نیٹ ورك پروفائل (%s) اپ ڈیٹ كرنے میں ناكام ۔"
 
 #, python-format
 msgid "Failed to update policy %(name)s: %(reason)s"
@@ -3311,12 +3275,6 @@ msgstr "مانیٹرز"
 msgid "Month to date"
 msgstr "ماہ سے تاریخوں تک"
 
-msgid "Multicast IP Range"
-msgstr "کثیر نشریات IP رینج"
-
-msgid "Multicast IPv4 range(e.g. 224.0.1.0-224.0.1.100)"
-msgstr "کثیر نشریات IPv4 کی رینج(e.g. 224.0.1.0-224.0.1.100)"
-
 msgid "Must specify start of period"
 msgstr "مدت کا آغاز ضرور وضاحت کریں"
 
@@ -3343,9 +3301,6 @@ msgstr "تخلیق کرنے کے لئے اسٹیک کا نام ہیں."
 #, python-format
 msgid "Name: %(name)s ID: %(uuid)s"
 msgstr "نام: %(name)s ID: %(uuid)s"
-
-msgid "Native VXLAN"
-msgstr "مقامی VXLAN"
 
 msgid "Network"
 msgstr "ਸੰਜਾਲ"
@@ -3379,14 +3334,6 @@ msgstr "نیٹ ورک کا نام"
 
 msgid "Network Profile"
 msgstr "نیٹ ورک پروفائل"
-
-#, python-format
-msgid "Network Profile %s was successfully created."
-msgstr "نیٹورك پروفائل %s كامیابی سے تخلیق كردیا گیا تھا۔"
-
-#, python-format
-msgid "Network Profile %s was successfully updated."
-msgstr "نیٹ ورک پروفائل %s کامیابی اپ ڈیٹ کیا گیا تھا."
 
 msgid "Network Profiles could not be retrieved."
 msgstr "نیٹ ورک کی حاصل نہیں کیا جا سکتا ہے."
@@ -3746,9 +3693,6 @@ msgstr "دیگر پروٹوكول"
 msgid "Output"
 msgstr "آؤٹ پٹ"
 
-msgid "Overlay"
-msgstr "اوولے"
-
 msgid "Overview"
 msgstr "اوور ویو"
 
@@ -3820,9 +3764,6 @@ msgstr "کام سے باہر نکلنے کے بعد کلسٹر برقرار رہ
 msgid "Physical Network"
 msgstr "مادی نیٹ ورک"
 
-msgid "Physical Network Name"
-msgstr "جسمانی نیٹ ورک کا نام"
-
 msgid "Pig"
 msgstr "پگ"
 
@@ -3868,9 +3809,6 @@ msgstr "پالیسی "
 #, python-format
 msgid "Policy %s was successfully updated."
 msgstr "پالیسی %s کامیابی طرف کیا گیا تھا."
-
-msgid "Policy Profile"
-msgstr "پالیسی پروفائل"
 
 msgid "Policy Profiles"
 msgstr "پالیسی پروفائلس"
@@ -3967,9 +3905,6 @@ msgstr "پروجیكٹ استعمال"
 
 msgid "Projects"
 msgstr "پروجیكٹس"
-
-msgid "Projects could not be retrieved."
-msgstr "پروجیكٹس حاصل نہیں کیا جا سکتا ہے."
 
 msgid "Projects:"
 msgstr "پروجیكٹ :"
@@ -4330,12 +4265,6 @@ msgstr "سیکورٹی گروپ کے رولز"
 
 msgid "Security Groups"
 msgstr "ਸੁਰੱਖਿਆ ਸਮੂਹ"
-
-msgid "Segment Range"
-msgstr "سیگمینٹ رینج"
-
-msgid "Segment Type"
-msgstr "سیگمینٹ ٹائپ"
 
 msgid "Segmentation ID"
 msgstr "انقطاع ID"
@@ -4753,12 +4682,6 @@ msgstr "اسٹوریج ٹائپ"
 
 msgid "Streaming MapReduce"
 msgstr "MapReduce اسٹریمنگ"
-
-msgid "Sub Type"
-msgstr "سب ٹائپ "
-
-msgid "Sub Type Value (Manual Input)"
-msgstr "سب ٹائپ ویلیو (مینول ان پٹ)"
 
 msgid "Subnet"
 msgstr "سب نیٹ"
@@ -5181,9 +5104,6 @@ msgstr "ਸੰਭਾਲੇ ਗਏ ਆਬਜੈਕਟਾਂ ਦਾ ਕੁੱਲ �
 
 msgid "Transform Protocol"
 msgstr "ٹرانسفارم پروٹوكول"
-
-msgid "Trunk"
-msgstr "ٹرنک"
 
 msgid "Type"
 msgstr "قسم"
@@ -6024,9 +5944,6 @@ msgstr "مانیٹر فہرست کو حاصل کرنے میں قابل."
 msgid "Unable to retrieve network details."
 msgstr "نیٹ ورک کی معلومات حاصل کرنے میں ناقابل."
 
-msgid "Unable to retrieve network profile details."
-msgstr "نیٹ ورک پروفائل تفصیل حاصل کرنے میں غیر فعال ۔"
-
 msgid "Unable to retrieve network quota information."
 msgstr "نیٹ ورک کوٹہ معلومات حاصل کرنے میں غیر فعال۔"
 
@@ -6410,9 +6327,6 @@ msgstr "میٹا ڈیٹا کو اپ ڈیٹ کریں"
 
 msgid "Update Network"
 msgstr "نیٹورك كو اپ ڈیٹ كریں"
-
-msgid "Update Network Profile"
-msgstr "اپ ڈیٹ نیٹورك پروفائل"
 
 msgid "Update Object"
 msgstr "آبجیكٹ اپ ڈیٹ كریں"

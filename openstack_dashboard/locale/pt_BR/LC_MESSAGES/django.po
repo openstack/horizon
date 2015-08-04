@@ -17,10 +17,10 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-07-28 12:34+0000\n"
-"PO-Revision-Date: 2015-07-27 13:37+0000\n"
-"Last-Translator: Gabriel Wainer\n"
-"Language-Team: Portuguese (Brazil) (http://www.transifex.com/projects/p/"
+"POT-Creation-Date: 2015-08-04 04:10+0000\n"
+"PO-Revision-Date: 2015-08-04 00:51+0000\n"
+"Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
+"Language-Team: Portuguese (Brazil) (http://www.transifex.com/openstack/"
 "horizon/language/pt_BR/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -124,9 +124,6 @@ msgstr "-"
 
 msgid "-- not selected --"
 msgstr "-- Não Selecionado --"
-
-msgid "1-4093 for VLAN; 5000 and above for Overlay"
-msgstr "1-4093 para VLAN; 5000 e acima para Overlay"
 
 msgid "3des"
 msgstr "3des"
@@ -989,12 +986,6 @@ msgstr ""
 msgid "Cipher"
 msgstr "Cifra"
 
-msgid "Cisco Nexus 1000V"
-msgstr "Cisco Nexus 1000V"
-
-msgid "Cisco Nexus 1000v"
-msgstr "Cisco Nexus 1000v"
-
 msgid "Classless Inter-Domain Routing (e.g. 192.168.0.0/24)"
 msgstr "Roteamento Inter-Domínios Sem Classe (ex: 192.168.0.0/24)"
 
@@ -1343,9 +1334,6 @@ msgstr "Criar Rede"
 
 msgid "Create Network (Quota exceeded)"
 msgstr "Criar Rede (Quota excedida)"
-
-msgid "Create Network Profile"
-msgstr "Criar Perfil de Rede"
 
 msgid "Create Node Group Template"
 msgstr "Criar Mode de Node Group"
@@ -1956,11 +1944,6 @@ msgid_plural "Delete Networks"
 msgstr[0] "Excluir Rede"
 msgstr[1] "Excluir Redes"
 
-msgid "Delete Network Profile"
-msgid_plural "Delete Network Profiles"
-msgstr[0] "Excluir Perfil de Rede"
-msgstr[1] "Excluir Perfis de Rede"
-
 msgid "Delete Object"
 msgid_plural "Delete Objects"
 msgstr[0] "Excluir Objeto"
@@ -2198,11 +2181,6 @@ msgid "Deleted Network"
 msgid_plural "Deleted Networks"
 msgstr[0] "Redes Excluída"
 msgstr[1] "Redes Excluídas"
-
-msgid "Deleted Network Profile"
-msgid_plural "Deleted Network Profiles"
-msgstr[0] "Perfil de Rede Excluído"
-msgstr[1] "Perfis de Rede Excluídos"
 
 msgid "Deleted Object"
 msgid_plural "Deleted Objects"
@@ -2668,9 +2646,6 @@ msgstr "Editar Monitor"
 msgid "Edit Network"
 msgstr "Editar Rede"
 
-msgid "Edit Network Profile"
-msgstr "Editar Perfil de Rede"
-
 msgid "Edit Node Group Template"
 msgstr "Editar Modelo de Grupo de Nodo"
 
@@ -2805,9 +2780,6 @@ msgstr "Algoritmo de encriptação"
 msgid "Engine Id"
 msgstr "Identificador do Motor"
 
-msgid "Enhanced VXLAN"
-msgstr "VXLAN aprimorada"
-
 msgid "Enter a value for ICMP code in the range (-1: 255)"
 msgstr "Digite um valor para o código ICMP na faixa (-1: 255)"
 
@@ -2828,9 +2800,6 @@ msgid ""
 msgstr ""
 "Introduzir um valor inteiro entre 1 e 65535 A mesma porta irá ser utilizado "
 "para todos os membros seleccionados e podem ser modificados posteriormente."
-
-msgid "Enter parameter (e.g. GRE)"
-msgstr "Inserir parametro (ex. GRE)"
 
 msgid "Environment Data"
 msgstr "Dados de Ambiente"
@@ -3112,10 +3081,6 @@ msgid "Failed to create network %s"
 msgstr "Falha ao criar rede %s"
 
 #, python-format
-msgid "Failed to create network profile %s"
-msgstr "Falha ao criar perfil de rede %s"
-
-#, python-format
 msgid "Failed to create router \"%s\"."
 msgstr "Falha ao criar roteador \"%s\"."
 
@@ -3139,10 +3104,6 @@ msgstr "Falha ao excluir rede \"%s\""
 #, python-format
 msgid "Failed to delete network %s"
 msgstr "Falha ao excluir rede %s"
-
-#, python-format
-msgid "Failed to delete network profile (%s)."
-msgstr "Falha ao excluir perfil de rede (%s)."
 
 #, python-format
 msgid "Failed to delete port %s"
@@ -3240,9 +3201,6 @@ msgstr ""
 "Falha ao modificar %s membros de projeto, atualizar grupos de projeto e "
 "atualizar cotas de projeto."
 
-msgid "Failed to obtain network profile binding"
-msgstr "Não foi possível obter perfil de rede de ligação"
-
 #, python-format
 msgid ""
 "Failed to perform requested operation on instance \"%s\", the instance has "
@@ -3325,10 +3283,6 @@ msgstr "Falha ao atualizar membro %s"
 #, python-format
 msgid "Failed to update network %s"
 msgstr "Falha ao atualizar rede %s"
-
-#, python-format
-msgid "Failed to update network profile (%s)."
-msgstr "Falha ao atualizar perfil de rede (%s)."
 
 #, python-format
 msgid "Failed to update policy %(name)s: %(reason)s"
@@ -4578,12 +4532,6 @@ msgstr "Monitores"
 msgid "Month to date"
 msgstr "Data do mês"
 
-msgid "Multicast IP Range"
-msgstr "Faixa de IP Multicast"
-
-msgid "Multicast IPv4 range(e.g. 224.0.1.0-224.0.1.100)"
-msgstr "Range Multicast IPv4 (por exemplo. 224.0.1.0-224.0.1.100)"
-
 msgid "Must specify start of period"
 msgstr "Deve especificar o início do período"
 
@@ -4633,9 +4581,6 @@ msgstr "Visão Geral de Namespaces"
 msgid "Namespaces"
 msgstr "Namespaces"
 
-msgid "Native VXLAN"
-msgstr "VXLAN Nativa"
-
 msgid "Network"
 msgstr "Rede"
 
@@ -4671,14 +4616,6 @@ msgstr "Nome de Rede"
 
 msgid "Network Profile"
 msgstr "Perfil de Rede"
-
-#, python-format
-msgid "Network Profile %s was successfully created."
-msgstr "Perfil de Rede %s foi criado com sucesso."
-
-#, python-format
-msgid "Network Profile %s was successfully updated."
-msgstr "Perfil de Rede %s foi atualizado com sucesso."
 
 msgid "Network Profiles could not be retrieved."
 msgstr "Perfis de Rede não puderam ser obtidos."
@@ -5097,9 +5034,6 @@ msgstr "Outro Protocolo"
 msgid "Output"
 msgstr "Output"
 
-msgid "Overlay"
-msgstr "Overlay"
-
 msgid "Overview"
 msgstr "Visão Geral"
 
@@ -5237,9 +5171,6 @@ msgstr "Persistir cluster após sair do job"
 msgid "Physical Network"
 msgstr "Rede Física"
 
-msgid "Physical Network Name"
-msgstr "Nome de Rede Física"
-
 msgid "Pig"
 msgstr "Pig"
 
@@ -5285,9 +5216,6 @@ msgstr "Política"
 #, python-format
 msgid "Policy %s was successfully updated."
 msgstr "Política %s foi atualizada com sucesso."
-
-msgid "Policy Profile"
-msgstr "Perfil de Política"
 
 msgid "Policy Profiles"
 msgstr "Perfis de Política"
@@ -5421,9 +5349,6 @@ msgstr "Nome do projeto já está em uso. Por favor use um nome diferente."
 
 msgid "Projects"
 msgstr "Projetos"
-
-msgid "Projects could not be retrieved."
-msgstr "Projetos não puderam ser obtidos."
 
 msgid "Projects:"
 msgstr "Projetos:"
@@ -6149,12 +6074,6 @@ msgstr "Regras do Grupo de Segurança"
 msgid "Security Groups"
 msgstr "Grupos de Segurança"
 
-msgid "Segment Range"
-msgstr "Faixa de Segmento"
-
-msgid "Segment Type"
-msgstr "Tipo de Segmento"
-
 msgid "Segmentation ID"
 msgstr "ID de Segmentação"
 
@@ -6766,12 +6685,6 @@ msgstr "Tipo de Storage"
 
 msgid "Streaming MapReduce"
 msgstr "Streaming MapReduce"
-
-msgid "Sub Type"
-msgstr "Sub Tipo"
-
-msgid "Sub Type Value (Manual Input)"
-msgstr "Valor de Sub Tipo (entrada manual)"
 
 msgid "Subnet"
 msgstr "Sub-rede"
@@ -7394,9 +7307,6 @@ msgstr "Transferência de Nome"
 
 msgid "Transform Protocol"
 msgstr "Transformar Protocolo"
-
-msgid "Trunk"
-msgstr "Tronco"
 
 msgid "Type"
 msgstr "Tipo"
@@ -8391,9 +8301,6 @@ msgstr "Não é possível obter detalhes do namespace."
 msgid "Unable to retrieve network details."
 msgstr "Não foi possível obter detalhes da rede."
 
-msgid "Unable to retrieve network profile details."
-msgstr "Não foi possível obter detalhes do perfil da rede."
-
 msgid "Unable to retrieve network quota information."
 msgstr "Não foi possível obter informações de cota de rede."
 
@@ -8902,9 +8809,6 @@ msgstr "Atualizar metadados"
 
 msgid "Update Network"
 msgstr "Atualizar Rede"
-
-msgid "Update Network Profile"
-msgstr "Atualizar Perfil de Rede"
 
 msgid "Update Object"
 msgstr "Atualizar objeto"

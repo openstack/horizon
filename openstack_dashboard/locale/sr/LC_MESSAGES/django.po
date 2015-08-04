@@ -8,10 +8,10 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-07-28 12:34+0000\n"
-"PO-Revision-Date: 2015-07-26 12:52+0000\n"
+"POT-Creation-Date: 2015-08-04 04:10+0000\n"
+"PO-Revision-Date: 2015-08-04 00:51+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
-"Language-Team: Serbian (http://www.transifex.com/projects/p/horizon/language/"
+"Language-Team: Serbian (http://www.transifex.com/openstack/horizon/language/"
 "sr/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -573,12 +573,6 @@ msgstr "Odaberite aromu za pokretanje."
 msgid "Cinder"
 msgstr "Cinder"
 
-msgid "Cisco Nexus 1000V"
-msgstr "Cisco Nexus 1000V"
-
-msgid "Cisco Nexus 1000v"
-msgstr "Cisco Nexus 1000v"
-
 msgid "Classless Inter-Domain Routing (e.g. 192.168.0.0/24)"
 msgstr "Inter-Domain rutiranje bez klase (npr. 192.168.0.0/24)"
 
@@ -751,9 +745,6 @@ msgstr "Kreiranje para ključeva"
 
 msgid "Create Network"
 msgstr "Kreiraj mrežu"
-
-msgid "Create Network Profile"
-msgstr "Kreirajte mrežni profil"
 
 msgid "Create Port"
 msgstr "Kreiraj port"
@@ -1320,9 +1311,6 @@ msgstr "Izmena nadzora"
 msgid "Edit Network"
 msgstr "Izmeni mrežu"
 
-msgid "Edit Network Profile"
-msgstr "Izmena mrežnog profila."
-
 msgid "Edit Policy"
 msgstr "Izmenite politike"
 
@@ -1395,9 +1383,6 @@ msgstr "Šifrovana lozinka"
 msgid "Encryption algorithm"
 msgstr "Algoritam enkripcije"
 
-msgid "Enhanced VXLAN"
-msgstr "Prošireni VXLAN"
-
 msgid "Enter a value for ICMP code in the range (-1: 255)"
 msgstr "Unesite vrednost za ICMP kod u opsegu (-1: 255)"
 
@@ -1409,9 +1394,6 @@ msgstr "Unesite celobroj između 0 i 255 (ili -1 što znači joker)."
 
 msgid "Enter an integer value between 1 and 65535."
 msgstr "Unesite celobroj između 1 i 65535."
-
-msgid "Enter parameter (e.g. GRE)"
-msgstr "Unesite parametar (npr. GRE)"
 
 msgid "Environment Data"
 msgstr "Podaci okruženja"
@@ -1604,10 +1586,6 @@ msgid "Failed to create network %s"
 msgstr "Neuspešno kreiranje mreže %s"
 
 #, python-format
-msgid "Failed to create network profile %s"
-msgstr "Neuspešno kreiranje mrežnog profila %s"
-
-#, python-format
 msgid "Failed to create router \"%s\"."
 msgstr "Neuspešno kreiran ruter \"%s\"."
 
@@ -1628,10 +1606,6 @@ msgstr "Neuspelo brisanje mreže \"%s\""
 #, python-format
 msgid "Failed to delete network %s"
 msgstr "Neuspešno brisanje mreže %s"
-
-#, python-format
-msgid "Failed to delete network profile (%s)."
-msgstr "Neuspešno brisanje mrežnog profila (%s)."
 
 #, python-format
 msgid "Failed to delete port %s"
@@ -2489,9 +2463,6 @@ msgstr "Nadzori"
 msgid "Month to date"
 msgstr "Mesec do dana"
 
-msgid "Multicast IP Range"
-msgstr "Opseg multicast IP-ja"
-
 msgid "N/A"
 msgstr "Neprimenljivo"
 
@@ -2521,9 +2492,6 @@ msgstr "Definicija Izvora za Namespace"
 
 msgid "Namespace JSON"
 msgstr "Namespace JSON"
-
-msgid "Native VXLAN"
-msgstr "Native VXLAN"
 
 msgid "Network"
 msgstr "Mreža"
@@ -2557,14 +2525,6 @@ msgstr "Ime mreže"
 
 msgid "Network Profile"
 msgstr "Mrežni profil"
-
-#, python-format
-msgid "Network Profile %s was successfully created."
-msgstr "Mrežni profil %s je uspešno kreiran."
-
-#, python-format
-msgid "Network Profile %s was successfully updated."
-msgstr "Mrežni profil %s je uspešno izmenjen."
 
 msgid "Network Profiles could not be retrieved."
 msgstr "Ne mogu se dobiti mrežni profili."
@@ -2841,9 +2801,6 @@ msgstr "Drugi"
 msgid "Other Protocol"
 msgstr "Drugi protokoli"
 
-msgid "Overlay"
-msgstr "Pokrivač"
-
 msgid "Overview"
 msgstr "Pregled"
 
@@ -2917,9 +2874,6 @@ msgstr "Dozvolite"
 msgid "Physical Network"
 msgstr "Fizička mreža"
 
-msgid "Physical Network Name"
-msgstr "Ime fizičke mreže"
-
 msgid "Please choose a HTTP method"
 msgstr "Molim odaberite HTTP metod"
 
@@ -2950,9 +2904,6 @@ msgstr "Politika"
 #, python-format
 msgid "Policy %s was successfully updated."
 msgstr "Politika %s je uspešno izmenjena."
-
-msgid "Policy Profile"
-msgstr "Profil politika"
 
 msgid "Policy Profiles"
 msgstr "Profili politika"
@@ -3041,9 +2992,6 @@ msgstr "Upotreba projekta"
 
 msgid "Projects"
 msgstr "Projekti"
-
-msgid "Projects could not be retrieved."
-msgstr "Projekat ne može biti pozvan."
 
 msgid "Protected"
 msgstr "Zaštićeno"
@@ -3332,12 +3280,6 @@ msgstr "Pravila sigurnosnih grupa"
 
 msgid "Security Groups"
 msgstr "Sigurnosne grupe"
-
-msgid "Segment Range"
-msgstr "Opseg segmenta"
-
-msgid "Segment Type"
-msgstr "Vrsta segmenta"
 
 msgid "Segmentation ID"
 msgstr "Odvajanje ID"
@@ -3663,12 +3605,6 @@ msgstr "Status"
 msgid "Status Reason"
 msgstr "Razlozi statusa"
 
-msgid "Sub Type"
-msgstr "Sub tip"
-
-msgid "Sub Type Value (Manual Input)"
-msgstr "Vrednost Sub tipa (ručno unošenje)"
-
 msgid "Subnet"
 msgstr "Podmreža"
 
@@ -3975,9 +3911,6 @@ msgstr "Ukupna veličina čuvanih objekata"
 
 msgid "Transform Protocol"
 msgstr "Protokol transformacije"
-
-msgid "Trunk"
-msgstr "Prtljažnik"
 
 msgid "Type"
 msgstr "Vrsta"
@@ -4590,9 +4523,6 @@ msgstr "Nemoguće je dobiti listu monitora."
 msgid "Unable to retrieve network details."
 msgstr "Nemoguće je dobiti detalje mreže."
 
-msgid "Unable to retrieve network profile details."
-msgstr "Nemoguće je izvući detalje profila mreže."
-
 msgid "Unable to retrieve network quota information."
 msgstr "Nemoguće izvući podatke o mrežnim kvotama."
 
@@ -4902,9 +4832,6 @@ msgstr "Ažurirani Metadata podaci"
 
 msgid "Update Network"
 msgstr "Ažuriranje mreže"
-
-msgid "Update Network Profile"
-msgstr "Ažurirajte mrežni profil"
 
 msgid "Update Object"
 msgstr "Ažuriranje objekta"
