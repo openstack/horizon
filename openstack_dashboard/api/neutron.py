@@ -107,6 +107,10 @@ class Subnet(NeutronAPIDictWrapper):
         super(Subnet, self).__init__(apiresource)
 
 
+class SubnetPool(NeutronAPIDictWrapper):
+    """Wrapper for neutron subnetpools."""
+
+
 class Port(NeutronAPIDictWrapper):
     """Wrapper for neutron ports."""
 
@@ -733,6 +737,73 @@ def subnet_update(request, subnet_id, **kwargs):
 def subnet_delete(request, subnet_id):
     LOG.debug("subnet_delete(): subnetid=%s" % subnet_id)
     neutronclient(request).delete_subnet(subnet_id)
+
+
+def subnetpool_list(request, **params):
+    LOG.debug("subnetpool_list(): params=%s" % (params))
+    subnetpools = \
+        neutronclient(request).list_subnetpools(**params).get('subnetpools')
+    return [SubnetPool(s) for s in subnetpools]
+
+
+def subnetpool_get(request, subnetpool_id, **params):
+    LOG.debug("subnetpool_get(): subnetpoolid=%s, params=%s" %
+              (subnetpool_id, params))
+    subnetpool = \
+        neutronclient(request).show_subnetpool(subnetpool_id,
+                                               **params).get('subnetpool')
+    return SubnetPool(subnetpool)
+
+
+def subnetpool_create(request, name, prefixes, **kwargs):
+    """Create a subnetpool.
+
+    ip_version is auto-detected in back-end.
+
+    Parameters:
+    request           -- Request context
+    name              -- Name for subnetpool
+    prefixes          -- List of prefixes for pool
+
+    Keyword Arguments (optional):
+    min_prefixlen     -- Minimum prefix length for allocations from pool
+    max_prefixlen     -- Maximum prefix length for allocations from pool
+    default_prefixlen -- Default prefix length for allocations from pool
+    default_quota     -- Default quota for allocations from pool
+    shared            -- Subnetpool should be shared (Admin-only)
+    tenant_id         -- Owner of subnetpool
+
+    Returns:
+    SubnetPool object
+    """
+    LOG.debug("subnetpool_create(): name=%s, prefixes=%s, kwargs=%s"
+              % (name, prefixes, kwargs))
+    body = {'subnetpool':
+            {'name': name,
+             'prefixes': prefixes,
+             }
+            }
+    if 'tenant_id' not in kwargs:
+        kwargs['tenant_id'] = request.user.project_id
+    body['subnetpool'].update(kwargs)
+    subnetpool = \
+        neutronclient(request).create_subnetpool(body=body).get('subnetpool')
+    return SubnetPool(subnetpool)
+
+
+def subnetpool_update(request, subnetpool_id, **kwargs):
+    LOG.debug("subnetpool_update(): subnetpoolid=%s, kwargs=%s" %
+              (subnetpool_id, kwargs))
+    body = {'subnetpool': kwargs}
+    subnetpool = \
+        neutronclient(request).update_subnetpool(subnetpool_id,
+                                                 body=body).get('subnetpool')
+    return SubnetPool(subnetpool)
+
+
+def subnetpool_delete(request, subnetpool_id):
+    LOG.debug("subnetpool_delete(): subnetpoolid=%s" % subnetpool_id)
+    return neutronclient(request).delete_subnetpool(subnetpool_id)
 
 
 def port_list(request, **params):

@@ -172,6 +172,66 @@ class NeutronApiTests(test.APITestCase):
 
         api.neutron.subnet_delete(self.request, subnet_id)
 
+    def test_subnetpool_list(self):
+        subnetpools = {'subnetpools': self.api_subnetpools.list()}
+
+        neutronclient = self.stub_neutronclient()
+        neutronclient.list_subnetpools().AndReturn(subnetpools)
+        self.mox.ReplayAll()
+
+        ret_val = api.neutron.subnetpool_list(self.request)
+        for n in ret_val:
+            self.assertIsInstance(n, api.neutron.SubnetPool)
+
+    def test_subnetpool_get(self):
+        subnetpool = {'subnetpool': self.api_subnetpools.first()}
+        subnetpool_id = self.api_subnetpools.first()['id']
+
+        neutronclient = self.stub_neutronclient()
+        neutronclient.show_subnetpool(subnetpool_id).AndReturn(subnetpool)
+        self.mox.ReplayAll()
+
+        ret_val = api.neutron.subnetpool_get(self.request, subnetpool_id)
+        self.assertIsInstance(ret_val, api.neutron.SubnetPool)
+
+    def test_subnetpool_create(self):
+        subnetpool_data = self.api_subnetpools.first()
+        params = {'name': subnetpool_data['name'],
+                  'prefixes': subnetpool_data['prefixes'],
+                  'tenant_id': subnetpool_data['tenant_id']}
+
+        neutronclient = self.stub_neutronclient()
+        neutronclient.create_subnetpool(body={'subnetpool': params})\
+            .AndReturn({'subnetpool': subnetpool_data})
+        self.mox.ReplayAll()
+
+        ret_val = api.neutron.subnetpool_create(self.request, **params)
+        self.assertIsInstance(ret_val, api.neutron.SubnetPool)
+
+    def test_subnetpool_update(self):
+        subnetpool_data = self.api_subnetpools.first()
+        subnetpool_id = subnetpool_data['id']
+        params = {'name': subnetpool_data['name'],
+                  'prefixes': subnetpool_data['prefixes']}
+
+        neutronclient = self.stub_neutronclient()
+        neutronclient.update_subnetpool(subnetpool_id, body={'subnetpool': params})\
+            .AndReturn({'subnetpool': subnetpool_data})
+        self.mox.ReplayAll()
+
+        ret_val = api.neutron.subnetpool_update(self.request, subnetpool_id,
+                                                **params)
+        self.assertIsInstance(ret_val, api.neutron.SubnetPool)
+
+    def test_subnetpool_delete(self):
+        subnetpool_id = self.api_subnetpools.first()['id']
+
+        neutronclient = self.stub_neutronclient()
+        neutronclient.delete_subnetpool(subnetpool_id)
+        self.mox.ReplayAll()
+
+        api.neutron.subnetpool_delete(self.request, subnetpool_id)
+
     def test_port_list(self):
         ports = {'ports': self.api_ports.list()}
 
