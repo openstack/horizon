@@ -210,12 +210,15 @@ def domain_update(request, domain_id, name=None, description=None,
 def tenant_create(request, name, description=None, enabled=None,
                   domain=None, **kwargs):
     manager = VERSIONS.get_project_manager(request, admin=True)
-    if VERSIONS.active < 3:
-        return manager.create(name, description, enabled, **kwargs)
-    else:
-        return manager.create(name, domain,
-                              description=description,
-                              enabled=enabled, **kwargs)
+    try:
+        if VERSIONS.active < 3:
+            return manager.create(name, description, enabled, **kwargs)
+        else:
+            return manager.create(name, domain,
+                                  description=description,
+                                  enabled=enabled, **kwargs)
+    except keystone_exceptions.Conflict:
+        raise exceptions.Conflict()
 
 
 def get_default_domain(request):
@@ -289,11 +292,15 @@ def tenant_list(request, paginate=False, marker=None, domain=None, user=None,
 def tenant_update(request, project, name=None, description=None,
                   enabled=None, domain=None, **kwargs):
     manager = VERSIONS.get_project_manager(request, admin=True)
-    if VERSIONS.active < 3:
-        return manager.update(project, name, description, enabled, **kwargs)
-    else:
-        return manager.update(project, name=name, description=description,
-                              enabled=enabled, domain=domain, **kwargs)
+    try:
+        if VERSIONS.active < 3:
+            return manager.update(project, name, description, enabled,
+                                  **kwargs)
+        else:
+            return manager.update(project, name=name, description=description,
+                                  enabled=enabled, domain=domain, **kwargs)
+    except keystone_exceptions.Conflict:
+        raise exceptions.Conflict()
 
 
 def user_list(request, project=None, domain=None, group=None, filters=None):

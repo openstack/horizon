@@ -448,7 +448,10 @@ class CreateProject(CommonQuotaWorkflow):
                                             **kwargs)
 
     def format_status_message(self, message):
-        return message % self.context.get('name', 'unknown project')
+        if "%s" in message:
+            return message % self.context.get('name', 'unknown project')
+        else:
+            return message
 
     def _create_project(self, request, data):
         # create the project
@@ -461,6 +464,10 @@ class CreateProject(CommonQuotaWorkflow):
                                                      enabled=data['enabled'],
                                                      domain=domain_id)
             return self.object
+        except exceptions.Conflict:
+            msg = _('Project name "%s" is already used.') % data['name']
+            self.failure_message = msg
+            return
         except Exception:
             exceptions.handle(request, ignore=True)
             return
@@ -622,7 +629,10 @@ class UpdateProject(CommonQuotaWorkflow):
                                             **kwargs)
 
     def format_status_message(self, message):
-        return message % self.context.get('name', 'unknown project')
+        if "%s" in message:
+            return message % self.context.get('name', 'unknown project')
+        else:
+            return message
 
     @memoized.memoized_method
     def _get_available_roles(self, request):
@@ -638,6 +648,10 @@ class UpdateProject(CommonQuotaWorkflow):
                 name=data['name'],
                 description=data['description'],
                 enabled=data['enabled'])
+        except exceptions.Conflict:
+            msg = _('Project name "%s" is already used.') % data['name']
+            self.failure_message = msg
+            return
         except Exception:
             exceptions.handle(request, ignore=True)
             return
