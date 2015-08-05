@@ -1,0 +1,43 @@
+{% load i18n %}
+<input type="hidden" value="[]" name="argument_ids" id="argument_ids">
+<label for="value_type">{% trans "Select a Value Type for your next argument:" %}</label>
+<span class="row">
+    <span class="input-group col-sm-4">
+        <select id="value_type" name="value_type" class="form-control">
+            <option>{% trans "Select" %}</option>
+            <option value="string">{% trans "String" %}</option>
+            <option value="number">{% trans "Number" %}</option>
+            <option value="data_source">{% trans "Data Source" %}</option>
+        </select>
+        <span class="input-group-btn">
+            <button type="button" id="add_argument_button" class="btn btn-default disabled" onclick="horizon.job_interface_arguments.add_interface_argument();">
+                <span class="fa fa-plus"></span>
+            </button>
+        </span>
+    </span>
+</span>
+<div id="job_interface_arguments">
+    <div id="arguments_table">
+    </div>
+</div>
+<script type="text/javascript">
+
+    $(function () {
+        horizon.job_interface_arguments.init_arguments();
+        {% for argument in form.arguments %}
+            horizon.job_interface_arguments.add_argument_node(
+                horizon.job_interface_arguments.get_next_argument_id(),
+                "{{ argument.name }}",
+                "{{ argument.description }}",
+                "{{ argument.mapping_type }}",
+                "{{ argument.location }}",
+                "{{ argument.value_type }}",
+                "{{ argument.required }}",
+                "{{ argument.default_value }}");
+        {% endfor %}
+        {% for field_id in form.errors_fields %}
+            horizon.job_interface_arguments.mark_argument_element_as_wrong("{{ field_id }}");
+        {% endfor %}
+    });
+
+</script>

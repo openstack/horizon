@@ -126,6 +126,46 @@ def build_node_group_fields(action, name, template, count, serialized=None):
         widget=forms.HiddenInput())
 
 
+def build_interface_argument_fields(
+        action, name, description, mapping_type, location, value_type,
+        required, default_value):
+    action.fields[name] = forms.CharField(
+        label=_("Name"),
+        widget=forms.TextInput(),
+        required=True)
+    action.fields[description] = forms.CharField(
+        label=_("Description"),
+        widget=forms.TextInput(),
+        required=False)
+    action.fields[mapping_type] = forms.ChoiceField(
+        label=_("Mapping Type"),
+        widget=forms.Select(),
+        required=True,
+        choices=[("args", _("Positional Argument")),
+                 ("configs", _("Configuration Value")),
+                 ("params", _("Named Parameter"))])
+    action.fields[location] = forms.CharField(
+        label=_("Location"),
+        widget=forms.TextInput(),
+        required=True)
+    action.fields[value_type] = forms.ChoiceField(
+        label=_("Value Type"),
+        widget=forms.Select(),
+        required=True,
+        choices=[("string", _("String")),
+                 ("number", _("Number")),
+                 ("data_source", _("Data Source"))])
+    action.fields[required] = forms.BooleanField(
+        widget=forms.CheckboxInput(),
+        label=_("Required"),
+        required=False,
+        initial=True)
+    action.fields[default_value] = forms.CharField(
+        label=_("Default Value"),
+        widget=forms.TextInput(),
+        required=False)
+
+
 def parse_configs_from_context(context, defaults):
     configs_dict = dict()
     for key, val in context.items():
