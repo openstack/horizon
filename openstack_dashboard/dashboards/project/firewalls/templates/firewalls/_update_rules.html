@@ -1,38 +1,28 @@
 {% load i18n %}
 
 <noscript><h3>{{ step }}</h3></noscript>
-<table class="table-fixed" id="ruleListSortContainer">
-  <tbody>
-    <tr>
-      <td class="actions">
-        <h4 id="selected_rule_h4">{% trans "Selected Rules" %}</h4>
-        <ul id="selected_rule" class="rulelist">
-        </ul>
-        <h4>{% trans "Available Rules" %}</h4>
-        <ul id="available_rule" class="rulelist">
-        </ul>
-      </td>
-      <td class="help_text">
-          {% include "project/firewalls/_update_rule_help.html" %}
-      </td>
-    </tr>
-  </tbody>
-</table>
+<div id="ruleListSortContainer">
+  <div class="col-sm-6">
+    <h4 id="selected_rule_h4">{% trans "Selected Rules" %}</h4>
+    <ul id="selected_rule" class="rulelist"></ul>
+    <h4>{% trans "Available Rules" %}</h4>
+    <ul id="available_rule" class="rulelist"></ul>
+  </div>
+  <div class="col-sm-6">
+    {% include "project/firewalls/_update_rule_help.html" %}
+  </div>
+</div>
 
-<table class="table-fixed" id="ruleListIdContainer">
-  <tbody>
-    <tr>
-      <td class="actions">
-          <div id="ruleListId">
-            {% include "horizon/common/_form_fields.html" %}
-          </div>
-      </td>
-      <td class="help_text">
-          {{ step.get_help_text }}
-      </td>
-    </tr>
-  </tbody>
-</table>
+<div id="ruleListIdContainer">
+  <div class="actions">
+    <div id="ruleListId">
+      {% include "horizon/common/_form_fields.html" %}
+    </div>
+  </div>
+  <div class="help_text">
+    {{ step.get_help_text }}
+  <div>
+</div>
 
 <script>
   if (typeof $ !== 'undefined') {
