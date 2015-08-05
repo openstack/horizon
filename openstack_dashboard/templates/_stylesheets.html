@@ -14,6 +14,7 @@ css rules getting cut off if one css file to get more than 4k rules inside.
 {% endcompress %}
 
 {% compress css %}
+<link href='{{ STATIC_URL }}app/app.scss' type='text/scss' media='screen' rel='stylesheet' />
 <link href='{{ STATIC_URL }}dashboard/dashboard.scss' type='text/scss' media='screen' rel='stylesheet' />
 
 {% for file in HORIZON_CONFIG.scss_files %}
