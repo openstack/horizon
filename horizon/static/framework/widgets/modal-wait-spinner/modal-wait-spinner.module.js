@@ -30,5 +30,5 @@
    */
 
   angular
-    .module('horizon.framework.widgets.modal-wait-spinner', ['ui.bootstrap']);
+    .module('horizon.framework.widgets.modal-wait-spinner', []);
 })();

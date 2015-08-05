@@ -19,6 +19,7 @@
   describe('Wait Spinner Tests', function() {
 
     var service, modal;
+    beforeEach(module('ui.bootstrap'));
     beforeEach(module('horizon.framework.conf'));
     beforeEach(module('horizon.framework.widgets.modal-wait-spinner'));
 

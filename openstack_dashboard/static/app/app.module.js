@@ -23,7 +23,9 @@
    */
   var libraryModules = [
     'gettext',
-    'ngCookies'
+    'ngCookies',
+    'ngSanitize',
+    'ui.bootstrap'
   ];
 
   /**

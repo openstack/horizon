@@ -36,7 +36,7 @@
    *
    */
   angular
-    .module('horizon.framework.widgets.transfer-table', [ 'ui.bootstrap' ])
+    .module('horizon.framework.widgets.transfer-table', [])
 
     /**
      * @ngdoc parameters
