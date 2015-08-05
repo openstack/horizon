@@ -416,6 +416,22 @@ then all images contained within dashboard/img can be overridden by providing
 a file with the same name.  This makes it very easy to customize logo.png,
 logo-splash.png and favicon.ico.
 
+
+``DEFAULT_THEME_PATH``
+----------------------
+
+.. versionadded:: 2015.2(Liberty)
+
+Default: ``"themes/default"``
+
+This setting allows Horizon to collect an additional theme during static
+collection and be served up via /static/themes/default.  This is useful
+if CUSTOM_THEME_PATH inherits from another theme (like 'default').
+
+If DEFAULT_THEME_PATH is the same as CUSTOM_THEME_PATH, then collection
+is skipped and /static/themes will not exist.
+
+
 ``DROPDOWN_MAX_ITEMS``
 ----------------------
 
