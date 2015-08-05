@@ -15,12 +15,8 @@ from django.utils.translation import ugettext_lazy as _
 
 import horizon
 
-from openstack_dashboard.dashboards.project import dashboard
-
 
 class ResourceTypes(horizon.Panel):
     name = _("Resource Types")
     slug = "stacks.resource_types"
     permissions = ('openstack.services.orchestration',)
-
-dashboard.Project.register(ResourceTypes)

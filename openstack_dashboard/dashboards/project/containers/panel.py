@@ -20,12 +20,8 @@ from django.utils.translation import ugettext_lazy as _
 
 import horizon
 
-from openstack_dashboard.dashboards.project import dashboard
-
 
 class Containers(horizon.Panel):
     name = _("Containers")
     slug = 'containers'
     permissions = ('openstack.services.object-store',)
-
-dashboard.Project.register(Containers)

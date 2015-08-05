@@ -17,7 +17,6 @@ from django.utils.translation import ugettext_lazy as _
 import horizon
 
 from openstack_dashboard.api import keystone
-from openstack_dashboard.dashboards.identity import dashboard
 
 
 class Domains(horizon.Panel):
@@ -26,6 +25,6 @@ class Domains(horizon.Panel):
     policy_rules = (("identity", "identity:get_domain"),
                     ("identity", "identity:list_domains"))
 
-
-if keystone.VERSIONS.active >= 3:
-    dashboard.Identity.register(Domains)
+    @staticmethod
+    def can_register():
+        return keystone.VERSIONS.active >= 3

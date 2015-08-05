@@ -17,7 +17,6 @@ from django.utils.translation import ugettext_lazy as _
 import horizon
 
 from openstack_dashboard.api import nova
-from openstack_dashboard.dashboards.admin import dashboard
 
 LOG = logging.getLogger(__name__)
 
@@ -39,6 +38,3 @@ class Aggregates(horizon.Panel):
                       "endpoint. Host Aggregates panel will not be displayed.")
             return False
         return super(Aggregates, self).allowed(context)
-
-
-dashboard.Admin.register(Aggregates)

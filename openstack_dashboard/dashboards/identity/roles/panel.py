@@ -17,7 +17,6 @@ from django.utils.translation import ugettext_lazy as _
 import horizon
 
 from openstack_dashboard.api import keystone
-from openstack_dashboard.dashboards.identity import dashboard
 
 
 class Roles(horizon.Panel):
@@ -25,6 +24,6 @@ class Roles(horizon.Panel):
     slug = 'roles'
     policy_rules = (("identity", "identity:list_roles"),)
 
-
-if keystone.VERSIONS.active >= 3:
-    dashboard.Identity.register(Roles)
+    @staticmethod
+    def can_register():
+        return keystone.VERSIONS.active >= 3

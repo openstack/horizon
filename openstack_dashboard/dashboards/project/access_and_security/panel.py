@@ -17,12 +17,7 @@ from django.utils.translation import ugettext_lazy as _
 
 import horizon
 
-from openstack_dashboard.dashboards.project import dashboard
-
 
 class AccessAndSecurity(horizon.Panel):
     name = _("Access & Security")
     slug = 'access_and_security'
-
-
-dashboard.Project.register(AccessAndSecurity)

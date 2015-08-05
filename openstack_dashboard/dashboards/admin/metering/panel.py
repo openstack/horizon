@@ -13,7 +13,6 @@
 from django.utils.translation import ugettext_lazy as _
 
 import horizon
-from openstack_dashboard.dashboards.admin import dashboard
 
 
 class Metering(horizon.Panel):
@@ -23,6 +22,3 @@ class Metering(horizon.Panel):
     policy_rules = (('identity', 'identity:list_projects'),
                     ('telemetry', 'telemetry:compute_statistics'),
                     ('telemetry', 'telemetry:get_meter'),)
-
-
-dashboard.Admin.register(Metering)
