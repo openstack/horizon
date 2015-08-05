@@ -519,6 +519,16 @@ class FilterAction(BaseAction):
         return False
 
 
+class NameFilterAction(FilterAction):
+    """A filter action for name property."""
+
+    def filter(self, table, items, filter_string):
+        """Naive case-insensitive search."""
+        query = filter_string.lower()
+        return [item for item in items
+                if query in item.name.lower()]
+
+
 class FixedFilterAction(FilterAction):
     """A filter action with fixed buttons."""
 

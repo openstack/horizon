@@ -21,6 +21,7 @@ from horizon.tables.actions import DeleteAction  # noqa
 from horizon.tables.actions import FilterAction  # noqa
 from horizon.tables.actions import FixedFilterAction  # noqa
 from horizon.tables.actions import LinkAction  # noqa
+from horizon.tables.actions import NameFilterAction  # noqa
 from horizon.tables.actions import UpdateAction  # noqa
 from horizon.tables.base import Column  # noqa
 from horizon.tables.base import DataTable  # noqa

@@ -780,6 +780,40 @@ class DataTableTests(test.TestCase):
                             'Verbose Name</label>',
                             count=1, html=True)
 
+    def test_table_search_action(self):
+        class TempTable(MyTable):
+            class Meta(object):
+                name = "my_table"
+                table_actions = (tables.NameFilterAction,)
+
+        # with the filter string 2, it should return 2nd item
+        action_string = "my_table__filter__q"
+        req = self.factory.post('/my_url/', {action_string: '2'})
+        self.table = TempTable(req, TEST_DATA)
+        self.assertQuerysetEqual(self.table.get_table_actions(),
+                                 ['<NameFilterAction: filter>'])
+        handled = self.table.maybe_handle()
+        self.assertIsNone(handled)
+        self.assertQuerysetEqual(self.table.filtered_data,
+                                 ['<FakeObject: object_2>'])
+
+        # with empty filter string, it should return all data
+        req = self.factory.post('/my_url/', {action_string: ''})
+        self.table = TempTable(req, TEST_DATA)
+        handled = self.table.maybe_handle()
+        self.assertIsNone(handled)
+        self.assertQuerysetEqual(self.table.filtered_data,
+                                 ['<FakeObject: object_1>',
+                                  '<FakeObject: object_2>',
+                                  '<FakeObject: object_3>'])
+
+        # with unknown value it should return empty list
+        req = self.factory.post('/my_url/', {action_string: 'horizon'})
+        self.table = TempTable(req, TEST_DATA)
+        handled = self.table.maybe_handle()
+        self.assertIsNone(handled)
+        self.assertQuerysetEqual(self.table.filtered_data, [])
+
     def test_inline_edit_mod_textarea(self):
         class TempTable(MyTable):
             name = tables.Column(get_name,
