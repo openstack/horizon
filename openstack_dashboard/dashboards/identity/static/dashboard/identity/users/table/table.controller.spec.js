@@ -49,7 +49,6 @@
     beforeEach(module('horizon.framework.widgets.toast'));
     beforeEach(module('horizon.app.core.openstack-service-api'));
 
-    beforeEach(module('horizon.dashboard'));
     beforeEach(module('horizon.dashboard.identity'));
     beforeEach(module('horizon.dashboard.identity.users'));
     beforeEach(inject(function($injector) {
