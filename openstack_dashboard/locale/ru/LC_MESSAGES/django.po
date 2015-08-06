@@ -16,9 +16,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-08-04 07:00+0000\n"
-"PO-Revision-Date: 2015-08-04 15:40+0000\n"
-"Last-Translator: Ilya Shakhat <shakhat@gmail.com>\n"
+"POT-Creation-Date: 2015-08-06 03:02+0000\n"
+"PO-Revision-Date: 2015-08-05 14:56+0000\n"
+"Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Russian (http://www.transifex.com/openstack/horizon/language/"
 "ru/)\n"
 "MIME-Version: 1.0\n"
@@ -5146,9 +5146,6 @@ msgstr "Необязательная материнская резервная �
 
 msgid "Optional: Next Hop Addresses (comma delimited)"
 msgstr "Опционально: Адреса следующих переходов (разделенные запятой)"
-
-msgid "Orchestration"
-msgstr "Оркестрация"
 
 msgid "Orchestration Services"
 msgstr "Службы оркестрации"

@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-08-04 04:10+0000\n"
-"PO-Revision-Date: 2015-08-04 00:51+0000\n"
+"POT-Creation-Date: 2015-08-06 03:02+0000\n"
+"PO-Revision-Date: 2015-08-05 14:56+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Nepali (http://www.transifex.com/openstack/horizon/language/"
 "ne/)\n"
@@ -3606,9 +3606,6 @@ msgstr "बैकल्पिक प्यारेन्ट व्याकअ�
 
 msgid "Optional: Next Hop Addresses (comma delimited)"
 msgstr "वैकल्पिकः अर्को होप ठेकानाहरू( कमा डेलिमिटेड)"
-
-msgid "Orchestration"
-msgstr "अर्केस्ट्रेसन"
 
 msgid "Other"
 msgstr "अन्य"
