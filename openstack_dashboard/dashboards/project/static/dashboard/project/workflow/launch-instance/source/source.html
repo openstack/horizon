@@ -109,7 +109,7 @@
               </div>
             </div>
 
-            <settings-service required-settings='["OPENSTACK_HYPERVISOR_FEATURES.can_set_mount_point"]'
+            <div hz-settings-toggle='["OPENSTACK_HYPERVISOR_FEATURES.can_set_mount_point"]'
               ng-if="model.newInstanceSpec.vol_create === true">
               <div class="col-xs-12 col-sm-3">
                 <div class="form-field">
@@ -119,7 +119,7 @@
                          type="text">
                 </div>
               </div>
-            </settings-service>
+            </div>
 
             <div class="col-xs-12 col-sm-2 volume-size-wrapper" ng-if="model.newInstanceSpec.vol_create == true">
               <div class="form-field volume-size"

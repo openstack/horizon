@@ -80,9 +80,6 @@
       expect(deferred.reject).toHaveBeenCalledWith('Cannot get the Nova extension list.');
     });
 
-    it("defines .ifEnabled", function() {
-      expect(factory.ifEnabled).toBeDefined();
-    });
   });
 
 })();

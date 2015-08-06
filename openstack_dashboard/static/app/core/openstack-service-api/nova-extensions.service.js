@@ -46,9 +46,7 @@
         {capacity: 1}
       ),
       get: get,
-      ifNameEnabled: ifNameEnabled,
-      // This is an alias to support the extension directive default interface
-      ifEnabled: ifNameEnabled
+      ifNameEnabled: ifNameEnabled
     };
 
     return service;
