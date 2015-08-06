@@ -92,7 +92,9 @@ class CreateNetwork(tables.LinkAction):
 
     def allowed(self, request, datum=None):
         usages = quotas.tenant_quota_usages(request)
-        if usages['networks']['available'] <= 0:
+        # when Settings.OPENSTACK_NEUTRON_NETWORK['enable_quotas'] = False
+        # usages["networks"] is empty
+        if usages.get('networks', {}).get('available', 1) <= 0:
             if "disabled" not in self.classes:
                 self.classes = [c for c in self.classes] + ["disabled"]
                 self.verbose_name = _("Create Network (Quota exceeded)")
@@ -125,7 +127,9 @@ class CreateSubnet(policy.PolicyTargetMixin, CheckNetworkEditable,
 
     def allowed(self, request, datum=None):
         usages = quotas.tenant_quota_usages(request)
-        if usages['subnets']['available'] <= 0:
+        # when Settings.OPENSTACK_NEUTRON_NETWORK['enable_quotas'] = False
+        # usages["subnets'] is empty
+        if usages.get('subnets', {}).get('available', 1) <= 0:
             if 'disabled' not in self.classes:
                 self.classes = [c for c in self.classes] + ['disabled']
                 self.verbose_name = _('Add Subnet (Quota exceeded)')
