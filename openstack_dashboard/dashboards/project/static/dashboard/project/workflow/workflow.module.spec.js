@@ -13,35 +13,13 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
 (function () {
   'use strict';
 
-  /**
-   * @ngdoc module
-   * @ngname horizon.dashboard.project
-   * @description
-   * Dashboard module to host project panels.
-   */
-  angular
-    .module('horizon.dashboard.project', [
-      'hz.dashboard.project.images',
-      'horizon.dashboard.project.workflow'
-    ])
-    .config(config);
-
-  config.$inject = [
-    '$provide',
-    '$windowProvider'
-  ];
-
-  /**
-   * @name horizon.dashboard.project.basePath
-   * @description Base path for the project dashboard
-   */
-  function config($provide, $windowProvider) {
-    var path = $windowProvider.$get().STATIC_URL + 'dashboard/project/';
-    $provide.constant('horizon.dashboard.project.basePath', path);
-  }
+  describe('horizon.dashboard.project.workflow', function () {
+    it('should be defined', function () {
+      expect(angular.module('horizon.dashboard.project.workflow')).toBeDefined();
+    });
+  });
 
 })();

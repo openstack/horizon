@@ -231,7 +231,7 @@ Lines added to ``openstack_dashboard/enabled/_10_project.py``:
         var scope;
         var ctrl;
 
-        beforeEach(module('hz.dashboard.launch-instance'));
+        beforeEach(module('horizon.dashboard.project.workflow.launch-instance'));
 
         beforeEach(inject(function($controller) {
           scope = {
