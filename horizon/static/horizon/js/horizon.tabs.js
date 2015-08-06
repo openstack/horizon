@@ -75,7 +75,7 @@ horizon.addInitFunction(horizon.tabs.init = function () {
     var $this = $(this),
       next_pane = $this.closest(".tab-pane").next(".tab-pane");
     // Capture the forward-tab keypress if we have a next tab to go to.
-    if (evt.which === 9 && !event.shiftKey && next_pane.length) {
+    if (evt.which === 9 && !evt.shiftKey && next_pane.length) {
       evt.preventDefault();
       $(".nav-tabs a[data-target='#" + next_pane.attr("id") + "']").tab('show');
     }
@@ -84,7 +84,7 @@ horizon.addInitFunction(horizon.tabs.init = function () {
     var $this = $(this),
       prev_pane = $this.closest(".tab-pane").prev(".tab-pane");
     // Capture the forward-tab keypress if we have a next tab to go to.
-    if (event.shiftKey && evt.which === 9 && prev_pane.length) {
+    if (evt.shiftKey && evt.which === 9 && prev_pane.length) {
       evt.preventDefault();
       $(".nav-tabs a[data-target='#" + prev_pane.attr("id") + "']").tab('show');
       prev_pane.find(":input:last").focus();
