@@ -111,7 +111,7 @@ class NetworkTopologyView(views.HorizonTemplateView):
 
     def _quota_exceeded(self, quota):
         usages = quotas.tenant_quota_usages(self.request)
-        available = usages[quota]['available']
+        available = usages.get(quota, {}).get('available', 1)
         return available <= 0
 
     def get_context_data(self, **kwargs):
