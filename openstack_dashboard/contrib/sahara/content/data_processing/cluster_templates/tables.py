@@ -65,6 +65,13 @@ class CopyTemplate(tables.LinkAction):
     classes = ("ajax-modal", )
 
 
+class EditTemplate(tables.LinkAction):
+    name = "edit"
+    verbose_name = _("Edit Template")
+    url = "horizon:project:data_processing.cluster_templates:edit"
+    classes = ("ajax-modal", )
+
+
 class DeleteTemplate(tables.DeleteAction):
     @staticmethod
     def action_present(count):
@@ -137,5 +144,6 @@ class ClusterTemplatesTable(tables.DataTable):
                          ClusterTemplatesFilterAction,)
 
         row_actions = (CreateCluster,
+                       EditTemplate,
                        CopyTemplate,
                        DeleteTemplate,)

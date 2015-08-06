@@ -229,16 +229,20 @@ def cluster_template_update(request, ct_id, name, plugin_name,
                             hadoop_version, description=None,
                             cluster_configs=None, node_groups=None,
                             anti_affinity=None, net_id=None):
-    return client(request).cluster_templates.update(
-        cluster_template_id=ct_id,
-        name=name,
-        plugin_name=plugin_name,
-        hadoop_version=hadoop_version,
-        description=description,
-        cluster_configs=cluster_configs,
-        node_groups=node_groups,
-        anti_affinity=anti_affinity,
-        net_id=net_id)
+    try:
+        template = client(request).cluster_templates.update(
+            cluster_template_id=ct_id,
+            name=name,
+            plugin_name=plugin_name,
+            hadoop_version=hadoop_version,
+            description=description,
+            cluster_configs=cluster_configs,
+            node_groups=node_groups,
+            anti_affinity=anti_affinity,
+            net_id=net_id)
+    except APIException as e:
+        raise exceptions.Conflict(e)
+    return template
 
 
 def cluster_create(request, name, plugin_name, hadoop_version,

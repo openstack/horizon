@@ -33,15 +33,17 @@ class CopyClusterTemplate(create_flow.ConfigureClusterTemplate):
     entry_point = "generalconfigaction"
 
     def __init__(self, request, context_seed, entry_point, *args, **kwargs):
-        template_id = context_seed["template_id"]
+        self.cluster_template_id = context_seed["template_id"]
         try:
-            template = saharaclient.cluster_template_get(request, template_id)
-            self._set_configs_to_copy(template.cluster_configs)
+            self.template = saharaclient.cluster_template_get(
+                request,
+                self.cluster_template_id)
+            self._set_configs_to_copy(self.template.cluster_configs)
 
             request.GET = request.GET.copy()
-            request.GET.update({"plugin_name": template.plugin_name,
-                                "hadoop_version": template.hadoop_version,
-                                "aa_groups": template.anti_affinity})
+            request.GET.update({"plugin_name": self.template.plugin_name,
+                                "hadoop_version": self.template.hadoop_version,
+                                "aa_groups": self.template.anti_affinity})
 
             super(CopyClusterTemplate, self).__init__(request, context_seed,
                                                       entry_point, *args,
@@ -53,7 +55,7 @@ class CopyClusterTemplate(create_flow.ConfigureClusterTemplate):
             for step in self.steps:
                 if isinstance(step, create_flow.ConfigureNodegroups):
                     ng_action = step.action
-                    template_ngs = template.node_groups
+                    template_ngs = self.template.node_groups
 
                     if 'forms_ids' in request.POST:
                         continue
@@ -88,9 +90,9 @@ class CopyClusterTemplate(create_flow.ConfigureClusterTemplate):
                 elif isinstance(step, create_flow.GeneralConfig):
                     fields = step.action.fields
                     fields["cluster_template_name"].initial = (
-                        template.name + "-copy")
+                        self.template.name + "-copy")
 
-                    fields["description"].initial = template.description
+                    fields["description"].initial = self.template.description
         except Exception:
             exceptions.handle(request,
                               _("Unable to fetch template to copy."))

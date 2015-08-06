@@ -35,6 +35,8 @@ import openstack_dashboard.contrib.sahara.content.data_processing. \
     cluster_templates.workflows.copy as copy_flow
 import openstack_dashboard.contrib.sahara.content.data_processing. \
     cluster_templates.workflows.create as create_flow
+import openstack_dashboard.contrib.sahara.content.data_processing. \
+    cluster_templates.workflows.edit as edit_flow
 
 LOG = logging.getLogger(__name__)
 
@@ -139,3 +141,9 @@ class CopyClusterTemplateView(workflows.WorkflowView):
         initial = super(CopyClusterTemplateView, self).get_initial()
         initial['template_id'] = self.kwargs['template_id']
         return initial
+
+
+class EditClusterTemplateView(CopyClusterTemplateView):
+    workflow_class = edit_flow.EditClusterTemplate
+    success_url = "horizon:project:data_processing.cluster_templates"
+    template_name = "project/data_processing.cluster_templates/configure.html"
