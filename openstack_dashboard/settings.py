@@ -260,7 +260,7 @@ SECURITY_GROUP_RULES = {
 
 ADD_INSTALLED_APPS = []
 
-# STATIC directory for custom theme, set as default.
+# directory for custom theme, set as default.
 # It can be overridden in local_settings.py
 DEFAULT_THEME_PATH = 'themes/default'
 CUSTOM_THEME_PATH = DEFAULT_THEME_PATH
