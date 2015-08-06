@@ -15,8 +15,12 @@
     beforeEach(module('horizon.framework.util.bind-scope'));
 
     beforeEach(module('horizon.framework.util.bind-scope', function ($compileProvider) {
-      $compileProvider.directive('testBindScope', function () {
-        return {
+      /* eslint-disable angular/ng_module_getter */
+      $compileProvider.directive('testBindScope', testBindScope);
+      /* eslint-enable angular/ng_module_getter */
+
+      function testBindScope() {
+        var directive = {
           restrict: 'E',
           scope: {
             itemList: '='
@@ -26,7 +30,8 @@
                     '  <span bind-scope-target></span>' +
                     '</li></ul>'
         };
-      });
+        return directive;
+      }
     }));
 
     beforeEach(inject(function ($injector) {
@@ -44,7 +49,7 @@
       $element = angular.element(markup);
       $compile($element)($scope);
 
-      $scope.$digest();
+      $scope.$apply();
     }));
 
     it('should have 3 list items', function () {
