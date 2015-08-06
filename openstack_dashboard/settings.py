@@ -262,7 +262,8 @@ ADD_INSTALLED_APPS = []
 
 # STATIC directory for custom theme, set as default.
 # It can be overridden in local_settings.py
-CUSTOM_THEME_PATH = 'themes/default'
+DEFAULT_THEME_PATH = 'themes/default'
+CUSTOM_THEME_PATH = DEFAULT_THEME_PATH
 
 try:
     from local.local_settings import *  # noqa
@@ -302,6 +303,13 @@ if os.path.exists(os.path.join(CUSTOM_THEME, 'templates')):
 # statically
 if os.path.exists(os.path.join(CUSTOM_THEME, 'static')):
     CUSTOM_THEME = os.path.join(CUSTOM_THEME, 'static')
+
+# Only collect and expose the default theme if the user chose to set a
+# different theme
+if DEFAULT_THEME_PATH != CUSTOM_THEME_PATH:
+    STATICFILES_DIRS.append(
+        ('themes/default', os.path.join(ROOT_PATH, DEFAULT_THEME_PATH)),
+    )
 
 STATICFILES_DIRS.append(
     ('custom', CUSTOM_THEME),
