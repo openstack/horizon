@@ -88,7 +88,7 @@ class RestoreBackupView(forms.ModalFormView):
     modal_header = _("Restore Volume Backup")
     template_name = 'project/volumes/backups/restore_backup.html'
     submit_label = _("Restore Backup to Volume")
-    submit_url = "horizon:project:volumes:volumes:create_backup"
+    submit_url = "horizon:project:volumes:backups:restore"
     success_url = reverse_lazy('horizon:project:volumes:index')
     page_title = _("Restore a Volume Backup")
 
