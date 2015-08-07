@@ -18,7 +18,7 @@
 
   describe('Launch Instance Keypair Step', function() {
 
-    describe('LaunchInstanceKeypairCtrl', function() {
+    describe('LaunchInstanceKeypairController', function() {
       var ctrl;
 
       beforeEach(module(function ($provide) {
@@ -35,7 +35,7 @@
           keypairs: ['key1', 'key2']
         };
 
-        ctrl = $controller('LaunchInstanceKeypairCtrl',
+        ctrl = $controller('LaunchInstanceKeypairController',
                           { launchInstanceModel: model });
       }));
 
@@ -76,13 +76,13 @@
 
     });
 
-    describe('LaunchInstanceKeypairHelpCtrl', function() {
+    describe('LaunchInstanceKeypairHelpController', function() {
       var ctrl;
 
       beforeEach(module('horizon.dashboard.project.workflow.launch-instance'));
 
       beforeEach(inject(function($controller) {
-        ctrl = $controller('LaunchInstanceKeypairHelpCtrl');
+        ctrl = $controller('LaunchInstanceKeypairHelpController');
       }));
 
       it('defines the title', function() {
@@ -95,7 +95,7 @@
       });
     });
 
-    describe('LaunchInstanceCreateKeyPairCtrl', function() {
+    describe('LaunchInstanceCreateKeyPairController', function() {
       var ctrl;
 
       beforeEach(module(function ($provide) {
@@ -107,7 +107,7 @@
       beforeEach(module('horizon.dashboard.project'));
 
       beforeEach(inject(function($controller) {
-        ctrl = $controller('LaunchInstanceCreateKeyPairCtrl');
+        ctrl = $controller('LaunchInstanceCreateKeyPairController');
       }));
 
       it('contains its general labels', function() {
@@ -128,7 +128,7 @@
       });
     });
 
-    describe('LaunchInstanceNewKeyPairCtrl', function() {
+    describe('LaunchInstanceNewKeyPairController', function() {
       var ctrl;
 
       beforeEach(module(function ($provide) {
@@ -138,7 +138,7 @@
       beforeEach(module('horizon.dashboard.project'));
 
       beforeEach(inject(function($controller) {
-        ctrl = $controller('LaunchInstanceNewKeyPairCtrl', { keypair: {} });
+        ctrl = $controller('LaunchInstanceNewKeyPairController', { keypair: {} });
       }));
 
       it('contains its general labels', function() {
@@ -154,7 +154,7 @@
       });
     });
 
-    describe('LaunchInstanceImportKeyPairCtrl', function() {
+    describe('LaunchInstanceImportKeyPairController', function() {
       var ctrl;
 
       beforeEach(module(function ($provide) {
@@ -166,7 +166,7 @@
       beforeEach(module('horizon.dashboard.project'));
 
       beforeEach(inject(function($controller) {
-        ctrl = $controller('LaunchInstanceImportKeyPairCtrl');
+        ctrl = $controller('LaunchInstanceImportKeyPairController');
       }));
 
       it('contains its general labels', function() {
@@ -188,13 +188,13 @@
       });
     });
 
-    describe('LaunchInstanceImportKeyPairHelpCtrl', function() {
+    describe('LaunchInstanceImportKeyPairHelpController', function() {
       var ctrl;
 
       beforeEach(module('horizon.dashboard.project.workflow.launch-instance'));
 
       beforeEach(inject(function($controller) {
-        ctrl = $controller('LaunchInstanceImportKeyPairHelpCtrl');
+        ctrl = $controller('LaunchInstanceImportKeyPairHelpController');
       }));
 
       it('defines the title', function() {

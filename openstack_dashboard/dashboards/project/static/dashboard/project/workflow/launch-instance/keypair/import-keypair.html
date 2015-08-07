@@ -41,7 +41,7 @@
   </div>
 
   <help-panel>
-    <div ng-controller="LaunchInstanceImportKeyPairHelpCtrl as importHelpCtrl">
+    <div ng-controller="LaunchInstanceImportKeyPairHelpController as importHelpCtrl">
       <h1>{$ ::importHelpCtrl.title $}</h1>
       <p ng-repeat="paragraph in ::importHelpCtrl.paragraphs"
         ng-bind-html="::paragraph"></p>
