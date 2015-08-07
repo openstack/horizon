@@ -396,8 +396,6 @@ def data(TEST):
     # Quota Sets
     quota_data = dict(metadata_items='1',
                       injected_file_content_bytes='1',
-                      volumes='1',
-                      gigabytes='1000',
                       ram=10000,
                       floating_ips='1',
                       fixed_ips='10',
