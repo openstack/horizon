@@ -420,7 +420,7 @@ logo-splash.png and favicon.ico.
 ``DEFAULT_THEME_PATH``
 ----------------------
 
-.. versionadded:: 2015.2(Liberty)
+.. versionadded:: 8.0.0(Liberty)
 
 Default: ``"themes/default"``
 
