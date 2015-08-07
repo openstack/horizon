@@ -488,7 +488,11 @@ def data(TEST):
         "cluster_name_set": True,
         "job_name_set": True,
         "cluster_name": "cluster-1",
-        "job_name": "job-1"
+        "job_name": "job-1",
+        "data_source_urls": {
+            "85884883-3083-49eb-b442-71dd3734d02c": "swift://a.sahara/input",
+            "426fb01c-5c7e-472d-bba2-b1f0fe7e0ede": "hdfs://a.sahara/output"
+        }
     }
 
     jobex1 = job_executions.JobExecution(

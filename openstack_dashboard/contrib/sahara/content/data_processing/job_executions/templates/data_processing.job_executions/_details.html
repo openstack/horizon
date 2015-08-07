@@ -11,11 +11,11 @@
     <dd><a href="{% url 'horizon:project:data_processing.jobs:details' job_execution.job_id %}">{{ object_names.job_name }}</a></dd>
     {% if job_execution.input_id %}
       <dt>{% trans "Input Data Source" %}</dt>
-      <dd><a href="{% url 'horizon:project:data_processing.data_sources:details' job_execution.input_id %}">{{ object_names.input_name }}</a></dd>
+      <dd><a href="{% url 'horizon:project:data_processing.data_sources:details' job_execution.input_id %}">{{ object_names.input_name }}</a> ({{ object_names.input_url }})</dd>
     {% endif %}
     {% if job_execution.output_id %}
       <dt>{% trans "Output Data Source" %}</dt>
-      <dd><a href="{% url 'horizon:project:data_processing.data_sources:details' job_execution.output_id %}">{{ object_names.output_name }}</a></dd>
+      <dd><a href="{% url 'horizon:project:data_processing.data_sources:details' job_execution.output_id %}">{{ object_names.output_name }}</a> ({{ object_names.output_url }})</dd>
     {% endif %}
     <dt>{% trans "Cluster" %}</dt>
     <dd><a href="{% url 'horizon:project:data_processing.clusters:details' job_execution.cluster_id %}">{{ object_names.cluster_name }}</a></dd>
