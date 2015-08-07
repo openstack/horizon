@@ -15,12 +15,6 @@
 (function () {
   'use strict';
 
-  describe('horizon.framework.widgets.help-panel module', function () {
-    it('should have been defined', function () {
-      expect(angular.module('horizon.framework.widgets.help-panel')).toBeDefined();
-    });
-  });
-
   describe('help-panel directive', function () {
     var $compile,
         $scope,
