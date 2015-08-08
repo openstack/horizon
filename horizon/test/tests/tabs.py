@@ -105,7 +105,7 @@ class TabTests(test.TestCase):
     def test_tab_group_basics(self):
         tg = Group(self.request)
 
-        # Test tab instantiation/attachement to tab group, and get_tabs method
+        # Test tab instantiation/attachment to tab group, and get_tabs method
         tabs = tg.get_tabs()
         # "tab_disallowed" should NOT be in this list.
         self.assertQuerysetEqual(tabs, ['<TabOne: tab_one>',
