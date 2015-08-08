@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-08-06 03:02+0000\n"
-"PO-Revision-Date: 2015-08-06 05:32+0000\n"
+"POT-Creation-Date: 2015-08-08 05:52+0000\n"
+"PO-Revision-Date: 2015-08-07 11:26+0000\n"
 "Last-Translator: Zbyněk Schwarz <zbynek.schwarz@gmail.com>\n"
 "Language-Team: Czech (http://www.transifex.com/openstack/horizon/language/"
 "cs/)\n"
@@ -1015,6 +1015,10 @@ msgstr "Název clusteru"
 msgid "Cluster Template"
 msgstr "Šablona clusteru"
 
+#, python-format
+msgid "Cluster Template %s updated"
+msgstr "Šablona clusteru %s aktualizována"
+
 msgid "Cluster Template Details"
 msgstr "Podrobnosti šablony clusteru"
 
@@ -1031,6 +1035,9 @@ msgstr "Šablony clusteru"
 msgid "Cluster template creation failed"
 msgstr "Vytvoření šablony clusteru selhalo"
 
+msgid "Cluster template update failed"
+msgstr "Aktualizace šablony clusteru selhala"
+
 msgid "Cluster type chosen"
 msgstr "Typ clusteru zvolen"
 
@@ -1041,7 +1048,7 @@ msgid "Code"
 msgstr "Kód"
 
 msgid "Cold Migrate"
-msgstr "Přesun "
+msgstr "Přesun při nepoužívání"
 
 msgid "Comma separated list of databases to create"
 msgstr "Čárkami oddělený seznam databází pro vytvoření"
@@ -2595,6 +2602,9 @@ msgstr "Trvání typu instance %s (konfigurace openstack)"
 
 msgid "Edit"
 msgstr "Upravit"
+
+msgid "Edit Cluster Template"
+msgstr "Upravit šablonu clusteru"
 
 msgid "Edit Connection"
 msgstr "Upravit připojení"
@@ -7707,6 +7717,9 @@ msgstr "Nelze získat objekt šablony."
 
 msgid "Unable to fetch template to copy."
 msgstr "Nelze získat šablonu ke zkopírování."
+
+msgid "Unable to fetch template to edit."
+msgstr "Nelze získat šablonu k úpravě."
 
 msgid "Unable to fetch the image details"
 msgstr "Nelze získat podrobnosti obrazu"

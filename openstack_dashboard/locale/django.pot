@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-08-06 06:24+0000\n"
+"POT-Creation-Date: 2015-08-08 06:10+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -455,7 +455,7 @@ msgid "Failed to check Neutron '%s' extension is not supported"
 msgstr ""
 
 #: api/nova.py:110 api/nova.py:120 dashboards/project/databases/tables.py:279
-#: dashboards/project/loadbalancers/tables.py:509
+#: dashboards/project/loadbalancers/tables.py:548
 #: dashboards/project/routers/tables.py:186
 #: dashboards/project/volumes/volumes/tables.py:356
 msgid "-"
@@ -529,13 +529,13 @@ msgid "Unable to upload cluster template file"
 msgstr ""
 
 #: contrib/sahara/content/data_processing/cluster_templates/panel.py:22
-#: contrib/sahara/content/data_processing/cluster_templates/tables.py:132
-#: contrib/sahara/content/data_processing/cluster_templates/views.py:46
+#: contrib/sahara/content/data_processing/cluster_templates/tables.py:139
+#: contrib/sahara/content/data_processing/cluster_templates/views.py:48
 msgid "Cluster Templates"
 msgstr ""
 
 #: contrib/sahara/content/data_processing/cluster_templates/tables.py:31
-#: contrib/sahara/content/data_processing/cluster_templates/tables.py:116
+#: contrib/sahara/content/data_processing/cluster_templates/tables.py:123
 #: contrib/sahara/content/data_processing/clusters/tables.py:35
 #: contrib/sahara/content/data_processing/clusters/tables.py:146
 #: contrib/sahara/content/data_processing/clusters/tabs.py:136
@@ -598,7 +598,7 @@ msgstr ""
 #: dashboards/project/instances/workflows/update_instance.py:105
 #: dashboards/project/loadbalancers/forms.py:31
 #: dashboards/project/loadbalancers/forms.py:73
-#: dashboards/project/loadbalancers/tables.py:418
+#: dashboards/project/loadbalancers/tables.py:457
 #: dashboards/project/loadbalancers/workflows.py:36
 #: dashboards/project/loadbalancers/workflows.py:150
 #: dashboards/project/networks/forms.py:35
@@ -625,7 +625,7 @@ msgid "Name"
 msgstr ""
 
 #: contrib/sahara/content/data_processing/cluster_templates/tables.py:32
-#: contrib/sahara/content/data_processing/cluster_templates/tables.py:120
+#: contrib/sahara/content/data_processing/cluster_templates/tables.py:127
 #: contrib/sahara/content/data_processing/clusters/tables.py:151
 #: contrib/sahara/content/data_processing/nodegroup_templates/tables.py:29
 #: contrib/sahara/content/data_processing/nodegroup_templates/tables.py:93
@@ -633,7 +633,7 @@ msgid "Plugin"
 msgstr ""
 
 #: contrib/sahara/content/data_processing/cluster_templates/tables.py:33
-#: contrib/sahara/content/data_processing/cluster_templates/tables.py:122
+#: contrib/sahara/content/data_processing/cluster_templates/tables.py:129
 #: contrib/sahara/content/data_processing/cluster_templates/workflows/create.py:60
 #: contrib/sahara/content/data_processing/clusters/tables.py:154
 #: contrib/sahara/content/data_processing/nodegroup_templates/tables.py:30
@@ -644,7 +644,7 @@ msgid "Version"
 msgstr ""
 
 #: contrib/sahara/content/data_processing/cluster_templates/tables.py:34
-#: contrib/sahara/content/data_processing/cluster_templates/tables.py:128
+#: contrib/sahara/content/data_processing/cluster_templates/tables.py:135
 #: contrib/sahara/content/data_processing/cluster_templates/workflows/create.py:99
 #: contrib/sahara/content/data_processing/clusters/workflows/create.py:75
 #: contrib/sahara/content/data_processing/data_image_registry/forms.py:30
@@ -687,7 +687,7 @@ msgstr ""
 #: dashboards/project/images/images/forms.py:279
 #: dashboards/project/loadbalancers/forms.py:36
 #: dashboards/project/loadbalancers/forms.py:78
-#: dashboards/project/loadbalancers/tables.py:420
+#: dashboards/project/loadbalancers/tables.py:459
 #: dashboards/project/loadbalancers/workflows.py:39
 #: dashboards/project/loadbalancers/workflows.py:153
 #: dashboards/project/volumes/backups/forms.py:35
@@ -709,7 +709,7 @@ msgid "Description"
 msgstr ""
 
 #: contrib/sahara/content/data_processing/cluster_templates/tables.py:39
-#: contrib/sahara/content/data_processing/cluster_templates/views.py:93
+#: contrib/sahara/content/data_processing/cluster_templates/views.py:95
 msgid "Upload Template"
 msgstr ""
 
@@ -726,31 +726,37 @@ msgstr ""
 msgid "Copy Template"
 msgstr ""
 
-#: contrib/sahara/content/data_processing/cluster_templates/tables.py:71
+#: contrib/sahara/content/data_processing/cluster_templates/tables.py:70
+#: contrib/sahara/content/data_processing/nodegroup_templates/tables.py:61
+#: dashboards/project/stacks/forms.py:230
+msgid "Edit Template"
+msgstr ""
+
+#: contrib/sahara/content/data_processing/cluster_templates/tables.py:78
 #: contrib/sahara/content/data_processing/nodegroup_templates/tables.py:69
 msgid "Delete Template"
 msgid_plural "Delete Templates"
 msgstr[0] ""
 msgstr[1] ""
 
-#: contrib/sahara/content/data_processing/cluster_templates/tables.py:79
+#: contrib/sahara/content/data_processing/cluster_templates/tables.py:86
 #: contrib/sahara/content/data_processing/nodegroup_templates/tables.py:77
 msgid "Deleted Template"
 msgid_plural "Deleted Templates"
 msgstr[0] ""
 msgstr[1] ""
 
-#: contrib/sahara/content/data_processing/cluster_templates/tables.py:91
+#: contrib/sahara/content/data_processing/cluster_templates/tables.py:98
 #: contrib/sahara/content/data_processing/nodegroup_templates/tables.py:35
 msgid "Create Template"
 msgstr ""
 
-#: contrib/sahara/content/data_processing/cluster_templates/tables.py:100
-#: contrib/sahara/content/data_processing/cluster_templates/views.py:109
+#: contrib/sahara/content/data_processing/cluster_templates/tables.py:107
+#: contrib/sahara/content/data_processing/cluster_templates/views.py:111
 msgid "Configure Cluster Template"
 msgstr ""
 
-#: contrib/sahara/content/data_processing/cluster_templates/tables.py:124
+#: contrib/sahara/content/data_processing/cluster_templates/tables.py:131
 #: contrib/sahara/content/data_processing/cluster_templates/tabs.py:47
 #: contrib/sahara/content/data_processing/cluster_templates/workflows/create.py:217
 #: contrib/sahara/content/data_processing/clusters/tabs.py:84
@@ -771,30 +777,30 @@ msgstr ""
 msgid "Unable to fetch node group details."
 msgstr ""
 
-#: contrib/sahara/content/data_processing/cluster_templates/views.py:59
+#: contrib/sahara/content/data_processing/cluster_templates/views.py:61
 msgid "Unable to fetch cluster template list"
 msgstr ""
 
-#: contrib/sahara/content/data_processing/cluster_templates/views.py:66
+#: contrib/sahara/content/data_processing/cluster_templates/views.py:68
 msgid "Cluster Template Details"
 msgstr ""
 
-#: contrib/sahara/content/data_processing/cluster_templates/views.py:74
+#: contrib/sahara/content/data_processing/cluster_templates/views.py:76
 #, python-format
 msgid "Unable to retrieve details for cluster template \"%s\"."
 msgstr ""
 
-#: contrib/sahara/content/data_processing/cluster_templates/views.py:102
+#: contrib/sahara/content/data_processing/cluster_templates/views.py:104
 #: contrib/sahara/content/data_processing/cluster_templates/workflows/create.py:80
 #: contrib/sahara/content/data_processing/cluster_templates/workflows/create.py:235
 msgid "Create Cluster Template"
 msgstr ""
 
-#: contrib/sahara/content/data_processing/cluster_templates/views.py:116
+#: contrib/sahara/content/data_processing/cluster_templates/views.py:118
 msgid "Copy Cluster Template"
 msgstr ""
 
-#: contrib/sahara/content/data_processing/cluster_templates/views.py:134
+#: contrib/sahara/content/data_processing/cluster_templates/views.py:136
 #: contrib/sahara/content/data_processing/clusters/views.py:124
 msgid "Unable to fetch cluster template."
 msgstr ""
@@ -804,7 +810,7 @@ msgstr ""
 msgid "Cluster Template copy %s created"
 msgstr ""
 
-#: contrib/sahara/content/data_processing/cluster_templates/workflows/copy.py:96
+#: contrib/sahara/content/data_processing/cluster_templates/workflows/copy.py:98
 msgid "Unable to fetch template to copy."
 msgstr ""
 
@@ -853,7 +859,7 @@ msgstr ""
 #: dashboards/project/database_backups/workflows/create_backup.py:43
 #: dashboards/project/databases/workflows/create_instance.py:47
 #: dashboards/project/instances/workflows/create_instance.py:138
-#: dashboards/project/loadbalancers/tables.py:519
+#: dashboards/project/loadbalancers/tables.py:558
 msgid "Details"
 msgstr ""
 
@@ -881,6 +887,29 @@ msgstr ""
 msgid "Cluster template creation failed"
 msgstr ""
 
+#: contrib/sahara/content/data_processing/cluster_templates/workflows/edit.py:35
+#, python-format
+msgid "Cluster Template %s updated"
+msgstr ""
+
+#: contrib/sahara/content/data_processing/cluster_templates/workflows/edit.py:37
+#: contrib/sahara/content/data_processing/nodegroup_templates/workflows/edit.py:36
+#: dashboards/project/stacks/views.py:201
+msgid "Update"
+msgstr ""
+
+#: contrib/sahara/content/data_processing/cluster_templates/workflows/edit.py:38
+msgid "Edit Cluster Template"
+msgstr ""
+
+#: contrib/sahara/content/data_processing/cluster_templates/workflows/edit.py:56
+msgid "Unable to fetch template to edit."
+msgstr ""
+
+#: contrib/sahara/content/data_processing/cluster_templates/workflows/edit.py:101
+msgid "Cluster template update failed"
+msgstr ""
+
 #: contrib/sahara/content/data_processing/clusters/panel.py:22
 #: contrib/sahara/content/data_processing/clusters/tables.py:167
 #: contrib/sahara/content/data_processing/clusters/views.py:42
@@ -906,8 +935,8 @@ msgstr ""
 #: dashboards/project/firewalls/tables.py:361
 #: dashboards/project/images/images/tables.py:279
 #: dashboards/project/instances/tables.py:1068
-#: dashboards/project/loadbalancers/tables.py:429
-#: dashboards/project/loadbalancers/tables.py:485
+#: dashboards/project/loadbalancers/tables.py:468
+#: dashboards/project/loadbalancers/tables.py:524
 #: dashboards/project/networks/tables.py:174
 #: dashboards/project/networks/ports/tables.py:74
 #: dashboards/project/routers/tables.py:212
@@ -1726,11 +1755,6 @@ msgstr ""
 msgid "Configure Template"
 msgstr ""
 
-#: contrib/sahara/content/data_processing/nodegroup_templates/tables.py:61
-#: dashboards/project/stacks/forms.py:230
-msgid "Edit Template"
-msgstr ""
-
 #: contrib/sahara/content/data_processing/nodegroup_templates/tables.py:97
 msgid "Node Processes"
 msgstr ""
@@ -1913,11 +1937,6 @@ msgstr ""
 #: contrib/sahara/content/data_processing/nodegroup_templates/workflows/edit.py:35
 #, python-format
 msgid "Node Group Template %s updated"
-msgstr ""
-
-#: contrib/sahara/content/data_processing/nodegroup_templates/workflows/edit.py:36
-#: dashboards/project/stacks/views.py:201
-msgid "Update"
 msgstr ""
 
 #: contrib/sahara/content/data_processing/nodegroup_templates/workflows/edit.py:37
@@ -3215,7 +3234,7 @@ msgstr ""
 #: dashboards/project/access_and_security/floating_ips/workflows.py:33
 #: dashboards/project/access_and_security/floating_ips/workflows.py:40
 #: dashboards/project/instances/tables.py:1060
-#: dashboards/project/loadbalancers/tables.py:475
+#: dashboards/project/loadbalancers/tables.py:514
 msgid "IP Address"
 msgstr ""
 
@@ -3664,9 +3683,9 @@ msgstr ""
 #: dashboards/project/loadbalancers/forms.py:95
 #: dashboards/project/loadbalancers/forms.py:178
 #: dashboards/project/loadbalancers/forms.py:241
-#: dashboards/project/loadbalancers/tables.py:435
-#: dashboards/project/loadbalancers/tables.py:490
-#: dashboards/project/loadbalancers/tables.py:521
+#: dashboards/project/loadbalancers/tables.py:474
+#: dashboards/project/loadbalancers/tables.py:529
+#: dashboards/project/loadbalancers/tables.py:560
 #: dashboards/project/loadbalancers/workflows.py:48
 #: dashboards/project/loadbalancers/workflows.py:190
 #: dashboards/project/loadbalancers/workflows.py:343
@@ -4274,7 +4293,7 @@ msgid "Unable to retrieve volume snapshot."
 msgstr ""
 
 #: dashboards/admin/volumes/volume_types/forms.py:28
-#: dashboards/project/loadbalancers/tables.py:421
+#: dashboards/project/loadbalancers/tables.py:460
 #: dashboards/project/loadbalancers/workflows.py:42
 msgid "Provider"
 msgstr ""
@@ -5681,7 +5700,7 @@ msgstr ""
 #: dashboards/project/access_and_security/floating_ips/tables.py:200
 #: dashboards/project/loadbalancers/forms.py:79
 #: dashboards/project/loadbalancers/forms.py:172
-#: dashboards/project/loadbalancers/tables.py:483
+#: dashboards/project/loadbalancers/tables.py:522
 #: dashboards/project/loadbalancers/workflows.py:297
 msgid "Pool"
 msgstr ""
@@ -5742,7 +5761,7 @@ msgstr ""
 
 #: dashboards/project/access_and_security/floating_ips/tables.py:155
 #: dashboards/project/instances/tables.py:646
-#: dashboards/project/loadbalancers/tables.py:343
+#: dashboards/project/loadbalancers/tables.py:382
 msgid "Unable to disassociate floating IP."
 msgstr ""
 
@@ -7087,7 +7106,7 @@ msgstr ""
 #: dashboards/project/firewalls/forms.py:39
 #: dashboards/project/firewalls/tables.py:276
 #: dashboards/project/firewalls/workflows.py:37
-#: dashboards/project/loadbalancers/tables.py:424
+#: dashboards/project/loadbalancers/tables.py:463
 #: dashboards/project/loadbalancers/workflows.py:44
 #: dashboards/project/loadbalancers/workflows.py:167
 msgid "Protocol"
@@ -7585,10 +7604,10 @@ msgstr ""
 #: dashboards/project/firewalls/views.py:262
 #: dashboards/project/firewalls/views.py:301
 #: dashboards/project/firewalls/views.py:338
-#: dashboards/project/loadbalancers/views.py:246
-#: dashboards/project/loadbalancers/views.py:283
-#: dashboards/project/loadbalancers/views.py:334
-#: dashboards/project/loadbalancers/views.py:370
+#: dashboards/project/loadbalancers/views.py:188
+#: dashboards/project/loadbalancers/views.py:225
+#: dashboards/project/loadbalancers/views.py:276
+#: dashboards/project/loadbalancers/views.py:312
 #: dashboards/project/networks/views.py:69
 #: dashboards/project/networks/ports/views.py:88
 #: dashboards/project/routers/views.py:179
@@ -8296,7 +8315,7 @@ msgstr ""
 
 #: dashboards/project/instances/tables.py:546
 #: dashboards/project/instances/tables.py:577
-#: dashboards/project/loadbalancers/tables.py:275
+#: dashboards/project/loadbalancers/tables.py:314
 msgid "Associate Floating IP"
 msgstr ""
 
@@ -8310,18 +8329,18 @@ msgid "Unable to associate floating IP."
 msgstr ""
 
 #: dashboards/project/instances/tables.py:608
-#: dashboards/project/loadbalancers/tables.py:313
+#: dashboards/project/loadbalancers/tables.py:352
 msgid "Disassociate Floating IP"
 msgstr ""
 
 #: dashboards/project/instances/tables.py:640
-#: dashboards/project/loadbalancers/tables.py:339
+#: dashboards/project/loadbalancers/tables.py:378
 #, python-format
 msgid "Successfully disassociated floating IP: %s"
 msgstr ""
 
 #: dashboards/project/instances/tables.py:643
-#: dashboards/project/loadbalancers/tables.py:334
+#: dashboards/project/loadbalancers/tables.py:373
 msgid "No floating IPs to disassociate."
 msgstr ""
 
@@ -9384,7 +9403,7 @@ msgid "Failed to update VIP %s"
 msgstr ""
 
 #: dashboards/project/loadbalancers/forms.py:173
-#: dashboards/project/loadbalancers/tables.py:481
+#: dashboards/project/loadbalancers/tables.py:520
 #: dashboards/project/loadbalancers/workflows.py:328
 msgid "Weight"
 msgstr ""
@@ -9404,7 +9423,7 @@ msgid "Failed to update member %s"
 msgstr ""
 
 #: dashboards/project/loadbalancers/forms.py:225
-#: dashboards/project/loadbalancers/tables.py:516
+#: dashboards/project/loadbalancers/tables.py:555
 #: dashboards/project/loadbalancers/workflows.py:493
 msgid "Delay"
 msgstr ""
@@ -9417,7 +9436,7 @@ msgid ""
 msgstr ""
 
 #: dashboards/project/loadbalancers/forms.py:231
-#: dashboards/project/loadbalancers/tables.py:517
+#: dashboards/project/loadbalancers/tables.py:556
 #: dashboards/project/loadbalancers/workflows.py:499
 msgid "Timeout"
 msgstr ""
@@ -9491,150 +9510,195 @@ msgid_plural "Scheduled deletion of VIPs"
 msgstr[0] ""
 msgstr[1] ""
 
-#: dashboards/project/loadbalancers/tables.py:114
+#: dashboards/project/loadbalancers/tables.py:112
+#, python-format
+msgid "Unable to locate VIP to delete. %s"
+msgstr ""
+
+#: dashboards/project/loadbalancers/tables.py:117
+#, python-format
+msgid "Deleted VIP %s"
+msgstr ""
+
+#: dashboards/project/loadbalancers/tables.py:120
+#, python-format
+msgid "Unable to delete VIP. %s"
+msgstr ""
+
+#: dashboards/project/loadbalancers/tables.py:129
 msgid "Delete Pool"
 msgid_plural "Delete Pools"
 msgstr[0] ""
 msgstr[1] ""
 
-#: dashboards/project/loadbalancers/tables.py:122
+#: dashboards/project/loadbalancers/tables.py:137
 msgid "Scheduled deletion of Pool"
 msgid_plural "Scheduled deletion of Pools"
 msgstr[0] ""
 msgstr[1] ""
 
-#: dashboards/project/loadbalancers/tables.py:141
+#: dashboards/project/loadbalancers/tables.py:151
+#, python-format
+msgid "Deleted pool %s"
+msgstr ""
+
+#: dashboards/project/loadbalancers/tables.py:154
+#, python-format
+msgid "Unable to delete pool. %s"
+msgstr ""
+
+#: dashboards/project/loadbalancers/tables.py:164
 msgid "Delete Monitor"
 msgid_plural "Delete Monitors"
 msgstr[0] ""
 msgstr[1] ""
 
-#: dashboards/project/loadbalancers/tables.py:149
+#: dashboards/project/loadbalancers/tables.py:172
 msgid "Scheduled deletion of Monitor"
 msgid_plural "Scheduled deletion of Monitors"
 msgstr[0] ""
 msgstr[1] ""
 
-#: dashboards/project/loadbalancers/tables.py:162
+#: dashboards/project/loadbalancers/tables.py:181
+#, python-format
+msgid "Deleted monitor %s"
+msgstr ""
+
+#: dashboards/project/loadbalancers/tables.py:184
+#, python-format
+msgid "Unable to delete monitor. %s"
+msgstr ""
+
+#: dashboards/project/loadbalancers/tables.py:193
 msgid "Delete Member"
 msgid_plural "Delete Members"
 msgstr[0] ""
 msgstr[1] ""
 
-#: dashboards/project/loadbalancers/tables.py:170
+#: dashboards/project/loadbalancers/tables.py:201
 msgid "Scheduled deletion of Member"
 msgid_plural "Scheduled deletion of Members"
 msgstr[0] ""
 msgstr[1] ""
 
-#: dashboards/project/loadbalancers/tables.py:179
-#: dashboards/project/loadbalancers/views.py:243
-#: dashboards/project/loadbalancers/views.py:249
+#: dashboards/project/loadbalancers/tables.py:210
+#, python-format
+msgid "Deleted member %s"
+msgstr ""
+
+#: dashboards/project/loadbalancers/tables.py:213
+#, python-format
+msgid "Unable to delete member. %s"
+msgstr ""
+
+#: dashboards/project/loadbalancers/tables.py:218
+#: dashboards/project/loadbalancers/views.py:185
+#: dashboards/project/loadbalancers/views.py:191
 msgid "Edit Pool"
 msgstr ""
 
-#: dashboards/project/loadbalancers/tables.py:191
-#: dashboards/project/loadbalancers/views.py:280
-#: dashboards/project/loadbalancers/views.py:286
+#: dashboards/project/loadbalancers/tables.py:230
+#: dashboards/project/loadbalancers/views.py:222
+#: dashboards/project/loadbalancers/views.py:228
 msgid "Edit VIP"
 msgstr ""
 
-#: dashboards/project/loadbalancers/tables.py:208
-#: dashboards/project/loadbalancers/views.py:331
-#: dashboards/project/loadbalancers/views.py:337
+#: dashboards/project/loadbalancers/tables.py:247
+#: dashboards/project/loadbalancers/views.py:273
+#: dashboards/project/loadbalancers/views.py:279
 msgid "Edit Member"
 msgstr ""
 
-#: dashboards/project/loadbalancers/tables.py:220
-#: dashboards/project/loadbalancers/views.py:367
-#: dashboards/project/loadbalancers/views.py:373
+#: dashboards/project/loadbalancers/tables.py:259
+#: dashboards/project/loadbalancers/views.py:309
+#: dashboards/project/loadbalancers/views.py:315
 msgid "Edit Monitor"
 msgstr ""
 
-#: dashboards/project/loadbalancers/tables.py:233
+#: dashboards/project/loadbalancers/tables.py:272
 #: dashboards/project/loadbalancers/workflows.py:669
 msgid "Associate Monitor"
 msgstr ""
 
-#: dashboards/project/loadbalancers/tables.py:249
+#: dashboards/project/loadbalancers/tables.py:288
 msgid "Failed to retrieve health monitors."
 msgstr ""
 
-#: dashboards/project/loadbalancers/tables.py:256
+#: dashboards/project/loadbalancers/tables.py:295
 #: dashboards/project/loadbalancers/workflows.py:732
 msgid "Disassociate Monitor"
 msgstr ""
 
-#: dashboards/project/loadbalancers/tables.py:373
+#: dashboards/project/loadbalancers/tables.py:412
 msgctxt "Current status of a Pool"
 msgid "Active"
 msgstr ""
 
-#: dashboards/project/loadbalancers/tables.py:375
+#: dashboards/project/loadbalancers/tables.py:414
 msgctxt "Current status of a Pool"
 msgid "Down"
 msgstr ""
 
-#: dashboards/project/loadbalancers/tables.py:377
+#: dashboards/project/loadbalancers/tables.py:416
 msgctxt "Current status of a Pool"
 msgid "Error"
 msgstr ""
 
-#: dashboards/project/loadbalancers/tables.py:379
+#: dashboards/project/loadbalancers/tables.py:418
 msgctxt "Current status of a Pool"
 msgid "Created"
 msgstr ""
 
-#: dashboards/project/loadbalancers/tables.py:381
+#: dashboards/project/loadbalancers/tables.py:420
 msgctxt "Current status of a Pool"
 msgid "Pending Create"
 msgstr ""
 
-#: dashboards/project/loadbalancers/tables.py:383
+#: dashboards/project/loadbalancers/tables.py:422
 msgctxt "Current status of a Pool"
 msgid "Pending Update"
 msgstr ""
 
-#: dashboards/project/loadbalancers/tables.py:385
+#: dashboards/project/loadbalancers/tables.py:424
 msgctxt "Current status of a Pool"
 msgid "Pending Delete"
 msgstr ""
 
-#: dashboards/project/loadbalancers/tables.py:387
+#: dashboards/project/loadbalancers/tables.py:426
 msgctxt "Current status of a Pool"
 msgid "Inactive"
 msgstr ""
 
-#: dashboards/project/loadbalancers/tables.py:393
+#: dashboards/project/loadbalancers/tables.py:432
 msgctxt "Admin state of a Load balancer"
 msgid "UP"
 msgstr ""
 
-#: dashboards/project/loadbalancers/tables.py:394
+#: dashboards/project/loadbalancers/tables.py:433
 msgctxt "Admin state of a Load balancer"
 msgid "DOWN"
 msgstr ""
 
-#: dashboards/project/loadbalancers/tables.py:409
+#: dashboards/project/loadbalancers/tables.py:448
 msgctxt "load balancing method"
 msgid "Round Robin"
 msgstr ""
 
-#: dashboards/project/loadbalancers/tables.py:411
+#: dashboards/project/loadbalancers/tables.py:450
 msgctxt "load balancing method"
 msgid "Least Connections"
 msgstr ""
 
-#: dashboards/project/loadbalancers/tables.py:413
+#: dashboards/project/loadbalancers/tables.py:452
 msgctxt "load balancing method"
 msgid "Source IP"
 msgstr ""
 
-#: dashboards/project/loadbalancers/tables.py:422
+#: dashboards/project/loadbalancers/tables.py:461
 msgid "N/A"
 msgstr ""
 
-#: dashboards/project/loadbalancers/tables.py:423
+#: dashboards/project/loadbalancers/tables.py:462
 #: dashboards/project/loadbalancers/workflows.py:43
 #: dashboards/project/networks/workflows.py:159
 #: dashboards/project/networks/subnets/workflows.py:42
@@ -9644,39 +9708,39 @@ msgstr ""
 msgid "Subnet"
 msgstr ""
 
-#: dashboards/project/loadbalancers/tables.py:426
+#: dashboards/project/loadbalancers/tables.py:465
 msgid "LB Method"
 msgstr ""
 
-#: dashboards/project/loadbalancers/tables.py:433
+#: dashboards/project/loadbalancers/tables.py:472
 msgid "VIP"
 msgstr ""
 
-#: dashboards/project/loadbalancers/tables.py:440
+#: dashboards/project/loadbalancers/tables.py:479
 #: dashboards/project/loadbalancers/tabs.py:28
 msgid "Pools"
 msgstr ""
 
-#: dashboards/project/loadbalancers/tables.py:479
+#: dashboards/project/loadbalancers/tables.py:518
 #: dashboards/project/loadbalancers/workflows.py:163
 #: dashboards/project/loadbalancers/workflows.py:335
 msgid "Protocol Port"
 msgstr ""
 
-#: dashboards/project/loadbalancers/tables.py:495
+#: dashboards/project/loadbalancers/tables.py:534
 #: dashboards/project/loadbalancers/tabs.py:56
 msgid "Members"
 msgstr ""
 
-#: dashboards/project/loadbalancers/tables.py:514
+#: dashboards/project/loadbalancers/tables.py:553
 msgid "Monitor Type"
 msgstr ""
 
-#: dashboards/project/loadbalancers/tables.py:518
+#: dashboards/project/loadbalancers/tables.py:557
 msgid "Max Retries"
 msgstr ""
 
-#: dashboards/project/loadbalancers/tables.py:526
+#: dashboards/project/loadbalancers/tables.py:565
 #: dashboards/project/loadbalancers/tabs.py:74
 msgid "Monitors"
 msgstr ""
@@ -9690,12 +9754,12 @@ msgid "Unable to retrieve monitor list."
 msgstr ""
 
 #: dashboards/project/loadbalancers/tabs.py:97
-#: dashboards/project/loadbalancers/views.py:133
+#: dashboards/project/loadbalancers/views.py:75
 msgid "Pool Details"
 msgstr ""
 
 #: dashboards/project/loadbalancers/tabs.py:107
-#: dashboards/project/loadbalancers/views.py:173
+#: dashboards/project/loadbalancers/views.py:115
 msgid "VIP Details"
 msgstr ""
 
@@ -9704,12 +9768,12 @@ msgid "Unable to retrieve VIP details."
 msgstr ""
 
 #: dashboards/project/loadbalancers/tabs.py:128
-#: dashboards/project/loadbalancers/views.py:179
+#: dashboards/project/loadbalancers/views.py:121
 msgid "Member Details"
 msgstr ""
 
 #: dashboards/project/loadbalancers/tabs.py:138
-#: dashboards/project/loadbalancers/views.py:211
+#: dashboards/project/loadbalancers/views.py:153
 msgid "Monitor Details"
 msgstr ""
 
@@ -9726,94 +9790,49 @@ msgstr ""
 msgid "%(type)s delay:%(delay)d retries:%(max_retries)d timeout:%(timeout)d"
 msgstr ""
 
-#: dashboards/project/loadbalancers/views.py:43
+#: dashboards/project/loadbalancers/views.py:40
 msgid "Load Balancer"
 msgstr ""
 
-#: dashboards/project/loadbalancers/views.py:63
-#, python-format
-msgid "Deleted monitor %s"
-msgstr ""
-
-#: dashboards/project/loadbalancers/views.py:66
-#, python-format
-msgid "Unable to delete monitor. %s"
-msgstr ""
-
-#: dashboards/project/loadbalancers/views.py:71
-#, python-format
-msgid "Deleted pool %s"
-msgstr ""
-
-#: dashboards/project/loadbalancers/views.py:74
-#, python-format
-msgid "Unable to delete pool. %s"
-msgstr ""
-
-#: dashboards/project/loadbalancers/views.py:79
-#, python-format
-msgid "Deleted member %s"
-msgstr ""
-
-#: dashboards/project/loadbalancers/views.py:82
-#, python-format
-msgid "Unable to delete member. %s"
-msgstr ""
-
-#: dashboards/project/loadbalancers/views.py:89
-#, python-format
-msgid "Unable to locate VIP to delete. %s"
-msgstr ""
-
-#: dashboards/project/loadbalancers/views.py:94
-#, python-format
-msgid "Deleted VIP %s"
-msgstr ""
-
-#: dashboards/project/loadbalancers/views.py:97
-#, python-format
-msgid "Unable to delete VIP. %s"
-msgstr ""
-
-#: dashboards/project/loadbalancers/views.py:117
+#: dashboards/project/loadbalancers/views.py:59
 #, python-format
 msgid "Unable to retrieve pool subnet. %s"
 msgstr ""
 
-#: dashboards/project/loadbalancers/views.py:144
+#: dashboards/project/loadbalancers/views.py:86
 msgid "Unable to retrieve pool details."
 msgstr ""
 
-#: dashboards/project/loadbalancers/views.py:188
+#: dashboards/project/loadbalancers/views.py:130
 msgid "Unable to retrieve member details."
 msgstr ""
 
-#: dashboards/project/loadbalancers/views.py:220
+#: dashboards/project/loadbalancers/views.py:162
 msgid "Unable to retrieve monitor details."
 msgstr ""
 
-#: dashboards/project/loadbalancers/views.py:265
+#: dashboards/project/loadbalancers/views.py:207
 #, python-format
 msgid "Unable to retrieve pool details. %s"
 msgstr ""
 
-#: dashboards/project/loadbalancers/views.py:302
+#: dashboards/project/loadbalancers/views.py:244
 #, python-format
 msgid "Unable to retrieve VIP details. %s"
 msgstr ""
 
-#: dashboards/project/loadbalancers/views.py:353
+#: dashboards/project/loadbalancers/views.py:295
 #, python-format
 msgid "Unable to retrieve member details. %s"
 msgstr ""
 
-#: dashboards/project/loadbalancers/views.py:389
+#: dashboards/project/loadbalancers/views.py:331
 #, python-format
 msgid "Unable to retrieve health monitor details. %s"
 msgstr ""
 
-#: dashboards/project/loadbalancers/views.py:412
-#: dashboards/project/loadbalancers/views.py:428
+#: dashboards/project/loadbalancers/views.py:354
+#: dashboards/project/loadbalancers/views.py:370
 #, python-format
 msgid "Unable to retrieve pool. %s"
 msgstr ""

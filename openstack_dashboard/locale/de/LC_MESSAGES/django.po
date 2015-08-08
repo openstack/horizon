@@ -16,9 +16,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-08-06 03:02+0000\n"
-"PO-Revision-Date: 2015-08-05 14:56+0000\n"
-"Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
+"POT-Creation-Date: 2015-08-08 05:52+0000\n"
+"PO-Revision-Date: 2015-08-08 00:05+0000\n"
+"Last-Translator: Robert Simai\n"
 "Language-Team: German (http://www.transifex.com/openstack/horizon/language/"
 "de/)\n"
 "MIME-Version: 1.0\n"
@@ -1029,6 +1029,10 @@ msgstr "Cluster Name"
 msgid "Cluster Template"
 msgstr "Clustervorlage"
 
+#, python-format
+msgid "Cluster Template %s updated"
+msgstr "Clustervorlage %s aktualisiert"
+
 msgid "Cluster Template Details"
 msgstr "Clustervorlage Details"
 
@@ -1044,6 +1048,9 @@ msgstr "Clustervorlagen"
 
 msgid "Cluster template creation failed"
 msgstr "Clustervorlagenerstellung fehlgeschlagen"
+
+msgid "Cluster template update failed"
+msgstr "Hochladen der Clustervorlage fehlgeschlagen"
 
 msgid "Cluster type chosen"
 msgstr "Ausgewählter Clustertyp"
@@ -2605,6 +2612,9 @@ msgstr "Dauer der Instanz Typ %s (OpenStack Variante)"
 
 msgid "Edit"
 msgstr "Bearbeiten"
+
+msgid "Edit Cluster Template"
+msgstr "Clustervorlage bearbeiten"
 
 msgid "Edit Connection"
 msgstr "Verbindung bearbeiten"
@@ -5017,6 +5027,9 @@ msgstr "Objekt erfolgreich hochgeladen."
 msgid "Objects"
 msgstr "Objekte"
 
+msgid "Ochestration"
+msgstr "Orchestrierung"
+
 msgid "Old Flavor"
 msgstr "Alte Variante"
 
@@ -6453,6 +6466,10 @@ msgstr "Größe des Datenträgers in GB."
 msgid "Size of volume"
 msgstr "Größe des Datenträgers"
 
+msgid "Slash is not allowed at the beginning or end of your string."
+msgstr ""
+"Ein Schrägstrich ist weder an Anfang noch am Ende der Zeichenkette erlaubt."
+
 msgid "Slash is not an allowed character."
 msgstr "Der Schrägstrich (Slash) ist kein erlaubtes Zeichen."
 
@@ -7768,6 +7785,9 @@ msgstr "Vorlageobjekt kann nicht abgerufen werden."
 msgid "Unable to fetch template to copy."
 msgstr "Zu kopierende Vorlage kann nicht abgerufen werden."
 
+msgid "Unable to fetch template to edit."
+msgstr "Vorlage zum bearbeiten kann nicht abgerufen werden."
+
 msgid "Unable to fetch the image details"
 msgstr "Abrufen der Abbild Details fehlgeschlagen"
 
@@ -8123,12 +8143,25 @@ msgid "Unable to retrieve details for cluster template \"%s\"."
 msgstr "Details zur Clustervorlage \"%s\" können nicht abgerufen werden."
 
 #, python-format
+msgid "Unable to retrieve details for data source \"%s\"."
+msgstr "Details zur Datenquelle \"%s\" können nicht abgerufen werden."
+
+#, python-format
 msgid "Unable to retrieve details for database instance: %s"
 msgstr "Details zur Datenbankinstanz können nicht abgerufen werden: %s"
 
 #, python-format
 msgid "Unable to retrieve details for instance \"%s\"."
 msgstr "Details zur Instanz \"%s\" können nicht abgerufen werden."
+
+#, python-format
+msgid "Unable to retrieve details for job \"%s\"."
+msgstr "Details zur Aufgabe \"%s\" können nicht abgerufen werden."
+
+#, python-format
+msgid "Unable to retrieve details for job binary \"%s\"."
+msgstr ""
+"Details des Aufgaben-Binärprogramms \"%s\" können nicht abgerufen werden."
 
 #, python-format
 msgid "Unable to retrieve details for job template \"%s\"."

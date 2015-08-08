@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-08-04 06:22+0000\n"
+"POT-Creation-Date: 2015-08-08 06:10+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -81,9 +81,818 @@ msgstr ""
 msgid "Insufficient privilege level to view user information."
 msgstr ""
 
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/launch-instance-model.js:374
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:100
+#: static/app/core/images/filters/image-type.filter.js:41
+msgid "Image"
+msgstr ""
+
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/launch-instance-model.js:385
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:101
+msgid "Instance Snapshot"
+msgstr ""
+
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/launch-instance-model.js:393
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:102
+msgid "Volume"
+msgstr ""
+
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/launch-instance-model.js:397
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:103
+msgid "Volume Snapshot"
+msgstr ""
+
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/launch-instance-workflow.service.js:30
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/launch-instance-workflow.service.js:73
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/keypair/keypair.js:171
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/keypair/keypair.js:214
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/keypair/keypair.js:247
+msgid "Launch Instance"
+msgstr ""
+
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/launch-instance-workflow.service.js:34
+msgid "Select Source"
+msgstr ""
+
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/launch-instance-workflow.service.js:40
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/flavor/flavor.controller.js:40
+msgid "Flavor"
+msgstr ""
+
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/launch-instance-workflow.service.js:46
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/network/network.controller.js:35
+msgid "Networks"
+msgstr ""
+
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/launch-instance-workflow.service.js:53
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/security-groups/security-groups.controller.js:36
+msgid "Security Groups"
+msgstr ""
+
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/launch-instance-workflow.service.js:59
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/keypair/keypair.js:25
+msgid "Key Pair"
+msgstr ""
+
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/launch-instance-workflow.service.js:65
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/configuration/configuration.controller.js:54
+msgid "Configuration"
+msgstr ""
+
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/configuration/configuration-help.controller.js:33
+msgid "Configuration Help"
+msgstr ""
+
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/configuration/configuration-help.controller.js:37
+#, python-format
+msgid ""
+"Custom scripts are attached to instances to perform specific actions when"
+" the instance is launched. For example, if you are unable to install "
+"<samp>%(cloutInit)s</samp> inside a guest operating system, you can use a"
+" custom script to get a public key and add it to the user account."
+msgstr ""
+
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/configuration/configuration-help.controller.js:41
+msgid ""
+"Type your script directly into the Customization Script field. If your "
+"browser supports the HTML5 File API, you may choose to load your script "
+"from a file. The size of your script should not exceed 16 Kb."
+msgstr ""
+
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/configuration/configuration-help.controller.js:42
+msgid ""
+"An advanced option available when launching an instance is disk "
+"partitioning. There are two disk partition options. Selecting "
+"<b>Automatic</b> resizes the disk and sets it to a single partition. "
+"Selecting <b>Manual</b> allows you to create multiple partitions on the "
+"disk."
+msgstr ""
+
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/configuration/configuration-help.controller.js:43
+msgid ""
+"Check the <b>Configuration Drive</b> box if you want to write metadata to"
+" a special configuration drive. When the instance boots, it attaches to "
+"the <b>Configuration Drive</b> and accesses the metadata."
+msgstr ""
+
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/configuration/configuration.controller.js:56
+msgid "Customization Script"
+msgstr ""
+
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/configuration/configuration.controller.js:57
+msgid "(Max: 16Kb)"
+msgstr ""
+
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/configuration/configuration.controller.js:58
+msgid "Load script from a file"
+msgstr ""
+
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/configuration/configuration.controller.js:59
+msgid "Configuration Drive"
+msgstr ""
+
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/configuration/configuration.controller.js:60
+msgid "Disk Partition"
+msgstr ""
+
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/configuration/configuration.controller.js:61
+msgid "Script size"
+msgstr ""
+
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/configuration/configuration.controller.js:62
+msgid "Modified"
+msgstr ""
+
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/configuration/configuration.controller.js:63
+msgid "Script size > 16Kb"
+msgstr ""
+
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/configuration/configuration.controller.js:64
+msgid "bytes"
+msgstr ""
+
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/configuration/configuration.controller.js:65
+msgid "The maximum script size is 16Kb."
+msgstr ""
+
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/configuration/configuration.controller.js:69
+msgid "Automatic"
+msgstr ""
+
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/configuration/configuration.controller.js:70
+msgid "Manual"
+msgstr ""
+
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/flavor/flavor-help.controller.js:26
+msgid "Flavor Help"
+msgstr ""
+
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/flavor/flavor-help.controller.js:30
+msgid ""
+"The flavor you select for an instance determines the amount of compute, "
+"storage and memory resources that will be carved out for the instance."
+msgstr ""
+
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/flavor/flavor-help.controller.js:31
+msgid ""
+"The flavor you select must have enough resources allocated to support the"
+" type of instance you are trying to create. Flavors that don't provide "
+"enough resources for your instance are identified on the <b>Available</b>"
+" table with a yellow warning icon."
+msgstr ""
+
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/flavor/flavor-help.controller.js:32
+msgid ""
+"Administrators are responsible for creating and managing flavors. A "
+"custom flavor can be created for you or for a specific project where it "
+"is shared with the users assigned to that project. If you need a custom "
+"flavor, contact your administrator."
+msgstr ""
+
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/flavor/flavor.controller.js:41
+msgid ""
+"Flavors manage the sizing for the compute, memory and storage capacity of"
+" the instance."
+msgstr ""
+
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/flavor/flavor.controller.js:46
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:233
+msgid "Total Instances"
+msgstr ""
+
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/flavor/flavor.controller.js:47
+msgid "Total VCPUs"
+msgstr ""
+
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/flavor/flavor.controller.js:48
+msgid "Total RAM"
+msgstr ""
+
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/flavor/flavor.controller.js:285
+msgid ""
+"This flavor requires more RAM than your quota allows. Please select a "
+"smaller flavor or decrease the instance count."
+msgstr ""
+
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/flavor/flavor.controller.js:298
+msgid ""
+"This flavor requires more VCPUs than your quota allows. Please select a "
+"smaller flavor or decrease the instance count."
+msgstr ""
+
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/flavor/flavor.controller.js:307
+#, python-format
+msgid ""
+"The selected image source requires a flavor with at least %(minDisk)s GB "
+"of root disk. Select a flavor with a larger root disk or use a different "
+"image source."
+msgstr ""
+
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/flavor/flavor.controller.js:317
+#, python-format
+msgid ""
+"The selected image source requires a flavor with at least %(minRam)s MB "
+"of RAM. Select a flavor with more RAM or use a different image source."
+msgstr ""
+
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/flavor/select-flavor-table.directive.js:117
+msgid "Impact on your quota"
+msgstr ""
+
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/flavor/select-flavor-table.directive.js:118
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/keypair/keypair.js:29
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/security-groups/security-groups.controller.js:38
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:150
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:157
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:164
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:171
+msgid "Name"
+msgstr ""
+
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/flavor/select-flavor-table.directive.js:119
+msgid "VCPUs"
+msgstr ""
+
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/flavor/select-flavor-table.directive.js:120
+msgid "RAM"
+msgstr ""
+
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/flavor/select-flavor-table.directive.js:121
+msgid "Total Disk"
+msgstr ""
+
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/flavor/select-flavor-table.directive.js:122
+msgid "Root Disk"
+msgstr ""
+
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/flavor/select-flavor-table.directive.js:123
+msgid "Ephemeral Disk"
+msgstr ""
+
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/flavor/select-flavor-table.directive.js:124
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:180
+#: static/app/core/images/table/images-table-header.html:28
+#: static/app/core/images/table/images-table-row-details.html:13
+msgid "Public"
+msgstr ""
+
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/keypair/keypair.js:27
+msgid ""
+"A key pair allows you to SSH into your newly created instance. You may "
+"select an existing key pair, import a key pair, or generate a new key "
+"pair."
+msgstr ""
+
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/keypair/keypair.js:30
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/security-groups/security-groups.controller.js:39
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:165
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:172
+msgid "Description"
+msgstr ""
+
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/keypair/keypair.js:31
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/keypair/keypair.js:172
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/keypair/keypair.js:178
+msgid "Create Key Pair"
+msgstr ""
+
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/keypair/keypair.js:32
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/keypair/keypair.js:248
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/keypair/keypair.js:255
+msgid "Import Key Pair"
+msgstr ""
+
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/keypair/keypair.js:36
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/keypair/keypair.js:218
+msgid "Fingerprint"
+msgstr ""
+
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/keypair/keypair.js:37
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/keypair/keypair.js:220
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/keypair/keypair.js:253
+msgid "Public Key"
+msgstr ""
+
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/keypair/keypair.js:50
+msgid "Select a key pair from the available key pairs below."
+msgstr ""
+
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/keypair/keypair.js:124
+msgid "Key Pair Help"
+msgstr ""
+
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/keypair/keypair.js:128
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/keypair/keypair.js:293
+#, python-format
+msgid ""
+"There are two ways to generate a key pair. From a Linux system, generate "
+"the key pair with the <samp>%(genKeyPairCmd)s</samp> command:"
+msgstr ""
+
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/keypair/keypair.js:137
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/keypair/keypair.js:298
+#, python-format
+msgid ""
+"This command generates a pair of keys: a private key (%(privateKeyPath)s)"
+" and a public key (%(publicKeyPath)s)."
+msgstr ""
+
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/keypair/keypair.js:142
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/keypair/keypair.js:303
+#, python-format
+msgid ""
+"From a Windows system, you can use PuTTYGen to create private/public "
+"keys. Use the PuTTY Key Generator to create and save the keys, then copy "
+"the public key in the red highlighted box to your "
+"<samp>%(authorizeKeysFile)s</samp> file."
+msgstr ""
+
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/keypair/keypair.js:146
+msgid "The key pair allows you to SSH into the instance."
+msgstr ""
+
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/keypair/keypair.js:174
+msgid ""
+"Key Pairs are how you login to your instance after it is launched. Choose"
+" a key pair name you will recognize."
+msgstr ""
+
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/keypair/keypair.js:176
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/keypair/keypair.js:217
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/keypair/keypair.js:252
+msgid "Key Pair Name"
+msgstr ""
+
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/keypair/keypair.js:177
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/keypair/keypair.js:254
+msgid "Cancel"
+msgstr ""
+
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/keypair/keypair.js:179
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/keypair/keypair.js:256
+msgid "Required"
+msgstr ""
+
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/keypair/keypair.js:188
+#, python-format
+msgid "Successfully created key pair %(name)s"
+msgstr ""
+
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/keypair/keypair.js:215
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/keypair/keypair.js:219
+msgid "Private Key"
+msgstr ""
+
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/keypair/keypair.js:216
+msgid "This is your new key pair. Copy this information and keep it secure."
+msgstr ""
+
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/keypair/keypair.js:221
+msgid "OK"
+msgstr ""
+
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/keypair/keypair.js:250
+msgid ""
+"Key Pairs are how you login to your instance after it is launched. Choose"
+" a key pair name you will recognize and paste your SSH public key into "
+"the space provided."
+msgstr ""
+
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/keypair/keypair.js:265
+#, python-format
+msgid "Successfully imported key pair %(name)s"
+msgstr ""
+
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/keypair/keypair.js:289
+msgid "Import Key Pair Help"
+msgstr ""
+
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/network/network-help.controller.js:32
+msgid "Network Help"
+msgstr ""
+
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/network/network-help.controller.js:36
+msgid ""
+"Provider networks are created by administrators. These networks map to an"
+" existing physical network in the data center."
+msgstr ""
+
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/network/network-help.controller.js:37
+msgid ""
+"Project networks are created by users. These networks are fully isolated "
+"and are project-specific."
+msgstr ""
+
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/network/network-help.controller.js:38
+msgid ""
+"An <b>External</b> network is set up by an administrator. If you want an "
+"instance to communicate outside of the data center, then attach a router "
+"between your <b>Project</b> network and the <b>External</b> network. You "
+"can use the <b>Network Topology</b> view to connect the router to the two"
+" networks."
+msgstr ""
+
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/network/network-help.controller.js:39
+msgid ""
+"A floating IP allows instances to be addressable from an external "
+"network. Floating IPs are not allocated to instances at creation time and"
+" may be assigned after the instance is created. To attach a floating IP, "
+"go to the <b>Instances</b> view and click the <b>Actions</b> menu to the "
+"right of an instance. Then, select the <b>Associate Floating IP</b> "
+"option and enter the necessary details."
+msgstr ""
+
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/network/network-help.controller.js:40
+msgid ""
+"Administrators set up the pool of floating IPs that are available to "
+"attach to instances."
+msgstr ""
+
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/network/network-help.controller.js:44
+msgid "Network characteristics"
+msgstr ""
+
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/network/network-help.controller.js:47
+msgid ""
+"The subnet identifies a sub-section of a network. A subnet is specified "
+"in CIDR format. A typical CIDR format looks like "
+"<samp>192.xxx.x.x/24</samp>."
+msgstr ""
+
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/network/network-help.controller.js:48
+msgid ""
+"If a network is shared, then all users in the project can access the "
+"network."
+msgstr ""
+
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/network/network-help.controller.js:49
+msgid ""
+"When the <b>Admin State</b> for a network is set to <b>Up</b>, then the "
+"network is available for use. You can set the <b>Admin State</b> to "
+"<b>Down</b> if you are not ready for other users to access the network."
+msgstr ""
+
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/network/network-help.controller.js:51
+msgid "The status indicates whether the network has an active connection."
+msgstr ""
+
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/network/network.controller.js:36
+msgid "Networks provide the communication channels for instances in the cloud."
+msgstr ""
+
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/network/network.controller.js:37
+msgid "Network"
+msgstr ""
+
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/network/network.controller.js:38
+msgid "Subnets Associated"
+msgstr ""
+
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/network/network.controller.js:39
+msgid "Shared"
+msgstr ""
+
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/network/network.controller.js:40
+msgid "Admin State"
+msgstr ""
+
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/network/network.controller.js:41
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:175
+#: static/app/core/images/table/images-table-header.html:24
+msgid "Status"
+msgstr ""
+
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/network/network.controller.js:42
+msgid "Profile"
+msgstr ""
+
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/network/network.controller.js:43
+msgid "(None)"
+msgstr ""
+
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/network/network.controller.js:44
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:75
+msgid "ID"
+msgstr ""
+
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/network/network.controller.js:45
+msgid "Project"
+msgstr ""
+
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/network/network.controller.js:46
+msgid "External Network"
+msgstr ""
+
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/network/network.controller.js:47
+msgid "Provider Network"
+msgstr ""
+
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/network/network.controller.js:48
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:153
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:160
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:167
+#: static/app/core/images/table/images-table-header.html:20
+msgid "Type"
+msgstr ""
+
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/network/network.controller.js:49
+msgid "Segmentation ID"
+msgstr ""
+
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/network/network.controller.js:50
+msgid "Physical Network"
+msgstr ""
+
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/network/network.controller.js:54
 #: static/app/core/images/filters/image-status.filter.js:35
-#: static/dashboard/launch-instance/network/network.controller.js:54
 msgid "Active"
+msgstr ""
+
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/network/network.controller.js:55
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/network/network.controller.js:60
+msgid "Down"
+msgstr ""
+
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/network/network.controller.js:59
+msgid "Up"
+msgstr ""
+
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/network/network.controller.js:75
+msgid "Select networks from those listed below."
+msgstr ""
+
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/network/network.controller.js:76
+msgid "Select at least one network"
+msgstr ""
+
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/security-groups/security-groups-help.controller.js:31
+msgid "Security Groups Help"
+msgstr ""
+
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/security-groups/security-groups-help.controller.js:35
+msgid ""
+"Security groups define a set of IP filter rules that determine how "
+"network traffic flows to and from an instance. Users can add additional "
+"rules to an existing security group to further define the access options "
+"for an instance. To create additional rules, go to the <b>Compute | "
+"Access & Security</b> view, then find the security group and click "
+"<b>Manage Rules</b>."
+msgstr ""
+
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/security-groups/security-groups-help.controller.js:36
+msgid "Security groups are project-specific and cannot be shared across projects."
+msgstr ""
+
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/security-groups/security-groups-help.controller.js:37
+msgid ""
+"If a security group is not associated with an instance before it is "
+"launched, then you will have very limited access to the instance after it"
+" is deployed. You will only be able to access the instance from a VNC "
+"console."
+msgstr ""
+
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/security-groups/security-groups.controller.js:37
+msgid "Select the security groups."
+msgstr ""
+
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/security-groups/security-groups.controller.js:43
+msgid "Direction"
+msgstr ""
+
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/security-groups/security-groups.controller.js:44
+msgid "Ether Type"
+msgstr ""
+
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/security-groups/security-groups.controller.js:45
+msgid "Protocol"
+msgstr ""
+
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/security-groups/security-groups.controller.js:46
+msgid "Min Port"
+msgstr ""
+
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/security-groups/security-groups.controller.js:47
+msgid "Max Port"
+msgstr ""
+
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/security-groups/security-groups.controller.js:48
+msgid "Remote"
+msgstr ""
+
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/security-groups/security-groups.controller.js:62
+msgid "Select one or more security groups from the available groups below."
+msgstr ""
+
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/security-groups/security-groups.controller.js:64
+msgid "Select one or more"
+msgstr ""
+
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/source/source-help.controller.js:32
+msgid "Select Source Help"
+msgstr ""
+
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/source/source-help.controller.js:34
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:59
+msgid "Instance Details"
+msgstr ""
+
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/source/source-help.controller.js:37
+msgid ""
+"An instance name is required and used to help you uniquely identify your "
+"instance in the dashboard."
+msgstr ""
+
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/source/source-help.controller.js:38
+msgid ""
+"If you select an availability zone and plan to use the boot from volume "
+"option, make sure that the availability zone you select for the instance "
+"is the same availability zone where your bootable volume resides."
+msgstr ""
+
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/source/source-help.controller.js:42
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:66
+msgid "Instance Source"
+msgstr ""
+
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/source/source-help.controller.js:45
+msgid ""
+"If you want to create an instance that uses ephemeral storage, meaning "
+"the instance data is lost when the instance is deleted, then choose one "
+"of the following boot sources:"
+msgstr ""
+
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/source/source-help.controller.js:46
+msgid "<li><b>Image</b>: This option uses an image to boot the instance.</li>"
+msgstr ""
+
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/source/source-help.controller.js:47
+msgid ""
+"<li><b>Instance Snapshot</b>: This option uses an instance snapshot to "
+"boot the instance.</li>"
+msgstr ""
+
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/source/source-help.controller.js:48
+msgid ""
+"If you want to create an instance that uses persistent storage, meaning "
+"the instance data is saved when the instance is deleted, then select one "
+"of the following boot options:"
+msgstr ""
+
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/source/source-help.controller.js:49
+msgid ""
+"<li><b>Image (with Create New Volume checked)</b>: This options uses an "
+"image to boot the instance, and creates a new volume to persist instance "
+"data. You can specify volume size and whether to delete the volume on "
+"termination of the instance.</li>"
+msgstr ""
+
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/source/source-help.controller.js:50
+msgid ""
+"<li><b>Volume</b>: This option uses a volume that already exists. It does"
+" not create a new volume. You can choose to delete the volume on "
+"termination of the instance. <em>Note: when selecting Volume, you can "
+"only launch one instance.</em></li>"
+msgstr ""
+
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/source/source-help.controller.js:51
+msgid ""
+"<li><b>Volume Snapshot</b>: This option uses a volume snapshot to boot "
+"the instance, and creates a new volume to persist instance data. You can "
+"choose to delete the volume on termination of the instance.</li>"
+msgstr ""
+
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:61
+msgid ""
+"Please provide the initial host name for the instance, the availability "
+"zone where it will be deployed, and the instance count. Increase the "
+"Count to create multiple instances with the same settings."
+msgstr ""
+
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:63
+msgid "Instance Name"
+msgstr ""
+
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:64
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:168
+msgid "Availability Zone"
+msgstr ""
+
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:65
+msgid "Count"
+msgstr ""
+
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:68
+msgid ""
+"Instance source is the template used to create an instance. You can use a"
+" snapshot of an existing instance, an image, or a volume (if enabled). "
+"You can also choose to use persistent storage by creating a new volume."
+msgstr ""
+
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:70
+msgid "Select Boot Source"
+msgstr ""
+
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:71
+msgid "Size (GB)"
+msgstr ""
+
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:72
+msgid "Create New Volume"
+msgstr ""
+
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:73
+msgid "Device Name"
+msgstr ""
+
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:74
+msgid "Delete Volume on Terminate"
+msgstr ""
+
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:76
+msgid "Min Ram"
+msgstr ""
+
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:77
+msgid "Min Disk"
+msgstr ""
+
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:82
+msgid ""
+"Volumes can only be attached to 1 active instance at a time. Please "
+"either set your instance count to 1 or select a different source type."
+msgstr ""
+
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:84
+msgid "A name is required for your instance."
+msgstr ""
+
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:85
+msgid "Instance count is required and must be an integer of at least 1"
+msgstr ""
+
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:88
+msgid "Volume size is required and must be an integer"
+msgstr ""
+
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:92
+msgid "Yes"
+msgstr ""
+
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:93
+msgid "No"
+msgstr ""
+
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:151
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:158
+msgid "Updated"
+msgstr ""
+
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:152
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:159
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:166
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:173
+#: static/app/core/images/table/images-table-header.html:40
+#: static/app/core/images/table/images-table-row-details.html:31
+msgid "Size"
+msgstr ""
+
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:154
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:161
+msgid "Visibility"
+msgstr ""
+
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:174
+msgid "Created"
+msgstr ""
+
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:180
+msgid "Private"
+msgstr ""
+
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:367
+msgid "Select a source from those listed below."
+msgstr ""
+
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:368
+msgid "Select one"
+msgstr ""
+
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:370
+msgid ""
+"When selecting volume as boot source, please ensure the instance's "
+"availability zone is compatible with your volume's availability zone."
+msgstr ""
+
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:424
+#, python-format
+msgid "The volume size must be at least %(minVolumeSize)s GB"
+msgstr ""
+
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:436
+#, python-format
+msgid ""
+"The instance count must not exceed your quota available of "
+"%(maxInstanceCount)s instances"
 msgstr ""
 
 #: static/app/core/images/filters/image-status.filter.js:36
@@ -110,35 +919,8 @@ msgstr ""
 msgid "Snapshot"
 msgstr ""
 
-#: static/app/core/images/filters/image-type.filter.js:41
-#: static/dashboard/launch-instance/launch-instance-model.js:374
-#: static/dashboard/launch-instance/source/source.controller.js:100
-msgid "Image"
-msgstr ""
-
 #: static/app/core/images/table/images-table-header.html:16
 msgid "Image Name"
-msgstr ""
-
-#: static/app/core/images/table/images-table-header.html:20
-#: static/dashboard/launch-instance/network/network.controller.js:48
-#: static/dashboard/launch-instance/source/source.controller.js:153
-#: static/dashboard/launch-instance/source/source.controller.js:160
-#: static/dashboard/launch-instance/source/source.controller.js:167
-msgid "Type"
-msgstr ""
-
-#: static/app/core/images/table/images-table-header.html:24
-#: static/dashboard/launch-instance/network/network.controller.js:41
-#: static/dashboard/launch-instance/source/source.controller.js:175
-msgid "Status"
-msgstr ""
-
-#: static/app/core/images/table/images-table-header.html:28
-#: static/app/core/images/table/images-table-row-details.html:13
-#: static/dashboard/launch-instance/flavor/select-flavor-table.directive.js:124
-#: static/dashboard/launch-instance/source/source.controller.js:180
-msgid "Public"
 msgstr ""
 
 #: static/app/core/images/table/images-table-header.html:32
@@ -149,15 +931,6 @@ msgstr ""
 #: static/app/core/images/table/images-table-header.html:36
 #: static/app/core/images/table/images-table-row-details.html:25
 msgid "Format"
-msgstr ""
-
-#: static/app/core/images/table/images-table-header.html:40
-#: static/app/core/images/table/images-table-row-details.html:31
-#: static/dashboard/launch-instance/source/source.controller.js:152
-#: static/dashboard/launch-instance/source/source.controller.js:159
-#: static/dashboard/launch-instance/source/source.controller.js:166
-#: static/dashboard/launch-instance/source/source.controller.js:173
-msgid "Size"
 msgstr ""
 
 #: static/app/core/images/table/images-table-row-details.html:41
@@ -398,778 +1171,5 @@ msgstr ""
 #: static/app/core/openstack-service-api/settings.service.js:242
 #, python-format
 msgid "Setting is not enabled: %(setting)s"
-msgstr ""
-
-#: static/dashboard/launch-instance/launch-instance-model.js:385
-#: static/dashboard/launch-instance/source/source.controller.js:101
-msgid "Instance Snapshot"
-msgstr ""
-
-#: static/dashboard/launch-instance/launch-instance-model.js:393
-#: static/dashboard/launch-instance/source/source.controller.js:102
-msgid "Volume"
-msgstr ""
-
-#: static/dashboard/launch-instance/launch-instance-model.js:397
-#: static/dashboard/launch-instance/source/source.controller.js:103
-msgid "Volume Snapshot"
-msgstr ""
-
-#: static/dashboard/launch-instance/launch-instance-workflow.service.js:30
-#: static/dashboard/launch-instance/launch-instance-workflow.service.js:73
-#: static/dashboard/launch-instance/keypair/keypair.js:171
-#: static/dashboard/launch-instance/keypair/keypair.js:214
-#: static/dashboard/launch-instance/keypair/keypair.js:247
-msgid "Launch Instance"
-msgstr ""
-
-#: static/dashboard/launch-instance/launch-instance-workflow.service.js:34
-msgid "Select Source"
-msgstr ""
-
-#: static/dashboard/launch-instance/launch-instance-workflow.service.js:40
-#: static/dashboard/launch-instance/flavor/flavor.controller.js:40
-msgid "Flavor"
-msgstr ""
-
-#: static/dashboard/launch-instance/launch-instance-workflow.service.js:46
-#: static/dashboard/launch-instance/network/network.controller.js:35
-msgid "Networks"
-msgstr ""
-
-#: static/dashboard/launch-instance/launch-instance-workflow.service.js:53
-#: static/dashboard/launch-instance/security-groups/security-groups.controller.js:36
-msgid "Security Groups"
-msgstr ""
-
-#: static/dashboard/launch-instance/launch-instance-workflow.service.js:59
-#: static/dashboard/launch-instance/keypair/keypair.js:25
-msgid "Key Pair"
-msgstr ""
-
-#: static/dashboard/launch-instance/launch-instance-workflow.service.js:65
-#: static/dashboard/launch-instance/configuration/configuration.controller.js:54
-msgid "Configuration"
-msgstr ""
-
-#: static/dashboard/launch-instance/configuration/configuration-help.controller.js:33
-msgid "Configuration Help"
-msgstr ""
-
-#: static/dashboard/launch-instance/configuration/configuration-help.controller.js:37
-#, python-format
-msgid ""
-"Custom scripts are attached to instances to perform specific actions when"
-" the instance is launched. For example, if you are unable to install "
-"<samp>%(cloutInit)s</samp> inside a guest operating system, you can use a"
-" custom script to get a public key and add it to the user account."
-msgstr ""
-
-#: static/dashboard/launch-instance/configuration/configuration-help.controller.js:41
-msgid ""
-"Type your script directly into the Customization Script field. If your "
-"browser supports the HTML5 File API, you may choose to load your script "
-"from a file. The size of your script should not exceed 16 Kb."
-msgstr ""
-
-#: static/dashboard/launch-instance/configuration/configuration-help.controller.js:42
-msgid ""
-"An advanced option available when launching an instance is disk "
-"partitioning. There are two disk partition options. Selecting "
-"<b>Automatic</b> resizes the disk and sets it to a single partition. "
-"Selecting <b>Manual</b> allows you to create multiple partitions on the "
-"disk."
-msgstr ""
-
-#: static/dashboard/launch-instance/configuration/configuration-help.controller.js:43
-msgid ""
-"Check the <b>Configuration Drive</b> box if you want to write metadata to"
-" a special configuration drive. When the instance boots, it attaches to "
-"the <b>Configuration Drive</b> and accesses the metadata."
-msgstr ""
-
-#: static/dashboard/launch-instance/configuration/configuration.controller.js:56
-msgid "Customization Script"
-msgstr ""
-
-#: static/dashboard/launch-instance/configuration/configuration.controller.js:57
-msgid "(Max: 16Kb)"
-msgstr ""
-
-#: static/dashboard/launch-instance/configuration/configuration.controller.js:58
-msgid "Load script from a file"
-msgstr ""
-
-#: static/dashboard/launch-instance/configuration/configuration.controller.js:59
-msgid "Configuration Drive"
-msgstr ""
-
-#: static/dashboard/launch-instance/configuration/configuration.controller.js:60
-msgid "Disk Partition"
-msgstr ""
-
-#: static/dashboard/launch-instance/configuration/configuration.controller.js:61
-msgid "Script size"
-msgstr ""
-
-#: static/dashboard/launch-instance/configuration/configuration.controller.js:62
-msgid "Modified"
-msgstr ""
-
-#: static/dashboard/launch-instance/configuration/configuration.controller.js:63
-msgid "Script size > 16Kb"
-msgstr ""
-
-#: static/dashboard/launch-instance/configuration/configuration.controller.js:64
-msgid "bytes"
-msgstr ""
-
-#: static/dashboard/launch-instance/configuration/configuration.controller.js:65
-msgid "The maximum script size is 16Kb."
-msgstr ""
-
-#: static/dashboard/launch-instance/configuration/configuration.controller.js:69
-msgid "Automatic"
-msgstr ""
-
-#: static/dashboard/launch-instance/configuration/configuration.controller.js:70
-msgid "Manual"
-msgstr ""
-
-#: static/dashboard/launch-instance/flavor/flavor-help.controller.js:26
-msgid "Flavor Help"
-msgstr ""
-
-#: static/dashboard/launch-instance/flavor/flavor-help.controller.js:30
-msgid ""
-"The flavor you select for an instance determines the amount of compute, "
-"storage and memory resources that will be carved out for the instance."
-msgstr ""
-
-#: static/dashboard/launch-instance/flavor/flavor-help.controller.js:31
-msgid ""
-"The flavor you select must have enough resources allocated to support the"
-" type of instance you are trying to create. Flavors that don't provide "
-"enough resources for your instance are identified on the <b>Available</b>"
-" table with a yellow warning icon."
-msgstr ""
-
-#: static/dashboard/launch-instance/flavor/flavor-help.controller.js:32
-msgid ""
-"Administrators are responsible for creating and managing flavors. A "
-"custom flavor can be created for you or for a specific project where it "
-"is shared with the users assigned to that project. If you need a custom "
-"flavor, contact your administrator."
-msgstr ""
-
-#: static/dashboard/launch-instance/flavor/flavor.controller.js:41
-msgid ""
-"Flavors manage the sizing for the compute, memory and storage capacity of"
-" the instance."
-msgstr ""
-
-#: static/dashboard/launch-instance/flavor/flavor.controller.js:46
-#: static/dashboard/launch-instance/source/source.controller.js:233
-msgid "Total Instances"
-msgstr ""
-
-#: static/dashboard/launch-instance/flavor/flavor.controller.js:47
-msgid "Total VCPUs"
-msgstr ""
-
-#: static/dashboard/launch-instance/flavor/flavor.controller.js:48
-msgid "Total RAM"
-msgstr ""
-
-#: static/dashboard/launch-instance/flavor/flavor.controller.js:285
-msgid ""
-"This flavor requires more RAM than your quota allows. Please select a "
-"smaller flavor or decrease the instance count."
-msgstr ""
-
-#: static/dashboard/launch-instance/flavor/flavor.controller.js:298
-msgid ""
-"This flavor requires more VCPUs than your quota allows. Please select a "
-"smaller flavor or decrease the instance count."
-msgstr ""
-
-#: static/dashboard/launch-instance/flavor/flavor.controller.js:307
-#, python-format
-msgid ""
-"The selected image source requires a flavor with at least %(minDisk)s GB "
-"of root disk. Select a flavor with a larger root disk or use a different "
-"image source."
-msgstr ""
-
-#: static/dashboard/launch-instance/flavor/flavor.controller.js:317
-#, python-format
-msgid ""
-"The selected image source requires a flavor with at least %(minRam)s MB "
-"of RAM. Select a flavor with more RAM or use a different image source."
-msgstr ""
-
-#: static/dashboard/launch-instance/flavor/select-flavor-table.directive.js:117
-msgid "Impact on your quota"
-msgstr ""
-
-#: static/dashboard/launch-instance/flavor/select-flavor-table.directive.js:118
-#: static/dashboard/launch-instance/keypair/keypair.js:29
-#: static/dashboard/launch-instance/security-groups/security-groups.controller.js:38
-#: static/dashboard/launch-instance/source/source.controller.js:150
-#: static/dashboard/launch-instance/source/source.controller.js:157
-#: static/dashboard/launch-instance/source/source.controller.js:164
-#: static/dashboard/launch-instance/source/source.controller.js:171
-msgid "Name"
-msgstr ""
-
-#: static/dashboard/launch-instance/flavor/select-flavor-table.directive.js:119
-msgid "VCPUs"
-msgstr ""
-
-#: static/dashboard/launch-instance/flavor/select-flavor-table.directive.js:120
-msgid "RAM"
-msgstr ""
-
-#: static/dashboard/launch-instance/flavor/select-flavor-table.directive.js:121
-msgid "Total Disk"
-msgstr ""
-
-#: static/dashboard/launch-instance/flavor/select-flavor-table.directive.js:122
-msgid "Root Disk"
-msgstr ""
-
-#: static/dashboard/launch-instance/flavor/select-flavor-table.directive.js:123
-msgid "Ephemeral Disk"
-msgstr ""
-
-#: static/dashboard/launch-instance/keypair/keypair.js:27
-msgid ""
-"A key pair allows you to SSH into your newly created instance. You may "
-"select an existing key pair, import a key pair, or generate a new key "
-"pair."
-msgstr ""
-
-#: static/dashboard/launch-instance/keypair/keypair.js:30
-#: static/dashboard/launch-instance/security-groups/security-groups.controller.js:39
-#: static/dashboard/launch-instance/source/source.controller.js:165
-#: static/dashboard/launch-instance/source/source.controller.js:172
-msgid "Description"
-msgstr ""
-
-#: static/dashboard/launch-instance/keypair/keypair.js:31
-#: static/dashboard/launch-instance/keypair/keypair.js:172
-#: static/dashboard/launch-instance/keypair/keypair.js:178
-msgid "Create Key Pair"
-msgstr ""
-
-#: static/dashboard/launch-instance/keypair/keypair.js:32
-#: static/dashboard/launch-instance/keypair/keypair.js:248
-#: static/dashboard/launch-instance/keypair/keypair.js:255
-msgid "Import Key Pair"
-msgstr ""
-
-#: static/dashboard/launch-instance/keypair/keypair.js:36
-#: static/dashboard/launch-instance/keypair/keypair.js:218
-msgid "Fingerprint"
-msgstr ""
-
-#: static/dashboard/launch-instance/keypair/keypair.js:37
-#: static/dashboard/launch-instance/keypair/keypair.js:220
-#: static/dashboard/launch-instance/keypair/keypair.js:253
-msgid "Public Key"
-msgstr ""
-
-#: static/dashboard/launch-instance/keypair/keypair.js:50
-msgid "Select a key pair from the available key pairs below."
-msgstr ""
-
-#: static/dashboard/launch-instance/keypair/keypair.js:124
-msgid "Key Pair Help"
-msgstr ""
-
-#: static/dashboard/launch-instance/keypair/keypair.js:128
-#: static/dashboard/launch-instance/keypair/keypair.js:293
-#, python-format
-msgid ""
-"There are two ways to generate a key pair. From a Linux system, generate "
-"the key pair with the <samp>%(genKeyPairCmd)s</samp> command:"
-msgstr ""
-
-#: static/dashboard/launch-instance/keypair/keypair.js:137
-#: static/dashboard/launch-instance/keypair/keypair.js:298
-#, python-format
-msgid ""
-"This command generates a pair of keys: a private key (%(privateKeyPath)s)"
-" and a public key (%(publicKeyPath)s)."
-msgstr ""
-
-#: static/dashboard/launch-instance/keypair/keypair.js:142
-#: static/dashboard/launch-instance/keypair/keypair.js:303
-#, python-format
-msgid ""
-"From a Windows system, you can use PuTTYGen to create private/public "
-"keys. Use the PuTTY Key Generator to create and save the keys, then copy "
-"the public key in the red highlighted box to your "
-"<samp>%(authorizeKeysFile)s</samp> file."
-msgstr ""
-
-#: static/dashboard/launch-instance/keypair/keypair.js:146
-msgid "The key pair allows you to SSH into the instance."
-msgstr ""
-
-#: static/dashboard/launch-instance/keypair/keypair.js:174
-msgid ""
-"Key Pairs are how you login to your instance after it is launched. Choose"
-" a key pair name you will recognize."
-msgstr ""
-
-#: static/dashboard/launch-instance/keypair/keypair.js:176
-#: static/dashboard/launch-instance/keypair/keypair.js:217
-#: static/dashboard/launch-instance/keypair/keypair.js:252
-msgid "Key Pair Name"
-msgstr ""
-
-#: static/dashboard/launch-instance/keypair/keypair.js:177
-#: static/dashboard/launch-instance/keypair/keypair.js:254
-msgid "Cancel"
-msgstr ""
-
-#: static/dashboard/launch-instance/keypair/keypair.js:179
-#: static/dashboard/launch-instance/keypair/keypair.js:256
-msgid "Required"
-msgstr ""
-
-#: static/dashboard/launch-instance/keypair/keypair.js:188
-#, python-format
-msgid "Successfully created key pair %(name)s"
-msgstr ""
-
-#: static/dashboard/launch-instance/keypair/keypair.js:215
-#: static/dashboard/launch-instance/keypair/keypair.js:219
-msgid "Private Key"
-msgstr ""
-
-#: static/dashboard/launch-instance/keypair/keypair.js:216
-msgid "This is your new key pair. Copy this information and keep it secure."
-msgstr ""
-
-#: static/dashboard/launch-instance/keypair/keypair.js:221
-msgid "OK"
-msgstr ""
-
-#: static/dashboard/launch-instance/keypair/keypair.js:250
-msgid ""
-"Key Pairs are how you login to your instance after it is launched. Choose"
-" a key pair name you will recognize and paste your SSH public key into "
-"the space provided."
-msgstr ""
-
-#: static/dashboard/launch-instance/keypair/keypair.js:265
-#, python-format
-msgid "Successfully imported key pair %(name)s"
-msgstr ""
-
-#: static/dashboard/launch-instance/keypair/keypair.js:289
-msgid "Import Key Pair Help"
-msgstr ""
-
-#: static/dashboard/launch-instance/network/network-help.controller.js:32
-msgid "Network Help"
-msgstr ""
-
-#: static/dashboard/launch-instance/network/network-help.controller.js:36
-msgid ""
-"Provider networks are created by administrators. These networks map to an"
-" existing physical network in the data center."
-msgstr ""
-
-#: static/dashboard/launch-instance/network/network-help.controller.js:37
-msgid ""
-"Project networks are created by users. These networks are fully isolated "
-"and are project-specific."
-msgstr ""
-
-#: static/dashboard/launch-instance/network/network-help.controller.js:38
-msgid ""
-"An <b>External</b> network is set up by an administrator. If you want an "
-"instance to communicate outside of the data center, then attach a router "
-"between your <b>Project</b> network and the <b>External</b> network. You "
-"can use the <b>Network Topology</b> view to connect the router to the two"
-" networks."
-msgstr ""
-
-#: static/dashboard/launch-instance/network/network-help.controller.js:39
-msgid ""
-"A floating IP allows instances to be addressable from an external "
-"network. Floating IPs are not allocated to instances at creation time and"
-" may be assigned after the instance is created. To attach a floating IP, "
-"go to the <b>Instances</b> view and click the <b>Actions</b> menu to the "
-"right of an instance. Then, select the <b>Associate Floating IP</b> "
-"option and enter the necessary details."
-msgstr ""
-
-#: static/dashboard/launch-instance/network/network-help.controller.js:40
-msgid ""
-"Administrators set up the pool of floating IPs that are available to "
-"attach to instances."
-msgstr ""
-
-#: static/dashboard/launch-instance/network/network-help.controller.js:44
-msgid "Network characteristics"
-msgstr ""
-
-#: static/dashboard/launch-instance/network/network-help.controller.js:47
-msgid ""
-"The subnet identifies a sub-section of a network. A subnet is specified "
-"in CIDR format. A typical CIDR format looks like "
-"<samp>192.xxx.x.x/24</samp>."
-msgstr ""
-
-#: static/dashboard/launch-instance/network/network-help.controller.js:48
-msgid ""
-"If a network is shared, then all users in the project can access the "
-"network."
-msgstr ""
-
-#: static/dashboard/launch-instance/network/network-help.controller.js:49
-msgid ""
-"When the <b>Admin State</b> for a network is set to <b>Up</b>, then the "
-"network is available for use. You can set the <b>Admin State</b> to "
-"<b>Down</b> if you are not ready for other users to access the network."
-msgstr ""
-
-#: static/dashboard/launch-instance/network/network-help.controller.js:51
-msgid "The status indicates whether the network has an active connection."
-msgstr ""
-
-#: static/dashboard/launch-instance/network/network.controller.js:36
-msgid "Networks provide the communication channels for instances in the cloud."
-msgstr ""
-
-#: static/dashboard/launch-instance/network/network.controller.js:37
-msgid "Network"
-msgstr ""
-
-#: static/dashboard/launch-instance/network/network.controller.js:38
-msgid "Subnets Associated"
-msgstr ""
-
-#: static/dashboard/launch-instance/network/network.controller.js:39
-msgid "Shared"
-msgstr ""
-
-#: static/dashboard/launch-instance/network/network.controller.js:40
-msgid "Admin State"
-msgstr ""
-
-#: static/dashboard/launch-instance/network/network.controller.js:42
-msgid "Profile"
-msgstr ""
-
-#: static/dashboard/launch-instance/network/network.controller.js:43
-msgid "(None)"
-msgstr ""
-
-#: static/dashboard/launch-instance/network/network.controller.js:44
-#: static/dashboard/launch-instance/source/source.controller.js:75
-msgid "ID"
-msgstr ""
-
-#: static/dashboard/launch-instance/network/network.controller.js:45
-msgid "Project"
-msgstr ""
-
-#: static/dashboard/launch-instance/network/network.controller.js:46
-msgid "External Network"
-msgstr ""
-
-#: static/dashboard/launch-instance/network/network.controller.js:47
-msgid "Provider Network"
-msgstr ""
-
-#: static/dashboard/launch-instance/network/network.controller.js:49
-msgid "Segmentation ID"
-msgstr ""
-
-#: static/dashboard/launch-instance/network/network.controller.js:50
-msgid "Physical Network"
-msgstr ""
-
-#: static/dashboard/launch-instance/network/network.controller.js:55
-#: static/dashboard/launch-instance/network/network.controller.js:60
-msgid "Down"
-msgstr ""
-
-#: static/dashboard/launch-instance/network/network.controller.js:59
-msgid "Up"
-msgstr ""
-
-#: static/dashboard/launch-instance/network/network.controller.js:75
-msgid "Select networks from those listed below."
-msgstr ""
-
-#: static/dashboard/launch-instance/network/network.controller.js:76
-msgid "Select at least one network"
-msgstr ""
-
-#: static/dashboard/launch-instance/security-groups/security-groups-help.controller.js:31
-msgid "Security Groups Help"
-msgstr ""
-
-#: static/dashboard/launch-instance/security-groups/security-groups-help.controller.js:35
-msgid ""
-"Security groups define a set of IP filter rules that determine how "
-"network traffic flows to and from an instance. Users can add additional "
-"rules to an existing security group to further define the access options "
-"for an instance. To create additional rules, go to the <b>Compute | "
-"Access & Security</b> view, then find the security group and click "
-"<b>Manage Rules</b>."
-msgstr ""
-
-#: static/dashboard/launch-instance/security-groups/security-groups-help.controller.js:36
-msgid "Security groups are project-specific and cannot be shared across projects."
-msgstr ""
-
-#: static/dashboard/launch-instance/security-groups/security-groups-help.controller.js:37
-msgid ""
-"If a security group is not associated with an instance before it is "
-"launched, then you will have very limited access to the instance after it"
-" is deployed. You will only be able to access the instance from a VNC "
-"console."
-msgstr ""
-
-#: static/dashboard/launch-instance/security-groups/security-groups.controller.js:37
-msgid "Select the security groups."
-msgstr ""
-
-#: static/dashboard/launch-instance/security-groups/security-groups.controller.js:43
-msgid "Direction"
-msgstr ""
-
-#: static/dashboard/launch-instance/security-groups/security-groups.controller.js:44
-msgid "Ether Type"
-msgstr ""
-
-#: static/dashboard/launch-instance/security-groups/security-groups.controller.js:45
-msgid "Protocol"
-msgstr ""
-
-#: static/dashboard/launch-instance/security-groups/security-groups.controller.js:46
-msgid "Min Port"
-msgstr ""
-
-#: static/dashboard/launch-instance/security-groups/security-groups.controller.js:47
-msgid "Max Port"
-msgstr ""
-
-#: static/dashboard/launch-instance/security-groups/security-groups.controller.js:48
-msgid "Remote"
-msgstr ""
-
-#: static/dashboard/launch-instance/security-groups/security-groups.controller.js:62
-msgid "Select one or more security groups from the available groups below."
-msgstr ""
-
-#: static/dashboard/launch-instance/security-groups/security-groups.controller.js:64
-msgid "Select one or more"
-msgstr ""
-
-#: static/dashboard/launch-instance/source/source-help.controller.js:32
-msgid "Select Source Help"
-msgstr ""
-
-#: static/dashboard/launch-instance/source/source-help.controller.js:34
-#: static/dashboard/launch-instance/source/source.controller.js:59
-msgid "Instance Details"
-msgstr ""
-
-#: static/dashboard/launch-instance/source/source-help.controller.js:37
-msgid ""
-"An instance name is required and used to help you uniquely identify your "
-"instance in the dashboard."
-msgstr ""
-
-#: static/dashboard/launch-instance/source/source-help.controller.js:38
-msgid ""
-"If you select an availability zone and plan to use the boot from volume "
-"option, make sure that the availability zone you select for the instance "
-"is the same availability zone where your bootable volume resides."
-msgstr ""
-
-#: static/dashboard/launch-instance/source/source-help.controller.js:42
-#: static/dashboard/launch-instance/source/source.controller.js:66
-msgid "Instance Source"
-msgstr ""
-
-#: static/dashboard/launch-instance/source/source-help.controller.js:45
-msgid ""
-"If you want to create an instance that uses ephemeral storage, meaning "
-"the instance data is lost when the instance is deleted, then choose one "
-"of the following boot sources:"
-msgstr ""
-
-#: static/dashboard/launch-instance/source/source-help.controller.js:46
-msgid "<li><b>Image</b>: This option uses an image to boot the instance.</li>"
-msgstr ""
-
-#: static/dashboard/launch-instance/source/source-help.controller.js:47
-msgid ""
-"<li><b>Instance Snapshot</b>: This option uses an instance snapshot to "
-"boot the instance.</li>"
-msgstr ""
-
-#: static/dashboard/launch-instance/source/source-help.controller.js:48
-msgid ""
-"If you want to create an instance that uses persistent storage, meaning "
-"the instance data is saved when the instance is deleted, then select one "
-"of the following boot options:"
-msgstr ""
-
-#: static/dashboard/launch-instance/source/source-help.controller.js:49
-msgid ""
-"<li><b>Image (with Create New Volume checked)</b>: This options uses an "
-"image to boot the instance, and creates a new volume to persist instance "
-"data. You can specify volume size and whether to delete the volume on "
-"termination of the instance.</li>"
-msgstr ""
-
-#: static/dashboard/launch-instance/source/source-help.controller.js:50
-msgid ""
-"<li><b>Volume</b>: This option uses a volume that already exists. It does"
-" not create a new volume. You can choose to delete the volume on "
-"termination of the instance. <em>Note: when selecting Volume, you can "
-"only launch one instance.</em></li>"
-msgstr ""
-
-#: static/dashboard/launch-instance/source/source-help.controller.js:51
-msgid ""
-"<li><b>Volume Snapshot</b>: This option uses a volume snapshot to boot "
-"the instance, and creates a new volume to persist instance data. You can "
-"choose to delete the volume on termination of the instance.</li>"
-msgstr ""
-
-#: static/dashboard/launch-instance/source/source.controller.js:61
-msgid ""
-"Please provide the initial host name for the instance, the availability "
-"zone where it will be deployed, and the instance count. Increase the "
-"Count to create multiple instances with the same settings."
-msgstr ""
-
-#: static/dashboard/launch-instance/source/source.controller.js:63
-msgid "Instance Name"
-msgstr ""
-
-#: static/dashboard/launch-instance/source/source.controller.js:64
-#: static/dashboard/launch-instance/source/source.controller.js:168
-msgid "Availability Zone"
-msgstr ""
-
-#: static/dashboard/launch-instance/source/source.controller.js:65
-msgid "Count"
-msgstr ""
-
-#: static/dashboard/launch-instance/source/source.controller.js:68
-msgid ""
-"Instance source is the template used to create an instance. You can use a"
-" snapshot of an existing instance, an image, or a volume (if enabled). "
-"You can also choose to use persistent storage by creating a new volume."
-msgstr ""
-
-#: static/dashboard/launch-instance/source/source.controller.js:70
-msgid "Select Boot Source"
-msgstr ""
-
-#: static/dashboard/launch-instance/source/source.controller.js:71
-msgid "Size (GB)"
-msgstr ""
-
-#: static/dashboard/launch-instance/source/source.controller.js:72
-msgid "Create New Volume"
-msgstr ""
-
-#: static/dashboard/launch-instance/source/source.controller.js:73
-msgid "Device Name"
-msgstr ""
-
-#: static/dashboard/launch-instance/source/source.controller.js:74
-msgid "Delete Volume on Terminate"
-msgstr ""
-
-#: static/dashboard/launch-instance/source/source.controller.js:76
-msgid "Min Ram"
-msgstr ""
-
-#: static/dashboard/launch-instance/source/source.controller.js:77
-msgid "Min Disk"
-msgstr ""
-
-#: static/dashboard/launch-instance/source/source.controller.js:82
-msgid ""
-"Volumes can only be attached to 1 active instance at a time. Please "
-"either set your instance count to 1 or select a different source type."
-msgstr ""
-
-#: static/dashboard/launch-instance/source/source.controller.js:84
-msgid "A name is required for your instance."
-msgstr ""
-
-#: static/dashboard/launch-instance/source/source.controller.js:85
-msgid "Instance count is required and must be an integer of at least 1"
-msgstr ""
-
-#: static/dashboard/launch-instance/source/source.controller.js:88
-msgid "Volume size is required and must be an integer"
-msgstr ""
-
-#: static/dashboard/launch-instance/source/source.controller.js:92
-msgid "Yes"
-msgstr ""
-
-#: static/dashboard/launch-instance/source/source.controller.js:93
-msgid "No"
-msgstr ""
-
-#: static/dashboard/launch-instance/source/source.controller.js:151
-#: static/dashboard/launch-instance/source/source.controller.js:158
-msgid "Updated"
-msgstr ""
-
-#: static/dashboard/launch-instance/source/source.controller.js:154
-#: static/dashboard/launch-instance/source/source.controller.js:161
-msgid "Visibility"
-msgstr ""
-
-#: static/dashboard/launch-instance/source/source.controller.js:174
-msgid "Created"
-msgstr ""
-
-#: static/dashboard/launch-instance/source/source.controller.js:180
-msgid "Private"
-msgstr ""
-
-#: static/dashboard/launch-instance/source/source.controller.js:367
-msgid "Select a source from those listed below."
-msgstr ""
-
-#: static/dashboard/launch-instance/source/source.controller.js:368
-msgid "Select one"
-msgstr ""
-
-#: static/dashboard/launch-instance/source/source.controller.js:370
-msgid ""
-"When selecting volume as boot source, please ensure the instance's "
-"availability zone is compatible with your volume's availability zone."
-msgstr ""
-
-#: static/dashboard/launch-instance/source/source.controller.js:424
-#, python-format
-msgid "The volume size must be at least %(minVolumeSize)s GB"
-msgstr ""
-
-#: static/dashboard/launch-instance/source/source.controller.js:436
-#, python-format
-msgid ""
-"The instance count must not exceed your quota available of "
-"%(maxInstanceCount)s instances"
 msgstr ""
 
