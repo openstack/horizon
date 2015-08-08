@@ -25,7 +25,7 @@
   describe('horizon.dashboard.project.basePath constant', function () {
     var projectBasePath, staticUrl;
 
-    beforeEach(module('hz.dashboard'));
+    beforeEach(module('horizon.dashboard'));
     beforeEach(module('horizon.dashboard.project'));
     beforeEach(inject(function ($injector) {
       projectBasePath = $injector.get('horizon.dashboard.project.basePath');

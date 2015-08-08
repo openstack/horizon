@@ -17,7 +17,7 @@
 
   describe('Identity projects module', function() {
     it('should exist', function() {
-      expect(angular.module('hz.dashboard.identity.projects')).toBeDefined();
+      expect(angular.module('horizon.dashboard.identity.projects')).toBeDefined();
     });
   });
 

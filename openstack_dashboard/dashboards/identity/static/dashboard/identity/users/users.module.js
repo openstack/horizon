@@ -18,7 +18,7 @@
   'use strict';
 
   /**
-   * @ngdoc hz.dashboard.identity.users
+   * @ngdoc horizon.dashboard.identity.users
    * @ngModule
    *
    * @description
@@ -26,6 +26,6 @@
    * to support and display the identity users panel.
    */
   angular
-    .module('hz.dashboard.identity.users', []);
+    .module('horizon.dashboard.identity.users', []);
 
 })();

@@ -16,20 +16,20 @@
 (function() {
   'use strict';
 
-  describe('hz.dashboard.project.images', function() {
+  describe('horizon.dashboard.project.images', function() {
     it('should exist', function() {
-      expect(angular.module('hz.dashboard.project.images')).toBeDefined();
+      expect(angular.module('horizon.dashboard.project.images')).toBeDefined();
     });
   });
 
-  describe('hz.dashboard.project.images.basePath constant', function () {
+  describe('horizon.dashboard.project.images.basePath constant', function () {
     var imagesBasePath, staticUrl;
 
-    beforeEach(module('hz.dashboard'));
+    beforeEach(module('horizon.dashboard'));
     beforeEach(module('horizon.dashboard.project'));
-    beforeEach(module('hz.dashboard.project.images'));
+    beforeEach(module('horizon.dashboard.project.images'));
     beforeEach(inject(function ($injector) {
-      imagesBasePath = $injector.get('hz.dashboard.project.images.basePath');
+      imagesBasePath = $injector.get('horizon.dashboard.project.images.basePath');
       staticUrl = $injector.get('$window').STATIC_URL;
     }));
 

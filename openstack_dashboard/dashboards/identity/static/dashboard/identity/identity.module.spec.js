@@ -16,9 +16,9 @@
 (function() {
   'use strict';
 
-  describe('hz.dashboard.identity', function() {
+  describe('horizon.dashboard.identity', function() {
     it('should exist', function() {
-      expect(angular.module('hz.dashboard.identity')).toBeDefined();
+      expect(angular.module('horizon.dashboard.identity')).toBeDefined();
     });
   });
 

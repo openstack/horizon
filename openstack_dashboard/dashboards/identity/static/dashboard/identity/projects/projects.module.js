@@ -16,21 +16,21 @@
   'use strict';
 
   /**
-   * @ngdoc hz.dashboard.identity.projects
+   * @ngdoc horizon.dashboard.identity.projects
    * @ng-module
    * @description
    * Provides all of the services and widgets required
    * to support and display the identity projects.
    */
   angular
-    .module('hz.dashboard.identity.projects', [])
+    .module('horizon.dashboard.identity.projects', [])
     .config(config);
 
   config.$inject = ['$provide', '$windowProvider'];
 
   function config($provide, $windowProvider) {
     var path = $windowProvider.$get().STATIC_URL + 'dashboard/identity/projects/';
-    $provide.constant('hz.dashboard.identity.projects.basePath', path);
+    $provide.constant('horizon.dashboard.identity.projects.basePath', path);
   }
 
 })();
