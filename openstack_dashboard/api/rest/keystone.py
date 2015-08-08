@@ -412,13 +412,16 @@ class Projects(generic.View):
         if len(filters) == 0:
             filters = None
 
+        paginate = request.GET.get('paginate') == 'true'
+        admin = False if request.GET.get('admin') == 'false' else True
+
         result, has_more = api.keystone.tenant_list(
             request,
-            paginate=request.GET.get('paginate', False),
+            paginate=paginate,
             marker=request.GET.get('marker'),
             domain=request.GET.get('domain_id'),
             user=request.GET.get('user_id'),
-            admin=request.GET.get('admin', True),
+            admin=admin,
             filters=filters
         )
         # return (list of results, has_more_data)

@@ -467,9 +467,54 @@ class KeystoneRestTestCase(test.TestCase):
         self.assertEqual(response.content, '{"name": "Ni!"}')
         kc.tenant_get.assert_called_once_with(request, 'the_id')
 
+    def test_project_get_list(self):
+        self._test_project_get_list(
+            {},
+            {
+                'paginate': False,
+                'marker': None,
+                'domain': None,
+                'user': None,
+                'admin': True,
+                'filters': None
+            }
+        )
+
+    def test_project_get_list_with_params_true(self):
+        self._test_project_get_list(
+            {
+                'paginate': 'true',
+                'admin': 'true'
+            },
+            {
+                'paginate': True,
+                'marker': None,
+                'domain': None,
+                'user': None,
+                'admin': True,
+                'filters': None
+            }
+        )
+
+    def test_project_get_list_with_params_false(self):
+        self._test_project_get_list(
+            {
+                'paginate': 'false',
+                'admin': 'false'
+            },
+            {
+                'paginate': False,
+                'marker': None,
+                'domain': None,
+                'user': None,
+                'admin': False,
+                'filters': None
+            }
+        )
+
     @mock.patch.object(keystone.api, 'keystone')
-    def test_project_get_list(self, kc):
-        request = self.mock_rest_request(**{'GET': {}})
+    def _test_project_get_list(self, params, expected_call, kc):
+        request = self.mock_rest_request(**{'GET': dict(**params)})
         kc.tenant_list.return_value = ([
             mock.Mock(**{'to_dict.return_value': {'name': 'Ni!'}}),
             mock.Mock(**{'to_dict.return_value': {'name': 'Ptang!'}})
@@ -479,10 +524,7 @@ class KeystoneRestTestCase(test.TestCase):
         self.assertStatusCode(response, 200)
         self.assertEqual(response.content, '{"has_more": false, '
                          '"items": [{"name": "Ni!"}, {"name": "Ptang!"}]}')
-        kc.tenant_list.assert_called_once_with(request, paginate=False,
-                                               marker=None, domain=None,
-                                               user=None, admin=True,
-                                               filters=None)
+        kc.tenant_list.assert_called_once_with(request, **expected_call)
 
     @mock.patch.object(keystone.api, 'keystone')
     def test_project_get_list_with_filters(self, kc):
