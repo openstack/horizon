@@ -104,6 +104,21 @@ class DeleteVipLink(policy.PolicyTargetMixin, tables.DeleteAction):
             return False
         return True
 
+    def delete(self, request, obj_id):
+        try:
+            vip_id = api.lbaas.pool_get(request, obj_id).vip_id
+        except Exception as e:
+            exceptions.handle(request,
+                              _('Unable to locate VIP to delete. %s')
+                              % e)
+        if vip_id is not None:
+            try:
+                api.lbaas.vip_delete(request, vip_id)
+                messages.success(request, _('Deleted VIP %s') % vip_id)
+            except Exception as e:
+                exceptions.handle(request,
+                                  _('Unable to delete VIP. %s') % e)
+
 
 class DeletePoolLink(policy.PolicyTargetMixin, tables.DeleteAction):
     name = "deletepool"
@@ -130,6 +145,14 @@ class DeletePoolLink(policy.PolicyTargetMixin, tables.DeleteAction):
             return False
         return True
 
+    def delete(self, request, obj_id):
+        try:
+            api.lbaas.pool_delete(request, obj_id)
+            messages.success(request, _('Deleted pool %s') % obj_id)
+        except Exception as e:
+            exceptions.handle(request,
+                              _('Unable to delete pool. %s') % e)
+
 
 class DeleteMonitorLink(policy.PolicyTargetMixin,
                         tables.DeleteAction):
@@ -152,6 +175,14 @@ class DeleteMonitorLink(policy.PolicyTargetMixin,
             count
         )
 
+    def delete(self, request, obj_id):
+        try:
+            api.lbaas.pool_health_monitor_delete(request, obj_id)
+            messages.success(request, _('Deleted monitor %s') % obj_id)
+        except Exception as e:
+            exceptions.handle(request,
+                              _('Unable to delete monitor. %s') % e)
+
 
 class DeleteMemberLink(policy.PolicyTargetMixin, tables.DeleteAction):
     name = "deletemember"
@@ -172,6 +203,14 @@ class DeleteMemberLink(policy.PolicyTargetMixin, tables.DeleteAction):
             u"Scheduled deletion of Members",
             count
         )
+
+    def delete(self, request, obj_id):
+        try:
+            api.lbaas.member_delete(request, obj_id)
+            messages.success(request, _('Deleted member %s') % obj_id)
+        except Exception as e:
+            exceptions.handle(request,
+                              _('Unable to delete member. %s') % e)
 
 
 class UpdatePoolLink(policy.PolicyTargetMixin, tables.LinkAction):

@@ -18,7 +18,6 @@ from django.utils.translation import ugettext_lazy as _
 
 from horizon import exceptions
 from horizon import forms
-from horizon import messages
 from horizon import tabs
 from horizon.utils import memoized
 from horizon import workflows
@@ -34,68 +33,11 @@ from openstack_dashboard.dashboards.project.loadbalancers import utils
 from openstack_dashboard.dashboards.project.loadbalancers \
     import workflows as project_workflows
 
-import re
-
 
 class IndexView(tabs.TabbedTableView):
     tab_group_class = (project_tabs.LoadBalancerTabs)
     template_name = 'project/loadbalancers/details_tabs.html'
     page_title = _("Load Balancer")
-
-    def post(self, request, *args, **kwargs):
-        """This method is messy because table actions
-        were not implemented correctly.  ideally,
-        this code can be refactored to move items into
-        table actions
-        """
-        obj_ids = request.POST.getlist('object_ids')
-        action = request.POST['action']
-        results = re.search('.delete([a-z]+)', action)
-        if not results:
-            return super(IndexView, self).post(request, *args, **kwargs)
-        m = results.group(1)
-        if obj_ids == []:
-            obj_ids.append(re.search('([0-9a-z-]+)$', action).group(1))
-        if m == 'monitor':
-            for obj_id in obj_ids:
-                try:
-                    api.lbaas.pool_health_monitor_delete(request, obj_id)
-                    messages.success(request, _('Deleted monitor %s') % obj_id)
-                except Exception as e:
-                    exceptions.handle(request,
-                                      _('Unable to delete monitor. %s') % e)
-        if m == 'pool':
-            for obj_id in obj_ids:
-                try:
-                    api.lbaas.pool_delete(request, obj_id)
-                    messages.success(request, _('Deleted pool %s') % obj_id)
-                except Exception as e:
-                    exceptions.handle(request,
-                                      _('Unable to delete pool. %s') % e)
-        if m == 'member':
-            for obj_id in obj_ids:
-                try:
-                    api.lbaas.member_delete(request, obj_id)
-                    messages.success(request, _('Deleted member %s') % obj_id)
-                except Exception as e:
-                    exceptions.handle(request,
-                                      _('Unable to delete member. %s') % e)
-        if m == 'vip':
-            for obj_id in obj_ids:
-                try:
-                    vip_id = api.lbaas.pool_get(request, obj_id).vip_id
-                except Exception as e:
-                    exceptions.handle(request,
-                                      _('Unable to locate VIP to delete. %s')
-                                      % e)
-                if vip_id is not None:
-                    try:
-                        api.lbaas.vip_delete(request, vip_id)
-                        messages.success(request, _('Deleted VIP %s') % vip_id)
-                    except Exception as e:
-                        exceptions.handle(request,
-                                          _('Unable to delete VIP. %s') % e)
-        return self.get(request, *args, **kwargs)
 
 
 class AddPoolView(workflows.WorkflowView):
