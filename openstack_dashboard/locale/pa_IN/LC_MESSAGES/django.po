@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-08-06 03:02+0000\n"
-"PO-Revision-Date: 2015-08-05 14:56+0000\n"
+"POT-Creation-Date: 2015-08-08 05:52+0000\n"
+"PO-Revision-Date: 2015-08-08 23:39+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Panjabi (Punjabi) (India) (http://www.transifex.com/openstack/"
 "horizon/language/pa_IN/)\n"
@@ -878,6 +878,9 @@ msgstr "كنٹینر كی تخلیق كامیابی سی كی گئی۔"
 
 msgid "Containers"
 msgstr "كنٹینرز"
+
+msgid "Contents"
+msgstr "ਸਮੱਗਰੀ"
 
 msgid "Control Location"
 msgstr "کنٹرول کا مقام"
@@ -2635,6 +2638,9 @@ msgstr ""
 "گیٹ وے (مثلا 192.168.0.254) کا IP ایڈریس. گیٹ وے نصب کرنے کے لئے ایک واضح "
 "پتہ وضاحت کریں. آپ کوئی گیٹ وے کا استعمال کرنا چاہتے ہیں، تو 'غیر فعال گیٹ "
 "وے' نیچے چیک کریں."
+
+msgid "IPMI"
+msgstr "IPMI"
 
 msgid "IPSec Policies"
 msgstr "IPSec پالیسیز"
@@ -5111,6 +5117,29 @@ msgstr "ڈیٹا اسٹور كے ٹائپ اور ورژن۔"
 msgid "UDP"
 msgstr "UDP"
 
+msgid "UP"
+msgstr "ਉੱਤੇ"
+
+msgctxt "Admin state of a Firewall"
+msgid "UP"
+msgstr "ਉੱਤੇ"
+
+msgctxt "Admin state of a Load balancer"
+msgid "UP"
+msgstr "ਉੱਤੇ"
+
+msgctxt "Admin state of a Network"
+msgid "UP"
+msgstr "ਉੱਤੇ"
+
+msgctxt "Admin state of a Port"
+msgid "UP"
+msgstr "ਉੱਤੇ"
+
+msgctxt "Admin state of a Router"
+msgid "UP"
+msgstr "ਉੱਤੇ"
+
 msgid "URL"
 msgstr "URL"
 
@@ -6279,6 +6308,9 @@ msgstr "آبجیكٹ کو اپ لوڈ کرنے کے قابل نہیں."
 msgid "Unable to upload volume to image for volume: \"%s\""
 msgstr "ولیوم كے لیے ولیوم كے امیج كو اپ لوڈ كرنے میں ناقابل : \"%s\""
 
+msgid "Unit"
+msgstr "ਇਕਾਈ"
+
 msgid "Unknown"
 msgstr "نامعلوم"
 
@@ -6768,6 +6800,10 @@ msgstr "بیک-اینڈ"
 
 msgid "bi-directional"
 msgstr "دو طرفہ"
+
+msgctxt "Both of front-end and back-end"
+msgid "both"
+msgstr "ਦੋਵੇਂ"
 
 msgid "clear"
 msgstr "صاف"

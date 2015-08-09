@@ -8,13 +8,14 @@
 # Shu Muto <shu-mutou@rf.jp.nec.com>, 2015
 # Tom Fifield <tom@openstack.org>, 2014
 # Tomoyuki KATO <tomo@dream.daynight.jp>, 2015
+# ykatabam <ykatabam@redhat.com>, 2015
 msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-08-06 03:02+0000\n"
-"PO-Revision-Date: 2015-08-05 14:56+0000\n"
-"Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
+"POT-Creation-Date: 2015-08-08 05:52+0000\n"
+"PO-Revision-Date: 2015-08-08 11:20+0000\n"
+"Last-Translator: ykatabam <ykatabam@redhat.com>\n"
 "Language-Team: Japanese (http://www.transifex.com/openstack/horizon/language/"
 "ja/)\n"
 "MIME-Version: 1.0\n"
@@ -1011,6 +1012,10 @@ msgstr "クラスター名"
 msgid "Cluster Template"
 msgstr "クラスターテンプレート"
 
+#, python-format
+msgid "Cluster Template %s updated"
+msgstr " クラスターテンプレート %s が更新されました。"
+
 msgid "Cluster Template Details"
 msgstr "クラスターテンプレートの詳細"
 
@@ -1026,6 +1031,9 @@ msgstr "クラスターテンプレート"
 
 msgid "Cluster template creation failed"
 msgstr "クラスターテンプレートの作成が失敗しました"
+
+msgid "Cluster template update failed"
+msgstr "クラスターテンプレートの更新に失敗しました。"
 
 msgid "Cluster type chosen"
 msgstr "選択したクラスター種別"
@@ -2262,6 +2270,10 @@ msgstr[0] "ボリュームの切断"
 msgid "Detached"
 msgstr "未接続"
 
+#, python-format
+msgid "Detached interface %(port)s for instance %(instance)s."
+msgstr "インスタンス %(instance)s のインターフェース %(port)s を切断しました。"
+
 msgid "Detaching"
 msgstr "切断中"
 
@@ -2490,6 +2502,9 @@ msgstr "インスタンスタイプ %s (openstack フレーバー) の存在期�
 
 msgid "Edit"
 msgstr "編集"
+
+msgid "Edit Cluster Template"
+msgstr "クラスターテンプレートの編集"
 
 msgid "Edit Connection"
 msgstr "接続の編集"
@@ -4586,6 +4601,9 @@ msgstr "ホストが見つかりません。"
 msgid "No Images Available"
 msgstr "利用可能なイメージがありません"
 
+msgid "No Ports available"
+msgstr "利用可能なポートがありません。"
+
 msgid "No Session Persistence"
 msgstr "セッション永続性なし"
 
@@ -4612,7 +4630,7 @@ msgid "No backups available"
 msgstr "バックアップがありません"
 
 msgid "No flavors available"
-msgstr "利用可能なフレーバーはありません"
+msgstr "利用可能なフレーバーがありません"
 
 msgid "No floating IP addresses allocated"
 msgstr "確保済みの Floating IP アドレスはありません"
@@ -4656,6 +4674,9 @@ msgstr "キーペアがありません"
 msgid "No networks available"
 msgstr "ネットワークがありません"
 
+msgid "No new QoS spec available"
+msgstr "利用可能な新規 QoS スペックがありません。"
+
 msgid "No options specified"
 msgstr "オプション指定なし"
 
@@ -4667,6 +4688,9 @@ msgstr "他のホストがありません"
 
 msgid "No other hosts available."
 msgstr "他のホストがありません。"
+
+msgid "No other volume types available"
+msgstr "他に利用可能なボリュームタイプはありません。"
 
 msgid "No ports available"
 msgstr "ポートがありません"
@@ -4758,6 +4782,9 @@ msgctxt "Task status of an Instance"
 msgid "None"
 msgstr "なし"
 
+msgid "None (removes spec)"
+msgstr "なし (スペックを削除)"
+
 msgid "Normal"
 msgstr "標準"
 
@@ -4802,6 +4829,12 @@ msgstr "VM インタフェースでのネットワーク受信パケット数"
 
 msgid "Number of instances to launch."
 msgstr "起動するインスタンス数。"
+
+msgid ""
+"Number of items to show per page (applies to the pages that have API "
+"supported pagination)"
+msgstr ""
+"ページあたりの表示項目数 (API がサポートする改ページを使用するページに適用)"
 
 msgid "Number of log lines to be shown per instance"
 msgstr "インスタンスあたりの表示ログ行数"
@@ -4852,6 +4885,9 @@ msgstr "オブジェクトが正常にアップロードされました。"
 
 msgid "Objects"
 msgstr "オブジェクト"
+
+msgid "Ochestration"
+msgstr "オーケストレーション"
 
 msgid "Old Flavor"
 msgstr "現在のフレーバー"
@@ -5763,6 +5799,10 @@ msgstr "ルール %s が正常に更新されました。"
 msgid "Rules"
 msgstr "ルール"
 
+msgid "Run HBase EDP Jobs with common HBase library on HDFS"
+msgstr ""
+"HDFS 上の共通の HBase ライブラリーを使用して HBase EDP ジョブを実行する"
+
 msgctxt "Power state of an Instance"
 msgid "Running"
 msgstr "実行中"
@@ -5935,6 +5975,9 @@ msgstr "インスタンスのスナップショットの選択"
 msgid "Select Network"
 msgstr "ネットワークを選択してください"
 
+msgid "Select Port"
+msgstr "ポートを選択してください"
+
 msgid "Select Script Source"
 msgstr "スクリプトの入力方法を選択してください"
 
@@ -5994,6 +6037,9 @@ msgstr "マスターインスタンスを選択してください"
 msgid "Select a monitor template for %s"
 msgstr "%s 用のモニターテンプレートの選択"
 
+msgid "Select a new QoS spec"
+msgstr "新規 QoS スペックの選択"
+
 msgid "Select a new agent"
 msgstr "新しいエージェントを選択してください"
 
@@ -6008,6 +6054,9 @@ msgstr "プレビューするスタックのテンプレートを選択してく
 
 msgid "Select a new template to re-launch a stack."
 msgstr "スタックの再起動に使うテンプレートを選択してください"
+
+msgid "Select a new volume type"
+msgstr "新規ボリュームタイプの選択"
 
 msgid "Select a port"
 msgstr "ポートを選択してください"
@@ -6239,6 +6288,9 @@ msgstr "GB 単位のボリュームサイズ"
 
 msgid "Size of volume"
 msgstr "ボリュームサイズ"
+
+msgid "Slash is not allowed at the beginning or end of your string."
+msgstr "文字列の先頭または末尾にスラッシュを使用することはできません。"
 
 msgid "Slash is not an allowed character."
 msgstr "スラッシュ (/) は使用できません。"
@@ -6885,6 +6937,13 @@ msgstr ""
 "イメージを起動するために必要となる最小メモリー容量。指定がなければ、この値の"
 "初期値は 0 (最小値なし) です。"
 
+msgid ""
+"The minimum time in seconds between regular checks of a member. It must be "
+"greater than or equal to timeout"
+msgstr ""
+"メンバーの状態を定期的にチェックする間隔の最小時間 (秒単位)。タイムアウトの値"
+"以上にする必要があります。"
+
 #, python-format
 msgid "The name \"%s\" is already used by another flavor."
 msgstr "\"%s\" という名前はすでに他のフレーバーにより使用されています。"
@@ -6934,6 +6993,15 @@ msgid_plural ""
 msgstr[0] ""
 "利用可能なクォータは %(avail)i 個しかないため、要求された %(req)i 個のインス"
 "タンスを起動することはできません。"
+
+#, python-format
+msgid ""
+"The requested instance cannot be launched. Requested volume exceeds quota: "
+"Available: %(avail)s, Requested: %(req)s."
+msgstr ""
+"要求されたインスタンスを起動できません。要求されたボリュームがクォータを超過"
+"しています。利用可能なクォータは %(avail)s ですが、要求された値は %(req)s で"
+"す。"
 
 #, python-format
 msgid ""
@@ -7500,6 +7568,9 @@ msgstr "テンプレートオブジェクトを取得できません"
 msgid "Unable to fetch template to copy."
 msgstr "コピーするテンプレートを取得できません"
 
+msgid "Unable to fetch template to edit."
+msgstr "編集するテンプレートを取得できませんでした。"
+
 msgid "Unable to fetch the image details"
 msgstr "イメージ詳細を取得できません"
 
@@ -7906,6 +7977,9 @@ msgstr "ドメイン情報を取得できません。"
 
 msgid "Unable to retrieve domain list."
 msgstr "ドメインの一覧を取得できません。"
+
+msgid "Unable to retrieve extensions information"
+msgstr "拡張機能の情報を取得できません。"
 
 msgid "Unable to retrieve extensions information."
 msgstr "API 拡張の情報を取得できません。"

@@ -4,13 +4,14 @@
 #
 # Translators:
 # ykatabam <ykatabam@redhat.com>, 2015
+# ykatabam <ykatabam@redhat.com>, 2015
 msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-08-04 04:10+0000\n"
-"PO-Revision-Date: 2015-07-06 22:32+0000\n"
-"Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
+"POT-Creation-Date: 2015-08-08 05:52+0000\n"
+"PO-Revision-Date: 2015-08-08 11:29+0000\n"
+"Last-Translator: ykatabam <ykatabam@redhat.com>\n"
 "Language-Team: Japanese (http://www.transifex.com/openstack/horizon/language/"
 "ja/)\n"
 "MIME-Version: 1.0\n"
@@ -103,6 +104,9 @@ msgstr "%s が完了しませんでした。"
 
 msgid "&laquo;&nbsp;Prev"
 msgstr "&laquo;&nbsp;前へ"
+
+msgid "(No Limit)"
+msgstr "(制限なし)"
 
 msgid "-"
 msgstr "-"
