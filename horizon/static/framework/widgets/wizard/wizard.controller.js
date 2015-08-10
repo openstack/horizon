@@ -44,6 +44,9 @@
     $scope.initPromise = initTask.promise;
     $scope.currentIndex = -1;
     $scope.workflow = $scope.workflow || {};
+    if ($scope.workflow.initControllers) {
+      $scope.workflow.initControllers($scope);
+    }
     var steps = $scope.steps = $scope.workflow.steps || [];
     $scope.wizardForm = {};
 
