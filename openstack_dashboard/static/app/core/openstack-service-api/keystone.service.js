@@ -1,18 +1,18 @@
 /*
-Copyright 2014, Rackspace, US, Inc.
-
-Licensed under the Apache License, Version 2.0 (the "License");
-you may not use this file except in compliance with the License.
-You may obtain a copy of the License at
-
-    http://www.apache.org/licenses/LICENSE-2.0
-
-Unless required by applicable law or agreed to in writing, software
-distributed under the License is distributed on an "AS IS" BASIS,
-WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-See the License for the specific language governing permissions and
-limitations under the License.
-*/
+ * Copyright 2014, Rackspace, US, Inc.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *    http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
 (function () {
   'use strict';
 
@@ -20,40 +20,77 @@ limitations under the License.
     .module('horizon.app.core.openstack-service-api')
     .service('horizon.app.core.openstack-service-api.keystone', KeystoneAPI);
 
-  KeystoneAPI.$inject = ['horizon.framework.util.http.service',
-                         'horizon.framework.widgets.toast.service'];
+  KeystoneAPI.$inject = [
+    'horizon.framework.util.http.service',
+    'horizon.framework.widgets.toast.service'
+  ];
 
   function KeystoneAPI(apiService, toastService) {
+    var service = {
+      getVersion: getVersion,
+      getUsers: getUsers,
+      createUser: createUser,
+      deleteUsers: deleteUsers,
+      getCurrentUserSession: getCurrentUserSession,
+      getUser: getUser,
+      editUser: editUser,
+      deleteUser: deleteUser,
+      getRoles: getRoles,
+      createRole: createRole,
+      deleteRoles: deleteRoles,
+      getRole: getRole,
+      editRole: editRole,
+      deleteRole: deleteRole,
+      getDomains: getDomains,
+      createDomain: createDomain,
+      deleteDomains: deleteDomains,
+      getDomain: getDomain,
+      editDomain: editDomain,
+      deleteDomain: deleteDomain,
+      getProjects: getProjects,
+      createProject: createProject,
+      deleteProjects: deleteProjects,
+      getProject: getProject,
+      editProject: editProject,
+      deleteProject: deleteProject,
+      grantRole: grantRole,
+      serviceCatalog: serviceCatalog
+    };
+
+    return service;
+
+    ///////////
+
     // Version
-    this.getVersion = function() {
+    function getVersion() {
       return apiService.get('/api/keystone/version/')
         .error(function () {
           toastService.add('error', gettext('Unable to get the Keystone service version.'));
         });
-    };
+    }
 
     // Users
-    this.getUsers = function(params) {
+    function getUsers(params) {
       var config = (params) ? {'params': params} : {};
       return apiService.get('/api/keystone/users/', config)
         .error(function () {
           toastService.add('error', gettext('Unable to retrieve the users.'));
         });
-    };
+    }
 
-    this.createUser = function(newUser) {
+    function createUser(newUser) {
       return apiService.post('/api/keystone/users/', newUser)
         .error(function () {
           toastService.add('error', gettext('Unable to create the user.'));
         });
-    };
+    }
 
-    this.deleteUsers = function(userIds) {
+    function deleteUsers(userIds) {
       return apiService.delete('/api/keystone/users/', userIds)
         .error(function () {
           toastService.add('error', gettext('Unable to delete the users.'));
         });
-    };
+    }
 
     /**
     * @name horizon.app.core.openstack-service-api.keystone.getCurrentUserSession
@@ -82,176 +119,176 @@ limitations under the License.
     * "username": "admin"
     * }
     */
-    this.getCurrentUserSession = function(config) {
+    function getCurrentUserSession(config) {
       return apiService.get('/api/keystone/user-session/', config)
         .error(function () {
           toastService.add('error',
             gettext('Unable to retrieve the current user session.'));
         });
-    };
+    }
 
-    this.getUser = function(userId) {
+    function getUser(userId) {
       return apiService.get('/api/keystone/users/' + userId)
         .error(function () {
           toastService.add('error', gettext('Unable to retrieve the user.'));
         });
-    };
+    }
 
-    this.editUser = function(updatedUser) {
+    function editUser(updatedUser) {
       var url = '/api/keystone/users/' + updatedUser.id;
       return apiService.patch(url, updatedUser)
         .error(function () {
           toastService.add('error', gettext('Unable to edit the user.'));
         });
-    };
+    }
 
-    this.deleteUser = function(userId) {
+    function deleteUser(userId) {
       return apiService.delete('/api/keystone/users/' + userId)
         .error(function () {
           toastService.add('error', gettext('Unable to delete the user.'));
         });
-    };
+    }
 
     // Roles
-    this.getRoles = function() {
+    function getRoles() {
       return apiService.get('/api/keystone/roles/')
         .error(function () {
           toastService.add('error', gettext('Unable to retrieve the roles.'));
         });
-    };
+    }
 
-    this.createRole = function(newRole) {
+    function createRole(newRole) {
       return apiService.post('/api/keystone/roles/', newRole)
         .error(function () {
           toastService.add('error', gettext('Unable to create the role.'));
         });
-    };
+    }
 
-    this.deleteRoles = function(roleIds) {
+    function deleteRoles(roleIds) {
       return apiService.delete('/api/keystone/roles/', roleIds)
         .error(function () {
           toastService.add('error', gettext('Unable to delete the roles.'));
         });
-    };
+    }
 
-    this.getRole = function(roleId) {
+    function getRole(roleId) {
       return apiService.get('/api/keystone/roles/' + roleId)
         .error(function () {
           toastService.add('error', gettext('Unable to retrieve the role.'));
         });
-    };
+    }
 
-    this.editRole = function(updatedRole) {
+    function editRole(updatedRole) {
       var url = '/api/keystone/roles/' + updatedRole.id;
       return apiService.patch(url, updatedRole)
         .error(function () {
           toastService.add('error', gettext('Unable to edit the role.'));
         });
-    };
+    }
 
-    this.deleteRole = function(roleId) {
+    function deleteRole(roleId) {
       return apiService.delete('/api/keystone/roles/' + roleId)
         .error(function () {
           toastService.add('error', gettext('Unable to delete the role.'));
         });
-    };
+    }
 
     // Domains
-    this.getDomains = function() {
+    function getDomains() {
       return apiService.get('/api/keystone/domains/')
         .error(function () {
           toastService.add('error', gettext('Unable to retrieve the domains.'));
         });
-    };
+    }
 
-    this.createDomain = function(newDomain) {
+    function createDomain(newDomain) {
       return apiService.post('/api/keystone/domains/', newDomain)
         .error(function () {
           toastService.add('error', gettext('Unable to create the domain.'));
         });
-    };
+    }
 
-    this.deleteDomains = function(domainIds) {
+    function deleteDomains(domainIds) {
       return apiService.delete('/api/keystone/domains/', domainIds)
         .error(function () {
           toastService.add('error', gettext('Unable to delete the domains.'));
         });
-    };
+    }
 
-    this.getDomain = function(domainId) {
+    function getDomain(domainId) {
       return apiService.get('/api/keystone/domains/' + domainId)
         .error(function () {
           toastService.add('error', gettext('Unable to retrieve the domain.'));
         });
-    };
+    }
 
-    this.editDomain = function(updatedDomain) {
+    function editDomain(updatedDomain) {
       var url = '/api/keystone/domains/' + updatedDomain.id;
       return apiService.patch(url, updatedDomain)
         .error(function () {
           toastService.add('error', gettext('Unable to edit the domain.'));
         });
-    };
+    }
 
-    this.deleteDomain = function(domainId) {
+    function deleteDomain(domainId) {
       return apiService.delete('/api/keystone/domains/' + domainId)
         .error(function () {
           toastService.add('error', gettext('Unable to delete the domain.'));
         });
-    };
+    }
 
     // Projects
-    this.getProjects = function(params) {
+    function getProjects(params) {
       var config = (params) ? {'params': params} : {};
       return apiService.get('/api/keystone/projects/', config)
         .error(function () {
           toastService.add('error', gettext('Unable to retrieve the projects.'));
         });
-    };
+    }
 
-    this.createProject = function(newProject) {
+    function createProject(newProject) {
       return apiService.post('/api/keystone/projects/', newProject)
         .error(function () {
           toastService.add('error', gettext('Unable to create the project.'));
         });
-    };
+    }
 
-    this.deleteProjects = function(projectIds) {
+    function deleteProjects(projectIds) {
       return apiService.delete('/api/keystone/projects/', projectIds)
         .error(function () {
           toastService.add('error', gettext('Unable to delete the projects.'));
         });
-    };
+    }
 
-    this.getProject = function(projectId) {
+    function getProject(projectId) {
       return apiService.get('/api/keystone/projects/' + projectId)
         .error(function () {
           toastService.add('error', gettext('Unable to retrieve the project.'));
         });
-    };
+    }
 
-    this.editProject = function(updatedProject) {
+    function editProject(updatedProject) {
       var url = '/api/keystone/projects/' + updatedProject.id;
       return apiService.patch(url, updatedProject)
         .error(function () {
           toastService.add('error', gettext('Unable to edit the project.'));
         });
-    };
+    }
 
-    this.deleteProject = function(projectId) {
+    function deleteProject(projectId) {
       return apiService.delete('/api/keystone/projects/' + projectId)
         .error(function () {
           toastService.add('error', gettext('Unable to delete the project.'));
         });
-    };
+    }
 
-    this.grantRole = function(projectId, roleId, userId) {
+    function grantRole(projectId, roleId, userId) {
       return apiService.put('/api/keystone/projects/' + projectId + '/' +
                                roleId + '/' + userId)
         .error(function () {
           toastService.add('error', gettext('Unable to grant the role.'));
         });
-    };
+    }
 
     /**
      * @name horizon.app.core.openstack-service-api.keystone.serviceCatalog
@@ -260,195 +297,12 @@ limitations under the License.
      * @param {Object} config
      * See $http config object parameters.
      */
-    this.serviceCatalog = function(config) {
+    function serviceCatalog(config) {
       return apiService.get('/api/keystone/svc-catalog/', config)
         .error(function () {
           toastService.add('error', gettext('Unable to fetch the service catalog.'));
         });
-    };
-  }
-
-  /**
-   * @ngdoc service
-   * @name horizon.app.core.openstack-service-api.userSession
-   * @description
-   * Provides cached access to the user session. The cache may be reset
-   * at any time by accessing the cache and calling removeAll, which means
-   * that the next call to any function in this service will retrieve fresh
-   * results after the cache is cleared. This allows programmatic refresh of
-   * the cache.
-   *
-   * The cache in current horizon (Kilo non-single page app) only has a
-   * lifetime of the current page. The cache is reloaded every time you change
-   * panels. It also happens when you change the region selector at the top
-   * of the page, and when you log back in.
-   *
-   * So, at least for now, this seems to be a reliable way that will
-   * make only a single request to get user information for a
-   * particular page or modal. Making this a service allows it to be injected
-   * and used transparently where needed without making every single use of it
-   * pass it through as an argument.
-   */
-  angular
-    .module('horizon.app.core.openstack-service-api')
-    .factory('horizon.app.core.openstack-service-api.userSession', userSession);
-
-  userSession.$inject = ['$cacheFactory', 'horizon.app.core.openstack-service-api.keystone'];
-
-  function userSession($cacheFactory, keystoneAPI) {
-
-    var service = {};
-
-    service.cache = $cacheFactory('horizon.app.core.openstack-service-api.userSession', {capacity: 1});
-
-    service.get = function () {
-      return keystoneAPI.getCurrentUserSession({cache: service.cache})
-        .then(function (response) {
-          return response.data;
-        }
-      );
-    };
-
-    return service;
-  }
-
-  /**
-   * @ngdoc service
-   * @name horizon.app.core.openstack-service-api.serviceCatalog
-   * @description
-   * Provides cached access to the Service Catalog with utilities to help
-   * with asynchronous data loading. The cache may be reset at any time
-   * by accessing the cache and calling removeAll. The next call to any
-   * function will retrieve fresh results.
-   *
-   * The cache in current horizon (Kilo non-single page app) only has a
-   * lifetime of the current page. The cache is reloaded every time you change
-   * panels. It also happens when you change the region selector at the top
-   * of the page, and when you log back in.
-   *
-   * So, at least for now, this seems to be a reliable way that will
-   * make only a single request to get user information for a
-   * particular page or modal. Making this a service allows it to be injected
-   * and used transparently where needed without making every single use of it
-   * pass it through as an argument.
-   */
-  angular
-    .module('horizon.app.core.openstack-service-api')
-    .factory('horizon.app.core.openstack-service-api.serviceCatalog', serviceCatalog);
-
-  serviceCatalog.$inject = ['$cacheFactory',
-                            '$q',
-                            'horizon.app.core.openstack-service-api.keystone',
-                            'horizon.app.core.openstack-service-api.userSession'];
-
-  function serviceCatalog($cacheFactory, $q, keystoneAPI, userSession) {
-
-    var service = {};
-    service.cache = $cacheFactory('horizon.app.core.openstack-service-api.serviceCatalog', {capacity: 1});
-
-    /**
-     * @name horizon.app.core.openstack-service-api.serviceCatalog.get
-     * @description
-     * Returns the service catalog. This is cached.
-     *
-     * @example
-     *
-     ```js
-        serviceCatalog.get()
-          .then(doSomething, doSomethingElse);
-     ```
-     */
-    service.get = function() {
-      return keystoneAPI.serviceCatalog({cache: service.cache})
-        .then(function(response) {
-          return response.data;
-        }
-      );
-    };
-
-    /**
-     * @name horizon.app.core.openstack-service-api.serviceCatalog.ifTypeEnabled
-     * @description
-     * Checks if the desired service is enabled.  If it is enabled, use the
-     * promise returned to execute the desired function.  If it is not enabled,
-     * The promise will be rejected.
-     *
-     * @param {string} desiredType The type of service desired.
-     *
-     * @example
-     * Assume if the network service is enabled, you want to get networks,
-     * if it isn't, then you will do something else.
-     * Assume getNetworks is a function that hits Neutron.
-     * Assume doSomethingElse is a function that does something else if
-     * the network service is not enabled (optional)
-     *
-     ```js
-        serviceCatalog.ifTypeEnabled('network')
-          .then(getNetworks, doSomethingElse);
-     ```
-     */
-    service.ifTypeEnabled = function (desiredType) {
-      var deferred = $q.defer();
-
-      $q.all(
-        {
-          session: userSession.get(),
-          catalog: service.get()
-        }
-      ).then(
-        onDataLoaded,
-        onDataFailure
-      );
-
-      function onDataLoaded(d) {
-        if (typeHasEndpointsInRegion(d.catalog,
-                                     desiredType,
-                                     d.session.services_region)) {
-          deferred.resolve();
-        } else {
-          deferred.reject(interpolate(
-            gettext('Service type is not enabled: %(desiredType)s'),
-            {desiredType: desiredType},
-            true));
-        }
-      }
-
-      function onDataFailure() {
-        deferred.reject(gettext('Cannot get service catalog from keystone.'));
-      }
-
-      return deferred.promise;
-    };
-
-    function typeHasEndpointsInRegion(catalog, desiredType, desiredRegion) {
-      var matchingSvcs = catalog.filter(function (svc) {
-        return svc.type === desiredType;
-      });
-
-      // Ignore region for identity. Identity service endpoint
-      // should not change for different regions.
-      if (desiredType === 'identity' && matchingSvcs.length > 0) {
-        return true;
-      } else {
-        return matchingSvcs.some(function (svc) {
-          return svc.endpoints.some(function (endpoint) {
-            return getEndpointRegion(endpoint) === desiredRegion;
-          });
-        });
-      }
     }
-
-    /*
-    * In Keystone V3, region has been deprecated in favor of
-    * region_id.
-    *
-    * This method provides a way to get region that works for
-    * both Keystone V2 and V3.
-    */
-    function getEndpointRegion(endpoint) {
-      return endpoint.region_id || endpoint.region;
-    }
-
-    return service;
   }
+
 }());
