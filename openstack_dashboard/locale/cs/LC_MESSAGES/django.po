@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-08-08 05:52+0000\n"
-"PO-Revision-Date: 2015-08-07 11:26+0000\n"
+"POT-Creation-Date: 2015-08-10 05:31+0000\n"
+"PO-Revision-Date: 2015-08-10 05:52+0000\n"
 "Last-Translator: Zbyněk Schwarz <zbynek.schwarz@gmail.com>\n"
 "Language-Team: Czech (http://www.transifex.com/openstack/horizon/language/"
 "cs/)\n"
@@ -4973,9 +4973,6 @@ msgstr "Objekt byl úspěšně nahrán."
 msgid "Objects"
 msgstr "Objekty"
 
-msgid "Ochestration"
-msgstr "Orchestrace"
-
 msgid "Old Flavor"
 msgstr "Stará konfigurace"
 
@@ -5006,6 +5003,9 @@ msgstr "Nepovinná nadřazená záloha"
 
 msgid "Optional: Next Hop Addresses (comma delimited)"
 msgstr "Nepovinné: Adresa dalšího skoku (oddělená čárkami)"
+
+msgid "Orchestration"
+msgstr "Orchestrace"
 
 msgid "Orchestration Services"
 msgstr "Služby Orchestrace"
