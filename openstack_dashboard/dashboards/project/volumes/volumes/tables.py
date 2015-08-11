@@ -381,6 +381,8 @@ class VolumesTableBase(tables.DataTable):
                                     u"Extending")),
         ("attaching", pgettext_lazy("Current status of a Volume",
                                     u"Attaching")),
+        ("detaching", pgettext_lazy("Current status of a Volume",
+                                    u"Detaching")),
         ("deleting", pgettext_lazy("Current status of a Volume",
                                    u"Deleting")),
         ("error_deleting", pgettext_lazy("Current status of a Volume",
