@@ -129,4 +129,5 @@ JOB_TYPE_MAP = {"pig": [_("Pig"), "Pig"],
                 "mapreduce": [_("MapReduce"), "MapReduce"],
                 "mapreduce.streaming": [_("Streaming MapReduce"),
                                         "MapReduce.Streaming"],
-                "java": [_("Java"), "Java"]}
+                "java": [_("Java"), "Java"],
+                "shell": [_("Shell"), "Shell"]}
