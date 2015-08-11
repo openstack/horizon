@@ -236,7 +236,7 @@ class UsersTable(tables.DataTable):
                                     required=False),
                                 update_action=UpdateCell)
     email = tables.Column('email', verbose_name=_('Email'),
-                          form_field=forms.CharField(required=False),
+                          form_field=forms.EmailField(required=False),
                           update_action=UpdateCell,
                           filters=(lambda v: defaultfilters
                                    .default_if_none(v, ""),
