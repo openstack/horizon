@@ -3,6 +3,7 @@
 # This file is distributed under the same license as the PROJECT project.
 #
 # Translators:
+# ADİL REŞİT DURSUN <ardursun@deltanoc.com>, 2015
 # İşbaran Akçayır <isbaran@gmail.com>, 2015
 # Mücahit Büyükyılmaz <mucahit@konya.edu.tr>, 2015
 # sercanaydogan <sercanaydogan@gmail.com>, 2014
@@ -10,9 +11,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-08-06 03:02+0000\n"
-"PO-Revision-Date: 2015-08-05 14:56+0000\n"
-"Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
+"POT-Creation-Date: 2015-08-11 04:23+0000\n"
+"PO-Revision-Date: 2015-08-11 01:43+0000\n"
+"Last-Translator: ADİL REŞİT DURSUN <ardursun@deltanoc.com>\n"
 "Language-Team: Turkish (Turkey) (http://www.transifex.com/openstack/horizon/"
 "language/tr_TR/)\n"
 "MIME-Version: 1.0\n"
@@ -171,6 +172,14 @@ msgstr "İZİNVER"
 #, python-format
 msgid "ALLOW %(ethertype)s %(proto_port)s %(direction)s %(remote)s"
 msgstr "İzin ver %(ethertype)s %(proto_port)s %(direction)s %(remote)s"
+
+#, python-format
+msgid "ALLOW %(from)s:%(to)s/%(ip_protocol)s from %(cidr)s"
+msgstr "%(cidr)s 'dan izin ver %(from)s:%(to)s/%(ip_protocol)s"
+
+#, python-format
+msgid "ALLOW %(from)s:%(to)s/%(ip_protocol)s from %(group)s"
+msgstr "%(group)s 'dan izin ver %(from)s:%(to)s/%(ip_protocol)s"
 
 msgid "AMI - Amazon Machine Image"
 msgstr "AMI - Amazon Makine İmajı"
@@ -999,6 +1008,10 @@ msgstr "Küme İsmi"
 msgid "Cluster Template"
 msgstr "Küme Şablonu"
 
+#, python-format
+msgid "Cluster Template %s updated"
+msgstr "Küme Şablonu %s güncellendi"
+
 msgid "Cluster Template Details"
 msgstr "Küme Şablonu Detayları"
 
@@ -1014,6 +1027,9 @@ msgstr "Küme Şablonları"
 
 msgid "Cluster template creation failed"
 msgstr "Küme şablonu oluşturma başarısız"
+
+msgid "Cluster template update failed"
+msgstr "Küme şablonu güncelleme başarısız"
 
 msgid "Cluster type chosen"
 msgstr "Seçilen küme türü"
@@ -2255,6 +2271,10 @@ msgstr "%(instance)s sunucusu için %(port)s bağlantı noktası ayrıldı."
 msgid "Detaching"
 msgstr "Ayrılıyor"
 
+msgctxt "Current status of a Volume"
+msgid "Detaching"
+msgstr "Ayrılıyor"
+
 msgid "Detaching Volume"
 msgid_plural "Detaching Volumes"
 msgstr[0] "Mantıksal Sürücüler Ayrılıyor"
@@ -2481,6 +2501,9 @@ msgstr "Sunucu türü %s'in açık kalma süresi (openstack şablonu)"
 
 msgid "Edit"
 msgstr "Değiştir"
+
+msgid "Edit Cluster Template"
+msgstr "Küme Şablonun Düzenle"
 
 msgid "Edit Connection"
 msgstr "Bağlantıyı Düzenle"
@@ -3096,6 +3119,10 @@ msgid ""
 "an error status"
 msgstr ""
 "\"%s\" sunucusu üzerinde istenen işlem yapılamadı, sunucunun hata durumu var"
+
+#, python-format
+msgid "Failed to remove router(s) from firewall %(name)s: %(reason)s"
+msgstr "Router(lar) güvenlik duvarından kaldırılamadı %(name)s: %(reason)s"
 
 #, python-format
 msgid "Failed to remove rule from policy %(name)s: %(reason)s"
@@ -4880,6 +4907,9 @@ msgstr "İsteğe bağlı üst yedek"
 msgid "Optional: Next Hop Addresses (comma delimited)"
 msgstr "İsteğe bağlı: Sonraki Nokta Adresi (virgülle ayrılmış)"
 
+msgid "Orchestration"
+msgstr "Orkestrasyon"
+
 msgid "Orchestration Services"
 msgstr "Planlama Servisleri"
 
@@ -5201,6 +5231,10 @@ msgstr "Proje Adı"
 
 msgid "Project Usage"
 msgstr "Proje Kullanım"
+
+#, python-format
+msgid "Project name \"%s\" is already used."
+msgstr "Proje adı \"%s\" zaten kullanılıyor."
 
 msgid "Project name is already in use. Please use a different name."
 msgstr "Proje ismi zaten kullanımda. Lütfen başka bir isim kullanın."

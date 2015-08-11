@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-08-06 03:02+0000\n"
-"PO-Revision-Date: 2015-08-05 14:56+0000\n"
+"POT-Creation-Date: 2015-08-11 04:23+0000\n"
+"PO-Revision-Date: 2015-08-11 01:43+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Konkani (http://www.transifex.com/openstack/horizon/language/"
 "kok/)\n"
@@ -1558,6 +1558,10 @@ msgstr "लक्ष्य पोर्ट (पूर्णांक  [1, 65535]
 msgid "Detached"
 msgstr "तोडला"
 
+msgid "Detaching"
+msgstr "तोडटा"
+
+msgctxt "Current status of a Volume"
 msgid "Detaching"
 msgstr "तोडटा"
 

@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-08-06 03:02+0000\n"
-"PO-Revision-Date: 2015-08-05 14:56+0000\n"
+"POT-Creation-Date: 2015-08-11 04:23+0000\n"
+"PO-Revision-Date: 2015-08-11 01:43+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Kannada (http://www.transifex.com/openstack/horizon/language/"
 "kn/)\n"
@@ -1569,6 +1569,10 @@ msgstr "ಗುರಿಯ ಪೋರ್ಟ್ ([1, 65535] ನಲ್ಲಿನ a:b �
 msgid "Detached"
 msgstr "ಕಿತ್ತುಹಾಕಲಾಗಿದೆ"
 
+msgid "Detaching"
+msgstr "ಸಂಪರ್ಕತಪ್ಪಿಸಲಾಗುತ್ತಿದೆ"
+
+msgctxt "Current status of a Volume"
 msgid "Detaching"
 msgstr "ಸಂಪರ್ಕತಪ್ಪಿಸಲಾಗುತ್ತಿದೆ"
 
