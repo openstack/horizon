@@ -39,6 +39,7 @@ LOADING_IMAGE = '<img src="/static/dashboard/img/loading.gif" />'
 def _escape_full_url(url):
     # NOTE (lhcheng): In Django 1.8, HttpRequest.get_full_path()
     # method now escapes unsafe characters
+    # TODO(robcresswell): Remove in M, once django 1.7 is dropped
     if django.VERSION < (1, 8):
         return http.urlquote(url)
     return url
