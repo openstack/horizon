@@ -23,11 +23,27 @@ from openstack_dashboard.api import keystone
 register = template.Library()
 
 
+def is_multi_region_configured(request):
+    return len(request.user.available_services_regions) > 1
+
+
 def is_multidomain_supported():
     return (keystone.VERSIONS.active >= 3 and
             getattr(settings,
                     'OPENSTACK_KEYSTONE_MULTIDOMAIN_SUPPORT',
                     False))
+
+
+@register.assignment_tag(takes_context=True)
+def is_multi_region(context):
+    if 'request' not in context:
+        return False
+    return is_multi_region_configured(context['request'])
+
+
+@register.assignment_tag
+def is_multidomain():
+    return is_multidomain_supported()
 
 
 @register.inclusion_tag('context_selection/_overview.html',
@@ -39,8 +55,7 @@ def show_overview(context):
     context = {'domain_supported': is_multidomain_supported(),
                'domain_name': request.user.user_domain_name,
                'project_name': request.user.project_name,
-               'multi_region':
-               len(request.user.available_services_regions) > 1,
+               'multi_region': is_multi_region_configured(request),
                'region_name': request.user.services_region,
                'request': request}
 
@@ -54,8 +69,7 @@ def show_domain_list(context):
     if 'request' not in context:
         return {}
     request = context['request']
-    context = {'domain_supported': is_multidomain_supported(),
-               'domain_name': request.user.user_domain_name,
+    context = {'domain_name': request.user.user_domain_name,
                'request': request}
     return context
 
@@ -82,9 +96,7 @@ def show_region_list(context):
     if 'request' not in context:
         return {}
     request = context['request']
-    context = {'multi_region':
-               len(request.user.available_services_regions) > 1,
-               'region_name': request.user.services_region,
+    context = {'region_name': request.user.services_region,
                'regions': sorted(request.user.available_services_regions),
                'request': request}
     return context

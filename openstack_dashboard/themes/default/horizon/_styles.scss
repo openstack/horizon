@@ -1,5 +1,6 @@
 @import '/bootstrap/scss/bootstrap/mixins/_vendor-prefixes.scss';
 
+@import 'components/_context_selection';
 @import 'components/sidebar';
 
 .navbar-brand {
