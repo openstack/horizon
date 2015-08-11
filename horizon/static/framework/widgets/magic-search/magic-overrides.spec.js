@@ -92,11 +92,10 @@
 
       $scope.$apply();
 
-      $magicScope = $scope.$$childTail; // eslint-disable-line angular/ng_no_private_call
+      $magicScope = $scope.$$childTail; //eslint-disable-line angular/ng_no_private_call
 
       spyOn($magicScope, '$emit');
       spyOn($magicScope, 'emitQuery');
-      spyOn($magicScope, 'initFacets').and.callThrough();
       spyOn($magicScope, 'deleteFacetEntirely').and.callThrough();
       spyOn($magicScope, 'deleteFacetSelection').and.callThrough();
       spyOn($magicScope, 'initSearch');
@@ -135,110 +134,117 @@
       expect($magicScope.currentSearch).toEqual([]);
     });
 
-    it('currentSearch should have one item when URL has one search term', function () {
-      $window.location.search = '?name=myname';
-      $magicScope.initFacets();
-      $timeout.flush();
+    describe('initFacets', function () {
+      it('currentSearch should have one item when URL has one search term', function () {
+        $window.location.search = '?name=myname';
+        $magicScope.initFacets();
+        $timeout.flush();
 
-      expect($magicScope.currentSearch.length).toBe(1);
-      expect($magicScope.currentSearch[0].label).toEqual([ 'Name', 'myname' ]);
-      expect($magicScope.currentSearch[0].name).toBe('name=myname');
-      expect($magicScope.strings.prompt).toBe('');
+        expect($magicScope.currentSearch.length).toBe(1);
+        expect($magicScope.currentSearch[0].label).toEqual([ 'Name', 'myname' ]);
+        expect($magicScope.currentSearch[0].name).toBe('name=myname');
+        expect($magicScope.strings.prompt).toBe('');
 
-      // 'name' facet should be deleted (singleton)
-      expect($magicScope.deleteFacetEntirely).toHaveBeenCalledWith([ 'name', 'myname' ]);
+        // 'name' facet should be deleted (singleton)
+        expect($magicScope.deleteFacetEntirely).toHaveBeenCalledWith([ 'name', 'myname' ]);
+      });
+
+      it('currentSearch should have two items when URL has two search terms', function () {
+        $window.location.search = '?name=myname&status=active';
+        $magicScope.initFacets();
+        $timeout.flush();
+
+        // only 'active' option should be removed from 'status' facet (not singleton)
+        expect($magicScope.currentSearch.length).toBe(2);
+        expect($magicScope.deleteFacetSelection).toHaveBeenCalledWith([ 'status', 'active' ]);
+      });
+
+      it('flavor facet should be removed if search term includes flavor', function () {
+        $window.location.search = '?flavor=m1.tiny';
+        $magicScope.initFacets();
+        $timeout.flush();
+
+        // entire 'flavor' facet should be removed even if some options left (singleton)
+        expect($magicScope.deleteFacetEntirely).toHaveBeenCalledWith([ 'flavor', 'm1.tiny' ]);
+      });
+
+      it('currentSearch should have one item when search is textSearch', function () {
+        $magicScope.textSearch = 'test';
+        $magicScope.initFacets();
+
+        expect($magicScope.currentSearch[0].label).toEqual([ 'Text', 'test' ]);
+        expect($magicScope.currentSearch[0].name).toBe('text=test');
+      });
+
+      it('filteredObj should have two remaining items when URL has one search term', function () {
+        $window.location.search = '?name=myname&status=active';
+        $magicScope.initFacets();
+
+        // filteredObj should have only unused facets and options
+        // 'name' facet is singleton and should have been removed
+        // 'status' facet is not single and should remain with one option left
+        expect($magicScope.filteredObj.length).toBe(2);
+      });
+
+      it('should call checkFacets when initFacets called', function () {
+        $magicScope.initFacets();
+
+        expect($magicScope.$emit).toHaveBeenCalledWith('checkFacets', []);
+      });
     });
 
-    it('currentSearch should have two items when URL has two search terms', function () {
-      $window.location.search = '?name=myname&status=active';
-      $magicScope.initFacets();
-      $timeout.flush();
+    describe('removeFacet', function () {
+      beforeEach(function () {
+        spyOn($magicScope, 'initFacets');
+      });
 
-      // only 'active' option should be removed from 'status' facet (not singleton)
-      expect($magicScope.currentSearch.length).toBe(2);
-      expect($magicScope.deleteFacetSelection).toHaveBeenCalledWith([ 'status', 'active' ]);
-    });
-
-    it('flavor facet should be removed if search term includes flavor', function () {
-      $window.location.search = '?flavor=m1.tiny';
-      $magicScope.initFacets();
-      $timeout.flush();
-
-      // entire 'flavor' facet should be removed even if some options left (singleton)
-      expect($magicScope.deleteFacetEntirely).toHaveBeenCalledWith([ 'flavor', 'm1.tiny' ]);
-    });
-
-    it('currentSearch should have one item when search is textSearch', function () {
-      $magicScope.textSearch = 'test';
-      $magicScope.initFacets();
-
-      expect($magicScope.currentSearch[0].label).toEqual([ 'Text', 'test' ]);
-      expect($magicScope.currentSearch[0].name).toBe('text=test');
-    });
-
-    it('filteredObj should have two remaining items when URL has one search term', function () {
-      $window.location.search = '?name=myname&status=active';
-      $magicScope.initFacets();
-
-      // filteredObj should have only unused facets and options
-      // 'name' facet is singleton and should have been removed
-      // 'status' facet is not single and should remain with one option left
-      expect($magicScope.filteredObj.length).toBe(2);
-    });
-
-    it('should call checkFacets when initFacets called', function () {
-      $magicScope.initFacets();
-
-      expect($magicScope.$emit).toHaveBeenCalledWith('checkFacets', []);
-    });
-
-    it('should call emitQuery, initFacets and emit checkFacets on removeFacet', function () {
-      var initialSearch = {
-        name: 'name=myname',
-        label: [ 'Name', 'myname' ]
-      };
-      $magicScope.currentSearch.push(initialSearch);
-      $magicScope.removeFacet(0);
-
-      expect($magicScope.currentSearch).toEqual([]);
-      expect($magicScope.emitQuery).toHaveBeenCalledWith('name=myname');
-      expect($magicScope.initFacets).toHaveBeenCalled();
-      expect($magicScope.$emit).toHaveBeenCalledWith('checkFacets', []);
-      expect($magicScope.strings.prompt).toBe('Prompt');
-    });
-
-    it('prompt text === "" if search terms left after removal of one', function () {
-      $magicScope.strings.prompt = '';
-
-      $magicScope.currentSearch.push({ name: 'name=myname', label: [ 'Name', 'myname' ] });
-      $magicScope.currentSearch.push({ name: 'status=active', label: [ 'Status', 'Active' ] });
-      $magicScope.removeFacet(0);
-
-      expect($magicScope.strings.prompt).toBe('');
-    });
-
-    /*eslint-disable max-len */
-    it('should call resetState, initFacets and emit checkFacets on removeFacet when facet selected',
-    /*eslint-enable max-len */
-      function () {
+      it('should call emitQuery, initFacets and emit checkFacets on removeFacet', function () {
         var initialSearch = {
           name: 'name=myname',
           label: [ 'Name', 'myname' ]
         };
         $magicScope.currentSearch.push(initialSearch);
-        $magicScope.facetSelected = {
-          'name': 'status',
-          'label': [ 'Status', 'active' ]
-        };
         $magicScope.removeFacet(0);
 
         expect($magicScope.currentSearch).toEqual([]);
-        expect($magicScope.resetState).toHaveBeenCalled();
+        expect($magicScope.emitQuery).toHaveBeenCalledWith('name=myname');
         expect($magicScope.initFacets).toHaveBeenCalled();
         expect($magicScope.$emit).toHaveBeenCalledWith('checkFacets', []);
-      }
-    );
+        expect($magicScope.strings.prompt).toBe('Prompt');
+      });
 
+      it('prompt text === "" if search terms left after removal of one', function () {
+        $magicScope.strings.prompt = '';
+
+        $magicScope.currentSearch.push({ name: 'name=myname', label: [ 'Name', 'myname' ] });
+        $magicScope.currentSearch.push({ name: 'status=active', label: [ 'Status', 'Active' ] });
+        $magicScope.removeFacet(0);
+
+        expect($magicScope.strings.prompt).toBe('');
+      });
+
+      /*eslint-disable max-len */
+      it('should call resetState, initFacets and emit checkFacets on removeFacet when facet selected',
+      /*eslint-enable max-len */
+        function () {
+          var initialSearch = {
+            name: 'name=myname',
+            label: [ 'Name', 'myname' ]
+          };
+          $magicScope.currentSearch.push(initialSearch);
+          $magicScope.facetSelected = {
+            'name': 'status',
+            'label': [ 'Status', 'active' ]
+          };
+          $magicScope.removeFacet(0);
+
+          expect($magicScope.currentSearch).toEqual([]);
+          expect($magicScope.resetState).toHaveBeenCalled();
+          expect($magicScope.initFacets).toHaveBeenCalled();
+          expect($magicScope.$emit).toHaveBeenCalledWith('checkFacets', []);
+        }
+      );
+    });
   });
 
 })();

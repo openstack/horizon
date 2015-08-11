@@ -180,7 +180,7 @@
           $scope.emitQuery(removed);
         } else {
           $scope.resetState();
-          angular.element('.search-input').val('');
+          $('.search-input').val('');
         }
         if ($scope.currentSearch.length === 0) {
           $scope.strings.prompt = $scope.promptString;
