@@ -25,7 +25,6 @@
   describe('horizon.dashboard.project.images.basePath constant', function () {
     var imagesBasePath, staticUrl;
 
-    beforeEach(module('horizon.dashboard'));
     beforeEach(module('horizon.dashboard.project'));
     beforeEach(module('horizon.dashboard.project.images'));
     beforeEach(inject(function ($injector) {

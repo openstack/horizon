@@ -27,13 +27,9 @@ ADD_ANGULAR_MODULES = [
 
 AUTO_DISCOVER_STATIC_FILES = True
 
-ADD_JS_FILES = [
-    'dashboard/dashboard.module.js',
-]
+ADD_JS_FILES = []
 
-ADD_JS_SPEC_FILES = [
-    'dashboard/dashboard.module.spec.js',
-]
+ADD_JS_SPEC_FILES = []
 
 ADD_SCSS_FILES = [
     'dashboard/project/project.scss'
