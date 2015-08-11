@@ -61,7 +61,7 @@ class LaunchImageNG(LaunchImage):
     name = "launch_image_ng"
     verbose_name = _("Launch")
     url = "horizon:project:images:index"
-    classes = ("btn-launch")
+    classes = ("btn-launch", )
     ajax = False
 
     def __init__(self, attrs=None, **kwargs):
@@ -71,9 +71,12 @@ class LaunchImageNG(LaunchImage):
     def get_link_url(self, datum):
         imageId = self.table.get_object_id(datum)
         url = reverse(self.url)
-        ngclick = "openLaunchInstanceWizard({successUrl: '%s', imageId: '%s'})"
-        self.attrs.update({"ng-controller": "LaunchInstanceModalController",
-                           "ng-click": ngclick % (url, imageId)})
+        ngclick = "modal.openLaunchInstanceWizard(" \
+            "{successUrl: '%s', imageId: '%s'})" % (url, imageId)
+        self.attrs.update({
+            "ng-controller": "LaunchInstanceModalController as modal",
+            "ng-click": ngclick
+        })
         return "javascript:void(0);"
 
 
