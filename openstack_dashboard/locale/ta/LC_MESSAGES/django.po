@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-08-06 03:02+0000\n"
-"PO-Revision-Date: 2015-08-05 14:56+0000\n"
+"POT-Creation-Date: 2015-08-11 04:23+0000\n"
+"PO-Revision-Date: 2015-08-11 01:43+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Tamil (http://www.transifex.com/openstack/horizon/language/"
 "ta/)\n"
@@ -1569,6 +1569,10 @@ msgstr "இலக்கு துறை ([1, 65535]-ற்குள் உள்
 msgid "Detached"
 msgstr "பிரிக்கப்பட்டது"
 
+msgid "Detaching"
+msgstr "துண்டிக்கிறது"
+
+msgctxt "Current status of a Volume"
 msgid "Detaching"
 msgstr "துண்டிக்கிறது"
 

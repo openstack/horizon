@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-08-06 03:02+0000\n"
-"PO-Revision-Date: 2015-08-05 14:56+0000\n"
+"POT-Creation-Date: 2015-08-11 04:23+0000\n"
+"PO-Revision-Date: 2015-08-11 01:43+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Bengali (India) (http://www.transifex.com/openstack/horizon/"
 "language/bn_IN/)\n"
@@ -1511,6 +1511,10 @@ msgstr "গন্তব্য পোর্ট  ([1, 65535]তে পূর্ণ
 msgid "Detached"
 msgstr "বিচ্ছিন্ন"
 
+msgid "Detaching"
+msgstr "আলাদা করছে"
+
+msgctxt "Current status of a Volume"
 msgid "Detaching"
 msgstr "আলাদা করছে"
 

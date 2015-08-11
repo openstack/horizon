@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-08-10 06:04+0000\n"
+"POT-Creation-Date: 2015-08-11 06:12+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -384,16 +384,16 @@ msgstr ""
 msgid "%(type)s (%(backend)s backend)"
 msgstr ""
 
-#: api/keystone.py:344
+#: api/keystone.py:351
 msgid "Identity service does not allow editing user data."
 msgstr ""
 
-#: api/keystone.py:370
+#: api/keystone.py:377
 #, python-format
 msgid "User %s has no role defined for that project."
 msgstr ""
 
-#: api/keystone.py:397
+#: api/keystone.py:404
 msgid "Identity service does not allow editing user password."
 msgstr ""
 
@@ -611,8 +611,8 @@ msgstr ""
 #: dashboards/project/routers/ports/tables.py:107
 #: dashboards/project/volumes/backups/tables.py:121
 #: dashboards/project/volumes/snapshots/tables.py:147
-#: dashboards/project/volumes/volumes/tables.py:396
-#: dashboards/project/volumes/volumes/tables.py:425
+#: dashboards/project/volumes/volumes/tables.py:398
+#: dashboards/project/volumes/volumes/tables.py:427
 #: dashboards/project/vpn/forms.py:31 dashboards/project/vpn/forms.py:66
 #: dashboards/project/vpn/forms.py:145 dashboards/project/vpn/forms.py:223
 #: dashboards/project/vpn/tables.py:237 dashboards/project/vpn/tables.py:287
@@ -696,7 +696,7 @@ msgstr ""
 #: dashboards/project/volumes/volumes/forms.py:84
 #: dashboards/project/volumes/volumes/forms.py:492
 #: dashboards/project/volumes/volumes/forms.py:600
-#: dashboards/project/volumes/volumes/tables.py:399
+#: dashboards/project/volumes/volumes/tables.py:401
 #: dashboards/project/vpn/forms.py:36 dashboards/project/vpn/forms.py:71
 #: dashboards/project/vpn/forms.py:150 dashboards/project/vpn/forms.py:228
 #: dashboards/project/vpn/tables.py:239 dashboards/project/vpn/tables.py:289
@@ -945,7 +945,7 @@ msgstr ""
 #: dashboards/project/stacks/tables.py:320
 #: dashboards/project/stacks/tables.py:371
 #: dashboards/project/volumes/backups/tables.py:130
-#: dashboards/project/volumes/volumes/tables.py:405
+#: dashboards/project/volumes/volumes/tables.py:407
 #: dashboards/project/vpn/tables.py:247 dashboards/project/vpn/tables.py:293
 msgid "Status"
 msgstr ""
@@ -1289,7 +1289,7 @@ msgstr[1] ""
 #: dashboards/project/volumes/volumes/forms.py:118
 #: dashboards/project/volumes/volumes/forms.py:119
 #: dashboards/project/volumes/volumes/forms.py:746
-#: dashboards/project/volumes/volumes/tables.py:428
+#: dashboards/project/volumes/volumes/tables.py:430
 msgid "Type"
 msgstr ""
 
@@ -1818,7 +1818,7 @@ msgstr ""
 #: dashboards/project/volumes/volumes/forms.py:122
 #: dashboards/project/volumes/volumes/forms.py:127
 #: dashboards/project/volumes/volumes/forms.py:128
-#: dashboards/project/volumes/volumes/tables.py:432
+#: dashboards/project/volumes/volumes/tables.py:434
 msgid "Availability Zone"
 msgstr ""
 
@@ -2272,7 +2272,7 @@ msgstr ""
 #: dashboards/admin/volumes/volume_types/extras/views.py:88
 #: dashboards/admin/volumes/volume_types/qos_specs/views.py:103
 #: dashboards/identity/domains/workflows.py:300
-#: dashboards/identity/projects/workflows.py:602
+#: dashboards/identity/projects/workflows.py:609
 #: dashboards/identity/users/views.py:209
 #: dashboards/project/instances/workflows/update_instance.py:133
 #: dashboards/project/networks/subnets/workflows.py:163
@@ -2338,7 +2338,7 @@ msgstr ""
 #: dashboards/identity/projects/workflows.py:57
 #: dashboards/project/volumes/panel.py:21 dashboards/project/volumes/tabs.py:83
 #: dashboards/project/volumes/views.py:26
-#: dashboards/project/volumes/volumes/tables.py:443 usage/quotas.py:75
+#: dashboards/project/volumes/volumes/tables.py:445 usage/quotas.py:75
 #: usage/views.py:78
 msgid "Volumes"
 msgstr ""
@@ -3068,7 +3068,7 @@ msgstr ""
 #: dashboards/identity/projects/tables.py:237
 #: dashboards/identity/projects/tables.py:240
 #: dashboards/identity/projects/workflows.py:153
-#: dashboards/identity/projects/workflows.py:554
+#: dashboards/identity/projects/workflows.py:561
 #: dashboards/identity/users/forms.py:109
 #: dashboards/identity/users/tables.py:251
 #: dashboards/project/firewalls/forms.py:71
@@ -3244,7 +3244,7 @@ msgstr ""
 #: dashboards/project/images/images/tables.py:295
 #: dashboards/project/instances/tables.py:1063
 #: dashboards/project/volumes/backups/tables.py:127
-#: dashboards/project/volumes/volumes/tables.py:402
+#: dashboards/project/volumes/volumes/tables.py:404
 msgid "Size"
 msgstr ""
 
@@ -4697,7 +4697,7 @@ msgstr ""
 
 #: dashboards/admin/volumes/volumes/forms.py:67
 #: dashboards/project/volumes/volumes/forms.py:602
-#: dashboards/project/volumes/volumes/tables.py:434
+#: dashboards/project/volumes/volumes/tables.py:436
 msgid "Bootable"
 msgstr ""
 
@@ -5203,7 +5203,7 @@ msgid "Create Project"
 msgstr ""
 
 #: dashboards/identity/projects/tables.py:111
-#: dashboards/identity/projects/workflows.py:601
+#: dashboards/identity/projects/workflows.py:608
 msgid "Edit Project"
 msgstr ""
 
@@ -5299,7 +5299,7 @@ msgid "Project name is already in use. Please use a different name."
 msgstr ""
 
 #: dashboards/identity/projects/workflows.py:189
-#: dashboards/identity/projects/workflows.py:583
+#: dashboards/identity/projects/workflows.py:590
 msgid "Project Information"
 msgstr ""
 
@@ -5331,45 +5331,51 @@ msgstr ""
 msgid "Unable to create project \"%s\"."
 msgstr ""
 
-#: dashboards/identity/projects/workflows.py:493
+#: dashboards/identity/projects/workflows.py:468
+#: dashboards/identity/projects/workflows.py:652
+#, python-format
+msgid "Project name \"%s\" is already used."
+msgstr ""
+
+#: dashboards/identity/projects/workflows.py:500
 msgid ", add project groups"
 msgstr ""
 
-#: dashboards/identity/projects/workflows.py:497
+#: dashboards/identity/projects/workflows.py:504
 #, python-format
 msgid ""
 "Failed to add %(users_to_add)s project members%(group_msg)s and set "
 "project quotas."
 msgstr ""
 
-#: dashboards/identity/projects/workflows.py:530
+#: dashboards/identity/projects/workflows.py:537
 #, python-format
 msgid "Failed to add %s project groups and update project quotas."
 msgstr ""
 
-#: dashboards/identity/projects/workflows.py:539
+#: dashboards/identity/projects/workflows.py:546
 msgid "Unable to set project quotas."
 msgstr ""
 
-#: dashboards/identity/projects/workflows.py:561
+#: dashboards/identity/projects/workflows.py:568
 msgid "You cannot disable your current project"
 msgstr ""
 
-#: dashboards/identity/projects/workflows.py:585
+#: dashboards/identity/projects/workflows.py:592
 msgid "Edit the project details."
 msgstr ""
 
-#: dashboards/identity/projects/workflows.py:603
+#: dashboards/identity/projects/workflows.py:610
 #, python-format
 msgid "Modified project \"%s\"."
 msgstr ""
 
-#: dashboards/identity/projects/workflows.py:604
+#: dashboards/identity/projects/workflows.py:611
 #, python-format
 msgid "Unable to modify project \"%s\"."
 msgstr ""
 
-#: dashboards/identity/projects/workflows.py:694
+#: dashboards/identity/projects/workflows.py:708
 msgid ""
 "You cannot revoke your administrative privileges from the project you are"
 " currently logged into. Please switch to another project with "
@@ -5377,25 +5383,25 @@ msgid ""
 "the CLI."
 msgstr ""
 
-#: dashboards/identity/projects/workflows.py:754
+#: dashboards/identity/projects/workflows.py:768
 msgid ", update project groups"
 msgstr ""
 
-#: dashboards/identity/projects/workflows.py:758
+#: dashboards/identity/projects/workflows.py:772
 #, python-format
 msgid ""
 "Failed to modify %(users_to_modify)s project members%(group_msg)s and "
 "update project quotas."
 msgstr ""
 
-#: dashboards/identity/projects/workflows.py:835
+#: dashboards/identity/projects/workflows.py:849
 #, python-format
 msgid ""
 "Failed to modify %s project members, update project groups and update "
 "project quotas."
 msgstr ""
 
-#: dashboards/identity/projects/workflows.py:847
+#: dashboards/identity/projects/workflows.py:861
 msgid ""
 "Modified project information and members, but unable to modify project "
 "quotas."
@@ -5807,7 +5813,7 @@ msgid "No floating IP pools available"
 msgstr ""
 
 #: dashboards/project/access_and_security/floating_ips/workflows.py:37
-#: dashboards/project/volumes/volumes/tables.py:500
+#: dashboards/project/volumes/volumes/tables.py:502
 msgid "Instance"
 msgstr ""
 
@@ -12092,65 +12098,70 @@ msgstr ""
 
 #: dashboards/project/volumes/volumes/tables.py:384
 msgctxt "Current status of a Volume"
-msgid "Deleting"
+msgid "Detaching"
 msgstr ""
 
 #: dashboards/project/volumes/volumes/tables.py:386
 msgctxt "Current status of a Volume"
-msgid "Error deleting"
+msgid "Deleting"
 msgstr ""
 
 #: dashboards/project/volumes/volumes/tables.py:388
 msgctxt "Current status of a Volume"
-msgid "Backing Up"
+msgid "Error deleting"
 msgstr ""
 
 #: dashboards/project/volumes/volumes/tables.py:390
 msgctxt "Current status of a Volume"
-msgid "Restoring Backup"
+msgid "Backing Up"
 msgstr ""
 
 #: dashboards/project/volumes/volumes/tables.py:392
 msgctxt "Current status of a Volume"
+msgid "Restoring Backup"
+msgstr ""
+
+#: dashboards/project/volumes/volumes/tables.py:394
+msgctxt "Current status of a Volume"
 msgid "Error Restoring"
 msgstr ""
 
-#: dashboards/project/volumes/volumes/tables.py:430
+#: dashboards/project/volumes/volumes/tables.py:432
 msgid "Attached To"
 msgstr ""
 
-#: dashboards/project/volumes/volumes/tables.py:437
+#: dashboards/project/volumes/volumes/tables.py:439
 msgid "Encrypted"
 msgstr ""
 
-#: dashboards/project/volumes/volumes/tables.py:458
+#: dashboards/project/volumes/volumes/tables.py:460
 msgid ""
 "The data will remain in the volume and another instance will be able to "
 "access the data if you attach this volume to it."
 msgstr ""
 
-#: dashboards/project/volumes/volumes/tables.py:464
+#: dashboards/project/volumes/volumes/tables.py:466
 msgid "Detach Volume"
 msgid_plural "Detach Volumes"
 msgstr[0] ""
 msgstr[1] ""
 
-#: dashboards/project/volumes/volumes/tables.py:473
+#: dashboards/project/volumes/volumes/tables.py:475
 msgid "Detaching Volume"
 msgid_plural "Detaching Volumes"
 msgstr[0] ""
 msgstr[1] ""
 
-#: dashboards/project/volumes/volumes/tables.py:502
+#: dashboards/project/volumes/volumes/tables.py:504
 msgid "Device"
 msgstr ""
 
-#: dashboards/project/volumes/volumes/tables.py:511
+#: dashboards/project/volumes/volumes/tables.py:513
 #, python-format
 msgid "Volume %(volume_name)s on instance %(instance_name)s"
 msgstr ""
 
-#: dashboards/project/volumes/volumes/tables.py:521
+#: dashboards/project/volumes/volumes/tables.py:523
 msgid "Attachments"
 msgstr ""
 
