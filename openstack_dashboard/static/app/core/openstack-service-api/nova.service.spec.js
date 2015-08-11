@@ -1,5 +1,5 @@
 /*
- *    (c) Copyright 2015 Hewlett-Packard Development Company, L.P.
+ * (c) Copyright 2015 Hewlett-Packard Development Company, L.P.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -244,74 +244,6 @@
       func(data);
       expect(data).toEqual({items: [{'os-flavor-access:is_public': true, is_public: true}]});
 
-    });
-  });
-
-  describe("novaExtensions", function() {
-    var factory, q, novaAPI;
-
-    beforeEach(module('horizon.app.core.openstack-service-api'));
-
-    beforeEach(module(function($provide) {
-      novaAPI = {getExtensions: function() {return {then: angular.noop};}};
-      q = {defer: function() { return {resolve: angular.noop}; }};
-      $provide.value('$cacheFactory', function() {return "cache";});
-      $provide.value('$q', q);
-      $provide.value('horizon.app.core.openstack-service-api.nova', novaAPI);
-    }));
-
-    beforeEach(inject(function($injector) {
-      factory = $injector.get('horizon.app.core.openstack-service-api.novaExtensions');
-    }));
-
-    it("is defined", function() {
-      expect(factory).toBeDefined();
-    });
-
-    it("defines .cache", function() {
-      expect(factory.cache).toBeDefined();
-    });
-
-    it("defines .get", function() {
-      expect(factory.get).toBeDefined();
-      var postAction = {then: angular.noop};
-      spyOn(novaAPI, 'getExtensions').and.returnValue(postAction);
-      spyOn(postAction, 'then');
-      factory.get();
-      expect(novaAPI.getExtensions).toHaveBeenCalledWith({cache: factory.cache});
-      expect(postAction.then).toHaveBeenCalled();
-      var func = postAction.then.calls.argsFor(0)[0];
-      var testData = {data: {items: [1, 2, 3]}};
-      expect(func(testData)).toEqual([1, 2, 3]);
-    });
-
-    it("defines .ifNameEnabled", function() {
-      expect(factory.ifNameEnabled).toBeDefined();
-      var postAction = {then: angular.noop};
-      var deferred = {reject: angular.noop, resolve: angular.noop};
-      spyOn(q, 'defer').and.returnValue(deferred);
-      spyOn(factory, 'get').and.returnValue(postAction);
-      spyOn(postAction, 'then');
-      factory.ifNameEnabled("desired");
-      expect(factory.get).toHaveBeenCalled();
-      var func1 = postAction.then.calls.argsFor(0)[0];
-      var func2 = postAction.then.calls.argsFor(0)[1];
-      spyOn(deferred, 'reject');
-      func1();
-      expect(deferred.reject).toHaveBeenCalled();
-
-      spyOn(deferred, 'resolve');
-      var extensions = [{name: "desired"}];
-      func1(extensions);
-      expect(deferred.resolve).toHaveBeenCalled();
-
-      deferred.reject.calls.reset();
-      func2();
-      expect(deferred.reject).toHaveBeenCalledWith('Cannot get the Nova extension list.');
-    });
-
-    it("defines .ifEnabled", function() {
-      expect(factory.ifEnabled).toBeDefined();
     });
   });
 
