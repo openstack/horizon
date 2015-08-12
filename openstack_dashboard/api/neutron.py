@@ -657,12 +657,12 @@ def network_get(request, network_id, expand_subnet=True, **params):
 
 
 def network_create(request, **kwargs):
-    """Create a subnet on a specified network.
+    """Create a  network object.
 
     :param request: request context
     :param tenant_id: (optional) tenant id of the network created
     :param name: (optional) name of the network created
-    :returns: Subnet object
+    :returns: Network object
     """
     LOG.debug("network_create(): kwargs = %s" % kwargs)
     # In the case network profiles are being used, profile id is needed.
