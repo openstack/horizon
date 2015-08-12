@@ -52,7 +52,7 @@ class NetworkPortTests(test.TestCase):
 
         res = self.client.get(reverse(DETAIL_URL, args=[port.id]))
 
-        self.assertTemplateUsed(res, 'project/networks/ports/detail.html')
+        self.assertTemplateUsed(res, 'horizon/common/_detail.html')
         self.assertEqual(res.context['port'].id, port.id)
 
     @test.create_stubs({api.neutron: ('port_get',)})

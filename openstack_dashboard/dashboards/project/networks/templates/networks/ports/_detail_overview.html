@@ -7,6 +7,8 @@
     <dd>{{ port.name|default:_("None") }}</dd>
     <dt>{% trans "ID" %}</dt>
     <dd>{{ port.id|default:_("None") }}</dd>
+    <dt>{% trans "Network Name" %}</dt>
+    <dd>{{ port.network_name|default:_("None") }}</dd>
     {% url 'horizon:project:networks:detail' port.network_id as network_url %}
     <dt>{% trans "Network ID" %}</dt>
     <dd><a href="{{ network_url }}">{{ port.network_id|default:_("None") }}</a></dd>
@@ -19,9 +21,12 @@
     <dt>{% trans "Admin State" %}</dt>
     <dd>{{ port.admin_state_label|default:_("None") }}</dd>
     {% if port.mac_state %}
-    <dt>{% trans "MAC Learning State" %}</dt>
-    <dd>{{ port.mac_state }}</dd>
+      <dt>{% trans "MAC Learning State" %}</dt>
+      <dd>{{ port.mac_state }}</dd>
     {% endif %}
+  </dl>
+
+  <dl class="dl-horizontal">
     <h4>{% trans "Fixed IP" %}</h4>
     <hr class="header_rule">
     {% if port.fixed_ips.items|length > 1 %}
@@ -35,6 +40,9 @@
     {% else %}
       <dd>{% trans "None" %}</dd>
     {% endif %}
+  </dl>
+
+  <dl class="dl-horizontal">
     <h4>{% trans "Attached Device" %}</h4>
     <hr class="header_rule">
     {% if port.device_id|length > 1 or port.device_owner %}
@@ -45,6 +53,9 @@
     {% else %}
       <dd>{% trans "No attached device" %}</dd>
     {% endif %}
+  </dl>
+
+  <dl class="dl-horizontal">
     <h4>{% trans "Binding" %}</h4>
     <hr class="header_rule">
     {% if port.binding__vnic_type %}

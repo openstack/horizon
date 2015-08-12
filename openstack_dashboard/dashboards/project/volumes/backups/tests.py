@@ -99,14 +99,8 @@ class VolumeBackupsViewTests(test.TestCase):
                       args=[backup.id])
         res = self.client.get(url)
 
-        self.assertContains(res,
-                            "<h1>Volume Backup Details: %s</h1>" %
-                            backup.name,
-                            1, 200)
-        self.assertContains(res, "<dd>%s</dd>" % backup.name, 1, 200)
-        self.assertContains(res, "<dd>%s</dd>" % backup.id, 1, 200)
-        self.assertContains(res, "<dd>Available</dd>", 1, 200)
-        self.assertContains(res, "<dt>Volume</dt>", 1, 200)
+        self.assertTemplateUsed(res, 'horizon/common/_detail.html')
+        self.assertEqual(res.context['backup'].id, backup.id)
 
     @test.create_stubs({api.cinder: ('volume_backup_get',)})
     def test_volume_backup_detail_get_with_exception(self):
@@ -140,14 +134,8 @@ class VolumeBackupsViewTests(test.TestCase):
                       args=[backup.id])
         res = self.client.get(url)
 
-        self.assertContains(res,
-                            "<h1>Volume Backup Details: %s</h1>" %
-                            backup.name,
-                            1, 200)
-        self.assertContains(res, "<dd>%s</dd>" % backup.name, 1, 200)
-        self.assertContains(res, "<dd>%s</dd>" % backup.id, 1, 200)
-        self.assertContains(res, "<dd>Available</dd>", 1, 200)
-        self.assertContains(res, "<dt>Volume</dt>", 0, 200)
+        self.assertTemplateUsed(res, 'horizon/common/_detail.html')
+        self.assertEqual(res.context['backup'].id, backup.id)
 
     @test.create_stubs({api.cinder: ('volume_list',
                                      'volume_backup_restore',)})

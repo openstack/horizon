@@ -922,7 +922,7 @@ class NetworkSubnetTests(test.TestCase):
                       args=[subnet.id])
         res = self.client.get(url)
 
-        self.assertTemplateUsed(res, 'project/networks/subnets/detail.html')
+        self.assertTemplateUsed(res, 'horizon/common/_detail.html')
         self.assertEqual(res.context['subnet'].id, subnet.id)
 
     @test.create_stubs({api.neutron: ('subnet_get',)})

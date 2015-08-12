@@ -47,8 +47,8 @@ from openstack_dashboard.dashboards.project.volumes \
 
 class DetailView(tabs.TabView):
     tab_group_class = project_tabs.VolumeDetailTabs
-    template_name = 'project/volumes/volumes/detail.html'
-    page_title = _("Volume Details: {{ volume.name }}")
+    template_name = 'horizon/common/_detail.html'
+    page_title = "{{ volume.name|default:volume.id }}"
 
     def get_context_data(self, **kwargs):
         context = super(DetailView, self).get_context_data(**kwargs)

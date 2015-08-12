@@ -50,8 +50,8 @@ class CreateBackupView(forms.ModalFormView):
 
 class BackupDetailView(tabs.TabView):
     tab_group_class = backup_tabs.BackupDetailTabs
-    template_name = 'project/volumes/backups/detail.html'
-    page_title = _("Volume Backup Details: {{ backup.name }}")
+    template_name = 'horizon/common/_detail.html'
+    page_title = "{{ backup.name|default:backup.id }}"
 
     def get_context_data(self, **kwargs):
         context = super(BackupDetailView, self).get_context_data(**kwargs)

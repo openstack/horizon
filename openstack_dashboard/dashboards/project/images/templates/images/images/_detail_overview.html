@@ -1,10 +1,6 @@
 {% load i18n sizeformat %}
 
-<h3>{% trans "Image Overview" %}</h3>
-
-<div class="info row detail">
-  <h4>{% trans "Information" %}</h4>
-  <hr class="header_rule">
+<div class="detail">
   <dl class="dl-horizontal">
     <dt>{% trans "Name" %}</dt>
     <dd>{{ image.name|default:_("None") }}</dd>
@@ -37,9 +33,7 @@
       <dd>{% trans "Never updated" %} }}</dd>
     {% endif %}
   </dl>
-</div>
 
-<div class="specs row detail">
   <h4>{% trans "Specs" %}</h4>
   <hr class="header_rule">
   <dl class="dl-horizontal">
@@ -62,9 +56,7 @@
       <dd>{{ image.min_ram|mb_float_format }}</dd>
     {% endif %}
   </dl>
-</div>
 
-<div class="properties row detail">
   <h4>{% trans "Custom Properties" %}</h4>
   <hr class="header_rule">
   <dl class="dl-horizontal">

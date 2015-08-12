@@ -67,8 +67,8 @@ class UpdateView(forms.ModalFormView):
 
 class DetailView(tabs.TabView):
     tab_group_class = vol_snapshot_tabs.SnapshotDetailTabs
-    template_name = 'project/volumes/snapshots/detail.html'
-    page_title = _("Volume Snapshot Details: {{ snapshot.name }}")
+    template_name = 'horizon/common/_detail.html'
+    page_title = "{{ snapshot.name|default:snapshot.id }}"
 
     def get_context_data(self, **kwargs):
         context = super(DetailView, self).get_context_data(**kwargs)

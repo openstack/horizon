@@ -1115,18 +1115,8 @@ class VolumeViewTests(test.TestCase):
                       args=[volume.id])
         res = self.client.get(url)
 
-        self.assertContains(res, "<h1>Volume Details: Volume name</h1>",
-                            1, 200)
-        self.assertContains(res, "<dd>Volume name</dd>", 1, 200)
-        self.assertContains(res, "<dd>%s</dd>" % volume.id, 1, 200)
-        self.assertContains(res, "<dd>Available</dd>", 1, 200)
-        self.assertContains(res, "<dd>40 GB</dd>", 1, 200)
-        self.assertContains(res,
-                            ("<a href=\"/project/instances/1/\">%s</a>"
-                             % server.name),
-                            1,
-                            200)
-
+        self.assertTemplateUsed(res, 'horizon/common/_detail.html')
+        self.assertEqual(res.context['volume'].id, volume.id)
         self.assertNoMessages()
 
     @test.create_stubs({cinder: ('volume_get',

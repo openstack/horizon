@@ -1,11 +1,7 @@
 {% load i18n sizeformat parse_date %}
 {% load url from future %}
 
-<h3>{% trans "Volume Overview" %}</h3>
-
-<div class="info row detail">
-  <h4>{% trans "Information" %}</h4>
-  <hr class="header_rule">
+<div class="detail">
   <dl class="dl-horizontal">
     <dt>{% trans "Name" %}</dt>
     <dd>{{ volume.name }}</dd>
@@ -18,9 +14,7 @@
     <dt>{% trans "Status" %}</dt>
     <dd>{{ volume.status_label|capfirst }}</dd>
   </dl>
-</div>
 
-<div class="specs row detail">
   <h4>{% trans "Specs" %}</h4>
   <hr class="header_rule">
   <dl class="dl-horizontal">
@@ -29,9 +23,7 @@
     <dt>{% trans "Created" context "Created time" %}</dt>
     <dd>{{ volume.created_at|parse_date }}</dd>
   </dl>
-</div>
 
-<div class="status row detail">
   <h4>{% trans "Attachments" %}</h4>
   <hr class="header_rule">
   <dl class="dl-horizontal">
@@ -48,10 +40,8 @@
     <dd><em>{% trans "Not attached" %}</em></dd>
   {% endfor %}
   </dl>
-</div>
 
 {% if volume.volume_image_metadata %}
-<div class="status row detail">
   <h4>{% trans "Volume Source" %}</h4>
   <hr class="header_rule">
   <dl class="dl-horizontal">
@@ -61,10 +51,8 @@
       <a href="{{ image_url }}">{{ volume.volume_image_metadata.image_name }}</a>
     </dd>
   </dl>
-</div>
 {% endif %}
 
-<div class="status row detail">
   <h4>{% trans "Metadata" %}</h4>
   <hr class="header_rule">
   <dl class="dl-horizontal">
@@ -77,10 +65,8 @@
       <dd>{% trans "None" %}</dd>
   {% endif %}
   </dl>
-</div>
 
 {% if volume.transfer %}
-<div class="status row detail">
   <h4>{% trans "Volume Transfer" %}</h4>
   <hr class="header_rule">
   <dl>
@@ -95,5 +81,5 @@
       <dt>{% trans "Created" context "Created time" %}</dt>
       <dd>{{ volume.transfer.created_at|parse_date }}</dd>
   </dl>
-</div>
 {% endif %}
+</div>
