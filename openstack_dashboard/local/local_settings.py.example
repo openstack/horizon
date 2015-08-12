@@ -3,6 +3,7 @@ import os
 from django.utils.translation import ugettext_lazy as _
 
 from openstack_dashboard import exceptions
+from openstack_dashboard.settings import HORIZON_CONFIG
 
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
@@ -65,24 +66,9 @@ WEBROOT = '/'
 # Set to None explicitly if you want to deactivate the console.
 #CONSOLE_TYPE = "AUTO"
 
-# Default OpenStack Dashboard configuration.
-HORIZON_CONFIG = {
-    'user_home': 'openstack_dashboard.views.get_user_home',
-    'ajax_queue_limit': 10,
-    'auto_fade_alerts': {
-        'delay': 3000,
-        'fade_duration': 1500,
-        'types': ['alert-success', 'alert-info']
-    },
-    'help_url': "http://docs.openstack.org",
-    'exceptions': {'recoverable': exceptions.RECOVERABLE,
-                   'not_found': exceptions.NOT_FOUND,
-                   'unauthorized': exceptions.UNAUTHORIZED},
-    'modal_backdrop': 'static',
-    'angular_modules': [],
-    'js_files': [],
-    'js_spec_files': [],
-}
+# Show backdrop element outside the modal, do not close the modal
+# after clicking on backdrop.
+#HORIZON_CONFIG["modal_backdrop"] = "static"
 
 # Specify a regular expression to validate user passwords.
 #HORIZON_CONFIG["password_validator"] = {
