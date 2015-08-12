@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-08-11 04:23+0000\n"
-"PO-Revision-Date: 2015-08-11 01:43+0000\n"
+"POT-Creation-Date: 2015-08-12 05:24+0000\n"
+"PO-Revision-Date: 2015-08-11 09:17+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Czech (http://www.transifex.com/openstack/horizon/language/"
 "cs/)\n"
@@ -5336,6 +5336,10 @@ msgstr "Název projektu"
 
 msgid "Project Usage"
 msgstr "Využití projektu"
+
+#, python-format
+msgid "Project name \"%s\" is already used."
+msgstr "Název projektu \"%s\" již je používán."
 
 msgid "Project name is already in use. Please use a different name."
 msgstr "Název projektu se již používá. Prosím zvolte jiný název."

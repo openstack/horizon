@@ -16,9 +16,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-08-11 04:23+0000\n"
-"PO-Revision-Date: 2015-08-11 01:43+0000\n"
-"Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
+"POT-Creation-Date: 2015-08-12 05:24+0000\n"
+"PO-Revision-Date: 2015-08-11 22:55+0000\n"
+"Last-Translator: Ettore Atalan <atalanttore@googlemail.com>\n"
 "Language-Team: German (http://www.transifex.com/openstack/horizon/language/"
 "de/)\n"
 "MIME-Version: 1.0\n"
@@ -937,6 +937,9 @@ msgstr "Hauptbinary auswählen"
 msgid "Choose a new instance flavor."
 msgstr "Neue Variante für die Instanz auswählen."
 
+msgid "Choose a shell script"
+msgstr "Wählen Sie ein Shell-Skript aus"
+
 msgid "Choose a snapshot"
 msgstr "Wählen Sie eine Schattenkopie"
 
@@ -945,6 +948,9 @@ msgstr "Storage Lokation auswählen"
 
 msgid "Choose a volume"
 msgstr "Wählen Sie einen Datenträger"
+
+msgid "Choose additional files"
+msgstr "Wählen Sie zusätzliche Dateien aus"
 
 msgid "Choose an DHCP Agent to attach to."
 msgstr "Wählen Sie einen DHCP Agenten zum verbinden."
@@ -5392,6 +5398,10 @@ msgstr "Projektname"
 msgid "Project Usage"
 msgstr "Projekt-Verwendung"
 
+#, python-format
+msgid "Project name \"%s\" is already used."
+msgstr "Projektname \"%s\" wird bereits verwendet."
+
 msgid "Project name is already in use. Please use a different name."
 msgstr ""
 "Projektname wird bereits verwendet. Bitte verwenden Sie einen anderen Namen."
@@ -6394,6 +6404,9 @@ msgstr "Shared Storage"
 msgid "Shared with Me"
 msgstr "Mit mir geteilt"
 
+msgid "Shell"
+msgstr "Shell"
+
 msgctxt "Current status of an Instance"
 msgid "Shelved"
 msgstr "Gelagert"
@@ -7342,6 +7355,9 @@ msgstr ""
 "Wählen Sie &quot;CIDR&quot; um einen erlaubten IP-Adressenbereich anzugeben. "
 "Wählen Sie &quot;Security Group&quot; um Zugriff für alle Mitgllieder einer "
 "anderen Sicherheitsgruppe zu erlauben."
+
+msgid "Toggle navigation"
+msgstr "Navigation umschalten"
 
 msgid "Topic"
 msgstr "Thema"

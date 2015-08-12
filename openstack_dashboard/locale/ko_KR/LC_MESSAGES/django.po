@@ -12,8 +12,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-08-11 04:23+0000\n"
-"PO-Revision-Date: 2015-08-11 01:43+0000\n"
+"POT-Creation-Date: 2015-08-12 05:24+0000\n"
+"PO-Revision-Date: 2015-08-11 09:17+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Korean (Korea) (http://www.transifex.com/openstack/horizon/"
 "language/ko_KR/)\n"
@@ -1005,6 +1005,10 @@ msgstr "클러스터 이름"
 msgid "Cluster Template"
 msgstr "클러스터 템플릿"
 
+#, python-format
+msgid "Cluster Template %s updated"
+msgstr "업데이트된 클러스터 템플릿 %s"
+
 msgid "Cluster Template Details"
 msgstr "클러스터 템플릿 자세한 정보"
 
@@ -1020,6 +1024,9 @@ msgstr "클러스터 템플릿"
 
 msgid "Cluster template creation failed"
 msgstr "클러스터 템플릿을 생성하지 못 했습니다."
+
+msgid "Cluster template update failed"
+msgstr "클러스터 템플릿 업데이트 실패"
 
 msgid "Cluster type chosen"
 msgstr "선택된 Cluster 유형"
@@ -2486,6 +2493,9 @@ msgstr "인스턴스 유형 %s 지속 시간 (openstack flavor)"
 
 msgid "Edit"
 msgstr "편집"
+
+msgid "Edit Cluster Template"
+msgstr "클러스터 템플릿 편집"
 
 msgid "Edit Connection"
 msgstr "연결 편집"
@@ -4881,6 +4891,9 @@ msgstr "선택적 부모 백업"
 msgid "Optional: Next Hop Addresses (comma delimited)"
 msgstr "선택적: 다음 Hop 주소들 (콤마로 구분)"
 
+msgid "Orchestration"
+msgstr "오케스트레이션"
+
 msgid "Orchestration Services"
 msgstr "Orchestration 서비스"
 
@@ -5202,6 +5215,10 @@ msgstr "프로젝트 이름"
 
 msgid "Project Usage"
 msgstr "프로젝트 사용량"
+
+#, python-format
+msgid "Project name \"%s\" is already used."
+msgstr "프로젝트 이름 \"%s\"가 이미 사용 중입니다."
 
 msgid "Project name is already in use. Please use a different name."
 msgstr "프로젝트 이름이 이미 사용 중입니다. 다른 이름을 사용하세요."
@@ -7500,6 +7517,9 @@ msgstr "템플릿 오브젝트를 가져올 수 없습니다."
 
 msgid "Unable to fetch template to copy."
 msgstr "복사할 템플릿을 가져오지 못 했습니다."
+
+msgid "Unable to fetch template to edit."
+msgstr "편집할 템플릿을 가져올 수 없습니다."
 
 msgid "Unable to fetch the image details"
 msgstr "이미지 상세 정보를 가져올 수 없습니다."
