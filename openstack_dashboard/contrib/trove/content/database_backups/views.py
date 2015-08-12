@@ -24,9 +24,10 @@ from horizon.utils import filters
 from horizon import views as horizon_views
 from horizon import workflows as horizon_workflows
 
-from openstack_dashboard import api
-from openstack_dashboard.dashboards.project.database_backups import tables
-from openstack_dashboard.dashboards.project.database_backups import workflows
+from openstack_dashboard.contrib.trove import api
+from openstack_dashboard.contrib.trove.content.database_backups import tables
+from openstack_dashboard.contrib.trove.content.database_backups \
+    import workflows
 
 
 class IndexView(horizon_tables.DataTableView):
