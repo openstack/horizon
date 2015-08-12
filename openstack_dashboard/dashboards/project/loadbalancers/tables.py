@@ -86,12 +86,10 @@ class DeleteVipLink(policy.PolicyTargetMixin, tables.Action):
     policy_rules = (("network", "delete_vip"),)
     classes = ('btn-danger',)
 
-    def get_help_text(self, vip_id):
-        return _("Deleting VIP %s from this pool cannot be undone.") % vip_id
-
     def allowed(self, request, datum=None):
         if datum and datum.vip_id:
-            self.help_text = self.get_help_text(datum.vip_id)
+            self.help_text = _("Deleting VIP %s from this pool "
+                               "cannot be undone.") % datum.vip_id
             return True
         return False
 
@@ -351,7 +349,9 @@ class RemoveVIPFloatingIP(policy.PolicyTargetMixin, tables.Action):
             return False
         if hasattr(pool, "vip") and pool.vip:
             vip = pool.vip
-            return (hasattr(vip, "fip") and vip.fip)
+            self.help_text = _('Floating IP will be removed '
+                               'from VIP "%s".') % vip.name
+            return hasattr(vip, "fip") and vip.fip
         return False
 
     def single(self, table, request, pool_id):
