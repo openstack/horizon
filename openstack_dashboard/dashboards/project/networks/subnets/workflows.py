@@ -108,19 +108,6 @@ class UpdateSubnetInfoAction(CreateSubnetInfoAction):
                                    widget=forms.HiddenInput(),
                                    label=_("IP Version"))
 
-    gateway_ip = forms.IPField(
-        label=_("Gateway IP (optional)"),
-        required=False,
-        initial="",
-        help_text=_("IP address of Gateway (e.g. 192.168.0.254). "
-                    "Specify an explicit address to set the gateway. "
-                    "If you do not want to use a gateway, "
-                    "check 'Disable Gateway' below."),
-        version=forms.IPv4 | forms.IPv6,
-        mask=False)
-    no_gateway = forms.BooleanField(label=_("Disable Gateway"),
-                                    initial=False, required=False)
-
     class Meta(object):
         name = _("Subnet")
         help_text = _('Update a subnet associated with the network. '
