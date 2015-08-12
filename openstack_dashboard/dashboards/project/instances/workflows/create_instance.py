@@ -914,7 +914,9 @@ class LaunchInstance(workflows.Workflow):
 
         avail_zone = context.get('availability_zone', None)
 
-        if api.neutron.is_port_profiles_supported():
+        port_profiles_supported = api.neutron.is_port_profiles_supported()
+
+        if port_profiles_supported:
             nics = self.set_network_port_profiles(request,
                                                   context['network_id'],
                                                   context['profile_id'])
@@ -937,8 +939,16 @@ class LaunchInstance(workflows.Workflow):
                                    config_drive=context.get('config_drive'))
             return True
         except Exception:
+            if port_profiles_supported:
+                ports_failing_deletes = _cleanup_ports_on_failed_vm_launch(
+                    request, nics)
+                if ports_failing_deletes:
+                    ports_str = ', '.join(ports_failing_deletes)
+                    msg = (_('Port cleanup failed for these port-ids (%s).')
+                           % ports_str)
+                    exceptions.handle(request, msg)
             exceptions.handle(request)
-            return False
+        return False
 
     def set_network_port_profiles(self, request, net_ids, profile_id):
         # Create port with Network ID and Port Profile
@@ -976,3 +986,15 @@ class LaunchInstance(workflows.Workflow):
                            'profile_id': profile_id})
 
         return nics
+
+
+def _cleanup_ports_on_failed_vm_launch(request, nics):
+    ports_failing_deletes = []
+    LOG.debug('Cleaning up stale VM ports.')
+    for nic in nics:
+        try:
+            LOG.debug('Deleting port with id: %s' % nic['port-id'])
+            api.neutron.port_delete(request, nic['port-id'])
+        except Exception:
+            ports_failing_deletes.append(nic['port-id'])
+    return ports_failing_deletes

@@ -4454,3 +4454,129 @@ class ConsoleManagerTests(helpers.TestCase):
 
         self.assertNoFormErrors(res)
         self.assertRedirectsNoFollow(res, INDEX_URL)
+
+    @helpers.update_settings(
+        OPENSTACK_NEUTRON_NETWORK={'profile_support': 'cisco'})
+    @helpers.create_stubs({api.glance: ('image_list_detailed',),
+                           api.neutron: ('network_list',
+                                         'profile_list',
+                                         'port_create',
+                                         'port_delete'),
+                           api.nova: ('extension_supported',
+                                      'flavor_list',
+                                      'keypair_list',
+                                      'availability_zone_list',
+                                      'server_create',),
+                           api.network: ('security_group_list',),
+                           cinder: ('volume_list',
+                                    'volume_snapshot_list',),
+                           quotas: ('tenant_quota_usages',)})
+    def test_port_cleanup_called_on_failed_vm_launch(self):
+        flavor = self.flavors.first()
+        image = self.images.first()
+        keypair = self.keypairs.first()
+        server = self.servers.first()
+        sec_group = self.security_groups.first()
+        avail_zone = self.availability_zones.first()
+        customization_script = 'user data'
+        quota_usages = self.quota_usages.first()
+
+        api.nova.extension_supported('BlockDeviceMappingV2Boot',
+                                     IsA(http.HttpRequest)) \
+            .AndReturn(True)
+        volumes = [v for v in self.volumes.list() if (v.status == AVAILABLE
+                                                      and v.bootable ==
+                                                      'true')]
+        cinder.volume_list(IsA(http.HttpRequest),
+                           search_opts=VOLUME_SEARCH_OPTS) \
+            .AndReturn(volumes)
+        volumes = [v for v in self.volumes.list() if (v.status == AVAILABLE)]
+        cinder.volume_snapshot_list(IsA(http.HttpRequest),
+                                    search_opts=SNAPSHOT_SEARCH_OPTS) \
+            .AndReturn(volumes)
+        api.nova.flavor_list(IgnoreArg()).AndReturn(self.flavors.list())
+        api.nova.keypair_list(IgnoreArg()).AndReturn(self.keypairs.list())
+        api.network.security_group_list(IsA(http.HttpRequest)) \
+            .AndReturn(self.security_groups.list())
+        api.nova.availability_zone_list(IsA(http.HttpRequest)) \
+            .AndReturn(self.availability_zones.list())
+        api.glance.image_list_detailed(
+            IsA(http.HttpRequest),
+            filters={'is_public': True, 'status': 'active'}) \
+            .AndReturn([self.images.list(), False, False])
+        api.glance.image_list_detailed(
+            IsA(http.HttpRequest),
+            filters={'property-owner_id': self.tenant.id,
+                     'status': 'active'}) \
+            .AndReturn([[], False, False])
+        api.neutron.network_list(IsA(http.HttpRequest),
+                                 tenant_id=self.tenant.id,
+                                 shared=False) \
+            .AndReturn(self.networks.list()[:1])
+        api.neutron.network_list(IsA(http.HttpRequest),
+                                 shared=True) \
+            .AndReturn(self.networks.list()[1:])
+        policy_profiles = self.policy_profiles.list()
+        policy_profile_id = self.policy_profiles.first().id
+        port = self.ports.first()
+        api.neutron.profile_list(
+            IsA(http.HttpRequest), 'policy').AndReturn(policy_profiles)
+        api.neutron.port_create(
+            IsA(http.HttpRequest),
+            self.networks.first().id,
+            policy_profile_id=policy_profile_id).AndReturn(port)
+        nics = [{"port-id": port.id}]
+        api.nova.extension_supported('DiskConfig',
+                                     IsA(http.HttpRequest)) \
+            .AndReturn(True)
+        api.nova.extension_supported('ConfigDrive',
+                                     IsA(http.HttpRequest)).AndReturn(True)
+        api.nova.server_create(IsA(http.HttpRequest),
+                               server.name,
+                               image.id,
+                               flavor.id,
+                               keypair.name,
+                               customization_script,
+                               [sec_group.name],
+                               block_device_mapping=None,
+                               block_device_mapping_v2=None,
+                               nics=nics,
+                               availability_zone=avail_zone.zoneName,
+                               instance_count=IsA(int),
+                               admin_pass='password',
+                               disk_config='AUTO',
+                               config_drive=False) \
+            .AndRaise(self.exceptions.neutron)
+        api.neutron.port_delete(IsA(http.HttpRequest), port.id)
+        quotas.tenant_quota_usages(IsA(http.HttpRequest)) \
+            .AndReturn(quota_usages)
+        api.nova.flavor_list(IsA(http.HttpRequest)) \
+            .AndReturn(self.flavors.list())
+
+        self.mox.ReplayAll()
+
+        form_data = {'flavor': flavor.id,
+                     'source_type': 'image_id',
+                     'source_id': image.id,
+                     'volume_size': '1',
+                     'image_id': image.id,
+                     'availability_zone': avail_zone.zoneName,
+                     'keypair': keypair.name,
+                     'name': server.name,
+                     'script_source': 'raw',
+                     'script_data': customization_script,
+                     'project_id': self.tenants.first().id,
+                     'user_id': self.user.id,
+                     'groups': sec_group.name,
+                     'volume_type': '',
+                     'network': self.networks.first().id,
+                     'count': 1,
+                     'admin_pass': 'password',
+                     'confirm_admin_pass': 'password',
+                     'disk_config': 'AUTO',
+                     'config_drive': False,
+                     'profile': self.policy_profiles.first().id}
+        url = reverse('horizon:project:instances:launch')
+        res = self.client.post(url, form_data)
+
+        self.assertRedirectsNoFollow(res, INDEX_URL)
