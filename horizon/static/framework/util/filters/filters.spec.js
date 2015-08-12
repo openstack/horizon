@@ -200,6 +200,22 @@
           expect(itemCountFilter(-1.2)).toBe('Displaying 0 items');
         })
       );
+
+      it('should return translated text with item count and total',
+        inject(function (itemCountFilter) {
+          var expectZero = [null, false, 'a', '0', 0, -1, -1.2];
+          expectZero.forEach(function(x) {
+            expect(itemCountFilter(0, x)).toBe('Displaying 0 of 0 items');
+          });
+
+          var expectOne = [true, '1', 0.8, 1, 1.2];
+          expectOne.forEach(function(x) {
+            expect(itemCountFilter(0, x)).toBe('Displaying 0 of 1 items');
+          });
+
+          expect(itemCountFilter(5, 20)).toBe('Displaying 5 of 20 items');
+        })
+      );
     });
 
   }); // end of horizon.framework.util.filters

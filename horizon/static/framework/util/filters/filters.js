@@ -156,15 +156,27 @@
    * @name itemCount
    * @description
    * Displays translated count in table footer.
-   * Takes only finite numbers.
+   * Input should be the number shown; an optional parameter specifies how
+   * large the total set is regardless of the number shown.
    */
   function itemCountFilter() {
-    return function (input) {
+
+    function ensureNonNegative (input) {
       var isNumeric = (input !== null && isFinite(input));
       var number = isNumeric ? Math.round(input) : 0;
-      var count = (number > 0) ? number : 0;
-      var format = ngettext('Displaying %s item', 'Displaying %s items', count);
-      return interpolate(format, [count]);
+      return (number > 0) ? number : 0;
+    }
+
+    return function (input, totalInput) {
+      var count = ensureNonNegative(input);
+      if (angular.isUndefined(totalInput)) {
+        var format = ngettext('Displaying %s item', 'Displaying %s items', count);
+        return interpolate(format, [count]);
+      } else {
+        var total = ensureNonNegative(totalInput);
+        var format = gettext('Displaying %s of %s items');
+        return interpolate(format, [count, total]);
+      }
     };
   }
 })();
