@@ -8,7 +8,7 @@
 # Christian Berendt <berendt@b1-systems.de>, 2015
 # Ettore Atalan <atalanttore@googlemail.com>, 2015
 # Eva Vo <eva.vonderheidt@gmail.com>, 2015
-# Frank Kloeker <eumel@arcor.de>, 2014
+# Frank Kloeker <eumel@arcor.de>, 2014-2015
 # Robert Simai, 2015
 # Thorsten Michels, 2014
 # Uwe Krieg, 2015
@@ -16,9 +16,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-08-12 05:24+0000\n"
-"PO-Revision-Date: 2015-08-11 22:55+0000\n"
-"Last-Translator: Ettore Atalan <atalanttore@googlemail.com>\n"
+"POT-Creation-Date: 2015-08-13 05:07+0000\n"
+"PO-Revision-Date: 2015-08-12 17:53+0000\n"
+"Last-Translator: Frank Kloeker <eumel@arcor.de>\n"
 "Language-Team: German (http://www.transifex.com/openstack/horizon/language/"
 "de/)\n"
 "MIME-Version: 1.0\n"
@@ -5303,6 +5303,10 @@ msgstr "Portdetails"
 
 msgid "Port Range"
 msgstr "Port-Bereich"
+
+#, python-format
+msgid "Port cleanup failed for these port-ids (%s)."
+msgstr "Portbereinigung für diese Port-ID fehlgeschlagen (%s)."
 
 msgid "Port list can not be retrieved."
 msgstr "Portliste kann nicht abgerufen werden."

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-08-12 06:16+0000\n"
+"POT-Creation-Date: 2015-08-13 06:14+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -934,7 +934,7 @@ msgstr ""
 #: dashboards/admin/volumes/volumes/forms.py:179
 #: dashboards/project/access_and_security/floating_ips/tables.py:202
 #: dashboards/project/firewalls/tables.py:361
-#: dashboards/project/images/images/tables.py:282
+#: dashboards/project/images/images/tables.py:283
 #: dashboards/project/instances/tables.py:1071
 #: dashboards/project/loadbalancers/tables.py:468
 #: dashboards/project/loadbalancers/tables.py:524
@@ -1282,7 +1282,7 @@ msgstr[1] ""
 #: dashboards/admin/info/tables.py:168
 #: dashboards/project/access_and_security/security_groups/forms.py:178
 #: dashboards/project/access_and_security/security_groups/forms.py:185
-#: dashboards/project/images/images/tables.py:279
+#: dashboards/project/images/images/tables.py:280
 #: dashboards/project/loadbalancers/workflows.py:482
 #: dashboards/project/routers/ports/tables.py:115
 #: dashboards/project/stacks/resource_types/tables.py:31
@@ -2485,7 +2485,7 @@ msgstr ""
 #: contrib/trove/content/databases/tables.py:327
 #: dashboards/admin/instances/tables.py:145
 #: dashboards/project/containers/tables.py:450
-#: dashboards/project/images/images/tables.py:298
+#: dashboards/project/images/images/tables.py:299
 #: dashboards/project/instances/tables.py:1066
 #: dashboards/project/volumes/backups/tables.py:127
 #: dashboards/project/volumes/volumes/tables.py:404
@@ -3278,7 +3278,7 @@ msgstr ""
 #: dashboards/project/images/images/forms.py:157
 #: dashboards/project/images/images/forms.py:317
 #: dashboards/project/images/images/tables.py:186
-#: dashboards/project/images/images/tables.py:287
+#: dashboards/project/images/images/tables.py:288
 msgid "Public"
 msgstr ""
 
@@ -3667,7 +3667,7 @@ msgstr ""
 #: dashboards/admin/images/panel.py:25 dashboards/admin/images/tables.py:78
 #: dashboards/admin/images/views.py:49 dashboards/project/images/panel.py:22
 #: dashboards/project/images/views.py:38
-#: dashboards/project/images/images/tables.py:304
+#: dashboards/project/images/images/tables.py:305
 #: dashboards/project/ngimages/panel.py:21
 msgid "Images"
 msgstr ""
@@ -3696,7 +3696,7 @@ msgstr ""
 
 #: dashboards/admin/images/tables.py:71
 #: dashboards/admin/instances/tables.py:140
-#: dashboards/project/images/images/tables.py:277
+#: dashboards/project/images/images/tables.py:278
 #: dashboards/project/instances/tables.py:1061
 #: dashboards/project/instances/workflows/create_instance.py:108
 #: dashboards/project/volumes/volumes/forms.py:638
@@ -4005,7 +4005,7 @@ msgstr ""
 #: dashboards/admin/metadata_defs/tables.py:149
 #: dashboards/project/images/images/forms.py:158
 #: dashboards/project/images/images/forms.py:318
-#: dashboards/project/images/images/tables.py:291
+#: dashboards/project/images/images/tables.py:292
 msgid "Protected"
 msgstr ""
 
@@ -7835,7 +7835,7 @@ msgstr ""
 
 #: dashboards/project/images/images/forms.py:129
 #: dashboards/project/images/images/forms.py:299
-#: dashboards/project/images/images/tables.py:294
+#: dashboards/project/images/images/tables.py:295
 msgid "Format"
 msgstr ""
 
@@ -9277,12 +9277,17 @@ msgstr ""
 msgid "Unable to retrieve extensions information"
 msgstr ""
 
-#: dashboards/project/instances/workflows/create_instance.py:955
+#: dashboards/project/instances/workflows/create_instance.py:947
+#, python-format
+msgid "Port cleanup failed for these port-ids (%s)."
+msgstr ""
+
+#: dashboards/project/instances/workflows/create_instance.py:965
 #, python-format
 msgid "Unable to create port for profile \"%(profile_id)s\": %(reason)s"
 msgstr ""
 
-#: dashboards/project/instances/workflows/create_instance.py:965
+#: dashboards/project/instances/workflows/create_instance.py:975
 #, python-format
 msgid " Also failed to delete port %s"
 msgstr ""

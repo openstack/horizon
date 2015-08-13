@@ -8,9 +8,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-08-12 05:24+0000\n"
-"PO-Revision-Date: 2015-08-11 09:17+0000\n"
-"Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
+"POT-Creation-Date: 2015-08-13 05:07+0000\n"
+"PO-Revision-Date: 2015-08-12 20:11+0000\n"
+"Last-Translator: Zbyněk Schwarz <zbynek.schwarz@gmail.com>\n"
 "Language-Team: Czech (http://www.transifex.com/openstack/horizon/language/"
 "cs/)\n"
 "MIME-Version: 1.0\n"
@@ -921,6 +921,9 @@ msgstr "Zvolte hlavní binární soubor"
 msgid "Choose a new instance flavor."
 msgstr "Zvolte novou konfiguraci instance."
 
+msgid "Choose a shell script"
+msgstr "Zvolte skript shellu"
+
 msgid "Choose a snapshot"
 msgstr "Zvolte snímek"
 
@@ -929,6 +932,9 @@ msgstr "Zvolte umístění úložiště"
 
 msgid "Choose a volume"
 msgstr "Zvolte svazek"
+
+msgid "Choose additional files"
+msgstr "Zvolte další soubory"
 
 msgid "Choose an DHCP Agent to attach to."
 msgstr "Zvolte agenta DHCP pro připojení."
@@ -5243,6 +5249,10 @@ msgstr "Podrobnosti portu"
 msgid "Port Range"
 msgstr "Rozsah portů"
 
+#, python-format
+msgid "Port cleanup failed for these port-ids (%s)."
+msgstr "Vyčištění portu selhalo u těchto id portů (%s)"
+
 msgid "Port list can not be retrieved."
 msgstr "Nelze získat seznam portů."
 
@@ -6361,6 +6371,9 @@ msgstr "Sdílené úložiště"
 msgid "Shared with Me"
 msgstr "Sdíleno se mnou"
 
+msgid "Shell"
+msgstr "Shell"
+
 msgctxt "Current status of an Instance"
 msgid "Shelved"
 msgstr "Uskladněno"
@@ -7290,6 +7303,9 @@ msgstr ""
 "Pro určení povoleného rozsahu IP vyberte &quot;CIDR&quot;. Pro povolení "
 "přístupu pro všechny členy jiné bezpečnostní skupiny vyberte &quot;"
 "Bezpečnostní skupiny&quot;."
+
+msgid "Toggle navigation"
+msgstr "Přepnout navigaci"
 
 msgid "Topic"
 msgstr "Téma"
