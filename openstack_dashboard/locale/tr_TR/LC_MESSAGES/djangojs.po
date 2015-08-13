@@ -9,9 +9,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-08-11 04:23+0000\n"
-"PO-Revision-Date: 2015-08-10 14:03+0000\n"
-"Last-Translator: ADİL REŞİT DURSUN <ardursun@deltanoc.com>\n"
+"POT-Creation-Date: 2015-08-13 05:07+0000\n"
+"PO-Revision-Date: 2015-08-13 02:40+0000\n"
+"Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Turkish (Turkey) (http://www.transifex.com/openstack/horizon/"
 "language/tr_TR/)\n"
 "MIME-Version: 1.0\n"
@@ -645,14 +645,6 @@ msgstr "Statü"
 
 msgid "Subnets Associated"
 msgstr "Alt Ağlar İlişkilendirildi"
-
-#, python-format
-msgid "Successfully created key pair %(name)s"
-msgstr "%(name)s anahtar çifti başarıyla oluşturuldu"
-
-#, python-format
-msgid "Successfully imported key pair %(name)s"
-msgstr "%(name)s anahtar çifti başarıyla içe aktarıldı"
 
 msgid ""
 "The flavor you select for an instance determines the amount of compute, "

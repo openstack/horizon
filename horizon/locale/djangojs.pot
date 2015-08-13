@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-07-29 06:23+0000\n"
+"POT-Creation-Date: 2015-08-13 06:14+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -79,7 +79,7 @@ msgid "Remaining"
 msgstr ""
 
 #: static/framework/widgets/charts/pie-chart.directive.js:154
-#: static/framework/widgets/metadata-tree/metadata-tree.module.js:39
+#: static/framework/widgets/metadata/tree/tree.module.js:48
 msgid "Max"
 msgstr ""
 
@@ -89,7 +89,7 @@ msgstr ""
 
 #: static/framework/widgets/magic-search/hz-magic-search-bar.spec.js:35
 #: static/framework/widgets/magic-search/magic-overrides.spec.js:50
-#: static/framework/widgets/magic-search/st-magic-search.spec.js:43
+#: static/framework/widgets/magic-search/st-magic-search.spec.js:54
 #: static/framework/widgets/modal/simple-modal.service.js:66
 #: static/framework/widgets/wizard/wizard.module.js:47
 #: static/horizon/js/horizon.modals.js:33
@@ -98,76 +98,76 @@ msgstr ""
 
 #: static/framework/widgets/magic-search/hz-magic-search-bar.spec.js:36
 #: static/framework/widgets/magic-search/magic-overrides.spec.js:51
-#: static/framework/widgets/magic-search/st-magic-search.spec.js:44
+#: static/framework/widgets/magic-search/st-magic-search.spec.js:55
 msgid "Prompt"
 msgstr ""
 
 #: static/framework/widgets/magic-search/hz-magic-search-bar.spec.js:37
 #: static/framework/widgets/magic-search/magic-overrides.spec.js:52
-#: static/framework/widgets/magic-search/st-magic-search.spec.js:45
+#: static/framework/widgets/magic-search/st-magic-search.spec.js:56
 msgid "Remove"
 msgstr ""
 
 #: static/framework/widgets/magic-search/hz-magic-search-bar.spec.js:38
 #: static/framework/widgets/magic-search/magic-overrides.spec.js:53
-#: static/framework/widgets/magic-search/st-magic-search.spec.js:46
+#: static/framework/widgets/magic-search/st-magic-search.spec.js:57
 msgid "Text"
 msgstr ""
 
 #: static/framework/widgets/magic-search/hz-magic-search-bar.spec.js:44
 #: static/framework/widgets/magic-search/magic-overrides.spec.js:59
-#: static/framework/widgets/magic-search/st-magic-search.spec.js:52
+#: static/framework/widgets/magic-search/st-magic-search.spec.js:63
 msgid "Name"
 msgstr ""
 
 #: static/framework/widgets/magic-search/hz-magic-search-bar.spec.js:49
 #: static/framework/widgets/magic-search/magic-overrides.spec.js:64
-#: static/framework/widgets/magic-search/st-magic-search.spec.js:57
+#: static/framework/widgets/magic-search/st-magic-search.spec.js:68
 msgid "Status"
 msgstr ""
 
 #: static/framework/widgets/magic-search/hz-magic-search-bar.spec.js:51
 #: static/framework/widgets/magic-search/magic-overrides.spec.js:66
-#: static/framework/widgets/magic-search/st-magic-search.spec.js:59
+#: static/framework/widgets/magic-search/st-magic-search.spec.js:70
 msgid "Active"
 msgstr ""
 
 #: static/framework/widgets/magic-search/hz-magic-search-bar.spec.js:52
 #: static/framework/widgets/magic-search/magic-overrides.spec.js:67
-#: static/framework/widgets/magic-search/st-magic-search.spec.js:60
+#: static/framework/widgets/magic-search/st-magic-search.spec.js:71
 msgid "Shutdown"
 msgstr ""
 
 #: static/framework/widgets/magic-search/hz-magic-search-bar.spec.js:53
 #: static/framework/widgets/magic-search/magic-overrides.spec.js:68
-#: static/framework/widgets/magic-search/st-magic-search.spec.js:61
+#: static/framework/widgets/magic-search/st-magic-search.spec.js:72
 #: static/framework/widgets/toast/toast.service.js:59
 msgid "Error"
 msgstr ""
 
 #: static/framework/widgets/magic-search/hz-magic-search-bar.spec.js:58
 #: static/framework/widgets/magic-search/magic-overrides.spec.js:73
-#: static/framework/widgets/magic-search/st-magic-search.spec.js:66
+#: static/framework/widgets/magic-search/st-magic-search.spec.js:77
 msgid "Flavor"
 msgstr ""
 
 #: static/framework/widgets/magic-search/hz-magic-search-bar.spec.js:61
 #: static/framework/widgets/magic-search/magic-overrides.spec.js:76
-#: static/framework/widgets/magic-search/st-magic-search.spec.js:69
+#: static/framework/widgets/magic-search/st-magic-search.spec.js:80
 msgid "m1.tiny"
 msgstr ""
 
 #: static/framework/widgets/magic-search/hz-magic-search-bar.spec.js:62
 #: static/framework/widgets/magic-search/magic-overrides.spec.js:77
-#: static/framework/widgets/magic-search/st-magic-search.spec.js:70
+#: static/framework/widgets/magic-search/st-magic-search.spec.js:81
 msgid "m1.small"
 msgstr ""
 
-#: static/framework/widgets/metadata-display/metadata-display.module.js:47
+#: static/framework/widgets/metadata/display/metadata-display.html:25
 msgid "Detail Information"
 msgstr ""
 
-#: static/framework/widgets/metadata-tree/metadata-tree.module.js:36
+#: static/framework/widgets/metadata/tree/tree.module.js:45
 msgid ""
 "You can specify resource metadata by moving items from the left column to"
 " the right column. In the left columns there are metadata definitions "
@@ -175,61 +175,61 @@ msgid ""
 "metadata with the key of your choice."
 msgstr ""
 
-#: static/framework/widgets/metadata-tree/metadata-tree.module.js:38
+#: static/framework/widgets/metadata/tree/tree.module.js:47
 msgid "Min"
 msgstr ""
 
-#: static/framework/widgets/metadata-tree/metadata-tree.module.js:40
+#: static/framework/widgets/metadata/tree/tree.module.js:49
 msgid "Min length"
 msgstr ""
 
-#: static/framework/widgets/metadata-tree/metadata-tree.module.js:41
+#: static/framework/widgets/metadata/tree/tree.module.js:50
 msgid "Max length"
 msgstr ""
 
-#: static/framework/widgets/metadata-tree/metadata-tree.module.js:42
+#: static/framework/widgets/metadata/tree/tree.module.js:51
 msgid "Pattern mismatch"
 msgstr ""
 
-#: static/framework/widgets/metadata-tree/metadata-tree.module.js:43
+#: static/framework/widgets/metadata/tree/tree.module.js:52
 msgid "Integer required"
 msgstr ""
 
-#: static/framework/widgets/metadata-tree/metadata-tree.module.js:44
+#: static/framework/widgets/metadata/tree/tree.module.js:53
 msgid "Decimal required"
 msgstr ""
 
-#: static/framework/widgets/metadata-tree/metadata-tree.module.js:45
+#: static/framework/widgets/metadata/tree/tree.module.js:54
 msgid "Required"
 msgstr ""
 
-#: static/framework/widgets/metadata-tree/metadata-tree.module.js:46
+#: static/framework/widgets/metadata/tree/tree.module.js:55
 msgid "Duplicate keys are not allowed"
 msgstr ""
 
-#: static/framework/widgets/metadata-tree/metadata-tree.module.js:47
-#: static/framework/widgets/table/basic-table.js:6
+#: static/framework/widgets/metadata/tree/tree.module.js:56
+#: static/framework/widgets/table/table.module.js:52
 #: static/horizon/js/horizon.forms.js:184
 msgid "Filter"
 msgstr ""
 
-#: static/framework/widgets/metadata-tree/metadata-tree.module.js:48
+#: static/framework/widgets/metadata/tree/tree.module.js:57
 msgid "Available Metadata"
 msgstr ""
 
-#: static/framework/widgets/metadata-tree/metadata-tree.module.js:49
+#: static/framework/widgets/metadata/tree/tree.module.js:58
 msgid "Existing Metadata"
 msgstr ""
 
-#: static/framework/widgets/metadata-tree/metadata-tree.module.js:50
+#: static/framework/widgets/metadata/tree/tree.module.js:59
 msgid "Custom"
 msgstr ""
 
-#: static/framework/widgets/metadata-tree/metadata-tree.module.js:51
+#: static/framework/widgets/metadata/tree/tree.module.js:60
 msgid "No available metadata"
 msgstr ""
 
-#: static/framework/widgets/metadata-tree/metadata-tree.module.js:52
+#: static/framework/widgets/metadata/tree/tree.module.js:61
 msgid "No existing metadata"
 msgstr ""
 
@@ -309,11 +309,6 @@ msgstr ""
 msgid "Finish"
 msgstr ""
 
-#: static/horizon/js/horizon.accordion_nav.js:89
-#: static/horizon/js/horizon.modals.js:318 static/horizon/js/horizon.tabs.js:21
-msgid "Loading"
-msgstr ""
-
 #: static/horizon/js/horizon.d3linechart.js:395
 #: static/horizon/js/horizon.d3linechart.js:405
 msgid "No data available."
@@ -375,6 +370,11 @@ msgstr ""
 
 #: static/horizon/js/horizon.modals.js:266
 msgid "There was an error submitting the form. Please try again."
+msgstr ""
+
+#: static/horizon/js/horizon.modals.js:318
+#: static/horizon/js/horizon.modals.js:401 static/horizon/js/horizon.tabs.js:21
+msgid "Loading"
 msgstr ""
 
 #: static/horizon/js/horizon.networktopology.js:531

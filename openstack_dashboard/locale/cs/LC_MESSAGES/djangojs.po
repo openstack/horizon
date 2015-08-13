@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-08-04 04:10+0000\n"
-"PO-Revision-Date: 2015-08-01 15:18+0000\n"
+"POT-Creation-Date: 2015-08-13 05:07+0000\n"
+"PO-Revision-Date: 2015-08-13 04:27+0000\n"
 "Last-Translator: Zbyněk Schwarz <zbynek.schwarz@gmail.com>\n"
 "Language-Team: Czech (http://www.transifex.com/openstack/horizon/language/"
 "cs/)\n"
@@ -651,12 +651,12 @@ msgid "Subnets Associated"
 msgstr "Podsítě přidruženy"
 
 #, python-format
-msgid "Successfully created key pair %(name)s"
-msgstr "Pár klíčů %(name)s úspěšně vytvořen"
+msgid "Successfully created key pair %(name)s."
+msgstr "Úspěšně vytvořen pár klíčů %(name)s."
 
 #, python-format
-msgid "Successfully imported key pair %(name)s"
-msgstr "Pár klíčů %(name)s úspěšně importován"
+msgid "Successfully imported key pair %(name)s."
+msgstr "Úspěšně importován pár klíčů %(name)s."
 
 msgid ""
 "The flavor you select for an instance determines the amount of compute, "
