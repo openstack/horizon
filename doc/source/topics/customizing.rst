@@ -77,6 +77,26 @@ This allows for common site-customization requirements such as:
 * Changing the names of dashboards and panels.
 * Re-ordering panels within a dashboard or panel group.
 
+Default Horizon panels are loaded based upon files within the openstack_dashboard/enabled/
+folder.  These files are loaded based upon the filename order, with space left for more
+files to be added.  There are some example files available within this folder, with the
+.example suffix added.  Developers and deployers should strive to use this method of
+customization as much as possible, and support for this is given preference over more
+exotic methods such as monkey patching and overrides files.
+
+Horizon customization module (overrides)
+========================================
+
+Horizon has a global overrides mechanism available to perform customizations that are not
+yet customizable via configuration settings.  This file can perform monkey patching and
+other forms of customization which are not possible via the enabled folder's customization
+method.
+
+This method of customization is meant to be available for deployers of Horizon, and use of
+this should be avoided by Horizon plugins at all cost.  Plugins needing this level of
+monkey patching and flexibility should instead look for changing their __init__.py file
+and performing customizations through other means.
+
 To specify the python module containing your modifications, add the key
 ``customization_module`` to your ``HORIZON_CONFIG`` dictionary in
 ``local_settings.py``. The value should be a string containing the path to your
