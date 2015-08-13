@@ -267,6 +267,41 @@ class Statistic(base.APIResourceWrapper):
               'duration', 'duration_start', 'duration_end']
 
 
+class Alarm(base.APIResourceWrapper):
+    """Represents one Ceilometer alarm."""
+    _attrs = ['alarm_actions', 'ok_actions', 'name',
+              'timestamp', 'description', 'time_constraints',
+              'enabled', 'state_timestamp', 'alarm_id',
+              'state', 'insufficient_data_actions',
+              'repeat_actions', 'user_id', 'project_id',
+              'type', 'severity', 'threshold_rule', 'period', 'query',
+              'evaluation_periods', 'statistic', 'meter_name',
+              'threshold', 'comparison_operator', 'exclude_outliers']
+
+    def __init__(self, apiresource, ceilometer_usage=None):
+        super(Alarm, self).__init__(apiresource)
+        self._tenant = None
+        self._user = None
+
+        if ceilometer_usage and self.project_id:
+            self._tenant = ceilometer_usage.get_tenant(self.project_id)
+
+        if ceilometer_usage and self.user_id:
+            self._user = ceilometer_usage.get_user(self.user_id)
+
+    @property
+    def id(self):
+        return self.alarm_id
+
+    @property
+    def tenant(self):
+        return self._tenant
+
+    @property
+    def user(self):
+        return self._user
+
+
 @memoized
 def ceilometerclient(request):
     """Initialization of Ceilometer client."""
@@ -278,6 +313,35 @@ def ceilometerclient(request):
                                     token=(lambda: request.user.token.id),
                                     insecure=insecure,
                                     cacert=cacert)
+
+
+def alarm_list(request, query=None, ceilometer_usage=None):
+    """List alarms."""
+    alarms = ceilometerclient(request).alarms.list(q=query)
+    return [Alarm(alarm, ceilometer_usage) for alarm in alarms]
+
+
+def alarm_get(request, alarm_id, ceilometer_usage=None):
+    """Get an alarm."""
+    alarm = ceilometerclient(request).alarms.get(alarm_id)
+    return Alarm(alarm, ceilometer_usage)
+
+
+def alarm_update(request, alarm_id, ceilometer_usage=None, **kwargs):
+    """Update an alarm."""
+    alarm = ceilometerclient(request).alarms.update(alarm_id, **kwargs)
+    return Alarm(alarm, ceilometer_usage)
+
+
+def alarm_delete(request, alarm_id):
+    """Delete an alarm."""
+    ceilometerclient(request).alarms.delete(alarm_id)
+
+
+def alarm_create(request, ceilometer_usage=None, **kwargs):
+    """Create an alarm."""
+    alarm = ceilometerclient(request).alarms.create(**kwargs)
+    return Alarm(alarm, ceilometer_usage)
 
 
 def resource_list(request, query=None, ceilometer_usage_object=None):

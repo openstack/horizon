@@ -12,6 +12,7 @@
 # License for the specific language governing permissions and limitations
 # under the License.
 
+from ceilometerclient.v2 import alarms
 from ceilometerclient.v2 import meters
 from ceilometerclient.v2 import resources
 from ceilometerclient.v2 import samples
@@ -31,6 +32,7 @@ def data(TEST):
     TEST.api_resources = utils.TestDataContainer()
     TEST.samples = utils.TestDataContainer()
     TEST.meters = utils.TestDataContainer()
+    TEST.alarms = utils.TestDataContainer()
     TEST.statistics = utils.TestDataContainer()
     TEST.global_disk_usages = utils.TestDataContainer()
     TEST.global_network_usages = utils.TestDataContainer()
@@ -173,6 +175,111 @@ def data(TEST):
     sample_2 = samples.Sample(samples.SampleManager(None), sample_dict_2)
     TEST.samples.add(sample_1)
     TEST.samples.add(sample_2)
+
+    # alarms
+    alarm_dict_1 = {'alarm_actions': ['alarm_action1', 'alarm_action2'],
+                    'ok_actions': ['ok_action_1', 'ok_action_2'],
+                    'name': 'fake_alarm_name',
+                    'timestamp': '2015-08-07T05:32:20.970341',
+                    'description': 'fake_random_description',
+                    'time_constraints': [],
+                    'enabled': True,
+                    'state_timestamp': '2015-08-07T17:59:11.351033',
+                    'threshold_rule': {'meter_name': 'fake_meter_name',
+                                       'evaluation_periods': 1, 'period': 300,
+                                       'statistic': 'avg', 'threshold': 2.0,
+                                       'query': [],
+                                       'comparison_operator': 'ge',
+                                       'exclude_outliers': False},
+                    'alarm_id': 'fake_alarm_id',
+                    'state': 'ok',
+                    'insufficient_data_actions': ['fake_action_1',
+                                                  'fake_action_2'],
+                    'repeat_actions': True,
+                    'user_id': 'fake_user_id',
+                    'project_id': 'fake_project_id',
+                    'type': 'threshold',
+                    'severity': 'low'}
+    alarm_dict_2 = {'alarm_actions': ['alarm_action1', 'alarm_action2'],
+                    'ok_actions': ['ok_action_1', 'ok_action_2'],
+                    'name': 'fake_alarm_name',
+                    'timestamp': '2015-08-07T05:32:20.970341',
+                    'description': 'New',
+                    'time_constraints': [],
+                    'enabled': True,
+                    'state_timestamp': '2015-08-07T17:59:11.351033',
+                    'threshold_rule': {'meter_name': 'fake_meter_name',
+                                       'evaluation_periods': 1, 'period': 300,
+                                       'statistic': 'avg', 'threshold': 2.0,
+                                       'query': [],
+                                       'comparison_operator': 'ge',
+                                       'exclude_outliers': False},
+                    'alarm_id': 'fake_alarm_id2',
+                    'state': 'ok',
+                    'insufficient_data_actions': ['fake_action_1',
+                                                  'fake_action_2'],
+                    'repeat_actions': True,
+                    'user_id': 'fake_user_id',
+                    'project_id': 'fake_project_id',
+                    'type': 'threshold',
+                    'severity': 'low'}
+    alarm_dict_3 = {'alarm_actions': ['alarm_action1', 'alarm_action2'],
+                    'ok_actions': ['ok_action_1', 'ok_action_2'],
+                    'name': 'fake_alarm_name',
+                    'timestamp': '2015-08-07T05:32:20.970341',
+                    'description': 'fake_random_description',
+                    'time_constraints': [],
+                    'enabled': True,
+                    'state_timestamp': '2015-08-07T17:59:11.351033',
+                    'threshold_rule': {'meter_name': 'fake_meter_name',
+                                       'evaluation_periods': 2, 'period': 300,
+                                       'statistic': 'avg', 'threshold': 2.0,
+                                       'query': [{'field': 'resource_id',
+                                                  'value': ''}],
+                                       'comparison_operator': 'ge',
+                                       'exclude_outliers': False},
+                    'alarm_id': 'fake_alarm_id3',
+                    'state': 'ok',
+                    'insufficient_data_actions': ['fake_action_1',
+                                                  'fake_action_2'],
+                    'repeat_actions': True,
+                    'user_id': '',
+                    'project_id': '',
+                    'type': 'threshold',
+                    'severity': 'low'}
+    alarm_dict_4 = {'alarm_actions': ['alarm_action1', 'alarm_action2'],
+                    'ok_actions': ['ok_action_1', 'ok_action_2'],
+                    'name': 'fake_alarm_name4',
+                    'timestamp': '2015-08-07T05:32:20.970341',
+                    'description': 'fake_random_description',
+                    'time_constraints': [],
+                    'enabled': True,
+                    'state_timestamp': '2015-08-07T17:59:11.351033',
+                    'threshold_rule': {'meter_name': '',
+                                       'evaluation_periods': -10, 'period': -1,
+                                       'statistic': 'avg', 'threshold': '',
+                                       'query': [{'field': 'resource_id',
+                                                  'value': ''}],
+                                       'comparison_operator': 'ge',
+                                       'exclude_outliers': False},
+                    'alarm_id': 'fake_alarm_id4',
+                    'state': 'ok',
+                    'insufficient_data_actions': ['fake_action_1',
+                                                  'fake_action_2'],
+                    'repeat_actions': True,
+                    'user_id': 'fake_user_id',
+                    'project_id': 'fake_project_id',
+                    'type': 'threshold',
+                    'severity': 'low'}
+
+    alarm_1 = alarms.Alarm(alarms.AlarmManager(None), alarm_dict_1)
+    alarm_2 = alarms.Alarm(alarms.AlarmManager(None), alarm_dict_2)
+    alarm_3 = alarms.Alarm(alarms.AlarmManager(None), alarm_dict_3)
+    alarm_4 = alarms.Alarm(alarms.AlarmManager(None), alarm_dict_4)
+    TEST.alarms.add(alarm_1)
+    TEST.alarms.add(alarm_2)
+    TEST.alarms.add(alarm_3)
+    TEST.alarms.add(alarm_4)
 
     # meters
     meter_dict_1 = {'name': 'instance',
