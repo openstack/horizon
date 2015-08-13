@@ -44,7 +44,7 @@ def has_permissions_on_list(components, user):
             in components if has_permissions(user, component)]
 
 
-@register.inclusion_tag('horizon/_accordion_nav.html', takes_context=True)
+@register.inclusion_tag('horizon/_sidebar.html', takes_context=True)
 def horizon_nav(context):
     if 'request' not in context:
         return {}
@@ -65,9 +65,9 @@ def horizon_nav(context):
                         panel.can_access(context)):
                     allowed_panels.append(panel)
                 if panel == current_panel:
-                    current_panel_group = group.name
+                    current_panel_group = group.slug
             if allowed_panels:
-                non_empty_groups.append((group.name, allowed_panels))
+                non_empty_groups.append((group, allowed_panels))
         if (callable(dash.nav) and dash.nav(context) and
                 dash.can_access(context)):
             dashboards.append((dash, SortedDict(non_empty_groups)))
