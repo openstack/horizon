@@ -12,7 +12,8 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
-from django.utils.datastructures import SortedDict
+from collections import OrderedDict
+
 from django.utils.translation import ugettext_lazy as _
 
 from horizon import exceptions
@@ -68,7 +69,7 @@ class VolumeTableMixIn(object):
                                volumes,
                                instances,
                                volume_ids_with_snapshots):
-        instances = SortedDict([(inst.id, inst) for inst in instances])
+        instances = OrderedDict([(inst.id, inst) for inst in instances])
         for volume in volumes:
             if volume_ids_with_snapshots:
                 if volume.id in volume_ids_with_snapshots:

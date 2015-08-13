@@ -14,7 +14,7 @@
 
 from __future__ import absolute_import
 
-from django.utils.datastructures import SortedDict
+from collections import OrderedDict
 
 from horizon.utils.memoized import memoized  # noqa
 
@@ -88,12 +88,12 @@ def _vpnservice_list(request, expand_subnet=False, expand_router=False,
         **kwargs).get('vpnservices')
     if expand_subnet:
         subnets = neutron.subnet_list(request)
-        subnet_dict = SortedDict((s.id, s) for s in subnets)
+        subnet_dict = OrderedDict((s.id, s) for s in subnets)
         for s in vpnservices:
             s['subnet_name'] = subnet_dict.get(s['subnet_id']).cidr
     if expand_router:
         routers = neutron.router_list(request)
-        router_dict = SortedDict((r.id, r) for r in routers)
+        router_dict = OrderedDict((r.id, r) for r in routers)
         for s in vpnservices:
             s['router_name'] = router_dict.get(s['router_id']).name_or_id
     if expand_conns:
@@ -324,18 +324,18 @@ def _ipsecsiteconnection_list(request, expand_ikepolicies=False,
         **kwargs).get('ipsec_site_connections')
     if expand_ikepolicies:
         ikepolicies = _ikepolicy_list(request, **kwargs)
-        policy_dict = SortedDict((p.id, p) for p in ikepolicies)
+        policy_dict = OrderedDict((p.id, p) for p in ikepolicies)
         for c in ipsecsiteconnections:
             c['ikepolicy_name'] = policy_dict.get(c['ikepolicy_id']).name_or_id
     if expand_ipsecpolicies:
         ipsecpolicies = _ipsecpolicy_list(request, **kwargs)
-        policy_dict = SortedDict((p.id, p) for p in ipsecpolicies)
+        policy_dict = OrderedDict((p.id, p) for p in ipsecpolicies)
         for c in ipsecsiteconnections:
             c['ipsecpolicy_name'] = policy_dict.get(c['ipsecpolicy_id']
                                                     ).name_or_id
     if expand_vpnservices:
         vpnservices = _vpnservice_list(request, **kwargs)
-        service_dict = SortedDict((s.id, s) for s in vpnservices)
+        service_dict = OrderedDict((s.id, s) for s in vpnservices)
         for c in ipsecsiteconnections:
             c['vpnservice_name'] = service_dict.get(c['vpnservice_id']
                                                     ).name_or_id

@@ -13,6 +13,7 @@
 #    under the License.
 
 from collections import defaultdict
+from collections import OrderedDict
 import logging
 import types
 import warnings
@@ -21,7 +22,6 @@ from django.conf import settings
 from django.core import urlresolvers
 from django import shortcuts
 from django.template.loader import render_to_string  # noqa
-from django.utils.datastructures import SortedDict
 from django.utils.functional import Promise  # noqa
 from django.utils.http import urlencode  # noqa
 from django.utils.translation import pgettext_lazy
@@ -363,7 +363,7 @@ class LinkAction(BaseAction):
     def get_ajax_update_url(self):
         table_url = self.table.get_absolute_url()
         params = urlencode(
-            SortedDict([("action", self.name), ("table", self.table.name)])
+            OrderedDict([("action", self.name), ("table", self.table.name)])
         )
         return "%s?%s" % (table_url, params)
 

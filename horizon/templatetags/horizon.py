@@ -14,11 +14,11 @@
 
 from __future__ import absolute_import
 
+from collections import OrderedDict
 from horizon.contrib import bootstrap_datepicker
 
 from django.conf import settings
 from django import template
-from django.utils.datastructures import SortedDict
 from django.utils.encoding import force_text
 from django.utils import translation
 from django.utils.translation import ugettext_lazy as _
@@ -70,10 +70,10 @@ def horizon_nav(context):
                 non_empty_groups.append((group, allowed_panels))
         if (callable(dash.nav) and dash.nav(context) and
                 dash.can_access(context)):
-            dashboards.append((dash, SortedDict(non_empty_groups)))
+            dashboards.append((dash, OrderedDict(non_empty_groups)))
         elif (not callable(dash.nav) and dash.nav and
                 dash.can_access(context)):
-            dashboards.append((dash, SortedDict(non_empty_groups)))
+            dashboards.append((dash, OrderedDict(non_empty_groups)))
     return {'components': dashboards,
             'user': context['request'].user,
             'current': current_dashboard,
@@ -125,7 +125,7 @@ def horizon_dashboard_nav(context):
             else:
                 non_empty_groups.append((group.name, allowed_panels))
 
-    return {'components': SortedDict(non_empty_groups),
+    return {'components': OrderedDict(non_empty_groups),
             'user': context['request'].user,
             'current': context['request'].horizon['panel'].slug,
             'request': context['request']}

@@ -19,13 +19,13 @@
 """
 Views for managing instances.
 """
+from collections import OrderedDict
 import logging
 
 from django.core.urlresolvers import reverse
 from django.core.urlresolvers import reverse_lazy
 from django import http
 from django import shortcuts
-from django.utils.datastructures import SortedDict
 from django.utils.translation import ugettext_lazy as _
 from django.views import generic
 
@@ -100,9 +100,9 @@ class IndexView(tables.DataTableView):
                 images = []
                 exceptions.handle(self.request, ignore=True)
 
-            full_flavors = SortedDict([(str(flavor.id), flavor)
+            full_flavors = OrderedDict([(str(flavor.id), flavor)
                                        for flavor in flavors])
-            image_map = SortedDict([(str(image.id), image)
+            image_map = OrderedDict([(str(image.id), image)
                                     for image in images])
 
             # Loop through instances to get flavor info.
@@ -416,7 +416,7 @@ class ResizeView(workflows.WorkflowView):
     def get_flavors(self, *args, **kwargs):
         try:
             flavors = api.nova.flavor_list(self.request)
-            return SortedDict((str(flavor.id), flavor) for flavor in flavors)
+            return OrderedDict((str(flavor.id), flavor) for flavor in flavors)
         except Exception:
             redirect = reverse("horizon:project:instances:index")
             exceptions.handle(self.request,

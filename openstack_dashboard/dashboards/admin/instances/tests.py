@@ -12,11 +12,11 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
+from collections import OrderedDict
 import uuid
 
 from django.core.urlresolvers import reverse
 from django import http
-from django.utils.datastructures import SortedDict
 
 from mox3.mox import IgnoreArg  # noqa
 from mox3.mox import IsA  # noqa
@@ -63,7 +63,7 @@ class InstanceViewTest(test.BaseAdminViewTests):
         servers = self.servers.list()
         tenants = self.tenants.list()
         flavors = self.flavors.list()
-        full_flavors = SortedDict([(f.id, f) for f in flavors])
+        full_flavors = OrderedDict([(f.id, f) for f in flavors])
 
         search_opts = {'marker': None, 'paginate': True}
         api.nova.server_list(IsA(http.HttpRequest),

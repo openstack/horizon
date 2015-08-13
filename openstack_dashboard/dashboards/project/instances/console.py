@@ -11,9 +11,9 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
+from collections import OrderedDict
 import logging
 
-from django.utils.datastructures import SortedDict
 from django.utils.http import urlencode
 from django.utils.translation import ugettext_lazy as _
 import six
@@ -26,7 +26,7 @@ from openstack_dashboard import api
 
 LOG = logging.getLogger(__name__)
 
-CONSOLES = SortedDict([('VNC', api.nova.server_vnc_console),
+CONSOLES = OrderedDict([('VNC', api.nova.server_vnc_console),
                        ('SPICE', api.nova.server_spice_console),
                        ('RDP', api.nova.server_rdp_console),
                        ('SERIAL', api.nova.server_serial_console)])

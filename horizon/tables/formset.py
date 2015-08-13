@@ -10,6 +10,7 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
+import collections
 import itertools
 import logging
 import sys
@@ -18,7 +19,6 @@ import six
 
 from django import template
 from django.template import loader
-from django.utils import datastructures
 
 from horizon.tables import base as horizon_tables
 
@@ -55,12 +55,12 @@ class FormsetRow(horizon_tables.Row):
             # We need to be able to handle empty rows, because there may
             # be extra empty forms in a formset. The original DataTable breaks
             # on this, because it sets self.cells to [], but later expects a
-            # SortedDict. We just fill self.cells with empty Cells.
+            # OrderedDict. We just fill self.cells with empty Cells.
             cells = []
             for column in self.table.columns.values():
                 cell = self.table._meta.cell_class(None, column, self)
                 cells.append((column.name or column.auto, cell))
-            self.cells = datastructures.SortedDict(cells)
+            self.cells = collections.OrderedDict(cells)
 
     def render(self):
         return loader.render_to_string(self.template_path,

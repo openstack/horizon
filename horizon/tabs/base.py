@@ -12,13 +12,13 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
+from collections import OrderedDict
 import sys
 
 import six
 
 from django.template.loader import render_to_string
 from django.template import TemplateSyntaxError  # noqa
-from django.utils.datastructures import SortedDict
 
 from horizon import exceptions
 from horizon.utils import html
@@ -108,7 +108,7 @@ class TabGroup(html.HTMLElement):
         tab_instances = []
         for tab in self.tabs:
             tab_instances.append((tab.slug, tab(self, request)))
-        self._tabs = SortedDict(tab_instances)
+        self._tabs = OrderedDict(tab_instances)
         if self.sticky:
             self.attrs['data-sticky-tabs'] = 'sticky'
         if not self._set_active_tab():
@@ -428,7 +428,7 @@ class TableTab(Tab):
         table_instances = [(table._meta.name,
                             table(request, **tab_group.kwargs))
                            for table in self.table_classes]
-        self._tables = SortedDict(table_instances)
+        self._tables = OrderedDict(table_instances)
         self._table_data_loaded = False
 
     def load_table_data(self):
