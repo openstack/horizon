@@ -1,27 +1,29 @@
-/*
-Copyright 2015, Hewlett-Packard Development Company, L.P.
-
-Licensed under the Apache License, Version 2.0 (the "License");
-you may not use this file except in compliance with the License.
-You may obtain a copy of the License at
-
-    http://www.apache.org/licenses/LICENSE-2.0
-
-Unless required by applicable law or agreed to in writing, software
-distributed under the License is distributed on an "AS IS" BASIS,
-WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-See the License for the specific language governing permissions and
-limitations under the License.
-*/
+/**
+ * Copyright 2015, Hewlett-Packard Development Company, L.P.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *    http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
 (function () {
   'use strict';
 
   angular
     .module('horizon.app.core.openstack-service-api')
-    .service('horizon.app.core.openstack-service-api.glance', GlanceAPI);
+    .factory('horizon.app.core.openstack-service-api.glance', GlanceAPI);
 
-  GlanceAPI.$inject = ['horizon.framework.util.http.service',
-                       'horizon.framework.widgets.toast.service'];
+  GlanceAPI.$inject = [
+    'horizon.framework.util.http.service',
+    'horizon.framework.widgets.toast.service'
+  ];
 
   /**
    * @ngdoc service
@@ -29,6 +31,15 @@ limitations under the License.
    * @description Provides direct pass through to Glance with NO abstraction.
    */
   function GlanceAPI(apiService, toastService) {
+    var service = {
+      getImage: getImage,
+      getImages: getImages,
+      getNamespaces: getNamespaces
+    };
+
+    return service;
+
+    ///////////////
 
     // Images
 
@@ -39,12 +50,12 @@ limitations under the License.
      * @param {string} id
      * Specifies the id of the image to request.
      */
-    this.getImage = function(id) {
+    function getImage(id) {
       return apiService.get('/api/glance/images/' + id)
         .error(function () {
           toastService.add('error', gettext('Unable to retrieve the image.'));
         });
-    };
+    }
 
     /**
      * @name horizon.app.core.openstack-service-api.glance.getImages
@@ -80,13 +91,13 @@ limitations under the License.
      * Any additional request parameters will be passed through the API as
      * filters. For example "name" : "fedora" would filter on the fedora name.
      */
-    this.getImages = function(params) {
+    function getImages(params) {
       var config = (params) ? { 'params' : params} : {};
       return apiService.get('/api/glance/images/', config)
         .error(function () {
           toastService.add('error', gettext('Unable to retrieve the images.'));
         });
-    };
+    }
 
     // Metadata Definitions - Namespaces
 
@@ -140,7 +151,7 @@ limitations under the License.
      * (horizon alert). The glance API may not have metadata definitions
      * enabled.
      */
-    this.getNamespaces = function(params, suppressError) {
+    function getNamespaces(params, suppressError) {
       var config = (params) ? {'params' : params} : {};
       config.cache = true;
 
@@ -149,7 +160,7 @@ limitations under the License.
       return suppressError ? promise : promise.error(function() {
           toastService.add('error', gettext('Unable to retrieve the namespaces.'));
         });
-    };
+    }
 
   }
 }());

@@ -1,4 +1,4 @@
-/*
+/**
  * Copyright 2014, Rackspace, US, Inc.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -18,7 +18,7 @@
 
   angular
     .module('horizon.app.core.openstack-service-api')
-    .service('horizon.app.core.openstack-service-api.keystone', KeystoneAPI);
+    .factory('horizon.app.core.openstack-service-api.keystone', KeystoneAPI);
 
   KeystoneAPI.$inject = [
     'horizon.framework.util.http.service',

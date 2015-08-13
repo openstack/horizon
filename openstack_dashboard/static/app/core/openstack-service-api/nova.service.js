@@ -1,27 +1,29 @@
-/*
-Copyright 2014, Rackspace, US, Inc.
-
-Licensed under the Apache License, Version 2.0 (the "License");
-you may not use this file except in compliance with the License.
-You may obtain a copy of the License at
-
-    http://www.apache.org/licenses/LICENSE-2.0
-
-Unless required by applicable law or agreed to in writing, software
-distributed under the License is distributed on an "AS IS" BASIS,
-WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-See the License for the specific language governing permissions and
-limitations under the License.
-*/
+/**
+ * Copyright 2014, Rackspace, US, Inc.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *    http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
 (function () {
   'use strict';
 
   angular
     .module('horizon.app.core.openstack-service-api')
-    .service('horizon.app.core.openstack-service-api.nova', NovaAPI);
+    .factory('horizon.app.core.openstack-service-api.nova', NovaAPI);
 
-  NovaAPI.$inject = ['horizon.framework.util.http.service',
-                     'horizon.framework.widgets.toast.service'];
+  NovaAPI.$inject = [
+    'horizon.framework.util.http.service',
+    'horizon.framework.widgets.toast.service'
+  ];
 
   /**
    * @ngdoc service
@@ -29,6 +31,23 @@ limitations under the License.
    * @description Provides access to Nova APIs.
    */
   function NovaAPI(apiService, toastService) {
+
+    var service = {
+      getKeypairs: getKeypairs,
+      createKeypair: createKeypair,
+      getAvailabilityZones: getAvailabilityZones,
+      getLimits: getLimits,
+      createServer: createServer,
+      getServer: getServer,
+      getExtensions: getExtensions,
+      getFlavors: getFlavors,
+      getFlavor: getFlavor,
+      getFlavorExtraSpecs: getFlavorExtraSpecs
+    };
+
+    return service;
+
+    ///////////
 
     // Keypairs
 
@@ -40,12 +59,12 @@ limitations under the License.
      * The listing result is an object with property "items". Each item is
      * a keypair.
      */
-    this.getKeypairs = function() {
+    function getKeypairs() {
       return apiService.get('/api/nova/keypairs/')
         .error(function () {
           toastService.add('error', gettext('Unable to retrieve the keypairs.'));
         });
-    };
+    }
 
     /**
      * @name horizon.app.core.openstack-service-api.nova.createKeypair
@@ -61,7 +80,7 @@ limitations under the License.
      * @param {string} newKeypair.public_key
      * The public key.  Optional.
      */
-    this.createKeypair = function(newKeypair) {
+    function createKeypair(newKeypair) {
       return apiService.post('/api/nova/keypairs/', newKeypair)
         .error(function () {
           if (angular.isDefined(newKeypair.public_key)) {
@@ -70,7 +89,7 @@ limitations under the License.
             toastService.add('error', gettext('Unable to create the keypair.'));
           }
         });
-    };
+    }
 
     // Availability Zones
 
@@ -82,13 +101,13 @@ limitations under the License.
      * The listing result is an object with property "items". Each item is
      * an availability zone.
      */
-    this.getAvailabilityZones = function() {
+    function getAvailabilityZones() {
       return apiService.get('/api/nova/availzones/')
         .error(function () {
           toastService.add('error',
                         gettext('Unable to retrieve the availability zones.'));
         });
-    };
+    }
 
     // Limits
 
@@ -121,12 +140,12 @@ limitations under the License.
      *   "totalServerGroupsUsed": 0
      * }
      */
-    this.getLimits = function() {
+    function getLimits() {
       return apiService.get('/api/nova/limits/')
         .error(function () {
           toastService.add('error', gettext('Unable to retrieve the limits.'));
         });
-    };
+    }
 
     // Servers
 
@@ -148,12 +167,12 @@ limitations under the License.
      *
      * This returns the new server object on success.
      */
-    this.createServer = function(newServer) {
+    function createServer(newServer) {
       return apiService.post('/api/nova/servers/', newServer)
         .error(function () {
           toastService.add('error', gettext('Unable to create the server.'));
         });
-    };
+    }
 
     /**
      * @name horizon.app.core.openstack-service-api.nova.getServer
@@ -162,12 +181,12 @@ limitations under the License.
      * @param {string} id
      * Specifies the id of the server to request.
      */
-    this.getServer = function(id) {
+    function getServer(id) {
       return apiService.get('/api/nova/servers/' + id)
         .error(function () {
           toastService.add('error', gettext('Unable to retrieve the server.'));
         });
-    };
+    }
 
     /**
      * @name horizon.app.core.openstack-service-api.nova.getExtensions
@@ -192,12 +211,12 @@ limitations under the License.
      *    ]
      *  }
      */
-    this.getExtensions = function(config) {
+    function getExtensions(config) {
       return apiService.get('/api/nova/extensions/', config)
         .error(function () {
           toastService.add('error', gettext('Unable to retrieve the extensions.'));
         });
-    };
+    }
 
     /**
      * @name horizon.app.core.openstack-service-api.nova.getFlavors
@@ -215,7 +234,7 @@ limitations under the License.
      * Also retrieve the extra specs. This is expensive (one extra underlying
      * call per flavor).
      */
-    this.getFlavors = function(isPublic, getExtras) {
+    function getFlavors(isPublic, getExtras) {
       var config = {'params': {}};
       if (isPublic) { config.params.is_public = 'true'; }
       if (getExtras) { config.params.get_extras = 'true'; }
@@ -242,7 +261,7 @@ limitations under the License.
         .error(function () {
           toastService.add('error', gettext('Unable to retrieve the flavors.'));
         });
-    };
+    }
 
     /**
      * @name horizon.app.core.openstack-service-api.nova.getFlavor
@@ -253,14 +272,14 @@ limitations under the License.
      * @param {boolean} getExtras (optional)
      * Also retrieve the extra specs for the flavor.
      */
-    this.getFlavor = function(id, getExtras) {
+    function getFlavor(id, getExtras) {
       var config = {'params': {}};
       if (getExtras) { config.params.get_extras = 'true'; }
       return apiService.get('/api/nova/flavors/' + id, config)
         .error(function () {
           toastService.add('error', gettext('Unable to retrieve the flavor.'));
         });
-    };
+    }
 
     /**
      * @name horizon.app.core.openstack-service-api.nova.getFlavorExtraSpecs
@@ -269,12 +288,12 @@ limitations under the License.
      * @param {string} id
      * Specifies the id of the flavor to request the extra specs.
      */
-    this.getFlavorExtraSpecs = function(id) {
+    function getFlavorExtraSpecs(id) {
       return apiService.get('/api/nova/flavors/' + id + '/extra-specs')
         .error(function () {
           toastService.add('error', gettext('Unable to retrieve the flavor extra specs.'));
         });
-    };
+    }
   }
 
 }());
