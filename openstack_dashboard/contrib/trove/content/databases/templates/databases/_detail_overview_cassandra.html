@@ -13,9 +13,9 @@
           {% else %}
               <dd>{{ host }}</dd>
               <dt>{% trans "Database Port" %}</dt>
-              <dd>9160</dd>
+              <dd>9042</dd>
               <dt>{% trans "Connection Examples" %}</dt>
-              <dd>cqlsh {{ host }} 9160</dd>
+              <dd>cqlsh {{ host }} 9042</dd>
           {% endif %} <!-- ends else block -->
       {% endwith %}
     </dl>
