@@ -4,6 +4,7 @@
 #
 # Translators:
 # Ainur Shakirov <ainur.shakirov.tt@gmail.com>, 2015
+# Alexander Vasiliev <avasiliev@asdco.ru>, 2015
 # Dasha Sher <sher.dasha@gmail.com>, 2014
 # Denis Gubanov <v12aml@gmail.com>, 2015
 # Fedor Tarasenko <feodor.tarasenko@gmail.com>, 2015
@@ -16,8 +17,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-08-11 04:23+0000\n"
-"PO-Revision-Date: 2015-08-11 01:43+0000\n"
+"POT-Creation-Date: 2015-08-14 04:33+0000\n"
+"PO-Revision-Date: 2015-08-14 02:29+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Russian (http://www.transifex.com/openstack/horizon/language/"
 "ru/)\n"
@@ -553,6 +554,9 @@ msgstr "Выделить IP"
 
 msgid "Allocate IP To Project"
 msgstr "Выделить IP проекту"
+
+msgid "Allocated"
+msgstr "Выделено"
 
 #, python-format
 msgid "Allocated Floating IP %(ip)s."
@@ -2075,13 +2079,6 @@ msgstr[0] "Удалить пользователя"
 msgstr[1] "Удалить пользователей"
 msgstr[2] ""
 msgstr[3] "Удалить пользователей"
-
-msgid "Delete VIP"
-msgid_plural "Delete VIPs"
-msgstr[0] "Удалить VIP"
-msgstr[1] "Удалить VIP"
-msgstr[2] ""
-msgstr[3] "Удалить VIP"
 
 msgid "Delete VPN Service"
 msgid_plural "Delete VPN Services"
@@ -5479,6 +5476,10 @@ msgstr "Название проекта"
 msgid "Project Usage"
 msgstr "Использование проекта"
 
+#, python-format
+msgid "Project name \"%s\" is already used."
+msgstr "Имя проекта \"%s\" уже используется."
+
 msgid "Projects"
 msgstr "Проекты"
 
@@ -6182,13 +6183,6 @@ msgstr[0] "Запланировано удаление правила"
 msgstr[1] "Запланировано удаление правил"
 msgstr[2] ""
 msgstr[3] "Запланировано удаление правил"
-
-msgid "Scheduled deletion of VIP"
-msgid_plural "Scheduled deletion of VIPs"
-msgstr[0] "Запланировано удаление VIP"
-msgstr[1] "Запланировано удаление VIP"
-msgstr[2] ""
-msgstr[3] "Запланировано удаление VIP"
 
 msgid "Scheduled deletion of VPN Service"
 msgid_plural "Scheduled deletion of VPN Services"
