@@ -79,32 +79,23 @@ class AddMonitorLink(tables.LinkAction):
     policy_rules = (("network", "create_health_monitor"),)
 
 
-class DeleteVipLink(policy.PolicyTargetMixin, tables.DeleteAction):
+class DeleteVipLink(policy.PolicyTargetMixin, tables.Action):
     name = "deletevip"
+    preempt = True
+    verbose_name = _("Delete VIP")
     policy_rules = (("network", "delete_vip"),)
+    classes = ('btn-danger',)
 
-    @staticmethod
-    def action_present(count):
-        return ungettext_lazy(
-            u"Delete VIP",
-            u"Delete VIPs",
-            count
-        )
-
-    @staticmethod
-    def action_past(count):
-        return ungettext_lazy(
-            u"Scheduled deletion of VIP",
-            u"Scheduled deletion of VIPs",
-            count
-        )
+    def get_help_text(self, vip_id):
+        return _("Deleting VIP %s from this pool cannot be undone.") % vip_id
 
     def allowed(self, request, datum=None):
-        if datum and not datum.vip_id:
-            return False
-        return True
+        if datum and datum.vip_id:
+            self.help_text = self.get_help_text(datum.vip_id)
+            return True
+        return False
 
-    def delete(self, request, obj_id):
+    def single(self, table, request, obj_id):
         try:
             vip_id = api.lbaas.pool_get(request, obj_id).vip_id
         except Exception as e:
