@@ -4,12 +4,12 @@
 
 {% block form_name %}metadataForm{% endblock %}
 {% block form_validation %}novalidate{% endblock %}
-{% block ng_controller %}hzModalFormUpdateMetadataCtrl{% endblock %}
+{% block ng_controller %}hzModalFormUpdateMetadataController as metadataCtrl{% endblock %}
 
 {% block modal-body %}
-  <metadata-tree available="available"
-                    existing="existing"
-                    model="tree"></metadata-tree>
+  <metadata-tree available="metadataCtrl.available"
+                    existing="metadataCtrl.existing"
+                    model="metadataCtrl.tree"></metadata-tree>
   <script type="text/javascript">
     var existing_metadata = JSON.parse('{{ existing_metadata|escapejs }}');
     var available_metadata = JSON.parse('{{ available_metadata|escapejs }}');
@@ -20,10 +20,10 @@
   <div>
     <input class="btn btn-primary pull-right"
            ng-disabled="metadataForm.$invalid"
-           ng-click="saveMetadata()" type="submit"
+           ng-click="metadataCtrl.saveMetadata()" type="submit"
            value="{% trans "Save" %}"/>
     <a class="btn btn-default secondary cancel close">{% trans "Cancel" %}</a>
-    <input type="hidden" name="metadata" ng-value="metadata"
-           ng-model="metadata">
+    <input type="hidden" name="metadata" ng-value="metadataCtrl.metadata"
+           ng-model="metadataCtrl.metadata">
   </div>
 {% endblock %}

@@ -3,7 +3,7 @@
 {% load url from future %}
 
 {% block form_id %}update_object_form{% endblock %}
-{% block ng_controller %}DummyCtrl{% endblock %}
+{% block ng_controller %}DummyController{% endblock %}
 {% block form_name %}updateForm{% endblock %}
 {% block form_action %}{% url 'horizon:project:containers:object_update' container_name subfolder_path object_path %}{% endblock %}
 {% block form_attrs %}enctype="multipart/form-data"{% endblock %}

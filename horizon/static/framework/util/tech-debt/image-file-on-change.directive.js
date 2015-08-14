@@ -17,32 +17,24 @@
 
   angular
     .module('horizon.framework.util.tech-debt')
-    .controller('hzModalFormUpdateMetadataController', hzModalFormUpdateMetadataController);
+    .directive('imageFileOnChange', imageFileOnChange);
 
-  hzModalFormUpdateMetadataController.$inject = ['$scope', '$window'];
-
-  function hzModalFormUpdateMetadataController($scope, $window) {
-    var ctrl = this;
-
-    ctrl.tree = null;
-    ctrl.available = $window.available_metadata.namespaces;
-    ctrl.existing = $window.existing_metadata;
-
-    ctrl.saveMetadata = function () {
-      var metadata = [];
-      angular.forEach(ctrl.tree.getExisting(), function (value, key) {
-        metadata.push({
-          key: key,
-          value: value
-
-        });
-
-      });
-
-      ctrl.metadata = angular.toJson(metadata);
-
+  function imageFileOnChange() {
+    var directive = {
+      require: 'ngModel',
+      restrict: 'A',
+      link: link
     };
 
-  }
+    return directive;
 
-}());
+    function link($scope, element, attrs, ngModel) {
+      element.bind('change', function (event) {
+        var files = event.target.files;
+        var file = files[0];
+        ngModel.$setViewValue(file);
+        $scope.$apply();
+      });
+    }
+  }
+})();

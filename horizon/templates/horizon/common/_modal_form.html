@@ -7,7 +7,7 @@
     <hr>
   {% endif %}
   <form id="{% block form_id %}{{ form_id }}{% endblock %}"
-        ng-controller="{% block ng_controller %}DummyCtrl{% endblock %}"
+        ng-controller="{% block ng_controller %}DummyController{% endblock %}"
         name="{% block form_name %}{% endblock %}"
         autocomplete="{% block autocomplete %}{% if form.no_autocomplete %}off{% endif %}{% endblock %}"
         class="{% block form_class %}{% endblock %}"
