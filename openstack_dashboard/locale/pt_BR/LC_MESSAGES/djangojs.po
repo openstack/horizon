@@ -6,13 +6,14 @@
 # Gabriel Wainer, 2015
 # Lafaiet <coldmetall@gmail.com>, 2015
 # Luís Eduardo Tenório Silva <eduardovansilva@gmail.com>, 2015
+# Tiago OR (James) <tiagoor@gmail.com>, 2015
 msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-08-13 05:07+0000\n"
-"PO-Revision-Date: 2015-08-13 02:40+0000\n"
-"Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
+"POT-Creation-Date: 2015-08-14 04:33+0000\n"
+"PO-Revision-Date: 2015-08-13 17:43+0000\n"
+"Last-Translator: Tiago OR (James) <tiagoor@gmail.com>\n"
 "Language-Team: Portuguese (Brazil) (http://www.transifex.com/openstack/"
 "horizon/language/pt_BR/)\n"
 "MIME-Version: 1.0\n"
@@ -524,6 +525,14 @@ msgstr "Status"
 
 msgid "Subnets Associated"
 msgstr "Sub-redes Associadas"
+
+#, python-format
+msgid "Successfully created key pair %(name)s."
+msgstr "Par de chaves %(name)s criado com sucesso."
+
+#, python-format
+msgid "Successfully imported key pair %(name)s."
+msgstr "Par de chaves %(name)s importados com sucesso."
 
 msgid ""
 "The flavor you select for an instance determines the amount of compute, "

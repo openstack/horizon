@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-08-13 06:14+0000\n"
+"POT-Creation-Date: 2015-08-14 06:11+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -456,7 +456,7 @@ msgstr ""
 
 #: api/nova.py:110 api/nova.py:120
 #: contrib/trove/content/databases/tables.py:279
-#: dashboards/project/loadbalancers/tables.py:548
+#: dashboards/project/loadbalancers/tables.py:539
 #: dashboards/project/routers/tables.py:186
 #: dashboards/project/volumes/volumes/tables.py:356
 msgid "-"
@@ -599,7 +599,7 @@ msgstr ""
 #: dashboards/project/instances/workflows/update_instance.py:105
 #: dashboards/project/loadbalancers/forms.py:31
 #: dashboards/project/loadbalancers/forms.py:73
-#: dashboards/project/loadbalancers/tables.py:457
+#: dashboards/project/loadbalancers/tables.py:448
 #: dashboards/project/loadbalancers/workflows.py:36
 #: dashboards/project/loadbalancers/workflows.py:150
 #: dashboards/project/networks/forms.py:35
@@ -688,7 +688,7 @@ msgstr ""
 #: dashboards/project/images/images/forms.py:279
 #: dashboards/project/loadbalancers/forms.py:36
 #: dashboards/project/loadbalancers/forms.py:78
-#: dashboards/project/loadbalancers/tables.py:459
+#: dashboards/project/loadbalancers/tables.py:450
 #: dashboards/project/loadbalancers/workflows.py:39
 #: dashboards/project/loadbalancers/workflows.py:153
 #: dashboards/project/volumes/backups/forms.py:35
@@ -860,7 +860,7 @@ msgstr ""
 #: contrib/trove/content/database_backups/workflows/create_backup.py:43
 #: contrib/trove/content/databases/workflows/create_instance.py:48
 #: dashboards/project/instances/workflows/create_instance.py:138
-#: dashboards/project/loadbalancers/tables.py:558
+#: dashboards/project/loadbalancers/tables.py:549
 msgid "Details"
 msgstr ""
 
@@ -936,8 +936,8 @@ msgstr ""
 #: dashboards/project/firewalls/tables.py:361
 #: dashboards/project/images/images/tables.py:283
 #: dashboards/project/instances/tables.py:1071
-#: dashboards/project/loadbalancers/tables.py:468
-#: dashboards/project/loadbalancers/tables.py:524
+#: dashboards/project/loadbalancers/tables.py:459
+#: dashboards/project/loadbalancers/tables.py:515
 #: dashboards/project/networks/tables.py:174
 #: dashboards/project/networks/ports/tables.py:74
 #: dashboards/project/routers/tables.py:212
@@ -3001,7 +3001,7 @@ msgstr ""
 #: dashboards/admin/volumes/volume_types/extras/views.py:88
 #: dashboards/admin/volumes/volume_types/qos_specs/views.py:103
 #: dashboards/identity/domains/workflows.py:300
-#: dashboards/identity/projects/workflows.py:609
+#: dashboards/identity/projects/workflows.py:582
 #: dashboards/identity/users/views.py:209
 #: dashboards/project/instances/workflows/update_instance.py:133
 #: dashboards/project/networks/subnets/workflows.py:163
@@ -3764,7 +3764,7 @@ msgstr ""
 #: dashboards/identity/projects/tables.py:237
 #: dashboards/identity/projects/tables.py:240
 #: dashboards/identity/projects/workflows.py:153
-#: dashboards/identity/projects/workflows.py:561
+#: dashboards/identity/projects/workflows.py:540
 #: dashboards/identity/users/forms.py:109
 #: dashboards/identity/users/tables.py:251
 #: dashboards/project/firewalls/forms.py:71
@@ -3930,7 +3930,7 @@ msgstr ""
 #: dashboards/project/access_and_security/floating_ips/workflows.py:33
 #: dashboards/project/access_and_security/floating_ips/workflows.py:40
 #: dashboards/project/instances/tables.py:1063
-#: dashboards/project/loadbalancers/tables.py:514
+#: dashboards/project/loadbalancers/tables.py:505
 msgid "IP Address"
 msgstr ""
 
@@ -4361,9 +4361,9 @@ msgstr ""
 #: dashboards/project/loadbalancers/forms.py:95
 #: dashboards/project/loadbalancers/forms.py:178
 #: dashboards/project/loadbalancers/forms.py:241
-#: dashboards/project/loadbalancers/tables.py:474
-#: dashboards/project/loadbalancers/tables.py:529
-#: dashboards/project/loadbalancers/tables.py:560
+#: dashboards/project/loadbalancers/tables.py:465
+#: dashboards/project/loadbalancers/tables.py:520
+#: dashboards/project/loadbalancers/tables.py:551
 #: dashboards/project/loadbalancers/workflows.py:48
 #: dashboards/project/loadbalancers/workflows.py:190
 #: dashboards/project/loadbalancers/workflows.py:343
@@ -4941,7 +4941,7 @@ msgid "Unable to retrieve volume snapshot."
 msgstr ""
 
 #: dashboards/admin/volumes/volume_types/forms.py:28
-#: dashboards/project/loadbalancers/tables.py:460
+#: dashboards/project/loadbalancers/tables.py:451
 #: dashboards/project/loadbalancers/workflows.py:42
 msgid "Provider"
 msgstr ""
@@ -5566,8 +5566,8 @@ msgstr ""
 
 #: dashboards/identity/domains/workflows.py:72
 #: dashboards/identity/domains/workflows.py:171
-#: dashboards/identity/projects/workflows.py:223
-#: dashboards/identity/projects/workflows.py:321
+#: dashboards/identity/projects/workflows.py:202
+#: dashboards/identity/projects/workflows.py:300
 #, python-format
 msgid "Could not find default role \"%s\" in Keystone"
 msgstr ""
@@ -5577,7 +5577,7 @@ msgid "Unable to find default role."
 msgstr ""
 
 #: dashboards/identity/domains/workflows.py:89
-#: dashboards/identity/projects/workflows.py:293
+#: dashboards/identity/projects/workflows.py:272
 #: dashboards/identity/users/views.py:58
 msgid "Unable to retrieve user list."
 msgstr ""
@@ -5585,7 +5585,7 @@ msgstr ""
 #: dashboards/identity/domains/workflows.py:98
 #: dashboards/identity/domains/workflows.py:145
 #: dashboards/identity/domains/workflows.py:242
-#: dashboards/identity/projects/workflows.py:391
+#: dashboards/identity/projects/workflows.py:370
 msgid "Unable to retrieve role list."
 msgstr ""
 
@@ -5599,22 +5599,22 @@ msgid "Domain Members"
 msgstr ""
 
 #: dashboards/identity/domains/workflows.py:133
-#: dashboards/identity/projects/workflows.py:282
+#: dashboards/identity/projects/workflows.py:261
 msgid "All Users"
 msgstr ""
 
 #: dashboards/identity/domains/workflows.py:135
-#: dashboards/identity/projects/workflows.py:284
+#: dashboards/identity/projects/workflows.py:263
 msgid "No users found."
 msgstr ""
 
 #: dashboards/identity/domains/workflows.py:136
-#: dashboards/identity/projects/workflows.py:285
+#: dashboards/identity/projects/workflows.py:264
 msgid "No users."
 msgstr ""
 
 #: dashboards/identity/domains/workflows.py:161
-#: dashboards/identity/projects/workflows.py:307
+#: dashboards/identity/projects/workflows.py:286
 msgid "Unable to retrieve group list. Please try again later."
 msgstr ""
 
@@ -5624,17 +5624,17 @@ msgid "Domain Groups"
 msgstr ""
 
 #: dashboards/identity/domains/workflows.py:230
-#: dashboards/identity/projects/workflows.py:380
+#: dashboards/identity/projects/workflows.py:359
 msgid "All Groups"
 msgstr ""
 
 #: dashboards/identity/domains/workflows.py:232
-#: dashboards/identity/projects/workflows.py:382
+#: dashboards/identity/projects/workflows.py:361
 msgid "No groups found."
 msgstr ""
 
 #: dashboards/identity/domains/workflows.py:233
-#: dashboards/identity/projects/workflows.py:383
+#: dashboards/identity/projects/workflows.py:362
 msgid "No groups."
 msgstr ""
 
@@ -5836,13 +5836,13 @@ msgid "View Usage"
 msgstr ""
 
 #: dashboards/identity/projects/tables.py:99
-#: dashboards/identity/projects/workflows.py:428
-#: dashboards/identity/projects/workflows.py:429
+#: dashboards/identity/projects/workflows.py:407
+#: dashboards/identity/projects/workflows.py:408
 msgid "Create Project"
 msgstr ""
 
 #: dashboards/identity/projects/tables.py:111
-#: dashboards/identity/projects/workflows.py:608
+#: dashboards/identity/projects/workflows.py:581
 msgid "Edit Project"
 msgstr ""
 
@@ -5933,88 +5933,84 @@ msgstr ""
 msgid "Domain Name"
 msgstr ""
 
-#: dashboards/identity/projects/workflows.py:181
-msgid "Project name is already in use. Please use a different name."
-msgstr ""
-
-#: dashboards/identity/projects/workflows.py:189
-#: dashboards/identity/projects/workflows.py:590
+#: dashboards/identity/projects/workflows.py:168
+#: dashboards/identity/projects/workflows.py:563
 msgid "Project Information"
 msgstr ""
 
-#: dashboards/identity/projects/workflows.py:190
+#: dashboards/identity/projects/workflows.py:169
 msgid "Create a project to organize users."
 msgstr ""
 
-#: dashboards/identity/projects/workflows.py:209
+#: dashboards/identity/projects/workflows.py:188
 msgid "Unable to retrieve user list. Please try again later."
 msgstr ""
 
-#: dashboards/identity/projects/workflows.py:276
-#: dashboards/identity/projects/workflows.py:283
+#: dashboards/identity/projects/workflows.py:255
+#: dashboards/identity/projects/workflows.py:262
 msgid "Project Members"
 msgstr ""
 
-#: dashboards/identity/projects/workflows.py:374
-#: dashboards/identity/projects/workflows.py:381
+#: dashboards/identity/projects/workflows.py:353
+#: dashboards/identity/projects/workflows.py:360
 msgid "Project Groups"
 msgstr ""
 
-#: dashboards/identity/projects/workflows.py:430
+#: dashboards/identity/projects/workflows.py:409
 #, python-format
 msgid "Created new project \"%s\"."
 msgstr ""
 
-#: dashboards/identity/projects/workflows.py:431
+#: dashboards/identity/projects/workflows.py:410
 #, python-format
 msgid "Unable to create project \"%s\"."
 msgstr ""
 
-#: dashboards/identity/projects/workflows.py:468
-#: dashboards/identity/projects/workflows.py:652
+#: dashboards/identity/projects/workflows.py:447
+#: dashboards/identity/projects/workflows.py:625
 #, python-format
 msgid "Project name \"%s\" is already used."
 msgstr ""
 
-#: dashboards/identity/projects/workflows.py:500
+#: dashboards/identity/projects/workflows.py:479
 msgid ", add project groups"
 msgstr ""
 
-#: dashboards/identity/projects/workflows.py:504
+#: dashboards/identity/projects/workflows.py:483
 #, python-format
 msgid ""
 "Failed to add %(users_to_add)s project members%(group_msg)s and set "
 "project quotas."
 msgstr ""
 
-#: dashboards/identity/projects/workflows.py:537
+#: dashboards/identity/projects/workflows.py:516
 #, python-format
 msgid "Failed to add %s project groups and update project quotas."
 msgstr ""
 
-#: dashboards/identity/projects/workflows.py:546
+#: dashboards/identity/projects/workflows.py:525
 msgid "Unable to set project quotas."
 msgstr ""
 
-#: dashboards/identity/projects/workflows.py:568
+#: dashboards/identity/projects/workflows.py:547
 msgid "You cannot disable your current project"
 msgstr ""
 
-#: dashboards/identity/projects/workflows.py:592
+#: dashboards/identity/projects/workflows.py:565
 msgid "Edit the project details."
 msgstr ""
 
-#: dashboards/identity/projects/workflows.py:610
+#: dashboards/identity/projects/workflows.py:583
 #, python-format
 msgid "Modified project \"%s\"."
 msgstr ""
 
-#: dashboards/identity/projects/workflows.py:611
+#: dashboards/identity/projects/workflows.py:584
 #, python-format
 msgid "Unable to modify project \"%s\"."
 msgstr ""
 
-#: dashboards/identity/projects/workflows.py:708
+#: dashboards/identity/projects/workflows.py:681
 msgid ""
 "You cannot revoke your administrative privileges from the project you are"
 " currently logged into. Please switch to another project with "
@@ -6022,25 +6018,25 @@ msgid ""
 "the CLI."
 msgstr ""
 
-#: dashboards/identity/projects/workflows.py:768
+#: dashboards/identity/projects/workflows.py:741
 msgid ", update project groups"
 msgstr ""
 
-#: dashboards/identity/projects/workflows.py:772
+#: dashboards/identity/projects/workflows.py:745
 #, python-format
 msgid ""
 "Failed to modify %(users_to_modify)s project members%(group_msg)s and "
 "update project quotas."
 msgstr ""
 
-#: dashboards/identity/projects/workflows.py:849
+#: dashboards/identity/projects/workflows.py:822
 #, python-format
 msgid ""
 "Failed to modify %s project members, update project groups and update "
 "project quotas."
 msgstr ""
 
-#: dashboards/identity/projects/workflows.py:861
+#: dashboards/identity/projects/workflows.py:834
 msgid ""
 "Modified project information and members, but unable to modify project "
 "quotas."
@@ -6331,7 +6327,7 @@ msgstr ""
 #: dashboards/project/access_and_security/floating_ips/tables.py:200
 #: dashboards/project/loadbalancers/forms.py:79
 #: dashboards/project/loadbalancers/forms.py:172
-#: dashboards/project/loadbalancers/tables.py:522
+#: dashboards/project/loadbalancers/tables.py:513
 #: dashboards/project/loadbalancers/workflows.py:297
 msgid "Pool"
 msgstr ""
@@ -6392,7 +6388,7 @@ msgstr ""
 
 #: dashboards/project/access_and_security/floating_ips/tables.py:155
 #: dashboards/project/instances/tables.py:649
-#: dashboards/project/loadbalancers/tables.py:382
+#: dashboards/project/loadbalancers/tables.py:373
 msgid "Unable to disassociate floating IP."
 msgstr ""
 
@@ -7129,7 +7125,7 @@ msgstr ""
 #: dashboards/project/firewalls/forms.py:39
 #: dashboards/project/firewalls/tables.py:276
 #: dashboards/project/firewalls/workflows.py:37
-#: dashboards/project/loadbalancers/tables.py:463
+#: dashboards/project/loadbalancers/tables.py:454
 #: dashboards/project/loadbalancers/workflows.py:44
 #: dashboards/project/loadbalancers/workflows.py:167
 msgid "Protocol"
@@ -8338,7 +8334,7 @@ msgstr ""
 
 #: dashboards/project/instances/tables.py:549
 #: dashboards/project/instances/tables.py:580
-#: dashboards/project/loadbalancers/tables.py:314
+#: dashboards/project/loadbalancers/tables.py:305
 msgid "Associate Floating IP"
 msgstr ""
 
@@ -8352,18 +8348,18 @@ msgid "Unable to associate floating IP."
 msgstr ""
 
 #: dashboards/project/instances/tables.py:611
-#: dashboards/project/loadbalancers/tables.py:352
+#: dashboards/project/loadbalancers/tables.py:343
 msgid "Disassociate Floating IP"
 msgstr ""
 
 #: dashboards/project/instances/tables.py:643
-#: dashboards/project/loadbalancers/tables.py:378
+#: dashboards/project/loadbalancers/tables.py:369
 #, python-format
 msgid "Successfully disassociated floating IP: %s"
 msgstr ""
 
 #: dashboards/project/instances/tables.py:646
-#: dashboards/project/loadbalancers/tables.py:373
+#: dashboards/project/loadbalancers/tables.py:364
 msgid "No floating IPs to disassociate."
 msgstr ""
 
@@ -9431,7 +9427,7 @@ msgid "Failed to update VIP %s"
 msgstr ""
 
 #: dashboards/project/loadbalancers/forms.py:173
-#: dashboards/project/loadbalancers/tables.py:520
+#: dashboards/project/loadbalancers/tables.py:511
 #: dashboards/project/loadbalancers/workflows.py:328
 msgid "Weight"
 msgstr ""
@@ -9451,7 +9447,7 @@ msgid "Failed to update member %s"
 msgstr ""
 
 #: dashboards/project/loadbalancers/forms.py:225
-#: dashboards/project/loadbalancers/tables.py:555
+#: dashboards/project/loadbalancers/tables.py:546
 #: dashboards/project/loadbalancers/workflows.py:493
 msgid "Delay"
 msgstr ""
@@ -9464,7 +9460,7 @@ msgid ""
 msgstr ""
 
 #: dashboards/project/loadbalancers/forms.py:231
-#: dashboards/project/loadbalancers/tables.py:556
+#: dashboards/project/loadbalancers/tables.py:547
 #: dashboards/project/loadbalancers/workflows.py:499
 msgid "Timeout"
 msgstr ""
@@ -9526,207 +9522,204 @@ msgstr ""
 msgid "Add Monitor"
 msgstr ""
 
-#: dashboards/project/loadbalancers/tables.py:88
+#: dashboards/project/loadbalancers/tables.py:85
 msgid "Delete VIP"
-msgid_plural "Delete VIPs"
-msgstr[0] ""
-msgstr[1] ""
+msgstr ""
 
-#: dashboards/project/loadbalancers/tables.py:96
-msgid "Scheduled deletion of VIP"
-msgid_plural "Scheduled deletion of VIPs"
-msgstr[0] ""
-msgstr[1] ""
+#: dashboards/project/loadbalancers/tables.py:90
+#, python-format
+msgid "Deleting VIP %s from this pool cannot be undone."
+msgstr ""
 
-#: dashboards/project/loadbalancers/tables.py:112
+#: dashboards/project/loadbalancers/tables.py:103
 #, python-format
 msgid "Unable to locate VIP to delete. %s"
 msgstr ""
 
-#: dashboards/project/loadbalancers/tables.py:117
+#: dashboards/project/loadbalancers/tables.py:108
 #, python-format
 msgid "Deleted VIP %s"
 msgstr ""
 
-#: dashboards/project/loadbalancers/tables.py:120
+#: dashboards/project/loadbalancers/tables.py:111
 #, python-format
 msgid "Unable to delete VIP. %s"
 msgstr ""
 
-#: dashboards/project/loadbalancers/tables.py:129
+#: dashboards/project/loadbalancers/tables.py:120
 msgid "Delete Pool"
 msgid_plural "Delete Pools"
 msgstr[0] ""
 msgstr[1] ""
 
-#: dashboards/project/loadbalancers/tables.py:137
+#: dashboards/project/loadbalancers/tables.py:128
 msgid "Scheduled deletion of Pool"
 msgid_plural "Scheduled deletion of Pools"
 msgstr[0] ""
 msgstr[1] ""
 
-#: dashboards/project/loadbalancers/tables.py:151
+#: dashboards/project/loadbalancers/tables.py:142
 #, python-format
 msgid "Deleted pool %s"
 msgstr ""
 
-#: dashboards/project/loadbalancers/tables.py:154
+#: dashboards/project/loadbalancers/tables.py:145
 #, python-format
 msgid "Unable to delete pool. %s"
 msgstr ""
 
-#: dashboards/project/loadbalancers/tables.py:164
+#: dashboards/project/loadbalancers/tables.py:155
 msgid "Delete Monitor"
 msgid_plural "Delete Monitors"
 msgstr[0] ""
 msgstr[1] ""
 
-#: dashboards/project/loadbalancers/tables.py:172
+#: dashboards/project/loadbalancers/tables.py:163
 msgid "Scheduled deletion of Monitor"
 msgid_plural "Scheduled deletion of Monitors"
 msgstr[0] ""
 msgstr[1] ""
 
-#: dashboards/project/loadbalancers/tables.py:181
+#: dashboards/project/loadbalancers/tables.py:172
 #, python-format
 msgid "Deleted monitor %s"
 msgstr ""
 
-#: dashboards/project/loadbalancers/tables.py:184
+#: dashboards/project/loadbalancers/tables.py:175
 #, python-format
 msgid "Unable to delete monitor. %s"
 msgstr ""
 
-#: dashboards/project/loadbalancers/tables.py:193
+#: dashboards/project/loadbalancers/tables.py:184
 msgid "Delete Member"
 msgid_plural "Delete Members"
 msgstr[0] ""
 msgstr[1] ""
 
-#: dashboards/project/loadbalancers/tables.py:201
+#: dashboards/project/loadbalancers/tables.py:192
 msgid "Scheduled deletion of Member"
 msgid_plural "Scheduled deletion of Members"
 msgstr[0] ""
 msgstr[1] ""
 
-#: dashboards/project/loadbalancers/tables.py:210
+#: dashboards/project/loadbalancers/tables.py:201
 #, python-format
 msgid "Deleted member %s"
 msgstr ""
 
-#: dashboards/project/loadbalancers/tables.py:213
+#: dashboards/project/loadbalancers/tables.py:204
 #, python-format
 msgid "Unable to delete member. %s"
 msgstr ""
 
-#: dashboards/project/loadbalancers/tables.py:218
+#: dashboards/project/loadbalancers/tables.py:209
 #: dashboards/project/loadbalancers/views.py:185
 #: dashboards/project/loadbalancers/views.py:191
 msgid "Edit Pool"
 msgstr ""
 
-#: dashboards/project/loadbalancers/tables.py:230
+#: dashboards/project/loadbalancers/tables.py:221
 #: dashboards/project/loadbalancers/views.py:222
 #: dashboards/project/loadbalancers/views.py:228
 msgid "Edit VIP"
 msgstr ""
 
-#: dashboards/project/loadbalancers/tables.py:247
+#: dashboards/project/loadbalancers/tables.py:238
 #: dashboards/project/loadbalancers/views.py:273
 #: dashboards/project/loadbalancers/views.py:279
 msgid "Edit Member"
 msgstr ""
 
-#: dashboards/project/loadbalancers/tables.py:259
+#: dashboards/project/loadbalancers/tables.py:250
 #: dashboards/project/loadbalancers/views.py:309
 #: dashboards/project/loadbalancers/views.py:315
 msgid "Edit Monitor"
 msgstr ""
 
-#: dashboards/project/loadbalancers/tables.py:272
+#: dashboards/project/loadbalancers/tables.py:263
 #: dashboards/project/loadbalancers/workflows.py:669
 msgid "Associate Monitor"
 msgstr ""
 
-#: dashboards/project/loadbalancers/tables.py:288
+#: dashboards/project/loadbalancers/tables.py:279
 msgid "Failed to retrieve health monitors."
 msgstr ""
 
-#: dashboards/project/loadbalancers/tables.py:295
+#: dashboards/project/loadbalancers/tables.py:286
 #: dashboards/project/loadbalancers/workflows.py:732
 msgid "Disassociate Monitor"
 msgstr ""
 
-#: dashboards/project/loadbalancers/tables.py:412
+#: dashboards/project/loadbalancers/tables.py:403
 msgctxt "Current status of a Pool"
 msgid "Active"
 msgstr ""
 
-#: dashboards/project/loadbalancers/tables.py:414
+#: dashboards/project/loadbalancers/tables.py:405
 msgctxt "Current status of a Pool"
 msgid "Down"
 msgstr ""
 
-#: dashboards/project/loadbalancers/tables.py:416
+#: dashboards/project/loadbalancers/tables.py:407
 msgctxt "Current status of a Pool"
 msgid "Error"
 msgstr ""
 
-#: dashboards/project/loadbalancers/tables.py:418
+#: dashboards/project/loadbalancers/tables.py:409
 msgctxt "Current status of a Pool"
 msgid "Created"
 msgstr ""
 
-#: dashboards/project/loadbalancers/tables.py:420
+#: dashboards/project/loadbalancers/tables.py:411
 msgctxt "Current status of a Pool"
 msgid "Pending Create"
 msgstr ""
 
-#: dashboards/project/loadbalancers/tables.py:422
+#: dashboards/project/loadbalancers/tables.py:413
 msgctxt "Current status of a Pool"
 msgid "Pending Update"
 msgstr ""
 
-#: dashboards/project/loadbalancers/tables.py:424
+#: dashboards/project/loadbalancers/tables.py:415
 msgctxt "Current status of a Pool"
 msgid "Pending Delete"
 msgstr ""
 
-#: dashboards/project/loadbalancers/tables.py:426
+#: dashboards/project/loadbalancers/tables.py:417
 msgctxt "Current status of a Pool"
 msgid "Inactive"
 msgstr ""
 
-#: dashboards/project/loadbalancers/tables.py:432
+#: dashboards/project/loadbalancers/tables.py:423
 msgctxt "Admin state of a Load balancer"
 msgid "UP"
 msgstr ""
 
-#: dashboards/project/loadbalancers/tables.py:433
+#: dashboards/project/loadbalancers/tables.py:424
 msgctxt "Admin state of a Load balancer"
 msgid "DOWN"
 msgstr ""
 
-#: dashboards/project/loadbalancers/tables.py:448
+#: dashboards/project/loadbalancers/tables.py:439
 msgctxt "load balancing method"
 msgid "Round Robin"
 msgstr ""
 
-#: dashboards/project/loadbalancers/tables.py:450
+#: dashboards/project/loadbalancers/tables.py:441
 msgctxt "load balancing method"
 msgid "Least Connections"
 msgstr ""
 
-#: dashboards/project/loadbalancers/tables.py:452
+#: dashboards/project/loadbalancers/tables.py:443
 msgctxt "load balancing method"
 msgid "Source IP"
 msgstr ""
 
-#: dashboards/project/loadbalancers/tables.py:461
+#: dashboards/project/loadbalancers/tables.py:452
 msgid "N/A"
 msgstr ""
 
-#: dashboards/project/loadbalancers/tables.py:462
+#: dashboards/project/loadbalancers/tables.py:453
 #: dashboards/project/loadbalancers/workflows.py:43
 #: dashboards/project/networks/workflows.py:159
 #: dashboards/project/networks/subnets/workflows.py:42
@@ -9736,39 +9729,39 @@ msgstr ""
 msgid "Subnet"
 msgstr ""
 
-#: dashboards/project/loadbalancers/tables.py:465
+#: dashboards/project/loadbalancers/tables.py:456
 msgid "LB Method"
 msgstr ""
 
-#: dashboards/project/loadbalancers/tables.py:472
+#: dashboards/project/loadbalancers/tables.py:463
 msgid "VIP"
 msgstr ""
 
-#: dashboards/project/loadbalancers/tables.py:479
+#: dashboards/project/loadbalancers/tables.py:470
 #: dashboards/project/loadbalancers/tabs.py:28
 msgid "Pools"
 msgstr ""
 
-#: dashboards/project/loadbalancers/tables.py:518
+#: dashboards/project/loadbalancers/tables.py:509
 #: dashboards/project/loadbalancers/workflows.py:163
 #: dashboards/project/loadbalancers/workflows.py:335
 msgid "Protocol Port"
 msgstr ""
 
-#: dashboards/project/loadbalancers/tables.py:534
+#: dashboards/project/loadbalancers/tables.py:525
 #: dashboards/project/loadbalancers/tabs.py:56
 msgid "Members"
 msgstr ""
 
-#: dashboards/project/loadbalancers/tables.py:553
+#: dashboards/project/loadbalancers/tables.py:544
 msgid "Monitor Type"
 msgstr ""
 
-#: dashboards/project/loadbalancers/tables.py:557
+#: dashboards/project/loadbalancers/tables.py:548
 msgid "Max Retries"
 msgstr ""
 
-#: dashboards/project/loadbalancers/tables.py:565
+#: dashboards/project/loadbalancers/tables.py:556
 #: dashboards/project/loadbalancers/tabs.py:74
 msgid "Monitors"
 msgstr ""
