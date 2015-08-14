@@ -435,7 +435,7 @@ class SetInstanceDetailsAction(workflows.Action):
                                                   context.get('project_id'),
                                                   self._images_cache)
         for image in images:
-            image.bytes = image.virtual_size or image.size
+            image.bytes = getattr(image, 'virtual_size', None) or image.size
             image.volume_size = max(
                 image.min_disk, functions.bytes_to_gigabytes(image.bytes))
             choices.append((image.id, image))
