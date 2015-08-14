@@ -173,6 +173,17 @@ Or just remove it entirely::
 
     projects_dashboard.unregister(instances_panel.__class__)
 
+You cannot unregister a ``default_panel``. If you wish to remove a
+``default_panel``, you need to make a different panel in the dashboard as a
+``default_panel`` and then unregister the former. For example, if you wished
+to remove the ``overview_panel`` from the ``Project`` dashboard, you could do
+the following::
+
+    project = horizon.get_dashboard('project')
+    project.default_panel = "instances"
+    overview = project.get_panel('overview')
+    project.unregister(overview.__class__)
+
 You can also override existing methods with your own versions::
 
     # Disable Floating IPs
