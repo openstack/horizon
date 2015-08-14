@@ -86,10 +86,22 @@ class AccessAndSecurityTests(test.TestCase):
 
         self.assertTemplateUsed(res, 'project/access_and_security/index.html')
         self.assertItemsEqual(res.context['keypairs_table'].data, keypairs)
-        self.assertItemsEqual(res.context['security_groups_table'].data,
-                              sec_groups)
         self.assertItemsEqual(res.context['floating_ips_table'].data,
                               floating_ips)
+
+        # Security groups
+        sec_groups_from_ctx = res.context['security_groups_table'].data
+        # Context data needs to contains all items from the test data.
+        self.assertItemsEqual(sec_groups_from_ctx,
+                              sec_groups)
+        # Sec groups in context need to be sorted by their ``name`` attribute.
+        # This assertion is somewhat weak since it's only meaningful as long as
+        # the sec groups in the test data are *not* sorted by name (which is
+        # the case as of the time of this addition).
+        self.assertTrue(
+            all([sec_groups_from_ctx[i].name <= sec_groups_from_ctx[i + 1].name
+                 for i in range(len(sec_groups_from_ctx) - 1)]))
+
         if ec2_enabled:
             self.assertTrue(any(map(
                 lambda x: isinstance(x, api_access.tables.DownloadEC2),

@@ -55,7 +55,7 @@ class SecurityGroupsTab(tabs.TableTab):
             security_groups = []
             exceptions.handle(self.request,
                               _('Unable to retrieve security groups.'))
-        return security_groups
+        return sorted(security_groups, key=lambda group: group.name)
 
 
 class KeypairsTab(tabs.TableTab):
