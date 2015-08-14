@@ -1,0 +1,40 @@
+<transfer-table tr-model="tableData">
+  <allocated>
+    <table st-table="tableData.displayedAllocated" st-safe-src="tableData.allocated" hz-table>
+      <thead>
+        <tr>
+          <th>Animal</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr ng-repeat="alRow in tableData.displayedAllocated">
+          <td>{$ alRow.animal $}</td>
+          <td>
+            <action-list>
+              <action callback="trCtrl.deallocate" item="alRow"></action>
+            </action-list>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </allocated>
+  <available>
+    <table st-table="tableData.available" hz-table>
+      <thead>
+        <tr>
+          <th>Animal</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr ng-repeat="row in tableData.available" ng-if="!trCtrl.allocatedIds[row.id]">
+          <td>{$ row.animal $}</td>
+          <td>
+            <action-list>
+              <action callback="trCtrl.allocate" item="row"></action>
+            </action-list>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </available>
+</transfer-table>
