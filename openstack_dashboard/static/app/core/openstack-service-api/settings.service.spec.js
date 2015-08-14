@@ -36,7 +36,9 @@
     var settingsService;
 
     beforeEach(module('horizon.app.core.openstack-service-api'));
+
     beforeEach(module('horizon.framework.util.http'));
+
     beforeEach(inject(function (_$httpBackend_, $injector) {
       responseMockOpts.succeed = true;
       settingsService = $injector.get('horizon.app.core.openstack-service-api.settings');

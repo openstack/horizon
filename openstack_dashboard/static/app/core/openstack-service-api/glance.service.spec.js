@@ -18,15 +18,18 @@
   'use strict';
 
   describe('Glance API', function() {
-    var service;
+    var testCall, service;
     var apiService = {};
     var toastService = {};
 
-    beforeEach(module('horizon.app.core.openstack-service-api'));
+    beforeEach(
+      module('horizon.mock.openstack-service-api',
+             function($provide, initServices) {
+               testCall = initServices($provide, apiService, toastService);
+             })
+    );
 
-    beforeEach(module(function($provide) {
-      window.apiTest.initServices($provide, apiService, toastService);
-    }));
+    beforeEach(module('horizon.app.core.openstack-service-api'));
 
     beforeEach(inject(['horizon.app.core.openstack-service-api.glance', function(glanceAPI) {
       service = glanceAPI;
@@ -97,7 +100,7 @@
     angular.forEach(tests, function(params) {
       it('defines the ' + params.func + ' call properly', function() {
         var callParams = [apiService, service, toastService, params];
-        window.apiTest.testCall.apply(this, callParams);
+        testCall.apply(this, callParams);
       });
     });
 
@@ -107,4 +110,5 @@
     });
 
   });
+
 })();

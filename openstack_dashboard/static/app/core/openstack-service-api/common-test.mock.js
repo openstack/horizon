@@ -17,29 +17,48 @@
 (function() {
   'use strict';
 
-  /* This function tests the 'typical' way that apiService calls are made.
-     Look at this typical approach:
+  angular
+    .module('horizon.mock.openstack-service-api', [])
+    .constant('initServices', initServices);
 
-    this.getVolumes = function(params) {
-      var config = (params) ? {'params': params} : {};
-      return apiService.get('/api/cinder/volumes/', config)
-        .error(function () {
-          toastService.add('error', gettext('Unable to retrieve the volumes.'));
-        });
+  function initServices($provide, apiService, toastService) {
+    angular.extend(apiService, { get: angular.noop,
+                   post: angular.noop,
+                   put: angular.noop,
+                   patch: angular.noop,
+                   delete: angular.noop });
+    angular.extend(toastService, { add: angular.noop });
+    $provide.value('horizon.framework.util.http.service', apiService);
+    $provide.value('horizon.framework.widgets.toast.service', toastService);
 
-     In this case there is an apiService call that is made with one or two
-     arguments, and on error a function is called that invokes the
-     toastService's add method.
+    return testCall;
+  }
 
-     The function below takes in the set of variables, both input and output,
-     that are required to test the above code.  It spies on the apiService
-     method that is called, and also spies on its returned simulated promise
-     'error' method.
+  /*
+   This function tests the 'typical' way that apiService calls are made.
+   Look at this typical approach:
 
-     Having established those spies, the code then inspects the parameters
-     passed to the apiService, as well as the results of those methods.
-     Then the code invokes of function passed to the error handler, and
-     ensures that the toastService is called with the appropriate parameters.
+   this.getVolumes = function(params) {
+     var config = (params) ? {'params': params} : {};
+     return apiService.get('/api/cinder/volumes/', config)
+                      .error(function () {
+                        toastService.add('error', gettext('Unable to retrieve the volumes.'));
+                      });
+    }
+
+    In this case there is an apiService call that is made with one or two
+    arguments, and on error a function is called that invokes the
+    toastService's add method.
+
+    The function below takes in the set of variables, both input and output,
+    that are required to test the above code.  It spies on the apiService
+    method that is called, and also spies on its returned simulated promise
+    'error' method.
+
+    Having established those spies, the code then inspects the parameters
+    passed to the apiService, as well as the results of those methods.
+    Then the code invokes of function passed to the error handler, and
+    ensures that the toastService is called with the appropriate parameters.
   */
   function testCall(apiService, service, toastService, config) {
     // 'promise' simulates a promise, including a self-referential success
@@ -66,18 +85,5 @@
     innerFunc();
     expect(toastService.add).toHaveBeenCalledWith(config.messageType || 'error', config.error);
   }
-
-  function initServices ($provide, apiService, toastService) {
-    angular.extend(apiService, { get: angular.noop,
-                   post: angular.noop,
-                   put: angular.noop,
-                   patch: angular.noop,
-                   delete: angular.noop });
-    angular.extend(toastService, { add: angular.noop });
-    $provide.value('horizon.framework.util.http.service', apiService);
-    $provide.value('horizon.framework.widgets.toast.service', toastService);
-  }
-
-  window.apiTest = { testCall: testCall, initServices: initServices };
 
 })();
