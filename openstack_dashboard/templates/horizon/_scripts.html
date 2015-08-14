@@ -26,7 +26,6 @@
 <script src="{{ STATIC_URL }}horizon/lib/jquery/jquery.bootstrap.wizard.js"></script>
 <script src="{{ STATIC_URL }}bootstrap/js/bootstrap.js"></script>
 <script src='{{ STATIC_URL }}horizon/lib/bootstrap_datepicker/bootstrap-datepicker.js'></script>
-<script src="{{ STATIC_URL }}horizon/lib/magic_search/magic_search.js"></script>
 <script src="{{ STATIC_URL }}horizon/lib/hogan.js"></script>
 <script src='{{ STATIC_URL }}horizon/js/horizon.communication.js'></script>
 <script src='{{ STATIC_URL }}horizon/js/horizon.datepickers.js'></script>
@@ -58,6 +57,8 @@
 {% for file in HORIZON_CONFIG.js_files %}
     <script src='{{ STATIC_URL }}{{ file }}'></script>
 {% endfor %}
+
+<script src="{{ STATIC_URL }}horizon/lib/magic_search/magic_search.js"></script>
 
 {% block custom_js_files %}{% endblock %}
 {% endcompress %}

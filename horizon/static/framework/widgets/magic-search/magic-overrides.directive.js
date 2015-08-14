@@ -66,6 +66,7 @@
     };
 
     MagicOverridesController.$inject = [
+      '$element',
       '$scope',
       '$timeout',
       '$window'
@@ -73,7 +74,7 @@
 
     return directive;
 
-    function MagicOverridesController($scope, $timeout, $window) {
+    function MagicOverridesController($element, $scope, $timeout, $window) {
       /**
        * showMenu and hideMenu depend on Foundation's dropdown. They need
        * to be modified to work with another dropdown implementation.
@@ -180,7 +181,7 @@
           $scope.emitQuery(removed);
         } else {
           $scope.resetState();
-          $('.search-input').val('');
+          $element.find('.search-input').val('');
         }
         if ($scope.currentSearch.length === 0) {
           $scope.strings.prompt = $scope.promptString;
