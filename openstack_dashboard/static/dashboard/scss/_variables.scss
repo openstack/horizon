@@ -2,10 +2,10 @@
 to our variables */
 @import "/custom/variables";
 
-
-/* This variable can be used to change the web root of horizon
-default value is already '/' */
-$webroot: "" !default;
+/* When used with Horizon via Django, this value is set automatically from
+   settings.py and is added dynamically to the namespace through
+   horizon/utils/scss_filter.py */
+$static_url: "/static/" !default;
 
 
 /* Horizon Custom Variables */
@@ -59,7 +59,7 @@ $rbrowser-footer-background-color: #f1f1f1;
 //       .table-striped-datatable styles.
 
 // Font-awesome path to the icon fonts
-$fa-font-path: $webroot + "/static/horizon/lib/font-awesome/fonts";
+$fa-font-path: $static_url + "horizon/lib/font-awesome/fonts";
 
 /* Charts */
 
