@@ -370,7 +370,7 @@ TIME_ZONE = "UTC"
 
 # Change this patch to the appropriate static directory containing
 # two files: _variables.scss and _styles.scss
-#CUSTOM_THEME_PATH = 'static/themes/default'
+#CUSTOM_THEME_PATH = 'themes/default'
 
 LOGGING = {
     'version': 1,
