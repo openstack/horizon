@@ -1,0 +1,11 @@
+---
+deprecations:
+    - The 'webroot' theme has been removed.
+
+fixes:
+  - The 'webroot' theme was providing an example of
+    how to set the webroot value through SCSS for
+    accessing needed static URL prefixes for assets
+    like font paths. This value is now retrieved
+    directly from the Django settings and is available
+    directly in the SCSS namespace via $static_url.
