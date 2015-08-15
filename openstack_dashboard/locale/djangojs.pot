@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-08-13 06:14+0000\n"
+"POT-Creation-Date: 2015-08-15 06:11+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -1102,6 +1102,15 @@ msgstr ""
 msgid "Unable to retrieve the ports."
 msgstr ""
 
+#: static/app/core/openstack-service-api/nova-extensions.service.js:76
+#, python-format
+msgid "Extension is not enabled: %(extension)s."
+msgstr ""
+
+#: static/app/core/openstack-service-api/nova-extensions.service.js:83
+msgid "Cannot get the Nova extension list."
+msgstr ""
+
 #: static/app/core/openstack-service-api/nova.service.js:46
 msgid "Unable to retrieve the keypairs."
 msgstr ""
@@ -1146,15 +1155,6 @@ msgstr ""
 msgid "Unable to retrieve the flavor extra specs."
 msgstr ""
 
-#: static/app/core/openstack-service-api/nova.service.js:322
-#, python-format
-msgid "Extension is not enabled: %(extension)s."
-msgstr ""
-
-#: static/app/core/openstack-service-api/nova.service.js:329
-msgid "Cannot get the Nova extension list."
-msgstr ""
-
 #: static/app/core/openstack-service-api/policy.service.js:72
 msgid "Policy check failed."
 msgstr ""
@@ -1164,7 +1164,7 @@ msgid "Unable to retrieve the security groups."
 msgstr ""
 
 #: static/app/core/openstack-service-api/settings.service.js:58
-#: static/app/core/openstack-service-api/settings.service.spec.js:77
+#: static/app/core/openstack-service-api/settings.service.spec.js:79
 msgid "Unable to retrieve settings."
 msgstr ""
 

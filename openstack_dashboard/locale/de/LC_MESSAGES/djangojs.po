@@ -11,9 +11,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-08-13 05:07+0000\n"
-"PO-Revision-Date: 2015-08-13 02:40+0000\n"
-"Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
+"POT-Creation-Date: 2015-08-14 23:41+0000\n"
+"PO-Revision-Date: 2015-08-14 12:21+0000\n"
+"Last-Translator: Robert Simai\n"
 "Language-Team: German (http://www.transifex.com/openstack/horizon/language/"
 "de/)\n"
 "MIME-Version: 1.0\n"
@@ -666,6 +666,14 @@ msgstr "Status"
 
 msgid "Subnets Associated"
 msgstr "Subnetze zugewiesen"
+
+#, python-format
+msgid "Successfully created key pair %(name)s."
+msgstr "Erstellung der Schlüsselpaares %(name)s erfolgreich."
+
+#, python-format
+msgid "Successfully imported key pair %(name)s."
+msgstr "Importieren des Schlüsselpaares %(name)s erfolgreich."
 
 msgid ""
 "The flavor you select for an instance determines the amount of compute, "
