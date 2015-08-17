@@ -2,6 +2,8 @@ import os
 
 from django.utils.translation import ugettext_lazy as _
 
+from horizon.utils import secret_key
+
 from openstack_dashboard import exceptions
 from openstack_dashboard.settings import HORIZON_CONFIG
 
@@ -12,13 +14,13 @@ TEMPLATE_DEBUG = DEBUG
 # WEBROOT is the location relative to Webserver root
 # should end with a slash.
 WEBROOT = '/'
-# LOGIN_URL = WEBROOT + 'auth/login/'
-# LOGOUT_URL = WEBROOT + 'auth/logout/'
+#LOGIN_URL = WEBROOT + 'auth/login/'
+#LOGOUT_URL = WEBROOT + 'auth/logout/'
 #
 # LOGIN_REDIRECT_URL can be used as an alternative for
 # HORIZON_CONFIG.user_home, if user_home is not set.
 # Do not set it to '/home/', as this will cause circular redirect loop
-# LOGIN_REDIRECT_URL = WEBROOT
+#LOGIN_REDIRECT_URL = WEBROOT
 
 # Required for Django 1.5.
 # If horizon is running in production (DEBUG is False), set this
@@ -99,7 +101,6 @@ LOCAL_PATH = os.path.dirname(os.path.abspath(__file__))
 # (usually behind a load-balancer). Either you have to make sure that a session
 # gets all requests routed to the same dashboard instance or you set the same
 # SECRET_KEY for all of them.
-from horizon.utils import secret_key
 SECRET_KEY = secret_key.generate_or_read_from_file(
     os.path.join(LOCAL_PATH, '.secret_key_store'))
 
@@ -323,7 +324,7 @@ TIME_ZONE = "UTC"
 # Set this to True to display an 'Admin Password' field on the Change Password
 # form to verify that it is indeed the admin logged-in who wants to change
 # the password.
-# ENFORCE_PASSWORD_CHECK = False
+#ENFORCE_PASSWORD_CHECK = False
 
 # Modules that provide /auth routes that can be used to handle different types
 # of user authentication. Add auth plugins that require extra route handling to
@@ -364,8 +365,8 @@ TIME_ZONE = "UTC"
 # creating users and databases on database instances is turned on.
 # To disable these extensions set the permission here to something
 # unusable such as ["!"].
-# TROVE_ADD_USER_PERMS = []
-# TROVE_ADD_DATABASE_PERMS = []
+#TROVE_ADD_USER_PERMS = []
+#TROVE_ADD_DATABASE_PERMS = []
 
 # Change this patch to the appropriate static directory containing
 # two files: _variables.scss and _styles.scss
@@ -649,4 +650,4 @@ REST_API_REQUIRED_SETTINGS = ['OPENSTACK_HYPERVISOR_FEATURES']
 # where iframes are not used in deployment. Default setting is True.
 # For more information see:
 # http://tinyurl.com/anticlickjack
-# DISALLOW_IFRAME_EMBED = True
+#DISALLOW_IFRAME_EMBED = True
