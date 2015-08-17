@@ -4,6 +4,7 @@
 #
 # Translators:
 # Alfred <alfredhuang211@qq.com>, 2015
+# Allerson Yao, 2015
 # blkart <blkart.org@gmail.com>, 2015
 # ChangBo Guo(gcb) <glongwave@gmail.com>, 2014
 # johnwoo_lee <lijiangsheng1@gmail.com>, 2015
@@ -18,9 +19,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-08-14 04:33+0000\n"
-"PO-Revision-Date: 2015-08-14 02:29+0000\n"
-"Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
+"POT-Creation-Date: 2015-08-15 15:07+0000\n"
+"PO-Revision-Date: 2015-08-17 01:41+0000\n"
+"Last-Translator: Allerson Yao\n"
 "Language-Team: Chinese (China) (http://www.transifex.com/openstack/horizon/"
 "language/zh_CN/)\n"
 "MIME-Version: 1.0\n"
@@ -909,6 +910,9 @@ msgstr "选择main二进制文件"
 msgid "Choose a new instance flavor."
 msgstr "选择一新的实例类型。"
 
+msgid "Choose a shell script"
+msgstr "选择一个shell脚本"
+
 msgid "Choose a snapshot"
 msgstr "选择快照"
 
@@ -917,6 +921,9 @@ msgstr "选择一个存储位置"
 
 msgid "Choose a volume"
 msgstr "选择云硬盘"
+
+msgid "Choose additional files"
+msgstr "选择其他文件"
 
 msgid "Choose an DHCP Agent to attach to."
 msgstr "选择添加一个DHCP Agent。"
@@ -998,6 +1005,10 @@ msgstr "集群名称"
 msgid "Cluster Template"
 msgstr "集群模板"
 
+#, python-format
+msgid "Cluster Template %s updated"
+msgstr "集群模板%s已更新"
+
 msgid "Cluster Template Details"
 msgstr "集群模板详情"
 
@@ -1013,6 +1024,9 @@ msgstr "集群模板"
 
 msgid "Cluster template creation failed"
 msgstr "集群模板创建失败"
+
+msgid "Cluster template update failed"
+msgstr "集群模板更新失败"
 
 msgid "Cluster type chosen"
 msgstr "选择集群类型"
@@ -1939,6 +1953,9 @@ msgid "Delete User"
 msgid_plural "Delete Users"
 msgstr[0] "删除用户"
 
+msgid "Delete VIP"
+msgstr "删除VIP"
+
 msgid "Delete VPN Service"
 msgid_plural "Delete VPN Services"
 msgstr[0] "删除VPN服务"
@@ -2177,6 +2194,10 @@ msgstr "删除中"
 msgctxt "Task status of an Instance"
 msgid "Deleting"
 msgstr "删除中"
+
+#, python-format
+msgid "Deleting VIP %s from this pool cannot be undone."
+msgstr "从这个池删除VIP %s不能撤销"
 
 msgid "Deny"
 msgstr "拒绝"
@@ -2459,6 +2480,9 @@ msgstr "实例类型%s (openstack flavor)的持续时间"
 
 msgid "Edit"
 msgstr "编辑"
+
+msgid "Edit Cluster Template"
+msgstr "编辑集群模板"
 
 msgid "Edit Connection"
 msgstr "编辑连接"
@@ -4812,6 +4836,9 @@ msgstr "可选的父备份"
 msgid "Optional: Next Hop Addresses (comma delimited)"
 msgstr "可选项：下一跳地址(多个用逗号分开)"
 
+msgid "Orchestration"
+msgstr "编配"
+
 msgid "Orchestration Services"
 msgstr "Orchestration 服务"
 
@@ -5038,6 +5065,10 @@ msgstr "端口详情"
 msgid "Port Range"
 msgstr "端口范围"
 
+#, python-format
+msgid "Port cleanup failed for these port-ids (%s)."
+msgstr "无法为这些端口(%s)进行端口清除"
+
 msgid "Port list can not be retrieved."
 msgstr "无法获取端口列表"
 
@@ -5131,6 +5162,10 @@ msgstr "项目名称"
 
 msgid "Project Usage"
 msgstr "项目使用"
+
+#, python-format
+msgid "Project name \"%s\" is already used."
+msgstr "项目名\"%s\"已经被使用"
 
 msgid "Projects"
 msgstr "项目"
@@ -6083,6 +6118,9 @@ msgstr "共享存储"
 msgid "Shared with Me"
 msgstr "与我共享"
 
+msgid "Shell"
+msgstr "命令行解释器shell"
+
 msgctxt "Current status of an Instance"
 msgid "Shelved"
 msgstr "搁置的"
@@ -6156,6 +6194,9 @@ msgstr "以GB计云硬盘大小"
 
 msgid "Size of volume"
 msgstr "云硬盘大小"
+
+msgid "Slash is not allowed at the beginning or end of your string."
+msgstr "字符串首尾不允许使用斜线"
 
 msgid "Slash is not an allowed character."
 msgstr "斜线是不允许的字符。"
@@ -6958,6 +6999,9 @@ msgstr ""
 "选择&quot;CIDR&quot;以指定允许来访的IP地址范围。如欲允许来自另一安全组所有成"
 "员的访问，请选择&quot;安全组&quot;。"
 
+msgid "Toggle navigation"
+msgstr "切换导航"
+
 msgid "Topic"
 msgstr "主题"
 
@@ -7390,6 +7434,9 @@ msgstr "无法获取模板对象。"
 
 msgid "Unable to fetch template to copy."
 msgstr "无法获取模板进行复制。"
+
+msgid "Unable to fetch template to edit."
+msgstr "无法获取模板进行编辑"
 
 msgid "Unable to fetch the image details"
 msgstr "无法获取镜像详细信息"

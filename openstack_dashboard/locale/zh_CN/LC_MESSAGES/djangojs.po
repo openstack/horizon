@@ -3,14 +3,15 @@
 # This file is distributed under the same license as the PROJECT project.
 #
 # Translators:
+# Allerson Yao, 2015
 # 刘俊朋 <liujunpeng@inspur.com>, 2015
 msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-08-13 05:07+0000\n"
-"PO-Revision-Date: 2015-08-13 02:40+0000\n"
-"Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
+"POT-Creation-Date: 2015-08-15 15:07+0000\n"
+"PO-Revision-Date: 2015-08-17 01:44+0000\n"
+"Last-Translator: Allerson Yao\n"
 "Language-Team: Chinese (China) (http://www.transifex.com/openstack/horizon/"
 "language/zh_CN/)\n"
 "MIME-Version: 1.0\n"
@@ -402,8 +403,14 @@ msgstr "最大端口"
 msgid "Min Disk"
 msgstr "最小磁盘"
 
+msgid "Min Disk (GB)"
+msgstr "最小磁盘 (GB)"
+
 msgid "Min Port"
 msgstr "最小端口"
+
+msgid "Min RAM (MB)"
+msgstr "最小内存 (MB)"
 
 msgid "Min Ram"
 msgstr "最小内存"
@@ -600,6 +607,14 @@ msgstr "状态"
 msgid "Subnets Associated"
 msgstr "子网已连接"
 
+#, python-format
+msgid "Successfully created key pair %(name)s."
+msgstr "成功创建密钥对%(name)s"
+
+#, python-format
+msgid "Successfully imported key pair %(name)s."
+msgstr "成功导入密钥对%(name)s"
+
 msgid ""
 "The flavor you select for an instance determines the amount of compute, "
 "storage and memory resources that will be carved out for the instance."
@@ -774,6 +789,9 @@ msgstr "无法编辑用户。"
 
 msgid "Unable to fetch the service catalog."
 msgstr "无法取得服务目录"
+
+msgid "Unable to get the Keystone service version."
+msgstr "无法获取Keystone服务版本"
 
 msgid "Unable to grant the role."
 msgstr "无法授予角色"

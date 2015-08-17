@@ -9,9 +9,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-08-13 05:07+0000\n"
-"PO-Revision-Date: 2015-08-13 02:40+0000\n"
-"Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
+"POT-Creation-Date: 2015-08-15 15:07+0000\n"
+"PO-Revision-Date: 2015-08-16 10:52+0000\n"
+"Last-Translator: Ian Y. Choi <ianyrchoi@gmail.com>\n"
 "Language-Team: Korean (Korea) (http://www.transifex.com/openstack/horizon/"
 "language/ko_KR/)\n"
 "MIME-Version: 1.0\n"
@@ -39,6 +39,14 @@ msgstr ""
 "<li><b>인스턴스 스냅샷</b>:이 옵션은 인스턴스를 부팅하기 위해 인스턴스 스냅샷"
 "을 사용합니다.</li>"
 
+msgid ""
+"A key pair allows you to SSH into your newly created instance. You may "
+"select an existing key pair, import a key pair, or generate a new key pair."
+msgstr ""
+"키 페어를 통해 새로 생성한 인스턴스로 SSH 접속을 할 수 있습니다. 기존 키 페어"
+"를 선택하거나, 키 페어를 가져오거나, 또는 새로운 키 페어를 생성할 수 있습니"
+"다."
+
 msgid "A name is required for your instance."
 msgstr "인스턴스에 대한 이름이 필요합니다."
 
@@ -50,6 +58,16 @@ msgstr "Active"
 
 msgid "Admin State"
 msgstr "관리자 상태"
+
+msgid ""
+"Administrators are responsible for creating and managing flavors. A custom "
+"flavor can be created for you or for a specific project where it is shared "
+"with the users assigned to that project. If you need a custom flavor, "
+"contact your administrator."
+msgstr ""
+"관리자는 flavor에 대해 생성 및 관리를 담당합니다. 사용자 정의 flavor를 직접 "
+"또는 해당 프로젝트에 할당된 사용자와 공유되고 있는 특정 프로젝트에 생성할 수 "
+"있습니다. 사용자 정의 flavor가 필요한 경우, 관리자에게 문의하십시오."
 
 msgid ""
 "Administrators set up the pool of floating IPs that are available to attach "
@@ -215,6 +233,17 @@ msgstr ""
 
 msgid "Format"
 msgstr "포멧"
+
+#, python-format
+msgid ""
+"From a Windows system, you can use PuTTYGen to create private/public keys. "
+"Use the PuTTY Key Generator to create and save the keys, then copy the "
+"public key in the red highlighted box to your <samp>%(authorizeKeysFile)s</"
+"samp> file."
+msgstr ""
+"Windows 시스템에서는, PuTTYGen을 사용하여 비밀/공개키를 생성할 수 있습니다. "
+"PuTTY 키 생성기를 사용하여 키를 생성 및 저장하고, 빨간 색으로 강조된 상자에 "
+"있는 공개 키를 <samp>%(authorizeKeysFile)s</samp> 파일에 복사합니다."
 
 msgid "ID"
 msgstr "ID"
@@ -489,12 +518,31 @@ msgstr "상태"
 msgid "Subnets Associated"
 msgstr "서브넷 특징"
 
+#, python-format
+msgid "Successfully created key pair %(name)s."
+msgstr "키 페어 %(name)s 를 성공적으로 생성하였습니다."
+
+#, python-format
+msgid "Successfully imported key pair %(name)s."
+msgstr "키 페어 %(name)s 를 성공적으로 가져왔습니다."
+
 msgid ""
 "The flavor you select for an instance determines the amount of compute, "
 "storage and memory resources that will be carved out for the instance."
 msgstr ""
 "인스턴스에 선택된 flavor를 통해 해당 인스턴스에 설정되는 컴퓨트, 스토리지 및 "
 "메모리 자원에 대한 양을 결정합니다."
+
+msgid ""
+"The flavor you select must have enough resources allocated to support the "
+"type of instance you are trying to create. Flavors that don't provide enough "
+"resources for your instance are identified on the <b>Available</b> table "
+"with a yellow warning icon."
+msgstr ""
+"선택한 flavor 만큼의 생성하고자 하는 인스턴스 유형을 지원하기 위한 충분한 양"
+"의 자원이 있어야 합니다. 인스턴스에 해당하는 충분한 자원을 확보하지 않은 상태"
+"일 때 flavor는 노란 경고 아이콘과 함께 <b>사용 가능</b>한 상태로 표에 구분됩"
+"니다."
 
 #, python-format
 msgid ""
@@ -519,6 +567,14 @@ msgstr ""
 "선택한 이미지 소스는 root 디스크가 최소 %(minDisk)s GB인 flavor가 필요합니"
 "다. Root 디스크가 더 큰 flavor를 선택하거나 다른 이미지 소스를 사용하십시오."
 
+#, python-format
+msgid ""
+"The selected image source requires a flavor with at least %(minRam)s MB of "
+"RAM. Select a flavor with more RAM or use a different image source."
+msgstr ""
+"선택한 이미지 소스는 최소 %(minRam)s MB 만큼의 RAM을 필요로 하는 flavor입니"
+"다. 보다 많은 RAM을 가진 flavor를 선택하거나 다른 이미지 소스를 사용하세요."
+
 msgid "The status indicates whether the network has an active connection."
 msgstr "해당 상태는 네트워크가 활성화된 연결을 이루고 있는지를 가리킵니다."
 
@@ -532,6 +588,14 @@ msgstr ""
 #, python-format
 msgid "The volume size must be at least %(minVolumeSize)s GB"
 msgstr "볼륨 크기는 최소 %(minVolumeSize)s GB여야 합니다."
+
+#, python-format
+msgid ""
+"There are two ways to generate a key pair. From a Linux system, generate the "
+"key pair with the <samp>%(genKeyPairCmd)s</samp> command:"
+msgstr ""
+"키 페어를 생성하는 두 가지 방법이 있습니다. Linux 시스템에서는, <samp>"
+"%(genKeyPairCmd)s</samp> 명령어로 키 페어를 생성합니다:"
 
 #, python-format
 msgid ""

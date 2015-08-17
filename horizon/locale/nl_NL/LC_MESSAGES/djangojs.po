@@ -3,14 +3,15 @@
 # This file is distributed under the same license as the PROJECT project.
 #
 # Translators:
+# Evelijn Saaltink <evelijnsaaltink@gmail.com>, 2015
 # Roeltje, 2015
 msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-08-04 04:10+0000\n"
-"PO-Revision-Date: 2015-06-27 11:57+0000\n"
-"Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
+"POT-Creation-Date: 2015-08-15 15:07+0000\n"
+"PO-Revision-Date: 2015-08-16 19:27+0000\n"
+"Last-Translator: Evelijn Saaltink <evelijnsaaltink@gmail.com>\n"
 "Language-Team: Dutch (Netherlands) (http://www.transifex.com/openstack/"
 "horizon/language/nl_NL/)\n"
 "MIME-Version: 1.0\n"
@@ -35,6 +36,9 @@ msgstr "%s MB"
 #, python-format
 msgid "%s TB"
 msgstr "%s TB"
+
+msgid "Active"
+msgstr "Actief"
 
 msgid "Add Interface"
 msgstr "Interface Toevoegen"
@@ -63,9 +67,24 @@ msgstr "Terug"
 msgid "Cancel"
 msgstr "Annuleren"
 
+msgid "Click to see more details"
+msgstr "Klik om meer details te zien"
+
+msgid "Click to show or hide"
+msgstr "Klik om te weergeven of verbergen"
+
+msgid "Closed"
+msgstr "Gesloten"
+
+msgid "Closing"
+msgstr "Sluiten"
+
 #, python-format
 msgid "Confirm %s"
 msgstr "Bevestig %s"
+
+msgid "Connecting"
+msgstr "Verbinden"
 
 msgid "Could not decrypt the password"
 msgstr "Kon het wachtwoord niet ontcijferen"
@@ -73,8 +92,14 @@ msgstr "Kon het wachtwoord niet ontcijferen"
 msgid "Could not read the file"
 msgstr "Kon het bestand niet lezen"
 
+msgid "Current Usage"
+msgstr "Huidig verbruik"
+
 msgid "Custom"
 msgstr "Aangepast"
+
+msgid "Danger"
+msgstr "Gevaar"
 
 msgid "Danger: "
 msgstr "Gevaar:"
@@ -148,6 +173,9 @@ msgstr "Naam"
 msgid "Next"
 msgstr "Volgende"
 
+msgid "No"
+msgstr "Nee"
+
 msgid "No available items"
 msgstr "Geen beschikbare items"
 
@@ -181,6 +209,9 @@ msgstr "Open Bedieningspaneel"
 msgid "Passwords do not match."
 msgstr "Wachtwoorden komen niet overeen."
 
+msgid "Please confirm your selection. "
+msgstr "Bevestig uw selectie."
+
 msgid "Remove"
 msgstr "Verwijderen"
 
@@ -205,8 +236,17 @@ msgstr "Status"
 msgid "Submit"
 msgstr "Indienen"
 
+msgid "Success"
+msgstr "Geslaagd"
+
 msgid "Success: "
 msgstr "Gelukt: "
+
+msgid "Terminate Instance"
+msgstr "Beëindig exemplaar"
+
+msgid "Text"
+msgstr "Tekst"
 
 msgid "There was a problem communicating with the server, please try again."
 msgstr ""
@@ -218,17 +258,29 @@ msgstr ""
 "Er is een fout opgetreden bij het indienen van het formulier. Probeer het "
 "nog eens."
 
+msgid "Total"
+msgstr "Totaal"
+
 msgid "View Details"
 msgstr "Bekijk Details"
 
+msgid "View Instance Details"
+msgstr "Bekijk exemplaardetails"
+
 msgid "View Router Details"
 msgstr "Bekijk Routerdetails"
+
+msgid "Warning"
+msgstr "Waarschuwing"
 
 msgid "Warning: "
 msgstr "Waarschuwing: "
 
 msgid "Working"
 msgstr "Bezig"
+
+msgid "Yes"
+msgstr "Ja"
 
 #, python-format
 msgid "You have selected %s. "
