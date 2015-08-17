@@ -17,7 +17,7 @@
     <dt>{% trans "Owner" %}</dt>
     <dd>{{ image.owner }}</dd>
     <dt>{% trans "Status" %}</dt>
-    <dd>{{ image.status|default:_("Unknown")|title }}</dd>
+    <dd>{{ image.status_label|default:_("Unknown")|title }}</dd>
     <dt>{% trans "Public" %}</dt>
     <dd>{{ image.is_public|yesno|capfirst }}</dd>
     <dt>{% trans "Protected" %}</dt>
