@@ -143,18 +143,27 @@ module.exports = function (config) {
       exitOnResourceError: true
     },
 
-    reporters: ['progress', 'coverage'],
+    reporters: ['progress', 'coverage', 'threshold'],
 
     plugins: [
       'karma-phantomjs-launcher',
       'karma-jasmine',
       'karma-ng-html2js-preprocessor',
-      'karma-coverage'
+      'karma-coverage',
+      'karma-threshold-reporter'
     ],
 
     coverageReporter: {
       type: 'html',
       dir: '../.coverage-karma/'
+    },
+
+    // Coverage threshold values.
+    thresholdReporter: {
+      statements: 93, // target 100
+      branches: 93, // target 100
+      functions: 93, // target 100
+      lines: 93 // target 100
     }
   });
 };
