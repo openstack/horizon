@@ -140,6 +140,11 @@ class Conflict(HorizonException):
     status_code = 409
 
 
+class BadRequest(HorizonException):
+    """Generic error to replace all "BadRequest"-type API errors."""
+    status_code = 400
+
+
 class RecoverableError(HorizonException):
     """Generic error to replace any "Recoverable"-type API errors."""
     status_code = 100  # HTTP status code "Continue"
@@ -224,7 +229,8 @@ UNAUTHORIZED = tuple(HORIZON_CONFIG['exceptions']['unauthorized'])
 UNAUTHORIZED += (NotAuthorized,)
 NOT_FOUND = tuple(HORIZON_CONFIG['exceptions']['not_found'])
 NOT_FOUND += (GetFileError,)
-RECOVERABLE = (AlreadyExists, Conflict, NotAvailable, ServiceCatalogException)
+RECOVERABLE = (AlreadyExists, Conflict, NotAvailable, ServiceCatalogException,
+               BadRequest)
 RECOVERABLE += tuple(HORIZON_CONFIG['exceptions']['recoverable'])
 
 

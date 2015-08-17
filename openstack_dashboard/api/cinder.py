@@ -26,7 +26,7 @@ from django.conf import settings
 from django.utils.translation import pgettext_lazy
 from django.utils.translation import ugettext_lazy as _
 
-from cinderclient.exceptions import ClientException  # noqa
+from cinderclient import exceptions as cinder_exception
 from cinderclient.v2.contrib import list_extensions as cinder_list_extensions
 
 from horizon import exceptions
@@ -497,7 +497,11 @@ def volume_type_default(request):
 
 
 def volume_type_delete(request, volume_type_id):
-    return cinderclient(request).volume_types.delete(volume_type_id)
+    try:
+        return cinderclient(request).volume_types.delete(volume_type_id)
+    except cinder_exception.BadRequest:
+        raise exceptions.BadRequest(_(
+            "This volume type is used by one or more volumes."))
 
 
 def volume_type_get(request, volume_type_id):

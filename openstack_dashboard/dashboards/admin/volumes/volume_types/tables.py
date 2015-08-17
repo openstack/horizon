@@ -10,6 +10,7 @@
 # License for the specific language governing permissions and limitations
 # under the License.
 
+from django.core.urlresolvers import reverse
 from django.template import defaultfilters as filters
 from django.utils.translation import ugettext_lazy as _
 from django.utils.translation import ungettext_lazy
@@ -77,7 +78,11 @@ class DeleteVolumeType(tables.DeleteAction):
     policy_rules = (("volume", "volume_extension:types_manage"),)
 
     def delete(self, request, obj_id):
-        cinder.volume_type_delete(request, obj_id)
+        try:
+            cinder.volume_type_delete(request, obj_id)
+        except exceptions.BadRequest as e:
+            redirect_url = reverse("horizon:admin:volumes:index")
+            exceptions.handle(request, e, redirect=redirect_url)
 
 
 class CreateVolumeTypeEncryption(tables.LinkAction):
