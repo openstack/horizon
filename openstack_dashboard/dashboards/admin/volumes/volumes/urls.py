@@ -32,4 +32,7 @@ urlpatterns = patterns(
     url(r'^(?P<volume_id>[^/]+)/unmanage$',
         views.UnmanageVolumeView.as_view(),
         name='unmanage'),
+    url(r'^(?P<volume_id>[^/]+)/migrate$',
+        views.MigrateVolumeView.as_view(),
+        name='migrate'),
 )

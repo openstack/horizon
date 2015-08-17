@@ -1,0 +1,13 @@
+{% extends "horizon/common/_modal_form.html" %}
+{% load i18n %}
+
+{% block modal-body-right %}
+  <h3>{% trans "Description:" %}</h3>
+  <p>{% blocktrans %}
+    Migrate a volume to a specific host.
+    <br>
+    <br>
+    Force Host Copy: Enables or disables generic host-based force-migration, which bypasses driver optimizations.
+    {% endblocktrans %}
+  </p>
+{% endblock %}

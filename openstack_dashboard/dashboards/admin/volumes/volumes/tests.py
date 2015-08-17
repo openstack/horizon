@@ -19,6 +19,9 @@ from openstack_dashboard.api import cinder
 from openstack_dashboard.test import helpers as test
 
 
+INDEX_URL = reverse('horizon:admin:volumes:volumes_tab')
+
+
 class VolumeViewTests(test.BaseAdminViewTests):
     @test.create_stubs({cinder: ('volume_reset_state',
                                  'volume_get')})
@@ -101,3 +104,100 @@ class VolumeViewTests(test.BaseAdminViewTests):
                     args=(volume.id,)),
             formData)
         self.assertNoFormErrors(res)
+
+    @test.create_stubs({cinder: ('pool_list',
+                                 'volume_get',)})
+    def test_volume_migrate_get(self):
+        volume = self.cinder_volumes.get(name='v2_volume')
+        cinder.volume_get(IsA(http.HttpRequest), volume.id) \
+            .AndReturn(volume)
+        cinder.pool_list(IsA(http.HttpRequest)) \
+            .AndReturn(self.pools.list())
+
+        self.mox.ReplayAll()
+
+        url = reverse('horizon:admin:volumes:volumes:migrate',
+                      args=[volume.id])
+        res = self.client.get(url)
+
+        self.assertTemplateUsed(res,
+                                'admin/volumes/volumes/migrate_volume.html')
+
+    @test.create_stubs({cinder: ('volume_get',)})
+    def test_volume_migrate_get_volume_get_exception(self):
+        volume = self.cinder_volumes.get(name='v2_volume')
+        cinder.volume_get(IsA(http.HttpRequest), volume.id) \
+            .AndRaise(self.exceptions.cinder)
+
+        self.mox.ReplayAll()
+
+        url = reverse('horizon:admin:volumes:volumes:migrate',
+                      args=[volume.id])
+        res = self.client.get(url)
+
+        self.assertRedirectsNoFollow(res, INDEX_URL)
+
+    @test.create_stubs({cinder: ('pool_list',
+                                 'volume_get',)})
+    def test_volume_migrate_list_pool_get_exception(self):
+        volume = self.cinder_volumes.get(name='v2_volume')
+        cinder.volume_get(IsA(http.HttpRequest), volume.id) \
+            .AndReturn(volume)
+        cinder.pool_list(IsA(http.HttpRequest)) \
+            .AndRaise(self.exceptions.cinder)
+
+        self.mox.ReplayAll()
+        url = reverse('horizon:admin:volumes:volumes:migrate',
+                      args=[volume.id])
+        res = self.client.get(url)
+
+        self.assertRedirectsNoFollow(res, INDEX_URL)
+
+    @test.create_stubs({cinder: ('pool_list',
+                                 'volume_get',
+                                 'volume_migrate',)})
+    def test_volume_migrate_post(self):
+        volume = self.cinder_volumes.get(name='v2_volume')
+        host = self.pools.first().name
+
+        cinder.volume_get(IsA(http.HttpRequest), volume.id) \
+            .AndReturn(volume)
+        cinder.pool_list(IsA(http.HttpRequest)) \
+            .AndReturn(self.pools.list())
+        cinder.volume_migrate(IsA(http.HttpRequest),
+                              volume.id,
+                              host,
+                              False) \
+            .AndReturn(None)
+
+        self.mox.ReplayAll()
+
+        url = reverse('horizon:admin:volumes:volumes:migrate',
+                      args=[volume.id])
+        res = self.client.post(url, {'host': host, 'volume_id': volume.id})
+        self.assertNoFormErrors(res)
+        self.assertRedirectsNoFollow(res, INDEX_URL)
+
+    @test.create_stubs({cinder: ('pool_list',
+                                 'volume_get',
+                                 'volume_migrate',)})
+    def test_volume_migrate_post_api_exception(self):
+        volume = self.cinder_volumes.get(name='v2_volume')
+        host = self.pools.first().name
+
+        cinder.volume_get(IsA(http.HttpRequest), volume.id) \
+            .AndReturn(volume)
+        cinder.pool_list(IsA(http.HttpRequest)) \
+            .AndReturn(self.pools.list())
+        cinder.volume_migrate(IsA(http.HttpRequest),
+                              volume.id,
+                              host,
+                              False) \
+            .AndRaise(self.exceptions.cinder)
+
+        self.mox.ReplayAll()
+
+        url = reverse('horizon:admin:volumes:volumes:migrate',
+                      args=[volume.id])
+        res = self.client.post(url, {'host': host, 'volume_id': volume.id})
+        self.assertRedirectsNoFollow(res, INDEX_URL)

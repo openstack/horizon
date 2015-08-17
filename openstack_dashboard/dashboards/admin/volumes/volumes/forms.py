@@ -150,6 +150,55 @@ class UnmanageVolume(forms.SelfHandlingForm):
                               redirect=redirect)
 
 
+class MigrateVolume(forms.SelfHandlingForm):
+    name = forms.CharField(label=_("Volume Name"),
+                           required=False,
+                           widget=forms.TextInput(
+                           attrs={'readonly': 'readonly'}))
+    current_host = forms.CharField(label=_("Current Host"),
+                                   required=False,
+                                   widget=forms.TextInput(
+                                   attrs={'readonly': 'readonly'}))
+    host = forms.ChoiceField(label=_("Destination Host"),
+                             help_text=_("Choose a Host to migrate to."))
+    force_host_copy = forms.BooleanField(label=_("Force Host Copy"),
+                                         initial=False, required=False)
+
+    def __init__(self, request, *args, **kwargs):
+        super(MigrateVolume, self).__init__(request, *args, **kwargs)
+        initial = kwargs.get('initial', {})
+        self.fields['host'].choices = self.populate_host_choices(request,
+                                                                 initial)
+
+    def populate_host_choices(self, request, initial):
+        hosts = initial.get('hosts')
+        current_host = initial.get('current_host')
+        host_list = [(host.name, host.name)
+                     for host in hosts
+                     if host.name != current_host]
+        if host_list:
+            host_list.insert(0, ("", _("Select a new host")))
+        else:
+            host_list.insert(0, ("", _("No other hosts available")))
+        return sorted(host_list)
+
+    def handle(self, request, data):
+        try:
+            cinder.volume_migrate(request,
+                                  self.initial['volume_id'],
+                                  data['host'],
+                                  data['force_host_copy'])
+            messages.success(
+                request,
+                _('Successfully sent the request to migrate volume: %s')
+                % data['name'])
+            return True
+        except Exception:
+            redirect = reverse("horizon:admin:volumes:volumes_tab")
+            exceptions.handle(request, _("Failed to migrate volume."),
+                              redirect=redirect)
+
+
 class CreateVolumeType(forms.SelfHandlingForm):
     name = forms.CharField(max_length=255, label=_("Name"))
 
