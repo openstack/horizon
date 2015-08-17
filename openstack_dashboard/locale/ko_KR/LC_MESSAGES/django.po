@@ -12,9 +12,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-08-14 04:33+0000\n"
-"PO-Revision-Date: 2015-08-14 02:29+0000\n"
-"Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
+"POT-Creation-Date: 2015-08-15 15:07+0000\n"
+"PO-Revision-Date: 2015-08-16 10:07+0000\n"
+"Last-Translator: Ian Y. Choi <ianyrchoi@gmail.com>\n"
 "Language-Team: Korean (Korea) (http://www.transifex.com/openstack/horizon/"
 "language/ko_KR/)\n"
 "MIME-Version: 1.0\n"
@@ -915,6 +915,9 @@ msgstr "메인 바이너리 선택"
 msgid "Choose a new instance flavor."
 msgstr "새로운 인스턴스 flavor를 선택하세요."
 
+msgid "Choose a shell script"
+msgstr "쉘 스크립트를 선택하세요"
+
 msgid "Choose a snapshot"
 msgstr "스냅샷 선택"
 
@@ -923,6 +926,9 @@ msgstr "스토리지 위치 선택"
 
 msgid "Choose a volume"
 msgstr "볼륨 선택"
+
+msgid "Choose additional files"
+msgstr "추가 파일 선택"
 
 msgid "Choose an DHCP Agent to attach to."
 msgstr "연결할 DHCP 에이전트를 선택합니다."
@@ -1967,6 +1973,9 @@ msgid "Delete User"
 msgid_plural "Delete Users"
 msgstr[0] "사용자 삭제"
 
+msgid "Delete VIP"
+msgstr "VIP 삭제"
+
 msgid "Delete VPN Service"
 msgid_plural "Delete VPN Services"
 msgstr[0] "VPN 서비스 삭제"
@@ -2205,6 +2214,10 @@ msgstr "삭제 중"
 msgctxt "Task status of an Instance"
 msgid "Deleting"
 msgstr "Deleting"
+
+#, python-format
+msgid "Deleting VIP %s from this pool cannot be undone."
+msgstr "해당 풀에서 VIP %s 삭제를 되돌릴 수 없습니다."
 
 msgid "Deny"
 msgstr "거부"
@@ -5118,6 +5131,10 @@ msgstr "포트 세부 정보들"
 msgid "Port Range"
 msgstr "포트 범위"
 
+#, python-format
+msgid "Port cleanup failed for these port-ids (%s)."
+msgstr "해당 port-id (%s)에 대한 포트 클린업이 실패했습니다."
+
 msgid "Port list can not be retrieved."
 msgstr "포트 목록을 찾을 수 없습니다."
 
@@ -6173,6 +6190,9 @@ msgstr "공유 스토리지"
 msgid "Shared with Me"
 msgstr "나에게 공유됨"
 
+msgid "Shell"
+msgstr "쉘"
+
 msgctxt "Current status of an Instance"
 msgid "Shelved"
 msgstr "Shelved"
@@ -7072,6 +7092,9 @@ msgstr ""
 "허용된 IP 범위를 지정하기 위해, &quot;CIDR&quot;를 선택하세요. 다른 시큐리티 "
 "그룹 내 모든 멤버에 대한 접근을 허용하려면 &quot;Security Group&quot;를 선택"
 "하세요."
+
+msgid "Toggle navigation"
+msgstr "내비게이션 토글"
 
 msgid "Topic"
 msgstr "Topic"

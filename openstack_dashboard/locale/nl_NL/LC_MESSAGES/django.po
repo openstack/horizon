@@ -3,14 +3,15 @@
 # This file is distributed under the same license as the PROJECT project.
 #
 # Translators:
+# Evelijn Saaltink <evelijnsaaltink@gmail.com>, 2015
 # Roeltje, 2015
 msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-08-11 04:23+0000\n"
-"PO-Revision-Date: 2015-08-11 01:43+0000\n"
-"Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
+"POT-Creation-Date: 2015-08-15 15:07+0000\n"
+"PO-Revision-Date: 2015-08-16 19:29+0000\n"
+"Last-Translator: Evelijn Saaltink <evelijnsaaltink@gmail.com>\n"
 "Language-Team: Dutch (Netherlands) (http://www.transifex.com/openstack/"
 "horizon/language/nl_NL/)\n"
 "MIME-Version: 1.0\n"
@@ -149,6 +150,54 @@ msgstr "Actie"
 
 msgid "Action for the firewall rule"
 msgstr "Actie voor de firewall regel"
+
+msgctxt "Current status of a Database Instance"
+msgid "Active"
+msgstr "Actief"
+
+msgctxt "Current status of a Firewall"
+msgid "Active"
+msgstr "Actief"
+
+msgctxt "Current status of a Floating IP"
+msgid "Active"
+msgstr "Actief"
+
+msgctxt "Current status of a Network"
+msgid "Active"
+msgstr "Actief"
+
+msgctxt "Current status of a Pool"
+msgid "Active"
+msgstr "Actief"
+
+msgctxt "Current status of a VPN Service"
+msgid "Active"
+msgstr "Actief"
+
+msgctxt "Current status of an IPSec Site Connection"
+msgid "Active"
+msgstr "Actief"
+
+msgctxt "Current status of an Image"
+msgid "Active"
+msgstr "Actief"
+
+msgctxt "Current status of an Instance"
+msgid "Active"
+msgstr "Actief"
+
+msgctxt "current status of port"
+msgid "Active"
+msgstr "Actief"
+
+msgctxt "current status of router"
+msgid "Active"
+msgstr "Actief"
+
+msgctxt "status of a network port"
+msgid "Active"
+msgstr "Actief"
 
 msgid "Add"
 msgstr "Toevoegen"
@@ -421,6 +470,9 @@ msgstr "Aankoppelingen"
 msgid "Audited"
 msgstr "Gecontroleerd"
 
+msgid "Authorization Key"
+msgstr "Autorisatiesleutel"
+
 msgid "Authorization algorithm"
 msgstr "Autorisatiealoritme"
 
@@ -585,6 +637,9 @@ msgstr "Rekenen"
 msgid "Compute Services"
 msgstr "Rekendiensten"
 
+msgid "Configuration Drive"
+msgstr "Configuratieschijf"
+
 msgid "Configure Cluster"
 msgstr "Configureer Cluster"
 
@@ -677,6 +732,10 @@ msgstr "Kon geen beveiligingsgroep vinden."
 
 msgid "Count"
 msgstr "Tel"
+
+msgctxt "Power state of an Instance"
+msgid "Crashed"
+msgstr "Gecrasht"
 
 msgid "Create"
 msgstr "Creëren"
@@ -791,6 +850,9 @@ msgstr "Creëer volume momentopname"
 
 msgid "Create Volume Type"
 msgstr "Creëer volumetype"
+
+msgid "Create a New Volume"
+msgstr "Creëer een nieuw volume"
 
 msgid "Create a Router"
 msgstr "Creëer een router"
@@ -971,6 +1033,10 @@ msgctxt "Admin state of a Firewall"
 msgid "DOWN"
 msgstr "OMLAAG"
 
+msgctxt "Admin state of a Load balancer"
+msgid "DOWN"
+msgstr "OMLAAG"
+
 msgctxt "Admin state of a Network"
 msgid "DOWN"
 msgstr "OMLAAG"
@@ -1028,10 +1094,26 @@ msgstr "Standaarden"
 msgid "Delay"
 msgstr "Vertraging"
 
+msgctxt "current status of stack"
+msgid "Delete Complete"
+msgstr "Verwijdering compleet"
+
 msgid "Delete DHCP Agent"
 msgid_plural "Delete DHCP Agents"
 msgstr[0] "DHCP Agent Verwijderen"
 msgstr[1] "DHCP Agenten Verwijderen"
+
+msgctxt "Current status of a Database Backup"
+msgid "Delete Failed"
+msgstr "Verwijdering mislukt"
+
+msgctxt "current status of stack"
+msgid "Delete Failed"
+msgstr "Verwijdering mislukt"
+
+msgctxt "current status of stack"
+msgid "Delete In Progress"
+msgstr "Bezig met verwijdering"
 
 msgid "Delete Network"
 msgid_plural "Delete Networks"
@@ -1271,6 +1353,9 @@ msgstr "Domeinnaam"
 msgid "Domains"
 msgstr "Domeinen"
 
+msgid "Domains:"
+msgstr "Domeinen:"
+
 msgid "Down"
 msgstr "Omlaag"
 
@@ -1400,6 +1485,9 @@ msgstr "Beveiligingsgroep bewerken"
 
 msgid "Edit Security Groups"
 msgstr "Beveiligingsgroepen bewerken"
+
+msgid "Edit Snapshot"
+msgstr "Momentopname wijzigen"
 
 msgid "Edit Subnet"
 msgstr "Subnet bewerken"
@@ -1592,6 +1680,22 @@ msgstr "Extern netwerk"
 
 msgid "Extra Specs"
 msgstr "Extra Specificaties"
+
+msgctxt "Current status of a Database Backup"
+msgid "Failed"
+msgstr "Mislukt"
+
+msgctxt "Current status of a Database Instance"
+msgid "Failed"
+msgstr "Mislukt"
+
+msgctxt "Current status of a Job"
+msgid "Failed"
+msgstr "Mislukt"
+
+msgctxt "Power state of an Instance"
+msgid "Failed"
+msgstr "Mislukt"
 
 #, python-format
 msgid ""
@@ -1886,6 +1990,9 @@ msgstr "Vanuit hier kunt u de standaardquota's (maximum limieten) bijwerken."
 msgid "GET"
 msgstr "GET"
 
+msgid "GMT"
+msgstr "GMT"
+
 msgid "GRE"
 msgstr "GRE"
 
@@ -2128,6 +2235,18 @@ msgstr "Sleutelpaar importeren"
 
 msgid "In Policy"
 msgstr "In beleid"
+
+msgctxt "Current status of a Firewall"
+msgid "Inactive"
+msgstr "Inactief"
+
+msgctxt "Current status of a Pool"
+msgid "Inactive"
+msgstr "Inactief"
+
+msgctxt "Current status of a VPN Service"
+msgid "Inactive"
+msgstr "Inactief"
 
 msgid "Incremental"
 msgstr "Stapsgewijs"
@@ -2439,11 +2558,22 @@ msgstr "Metadata succesvol geüpdatet."
 msgid "Meter"
 msgstr "Meter"
 
+msgctxt "Current status of an Instance"
+msgid "Migrating"
+msgstr "Migreren"
+
+msgctxt "Task status of an Instance"
+msgid "Migrating"
+msgstr "Migreren"
+
 msgid "Min. Size (MB)"
 msgstr "Min. Grootte (MB)"
 
 msgid "Minimum Disk (GB)"
 msgstr "Minimum Schijf (GB)"
+
+msgid "Minimum RAM (MB)"
+msgstr "Minimum werkgeheugen (MB)"
 
 #, python-format
 msgid "Modified domain \"%s\"."
@@ -2610,11 +2740,17 @@ msgstr "Volgende"
 msgid "Next Hops"
 msgstr "Volgende punten"
 
+msgid "No"
+msgstr "Nee"
+
 msgid "No Host selected."
 msgstr "Geen gastheer geselecteerd"
 
 msgid "No Hosts found."
 msgstr "Geen gastheren gevonden"
+
+msgid "No Images Available"
+msgstr "Geen afbeeldingen beschikbaar"
 
 msgid "No Session Persistence"
 msgstr "Geen sessiepersistentie"
@@ -2666,6 +2802,9 @@ msgstr "Geen Sleutelpaar"
 
 msgid "No networks available"
 msgstr "Geen netwerken beschikbaar"
+
+msgid "No options specified"
+msgstr "Geen opties gespecificeerd"
 
 msgid "No other agents available."
 msgstr "Geen andere agenten beschikbaar."
@@ -3005,6 +3144,14 @@ msgstr "Energietoestand"
 msgid "Power consumption"
 msgstr "Stroomverbruik"
 
+msgctxt "Task status of an Instance"
+msgid "Powering Off"
+msgstr "Afsluiten"
+
+msgctxt "Task status of an Instance"
+msgid "Powering On"
+msgstr "Opstarten"
+
 msgid "Pre-Shared Key (PSK) string"
 msgstr "Pre-Shared Key (PSK) waarde"
 
@@ -3044,6 +3191,9 @@ msgstr "Projectverbruik"
 
 msgid "Projects"
 msgstr "Projecten"
+
+msgid "Projects:"
+msgstr "Projecten:"
 
 msgid "Protected"
 msgstr "Beschermd"
@@ -3137,6 +3287,9 @@ msgstr "Herbouw wachtwoord"
 #, python-format
 msgid "Rebuilding instance %s."
 msgstr "Herbouw exemplaar %s."
+
+msgid "Regions:"
+msgstr "Regio's:"
 
 msgid "Relative part of requests this pool member serves compared to others"
 msgstr ""
@@ -3262,6 +3415,10 @@ msgstr "Router"
 msgid "Router %s was successfully created."
 msgstr "Router %s was succesvol gecreeerd."
 
+#, python-format
+msgid "Router %s was successfully updated."
+msgstr "Router %s is succesvol bijgewerkt."
+
 msgid "Router Details"
 msgstr "Routerdetails"
 
@@ -3276,6 +3433,9 @@ msgstr "Routeringsregels"
 
 msgid "Router Rules Grid"
 msgstr "Routeringsregels raster"
+
+msgid "Router Type"
+msgstr "Routertype"
 
 msgid "Router rule added"
 msgstr "Routeringsregel toegevoegd"
@@ -3970,6 +4130,10 @@ msgctxt "Admin state of a Firewall"
 msgid "UP"
 msgstr "OMHOOG"
 
+msgctxt "Admin state of a Load balancer"
+msgid "UP"
+msgstr "OMHOOG"
+
 msgctxt "Admin state of a Network"
 msgid "UP"
 msgstr "OMHOOG"
@@ -3984,6 +4148,9 @@ msgstr "OMHOOG"
 
 msgid "URL"
 msgstr "URL"
+
+msgid "UTC"
+msgstr "UTC"
 
 #, python-format
 msgid "Unable to add Firewall \"%s\"."
@@ -5101,6 +5268,9 @@ msgstr "Gewicht"
 
 msgid "Which keypair to use for authentication."
 msgstr "Welk sleutelbaar te gebruiken voor identificatie."
+
+msgid "Yes"
+msgstr "Ja"
 
 msgid "You are already using all of your available floating IPs."
 msgstr "U gebruikt reeds al uw beschikbare vlottende IPs."
