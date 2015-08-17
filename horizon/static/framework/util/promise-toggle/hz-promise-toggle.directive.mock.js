@@ -51,11 +51,11 @@
    */
   function hzPromiseToggleMock(hzPromiseToggleTemplateDirective, mockService) {
     return angular.extend(
-        hzPromiseToggleTemplateDirective[0],
-        {
-          singlePromiseResolver: mockService.mockResolver,
-          name: 'hzPromiseToggleMock'
-        }
+      hzPromiseToggleTemplateDirective[0],
+      {
+        singlePromiseResolver: mockService.mockResolver,
+        name: 'hzPromiseToggleMock'
+      }
     );
   }
 

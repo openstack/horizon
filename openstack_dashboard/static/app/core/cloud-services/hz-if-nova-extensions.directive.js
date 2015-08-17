@@ -65,11 +65,11 @@
    */
   function hzNovaExtensions(hzPromiseToggleTemplateDirective, novaExtensions) {
     return angular.extend(
-        hzPromiseToggleTemplateDirective[0],
-        {
-          singlePromiseResolver: novaExtensions.ifNameEnabled,
-          name: 'hzIfNovaExtensions'
-        }
+      hzPromiseToggleTemplateDirective[0],
+      {
+        singlePromiseResolver: novaExtensions.ifNameEnabled,
+        name: 'hzIfNovaExtensions'
+      }
     );
   }
 

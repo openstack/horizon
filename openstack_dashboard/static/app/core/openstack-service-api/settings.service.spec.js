@@ -21,12 +21,12 @@
   var $httpBackend;
   var responseMockOpts = {succeed: true};
   var testData = {
-      isTrue: true,
-      isFalse: false,
-      versions: {one: 1, two: 2},
-      deep: {nest: {foo: 'bar'}},
-      isNull: null
-    };
+    isTrue: true,
+    isFalse: false,
+    versions: {one: 1, two: 2},
+    deep: {nest: {foo: 'bar'}},
+    isNull: null
+  };
 
   function responseMockReturn() {
     return responseMockOpts.succeed ? [200, testData, {}] : [500, 'Fail', {}];

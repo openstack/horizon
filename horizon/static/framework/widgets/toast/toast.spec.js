@@ -25,8 +25,8 @@
   describe('toast factory', function() {
 
     var $compile,
-        $scope,
-        service;
+      $scope,
+      service;
 
     var successMsg = "I am success.";
     var dangerMsg = "I am danger.";
@@ -94,9 +94,9 @@
   describe('toast directive', function () {
 
     var $compile,
-        $scope,
-        $element,
-        service;
+      $scope,
+      $element,
+      service;
 
     var successMsg = "I am success.";
     var dangerMsg = "I am danger.";

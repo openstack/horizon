@@ -26,7 +26,7 @@
   describe('pie chart directive', function () {
 
     var $scope, $elementMax, $elementTotal, $elementOverMax,
-        $elementNoQuota, donutChartSettings, quotaChartDefaults;
+      $elementNoQuota, donutChartSettings, quotaChartDefaults;
 
     beforeEach(module('templates'));
     beforeEach(module('horizon.framework'));
