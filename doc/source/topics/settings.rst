@@ -1095,7 +1095,7 @@ provided see: ``"/horizon/openstack_dashboard/themes/webroot"``
     alias.
 
 ``STATIC_ROOT``
---------------
+---------------
 
 .. versionadded:: 8.0.0(Liberty)
 
