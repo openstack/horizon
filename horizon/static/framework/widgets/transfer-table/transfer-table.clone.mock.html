@@ -1,0 +1,20 @@
+<transfer-table tr-model="tableData" clone-content>
+  <table st-table="$displayItems" st-safe-src="$sourceItems">
+    <tr>
+      <th>ID</th>
+      <th>Animal</th>
+      <th>Action</th>
+    </tr>
+    <tr ng-repeat="item in $displayedItems"
+        ng-if="$isAllocatedTable || ($isAvailableTable && !trCtrl.allocatedIds[item.id])">
+      <td>{$ item.id $}</td>
+      <td>{$ item.animal $}</td>
+      <td>
+        <action-list>
+          <action ng-if="$isAllocatedTable" callback="trCtrl.deallocate" item="item">-</action>
+          <action ng-if="$isAvailableTable" callback="trCtrl.allocate" item="item">+</action>
+        </action-list>
+      </td>
+    </tr>
+  </table>
+</transfer-table>

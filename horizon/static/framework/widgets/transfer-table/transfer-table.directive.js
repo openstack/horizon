@@ -1,5 +1,6 @@
 /*
- *    (c) Copyright 2015 Hewlett-Packard Development Company, L.P.
+ * (c) Copyright 2015 Hewlett-Packard Development Company, L.P.
+ * Copyright 2015 IBM Corp.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -20,111 +21,25 @@
   /**
    * @ngdoc directive
    * @name horizon.framework.widgets.transfer-table.directive:transferTable
-   * @element
+   * @restrict E
+   *
    * @param {object} trModel Table data model (required)
    * @param {object} helpText Help text (optional)
    * @param {object} limits Max allocation (optional, default: 1)
+   *
    * @description
    * The `transferTable` directive generates two tables and allows the
    * transfer of rows between the two tables. Help text and maximum
    * allocation are configurable. The defaults for help text and limits
    * are described above (constants: helpContent and limits).
    *
-   * The data model requires 4 arrays: allocated, displayedAllocated,
-   * available, and displayedAvailable. Smart-Table requires 'displayed'
-   * arrays for sorting and re-ordering.
+   * Refer to transfer-table.controller.js for data model description.
+   * Refer to transfer-table.example.html to see it use as a directive.
    *
-   * Data model:
-   * ```
-   * $scope.available = [
-   *   { id: 'u1', username: 'User 1', disabled: true, warnings: { username: 'Invalid!' } },
-   *   { id: 'u2', username: 'User 2', disabled: true, warningMessage: 'Invalid!' },
-   *   { id: 'u3', username: 'User 3' }
-   * ];
-   *
-   * $scope.allocated = [];
-   *
-   * $scope.tableData = {
-   *   available: $scope.available,
-   *   displayedAvailable: [].concat($scope.available),
-   *   allocated: $scope.allocated,
-   *   displayedAllocated: [].concat($scope.allocated)
-   * };
-   *
-   * $scope.helpText = {
-   *   availHelpText: 'Select one from the list'
-   * };
-   *
-   * $scope.limits = {
-   *   maxAllocation: -1
-   * };
-   * ```
    * Optional arguments for each row in table data model:
    *   disabled - disables the allocate button in available table
    *   warningMessage - the message to show in warning tooltip
    *   warnings - show warning text and icon next to value in table cell
-   *
-   * @restrict E
-   *
-   * @example
-   * There are 2 examples available as a template: allocated.html.example and
-   * available.html.example. The `transferTableController` methods are available
-   * via `trCtrl`. For example, for allocation, use `trCtrl.allocate`.
-   * ```
-   * <transfer-table tr-model="tableData" help-text="helpText" limits="limits">
-   *   <allocated>
-   *     <table st-table="tableData.displayedAllocated"
-   *       st-safe-src="tableData.allocated" hz-table>
-   *       <thead>... header definition ...</thead>
-   *       <tbody>
-   *         <tr ng-repeat-start="row in tableData.displayedAllocated">
-   *           <td>{$ row.username $}</td>
-   *           ... more cell definitions
-   *           <td action-col>
-   *             <action-list>
-   *               <action action-classes="'btn btn-sm btn-default'"
-   *                 callback="trCtrl.deallocate" item="row">
-   *                   <span class="fa fa-minus"></span>
-   *               </action>
-   *             </action-list>
-   *           </td>
-   *         </tr>
-   *         <tr ng-repeat-end class="detail-row">
-   *           <td class="detail">
-   *             ... detail row definition ...
-   *           </td>
-   *           <td></td>
-   *         </tr>
-   *       </tbody>
-   *     </table>
-   *   </allocated>
-   *   <available>
-   *     <table st-table="tableData.displayedAvailable"
-   *       st-safe-src="tableData.available" hz-table>
-   *       <thead>... header definition ...</thead>
-   *       <tbody>
-   *         <tr ng-repeat-start="row in tableData.displayedAvailable">
-   *           <td>{$ row.username $}</td>
-   *           ... more cell definitions
-   *           <td action-col>
-   *             <action-list>
-   *               <action action-classes="'btn btn-sm btn-default'"
-   *                 callback="trCtrl.allocate" item="row">
-   *                   <span class="fa fa-minus"></span>
-   *               </action>
-   *             </action-list>
-   *           </td>
-   *         </tr>
-   *         <tr ng-repeat-end class="detail-row">
-   *           <td class="detail">
-   *             ... detail row definition ...
-   *           </td>
-   *         </tr>
-   *       </tbody>
-   *     </table>
-   *   </available>
-   * </transfer-table>
-   * ```
    */
   angular
     .module('horizon.framework.widgets.transfer-table')
@@ -150,11 +65,28 @@
     function link(scope, element, attrs, ctrl, transclude) {
       var allocated = element.find('.transfer-allocated');
       var available = element.find('.transfer-available');
-
-      transclude(scope, function(clone) {
-        allocated.append(clone.filter('allocated'));
-        available.append(clone.filter('available'));
-      });
+      if ('cloneContent' in attrs) {
+        var allocatedScope = scope.$new();
+        allocatedScope.$displayedItems = ctrl.allocated.displayedItems;
+        allocatedScope.$sourceItems = ctrl.allocated.sourceItems;
+        allocatedScope.$isAllocatedTable = true;
+        transclude(allocatedScope, function(clone) {
+          allocated.append(clone.filter('table'));
+        });
+        var availableScope = scope.$new();
+        availableScope.$displayedItems = ctrl.available.displayedItems;
+        availableScope.$sourceItems = ctrl.available.sourceItems;
+        availableScope.$isAvailableTable = true;
+        transclude(availableScope, function(clone) {
+          available.append(clone.filter('table'));
+        });
+      }
+      else {
+        transclude(scope, function(clone) {
+          allocated.append(clone.filter('allocated'));
+          available.append(clone.filter('available'));
+        });
+      }
     }
   }
 })();

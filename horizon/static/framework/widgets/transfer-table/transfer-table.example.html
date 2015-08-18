@@ -1,0 +1,50 @@
+
+<transfer-table tr-model="data" clone-content>
+  <table st-table="$displayedItems" st-safe-src="$sourceItems"
+    hz-table class="table-striped table-rsp table-detail modern">
+    <thead>
+      <!-- show search bar only for available table -->
+      <tr ng-show="$isAvailableTable">
+        <th class="search-header" colspan="10">
+          <hz-search-bar group-classes="input-group-sm" icon-classes="fa-search">
+          </hz-search-bar>
+        </th>
+      </tr>
+      <tr>
+        <th st-sort="name" st-sort-default class="rsp-p1" translate>Name</th>
+        <th st-sort="description" class="rsp-p2" translate>description</th>
+        <th class="action-col"></th>
+      </tr>
+    </thead>
+    <tbody>
+      <!-- no item message -->
+      <tr ng-if="trCtrl.numAvailable() === 0">
+        <td colspan="10">
+          <div class="no-rows-help" translate>
+            No available items
+          </div>
+        </td>
+      </tr>
+      <tr ng-repeat="item in $displayedItems track by item.id"
+          ng-if="$isAllocatedTable || ($isAvailableTable && !trCtrl.allocatedIds[item.id])">
+        <td class="rsp-p1">{$ item.name $}</td>
+        <th class="rsp-p2">{$ item.description $}</th>
+        <td class="action-col">
+          <action-list>
+            <!-- conditional actions -->
+            <action ng-if="$isAllocatedTable"
+              action-classes="'btn btn-sm btn-default'"
+              callback="trCtrl.deallocate" item="item">
+              <span class="fa fa-minus"></span>
+            </action>
+            <action ng-if="$isAvailableTable"
+              action-classes="'btn btn-sm btn-default'"
+              callback="trCtrl.allocate" item="item">
+              <span class="fa fa-plus"></span>
+            </action>
+          </action-list>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</transfer-table>
