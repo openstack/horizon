@@ -49,7 +49,7 @@ __all__ = [
     "IPv4",
     "IPv6",
     "MultiIPField",
-    "SelectWidget"
+    "SelectWidget",
 
     # From django.forms
     "ValidationError",

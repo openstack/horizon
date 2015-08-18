@@ -512,12 +512,13 @@ OpenStack dashboard to use a specific API version for a given service API.
     The version should be formatted as it appears in the URL for the
     service API. For example, the identity service APIs have inconsistent
     use of the decimal point, so valid options would be "2.0" or "3".
-    For example,
-    OPENSTACK_API_VERSIONS = {
-        "data-processing": 1.1,
-        "identity": 3,
-        "volume": 2
-    }
+    For example::
+
+        OPENSTACK_API_VERSIONS = {
+            "data-processing": 1.1,
+            "identity": 3,
+            "volume": 2
+        }
 
 ``OPENSTACK_ENABLE_PASSWORD_RETRIEVE``
 --------------------------------------
