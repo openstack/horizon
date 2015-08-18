@@ -21,7 +21,6 @@ from horizon.templatetags import sizeformat
 class AdminHypervisorsTable(tables.DataTable):
     hostname = tables.Column("hypervisor_hostname",
                              link="horizon:admin:hypervisors:detail",
-                             attrs={'data-type': 'naturalSort'},
                              verbose_name=_("Hostname"))
 
     hypervisor_type = tables.Column("hypervisor_type",
