@@ -1,13 +1,14 @@
 <div ng-controller="LaunchInstanceNetworkController as ctrl">
-  <h1>{$ ::ctrl.label.title $}</h1>
+  <h1 translate>Networks</h1>
   <div class="content">
-    <div class="subtitle">{$ ::ctrl.label.subtitle $}</div>
-
+    <div class="subtitle" translate>
+      Networks provide the communication channels for instances in the cloud.
+    </div>
 
   <div class="form-group" ng-if="model.arePortProfilesSupported">
-    <label class="control-label required" for="profile">{$ ::ctrl.label.profile $}</label>
+    <label class="control-label required" for="profile" translate>Profile</label>
     <select class="form-control" id="profile" ng-model="model.newInstanceSpec.profile" ng-options="profile.name for profile in model.profiles">
-      <option value="">{$ ::ctrl.label.none_option $}</option>
+      <option value="" translate>(None)</option>
     </select>
   </div>
 
@@ -19,19 +20,19 @@
           <tr>
             <th class="reorder"></th>
             <th class="expander"></th>
-            <th class="rsp-p1">{$ ::ctrl.label.network $}</th>
-            <th class="rsp-p2">{$ ::ctrl.label.subnet_associated $}</th>
-            <th class="rsp-p1">{$ ::ctrl.label.shared $}</th>
-            <th class="rsp-p1">{$ ::ctrl.label.admin_state $}</th>
-            <th class="rsp-p1">{$ ::ctrl.label.status $}</th>
+            <th class="rsp-p1" translate>Network</th>
+            <th class="rsp-p2" translate>Subnets Associated</th>
+            <th class="rsp-p1" translate>Shared</th>
+            <th class="rsp-p1" translate>Admin State</th>
+            <th class="rsp-p1" translate>Status</th>
             <th></th>
           </tr>
         </thead>
         <tbody>
           <tr ng-if="ctrl.tableDataMulti.allocated.length === 0">
             <td colspan="8">
-              <div class="no-rows-help">
-                {$ ::trCtrl.helpText.noneAllocText $}
+              <div class="no-rows-help" translate>
+                Select an item from Available items below
               </div>
             </td>
           </tr>
@@ -39,12 +40,12 @@
             lr-drag-data="ctrl.tableDataMulti.displayedAllocated" lr-drag-src="reorder"
             lr-drop-target="reorder" lr-drop-success="trCtrl.updateAllocated(e, item, collection)">
             <td class="reorder">
-              <span class="fa fa-sort" title="{$ ::trCtrl.helpText.orderText $}"></span>
+              <span class="fa fa-sort" title="{$ 'Re-order items using drag and drop'|translate $}"></span>
               {$ $index + 1 $}
             </td>
             <td class="expander">
               <span class="fa fa-chevron-right" hz-expand-detail
-                title="{$ ::trCtrl.helpText.expandDetailsText $}"></span>
+                title="{$ 'Click to see more details'|translate $}"></span>
             </td>
             <td class="rsp-p1">{$ row.name $}</td>
             <td class="rsp-p2">
@@ -66,25 +67,25 @@
             <td colspan="2"></td>
             <td colspan="7" class="detail">
               <dl class="dl-horizontal">
-                <dt>{$ ::ctrl.label.id $}</dt>
+                <dt translate>ID</dt>
                 <dd>{$ row.id $}</dd>
-                <dt>{$ ::ctrl.label.project_id $}</dt>
+                <dt translate>Project</dt>
                 <dd>{$ row.tenant_id $}</dd>
-                <dt>{$ ::ctrl.label.external_network $}</dt>
+                <dt translate>External Network</dt>
                 <dd>{$ row['router:external'] | yesno $}</dd>
               </dl>
-              <div><b>{$ ::ctrl.label.provider_network $}</b></div>
+              <div><b translate>Provider Network</b></div>
               <div class="row" class="detail">
                 <dl class="col-sm-3">
-                  <dt>{$ ::ctrl.label.provider_network_type $}</dt>
-                  <dd>{$ row['provider:network_type'] $}</dd>
+                  <dt translate>Type</dt>
+                  <dd translate>{$ row['provider:network_type'] $}</dd>
                 </dl>
                 <dl class="col-sm-3">
-                  <dt>{$ ::ctrl.label.provider_segmentation_id $}</dt>
+                  <dt translate>Segmentation ID</dt>
                   <dd>{$ row['provider:segmentation_id'] $}</dd>
                 </dl>
                 <dl class="col-sm-3">
-                  <dt>{$ ::ctrl.label.provider_physical_network $}</dt>
+                  <dt translate>Physical Network</dt>
                   <dd>{$ row['provider:physical_network'] $}</dd>
                 </dl>
               </div>
@@ -106,19 +107,19 @@
           <tr>
             <th class="reorder"></th>
             <th class="expander"></th>
-            <th st-sort="name" st-sort-default class="rsp-p1">{$ ::ctrl.label.network $}</th>
-            <th class="rsp-p2">{$ ::ctrl.label.subnet_associated $}</th>
-            <th st-sort="shared" class="rsp-p1">{$ ::ctrl.label.shared $}</th>
-            <th st-sort="admin_state" class="rsp-p1">{$ ::ctrl.label.admin_state $}</th>
-            <th st-sort="status" class="rsp-p1">{$ ::ctrl.label.status $}</th>
+            <th st-sort="name" st-sort-default class="rsp-p1" translate>Network</th>
+            <th class="rsp-p2" translate>Subnets Associated</th>
+            <th st-sort="shared" class="rsp-p1" translate>Shared</th>
+            <th st-sort="admin_state" class="rsp-p1" translate>Admin State</th>
+            <th st-sort="status" class="rsp-p1" translate>Status</th>
             <th></th>
           </tr>
         </thead>
         <tbody>
           <tr ng-if="trCtrl.numDisplayedAvailable() === 0">
             <td colspan="8">
-              <div class="no-rows-help">
-                {$ ::trCtrl.helpText.noneAvailText $}
+              <div class="no-rows-help" translate>
+                No available items
               </div>
             </td>
           </tr>
@@ -126,7 +127,7 @@
             <td class="reorder"></td>
             <td class="expander">
               <span class="fa fa-chevron-right" hz-expand-detail
-                title="{$ ::trCtrl.helpText.expandDetailsText $}"></span>
+                title="{$ 'Click to see more details'|translate $}"></span>
             </td>
             <td class="rsp-p1">{$ row.name$}</td>
             <td class="rsp-p2">
@@ -153,25 +154,25 @@
             <td colspan="2"></td>
             <td colspan="7" class="detail">
               <dl class="dl-horizontal">
-                <dt>{$ ::ctrl.label.id $}</dt>
+                <dt translate>ID</dt>
                 <dd>{$ row.id $}</dd>
-                <dt>{$ ::ctrl.label.project_id $}</dt>
+                <dt translate>Project</dt>
                 <dd>{$ row.tenant_id $}</dd>
-                <dt>{$ ::ctrl.label.external_network $}</dt>
+                <dt translate>External Network</dt>
                 <dd>{$ row['router:external'] | yesno $}</dd>
               </dl>
-              <div><b>{$ ::ctrl.label.provider_network $}</b></div>
+              <div><b translate>Provider Network</b></div>
               <div class="row">
                 <dl class="col-sm-3">
-                  <dt>{$ ::ctrl.label.provider_network_type $}</dt>
+                  <dt translate>Type</dt>
                   <dd>{$ row['provider:network_type'] $}</dd>
                 </dl>
                 <dl class="col-sm-3">
-                  <dt>{$ ::ctrl.label.provider_segmentation_id $}</dt>
+                  <dt translate>Segmentation ID</dt>
                   <dd>{$ row['provider:segmentation_id'] $}</dd>
                 </dl>
                 <dl class="col-sm-3">
-                  <dt>{$ ::ctrl.label.provider_physical_network $}</dt>
+                  <dt translate>Physical Network</dt>
                   <dd>{$ row['provider:physical_network'] $}</dd>
                 </dl>
               </div>

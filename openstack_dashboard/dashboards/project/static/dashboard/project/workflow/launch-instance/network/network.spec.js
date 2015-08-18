@@ -49,11 +49,6 @@
         expect(ctrl.tableLimits.maxAllocation).toBe(-1);
       });
 
-      it('contains its own labels', function() {
-        expect(ctrl.label).toBeDefined();
-        expect(Object.keys(ctrl.label).length).toBeGreaterThan(0);
-      });
-
       it('contains help text for the table', function() {
         expect(ctrl.tableHelpText).toBeDefined();
         expect(ctrl.tableHelpText.allocHelpText).toBeDefined();
@@ -69,30 +64,5 @@
       });
     });
 
-    describe('LaunchInstanceNetworkHelpController', function() {
-      var ctrl;
-
-      beforeEach(inject(function($controller) {
-        ctrl = $controller('LaunchInstanceNetworkHelpController', {});
-      }));
-
-      it('defines the title', function() {
-        expect(ctrl.title).toBeDefined();
-      });
-
-      it('defines paragraphs', function() {
-        expect(ctrl.paragraphs).toBeDefined();
-        expect(ctrl.paragraphs.length).toBeGreaterThan(0);
-      });
-
-      it('defines the network characteristics title', function() {
-        expect(ctrl.networkCharTitle).toBeDefined();
-      });
-
-      it('defines network characteristics paragraphs', function() {
-        expect(ctrl.networkCharParagraphs).toBeDefined();
-        expect(ctrl.networkCharParagraphs.length).toBeGreaterThan(0);
-      });
-    });
   });
 })();

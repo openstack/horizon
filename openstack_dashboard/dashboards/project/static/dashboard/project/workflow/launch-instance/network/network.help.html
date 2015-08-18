@@ -1,8 +1,44 @@
-<div ng-controller="LaunchInstanceNetworkHelpController as networkHelpCtrl">
-  <h1>{$ ::networkHelpCtrl.title $}</h1>
-  <p ng-repeat="paragraph in ::networkHelpCtrl.paragraphs"
-    ng-bind-html="::paragraph"></p>
-  <h4>{$ ::networkHelpCtrl.networkCharTitle $}</h4>
-  <p ng-repeat="networkCharParagraph in ::networkHelpCtrl.networkCharParagraphs"
-    ng-bind-html="::networkCharParagraph"></p>
+<div>
+  <h1 translate>Network Help</h1>
+  <p translate>
+    Provider networks are created by administrators.
+    These networks map to an existing physical network in the data center.
+  </p>
+  <p translate>
+    Project networks are created by users.
+    These networks are fully isolated and are project-specific.
+  </p>
+  <p translate>
+    An <b>External</b> network is set up by an administrator.
+    If you want an instance to communicate outside of the data center,
+    then attach a router between your <b>Project</b> network and the <b>External</b> network.
+    You can use the <b>Network Topology</b> view to connect the router to the two networks.
+  </p>
+  <p translate>
+    A floating IP allows instances to be addressable from an external network.
+    Floating IPs are not allocated to instances at creation time and may be assigned
+    after the instance is created. To attach a floating IP, go to the <b>Instances</b>
+    view and click the <b>Actions</b> menu to the right of an instance.
+    Then, select the <b>Associate Floating IP</b> option and enter the necessary details.
+  </p>
+  <p translate>
+    Administrators set up the pool of floating IPs that are available to attach to instances.
+  </p>
+
+  <h4 translate>Network characteristics</h4>
+  <p translate>
+    The subnet identifies a sub-section of a network. A subnet is specified in CIDR format.
+    A typical CIDR format looks like <samp>192.xxx.x.x/24</samp>.
+  </p>
+  <p translate>
+    If a network is shared, then all users in the project can access the network.
+  </p>
+  <p translate>
+    When the <b>Admin State</b> for a network is set to <b>Up</b>,
+    then the network is available for use. You can set the <b>Admin State</b> to <b>Down</b>
+    if you are not ready for other users to access the network.
+  </p>
+  <p translate>
+    The status indicates whether the network has an active connection.
+  </p>
 </div>
