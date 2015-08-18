@@ -14,6 +14,7 @@ from django.utils.translation import ugettext_lazy as _
 
 from horizon import exceptions
 from horizon import tabs
+from horizon.utils import functions as utils
 
 from openstack_dashboard.api import nova
 from openstack_dashboard.dashboards.admin.hypervisors.compute \
@@ -31,6 +32,7 @@ class HypervisorTab(tabs.TableTab):
         hypervisors = []
         try:
             hypervisors = nova.hypervisor_list(self.request)
+            hypervisors.sort(key=utils.natural_sort('hypervisor_hostname'))
         except Exception:
             exceptions.handle(self.request,
                               _('Unable to retrieve hypervisor information.'))
