@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-08-11 04:23+0000\n"
-"PO-Revision-Date: 2015-08-11 01:43+0000\n"
+"POT-Creation-Date: 2015-08-18 02:50+0000\n"
+"PO-Revision-Date: 2015-08-17 17:04+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Serbian (http://www.transifex.com/openstack/horizon/language/"
 "sr/)\n"
@@ -20,6 +20,12 @@ msgstr ""
 "Language: sr\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
 "%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+
+msgid " - End"
+msgstr "- Kraj"
+
+msgid " : Next hop"
+msgstr " : Sledeći hop"
 
 #, python-format
 msgid "%(field_name)s: Invalid IP address (value=%(ip)s)"
@@ -82,8 +88,47 @@ msgstr ", izmenite grupe projekta"
 msgid "-"
 msgstr "-"
 
+msgid "--"
+msgstr "--"
+
 msgid "3des"
 msgstr "3des"
+
+#, python-format
+msgid "<p>%(used)s of %(quota)s MB Used</p>"
+msgstr "<p>%(used)s of %(quota)s MB upotrebnljeno</p>"
+
+#, python-format
+msgid "<p>%(used)s of %(quota)s Used</p>"
+msgstr "<p>%(used)s od %(quota)s upotrebljeno</p>"
+
+msgid ""
+"<strong>Please note:</strong> The value specified in the Volume Size field "
+"should be greater than 0, however, some configurations do not support "
+"specifying volume size. If specifying the volume size results in an error "
+"stating volume support is not enabled, enter 0."
+msgstr ""
+"<strong>Pažnja:</strong> Vrednost navedena u polju veličina Volume treba da "
+"bude veća od 0, ipak, neke konfiguracije ne podržavaju specificiranje "
+"veličine Volume-a. Ukoliko pokušaj sa navođenjem vrednosti da grešku, "
+"navodeći da podrška volume-u nije omogućena, unesite 0."
+
+msgid ""
+"A container is a storage compartment for your data and provides a way for "
+"you to organize your data. You can think of a container as a folder in "
+"Windows &reg; or a directory in UNIX &reg;. The primary difference between a "
+"container and these other file system concepts is that containers cannot be "
+"nested. You can, however, create an unlimited number of containers within "
+"your account. Data must be stored in a container so you must have at least "
+"one container defined in your account prior to uploading data."
+msgstr ""
+"Kontejner je mesto za čuvanje podataka i način je da organizujete podatke. "
+"Možete ga posmatrati kao folder u Windows &reg; ili kao directory u UNIX "
+"&reg;. Osnovna razlika između kontejnera i ovih drugih file sistema kao "
+"koncepta je što kontejner ne može biti ugnježden. Uz svoj nalog vi možete "
+"kreirati neograničen broj kontejnera. Podaci moraju biti smešteni u "
+"kontejner, tako da vi morate imati bar jedan konteejner pod vašim nalogom "
+"pre prebacivanja podataka na sistem."
 
 msgid "A image or external image location must be specified."
 msgstr "Lokacija image-a ili spoljnog image-a mora biti određena."
@@ -99,6 +144,17 @@ msgstr "Lokalni fajl sa podaciza za definisanje metadata"
 
 msgid "A local template to upload."
 msgstr "Lokalni šablon za upload."
+
+msgid ""
+"A more specific rule affects a portion of this traffic so a rule cannot be "
+"automatically generated to control the behavior of the entire source/"
+"destination combination."
+msgstr ""
+"Detaljnije pravilo utiče na deo ovog saobraćaja, pravilo za kontrolu "
+"ponašanja svih izvor/odredišta ne može automatski da se kreira.  "
+
+msgid "A new uploaded file will replace the content of the current object"
+msgstr "Poslata datoteka će zameniti sadržaj tekućeg objekta."
 
 msgid ""
 "A script or set of commands to be executed after the instance has been built "
@@ -146,6 +202,12 @@ msgstr "ARI - Amazon Ramdisk Image"
 msgid "Access & Security"
 msgstr "Pristup & Sigurnost"
 
+msgid "Access &amp; Security"
+msgstr "Pristup &amp; Sigurnost"
+
+msgid "Access: "
+msgstr "Pristup:"
+
 msgid "Action"
 msgstr "Akcija"
 
@@ -157,6 +219,9 @@ msgstr "Dodaj"
 
 msgid "Add Firewall"
 msgstr "Dodajte firewall"
+
+msgid "Add Group Assignment"
+msgstr "Dodaj zadatak grupi"
 
 msgid "Add IKE Policy"
 msgstr "Dodajte IKE politiku"
@@ -221,6 +286,9 @@ msgstr "Dodavanje pravila"
 msgid "Add Subnet"
 msgstr "Dodaj podmrežu"
 
+msgid "Add User to Group"
+msgstr "Dodaj korisnika u grupu"
+
 msgid "Add VIP"
 msgstr "Dodavanje VIP"
 
@@ -235,6 +303,12 @@ msgstr ""
 
 msgid "Add hosts to this aggregate. Hosts can be in multiple aggregates."
 msgstr "Dodaj Host ovom skupu. Host moze biti dodan u vise skupova. "
+
+msgid "Add interface"
+msgstr "Dodavanje interface-a"
+
+msgid "Add rule"
+msgstr "Dodaj pravilo"
 
 msgid "Add/Remove Hosts to Aggregate"
 msgstr "Dodaj/Izbaci host iz skupa"
@@ -290,17 +364,33 @@ msgstr "Dodat monitor"
 msgid "Added pool \"%s\"."
 msgstr "Dodata grupa \"%s\"."
 
+msgid "Additional routes"
+msgstr "Dodatne rute"
+
+msgid "Address"
+msgstr "Adresa"
+
 msgid "Admin"
 msgstr "Admin"
 
 msgid "Admin State"
 msgstr "Admin state"
 
+msgid "Admin State Up"
+msgstr "Admin aktivan"
+
 msgid "Advanced Options"
 msgstr "Napredan izbor "
 
 msgid "After"
 msgstr "Posle"
+
+msgid ""
+"After launching an instance, you login using the private key (the username "
+"might be different depending on the image you launched):"
+msgstr ""
+"Nakon pokretanja instance, logujete se privatnim ključem (korisničko ime "
+"može biti drugačije zavisno od image-a koji pokrećete):"
 
 msgid "All Available Hosts"
 msgstr "Svi raspoloživi hostovi"
@@ -341,12 +431,25 @@ msgstr "Dodela IP"
 msgid "Allocate IP To Project"
 msgstr "Dodelite IP proejktu"
 
+msgid "Allocate a floating IP from a given floating IP pool."
+msgstr "Dodelite slobodnu IP iz date grupe slobodnih IP."
+
 #, python-format
 msgid "Allocated Floating IP %(ip)s."
 msgstr "Dodeljena slobodna IP %(ip)s."
 
 msgid "Allocation Pools"
 msgstr "Određivanje grupa"
+
+msgid ""
+"Allow the user to connect from this host\n"
+"    only. If not provided this user will be allowed to connect from "
+"anywhere.\n"
+"    "
+msgstr ""
+"Dozvoli korisniku konekciju samo sa ovog hosta.\n"
+"    Ukoliko se ne navede, biće dozvoljenje konekcije sa bilo kog hosta.\n"
+"    "
 
 msgid "Amount of energy"
 msgstr "Količina energije"
@@ -356,6 +459,26 @@ msgstr "Spoljni (HTTP) URL odakle se preuzima image."
 
 msgid "An external (HTTP) URL to load the template from."
 msgstr "Spoljni (HTTP) URL odakle se učitava šablon."
+
+msgid ""
+"An instance can be launched with varying types of attached storage. You may "
+"select from those options here."
+msgstr ""
+"Instanca može biti lansirana sa raznolikim prikačenim storage-a. Ovde možete "
+"odabrati mogućnosti."
+
+msgid ""
+"An object is the basic storage entity that represents a file you store in "
+"the OpenStack Object Storage system. When you upload data to OpenStack "
+"Object Storage, the data is stored as-is (no compression or encryption) and "
+"consists of a location (container), the object's name, and any metadata "
+"consisting of key/value pairs."
+msgstr ""
+"Objekat je jedinični element za smeštanje u storage i predstavlja file koji "
+"smeštate u OpenStack Object Storage sistem. Kada smeštate podatke u "
+"OpenStack Object Storage, podaci su smešteni u izvornom obliku (nema "
+"kompresije i enkripcije) i sastoji se od lokacije (oznaka kontejnera), imena "
+"objekta, i osnovnih podataka koji sadrže par key/value."
 
 msgid ""
 "An unexpected error has occurred. Try refreshing the page. If that doesn't "
@@ -400,6 +523,12 @@ msgstr "Bar jedan član mora biti određen"
 msgid "At least one network must be specified."
 msgstr "Barem jedna mreža mora biti izabrana."
 
+msgid "Attach To Instance"
+msgstr "Povezano za Instancu"
+
+msgid "Attach Volume"
+msgstr "Povezivanje Volume-a"
+
 msgid "Attach to Instance"
 msgstr "Priključivanje za instancu"
 
@@ -429,6 +558,9 @@ msgstr "Revizija"
 msgid "Authorization algorithm"
 msgstr "Algoritam autorizacije"
 
+msgid "Authorization mode"
+msgstr "Režim autorizacije"
+
 msgid "Automatic"
 msgstr "Automatski"
 
@@ -451,6 +583,12 @@ msgstr "Dostupno"
 msgctxt "Current status of a Volume Backup"
 msgid "Available"
 msgstr "Dostupno"
+
+msgid "Available Rules"
+msgstr "Dostupna pravila"
+
+msgid "Available networks"
+msgstr "Dostupne mreže"
 
 msgid "Average CPU utilization"
 msgstr "Prosečna upotreba CPU"
@@ -479,6 +617,9 @@ msgstr "Broj odlaznih bajtova na mreži za VM interfejs"
 msgid "Average volume of writes"
 msgstr "Količina pisanja "
 
+msgid "Avg."
+msgstr "Avg."
+
 msgid "Backup"
 msgstr "Sigurnosna kopija - backup"
 
@@ -489,8 +630,17 @@ msgstr "Sigurnosna kopija - backup"
 msgid "Backup Database"
 msgstr "Baza podataka sigurnosnih kopija"
 
+msgid "Backup Duration"
+msgstr "Trajanje pravljenja sigurnosnih kopija"
+
 msgid "Backup File"
 msgstr "Sigurnosna kopija - backup file"
+
+msgid "Backup File Location"
+msgstr "Lokacija sigurnosne kopije"
+
+msgid "Backup Overview"
+msgstr "Pregled sigurnosnih kopija"
 
 msgid "Backups"
 msgstr "Sigurnosne kopije - backup-i"
@@ -531,6 +681,9 @@ msgstr "Iskorišteno CPU vreme"
 msgid "Can not specify both image and external image location."
 msgstr "Ne mogu se odrediti i lokacija image-a i spoljnog image-a. "
 
+msgid "Cancel"
+msgstr "Odustani"
+
 msgid "Cannot specify both file and direct input."
 msgstr "Cannot specify both file and direct input."
 
@@ -549,6 +702,9 @@ msgstr "Promena šablona"
 msgid "Changing password is not supported."
 msgstr "Nije podržana promena lozinke."
 
+msgid "Checksum"
+msgstr "Checksum"
+
 msgid "Choose Your Boot Source Type."
 msgstr "Odaberite vašu vrstu boot source-a."
 
@@ -557,6 +713,13 @@ msgstr "Izaberite Host na kome želite spasiti server."
 
 msgid "Choose a Host to migrate to."
 msgstr "Odaberite Host na koji radite seobu."
+
+msgid ""
+"Choose a key pair name you will recognise and paste your SSH public key into "
+"the space provided."
+msgstr ""
+"Izaberite naziv para ključeva koji ćete prepoznati i nalepite vaš SSH javni "
+"ključ u predviđeni prostor."
 
 msgid "Choose a snapshot"
 msgstr "Odaberite snapshot"
@@ -567,8 +730,20 @@ msgstr "Odaberite volume"
 msgid "Choose an image"
 msgstr "Odaberite image"
 
+msgid ""
+"Choose rule(s) from Available Rules to Selected Rule by push button or drag "
+"and drop,\n"
+"you may change their order by drag and drop as well. "
+msgstr ""
+"Odaberite pravilo(a) iz dostupnih pravila u odabrana pravila dugmetom ili "
+"uzmi i prebaci,\n"
+"možete menjati redosled pomoću uzmi i prebaci. "
+
 msgid "Choose the flavor to launch."
 msgstr "Odaberite aromu za pokretanje."
+
+msgid "Choose the rule you want to remove."
+msgstr "Odaberite pravilo koje želite da uklonite."
 
 msgid "Cinder"
 msgstr "Cinder"
@@ -578,6 +753,9 @@ msgstr "Inter-Domain rutiranje bez klase (npr. 192.168.0.0/24)"
 
 msgid "Clear Domain Context"
 msgstr "Obriši Domen kontekst"
+
+msgid "Click here to show only console"
+msgstr "Kliknite ovde za prikaz samo konzolu"
 
 msgid "Close"
 msgstr "Zatvori"
@@ -590,6 +768,9 @@ msgstr "Zarezom odvojena lista baza podataka koje se kreiraju"
 
 msgid "Compute"
 msgstr "Compute"
+
+msgid "Compute (Nova)"
+msgstr "Računalo (Nova)"
 
 msgid "Compute Host"
 msgstr "Računarski host"
@@ -617,6 +798,15 @@ msgctxt "Task status of an Instance"
 msgid "Confirming Resize or Migrate"
 msgstr "Potvrdite promenu veličine ili seobu"
 
+msgid "Conflicting Rule"
+msgstr "Pravilo u konfliktu"
+
+msgid "Connection Examples"
+msgstr "Primeri veze"
+
+msgid "Connection Info"
+msgstr "Informacije o vezi"
+
 msgid "Connection Limit"
 msgstr "Ograničenje veze"
 
@@ -632,6 +822,9 @@ msgstr "Pristup kontejneru"
 msgid "Container Details"
 msgstr "Detalji kontejnera"
 
+msgid "Container Format"
+msgstr "Format kontejnera"
+
 msgid "Container Name"
 msgstr "Ime kontejnera"
 
@@ -640,6 +833,9 @@ msgstr "Kontejner kreiran uspešno."
 
 msgid "Containers"
 msgstr "Kontejneri"
+
+msgid "Content Type"
+msgstr "Vrsta sadržaja"
 
 msgid "Control Location"
 msgstr "Kontrola  Lokacije"
@@ -785,6 +981,9 @@ msgstr "Kreirajte volume"
 msgid "Create Volume Snapshot"
 msgstr "Kreiranje snapshot-a Volume-a"
 
+msgid "Create Volume Snapshot (Force)"
+msgstr "Kreiranje snapshot-a volume-a (forsirano)"
+
 msgid "Create Volume Type"
 msgstr "Kreiranje tipa volume-a"
 
@@ -848,8 +1047,18 @@ msgstr ""
 "pokušaja koje monitor zahteva. Odredite metod, URL put, i očekivani HTTP kod "
 "u slučaju uspeha."
 
+msgid "Create a new stack with the provided values."
+msgstr "Kreirajte novi stack sa datim vrednostima."
+
 msgid "Create a policy with selected rules."
 msgstr "Kreirajte politiku sa odabranim pravilima."
+
+msgid ""
+"Create an optional initial user.\n"
+"   This user will have access to all databases you create."
+msgstr ""
+"Imate mogućnost da kreirate prvog korisnika.\n"
+"Ovom korisniku biće dostupne sve baze podataka koje kreirate."
 
 msgid "Created"
 msgstr "Kreirano"
@@ -937,8 +1146,20 @@ msgstr "Trenutni Host"
 msgid "Current password"
 msgstr "Trenutna lozinka"
 
+msgid ""
+"Currently only images available via an HTTP URL are supported. The image "
+"location must be accessible to the Image Service. Compressed image binaries "
+"are supported (.zip and .tar.gz.)"
+msgstr ""
+"Trenutno samo image-i dostupni preko HTTP URL su podržani. Pozicija image-a "
+"mora biti dostupna image servisu. Komprimovani image-i su podržani (.zip i ."
+"tar.gz.)"
+
 msgid "Custom ICMP Rule"
 msgstr "Prilagođeno ICMP pravilo"
+
+msgid "Custom Properties"
+msgstr "Prilagođene osobine"
 
 msgid "Custom TCP Rule"
 msgstr "Prilagođeno TCP pravilo"
@@ -953,17 +1174,32 @@ msgctxt "Action Name of a Firewall Rule"
 msgid "DENY"
 msgstr "ZABRANI"
 
+msgid "DHCP Enable"
+msgstr "DHCP upošljen"
+
 msgid "DNS Name Servers"
 msgstr "Serveri za DNS imena"
 
+msgid "DNS name server"
+msgstr "DNS server"
+
 msgid "Database"
 msgstr "Baza podataka"
+
+msgid "Database Backups"
+msgstr "Sigurnosne kopije baze podataka"
+
+msgid "Database Info"
+msgstr "Informacije o bazi podataka"
 
 msgid "Database Instance"
 msgstr "Jedinica baze podataka"
 
 msgid "Database Name"
 msgstr "Ime baze podataka"
+
+msgid "Database Port"
+msgstr "Port baze podataka"
 
 msgid "Databases"
 msgstr "Baze podataka"
@@ -974,6 +1210,9 @@ msgstr "Datum izmene"
 msgid "Day"
 msgstr "Dan"
 
+msgid "Dead peer detection action"
+msgstr "Akcija otkrivanja neaktivnog peer-a"
+
 msgid "Dead peer detection actions"
 msgstr "Akcija otkrivanja neaktivnog peer-a"
 
@@ -982,6 +1221,9 @@ msgstr "Interval za otkrivanjea neaktivnog peer-a"
 
 msgid "Dead peer detection timeout"
 msgstr "Isteklo vreme za otkrivanje neaktivnog peer-a"
+
+msgid "Decrypt Password"
+msgstr "Dešifrovanje lozinke"
 
 msgid "Default Quotas"
 msgstr "Podrazumevane kvote"
@@ -1069,11 +1311,20 @@ msgstr "Zabranite"
 msgid "Description"
 msgstr "Opis"
 
+msgid "Description:"
+msgstr "Opis:"
+
+msgid "Destination"
+msgstr "Odredište"
+
 msgid "Destination CIDR"
 msgstr "CIDR odredišta"
 
 msgid "Destination IP"
 msgstr "Odredišna IP"
+
+msgid "Destination IP Address"
+msgstr "Odredišna IP adresa"
 
 msgid "Destination IP Address/Subnet"
 msgstr "Odredišna IP adresa/podmreža"
@@ -1141,6 +1392,9 @@ msgstr "Bez gateway-a"
 
 msgid "Disable Service"
 msgstr "Onemogućen Servis"
+
+msgid "Disable the compute service."
+msgstr "Onemogući  racunarski servis."
 
 msgid "Disabled"
 msgstr "Onemogućen"
@@ -1270,6 +1524,10 @@ msgid "Download OpenStack RC File"
 msgstr "Skidanje Openstack-ovih RC file-ova"
 
 #, python-format
+msgid "Download key pair &quot;%(keypair_name)s&quot;"
+msgstr "Skinite par ključeva &quot;%(keypair_name)s&quot;"
+
+#, python-format
 msgid "Duration of instance type %s (openstack flavor)"
 msgstr "Trajanje instance tipa %s (openstack aroma)"
 
@@ -1315,6 +1573,9 @@ msgstr "Izmena nadzora"
 msgid "Edit Network"
 msgstr "Izmeni mrežu"
 
+msgid "Edit Object"
+msgstr "Izmena objekta"
+
 msgid "Edit Policy"
 msgstr "Izmenite politike"
 
@@ -1358,6 +1619,9 @@ msgstr ""
 "Izmena definisanih resursa za kreiranje VM. Flavors definise veličinu RAM, "
 "diska i broj jezgara za virtuenu mašinu koju želimo da kreiramo. "
 
+msgid "Edit the image details."
+msgstr "Izmeni detalje o slici"
+
 msgid "Egress"
 msgstr "Egress"
 
@@ -1386,6 +1650,9 @@ msgstr "Šifrovana lozinka"
 
 msgid "Encryption algorithm"
 msgstr "Algoritam enkripcije"
+
+msgid "Energy (Kwapi)"
+msgstr "Energija (Kwapi)"
 
 msgid "Enter a value for ICMP code in the range (-1: 255)"
 msgstr "Unesite vrednost za ICMP kod u opsegu (-1: 255)"
@@ -1504,6 +1771,10 @@ msgstr "Ether Tip"
 msgid "Evacuate Host"
 msgstr "Spasite Host"
 
+msgid ""
+"Evacuate the servers from the selected down host to an active target host."
+msgstr "Spasite server sa izabranog hosta na aktivan host."
+
 msgid "Events"
 msgstr "Događaji"
 
@@ -1530,6 +1801,9 @@ msgstr "Postojeće pod mreže"
 
 msgid "Existence of volume"
 msgstr "Postojeći disk"
+
+msgid "Expected Codes"
+msgstr "Očekivani kodovi"
 
 msgid "Expected HTTP Status Codes"
 msgstr "Očekivani kodovi statusa HTTP-a"
@@ -1758,6 +2032,9 @@ msgstr "Neuspešna izmena podmreže \"%(sub)s\":  %(reason)s"
 msgid "Fan RPM"
 msgstr "Ventilator RPM"
 
+msgid "Fault"
+msgstr "Greška"
+
 msgid ""
 "Fields in this tab are optional. You can configure the detail of IPSec site "
 "connection created."
@@ -1767,6 +2044,9 @@ msgstr ""
 
 msgid "File"
 msgstr "File"
+
+msgid "Filter"
+msgstr "Filter"
 
 msgid "Fingerprint"
 msgstr "Otisak prsta"
@@ -1797,6 +2077,9 @@ msgstr "Pravila Firewall-a"
 msgid "Firewalls"
 msgstr "Firewall-i"
 
+msgid "Fixed IP"
+msgstr "Fiksna IP"
+
 msgid "Fixed IPs"
 msgstr "Fiksne IP addrese"
 
@@ -1808,6 +2091,9 @@ msgstr "Pristup aromama"
 
 msgid "Flavor Choice"
 msgstr "Izbor aroma"
+
+msgid "Flavor Details"
+msgstr "Detalji arome"
 
 msgid "Flavor ID ="
 msgstr "Flavor ID ="
@@ -1835,6 +2121,9 @@ msgstr ""
 "Flavors definise veličinu RAM, diska i broj jezgara za virtuenu mašinu koju "
 "želimo da kreiramo."
 
+msgid "Floating IP"
+msgstr "Slobodna IP"
+
 msgid "Floating IP Pool"
 msgstr "Grupa slobodnih IP"
 
@@ -1843,6 +2132,17 @@ msgstr "Slobodne IP"
 
 msgid "Folder created successfully."
 msgstr "Direktorijum kreiran uspešno."
+
+msgid ""
+"For TCP and UDP rules you may choose to open either a single port or a range "
+"of ports. Selecting the \"Port Range\" option will provide you with space to "
+"provide both the starting and ending ports for the range. For ICMP rules you "
+"instead specify an ICMP type and code in the spaces provided."
+msgstr ""
+"za TCP i UDP pravila možete odabrati da otvorite ili jedan port ili opseg "
+"portova. Odabirom \"Opseg portova\"dobićete prostor da imate i prvi i "
+"poslednji port u opsegu. Za ICMP prvilo Vi određujete ICMP tip i kod u "
+"dodeljenom prostoru."
 
 msgid "Forbidden"
 msgstr "Zabranjeno"
@@ -1866,6 +2166,9 @@ msgstr "Od porta"
 msgid "From here you can update the default quotas (max limits)."
 msgstr "Ovde možete izmeniti postavke kvota (maksimalna ograničenja)"
 
+msgid "GB"
+msgstr "GB"
+
 msgid "GET"
 msgstr "GET"
 
@@ -1884,12 +2187,18 @@ msgstr "Interface gateway-a je dodat"
 msgid "Glance"
 msgstr "Glance"
 
+msgid "Go"
+msgstr "Pokretanje"
+
 #, python-format
 msgid "Group \"%s\" was successfully created."
 msgstr "Grupa \"%s\" je uspešno napravljena."
 
 msgid "Group ID"
 msgstr "ID grupe"
+
+msgid "Group Management"
+msgstr "Upravljanje grupama"
 
 msgid "Group Members"
 msgstr "Članovi grupe"
@@ -1915,6 +2224,12 @@ msgstr "HTTPS"
 msgctxt "Current status of an Instance"
 msgid "Hard Reboot"
 msgstr "Bazično restartovanje"
+
+msgid "Hash"
+msgstr "Hash"
+
+msgid "Health Monitors"
+msgstr "Nadzor stanja sistema"
 
 #, python-format
 msgid "Health monitor %s was successfully updated."
@@ -1971,6 +2286,9 @@ msgstr "Instance hipervizora"
 msgid "Hypervisor Servers"
 msgstr "Serveri hipervizora"
 
+msgid "Hypervisor Summary"
+msgstr "Zbirni podaci za hipervizora"
+
 msgid "Hypervisors"
 msgstr "Hipervizori"
 
@@ -2008,6 +2326,9 @@ msgstr "IP adresa"
 msgid "IP Address (optional)"
 msgstr "IP adresa (neobavezno)"
 
+msgid "IP Addresses"
+msgstr "IP Adrese"
+
 msgid "IP Protocol"
 msgstr "IP protokol"
 
@@ -2021,6 +2342,12 @@ msgstr "Pridružena IP adresa %s."
 msgid ""
 "IP address list of DNS name servers for this subnet. One entry per line."
 msgstr "Lista IP adresa DNS servera za ovu podmrežu. Jedan unos po liniji."
+
+msgid "IP allocation pool"
+msgstr "Grupa izdvojenih IP"
+
+msgid "IP version"
+msgstr "Verzija IP "
 
 msgid "IPSec Policies"
 msgstr "IPSec politike"
@@ -2066,12 +2393,24 @@ msgstr "ISO - Opticki Disk Image"
 msgid "Identity service does not allow editing user data."
 msgstr "Servis identiteta ne dozvoljava izmenu podataka korisnika."
 
+msgid ""
+"If console is not responding to keyboard input: click the grey status bar "
+"below."
+msgstr ""
+"Ako konzola ne reaguje na tastaturu: kliknite u sivu zonu statusa ispod."
+
 msgid "Image"
 msgstr "Image"
 
 msgctxt "Type of an image"
 msgid "Image"
 msgstr "Image"
+
+msgid "Image (Glance)"
+msgstr "Otisak sadržine diska (Glance)"
+
+msgid "Image Details"
+msgstr "Detalji image-a"
 
 msgid "Image File"
 msgstr "Image File"
@@ -2087,6 +2426,9 @@ msgstr "Ime image-a"
 
 msgid "Image Name ="
 msgstr "Ime image-a"
+
+msgid "Image Overview"
+msgstr "Pregled image-a"
 
 msgid "Image Source"
 msgstr "Izvor Image-a"
@@ -2112,6 +2454,9 @@ msgstr "Uvoz para ključeva"
 msgid "In Policy"
 msgstr "U politikama"
 
+msgid "Info"
+msgstr "Informacije"
+
 msgid "Information"
 msgstr "Informacije"
 
@@ -2120,6 +2465,9 @@ msgstr "Ingress"
 
 msgid "Initial Admin User"
 msgstr "Početni administrator"
+
+msgid "Initial Volume Size"
+msgstr "Početna veličina Volume-a"
 
 msgid "Initial admin user to add"
 msgstr "Dodatni početni administratori"
@@ -2151,17 +2499,32 @@ msgstr "Unesite pravilo u politiku"
 msgid "Instance"
 msgstr "Instanca"
 
+msgid "Instance Admin Password"
+msgstr "Adnim lozinka instance"
+
 msgid "Instance Boot Source"
 msgstr "Izvor sa koga se startuje - boot-uje računarska jedinica"
 
+msgid "Instance Console"
+msgstr "Konzola za instance"
+
+msgid "Instance Console Log"
+msgstr "Log konzole instance"
+
 msgid "Instance Count"
 msgstr "Broj instanci"
+
+msgid "Instance Details"
+msgstr "Detalji instance"
 
 msgid "Instance ID"
 msgstr "ID instance"
 
 msgid "Instance Name"
 msgstr "Ime instance"
+
+msgid "Instance Overview"
+msgstr "Pregled instance"
 
 msgid "Instance Password is not set or is not yet available"
 msgstr "Lozinka instance nije podešena ili još nije dostupna"
@@ -2211,6 +2574,9 @@ msgstr "Kernel ID"
 msgid "Key"
 msgstr "Ključ"
 
+msgid "Key Name"
+msgstr "Ime ključa"
+
 msgid "Key Pair"
 msgstr "Par kjučeva"
 
@@ -2219,6 +2585,20 @@ msgstr "Naziv para ključeva"
 
 msgid "Key Pairs"
 msgstr "parovi sigurnosnih ključeva"
+
+msgid "Key Pairs are how you login to your instance after it is launched."
+msgstr ""
+"Parovi ključeva određuju kako se oogujete na vašu instancu nakon što je "
+"startovana."
+
+msgid ""
+"Key pairs are ssh credentials which are injected into images when they are "
+"launched. Creating a new key pair registers the public key and downloads the "
+"private key (a .pem file)."
+msgstr ""
+"Parovi ključeva su ssh kredencijali koji se ubacuju u imidže kada se "
+"pokreću. Kreiranje novog para ključeva registruje javni ključ i skida "
+"privatni ključ (.perm datoteka)"
 
 msgid "Keypair"
 msgstr "Par sigurnosnih ključeva"
@@ -2241,6 +2621,12 @@ msgstr "Zadnjih 15 dana"
 msgid "Last 30 days"
 msgstr "Zadnjih 30 dana"
 
+msgid "Last Modified"
+msgstr "Zadnje izmenjeno"
+
+msgid "Last Updated"
+msgstr "Zadnje izmenjeno"
+
 msgctxt "Time since the last update"
 msgid "Last Updated"
 msgstr "Zadnje izmenjeno"
@@ -2262,6 +2648,9 @@ msgstr "Pokrenite bazu podataka"
 
 msgid "Launch Instance"
 msgstr "Kreiranje instance"
+
+msgid "Launch Parameters"
+msgstr "Pokretanje parametara"
 
 msgid "Launch Stack"
 msgstr "Pokretanje stack-a"
@@ -2289,6 +2678,12 @@ msgstr ""
 msgid "Length of Injected File Path"
 msgstr "Količina podataka po osnovi ubačenih putanja datoteka "
 
+msgid "Lifetime Units"
+msgstr "Trajne jedinice"
+
+msgid "Lifetime Value"
+msgstr "Trajne vrednosti"
+
 msgid "Lifetime units"
 msgstr "Trajne jedinice"
 
@@ -2313,6 +2708,9 @@ msgstr "Selidba uživo"
 msgid "Live Migrate Instance"
 msgstr "Selidba instance uživo"
 
+msgid "Live migrate an instance to a specific host."
+msgstr "Selidba instance uživo na poseban  host."
+
 msgid "Load Balancer"
 msgstr "Balanser opterećenja"
 
@@ -2322,6 +2720,9 @@ msgstr "Uravnotežitelji opterećenja"
 msgid "Load Balancing Method"
 msgstr "Metod balansiranja opterećenja"
 
+msgid "Local Disk Usage"
+msgstr "Iskorišćenost Lokalnog Diska"
+
 msgid "Local Storage (total)"
 msgstr "Lokalni Storage (ukupno)"
 
@@ -2330,6 +2731,15 @@ msgstr "Lokalni Storage (Iskorišćeno)"
 
 msgid "Log"
 msgstr "Log"
+
+msgid "Log Length"
+msgstr "Dužina log-a"
+
+msgid "MB"
+msgstr "MB"
+
+msgid "MTU"
+msgstr "MTU"
 
 msgid "Make Private"
 msgstr "Načinite privatnim"
@@ -2352,6 +2762,9 @@ msgstr "Upravljanje Skupovima Hostova"
 msgid "Manage Rules"
 msgstr "Upravljanje pravilima"
 
+msgid "Manage Security Group Rules"
+msgstr "Upravljanje pravilima sigurnosne grupe"
+
 msgid "Manage Volume Attachments"
 msgstr "Upravljanje povezanostima Volume-a"
 
@@ -2363,6 +2776,9 @@ msgstr "Maksimalni broj ponavljanja"
 
 msgid "Max Retries (1~10)"
 msgstr "Najveći broj pokušaja (1~10)"
+
+msgid "Max."
+msgstr "Max."
 
 msgid "Max. Size (MB)"
 msgstr "Max. Veličina (MB)"
@@ -2390,6 +2806,9 @@ msgstr "Član(ovi)"
 msgid "Members"
 msgstr "Članovi"
 
+msgid "Memory Usage"
+msgstr "Iskorišćenost memorije"
+
 msgid "Message"
 msgstr "Poruka"
 
@@ -2408,11 +2827,26 @@ msgstr "Podaci su osveženi"
 msgid "Meter"
 msgstr "Merač"
 
+msgid "Migrate"
+msgstr "Preseliti"
+
+msgid "Min Disk"
+msgstr "Minimalni disk"
+
+msgid "Min RAM"
+msgstr "Minimalni RAM"
+
+msgid "Min."
+msgstr "Min."
+
 msgid "Min. Size (MB)"
 msgstr "Min. Veličina (MB)"
 
 msgid "Minimum Disk (GB)"
 msgstr "Najmanji disk (GB)"
+
+msgid "Minutes"
+msgstr "Minuti"
 
 #, python-format
 msgid "Modified domain \"%s\"."
@@ -2460,6 +2894,9 @@ msgstr "Detalji nadzora"
 
 msgid "Monitor Type"
 msgstr "Način nadzora"
+
+msgid "Monitoring:"
+msgstr "Nadzor:"
 
 msgid "Monitors"
 msgstr "Nadzori"
@@ -2512,6 +2949,9 @@ msgstr "Mreža %s je uspešno napravljenja."
 msgid "Network %s was successfully updated."
 msgstr "Mreža %s uspešno ažurirana."
 
+msgid "Network (Neutron)"
+msgstr "Mreža (Neutron)"
+
 msgid "Network Address"
 msgstr "Mrežna adresa"
 
@@ -2526,6 +2966,9 @@ msgstr "ID mreže"
 
 msgid "Network Name"
 msgstr "Ime mreže"
+
+msgid "Network Overview"
+msgstr "Pregled mreže"
 
 msgid "Network Profile"
 msgstr "Mrežni profil"
@@ -2557,6 +3000,9 @@ msgstr "Neutron"
 
 msgid "Never"
 msgstr "Nikad"
+
+msgid "Never updated"
+msgstr "Nikada nije izmenjeno"
 
 msgid "New Flavor"
 msgstr "Nove arome"
@@ -2639,6 +3085,9 @@ msgstr "Nijedan projekat nije odabran. Svi projekti mogu koristiti aromu."
 msgid "No provider is available"
 msgstr "Nema dostupnog snabdevača"
 
+msgid "No rules defined."
+msgstr "Nema definisanih pravila."
+
 msgid "No security groups available"
 msgstr "Nema dostupnih sigurnosnih grupa"
 
@@ -2676,6 +3125,9 @@ msgstr "Nema korisnika."
 msgid "No volume snapshots available"
 msgstr "Nema dostupnih snapshot-a volume-a"
 
+msgid "No volumes attached."
+msgstr "Nema pridruženih volume-a."
+
 msgid "No volumes available"
 msgstr "Nema dostupnih volume-a"
 
@@ -2698,8 +3150,21 @@ msgstr "Nije dodeljeno"
 msgid "Not Found"
 msgstr "Nije nađeno"
 
+msgid "Not attached"
+msgstr "Nije povezano"
+
 msgid "Not available"
 msgstr "Nije dostupno"
+
+msgid "Note: "
+msgstr "Važno:"
+
+msgid ""
+"Note: A Public Container will allow anyone with the Public URL to gain "
+"access to your objects in the container."
+msgstr ""
+"Važno: javni kontejner će svakome sa javnim URL dozvoliti pristup vašim "
+"objektima u kontejneru."
 
 msgid "Nova"
 msgstr "Nova"
@@ -2707,8 +3172,14 @@ msgstr "Nova"
 msgid "Number of API requests against swift"
 msgstr "Broj API zahteva ka Swift-u"
 
+msgid "Number of Instances"
+msgstr "Broj instanci"
+
 msgid "Number of VCPUs"
 msgstr "Broj VCPU-ova"
+
+msgid "Number of Volumes"
+msgstr "Broj volume-a"
 
 msgid "Number of containers"
 msgstr "Broj kontejnera"
@@ -2763,11 +3234,20 @@ msgstr "OR kopirajte/umetnite vaš privatni ključ"
 msgid "OVA - Open Virtual Appliance"
 msgstr "Otvoreni Virtuelni Uređaj"
 
+msgid "Object Count"
+msgstr "Evidencija objekata"
+
+msgid "Object Count: "
+msgstr "Broj objekata:"
+
 msgid "Object Details"
 msgstr "Detalji objekta"
 
 msgid "Object Name"
 msgstr "Ime objekta"
+
+msgid "Object Storage (Swift)"
+msgstr "Objektno skladište podataka (Swift)"
 
 msgid "Object Store"
 msgstr "Smeštanje objekta"
@@ -2796,11 +3276,19 @@ msgstr "Neobavezni parametri"
 msgid "Optional: Next Hop Addresses (comma delimited)"
 msgstr "Neobavezno: Sledeće adrese hop-a (odvojeno zarezom)"
 
+msgid "Optionally provide a comma separated list of databases to create:"
+msgstr ""
+"Priložite listu baza podataka koje želite da kreirate, odvajajte zarezom - "
+"nije obavezno:"
+
 msgid "Other"
 msgstr "Drugi"
 
 msgid "Other Protocol"
 msgstr "Drugi protokoli"
+
+msgid "Outputs"
+msgstr "Izhodi"
 
 msgid "Overview"
 msgstr "Pregled"
@@ -2820,6 +3308,9 @@ msgstr "Lozinka"
 msgctxt "Current status of an Instance"
 msgid "Password"
 msgstr "Lozinka"
+
+msgid "Password (required)"
+msgstr "Lozinka (obavezno)"
 
 msgid "Password changed. Please log in again to continue."
 msgstr "Lozinka je promenjena. Molimo Vas, pristupite ponovo za nastavak."
@@ -2885,6 +3376,9 @@ msgstr ""
 "Molim Vas unesite jednu vrednost (npr. 200), listu vrednosti (npr. 200, "
 "202), ili opseg vrednosti (npr. 200-204)"
 
+msgid "Please note: "
+msgstr "Molimo obratite pažnju:"
+
 #, python-format
 msgid "Please specify a %s using only one source method."
 msgstr "Molim odredite %s koršćenjem samo jednog izvornog metoda."
@@ -2905,6 +3399,9 @@ msgstr "Politika"
 #, python-format
 msgid "Policy %s was successfully updated."
 msgstr "Politika %s je uspešno izmenjena."
+
+msgid "Policy ID"
+msgstr "ID politike"
 
 msgid "Policy Profiles"
 msgstr "Profili politika"
@@ -2933,6 +3430,9 @@ msgstr "Port %s je uspešno kreiran."
 msgid "Port %s was successfully updated."
 msgstr "Port %s je uspešno ažuriran."
 
+msgid "Port ID"
+msgstr "ID porta"
+
 msgid "Port Range"
 msgstr "Opseg porta"
 
@@ -2945,6 +3445,9 @@ msgstr "Port koji treba povezati"
 msgid "Ports"
 msgstr "Portovi"
 
+msgid "Position in Policy"
+msgstr "Pozicija u politici"
+
 msgid "Post-Creation"
 msgstr "Aktivnosti nakon kreiranja instance"
 
@@ -2956,6 +3459,9 @@ msgstr "Potrošnja snage"
 
 msgid "Pre-Shared Key (PSK) string"
 msgstr "Pre-Shared Key (PSK) string"
+
+msgid "Pre-Shared Key string"
+msgstr "Unapred podeljen niz ključeva"
 
 msgctxt "Task status of an Instance"
 msgid "Preparing Resize or Migrate"
@@ -2982,17 +3488,29 @@ msgstr "Grupe u projektu"
 msgid "Project ID"
 msgstr "ID projekta"
 
+msgid "Project Limits"
+msgstr "Ograničenja projekta"
+
 msgid "Project Members"
 msgstr "Članovi projekta"
 
 msgid "Project Name"
 msgstr "Ime projekta"
 
+msgid "Project Quotas"
+msgstr "Kvote projekta"
+
 msgid "Project Usage"
 msgstr "Upotreba projekta"
 
+msgid "Project Usage Overview"
+msgstr "Pregled upotrebe projekta"
+
 msgid "Projects"
 msgstr "Projekti"
+
+msgid "Protect and use the key as you would any normal ssh private key."
+msgstr "Zaštitite i koristite ključ kao što bi bilo koji privatni ssh ključ."
 
 msgid "Protected"
 msgstr "Zaštićeno"
@@ -3009,6 +3527,9 @@ msgstr "Protokol za firewall rule"
 msgid "Provider"
 msgstr "Provajder"
 
+msgid "Provider Network"
+msgstr "Mreža provajdera"
+
 msgid "Provider for Load Balancer is not supported"
 msgstr "Snabdevač Balansiranja opterećenja nije podržan"
 
@@ -3023,6 +3544,9 @@ msgstr "Javni"
 
 msgid "Public Key"
 msgstr "Javni ključ"
+
+msgid "Public URL"
+msgstr "Javni URL"
 
 msgid "QCOW2 - QEMU Emulator"
 msgstr "QCOW2 - QEMU Emulator"
@@ -3061,6 +3585,10 @@ msgstr "Raw"
 msgid "Reason"
 msgstr "Razlog"
 
+#, python-format
+msgid "Reason: %(disabled_reason)s"
+msgstr "Razlog: %(disabled_reason)s"
+
 msgctxt "Action log of an instance"
 msgid "Reboot"
 msgstr "Ponovno pokretanje - restart"
@@ -3090,8 +3618,14 @@ msgstr "Renoviranje instance %s."
 msgid "Relative part of requests this pool member serves compared to others"
 msgstr "Relative part of requests this pool member serves compared to others"
 
+msgid "Reload"
+msgstr "Ponovno učitavanje"
+
 msgid "Remote"
 msgstr "Udaljen"
+
+msgid "Remote peer subnet"
+msgstr "podmreža udaljenog peer-a"
 
 msgid "Remote peer subnet(s)"
 msgstr "Subnet(ovi) udaljenih peer-ova"
@@ -3103,6 +3637,9 @@ msgstr ""
 "Adresa(e) subnet(ova) udaljenih peer-ova sa maskom(ama) u CIDR formatu "
 "odvojenizarezom ako treba (npr. 20.1.0.0/24, 21,1,0,0/24)"
 
+msgid "Remove"
+msgstr "Ukloni"
+
 msgid "Remove Rule"
 msgstr "Ukinite pravilo"
 
@@ -3111,6 +3648,9 @@ msgstr "Uklonite pravilo iz politike"
 
 msgid "Required for APP_COOKIE persistence; Ignored otherwise."
 msgstr "Potrebno za APP_COOKIE postojanost; U suprotnom zanemareno."
+
+msgid "Reset to Default"
+msgstr "Reset na podrazumevane vrednosti"
 
 msgid "Resize"
 msgstr "Izmena veličine"
@@ -3140,6 +3680,15 @@ msgstr "Promena veličine ili seoba"
 
 msgid "Resource"
 msgstr "Resurs"
+
+msgid "Resource ID"
+msgstr "ID resursa"
+
+msgid "Resource Metadata"
+msgstr "Meta podaci resursa"
+
+msgid "Resource Overview"
+msgstr "Pregled resursa"
 
 msgid "Resource Usage"
 msgstr "Upotreba resursa"
@@ -3196,6 +3745,9 @@ msgstr "Uloge uspešno izmenjene."
 msgid "Roles"
 msgstr "Uloge"
 
+msgid "Rollback"
+msgstr "Vraćanje unazad"
+
 msgid "Rollback On Failure"
 msgstr "Vraćanje prethodnog stanja u slučaju greške"
 
@@ -3204,6 +3756,9 @@ msgstr "Root Disk"
 
 msgid "Root Disk (GB)"
 msgstr "Root Disk (GB)"
+
+msgid "Route mode"
+msgstr "Režim rutiranja"
 
 msgid "Router"
 msgstr "Ruter"
@@ -3221,6 +3776,9 @@ msgstr "ID rutera"
 msgid "Router Name"
 msgstr "Ime rutera"
 
+msgid "Router Rule Grid"
+msgstr "Mreža pravila rutera"
+
 msgid "Router Rules"
 msgstr "Pravila rutera"
 
@@ -3232,6 +3790,13 @@ msgstr "Pravilo rutera dodato"
 
 msgid "Routers"
 msgstr "Ruteri"
+
+msgid ""
+"Routing rules to apply to router. Rules are matched by most specific source "
+"first and then by most specific destination."
+msgstr ""
+"Pravila rutiranja koja će primeniti ruter. Pravila se prvo uparuju sa "
+"najspecifičnijom listom izvora a potom destinacije."
 
 msgid "Rule"
 msgstr "Pravilo"
@@ -3248,8 +3813,21 @@ msgstr "Pravilo %(rule)s je uspešno ukinuto iz politike %(policy)s."
 msgid "Rule %s was successfully updated."
 msgstr "Pravilo %s je uspešno izmenjeno."
 
+msgid "Rule Conflict"
+msgstr "Konflikt pravila"
+
 msgid "Rules"
 msgstr "Pravila"
+
+msgid ""
+"Rules define which traffic is allowed to instances assigned to the security "
+"group. A security group rule consists of three main parts:"
+msgstr ""
+"Pravila određuju koji saobraćaj je dozvoljenka instanci dodeljenoj "
+"sigurnosnoj grupi. Pravila sigurnosne grupe sačinjena su od tri glavna dela:"
+
+msgid "SSH key pairs can be generated with the ssh-keygen command:"
+msgstr "SSH parova ključeva se mogu generisati sa ssh-keygen komandom:"
 
 msgid "Save"
 msgstr "Sačuvaj"
@@ -3347,6 +3925,9 @@ msgstr "Odaberite par ključeva"
 msgid "Select a monitor template for %s"
 msgstr "Odaberite šablon monitora za %s"
 
+msgid "Select a name for your network."
+msgstr "Odaberite ime mreže."
+
 msgid "Select a new host"
 msgstr "Odaberite novi Host"
 
@@ -3386,6 +3967,9 @@ msgstr "Odaberite mrežu za vašu instancu."
 msgid "Select rules for your policy."
 msgstr "Odaberite pravila za Vašu politiku."
 
+msgid "Select the image to rebuild your instance."
+msgstr "Odaberite Image da ponovo sastavite instancu."
+
 msgid ""
 "Select the projects where the flavors will be used. If no projects are "
 "selected, then the flavor will be available in all projects."
@@ -3399,6 +3983,9 @@ msgstr "Izabrani hostovi"
 
 msgid "Selected Projects"
 msgstr "Izabrani projekti"
+
+msgid "Selected Rules"
+msgstr "Odabrana pravila"
 
 msgid "Selected hosts"
 msgstr "Izabrani hostovi"
@@ -3482,6 +4069,9 @@ msgstr "Veličina Volume-a u GB."
 msgid "Size of volume"
 msgstr "Veličina volume-a"
 
+msgid "Size: "
+msgstr "Veličina:"
+
 msgid "Slash is not an allowed character."
 msgstr "Kosa crta nije dozvoljen karakter."
 
@@ -3490,6 +4080,9 @@ msgid ""
 msgstr ""
 "Kose crte su dozvoljene, i smatraju se pseudo-direktorijumima od Object "
 "Store-a."
+
+msgid "Small"
+msgstr "Mali"
 
 msgid "Snapshot"
 msgstr "Snapshot"
@@ -3512,11 +4105,17 @@ msgstr "Pravljenje snapshot-a"
 msgid "Something went wrong!"
 msgstr "Nešto pogrešno se desilo!"
 
+msgid "Source"
+msgstr "Izvor"
+
 msgid "Source CIDR"
 msgstr "Izvorni CIDR"
 
 msgid "Source IP"
 msgstr "Izvorni IP"
+
+msgid "Source IP Address"
+msgstr "Izvorna IP adresa"
 
 msgid "Source IP Address/Subnet"
 msgstr "Izvorna IP adresa/podmreža"
@@ -3542,6 +4141,12 @@ msgstr "Odredite IP adresu gateway-a ili kliknite kućicu \"Bez gateway-a\"."
 msgid "Specify VIP"
 msgstr "Odredite VIP"
 
+msgid "Specify an image to upload to the Image Service."
+msgstr "Odaberite image za postavite u image servis"
+
+msgid "Specify the details for launching an instance."
+msgstr "Odredite detalje prilikom pokretanja instance."
+
 msgid "Specs"
 msgstr "Specifikacije"
 
@@ -3554,8 +4159,17 @@ msgstr "ID stack-a"
 msgid "Stack Name"
 msgstr "Ime stack-a"
 
+msgid "Stack Overview"
+msgstr "Pregled stack-a"
+
+msgid "Stack Parameters"
+msgstr "Parametri stack-a"
+
 msgid "Stack Resource"
 msgstr "Resurs stack-a"
+
+msgid "Stack Resource ID"
+msgstr "ID resursa stack-a"
 
 msgid "Stack Resource Type"
 msgstr "Vrsta resursa stack-a"
@@ -3575,6 +4189,9 @@ msgstr "Izmena stack-a je pokrenuta."
 msgid "Stacks"
 msgstr "Stack-ovi"
 
+msgid "Start"
+msgstr "Pokretanje"
+
 msgctxt "Action log of an instance"
 msgid "Start"
 msgstr "Pokretanje"
@@ -3587,12 +4204,18 @@ msgstr "Početna adresa je veća od krajnje (vrednost=%s)"
 msgid "Start and end addresses must be specified (value=%s)"
 msgstr "Početna i krajnja adresa moraju biti određene (vrednost=%s)"
 
+msgid "Started"
+msgstr "Pokrenuto"
+
 #, python-format
 msgid "Starting evacuation from %(current)s to %(target)s."
 msgstr "Započeto spašavanje sa %(current)s  na %(target)s."
 
 msgid "State"
 msgstr "Stanje"
+
+msgid "Statistics of all resources"
+msgstr "Statistika svih resursa"
 
 msgid "Stats"
 msgstr "Statisitika"
@@ -3617,8 +4240,14 @@ msgstr "Podmreža \"%s\" je uspešno kreirana."
 msgid "Subnet \"%s\" was successfully updated."
 msgstr "Podmreža \"%s\" je uspešno izmenjena."
 
+msgid "Subnet ID"
+msgstr "ID podmreže"
+
 msgid "Subnet Name"
 msgstr "Ime podmreže"
+
+msgid "Subnet Overview"
+msgstr "Pregled podmreže"
 
 msgid "Subnet list can not be retrieved."
 msgstr "Nije moguće izvući listu Subnet-ova"
@@ -3674,6 +4303,9 @@ msgstr "Uspešno izmenjena sigurnosna grupa: %s"
 #, python-format
 msgid "Successfully updated volume snapshot status: \"%s\"."
 msgstr "Uspešno osvežen status slike diska: \"%s\"."
+
+msgid "Sum."
+msgstr "Sum."
 
 msgctxt "Action log of an instance"
 msgid "Suspend"
@@ -3759,6 +4391,14 @@ msgstr "ICMP tip nije u opsegu (-1, 255)"
 msgid "The ID \"%s\" is already used by another flavor."
 msgstr "ID \"%s\" se već koristi za drugu aromu."
 
+msgid ""
+"The Image Location field MUST be a valid and direct URL to the image binary. "
+"URLs that redirect or serve error pages will result in unusable images."
+msgstr ""
+"Polje pozicija image-a MORA biti ispravna i usmeravati URL ka image binary. "
+"URL-ovi koji preusmeravaju ili služe stranice greške završiće kao "
+"neupotrebljeni image-i."
+
 msgid "The JSON formatted contents of a namespace."
 msgstr "The JSON formatted contents of a namespace."
 
@@ -3773,8 +4413,25 @@ msgstr ""
 "Volume je premali za image '%(image_name)s'  i mora biti veći ili jednak "
 "'%(smallest_size)d' GB."
 
+msgid ""
+"The chart below shows the resources used by this project in relation to the "
+"project's quotas."
+msgstr ""
+"Tabela ispod prikazuje ovim projektom upotrebljene resurse prema "
+"ograničenjima projekta."
+
 msgid "The container cannot be deleted since it is not empty."
 msgstr "Nije moguće obrisati kontejner jer nije prazan"
+
+msgid ""
+"The default IP address of the interface created is a gateway of the selected "
+"subnet. You can specify another IP address of the interface here. You must "
+"select a subnet to which the specified IP address belongs to from the above "
+"list."
+msgstr ""
+"Podrazumevana IP adresa kreiranog interface-a je gateway odabrane podmreže. "
+"Ovde možete odrediti drugu IP adresu interface-a. Morate odabrati iz liste "
+"iznad podmrežu kojoj pripada odabrana IP adresa."
 
 #, python-format
 msgid ""
@@ -3790,6 +4447,14 @@ msgstr "Instanca se priprema za selidbu uživo na host \"%s\"."
 
 msgid "The instance password encrypted with your public key."
 msgstr "Lozinka instance je šifrovana sa vašim javnim ključem."
+
+#, python-format
+msgid ""
+"The key pair &quot;%(keypair_name)s&quot; should download automatically. If "
+"not use the link below."
+msgstr ""
+"Par ključeva &quot;%(keypair_name)s&quot; će automatski biti prenet. Ako "
+"nije, iskoristite link ispod."
 
 msgid ""
 "The minimum disk size required to boot the image. If unspecified, this value "
@@ -3813,8 +4478,21 @@ msgstr "Ime \"%s\" se već koristi za drugu aromu."
 msgid "The name \"%s\" is already used by another host aggregate."
 msgstr "Naziv \"%s\" se već koristi za drugi skup hostova."
 
+msgid ""
+"The next hop addresses can be used to override the router used by the client."
+msgstr ""
+"Adrese sledećeg hop-a se mogu upotrebiti za zaobilaženje rutera koji koristi "
+"klijent."
+
 msgid "The page you were looking for doesn't exist"
 msgstr "Stranica koju tražite ne postoji"
+
+msgid ""
+"The private key will be only used in your browser and will not be sent to "
+"the server"
+msgstr ""
+"Privatni ključ će biti košišten samo u vašem browser-u i neće biti poslat "
+"serveru"
 
 msgid "The pseudo folder cannot be deleted since it is not empty."
 msgstr "Nije moguće obrisati kontejner jer nije prazan"
@@ -3854,6 +4532,9 @@ msgstr ""
 msgid "There are no meters defined yet."
 msgstr "Nisu još deinisani merači."
 
+msgid "There are no networks, routers, or connected instances to display."
+msgstr "Nema mreža, rutera, ili povezanih računarskih jedinica za prikaz."
+
 msgid ""
 "There is not enough capacity for this flavor in the selected availability "
 "zone. Try again later or select a different availability zone."
@@ -3866,12 +4547,22 @@ msgid "There was a problem parsing the %(prefix)s: %(error)s"
 msgstr "Ima problema u parsiranju %(prefix)s: %(error)s"
 
 msgid ""
+"This generates a pair of keys: a key you keep private (cloud.key) and a "
+"public key (cloud.key.pub). Paste the contents of the public key file here."
+msgstr ""
+"Ovo pravi par ključeva: ključ koji držite privatno (cloud.key) i javni ključ "
+"(cloud.key.pub). Stavite sadržaj file-a javnog ključa ovde."
+
+msgid ""
 "This is required for operations to be performed throughout the lifecycle of "
 "the stack"
 msgstr "Ovo je potrebno radi funkcionalnosti da se učini tokom života stack-a"
 
 msgid "This name is already taken."
 msgstr "Ovo ime je već upotrebljeno."
+
+msgid "This pane needs javascript support."
+msgstr "Ovom panelu treba podrška javascript-a."
 
 msgid ""
 "This volume is currently attached to an instance. In some cases, creating a "
@@ -3898,8 +4589,30 @@ msgstr "Za"
 msgid "To Port"
 msgstr "Ka portu"
 
+msgid ""
+"To decrypt your password you will need the private key of your key pair for "
+"this instance. Select the private key file, or copy and paste the content of "
+"your private key file into the text area below, then click Decrypt Password."
+msgstr ""
+"Za dešifrovanje vaše lozinke trebate privatni ključiz vašeg paraza ovu "
+"instancu.Odredite file sa privatnim ključem, ili kopirajte i umetnite "
+"sadržaj vašeg file sa privatnim ključemu tekst oblast ispod, i potom "
+"kliknite dešifrovanje lozinke."
+
+msgid "To exit the fullscreen mode, click the browser's back button."
+msgstr "Za izlaz iz prikaza punog ekrana, kliknite nazad u browser-u."
+
 msgid "Topology"
 msgstr "Topologija"
+
+msgid "Total Disk"
+msgstr "Ukupno diska-a"
+
+msgid "Total Gigabytes"
+msgstr "Ukupno Gigabajta"
+
+msgid "Total RAM"
+msgstr "Ukupno RAM"
 
 msgid "Total Size of LUKS Volumes and Snapshots (GB)"
 msgstr "Ukupna veličina LUKS volume-a i snapshot-a (GB)"
@@ -3921,6 +4634,9 @@ msgstr "UDP"
 
 msgid "URL"
 msgstr "URL"
+
+msgid "URL Path"
+msgstr "Put URL-a"
 
 #, python-format
 msgid "Unable to add Firewall \"%s\"."
@@ -4908,6 +5624,9 @@ msgstr "Iskorišćenje"
 msgid "Usage (Hours)"
 msgstr "Upotreba (časova)"
 
+msgid "Usage Overview"
+msgstr "Pregled upotrebe"
+
 msgid "Usage Report"
 msgstr "Izveštaj o korišćenju"
 
@@ -4917,8 +5636,22 @@ msgstr "Upotrebite volume kao izvor"
 msgid "Use image as a source"
 msgstr "Iskoristite image kao izvor"
 
+msgid ""
+"Use one of the available template source options to specify the template to "
+"be used in creating this stack."
+msgstr ""
+"Uzmite jedan od predefinisanih šablona da definišete šablon koji će se "
+"koristiti za kreiranje stack-a."
+
 msgid "Use snapshot as a source"
 msgstr "Iskoristite snapshot kao izvor"
+
+#, python-format
+msgid "Used <span> %(used)s </span> of <span> %(available)s </span>"
+msgstr "Iskorišćeno <span> %(used)s </span> od <span> %(available)s </span>"
+
+msgid "Used in Policy"
+msgstr "Korišteno u politici"
 
 msgid "User"
 msgstr "Korisnik"
@@ -4943,11 +5676,20 @@ msgstr "Korisnička podešavanja"
 msgid "User has been updated successfully."
 msgstr "Podaci korisnika su uspešno izmenjeni."
 
+msgid "Username (required)"
+msgstr "Korisničko ime (obavezno)"
+
 msgid "Users"
 msgstr "Korisnici"
 
+msgid "VCPU"
+msgstr "VCPU"
+
 msgid "VCPU Hours"
 msgstr "Satnica VCPU"
+
+msgid "VCPU Usage"
+msgstr "Korišćenje VCPU"
 
 msgid "VCPUs"
 msgstr "VCPUs"
@@ -4982,6 +5724,9 @@ msgstr "Virtuelni Disk Mašine"
 
 msgid "VPN"
 msgstr "VPN"
+
+msgid "VPN Connections"
+msgstr "VPN konekcije"
 
 msgid "VPN Service"
 msgstr "VPN servis"
@@ -5020,6 +5765,9 @@ msgstr "Pregled detalja"
 msgid "View Extra Specs"
 msgstr "Pregled dodatnih specifikacija"
 
+msgid "View Full Log"
+msgstr "Celokupan log"
+
 msgid "View Log"
 msgstr "Pregled log-a"
 
@@ -5032,14 +5780,32 @@ msgstr "Virtualna privatna mreža"
 msgid "Volume"
 msgstr "Volume"
 
+msgid "Volume (Cinder)"
+msgstr "Volume (Cinder)"
+
+msgid "Volume Details"
+msgstr "Detalji volume-a"
+
+msgid "Volume Limits"
+msgstr "Ograničenja volume-a"
+
 msgid "Volume Name"
 msgstr "Ime volume-a"
+
+msgid "Volume Overview"
+msgstr "Pregled Volume-a"
 
 msgid "Volume Size"
 msgstr "Veličina Volume-a"
 
 msgid "Volume Snapshot"
 msgstr "Snapshot volume-a"
+
+msgid "Volume Snapshot Details"
+msgstr "Detalji snapshot-a volume-a"
+
+msgid "Volume Snapshot Overview"
+msgstr "Pregled snapshot-a volume-a"
 
 msgid "Volume Snapshots"
 msgstr "Snapshot-ovi volume-a"
@@ -5094,17 +5860,61 @@ msgstr ""
 msgid "Volumes"
 msgstr "Volume-i"
 
+msgid "Volumes Attached"
+msgstr "Pridruženi volume-i"
+
+msgid "Volumes are block devices that can be attached to instances."
+msgstr "Volume-i su blok uređaji koji mogu biti priključeni na instance."
+
 msgid "Weight"
 msgstr "Težina"
 
 msgid "Which keypair to use for authentication."
 msgstr "Koji par ključeva se koristi za proveru autentičnosti?"
 
+msgid ""
+"Within a container you can group your objects into pseudo-folders, which "
+"behave similarly to folders in your desktop operating system, with the "
+"exception that they are virtual collections defined by a common prefix on "
+"the object's name. A slash (/) character is used as the delimiter for pseudo-"
+"folders in the Object Store."
+msgstr ""
+"U kontejneru možete grupisati vaše objekte u pseudo-folder, koji se ponaša "
+"slično folderu na desktopu, sa razlikom da su oni vrtualna skupina određena "
+"sa zajedničkim prefiksom na imenu objekta. Kosa crta (/) se koristi za "
+"odvajanje pseudo-foldera u objektnom storage-u."
+
 msgid "You are already using all of your available floating IPs."
 msgstr "Već ste dodelili sve dostupne slobodne IP adrese."
 
 msgid "You are already using all of your available volumes."
 msgstr "Već koristite sve volume-e koji su na raspolaganju."
+
+msgid ""
+"You can connect a specified external network to the router. The external "
+"network is regarded as a default route of the router and the router acts as "
+"a gateway for external connectivity."
+msgstr ""
+"Možete povezati ruter za odabranu spoljnu mrežu. Spoljna mreža se smatra kao "
+"podrazumevana ruta rutera i ruter predstavlja gateway za spoljno povezivanje."
+
+msgid "You can connect a specified subnet to the router."
+msgstr "Možete prikačiti odabranu podmrežu ruteru."
+
+msgid ""
+"You can create a port for the network. If you specify device ID to be "
+"attached, the device specified will be attached to the port created."
+msgstr ""
+"Možete kreirati port za mrežu. Ako navede ID uređaja koji se priključuje, "
+"navedeni uređaj će biti priključen na kreirani port."
+
+msgid ""
+"You can specify the desired rule template or use custom rules, the options "
+"are Custom TCP Rule, Custom UDP Rule, or Custom ICMP Rule."
+msgstr ""
+"Možete odrediti željeni šablon pravilaili koristiti zajednička pravila, "
+"izbor su uobičajeno TCP pravilo, uobičajeno DP pravilo, ili Uobičajeno ICMP "
+"pravilo."
 
 msgid "You cannot disable the user you are currently logged in as."
 msgstr "Nemožete onemogućiti korisnika pod kojim ste trenutno ulogovani."
@@ -5120,6 +5930,60 @@ msgstr ""
 
 msgid "You may have mistyped the address or the page may have moved."
 msgstr "Moguće da ste pogrešno otkucali adresu ili je stranica pomerena."
+
+msgid "You may optionally set a password on the rebuilt instance."
+msgstr ""
+"Po želji, možete postaviti lozinku tokom ponovnog sastavljanja instance."
+
+msgid "You may update IKE Policy details here."
+msgstr "Možete ovde izmeniti detalje IKE politike."
+
+msgid "You may update IPSec Policy details here."
+msgstr "Možete ovde izmeniti detalje IPSec politike."
+
+msgid "You may update IPSec Site Connection details here."
+msgstr "Ovde možete izmeniti detalje veze IPSec Site."
+
+msgid ""
+"You may update VIP attributes here: edit name, description, pool, session "
+"persistence, connection limit  or admin state."
+msgstr ""
+"Ovde možete izmeniti VIP atribute: izmena imena, opis, grupa, trajnost "
+"seanse, ograničenja veze ili stanje admin-a."
+
+msgid "You may update VPN Service details here."
+msgstr "Ovde možete izmeniti detalje VPN servisa."
+
+msgid "You may update firewall details here."
+msgstr "Ovde možete izmeniti detalje firewall-a."
+
+msgid ""
+"You may update health monitor attributes here: edit delay, timeout, max "
+"retries  or admin state."
+msgstr ""
+"Ovde možete izmeniti atribute nadzora stabilnosti: ispravka kašnjenja, "
+"dozvoljeno vreme, max broj pokušaja ili stanje admina."
+
+msgid ""
+"You may update member attributes here: edit pool, weight or admin state."
+msgstr ""
+"Ovde možete izmeniti obeležja člana:izmena grupe, težine ili admin stanja."
+
+msgid ""
+"You may update policy details here. Use 'Insert Rule' or 'Remove Rule' links "
+"instead to insert or remove a rule"
+msgstr ""
+"Ovde možete izmeniti detalje politike. Koristite 'Insert Rule' ili 'Remove "
+"Rule' mogućnosti da unesete ili uklonite pravilo"
+
+msgid "You may update rule details here."
+msgstr "Ovde možete izmeniti detalje pravila."
+
+msgid "You may update the editable properties of your network here."
+msgstr "Ovde možete izmeniti izmenljive osobine vaše mreže."
+
+msgid "You may update the editable properties of your port here."
+msgstr "Ovde možete izmeniti izmenljive osobine vašeg port-a."
 
 msgid "You must select a snapshot."
 msgstr "Morate odabrati snapshot."
@@ -5141,6 +6005,19 @@ msgstr "Morate odrediti šablon preko jednog od dostupnih izvora."
 
 msgid "You must specify at least one database if you create a user."
 msgstr "Morate dodeliti bar jednu bazu podataka ako kreirate korisnika."
+
+msgid ""
+"You must specify the source of the traffic to be allowed via this rule. You "
+"may do so either in the form of an IP address block (CIDR) or via a source "
+"group (Security Group). Selecting a security group as the source will allow "
+"any other instance in that security group access to any other instance via "
+"this rule."
+msgstr ""
+"Morate odrediti izvor dozvoljenog saobraćaja pomoću ovog pravila. To možete "
+"učiniti ili u obliku bloka IP adresa (CIDR) ili preko izvorne grupe "
+"(sigurnosne grupe). Odabir sigurnosne grupe kao izvora, dozvoliće bilo kojoj "
+"drugoj instanci u toj sigurnosnoj grupi pristup bilo kojoj drugoj instanci "
+"ovim pravilom."
 
 #, python-format
 msgid "Your image %s has been queued for creation."
@@ -5176,6 +6053,9 @@ msgstr "oboje"
 
 msgid "clear"
 msgstr "čisto"
+
+msgid "console is currently unavailable. Please try again later."
+msgstr "KOnzola je trenutno nedostupna. Pokušajte kasnije."
 
 msgid "disabled"
 msgstr "onemogućeno"

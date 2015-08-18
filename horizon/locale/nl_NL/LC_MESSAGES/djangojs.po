@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-08-15 15:07+0000\n"
-"PO-Revision-Date: 2015-08-16 19:27+0000\n"
+"POT-Creation-Date: 2015-08-18 02:50+0000\n"
+"PO-Revision-Date: 2015-08-17 21:35+0000\n"
 "Last-Translator: Evelijn Saaltink <evelijnsaaltink@gmail.com>\n"
 "Language-Team: Dutch (Netherlands) (http://www.transifex.com/openstack/"
 "horizon/language/nl_NL/)\n"
@@ -36,6 +36,10 @@ msgstr "%s MB"
 #, python-format
 msgid "%s TB"
 msgstr "%s TB"
+
+#, python-format
+msgid "%s bytes"
+msgstr "%s bytes"
 
 msgid "Active"
 msgstr "Actief"
@@ -285,3 +289,6 @@ msgstr "Ja"
 #, python-format
 msgid "You have selected %s. "
 msgstr "U heeft %s geselecteerd."
+
+msgid "m1.small"
+msgstr "m1.small"

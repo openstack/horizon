@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-08-04 04:10+0000\n"
-"PO-Revision-Date: 2015-06-15 15:01+0000\n"
+"POT-Creation-Date: 2015-08-18 02:50+0000\n"
+"PO-Revision-Date: 2015-08-17 17:55+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Portuguese (http://www.transifex.com/openstack/horizon/"
 "language/pt/)\n"
@@ -19,6 +19,33 @@ msgstr ""
 "Generated-By: Babel 2.0\n"
 "Language: pt\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#, python-format
+msgid ""
+"\n"
+"      <label>From:</label> %(start)s"
+msgstr ""
+"\n"
+"      <label>De:</label> %(start)s"
+
+#, python-format
+msgid ""
+"\n"
+"      <label>To:</label>%(end)s"
+msgstr ""
+"\n"
+"      <label>Para:</label>%(end)s"
+
+msgid ""
+"\n"
+"      If you are not sure which authentication method to use, contact your "
+"administrator.\n"
+"    "
+msgstr ""
+"\n"
+"     Se não tiver certeza sobre que método de autenticação usar, contacte o "
+"seu administrador.\n"
+"    "
 
 #, python-format
 msgctxt "past"
@@ -73,8 +100,24 @@ msgstr "%s não foi concluída."
 msgid "&laquo;&nbsp;Prev"
 msgstr "&laquo;&nbsp;Anterior"
 
+msgid "-"
+msgstr "-"
+
+msgid "0 Bytes"
+msgstr "0 bytes"
+
+#, python-format
+msgid "A %(resource)s with the name \"%(name)s\" already exists."
+msgstr "Já existe um %(resource)s com o nome \"%(name)s\"."
+
 msgid "Actions"
 msgstr "Ações"
+
+msgid "Active Instances:"
+msgstr "Casos Ativos:"
+
+msgid "Active RAM:"
+msgstr "RAM Ativa:"
 
 msgid "Add a row"
 msgstr "Adicione uma fila"
@@ -91,6 +134,9 @@ msgstr "Voltar"
 msgid "Cancel"
 msgstr "Cancelar"
 
+msgid "Connect"
+msgstr "Conectar-se"
+
 msgid "Delete"
 msgstr "Apagar"
 
@@ -105,6 +151,9 @@ msgstr[1] "Visualizar %(counter)s itens"
 
 msgid "Error: "
 msgstr "Erro: "
+
+msgid "Fake"
+msgstr "Falso"
 
 msgid "Filter"
 msgstr "Filtro"
@@ -208,6 +257,9 @@ msgstr "Guardar"
 msgid "Select a %s to browse."
 msgstr "Selecione um %s para explorar."
 
+msgid "Select a period of time to query its usage:"
+msgstr "Selecione um período de tempo para consultar a sua utilização:"
+
 msgid "Session timed out."
 msgstr "Sessão expirada."
 
@@ -229,6 +281,21 @@ msgstr "O atributo %(attr)s não existe em %(obj)s."
 
 msgid "The date should be in YYYY-mm-dd format."
 msgstr "A data deverá estar no formato YYYY-mm-dd."
+
+msgid "The string may only contain ASCII printable characters."
+msgstr "Esta string só pode conter caracteres ASCII imprimíveis."
+
+msgid "This Period's GB-Hours:"
+msgstr "Horas-GB deste Período:"
+
+msgid "This Period's RAM-Hours:"
+msgstr "Horas-RAM deste Período:"
+
+msgid "This Period's VCPU-Hours:"
+msgstr "Horas-VCPU deste Período:"
+
+msgid "This action cannot be undone."
+msgstr "Esta acão não pode ser desfeita."
 
 #, python-format
 msgid "Unable to %(action)s: %(objs)s"
