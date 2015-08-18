@@ -29,14 +29,12 @@
     beforeEach(module('templates'));
     beforeEach(module('smart-table'));
     beforeEach(module('horizon.framework'));
-    beforeEach(module('horizon.framework.widgets'));
-    beforeEach(module('horizon.framework.widgets.action-list'));
-    beforeEach(module('horizon.framework.widgets.table'));
-    beforeEach(module('horizon.framework.widgets.transfer-table'));
 
     describe('max 1 allocation', function() {
 
       beforeEach(inject(function($injector) {
+        var $templateCache = $injector.get('$templateCache');
+        var basePath = $injector.get('horizon.framework.widgets.basePath');
         var $compile = $injector.get('$compile');
         $scope = $injector.get('$rootScope').$new();
         $timeout = $injector.get('$timeout');
@@ -54,35 +52,7 @@
           displayedAllocated: []
         };
 
-        /*eslint-disable max-len */
-        var markup = '<transfer-table tr-model="tableData">' +
-          '<allocated>' +
-          '<table st-table="tableData.displayedAllocated" st-safe-src="tableData.allocated" hz-table>' +
-          '<thead><tr><th>Animal</th></tr></thead>' +
-          '<tbody><tr ng-repeat="alRow in tableData.displayedAllocated">' +
-          '<td>{$ alRow.animal $}</td>' +
-          '<td><action-list>' +
-          ' <action callback="trCtrl.deallocate" item="alRow">x' +
-          ' </action>' +
-          '</action-list></td>' +
-          '</tr></tbody>' +
-          '</table>' +
-          '</allocated>' +
-          '<available>' +
-          '<table st-table="tableData.available" hz-table>' +
-          '<thead><tr><th>Animal</th></tr></thead>' +
-          '<tbody><tr ng-repeat="row in tableData.available" ng-if="!trCtrl.allocatedIds[row.id]">' +
-          '<td>{$ row.animal $}</td>' +
-          '<td><action-list>' +
-          ' <action callback="trCtrl.allocate" item="row">x' +
-          ' </action>' +
-          '</action-list></td>' +
-          '</tr></tbody>' +
-          '</table>' +
-          '</available>' +
-          '</transfer-table>';
-        /*eslint-enable max-len */
-
+        var markup = $templateCache.get(basePath + 'transfer-table/transfer-table.max-1.mock.html');
         $element = angular.element(markup);
         $compile($element)($scope);
 
@@ -133,6 +103,8 @@
     describe('max 2 allocations', function() {
 
       beforeEach(inject(function($injector) {
+        var $templateCache = $injector.get('$templateCache');
+        var basePath = $injector.get('horizon.framework.widgets.basePath');
         var $compile = $injector.get('$compile');
         $scope = $injector.get('$rootScope').$new();
 
@@ -153,34 +125,7 @@
           maxAllocation: 2
         };
 
-        /*eslint-disable max-len */
-        var markup = '<transfer-table tr-model="tableData" limits="limits">' +
-          '<available>' +
-          '<table st-table="tableData.available" hz-table>' +
-          '<thead><tr><th>Animal</th></tr></thead>' +
-          '<tbody><tr ng-repeat="row in tableData.available" ng-if="!trCtrl.allocatedIds[row.id]">' +
-          '<td>{$ row.animal $}</td>' +
-          '<td><action-list>' +
-          ' <action callback="trCtrl.allocate" item="row">x' +
-          ' </action>' +
-          '</action-list></td>' +
-          '</tr></tbody>' +
-          '</table>' +
-          '</available>' +
-          '<allocated>' +
-          '<table st-table="tableData.allocated" hz-table>' +
-          '<thead><tr><th>Animal</th></tr></thead>' +
-          '<tbody><tr ng-repeat="alRow in tableData.allocated">' +
-          '<td>{$ alRow.animal $}</td>' +
-          '<td><action-list>' +
-          ' <action callback="trCtrl.deallocate" item="alRow">x' +
-          ' </action>' +
-          '</action-list></td>' +
-          '</tr></tbody>' +
-          '</table>' +
-          '</allocated>' +
-          '</transfer-table>';
-        /*eslint-enable max-len */
+        var markup = $templateCache.get(basePath + 'transfer-table/transfer-table.max-2.mock.html');
 
         $element = angular.element(markup);
         $compile($element)($scope);
