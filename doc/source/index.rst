@@ -63,6 +63,7 @@ Brief guides to areas of interest and importance when developing Horizon.
    topics/tutorial
    contributing
    testing
+   plugins
 
 Topic Guides
 ------------
