@@ -53,8 +53,6 @@
         </li>
       </ul>
 
-      {% include "horizon/common/_region_selector.html" %}
-
       <ul class="nav navbar-nav navbar-right">
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" role="button" aria-expanded="false">
@@ -85,6 +83,9 @@
               </a>
             </li>
           </ul>
+        </li>
+        <li class="dropdown">
+          {% include "horizon/common/_region_selector.html" %}
         </li>
       </ul>
     </div><!-- /.navbar-collapse -->

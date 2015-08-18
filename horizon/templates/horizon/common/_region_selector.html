@@ -1,16 +1,14 @@
 {% load url from future %}
 {% if regions.support %}
-  <div id="region_switcher" class="dropdown switcher_bar" tabindex='1'>
-    <button class="btn btn-default btn-topnav dropdown-toggle" data-toggle="dropdown">
-      {{ regions.current.name }}
-      <span class="fa fa-caret-down"></span>
-    </button>
-    <ul id="region_list" class="dropdown-menu topbar-dropdown-menu">
-      {% for region in regions.available %}
-        {% if region.name != regions.current.name %}
-          <li><a class="ajax-modal" href="{% url 'login' %}?region={{ region.endpoint|urlencode }}">{{ region.name }}</a></li>
-        {% endif %}
-      {% endfor %}
-    </ul>
-  </div>
+  <a href="#" class="dropdown-toggle" role="button" aria-expanded="false">
+    {{ regions.current.name }}
+    <span class="fa fa-caret-down"></span>
+  </a>
+  <ul id="region_list" class="dropdown-menu topbar-dropdown-menu">
+   {% for region in regions.available %}
+     {% if region.name != regions.current.name %}
+       <li><a class="ajax-modal" href="{% url 'login' %}?region={{ region.endpoint|urlencode }}">{{ region.name }}</a></li>
+     {% endif %}
+   {% endfor %}
+  </ul>
 {% endif %}
