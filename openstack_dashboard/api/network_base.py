@@ -170,9 +170,9 @@ class SecurityGroupManager(object):
     * from_port: lower limit of allowed port range (inclusive)
     * to_port: upper limit of allowed port range (inclusive)
     * ip_range: remote IP CIDR (source for ingress, dest for egress).
-    The value should be a format of "{'cidr': <cidr>}"
+      The value should be a format of "{'cidr': <cidr>}"
     * group: remote security group. The value should be a format of
-    "{'name': <secgroup_name>}"
+      "{'name': <secgroup_name>}"
 
     """
 

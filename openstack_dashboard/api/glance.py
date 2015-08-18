@@ -128,13 +128,13 @@ def image_update(request, image_id, **kwargs):
 def image_create(request, **kwargs):
     """Create image.
 
-    Keyword arguments:
-    copy_from -- URL from which Glance server should immediately copy
-                 the data and store it in its configured image store.
-    data      -- Form data posted from client.
-    location  -- URL where the data for this image already resides.
+    :param kwargs:
+        * copy_from: URL from which Glance server should immediately copy
+            the data and store it in its configured image store.
+        * data: Form data posted from client.
+        * location: URL where the data for this image already resides.
 
-    In the case of 'copy_from' and 'location' the Glance server
+    In the case of 'copy_from' and 'location', the Glance server
     will give us a immediate response from create and handle the data
     asynchronously.
 
@@ -234,6 +234,7 @@ def metadefs_namespace_list(request,
                             marker=None,
                             paginate=False):
     """Retrieve a listing of Namespaces
+
     :param paginate: If true will perform pagination based on settings.
     :param marker: Specifies the namespace of the last-seen namespace.
              The typical pattern of limit and marker is to make an
@@ -250,9 +251,10 @@ def metadefs_namespace_list(request,
     :param filters: specifies addition fields to filter on such as
              resource_types.
     :returns A tuple of three values:
-             1) Current page results
-             2) A boolean of whether or not there are previous page(s).
-             3) A boolean of whether or not there are more page(s).
+        1) Current page results
+        2) A boolean of whether or not there are previous page(s).
+        3) A boolean of whether or not there are more page(s).
+
     """
     limit = getattr(settings, 'API_RESULT_LIMIT', 1000)
     page_size = utils.get_page_size(request)

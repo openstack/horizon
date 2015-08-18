@@ -163,7 +163,7 @@ class Column(html.HTMLElement):
        A callable to get the HTML attributes of a column cell depending
        on the data. For example, to add additional description or help
        information for data in a column cell (e.g. in Images panel, for the
-       column 'format'):
+       column 'format')::
 
             helpText = {
               'ARI':'Amazon Ramdisk Image'
