@@ -19,7 +19,7 @@ class TestUserSettings(helpers.TestCase):
         language = self.settings_page.settings_form.language.value
         timezone = self.settings_page.settings_form.timezone.value
         pagesize = self.settings_page.settings_form.pagesize.value
-        loglines = self.settings_page.settings_form.loglines.value
+        loglines = self.settings_page.settings_form.instance_log_length.value
 
         user_settings = (("Language", changed_settings["language"], language),
                          ("Timezone", changed_settings["timezone"], timezone),

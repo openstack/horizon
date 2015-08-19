@@ -21,7 +21,7 @@ class ChangepasswordPage(basepage.BaseNavigationPage):
         _password_form_locator = (by.By.ID, 'change_password_modal')
 
         CHANGE_PASSWORD_FORM_FIELDS = ("current_password", "new_password",
-                                       "confirm_new_password")
+                                       "confirm_password")
 
         @property
         def password_form(self):
@@ -32,7 +32,7 @@ class ChangepasswordPage(basepage.BaseNavigationPage):
         def change_password(self, current, new):
             self.password_form.current_password.text = current
             self.password_form.new_password.text = new
-            self.password_form.confirm_new_password.text = new
+            self.password_form.confirm_password.text = new
             self.password_form.submit.click()
 
         def reset_to_default_password(self, current):

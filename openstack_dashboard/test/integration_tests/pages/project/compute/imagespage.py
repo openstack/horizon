@@ -36,10 +36,10 @@ class ImagesPage(basepage.BaseNavigationPage):
     }
 
     CREATE_IMAGE_FORM_FIELDS = (
-        "name", "description", "image_source", "image_location",
+        "name", "description", "source_type", "image_url",
         "image_file", "kernel", "ramdisk",
-        "format", "architecture", "minimum_disk",
-        "minimum_ram", "public", "protected"
+        "disk_format", "architecture", "minimum_disk",
+        "minimum_ram", "is_public", "protected"
     )
 
     def __init__(self, driver, conf):
@@ -69,7 +69,7 @@ class ImagesPage(basepage.BaseNavigationPage):
         return forms.BaseFormRegion(self.driver, self.conf, None)
 
     def create_image(self, name, description=None,
-                     image_source=DEFAULT_IMAGE_SOURCE,
+                     image_source_type=DEFAULT_IMAGE_SOURCE,
                      location=None, image_file=None,
                      image_format=DEFAULT_IMAGE_FORMAT,
                      is_public=DEFAULT_ACCESSIBILITY,
@@ -78,18 +78,18 @@ class ImagesPage(basepage.BaseNavigationPage):
         self.create_image_form.name.text = name
         if description is not None:
             self.create_image_form.description.text = description
-        self.create_image_form.image_source.value = image_source
-        if image_source == 'url':
+        self.create_image_form.source_type.value = image_source_type
+        if image_source_type == 'url':
             if location is None:
-                self.create_image_form.image_location.text = \
+                self.create_image_form.image_url.text = \
                     self.conf.image.http_image
             else:
-                self.create_image_form.location.text = location
+                self.create_image_form.image_url.text = location
         else:
             self.create_image_form.image_file.choose(image_file)
-        self.create_image_form.format.value = image_format
+        self.create_image_form.disk_format.value = image_format
         if is_public:
-            self.create_image_form.public.mark()
+            self.create_image_form.is_public.mark()
         if is_protected:
             self.create_image_form.protected.mark()
         self.create_image_form.submit.click()

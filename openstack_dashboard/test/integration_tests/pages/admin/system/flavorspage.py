@@ -30,9 +30,8 @@ class FlavorsPage(basepage.BaseNavigationPage):
             "modify_access", "update_metadata", "delete_flavor")
     }
 
-    CREATE_FLAVOR_FORM_FIELDS = (("name", "id_", "vcpus", "ram",
-                                  "root_disk", "ephemeral_disk",
-                                  "swap_disk"),
+    CREATE_FLAVOR_FORM_FIELDS = (("name", "flavor_id", "vcpus", "memory_mb",
+                                  "disk_gb", "eph_gb", "swap_mb"),
                                  ("all_projects", "selected_projects"))
 
     def __init__(self, driver, conf):
@@ -65,12 +64,12 @@ class FlavorsPage(basepage.BaseNavigationPage):
         self.flavors_table.create_flavor.click()
         self.create_flavor_form.name.text = name
         if id_ is not None:
-            self.create_flavor_form.id_.text = id_
+            self.create_flavor_form.flavor_id.text = id_
         self.create_flavor_form.vcpus.value = vcpus
-        self.create_flavor_form.ram.value = ram
-        self.create_flavor_form.root_disk.value = root_disk
-        self.create_flavor_form.ephemeral_disk.value = ephemeral_disk
-        self.create_flavor_form.swap_disk.value = swap_disk
+        self.create_flavor_form.memory_mb.value = ram
+        self.create_flavor_form.disk_gb.value = root_disk
+        self.create_flavor_form.eph_gb.value = ephemeral_disk
+        self.create_flavor_form.swap_mb.value = swap_disk
         self.create_flavor_form.submit.click()
         self._wait_till_spinner_disappears()
 
