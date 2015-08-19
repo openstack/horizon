@@ -15,6 +15,7 @@
 import re
 
 import netaddr
+import six
 
 from django.core.exceptions import ValidationError  # noqa
 from django.core import urlresolvers
@@ -189,7 +190,7 @@ class SelectWidget(widgets.Select):
             html_attrs = self.transform_html_attrs(option_label)
             other_html += flatatt(html_attrs)
 
-        if not isinstance(option_label, (basestring, Promise)):
+        if not isinstance(option_label, (six.string_types, Promise)):
             for data_attr in self.data_attrs:
                 data_value = html.conditional_escape(
                     force_text(getattr(option_label,
