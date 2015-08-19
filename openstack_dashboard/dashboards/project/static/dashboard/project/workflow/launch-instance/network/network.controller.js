@@ -31,25 +31,6 @@
   function LaunchInstanceNetworkController($scope) {
     var ctrl = this;
 
-    ctrl.label = {
-      title: gettext('Networks'),
-      subtitle: gettext('Networks provide the communication channels for instances in the cloud.'),
-      network: gettext('Network'),
-      subnet_associated: gettext('Subnets Associated'),
-      shared: gettext('Shared'),
-      admin_state: gettext('Admin State'),
-      status: gettext('Status'),
-      profile: gettext('Profile'),
-      none_option: gettext('(None)'),
-      id: gettext('ID'),
-      project_id: gettext('Project'),
-      external_network: gettext('External Network'),
-      provider_network: gettext('Provider Network'),
-      provider_network_type: gettext('Type'),
-      provider_segmentation_id: gettext('Segmentation ID'),
-      provider_physical_network: gettext('Physical Network')
-    };
-
     ctrl.networkStatuses = {
       'ACTIVE': gettext('Active'),
       'DOWN': gettext('Down')
