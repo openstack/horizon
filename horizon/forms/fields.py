@@ -147,30 +147,31 @@ class SelectWidget(widgets.Select):
         for the option object. It returns a dictionary
         containing the html attributes and their values.
         For example, to define a title attribute for the
-        choices:
+        choices::
 
-        helpText = { 'Apple': 'This is a fruit',
-                  'Carrot': 'This is a vegetable' }
+            helpText = { 'Apple': 'This is a fruit',
+                      'Carrot': 'This is a vegetable' }
 
-        def get_title(data):
-            text = helpText.get(data, None)
-            if text:
-                return {'title': text}
-            else:
-                return {}
+            def get_title(data):
+                text = helpText.get(data, None)
+                if text:
+                    return {'title': text}
+                else:
+                    return {}
 
-        ....
-        ....
+            ....
+            ....
 
-        widget=forms.SelectWidget( attrs={'class': 'switchable',
-                                          'data-slug': 'source'},
-                                   transform_html_attrs=get_title )
+            widget=forms.SelectWidget( attrs={'class': 'switchable',
+                                             'data-slug': 'source'},
+                                    transform_html_attrs=get_title )
 
-        self.fields[<field name>].choices =
-               ([
-                 ('apple','Apple'),
-                 ('carrot','Carrot')
-               ])
+            self.fields[<field name>].choices =
+                ([
+                    ('apple','Apple'),
+                    ('carrot','Carrot')
+                ])
+
     """
     def __init__(self, attrs=None, choices=(), data_attrs=(), transform=None,
                  transform_html_attrs=None):

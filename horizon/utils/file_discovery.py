@@ -40,11 +40,14 @@ def sort_js_files(js_files):
     and spec files based on file extension.
 
     Output:
+
     * sources: source files for production.  The order of source files
       is significant and should be listed in the below order:
+
       - First, all the that defines the other application's angular module.
         Those files have extension of `.module.js`.  The order among them is
         not significant.
+
       - Followed by all other source code files.  The order among them
         is not significant.
 
@@ -53,6 +56,7 @@ def sort_js_files(js_files):
 
     * specs: spec files for testing.  They have extension of `.spec.js`.
       The order among them is not significant.
+
     """
     modules = [f for f in js_files if f.endswith(MODULE_EXT)]
     mocks = [f for f in js_files if f.endswith(MOCK_EXT)]

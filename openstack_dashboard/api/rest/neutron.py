@@ -26,6 +26,7 @@ from openstack_dashboard.api.rest import urls
 @urls.register
 class Networks(generic.View):
     """API for Neutron Networks
+
     http://developer.openstack.org/api-ref-networking-v2.html
     """
     url_regex = r'neutron/networks/$'
@@ -44,6 +45,7 @@ class Networks(generic.View):
     @rest_utils.ajax(data_required=True)
     def post(self, request):
         """Create a network
+
         :param  admin_state_up (optional): The administrative state of the
                 network, which is up (true) or down (false).
         :param name (optional): The network name. A request body is optional:

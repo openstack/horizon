@@ -86,8 +86,10 @@ def image_field_data(request, include_empty_option=False):
 
     :param request: django http request object
     :param include_empty_option: flag to include a empty tuple in the front of
-    the list
+        the list
+
     :return: list of (id, name) tuples
+
     """
     try:
         images = get_available_images(request, request.user.project_id)
