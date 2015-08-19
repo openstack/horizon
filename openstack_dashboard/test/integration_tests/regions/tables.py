@@ -148,10 +148,14 @@ class BasicTableRegion(baseregion.BaseRegion):
         searched text, otherwise occurrence of searched text in the column
         text will result in row match.
         """
+        def get_text(element):
+            text = element.get_attribute('data-selenium')
+            return text or element.text
+
         for row in self.rows:
-            if exact_match and text == row.cells[column_index].text:
+            if exact_match and text == get_text(row.cells[column_index]):
                 return row
-            if not exact_match and text in row.cells[column_index].text:
+            if not exact_match and text in get_text(row.cells[column_index]):
                 return row
         return None
 
