@@ -151,3 +151,22 @@ class ExtractAngularTestCase(test.TestCase):
                 (9, u'gettext', 'oh \\"hello\\" there', []),
             ],
             messages)
+
+    def test_trim_translate_tag(self):
+        buf = StringIO(
+            "<html><translate> \n hello\n world! \n "
+            "</translate></html>")
+
+        messages = list(extract_angular(buf, [], [], {}))
+        self.assertEqual([(1, 'gettext', 'hello\n world!', [])], messages)
+
+    def test_nested_translate_tag(self):
+        buf = StringIO(
+            "<html><translate>hello <b>beautiful <i>world</i></b> !"
+            "</translate></html>"
+        )
+
+        messages = list(extract_angular(buf, [], [], {}))
+        self.assertEqual(
+            [(1, 'gettext', 'hello <b>beautiful <i>world</i></b> !', [])],
+            messages)

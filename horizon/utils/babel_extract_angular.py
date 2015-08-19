@@ -37,9 +37,6 @@ class AngularGettextHTMLParser(html_parser.HTMLParser):
     {$ 'content' | translate $}
         The string will be translated, minus expression handling (i.e. just
         bare strings are allowed.)
-
-    Note: This will not cope with nested tags (which I don't think make any
-    sense)
     """
 
     def __init__(self):
@@ -50,6 +47,7 @@ class AngularGettextHTMLParser(html_parser.HTMLParser):
             html_parser.HTMLParser.__init__(self)
 
         self.in_translate = False
+        self.inner_tags = []
         self.data = ''
         self.strings = []
         self.line = 0
@@ -69,6 +67,9 @@ class AngularGettextHTMLParser(html_parser.HTMLParser):
                         self.plural_form = value
                     if attr == 'translate-comment':
                         self.comments.append(value)
+        elif self.in_translate:
+            self.data += '<%s>' % tag
+            self.inner_tags.append(tag)
         else:
             for attr in attrs:
                 if not attr[1]:
@@ -90,14 +91,18 @@ class AngularGettextHTMLParser(html_parser.HTMLParser):
 
     def handle_endtag(self, tag):
         if self.in_translate:
+            if len(self.inner_tags) > 0:
+                tag = self.inner_tags.pop()
+                self.data += "</%s>" % tag
+                return
             if self.plural_form:
                 messages = (
-                    self.data,
+                    self.data.strip(),
                     self.plural_form
                 )
                 func_name = u'ngettext'
             else:
-                messages = self.data
+                messages = self.data.strip()
                 func_name = u'gettext'
             self.strings.append(
                 (self.line, func_name, messages, self.comments)
@@ -122,12 +127,6 @@ def extract_angular(fileobj, keywords, comment_tags, options):
     :return: an iterator over ``(lineno, funcname, message, comments)``
              tuples
     :rtype: ``iterator``
-
-    This particular extractor is quite simple because it is intended to only
-    deal with angular templates which do not need comments, or the more
-    complicated forms of translations.
-
-    A later version will address pluralization.
     """
 
     parser = AngularGettextHTMLParser()
