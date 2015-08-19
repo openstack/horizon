@@ -65,7 +65,9 @@ Jasmine uses suites and specs:
 
 ``.spec.js`` files can be handled manually or automatically. To use the
 automatic file discovery add::
-  AUTO_DISCOVER_STATIC_FILES = True
+
+    AUTO_DISCOVER_STATIC_FILES = True
+
 to your enabled file. JS code for testing should use the extensions
 ``.mock.js`` and ``.spec.js``.
 

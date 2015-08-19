@@ -187,7 +187,7 @@ You can generate various reports and metrics using command line arguments
 to ``run_tests.sh``.
 
 ESLint
-----
+------
 
 To run ESLint, a JavaScript code style checker::
 

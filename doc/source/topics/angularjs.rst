@@ -146,7 +146,9 @@ Upstream
 JavaScript files can be discovered automatically, handled manually, or a mix of
 the two. Where possible, use the automated mechanism.
 To use the automatic functionality, add::
-  AUTO_DISCOVER_STATIC_FILES = True
+
+    AUTO_DISCOVER_STATIC_FILES = True
+
 to your enabled file (``enabled/<plugin_name>.py``). To make this possible,
 you need to follow some structural conventions:
 

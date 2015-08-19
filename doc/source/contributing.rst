@@ -284,6 +284,7 @@ Required
 
     2. Avoid in-lining styles into element in HTML. Use attributes and
        classes instead.
+
   * In our JS files, we should focus on logic rather than attempting to
     manipulate/style elements.
 
@@ -296,6 +297,7 @@ Required
 
     3. Avoid using classes for detection purposes only, instead, defer to
        attributes. For example to find a div:
+
       .. code ::
 
        <div class="something"></div>
