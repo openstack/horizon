@@ -10,8 +10,8 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
-
 from django.core.urlresolvers import reverse
+
 from django.utils.translation import ugettext_lazy as _
 
 from horizon import exceptions
@@ -165,4 +165,42 @@ class EditQosSpecConsumer(forms.SelfHandlingForm):
         except Exception:
             redirect = reverse("horizon:admin:volumes:index")
             exceptions.handle(request, _('Error editing QoS Spec consumer.'),
+                              redirect=redirect)
+
+
+class EditVolumeType(forms.SelfHandlingForm):
+    name = forms.CharField(max_length=255,
+                           label=_("Name"))
+    description = forms.CharField(max_length=255,
+                                  widget=forms.Textarea(attrs={'rows': 4}),
+                                  label=_("Description"),
+                                  required=False)
+
+    def clean_name(self):
+        cleaned_name = self.cleaned_data['name']
+        if len(cleaned_name.strip()) == 0:
+            msg = _('New name cannot be empty.')
+            self._errors['name'] = self.error_class([msg])
+
+        return cleaned_name
+
+    def handle(self, request, data):
+        volume_type_id = self.initial['id']
+        try:
+            cinder.volume_type_update(request,
+                                      volume_type_id,
+                                      data['name'],
+                                      data['description'])
+            message = _('Successfully updated volume type.')
+            messages.success(request, message)
+            return True
+        except Exception as ex:
+            redirect = reverse("horizon:admin:volumes:index")
+            if ex.code == 409:
+                error_message = _('New name conflicts with another '
+                                  'volume type.')
+            else:
+                error_message = _('Unable to update volume type.')
+
+            exceptions.handle(request, error_message,
                               redirect=redirect)

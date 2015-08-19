@@ -94,6 +94,28 @@ class CinderApiTests(test.APITestCase):
         associate_spec = assoc_vol_types[0].associated_qos_spec
         self.assertTrue(associate_spec, qos_specs_only_one[0].name)
 
+    def test_volume_type_get_with_qos_association(self):
+        volume_type = self.cinder_volume_types.first()
+        qos_specs_full = self.cinder_qos_specs.list()
+        qos_specs_only_one = [qos_specs_full[0]]
+        associations = self.cinder_qos_spec_associations.list()
+
+        cinderclient = self.stub_cinderclient()
+        cinderclient.volume_types = self.mox.CreateMockAnything()
+        cinderclient.volume_types.get(volume_type.id).AndReturn(volume_type)
+        cinderclient.qos_specs = self.mox.CreateMockAnything()
+        cinderclient.qos_specs.list().AndReturn(qos_specs_only_one)
+        cinderclient.qos_specs.get_associations = self.mox.CreateMockAnything()
+        cinderclient.qos_specs.get_associations(qos_specs_only_one[0].id).\
+            AndReturn(associations)
+        self.mox.ReplayAll()
+
+        assoc_vol_type = \
+            api.cinder.volume_type_get_with_qos_association(self.request,
+                                                            volume_type.id)
+        associate_spec = assoc_vol_type.associated_qos_spec
+        self.assertTrue(associate_spec, qos_specs_only_one[0].name)
+
     def test_absolute_limits_with_negative_values(self):
         values = {"maxTotalVolumes": -1, "totalVolumesUsed": -1}
         expected_results = {"maxTotalVolumes": float("inf"),
@@ -125,6 +147,16 @@ class CinderApiTests(test.APITestCase):
 
         # No assertions are necessary. Verification is handled by mox.
         api.cinder.pool_list(self.request, detailed=True)
+
+    def test_volume_type_default(self):
+        volume_type = self.cinder_volume_types.first()
+        cinderclient = self.stub_cinderclient()
+        cinderclient.volume_types = self.mox.CreateMockAnything()
+        cinderclient.volume_types.default().AndReturn(volume_type)
+        self.mox.ReplayAll()
+
+        default_volume_type = api.cinder.volume_type_default(self.request)
+        self.assertEqual(default_volume_type, volume_type)
 
 
 class CinderApiVersionTests(test.TestCase):

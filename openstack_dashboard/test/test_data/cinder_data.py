@@ -144,10 +144,12 @@ def data(TEST):
     vol_type1 = volume_types.VolumeType(volume_types.VolumeTypeManager(None),
                                         {'id': u'1',
                                          'name': u'vol_type_1',
+                                         'description': 'type 1 description',
                                          'extra_specs': {'foo': 'bar'}})
     vol_type2 = volume_types.VolumeType(volume_types.VolumeTypeManager(None),
                                         {'id': u'2',
-                                         'name': u'vol_type_2'})
+                                         'name': u'vol_type_2',
+                                         'description': 'type 2 description'})
     TEST.cinder_volume_types.add(vol_type1, vol_type2)
 
     # Volumes - Cinder v2

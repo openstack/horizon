@@ -201,6 +201,13 @@ class MigrateVolume(forms.SelfHandlingForm):
 
 class CreateVolumeType(forms.SelfHandlingForm):
     name = forms.CharField(max_length=255, label=_("Name"))
+    vol_type_description = forms.CharField(
+        max_length=255,
+        widget=forms.Textarea(
+            attrs={'class': 'modal-body-fixed-width',
+                   'rows': 4}),
+        label=_("Description"),
+        required=False)
 
     def clean_name(self):
         cleaned_name = self.cleaned_data['name']
@@ -212,8 +219,10 @@ class CreateVolumeType(forms.SelfHandlingForm):
     def handle(self, request, data):
         try:
             # Remove any new lines in the public key
-            volume_type = cinder.volume_type_create(request,
-                                                    data['name'])
+            volume_type = cinder.volume_type_create(
+                request,
+                data['name'],
+                data['vol_type_description'])
             messages.success(request, _('Successfully created volume type: %s')
                              % data['name'])
             return volume_type
