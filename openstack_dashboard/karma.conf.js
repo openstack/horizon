@@ -77,8 +77,8 @@ module.exports = function (config) {
       xstaticPath + 'angular/data/angular-sanitize.js',
       xstaticPath + 'd3/data/d3.js',
       xstaticPath + 'rickshaw/data/rickshaw.js',
+      xstaticPath + 'angular_smart_table/data/smart-table.js',
       xstaticPath + 'angular_lrdragndrop/data/lrdragndrop.js',
-      // Needed by modal spinner
       xstaticPath + 'spin/data/spin.js',
       xstaticPath + 'spin/data/spin.jquery.js',
 
