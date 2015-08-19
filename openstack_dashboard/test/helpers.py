@@ -43,6 +43,7 @@ from neutronclient.v2_0 import client as neutron_client
 from novaclient.v2 import client as nova_client
 from openstack_auth import user
 from openstack_auth import utils
+import six
 from six import moves
 from swiftclient import client as swift_client
 
@@ -261,7 +262,7 @@ class TestCase(horizon_helpers.TestCase):
             assert len(errors) == count, \
                 "%d errors were found on the form, %d expected" % \
                 (len(errors), count)
-            if message and message not in unicode(errors):
+            if message and message not in six.text_type(errors):
                 self.fail("Expected message not found, instead found: %s"
                           % ["%s: %s" % (key, [e for e in field_errors]) for
                              (key, field_errors) in errors.items()])

@@ -18,6 +18,7 @@ import glanceclient.exc as glance_exceptions
 from keystoneclient import exceptions as keystone_exceptions
 from neutronclient.common import exceptions as neutron_exceptions
 from novaclient import exceptions as nova_exceptions
+import six
 from swiftclient import client as swift_exceptions
 from troveclient import exceptions as trove_exceptions
 
@@ -46,7 +47,7 @@ def create_stubbed_exception(cls, status_code=500):
         return str(self.message)
 
     def fake_unicode(self):
-        return unicode(self.message)
+        return six.text_type(self.message)
 
     cls.__init__ = fake_init_exception
     cls.__str__ = fake_str

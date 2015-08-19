@@ -40,7 +40,7 @@ class FormsetCell(horizon_tables.Cell):
                 self.attrs['class'] = (self.attrs.get('class', '') +
                                        ' error form-group')
                 self.attrs['title'] = ' '.join(
-                    unicode(error) for error in self.field.errors)
+                    six.text_type(error) for error in self.field.errors)
 
 
 class FormsetRow(horizon_tables.Row):

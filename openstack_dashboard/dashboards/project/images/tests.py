@@ -23,6 +23,7 @@ from django.core.urlresolvers import reverse
 from django import http
 
 from mox3.mox import IsA  # noqa
+import six
 
 from horizon import exceptions
 
@@ -114,7 +115,7 @@ class ImagesAndSnapshotsTests(test.TestCase):
         row_actions = snaps.get_row_actions(snaps.data[2])
         # third instance - status queued, only delete is available
         self.assertEqual(len(row_actions), 1)
-        self.assertEqual(unicode(row_actions[0].verbose_name),
+        self.assertEqual(six.text_type(row_actions[0].verbose_name),
                          u"Delete Image")
         self.assertEqual(str(row_actions[0]), "<DeleteImage: delete>")
 

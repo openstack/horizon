@@ -30,6 +30,7 @@ from django.utils import encoding
 from django.utils.http import urlencode
 from mox3.mox import IgnoreArg  # noqa
 from mox3.mox import IsA  # noqa
+import six
 
 from horizon import exceptions
 from horizon import forms
@@ -503,7 +504,8 @@ class InstanceTests(helpers.TestCase):
         api.nova.server_list(IsA(http.HttpRequest), search_opts=search_opts) \
             .AndReturn([servers, False])
         api.network.servers_update_addresses(IsA(http.HttpRequest), servers)
-        api.nova.server_suspend(IsA(http.HttpRequest), unicode(server.id))
+        api.nova.server_suspend(IsA(http.HttpRequest),
+                                six.text_type(server.id))
 
         self.mox.ReplayAll()
 
@@ -533,7 +535,7 @@ class InstanceTests(helpers.TestCase):
         api.nova.server_list(IsA(http.HttpRequest), search_opts=search_opts) \
             .AndReturn([servers, False])
         api.network.servers_update_addresses(IsA(http.HttpRequest), servers)
-        api.nova.server_suspend(IsA(http.HttpRequest), unicode(server.id)) \
+        api.nova.server_suspend(IsA(http.HttpRequest), six.text_type(server.id)) \
             .AndRaise(self.exceptions.nova)
 
         self.mox.ReplayAll()
@@ -565,7 +567,7 @@ class InstanceTests(helpers.TestCase):
         api.nova.server_list(IsA(http.HttpRequest), search_opts=search_opts) \
             .AndReturn([servers, False])
         api.network.servers_update_addresses(IsA(http.HttpRequest), servers)
-        api.nova.server_resume(IsA(http.HttpRequest), unicode(server.id))
+        api.nova.server_resume(IsA(http.HttpRequest), six.text_type(server.id))
 
         self.mox.ReplayAll()
 
@@ -597,7 +599,7 @@ class InstanceTests(helpers.TestCase):
             .AndReturn([servers, False])
         api.network.servers_update_addresses(IsA(http.HttpRequest), servers)
         api.nova.server_resume(IsA(http.HttpRequest),
-                               unicode(server.id)) \
+                               six.text_type(server.id)) \
             .AndRaise(self.exceptions.nova)
 
         self.mox.ReplayAll()
@@ -3286,7 +3288,7 @@ class InstanceTests(helpers.TestCase):
         launch = tables.LaunchLink()
         url = launch.get_link_url()
         classes = list(launch.get_default_classes()) + list(launch.classes)
-        link_name = "%s (%s)" % (unicode(launch.verbose_name),
+        link_name = "%s (%s)" % (six.text_type(launch.verbose_name),
                                  "Quota exceeded")
 
         res = self.client.get(INDEX_URL)

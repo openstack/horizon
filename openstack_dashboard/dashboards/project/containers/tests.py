@@ -25,6 +25,7 @@ from django import http
 from django.utils import http as utils_http
 
 from mox3.mox import IsA  # noqa
+import six
 
 from openstack_dashboard import api
 from openstack_dashboard.dashboards.project.containers import forms
@@ -110,7 +111,7 @@ class SwiftTests(test.TestCase):
         handled = table.maybe_handle()
 
         self.assertEqual(handled.status_code, 302)
-        self.assertEqual(unicode(list(req._messages)[0].message),
+        self.assertEqual(six.text_type(list(req._messages)[0].message),
                          u"The container cannot be deleted "
                          u"since it is not empty.")
 

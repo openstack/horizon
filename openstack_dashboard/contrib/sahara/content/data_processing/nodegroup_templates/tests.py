@@ -15,6 +15,7 @@ from django import http
 
 from mox3.mox import IgnoreArg  # noqa
 from mox3.mox import IsA  # noqa
+import six
 
 from openstack_dashboard import api as dash_api
 from openstack_dashboard.contrib.sahara import api
@@ -55,7 +56,7 @@ class DataProcessingNodeGroupTests(test.TestCase):
         dash_api.nova.flavor_get(IsA(http.HttpRequest), flavor.id) \
             .AndReturn(flavor)
         api.sahara.nodegroup_template_get(IsA(http.HttpRequest),
-                                          IsA(unicode)) \
+                                          IsA(six.text_type)) \
             .MultipleTimes().AndReturn(ngt)
         self.mox.ReplayAll()
         res = self.client.get(DETAILS_URL)

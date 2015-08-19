@@ -102,7 +102,7 @@ class Service(base.APIDictWrapper):
             return self.type
 
     def __repr__(self):
-        return "<Service: %s>" % unicode(self)
+        return "<Service: %s>" % six.text_type(self)
 
 
 def _get_endpoint_url(request, endpoint_type, catalog=None):

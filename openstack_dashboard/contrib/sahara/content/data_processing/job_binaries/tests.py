@@ -14,6 +14,7 @@ from django.core.urlresolvers import reverse
 from django import http
 
 from mox3.mox import IsA  # noqa
+import six
 
 from openstack_dashboard.contrib.sahara import api
 from openstack_dashboard.test import helpers as test
@@ -39,7 +40,7 @@ class DataProcessingJobBinaryTests(test.TestCase):
 
     @test.create_stubs({api.sahara: ('job_binary_get',)})
     def test_details(self):
-        api.sahara.job_binary_get(IsA(http.HttpRequest), IsA(unicode)) \
+        api.sahara.job_binary_get(IsA(http.HttpRequest), IsA(six.text_type)) \
             .MultipleTimes().AndReturn(self.job_binaries.first())
         self.mox.ReplayAll()
         res = self.client.get(DETAILS_URL)
@@ -54,7 +55,7 @@ class DataProcessingJobBinaryTests(test.TestCase):
     def test_delete(self):
         jb_list = (api.sahara.job_binary_list(IsA(http.HttpRequest))
                    .AndReturn(self.job_binaries.list()))
-        api.sahara.job_binary_get(IsA(http.HttpRequest), IsA(unicode)) \
+        api.sahara.job_binary_get(IsA(http.HttpRequest), IsA(six.text_type)) \
             .AndReturn(self.job_binaries.list()[0])
         api.sahara.job_binary_delete(IsA(http.HttpRequest), jb_list[0].id)
         int_id = jb_list[0].url.split("//")[1]
@@ -67,7 +68,7 @@ class DataProcessingJobBinaryTests(test.TestCase):
     @test.create_stubs({api.sahara: ('job_binary_get',
                                      'job_binary_get_file')})
     def test_download(self):
-        jb = api.sahara.job_binary_get(IsA(http.HttpRequest), IsA(unicode)) \
+        jb = api.sahara.job_binary_get(IsA(http.HttpRequest), IsA(six.text_type)) \
             .AndReturn(self.job_binaries.list()[0])
         api.sahara.job_binary_get_file(IsA(http.HttpRequest), jb.id) \
             .AndReturn("TEST FILE CONTENT")
@@ -82,7 +83,7 @@ class DataProcessingJobBinaryTests(test.TestCase):
     @test.create_stubs({api.sahara: ('job_binary_get',
                                      'job_binary_get_file')})
     def test_download_with_spaces(self):
-        jb = api.sahara.job_binary_get(IsA(http.HttpRequest), IsA(unicode)) \
+        jb = api.sahara.job_binary_get(IsA(http.HttpRequest), IsA(six.text_type)) \
             .AndReturn(self.job_binaries.list()[1])
         api.sahara.job_binary_get_file(IsA(http.HttpRequest), jb.id) \
             .AndReturn("MORE TEST FILE CONTENT")

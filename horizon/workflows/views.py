@@ -154,7 +154,7 @@ class WorkflowView(hz_views.ModalBackdropMixin, generic.TemplateView):
         for step in workflow.steps[start:end + 1]:
             if not step.action.is_valid():
                 errors[step.slug] = dict(
-                    (field, [unicode(error) for error in errors])
+                    (field, [six.text_type(error) for error in errors])
                     for (field, errors) in six.iteritems(step.action.errors))
         return {
             'has_errors': bool(errors),

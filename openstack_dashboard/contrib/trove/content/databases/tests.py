@@ -21,6 +21,7 @@ from django import http
 from django.utils import unittest
 
 from mox3.mox import IsA  # noqa
+import six
 
 from horizon import exceptions
 from openstack_dashboard import api as dash_api
@@ -222,12 +223,12 @@ class DatabaseTests(test.TestCase):
         # Actual create database call
         api.trove.instance_create(
             IsA(http.HttpRequest),
-            IsA(unicode),
+            IsA(six.text_type),
             IsA(int),
-            IsA(unicode),
+            IsA(six.text_type),
             databases=None,
-            datastore=IsA(unicode),
-            datastore_version=IsA(unicode),
+            datastore=IsA(six.text_type),
+            datastore_version=IsA(six.text_type),
             restore_point=None,
             replica_of=None,
             users=None,
@@ -283,12 +284,12 @@ class DatabaseTests(test.TestCase):
         # Actual create database call
         api.trove.instance_create(
             IsA(http.HttpRequest),
-            IsA(unicode),
+            IsA(six.text_type),
             IsA(int),
-            IsA(unicode),
+            IsA(six.text_type),
             databases=None,
-            datastore=IsA(unicode),
-            datastore_version=IsA(unicode),
+            datastore=IsA(six.text_type),
+            datastore_version=IsA(six.text_type),
             restore_point=None,
             replica_of=None,
             users=None,
@@ -309,7 +310,7 @@ class DatabaseTests(test.TestCase):
     @test.create_stubs(
         {api.trove: ('instance_get', 'flavor_get',)})
     def _test_details(self, database, with_designate=False):
-        api.trove.instance_get(IsA(http.HttpRequest), IsA(unicode))\
+        api.trove.instance_get(IsA(http.HttpRequest), IsA(six.text_type))\
             .AndReturn(database)
         api.trove.flavor_get(IsA(http.HttpRequest), IsA(str))\
             .AndReturn(self.flavors.first())
@@ -343,7 +344,7 @@ class DatabaseTests(test.TestCase):
         user_id = user.name
 
         # views.py: DetailView.get_data
-        api.trove.instance_get(IsA(http.HttpRequest), IsA(unicode))\
+        api.trove.instance_get(IsA(http.HttpRequest), IsA(six.text_type))\
             .AndReturn(database)
         api.trove.flavor_get(IsA(http.HttpRequest), IsA(str))\
             .AndReturn(self.flavors.first())
@@ -378,7 +379,7 @@ class DatabaseTests(test.TestCase):
         database_size = database.volume.get('size')
 
         # views.py: DetailView.get_data
-        api.trove.instance_get(IsA(http.HttpRequest), IsA(unicode))\
+        api.trove.instance_get(IsA(http.HttpRequest), IsA(six.text_type))\
             .AndReturn(database)
 
         # forms.py: ResizeVolumeForm.handle
@@ -405,7 +406,7 @@ class DatabaseTests(test.TestCase):
         database_size = database.volume.get('size')
 
         # views.py: DetailView.get_data
-        api.trove.instance_get(IsA(http.HttpRequest), IsA(unicode))\
+        api.trove.instance_get(IsA(http.HttpRequest), IsA(six.text_type))\
             .AndReturn(database)
 
         self.mox.ReplayAll()
@@ -511,18 +512,18 @@ class DatabaseTests(test.TestCase):
 
         nics = [{"net-id": self.networks.first().id, "v4-fixed-ip": ''}]
 
-        api.trove.instance_get(IsA(http.HttpRequest), IsA(unicode))\
+        api.trove.instance_get(IsA(http.HttpRequest), IsA(six.text_type))\
             .AndReturn(self.databases.first())
 
         # Actual create database call
         api.trove.instance_create(
             IsA(http.HttpRequest),
-            IsA(unicode),
+            IsA(six.text_type),
             IsA(int),
-            IsA(unicode),
+            IsA(six.text_type),
             databases=None,
-            datastore=IsA(unicode),
-            datastore_version=IsA(unicode),
+            datastore=IsA(six.text_type),
+            datastore_version=IsA(six.text_type),
             restore_point=None,
             replica_of=self.databases.first().id,
             users=None,
