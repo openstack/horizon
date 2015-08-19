@@ -85,7 +85,7 @@ class NavigationAccordionRegion(baseregion.BaseRegion):
         if not get_selected_func:
             self._click_item(text, loc_craft_func)
         else:
-            for _ in xrange(self.MAX_MENU_ITEM_CLICK_TRIES):
+            for _ in range(self.MAX_MENU_ITEM_CLICK_TRIES):
                 selected_item = get_selected_func()
                 if selected_item and text == selected_item.text:
                     break

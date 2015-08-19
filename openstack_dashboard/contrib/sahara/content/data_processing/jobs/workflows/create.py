@@ -157,8 +157,8 @@ class ConfigureLibs(workflows.Step):
 
     def contribute(self, data, context):
         chosen_libs = json.loads(data.get("lib_ids", '[]'))
-        for k in xrange(len(chosen_libs)):
-            context["lib_" + str(k)] = chosen_libs[k]
+        for index, library in enumerate(chosen_libs):
+            context["lib_%s" % index] = library
         return context
 
 
