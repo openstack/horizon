@@ -66,6 +66,7 @@ class BasePage(pageobject.PageObject):
 
     def _wait_till_spinner_disappears(self):
         try:
+            self._turn_off_implicit_wait()
             spinner = self._get_element(*self._spinner_locator)
             self._wait_till_element_disappears(spinner)
         except NoSuchElementException:
@@ -73,6 +74,8 @@ class BasePage(pageobject.PageObject):
             # even before Selenium get a chance to get the spinner element,
             # it will raise the NoSuchElementException exception.
             pass
+        finally:
+            self._turn_on_implicit_wait()
 
     def change_project(self, name):
         self.topbar.user_dropdown_project.click_on_project(name)

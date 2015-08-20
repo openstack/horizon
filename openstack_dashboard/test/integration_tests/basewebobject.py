@@ -24,10 +24,13 @@ class BaseWebObject(unittest.TestCase):
 
     def _is_element_present(self, *locator):
         try:
+            self._turn_off_implicit_wait()
             self._get_element(*locator)
             return True
         except Exceptions.NoSuchElementException:
             return False
+        finally:
+            self._turn_on_implicit_wait()
 
     def _is_element_visible(self, *locator):
         try:
@@ -84,8 +87,16 @@ class BaseWebObject(unittest.TestCase):
             predicate)
 
     def _wait_till_text_present_in_element(self, element, text, timeout=None):
-        self._wait_until(lambda x: self._is_text_visible(element, text),
-                         timeout)
+        """Waiting for a text to appear in a certain element very often is
+        actually waiting for a _different_ element with a different text to
+        appear in place of an old element. So a way to avoid capturing stale
+        element reference should be provided for this use case.
+        """
+        def predicate(_):
+            elt = element() if hasattr(element, '__call__') else element
+            return self._is_text_visible(elt, text)
+
+        self._wait_until(predicate, timeout)
 
     def _wait_till_element_visible(self, element, timeout=None):
         self._wait_until(lambda x: self._is_element_displayed(element),

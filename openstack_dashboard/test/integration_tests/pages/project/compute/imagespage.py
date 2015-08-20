@@ -10,6 +10,7 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
+from selenium.common import exceptions
 from selenium.webdriver.common import by
 
 from openstack_dashboard.test.integration_tests.pages import basepage
@@ -106,8 +107,17 @@ class ImagesPage(basepage.BaseNavigationPage):
 
     def is_image_active(self, name):
         row = self._get_row_with_image_name(name)
-        return row.cells[self.IMAGES_TABLE_STATUS_COLUMN_INDEX].text == \
-            'Active'
+
+        # NOTE(tsufiev): better to wrap getting image status cell in a lambda
+        # to avoid problems with cell being replaced with totally different
+        # element by Javascript
+        def cell_getter():
+            return row.cells[self.IMAGES_TABLE_STATUS_COLUMN_INDEX]
+        try:
+            self._wait_till_text_present_in_element(cell_getter, 'Active')
+        except exceptions.TimeoutException:
+            return False
+        return True
 
     def wait_until_image_active(self, name):
         self._wait_until(lambda x: self.is_image_active(name))
