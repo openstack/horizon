@@ -51,6 +51,25 @@ ROUTER_INTERFACE_OWNERS = (
 )
 
 
+def _init_apiresource(apiresource):
+    """Handle common initialization of apiresource.
+
+        Note: the dictionary is modified in place.
+    """
+
+    if apiresource['admin_state_up']:
+        apiresource['admin_state'] = 'UP'
+    else:
+        apiresource['admin_state'] = 'DOWN'
+
+    # Django cannot handle a key name with ':', so use '__'.
+    apiresource.update({
+        key.replace(':', '__'): value
+        for key, value in apiresource.items()
+        if ':' in key
+    })
+
+
 class NeutronAPIDictWrapper(base.APIDictWrapper):
 
     def set_id_as_name_if_empty(self, length=8):
@@ -76,8 +95,7 @@ class Agent(NeutronAPIDictWrapper):
     """Wrapper for neutron agents."""
 
     def __init__(self, apiresource):
-        apiresource['admin_state'] = \
-            'UP' if apiresource['admin_state_up'] else 'DOWN'
+        _init_apiresource(apiresource)
         super(Agent, self).__init__(apiresource)
 
 
@@ -85,12 +103,7 @@ class Network(NeutronAPIDictWrapper):
     """Wrapper for neutron Networks."""
 
     def __init__(self, apiresource):
-        apiresource['admin_state'] = \
-            'UP' if apiresource['admin_state_up'] else 'DOWN'
-        # Django cannot handle a key name with ':', so use '__'
-        for key in apiresource.keys():
-            if ':' in key:
-                apiresource['__'.join(key.split(':'))] = apiresource[key]
+        _init_apiresource(apiresource)
         super(Network, self).__init__(apiresource)
 
     def to_dict(self):
@@ -115,12 +128,7 @@ class Port(NeutronAPIDictWrapper):
     """Wrapper for neutron ports."""
 
     def __init__(self, apiresource):
-        # Django cannot handle a key name with ':', so use '__'
-        for key in apiresource.keys():
-            if ':' in key:
-                apiresource['__'.join(key.split(':'))] = apiresource[key]
-        apiresource['admin_state'] = \
-            'UP' if apiresource['admin_state_up'] else 'DOWN'
+        _init_apiresource(apiresource)
         if 'mac_learning_enabled' in apiresource:
             apiresource['mac_state'] = \
                 ON_STATE if apiresource['mac_learning_enabled'] else OFF_STATE
@@ -140,8 +148,7 @@ class Router(NeutronAPIDictWrapper):
     """Wrapper for neutron routers."""
 
     def __init__(self, apiresource):
-        apiresource['admin_state'] = \
-            'UP' if apiresource['admin_state_up'] else 'DOWN'
+        _init_apiresource(apiresource)
         super(Router, self).__init__(apiresource)
 
 
