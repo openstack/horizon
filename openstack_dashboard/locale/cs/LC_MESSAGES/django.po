@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-08-18 02:50+0000\n"
-"PO-Revision-Date: 2015-08-17 18:45+0000\n"
+"POT-Creation-Date: 2015-08-20 06:20+0000\n"
+"PO-Revision-Date: 2015-08-19 08:23+0000\n"
 "Last-Translator: Zbyněk Schwarz <zbynek.schwarz@gmail.com>\n"
 "Language-Team: Czech (http://www.transifex.com/openstack/horizon/language/"
 "cs/)\n"
@@ -274,6 +274,23 @@ msgstr ""
 
 msgid ""
 "\n"
+"    Migrate a volume to a specific host.\n"
+"    <br>\n"
+"    <br>\n"
+"    Force Host Copy: Enables or disables generic host-based force-migration, "
+"which bypasses driver optimizations.\n"
+"    "
+msgstr ""
+"\n"
+"    Přesunout svazek na konkrétního hostitele.\n"
+"    <br>\n"
+"    <br>\n"
+"    Vynutit kopírování hostitele: Povoluje či zakazuje obecné vynucené "
+"přesunutí hostitele, které potlačuje optimalizace ovladače.\n"
+"    "
+
+msgid ""
+"\n"
 "    The status of a volume is normally managed automatically.  In some "
 "circumstances an\n"
 "    administrator may need to explicitly update the status value.  This is "
@@ -326,6 +343,29 @@ msgstr ""
 
 msgid ""
 "\n"
+"   Volumes are block devices that can be attached to instances.\n"
+"   "
+msgstr ""
+"\n"
+"   Svazky jsou bloková zařízení, která mohou být připojena k instance.\n"
+"   "
+
+msgid ""
+"\n"
+"  Assign a name and description for the pool. Choose one subnet where all\n"
+"  members of this pool must be on. Select the protocol and load balancing\n"
+"  method for this pool. Admin State is UP (checked) by default.\n"
+"  "
+msgstr ""
+"\n"
+"  Zásobě zvolte název a popis. Zvolte jednu podsíť, na které všichni\n"
+"  členové \n"
+"této zásoby musí být. Zvolte protokol a metodu vyrovnání zátěže. Stav \n"
+"  správce je standardně Zapnut (zaškrtnut).\n"
+"  "
+
+msgid ""
+"\n"
 "  Move networks from 'Available Networks' to 'Selected Networks' by\n"
 "  clicking the button, or dragging and dropping. You can change the\n"
 "  NIC order by dragging and dropping as well.\n"
@@ -349,11 +389,30 @@ msgstr "Také nelze smazat port %s"
 msgid " Done"
 msgstr "Hotovo"
 
+msgid "\"Add Router Route\""
+msgstr "\"Přidat cestu směrovače\""
+
 msgid ""
 "\"Customization Script\" is analogous to \"User Data\" in other systems."
 msgstr ""
 "\"Skript přizpůsobení\" je podobné jako \"Uživatelská data\" v ostatních "
 "systémech."
+
+msgid "\"Edit Volume Type\""
+msgstr "\"Upravit typ svazku\""
+
+msgid "\"N/A\""
+msgstr "\"Nedostupné\""
+
+msgid "\"Namespace Resource Type Associations\""
+msgstr "\"Přidružení typu zdroje jmenného prostoru\""
+
+msgid "\"No flavors meet minimum criteria for selected image.\""
+msgstr ""
+"\"Žádné konfigurace neodpovídají minimálním kritériím zvoleného obrazu.\""
+
+msgid "\"None\""
+msgstr "\"Žádný\""
 
 msgid ""
 "\"None\" indicates that no QoS Spec is currently associated. Conversely, "
@@ -361,6 +420,21 @@ msgid ""
 msgstr ""
 "\"Žádné\" znamená, že není přidružena žádná specifikace QoS. Naopak, "
 "nastavením specifikace na \"Žádné\" odstraní současné přidružení."
+
+msgid ""
+"\"Some flavors not meeting minimum image requirements have been disabled.\""
+msgstr ""
+"\"Některé konfigurace neodpovídající minimálním požadavkům obrazu byly "
+"zakázány.\""
+
+msgid "\"Update Aggregate Metadata\""
+msgstr "\"Aktualizovat popisná data agregátu\""
+
+msgid "\"Update Flavor Metadata\""
+msgstr "\"Aktualizovat popisná data konfigurace\""
+
+msgid "\"Users\""
+msgstr "\"Uživatelé\""
 
 #, python-format
 msgid "%(conf_name)s: %(conf_val)s"
@@ -788,6 +862,9 @@ msgstr "Přidat zásobu"
 msgid "Add Router"
 msgstr "Přidat směrovač"
 
+msgid "Add Router Route"
+msgstr "Přidat cestu směrovače"
+
 msgid "Add Router Rule"
 msgstr "Přidat pravidlo směrovače"
 
@@ -874,11 +951,17 @@ msgstr ""
 msgid "Add plugin tags"
 msgstr "Přidat značky zásuvného modulu"
 
+msgid "Add route"
+msgstr "Přidat cestu"
+
 msgid "Add rule"
 msgstr "Přidat pravidlo"
 
 msgid "Add selected router(s) to the firewall."
 msgstr "Přidat zvolené směrovače do brány firewall."
+
+msgid "Add static route to the router."
+msgstr "Přidat statickou cestu ke směrovači."
 
 msgid "Add, modify or remove the QoS Spec associated with this volume type."
 msgstr ""
@@ -966,6 +1049,9 @@ msgstr ""
 
 msgid "Address"
 msgstr "Adresa"
+
+msgid "Address:"
+msgstr "Adresa:"
 
 msgid "Admin"
 msgstr "Správce"
@@ -1066,6 +1152,13 @@ msgstr "Přiděleno"
 #, python-format
 msgid "Allocated Floating IP %(ip)s."
 msgstr "Přidělené plovoucí IP %(ip)s."
+
+msgid ""
+"Allocates requests to the instance with the least number of\n"
+"          active connections."
+msgstr ""
+"Přiděluje požadavky k instanci s nejmenším počtem\n"
+"aktivních připojení."
 
 msgid "Allocation Pools"
 msgstr "Přidělovací zásoby"
@@ -1626,6 +1719,12 @@ msgstr ""
 "Pravidlo z Dostupných pravidel zvolíte do Vybraných pravidel pomocí "
 "tlačítka, nebo přetažením,\n"
 "jimž můžete také změnit jejich pořadí ."
+
+msgid "Choose the Input Data Source (n/a for Java and Shell jobs)."
+msgstr "Zvolte zdroj vstupních dat (toto neplatní pro úkoly Java a Shell)."
+
+msgid "Choose the Output Data Source (n/a for Java and Shell jobs)."
+msgstr "Zvolte zdroj výstupních dat (toto neplatní pro úkoly Java a Shell)."
 
 msgid "Choose the binary which should be used in this Job."
 msgstr "Zvolte binární soubor, který má být použit v tomto úkolu."
@@ -2401,6 +2500,9 @@ msgstr "Vytvořena specifikace \"%s\"."
 #, python-format
 msgid "Created subnet \"%s\"."
 msgstr "Vytvořena podsíť \"%s\"."
+
+msgid "Created time"
+msgstr "Čas vytvoření"
 
 msgid "Created volume transfer."
 msgstr "Přenos svazku vytvořen."
@@ -3244,6 +3346,9 @@ msgstr "Cíl"
 msgid "Destination CIDR"
 msgstr "Cílové CIDR"
 
+msgid "Destination Host"
+msgstr "Cílový hostitel"
+
 msgid "Destination IP"
 msgstr "Cílová IP"
 
@@ -3694,6 +3799,9 @@ msgstr "Upravit službu VPN"
 
 msgid "Edit Volume"
 msgstr "Upravit svazek"
+
+msgid "Edit Volume Type"
+msgstr "Upravit typ svazku"
 
 msgid "Edit Volume Type Extra Spec"
 msgstr "Upravit dodatečnou specifikaci typu svazku"
@@ -4202,6 +4310,9 @@ msgstr "Přesunování hostitele \"%s\" selhalo."
 msgid "Failed to migrate instances: %s"
 msgstr "Nelze přesunout instance: %s"
 
+msgid "Failed to migrate volume."
+msgstr "Nelze přesunout svazek."
+
 #, python-format
 msgid ""
 "Failed to modify %(num_groups_to_modify)d instance security groups: %(err)s"
@@ -4478,6 +4589,9 @@ msgstr "Plovoucí IP"
 msgid "Floating IP Pool"
 msgstr "Zásoba plovoucích IP"
 
+msgid "Floating IP:"
+msgstr "Plovoucí IP:"
+
 msgid "Floating IPs"
 msgstr "Plovoucí IP adresy"
 
@@ -4560,6 +4674,9 @@ msgstr "Zakázáno"
 msgctxt "Force upload volume in in-use status to image"
 msgid "Force"
 msgstr "Vynutit"
+
+msgid "Force Host Copy"
+msgstr "Vynutit kopírování hostitele"
 
 #, python-format
 msgid "Forcing to create snapshot \"%s\" from attached volume."
@@ -4938,6 +5055,20 @@ msgstr "Služba identity nepovoluje úpravu dat uživatele."
 
 msgid "Identity service does not allow editing user password."
 msgstr "Služba identity nepovoluje úpravu hesla uživatele."
+
+#, python-format
+msgid ""
+"If \"No volume type\" is selected, the default volume type \"%(name)s\" will "
+"be set for the created volume."
+msgstr ""
+"Pokud je zvoleno \"Žádný typ svazku\", bude u vytvořeného svazku nastaven "
+"výchozí typ \"%(name)s\"."
+
+msgid ""
+"If \"No volume type\" is selected, the volume will be created without a "
+"volume type."
+msgstr ""
+"Pokud je zvoleno \"Žádný typ svazku\", nebude mít vytvořený svazek žádný typ."
 
 msgid ""
 "If console is not responding to keyboard input: click the grey status bar "
@@ -5565,6 +5696,9 @@ msgctxt "load balancing method"
 msgid "Least Connections"
 msgstr "Nejméně připojení"
 
+msgid "Least connections"
+msgstr "Nejméně připojení"
+
 msgid "Length of Injected File Path"
 msgstr "Délka vložené cesty souboru"
 
@@ -5839,6 +5973,9 @@ msgstr "Metriky:"
 msgid "Migrate"
 msgstr "Přenést"
 
+msgid "Migrate Volume"
+msgstr "Přesunout svazek"
+
 msgid ""
 "Migrate all instances from a host with disabled nova-compute service. "
 "Optionally you can choose type of migration. All running instances of the "
@@ -5940,6 +6077,9 @@ msgstr "Změňte název a popis svazku."
 
 msgid "Modify the name and description of a snapshot."
 msgstr "Změňte název a popis snímku."
+
+msgid "Modify volume type name and description."
+msgstr "Změnit název typu svazku a popis."
 
 msgid "Monitor"
 msgstr "Monitor"
@@ -6132,6 +6272,12 @@ msgstr "Nový hostitel"
 msgid "New Size (GB)"
 msgstr "Nová velkost (GB)"
 
+msgid "New name cannot be empty."
+msgstr "Nový název nemůže být prázdný."
+
+msgid "New name conflicts with another volume type."
+msgstr "Nový název je v konfliktu s jiným typem."
+
 msgid "New password"
 msgstr "Nové heslo"
 
@@ -6146,6 +6292,13 @@ msgstr "Další"
 
 msgid "Next Hop"
 msgstr "Další skok"
+
+msgid ""
+"Next Hop IP must be a part of one of the subnets to which the router "
+"interfaces are connected."
+msgstr ""
+"Další IP adresa skoku musí být součástí jedné z podsítí ke které jsou "
+"připojeny rozhraní směrovače."
 
 msgid "Next Hops"
 msgstr "Další skoky"
@@ -7410,6 +7563,13 @@ msgstr "ID požadavku"
 msgid "Requested snapshot would exceed the allowed quota."
 msgstr "Požadovaný snímek by překročil povolenou kvótu."
 
+msgid ""
+"Requests from a unique source IP address are consistently\n"
+"          directed to the same instance."
+msgstr ""
+"Požadavky od jedinečné zdrojové IP adresy jsou soustavně\n"
+"směrovány do stejné instance."
+
 msgid "Required for APP_COOKIE persistence; Ignored otherwise."
 msgstr "Vyžadováno pro vyrvání APP_COOKIE; Jinak ignorováno."
 
@@ -7673,8 +7833,14 @@ msgstr "Kořenový disk"
 msgid "Root Disk (GB)"
 msgstr "Kořenový disk (GB)"
 
+msgid "Rotates requests evenly between multiple instances."
+msgstr "Rovnoměrně cyklí požadavky mezi více instancemi."
+
 msgctxt "load balancing method"
 msgid "Round Robin"
+msgstr "Cyklická obsluha"
+
+msgid "Round robin"
 msgstr "Cyklická obsluha"
 
 msgid "Route mode"
@@ -8180,6 +8346,12 @@ msgstr ""
 
 msgid "Select the image to rebuild your instance."
 msgstr "Vyberte obraz pro znovu sestavení vaší instance."
+
+msgid "Select the network for interface attaching."
+msgstr "Vyberte síť k připojení rozhraní."
+
+msgid "Select the port to detach."
+msgstr "Vyberte port k odpojení"
 
 msgid ""
 "Select the projects where the flavors will be used. If no projects are "
@@ -8845,6 +9017,10 @@ msgid "Successfully sent the request to manage volume: %s"
 msgstr "Žádost o správu svazku byla úspěšně odeslána: %s"
 
 #, python-format
+msgid "Successfully sent the request to migrate volume: %s"
+msgstr "Žádost o přesunutí svazku byla úspěšně odeslána: %s"
+
+#, python-format
 msgid "Successfully sent the request to unmanage volume: %s"
 msgstr "Žádost o zrušení správy svazku byla úspěšně odeslána: %s"
 
@@ -8880,6 +9056,9 @@ msgstr "Aktualizace stavu snímku svazku úspěšně dokončena: \"%s\"."
 #, python-format
 msgid "Successfully updated volume status to \"%s\"."
 msgstr "Stav svazku úspěšně změněn na \"%s\"."
+
+msgid "Successfully updated volume type."
+msgstr "Typ svazku úspěšně aktualizován."
 
 msgid "Sum."
 msgstr "Suma"
@@ -10677,6 +10856,9 @@ msgstr "Nelze získat podsíť zásoby. %s"
 msgid "Unable to retrieve pool. %s"
 msgstr "Nelze získat zásobu. %s"
 
+msgid "Unable to retrieve pools information."
+msgstr "Nelze získat informaci o zásobě."
+
 msgid "Unable to retrieve pools list."
 msgstr "Nelze získat seznam zásob."
 
@@ -10894,8 +11076,18 @@ msgstr "Nelze získat informace o šifrování typu svazku."
 msgid "Unable to retrieve volume type extra spec details."
 msgstr "Nelze získat podrobnosti dodatečné specifikace typu svazku."
 
+#, python-format
+msgid "Unable to retrieve volume type for: \"%s\""
+msgstr "Nelze získat typ svazku pro: \"%s\""
+
+msgid "Unable to retrieve volume type list."
+msgstr "Nelze získat seznam typů svazku."
+
 msgid "Unable to retrieve volume type name."
 msgstr "Nelze získat název typu svazku."
+
+msgid "Unable to retrieve volume type qos."
+msgstr "Nelze získat qos typu svazku."
 
 msgid "Unable to retrieve volume types"
 msgstr "Nelze získat typy svazků"
@@ -10991,6 +11183,9 @@ msgstr "Nelze aktualizovat heslo uživatele."
 msgid "Unable to update the user."
 msgstr "Nelze aktualizovat uživatele."
 
+msgid "Unable to update the volume type."
+msgstr "Nelze aktualizovat typ svazku."
+
 msgid "Unable to update volume snapshot status."
 msgstr "Nelze aktualizovat stav snímku svazku."
 
@@ -11000,6 +11195,9 @@ msgstr "Nelze aktualizovat snímek svazku."
 #, python-format
 msgid "Unable to update volume status to \"%s\"."
 msgstr "Nelze aktualizovat stav svazku na \"%s\"."
+
+msgid "Unable to update volume type."
+msgstr "Nelze aktualizovat typ svazku."
 
 msgid "Unable to update volume."
 msgstr "Nelze aktualizovat svazek."
@@ -11218,6 +11416,9 @@ msgstr "Aktualizováno"
 msgid "Updated subnet \"%s\"."
 msgstr "Podsíť \"%s\" aktualizována."
 
+msgid "Updated time"
+msgstr "Čas aktualizace"
+
 msgctxt "Task status of an Instance"
 msgid "Updating Password"
 msgstr "Aktualizace hesla"
@@ -11307,6 +11508,12 @@ msgid ""
 msgstr ""
 "Použijte jednu z dostupných voleb zdroje šablony pro zadání šablony použité "
 "při vytváření náhledu zásobníku."
+
+msgid ""
+"Use one of these load balancing methods to distribute incoming requests:"
+msgstr ""
+"Použijte jednu z těchto metod vyvažování zátěže pro rozložení příchozích "
+"požadavků:"
 
 msgid "Use snapshot as a source"
 msgstr "Použít snímek jako zdroj"
@@ -11612,6 +11819,9 @@ msgstr "Podrobnosti přenosu svazku"
 msgid "Volume Type"
 msgstr "Typ svazku"
 
+msgid "Volume Type Description:"
+msgstr "Popis typu svazku:"
+
 msgid "Volume Type Encryption Details"
 msgstr "Podrobnosti šifrování typu svazku"
 
@@ -11712,9 +11922,6 @@ msgstr "Připojené svazky"
 
 msgid "Volumes Availability Zone"
 msgstr "Zóna dostupnosti svazků"
-
-msgid "Volumes are block devices that can be attached to instances."
-msgstr "Svazky jsou bloková zařízení, která mohou být připojena k instance."
 
 msgid "Volumes per node"
 msgstr "Svazky v uzlu"

@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-08-15 15:07+0000\n"
-"PO-Revision-Date: 2015-08-16 18:27+0000\n"
+"POT-Creation-Date: 2015-08-20 06:20+0000\n"
+"PO-Revision-Date: 2015-08-18 16:04+0000\n"
 "Last-Translator: Evelijn Saaltink <evelijnsaaltink@gmail.com>\n"
 "Language-Team: Dutch (Netherlands) (http://www.transifex.com/openstack/"
 "horizon/language/nl_NL/)\n"
@@ -19,6 +19,22 @@ msgstr ""
 "Generated-By: Babel 2.0\n"
 "Language: nl_NL\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#, python-format
+msgid ""
+"\n"
+"      <label>From:</label> %(start)s"
+msgstr ""
+"\n"
+"      <label>Van:</label> %(start)s"
+
+#, python-format
+msgid ""
+"\n"
+"      <label>To:</label>%(end)s"
+msgstr ""
+"\n"
+"      <label>Aan:</label>%(end)s"
 
 #, python-format
 msgctxt "past"
@@ -62,6 +78,9 @@ msgstr "%s succesvol afgerond."
 msgid "%s did not complete."
 msgstr "%s was niet voltooid."
 
+msgid "&laquo;&nbsp;Prev"
+msgstr "&laquo;&nbsp;Prev"
+
 msgid "(No Limit)"
 msgstr "(Geen limiet)"
 
@@ -70,6 +89,10 @@ msgstr "-"
 
 msgid "0 Bytes"
 msgstr "0 bytes"
+
+#, python-format
+msgid "A %(resource)s with the name \"%(name)s\" already exists."
+msgstr "Een %(resource)s met de naam \"%(name)s\" bestaat al."
 
 msgid "Actions"
 msgstr "Acties"

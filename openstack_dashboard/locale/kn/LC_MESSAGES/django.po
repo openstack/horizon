@@ -3,14 +3,15 @@
 # This file is distributed under the same license as the PROJECT project.
 #
 # Translators:
+# KARTHIK SURESH HANASOGE <kali.karthik@gmail.com>, 2015
 # Savitha, 2015
 msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-08-18 02:50+0000\n"
-"PO-Revision-Date: 2015-08-17 17:04+0000\n"
-"Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
+"POT-Creation-Date: 2015-08-20 06:20+0000\n"
+"PO-Revision-Date: 2015-08-19 12:18+0000\n"
+"Last-Translator: KARTHIK SURESH HANASOGE <kali.karthik@gmail.com>\n"
 "Language-Team: Kannada (http://www.transifex.com/openstack/horizon/language/"
 "kn/)\n"
 "MIME-Version: 1.0\n"
@@ -2226,6 +2227,13 @@ msgstr "ಡಿಸ್ಕ್ ವಿಭಜನೆ"
 
 msgid "Distributed"
 msgstr "ಚದುರಿದ"
+
+msgid "Docker"
+msgstr "ಡಾಕರ್"
+
+msgctxt "Image format for display in table"
+msgid "Docker"
+msgstr "ಡಾಕರ್"
 
 #, python-format
 msgid "Domain \"%s\" must be disabled before it can be deleted."
@@ -8525,6 +8533,9 @@ msgstr ""
 "ಪರಿಮಾಣದ ಮೌಂಟ್ ಸ್ಥಳಗಳು (ಉದಾ. 'vda' ಯು '/dev/vda' ರಲ್ಲಿ ಮೌಂಟ್ ಆಗುತ್ತದೆ). ನಿಮಗಾಗಿ "
 "ವ್ಯವಸ್ಥೆಯು ಒಂದು ಸಾಧನದ ಹೆಸರನ್ನು ಆಯ್ಕೆ ಮಾಡಲು ಈ ಸ್ಥಳವನ್ನು ಖಾಲಿಬಿಡಿ."
 
+msgid "Volume of RAM used"
+msgstr "RAM ಬಳಕೆ"
+
 msgid "Volume size in gigabytes (integer value)."
 msgstr "ಗಿಗಾಬೈಟ್‌ಗಳಲ್ಲಿನ ಪರಿಮಾಣದ ಗಾತ್ರ (ಪೂರ್ಣಾಂಕ ಮೌಲ್ಯ)."
 
@@ -8560,9 +8571,6 @@ msgstr "ಪರಿಮಾಣಗಳು"
 
 msgid "Volumes Attached"
 msgstr "ಲಗತ್ತಿಸಲಾದ ಪರಿಮಾಣಗಳು"
-
-msgid "Volumes are block devices that can be attached to instances."
-msgstr "ಇನ್‌ಸ್ಟನ್ಸ್‌ಗಳಿಗೆ ಲಗತ್ತಿಸಬೇಕಿರುವ ಬ್ಲಾಕ್‌ ಸಾಧನಗಳ ಪರಿಮಾಣಗಳು."
 
 msgid "Volumes per node"
 msgstr "ಪ್ರತಿ ನೋಡ್‌ನಲ್ಲಿನ ಪರಿಮಾಣಗಳು"
