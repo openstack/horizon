@@ -395,7 +395,7 @@ class Column(html.HTMLElement):
                 except Exception:
                     msg = ("Filter '%(filter)s' failed with data "
                            "'%(data)s' on column '%(col_name)s'")
-                    args = {'filter': filter_func.func_name,
+                    args = {'filter': filter_func.__name__,
                             'data': data,
                             'col_name': six.text_type(self.verbose_name)}
                     LOG.warning(msg, args)

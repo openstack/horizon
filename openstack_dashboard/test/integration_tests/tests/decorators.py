@@ -91,7 +91,7 @@ def services_required(*req_services):
                 raise ValueError(NOT_TEST_OBJECT_ERROR_MSG)
             skip_method = _mark_class_skipped
         else:
-            if not _is_test_method_name(obj.func_name):
+            if not _is_test_method_name(obj.__name__):
                 raise ValueError(NOT_TEST_OBJECT_ERROR_MSG)
             skip_method = _mark_method_skipped
         # get available services from configuration
@@ -125,7 +125,7 @@ def skip_because(**kwargs):
                 raise ValueError(NOT_TEST_OBJECT_ERROR_MSG)
             skip_method = _mark_class_skipped
         else:
-            if not _is_test_method_name(obj.func_name):
+            if not _is_test_method_name(obj.__name__):
                 raise ValueError(NOT_TEST_OBJECT_ERROR_MSG)
             skip_method = _mark_method_skipped
         bugs = kwargs.get("bugs")
