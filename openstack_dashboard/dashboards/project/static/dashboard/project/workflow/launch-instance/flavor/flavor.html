@@ -13,9 +13,9 @@ See the License for the specific language governing permissions and
 limitations under the License.
 -->
 <div ng-controller="LaunchInstanceFlavorController as selectFlavorCtrl">
-  <h1>{$ ::selectFlavorCtrl.title $}</h1>
+  <h1 translate>Flavor</h1>
   <div class="content">
-    <div class="subtitle">{$ ::selectFlavorCtrl.subtitle $}</div>
+    <div class="subtitle" translate>Flavors manage the sizing for the compute, memory and storage capacity of the instance.</div>
     <transfer-table
         tr-model="selectFlavorCtrl.transferTableModel"
         limits="selectFlavorCtrl.allocationLimits">

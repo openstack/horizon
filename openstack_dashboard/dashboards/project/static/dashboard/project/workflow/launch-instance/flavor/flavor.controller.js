@@ -36,12 +36,6 @@
     ctrl.getChartData = getChartData;
     ctrl.getErrors = getErrors;
 
-    // Labels for the flavor step
-    ctrl.title = gettext('Flavor');
-    ctrl.subtitle = gettext(
-      'Flavors manage the sizing for the compute, memory and storage capacity of the instance.'
-    );
-
     // Labels used by quota charts
     ctrl.chartTotalInstancesLabel = gettext('Total Instances');
     ctrl.chartTotalVcpusLabel = gettext('Total VCPUs');

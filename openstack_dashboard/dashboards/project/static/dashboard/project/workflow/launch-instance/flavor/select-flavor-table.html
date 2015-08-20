@@ -24,15 +24,15 @@ limitations under the License.
   </tr>
   <tr>
     <th class="expander"></th>
-    <th st-sort="name" class="rsp-p1">{$ ::nameLabel $}</th>
-    <th st-sort="vcpus" class="rsp-p1">{$ ::vcpusLabel $}</th>
+    <th st-sort="name" class="rsp-p1" translate>Name</th>
+    <th st-sort="vcpus" class="rsp-p1" translate>VCPUS</th>
     <!-- Only show the default RAM sort on the available table -->
-    <th ng-if="isAvailableTable" st-sort-default st-sort="ram" class="rsp-p1">{$ ::ramLabel $}</th>
-    <th ng-if="!isAvailableTable" st-sort="ram" class="rsp-p1">{$ ::ramLabel $}</th>
-    <th st-sort="totalDisk" class="rsp-p1">{$ ::totalDiskLabel $}</th>
-    <th st-sort="rootDisk" class="rsp-p2">{$ ::rootDiskLabel $}</th>
-    <th st-sort="ephemeralDisk" class="rsp-p2">{$ ::ephemeralDiskLabel $}</th>
-    <th st-sort="isPublic" class="rsp-p2">{$ ::isPublicLabel $}</th>
+    <th ng-if="isAvailableTable" st-sort-default st-sort="ram" class="rsp-p1" translate>RAM</th>
+    <th ng-if="!isAvailableTable" st-sort="ram" class="rsp-p1" translate>RAM</th>
+    <th st-sort="totalDisk" class="rsp-p1" translate>Total Disk</th>
+    <th st-sort="rootDisk" class="rsp-p2" translate>Root Disk</th>
+    <th st-sort="ephemeralDisk" class="rsp-p2" translate>Ephemeral Disk</th>
+    <th st-sort="isPublic" class="rsp-p2" translate>Public</th>
     <th></th>
   </tr>
   </thead>
@@ -99,7 +99,7 @@ limitations under the License.
   <tr ng-repeat-end class="detail-row" ng-if="showItemFunc(item)">
     <td></td>
     <td colspan="7" class="detail">
-      <h5>{$ ::quotaImpactLabel $}</h5>
+      <h5 translate>Impact on your quota</h5>
       <pie-chart chart-data="item.instancesChartData"
                  chart-settings="chartSettings"></pie-chart>
       <pie-chart chart-data="item.vcpusChartData"
