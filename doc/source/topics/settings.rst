@@ -248,7 +248,7 @@ when associating one with an instance.
 Default: ``[]``
 
 A list of AngularJS modules to be loaded when Angular bootstraps. These modules
-are added as dependencies on the root Horizon application ``hz``.
+are added as dependencies on the root Horizon application ``horizon``.
 
 ``js_files``
 -------------------------
@@ -1308,7 +1308,7 @@ This is needed to expose static files from a plugin.
 .. versionadded:: 2014.2(Juno)
 
 A list of AngularJS modules to be loaded when Angular bootstraps. These modules
-are added as dependencies on the root Horizon application ``hz``.
+are added as dependencies on the root Horizon application ``horizon``.
 
 ``ADD_JS_FILES``
 ----------------------
