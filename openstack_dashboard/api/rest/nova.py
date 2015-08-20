@@ -19,6 +19,7 @@ from django.utils import http as utils_http
 from django.views import generic
 
 from openstack_dashboard import api
+from openstack_dashboard.api.rest import json_encoder
 from openstack_dashboard.api.rest import urls
 from openstack_dashboard.api.rest import utils as rest_utils
 
@@ -91,7 +92,7 @@ class Limits(generic.View):
     """
     url_regex = r'nova/limits/$'
 
-    @rest_utils.ajax()
+    @rest_utils.ajax(json_encoder=json_encoder.NaNJSONEncoder)
     def get(self, request):
         """Get an object describing the current project limits.
 
