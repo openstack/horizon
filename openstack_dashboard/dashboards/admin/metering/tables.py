@@ -13,6 +13,7 @@
 from django.contrib.humanize.templatetags import humanize
 from django.utils import text
 from django.utils.translation import ugettext_lazy as _
+import six
 
 from horizon import tables
 
@@ -58,6 +59,7 @@ class ReportTable(tables.DataTable):
         multi_select = False
 
 
+@six.python_2_unicode_compatible
 class UsageTable(tables.DataTable):
     service = tables.Column('service', verbose_name=_('Service'))
     meter = tables.Column('meter', verbose_name=_('Meter'))
@@ -83,7 +85,7 @@ class UsageTable(tables.DataTable):
         else:
             return self.title
 
-    def __unicode__(self):
+    def __str__(self):
         return self.title
 
     class Meta(object):

@@ -49,6 +49,7 @@ PALETTE = termcolors.PALETTES[termcolors.DEFAULT_PALETTE]
 STRING_SEPARATOR = "__"
 
 
+@six.python_2_unicode_compatible
 class Column(html.HTMLElement):
     """A class which represents a single column in a :class:`.DataTable`.
 
@@ -335,7 +336,7 @@ class Column(html.HTMLElement):
         if self.link is not None:
             self.classes.append('anchor')
 
-    def __unicode__(self):
+    def __str__(self):
         return six.text_type(self.verbose_name)
 
     def __repr__(self):
@@ -1124,6 +1125,7 @@ class DataTableMetaclass(type):
         return type.__new__(mcs, name, bases, dt_attrs)
 
 
+@six.python_2_unicode_compatible
 @six.add_metaclass(DataTableMetaclass)
 class DataTable(object):
     """A class which defines a table with all data and associated actions.
@@ -1176,7 +1178,7 @@ class DataTable(object):
         self.needs_summary_row = any([col.summation
                                       for col in self.columns.values()])
 
-    def __unicode__(self):
+    def __str__(self):
         return six.text_type(self._meta.verbose_name)
 
     def __repr__(self):

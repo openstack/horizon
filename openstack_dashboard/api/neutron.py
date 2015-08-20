@@ -29,6 +29,7 @@ from django.utils.datastructures import SortedDict
 from django.utils.translation import ugettext_lazy as _
 from neutronclient.common import exceptions as neutron_exc
 from neutronclient.v2_0 import client as neutron_client
+import six
 
 from horizon import messages
 from horizon.utils.memoized import memoized  # noqa
@@ -175,6 +176,7 @@ class SecurityGroup(NeutronAPIDictWrapper):
         return {k: self._apidict[k] for k in self._apidict if k != 'rules'}
 
 
+@six.python_2_unicode_compatible
 class SecurityGroupRule(NeutronAPIDictWrapper):
     # Required attributes:
     #   id, parent_group_id
@@ -215,7 +217,7 @@ class SecurityGroupRule(NeutronAPIDictWrapper):
         rule['group'] = {'name': group} if group else {}
         super(SecurityGroupRule, self).__init__(rule)
 
-    def __unicode__(self):
+    def __str__(self):
         if 'name' in self.group:
             remote = self.group['name']
         elif 'cidr' in self.ip_range:
