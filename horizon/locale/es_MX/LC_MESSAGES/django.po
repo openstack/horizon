@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-08-04 04:10+0000\n"
-"PO-Revision-Date: 2015-07-20 21:17+0000\n"
+"POT-Creation-Date: 2015-08-20 06:20+0000\n"
+"PO-Revision-Date: 2015-08-18 16:56+0000\n"
 "Last-Translator: Heleno Jimenez de la Cruz <heleno.jimenez@gmail.com>\n"
 "Language-Team: Spanish (Mexico) (http://www.transifex.com/openstack/horizon/"
 "language/es_MX/)\n"
@@ -35,6 +35,17 @@ msgid ""
 msgstr ""
 "\n"
 "<label>A:</label>%(end)s"
+
+msgid ""
+"\n"
+"      If you are not sure which authentication method to use, contact your "
+"administrator.\n"
+"    "
+msgstr ""
+"\n"
+"      Si no está seguro cual método de verificación de usuario a usar, "
+"contacte a su administrador.\n"
+"    "
 
 #, python-format
 msgctxt "past"
@@ -189,6 +200,12 @@ msgstr "Ingresar"
 msgid "Login"
 msgstr "Nombre de usuario"
 
+#, python-format
+msgid ""
+"Login as different user or go back to <a href=\"%(home_url)s\"> home page</a>"
+msgstr ""
+"Ingresar como otro usuario o volver a <a href=\"%(home_url)s\"> home page</a>"
+
 msgid "Members"
 msgstr "Miembros"
 
@@ -256,6 +273,9 @@ msgstr "Guardar"
 #, python-format
 msgid "Select a %s to browse."
 msgstr "Seleccione una %s para navegar."
+
+msgid "Select a period of time to query its usage:"
+msgstr "Seleccione un periodo de tiempo para consultar su uso:"
 
 msgid "Session timed out."
 msgstr "Sesión ha expirado."

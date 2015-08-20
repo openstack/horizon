@@ -13,14 +13,15 @@
 # Natan Teixeira Boanafina Sayão <natantb@hotmail.com>, 2015
 # Remulo Carvalho <remulo@gmail.com>, 2015
 # Rodrigo Felix de Almeida <rodrigofelixdealmeida@gmail.com>, 2014
+# Tiago OR (James) <tiagoor@gmail.com>, 2015
 # Zilmar de Souza Junior <zilmar.jr@gmail.com>, 2015
 msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-08-18 02:50+0000\n"
-"PO-Revision-Date: 2015-08-17 21:27+0000\n"
-"Last-Translator: Zilmar de Souza Junior <zilmar.jr@gmail.com>\n"
+"POT-Creation-Date: 2015-08-20 06:20+0000\n"
+"PO-Revision-Date: 2015-08-19 07:05+0000\n"
+"Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Portuguese (Brazil) (http://www.transifex.com/openstack/"
 "horizon/language/pt_BR/)\n"
 "MIME-Version: 1.0\n"
@@ -1576,6 +1577,9 @@ msgstr "Escolha um binário principal"
 msgid "Choose a new instance flavor."
 msgstr "Escolha uma nova instância ao seu gosto."
 
+msgid "Choose a shell script"
+msgstr "Escolha um shell script"
+
 msgid "Choose a snapshot"
 msgstr "Escolha um snapshot"
 
@@ -1584,6 +1588,9 @@ msgstr "Escolha o local de armazenamento"
 
 msgid "Choose a volume"
 msgstr "Escolha um volume"
+
+msgid "Choose additional files"
+msgstr "Escolha arquivos adicionais"
 
 msgid "Choose an DHCP Agent to attach to."
 msgstr "Escolha um agente DHCP para ser anexado."
@@ -8321,6 +8328,9 @@ msgstr "Storage Compartilhado"
 msgid "Shared with Me"
 msgstr "Compartilhado Comigo"
 
+msgid "Shell"
+msgstr "Shell"
+
 msgid "Shell Action"
 msgstr "Ação do shell"
 
@@ -11766,10 +11776,6 @@ msgstr "Volumes Anexados"
 
 msgid "Volumes Availability Zone"
 msgstr "Zona de Disponibilidade de Volumes"
-
-msgid "Volumes are block devices that can be attached to instances."
-msgstr ""
-"Volumes são dispositivos de bloco que podem ser anexados às instâncias."
 
 msgid "Volumes per node"
 msgstr "Volumes por node"

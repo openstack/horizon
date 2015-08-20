@@ -9,9 +9,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-08-18 02:50+0000\n"
-"PO-Revision-Date: 2015-08-17 21:35+0000\n"
-"Last-Translator: Evelijn Saaltink <evelijnsaaltink@gmail.com>\n"
+"POT-Creation-Date: 2015-08-20 06:20+0000\n"
+"PO-Revision-Date: 2015-08-19 07:05+0000\n"
+"Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Dutch (Netherlands) (http://www.transifex.com/openstack/"
 "horizon/language/nl_NL/)\n"
 "MIME-Version: 1.0\n"
@@ -207,6 +207,9 @@ msgstr "Niet gemachtigd om deze actie uit te voeren."
 msgid "Notice: "
 msgstr "Kennisgeving:"
 
+msgid "Open"
+msgstr "Open"
+
 msgid "Open Console"
 msgstr "Open Bedieningspaneel"
 
@@ -236,6 +239,10 @@ msgstr "Selecteer er één"
 
 msgid "Status"
 msgstr "Status"
+
+#, python-format
+msgid "Status: %s"
+msgstr "Status: %s"
 
 msgid "Submit"
 msgstr "Indienen"

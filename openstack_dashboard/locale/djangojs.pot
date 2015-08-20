@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-08-18 06:20+0000\n"
+"POT-Creation-Date: 2015-08-20 06:38+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -120,7 +120,7 @@ msgid "Flavor"
 msgstr ""
 
 #: dashboards/project/static/dashboard/project/workflow/launch-instance/launch-instance-workflow.service.js:46
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/network/network.controller.js:35
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/network/network.html:2
 msgid "Networks"
 msgstr ""
 
@@ -467,127 +467,177 @@ msgstr ""
 msgid "OK"
 msgstr ""
 
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/network/network-help.controller.js:32
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/network/network.controller.js:35
+#: static/app/core/images/filters/image-status.filter.js:35
+msgid "Active"
+msgstr ""
+
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/network/network.controller.js:36
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/network/network.controller.js:41
+msgid "Down"
+msgstr ""
+
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/network/network.controller.js:40
+msgid "Up"
+msgstr ""
+
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/network/network.controller.js:56
+msgid "Select networks from those listed below."
+msgstr ""
+
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/network/network.controller.js:57
+msgid "Select at least one network"
+msgstr ""
+
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/network/network.help.html:2
 msgid "Network Help"
 msgstr ""
 
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/network/network-help.controller.js:36
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/network/network.help.html:3
 msgid ""
-"Provider networks are created by administrators. These networks map to an"
-" existing physical network in the data center."
+"Provider networks are created by administrators.\n"
+"    These networks map to an existing physical network in the data center."
 msgstr ""
 
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/network/network-help.controller.js:37
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/network/network.help.html:7
 msgid ""
-"Project networks are created by users. These networks are fully isolated "
-"and are project-specific."
+"Project networks are created by users.\n"
+"    These networks are fully isolated and are project-specific."
 msgstr ""
 
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/network/network-help.controller.js:38
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/network/network.help.html:15
 msgid ""
-"An <b>External</b> network is set up by an administrator. If you want an "
-"instance to communicate outside of the data center, then attach a router "
-"between your <b>Project</b> network and the <b>External</b> network. You "
-"can use the <b>Network Topology</b> view to connect the router to the two"
-" networks."
+"An <b>External</b> network is set up by an administrator.\n"
+"    If you want an instance to communicate outside of the data center,\n"
+"    then attach a router between your <b>Project</b> network and the "
+"<b>External</b> network.\n"
+"    You can use the <b>Network Topology</b> view to connect the router to"
+" the two networks."
 msgstr ""
 
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/network/network-help.controller.js:39
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/network/network.help.html:22
 msgid ""
 "A floating IP allows instances to be addressable from an external "
-"network. Floating IPs are not allocated to instances at creation time and"
-" may be assigned after the instance is created. To attach a floating IP, "
-"go to the <b>Instances</b> view and click the <b>Actions</b> menu to the "
-"right of an instance. Then, select the <b>Associate Floating IP</b> "
-"option and enter the necessary details."
+"network.\n"
+"    Floating IPs are not allocated to instances at creation time and may "
+"be assigned\n"
+"    after the instance is created. To attach a floating IP, go to the "
+"<b>Instances</b>\n"
+"    view and click the <b>Actions</b> menu to the right of an instance.\n"
+"    Then, select the <b>Associate Floating IP</b> option and enter the "
+"necessary details."
 msgstr ""
 
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/network/network-help.controller.js:40
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/network/network.help.html:24
 msgid ""
 "Administrators set up the pool of floating IPs that are available to "
 "attach to instances."
 msgstr ""
 
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/network/network-help.controller.js:44
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/network/network.help.html:28
 msgid "Network characteristics"
 msgstr ""
 
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/network/network-help.controller.js:47
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/network/network.help.html:31
 msgid ""
 "The subnet identifies a sub-section of a network. A subnet is specified "
-"in CIDR format. A typical CIDR format looks like "
-"<samp>192.xxx.x.x/24</samp>."
+"in CIDR format.\n"
+"    A typical CIDR format looks like <samp>192.xxx.x.x/24</samp>."
 msgstr ""
 
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/network/network-help.controller.js:48
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/network/network.help.html:33
 msgid ""
 "If a network is shared, then all users in the project can access the "
 "network."
 msgstr ""
 
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/network/network-help.controller.js:49
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/network/network.help.html:38
 msgid ""
-"When the <b>Admin State</b> for a network is set to <b>Up</b>, then the "
-"network is available for use. You can set the <b>Admin State</b> to "
-"<b>Down</b> if you are not ready for other users to access the network."
+"When the <b>Admin State</b> for a network is set to <b>Up</b>,\n"
+"    then the network is available for use. You can set the <b>Admin "
+"State</b> to <b>Down</b>\n"
+"    if you are not ready for other users to access the network."
 msgstr ""
 
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/network/network-help.controller.js:51
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/network/network.help.html:41
 msgid "The status indicates whether the network has an active connection."
 msgstr ""
 
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/network/network.controller.js:36
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/network/network.html:4
 msgid "Networks provide the communication channels for instances in the cloud."
 msgstr ""
 
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/network/network.controller.js:37
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/network/network.html:9
+msgid "Profile"
+msgstr ""
+
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/network/network.html:11
+msgid "(None)"
+msgstr ""
+
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/network/network.html:23
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/network/network.html:110
 msgid "Network"
 msgstr ""
 
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/network/network.controller.js:38
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/network/network.html:24
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/network/network.html:111
 msgid "Subnets Associated"
 msgstr ""
 
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/network/network.controller.js:39
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/network/network.html:25
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/network/network.html:112
 msgid "Shared"
 msgstr ""
 
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/network/network.controller.js:40
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/network/network.html:26
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/network/network.html:113
 msgid "Admin State"
 msgstr ""
 
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/network/network.controller.js:41
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/network/network.html:27
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/network/network.html:114
 #: dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:175
 #: static/app/core/images/table/images-table-header.html:24
 msgid "Status"
 msgstr ""
 
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/network/network.controller.js:42
-msgid "Profile"
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/network/network.html:34
+msgid "Select an item from Available items below"
 msgstr ""
 
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/network/network.controller.js:43
-msgid "(None)"
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/network/network.html:43
+msgid "Re-order items using drag and drop"
 msgstr ""
 
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/network/network.controller.js:44
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/network/network.html:47
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/network/network.html:129
+msgid "Click to see more details"
+msgstr ""
+
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/network/network.html:70
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/network/network.html:157
 #: dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:75
 msgid "ID"
 msgstr ""
 
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/network/network.controller.js:45
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/network/network.html:72
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/network/network.html:159
 msgid "Project"
 msgstr ""
 
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/network/network.controller.js:46
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/network/network.html:74
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/network/network.html:161
 msgid "External Network"
 msgstr ""
 
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/network/network.controller.js:47
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/network/network.html:77
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/network/network.html:164
 msgid "Provider Network"
 msgstr ""
 
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/network/network.controller.js:48
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/network/network.html:80
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/network/network.html:167
 #: dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:153
 #: dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:160
 #: dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:167
@@ -595,34 +645,22 @@ msgstr ""
 msgid "Type"
 msgstr ""
 
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/network/network.controller.js:49
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/network/network.html:81
+msgid "{$ row['provider:network_type'] $}"
+msgstr ""
+
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/network/network.html:84
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/network/network.html:171
 msgid "Segmentation ID"
 msgstr ""
 
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/network/network.controller.js:50
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/network/network.html:88
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/network/network.html:175
 msgid "Physical Network"
 msgstr ""
 
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/network/network.controller.js:54
-#: static/app/core/images/filters/image-status.filter.js:35
-msgid "Active"
-msgstr ""
-
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/network/network.controller.js:55
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/network/network.controller.js:60
-msgid "Down"
-msgstr ""
-
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/network/network.controller.js:59
-msgid "Up"
-msgstr ""
-
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/network/network.controller.js:75
-msgid "Select networks from those listed below."
-msgstr ""
-
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/network/network.controller.js:76
-msgid "Select at least one network"
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/network/network.html:121
+msgid "No available items"
 msgstr ""
 
 #: dashboards/project/static/dashboard/project/workflow/launch-instance/security-groups/security-groups-help.controller.js:31

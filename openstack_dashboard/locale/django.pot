@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-08-18 06:20+0000\n"
+"POT-Creation-Date: 2015-08-20 06:38+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -422,35 +422,35 @@ msgstr ""
 msgid "Unable to get health monitor %(monitor_id)s for pool %(pool)s."
 msgstr ""
 
-#: api/neutron.py:237
+#: api/neutron.py:244
 #, python-format
 msgid "ALLOW %(ethertype)s %(proto_port)s %(direction)s %(remote)s"
 msgstr ""
 
-#: api/neutron.py:1075
+#: api/neutron.py:1082
 msgid "Unable to connect to Neutron."
 msgstr ""
 
-#: api/neutron.py:1112
+#: api/neutron.py:1119
 #, python-format
 msgid "Unable to parse IP address %s."
 msgstr ""
 
-#: api/neutron.py:1241
+#: api/neutron.py:1248
 #, python-format
 msgid ""
 "The requested feature '%(feature)s' is unknown. Please make sure to "
 "specify a feature defined in FEATURE_MAP."
 msgstr ""
 
-#: api/neutron.py:1259
+#: api/neutron.py:1266
 #, python-format
 msgid ""
 "The 'operation' parameter for get_feature_permission '%(feature)s' is "
 "invalid. It should be one of %(allowed)s"
 msgstr ""
 
-#: api/neutron.py:1274
+#: api/neutron.py:1281
 #, python-format
 msgid "Failed to check Neutron '%s' extension is not supported"
 msgstr ""
@@ -614,11 +614,12 @@ msgstr ""
 #: dashboards/admin/volumes/templates/volumes/snapshots/_detail_overview.html:10
 #: dashboards/admin/volumes/templates/volumes/volume_types/_volume_encryption_type_detail.html:11
 #: dashboards/admin/volumes/volume_types/forms.py:25
-#: dashboards/admin/volumes/volume_types/tables.py:146
-#: dashboards/admin/volumes/volume_types/tables.py:229
+#: dashboards/admin/volumes/volume_types/forms.py:173
+#: dashboards/admin/volumes/volume_types/tables.py:204
+#: dashboards/admin/volumes/volume_types/tables.py:299
 #: dashboards/admin/volumes/volumes/forms.py:74
 #: dashboards/admin/volumes/volumes/forms.py:203
-#: dashboards/admin/volumes/volumes/forms.py:270
+#: dashboards/admin/volumes/volumes/forms.py:279
 #: dashboards/admin/volumes/volumes/tables.py:91
 #: dashboards/identity/domains/tables.py:199
 #: dashboards/identity/domains/workflows.py:34
@@ -755,7 +756,10 @@ msgstr ""
 #: dashboards/admin/metering/tables.py:64
 #: dashboards/admin/metering/views.py:106
 #: dashboards/admin/volumes/templates/volumes/snapshots/_detail_overview.html:15
+#: dashboards/admin/volumes/volume_types/forms.py:176
+#: dashboards/admin/volumes/volume_types/tables.py:209
 #: dashboards/admin/volumes/volumes/forms.py:53
+#: dashboards/admin/volumes/volumes/forms.py:209
 #: dashboards/identity/domains/tables.py:201
 #: dashboards/identity/domains/workflows.py:37
 #: dashboards/identity/groups/forms.py:33
@@ -800,8 +804,8 @@ msgstr ""
 #: dashboards/project/volumes/templates/volumes/snapshots/_detail_overview.html:15
 #: dashboards/project/volumes/templates/volumes/volumes/_detail_overview.html:15
 #: dashboards/project/volumes/volumes/forms.py:84
-#: dashboards/project/volumes/volumes/forms.py:492
-#: dashboards/project/volumes/volumes/forms.py:600
+#: dashboards/project/volumes/volumes/forms.py:495
+#: dashboards/project/volumes/volumes/forms.py:603
 #: dashboards/project/volumes/volumes/tables.py:401
 #: dashboards/project/vpn/forms.py:36 dashboards/project/vpn/forms.py:71
 #: dashboards/project/vpn/forms.py:150 dashboards/project/vpn/forms.py:228
@@ -1221,7 +1225,7 @@ msgid "Node configurations are not specified"
 msgstr ""
 
 #: contrib/sahara/content/data_processing/cluster_templates/templates/data_processing.cluster_templates/_upload_file.html:22
-#: dashboards/project/volumes/volumes/views.py:183
+#: dashboards/project/volumes/volumes/views.py:226
 msgid "Upload"
 msgstr ""
 
@@ -1367,7 +1371,7 @@ msgstr ""
 #: contrib/sahara/content/data_processing/jobs/workflows/create.py:168
 #: contrib/sahara/content/data_processing/jobs/workflows/launch.py:430
 #: contrib/sahara/content/data_processing/nodegroup_templates/workflows/create.py:255
-#: dashboards/admin/volumes/volume_types/views.py:126
+#: dashboards/admin/volumes/volume_types/views.py:165
 #: dashboards/admin/volumes/volume_types/extras/tables.py:48
 #: dashboards/admin/volumes/volume_types/extras/views.py:64
 #: dashboards/admin/volumes/volume_types/qos_specs/tables.py:24
@@ -1437,7 +1441,7 @@ msgstr ""
 #: dashboards/admin/networks/templates/networks/ports/_detail_overview.html:17
 #: dashboards/admin/volumes/snapshots/forms.py:34
 #: dashboards/admin/volumes/templates/volumes/snapshots/_detail_overview.html:18
-#: dashboards/admin/volumes/volumes/forms.py:228
+#: dashboards/admin/volumes/volumes/forms.py:237
 #: dashboards/project/access_and_security/floating_ips/tables.py:202
 #: dashboards/project/firewalls/tables.py:361
 #: dashboards/project/firewalls/templates/firewalls/_firewall_details.html:25
@@ -1744,7 +1748,7 @@ msgid "Image"
 msgstr ""
 
 #: contrib/sahara/content/data_processing/data_image_registry/forms.py:70
-#: dashboards/project/images/utils.py:97
+#: dashboards/project/images/utils.py:99
 #: dashboards/project/instances/forms.py:42
 #: dashboards/project/instances/forms.py:68
 #: dashboards/project/instances/workflows/create_instance.py:447
@@ -1964,7 +1968,7 @@ msgstr[1] ""
 #: dashboards/project/volumes/volumes/forms.py:113
 #: dashboards/project/volumes/volumes/forms.py:118
 #: dashboards/project/volumes/volumes/forms.py:119
-#: dashboards/project/volumes/volumes/forms.py:746
+#: dashboards/project/volumes/volumes/forms.py:749
 #: dashboards/project/volumes/volumes/tables.py:430
 msgid "Type"
 msgstr ""
@@ -2524,7 +2528,7 @@ msgid "Updated time"
 msgstr ""
 
 #: contrib/sahara/content/data_processing/jobs/templates/data_processing.jobs/_details.html:29
-#: dashboards/project/volumes/volumes/forms.py:747
+#: dashboards/project/volumes/volumes/forms.py:750
 msgid "Never"
 msgstr ""
 
@@ -3505,8 +3509,8 @@ msgstr ""
 #: dashboards/project/volumes/templates/volumes/volumes/_detail_overview.html:28
 #: dashboards/project/volumes/templates/volumes/volumes/_extend_limits.html:10
 #: dashboards/project/volumes/templates/volumes/volumes/_extend_limits.html:11
-#: dashboards/project/volumes/templates/volumes/volumes/_limits.html:10
-#: dashboards/project/volumes/templates/volumes/volumes/_limits.html:11
+#: dashboards/project/volumes/templates/volumes/volumes/_limits.html:19
+#: dashboards/project/volumes/templates/volumes/volumes/_limits.html:20
 msgid "GB"
 msgstr ""
 
@@ -3596,12 +3600,12 @@ msgid "Error creating database backup."
 msgstr ""
 
 #: contrib/trove/content/databases/forms.py:28
-#: dashboards/project/volumes/volumes/forms.py:699
+#: dashboards/project/volumes/volumes/forms.py:702
 msgid "Current Size (GB)"
 msgstr ""
 
 #: contrib/trove/content/databases/forms.py:32
-#: dashboards/project/volumes/volumes/forms.py:703
+#: dashboards/project/volumes/volumes/forms.py:706
 msgid "New Size (GB)"
 msgstr ""
 
@@ -3855,7 +3859,7 @@ msgstr ""
 #: contrib/trove/content/databases/tables.py:327
 #: dashboards/admin/instances/tables.py:145
 #: dashboards/admin/volumes/templates/volumes/snapshots/_detail_overview.html:33
-#: dashboards/project/containers/tables.py:450
+#: dashboards/project/containers/tables.py:451
 #: dashboards/project/containers/templates/containers/_container_detail.html:22
 #: dashboards/project/containers/templates/containers/_object_detail.html:18
 #: dashboards/project/images/images/tables.py:299
@@ -3891,7 +3895,7 @@ msgstr ""
 #: dashboards/identity/ngusers/panel.py:23
 #: dashboards/identity/ngusers/templates/ngusers/index.html:3
 #: dashboards/identity/users/panel.py:25
-#: dashboards/identity/users/tables.py:260
+#: dashboards/identity/users/tables.py:261
 #: dashboards/identity/users/views.py:46
 #: dashboards/identity/users/templates/users/index.html:3
 msgid "Users"
@@ -3902,7 +3906,7 @@ msgid "Database Name"
 msgstr ""
 
 #: contrib/trove/content/databases/tables.py:390
-#: dashboards/project/containers/tables.py:385
+#: dashboards/project/containers/tables.py:386
 msgid "Download"
 msgstr ""
 
@@ -3998,7 +4002,7 @@ msgstr ""
 #: contrib/trove/content/databases/templates/databases/_detail_overview.html:24
 #: dashboards/admin/volumes/templates/volumes/snapshots/_detail_overview.html:30
 #: dashboards/admin/volumes/templates/volumes/volume_types/qos_specs/_index.html:7
-#: dashboards/admin/volumes/volume_types/tables.py:232
+#: dashboards/admin/volumes/volume_types/tables.py:302
 #: dashboards/admin/volumes/volume_types/qos_specs/tables.py:36
 #: dashboards/project/images/templates/images/images/_detail_overview.html:43
 #: dashboards/project/instances/templates/instances/_detail_overview.html:47
@@ -4298,7 +4302,7 @@ msgstr ""
 
 #: contrib/trove/content/databases/workflows/create_instance.py:289
 #: dashboards/project/access_and_security/floating_ips/workflows.py:124
-#: dashboards/project/volumes/volumes/forms.py:459
+#: dashboards/project/volumes/volumes/forms.py:462
 msgid "No instances available"
 msgstr ""
 
@@ -4418,7 +4422,7 @@ msgstr ""
 
 #: dashboards/admin/aggregates/tables.py:161
 #: dashboards/admin/volumes/snapshots/forms.py:25
-#: dashboards/admin/volumes/volumes/forms.py:236
+#: dashboards/admin/volumes/volumes/forms.py:245
 msgid "Available"
 msgstr ""
 
@@ -4595,6 +4599,7 @@ msgstr ""
 #: dashboards/admin/volumes/templates/volumes/volume_types/_create_volume_type.html:5
 #: dashboards/admin/volumes/templates/volumes/volume_types/_create_volume_type_encryption.html:5
 #: dashboards/admin/volumes/templates/volumes/volume_types/_edit_qos_spec_consumer.html:5
+#: dashboards/admin/volumes/templates/volumes/volume_types/_update_volume_type.html:18
 #: dashboards/admin/volumes/templates/volumes/volume_types/extras/_create.html:5
 #: dashboards/admin/volumes/templates/volumes/volume_types/extras/_edit.html:5
 #: dashboards/admin/volumes/templates/volumes/volume_types/qos_specs/_create.html:5
@@ -5441,7 +5446,7 @@ msgstr ""
 #: dashboards/project/instances/tables.py:1061
 #: dashboards/project/instances/templates/instances/_detail_overview.html:116
 #: dashboards/project/instances/workflows/create_instance.py:108
-#: dashboards/project/volumes/volumes/forms.py:638
+#: dashboards/project/volumes/volumes/forms.py:641
 msgid "Image Name"
 msgstr ""
 
@@ -5548,7 +5553,7 @@ msgstr ""
 #: dashboards/identity/projects/workflows.py:540
 #: dashboards/identity/projects/templates/projects/_detail_overview.html:13
 #: dashboards/identity/users/forms.py:109
-#: dashboards/identity/users/tables.py:251
+#: dashboards/identity/users/tables.py:252
 #: dashboards/identity/users/templates/users/_detail_overview.html:23
 #: dashboards/project/firewalls/forms.py:71
 #: dashboards/project/firewalls/tables.py:292
@@ -7070,7 +7075,7 @@ msgid "Unable to retrieve volume project information."
 msgstr ""
 
 #: dashboards/admin/volumes/tabs.py:68
-#: dashboards/admin/volumes/volume_types/tables.py:163
+#: dashboards/admin/volumes/volume_types/tables.py:231
 msgid "Volume Types"
 msgstr ""
 
@@ -7092,22 +7097,22 @@ msgid "Unable to retrieve volume snapshots."
 msgstr ""
 
 #: dashboards/admin/volumes/snapshots/forms.py:26
-#: dashboards/admin/volumes/volumes/forms.py:237
+#: dashboards/admin/volumes/volumes/forms.py:246
 msgid "Creating"
 msgstr ""
 
 #: dashboards/admin/volumes/snapshots/forms.py:27
-#: dashboards/admin/volumes/volumes/forms.py:238
+#: dashboards/admin/volumes/volumes/forms.py:247
 msgid "Deleting"
 msgstr ""
 
 #: dashboards/admin/volumes/snapshots/forms.py:28
-#: dashboards/admin/volumes/volumes/forms.py:240
+#: dashboards/admin/volumes/volumes/forms.py:249
 msgid "Error"
 msgstr ""
 
 #: dashboards/admin/volumes/snapshots/forms.py:29
-#: dashboards/admin/volumes/volumes/forms.py:241
+#: dashboards/admin/volumes/volumes/forms.py:250
 msgid "Error Deleting"
 msgstr ""
 
@@ -7133,10 +7138,10 @@ msgstr ""
 #: dashboards/project/volumes/backups/tables.py:135
 #: dashboards/project/volumes/snapshots/tables.py:151
 #: dashboards/project/volumes/volumes/forms.py:80
-#: dashboards/project/volumes/volumes/forms.py:596
-#: dashboards/project/volumes/volumes/forms.py:635
-#: dashboards/project/volumes/volumes/forms.py:694
-#: dashboards/project/volumes/volumes/forms.py:743
+#: dashboards/project/volumes/volumes/forms.py:599
+#: dashboards/project/volumes/volumes/forms.py:638
+#: dashboards/project/volumes/volumes/forms.py:697
+#: dashboards/project/volumes/volumes/forms.py:746
 msgid "Volume Name"
 msgstr ""
 
@@ -7277,6 +7282,16 @@ msgid ""
 "    "
 msgstr ""
 
+#: dashboards/admin/volumes/templates/volumes/volume_types/_update_volume_type.html:9
+#: dashboards/admin/volumes/templates/volumes/volume_types/update_volume_type.html:3
+#: dashboards/admin/volumes/volume_types/tables.py:36
+msgid "Edit Volume Type"
+msgstr ""
+
+#: dashboards/admin/volumes/templates/volumes/volume_types/_update_volume_type.html:19
+msgid "Modify volume type name and description."
+msgstr ""
+
 #: dashboards/admin/volumes/templates/volumes/volume_types/_volume_encryption_type_detail.html:4
 msgid "Volume Type Encryption Overview"
 msgstr ""
@@ -7317,13 +7332,13 @@ msgid "Associate QoS Spec"
 msgstr ""
 
 #: dashboards/admin/volumes/templates/volumes/volume_types/create_qos_spec.html:3
-#: dashboards/admin/volumes/volume_types/tables.py:190
-#: dashboards/admin/volumes/volume_types/views.py:121
+#: dashboards/admin/volumes/volume_types/tables.py:260
+#: dashboards/admin/volumes/volume_types/views.py:160
 msgid "Create QoS Spec"
 msgstr ""
 
 #: dashboards/admin/volumes/templates/volumes/volume_types/create_volume_type.html:3
-#: dashboards/admin/volumes/volume_types/tables.py:25
+#: dashboards/admin/volumes/volume_types/tables.py:27
 #: dashboards/admin/volumes/volume_types/views.py:35
 #: dashboards/admin/volumes/volume_types/views.py:38
 msgid "Create Volume Type"
@@ -7334,8 +7349,12 @@ msgid "Create Encrypted Volume Type"
 msgstr ""
 
 #: dashboards/admin/volumes/templates/volumes/volume_types/edit_qos_spec_consumer.html:3
-#: dashboards/admin/volumes/volume_types/views.py:142
+#: dashboards/admin/volumes/volume_types/views.py:181
 msgid "Edit QoS Spec Consumer"
+msgstr ""
+
+#: dashboards/admin/volumes/templates/volumes/volume_types/update_volume_type.html:6
+msgid "\"Edit Volume Type\""
 msgstr ""
 
 #: dashboards/admin/volumes/templates/volumes/volume_types/volume_encryption_type_detail.html:3
@@ -7364,7 +7383,7 @@ msgstr ""
 #: dashboards/project/containers/templates/containers/_object_detail.html:25
 #: dashboards/project/routers/templates/routers/extensions/routerrules/grid.html:104
 #: dashboards/project/stacks/templates/stacks/_preview_details.html:58
-#: dashboards/project/volumes/volumes/views.py:258
+#: dashboards/project/volumes/volumes/views.py:301
 msgid "Close"
 msgstr ""
 
@@ -7544,80 +7563,105 @@ msgstr ""
 msgid "Error editing QoS Spec consumer."
 msgstr ""
 
-#: dashboards/admin/volumes/volume_types/tables.py:34
+#: dashboards/admin/volumes/volume_types/forms.py:182
+msgid "New name cannot be empty."
+msgstr ""
+
+#: dashboards/admin/volumes/volume_types/forms.py:194
+msgid "Successfully updated volume type."
+msgstr ""
+
+#: dashboards/admin/volumes/volume_types/forms.py:200
+#: dashboards/admin/volumes/volume_types/tables.py:193
+msgid "New name conflicts with another volume type."
+msgstr ""
+
+#: dashboards/admin/volumes/volume_types/forms.py:203
+msgid "Unable to update volume type."
+msgstr ""
+
+#: dashboards/admin/volumes/volume_types/tables.py:45
 msgid "View Extra Specs"
 msgstr ""
 
-#: dashboards/admin/volumes/volume_types/tables.py:42
+#: dashboards/admin/volumes/volume_types/tables.py:54
 msgid "Manage QoS Spec Association"
 msgstr ""
 
-#: dashboards/admin/volumes/volume_types/tables.py:52
+#: dashboards/admin/volumes/volume_types/tables.py:64
 msgid "Delete Volume Type"
 msgid_plural "Delete Volume Types"
 msgstr[0] ""
 msgstr[1] ""
 
-#: dashboards/admin/volumes/volume_types/tables.py:60
+#: dashboards/admin/volumes/volume_types/tables.py:72
 msgid "Deleted Volume Type"
 msgid_plural "Deleted Volume Types"
 msgstr[0] ""
 msgstr[1] ""
 
-#: dashboards/admin/volumes/volume_types/tables.py:73
+#: dashboards/admin/volumes/volume_types/tables.py:85
 msgid "Create Encryption"
 msgstr ""
 
-#: dashboards/admin/volumes/volume_types/tables.py:93
+#: dashboards/admin/volumes/volume_types/tables.py:105
 msgid "Delete Encryption"
 msgid_plural "Delete Encryptions"
 msgstr[0] ""
 msgstr[1] ""
 
-#: dashboards/admin/volumes/volume_types/tables.py:101
+#: dashboards/admin/volumes/volume_types/tables.py:113
 msgid "Deleted Encryption"
 msgid_plural "Deleted Encryptions"
 msgstr[0] ""
 msgstr[1] ""
 
-#: dashboards/admin/volumes/volume_types/tables.py:122
+#: dashboards/admin/volumes/volume_types/tables.py:134
 msgid "Unable to determine if volume type encryption is supported."
 msgstr ""
 
-#: dashboards/admin/volumes/volume_types/tables.py:148
+#: dashboards/admin/volumes/volume_types/tables.py:167
+msgid "Unable to retrieve volume type qos."
+msgstr ""
+
+#: dashboards/admin/volumes/volume_types/tables.py:196
+msgid "Unable to update the volume type."
+msgstr ""
+
+#: dashboards/admin/volumes/volume_types/tables.py:216
 msgid "Associated QoS Spec"
 msgstr ""
 
-#: dashboards/admin/volumes/volume_types/tables.py:150
+#: dashboards/admin/volumes/volume_types/tables.py:218
 msgid "Encryption"
 msgstr ""
 
-#: dashboards/admin/volumes/volume_types/tables.py:176
+#: dashboards/admin/volumes/volume_types/tables.py:246
 msgid "Manage Specs"
 msgstr ""
 
-#: dashboards/admin/volumes/volume_types/tables.py:200
+#: dashboards/admin/volumes/volume_types/tables.py:270
 msgid "Delete QoS Spec"
 msgid_plural "Delete QoS Specs"
 msgstr[0] ""
 msgstr[1] ""
 
-#: dashboards/admin/volumes/volume_types/tables.py:208
+#: dashboards/admin/volumes/volume_types/tables.py:278
 msgid "Deleted QoS Spec"
 msgid_plural "Deleted QoS Specs"
 msgstr[0] ""
 msgstr[1] ""
 
-#: dashboards/admin/volumes/volume_types/tables.py:221
+#: dashboards/admin/volumes/volume_types/tables.py:291
 msgid "Edit Consumer"
 msgstr ""
 
-#: dashboards/admin/volumes/volume_types/tables.py:230
-#: dashboards/admin/volumes/volumes/forms.py:271
+#: dashboards/admin/volumes/volume_types/tables.py:300
+#: dashboards/admin/volumes/volumes/forms.py:280
 msgid "Consumer"
 msgstr ""
 
-#: dashboards/admin/volumes/volume_types/tables.py:245
+#: dashboards/admin/volumes/volume_types/tables.py:315
 msgid "QoS Specs"
 msgstr ""
 
@@ -7642,44 +7686,59 @@ msgstr ""
 msgid "Unable to retrieve volume type name."
 msgstr ""
 
-#: dashboards/admin/volumes/volume_types/views.py:125
-msgid "Create a QoS Spec"
+#: dashboards/admin/volumes/volume_types/views.py:124
+#: dashboards/admin/volumes/volume_types/extras/tables.py:59
+#: dashboards/admin/volumes/volume_types/qos_specs/tables.py:48
+#: dashboards/identity/domains/tables.py:81
+#: dashboards/identity/roles/tables.py:37
+#: dashboards/identity/users/tables.py:47
+#: dashboards/project/containers/tables.py:323
+msgid "Edit"
 msgstr ""
 
 #: dashboards/admin/volumes/volume_types/views.py:136
-msgid "Edit Consumer of QoS Spec"
+#, python-format
+msgid "Unable to retrieve volume type for: \"%s\""
 msgstr ""
 
-#: dashboards/admin/volumes/volume_types/views.py:139
-msgid "Modify Consumer"
-msgstr ""
-
-#: dashboards/admin/volumes/volume_types/views.py:161
-msgid "Unable to retrieve QoS Spec details."
+#: dashboards/admin/volumes/volume_types/views.py:164
+msgid "Create a QoS Spec"
 msgstr ""
 
 #: dashboards/admin/volumes/volume_types/views.py:175
-#: dashboards/admin/volumes/volume_types/views.py:182
-msgid "Associate QoS Spec with Volume Type"
+msgid "Edit Consumer of QoS Spec"
 msgstr ""
 
 #: dashboards/admin/volumes/volume_types/views.py:178
+msgid "Modify Consumer"
+msgstr ""
+
+#: dashboards/admin/volumes/volume_types/views.py:200
+msgid "Unable to retrieve QoS Spec details."
+msgstr ""
+
+#: dashboards/admin/volumes/volume_types/views.py:214
+#: dashboards/admin/volumes/volume_types/views.py:221
+msgid "Associate QoS Spec with Volume Type"
+msgstr ""
+
+#: dashboards/admin/volumes/volume_types/views.py:217
 #: dashboards/project/access_and_security/floating_ips/tables.py:110
 #: dashboards/project/access_and_security/floating_ips/workflows.py:145
 #: dashboards/project/loadbalancers/workflows.py:670
 msgid "Associate"
 msgstr ""
 
-#: dashboards/admin/volumes/volume_types/views.py:201
+#: dashboards/admin/volumes/volume_types/views.py:240
 #: dashboards/admin/volumes/volume_types/extras/views.py:36
 msgid "Unable to retrieve volume type details."
 msgstr ""
 
-#: dashboards/admin/volumes/volume_types/views.py:211
+#: dashboards/admin/volumes/volume_types/views.py:250
 msgid "Unable to retrieve QoS Specs."
 msgstr ""
 
-#: dashboards/admin/volumes/volume_types/views.py:231
+#: dashboards/admin/volumes/volume_types/views.py:270
 msgid "Unable to retrieve QoS Spec association."
 msgstr ""
 
@@ -7719,15 +7778,6 @@ msgid "Deleted Extra Spec"
 msgid_plural "Deleted Extra Specs"
 msgstr[0] ""
 msgstr[1] ""
-
-#: dashboards/admin/volumes/volume_types/extras/tables.py:59
-#: dashboards/admin/volumes/volume_types/qos_specs/tables.py:48
-#: dashboards/identity/domains/tables.py:81
-#: dashboards/identity/roles/tables.py:37
-#: dashboards/identity/users/tables.py:47
-#: dashboards/project/containers/tables.py:322
-msgid "Edit"
-msgstr ""
 
 #: dashboards/admin/volumes/volume_types/extras/tables.py:74
 msgid "Extra Specs"
@@ -7832,7 +7882,7 @@ msgid "Volume Type"
 msgstr ""
 
 #: dashboards/admin/volumes/volumes/forms.py:67
-#: dashboards/project/volumes/volumes/forms.py:602
+#: dashboards/project/volumes/volumes/forms.py:605
 #: dashboards/project/volumes/volumes/tables.py:436
 msgid "Bootable"
 msgstr ""
@@ -7881,47 +7931,47 @@ msgstr ""
 msgid "Failed to migrate volume."
 msgstr ""
 
-#: dashboards/admin/volumes/volumes/forms.py:208
+#: dashboards/admin/volumes/volumes/forms.py:215
 msgid "Volume type name can not be empty."
 msgstr ""
 
-#: dashboards/admin/volumes/volumes/forms.py:217
+#: dashboards/admin/volumes/volumes/forms.py:226
 #, python-format
 msgid "Successfully created volume type: %s"
 msgstr ""
 
-#: dashboards/admin/volumes/volumes/forms.py:223
+#: dashboards/admin/volumes/volumes/forms.py:232
 msgid "Unable to create volume type."
 msgstr ""
 
-#: dashboards/admin/volumes/volumes/forms.py:235
+#: dashboards/admin/volumes/volumes/forms.py:244
 msgid "Attaching"
 msgstr ""
 
-#: dashboards/admin/volumes/volumes/forms.py:239
+#: dashboards/admin/volumes/volumes/forms.py:248
 msgid "Detaching"
 msgstr ""
 
-#: dashboards/admin/volumes/volumes/forms.py:242
+#: dashboards/admin/volumes/volumes/forms.py:251
 msgid "In Use"
 msgstr ""
 
-#: dashboards/admin/volumes/volumes/forms.py:259
+#: dashboards/admin/volumes/volumes/forms.py:268
 #, python-format
 msgid "Successfully updated volume status to \"%s\"."
 msgstr ""
 
-#: dashboards/admin/volumes/volumes/forms.py:265
+#: dashboards/admin/volumes/volumes/forms.py:274
 #, python-format
 msgid "Unable to update volume status to \"%s\"."
 msgstr ""
 
-#: dashboards/admin/volumes/volumes/forms.py:280
+#: dashboards/admin/volumes/volumes/forms.py:289
 #, python-format
 msgid "Successfully created QoS Spec: %s"
 msgstr ""
 
-#: dashboards/admin/volumes/volumes/forms.py:286
+#: dashboards/admin/volumes/volumes/forms.py:295
 msgid "Unable to create QoS Spec."
 msgstr ""
 
@@ -7952,8 +8002,8 @@ msgstr ""
 #: dashboards/admin/volumes/volumes/views.py:84
 #: dashboards/admin/volumes/volumes/views.py:119
 #: dashboards/admin/volumes/volumes/views.py:173
-#: dashboards/project/volumes/volumes/views.py:75
-#: dashboards/project/volumes/volumes/views.py:475
+#: dashboards/project/volumes/volumes/views.py:79
+#: dashboards/project/volumes/volumes/views.py:518
 msgid "Unable to retrieve volume details."
 msgstr ""
 
@@ -8259,13 +8309,13 @@ msgstr ""
 #: dashboards/identity/groups/tables.py:191
 #: dashboards/identity/users/forms.py:102
 #: dashboards/identity/users/forms.py:200
-#: dashboards/identity/users/tables.py:238
+#: dashboards/identity/users/tables.py:239
 #: dashboards/identity/users/templates/users/_detail_overview.html:21
 msgid "Email"
 msgstr ""
 
 #: dashboards/identity/groups/tables.py:194
-#: dashboards/identity/users/tables.py:249
+#: dashboards/identity/users/tables.py:250
 #: dashboards/project/access_and_security/templates/access_and_security/keypairs/detail.html:24
 #: dashboards/project/instances/audit_tables.py:45
 msgid "User ID"
@@ -9050,7 +9100,7 @@ msgid "Select a port"
 msgstr ""
 
 #: dashboards/project/access_and_security/floating_ips/workflows.py:118
-#: dashboards/project/volumes/volumes/forms.py:457
+#: dashboards/project/volumes/volumes/forms.py:460
 msgid "Select an instance"
 msgstr ""
 
@@ -9633,7 +9683,7 @@ msgid "Private"
 msgstr ""
 
 #: dashboards/project/containers/forms.py:54
-#: dashboards/project/containers/tables.py:269
+#: dashboards/project/containers/tables.py:270
 #: dashboards/project/containers/templates/containers/_container_detail.html:10
 #: dashboards/project/volumes/backups/forms.py:39
 msgid "Container Name"
@@ -9663,7 +9713,7 @@ msgid "File"
 msgstr ""
 
 #: dashboards/project/containers/forms.py:93
-#: dashboards/project/containers/tables.py:447
+#: dashboards/project/containers/tables.py:448
 msgid "Object Name"
 msgstr ""
 
@@ -9724,55 +9774,55 @@ msgid "Unable to copy object."
 msgstr ""
 
 #: dashboards/project/containers/panel.py:25
-#: dashboards/project/containers/tables.py:280
+#: dashboards/project/containers/tables.py:281
 #: dashboards/project/containers/templates/containers/index.html:5
 #: dashboards/project/containers/templates/containers/index.html:9
 msgid "Containers"
 msgstr ""
 
-#: dashboards/project/containers/tables.py:49
-#: dashboards/project/containers/tables.py:310
+#: dashboards/project/containers/tables.py:50
+#: dashboards/project/containers/tables.py:311
 msgid "View Details"
 msgstr ""
 
-#: dashboards/project/containers/tables.py:60
+#: dashboards/project/containers/tables.py:61
 msgid "Make Public"
 msgstr ""
 
-#: dashboards/project/containers/tables.py:76
+#: dashboards/project/containers/tables.py:77
 msgid "Successfully updated container access to public."
 msgstr ""
 
-#: dashboards/project/containers/tables.py:80
-#: dashboards/project/containers/tables.py:106
+#: dashboards/project/containers/tables.py:81
+#: dashboards/project/containers/tables.py:107
 msgid "Unable to update container access."
 msgstr ""
 
-#: dashboards/project/containers/tables.py:86
+#: dashboards/project/containers/tables.py:87
 msgid "Make Private"
 msgstr ""
 
-#: dashboards/project/containers/tables.py:102
+#: dashboards/project/containers/tables.py:103
 msgid "Successfully updated container access to private."
 msgstr ""
 
-#: dashboards/project/containers/tables.py:113
+#: dashboards/project/containers/tables.py:114
 msgid "Delete Container"
 msgid_plural "Delete Containers"
 msgstr[0] ""
 msgstr[1] ""
 
-#: dashboards/project/containers/tables.py:121
+#: dashboards/project/containers/tables.py:122
 msgid "Deleted Container"
 msgid_plural "Deleted Containers"
 msgstr[0] ""
 msgstr[1] ""
 
-#: dashboards/project/containers/tables.py:136
+#: dashboards/project/containers/tables.py:137
 msgid "Unable to delete container."
 msgstr ""
 
-#: dashboards/project/containers/tables.py:153
+#: dashboards/project/containers/tables.py:154
 #: dashboards/project/containers/views.py:130
 #: dashboards/project/containers/templates/containers/_create.html:8
 #: dashboards/project/containers/templates/containers/_create.html:24
@@ -9780,50 +9830,50 @@ msgstr ""
 msgid "Create Container"
 msgstr ""
 
-#: dashboards/project/containers/tables.py:161
+#: dashboards/project/containers/tables.py:162
 msgid "View Container"
 msgstr ""
 
-#: dashboards/project/containers/tables.py:173
+#: dashboards/project/containers/tables.py:174
 #: dashboards/project/containers/views.py:154
 #: dashboards/project/containers/templates/containers/create_pseudo_folder.html:3
 msgid "Create Pseudo-folder"
 msgstr ""
 
-#: dashboards/project/containers/tables.py:201
+#: dashboards/project/containers/tables.py:202
 #: dashboards/project/containers/templates/containers/_upload.html:28
 #: dashboards/project/containers/templates/containers/upload.html:3
 msgid "Upload Object"
 msgstr ""
 
-#: dashboards/project/containers/tables.py:271
+#: dashboards/project/containers/tables.py:272
 #: dashboards/project/containers/views.py:275
 #: dashboards/project/containers/templates/containers/_container_detail.html:5
 #: dashboards/project/containers/templates/containers/container_detail.html:3
 msgid "Container Details"
 msgstr ""
 
-#: dashboards/project/containers/tables.py:336
+#: dashboards/project/containers/tables.py:337
 msgid "Delete Object"
 msgid_plural "Delete Objects"
 msgstr[0] ""
 msgstr[1] ""
 
-#: dashboards/project/containers/tables.py:344
+#: dashboards/project/containers/tables.py:345
 msgid "Deleted Object"
 msgid_plural "Deleted Objects"
 msgstr[0] ""
 msgstr[1] ""
 
-#: dashboards/project/containers/tables.py:372
+#: dashboards/project/containers/tables.py:373
 msgid "Copy"
 msgstr ""
 
-#: dashboards/project/containers/tables.py:432
+#: dashboards/project/containers/tables.py:433
 msgid "pseudo-folder"
 msgstr ""
 
-#: dashboards/project/containers/tables.py:454
+#: dashboards/project/containers/tables.py:455
 msgid "Objects"
 msgstr ""
 
@@ -10759,11 +10809,11 @@ msgstr ""
 msgid "Unable to retrieve images for the current project."
 msgstr ""
 
-#: dashboards/project/images/utils.py:95
+#: dashboards/project/images/utils.py:97
 msgid "Unable to retrieve images"
 msgstr ""
 
-#: dashboards/project/images/utils.py:104
+#: dashboards/project/images/utils.py:106
 #: dashboards/project/instances/forms.py:70
 #: dashboards/project/instances/workflows/create_instance.py:449
 msgid "No images available"
@@ -10930,8 +10980,8 @@ msgstr ""
 #: dashboards/project/volumes/templates/volumes/volumes/create.html:3
 #: dashboards/project/volumes/volumes/tables.py:96
 #: dashboards/project/volumes/volumes/tables.py:121
-#: dashboards/project/volumes/volumes/views.py:89
-#: dashboards/project/volumes/volumes/views.py:91
+#: dashboards/project/volumes/volumes/views.py:93
+#: dashboards/project/volumes/volumes/views.py:95
 msgid "Create Volume"
 msgstr ""
 
@@ -11003,7 +11053,7 @@ msgstr ""
 
 #: dashboards/project/images/snapshots/forms.py:33
 #: dashboards/project/volumes/snapshots/forms.py:25
-#: dashboards/project/volumes/volumes/forms.py:489
+#: dashboards/project/volumes/volumes/forms.py:492
 msgid "Snapshot Name"
 msgstr ""
 
@@ -11067,7 +11117,7 @@ msgid "Container Format"
 msgstr ""
 
 #: dashboards/project/images/templates/images/images/_detail_overview.html:54
-#: dashboards/project/volumes/volumes/forms.py:639
+#: dashboards/project/volumes/volumes/forms.py:642
 msgid "Disk Format"
 msgstr ""
 
@@ -12263,7 +12313,7 @@ msgid "Volume size in gigabytes (integer value)."
 msgstr ""
 
 #: dashboards/project/instances/workflows/create_instance.py:122
-#: dashboards/project/volumes/volumes/forms.py:422
+#: dashboards/project/volumes/volumes/forms.py:425
 msgid "Device Name"
 msgstr ""
 
@@ -15519,7 +15569,7 @@ msgstr ""
 
 #: dashboards/project/volumes/templates/volumes/volumes/_create_snapshot.html:15
 #: dashboards/project/volumes/templates/volumes/volumes/create_snapshot.html:3
-#: dashboards/project/volumes/volumes/views.py:148
+#: dashboards/project/volumes/volumes/views.py:191
 msgid "Create Volume Snapshot"
 msgstr ""
 
@@ -15558,7 +15608,7 @@ msgid "Volume Source"
 msgstr ""
 
 #: dashboards/project/volumes/templates/volumes/volumes/_detail_overview.html:84
-#: dashboards/project/volumes/volumes/views.py:256
+#: dashboards/project/volumes/volumes/views.py:299
 msgid "Volume Transfer"
 msgstr ""
 
@@ -15579,20 +15629,27 @@ msgid "Extend the size of a volume."
 msgstr ""
 
 #: dashboards/project/volumes/templates/volumes/volumes/_extend_limits.html:7
-#: dashboards/project/volumes/templates/volumes/volumes/_limits.html:7
+#: dashboards/project/volumes/templates/volumes/volumes/_limits.html:16
 msgid "Volume Limits"
 msgstr ""
 
 #: dashboards/project/volumes/templates/volumes/volumes/_extend_limits.html:10
-#: dashboards/project/volumes/templates/volumes/volumes/_limits.html:10
+#: dashboards/project/volumes/templates/volumes/volumes/_limits.html:19
 msgid "Total Gigabytes"
 msgstr ""
 
-#: dashboards/project/volumes/templates/volumes/volumes/_limits.html:5
-msgid "Volumes are block devices that can be attached to instances."
+#: dashboards/project/volumes/templates/volumes/volumes/_limits.html:7
+msgid ""
+"\n"
+"   Volumes are block devices that can be attached to instances.\n"
+"   "
 msgstr ""
 
-#: dashboards/project/volumes/templates/volumes/volumes/_limits.html:18
+#: dashboards/project/volumes/templates/volumes/volumes/_limits.html:11
+msgid "Volume Type Description:"
+msgstr ""
+
+#: dashboards/project/volumes/templates/volumes/volumes/_limits.html:27
 msgid "Number of Volumes"
 msgstr ""
 
@@ -15687,21 +15744,21 @@ msgid ""
 msgstr ""
 
 #: dashboards/project/volumes/templates/volumes/volumes/accept_transfer.html:3
-#: dashboards/project/volumes/volumes/views.py:244
-#: dashboards/project/volumes/volumes/views.py:245
-#: dashboards/project/volumes/volumes/views.py:248
+#: dashboards/project/volumes/volumes/views.py:287
+#: dashboards/project/volumes/volumes/views.py:288
+#: dashboards/project/volumes/volumes/views.py:291
 msgid "Accept Volume Transfer"
 msgstr ""
 
 #: dashboards/project/volumes/templates/volumes/volumes/attach.html:3
-#: dashboards/project/volumes/volumes/views.py:327
-#: dashboards/project/volumes/volumes/views.py:332
+#: dashboards/project/volumes/volumes/views.py:370
+#: dashboards/project/volumes/volumes/views.py:375
 msgid "Manage Volume Attachments"
 msgstr ""
 
 #: dashboards/project/volumes/templates/volumes/volumes/create_transfer.html:3
-#: dashboards/project/volumes/volumes/views.py:223
-#: dashboards/project/volumes/volumes/views.py:224
+#: dashboards/project/volumes/volumes/views.py:266
+#: dashboards/project/volumes/volumes/views.py:267
 msgid "Create Volume Transfer"
 msgstr ""
 
@@ -15711,35 +15768,35 @@ msgstr ""
 
 #: dashboards/project/volumes/templates/volumes/volumes/extend.html:3
 #: dashboards/project/volumes/volumes/tables.py:133
-#: dashboards/project/volumes/volumes/views.py:107
-#: dashboards/project/volumes/volumes/views.py:109
-#: dashboards/project/volumes/volumes/views.py:112
+#: dashboards/project/volumes/volumes/views.py:150
+#: dashboards/project/volumes/volumes/views.py:152
+#: dashboards/project/volumes/volumes/views.py:155
 msgid "Extend Volume"
 msgstr ""
 
 #: dashboards/project/volumes/templates/volumes/volumes/retype.html:3
 #: dashboards/project/volumes/volumes/tables.py:244
-#: dashboards/project/volumes/volumes/views.py:401
-#: dashboards/project/volumes/volumes/views.py:403
-#: dashboards/project/volumes/volumes/views.py:406
+#: dashboards/project/volumes/volumes/views.py:444
+#: dashboards/project/volumes/volumes/views.py:446
+#: dashboards/project/volumes/volumes/views.py:449
 msgid "Change Volume Type"
 msgstr ""
 
 #: dashboards/project/volumes/templates/volumes/volumes/show_transfer.html:3
-#: dashboards/project/volumes/volumes/views.py:259
+#: dashboards/project/volumes/volumes/views.py:302
 msgid "Volume Transfer Details"
 msgstr ""
 
 #: dashboards/project/volumes/templates/volumes/volumes/update.html:3
 #: dashboards/project/volumes/volumes/tables.py:232
-#: dashboards/project/volumes/volumes/views.py:290
-#: dashboards/project/volumes/volumes/views.py:295
+#: dashboards/project/volumes/volumes/views.py:333
+#: dashboards/project/volumes/volumes/views.py:338
 msgid "Edit Volume"
 msgstr ""
 
 #: dashboards/project/volumes/templates/volumes/volumes/upload_to_image.html:3
-#: dashboards/project/volumes/volumes/views.py:181
-#: dashboards/project/volumes/volumes/views.py:186
+#: dashboards/project/volumes/volumes/views.py:224
+#: dashboards/project/volumes/volumes/views.py:229
 msgid "Upload Volume to Image"
 msgstr ""
 
@@ -15854,177 +15911,177 @@ msgstr ""
 msgid "You are already using all of your available volumes."
 msgstr ""
 
-#: dashboards/project/volumes/volumes/forms.py:392
+#: dashboards/project/volumes/volumes/forms.py:395
 #, python-format
 msgid "Creating volume \"%s\""
 msgstr ""
 
-#: dashboards/project/volumes/volumes/forms.py:401
+#: dashboards/project/volumes/volumes/forms.py:404
 msgid "Unable to create volume."
 msgstr ""
 
-#: dashboards/project/volumes/volumes/forms.py:418
+#: dashboards/project/volumes/volumes/forms.py:421
 msgid "Attach to Instance"
 msgstr ""
 
-#: dashboards/project/volumes/volumes/forms.py:419
+#: dashboards/project/volumes/volumes/forms.py:422
 msgid "Select an instance to attach to."
 msgstr ""
 
-#: dashboards/project/volumes/volumes/forms.py:426
+#: dashboards/project/volumes/volumes/forms.py:429
 msgid ""
 "Actual device name may differ due to hypervisor settings. If not "
 "specified, then hypervisor will select a device name."
 msgstr ""
 
-#: dashboards/project/volumes/volumes/forms.py:465
+#: dashboards/project/volumes/volumes/forms.py:468
 msgid "Unknown instance (None)"
 msgstr ""
 
-#: dashboards/project/volumes/volumes/forms.py:475
+#: dashboards/project/volumes/volumes/forms.py:478
 #, python-format
 msgid "Attaching volume %(vol)s to instance %(inst)s on %(dev)s."
 msgstr ""
 
-#: dashboards/project/volumes/volumes/forms.py:484
+#: dashboards/project/volumes/volumes/forms.py:487
 msgid "Unable to attach volume."
-msgstr ""
-
-#: dashboards/project/volumes/volumes/forms.py:508
-#, python-format
-msgid "Creating volume snapshot \"%s\"."
 msgstr ""
 
 #: dashboards/project/volumes/volumes/forms.py:511
 #, python-format
+msgid "Creating volume snapshot \"%s\"."
+msgstr ""
+
+#: dashboards/project/volumes/volumes/forms.py:514
+#, python-format
 msgid "Forcing to create snapshot \"%s\" from attached volume."
 msgstr ""
 
-#: dashboards/project/volumes/volumes/forms.py:523
+#: dashboards/project/volumes/volumes/forms.py:526
 msgid "Unable to create volume snapshot."
 msgstr ""
 
-#: dashboards/project/volumes/volumes/forms.py:525
+#: dashboards/project/volumes/volumes/forms.py:528
 msgid "Requested snapshot would exceed the allowed quota."
 msgstr ""
 
-#: dashboards/project/volumes/volumes/forms.py:532
-#: dashboards/project/volumes/volumes/forms.py:578
+#: dashboards/project/volumes/volumes/forms.py:535
+#: dashboards/project/volumes/volumes/forms.py:581
 msgid "Transfer Name"
 msgstr ""
 
-#: dashboards/project/volumes/volumes/forms.py:541
+#: dashboards/project/volumes/volumes/forms.py:544
 #, python-format
 msgid "Created volume transfer: \"%s\"."
 msgstr ""
 
-#: dashboards/project/volumes/volumes/forms.py:543
+#: dashboards/project/volumes/volumes/forms.py:546
 msgid "Created volume transfer."
 msgstr ""
 
-#: dashboards/project/volumes/volumes/forms.py:551
+#: dashboards/project/volumes/volumes/forms.py:554
 msgid "Unable to create volume transfer."
 msgstr ""
 
-#: dashboards/project/volumes/volumes/forms.py:557
-#: dashboards/project/volumes/volumes/forms.py:582
+#: dashboards/project/volumes/volumes/forms.py:560
+#: dashboards/project/volumes/volumes/forms.py:585
 msgid "Transfer ID"
 msgstr ""
 
-#: dashboards/project/volumes/volumes/forms.py:558
-#: dashboards/project/volumes/volumes/forms.py:586
+#: dashboards/project/volumes/volumes/forms.py:561
+#: dashboards/project/volumes/volumes/forms.py:589
 msgid "Authorization Key"
 msgstr ""
 
-#: dashboards/project/volumes/volumes/forms.py:566
+#: dashboards/project/volumes/volumes/forms.py:569
 #, python-format
 msgid "Successfully accepted volume transfer: \"%s\""
 msgstr ""
 
-#: dashboards/project/volumes/volumes/forms.py:572
+#: dashboards/project/volumes/volumes/forms.py:575
 msgid "Unable to accept volume transfer."
 msgstr ""
 
-#: dashboards/project/volumes/volumes/forms.py:604
+#: dashboards/project/volumes/volumes/forms.py:607
 msgid "Specifies that the volume can be used to launch an instance"
 msgstr ""
 
-#: dashboards/project/volumes/volumes/forms.py:615
+#: dashboards/project/volumes/volumes/forms.py:618
 msgid "Unable to update volume."
 msgstr ""
 
-#: dashboards/project/volumes/volumes/forms.py:626
+#: dashboards/project/volumes/volumes/forms.py:629
 msgid "Unable to set bootable flag on volume."
 msgstr ""
 
-#: dashboards/project/volumes/volumes/forms.py:629
+#: dashboards/project/volumes/volumes/forms.py:632
 #, python-format
 msgid "Updating volume \"%s\""
 msgstr ""
 
-#: dashboards/project/volumes/volumes/forms.py:643
+#: dashboards/project/volumes/volumes/forms.py:646
 msgctxt "Force upload volume in in-use status to image"
 msgid "Force"
 msgstr ""
 
-#: dashboards/project/volumes/volumes/forms.py:678
+#: dashboards/project/volumes/volumes/forms.py:681
 #, python-format
 msgid "Successfully sent the request to upload volume to image for volume: \"%s\""
 msgstr ""
 
-#: dashboards/project/volumes/volumes/forms.py:686
+#: dashboards/project/volumes/volumes/forms.py:689
 #, python-format
 msgid "Unable to upload volume to image for volume: \"%s\""
 msgstr ""
 
-#: dashboards/project/volumes/volumes/forms.py:710
+#: dashboards/project/volumes/volumes/forms.py:713
 msgid "New size must be greater than current size."
 msgstr ""
 
-#: dashboards/project/volumes/volumes/forms.py:718
+#: dashboards/project/volumes/volumes/forms.py:721
 #, python-format
 msgid ""
 "Volume cannot be extended to %(req)iGB as you only have %(avail)iGB of "
 "your quota available."
 msgstr ""
 
-#: dashboards/project/volumes/volumes/forms.py:732
+#: dashboards/project/volumes/volumes/forms.py:735
 #, python-format
 msgid "Extending volume: \"%s\""
 msgstr ""
 
-#: dashboards/project/volumes/volumes/forms.py:738
+#: dashboards/project/volumes/volumes/forms.py:741
 msgid "Unable to extend volume."
 msgstr ""
 
-#: dashboards/project/volumes/volumes/forms.py:748
+#: dashboards/project/volumes/volumes/forms.py:751
 msgid "On Demand"
 msgstr ""
 
-#: dashboards/project/volumes/volumes/forms.py:749
+#: dashboards/project/volumes/volumes/forms.py:752
 msgid "Migration Policy"
 msgstr ""
 
-#: dashboards/project/volumes/volumes/forms.py:762
+#: dashboards/project/volumes/volumes/forms.py:765
 msgid "Unable to retrieve the volume type list."
 msgstr ""
 
-#: dashboards/project/volumes/volumes/forms.py:771
+#: dashboards/project/volumes/volumes/forms.py:774
 msgid "Select a new volume type"
 msgstr ""
 
-#: dashboards/project/volumes/volumes/forms.py:773
+#: dashboards/project/volumes/volumes/forms.py:776
 msgid "No other volume types available"
 msgstr ""
 
-#: dashboards/project/volumes/volumes/forms.py:785
+#: dashboards/project/volumes/volumes/forms.py:788
 #, python-format
 msgid ""
 "Successfully sent the request to change the volume type to \"%(vtype)s\" "
 "for volume: \"%(name)s\""
 msgstr ""
 
-#: dashboards/project/volumes/volumes/forms.py:795
+#: dashboards/project/volumes/volumes/forms.py:798
 #, python-format
 msgid "Unable to change the volume type for volume: \"%s\""
 msgstr ""
@@ -16087,7 +16144,7 @@ msgid "Unable to delete volume transfer."
 msgstr ""
 
 #: dashboards/project/volumes/volumes/tables.py:319
-#: dashboards/project/volumes/volumes/views.py:359
+#: dashboards/project/volumes/volumes/views.py:402
 msgid "Unable to retrieve attachment information."
 msgstr ""
 
@@ -16200,58 +16257,75 @@ msgstr ""
 msgid "Volume %(volume_name)s on instance %(instance_name)s"
 msgstr ""
 
-#: dashboards/project/volumes/volumes/views.py:46
+#: dashboards/project/volumes/volumes/views.py:50
 msgid "Volume Details: {{ volume.name }}"
 msgstr ""
 
-#: dashboards/project/volumes/volumes/views.py:94
+#: dashboards/project/volumes/volumes/views.py:98
 msgid "Create a Volume"
 msgstr ""
 
-#: dashboards/project/volumes/volumes/views.py:122
-#: dashboards/project/volumes/volumes/views.py:172
-#: dashboards/project/volumes/volumes/views.py:342
+#: dashboards/project/volumes/volumes/views.py:114
+msgid "Unable to retrieve volume type list."
+msgstr ""
+
+#: dashboards/project/volumes/volumes/views.py:127
+#, python-format
+msgid ""
+"If \"No volume type\" is selected, the default volume type \"%(name)s\" "
+"will be set for the created volume."
+msgstr ""
+
+#: dashboards/project/volumes/volumes/views.py:134
+msgid ""
+"If \"No volume type\" is selected, the volume will be created without a "
+"volume type."
+msgstr ""
+
+#: dashboards/project/volumes/volumes/views.py:165
+#: dashboards/project/volumes/volumes/views.py:215
+#: dashboards/project/volumes/volumes/views.py:385
 msgid "Unable to retrieve volume information."
 msgstr ""
 
-#: dashboards/project/volumes/volumes/views.py:152
+#: dashboards/project/volumes/volumes/views.py:195
 msgid "Create a Volume Snapshot"
 msgstr ""
 
-#: dashboards/project/volumes/volumes/views.py:163
+#: dashboards/project/volumes/volumes/views.py:206
 msgid ""
 "This volume is currently attached to an instance. In some cases, creating"
 " a snapshot from an attached volume can result in a corrupted snapshot."
 msgstr ""
 
-#: dashboards/project/volumes/volumes/views.py:194
-#: dashboards/project/volumes/volumes/views.py:414
+#: dashboards/project/volumes/volumes/views.py:237
+#: dashboards/project/volumes/volumes/views.py:457
 #, python-format
 msgid "Unable to retrieve volume information for volume: \"%s\""
 msgstr ""
 
-#: dashboards/project/volumes/volumes/views.py:226
+#: dashboards/project/volumes/volumes/views.py:269
 msgid "Create a Volume Transfer"
 msgstr ""
 
-#: dashboards/project/volumes/volumes/views.py:271
+#: dashboards/project/volumes/volumes/views.py:314
 msgid "Unable to retrieve volume transfer."
 msgstr ""
 
-#: dashboards/project/volumes/volumes/views.py:303
+#: dashboards/project/volumes/volumes/views.py:346
 msgid "Unable to retrieve volume."
 msgstr ""
 
-#: dashboards/project/volumes/volumes/views.py:440
+#: dashboards/project/volumes/volumes/views.py:483
 msgid "Volume Encryption Details: {{ volume.name }}"
 msgstr ""
 
-#: dashboards/project/volumes/volumes/views.py:447
+#: dashboards/project/volumes/volumes/views.py:490
 #, python-format
 msgid "Volume Encryption Details: %(volume_name)s"
 msgstr ""
 
-#: dashboards/project/volumes/volumes/views.py:462
+#: dashboards/project/volumes/volumes/views.py:505
 msgid "Unable to retrieve volume encryption details."
 msgstr ""
 

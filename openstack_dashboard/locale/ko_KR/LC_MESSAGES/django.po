@@ -12,9 +12,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-08-18 02:50+0000\n"
-"PO-Revision-Date: 2015-08-17 17:04+0000\n"
-"Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
+"POT-Creation-Date: 2015-08-20 06:20+0000\n"
+"PO-Revision-Date: 2015-08-20 06:31+0000\n"
+"Last-Translator: Ian Y. Choi <ianyrchoi@gmail.com>\n"
 "Language-Team: Korean (Korea) (http://www.transifex.com/openstack/horizon/"
 "language/ko_KR/)\n"
 "MIME-Version: 1.0\n"
@@ -5796,6 +5796,9 @@ msgstr "볼륨의 이름과 설명을 수정합니다."
 msgid "Modify the name and description of a snapshot."
 msgstr "스냅샷에 대한 이름과 설명을 수정합니다."
 
+msgid "Modify volume type name and description."
+msgstr "볼륨 유형 이름 및 설명 수정."
+
 msgid "Monitor"
 msgstr "모니터"
 
@@ -11375,6 +11378,9 @@ msgstr "볼륨 이전 상세 정보"
 msgid "Volume Type"
 msgstr "볼륨 타입"
 
+msgid "Volume Type Description:"
+msgstr "볼륨 유형 설명:"
+
 msgid "Volume Type Encryption Details"
 msgstr "볼륨 유형 암호화 세부 사항"
 
@@ -11472,9 +11478,6 @@ msgstr "볼륨 연결"
 
 msgid "Volumes Availability Zone"
 msgstr "볼륨 가용 존"
-
-msgid "Volumes are block devices that can be attached to instances."
-msgstr "볼륨은 인스턴스에 연결할 수 있는 블록 장치입니다."
 
 msgid "Volumes per node"
 msgstr "노드당 볼륨"

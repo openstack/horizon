@@ -9,9 +9,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-08-15 15:07+0000\n"
-"PO-Revision-Date: 2015-08-16 10:52+0000\n"
-"Last-Translator: Ian Y. Choi <ianyrchoi@gmail.com>\n"
+"POT-Creation-Date: 2015-08-20 06:20+0000\n"
+"PO-Revision-Date: 2015-08-19 14:35+0000\n"
+"Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Korean (Korea) (http://www.transifex.com/openstack/horizon/"
 "language/ko_KR/)\n"
 "MIME-Version: 1.0\n"
@@ -118,6 +118,9 @@ msgstr ""
 "메타데이터를 특정 구성 드라이브에 기록하고 싶은 경우 <b>드라이브 구성</b> 체"
 "크박스를 선택합니다. 인스턴스가 부팅될 때, 선택된 해당  <b>드라이브 구성</b>"
 "에 붙어 메타데이터를 액세스합니다."
+
+msgid "Click to see more details"
+msgstr "클릭하여 세부 사항 보기"
 
 msgid "Configuration"
 msgstr "구성"
@@ -365,6 +368,9 @@ msgstr "네트워크는 클라우드 내 인스턴스에 대한 통신 채널을
 msgid "No"
 msgstr "아니오"
 
+msgid "No available items"
+msgstr "사용 가능한 항목 없음"
+
 msgid "OK"
 msgstr "OK"
 
@@ -392,13 +398,6 @@ msgstr "프로젝트"
 msgid "Project ID"
 msgstr "프로젝트 ID"
 
-msgid ""
-"Project networks are created by users. These networks are fully isolated and "
-"are project-specific."
-msgstr ""
-"프로젝트 네트워크는 사용자에 의해 생성됩니다. 해당 네트워크는 완벽히 격리되"
-"어 있고 프로젝트 별로 관리됩니다."
-
 msgid "Protected"
 msgstr "보호됨"
 
@@ -407,13 +406,6 @@ msgstr "프로토콜"
 
 msgid "Provider Network"
 msgstr "공급자 네트워크"
-
-msgid ""
-"Provider networks are created by administrators. These networks map to an "
-"existing physical network in the data center."
-msgstr ""
-"프로바이더 네트워크는 관리자에 의해 생성됩니다. 해당 네트워크는 데이터 센터 "
-"내 현존하는 물리 네트워크와 매핑됩니다."
 
 msgid "Public"
 msgstr "공용"
@@ -426,6 +418,9 @@ msgstr "Queued"
 
 msgid "RAM"
 msgstr "RAM"
+
+msgid "Re-order items using drag and drop"
+msgstr "다시 주문할 아이템은 드래그 앤 드롭으로 가져옵니다."
 
 msgid "Remote"
 msgstr "원격"
@@ -473,6 +468,9 @@ msgstr "아래의 사용 가능한 키 페어 중 하나를 선택합니다."
 
 msgid "Select a source from those listed below."
 msgstr "해당 아래 목록으로부터 소스를 선택합니다."
+
+msgid "Select an item from Available items below"
+msgstr "아래의 사용 가능한 항목에서 항목을 선택"
 
 msgid "Select at least one network"
 msgstr "적어도 하나 이상 네트워크를 선택합니다."
@@ -577,13 +575,6 @@ msgstr ""
 
 msgid "The status indicates whether the network has an active connection."
 msgstr "해당 상태는 네트워크가 활성화된 연결을 이루고 있는지를 가리킵니다."
-
-msgid ""
-"The subnet identifies a sub-section of a network. A subnet is specified in "
-"CIDR format. A typical CIDR format looks like <samp>192.xxx.x.x/24</samp>."
-msgstr ""
-"서브넷은 네트워크의 서브 섹션을 식별합ㄴ디ㅏ. 서브넷은 CIDR 포맷으로 지정합니"
-"다. 일반적인 CIDR 포맷은 <samp>192.xxx.x.x/24</samp>와 같습니다."
 
 #, python-format
 msgid "The volume size must be at least %(minVolumeSize)s GB"

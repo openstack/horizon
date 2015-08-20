@@ -16,8 +16,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-08-18 02:50+0000\n"
-"PO-Revision-Date: 2015-08-17 17:04+0000\n"
+"POT-Creation-Date: 2015-08-20 06:20+0000\n"
+"PO-Revision-Date: 2015-08-19 07:05+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: German (http://www.transifex.com/openstack/horizon/language/"
 "de/)\n"
@@ -346,6 +346,12 @@ msgid ""
 msgstr ""
 "\"Anpassungsskript\" entspricht \"Benutzer Daten\" in anderen Systemen."
 
+msgid "\"N/A\""
+msgstr "\"N/V\""
+
+msgid "\"None\""
+msgstr "\"Kein\""
+
 msgid ""
 "\"None\" indicates that no QoS Spec is currently associated. Conversely, "
 "setting the QoS Spec to \"None\" will remove the current association."
@@ -353,6 +359,15 @@ msgstr ""
 "\"Keine\" gibt an, dass gegenwärtig keine QoS Spezifikationen zugewiesen "
 "sind. Im Gegenzug, das Setzen der QoS Spezifikationen auf \"keine\" entfernt "
 "die aktuellen Zuweisungen."
+
+msgid "\"Update Aggregate Metadata\""
+msgstr "\"Aggregatmetadaten aktualisieren\""
+
+msgid "\"Update Flavor Metadata\""
+msgstr "\"Variantenmetadaten aktualisieren\""
+
+msgid "\"Users\""
+msgstr "\"Benutzer\""
 
 #, python-format
 msgid "%(conf_name)s: %(conf_val)s"
@@ -2052,7 +2067,7 @@ msgid "Create Group"
 msgstr "Gruppe erstellen"
 
 msgid "Create Host Aggregate"
-msgstr "Erstelle Hostaggregat"
+msgstr "Hostaggregat erstellen"
 
 msgid ""
 "Create IKE Policy for current project.\n"
@@ -3273,6 +3288,9 @@ msgstr "Ziel"
 msgid "Destination CIDR"
 msgstr "Ziel-CIDR"
 
+msgid "Destination Host"
+msgstr "Zielhost"
+
 msgid "Destination IP"
 msgstr "Ziel-IP"
 
@@ -3626,7 +3644,7 @@ msgid "Edit Group"
 msgstr "Gruppe bearbeiten"
 
 msgid "Edit Host Aggregate"
-msgstr "Bearbeite Hostaggregat"
+msgstr "Hostaggregat bearbeiten"
 
 msgid "Edit IKE Policy"
 msgstr "IKE Richtlinie bearbeiten"
@@ -4604,6 +4622,9 @@ msgctxt "Force upload volume in in-use status to image"
 msgid "Force"
 msgstr "Erzwingen"
 
+msgid "Force Host Copy"
+msgstr "Hostkopie erzwingen"
+
 #, python-format
 msgid "Forcing to create snapshot \"%s\" from attached volume."
 msgstr "Erzwinge Die Schattenkopie \"%s\" vom zugewiesenem Datenträger."
@@ -4779,10 +4800,10 @@ msgid "Host ="
 msgstr "Host ="
 
 msgid "Host Aggregate Information"
-msgstr "Hostaggregat Informationen"
+msgstr "Hostaggregatsinformationen"
 
 msgid "Host Aggregates"
-msgstr "Host Aggregate"
+msgstr "Hostaggregate"
 
 msgid "Host Routes"
 msgstr "Host-Routen"
@@ -6253,7 +6274,7 @@ msgid "No Host selected."
 msgstr "Kein Host ausgewählt."
 
 msgid "No Hosts found."
-msgstr "Keine Hosts gefunden"
+msgstr "Keine Hosts gefunden."
 
 msgid "No Images Available"
 msgstr "Keine Abbilder verfügbar"
@@ -8377,6 +8398,9 @@ msgstr "Mit mir geteilt"
 
 msgid "Shell"
 msgstr "Shell"
+
+msgid "Shell Action"
+msgstr "Shell-Aktion"
 
 msgctxt "Current status of an Instance"
 msgid "Shelved"
@@ -11855,9 +11879,6 @@ msgstr "Zugewiesene Datenträger"
 
 msgid "Volumes Availability Zone"
 msgstr "Datenträger Verfügbarkeitszone"
-
-msgid "Volumes are block devices that can be attached to instances."
-msgstr "Datenträger sind Blockgeräte, die Instanzen zugewiesen werden können."
 
 msgid "Volumes per node"
 msgstr "Datenträger pro Knoten"

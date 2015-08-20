@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-08-13 06:14+0000\n"
+"POT-Creation-Date: 2015-08-20 06:38+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -461,6 +461,10 @@ msgstr ""
 
 #: static/horizon/js/horizon.users.js:18
 msgid "Passwords do not match."
+msgstr ""
+
+#: static/horizon/js/horizon.volumes.js:43
+msgid "No description available."
 msgstr ""
 
 #: static/horizon/js/angular/directives/serialConsole.js:23

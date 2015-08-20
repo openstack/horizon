@@ -4,6 +4,7 @@
 #
 # Translators:
 # Ainur Shakirov <ainur.shakirov.tt@gmail.com>, 2015
+# Alexander Vasiliev <avasiliev@asdco.ru>, 2015
 # Andreas Jaeger <jaegerandi@gmail.com>, 2015
 # Fedor Tarasenko <feodor.tarasenko@gmail.com>, 2015
 # Ilya Alekseyev <ilyaalekseyev@acm.org>, 2015
@@ -12,9 +13,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-08-04 04:10+0000\n"
-"PO-Revision-Date: 2015-08-03 15:40+0000\n"
-"Last-Translator: Ilya Shakhat <shakhat@gmail.com>\n"
+"POT-Creation-Date: 2015-08-20 06:20+0000\n"
+"PO-Revision-Date: 2015-08-19 13:42+0000\n"
+"Last-Translator: Alexander Vasiliev <avasiliev@asdco.ru>\n"
 "Language-Team: Russian (http://www.transifex.com/openstack/horizon/language/"
 "ru/)\n"
 "MIME-Version: 1.0\n"
@@ -103,6 +104,9 @@ msgstr "Не удалось расшифровать пароль"
 
 msgid "Could not read the file"
 msgstr "Не удалось прочитать файл"
+
+msgid "Current Usage"
+msgstr "Использовано на текущий момент"
 
 msgid "Custom"
 msgstr "Выборочный"
@@ -208,6 +212,9 @@ msgstr "Метаданные недоступны"
 msgid "No data available."
 msgstr "Нет данных."
 
+msgid "No description available."
+msgstr "Описание недоступно."
+
 msgid "No existing metadata"
 msgstr "Нет метаданных"
 
@@ -243,6 +250,9 @@ msgstr "Подтвердите свой выбор."
 
 msgid "Re-order items using drag and drop"
 msgstr "Переопределите элементы перемещением"
+
+msgid "Remaining"
+msgstr "Свободно"
 
 msgid "Remove"
 msgstr "Удалить"
@@ -297,6 +307,9 @@ msgstr "Обнаружена проблема при соединении с с�
 msgid "There was an error submitting the form. Please try again."
 msgstr "При отправке формы произошла ошибка. Повторите попытку."
 
+msgid "Total"
+msgstr "Всего"
+
 msgid "View Details"
 msgstr "Просмотреть детали"
 
@@ -332,3 +345,9 @@ msgstr ""
 #, python-format
 msgid "You have selected %s. "
 msgstr "Выбрано %s."
+
+msgid "m1.small"
+msgstr "m1.small"
+
+msgid "m1.tiny"
+msgstr "m1.tiny"
