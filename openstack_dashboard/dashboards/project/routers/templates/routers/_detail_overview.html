@@ -9,9 +9,9 @@
     <dt>{% trans "Project ID" %}</dt>
     <dd>{{ router.tenant_id }}</dd>
     <dt>{% trans "Status" %}</dt>
-    <dd>{{ router.status|capfirst }}</dd>
+    <dd>{{ router.status_label|capfirst }}</dd>
     <dt>{% trans "Admin State" %}</dt>
-    <dd>{{ router.admin_state|default:_("Unknown") }}</dd>
+    <dd>{{ router.admin_state_label|default:_("Unknown") }}</dd>
     {% if dvr_supported %}
       <dt>{% trans "Distributed" %}</dt>
       <dd>{{ router.distributed|yesno|capfirst }}</dd>
