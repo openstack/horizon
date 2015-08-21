@@ -403,8 +403,8 @@ def data(TEST):
     TEST.quotas.add(base.QuotaSet(quota))
 
     # nova quotas disabled when neutron is enabled
-    disabled_quotas_nova = ['floating_ips', 'fixed_ips',
-                            'security_groups', 'security_group_rules']
+    disabled_quotas_nova = {'floating_ips', 'fixed_ips',
+                            'security_groups', 'security_group_rules'}
     TEST.disabled_quotas.add(disabled_quotas_nova)
 
     # Quota Usages

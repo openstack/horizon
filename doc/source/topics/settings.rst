@@ -781,6 +781,7 @@ Default::
         'can_set_mount_point': False,
         'can_set_password': False,
         'requires_keypair': False,
+        'enable_quotas': True
     }
 
 A dictionary containing settings which can be used to identify the
@@ -797,6 +798,9 @@ an administrator password when launching or rebuilding an instance.
 Setting ``requires_keypair`` to ``True`` will require users to select
 a key pair when launching an instance.
 
+Setting ``enable_quotas`` to ``False`` will make Horizon treat all Nova
+quotas as disabled, thus it won't try to modify them. By default, quotas are
+enabled.
 
 ``OPENSTACK_IMAGE_BACKEND``
 ---------------------------
