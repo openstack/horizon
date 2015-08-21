@@ -40,22 +40,6 @@
     ctrl.createKeyPair = createKeyPair;
     ctrl.importKeyPair = importKeyPair;
 
-    ctrl.label = {
-      title: gettext('Key Pair'),
-      /*eslint-disable max-len */
-      subtitle: gettext('A key pair allows you to SSH into your newly created instance. You may select an existing key pair, import a key pair, or generate a new key pair.'),
-      /*eslint-enable max-len */
-      name: gettext('Name'),
-      description: gettext('Description'),
-      createKeyPair: gettext('Create Key Pair'),
-      importKeyPair: gettext('Import Key Pair')
-    };
-
-    ctrl.tableLabels = {
-      fingerprint: gettext('Fingerprint'),
-      public_key: gettext('Public Key')
-    };
-
     ctrl.tableData = {
       available: launchInstanceModel.keypairs,
       allocated: launchInstanceModel.newInstanceSpec.key_pair,
@@ -64,10 +48,6 @@
     };
 
     ctrl.tableDetails = basePath + 'keypair/keypair-details.html';
-
-    ctrl.tableHelp = {
-      noneAllocText: gettext('Select a key pair from the available key pairs below.')
-    };
 
     ctrl.tableLimits = {
       maxAllocation: 1

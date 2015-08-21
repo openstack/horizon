@@ -38,19 +38,6 @@
 
     ctrl.submit = submit;
     ctrl.cancel = cancel;
-
-    ctrl.labels = {
-      wizardTitle: gettext('Launch Instance'),
-      title: gettext('Create Key Pair'),
-      /*eslint-disable max-len */
-      help: gettext('Key Pairs are how you login to your instance after it is launched. Choose a key pair name you will recognize.'),
-      /*eslint-enable max-len */
-      keyPairName: gettext('Key Pair Name'),
-      cancel: gettext('Cancel'),
-      ok: gettext('Create Key Pair'),
-      required: gettext('Required')
-    };
-
     ctrl.model = { name: '' };
 
     //////////

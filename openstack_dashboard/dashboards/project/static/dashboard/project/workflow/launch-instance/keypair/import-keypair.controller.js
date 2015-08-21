@@ -24,7 +24,8 @@
   LaunchInstanceImportKeyPairController.$inject = [
     '$modalInstance',
     'horizon.app.core.openstack-service-api.nova',
-    'horizon.framework.widgets.toast.service'
+    'horizon.framework.widgets.toast.service',
+    'horizon.dashboard.project.workflow.launch-instance.basePath'
   ];
 
   /**
@@ -33,26 +34,13 @@
    * @description
    * Provide a dialog for import of an existing ssh public key.
    */
-  function LaunchInstanceImportKeyPairController($modalInstance, novaAPI, toastService) {
+  function LaunchInstanceImportKeyPairController($modalInstance, novaAPI, toastService, basePath) {
     var ctrl = this;
 
     ctrl.submit = submit;
     ctrl.cancel = cancel;
-
-    ctrl.labels = {
-      wizardTitle: gettext('Launch Instance'),
-      title: gettext('Import Key Pair'),
-      /*eslint-disable max-len */
-      help: gettext('Key Pairs are how you login to your instance after it is launched. Choose a key pair name you will recognize and paste your SSH public key into the space provided.'),
-      /*eslint-enable max-len */
-      keyPairName: gettext('Key Pair Name'),
-      publicKey: gettext('Public Key'),
-      cancel: gettext('Cancel'),
-      ok: gettext('Import Key Pair'),
-      required: gettext('Required')
-    };
-
     ctrl.model = { name: '', public_key: '' };
+    ctrl.path = basePath + 'keypair/';
 
     //////////
 

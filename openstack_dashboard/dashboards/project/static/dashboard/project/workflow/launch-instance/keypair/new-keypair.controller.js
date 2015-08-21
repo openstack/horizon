@@ -34,18 +34,6 @@
     var ctrl = this;
 
     ctrl.ok = ok;
-
-    ctrl.labels = {
-      wizardTitle: gettext('Launch Instance'),
-      title: gettext('Private Key'),
-      help: gettext('This is your new key pair. Copy this information and keep it secure.'),
-      keyPairName: gettext('Key Pair Name'),
-      fingerprint: gettext('Fingerprint'),
-      privateKey: gettext('Private Key'),
-      publicKey: gettext('Public Key'),
-      ok: gettext('OK')
-    };
-
     ctrl.keypair = keypair;
 
     //////////
