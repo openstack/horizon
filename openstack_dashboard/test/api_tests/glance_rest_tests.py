@@ -341,3 +341,28 @@ class ImagesRestTestCase(test.TestCase):
         gc.metadefs_namespace_full_list.assert_called_once_with(
             request, filters=filters, **kwargs
         )
+
+    @mock.patch.object(glance.api, 'glance')
+    def test_resource_types_get_list(self, gc):
+        request = self.mock_rest_request(**{'GET': {}})
+        gc.metadefs_resource_types_list.return_value = ([
+            {"created_at": "2015-08-21T16:49:43Z",
+             "name": "OS::Glance::Image",
+             "updated_at": "2015-08-21T16:49:43Z"},
+            {"created_at": "2015-08-21T16:49:43Z",
+             "name": "OS::Cinder::Volume",
+             "updated_at": "2015-08-21T16:49:43Z"}
+        ])
+
+        response = glance.MetadefsResourceTypesList().get(request)
+        self.assertStatusCode(response, 200)
+        self.assertEqual(response.json, {"items": [
+            {"created_at": "2015-08-21T16:49:43Z",
+             "name": "OS::Glance::Image",
+             "updated_at": "2015-08-21T16:49:43Z"},
+            {"created_at": "2015-08-21T16:49:43Z",
+             "name": "OS::Cinder::Volume",
+             "updated_at": "2015-08-21T16:49:43Z"}
+        ]})
+
+        gc.metadefs_resource_types_list.assert_called_once_with(request)
