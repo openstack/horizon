@@ -116,7 +116,7 @@
           </tr>
         </thead>
         <tbody>
-          <tr ng-if="trCtrl.numDisplayedAvailable() === 0">
+          <tr ng-if="trCtrl.numAvailable() === 0">
             <td colspan="8">
               <div class="no-rows-help" translate>
                 No available items
@@ -138,7 +138,7 @@
             <td class="rsp-p1">{$ row.status | decode:ctrl.networkStatuses $}</td>
             <td class="action-col">
               <action-list button-tooltip="row.warningMessage"
-                bt-model="trCtrl.tooltipModel" bt-disabled="!row.disabled"
+                bt-model="ctrl.tooltipModel" bt-disabled="!row.disabled"
                 warning-classes="'invalid'">
                 <notifications>
                   <span class="fa fa-exclamation-circle invalid" ng-show="row.disabled"></span>
