@@ -105,6 +105,7 @@ TEMPLATE_LOADERS = (
 )
 
 STATIC_URL = '/static/'
+WEBROOT = '/'
 
 MESSAGE_STORAGE = 'django.contrib.messages.storage.cookie.CookieStorage'
 

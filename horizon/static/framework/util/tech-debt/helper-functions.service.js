@@ -25,8 +25,7 @@
     var service = {
       capitalize: capitalize,
       humanizeNumbers: humanizeNumbers,
-      truncate: truncate,
-      loadAngular: loadAngular
+      truncate: truncate
     };
 
     return service;
@@ -66,13 +65,6 @@
       }
 
       return string;
-    }
-
-    function loadAngular(element) {
-      try {
-        $compile(element)($rootScope);
-        $rootScope.$apply();
-      } catch (err) {}
     }
   }
 

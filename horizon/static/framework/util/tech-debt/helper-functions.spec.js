@@ -75,26 +75,5 @@
           toBe(ellipsis);
       });
     });
-
-    describe('loadAngular', function () {
-      var rootScope, element;
-
-      beforeEach(function () {
-        element = angular.element('<div>');
-
-        angular.mock.inject(function ($injector) {
-          rootScope = $injector.get('$rootScope');
-        });
-        spyOn(rootScope, '$apply');
-      });
-
-      it('should call a compile and apply ', function () {
-        hzUtils.loadAngular(element);
-        //checks the use of apply function
-        expect(rootScope.$apply).toHaveBeenCalled();
-        //checks the use of compile function
-        expect(element.hasClass('ng-scope')).toBeTruthy();
-      });
-    });
   });
 })();
