@@ -8,9 +8,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-08-04 04:10+0000\n"
-"PO-Revision-Date: 2015-07-22 10:49+0000\n"
-"Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
+"POT-Creation-Date: 2015-08-21 01:46+0000\n"
+"PO-Revision-Date: 2015-08-21 04:57+0000\n"
+"Last-Translator: Zbyněk Schwarz <zbynek.schwarz@gmail.com>\n"
 "Language-Team: Czech (http://www.transifex.com/openstack/horizon/language/"
 "cs/)\n"
 "MIME-Version: 1.0\n"
@@ -19,6 +19,22 @@ msgstr ""
 "Generated-By: Babel 2.0\n"
 "Language: cs\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
+
+#, python-format
+msgid ""
+"\n"
+"        Used <span> %(used)s </span>(No Limit)"
+msgstr ""
+"\n"
+"        Využito <span> %(used)s </span>(Bez limitu)"
+
+#, python-format
+msgid ""
+"\n"
+"        Used <span> %(used)s </span>of<span> %(available)s </span>"
+msgstr ""
+"\n"
+"        Využito <span> %(used)s </span>z<span> %(available)s </span>"
 
 #, python-format
 msgid ""
@@ -346,9 +362,6 @@ msgstr "Aktualizováno"
 msgid "Usage Summary"
 msgstr "Souhrn využití"
 
-msgid "Used"
-msgstr "Využito"
-
 msgid "Warning: "
 msgstr "Varování:"
 
@@ -362,6 +375,3 @@ msgstr "Nemá oprávnění k přístupu %s"
 
 msgid "You do not have permission to access the resource:"
 msgstr "Nemáte oprávnění k přístupu do zdroje:"
-
-msgid "of"
-msgstr "z"

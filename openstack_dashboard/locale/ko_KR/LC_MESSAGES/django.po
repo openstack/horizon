@@ -12,9 +12,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-08-20 06:20+0000\n"
-"PO-Revision-Date: 2015-08-20 06:31+0000\n"
-"Last-Translator: Ian Y. Choi <ianyrchoi@gmail.com>\n"
+"POT-Creation-Date: 2015-08-21 01:46+0000\n"
+"PO-Revision-Date: 2015-08-20 12:19+0000\n"
+"Last-Translator: Sungjin Kang <potopro@gmail.com>\n"
 "Language-Team: Korean (Korea) (http://www.transifex.com/openstack/horizon/"
 "language/ko_KR/)\n"
 "MIME-Version: 1.0\n"
@@ -346,6 +346,9 @@ msgid ""
 msgstr ""
 "\"None\" 표시는 QoS 사양에 현재 관련되지 않았음을 나타냅니다. 반대로 QoS 스펙"
 "을 설정하면 \"None\"을 현재 연결에서 제거합니다."
+
+msgid "\"Update Aggregate Metadata\""
+msgstr "\"집합 메타데이터 업데이트\""
 
 #, python-format
 msgid "%(conf_name)s: %(conf_val)s"
@@ -4382,6 +4385,11 @@ msgid "For Object Store job binaries, you must:"
 msgstr "오브젝트 저장소 job 바이너리의 경우, 다음을 해야합니다:"
 
 msgid ""
+"For Spark and Shell jobs, only a main is required, \"libs\" are optional."
+msgstr ""
+"Spark와 쉘 job의 경우, \"main\"은 꼭 필요하고 \"libs\"는 선택사항입니다."
+
+msgid ""
 "For TCP and UDP rules you may choose to open either a single port or a range "
 "of ports. Selecting the \"Port Range\" option will provide you with space to "
 "provide both the starting and ending ports for the range. For ICMP rules you "
@@ -8113,6 +8121,9 @@ msgstr "나에게 공유됨"
 msgid "Shell"
 msgstr "쉘"
 
+msgid "Shell Action"
+msgstr "쉘 실행"
+
 msgctxt "Current status of an Instance"
 msgid "Shelved"
 msgstr "Shelved"
@@ -8656,7 +8667,7 @@ msgstr "QoS 스펙 업데이를 완료했습니다."
 
 #, python-format
 msgid "Successfully updated aggregate: \"%s.\""
-msgstr "집계 업데이트를 성공하였습니다: \"%s.\""
+msgstr "집합 업데이트를 성공하였습니다: \"%s.\""
 
 msgid "Successfully updated container access to private."
 msgstr "비공개로 컨테이너 접근 방식을 업데이트했습니다."
@@ -8883,7 +8894,7 @@ msgstr ""
 "LuksEncryptor)."
 
 msgid "The Aggregate was updated."
-msgstr "집계를 업데이트 하였습니다."
+msgstr "집합을 업데이트 하였습니다."
 
 msgid ""
 "The Authorization Key will not be available after closing this page, so you "
@@ -10113,7 +10124,7 @@ msgid "Unable to retrieve availability zones."
 msgstr "가용성 존에 대한 정보를 찾지 못 했습니다."
 
 msgid "Unable to retrieve available metadata for aggregate."
-msgstr "집계에서 사용 가능한 메타데이터를 찾지 못했습니다."
+msgstr "집합에서 사용 가능한 메타데이터를 찾지 못했습니다."
 
 msgid "Unable to retrieve available metadata for flavors."
 msgstr "Flavor의 사용 가능한 메티데이터를 찾지 못했습니다"
@@ -10566,10 +10577,10 @@ msgid "Unable to retrieve tenant limits."
 msgstr "Tenant 제한을 찾지 못 했습니다."
 
 msgid "Unable to retrieve the aggregate to be updated"
-msgstr "업데이트된 집계를 찾지 못했습니다."
+msgstr "업데이트된 집합을 찾지 못했습니다."
 
 msgid "Unable to retrieve the aggregate to be updated."
-msgstr "업데이트한 집계를 찾지 못했습니다."
+msgstr "업데이트한 집합을 찾지 못했습니다."
 
 msgid "Unable to retrieve the flavor metadata."
 msgstr "Flavor 메타데이터를 찾지 못했습니다."
@@ -10742,10 +10753,10 @@ msgid "Unable to update subnet \"%s\"."
 msgstr "서브넷 \"%s\"를 업데이트 할 수 없습니다."
 
 msgid "Unable to update the aggregate metadata."
-msgstr "집계 메타데이터를 업데이트 하지 못했습니다."
+msgstr "집합 메타데이터를 업데이트 하지 못했습니다."
 
 msgid "Unable to update the aggregate."
-msgstr "집계를 업데이트할 수 없습니다."
+msgstr "집합을 업데이트할 수 없습니다."
 
 msgid "Unable to update the flavor metadata."
 msgstr "Flavor 메타데이터를 업데이트하지 못했습니다."
@@ -10860,7 +10871,7 @@ msgid "Update"
 msgstr "업데이트"
 
 msgid "Update Aggregate Metadata"
-msgstr "집계 메타데이터 업데이트"
+msgstr "집합 메타데이터 업데이트"
 
 msgid "Update Associations"
 msgstr "연관 업데이트"

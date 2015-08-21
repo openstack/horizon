@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-08-04 04:10+0000\n"
-"PO-Revision-Date: 2015-06-22 19:25+0000\n"
+"POT-Creation-Date: 2015-08-21 01:46+0000\n"
+"PO-Revision-Date: 2015-08-20 19:14+0000\n"
 "Last-Translator: Ettore Atalan <atalanttore@googlemail.com>\n"
 "Language-Team: German (http://www.transifex.com/openstack/horizon/language/"
 "de/)\n"
@@ -20,6 +20,22 @@ msgstr ""
 "Generated-By: Babel 2.0\n"
 "Language: de\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#, python-format
+msgid ""
+"\n"
+"        Used <span> %(used)s </span>(No Limit)"
+msgstr ""
+"\n"
+"        <span> %(used)s </span>benutzt (Keine Begrenzung)"
+
+#, python-format
+msgid ""
+"\n"
+"        Used <span> %(used)s </span>of<span> %(available)s </span>"
+msgstr ""
+"\n"
+"        <span> %(used)s </span>von<span> %(available)s </span> benutzt"
 
 #, python-format
 msgid ""
@@ -353,9 +369,6 @@ msgstr "Aktualisiert"
 msgid "Usage Summary"
 msgstr "Nutzungsübersicht"
 
-msgid "Used"
-msgstr "Benutzt"
-
 msgid "Warning: "
 msgstr "Warnung:"
 
@@ -369,6 +382,3 @@ msgstr "Sie sind nicht berechtigt für den Zugriff auf %s"
 
 msgid "You do not have permission to access the resource:"
 msgstr "Sie haben keine Zugriffsrechte auf die Ressource:"
-
-msgid "of"
-msgstr "von"

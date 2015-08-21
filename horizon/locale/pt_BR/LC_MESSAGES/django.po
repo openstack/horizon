@@ -12,8 +12,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-08-04 04:10+0000\n"
-"PO-Revision-Date: 2015-07-06 06:58+0000\n"
+"POT-Creation-Date: 2015-08-21 01:46+0000\n"
+"PO-Revision-Date: 2015-08-20 17:13+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Portuguese (Brazil) (http://www.transifex.com/openstack/"
 "horizon/language/pt_BR/)\n"
@@ -356,9 +356,6 @@ msgstr "Atualizado"
 msgid "Usage Summary"
 msgstr "Resumo de Utilização"
 
-msgid "Used"
-msgstr "Utilizado"
-
 msgid "Warning: "
 msgstr "Alerta:"
 
@@ -372,6 +369,3 @@ msgstr "Você não está autorizado a acessar %s"
 
 msgid "You do not have permission to access the resource:"
 msgstr "Você não tem permissão para acessar o recurso:"
-
-msgid "of"
-msgstr "de"
