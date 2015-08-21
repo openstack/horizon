@@ -55,7 +55,7 @@
     function modal(params) {
       if (params && params.title && params.body) {
         var options = {
-          controller: 'SimpleModalController',
+          controller: 'SimpleModalController as modalCtrl',
           templateUrl: path + 'modal/simple-modal.html',
           resolve: {
             context: function() {
