@@ -154,8 +154,7 @@ class AddVipAction(workflows.Action):
     subnet_id = forms.ChoiceField(label=_("VIP Subnet"),
                                   initial="",
                                   required=False)
-    address = forms.IPField(label=_("Specify a free IP address "
-                                    "from the selected subnet"),
+    address = forms.IPField(label=_("IP address"),
                             version=forms.IPv4,
                             mask=False,
                             required=False)
@@ -228,12 +227,7 @@ class AddVipAction(workflows.Action):
     class Meta(object):
         name = _("Specify VIP")
         permissions = ('openstack.services.network',)
-        help_text = _("Create a VIP for this pool. "
-                      "Assign a name, description, IP address, port, "
-                      "and maximum connections allowed for the VIP. "
-                      "Choose the protocol and session persistence "
-                      "method for the VIP. "
-                      "Admin State is UP (checked) by default.")
+        help_text_template = 'project/loadbalancers/_create_vip_help.html'
 
 
 class AddVipStep(workflows.Step):
