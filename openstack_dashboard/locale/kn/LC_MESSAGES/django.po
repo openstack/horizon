@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-08-20 06:20+0000\n"
-"PO-Revision-Date: 2015-08-19 12:18+0000\n"
+"POT-Creation-Date: 2015-08-21 01:46+0000\n"
+"PO-Revision-Date: 2015-08-20 11:59+0000\n"
 "Last-Translator: KARTHIK SURESH HANASOGE <kali.karthik@gmail.com>\n"
 "Language-Team: Kannada (http://www.transifex.com/openstack/horizon/language/"
 "kn/)\n"
@@ -2004,6 +2004,10 @@ msgstr "ಪೂರ್ವನಿಯೋಜಿತಗಳು"
 msgid "Delay"
 msgstr "ವಿಳಂಬ"
 
+msgid "Delete Volume"
+msgid_plural "Delete Volumes"
+msgstr[0] "ಪರಿಮಾಣಗಳನ್ನು  ಅಳಿಸಿ "
+
 msgid "Delete on Terminate"
 msgstr "ಕೊನೆಗೊಂಡಾಗ ಅಳಿಸು"
 
@@ -3644,6 +3648,22 @@ msgstr ""
 "ಇದರ ಜೊತೆಗೆ, ಸೂಕ್ತವಾದ ಗುರುತುಚೌಕದಲ್ಲಿ ಗುರುತುಹಾಕುವ ಮೂಲಕ ನೀವು ಒಂದು ಹೊರಗಿನ "
 "ಜಾಲಬಂಧವನ್ನು ಅಥವ ಒಂದು ಹಂಚಲಾದ ಜಾಲಬಂಧವನ್ನು ರಚಿಸಬಹುದು."
 
+msgctxt "Current status of a Volume"
+msgid "In-use"
+msgstr "ಬಳಕೆಯಲ್ಲಿದೆ "
+
+msgctxt "Current status of a Firewall"
+msgid "Inactive"
+msgstr "ನಿಷ್ಕ್ರಿಯ"
+
+msgctxt "Current status of a Pool"
+msgid "Inactive"
+msgstr "ನಿಷ್ಕ್ರಿಯ"
+
+msgctxt "Current status of a VPN Service"
+msgid "Inactive"
+msgstr "ನಿಷ್ಕ್ರಿಯ"
+
 msgid "Incremental"
 msgstr "ಏರಿಕೆಯ"
 
@@ -4188,6 +4208,9 @@ msgstr "ಅಂಗ(ಗಳು)"
 
 msgid "Members"
 msgstr "ಅಂಗಗಳು"
+
+msgid "Memory MB Hours"
+msgstr "ಮೆಮೋರಿ MB ಗಂಟೆಗಲು"
 
 msgid "Memory Usage"
 msgstr "ಮೆಮೊರಿಯ ಬಳಕೆ"
@@ -5964,8 +5987,14 @@ msgstr "ಗಾತ್ರ"
 msgid "Size (GB)"
 msgstr "ಗಾತ್ರ (GB)"
 
+msgid "Size of ephemeral disk"
+msgstr "ಎಪಿಫ್ರೆಮಲ್  ಡಿಸ್ಕ್ ಅಳತೆ "
+
 msgid "Size of image to launch."
 msgstr "ಆರಂಭಿಸಬೇಕಿರುವ ಚಿತ್ರಿಕೆಯ ಗಾತ್ರ."
+
+msgid "Size of root disk"
+msgstr "ರೂಟ್ ಡಿಸ್ಕ್ ಅಳತೆ "
 
 msgid "Size of the volume in GB."
 msgstr "GB ಯಲ್ಲಿನ ಪರಿಮಾಣದ ಗಾತ್ರ."
@@ -6594,6 +6623,9 @@ msgstr ""
 msgid "The container cannot be deleted since it is not empty."
 msgstr "ಕಂಟೇನರ್‌ ಖಾಲಿ ಇರದ ಕಾರಣದಿಂದಾಗಿ ಅದನ್ನು ಅಳಿಸಲು ಸಾಧ್ಯವಾಗಿಲ್ಲ."
 
+msgid "The dates haven't been recognized"
+msgstr "ದಿನಾಂಕಗಳನ್ನು ಗುರುತಿಸಲಾಗಿಲ್ಲ."
+
 msgid ""
 "The default IP address of the interface created is a gateway of the selected "
 "subnet. You can specify another IP address of the interface here. You must "
@@ -6713,6 +6745,9 @@ msgstr "ಜಾಲಬಂಧವನ್ನು ಆರಂಭಿಸಬೇಕಿರು�
 #, python-format
 msgid "The subnet in the Network Address is too small (/%s)."
 msgstr "ಜಾಲಬಂಧ ವಿಳಾಸದಲ್ಲಿನ ಸಬ್‌ನೆಟ್ ಬಹಳ ಚಿಕ್ಕದಾಗಿದೆ (/%s)."
+
+msgid "The time delta must be a number representing the time span in days"
+msgstr "ಸಮಯವು ದಿನಗಳ ಅಳತೆಯಲ್ಲಿರಬೇಕು "
 
 #, python-format
 msgid "The volume size cannot be less than the image minimum disk size (%sGB)"
@@ -6855,6 +6890,9 @@ msgstr "ಪರಿಮಾಣಗಳು ಮತ್ತು ಸ್ನ್ಯಾಪ್‌�
 
 msgid "Total disk usage (GB * Hours Used) for the project"
 msgstr "ಪರಿಯೋಜನೆಗಾಗಿ ಒಟ್ಟು ಡಿಸ್ಕ್‌ ಬಳಕೆ (GB * ಗಂಟೆಗಳನ್ನು ಬಳಸಲಾಗಿದೆ)"
+
+msgid "Total memory usage (MB * Hours Used) for the project"
+msgstr "ಪರಿಯೋಜನೆಗಾಗಿ ಒಟ್ಟು ಮೆಮೋರಿ ಬಳಕೆ (GB * ಗಂಟೆಗಳನ್ನು ಬಳಸಲಾಗಿದೆ)"
 
 msgid "Total size of stored objects"
 msgstr "ಶೇಖರಿಸಲಾದ ವಸ್ತುಗಳ ಒಟ್ಟು ಗಾತ್ರ"
@@ -8495,6 +8533,9 @@ msgstr "ಪರಿಮಾಣಗಳು ಸ್ನ್ಯಾಪ್‌ಶಾಟ್‌�
 msgid "Volume Source"
 msgstr "ಪರಿಮಾಣದ ಮೂಲ"
 
+msgid "Volume Storage"
+msgstr "ಪರಿಮಾಣದ  ಅಳತೆ "
+
 msgid "Volume Type Encryption Details"
 msgstr "ಪರಿಮಾಣದ ಬಗೆಯ ಗೂಢಲಿಪೀಕರಣದ ವಿವರಗಳು"
 
@@ -8532,6 +8573,9 @@ msgid ""
 msgstr ""
 "ಪರಿಮಾಣದ ಮೌಂಟ್ ಸ್ಥಳಗಳು (ಉದಾ. 'vda' ಯು '/dev/vda' ರಲ್ಲಿ ಮೌಂಟ್ ಆಗುತ್ತದೆ). ನಿಮಗಾಗಿ "
 "ವ್ಯವಸ್ಥೆಯು ಒಂದು ಸಾಧನದ ಹೆಸರನ್ನು ಆಯ್ಕೆ ಮಾಡಲು ಈ ಸ್ಥಳವನ್ನು ಖಾಲಿಬಿಡಿ."
+
+msgid "Volume of RAM"
+msgstr "RAM ಪರಿಮಾಣ"
 
 msgid "Volume of RAM used"
 msgstr "RAM ಬಳಕೆ"

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-07-29 06:23+0000\n"
+"POT-Creation-Date: 2015-08-21 06:04+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 2.0\n"
 
-#: base.py:478
+#: base.py:490
 msgid "Other"
 msgstr ""
 
@@ -91,50 +91,50 @@ msgstr ""
 msgid "Filter"
 msgstr ""
 
-#: tables/actions.py:644
+#: tables/actions.py:654
 msgid "This action cannot be undone."
 msgstr ""
 
-#: tables/actions.py:766
+#: tables/actions.py:776
 #, python-format
 msgctxt "past"
 msgid "%(action)s %(data_type)s"
 msgstr ""
 
-#: tables/actions.py:768
+#: tables/actions.py:778
 #, python-format
 msgctxt "present"
 msgid "%(action)s %(data_type)s"
 msgstr ""
 
-#: tables/actions.py:831
+#: tables/actions.py:841
 #, python-format
 msgid "You are not allowed to %(action)s: %(objs)s"
 msgstr ""
 
-#: tables/actions.py:838
+#: tables/actions.py:848
 #, python-format
 msgid "Unable to %(action)s: %(objs)s"
 msgstr ""
 
-#: tables/actions.py:844
+#: tables/actions.py:854
 #, python-format
 msgid "%(action)s: %(objs)s"
 msgstr ""
 
-#: tables/actions.py:914
+#: tables/actions.py:924
 msgid "Delete"
 msgstr ""
 
-#: tables/actions.py:916
+#: tables/actions.py:926
 msgid "Deleted"
 msgstr ""
 
-#: tables/actions.py:947
+#: tables/actions.py:957
 msgid "Update"
 msgstr ""
 
-#: tables/actions.py:948
+#: tables/actions.py:958
 msgid "Updated"
 msgstr ""
 
@@ -151,21 +151,21 @@ msgstr ""
 msgid "No items to display."
 msgstr ""
 
-#: tables/base.py:1100
+#: tables/base.py:1103
 #: templates/horizon/common/_data_table_table_actions.html:47
 msgid "Actions"
 msgstr ""
 
-#: tables/base.py:1330
+#: tables/base.py:1333
 #, python-format
 msgid "No match returned for the id \"%s\"."
 msgstr ""
 
-#: tables/base.py:1488
+#: tables/base.py:1491
 msgid "Please select a row before taking that action."
 msgstr ""
 
-#: tables/base.py:1572
+#: tables/base.py:1575
 msgid "N/A"
 msgstr ""
 
@@ -261,16 +261,18 @@ msgstr ""
 msgid "Limit Summary"
 msgstr ""
 
-#: templates/horizon/common/_limit_summary.html:9
-msgid "Used"
+#: templates/horizon/common/_limit_summary.html:11
+#, python-format
+msgid ""
+"\n"
+"        Used <span> %(used)s </span>of<span> %(available)s </span>"
 msgstr ""
 
-#: templates/horizon/common/_limit_summary.html:12
-msgid "of"
-msgstr ""
-
-#: templates/horizon/common/_limit_summary.html:14 templatetags/horizon.py:137
-msgid "(No Limit)"
+#: templates/horizon/common/_limit_summary.html:14
+#, python-format
+msgid ""
+"\n"
+"        Used <span> %(used)s </span>(No Limit)"
 msgstr ""
 
 #: templates/horizon/common/_modal_form_update_metadata.html:24
@@ -348,6 +350,10 @@ msgstr ""
 
 #: templatetags/branding.py:34
 msgid "Horizon"
+msgstr ""
+
+#: templatetags/horizon.py:137
+msgid "(No Limit)"
 msgstr ""
 
 #: templatetags/horizon.py:140 templatetags/horizon.py:142
