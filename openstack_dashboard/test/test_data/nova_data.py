@@ -27,6 +27,7 @@ from novaclient.v2 import keypairs
 from novaclient.v2 import quotas
 from novaclient.v2 import security_group_rules as rules
 from novaclient.v2 import security_groups as sec_groups
+from novaclient.v2 import server_groups
 from novaclient.v2 import servers
 from novaclient.v2 import services
 from novaclient.v2 import usage
@@ -179,6 +180,7 @@ def data(TEST):
     TEST.services = utils.TestDataContainer()
     TEST.aggregates = utils.TestDataContainer()
     TEST.hosts = utils.TestDataContainer()
+    TEST.server_groups = utils.TestDataContainer()
 
     # Data return by novaclient.
     # It is used if API layer does data conversion.
@@ -781,3 +783,34 @@ def data(TEST):
     TEST.hosts.add(host2)
     TEST.hosts.add(host3)
     TEST.hosts.add(host4)
+
+    server_group_1 = server_groups.ServerGroup(
+        server_groups.ServerGroupsManager(None),
+        {
+            "id": "1",
+            "name": "server_group_1",
+            "policies": [],
+        },
+    )
+
+    server_group_2 = server_groups.ServerGroup(
+        server_groups.ServerGroupsManager(None),
+        {
+            "id": "2",
+            "name": "server_group_2",
+            "policies": ["affinity", "some_other_policy"],
+        },
+    )
+
+    server_group_3 = server_groups.ServerGroup(
+        server_groups.ServerGroupsManager(None),
+        {
+            "id": "3",
+            "name": "server_group_3",
+            "policies": ["anti-affinity", "some_other_policy"],
+        },
+    )
+
+    TEST.server_groups.add(server_group_1)
+    TEST.server_groups.add(server_group_2)
+    TEST.server_groups.add(server_group_3)

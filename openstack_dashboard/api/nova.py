@@ -950,6 +950,10 @@ def availability_zone_list(request, detailed=False):
     return novaclient(request).availability_zones.list(detailed=detailed)
 
 
+def server_group_list(request):
+    return novaclient(request).server_groups.list()
+
+
 def service_list(request, binary=None):
     return novaclient(request).services.list(binary=binary)
 

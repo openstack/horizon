@@ -823,6 +823,9 @@ class SetAdvancedAction(workflows.Action):
         required=False, help_text=_("Configure OpenStack to write metadata to "
                                     "a special configuration drive that "
                                     "attaches to the instance when it boots."))
+    server_group = forms.ChoiceField(
+        label=_("Server Group"), required=False,
+        help_text=_("Server group to associate with this instance."))
 
     def __init__(self, request, context, *args, **kwargs):
         super(SetAdvancedAction, self).__init__(request, context,
@@ -841,6 +844,13 @@ class SetAdvancedAction(workflows.Action):
             if context.get('workflow_slug') != 'launch_instance' or (
                     not api.nova.extension_supported("ConfigDrive", request)):
                 del self.fields['config_drive']
+
+            if not api.nova.extension_supported("ServerGroups", request):
+                del self.fields['server_group']
+            else:
+                server_group_choices = instance_utils.server_group_field_data(
+                    request)
+                self.fields['server_group'].choices = server_group_choices
         except Exception:
             exceptions.handle(request, _('Unable to retrieve extensions '
                                          'information.'))
@@ -853,7 +863,7 @@ class SetAdvancedAction(workflows.Action):
 
 class SetAdvanced(workflows.Step):
     action_class = SetAdvancedAction
-    contributes = ("disk_config", "config_drive",)
+    contributes = ("disk_config", "config_drive", "server_group",)
 
     def prepare_action_context(self, request, context):
         context = super(SetAdvanced, self).prepare_action_context(request,
@@ -960,6 +970,11 @@ class LaunchInstance(workflows.Workflow):
 
         avail_zone = context.get('availability_zone', None)
 
+        scheduler_hints = {}
+        server_group = context.get('server_group', None)
+        if server_group:
+            scheduler_hints['group'] = server_group
+
         port_profiles_supported = api.neutron.is_port_profiles_supported()
 
         if port_profiles_supported:
@@ -988,7 +1003,8 @@ class LaunchInstance(workflows.Workflow):
                                    instance_count=int(context['count']),
                                    admin_pass=context['admin_pass'],
                                    disk_config=context.get('disk_config'),
-                                   config_drive=context.get('config_drive'))
+                                   config_drive=context.get('config_drive'),
+                                   scheduler_hints=scheduler_hints)
             return True
         except Exception:
             if port_profiles_supported:

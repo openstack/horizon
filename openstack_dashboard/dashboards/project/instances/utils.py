@@ -74,6 +74,16 @@ def availability_zone_list(request):
         return []
 
 
+def server_group_list(request):
+    """Utility method to retrieve a list of server groups."""
+    try:
+        return api.nova.server_group_list(request)
+    except Exception:
+        exceptions.handle(request,
+                          _('Unable to retrieve Nova server groups.'))
+        return []
+
+
 def network_field_data(request, include_empty_option=False):
     """Returns a list of tuples of all networks.
 
@@ -185,3 +195,21 @@ def port_field_data(request):
                  if port.device_owner == ''])
     ports.sort(key=lambda obj: obj[1])
     return ports
+
+
+def server_group_field_data(request):
+    """Returns a list of tuples of all server groups.
+
+    Generates a list of server groups available. And returns a list of
+    (id, name) tuples.
+
+    :param request: django http request object
+    :return: list of (id, name) tuples
+    """
+    server_groups = server_group_list(request)
+    if server_groups:
+        server_groups_list = [(sg.id, sg.name) for sg in server_groups]
+        server_groups_list.sort(key=lambda obj: obj[1])
+        return [("", _("Select Server Group")), ] + server_groups_list
+
+    return [("", _("No server groups available")), ]
