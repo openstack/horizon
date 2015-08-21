@@ -109,6 +109,13 @@ class DetailView(tabs.TabView):
         context["image"] = image
         context["url"] = self.get_redirect_url()
         context["actions"] = table.render_row_actions(image)
+        status_label = [label for (value, label) in
+                        project_tables.ImagesTable.STATUS_DISPLAY_CHOICES
+                        if value.lower() == (image.status or '').lower()]
+        if status_label:
+            image.status_label = status_label[0]
+        else:
+            image.status_label = image.status
         return context
 
     @staticmethod
