@@ -25,6 +25,7 @@ import logging
 from django.conf import settings
 from django.utils.functional import cached_property  # noqa
 from django.utils.translation import ugettext_lazy as _
+import six
 
 from novaclient import exceptions as nova_exceptions
 from novaclient.v2 import client as nova_client
@@ -218,12 +219,13 @@ class SecurityGroup(base.APIResourceWrapper):
         return self._apiresource.to_dict()
 
 
+@six.python_2_unicode_compatible
 class SecurityGroupRule(base.APIResourceWrapper):
     """Wrapper for individual rules in a SecurityGroup."""
 
     _attrs = ['id', 'ip_protocol', 'from_port', 'to_port', 'ip_range', 'group']
 
-    def __unicode__(self):
+    def __str__(self):
         if 'name' in self.group:
             vals = {'from': self.from_port,
                     'to': self.to_port,

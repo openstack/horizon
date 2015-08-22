@@ -154,6 +154,7 @@ class ServiceCatalogException(HorizonException):
         super(ServiceCatalogException, self).__init__(message)
 
 
+@six.python_2_unicode_compatible
 class AlreadyExists(HorizonException):
     """Exception to be raised when trying to create an API resource which
     already exists.
@@ -166,9 +167,6 @@ class AlreadyExists(HorizonException):
         return self.msg % self.attrs
 
     def __str__(self):
-        return self.msg % self.attrs
-
-    def __unicode__(self):
         return self.msg % self.attrs
 
 

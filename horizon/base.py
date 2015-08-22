@@ -306,6 +306,7 @@ class Panel(HorizonComponent):
         return urlpatterns, self.slug, self.slug
 
 
+@six.python_2_unicode_compatible
 class PanelGroup(object):
     """A container for a set of :class:`~horizon.Panel` classes.
 
@@ -336,7 +337,7 @@ class PanelGroup(object):
     def __repr__(self):
         return "<%s: %s>" % (self.__class__.__name__, self.slug)
 
-    def __unicode__(self):
+    def __str__(self):
         return self.name
 
     def __iter__(self):

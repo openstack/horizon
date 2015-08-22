@@ -74,6 +74,7 @@ class ActionMetaclass(forms.forms.DeclarativeFieldsMetaclass):
         return cls
 
 
+@six.python_2_unicode_compatible
 @six.add_metaclass(ActionMetaclass)
 class Action(forms.Form):
     """An ``Action`` represents an atomic logical interaction you can have with
@@ -138,7 +139,7 @@ class Action(forms.Form):
         self._populate_choices(request, context)
         self.required_css_class = 'required'
 
-    def __unicode__(self):
+    def __str__(self):
         return force_text(self.name)
 
     def __repr__(self):
@@ -189,6 +190,7 @@ class MembershipAction(Action):
         return self.slug + "_role_" + role_id
 
 
+@six.python_2_unicode_compatible
 class Step(object):
     """A step is a wrapper around an action which defines its context in a
     workflow. It knows about details such as:
@@ -284,7 +286,7 @@ class Step(object):
     def __repr__(self):
         return "<%s: %s>" % (self.__class__.__name__, self.slug)
 
-    def __unicode__(self):
+    def __str__(self):
         return force_text(self.name)
 
     def __init__(self, workflow):
@@ -484,6 +486,7 @@ class UpdateMembersStep(Step):
             return self.slug + "_role_" + role_id
 
 
+@six.python_2_unicode_compatible
 @six.add_metaclass(WorkflowMetaclass)
 class Workflow(html.HTMLElement):
     """A Workflow is a collection of Steps. Its interface is very
@@ -600,7 +603,7 @@ class Workflow(html.HTMLElement):
     fullscreen = False
     _registerable_class = Step
 
-    def __unicode__(self):
+    def __str__(self):
         return self.name
 
     def __repr__(self):
