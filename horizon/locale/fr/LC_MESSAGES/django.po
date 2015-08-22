@@ -4,6 +4,7 @@
 #
 # Translators:
 # Bruno Cornec <bruno.cornec@hp.com>, 2015
+# zopanix <christophe.vandekerchove-ext@cloudwatt.com>, 2015
 # François Bureau, 2015
 # François Bureau, 2015
 # Frédéric <frosmont@free.fr>, 2014
@@ -13,9 +14,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-08-21 01:46+0000\n"
-"PO-Revision-Date: 2015-08-20 17:13+0000\n"
-"Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
+"POT-Creation-Date: 2015-08-21 10:26+0000\n"
+"PO-Revision-Date: 2015-08-21 07:55+0000\n"
+"Last-Translator: zopanix <christophe.vandekerchove-ext@cloudwatt.com>\n"
 "Language-Team: French (http://www.transifex.com/openstack/horizon/language/"
 "fr/)\n"
 "MIME-Version: 1.0\n"
@@ -24,6 +25,22 @@ msgstr ""
 "Generated-By: Babel 2.0\n"
 "Language: fr\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
+
+#, python-format
+msgid ""
+"\n"
+"        Used <span> %(used)s </span>(No Limit)"
+msgstr ""
+"\n"
+"<span> %(used)s </span>Utilisé(es) (Pas de limite)"
+
+#, python-format
+msgid ""
+"\n"
+"        Used <span> %(used)s </span>of<span> %(available)s </span>"
+msgstr ""
+"\n"
+"<span> %(used)s </span>sur<span> %(available)s </span>utilisé(es)"
 
 #, python-format
 msgid ""
@@ -39,7 +56,7 @@ msgid ""
 "      <label>To:</label>%(end)s"
 msgstr ""
 "\n"
-"<label>au :</label>%(end)s"
+"<label>Au :</label>%(end)s"
 
 msgid ""
 "\n"
@@ -49,7 +66,7 @@ msgid ""
 msgstr ""
 "\n"
 "Si vous n'êtes pas sûr de la méthode d'identification à utiliser, veuillez "
-"contacter votre administrateur"
+"contacter votre administrateur."
 
 #, python-format
 msgctxt "past"
@@ -154,13 +171,13 @@ msgid "Delete"
 msgstr "Supprimer"
 
 msgid "Deleted"
-msgstr "Supprimée"
+msgstr "Supprimé(e)"
 
 #, python-format
 msgid "Displaying %(content_items)s item"
 msgid_plural "Displaying %(content_items)s items"
 msgstr[0] "Affichage de l'item %(content_items)s"
-msgstr[1] "Affichage des items %(content_items)s"
+msgstr[1] "Affichage des éléments %(content_items)s"
 
 #, python-format
 msgid "Displaying %(counter)s item"
@@ -335,7 +352,7 @@ msgid "This Period's VCPU-Hours:"
 msgstr "VCPU-Heures de cette Période :"
 
 msgid "This action cannot be undone."
-msgstr "Cette action ne peut pas être réalisée."
+msgstr "Cette action ne peut pas être défaite."
 
 #, python-format
 msgid "Unable to %(action)s: %(objs)s"

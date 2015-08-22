@@ -25,9 +25,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-08-20 06:20+0000\n"
-"PO-Revision-Date: 2015-08-19 07:05+0000\n"
-"Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
+"POT-Creation-Date: 2015-08-21 10:26+0000\n"
+"PO-Revision-Date: 2015-08-21 09:07+0000\n"
+"Last-Translator: zopanix <christophe.vandekerchove-ext@cloudwatt.com>\n"
 "Language-Team: French (http://www.transifex.com/openstack/horizon/language/"
 "fr/)\n"
 "MIME-Version: 1.0\n"
@@ -342,6 +342,15 @@ msgstr ""
 
 msgid ""
 "\n"
+"   Volumes are block devices that can be attached to instances.\n"
+"   "
+msgstr ""
+"\n"
+"Les Volumes sont des blocs de périphérique qui peuvent être attachés à des "
+"instances."
+
+msgid ""
+"\n"
 "  Assign a name and description for the pool. Choose one subnet where all\n"
 "  members of this pool must be on. Select the protocol and load balancing\n"
 "  method for this pool. Admin State is UP (checked) by default.\n"
@@ -389,6 +398,9 @@ msgid ""
 msgstr ""
 "\"Script Personnalisé\" est analogue à \"Donnée Utilisateur\" pour d'autres "
 "systèmes."
+
+msgid "\"Edit Volume Type\""
+msgstr "\"Editer le Type de Volume\""
 
 msgid "\"N/A\""
 msgstr "\"N/D\""
@@ -847,7 +859,7 @@ msgid "Add New VPN Service"
 msgstr "Ajouter un nouveau service VPN"
 
 msgid "Add Node Group"
-msgstr "Ajouter un Groupe de Nœud"
+msgstr "Ajouter un Groupe de Nœuds"
 
 msgid "Add Policy"
 msgstr "Ajouter une stratégie"
@@ -3738,6 +3750,9 @@ msgstr "Editer le service VPN"
 msgid "Edit Volume"
 msgstr "Modifier le volume"
 
+msgid "Edit Volume Type"
+msgstr "Editer le Type de Volume"
+
 msgid "Edit Volume Type Extra Spec"
 msgstr "Modifier les Spécificités Supplémentaires du Type de Volume"
 
@@ -5033,6 +5048,21 @@ msgstr ""
 "Le service d'identité n'autorise pas la modification du mot de passe "
 "utilisateur."
 
+#, python-format
+msgid ""
+"If \"No volume type\" is selected, the default volume type \"%(name)s\" will "
+"be set for the created volume."
+msgstr ""
+"Si \"Pas de Type de Volume\" est sélectionner, le type de volume par défaut "
+"\"%(name)s\" sera utilisé pour le volume créé."
+
+msgid ""
+"If \"No volume type\" is selected, the volume will be created without a "
+"volume type."
+msgstr ""
+"Si \"Pas de Type de Volume\" est sélectionner, le volume sera créé sans type "
+"de volume."
+
 msgid ""
 "If console is not responding to keyboard input: click the grey status bar "
 "below."
@@ -6059,6 +6089,9 @@ msgstr "Modifier le nom et la description du volume."
 msgid "Modify the name and description of a snapshot."
 msgstr "Modifier le nom et la description de l'instantané."
 
+msgid "Modify volume type name and description."
+msgstr "Modifier le nom et la description du Type de Volume"
+
 msgid "Monitor"
 msgstr "Moniteur"
 
@@ -6250,6 +6283,12 @@ msgstr "Nouvel hôte"
 
 msgid "New Size (GB)"
 msgstr "Nouvelle Taille (GB)"
+
+msgid "New name cannot be empty."
+msgstr "Le nouveau nom ne paeut pas être vide."
+
+msgid "New name conflicts with another volume type."
+msgstr "Le nouveau nom est en conflit avec un autre Type de Volume."
 
 msgid "New password"
 msgstr "Nouveau mot de passe"
@@ -6513,10 +6552,10 @@ msgstr "Modèles de groupes de noeuds"
 
 #, python-format
 msgid "Node Group: %(node_group_name)s"
-msgstr "Groupe de Nœud : %(node_group_name)s"
+msgstr "Groupe de Nœuds : %(node_group_name)s"
 
 msgid "Node Groups"
-msgstr "Groupes de noeud"
+msgstr "Groupes de noeuds"
 
 msgid "Node Processes"
 msgstr "Processus du noeud"
@@ -8146,7 +8185,7 @@ msgid "Select a New Flavor"
 msgstr "Sélectionner un nouveau gabarit"
 
 msgid "Select a Node Group Template to add:"
-msgstr "Sélectionner un Modèle de Groupe de Nœud à ajouter :"
+msgstr "Sélectionner un Modèle de Groupe de Nœuds à ajouter :"
 
 msgid "Select a Policy"
 msgstr "Sélectionnez une Stratégie"
@@ -9020,6 +9059,9 @@ msgstr "Etat du volume actualisé avec succès à \"%s\"."
 msgid "Successfully updated volume status to \"%s\"."
 msgstr "Etat du volume actualisé avec succès à \"%s\"."
 
+msgid "Successfully updated volume type."
+msgstr "Type de volume mis à jour avec succès."
+
 msgid "Sum."
 msgstr "Som."
 
@@ -9244,7 +9286,7 @@ msgid ""
 "    That means these processes may not be launched more than once on a "
 "single host."
 msgstr ""
-"L'objet modèle de cluster doit spécifier la liste des processus dans le "
+"L'objet Modèle de Cluster doit spécifier la liste des processus dans le "
 "groupe d'anti-affinité. Ceci signifie que ces processus ne pourront pas être "
 "lancés simultanément sur un même hôte."
 
@@ -9254,10 +9296,10 @@ msgid ""
 "    You can add Node Groups using Node Group Templates on a &quot;Node "
 "Groups&quot; tab."
 msgstr ""
-"L'objet Modèle de Cluster doit spécifier les Modèles de Groupe de Nœud qui "
+"L'objet Modèle de Cluster doit spécifier les Modèles de Groupe de Nœuds qui "
 "seront utilisés pour construire un Cluster.\n"
-"Vous pouvez ajouter des Groupes de Nœud en utilisant les Modèles de Groupe "
-"de Nœud sur l'onglet &quot;Groupes de Noeud&quot."
+"Vous pouvez ajouter des Groupes de Nœuds en utilisant les Modèles de Groupe "
+"de Nœuds sur l'onglet &quot;Groupes de Noeuds&quot."
 
 msgid ""
 "The Cluster object should specify OpenStack Image to boot instances for "
@@ -9515,7 +9557,7 @@ msgid ""
 "The requested feature '%(feature)s' is unknown. Please make sure to specify "
 "a feature defined in FEATURE_MAP."
 msgstr ""
-"La fonctionnalité demandée '%(feature)s' est inconnue. Veuillez spécifier "
+"La fonctionnalité '%(feature)s' demandée est inconnue. Veuillez spécifier "
 "une fonctionnalité définie dans FEATURE_MAP."
 
 #, python-format
@@ -10178,7 +10220,7 @@ msgid "Unable to fetch keypair choices."
 msgstr "Impossible de récupérer les choix de paires de clés."
 
 msgid "Unable to fetch node group details."
-msgstr "Impossible de récupérer les détails du groupe de noeud"
+msgstr "Impossible de récupérer les détails du groupe de noeuds."
 
 msgid "Unable to fetch node group template list."
 msgstr "Impossible de récupérer la liste des modèles de groupe de noeud."
@@ -10196,7 +10238,7 @@ msgid "Unable to fetch template to copy."
 msgstr "Impossible de récupérer le modèle à copier"
 
 msgid "Unable to fetch template to edit."
-msgstr "Impossible de charger l'objet modèle à éditer."
+msgstr "Impossible de récupếrer l'objet modèle à éditer."
 
 msgid "Unable to fetch the image details"
 msgstr "Impossible de récupérer les détails de l'image"
@@ -10276,7 +10318,7 @@ msgid "Unable to get network agents list."
 msgstr "Impossible d'obtenir la liste des agents réseau."
 
 msgid "Unable to get node group details."
-msgstr "Impossible de charger les détails du groupe de noeud"
+msgstr "Impossible de charger les détails du groupe de noeuds"
 
 msgid "Unable to get nova services list."
 msgstr "Impossible d'obtenir la liste des services Nova."
@@ -11077,8 +11119,18 @@ msgstr ""
 "Impossible de récupérer les détails des spécificités supplémentaires du type "
 "de volume."
 
+#, python-format
+msgid "Unable to retrieve volume type for: \"%s\""
+msgstr "Impossible de récupérer le Type de Volume de : \"%s\""
+
+msgid "Unable to retrieve volume type list."
+msgstr "Impossible de récupérer la liste des Types de Volume."
+
 msgid "Unable to retrieve volume type name."
 msgstr "Impossible de récupérer le nom du type de volume."
+
+msgid "Unable to retrieve volume type qos."
+msgstr "Impossible de récupérer le qos de Type de Volume."
 
 msgid "Unable to retrieve volume types"
 msgstr "Impossible de récupérer les types de volumes"
@@ -11175,6 +11227,9 @@ msgstr "N'a pas pu mettre le mot de passe de l'utilisateur à jour."
 msgid "Unable to update the user."
 msgstr "Impossible de mettre à jour l'utilisateur."
 
+msgid "Unable to update the volume type."
+msgstr "Impossible de mettre à jour le Type de Volume."
+
 msgid "Unable to update volume snapshot status."
 msgstr "Impossible d'actualiser le volume utilisé par les snapshots."
 
@@ -11184,6 +11239,9 @@ msgstr "Impossible de mettre à jour l'instantané du volume."
 #, python-format
 msgid "Unable to update volume status to \"%s\"."
 msgstr "Impossible d'actualiser l'état du volume à '%s\"."
+
+msgid "Unable to update volume type."
+msgstr "Impossible de mettre à jour le Type de Volume."
 
 msgid "Unable to update volume."
 msgstr "Impossible de mettre à jour le volume."
@@ -11804,6 +11862,9 @@ msgstr "Détails du transfert de Volume"
 msgid "Volume Type"
 msgstr "Type de Volume"
 
+msgid "Volume Type Description:"
+msgstr "Description de Type de Volume:"
+
 msgid "Volume Type Encryption Details"
 msgstr "Informations de codification Type de volume"
 
@@ -11923,7 +11984,7 @@ msgid "Weight"
 msgstr "Poids"
 
 msgid "Which keypair to use for authentication."
-msgstr "Quelle paire de clés utiliser pour l'authentification."
+msgstr "Utiliser quelle paire de clés pour l'authentification."
 
 msgid ""
 "Within a container you can group your objects into pseudo-folders, which "
