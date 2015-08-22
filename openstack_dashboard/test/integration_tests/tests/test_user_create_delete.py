@@ -11,10 +11,8 @@
 #    under the License.
 
 from openstack_dashboard.test.integration_tests import helpers
-from openstack_dashboard.test.integration_tests.tests import decorators
 
 
-@decorators.skip_because(bugs=["1467950"])
 class TestUser(helpers.AdminTestCase):
 
     USER_NAME = helpers.gen_random_resource_name("user")

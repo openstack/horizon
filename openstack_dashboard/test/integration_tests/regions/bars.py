@@ -17,11 +17,12 @@ from openstack_dashboard.test.integration_tests.regions import menus
 
 
 class TopBarRegion(baseregion.BaseRegion):
-    _user_dropdown_menu_locator = (by.By.ID, 'profile_editor_switcher')
+    _user_dropdown_menu_locator = (by.By.CSS_SELECTOR,
+                                   '.nav.navbar-nav.navbar-right li.dropdown')
     _openstack_brand_locator = (by.By.CSS_SELECTOR, 'a[href*="/home/"]')
 
     _user_dropdown_project_locator = (by.By.CSS_SELECTOR,
-                                      'div.dropdown.context-selection')
+                                      'li.dropdown.context-selection')
 
     @property
     def user(self):
