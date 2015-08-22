@@ -136,7 +136,7 @@ def resource_to_url(resource):
 def stack_output(output):
     if not output:
         return u''
-    if isinstance(output, basestring):
+    if isinstance(output, six.string_types):
         parts = urlparse.urlsplit(output)
         if parts.netloc and parts.scheme in ('http', 'https'):
             url = html.escape(output)

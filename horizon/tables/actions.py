@@ -753,7 +753,7 @@ class BatchAction(Action):
         action_attr = getattr(self, "action_%s" % action_type)
         if self.use_action_method:
             action_attr = action_attr(count)
-        if isinstance(action_attr, (basestring, Promise)):
+        if isinstance(action_attr, (six.string_types, Promise)):
             action = action_attr
         else:
             toggle_selection = getattr(self, "current_%s_action" % action_type)
