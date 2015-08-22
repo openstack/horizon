@@ -103,7 +103,7 @@
         });
 
         it('sets the controller', function() {
-          expect(passed.controller).toBe('SimpleModalController');
+          expect(passed.controller).toBe('SimpleModalController as modalCtrl');
         });
 
         it('sets the template URL', function() {
