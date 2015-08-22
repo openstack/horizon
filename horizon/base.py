@@ -735,14 +735,11 @@ class Site(Registry, HorizonComponent):
                 dashboards.append(dashboard)
                 registered.pop(dashboard.__class__)
             if len(registered):
-                extra = registered.values()
-                extra.sort()
+                extra = sorted(registered.values())
                 dashboards.extend(extra)
             return dashboards
         else:
-            dashboards = self._registry.values()
-            dashboards.sort()
-            return dashboards
+            return sorted(self._registry.values())
 
     def get_default_dashboard(self):
         """Returns the default :class:`~horizon.Dashboard` instance.
