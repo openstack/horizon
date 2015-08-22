@@ -12,7 +12,7 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
-from StringIO import StringIO
+from six import StringIO
 
 from horizon.test import helpers as test
 from horizon.utils.babel_extract_angular import extract_angular
