@@ -25,12 +25,15 @@
 
     var $scope, $element;
 
+    beforeEach(module('templates'));
     beforeEach(module('smart-table'));
-    beforeEach(module('horizon.framework.widgets'));
-    beforeEach(module('horizon.framework.widgets.table'));
+    beforeEach(module('horizon.framework'));
 
     beforeEach(inject(function($injector) {
       var $compile = $injector.get('$compile');
+      var $templateCache = $injector.get('$templateCache');
+      var basePath = $injector.get('horizon.framework.widgets.basePath');
+
       $scope = $injector.get('$rootScope').$new();
 
       $scope.safeFakeData = [
@@ -41,28 +44,7 @@
 
       $scope.fakeData = [];
 
-      var markup =
-        '<table st-table="fakeData" st-safe-src="safeFakeData" hz-table>' +
-        '<thead>' +
-          '<tr>' +
-            '<th><input type="checkbox" hz-select-all="fakeData"/></th>' +
-            '<th></th>' +
-            '<th>Animal</th>' +
-          '</tr>' +
-        '</thead>' +
-        '<tbody>' +
-          '<tr ng-repeat-start="row in fakeData">' +
-            '<td><input type="checkbox" hz-select="row" ' +
-                  'ng-model="selected[row.id].checked"></td>' +
-            '<td><i class="fa fa-chevron-right" hz-expand-detail></i></td>' +
-            '<td>{{ row.animal }}</td>' +
-          '</tr>' +
-          '<tr class="detail-row" ng-repeat-end>' +
-            '<td class="detail" colspan="3"></td>' +
-          '</tr>' +
-        '</tbody>' +
-        '</table>';
-
+      var markup = $templateCache.get(basePath + 'table/table.mock.html');
       $element = angular.element(markup);
       $compile($element)($scope);
 

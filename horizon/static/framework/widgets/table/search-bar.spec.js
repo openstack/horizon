@@ -21,30 +21,19 @@
 
     beforeEach(module('templates'));
     beforeEach(module('smart-table'));
-    beforeEach(module('horizon.framework.widgets'));
-    beforeEach(module('horizon.framework.widgets.table'));
+    beforeEach(module('horizon.framework'));
 
     describe('search bar', function() {
 
       beforeEach(inject(function($injector) {
         var $compile = $injector.get('$compile');
+        var $templateCache = $injector.get('$templateCache');
+        var basePath = $injector.get('horizon.framework.widgets.basePath');
         $scope = $injector.get('$rootScope').$new();
 
         $scope.rows = [];
 
-        var markup = '<table st-table="rows">' +
-                     '<thead>' +
-                     ' <tr>' +
-                     '   <th>' +
-                     '     <hz-search-bar group-classes="input-group-sm" ' +
-                     '       icon-classes="fa-search">' +
-                     '     </hz-search-bar>' +
-                     '   </th>' +
-                     ' </tr>' +
-                     '</thead>' +
-                     '<tbody></tbody>' +
-                     '</table>';
-
+        var markup = $templateCache.get(basePath + 'table/st-table.mock.html');
         $element = angular.element(markup);
         $compile($element)($scope);
 
