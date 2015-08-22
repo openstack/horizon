@@ -22,6 +22,7 @@ from django.contrib.auth.models import User  # noqa
 from django.core.exceptions import ImproperlyConfigured  # noqa
 from django.core import urlresolvers
 from django.utils.importlib import import_module  # noqa
+from six import moves
 
 import horizon
 from horizon import base
@@ -101,7 +102,7 @@ class BaseHorizonTests(test.TestCase):
         del base.Horizon
         base.Horizon = base.HorizonSite()
         # Reload the convenience references to Horizon stored in __init__
-        reload(import_module("horizon"))
+        moves.reload_module(import_module("horizon"))
         # Re-register our original dashboards and panels.
         # This is necessary because autodiscovery only works on the first
         # import, and calling reload introduces innumerable additional
@@ -120,7 +121,7 @@ class BaseHorizonTests(test.TestCase):
         only for testing and should never be used on a live site.
         """
         urlresolvers.clear_url_caches()
-        reload(import_module(settings.ROOT_URLCONF))
+        moves.reload_module(import_module(settings.ROOT_URLCONF))
         base.Horizon._urls()
 
 
@@ -490,7 +491,7 @@ class RbacHorizonTests(test.TestCase):
         del base.Horizon
         base.Horizon = base.HorizonSite()
         # Reload the convenience references to Horizon stored in __init__
-        reload(import_module("horizon"))
+        moves.reload_module(import_module("horizon"))
 
         # Reset Cats and Dogs default_panel to default values
         Cats.default_panel = 'kittens'

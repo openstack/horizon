@@ -43,6 +43,7 @@ from neutronclient.v2_0 import client as neutron_client
 from novaclient.v2 import client as nova_client
 from openstack_auth import user
 from openstack_auth import utils
+from six import moves
 from swiftclient import client as swift_client
 
 from horizon import base
@@ -530,7 +531,7 @@ class PluginTestCase(TestCase):
         del base.Horizon
         base.Horizon = base.HorizonSite()
         # Reload the convenience references to Horizon stored in __init__
-        reload(import_module("horizon"))
+        moves.reload_module(import_module("horizon"))
         # Re-register our original dashboards and panels.
         # This is necessary because autodiscovery only works on the first
         # import, and calling reload introduces innumerable additional
@@ -550,7 +551,7 @@ class PluginTestCase(TestCase):
         only for testing and should never be used on a live site.
         """
         urlresolvers.clear_url_caches()
-        reload(import_module(settings.ROOT_URLCONF))
+        moves.reload_module(import_module(settings.ROOT_URLCONF))
         base.Horizon._urls()
 
 
