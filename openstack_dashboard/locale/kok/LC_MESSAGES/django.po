@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-08-20 06:20+0000\n"
-"PO-Revision-Date: 2015-08-19 07:05+0000\n"
+"POT-Creation-Date: 2015-08-22 19:10+0000\n"
+"PO-Revision-Date: 2015-08-22 15:27+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Konkani (http://www.transifex.com/openstack/horizon/language/"
 "kok/)\n"
@@ -1584,15 +1584,6 @@ msgstr "राऊटर तयार करात"
 
 msgid "Create a Snapshot"
 msgstr "स्नॅपशॉट तयार करात"
-
-msgid ""
-"Create a VIP for this pool. Assign a name, description, IP address, port, "
-"and maximum connections allowed for the VIP. Choose the protocol and session "
-"persistence method for the VIP. Admin State is UP (checked) by default."
-msgstr ""
-"ह्या पुलाखातीर VIP  तयार करात. नाव, विवरण, IP नामो, पोर्ट आणि VIP क दिल्यो वचपी "
-"चडांत चड जोडण्या नेमात. प्रोटोकॉल निवडात आणि VIP खातीर सत्र सातत्य पद्दत. मुळावी "
-"एडमिन स्थिती जावन् आसा UP (खूण केल्ली)"
 
 msgid "Create a Volume"
 msgstr "आकार तयार करात"
@@ -6002,9 +5993,6 @@ msgstr "गेटवेचो IP नामो स्पश्ट करात �
 
 msgid "Specify VIP"
 msgstr " VIP स्पश्ट करात"
-
-msgid "Specify a free IP address from the selected subnet"
-msgstr "निवडिल्ल्या उपनेटातल्यान फुकट IP नामो स्पश्ट करात"
 
 msgid "Specify additional attributes for the subnet."
 msgstr "उपनेटाखातीर अदिक गुणधर्म स्पश्ट करात."

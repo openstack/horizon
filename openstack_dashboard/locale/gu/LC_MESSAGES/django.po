@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-08-20 06:20+0000\n"
-"PO-Revision-Date: 2015-08-19 07:05+0000\n"
+"POT-Creation-Date: 2015-08-22 19:10+0000\n"
+"PO-Revision-Date: 2015-08-22 15:27+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Gujarati (http://www.transifex.com/openstack/horizon/language/"
 "gu/)\n"
@@ -1584,15 +1584,6 @@ msgstr "રાઉટર બનાવો"
 
 msgid "Create a Snapshot"
 msgstr "સ્નેપશોટ બનાવો"
-
-msgid ""
-"Create a VIP for this pool. Assign a name, description, IP address, port, "
-"and maximum connections allowed for the VIP. Choose the protocol and session "
-"persistence method for the VIP. Admin State is UP (checked) by default."
-msgstr ""
-"આ પૂલ માટે  VIP બનાવો. નામ, વર્ણન, IP સરનામા, પોર્ટ, અને મહત્તમ જોડાણો VIP માટે "
-"મંજૂરી આપી સોંપો. VIP(વીઆઇપી) માટે પ્રોટોકોલ અને સત્ર પર્સિસટેન્સ પદ્ધતિ પસંદ કરો.મૂળભૂત "
-"રીતે સંચાલન સ્ટેટ યુપી છે (ચકાસાયેલ)."
 
 msgid "Create a Volume"
 msgstr "વોલ્યુમ બનાવો"
@@ -6010,9 +6001,6 @@ msgstr "ગેટવે IP સરનામા સ્પષ્ટ કરો અ�
 
 msgid "Specify VIP"
 msgstr "VIP સ્પષ્ટ કરો"
-
-msgid "Specify a free IP address from the selected subnet"
-msgstr "પસંદ કરેલ સબનેટ પરથી નિઃશુલ્ક IP સરનામાઓ સ્પષ્ટ કરો"
 
 msgid "Specify additional attributes for the subnet."
 msgstr "સબનેટ માટે વધારાના લક્ષણો સ્પષ્ટ કરો."

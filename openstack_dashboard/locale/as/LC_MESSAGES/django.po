@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-08-20 06:20+0000\n"
-"PO-Revision-Date: 2015-08-19 07:05+0000\n"
+"POT-Creation-Date: 2015-08-22 19:10+0000\n"
+"PO-Revision-Date: 2015-08-22 15:27+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Assamese (http://www.transifex.com/openstack/horizon/language/"
 "as/)\n"
@@ -1601,16 +1601,6 @@ msgstr "ৰাউটাৰ এটা তৈয়াৰ কৰক"
 
 msgid "Create a Snapshot"
 msgstr "স্নেপশ্বট তৈয়াৰ কৰক"
-
-msgid ""
-"Create a VIP for this pool. Assign a name, description, IP address, port, "
-"and maximum connections allowed for the VIP. Choose the protocol and session "
-"persistence method for the VIP. Admin State is UP (checked) by default."
-msgstr ""
-"এই পুলটোৰ বাবে VIP এটা তৈয়াৰ কৰক. VIP টোৰ বাবে নাম এটা, বিৱৰণ, IP ঠিকনা, "
-"পোৰ্ট, আৰু অনুমোদিত সৰ্বাধিক সংযোগ নিৰ্ধাৰণ কৰক. VIP টোৰ বাবে প্ৰটকল আৰু অধিৱেশ "
-"সুস্থিৰতা পদ্ধতিটো নিৰ্বাচন কৰক. ডিফল্ট হিচাপে কৰ্তৃপক্ষম অৱস্থাটো হল UP (পৰীক্ষা কৰা "
-"হল)."
 
 msgid "Create a Volume"
 msgstr "আয়তন এটা তৈয়াৰ কৰক"
@@ -6063,9 +6053,6 @@ msgstr "গেটৱেৰ IP ঠিকনা নিৰ্দিষ্ট কৰ
 
 msgid "Specify VIP"
 msgstr "VIP নিৰ্ধাৰণ কৰক"
-
-msgid "Specify a free IP address from the selected subnet"
-msgstr "নিৰ্বাচিত উপনেটটোৰ পৰা এ টা মুক্ত IP ঠিকনা নিৰ্ধাৰণ কৰক"
 
 msgid "Specify additional attributes for the subnet."
 msgstr "উপনেটটোৰ বাবে অতিৰিক্ত উপাদনাবোৰ নিৰ্ধাৰণ কৰক."

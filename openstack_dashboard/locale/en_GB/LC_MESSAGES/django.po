@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-08-20 06:20+0000\n"
-"PO-Revision-Date: 2015-08-19 07:05+0000\n"
+"POT-Creation-Date: 2015-08-22 19:10+0000\n"
+"PO-Revision-Date: 2015-08-22 15:28+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: English (United Kingdom) (http://www.transifex.com/openstack/"
 "horizon/language/en_GB/)\n"
@@ -2174,15 +2174,6 @@ msgstr "Create a Router"
 
 msgid "Create a Snapshot"
 msgstr "Create a Snapshot"
-
-msgid ""
-"Create a VIP for this pool. Assign a name, description, IP address, port, "
-"and maximum connections allowed for the VIP. Choose the protocol and session "
-"persistence method for the VIP. Admin State is UP (checked) by default."
-msgstr ""
-"Create a VIP for this pool. Assign a name, description, IP address, port, "
-"and maximum connections allowed for the VIP. Choose the protocol and session "
-"persistence method for the VIP. Admin State is UP (checked) by default."
 
 msgid "Create a Volume"
 msgstr "Create a Volume"
@@ -4675,6 +4666,9 @@ msgstr "IP Protocol"
 
 msgid "IP Version"
 msgstr "IP Version"
+
+msgid "IP address"
+msgstr "IP address"
 
 #, python-format
 msgid "IP address %s associated."
@@ -8299,9 +8293,6 @@ msgstr "Specify IP address of gateway or check \"Disable Gateway\"."
 
 msgid "Specify VIP"
 msgstr "Specify VIP"
-
-msgid "Specify a free IP address from the selected subnet"
-msgstr "Specify a free IP address from the selected subnet"
 
 msgid "Specify a metadata definition namespace to import."
 msgstr "Specify a metadata definition namespace to import."

@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-08-20 06:20+0000\n"
-"PO-Revision-Date: 2015-08-19 08:50+0000\n"
+"POT-Creation-Date: 2015-08-22 19:10+0000\n"
+"PO-Revision-Date: 2015-08-22 15:27+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Urdu (http://www.transifex.com/openstack/horizon/language/"
 "ur/)\n"
@@ -1547,15 +1547,6 @@ msgstr "روٹر كی تخلیق كریں"
 
 msgid "Create a Snapshot"
 msgstr "اسنیپ تخلیق كریں"
-
-msgid ""
-"Create a VIP for this pool. Assign a name, description, IP address, port, "
-"and maximum connections allowed for the VIP. Choose the protocol and session "
-"persistence method for the VIP. Admin State is UP (checked) by default."
-msgstr ""
-"اس پول کے لئے ایک VIP مرتب کریں. VIP کے لئے ایک نام، تفصیلات، IP ایڈریس، "
-"پورٹ اور زیادہ سے زیادہ جائز کنکشن تفویض کریں. VIP کے لئے پروٹوکول اور سیشن "
-"پختہ طریقہ منتخب کریں. ڈیفالٹ طور پر ایڈمن اسٹیٹ UP (نشان) ہے."
 
 msgid "Create a Volume"
 msgstr "ولیوم كی تخلیق كریں"
@@ -5816,9 +5807,6 @@ msgstr "دروازے کے IP ایڈریس کی وضاحت یا \"غیر فعال
 
 msgid "Specify VIP"
 msgstr "VIP واضح كریں"
-
-msgid "Specify a free IP address from the selected subnet"
-msgstr "منتخب شدہ سب نیٹ سے ایک آزاد IP پتہ وضاحت کریں"
 
 msgid "Specify additional attributes for the subnet."
 msgstr "ذیلی نیٹ کے لئے اضافی خصوصیات کی وضاحت کریں."

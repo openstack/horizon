@@ -6,7 +6,7 @@
 # Adriana Chisco Landazábal <achisco94@gmail.com>, 2015
 # Alberto Molina Coballes <alb.molina@gmail.com>, 2015
 # cametiope <aldohcasa@hotmail.com>, 2014
-# egongu90 <dabarren@gmail.com>, 2014
+# Eduardo Gonzalez Gutierrez <dabarren@gmail.com>, 2014
 # Guillermo Vitas Gil <gvitgo@gmail.com>, 2015
 # Heleno Jimenez de la Cruz <heleno.jimenez@gmail.com>, 2015
 # Pablo Iranzo Gómez <Pablo.Iranzo@gmail.com>, 2014
@@ -16,8 +16,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-08-20 06:20+0000\n"
-"PO-Revision-Date: 2015-08-19 07:05+0000\n"
+"POT-Creation-Date: 2015-08-22 19:10+0000\n"
+"PO-Revision-Date: 2015-08-22 15:28+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Spanish (http://www.transifex.com/openstack/horizon/language/"
 "es/)\n"
@@ -2202,16 +2202,6 @@ msgstr "Crear un router"
 
 msgid "Create a Snapshot"
 msgstr "Crear instantánea"
-
-msgid ""
-"Create a VIP for this pool. Assign a name, description, IP address, port, "
-"and maximum connections allowed for the VIP. Choose the protocol and session "
-"persistence method for the VIP. Admin State is UP (checked) by default."
-msgstr ""
-"Crear una VIP para este repositorio. Asignar un nombre, una descripción, una "
-"dirección IP, un puerto y las conexiones máximas permitias para la VIP. "
-"Escoger el protocolo y el método de persistencia de la sesión para la VIP. "
-"El estado del administrador será activo (marcado) por defecto."
 
 msgid "Create a Volume"
 msgstr "Crear un volumen"
@@ -4518,6 +4508,9 @@ msgstr "Protocolo IP"
 
 msgid "IP Version"
 msgstr "Versión de IP"
+
+msgid "IP address"
+msgstr "Dirección IP"
 
 #, python-format
 msgid "IP address %s associated."
@@ -8114,9 +8107,6 @@ msgstr ""
 
 msgid "Specify VIP"
 msgstr "Especificar VIP"
-
-msgid "Specify a free IP address from the selected subnet"
-msgstr "Especificar una dirección IP libre de la subred seleccionada"
 
 msgid "Specify a metadata definition namespace to import."
 msgstr ""

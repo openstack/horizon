@@ -8,9 +8,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-08-21 01:46+0000\n"
-"PO-Revision-Date: 2015-08-20 11:55+0000\n"
-"Last-Translator: Zbyněk Schwarz <zbynek.schwarz@gmail.com>\n"
+"POT-Creation-Date: 2015-08-22 19:10+0000\n"
+"PO-Revision-Date: 2015-08-22 15:28+0000\n"
+"Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Czech (http://www.transifex.com/openstack/horizon/language/"
 "cs/)\n"
 "MIME-Version: 1.0\n"
@@ -2283,15 +2283,6 @@ msgstr "Vytvořit směrovač"
 
 msgid "Create a Snapshot"
 msgstr "Vytvořit snímek"
-
-msgid ""
-"Create a VIP for this pool. Assign a name, description, IP address, port, "
-"and maximum connections allowed for the VIP. Choose the protocol and session "
-"persistence method for the VIP. Admin State is UP (checked) by default."
-msgstr ""
-"Vytvoření VIP pro tuto zásobu. Zadejte název, popis, IP adresu, port a "
-"maximum povolených připojení pro VIP. Zvolte protokol a metodu přetrvávání "
-"sezení. Stav správce je standardně Zapnut (zaškrtnut)."
 
 msgid "Create a Volume"
 msgstr "Vytvořit svazek"
@@ -4952,6 +4943,9 @@ msgstr "IP protokol"
 
 msgid "IP Version"
 msgstr "Verze IP"
+
+msgid "IP address"
+msgstr "IP adresa::"
 
 #, python-format
 msgid "IP address %s associated."
@@ -8728,9 +8722,6 @@ msgstr "Zadejte IP adresu brány nebo zaškrtněte \"Zakázat bránu\"."
 
 msgid "Specify VIP"
 msgstr "Zadejte VIP"
-
-msgid "Specify a free IP address from the selected subnet"
-msgstr "Zadejte volnou IP adresu ze zvolené podsítě"
 
 msgid "Specify a metadata definition namespace to import."
 msgstr "Zadejte jmenný prostor určení popisných dat pro import."

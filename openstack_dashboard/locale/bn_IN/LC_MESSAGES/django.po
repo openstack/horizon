@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-08-20 06:20+0000\n"
-"PO-Revision-Date: 2015-08-19 07:05+0000\n"
+"POT-Creation-Date: 2015-08-22 19:10+0000\n"
+"PO-Revision-Date: 2015-08-22 15:27+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Bengali (India) (http://www.transifex.com/openstack/horizon/"
 "language/bn_IN/)\n"
@@ -1537,15 +1537,6 @@ msgstr "একটি রাউটার তৈরি করুন"
 
 msgid "Create a Snapshot"
 msgstr "একটি স্ন্যাপশট তৈরি করুন"
-
-msgid ""
-"Create a VIP for this pool. Assign a name, description, IP address, port, "
-"and maximum connections allowed for the VIP. Choose the protocol and session "
-"persistence method for the VIP. Admin State is UP (checked) by default."
-msgstr ""
-"এই পুলের জন্য একটি VIP তৈরি করুন. VIP এর জন্য একটি নাম, বিবরণ, IP ঠিকানা, পোর্ট, "
-"এবং অনুমোদিত সর্বাধিক সংযোগ নিয়োগ করুন. VIP এর জন্য প্রোটোকল এবং সেশন দৃঢ়তা বাছুন. "
-"স্থিতকে অ্যাডমিন স্থিতি হল UP (পরীক্ষিত)."
 
 msgid "Create a Volume"
 msgstr "ভলিয়্যুম তৈরি করুন"
@@ -5764,9 +5755,6 @@ msgstr "গেটওয়ের IP ঠিকানা নির্দিষ্ট 
 
 msgid "Specify VIP"
 msgstr "VIP নির্দিষ্ট করুন"
-
-msgid "Specify a free IP address from the selected subnet"
-msgstr "নির্বাচিত সাবনেট থেকে একটি মুক্ত IP ঠিকানা নির্দিষ্ট করুন"
 
 msgid "Specify additional attributes for the subnet."
 msgstr "সাবনেটের জন্য অতিরিক্ত বৈশিষ্ট্য নির্দিষ্ট করুন."

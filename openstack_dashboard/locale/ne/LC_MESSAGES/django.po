@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-08-20 06:20+0000\n"
-"PO-Revision-Date: 2015-08-19 07:05+0000\n"
+"POT-Creation-Date: 2015-08-22 19:10+0000\n"
+"PO-Revision-Date: 2015-08-22 15:27+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Nepali (http://www.transifex.com/openstack/horizon/language/"
 "ne/)\n"
@@ -1526,15 +1526,6 @@ msgstr "रूटर बनाउनुहोस्"
 
 msgid "Create a Snapshot"
 msgstr "एउटा स्नेपसट बनाउनुहोस्"
-
-msgid ""
-"Create a VIP for this pool. Assign a name, description, IP address, port, "
-"and maximum connections allowed for the VIP. Choose the protocol and session "
-"persistence method for the VIP. Admin State is UP (checked) by default."
-msgstr ""
-"यो पूलको लागि VIP बनाउनुहोस्। VIPको लागि  अनुमतिप्राप्त एउटा नाम, विवरण, IPठेकाना, "
-"पोर्ट अनि अधिकतम्  सम्पर्कहरू निरूपण गर्नुहोस्। VIPका लागि प्रोटोकल अनि सत्र पर्सिस्टेन्स "
-"बिधि चयन गर्नुहोस्। एडमिन राज्‍य डिफल्ट अनुसार (जाँच गरिएको) UP हो।"
 
 msgid "Create a Volume"
 msgstr "एउटा भोल्युम बनाउनुहोस्"
@@ -5749,9 +5740,6 @@ msgstr "गेटवेको IP ठेकाना निश्चित गर
 
 msgid "Specify VIP"
 msgstr "VIP निश्चित गर्नुहोस्"
-
-msgid "Specify a free IP address from the selected subnet"
-msgstr "चयनित सबनेटबाट एउटा मुक्त IP ठेकाना निश्चित गर्नुहोस्"
 
 msgid "Specify additional attributes for the subnet."
 msgstr "सबनेटका लागि अतिरिक्त एट्रिव्युटहरू निश्चित गर्नुहोस्"

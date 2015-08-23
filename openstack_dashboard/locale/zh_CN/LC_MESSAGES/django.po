@@ -19,8 +19,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-08-20 06:20+0000\n"
-"PO-Revision-Date: 2015-08-19 07:05+0000\n"
+"POT-Creation-Date: 2015-08-22 19:10+0000\n"
+"PO-Revision-Date: 2015-08-22 15:28+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Chinese (China) (http://www.transifex.com/openstack/horizon/"
 "language/zh_CN/)\n"
@@ -2125,14 +2125,6 @@ msgstr "新建路由"
 
 msgid "Create a Snapshot"
 msgstr "创建一个快照"
-
-msgid ""
-"Create a VIP for this pool. Assign a name, description, IP address, port, "
-"and maximum connections allowed for the VIP. Choose the protocol and session "
-"persistence method for the VIP. Admin State is UP (checked) by default."
-msgstr ""
-"为该池创建VIP。指定名称、描述、IP地址、端口和最大连接数。选择VIP的协议和会话"
-"持久性方法。Admin State缺省为UP (已勾选)。"
 
 msgid "Create a Volume"
 msgstr "创建一个云硬盘"
@@ -4604,6 +4596,9 @@ msgstr "IP协议"
 
 msgid "IP Version"
 msgstr "IP版本"
+
+msgid "IP address"
+msgstr "IP地址::"
 
 #, python-format
 msgid "IP address %s associated."
@@ -8204,9 +8199,6 @@ msgstr "填写网关ip或者选择\"禁用网关\""
 
 msgid "Specify VIP"
 msgstr "指定VIP"
-
-msgid "Specify a free IP address from the selected subnet"
-msgstr "从选定的子网中指定一个可用的IP地址。"
 
 msgid "Specify a metadata definition namespace to import."
 msgstr "指定一元数据定义命名空间来导入。"

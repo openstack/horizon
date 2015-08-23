@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-08-20 06:20+0000\n"
-"PO-Revision-Date: 2015-08-19 07:05+0000\n"
+"POT-Creation-Date: 2015-08-22 19:10+0000\n"
+"PO-Revision-Date: 2015-08-22 15:27+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Marathi (http://www.transifex.com/openstack/horizon/language/"
 "mr/)\n"
@@ -1586,15 +1586,6 @@ msgstr "एक राउटर तयार करा "
 
 msgid "Create a Snapshot"
 msgstr "क्षणचित्र तयार करा"
-
-msgid ""
-"Create a VIP for this pool. Assign a name, description, IP address, port, "
-"and maximum connections allowed for the VIP. Choose the protocol and session "
-"persistence method for the VIP. Admin State is UP (checked) by default."
-msgstr ""
-"या गटासाठी व्हीआयपी तयार करा. व्हीआयपीसाठी एक नाव, वर्णन, आयपी पत्ता, पोर्ट, व "
-"कमाल किती जोडण्यांची परवानगी आहे ते द्या. व्हीआयपीसाठी प्रोटोकॉल व सत्र सातत्य पद्धत "
-"निवडा. पूर्वनिर्धारितपणे प्रशासक स्थिती सुरु (तपासलेली) आहे."
 
 msgid "Create a Volume"
 msgstr "खंड तयार करा"
@@ -6028,9 +6019,6 @@ msgstr "गेटवेचा आयपी पत्ता नमूद कर�
 
 msgid "Specify VIP"
 msgstr "व्हीआयपी नमूद करा"
-
-msgid "Specify a free IP address from the selected subnet"
-msgstr "निवडलेल्या उपनेटमधून मुक्त आयपी पत्ती नमूद करा"
 
 msgid "Specify additional attributes for the subnet."
 msgstr "उपनेटसाठी अतिरिक्त वैशिष्ट्ये नमूद करा."

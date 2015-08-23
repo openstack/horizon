@@ -11,8 +11,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-08-20 06:20+0000\n"
-"PO-Revision-Date: 2015-08-19 07:05+0000\n"
+"POT-Creation-Date: 2015-08-22 19:10+0000\n"
+"PO-Revision-Date: 2015-08-22 15:28+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Turkish (Turkey) (http://www.transifex.com/openstack/horizon/"
 "language/tr_TR/)\n"
@@ -2185,16 +2185,6 @@ msgstr "Yönlendirici Oluştur"
 
 msgid "Create a Snapshot"
 msgstr "Anlık Görüntü Oluştur"
-
-msgid ""
-"Create a VIP for this pool. Assign a name, description, IP address, port, "
-"and maximum connections allowed for the VIP. Choose the protocol and session "
-"persistence method for the VIP. Admin State is UP (checked) by default."
-msgstr ""
-"Bu havuz için VIP oluşturun. Bir isim, tanımlama, IP adresi, bağlantı "
-"noktası, ve VIP için izin verilen azami bağlantı sayısı atayın. VIP için "
-"iletişim kuralı ve oturum kalıcılığı metodunu seçin. Yönetici durumu "
-"varsayılan olarak UP (işaretli) dir."
 
 msgid "Create a Volume"
 msgstr "Mantıksal Sürücü Oluştur"
@@ -4723,6 +4713,9 @@ msgstr "IP İletişim Kuralı"
 
 msgid "IP Version"
 msgstr "IP Versiyonu"
+
+msgid "IP address"
+msgstr "IP adresi"
 
 #, python-format
 msgid "IP address %s associated."
@@ -8378,9 +8371,6 @@ msgstr "Geçit IP adresini belirtin ya da \"Geçidi Kapat\" işaretleyin."
 
 msgid "Specify VIP"
 msgstr "VIP Belirtin"
-
-msgid "Specify a free IP address from the selected subnet"
-msgstr "Seçili alt ağdan serbest bir IP adresi belirtin"
 
 msgid "Specify a metadata definition namespace to import."
 msgstr "İçe aktarılacak isim uzayı üst veri tanımlaması belirtin."

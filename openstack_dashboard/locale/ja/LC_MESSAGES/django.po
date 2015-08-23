@@ -13,8 +13,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-08-20 06:20+0000\n"
-"PO-Revision-Date: 2015-08-19 07:05+0000\n"
+"POT-Creation-Date: 2015-08-22 19:10+0000\n"
+"PO-Revision-Date: 2015-08-22 15:28+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Japanese (http://www.transifex.com/openstack/horizon/language/"
 "ja/)\n"
@@ -2153,16 +2153,6 @@ msgstr "ルーターの作成"
 
 msgid "Create a Snapshot"
 msgstr "スナップショットの作成"
-
-msgid ""
-"Create a VIP for this pool. Assign a name, description, IP address, port, "
-"and maximum connections allowed for the VIP. Choose the protocol and session "
-"persistence method for the VIP. Admin State is UP (checked) by default."
-msgstr ""
-"このプールに仮想 IP を作成します。この仮想 IP の名前、説明、IP アドレス、ポー"
-"ト番号、許可する最大接続数を指定します。この仮想 IP で使用するプロトコルと"
-"セッション永続化方法を選んでください。管理状態はデフォルトで有効 (チェック済"
-"み) になっています。"
 
 msgid "Create a Volume"
 msgstr "ボリュームの作成"
@@ -4692,6 +4682,9 @@ msgstr "IP プロトコル"
 
 msgid "IP Version"
 msgstr "IP バージョン"
+
+msgid "IP address"
+msgstr "IP アドレス"
 
 #, python-format
 msgid "IP address %s associated."
@@ -8342,9 +8335,6 @@ msgstr ""
 
 msgid "Specify VIP"
 msgstr "仮想 IP の指定"
-
-msgid "Specify a free IP address from the selected subnet"
-msgstr "選択したサブネットの未使用の IP アドレスを指定してください"
 
 msgid "Specify a metadata definition namespace to import."
 msgstr "インポートする名前空間のメタデータ定義を指定します。"

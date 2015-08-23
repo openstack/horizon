@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-08-20 06:20+0000\n"
-"PO-Revision-Date: 2015-08-19 07:05+0000\n"
+"POT-Creation-Date: 2015-08-22 19:10+0000\n"
+"PO-Revision-Date: 2015-08-22 15:27+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Bodo (http://www.transifex.com/openstack/horizon/language/"
 "brx/)\n"
@@ -1594,15 +1594,6 @@ msgstr "रुटार सोरजि"
 
 msgid "Create a Snapshot"
 msgstr "मोनसे स्नेपसट सोरजि"
-
-msgid ""
-"Create a VIP for this pool. Assign a name, description, IP address, port, "
-"and maximum connections allowed for the VIP. Choose the protocol and session "
-"persistence method for the VIP. Admin State is UP (checked) by default."
-msgstr ""
-"बे पुलनि थाखाय मोनसे VIP खौ सोरजि। VIP नि थाखाय मोनसे मुं, बेखेवथि, IP थं, पर्ट, आरो   "
-"बांसिन फोनांजाबखौ रानना हो। VIP नि थाखाय प्र'ट'कल आरो जथुम्मा दिदोमखौ बासिख। "
-"एडमिन राइजोआ डिफल्टजों UP (आनजाद खालामजायो)।"
 
 msgid "Create a Volume"
 msgstr "भलिउमखौ सोरजि"
@@ -6045,9 +6036,6 @@ msgstr "गेटवेनि IP थंखौ थिक खालाम एब�
 
 msgid "Specify VIP"
 msgstr "VIPखौ थिक खालाम"
-
-msgid "Specify a free IP address from the selected subnet"
-msgstr "सायखखानाय साबनेट निफ्राय फ्रि IP थंखौ थिक खालाम।"
 
 msgid "Specify additional attributes for the subnet."
 msgstr "साबनेटनि थाखाय बांद्राय एट्‌ट्रिबिउटखौ थिक खालाम।"

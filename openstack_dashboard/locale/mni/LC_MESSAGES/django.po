@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-08-20 06:20+0000\n"
-"PO-Revision-Date: 2015-08-19 07:05+0000\n"
+"POT-Creation-Date: 2015-08-22 19:10+0000\n"
+"PO-Revision-Date: 2015-08-22 15:27+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Manipuri (http://www.transifex.com/openstack/horizon/language/"
 "mni/)\n"
@@ -1545,15 +1545,6 @@ msgstr "রাউতর অমা শেম্মু"
 
 msgid "Create a Snapshot"
 msgstr "স্নেপশোত অমা শেম্মু"
-
-msgid ""
-"Create a VIP for this pool. Assign a name, description, IP address, port, "
-"and maximum connections allowed for the VIP. Choose the protocol and session "
-"persistence method for the VIP. Admin State is UP (checked) by default."
-msgstr ""
-"পুল অসিগী VIP অমা শেম্মু। VIP অদুগীদমক মমীং, দিস্ক্রিপসন, IP এদ্রেস, পোর্ত অমা, অমসুং "
-"মেক্সিমম ওইবা কনেক্সনশীং এসাইন তৌ। VIP অদুগীদমক প্রোতোকোল অমসুং সেসন পর্সিস্তেন্স "
-"মেথদ অদু খল্লু। এদমিন ষ্টেত অদু দিফোল্ট ওইনা UP (চেক তৌরবা) ওই।"
 
 msgid "Create a Volume"
 msgstr "ভোল্যুম অমা শেম্মু"
@@ -5803,9 +5794,6 @@ msgstr "গেতৱেগী IP এদ্রেস তাকউ নত্ত্
 
 msgid "Specify VIP"
 msgstr "VIP তাকউ"
-
-msgid "Specify a free IP address from the selected subnet"
-msgstr "খল্লবা সবনেত অদুদগী ফ্রি IP এদ্রেস অমা তাকউ"
 
 msgid "Specify additional attributes for the subnet."
 msgstr "সবনেত অদুগীদমক অহেনবা এত্রিব্যুতশীং তাকউ।"

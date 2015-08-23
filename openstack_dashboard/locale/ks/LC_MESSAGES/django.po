@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-08-20 06:20+0000\n"
-"PO-Revision-Date: 2015-08-19 07:05+0000\n"
+"POT-Creation-Date: 2015-08-22 19:10+0000\n"
+"PO-Revision-Date: 2015-08-22 15:27+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Kashmiri (http://www.transifex.com/openstack/horizon/language/"
 "ks/)\n"
@@ -1530,14 +1530,6 @@ msgstr "بَنایئو أکھ راوٹر"
 
 msgid "Create a Snapshot"
 msgstr "بَنآیئو سِنیپ شٲٹس"
-
-msgid ""
-"Create a VIP for this pool. Assign a name, description, IP address, port, "
-"and maximum connections allowed for the VIP. Choose the protocol and session "
-"persistence method for the VIP. Admin State is UP (checked) by default."
-msgstr ""
-"بَنایو اَکھVIP پول خآطرہ۔ دِیو اَکھ نآو، تَفصیل،IP نیب، پورٹ تہ زیادہ خوتہ زیادہ "
-"کنیکشن یِم  خآطرہ VI ضروری چھ۔ ژاریو پروٹکال تہ سیشن "
 
 msgid "Create a Volume"
 msgstr "بَنایئو والیوم "
@@ -5767,9 +5759,6 @@ msgstr "وَضاحت کئران IP ایڈریس گیٹ وے یا چیک خآطر
 
 msgid "Specify VIP"
 msgstr "وَضاحت کئریو VIP"
-
-msgid "Specify a free IP address from the selected subnet"
-msgstr "وَضاحت کئریو اَکھ مُفت  IPایڈریس ژارمِت سب نیٹ مَنز"
 
 msgid "Specify additional attributes for the subnet."
 msgstr "وَضاحت کئریو مزید ایٹریبیوٹس سب نیٹ خآطرہ"

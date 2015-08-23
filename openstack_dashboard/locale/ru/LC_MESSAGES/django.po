@@ -17,8 +17,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-08-20 06:20+0000\n"
-"PO-Revision-Date: 2015-08-19 07:05+0000\n"
+"POT-Creation-Date: 2015-08-22 19:10+0000\n"
+"PO-Revision-Date: 2015-08-22 15:27+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Russian (http://www.transifex.com/openstack/horizon/language/"
 "ru/)\n"
@@ -2155,16 +2155,6 @@ msgstr "Создать Маршрутизатор"
 
 msgid "Create a Snapshot"
 msgstr "Создать снимок"
-
-msgid ""
-"Create a VIP for this pool. Assign a name, description, IP address, port, "
-"and maximum connections allowed for the VIP. Choose the protocol and session "
-"persistence method for the VIP. Admin State is UP (checked) by default."
-msgstr ""
-"Создать VIP для этого пула. Назначить имя, описание,  IP-адрес, порт и "
-"максимальное число подключений доступное VIP. Выбрать протокол и метод "
-"сохранения сессии для VIP. Административное состояние по умолчанию - UP "
-"(включено)."
 
 msgid "Create a Volume"
 msgstr "Создать носитель"
@@ -8639,9 +8629,6 @@ msgstr "Задайте IP адрес шлюза или установите фл
 
 msgid "Specify VIP"
 msgstr "Укажите VIP"
-
-msgid "Specify a free IP address from the selected subnet"
-msgstr "Указать свободный IP-адрес из выбранной подсети"
 
 msgid "Specify a metadata definition namespace to import."
 msgstr "Укажите импортируемое пространство имен для определения метаданных."
