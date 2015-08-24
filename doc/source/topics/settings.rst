@@ -681,6 +681,24 @@ This value must correspond to an existing role name in Keystone. In general,
 the value should match the ``member_role_name`` defined in ``keystone.conf``.
 
 
+``OPENSTACK_KEYSTONE_ADMIN_ROLES``
+----------------------------------
+
+.. versionadded:: 2015.1(Kilo)
+
+Default: ``["admin"]``
+
+The list of roles that have administrator privileges in this OpenStack
+installation. This check is very basic and essentially only works with
+keystone v2.0 and v3 with the default policy file. The setting assumes there
+is a common ``admin`` like role(s) across services. Example uses of this
+setting are:
+
+    * to rename the ``admin`` role to ``cloud-admin``
+    * allowing multiple roles to have administrative privileges, like
+      ``["admin", "cloud-admin", "net-op"]``
+
+
 ``OPENSTACK_KEYSTONE_MULTIDOMAIN_SUPPORT``
 ------------------------------------------
 
