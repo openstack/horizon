@@ -1396,11 +1396,11 @@ If set to ``True``, this dashboard will be set as the default dashboard.
 Examples
 --------
 
-To disable the Router dashboard locally, create a file
-``openstack_dashboard/local/enabled/_40_router.py`` with the following
+To disable a dashboard locally, create a file
+``openstack_dashboard/local/enabled/_40_dashboard-name.py`` with the following
 content::
 
-    DASHBOARD = 'router'
+    DASHBOARD = '<dashboard-name>'
     DISABLED = True
 
 To add a Tuskar-UI (Infrastructure) dashboard, you have to install it, and then
