@@ -18,9 +18,12 @@
     .module('horizon.app.tech-debt')
     .controller('ImageFormController', ImageFormController);
 
-  function ImageFormController() {
-    var ctrl = this;
+  ImageFormController.$inject = ['$element'];
 
+  function ImageFormController($element) {
+    var ctrl = this;
+    ctrl.copyFrom = $element('.image_url').val();
+    ctrl.diskFormat = $element('.disk_format').val();
     ctrl.selectImageFormat = function (path) {
       if (!path) { return; }
       var format = path.substr(path.lastIndexOf(".") + 1)
