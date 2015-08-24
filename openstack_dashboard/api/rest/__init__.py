@@ -25,6 +25,7 @@ in https://wiki.openstack.org/wiki/APIChangeGuidelines.
 from . import cinder       #flake8: noqa
 from . import config       #flake8: noqa
 from . import glance       #flake8: noqa
+from . import heat         #flake8: noqa
 from . import keystone     #flake8: noqa
 from . import network      #flake8: noqa
 from . import neutron      #flake8: noqa
