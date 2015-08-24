@@ -70,7 +70,7 @@ def availability_zones(request):
                                          'zones.'))
     if not zone_list:
         zone_list.insert(0, ("", _("No availability zones found")))
-    elif len(zone_list) > 0:
+    elif len(zone_list) > 1:
         zone_list.insert(0, ("", _("Any Availability Zone")))
 
     return zone_list
