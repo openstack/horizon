@@ -4,13 +4,13 @@
 
   <div class="row">
     <dl class="col-sm-2">
-      <dt>{$ ::ctrl.label.min_disk $}</dt>
+      <dt translate>Min Disk</dt>
       <dd>
         {$ (row.properties ? row.min_disk : row.volume_image_metadata.min_disk) || '--' $}
       </dd>
     </dl>
     <dl class="col-sm-2">
-      <dt>{$ ::ctrl.label.min_ram $}</dt>
+      <dt translate>Min RAM</dt>
       <dd>
         {$ (row.properties ? row.min_ram : row.volume_image_metadata.min_ram) || '--' $}
       </dd>
