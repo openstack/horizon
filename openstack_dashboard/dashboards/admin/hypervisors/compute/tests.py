@@ -112,7 +112,7 @@ class MigrateHostViewTest(test.BaseAdminViewTests):
                                 'admin/hypervisors/compute/migrate_host.html')
 
     @test.create_stubs({api.nova: ('migrate_host',)})
-    def test_maintenance_host_cold_migration_suceed(self):
+    def test_maintenance_host_cold_migration_succeed(self):
         disabled_services = [service for service in self.services.list()
                              if service.binary == 'nova-compute'
                              and service.status == 'disabled']

@@ -84,8 +84,8 @@ class FloatingIpManager(object):
     def associate(self, floating_ip_id, port_id):
         """Associates the floating IP to the port.
 
-        port_id is a fixed IP of a instance (Nova) or
-        a port_id attached to a VNIC of a instance.
+        port_id is a fixed IP of an instance (Nova) or
+        a port_id attached to a VNIC of an instance.
         """
         pass
 
