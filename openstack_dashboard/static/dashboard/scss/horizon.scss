@@ -24,6 +24,8 @@
 @import "components/context_selection";
 @import "components/pie_charts";
 @import "/framework/framework";
+@import "components/tables";
+@import "components/table_actions";
 
 
 /* new clearfix */
@@ -204,109 +206,6 @@ a.current_item:hover h4 {
   padding: 0 0 0 1px;
 }
 
-.table_wrapper > form.wait,
-.table_wrapper > form.wait * {
-  cursor: wait !important;
-}
-
-.table-bordered {
-  border: none;
-}
-
-.table_header {
-  min-height: 35px;
-  padding: 5px 0;
-}
-
-.table_caption th {
-  background-color: transparent;
-  border: none;
-}
-
-.table-bordered th.table_header { border: none; }
-
-.table-bordered tr.table_caption + tr th {
-  border-top: 1px solid $table-border-color;
-}
-.table-bordered tr.table_caption + tr th:first-child,
-.table-bordered tr.table_caption + tr th.hide + th {
-  border-top-left-radius: 4px;
-  border-left: 1px solid $table-border-color;
-}
-.table-bordered tr.table_caption + tr th:last-child {
-  border-top-right-radius: 4px;
-  border-right: 1px solid $table-border-color;
-}
-.table-bordered tbody tr td:first-child,
-.table-bordered tfoot tr td:first-child {
-  border-left: 1px solid $table-border-color;
-}
-.table-bordered tbody tr td:last-child,
-.table-bordered tfoot tr td:last-child {
-  border-right: 1px solid $table-border-color;
-}
-.table-bordered tfoot tr td:first-child {
-  border-bottom: 1px solid $table-border-color;
-  border-bottom-left-radius: 4px;
-}
-.table-bordered tfoot tr td:last-child {
-  border-bottom: 1px solid $table-border-color;
-  border-bottom-right-radius: 4px;
-}
-.table_title h3,
-.table_header h3 {
-  font-weight: normal;
-  font-size: 24px;
-  margin: 0 0 5px 0;
-  float: left;
-}
-.table th.header {
-  cursor: pointer;
-}
-.table th.header:hover {
-  background-color: #e8e8e8;
-  text-decoration: underline;
-}
-.table tbody td.anchor a {
-  display: block;
-}
-.table tr.table_caption th.header:hover {
-  background-color: transparent;
-  cursor: default;
-}
-.table th.headerSortUp:hover,
-.table th.headerSortDown:hover {
-  background-color: #dfdfdf;
-}
-.table th.headerSortUp,
-.table th.headerSortDown {
-  background-color: #dfdfdf;
-  background-repeat: no-repeat;
-  background-position: 98% center;
-}
-.table th.headerSortDown {
-  background-image: url(../img/drop_arrow.png);
-}
-.table th.headerSortUp {
-  background-image: url(../img/up_arrow.png);
-}
-.table tr.summation td:first-child,
-.table tr.summation td:last-child {
-  border-radius: 0;
-  border-bottom: 0 none;
-}
-.table li {
-  list-style-position: inside;
-}
-
-th {
-  background: #f1f1f1;
-}
-td.anchor {
-  padding: 0;
-}
-
-
 .main_nav {
   list-style: none;
   width: 222px;
@@ -326,11 +225,6 @@ td.anchor {
   border: 2px solid #d8d8d8;
   border-right: 0;
   border-bottom-color: #ccc;
-}
-
-table form {
-  margin-bottom: 0;
-  width: 1px;
 }
 
 .messages {
@@ -378,170 +272,14 @@ table form {
   width: 90px;
 }
 
-.table-striped tr td {
-  @include transition(background 0.2s);
-}
-
 .inspect {
   float: left;
   display: block;
   margin-top: 5px;
   margin-right: 25px;
 }
-
-.table {
-  margin-bottom: 25px;
-  > thead,
-  > tbody,
-  > tfoot {
-    > tr {
-      > th,
-      > td {
-        vertical-align: middle;
-      }
-    }
-  }
-}
-
-.table tr td {
-  vertical-align: middle;
-}
-
-.table tr.empty td {
-  text-align: center;
-}
-
-.table tfoot tr td {
-  border-top: 1px solid $table-border-color;
-  background-color: #f1f1f1;
-  font-size: 11px;
-  line-height: 14px;
-}
-
-.table_actions {
-  float: right;
-  min-width: 400px;
-  @extend .form-inline;
-}
-
-.table_actions .table_search,
-.table_actions .table_filter {
-   display: inline-flex;
-   display: -ms-inline-flexbox;
-   -ms-flex-direction: row;
-   display: -webkit-inline-flex;
-   display: -moz-inline-flex;
-}
-
-.table_search {
-  input[type="text"] {
-    padding-right: 26px;
-  }
-  select {
-    width: auto;
-  }
-}
-
-.table_actions .table_actions_menu {
-  display: inline-block;
-  position: relative;
-  margin-left: 5px;
-  .dropdown-menu {
-    left: auto;
-    right: 0;
-    a, button {
-      margin-left: 0px;
-      padding-left: 22px;
-      .fa {
-        margin-left: -14px;
-      }
-    }
-  }
-}
-
-td.no-transition {
-  @include transition(none !important);
-}
-
-td.success {
-  background-color: #dff0d8 !important;
-}
-td.loading {
-  background-color: #e6e6e6 !important;
-}
-
-.table_header .table_actions {
-  display: inline-flex;
-  display: -ms-inline-flexbox;
-  -ms-flex-direction: row;
-  display: -webkit-inline-flex;
-  display: -moz-inline-flex;
-  min-width: 0;
-}
-
-.table_header .table_actions a,
-.table_header .table_actions > button,
-.table_header .table_actions .table_search button {
-  display: inline-block;
-  float: none;
-  max-height: 32px;
-}
-
-.table_header .table_actions .table_search select {
-  margin-bottom: 0;
-  line-height: 22px;
-}
-
-.table_header .table_filter {
-  vertical-align: bottom;
-  margin-right: 20px;
-}
-
-.table_header .table_filter i {
-  vertical-align: middle;
-}
-
-.table_actions form {
-  float: right;
-  margin-left: 10px;
-}
-
 .hidden {
   display: none;
-}
-
-/*
- * Bootstrap styles table backgrounds using nth-child(2n+1), which is
- * oblivious to hidden elements. The styles below allow us to override
- * the bootstrap style when necessary by setting the odd/even classes.
- */
-.table-striped.datatable tbody {
-  td {
-    background-clip: padding-box;
-  }
-  tr.odd td {
-    background-color: $table-bg-odd;
-  }
-  tr.even td {
-    background-color: inherit;
-  }
-  tr.odd:hover td,
-  tr.even:hover td,
-  tr:hover th {
-    background-color: $table-bg-hover;
-  }
-}
-
-.table-striped tbody tr.status_unknown:nth-child(odd) td {
-  background-color: #ffffb5;
-}
-
-.table-striped tbody tr.status_unknown:nth-child(even) td {
-  background-color: #ffffc6;
-}
-
-.nowrap-col {
-  white-space: nowrap;
 }
 
 .overview {
@@ -568,27 +306,6 @@ td.loading {
     float: left;
 }
 #external_links li { margin: 0 0 0 15px; }
-
-
-/* Formset data tables. */
-
-.datatable {
-  th.narrow {
-    width: 1em;
-  }
-
-  th span.required:after {
-    content: "*";
-    font-weight: bold;
-    line-height: 0;
-    padding-left: 4px;
-    color: $brand-primary;
-  }
-
-  .normal_column ul {
-    padding-left: 0;
-  }
-}
 
 
 /* Forms */
@@ -746,13 +463,9 @@ form label {
 
 .form-inline {
   display: inline;
-  input, button, a.btn {
+  input, button, a.btn, .btn-group {
     margin-left: 5px;
   }
-}
-
-td.select {
-  width: 10px;
 }
 
 /* Actions dropdown */
@@ -763,6 +476,13 @@ td.select {
   position: relative;
   width: 1em;
   background-clip: padding-box;
+
+  // We want the actions column to be a small button, but
+  // we can't get to the class attribute yet to customize
+  // that outside of every action, including table header
+  .btn {
+    @extend .btn-sm;
+  }
 }
 
 form.actions_column {
@@ -770,6 +490,7 @@ form.actions_column {
   font-family: $font-family-base;
 }
 
+// TODO(hurgleburgler): We need to fix this, we still support IE8+
 .actions_column .btn-group {
   display: inline-flex;
   display: -ms-inline-flexbox;
@@ -876,25 +597,9 @@ tr:hover .actions_column ul.row_actions.single,
   color: $text-color;
 }
 
-th.multi_select_column, td.multi_select_column {
-  width: 41px;
-  text-align: center;
-}
-
-.table-fixed {
-  table-layout: fixed;
-}
-
 div.input input[type="checkbox"] {
   float: left;
   width: 25px;
-}
-
-.table_title a {
-  font-size: 11px;
-  float: right;
-  margin-left: 10px;
-  margin-top: 10px;
 }
 
 tr.terminated {
@@ -1837,24 +1542,6 @@ label.log-length {
     }
   }
 
-}
-/**** Sort Indicator ****/
-.tablesorter thead tr th
-{
-  &.tablesorter-header {
-    cursor: pointer;
-    background-repeat: no-repeat;
-    background-position: 99% center;
-    background-position: right 5px center;
-  }
-
-  &.tablesorter-headerAsc {
-    background-image: url(../img/up_arrow.png);
-  }
-
-  &.tablesorter-headerDesc {
-    background-image: url(../img/drop_arrow.png);
-  }
 }
 
 /* Read only text fields */

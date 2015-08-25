@@ -1,0 +1,16 @@
+.table_actions {
+  float: right;
+  @extend .form-inline;
+}
+
+.table_search,
+.table_filter {
+  display: inline-block;
+}
+
+// Push the table filter padding over to compensate for that little magnifying glass icon
+.table_search {
+  input[type="text"] {
+    padding-right: $input-height-base;
+  }
+}

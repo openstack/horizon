@@ -37,7 +37,7 @@ from horizon.utils import html
 LOG = logging.getLogger(__name__)
 
 # For Bootstrap integration; can be overridden in settings.
-ACTION_CSS_CLASSES = ("btn", "btn-default", "btn-sm")
+ACTION_CSS_CLASSES = ("btn", "btn-default")
 STRING_SEPARATOR = "__"
 
 
