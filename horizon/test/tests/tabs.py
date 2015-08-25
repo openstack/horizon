@@ -1,3 +1,5 @@
+# encoding=utf-8
+#
 # Copyright 2012 Nebula, Inc.
 #
 #    Licensed under the Apache License, Version 2.0 (the "License"); you may
@@ -15,6 +17,8 @@
 import copy
 
 from django import http
+
+import six
 
 from horizon import exceptions
 from horizon import tabs as horizon_tabs
@@ -250,9 +254,12 @@ class TabTests(test.TestCase):
         # Okay, load the data.
         tab.load_table_data()
         self.assertTrue(tab._table_data_loaded)
-        self.assertQuerysetEqual(table.data, ['<FakeObject: object_1>',
-                                              '<FakeObject: object_2>',
-                                              '<FakeObject: object_3>'])
+        self.assertQuerysetEqual(table.data,
+                                 ['FakeObject: object_1',
+                                  'FakeObject: object_2',
+                                  'FakeObject: object_3',
+                                  u'FakeObject: öbject_4'],
+                                 transform=six.text_type)
         context = tab.get_context_data(self.request)
         # Make sure our table is loaded into the context correctly
         self.assertEqual(table, context['my_table_table'])
@@ -266,7 +273,7 @@ class TabTests(test.TestCase):
         req = self.factory.get("/")
         res = view(req)
         self.assertContains(res, "<table", 1)
-        self.assertContains(res, "Displaying 3 items", 1)
+        self.assertContains(res, "Displaying 4 items", 1)
 
         # AJAX response to GET for row update
         params = {"table": "my_table", "action": "row_update", "obj_id": "1"}

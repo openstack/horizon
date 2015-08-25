@@ -1,3 +1,5 @@
+# encoding=utf-8
+#
 # Copyright 2012 Nebula, Inc.
 # Copyright 2014 IBM Corp.
 #
@@ -38,14 +40,16 @@ class FakeObject(object):
         self.excluded = excluded
         self.extra = "extra"
 
-    def __repr__(self):
-        return "<%s: %s>" % (self.__class__.__name__, self.name)
+    def __str__(self):
+        return u"%s: %s" % (self.__class__.__name__, self.name)
 
 
 TEST_DATA = (
     FakeObject('1', 'object_1', 'value_1', 'up', 'optional_1', 'excluded_1'),
     FakeObject('2', 'object_2', '<strong>evil</strong>', 'down', 'optional_2'),
     FakeObject('3', 'object_3', 'value_3', 'up'),
+    FakeObject('4', u'öbject_4', u'välue_1', u'üp', u'öptional_1',
+               u'exclüded_1'),
 )
 
 TEST_DATA_2 = (
@@ -476,7 +480,8 @@ class DataTableTests(test.TestCase):
         rows = self.table.get_rows()
         self.assertQuerysetEqual(rows, ['<MyRow: my_table__row__1>',
                                         '<MyRow: my_table__row__2>',
-                                        '<MyRow: my_table__row__3>'])
+                                        '<MyRow: my_table__row__3>',
+                                        '<MyRow: my_table__row__4>'])
         # Verify each row contains the right cells
         self.assertQuerysetEqual(rows[0].get_cells(),
                                  ['<Cell: multi_select, my_table__row__1>',
@@ -607,8 +612,8 @@ class DataTableTests(test.TestCase):
         self.assertContains(resp, 'id="my_table__row__2"', 1)
         self.assertContains(resp, 'id="my_table__row__3"', 1)
         update_string = "action=row_update&amp;table=my_table&amp;obj_id="
-        self.assertContains(resp, update_string, 3)
-        self.assertContains(resp, "data-update-interval", 3)
+        self.assertContains(resp, update_string, 4)
+        self.assertContains(resp, "data-update-interval", 4)
         # Verify no table heading
         self.assertNotContains(resp, "<h3 class='table_title'")
         # Verify our XSS protection
@@ -796,7 +801,8 @@ class DataTableTests(test.TestCase):
         handled = self.table.maybe_handle()
         self.assertIsNone(handled)
         self.assertQuerysetEqual(self.table.filtered_data,
-                                 ['<FakeObject: object_2>'])
+                                 ['FakeObject: object_2'],
+                                 transform=six.text_type)
 
         # with empty filter string, it should return all data
         req = self.factory.post('/my_url/', {action_string: ''})
@@ -804,9 +810,11 @@ class DataTableTests(test.TestCase):
         handled = self.table.maybe_handle()
         self.assertIsNone(handled)
         self.assertQuerysetEqual(self.table.filtered_data,
-                                 ['<FakeObject: object_1>',
-                                  '<FakeObject: object_2>',
-                                  '<FakeObject: object_3>'])
+                                 ['FakeObject: object_1',
+                                  'FakeObject: object_2',
+                                  'FakeObject: object_3',
+                                  u'FakeObject: öbject_4'],
+                                 transform=six.text_type)
 
         # with unknown value it should return empty list
         req = self.factory.post('/my_url/', {action_string: 'horizon'})
@@ -981,7 +989,8 @@ class DataTableTests(test.TestCase):
         handled = self.table.maybe_handle()
         self.assertIsNone(handled)
         self.assertQuerysetEqual(self.table.filtered_data,
-                                 ['<FakeObject: object_2>'])
+                                 ['FakeObject: object_2'],
+                                 transform=six.text_type)
 
         # Ensure fitering respects the request method, e.g. no filter here
         req = self.factory.get('/my_url/', {action_string: '2'})
@@ -989,9 +998,11 @@ class DataTableTests(test.TestCase):
         handled = self.table.maybe_handle()
         self.assertIsNone(handled)
         self.assertQuerysetEqual(self.table.filtered_data,
-                                 ['<FakeObject: object_1>',
-                                  '<FakeObject: object_2>',
-                                  '<FakeObject: object_3>'])
+                                 ['FakeObject: object_1',
+                                  'FakeObject: object_2',
+                                  'FakeObject: object_3',
+                                  u'FakeObject: öbject_4'],
+                                 transform=six.text_type)
 
         # Updating and preemptive actions
         params = {"table": "my_table", "action": "row_update", "obj_id": "1"}
@@ -1040,7 +1051,8 @@ class DataTableTests(test.TestCase):
         handled = self.table.maybe_handle()
         self.assertIsNone(handled)
         self.assertQuerysetEqual(self.table.filtered_data,
-                                 ['<FakeObject: object_2>'])
+                                 ['FakeObject: object_2'],
+                                 transform=six.text_type)
 
         # Ensure API filtering does not filter on server, e.g. no filter here
         req = self.factory.post('/my_url/')
@@ -1050,9 +1062,11 @@ class DataTableTests(test.TestCase):
         handled = self.table.maybe_handle()
         self.assertIsNone(handled)
         self.assertQuerysetEqual(self.table.filtered_data,
-                                 ['<FakeObject: object_1>',
-                                  '<FakeObject: object_2>',
-                                  '<FakeObject: object_3>'])
+                                 ['FakeObject: object_1',
+                                  'FakeObject: object_2',
+                                  'FakeObject: object_3',
+                                  u'FakeObject: öbject_4'],
+                                 transform=six.text_type)
 
     def test_inline_edit_update_action_get_non_ajax(self):
         # Non ajax inline edit request should return None.
@@ -1453,9 +1467,11 @@ class DataTableViewTests(test.TestCase):
         context = view.get_context_data()
         self.assertEqual(context['table'].__class__, MyServerFilterTable)
         self.assertQuerysetEqual(data,
-                                 ['<FakeObject: object_1>',
-                                  '<FakeObject: object_2>',
-                                  '<FakeObject: object_3>'])
+                                 ['FakeObject: object_1',
+                                  'FakeObject: object_2',
+                                  'FakeObject: object_3',
+                                  u'FakeObject: öbject_4'],
+                                 transform=six.text_type)
         self.assertEqual(req.session.get(self.fil_value_param), 'up')
         self.assertEqual(req.session.get(self.fil_field_param), 'status')
 

@@ -812,7 +812,7 @@ class BatchAction(Action):
             datum_display = table.get_object_display(datum) or datum_id
             if not table._filter_action(self, request, datum):
                 action_not_allowed.append(datum_display)
-                LOG.warning('Permission denied to %s: "%s"' %
+                LOG.warning(u'Permission denied to %s: "%s"' %
                             (self._get_action_name(past=True).lower(),
                              datum_display))
                 continue
@@ -822,7 +822,7 @@ class BatchAction(Action):
                 self.update(request, datum)
                 action_success.append(datum_display)
                 self.success_ids.append(datum_id)
-                LOG.info('%s: "%s"' %
+                LOG.info(u'%s: "%s"' %
                          (self._get_action_name(past=True), datum_display))
             except Exception as ex:
                 # Handle the exception but silence it since we'll display
