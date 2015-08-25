@@ -473,7 +473,7 @@ class NetworkApiNeutronSecurityGroupTests(NetworkApiNeutronTestBase):
         instance_port = [p for p in self.api_ports.list()
                          if p['device_owner'].startswith('compute:')][0]
         instance_id = instance_port['device_id']
-        # Emulate an intance with two ports
+        # Emulate an instance with two ports
         instance_ports = []
         for _i in range(2):
             p = copy.deepcopy(instance_port)
