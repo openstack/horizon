@@ -113,15 +113,6 @@
         scope.itemButtonClasses = "fa fa-minus";
       }
 
-      // Labels for select flavor table
-      scope.quotaImpactLabel = gettext("Impact on your quota");
-      scope.nameLabel = gettext("Name");
-      scope.vcpusLabel = gettext("VCPUs");
-      scope.ramLabel = gettext("RAM");
-      scope.totalDiskLabel = gettext("Total Disk");
-      scope.rootDiskLabel = gettext("Root Disk");
-      scope.ephemeralDiskLabel = gettext("Ephemeral Disk");
-      scope.isPublicLabel = gettext("Public");
       scope.chartSettings = donutChartSettings;
     } // end of link
   } // end of function

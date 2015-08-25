@@ -53,7 +53,7 @@
 
       it('defines expected labels', function () {
         var props = [
-          'title', 'subtitle', 'chartTotalInstancesLabel',
+          'chartTotalInstancesLabel',
           'chartTotalVcpusLabel', 'chartTotalRamLabel'
         ];
 
@@ -408,26 +408,6 @@
             expect(ctrl.defaultIfUndefined('myVal', 'defValue')).toBe('myVal');
           });
         });
-      });
-
-    });
-
-    describe('LaunchInstanceFlavorHelpController', function () {
-      var ctrl;
-
-      beforeEach(module('horizon.dashboard.project.workflow.launch-instance'));
-
-      beforeEach(inject(function ($controller) {
-        ctrl = $controller('LaunchInstanceFlavorHelpController', {});
-      }));
-
-      it('defines the title', function () {
-        expect(ctrl.title).toBeDefined();
-      });
-
-      it('defines paragraphs', function () {
-        expect(ctrl.paragraphs).toBeDefined();
-        expect(ctrl.paragraphs.length).toBeGreaterThan(0);
       });
 
     });
