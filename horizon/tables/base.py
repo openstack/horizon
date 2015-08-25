@@ -651,10 +651,14 @@ class Cell(html.HTMLElement):
         self.inline_edit_mod = False
         # add tooltip to cells if the truncate variable is set
         if column.truncate:
+            # NOTE(tsufiev): trying to pull cell raw data out of datum for
+            # those columns where truncate is False leads to multiple errors
+            # in unit tests
             data = getattr(datum, column.name, '') or ''
             if len(data) > column.truncate:
                 self.attrs['data-toggle'] = 'tooltip'
                 self.attrs['title'] = data
+                self.attrs['data-selenium'] = data
         self.data = self.get_data(datum, column, row)
 
     def get_data(self, datum, column, row):
