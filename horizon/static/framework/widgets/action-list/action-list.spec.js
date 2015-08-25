@@ -24,14 +24,16 @@
 
   describe('action-list directive', function () {
     beforeEach(module('templates'));
-    beforeEach(module('horizon.framework.widgets'));
-    beforeEach(module('horizon.framework.widgets.action-list'));
+    beforeEach(module('horizon.framework'));
 
     describe('single button dropdown', function () {
       var $scope, $element;
 
       beforeEach(inject(function ($injector) {
         var $compile = $injector.get('$compile');
+        var $templateCache = $injector.get('$templateCache');
+        var basePath = $injector.get('horizon.framework.widgets.basePath');
+
         $scope = $injector.get('$rootScope').$new();
 
         $scope.testList = [];
@@ -41,18 +43,8 @@
           $scope.testList.push(item);
         };
 
-        var markup =
-          '<action-list dropdown>' +
-          '  <action button-type="single-button">Actions</action>' +
-          '  <menu>' +
-          '    <action button-type="menu-item" callback="clickMe" item="item">' +
-          '      Edit' +
-          '    </action>' +
-          '    <action button-type="menu-item" callback="clickMe" item="item">' +
-          '      Delete' +
-          '    </action>' +
-          '  </menu>' +
-          '</action-list>';
+        var markup = $templateCache
+          .get(basePath + 'action-list/action-list.single-button-dropdown.mock.html');
 
         $element = angular.element(markup);
         $compile($element)($scope);
@@ -85,6 +77,8 @@
 
       beforeEach(inject(function ($injector) {
         var $compile = $injector.get('$compile');
+        var $templateCache = $injector.get('$templateCache');
+        var basePath = $injector.get('horizon.framework.widgets.basePath');
         $scope = $injector.get('$rootScope').$new();
 
         $scope.testList = [];
@@ -94,20 +88,8 @@
           $scope.testList.push(item);
         };
 
-        var markup =
-          '<action-list dropdown>' +
-          '  <action button-type="split-button" callback="clickMe" item="item">' +
-          '    View' +
-          '  </action>' +
-          '  <menu>' +
-          '    <action button-type="menu-item" callback="clickMe" item="item">' +
-          '      Edit' +
-          '    </action>' +
-          '    <action button-type="menu-item" callback="clickMe" item="item">' +
-          '      Delete' +
-          '    </action>' +
-          '  </menu>' +
-          '</action-list>';
+        var markup = $templateCache
+          .get(basePath + 'action-list/action-list.split-botton-dropdown.mock.html');
 
         $element = angular.element(markup);
         $compile($element)($scope);
@@ -151,6 +133,8 @@
 
       beforeEach(inject(function ($injector) {
         var $compile = $injector.get('$compile');
+        var $templateCache = $injector.get('$templateCache');
+        var basePath = $injector.get('horizon.framework.widgets.basePath');
         $scope = $injector.get('$rootScope').$new();
 
         $scope.testList = [];
@@ -160,11 +144,8 @@
           $scope.testList.push(item);
         };
 
-        var markup = '<action-list dropdown>' +
-          ' <action callback="clickMe" item="item">View</action>' +
-          ' <action callback="clickMe" item="item">Edit</action>' +
-          ' <action callback="clickMe" item="item">Delete</action>' +
-          '</action-list>';
+        var markup = $templateCache
+          .get(basePath + 'action-list/button-group.mock.html');
 
         $element = angular.element(markup);
         $compile($element)($scope);
