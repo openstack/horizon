@@ -16,6 +16,24 @@
 (function () {
   'use strict';
 
-  angular.module('horizon.auth.login', []);
+  angular
+    .module('horizon.auth.login', [], config);
+
+  config.$inject = [
+    '$provide',
+    '$windowProvider'
+  ];
+
+  /**
+   * @description
+   *
+   * In the config function:
+   * - define constant `horizon.auth.login.basePath` as the
+   *   base path for auth login code.
+   */
+  function config($provide, $windowProvider) {
+    var path = $windowProvider.$get().STATIC_URL + 'auth/login/';
+    $provide.constant('horizon.auth.login.basePath', path);
+  }
 
 })();
