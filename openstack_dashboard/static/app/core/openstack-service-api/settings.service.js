@@ -1,4 +1,4 @@
-/*
+/**
  * Copyright 2015 IBM Corp
  * (c) Copyright 2015 Hewlett-Packard Development Company, L.P.
  *
@@ -21,7 +21,10 @@
     .module('horizon.app.core.openstack-service-api')
     .factory('horizon.app.core.openstack-service-api.settings', settingsService);
 
-  settingsService.$inject = ['$q', 'horizon.framework.util.http.service'];
+  settingsService.$inject = [
+    '$q',
+    'horizon.framework.util.http.service'
+  ];
 
   /**
    * @ngdoc service
@@ -43,7 +46,15 @@
    */
   function settingsService($q, apiService) {
 
-    var service = {};
+    var service = {
+      getSettings: getSettings,
+      getSetting: getSetting,
+      ifEnabled: ifEnabled
+    };
+
+    return service;
+
+    ///////////////
 
     /**
      * @name horizon.app.core.openstack-service-api.config.getSettings
@@ -52,7 +63,7 @@
      *
      * Returns an object with settings.
      */
-    service.getSettings = function (suppressError) {
+    function getSettings(suppressError) {
 
       function onError() {
         var message = gettext('Unable to retrieve settings.');
@@ -71,7 +82,7 @@
         .then(function (response) {
           return response.data;
         });
-    };
+    }
 
     /**
      * @name horizon.app.core.openstack-service-api.settings.getSetting
@@ -110,7 +121,7 @@
           .then(doSomething);
      ```
      */
-    service.getSetting = function (path, defaultSetting) {
+    function getSetting(path, defaultSetting) {
       var deferred = $q.defer();
       var pathElements = path.split(".");
       var settingAtRequestedPath;
@@ -140,7 +151,7 @@
         .then(onSettingsLoaded, onSettingsFailure);
 
       return deferred.promise;
-    };
+    }
 
     /**
      * @name horizon.app.core.openstack-service-api.settings.ifEnabled
@@ -227,7 +238,7 @@
           .then(doSomethingIfVersion2, doSomethingElse);
      ```
      */
-    service.ifEnabled = function (setting, expected, defaultSetting) {
+    function ifEnabled(setting, expected, defaultSetting) {
       var deferred = $q.defer();
 
       // If expected is not defined, we default to expecting the setting
@@ -255,8 +266,7 @@
         .then(onSettingLoaded, onSettingFailure);
 
       return deferred.promise;
-    };
+    }
 
-    return service;
   }
 }());

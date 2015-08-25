@@ -31,9 +31,11 @@
 
     beforeEach(module('horizon.app.core.openstack-service-api'));
 
-    beforeEach(inject(['horizon.app.core.openstack-service-api.security-group', function(securityGroup) {
-      service = securityGroup;
-    }]));
+    beforeEach(
+      inject(['horizon.app.core.openstack-service-api.security-group', function(securityGroup) {
+        service = securityGroup;
+      }])
+    );
 
     it('defines the service', function() {
       expect(service).toBeDefined();

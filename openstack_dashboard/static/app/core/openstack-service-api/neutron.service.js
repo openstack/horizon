@@ -18,10 +18,12 @@
 
   angular
     .module('horizon.app.core.openstack-service-api')
-    .service('horizon.app.core.openstack-service-api.neutron', NeutronAPI);
+    .factory('horizon.app.core.openstack-service-api.neutron', NeutronAPI);
 
-  NeutronAPI.$inject = ['horizon.framework.util.http.service',
-                        'horizon.framework.widgets.toast.service'];
+  NeutronAPI.$inject = [
+    'horizon.framework.util.http.service',
+    'horizon.framework.widgets.toast.service'
+  ];
 
   /**
    * @ngdoc service
@@ -29,6 +31,17 @@
    * @description Provides access to Neutron APIs.
    */
   function NeutronAPI(apiService, toastService) {
+    var service = {
+      getNetworks: getNetworks,
+      createNetwork: createNetwork,
+      getSubnets: getSubnets,
+      createSubnet: createSubnet,
+      getPorts: getPorts
+    };
+
+    return service;
+
+    /////////////
 
     // Networks
 
@@ -40,12 +53,12 @@
      * The listing result is an object with property "items". Each item is
      * a network.
      */
-    this.getNetworks = function() {
+    function getNetworks() {
       return apiService.get('/api/neutron/networks/')
         .error(function () {
           toastService.add('error', gettext('Unable to retrieve the networks.'));
         });
-    };
+    }
 
     /**
      * @name horizon.app.core.openstack-service-api.neutron.createNetwork
@@ -89,12 +102,12 @@
      * policies.  Optional.
      *
      */
-    this.createNetwork = function(newNetwork) {
+    function createNetwork(newNetwork) {
       return apiService.post('/api/neutron/networks/', newNetwork)
         .error(function () {
           toastService.add('error', gettext('Unable to create the network.'));
         });
-    };
+    }
 
     // Subnets
 
@@ -109,12 +122,12 @@
      * @param {string} networkId
      * The network id to retrieve subnets for. Required.
      */
-    this.getSubnets = function(networkId) {
+    function getSubnets(networkId) {
       return apiService.get('/api/neutron/subnets/', networkId)
         .error(function () {
           toastService.add('error', gettext('Unable to retrieve the subnets.'));
         });
-    };
+    }
 
     /**
      * @name horizon.app.core.openstack-service-api.neutron.createSubnet
@@ -173,12 +186,12 @@
      * Set to true if DHCP is enabled and false if DHCP is disabled. Optional.
      *
      */
-    this.createSubnet = function(newSubnet) {
+    function createSubnet(newSubnet) {
       return apiService.post('/api/neutron/subnets/', newSubnet)
         .error(function () {
           toastService.add('error', gettext('Unable to create the subnet.'));
         });
-    };
+    }
 
     // Ports
 
@@ -193,12 +206,12 @@
      * @param {string} networkId
      * The network id to retrieve ports for. Required.
      */
-    this.getPorts = function(networkId) {
+    function getPorts(networkId) {
       return apiService.get('/api/neutron/ports/', networkId)
         .error(function () {
           toastService.add('error', gettext('Unable to retrieve the ports.'));
         });
-    };
+    }
 
   }
 }());
