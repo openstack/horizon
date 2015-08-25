@@ -32,21 +32,34 @@
    * @module hz.api
    * @description
    *
-   * This is to enable specifying conditional UI in a declarative way.
-   * Some UI components should be showing only when some certain extensions
-   * are enabled on `novaExtensions` service.
+   * Add this directive to any element containing content which should
+   * only be evaluated when the specified nova extensions are enabled by
+   * the nova servers in the currently selected region. If the nova extensions
+   * are enabled, the content will be evaluated. Otherwise, the content will
+   * not be compiled. In addition, the element and everything contained by
+   * it will be removed completely, leaving a simple HTML comment.
+   *
+   * This is evaluated once per page load. In current horizon, this means
+   * it will get re-evaluated with events like the user opening another panel,
+   * changing logins, or changing their region.
+   *
+   * The hz-nova-extensions attribute may be set to a single extension (String)
+   * or an array of extensions (each one being a String).
+   * All of the following are examples:
+   *
+   * hz-nova-extensions='"ConfigDrive"'
+   * hz-nova-extensions='["ConfigDrive"]'
+   * hz-nova-extensions='["ConfigDrive", "DiskConfig"]'
    *
    * @example
    *
+   * In the below, if the ConfigDrive nova extension is not enabled, then
+   * the div element with hz-nova-extensions and all of the elements inside
+   * of it will be removed and never evaluated by the angular compiler.
+   *
    ```html
-    <div hz-nova-extensions='["config_drive"]'>
-      <div class="checkbox customization-script-source">
-        <label>
-          <input type="checkbox"
-                 ng-model="model.newInstanceSpec.config_drive">
-          {$ ::label.configurationDrive $}
-        </label>
-      </div>
+    <div hz-nova-extensions='"ConfigDrive"'>
+      <!-- ui code here -->
     </div>
    ```
    */
