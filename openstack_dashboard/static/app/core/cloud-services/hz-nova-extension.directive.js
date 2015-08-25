@@ -1,5 +1,5 @@
 /*
- *    (c) Copyright 2015 Hewlett-Packard Development Company, L.P.
+ * (c) Copyright 2015 Hewlett-Packard Development Company, L.P.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -19,14 +19,17 @@
 
   angular
     .module('horizon.app.core.cloud-services')
-    .directive('novaExtension', novaExtension);
+    .directive('hzNovaExtensions', hzNovaExtensions);
 
-  novaExtension.$inject =  ['horizon.app.core.cloud-services.createDirectiveSpec'];
+  hzNovaExtensions.$inject =  [
+    'hzPromiseToggleTemplateDirective',
+    'horizon.app.core.openstack-service-api.novaExtensions'
+  ];
 
   /**
    * @ngdoc directive
-   * @name horizon.app.core.cloud-services:directive:novaExtension
-   * @module horizon.app.core.cloud-services
+   * @name hz.api:directive:hzNovaExtensions
+   * @module hz.api
    * @description
    *
    * This is to enable specifying conditional UI in a declarative way.
@@ -36,7 +39,7 @@
    * @example
    *
    ```html
-    <nova-extension required-extensions='["config_drive"]'>
+    <div hz-nova-extensions='["config_drive"]'>
       <div class="checkbox customization-script-source">
         <label>
           <input type="checkbox"
@@ -44,24 +47,17 @@
           {$ ::label.configurationDrive $}
         </label>
       </div>
-    </nova-extension>
-
-    <nova-extension required-extensions='["disk_config"]'>
-      <div class="form-group disk-partition">
-        <label for="launch-instance-disk-partition">
-          {$ ::label.diskPartition $}
-        </label>
-        <select class="form-control"
-                id="launch-instance-disk-partition"
-                ng-model="model.newInstanceSpec.disk_config"
-                ng-options="option.value as option.text for option in diskConfigOptions">
-        </select>
-      </div>
-    </nova-extension>
+    </div>
    ```
    */
-  function novaExtension(createDirectiveSpec) {
-    return createDirectiveSpec('novaExtensions', 'requiredExtensions');
+  function hzNovaExtensions(hzPromiseToggleTemplateDirective, novaExtensions) {
+    return angular.extend(
+        hzPromiseToggleTemplateDirective[0],
+        {
+          singlePromiseResolver: novaExtensions.ifNameEnabled,
+          name: 'hzNovaExtensions'
+        }
+    );
   }
 
 })();

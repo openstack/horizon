@@ -1,5 +1,5 @@
 /*
- *    (c) Copyright 2015 Hewlett-Packard Development Company, L.P.
+ * (c) Copyright 2015 Hewlett-Packard Development Company, L.P.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -19,30 +19,38 @@
 
   angular
     .module('horizon.app.core.cloud-services')
-    .directive('settingsService', settingsService);
+    .directive('hzSettingsToggle', hzSettingsToggle);
 
-  settingsService.$inject =  ['horizon.app.core.cloud-services.createDirectiveSpec'];
+  hzSettingsToggle.$inject = [
+    'hzPromiseToggleTemplateDirective',
+    'horizon.app.core.openstack-service-api.settings'
+  ];
 
   /**
    * @ngdoc directive
-   * @name horizon.app.core.cloud-services:directive:settingsService
+   * @name horizon.app.core.cloud-services:directive:hzSettingsToggle
    * @module horizon.app.core.cloud-services
    * @description
    *
    * This is to enable specifying conditional UI in a declarative way.
    * Some UI components should be showing only when some certain settings
-   * are enabled on `settingsService` service.
-   *
+   * are enabled on `hzSettingsToggle` service.
    * @example
    *
    ```html
-   <settings-service required-settings='["something"]'>
-    <!-- ui code here -->
-   </settings-service>
+   <div hz-settings-toggle='["something"]'>
+   <!-- ui code here -->
+   </div>
    ```
    */
-  function settingsService(createDirectiveSpec) {
-    return createDirectiveSpec('settingsService', 'requiredSettings');
+  function hzSettingsToggle(hzPromiseToggleTemplate, settingsService) {
+    return angular.extend(
+        hzPromiseToggleTemplate[0],
+        {
+          singlePromiseResolver: settingsService.ifEnabled,
+          name: 'hzSettingsToggle'
+        }
+    );
   }
 
 })();

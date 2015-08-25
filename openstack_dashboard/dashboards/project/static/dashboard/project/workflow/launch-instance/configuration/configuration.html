@@ -9,7 +9,7 @@
                key="user_data">
     </load-edit>
 
-    <nova-extension required-extensions='["DiskConfig"]'>
+    <div hz-nova-extensions='["DiskConfig"]'>
       <div class="form-group disk-partition">
         <label for="launch-instance-disk-partition">
           {$ ::config.label.diskPartition $}
@@ -20,9 +20,9 @@
                 ng-options="option.value as option.text for option in config.diskConfigOptions">
         </select>
       </div>
-    </nova-extension>
+    </div>
 
-    <nova-extension required-extensions='["ConfigDrive"]'>
+    <div hz-nova-extensions='["ConfigDrive"]'>
       <div class="checkbox customization-script-source">
         <label>
           <input type="checkbox"
@@ -30,7 +30,7 @@
           {$ ::config.label.configurationDrive $}
         </label>
       </div>
-    </nova-extension>
+    </div>
 
   </div>
 </div>
