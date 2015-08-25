@@ -1,8 +1,8 @@
 <div ng-controller="LaunchInstanceSecurityGroupsController as ctrl">
-  <h1>{$ ::ctrl.label.title $}</h1>
+  <h1 translate>Security Groups</h1>
 
   <div class="content">
-    <div class="subtitle">{$ ::ctrl.label.subtitle $}</div>
+    <div class="subtitle" translate>Select the security groups.</div>
 
       <transfer-table tr-model="ctrl.tableData"
                       help-text="ctrl.tableHelp"
@@ -16,8 +16,8 @@
             <thead>
             <tr>
               <th class="expander"></th>
-              <th st-sort="name" st-sort-default class="rsp-p1">{$ ::ctrl.label.name $}</th>
-              <th st-sort="description" class="rsp-p2">{$ ::ctrl.label.description $}</th>
+              <th st-sort="name" st-sort-default class="rsp-p1" translate>Name</th>
+              <th st-sort="description" class="rsp-p2" translate>Description</th>
               <th></th>
             </tr>
             </thead>
@@ -69,8 +69,8 @@
             </tr>
             <tr>
               <th class="expander"></th>
-              <th st-sort="name" st-sort-default class="rsp-p1">{$ ::ctrl.label.name $}</th>
-              <th st-sort="description" class="rsp-p1">{$ ::ctrl.label.description $}</th>
+              <th st-sort="name" st-sort-default class="rsp-p1" translate>Name</th>
+              <th st-sort="description" class="rsp-p1" translate>Description</th>
               <th></th>
             </tr>
             </thead>

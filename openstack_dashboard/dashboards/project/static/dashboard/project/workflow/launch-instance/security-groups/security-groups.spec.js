@@ -38,11 +38,6 @@
           });
       }));
 
-      it('contains its general labels', function() {
-        expect(ctrl.label).toBeDefined();
-        expect(Object.keys(ctrl.label).length).toBeGreaterThan(0);
-      });
-
       it('contains its table labels', function() {
         expect(ctrl.tableData).toBeDefined();
         expect(Object.keys(ctrl.tableData).length).toBeGreaterThan(0);
@@ -75,23 +70,5 @@
       });
     });
 
-    describe('LaunchInstanceSecurityGroupsHelpController', function() {
-      var ctrl;
-
-      beforeEach(module('horizon.dashboard.project'));
-
-      beforeEach(inject(function($controller) {
-        ctrl = $controller('LaunchInstanceSecurityGroupsHelpController');
-      }));
-
-      it('defines the title', function() {
-        expect(ctrl.title).toBeDefined();
-      });
-
-      it('has paragraphs', function() {
-        expect(ctrl.paragraphs).toBeDefined();
-        expect(ctrl.paragraphs.length).toBeGreaterThan(0);
-      });
-    });
   });
 })();

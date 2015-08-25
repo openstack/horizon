@@ -32,22 +32,6 @@
   function LaunchInstanceSecurityGroupsController(launchInstanceModel, basePath) {
     var ctrl = this;
 
-    ctrl.label = {
-      title: gettext('Security Groups'),
-      subtitle: gettext('Select the security groups.'),
-      name: gettext('Name'),
-      description: gettext('Description')
-    };
-
-    ctrl.tableLabels = {
-      direction: gettext('Direction'),
-      ethertype: gettext('Ether Type'),
-      protocol: gettext('Protocol'),
-      port_range_min: gettext('Min Port'),
-      port_range_max: gettext('Max Port'),
-      remote_ip_prefix: gettext('Remote')
-    };
-
     ctrl.tableData = {
       available: launchInstanceModel.securityGroups,
       allocated: launchInstanceModel.newInstanceSpec.security_groups,

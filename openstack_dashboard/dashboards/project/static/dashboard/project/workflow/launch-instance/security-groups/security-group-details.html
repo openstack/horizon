@@ -1,12 +1,12 @@
 <table st-table="row.security_group_rules" class="table-rsp modern security-group-details">
   <thead>
     <tr>
-      <th st-sort="direction" st-sort-default>{$ ctrl.tableLabels.direction $}</th>
-      <th st-sort="ethertype">{$ ctrl.tableLabels.ethertype $}</th>
-      <th st-sort="protocol">{$ ctrl.tableLabels.protocol $}</th>
-      <th st-sort="port_range_min">{$ ctrl.tableLabels.port_range_min $}</th>
-      <th st-sort="port_range_max">{$ ctrl.tableLabels.port_range_max $}</th>
-      <th st-sort="remote_ip_prefix">{$ ctrl.tableLabels.remote_ip_prefix $}</th>
+      <th st-sort="direction" st-sort-default translate>Direction</th>
+      <th st-sort="ethertype" translate>Ether Type</th>
+      <th st-sort="protocol" translate>Protocol</th>
+      <th st-sort="port_range_min" translate>Min Port</th>
+      <th st-sort="port_range_max" translate>Max Port</th>
+      <th st-sort="remote_ip_prefix" translate>Remote</th>
     </tr>
   </thead>
   <tr ng-repeat="d in row.security_group_rules">
