@@ -35,11 +35,6 @@
         });
       }));
 
-      it('contains its own labels', function() {
-        expect(ctrl.label).toBeDefined();
-        expect(Object.keys(ctrl.label).length).toBeGreaterThan(0);
-      });
-
       it('has correct disk configuration options', function() {
         expect(ctrl.diskConfigOptions).toBeDefined();
         expect(ctrl.diskConfigOptions.length).toBe(2);
@@ -60,25 +55,6 @@
         expect(scope.model.newInstanceSpec.user_data).toBe('');
       });
 
-    });
-
-    describe('LaunchInstanceConfigHelpController', function() {
-      var ctrl;
-
-      beforeEach(module('horizon.dashboard.project.workflow.launch-instance'));
-
-      beforeEach(inject(function($controller) {
-        ctrl = $controller('LaunchInstanceConfigHelpController');
-      }));
-
-      it('defines the title', function() {
-        expect(ctrl.title).toBeDefined();
-      });
-
-      it('has help paragraphs', function() {
-        expect(ctrl.paragraphs).toBeDefined();
-        expect(ctrl.paragraphs.length).toBeGreaterThan(0);
-      });
     });
 
   });

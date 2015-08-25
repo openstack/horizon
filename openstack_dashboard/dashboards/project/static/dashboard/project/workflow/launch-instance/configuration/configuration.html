@@ -1,8 +1,8 @@
 <div ng-controller="LaunchInstanceConfigurationController as config">
-  <h1>{$ ::config.label.title $}</h1>
+  <h1 translate>Configuration</h1>
 
   <div class="content">
-    <div class="subtitle">{$ ::config.label.subtitle $}</div>
+    <div class="subtitle"></div>
 
     <load-edit config="config"
                user-input="model.newInstanceSpec"
@@ -11,8 +11,8 @@
 
     <div hz-if-nova-extensions='["DiskConfig"]'>
       <div class="form-group disk-partition">
-        <label for="launch-instance-disk-partition">
-          {$ ::config.label.diskPartition $}
+        <label for="launch-instance-disk-partition" translate>
+          Disk Partition
         </label>
         <select class="form-control"
                 id="launch-instance-disk-partition"
@@ -27,7 +27,7 @@
         <label>
           <input type="checkbox"
                  ng-model="model.newInstanceSpec.config_drive">
-          {$ ::config.label.configurationDrive $}
+          <span translate>Configuration Drive</span>
         </label>
       </div>
     </div>
