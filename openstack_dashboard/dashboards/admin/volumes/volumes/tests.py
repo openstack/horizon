@@ -18,6 +18,7 @@ from mox3.mox import IsA  # noqa
 from openstack_dashboard.api import cinder
 from openstack_dashboard.test import helpers as test
 
+from openstack_dashboard.dashboards.admin.volumes.snapshots import forms
 
 INDEX_URL = reverse('horizon:admin:volumes:volumes_tab')
 
@@ -201,3 +202,25 @@ class VolumeViewTests(test.BaseAdminViewTests):
                       args=[volume.id])
         res = self.client.post(url, {'host': host, 'volume_id': volume.id})
         self.assertRedirectsNoFollow(res, INDEX_URL)
+
+    def test_get_volume_status_choices_without_current(self):
+        current_status = {'status': 'available'}
+        status_choices = forms.populate_status_choices(current_status,
+                                                       forms.STATUS_CHOICES)
+        self.assertEqual(len(status_choices), len(forms.STATUS_CHOICES))
+        self.assertNotIn(current_status['status'],
+                         [status[0] for status in status_choices])
+
+    @test.create_stubs({cinder: ('volume_get',)})
+    def test_update_volume_status_get(self):
+        volume = self.cinder_volumes.get(name='v2_volume')
+        cinder.volume_get(IsA(http.HttpRequest), volume.id) \
+            .AndReturn(volume)
+
+        self.mox.ReplayAll()
+
+        url = reverse('horizon:admin:volumes:volumes:update_status',
+                      args=[volume.id])
+        res = self.client.get(url)
+        status_option = "<option value=\"%s\"></option>" % volume.status
+        self.assertNotContains(res, status_option)

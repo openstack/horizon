@@ -26,8 +26,23 @@ from horizon import messages
 from horizon.utils import validators as utils_validators
 
 from openstack_dashboard.api import cinder
+from openstack_dashboard.dashboards.admin.volumes.snapshots.forms \
+    import populate_status_choices
 from openstack_dashboard.dashboards.project.volumes.volumes \
     import forms as project_forms
+
+
+# This set of states was pulled from cinder's admin_actions.py
+STATUS_CHOICES = (
+    ('attaching', _('Attaching')),
+    ('available', _('Available')),
+    ('creating', _('Creating')),
+    ('deleting', _('Deleting')),
+    ('detaching', _('Detaching')),
+    ('error', _('Error')),
+    ('error_deleting', _('Error Deleting')),
+    ('in-use', _('In Use')),
+)
 
 
 class ManageVolume(forms.SelfHandlingForm):
@@ -239,17 +254,9 @@ class UpdateStatus(forms.SelfHandlingForm):
     def __init__(self, request, *args, **kwargs):
         super(UpdateStatus, self).__init__(request, *args, **kwargs)
 
-        # This set of states was culled from cinder's admin_actions.py
+        initial = kwargs.get('initial', {})
         self.fields['status'].choices = (
-            ('attaching', _('Attaching')),
-            ('available', _('Available')),
-            ('creating', _('Creating')),
-            ('deleting', _('Deleting')),
-            ('detaching', _('Detaching')),
-            ('error', _('Error')),
-            ('error_deleting', _('Error Deleting')),
-            ('in-use', _('In Use')),
-        )
+            populate_status_choices(initial, STATUS_CHOICES))
 
     def handle(self, request, data):
         # Obtain the localized status for including in the message
