@@ -266,10 +266,49 @@ class NovaRestTestCase(test.TestCase):
         self._test_flavor_list_extras(get_extras=None)
 
     @mock.patch.object(nova.api, 'nova')
-    def test_flavor_extra_specs(self, nc):
+    def test_flavor_get_extra_specs(self, nc):
         request = self.mock_rest_request()
         nc.flavor_get_extras.return_value.to_dict.return_value = {'foo': '1'}
 
         response = nova.FlavorExtraSpecs().get(request, "1")
         self.assertStatusCode(response, 200)
         nc.flavor_get_extras.assert_called_once_with(request, "1", raw=True)
+
+    @mock.patch.object(nova.api, 'nova')
+    def test_flavor_edit_extra_specs(self, nc):
+        request = self.mock_rest_request(
+            body='{"updated": {"a": "1", "b": "2"}, "removed": ["c", "d"]}'
+        )
+
+        response = nova.FlavorExtraSpecs().patch(request, '1')
+        self.assertStatusCode(response, 204)
+        self.assertEqual(response.content, '')
+        nc.flavor_extra_set.assert_called_once_with(
+            request, '1', {'a': '1', 'b': '2'}
+        )
+        nc.flavor_extra_delete.assert_called_once_with(
+            request, '1', ['c', 'd']
+        )
+
+    @mock.patch.object(nova.api, 'nova')
+    def test_aggregate_get_extra_specs(self, nc):
+        request = self.mock_rest_request()
+        nc.aggregate_get.return_value.metadata = {'a': '1', 'b': '2'}
+
+        response = nova.AggregateExtraSpecs().get(request, "1")
+        self.assertStatusCode(response, 200)
+        self.assertEqual(response.content, '{"a": "1", "b": "2"}')
+        nc.aggregate_get.assert_called_once_with(request, "1")
+
+    @mock.patch.object(nova.api, 'nova')
+    def test_aggregate_edit_extra_specs(self, nc):
+        request = self.mock_rest_request(
+            body='{"updated": {"a": "1", "b": "2"}, "removed": ["c", "d"]}'
+        )
+
+        response = nova.AggregateExtraSpecs().patch(request, '1')
+        self.assertStatusCode(response, 204)
+        self.assertEqual(response.content, '')
+        nc.aggregate_set_metadata.assert_called_once_with(
+            request, '1', {'a': '1', 'b': '2', 'c': None, 'd': None}
+        )

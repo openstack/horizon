@@ -30,7 +30,7 @@ CLIENT_KEYWORDS = {'resource_type', 'marker', 'sort_dir', 'sort_key', 'paginate'
 class Image(generic.View):
     """API for retrieving a single image
     """
-    url_regex = r'glance/images/(?P<image_id>.+|default)$'
+    url_regex = r'glance/images/(?P<image_id>[^/]+|default)/$'
 
     @rest_utils.ajax()
     def get(self, request, image_id):
@@ -39,6 +39,30 @@ class Image(generic.View):
         http://localhost/api/glance/images/cc758c90-3d98-4ea1-af44-aab405c9c915
         """
         return api.glance.image_get(request, image_id).to_dict()
+
+
+@urls.register
+class ImageProperties(generic.View):
+    """API for retrieving only a custom properties of single image.
+    """
+    url_regex = r'glance/images/(?P<image_id>[^/]+)/properties/'
+
+    @rest_utils.ajax()
+    def get(self, request, image_id):
+        """Get custom properties of specific image.
+        """
+        return api.glance.image_get(request, image_id).properties
+
+    @rest_utils.ajax(data_required=True)
+    def patch(self, request, image_id):
+        """Update custom properties of specific image.
+
+        This method returns HTTP 204 (no content) on success.
+        """
+        api.glance.image_update_properties(
+            request, image_id, request.DATA.get('removed'),
+            **request.DATA['updated']
+        )
 
 
 @urls.register

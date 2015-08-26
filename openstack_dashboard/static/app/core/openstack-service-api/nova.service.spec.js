@@ -201,13 +201,47 @@
       {
         "func": "getFlavorExtraSpecs",
         "method": "get",
-        "path": "/api/nova/flavors/42/extra-specs",
+        "path": "/api/nova/flavors/42/extra-specs/",
         "error": "Unable to retrieve the flavor extra specs.",
         "testInput": [
           42
         ]
+      },
+      {
+        "func": "editFlavorExtraSpecs",
+        "method": "patch",
+        "path": "/api/nova/flavors/42/extra-specs/",
+        "data": {
+          "updated": {a: '1', b: '2'},
+          "removed": ['c', 'd']
+        },
+        "error": "Unable to edit the flavor extra specs.",
+        "testInput": [
+          42, {a: '1', b: '2'}, ['c', 'd']
+        ]
+      },
+      {
+        "func": "getAggregateExtraSpecs",
+        "method": "get",
+        "path": "/api/nova/aggregates/42/extra-specs/",
+        "error": "Unable to retrieve the aggregate extra specs.",
+        "testInput": [
+          42
+        ]
+      },
+      {
+        "func": "editAggregateExtraSpecs",
+        "method": "patch",
+        "path": "/api/nova/aggregates/42/extra-specs/",
+        "data": {
+          "updated": {a: '1', b: '2'},
+          "removed": ['c', 'd']
+        },
+        "error": "Unable to edit the aggregate extra specs.",
+        "testInput": [
+          42, {a: '1', b: '2'}, ['c', 'd']
+        ]
       }
-
     ];
 
     // Iterate through the defined tests and apply as Jasmine specs.

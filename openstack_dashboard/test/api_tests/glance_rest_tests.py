@@ -29,6 +29,29 @@ class ImagesRestTestCase(test.TestCase):
         gc.image_get.assert_called_once_with(request, "1")
 
     @mock.patch.object(glance.api, 'glance')
+    def test_image_get_metadata(self, gc):
+        request = self.mock_rest_request()
+        gc.image_get.return_value.properties = {'a': '1', 'b': '2'}
+
+        response = glance.ImageProperties().get(request, "1")
+        self.assertStatusCode(response, 200)
+        self.assertEqual(response.content, '{"a": "1", "b": "2"}')
+        gc.image_get.assert_called_once_with(request, "1")
+
+    @mock.patch.object(glance.api, 'glance')
+    def test_image_edit_metadata(self, gc):
+        request = self.mock_rest_request(
+            body='{"updated": {"a": "1", "b": "2"}, "removed": ["c", "d"]}'
+        )
+
+        response = glance.ImageProperties().patch(request, '1')
+        self.assertStatusCode(response, 204)
+        self.assertEqual(response.content, '')
+        gc.image_update_properties.assert_called_once_with(
+            request, '1', ['c', 'd'], a='1', b='2'
+        )
+
+    @mock.patch.object(glance.api, 'glance')
     def test_image_get_list_detailed(self, gc):
         kwargs = {
             'sort_dir': 'desc',
