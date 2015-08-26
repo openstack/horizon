@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-08-23 06:12+0000\n"
+"POT-Creation-Date: 2015-08-26 06:25+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -617,9 +617,9 @@ msgstr ""
 #: dashboards/admin/volumes/volume_types/forms.py:173
 #: dashboards/admin/volumes/volume_types/tables.py:204
 #: dashboards/admin/volumes/volume_types/tables.py:299
-#: dashboards/admin/volumes/volumes/forms.py:74
-#: dashboards/admin/volumes/volumes/forms.py:203
-#: dashboards/admin/volumes/volumes/forms.py:279
+#: dashboards/admin/volumes/volumes/forms.py:89
+#: dashboards/admin/volumes/volumes/forms.py:218
+#: dashboards/admin/volumes/volumes/forms.py:286
 #: dashboards/admin/volumes/volumes/tables.py:91
 #: dashboards/identity/domains/tables.py:199
 #: dashboards/identity/domains/workflows.py:34
@@ -758,8 +758,8 @@ msgstr ""
 #: dashboards/admin/volumes/templates/volumes/snapshots/_detail_overview.html:15
 #: dashboards/admin/volumes/volume_types/forms.py:176
 #: dashboards/admin/volumes/volume_types/tables.py:209
-#: dashboards/admin/volumes/volumes/forms.py:53
-#: dashboards/admin/volumes/volumes/forms.py:209
+#: dashboards/admin/volumes/volumes/forms.py:68
+#: dashboards/admin/volumes/volumes/forms.py:224
 #: dashboards/identity/domains/tables.py:201
 #: dashboards/identity/domains/workflows.py:37
 #: dashboards/identity/groups/forms.py:33
@@ -980,8 +980,8 @@ msgstr ""
 #: dashboards/admin/networks/agents/tables.py:90
 #: dashboards/admin/networks/templates/networks/ports/_detail_overview.html:8
 #: dashboards/admin/volumes/templates/volumes/snapshots/_detail_overview.html:12
-#: dashboards/admin/volumes/volumes/forms.py:75
-#: dashboards/admin/volumes/volumes/forms.py:134
+#: dashboards/admin/volumes/volumes/forms.py:90
+#: dashboards/admin/volumes/volumes/forms.py:149
 #: dashboards/identity/roles/forms.py:37 dashboards/identity/users/forms.py:193
 #: dashboards/identity/users/templates/users/_detail_overview.html:19
 #: dashboards/project/access_and_security/templates/access_and_security/keypairs/detail.html:14
@@ -1165,7 +1165,7 @@ msgstr ""
 #: dashboards/admin/aggregates/forms.py:30
 #: dashboards/admin/aggregates/tables.py:130
 #: dashboards/admin/aggregates/workflows.py:27
-#: dashboards/admin/volumes/volumes/forms.py:63
+#: dashboards/admin/volumes/volumes/forms.py:78
 #: dashboards/project/instances/tables.py:1076
 #: dashboards/project/instances/templates/instances/_detail_overview.html:16
 #: dashboards/project/instances/workflows/create_instance.py:81
@@ -1439,9 +1439,9 @@ msgstr ""
 #: dashboards/admin/networks/tables.py:103
 #: dashboards/admin/networks/agents/tables.py:92
 #: dashboards/admin/networks/templates/networks/ports/_detail_overview.html:17
-#: dashboards/admin/volumes/snapshots/forms.py:34
+#: dashboards/admin/volumes/snapshots/forms.py:43
 #: dashboards/admin/volumes/templates/volumes/snapshots/_detail_overview.html:18
-#: dashboards/admin/volumes/volumes/forms.py:237
+#: dashboards/admin/volumes/volumes/forms.py:252
 #: dashboards/project/access_and_security/floating_ips/tables.py:202
 #: dashboards/project/firewalls/tables.py:361
 #: dashboards/project/firewalls/templates/firewalls/_firewall_details.html:25
@@ -1543,7 +1543,7 @@ msgstr ""
 #: contrib/trove/content/databases/templates/databases/index.html:3
 #: dashboards/admin/defaults/tables.py:46
 #: dashboards/admin/defaults/workflows.py:42
-#: dashboards/admin/hypervisors/tables.py:57
+#: dashboards/admin/hypervisors/tables.py:56
 #: dashboards/admin/instances/panel.py:25
 #: dashboards/admin/instances/tables.py:172
 #: dashboards/admin/instances/views.py:68
@@ -1956,7 +1956,7 @@ msgstr[1] ""
 #: contrib/sahara/content/data_processing/jobs/tables.py:31
 #: contrib/sahara/content/data_processing/jobs/tables.py:108
 #: contrib/sahara/content/data_processing/jobs/templates/data_processing.jobs/_details.html:10
-#: dashboards/admin/hypervisors/tables.py:28
+#: dashboards/admin/hypervisors/tables.py:27
 #: dashboards/admin/info/tables.py:168
 #: dashboards/project/access_and_security/security_groups/forms.py:178
 #: dashboards/project/access_and_security/security_groups/forms.py:185
@@ -3827,7 +3827,7 @@ msgstr ""
 
 #: contrib/trove/content/databases/tables.py:320
 #: contrib/trove/content/databases/workflows/create_instance.py:36
-#: dashboards/admin/hypervisors/tables.py:71
+#: dashboards/admin/hypervisors/tables.py:70
 #: dashboards/project/instances/tables.py:1036
 #: dashboards/project/instances/tables.py:1059
 #: dashboards/project/instances/workflows/create_instance.py:84
@@ -3849,8 +3849,8 @@ msgstr ""
 #: dashboards/admin/networks/agents/tables.py:91
 #: dashboards/admin/networks/templates/networks/ports/_detail_overview.html:50
 #: dashboards/admin/volumes/snapshots/tables.py:64
-#: dashboards/admin/volumes/volumes/forms.py:43
-#: dashboards/admin/volumes/volumes/forms.py:130
+#: dashboards/admin/volumes/volumes/forms.py:58
+#: dashboards/admin/volumes/volumes/forms.py:145
 #: dashboards/admin/volumes/volumes/tables.py:93
 #: dashboards/project/instances/templates/instances/_detail_overview.html:23
 msgid "Host"
@@ -4409,7 +4409,7 @@ msgstr ""
 
 #: dashboards/admin/aggregates/tables.py:136
 #: dashboards/admin/flavors/tables.py:142
-#: dashboards/admin/volumes/volumes/forms.py:56
+#: dashboards/admin/volumes/volumes/forms.py:71
 #: dashboards/project/instances/templates/instances/_detail_overview.html:108
 #: dashboards/project/volumes/templates/volumes/backups/_detail_overview.html:46
 #: dashboards/project/volumes/templates/volumes/volumes/_detail_overview.html:68
@@ -4422,7 +4422,7 @@ msgstr ""
 
 #: dashboards/admin/aggregates/tables.py:161
 #: dashboards/admin/volumes/snapshots/forms.py:25
-#: dashboards/admin/volumes/volumes/forms.py:245
+#: dashboards/admin/volumes/volumes/forms.py:38
 msgid "Available"
 msgstr ""
 
@@ -5112,46 +5112,46 @@ msgid "\"Update Flavor Metadata\""
 msgstr ""
 
 #: dashboards/admin/hypervisors/panel.py:21
-#: dashboards/admin/hypervisors/tables.py:65
+#: dashboards/admin/hypervisors/tables.py:64
 #: dashboards/admin/hypervisors/templates/hypervisors/index.html:4
 msgid "Hypervisors"
 msgstr ""
 
-#: dashboards/admin/hypervisors/tables.py:25
+#: dashboards/admin/hypervisors/tables.py:24
 #: dashboards/admin/info/tables.py:206
 msgid "Hostname"
 msgstr ""
 
-#: dashboards/admin/hypervisors/tables.py:31
+#: dashboards/admin/hypervisors/tables.py:30
 msgid "VCPUs (used)"
 msgstr ""
 
-#: dashboards/admin/hypervisors/tables.py:34
+#: dashboards/admin/hypervisors/tables.py:33
 msgid "VCPUs (total)"
 msgstr ""
 
-#: dashboards/admin/hypervisors/tables.py:37
+#: dashboards/admin/hypervisors/tables.py:36
 msgid "RAM (used)"
 msgstr ""
 
-#: dashboards/admin/hypervisors/tables.py:42
+#: dashboards/admin/hypervisors/tables.py:41
 msgid "RAM (total)"
 msgstr ""
 
-#: dashboards/admin/hypervisors/tables.py:47
+#: dashboards/admin/hypervisors/tables.py:46
 msgid "Local Storage (used)"
 msgstr ""
 
-#: dashboards/admin/hypervisors/tables.py:52
+#: dashboards/admin/hypervisors/tables.py:51
 msgid "Local Storage (total)"
 msgstr ""
 
-#: dashboards/admin/hypervisors/tables.py:74
+#: dashboards/admin/hypervisors/tables.py:73
 #: dashboards/project/images/snapshots/forms.py:30
 msgid "Instance ID"
 msgstr ""
 
-#: dashboards/admin/hypervisors/tables.py:81
+#: dashboards/admin/hypervisors/tables.py:80
 msgid "Hypervisor Instances"
 msgstr ""
 
@@ -5184,7 +5184,7 @@ msgstr ""
 #: dashboards/admin/hypervisors/compute/forms.py:25
 #: dashboards/admin/hypervisors/compute/forms.py:99
 #: dashboards/admin/instances/forms.py:27
-#: dashboards/admin/volumes/volumes/forms.py:158
+#: dashboards/admin/volumes/volumes/forms.py:173
 msgid "Current Host"
 msgstr ""
 
@@ -5665,17 +5665,17 @@ msgid "New Host"
 msgstr ""
 
 #: dashboards/admin/instances/forms.py:32
-#: dashboards/admin/volumes/volumes/forms.py:163
+#: dashboards/admin/volumes/volumes/forms.py:178
 msgid "Choose a Host to migrate to."
 msgstr ""
 
 #: dashboards/admin/instances/forms.py:56
-#: dashboards/admin/volumes/volumes/forms.py:180
+#: dashboards/admin/volumes/volumes/forms.py:195
 msgid "Select a new host"
 msgstr ""
 
 #: dashboards/admin/instances/forms.py:58
-#: dashboards/admin/volumes/volumes/forms.py:182
+#: dashboards/admin/volumes/volumes/forms.py:197
 msgid "No other hosts available"
 msgstr ""
 
@@ -7098,31 +7098,35 @@ msgid "Unable to retrieve volume snapshots."
 msgstr ""
 
 #: dashboards/admin/volumes/snapshots/forms.py:26
-#: dashboards/admin/volumes/volumes/forms.py:246
+#: dashboards/admin/volumes/volumes/forms.py:39
 msgid "Creating"
 msgstr ""
 
 #: dashboards/admin/volumes/snapshots/forms.py:27
-#: dashboards/admin/volumes/volumes/forms.py:247
+#: dashboards/admin/volumes/volumes/forms.py:40
 msgid "Deleting"
 msgstr ""
 
 #: dashboards/admin/volumes/snapshots/forms.py:28
-#: dashboards/admin/volumes/volumes/forms.py:249
+#: dashboards/admin/volumes/volumes/forms.py:42
 msgid "Error"
 msgstr ""
 
 #: dashboards/admin/volumes/snapshots/forms.py:29
-#: dashboards/admin/volumes/volumes/forms.py:250
+#: dashboards/admin/volumes/volumes/forms.py:43
 msgid "Error Deleting"
 msgstr ""
 
-#: dashboards/admin/volumes/snapshots/forms.py:44
+#: dashboards/admin/volumes/snapshots/forms.py:37
+msgid "Select a new status"
+msgstr ""
+
+#: dashboards/admin/volumes/snapshots/forms.py:60
 #, python-format
 msgid "Successfully updated volume snapshot status: \"%s\"."
 msgstr ""
 
-#: dashboards/admin/volumes/snapshots/forms.py:50
+#: dashboards/admin/volumes/snapshots/forms.py:66
 msgid "Unable to update volume snapshot status."
 msgstr ""
 
@@ -7133,9 +7137,9 @@ msgid "Update Status"
 msgstr ""
 
 #: dashboards/admin/volumes/snapshots/tables.py:62
-#: dashboards/admin/volumes/volumes/forms.py:48
-#: dashboards/admin/volumes/volumes/forms.py:126
-#: dashboards/admin/volumes/volumes/forms.py:154
+#: dashboards/admin/volumes/volumes/forms.py:63
+#: dashboards/admin/volumes/volumes/forms.py:141
+#: dashboards/admin/volumes/volumes/forms.py:169
 #: dashboards/project/volumes/backups/tables.py:135
 #: dashboards/project/volumes/snapshots/tables.py:151
 #: dashboards/project/volumes/volumes/forms.py:80
@@ -7658,7 +7662,7 @@ msgid "Edit Consumer"
 msgstr ""
 
 #: dashboards/admin/volumes/volume_types/tables.py:300
-#: dashboards/admin/volumes/volumes/forms.py:280
+#: dashboards/admin/volumes/volumes/forms.py:287
 msgid "Consumer"
 msgstr ""
 
@@ -7848,131 +7852,131 @@ msgstr ""
 msgid "Unable to retrieve QoS spec details."
 msgstr ""
 
-#: dashboards/admin/volumes/volumes/forms.py:36
-msgid "Identifier"
-msgstr ""
-
 #: dashboards/admin/volumes/volumes/forms.py:37
-msgid "Name or other identifier for existing volume"
+msgid "Attaching"
 msgstr ""
 
-#: dashboards/admin/volumes/volumes/forms.py:39
-msgid "Identifier Type"
-msgstr ""
-
-#: dashboards/admin/volumes/volumes/forms.py:40
-msgid "Type of backend device identifier provided"
+#: dashboards/admin/volumes/volumes/forms.py:41
+msgid "Detaching"
 msgstr ""
 
 #: dashboards/admin/volumes/volumes/forms.py:44
+msgid "In Use"
+msgstr ""
+
+#: dashboards/admin/volumes/volumes/forms.py:51
+msgid "Identifier"
+msgstr ""
+
+#: dashboards/admin/volumes/volumes/forms.py:52
+msgid "Name or other identifier for existing volume"
+msgstr ""
+
+#: dashboards/admin/volumes/volumes/forms.py:54
+msgid "Identifier Type"
+msgstr ""
+
+#: dashboards/admin/volumes/volumes/forms.py:55
+msgid "Type of backend device identifier provided"
+msgstr ""
+
+#: dashboards/admin/volumes/volumes/forms.py:59
 msgid ""
 "Cinder host on which the existing volume resides; takes the form: host"
 "@backend-name#pool"
 msgstr ""
 
-#: dashboards/admin/volumes/volumes/forms.py:50
+#: dashboards/admin/volumes/volumes/forms.py:65
 msgid "Volume name to be assigned"
 msgstr ""
 
-#: dashboards/admin/volumes/volumes/forms.py:57
+#: dashboards/admin/volumes/volumes/forms.py:72
 msgid "Comma-separated key=value pairs"
 msgstr ""
 
-#: dashboards/admin/volumes/volumes/forms.py:60
+#: dashboards/admin/volumes/volumes/forms.py:75
 msgid "Volume Type"
 msgstr ""
 
-#: dashboards/admin/volumes/volumes/forms.py:67
+#: dashboards/admin/volumes/volumes/forms.py:82
 #: dashboards/project/volumes/volumes/forms.py:605
 #: dashboards/project/volumes/volumes/tables.py:436
 msgid "Bootable"
 msgstr ""
 
-#: dashboards/admin/volumes/volumes/forms.py:69
+#: dashboards/admin/volumes/volumes/forms.py:84
 msgid "Specifies that the newly created volume should be marked as bootable"
 msgstr ""
 
-#: dashboards/admin/volumes/volumes/forms.py:77
+#: dashboards/admin/volumes/volumes/forms.py:92
 #: dashboards/project/volumes/volumes/forms.py:268
 msgid "No volume type"
 msgstr ""
 
-#: dashboards/admin/volumes/volumes/forms.py:116
+#: dashboards/admin/volumes/volumes/forms.py:131
 #, python-format
 msgid "Successfully sent the request to manage volume: %s"
 msgstr ""
 
-#: dashboards/admin/volumes/volumes/forms.py:121
+#: dashboards/admin/volumes/volumes/forms.py:136
 msgid "Unable to manage volume."
 msgstr ""
 
-#: dashboards/admin/volumes/volumes/forms.py:144
+#: dashboards/admin/volumes/volumes/forms.py:159
 #, python-format
 msgid "Successfully sent the request to unmanage volume: %s"
 msgstr ""
 
-#: dashboards/admin/volumes/volumes/forms.py:149
+#: dashboards/admin/volumes/volumes/forms.py:164
 msgid "Unable to unmanage volume."
 msgstr ""
 
-#: dashboards/admin/volumes/volumes/forms.py:162
+#: dashboards/admin/volumes/volumes/forms.py:177
 msgid "Destination Host"
 msgstr ""
 
-#: dashboards/admin/volumes/volumes/forms.py:164
+#: dashboards/admin/volumes/volumes/forms.py:179
 msgid "Force Host Copy"
 msgstr ""
 
-#: dashboards/admin/volumes/volumes/forms.py:193
+#: dashboards/admin/volumes/volumes/forms.py:208
 #, python-format
 msgid "Successfully sent the request to migrate volume: %s"
 msgstr ""
 
-#: dashboards/admin/volumes/volumes/forms.py:198
+#: dashboards/admin/volumes/volumes/forms.py:213
 msgid "Failed to migrate volume."
 msgstr ""
 
-#: dashboards/admin/volumes/volumes/forms.py:215
+#: dashboards/admin/volumes/volumes/forms.py:230
 msgid "Volume type name can not be empty."
 msgstr ""
 
-#: dashboards/admin/volumes/volumes/forms.py:226
+#: dashboards/admin/volumes/volumes/forms.py:241
 #, python-format
 msgid "Successfully created volume type: %s"
 msgstr ""
 
-#: dashboards/admin/volumes/volumes/forms.py:232
+#: dashboards/admin/volumes/volumes/forms.py:247
 msgid "Unable to create volume type."
 msgstr ""
 
-#: dashboards/admin/volumes/volumes/forms.py:244
-msgid "Attaching"
-msgstr ""
-
-#: dashboards/admin/volumes/volumes/forms.py:248
-msgid "Detaching"
-msgstr ""
-
-#: dashboards/admin/volumes/volumes/forms.py:251
-msgid "In Use"
-msgstr ""
-
-#: dashboards/admin/volumes/volumes/forms.py:268
+#: dashboards/admin/volumes/volumes/forms.py:275
 #, python-format
 msgid "Successfully updated volume status to \"%s\"."
 msgstr ""
 
-#: dashboards/admin/volumes/volumes/forms.py:274
+#: dashboards/admin/volumes/volumes/forms.py:281
 #, python-format
 msgid "Unable to update volume status to \"%s\"."
 msgstr ""
 
-#: dashboards/admin/volumes/volumes/forms.py:289
+#: dashboards/admin/volumes/volumes/forms.py:296
 #, python-format
 msgid "Successfully created QoS Spec: %s"
 msgstr ""
 
-#: dashboards/admin/volumes/volumes/forms.py:295
+#: dashboards/admin/volumes/volumes/forms.py:302
 msgid "Unable to create QoS Spec."
 msgstr ""
 
