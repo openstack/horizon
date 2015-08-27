@@ -69,26 +69,33 @@
     -->
     <tr ng-repeat-end class="detail-row">
       <td class="detail" colspan="100">
-        <dl class="dl-horizontal">
+        <!--
+          The responsive columns that disappear typically should reappear here
+          with the same responsive priority that they disappear.
+          E.g. table header with rsp-p2 should be here with rsp-alt-p2
+          The layout should minimize vertical space to reduce scrolling.
+        -->
+        <div class="row">
+          <dl ng-if="user.domain_id" class="col-sm-2">
+            <dt translate>Domain ID</dt>
+            <dd>{$ user.domain_id $}</dd>
+          </dl>
+          <dl class="col-sm-2">
+            <dt translate>Project ID</dt>
+            <dd>{$ user.tenantId || user.default_project_id || '-'$}</dd>
+          </dl>
 
-          <dt ng-if="user.domain_id" translate>Domain ID</dt>
-          <dd ng-if="user.domain_id" translate>{$ user.domain_id $}</dd>
-
-          <dt translate>Project ID</dt>
-          <dd>{$ user.tenantId || user.default_project_id $}</dd>
-
-          <dt translate>User Name</dt>
-          <dd>{$ user.name $}</dd>
-
-          <dt translate>Email</dt>
-          <dd>{$ user.email || '-' $}</dd>
-
-          <dt translate>User ID</dt>
-          <dd>{$ user.id $}</dd>
-
-          <dt translate>Enabled</dt>
-          <dd>{$ user.enabled | yesno $}</dd>
-        </dl>
+          <span class="rsp-alt-p2">
+            <dl class="col-sm-2">
+              <dt translate>Email</dt>
+              <dd>{$ user.email || '-' $}</dd>
+            </dl>
+            <dl class="col-sm-2">
+              <dt translate>Enabled</dt>
+              <dd>{$ user.enabled | yesno $}</dd>
+            </dl>
+          </span>
+        </div>
       </td>
     </tr>
   </tbody>
@@ -96,7 +103,6 @@
   <!--
     Table-footer:
     This is where we display number of items and pagination controls.
-    Ensure colspan is greater or equal to number of column-headers.
   -->
   <tfoot hz-table-footer items="table.iusers"></tfoot>
 
