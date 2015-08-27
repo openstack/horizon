@@ -67,11 +67,6 @@
         expect(ctrl).toBeDefined();
       });
 
-      it('has its own labels', function() {
-        expect(ctrl.label).toBeDefined();
-        expect(Object.keys(ctrl.label).length).toBeGreaterThan(0);
-      });
-
       it('has defined error messages for invalid fields', function() {
         expect(ctrl.bootSourceTypeError).toBeDefined();
         expect(ctrl.instanceNameError).toBeDefined();
@@ -329,36 +324,6 @@
             expect(ctrl.minVolumeSize).toBeUndefined();
           });
         });
-      });
-    });
-
-    describe('LaunchInstanceSourceHelpController', function() {
-      var ctrl;
-
-      beforeEach(inject(function($controller) {
-        ctrl = $controller('LaunchInstanceSourceHelpController', {});
-      }));
-
-      it('defines the title', function() {
-        expect(ctrl.title).toBeDefined();
-      });
-
-      it('defines the instance details title', function() {
-        expect(ctrl.title).toBeDefined();
-      });
-
-      it('has instance details paragraphs', function() {
-        expect(ctrl.instanceDetailsParagraphs).toBeDefined();
-        expect(ctrl.instanceDetailsParagraphs.length).toBeGreaterThan(0);
-      });
-
-      it('defines the instance source title', function() {
-        expect(ctrl.instanceSourceTitle).toBeDefined();
-      });
-
-      it('has instance source paragraphs', function() {
-        expect(ctrl.instanceSourceParagraphs).toBeDefined();
-        expect(ctrl.instanceSourceParagraphs.length).toBeGreaterThan(0);
       });
     });
 

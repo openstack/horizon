@@ -1,11 +1,21 @@
 <div ng-controller="LaunchInstanceSourceHelpController as sourceHelpCtrl">
 
-  <h1>{$ ::sourceHelpCtrl.title $}</h1>
-  <h4>{$ ::sourceHelpCtrl.instanceDetailsTitle $}</h4>
-   <p ng-repeat="instanceDetailsParagraph in ::sourceHelpCtrl.instanceDetailsParagraphs"
-      ng-bind-html="::instanceDetailsParagraph"></p>
-  <h4>{$ ::sourceHelpCtrl.instanceSourceTitle $}</h4>
-  <p ng-repeat="instanceSourceParagraph in ::sourceHelpCtrl.instanceSourceParagraphs"
-     ng-bind-html="::instanceSourceParagraph"></p>
+  <h1 translate>Select Source Help</h1>
+
+  <h4 translate>Instance Details</h4>
+
+  <p translate>An instance name is required and used to help you uniquely identify your instance in the dashboard.</p>
+
+  <p translate>If you select an availability zone and plan to use the boot from volume option, make sure that the availability zone you select for the instance is the same availability zone where your bootable volume resides.</p>
+
+  <h4 translate>Instance Source</h4>
+
+  <p translate>If you want to create an instance that uses ephemeral storage, meaning th instance data is lost when the instance is deleted, then choose one of the following boot sources:</p>
+  <p translate><li><b>Image</b>: This option uses an image to boot the instance.</li></p>
+  <p translate><li><b>Instance Snapshot</b>: This option uses an instance snapshot to boot the instance.</li></p>
+  <p translate>If you want to create an instance that uses persistent storage, meaning the instance data is saved when the instance is deleted, then select one of the following boot options:</p>
+  <p translate><li><b>Image (with Create New Volume checked)</b>: This options uses an image to boot the instance, and creates a new volume to persist instance data. You can specify volume size and whether to delete the volume on termination of the instance.</li></p>
+  <p translate><li><b>Volume</b>: This option uses a volume that already exists. It does not create a new volume. You can choose to delete the volume on termination of the instance. <em>Note: when selecting Volume, you can only launch one instance.</em></li></p>
+  <p translate><li><b>Volume Snapshot</b>: This option uses a volume snapshot to boot the instance, and creates a new volume to persist instance data. You can choose to delete the volume on termination of the instance.</li></p>
 
 </div>
