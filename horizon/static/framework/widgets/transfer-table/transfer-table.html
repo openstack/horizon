@@ -32,7 +32,7 @@
         ng-class="trCtrl.views.available ? 'fa-chevron-down' : 'fa-chevron-right'"
         ng-click="trCtrl.toggleView('available')"></span>
         {$ ::trCtrl.helpText.availTitle $}
-      <span class="badge badge-info">{$ trCtrl.numAvailable $}</span>
+      <span class="badge badge-info">{$ trCtrl.numAvailable() $}</span>
       <span class="pull-right help-text" ng-if="::trCtrl.helpText.availHelpText">
         {$ ::trCtrl.helpText.availHelpText $}
       </span>

@@ -23,7 +23,8 @@
   selectFlavorTable.$inject = [
     'horizon.dashboard.project.workflow.launch-instance.basePath',
     'horizon.framework.widgets.transfer-table.helpText',
-    'horizon.framework.widgets.charts.donutChartSettings'
+    'horizon.framework.widgets.charts.donutChartSettings',
+    'horizon.framework.widgets.action-list.button-tooltip.row-warning.service'
   ];
 
   /**
@@ -52,7 +53,7 @@
    * </select-flavor-table>
    * '''
    */
-  function selectFlavorTable(basePath, transferTableHelpText, donutChartSettings) {
+  function selectFlavorTable(basePath, transferTableHelpText, donutChartSettings, tooltipService) {
 
     var directive = {
       restrict: 'E',
@@ -102,7 +103,7 @@
         scope.rowExpandText = transferTableHelpText.expandDetailsText;
         scope.itemButtonClasses = "fa fa-plus";
 
-        scope.tooltipModel = transferTableController.tooltipModel;
+        scope.tooltipModel = tooltipService;
       } else {
         // This table used in "allocated" portion of transfer table
         scope.showSearchBar = false;

@@ -26,9 +26,12 @@
     .module('horizon.dashboard.project.workflow.launch-instance')
     .controller('LaunchInstanceNetworkController', LaunchInstanceNetworkController);
 
-  LaunchInstanceNetworkController.$inject = ['$scope'];
+  LaunchInstanceNetworkController.$inject = [
+    '$scope',
+    'horizon.framework.widgets.action-list.button-tooltip.row-warning.service'
+  ];
 
-  function LaunchInstanceNetworkController($scope) {
+  function LaunchInstanceNetworkController($scope, tooltipService) {
     var ctrl = this;
 
     ctrl.networkStatuses = {
@@ -56,5 +59,7 @@
       allocHelpText: gettext('Select networks from those listed below.'),
       availHelpText: gettext('Select at least one network')
     };
+
+    ctrl.tooltipModel = tooltipService;
   }
 })();

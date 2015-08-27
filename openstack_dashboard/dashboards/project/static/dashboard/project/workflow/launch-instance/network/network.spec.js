@@ -18,6 +18,8 @@
 
   describe('Launch Instance Network Step', function() {
 
+    beforeEach(module('horizon.framework.widgets'));
+    beforeEach(module('horizon.framework.widgets.action-list'));
     beforeEach(module('horizon.dashboard.project.workflow.launch-instance'));
 
     describe('LaunchInstanceNetworkController', function() {
