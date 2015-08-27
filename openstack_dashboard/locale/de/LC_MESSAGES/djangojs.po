@@ -11,8 +11,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-08-25 05:51+0000\n"
-"PO-Revision-Date: 2015-08-25 04:21+0000\n"
+"POT-Creation-Date: 2015-08-26 20:04+0000\n"
+"PO-Revision-Date: 2015-08-26 11:36+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: German (http://www.transifex.com/openstack/horizon/language/"
 "de/)\n"
@@ -535,6 +535,9 @@ msgstr "Erforderlich"
 msgid "Root Disk"
 msgstr "Root-Festplatte"
 
+msgid "Save"
+msgstr "Speichern"
+
 msgid "Saving"
 msgstr "Speichern"
 
@@ -907,6 +910,15 @@ msgstr "Die Datenträger können nicht abgerufen werden."
 
 msgid "Up"
 msgstr "Hoch"
+
+msgid "Update Aggregate Metadata"
+msgstr "Aggregat-Metadaten bearbeiten."
+
+msgid "Update Flavor Metadata"
+msgstr "Varianten Metadaten aktualisieren"
+
+msgid "Update Image Metadata"
+msgstr "Abbild-Metadaten erneuern"
 
 msgid "Updated"
 msgstr "Aktualisiert"

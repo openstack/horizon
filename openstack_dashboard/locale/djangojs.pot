@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-08-25 06:12+0000\n"
+"POT-Creation-Date: 2015-08-27 06:14+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -357,6 +357,7 @@ msgstr ""
 
 #: dashboards/project/static/dashboard/project/workflow/launch-instance/keypair/create-keypair.controller.js:49
 #: dashboards/project/static/dashboard/project/workflow/launch-instance/keypair/import-keypair.controller.js:50
+#: static/app/core/metadata/modal/modal.html:14
 msgid "Cancel"
 msgstr ""
 
@@ -980,6 +981,22 @@ msgstr ""
 msgid "Min RAM (MB)"
 msgstr ""
 
+#: static/app/core/metadata/modal/modal.html:3
+msgid "Update Aggregate Metadata"
+msgstr ""
+
+#: static/app/core/metadata/modal/modal.html:4
+msgid "Update Flavor Metadata"
+msgstr ""
+
+#: static/app/core/metadata/modal/modal.html:5
+msgid "Update Image Metadata"
+msgstr ""
+
+#: static/app/core/metadata/modal/modal.html:20
+msgid "Save"
+msgstr ""
+
 #: static/app/core/openstack-service-api/cinder.service.js:64
 msgid "Unable to retrieve the volumes."
 msgstr ""
@@ -988,15 +1005,23 @@ msgstr ""
 msgid "Unable to retrieve the volume snapshots."
 msgstr ""
 
-#: static/app/core/openstack-service-api/glance.service.js:56
+#: static/app/core/openstack-service-api/glance.service.js:58
 msgid "Unable to retrieve the image."
 msgstr ""
 
-#: static/app/core/openstack-service-api/glance.service.js:98
+#: static/app/core/openstack-service-api/glance.service.js:71
+msgid "Unable to retrieve the image custom properties."
+msgstr ""
+
+#: static/app/core/openstack-service-api/glance.service.js:92
+msgid "Unable to edit the image custom properties."
+msgstr ""
+
+#: static/app/core/openstack-service-api/glance.service.js:134
 msgid "Unable to retrieve the images."
 msgstr ""
 
-#: static/app/core/openstack-service-api/glance.service.js:161
+#: static/app/core/openstack-service-api/glance.service.js:197
 msgid "Unable to retrieve the namespaces."
 msgstr ""
 
@@ -1132,57 +1157,69 @@ msgstr ""
 msgid "Unable to retrieve the ports."
 msgstr ""
 
-#: static/app/core/openstack-service-api/nova-extensions.service.js:76
+#: static/app/core/openstack-service-api/nova-extensions.service.js:74
 #, python-format
 msgid "Extension is not enabled: %(extension)s."
 msgstr ""
 
-#: static/app/core/openstack-service-api/nova-extensions.service.js:83
+#: static/app/core/openstack-service-api/nova-extensions.service.js:81
 msgid "Cannot get the Nova extension list."
 msgstr ""
 
-#: static/app/core/openstack-service-api/nova.service.js:65
+#: static/app/core/openstack-service-api/nova.service.js:68
 msgid "Unable to retrieve the keypairs."
 msgstr ""
 
-#: static/app/core/openstack-service-api/nova.service.js:87
+#: static/app/core/openstack-service-api/nova.service.js:90
 msgid "Unable to import the keypair."
 msgstr ""
 
-#: static/app/core/openstack-service-api/nova.service.js:89
+#: static/app/core/openstack-service-api/nova.service.js:92
 msgid "Unable to create the keypair."
 msgstr ""
 
-#: static/app/core/openstack-service-api/nova.service.js:108
+#: static/app/core/openstack-service-api/nova.service.js:111
 msgid "Unable to retrieve the availability zones."
 msgstr ""
 
-#: static/app/core/openstack-service-api/nova.service.js:146
+#: static/app/core/openstack-service-api/nova.service.js:149
 msgid "Unable to retrieve the limits."
 msgstr ""
 
-#: static/app/core/openstack-service-api/nova.service.js:173
+#: static/app/core/openstack-service-api/nova.service.js:176
 msgid "Unable to create the server."
 msgstr ""
 
-#: static/app/core/openstack-service-api/nova.service.js:187
+#: static/app/core/openstack-service-api/nova.service.js:190
 msgid "Unable to retrieve the server."
 msgstr ""
 
-#: static/app/core/openstack-service-api/nova.service.js:217
+#: static/app/core/openstack-service-api/nova.service.js:220
 msgid "Unable to retrieve the extensions."
 msgstr ""
 
-#: static/app/core/openstack-service-api/nova.service.js:262
+#: static/app/core/openstack-service-api/nova.service.js:265
 msgid "Unable to retrieve the flavors."
 msgstr ""
 
-#: static/app/core/openstack-service-api/nova.service.js:280
+#: static/app/core/openstack-service-api/nova.service.js:283
 msgid "Unable to retrieve the flavor."
 msgstr ""
 
-#: static/app/core/openstack-service-api/nova.service.js:294
+#: static/app/core/openstack-service-api/nova.service.js:297
 msgid "Unable to retrieve the flavor extra specs."
+msgstr ""
+
+#: static/app/core/openstack-service-api/nova.service.js:317
+msgid "Unable to edit the flavor extra specs."
+msgstr ""
+
+#: static/app/core/openstack-service-api/nova.service.js:331
+msgid "Unable to retrieve the aggregate extra specs."
+msgstr ""
+
+#: static/app/core/openstack-service-api/nova.service.js:351
+msgid "Unable to edit the aggregate extra specs."
 msgstr ""
 
 #: static/app/core/openstack-service-api/policy.service.js:78

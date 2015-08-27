@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-08-25 05:51+0000\n"
-"PO-Revision-Date: 2015-08-25 04:21+0000\n"
+"POT-Creation-Date: 2015-08-26 20:04+0000\n"
+"PO-Revision-Date: 2015-08-26 11:36+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Turkish (Turkey) (http://www.transifex.com/openstack/horizon/"
 "language/tr_TR/)\n"
@@ -519,6 +519,9 @@ msgstr "Gerekli"
 msgid "Root Disk"
 msgstr "Kök Diski"
 
+msgid "Save"
+msgstr "Kaydet"
+
 msgid "Saving"
 msgstr "Kaydediliyor"
 
@@ -875,6 +878,15 @@ msgstr "Hacimler alınamadı."
 
 msgid "Up"
 msgstr "Açık"
+
+msgid "Update Aggregate Metadata"
+msgstr "Takım Metadata'sı Güncelle"
+
+msgid "Update Flavor Metadata"
+msgstr "Şablon Üstverisini Güncelle"
+
+msgid "Update Image Metadata"
+msgstr "İmaj Üstverisini Güncelle"
 
 msgid "Updated"
 msgstr "Güncellendi"

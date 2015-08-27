@@ -8,9 +8,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-08-26 03:12+0000\n"
-"PO-Revision-Date: 2015-08-25 07:03+0000\n"
-"Last-Translator: Zbyněk Schwarz <zbynek.schwarz@gmail.com>\n"
+"POT-Creation-Date: 2015-08-26 20:04+0000\n"
+"PO-Revision-Date: 2015-08-26 11:36+0000\n"
+"Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Czech (http://www.transifex.com/openstack/horizon/language/"
 "cs/)\n"
 "MIME-Version: 1.0\n"
@@ -567,6 +567,9 @@ msgstr "Vyžadováno"
 msgid "Root Disk"
 msgstr "Kořenový disk"
 
+msgid "Save"
+msgstr "Uložit"
+
 msgid "Saving"
 msgstr "Ukládání"
 
@@ -954,6 +957,15 @@ msgstr "Nelze získat svazky."
 
 msgid "Up"
 msgstr "Otevřen"
+
+msgid "Update Aggregate Metadata"
+msgstr "Aktualizovat popisná data agregátu"
+
+msgid "Update Flavor Metadata"
+msgstr "Aktualizovat popisná data konfigurace"
+
+msgid "Update Image Metadata"
+msgstr "Aktualizovat popisná data obrazu"
 
 msgid "Updated"
 msgstr "Aktualizováno"

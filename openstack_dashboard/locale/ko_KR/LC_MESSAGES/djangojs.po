@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-08-25 05:51+0000\n"
-"PO-Revision-Date: 2015-08-25 04:21+0000\n"
+"POT-Creation-Date: 2015-08-26 20:04+0000\n"
+"PO-Revision-Date: 2015-08-26 11:36+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Korean (Korea) (http://www.transifex.com/openstack/horizon/"
 "language/ko_KR/)\n"
@@ -431,6 +431,9 @@ msgstr "필요한"
 msgid "Root Disk"
 msgstr "Root 디스크"
 
+msgid "Save"
+msgstr "저장"
+
 msgid "Saving"
 msgstr "Saving"
 
@@ -781,6 +784,15 @@ msgstr "볼륨을 가져오지 못했습니다."
 
 msgid "Up"
 msgstr "Up"
+
+msgid "Update Aggregate Metadata"
+msgstr "집합 메타데이터 업데이트"
+
+msgid "Update Flavor Metadata"
+msgstr "Flavor 메타데이터 업데이트"
+
+msgid "Update Image Metadata"
+msgstr "이미지 메타데이터 업데이트"
 
 msgid "Updated"
 msgstr "업데이트"

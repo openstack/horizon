@@ -10,8 +10,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-08-25 05:51+0000\n"
-"PO-Revision-Date: 2015-08-25 04:21+0000\n"
+"POT-Creation-Date: 2015-08-26 20:04+0000\n"
+"PO-Revision-Date: 2015-08-26 11:36+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Spanish (http://www.transifex.com/openstack/horizon/language/"
 "es/)\n"
@@ -522,6 +522,9 @@ msgstr "Obligatorio"
 msgid "Root Disk"
 msgstr "Disco raíz"
 
+msgid "Save"
+msgstr "Guardar"
+
 msgid "Saving"
 msgstr "Guardando"
 
@@ -884,6 +887,15 @@ msgstr "No ha sido posible obtener los volúmenes."
 
 msgid "Up"
 msgstr "Arriba"
+
+msgid "Update Aggregate Metadata"
+msgstr "Actualizar los metadatos agregados"
+
+msgid "Update Flavor Metadata"
+msgstr "Actualizar los metadatos del sabor"
+
+msgid "Update Image Metadata"
+msgstr "Actualizar metadatos de imagen"
 
 msgid "Updated"
 msgstr "Actualizado"

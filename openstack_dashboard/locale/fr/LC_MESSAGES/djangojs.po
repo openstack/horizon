@@ -11,8 +11,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-08-25 05:51+0000\n"
-"PO-Revision-Date: 2015-08-25 04:21+0000\n"
+"POT-Creation-Date: 2015-08-26 20:04+0000\n"
+"PO-Revision-Date: 2015-08-26 11:36+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: French (http://www.transifex.com/openstack/horizon/language/"
 "fr/)\n"
@@ -588,6 +588,9 @@ msgstr "Obligatoire"
 msgid "Root Disk"
 msgstr "Disque Racine"
 
+msgid "Save"
+msgstr "Enregistrer"
+
 msgid "Saving"
 msgstr "Enregistrement"
 
@@ -976,6 +979,15 @@ msgstr "Impossible de récupérer les volumes."
 
 msgid "Up"
 msgstr "Haut"
+
+msgid "Update Aggregate Metadata"
+msgstr "Mise à jour des métadonnées globales"
+
+msgid "Update Flavor Metadata"
+msgstr "Mettre à jour les métadonnées du gabarit"
+
+msgid "Update Image Metadata"
+msgstr "Mettre à jour les métadonnées de l'image"
 
 msgid "Updated"
 msgstr "Mis à jour"
