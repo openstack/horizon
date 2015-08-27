@@ -128,6 +128,8 @@ def data(TEST):
         "volume_mount_prefix": "/volumes/disk",
         "volumes_per_node": 0,
         "volumes_size": 0,
+        "volume_type": None,
+        "volume_local_to_instance": False,
         "security_groups": [],
         "volumes_availability_zone": None,
     }
@@ -169,6 +171,8 @@ def data(TEST):
                 "volume_mount_prefix": "/volumes/disk",
                 "volumes_per_node": 0,
                 "volumes_size": 0,
+                "volume_type": None,
+                "volume_local_to_instance": False,
                 "volumes_availability_zone": None,
             },
             {
@@ -188,6 +192,8 @@ def data(TEST):
                 "volume_mount_prefix": "/volumes/disk",
                 "volumes_per_node": 0,
                 "volumes_size": 0,
+                "volume_type": None,
+                "volume_local_to_instance": False,
                 "volumes_availability_zone": None,
             }
         ],
@@ -248,6 +254,8 @@ def data(TEST):
                 "volume_mount_prefix": "/volumes/disk",
                 "volumes_per_node": 0,
                 "volumes_size": 0,
+                "volume_type": None,
+                "volume_local_to_instance": False,
                 "security_groups": [],
                 "volumes_availability_zone": None,
             },
@@ -290,6 +298,8 @@ def data(TEST):
                 "volume_mount_prefix": "/volumes/disk",
                 "volumes_per_node": 0,
                 "volumes_size": 0,
+                "volume_type": None,
+                "volume_local_to_instance": False,
                 "security_groups": ["b7857890-09bf-4ee0-a0d5-322d7a6978bf"],
                 "volumes_availability_zone": None,
             }

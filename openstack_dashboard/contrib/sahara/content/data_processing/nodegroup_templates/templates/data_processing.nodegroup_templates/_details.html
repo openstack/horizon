@@ -76,6 +76,10 @@
     <dd>{{ template.volumes_per_node }}</dd>
     <dt>{% trans "Volumes size" %}</dt>
     <dd>{{ template.volumes_size }}</dd>
+    <dt>{% trans "Volumes type" %}</dt>
+    <dd>{{ template.volume_type }}</dd>
+    <dt>{% trans "Volumes local to instance" %}</dt>
+    <dd>{{ template.volume_local_to_instance }}</dd>
     {% if template.volumes_availability_zone %}
       <dt>{% trans "Volumes Availability Zone" %}</dt>
       <dd>{{ template.volumes_availability_zone }}</dd>

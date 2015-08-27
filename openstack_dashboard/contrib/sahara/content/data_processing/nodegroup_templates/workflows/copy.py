@@ -69,11 +69,15 @@ class CopyNodegroupTemplate(create_flow.ConfigureNodegroupTemplate):
             else "ephemeral_drive"
         volumes_per_node = self.template.volumes_per_node
         volumes_size = self.template.volumes_size
+        volume_type = self.template.volume_type
+        volume_local_to_instance = self.template.volume_local_to_instance
         g_fields["storage"].initial = storage
         g_fields["volumes_per_node"].initial = volumes_per_node
         g_fields["volumes_size"].initial = volumes_size
         g_fields["volumes_availability_zone"].initial = \
             self.template.volumes_availability_zone
+        g_fields['volume_type'].initial = volume_type
+        g_fields['volume_local_to_instance'].initial = volume_local_to_instance
 
         if self.template.floating_ip_pool:
             g_fields['floating_ip_pool'].initial = (
