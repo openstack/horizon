@@ -30,6 +30,8 @@ import openstack_dashboard.contrib.sahara.content.data_processing. \
     data_sources.tabs as _tabs
 import openstack_dashboard.contrib.sahara.content.data_processing. \
     data_sources.workflows.create as create_flow
+import openstack_dashboard.contrib.sahara.content.data_processing. \
+    data_sources.workflows.edit as edit_flow
 
 LOG = logging.getLogger(__name__)
 
@@ -56,6 +58,23 @@ class CreateDataSourceView(workflows.WorkflowView):
     classes = ("ajax-modal",)
     template_name = "project/data_processing.data_sources/create.html"
     page_title = _("Create Data Source")
+
+
+class EditDataSourceView(CreateDataSourceView):
+    workflow_class = edit_flow.EditDataSource
+    page_title = _("Edit Data Source")
+
+    def get_context_data(self, **kwargs):
+        context = super(EditDataSourceView, self) \
+            .get_context_data(**kwargs)
+
+        context["data_source_id"] = kwargs["data_source_id"]
+        return context
+
+    def get_initial(self):
+        initial = super(EditDataSourceView, self).get_initial()
+        initial['data_source_id'] = self.kwargs['data_source_id']
+        return initial
 
 
 class DataSourceDetailsView(tabs.TabView):
