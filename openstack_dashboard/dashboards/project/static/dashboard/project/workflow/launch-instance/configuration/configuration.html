@@ -9,7 +9,7 @@
                key="user_data">
     </load-edit>
 
-    <div hz-nova-extensions='["DiskConfig"]'>
+    <div hz-if-nova-extensions='["DiskConfig"]'>
       <div class="form-group disk-partition">
         <label for="launch-instance-disk-partition">
           {$ ::config.label.diskPartition $}
@@ -22,7 +22,7 @@
       </div>
     </div>
 
-    <div hz-nova-extensions='["ConfigDrive"]'>
+    <div hz-if-nova-extensions='["ConfigDrive"]'>
       <div class="checkbox customization-script-source">
         <label>
           <input type="checkbox"

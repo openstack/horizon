@@ -109,7 +109,7 @@
               </div>
             </div>
 
-            <div hz-settings-toggle='["OPENSTACK_HYPERVISOR_FEATURES.can_set_mount_point"]'
+            <div hz-if-settings='["OPENSTACK_HYPERVISOR_FEATURES.can_set_mount_point"]'
               ng-if="model.newInstanceSpec.vol_create === true">
               <div class="col-xs-12 col-sm-3">
                 <div class="form-field">

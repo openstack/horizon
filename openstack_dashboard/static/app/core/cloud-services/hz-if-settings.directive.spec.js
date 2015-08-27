@@ -17,12 +17,12 @@
 (function () {
   'use strict';
 
-  describe('horizon.app.core.cloud-services.hzSettingsToggle', function () {
+  describe('horizon.app.core.cloud-services.hzIfSettings', function () {
     var $compile, $scope, deferred, settingsServiceAPI;
 
     var template = [
       '<div>',
-      '<div hz-settings-toggle=\'\"setting_name\"\'>',
+      '<div hz-if-settings=\'\"setting_name\"\'>',
       '<div class="child-element">',
       '</div>',
       '</div>',
@@ -31,7 +31,7 @@
 
     beforeEach(function() {
       settingsServiceAPI = {
-        ifEnabled: function(settingsName) {
+        ifEnabled: function() {
           return deferred.promise;
         }
       };
@@ -59,20 +59,28 @@
     // directive specifies the correct name and that it uses the settings
     // service API. Testing of the variations on inputs being resolved
     // are tested in the hz-promise-toggle spec.
-    it('should evaluate child elements when settings is enabled', function () {
+    it('should evaluate child elements when setting is enabled', function () {
       var element = $compile(template)($scope);
 
-      deferred.resolve({
-        success: function(callback) {
-          callback();
-        }
-      });
+      deferred.resolve();
 
       expect(element.children().length).toBe(0);
       expect(settingsServiceAPI.ifEnabled).toHaveBeenCalledWith('setting_name');
 
       $scope.$apply();
       expect(element.children().length).toBe(1);
+    });
+
+    it('should not evaluate child elements when setting is disabled', function () {
+      var element = $compile(template)($scope);
+
+      deferred.reject();
+
+      expect(element.children().length).toBe(0);
+      expect(settingsServiceAPI.ifEnabled).toHaveBeenCalledWith('setting_name');
+
+      $scope.$apply();
+      expect(element.children().length).toBe(0);
     });
 
   });

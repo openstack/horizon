@@ -23,7 +23,7 @@
 
     var template = [
       '<div>',
-      '<div hz-nova-extensions=\'\"ext_name\"\'>',
+      '<div hz-if-nova-extensions=\'\"ext_name\"\'>',
       '<div class="child-element">',
       '</div>',
       '</div>',
@@ -32,7 +32,7 @@
 
     beforeEach(function() {
       novaExtensionsAPI = {
-        ifNameEnabled: function(extensionName) {
+        ifNameEnabled: function() {
           return deferred.promise;
         }
       };
@@ -63,17 +63,25 @@
     it('should evaluate child elements when extension is enabled', function () {
       var element = $compile(template)($scope);
 
-      deferred.resolve({
-        success: function(callback) {
-          callback();
-        }
-      });
+      deferred.resolve();
 
       expect(element.children().length).toBe(0);
       expect(novaExtensionsAPI.ifNameEnabled).toHaveBeenCalledWith('ext_name');
 
       $scope.$apply();
       expect(element.children().length).toBe(1);
+    });
+
+    it('should not evaluate child elements when extension is NOT enabled', function () {
+      var element = $compile(template)($scope);
+
+      deferred.reject();
+
+      expect(element.children().length).toBe(0);
+      expect(novaExtensionsAPI.ifNameEnabled).toHaveBeenCalledWith('ext_name');
+
+      $scope.$apply();
+      expect(element.children().length).toBe(0);
     });
 
   });

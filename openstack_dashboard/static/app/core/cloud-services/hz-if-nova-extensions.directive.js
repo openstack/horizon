@@ -19,7 +19,7 @@
 
   angular
     .module('horizon.app.core.cloud-services')
-    .directive('hzNovaExtensions', hzNovaExtensions);
+    .directive('hzIfNovaExtensions', hzNovaExtensions);
 
   hzNovaExtensions.$inject =  [
     'hzPromiseToggleTemplateDirective',
@@ -28,7 +28,7 @@
 
   /**
    * @ngdoc directive
-   * @name hz.api:directive:hzNovaExtensions
+   * @name hz.api:directive:hzIfNovaExtensions
    * @module hz.api
    * @description
    *
@@ -43,22 +43,22 @@
    * it will get re-evaluated with events like the user opening another panel,
    * changing logins, or changing their region.
    *
-   * The hz-nova-extensions attribute may be set to a single extension (String)
+   * The hz-if-nova-extensions attribute may be set to a single extension (String)
    * or an array of extensions (each one being a String).
    * All of the following are examples:
    *
-   * hz-nova-extensions='"ConfigDrive"'
-   * hz-nova-extensions='["ConfigDrive"]'
-   * hz-nova-extensions='["ConfigDrive", "DiskConfig"]'
+   * hz-if-nova-extensions='"ConfigDrive"'
+   * hz-if-nova-extensions='["ConfigDrive"]'
+   * hz-if-nova-extensions='["ConfigDrive", "DiskConfig"]'
    *
    * @example
    *
    * In the below, if the ConfigDrive nova extension is not enabled, then
-   * the div element with hz-nova-extensions and all of the elements inside
+   * the div element with hz-if-nova-extensions and all of the elements inside
    * of it will be removed and never evaluated by the angular compiler.
    *
    ```html
-    <div hz-nova-extensions='"ConfigDrive"'>
+    <div hz-if-nova-extensions='"ConfigDrive"'>
       <!-- ui code here -->
     </div>
    ```
@@ -68,7 +68,7 @@
         hzPromiseToggleTemplateDirective[0],
         {
           singlePromiseResolver: novaExtensions.ifNameEnabled,
-          name: 'hzNovaExtensions'
+          name: 'hzIfNovaExtensions'
         }
     );
   }
