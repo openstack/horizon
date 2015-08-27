@@ -217,8 +217,8 @@
 
       describe('diskFormat', function() {
 
-        it("returns 'FORMAT' if given 'format' in value", function() {
-          expect(diskFormatFilter({ disk_format: 'format' })).toBe('FORMAT');
+        it("returns 'format' if given 'format' in value", function() {
+          expect(diskFormatFilter({ disk_format: 'format' })).toBe('format');
         });
 
         it("returns empty string if given null input", function() {
@@ -227,6 +227,13 @@
 
         it("returns empty string if given input is empty object", function() {
           expect(diskFormatFilter({})).toBe('');
+        });
+
+        it("returns 'docker' if container format is docker and disk format is raw", function() {
+          expect(diskFormatFilter({disk_format: 'raw', container_format: 'docker'})).toBe('docker');
+          expect(diskFormatFilter({disk_format: 'ami', container_format: 'docker'})).toBe('ami');
+          expect(diskFormatFilter({disk_format: 'raw', container_format: 'raw'})).toBe('raw');
+          expect(diskFormatFilter({disk_format: 'raw', container_format: null})).toBe('raw');
         });
       });
     });

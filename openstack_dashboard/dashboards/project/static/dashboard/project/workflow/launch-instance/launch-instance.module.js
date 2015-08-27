@@ -57,7 +57,7 @@
    * @ngdoc filter
    * @name diskFormat
    * @description
-   * Expects object and returns disk_format property value.
+   * Expects object and returns the image type value.
    * Returns empty string if input is null or not an object.
    * Uniquely required for the source step implementation of transfer tables
    */
@@ -69,7 +69,9 @@
         angular.isUndefined(input.disk_format) || input.disk_format === null) {
         return '';
       } else {
-        return input.disk_format.toUpperCase();
+        var diskFormat = input.disk_format;
+        var containerFormat = input.container_format;
+        return containerFormat === 'docker' && diskFormat === 'raw' ? 'docker' : diskFormat;
       }
     }
   }

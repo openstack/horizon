@@ -182,7 +182,7 @@
               </td>
               <td ng-class="ctrl.tableBodyCells[3].classList"
                   ng-style="ctrl.tableBodyCells[3].style">
-                {$ ctrl.tableBodyCells[3].filter ? ctrl.tableBodyCells[3].filter(row[ctrl.tableBodyCells[3].key], ctrl.tableBodyCells[3].filterArg) : row[ctrl.tableBodyCells[3].key] $}
+                {$ ctrl.tableBodyCells[3].filter ? ctrl.tableBodyCells[3].filter(ctrl.tableBodyCells[3].filterRawData ? row : row[ctrl.tableBodyCells[3].key], ctrl.tableBodyCells[3].filterArg) : row[ctrl.tableBodyCells[3].key] $}
               </td>
               <td ng-class="ctrl.tableBodyCells[4].classList"
                   ng-style="ctrl.tableBodyCells[4].style">
@@ -296,7 +296,7 @@
               </td>
               <td ng-class="ctrl.tableBodyCells[3].classList"
                   ng-style="ctrl.tableBodyCells[3].style">
-                {$ ctrl.tableBodyCells[3].filter ? ctrl.tableBodyCells[3].filter(row[ctrl.tableBodyCells[3].key], ctrl.tableBodyCells[3].filterArg) : row[ctrl.tableBodyCells[3].key] $}
+                {$ ctrl.tableBodyCells[3].filter ? ctrl.tableBodyCells[3].filter(ctrl.tableBodyCells[3].filterRawData ? row : row[ctrl.tableBodyCells[3].key], ctrl.tableBodyCells[3].filterArg) : row[ctrl.tableBodyCells[3].key] $}
               </td>
               <td ng-class="ctrl.tableBodyCells[4].classList"
                   ng-style="ctrl.tableBodyCells[4].style">
