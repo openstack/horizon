@@ -25,7 +25,9 @@
       var scope, ctrl, $browser, deferred;
 
       beforeEach(module(function($provide) {
-        $provide.value('horizon.dashboard.project.workflow.launch-instance.boot-source-types', noop);
+        $provide.value(
+          'horizon.dashboard.project.workflow.launch-instance.boot-source-types', noop
+        );
         $provide.value('bytesFilter', noop);
         $provide.value('horizon.framework.widgets.charts.donutChartSettings', noop);
         $provide.value('dateFilter', noop);
@@ -61,7 +63,6 @@
 
         scope.$apply();
       }));
-
 
       it('should be defined', function() {
         expect(ctrl).toBeDefined();

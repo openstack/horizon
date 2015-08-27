@@ -34,7 +34,9 @@
     }));
 
     beforeEach(inject(function ($injector) {
-      launchInstanceWorkflow = $injector.get('horizon.dashboard.project.workflow.launch-instance.workflow');
+      launchInstanceWorkflow = $injector.get(
+        'horizon.dashboard.project.workflow.launch-instance.workflow'
+      );
     }));
 
     it('should be defined', function () {
