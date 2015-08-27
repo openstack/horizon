@@ -137,15 +137,6 @@ class MigrateVolumeView(forms.ModalFormView):
                 'hosts': self.get_hosts()}
 
 
-class CreateVolumeTypeView(forms.ModalFormView):
-    form_class = volumes_forms.CreateVolumeType
-    template_name = 'admin/volumes/volumes/create_volume_type.html'
-    success_url = 'horizon:admin:volumes:volumes_tab'
-
-    def get_success_url(self):
-        return reverse(self.success_url)
-
-
 class UpdateStatusView(forms.ModalFormView):
     form_class = volumes_forms.UpdateStatus
     modal_header = _("Update Volume Status")
