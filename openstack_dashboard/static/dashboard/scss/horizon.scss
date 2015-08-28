@@ -40,21 +40,6 @@
   zoom: 1;
 } // IE7
 
-@font-face {
-  font-family: 'anivers';
-  src: url('../fonts/Anivers_Regular-webfont.eot');
-  src: url('../fonts/Anivers_Regular-webfont.eot?iefix')
-      format('eot'),
-    url('../fonts/Anivers_Regular-webfont.woff')
-      format('woff'),
-    url('../fonts/Anivers_Regular-webfont.ttf')
-      format('truetype'),
-    url('../fonts/Anivers_Regular-webfont.svg#webfont3JLVF59W')
-      format('svg');
-  font-weight: normal;
-  font-style: normal;
-}
-
 body {
 }
 
@@ -97,7 +82,6 @@ dt {
   margin: 0 0 5px 0;
   padding: 10px 0 5px 0;
   border-bottom: 0;
-  font-family: anivers;
   height: auto;
   width: 100%;
   h1 {
@@ -233,7 +217,6 @@ a.current_item:hover h4 {
 }
 .table_title h3,
 .table_header h3 {
-  font-family: anivers;
   font-weight: normal;
   font-size: 24px;
   margin: 0 0 5px 0;
@@ -541,7 +524,6 @@ td.loading {
   margin: -18px 0 25px;
   padding: 10px;
   border: 1px solid $border-color;
-  font-family: "anivers";
 }
 
 #monitoring h3 {
@@ -1111,7 +1093,6 @@ iframe {
 }
 
 .quota-heading {
-  font-family: anivers;
   font-weight: normal;
   font-size: 24px;
   margin-bottom: 10px;
