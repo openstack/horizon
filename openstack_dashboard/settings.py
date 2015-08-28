@@ -142,7 +142,7 @@ STATICFILES_FINDERS = (
 )
 
 COMPRESS_PRECOMPILERS = (
-    ('text/scss', 'django_pyscss.compressor.DjangoScssFilter'),
+    ('text/scss', 'horizon.utils.scss_filter.HorizonScssFilter'),
 )
 
 COMPRESS_CSS_FILTERS = (

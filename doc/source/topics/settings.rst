@@ -1086,18 +1086,6 @@ the web server.
 For example, if you're accessing the Dashboard via
 https://<your server>/dashboard, you would set this to ``"/dashboard/"``.
 
-Additionally, setting the ``"$webroot"`` SCSS variable is required. You
-can change this directly in
-``"openstack_dashboard/static/dashboard/scss/_variables.scss"`` or in the
-``"_variables.scss"`` file in your custom theme. For more information on
-custom themes, see: ``"CUSTOM_THEME_PATH"``.
-
-Make sure you run ``python manage.py collectstatic`` and
-``python manage.py compress`` after you change the ``_variables.scss`` file.
-
-For your convenience, a custom theme for only setting the web root has been
-provided see: ``"/horizon/openstack_dashboard/themes/webroot"``
-
 .. note::
 
     Additional settings may be required in the config files of your webserver
@@ -1143,6 +1131,13 @@ webserver configuration should be updated to match.
 .. note::
 
     The value for STATIC_URL must end in '/'.
+
+This value is also available in the scss namespace with the variable name
+$static_url.  Make sure you run ``python manage.py collectstatic`` and
+``python manage.py compress`` after any changes to this value in settings.py.
+
+For your convenience, a custom theme for only setting the static url has been
+provided see: ``"/horizon/openstack_dashboard/themes/webroot"``
 
 For more information see:
 https://docs.djangoproject.com/en/1.7/ref/settings/#static-url
