@@ -32,7 +32,7 @@ class UsersPage(basepage.BaseNavigationPage):
     }
 
     CREATE_USER_FORM_FIELDS = ("name", "email", "password",
-                               "confirm_password", "project", "role")
+                               "confirm_password", "project", "role_id")
 
     def __init__(self, driver, conf):
         super(UsersPage, self).__init__(driver, conf)
@@ -69,7 +69,7 @@ class UsersPage(basepage.BaseNavigationPage):
         self.create_user_form.password.text = password
         self.create_user_form.confirm_password.text = password
         self.create_user_form.project.text = project
-        self.create_user_form.role.text = role
+        self.create_user_form.role_id.text = role
         self.create_user_form.submit.click()
         self._wait_till_spinner_disappears()
 

@@ -65,17 +65,21 @@ class BaseRegion(basewebobject.BaseWebObject):
     class _DynamicProperty(object):
         """Serves as new property holder."""
 
-        def __init__(self, method, index=None):
+        def __init__(self, method, index=None, name=None):
             """In case object was created with index != None,
             it is assumed that the result of self.method should be tuple()
             and just certain index should be returned
             """
             self.method = method
             self.index = index
+            self.name = name
 
         def __call__(self, *args, **kwargs):
             result = self.method()
-            return result if self.index is None else result[self.index]
+            if isinstance(result, dict):
+                return result if self.name is None else result[self.name]
+            else:
+                return result if self.index is None else result[self.index]
 
     def _init_dynamic_properties(self, new_attr_names, method):
         """Create new object's 'properties' at runtime."""
@@ -93,7 +97,8 @@ class BaseRegion(basewebobject.BaseWebObject):
                                  "The new property could not be "
                                  "created." % (self.__class__.__name__,
                                                new_attr_name))
-        new_method = self.__class__._DynamicProperty(method, index)
+        new_method = self.__class__._DynamicProperty(method, index,
+                                                     new_attr_name)
         inst_method = types.MethodType(new_method, self)
         self._dynamic_properties[new_attr_name] = inst_method
 

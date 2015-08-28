@@ -30,7 +30,8 @@ class UsersettingsPage(basepage.BaseNavigationPage):
         "loglines": DEFAULT_LOGLINES
     }
 
-    SETTINGS_FORM_FIELDS = ("language", "timezone", "pagesize", "loglines")
+    SETTINGS_FORM_FIELDS = (
+        "language", "timezone", "pagesize", "instance_log_length")
 
     _settings_form_locator = (by.By.ID, 'user_settings_modal')
     _change_password_tab_locator = (by.By.CSS_SELECTOR,
@@ -67,7 +68,7 @@ class UsersettingsPage(basepage.BaseNavigationPage):
         self.settings_form.submit.click()
 
     def change_loglines(self, lines=DEFAULT_LOGLINES):
-        self.settings_form.loglines.value = lines
+        self.settings_form.instance_log_length.value = lines
         self.settings_form.submit.click()
 
     def return_to_default_settings(self):
