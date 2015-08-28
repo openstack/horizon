@@ -95,6 +95,17 @@ class SelectTemplateView(forms.ModalFormView):
     success_url = reverse_lazy('horizon:project:stacks:launch')
     page_title = _("Select Template")
 
+    def get_initial(self):
+        initial = {}
+        for name in [
+            'template_url',
+            'template_source'
+        ]:
+            tmp = self.request.GET.get(name)
+            if tmp:
+                initial[name] = tmp
+        return initial
+
     def get_form_kwargs(self):
         kwargs = super(SelectTemplateView, self).get_form_kwargs()
         kwargs['next_view'] = CreateStackView

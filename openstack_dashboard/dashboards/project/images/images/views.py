@@ -49,6 +49,23 @@ class CreateView(forms.ModalFormView):
     success_url = reverse_lazy("horizon:project:images:index")
     page_title = _("Create An Image")
 
+    def get_initial(self):
+        initial = {}
+        for name in [
+            'name',
+            'description',
+            'image_url',
+            'source_type',
+            'architecture',
+            'disk_format',
+            'minimum_disk',
+            'minimum_ram'
+        ]:
+            tmp = self.request.GET.get(name)
+            if tmp:
+                initial[name] = tmp
+        return initial
+
 
 class UpdateView(forms.ModalFormView):
     form_class = project_forms.UpdateImageForm

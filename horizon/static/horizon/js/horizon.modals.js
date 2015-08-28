@@ -42,8 +42,11 @@ horizon.modals.create = function (title, body, confirm, cancel) {
 
 horizon.modals.success = function (data) {
   var modal;
-  $('#modal_wrapper').append(data);
-  modal = $('.modal:last');
+  var modal_wrapper = $('#modal_wrapper');
+  // Moves the modal_wrapper to the bottom. This shows it over other dialogs.
+  modal_wrapper.parent().append(modal_wrapper);
+  modal_wrapper.append(data);
+  modal = $('#modal_wrapper > .modal:last');
   modal.modal();
   $(modal).trigger("new_modal", modal);
   return modal;
