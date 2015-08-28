@@ -442,7 +442,7 @@ class Column(html.HTMLElement):
 
         summation_function = self.summation_methods[self.summation]
         data = [self.get_raw_data(datum) for datum in self.table.data]
-        data = filter(lambda datum: datum is not None, data)
+        data = [raw_data for raw_data in data if raw_data is not None]
 
         if len(data):
             try:
@@ -605,7 +605,7 @@ class Row(html.HTMLElement):
 
     def get_cells(self):
         """Returns the bound cells for this row in order."""
-        return self.cells.values()
+        return list(self.cells.values())
 
     def get_ajax_update_url(self):
         table_url = self.table.get_absolute_url()
@@ -1396,7 +1396,7 @@ class DataTable(object):
         """hide checkbox column if no current table action is allowed."""
         if not self.multi_select:
             return
-        select_column = self.columns.values()[0]
+        select_column = list(self.columns.values())[0]
         # Try to find if the hidden class need to be
         # removed or added based on visible flag.
         hidden_found = 'hidden' in select_column.classes

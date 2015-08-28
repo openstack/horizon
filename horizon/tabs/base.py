@@ -177,7 +177,7 @@ class TabGroup(html.HTMLElement):
 
     def get_tabs(self):
         """Returns a list of the allowed tabs for this tab group."""
-        return filter(lambda tab: tab._allowed, self._tabs.values())
+        return [tab for tab in self._tabs.values() if tab._allowed]
 
     def get_tab(self, tab_name, allow_disabled=False):
         """Returns a specific tab from this tab group.
