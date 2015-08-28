@@ -28,4 +28,4 @@ class ErrorPageTests(test.TestCase):
         TEMPLATE_DIRS = (path.join(settings.ROOT_PATH, 'templates'),)
         with self.settings(TEMPLATE_DIRS=TEMPLATE_DIRS):
             response = self.client.get('/500/')
-            self.assertTrue('Server error' in response.content)
+            self.assertIn(b'Server error', response.content)
