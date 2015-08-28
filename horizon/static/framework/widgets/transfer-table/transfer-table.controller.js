@@ -1,5 +1,6 @@
 /*
- *    (c) Copyright 2015 Hewlett-Packard Development Company, L.P.
+ * (c) Copyright 2015 Hewlett-Packard Development Company, L.P.
+ * Copyright 2015 IBM Corp.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -22,7 +23,6 @@
     .controller('transferTableController', TransferTableController);
 
   TransferTableController.$inject = [
-    'horizon.framework.widgets.basePath',
     '$scope',
     '$timeout',
     '$parse',
@@ -38,60 +38,33 @@
     * @description
     * The `transferTableController` controller provides functions for allocating
     * and deallocating to and from the 'allocated' array, respectively.
+    * This controller can be accessed through `trCtrl`.
     *
-    * This controller can be accessed through `trCtrl`. See examples below.
+    * The data model assumes four arrays: allocated, displayedAllocated,
+    * available, and displayedAvailable. Smart-Table requires additional
+    * 'displayed' arrays for sorting and re-ordering. Of these four arrays, only
+    * allocated is required. The remaining arrays are populated for you if they
+    * are not present.
     *
-    * Functions and objects available:
-    *
-    *   allocate - add row to allocated array
-    *     Provide this as callback for the allocate button
-    *     <action-list>
-    *       <action callback="trCtrl.allocate" item="row"></action>
-    *     </action-list>
-    *
-    *   deallocate - remove row from allocated array
-    *     Provide this as callback for the deallocate button
-    *     <action-list>
-    *       <action callback="trCtrl.deallocate" item="row"></action>
-    *     </action-list>
-    *
-    *   updateAllocated - update allocated array after re-order
-    *     This is needed if drag and drop re-ordering is enabled in
-    *     the allocated table.
-    *     <table st-table="displayedAllocated" st-safe-src="allocated"
-    *       lr-drag-data="displayedAllocated"
-    *       lr-drag-src="reorder" lr-drop-target="reorder"
-    *       lr-drop-success="trCtrl.updateAllocated(e, item, collection)">
-    *       ... table definition ...
-    *     </table>
-    *
-    *   tooltipModel - custom warning tooltip model
-    *     Use this with the allocate button (action-list)
-    *     <action-list button-tooltip bt-model="trCtrl.tooltipModel">
-    *       <action>...</action>
-    *     </action-list>
-    *
+    * @example
+    * ```
+    * var availableItems = [
+    *   { id: 'u1', username: 'User 1', disabled: true, warnings: { username: 'Invalid!' } },
+    *   { id: 'u2', username: 'User 2', disabled: true, warningMessage: 'Invalid!' },
+    *   { id: 'u3', username: 'User 3' }
+    * ];
+    * $scope.model = { available: availableItems };
+    * $scope.limits = { maxAllocation: -1 };
+    * ```
+    * For usage example, see the transfer-table.example.html file.
     */
-  function TransferTableController(path, $scope, $timeout, $parse, $attrs, $log, helpText, limits) {
+  function TransferTableController($scope, $timeout, $parse, $attrs, $log, helpText, limits) {
+
     var trModel = $parse($attrs.trModel)($scope);
     var trHelpText = $parse($attrs.helpText)($scope);
     var trLimits = $parse($attrs.limits)($scope);
 
-    if (!angular.isArray(trModel.allocated)) {
-      $log.error('Allocated is not an array as required.');
-    }
-
     var ctrl = this;
-    ctrl.allocatedIds = {};
-    ctrl.available = {
-      sourceItems: trModel.available,
-      displayedItems: trModel.displayedAvailable
-    };
-    ctrl.allocated = {
-      sourceItems: trModel.allocated,
-      displayedItems: trModel.displayedAllocated
-    };
-
     ctrl.allocate = allocate;
     ctrl.deallocate = deallocate;
     ctrl.toggleView = toggleView;
@@ -103,19 +76,40 @@
     ctrl.numAvailable = numAvailable;
     ctrl.views = { allocated: true, available: true };
 
-    init();
+    init(trModel);
 
     //////////
 
-    function init() {
+    function init(model) {
 
-      // populate the allocatedIds if allocated source given
+      if (!angular.isArray(model.available)) {
+        $log.error('Available is not an array.');
+      }
+
+      if (model.allocated && !angular.isArray(model.allocated)) {
+        $log.error('Allocated is not an array.');
+      }
+
+      ctrl.available = {
+        sourceItems: model.available,
+        displayedItems: model.displayedAvailable ? model.displayedAvailable : []
+      };
+      ctrl.allocated = {
+        sourceItems: model.allocated ? model.allocated : [],
+        displayedItems: model.displayedAllocated ? model.displayedAllocated : []
+      };
+
+      ctrl.allocatedIds = {};
       angular.forEach(ctrl.allocated.sourceItems, function(item) {
         ctrl.allocatedIds[item.id] = true;
       });
     }
 
     function allocate(item) {
+
+      // we currently don't have to check for item uniqueness
+      // because we are using the ng-repeat track by
+
       // Add to allocated only if limit not reached
       if (ctrl.limits.maxAllocation < 0 ||
           ctrl.limits.maxAllocation > ctrl.allocated.sourceItems.length) {
