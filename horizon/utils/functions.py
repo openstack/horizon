@@ -147,4 +147,5 @@ def format_value(value):
     value = decimal.Decimal(str(value))
     if int(value) == value:
         return int(value)
-    return round(value, 1)
+    # On Python 3, an explicit cast to float is required
+    return float(round(value, 1))
