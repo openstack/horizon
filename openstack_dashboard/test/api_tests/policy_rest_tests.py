@@ -23,7 +23,7 @@ class PolicyRestTestCase(test.TestCase):
         request = self.mock_rest_request(body=body)
         response = policy.Policy().post(request)
         self.assertStatusCode(response, 200)
-        self.assertEqual(response.content, '{"allowed": true}')
+        self.assertEqual(response.json, {"allowed": True})
 
     @override_settings(POLICY_CHECK_FUNCTION=policy_backend.check)
     def test_rule_alone(self):
@@ -57,7 +57,7 @@ class PolicyRestTestCase(test.TestCase):
             body='''{"rules": [["compute", "compute:unlock_override"]]}''')
         response = policy.Policy().post(request)
         self.assertStatusCode(response, 200)
-        self.assertEqual(response.content, '{"allowed": false}')
+        self.assertEqual(response.json, {"allowed": False})
 
     @override_settings(POLICY_CHECK_FUNCTION=policy_backend.check)
     def test_policy_error(self):
@@ -75,4 +75,4 @@ class AdminPolicyRestTestCase(test.BaseAdminViewTests):
         request = self.mock_rest_request(body=body)
         response = policy.Policy().post(request)
         self.assertStatusCode(response, 200)
-        self.assertEqual(response.content, '{"allowed": true}')
+        self.assertEqual(response.json, {"allowed": True})

@@ -28,6 +28,6 @@ class RestNetworkApiSecurityGroupTests(test.TestCase):
 
         response = network.SecurityGroups().get(request)
         self.assertStatusCode(response, 200)
-        self.assertEqual(response.content,
-                         '{"items": [{"name": "default"}]}')
+        self.assertEqual(response.json,
+                         {"items": [{"name": "default"}]})
         client.security_group_list.assert_called_once_with(request)

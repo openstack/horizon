@@ -40,8 +40,8 @@ class CinderRestTestCase(test.TestCase):
         ]
         response = cinder.Volumes().get(request)
         self.assertStatusCode(response, 200)
-        self.assertEqual(response.content,
-                         '{"items": [{"id": "one"}, {"id": "two"}]}')
+        self.assertEqual(response.json,
+                         {"items": [{"id": "one"}, {"id": "two"}]})
         if all:
             cc.volume_list.assert_called_once_with(request,
                                                    {'all_tenants': 1})
@@ -58,8 +58,8 @@ class CinderRestTestCase(test.TestCase):
         ]
         response = cinder.VolumeSnapshots().get(request)
         self.assertStatusCode(response, 200)
-        self.assertEqual(response.content,
-                         '{"items": [{"id": "one"}, {"id": "two"}]}')
+        self.assertEqual(response.json,
+                         {"items": [{"id": "one"}, {"id": "two"}]})
         cc.volume_snapshot_list.assert_called_once_with(request,
                                                         search_opts={})
 
@@ -73,7 +73,7 @@ class CinderRestTestCase(test.TestCase):
         ]
         response = cinder.VolumeSnapshots().get(request)
         self.assertStatusCode(response, 200)
-        self.assertEqual(response.content,
-                         '{"items": [{"id": "one"}, {"id": "two"}]}')
+        self.assertEqual(response.json,
+                         {"items": [{"id": "one"}, {"id": "two"}]})
         cc.volume_snapshot_list.assert_called_once_with(request,
                                                         search_opts=filters)
