@@ -126,6 +126,7 @@ class Helpers(object):
 JOB_TYPE_MAP = {"pig": [_("Pig"), "Pig"],
                 "hive": [_("Hive"), "Hive"],
                 "spark": [_("Spark"), "Spark"],
+                "storm": [_("Storm"), "Storm"],
                 "mapreduce": [_("MapReduce"), "MapReduce"],
                 "mapreduce.streaming": [_("Streaming MapReduce"),
                                         "MapReduce.Streaming"],
