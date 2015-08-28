@@ -35,7 +35,8 @@ class ProjectsPage(basepage.BaseNavigationPage):
 
     DEFAULT_ENABLED = True
     PROJECTS_TABLE_NAME_COLUMN_INDEX = 0
-    PROJECTS_TABLE_ACTIONS = ("create_project", "delete_projects")
+    PROJECTS_TABLE_NAME = "tenants"
+    PROJECTS_TABLE_ACTIONS = ("create", "delete")
     PROJECTS_TABLE_ROW_ACTIONS = {
         tables.ComplexActionRowRegion.PRIMARY_ACTION: "manage_members",
         tables.ComplexActionRowRegion.SECONDARY_ACTIONS: (
@@ -58,6 +59,7 @@ class ProjectsPage(basepage.BaseNavigationPage):
         src_elem = self._get_element(*self._projects_table_locator)
         return tables.ComplexActionTableRegion(self.driver,
                                                self.conf, src_elem,
+                                               self.PROJECTS_TABLE_NAME,
                                                self.PROJECTS_TABLE_ACTIONS,
                                                self.PROJECTS_TABLE_ROW_ACTIONS
                                                )
@@ -94,7 +96,7 @@ class ProjectsPage(basepage.BaseNavigationPage):
 
     def create_project(self, project_name, description=None,
                        is_enabled=DEFAULT_ENABLED):
-        self.projects_table.create_project.click()
+        self.projects_table.create.click()
         self.create_project_form.name.text = project_name
         if description is not None:
             self.create_project_form.description.text = description
@@ -106,7 +108,7 @@ class ProjectsPage(basepage.BaseNavigationPage):
     def delete_project(self, project_name):
         row = self._get_row_with_project_name(project_name)
         row.mark()
-        self.projects_table.delete_projects.click()
+        self.projects_table.delete.click()
         self.delete_project_submit_button.click()
         self.wait_till_popups_disappear()
 

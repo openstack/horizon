@@ -20,7 +20,7 @@ class OverviewPage(basepage.BaseNavigationPage):
     _usage_table_locator = (by.By.ID, 'project_usage')
     _date_form_locator = (by.By.ID, 'date_form')
 
-    USAGE_TABLE_ACTIONS = ("download_csv",)
+    USAGE_TABLE_ACTIONS = ("csv_summary",)
 
     def __init__(self, driver, conf):
         super(OverviewPage, self).__init__(driver, conf)

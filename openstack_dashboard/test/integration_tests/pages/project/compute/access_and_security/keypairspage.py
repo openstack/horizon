@@ -24,9 +24,9 @@ class KeypairsPage(basepage.BaseNavigationPage):
 
     _key_pairs_table_locator = (by.By.ID, 'keypairs')
 
-    KEY_PAIRS_TABLE_ACTIONS = ("create_key_pair", "import_key_pair",
-                               "delete_key_pair")
-    KEY_PAIRS_TABLE_ROW_ACTION = "delete_key_pair"
+    KEY_PAIRS_TABLE_NAME = "keypairs"
+    KEY_PAIRS_TABLE_ACTIONS = ("create", "import", "delete")
+    KEY_PAIRS_TABLE_ROW_ACTION = "delete"
     KEY_PAIRS_TABLE_NAME_COLUMN_INDEX = 0
 
     CREATE_KEY_PAIR_FORM_FIELDS = ('name',)
@@ -44,6 +44,7 @@ class KeypairsPage(basepage.BaseNavigationPage):
         src_elem = self._get_element(*self._key_pairs_table_locator)
         return tables.SimpleActionsTableRegion(self.driver, self.conf,
                                                src_elem,
+                                               self.KEY_PAIRS_TABLE_NAME,
                                                self.KEY_PAIRS_TABLE_ACTIONS,
                                                self.KEY_PAIRS_TABLE_ROW_ACTION)
 
@@ -60,12 +61,12 @@ class KeypairsPage(basepage.BaseNavigationPage):
         return bool(self._get_row_with_keypair_name(name))
 
     def create_keypair(self, keypair_name):
-        self.keypairs_table.create_key_pair.click()
+        self.keypairs_table.create.click()
         self.create_keypair_form.name.text = keypair_name
         self.create_keypair_form.submit.click()
         self.wait_till_popups_disappear()
 
     def delete_keypair(self, name):
-        self._get_row_with_keypair_name(name).delete_key_pair.click()
+        self._get_row_with_keypair_name(name).delete.click()
         self.delete_keypair_form.submit.click()
         self.wait_till_popups_disappear()

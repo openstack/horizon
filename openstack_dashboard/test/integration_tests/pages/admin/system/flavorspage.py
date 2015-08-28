@@ -23,7 +23,8 @@ class FlavorsPage(basepage.BaseNavigationPage):
 
     _flavors_table_locator = (by.By.ID, 'flavors')
 
-    FLAVORS_TABLE_ACTIONS = ("create_flavor", "delete_flavors")
+    FLAVORS_TABLE_NAME = "flavors"
+    FLAVORS_TABLE_ACTIONS = ("create", "delete")
     FLAVORS_TABLE_ROW_ACTIONS = {
         tables.ComplexActionRowRegion.PRIMARY_ACTION: "edit_flavor",
         tables.ComplexActionRowRegion.SECONDARY_ACTIONS: (
@@ -47,6 +48,7 @@ class FlavorsPage(basepage.BaseNavigationPage):
         src_elem = self._get_element(*self._flavors_table_locator)
         return tables.ComplexActionTableRegion(self.driver,
                                                self.conf, src_elem,
+                                               self.FLAVORS_TABLE_NAME,
                                                self.FLAVORS_TABLE_ACTIONS,
                                                self.FLAVORS_TABLE_ROW_ACTIONS)
 
@@ -61,7 +63,7 @@ class FlavorsPage(basepage.BaseNavigationPage):
 
     def create_flavor(self, name, id_=DEFAULT_ID, vcpus=None, ram=None,
                       root_disk=None, ephemeral_disk=None, swap_disk=None):
-        self.flavors_table.create_flavor.click()
+        self.flavors_table.create.click()
         self.create_flavor_form.name.text = name
         if id_ is not None:
             self.create_flavor_form.flavor_id.text = id_
@@ -76,7 +78,7 @@ class FlavorsPage(basepage.BaseNavigationPage):
     def delete_flavor(self, name):
         row = self._get_row_with_flavor_name(name)
         row.mark()
-        self.flavors_table.delete_flavors.click()
+        self.flavors_table.delete.click()
         self.confirm_delete_flavors_form.submit.click()
         self.wait_till_popups_disappear()
 
