@@ -58,8 +58,8 @@ class APIAccessTests(test.TestCase):
         self.assertTemplateUsed(res, openrc)
         name = 'export OS_USERNAME="{}"'.format(self.request.user.username)
         id = 'export OS_TENANT_ID={}'.format(self.request.user.tenant_id)
-        self.assertTrue(name in res.content)
-        self.assertTrue(id in res.content)
+        self.assertIn(name.encode('utf-8'), res.content)
+        self.assertIn(id.encode('utf-8'), res.content)
 
     @test.create_stubs({api.keystone: ("list_ec2_credentials",)})
     def test_credential_api(self):
