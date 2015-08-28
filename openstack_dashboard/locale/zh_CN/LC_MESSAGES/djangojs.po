@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-08-25 05:51+0000\n"
-"PO-Revision-Date: 2015-08-25 04:21+0000\n"
+"POT-Creation-Date: 2015-08-26 20:04+0000\n"
+"PO-Revision-Date: 2015-08-26 11:36+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Chinese (China) (http://www.transifex.com/openstack/horizon/"
 "language/zh_CN/)\n"
@@ -490,6 +490,9 @@ msgstr "必须"
 msgid "Root Disk"
 msgstr "根磁盘"
 
+msgid "Save"
+msgstr "保存"
+
 msgid "Saving"
 msgstr "保存中"
 
@@ -845,6 +848,15 @@ msgstr "无法获取卷。"
 
 msgid "Up"
 msgstr "正常"
+
+msgid "Update Aggregate Metadata"
+msgstr "更新聚合元数据"
+
+msgid "Update Flavor Metadata"
+msgstr "更新云主机类型的元数据"
+
+msgid "Update Image Metadata"
+msgstr "更新镜像元数据"
 
 msgid "Updated"
 msgstr "已更新"

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-08-20 06:38+0000\n"
+"POT-Creation-Date: 2015-08-27 06:14+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -52,13 +52,18 @@ msgstr ""
 msgid "%s bytes"
 msgstr ""
 
-#: static/framework/util/filters/filters.js:166
-#: static/horizon/js/horizon.tables.js:427
+#: static/framework/util/filters/filters.js:173
+#: static/horizon/js/horizon.tables.js:405
 #, python-format
 msgid "Displaying %s item"
 msgid_plural "Displaying %s items"
 msgstr[0] ""
 msgstr[1] ""
+
+#: static/framework/util/filters/filters.js:177
+#, python-format
+msgid "Displaying %s of %s items"
+msgstr ""
 
 #: static/framework/widgets/action-list/action-list.module.js:49
 msgid ""
@@ -431,7 +436,7 @@ msgid "View Instance Details"
 msgstr ""
 
 #: static/horizon/js/horizon.tables.js:45
-#: static/horizon/js/horizon.tables.js:440
+#: static/horizon/js/horizon.tables.js:418
 msgid "No items to display."
 msgstr ""
 

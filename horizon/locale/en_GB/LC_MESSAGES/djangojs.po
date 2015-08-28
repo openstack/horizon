@@ -9,9 +9,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-08-04 04:10+0000\n"
-"PO-Revision-Date: 2015-06-27 11:57+0000\n"
-"Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
+"POT-Creation-Date: 2015-08-26 20:04+0000\n"
+"PO-Revision-Date: 2015-08-26 16:23+0000\n"
+"Last-Translator: Rob Cresswell <robert.cresswell@outlook.com>\n"
 "Language-Team: English (United Kingdom) (http://www.transifex.com/openstack/"
 "horizon/language/en_GB/)\n"
 "MIME-Version: 1.0\n"
@@ -132,6 +132,10 @@ msgid_plural "Displaying %s items"
 msgstr[0] "Displaying %s item"
 msgstr[1] "Displaying %s items"
 
+#, python-format
+msgid "Displaying %s of %s items"
+msgstr "Displaying %s of %s items"
+
 msgid "Duplicate keys are not allowed"
 msgstr "Duplicate keys are not allowed"
 
@@ -204,6 +208,9 @@ msgstr "No available metadata"
 msgid "No data available."
 msgstr "No data available."
 
+msgid "No description available."
+msgstr "No description available."
+
 msgid "No existing metadata"
 msgstr "No existing metadata"
 
@@ -236,6 +243,9 @@ msgstr "Pattern mismatch"
 
 msgid "Please confirm your selection. "
 msgstr "Please confirm your selection. "
+
+msgid "Prompt"
+msgstr "Prompt"
 
 msgid "Re-order items using drag and drop"
 msgstr "Re-order items using drag and drop"
@@ -282,6 +292,9 @@ msgstr "Success: "
 
 msgid "Terminate Instance"
 msgstr "Terminate Instance"
+
+msgid "Text"
+msgstr "Text"
 
 msgid ""
 "The action cannot be performed. The contents of this row have errors or are "
@@ -334,3 +347,9 @@ msgstr ""
 #, python-format
 msgid "You have selected %s. "
 msgstr "You have selected %s. "
+
+msgid "m1.small"
+msgstr "m1.small"
+
+msgid "m1.tiny"
+msgstr "m1.tiny"
