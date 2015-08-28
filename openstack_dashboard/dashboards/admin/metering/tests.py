@@ -15,6 +15,7 @@ from django.core.urlresolvers import reverse
 from django import http
 
 from mox3.mox import IsA  # noqa
+import six
 
 from openstack_dashboard import api
 from openstack_dashboard.test import helpers as test
@@ -82,7 +83,7 @@ class MeteringLineChartTabTests(test.BaseAdminViewTests):
                                          ), })
     def test_stats_for_line_chart(self):
         api.ceilometer.sample_list(IsA(http.HttpRequest),
-                                   IsA(unicode),
+                                   IsA(six.text_type),
                                    limit=IsA(int)).AndReturn([])
         api.ceilometer.statistic_list(IsA(http.HttpRequest),
                                       'memory',
@@ -115,7 +116,7 @@ class MeteringLineChartTabTests(test.BaseAdminViewTests):
                                          ), })
     def test_stats_for_line_chart_attr_max(self):
         api.ceilometer.sample_list(IsA(http.HttpRequest),
-                                   IsA(unicode),
+                                   IsA(six.text_type),
                                    limit=IsA(int)).AndReturn([])
         api.ceilometer.statistic_list(IsA(http.HttpRequest),
                                       'memory', period=IsA(int),
@@ -149,7 +150,7 @@ class MeteringLineChartTabTests(test.BaseAdminViewTests):
                                          ), })
     def test_stats_for_line_chart_no_group(self):
         api.ceilometer.sample_list(IsA(http.HttpRequest),
-                                   IsA(unicode),
+                                   IsA(six.text_type),
                                    limit=IsA(int)).AndReturn([])
         api.ceilometer.resource_list(IsA(http.HttpRequest), query=None,
                                      ceilometer_usage_object=None)\

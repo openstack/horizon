@@ -18,6 +18,7 @@ from django.utils.translation import ugettext_lazy as _
 from django.utils.translation import ungettext_lazy
 
 from horizon import tables
+import six
 
 from openstack_dashboard import api
 from openstack_dashboard import policy
@@ -243,7 +244,7 @@ def filter_direction(direction):
 def filter_protocol(protocol):
     if protocol is None:
         return _('Any')
-    return unicode.upper(protocol)
+    return six.text_type.upper(protocol)
 
 
 def check_rule_template(port, ip_proto):
@@ -280,7 +281,7 @@ class RulesTable(tables.DataTable):
         return filters.get_int_or_uuid(obj_id)
 
     def get_object_display(self, rule):
-        return unicode(rule)
+        return six.text_type(rule)
 
     class Meta(object):
         name = "rules"

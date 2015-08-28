@@ -22,6 +22,7 @@ from django import http
 from django.utils.http import urlencode
 
 from mox3.mox import IsA  # noqa
+import six
 
 from openstack_dashboard import api
 from openstack_dashboard.dashboards.project.access_and_security \
@@ -269,7 +270,7 @@ class FloatingIpViewTests(test.TestCase):
         url = allocate_link.get_link_url()
         classes = (list(allocate_link.get_default_classes())
                    + list(allocate_link.classes))
-        link_name = "%s (%s)" % (unicode(allocate_link.verbose_name),
+        link_name = "%s (%s)" % (six.text_type(allocate_link.verbose_name),
                                  "Quota exceeded")
         expected_string = ("<a href='%s' title='%s' class='%s disabled' "
                            "id='floating_ips__action_allocate'>"

@@ -23,6 +23,8 @@ from django.core.urlresolvers import reverse
 from django.forms import ValidationError  # noqa
 from django.utils.translation import ugettext_lazy as _
 
+import six
+
 from horizon import exceptions
 from horizon import forms
 from horizon import messages
@@ -399,7 +401,8 @@ class AddRule(forms.SelfHandlingForm):
                 data['cidr'],
                 data['security_group'])
             messages.success(request,
-                             _('Successfully added rule: %s') % unicode(rule))
+                             _('Successfully added rule: %s')
+                             % six.text_type(rule))
             return rule
         except Exception:
             redirect = reverse("horizon:project:access_and_security:"

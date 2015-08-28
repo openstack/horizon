@@ -81,7 +81,7 @@ class UsageTable(tables.DataTable):
     def name(self):
         # slugify was introduced in Django 1.5
         if hasattr(text, 'slugify'):
-            return text.slugify(unicode(self.title))
+            return text.slugify(six.text_type(self.title))
         else:
             return self.title
 

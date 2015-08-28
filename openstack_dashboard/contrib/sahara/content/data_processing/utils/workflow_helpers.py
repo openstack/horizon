@@ -14,6 +14,8 @@ import logging
 
 from django.utils.translation import ugettext_lazy as _
 
+import six
+
 from horizon import forms
 from horizon import workflows
 
@@ -133,8 +135,9 @@ def parse_configs_from_context(context, defaults):
             config = key_split[2]
             if service not in configs_dict:
                 configs_dict[service] = dict()
-            if (val is None or
-                    unicode(defaults[service][config]) == unicode(val)):
+            if val is None:
+                continue
+            if six.text_type(defaults[service][config]) == six.text_type(val):
                 continue
             configs_dict[service][config] = val
     return configs_dict

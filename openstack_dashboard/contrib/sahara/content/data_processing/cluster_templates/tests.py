@@ -18,6 +18,7 @@ from django.core.urlresolvers import reverse
 from django import http
 
 from mox3.mox import IsA  # noqa
+import six
 
 from openstack_dashboard import api as dash_api
 from openstack_dashboard.contrib.sahara import api
@@ -50,7 +51,7 @@ class DataProcessingClusterTemplateTests(test.TestCase):
         dash_api.nova.flavor_get(IsA(http.HttpRequest), flavor.id) \
             .MultipleTimes().AndReturn(flavor)
         api.sahara.cluster_template_get(IsA(http.HttpRequest),
-                                        IsA(unicode)) \
+                                        IsA(six.text_type)) \
             .MultipleTimes().AndReturn(ct)
         self.mox.ReplayAll()
         res = self.client.get(DETAILS_URL)

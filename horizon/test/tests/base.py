@@ -24,6 +24,8 @@ from django.core import urlresolvers
 from django.utils.importlib import import_module  # noqa
 from six import moves
 
+import six
+
 import horizon
 from horizon import base
 from horizon import conf
@@ -163,7 +165,7 @@ class HorizonTests(BaseHorizonTests):
             horizon.get_dashboard(MyDash)
 
     def test_site(self):
-        self.assertEqual("Horizon", unicode(base.Horizon))
+        self.assertEqual("Horizon", six.text_type(base.Horizon))
         self.assertEqual("<Site: horizon>", repr(base.Horizon))
         dash = base.Horizon.get_dashboard('cats')
         self.assertEqual(dash, base.Horizon.get_default_dashboard())

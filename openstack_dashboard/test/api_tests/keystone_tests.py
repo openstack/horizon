@@ -19,6 +19,7 @@
 from __future__ import absolute_import
 
 from keystoneclient.v2_0 import client as keystone_client
+import six
 
 from openstack_dashboard import api
 from openstack_dashboard.test import helpers as test
@@ -90,7 +91,7 @@ class ServiceAPITests(test.APITestCase):
         identity_data['id'] = 1
         region = identity_data["endpoints"][0]["region"]
         service = api.keystone.Service(identity_data, region)
-        self.assertEqual(u"identity (native backend)", unicode(service))
+        self.assertEqual(u"identity (native backend)", six.text_type(service))
         self.assertEqual(identity_data["endpoints"][0]["region"],
                          service.region)
         self.assertEqual("http://int.keystone.example.com:5000/v2.0",
@@ -105,7 +106,7 @@ class ServiceAPITests(test.APITestCase):
         compute_data['id'] = 1
         region = compute_data["endpoints"][1]["region"]
         service = api.keystone.Service(compute_data, region)
-        self.assertEqual(u"compute", unicode(service))
+        self.assertEqual(u"compute", six.text_type(service))
         self.assertEqual(compute_data["endpoints"][1]["region"],
                          service.region)
         self.assertEqual("http://int.nova2.example.com:8774/v2",

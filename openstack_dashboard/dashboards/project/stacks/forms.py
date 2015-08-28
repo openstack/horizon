@@ -150,7 +150,7 @@ class TemplateForm(forms.SelfHandlingForm):
             validated = api.heat.template_validate(self.request, **kwargs)
             cleaned['template_validate'] = validated
         except Exception as e:
-            raise forms.ValidationError(unicode(e))
+            raise forms.ValidationError(six.text_type(e))
 
         return cleaned
 

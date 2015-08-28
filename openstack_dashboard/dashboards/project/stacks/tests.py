@@ -22,6 +22,7 @@ from django.test.utils import override_settings  # noqa
 from django.utils import html
 
 from mox3.mox import IsA  # noqa
+import six
 
 from openstack_dashboard import api
 from openstack_dashboard.test import helpers as test
@@ -626,7 +627,7 @@ class StackTests(test.TestCase):
             'disable_rollback': True,
             'timeout_mins': 61,
             'password': 'password',
-            'template': IsA(unicode),
+            'template': IsA(six.text_type),
             'parameters': IsA(dict)
         }
         api.heat.stack_update(IsA(http.HttpRequest),

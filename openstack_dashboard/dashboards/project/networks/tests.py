@@ -16,6 +16,8 @@ from django.core.urlresolvers import reverse
 from django import http
 from django.utils.html import escape
 
+import six
+
 from horizon.workflows import views
 
 from mox3.mox import IsA  # noqa
@@ -1854,7 +1856,7 @@ class NetworkViewTests(test.TestCase):
         url = create_link.get_link_url()
         classes = (list(create_link.get_default_classes())
                    + list(create_link.classes))
-        link_name = "%s (%s)" % (unicode(create_link.verbose_name),
+        link_name = "%s (%s)" % (six.text_type(create_link.verbose_name),
                                  "Quota exceeded")
         expected_string = "<a href='%s' title='%s'  class='%s disabled' "\
             "id='networks__action_create'>" \
@@ -1873,7 +1875,7 @@ class NetworkViewTests(test.TestCase):
         url = reverse(create_link.get_link_url(), args=[network_id])
         classes = (list(create_link.get_default_classes())
                    + list(create_link.classes))
-        link_name = "%s (%s)" % (unicode(create_link.verbose_name),
+        link_name = "%s (%s)" % (six.text_type(create_link.verbose_name),
                                  "Quota exceeded")
         expected_string = "<a href='%s' class='%s disabled' "\
             "id='networks__row_%s__action_subnet'>%s</a>" \
@@ -1924,7 +1926,7 @@ class NetworkViewTests(test.TestCase):
         url = create_link.get_link_url()
         classes = (list(create_link.get_default_classes())
                    + list(create_link.classes))
-        link_name = "%s (%s)" % (unicode(create_link.verbose_name),
+        link_name = "%s (%s)" % (six.text_type(create_link.verbose_name),
                                  "Quota exceeded")
         expected_string = "<a href='%s' title='%s'  class='%s disabled' "\
             "id='subnets__action_create'>" \

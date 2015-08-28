@@ -21,6 +21,7 @@ from copy import deepcopy  # noqa
 from django.core.urlresolvers import reverse
 from django import http
 from mox3.mox import IsA  # noqa
+import six
 
 from horizon.workflows import views
 from openstack_dashboard import api
@@ -220,7 +221,7 @@ class SecurityGroupTabTests(test.TestCase):
         url = create_link.get_link_url()
         classes = (list(create_link.get_default_classes())
                    + list(create_link.classes))
-        link_name = "%s (%s)" % (unicode(create_link.verbose_name),
+        link_name = "%s (%s)" % (six.text_type(create_link.verbose_name),
                                  "Quota exceeded")
         expected_string = "<a href='%s' title='%s'  class='%s disabled' "\
             "id='security_groups__action_create'>" \

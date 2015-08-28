@@ -15,6 +15,8 @@
 from django import forms
 from django import http
 
+import six
+
 from horizon import exceptions
 from horizon.test import helpers as test
 from horizon import workflows
@@ -267,10 +269,10 @@ class WorkflowsTests(test.TestCase):
         req = self.factory.get("/foo")
         flow = TestWorkflow(req)
         output = http.HttpResponse(flow.render())
-        self.assertContains(output, unicode(flow.name))
-        self.assertContains(output, unicode(TestActionOne.name))
-        self.assertContains(output, unicode(TestActionTwo.name))
-        self.assertContains(output, unicode(TestActionThree.name))
+        self.assertContains(output, six.text_type(flow.name))
+        self.assertContains(output, six.text_type(TestActionOne.name))
+        self.assertContains(output, six.text_type(TestActionTwo.name))
+        self.assertContains(output, six.text_type(TestActionThree.name))
 
     def test_has_permissions(self):
         self.assertQuerysetEqual(TestWorkflow._cls_registry, [])

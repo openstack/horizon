@@ -15,6 +15,7 @@
 from django.core.urlresolvers import reverse
 from django import http
 from mox3.mox import IsA  # noqa
+import six
 
 from openstack_dashboard.contrib.trove import api
 from openstack_dashboard.test import helpers as test
@@ -139,7 +140,7 @@ class DatabasesBackupsTests(test.TestCase):
     @test.create_stubs({api.trove: ('backup_get', 'instance_get')})
     def test_detail_backup(self):
         api.trove.backup_get(IsA(http.HttpRequest),
-                             IsA(unicode))\
+                             IsA(six.text_type))\
             .AndReturn(self.database_backups.first())
 
         api.trove.instance_get(IsA(http.HttpRequest),
@@ -155,7 +156,7 @@ class DatabasesBackupsTests(test.TestCase):
     @test.create_stubs({api.trove: ('backup_get',)})
     def test_detail_backup_notfound(self):
         api.trove.backup_get(IsA(http.HttpRequest),
-                             IsA(unicode))\
+                             IsA(six.text_type))\
             .AndRaise(self.exceptions.trove)
 
         self.mox.ReplayAll()
@@ -168,7 +169,7 @@ class DatabasesBackupsTests(test.TestCase):
         incr_backup = self.database_backups.list()[2]
         parent_backup = self.database_backups.list()[1]
 
-        api.trove.backup_get(IsA(http.HttpRequest), IsA(unicode))\
+        api.trove.backup_get(IsA(http.HttpRequest), IsA(six.text_type))\
             .AndReturn(incr_backup)
         api.trove.backup_get(IsA(http.HttpRequest), incr_backup.parent_id) \
             .AndReturn(parent_backup)

@@ -14,6 +14,7 @@ from django.core.urlresolvers import reverse
 from django import http
 
 from mox3.mox import IsA  # noqa
+import six
 
 from openstack_dashboard.contrib.sahara import api
 from openstack_dashboard.test import helpers as test
@@ -45,7 +46,7 @@ class DataProcessingDataSourceTests(test.TestCase):
 
     @test.create_stubs({api.sahara: ('data_source_get',)})
     def test_details(self):
-        api.sahara.data_source_get(IsA(http.HttpRequest), IsA(unicode)) \
+        api.sahara.data_source_get(IsA(http.HttpRequest), IsA(six.text_type)) \
             .MultipleTimes().AndReturn(self.data_sources.first())
         self.mox.ReplayAll()
         res = self.client.get(DETAILS_URL)

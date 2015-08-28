@@ -263,7 +263,7 @@ class Tab(html.HTMLElement):
         # Priority: constructor, class-defined, fallback
         if not self.name:
             raise ValueError("%s must have a name." % self.__class__.__name__)
-        self.name = unicode(self.name)  # Force unicode.
+        self.name = six.text_type(self.name)  # Force unicode.
         if not self.slug:
             raise ValueError("%s must have a slug." % self.__class__.__name__)
         self.tab_group = tab_group

@@ -20,6 +20,7 @@ from django.core.urlresolvers import reverse
 from django import http
 
 from mox3.mox import IsA  # noqa
+import six
 
 from openstack_dashboard import api
 from openstack_dashboard.dashboards.project.access_and_security.\
@@ -180,7 +181,7 @@ class KeyPairViewTests(test.TestCase):
         url = reverse('horizon:project:access_and_security:keypairs:import')
         res = self.client.post(url, formData, follow=True)
         self.assertEqual(res.redirect_chain, [])
-        msg = unicode(KEYPAIR_ERROR_MESSAGES['invalid'])
+        msg = six.text_type(KEYPAIR_ERROR_MESSAGES['invalid'])
         self.assertFormErrors(res, count=1, message=msg)
 
     @test.create_stubs({api.nova: ("keypair_create",)})
