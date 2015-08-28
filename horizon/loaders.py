@@ -14,6 +14,7 @@
 Wrapper for loading templates from "templates" directories in panel modules.
 """
 
+import io
 import os
 
 import django
@@ -54,8 +55,8 @@ class TemplateLoader(tLoaderCls):
     def load_template_source(self, template_name, template_dirs=None):
         for path in self.get_template_sources(template_name):
             try:
-                with open(path) as file:
-                    return (file.read().decode(settings.FILE_CHARSET), path)
+                with io.open(path, encoding=settings.FILE_CHARSET) as file:
+                    return (file.read(), path)
             except IOError:
                 pass
         raise TemplateDoesNotExist(template_name)
