@@ -37,5 +37,7 @@ Horizon Plugin Registry
 +-----------------------+-----------------------------------------------------+
 |Neutron LBaaS Dashboard|https://github.com/openstack/neutron-lbaas-dashboard |
 +-----------------------+-----------------------------------------------------+
+|Tacker UI              |https://github.com/stackforge/tacker-horizon         |
++-----------------------+-----------------------------------------------------+
 |Tuskar UI              |http://github.com/openstack/tuskar-ui                |
 +-----------------------+-----------------------------------------------------+
