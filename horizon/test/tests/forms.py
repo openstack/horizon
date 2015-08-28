@@ -91,7 +91,7 @@ class FormErrorTests(test.TestCase):
         self.form.set_warning(warning_text)
         self.assertEqual([warning_text], self.form.warnings)
         resp = self._render_form()
-        self.assertIn(warning_text, resp.content)
+        self.assertIn(warning_text.encode('utf-8'), resp.content)
 
     def test_api_error(self):
         error_text = 'ERROR 12938'
@@ -99,7 +99,7 @@ class FormErrorTests(test.TestCase):
         self.form.api_error(error_text)
         self.assertEqual([error_text], self.form.non_field_errors())
         resp = self._render_form()
-        self.assertIn(error_text, resp.content)
+        self.assertIn(error_text.encode('utf-8'), resp.content)
 
 
 class TestChoiceFieldForm(forms.SelfHandlingForm):
