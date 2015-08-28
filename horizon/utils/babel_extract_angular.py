@@ -41,9 +41,9 @@ class AngularGettextHTMLParser(html_parser.HTMLParser):
 
     def __init__(self):
         try:
-            super(html_parser.HTMLParser, self).__init__()
+            super(AngularGettextHTMLParser, self).__init__()
         except TypeError:
-            # handle HTMLParser not being a type in < Py3k
+            # handle HTMLParser not being a type on Python 2
             html_parser.HTMLParser.__init__(self)
 
         self.in_translate = False
