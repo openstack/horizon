@@ -258,6 +258,7 @@ def data(TEST):
                 "volume_local_to_instance": False,
                 "security_groups": [],
                 "volumes_availability_zone": None,
+                "id": "ng1"
             },
             {
                 "count": 2,
@@ -302,6 +303,7 @@ def data(TEST):
                 "volume_local_to_instance": False,
                 "security_groups": ["b7857890-09bf-4ee0-a0d5-322d7a6978bf"],
                 "volumes_availability_zone": None,
+                "id": "ng2"
             }
         ],
         "plugin_name": "vanilla",
@@ -316,6 +318,53 @@ def data(TEST):
     cluster1 = clusters.Cluster(
         clusters.ClusterManager(None), cluster1_dict)
     TEST.clusters.add(cluster1)
+
+    cluster2_dict = copy.deepcopy(cluster1_dict)
+    cluster2_dict.update({
+        "id": "cl2",
+        "name": "cl2_name",
+        "provision_progress": [
+            {
+                "created_at": "2015-03-27T15:51:54",
+                "updated_at": "2015-03-27T15:59:34",
+                "step_name": "first_step",
+                "step_type": "some_type",
+                "successful": True,
+                "events": [],
+                "total": 3
+            },
+            {
+                "created_at": "2015-03-27T16:01:54",
+                "updated_at": "2015-03-27T16:10:22",
+                "step_name": "second_step",
+                "step_type": "some_other_type",
+                "successful": None,
+                "events": [
+                    {
+                        "id": "evt1",
+                        "created_at": "2015-03-27T16:01:22",
+                        "node_group_id": "ng1",
+                        "instance_name": "cercluster-master-001",
+                        "successful": True,
+                        "event_info": None
+                    },
+                    {
+                        "id": "evt2",
+                        "created_at": "2015-03-27T16:04:51",
+                        "node_group_id": "ng2",
+                        "instance_name": "cercluster-workers-001",
+                        "successful": True,
+                        "event_info": None
+                    }
+                ],
+                "total": 3
+            }
+        ]
+    })
+
+    cluster2 = clusters.Cluster(
+        clusters.ClusterManager(None), cluster2_dict)
+    TEST.clusters.add(cluster2)
 
     # Data Sources.
     data_source1_dict = {

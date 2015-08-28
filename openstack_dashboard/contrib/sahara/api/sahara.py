@@ -283,8 +283,10 @@ def cluster_list(request, search_opts=None):
     return client(request).clusters.list(search_opts=search_opts)
 
 
-def cluster_get(request, cluster_id):
-    return client(request).clusters.get(cluster_id=cluster_id)
+def cluster_get(request, cluster_id, show_progress=False):
+    return client(request).clusters.get(
+        cluster_id=cluster_id,
+        show_progress=show_progress)
 
 
 def cluster_delete(request, cluster_id):
