@@ -17,22 +17,10 @@ from openstack_dashboard.test import helpers as test
 
 
 class ConfigRestTestCase(test.TestCase):
-    def assertContains(self, response, expected_content):
-        if response.find(expected_content) > 0:
-            return
-        self.fail('%s does not contain %s' %
-                  (response, expected_content))
-
-    def assertNotContains(self, response, expected_content):
-        if response.find(expected_content) < 0:
-            return
-        self.fail('%s contains %s when it should not' %
-                  (response, expected_content))
-
     def test_settings_config_get(self):
         request = self.mock_rest_request()
         response = config.Settings().get(request)
         self.assertStatusCode(response, 200)
-        self.assertContains(response.content, "REST_API_SETTING_1")
-        self.assertContains(response.content, "REST_API_SETTING_2")
-        self.assertNotContains(response.content, "REST_API_SECURITY")
+        self.assertIn(b"REST_API_SETTING_1", response.content)
+        self.assertIn(b"REST_API_SETTING_2", response.content)
+        self.assertNotIn(b"REST_API_SECURITY", response.content)
