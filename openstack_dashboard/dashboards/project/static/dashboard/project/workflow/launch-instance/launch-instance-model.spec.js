@@ -413,14 +413,14 @@
         it('should set final spec in format required for Block Device Mapping v2', function() {
           var finalSpec = model.createInstance();
           var expectedBlockDevice = [{
-              device_name: 'volTestName',
-              source_type: 'image',
-              destination_type: 'volume',
-              delete_on_termination: 1,
-              uuid: 'cirros',
-              boot_index: '0',
-              volume_size: 10
-            }];
+            device_name: 'volTestName',
+            source_type: 'image',
+            destination_type: 'volume',
+            delete_on_termination: 1,
+            uuid: 'cirros',
+            boot_index: '0',
+            volume_size: 10
+          }];
 
           expect(finalSpec.block_device_mapping_v2).toEqual(expectedBlockDevice);
         });

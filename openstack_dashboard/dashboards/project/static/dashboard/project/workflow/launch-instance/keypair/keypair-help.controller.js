@@ -33,17 +33,16 @@
     ctrl.title = gettext('Key Pair Help');
 
     var genKeyPairsMap = {genKeyPairCmd: 'ssh-keygen'};
-    /*eslint-disable max-len */
-    var genKeyPairsText = gettext('There are two ways to generate a key pair. From a Linux system, generate the key pair with the <samp>%(genKeyPairCmd)s</samp> command:');
-
     var keyPathsMap = {
       privateKeyPath: 'cloud.key',
       publicKeyPath: 'cloud.key.pub'
     };
+    var windowsCmdMap = {authorizeKeysFile: '.ssh/authorized_keys'};
+
+    /*eslint-disable max-len */
+    var genKeyPairsText = gettext('There are two ways to generate a key pair. From a Linux system, generate the key pair with the <samp>%(genKeyPairCmd)s</samp> command:');
 
     var keyPathText = gettext('This command generates a pair of keys: a private key (%(privateKeyPath)s) and a public key (%(publicKeyPath)s).');
-
-    var windowsCmdMap = {authorizeKeysFile: '.ssh/authorized_keys'};
 
     var windowsCmd = gettext('From a Windows system, you can use PuTTYGen to create private/public keys. Use the PuTTY Key Generator to create and save the keys, then copy the public key in the red highlighted box to your <samp>%(authorizeKeysFile)s</samp> file.');
     /*eslint-enable max-len */

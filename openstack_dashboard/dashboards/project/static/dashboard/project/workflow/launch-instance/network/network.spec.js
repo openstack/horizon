@@ -26,10 +26,17 @@
       var scope, ctrl;
 
       beforeEach(inject(function($controller) {
-        scope = {model: {
-                  newInstanceSpec: {networks: ['net-a']},
-                  networks: ['net-a', 'net-b']}};
-        ctrl = $controller('LaunchInstanceNetworkController', {$scope:scope});
+        scope = {
+          model: {
+            newInstanceSpec: {
+              networks: ['net-a']
+            },
+            networks: ['net-a', 'net-b']
+          }
+        };
+        ctrl = $controller('LaunchInstanceNetworkController', {
+          $scope: scope
+        });
       }));
 
       it('has correct network statuses', function() {
