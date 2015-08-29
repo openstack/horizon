@@ -23,7 +23,7 @@
   "scripts": {
     "postinstall": "if [ ! -d .venv ]; then tox -epy27 --notest; fi",
     "test": "karma start horizon/karma.conf.js --single-run && karma start openstack_dashboard/karma.conf.js --single-run",
-    "lint": "eslint --no-color horizon/static openstack_dashboard/static"
+    "lint": "eslint --no-color */static openstack_dashboard/dashboards/*/static"
   },
   "dependencies": {}
 }
