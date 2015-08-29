@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-08-26 06:25+0000\n"
+"POT-Creation-Date: 2015-08-29 06:13+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,63 +17,63 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 2.0\n"
 
-#: settings.py:83
+#: settings.py:84
 msgid "Select format"
 msgstr ""
 
-#: settings.py:84
+#: settings.py:85
 msgid "AKI - Amazon Kernel Image"
 msgstr ""
 
-#: settings.py:85
+#: settings.py:86
 msgid "AMI - Amazon Machine Image"
 msgstr ""
 
-#: settings.py:86
+#: settings.py:87
 msgid "ARI - Amazon Ramdisk Image"
 msgstr ""
 
-#: settings.py:87
+#: settings.py:88
 msgid "Docker"
 msgstr ""
 
-#: settings.py:88
+#: settings.py:89
 msgid "ISO - Optical Disk Image"
 msgstr ""
 
-#: settings.py:89
+#: settings.py:90
 msgid "OVA - Open Virtual Appliance"
 msgstr ""
 
-#: settings.py:90
+#: settings.py:91
 msgid "QCOW2 - QEMU Emulator"
 msgstr ""
 
-#: settings.py:91
+#: settings.py:92
 msgid "Raw"
 msgstr ""
 
-#: settings.py:92
+#: settings.py:93
 msgid "VDI - Virtual Disk Image"
 msgstr ""
 
-#: settings.py:93
+#: settings.py:94
 msgid "VHD - Virtual Hard Disk"
 msgstr ""
 
-#: settings.py:94
+#: settings.py:95
 msgid "VMDK - Virtual Machine Disk"
 msgstr ""
 
-#: settings.py:242
+#: settings.py:243
 msgid "All TCP"
 msgstr ""
 
-#: settings.py:248
+#: settings.py:249
 msgid "All UDP"
 msgstr ""
 
-#: settings.py:254
+#: settings.py:255
 msgid "All ICMP"
 msgstr ""
 
@@ -573,7 +573,7 @@ msgstr ""
 #: contrib/sahara/content/data_processing/clusters/tabs.py:136
 #: contrib/sahara/content/data_processing/clusters/templates/data_processing.clusters/_details.html:6
 #: contrib/sahara/content/data_processing/data_plugins/templates/data_processing.data_plugins/_details.html:9
-#: contrib/sahara/content/data_processing/data_sources/tables.py:57
+#: contrib/sahara/content/data_processing/data_sources/tables.py:64
 #: contrib/sahara/content/data_processing/data_sources/templates/data_processing.data_sources/_details.html:5
 #: contrib/sahara/content/data_processing/data_sources/workflows/create.py:30
 #: contrib/sahara/content/data_processing/job_binaries/forms.py:48
@@ -583,11 +583,11 @@ msgstr ""
 #: contrib/sahara/content/data_processing/jobs/tables.py:105
 #: contrib/sahara/content/data_processing/jobs/templates/data_processing.jobs/_details.html:6
 #: contrib/sahara/content/data_processing/jobs/templates/data_processing.jobs/config_template.html:54
-#: contrib/sahara/content/data_processing/jobs/workflows/create.py:72
+#: contrib/sahara/content/data_processing/jobs/workflows/create.py:73
 #: contrib/sahara/content/data_processing/nodegroup_templates/tables.py:28
 #: contrib/sahara/content/data_processing/nodegroup_templates/tables.py:90
 #: contrib/sahara/content/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/_details.html:6
-#: contrib/sahara/content/data_processing/utils/workflow_helpers.py:112
+#: contrib/sahara/content/data_processing/utils/workflow_helpers.py:114
 #: contrib/trove/content/database_backups/tables.py:160
 #: contrib/trove/content/database_backups/templates/database_backups/details.html:14
 #: contrib/trove/content/database_backups/templates/database_backups/details.html:60
@@ -628,8 +628,8 @@ msgstr ""
 #: dashboards/identity/groups/tables.py:115
 #: dashboards/identity/projects/tables.py:226
 #: dashboards/identity/projects/workflows.py:147
-#: dashboards/project/access_and_security/security_groups/forms.py:50
-#: dashboards/project/access_and_security/security_groups/tables.py:141
+#: dashboards/project/access_and_security/security_groups/forms.py:52
+#: dashboards/project/access_and_security/security_groups/tables.py:142
 #: dashboards/project/access_and_security/templates/access_and_security/keypairs/detail.html:12
 #: dashboards/project/containers/templates/containers/_object_detail.html:10
 #: dashboards/project/firewalls/forms.py:34
@@ -721,7 +721,7 @@ msgstr ""
 #: contrib/sahara/content/data_processing/nodegroup_templates/tables.py:95
 #: contrib/sahara/content/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/_configure_general_help.html:8
 #: contrib/sahara/content/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/_details.html:32
-#: contrib/sahara/content/data_processing/utils/workflow_helpers.py:190
+#: contrib/sahara/content/data_processing/utils/workflow_helpers.py:193
 #: contrib/sahara/content/data_processing/wizard/forms.py:64
 msgid "Version"
 msgstr ""
@@ -735,7 +735,7 @@ msgstr ""
 #: contrib/sahara/content/data_processing/data_image_registry/forms.py:30
 #: contrib/sahara/content/data_processing/data_plugins/tables.py:36
 #: contrib/sahara/content/data_processing/data_plugins/templates/data_processing.data_plugins/_details.html:13
-#: contrib/sahara/content/data_processing/data_sources/tables.py:63
+#: contrib/sahara/content/data_processing/data_sources/tables.py:70
 #: contrib/sahara/content/data_processing/data_sources/templates/data_processing.data_sources/_details.html:13
 #: contrib/sahara/content/data_processing/data_sources/workflows/create.py:62
 #: contrib/sahara/content/data_processing/job_binaries/forms.py:131
@@ -744,9 +744,9 @@ msgstr ""
 #: contrib/sahara/content/data_processing/jobs/tables.py:32
 #: contrib/sahara/content/data_processing/jobs/tables.py:110
 #: contrib/sahara/content/data_processing/jobs/templates/data_processing.jobs/_details.html:12
-#: contrib/sahara/content/data_processing/jobs/workflows/create.py:97
+#: contrib/sahara/content/data_processing/jobs/workflows/create.py:99
 #: contrib/sahara/content/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/_details.html:10
-#: contrib/sahara/content/data_processing/nodegroup_templates/workflows/create.py:42
+#: contrib/sahara/content/data_processing/nodegroup_templates/workflows/create.py:43
 #: contrib/trove/content/database_backups/templates/database_backups/details.html:16
 #: contrib/trove/content/database_backups/workflows/create_backup.py:34
 #: dashboards/admin/metadata_defs/tables.py:132
@@ -770,8 +770,8 @@ msgstr ""
 #: dashboards/identity/projects/templates/projects/_detail_overview.html:15
 #: dashboards/identity/users/forms.py:99 dashboards/identity/users/forms.py:197
 #: dashboards/identity/users/tables.py:232
-#: dashboards/project/access_and_security/security_groups/forms.py:54
-#: dashboards/project/access_and_security/security_groups/tables.py:142
+#: dashboards/project/access_and_security/security_groups/forms.py:56
+#: dashboards/project/access_and_security/security_groups/tables.py:143
 #: dashboards/project/firewalls/forms.py:37
 #: dashboards/project/firewalls/forms.py:101
 #: dashboards/project/firewalls/forms.py:129
@@ -831,7 +831,7 @@ msgstr ""
 
 #: contrib/sahara/content/data_processing/cluster_templates/tables.py:47
 #: contrib/sahara/content/data_processing/clusters/tables.py:47
-#: contrib/sahara/content/data_processing/clusters/views.py:86
+#: contrib/sahara/content/data_processing/clusters/views.py:180
 #: contrib/sahara/content/data_processing/clusters/templates/data_processing.clusters/_create_cluster.html:10
 #: contrib/sahara/content/data_processing/clusters/templates/data_processing.clusters/configure.html:3
 #: contrib/sahara/content/data_processing/clusters/templates/data_processing.clusters/create.html:3
@@ -925,7 +925,7 @@ msgid "Copy Cluster Template"
 msgstr ""
 
 #: contrib/sahara/content/data_processing/cluster_templates/views.py:136
-#: contrib/sahara/content/data_processing/clusters/views.py:124
+#: contrib/sahara/content/data_processing/clusters/views.py:218
 msgid "Unable to fetch cluster template."
 msgstr ""
 
@@ -1161,7 +1161,7 @@ msgstr ""
 
 #: contrib/sahara/content/data_processing/cluster_templates/templates/data_processing.cluster_templates/_nodegroups_details.html:22
 #: contrib/sahara/content/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/_details.html:19
-#: contrib/sahara/content/data_processing/nodegroup_templates/workflows/create.py:49
+#: contrib/sahara/content/data_processing/nodegroup_templates/workflows/create.py:50
 #: dashboards/admin/aggregates/forms.py:30
 #: dashboards/admin/aggregates/tables.py:130
 #: dashboards/admin/aggregates/workflows.py:27
@@ -1179,27 +1179,27 @@ msgstr ""
 #: contrib/sahara/content/data_processing/cluster_templates/templates/data_processing.cluster_templates/_nodegroups_details.html:26
 #: contrib/sahara/content/data_processing/clusters/templates/data_processing.clusters/_nodegroups_details.html:29
 #: contrib/sahara/content/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/_details.html:37
-#: contrib/sahara/content/data_processing/nodegroup_templates/workflows/create.py:132
+#: contrib/sahara/content/data_processing/nodegroup_templates/workflows/create.py:155
 msgid "Proxy Gateway"
 msgstr ""
 
 #: contrib/sahara/content/data_processing/cluster_templates/templates/data_processing.cluster_templates/_nodegroups_details.html:29
 #: contrib/sahara/content/data_processing/clusters/templates/data_processing.clusters/_nodegroups_details.html:32
 #: contrib/sahara/content/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/_details.html:42
-#: contrib/sahara/content/data_processing/nodegroup_templates/workflows/create.py:205
+#: contrib/sahara/content/data_processing/nodegroup_templates/workflows/create.py:238
 msgid "Auto Security Group"
 msgstr ""
 
 #: contrib/sahara/content/data_processing/cluster_templates/templates/data_processing.cluster_templates/_nodegroups_details.html:32
 #: contrib/sahara/content/data_processing/clusters/templates/data_processing.clusters/_nodegroups_details.html:35
 #: contrib/sahara/content/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/_details.html:47
-#: contrib/sahara/content/data_processing/nodegroup_templates/workflows/create.py:220
+#: contrib/sahara/content/data_processing/nodegroup_templates/workflows/create.py:253
 #: dashboards/admin/defaults/tables.py:53
 #: dashboards/admin/defaults/workflows.py:49
 #: dashboards/identity/projects/workflows.py:65
 #: dashboards/identity/projects/workflows.py:71
 #: dashboards/project/access_and_security/tabs.py:43
-#: dashboards/project/access_and_security/security_groups/tables.py:149
+#: dashboards/project/access_and_security/security_groups/tables.py:150
 #: dashboards/project/instances/templates/instances/_detail_overview.html:87
 #: dashboards/project/instances/workflows/create_instance.py:556
 #: dashboards/project/instances/workflows/update_instance.py:80
@@ -1315,16 +1315,16 @@ msgid "Select plugin and hadoop version for cluster template"
 msgstr ""
 
 #: contrib/sahara/content/data_processing/cluster_templates/workflows/create.py:81
-#: contrib/sahara/content/data_processing/nodegroup_templates/workflows/create.py:399
-#: dashboards/project/stacks/views.py:93 dashboards/project/stacks/views.py:109
-#: dashboards/project/stacks/views.py:149
+#: contrib/sahara/content/data_processing/nodegroup_templates/workflows/create.py:439
+#: dashboards/project/stacks/views.py:93 dashboards/project/stacks/views.py:120
+#: dashboards/project/stacks/views.py:160
 msgid "Next"
 msgstr ""
 
 #: contrib/sahara/content/data_processing/cluster_templates/workflows/create.py:82
 #: contrib/sahara/content/data_processing/job_executions/templates/data_processing.job_executions/_details.html:32
 #: contrib/sahara/content/data_processing/jobs/workflows/launch.py:431
-#: contrib/sahara/content/data_processing/nodegroup_templates/workflows/create.py:400
+#: contrib/sahara/content/data_processing/nodegroup_templates/workflows/create.py:440
 #: contrib/trove/content/database_backups/tables.py:165
 #: contrib/trove/content/database_backups/templates/database_backups/details.html:32
 #: contrib/trove/content/databases/tables.py:388
@@ -1346,12 +1346,12 @@ msgstr ""
 
 #: contrib/sahara/content/data_processing/cluster_templates/workflows/create.py:83
 #: contrib/sahara/content/data_processing/jobs/workflows/launch.py:432
-#: contrib/sahara/content/data_processing/nodegroup_templates/workflows/create.py:401
+#: contrib/sahara/content/data_processing/nodegroup_templates/workflows/create.py:441
 msgid "Could not create"
 msgstr ""
 
 #: contrib/sahara/content/data_processing/cluster_templates/workflows/create.py:97
-#: contrib/sahara/content/data_processing/nodegroup_templates/workflows/create.py:40
+#: contrib/sahara/content/data_processing/nodegroup_templates/workflows/create.py:41
 msgid "Template Name"
 msgstr ""
 
@@ -1368,10 +1368,10 @@ msgstr ""
 #: contrib/sahara/content/data_processing/cluster_templates/workflows/create.py:236
 #: contrib/sahara/content/data_processing/data_sources/workflows/create.py:95
 #: contrib/sahara/content/data_processing/job_binaries/templates/data_processing.job_binaries/_create.html:25
-#: contrib/sahara/content/data_processing/jobs/workflows/create.py:168
+#: contrib/sahara/content/data_processing/jobs/workflows/create.py:170
 #: contrib/sahara/content/data_processing/jobs/workflows/launch.py:430
-#: contrib/sahara/content/data_processing/nodegroup_templates/workflows/create.py:255
-#: dashboards/admin/volumes/volume_types/views.py:165
+#: contrib/sahara/content/data_processing/nodegroup_templates/workflows/create.py:288
+#: dashboards/admin/volumes/volume_types/views.py:159
 #: dashboards/admin/volumes/volume_types/extras/tables.py:48
 #: dashboards/admin/volumes/volume_types/extras/views.py:64
 #: dashboards/admin/volumes/volume_types/qos_specs/tables.py:24
@@ -1397,8 +1397,9 @@ msgid "Cluster Template %s updated"
 msgstr ""
 
 #: contrib/sahara/content/data_processing/cluster_templates/workflows/edit.py:37
+#: contrib/sahara/content/data_processing/data_sources/workflows/edit.py:30
 #: contrib/sahara/content/data_processing/nodegroup_templates/workflows/edit.py:36
-#: dashboards/project/stacks/views.py:201
+#: dashboards/project/stacks/views.py:212
 msgid "Update"
 msgstr ""
 
@@ -1416,13 +1417,15 @@ msgstr ""
 
 #: contrib/sahara/content/data_processing/clusters/panel.py:22
 #: contrib/sahara/content/data_processing/clusters/tables.py:167
-#: contrib/sahara/content/data_processing/clusters/views.py:42
+#: contrib/sahara/content/data_processing/clusters/views.py:48
 msgid "Clusters"
 msgstr ""
 
 #: contrib/sahara/content/data_processing/clusters/tables.py:36
 #: contrib/sahara/content/data_processing/clusters/tables.py:158
 #: contrib/sahara/content/data_processing/clusters/templates/data_processing.clusters/_details.html:12
+#: contrib/sahara/content/data_processing/clusters/templates/data_processing.clusters/_event_log.html:11
+#: contrib/sahara/content/data_processing/clusters/templates/data_processing.clusters/_event_log.html:34
 #: contrib/sahara/content/data_processing/job_executions/tables.py:40
 #: contrib/sahara/content/data_processing/job_executions/tables.py:205
 #: contrib/sahara/content/data_processing/job_executions/templates/data_processing.job_executions/_details.html:6
@@ -1485,7 +1488,7 @@ msgid "Cluster Creation Guide"
 msgstr ""
 
 #: contrib/sahara/content/data_processing/clusters/tables.py:55
-#: contrib/sahara/content/data_processing/clusters/views.py:106
+#: contrib/sahara/content/data_processing/clusters/views.py:200
 #: contrib/sahara/content/data_processing/clusters/templates/data_processing.clusters/scale.html:3
 #: contrib/sahara/content/data_processing/clusters/workflows/scale.py:42
 msgid "Scale Cluster"
@@ -1509,7 +1512,7 @@ msgid "Unable to update row"
 msgstr ""
 
 #: contrib/sahara/content/data_processing/clusters/tables.py:136
-#: contrib/sahara/content/data_processing/clusters/views.py:93
+#: contrib/sahara/content/data_processing/clusters/views.py:187
 #: contrib/sahara/content/data_processing/clusters/workflows/create.py:199
 #: contrib/sahara/content/data_processing/jobs/workflows/launch.py:336
 msgid "Configure Cluster"
@@ -1539,7 +1542,7 @@ msgstr ""
 #: contrib/sahara/content/data_processing/clusters/tabs.py:150
 #: contrib/trove/content/databases/panel.py:21
 #: contrib/trove/content/databases/tables.py:340
-#: contrib/trove/content/databases/views.py:48
+#: contrib/trove/content/databases/views.py:50
 #: contrib/trove/content/databases/templates/databases/index.html:3
 #: dashboards/admin/defaults/tables.py:46
 #: dashboards/admin/defaults/workflows.py:42
@@ -1562,18 +1565,58 @@ msgstr ""
 msgid "Unable to fetch instance details."
 msgstr ""
 
-#: contrib/sahara/content/data_processing/clusters/views.py:54
+#: contrib/sahara/content/data_processing/clusters/tabs.py:180
+msgid "Cluster Events"
+msgstr ""
+
+#: contrib/sahara/content/data_processing/clusters/views.py:60
 msgid "Unable to fetch cluster list"
 msgstr ""
 
-#: contrib/sahara/content/data_processing/clusters/views.py:61
+#: contrib/sahara/content/data_processing/clusters/views.py:67
 #: contrib/sahara/content/data_processing/clusters/templates/data_processing.clusters/details.html:3
 msgid "Cluster Details"
 msgstr ""
 
-#: contrib/sahara/content/data_processing/clusters/views.py:69
+#: contrib/sahara/content/data_processing/clusters/views.py:75
 #, python-format
 msgid "Unable to retrieve details for cluster \"%s\"."
+msgstr ""
+
+#: contrib/sahara/content/data_processing/clusters/views.py:126
+#: dashboards/admin/metadata_defs/templates/metadata_defs/_detail_overview.html:23
+#: dashboards/admin/networks/views.py:59
+#: dashboards/project/images/templates/images/images/_detail_overview.html:20
+#: dashboards/project/images/templates/images/images/_detail_overview.html:31
+#: dashboards/project/instances/tables.py:655
+#: dashboards/project/networks/templates/networks/_detail_overview.html:14
+#: dashboards/project/networks/templates/networks/_detail_overview.html:16
+#: dashboards/project/networks/templates/networks/_detail_overview.html:22
+#: dashboards/project/networks/templates/networks/_detail_overview.html:25
+#: dashboards/project/routers/templates/routers/_detail_overview.html:14
+#: dashboards/project/routers/templates/routers/_detail_overview.html:33
+#: dashboards/project/routers/templates/routers/_detail_overview.html:39
+#: dashboards/project/volumes/backups/tables.py:37
+#: dashboards/project/volumes/snapshots/tables.py:126
+msgid "Unknown"
+msgstr ""
+
+#: contrib/sahara/content/data_processing/clusters/views.py:129
+#: contrib/sahara/content/data_processing/clusters/views.py:154
+msgid "Completed Successfully"
+msgstr ""
+
+#: contrib/sahara/content/data_processing/clusters/views.py:131
+#: contrib/sahara/content/data_processing/clusters/views.py:156
+msgid "Failed"
+msgstr ""
+
+#: contrib/sahara/content/data_processing/clusters/views.py:136
+msgid "No info available"
+msgstr ""
+
+#: contrib/sahara/content/data_processing/clusters/views.py:149
+msgid "In progress"
 msgstr ""
 
 #: contrib/sahara/content/data_processing/clusters/templates/data_processing.clusters/_configure_general_help.html:4
@@ -1630,6 +1673,48 @@ msgstr ""
 msgid "%(key)s: %(val)s"
 msgstr ""
 
+#: contrib/sahara/content/data_processing/clusters/templates/data_processing.clusters/_event_log.html:3
+msgid "Cluster provision steps"
+msgstr ""
+
+#: contrib/sahara/content/data_processing/clusters/templates/data_processing.clusters/_event_log.html:7
+msgid "Step Description"
+msgstr ""
+
+#: contrib/sahara/content/data_processing/clusters/templates/data_processing.clusters/_event_log.html:8
+msgid "Started at"
+msgstr ""
+
+#: contrib/sahara/content/data_processing/clusters/templates/data_processing.clusters/_event_log.html:9
+msgid "Duration"
+msgstr ""
+
+#: contrib/sahara/content/data_processing/clusters/templates/data_processing.clusters/_event_log.html:10
+msgid "Progress"
+msgstr ""
+
+#: contrib/sahara/content/data_processing/clusters/templates/data_processing.clusters/_event_log.html:30
+msgid "Node Group"
+msgstr ""
+
+#: contrib/sahara/content/data_processing/clusters/templates/data_processing.clusters/_event_log.html:31
+#: dashboards/project/access_and_security/floating_ips/workflows.py:37
+#: dashboards/project/network_topology/templates/network_topology/_svg_element.html:202
+#: dashboards/project/volumes/volumes/tables.py:502
+msgid "Instance"
+msgstr ""
+
+#: contrib/sahara/content/data_processing/clusters/templates/data_processing.clusters/_event_log.html:32
+msgid "Event time"
+msgstr ""
+
+#: contrib/sahara/content/data_processing/clusters/templates/data_processing.clusters/_event_log.html:33
+#: dashboards/admin/metadata_defs/templates/metadata_defs/_detail_overview.html:7
+#: dashboards/admin/volumes/templates/volumes/volume_types/_volume_encryption_type_detail.html:8
+#: dashboards/project/volumes/templates/volumes/volumes/_encryption_detail_overview.html:8
+msgid "Info"
+msgstr ""
+
 #: contrib/sahara/content/data_processing/clusters/templates/data_processing.clusters/_nodegroups_details.html:10
 #, python-format
 msgid "Name: %(node_group_name)s"
@@ -1641,7 +1726,7 @@ msgstr ""
 
 #: contrib/sahara/content/data_processing/clusters/templates/data_processing.clusters/_nodegroups_details.html:18
 #: contrib/sahara/content/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/_details.html:25
-#: contrib/sahara/content/data_processing/nodegroup_templates/workflows/create.py:127
+#: contrib/sahara/content/data_processing/nodegroup_templates/workflows/create.py:150
 msgid "Floating IP Pool"
 msgstr ""
 
@@ -1688,7 +1773,7 @@ msgstr ""
 #: contrib/trove/content/databases/workflows/create_instance.py:337
 #: dashboards/project/images/images/tables.py:62
 #: dashboards/project/instances/workflows/create_instance.py:832
-#: dashboards/project/stacks/views.py:165
+#: dashboards/project/stacks/views.py:176
 msgid "Launch"
 msgstr ""
 
@@ -1926,13 +2011,13 @@ msgid "Information"
 msgstr ""
 
 #: contrib/sahara/content/data_processing/data_sources/panel.py:22
-#: contrib/sahara/content/data_processing/data_sources/tables.py:67
-#: contrib/sahara/content/data_processing/data_sources/views.py:40
+#: contrib/sahara/content/data_processing/data_sources/tables.py:74
+#: contrib/sahara/content/data_processing/data_sources/views.py:42
 msgid "Data Sources"
 msgstr ""
 
 #: contrib/sahara/content/data_processing/data_sources/tables.py:28
-#: contrib/sahara/content/data_processing/data_sources/views.py:58
+#: contrib/sahara/content/data_processing/data_sources/views.py:60
 #: contrib/sahara/content/data_processing/data_sources/templates/data_processing.data_sources/create.html:3
 #: contrib/sahara/content/data_processing/data_sources/workflows/create.py:70
 #: contrib/sahara/content/data_processing/data_sources/workflows/create.py:94
@@ -1951,15 +2036,21 @@ msgid_plural "Deleted Data Sources"
 msgstr[0] ""
 msgstr[1] ""
 
-#: contrib/sahara/content/data_processing/data_sources/tables.py:61
+#: contrib/sahara/content/data_processing/data_sources/tables.py:57
+#: contrib/sahara/content/data_processing/data_sources/views.py:65
+#: contrib/sahara/content/data_processing/data_sources/workflows/edit.py:29
+msgid "Edit Data Source"
+msgstr ""
+
+#: contrib/sahara/content/data_processing/data_sources/tables.py:68
 #: contrib/sahara/content/data_processing/data_sources/templates/data_processing.data_sources/_details.html:9
 #: contrib/sahara/content/data_processing/jobs/tables.py:31
 #: contrib/sahara/content/data_processing/jobs/tables.py:108
 #: contrib/sahara/content/data_processing/jobs/templates/data_processing.jobs/_details.html:10
 #: dashboards/admin/hypervisors/tables.py:27
 #: dashboards/admin/info/tables.py:168
-#: dashboards/project/access_and_security/security_groups/forms.py:178
-#: dashboards/project/access_and_security/security_groups/forms.py:185
+#: dashboards/project/access_and_security/security_groups/forms.py:180
+#: dashboards/project/access_and_security/security_groups/forms.py:187
 #: dashboards/project/images/images/tables.py:280
 #: dashboards/project/loadbalancers/workflows.py:476
 #: dashboards/project/loadbalancers/templates/loadbalancers/_monitor_details.html:12
@@ -1973,17 +2064,17 @@ msgstr[1] ""
 msgid "Type"
 msgstr ""
 
-#: contrib/sahara/content/data_processing/data_sources/views.py:48
+#: contrib/sahara/content/data_processing/data_sources/views.py:50
 #: contrib/sahara/content/data_processing/jobs/workflows/launch.py:78
 msgid "Unable to fetch data sources."
 msgstr ""
 
-#: contrib/sahara/content/data_processing/data_sources/views.py:64
+#: contrib/sahara/content/data_processing/data_sources/views.py:83
 #: contrib/sahara/content/data_processing/data_sources/templates/data_processing.data_sources/details.html:3
 msgid "Data Source Details"
 msgstr ""
 
-#: contrib/sahara/content/data_processing/data_sources/views.py:72
+#: contrib/sahara/content/data_processing/data_sources/views.py:91
 #, python-format
 msgid "Unable to retrieve details for data source \"%s\"."
 msgstr ""
@@ -2045,6 +2136,14 @@ msgstr ""
 
 #: contrib/sahara/content/data_processing/data_sources/workflows/create.py:97
 msgid "Could not create data source"
+msgstr ""
+
+#: contrib/sahara/content/data_processing/data_sources/workflows/edit.py:31
+msgid "Data source updated"
+msgstr ""
+
+#: contrib/sahara/content/data_processing/data_sources/workflows/edit.py:32
+msgid "Could not update data source"
 msgstr ""
 
 #: contrib/sahara/content/data_processing/job_binaries/forms.py:51
@@ -2396,8 +2495,8 @@ msgstr ""
 #: contrib/sahara/content/data_processing/jobs/tables.py:37
 #: contrib/sahara/content/data_processing/jobs/views.py:67
 #: contrib/sahara/content/data_processing/jobs/templates/data_processing.jobs/create.html:3
-#: contrib/sahara/content/data_processing/jobs/workflows/create.py:136
-#: contrib/sahara/content/data_processing/jobs/workflows/create.py:167
+#: contrib/sahara/content/data_processing/jobs/workflows/create.py:138
+#: contrib/sahara/content/data_processing/jobs/workflows/create.py:169
 msgid "Create Job Template"
 msgstr ""
 
@@ -2462,35 +2561,40 @@ msgstr ""
 
 #: contrib/sahara/content/data_processing/jobs/templates/data_processing.jobs/_create_job_help.html:12
 #: contrib/sahara/content/data_processing/utils/helpers.py:129
-msgid "MapReduce"
+msgid "Storm"
 msgstr ""
 
 #: contrib/sahara/content/data_processing/jobs/templates/data_processing.jobs/_create_job_help.html:13
-msgid "Java Action"
+#: contrib/sahara/content/data_processing/utils/helpers.py:130
+msgid "MapReduce"
 msgstr ""
 
 #: contrib/sahara/content/data_processing/jobs/templates/data_processing.jobs/_create_job_help.html:14
+msgid "Java Action"
+msgstr ""
+
+#: contrib/sahara/content/data_processing/jobs/templates/data_processing.jobs/_create_job_help.html:15
 msgid "Shell Action"
 msgstr ""
 
-#: contrib/sahara/content/data_processing/jobs/templates/data_processing.jobs/_create_job_help.html:18
+#: contrib/sahara/content/data_processing/jobs/templates/data_processing.jobs/_create_job_help.html:19
 msgid ""
 "Choose or create your main binary.  Additional libraries can be added "
 "from the \"Libs\" tab."
 msgstr ""
 
-#: contrib/sahara/content/data_processing/jobs/templates/data_processing.jobs/_create_job_help.html:21
+#: contrib/sahara/content/data_processing/jobs/templates/data_processing.jobs/_create_job_help.html:22
 msgid "For Spark and Shell jobs, only a main is required, \"libs\" are optional."
 msgstr ""
 
-#: contrib/sahara/content/data_processing/jobs/templates/data_processing.jobs/_create_job_help.html:25
+#: contrib/sahara/content/data_processing/jobs/templates/data_processing.jobs/_create_job_help.html:26
 msgid ""
 "For MapReduce or Java Action jobs, \"mains\" are not applicable.  You are"
 " required to add one\n"
 "  or more \"libs\" for these jobs."
 msgstr ""
 
-#: contrib/sahara/content/data_processing/jobs/templates/data_processing.jobs/_create_job_help.html:28
+#: contrib/sahara/content/data_processing/jobs/templates/data_processing.jobs/_create_job_help.html:29
 msgid "You may also enter an optional description for your job template."
 msgstr ""
 
@@ -2515,7 +2619,7 @@ msgid "Mains"
 msgstr ""
 
 #: contrib/sahara/content/data_processing/jobs/templates/data_processing.jobs/_details.html:20
-#: contrib/sahara/content/data_processing/jobs/workflows/create.py:66
+#: contrib/sahara/content/data_processing/jobs/workflows/create.py:67
 msgid "Libs"
 msgstr ""
 
@@ -2617,6 +2721,7 @@ msgstr ""
 #: contrib/sahara/content/data_processing/jobs/workflows/create.py:46
 #: contrib/sahara/content/data_processing/jobs/workflows/create.py:48
 #: contrib/sahara/content/data_processing/jobs/workflows/create.py:49
+#: contrib/sahara/content/data_processing/jobs/workflows/create.py:50
 msgid "Choose libraries"
 msgstr ""
 
@@ -2624,37 +2729,38 @@ msgstr ""
 msgid "Choose additional files"
 msgstr ""
 
-#: contrib/sahara/content/data_processing/jobs/workflows/create.py:61
-#: contrib/sahara/content/data_processing/jobs/workflows/create.py:123
+#: contrib/sahara/content/data_processing/jobs/workflows/create.py:62
+#: contrib/sahara/content/data_processing/jobs/workflows/create.py:125
 msgid "-- not selected --"
 msgstr ""
 
-#: contrib/sahara/content/data_processing/jobs/workflows/create.py:74
+#: contrib/sahara/content/data_processing/jobs/workflows/create.py:75
 #: contrib/sahara/content/data_processing/wizard/forms.py:91
 msgid "Job Type"
 msgstr ""
 
-#: contrib/sahara/content/data_processing/jobs/workflows/create.py:81
-#: contrib/sahara/content/data_processing/jobs/workflows/create.py:90
+#: contrib/sahara/content/data_processing/jobs/workflows/create.py:82
 #: contrib/sahara/content/data_processing/jobs/workflows/create.py:91
-#: contrib/sahara/content/data_processing/jobs/workflows/create.py:93
+#: contrib/sahara/content/data_processing/jobs/workflows/create.py:92
 #: contrib/sahara/content/data_processing/jobs/workflows/create.py:94
+#: contrib/sahara/content/data_processing/jobs/workflows/create.py:95
+#: contrib/sahara/content/data_processing/jobs/workflows/create.py:96
 msgid "Choose a main binary"
 msgstr ""
 
-#: contrib/sahara/content/data_processing/jobs/workflows/create.py:83
+#: contrib/sahara/content/data_processing/jobs/workflows/create.py:84
 msgid "Choose the binary which should be used in this Job."
 msgstr ""
 
-#: contrib/sahara/content/data_processing/jobs/workflows/create.py:92
+#: contrib/sahara/content/data_processing/jobs/workflows/create.py:93
 msgid "Choose a shell script"
 msgstr ""
 
-#: contrib/sahara/content/data_processing/jobs/workflows/create.py:169
+#: contrib/sahara/content/data_processing/jobs/workflows/create.py:171
 msgid "Job created"
 msgstr ""
 
-#: contrib/sahara/content/data_processing/jobs/workflows/create.py:170
+#: contrib/sahara/content/data_processing/jobs/workflows/create.py:172
 msgid "Could not create job template"
 msgstr ""
 
@@ -2775,8 +2881,8 @@ msgstr ""
 #: contrib/sahara/content/data_processing/nodegroup_templates/views.py:93
 #: contrib/sahara/content/data_processing/nodegroup_templates/views.py:101
 #: contrib/sahara/content/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/configure.html:3
-#: contrib/sahara/content/data_processing/nodegroup_templates/workflows/create.py:254
-#: contrib/sahara/content/data_processing/nodegroup_templates/workflows/create.py:398
+#: contrib/sahara/content/data_processing/nodegroup_templates/workflows/create.py:287
+#: contrib/sahara/content/data_processing/nodegroup_templates/workflows/create.py:438
 msgid "Create Node Group Template"
 msgstr ""
 
@@ -2822,8 +2928,8 @@ msgid "Cinder volumes"
 msgstr ""
 
 #: contrib/sahara/content/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/_details.html:75
-#: contrib/sahara/content/data_processing/nodegroup_templates/workflows/create.py:66
-#: contrib/sahara/content/data_processing/nodegroup_templates/workflows/create.py:72
+#: contrib/sahara/content/data_processing/nodegroup_templates/workflows/create.py:67
+#: contrib/sahara/content/data_processing/nodegroup_templates/workflows/create.py:73
 msgid "Volumes per node"
 msgstr ""
 
@@ -2831,13 +2937,23 @@ msgstr ""
 msgid "Volumes size"
 msgstr ""
 
-#: contrib/sahara/content/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/_details.html:80
-#: contrib/sahara/content/data_processing/nodegroup_templates/workflows/create.py:88
+#: contrib/sahara/content/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/_details.html:79
+#: contrib/sahara/content/data_processing/nodegroup_templates/workflows/create.py:89
 #: contrib/sahara/content/data_processing/nodegroup_templates/workflows/create.py:94
-msgid "Volumes Availability Zone"
+msgid "Volumes type"
+msgstr ""
+
+#: contrib/sahara/content/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/_details.html:81
+msgid "Volumes local to instance"
 msgstr ""
 
 #: contrib/sahara/content/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/_details.html:84
+#: contrib/sahara/content/data_processing/nodegroup_templates/workflows/create.py:111
+#: contrib/sahara/content/data_processing/nodegroup_templates/workflows/create.py:117
+msgid "Volumes Availability Zone"
+msgstr ""
+
+#: contrib/sahara/content/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/_details.html:88
 msgid "Ephemeral drive"
 msgstr ""
 
@@ -2868,88 +2984,107 @@ msgstr ""
 msgid "Node Group Template copy %s created"
 msgstr ""
 
-#: contrib/sahara/content/data_processing/nodegroup_templates/workflows/copy.py:99
+#: contrib/sahara/content/data_processing/nodegroup_templates/workflows/copy.py:103
 msgid "Unable to fetch plugin details."
 msgstr ""
 
-#: contrib/sahara/content/data_processing/nodegroup_templates/workflows/create.py:46
+#: contrib/sahara/content/data_processing/nodegroup_templates/workflows/create.py:47
 msgid "OpenStack Flavor"
 msgstr ""
 
-#: contrib/sahara/content/data_processing/nodegroup_templates/workflows/create.py:50
+#: contrib/sahara/content/data_processing/nodegroup_templates/workflows/create.py:51
 msgid "Launch instances in this availability zone."
 msgstr ""
 
-#: contrib/sahara/content/data_processing/nodegroup_templates/workflows/create.py:56
+#: contrib/sahara/content/data_processing/nodegroup_templates/workflows/create.py:57
 msgid "Storage location"
 msgstr ""
 
-#: contrib/sahara/content/data_processing/nodegroup_templates/workflows/create.py:57
+#: contrib/sahara/content/data_processing/nodegroup_templates/workflows/create.py:58
 msgid "Choose a storage location"
 msgstr ""
 
-#: contrib/sahara/content/data_processing/nodegroup_templates/workflows/create.py:77
-#: contrib/sahara/content/data_processing/nodegroup_templates/workflows/create.py:83
+#: contrib/sahara/content/data_processing/nodegroup_templates/workflows/create.py:78
+#: contrib/sahara/content/data_processing/nodegroup_templates/workflows/create.py:84
 msgid "Volumes size (GB)"
 msgstr ""
 
-#: contrib/sahara/content/data_processing/nodegroup_templates/workflows/create.py:89
+#: contrib/sahara/content/data_processing/nodegroup_templates/workflows/create.py:99
+#: contrib/sahara/content/data_processing/nodegroup_templates/workflows/create.py:106
+msgid "Volume local to instance"
+msgstr ""
+
+#: contrib/sahara/content/data_processing/nodegroup_templates/workflows/create.py:101
+msgid "Instance and attached volumes will be created on the same physical host"
+msgstr ""
+
+#: contrib/sahara/content/data_processing/nodegroup_templates/workflows/create.py:112
 msgid "Create volumes in this availability zone."
 msgstr ""
 
-#: contrib/sahara/content/data_processing/nodegroup_templates/workflows/create.py:119
+#: contrib/sahara/content/data_processing/nodegroup_templates/workflows/create.py:142
 msgid "Unable to generate process choices."
 msgstr ""
 
-#: contrib/sahara/content/data_processing/nodegroup_templates/workflows/create.py:134
+#: contrib/sahara/content/data_processing/nodegroup_templates/workflows/create.py:157
 msgid ""
 "Sahara will use instances of this node group to access other cluster "
 "instances."
 msgstr ""
 
-#: contrib/sahara/content/data_processing/nodegroup_templates/workflows/create.py:139
+#: contrib/sahara/content/data_processing/nodegroup_templates/workflows/create.py:162
 msgid "Processes"
 msgstr ""
 
-#: contrib/sahara/content/data_processing/nodegroup_templates/workflows/create.py:141
+#: contrib/sahara/content/data_processing/nodegroup_templates/workflows/create.py:164
 msgid "Processes to be launched in node group"
 msgstr ""
 
-#: contrib/sahara/content/data_processing/nodegroup_templates/workflows/create.py:172
-#: contrib/sahara/content/data_processing/nodegroup_templates/workflows/create.py:179
+#: contrib/sahara/content/data_processing/nodegroup_templates/workflows/create.py:191
+msgid "Unable to get volume type list."
+msgstr ""
+
+#: contrib/sahara/content/data_processing/nodegroup_templates/workflows/create.py:193
+#: dashboards/admin/volumes/volumes/forms.py:92
+#: dashboards/project/volumes/volumes/forms.py:268
+msgid "No volume type"
+msgstr ""
+
+#: contrib/sahara/content/data_processing/nodegroup_templates/workflows/create.py:205
+#: contrib/sahara/content/data_processing/nodegroup_templates/workflows/create.py:212
 msgid "No availability zone specified"
 msgstr ""
 
-#: contrib/sahara/content/data_processing/nodegroup_templates/workflows/create.py:194
+#: contrib/sahara/content/data_processing/nodegroup_templates/workflows/create.py:227
 msgid "Configure Node Group Template"
 msgstr ""
 
-#: contrib/sahara/content/data_processing/nodegroup_templates/workflows/create.py:207
+#: contrib/sahara/content/data_processing/nodegroup_templates/workflows/create.py:240
 msgid "Create security group for this Node Group."
 msgstr ""
 
-#: contrib/sahara/content/data_processing/nodegroup_templates/workflows/create.py:215
+#: contrib/sahara/content/data_processing/nodegroup_templates/workflows/create.py:248
 msgid "Unable to get security group list."
 msgstr ""
 
-#: contrib/sahara/content/data_processing/nodegroup_templates/workflows/create.py:222
+#: contrib/sahara/content/data_processing/nodegroup_templates/workflows/create.py:255
 msgid "Launch instances in these security groups."
 msgstr ""
 
-#: contrib/sahara/content/data_processing/nodegroup_templates/workflows/create.py:227
+#: contrib/sahara/content/data_processing/nodegroup_templates/workflows/create.py:260
 msgid "Security"
 msgstr ""
 
-#: contrib/sahara/content/data_processing/nodegroup_templates/workflows/create.py:228
+#: contrib/sahara/content/data_processing/nodegroup_templates/workflows/create.py:261
 msgid "Control access to instances of the node group."
 msgstr ""
 
-#: contrib/sahara/content/data_processing/nodegroup_templates/workflows/create.py:256
+#: contrib/sahara/content/data_processing/nodegroup_templates/workflows/create.py:289
 #, python-format
 msgid "Created Node Group Template %s"
 msgstr ""
 
-#: contrib/sahara/content/data_processing/nodegroup_templates/workflows/create.py:379
+#: contrib/sahara/content/data_processing/nodegroup_templates/workflows/create.py:419
 msgid "Select plugin and hadoop version"
 msgstr ""
 
@@ -2974,15 +3109,15 @@ msgstr ""
 msgid "Unable to populate anti-affinity processes."
 msgstr ""
 
-#: contrib/sahara/content/data_processing/utils/helpers.py:130
+#: contrib/sahara/content/data_processing/utils/helpers.py:131
 msgid "Streaming MapReduce"
 msgstr ""
 
-#: contrib/sahara/content/data_processing/utils/helpers.py:132
+#: contrib/sahara/content/data_processing/utils/helpers.py:133
 msgid "Java"
 msgstr ""
 
-#: contrib/sahara/content/data_processing/utils/helpers.py:133
+#: contrib/sahara/content/data_processing/utils/helpers.py:134
 msgid "Shell"
 msgstr ""
 
@@ -2991,20 +3126,20 @@ msgstr ""
 msgid "Unable to retrieve networks."
 msgstr ""
 
-#: contrib/sahara/content/data_processing/utils/workflow_helpers.py:116
+#: contrib/sahara/content/data_processing/utils/workflow_helpers.py:118
 msgid "Node group cluster"
 msgstr ""
 
-#: contrib/sahara/content/data_processing/utils/workflow_helpers.py:120
+#: contrib/sahara/content/data_processing/utils/workflow_helpers.py:122
 msgid "Count"
 msgstr ""
 
-#: contrib/sahara/content/data_processing/utils/workflow_helpers.py:150
+#: contrib/sahara/content/data_processing/utils/workflow_helpers.py:153
 #, python-format
 msgid "Unable to retrieve security group %(group)s."
 msgstr ""
 
-#: contrib/sahara/content/data_processing/utils/workflow_helpers.py:183
+#: contrib/sahara/content/data_processing/utils/workflow_helpers.py:186
 #: contrib/sahara/content/data_processing/wizard/forms.py:56
 msgid "Plugin Name"
 msgstr ""
@@ -3049,13 +3184,13 @@ msgstr ""
 msgid "Guided Job Execution"
 msgstr ""
 
-#: contrib/sahara/content/data_processing/wizard/views.py:90
+#: contrib/sahara/content/data_processing/wizard/views.py:91
 #: contrib/sahara/content/data_processing/wizard/templates/data_processing.wizard/_plugin_select.html:13
 #: contrib/sahara/content/data_processing/wizard/templates/data_processing.wizard/plugin_select.html:3
 msgid "Choose plugin and version"
 msgstr ""
 
-#: contrib/sahara/content/data_processing/wizard/views.py:99
+#: contrib/sahara/content/data_processing/wizard/views.py:100
 #: contrib/sahara/content/data_processing/wizard/templates/data_processing.wizard/_job_type_select.html:13
 #: contrib/sahara/content/data_processing/wizard/templates/data_processing.wizard/job_type_select.html:3
 msgid "Choose job type"
@@ -3944,51 +4079,51 @@ msgstr ""
 msgid "Unable to get database backup data."
 msgstr ""
 
-#: contrib/trove/content/databases/views.py:59
+#: contrib/trove/content/databases/views.py:61
 msgid "Unable to retrieve database size information."
 msgstr ""
 
-#: contrib/trove/content/databases/views.py:80
+#: contrib/trove/content/databases/views.py:83
 msgid "Unable to retrieve database instances."
 msgstr ""
 
-#: contrib/trove/content/databases/views.py:89
+#: contrib/trove/content/databases/views.py:92
 msgid "Launch Database"
 msgstr ""
 
-#: contrib/trove/content/databases/views.py:101
+#: contrib/trove/content/databases/views.py:104
 #: dashboards/project/instances/views.py:294
 msgid "Instance Details: {{ instance.name }}"
 msgstr ""
 
-#: contrib/trove/content/databases/views.py:120
+#: contrib/trove/content/databases/views.py:123
 #, python-format
 msgid "Unable to retrieve details for database instance: %s"
 msgstr ""
 
-#: contrib/trove/content/databases/views.py:145
+#: contrib/trove/content/databases/views.py:148
 #: contrib/trove/content/databases/templates/databases/_resize_volume.html:9
 #: contrib/trove/content/databases/templates/databases/_resize_volume.html:24
 #: contrib/trove/content/databases/templates/databases/resize_volume.html:3
 msgid "Resize Database Volume"
 msgstr ""
 
-#: contrib/trove/content/databases/views.py:153
-#: contrib/trove/content/databases/views.py:193
+#: contrib/trove/content/databases/views.py:156
+#: contrib/trove/content/databases/views.py:196
 #: dashboards/admin/instances/views.py:180
 #: dashboards/project/instances/views.py:247
 #: dashboards/project/instances/views.py:398
 msgid "Unable to retrieve instance details."
 msgstr ""
 
-#: contrib/trove/content/databases/views.py:172
+#: contrib/trove/content/databases/views.py:175
 #: contrib/trove/content/databases/templates/databases/_resize_instance.html:9
 #: contrib/trove/content/databases/templates/databases/_resize_instance.html:23
 #: contrib/trove/content/databases/templates/databases/resize_instance.html:3
 msgid "Resize Database Instance"
 msgstr ""
 
-#: contrib/trove/content/databases/views.py:209
+#: contrib/trove/content/databases/views.py:212
 #: dashboards/project/instances/views.py:423
 msgid "Unable to retrieve flavors."
 msgstr ""
@@ -4788,7 +4923,7 @@ msgstr ""
 #: dashboards/admin/defaults/workflows.py:44
 #: dashboards/identity/projects/workflows.py:67
 #: dashboards/identity/projects/workflows.py:73
-#: dashboards/project/access_and_security/security_groups/tables.py:287
+#: dashboards/project/access_and_security/security_groups/tables.py:288
 #: usage/quotas.py:72 usage/quotas.py:84
 msgid "Security Group Rules"
 msgstr ""
@@ -5487,9 +5622,9 @@ msgstr ""
 
 #: dashboards/admin/images/views.py:141 dashboards/admin/images/views.py:156
 #: dashboards/admin/images/templates/images/update.html:4
-#: dashboards/project/images/images/views.py:56
-#: dashboards/project/images/images/views.py:57
-#: dashboards/project/images/images/views.py:61
+#: dashboards/project/images/images/views.py:73
+#: dashboards/project/images/images/views.py:74
+#: dashboards/project/images/images/views.py:78
 #: dashboards/project/images/templates/images/images/update.html:3
 msgid "Update Image"
 msgstr ""
@@ -5957,35 +6092,12 @@ msgstr ""
 msgid "Undefined"
 msgstr ""
 
-#: dashboards/admin/metadata_defs/templates/metadata_defs/_detail_overview.html:7
-#: dashboards/admin/volumes/templates/volumes/volume_types/_volume_encryption_type_detail.html:8
-#: dashboards/project/volumes/templates/volumes/volumes/_encryption_detail_overview.html:8
-msgid "Info"
-msgstr ""
-
 #: dashboards/admin/metadata_defs/templates/metadata_defs/_detail_overview.html:10
 msgid "Display Name"
 msgstr ""
 
 #: dashboards/admin/metadata_defs/templates/metadata_defs/_detail_overview.html:12
 msgid "Namespace"
-msgstr ""
-
-#: dashboards/admin/metadata_defs/templates/metadata_defs/_detail_overview.html:23
-#: dashboards/admin/networks/views.py:59
-#: dashboards/project/images/templates/images/images/_detail_overview.html:20
-#: dashboards/project/images/templates/images/images/_detail_overview.html:31
-#: dashboards/project/instances/tables.py:655
-#: dashboards/project/networks/templates/networks/_detail_overview.html:14
-#: dashboards/project/networks/templates/networks/_detail_overview.html:16
-#: dashboards/project/networks/templates/networks/_detail_overview.html:22
-#: dashboards/project/networks/templates/networks/_detail_overview.html:25
-#: dashboards/project/routers/templates/routers/_detail_overview.html:14
-#: dashboards/project/routers/templates/routers/_detail_overview.html:33
-#: dashboards/project/routers/templates/routers/_detail_overview.html:39
-#: dashboards/project/volumes/backups/tables.py:37
-#: dashboards/project/volumes/snapshots/tables.py:126
-msgid "Unknown"
 msgstr ""
 
 #: dashboards/admin/metadata_defs/templates/metadata_defs/_detail_overview.html:25
@@ -6848,9 +6960,9 @@ msgid "Edit Subnet"
 msgstr ""
 
 #: dashboards/admin/networks/subnets/tables.py:94
-#: dashboards/project/access_and_security/security_groups/forms.py:201
-#: dashboards/project/access_and_security/security_groups/forms.py:213
-#: dashboards/project/access_and_security/security_groups/forms.py:223
+#: dashboards/project/access_and_security/security_groups/forms.py:203
+#: dashboards/project/access_and_security/security_groups/forms.py:215
+#: dashboards/project/access_and_security/security_groups/forms.py:225
 #: dashboards/project/networks/templates/networks/subnets/_detail_overview.html:19
 msgid "CIDR"
 msgstr ""
@@ -7132,7 +7244,7 @@ msgstr ""
 
 #: dashboards/admin/volumes/snapshots/tables.py:29
 #: dashboards/admin/volumes/snapshots/views.py:36
-#: dashboards/admin/volumes/volumes/views.py:154
+#: dashboards/admin/volumes/volumes/views.py:145
 msgid "Update Status"
 msgstr ""
 
@@ -7338,7 +7450,7 @@ msgstr ""
 
 #: dashboards/admin/volumes/templates/volumes/volume_types/create_qos_spec.html:3
 #: dashboards/admin/volumes/volume_types/tables.py:260
-#: dashboards/admin/volumes/volume_types/views.py:160
+#: dashboards/admin/volumes/volume_types/views.py:154
 msgid "Create QoS Spec"
 msgstr ""
 
@@ -7354,7 +7466,7 @@ msgid "Create Encrypted Volume Type"
 msgstr ""
 
 #: dashboards/admin/volumes/templates/volumes/volume_types/edit_qos_spec_consumer.html:3
-#: dashboards/admin/volumes/volume_types/views.py:181
+#: dashboards/admin/volumes/volume_types/views.py:172
 msgid "Edit QoS Spec Consumer"
 msgstr ""
 
@@ -7363,7 +7475,7 @@ msgid "\"Edit Volume Type\""
 msgstr ""
 
 #: dashboards/admin/volumes/templates/volumes/volume_types/volume_encryption_type_detail.html:3
-#: dashboards/admin/volumes/volume_types/views.py:50
+#: dashboards/admin/volumes/volume_types/views.py:47
 msgid "Volume Type Encryption Details"
 msgstr ""
 
@@ -7506,8 +7618,8 @@ msgstr ""
 
 #: dashboards/admin/volumes/templates/volumes/volumes/update_status.html:3
 #: dashboards/admin/volumes/volumes/tables.py:81
-#: dashboards/admin/volumes/volumes/views.py:151
-#: dashboards/admin/volumes/volumes/views.py:157
+#: dashboards/admin/volumes/volumes/views.py:142
+#: dashboards/admin/volumes/volumes/views.py:148
 msgid "Update Volume Status"
 msgstr ""
 
@@ -7674,24 +7786,24 @@ msgstr ""
 msgid "Create a Volume Type"
 msgstr ""
 
-#: dashboards/admin/volumes/volume_types/views.py:72
+#: dashboards/admin/volumes/volume_types/views.py:69
 msgid "Unable to retrieve volume type encryption details."
 msgstr ""
 
-#: dashboards/admin/volumes/volume_types/views.py:83
-#: dashboards/admin/volumes/volume_types/views.py:87
+#: dashboards/admin/volumes/volume_types/views.py:80
+#: dashboards/admin/volumes/volume_types/views.py:84
 msgid "Create Volume Type Encryption"
 msgstr ""
 
-#: dashboards/admin/volumes/volume_types/views.py:90
+#: dashboards/admin/volumes/volume_types/views.py:87
 msgid "Create an Encrypted Volume Type"
 msgstr ""
 
-#: dashboards/admin/volumes/volume_types/views.py:100
+#: dashboards/admin/volumes/volume_types/views.py:97
 msgid "Unable to retrieve volume type name."
 msgstr ""
 
-#: dashboards/admin/volumes/volume_types/views.py:124
+#: dashboards/admin/volumes/volume_types/views.py:121
 #: dashboards/admin/volumes/volume_types/extras/tables.py:59
 #: dashboards/admin/volumes/volume_types/qos_specs/tables.py:48
 #: dashboards/identity/domains/tables.py:81
@@ -7701,49 +7813,49 @@ msgstr ""
 msgid "Edit"
 msgstr ""
 
-#: dashboards/admin/volumes/volume_types/views.py:136
+#: dashboards/admin/volumes/volume_types/views.py:130
 #, python-format
 msgid "Unable to retrieve volume type for: \"%s\""
 msgstr ""
 
-#: dashboards/admin/volumes/volume_types/views.py:164
+#: dashboards/admin/volumes/volume_types/views.py:158
 msgid "Create a QoS Spec"
 msgstr ""
 
-#: dashboards/admin/volumes/volume_types/views.py:175
+#: dashboards/admin/volumes/volume_types/views.py:166
 msgid "Edit Consumer of QoS Spec"
 msgstr ""
 
-#: dashboards/admin/volumes/volume_types/views.py:178
+#: dashboards/admin/volumes/volume_types/views.py:169
 msgid "Modify Consumer"
 msgstr ""
 
-#: dashboards/admin/volumes/volume_types/views.py:200
+#: dashboards/admin/volumes/volume_types/views.py:188
 msgid "Unable to retrieve QoS Spec details."
 msgstr ""
 
-#: dashboards/admin/volumes/volume_types/views.py:214
-#: dashboards/admin/volumes/volume_types/views.py:221
+#: dashboards/admin/volumes/volume_types/views.py:202
+#: dashboards/admin/volumes/volume_types/views.py:209
 msgid "Associate QoS Spec with Volume Type"
 msgstr ""
 
-#: dashboards/admin/volumes/volume_types/views.py:217
+#: dashboards/admin/volumes/volume_types/views.py:205
 #: dashboards/project/access_and_security/floating_ips/tables.py:110
 #: dashboards/project/access_and_security/floating_ips/workflows.py:145
 #: dashboards/project/loadbalancers/workflows.py:664
 msgid "Associate"
 msgstr ""
 
-#: dashboards/admin/volumes/volume_types/views.py:240
+#: dashboards/admin/volumes/volume_types/views.py:225
 #: dashboards/admin/volumes/volume_types/extras/views.py:36
 msgid "Unable to retrieve volume type details."
 msgstr ""
 
-#: dashboards/admin/volumes/volume_types/views.py:250
+#: dashboards/admin/volumes/volume_types/views.py:235
 msgid "Unable to retrieve QoS Specs."
 msgstr ""
 
-#: dashboards/admin/volumes/volume_types/views.py:270
+#: dashboards/admin/volumes/volume_types/views.py:255
 msgid "Unable to retrieve QoS Spec association."
 msgstr ""
 
@@ -7908,11 +8020,6 @@ msgstr ""
 msgid "Specifies that the newly created volume should be marked as bootable"
 msgstr ""
 
-#: dashboards/admin/volumes/volumes/forms.py:92
-#: dashboards/project/volumes/volumes/forms.py:268
-msgid "No volume type"
-msgstr ""
-
 #: dashboards/admin/volumes/volumes/forms.py:131
 #, python-format
 msgid "Successfully sent the request to manage volume: %s"
@@ -8006,7 +8113,7 @@ msgstr ""
 
 #: dashboards/admin/volumes/volumes/views.py:84
 #: dashboards/admin/volumes/volumes/views.py:119
-#: dashboards/admin/volumes/volumes/views.py:173
+#: dashboards/admin/volumes/volumes/views.py:164
 #: dashboards/project/volumes/volumes/views.py:79
 #: dashboards/project/volumes/volumes/views.py:518
 msgid "Unable to retrieve volume details."
@@ -9072,12 +9179,6 @@ msgstr ""
 msgid "No floating IP pools available"
 msgstr ""
 
-#: dashboards/project/access_and_security/floating_ips/workflows.py:37
-#: dashboards/project/network_topology/templates/network_topology/_svg_element.html:202
-#: dashboards/project/volumes/volumes/tables.py:502
-msgid "Instance"
-msgstr ""
-
 #: dashboards/project/access_and_security/floating_ips/workflows.py:41
 msgid ""
 "Select the IP address you wish to associate with the selected instance or"
@@ -9222,227 +9323,227 @@ msgstr ""
 msgid "Unable to create key pair: %(exc)s"
 msgstr ""
 
-#: dashboards/project/access_and_security/security_groups/forms.py:77
+#: dashboards/project/access_and_security/security_groups/forms.py:79
 #, python-format
 msgid "Successfully created security group: %s"
 msgstr ""
 
-#: dashboards/project/access_and_security/security_groups/forms.py:78
+#: dashboards/project/access_and_security/security_groups/forms.py:80
 #, python-format
 msgid "Unable to create security group: %s"
 msgstr ""
 
-#: dashboards/project/access_and_security/security_groups/forms.py:87
+#: dashboards/project/access_and_security/security_groups/forms.py:89
 #, python-format
 msgid "Successfully updated security group: %s"
 msgstr ""
 
-#: dashboards/project/access_and_security/security_groups/forms.py:88
+#: dashboards/project/access_and_security/security_groups/forms.py:90
 #, python-format
 msgid "Unable to update security group: %s"
 msgstr ""
 
-#: dashboards/project/access_and_security/security_groups/forms.py:101
+#: dashboards/project/access_and_security/security_groups/forms.py:103
 msgid "Rule"
 msgstr ""
 
-#: dashboards/project/access_and_security/security_groups/forms.py:110
-#: dashboards/project/access_and_security/security_groups/forms.py:115
-#: dashboards/project/access_and_security/security_groups/forms.py:116
+#: dashboards/project/access_and_security/security_groups/forms.py:112
 #: dashboards/project/access_and_security/security_groups/forms.py:117
 #: dashboards/project/access_and_security/security_groups/forms.py:118
 #: dashboards/project/access_and_security/security_groups/forms.py:119
 #: dashboards/project/access_and_security/security_groups/forms.py:120
 #: dashboards/project/access_and_security/security_groups/forms.py:121
-#: dashboards/project/access_and_security/security_groups/tables.py:264
+#: dashboards/project/access_and_security/security_groups/forms.py:122
+#: dashboards/project/access_and_security/security_groups/forms.py:123
+#: dashboards/project/access_and_security/security_groups/tables.py:265
 msgid "Direction"
 msgstr ""
 
-#: dashboards/project/access_and_security/security_groups/forms.py:125
-#: dashboards/project/access_and_security/security_groups/forms.py:132
-#: dashboards/project/access_and_security/security_groups/tables.py:269
+#: dashboards/project/access_and_security/security_groups/forms.py:127
+#: dashboards/project/access_and_security/security_groups/forms.py:134
+#: dashboards/project/access_and_security/security_groups/tables.py:270
 msgid "IP Protocol"
 msgstr ""
 
-#: dashboards/project/access_and_security/security_groups/forms.py:126
+#: dashboards/project/access_and_security/security_groups/forms.py:128
 msgid "Enter an integer value between 0 and 255 (or -1 which means wildcard)."
 msgstr ""
 
-#: dashboards/project/access_and_security/security_groups/forms.py:135
-#: dashboards/project/access_and_security/security_groups/forms.py:142
-#: dashboards/project/access_and_security/security_groups/forms.py:143
+#: dashboards/project/access_and_security/security_groups/forms.py:137
+#: dashboards/project/access_and_security/security_groups/forms.py:144
+#: dashboards/project/access_and_security/security_groups/forms.py:145
 msgid "Open Port"
 msgstr ""
 
-#: dashboards/project/access_and_security/security_groups/forms.py:136
-#: dashboards/project/access_and_security/security_groups/forms.py:145
-#: dashboards/project/access_and_security/security_groups/forms.py:152
+#: dashboards/project/access_and_security/security_groups/forms.py:138
+#: dashboards/project/access_and_security/security_groups/forms.py:147
+#: dashboards/project/access_and_security/security_groups/forms.py:154
 #: dashboards/project/instances/forms.py:199
 msgid "Port"
 msgstr ""
 
-#: dashboards/project/access_and_security/security_groups/forms.py:137
-#: dashboards/project/access_and_security/security_groups/tables.py:272
+#: dashboards/project/access_and_security/security_groups/forms.py:139
+#: dashboards/project/access_and_security/security_groups/tables.py:273
 msgid "Port Range"
 msgstr ""
 
-#: dashboards/project/access_and_security/security_groups/forms.py:147
-#: dashboards/project/access_and_security/security_groups/forms.py:158
-#: dashboards/project/access_and_security/security_groups/forms.py:169
+#: dashboards/project/access_and_security/security_groups/forms.py:149
+#: dashboards/project/access_and_security/security_groups/forms.py:160
+#: dashboards/project/access_and_security/security_groups/forms.py:171
 #: dashboards/project/loadbalancers/workflows.py:163
 msgid "Enter an integer value between 1 and 65535."
 msgstr ""
 
-#: dashboards/project/access_and_security/security_groups/forms.py:156
-#: dashboards/project/access_and_security/security_groups/forms.py:163
+#: dashboards/project/access_and_security/security_groups/forms.py:158
+#: dashboards/project/access_and_security/security_groups/forms.py:165
 msgid "From Port"
 msgstr ""
 
-#: dashboards/project/access_and_security/security_groups/forms.py:167
-#: dashboards/project/access_and_security/security_groups/forms.py:174
+#: dashboards/project/access_and_security/security_groups/forms.py:169
+#: dashboards/project/access_and_security/security_groups/forms.py:176
 msgid "To Port"
 msgstr ""
 
-#: dashboards/project/access_and_security/security_groups/forms.py:180
+#: dashboards/project/access_and_security/security_groups/forms.py:182
 msgid "Enter a value for ICMP type in the range (-1: 255)"
 msgstr ""
 
-#: dashboards/project/access_and_security/security_groups/forms.py:189
-#: dashboards/project/access_and_security/security_groups/forms.py:196
+#: dashboards/project/access_and_security/security_groups/forms.py:191
+#: dashboards/project/access_and_security/security_groups/forms.py:198
 #: dashboards/project/instances/templates/instances/_detail_overview.html:36
 msgid "Code"
 msgstr ""
 
-#: dashboards/project/access_and_security/security_groups/forms.py:191
+#: dashboards/project/access_and_security/security_groups/forms.py:193
 msgid "Enter a value for ICMP code in the range (-1: 255)"
 msgstr ""
 
-#: dashboards/project/access_and_security/security_groups/forms.py:200
+#: dashboards/project/access_and_security/security_groups/forms.py:202
 msgid "Remote"
 msgstr ""
 
-#: dashboards/project/access_and_security/security_groups/forms.py:202
-#: dashboards/project/access_and_security/security_groups/forms.py:225
-#: dashboards/project/access_and_security/security_groups/forms.py:230
+#: dashboards/project/access_and_security/security_groups/forms.py:204
+#: dashboards/project/access_and_security/security_groups/forms.py:227
+#: dashboards/project/access_and_security/security_groups/forms.py:232
 msgid "Security Group"
 msgstr ""
 
-#: dashboards/project/access_and_security/security_groups/forms.py:203
+#: dashboards/project/access_and_security/security_groups/forms.py:205
 msgid ""
 "To specify an allowed IP range, select &quot;CIDR&quot;. To allow access "
 "from all members of another security group select &quot;Security "
 "Group&quot;."
 msgstr ""
 
-#: dashboards/project/access_and_security/security_groups/forms.py:216
+#: dashboards/project/access_and_security/security_groups/forms.py:218
 msgid "Classless Inter-Domain Routing (e.g. 192.168.0.0/24)"
 msgstr ""
 
-#: dashboards/project/access_and_security/security_groups/forms.py:234
-#: dashboards/project/access_and_security/security_groups/forms.py:242
-#: dashboards/project/access_and_security/security_groups/tables.py:267
+#: dashboards/project/access_and_security/security_groups/forms.py:236
+#: dashboards/project/access_and_security/security_groups/forms.py:244
+#: dashboards/project/access_and_security/security_groups/tables.py:268
 msgid "Ether Type"
 msgstr ""
 
-#: dashboards/project/access_and_security/security_groups/forms.py:236
+#: dashboards/project/access_and_security/security_groups/forms.py:238
 msgid "IPv4"
 msgstr ""
 
-#: dashboards/project/access_and_security/security_groups/forms.py:237
+#: dashboards/project/access_and_security/security_groups/forms.py:239
 msgid "IPv6"
 msgstr ""
 
-#: dashboards/project/access_and_security/security_groups/forms.py:252
+#: dashboards/project/access_and_security/security_groups/forms.py:254
 msgid "No security groups available"
 msgstr ""
 
-#: dashboards/project/access_and_security/security_groups/forms.py:262
+#: dashboards/project/access_and_security/security_groups/forms.py:264
 msgid "Custom TCP Rule"
 msgstr ""
 
-#: dashboards/project/access_and_security/security_groups/forms.py:263
+#: dashboards/project/access_and_security/security_groups/forms.py:265
 msgid "Custom UDP Rule"
 msgstr ""
 
-#: dashboards/project/access_and_security/security_groups/forms.py:264
+#: dashboards/project/access_and_security/security_groups/forms.py:266
 msgid "Custom ICMP Rule"
 msgstr ""
 
-#: dashboards/project/access_and_security/security_groups/forms.py:266
+#: dashboards/project/access_and_security/security_groups/forms.py:268
 msgid "Other Protocol"
 msgstr ""
 
-#: dashboards/project/access_and_security/security_groups/forms.py:271
-#: dashboards/project/access_and_security/security_groups/tables.py:238
+#: dashboards/project/access_and_security/security_groups/forms.py:273
+#: dashboards/project/access_and_security/security_groups/tables.py:239
 msgid "Ingress"
 msgstr ""
 
-#: dashboards/project/access_and_security/security_groups/forms.py:272
-#: dashboards/project/access_and_security/security_groups/tables.py:240
+#: dashboards/project/access_and_security/security_groups/forms.py:274
+#: dashboards/project/access_and_security/security_groups/tables.py:241
 msgid "Egress"
 msgstr ""
 
-#: dashboards/project/access_and_security/security_groups/forms.py:291
+#: dashboards/project/access_and_security/security_groups/forms.py:293
 msgid "The ICMP type is invalid."
 msgstr ""
 
-#: dashboards/project/access_and_security/security_groups/forms.py:294
+#: dashboards/project/access_and_security/security_groups/forms.py:296
 msgid "The ICMP code is invalid."
 msgstr ""
 
-#: dashboards/project/access_and_security/security_groups/forms.py:297
+#: dashboards/project/access_and_security/security_groups/forms.py:299
 msgid "The ICMP type not in range (-1, 255)"
 msgstr ""
 
-#: dashboards/project/access_and_security/security_groups/forms.py:300
+#: dashboards/project/access_and_security/security_groups/forms.py:302
 msgid "The ICMP code not in range (-1, 255)"
 msgstr ""
 
-#: dashboards/project/access_and_security/security_groups/forms.py:319
+#: dashboards/project/access_and_security/security_groups/forms.py:321
 msgid "The specified port is invalid."
 msgstr ""
 
-#: dashboards/project/access_and_security/security_groups/forms.py:324
+#: dashboards/project/access_and_security/security_groups/forms.py:326
 msgid "The \"from\" port number is invalid."
 msgstr ""
 
-#: dashboards/project/access_and_security/security_groups/forms.py:327
+#: dashboards/project/access_and_security/security_groups/forms.py:329
 msgid "The \"to\" port number is invalid."
 msgstr ""
 
-#: dashboards/project/access_and_security/security_groups/forms.py:330
+#: dashboards/project/access_and_security/security_groups/forms.py:332
 msgid ""
 "The \"to\" port number must be greater than or equal to the \"from\" port"
 " number."
 msgstr ""
 
-#: dashboards/project/access_and_security/security_groups/forms.py:379
+#: dashboards/project/access_and_security/security_groups/forms.py:381
 msgid "CIDR must be specified."
 msgstr ""
 
-#: dashboards/project/access_and_security/security_groups/forms.py:402
+#: dashboards/project/access_and_security/security_groups/forms.py:404
 #, python-format
 msgid "Successfully added rule: %s"
 msgstr ""
 
-#: dashboards/project/access_and_security/security_groups/forms.py:408
+#: dashboards/project/access_and_security/security_groups/forms.py:411
 msgid "Unable to add rule to security group."
 msgstr ""
 
-#: dashboards/project/access_and_security/security_groups/tables.py:36
+#: dashboards/project/access_and_security/security_groups/tables.py:37
 msgid "Delete Security Group"
 msgid_plural "Delete Security Groups"
 msgstr[0] ""
 msgstr[1] ""
 
-#: dashboards/project/access_and_security/security_groups/tables.py:44
+#: dashboards/project/access_and_security/security_groups/tables.py:45
 msgid "Deleted Security Group"
 msgid_plural "Deleted Security Groups"
 msgstr[0] ""
 msgstr[1] ""
 
-#: dashboards/project/access_and_security/security_groups/tables.py:70
-#: dashboards/project/access_and_security/security_groups/tables.py:87
+#: dashboards/project/access_and_security/security_groups/tables.py:71
+#: dashboards/project/access_and_security/security_groups/tables.py:88
 #: dashboards/project/access_and_security/security_groups/views.py:155
 #: dashboards/project/access_and_security/security_groups/views.py:158
 #: dashboards/project/access_and_security/security_groups/views.py:162
@@ -9450,11 +9551,11 @@ msgstr[1] ""
 msgid "Create Security Group"
 msgstr ""
 
-#: dashboards/project/access_and_security/security_groups/tables.py:85
+#: dashboards/project/access_and_security/security_groups/tables.py:86
 msgid "Create Security Group (Quota exceeded)"
 msgstr ""
 
-#: dashboards/project/access_and_security/security_groups/tables.py:95
+#: dashboards/project/access_and_security/security_groups/tables.py:96
 #: dashboards/project/access_and_security/security_groups/views.py:73
 #: dashboards/project/access_and_security/security_groups/views.py:76
 #: dashboards/project/access_and_security/security_groups/views.py:79
@@ -9462,11 +9563,11 @@ msgstr ""
 msgid "Edit Security Group"
 msgstr ""
 
-#: dashboards/project/access_and_security/security_groups/tables.py:117
+#: dashboards/project/access_and_security/security_groups/tables.py:118
 msgid "Manage Rules"
 msgstr ""
 
-#: dashboards/project/access_and_security/security_groups/tables.py:156
+#: dashboards/project/access_and_security/security_groups/tables.py:157
 #: dashboards/project/access_and_security/security_groups/views.py:108
 #: dashboards/project/access_and_security/security_groups/views.py:113
 #: dashboards/project/access_and_security/templates/access_and_security/security_groups/add_rule.html:3
@@ -9475,29 +9576,29 @@ msgstr ""
 msgid "Add Rule"
 msgstr ""
 
-#: dashboards/project/access_and_security/security_groups/tables.py:176
+#: dashboards/project/access_and_security/security_groups/tables.py:177
 #: dashboards/project/firewalls/tables.py:63
 msgid "Delete Rule"
 msgid_plural "Delete Rules"
 msgstr[0] ""
 msgstr[1] ""
 
-#: dashboards/project/access_and_security/security_groups/tables.py:184
+#: dashboards/project/access_and_security/security_groups/tables.py:185
 msgid "Deleted Rule"
 msgid_plural "Deleted Rules"
 msgstr[0] ""
 msgstr[1] ""
 
-#: dashboards/project/access_and_security/security_groups/tables.py:226
-#: dashboards/project/access_and_security/security_groups/tables.py:245
+#: dashboards/project/access_and_security/security_groups/tables.py:227
+#: dashboards/project/access_and_security/security_groups/tables.py:246
 msgid "Any"
 msgstr ""
 
-#: dashboards/project/access_and_security/security_groups/tables.py:274
+#: dashboards/project/access_and_security/security_groups/tables.py:275
 msgid "Remote IP Prefix"
 msgstr ""
 
-#: dashboards/project/access_and_security/security_groups/tables.py:276
+#: dashboards/project/access_and_security/security_groups/tables.py:277
 msgid "Remote Security Group"
 msgstr ""
 
@@ -10769,11 +10870,11 @@ msgid ""
 "button or drag and drop. "
 msgstr ""
 
-#: dashboards/project/firewalls/templates/firewalls/_update_routers.html:8
+#: dashboards/project/firewalls/templates/firewalls/_update_routers.html:6
 msgid "Selected Routers"
 msgstr ""
 
-#: dashboards/project/firewalls/templates/firewalls/_update_routers.html:11
+#: dashboards/project/firewalls/templates/firewalls/_update_routers.html:8
 msgid "Available Routers"
 msgstr ""
 
@@ -10784,11 +10885,11 @@ msgid ""
 "you may change their order by drag and drop as well. "
 msgstr ""
 
-#: dashboards/project/firewalls/templates/firewalls/_update_rules.html:8
+#: dashboards/project/firewalls/templates/firewalls/_update_rules.html:6
 msgid "Selected Rules"
 msgstr ""
 
-#: dashboards/project/firewalls/templates/firewalls/_update_rules.html:11
+#: dashboards/project/firewalls/templates/firewalls/_update_rules.html:8
 msgid "Available Rules"
 msgstr ""
 
@@ -11044,15 +11145,15 @@ msgctxt "Type of an image"
 msgid "Snapshot"
 msgstr ""
 
-#: dashboards/project/images/images/views.py:68
+#: dashboards/project/images/images/views.py:85
 msgid "Unable to retrieve image."
 msgstr ""
 
-#: dashboards/project/images/images/views.py:103
+#: dashboards/project/images/images/views.py:120
 msgid "Image Details: {{ image.name }}"
 msgstr ""
 
-#: dashboards/project/images/images/views.py:131
+#: dashboards/project/images/images/views.py:148
 msgid "Unable to retrieve image details."
 msgstr ""
 
@@ -14726,7 +14827,7 @@ msgid ""
 msgstr ""
 
 #: dashboards/project/stacks/forms.py:57 dashboards/project/stacks/views.py:90
-#: dashboards/project/stacks/views.py:96 dashboards/project/stacks/views.py:106
+#: dashboards/project/stacks/views.py:96 dashboards/project/stacks/views.py:117
 #: dashboards/project/stacks/templates/stacks/select_template.html:3
 msgid "Select Template"
 msgstr ""
@@ -14819,8 +14920,8 @@ msgid "Stack Name"
 msgstr ""
 
 #: dashboards/project/stacks/forms.py:241
-#: dashboards/project/stacks/views.py:146
-#: dashboards/project/stacks/views.py:152
+#: dashboards/project/stacks/views.py:157
+#: dashboards/project/stacks/views.py:163
 #: dashboards/project/stacks/templates/stacks/preview_template.html:3
 msgid "Preview Template"
 msgstr ""
@@ -14875,7 +14976,7 @@ msgid "Stack creation started."
 msgstr ""
 
 #: dashboards/project/stacks/forms.py:404
-#: dashboards/project/stacks/views.py:198
+#: dashboards/project/stacks/views.py:209
 #: dashboards/project/stacks/templates/stacks/update.html:3
 msgid "Update Stack Parameters"
 msgstr ""
@@ -14896,15 +14997,15 @@ msgid "Stacks"
 msgstr ""
 
 #: dashboards/project/stacks/tables.py:32
-#: dashboards/project/stacks/views.py:162
-#: dashboards/project/stacks/views.py:168
+#: dashboards/project/stacks/views.py:173
+#: dashboards/project/stacks/views.py:179
 #: dashboards/project/stacks/templates/stacks/create.html:3
 msgid "Launch Stack"
 msgstr ""
 
 #: dashboards/project/stacks/tables.py:41
-#: dashboards/project/stacks/views.py:239
-#: dashboards/project/stacks/views.py:245
+#: dashboards/project/stacks/views.py:250
+#: dashboards/project/stacks/views.py:256
 #: dashboards/project/stacks/templates/stacks/preview.html:3
 msgid "Preview Stack"
 msgstr ""
@@ -15178,47 +15279,47 @@ msgstr ""
 msgid "Unable to retrieve stack list."
 msgstr ""
 
-#: dashboards/project/stacks/views.py:113
+#: dashboards/project/stacks/views.py:124
 #: dashboards/project/stacks/templates/stacks/change_template.html:3
 msgid "Change Template"
 msgstr ""
 
-#: dashboards/project/stacks/views.py:127
-#: dashboards/project/stacks/views.py:231
-#: dashboards/project/stacks/views.py:287
+#: dashboards/project/stacks/views.py:138
+#: dashboards/project/stacks/views.py:242
+#: dashboards/project/stacks/views.py:298
 msgid "Unable to retrieve stack."
 msgstr ""
 
-#: dashboards/project/stacks/views.py:204
+#: dashboards/project/stacks/views.py:215
 msgid "Update Stack"
 msgstr ""
 
-#: dashboards/project/stacks/views.py:242
+#: dashboards/project/stacks/views.py:253
 msgid "Preview"
 msgstr ""
 
-#: dashboards/project/stacks/views.py:255
+#: dashboards/project/stacks/views.py:266
 #: dashboards/project/stacks/templates/stacks/preview_details.html:3
 msgid "Preview Stack Details"
 msgstr ""
 
-#: dashboards/project/stacks/views.py:267
+#: dashboards/project/stacks/views.py:278
 msgid "Stack Details: {{ stack.stack_name }}"
 msgstr ""
 
-#: dashboards/project/stacks/views.py:298
+#: dashboards/project/stacks/views.py:309
 msgid "Unable to retrieve stack template."
 msgstr ""
 
-#: dashboards/project/stacks/views.py:315
+#: dashboards/project/stacks/views.py:326
 msgid "Resource Details: {{ resource.resource_name }}"
 msgstr ""
 
-#: dashboards/project/stacks/views.py:332
+#: dashboards/project/stacks/views.py:343
 msgid "Unable to retrieve resource."
 msgstr ""
 
-#: dashboards/project/stacks/views.py:345
+#: dashboards/project/stacks/views.py:356
 msgid "Unable to retrieve metadata."
 msgstr ""
 

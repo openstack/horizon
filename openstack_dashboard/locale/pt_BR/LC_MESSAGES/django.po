@@ -19,8 +19,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-08-22 19:10+0000\n"
-"PO-Revision-Date: 2015-08-22 15:28+0000\n"
+"POT-Creation-Date: 2015-08-29 02:57+0000\n"
+"PO-Revision-Date: 2015-08-28 11:21+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Portuguese (Brazil) (http://www.transifex.com/openstack/"
 "horizon/language/pt_BR/)\n"
@@ -4065,6 +4065,9 @@ msgstr ""
 msgid "Extra Specs"
 msgstr "Especificações extras"
 
+msgid "Failed"
+msgstr "Falhou"
+
 msgctxt "Current status of a Database Backup"
 msgid "Failed"
 msgstr "Falhou"
@@ -6412,6 +6415,9 @@ msgstr "Nenhum volume disponível"
 
 msgid "Node Configurations"
 msgstr "Configurações de Nós"
+
+msgid "Node Group"
+msgstr "Grupo de Nós"
 
 #, python-format
 msgid "Node Group Template %s updated"

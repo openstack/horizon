@@ -14,8 +14,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-08-22 19:10+0000\n"
-"PO-Revision-Date: 2015-08-22 15:27+0000\n"
+"POT-Creation-Date: 2015-08-29 02:57+0000\n"
+"PO-Revision-Date: 2015-08-28 11:21+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Chinese (Taiwan) (http://www.transifex.com/openstack/horizon/"
 "language/zh_TW/)\n"
@@ -3741,6 +3741,9 @@ msgstr "預計但是不能為路由器「%(router_id)s」找到對外網路「%(
 msgid "Extra Specs"
 msgstr "額外規格"
 
+msgid "Failed"
+msgstr "已失敗"
+
 msgctxt "Current status of a Database Backup"
 msgid "Failed"
 msgstr "已失敗"
@@ -5951,6 +5954,9 @@ msgstr "無可用的雲硬碟"
 
 msgid "Node Configurations"
 msgstr "節點設置"
+
+msgid "Node Group"
+msgstr "節點群組"
 
 msgid "Node Group Template Details"
 msgstr "節點群組範本詳細資訊"

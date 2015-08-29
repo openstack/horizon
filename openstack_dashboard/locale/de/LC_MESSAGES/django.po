@@ -16,9 +16,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-08-22 19:10+0000\n"
-"PO-Revision-Date: 2015-08-22 15:28+0000\n"
-"Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
+"POT-Creation-Date: 2015-08-29 02:57+0000\n"
+"PO-Revision-Date: 2015-08-28 16:53+0000\n"
+"Last-Translator: Ettore Atalan <atalanttore@googlemail.com>\n"
 "Language-Team: German (http://www.transifex.com/openstack/horizon/language/"
 "de/)\n"
 "MIME-Version: 1.0\n"
@@ -340,6 +340,9 @@ msgstr "Fehler beim Löschen von Port %s"
 
 msgid " Done"
 msgstr "Fertig"
+
+msgid "\"Add Router Route\""
+msgstr "\"Routerroute hinzufügen\""
 
 msgid ""
 "\"Customization Script\" is analogous to \"User Data\" in other systems."
@@ -2003,6 +2006,9 @@ msgstr "Standard-Rolle \"%s\" wurde in Keystone nicht gefunden."
 msgid "Could not launch job"
 msgstr "Aufgabe konnte nicht gestartet werden"
 
+msgid "Could not update data source"
+msgstr "Datenquelle konnte nicht aktualisiert werden"
+
 #, python-format
 msgid "Couldn't get current security group list for instance %s."
 msgstr ""
@@ -2665,6 +2671,9 @@ msgstr ""
 
 msgid "Data source created"
 msgstr "Datenquelle erstellt"
+
+msgid "Data source updated"
+msgstr "Datenquelle aktualisiert"
 
 msgid "Database"
 msgstr "Datenbank"
@@ -3586,6 +3595,9 @@ msgstr "Aufgaben-Binärprogramm herunterladen"
 msgid "Download key pair &quot;%(keypair_name)s&quot;"
 msgstr "Schlüsselpaar &quot;%(keypair_name)s&quot; herunterladen"
 
+msgid "Duration"
+msgstr "Dauer"
+
 #, python-format
 msgid "Duration of instance type %s (openstack flavor)"
 msgstr "Dauer der Instanz Typ %s (OpenStack Variante)"
@@ -3613,6 +3625,9 @@ msgstr "Bearbeite Benutzer"
 
 msgid "Edit Consumer of QoS Spec"
 msgstr "Verbraucher der QOS Spezifikation bearbeiten"
+
+msgid "Edit Data Source"
+msgstr "Datenquelle bearbeiten"
 
 msgid "Edit Domain"
 msgstr "Domäne bearbeiten"
@@ -4013,6 +4028,9 @@ msgid ""
 "Evacuate the servers from the selected down host to an active target host."
 msgstr "Evakuiere die Server vom ausgewählten Host auf einen aktiven Zielhost."
 
+msgid "Event time"
+msgstr "Ereigniszeit"
+
 msgid "Events"
 msgstr "Ereignisse"
 
@@ -4095,6 +4113,9 @@ msgstr ""
 
 msgid "Extra Specs"
 msgstr "Zusätzliche Spezifikationen"
+
+msgid "Failed"
+msgstr "Fehlgeschlagen"
 
 msgctxt "Current status of a Database Backup"
 msgid "Failed"
@@ -6348,6 +6369,9 @@ msgstr "Keine Abbilder verfügbar"
 msgid "No images available."
 msgstr "Keine Abbilder verfügbar."
 
+msgid "No info available"
+msgstr "Keine Info verfügbar"
+
 msgid "No input was provided for the namespace content."
 msgstr "Für den Inhalt des Namensraumes wurde nichts eingegeben."
 
@@ -6453,6 +6477,9 @@ msgstr "Keine Datenträger verfügbar"
 
 msgid "Node Configurations"
 msgstr "Node Konfigurationen"
+
+msgid "Node Group"
+msgstr "Node Gruppe"
 
 #, python-format
 msgid "Node Group Template %s updated"
@@ -7098,6 +7125,9 @@ msgstr "In der Knotengruppe zu startende Prozesse"
 
 msgid "Profile"
 msgstr "Profil"
+
+msgid "Progress"
+msgstr "Fortschritt"
 
 msgid "Project"
 msgstr "Projekt"
@@ -8159,6 +8189,9 @@ msgstr "Neue Variante auswählen"
 msgid "Select a new host"
 msgstr "Wählen Sie einen neuen Host"
 
+msgid "Select a new status"
+msgstr "Wählen Sie einen neuen Status aus"
+
 msgid "Select a new template to preview a stack."
 msgstr "Wählen Sie eine neue Vorlage für die Stackvorschau."
 
@@ -8777,6 +8810,9 @@ msgid_plural "Started Instances"
 msgstr[0] "Gestartete Instanz"
 msgstr[1] "Gestartete Instanzen"
 
+msgid "Started at"
+msgstr "Gestartet um"
+
 #, python-format
 msgid "Starting evacuation from %(current)s to %(target)s."
 msgstr "Starte Evakuierung von %(current)s nach %(target)s."
@@ -8809,6 +8845,9 @@ msgstr "Status ="
 msgid "Status Reason"
 msgstr "Status Grund"
 
+msgid "Step Description"
+msgstr "Schrittbeschreibung"
+
 msgctxt "Action log of an instance"
 msgid "Stop"
 msgstr "Stopp"
@@ -8818,6 +8857,9 @@ msgstr "Storage Lokation"
 
 msgid "Storage type"
 msgstr "Speichertyp"
+
+msgid "Storm"
+msgstr "Sturm"
 
 msgid "Streaming MapReduce"
 msgstr "Streaming MapReduce"

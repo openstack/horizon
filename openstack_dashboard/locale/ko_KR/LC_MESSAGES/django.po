@@ -12,9 +12,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-08-26 20:04+0000\n"
-"PO-Revision-Date: 2015-08-26 15:16+0000\n"
-"Last-Translator: Ian Y. Choi <ianyrchoi@gmail.com>\n"
+"POT-Creation-Date: 2015-08-29 02:57+0000\n"
+"PO-Revision-Date: 2015-08-28 11:21+0000\n"
+"Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Korean (Korea) (http://www.transifex.com/openstack/horizon/"
 "language/ko_KR/)\n"
 "MIME-Version: 1.0\n"
@@ -3911,6 +3911,9 @@ msgstr ""
 msgid "Extra Specs"
 msgstr "추가 사양"
 
+msgid "Failed"
+msgstr "Failed"
+
 msgctxt "Current status of a Database Backup"
 msgid "Failed"
 msgstr "Failed"
@@ -6225,6 +6228,9 @@ msgstr "사용 가능한 볼륨이 없습니다."
 
 msgid "Node Configurations"
 msgstr "노드 구성"
+
+msgid "Node Group"
+msgstr "노드 그룹"
 
 #, python-format
 msgid "Node Group Template %s updated"

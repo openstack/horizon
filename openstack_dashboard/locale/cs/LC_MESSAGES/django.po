@@ -8,9 +8,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-08-26 20:04+0000\n"
-"PO-Revision-Date: 2015-08-26 07:10+0000\n"
-"Last-Translator: Zbyněk Schwarz <zbynek.schwarz@gmail.com>\n"
+"POT-Creation-Date: 2015-08-29 02:57+0000\n"
+"PO-Revision-Date: 2015-08-28 11:21+0000\n"
+"Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Czech (http://www.transifex.com/openstack/horizon/language/"
 "cs/)\n"
 "MIME-Version: 1.0\n"
@@ -2070,6 +2070,9 @@ msgstr "Nelze najít výchozí roli \"%s\" v Keystone"
 msgid "Could not launch job"
 msgstr "Úkol nelze spustit"
 
+msgid "Could not update data source"
+msgstr "Nelze aktualizovat zdroj dat"
+
 #, python-format
 msgid "Couldn't get current security group list for instance %s."
 msgstr "Nelze získat seznam současných bezpečnostních skupin pro instanci %s."
@@ -2729,6 +2732,9 @@ msgstr ""
 
 msgid "Data source created"
 msgstr "Zdroj dat vytvořen"
+
+msgid "Data source updated"
+msgstr "Zdroj dat aktualizován"
 
 msgid "Database"
 msgstr "Databáze"
@@ -3690,6 +3696,9 @@ msgstr "Upravit spotřebitele"
 msgid "Edit Consumer of QoS Spec"
 msgstr "Upravit spotřebitele specifikace QoS"
 
+msgid "Edit Data Source"
+msgstr "Upravit zdroj dat"
+
 msgid "Edit Domain"
 msgstr "Upravit doménu"
 
@@ -4161,6 +4170,9 @@ msgstr ""
 
 msgid "Extra Specs"
 msgstr "Dodatečné specifikace"
+
+msgid "Failed"
+msgstr "Selhalo"
 
 msgctxt "Current status of a Database Backup"
 msgid "Failed"
@@ -5354,6 +5366,10 @@ msgstr "Bezpečnostní skupiny instance"
 msgid "Instance Snapshot"
 msgstr "Snímek instance"
 
+msgid "Instance and attached volumes will be created on the same physical host"
+msgstr ""
+"Instance a připojené svazky budou vytvořeny na stejném fyzickém hostiteli"
+
 msgid "Instance to be associated"
 msgstr "Instance která má být přidružena"
 
@@ -6531,6 +6547,9 @@ msgstr "Žádné svazky nejsou dostupné"
 
 msgid "Node Configurations"
 msgstr "Konfigurace uzlu"
+
+msgid "Node Group"
+msgstr "Skupina uzlu"
 
 #, python-format
 msgid "Node Group Template %s updated"
@@ -10343,6 +10362,9 @@ msgstr "Nelze získat dostupné hostitele"
 msgid "Unable to get user data."
 msgstr "Nelze získat data uživatele."
 
+msgid "Unable to get volume type list."
+msgstr "Nelze získat seznam typů svazku."
+
 msgid "Unable to import key pair."
 msgstr "Nelze importovat pár klíčů."
 
@@ -11867,6 +11889,9 @@ msgstr ""
 msgid "Volume is Unencrypted"
 msgstr "Svazek není zašifrován"
 
+msgid "Volume local to instance"
+msgstr "Svazek místní k instanci"
+
 msgid ""
 "Volume mount point (e.g. 'vda' mounts at '/dev/vda'). Leave this field blank "
 "to let the system choose a device name for you."
@@ -11931,6 +11956,9 @@ msgstr "Připojené svazky"
 msgid "Volumes Availability Zone"
 msgstr "Zóna dostupnosti svazků"
 
+msgid "Volumes local to instance"
+msgstr "Svazky místní k instanci"
+
 msgid "Volumes per node"
 msgstr "Svazky v uzlu"
 
@@ -11939,6 +11967,9 @@ msgstr "Velikost svazků"
 
 msgid "Volumes size (GB)"
 msgstr "Velikost svazků (GB)"
+
+msgid "Volumes type"
+msgstr "Typy svazků"
 
 msgid "Weight"
 msgstr "Váha"
