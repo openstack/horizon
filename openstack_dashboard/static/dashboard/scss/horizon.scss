@@ -985,22 +985,6 @@ tr.terminated {
   word-wrap: break-word;
 }
 
-.volume_boot_disclosure {
-  font-weight: bold;
-  color: $gray;
-  cursor: pointer;
-  background-image: url(../img/right_droparrow.png);
-  background-repeat: no-repeat;
-  background-position: 130px center;
-}
-
-.volume_boot_disclosure.on {
-  width: 334px;
-  margin-bottom: 10px;
-  border-bottom: solid 1px $border-color;
-  background-image: url(../img/drop_arrow.png);
-}
-
 .nav-tabs a {
   cursor: pointer;
 }
