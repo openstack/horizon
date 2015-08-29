@@ -99,11 +99,12 @@ class ImagesAndSnapshotsTests(test.TestCase):
         row_actions = snaps.get_row_actions(snaps.data[0])
 
         # first instance - status active, owned
-        self.assertEqual(len(row_actions), 4)
+        self.assertEqual(len(row_actions), 5)
         self.assertEqual(row_actions[0].verbose_name, u"Launch Instance")
         self.assertEqual(row_actions[1].verbose_name, u"Create Volume")
         self.assertEqual(row_actions[2].verbose_name, u"Edit Image")
-        self.assertEqual(row_actions[3].verbose_name, u"Delete Image")
+        self.assertEqual(row_actions[3].verbose_name, u"Update Metadata")
+        self.assertEqual(row_actions[4].verbose_name, u"Delete Image")
 
         row_actions = snaps.get_row_actions(snaps.data[1])
 
