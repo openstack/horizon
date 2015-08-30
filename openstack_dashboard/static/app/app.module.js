@@ -23,8 +23,10 @@
    */
   var libraryModules = [
     'gettext',
+    'lrDragNDrop',
     'ngCookies',
     'ngSanitize',
+    'smart-table',
     'ui.bootstrap'
   ];
 
