@@ -393,6 +393,7 @@ This example sorts flavors by vcpus in descending order::
          'reverse': True,
     }
 
+
 ``CUSTOM_THEME_PATH``
 ---------------------
 
@@ -400,21 +401,21 @@ This example sorts flavors by vcpus in descending order::
 
 Default: ``"themes/default"``
 
-This setting allows Horizon to use a custom theme. The theme folder
-should contain one _variables.scss file and one _styles.scss file.
-_variables.scss contains or must import all the bootstrap and horizon
-specific variables which are used to style the GUI. Whereas _styles.scss
-contains extra styling. For example themes, see:
-/horizon/openstack_dashboard/themes/
+This setting tells Horizon to use a directory as a custom theme.
 
-If the static theme folder also contains a sub-folder 'templates', then
-the path to that sub-folder will be prepended to TEMPLATE_DIRS tuple
-to allow for theme specific template customizations.
+By default, this directory will serve as the static root of the theme
+and the entire contents of the directory will be served up at
+``/static/custom``.  If you wish to include content other than static
+files in a theme directory, but do not wish that content to be served up,
+then you can create a sub directory named ``static``. If the theme folder
+contains a sub-directory with the name ``static``, then
+``static/custom/static``` will be used as the root for the content
+served at ``/static/custom``.
 
-If the theme folder (or its static folder) contain an 'img' directory,
-then all images contained within dashboard/img can be overridden by providing
-a file with the same name.  This makes it very easy to customize logo.png,
-logo-splash.png and favicon.ico.
+The static root of the theme folder must always contain a _variables.scss
+file and a _styles.scss file.  These must contain or import all the
+bootstrap and horizon specific variables and styles which are used to style
+the GUI. For example themes, see: /horizon/openstack_dashboard/themes/
 
 
 ``DEFAULT_THEME_PATH``
