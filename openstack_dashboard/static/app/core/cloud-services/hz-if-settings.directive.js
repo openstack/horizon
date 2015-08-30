@@ -19,7 +19,7 @@
 
   angular
     .module('horizon.app.core.cloud-services')
-    .directive('hzSettingsToggle', hzSettingsToggle);
+    .directive('hzIfSettings', hzSettingsToggle);
 
   hzSettingsToggle.$inject = [
     'hzPromiseToggleTemplateDirective',
@@ -28,7 +28,7 @@
 
   /**
    * @ngdoc directive
-   * @name horizon.app.core.cloud-services:directive:hzSettingsToggle
+   * @name horizon.app.core.cloud-services:directive:hzIfSettings
    * @module horizon.app.core.cloud-services
    * @description
    *
@@ -57,12 +57,12 @@
    * OPENSTACK_HYPERVISOR_FEATURES.can_set_mount_point
    * OPENSTACK_HYPERVISOR_FEATURES.can_set_password
    *
-   * The hz-settings-toggle attribute may be set to a single setting path
+   * The hz-if-settings attribute may be set to a single setting path
    * or an array of setting paths. All of the following are examples:
    *
-   * hz-settings-toggle='"SETTING_GROUP.my_setting_1"'
-   * hz-settings-toggle='["SETTING_GROUP.my_setting_1"]'
-   * hz-settings-toggle='["SETTING_GROUP.my_setting_1", "SETTING_GROUP.my_setting_2"]'
+   * hz-if-settings='"SETTING_GROUP.my_setting_1"'
+   * hz-if-settings='["SETTING_GROUP.my_setting_1"]'
+   * hz-if-settings='["SETTING_GROUP.my_setting_1", "SETTING_GROUP.my_setting_2"]'
    *
    * The desired setting must be listed in one of the two following locations
    * in settings.py or local_settings.py in order for it to be available
@@ -83,11 +83,11 @@
    * In the following example, if the
    * OPENSTACK_HYPERVISOR_FEATURES.can_set_mount_point
    * setting is set to false, then the div element with
-   * hz-settings-toggle and all of the elements inside of it will be removed
+   * hz-if-settings and all of the elements inside of it will be removed
    * and never evaluated by the angular compiler.
    *
    ```html
-   <div hz-settings-toggle='"OPENSTACK_HYPERVISOR_FEATURES.can_set_mount_point"'>
+   <div hz-if-settings='"OPENSTACK_HYPERVISOR_FEATURES.can_set_mount_point"'>
      <!-- ui code here -->
    </div>
    ```
@@ -97,7 +97,7 @@
         hzPromiseToggleTemplate[0],
         {
           singlePromiseResolver: settingsService.ifEnabled,
-          name: 'hzSettingsToggle'
+          name: 'hzIfSettings'
         }
     );
   }
