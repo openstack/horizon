@@ -1,0 +1,12 @@
+.d3_pie_chart_usage {
+  .arc {
+    stroke: $gray-light;
+    fill: $gray-lighter;
+  }
+}
+
+.d3_pie_chart_distribution {
+  .legend-group {
+    padding: 1px $padding-small-vertical;
+  }
+}
