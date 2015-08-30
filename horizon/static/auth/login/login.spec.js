@@ -19,37 +19,19 @@
 
   describe('hzLoginFinder', function() {
 
-    var $compile, $rootScope, $timeout;
+    var $compile, $rootScope, $timeout, webssoMarkup, regularMarkup;
 
-    var webssoMarkup =
-    '<form>' +
-      '<p id="help_text">Some help text.</p>' +
-      '<fieldset hz-login-finder>' +
-        '<div>' +
-          '<select id="id_auth_type">' +
-            '<option value="credentials">Credentials</option>' +
-            '<option value="oidc">OpenID Connect</option>' +
-          '</select>' +
-        '</div>' +
-        '<div class="form-group"><input id="id_username"></div>' +
-        '<div class="form-group"><input id="id_password"></div>' +
-      '</fieldset>' +
-    '</form>';
-
-    var regularMarkup =
-    '<form>' +
-      '<p id="help_text">Some help text.</p>' +
-      '<fieldset hz-login-finder>' +
-        '<div class="form-group"><input id="id_username"></div>' +
-        '<div class="form-group"><input id="id_password"></div>' +
-      '</fieldset>' +
-    '</form>';
-
+    beforeEach(module('templates'));
     beforeEach(module('horizon.auth.login'));
-    beforeEach(inject(function(_$compile_, _$rootScope_, _$timeout_) {
+    beforeEach(inject(function(_$compile_, _$rootScope_, _$timeout_, $injector) {
       $compile = _$compile_;
       $rootScope = _$rootScope_;
       $timeout = _$timeout_;
+      var $templateCache = $injector.get('$templateCache');
+      var basePath = $injector.get('horizon.auth.login.basePath');
+
+      webssoMarkup = $templateCache.get(basePath + 'login.websso.mock.html');
+      regularMarkup = $templateCache.get(basePath + 'login.regular.mock.html');
 
       jasmine.addMatchers({
         // jquery show is not consistent across different browsers
