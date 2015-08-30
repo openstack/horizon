@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-08-26 20:04+0000\n"
-"PO-Revision-Date: 2015-08-26 11:36+0000\n"
+"POT-Creation-Date: 2015-08-29 02:57+0000\n"
+"PO-Revision-Date: 2015-08-28 09:47+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Czech (http://www.transifex.com/openstack/horizon/language/"
 "cs/)\n"
@@ -162,6 +162,9 @@ msgstr "Automaticky"
 
 msgid "Availability Zone"
 msgstr "Zóna dostupnosti"
+
+msgid "Boot Source"
+msgstr "Zdroj zavedení"
 
 msgid "Cancel"
 msgstr "Zrušit"
@@ -343,7 +346,7 @@ msgstr ""
 "stejná jako zóna, ve které je umístěn zaveditelný svazek."
 
 msgid ""
-"If you want to create an instance that uses ephemeral storage, meaning the "
+"If you want to create an instance that uses ephemeral storage, meaning th "
 "instance data is lost when the instance is deleted, then choose one of the "
 "following boot sources:"
 msgstr ""
@@ -451,11 +454,11 @@ msgstr "Min Kapacita (GB)"
 msgid "Min Port"
 msgstr "Minimální port"
 
+msgid "Min RAM"
+msgstr "Min RAM"
+
 msgid "Min RAM (MB)"
 msgstr "Min RAM (MB)"
-
-msgid "Min Ram"
-msgstr "Minimální RAM"
 
 msgid "Modified"
 msgstr "Změněno"
@@ -608,9 +611,6 @@ msgstr ""
 
 msgid "Segmentation ID"
 msgstr "ID členění"
-
-msgid "Select Boot Source"
-msgstr "Vyberte zdroj zavedení"
 
 msgid "Select Source"
 msgstr "Vyberte zdroj"
@@ -850,8 +850,17 @@ msgstr "Nelze smazat uživatele."
 msgid "Unable to delete the users."
 msgstr "Nelze smazat uživatele."
 
+msgid "Unable to edit the aggregate extra specs."
+msgstr "Nelze upravit dodatečné specifikace agregátu."
+
 msgid "Unable to edit the domain."
 msgstr "Nelze upravit doménu."
+
+msgid "Unable to edit the flavor extra specs."
+msgstr "Nelze upravit dodatečné specifikace konfigurace."
+
+msgid "Unable to edit the image custom properties."
+msgstr "Nelze upravit přizpůsobené vlastnosti obrazu."
 
 msgid "Unable to edit the project."
 msgstr "Nelze upravit projekt."
@@ -877,6 +886,9 @@ msgstr "Nelze importovat pár klíčů."
 msgid "Unable to retrieve settings."
 msgstr "Nelze získat nastavení."
 
+msgid "Unable to retrieve the aggregate extra specs."
+msgstr "Nelze získat dodatečné specifikace agregátu."
+
 msgid "Unable to retrieve the availability zones."
 msgstr "Nelze získat zóny dostupnosti."
 
@@ -900,6 +912,9 @@ msgstr "Nelze získat konfiguraci."
 
 msgid "Unable to retrieve the flavors."
 msgstr "Nelze získat konfigurace."
+
+msgid "Unable to retrieve the image custom properties."
+msgstr "Nelze získat přizpůsobené vlastnosti obrazu."
 
 msgid "Unable to retrieve the image."
 msgstr "Nelze získat obraz."
@@ -954,6 +969,9 @@ msgstr "Nelze získat svazky snímků."
 
 msgid "Unable to retrieve the volumes."
 msgstr "Nelze získat svazky."
+
+msgid "Unable to validate the template."
+msgstr "Nelze ověřit šablonu."
 
 msgid "Up"
 msgstr "Otevřen"

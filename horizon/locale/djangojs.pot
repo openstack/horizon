@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-08-27 06:14+0000\n"
+"POT-Creation-Date: 2015-08-29 06:13+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -71,6 +71,10 @@ msgid ""
 "are missing information."
 msgstr ""
 
+#: static/framework/widgets/action-list/button-tooltip.row-warning.service.js:41
+msgid "Click here to expand the row and view the errors."
+msgstr ""
+
 #: static/framework/widgets/charts/charts.module.js:107
 msgid "Current Usage"
 msgstr ""
@@ -122,6 +126,7 @@ msgstr ""
 #: static/framework/widgets/magic-search/hz-magic-search-bar.spec.js:44
 #: static/framework/widgets/magic-search/magic-overrides.spec.js:59
 #: static/framework/widgets/magic-search/st-magic-search.spec.js:63
+#: static/framework/widgets/transfer-table/transfer-table.example.html:14
 msgid "Name"
 msgstr ""
 
@@ -258,8 +263,13 @@ msgstr ""
 msgid "Success"
 msgstr ""
 
-#: static/framework/widgets/transfer-table/transfer-table.controller.js:102
-msgid "Click here to expand the row and view the errors."
+#: static/framework/widgets/transfer-table/transfer-table.example.html:15
+msgid "description"
+msgstr ""
+
+#: static/framework/widgets/transfer-table/transfer-table.example.html:23
+#: static/framework/widgets/transfer-table/transfer-table.module.js:60
+msgid "No available items"
 msgstr ""
 
 #: static/framework/widgets/transfer-table/transfer-table.module.js:56
@@ -276,10 +286,6 @@ msgstr ""
 
 #: static/framework/widgets/transfer-table/transfer-table.module.js:59
 msgid "Select an item from Available items below"
-msgstr ""
-
-#: static/framework/widgets/transfer-table/transfer-table.module.js:60
-msgid "No available items"
 msgstr ""
 
 #: static/framework/widgets/transfer-table/transfer-table.module.js:61
@@ -320,7 +326,7 @@ msgid "No data available."
 msgstr ""
 
 #: static/horizon/js/horizon.d3linechart.js:411
-#: static/horizon/js/horizon.modals.js:337
+#: static/horizon/js/horizon.modals.js:340
 #: static/horizon/js/horizon.tables_inline_edit.js:92
 #: static/horizon/js/horizon.tables_inline_edit.js:155
 msgid "An error occurred. Please try again later."
@@ -368,17 +374,17 @@ msgstr ""
 msgid "Error: "
 msgstr ""
 
-#: static/horizon/js/horizon.modals.js:229
+#: static/horizon/js/horizon.modals.js:232
 #: static/horizon/js/horizon.tables.js:252
 msgid "Working"
 msgstr ""
 
-#: static/horizon/js/horizon.modals.js:266
+#: static/horizon/js/horizon.modals.js:269
 msgid "There was an error submitting the form. Please try again."
 msgstr ""
 
-#: static/horizon/js/horizon.modals.js:318
-#: static/horizon/js/horizon.modals.js:401 static/horizon/js/horizon.tabs.js:21
+#: static/horizon/js/horizon.modals.js:321
+#: static/horizon/js/horizon.modals.js:404 static/horizon/js/horizon.tabs.js:21
 msgid "Loading"
 msgstr ""
 

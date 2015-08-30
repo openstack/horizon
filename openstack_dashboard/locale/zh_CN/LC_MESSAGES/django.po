@@ -19,8 +19,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-08-22 19:10+0000\n"
-"PO-Revision-Date: 2015-08-22 15:28+0000\n"
+"POT-Creation-Date: 2015-08-29 02:57+0000\n"
+"PO-Revision-Date: 2015-08-28 11:21+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Chinese (China) (http://www.transifex.com/openstack/horizon/"
 "language/zh_CN/)\n"
@@ -3361,6 +3361,9 @@ msgstr "下载任务二进制文件"
 msgid "Download key pair &quot;%(keypair_name)s&quot;"
 msgstr "下载密钥对&quot;%(keypair_name)s&quot;"
 
+msgid "Duration"
+msgstr "存在时间"
+
 #, python-format
 msgid "Duration of instance type %s (openstack flavor)"
 msgstr "实例类型%s (openstack flavor)的持续时间"
@@ -3853,6 +3856,9 @@ msgstr "路由器\"%(router_id)s\"的外部网络\"%(ext_net_id)s\"没有找到�
 
 msgid "Extra Specs"
 msgstr "特别设定"
+
+msgid "Failed"
+msgstr "失败"
 
 msgctxt "Current status of a Database Backup"
 msgid "Failed"
@@ -6104,6 +6110,9 @@ msgstr "没有可用云硬盘。"
 
 msgid "Node Configurations"
 msgstr "节点配置"
+
+msgid "Node Group"
+msgstr "节点组"
 
 #, python-format
 msgid "Node Group Template %s updated"

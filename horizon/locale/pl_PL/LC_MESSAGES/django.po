@@ -4,13 +4,14 @@
 #
 # Translators:
 # Łukasz Jernaś <deejay1@srem.org>, 2015
+# Wiktor Jezioro <wikjezioro@op.pl>, 2015
 msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-08-04 04:10+0000\n"
-"PO-Revision-Date: 2015-06-15 15:01+0000\n"
-"Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
+"POT-Creation-Date: 2015-08-29 02:57+0000\n"
+"PO-Revision-Date: 2015-08-28 08:02+0000\n"
+"Last-Translator: Wiktor Jezioro <wikjezioro@op.pl>\n"
 "Language-Team: Polish (Poland) (http://www.transifex.com/openstack/horizon/"
 "language/pl_PL/)\n"
 "MIME-Version: 1.0\n"
@@ -106,6 +107,9 @@ msgstr "%s nie została zakończona."
 
 msgid "&laquo;&nbsp;Prev"
 msgstr "&laquo;&nbsp;Poprzednie"
+
+msgid "(No Limit)"
+msgstr "(Bez ograniczeń)"
 
 msgid "-"
 msgstr "-"

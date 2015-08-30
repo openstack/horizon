@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-08-26 20:04+0000\n"
-"PO-Revision-Date: 2015-08-26 11:36+0000\n"
+"POT-Creation-Date: 2015-08-29 02:57+0000\n"
+"PO-Revision-Date: 2015-08-28 09:47+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Korean (Korea) (http://www.transifex.com/openstack/horizon/"
 "language/ko_KR/)\n"
@@ -338,11 +338,11 @@ msgstr "최소 디스크 (GB)"
 msgid "Min Port"
 msgstr "최소 포트번호"
 
+msgid "Min RAM"
+msgstr "최소 RAM"
+
 msgid "Min RAM (MB)"
 msgstr "최소 RAM (MB)"
-
-msgid "Min Ram"
-msgstr "최소 램"
 
 msgid "Modified"
 msgstr "수정됨"
@@ -456,9 +456,6 @@ msgstr ""
 
 msgid "Segmentation ID"
 msgstr "구분 ID"
-
-msgid "Select Boot Source"
-msgstr "부팅 소스 선택"
 
 msgid "Select Source"
 msgstr "소스 선택"
