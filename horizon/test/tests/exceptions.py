@@ -38,3 +38,25 @@ class HandleTests(test.TestCase):
         # UnicodeEncodeError, but making sure the message is correct could be
         # useful as well.
         self.assertItemsEqual(req.horizon['async_messages'], [expected])
+
+    def test_handle_message_as_recoverable(self):
+        # tests that if a message is passed to handle that it is treated
+        # like a recoverable exception
+
+        message = u"Couldn't make the thing"
+        exc_msg = u"Exception string"
+        req = self.request
+        req.META['HTTP_X_REQUESTED_WITH'] = 'XMLHttpRequest'
+
+        try:
+            raise Exception(exc_msg)
+        except Exception:
+            exceptions.handle(req, message)
+
+        # async_messages is a list of tuples, so [0][1] is getting to the
+        # message part of the first message. There should be only one message
+        # in this test case.
+        self.assertIn(message, req.horizon['async_messages'][0][1])
+        # verifying that the exec message which in this case is not trusted
+        # is not in the message content
+        self.assertNotIn(exc_msg, req.horizon['async_messages'][0][1])
