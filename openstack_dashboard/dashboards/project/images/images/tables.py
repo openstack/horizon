@@ -60,22 +60,20 @@ class LaunchImage(tables.LinkAction):
 class LaunchImageNG(LaunchImage):
     name = "launch_image_ng"
     verbose_name = _("Launch")
+    url = "horizon:project:images:index"
     classes = ("btn-launch")
     ajax = False
 
-    def __init__(self,
-                 attrs={
-                     "ng-controller": "LaunchInstanceModalCtrl"
-                 },
-                 **kwargs):
+    def __init__(self, attrs=None, **kwargs):
         kwargs['preempt'] = True
         super(LaunchImage, self).__init__(attrs, **kwargs)
 
     def get_link_url(self, datum):
         imageId = self.table.get_object_id(datum)
-        clickValue = "openLaunchInstanceWizard({successUrl: " +\
-                     "'/project/images/', imageId: '%s'})" % (imageId)
-        self.attrs['ng-click'] = clickValue
+        url = reverse(self.url)
+        ngclick = "openLaunchInstanceWizard({successUrl: '%s', imageId: '%s'})"
+        self.attrs.update({"ng-controller": "LaunchInstanceModalCtrl",
+                           "ng-click": ngclick % (url, imageId)})
         return "javascript:void(0);"
 
 

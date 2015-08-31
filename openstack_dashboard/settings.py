@@ -315,6 +315,7 @@ POLICY_CHECK_FUNCTION = policy_backend.check
 
 # Add HORIZON_CONFIG to the context information for offline compression
 COMPRESS_OFFLINE_CONTEXT = {
+    'WEBROOT': WEBROOT,
     'STATIC_URL': STATIC_URL,
     'HORIZON_CONFIG': HORIZON_CONFIG,
 }

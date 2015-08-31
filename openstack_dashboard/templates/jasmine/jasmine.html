@@ -5,6 +5,10 @@
   <title>Jasmine Spec Runner</title>
   <link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}horizon/lib/jasmine/jasmine.css">
 
+  <script>
+    window.STATIC_URL = '/static/';
+    window.WEBROOT = '/';
+  </script>
   <script src="{% url 'horizon:jsi18n' 'horizon' %}"></script>
   <script src="{{ STATIC_URL }}horizon/lib/jasmine/jasmine.js"></script>
   <script src="{{ STATIC_URL }}horizon/lib/jasmine/jasmine-html.js"></script>

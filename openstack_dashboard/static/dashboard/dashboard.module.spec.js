@@ -24,10 +24,12 @@
 
   describe('hz.dashboard:constant:dashboardBasePath', function () {
     var dashboardBasePath;
+    var staticUrl;
 
     beforeEach(module('hz.dashboard'));
     beforeEach(inject(function ($injector) {
       dashboardBasePath = $injector.get('dashboardBasePath');
+      staticUrl = $injector.get('$window').STATIC_URL;
     }));
 
     it('should be defined', function () {
@@ -35,7 +37,7 @@
     });
 
     it('should equal to "/static/dashboard/"', function () {
-      expect(dashboardBasePath).toEqual('/static/dashboard/');
+      expect(dashboardBasePath).toEqual(staticUrl + 'dashboard/');
     });
   });
 

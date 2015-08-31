@@ -63,6 +63,7 @@
     'decodeFilter',
     'diskFormatFilter',
     'gbFilter',
+    '$window',
     LaunchInstanceSourceCtrl
   ]);
 
@@ -72,7 +73,8 @@
                                     dateFilter,
                                     decodeFilter,
                                     diskFormatFilter,
-                                    gbFilter) {
+                                    gbFilter,
+                                    $window) {
 
     $scope.label = {
       title: gettext('Instance Details'),
@@ -134,8 +136,8 @@
     $scope.tableData = {};
     $scope.helpText = {};
     $scope.maxInstanceCount = 1;
-    $scope.sourceDetails =
-        '/static/dashboard/launch-instance/source/source-details.html';
+    $scope.sourceDetails = $window.STATIC_URL +
+      'dashboard/launch-instance/source/source-details.html';
 
     var selection = $scope.selection = $scope.model.newInstanceSpec.source;
 

@@ -9,7 +9,10 @@
 
 {% comment %} Compress jQuery, Angular, Plugins, Bootstrap, Hogan.js and Horizon-specific JS. {% endcomment %}
 {% compress js %}
-<script type="text/javascript">var STATIC_URL = "{{ STATIC_URL }}";</script>
+<script type="text/javascript">
+  var STATIC_URL = "{{ STATIC_URL }}";
+  var WEBROOT = "{{ WEBROOT }}";
+</script>
 <script src='{{ STATIC_URL }}horizon/lib/angular/angular-cookies.js'></script>
 <script src='{{ STATIC_URL }}horizon/lib/angular/angular-sanitize.js'></script>
 <script src="{{ STATIC_URL }}horizon/lib/angular/lrdragndrop.js"></script>
