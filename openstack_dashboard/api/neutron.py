@@ -51,26 +51,22 @@ ROUTER_INTERFACE_OWNERS = (
 )
 
 
-def _init_apiresource(apiresource):
-    """Handle common initialization of apiresource.
-
-        Note: the dictionary is modified in place.
-    """
-
-    if apiresource['admin_state_up']:
-        apiresource['admin_state'] = 'UP'
-    else:
-        apiresource['admin_state'] = 'DOWN'
-
-    # Django cannot handle a key name with ':', so use '__'.
-    apiresource.update({
-        key.replace(':', '__'): value
-        for key, value in apiresource.items()
-        if ':' in key
-    })
-
-
 class NeutronAPIDictWrapper(base.APIDictWrapper):
+
+    def __init__(self, apidict):
+        if 'admin_state_up' in apidict:
+            if apidict['admin_state_up']:
+                apidict['admin_state'] = 'UP'
+            else:
+                apidict['admin_state'] = 'DOWN'
+
+        # Django cannot handle a key name with ':', so use '__'.
+        apidict.update({
+            key.replace(':', '__'): value
+            for key, value in apidict.items()
+            if ':' in key
+        })
+        super(NeutronAPIDictWrapper, self).__init__(apidict)
 
     def set_id_as_name_if_empty(self, length=8):
         try:
@@ -94,17 +90,9 @@ class NeutronAPIDictWrapper(base.APIDictWrapper):
 class Agent(NeutronAPIDictWrapper):
     """Wrapper for neutron agents."""
 
-    def __init__(self, apiresource):
-        _init_apiresource(apiresource)
-        super(Agent, self).__init__(apiresource)
-
 
 class Network(NeutronAPIDictWrapper):
     """Wrapper for neutron Networks."""
-
-    def __init__(self, apiresource):
-        _init_apiresource(apiresource)
-        super(Network, self).__init__(apiresource)
 
     def to_dict(self):
         d = dict(super(NeutronAPIDictWrapper, self).to_dict())
@@ -115,9 +103,9 @@ class Network(NeutronAPIDictWrapper):
 class Subnet(NeutronAPIDictWrapper):
     """Wrapper for neutron subnets."""
 
-    def __init__(self, apiresource):
-        apiresource['ipver_str'] = get_ipver_str(apiresource['ip_version'])
-        super(Subnet, self).__init__(apiresource)
+    def __init__(self, apidict):
+        apidict['ipver_str'] = get_ipver_str(apidict['ip_version'])
+        super(Subnet, self).__init__(apidict)
 
 
 class SubnetPool(NeutronAPIDictWrapper):
@@ -127,12 +115,11 @@ class SubnetPool(NeutronAPIDictWrapper):
 class Port(NeutronAPIDictWrapper):
     """Wrapper for neutron ports."""
 
-    def __init__(self, apiresource):
-        _init_apiresource(apiresource)
-        if 'mac_learning_enabled' in apiresource:
-            apiresource['mac_state'] = \
-                ON_STATE if apiresource['mac_learning_enabled'] else OFF_STATE
-        super(Port, self).__init__(apiresource)
+    def __init__(self, apidict):
+        if 'mac_learning_enabled' in apidict:
+            apidict['mac_state'] = \
+                ON_STATE if apidict['mac_learning_enabled'] else OFF_STATE
+        super(Port, self).__init__(apidict)
 
 
 class Profile(NeutronAPIDictWrapper):
@@ -140,16 +127,9 @@ class Profile(NeutronAPIDictWrapper):
     _attrs = ['profile_id', 'name', 'segment_type', 'segment_range',
               'sub_type', 'multicast_ip_index', 'multicast_ip_range']
 
-    def __init__(self, apiresource):
-        super(Profile, self).__init__(apiresource)
-
 
 class Router(NeutronAPIDictWrapper):
     """Wrapper for neutron routers."""
-
-    def __init__(self, apiresource):
-        _init_apiresource(apiresource)
-        super(Router, self).__init__(apiresource)
 
 
 class RouterStaticRoute(NeutronAPIDictWrapper):
