@@ -32,5 +32,9 @@
         speed:  0.8,
         trail:  50
       }
+    })
+    .value('horizon.framework.conf.toastOptions', {
+      'delay': 3000,
+      'dimissible': ['alert-success', 'alert-info']
     });
 })();

@@ -24,9 +24,7 @@
 
   describe('toast factory', function() {
 
-    var $compile,
-      $scope,
-      service;
+    var $compile, $scope, $timeout, service;
 
     var successMsg = "I am success.";
     var dangerMsg = "I am danger.";
@@ -38,6 +36,7 @@
       service = $injector.get('horizon.framework.widgets.toast.service');
       $scope = $injector.get('$rootScope').$new();
       $compile = $injector.get('$compile');
+      $timeout = $injector.get('$timeout');
     }));
 
     it('should create different toasts', function() {
@@ -50,6 +49,18 @@
       service.add('info', infoMsg);
       expect(service.get().length).toBe(3);
       expect(service.get()[2].msg).toBe(infoMsg);
+    });
+
+    it('should dismiss specific toasts after a delay', function() {
+      service.add('danger', dangerMsg);
+      service.add('success', successMsg);
+      service.add('info', infoMsg);
+      expect(service.get().length).toBe(3);
+
+      $timeout.flush();
+
+      expect(service.get().length).toBe(1);
+      expect(service.get()[0].type).toBe('danger');
     });
 
     it('should provide a function to clear all toasts', function() {

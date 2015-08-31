@@ -37,6 +37,7 @@
 
     beforeEach(module('horizon.framework.util.http'));
     beforeEach(module('horizon.framework.util.i18n'));
+    beforeEach(module('horizon.framework.conf'));
     beforeEach(module('horizon.framework.widgets.toast'));
     beforeEach(module('horizon.app.core.openstack-service-api'));
 
