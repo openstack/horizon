@@ -367,6 +367,7 @@ class VolumesTableBase(tables.DataTable):
         ("creating", None),
         ("error", False),
         ("error_extending", False),
+        ("maintenance", False),
     )
     STATUS_DISPLAY_CHOICES = (
         ("available", pgettext_lazy("Current status of a Volume",
@@ -393,6 +394,8 @@ class VolumesTableBase(tables.DataTable):
                                            u"Restoring Backup")),
         ("error_restoring", pgettext_lazy("Current status of a Volume",
                                           u"Error Restoring")),
+        ("maintenance", pgettext_lazy("Current status of a Volume",
+                                      u"Maintenance")),
     )
     name = tables.Column("name",
                          verbose_name=_("Name"),
