@@ -26,12 +26,10 @@ from horizon.utils import memoized
 from openstack_dashboard import api
 from openstack_dashboard.dashboards.admin.volumes.volume_types \
     import forms as volume_types_forms
-from openstack_dashboard.dashboards.admin.volumes.volumes \
-    import forms as volumes_forms
 
 
 class CreateVolumeTypeView(forms.ModalFormView):
-    form_class = volumes_forms.CreateVolumeType
+    form_class = volume_types_forms.CreateVolumeType
     modal_header = _("Create Volume Type")
     modal_id = "create_volume_type_modal"
     template_name = 'admin/volumes/volume_types/create_volume_type.html'
@@ -150,7 +148,7 @@ class EditVolumeTypeView(forms.ModalFormView):
 
 
 class CreateQosSpecView(forms.ModalFormView):
-    form_class = volumes_forms.CreateQosSpec
+    form_class = volume_types_forms.CreateQosSpec
     modal_header = _("Create QoS Spec")
     modal_id = "create_volume_type_modal"
     template_name = 'admin/volumes/volume_types/create_qos_spec.html'
