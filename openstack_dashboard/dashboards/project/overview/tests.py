@@ -17,7 +17,10 @@
 #    under the License.
 
 import datetime
+import logging
 
+from django.conf import settings
+from django.contrib.auth import REDIRECT_FIELD_NAME  # noqa
 from django.core.urlresolvers import reverse
 from django import http
 from django.utils import timezone
@@ -140,18 +143,32 @@ class UsageViewTests(test.TestCase):
 
         self._common_assertions(nova_stu_enabled, maxTotalFloatingIps=10)
 
+    @test.create_stubs({api.nova: ('usage_get',
+                                   'extension_supported')})
+    def _stub_nova_api_calls_unauthorized(self, exception):
+        api.nova.extension_supported(
+            'SimpleTenantUsage', IsA(http.HttpRequest)) \
+            .AndReturn(True)
+        self._nova_stu_enabled(exception)
+
     def test_unauthorized(self):
-        self._stub_nova_api_calls(
-            stu_exception=self.exceptions.nova_unauthorized)
-        self._stub_neutron_api_calls()
-        self._stub_cinder_api_calls()
+        self._stub_nova_api_calls_unauthorized(
+            self.exceptions.nova_unauthorized)
         self.mox.ReplayAll()
 
         url = reverse('horizon:project:overview:index')
+
+        # Avoid the log message in the test
+        # when unauthorized exception will be logged
+        logging.disable(logging.ERROR)
         res = self.client.get(url)
-        self.assertTemplateUsed(res, 'project/overview/usage.html')
-        self.assertMessageCount(res, error=1)
-        self.assertContains(res, 'Unauthorized:')
+        logging.disable(logging.NOTSET)
+
+        self.assertEqual(302, res.status_code)
+        self.assertEqual(('Location', settings.TESTSERVER +
+                          settings.LOGIN_URL + '?' +
+                          REDIRECT_FIELD_NAME + '=' + url),
+                         res._headers.get('location', None),)
 
     def test_usage_csv(self):
         self._test_usage_csv(nova_stu_enabled=True)
