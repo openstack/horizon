@@ -11,8 +11,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-08-29 02:57+0000\n"
-"PO-Revision-Date: 2015-08-28 16:43+0000\n"
+"POT-Creation-Date: 2015-09-01 03:11+0000\n"
+"PO-Revision-Date: 2015-08-30 13:32+0000\n"
 "Last-Translator: Ettore Atalan <atalanttore@googlemail.com>\n"
 "Language-Team: German (http://www.transifex.com/openstack/horizon/language/"
 "de/)\n"
@@ -433,6 +433,9 @@ msgstr "Min RAM"
 msgid "Min RAM (MB)"
 msgstr "Min RAM (MB)"
 
+msgid "Min Ram"
+msgstr "Min RAM"
+
 msgid "Modified"
 msgstr "Geändert"
 
@@ -499,6 +502,13 @@ msgstr "Projekt"
 msgid "Project ID"
 msgstr "Projekt-ID"
 
+msgid ""
+"Project networks are created by users.\n"
+"    These networks are fully isolated and are project-specific."
+msgstr ""
+"Projektnetzwerke werden von Benutzern angelegt.\n"
+"Diese Netzwerke sind vollständig isoliert und projektspezifisch."
+
 msgid "Protected"
 msgstr "Geschützt"
 
@@ -507,6 +517,14 @@ msgstr "Protokoll"
 
 msgid "Provider Network"
 msgstr "Anbieternetzwerk"
+
+msgid ""
+"Provider networks are created by administrators.\n"
+"    These networks map to an existing physical network in the data center."
+msgstr ""
+"Anbieternetzwerke werden von den Administratoren erstellt.\n"
+"Diese Netzwerke werden auf vorhandenen physikalischen Netzwerken im "
+"Rechenzentrum abgebildet."
 
 msgid "Public"
 msgstr "Öffentlich"
@@ -573,6 +591,9 @@ msgstr ""
 
 msgid "Segmentation ID"
 msgstr "Segmentierungskennung"
+
+msgid "Select Boot Source"
+msgstr "Boot-Quelle auswählen"
 
 msgid "Select Source"
 msgstr "Quelle auswählen"
@@ -806,6 +827,12 @@ msgstr "Die Benutzer können nicht gelöscht werden."
 msgid "Unable to edit the domain."
 msgstr "Die Domäne kann nicht bearbeitet werden."
 
+msgid "Unable to edit the flavor extra specs."
+msgstr "Extraspezifikationen zur Variante können nicht bearbeitet werden."
+
+msgid "Unable to edit the image custom properties."
+msgstr "Die Abbildanpassungseigenschaften können nicht bearbeitet werden."
+
 msgid "Unable to edit the project."
 msgstr "Das Projekt kann nicht bearbeitet werden."
 
@@ -853,6 +880,9 @@ msgstr "Die Variante kann nicht abgerufen werden."
 
 msgid "Unable to retrieve the flavors."
 msgstr "Die Varianten können nicht abgerufen werden."
+
+msgid "Unable to retrieve the image custom properties."
+msgstr "Die Abbildanpassungseigenschaften können nicht abgerufen werden."
 
 msgid "Unable to retrieve the image."
 msgstr "Das Abbild konnte nicht abgerufen werden."
@@ -907,6 +937,9 @@ msgstr "Datenträger-Schattenkopien können nicht abgerufen werden."
 
 msgid "Unable to retrieve the volumes."
 msgstr "Die Datenträger können nicht abgerufen werden."
+
+msgid "Unable to validate the template."
+msgstr "Vorlage kann nicht validiert werden."
 
 msgid "Up"
 msgstr "Hoch"

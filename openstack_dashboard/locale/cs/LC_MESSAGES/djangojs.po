@@ -8,9 +8,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-08-29 02:57+0000\n"
-"PO-Revision-Date: 2015-08-28 09:47+0000\n"
-"Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
+"POT-Creation-Date: 2015-09-01 03:11+0000\n"
+"PO-Revision-Date: 2015-08-30 04:51+0000\n"
+"Last-Translator: Zbyněk Schwarz <zbynek.schwarz@gmail.com>\n"
 "Language-Team: Czech (http://www.transifex.com/openstack/horizon/language/"
 "cs/)\n"
 "MIME-Version: 1.0\n"
@@ -280,6 +280,9 @@ msgstr "Efemérní disk"
 msgid "Ether Type"
 msgstr "Typ ethernetu"
 
+msgid "Event log is not available."
+msgstr "Záznam události není dostupný."
+
 #, python-format
 msgid "Extension is not enabled: %(extension)s."
 msgstr "Rozšíření není povoleno: %(extension)s."
@@ -460,6 +463,9 @@ msgstr "Min RAM"
 msgid "Min RAM (MB)"
 msgstr "Min RAM (MB)"
 
+msgid "Min Ram"
+msgstr "Minimální RAM"
+
 msgid "Modified"
 msgstr "Změněno"
 
@@ -612,6 +618,9 @@ msgstr ""
 msgid "Segmentation ID"
 msgstr "ID členění"
 
+msgid "Select Boot Source"
+msgstr "Vyberte zdroj zavedení"
+
 msgid "Select Source"
 msgstr "Vyberte zdroj"
 
@@ -656,6 +665,9 @@ msgstr "Nastavení není povoleno: %(setting)s"
 
 msgid "Shared"
 msgstr "Sdíleno"
+
+msgid "Show events"
+msgstr "Zobrazit události"
 
 msgid "Size"
 msgstr "Velikost"
@@ -732,6 +744,9 @@ msgstr ""
 
 msgid "The status indicates whether the network has an active connection."
 msgstr "Stav udává, zda síť má aktivní připojení."
+
+msgid "The step has completed successfully. No events to display."
+msgstr "Krok byl úspěšně dokončen. Žádné události k zobrazení."
 
 msgid ""
 "The subnet identifies a sub-section of a network. A subnet is specified in "

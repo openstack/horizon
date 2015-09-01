@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-08-29 02:57+0000\n"
-"PO-Revision-Date: 2015-08-28 09:47+0000\n"
+"POT-Creation-Date: 2015-09-01 03:11+0000\n"
+"PO-Revision-Date: 2015-08-30 00:10+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Chinese (China) (http://www.transifex.com/openstack/horizon/"
 "language/zh_CN/)\n"
@@ -387,6 +387,9 @@ msgstr "最小内存"
 msgid "Min RAM (MB)"
 msgstr "最小内存 (MB)"
 
+msgid "Min Ram"
+msgstr "最小内存"
+
 msgid "Modified"
 msgstr "修改"
 
@@ -518,6 +521,9 @@ msgstr ""
 
 msgid "Segmentation ID"
 msgstr "段ID"
+
+msgid "Select Boot Source"
+msgstr "选择源"
 
 msgid "Select Source"
 msgstr "选择源"
