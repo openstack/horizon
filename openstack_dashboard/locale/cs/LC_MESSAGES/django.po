@@ -8,9 +8,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-08-29 02:57+0000\n"
-"PO-Revision-Date: 2015-08-28 11:21+0000\n"
-"Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
+"POT-Creation-Date: 2015-09-01 03:11+0000\n"
+"PO-Revision-Date: 2015-08-30 04:51+0000\n"
+"Last-Translator: Zbyněk Schwarz <zbynek.schwarz@gmail.com>\n"
 "Language-Team: Czech (http://www.transifex.com/openstack/horizon/language/"
 "cs/)\n"
 "MIME-Version: 1.0\n"
@@ -1816,6 +1816,9 @@ msgstr "Průvodce vytvořením clusteru"
 msgid "Cluster Details"
 msgstr "Podrobnosti clusteru"
 
+msgid "Cluster Events"
+msgstr "Události clusteru"
+
 msgid "Cluster Guide"
 msgstr "Průvodce clusterem"
 
@@ -1854,6 +1857,9 @@ msgstr "Cluster může být spuštěn pomocí existujících šablon clusteru."
 msgid "Cluster configurations are not specified"
 msgstr "Konfigurace clusteru není zadána"
 
+msgid "Cluster provision steps"
+msgstr "Kroky k poskytnutí clusteru"
+
 msgid "Cluster template creation failed"
 msgstr "Vytvoření šablony clusteru selhalo"
 
@@ -1881,6 +1887,9 @@ msgstr "Čárkou oddělené páry klíč=hodnota"
 msgctxt "Current status of a Database Backup"
 msgid "Completed"
 msgstr "Dokončené"
+
+msgid "Completed Successfully"
+msgstr "Úspěšně dokončeno"
 
 msgid "Component"
 msgstr "Součásti"
@@ -3668,6 +3677,9 @@ msgstr "Stáhnout binární soubor úkolu"
 msgid "Download key pair &quot;%(keypair_name)s&quot;"
 msgstr "Stáhnout pár klíče &quot;%(keypair_name)s&quot;"
 
+msgid "Duration"
+msgstr "Doba trvání"
+
 #, python-format
 msgid "Duration of instance type %s (openstack flavor)"
 msgstr "Trvání typu instance %s (konfigurace openstack)"
@@ -4087,6 +4099,9 @@ msgid ""
 "Evacuate the servers from the selected down host to an active target host."
 msgstr ""
 "Přesídlit servery ze zvoleného hostitele na aktivního cílového hostitele."
+
+msgid "Event time"
+msgstr "Čas události"
 
 msgid "Events"
 msgstr "Události"
@@ -5229,6 +5244,9 @@ msgid ""
 msgstr ""
 "Dále můžete, zaškrtnutím odpovídajícího políčka, vytvořit vnější nebo "
 "sdílenou síť."
+
+msgid "In progress"
+msgstr "Probíhá"
 
 msgctxt "Current status of a Volume"
 msgid "In-use"
@@ -6441,6 +6459,9 @@ msgstr "Žádné obrazy nejsou dostupné"
 msgid "No images available."
 msgstr "Žádné obrazy nejsou dostupné."
 
+msgid "No info available"
+msgstr "Nejsou dostupné žádné informace"
+
 msgid "No input was provided for the namespace content."
 msgstr "Nebyl zadán žádná vstup pro obsah jmenného prostoru."
 
@@ -7191,6 +7212,9 @@ msgstr "Procesy které budou spuštěny ve skupině uzlu"
 
 msgid "Profile"
 msgstr "Profil"
+
+msgid "Progress"
+msgstr "Probíhá"
 
 msgid "Project"
 msgstr "Projekt"
@@ -8887,6 +8911,9 @@ msgstr[0] "Instance spuštěna"
 msgstr[1] "Instance spuštěny"
 msgstr[2] "Instance spuštěny"
 
+msgid "Started at"
+msgstr "Zahájeno v"
+
 #, python-format
 msgid "Starting evacuation from %(current)s to %(target)s."
 msgstr "Zahájeno vyklizení z %(current)s do %(target)s."
@@ -8919,6 +8946,9 @@ msgstr "Stav ="
 msgid "Status Reason"
 msgstr "Důvod stavu"
 
+msgid "Step Description"
+msgstr "Popis kroku"
+
 msgctxt "Action log of an instance"
 msgid "Stop"
 msgstr "Zastavit"
@@ -8928,6 +8958,9 @@ msgstr "Umístění úložiště"
 
 msgid "Storage type"
 msgstr "Typ úložiště"
+
+msgid "Storm"
+msgstr "Storm"
 
 msgid "Streaming MapReduce"
 msgstr "Streamování Mapreduce"

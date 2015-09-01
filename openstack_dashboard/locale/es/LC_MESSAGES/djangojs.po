@@ -10,8 +10,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-08-29 02:57+0000\n"
-"PO-Revision-Date: 2015-08-28 09:47+0000\n"
+"POT-Creation-Date: 2015-09-01 03:11+0000\n"
+"PO-Revision-Date: 2015-08-30 00:10+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Spanish (http://www.transifex.com/openstack/horizon/language/"
 "es/)\n"
@@ -416,6 +416,9 @@ msgstr "Puerto mínimo"
 msgid "Min RAM"
 msgstr "RAM mínima"
 
+msgid "Min Ram"
+msgstr "RAM mínima"
+
 msgid "Modified"
 msgstr "Modificado"
 
@@ -554,6 +557,9 @@ msgstr ""
 
 msgid "Segmentation ID"
 msgstr "ID de Segmentación"
+
+msgid "Select Boot Source"
+msgstr "Seleccionar Origen de arranque"
 
 msgid "Select Source"
 msgstr "Seleccionar Origen"

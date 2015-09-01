@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-08-29 02:57+0000\n"
-"PO-Revision-Date: 2015-08-28 09:47+0000\n"
+"POT-Creation-Date: 2015-09-01 03:11+0000\n"
+"PO-Revision-Date: 2015-08-30 00:10+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Turkish (Turkey) (http://www.transifex.com/openstack/horizon/"
 "language/tr_TR/)\n"
@@ -414,6 +414,9 @@ msgstr "Asgari RAM"
 msgid "Min RAM (MB)"
 msgstr "Minimum RAM (MB)"
 
+msgid "Min Ram"
+msgstr "En az Bellek"
+
 msgid "Modified"
 msgstr "Değiştirilmiş"
 
@@ -548,6 +551,9 @@ msgstr ""
 
 msgid "Segmentation ID"
 msgstr "Bölünme ID'si"
+
+msgid "Select Boot Source"
+msgstr "Yükleme Kaynağını Seçin"
 
 msgid "Select Source"
 msgstr "Kaynağı Seç"

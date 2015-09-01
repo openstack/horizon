@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-08-29 06:13+0000\n"
+"POT-Creation-Date: 2015-09-01 06:14+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -93,24 +93,24 @@ msgstr ""
 msgid "Insufficient privilege level to view user information."
 msgstr ""
 
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/launch-instance-model.js:374
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:79
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/launch-instance-model.js:392
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:102
 #: static/app/core/images/filters/image-type.filter.js:41
 msgid "Image"
 msgstr ""
 
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/launch-instance-model.js:385
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:80
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/launch-instance-model.js:403
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:103
 msgid "Instance Snapshot"
 msgstr ""
 
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/launch-instance-model.js:393
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:81
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/launch-instance-model.js:411
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:104
 msgid "Volume"
 msgstr ""
 
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/launch-instance-model.js:397
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:82
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/launch-instance-model.js:415
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:105
 msgid "Volume Snapshot"
 msgstr ""
 
@@ -236,7 +236,7 @@ msgid "Manual"
 msgstr ""
 
 #: dashboards/project/static/dashboard/project/workflow/launch-instance/flavor/flavor.controller.js:40
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:212
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:235
 msgid "Total Instances"
 msgstr ""
 
@@ -311,10 +311,10 @@ msgstr ""
 #: dashboards/project/static/dashboard/project/workflow/launch-instance/keypair/keypair.controller.js:48
 #: dashboards/project/static/dashboard/project/workflow/launch-instance/security-groups/security-groups.html:19
 #: dashboards/project/static/dashboard/project/workflow/launch-instance/security-groups/security-groups.html:72
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:129
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:136
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:143
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:150
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:152
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:159
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:166
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:173
 msgid "Name"
 msgstr ""
 
@@ -340,7 +340,7 @@ msgid "Ephemeral Disk"
 msgstr ""
 
 #: dashboards/project/static/dashboard/project/workflow/launch-instance/flavor/select-flavor-table.html:35
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:159
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:182
 #: static/app/core/images/table/images-table.html:38
 #: static/app/core/images/table/images-table.html:93
 msgid "Public"
@@ -388,8 +388,8 @@ msgstr ""
 msgid "Import Key Pair Help"
 msgstr ""
 
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/keypair/import-keypair-help.controller.js:40
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/keypair/keypair-help.controller.js:37
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/keypair/import-keypair-help.controller.js:43
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/keypair/keypair-help.controller.js:43
 #, python-format
 msgid ""
 "There are two ways to generate a key pair. From a Linux system, generate "
@@ -397,15 +397,15 @@ msgid ""
 msgstr ""
 
 #: dashboards/project/static/dashboard/project/workflow/launch-instance/keypair/import-keypair-help.controller.js:44
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/keypair/keypair-help.controller.js:44
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/keypair/keypair-help.controller.js:45
 #, python-format
 msgid ""
 "This command generates a pair of keys: a private key (%(privateKeyPath)s)"
 " and a public key (%(publicKeyPath)s)."
 msgstr ""
 
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/keypair/import-keypair-help.controller.js:48
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/keypair/keypair-help.controller.js:48
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/keypair/import-keypair-help.controller.js:45
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/keypair/keypair-help.controller.js:47
 #, python-format
 msgid ""
 "From a Windows system, you can use PuTTYGen to create private/public "
@@ -442,7 +442,7 @@ msgstr ""
 msgid "Key Pair Help"
 msgstr ""
 
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/keypair/keypair-help.controller.js:52
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/keypair/keypair-help.controller.js:51
 msgid "The key pair allows you to SSH into the instance."
 msgstr ""
 
@@ -456,8 +456,8 @@ msgstr ""
 #: dashboards/project/static/dashboard/project/workflow/launch-instance/keypair/keypair.controller.js:49
 #: dashboards/project/static/dashboard/project/workflow/launch-instance/security-groups/security-groups.html:20
 #: dashboards/project/static/dashboard/project/workflow/launch-instance/security-groups/security-groups.html:73
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:144
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:151
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:167
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:174
 msgid "Description"
 msgstr ""
 
@@ -613,7 +613,7 @@ msgstr ""
 
 #: dashboards/project/static/dashboard/project/workflow/launch-instance/network/network.html:27
 #: dashboards/project/static/dashboard/project/workflow/launch-instance/network/network.html:114
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:154
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:177
 #: static/app/core/images/table/images-table.html:37
 msgid "Status"
 msgstr ""
@@ -633,6 +633,7 @@ msgstr ""
 
 #: dashboards/project/static/dashboard/project/workflow/launch-instance/network/network.html:70
 #: dashboards/project/static/dashboard/project/workflow/launch-instance/network/network.html:157
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:77
 msgid "ID"
 msgstr ""
 
@@ -653,9 +654,9 @@ msgstr ""
 
 #: dashboards/project/static/dashboard/project/workflow/launch-instance/network/network.html:80
 #: dashboards/project/static/dashboard/project/workflow/launch-instance/network/network.html:167
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:132
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:139
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:146
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:155
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:162
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:169
 #: static/app/core/images/table/images-table.html:36
 msgid "Type"
 msgstr ""
@@ -741,6 +742,7 @@ msgid "Select the security groups."
 msgstr ""
 
 #: dashboards/project/static/dashboard/project/workflow/launch-instance/source/source-details.html:7
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:79
 msgid "Min Disk"
 msgstr ""
 
@@ -749,83 +751,151 @@ msgid "Min RAM"
 msgstr ""
 
 #: dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:61
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.help.html:5
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.html:2
+msgid "Instance Details"
+msgstr ""
+
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:63
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.html:6
+msgid ""
+"Please provide the initial host name for the instance, the availability "
+"zone where it will be deployed, and the instance count. Increase the "
+"Count to create multiple instances with the same settings."
+msgstr ""
+
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:65
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.html:16
+msgid "Instance Name"
+msgstr ""
+
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:66
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:170
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.html:29
+msgid "Availability Zone"
+msgstr ""
+
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:67
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.html:40
+msgid "Count"
+msgstr ""
+
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:68
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.help.html:11
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.html:69
+msgid "Instance Source"
+msgstr ""
+
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:70
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.html:70
+msgid ""
+"Instance source is the template used to create an instance. You can use a"
+" snapshot of an existing instance, an image, or a volume (if enabled). "
+"You can also choose to use persistent storage by creating a new volume."
+msgstr ""
+
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:72
+msgid "Select Boot Source"
+msgstr ""
+
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:73
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.html:127
+msgid "Size (GB)"
+msgstr ""
+
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:74
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.html:100
+msgid "Create New Volume"
+msgstr ""
+
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:75
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.html:116
+msgid "Device Name"
+msgstr ""
+
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:76
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.html:144
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.html:163
+msgid "Delete Volume on Terminate"
+msgstr ""
+
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:78
+msgid "Min Ram"
+msgstr ""
+
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:84
 msgid ""
 "Volumes can only be attached to 1 active instance at a time. Please "
 "either set your instance count to 1 or select a different source type."
 msgstr ""
 
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:63
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:86
 msgid "A name is required for your instance."
 msgstr ""
 
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:64
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:87
 msgid "Instance count is required and must be an integer of at least 1"
 msgstr ""
 
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:67
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:90
 msgid "Volume size is required and must be an integer"
 msgstr ""
 
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:71
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:94
 msgid "Yes"
 msgstr ""
 
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:72
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:95
 msgid "No"
 msgstr ""
 
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:130
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:137
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:153
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:160
 msgid "Updated"
 msgstr ""
 
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:131
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:138
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:145
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:152
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:154
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:161
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:168
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:175
 #: static/app/core/images/table/images-table.html:41
 #: static/app/core/images/table/images-table.html:105
 msgid "Size"
 msgstr ""
 
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:133
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:140
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:156
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:163
 msgid "Visibility"
 msgstr ""
 
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:147
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.html:29
-msgid "Availability Zone"
-msgstr ""
-
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:153
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:176
 msgid "Created"
 msgstr ""
 
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:159
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:182
 msgid "Private"
 msgstr ""
 
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:346
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:369
 msgid "Select a source from those listed below."
 msgstr ""
 
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:347
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:370
 msgid "Select one"
 msgstr ""
 
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:349
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:372
 msgid ""
 "When selecting volume as boot source, please ensure the instance's "
 "availability zone is compatible with your volume's availability zone."
 msgstr ""
 
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:403
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:426
 #, python-format
 msgid "The volume size must be at least %(minVolumeSize)s GB"
 msgstr ""
 
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:415
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:438
 #, python-format
 msgid ""
 "The instance count must not exceed your quota available of "
@@ -834,11 +904,6 @@ msgstr ""
 
 #: dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.help.html:3
 msgid "Select Source Help"
-msgstr ""
-
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.help.html:5
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.html:2
-msgid "Instance Details"
 msgstr ""
 
 #: dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.help.html:7
@@ -852,11 +917,6 @@ msgid ""
 "If you select an availability zone and plan to use the boot from volume "
 "option, make sure that the availability zone you select for the instance "
 "is the same availability zone where your bootable volume resides."
-msgstr ""
-
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.help.html:11
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.html:69
-msgid "Instance Source"
 msgstr ""
 
 #: dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.help.html:13
@@ -906,47 +966,8 @@ msgid ""
 "choose to delete the volume on termination of the instance.</li>"
 msgstr ""
 
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.html:6
-msgid ""
-"Please provide the initial host name for the instance, the availability "
-"zone where it will be deployed, and the instance count. Increase the "
-"Count to create multiple instances with the same settings."
-msgstr ""
-
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.html:16
-msgid "Instance Name"
-msgstr ""
-
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.html:40
-msgid "Count"
-msgstr ""
-
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.html:70
-msgid ""
-"Instance source is the template used to create an instance. You can use a"
-" snapshot of an existing instance, an image, or a volume (if enabled). "
-"You can also choose to use persistent storage by creating a new volume."
-msgstr ""
-
 #: dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.html:79
 msgid "Boot Source"
-msgstr ""
-
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.html:100
-msgid "Create New Volume"
-msgstr ""
-
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.html:116
-msgid "Device Name"
-msgstr ""
-
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.html:127
-msgid "Size (GB)"
-msgstr ""
-
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.html:144
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.html:163
-msgid "Delete Volume on Terminate"
 msgstr ""
 
 #: static/app/core/images/filters/image-status.filter.js:36

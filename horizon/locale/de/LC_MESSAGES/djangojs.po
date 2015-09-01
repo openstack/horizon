@@ -10,8 +10,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-08-21 01:46+0000\n"
-"PO-Revision-Date: 2015-08-20 12:55+0000\n"
+"POT-Creation-Date: 2015-09-01 03:11+0000\n"
+"PO-Revision-Date: 2015-08-30 13:03+0000\n"
 "Last-Translator: Ettore Atalan <atalanttore@googlemail.com>\n"
 "Language-Team: German (http://www.transifex.com/openstack/horizon/language/"
 "de/)\n"
@@ -76,7 +76,7 @@ msgid "Click here to expand the row and view the errors."
 msgstr "Klicken Sie hier um die Zeile zu erweitern und die Fehler zu sehen."
 
 msgid "Click to see more details"
-msgstr "Klicken um mehr Details zu sehen"
+msgstr "Klicken, um mehr Details zu sehen"
 
 msgid "Click to show or hide"
 msgstr "Klicken zum zeigen oder verbergen"
@@ -85,14 +85,14 @@ msgid "Closed"
 msgstr "Geschlossen"
 
 msgid "Closing"
-msgstr "Schließen"
+msgstr "Schließvorgang"
 
 #, python-format
 msgid "Confirm %s"
 msgstr "%s bestätigen"
 
 msgid "Connecting"
-msgstr "Verbinde"
+msgstr "Verbindungsaufbau"
 
 msgid "Could not decrypt the password"
 msgstr "Das Passwort konnte nicht entschlüsselt werden"
@@ -104,7 +104,7 @@ msgid "Current Usage"
 msgstr "Aktuelle Verwendung"
 
 msgid "Custom"
-msgstr "Angepasst"
+msgstr "Anpassen"
 
 msgid "Danger"
 msgstr "Gefahr"
@@ -125,13 +125,17 @@ msgid "Delete Router"
 msgstr "Router löschen"
 
 msgid "Detail Information"
-msgstr "Detail-Informationen"
+msgstr "Detailinformationen"
 
 #, python-format
 msgid "Displaying %s item"
 msgid_plural "Displaying %s items"
-msgstr[0] "Zeige %s Eintrag"
-msgstr[1] "Zeige %s Einträge"
+msgstr[0] "%s Eintrag wird angezeigt"
+msgstr[1] "%s Einträge werden angezeigt"
+
+#, python-format
+msgid "Displaying %s of %s items"
+msgstr "%s von %s Einträgen werden angezeigt"
 
 msgid "Duplicate keys are not allowed"
 msgstr "Doppelte Schlüssel sind nicht erlaubt"
@@ -161,7 +165,7 @@ msgid "Flavor"
 msgstr "Variante"
 
 msgid "ID"
-msgstr "ID"
+msgstr "KENNUNG"
 
 msgid "Info"
 msgstr "Info"
@@ -173,7 +177,7 @@ msgid "Interfaces"
 msgstr "Schnittstellen"
 
 msgid "Loading"
-msgstr "Lade"
+msgstr "Ladevorgang"
 
 msgid "Max"
 msgstr "Max"
@@ -197,7 +201,7 @@ msgid "No"
 msgstr "Nein"
 
 msgid "No available items"
-msgstr "Keine verfügbaren Positionen"
+msgstr "Keine verfügbaren Einträge"
 
 msgid "No available metadata"
 msgstr "Keine Metadaten vorhanden"
@@ -206,13 +210,13 @@ msgid "No data available."
 msgstr "Keine Daten verfügbar."
 
 msgid "No description available."
-msgstr "Keine Beschreigung verfügbar."
+msgstr "Keine Beschreibung verfügbar."
 
 msgid "No existing metadata"
 msgstr "Keine existierenden Metadaten"
 
 msgid "No items to display."
-msgstr "Kein Eintrag zum anzeigen."
+msgstr "Keine Einträge zum Anzeigen."
 
 msgid "No roles"
 msgstr "Keine Rollen"
@@ -233,7 +237,7 @@ msgid "Open Console"
 msgstr "Konsole öffnen"
 
 msgid "Passwords do not match."
-msgstr "Die Passwörter stimmen nicht überein."
+msgstr "Passwörter stimmen nicht überein."
 
 msgid "Pattern mismatch"
 msgstr "Muster-Übereinstimmungsfehler"
@@ -248,7 +252,7 @@ msgid "Re-order items using drag and drop"
 msgstr "Umsortieren der Positionen durch ziehen und ablegen"
 
 msgid "Remaining"
-msgstr "Übrig"
+msgstr "Verbleibend"
 
 msgid "Remove"
 msgstr "Entfernen"
@@ -317,10 +321,10 @@ msgid "View Details"
 msgstr "Details anzeigen"
 
 msgid "View Instance Details"
-msgstr "Instanz-Details anzeigen"
+msgstr "Instanzdetails anzeigen"
 
 msgid "View Router Details"
-msgstr "Router-Details anzeigen"
+msgstr "Routerdetails anzeigen"
 
 msgid "Warning"
 msgstr "Warnung"
@@ -348,6 +352,9 @@ msgstr ""
 #, python-format
 msgid "You have selected %s. "
 msgstr "Sie haben %s ausgewählt."
+
+msgid "description"
+msgstr "Beschreibung"
 
 msgid "m1.small"
 msgstr "m1.small"
