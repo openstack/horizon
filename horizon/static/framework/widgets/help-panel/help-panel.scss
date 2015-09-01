@@ -6,8 +6,7 @@
   bottom: 0;
   color: $helpPanelColor;
   background: $helpPanelBg;
-  -webkit-transition: right linear 0.1s;
-  transition: right linear 0.1s;
+  @include transition(right linear 0.1s);
   z-index: 10;
 
   .content {

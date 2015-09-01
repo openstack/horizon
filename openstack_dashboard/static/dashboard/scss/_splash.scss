@@ -17,7 +17,7 @@
     border: 1px solid $border-color;
     max-height: none;
     border-radius: 6px;
-    box-shadow: 0 3px 7px rgba(0, 0, 0, 0.3);
+    @include box-shadow(0 3px 7px rgba(0, 0, 0, 0.3));
     background-clip: padding-box;
 
     p#help_text {
