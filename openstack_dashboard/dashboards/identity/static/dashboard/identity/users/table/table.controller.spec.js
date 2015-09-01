@@ -40,7 +40,7 @@
       };
     }
 
-    var controller, toastService, policyAPI, keystoneAPI, staticUrl;
+    var controller, toastService, policyAPI, keystoneAPI;
 
     ///////////////////////
 
@@ -57,7 +57,6 @@
       policyAPI = $injector.get('horizon.app.core.openstack-service-api.policy');
       keystoneAPI = $injector.get('horizon.app.core.openstack-service-api.keystone');
       controller = $injector.get('$controller');
-      staticUrl = $injector.get('$window').STATIC_URL;
 
       spyOn(toastService, 'add').and.callFake(fakeToast);
       spyOn(policyAPI, 'check').and.callFake(fakePolicy);
@@ -72,11 +71,6 @@
         keystoneAPI: keystoneAPI
       });
     }
-
-    it('should set path properly', function() {
-      var path = staticUrl + 'dashboard/identity/users/table/';
-      expect(createController().path).toEqual(path);
-    });
 
     it('should invoke keystone apis if policy passes', function() {
       policy.allowed = true;
