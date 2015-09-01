@@ -1000,7 +1000,7 @@ class DataTableOptions(object):
         filter_actions = [action for action in self.table_actions if
                           issubclass(action, FilterAction)]
         if len(filter_actions) > 1:
-            raise NotImplementedError("Multiple filter actions is not "
+            raise NotImplementedError("Multiple filter actions are not "
                                       "currently supported.")
         self.filter = getattr(options, 'filter', len(filter_actions) > 0)
         if len(filter_actions) == 1:
@@ -1082,10 +1082,10 @@ class DataTableMetaclass(type):
         # If the table is in a ResourceBrowser, the column number must meet
         # these limits because of the width of the browser.
         if opts.browser_table == "navigation" and len(columns) > 3:
-            raise ValueError("You can only assign three column to %s."
+            raise ValueError("You can assign at most three columns to %s."
                              % class_name)
         if opts.browser_table == "content" and len(columns) > 2:
-            raise ValueError("You can only assign two columns to %s."
+            raise ValueError("You can assign at most two columns to %s."
                              % class_name)
 
         if opts.columns:
