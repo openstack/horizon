@@ -725,7 +725,7 @@ class StopInstance(policy.PolicyTargetMixin, tables.BatchAction):
     name = "stop"
     classes = ('btn-danger',)
     policy_rules = (("compute", "compute:stop"),)
-    help_text = _("To power off a specific instance.")
+    help_text = _("The instance(s) will be shut off.")
 
     @staticmethod
     def action_present(count):
