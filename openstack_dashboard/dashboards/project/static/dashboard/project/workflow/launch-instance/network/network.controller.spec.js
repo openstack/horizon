@@ -71,6 +71,13 @@
         expect(ctrl.tableDataMulti.displayedAllocated).toEqual([]);
         expect(ctrl.tableDataMulti.displayedAvailable).toEqual([]);
       });
+
+      it('should set facets for search', function() {
+        expect(ctrl.networkFacets).toBeDefined();
+        expect(ctrl.networkFacets.length).toEqual(4);
+        expect(ctrl.networkFacets[0].name).toEqual('name');
+        expect(ctrl.networkFacets[1].name).toEqual('shared');
+      });
     });
 
   });

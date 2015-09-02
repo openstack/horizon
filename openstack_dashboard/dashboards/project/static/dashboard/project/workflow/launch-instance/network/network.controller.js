@@ -61,5 +61,46 @@
     };
 
     ctrl.tooltipModel = tooltipService;
+
+    /**
+     * Filtering - client-side MagicSearch
+     */
+
+    // All facets for network step
+    ctrl.networkFacets = [
+      {
+        label: gettext('Name'),
+        name: 'name',
+        singleton: true
+      },
+      {
+        label: gettext('Shared'),
+        name: 'shared',
+        singleton: true,
+        options: [
+          { label: gettext('No'), key: false },
+          { label: gettext('Yes'), key: true }
+        ]
+      },
+      {
+        label: gettext('Admin State'),
+        name: 'admin_state',
+        singleton: true,
+        options: [
+          { label: gettext('Up'), key: "UP" },
+          { label: gettext('Down'), key: "DOWN" }
+        ]
+      },
+      {
+        label: gettext('Status'),
+        name: 'status',
+        singleton: true,
+        options: [
+          { label: gettext('Active'), key: "ACTIVE"},
+          { label: gettext('Down'), key: "DOWN" }
+        ]
+      }
+    ];
   }
+
 })();
