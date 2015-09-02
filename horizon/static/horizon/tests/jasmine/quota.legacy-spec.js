@@ -20,22 +20,4 @@ describe("Quotas (horizon.quota.js)", function() {
 
   });
 
-  describe("truncate", function() {
-    var string = 'This will be cut';
-    var ellipsis = '&hellip;';
-
-    it('should truncate a string at a given length', function () {
-      expect(horizon.Quota.truncate(string, 15)).toEqual(string.slice(0, 15));
-      expect(horizon.Quota.truncate(string, 20)).toEqual(string);
-    });
-
-    it('should add an ellipsis if needed ', function () {
-      expect(horizon.Quota.truncate(string, 15, true)).toEqual(string.slice(0, 12) + ellipsis);
-
-      expect(horizon.Quota.truncate(string, 20, true)).toEqual(string);
-
-      expect(horizon.Quota.truncate(string, 2, true)).toEqual(ellipsis);
-    });
-  });
-
 });
