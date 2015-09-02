@@ -1,0 +1,23 @@
+{% extends 'auth/_login_form.html' %}
+{% load i18n %}
+
+{% block pre_login %}
+  <div class="container login">
+    <div class="row">
+      <div class="col-xs-11 col-sm-8 col-md-6 col-lg-5 horizontal-center">
+        {{ block.super }}
+{% endblock %}
+
+{% block login_header %}
+  <div class="text-center">
+    <img class="splash-logo" src="{{ STATIC_URL }}dashboard/img/logo-splash.png">
+  </div>
+  {{ block.super }}
+{% endblock %}
+
+{% block post_login %}
+      {{ block.super }}
+      </div>
+    </div>
+  </div>
+{% endblock %}

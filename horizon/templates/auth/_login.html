@@ -1,46 +1,7 @@
-{% extends "horizon/common/_modal_form.html" %}
 {% load i18n %}
 
-{% block modal-header %}{% trans "Log In" %}{% endblock %}
-{% block modal_class %}login {% if hide %}modal{% endif %}{% endblock %}
-
-{% block form_action %}{% url 'login' %}{% endblock %}
-{% block ng_controller %}hzLoginController{% endblock %}
-{% block autocomplete %}{{ HORIZON_CONFIG.password_autocomplete }}{% endblock %}
-
-{% block modal-body %}
-  {% comment %}
-    These fake fields are required to prevent Chrome v34+ from autofilling form.
-  {% endcomment %}
-  {% if HORIZON_CONFIG.password_autocomplete != "on" %}
-  <div class="fake_credentials" style="display: none">
-    <input type="text" name="fake_email" value="" />
-    <input type="password" name="fake_password" value="" />
-  </div>
-  {%endif%}
-  {% include "auth/_description.html" %}
-  <fieldset hz-login-finder>
-    {% if request.user.is_authenticated and 'next' in request.GET %}
-    <div class="form-group clearfix error">
-      <span class="help-block"><p>{% trans "You do not have permission to access the resource:" %}</p>
-        <p><b>{{ request.GET.next }}</b></p>
-        <p>{% url 'horizon:user_home' as home_url %}{% blocktrans %}Login as different user or go back to <a href="{{ home_url }}"> home page</a>{% endblocktrans %}</p>
-      </span>
-    </div>
-    {% endif  %}
-    {% if request.COOKIES.logout_reason %}
-    <div class="form-group clearfix error" id="logout_reason">
-      <span class="help-block alert alert-danger"><p>{{ request.COOKIES.logout_reason }}</p></span>
-    </div>
-    {% endif %}
-    {% if next %}<input type="hidden" name="{{ redirect_field_name }}" value="{{ next }}" />{% endif %}
-    {% include "horizon/common/_form_fields.html" %}
-  </fieldset>
-{% endblock %}
-
-{% block modal-footer %}
-  <button id="loginBtn" type="submit" class="btn btn-primary pull-right">
-    <span ng-show="auth_type==='credentials'">{% trans "Sign In" %}</span>
-    <span ng-hide="auth_type==='credentials'" ng-cloak>{% trans "Connect" %}</span>
-  </button>
-{% endblock %}
+{% if 'is_modal' in request.GET or 'is_modal' in request.POST %}
+  {% include 'auth/_login_modal.html' %}
+{% else %}
+  {% include 'auth/_login_page.html' %}
+{% endif %}

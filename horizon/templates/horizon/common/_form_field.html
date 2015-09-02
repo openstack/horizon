@@ -20,7 +20,7 @@
           </label>
         {% endif %}
         {% for error in field.errors %}
-          <span class="help-block alert alert-danger {{ form.error_css_class }}">{{ error }}</span>
+          <span class="help-block {{ form.error_css_class }}">{{ error }}</span>
         {% endfor %}
       </div>
     </div>
@@ -42,7 +42,7 @@
       {% endfor %}
 
       {% for error in field.errors %}
-        <span class="help-block alert alert-danger {{ form.error_css_class }}">{{ error }}</span>
+        <span class="help-block {{ form.error_css_class }}">{{ error }}</span>
       {% endfor %}
 
     </div>
@@ -70,7 +70,7 @@
       {% endif %}
       {% endwith %}
       {% for error in field.errors %}
-        <span class="help-block alert alert-danger {{ form.error_css_class }}">{{ error }}</span>
+        <span class="help-block {{ form.error_css_class }}">{{ error }}</span>
       {% endfor %}
     </div>
   {% endif %}

@@ -47,7 +47,7 @@
            * `helpText` exists outside of element,
            * so we have to traverse one node up
            */
-          var helpText = element.parent().find('#help_text');
+          var helpText = element.parent().find('.help_text');
           helpText.hide();
 
           // Update the visuals when user selects item from dropdown

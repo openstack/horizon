@@ -1,0 +1,28 @@
+{% extends 'auth/_login_form.html' %}
+{% load i18n %}
+
+{% block pre_login %}
+  <div class="login modal">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        {{ block.super }}
+{% endblock %}
+
+{% block login_header %}
+  {{ block.super }}
+  <button class="close" aria-hidden="true" data-dismiss="modal" type="button">
+    <span class="fa fa-close"></span>
+  </button>
+{% endblock %}
+
+{% block login_body %}
+  {{ block.super }}
+  <input type="hidden" value="" name="is_modal">
+{% endblock %}
+
+{% block post_login %}
+        {{ block.super }}
+      </div>
+    </div>
+  </div>
+{% endblock %}

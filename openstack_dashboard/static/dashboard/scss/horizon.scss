@@ -7,13 +7,16 @@
 // Horizon Mixins
 @import "mixins";
 
+// Horizon Util
+@import "util";
+
 // Vendor Components
 @import "/bootstrap/scss/bootstrap";
 @import "/horizon/lib/font-awesome/scss/font-awesome.scss";
 @import "/horizon/lib/magic_search/magic_search.scss";
 
 // Dashboard Components
-@import "splash";
+@import "components/login";
 @import "components/resource_browser";
 @import "components/sidebar";
 @import "components/navbar";
@@ -96,10 +99,6 @@ a:focus {
 ul {
   list-style: none;
   margin: 0;
-}
-
-.login ul.errorlist {
-  padding-left: 0;
 }
 
 // Disc-styled list. This list should be used to build bullet-items lists.
@@ -254,7 +253,6 @@ a.current_item:hover h4 {
 }
 
 .modal > form,
-.login > form,
 .alert-actions > form {
   margin-bottom: 0;
 }
@@ -316,17 +314,6 @@ a.current_item:hover h4 {
 
 .datepicker input{
   @extend .form-control;
-}
-
-form label {
-    text-align: left;
-    color: $gray;
-    font-weight: bold;
-    display: inline-block;
-}
-
-.login.modal .modal-dialog {
-  width: 390px;
 }
 
 .modal.fullscreen .modal-dialog {
