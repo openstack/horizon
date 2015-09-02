@@ -222,7 +222,7 @@ class CreateSubnetInfoAction(workflows.Action):
             self.hide_subnetpool_choices()
             msg = _('Unable to initialize subnetpools')
             exceptions.handle(request, msg)
-        if len(self.fields['subnetpool'].choices):
+        if len(self.fields['subnetpool'].choices) > 1:
             # Pre-populate prefixlen choices to satisfy Django
             # ChoiceField Validation. This is overridden w/data from
             # subnetpool on select.
