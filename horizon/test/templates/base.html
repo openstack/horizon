@@ -3,6 +3,100 @@
   just testing Django templating - no Javascript.
 -->
 <html>
+<head>
+  <script>
+    window.STATIC_URL = '{{ STATIC_URL }}';
+    window.WEBROOT = '{{ WEBROOT }}';
+  </script>
+    <script src='{{ STATIC_URL }}horizon/lib/jquery/jquery.js' type='text/javascript' charset="utf-8"></script>
+    <script src='{{ STATIC_URL }}horizon/lib/jquery/jquery-migrate.js' type='text/javascript' charset="utf-8"></script>
+    <script src="{{ STATIC_URL }}horizon/lib/jquery/jquery.tablesorter.js"></script>
+
+    <script src='{{ STATIC_URL }}horizon/js/horizon.js' type='text/javascript' charset='utf-8'></script>
+
+    <script type='text/javascript' charset='utf-8'>
+      (function (global) {
+        'use strict';
+
+        // make translation info available on client
+        horizon.languageCode = '{{ LANGUAGE_CODE }}';
+        horizon.languageBidi = '{{ LANGUAGE_BIDI }}';
+        horizon.datepickerLocale = '{{ DATEPICKER_LOCALE }}';
+
+        /* Load angular modules extensions list before we include angular/horizon.js */
+        global.horizonPlugInModules = {{ HORIZON_CONFIG.angular_modules|default:"[]"|safe }};
+
+        /* Storage for backend configuration variables which the frontend
+         * should be aware of.
+         */
+        var conf = horizon.conf;
+        conf.static_url = "{{ STATIC_URL }}";
+        conf.ajax = {
+          queue_limit: {{ HORIZON_CONFIG.ajax_queue_limit|default:"null" }}
+        };
+        conf.auto_fade_alerts = {
+          delay: {{ HORIZON_CONFIG.auto_fade_alerts.delay|default:"3000" }},
+          fade_duration: {{ HORIZON_CONFIG.auto_fade_alerts.fade_duration|default:"1500" }},
+          types: {{ HORIZON_CONFIG.auto_fade_alerts.types|default:"[]"|safe }}
+        };
+        conf.disable_password_reveal =
+          {{ HORIZON_CONFIG.disable_password_reveal|yesno:"true,false" }};
+        conf.spinner_options = {
+          inline: {
+            lines:  10,
+            length: 5,
+            width:  2,
+            radius: 3,
+            color:  '#000',
+            speed:  0.8,
+            trail:  50,
+            zIndex: 100
+          },
+          modal: {
+            lines:  10,
+            length: 15,
+            width:  4,
+            radius: 10,
+            color:  '#000',
+            speed:  0.8,
+            trail:  50
+          },
+          line_chart: {
+            lines:  10,
+            length: 15,
+            width:  4,
+            radius: 11,
+            color:  '#000',
+            speed:  0.8,
+            trail:  50
+          }
+        };
+
+        // minimal cookie store implementation for testing
+        horizon.test_cookies = {};
+        horizon.cookies = {
+          put: function (key, value) { horizon.test_cookies[key] = value; },
+          getRaw: function (key) { return horizon.test_cookies[key]; },
+          get: function (key) { return horizon.test_cookies[key]; }
+        };
+
+        // Call init on DOM ready.
+        $(document).ready(horizon.init);
+      })(this);
+    </script>
+
+    {% include "horizon/_script_i18n.html" %}
+
+    <script src="{{ STATIC_URL }}bootstrap/js/bootstrap.js"></script>
+    <script src="{{ STATIC_URL }}horizon/lib/spin.js"></script>
+    <script src="{{ STATIC_URL }}horizon/lib/spin.jquery.js"></script>
+
+    <script src='{{ STATIC_URL }}horizon/js/horizon.modals.js'></script>
+    <script src='{{ STATIC_URL }}horizon/js/horizon.tables.js'></script>
+    <script src='{{ STATIC_URL }}horizon/js/horizon.tables_inline_edit.js'></script>
+    <script src='{{ STATIC_URL }}horizon/js/horizon.tabs.js'></script>
+
+</head>
 <body>
 
 {% block sidebar %}
