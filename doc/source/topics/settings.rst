@@ -967,11 +967,11 @@ Some Neutron vendors do not require it. Some can even attach a FIP to any port
 Set to False if you want to be able to associate a FIP to an instance on a
 subnet with no router if your Neutron backend allows it.
 
-.. versionadded:: 2015.2(Liberty)
+.. versionadded:: 8.0.0(Liberty)
 
 ``default_ipv4_subnet_pool_label``:
 
-.. versionadded:: 2015.2(Liberty)
+.. versionadded:: 8.0.0(Liberty)
 
 Default: ``None`` (Disabled)
 
@@ -981,7 +981,7 @@ selector on the create subnet step if you want to use this feature.
 
 ``default_ipv6_subnet_pool_label``:
 
-.. versionadded:: 2015.2(Liberty)
+.. versionadded:: 8.0.0(Liberty)
 
 Default: ``None`` (Disabled)
 
@@ -1368,7 +1368,7 @@ Jasmine is a behavior-driven development framework for testing JavaScript code.
 ``ADD_SCSS_FILES``
 ----------------------
 
-.. versionadded:: 2015.2(Liberty)
+.. versionadded:: 8.0.0(Liberty)
 
 A list of scss files to be included in the compressed set of files that are
 loaded on every page. We recommend one scss file per dashboard, use @import if
@@ -1379,7 +1379,7 @@ you need to include additional scss files for panels.
 ``AUTO_DISCOVER_STATIC_FILES``
 ------------------------------
 
-.. versionadded:: 2015.2(Liberty)
+.. versionadded:: 8.0.0(Liberty)
 
 If set to ``True``, JavaScript files and static angular html template files will be
 automatically discovered from the `static` folder in each apps listed in ADD_INSTALLED_APPS.
