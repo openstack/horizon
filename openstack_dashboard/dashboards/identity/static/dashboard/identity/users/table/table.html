@@ -7,10 +7,97 @@
   class="table-striped table-rsp table-detail modern">
 
   <thead>
-    <tr ng-include="table.path + 'table-batch-actions.html'"></tr>
-    <tr ng-include="table.path + 'table-header.html'"></tr>
+    <!--
+      Table-batch-actions:
+      This is where batch actions like searching, creating, and deleting.
+    -->
+    <tr>
+      <th colspan="100" class="search-header">
+        <hz-search-bar group-classes="input-group-sm" icon-classes="fa-search"></hz-search-bar>
+      </th>
+    </tr>
+
+    <!--
+      Table-column-headers:
+      This is where we declaratively define the table column headers.
+      Include select-col if you want to select all.
+      Include expander if you want to inline details.
+      Include action-col if you want to perform actions.
+    -->
+    <tr>
+      <th class="select-col"><input type="checkbox" hz-select-all="table.iusers"></th>
+      <th class="expander"></th>
+      <th class="rsp-p1" st-sort="name" st-sort-default="name" translate>User Name</th>
+      <th class="rsp-p2" st-sort="email" translate>Email</th>
+      <th class="rsp-p1" st-sort="tenantId||default_project_id" translate>User ID</th>
+      <th class="rsp-p2 text-center" st-sort="enabled" translate>Enabled</th>
+    </tr>
   </thead>
-  <tbody ng-include="table.path + 'table-rows.html'"></tbody>
+
+  <tbody>
+    <!--
+      Table-rows:
+      This is where we declaratively define the table columns.
+      Include select-col if you want to select all.
+      Include expander if you want to inline details.
+      Include action-col if you want to perform actions.
+      rsp-p1 rsp-p2 are responsive priority as user resizes window.
+    -->
+    <tr ng-repeat-start="user in table.iusers track by user.id"
+        ng-class="{'st-selected': checked[user.id]}">
+
+      <td class="select-col">
+        <input type="checkbox" ng-model="selected[user.id].checked" hz-select="user">
+      </td>
+      <td class="expander">
+        <span class="fa fa-chevron-right" hz-expand-detail duration="200"></span>
+      </td>
+      <td class="rsp-p1">{$ user.name $}</td>
+      <td class="rsp-p2"><a ng-href="mailto:{$user.email$}">{$ user.email $}</a></td>
+      <td class="rsp-p1">{$ user.id $}</td>
+      <td class="rsp-p2 text-center">
+        <span ng-show="user.enabled" class="fa fa-check text-success"></span>
+        <span ng-hide="user.enabled" class="fa fa-times text-danger"></span>
+      </td>
+    </tr>
+
+    <!--
+      Detail-row:
+      Contains detailed information on this item.
+      Can be toggled using the chevron button.
+      Ensure colspan is greater or equal to number of column-headers.
+    -->
+    <tr ng-repeat-end class="detail-row">
+      <td class="detail" colspan="100">
+        <dl class="dl-horizontal">
+
+          <dt ng-if="user.domain_id" translate>Domain ID</dt>
+          <dd ng-if="user.domain_id" translate>{$ user.domain_id $}</dd>
+
+          <dt translate>Project ID</dt>
+          <dd>{$ user.tenantId || user.default_project_id $}</dd>
+
+          <dt translate>User Name</dt>
+          <dd>{$ user.name $}</dd>
+
+          <dt translate>Email</dt>
+          <dd>{$ user.email || '-' $}</dd>
+
+          <dt translate>User ID</dt>
+          <dd>{$ user.id $}</dd>
+
+          <dt translate>Enabled</dt>
+          <dd>{$ user.enabled | yesno $}</dd>
+        </dl>
+      </td>
+    </tr>
+  </tbody>
+
+  <!--
+    Table-footer:
+    This is where we display number of items and pagination controls.
+    Ensure colspan is greater or equal to number of column-headers.
+  -->
   <tfoot hz-table-footer items="table.iusers"></tfoot>
 
 </table>
