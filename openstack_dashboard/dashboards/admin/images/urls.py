@@ -28,8 +28,6 @@ urlpatterns = patterns(
     url(r'^create/$', views.CreateView.as_view(), name='create'),
     url(r'^(?P<image_id>[^/]+)/update/$',
         views.UpdateView.as_view(), name='update'),
-    url(r'^(?P<id>[^/]+)/update_metadata/$',
-        views.UpdateMetadataView.as_view(), name='update_metadata'),
     url(r'^(?P<image_id>[^/]+)/detail/$',
         views.DetailView.as_view(), name='detail')
 )

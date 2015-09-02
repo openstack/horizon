@@ -62,9 +62,19 @@ class ManageHostsAction(tables.LinkAction):
 class UpdateMetadataAction(tables.LinkAction):
     name = "update-metadata"
     verbose_name = _("Update Metadata")
-    url = constants.AGGREGATES_UPDATE_METADATA_URL
-    classes = ("ajax-modal",)
+    ajax = False
     icon = "pencil"
+    attrs = {"ng-controller": "MetadataModalHelperController as modal"}
+
+    def __init__(self, attrs=None, **kwargs):
+        kwargs['preempt'] = True
+        super(UpdateMetadataAction, self).__init__(attrs, **kwargs)
+
+    def get_link_url(self, datum):
+        image_id = self.table.get_object_id(datum)
+        self.attrs['ng-click'] = (
+            "modal.openMetadataModal('aggregate', '%s', true)" % image_id)
+        return "javascript:void(0);"
 
 
 class UpdateAggregateAction(tables.LinkAction):

@@ -10,8 +10,6 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
-import json
-
 from django.utils.translation import ugettext_lazy as _
 
 from horizon import exceptions
@@ -48,33 +46,4 @@ class UpdateAggregateForm(forms.SelfHandlingForm):
         except Exception:
             exceptions.handle(request,
                               _('Unable to update the aggregate.'))
-        return True
-
-
-class UpdateMetadataForm(forms.SelfHandlingForm):
-
-    def handle(self, request, data):
-        id = self.initial['id']
-        old_metadata = self.initial['metadata']
-
-        try:
-            new_metadata = json.loads(self.data['metadata'])
-
-            metadata = dict(
-                (item['key'], str(item['value']))
-                for item in new_metadata
-            )
-
-            for key in old_metadata:
-                if key not in metadata:
-                    metadata[key] = None
-
-            api.nova.aggregate_set_metadata(request, id, metadata)
-            message = _('Metadata successfully updated.')
-            messages.success(request, message)
-        except Exception:
-            msg = _('Unable to update the aggregate metadata.')
-            exceptions.handle(request, msg)
-
-            return False
         return True

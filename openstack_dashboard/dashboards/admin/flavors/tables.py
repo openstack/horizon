@@ -66,11 +66,29 @@ class UpdateFlavor(tables.LinkAction):
 
 
 class UpdateMetadata(tables.LinkAction):
-    url = "horizon:admin:flavors:update_metadata"
     name = "update_metadata"
     verbose_name = _("Update Metadata")
-    classes = ("ajax-modal",)
+    ajax = False
     icon = "pencil"
+    attrs = {"ng-controller": "MetadataModalHelperController as modal"}
+
+    def __init__(self, **kwargs):
+        kwargs['preempt'] = True
+        super(UpdateMetadata, self).__init__(**kwargs)
+
+    def get_link_url(self, datum):
+        obj_id = self.table.get_object_id(datum)
+        self.attrs['ng-click'] = (
+            "modal.openMetadataModal('flavor', '%s', true)" % obj_id)
+        return "javascript:void(0);"
+
+
+class UpdateMetadataColumn(tables.Column):
+    def get_link_url(self, datum):
+        obj_id = self.table.get_object_id(datum)
+        self.link_attrs['ng-click'] = (
+            "modal.openMetadataModal('flavor', '%s', true)" % obj_id)
+        return "javascript:void(0);"
 
 
 class ModifyAccess(tables.LinkAction):
@@ -138,12 +156,13 @@ class FlavorsTable(tables.DataTable):
                            verbose_name=_("Public"),
                            empty_value=False,
                            filters=(filters.yesno, filters.capfirst))
-    extra_specs = tables.Column(get_extra_specs,
-                                verbose_name=_("Metadata"),
-                                link="horizon:admin:flavors:update_metadata",
-                                link_classes=("ajax-modal",),
-                                empty_value=False,
-                                filters=(filters.yesno, filters.capfirst))
+    extra_specs = UpdateMetadataColumn(
+        get_extra_specs,
+        verbose_name=_("Metadata"),
+        link=True,
+        empty_value=False,
+        filters=(filters.yesno, filters.capfirst),
+        link_attrs={'ng-controller': 'MetadataModalHelperController as modal'})
 
     class Meta(object):
         name = "flavors"
