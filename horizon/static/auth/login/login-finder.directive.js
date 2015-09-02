@@ -30,7 +30,8 @@
     .directive('hzLoginFinder', function($timeout) {
       return {
         restrict: 'A',
-        link: function(scope, element) {
+        controller: 'hzLoginController',
+        link: function(scope, element, attrs, ctrl) {
 
           /**
            * Test code does not have access to document,
@@ -57,8 +58,8 @@
                * If auth_type is 'credential', show the username and password fields,
                * and domain and region if applicable
                */
-              scope.auth_type = authType.val();
-              switch (scope.auth_type) {
+              ctrl.auth_type = authType.val();
+              switch (ctrl.auth_type) {
                 case 'credentials':
                   userInput.show();
                   passwordInput.show();
