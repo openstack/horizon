@@ -36,7 +36,6 @@ class CreateSubnetInfoAction(network_workflows.CreateSubnetInfoAction):
 
     def __init__(self, request, *args, **kwargs):
         super(CreateSubnetInfoAction, self).__init__(request, *args, **kwargs)
-        self.fields['cidr'].required = True
 
     class Meta(object):
         name = _("Subnet")
@@ -82,6 +81,12 @@ class CreateSubnet(network_workflows.CreateNetwork):
 
 
 class UpdateSubnetInfoAction(CreateSubnetInfoAction):
+    address_source = forms.ChoiceField(widget=forms.HiddenInput(),
+                                       required=False)
+    subnetpool = forms.ChoiceField(widget=forms.HiddenInput(),
+                                   required=False)
+    prefixlen = forms.ChoiceField(widget=forms.HiddenInput(),
+                                  required=False)
     cidr = forms.IPField(label=_("Network Address"),
                          required=False,
                          initial="",

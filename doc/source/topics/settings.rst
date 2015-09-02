@@ -797,6 +797,8 @@ Default::
             'supported_vnic_types': ["*"],
             'segmentation_id_range': {},
             'enable_fip_topology_check': True,
+            'default_ipv4_subnet_pool_label': None,
+            'default_ipv6_subnet_pool_label': None,
         }
 
 A dictionary of settings which can be used to enable optional services provided
@@ -966,6 +968,28 @@ Set to False if you want to be able to associate a FIP to an instance on a
 subnet with no router if your Neutron backend allows it.
 
 .. versionadded:: 2015.2(Liberty)
+
+``default_ipv4_subnet_pool_label``:
+
+.. versionadded:: 2015.2(Liberty)
+
+Default: ``None`` (Disabled)
+
+Neutron can be configured with a default Subnet Pool to be used for IPv4
+subnet-allocation. Specify the label you wish to display in the Address pool
+selector on the create subnet step if you want to use this feature.
+
+``default_ipv6_subnet_pool_label``:
+
+.. versionadded:: 2015.2(Liberty)
+
+Default: ``None`` (Disabled)
+
+Neutron can be configured with a default Subnet Pool to be used for IPv6
+subnet-allocation. Specify the label you wish to display in the Address pool
+selector on the create subnet step if you want to use this feature.
+
+You must set this to enable IPv6 Prefix Delegation in a PD-capable environment.
 
 ``OPENSTACK_SSL_CACERT``
 ------------------------

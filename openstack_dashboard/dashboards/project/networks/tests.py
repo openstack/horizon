@@ -463,6 +463,7 @@ class NetworkTests(test.TestCase):
     def test_network_create_post_with_subnet_network_exception(
         self,
         test_with_profile=False,
+        test_with_subnetpool=False,
     ):
         network = self.networks.first()
         subnet = self.subnets.first()
@@ -499,7 +500,9 @@ class NetworkTests(test.TestCase):
     @test.create_stubs({api.neutron: ('network_create',
                                       'network_delete',
                                       'subnet_create',
-                                      'profile_list')})
+                                      'profile_list',
+                                      'is_extension_supported',
+                                      'subnetpool_list',)})
     def test_network_create_post_with_subnet_subnet_exception(
         self,
         test_with_profile=False,
@@ -514,6 +517,11 @@ class NetworkTests(test.TestCase):
             api.neutron.profile_list(IsA(http.HttpRequest),
                                      'network').AndReturn(net_profiles)
             params['net_profile_id'] = net_profile_id
+        api.neutron.is_extension_supported(IsA(http.HttpRequest),
+                                           'subnet_allocation').\
+            AndReturn(True)
+        api.neutron.subnetpool_list(IsA(http.HttpRequest)).\
+            AndReturn(self.subnetpools.list())
         api.neutron.network_create(IsA(http.HttpRequest),
                                    **params).AndReturn(network)
         api.neutron.subnet_create(IsA(http.HttpRequest),
@@ -546,9 +554,12 @@ class NetworkTests(test.TestCase):
         self.test_network_create_post_with_subnet_subnet_exception(
             test_with_profile=True)
 
-    @test.create_stubs({api.neutron: ('profile_list',)})
+    @test.create_stubs({api.neutron: ('profile_list',
+                                      'is_extension_supported',
+                                      'subnetpool_list',)})
     def test_network_create_post_with_subnet_nocidr(self,
-                                                    test_with_profile=False):
+                                                    test_with_profile=False,
+                                                    test_with_snpool=False):
         network = self.networks.first()
         subnet = self.subnets.first()
         if test_with_profile:
@@ -556,6 +567,11 @@ class NetworkTests(test.TestCase):
             net_profile_id = self.net_profiles.first().id
             api.neutron.profile_list(IsA(http.HttpRequest),
                                      'network').AndReturn(net_profiles)
+        api.neutron.is_extension_supported(IsA(http.HttpRequest),
+                                           'subnet_allocation').\
+            AndReturn(True)
+        api.neutron.subnetpool_list(IsA(http.HttpRequest)).\
+            AndReturn(self.subnetpools.list())
         self.mox.ReplayAll()
 
         form_data = {'net_name': network.name,
@@ -563,12 +579,16 @@ class NetworkTests(test.TestCase):
                      'with_subnet': True}
         if test_with_profile:
             form_data['net_profile_id'] = net_profile_id
+        if test_with_snpool:
+            form_data['subnetpool_id'] = ''
+            form_data['prefixlen'] = ''
         form_data.update(form_data_subnet(subnet, cidr='',
                                           allocation_pools=[]))
         url = reverse('horizon:project:networks:create')
         res = self.client.post(url, form_data)
 
-        self.assertContains(res, escape('Specify "Network Address" or '
+        self.assertContains(res, escape('Specify "Network Address", '
+                                        '"Address pool" or '
                                         'clear "Create Subnet" checkbox.'))
 
     @test.update_settings(
@@ -577,10 +597,17 @@ class NetworkTests(test.TestCase):
         self.test_network_create_post_with_subnet_nocidr(
             test_with_profile=True)
 
-    @test.create_stubs({api.neutron: ('profile_list',)})
+    def test_network_create_post_with_subnet_nocidr_nosubnetpool(self):
+        self.test_network_create_post_with_subnet_nocidr(
+            test_with_snpool=True)
+
+    @test.create_stubs({api.neutron: ('profile_list',
+                                      'is_extension_supported',
+                                      'subnetpool_list',)})
     def test_network_create_post_with_subnet_cidr_without_mask(
         self,
         test_with_profile=False,
+        test_with_subnetpool=False,
     ):
         network = self.networks.first()
         subnet = self.subnets.first()
@@ -589,13 +616,22 @@ class NetworkTests(test.TestCase):
             net_profile_id = self.net_profiles.first().id
             api.neutron.profile_list(IsA(http.HttpRequest),
                                      'network').AndReturn(net_profiles)
-            self.mox.ReplayAll()
+        api.neutron.is_extension_supported(IsA(http.HttpRequest),
+                                           'subnet_allocation').\
+            AndReturn(True)
+        api.neutron.subnetpool_list(IsA(http.HttpRequest)).\
+            AndReturn(self.subnetpools.list())
+        self.mox.ReplayAll()
 
         form_data = {'net_name': network.name,
                      'admin_state': network.admin_state_up,
                      'with_subnet': True}
         if test_with_profile:
             form_data['net_profile_id'] = net_profile_id
+        if test_with_subnetpool:
+            subnetpool = self.subnetpools.first()
+            form_data['subnetpool'] = subnetpool.id
+            form_data['prefixlen'] = subnetpool.default_prefixlen
         form_data.update(form_data_subnet(subnet, cidr='10.0.0.0',
                                           allocation_pools=[]))
         url = reverse('horizon:project:networks:create')
@@ -610,10 +646,17 @@ class NetworkTests(test.TestCase):
         self.test_network_create_post_with_subnet_cidr_without_mask(
             test_with_profile=True)
 
-    @test.create_stubs({api.neutron: ('profile_list',)})
+    def test_network_create_post_with_subnet_cidr_without_mask_w_snpool(self):
+        self.test_network_create_post_with_subnet_cidr_without_mask(
+            test_with_subnetpool=True)
+
+    @test.create_stubs({api.neutron: ('profile_list',
+                                      'is_extension_supported',
+                                      'subnetpool_list',)})
     def test_network_create_post_with_subnet_cidr_inconsistent(
         self,
         test_with_profile=False,
+        test_with_subnetpool=False
     ):
         network = self.networks.first()
         subnet = self.subnets.first()
@@ -622,6 +665,12 @@ class NetworkTests(test.TestCase):
             net_profile_id = self.net_profiles.first().id
             api.neutron.profile_list(IsA(http.HttpRequest),
                                      'network').AndReturn(net_profiles)
+
+        api.neutron.is_extension_supported(IsA(http.HttpRequest),
+                                           'subnet_allocation').\
+            AndReturn(True)
+        api.neutron.subnetpool_list(IsA(http.HttpRequest)).\
+            AndReturn(self.subnetpools.list())
         self.mox.ReplayAll()
 
         # dummy IPv6 address
@@ -631,6 +680,10 @@ class NetworkTests(test.TestCase):
                      'with_subnet': True}
         if test_with_profile:
             form_data['net_profile_id'] = net_profile_id
+        if test_with_subnetpool:
+            subnetpool = self.subnetpools.first()
+            form_data['subnetpool'] = subnetpool.id
+            form_data['prefixlen'] = subnetpool.default_prefixlen
         form_data.update(form_data_subnet(subnet, cidr=cidr,
                                           allocation_pools=[]))
         url = reverse('horizon:project:networks:create')
@@ -645,10 +698,17 @@ class NetworkTests(test.TestCase):
         self.test_network_create_post_with_subnet_cidr_inconsistent(
             test_with_profile=True)
 
-    @test.create_stubs({api.neutron: ('profile_list',)})
+    def test_network_create_post_with_subnet_cidr_inconsistent_w_snpool(self):
+        self.test_network_create_post_with_subnet_cidr_inconsistent(
+            test_with_subnetpool=True)
+
+    @test.create_stubs({api.neutron: ('profile_list',
+                                      'is_extension_supported',
+                                      'subnetpool_list',)})
     def test_network_create_post_with_subnet_gw_inconsistent(
         self,
         test_with_profile=False,
+        test_with_subnetpool=False,
     ):
         network = self.networks.first()
         subnet = self.subnets.first()
@@ -657,6 +717,12 @@ class NetworkTests(test.TestCase):
             net_profile_id = self.net_profiles.first().id
             api.neutron.profile_list(IsA(http.HttpRequest),
                                      'network').AndReturn(net_profiles)
+
+        api.neutron.is_extension_supported(IsA(http.HttpRequest),
+                                           'subnet_allocation').\
+            AndReturn(True)
+        api.neutron.subnetpool_list(IsA(http.HttpRequest)).\
+            AndReturn(self.subnetpools.list())
         self.mox.ReplayAll()
 
         # dummy IPv6 address
@@ -666,6 +732,10 @@ class NetworkTests(test.TestCase):
                      'with_subnet': True}
         if test_with_profile:
             form_data['net_profile_id'] = net_profile_id
+        if test_with_subnetpool:
+            subnetpool = self.subnetpools.first()
+            form_data['subnetpool'] = subnetpool.id
+            form_data['prefixlen'] = subnetpool.default_prefixlen
         form_data.update(form_data_subnet(subnet, gateway_ip=gateway_ip,
                                           allocation_pools=[]))
         url = reverse('horizon:project:networks:create')
@@ -678,6 +748,10 @@ class NetworkTests(test.TestCase):
     def test_network_create_post_with_subnet_gw_inconsistent_w_profile(self):
         self.test_network_create_post_with_subnet_gw_inconsistent(
             test_with_profile=True)
+
+    def test_network_create_post_with_subnet_gw_inconsistent_w_snpool(self):
+        self.test_network_create_post_with_subnet_gw_inconsistent(
+            test_with_subnetpool=True)
 
     @test.create_stubs({api.neutron: ('network_get',)})
     def test_network_update_get(self):
@@ -834,7 +908,8 @@ class NetworkTests(test.TestCase):
 
 class NetworkSubnetTests(test.TestCase):
 
-    @test.create_stubs({api.neutron: ('network_get', 'subnet_get',)})
+    @test.create_stubs({api.neutron: ('network_get',
+                                      'subnet_get',)})
     def test_subnet_detail(self):
         network = self.networks.first()
         subnet = self.subnets.first()
@@ -883,7 +958,7 @@ class NetworkSubnetTests(test.TestCase):
 
     @test.create_stubs({api.neutron: ('network_get',
                                       'subnet_create',)})
-    def test_subnet_create_post(self):
+    def test_subnet_create_post(self, test_with_subnetpool=False):
         network = self.networks.first()
         subnet = self.subnets.first()
         api.neutron.network_get(IsA(http.HttpRequest),
@@ -972,7 +1047,8 @@ class NetworkSubnetTests(test.TestCase):
 
     @test.create_stubs({api.neutron: ('network_get',
                                       'subnet_create',)})
-    def test_subnet_create_post_network_exception(self):
+    def test_subnet_create_post_network_exception(self,
+                                                  test_with_subnetpool=False):
         network = self.networks.first()
         subnet = self.subnets.first()
         api.neutron.network_get(IsA(http.HttpRequest),
@@ -980,8 +1056,12 @@ class NetworkSubnetTests(test.TestCase):
             .AndRaise(self.exceptions.neutron)
         self.mox.ReplayAll()
 
-        form_data = form_data_subnet(subnet,
-                                     allocation_pools=[])
+        form_data = {}
+        if test_with_subnetpool:
+            subnetpool = self.subnetpools.first()
+            form_data['subnetpool'] = subnetpool.id
+        form_data.update(form_data_subnet(subnet, allocation_pools=[]))
+
         url = reverse('horizon:project:networks:addsubnet',
                       args=[subnet.network_id])
         res = self.client.post(url, form_data)
@@ -989,9 +1069,14 @@ class NetworkSubnetTests(test.TestCase):
         self.assertNoFormErrors(res)
         self.assertRedirectsNoFollow(res, INDEX_URL)
 
+    def test_subnet_create_post_network_exception_with_subnetpool(self):
+        self.test_subnet_create_post_network_exception(
+            test_with_subnetpool=True)
+
     @test.create_stubs({api.neutron: ('network_get',
                                       'subnet_create',)})
-    def test_subnet_create_post_subnet_exception(self):
+    def test_subnet_create_post_subnet_exception(self,
+                                                 test_with_subnetpool=False):
         network = self.networks.first()
         subnet = self.subnets.first()
         api.neutron.network_get(IsA(http.HttpRequest),
@@ -1007,8 +1092,7 @@ class NetworkSubnetTests(test.TestCase):
             .AndRaise(self.exceptions.neutron)
         self.mox.ReplayAll()
 
-        form_data = form_data_subnet(subnet,
-                                     allocation_pools=[])
+        form_data = form_data_subnet(subnet, allocation_pools=[])
         url = reverse('horizon:project:networks:addsubnet',
                       args=[subnet.network_id])
         res = self.client.post(url, form_data)
@@ -1017,19 +1101,34 @@ class NetworkSubnetTests(test.TestCase):
                             args=[subnet.network_id])
         self.assertRedirectsNoFollow(res, redir_url)
 
-    @test.create_stubs({api.neutron: ('network_get',)})
-    def test_subnet_create_post_cidr_inconsistent(self):
+    @test.create_stubs({api.neutron: ('network_get',
+                                      'is_extension_supported',
+                                      'subnetpool_list',)})
+    def test_subnet_create_post_cidr_inconsistent(self,
+                                                  test_with_subnetpool=False):
         network = self.networks.first()
         subnet = self.subnets.first()
         api.neutron.network_get(IsA(http.HttpRequest),
                                 network.id)\
             .AndReturn(self.networks.first())
+
+        api.neutron.is_extension_supported(IsA(http.HttpRequest),
+                                           'subnet_allocation').\
+            AndReturn(True)
+        api.neutron.subnetpool_list(IsA(http.HttpRequest)).\
+            AndReturn(self.subnetpools.list())
+
         self.mox.ReplayAll()
+
+        form_data = {}
+        if test_with_subnetpool:
+            subnetpool = self.subnetpools.first()
+            form_data['subnetpool'] = subnetpool.id
 
         # dummy IPv6 address
         cidr = '2001:0DB8:0:CD30:123:4567:89AB:CDEF/60'
-        form_data = form_data_subnet(subnet, cidr=cidr,
-                                     allocation_pools=[])
+        form_data.update(form_data_subnet(subnet, cidr=cidr,
+                                          allocation_pools=[]))
         url = reverse('horizon:project:networks:addsubnet',
                       args=[subnet.network_id])
         res = self.client.post(url, form_data)
@@ -1038,37 +1137,74 @@ class NetworkSubnetTests(test.TestCase):
         self.assertFormErrors(res, 1, expected_msg)
         self.assertTemplateUsed(res, views.WorkflowView.template_name)
 
-    @test.create_stubs({api.neutron: ('network_get',)})
-    def test_subnet_create_post_gw_inconsistent(self):
+    def test_subnet_create_post_cidr_inconsistent_with_subnetpool(self):
+        self.test_subnet_create_post_cidr_inconsistent(
+            test_with_subnetpool=True)
+
+    @test.create_stubs({api.neutron: ('network_get',
+                                      'is_extension_supported',
+                                      'subnetpool_list',)})
+    def test_subnet_create_post_gw_inconsistent(self,
+                                                test_with_subnetpool=False):
         network = self.networks.first()
         subnet = self.subnets.first()
         api.neutron.network_get(IsA(http.HttpRequest),
                                 network.id)\
             .AndReturn(self.networks.first())
+
+        api.neutron.is_extension_supported(IsA(http.HttpRequest),
+                                           'subnet_allocation').\
+            AndReturn(True)
+        api.neutron.subnetpool_list(IsA(http.HttpRequest)).\
+            AndReturn(self.subnetpools.list())
+
         self.mox.ReplayAll()
+
+        form_data = {}
+        if test_with_subnetpool:
+            subnetpool = self.subnetpools.first()
+            form_data['subnetpool'] = subnetpool.id
 
         # dummy IPv6 address
         gateway_ip = '2001:0DB8:0:CD30:123:4567:89AB:CDEF'
-        form_data = form_data_subnet(subnet, gateway_ip=gateway_ip,
-                                     allocation_pools=[])
+        form_data.update(form_data_subnet(subnet, gateway_ip=gateway_ip,
+                                          allocation_pools=[]))
         url = reverse('horizon:project:networks:addsubnet',
                       args=[subnet.network_id])
         res = self.client.post(url, form_data)
 
         self.assertContains(res, 'Gateway IP and IP version are inconsistent.')
 
-    @test.create_stubs({api.neutron: ('network_get',)})
-    def test_subnet_create_post_invalid_pools_start_only(self):
+    def test_subnet_create_post_gw_inconsistent_with_subnetpool(self):
+        self.test_subnet_create_post_gw_inconsistent(test_with_subnetpool=True)
+
+    @test.create_stubs({api.neutron: ('network_get',
+                                      'is_extension_supported',
+                                      'subnetpool_list',)})
+    def test_subnet_create_post_invalid_pools_start_only(self,
+                                                         test_w_snpool=False):
         network = self.networks.first()
         subnet = self.subnets.first()
         api.neutron.network_get(IsA(http.HttpRequest),
                                 network.id).AndReturn(network)
+
+        api.neutron.is_extension_supported(IsA(http.HttpRequest),
+                                           'subnet_allocation').\
+            AndReturn(True)
+        api.neutron.subnetpool_list(IsA(http.HttpRequest)).\
+            AndReturn(self.subnetpools.list())
+
         self.mox.ReplayAll()
+
+        form_data = {}
+        if test_w_snpool:
+            subnetpool = self.subnetpools.first()
+            form_data['subnetpool'] = subnetpool.id
 
         # Start only allocation_pools
         allocation_pools = '10.0.0.2'
-        form_data = form_data_subnet(subnet,
-                                     allocation_pools=allocation_pools)
+        form_data.update(form_data_subnet(subnet,
+                                          allocation_pools=allocation_pools))
         url = reverse('horizon:project:networks:addsubnet',
                       args=[subnet.network_id])
         res = self.client.post(url, form_data)
@@ -1077,18 +1213,37 @@ class NetworkSubnetTests(test.TestCase):
                             'Start and end addresses must be specified '
                             '(value=%s)' % allocation_pools)
 
-    @test.create_stubs({api.neutron: ('network_get',)})
-    def test_subnet_create_post_invalid_pools_three_entries(self):
+    def test_subnet_create_post_invalid_pools_start_only_with_subnetpool(self):
+        self.test_subnet_create_post_invalid_pools_start_only(
+            test_w_snpool=True)
+
+    @test.create_stubs({api.neutron: ('network_get',
+                                      'is_extension_supported',
+                                      'subnetpool_list',)})
+    def test_subnet_create_post_invalid_pools_three_entries(self,
+                                                            t_w_snpool=False):
         network = self.networks.first()
         subnet = self.subnets.first()
         api.neutron.network_get(IsA(http.HttpRequest),
                                 network.id).AndReturn(network)
+
+        api.neutron.is_extension_supported(IsA(http.HttpRequest),
+                                           'subnet_allocation').\
+            AndReturn(True)
+        api.neutron.subnetpool_list(IsA(http.HttpRequest)).\
+            AndReturn(self.subnetpools.list())
+
         self.mox.ReplayAll()
+
+        form_data = {}
+        if t_w_snpool:
+            subnetpool = self.subnetpools.first()
+            form_data['subnetpool'] = subnetpool.id
 
         # pool with three entries
         allocation_pools = '10.0.0.2,10.0.0.3,10.0.0.4'
-        form_data = form_data_subnet(subnet,
-                                     allocation_pools=allocation_pools)
+        form_data.update(form_data_subnet(subnet,
+                                          allocation_pools=allocation_pools))
         url = reverse('horizon:project:networks:addsubnet',
                       args=[subnet.network_id])
         res = self.client.post(url, form_data)
@@ -1097,18 +1252,37 @@ class NetworkSubnetTests(test.TestCase):
                             'Start and end addresses must be specified '
                             '(value=%s)' % allocation_pools)
 
-    @test.create_stubs({api.neutron: ('network_get',)})
-    def test_subnet_create_post_invalid_pools_invalid_address(self):
+    def test_subnet_create_post_invalid_pools_three_entries_w_subnetpool(self):
+        self.test_subnet_create_post_invalid_pools_three_entries(
+            t_w_snpool=True)
+
+    @test.create_stubs({api.neutron: ('network_get',
+                                      'is_extension_supported',
+                                      'subnetpool_list',)})
+    def test_subnet_create_post_invalid_pools_invalid_address(self,
+                                                              t_w_snpl=False):
         network = self.networks.first()
         subnet = self.subnets.first()
         api.neutron.network_get(IsA(http.HttpRequest),
                                 network.id).AndReturn(network)
+
+        api.neutron.is_extension_supported(IsA(http.HttpRequest),
+                                           'subnet_allocation').\
+            AndReturn(True)
+        api.neutron.subnetpool_list(IsA(http.HttpRequest)).\
+            AndReturn(self.subnetpools.list())
+
         self.mox.ReplayAll()
+
+        form_data = {}
+        if t_w_snpl:
+            subnetpool = self.subnetpools.first()
+            form_data['subnetpool'] = subnetpool.id
 
         # end address is not a valid IP address
         allocation_pools = '10.0.0.2,invalid_address'
-        form_data = form_data_subnet(subnet,
-                                     allocation_pools=allocation_pools)
+        form_data.update(form_data_subnet(subnet,
+                                          allocation_pools=allocation_pools))
         url = reverse('horizon:project:networks:addsubnet',
                       args=[subnet.network_id])
         res = self.client.post(url, form_data)
@@ -1117,18 +1291,37 @@ class NetworkSubnetTests(test.TestCase):
                             'allocation_pools: Invalid IP address '
                             '(value=%s)' % allocation_pools.split(',')[1])
 
-    @test.create_stubs({api.neutron: ('network_get',)})
-    def test_subnet_create_post_invalid_pools_ip_network(self):
+    def test_subnet_create_post_invalid_pools_invalid_address_w_snpool(self):
+        self.test_subnet_create_post_invalid_pools_invalid_address(
+            t_w_snpl=True)
+
+    @test.create_stubs({api.neutron: ('network_get',
+                                      'is_extension_supported',
+                                      'subnetpool_list',)})
+    def test_subnet_create_post_invalid_pools_ip_network(self,
+                                                         test_w_snpool=False):
         network = self.networks.first()
         subnet = self.subnets.first()
         api.neutron.network_get(IsA(http.HttpRequest),
                                 network.id).AndReturn(network)
+
+        api.neutron.is_extension_supported(IsA(http.HttpRequest),
+                                           'subnet_allocation').\
+            AndReturn(True)
+        api.neutron.subnetpool_list(IsA(http.HttpRequest)).\
+            AndReturn(self.subnetpools.list())
+
         self.mox.ReplayAll()
+
+        form_data = {}
+        if test_w_snpool:
+            subnetpool = self.subnetpools.first()
+            form_data['subnetpool'] = subnetpool.id
 
         # start address is CIDR
         allocation_pools = '10.0.0.2/24,10.0.0.5'
-        form_data = form_data_subnet(subnet,
-                                     allocation_pools=allocation_pools)
+        form_data.update(form_data_subnet(subnet,
+                                          allocation_pools=allocation_pools))
         url = reverse('horizon:project:networks:addsubnet',
                       args=[subnet.network_id])
         res = self.client.post(url, form_data)
@@ -1137,13 +1330,32 @@ class NetworkSubnetTests(test.TestCase):
                             'allocation_pools: Invalid IP address '
                             '(value=%s)' % allocation_pools.split(',')[0])
 
-    @test.create_stubs({api.neutron: ('network_get',)})
-    def test_subnet_create_post_invalid_pools_start_larger_than_end(self):
+    def test_subnet_create_post_invalid_pools_ip_network_with_subnetpool(self):
+        self.test_subnet_create_post_invalid_pools_ip_network(
+            test_w_snpool=True)
+
+    @test.create_stubs({api.neutron: ('network_get',
+                                      'is_extension_supported',
+                                      'subnetpool_list',)})
+    def test_subnet_create_post_invalid_pools_start_larger_than_end(self,
+                                                                    tsn=False):
         network = self.networks.first()
         subnet = self.subnets.first()
         api.neutron.network_get(IsA(http.HttpRequest),
                                 network.id).AndReturn(network)
+
+        api.neutron.is_extension_supported(IsA(http.HttpRequest),
+                                           'subnet_allocation').\
+            AndReturn(True)
+        api.neutron.subnetpool_list(IsA(http.HttpRequest)).\
+            AndReturn(self.subnetpools.list())
+
         self.mox.ReplayAll()
+
+        form_data = {}
+        if tsn:
+            subnetpool = self.subnetpools.first()
+            form_data['subnetpool'] = subnetpool.id
 
         # start address is larger than end address
         allocation_pools = '10.0.0.254,10.0.0.2'
@@ -1157,18 +1369,38 @@ class NetworkSubnetTests(test.TestCase):
                             'Start address is larger than end address '
                             '(value=%s)' % allocation_pools)
 
-    @test.create_stubs({api.neutron: ('network_get',)})
-    def test_subnet_create_post_invalid_nameservers(self):
+    def test_subnet_create_post_invalid_pools_start_larger_than_end_tsn(self):
+        self.test_subnet_create_post_invalid_pools_start_larger_than_end(
+            tsn=True)
+
+    @test.create_stubs({api.neutron: ('network_get',
+                                      'is_extension_supported',
+                                      'subnetpool_list',)})
+    def test_subnet_create_post_invalid_nameservers(self,
+                                                    test_w_subnetpool=False):
         network = self.networks.first()
         subnet = self.subnets.first()
         api.neutron.network_get(IsA(http.HttpRequest),
                                 network.id).AndReturn(network)
+
+        api.neutron.is_extension_supported(IsA(http.HttpRequest),
+                                           'subnet_allocation').\
+            AndReturn(True)
+        api.neutron.subnetpool_list(IsA(http.HttpRequest)).\
+            AndReturn(self.subnetpools.list())
+
         self.mox.ReplayAll()
+
+        form_data = {}
+        if test_w_subnetpool:
+            subnetpool = self.subnetpools.first()
+            form_data['subnetpool'] = subnetpool.id
 
         # invalid DNS server address
         dns_nameservers = ['192.168.0.2', 'invalid_address']
-        form_data = form_data_subnet(subnet, dns_nameservers=dns_nameservers,
-                                     allocation_pools=[])
+        form_data.update(form_data_subnet(subnet,
+                                          dns_nameservers=dns_nameservers,
+                                          allocation_pools=[]))
         url = reverse('horizon:project:networks:addsubnet',
                       args=[subnet.network_id])
         res = self.client.post(url, form_data)
@@ -1177,19 +1409,39 @@ class NetworkSubnetTests(test.TestCase):
                             'dns_nameservers: Invalid IP address '
                             '(value=%s)' % dns_nameservers[1])
 
-    @test.create_stubs({api.neutron: ('network_get',)})
-    def test_subnet_create_post_invalid_routes_destination_only(self):
+    def test_subnet_create_post_invalid_nameservers_with_subnetpool(self):
+        self.test_subnet_create_post_invalid_nameservers(
+            test_w_subnetpool=True)
+
+    @test.create_stubs({api.neutron: ('network_get',
+                                      'is_extension_supported',
+                                      'subnetpool_list',)})
+    def test_subnet_create_post_invalid_routes_destination_only(self,
+                                                                tsn=False):
         network = self.networks.first()
         subnet = self.subnets.first()
         api.neutron.network_get(IsA(http.HttpRequest),
                                 network.id).AndReturn(network)
+
+        api.neutron.is_extension_supported(IsA(http.HttpRequest),
+                                           'subnet_allocation').\
+            AndReturn(True)
+
+        api.neutron.subnetpool_list(IsA(http.HttpRequest)).\
+            AndReturn(self.subnetpools.list())
+
         self.mox.ReplayAll()
+
+        form_data = {}
+        if tsn:
+            subnetpool = self.subnetpools.first()
+            form_data['subnetpool'] = subnetpool.id
 
         # Start only host_route
         host_routes = '192.168.0.0/24'
-        form_data = form_data_subnet(subnet,
-                                     allocation_pools=[],
-                                     host_routes=host_routes)
+        form_data.update(form_data_subnet(subnet,
+                                          allocation_pools=[],
+                                          host_routes=host_routes))
         url = reverse('horizon:project:networks:addsubnet',
                       args=[subnet.network_id])
         res = self.client.post(url, form_data)
@@ -1199,19 +1451,38 @@ class NetworkSubnetTests(test.TestCase):
                             'Destination CIDR and nexthop must be specified '
                             '(value=%s)' % host_routes)
 
-    @test.create_stubs({api.neutron: ('network_get',)})
-    def test_subnet_create_post_invalid_routes_three_entries(self):
+    def test_subnet_create_post_invalid_routes_destination_only_w_snpool(self):
+        self.test_subnet_create_post_invalid_routes_destination_only(
+            tsn=True)
+
+    @test.create_stubs({api.neutron: ('network_get',
+                                      'is_extension_supported',
+                                      'subnetpool_list',)})
+    def test_subnet_create_post_invalid_routes_three_entries(self,
+                                                             tsn=False):
         network = self.networks.first()
         subnet = self.subnets.first()
         api.neutron.network_get(IsA(http.HttpRequest),
                                 network.id).AndReturn(network)
+
+        api.neutron.is_extension_supported(IsA(http.HttpRequest),
+                                           'subnet_allocation').\
+            AndReturn(True)
+        api.neutron.subnetpool_list(IsA(http.HttpRequest)).\
+            AndReturn(self.subnetpools.list())
+
         self.mox.ReplayAll()
+
+        form_data = {}
+        if tsn:
+            subnetpool = self.subnetpools.first()
+            form_data['subnetpool'] = subnetpool.id
 
         # host_route with three entries
         host_routes = 'aaaa,bbbb,cccc'
-        form_data = form_data_subnet(subnet,
-                                     allocation_pools=[],
-                                     host_routes=host_routes)
+        form_data.update(form_data_subnet(subnet,
+                                          allocation_pools=[],
+                                          host_routes=host_routes))
         url = reverse('horizon:project:networks:addsubnet',
                       args=[subnet.network_id])
         res = self.client.post(url, form_data)
@@ -1221,19 +1492,38 @@ class NetworkSubnetTests(test.TestCase):
                             'Destination CIDR and nexthop must be specified '
                             '(value=%s)' % host_routes)
 
-    @test.create_stubs({api.neutron: ('network_get',)})
-    def test_subnet_create_post_invalid_routes_invalid_destination(self):
+    def test_subnet_create_post_invalid_routes_three_entries_with_tsn(self):
+        self.test_subnet_create_post_invalid_routes_three_entries(
+            tsn=True)
+
+    @test.create_stubs({api.neutron: ('network_get',
+                                      'is_extension_supported',
+                                      'subnetpool_list',)})
+    def test_subnet_create_post_invalid_routes_invalid_destination(self,
+                                                                   tsn=False):
         network = self.networks.first()
         subnet = self.subnets.first()
         api.neutron.network_get(IsA(http.HttpRequest),
                                 network.id).AndReturn(network)
+
+        api.neutron.is_extension_supported(IsA(http.HttpRequest),
+                                           'subnet_allocation').\
+            AndReturn(True)
+        api.neutron.subnetpool_list(IsA(http.HttpRequest)).\
+            AndReturn(self.subnetpools.list())
+
         self.mox.ReplayAll()
+
+        form_data = {}
+        if tsn:
+            subnetpool = self.subnetpools.first()
+            form_data['subnetpool'] = subnetpool.id
 
         # invalid destination network
         host_routes = '172.16.0.0/64,10.0.0.253'
-        form_data = form_data_subnet(subnet,
-                                     host_routes=host_routes,
-                                     allocation_pools=[])
+        form_data.update(form_data_subnet(subnet,
+                                          host_routes=host_routes,
+                                          allocation_pools=[]))
         url = reverse('horizon:project:networks:addsubnet',
                       args=[subnet.network_id])
         res = self.client.post(url, form_data)
@@ -1242,19 +1532,38 @@ class NetworkSubnetTests(test.TestCase):
                             'host_routes: Invalid IP address '
                             '(value=%s)' % host_routes.split(',')[0])
 
-    @test.create_stubs({api.neutron: ('network_get',)})
-    def test_subnet_create_post_invalid_routes_nexthop_ip_network(self):
+    def test_subnet_create_post_invalid_routes_invalid_destination_tsn(self):
+        self.test_subnet_create_post_invalid_routes_invalid_destination(
+            tsn=True)
+
+    @test.create_stubs({api.neutron: ('network_get',
+                                      'is_extension_supported',
+                                      'subnetpool_list',)})
+    def test_subnet_create_post_invalid_routes_nexthop_ip_network(self,
+                                                                  tsn=False):
         network = self.networks.first()
         subnet = self.subnets.first()
         api.neutron.network_get(IsA(http.HttpRequest),
                                 network.id).AndReturn(network)
+
+        api.neutron.is_extension_supported(IsA(http.HttpRequest),
+                                           'subnet_allocation').\
+            AndReturn(True)
+        api.neutron.subnetpool_list(IsA(http.HttpRequest)).\
+            AndReturn(self.subnetpools.list())
+
         self.mox.ReplayAll()
+
+        form_data = {}
+        if tsn:
+            subnetpool = self.subnetpools.first()
+            form_data['subnetpool'] = subnetpool.id
 
         # nexthop is not an IP address
         host_routes = '172.16.0.0/24,10.0.0.253/24'
-        form_data = form_data_subnet(subnet,
-                                     host_routes=host_routes,
-                                     allocation_pools=[])
+        form_data.update(form_data_subnet(subnet,
+                                          host_routes=host_routes,
+                                          allocation_pools=[]))
         url = reverse('horizon:project:networks:addsubnet',
                       args=[subnet.network_id])
         res = self.client.post(url, form_data)
@@ -1263,9 +1572,20 @@ class NetworkSubnetTests(test.TestCase):
                             'host_routes: Invalid IP address '
                             '(value=%s)' % host_routes.split(',')[1])
 
-    @test.create_stubs({api.neutron: ('network_get',
-                                      'subnet_create',)})
+    def test_subnet_create_post_invalid_routes_nexthop_ip_network_tsn(self):
+        self.test_subnet_create_post_invalid_routes_nexthop_ip_network(
+            tsn=True)
+
+    @test.create_stubs({api.neutron: ('is_extension_supported',
+                                      'network_get',
+                                      'subnet_create',
+                                      'subnetpool_list',)})
     def test_v6subnet_create_post(self):
+        api.neutron.is_extension_supported(IsA(http.HttpRequest),
+                                           'subnet_allocation').\
+            AndReturn(True)
+        api.neutron.subnetpool_list(IsA(http.HttpRequest)).\
+            AndReturn(self.subnetpools.list())
         network = self.networks.get(name="v6_net1")
         subnet = self.subnets.get(name="v6_subnet1")
         api.neutron.network_get(IsA(http.HttpRequest),

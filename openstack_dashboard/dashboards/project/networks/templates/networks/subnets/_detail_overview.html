@@ -14,6 +14,12 @@
     {% url 'horizon:project:networks:detail' subnet.network_id as network_url %}
     <dt>{% trans "Network ID" %}</dt>
     <dd><a href="{{ network_url }}">{{ subnet.network_id|default:_("None") }}</a></dd>
+    <dt>{% trans "Subnetpool" %}</dt>
+    {% if subnet.subnetpool_id %}
+      <dd>{{ subnet.subnetpool_name }} ({{ subnet.subnetpool_id }})</dd>
+    {% else %}
+      <dd>{% trans "None" %}</dd>
+    {% endif %}
     <dt>{% trans "IP version" %}</dt>
     <dd>{{ subnet.ipver_str|default:_("-") }}</dd>
     <dt>{% trans "CIDR" %}</dt>
