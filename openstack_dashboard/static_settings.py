@@ -38,7 +38,6 @@ import xstatic.pkg.jquery_tablesorter
 import xstatic.pkg.jquery_ui
 import xstatic.pkg.jsencrypt
 import xstatic.pkg.magic_search
-import xstatic.pkg.qunit
 import xstatic.pkg.rickshaw
 import xstatic.pkg.spin
 import xstatic.pkg.termjs
@@ -98,9 +97,6 @@ def get_staticfiles_dirs(webroot='/'):
                                  root_url=webroot).base_dir),
         ('horizon/lib/magic_search',
             xstatic.main.XStatic(xstatic.pkg.magic_search,
-                                 root_url=webroot).base_dir),
-        ('horizon/lib/qunit',
-            xstatic.main.XStatic(xstatic.pkg.qunit,
                                  root_url=webroot).base_dir),
         ('horizon/lib',
             xstatic.main.XStatic(xstatic.pkg.rickshaw,

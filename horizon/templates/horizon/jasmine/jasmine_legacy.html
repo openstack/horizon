@@ -1,31 +1,43 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="UTF-8" />
-    <title>Horizon QUnit Test Suite</title>
-    <link rel="stylesheet" href="{{ STATIC_URL }}horizon/lib/qunit/qunit.css" type="text/css" media="screen">
-    <script type="text/javascript" src="{{ STATIC_URL }}horizon/lib/jquery/jquery.js"></script>
-    <script type="text/javascript" src="{{ STATIC_URL }}horizon/lib/qunit/qunit.js"></script>
-    {% include "horizon/_conf.html" %}
+{% extends "horizon/jasmine/jasmine.html" %}
 
-    {% comment %}Load test modules here.{% endcomment %}
-    <script type="text/javascript" src="{{ STATIC_URL }}horizon/tests/modals.js"></script>
-    <script type="text/javascript" src="{{ STATIC_URL }}horizon/tests/templates.js"></script>
-    <script type="text/javascript" src="{{ STATIC_URL }}horizon/tests/tables.js"></script>
-    <script type="text/javascript" src="{{ STATIC_URL }}horizon/tests/instances.js"></script>
-    {% comment %}End test modules.{% endcomment %}
+{% block source %}
+<!-- Instead include all "horizon/_scripts.html" -->
+  {% include "horizon/_script_i18n.html" %}
 
-    {% include "horizon/_scripts.html" %}
-  </head>
-  <body ng-app="hz">
-    <h1 id="qunit-header">Horizon JavaScript Tests</h1>
-    <h2 id="qunit-banner"></h2>
-    <div id="qunit-testrunner-toolbar"></div>
-    <h2 id="qunit-userAgent"></h2>
-    <ol id="qunit-tests"></ol>
-    <div id="qunit-fixture">
+  <script src="{{ STATIC_URL }}bootstrap/js/bootstrap.js"></script>
+  <script src="{{ STATIC_URL }}horizon/lib/jquery/jquery.tablesorter.js"></script>
+  <script src="{{ STATIC_URL }}horizon/lib/hogan.js"></script>
+  <script src='{{ STATIC_URL }}horizon/lib/jsencrypt/jsencrypt.js'></script>
+  <script src="{{ STATIC_URL }}horizon/js/horizon.templates.js"></script>
+  <script src="{{ STATIC_URL }}horizon/js/horizon.instances.js"></script>
+  <script src='{{ STATIC_URL }}horizon/js/horizon.tabs.js'></script>
+  <script src='{{ STATIC_URL }}horizon/js/horizon.forms.js'></script>
+  <script src='{{ STATIC_URL }}horizon/js/horizon.formset_table.js'></script>
+  <script src='{{ STATIC_URL }}horizon/js/horizon.messages.js'></script>
+  <script src='{{ STATIC_URL }}horizon/js/horizon.modals.js'></script>
+  <script src='{{ STATIC_URL }}horizon/js/horizon.tables.js'></script>
+
+  {% include "horizon/client_side/templates.html" %}
+
+  <script>
+    // Call init on DOM ready.
+    $(document).ready(horizon.init);
+  </script>
+  <!-- The end -->
+{% endblock %}
+
+{% block spec %}
+  <!-- test files -->
+  <script type="text/javascript" src="{{ STATIC_URL }}horizon/tests/jasmine/modals.legacy-spec.js"></script>
+  <script type="text/javascript" src="{{ STATIC_URL }}horizon/tests/jasmine/templates.legacy-spec.js"></script>
+  <script type="text/javascript" src="{{ STATIC_URL }}horizon/tests/jasmine/tables.legacy-spec.js"></script>
+  <script type="text/javascript" src="{{ STATIC_URL }}horizon/tests/jasmine/instances.legacy-spec.js"></script>
+  <script type="text/javascript" src="{{ STATIC_URL }}horizon/tests/jasmine/messages.legacy-spec.js"></script>
+{% endblock %}
+
+{% block content %}
+    <div id="jasmine-fixture">
       <!-- Test markup; will be hidden. -->
-
       <div id="main_content">
         <div class="messages"></div>
         <div id="modal_wrapper"></div>
@@ -55,9 +67,9 @@
         </div></th></tr></thead>
         <tbody>
           <tr class="category-cat"><td>cat1</td></tr>
-          <tr class="category-big category-dog"><td>dog1</td></tr>
-          <tr class="category-big category-cat"><td>cat2</td></tr>
-          <tr class="category-dog"><td>dog2</td></tr>
+          <tr class="category-big category-dog"  style="display: none"><td>dog1</td></tr>
+          <tr class="category-big category-cat"  style="display: none"><td>cat2</td></tr>
+          <tr class="category-dog"  style="display: none"><td>dog2</td></tr>
         </tbody>
         <tfoot>
           <tr>
@@ -226,7 +238,6 @@
               </tr>
             </tfoot>
           </table>
-      </div>
+       </div>
     </div>
-  </body>
-</html>
+{% endblock %}

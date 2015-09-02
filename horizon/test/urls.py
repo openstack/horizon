@@ -37,10 +37,11 @@ urlpatterns = patterns(
         {'template_name': "auth/login.html"},
         name='login'),
     url(r'auth/', include('django.contrib.auth.urls')),
-    url(r'^qunit/$',
-        TemplateView.as_view(template_name="horizon/qunit.html"),
-        name='qunit_tests'),
-    url(r'^jasmine/.*?$', jasmine.dispatcher)
+    url(r'^jasmine/.*?$', jasmine.dispatcher),
+    url(r'^jasmine-legacy/$',
+        TemplateView.as_view(
+            template_name="horizon/jasmine/jasmine_legacy.html"),
+        name='jasmine_tests'),
 )
 
 urlpatterns += staticfiles_urlpatterns()
