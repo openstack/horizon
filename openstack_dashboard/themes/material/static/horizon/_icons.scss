@@ -1,0 +1,63 @@
+// This file does a 1-1 mapping of each font-awesome icon in use to
+// a corresponding Material Design Icon.
+
+$mdi-font-path: $static_url + "/horizon/lib/mdi/fonts";
+@import "/horizon/lib/mdi/scss/materialdesignicons.scss";
+
+.fa {
+  @extend .mdi;
+  font-size: 1.3em;
+}
+
+$icon-swap: (
+  caret-down: 'menu-down',
+  sign-out: 'logout',
+  question-circle: 'help-circle',
+  cog: 'settings',
+  user: 'account',
+  plus: 'plus',
+  minus: 'minus',
+  check: 'check',
+  list-alt: 'view-list',
+  chevron-down: 'chevron-down',
+  chevron-up: 'chevron-up',
+  chevron-left: 'chevron-left',
+  chevron-right: 'chevron-right',
+  search: 'magnify',
+  exclamation-circle: 'alert-circle',
+  warning: 'alert',
+  exclamation-triangle: 'alert',
+  cloud-download: 'cloud-download',
+  cloud-upload: 'cloud-upload',
+  upload: 'upload',
+  download: 'download',
+  times: 'close',
+  close: 'close',
+  remove: 'close',
+  random: 'shuffle',
+  ban: 'block-helper',
+  th-large: 'view-grid',
+  th: 'view-module',
+  trash: 'delete',
+  trash-o: 'delete',
+  pencil: 'pencil',
+  eye: 'eye',
+  eye-slash: 'eye-off',
+  desktop: 'desktop-mac',
+  server: 'server',
+  square: 'checkbox-blank',
+  exclamation: 'exclamation',
+  sort: 'sort',
+  home: 'home',
+  square-o: 'checkbox-blank-outline',
+  group: 'account-multiple',
+  share-square-o: 'share',
+  link: 'link-variant',
+  exchange: 'swap-horizontal',
+);
+
+@each $fa-icon, $mdi-icon in $icon-swap {
+  .fa-#{$fa-icon} {
+    @extend .mdi-#{$mdi-icon};
+  }
+}

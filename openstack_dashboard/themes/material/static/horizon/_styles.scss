@@ -1,0 +1,69 @@
+@import "icons";
+@import "components/hamburger";
+@import "components/sidebar";
+
+
+// General Layout Changes
+#sidebar {
+  position: fixed;
+}
+
+#content_body {
+  padding-top: $navbar-height;
+  transition: padding-left $sidebar-animation;
+
+  @media (max-width: $screen-lg) {
+    padding-left: $content-body-padding;
+  }
+}
+
+
+// The top nav is fixed, even when the page scrolls
+.topbar {
+  width: 100%;
+  position: fixed;
+  z-index: 4;
+
+  .navbar {
+    margin-bottom: 0;
+  }
+}
+
+
+// Hamburger menu only shows on smaller screen sizes
+.navbar-header .md-hamburger {
+  display: none;
+  @media (max-width: $screen-lg) {
+    display: inline-block;
+    float: left;
+
+    & > button {
+      padding: $navbar-padding-vertical $navbar-padding-horizontal;
+      height: $navbar-height;
+    }
+  }
+}
+
+
+// The mask that the hamburger menu uses to apply an opacity
+// to the entire page when in smaller screen
+#md-hamburger-mask {
+  background-color: rgba(0, 0, 0, 0.5);
+  height: 100%;
+  left: 0;
+  position: fixed;
+  top: 0;
+  transform: translateZ(0);
+  visibility: hidden;
+  opacity: 0;
+  width: 100%;
+  z-index: 2;
+  transition: all $hamburger-transition;
+
+  @media (max-width: $screen-lg) {
+    &.active {
+      visibility: visible;
+      opacity: 1;
+    }
+  }
+}

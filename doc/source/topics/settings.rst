@@ -417,6 +417,9 @@ file and a _styles.scss file.  These must contain or import all the
 bootstrap and horizon specific variables and styles which are used to style
 the GUI. For example themes, see: /horizon/openstack_dashboard/themes/
 
+Horizon ships with one alternate theme based on Google's Material Design.  To
+use the alternate theme, set your CUSTOM_THEME_PATH to ``themes/material``.
+
 
 ``DEFAULT_THEME_PATH``
 ----------------------

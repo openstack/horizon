@@ -1,0 +1,59 @@
+//== Colors
+//
+//## Gray and brand colors for use across Bootstrap.
+
+$brand-primary:         #03a9f4;
+
+// If that blue isn't desired, then consider any of these other
+//colors that are part of the Matieral Design Spec Color Palette
+
+//$brand-primary:         #627C7B;
+//$brand-primary:         #455a64;
+//$brand-primary:         #009688;
+
+$gray-dark:             #212121;
+
+
+//== Iconography
+//
+//## Specify custom location and filename of the included Glyphicons icon font. Useful for those including Bootstrap via Bower.
+
+//** Load fonts from this directory.
+$icon-font-path:          "../icons/fonts/";
+//** File name for all font files.
+$icon-font-name:          "material";
+//** Element ID within SVG icon file.
+$icon-font-svg-id:        "material";
+
+
+//== Components
+//
+//## Define common padding and border radius sizes and more. Values based on 14px text and 1.428 line-height (~20px to start).
+
+$border-radius-base:        0;
+$border-radius-small:       0;
+
+
+//== Navbar
+//
+//##
+
+// Inverted navbar
+// Inverted navbar links
+$navbar-inverse-link-color:                 #fff;
+$navbar-inverse-link-hover-color:           $navbar-inverse-link-color;
+
+// Inverted navbar brand label
+$navbar-inverse-brand-hover-color:          $navbar-inverse-link-color;
+
+
+//== Navs
+//
+//##
+
+//=== Shared nav styles
+$nav-link-padding:                          15px 22px 15px 22px;
+$nav-link-hover-bg:                         transparent;
+
+$nav-disabled-link-color:                   $gray-dark;
+$nav-disabled-link-hover-color:             $gray-dark;
