@@ -19,8 +19,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-08-29 02:57+0000\n"
-"PO-Revision-Date: 2015-08-28 11:21+0000\n"
+"POT-Creation-Date: 2015-09-03 04:49+0000\n"
+"PO-Revision-Date: 2015-09-02 07:31+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Chinese (China) (http://www.transifex.com/openstack/horizon/"
 "language/zh_CN/)\n"
@@ -2235,14 +2235,6 @@ msgid ""
 "Create a subnet associated with the network. Advanced configuration is "
 "available by clicking on the \"Subnet Details\" tab."
 msgstr "创建网络关联的子网。点击\"子网详情\"标签可以进行高级配置。"
-
-msgid ""
-"Create a subnet associated with the new network, in which case \"Network "
-"Address\" must be specified. If you wish to create a network without a "
-"subnet, uncheck the \"Create Subnet\" checkbox."
-msgstr ""
-"创建新网络关联的子网，这里\"网络地址\"必须指定. 如果你希望创建不带子网的网"
-"络，不选 \"创建子网\" 这个复选框就可以了。"
 
 msgid "Create an Encrypted Volume Type"
 msgstr "创建一加密的卷类型"
@@ -5568,9 +5560,6 @@ msgstr "元数据定义"
 msgid "Metadata Items"
 msgstr "元数据条目"
 
-msgid "Metadata successfully updated."
-msgstr "元数据成功更新。"
-
 msgid "Meter"
 msgstr "计量"
 
@@ -8200,9 +8189,6 @@ msgstr "指定该存储卷可以用于启动实例"
 msgid "Specify \"Network Address\""
 msgstr "指定“网络地址”"
 
-msgid "Specify \"Network Address\" or clear \"Create Subnet\" checkbox."
-msgstr "请指定\"网络地址\"或取消\"建立子网\"选项"
-
 msgid "Specify IP address of gateway or check \"Disable Gateway\"."
 msgstr "填写网关ip或者选择\"禁用网关\""
 
@@ -9920,15 +9906,6 @@ msgstr "无法获取可用域列表。"
 msgid "Unable to retrieve availability zones."
 msgstr "无法获取可用域。"
 
-msgid "Unable to retrieve available metadata for aggregate."
-msgstr "无法获得可用的聚合元数据"
-
-msgid "Unable to retrieve available metadata for flavors."
-msgstr "无法获取云主机类型可用的元数据"
-
-msgid "Unable to retrieve available properties for image."
-msgstr "无法获取镜像的有效属性"
-
 msgid "Unable to retrieve backup details."
 msgstr "无法获取卷备份详细信息。"
 
@@ -10371,15 +10348,6 @@ msgstr "无法获取租户范围"
 msgid "Unable to retrieve the aggregate to be updated"
 msgstr "无法获取要更新的集合"
 
-msgid "Unable to retrieve the aggregate to be updated."
-msgstr "无法获得要更新的聚合。"
-
-msgid "Unable to retrieve the flavor metadata."
-msgstr "无法获取云主机类型的元数据"
-
-msgid "Unable to retrieve the image to be updated."
-msgstr "无法获取要更新的镜像"
-
 msgid "Unable to retrieve the specified pool."
 msgstr "无法检索指定池。"
 
@@ -10543,20 +10511,11 @@ msgstr "无法更新安全组: %s"
 msgid "Unable to update subnet \"%s\"."
 msgstr "无法更新子网\"%s\""
 
-msgid "Unable to update the aggregate metadata."
-msgstr "无法更新聚合元数据。"
-
 msgid "Unable to update the aggregate."
 msgstr "无法更新主机集合。"
 
-msgid "Unable to update the flavor metadata."
-msgstr "无法更新云主机类型元数据"
-
 msgid "Unable to update the group."
 msgstr "无法更新组。"
-
-msgid "Unable to update the image metadata."
-msgstr "无法更新镜像元数据"
 
 msgid "Unable to update the user password."
 msgstr "无法更新用户密码。"
@@ -10661,9 +10620,6 @@ msgstr "向上"
 msgid "Update"
 msgstr "更新"
 
-msgid "Update Aggregate Metadata"
-msgstr "更新聚合元数据"
-
 msgid "Update Associations"
 msgstr "更新关联"
 
@@ -10681,17 +10637,11 @@ msgctxt "current status of stack"
 msgid "Update Failed"
 msgstr "更新失败"
 
-msgid "Update Flavor Metadata"
-msgstr "更新云主机类型的元数据"
-
 msgid "Update Group"
 msgstr "更新组"
 
 msgid "Update Image"
 msgstr "上传镜像"
-
-msgid "Update Image Metadata"
-msgstr "更新镜像元数据"
 
 msgctxt "current status of stack"
 msgid "Update In Progress"

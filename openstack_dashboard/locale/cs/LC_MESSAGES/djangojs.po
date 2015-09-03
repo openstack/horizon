@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-09-01 03:11+0000\n"
-"PO-Revision-Date: 2015-08-30 04:51+0000\n"
+"POT-Creation-Date: 2015-09-03 04:49+0000\n"
+"PO-Revision-Date: 2015-09-02 07:27+0000\n"
 "Last-Translator: Zbyněk Schwarz <zbynek.schwarz@gmail.com>\n"
 "Language-Team: Czech (http://www.transifex.com/openstack/horizon/language/"
 "cs/)\n"
@@ -97,9 +97,6 @@ msgstr ""
 msgid "A name is required for your instance."
 msgstr "Název vaší instance je vyžadován."
 
-msgid "Actions"
-msgstr "Činnost"
-
 msgid "Active"
 msgstr "Aktivní"
 
@@ -175,9 +172,6 @@ msgstr "Nelze získat katalog služeb z keystone."
 msgid "Cannot get the Nova extension list."
 msgstr "Nelze získat seznam rozšíření Nova."
 
-msgid "Change Password"
-msgstr "Změnit heslo"
-
 msgid ""
 "Check the <b>Configuration Drive</b> box if you want to write metadata to a "
 "special configuration drive. When the instance boots, it attaches to the "
@@ -208,9 +202,6 @@ msgstr "Vytvořit pár klíče"
 msgid "Create New Volume"
 msgstr "Vytvořit nový svazek"
 
-msgid "Create User"
-msgstr "Vytvořit uživatele"
-
 msgid "Created"
 msgstr "Vytvořeno"
 
@@ -229,12 +220,6 @@ msgstr ""
 msgid "Customization Script"
 msgstr "Skript přizpůsobení"
 
-msgid "Delete"
-msgstr "Smazat"
-
-msgid "Delete Users"
-msgstr "Smazat uživatele"
-
 msgid "Delete Volume on Terminate"
 msgstr "Odstranit svazek při ukončení"
 
@@ -250,9 +235,6 @@ msgstr "Název zařízení"
 msgid "Direction"
 msgstr "Směr"
 
-msgid "Disable"
-msgstr "Zakázat"
-
 msgid "Disk Partition"
 msgstr "Oddíl disku"
 
@@ -262,14 +244,8 @@ msgstr "ID domény"
 msgid "Down"
 msgstr "Zavřen"
 
-msgid "Edit"
-msgstr "Upravit"
-
 msgid "Email"
 msgstr "E-mail"
-
-msgid "Enable"
-msgstr "Povolit"
 
 msgid "Enabled"
 msgstr "Povoleno"
@@ -1056,3 +1032,6 @@ msgstr "bajtů"
 
 msgid "{$ row['provider:network_type'] $}"
 msgstr "{$ řádek['poskytovatel:typ sítě'] $}"
+
+msgid "{$ user.domain_id $}"
+msgstr "{$ user.domain_id $}"

@@ -12,8 +12,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-08-29 02:57+0000\n"
-"PO-Revision-Date: 2015-08-28 11:21+0000\n"
+"POT-Creation-Date: 2015-09-03 04:49+0000\n"
+"PO-Revision-Date: 2015-09-02 07:31+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Korean (Korea) (http://www.transifex.com/openstack/horizon/"
 "language/ko_KR/)\n"
@@ -346,9 +346,6 @@ msgid ""
 msgstr ""
 "\"None\" 표시는 QoS 사양에 현재 관련되지 않았음을 나타냅니다. 반대로 QoS 스펙"
 "을 설정하면 \"None\"을 현재 연결에서 제거합니다."
-
-msgid "\"Update Aggregate Metadata\""
-msgstr "\"집합 메타데이터 업데이트\""
 
 #, python-format
 msgid "%(conf_name)s: %(conf_val)s"
@@ -2276,15 +2273,6 @@ msgid ""
 msgstr ""
 "네트워크와 연결된 서브넷을 생성합니다. \"서브넷 세부 정보\" 탭을 클릭하여 상"
 "세 구성이 가능합니다."
-
-msgid ""
-"Create a subnet associated with the new network, in which case \"Network "
-"Address\" must be specified. If you wish to create a network without a "
-"subnet, uncheck the \"Create Subnet\" checkbox."
-msgstr ""
-"\"네트워크 주소\"를 지정해야되는 경우, 새 네트워크에 연결되는 서브넷을 만듭니"
-"다. 서브넷 없이 새로운 네트워크를 생성하려면, \"서브넷 만들기\" 체크를 해제합"
-"니다."
 
 msgid "Create an Encrypted Volume Type"
 msgstr "암호화된 볼륨 유형 생성"
@@ -5676,9 +5664,6 @@ msgstr "메타데이터 정의"
 msgid "Metadata Items"
 msgstr "메타데이터 항목"
 
-msgid "Metadata successfully updated."
-msgstr "메타데이터를 성공적으로 업데이트했습니다."
-
 msgid "Meter"
 msgstr "측정"
 
@@ -8352,9 +8337,6 @@ msgstr "인스턴스를 구동하기 위해 사용 가능한 볼륨을 지정합
 msgid "Specify \"Network Address\""
 msgstr "\"네트워크 주소\"를 지정합니다."
 
-msgid "Specify \"Network Address\" or clear \"Create Subnet\" checkbox."
-msgstr "\"네트워크 주소\"를 지정하거나 \"서브넷 생성\" 체크박스를 해제합니다"
-
 msgid "Specify IP address of gateway or check \"Disable Gateway\"."
 msgstr ""
 "게이트웨이 IP 주소를 작성하거나 \"개이트웨이 사용안함\"을 체크하십시오."
@@ -10117,15 +10099,6 @@ msgstr "가용 영역 목록을 찾지 못했습니다."
 msgid "Unable to retrieve availability zones."
 msgstr "가용성 존에 대한 정보를 찾지 못 했습니다."
 
-msgid "Unable to retrieve available metadata for aggregate."
-msgstr "집합에서 사용 가능한 메타데이터를 찾지 못했습니다."
-
-msgid "Unable to retrieve available metadata for flavors."
-msgstr "Flavor의 사용 가능한 메티데이터를 찾지 못했습니다"
-
-msgid "Unable to retrieve available properties for image."
-msgstr "이미지의 사용 가능한 속성을 찾지 못했습니다."
-
 msgid "Unable to retrieve backup details."
 msgstr "백업에 대한 상세 정보를 찾지 못 했습니다."
 
@@ -10573,15 +10546,6 @@ msgstr "Tenant 제한을 찾지 못 했습니다."
 msgid "Unable to retrieve the aggregate to be updated"
 msgstr "업데이트된 집합을 찾지 못했습니다."
 
-msgid "Unable to retrieve the aggregate to be updated."
-msgstr "업데이트한 집합을 찾지 못했습니다."
-
-msgid "Unable to retrieve the flavor metadata."
-msgstr "Flavor 메타데이터를 찾지 못했습니다."
-
-msgid "Unable to retrieve the image to be updated."
-msgstr "업데이트한 이미지를 찾지 못했습니다."
-
 msgid "Unable to retrieve the specified pool."
 msgstr "지정된 Pool을 찾지 못 했습니다."
 
@@ -10746,20 +10710,11 @@ msgstr "시큐리티 그룹을 업데이트하지 못했습니다: %s"
 msgid "Unable to update subnet \"%s\"."
 msgstr "서브넷 \"%s\"를 업데이트 할 수 없습니다."
 
-msgid "Unable to update the aggregate metadata."
-msgstr "집합 메타데이터를 업데이트 하지 못했습니다."
-
 msgid "Unable to update the aggregate."
 msgstr "집합을 업데이트할 수 없습니다."
 
-msgid "Unable to update the flavor metadata."
-msgstr "Flavor 메타데이터를 업데이트하지 못했습니다."
-
 msgid "Unable to update the group."
 msgstr "그룹을 업데이트 할 수 없습니다."
-
-msgid "Unable to update the image metadata."
-msgstr "이미지 메타데이터를 업데이트할 수 없습니다."
 
 msgid "Unable to update the user password."
 msgstr "사용자 암호를 업데이트를 할 수 없습니다."
@@ -10864,9 +10819,6 @@ msgstr "Up"
 msgid "Update"
 msgstr "업데이트"
 
-msgid "Update Aggregate Metadata"
-msgstr "집합 메타데이터 업데이트"
-
 msgid "Update Associations"
 msgstr "연관 업데이트"
 
@@ -10884,17 +10836,11 @@ msgctxt "current status of stack"
 msgid "Update Failed"
 msgstr "Update Failed"
 
-msgid "Update Flavor Metadata"
-msgstr "Flavor 메타데이터 업데이트"
-
 msgid "Update Group"
 msgstr "그룹 업데이트"
 
 msgid "Update Image"
 msgstr "이미지 업데이트"
-
-msgid "Update Image Metadata"
-msgstr "이미지 메타데이터 업데이트"
 
 msgctxt "current status of stack"
 msgid "Update In Progress"

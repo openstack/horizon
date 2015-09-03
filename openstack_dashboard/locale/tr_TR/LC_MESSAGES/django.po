@@ -11,8 +11,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-08-29 02:57+0000\n"
-"PO-Revision-Date: 2015-08-28 11:21+0000\n"
+"POT-Creation-Date: 2015-09-03 04:49+0000\n"
+"PO-Revision-Date: 2015-09-02 07:31+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Turkish (Turkey) (http://www.transifex.com/openstack/horizon/"
 "language/tr_TR/)\n"
@@ -2309,15 +2309,6 @@ msgid ""
 msgstr ""
 "Ağ ile ilişkilendirilmiş bir alt ağ oluştur. Gelişmiş yapılandırmaya \"Alt "
 "Ağ Detayları\" sekmesi ile ulaşılabilir."
-
-msgid ""
-"Create a subnet associated with the new network, in which case \"Network "
-"Address\" must be specified. If you wish to create a network without a "
-"subnet, uncheck the \"Create Subnet\" checkbox."
-msgstr ""
-"Yeni ağla ilişkili bir alt ağ oluştur, bu durumda \"Ağ Adresi\" "
-"belirtilmelidir. Eğer alt ağı olmayan bir ağ oluşturmak isterseniz, \"Alt Ağ "
-"Oluştur\" onay kutusunu temizleyin."
 
 msgid "Create an Encrypted Volume Type"
 msgstr "Şifreli bir Mantıksal Sürücü Türü Oluştur"
@@ -5709,9 +5700,6 @@ msgstr "Metadata Tanımlamaları"
 msgid "Metadata Items"
 msgstr "Üstveri Maddeleri"
 
-msgid "Metadata successfully updated."
-msgstr "Metadata başarıyla güncellendi."
-
 msgid "Meter"
 msgstr "Ölçü"
 
@@ -8368,10 +8356,6 @@ msgstr "Mantıksal sürücünün bir sunucu açmak için kullanılabileceğini b
 msgid "Specify \"Network Address\""
 msgstr "\"Ağ Adresi\"ni Belirtin"
 
-msgid "Specify \"Network Address\" or clear \"Create Subnet\" checkbox."
-msgstr ""
-"\"Ağ Adresi\" belirtin ya da \"Alt Ağ Oluştur\" onay kutusunu temizleyin."
-
 msgid "Specify IP address of gateway or check \"Disable Gateway\"."
 msgstr "Geçit IP adresini belirtin ya da \"Geçidi Kapat\" işaretleyin."
 
@@ -10140,15 +10124,6 @@ msgstr "Kullanılabilir bölge listesi alınamadı."
 msgid "Unable to retrieve availability zones."
 msgstr "Kullanılabilir bölgeler getirilemiyor."
 
-msgid "Unable to retrieve available metadata for aggregate."
-msgstr "Takım için kullanılabilir metadata getirilemedi."
-
-msgid "Unable to retrieve available metadata for flavors."
-msgstr "Nitelikler için kullanılabilir metadata alınamadı."
-
-msgid "Unable to retrieve available properties for image."
-msgstr "İmaj için kullanılabilir özellikler alınamadı."
-
 msgid "Unable to retrieve backup details."
 msgstr "Yedek detayları alınamıyor."
 
@@ -10592,15 +10567,6 @@ msgstr "Kiracı sınırları alınamadı."
 msgid "Unable to retrieve the aggregate to be updated"
 msgstr "Güncellenecek takım alınamadı"
 
-msgid "Unable to retrieve the aggregate to be updated."
-msgstr "Güncellenecek takım getirilemedi."
-
-msgid "Unable to retrieve the flavor metadata."
-msgstr "Nitelik üst verisi alınamadı."
-
-msgid "Unable to retrieve the image to be updated."
-msgstr "Güncellenecek imaj alınamadı."
-
 msgid "Unable to retrieve the specified pool."
 msgstr "Belirtilen havuz alınamadı."
 
@@ -10764,20 +10730,11 @@ msgstr "Güvenlik grubu güncellenemedi: %s"
 msgid "Unable to update subnet \"%s\"."
 msgstr "Alt ağ \"%s\" güncellenemedi."
 
-msgid "Unable to update the aggregate metadata."
-msgstr "Takım metadata'sı güncellenemedi."
-
 msgid "Unable to update the aggregate."
 msgstr "Takım güncellenemedi."
 
-msgid "Unable to update the flavor metadata."
-msgstr "Nitelik metadata'sı güncellenemiyor."
-
 msgid "Unable to update the group."
 msgstr "Grup güncellemesi başarısız."
-
-msgid "Unable to update the image metadata."
-msgstr "İmaj üstverisi güncellenemedi."
 
 msgid "Unable to update the user password."
 msgstr "Kullanıcı parolası değiştirilemedi."
@@ -10888,9 +10845,6 @@ msgstr "Üst"
 msgid "Update"
 msgstr "Güncelle"
 
-msgid "Update Aggregate Metadata"
-msgstr "Takım Metadata'sı Güncelle"
-
 msgid "Update Associations"
 msgstr "İlişkileri Güncelle"
 
@@ -10908,17 +10862,11 @@ msgctxt "current status of stack"
 msgid "Update Failed"
 msgstr "Güncelleme Başarısız"
 
-msgid "Update Flavor Metadata"
-msgstr "Şablon Üstverisini Güncelle"
-
 msgid "Update Group"
 msgstr "Grup Güncelle"
 
 msgid "Update Image"
 msgstr "İmaj Değiştir"
-
-msgid "Update Image Metadata"
-msgstr "İmaj Üstverisini Güncelle"
 
 msgctxt "current status of stack"
 msgid "Update In Progress"

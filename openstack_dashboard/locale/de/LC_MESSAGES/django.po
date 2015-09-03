@@ -16,8 +16,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-09-01 03:11+0000\n"
-"PO-Revision-Date: 2015-08-30 13:03+0000\n"
+"POT-Creation-Date: 2015-09-03 04:49+0000\n"
+"PO-Revision-Date: 2015-09-03 00:51+0000\n"
 "Last-Translator: Ettore Atalan <atalanttore@googlemail.com>\n"
 "Language-Team: German (http://www.transifex.com/openstack/horizon/language/"
 "de/)\n"
@@ -362,12 +362,6 @@ msgstr ""
 "\"Keine\" gibt an, dass gegenwärtig keine QoS Spezifikationen zugewiesen "
 "sind. Im Gegenzug, das Setzen der QoS Spezifikationen auf \"keine\" entfernt "
 "die aktuellen Zuweisungen."
-
-msgid "\"Update Aggregate Metadata\""
-msgstr "\"Aggregatmetadaten aktualisieren\""
-
-msgid "\"Update Flavor Metadata\""
-msgstr "\"Variantenmetadaten aktualisieren\""
 
 msgid "\"Users\""
 msgstr "\"Benutzer\""
@@ -2366,16 +2360,6 @@ msgstr ""
 "Konfiguration ist mit Klick auf den \"Subnetz Detail\"  Reiter verfügbar.\n"
 " "
 
-msgid ""
-"Create a subnet associated with the new network, in which case \"Network "
-"Address\" must be specified. If you wish to create a network without a "
-"subnet, uncheck the \"Create Subnet\" checkbox."
-msgstr ""
-"Erstellen Sie ein Subnetz, das mit dem neuen Netzwerk verbunden ist. Die "
-"\"Netzwerkadresse\" muss angegeben werden. Soll ein Netzwerk ohne Subnetz "
-"erzeugt werden muss das Kontollkästchen \"Subnetz erstellen\" abgewählt "
-"werden."
-
 msgid "Create an Encrypted Volume Type"
 msgstr "Einen verschlüsselten Volumentyp erstellen"
 
@@ -3839,6 +3823,9 @@ msgstr "Energie (Kwapi)"
 
 msgid "Engine Id"
 msgstr "Engine ID"
+
+msgid "Enter Network Address manually"
+msgstr "Geben Sie die Netzwerkadresse manuell ein"
 
 msgid "Enter a value for ICMP code in the range (-1: 255)"
 msgstr "Geben Sie einen Wert für den ICMP-Code im Bereich -1 bis 255 ein"
@@ -5913,9 +5900,6 @@ msgstr "Metadaten-Definitionen"
 msgid "Metadata Items"
 msgstr "Metadaten Elemente"
 
-msgid "Metadata successfully updated."
-msgstr "Metadaten erfolgreich aktualisiert."
-
 msgid "Meter"
 msgstr "Zähler"
 
@@ -6151,6 +6135,9 @@ msgstr "Netzwerk (Neutron)"
 
 msgid "Network Address"
 msgstr "Netzwerkadresse"
+
+msgid "Network Address Source"
+msgstr "Netzwerkadressquelle"
 
 msgid "Network Address and IP version are inconsistent."
 msgstr "Netzwerkadresse und IP-Version sind nicht konsistent."
@@ -8675,10 +8662,6 @@ msgstr ""
 msgid "Specify \"Network Address\""
 msgstr "\"Netzwerkadresse\" angeben"
 
-msgid "Specify \"Network Address\" or clear \"Create Subnet\" checkbox."
-msgstr ""
-"Geben Sie die Netzwerkadresse an oder wählen Sie \"Subnetz erzeugen\" ab."
-
 msgid "Specify IP address of gateway or check \"Disable Gateway\"."
 msgstr ""
 "Geben Sie die IP-Adresse des Gateways an oder wählen Sie \"Gateway abschalten"
@@ -10513,15 +10496,6 @@ msgstr "Die Liste der Verfügbarkeitszonen kann nicht abgerufen werden. "
 msgid "Unable to retrieve availability zones."
 msgstr "Verfügbarkeitszonen können nicht abgerufen werden."
 
-msgid "Unable to retrieve available metadata for aggregate."
-msgstr "Vorhandene Metadaten für das Aggregat können nicht abgerufen werden."
-
-msgid "Unable to retrieve available metadata for flavors."
-msgstr "Verfügbare Metadaten für Varianten können nicht abgerufen werden."
-
-msgid "Unable to retrieve available properties for image."
-msgstr "Verfügbare Eigenschaften für das Abbild können nicht abgerufen werden."
-
 msgid "Unable to retrieve backup details."
 msgstr "Details zur Sicherungskopie können nicht abgerufen werden."
 
@@ -10978,15 +10952,6 @@ msgstr "Mandantenlimits können nicht abgerufen werden."
 msgid "Unable to retrieve the aggregate to be updated"
 msgstr "Zu aktualisierendes Aggregat kann nicht abgerufen werden"
 
-msgid "Unable to retrieve the aggregate to be updated."
-msgstr "Zu aktualisierendes Aggregat kann nicht abgerufen werden."
-
-msgid "Unable to retrieve the flavor metadata."
-msgstr "Varianten Metadaten können nicht abgerufen werden."
-
-msgid "Unable to retrieve the image to be updated."
-msgstr "Das zu aktualisierende Abbild kann nicht abgerufen werden."
-
 msgid "Unable to retrieve the specified pool."
 msgstr "Der angegebene Pool kann nicht abgerufen werden."
 
@@ -11160,20 +11125,11 @@ msgstr "Sicherheitsgruppe kann nicht aktualisiert werden: %s"
 msgid "Unable to update subnet \"%s\"."
 msgstr "Subnetz \"%s\" kann nicht aktualisiert werden."
 
-msgid "Unable to update the aggregate metadata."
-msgstr "Ändern der Aggregat-Metadaten nicht möglich."
-
 msgid "Unable to update the aggregate."
 msgstr "Aggregat kann nicht aktualisiert werden."
 
-msgid "Unable to update the flavor metadata."
-msgstr "Varianten-Metadaten können nicht aktualisiert werden."
-
 msgid "Unable to update the group."
 msgstr "Gruppe kann nicht aktualisiert werden."
-
-msgid "Unable to update the image metadata."
-msgstr "Abbild-Metadaten können nicht verändert werden."
 
 msgid "Unable to update the user password."
 msgstr "Das Benutzerpasswort kann nicht aktualisiert werden."
@@ -11287,9 +11243,6 @@ msgstr "Hoch"
 msgid "Update"
 msgstr "Aktualisieren"
 
-msgid "Update Aggregate Metadata"
-msgstr "Aggregat-Metadaten bearbeiten."
-
 msgid "Update Associations"
 msgstr "Zuweisungen aktualisieren"
 
@@ -11307,17 +11260,11 @@ msgctxt "current status of stack"
 msgid "Update Failed"
 msgstr "Aktualisierung fehlgeschlagen"
 
-msgid "Update Flavor Metadata"
-msgstr "Varianten Metadaten aktualisieren"
-
 msgid "Update Group"
 msgstr "Gruppe aktualisieren"
 
 msgid "Update Image"
 msgstr "Abbild aktualisieren"
-
-msgid "Update Image Metadata"
-msgstr "Abbild-Metadaten erneuern"
 
 msgctxt "current status of stack"
 msgid "Update In Progress"

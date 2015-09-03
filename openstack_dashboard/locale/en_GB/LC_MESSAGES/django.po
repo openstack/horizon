@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-08-29 02:57+0000\n"
-"PO-Revision-Date: 2015-08-28 11:21+0000\n"
+"POT-Creation-Date: 2015-09-03 04:49+0000\n"
+"PO-Revision-Date: 2015-09-02 07:31+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: English (United Kingdom) (http://www.transifex.com/openstack/"
 "horizon/language/en_GB/)\n"
@@ -2293,15 +2293,6 @@ msgid ""
 msgstr ""
 "Create a subnet associated with the network. Advanced configuration is "
 "available by clicking on the \"Subnet Details\" tab."
-
-msgid ""
-"Create a subnet associated with the new network, in which case \"Network "
-"Address\" must be specified. If you wish to create a network without a "
-"subnet, uncheck the \"Create Subnet\" checkbox."
-msgstr ""
-"Create a subnet associated with the new network, in which case \"Network "
-"Address\" must be specified. If you wish to create a network without a "
-"subnet, uncheck the \"Create Subnet\" checkbox."
 
 msgid "Create an Encrypted Volume Type"
 msgstr "Create an Encrypted Volume Type"
@@ -5650,9 +5641,6 @@ msgstr "Metadata Definitions"
 msgid "Metadata Items"
 msgstr "Metadata Items"
 
-msgid "Metadata successfully updated."
-msgstr "Metadata successfully updated."
-
 msgid "Meter"
 msgstr "Meter"
 
@@ -8291,9 +8279,6 @@ msgstr "Specifies that the volume can be used to launch an instance"
 msgid "Specify \"Network Address\""
 msgstr "Specify \"Network Address\""
 
-msgid "Specify \"Network Address\" or clear \"Create Subnet\" checkbox."
-msgstr "Specify \"Network Address\" or clear \"Create Subnet\" checkbox."
-
 msgid "Specify IP address of gateway or check \"Disable Gateway\"."
 msgstr "Specify IP address of gateway or check \"Disable Gateway\"."
 
@@ -10062,15 +10047,6 @@ msgstr "Unable to retrieve availability zone list."
 msgid "Unable to retrieve availability zones."
 msgstr "Unable to retrieve availability zones."
 
-msgid "Unable to retrieve available metadata for aggregate."
-msgstr "Unable to retrieve available metadata for aggregate."
-
-msgid "Unable to retrieve available metadata for flavors."
-msgstr "Unable to retrieve available metadata for flavours."
-
-msgid "Unable to retrieve available properties for image."
-msgstr "Unable to retrieve available properties for image."
-
 msgid "Unable to retrieve backup details."
 msgstr "Unable to retrieve backup details."
 
@@ -10480,15 +10456,6 @@ msgstr "Unable to retrieve tenant limits."
 msgid "Unable to retrieve the aggregate to be updated"
 msgstr "Unable to retrieve the aggregate to be updated"
 
-msgid "Unable to retrieve the aggregate to be updated."
-msgstr "Unable to retrieve the aggregate to be updated."
-
-msgid "Unable to retrieve the flavor metadata."
-msgstr "Unable to retrieve the flavour metadata."
-
-msgid "Unable to retrieve the image to be updated."
-msgstr "Unable to retrieve the image to be updated."
-
 msgid "Unable to retrieve the specified pool."
 msgstr "Unable to retrieve the specified pool."
 
@@ -10652,20 +10619,11 @@ msgstr "Unable to update security group: %s"
 msgid "Unable to update subnet \"%s\"."
 msgstr "Unable to update subnet \"%s\"."
 
-msgid "Unable to update the aggregate metadata."
-msgstr "Unable to update the aggregate metadata."
-
 msgid "Unable to update the aggregate."
 msgstr "Unable to update the aggregate."
 
-msgid "Unable to update the flavor metadata."
-msgstr "Unable to update the flavor metadata."
-
 msgid "Unable to update the group."
 msgstr "Unable to update the group."
-
-msgid "Unable to update the image metadata."
-msgstr "Unable to update the image metadata."
 
 msgid "Unable to update the user password."
 msgstr "Unable to update the user password."
@@ -10764,9 +10722,6 @@ msgstr "Up"
 msgid "Update"
 msgstr "Update"
 
-msgid "Update Aggregate Metadata"
-msgstr "Update Aggregate Metadata"
-
 msgid "Update Associations"
 msgstr "Update Associations"
 
@@ -10784,17 +10739,11 @@ msgctxt "current status of stack"
 msgid "Update Failed"
 msgstr "Update Failed"
 
-msgid "Update Flavor Metadata"
-msgstr "Update Flavour Metadata"
-
 msgid "Update Group"
 msgstr "Update Group"
 
 msgid "Update Image"
 msgstr "Update Image"
-
-msgid "Update Image Metadata"
-msgstr "Update Image Metadata"
 
 msgctxt "current status of stack"
 msgid "Update In Progress"

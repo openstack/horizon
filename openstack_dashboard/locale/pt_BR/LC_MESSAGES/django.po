@@ -19,8 +19,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-08-29 02:57+0000\n"
-"PO-Revision-Date: 2015-08-28 11:21+0000\n"
+"POT-Creation-Date: 2015-09-03 04:49+0000\n"
+"PO-Revision-Date: 2015-09-02 07:31+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Portuguese (Brazil) (http://www.transifex.com/openstack/"
 "horizon/language/pt_BR/)\n"
@@ -2344,15 +2344,6 @@ msgid ""
 msgstr ""
 "Criar uma sub-rede associado com a rede. A configuração avançada está "
 "disponível clicando na guia \"Detalhes de sub-rede\"."
-
-msgid ""
-"Create a subnet associated with the new network, in which case \"Network "
-"Address\" must be specified. If you wish to create a network without a "
-"subnet, uncheck the \"Create Subnet\" checkbox."
-msgstr ""
-"Criar uma sub-rede associada com a nova rede, em que \"endereço de rede\" "
-"caso deve ser especificado. Se você deseja criar uma rede sem uma sub-rede, "
-"desmarque a caixa de seleção \"Criar sub-rede\"."
 
 msgid "Create an Encrypted Volume Type"
 msgstr "Criar um tipo de volume encriptado"
@@ -5854,9 +5845,6 @@ msgstr "Definição de Metadados"
 msgid "Metadata Items"
 msgstr "Ítens de Metadados"
 
-msgid "Metadata successfully updated."
-msgstr "Metadados atualizado com sucesso."
-
 msgid "Meter"
 msgstr "Metro"
 
@@ -8573,10 +8561,6 @@ msgstr "Especifica que o volume pode ser usado para iniciar uma instância"
 msgid "Specify \"Network Address\""
 msgstr "Especifique \"Endereço de Rede\""
 
-msgid "Specify \"Network Address\" or clear \"Create Subnet\" checkbox."
-msgstr ""
-"Especifique o \"Endereço de Rede\" ou desmarque a caixa \"Criar Sub-rede\".  "
-
 msgid "Specify IP address of gateway or check \"Disable Gateway\"."
 msgstr "Especifique o endereço IP do gateway, ou marque 'Desabilitar Gateway'."
 
@@ -10379,15 +10363,6 @@ msgstr "Não foi possível obter a lista de zonas de disponibilidade."
 msgid "Unable to retrieve availability zones."
 msgstr "Não é possível recuperar todas zonas de disponibilidade."
 
-msgid "Unable to retrieve available metadata for aggregate."
-msgstr "Não é possível recuperar metadados para o agregado"
-
-msgid "Unable to retrieve available metadata for flavors."
-msgstr "Não é possível recuperar os metadados disponíveis para o flavor."
-
-msgid "Unable to retrieve available properties for image."
-msgstr "Não é possível recuperar as propriedades disponíveis para a imagem."
-
 msgid "Unable to retrieve backup details."
 msgstr "Não é possível recuperar detalhes de backup."
 
@@ -10840,15 +10815,6 @@ msgstr "Não é possível recuperar os limites do tenant."
 msgid "Unable to retrieve the aggregate to be updated"
 msgstr "Não foi possível recuperar agregado para atualização"
 
-msgid "Unable to retrieve the aggregate to be updated."
-msgstr "Não é possível recuperar o agregado a ser atualizado."
-
-msgid "Unable to retrieve the flavor metadata."
-msgstr "Não é possível recuperar os metadados do flavor."
-
-msgid "Unable to retrieve the image to be updated."
-msgstr "Não é possível recuperar a imagem a ser atualizada."
-
 msgid "Unable to retrieve the specified pool."
 msgstr "Não é possível recuperar o pool especificado."
 
@@ -11020,20 +10986,11 @@ msgstr "Não foi possível atualizar o grupo de segurança: %s"
 msgid "Unable to update subnet \"%s\"."
 msgstr "Não foi possível atualizar sub-rede \"%s\"."
 
-msgid "Unable to update the aggregate metadata."
-msgstr "Impossível de atualizar o metadados do agregado."
-
 msgid "Unable to update the aggregate."
 msgstr "Não é possível atualizar o agregado."
 
-msgid "Unable to update the flavor metadata."
-msgstr "Não é possível atualizar os metadados do flavor,"
-
 msgid "Unable to update the group."
 msgstr "Não foi possível atualizar o grupo."
-
-msgid "Unable to update the image metadata."
-msgstr "Não é possível atualizar os metadados da imagem."
 
 msgid "Unable to update the user password."
 msgstr "Não é possível atualizar a senha do usuário."
@@ -11143,9 +11100,6 @@ msgstr "Ativo"
 msgid "Update"
 msgstr "Atualizar"
 
-msgid "Update Aggregate Metadata"
-msgstr "Atualiza Metadata do Agregado"
-
 msgid "Update Associations"
 msgstr "Associações Atualizadas"
 
@@ -11163,17 +11117,11 @@ msgctxt "current status of stack"
 msgid "Update Failed"
 msgstr "Atualização Falhou"
 
-msgid "Update Flavor Metadata"
-msgstr "Atualiza Metadados do Flavor"
-
 msgid "Update Group"
 msgstr "Atualizar Grupo"
 
 msgid "Update Image"
 msgstr "Atualizar Imagem."
-
-msgid "Update Image Metadata"
-msgstr "Atualizar metadados de imagem "
 
 msgctxt "current status of stack"
 msgid "Update In Progress"

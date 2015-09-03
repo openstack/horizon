@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-09-01 03:11+0000\n"
-"PO-Revision-Date: 2015-08-30 00:10+0000\n"
+"POT-Creation-Date: 2015-09-03 04:49+0000\n"
+"PO-Revision-Date: 2015-09-02 04:23+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Turkish (Turkey) (http://www.transifex.com/openstack/horizon/"
 "language/tr_TR/)\n"
@@ -80,9 +80,6 @@ msgstr ""
 msgid "A name is required for your instance."
 msgstr "Sunucunuz için bir isim gerekiyor."
 
-msgid "Actions"
-msgstr "İşlemler"
-
 msgid "Active"
 msgstr "Etkin"
 
@@ -139,9 +136,6 @@ msgstr "Servis kataloğu keystone'den getirilemedi."
 msgid "Cannot get the Nova extension list."
 msgstr "Nova eklenti listesi alınamadı."
 
-msgid "Change Password"
-msgstr "Parolayı Değiştir"
-
 msgid ""
 "Check the <b>Configuration Drive</b> box if you want to write metadata to a "
 "special configuration drive. When the instance boots, it attaches to the "
@@ -172,9 +166,6 @@ msgstr "Anahtar Çifti Oluştur"
 msgid "Create New Volume"
 msgstr "Yeni Hacim Oluştur"
 
-msgid "Create User"
-msgstr "Kullanıcı Oluştur"
-
 msgid "Created"
 msgstr "Oluşturuldu"
 
@@ -193,12 +184,6 @@ msgstr ""
 msgid "Customization Script"
 msgstr "Özelleştirme Betiği"
 
-msgid "Delete"
-msgstr "Sil"
-
-msgid "Delete Users"
-msgstr "Kullanıcıları Sil"
-
 msgid "Delete Volume on Terminate"
 msgstr "Kapatıldığında Hacmi Sil"
 
@@ -214,9 +199,6 @@ msgstr "Aygıt Adı"
 msgid "Direction"
 msgstr "Yön"
 
-msgid "Disable"
-msgstr "Pasif"
-
 msgid "Disk Partition"
 msgstr "Disk Bölümü"
 
@@ -226,14 +208,8 @@ msgstr "Alan ID"
 msgid "Down"
 msgstr "Kapalı"
 
-msgid "Edit"
-msgstr "Değiştir"
-
 msgid "Email"
 msgstr "Eposta"
-
-msgid "Enable"
-msgstr "Aktif"
 
 msgid "Enabled"
 msgstr "Etkin"

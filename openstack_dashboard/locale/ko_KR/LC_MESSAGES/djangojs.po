@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-09-01 03:11+0000\n"
-"PO-Revision-Date: 2015-08-30 00:10+0000\n"
+"POT-Creation-Date: 2015-09-03 04:49+0000\n"
+"PO-Revision-Date: 2015-09-02 04:23+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Korean (Korea) (http://www.transifex.com/openstack/horizon/"
 "language/ko_KR/)\n"
@@ -49,9 +49,6 @@ msgstr ""
 
 msgid "A name is required for your instance."
 msgstr "인스턴스에 대한 이름이 필요합니다."
-
-msgid "Actions"
-msgstr "작업"
 
 msgid "Active"
 msgstr "Active"
@@ -107,9 +104,6 @@ msgstr "Keystone으로부터 서비스 카탈로그를 가져오지 못했습니
 msgid "Cannot get the Nova extension list."
 msgstr "Nova 확장 목록을 가져오지 못했습니다."
 
-msgid "Change Password"
-msgstr "비밀번호 변경"
-
 msgid ""
 "Check the <b>Configuration Drive</b> box if you want to write metadata to a "
 "special configuration drive. When the instance boots, it attaches to the "
@@ -140,9 +134,6 @@ msgstr "캐 페어 생성"
 msgid "Create New Volume"
 msgstr "새로운 볼륨 생성"
 
-msgid "Create User"
-msgstr "사용자 생성"
-
 msgid "Created"
 msgstr "생성"
 
@@ -161,12 +152,6 @@ msgstr ""
 msgid "Customization Script"
 msgstr "사용자 스크립트"
 
-msgid "Delete"
-msgstr "삭제"
-
-msgid "Delete Users"
-msgstr "사용자 삭제"
-
 msgid "Delete Volume on Terminate"
 msgstr "종료시 볼륨 삭제"
 
@@ -182,9 +167,6 @@ msgstr "장치 이름"
 msgid "Direction"
 msgstr "방향"
 
-msgid "Disable"
-msgstr "비활성"
-
 msgid "Disk Partition"
 msgstr "디스크 파티션"
 
@@ -194,14 +176,8 @@ msgstr "도메인 아이디"
 msgid "Down"
 msgstr "Down"
 
-msgid "Edit"
-msgstr "편집"
-
 msgid "Email"
 msgstr "Email"
-
-msgid "Enable"
-msgstr "활성"
 
 msgid "Enabled"
 msgstr "활성화"

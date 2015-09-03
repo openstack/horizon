@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-08-29 02:57+0000\n"
-"PO-Revision-Date: 2015-08-28 11:21+0000\n"
+"POT-Creation-Date: 2015-09-03 04:49+0000\n"
+"PO-Revision-Date: 2015-09-02 07:31+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Konkani (http://www.transifex.com/openstack/horizon/language/"
 "kok/)\n"
@@ -1676,14 +1676,6 @@ msgid ""
 msgstr ""
 "नेटवर्काकडेन संबंदित उपनेट तयार करात. \"उपनेट तपशील\" टॅबार क्लिक केल्यार अद्ययावत "
 "संरचनाय मेळटा."
-
-msgid ""
-"Create a subnet associated with the new network, in which case \"Network "
-"Address\" must be specified. If you wish to create a network without a "
-"subnet, uncheck the \"Create Subnet\" checkbox."
-msgstr ""
-"नव्या नेटवर्काकडेन संबंदित उपनेट तयार करात, जंय \"नेटवर्क नामो\" स्पश्ट केल्लो आसपाक जाय. "
-"तुमी जर उपनेटाबगर नेटवर्क तयार करपाक सोदता,  \"उपनेट निर्मणी\" चेकबॉक्सावेली खूण काडात."
 
 msgid "Create an Encrypted Volume Type"
 msgstr "एनक्रिप्टेड आकार प्रकार तयार करात"
@@ -4115,9 +4107,6 @@ msgstr "मेटाडेटा"
 msgid "Metadata Items"
 msgstr "मेटाडेटा वस्तीं"
 
-msgid "Metadata successfully updated."
-msgstr "मेटाडेटा यशस्विपणान सुदारला."
-
 msgid "Meter"
 msgstr "मीटर"
 
@@ -5988,9 +5977,6 @@ msgstr ""
 msgid "Specify \"Network Address\""
 msgstr " \"नेटवर्क नामो\" स्पश्ट करात"
 
-msgid "Specify \"Network Address\" or clear \"Create Subnet\" checkbox."
-msgstr "\"नेटवर्क नामो\" स्पश्ट करात वो \"उपनेट तयार करात\" चेकबॉक्स साफ करात."
-
 msgid "Specify IP address of gateway or check \"Disable Gateway\"."
 msgstr "गेटवेचो IP नामो स्पश्ट करात वो  \"गेटवे अक्षम\" चेर खूण करात."
 
@@ -7338,15 +7324,6 @@ msgstr "उपलब्धताय विभाग वळेरी परतू
 msgid "Unable to retrieve availability zones."
 msgstr "उपलब्धताय विभाग परत मेळोवपाक शकना."
 
-msgid "Unable to retrieve available metadata for aggregate."
-msgstr "एग्रिगेटाखातीर उपलब्ध मेटाडेटा परत मेळोवपाक शकना."
-
-msgid "Unable to retrieve available metadata for flavors."
-msgstr "फ्लेवरांखातीर उपलब्ध मेटाडेटा परत मेळोवपाक शकना."
-
-msgid "Unable to retrieve available properties for image."
-msgstr " प्रतिमेखातीर उपलब्ध वैशष्ट्या परत मेळोवपाक शकना."
-
 msgid "Unable to retrieve backup details."
 msgstr "बॅकअप तपशील परत मेळोवपाक शकना."
 
@@ -7722,15 +7699,6 @@ msgstr "टेनंत मर्यादा मेळोवपाक शकन
 msgid "Unable to retrieve the aggregate to be updated"
 msgstr "सुदारपाची एग्रिगेट परत मेळोवपाक शकना"
 
-msgid "Unable to retrieve the aggregate to be updated."
-msgstr "सुदारपाची एग्रिगेट परत मेळोवपाक शकना."
-
-msgid "Unable to retrieve the flavor metadata."
-msgstr "फ्लेवर मेटाडेटा परत मेळोवपाक शकना."
-
-msgid "Unable to retrieve the image to be updated."
-msgstr "सुदारपाची प्रतिमा परत मेळोवपाक शकना."
-
 msgid "Unable to retrieve the specified pool."
 msgstr "स्पश्ट केल्लो पूल परत मेळोवपाक शकना."
 
@@ -7863,20 +7831,11 @@ msgstr "ओळ सुदारपाक शकना"
 msgid "Unable to update subnet \"%s\"."
 msgstr "उपनेट \"%s\" सुदारपाक शकना."
 
-msgid "Unable to update the aggregate metadata."
-msgstr "एग्रिगेट मेटाडेटा सुदारपाक जाले ना"
-
 msgid "Unable to update the aggregate."
 msgstr "एग्रिगेट सुदारपाक शकना"
 
-msgid "Unable to update the flavor metadata."
-msgstr "फ्लेवर मेटाडेटा सुदारपाक शकना."
-
 msgid "Unable to update the group."
 msgstr "गट सुदारपाक शकना."
-
-msgid "Unable to update the image metadata."
-msgstr "प्रतिमा मेटाडेटा सुदारपाक शकना."
 
 msgid "Unable to update the user."
 msgstr "वापरपी सुदारपाक शकना."
@@ -7937,26 +7896,17 @@ msgstr "वयर"
 msgid "Update"
 msgstr "सुदार"
 
-msgid "Update Aggregate Metadata"
-msgstr "एग्रिगेट मेटाडेटा सुदारात"
-
 msgid "Update Default Quotas"
 msgstr "मुळावे कोटा सुदारात"
 
 msgid "Update Defaults"
 msgstr "मुळावे सुदारात"
 
-msgid "Update Flavor Metadata"
-msgstr "फ्लेवर मेटाडेटा सुदारात"
-
 msgid "Update Group"
 msgstr "गट सुदारात"
 
 msgid "Update Image"
 msgstr "प्रतिमा सुदारात"
-
-msgid "Update Image Metadata"
-msgstr "प्रतिमा मेटाडेटा सुदारात"
 
 msgid "Update Metadata"
 msgstr "मेटाडेटा सुदारात"

@@ -11,8 +11,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-09-01 03:11+0000\n"
-"PO-Revision-Date: 2015-08-30 00:10+0000\n"
+"POT-Creation-Date: 2015-09-03 04:49+0000\n"
+"PO-Revision-Date: 2015-09-02 04:23+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Portuguese (Brazil) (http://www.transifex.com/openstack/"
 "horizon/language/pt_BR/)\n"
@@ -83,9 +83,6 @@ msgstr ""
 msgid "A name is required for your instance."
 msgstr "É preciso um nome para sua instância."
 
-msgid "Actions"
-msgstr "Ações"
-
 msgid "Active"
 msgstr "Ativo"
 
@@ -144,9 +141,6 @@ msgstr "Não é possível obter o catálogo de serviços a partir do keystone."
 msgid "Cannot get the Nova extension list."
 msgstr "Não é possível obter lista de extensão do Nova."
 
-msgid "Change Password"
-msgstr "Alterar Senha"
-
 msgid ""
 "Check the <b>Configuration Drive</b> box if you want to write metadata to a "
 "special configuration drive. When the instance boots, it attaches to the "
@@ -177,9 +171,6 @@ msgstr "Criar par de chaves"
 msgid "Create New Volume"
 msgstr "Criar um Novo Volume"
 
-msgid "Create User"
-msgstr "Criar Usuário"
-
 msgid "Created"
 msgstr "Criado"
 
@@ -199,12 +190,6 @@ msgstr ""
 msgid "Customization Script"
 msgstr "Script de Customização"
 
-msgid "Delete"
-msgstr "Excluir"
-
-msgid "Delete Users"
-msgstr "Excluir Usuários"
-
 msgid "Delete Volume on Terminate"
 msgstr "Excluir Volume ao Finalizar"
 
@@ -220,9 +205,6 @@ msgstr "Nome do Dispositivo"
 msgid "Direction"
 msgstr "Direção"
 
-msgid "Disable"
-msgstr "Desabilitar"
-
 msgid "Disk Partition"
 msgstr "Partição de Disco"
 
@@ -232,14 +214,8 @@ msgstr "ID do Domínio"
 msgid "Down"
 msgstr "Inativo"
 
-msgid "Edit"
-msgstr "Editar"
-
 msgid "Email"
 msgstr "Email"
-
-msgid "Enable"
-msgstr "Habilitar"
 
 msgid "Enabled"
 msgstr "Habilitado"

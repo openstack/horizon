@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-08-22 19:10+0000\n"
-"PO-Revision-Date: 2015-08-22 15:27+0000\n"
+"POT-Creation-Date: 2015-09-03 04:49+0000\n"
+"PO-Revision-Date: 2015-09-02 07:31+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Kashmiri (http://www.transifex.com/openstack/horizon/language/"
 "ks/)\n"
@@ -1623,15 +1623,6 @@ msgid ""
 msgstr ""
 "بَنایئو أکھ سب نیٹ یُس جوڈیتھ آسہٕ نیٹ وئرک سیتھ ۔ خآص کئنفِگریشن چھ دَستِیغب کِلک "
 "کئرنہٖ سیتھ  \"Subnet Details\" ٹیبس پئٹھ"
-
-msgid ""
-"Create a subnet associated with the new network, in which case \"Network "
-"Address\" must be specified. If you wish to create a network without a "
-"subnet, uncheck the \"Create Subnet\" checkbox."
-msgstr ""
-"بَنایئو اَکھ سب نیٹ یُس جوڈیتھ چُھ نئوس  نیٹ وئرک سیتھ، یَتھ مَنز  \"Network "
-"Address\" گئژہ وَضاحت  آسُن ۔ اگر توہیہٕ یَژہیو بَناوُن اَکھ  نیٹ وئرک سب نیٹ وئرے، "
-"اَن چیک کئریو \"Create Subnet\" چیک بآکس"
 
 msgid "Create an Encrypted Volume Type"
 msgstr "بَنایئو اَکھ ٖ اینکریپٹڈ والیوم قِسم  "
@@ -4031,9 +4022,6 @@ msgstr " میٹا ڈیٹا"
 msgid "Metadata Items"
 msgstr "  میٹا ڈیٹا آئٹم"
 
-msgid "Metadata successfully updated."
-msgstr "میٹا ڈیٹا کامیابی سآن اَپڈیٹ کئورمُت "
-
 msgid "Meter"
 msgstr "میٹر"
 
@@ -5751,9 +5739,6 @@ msgstr ""
 msgid "Specify \"Network Address\""
 msgstr "وَضاحت کئریو  \"نیٹ وئرک ایڈریس\""
 
-msgid "Specify \"Network Address\" or clear \"Create Subnet\" checkbox."
-msgstr "وَضاحت کئریو  \"Network Address\" or clear \"Create Subnet\" چیک بآکس"
-
 msgid "Specify IP address of gateway or check \"Disable Gateway\"."
 msgstr "وَضاحت کئران IP ایڈریس گیٹ وے یا چیک خآطرہ \"Disable Gateway\"."
 
@@ -7098,15 +7083,6 @@ msgstr "نا قابِل دَستِیاب زون لِسٹ واپس عئنس من�
 msgid "Unable to retrieve availability zones."
 msgstr "نا قابِل دَستِیاب زون واپس اَنہٕ  خآطرہ "
 
-msgid "Unable to retrieve available metadata for aggregate."
-msgstr "نا قابِل دَستِیاب  میٹا ڈیٹا یُس ایگریگیٹ کئرون چُھ سُہٕ واپس عئنس منز"
-
-msgid "Unable to retrieve available metadata for flavors."
-msgstr "نا قابِل  دَستِیاب میٹا ڈیٹا فلوئر س خآطرہ واپس  انہٕ خآطرہ"
-
-msgid "Unable to retrieve available properties for image."
-msgstr "نا قابِل واپس اَنہٕ خآطرہ دَستِیاب خَصوصیت شکل خآطرہ"
-
 msgid "Unable to retrieve backup details."
 msgstr "نا قابِل والیوم بیک اَپ تَفصیل واپس     اَنہٕ ٕ خآطرہ"
 
@@ -7484,15 +7460,6 @@ msgstr "ناکامیاب والیوم  تَفصیل والیوم واپس  اَ�
 msgid "Unable to retrieve the aggregate to be updated"
 msgstr "نا قابِل ایگریگیٹ یُس اَپڈیٹ کئرون عئوس سُہٕ واپس عئنس منز"
 
-msgid "Unable to retrieve the aggregate to be updated."
-msgstr "نا قابِل ایگریگیٹ یُس اَپڈیٹ کئرون عئوس سُہٕ واپس عئنس منز"
-
-msgid "Unable to retrieve the flavor metadata."
-msgstr "نا قابِل فلیور میٹا ڈیٹا اَپڈیٹ کئرنہٕ  خآطرہ"
-
-msgid "Unable to retrieve the image to be updated."
-msgstr "نا قابِل واپس اَنہٕ خآطرہ شکل اَپڈیٹ کئرنہٕ خآطرہ"
-
 msgid "Unable to retrieve the specified pool."
 msgstr "نا قابِل  وَضاحت پول واپس اَنہٕ  ٕ خآطرہ۔ "
 
@@ -7628,20 +7595,11 @@ msgstr "نا قابِل رو اَپڈیٹ کئرنہٕ خآطرہ"
 msgid "Unable to update subnet \"%s\"."
 msgstr "نا قابِل سب نیٹاَپڈیٹ کئرنہٕ خآطرہ\"%s\""
 
-msgid "Unable to update the aggregate metadata."
-msgstr "نا قابِل اَپڈیٹ کئورنہٕ خآطرہ ایگرِگیٹ میٹا ڈیٹا"
-
 msgid "Unable to update the aggregate."
 msgstr "نا قابِل اَپڈیٹ کئورنہٕ خآطرہ ایگرِگیٹ"
 
-msgid "Unable to update the flavor metadata."
-msgstr "نا قابِل فلیور میٹا ڈیٹا اَپڈیٹ کئرنہٕ  خآطرہ"
-
 msgid "Unable to update the group."
 msgstr "نا قابِل اَپڈیٹ کئرنہٕ ٕ خآطرہ   گروپ "
-
-msgid "Unable to update the image metadata."
-msgstr "نا قابِل اَپڈیٹ کئرنہٕ خآطرہ  شکل میٹا ڈیٹا"
 
 msgid "Unable to update the user."
 msgstr "نا قابِل یوزر اَپڈیٹ کئرنہٕ خآطرہ"
@@ -7694,26 +7652,17 @@ msgstr "ہیور"
 msgid "Update"
 msgstr "اَپڈیٹ"
 
-msgid "Update Aggregate Metadata"
-msgstr " اَپڈیٹ ایگریگیٹ  میٹا ڈیٹا"
-
 msgid "Update Default Quotas"
 msgstr "اَپڈیٹ  ڈیفالٹ  کئوٹا"
 
 msgid "Update Defaults"
 msgstr "اَپڈیٹ  ڈیفالٹ"
 
-msgid "Update Flavor Metadata"
-msgstr " اَپڈیٹ  میٹا ڈیٹا فِلیور"
-
 msgid "Update Group"
 msgstr "اپڈیٹ کئریو گروپ"
 
 msgid "Update Image"
 msgstr "اَپڈیٹ  کئریو شکل"
-
-msgid "Update Image Metadata"
-msgstr " اَپڈیٹ  میٹا ڈیٹا شکل"
 
 msgid "Update Metadata"
 msgstr " اَپڈیٹ میٹا ڈیٹا"
