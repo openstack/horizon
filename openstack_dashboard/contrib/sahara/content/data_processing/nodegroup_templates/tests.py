@@ -175,7 +175,8 @@ class DataProcessingNodeGroupTests(test.TestCase):
                'security_groups': [],
                'auto_security_group': True,
                'availability_zone': None,
-               'is_proxy_gateway': False}) \
+               'is_proxy_gateway': False,
+               'use_autoconfig': True}) \
             .AndReturn(True)
 
         self.mox.ReplayAll()
@@ -197,7 +198,8 @@ class DataProcessingNodeGroupTests(test.TestCase):
              'volumes_availability_zone': None,
              'floating_ip_pool': None,
              'security_autogroup': True,
-             'processes': 'HDFS:namenode'})
+             'processes': 'HDFS:namenode',
+             'use_autoconfig': True})
 
         self.assertNoFormErrors(res)
         self.assertRedirectsNoFollow(res, INDEX_URL)
@@ -264,7 +266,8 @@ class DataProcessingNodeGroupTests(test.TestCase):
             floating_ip_pool=None,
             security_groups=[],
             auto_security_group=True,
-            availability_zone=None).AndReturn(True)
+            availability_zone=None,
+            use_autoconfig=True).AndReturn(True)
 
         self.mox.ReplayAll()
 
@@ -286,7 +289,8 @@ class DataProcessingNodeGroupTests(test.TestCase):
              'volumes_availability_zone': None,
              'floating_ip_pool': None,
              'security_autogroup': True,
-             'processes': 'HDFS:namenode'})
+             'processes': 'HDFS:namenode',
+             'use_autoconfig': True})
 
         self.assertNoFormErrors(res)
         self.assertRedirectsNoFollow(res, INDEX_URL)

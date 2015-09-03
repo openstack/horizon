@@ -100,6 +100,16 @@ class GeneralConfigAction(workflows.Action):
                                   required=False,
                                   widget=forms.Textarea(attrs={'rows': 4}))
 
+    use_autoconfig = forms.BooleanField(
+        label=_("Auto-configure"),
+        help_text=_("If selected, instances of a cluster will be "
+                    "automatically configured during creation. Otherwise you "
+                    "should manually specify configuration values"),
+        required=False,
+        widget=forms.CheckboxInput(),
+        initial=True,
+    )
+
     anti_affinity = aa.anti_affinity_field()
 
     def __init__(self, request, *args, **kwargs):
@@ -150,7 +160,6 @@ class GeneralConfig(workflows.Step):
 
         post = self.workflow.request.POST
         context['anti_affinity_info'] = post.getlist("anti_affinity")
-
         return context
 
 
@@ -309,6 +318,7 @@ class ConfigureClusterTemplate(whelpers.ServiceParametersWorkflow,
                 configs_dict,
                 node_groups,
                 context["anti_affinity_info"],
+                use_autoconfig=context['general_use_autoconfig']
             )
 
             hlps = helpers.Helpers(request)

@@ -98,7 +98,8 @@ class EditNodegroupTemplate(copy_flow.CopyNodegroupTemplate):
                 floating_ip_pool=context.get("general_floating_ip_pool"),
                 security_groups=context["security_groups"],
                 auto_security_group=context["security_autogroup"],
-                availability_zone=context["general_availability_zone"])
+                availability_zone=context["general_availability_zone"],
+                use_autoconfig=context['general_use_autoconfig'])
             return True
         except api_base.APIException as e:
             self.error_description = str(e.message)

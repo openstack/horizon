@@ -23,6 +23,9 @@
                 <dd>{{ node_group.availability_zone }}</dd>
             {% endif %}
 
+            <dt>{% trans "Use auto-configuration" %}</dt>
+            <dd>{{ node_group.use_autoconfig }}</dd>
+
             <dt>{% trans "Proxy Gateway" %}</dt>
             <dd>{{ node_group.is_proxy_gateway|yesno }}</dd>
 
