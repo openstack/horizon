@@ -178,8 +178,8 @@ and cache as discussed above and then using::
 Cookies
 -------
 
-If you're using Django 1.4 or later, a new session backend is available to you
-which avoids server load and scaling problems: the ``signed_cookies`` backend!
+``signed_cookies`` is a session backend that is available to you which avoids
+server load and scaling problems.
 
 This backend stores session data in a cookie which is stored by the
 user's browser. The backend uses a cryptographic signing technique to ensure
@@ -213,8 +213,7 @@ following to ``local_settings.py``::
 
 Client-side JavaScript will not be able to access the cookie if this set to
 True. Note that the HTTPOnly is a flag included in Set-Cookie HTTP response
-header and is not honored consistently by all browsers. This is available from
-Django 1.7
+header and is not honored consistently by all browsers.
 
 Additionally, adding the following flags to ``local_settings.py`` marks the
 cookies as secure, which ensures that the cookie is only sent under an HTTPS
@@ -222,10 +221,6 @@ connection::
 
     CSRF_COOKIE_SECURE = True
     SESSION_COOKIE_SECURE = True
-
-Note that the CSRF_COOKIE_SECURE option is only available from Django 1.4 and
-SESSION_COOKIE_SECURE from Django 1.7. It does no harm to have the setting in
-earlier versions, but it does not take effect.
 
 You can also disable `browser autocompletion`_ for the authentication form by
 modifying the ``HORIZON_CONFIG`` dictionary in ``local_settings.py`` by adding
