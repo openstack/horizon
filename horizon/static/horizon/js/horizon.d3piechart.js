@@ -16,36 +16,14 @@
     </div>
 */
 
-// Pie chart dimensions
+// Pie chart SVG internal dimensions
 var WIDTH = 100;
 var HEIGHT = 100;
 var RADIUS = 45;
 
-// Colors
-var BKGRND = "#F2F2F2";
-var FRGRND = "#006CCF";
-var FULL = "#D0342B";
-var NEARLY_FULL = "#FFA500";
-var STROKE_USAGE = "#CCCCCC";
-var STROKE_DISTRIBUTION = "#609ED2";
-var BLUE_SHADES = [
-  "#609ED2",
-  "#BFD8ED",
-  "#EFF5FB",
-  "#2D6997",
-  "#1F4A6F",
-  "#122A40",
-  "#428BCA",
-  "#90BAE0",
-  "#DFEBF6"
-];
-
-
 function create_vis(chart) {
   return d3.select(chart).append("svg:svg")
-    .attr("class", "chart")
-    .attr("width", WIDTH)
-    .attr("height", HEIGHT)
+    .attr("class", "chart pie-chart")
     .attr("viewBox", "0 0 " + WIDTH + " " + HEIGHT )
     .append("g")
     .attr("transform",
@@ -99,10 +77,7 @@ horizon.d3_pie_chart_usage = {
       .enter()
       .append("path")
       .attr("class","arc")
-      .attr("d", arc)
-      .style("fill", BKGRND)
-      .style("stroke", STROKE_USAGE)
-      .style("stroke-width", 1);
+      .attr("d", arc);
 
     // Animate filling the pie chart
     var animate = function(data) {
@@ -110,25 +85,16 @@ horizon.d3_pie_chart_usage = {
         .data(pie(data))
         .enter()
         .append("path")
-        .attr("class","arc")
-        .attr("d", arc)
-        .style("fill", function(){
+        .attr("class", function() {
+          var ret_val = "arc inner";
           if (self.data[0].percentage >= 100) {
-            return FULL;
+            ret_val += " FULL";
           } else if (self.data[0].percentage >= 80) {
-            return NEARLY_FULL;
-          } else {
-            return FRGRND;
+            ret_val += " NEARLY_FULL";
           }
+          return ret_val;
         })
-        .style("stroke", STROKE_USAGE)
-        .style("stroke-width", function() {
-          if (self.data[0].percentage <= 0 || self.data[0].percentage >= 100) {
-            return 0;
-          } else {
-            return 1;
-          }
-        })
+        .attr("d", arc)
         .transition()
         .duration(500)
         .attrTween("d", function(start) {
@@ -144,8 +110,7 @@ horizon.d3_pie_chart_usage = {
 
     var show_numbers = function() {
       vis.append("text")
-        .style("fill", "black")
-        .style("font-size","28px")
+        .attr("class", "chart-numbers")
         .attr('text-anchor', 'middle')
         .attr('dominant-baseline', 'central')
         .text(self.data);
@@ -154,6 +119,10 @@ horizon.d3_pie_chart_usage = {
     if (fill) {
       animate(self.data);
     } else {
+
+      // TODO: this seems to be very broken...
+      // https://bugs.launchpad.net/horizon/+bug/1490787
+      // It prints: [object Object] to the screen
       show_numbers(self.data);
     }
   }
@@ -161,8 +130,6 @@ horizon.d3_pie_chart_usage = {
 
 
 horizon.d3_pie_chart_distribution = {
-  colors: BLUE_SHADES,
-
   init: function() {
     var self = this;
     var pie_chart_data = $(".d3_pie_chart_distribution");
@@ -181,11 +148,11 @@ horizon.d3_pie_chart_distribution = {
         self.data.push(d);
         self.keys.push(key_value[0]);
       }
-      self.pieChart(i);
+      self.pieChart(i, $(pie_chart_data[i]));
     }
   },
   // Draw a pie chart
-  pieChart: function(i) {
+  pieChart: function(i, $elem) {
     var self = this;
     var vis = create_vis(self.chart[0][i]);
     var arc = create_arc();
@@ -207,10 +174,7 @@ horizon.d3_pie_chart_distribution = {
       .enter()
       .append("path")
       .attr("class","arc")
-      .attr("d", arc)
-      .style("fill", BKGRND)
-      .style("stroke", STROKE_DISTRIBUTION)
-      .style("stroke-width", 1);
+      .attr("d", arc);
 
     // Animate filling the pie chart
     var animate = function(data) {
@@ -218,13 +182,8 @@ horizon.d3_pie_chart_distribution = {
         .data(pie(data))
         .enter()
         .append("path")
-        .attr("class","arc")
+        .attr("class","arc inner")
         .attr("d", arc)
-        .style("fill", function(d) {
-          return self.colors[self.data.indexOf(d.data)];
-        })
-        .style("stroke", STROKE_DISTRIBUTION)
-        .style("stroke-width", 1)
         .transition()
         .duration(500)
         .attrTween("d", function(start) {
@@ -240,51 +199,50 @@ horizon.d3_pie_chart_distribution = {
       animate(self.data);
     }
 
-    // Add a legend
-    var legend = d3.select(self.chart[0][i])
-      .append("svg")
-      .attr("class", "legend")
-      .attr("width", WIDTH * 2)
-      .attr("height", self.data.length * 18 + 20)
-      .selectAll("g")
-      .data(self.keys)
-      .enter()
-      .append("g")
-      .attr("transform", function(d, i) {
-        return "translate(0," + i * 20 + ")";
-      });
+    // The legend actually doesn't need to be an SVG element at all
+    // By making it standard markup, we can allow greater customization
+    var $legend = $(document.createElement('div')).addClass('legend');
 
-    legend.append("rect")
-      .attr("width", 18)
-      .attr("height", 18)
-      .style("fill", function(d) {
-        var item;
-        for (var i = 0; i < self.data.length; i++) {
-          if (self.data[i].key == d) {
-            item = self.data[i];
-            break;
-          }
-        }
-        return self.colors[self.data.indexOf(item)];
-      });
+    // This loop might seem wasteful, but we need to determine the total for the label
+    var total = 0;
+    for (var j = 0; j < self.data.length; j++) {
 
-    legend.append("text")
-      .attr("x", 24)
-      .attr("y", 9)
-      .attr("dy", ".35em")
-      .text(function(d) {
-        if (total === 0) {
-          return d + " 0%";
-        }
-        var value = 0;
-        for (var j = 0; j < self.data.length; j++) {
-          if (self.data[j].key == d) {
-            value = self.data[j].value;
-            break;
-          }
-        }
-        return d + " " + Math.round(value/total * 100) + "%";
-      });
+      // We need to use it as a float again later, convert it now and store ... its faster
+      self.data[j].value = parseFloat(self.data[j].value);
+      total += self.data[j].value;
+    }
+
+    for (var j = 0; j < self.data.length; j++) {
+      var this_item = self.data[j];
+      var $this_group = $(document.createElement('div'))
+        .addClass('legend-group')
+        .appendTo($legend);
+
+      $(document.createElement('span'))
+        .addClass('legend-symbol')
+        .appendTo($this_group);
+
+      $(document.createElement('span'))
+        .addClass('legend-key')
+        .text(this_item.key)
+        .appendTo($this_group);
+
+      var $this_value = $(document.createElement('span'))
+        .addClass('legend-value');
+
+      // If its zero, then we don't need to Math it.
+      if (this_item.value === 0) {
+        $this_item.text("0%");
+      } else {
+        $this_value.text(Math.round((this_item.value/total) * 100) + "%");
+      }
+
+      // Append it to the container
+      $this_value.appendTo($this_group);
+    }
+
+    // Append the container last ... cause its faster
+    $elem.append($legend);
   }
 };
 

@@ -1,0 +1,112 @@
+// General Pie Chart Styles
+
+// The idea behind this mixin in to allow a variety of
+// colors to be configured, from 1 - $num, that will
+// toggle between an incrementing percentage ($increment)
+// from the theme's primary brand color.  This should
+// adapt nicely to most themes.
+@mixin make_pie_chart_distribution($num, $increment) {
+  @for $ii from 1 through $num {
+    $color_increment: $increment * ($ii/2);
+
+    // Set the arc color
+    .arc:nth-child(#{$ii}n) {
+      @if $ii % 2 == 0 {
+        fill: lighten($brand-primary, $color_increment * 1%);
+      } @else {
+        fill: darken($brand-primary, $color_increment * 1%);
+      }
+    }
+
+    // Set the corresponding legend symbol
+    .legend-group:nth-child(#{$ii}n) .legend-symbol {
+      @if $ii % 2 == 0 {
+        color: lighten($brand-primary, $color_increment * 1%);
+      } @else {
+        color: darken($brand-primary, $color_increment * 1%);
+      }
+    }
+  }
+}
+
+// This is who sets the size of the pie chart
+.pie-chart {
+  width: $font-size-h1*3;
+  height: $font-size-h1*3;
+
+  // The container arc's color and stroke
+  .arc {
+    fill: $table-border-color;
+    stroke-width: 1px;
+  }
+}
+
+// Chart Usage Specifics
+.d3_pie_chart_usage {
+
+  .arc {
+    stroke: $table-border-color;
+  }
+
+  // The inner arc
+  .arc.inner {
+    fill: $brand-primary;
+    stroke: none;
+
+    // Specialness if its full
+    &.FULL {
+      fill: $brand-danger;
+    }
+
+    // Specialness if its almost full
+    &.NEARLY_FULL {
+      fill: $brand-warning;
+    }
+  }
+}
+
+// Chart Distribution Specifics
+.d3_pie_chart_distribution {
+
+  // The container arc's color and stroke
+  .arc {
+    stroke: $brand-primary;
+  }
+
+  // Set the colors!
+  @include make_pie_chart_distribution(8, 8);
+
+  .legend {
+    padding: $padding-base-horizontal $padding-base-vertical;
+    text-align: left;
+  }
+
+  .legend-group {
+    padding: $padding-xs-horizontal $padding-small-vertical;
+  }
+
+  .legend-symbol {
+    @extend .fa;
+    @extend .fa-square;
+    font-size: $font-size-h3;
+    padding-right: $padding-small-vertical;
+  }
+
+  .legend-symbol,
+  .legend-key,
+  .legend-value {
+    display: inline-block;
+    line-height: $line-height-computed;
+    vertical-align: middle;
+  }
+
+  .legend-key {
+    padding-right: $padding-small-vertical;
+  }
+}
+
+.chart-numbers {
+  fill: $gray-dark;
+  font-size: $font-size-h3;
+}
+
