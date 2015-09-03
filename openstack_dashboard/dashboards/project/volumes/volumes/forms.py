@@ -80,7 +80,7 @@ class CreateForm(forms.SelfHandlingForm):
     name = forms.CharField(max_length=255, label=_("Volume Name"),
                            required=False)
     description = forms.CharField(max_length=255, widget=forms.Textarea(
-        attrs={'class': 'modal-body-fixed-width', 'rows': 4}),
+        attrs={'rows': 4}),
         label=_("Description"), required=False)
     volume_source_type = forms.ChoiceField(label=_("Volume Source"),
                                            required=False,
