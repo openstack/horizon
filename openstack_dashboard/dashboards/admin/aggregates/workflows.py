@@ -25,6 +25,7 @@ class SetAggregateInfoAction(workflows.Action):
                            max_length=255)
 
     availability_zone = forms.CharField(label=_("Availability Zone"),
+                                        required=False,
                                         max_length=255)
 
     class Meta(object):
@@ -186,7 +187,7 @@ class CreateAggregateWorkflow(workflows.Workflow):
                 api.nova.aggregate_create(
                     request,
                     name=context['name'],
-                    availability_zone=context['availability_zone'])
+                    availability_zone=context['availability_zone'] or None)
         except Exception:
             exceptions.handle(request, _('Unable to create host aggregate.'))
             return False

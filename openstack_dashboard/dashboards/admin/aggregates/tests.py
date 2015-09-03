@@ -111,7 +111,7 @@ class CreateAggregateWorkflowTests(BaseAggregateWorkflowTests):
         workflow_data = self._get_create_workflow_data(aggregate)
         workflow_data['name'] = ''
         workflow_data['availability_zone'] = ''
-        self._test_generic_create_aggregate(workflow_data, aggregate, 2,
+        self._test_generic_create_aggregate(workflow_data, aggregate, 1,
                                             u'This field is required')
 
     @test.create_stubs({api.nova: ('host_list',
@@ -243,7 +243,7 @@ class AggregatesViewTests(test.BaseAdminViewTests):
         aggregate = self.aggregates.first()
         form_data = {'id': aggregate.id}
 
-        self._test_generic_update_aggregate(form_data, aggregate, 2,
+        self._test_generic_update_aggregate(form_data, aggregate, 1,
                                             u'This field is required')
 
 
