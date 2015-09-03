@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-08-29 06:13+0000\n"
+"POT-Creation-Date: 2015-09-03 06:13+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -482,8 +482,8 @@ msgstr ""
 #: dashboards/project/networks/templates/networks/_detail_overview.html:26
 #: dashboards/project/networks/templates/networks/_detail_overview.html:27
 #: dashboards/project/networks/templates/networks/ports/_detail_overview.html:14
-#: dashboards/project/networks/templates/networks/subnets/_detail_overview.html:18
-#: dashboards/project/networks/templates/networks/subnets/_detail_overview.html:29
+#: dashboards/project/networks/templates/networks/subnets/_detail_overview.html:24
+#: dashboards/project/networks/templates/networks/subnets/_detail_overview.html:35
 #: dashboards/project/routers/tables.py:186
 #: dashboards/project/volumes/volumes/tables.py:356
 msgid "-"
@@ -594,8 +594,8 @@ msgstr ""
 #: contrib/trove/content/database_backups/workflows/create_backup.py:32
 #: contrib/trove/content/databases/tables.py:387
 #: contrib/trove/content/databases/templates/databases/_detail_overview.html:10
-#: dashboards/admin/aggregates/forms.py:28
-#: dashboards/admin/aggregates/tables.py:128
+#: dashboards/admin/aggregates/forms.py:26
+#: dashboards/admin/aggregates/tables.py:138
 #: dashboards/admin/aggregates/workflows.py:24
 #: dashboards/admin/flavors/workflows.py:36 dashboards/admin/info/tables.py:64
 #: dashboards/admin/info/tables.py:94 dashboards/admin/info/tables.py:118
@@ -974,7 +974,7 @@ msgstr ""
 #: contrib/trove/content/database_backups/templates/database_backups/details.html:18
 #: contrib/trove/content/database_backups/templates/database_backups/details.html:62
 #: contrib/trove/content/databases/templates/databases/_detail_overview.html:12
-#: dashboards/admin/flavors/tables.py:136
+#: dashboards/admin/flavors/tables.py:154
 #: dashboards/admin/flavors/workflows.py:41
 #: dashboards/admin/networks/forms.py:236
 #: dashboards/admin/networks/agents/tables.py:90
@@ -1072,9 +1072,10 @@ msgstr ""
 #: dashboards/project/networks/templates/networks/subnets/_detail_overview.html:11
 #: dashboards/project/networks/templates/networks/subnets/_detail_overview.html:13
 #: dashboards/project/networks/templates/networks/subnets/_detail_overview.html:16
-#: dashboards/project/networks/templates/networks/subnets/_detail_overview.html:20
-#: dashboards/project/networks/templates/networks/subnets/_detail_overview.html:48
-#: dashboards/project/networks/templates/networks/subnets/_detail_overview.html:56
+#: dashboards/project/networks/templates/networks/subnets/_detail_overview.html:21
+#: dashboards/project/networks/templates/networks/subnets/_detail_overview.html:26
+#: dashboards/project/networks/templates/networks/subnets/_detail_overview.html:54
+#: dashboards/project/networks/templates/networks/subnets/_detail_overview.html:62
 #: dashboards/project/routers/templates/routers/_detail_overview.html:6
 #: dashboards/project/routers/templates/routers/_detail_overview.html:30
 #: dashboards/project/routers/templates/routers/_detail_overview.html:42
@@ -1162,8 +1163,8 @@ msgstr ""
 #: contrib/sahara/content/data_processing/cluster_templates/templates/data_processing.cluster_templates/_nodegroups_details.html:22
 #: contrib/sahara/content/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/_details.html:19
 #: contrib/sahara/content/data_processing/nodegroup_templates/workflows/create.py:50
-#: dashboards/admin/aggregates/forms.py:30
-#: dashboards/admin/aggregates/tables.py:130
+#: dashboards/admin/aggregates/forms.py:28
+#: dashboards/admin/aggregates/tables.py:140
 #: dashboards/admin/aggregates/workflows.py:27
 #: dashboards/admin/volumes/volumes/forms.py:78
 #: dashboards/project/instances/tables.py:1076
@@ -1377,8 +1378,8 @@ msgstr ""
 #: dashboards/admin/volumes/volume_types/qos_specs/tables.py:24
 #: dashboards/admin/volumes/volume_types/qos_specs/views.py:76
 #: dashboards/project/containers/templates/containers/_create_pseudo_folder.html:25
-#: dashboards/project/networks/workflows.py:343
-#: dashboards/project/networks/subnets/workflows.py:61
+#: dashboards/project/networks/workflows.py:452
+#: dashboards/project/networks/subnets/workflows.py:60
 msgid "Create"
 msgstr ""
 
@@ -1448,7 +1449,7 @@ msgstr ""
 #: dashboards/project/access_and_security/floating_ips/tables.py:202
 #: dashboards/project/firewalls/tables.py:361
 #: dashboards/project/firewalls/templates/firewalls/_firewall_details.html:25
-#: dashboards/project/images/images/tables.py:283
+#: dashboards/project/images/images/tables.py:307
 #: dashboards/project/images/templates/images/images/_detail_overview.html:19
 #: dashboards/project/instances/tables.py:1071
 #: dashboards/project/instances/templates/instances/_detail_overview.html:14
@@ -2051,7 +2052,7 @@ msgstr ""
 #: dashboards/admin/info/tables.py:168
 #: dashboards/project/access_and_security/security_groups/forms.py:180
 #: dashboards/project/access_and_security/security_groups/forms.py:187
-#: dashboards/project/images/images/tables.py:280
+#: dashboards/project/images/images/tables.py:304
 #: dashboards/project/loadbalancers/workflows.py:476
 #: dashboards/project/loadbalancers/templates/loadbalancers/_monitor_details.html:12
 #: dashboards/project/routers/ports/tables.py:115
@@ -3997,7 +3998,7 @@ msgstr ""
 #: dashboards/project/containers/tables.py:451
 #: dashboards/project/containers/templates/containers/_container_detail.html:22
 #: dashboards/project/containers/templates/containers/_object_detail.html:18
-#: dashboards/project/images/images/tables.py:299
+#: dashboards/project/images/images/tables.py:323
 #: dashboards/project/images/templates/images/images/_detail_overview.html:46
 #: dashboards/project/instances/tables.py:1066
 #: dashboards/project/instances/templates/instances/_instance_flavor.html:7
@@ -4148,7 +4149,7 @@ msgid "Specs"
 msgstr ""
 
 #: contrib/trove/content/databases/templates/databases/_detail_overview.html:29
-#: dashboards/admin/flavors/tables.py:125
+#: dashboards/admin/flavors/tables.py:143
 #: dashboards/project/instances/templates/instances/_detail_overview.html:55
 #: dashboards/project/instances/templates/instances/_flavors_and_quotas.html:14
 #: dashboards/project/instances/templates/instances/_instance_flavor.html:6
@@ -4467,28 +4468,19 @@ msgstr ""
 msgid "Admin"
 msgstr ""
 
-#: dashboards/admin/aggregates/forms.py:45
+#: dashboards/admin/aggregates/forms.py:41
 #, python-format
 msgid "Successfully updated aggregate: \"%s.\""
 msgstr ""
 
-#: dashboards/admin/aggregates/forms.py:50
-#: dashboards/admin/aggregates/workflows.py:211
+#: dashboards/admin/aggregates/forms.py:46
+#: dashboards/admin/aggregates/workflows.py:212
 msgid "Unable to update the aggregate."
 msgstr ""
 
-#: dashboards/admin/aggregates/forms.py:73 dashboards/admin/flavors/forms.py:44
-#: dashboards/admin/images/forms.py:61
-msgid "Metadata successfully updated."
-msgstr ""
-
-#: dashboards/admin/aggregates/forms.py:76
-msgid "Unable to update the aggregate metadata."
-msgstr ""
-
 #: dashboards/admin/aggregates/panel.py:25
-#: dashboards/admin/aggregates/tables.py:143
-#: dashboards/admin/aggregates/views.py:43
+#: dashboards/admin/aggregates/tables.py:153
+#: dashboards/admin/aggregates/views.py:39
 #: dashboards/admin/aggregates/templates/aggregates/index.html:3
 msgid "Host Aggregates"
 msgstr ""
@@ -4506,9 +4498,9 @@ msgstr[0] ""
 msgstr[1] ""
 
 #: dashboards/admin/aggregates/tables.py:48
-#: dashboards/admin/aggregates/views.py:72
-#: dashboards/admin/aggregates/workflows.py:176
+#: dashboards/admin/aggregates/views.py:68
 #: dashboards/admin/aggregates/workflows.py:177
+#: dashboards/admin/aggregates/workflows.py:178
 #: dashboards/admin/aggregates/templates/aggregates/create.html:3
 msgid "Create Host Aggregate"
 msgstr ""
@@ -4518,32 +4510,33 @@ msgid "Manage Hosts"
 msgstr ""
 
 #: dashboards/admin/aggregates/tables.py:64
-#: dashboards/admin/flavors/tables.py:71 dashboards/admin/images/tables.py:46
+#: dashboards/admin/flavors/tables.py:70 dashboards/admin/images/tables.py:45
+#: dashboards/project/images/images/tables.py:167
 msgid "Update Metadata"
 msgstr ""
 
-#: dashboards/admin/aggregates/tables.py:72
-#: dashboards/admin/aggregates/views.py:79
+#: dashboards/admin/aggregates/tables.py:82
+#: dashboards/admin/aggregates/views.py:75
 #: dashboards/admin/aggregates/templates/aggregates/_update.html:9
 #: dashboards/admin/aggregates/templates/aggregates/update.html:3
 msgid "Edit Host Aggregate"
 msgstr ""
 
-#: dashboards/admin/aggregates/tables.py:118
+#: dashboards/admin/aggregates/tables.py:128
 msgid "Services Up"
 msgstr ""
 
-#: dashboards/admin/aggregates/tables.py:118
+#: dashboards/admin/aggregates/tables.py:128
 msgid "Services Down"
 msgstr ""
 
-#: dashboards/admin/aggregates/tables.py:132
-#: dashboards/admin/aggregates/tables.py:157
+#: dashboards/admin/aggregates/tables.py:142
+#: dashboards/admin/aggregates/tables.py:167
 msgid "Hosts"
 msgstr ""
 
-#: dashboards/admin/aggregates/tables.py:136
-#: dashboards/admin/flavors/tables.py:142
+#: dashboards/admin/aggregates/tables.py:146
+#: dashboards/admin/flavors/tables.py:161
 #: dashboards/admin/volumes/volumes/forms.py:71
 #: dashboards/project/instances/templates/instances/_detail_overview.html:108
 #: dashboards/project/volumes/templates/volumes/backups/_detail_overview.html:46
@@ -4551,147 +4544,132 @@ msgstr ""
 msgid "Metadata"
 msgstr ""
 
-#: dashboards/admin/aggregates/tables.py:155
+#: dashboards/admin/aggregates/tables.py:165
 msgid "Availability Zone Name"
 msgstr ""
 
-#: dashboards/admin/aggregates/tables.py:161
+#: dashboards/admin/aggregates/tables.py:171
 #: dashboards/admin/volumes/snapshots/forms.py:25
 #: dashboards/admin/volumes/volumes/forms.py:38
 msgid "Available"
 msgstr ""
 
-#: dashboards/admin/aggregates/tables.py:171
+#: dashboards/admin/aggregates/tables.py:181
 msgid "Availability Zones"
 msgstr ""
 
-#: dashboards/admin/aggregates/views.py:52
+#: dashboards/admin/aggregates/views.py:48
 msgid "Unable to retrieve host aggregates list."
 msgstr ""
 
-#: dashboards/admin/aggregates/views.py:64
+#: dashboards/admin/aggregates/views.py:60
 msgid "Unable to retrieve availability zone list."
 msgstr ""
 
-#: dashboards/admin/aggregates/views.py:99
+#: dashboards/admin/aggregates/views.py:95
 msgid "Unable to retrieve the aggregate to be updated"
 msgstr ""
 
-#: dashboards/admin/aggregates/views.py:108
-#: dashboards/admin/aggregates/templates/aggregates/_update_metadata.html:4
-#: dashboards/admin/aggregates/templates/aggregates/_update_metadata.html:11
-#: dashboards/admin/aggregates/templates/aggregates/update_metadata.html:3
-msgid "Update Aggregate Metadata"
-msgstr ""
-
-#: dashboards/admin/aggregates/views.py:134
-msgid "Unable to retrieve available metadata for aggregate."
-msgstr ""
-
-#: dashboards/admin/aggregates/views.py:147
-msgid "Unable to retrieve the aggregate to be updated."
-msgstr ""
-
-#: dashboards/admin/aggregates/views.py:157
+#: dashboards/admin/aggregates/views.py:104
 #: dashboards/admin/aggregates/templates/aggregates/manage_hosts.html:3
 msgid "Manage Hosts Aggregate"
 msgstr ""
 
-#: dashboards/admin/aggregates/workflows.py:31
+#: dashboards/admin/aggregates/workflows.py:32
 msgid "Host Aggregate Information"
 msgstr ""
 
-#: dashboards/admin/aggregates/workflows.py:32
+#: dashboards/admin/aggregates/workflows.py:33
 msgid ""
 "Host aggregates divide an availability zone into logical units by "
 "grouping together hosts. Create a host aggregate then select the hosts "
 "contained in it."
 msgstr ""
 
-#: dashboards/admin/aggregates/workflows.py:44
+#: dashboards/admin/aggregates/workflows.py:45
 msgid "Unable to get host aggregate list"
 msgstr ""
 
-#: dashboards/admin/aggregates/workflows.py:51
+#: dashboards/admin/aggregates/workflows.py:52
 #, python-format
 msgid "The name \"%s\" is already used by another host aggregate."
 msgstr ""
 
-#: dashboards/admin/aggregates/workflows.py:69
-#: dashboards/admin/aggregates/workflows.py:103
+#: dashboards/admin/aggregates/workflows.py:70
+#: dashboards/admin/aggregates/workflows.py:104
 msgid "Unable to get the available hosts"
 msgstr ""
 
-#: dashboards/admin/aggregates/workflows.py:94
-#: dashboards/admin/aggregates/workflows.py:134
+#: dashboards/admin/aggregates/workflows.py:95
+#: dashboards/admin/aggregates/workflows.py:135
 msgid "Manage Hosts within Aggregate"
 msgstr ""
 
-#: dashboards/admin/aggregates/workflows.py:139
+#: dashboards/admin/aggregates/workflows.py:140
 msgid "Add hosts to this aggregate. Hosts can be in multiple aggregates."
 msgstr ""
 
-#: dashboards/admin/aggregates/workflows.py:141
+#: dashboards/admin/aggregates/workflows.py:142
 msgid "All available hosts"
 msgstr ""
 
-#: dashboards/admin/aggregates/workflows.py:142
+#: dashboards/admin/aggregates/workflows.py:143
 msgid "Selected hosts"
 msgstr ""
 
-#: dashboards/admin/aggregates/workflows.py:143
+#: dashboards/admin/aggregates/workflows.py:144
 msgid "No hosts found."
 msgstr ""
 
-#: dashboards/admin/aggregates/workflows.py:144
+#: dashboards/admin/aggregates/workflows.py:145
 msgid "No host selected."
 msgstr ""
 
-#: dashboards/admin/aggregates/workflows.py:157
+#: dashboards/admin/aggregates/workflows.py:158
 msgid ""
 "Add hosts to this aggregate or remove hosts from it. Hosts can be in "
 "multiple aggregates."
 msgstr ""
 
-#: dashboards/admin/aggregates/workflows.py:159
+#: dashboards/admin/aggregates/workflows.py:160
 msgid "All Available Hosts"
 msgstr ""
 
-#: dashboards/admin/aggregates/workflows.py:160
+#: dashboards/admin/aggregates/workflows.py:161
 msgid "Selected Hosts"
 msgstr ""
 
-#: dashboards/admin/aggregates/workflows.py:161
+#: dashboards/admin/aggregates/workflows.py:162
 msgid "No Hosts found."
 msgstr ""
 
-#: dashboards/admin/aggregates/workflows.py:162
+#: dashboards/admin/aggregates/workflows.py:163
 msgid "No Host selected."
-msgstr ""
-
-#: dashboards/admin/aggregates/workflows.py:178
-#, python-format
-msgid "Created new host aggregate \"%s\"."
 msgstr ""
 
 #: dashboards/admin/aggregates/workflows.py:179
 #, python-format
+msgid "Created new host aggregate \"%s\"."
+msgstr ""
+
+#: dashboards/admin/aggregates/workflows.py:180
+#, python-format
 msgid "Unable to create host aggregate \"%s\"."
 msgstr ""
 
-#: dashboards/admin/aggregates/workflows.py:191
+#: dashboards/admin/aggregates/workflows.py:192
 msgid "Unable to create host aggregate."
 msgstr ""
 
-#: dashboards/admin/aggregates/workflows.py:200
+#: dashboards/admin/aggregates/workflows.py:201
 msgid "Error adding Hosts to the aggregate."
 msgstr ""
 
-#: dashboards/admin/aggregates/workflows.py:208
+#: dashboards/admin/aggregates/workflows.py:209
 msgid "Add/Remove Hosts to Aggregate"
 msgstr ""
 
-#: dashboards/admin/aggregates/workflows.py:209
+#: dashboards/admin/aggregates/workflows.py:210
 #: dashboards/admin/aggregates/templates/aggregates/_update.html:24
 #: dashboards/admin/flavors/workflows.py:266
 #: dashboards/admin/metadata_defs/templates/metadata_defs/resource_types.html:79
@@ -4701,16 +4679,16 @@ msgstr ""
 #: dashboards/identity/projects/workflows.py:582
 #: dashboards/identity/users/views.py:209
 #: dashboards/project/instances/workflows/update_instance.py:133
-#: dashboards/project/networks/subnets/workflows.py:163
+#: dashboards/project/networks/subnets/workflows.py:168
 #: dashboards/settings/user/views.py:30
 msgid "Save"
 msgstr ""
 
-#: dashboards/admin/aggregates/workflows.py:210
+#: dashboards/admin/aggregates/workflows.py:211
 msgid "The Aggregate was updated."
 msgstr ""
 
-#: dashboards/admin/aggregates/workflows.py:231
+#: dashboards/admin/aggregates/workflows.py:232
 msgid "Error when adding or removing hosts."
 msgstr ""
 
@@ -4819,10 +4797,6 @@ msgid ""
 "contained in it."
 msgstr ""
 
-#: dashboards/admin/aggregates/templates/aggregates/_update_metadata.html:7
-msgid "\"Update Aggregate Metadata\""
-msgstr ""
-
 #: dashboards/admin/defaults/panel.py:21 dashboards/admin/defaults/views.py:29
 #: dashboards/admin/defaults/templates/defaults/index.html:3
 msgid "Defaults"
@@ -4851,7 +4825,7 @@ msgstr ""
 
 #: dashboards/admin/defaults/tables.py:45
 #: dashboards/admin/defaults/workflows.py:47
-#: dashboards/admin/flavors/tables.py:123
+#: dashboards/admin/flavors/tables.py:141
 #: dashboards/admin/flavors/workflows.py:46
 #: dashboards/admin/overview/views.py:33
 #: dashboards/identity/projects/workflows.py:51
@@ -5014,12 +4988,8 @@ msgstr ""
 msgid "Unable to update default quotas."
 msgstr ""
 
-#: dashboards/admin/flavors/forms.py:48
-msgid "Unable to update the flavor metadata."
-msgstr ""
-
-#: dashboards/admin/flavors/panel.py:25 dashboards/admin/flavors/tables.py:150
-#: dashboards/admin/flavors/views.py:47
+#: dashboards/admin/flavors/panel.py:25 dashboards/admin/flavors/tables.py:169
+#: dashboards/admin/flavors/views.py:40
 #: dashboards/admin/flavors/templates/flavors/index.html:3
 msgid "Flavors"
 msgstr ""
@@ -5036,56 +5006,56 @@ msgid_plural "Deleted Flavors"
 msgstr[0] ""
 msgstr[1] ""
 
-#: dashboards/admin/flavors/tables.py:54 dashboards/admin/flavors/views.py:66
+#: dashboards/admin/flavors/tables.py:54 dashboards/admin/flavors/views.py:59
 #: dashboards/admin/flavors/workflows.py:178
 #: dashboards/admin/flavors/workflows.py:179
 #: dashboards/admin/flavors/templates/flavors/create.html:3
 msgid "Create Flavor"
 msgstr ""
 
-#: dashboards/admin/flavors/tables.py:62 dashboards/admin/flavors/views.py:72
+#: dashboards/admin/flavors/tables.py:62 dashboards/admin/flavors/views.py:65
 #: dashboards/admin/flavors/workflows.py:265
 #: dashboards/admin/flavors/templates/flavors/update.html:3
 msgid "Edit Flavor"
 msgstr ""
 
-#: dashboards/admin/flavors/tables.py:78
+#: dashboards/admin/flavors/tables.py:96
 msgid "Modify Access"
 msgstr ""
 
-#: dashboards/admin/flavors/tables.py:106
+#: dashboards/admin/flavors/tables.py:124
 #, python-format
 msgid "%sMB"
 msgstr ""
 
-#: dashboards/admin/flavors/tables.py:110
-#: dashboards/admin/flavors/tables.py:114
+#: dashboards/admin/flavors/tables.py:128
+#: dashboards/admin/flavors/tables.py:132
 #: dashboards/project/volumes/backups/tables.py:96
 #: dashboards/project/volumes/volumes/tables.py:306
 #, python-format
 msgid "%sGB"
 msgstr ""
 
-#: dashboards/admin/flavors/tables.py:122
+#: dashboards/admin/flavors/tables.py:140
 msgid "Flavor Name"
 msgstr ""
 
-#: dashboards/admin/flavors/tables.py:128
+#: dashboards/admin/flavors/tables.py:146
 #: dashboards/project/instances/templates/instances/_flavors_and_quotas.html:11
 msgid "Root Disk"
 msgstr ""
 
-#: dashboards/admin/flavors/tables.py:131
+#: dashboards/admin/flavors/tables.py:149
 #: dashboards/project/instances/templates/instances/_detail_overview.html:62
 #: dashboards/project/instances/templates/instances/_flavors_and_quotas.html:12
 msgid "Ephemeral Disk"
 msgstr ""
 
-#: dashboards/admin/flavors/tables.py:134
+#: dashboards/admin/flavors/tables.py:152
 msgid "Swap Disk"
 msgstr ""
 
-#: dashboards/admin/flavors/tables.py:138
+#: dashboards/admin/flavors/tables.py:156
 #: dashboards/admin/metadata_defs/forms.py:61
 #: dashboards/admin/metadata_defs/tables.py:142
 #: dashboards/admin/metadata_defs/templates/metadata_defs/_detail_overview.html:18
@@ -5094,33 +5064,18 @@ msgstr ""
 #: dashboards/project/containers/templates/containers/_container_metadata.html:7
 #: dashboards/project/images/images/forms.py:157
 #: dashboards/project/images/images/forms.py:317
-#: dashboards/project/images/images/tables.py:186
-#: dashboards/project/images/images/tables.py:288
+#: dashboards/project/images/images/tables.py:210
+#: dashboards/project/images/images/tables.py:312
 #: dashboards/project/images/templates/images/images/_detail_overview.html:21
 msgid "Public"
 msgstr ""
 
-#: dashboards/admin/flavors/views.py:57
+#: dashboards/admin/flavors/views.py:50
 msgid "Unable to retrieve flavor list."
 msgstr ""
 
-#: dashboards/admin/flavors/views.py:82
+#: dashboards/admin/flavors/views.py:75
 msgid "Unable to retrieve flavor details."
-msgstr ""
-
-#: dashboards/admin/flavors/views.py:97
-#: dashboards/admin/flavors/templates/flavors/_update_metadata.html:4
-#: dashboards/admin/flavors/templates/flavors/_update_metadata.html:11
-#: dashboards/admin/flavors/templates/flavors/update_metadata.html:3
-msgid "Update Flavor Metadata"
-msgstr ""
-
-#: dashboards/admin/flavors/views.py:125
-msgid "Unable to retrieve available metadata for flavors."
-msgstr ""
-
-#: dashboards/admin/flavors/views.py:139
-msgid "Unable to retrieve the flavor metadata."
 msgstr ""
 
 #: dashboards/admin/flavors/workflows.py:32
@@ -5240,10 +5195,6 @@ msgstr ""
 
 #: dashboards/admin/flavors/workflows.py:313
 msgid "Modified flavor information, but unable to modify flavor access."
-msgstr ""
-
-#: dashboards/admin/flavors/templates/flavors/_update_metadata.html:7
-msgid "\"Update Flavor Metadata\""
 msgstr ""
 
 #: dashboards/admin/hypervisors/panel.py:21
@@ -5538,15 +5489,11 @@ msgid ""
 "migrate' on each instance of migrated host."
 msgstr ""
 
-#: dashboards/admin/images/forms.py:65
-msgid "Unable to update the image metadata."
-msgstr ""
-
-#: dashboards/admin/images/panel.py:25 dashboards/admin/images/tables.py:78
-#: dashboards/admin/images/views.py:49
+#: dashboards/admin/images/panel.py:25 dashboards/admin/images/tables.py:88
+#: dashboards/admin/images/views.py:44
 #: dashboards/admin/images/templates/images/index.html:3
 #: dashboards/project/images/panel.py:22 dashboards/project/images/views.py:38
-#: dashboards/project/images/images/tables.py:305
+#: dashboards/project/images/images/tables.py:329
 #: dashboards/project/images/templates/images/index.html:3
 #: dashboards/project/ngimages/panel.py:21
 #: dashboards/project/ngimages/templates/ngimages/index.html:3
@@ -5554,31 +5501,31 @@ msgstr ""
 msgid "Images"
 msgstr ""
 
-#: dashboards/admin/images/tables.py:61
+#: dashboards/admin/images/tables.py:71
 msgid "Image Name ="
 msgstr ""
 
-#: dashboards/admin/images/tables.py:62
+#: dashboards/admin/images/tables.py:72
 #: dashboards/admin/instances/tables.py:107
 #: dashboards/project/instances/tables.py:1037
 msgid "Status ="
 msgstr ""
 
-#: dashboards/admin/images/tables.py:63
+#: dashboards/admin/images/tables.py:73
 msgid "Format ="
 msgstr ""
 
-#: dashboards/admin/images/tables.py:64
+#: dashboards/admin/images/tables.py:74
 msgid "Min. Size (MB)"
 msgstr ""
 
-#: dashboards/admin/images/tables.py:65
+#: dashboards/admin/images/tables.py:75
 msgid "Max. Size (MB)"
 msgstr ""
 
-#: dashboards/admin/images/tables.py:71
+#: dashboards/admin/images/tables.py:81
 #: dashboards/admin/instances/tables.py:140
-#: dashboards/project/images/images/tables.py:278
+#: dashboards/project/images/images/tables.py:302
 #: dashboards/project/instances/tables.py:1061
 #: dashboards/project/instances/templates/instances/_detail_overview.html:116
 #: dashboards/project/instances/workflows/create_instance.py:108
@@ -5586,7 +5533,7 @@ msgstr ""
 msgid "Image Name"
 msgstr ""
 
-#: dashboards/admin/images/tables.py:72
+#: dashboards/admin/images/tables.py:82
 #: dashboards/admin/instances/tables.py:127
 #: dashboards/admin/metering/tables.py:42
 #: dashboards/admin/metering/templates/metering/stats.html:94
@@ -5595,24 +5542,24 @@ msgstr ""
 #: dashboards/admin/volumes/snapshots/tables.py:65
 #: dashboards/admin/volumes/volumes/tables.py:94
 #: dashboards/project/dashboard.py:21
-#: dashboards/project/images/images/tables.py:179
+#: dashboards/project/images/images/tables.py:203
 #: dashboards/project/instances/workflows/create_instance.py:54
 msgid "Project"
 msgstr ""
 
-#: dashboards/admin/images/views.py:85
+#: dashboards/admin/images/views.py:80
 #: dashboards/project/images/images/forms.py:178
 #: dashboards/project/images/images/forms.py:194
 msgid "Unable to retrieve image list."
 msgstr ""
 
-#: dashboards/admin/images/views.py:92 dashboards/admin/metering/tabs.py:90
+#: dashboards/admin/images/views.py:87 dashboards/admin/metering/tabs.py:90
 #: dashboards/admin/metering/views.py:150 dashboards/admin/overview/views.py:65
 #: dashboards/identity/projects/views.py:92
 msgid "Unable to retrieve project list."
 msgstr ""
 
-#: dashboards/admin/images/views.py:133
+#: dashboards/admin/images/views.py:128
 #: dashboards/admin/images/templates/images/create.html:3
 #: dashboards/project/images/images/views.py:44
 #: dashboards/project/images/images/views.py:50
@@ -5620,26 +5567,13 @@ msgstr ""
 msgid "Create An Image"
 msgstr ""
 
-#: dashboards/admin/images/views.py:141 dashboards/admin/images/views.py:156
+#: dashboards/admin/images/views.py:136
 #: dashboards/admin/images/templates/images/update.html:4
 #: dashboards/project/images/images/views.py:73
 #: dashboards/project/images/images/views.py:74
 #: dashboards/project/images/images/views.py:78
 #: dashboards/project/images/templates/images/images/update.html:3
 msgid "Update Image"
-msgstr ""
-
-#: dashboards/admin/images/views.py:161
-#: dashboards/admin/images/templates/images/update_metadata.html:3
-msgid "Update Image Metadata"
-msgstr ""
-
-#: dashboards/admin/images/views.py:214
-msgid "Unable to retrieve available properties for image."
-msgstr ""
-
-#: dashboards/admin/images/views.py:227
-msgid "Unable to retrieve the image to be updated."
 msgstr ""
 
 #: dashboards/admin/images/templates/images/_create.html:9
@@ -5959,7 +5893,7 @@ msgstr ""
 #: dashboards/admin/metadata_defs/templates/metadata_defs/_detail_overview.html:20
 #: dashboards/project/images/images/forms.py:158
 #: dashboards/project/images/images/forms.py:318
-#: dashboards/project/images/images/tables.py:292
+#: dashboards/project/images/images/tables.py:316
 #: dashboards/project/images/templates/images/images/_detail_overview.html:23
 msgid "Protected"
 msgstr ""
@@ -6582,13 +6516,13 @@ msgstr ""
 
 #: dashboards/admin/networks/forms.py:145
 #: dashboards/project/instances/workflows/create_instance.py:736
-#: dashboards/project/networks/workflows.py:62
+#: dashboards/project/networks/workflows.py:76
 msgid "Select a profile"
 msgstr ""
 
 #: dashboards/admin/networks/forms.py:155
 #: dashboards/project/instances/workflows/create_instance.py:746
-#: dashboards/project/networks/workflows.py:72
+#: dashboards/project/networks/workflows.py:86
 msgid "Network Profiles could not be retrieved."
 msgstr ""
 
@@ -6656,7 +6590,7 @@ msgstr ""
 #: dashboards/project/network_topology/templates/network_topology/index.html:40
 #: dashboards/project/networks/tables.py:87
 #: dashboards/project/networks/tables.py:100
-#: dashboards/project/networks/workflows.py:342
+#: dashboards/project/networks/workflows.py:451
 #: dashboards/project/networks/templates/networks/_create.html:8
 #: dashboards/project/networks/templates/networks/_create.html:23
 msgid "Create Network"
@@ -6946,16 +6880,16 @@ msgid "Failed to delete subnet %s"
 msgstr ""
 
 #: dashboards/admin/networks/subnets/tables.py:67
-#: dashboards/project/networks/workflows.py:91
+#: dashboards/project/networks/workflows.py:53
 #: dashboards/project/networks/subnets/tables.py:91
 #: dashboards/project/networks/subnets/tables.py:108
-#: dashboards/project/networks/subnets/workflows.py:60
+#: dashboards/project/networks/subnets/workflows.py:59
 msgid "Create Subnet"
 msgstr ""
 
 #: dashboards/admin/networks/subnets/tables.py:80
 #: dashboards/project/networks/subnets/tables.py:117
-#: dashboards/project/networks/subnets/workflows.py:162
+#: dashboards/project/networks/subnets/workflows.py:167
 msgid "Edit Subnet"
 msgstr ""
 
@@ -6963,21 +6897,22 @@ msgstr ""
 #: dashboards/project/access_and_security/security_groups/forms.py:203
 #: dashboards/project/access_and_security/security_groups/forms.py:215
 #: dashboards/project/access_and_security/security_groups/forms.py:225
-#: dashboards/project/networks/templates/networks/subnets/_detail_overview.html:19
+#: dashboards/project/networks/templates/networks/subnets/_detail_overview.html:25
 msgid "CIDR"
 msgstr ""
 
 #: dashboards/admin/networks/subnets/tables.py:95
-#: dashboards/project/networks/workflows.py:127
+#: dashboards/project/networks/workflows.py:161
 #: dashboards/project/networks/subnets/tables.py:132
-#: dashboards/project/networks/subnets/workflows.py:104
+#: dashboards/project/networks/subnets/workflows.py:109
 msgid "IP Version"
 msgstr ""
 
 #: dashboards/admin/networks/subnets/tables.py:96
-#: dashboards/project/networks/workflows.py:129
+#: dashboards/project/networks/workflows.py:164
+#: dashboards/project/networks/workflows.py:168
 #: dashboards/project/networks/subnets/tables.py:133
-#: dashboards/project/networks/templates/networks/subnets/_detail_overview.html:28
+#: dashboards/project/networks/templates/networks/subnets/_detail_overview.html:34
 msgid "Gateway IP"
 msgstr ""
 
@@ -9569,7 +9504,7 @@ msgstr ""
 
 #: dashboards/project/access_and_security/security_groups/tables.py:157
 #: dashboards/project/access_and_security/security_groups/views.py:108
-#: dashboards/project/access_and_security/security_groups/views.py:113
+#: dashboards/project/access_and_security/security_groups/views.py:114
 #: dashboards/project/access_and_security/templates/access_and_security/security_groups/add_rule.html:3
 #: dashboards/project/firewalls/tables.py:33
 #: dashboards/project/firewalls/workflows.py:103
@@ -10964,7 +10899,7 @@ msgstr ""
 
 #: dashboards/project/images/images/forms.py:129
 #: dashboards/project/images/images/forms.py:299
-#: dashboards/project/images/images/tables.py:295
+#: dashboards/project/images/images/tables.py:319
 msgid "Format"
 msgstr ""
 
@@ -11091,56 +11026,56 @@ msgstr ""
 msgid "Create Volume"
 msgstr ""
 
-#: dashboards/project/images/images/tables.py:184
+#: dashboards/project/images/images/tables.py:208
 msgid "Shared with Me"
 msgstr ""
 
-#: dashboards/project/images/images/tables.py:228
+#: dashboards/project/images/images/tables.py:252
 msgctxt "Image format for display in table"
 msgid "Docker"
 msgstr ""
 
-#: dashboards/project/images/images/tables.py:232
+#: dashboards/project/images/images/tables.py:256
 msgctxt "Image format for display in table"
 msgid "Raw"
 msgstr ""
 
-#: dashboards/project/images/images/tables.py:263
+#: dashboards/project/images/images/tables.py:287
 msgctxt "Current status of an Image"
 msgid "Active"
 msgstr ""
 
-#: dashboards/project/images/images/tables.py:264
+#: dashboards/project/images/images/tables.py:288
 msgctxt "Current status of an Image"
 msgid "Saving"
 msgstr ""
 
-#: dashboards/project/images/images/tables.py:265
+#: dashboards/project/images/images/tables.py:289
 msgctxt "Current status of an Image"
 msgid "Queued"
 msgstr ""
 
-#: dashboards/project/images/images/tables.py:266
+#: dashboards/project/images/images/tables.py:290
 msgctxt "Current status of an Image"
 msgid "Pending Delete"
 msgstr ""
 
-#: dashboards/project/images/images/tables.py:268
+#: dashboards/project/images/images/tables.py:292
 msgctxt "Current status of an Image"
 msgid "Killed"
 msgstr ""
 
-#: dashboards/project/images/images/tables.py:269
+#: dashboards/project/images/images/tables.py:293
 msgctxt "Current status of an Image"
 msgid "Deleted"
 msgstr ""
 
-#: dashboards/project/images/images/tables.py:272
+#: dashboards/project/images/images/tables.py:296
 msgctxt "Type of an image"
 msgid "Image"
 msgstr ""
 
-#: dashboards/project/images/images/tables.py:273
+#: dashboards/project/images/images/tables.py:297
 msgctxt "Type of an image"
 msgid "Snapshot"
 msgstr ""
@@ -11397,7 +11332,7 @@ msgid "Unable to retrieve instance password."
 msgstr ""
 
 #: dashboards/project/instances/forms.py:173
-#: dashboards/project/networks/workflows.py:79
+#: dashboards/project/networks/workflows.py:93
 #: enabled/_1410_network_panel_group.py:6
 msgid "Network"
 msgstr ""
@@ -13161,9 +13096,9 @@ msgstr ""
 #: dashboards/project/loadbalancers/workflows.py:43
 #: dashboards/project/loadbalancers/templates/loadbalancers/_pool_details.html:29
 #: dashboards/project/loadbalancers/templates/loadbalancers/_vip_details.html:18
-#: dashboards/project/networks/workflows.py:159
-#: dashboards/project/networks/subnets/workflows.py:42
-#: dashboards/project/networks/subnets/workflows.py:120
+#: dashboards/project/networks/workflows.py:194
+#: dashboards/project/networks/subnets/workflows.py:41
+#: dashboards/project/networks/subnets/workflows.py:125
 #: dashboards/project/networks/templates/networks/subnets/_detail_overview.html:7
 #: dashboards/project/routers/ports/forms.py:29
 #: dashboards/project/vpn/tables.py:290 dashboards/project/vpn/workflows.py:30
@@ -13829,27 +13764,50 @@ msgstr ""
 msgid "The state to start the network in."
 msgstr ""
 
-#: dashboards/project/networks/workflows.py:80
+#: dashboards/project/networks/workflows.py:94
 msgid ""
 "Create a new network. In addition, a subnet associated with the network "
 "can be created in the next panel."
 msgstr ""
 
-#: dashboards/project/networks/workflows.py:107
+#: dashboards/project/networks/workflows.py:108
 msgid "Subnet Name"
 msgstr ""
 
-#: dashboards/project/networks/workflows.py:109
+#: dashboards/project/networks/workflows.py:113
+msgid "Network Address Source"
+msgstr ""
+
+#: dashboards/project/networks/workflows.py:114
+msgid "Enter Network Address manually"
+msgstr ""
+
+#: dashboards/project/networks/workflows.py:115
+msgid "Allocate Network Address from a pool"
+msgstr ""
+
+#: dashboards/project/networks/workflows.py:122
+#: dashboards/project/networks/workflows.py:127
+msgid "Address pool"
+msgstr ""
+
+#: dashboards/project/networks/workflows.py:141
+#: dashboards/project/networks/workflows.py:240
+msgid "Network Mask"
+msgstr ""
+
+#: dashboards/project/networks/workflows.py:144
+#: dashboards/project/networks/workflows.py:150
 #: dashboards/project/networks/subnets/tables.py:131
-#: dashboards/project/networks/subnets/workflows.py:85
+#: dashboards/project/networks/subnets/workflows.py:90
 msgid "Network Address"
 msgstr ""
 
-#: dashboards/project/networks/workflows.py:117
+#: dashboards/project/networks/workflows.py:152
 msgid "Network address in CIDR format (e.g. 192.168.0.0/24, 2001:DB8::/48)"
 msgstr ""
 
-#: dashboards/project/networks/workflows.py:136
+#: dashboards/project/networks/workflows.py:172
 msgid ""
 "IP address of Gateway (e.g. 192.168.0.254) The default value is the first"
 " IP of the network address (e.g. 192.168.0.1 for 192.168.0.0/24, "
@@ -13857,50 +13815,60 @@ msgid ""
 "you do not want to use a gateway, check 'Disable Gateway' below."
 msgstr ""
 
-#: dashboards/project/networks/workflows.py:146
-#: dashboards/project/networks/subnets/workflows.py:116
+#: dashboards/project/networks/workflows.py:182
+#: dashboards/project/networks/subnets/workflows.py:121
 msgid "Disable Gateway"
 msgstr ""
 
-#: dashboards/project/networks/workflows.py:155
-msgid "Specify \"Network Address\" or clear \"Create Subnet\" checkbox."
-msgstr ""
-
-#: dashboards/project/networks/workflows.py:160
+#: dashboards/project/networks/workflows.py:190
 msgid ""
-"Create a subnet associated with the new network, in which case \"Network "
-"Address\" must be specified. If you wish to create a network without a "
-"subnet, uncheck the \"Create Subnet\" checkbox."
+"Specify \"Network Address\", \"Address pool\" or clear \"Create Subnet\" "
+"checkbox."
 msgstr ""
 
-#: dashboards/project/networks/workflows.py:183
+#: dashboards/project/networks/workflows.py:195
+#: dashboards/project/networks/subnets/workflows.py:42
+msgid ""
+"Create a subnet associated with the network. Advanced configuration is "
+"available by clicking on the \"Subnet Details\" tab."
+msgstr ""
+
+#: dashboards/project/networks/workflows.py:223
+msgid "Unable to initialize subnetpools"
+msgstr ""
+
+#: dashboards/project/networks/workflows.py:245
+msgid "Select a pool"
+msgstr ""
+
+#: dashboards/project/networks/workflows.py:291
 msgid "Network Address and IP version are inconsistent."
 msgstr ""
 
-#: dashboards/project/networks/workflows.py:187
+#: dashboards/project/networks/workflows.py:295
 #, python-format
 msgid "The subnet in the Network Address is too small (/%s)."
 msgstr ""
 
-#: dashboards/project/networks/workflows.py:192
+#: dashboards/project/networks/workflows.py:300
 msgid "Gateway IP and IP version are inconsistent."
 msgstr ""
 
-#: dashboards/project/networks/workflows.py:195
+#: dashboards/project/networks/workflows.py:303
 msgid "Specify IP address of gateway or check \"Disable Gateway\"."
 msgstr ""
 
-#: dashboards/project/networks/workflows.py:215
+#: dashboards/project/networks/workflows.py:324
 msgid "Enable DHCP"
 msgstr ""
 
-#: dashboards/project/networks/workflows.py:218
-#: dashboards/project/networks/workflows.py:222
-#: dashboards/project/networks/templates/networks/subnets/_detail_overview.html:33
+#: dashboards/project/networks/workflows.py:327
+#: dashboards/project/networks/workflows.py:331
+#: dashboards/project/networks/templates/networks/subnets/_detail_overview.html:39
 msgid "IPv6 Address Configuration Mode"
 msgstr ""
 
-#: dashboards/project/networks/workflows.py:226
+#: dashboards/project/networks/workflows.py:335
 msgid ""
 "Specifies how IPv6 addresses and additional information are configured. "
 "We can specify SLAAC/DHCPv6 stateful/DHCPv6 stateless provided by "
@@ -13908,116 +13876,116 @@ msgid ""
 "are configured manually or configured by a non-OpenStack system."
 msgstr ""
 
-#: dashboards/project/networks/workflows.py:234
+#: dashboards/project/networks/workflows.py:343
 msgid "Allocation Pools"
 msgstr ""
 
-#: dashboards/project/networks/workflows.py:235
+#: dashboards/project/networks/workflows.py:344
 msgid ""
 "IP address allocation pools. Each entry is: "
 "start_ip_address,end_ip_address (e.g., 192.168.1.100,192.168.1.120) and "
 "one entry per line."
 msgstr ""
 
-#: dashboards/project/networks/workflows.py:242
+#: dashboards/project/networks/workflows.py:351
 msgid "DNS Name Servers"
 msgstr ""
 
-#: dashboards/project/networks/workflows.py:243
+#: dashboards/project/networks/workflows.py:352
 msgid "IP address list of DNS name servers for this subnet. One entry per line."
 msgstr ""
 
-#: dashboards/project/networks/workflows.py:248
+#: dashboards/project/networks/workflows.py:357
 msgid "Host Routes"
 msgstr ""
 
-#: dashboards/project/networks/workflows.py:249
+#: dashboards/project/networks/workflows.py:358
 msgid ""
 "Additional routes announced to the hosts. Each entry is: "
 "destination_cidr,nexthop (e.g., 192.168.200.0/24,10.56.1.254) and one "
 "entry per line."
 msgstr ""
 
-#: dashboards/project/networks/workflows.py:256
+#: dashboards/project/networks/workflows.py:365
 #: dashboards/project/networks/subnets/views.py:103
-#: dashboards/project/networks/subnets/workflows.py:152
+#: dashboards/project/networks/subnets/workflows.py:157
 #: dashboards/project/networks/templates/networks/subnets/detail.html:3
 msgid "Subnet Details"
 msgstr ""
 
-#: dashboards/project/networks/workflows.py:257
-#: dashboards/project/networks/subnets/workflows.py:153
+#: dashboards/project/networks/workflows.py:366
+#: dashboards/project/networks/subnets/workflows.py:158
 msgid "Specify additional attributes for the subnet."
 msgstr ""
 
-#: dashboards/project/networks/workflows.py:267
+#: dashboards/project/networks/workflows.py:376
 #, python-format
 msgid "%s (Default)"
 msgstr ""
 
-#: dashboards/project/networks/workflows.py:276
+#: dashboards/project/networks/workflows.py:385
 #, python-format
 msgid "%(field_name)s: Invalid IP address (value=%(ip)s)"
 msgstr ""
 
-#: dashboards/project/networks/workflows.py:284
+#: dashboards/project/networks/workflows.py:393
 #, python-format
 msgid "%(field_name)s: Invalid IP address (value=%(network)s)"
 msgstr ""
 
-#: dashboards/project/networks/workflows.py:295
+#: dashboards/project/networks/workflows.py:404
 #, python-format
 msgid "Start and end addresses must be specified (value=%s)"
 msgstr ""
 
-#: dashboards/project/networks/workflows.py:301
+#: dashboards/project/networks/workflows.py:410
 #, python-format
 msgid "Start address is larger than end address (value=%s)"
 msgstr ""
 
-#: dashboards/project/networks/workflows.py:319
+#: dashboards/project/networks/workflows.py:428
 #, python-format
 msgid ""
 "Host Routes format error: Destination CIDR and nexthop must be specified "
 "(value=%s)"
 msgstr ""
 
-#: dashboards/project/networks/workflows.py:344
+#: dashboards/project/networks/workflows.py:453
 #, python-format
 msgid "Created network \"%s\"."
 msgstr ""
 
-#: dashboards/project/networks/workflows.py:345
+#: dashboards/project/networks/workflows.py:454
 #, python-format
 msgid "Unable to create network \"%s\"."
 msgstr ""
 
-#: dashboards/project/networks/workflows.py:369
+#: dashboards/project/networks/workflows.py:478
 #, python-format
 msgid "Network \"%s\" was successfully created."
 msgstr ""
 
-#: dashboards/project/networks/workflows.py:374
+#: dashboards/project/networks/workflows.py:483
 #, python-format
 msgid "Failed to create network \"%(network)s\": %(reason)s"
 msgstr ""
 
-#: dashboards/project/networks/workflows.py:437
+#: dashboards/project/networks/workflows.py:550
 #, python-format
 msgid "Subnet \"%s\" was successfully created."
 msgstr ""
 
-#: dashboards/project/networks/workflows.py:441
+#: dashboards/project/networks/workflows.py:554
 #, python-format
 msgid "Failed to create subnet \"%(sub)s\" for network \"%(net)s\":  %(reason)s"
 msgstr ""
 
-#: dashboards/project/networks/workflows.py:457
+#: dashboards/project/networks/workflows.py:570
 #, python-format
 msgid "Delete the created network \"%s\" due to subnet creation failure."
 msgstr ""
 
-#: dashboards/project/networks/workflows.py:464
+#: dashboards/project/networks/workflows.py:577
 #, python-format
 msgid "Failed to delete network \"%s\""
 msgstr ""
@@ -14116,59 +14084,53 @@ msgstr ""
 msgid "Specify \"Network Address\""
 msgstr ""
 
-#: dashboards/project/networks/subnets/workflows.py:43
-msgid ""
-"Create a subnet associated with the network. Advanced configuration is "
-"available by clicking on the \"Subnet Details\" tab."
-msgstr ""
-
-#: dashboards/project/networks/subnets/workflows.py:62
+#: dashboards/project/networks/subnets/workflows.py:61
 #, python-format
 msgid "Created subnet \"%s\"."
 msgstr ""
 
-#: dashboards/project/networks/subnets/workflows.py:63
+#: dashboards/project/networks/subnets/workflows.py:62
 #, python-format
 msgid "Unable to create subnet \"%s\"."
 msgstr ""
 
-#: dashboards/project/networks/subnets/workflows.py:90
+#: dashboards/project/networks/subnets/workflows.py:95
 msgid "Network address in CIDR format (e.g. 192.168.0.0/24)"
 msgstr ""
 
-#: dashboards/project/networks/subnets/workflows.py:107
+#: dashboards/project/networks/subnets/workflows.py:112
 msgid "Gateway IP (optional)"
 msgstr ""
 
-#: dashboards/project/networks/subnets/workflows.py:110
+#: dashboards/project/networks/subnets/workflows.py:115
 msgid ""
 "IP address of Gateway (e.g. 192.168.0.254). Specify an explicit address "
 "to set the gateway. If you do not want to use a gateway, check 'Disable "
 "Gateway' below."
 msgstr ""
 
-#: dashboards/project/networks/subnets/workflows.py:121
+#: dashboards/project/networks/subnets/workflows.py:126
 msgid ""
 "Update a subnet associated with the network. Advanced configuration are "
 "available at \"Subnet Details\" tab."
 msgstr ""
 
-#: dashboards/project/networks/subnets/workflows.py:164
+#: dashboards/project/networks/subnets/workflows.py:169
 #, python-format
 msgid "Updated subnet \"%s\"."
 msgstr ""
 
-#: dashboards/project/networks/subnets/workflows.py:165
+#: dashboards/project/networks/subnets/workflows.py:170
 #, python-format
 msgid "Unable to update subnet \"%s\"."
 msgstr ""
 
-#: dashboards/project/networks/subnets/workflows.py:200
+#: dashboards/project/networks/subnets/workflows.py:205
 #, python-format
 msgid "Subnet \"%s\" was successfully updated."
 msgstr ""
 
-#: dashboards/project/networks/subnets/workflows.py:204
+#: dashboards/project/networks/subnets/workflows.py:209
 #, python-format
 msgid "Failed to update subnet \"%(sub)s\":  %(reason)s"
 msgstr ""
@@ -14219,26 +14181,30 @@ msgid "Subnet Overview"
 msgstr ""
 
 #: dashboards/project/networks/templates/networks/subnets/_detail_overview.html:17
+msgid "Subnetpool"
+msgstr ""
+
+#: dashboards/project/networks/templates/networks/subnets/_detail_overview.html:23
 msgid "IP version"
 msgstr ""
 
-#: dashboards/project/networks/templates/networks/subnets/_detail_overview.html:21
+#: dashboards/project/networks/templates/networks/subnets/_detail_overview.html:27
 msgid "IP allocation pool"
 msgstr ""
 
-#: dashboards/project/networks/templates/networks/subnets/_detail_overview.html:24
+#: dashboards/project/networks/templates/networks/subnets/_detail_overview.html:30
 msgid "Start"
 msgstr ""
 
-#: dashboards/project/networks/templates/networks/subnets/_detail_overview.html:25
+#: dashboards/project/networks/templates/networks/subnets/_detail_overview.html:31
 msgid " - End"
 msgstr ""
 
-#: dashboards/project/networks/templates/networks/subnets/_detail_overview.html:30
+#: dashboards/project/networks/templates/networks/subnets/_detail_overview.html:36
 msgid "DHCP Enable"
 msgstr ""
 
-#: dashboards/project/networks/templates/networks/subnets/_detail_overview.html:39
+#: dashboards/project/networks/templates/networks/subnets/_detail_overview.html:45
 #, python-format
 msgid ""
 "\n"
@@ -14247,20 +14213,20 @@ msgid ""
 "        "
 msgstr ""
 
-#: dashboards/project/networks/templates/networks/subnets/_detail_overview.html:42
+#: dashboards/project/networks/templates/networks/subnets/_detail_overview.html:48
 msgid "Additional routes"
 msgstr ""
 
-#: dashboards/project/networks/templates/networks/subnets/_detail_overview.html:45
+#: dashboards/project/networks/templates/networks/subnets/_detail_overview.html:51
 #: dashboards/project/routers/templates/routers/extensions/routerrules/grid.html:24
 msgid "Destination"
 msgstr ""
 
-#: dashboards/project/networks/templates/networks/subnets/_detail_overview.html:46
+#: dashboards/project/networks/templates/networks/subnets/_detail_overview.html:52
 msgid " : Next hop"
 msgstr ""
 
-#: dashboards/project/networks/templates/networks/subnets/_detail_overview.html:51
+#: dashboards/project/networks/templates/networks/subnets/_detail_overview.html:57
 msgid "DNS name server"
 msgstr ""
 

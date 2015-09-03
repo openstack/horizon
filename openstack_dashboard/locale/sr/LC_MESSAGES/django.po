@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-08-20 06:20+0000\n"
-"PO-Revision-Date: 2015-08-19 07:05+0000\n"
+"POT-Creation-Date: 2015-09-03 04:49+0000\n"
+"PO-Revision-Date: 2015-09-02 07:31+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Serbian (http://www.transifex.com/openstack/horizon/language/"
 "sr/)\n"
@@ -2821,9 +2821,6 @@ msgstr "Metadata File"
 msgid "Metadata Items"
 msgstr "Činioci meta podataka"
 
-msgid "Metadata successfully updated."
-msgstr "Podaci su osveženi"
-
 msgid "Meter"
 msgstr "Merač"
 
@@ -4132,9 +4129,6 @@ msgstr "Izvorni port/opseg port-a"
 msgid "Source port (integer in [1, 65535] or range in a:b)"
 msgstr "Izvorni port (celobroj iz [1, 65535] ili opseg u a:b)"
 
-msgid "Specify \"Network Address\" or clear \"Create Subnet\" checkbox."
-msgstr "Odredite \"Mrežnu adresu\" ili obrišite kućicu \"Kreiraj podmrežu\"."
-
 msgid "Specify IP address of gateway or check \"Disable Gateway\"."
 msgstr "Odredite IP adresu gateway-a ili kliknite kućicu \"Bez gateway-a\"."
 
@@ -5037,15 +5031,6 @@ msgstr "Nije moguće izvući listu zona dostupnosti."
 msgid "Unable to retrieve availability zones."
 msgstr "Nemoguće je dobiti zone dostupnosti."
 
-msgid "Unable to retrieve available metadata for aggregate."
-msgstr "Nemoguće izvući listu dostupnih združenih hostova."
-
-msgid "Unable to retrieve available metadata for flavors."
-msgstr "Nemoguće je dobiti podatke o definisanju resursa za instance."
-
-msgid "Unable to retrieve available properties for image."
-msgstr "Nije moguće preuzeti dostupne detalje o slikama"
-
 msgid "Unable to retrieve compute host information."
 msgstr "Nemoguće je dobiti podatke o compute host-u"
 
@@ -5374,15 +5359,6 @@ msgstr "Nemoguće je dobiti detalje podmreže."
 msgid "Unable to retrieve the aggregate to be updated"
 msgstr "Nije moguće izvući skup koji se ažurira"
 
-msgid "Unable to retrieve the aggregate to be updated."
-msgstr "Nije moguće preuzeti skup podatka za ažuriranje"
-
-msgid "Unable to retrieve the flavor metadata."
-msgstr "Nije moguće ažurirati podatke za veličine masina"
-
-msgid "Unable to retrieve the image to be updated."
-msgstr "Nemoguće je dobiti detalje image-a za ažuriranje."
-
 #, python-format
 msgid "Unable to retrieve the specified pool. Unable to add VIP \"%s\"."
 msgstr "Nemoguće je dobiti odabranu grupu. Nemoguće je dodati VIP \"%s\"."
@@ -5477,20 +5453,11 @@ msgstr "Nemoguće je izmeniti uloge."
 msgid "Unable to update subnet \"%s\"."
 msgstr "Nemoguće je izmeniti podmrežu \"%s\"."
 
-msgid "Unable to update the aggregate metadata."
-msgstr "Nije moguće ažurirati skup metadata podataka"
-
 msgid "Unable to update the aggregate."
 msgstr "Nije moguće ažurirati skup."
 
-msgid "Unable to update the flavor metadata."
-msgstr "Nije moguće ažurirati podatke za veličine masina"
-
 msgid "Unable to update the group."
 msgstr "Nije moguće ažurirati grupu."
-
-msgid "Unable to update the image metadata."
-msgstr "Nije moguće ažurirati skup metadata podataka"
 
 msgid "Unable to update the user."
 msgstr "Nemoguće je izmeniti podatke korisnika."
@@ -5523,26 +5490,17 @@ msgstr "Gore"
 msgid "Update"
 msgstr "Ažuriranje"
 
-msgid "Update Aggregate Metadata"
-msgstr "Skup je ažuriran."
-
 msgid "Update Default Quotas"
 msgstr "Izmenite podrazumevane kvote"
 
 msgid "Update Defaults"
 msgstr "Ažuriranje podrazumevanog"
 
-msgid "Update Flavor Metadata"
-msgstr "Osveži definisane podatke "
-
 msgid "Update Group"
 msgstr "Ažuriranje grupe"
 
 msgid "Update Image"
 msgstr "Izmena image-a"
-
-msgid "Update Image Metadata"
-msgstr "Ažuriraj podatke"
 
 msgid "Update Metadata"
 msgstr "Ažurirani Metadata podaci"

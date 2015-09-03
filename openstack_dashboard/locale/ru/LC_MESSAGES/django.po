@@ -17,8 +17,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-08-29 02:57+0000\n"
-"PO-Revision-Date: 2015-08-28 11:21+0000\n"
+"POT-Creation-Date: 2015-09-03 04:49+0000\n"
+"PO-Revision-Date: 2015-09-02 07:31+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Russian (http://www.transifex.com/openstack/horizon/language/"
 "ru/)\n"
@@ -2275,15 +2275,6 @@ msgid ""
 msgstr ""
 "Создание подсети связанной с сетью. Дополнительная конфигурация доступна на "
 "закладке \"Детали подсети\"."
-
-msgid ""
-"Create a subnet associated with the new network, in which case \"Network "
-"Address\" must be specified. If you wish to create a network without a "
-"subnet, uncheck the \"Create Subnet\" checkbox."
-msgstr ""
-"Создать подсеть, связанную с новой сетью, в этом случае \"Сетевой адрес\" "
-"должен быть указан. Если вы хотите создать сеть без подсети, то снимите "
-"флажок в \"Создать подсеть\"."
 
 msgid "Create an Encrypted Volume Type"
 msgstr "Создать шифруемый Тип Дисков"
@@ -5918,9 +5909,6 @@ msgstr "Определения метаданных"
 msgid "Metadata Items"
 msgstr "Элементы метаданных"
 
-msgid "Metadata successfully updated."
-msgstr "Метаданные успешно обновлены."
-
 msgid "Meter"
 msgstr "Метрика"
 
@@ -8627,9 +8615,6 @@ msgstr "Указывает что диск может быть использо�
 msgid "Specify \"Network Address\""
 msgstr "Указать \"Сетевой адрес\""
 
-msgid "Specify \"Network Address\" or clear \"Create Subnet\" checkbox."
-msgstr "Задайте \"Сетевой адрес\" или снимите флаг \"Создать подсеть\"."
-
 msgid "Specify IP address of gateway or check \"Disable Gateway\"."
 msgstr "Задайте IP адрес шлюза или установите флашок \"Не использовать шлюз\"."
 
@@ -10391,15 +10376,6 @@ msgstr "Не удалось получить список зон доступн�
 msgid "Unable to retrieve availability zones."
 msgstr "Не удалось получить зоны доступности."
 
-msgid "Unable to retrieve available metadata for aggregate."
-msgstr "Не удалось получить доступные метаданные агрегатора."
-
-msgid "Unable to retrieve available metadata for flavors."
-msgstr "Не удалось получить доступные метаданные для типа инстансов."
-
-msgid "Unable to retrieve available properties for image."
-msgstr "Не удалось получить доступные свойства образа"
-
 msgid "Unable to retrieve backup details."
 msgstr "Не удалось получить подробную информацию о резервной копии."
 
@@ -10841,15 +10817,6 @@ msgstr "Не удалось получить ограничения проект
 msgid "Unable to retrieve the aggregate to be updated"
 msgstr "Не удалось получить агрегатор для обновления"
 
-msgid "Unable to retrieve the aggregate to be updated."
-msgstr "Не удалось получить агрегатор для обновления"
-
-msgid "Unable to retrieve the flavor metadata."
-msgstr "Не удалось получить метаданные для типа инстансов."
-
-msgid "Unable to retrieve the image to be updated."
-msgstr "Не удалось получить образ для обновления"
-
 msgid "Unable to retrieve the specified pool."
 msgstr "Не удалось получить указанный пул."
 
@@ -11013,20 +10980,11 @@ msgstr "Не удалось обновить группу безопасност
 msgid "Unable to update subnet \"%s\"."
 msgstr "Не удалось обновить подсеть \"%s\"."
 
-msgid "Unable to update the aggregate metadata."
-msgstr "Не удалось обновить метаданные агрегатора."
-
 msgid "Unable to update the aggregate."
 msgstr "Не удалось обновить агрегатор."
 
-msgid "Unable to update the flavor metadata."
-msgstr "Не удалось обновить метаданные типа инстансов."
-
 msgid "Unable to update the group."
 msgstr "Не удалось изменить группу."
-
-msgid "Unable to update the image metadata."
-msgstr "Не удалось обновить метаданные образа"
 
 msgid "Unable to update the user password."
 msgstr "Не удалось изменить пароль пользователя."
@@ -11144,9 +11102,6 @@ msgstr "Up"
 msgid "Update"
 msgstr "Обновить"
 
-msgid "Update Aggregate Metadata"
-msgstr " Обновить метаданные агрегатора"
-
 msgid "Update Associations"
 msgstr "Обновить Ассоциации"
 
@@ -11164,17 +11119,11 @@ msgctxt "current status of stack"
 msgid "Update Failed"
 msgstr "Изменение завершилось неуспешно"
 
-msgid "Update Flavor Metadata"
-msgstr "Обновить метаданные типа инстанса"
-
 msgid "Update Group"
 msgstr "Обновить группу"
 
 msgid "Update Image"
 msgstr "Обновить образ"
-
-msgid "Update Image Metadata"
-msgstr "Обновить метаданные образа"
 
 msgctxt "current status of stack"
 msgid "Update In Progress"

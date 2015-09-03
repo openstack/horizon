@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-08-22 19:10+0000\n"
-"PO-Revision-Date: 2015-08-22 15:27+0000\n"
+"POT-Creation-Date: 2015-09-03 04:49+0000\n"
+"PO-Revision-Date: 2015-09-02 07:31+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Urdu (http://www.transifex.com/openstack/horizon/language/"
 "ur/)\n"
@@ -1641,15 +1641,6 @@ msgid ""
 msgstr ""
 "نیٹ ورک کے ساتھ منسلک ایک سب نیٹ مرتب کریں. اعلی درجے کی ترتیب \"سب نیٹ "
 "تفصیلات\" ٹیب پر کلک کرنے پر دستیاب ہے."
-
-msgid ""
-"Create a subnet associated with the new network, in which case \"Network "
-"Address\" must be specified. If you wish to create a network without a "
-"subnet, uncheck the \"Create Subnet\" checkbox."
-msgstr ""
-"\"نیٹ ورک پتہ\" کی وضاحت کرنا ضروری جس نئے نیٹ ورک کے ساتھ منسلک سب نیٹ "
-"تخلیق. آپ ایک سب نیٹ کے بغیر ایک نیٹ ورک بنانے کے لئے چاہتے ہیں، غیر منتخب "
-"\"سب نیٹ تخلیق\" چیک باکس ."
 
 msgid "Create an Encrypted Volume Type"
 msgstr "ایک اینكرپٹیڈ حجم قسم مرتب کریں"
@@ -4070,9 +4061,6 @@ msgstr "میٹا ڈیٹا"
 msgid "Metadata Items"
 msgstr "میٹاڈیٹا اشیاء"
 
-msgid "Metadata successfully updated."
-msgstr "میٹاڈیٹا کا کامیابی سے اپ ڈیٹ کیا گیا."
-
 msgid "Meter"
 msgstr "میٹر"
 
@@ -5799,9 +5787,6 @@ msgstr ""
 msgid "Specify \"Network Address\""
 msgstr "وضاحت کریں \"نیٹ ورک ایڈریس\""
 
-msgid "Specify \"Network Address\" or clear \"Create Subnet\" checkbox."
-msgstr "\"نیٹ ورک پتہ\" یا واضح \"سب نیٹ تخلیق\" چیک باکس کی وضاحت کریں."
-
 msgid "Specify IP address of gateway or check \"Disable Gateway\"."
 msgstr "دروازے کے IP ایڈریس کی وضاحت یا \"غیر فعال گیٹ وے\" چیک کریں."
 
@@ -7167,15 +7152,6 @@ msgstr "دستیابی زون فہرست بازیافت کرنے کے قابل �
 msgid "Unable to retrieve availability zones."
 msgstr "دستیابی علاقوں کو دوبارہ حاصل کرنے کے قابل نہیں."
 
-msgid "Unable to retrieve available metadata for aggregate."
-msgstr "مجموعی کے لئے دستیاب میٹا ڈیٹا دوبارہ حاصل کرنے کے قابل نہیں."
-
-msgid "Unable to retrieve available metadata for flavors."
-msgstr "فلیور کے لئے دستیاب میٹا ڈیٹا دوبارہ حاصل کرنے کے قابل نہیں."
-
-msgid "Unable to retrieve available properties for image."
-msgstr "امیج کے لئے دستیاب خصوصیات کو دوبارہ حاصل کرنے کے قابل نہیں."
-
 msgid "Unable to retrieve backup details."
 msgstr "بیک اپ تفصیل کو دوبارہ حاصل کرنے میں ناقابل."
 
@@ -7554,15 +7530,6 @@ msgstr "ٹیننٹ کی حدود کو دوبارہ حاصل کرنے میں نا
 msgid "Unable to retrieve the aggregate to be updated"
 msgstr "طرف ہونے والے مجموعی کو نکالنے میں غیر فعال."
 
-msgid "Unable to retrieve the aggregate to be updated."
-msgstr "طرف ہونے والے مجموعی کو نکالنے میں غیر فعال."
-
-msgid "Unable to retrieve the flavor metadata."
-msgstr "فلیور میٹاڈیٹا حاصل کرنے کے قابل نہیں."
-
-msgid "Unable to retrieve the image to be updated."
-msgstr "اپ ڈیٹ ہونے والے تصویر کو نکالنے میں غیر فعال."
-
 msgid "Unable to retrieve the specified pool."
 msgstr "مخصوص پول بازیافت کرنے میں قابل نہیں."
 
@@ -7696,20 +7663,11 @@ msgstr "ابھی اپ ڈیٹ كرنے كی غیر فعال"
 msgid "Unable to update subnet \"%s\"."
 msgstr " \"%s\" سب نیٹ طرف کرنے میں  ناقابل."
 
-msgid "Unable to update the aggregate metadata."
-msgstr "مجموعی میٹاڈیٹا طرف کرنے کے قابل نہیں."
-
 msgid "Unable to update the aggregate."
 msgstr "مجموعی طرف کرنے کے قابل نہیں."
 
-msgid "Unable to update the flavor metadata."
-msgstr "فلیور میٹاڈیٹا طرف کرنے کے قابل نہیں"
-
 msgid "Unable to update the group."
 msgstr "گروپ طرف کرنے کے قابل نہیں."
-
-msgid "Unable to update the image metadata."
-msgstr "امیج میٹا ڈیٹا طرف کرنے کے قابل نہیں."
 
 msgid "Unable to update the user."
 msgstr "صارف کو اپ ڈیٹ کرنے کے قابل نہیں."
@@ -7763,26 +7721,17 @@ msgstr "اوپر"
 msgid "Update"
 msgstr "اپ ڈیٹ "
 
-msgid "Update Aggregate Metadata"
-msgstr "مجموعی میٹا ڈیٹا طرف کریں"
-
 msgid "Update Default Quotas"
 msgstr " ڈیفالٹ کوٹہ کو اپ ڈیٹ کریں"
 
 msgid "Update Defaults"
 msgstr "ڈیفالٹس اپ ڈیٹ کریں"
 
-msgid "Update Flavor Metadata"
-msgstr "فلیور میٹاڈیٹا اپ ڈیٹ کریں"
-
 msgid "Update Group"
 msgstr "گروپ كو اپ ڈیٹ كریں"
 
 msgid "Update Image"
 msgstr "امیج اپ ڈیٹ کریں"
-
-msgid "Update Image Metadata"
-msgstr "امیج میٹا ڈاٹا اپ ڈیٹ کریں"
 
 msgid "Update Metadata"
 msgstr "میٹا ڈیٹا کو اپ ڈیٹ کریں"

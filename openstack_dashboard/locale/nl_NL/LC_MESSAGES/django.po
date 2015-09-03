@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-08-29 02:57+0000\n"
-"PO-Revision-Date: 2015-08-28 11:21+0000\n"
+"POT-Creation-Date: 2015-09-03 04:49+0000\n"
+"PO-Revision-Date: 2015-09-02 07:31+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Dutch (Netherlands) (http://www.transifex.com/openstack/"
 "horizon/language/nl_NL/)\n"
@@ -3029,9 +3029,6 @@ msgstr "Metadata Definities"
 msgid "Metadata Items"
 msgstr "Metadata artikelen"
 
-msgid "Metadata successfully updated."
-msgstr "Metadata succesvol geüpdatet."
-
 msgid "Meter"
 msgstr "Meter"
 
@@ -4419,9 +4416,6 @@ msgstr "Bron poort/poortbereik"
 msgid "Source port (integer in [1, 65535] or range in a:b)"
 msgstr "bron poort (geheel getal in [1, 65535] of bereik in a:b)"
 
-msgid "Specify \"Network Address\" or clear \"Create Subnet\" checkbox."
-msgstr "Specificeer \"Netwerkadres\" of vink \"Creëer subnet\" uit."
-
 msgid "Specify IP address of gateway or check \"Disable Gateway\"."
 msgstr ""
 "Specificeer het IP adres van de gateway of vink \"Deactiveren gateway\" aan."
@@ -5776,9 +5770,6 @@ msgstr "Niet in staat om de rol bij te werken."
 msgid "Unable to update subnet \"%s\"."
 msgstr "Niet in staat om het subnet \"%s\" bij te werken."
 
-msgid "Unable to update the aggregate metadata."
-msgstr "Niet in staat verzamelde metadata te updaten."
-
 msgid "Unable to update the aggregate."
 msgstr "Niet in staat het aggregaat aan te passen."
 
@@ -5827,9 +5818,6 @@ msgstr "Groep bijwerken"
 
 msgid "Update Image"
 msgstr "Afbeelding bijwerken"
-
-msgid "Update Image Metadata"
-msgstr "Update Afbeeldings-metadata"
 
 msgid "Update Network"
 msgstr "Netwerk bijwerken"

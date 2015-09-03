@@ -13,9 +13,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-09-01 03:11+0000\n"
-"PO-Revision-Date: 2015-08-31 01:28+0000\n"
-"Last-Translator: ykatabam <ykatabam@redhat.com>\n"
+"POT-Creation-Date: 2015-09-03 04:49+0000\n"
+"PO-Revision-Date: 2015-09-03 02:00+0000\n"
+"Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Japanese (http://www.transifex.com/openstack/horizon/language/"
 "ja/)\n"
 "MIME-Version: 1.0\n"
@@ -2274,15 +2274,6 @@ msgid ""
 msgstr ""
 "ネットワークに割り当てられたサブネットを作成できます。「サブネットの詳細」タ"
 "ブで高度な設定ができます。"
-
-msgid ""
-"Create a subnet associated with the new network, in which case \"Network "
-"Address\" must be specified. If you wish to create a network without a "
-"subnet, uncheck the \"Create Subnet\" checkbox."
-msgstr ""
-"新しいネットワークに割り当てるサブネットを作成します。この場合、「ネットワー"
-"クアドレス」を指定する必要があります。サブネットなしでネットワークを作成した"
-"い場合は、「サブネットの作成」のチェックを外してください。"
 
 msgid "Create an Encrypted Volume Type"
 msgstr "ボリューム種別の暗号化設定の作成"
@@ -5670,9 +5661,6 @@ msgstr "メタデータ定義"
 msgid "Metadata Items"
 msgstr "メタデータ項目数"
 
-msgid "Metadata successfully updated."
-msgstr "メタデータが正常に更新されました。"
-
 msgid "Meter"
 msgstr "メーター"
 
@@ -8329,11 +8317,6 @@ msgstr "このボリュームをインスタンスを起動するのに使用で
 msgid "Specify \"Network Address\""
 msgstr "「ネットワークアドレス」を指定してください"
 
-msgid "Specify \"Network Address\" or clear \"Create Subnet\" checkbox."
-msgstr ""
-"「ネットワークアドレス」を指定するか、「サブネットの作成」チェックを外してく"
-"ださい。"
-
 msgid "Specify IP address of gateway or check \"Disable Gateway\"."
 msgstr ""
 "ゲートウェイの IP アドレスを指定するか、「ゲートウェイなし」をチェックしてく"
@@ -10108,15 +10091,6 @@ msgstr "アベイラビリティーゾーン一覧を取得できません。"
 msgid "Unable to retrieve availability zones."
 msgstr "アベイラビリティーゾーンを取得できません。"
 
-msgid "Unable to retrieve available metadata for aggregate."
-msgstr "アグリゲートに対して利用できるメタデータの一覧を取得できません。"
-
-msgid "Unable to retrieve available metadata for flavors."
-msgstr "フレーバーに対して利用できるメタデータの一覧を取得できません。"
-
-msgid "Unable to retrieve available properties for image."
-msgstr "イメージに使用できる属性の一覧を取得できません。"
-
 msgid "Unable to retrieve backup details."
 msgstr "バックアップの詳細を取得できません。"
 
@@ -10562,15 +10536,6 @@ msgstr "プロジェクトのリソース上限を取得できません。"
 msgid "Unable to retrieve the aggregate to be updated"
 msgstr "更新対象のアグリゲートを取得できません。"
 
-msgid "Unable to retrieve the aggregate to be updated."
-msgstr "更新対象のアグリゲートの情報を取得できません。"
-
-msgid "Unable to retrieve the flavor metadata."
-msgstr "フレーバーのメタデータを取得できません。"
-
-msgid "Unable to retrieve the image to be updated."
-msgstr "更新対象のイメージ情報を取得できません。"
-
 msgid "Unable to retrieve the specified pool."
 msgstr "指定されたプールを取得できません。"
 
@@ -10735,20 +10700,11 @@ msgstr "セキュリティーグループを更新できません: %s"
 msgid "Unable to update subnet \"%s\"."
 msgstr "サブネット \"%s\" を更新できません。"
 
-msgid "Unable to update the aggregate metadata."
-msgstr "アグリゲートのメタデータを更新できません。"
-
 msgid "Unable to update the aggregate."
 msgstr "アグリゲートの更新に失敗しました。"
 
-msgid "Unable to update the flavor metadata."
-msgstr "フレーバーのメタデータを更新できません。"
-
 msgid "Unable to update the group."
 msgstr "グループを更新できません。"
-
-msgid "Unable to update the image metadata."
-msgstr "イメージメタデータを更新できません。"
 
 msgid "Unable to update the user password."
 msgstr "ユーザーのパスワードを更新できません。"
@@ -10853,9 +10809,6 @@ msgstr "動作中"
 msgid "Update"
 msgstr "更新"
 
-msgid "Update Aggregate Metadata"
-msgstr "アグリゲートのメタデータの更新"
-
 msgid "Update Associations"
 msgstr "関連付けの更新"
 
@@ -10873,17 +10826,11 @@ msgctxt "current status of stack"
 msgid "Update Failed"
 msgstr "更新に失敗"
 
-msgid "Update Flavor Metadata"
-msgstr "フレーバーのメタデータの更新"
-
 msgid "Update Group"
 msgstr "グループの更新"
 
 msgid "Update Image"
 msgstr "イメージの更新"
-
-msgid "Update Image Metadata"
-msgstr "イメージメタデータの更新"
 
 msgctxt "current status of stack"
 msgid "Update In Progress"

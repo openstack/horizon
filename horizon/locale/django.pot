@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-08-21 06:04+0000\n"
+"POT-Creation-Date: 2015-09-03 06:12+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 2.0\n"
 
-#: base.py:490
+#: base.py:491
 msgid "Other"
 msgstr ""
 
@@ -30,17 +30,17 @@ msgstr ""
 msgid "You are not authorized to access %s"
 msgstr ""
 
-#: exceptions.py:163
+#: exceptions.py:164
 #, python-format
 msgid "A %(resource)s with the name \"%(name)s\" already exists."
 msgstr ""
 
-#: exceptions.py:235
+#: exceptions.py:234
 #, python-format
 msgid "Unauthorized: %s"
 msgstr ""
 
-#: exceptions.py:238
+#: exceptions.py:237 middleware.py:162
 msgid "Unauthorized. Please try logging in again."
 msgstr ""
 
@@ -61,15 +61,15 @@ msgstr ""
 msgid "Password is not accepted"
 msgstr ""
 
-#: forms/fields.py:64
+#: forms/fields.py:65
 msgid "Incorrect format for IP address"
 msgstr ""
 
-#: forms/fields.py:65
+#: forms/fields.py:66
 msgid "Invalid version for IP address"
 msgstr ""
 
-#: forms/fields.py:66
+#: forms/fields.py:67
 msgid "Invalid subnet mask"
 msgstr ""
 
@@ -77,9 +77,7 @@ msgstr ""
 msgid "Submit"
 msgstr ""
 
-#: forms/views.py:133
-#: templates/horizon/common/_modal_form_update_metadata.html:25
-#: templates/horizon/common/_workflow.html:49
+#: forms/views.py:133 templates/horizon/common/_workflow.html:49
 msgid "Cancel"
 msgstr ""
 
@@ -138,34 +136,34 @@ msgstr ""
 msgid "Updated"
 msgstr ""
 
-#: tables/base.py:305
+#: tables/base.py:306
 msgid "-"
 msgstr ""
 
-#: tables/base.py:361
+#: tables/base.py:362
 #, python-format
 msgid "The attribute %(attr)s doesn't exist on %(obj)s."
 msgstr ""
 
-#: tables/base.py:991
+#: tables/base.py:996
 msgid "No items to display."
 msgstr ""
 
-#: tables/base.py:1103
+#: tables/base.py:1108
 #: templates/horizon/common/_data_table_table_actions.html:47
 msgid "Actions"
 msgstr ""
 
-#: tables/base.py:1333
+#: tables/base.py:1339
 #, python-format
 msgid "No match returned for the id \"%s\"."
 msgstr ""
 
-#: tables/base.py:1491
+#: tables/base.py:1497
 msgid "Please select a row before taking that action."
 msgstr ""
 
-#: tables/base.py:1575
+#: tables/base.py:1581
 msgid "N/A"
 msgstr ""
 
@@ -220,22 +218,22 @@ msgstr ""
 msgid "Error: "
 msgstr ""
 
-#: templates/horizon/common/_data_table.html:63
+#: templates/horizon/common/_data_table.html:64
 msgid "Summary"
 msgstr ""
 
-#: templates/horizon/common/_data_table.html:72
+#: templates/horizon/common/_data_table.html:73
 #, python-format
 msgid "Displaying %(counter)s item"
 msgid_plural "Displaying %(counter)s items"
 msgstr[0] ""
 msgstr[1] ""
 
-#: templates/horizon/common/_data_table.html:77
+#: templates/horizon/common/_data_table.html:78
 msgid "&laquo;&nbsp;Prev"
 msgstr ""
 
-#: templates/horizon/common/_data_table.html:80
+#: templates/horizon/common/_data_table.html:81
 msgid "Next&nbsp;&raquo;"
 msgstr ""
 
@@ -273,11 +271,6 @@ msgstr ""
 msgid ""
 "\n"
 "        Used <span> %(used)s </span>(No Limit)"
-msgstr ""
-
-#: templates/horizon/common/_modal_form_update_metadata.html:24
-#: workflows/base.py:594
-msgid "Save"
 msgstr ""
 
 #: templates/horizon/common/_resource_browser.html:10
@@ -444,28 +437,32 @@ msgstr ""
 msgid "Processing..."
 msgstr ""
 
-#: workflows/base.py:475
+#: workflows/base.py:477
 msgid "All available"
 msgstr ""
 
-#: workflows/base.py:476
+#: workflows/base.py:478
 msgid "Members"
 msgstr ""
 
-#: workflows/base.py:477
+#: workflows/base.py:479
 msgid "None available."
 msgstr ""
 
-#: workflows/base.py:478
+#: workflows/base.py:480
 msgid "No members."
 msgstr ""
 
-#: workflows/base.py:595
+#: workflows/base.py:597
+msgid "Save"
+msgstr ""
+
+#: workflows/base.py:598
 #, python-format
 msgid "%s completed successfully."
 msgstr ""
 
-#: workflows/base.py:596
+#: workflows/base.py:599
 #, python-format
 msgid "%s did not complete."
 msgstr ""

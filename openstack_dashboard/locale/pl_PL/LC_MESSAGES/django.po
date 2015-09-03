@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-08-29 02:57+0000\n"
-"PO-Revision-Date: 2015-08-28 11:21+0000\n"
+"POT-Creation-Date: 2015-09-03 04:49+0000\n"
+"PO-Revision-Date: 2015-09-02 07:31+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Polish (Poland) (http://www.transifex.com/openstack/horizon/"
 "language/pl_PL/)\n"
@@ -2215,15 +2215,6 @@ msgid ""
 msgstr ""
 "Tworzenie podsieci powiązanej z siecią. Zaawansowana konfiguracja dostępna "
 "jest w zakładce „Szczegóły podsieci”."
-
-msgid ""
-"Create a subnet associated with the new network, in which case \"Network "
-"Address\" must be specified. If you wish to create a network without a "
-"subnet, uncheck the \"Create Subnet\" checkbox."
-msgstr ""
-"Utworzenie podsieci powiązanej z nową siecią wymaga by został podany „Adres "
-"sieci”. Celem utworzenia sieci bez podsieci, należy odznaczyć pole wyboru "
-"„Utwórz podsieć”."
 
 msgid "Create an Encrypted Volume Type"
 msgstr "Utwórz zaszyfrowany typ wolumenu"
@@ -5285,9 +5276,6 @@ msgstr "Definicje metadanych"
 msgid "Metadata Items"
 msgstr "Pozycje metadanych"
 
-msgid "Metadata successfully updated."
-msgstr "Zaktualizowano metadane."
-
 msgid "Meter"
 msgstr "Miernik"
 
@@ -7756,9 +7744,6 @@ msgstr ""
 msgid "Specify \"Network Address\""
 msgstr "Nalezy podać „adres sieci”"
 
-msgid "Specify \"Network Address\" or clear \"Create Subnet\" checkbox."
-msgstr "Należy podać „Adres sieci” lub odznaczyć pole wyboru „Utwórz podsieć”."
-
 msgid "Specify IP address of gateway or check \"Disable Gateway\"."
 msgstr "Należy podać adres IP bramy lub zaznaczyć „Wyłącz bramę”."
 
@@ -9443,15 +9428,6 @@ msgstr "Nie można pobrać listy stref dostępności."
 msgid "Unable to retrieve availability zones."
 msgstr "Nie można pobrać stref dostępności."
 
-msgid "Unable to retrieve available metadata for aggregate."
-msgstr "Nie można pobrać dostępnych metadanych dla agregatu."
-
-msgid "Unable to retrieve available metadata for flavors."
-msgstr "Nie można pobrać metadanych odmian."
-
-msgid "Unable to retrieve available properties for image."
-msgstr "Nie można pobrać dostępnych właściwości dla obrazu."
-
 msgid "Unable to retrieve backup details."
 msgstr "Nie można pobrać szczegółów kopii zapasowej."
 
@@ -9861,15 +9837,6 @@ msgstr "Nie można pobrać limitów projektu."
 msgid "Unable to retrieve the aggregate to be updated"
 msgstr "Nie można pobrać agregatu do aktualizacji"
 
-msgid "Unable to retrieve the aggregate to be updated."
-msgstr "Nie można pobrać agregatu w celu aktualizacji."
-
-msgid "Unable to retrieve the flavor metadata."
-msgstr "Nie można pobrać metadanych odmiany."
-
-msgid "Unable to retrieve the image to be updated."
-msgstr "Nie można pobrać obrazu celem aktualizacji."
-
 msgid "Unable to retrieve the specified pool."
 msgstr "Nie można pobrać podanej puli."
 
@@ -10033,20 +10000,11 @@ msgstr "Nie można zaktualizować grupy zabezpieczeń: %s"
 msgid "Unable to update subnet \"%s\"."
 msgstr "Nie można zaktualizować podsieci „%s”."
 
-msgid "Unable to update the aggregate metadata."
-msgstr "Nie można zaktualizować metadanych agregatu."
-
 msgid "Unable to update the aggregate."
 msgstr "Nie można zaktualizować agregatu."
 
-msgid "Unable to update the flavor metadata."
-msgstr "Nie można zaktualizować metadanych odmiany."
-
 msgid "Unable to update the group."
 msgstr "Nie można zaktualizować grupy."
-
-msgid "Unable to update the image metadata."
-msgstr "Nie można zaktualizować metadanych obrazu."
 
 msgid "Unable to update the user password."
 msgstr "Nie można zaktualizować hasła użytkownika."
@@ -10145,9 +10103,6 @@ msgstr "Podniesiono"
 msgid "Update"
 msgstr "Aktualizuj"
 
-msgid "Update Aggregate Metadata"
-msgstr "Aktualizuj metadane agregatu"
-
 msgid "Update Associations"
 msgstr "Aktualizacja powiązań"
 
@@ -10165,17 +10120,11 @@ msgctxt "current status of stack"
 msgid "Update Failed"
 msgstr "Aktualizacja nieudana"
 
-msgid "Update Flavor Metadata"
-msgstr "Aktualizacja metadanych odmiany"
-
 msgid "Update Group"
 msgstr "Aktualizuj grupę"
 
 msgid "Update Image"
 msgstr "Aktualizuj obraz"
-
-msgid "Update Image Metadata"
-msgstr "Aktualizacja metadanych obrazu"
 
 msgctxt "current status of stack"
 msgid "Update In Progress"

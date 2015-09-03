@@ -8,9 +8,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-09-01 03:11+0000\n"
-"PO-Revision-Date: 2015-08-30 04:51+0000\n"
-"Last-Translator: Zbyněk Schwarz <zbynek.schwarz@gmail.com>\n"
+"POT-Creation-Date: 2015-09-03 04:49+0000\n"
+"PO-Revision-Date: 2015-09-02 07:31+0000\n"
+"Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Czech (http://www.transifex.com/openstack/horizon/language/"
 "cs/)\n"
 "MIME-Version: 1.0\n"
@@ -440,12 +440,6 @@ msgid ""
 msgstr ""
 "\"Některé konfigurace neodpovídající minimálním požadavkům obrazu byly "
 "zakázány.\""
-
-msgid "\"Update Aggregate Metadata\""
-msgstr "\"Aktualizovat popisná data agregátu\""
-
-msgid "\"Update Flavor Metadata\""
-msgstr "\"Aktualizovat popisná data konfigurace\""
 
 msgid "\"Users\""
 msgstr "\"Uživatelé\""
@@ -1064,6 +1058,9 @@ msgstr ""
 msgid "Address"
 msgstr "Adresa"
 
+msgid "Address pool"
+msgstr "Zásoba adres"
+
 msgid "Address:"
 msgstr "Adresa:"
 
@@ -1156,6 +1153,9 @@ msgstr "Přidělit IP"
 
 msgid "Allocate IP To Project"
 msgstr "Přidělit IP do projektu"
+
+msgid "Allocate Network Address from a pool"
+msgstr "Přidělit síťovou adresu ze sítě"
 
 msgid "Allocate a floating IP from a given floating IP pool."
 msgstr "Přidělit plovoucí IP ze zadané zásoby plovoucích IP."
@@ -2430,15 +2430,6 @@ msgid ""
 msgstr ""
 "Vytvořte podsíť přidruženou k síti. Kliknutím na kartu \"Podrobnosti podsítě"
 "\" zobrazíte pokročilá nastavení."
-
-msgid ""
-"Create a subnet associated with the new network, in which case \"Network "
-"Address\" must be specified. If you wish to create a network without a "
-"subnet, uncheck the \"Create Subnet\" checkbox."
-msgstr ""
-"Vytvořte podsíť přidruženou k nové síti, v takovém případě ale musíte zadat "
-"\"Síťovou adresu\". Pokud chcete vytvořit síť bez podsítě, pak odškrtněte "
-"políčko \"Vytvořit podsíť\"."
 
 msgid "Create an Encrypted Volume Type"
 msgstr "Vytvořit šifrovaný typ svazku."
@@ -3911,6 +3902,9 @@ msgstr "Energie (Kwapi)"
 
 msgid "Engine Id"
 msgstr "Id jádra"
+
+msgid "Enter Network Address manually"
+msgstr "Zadejte síťovou adresu ručně"
 
 msgid "Enter a value for ICMP code in the range (-1: 255)"
 msgstr "Zadejte hodnotu pro kód ICMP v rozsahu (-1: 255)"
@@ -6003,9 +5997,6 @@ msgstr "Určení popisných dat"
 msgid "Metadata Items"
 msgstr "Položky popisných dat"
 
-msgid "Metadata successfully updated."
-msgstr "Popisná data úspěšně aktualizována"
-
 msgid "Meter"
 msgstr "Metr"
 
@@ -6234,6 +6225,9 @@ msgstr "Síť (Neutron)"
 msgid "Network Address"
 msgstr "Síťová adresa"
 
+msgid "Network Address Source"
+msgstr "Zdroj síťové adresy"
+
 msgid "Network Address and IP version are inconsistent."
 msgstr "Síťová adresa a verze IP jsou v rozporu."
 
@@ -6248,6 +6242,9 @@ msgstr "Podrobnosti sítě: {{ network.name }}"
 
 msgid "Network ID"
 msgstr "ID sítě"
+
+msgid "Network Mask"
+msgstr "Maska sítě"
 
 msgid "Network Name"
 msgstr "Název sítě"
@@ -8314,6 +8311,9 @@ msgstr "Vyberte zásuvný modul a verzi pro nový cluster."
 msgid "Select a plugin and version for the new Node Group template."
 msgstr "Vyberte zásuvný modul a verzi pro novou šablonu uzlu."
 
+msgid "Select a pool"
+msgstr "Vyberte zásobu"
+
 msgid "Select a port"
 msgstr "Vyberte port"
 
@@ -8774,8 +8774,12 @@ msgstr "Udává, že svazek může být použit ke spuštění instance"
 msgid "Specify \"Network Address\""
 msgstr "Zadejte \"Síťovou adresu\""
 
-msgid "Specify \"Network Address\" or clear \"Create Subnet\" checkbox."
-msgstr "Zadejte \"Síťová adresa\" nebo odškrtněte políčko \"Vytvořit podsíť\"."
+msgid ""
+"Specify \"Network Address\", \"Address pool\" or clear \"Create Subnet\" "
+"checkbox."
+msgstr ""
+"Zadejte \"Síťová adresa\", \"Zásoba adres\" nebo odškrtněte políčko "
+"\"Vytvořit podsíť\"."
 
 msgid "Specify IP address of gateway or check \"Disable Gateway\"."
 msgstr "Zadejte IP adresu brány nebo zaškrtněte \"Zakázat bránu\"."
@@ -8998,6 +9002,9 @@ msgstr "Podsíť: %(dest_subnetname)s"
 #, python-format
 msgid "Subnet: %(row_source_subnetname)s"
 msgstr "Podsíť: %(row_source_subnetname)s"
+
+msgid "Subnetpool"
+msgstr "Zásoba podsítě"
 
 msgid "Subnets"
 msgstr "Podsítě"
@@ -10401,6 +10408,9 @@ msgstr "Nelze získat seznam typů svazku."
 msgid "Unable to import key pair."
 msgstr "Nelze importovat pár klíčů."
 
+msgid "Unable to initialize subnetpools"
+msgstr "Nelze zavést zásoby podsítě"
+
 #, python-format
 msgid "Unable to launch %(count)s named \"%(name)s\"."
 msgstr "Nelze spustit %(count)s pojmenovaných \"%(name)s\"."
@@ -10587,15 +10597,6 @@ msgstr "Nelze získat seznam zón dostupnosti."
 
 msgid "Unable to retrieve availability zones."
 msgstr "Nelze získat zóny dostupnosti."
-
-msgid "Unable to retrieve available metadata for aggregate."
-msgstr "Nelze získat dostupná popisná data agregátu."
-
-msgid "Unable to retrieve available metadata for flavors."
-msgstr "Nelze získat dostupná popisná data konfigurací."
-
-msgid "Unable to retrieve available properties for image."
-msgstr "Nelze získat dostupné vlastnosti obrazu."
 
 msgid "Unable to retrieve backup details."
 msgstr "Nelze získat podrobnosti zálohy."
@@ -11043,15 +11044,6 @@ msgstr "Nelze získat limit nájemníků."
 msgid "Unable to retrieve the aggregate to be updated"
 msgstr "Nelze získat seznam agregátů k aktualizaci"
 
-msgid "Unable to retrieve the aggregate to be updated."
-msgstr "Nelze získat seznam agregátů k aktualizaci."
-
-msgid "Unable to retrieve the flavor metadata."
-msgstr "Nelze získat popisná data konfigurace."
-
-msgid "Unable to retrieve the image to be updated."
-msgstr "Nelze získat obraz k aktualizaci."
-
 msgid "Unable to retrieve the specified pool."
 msgstr "Nelze získat zadanou zásobu"
 
@@ -11225,20 +11217,11 @@ msgstr "Nelze aktualizovat bezpečnostní skupinu: %s"
 msgid "Unable to update subnet \"%s\"."
 msgstr "Nelze aktualizovat podsíť \"%s\"."
 
-msgid "Unable to update the aggregate metadata."
-msgstr "Nelze aktualizovat popisná data agregátu."
-
 msgid "Unable to update the aggregate."
 msgstr "Nelze aktualizovat agregát."
 
-msgid "Unable to update the flavor metadata."
-msgstr "Nelze aktualizovat popisná data konfigurace."
-
 msgid "Unable to update the group."
 msgstr "Nelze aktualizovat skupinu."
-
-msgid "Unable to update the image metadata."
-msgstr "Nelze aktualizovat popisná data obrazu."
 
 msgid "Unable to update the user password."
 msgstr "Nelze aktualizovat heslo uživatele."
@@ -11358,9 +11341,6 @@ msgstr "Otevřen"
 msgid "Update"
 msgstr "Aktualizovat"
 
-msgid "Update Aggregate Metadata"
-msgstr "Aktualizovat popisná data agregátu"
-
 msgid "Update Associations"
 msgstr "Aktualizovat přidružení"
 
@@ -11378,17 +11358,11 @@ msgctxt "current status of stack"
 msgid "Update Failed"
 msgstr "Aktualizace selhala."
 
-msgid "Update Flavor Metadata"
-msgstr "Aktualizovat popisná data konfigurace"
-
 msgid "Update Group"
 msgstr "Aktualizovat skupinu"
 
 msgid "Update Image"
 msgstr "Aktualizovat obraz"
-
-msgid "Update Image Metadata"
-msgstr "Aktualizovat popisná data obrazu"
 
 msgctxt "current status of stack"
 msgid "Update In Progress"

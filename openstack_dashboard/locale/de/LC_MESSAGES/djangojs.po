@@ -11,8 +11,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-09-01 03:11+0000\n"
-"PO-Revision-Date: 2015-08-30 13:32+0000\n"
+"POT-Creation-Date: 2015-09-03 04:49+0000\n"
+"PO-Revision-Date: 2015-09-03 00:50+0000\n"
 "Last-Translator: Ettore Atalan <atalanttore@googlemail.com>\n"
 "Language-Team: German (http://www.transifex.com/openstack/horizon/language/"
 "de/)\n"
@@ -84,9 +84,6 @@ msgstr ""
 msgid "A name is required for your instance."
 msgstr "Ein Name wird für die Instanz benötigt."
 
-msgid "Actions"
-msgstr "Aktionen"
-
 msgid "Active"
 msgstr "Aktiv"
 
@@ -149,9 +146,6 @@ msgstr "Dienstekatalog kann nicht von Keystone abgerufen werden."
 msgid "Cannot get the Nova extension list."
 msgstr "Liste der Nova-Erweiterungen kann nicht abgerufen werden."
 
-msgid "Change Password"
-msgstr "Passwort ändern"
-
 msgid ""
 "Check the <b>Configuration Drive</b> box if you want to write metadata to a "
 "special configuration drive. When the instance boots, it attaches to the "
@@ -183,9 +177,6 @@ msgstr "Schlüsselpaar erstellen"
 msgid "Create New Volume"
 msgstr "Neuen Datenträger erstellen"
 
-msgid "Create User"
-msgstr "Benutzer erstellen"
-
 msgid "Created"
 msgstr "Erstellt"
 
@@ -205,12 +196,6 @@ msgstr ""
 msgid "Customization Script"
 msgstr "Anpassungsskript"
 
-msgid "Delete"
-msgstr "Löschen"
-
-msgid "Delete Users"
-msgstr "Benutzer löschen"
-
 msgid "Delete Volume on Terminate"
 msgstr "Datenträger beim Beenden löschen"
 
@@ -226,9 +211,6 @@ msgstr "Gerätename"
 msgid "Direction"
 msgstr "Richtung"
 
-msgid "Disable"
-msgstr "Deaktivieren"
-
 msgid "Disk Partition"
 msgstr "Festplattenpartition"
 
@@ -238,14 +220,8 @@ msgstr "Domänen-ID"
 msgid "Down"
 msgstr "Runter"
 
-msgid "Edit"
-msgstr "Bearbeiten"
-
 msgid "Email"
 msgstr "E-Mail"
-
-msgid "Enable"
-msgstr "Aktivieren"
 
 msgid "Enabled"
 msgstr "Aktiviert"
@@ -1001,3 +977,6 @@ msgstr "Bytes"
 
 msgid "{$ row['provider:network_type'] $}"
 msgstr "{$ row['provider:network_type'] $}"
+
+msgid "{$ user.domain_id $}"
+msgstr "{$ user.domain_id $}"

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-09-01 06:14+0000\n"
+"POT-Creation-Date: 2015-09-03 06:13+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -29,68 +29,40 @@ msgstr ""
 msgid "The step has completed successfully. No events to display."
 msgstr ""
 
-#: dashboards/identity/static/dashboard/identity/users/table/table-batch-actions.html:14
-msgid "Create User"
+#: dashboards/identity/static/dashboard/identity/users/table/table.controller.js:64
+msgid "Insufficient privilege level to view user information."
 msgstr ""
 
-#: dashboards/identity/static/dashboard/identity/users/table/table-batch-actions.html:24
-msgid "Delete Users"
-msgstr ""
-
-#: dashboards/identity/static/dashboard/identity/users/table/table-header.html:16
-#: dashboards/identity/static/dashboard/identity/users/table/table-row-details.html:17
+#: dashboards/identity/static/dashboard/identity/users/table/table.html:30
+#: dashboards/identity/static/dashboard/identity/users/table/table.html:80
 msgid "User Name"
 msgstr ""
 
-#: dashboards/identity/static/dashboard/identity/users/table/table-header.html:20
-#: dashboards/identity/static/dashboard/identity/users/table/table-row-details.html:20
+#: dashboards/identity/static/dashboard/identity/users/table/table.html:31
+#: dashboards/identity/static/dashboard/identity/users/table/table.html:83
 msgid "Email"
 msgstr ""
 
-#: dashboards/identity/static/dashboard/identity/users/table/table-header.html:24
-#: dashboards/identity/static/dashboard/identity/users/table/table-row-details.html:23
+#: dashboards/identity/static/dashboard/identity/users/table/table.html:32
+#: dashboards/identity/static/dashboard/identity/users/table/table.html:86
 msgid "User ID"
 msgstr ""
 
-#: dashboards/identity/static/dashboard/identity/users/table/table-header.html:28
-#: dashboards/identity/static/dashboard/identity/users/table/table-row-details.html:26
+#: dashboards/identity/static/dashboard/identity/users/table/table.html:33
+#: dashboards/identity/static/dashboard/identity/users/table/table.html:89
 msgid "Enabled"
 msgstr ""
 
-#: dashboards/identity/static/dashboard/identity/users/table/table-header.html:32
-msgid "Actions"
-msgstr ""
-
-#: dashboards/identity/static/dashboard/identity/users/table/table-row-actions.html:12
-msgid "Edit"
-msgstr ""
-
-#: dashboards/identity/static/dashboard/identity/users/table/table-row-actions.html:19
-msgid "Change Password"
-msgstr ""
-
-#: dashboards/identity/static/dashboard/identity/users/table/table-row-actions.html:26
-msgid "Disable"
-msgstr ""
-
-#: dashboards/identity/static/dashboard/identity/users/table/table-row-actions.html:27
-msgid "Enable"
-msgstr ""
-
-#: dashboards/identity/static/dashboard/identity/users/table/table-row-actions.html:35
-msgid "Delete"
-msgstr ""
-
-#: dashboards/identity/static/dashboard/identity/users/table/table-row-details.html:11
+#: dashboards/identity/static/dashboard/identity/users/table/table.html:74
 msgid "Domain ID"
 msgstr ""
 
-#: dashboards/identity/static/dashboard/identity/users/table/table-row-details.html:14
-msgid "Project ID"
+#: dashboards/identity/static/dashboard/identity/users/table/table.html:75
+msgid "{$ user.domain_id $}"
 msgstr ""
 
-#: dashboards/identity/static/dashboard/identity/users/table/table.controller.js:66
-msgid "Insufficient privilege level to view user information."
+#: dashboards/identity/static/dashboard/identity/users/table/table.html:77
+msgid "Project ID"
 msgstr ""
 
 #: dashboards/project/static/dashboard/project/workflow/launch-instance/launch-instance-model.js:392

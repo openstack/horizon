@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-09-01 03:11+0000\n"
-"PO-Revision-Date: 2015-08-30 00:10+0000\n"
+"POT-Creation-Date: 2015-09-03 04:49+0000\n"
+"PO-Revision-Date: 2015-09-02 04:23+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Chinese (China) (http://www.transifex.com/openstack/horizon/"
 "language/zh_CN/)\n"
@@ -71,9 +71,6 @@ msgstr ""
 msgid "A name is required for your instance."
 msgstr "您的实例名字是必须的。"
 
-msgid "Actions"
-msgstr "动作"
-
 msgid "Active"
 msgstr "运行中"
 
@@ -125,9 +122,6 @@ msgstr "无法从认证获取服务目录。"
 msgid "Cannot get the Nova extension list."
 msgstr "无法查询Nova扩展列表。"
 
-msgid "Change Password"
-msgstr "修改密码"
-
 msgid ""
 "Check the <b>Configuration Drive</b> box if you want to write metadata to a "
 "special configuration drive. When the instance boots, it attaches to the "
@@ -156,9 +150,6 @@ msgstr "创建秘钥对"
 msgid "Create New Volume"
 msgstr "创建新卷"
 
-msgid "Create User"
-msgstr "创建用户"
-
 msgid "Created"
 msgstr "已创建"
 
@@ -176,12 +167,6 @@ msgstr ""
 msgid "Customization Script"
 msgstr "自定义脚本"
 
-msgid "Delete"
-msgstr "删除"
-
-msgid "Delete Users"
-msgstr "删除用户"
-
 msgid "Delete Volume on Terminate"
 msgstr "终止后删除卷"
 
@@ -197,9 +182,6 @@ msgstr "设备名称"
 msgid "Direction"
 msgstr "直连"
 
-msgid "Disable"
-msgstr "禁用"
-
 msgid "Disk Partition"
 msgstr "磁盘分区"
 
@@ -209,14 +191,8 @@ msgstr "域ID"
 msgid "Down"
 msgstr "停止"
 
-msgid "Edit"
-msgstr "编辑"
-
 msgid "Email"
 msgstr "邮箱"
-
-msgid "Enable"
-msgstr "激活"
 
 msgid "Enabled"
 msgstr "激活"

@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-08-29 02:57+0000\n"
-"PO-Revision-Date: 2015-08-28 11:21+0000\n"
+"POT-Creation-Date: 2015-09-03 04:49+0000\n"
+"PO-Revision-Date: 2015-09-02 07:31+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Assamese (http://www.transifex.com/openstack/horizon/language/"
 "as/)\n"
@@ -1695,15 +1695,6 @@ msgid ""
 msgstr ""
 "নেটৱৰ্কটোৰ সৈতে জড়িত উপনেট এটা তৈয়াৰ কৰক. \"Subnet Details\" টেবত ক্লিক কৰাৰ "
 "দ্বাৰা উন্নত ৰূপৰেখা উপলব্ধ হয়."
-
-msgid ""
-"Create a subnet associated with the new network, in which case \"Network "
-"Address\" must be specified. If you wish to create a network without a "
-"subnet, uncheck the \"Create Subnet\" checkbox."
-msgstr ""
-"নেটৱৰ্কটোৰ সৈতে জড়িত উপনেট এটা তৈয়াৰ কৰক, যিটো ক্ষেত্ৰত \"Network Address\" "
-"নিৰ্ধাৰণ কৰাটো অপৰিহাৰ্য. যদি আপুনি উপনেট এটা অবিহনে নেটৱৰ্ক এটা তৈয়াৰ কৰিবলৈ "
-"ইচ্ছা কৰে, তেন্তে \"Create Subnet\" পৰীক্ষাবাকচটো পৰীক্ষা নকৰিব."
 
 msgid "Create an Encrypted Volume Type"
 msgstr "এটা এনক্ৰিপ্ট কৰা আয়নত প্ৰকাৰ তৈয়াৰ কৰক"
@@ -4166,9 +4157,6 @@ msgstr "মেটাডাটা"
 msgid "Metadata Items"
 msgstr "মেটাডাটা বস্তুবোৰ"
 
-msgid "Metadata successfully updated."
-msgstr "মেটাডাটা সফলতাৰে আপডেট কৰা হল."
-
 msgid "Meter"
 msgstr "মিটাৰ "
 
@@ -6047,10 +6035,6 @@ msgstr ""
 msgid "Specify \"Network Address\""
 msgstr "\"Network Address\" নিৰ্ধাৰণ কৰক"
 
-msgid "Specify \"Network Address\" or clear \"Create Subnet\" checkbox."
-msgstr ""
-"\"Network Address\" নিৰ্দিষ্ট কৰক বা \"Create Subnet\" পৰীক্ষাবাকচ সম্পন্ন কৰক."
-
 msgid "Specify IP address of gateway or check \"Disable Gateway\"."
 msgstr "গেটৱেৰ IP ঠিকনা নিৰ্দিষ্ট কৰক বা \"Disable Gateway\" পৰীক্ষা কৰক."
 
@@ -7414,15 +7398,6 @@ msgstr "উপলব্ধতা মণ্ডলৰ তালিকা উদ্
 msgid "Unable to retrieve availability zones."
 msgstr "উপলব্ধতাৰ মণ্ডলবোৰ উদ্ধাৰ কৰিবলৈ অক্ষম."
 
-msgid "Unable to retrieve available metadata for aggregate."
-msgstr "গড় কৰিবৰ বাবে উপলব্ধ মেটাডাটা উদ্ধাৰ কৰিবলৈ অক্ষম."
-
-msgid "Unable to retrieve available metadata for flavors."
-msgstr "ফ্লেভাৰবোৰৰ বাবে উপলব্ধ মেটাডাটা উদ্ধাৰ কৰিব পৰা নগল."
-
-msgid "Unable to retrieve available properties for image."
-msgstr "ছবিৰ বাবে উপলব্ধ সম্পত্তিবোৰ উদ্ধাৰ কৰিবলৈ অক্ষম."
-
 msgid "Unable to retrieve backup details."
 msgstr "বেকআপৰ পূংখানুপূংখ বিৱৰণ উদ্ধাৰ কৰিবলৈ অক্ষম."
 
@@ -7798,15 +7773,6 @@ msgstr "পট্টাধাৰী সীমাবোৰ উদ্ধাৰ ক
 msgid "Unable to retrieve the aggregate to be updated"
 msgstr "আপডেট কৰিবলগীয়া গড় উদ্ধাৰ কৰিবলৈ অক্ষম"
 
-msgid "Unable to retrieve the aggregate to be updated."
-msgstr "আপডেট কৰিবলগীয়া গড় উদ্ধাৰ কৰিবলৈ অক্ষম."
-
-msgid "Unable to retrieve the flavor metadata."
-msgstr "ফ্লেভাৰ মেটাডাটা উদ্ধাৰ কৰিবলৈ অক্ষম."
-
-msgid "Unable to retrieve the image to be updated."
-msgstr "আপডেট কৰিবলৈ ছবিটো উদ্ধাৰ কৰিবলৈ অক্ষম."
-
 msgid "Unable to retrieve the specified pool."
 msgstr "নিৰ্ধাৰিত পুল উদ্ধাৰ কৰিবলৈ অক্ষম."
 
@@ -7939,20 +7905,11 @@ msgstr "শাৰী আপডেট কৰিবলৈ অক্ষম"
 msgid "Unable to update subnet \"%s\"."
 msgstr "\"%s\" উপনেট আপডেট কৰিবলৈ অক্ষম."
 
-msgid "Unable to update the aggregate metadata."
-msgstr "গড় মেটাডাটা আপডেট কৰিবলৈ অক্ষম."
-
 msgid "Unable to update the aggregate."
 msgstr "গড় আপডেট কৰিবলৈ অক্ষম."
 
-msgid "Unable to update the flavor metadata."
-msgstr "ফ্লেভাৰ মেটাডাটা আপডেট কৰিবলৈ অক্ষম."
-
 msgid "Unable to update the group."
 msgstr "গোট আপডেট কৰিবলৈ অক্ষম."
-
-msgid "Unable to update the image metadata."
-msgstr "ছবি মেটাডাটা আপডেট কৰিবলৈ অক্ষম."
 
 msgid "Unable to update the user."
 msgstr "ব্যৱহাৰকৰ্তা আপডেট কৰিবলৈ অক্ষম."
@@ -8013,26 +7970,17 @@ msgstr "ওপৰলৈ"
 msgid "Update"
 msgstr "আপডেট"
 
-msgid "Update Aggregate Metadata"
-msgstr "গড় মেটাডাটা আপডেট কৰক"
-
 msgid "Update Default Quotas"
 msgstr "ডিফল্ট কোটাবোৰ আপডেট কৰক"
 
 msgid "Update Defaults"
 msgstr "ডিফল্টবোৰ আপডেট কৰক"
 
-msgid "Update Flavor Metadata"
-msgstr "ফ্লেভাৰ মেটাডাটা আপডেট কৰক"
-
 msgid "Update Group"
 msgstr "গোট আপডেট কৰক"
 
 msgid "Update Image"
 msgstr "ছবি আপডেট কৰক"
-
-msgid "Update Image Metadata"
-msgstr "ছবি মেটাডাটা আপডেট কৰক"
 
 msgid "Update Metadata"
 msgstr "মেটাডাটা আপডেট কৰক"

@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-08-22 19:10+0000\n"
-"PO-Revision-Date: 2015-08-22 15:27+0000\n"
+"POT-Creation-Date: 2015-09-03 04:49+0000\n"
+"PO-Revision-Date: 2015-09-02 07:31+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Manipuri (http://www.transifex.com/openstack/horizon/language/"
 "mni/)\n"
@@ -1638,15 +1638,6 @@ msgid ""
 msgstr ""
 "নেতৱার্ক অদুগা এসোসিএত তৌবা সবনেত অমা শেম্মু। এদভান্স ওইবা কনফিগুরেসন অসি "
 "\"সবনেতকী অকুপ্পা মরোলশীং\" তেব অদুদা ক্লিক তৌরগা ফংই।"
-
-msgid ""
-"Create a subnet associated with the new network, in which case \"Network "
-"Address\" must be specified. If you wish to create a network without a "
-"subnet, uncheck the \"Create Subnet\" checkbox."
-msgstr ""
-"অনৌবা নেতৱার্ক অদুগা এসোসিএত তৌবা সবনেত অমা শেম্মু, মতাং অসিদদি \"নেতৱার্ক এদ্রেস"
-"\" শেংনা তাক্কদবনি। করিগুম্বা নহাক্না সবনেত অমা য়াউদনা নেতৱার্ক অমা শেমগে হায়না "
-"খল্লবদি, \"সবনেত শেম্মু\" চেকবোক্স অদু অনচেক তৌ। "
 
 msgid "Create an Encrypted Volume Type"
 msgstr "এনক্রিপ্ত তৌরবা ভোল্যুম তাইপ অমা শেম্মু"
@@ -4059,9 +4050,6 @@ msgstr "মেতাদেতা"
 msgid "Metadata Items"
 msgstr "মেতাদেতা আইতেমশীং"
 
-msgid "Metadata successfully updated."
-msgstr "মেতাদেতা মায়পাক্না অপদেত তৌরে।"
-
 msgid "Meter"
 msgstr "মিতর"
 
@@ -5786,9 +5774,6 @@ msgstr ""
 msgid "Specify \"Network Address\""
 msgstr "\"নেতৱার্ক এদ্রেস\" তাকউ"
 
-msgid "Specify \"Network Address\" or clear \"Create Subnet\" checkbox."
-msgstr "\"Network Address\" তাকউ নত্ত্রগা \"Create Subnet\" চেকবোক্স ক্লিয়র তৌ।"
-
 msgid "Specify IP address of gateway or check \"Disable Gateway\"."
 msgstr "গেতৱেগী IP এদ্রেস তাকউ নত্ত্রগা \"গেতৱে দিসএবল তৌ\" চেক তৌ।"
 
@@ -7145,15 +7130,6 @@ msgstr "এভেলএবিলিতি জোন লিষ্ট রিত্
 msgid "Unable to retrieve availability zones."
 msgstr "এভেলএবিলিতি জোনশীং রিত্রিভ তৌবা ঙমদে।"
 
-msgid "Unable to retrieve available metadata for aggregate."
-msgstr "এগ্রিগেতকীদমক অফংবা মেতাদেতা রিত্রিভ তৌবা ঙমদে।"
-
-msgid "Unable to retrieve available metadata for flavors."
-msgstr "ফ্লেবরশীংগী অফংবা মেতাদেতা রিত্রিভ তৌবা ঙমদে।"
-
-msgid "Unable to retrieve available properties for image."
-msgstr "ইমেজগী অফংবা প্রোপর্টিশীং রিত্রিভ তৌবা ঙমদে।"
-
 msgid "Unable to retrieve backup details."
 msgstr "বেকঅপকী অকুপ্পা মরোলশীং রিত্রিভ তৌবা ঙমদে।"
 
@@ -7529,15 +7505,6 @@ msgstr "তেনেন্ত লিমিতশীং রিত্রিভ ত
 msgid "Unable to retrieve the aggregate to be updated"
 msgstr "অপদেত তৌনবা এগ্রিগেত অদু রিত্রিভ তৌবা ঙমদে"
 
-msgid "Unable to retrieve the aggregate to be updated."
-msgstr "অপদেত তৌনবা এগ্রিগেত অদু রিত্রিভ তৌবা ঙমদে।"
-
-msgid "Unable to retrieve the flavor metadata."
-msgstr "ফ্লেবর মেতাদেতা অদু রিত্রিভ তৌবা ঙমদে।"
-
-msgid "Unable to retrieve the image to be updated."
-msgstr "অপদেত তৌগদবা ইমেজ অদু রিত্রিভ তৌবা ঙমদে।"
-
 msgid "Unable to retrieve the specified pool."
 msgstr "শেংনা তাক্লবা পুল অদু রিত্রিভ তৌবা ঙমদে।"
 
@@ -7670,20 +7637,11 @@ msgstr "রো অপদেত তৌবা ঙমদে"
 msgid "Unable to update subnet \"%s\"."
 msgstr "সবনেত \"%s\" অপদেত তৌবা ঙমদে।"
 
-msgid "Unable to update the aggregate metadata."
-msgstr "এগ্রিগেত মেতাদেতা অদু অপদেত তৌবা ঙমদে।"
-
 msgid "Unable to update the aggregate."
 msgstr "এগ্রিগেত অদু অপদেত তৌবা ঙমদে।"
 
-msgid "Unable to update the flavor metadata."
-msgstr "ফ্লেবর মেতাদেতা অদু অপদেত তৌবা ঙমদে।"
-
 msgid "Unable to update the group."
 msgstr "গ্রুপ অদু অপদেত তৌবা ঙমদে।"
-
-msgid "Unable to update the image metadata."
-msgstr "ইমেজ মেতাদেতা অদু অপদেত তৌবা ঙমদ্রে।"
 
 msgid "Unable to update the user."
 msgstr "য়ুজর অদু অপদেত তৌবা ঙমদে।"
@@ -7737,26 +7695,17 @@ msgstr "অপ"
 msgid "Update"
 msgstr "অপদেত তৌ"
 
-msgid "Update Aggregate Metadata"
-msgstr "এগ্রিগেত মেতাদেতা অপদেত তৌ"
-
 msgid "Update Default Quotas"
 msgstr "দিফোল্ট ক্যুওতাশীং অপদেত তৌ"
 
 msgid "Update Defaults"
 msgstr "দিফোল্টশীং অপদেত তৌ"
 
-msgid "Update Flavor Metadata"
-msgstr "ফ্লেবর মেতাদেতা অপদেত তৌ"
-
 msgid "Update Group"
 msgstr "গ্রুপ অপদেত তৌ"
 
 msgid "Update Image"
 msgstr "ইমেজ অপদেত তৌ"
-
-msgid "Update Image Metadata"
-msgstr "ইমেজ মেতাদেতা অপদেত তৌ"
 
 msgid "Update Metadata"
 msgstr "মেতাদেতা অপদেত তৌ"

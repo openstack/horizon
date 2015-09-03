@@ -14,8 +14,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-08-29 02:57+0000\n"
-"PO-Revision-Date: 2015-08-28 11:21+0000\n"
+"POT-Creation-Date: 2015-09-03 04:49+0000\n"
+"PO-Revision-Date: 2015-09-02 07:31+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Chinese (Taiwan) (http://www.transifex.com/openstack/horizon/"
 "language/zh_TW/)\n"
@@ -2179,14 +2179,6 @@ msgid ""
 "Create a subnet associated with the network. Advanced configuration is "
 "available by clicking on the \"Subnet Details\" tab."
 msgstr "新增子網路與此網路聯結。點擊「子網路詳細資訊」標籤後會出現進階的設置。"
-
-msgid ""
-"Create a subnet associated with the new network, in which case \"Network "
-"Address\" must be specified. If you wish to create a network without a "
-"subnet, uncheck the \"Create Subnet\" checkbox."
-msgstr ""
-"新增子網路聯結新的網路，但「網路位址」必須指定。假如您希望新增不包含子網路的"
-"網路，取消勾選「新增子網路」方格。"
 
 msgid "Create an Encrypted Volume Type"
 msgstr "新增已加密的雲硬碟類型"
@@ -5433,9 +5425,6 @@ msgstr "詮釋資料定義"
 msgid "Metadata Items"
 msgstr "詮釋資料的項目"
 
-msgid "Metadata successfully updated."
-msgstr "已成功更新詮釋資料。"
-
 msgid "Meter"
 msgstr "量測器"
 
@@ -7977,9 +7966,6 @@ msgstr "指定可用於發動雲實例的雲硬碟。"
 msgid "Specify \"Network Address\""
 msgstr "指定「網路位址」"
 
-msgid "Specify \"Network Address\" or clear \"Create Subnet\" checkbox."
-msgstr "指定「網路位址」或清除「新增子網路」方格。"
-
 msgid "Specify IP address of gateway or check \"Disable Gateway\"."
 msgstr "指定閘道的 IP 位址或勾選「關閉閘道」。"
 
@@ -9643,15 +9629,6 @@ msgstr "無法獲得可用區域列表。"
 msgid "Unable to retrieve availability zones."
 msgstr "無法獲得可用區域。"
 
-msgid "Unable to retrieve available metadata for aggregate."
-msgstr "無法獲得此聚合可用的詮釋資料。"
-
-msgid "Unable to retrieve available metadata for flavors."
-msgstr "無法獲得此虛擬硬體樣板可用的詮釋資料。"
-
-msgid "Unable to retrieve available properties for image."
-msgstr "無法獲得此映像檔可用的屬性。"
-
 msgid "Unable to retrieve backup details."
 msgstr "無法獲得備份詳細資訊。"
 
@@ -10060,15 +10037,6 @@ msgstr "無法獲得租用人限制。"
 msgid "Unable to retrieve the aggregate to be updated"
 msgstr "無法獲得聚合來更新"
 
-msgid "Unable to retrieve the aggregate to be updated."
-msgstr "無法獲得聚合來更新。"
-
-msgid "Unable to retrieve the flavor metadata."
-msgstr "無法獲得此虛擬硬體樣板的詮釋資料。"
-
-msgid "Unable to retrieve the image to be updated."
-msgstr "無法獲得映像檔來更新。"
-
 msgid "Unable to retrieve the specified pool."
 msgstr "無法獲得指定的倉庫。"
 
@@ -10232,20 +10200,11 @@ msgstr "無法更新安全性群組：%s"
 msgid "Unable to update subnet \"%s\"."
 msgstr "無法更新子網路「%s」。"
 
-msgid "Unable to update the aggregate metadata."
-msgstr "無法更新聚合詮釋資料。"
-
 msgid "Unable to update the aggregate."
 msgstr "無法更新聚合。"
 
-msgid "Unable to update the flavor metadata."
-msgstr "無法更新虛擬硬體樣板詮釋資料。"
-
 msgid "Unable to update the group."
 msgstr "無法更新群組。"
-
-msgid "Unable to update the image metadata."
-msgstr "無法更新此映像檔的詮釋資料。"
 
 msgid "Unable to update the user password."
 msgstr "無法更新用戶密碼。"
@@ -10346,9 +10305,6 @@ msgstr "上線"
 msgid "Update"
 msgstr "更新"
 
-msgid "Update Aggregate Metadata"
-msgstr "更新聚合詮釋資料"
-
 msgid "Update Associations"
 msgstr "更新聯結"
 
@@ -10366,17 +10322,11 @@ msgctxt "current status of stack"
 msgid "Update Failed"
 msgstr "更新失敗"
 
-msgid "Update Flavor Metadata"
-msgstr "更新虛擬硬體樣板詮釋資料"
-
 msgid "Update Group"
 msgstr "更新群組"
 
 msgid "Update Image"
 msgstr "更新映像檔"
-
-msgid "Update Image Metadata"
-msgstr "更新映像檔詮釋資料"
 
 msgctxt "current status of stack"
 msgid "Update In Progress"

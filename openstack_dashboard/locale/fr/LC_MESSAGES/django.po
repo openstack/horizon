@@ -25,8 +25,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horizon\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-08-29 02:57+0000\n"
-"PO-Revision-Date: 2015-08-28 11:21+0000\n"
+"POT-Creation-Date: 2015-09-03 04:49+0000\n"
+"PO-Revision-Date: 2015-09-02 07:31+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: French (http://www.transifex.com/openstack/horizon/language/"
 "fr/)\n"
@@ -445,12 +445,6 @@ msgid ""
 msgstr ""
 "\"Certains gabarits qui ne respectent pas les exigences minimales de l'image "
 "ont été désactivés.\""
-
-msgid "\"Update Aggregate Metadata\""
-msgstr "\"Mise à jour des métadonnées globales\""
-
-msgid "\"Update Flavor Metadata\""
-msgstr "\"Mettre à jour les métadonnées du gabarit\""
 
 msgid "\"Users\""
 msgstr "\"Utilisateurs\""
@@ -2435,15 +2429,6 @@ msgid ""
 msgstr ""
 "Crée un sous-réseau associé à un réseau. Cliquez sur l'onglet \"Détails Sous-"
 "Réseaux\" pour configurer des options avancées."
-
-msgid ""
-"Create a subnet associated with the new network, in which case \"Network "
-"Address\" must be specified. If you wish to create a network without a "
-"subnet, uncheck the \"Create Subnet\" checkbox."
-msgstr ""
-"Créer un sous-réseau associé au nouveau réseau. Dans ce cas le champ "
-"\"Adresse réseau\" doit être renseigné. Si vous voulez créer un réseau sans "
-"sous-réseau, décocher la case \"Créer un sous-réseau\"."
 
 msgid "Create an Encrypted Volume Type"
 msgstr "Créer un type de volume crypté"
@@ -5971,9 +5956,6 @@ msgstr "Définitions des Metadata"
 msgid "Metadata Items"
 msgstr "Eléments des métadonnées"
 
-msgid "Metadata successfully updated."
-msgstr "Métadonnées mises à jour avec succès."
-
 msgid "Meter"
 msgstr "Métriques"
 
@@ -8731,9 +8713,6 @@ msgstr "Indique que le volume peut être utilisé pour démarrer une instance"
 msgid "Specify \"Network Address\""
 msgstr "Spécifier \"Adresse réseau\""
 
-msgid "Specify \"Network Address\" or clear \"Create Subnet\" checkbox."
-msgstr "Spécifier \"Adresse réseau\" ou décocher \"Créer un sous-réseau\"."
-
 msgid "Specify IP address of gateway or check \"Disable Gateway\"."
 msgstr ""
 "Spécifier l'adresse IP de la passerelle ou cocher \"Désactiver la passerelle"
@@ -10557,15 +10536,6 @@ msgstr "Impossible de récupérer la liste des zones de disponibilité"
 msgid "Unable to retrieve availability zones."
 msgstr "Impossible de récupérer les zones de disponibilité."
 
-msgid "Unable to retrieve available metadata for aggregate."
-msgstr "Impossible de récupérer les métadonnées disponibles pour l'agrégat. "
-
-msgid "Unable to retrieve available metadata for flavors."
-msgstr "Impossible de récupérer les métadonnées disponibles pour les gabarits."
-
-msgid "Unable to retrieve available properties for image."
-msgstr "Impossible de récupérer les propriétés disponibles pour l'image."
-
 msgid "Unable to retrieve backup details."
 msgstr "Impossible de récupérer les détails de la sauvegarde."
 
@@ -11025,15 +10995,6 @@ msgstr "Incapable de récupérer les limites du tenant."
 msgid "Unable to retrieve the aggregate to be updated"
 msgstr "impossible de récupérer l'agrégat à mettre à jour"
 
-msgid "Unable to retrieve the aggregate to be updated."
-msgstr "Impossible de récupérer l'agrégat à mettre à jour."
-
-msgid "Unable to retrieve the flavor metadata."
-msgstr "Impossible de récupérer les métadonnées du gabarit."
-
-msgid "Unable to retrieve the image to be updated."
-msgstr "Impossible de récupérer l'image à mettre à jour."
-
 msgid "Unable to retrieve the specified pool."
 msgstr "Impossible de récupérer le pool spécifié."
 
@@ -11218,20 +11179,11 @@ msgstr "Impossible de mettre à jour le groupe de sécurité: %s"
 msgid "Unable to update subnet \"%s\"."
 msgstr "Impossible de mettre à jour le sous-réseau \"%s\"."
 
-msgid "Unable to update the aggregate metadata."
-msgstr "Impossible de mettre à jour les métadonnées globales."
-
 msgid "Unable to update the aggregate."
 msgstr "Impossible de mettre à jour l'agrégat"
 
-msgid "Unable to update the flavor metadata."
-msgstr "Impossible de mettre à jour les métadonnées du gabarit."
-
 msgid "Unable to update the group."
 msgstr "Impossible de mettre à jour le groupe."
-
-msgid "Unable to update the image metadata."
-msgstr "Incapable de mettre à jour l'image des métadonnées."
 
 msgid "Unable to update the user password."
 msgstr "N'a pas pu mettre le mot de passe de l'utilisateur à jour."
@@ -11349,9 +11301,6 @@ msgstr "Actif"
 msgid "Update"
 msgstr "Mettre à jour"
 
-msgid "Update Aggregate Metadata"
-msgstr "Mise à jour des métadonnées globales"
-
 msgid "Update Associations"
 msgstr "Mise à jour des associations"
 
@@ -11369,17 +11318,11 @@ msgctxt "current status of stack"
 msgid "Update Failed"
 msgstr "Échec de la mise à jour"
 
-msgid "Update Flavor Metadata"
-msgstr "Mettre à jour les métadonnées du gabarit"
-
 msgid "Update Group"
 msgstr "Mettre à jour un Groupe"
 
 msgid "Update Image"
 msgstr "Mettre à jour une image"
-
-msgid "Update Image Metadata"
-msgstr "Mettre à jour les métadonnées de l'image"
 
 msgctxt "current status of stack"
 msgid "Update In Progress"
