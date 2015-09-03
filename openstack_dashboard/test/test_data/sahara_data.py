@@ -455,7 +455,8 @@ def data(TEST):
         "name": "pigjob",
         "tenant_id": "429ad8447c2d47bc8e0382d244e1d1df",
         "type": "Pig",
-        "updated_at": None
+        "updated_at": None,
+        "job_config": {"configs": {}}
     }
 
     job1 = jobs.Job(jobs.JobsManager(None), job1_dict)

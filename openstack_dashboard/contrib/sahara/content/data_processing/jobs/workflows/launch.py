@@ -134,6 +134,7 @@ class JobConfigAction(workflows.Action):
     EDP_REDUCER = "edp.streaming.reducer"
     EDP_PREFIX = "edp."
     EDP_HBASE_COMMON_LIB = "edp.hbase_common_lib"
+    EDP_ADAPT_FOR_OOZIE = "edp.java.adapt_for_oozie"
 
     property_name = forms.ChoiceField(
         required=False,
@@ -168,6 +169,13 @@ class JobConfigAction(workflows.Action):
     hbase_common_lib = forms.BooleanField(
         label=_("Use HBase Common library"),
         help_text=_("Run HBase EDP Jobs with common HBase library on HDFS"),
+        required=False, initial=True)
+
+    adapt_oozie = forms.BooleanField(
+        label=_("Adapt For Oozie"),
+        help_text=_("Automatically modify the Hadoop configuration"
+                    " so that job config values are set and so that"
+                    " Oozie will handle exit codes correctly."),
         required=False, initial=True)
 
     def __init__(self, request, *args, **kwargs):
@@ -209,6 +217,9 @@ class JobConfigAction(workflows.Action):
             if self.EDP_HBASE_COMMON_LIB in edp_configs:
                 self.fields['hbase_common_lib'].initial = (
                     edp_configs[self.EDP_HBASE_COMMON_LIB])
+            if self.EDP_ADAPT_FOR_OOZIE in edp_configs:
+                self.fields['adapt_oozie'].initial = (
+                    edp_configs[self.EDP_ADAPT_FOR_OOZIE])
 
     def clean(self):
         cleaned_data = super(workflows.Action, self).clean()
@@ -243,7 +254,8 @@ class JobConfigAction(workflows.Action):
                          self.EDP_MAPPER,
                          self.EDP_REDUCER,
                          self.MAIN_CLASS,
-                         self.JAVA_OPTS]:
+                         self.JAVA_OPTS,
+                         self.EDP_ADAPT_FOR_OOZIE, ]:
                 del configs[rmkey]
         return (configs, edp_configs)
 
@@ -304,6 +316,10 @@ class JobConfig(workflows.Step):
             context["job_config"]["configs"][
                 JobConfigAction.EDP_HBASE_COMMON_LIB] = (
                     data.get("hbase_common_lib", True))
+            if job_type == "Java":
+                context["job_config"]["configs"][
+                    JobConfigAction.EDP_ADAPT_FOR_OOZIE] = (
+                        data.get("adapt_oozie", True))
         elif job_type == "MapReduce.Streaming":
             context["job_config"]["configs"][JobConfigAction.EDP_MAPPER] = (
                 data.get("streaming_mapper", ""))

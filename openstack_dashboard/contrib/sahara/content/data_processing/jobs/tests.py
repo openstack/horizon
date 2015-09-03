@@ -83,3 +83,54 @@ class DataProcessingJobTests(test.TestCase):
         self.assertNoFormErrors(res)
         self.assertRedirectsNoFollow(res, INDEX_URL)
         self.assertMessageCount(success=1)
+
+    @test.create_stubs({api.sahara: ('job_execution_create',
+                                     'job_get',
+                                     'job_get_configs',
+                                     'job_list',
+                                     'cluster_list',
+                                     'data_source_list')})
+    def test_launch(self):
+        job = self.jobs.first()
+        job_execution = self.job_executions.first()
+        cluster = self.clusters.first()
+        input_ds = self.data_sources.first()
+        output_ds = self.data_sources.first()
+        api.sahara.job_get(IsA(http.HttpRequest), IsA(unicode)) \
+            .AndReturn(job)
+        api.sahara.job_get_configs(IsA(http.HttpRequest), job.type) \
+            .AndReturn(job)
+        api.sahara.cluster_list(IsA(http.HttpRequest)) \
+            .AndReturn(self.clusters.list())
+        api.sahara.data_source_list(IsA(http.HttpRequest)) \
+            .MultipleTimes().AndReturn(self.data_sources.list())
+        api.sahara.job_list(IsA(http.HttpRequest)) \
+            .AndReturn(self.jobs.list())
+        api.sahara.job_execution_create(IsA(http.HttpRequest),
+                                        IsA(unicode),
+                                        IsA(unicode),
+                                        IsA(unicode),
+                                        IsA(unicode),
+                                        IsA(dict)).AndReturn(job_execution)
+        self.mox.ReplayAll()
+
+        url = reverse('horizon:project:data_processing.jobs:launch-job')
+        form_data = {
+            'job': self.jobs.first().id,
+            'cluster': cluster.id,
+            'job_input': input_ds.id,
+            'job_output': output_ds.id,
+            'config': {},
+            'adapt_oozie': 'on',
+            'hbase_common_lib': 'on',
+            'java_opts': '',
+            'job_args_array': [[], []],
+            'job_configs': [{}, {}],
+            'job_params': [{}, {}],
+            'job_type': 'Pig',
+            'streaming_mapper': '',
+            'streaming_reducer': ''
+        }
+
+        res = self.client.post(url, form_data)
+        self.assertNoFormErrors(res)
