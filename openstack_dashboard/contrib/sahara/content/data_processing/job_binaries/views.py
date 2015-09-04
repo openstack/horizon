@@ -63,6 +63,9 @@ class CreateJobBinaryView(forms.ModalFormView):
     classes = ("ajax-modal",)
     template_name = "project/data_processing.job_binaries/create.html"
     page_title = _("Create Job Binary")
+    submit_url = ('horizon:project:data_processing.'
+                  'job_binaries:create-job-binary')
+    submit_label = _("Create")
 
     def get_success_url(self):
         hlps = helpers.Helpers(self.request)
@@ -70,6 +73,36 @@ class CreateJobBinaryView(forms.ModalFormView):
             self.success_url = reverse_lazy(
                 "horizon:project:data_processing.wizard:jobex_guide")
         return self.success_url
+
+    def get_context_data(self, **kwargs):
+        context = super(CreateJobBinaryView, self).get_context_data(**kwargs)
+        context['submit_url'] = reverse(self.submit_url, kwargs=self.kwargs)
+        return context
+
+
+class EditJobBinaryView(CreateJobBinaryView):
+    form_class = job_binary_forms.JobBinaryEditForm
+    page_title = _("Edit Job Binary")
+    submit_url = ('horizon:project:data_processing.'
+                  'job_binaries:edit-job-binary')
+    submit_label = _("Update")
+
+    @memoized.memoized_method
+    def get_object(self):
+        jb_id = self.kwargs["job_binary_id"]
+        try:
+            return saharaclient.job_binary_get(self.request, jb_id)
+        except Exception:
+            msg = _('Unable to retrieve job binary "%s".') % jb_id
+            redirect = reverse(
+                "horizon:project:data_processing.job_binaries:job-binaries")
+            exceptions.handle(self.request, msg, redirect=redirect)
+
+    def get_initial(self):
+        initial = super(EditJobBinaryView, self).get_initial()
+        initial['job_binary_id'] = self.kwargs['job_binary_id']
+        initial['job_binary'] = self.get_object()
+        return initial
 
 
 class JobBinaryDetailsView(tabs.TabView):

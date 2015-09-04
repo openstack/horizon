@@ -23,6 +23,8 @@ from openstack_dashboard.test import helpers as test
 INDEX_URL = reverse('horizon:project:data_processing.job_binaries:index')
 DETAILS_URL = reverse(
     'horizon:project:data_processing.job_binaries:details', args=['id'])
+EDIT_URL = reverse('horizon:project:data_processing.job_binaries'
+                   ':edit-job-binary', args=['id'])
 
 
 class DataProcessingJobBinaryTests(test.TestCase):
@@ -97,3 +99,29 @@ class DataProcessingJobBinaryTests(test.TestCase):
             res.get('Content-Disposition'),
             'attachment; filename="%s"' % jb.name
         )
+
+    @test.create_stubs({api.sahara: ('job_binary_get',
+                                     'job_binary_update')})
+    def test_update(self):
+        jb = api.sahara.job_binary_get(IsA(http.HttpRequest), IsA(unicode)) \
+            .AndReturn(self.job_binaries.first())
+        api.sahara.job_binary_update(IsA(http.HttpRequest),
+                                     IsA(str),
+                                     IsA(dict)) \
+            .AndReturn(self.job_binaries.first())
+        self.mox.ReplayAll()
+
+        form_data = {
+            'job_binary_url': jb.url,
+            'job_binary_name': jb.name,
+            'job_binary_description': jb.description,
+            'job_binary_type': "internal-db",
+            'job_binary_internal': "",
+            'job_binary_file': "",
+            'job_binary_password': "",
+            'job_binary_username': "",
+            'job_binary_script': "",
+            'job_binary_script_name': ""
+        }
+        res = self.client.post(EDIT_URL, form_data)
+        self.assertNoFormErrors(res)

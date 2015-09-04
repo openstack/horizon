@@ -353,6 +353,10 @@ def job_binary_get_file(request, jb_id):
     return client(request).job_binaries.get_file(job_binary_id=jb_id)
 
 
+def job_binary_update(request, jb_id, data):
+    return client(request).job_binaries.update(jb_id, data)
+
+
 def job_binary_internal_create(request, name, data):
     return client(request).job_binary_internals.create(
         name=name,
