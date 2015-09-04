@@ -203,6 +203,7 @@ OPENSTACK_KEYSTONE_BACKEND = {
 OPENSTACK_HYPERVISOR_FEATURES = {
     'can_set_mount_point': False,
     'can_set_password': False,
+    'requires_keypair': False,
 }
 
 # The OPENSTACK_CINDER_FEATURES settings can be used to enable optional

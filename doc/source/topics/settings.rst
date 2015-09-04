@@ -568,7 +568,8 @@ Default::
 
     {
         'can_set_mount_point': False,
-        'can_set_password': False
+        'can_set_password': False,
+        'requires_keypair': False,
     }
 
 A dictionary containing settings which can be used to identify the
@@ -581,6 +582,9 @@ from the UI.
 
 Setting ``can_set_password`` to ``True`` will enable the option to set
 an administrator password when launching or rebuilding an instance.
+
+Setting ``requires_keypair`` to ``True`` will require users to select
+a key pair when launching an instance.
 
 
 ``OPENSTACK_IMAGE_BACKEND``

@@ -539,7 +539,6 @@ KEYPAIR_IMPORT_URL = "horizon:project:access_and_security:keypairs:import"
 
 class SetAccessControlsAction(workflows.Action):
     keypair = forms.DynamicChoiceField(label=_("Key Pair"),
-                                       required=False,
                                        help_text=_("Key pair to use for "
                                                    "authentication."),
                                        add_item_link=KEYPAIR_IMPORT_URL)
@@ -570,6 +569,7 @@ class SetAccessControlsAction(workflows.Action):
         if not api.nova.can_set_server_password():
             del self.fields['admin_pass']
             del self.fields['confirm_admin_pass']
+        self.fields['keypair'].required = api.nova.requires_keypair()
 
     def populate_keypair_choices(self, request, context):
         keypairs = instance_utils.keypair_field_data(request, True)
