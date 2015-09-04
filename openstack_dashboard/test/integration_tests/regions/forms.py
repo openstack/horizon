@@ -76,40 +76,31 @@ class BaseFormFieldRegion(baseregion.BaseRegion):
         return self.element.is_displayed()
 
 
-class CheckBoxFormFieldRegion(BaseFormFieldRegion):
+class CheckBoxMixin(object):
+    def is_marked(self):
+        return self.element.is_selected()
+
+    def mark(self):
+        if not self.is_marked():
+            self.element.click()
+
+    def unmark(self):
+        if self.is_marked():
+            self.element.click()
+
+
+class CheckBoxFormFieldRegion(BaseFormFieldRegion, CheckBoxMixin):
     """Checkbox field."""
 
     _element_locator = (by.By.CSS_SELECTOR,
                         'div > label > input[type=checkbox]')
 
-    def is_marked(self):
-        return self.element.is_selected()
 
-    def mark(self):
-        if not self.is_marked():
-            self.element.click()
-
-    def unmark(self):
-        if self.is_marked():
-            self.element.click()
-
-
-class ProjectPageCheckBoxFormFieldRegion(BaseFormFieldRegion):
+class ProjectPageCheckBoxFormFieldRegion(BaseFormFieldRegion, CheckBoxMixin):
     """Checkbox field for Project-page."""
 
     _element_locator = (by.By.CSS_SELECTOR,
                         'div > input[type=checkbox]')
-
-    def is_marked(self):
-        return self.element.is_selected()
-
-    def mark(self):
-        if not self.is_marked():
-            self.element.click()
-
-    def unmark(self):
-        if self.is_marked():
-            self.element.click()
 
 
 class ChooseFileFormFieldRegion(BaseFormFieldRegion):
