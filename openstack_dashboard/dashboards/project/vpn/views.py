@@ -18,7 +18,6 @@ from django.utils.translation import ugettext_lazy as _
 
 from horizon import exceptions
 from horizon import forms
-from horizon import messages
 from horizon import tabs
 from horizon.utils import memoized
 from horizon import workflows
@@ -32,94 +31,27 @@ from openstack_dashboard.dashboards.project.vpn import tabs as vpn_tabs
 from openstack_dashboard.dashboards.project.vpn \
     import workflows as vpn_workflows
 
-import re
 
-
-class IndexView(tabs.TabView):
+class IndexView(tabs.TabbedTableView):
     tab_group_class = vpn_tabs.VPNTabs
     template_name = 'project/vpn/index.html'
     page_title = _("Virtual Private Network")
-
-    def post(self, request, *args, **kwargs):
-        obj_ids = request.POST.getlist('object_ids')
-        action = request.POST['action']
-        m = re.search('.delete([a-z]+)', action).group(1)
-        if obj_ids == []:
-            obj_ids.append(re.search('([0-9a-z-]+)$', action).group(1))
-        if m == 'vpnservice':
-            for obj_id in obj_ids:
-                try:
-                    api.vpn.vpnservice_delete(request, obj_id)
-                    messages.success(request,
-                                     _('Deleted VPN Service %s') % obj_id)
-                except Exception as e:
-                    exceptions.handle(request,
-                                      _('Unable to delete VPN Service: %s')
-                                      % e)
-        elif m == 'ikepolicy':
-            for obj_id in obj_ids:
-                try:
-                    api.vpn.ikepolicy_delete(request, obj_id)
-                    messages.success(request,
-                                     _('Deleted IKE Policy %s') % obj_id)
-                except Exception as e:
-                    exceptions.handle(request,
-                                      _('Unable to delete IKE Policy: %s') % e)
-        elif m == 'ipsecpolicy':
-            for obj_id in obj_ids:
-                try:
-                    api.vpn.ipsecpolicy_delete(request, obj_id)
-                    messages.success(request,
-                                     _('Deleted IPSec Policy %s') % obj_id)
-                except Exception as e:
-                    exceptions.handle(request,
-                                      _('Unable to delete IPSec Policy: %s')
-                                      % e)
-        elif m == 'ipsecsiteconnection':
-            for obj_id in obj_ids:
-                try:
-                    api.vpn.ipsecsiteconnection_delete(request, obj_id)
-                    messages.success(request,
-                                     _('Deleted IPSec Site Connection %s')
-                                     % obj_id)
-                except Exception as e:
-                    exceptions.handle(
-                        request,
-                        _('Unable to delete IPSec Site Connection: %s') % e)
-
-        return self.get(request, *args, **kwargs)
 
 
 class AddVPNServiceView(workflows.WorkflowView):
     workflow_class = vpn_workflows.AddVPNService
 
-    def get_initial(self):
-        initial = super(AddVPNServiceView, self).get_initial()
-        return initial
-
 
 class AddIPSecSiteConnectionView(workflows.WorkflowView):
     workflow_class = vpn_workflows.AddIPSecSiteConnection
-
-    def get_initial(self):
-        initial = super(AddIPSecSiteConnectionView, self).get_initial()
-        return initial
 
 
 class AddIKEPolicyView(workflows.WorkflowView):
     workflow_class = vpn_workflows.AddIKEPolicy
 
-    def get_initial(self):
-        initial = super(AddIKEPolicyView, self).get_initial()
-        return initial
-
 
 class AddIPSecPolicyView(workflows.WorkflowView):
     workflow_class = vpn_workflows.AddIPSecPolicy
-
-    def get_initial(self):
-        initial = super(AddIPSecPolicyView, self).get_initial()
-        return initial
 
 
 class IKEPolicyDetailsView(tabs.TabView):

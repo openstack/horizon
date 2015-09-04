@@ -18,7 +18,11 @@ from django.utils.translation import pgettext_lazy
 from django.utils.translation import ugettext_lazy as _
 from django.utils.translation import ungettext_lazy
 
+from horizon import exceptions
 from horizon import tables
+
+from openstack_dashboard import api
+from openstack_dashboard import policy
 
 
 forbid_updates = set(["PENDING_CREATE", "PENDING_UPDATE", "PENDING_DELETE"])
@@ -60,7 +64,7 @@ class AddIPSecSiteConnectionLink(tables.LinkAction):
     policy_rules = (("network", "create_ipsec_site_connection"),)
 
 
-class DeleteVPNServiceLink(tables.DeleteAction):
+class DeleteVPNServiceLink(policy.PolicyTargetMixin, tables.DeleteAction):
     name = "deletevpnservice"
     policy_rules = (("network", "delete_vpnservice"),)
 
@@ -85,8 +89,15 @@ class DeleteVPNServiceLink(tables.DeleteAction):
             return False
         return True
 
+    def delete(self, request, obj_id):
+        try:
+            api.vpn.vpnservice_delete(request, obj_id)
+        except Exception as e:
+            exceptions.handle(
+                request, _('Unable to delete VPN Service. %s') % e)
 
-class DeleteIKEPolicyLink(tables.DeleteAction):
+
+class DeleteIKEPolicyLink(policy.PolicyTargetMixin, tables.DeleteAction):
     name = "deleteikepolicy"
     policy_rules = (("network", "delete_ikepolicy"),)
 
@@ -111,8 +122,15 @@ class DeleteIKEPolicyLink(tables.DeleteAction):
             return False
         return True
 
+    def delete(self, request, obj_id):
+        try:
+            api.vpn.ikepolicy_delete(request, obj_id)
+        except Exception as e:
+            exceptions.handle(
+                request, _('Unable to delete IKE Policy. %s') % e)
 
-class DeleteIPSecPolicyLink(tables.DeleteAction):
+
+class DeleteIPSecPolicyLink(policy.PolicyTargetMixin, tables.DeleteAction):
     name = "deleteipsecpolicy"
     policy_rules = (("network", "delete_ipsecpolicy"),)
 
@@ -137,8 +155,16 @@ class DeleteIPSecPolicyLink(tables.DeleteAction):
             return False
         return True
 
+    def delete(self, request, obj_id):
+        try:
+            api.vpn.ipsecpolicy_delete(request, obj_id)
+        except Exception as e:
+            exceptions.handle(
+                request, _('Unable to delete IPSec Policy. %s') % e)
 
-class DeleteIPSecSiteConnectionLink(tables.DeleteAction):
+
+class DeleteIPSecSiteConnectionLink(policy.PolicyTargetMixin,
+                                    tables.DeleteAction):
     name = "deleteipsecsiteconnection"
     policy_rules = (("network", "delete_ipsec_site_connection"),)
 
@@ -157,6 +183,13 @@ class DeleteIPSecSiteConnectionLink(tables.DeleteAction):
             u"Scheduled deletion of IPSec Site Connections",
             count
         )
+
+    def delete(self, request, obj_id):
+        try:
+            api.vpn.ipsecsiteconnection_delete(request, obj_id)
+        except Exception as e:
+            exceptions.handle(
+                request, _('Unable to delete IPSec Site Connection. %s') % e)
 
 
 class UpdateVPNServiceLink(tables.LinkAction):
