@@ -28,8 +28,8 @@ from openstack_dashboard.dashboards.admin.info import tables
 
 class ServicesTab(tabs.TableTab):
     table_classes = (tables.ServicesTable,)
-    name = _("Services")
-    slug = "services"
+    name = tables.ServicesTable.Meta.verbose_name
+    slug = tables.ServicesTable.Meta.name
     template_name = constants.INFO_DETAIL_TEMPLATE_NAME
 
     def get_services_data(self):
@@ -44,8 +44,8 @@ class ServicesTab(tabs.TableTab):
 
 class NovaServicesTab(tabs.TableTab):
     table_classes = (tables.NovaServicesTable,)
-    name = _("Compute Services")
-    slug = "nova_services"
+    name = tables.NovaServicesTable.Meta.verbose_name
+    slug = tables.NovaServicesTable.Meta.name
     template_name = constants.INFO_DETAIL_TEMPLATE_NAME
     permissions = ('openstack.services.compute',)
 
@@ -62,8 +62,8 @@ class NovaServicesTab(tabs.TableTab):
 
 class CinderServicesTab(tabs.TableTab):
     table_classes = (tables.CinderServicesTable,)
-    name = _("Block Storage Services")
-    slug = "cinder_services"
+    name = tables.CinderServicesTable.Meta.verbose_name
+    slug = tables.CinderServicesTable.Meta.name
     template_name = constants.INFO_DETAIL_TEMPLATE_NAME
     permissions = ('openstack.services.volume',)
 
@@ -80,8 +80,8 @@ class CinderServicesTab(tabs.TableTab):
 
 class NetworkAgentsTab(tabs.TableTab):
     table_classes = (tables.NetworkAgentsTable,)
-    name = _("Network Agents")
-    slug = "network_agents"
+    name = tables.NetworkAgentsTable.Meta.verbose_name
+    slug = tables.NetworkAgentsTable.Meta.name
     template_name = constants.INFO_DETAIL_TEMPLATE_NAME
 
     def allowed(self, request):
