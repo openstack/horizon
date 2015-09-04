@@ -145,7 +145,12 @@ def _get_quota_data(request, method_name, disabled_quotas=None,
     if disabled_quotas is None:
         disabled_quotas = get_disabled_quotas(request)
     if 'volumes' not in disabled_quotas:
-        quotasets.append(getattr(cinder, method_name)(request, tenant_id))
+        try:
+            quotasets.append(getattr(cinder, method_name)(request, tenant_id))
+        except cinder.ClientException:
+            disabled_quotas.extend(CINDER_QUOTA_FIELDS)
+            msg = _("Unable to retrieve volume limit information.")
+            exceptions.handle(request, msg)
     for quota in itertools.chain(*quotasets):
         if quota.name not in disabled_quotas:
             qs[quota.name] = quota.limit
@@ -327,16 +332,20 @@ def _get_tenant_network_usages(request, usages, disabled_quotas, tenant_id):
 
 def _get_tenant_volume_usages(request, usages, disabled_quotas, tenant_id):
     if 'volumes' not in disabled_quotas:
-        if tenant_id:
-            opts = {'all_tenants': 1, 'project_id': tenant_id}
-            volumes = cinder.volume_list(request, opts)
-            snapshots = cinder.volume_snapshot_list(request, opts)
-        else:
-            volumes = cinder.volume_list(request)
-            snapshots = cinder.volume_snapshot_list(request)
-        usages.tally('gigabytes', sum([int(v.size) for v in volumes]))
-        usages.tally('volumes', len(volumes))
-        usages.tally('snapshots', len(snapshots))
+        try:
+            if tenant_id:
+                opts = {'all_tenants': 1, 'project_id': tenant_id}
+                volumes = cinder.volume_list(request, opts)
+                snapshots = cinder.volume_snapshot_list(request, opts)
+            else:
+                volumes = cinder.volume_list(request)
+                snapshots = cinder.volume_snapshot_list(request)
+            usages.tally('gigabytes', sum([int(v.size) for v in volumes]))
+            usages.tally('volumes', len(volumes))
+            usages.tally('snapshots', len(snapshots))
+        except cinder.ClientException:
+            msg = _("Unable to retrieve volume limit information.")
+            exceptions.handle(request, msg)
 
 
 @memoized
@@ -385,7 +394,7 @@ def tenant_limit_usages(request):
             limits['gigabytesUsed'] = total_size
             limits['volumesUsed'] = len(volumes)
             limits['snapshotsUsed'] = len(snapshots)
-        except Exception:
+        except cinder.ClientException:
             msg = _("Unable to retrieve volume limit information.")
             exceptions.handle(request, msg)
 

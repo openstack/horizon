@@ -26,6 +26,7 @@ from django.conf import settings
 from django.utils.translation import pgettext_lazy
 from django.utils.translation import ugettext_lazy as _
 
+from cinderclient.exceptions import ClientException  # noqa
 from cinderclient.v2.contrib import list_extensions as cinder_list_extensions
 
 from horizon import exceptions
