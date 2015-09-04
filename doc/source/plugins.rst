@@ -11,7 +11,7 @@ Horizon Plugin Registry
 +=======================+=====================================================+
 |Akanda RUG Extension   |https://github.com/stackforge/akanda-horizon         |
 +-----------------------+-----------------------------------------------------+
-|Apps Catalog UI        |https://github.com/stackforge/apps-catalog-ui        |
+|App Catalog UI         |https://github.com/openstack/app-catalog-ui          |
 +-----------------------+-----------------------------------------------------+
 |Cerberus Dashboard     |https://github.com/stackforge/cerberus-dashboard     |
 +-----------------------+-----------------------------------------------------+
