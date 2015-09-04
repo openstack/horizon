@@ -19,7 +19,7 @@
       }
     ];
 
-    beforeEach(module('horizon.framework.util.workflow'));
+    beforeEach(module('horizon.framework'));
 
     beforeEach(inject(function ($injector) {
       workflow = $injector.get('horizon.framework.util.workflow.service');

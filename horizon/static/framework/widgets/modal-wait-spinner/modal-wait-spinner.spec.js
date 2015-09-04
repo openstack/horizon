@@ -20,8 +20,7 @@
 
     var service, modal;
     beforeEach(module('ui.bootstrap'));
-    beforeEach(module('horizon.framework.conf'));
-    beforeEach(module('horizon.framework.widgets.modal-wait-spinner'));
+    beforeEach(module('horizon.framework'));
 
     beforeEach(inject(function($injector, $modal) {
       service = $injector.get('horizon.framework.widgets.modal-wait-spinner.service');
@@ -75,8 +74,7 @@
     var $scope, $element, $timeout;
 
     beforeEach(module('ui.bootstrap'));
-    beforeEach(module('horizon.framework.conf'));
-    beforeEach(module('horizon.framework.widgets.modal-wait-spinner'));
+    beforeEach(module('horizon.framework'));
 
     beforeEach(inject(function($injector) {
       var $compile = $injector.get('$compile');

@@ -8,8 +8,7 @@
   });
 
   describe('validators directive', function () {
-    beforeEach(module('horizon.framework.widgets'));
-    beforeEach(module('horizon.framework.util.validators'));
+    beforeEach(module('horizon.framework'));
 
     describe('validateNumberMax directive', function () {
       var $scope, $form;

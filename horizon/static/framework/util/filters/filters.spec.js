@@ -2,8 +2,7 @@
   'use strict';
 
   describe('horizon.framework.util.filters', function () {
-    beforeEach(module('horizon.framework.util.i18n'));
-    beforeEach(module('horizon.framework.util.filters'));
+    beforeEach(module('horizon.framework'));
 
     describe('yesno', function () {
       var yesnoFilter;

@@ -23,7 +23,7 @@
   });
 
   describe('horizon.framework.widgets.basePath', function () {
-    beforeEach(module('horizon.framework.widgets'));
+    beforeEach(module('horizon.framework'));
 
     it('should be defined and set correctly', inject([
       'horizon.framework.widgets.basePath', '$window',

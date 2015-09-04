@@ -11,8 +11,6 @@
     var $scope, $element;
 
     beforeEach(module('horizon.framework'));
-    beforeEach(module('horizon.framework.widgets'));
-    beforeEach(module('horizon.framework.util.bind-scope'));
 
     beforeEach(module('horizon.framework.util.bind-scope', function ($compileProvider) {
       /* eslint-disable angular/ng_module_getter */

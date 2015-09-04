@@ -24,7 +24,7 @@
     describe('showKeyFilter', function () {
       var showKeyFilter;
 
-      beforeEach(module('horizon.framework.widgets.charts'));
+      beforeEach(module('horizon.framework'));
 
       beforeEach(inject(function (_showKeyFilterFilter_) {
         showKeyFilter = _showKeyFilterFilter_;

@@ -103,9 +103,6 @@
 
       beforeEach(module('templates'));
       beforeEach(module('horizon.framework'));
-      beforeEach(module('horizon.framework.widgets'));
-      beforeEach(module('horizon.framework.widgets.metadata'));
-      beforeEach(module('horizon.framework.widgets.metadata.tree'));
 
       describe('metadataTree directive', function () {
 

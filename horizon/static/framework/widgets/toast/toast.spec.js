@@ -33,8 +33,7 @@
     var infoMsg = "I am info.";
 
     beforeEach(module('templates'));
-    beforeEach(module('horizon.framework.widgets'));
-    beforeEach(module('horizon.framework.widgets.toast'));
+    beforeEach(module('horizon.framework'));
     beforeEach(inject(function ($injector) {
       service = $injector.get('horizon.framework.widgets.toast.service');
       $scope = $injector.get('$rootScope').$new();
@@ -107,8 +106,7 @@
     }
 
     beforeEach(module('templates'));
-    beforeEach(module('horizon.framework.widgets'));
-    beforeEach(module('horizon.framework.widgets.toast'));
+    beforeEach(module('horizon.framework'));
     beforeEach(inject(function ($injector) {
       $scope = $injector.get('$rootScope').$new();
       $compile = $injector.get('$compile');

@@ -22,9 +22,6 @@
     beforeEach(module('templates'));
     beforeEach(module('smart-table'));
     beforeEach(module('horizon.framework'));
-    beforeEach(module('horizon.framework.widgets'));
-    beforeEach(module('horizon.framework.widgets.table'));
-    beforeEach(module('horizon.framework.widgets.transfer-table'));
 
     var log, params;
     beforeEach(module(function($provide) {

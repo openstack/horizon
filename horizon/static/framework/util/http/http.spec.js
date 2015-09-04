@@ -10,7 +10,7 @@
   describe('api service', function () {
     var api, $httpBackend;
 
-    beforeEach(module('horizon.framework.util.http'));
+    beforeEach(module('horizon.framework'));
     beforeEach(inject(function ($injector) {
       api = $injector.get('horizon.framework.util.http.service');
       $httpBackend = $injector.get('$httpBackend');
