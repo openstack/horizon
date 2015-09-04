@@ -1237,9 +1237,8 @@ IP address, that should be added. The setting may contain more than one entry.
 
 .. note::
 
-    ALLOWED_HOSTS is required for versions of Django 1.5 and newer.
-    If Horizon is running in production (DEBUG is False), set this
-    with the list of host/domain names that the application can serve.
+    ALLOWED_HOSTS is required. If Horizon is running in production (DEBUG is False),
+    set this with the list of host/domain names that the application can serve.
     For more information see:
     https://docs.djangoproject.com/en/dev/ref/settings/#allowed-hosts
 

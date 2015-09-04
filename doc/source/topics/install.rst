@@ -10,7 +10,7 @@ System Requirements
 ===================
 
 * Python 2.7
-* Django 1.6 (1.4 and 1.5 are supported too)
+* Django 1.7 or 1.8
 * Minimum required set of running OpenStack services are:
 
   * nova: OpenStack Compute
