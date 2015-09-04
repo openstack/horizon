@@ -3,6 +3,4 @@
 // -----------------------------------------------------
 @import '/bootstrap/scss/bootstrap/mixins/vendor-prefixes';
 @import '/horizon/lib/bootswatch/paper/bootswatch';
-
-$roboto-font-path: $static_url + '/horizon/lib/roboto_fontface/fonts';
 @import '/horizon/lib/roboto_fontface/css/roboto-fontface.scss';
