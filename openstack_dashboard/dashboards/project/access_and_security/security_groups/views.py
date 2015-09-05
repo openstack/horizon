@@ -110,18 +110,19 @@ class AddRuleView(forms.ModalFormView):
     template_name = 'project/access_and_security/security_groups/add_rule.html'
     submit_label = _("Add")
     submit_url = "horizon:project:access_and_security:security_groups:add_rule"
-    success_url = "horizon:project:access_and_security:security_groups:detail"
+    url = "horizon:project:access_and_security:security_groups:detail"
     page_title = _("Add Rule")
 
     def get_success_url(self):
         sg_id = self.kwargs['security_group_id']
-        return reverse(self.success_url, args=[sg_id])
+        return reverse(self.url, args=[sg_id])
 
     def get_context_data(self, **kwargs):
         context = super(AddRuleView, self).get_context_data(**kwargs)
         context["security_group_id"] = self.kwargs['security_group_id']
         args = (self.kwargs['security_group_id'],)
         context['submit_url'] = reverse(self.submit_url, args=args)
+        context['cancel_url'] = reverse(self.url, args=args)
         return context
 
     def get_initial(self):
