@@ -241,11 +241,16 @@ class CreateVolumeType(forms.SelfHandlingForm):
             messages.success(request, _('Successfully created volume type: %s')
                              % data['name'])
             return volume_type
-        except Exception:
-            redirect = reverse("horizon:admin:volumes:index")
-            exceptions.handle(request,
-                              _('Unable to create volume type.'),
-                              redirect=redirect)
+        except Exception as e:
+            if getattr(e, 'code', None) == 409:
+                msg = _('Volume type name "%s" already '
+                        'exists.') % data['name']
+                self._errors['name'] = self.error_class([msg])
+            else:
+                redirect = reverse("horizon:admin:volumes:index")
+                exceptions.handle(request,
+                                  _('Unable to create volume type.'),
+                                  redirect=redirect)
 
 
 class UpdateStatus(forms.SelfHandlingForm):
