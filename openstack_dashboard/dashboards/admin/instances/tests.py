@@ -39,6 +39,8 @@ class InstanceViewTest(test.BaseAdminViewTests):
         tenants = self.tenants.list()
         api.nova.extension_supported('AdminActions', IsA(http.HttpRequest)) \
             .MultipleTimes().AndReturn(True)
+        api.nova.extension_supported('Shelve', IsA(http.HttpRequest)) \
+            .MultipleTimes().AndReturn(True)
         api.keystone.tenant_list(IsA(http.HttpRequest)).\
             AndReturn([tenants, False])
         search_opts = {'marker': None, 'paginate': True}
@@ -72,6 +74,8 @@ class InstanceViewTest(test.BaseAdminViewTests):
         api.network.servers_update_addresses(IsA(http.HttpRequest), servers,
                                              all_tenants=True)
         api.nova.extension_supported('AdminActions', IsA(http.HttpRequest)) \
+            .MultipleTimes().AndReturn(True)
+        api.nova.extension_supported('Shelve', IsA(http.HttpRequest)) \
             .MultipleTimes().AndReturn(True)
         api.nova.flavor_list(IsA(http.HttpRequest)). \
             AndRaise(self.exceptions.nova)
@@ -108,6 +112,8 @@ class InstanceViewTest(test.BaseAdminViewTests):
         api.network.servers_update_addresses(IsA(http.HttpRequest), servers,
                                              all_tenants=True)
         api.nova.extension_supported('AdminActions', IsA(http.HttpRequest)) \
+            .MultipleTimes().AndReturn(True)
+        api.nova.extension_supported('Shelve', IsA(http.HttpRequest)) \
             .MultipleTimes().AndReturn(True)
         api.nova.flavor_list(IsA(http.HttpRequest)). \
             AndReturn(flavors)
@@ -150,6 +156,8 @@ class InstanceViewTest(test.BaseAdminViewTests):
         api.nova.server_get(IsA(http.HttpRequest), server.id).AndReturn(server)
         api.nova.extension_supported('AdminActions', IsA(http.HttpRequest)) \
             .MultipleTimes().AndReturn(True)
+        api.nova.extension_supported('Shelve', IsA(http.HttpRequest)) \
+            .MultipleTimes().AndReturn(True)
         api.nova.flavor_get(IsA(http.HttpRequest),
                             server.flavor['id']).AndReturn(flavor)
         api.keystone.tenant_get(IsA(http.HttpRequest),
@@ -191,6 +199,8 @@ class InstanceViewTest(test.BaseAdminViewTests):
                                              all_tenants=True)
         api.nova.extension_supported('AdminActions', IsA(http.HttpRequest)) \
             .MultipleTimes().AndReturn(True)
+        api.nova.extension_supported('Shelve', IsA(http.HttpRequest)) \
+            .MultipleTimes().AndReturn(True)
         api.nova.flavor_list(IsA(http.HttpRequest)).\
             AndReturn(self.flavors.list())
         self.mox.ReplayAll()
@@ -214,6 +224,8 @@ class InstanceViewTest(test.BaseAdminViewTests):
             .AndReturn([self.tenants.list(), False])
         search_opts = {'marker': None, 'paginate': True}
         api.nova.extension_supported('AdminActions', IsA(http.HttpRequest)) \
+            .MultipleTimes().AndReturn(True)
+        api.nova.extension_supported('Shelve', IsA(http.HttpRequest)) \
             .MultipleTimes().AndReturn(True)
         api.nova.server_list(IsA(http.HttpRequest),
                              all_tenants=True, search_opts=search_opts) \

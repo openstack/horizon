@@ -650,6 +650,14 @@ def server_resume(request, instance_id):
     novaclient(request).servers.resume(instance_id)
 
 
+def server_shelve(request, instance_id):
+    novaclient(request).servers.shelve(instance_id)
+
+
+def server_unshelve(request, instance_id):
+    novaclient(request).servers.unshelve(instance_id)
+
+
 def server_reboot(request, instance_id, soft_reboot=False):
     hardness = nova_servers.REBOOT_HARD
     if soft_reboot:

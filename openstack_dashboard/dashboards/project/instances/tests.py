@@ -75,6 +75,8 @@ class InstanceTests(helpers.TestCase):
         api.nova.extension_supported('AdminActions',
                                      IsA(http.HttpRequest)) \
             .MultipleTimes().AndReturn(True)
+        api.nova.extension_supported('Shelve', IsA(http.HttpRequest)) \
+            .MultipleTimes().AndReturn(True)
         api.nova.flavor_list(IsA(http.HttpRequest)) \
             .AndReturn(self.flavors.list())
         api.glance.image_list_detailed(IgnoreArg()) \
@@ -138,6 +140,8 @@ class InstanceTests(helpers.TestCase):
         api.nova.extension_supported('AdminActions',
                                      IsA(http.HttpRequest)) \
             .MultipleTimes().AndReturn(True)
+        api.nova.extension_supported('Shelve', IsA(http.HttpRequest)) \
+            .MultipleTimes().AndReturn(True)
         api.nova.server_list(IsA(http.HttpRequest), search_opts=search_opts) \
             .AndReturn([servers, False])
         api.network.servers_update_addresses(IsA(http.HttpRequest), servers)
@@ -181,6 +185,8 @@ class InstanceTests(helpers.TestCase):
 
         api.nova.extension_supported('AdminActions',
                                      IsA(http.HttpRequest)) \
+            .MultipleTimes().AndReturn(True)
+        api.nova.extension_supported('Shelve', IsA(http.HttpRequest)) \
             .MultipleTimes().AndReturn(True)
         api.nova.flavor_list(IsA(http.HttpRequest)) \
             .AndReturn(self.flavors.list())
@@ -611,6 +617,129 @@ class InstanceTests(helpers.TestCase):
 
         self.assertRedirectsNoFollow(res, INDEX_URL)
 
+    @helpers.create_stubs({api.nova: ('server_shelve',
+                                      'server_list',
+                                      'flavor_list',
+                                      'extension_supported',),
+                           api.glance: ('image_list_detailed',),
+                           api.network: ('servers_update_addresses',)})
+    def test_shelve_instance(self):
+        servers = self.servers.list()
+        server = servers[0]
+
+        api.nova.extension_supported('Shelve', IsA(http.HttpRequest)) \
+            .MultipleTimes().AndReturn(True)
+        api.nova.flavor_list(IsA(http.HttpRequest)) \
+            .AndReturn(self.flavors.list())
+        api.glance.image_list_detailed(IgnoreArg()) \
+            .AndReturn((self.images.list(), False, False))
+        search_opts = {'marker': None, 'paginate': True}
+        api.nova.server_list(IsA(http.HttpRequest), search_opts=search_opts) \
+            .AndReturn([servers, False])
+        api.network.servers_update_addresses(IsA(http.HttpRequest), servers)
+        api.nova.server_shelve(IsA(http.HttpRequest), six.text_type(server.id))
+
+        self.mox.ReplayAll()
+
+        formData = {'action': 'instances__shelve__%s' % server.id}
+        res = self.client.post(INDEX_URL, formData)
+
+        self.assertRedirectsNoFollow(res, INDEX_URL)
+
+    @helpers.create_stubs({api.nova: ('server_shelve',
+                                      'server_list',
+                                      'flavor_list',
+                                      'extension_supported',),
+                           api.glance: ('image_list_detailed',),
+                           api.network: ('servers_update_addresses',)})
+    def test_shelve_instance_exception(self):
+        servers = self.servers.list()
+        server = servers[0]
+
+        api.nova.extension_supported('Shelve', IsA(http.HttpRequest)) \
+            .MultipleTimes().AndReturn(True)
+        api.nova.flavor_list(IsA(http.HttpRequest)) \
+            .AndReturn(self.flavors.list())
+        api.glance.image_list_detailed(IgnoreArg()) \
+            .AndReturn((self.images.list(), False, False))
+        search_opts = {'marker': None, 'paginate': True}
+        api.nova.server_list(IsA(http.HttpRequest), search_opts=search_opts) \
+            .AndReturn([servers, False])
+        api.network.servers_update_addresses(IsA(http.HttpRequest), servers)
+        api.nova.server_shelve(IsA(http.HttpRequest),
+                               six.text_type(server.id)) \
+            .AndRaise(self.exceptions.nova)
+
+        self.mox.ReplayAll()
+
+        formData = {'action': 'instances__shelve__%s' % server.id}
+        res = self.client.post(INDEX_URL, formData)
+
+        self.assertRedirectsNoFollow(res, INDEX_URL)
+
+    @helpers.create_stubs({api.nova: ('server_unshelve',
+                                      'server_list',
+                                      'flavor_list',
+                                      'extension_supported',),
+                           api.glance: ('image_list_detailed',),
+                           api.network: ('servers_update_addresses',)})
+    def test_unshelve_instance(self):
+        servers = self.servers.list()
+        server = servers[0]
+        server.status = "SHELVED_OFFLOADED"
+
+        api.nova.extension_supported('Shelve', IsA(http.HttpRequest)) \
+            .MultipleTimes().AndReturn(True)
+        api.nova.flavor_list(IsA(http.HttpRequest)) \
+            .AndReturn(self.flavors.list())
+        api.glance.image_list_detailed(IgnoreArg()) \
+            .AndReturn((self.images.list(), False, False))
+        search_opts = {'marker': None, 'paginate': True}
+        api.nova.server_list(IsA(http.HttpRequest), search_opts=search_opts) \
+            .AndReturn([servers, False])
+        api.network.servers_update_addresses(IsA(http.HttpRequest), servers)
+        api.nova.server_unshelve(IsA(http.HttpRequest),
+                                 six.text_type(server.id))
+
+        self.mox.ReplayAll()
+
+        formData = {'action': 'instances__shelve__%s' % server.id}
+        res = self.client.post(INDEX_URL, formData)
+
+        self.assertRedirectsNoFollow(res, INDEX_URL)
+
+    @helpers.create_stubs({api.nova: ('server_unshelve',
+                                      'server_list',
+                                      'flavor_list',
+                                      'extension_supported',),
+                           api.glance: ('image_list_detailed',),
+                           api.network: ('servers_update_addresses',)})
+    def test_unshelve_instance_exception(self):
+        servers = self.servers.list()
+        server = servers[0]
+        server.status = "SHELVED_OFFLOADED"
+
+        api.nova.extension_supported('Shelve', IsA(http.HttpRequest)) \
+            .MultipleTimes().AndReturn(True)
+        api.nova.flavor_list(IsA(http.HttpRequest)) \
+            .AndReturn(self.flavors.list())
+        api.glance.image_list_detailed(IgnoreArg()) \
+            .AndReturn((self.images.list(), False, False))
+        search_opts = {'marker': None, 'paginate': True}
+        api.nova.server_list(IsA(http.HttpRequest), search_opts=search_opts) \
+            .AndReturn([servers, False])
+        api.network.servers_update_addresses(IsA(http.HttpRequest), servers)
+        api.nova.server_unshelve(IsA(http.HttpRequest),
+                                 six.text_type(server.id)) \
+            .AndRaise(self.exceptions.nova)
+
+        self.mox.ReplayAll()
+
+        formData = {'action': 'instances__shelve__%s' % server.id}
+        res = self.client.post(INDEX_URL, formData)
+
+        self.assertRedirectsNoFollow(res, INDEX_URL)
+
     @helpers.create_stubs({api.nova: ('server_lock',
                                       'server_list',
                                       'extension_supported',),
@@ -770,6 +899,8 @@ class InstanceTests(helpers.TestCase):
         api.network.floating_ip_supported(IsA(http.HttpRequest)) \
             .MultipleTimes().AndReturn(True)
         api.nova.extension_supported('AdminActions', IsA(http.HttpRequest)) \
+            .MultipleTimes().AndReturn(True)
+        api.nova.extension_supported('Shelve', IsA(http.HttpRequest)) \
             .MultipleTimes().AndReturn(True)
 
         self.mox.ReplayAll()
@@ -1139,6 +1270,8 @@ class InstanceTests(helpers.TestCase):
         servers = self.servers.list()
         api.nova.extension_supported('AdminActions',
                                      IsA(http.HttpRequest)) \
+            .MultipleTimes().AndReturn(True)
+        api.nova.extension_supported('Shelve', IsA(http.HttpRequest)) \
             .MultipleTimes().AndReturn(True)
         api.nova.flavor_list(IsA(http.HttpRequest)) \
             .AndReturn(self.flavors.list())
@@ -3298,6 +3431,8 @@ class InstanceTests(helpers.TestCase):
         api.nova.extension_supported('AdminActions',
                                      IsA(http.HttpRequest)) \
             .MultipleTimes().AndReturn(True)
+        api.nova.extension_supported('Shelve', IsA(http.HttpRequest)) \
+            .MultipleTimes().AndReturn(True)
         api.nova.flavor_list(IsA(http.HttpRequest)) \
             .AndReturn(self.flavors.list())
         api.glance.image_list_detailed(IgnoreArg()) \
@@ -3469,6 +3604,8 @@ class InstanceTests(helpers.TestCase):
         server.status = "VERIFY_RESIZE"
         api.nova.extension_supported('AdminActions',
                                      IsA(http.HttpRequest)) \
+            .MultipleTimes().AndReturn(True)
+        api.nova.extension_supported('Shelve', IsA(http.HttpRequest)) \
             .MultipleTimes().AndReturn(True)
         api.nova.flavor_list(IsA(http.HttpRequest)) \
             .AndReturn(self.flavors.list())
@@ -4024,6 +4161,8 @@ class InstanceTests(helpers.TestCase):
         api.nova.extension_supported('AdminActions',
                                      IsA(http.HttpRequest)) \
             .MultipleTimes().AndReturn(True)
+        api.nova.extension_supported('Shelve', IsA(http.HttpRequest)) \
+            .MultipleTimes().AndReturn(True)
         api.nova.flavor_list(IsA(http.HttpRequest)) \
             .MultipleTimes().AndReturn(self.flavors.list())
         api.glance.image_list_detailed(IgnoreArg()) \
@@ -4170,6 +4309,8 @@ class InstanceAjaxTests(helpers.TestCase):
 
         api.nova.extension_supported('AdminActions', IsA(http.HttpRequest))\
             .MultipleTimes().AndReturn(True)
+        api.nova.extension_supported('Shelve', IsA(http.HttpRequest)) \
+            .MultipleTimes().AndReturn(True)
         api.neutron.is_extension_supported(IsA(http.HttpRequest),
                                            'security-group')\
             .MultipleTimes().AndReturn(True)
@@ -4212,6 +4353,8 @@ class InstanceAjaxTests(helpers.TestCase):
 
         api.nova.extension_supported('AdminActions', IsA(http.HttpRequest))\
             .MultipleTimes().AndReturn(True)
+        api.nova.extension_supported('Shelve', IsA(http.HttpRequest)) \
+            .MultipleTimes().AndReturn(True)
         api.neutron.is_extension_supported(IsA(http.HttpRequest),
                                            'security-group')\
             .MultipleTimes().AndReturn(True)
@@ -4249,6 +4392,8 @@ class InstanceAjaxTests(helpers.TestCase):
         instance_id = server.id
 
         api.nova.extension_supported('AdminActions', IsA(http.HttpRequest))\
+            .MultipleTimes().AndReturn(True)
+        api.nova.extension_supported('Shelve', IsA(http.HttpRequest)) \
             .MultipleTimes().AndReturn(True)
         api.neutron.is_extension_supported(IsA(http.HttpRequest),
                                            'security-group')\

@@ -182,6 +182,7 @@ class AdminInstancesTable(tables.DataTable):
                        project_tables.CreateSnapshot,
                        project_tables.TogglePause,
                        project_tables.ToggleSuspend,
+                       project_tables.ToggleShelve,
                        MigrateInstance,
                        LiveMigrateInstance,
                        project_tables.SoftRebootInstance,

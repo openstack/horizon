@@ -70,6 +70,8 @@ PAUSE = 0
 UNPAUSE = 1
 SUSPEND = 0
 RESUME = 1
+SHELVE = 0
+UNSHELVE = 1
 
 
 def is_deleting(instance):
@@ -302,6 +304,73 @@ class ToggleSuspend(tables.BatchAction):
         else:
             api.nova.server_suspend(request, obj_id)
             self.current_past_action = SUSPEND
+
+
+class ToggleShelve(tables.BatchAction):
+    name = "shelve"
+    icon = "shelve"
+
+    @staticmethod
+    def action_present(count):
+        return (
+            ungettext_lazy(
+                u"Shelve Instance",
+                u"Shelve Instances",
+                count
+            ),
+            ungettext_lazy(
+                u"Unshelve Instance",
+                u"Unshelve Instances",
+                count
+            ),
+        )
+
+    @staticmethod
+    def action_past(count):
+        return (
+            ungettext_lazy(
+                u"Shelved Instance",
+                u"Shelved Instances",
+                count
+            ),
+            ungettext_lazy(
+                u"Unshelved Instance",
+                u"Unshelved Instances",
+                count
+            ),
+        )
+
+    def allowed(self, request, instance=None):
+        if not api.nova.extension_supported('Shelve', request):
+            return False
+        if not instance:
+            return False
+        self.shelved = instance.status == "SHELVED_OFFLOADED"
+        if self.shelved:
+            self.current_present_action = UNSHELVE
+            policy = (("compute", "compute_extension:unshelve"),)
+        else:
+            self.current_present_action = SHELVE
+            policy = (("compute", "compute_extension:shelve"),)
+
+        has_permission = True
+        policy_check = getattr(settings, "POLICY_CHECK_FUNCTION", None)
+        if policy_check:
+            has_permission = policy_check(
+                policy, request,
+                target={'project_id': getattr(instance, 'tenant_id', None)})
+
+        return (has_permission
+                and (instance.status in ACTIVE_STATES or self.shelved)
+                and not is_deleting(instance))
+
+    def action(self, request, obj_id):
+        if self.shelved:
+            api.nova.server_unshelve(request, obj_id)
+            self.current_past_action = UNSHELVE
+        else:
+            api.nova.server_shelve(request, obj_id)
+            self.current_past_action = SHELVE
 
 
 class LaunchLink(tables.LinkAction):
@@ -1109,6 +1178,6 @@ class InstancesTable(tables.DataTable):
                        DetachInterface, EditInstance,
                        DecryptInstancePassword, EditInstanceSecurityGroups,
                        ConsoleLink, LogLink, TogglePause, ToggleSuspend,
-                       ResizeLink, LockInstance, UnlockInstance,
+                       ToggleShelve, ResizeLink, LockInstance, UnlockInstance,
                        SoftRebootInstance, RebootInstance,
                        StopInstance, RebuildInstance, TerminateInstance)
