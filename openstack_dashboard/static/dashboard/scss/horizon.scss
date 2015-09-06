@@ -64,6 +64,10 @@ ul {
   margin: 0;
 }
 
+.login ul.errorlist {
+  padding-left: 0;
+}
+
 // Disc-styled list. This list should be used to build bullet-items lists.
 .list-bullet {
   list-style: disc;
