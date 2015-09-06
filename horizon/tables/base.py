@@ -357,14 +357,12 @@ class Column(html.HTMLElement):
             data = datum.get(self.transform)
         else:
             # Basic object lookups
-            try:
-                data = getattr(datum, self.transform)
-            except AttributeError:
-                msg = ("The attribute %(attr)s doesn't exist on "
-                       "%(obj)s.") % {'attr': self.transform, 'obj': datum}
+            data = getattr(datum, self.transform, None)
+            if data is None:
+                msg = _("The attribute %(attr)s doesn't exist on "
+                        "%(obj)s.") % {'attr': self.transform, 'obj': datum}
                 msg = termcolors.colorize(msg, **PALETTE['ERROR'])
-                LOG.warning(msg)
-                data = None
+                LOG.debug(msg)
         return data
 
     def get_data(self, datum):
