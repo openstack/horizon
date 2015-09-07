@@ -87,11 +87,11 @@ class BaseHorizonTests(test.TestCase):
         # hasn't happened yet.
         base.Horizon._urls()
         # Store our original dashboards
-        self._discovered_dashboards = base.Horizon._registry.keys()
+        self._discovered_dashboards = list(base.Horizon._registry)
         # Gather up and store our original panels for each dashboard
         self._discovered_panels = {}
         for dash in self._discovered_dashboards:
-            panels = base.Horizon._registry[dash]._registry.keys()
+            panels = list(base.Horizon._registry[dash]._registry)
             self._discovered_panels[dash] = panels
 
     def tearDown(self):
@@ -372,11 +372,12 @@ class CustomPanelTests(BaseHorizonTests):
     """
 
     def setUp(self):
+        super(CustomPanelTests, self).setUp()
         settings.HORIZON_CONFIG['customization_module'] = \
             'horizon.test.customization.cust_test1'
         # refresh config
         conf.HORIZON_CONFIG._setup()
-        super(CustomPanelTests, self).setUp()
+        self._reload_urls()
 
     def tearDown(self):
         # Restore dash
@@ -476,11 +477,11 @@ class RbacHorizonTests(test.TestCase):
         # hasn't happened yet.
         base.Horizon._urls()
         # Store our original dashboards
-        self._discovered_dashboards = base.Horizon._registry.keys()
+        self._discovered_dashboards = list(base.Horizon._registry)
         # Gather up and store our original panels for each dashboard
         self._discovered_panels = {}
         for dash in self._discovered_dashboards:
-            panels = base.Horizon._registry[dash]._registry.keys()
+            panels = list(base.Horizon._registry[dash]._registry)
             self._discovered_panels[dash] = panels
 
     def tearDown(self):
