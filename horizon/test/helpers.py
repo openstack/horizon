@@ -35,6 +35,7 @@ from django.test.client import RequestFactory  # noqa
 from django.test import testcases
 from django.utils.encoding import force_text
 from django.utils import unittest
+import six
 
 if django.VERSION < (1, 7):
     from django.test import LiveServerTestCase  # noqa
@@ -168,6 +169,14 @@ class TestCase(django_test.TestCase):
             self.user.user_permissions.add(perm)
         if hasattr(self.user, "_perm_cache"):
             del self.user._perm_cache
+
+    if six.PY3:
+        # Python 2 assert methods renamed in Python 3
+        def assertItemsEqual(self, expected_seq, actual_seq, msg=None):
+            self.assertCountEqual(expected_seq, actual_seq, msg)
+
+        def assertNotRegexpMatches(self, text, unexpected_regexp, msg=None):
+            self.assertNotRegex(text, unexpected_regexp, msg)
 
     def assertNoMessages(self, response=None):
         """Asserts that no messages have been attached by the
