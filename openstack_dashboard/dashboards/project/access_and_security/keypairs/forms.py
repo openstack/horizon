@@ -63,8 +63,8 @@ class ImportKeypair(forms.SelfHandlingForm):
                             label=_("Key Pair Name"),
                             regex=KEYPAIR_NAME_REGEX,
                             error_messages=KEYPAIR_ERROR_MESSAGES)
-    public_key = forms.CharField(label=_("Public Key"), widget=forms.Textarea(
-        attrs={'class': 'modal-body-fixed-width'}))
+    public_key = forms.CharField(label=_("Public Key"),
+                                 widget=forms.Textarea())
 
     def handle(self, request, data):
         try:
