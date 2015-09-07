@@ -1396,7 +1396,7 @@ class DataTable(object):
         """hide checkbox column if no current table action is allowed."""
         if not self.multi_select:
             return
-        select_column = self.columns.values()[0]
+        select_column = list(self.columns.values())[0]
         # Try to find if the hidden class need to be
         # removed or added based on visible flag.
         hidden_found = 'hidden' in select_column.classes
