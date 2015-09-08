@@ -204,6 +204,20 @@ Tips and tricks
    environment and see which of your assumptions about the code isn't,
    in fact, flawlessly correct.
 
+#. If the error is in the Selenium test suite, you're likely getting very little
+   information about the error. To increase the information provided to you,
+   edit ``horizon/test/settings.py`` to set ``DEBUG = True`` and set the logging
+   level to 'DEBUG' for the default 'test' logger. Also, add a logger config
+   for Django::
+
+         },
+         'loggers': {
+    +        'django': {
+    +            'handlers': ['test'],
+    +            'propagate': False,
+    +        },
+             'django.db.backends': {
+
 Common pitfalls
 ---------------
 
