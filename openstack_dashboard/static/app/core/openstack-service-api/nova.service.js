@@ -329,7 +329,7 @@
       return apiService.get('/api/nova/aggregates/' + id + '/extra-specs/')
         .error(function () {
           toastService.add('error', gettext('Unable to retrieve the aggregate extra specs.'));
-      });
+        });
     }
 
     /**

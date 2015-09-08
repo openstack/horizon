@@ -16,12 +16,12 @@
 (function () {
   'use strict';
 
-  describe('horizon.app.core.metadata.modal', function () {
+  describe('horizon.app.core.metadata.modal', function() {
 
-    describe('service.modalservice', function(){
+    describe('service.modalservice', function() {
       var modalService, metadataService, $modal;
 
-      beforeEach(module('ui.bootstrap', function($provide){
+      beforeEach(module('ui.bootstrap', function($provide) {
         $modal = jasmine.createSpyObj('$modal', ['open']);
 
         $provide.value('$modal', $modal);
@@ -31,7 +31,7 @@
         $provide.constant('horizon.app.core.basePath', '/a/sample/path/');
       }));
 
-      beforeEach(module('horizon.app.core.metadata', function($provide){
+      beforeEach(module('horizon.app.core.metadata', function($provide) {
         metadataService = jasmine.createSpyObj('metadataService', ['getMetadata', 'getNamespaces']);
         $provide.value('horizon.app.core.metadata.service', metadataService);
       }));

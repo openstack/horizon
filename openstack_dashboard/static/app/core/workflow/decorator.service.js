@@ -18,6 +18,7 @@
 
   var forEach = angular.forEach;
 
+  /* eslint-disable max-len */
   /**
    * @ngdoc factory
    * @name horizon.app.core.workflow.factory:horizon.app.core.workflow.decorator
@@ -43,6 +44,7 @@
    * | {@link horizon.app.core.workflow.factory:horizon.app.core.workflow.decorator `horizon.app.core.workflow.decorator`}  |
    *
    */
+  /* eslint-ensable max-len */
   angular
     .module('horizon.app.core.workflow')
     .factory('horizon.app.core.workflow.decorator', dashboardWorkflowDecorator);
