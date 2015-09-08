@@ -12,15 +12,12 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
-import re
-
 from django.core.urlresolvers import reverse
 from django.core.urlresolvers import reverse_lazy
 from django.utils.translation import ugettext_lazy as _
 
 from horizon import exceptions
 from horizon import forms
-from horizon import messages
 from horizon import tabs
 from horizon.utils import memoized
 from horizon import workflows
@@ -51,43 +48,10 @@ AddPolicy = fw_workflows.AddPolicy
 AddRule = fw_workflows.AddRule
 
 
-class IndexView(tabs.TabView):
-    tab_group_class = (FirewallTabs)
+class IndexView(tabs.TabbedTableView):
+    tab_group_class = FirewallTabs
     template_name = 'project/firewalls/details_tabs.html'
     page_title = _("Firewalls")
-
-    def post(self, request, *args, **kwargs):
-        obj_ids = request.POST.getlist('object_ids')
-        action = request.POST['action']
-        obj_type = re.search('.delete([a-z]+)', action).group(1)
-        if not obj_ids:
-            obj_ids.append(re.search('([0-9a-z-]+)$', action).group(1))
-        if obj_type == 'rule':
-            for obj_id in obj_ids:
-                try:
-                    api.fwaas.rule_delete(request, obj_id)
-                    messages.success(request, _('Deleted rule %s') % obj_id)
-                except Exception as e:
-                    exceptions.handle(request,
-                                      _('Unable to delete rule. %s') % e)
-        if obj_type == 'policy':
-            for obj_id in obj_ids:
-                try:
-                    api.fwaas.policy_delete(request, obj_id)
-                    messages.success(request, _('Deleted policy %s') % obj_id)
-                except Exception as e:
-                    exceptions.handle(request,
-                                      _('Unable to delete policy. %s') % e)
-        if obj_type == 'firewall':
-            for obj_id in obj_ids:
-                try:
-                    api.fwaas.firewall_delete(request, obj_id)
-                    messages.success(request,
-                                     _('Deleted firewall %s') % obj_id)
-                except Exception as e:
-                    exceptions.handle(request,
-                                      _('Unable to delete firewall. %s') % e)
-        return self.get(request, *args, **kwargs)
 
 
 class AddRuleView(workflows.WorkflowView):
