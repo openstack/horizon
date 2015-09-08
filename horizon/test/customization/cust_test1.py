@@ -13,7 +13,7 @@
 import horizon
 from horizon import base
 
-# Rename "cats" to "wildcats", ignore if panel doesn't exist
+# Rename "cats" to "WildCats", ignore if dashboard doesn't exist
 try:
     cats = horizon.get_dashboard("cats")
     cats.name = "WildCats"
