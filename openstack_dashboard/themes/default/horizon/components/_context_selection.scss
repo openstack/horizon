@@ -25,8 +25,8 @@
           width: 100%;
 
           & > .fa.fa-check {
-            left: unset;
-            float: unset;
+            left: auto;
+            float: auto;
             padding-left: $dropdown-item-padding-horizontal/2;
           }
         }
