@@ -334,14 +334,14 @@ def handle(request, message=None, redirect=None, ignore=False,
 
     log_entry = encoding.force_text(exc_value)
 
-    # We trust messages from our own exceptions
     user_message = ""
+    # We trust messages from our own exceptions
     if issubclass(exc_type, HorizonException):
-        user_message = exc_value
+        user_message = log_entry
     # If the message has a placeholder for the exception, fill it in
     elif message and "%(exc)s" in message:
         user_message = encoding.force_text(message) % {"exc": log_entry}
-    if message:
+    elif message:
         user_message = encoding.force_text(message)
 
     for exc_handler in HANDLE_EXC_METHODS:
@@ -349,7 +349,7 @@ def handle(request, message=None, redirect=None, ignore=False,
             if exc_handler['set_wrap']:
                 wrap = True
             handler = exc_handler['handler']
-            ret = handler(request, message, redirect, ignore,
+            ret = handler(request, user_message, redirect, ignore,
                           exc_handler.get('escalate', escalate),
                           handled, force_silence, force_log,
                           log_method, log_entry, log_level)
