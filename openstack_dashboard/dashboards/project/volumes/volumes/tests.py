@@ -42,6 +42,7 @@ class VolumeViewTests(test.TestCase):
     @test.create_stubs({cinder: ('volume_create',
                                  'volume_snapshot_list',
                                  'volume_type_list',
+                                 'volume_type_default',
                                  'volume_list',
                                  'availability_zone_list',
                                  'extension_supported'),
@@ -63,6 +64,8 @@ class VolumeViewTests(test.TestCase):
                     'snapshot_source': '',
                     'availability_zone': az}
 
+        cinder.volume_type_default(IsA(http.HttpRequest)).\
+            AndReturn(self.volume_types.first())
         cinder.volume_type_list(IsA(http.HttpRequest)).\
             AndReturn(self.volume_types.list())
         quotas.tenant_limit_usages(IsA(http.HttpRequest)).\
@@ -113,6 +116,7 @@ class VolumeViewTests(test.TestCase):
                                  'volume_snapshot_list',
                                  'volume_type_list',
                                  'volume_list',
+                                 'volume_type_default',
                                  'availability_zone_list',
                                  'extension_supported'),
                         api.glance: ('image_list_detailed',),
@@ -154,6 +158,8 @@ class VolumeViewTests(test.TestCase):
 
         cinder.extension_supported(IsA(http.HttpRequest), 'AvailabilityZones')\
             .AndReturn(True)
+        cinder.volume_type_default(IsA(http.HttpRequest)).\
+            AndReturn(self.volume_types.first())
         cinder.volume_list(IsA(
             http.HttpRequest),
             search_opts=SEARCH_OPTS).AndReturn(self.cinder_volumes.list())
@@ -181,6 +187,7 @@ class VolumeViewTests(test.TestCase):
     @test.create_stubs({cinder: ('volume_create',
                                  'volume_snapshot_list',
                                  'volume_type_list',
+                                 'volume_type_default',
                                  'volume_list',
                                  'availability_zone_list',
                                  'extension_supported'),
@@ -201,6 +208,8 @@ class VolumeViewTests(test.TestCase):
                     'snapshot_source': self.cinder_volume_snapshots.first().id,
                     'image_source': self.images.first().id}
 
+        cinder.volume_type_default(IsA(http.HttpRequest)).\
+            AndReturn(self.volume_types.first())
         cinder.volume_type_list(IsA(http.HttpRequest)).\
             AndReturn(self.volume_types.list())
         cinder.volume_snapshot_list(IsA(http.HttpRequest),
@@ -248,6 +257,7 @@ class VolumeViewTests(test.TestCase):
     @test.create_stubs({cinder: ('volume_create',
                                  'volume_snapshot_get',
                                  'volume_get',
+                                 'volume_type_default',
                                  'volume_type_list'),
                         quotas: ('tenant_limit_usages',)})
     def test_create_volume_from_snapshot(self):
@@ -264,6 +274,8 @@ class VolumeViewTests(test.TestCase):
                     'type': '',
                     'snapshot_source': snapshot.id}
 
+        cinder.volume_type_default(IsA(http.HttpRequest)).\
+            AndReturn(self.volume_types.first())
         cinder.volume_type_list(IsA(http.HttpRequest)).\
             AndReturn(self.volume_types.list())
         quotas.tenant_limit_usages(IsA(http.HttpRequest)).\
@@ -296,6 +308,7 @@ class VolumeViewTests(test.TestCase):
 
     @test.create_stubs({cinder: ('volume_create',
                                  'volume_get',
+                                 'volume_type_default',
                                  'volume_list',
                                  'volume_type_list',
                                  'availability_zone_list',
@@ -319,6 +332,8 @@ class VolumeViewTests(test.TestCase):
                     'volume_source_type': 'volume_source',
                     'volume_source': volume.id}
 
+        cinder.volume_type_default(IsA(http.HttpRequest)).\
+            AndReturn(self.volume_types.first())
         cinder.volume_list(IsA(http.HttpRequest), search_opts=SEARCH_OPTS).\
             AndReturn(self.cinder_volumes.list())
         cinder.volume_type_list(IsA(http.HttpRequest)).\
@@ -368,6 +383,7 @@ class VolumeViewTests(test.TestCase):
                                  'volume_snapshot_list',
                                  'volume_snapshot_get',
                                  'volume_get',
+                                 'volume_type_default',
                                  'volume_list',
                                  'volume_type_list',
                                  'availability_zone_list',
@@ -403,6 +419,8 @@ class VolumeViewTests(test.TestCase):
             filters={'property-owner_id': self.tenant.id,
                      'status': 'active'}) \
             .AndReturn([[], False, False])
+        cinder.volume_type_default(IsA(http.HttpRequest)).\
+            AndReturn(self.volume_types.first())
         cinder.volume_list(IsA(
             http.HttpRequest),
             search_opts=SEARCH_OPTS).AndReturn(self.cinder_volumes.list())
@@ -482,6 +500,7 @@ class VolumeViewTests(test.TestCase):
 
     @test.create_stubs({cinder: ('volume_create',
                                  'volume_type_list',
+                                 'volume_type_default',
                                  'availability_zone_list',
                                  'extension_supported'),
                         api.glance: ('image_get',),
@@ -500,6 +519,8 @@ class VolumeViewTests(test.TestCase):
                     'type': '',
                     'image_source': image.id}
 
+        cinder.volume_type_default(IsA(http.HttpRequest)).\
+            AndReturn(self.volume_types.first())
         cinder.volume_type_list(IsA(http.HttpRequest)).\
             AndReturn(self.volume_types.list())
         quotas.tenant_limit_usages(IsA(http.HttpRequest)).\
@@ -536,6 +557,7 @@ class VolumeViewTests(test.TestCase):
 
     @test.create_stubs({cinder: ('volume_create',
                                  'volume_type_list',
+                                 'volume_type_default',
                                  'volume_list',
                                  'volume_snapshot_list',
                                  'availability_zone_list',
@@ -573,6 +595,8 @@ class VolumeViewTests(test.TestCase):
             filters={'property-owner_id': self.tenant.id,
                      'status': 'active'}) \
             .AndReturn([[], False, False])
+        cinder.volume_type_default(IsA(http.HttpRequest)).\
+            AndReturn(self.volume_types.first())
         cinder.volume_list(IsA(
             http.HttpRequest),
             search_opts=SEARCH_OPTS).AndReturn(self.cinder_volumes.list())
