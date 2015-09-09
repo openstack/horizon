@@ -267,6 +267,9 @@ class CreateImageForm(forms.SelfHandlingForm):
                             '%s for image.') % meta['disk_format']
                 elif "Image name too long" in e.details:
                     msg = _('Unable to create new image: Image name too long.')
+                elif "not supported" in e.details:
+                    msg = _('Unable to create new image: URL scheme not '
+                            'supported.')
 
             exceptions.handle(request, msg)
 
