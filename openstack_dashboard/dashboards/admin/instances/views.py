@@ -17,9 +17,9 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
+from collections import OrderedDict
 from django.core.urlresolvers import reverse
 from django.core.urlresolvers import reverse_lazy
-from django.utils.datastructures import SortedDict
 from django.utils.translation import ugettext_lazy as _
 
 from horizon import exceptions
@@ -119,8 +119,8 @@ class AdminIndexView(tables.DataTableView):
                 # If fails to retrieve flavor list, creates an empty list.
                 flavors = []
 
-            full_flavors = SortedDict([(f.id, f) for f in flavors])
-            tenant_dict = SortedDict([(t.id, t) for t in tenants])
+            full_flavors = OrderedDict([(f.id, f) for f in flavors])
+            tenant_dict = OrderedDict([(t.id, t) for t in tenants])
             # Loop through instances to get flavor and tenant info.
             for inst in instances:
                 flavor_id = inst.flavor["id"]

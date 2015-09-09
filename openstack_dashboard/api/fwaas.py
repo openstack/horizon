@@ -14,7 +14,7 @@
 
 from __future__ import absolute_import
 
-from django.utils.datastructures import SortedDict
+from collections import OrderedDict
 
 from horizon.utils import memoized
 
@@ -98,7 +98,7 @@ def _rule_list(request, expand_policy, **kwargs):
         **kwargs).get('firewall_rules')
     if expand_policy and rules:
         policies = _policy_list(request, expand_rule=False)
-        policy_dict = SortedDict((p.id, p) for p in policies)
+        policy_dict = OrderedDict((p.id, p) for p in policies)
         for rule in rules:
             rule['policy'] = policy_dict.get(rule['firewall_policy_id'])
     return [Rule(r) for r in rules]
@@ -170,7 +170,7 @@ def _policy_list(request, expand_rule, **kwargs):
         **kwargs).get('firewall_policies')
     if expand_rule and policies:
         rules = _rule_list(request, expand_policy=False)
-        rule_dict = SortedDict((rule.id, rule) for rule in rules)
+        rule_dict = OrderedDict((rule.id, rule) for rule in rules)
         for p in policies:
             p['rules'] = [rule_dict.get(rule) for rule in p['firewall_rules']]
     return [Policy(p) for p in policies]
@@ -188,7 +188,7 @@ def _policy_get(request, policy_id, expand_rule):
         if policy_rules:
             rules = _rule_list(request, expand_policy=False,
                                firewall_policy_id=policy_id)
-            rule_dict = SortedDict((rule.id, rule) for rule in rules)
+            rule_dict = OrderedDict((rule.id, rule) for rule in rules)
             policy['rules'] = [rule_dict.get(rule) for rule in policy_rules]
         else:
             policy['rules'] = []
@@ -258,7 +258,7 @@ def _firewall_list(request, expand_policy, **kwargs):
         **kwargs).get('firewalls')
     if expand_policy and firewalls:
         policies = _policy_list(request, expand_rule=False)
-        policy_dict = SortedDict((p.id, p) for p in policies)
+        policy_dict = OrderedDict((p.id, p) for p in policies)
         for fw in firewalls:
             fw['policy'] = policy_dict.get(fw['firewall_policy_id'])
     return [Firewall(f) for f in firewalls]

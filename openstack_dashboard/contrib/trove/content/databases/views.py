@@ -15,11 +15,11 @@
 """
 Views for managing database instances.
 """
+from collections import OrderedDict
 import logging
 
 from django.core.urlresolvers import reverse
 from django.core.urlresolvers import reverse_lazy
-from django.utils.datastructures import SortedDict
 from django.utils.translation import ugettext_lazy as _
 
 import six
@@ -60,8 +60,8 @@ class IndexView(horizon_tables.DataTableView):
             flavors = []
             msg = _('Unable to retrieve database size information.')
             exceptions.handle(self.request, msg)
-        return SortedDict((six.text_type(flavor.id), flavor)
-                          for flavor in flavors)
+        return OrderedDict((six.text_type(flavor.id), flavor)
+                           for flavor in flavors)
 
     def _extra_data(self, instance):
         flavor = self.get_flavors().get(instance.flavor["id"])

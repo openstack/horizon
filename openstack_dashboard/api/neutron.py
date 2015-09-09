@@ -25,7 +25,6 @@ import logging
 import netaddr
 
 from django.conf import settings
-from django.utils.datastructures import SortedDict
 from django.utils.translation import ugettext_lazy as _
 from neutronclient.common import exceptions as neutron_exc
 from neutronclient.v2_0 import client as neutron_client
@@ -409,7 +408,7 @@ class FloatingIpManager(network_base.FloatingIpManager):
         # Get port list to add instance_id to floating IP list
         # instance_id is stored in device_id attribute
         ports = port_list(self.request, **port_search_opts)
-        port_dict = SortedDict([(p['id'], p) for p in ports])
+        port_dict = collections.OrderedDict([(p['id'], p) for p in ports])
         for fip in fips:
             self._set_instance_info(fip, port_dict.get(fip['port_id']))
         return [FloatingIp(fip) for fip in fips]
@@ -469,7 +468,8 @@ class FloatingIpManager(network_base.FloatingIpManager):
         tenant_id = self.request.user.tenant_id
         ports = port_list(self.request, tenant_id=tenant_id)
         servers, has_more = nova.server_list(self.request)
-        server_dict = SortedDict([(s.id, s.name) for s in servers])
+        server_dict = collections.OrderedDict(
+            [(s.id, s.name) for s in servers])
         reachable_subnets = self._get_reachable_subnets(ports)
         if is_service_enabled(self.request,
                               config_name='enable_lb',

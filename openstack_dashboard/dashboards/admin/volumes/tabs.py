@@ -10,7 +10,7 @@
 # License for the specific language governing permissions and limitations
 # under the License.
 
-from django.utils.datastructures import SortedDict
+from collections import OrderedDict
 from django.utils.translation import ugettext_lazy as _
 
 from horizon import exceptions
@@ -53,7 +53,7 @@ class VolumeTab(tabs.TableTab, volumes_tabs.VolumeTableMixIn):
             msg = _('Unable to retrieve volume project information.')
             exceptions.handle(self.request, msg)
 
-        tenant_dict = SortedDict([(t.id, t) for t in tenants])
+        tenant_dict = OrderedDict([(t.id, t) for t in tenants])
         for volume in volumes:
             tenant_id = getattr(volume, "os-vol-tenant-attr:tenant_id", None)
             tenant = tenant_dict.get(tenant_id, None)
@@ -88,7 +88,7 @@ class VolumeTypesTab(tabs.TableTab, volumes_tabs.VolumeTableMixIn):
             msg = _('Unable to retrieve volume type encryption information.')
             exceptions.handle(self.request, msg)
 
-        vol_type_enc_dict = SortedDict([(e.volume_type_id, e) for e in
+        vol_type_enc_dict = OrderedDict([(e.volume_type_id, e) for e in
                                         vol_type_enc_list])
         for volume_type in volume_types:
             vol_type_enc = vol_type_enc_dict.get(volume_type.id, None)

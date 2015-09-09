@@ -16,6 +16,7 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
+from collections import OrderedDict
 import json
 import logging
 import sys
@@ -27,7 +28,6 @@ from django.core.urlresolvers import reverse
 from django.forms import widgets
 from django import http
 import django.test
-from django.utils.datastructures import SortedDict
 from django.utils import encoding
 from django.utils.http import urlencode
 from mox3.mox import IgnoreArg  # noqa
@@ -133,7 +133,7 @@ class InstanceTests(helpers.TestCase):
     def test_index_flavor_list_exception(self):
         servers = self.servers.list()
         flavors = self.flavors.list()
-        full_flavors = SortedDict([(f.id, f) for f in flavors])
+        full_flavors = OrderedDict([(f.id, f) for f in flavors])
         search_opts = {'marker': None, 'paginate': True}
         api.nova.extension_supported('AdminActions',
                                      IsA(http.HttpRequest)) \
@@ -4166,7 +4166,7 @@ class InstanceAjaxTests(helpers.TestCase):
         instance_id = server.id
         flavor_id = server.flavor["id"]
         flavors = self.flavors.list()
-        full_flavors = SortedDict([(f.id, f) for f in flavors])
+        full_flavors = OrderedDict([(f.id, f) for f in flavors])
 
         api.nova.extension_supported('AdminActions', IsA(http.HttpRequest))\
             .MultipleTimes().AndReturn(True)
@@ -4197,7 +4197,7 @@ class InstanceAjaxTests(helpers.TestCase):
         instance_id = server.id
         flavor_id = server.flavor["id"]
         flavors = self.flavors.list()
-        full_flavors = SortedDict([(f.id, f) for f in flavors])
+        full_flavors = OrderedDict([(f.id, f) for f in flavors])
 
         server.status = 'ERROR'
         server.fault = {"message": "NoValidHost",
@@ -4275,7 +4275,7 @@ class ConsoleManagerTests(helpers.TestCase):
     def setup_consoles(self):
         # Need to refresh with mocks or will fail since mox do not detect
         # the api_call() as mocked.
-        console.CONSOLES = SortedDict([
+        console.CONSOLES = OrderedDict([
             ('VNC', api.nova.server_vnc_console),
             ('SPICE', api.nova.server_spice_console),
             ('RDP', api.nova.server_rdp_console),
