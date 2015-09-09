@@ -258,7 +258,7 @@ Table cells can be easily upgraded with in-line editing. With use of
 django.form.Field, we are able to run validations of the field and correctly
 parse the data. The updating process is fully encapsulated into table
 functionality, communication with the server goes through AJAX in JSON format.
-The javacript wrapper for inline editing allows each table cell that has
+The javascript wrapper for inline editing allows each table cell that has
 in-line editing available to:
 
   #. Refresh itself with new data from the server.
