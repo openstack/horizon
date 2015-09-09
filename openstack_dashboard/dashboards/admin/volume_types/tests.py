@@ -72,8 +72,7 @@ class VolumeTypeTests(test.BaseAdminViewTests):
             reverse('horizon:admin:volume_types:create_type'),
             formData)
         self.assertNoFormErrors(res)
-        redirect = reverse('horizon:admin:volume_types:index')
-        self.assertRedirectsNoFollow(res, redirect)
+        self.assertRedirectsNoFollow(res, INDEX_URL)
 
     @test.create_stubs({cinder: ('volume_type_get',
                                  'volume_type_update')})
@@ -96,8 +95,7 @@ class VolumeTypeTests(test.BaseAdminViewTests):
                       args=[volume_type.id])
         res = self.client.post(url, formData)
         self.assertNoFormErrors(res)
-        redirect = reverse('horizon:admin:volume_types:index')
-        self.assertRedirectsNoFollow(res, redirect)
+        self.assertRedirectsNoFollow(res, INDEX_URL)
 
     def test_update_volume_type_public_true(self):
         self._test_update_volume_type(True)
@@ -129,13 +127,10 @@ class VolumeTypeTests(test.BaseAdminViewTests):
                                   volume_type.id)
         self.mox.ReplayAll()
 
-        res = self.client.post(
-            reverse('horizon:admin:volume_types:index'),
-            formData)
+        res = self.client.post(INDEX_URL, formData)
 
-        redirect = reverse('horizon:admin:volume_types:index')
         self.assertNoFormErrors(res)
-        self.assertRedirectsNoFollow(res, redirect)
+        self.assertRedirectsNoFollow(res, INDEX_URL)
 
     @test.create_stubs({api.nova: ('server_list',),
                         cinder: ('volume_list',
@@ -162,13 +157,10 @@ class VolumeTypeTests(test.BaseAdminViewTests):
             .AndRaise(exceptions.BadRequest())
         self.mox.ReplayAll()
 
-        res = self.client.post(
-            reverse('horizon:admin:volume_types:index'),
-            formData)
+        res = self.client.post(INDEX_URL, formData)
 
-        redirect = reverse('horizon:admin:volume_types:index')
         self.assertNoFormErrors(res)
-        self.assertRedirectsNoFollow(res, redirect)
+        self.assertRedirectsNoFollow(res, INDEX_URL)
 
     @test.create_stubs({cinder: ('volume_encryption_type_create',
                                  'volume_type_list',)})
@@ -293,13 +285,10 @@ class VolumeTypeTests(test.BaseAdminViewTests):
                                              volume_type.id)
         self.mox.ReplayAll()
 
-        res = self.client.post(
-            reverse('horizon:admin:volume_types:index'),
-            formData)
+        res = self.client.post(INDEX_URL, formData)
 
-        redirect = reverse('horizon:admin:volume_types:index')
         self.assertNoFormErrors(res)
-        self.assertRedirectsNoFollow(res, redirect)
+        self.assertRedirectsNoFollow(res, INDEX_URL)
 
     @test.create_stubs({cinder: ('volume_encryption_type_update',
                                  'volume_encryption_type_get',
@@ -335,3 +324,43 @@ class VolumeTypeTests(test.BaseAdminViewTests):
         self.assertTemplateUsed(
             res,
             'admin/volume_types/update_volume_type_encryption.html')
+
+    @test.create_stubs({cinder: ('volume_type_get',
+                                 'volume_type_access_list',
+                                 'volume_type_add_project_access',
+                                 'volume_type_remove_project_access'),
+                        keystone: ('tenant_list',)})
+    def _test_edit_volume_type_access(self, exception=False):
+        volume_type = self.cinder_volume_types.list()[2]
+        volume_type.id = u'1'
+        keystone.tenant_list(
+            IsA(http.HttpRequest)).AndReturn([self.tenants.list(), False])
+        type_access = self.cinder_type_access.list()
+        formData = {'member': [u'3'],
+                    'volume_type_id': volume_type.id}
+        volume_type = cinder.volume_type_get(
+            IsA(http.HttpRequest), volume_type.id).AndReturn(volume_type)
+        cinder.volume_type_access_list(
+            IsA(http.HttpRequest), volume_type.id).AndReturn(type_access)
+        cinder.volume_type_add_project_access(
+            IsA(http.HttpRequest), volume_type.id, u'3')
+        if exception:
+            cinder.volume_type_remove_project_access(
+                IsA(http.HttpRequest), volume_type.id, u'1')\
+                .AndRaise(exceptions.BadRequest())
+        else:
+            cinder.volume_type_remove_project_access(
+                IsA(http.HttpRequest), volume_type.id, u'1')
+        self.mox.ReplayAll()
+
+        url = reverse('horizon:admin:volume_types:edit_access',
+                      args=[volume_type.id])
+        res = self.client.post(url, formData)
+        self.assertNoFormErrors(res)
+        self.assertRedirectsNoFollow(res, INDEX_URL)
+
+    def test_edit_volume_type_access(self):
+        self._test_edit_volume_type_access()
+
+    def test_edit_volume_type_access_exception(self):
+        self._test_edit_volume_type_access(exception=True)

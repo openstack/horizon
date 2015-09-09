@@ -19,6 +19,7 @@ from horizon import forms
 from horizon import messages
 
 from openstack_dashboard.api import cinder
+from openstack_dashboard.api import keystone
 
 
 class CreateVolumeType(forms.SelfHandlingForm):
@@ -303,3 +304,67 @@ class EditVolumeType(forms.SelfHandlingForm):
 
             exceptions.handle(request, error_message,
                               redirect=redirect)
+
+
+class EditTypeAccessForm(forms.SelfHandlingForm):
+
+    def __init__(self, request, *args, **kwargs):
+        super(EditTypeAccessForm, self).__init__(request, *args, **kwargs)
+        err_msg = _('Unable to retrieve volume type access list.')
+
+        self.fields["member"] = forms.MultipleChoiceField(
+            required=False,
+            widget=forms.ThemableCheckboxSelectMultiple())
+        # Get list of available projects.
+        try:
+            all_projects, has_more = keystone.tenant_list(request)
+        except Exception:
+            exceptions.handle(request, err_msg)
+        projects_list = [(project.id, project.name)
+                         for project in all_projects]
+
+        self.fields["member"].choices = projects_list
+
+        volume_type_id = self.initial.get('volume_type_id')
+        volume_type_access = []
+        try:
+            if volume_type_id:
+                volume_type = cinder.volume_type_get(request,
+                                                     volume_type_id)
+                if not volume_type.is_public:
+                    volume_type_access = [
+                        project.project_id for project in
+                        cinder.volume_type_access_list(request,
+                                                       volume_type_id)]
+        except Exception:
+            exceptions.handle(request, err_msg)
+
+        self.fields["member"].initial = volume_type_access
+
+    def handle(self, request, data):
+        type_id = self.initial['volume_type_id']
+        current_projects = self.fields["member"].initial
+
+        removed_projects = current_projects
+        for p in data['member']:
+            if p not in current_projects:
+                # Newly added project access
+                try:
+                    cinder.volume_type_add_project_access(request, type_id, p)
+                except Exception:
+                    exceptions.handle(request,
+                                      _('Failed to add project %(project)s to '
+                                        'volume type access.') %
+                                      {'project': p})
+            else:
+                removed_projects.remove(p)
+        for p in removed_projects:
+            try:
+                cinder.volume_type_remove_project_access(request, type_id, p)
+            except Exception:
+                exceptions.handle(request, _('Failed to remove project '
+                                             '%(project)s from volume type '
+                                             'access.') % {'project': p})
+        messages.success(request,
+                         _('Modified volume type access: %s') % type_id)
+        return True

@@ -87,6 +87,9 @@ class VolumeTypesView(tables.MultiTableView, volumes_views.VolumeTableMixIn):
         return qos_specs
 
 
+INDEX_URL = 'horizon:admin:volume_types:index'
+
+
 class CreateVolumeTypeView(forms.ModalFormView):
     form_class = volume_types_forms.CreateVolumeType
     modal_id = "create_volume_type_modal"
@@ -119,7 +122,7 @@ class VolumeTypeEncryptionDetailView(views.HorizonTemplateView):
                     self.name = volume_type.name
             self._volume_type_encryption.name = self.name
         except Exception:
-            redirect = reverse('horizon:admin:volume_types:index')
+            redirect = reverse(INDEX_URL)
             exceptions.handle(self.request,
                               _('Unable to retrieve volume type encryption'
                                 ' details.'),
@@ -136,7 +139,7 @@ class CreateVolumeTypeEncryptionView(forms.ModalFormView):
     template_name = "admin/volume_types/create_volume_type_encryption.html"
     submit_label = _("Create Volume Type Encryption")
     submit_url = "horizon:admin:volume_types:create_type_encryption"
-    success_url = reverse_lazy('horizon:admin:volume_types:index')
+    success_url = reverse_lazy(INDEX_URL)
     page_title = _("Create an Encrypted Volume Type")
 
     @memoized.memoized_method
@@ -204,7 +207,7 @@ def _get_volume_type_name(request, kwargs):
                 return volume_type.name
     except Exception:
         msg = _('Unable to retrieve volume type name.')
-        url = reverse('horizon:admin:volume_types:index')
+        url = reverse(INDEX_URL)
         exceptions.handle(request, msg, redirect=url)
 
 
@@ -374,3 +377,23 @@ class ManageQosSpecAssociationView(forms.ModalFormView):
                 'cur_qos_spec_id': cur_qos_spec_id,
                 'cur_qos_spec_name': cur_qos_spec_name,
                 'qos_specs': self.get_qos_specs()}
+
+
+class EditAccessView(forms.ModalFormView):
+    form_class = volume_types_forms.EditTypeAccessForm
+    template_name = 'admin/volume_types/update_access.html'
+    submit_label = _("Save")
+    submit_url = "horizon:admin:volume_types:edit_access"
+    success_url = reverse_lazy('horizon:admin:volume_types:index')
+    cancel_url = reverse_lazy('horizon:admin:volume_types:index')
+    page_title = _("Edit Volume Type Access")
+
+    def get_context_data(self, **kwargs):
+        context = super(EditAccessView, self).get_context_data(**kwargs)
+        context['volume_type_id'] = self.kwargs["volume_type_id"]
+        args = (self.kwargs['volume_type_id'],)
+        context['submit_url'] = reverse(self.submit_url, args=args)
+        return context
+
+    def get_initial(self):
+        return {'volume_type_id': self.kwargs['volume_type_id']}

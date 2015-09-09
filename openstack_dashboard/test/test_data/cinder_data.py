@@ -23,6 +23,7 @@ from cinderclient.v2 import volume_backups as vol_backups
 from cinderclient.v2 import volume_encryption_types as vol_enc_types
 from cinderclient.v2 import volume_snapshots as vol_snaps
 from cinderclient.v2 import volume_transfers
+from cinderclient.v2 import volume_type_access
 from cinderclient.v2 import volume_types
 from cinderclient.v2 import volumes
 
@@ -38,6 +39,7 @@ def data(TEST):
     TEST.cinder_volume_backups = utils.TestDataContainer()
     TEST.cinder_volume_encryption_types = utils.TestDataContainer()
     TEST.cinder_volume_types = utils.TestDataContainer()
+    TEST.cinder_type_access = utils.TestDataContainer()
     TEST.cinder_volume_encryption = utils.TestDataContainer()
     TEST.cinder_bootable_volumes = utils.TestDataContainer()
     TEST.cinder_qos_specs = utils.TestDataContainer()
@@ -157,7 +159,16 @@ def data(TEST):
                                         {'id': u'2',
                                          'name': u'vol_type_2',
                                          'description': 'type 2 description'})
-    TEST.cinder_volume_types.add(vol_type1, vol_type2)
+    vol_type3 = volume_types.VolumeType(volume_types.VolumeTypeManager(None),
+                                        {'id': u'3',
+                                         'name': u'vol_type_3',
+                                         'is_public': False,
+                                         'description': 'type 3 description'})
+    TEST.cinder_volume_types.add(vol_type1, vol_type2, vol_type3)
+    vol_type_access1 = volume_type_access.VolumeTypeAccess(
+        volume_type_access.VolumeTypeAccessManager(None),
+        {'volume_type_id': u'1', 'project_id': u'1'})
+    TEST.cinder_type_access.add(vol_type_access1)
 
     # Volumes - Cinder v2
     volume_v2 = volumes.Volume(
