@@ -79,6 +79,15 @@ ScenarioGroup = [
                help='ssh username for image file'),
 ]
 
+InstancesGroup = [
+    cfg.StrOpt('available_zone',
+               default='nova',
+               help="Zone to be selected for launch Instances"),
+    cfg.StrOpt('image_name',
+               default='cirros-0.3.4-x86_64-uec (24.0 MB)',
+               help="Boot Source to be selected for launch Instances"),
+]
+
 
 def _get_config_files():
     conf_dir = os.path.join(
@@ -98,5 +107,6 @@ def get_config():
     cfg.CONF.register_opts(SeleniumGroup, group="selenium")
     cfg.CONF.register_opts(ImageGroup, group="image")
     cfg.CONF.register_opts(ScenarioGroup, group="scenario")
+    cfg.CONF.register_opts(InstancesGroup, group="launch_instances")
 
     return cfg.CONF

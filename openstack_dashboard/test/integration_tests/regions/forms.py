@@ -93,7 +93,7 @@ class CheckBoxFormFieldRegion(BaseFormFieldRegion, CheckBoxMixin):
     """Checkbox field."""
 
     _element_locator = (by.By.CSS_SELECTOR,
-                        'div > label > input[type=checkbox]')
+                        'label > input[type=checkbox]')
 
 
 class ProjectPageCheckBoxFormFieldRegion(BaseFormFieldRegion, CheckBoxMixin):
