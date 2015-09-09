@@ -27,8 +27,8 @@ from django.utils.functional import cached_property  # noqa
 from django.utils.translation import ugettext_lazy as _
 import six
 
+from novaclient import client as nova_client
 from novaclient import exceptions as nova_exceptions
-from novaclient.v2 import client as nova_client
 from novaclient.v2.contrib import instance_action as nova_instance_action
 from novaclient.v2.contrib import list_extensions as nova_list_extensions
 from novaclient.v2 import security_group_rules as nova_rules
@@ -445,7 +445,7 @@ class FloatingIpManager(network_base.FloatingIpManager):
 def novaclient(request):
     insecure = getattr(settings, 'OPENSTACK_SSL_NO_VERIFY', False)
     cacert = getattr(settings, 'OPENSTACK_SSL_CACERT', None)
-    c = nova_client.Client(request.user.username,
+    c = nova_client.Client(2, request.user.username,
                            request.user.token.id,
                            project_id=request.user.tenant_id,
                            auth_url=base.url_for(request, 'compute'),
