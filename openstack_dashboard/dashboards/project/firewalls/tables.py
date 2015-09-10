@@ -257,8 +257,9 @@ def get_policy_name(datum):
 
 
 def get_policy_link(datum):
-    return reverse('horizon:project:firewalls:policydetails',
-                   kwargs={'policy_id': datum.policy.id})
+    if datum.policy:
+        return reverse('horizon:project:firewalls:policydetails',
+                       kwargs={'policy_id': datum.policy.id})
 
 
 class RulesTable(tables.DataTable):
