@@ -1983,14 +1983,14 @@ class InstanceTests(helpers.TestCase):
                 {'device_name': u'vda',
                  'source_type': 'volume',
                  'destination_type': 'volume',
-                 'delete_on_termination': 0,
+                 'delete_on_termination': False,
                  'uuid': volume_source_id,
                  'boot_index': '0',
                  'volume_size': 1
                  }
             ]
         else:
-            block_device_mapping = {device_name: u"%s::0" % volume_choice}
+            block_device_mapping = {device_name: u"%s::False" % volume_choice}
             block_device_mapping_2 = None
 
         nics = [{"net-id": self.networks.first().id, "v4-fixed-ip": ''}]
@@ -2135,7 +2135,7 @@ class InstanceTests(helpers.TestCase):
         customization_script = 'user data'
         device_name = u'vda'
         volume_choice = "%s:vol" % volume.id
-        block_device_mapping = {device_name: u"%s::0" % volume_choice}
+        block_device_mapping = {device_name: u"%s::False" % volume_choice}
         nics = [{"net-id": self.networks.first().id, "v4-fixed-ip": ''}]
         quota_usages = self.quota_usages.first()
 
@@ -3364,7 +3364,7 @@ class InstanceTests(helpers.TestCase):
         device_mapping_v2 = [{'device_name': None,  # device_name must be None
                               'source_type': 'image',
                               'destination_type': 'volume',
-                              'delete_on_termination': 0,
+                              'delete_on_termination': False,
                               'uuid': image.id,
                               'boot_index': '0',
                               'volume_size': image.size}]

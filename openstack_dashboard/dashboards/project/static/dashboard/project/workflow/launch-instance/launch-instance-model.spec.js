@@ -416,7 +416,7 @@
             device_name: 'volTestName',
             source_type: 'image',
             destination_type: 'volume',
-            delete_on_termination: 1,
+            delete_on_termination: true,
             uuid: 'cirros',
             boot_index: '0',
             volume_size: 10
