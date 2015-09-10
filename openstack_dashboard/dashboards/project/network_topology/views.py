@@ -328,12 +328,15 @@ class JSONView(View):
         self.add_resource_url('horizon:project:routers:detail', routers)
         return routers
 
-    def _get_ports(self, request):
+    def _get_ports(self, request, networks):
         try:
             neutron_ports = api.neutron.port_list(request)
         except Exception:
             neutron_ports = []
 
+        # we should filter out ports connected to non tenant networks
+        # which they have no visibility to
+        tenant_network_ids = [network['id'] for network in networks]
         ports = [{'id': port.id,
                   'network_id': port.network_id,
                   'device_id': port.device_id,
@@ -342,7 +345,8 @@ class JSONView(View):
                   'status': self.trans.port[port.status],
                   'original_status': port.status}
                  for port in neutron_ports
-                 if port.device_owner != 'network:router_ha_interface']
+                 if port.device_owner != 'network:router_ha_interface'
+                 and port.network_id in tenant_network_ids]
         self.add_resource_url('horizon:project:networks:ports:detail',
                               ports)
         return ports
@@ -369,9 +373,10 @@ class JSONView(View):
             ports.append(fake_port)
 
     def get(self, request, *args, **kwargs):
+        networks = self._get_networks(request)
         data = {'servers': self._get_servers(request),
-                'networks': self._get_networks(request),
-                'ports': self._get_ports(request),
+                'networks': networks,
+                'ports': self._get_ports(request, networks),
                 'routers': self._get_routers(request)}
         self._prepare_gateway_ports(data['routers'], data['ports'])
         json_string = json.dumps(data, cls=LazyTranslationEncoder,

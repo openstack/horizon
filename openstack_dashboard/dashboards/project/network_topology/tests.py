@@ -161,6 +161,9 @@ class NetworkTopologyTests(test.TestCase):
                 del exp_net['url']
         self.assertEqual(expect_net_urls, data['networks'])
 
+        valid_network_ids = [net.id for net in tenant_networks]
+        if router_enable:
+            valid_network_ids = [net.id for net in self.networks.list()]
         # ports
         expect_port_urls = [
             {'id': port.id,
@@ -171,7 +174,8 @@ class NetworkTopologyTests(test.TestCase):
              'status': port.status.title(),
              'original_status': port.status,
              'url': '/project/networks/ports/%s/detail' % port.id}
-            for port in self.ports.list()]
+            for port in self.ports.list()
+            if port.network_id in valid_network_ids]
         if router_enable:
             # fake port for router1 gateway (router1 on ext_net)
             router1 = routers[0]
