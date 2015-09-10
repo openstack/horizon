@@ -15,7 +15,6 @@ import copy
 
 from django.core.urlresolvers import reverse
 from django import http
-from django.utils import unittest
 
 from mox3.mox import IgnoreArg  # noqa
 from mox3.mox import IsA  # noqa
@@ -698,7 +697,6 @@ class RouterRuleTests(RouterMixin, test.TestCase):
             res,
             '%s/routers/extensions/routerrules/grid.html' % self.DASHBOARD)
 
-    @unittest.skip("blocking the gate see bug 1490403")
     @test.create_stubs({api.neutron: ('network_list',)})
     def test_routerrule_detail(self):
         router = self.routers_with_rules.first()

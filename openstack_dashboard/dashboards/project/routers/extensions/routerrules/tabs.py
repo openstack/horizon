@@ -156,10 +156,10 @@ class RulesGridTab(tabs.Tab):
             rd = netaddr.IPNetwork(rd)
             dst = netaddr.IPNetwork(dst)
             # check if cidrs are affected by rule first
-            if (int(dst.network) >= int(rd.broadcast) or
-                    int(dst.broadcast) <= int(rd.network) or
-                    int(src.network) >= int(rs.broadcast) or
-                    int(src.broadcast) <= int(rs.network)):
+            if (int(dst.network) >= int(rd[-1]) or
+                    int(dst[-1]) <= int(rd.network) or
+                    int(src.network) >= int(rs[-1]) or
+                    int(src[-1]) <= int(rs.network)):
                 continue
 
             # skip matching rules for 'any' and 'external' networks
