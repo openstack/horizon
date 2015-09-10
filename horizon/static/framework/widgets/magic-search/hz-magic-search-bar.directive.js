@@ -77,7 +77,7 @@
          */
         var templateUrl = basePath + 'magic-search/magic-search.html';
         element.find('magic-search').attr('template', templateUrl);
-        element.addClass('magic-search-bar');
+        element.addClass('hz-magic-search-bar');
       },
       restrict: 'E',
       scope: {
