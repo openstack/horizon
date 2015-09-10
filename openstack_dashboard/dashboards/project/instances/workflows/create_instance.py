@@ -880,7 +880,7 @@ class LaunchInstance(workflows.Workflow):
                          'source_type': 'volume',
                          'destination_type': 'volume',
                          'delete_on_termination':
-                             int(bool(context['delete_on_terminate'])),
+                             bool(context['delete_on_terminate']),
                          'uuid': volume_source_id,
                          'boot_index': '0',
                          'volume_size': context['volume_size']
@@ -889,7 +889,7 @@ class LaunchInstance(workflows.Workflow):
                 else:
                     dev_mapping_1 = {context['device_name']: '%s::%s' %
                                      (context['source_id'],
-                                     int(bool(context['delete_on_terminate'])))
+                                     bool(context['delete_on_terminate']))
                                      }
             except Exception:
                 msg = _('Unable to retrieve extensions information')
@@ -902,7 +902,7 @@ class LaunchInstance(workflows.Workflow):
                  'source_type': 'image',
                  'destination_type': 'volume',
                  'delete_on_termination':
-                     int(bool(context['delete_on_terminate'])),
+                     bool(context['delete_on_terminate']),
                  'uuid': context['source_id'],
                  'boot_index': '0',
                  'volume_size': context['volume_size']

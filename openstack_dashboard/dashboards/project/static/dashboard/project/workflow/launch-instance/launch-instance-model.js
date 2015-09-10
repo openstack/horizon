@@ -486,7 +486,7 @@
             'device_name': deviceName,
             'source_type': SOURCE_TYPE_IMAGE,
             'destination_type': SOURCE_TYPE_VOLUME,
-            'delete_on_termination': finalSpec.vol_delete_on_terminate ? 1 : 0,
+            'delete_on_termination': finalSpec.vol_delete_on_terminate,
             'uuid': finalSpec.source_id,
             'boot_index': '0',
             'volume_size': finalSpec.vol_size
@@ -503,7 +503,7 @@
         ':',
         sourceType,
         '::',
-        (finalSpec.vol_delete_on_terminate ? 1 : 0)
+        finalSpec.vol_delete_on_terminate
       ].join('');
 
       // Source ID must be empty for API
