@@ -16,6 +16,7 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
+import logging
 import operator
 
 from django.core.urlresolvers import reverse
@@ -38,6 +39,8 @@ from openstack_dashboard.dashboards.identity.users \
     import forms as project_forms
 from openstack_dashboard.dashboards.identity.users \
     import tables as project_tables
+
+LOG = logging.getLogger(__name__)
 
 
 class IndexView(tables.DataTableView):
@@ -166,6 +169,7 @@ class DetailView(views.HorizonTemplateView):
     def get_context_data(self, **kwargs):
         context = super(DetailView, self).get_context_data(**kwargs)
         user = self.get_data()
+        tenant = self.get_tenant(user.project_id)
         table = project_tables.UsersTable(self.request)
         domain_id = getattr(user, "domain_id", None)
         domain_name = ''
@@ -178,11 +182,25 @@ class DetailView(views.HorizonTemplateView):
                                   _('Unable to retrieve project domain.'))
 
         context["user"] = user
+        if tenant:
+            context["tenant_name"] = tenant.name
         context["domain_id"] = domain_id
         context["domain_name"] = domain_name
         context["url"] = self.get_redirect_url()
         context["actions"] = table.render_row_actions(user)
         return context
+
+    @memoized.memoized_method
+    def get_tenant(self, project_id):
+        tenant = None
+        if project_id:
+            try:
+                tenant = api.keystone.tenant_get(self.request, project_id)
+            except Exception as e:
+                msg = ('Failed to get tenant %(project_id)s: %(reason)s' %
+                       {'project_id': project_id, 'reason': e})
+                LOG.error(msg)
+        return tenant
 
     @memoized.memoized_method
     def get_data(self):

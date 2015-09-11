@@ -585,11 +585,14 @@ class UsersViewTests(test.BaseAdminViewTests):
                          u'You are not allowed to delete user: %s'
                          % self.request.user.username)
 
-    @test.create_stubs({api.keystone: ('user_get',)})
+    @test.create_stubs({api.keystone: ('user_get', 'tenant_get')})
     def test_detail_view(self):
         user = self.users.get(id="1")
+        tenant = self.tenants.get(id=user.project_id)
 
         api.keystone.user_get(IsA(http.HttpRequest), '1').AndReturn(user)
+        api.keystone.tenant_get(IsA(http.HttpRequest), user.project_id) \
+            .AndReturn(tenant)
         self.mox.ReplayAll()
 
         res = self.client.get(USER_DETAIL_URL, args=[user.id])
@@ -599,6 +602,7 @@ class UsersViewTests(test.BaseAdminViewTests):
         self.assertEqual(res.context['user'].id, user.id)
         self.assertContains(res, "<h1>User Details: %s</h1>" % user.name,
                             1, 200)
+        self.assertEqual(res.context['tenant_name'], tenant.name)
 
     @test.create_stubs({api.keystone: ('user_get',)})
     def test_detail_view_with_exception(self):
