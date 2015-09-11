@@ -1,9 +1,10 @@
 <div class="form-group customization-script">
   <label>
-    {$ ::config.label.customizationScript $}
+    <span translate>Customization Script</span>
     <span class="script-modified"
-          ng-show="scriptModified">
-      ({$ ::config.label.scriptModified $})</span>
+          ng-show="scriptModified"
+          translate>
+      (Modified)</span>
   </label>
   <span class="size-indicator pull-right clearfix"
         ng-class="{warning: scriptLength >= config.MAX_SCRIPT_SIZE}">
@@ -13,10 +14,10 @@
           popover-append-to-body="true"
           popover-trigger="hover">
     </span>
-    {$ ::config.label.scriptSize $}:
+    <span translate>Script size</span>
     {$ (scriptLength || 0) | number $}
-    {$ ::config.label.bytes $}
-    <span>{$ ::config.label.customizationScriptMax $}</span>
+    <span translate>bytes</span>
+    <span translate>(Max: 16Kb)</span>
   </span>
   <textarea class="form-control"
             name="customization-script"
@@ -28,7 +29,7 @@
 <div class="form-group script-file" ng-show="config.fileApiSupported">
   <span class="file-input btn btn-primary btn-file">
     <span class="fa fa-upload"></span>
-    {$ ::config.label.loadScriptFromFile $}
+    <span translate>Load script from a file</span>
     <input type="file">
   </span>
 </div>

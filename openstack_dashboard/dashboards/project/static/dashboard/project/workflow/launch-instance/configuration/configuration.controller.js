@@ -50,21 +50,6 @@
 
     ctrl.MAX_SCRIPT_SIZE = MAX_SCRIPT_SIZE;
 
-    ctrl.label = {
-      title: gettext('Configuration'),
-      subtitle: '',
-      customizationScript: gettext('Customization Script'),
-      customizationScriptMax: gettext('(Max: 16Kb)'),
-      loadScriptFromFile: gettext('Load script from a file'),
-      configurationDrive: gettext('Configuration Drive'),
-      diskPartition: gettext('Disk Partition'),
-      scriptSize: gettext('Script size'),
-      scriptModified: gettext('Modified'),
-      scriptSizeWarningMsg: gettext('Script size > 16Kb'),
-      bytes: gettext('bytes'),
-      scriptSizeHoverWarningMsg: gettext('The maximum script size is 16Kb.')
-    };
-
     ctrl.diskConfigOptions = [
       { value: 'AUTO', text: gettext('Automatic') },
       { value: 'MANUAL', text: gettext('Manual') }
