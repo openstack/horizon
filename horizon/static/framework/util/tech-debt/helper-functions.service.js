@@ -25,7 +25,8 @@
     var service = {
       capitalize: capitalize,
       humanizeNumbers: humanizeNumbers,
-      truncate: truncate
+      truncate: truncate,
+      loadAngular: loadAngular
     };
 
     return service;
@@ -66,6 +67,15 @@
 
       return string;
     }
-  }
 
+    /*
+     * Compile angular directives in a DOM element that has typically been
+     * loaded into the page (the only current use of this is in JQuery
+     * modal dialogs).
+     */
+    function loadAngular(element) {
+      $compile(element)($rootScope);
+      $rootScope.$apply();
+    }
+  }
 })();

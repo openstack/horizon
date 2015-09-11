@@ -306,13 +306,8 @@ horizon.addInitFunction(horizon.modals.init = function() {
     horizon.datatables.validate_button($(modal).find(".table_wrapper > form"));
   });
 
-  function loadAngular(element) {
-    try {
-      $compile(element)($rootScope);
-      $rootScope.$apply();
-    } catch (err) {}
-  }
-  horizon.modals.addModalInitFunction(loadAngular);
+  // Compile angular directives in the modal DOM
+  horizon.modals.addModalInitFunction(horizon.utils.loadAngular);
 
   // Load modals for ajax-modal links.
   $document.on('click', '.ajax-modal', function (evt) {
