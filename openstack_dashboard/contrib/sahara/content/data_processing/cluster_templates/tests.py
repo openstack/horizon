@@ -133,7 +133,8 @@ class DataProcessingClusterTemplateTests(test.TestCase):
                                            description=ct.description,
                                            cluster_configs=ct.cluster_configs,
                                            node_groups=ct.node_groups,
-                                           anti_affinity=ct.anti_affinity)\
+                                           anti_affinity=ct.anti_affinity,
+                                           use_autoconfig=False)\
             .AndReturn(new_ct)
         self.mox.ReplayAll()
 

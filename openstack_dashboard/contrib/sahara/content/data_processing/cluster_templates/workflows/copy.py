@@ -91,7 +91,8 @@ class CopyClusterTemplate(create_flow.ConfigureClusterTemplate):
                     fields = step.action.fields
                     fields["cluster_template_name"].initial = (
                         self.template.name + "-copy")
-
+                    fields['use_autoconfig'].initial = (
+                        self.template.use_autoconfig)
                     fields["description"].initial = self.template.description
         except Exception:
             exceptions.handle(request,

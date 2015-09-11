@@ -274,7 +274,8 @@ class DataProcessingNodeGroupTests(test.TestCase):
             security_groups=[],
             auto_security_group=True,
             availability_zone=None,
-            use_autoconfig=True).AndReturn(True)
+            use_autoconfig=True,
+            is_proxy_gateway=False).AndReturn(True)
 
         self.mox.ReplayAll()
 
@@ -295,6 +296,7 @@ class DataProcessingNodeGroupTests(test.TestCase):
              'volume_local_to_instance': False,
              'volumes_availability_zone': None,
              'floating_ip_pool': None,
+             'is_proxy_gateway': False,
              'security_autogroup': True,
              'processes': 'HDFS:namenode',
              'use_autoconfig': True})
