@@ -80,6 +80,12 @@ class GeneralConfigAction(workflows.Action):
                                                 add_item_link=
                                                 TEMPLATE_UPLOAD_URL)
 
+    cluster_count = forms.IntegerField(min_value=1,
+                                       label=_("Cluster Count"),
+                                       initial=1,
+                                       help_text=(
+                                           _("Number of clusters to launch.")))
+
     image = forms.DynamicChoiceField(label=_("Base Image"),
                                      add_item_link=BASE_IMAGE_URL)
 
@@ -241,6 +247,7 @@ class ConfigureCluster(whelpers.StatusFormatMixin, workflows.Workflow):
                 description=context["general_description"],
                 node_groups=node_groups,
                 user_keypair_id=user_keypair,
+                cluster_count=context['cluster_count'],
                 net_id=context.get("general_neutron_management_network", None))
             return True
         except api_base.APIException as e:

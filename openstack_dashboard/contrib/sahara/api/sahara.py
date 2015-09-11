@@ -264,8 +264,8 @@ def cluster_template_update(request, ct_id, name, plugin_name,
 def cluster_create(request, name, plugin_name, hadoop_version,
                    cluster_template_id=None, default_image_id=None,
                    is_transient=None, description=None, cluster_configs=None,
-                   node_groups=None, user_keypair_id=None,
-                   anti_affinity=None, net_id=None, use_autoconfig=None):
+                   node_groups=None, user_keypair_id=None, anti_affinity=None,
+                   net_id=None, count=None, use_autoconfig=None):
     return client(request).clusters.create(
         name=name,
         plugin_name=plugin_name,
@@ -279,6 +279,7 @@ def cluster_create(request, name, plugin_name, hadoop_version,
         user_keypair_id=user_keypair_id,
         anti_affinity=anti_affinity,
         net_id=net_id,
+        count=count,
         use_autoconfig=use_autoconfig)
 
 
