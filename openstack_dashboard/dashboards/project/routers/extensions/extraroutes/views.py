@@ -13,8 +13,6 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
-import logging
-
 from django.core.urlresolvers import reverse
 from django.utils.translation import ugettext_lazy as _
 
@@ -25,8 +23,6 @@ from horizon.utils import memoized
 from openstack_dashboard import api
 from openstack_dashboard.dashboards.project.routers.extensions.extraroutes\
     import forms as erforms
-
-LOG = logging.getLogger(__name__)
 
 
 class AddRouterRouteView(forms.ModalFormView):

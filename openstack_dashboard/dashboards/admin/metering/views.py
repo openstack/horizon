@@ -11,7 +11,6 @@
 # under the License.
 
 import json
-import logging
 
 from django.core.urlresolvers import reverse_lazy
 from django.http import HttpResponse  # noqa
@@ -30,9 +29,6 @@ from openstack_dashboard.dashboards.admin.metering import forms as \
 from openstack_dashboard.dashboards.admin.metering import tabs as \
     metering_tabs
 from openstack_dashboard.utils import metering as metering_utils
-
-
-LOG = logging.getLogger(__name__)
 
 
 class IndexView(tabs.TabbedTableView):

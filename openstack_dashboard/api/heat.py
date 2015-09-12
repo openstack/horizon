@@ -10,16 +10,12 @@
 # License for the specific language governing permissions and limitations
 # under the License.
 
-import logging
-
 from django.conf import settings
 from heatclient import client as heat_client
 
 from horizon.utils import functions as utils
 from horizon.utils.memoized import memoized  # noqa
 from openstack_dashboard.api import base
-
-LOG = logging.getLogger(__name__)
 
 
 def format_parameters(params):

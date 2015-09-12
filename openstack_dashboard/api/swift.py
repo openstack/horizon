@@ -16,8 +16,6 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
-import logging
-
 from oslo_utils import timeutils
 import six.moves.urllib.parse as urlparse
 import swiftclient
@@ -31,7 +29,6 @@ from horizon.utils.memoized import memoized  # noqa
 from openstack_dashboard.api import base
 
 
-LOG = logging.getLogger(__name__)
 FOLDER_DELIMITER = "/"
 CHUNK_SIZE = getattr(settings, 'SWIFT_FILE_TRANSFER_CHUNK_SIZE', 512 * 1024)
 # Swift ACL
