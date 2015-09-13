@@ -244,7 +244,7 @@ class JSONView(View):
             neutron_networks = []
         networks = []
         for network in neutron_networks:
-            obj = {'name': network.name,
+            obj = {'name': network.name_or_id,
                    'id': network.id,
                    'subnets': [{'id': subnet.id,
                                 'cidr': subnet.cidr}
@@ -278,7 +278,7 @@ class JSONView(View):
                 except Exception:
                     subnets = []
                 networks.append({
-                    'name': publicnet.name,
+                    'name': publicnet.name_or_id,
                     'id': publicnet.id,
                     'subnets': subnets,
                     'status': publicnet.status,
@@ -302,7 +302,7 @@ class JSONView(View):
             neutron_routers = []
 
         routers = [{'id': router.id,
-                    'name': router.name,
+                    'name': router.name_or_id,
                     'status': router.status,
                     'external_gateway_info': router.external_gateway_info}
                    for router in neutron_routers]
