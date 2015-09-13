@@ -434,6 +434,15 @@ def get_vip_name(pool):
         return None
 
 
+def get_subnet(pool):
+    if hasattr(pool, "subnet") and pool.subnet:
+        template_name = 'project/loadbalancers/_pool_table_subnet_cell.html'
+        context = {"subnet": pool.subnet}
+        return template.loader.render_to_string(template_name, context)
+    else:
+        return None
+
+
 class PoolsTable(tables.DataTable):
     METHOD_DISPLAY_CHOICES = (
         ("round_robin", pgettext_lazy("load balancing method",
@@ -450,7 +459,7 @@ class PoolsTable(tables.DataTable):
     description = tables.Column('description', verbose_name=_("Description"))
     provider = tables.Column('provider', verbose_name=_("Provider"),
                              filters=(lambda v: filters.default(v, _('N/A')),))
-    subnet_name = tables.Column('subnet_name', verbose_name=_("Subnet"))
+    subnet_name = tables.Column(get_subnet, verbose_name=_("Subnet"))
     protocol = tables.Column('protocol', verbose_name=_("Protocol"))
     method = tables.Column('lb_method',
                            verbose_name=_("LB Method"),
