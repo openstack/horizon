@@ -710,24 +710,27 @@ def subnet_get(request, subnet_id, **params):
     return Subnet(subnet)
 
 
-def subnet_create(request, network_id, cidr, ip_version, **kwargs):
+def subnet_create(request, network_id, **kwargs):
     """Create a subnet on a specified network.
 
     :param request: request context
     :param network_id: network id a subnet is created on
-    :param cidr: subnet IP address range
-    :param ip_version: IP version (4 or 6)
+    :param cidr: (optional) subnet IP address range
+    :param ip_version: (optional) IP version (4 or 6)
     :param gateway_ip: (optional) IP address of gateway
     :param tenant_id: (optional) tenant id of the subnet created
     :param name: (optional) name of the subnet created
+    :param subnetpool_id: (optional) subnetpool to allocate prefix from
+    :param prefixlen: (optional) length of prefix to allocate
     :returns: Subnet object
+
+    Although both cidr+ip_version and subnetpool_id+preifxlen is listed as
+    optional you MUST pass along one of the combinations to get a successful
+    result.
     """
-    LOG.debug("subnet_create(): netid=%s, cidr=%s, ipver=%d, kwargs=%s"
-              % (network_id, cidr, ip_version, kwargs))
-    body = {'subnet':
-            {'network_id': network_id,
-             'ip_version': ip_version,
-             'cidr': cidr}}
+    LOG.debug("subnet_create(): netid=%s, kwargs=%s"
+              % (network_id, kwargs))
+    body = {'subnet': {'network_id': network_id}}
     if 'tenant_id' not in kwargs:
         kwargs['tenant_id'] = request.user.project_id
     body['subnet'].update(kwargs)

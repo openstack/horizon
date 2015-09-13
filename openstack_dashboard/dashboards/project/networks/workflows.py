@@ -529,9 +529,11 @@ class CreateNetwork(workflows.Workflow):
             network_name = self.context.get('network_name')
         try:
             params = {'network_id': network_id,
-                      'name': data['subnet_name'],
-                      'cidr': data['cidr'] if len(data['cidr']) else None,
-                      'ip_version': int(data['ip_version'])}
+                      'name': data['subnet_name']}
+            if 'cidr' in data and data['cidr']:
+                params['cidr'] = data['cidr']
+            if 'ip_version' in data and data['ip_version']:
+                params['ip_version'] = int(data['ip_version'])
             if tenant_id:
                 params['tenant_id'] = tenant_id
             if data['no_gateway']:
