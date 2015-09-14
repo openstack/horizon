@@ -329,7 +329,7 @@ def user_create(request, name=None, email=None, password=None, project=None,
             return VERSIONS.upgrade_v2_user(user)
         else:
             return manager.create(name, password=password, email=email,
-                                  project=project, enabled=enabled,
+                                  default_project=project, enabled=enabled,
                                   domain=domain, description=description)
     except keystone_exceptions.Conflict:
         raise exceptions.Conflict()
