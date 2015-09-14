@@ -325,7 +325,7 @@ def url_for(request, service_type, endpoint_type=None, region=None):
     raise exceptions.ServiceCatalogException(service_type)
 
 
-def is_service_enabled(request, service_type, service_name=None):
+def is_service_enabled(request, service_type):
     service = get_service_from_catalog(request.user.service_catalog,
                                        service_type)
     if service:
@@ -336,10 +336,7 @@ def is_service_enabled(request, service_type, service_name=None):
             # ignore region for identity
             if service['type'] == 'identity' or \
                _get_endpoint_region(endpoint) == region:
-                if service_name:
-                    return service.get('name') == service_name
-                else:
-                    return True
+                return True
     return False
 
 
