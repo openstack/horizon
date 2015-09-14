@@ -1,6 +1,11 @@
 
 table[ng-controller="identityUsersTableController as table"] {
-  .detail-expanded dl.dl-horizontal {
+  .detail-expanded .row {
+    background: none;
     padding-left: 2em;
+  }
+
+  &.table-rsp .action-col {
+    min-width: 12em;
   }
 }
