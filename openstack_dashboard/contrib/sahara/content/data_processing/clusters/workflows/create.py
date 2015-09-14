@@ -247,7 +247,7 @@ class ConfigureCluster(whelpers.StatusFormatMixin, workflows.Workflow):
                 description=context["general_description"],
                 node_groups=node_groups,
                 user_keypair_id=user_keypair,
-                cluster_count=context['cluster_count'],
+                count=context['general_cluster_count'],
                 net_id=context.get("general_neutron_management_network", None))
             return True
         except api_base.APIException as e:
