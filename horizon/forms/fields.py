@@ -20,7 +20,7 @@ import six
 from django.core.exceptions import ValidationError  # noqa
 from django.core import urlresolvers
 from django.forms import fields
-from django.forms.util import flatatt  # noqa
+from django.forms.utils import flatatt  # noqa
 from django.forms import widgets
 from django.utils.encoding import force_text
 from django.utils.functional import Promise  # noqa

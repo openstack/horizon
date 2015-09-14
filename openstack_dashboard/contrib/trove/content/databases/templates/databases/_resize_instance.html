@@ -1,6 +1,5 @@
 {% extends "horizon/common/_modal_form.html" %}
 {% load i18n %}
-{% load url from future %}
 
 {% block form_id %}resize_instance_form{% endblock %}
 {% block form_action %}{% url "horizon:project:databases:resize_instance" instance_id %}{% endblock %}

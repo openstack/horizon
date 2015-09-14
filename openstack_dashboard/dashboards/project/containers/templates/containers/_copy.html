@@ -1,6 +1,5 @@
 {% extends "horizon/common/_modal_form.html" %}
 {% load i18n %}
-{% load url from future %}
 
 {% block form_id %}copy_object_form{% endblock %}
 {% block form_action %}{% url 'horizon:project:containers:object_copy' container_name object_name %}{% endblock %}
