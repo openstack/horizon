@@ -13,6 +13,7 @@
 #    under the License.
 
 from django.core.urlresolvers import reverse
+from django import template
 from django.utils.translation import pgettext_lazy
 from django.utils.translation import ugettext_lazy as _
 from django.utils.translation import ungettext_lazy
@@ -259,6 +260,13 @@ class IPSecSiteConnectionsTable(tables.DataTable):
                        DeleteIPSecSiteConnectionLink)
 
 
+def get_local_ips(vpn):
+    template_name = 'project/vpn/_vpn_ips.html'
+    context = {"external_v4_ip": vpn.get('external_v4_ip'),
+               "external_v6_ip": vpn.get('external_v6_ip')}
+    return template.loader.render_to_string(template_name, context)
+
+
 class VPNServicesTable(tables.DataTable):
     STATUS_CHOICES = (
         ("Active", True),
@@ -287,6 +295,8 @@ class VPNServicesTable(tables.DataTable):
     name = tables.Column("name_or_id", verbose_name=_('Name'),
                          link="horizon:project:vpn:vpnservicedetails")
     description = tables.Column('description', verbose_name=_('Description'))
+    local_ips = tables.Column(get_local_ips,
+                              verbose_name=_("Local Side Public IPs"))
     subnet_name = tables.Column('subnet_name', verbose_name=_('Subnet'))
     router_name = tables.Column('router_name', verbose_name=_('Router'))
     status = tables.Column("status",

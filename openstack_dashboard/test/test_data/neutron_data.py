@@ -789,7 +789,8 @@ def data(TEST):
                        'ipsecsiteconnections': [],
                        'admin_state_up': True,
                        'status': 'Active',
-                       'ipsecsiteconns': TEST.ipsecsiteconnections.list()}
+                       'ipsecsiteconns': TEST.ipsecsiteconnections.list()
+                       }
     TEST.api_vpnservices.add(vpnservice_dict)
     TEST.vpnservices.add(vpn.VPNService(vpnservice_dict))
 
@@ -804,7 +805,10 @@ def data(TEST):
                        'ipsecsiteconnections': [],
                        'admin_state_up': True,
                        'status': 'Active',
-                       'ipsecsiteconns': []}
+                       'ipsecsiteconns': [],
+                       'external_v4_ip': '10.0.0.0/24',
+                       'external_v6_ip': 'fd4c:a535:831c::/64'
+                       }
     TEST.api_vpnservices.add(vpnservice_dict)
     TEST.vpnservices.add(vpn.VPNService(vpnservice_dict))
 
