@@ -49,6 +49,8 @@ class DomainsViewTests(test.BaseAdminViewTests):
         self.assertContains(res, 'Create Domain')
         self.assertContains(res, 'Edit')
         self.assertContains(res, 'Delete Domain')
+        self.assertContains(res, 'Disable Domain')
+        self.assertContains(res, 'Enable Domain')
 
     @test.create_stubs({api.keystone: ('domain_list',
                                        'keystone_can_edit_domain')})
@@ -66,6 +68,8 @@ class DomainsViewTests(test.BaseAdminViewTests):
         self.assertNotContains(res, 'Create Domain')
         self.assertNotContains(res, 'Edit')
         self.assertNotContains(res, 'Delete Domain')
+        self.assertNotContains(res, 'Disable Domain')
+        self.assertNotContains(res, 'Enable Domain')
 
     @test.create_stubs({api.keystone: ('domain_list',
                                        'domain_delete')})
@@ -95,6 +99,46 @@ class DomainsViewTests(test.BaseAdminViewTests):
 
         self.assertRedirectsNoFollow(res, DOMAINS_INDEX_URL)
         self.assertMessageCount(error=2)
+
+    @test.create_stubs({api.keystone: ('domain_list',
+                                       'domain_update')})
+    def test_disable(self):
+        domain = self.domains.get(id="1")
+
+        api.keystone.domain_list(IgnoreArg()).AndReturn(self.domains.list())
+        api.keystone.domain_update(IsA(http.HttpRequest),
+                                   description=domain.description,
+                                   domain_id=domain.id,
+                                   enabled=False,
+                                   name=domain.name).AndReturn(None)
+
+        self.mox.ReplayAll()
+
+        formData = {'action': 'domains__disable__%s' % domain.id}
+        res = self.client.post(DOMAINS_INDEX_URL, formData)
+
+        self.assertRedirectsNoFollow(res, DOMAINS_INDEX_URL)
+        self.assertMessageCount(error=0)
+
+    @test.create_stubs({api.keystone: ('domain_list',
+                                       'domain_update')})
+    def test_enable(self):
+        domain = self.domains.get(id="2")
+
+        api.keystone.domain_list(IgnoreArg()).AndReturn(self.domains.list())
+        api.keystone.domain_update(IsA(http.HttpRequest),
+                                   description=domain.description,
+                                   domain_id=domain.id,
+                                   enabled=True,
+                                   name=domain.name).AndReturn(None)
+
+        self.mox.ReplayAll()
+
+        formData = {'action': 'domains__enable__%s' % domain.id}
+        res = self.client.post(DOMAINS_INDEX_URL, formData)
+
+        self.assertRedirectsNoFollow(res, DOMAINS_INDEX_URL)
+        self.assertMessageCount(error=0)
 
     @test.create_stubs({api.keystone: ('domain_get',
                                        'domain_list', )})

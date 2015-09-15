@@ -123,6 +123,86 @@ class DeleteDomainsAction(tables.DeleteAction):
             api.keystone.domain_delete(request, obj_id)
 
 
+class DisableDomainsAction(tables.BatchAction):
+    @staticmethod
+    def action_present(count):
+        return ungettext_lazy(
+            u"Disable Domain",
+            u"Disable Domains",
+            count
+        )
+
+    @staticmethod
+    def action_past(count):
+        return ungettext_lazy(
+            u"Disabled Domain",
+            u"Disabled Domains",
+            count
+        )
+
+    name = "disable"
+    policy_rules = (('identity', 'identity:update_domain'),)
+    verbose_name = _("Disable Domains")
+
+    def allowed(self, request, datum):
+        return api.keystone.keystone_can_edit_domain() \
+            and (datum is None or datum.enabled)
+
+    def action(self, request, obj_id):
+        domain = self.table.get_object_by_id(obj_id)
+        if domain.enabled:
+            LOG.info('Disabling domain "%s".' % obj_id)
+            try:
+                api.keystone.domain_update(request,
+                                           domain_id=domain.id,
+                                           name=domain.name,
+                                           description=domain.description,
+                                           enabled=False)
+            except Exception:
+                exceptions.handle(request, ignore=True)
+                return False
+
+
+class EnableDomainsAction(tables.BatchAction):
+    @staticmethod
+    def action_present(count):
+        return ungettext_lazy(
+            u"Enable Domain",
+            u"Enable Domains",
+            count
+        )
+
+    @staticmethod
+    def action_past(count):
+        return ungettext_lazy(
+            u"Enabled Domain",
+            u"Enabled Domains",
+            count
+        )
+
+    name = "enable"
+    policy_rules = (('identity', 'identity:update_domain'),)
+    verbose_name = _("Enable Domains")
+
+    def allowed(self, request, datum):
+        return api.keystone.keystone_can_edit_domain() \
+            and (datum is None or not datum.enabled)
+
+    def action(self, request, obj_id):
+        domain = self.table.get_object_by_id(obj_id)
+        if not domain.enabled:
+            LOG.info('Enabling domain "%s".' % obj_id)
+            try:
+                api.keystone.domain_update(request,
+                                           domain_id=domain.id,
+                                           name=domain.name,
+                                           description=domain.description,
+                                           enabled=True)
+            except Exception:
+                exceptions.handle(request, ignore=True)
+                return False
+
+
 class DomainFilterAction(tables.FilterAction):
     def allowed(self, request, datum):
         multidomain_support = getattr(settings,
@@ -206,7 +286,9 @@ class DomainsTable(tables.DataTable):
     class Meta(object):
         name = "domains"
         verbose_name = _("Domains")
+        table_actions_menu = (EnableDomainsAction, DisableDomainsAction)
         row_actions = (SetDomainContext, UpdateUsersLink, UpdateGroupsLink,
-                       EditDomainLink, DeleteDomainsAction)
+                       EditDomainLink, EnableDomainsAction,
+                       DisableDomainsAction, DeleteDomainsAction)
         table_actions = (DomainFilterAction, CreateDomainLink,
                          DeleteDomainsAction, UnsetDomainContext)
