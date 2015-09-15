@@ -1037,14 +1037,15 @@ def data(TEST):
                 'firewall_policy_id':
                     'abcdef-c3eb-4fee-9763-12de3338041e',
                 'name': '',
+                'router_ids': [],
                 'description': '',
                 'status': 'PENDING_CREATE',
                 'admin_state_up': True}
-    TEST.api_firewalls.add(fw1_dict)
+    TEST.api_firewalls.add(fw2_dict)
 
     fw2 = fwaas.Firewall(copy.deepcopy(fw2_dict))
     fw2._apidict['policy'] = policy1
-    TEST.firewalls.add(fw1)
+    TEST.firewalls.add(fw2)
 
     # Additional Cisco N1K profiles.
 
