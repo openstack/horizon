@@ -35,13 +35,13 @@
    * Default usage to provide a title header and a description that are
    * translated by the angular gettext translate filter.:
    *
-   * <hz-page-header header="'My Header' | translate" description="'foo' | translate"/>
+   * <hz-page-header header="{$ 'My Header' | translate $}" description="{$ 'foo' | translate $}"/>
    *
    * If you have additional content that you want to include beneath the
    * title header and description, then include that content inside the
    * directives. Example:
    *
-   * <hz-page-header header="'My Header' | translate" description="'foo' | translate">
+   * <hz-page-header header="{$ 'My Header' | translate $}" description="{$ 'foo' | translate $}">
    *   <a href="http://www.openstack.org">Go to OpenStack</a>
    * </hz-page-header>
    */
@@ -49,8 +49,8 @@
     var directive = {
       restrict: 'E',
       scope: {
-        header: '=',
-        description: '='
+        header: '@',
+        description: '@'
       },
       templateUrl: basePath + 'hz-page-header.html',
       transclude: true

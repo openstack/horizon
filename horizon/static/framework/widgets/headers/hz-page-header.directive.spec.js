@@ -36,10 +36,8 @@
     }));
 
     it('defines basic elements', function () {
-      $scope.scopeTitle = 'A Title';
-      $scope.scopeDesc = 'A Description';
-      var markup = '<hz-page-header header="scopeTitle" ' +
-        'description="scopeDesc"><a href="#">A href</a></hz-page-header>';
+      var markup = '<hz-page-header header="A Title" ' +
+        'description="A Description"><a href="#">A href</a></hz-page-header>';
 
       var $element = digestMarkup($scope, $compile, markup);
 

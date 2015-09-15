@@ -2,10 +2,6 @@
 {% load i18n %}
 {% block title %}{% trans "Users" %}{% endblock %}
 
-{% block page_header %}
-  {% include "horizon/common/_domain_page_header.html" with title=_("Users") %}
-{% endblock page_header %}
-
 {% block main %}
   <ng-include src="'{{ STATIC_URL }}dashboard/identity/users/table/table.html'"></ng-include>
 {% endblock %}

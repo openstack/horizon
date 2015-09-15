@@ -2,10 +2,6 @@
 {% load i18n %}
 {% block title %}{% trans "Images" %}{% endblock %}
 
-{% block page_header %}
-  <hz-page-header header="'{% trans "Images" %}'"></hz-page-header>
-{% endblock page_header %}
-
 {% block main %}
   <ng-include src="'{{ STATIC_URL }}app/core/images/table/images-table.html'"></ng-include>
 {% endblock %}
