@@ -1075,7 +1075,7 @@ class DataTableMetaclass(type):
         # Iterate in reverse to preserve final order
         for base in reversed(bases):
             if hasattr(base, 'base_columns'):
-                columns = base.base_columns.items() + columns
+                columns[0:0] = base.base_columns.items()
         dt_attrs['base_columns'] = collections.OrderedDict(columns)
 
         # If the table is in a ResourceBrowser, the column number must meet
