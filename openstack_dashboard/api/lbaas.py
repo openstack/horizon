@@ -173,8 +173,7 @@ def _pool_list(request, expand_subnet=False, expand_vip=False, **kwargs):
         subnets = neutron.subnet_list(request)
         subnet_dict = OrderedDict((s.id, s) for s in subnets)
         for p in pools:
-            subnet = subnet_dict.get(p['subnet_id'])
-            p['subnet_name'] = subnet.cidr if subnet else None
+            p['subnet'] = subnet_dict.get(p['subnet_id'])
     if expand_vip:
         vips = vip_list(request)
         vip_dict = OrderedDict((v.id, v) for v in vips)

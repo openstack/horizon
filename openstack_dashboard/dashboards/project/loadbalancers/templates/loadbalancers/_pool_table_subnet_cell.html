@@ -1,0 +1,8 @@
+<ul>
+  <li>
+    {% if subnet.name|length > 0 %}
+    <b>{{ subnet.name }}</b>
+    {% endif %}
+    {{ subnet.cidr }}
+  </li>
+</ul>
