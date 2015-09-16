@@ -325,7 +325,7 @@ if os.path.exists(os.path.join(CUSTOM_THEME, 'img')):
 
 # populate HORIZON_CONFIG with auto-discovered JavaScript sources, mock files,
 # specs files and external templates.
-find_static_files(ROOT_PATH, HORIZON_CONFIG)
+find_static_files(HORIZON_CONFIG)
 
 # Load the pluggable dashboard settings
 import openstack_dashboard.enabled

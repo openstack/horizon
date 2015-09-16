@@ -87,7 +87,7 @@ settings.update_dashboards(
 )
 INSTALLED_APPS[0:0] = []
 
-find_static_files(ROOT_PATH, HORIZON_CONFIG)
+find_static_files(HORIZON_CONFIG)
 
 # Set to True to allow users to upload images to glance via Horizon server.
 # When enabled, a file form field will appear on the create image form.
