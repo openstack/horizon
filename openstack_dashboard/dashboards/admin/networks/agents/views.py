@@ -54,7 +54,7 @@ class AddView(forms.ModalFormView):
         try:
             network = api.neutron.network_get(self.request, network_id)
             initial.update({"network_id": network_id,
-                            "network_name": network.name,
+                            "network_name": network.name_or_id,
                             "agents": agents})
             return initial
         except Exception:
