@@ -174,8 +174,8 @@
         return interpolate(format, [count]);
       } else {
         var total = ensureNonNegative(totalInput);
-        var format = gettext('Displaying %s of %s items');
-        return interpolate(format, [count, total]);
+        var format = gettext('Displaying %(count)s of %(total)s items');
+        return interpolate(format, {count: count, total: total}, true);
       }
     };
   }
