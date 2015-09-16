@@ -19,6 +19,11 @@ PANEL_DASHBOARD = 'project'
 PANEL_GROUP = 'data_processing'
 
 # Python panel class of the PANEL to be added.
-ADD_PANEL = \
-    ('openstack_dashboard.contrib.sahara.'
-     'content.data_processing.jobs.panel.JobsPanel')
+ADD_PANEL = (
+    'openstack_dashboard.contrib.sahara.'
+    'content.data_processing.jobs.panel.JobsPanel')
+
+ADD_JS_FILES = [
+    'dashboard/project/data_processing/'
+    'data_processing.job_interface_arguments.js'
+]

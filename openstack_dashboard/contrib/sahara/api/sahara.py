@@ -380,13 +380,14 @@ def job_binary_internal_delete(request, jbi_id):
     client(request).job_binary_internals.delete(job_binary_id=jbi_id)
 
 
-def job_create(request, name, j_type, mains, libs, description):
+def job_create(request, name, j_type, mains, libs, description, interface):
     return client(request).jobs.create(
         name=name,
         type=j_type,
         mains=mains,
         libs=libs,
-        description=description)
+        description=description,
+        interface=interface)
 
 
 def job_list(request, search_opts=None):
@@ -406,13 +407,15 @@ def job_get_configs(request, job_type):
 
 
 def job_execution_create(request, job_id, cluster_id,
-                         input_id, output_id, configs):
+                         input_id, output_id, configs,
+                         interface):
     return client(request).job_executions.create(
         job_id=job_id,
         cluster_id=cluster_id,
         input_id=input_id,
         output_id=output_id,
-        configs=configs)
+        configs=configs,
+        interface=interface)
 
 
 def _resolve_job_execution_names(job_execution, cluster=None,

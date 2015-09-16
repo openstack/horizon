@@ -23,6 +23,8 @@ from horizon import workflows
 
 from openstack_dashboard.contrib.sahara.content.data_processing \
     .utils import helpers
+import openstack_dashboard.contrib.sahara.content.data_processing \
+    .utils.workflow_helpers as whelpers
 from openstack_dashboard.contrib.sahara.api import sahara as saharaclient
 
 
@@ -140,6 +142,62 @@ class GeneralConfigAction(workflows.Action):
             "project/data_processing.jobs/_create_job_help.html")
 
 
+class ConfigureInterfaceArgumentsAction(workflows.Action):
+    hidden_arguments_field = forms.CharField(
+        required=False,
+        widget=forms.HiddenInput(attrs={"class": "hidden_arguments_field"}))
+    argument_ids = forms.CharField(
+        required=False,
+        widget=forms.HiddenInput())
+
+    def __init__(self, request, *args, **kwargs):
+        super(ConfigureInterfaceArgumentsAction, self).__init__(
+            request, *args, **kwargs)
+        request_source = None
+        if 'argument_ids' in request.POST:
+                request_source = request.POST
+        elif 'argument_ids' in request.REQUEST:
+                request_source = request.REQUEST
+        if request_source:
+            self.arguments = []
+            for id in json.loads(request_source['argument_ids']):
+                fields = {
+                    "name": "argument_name_" + str(id),
+                    "description": "argument_description_" + str(id),
+                    "mapping_type": "argument_mapping_type_" + str(id),
+                    "location": "argument_location_" + str(id),
+                    "value_type": "argument_value_type_" + str(id),
+                    "default_value": "argument_default_value_" + str(id)}
+                argument = {k: request_source[v]
+                            for k, v in fields.items()}
+                required_field = "argument_required_" + str(id)
+                fields.update({"required": required_field})
+                argument.update(
+                    {"required": required_field in request_source})
+                self.arguments.append(argument)
+
+                whelpers.build_interface_argument_fields(self, **fields)
+
+    def clean(self):
+        cleaned_data = super(ConfigureInterfaceArgumentsAction, self).clean()
+        return cleaned_data
+
+    class Meta(object):
+        name = _("Interface Arguments")
+
+
+class ConfigureArguments(workflows.Step):
+    action_class = ConfigureInterfaceArgumentsAction
+    contributes = ("hidden_arguments_field", )
+    template_name = ("project/data_processing.jobs/"
+                     "job_interface_arguments_template.html")
+
+    def contribute(self, data, context):
+        for k, v in data.items():
+            context[k] = v
+        return context
+
+
 class GeneralConfig(workflows.Step):
     action_class = GeneralConfigAction
     contributes = ("job_name", "job_type", "job_description", "main_binary")
@@ -171,7 +229,7 @@ class CreateJob(workflows.Workflow):
     success_message = _("Job created")
     failure_message = _("Could not create job template")
     success_url = "horizon:project:data_processing.jobs:index"
-    default_steps = (GeneralConfig, ConfigureLibs)
+    default_steps = (GeneralConfig, ConfigureLibs, ConfigureArguments)
 
     def handle(self, request, context):
         main_locations = []
@@ -184,6 +242,22 @@ class CreateJob(workflows.Workflow):
         if context.get("main_binary", None):
             main_locations.append(context["main_binary"])
 
+        argument_ids = json.loads(context['argument_ids'])
+        interface = [
+            {
+                "name": context['argument_name_' + str(arg_id)],
+                "description": (context['argument_description_' + str(arg_id)]
+                                or None),
+                "mapping_type": context['argument_mapping_type_'
+                                        + str(arg_id)],
+                "location": context['argument_location_' + str(arg_id)],
+                "value_type": context['argument_value_type_' + str(arg_id)],
+                "required": context['argument_required_' + str(arg_id)],
+                "default": (context['argument_default_value_' + str(arg_id)]
+                            or None)
+            } for arg_id in argument_ids
+        ]
+
         try:
             job = saharaclient.job_create(
                 request,
@@ -191,7 +265,8 @@ class CreateJob(workflows.Workflow):
                 context["job_type"],
                 main_locations,
                 lib_locations,
-                context["job_description"])
+                context["job_description"],
+                interface=interface)
 
             hlps = helpers.Helpers(request)
             if hlps.is_from_guide():

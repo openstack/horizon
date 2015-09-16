@@ -464,6 +464,7 @@ def data(TEST):
                 "url": "internal-db://80121dea-f8bd-4ad3-bcc7-096f4bfc722d"
             }
         ],
+        "interface": [],
         "name": "pigjob",
         "tenant_id": "429ad8447c2d47bc8e0382d244e1d1df",
         "type": "Pig",
@@ -549,6 +550,7 @@ def data(TEST):
             "configs": {},
             "params": {}
         },
+        "interface": {},
         "job_id": "a077b851-46be-4ad7-93c3-2d83894546ef",
         "oozie_job_id": "0000000-140604200538581-oozie-hado-W",
         "output_id": "426fb01c-5c7e-472d-bba2-b1f0fe7e0ede",

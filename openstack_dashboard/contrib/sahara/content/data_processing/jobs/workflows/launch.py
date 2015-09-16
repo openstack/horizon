@@ -127,6 +127,33 @@ class JobExecutionExistingGeneralConfigAction(JobExecutionGeneralConfigAction):
             "project/data_processing.jobs/_launch_job_help.html")
 
 
+def _merge_interface_with_configs(interface, job_configs):
+    interface_by_mapping = {(arg['mapping_type'], arg['location']): arg
+                            for arg in interface}
+    mapped_types = ("configs", "params")
+    mapped_configs = {
+        (mapping_type, key): value for mapping_type in mapped_types
+        for key, value in job_configs.get(mapping_type, {}).items()
+    }
+    for index, arg in enumerate(job_configs.get('args', [])):
+        mapped_configs['args', str(index)] = arg
+    free_arguments, interface_arguments = {}, {}
+    for mapping, value in mapped_configs.items():
+        if mapping in interface_by_mapping:
+            arg = interface_by_mapping[mapping]
+            interface_arguments[arg['id']] = value
+        else:
+            free_arguments[mapping] = value
+    configs = {"configs": {}, "params": {}, "args": {}}
+    for mapping, value in free_arguments.items():
+        mapping_type, location = mapping
+        configs[mapping_type][location] = value
+    configs["args"] = [
+        value for key, value in sorted(configs["args"].items(),
+                                       key=lambda x: int(x[0]))]
+    return configs, interface_arguments
+
+
 class JobConfigAction(workflows.Action):
     MAIN_CLASS = "edp.java.main_class"
     JAVA_OPTS = "edp.java.java_opts"
@@ -182,9 +209,10 @@ class JobConfigAction(workflows.Action):
         super(JobConfigAction, self).__init__(request, *args, **kwargs)
         job_ex_id = request.REQUEST.get("job_execution_id")
         if job_ex_id is not None:
-            job_ex_id = request.REQUEST.get("job_execution_id")
             job_ex = saharaclient.job_execution_get(request, job_ex_id)
-            job_configs = job_ex.job_configs
+            job = saharaclient.job_get(request, job_ex.job_id)
+            job_configs, interface_args = _merge_interface_with_configs(
+                job.interface, job_ex.job_configs)
             edp_configs = {}
 
             if 'configs' in job_configs:
@@ -365,6 +393,57 @@ class ClusterGeneralConfig(workflows.Step):
         return context
 
 
+class JobExecutionInterfaceConfigAction(workflows.Action):
+
+    def __init__(self, request, *args, **kwargs):
+        super(JobExecutionInterfaceConfigAction, self).__init__(
+            request, *args, **kwargs)
+        job_id = (request.GET.get("job_id")
+                  or request.POST.get("job"))
+        job = saharaclient.job_get(request, job_id)
+        interface = job.interface or []
+        interface_args = {}
+
+        job_ex_id = request.REQUEST.get("job_execution_id")
+        if job_ex_id is not None:
+            job_ex = saharaclient.job_execution_get(request, job_ex_id)
+            job = saharaclient.job_get(request, job_ex.job_id)
+            job_configs, interface_args = _merge_interface_with_configs(
+                job.interface, job_ex.job_configs)
+
+        for argument in interface:
+            field = forms.CharField(
+                required=argument.get('required'),
+                label=argument['name'],
+                initial=(interface_args.get(argument['id']) or
+                         argument.get('default')),
+                help_text=argument.get('description'),
+                widget=forms.TextInput()
+            )
+            self.fields['argument_%s' % argument['id']] = field
+        self.fields['argument_ids'] = forms.CharField(
+            initial=json.dumps({argument['id']: argument['name']
+                                for argument in interface}),
+            widget=forms.HiddenInput()
+        )
+
+    def clean(self):
+        cleaned_data = super(JobExecutionInterfaceConfigAction, self).clean()
+        return cleaned_data
+
+    class Meta(object):
+        name = _("Interface Arguments")
+
+
+class JobExecutionInterfaceConfig(workflows.Step):
+    action_class = JobExecutionInterfaceConfigAction
+
+    def contribute(self, data, context):
+        for k, v in data.items():
+            context[k] = v
+        return context
+
+
 class LaunchJob(workflows.Workflow):
     slug = "launch_job"
     name = _("Launch Job")
@@ -372,16 +451,22 @@ class LaunchJob(workflows.Workflow):
     success_message = _("Job launched")
     failure_message = _("Could not launch job")
     success_url = "horizon:project:data_processing.job_executions:index"
-    default_steps = (JobExecutionExistingGeneralConfig, JobConfig)
+    default_steps = (JobExecutionExistingGeneralConfig, JobConfig,
+                     JobExecutionInterfaceConfig)
 
     def handle(self, request, context):
+        argument_ids = json.loads(context['argument_ids'])
+        interface = {name: context["argument_" + str(arg_id)]
+                     for arg_id, name in argument_ids.items()}
+
         saharaclient.job_execution_create(
             request,
             context["job_general_job"],
             context["job_general_cluster"],
             context["job_general_job_input"],
             context["job_general_job_output"],
-            context["job_config"])
+            context["job_config"],
+            interface)
         return True
 
 
@@ -411,11 +496,10 @@ class SelectHadoopPluginAction(t_flows.SelectPluginAction):
         if job_ex_id is not None:
             self.fields["job_execution_id"] = forms.ChoiceField(
                 label=_("Job Execution ID"),
-                initial=request.REQUEST.get("job_execution_id"),
+                initial=job_ex_id,
                 widget=forms.HiddenInput(
                     attrs={"class": "hidden_create_field"}))
 
-            job_ex_id = request.REQUEST.get("job_execution_id")
             job_configs = (
                 saharaclient.job_execution_get(request,
                                                job_ex_id).job_configs)
@@ -459,7 +543,8 @@ class LaunchJobNewCluster(workflows.Workflow):
     success_url = "horizon:project:data_processing.jobs:index"
     default_steps = (ClusterGeneralConfig,
                      JobExecutionGeneralConfig,
-                     JobConfig)
+                     JobConfig,
+                     JobExecutionInterfaceConfig)
 
     def handle(self, request, context):
         node_groups = None
@@ -469,6 +554,10 @@ class LaunchJobNewCluster(workflows.Workflow):
 
         ct_id = context["cluster_general_cluster_template"] or None
         user_keypair = context["cluster_general_keypair"] or None
+
+        argument_ids = json.loads(context['argument_ids'])
+        interface = {name: context["argument_" + str(arg_id)]
+                     for arg_id, name in argument_ids.items()}
 
         try:
             cluster = saharaclient.cluster_create(
@@ -496,7 +585,8 @@ class LaunchJobNewCluster(workflows.Workflow):
                 cluster.id,
                 context["job_general_job_input"],
                 context["job_general_job_output"],
-                context["job_config"])
+                context["job_config"],
+                interface)
         except Exception:
             exceptions.handle(request,
                               _("Unable to launch job."))

@@ -54,7 +54,8 @@ class DataProcessingJobTests(test.TestCase):
         api.sahara.job_binary_list(IsA(http.HttpRequest)).AndReturn([])
         api.sahara.job_binary_list(IsA(http.HttpRequest)).AndReturn([])
         api.sahara.job_create(IsA(http.HttpRequest),
-                              'test', 'Pig', [], [], 'test create')
+                              'test', 'Pig', [], [], 'test create',
+                              interface=[])
         api.sahara.job_types_list(IsA(http.HttpRequest)) \
             .AndReturn(self.job_types.list())
         self.mox.ReplayAll()
@@ -62,7 +63,66 @@ class DataProcessingJobTests(test.TestCase):
                      'job_type': 'pig',
                      'lib_binaries': [],
                      'lib_ids': '[]',
-                     'job_description': 'test create'}
+                     'job_description': 'test create',
+                     'hidden_arguments_field': [],
+                     'argument_ids': '[]'}
+        url = reverse('horizon:project:data_processing.jobs:create-job')
+        res = self.client.post(url, form_data)
+
+        self.assertNoFormErrors(res)
+
+    @test.create_stubs({api.sahara: ('job_binary_list',
+                                     'job_create',
+                                     'job_types_list')})
+    def test_create_with_interface(self):
+        api.sahara.job_binary_list(IsA(http.HttpRequest)).AndReturn([])
+        api.sahara.job_binary_list(IsA(http.HttpRequest)).AndReturn([])
+        api.sahara.job_create(IsA(http.HttpRequest),
+                              'test_interface', 'Pig', [], [], 'test create',
+                              interface=[
+                                  {
+                                      "name": "argument",
+                                      "description": None,
+                                      "mapping_type": "args",
+                                      "location": "0",
+                                      "value_type": "number",
+                                      "required": True,
+                                      "default": None
+                                  },
+                                  {
+                                      "name": "config",
+                                      "description": "Really great config",
+                                      "mapping_type": "configs",
+                                      "location": "edp.important.config",
+                                      "value_type": "string",
+                                      "required": False,
+                                      "default": "A value"
+                                  }])
+        api.sahara.job_types_list(IsA(http.HttpRequest)) \
+            .AndReturn(self.job_types.list())
+        self.mox.ReplayAll()
+        form_data = {'job_name': 'test_interface',
+                     'job_type': 'pig',
+                     'lib_binaries': [],
+                     'lib_ids': '[]',
+                     'job_description': 'test create',
+                     'hidden_arguments_field': [],
+                     'argument_ids': '["0", "1"]',
+                     'argument_id_0': '0',
+                     'argument_name_0': 'argument',
+                     'argument_description_0': '',
+                     'argument_mapping_type_0': 'args',
+                     'argument_location_0': '0',
+                     'argument_value_type_0': 'number',
+                     'argument_required_0': True,
+                     'argument_default_value_0': '',
+                     'argument_id_1': '1',
+                     'argument_name_1': 'config',
+                     'argument_description_1': 'Really great config',
+                     'argument_mapping_type_1': 'configs',
+                     'argument_location_1': 'edp.important.config',
+                     'argument_value_type_1': 'string',
+                     'argument_default_value_1': 'A value'}
         url = reverse('horizon:project:data_processing.jobs:create-job')
         res = self.client.post(url, form_data)
 
@@ -106,11 +166,14 @@ class DataProcessingJobTests(test.TestCase):
             .MultipleTimes().AndReturn(self.data_sources.list())
         api.sahara.job_list(IsA(http.HttpRequest)) \
             .AndReturn(self.jobs.list())
+        api.sahara.job_get(IsA(http.HttpRequest), IsA(unicode)) \
+            .AndReturn(job)
         api.sahara.job_execution_create(IsA(http.HttpRequest),
                                         IsA(unicode),
                                         IsA(unicode),
                                         IsA(unicode),
                                         IsA(unicode),
+                                        IsA(dict),
                                         IsA(dict)).AndReturn(job_execution)
         self.mox.ReplayAll()
 
@@ -121,6 +184,7 @@ class DataProcessingJobTests(test.TestCase):
             'job_input': input_ds.id,
             'job_output': output_ds.id,
             'config': {},
+            'argument_ids': '{}',
             'adapt_oozie': 'on',
             'hbase_common_lib': 'on',
             'java_opts': '',

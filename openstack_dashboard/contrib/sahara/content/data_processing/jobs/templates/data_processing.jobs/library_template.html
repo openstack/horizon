@@ -1,7 +1,7 @@
 {% load i18n %}
 <script type="text/javascript">
     var remove_btn_label = '{% trans "Remove" %}';
-    var template = '<tr id_attr="$id">' +
+    var lib_template = '<tr id_attr="$id">' +
             '<td>' +
             '<div class="input form-group"  style="padding-right:15px;"><input disabled value="$lib_name" class="form-control" /></div>' +
             '</td>' +
@@ -17,7 +17,7 @@
             '</td>' +
             '</tr>';
 
-    function get_next_id() {
+    function get_next_lib_id() {
         var max = -1;
         $("#libs tbody tr").each(function () {
             max = Math.max(max, parseInt($(this).attr("id_attr")));
@@ -33,8 +33,8 @@
         $("#lib_ids").val(JSON.stringify(ids));
     }
 
-    function add_node(lib_name, id) {
-        var tmp = template.
+    function add_lib_node(lib_name, id) {
+        var tmp = lib_template.
                 replace(/\$id/g, id).
                 replace(/\$lib_name/g, lib_name);
         $("#libs tbody").append(tmp);
@@ -50,12 +50,12 @@
         if (lib_val == "") {
             return;
         }
-        add_node(chosen.html(), chosen.val());
+        add_lib_node(chosen.html(), chosen.val());
     }
     function delete_lib(el) {
         var tr = $(el).parents("tr")[0];
         tr.parentNode.removeChild(tr);
-        var id = get_next_id();
+        var id = get_next_lib_id();
         if (id == 0) {
             $("#libs").hide();
         }
