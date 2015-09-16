@@ -12,21 +12,27 @@
 # Pablo Iranzo Gómez <Pablo.Iranzo@gmail.com>, 2014
 # Sergio Cuellar Valdes <scuellarv@kionetworks.com>, 2015
 # Veruska Perinotto <reaching.out@gmail.com>, 2015
+# Alberto Molina Coballes <alb.molina@gmail.com>, 2015. #zanata
+# Marian T <marian.tort@gmail.com>, 2015. #zanata
+# OpenStack Infra <zanata@openstack.org>, 2015. #zanata
+# Pedro Navarro Pérez <pednape@gmail.com>, 2015. #zanata
+# Veruska <reaching.out@gmail.com>, 2015. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: Horizon\n"
+"Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-09-03 04:49+0000\n"
-"PO-Revision-Date: 2015-09-02 07:31+0000\n"
-"Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
-"Language-Team: Spanish (http://www.transifex.com/openstack/horizon/language/"
-"es/)\n"
+"POT-Creation-Date: 2015-09-16 18:25+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"PO-Revision-Date: 2015-09-16 02:29+0000\n"
+"Last-Translator: Pedro Navarro Pérez <pednape@gmail.com>\n"
+"Language-Team: Spanish (http://www.transifex.com/openstack/horizon/language/"
+"es/)\n"
 "Generated-By: Babel 2.0\n"
 "Language: es\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Zanata 3.7.1\n"
 
 msgid ""
 "\n"
@@ -847,13 +853,6 @@ msgstr "Añadir VIP"
 msgid "Add VPN Service"
 msgstr "Añadir servicio VPN"
 
-msgid ""
-"Add and remove security groups to this project from the list of available "
-"security groups."
-msgstr ""
-"Añada y elimine grupos de seguridad a este proyecto desde la lista de grupos "
-"de seguridad disponibles."
-
 msgid "Add custom tag"
 msgstr "Añadir etiqueta personalizada"
 
@@ -1275,6 +1274,9 @@ msgstr "Modo de autorización"
 
 msgid "Auto Security Group"
 msgstr "Grupo de seguridad auto"
+
+msgid "Auto-configure"
+msgstr "Autoconfigurar"
 
 msgid "Automatic"
 msgstr "Automático"
@@ -1717,11 +1719,17 @@ msgstr "Cerrar"
 msgid "Cluster"
 msgstr "Cluster"
 
+msgid "Cluster Count"
+msgstr "Recuento de clústers"
+
 msgid "Cluster Creation Guide"
 msgstr "Guía de creación del clúster"
 
 msgid "Cluster Details"
 msgstr "Detalles del Clúster"
+
+msgid "Cluster Events"
+msgstr "Eventos de Clúster"
 
 msgid "Cluster Guide"
 msgstr "Guia del Clúster"
@@ -1737,6 +1745,10 @@ msgstr "Panorámica de Clúster"
 
 msgid "Cluster Template"
 msgstr "Plantilla del cluster"
+
+#, python-format
+msgid "Cluster Template %s updated"
+msgstr "Plantilla de clúster %s actualizada"
 
 msgid "Cluster Template Details"
 msgstr "Detalles de plantilla del Clúster"
@@ -1758,8 +1770,14 @@ msgstr ""
 msgid "Cluster configurations are not specified"
 msgstr "Configuraciones del cluster no han sido especificadas"
 
+msgid "Cluster provision steps"
+msgstr "Pasos de aprovisionamiento del clúster"
+
 msgid "Cluster template creation failed"
 msgstr "Falló la creación de la Plantilla del Clúster"
+
+msgid "Cluster template update failed"
+msgstr "No se ha podido actualizar la plantilla del clúster."
 
 msgid "Cluster type chosen"
 msgstr "Tipo de Cluster elegido"
@@ -1782,6 +1800,9 @@ msgstr "Pares clave=valor separados por coma"
 msgctxt "Current status of a Database Backup"
 msgid "Completed"
 msgstr "Finalizada"
+
+msgid "Completed Successfully"
+msgstr "Completado Exitosamente"
 
 msgid "Component"
 msgstr "Componente"
@@ -1971,6 +1992,9 @@ msgstr "No se ha encontrado el rol predeterminado \"%s\" en Keystone"
 
 msgid "Could not launch job"
 msgstr "No fue posible ejcutar el trabajo"
+
+msgid "Could not update data source"
+msgstr "No se puede actualizar fuente de datos"
 
 #, python-format
 msgid "Couldn't get current security group list for instance %s."
@@ -2628,6 +2652,9 @@ msgstr ""
 msgid "Data source created"
 msgstr "Origen de datos creado"
 
+msgid "Data source updated"
+msgstr "Fuente de datos actualizada"
+
 msgid "Database"
 msgstr "Base de datos"
 
@@ -2713,6 +2740,11 @@ msgstr "El retraso debe ser mayor o igual al Timeout"
 msgid "Delay must be greater than or equal to timeout"
 msgstr "La demora debe ser mayor o igual al tiempo de desconexión"
 
+msgid "Delete Cluster"
+msgid_plural "Delete Clusters"
+msgstr[0] "Eliminar clúster"
+msgstr[1] "Eliminar clústeres"
+
 msgctxt "current status of stack"
 msgid "Delete Complete"
 msgstr "Eliminar Completo"
@@ -2721,6 +2753,11 @@ msgid "Delete DHCP Agent"
 msgid_plural "Delete DHCP Agents"
 msgstr[0] "Borrar Agente DHCP"
 msgstr[1] "Borrar Agentes DHCP"
+
+msgid "Delete Data Source"
+msgid_plural "Delete Data Sources"
+msgstr[0] "Eliminar recurso de datos"
+msgstr[1] "Eliminar recursos de datos"
 
 msgid "Delete Encryption"
 msgid_plural "Delete Encryptions"
@@ -2744,6 +2781,16 @@ msgid "Delete Host Aggregate"
 msgid_plural "Delete Host Aggregates"
 msgstr[0] "Borrar anfitrion adicionado"
 msgstr[1] "Borrar anfitriones adicionados"
+
+msgid "Delete IPSec Policy"
+msgid_plural "Delete IPSec Policies"
+msgstr[0] "Eliminar política IPSec"
+msgstr[1] "Eliminar Políticas IPSec"
+
+msgid "Delete IPSec Site Connection"
+msgid_plural "Delete IPSec Site Connections"
+msgstr[0] "Eliminar conexión al sitio IPSec"
+msgstr[1] "Eliminar Conexiones al Sitio IPSec"
 
 msgctxt "current status of stack"
 msgid "Delete In Progress"
@@ -2774,6 +2821,11 @@ msgid_plural "Delete Subnets"
 msgstr[0] "Borrar Subred"
 msgstr[1] "Borrar Subredes"
 
+msgid "Delete Template"
+msgid_plural "Delete Templates"
+msgstr[0] "Eliminar plantilla"
+msgstr[1] "Eliminar plantillas"
+
 msgid "Delete Volume Type"
 msgid_plural "Delete Volume Types"
 msgstr[0] "Eliminar tipo de volumen"
@@ -2801,10 +2853,20 @@ msgctxt "Current status of an Instance"
 msgid "Deleted"
 msgstr "Eliminado"
 
+msgid "Deleted Cluster"
+msgid_plural "Deleted Clusters"
+msgstr[0] "Clúster eliminado"
+msgstr[1] "Clústeres eliminados"
+
 msgid "Deleted DHCP Agent"
 msgid_plural "Deleted DHCP Agents"
 msgstr[0] "Agente DHCP Borrado"
 msgstr[1] "Agentes DHCP Borrados"
+
+msgid "Deleted Data Source"
+msgid_plural "Deleted Data Sources"
+msgstr[0] "Recurso de datos eliminado"
+msgstr[1] "Recursos de datos eliminados"
 
 msgid "Deleted Flavor"
 msgid_plural "Deleted Flavors"
@@ -2852,6 +2914,11 @@ msgid "Deleted Subnet"
 msgid_plural "Deleted Subnets"
 msgstr[0] "Subred Borrada"
 msgstr[1] "Subredes Borradas"
+
+msgid "Deleted Template"
+msgid_plural "Deleted Templates"
+msgstr[0] "Plantilla eliminada"
+msgstr[1] "Plantillas eliminadas"
 
 #, python-format
 msgid "Deleted VIP %s"
@@ -3211,6 +3278,9 @@ msgstr "Descargar el binario del trabajo."
 msgid "Download key pair &quot;%(keypair_name)s&quot;"
 msgstr "Descargar par de claves &quot;%(keypair_name)s&quot;"
 
+msgid "Duration"
+msgstr "Duración"
+
 #, python-format
 msgid "Duration of instance type %s (openstack flavor)"
 msgstr "Duración de instancia tipo %s (sabor de openstack)"
@@ -3227,6 +3297,9 @@ msgstr "EC2 URL"
 msgid "Edit"
 msgstr "Editar"
 
+msgid "Edit Cluster Template"
+msgstr "Editar plantilla de clúster"
+
 msgid "Edit Connection"
 msgstr "Editar conexión"
 
@@ -3235,6 +3308,9 @@ msgstr "Editar consumidor"
 
 msgid "Edit Consumer of QoS Spec"
 msgstr "Editar Consumidor en las especificaciones QoS"
+
+msgid "Edit Data Source"
+msgstr "Editar fuente de datos"
 
 msgid "Edit Domain"
 msgstr "Editar dominio"
@@ -3275,6 +3351,9 @@ msgstr "Editar etiquetas de la imagen"
 
 msgid "Edit Instance"
 msgstr "Editar instancia"
+
+msgid "Edit Job Binary"
+msgstr "Editar el trabajo binario"
 
 msgid "Edit Member"
 msgstr "Editar miembro"
@@ -3621,6 +3700,9 @@ msgid ""
 "Evacuate the servers from the selected down host to an active target host."
 msgstr ""
 "Evacuar los servidores del anfitrión caido a un anfitrión objetivo activo."
+
+msgid "Event time"
+msgstr "Hora del Evento"
 
 msgid "Events"
 msgstr "Eventos"
@@ -4629,6 +4711,14 @@ msgstr ""
 "que el volumen del cual originan. "
 
 msgid ""
+"If selected, instances of a cluster will be automatically configured during "
+"creation. Otherwise you should manually specify configuration values"
+msgstr ""
+"En el caso de estar seleccionadas, las instancias de un clúster se "
+"configurarán automáticamente durante la creación. De lo contrario, deberá "
+"especificar manualmente los valores de la configuración."
+
+msgid ""
 "If you select an image via an HTTP URL, the Image Location field MUST be a "
 "valid and direct URL to the image binary; it must also be accessible to the "
 "Image Service. URLs that redirect or serve error pages will result in "
@@ -4752,6 +4842,9 @@ msgid ""
 msgstr ""
 "Adicionalmente podrá crear una red externa o una red compartido marcando la "
 "casilla correspondiente."
+
+msgid "In progress"
+msgstr "En progreso"
 
 msgctxt "Current status of a Volume"
 msgid "In-use"
@@ -5929,6 +6022,9 @@ msgstr "No hay imágenes disponibles"
 msgid "No images available."
 msgstr "No hay imágenes disponibles."
 
+msgid "No info available"
+msgstr "No hay información disponible."
+
 msgid "No input was provided for the namespace content."
 msgstr "No se proporcionó ninguna entrada para el contenido del namespace"
 
@@ -6159,6 +6255,9 @@ msgstr "Número de VCPU"
 msgid "Number of Volumes"
 msgstr "Número de volúmenes"
 
+msgid "Number of clusters to launch."
+msgstr "Número de clústers a lanzar"
+
 msgid "Number of containers"
 msgstr "Numero de contenedores"
 
@@ -6310,6 +6409,9 @@ msgstr ""
 
 msgid "Optionally, you may choose to create a new volume."
 msgstr "Opcionalmente, puede seleccionar crear un nuevo volumen."
+
+msgid "Orchestration"
+msgstr "Orquestación"
 
 msgid "Orchestration Services"
 msgstr "Servicios de Orquestación"
@@ -6660,14 +6762,11 @@ msgstr "Privada"
 msgid "Private Key File"
 msgstr "Fichero de clave privada"
 
-msgid "Processes"
-msgstr "Procesos"
-
-msgid "Processes to be launched in node group"
-msgstr "Procesos a lanzar en el grupo de nodo"
-
 msgid "Profile"
 msgstr "Perfil"
+
+msgid "Progress"
+msgstr "Progreso"
 
 msgid "Project"
 msgstr "Proyecto"
@@ -8217,6 +8316,9 @@ msgstr "El inicio debe ser previo al final del periodo."
 msgid "Started"
 msgstr "Arrancado"
 
+msgid "Started at"
+msgstr "Inicio"
+
 #, python-format
 msgid "Starting evacuation from %(current)s to %(target)s."
 msgstr "Comenzando la evacuación de %(current)s a %(target)s."
@@ -8248,6 +8350,9 @@ msgstr "Estado ="
 
 msgid "Status Reason"
 msgstr "Razón del estado"
+
+msgid "Step Description"
+msgstr "Descripción del Paso"
 
 msgctxt "Action log of an instance"
 msgid "Stop"
@@ -9087,9 +9192,6 @@ msgstr ""
 "Para salir del modo a pantalla completa, haga click en el botón de página "
 "anterior del navegador."
 
-msgid "To power off a specific instance."
-msgstr "Para apagar una instancia específica."
-
 msgid ""
 "To specify an allowed IP range, select &quot;CIDR&quot;. To allow access "
 "from all members of another security group select &quot;Security Group&quot;."
@@ -9566,6 +9668,9 @@ msgstr "No se puede obtener el objeto plantilla."
 
 msgid "Unable to fetch template to copy."
 msgstr "No ha sido posible obtener la plantilla a copiar."
+
+msgid "Unable to fetch template to edit."
+msgstr "No ha sido posible obtener la plantilla a editar."
 
 msgid "Unable to fetch the image details"
 msgstr "No fue posible obtener los detalles de la imagen"
@@ -10118,6 +10223,10 @@ msgstr "No ha sido posible obtener la lista de instancias."
 msgid "Unable to retrieve instances."
 msgstr "No ha sido posible obtener las instancias."
 
+#, python-format
+msgid "Unable to retrieve job binary \"%s\"."
+msgstr "No ha sido posible obtener el trabajo binario \"%s\"."
+
 msgid "Unable to retrieve key pair list."
 msgstr "No ha sido posible obtener la lista de pares de claves."
 
@@ -10500,6 +10609,9 @@ msgstr "No ha sido posible actualizar el grupo."
 msgid "Unable to update image \"%s\"."
 msgstr "No ha sido posible subir la imagen \"%s\"."
 
+msgid "Unable to update job binary"
+msgstr "No ha sido posible actualizar el binario de trabajo"
+
 msgid "Unable to update object."
 msgstr "No ha sido posible actualizar el objeto."
 
@@ -10588,6 +10700,16 @@ msgstr ""
 msgctxt "Action log of an instance"
 msgid "Unpause"
 msgstr "Reanudar"
+
+msgid "Unregister Image"
+msgid_plural "Unregister Images"
+msgstr[0] "Imagen Sin Registrar"
+msgstr[1] "Imágenes Sin Registrar"
+
+msgid "Unregistered Image"
+msgid_plural "Unregistered Images"
+msgstr[0] "Imagen no registrada"
+msgstr[1] "Imágenes no Registradas"
 
 msgctxt "Task status of an Instance"
 msgid "Unrescuing"
@@ -10800,6 +10922,9 @@ msgstr "Utiliza grupos anti afinidad para los procesos"
 
 msgid "Use anti-affinity groups for: "
 msgstr "Utiliza los grupos anti afinidad para:"
+
+msgid "Use auto-configuration"
+msgstr "Utilizar autoconfiguración"
 
 msgid "Use image as a source"
 msgstr "Utilizar una imagen como origen"

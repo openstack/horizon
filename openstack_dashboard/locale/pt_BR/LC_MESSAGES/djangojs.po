@@ -7,21 +7,23 @@
 # Lafaiet <coldmetall@gmail.com>, 2015
 # Luís Eduardo Tenório Silva <eduardovansilva@gmail.com>, 2015
 # Tiago OR (James) <tiagoor@gmail.com>, 2015
+# OpenStack Infra <zanata@openstack.org>, 2015. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: Horizon\n"
+"Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-09-03 04:49+0000\n"
+"POT-Creation-Date: 2015-09-16 18:25+0000\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
 "PO-Revision-Date: 2015-09-02 04:23+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
 "Language-Team: Portuguese (Brazil) (http://www.transifex.com/openstack/"
 "horizon/language/pt_BR/)\n"
-"MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=UTF-8\n"
-"Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 2.0\n"
-"Language: pt_BR\n"
+"Language: pt-BR\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"X-Generator: Zanata 3.7.1\n"
 
 msgid "(Max: 16Kb)"
 msgstr "(Max: 16Kb)"
@@ -173,19 +175,6 @@ msgstr "Criar um Novo Volume"
 
 msgid "Created"
 msgstr "Criado"
-
-#, python-format
-msgid ""
-"Custom scripts are attached to instances to perform specific actions when "
-"the instance is launched. For example, if you are unable to install <samp>"
-"%(cloutInit)s</samp> inside a guest operating system, you can use a custom "
-"script to get a public key and add it to the user account."
-msgstr ""
-"Scripts personalizados são acoplados às instâncias para executar ação "
-"específicas quando a instância é executada. Por exemplo, se você está "
-"impossibilitado de instalar <samp>%(cloutInit)s</samp> dentro de um sistema "
-"convidado, você pode utilizar um script para adquirir uma chave pública e a "
-"adicionar à conta de usuário."
 
 msgid "Customization Script"
 msgstr "Script de Customização"
@@ -404,9 +393,6 @@ msgstr "Mín. RAM (MB)"
 msgid "Min Ram"
 msgstr "Mín. RAM"
 
-msgid "Modified"
-msgstr "Modificado"
-
 msgid "Name"
 msgstr "Nome"
 
@@ -508,9 +494,6 @@ msgstr "Salvando"
 
 msgid "Script size"
 msgstr "Tamanho do Script"
-
-msgid "Script size > 16Kb"
-msgstr "Tamanho do Script > 16Kb"
 
 msgid "Security Groups"
 msgstr "Grupos de Segurança"
@@ -631,9 +614,6 @@ msgstr ""
 
 msgid "The key pair allows you to SSH into the instance."
 msgstr "O par de chaves permite que você faça SSH para a instância."
-
-msgid "The maximum script size is 16Kb."
-msgstr "O tamanho máximo do script é 16Kb."
 
 #, python-format
 msgid ""

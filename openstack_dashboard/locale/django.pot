@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-09-03 06:13+0000\n"
+"POT-Creation-Date: 2015-09-16 18:38+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -363,20 +363,20 @@ msgstr ""
 msgid "System IO Utility Reading"
 msgstr ""
 
-#: api/cinder.py:46 dashboards/admin/volumes/volume_types/forms.py:33
+#: api/cinder.py:47 dashboards/admin/volumes/volume_types/forms.py:33
 msgid "back-end"
 msgstr ""
 
-#: api/cinder.py:47 dashboards/admin/volumes/volume_types/forms.py:31
+#: api/cinder.py:48 dashboards/admin/volumes/volume_types/forms.py:31
 msgid "front-end"
 msgstr ""
 
-#: api/cinder.py:48
+#: api/cinder.py:49
 msgctxt "Both of front-end and back-end"
 msgid "both"
 msgstr ""
 
-#: api/cinder.py:222
+#: api/cinder.py:223
 msgid "Unknown instance"
 msgstr ""
 
@@ -422,7 +422,7 @@ msgstr ""
 msgid "Unable to get health monitor %(monitor_id)s for pool %(pool)s."
 msgstr ""
 
-#: api/neutron.py:246
+#: api/neutron.py:245
 #, python-format
 msgid "ALLOW %(ethertype)s %(proto_port)s %(direction)s %(remote)s"
 msgstr ""
@@ -520,17 +520,17 @@ msgstr ""
 msgid "Failed to modify %d instance security groups"
 msgstr ""
 
-#: api/nova.py:801 api/nova.py:837
+#: api/nova.py:809 api/nova.py:845
 #, python-format
 msgid "Name: %(name)s ID: %(uuid)s"
 msgstr ""
 
-#: api/nova.py:806
+#: api/nova.py:814
 #, python-format
 msgid "Failed to evacuate instances: %s"
 msgstr ""
 
-#: api/nova.py:842
+#: api/nova.py:850
 #, python-format
 msgid "Failed to migrate instances: %s"
 msgstr ""
@@ -576,8 +576,8 @@ msgstr ""
 #: contrib/sahara/content/data_processing/data_sources/tables.py:64
 #: contrib/sahara/content/data_processing/data_sources/templates/data_processing.data_sources/_details.html:5
 #: contrib/sahara/content/data_processing/data_sources/workflows/create.py:30
-#: contrib/sahara/content/data_processing/job_binaries/forms.py:48
-#: contrib/sahara/content/data_processing/job_binaries/tables.py:79
+#: contrib/sahara/content/data_processing/job_binaries/forms.py:55
+#: contrib/sahara/content/data_processing/job_binaries/tables.py:86
 #: contrib/sahara/content/data_processing/job_binaries/templates/data_processing.job_binaries/_details.html:5
 #: contrib/sahara/content/data_processing/jobs/tables.py:30
 #: contrib/sahara/content/data_processing/jobs/tables.py:105
@@ -619,9 +619,9 @@ msgstr ""
 #: dashboards/admin/volumes/volume_types/tables.py:299
 #: dashboards/admin/volumes/volumes/forms.py:89
 #: dashboards/admin/volumes/volumes/forms.py:218
-#: dashboards/admin/volumes/volumes/forms.py:286
+#: dashboards/admin/volumes/volumes/forms.py:289
 #: dashboards/admin/volumes/volumes/tables.py:91
-#: dashboards/identity/domains/tables.py:199
+#: dashboards/identity/domains/tables.py:279
 #: dashboards/identity/domains/workflows.py:34
 #: dashboards/identity/groups/forms.py:30
 #: dashboards/identity/groups/forms.py:56
@@ -635,17 +635,17 @@ msgstr ""
 #: dashboards/project/firewalls/forms.py:34
 #: dashboards/project/firewalls/forms.py:99
 #: dashboards/project/firewalls/forms.py:126
-#: dashboards/project/firewalls/tables.py:270
-#: dashboards/project/firewalls/tables.py:307
-#: dashboards/project/firewalls/tables.py:352
+#: dashboards/project/firewalls/tables.py:271
+#: dashboards/project/firewalls/tables.py:308
+#: dashboards/project/firewalls/tables.py:353
 #: dashboards/project/firewalls/workflows.py:30
 #: dashboards/project/firewalls/workflows.py:218
 #: dashboards/project/firewalls/workflows.py:275
 #: dashboards/project/firewalls/templates/firewalls/_firewall_details.html:7
 #: dashboards/project/firewalls/templates/firewalls/_policy_details.html:7
 #: dashboards/project/firewalls/templates/firewalls/_rule_details.html:7
-#: dashboards/project/images/images/forms.py:84
-#: dashboards/project/images/images/forms.py:278
+#: dashboards/project/images/images/forms.py:86
+#: dashboards/project/images/images/forms.py:285
 #: dashboards/project/images/templates/images/images/_detail_overview.html:9
 #: dashboards/project/instances/templates/instances/_detail_overview.html:10
 #: dashboards/project/instances/templates/instances/_flavors_and_quotas.html:9
@@ -738,15 +738,15 @@ msgstr ""
 #: contrib/sahara/content/data_processing/data_sources/tables.py:70
 #: contrib/sahara/content/data_processing/data_sources/templates/data_processing.data_sources/_details.html:13
 #: contrib/sahara/content/data_processing/data_sources/workflows/create.py:62
-#: contrib/sahara/content/data_processing/job_binaries/forms.py:131
-#: contrib/sahara/content/data_processing/job_binaries/tables.py:84
+#: contrib/sahara/content/data_processing/job_binaries/forms.py:139
+#: contrib/sahara/content/data_processing/job_binaries/tables.py:91
 #: contrib/sahara/content/data_processing/job_binaries/templates/data_processing.job_binaries/_details.html:11
 #: contrib/sahara/content/data_processing/jobs/tables.py:32
 #: contrib/sahara/content/data_processing/jobs/tables.py:110
 #: contrib/sahara/content/data_processing/jobs/templates/data_processing.jobs/_details.html:12
 #: contrib/sahara/content/data_processing/jobs/workflows/create.py:99
 #: contrib/sahara/content/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/_details.html:10
-#: contrib/sahara/content/data_processing/nodegroup_templates/workflows/create.py:43
+#: contrib/sahara/content/data_processing/nodegroup_templates/workflows/create.py:48
 #: contrib/trove/content/database_backups/templates/database_backups/details.html:16
 #: contrib/trove/content/database_backups/workflows/create_backup.py:34
 #: dashboards/admin/metadata_defs/tables.py:132
@@ -759,8 +759,8 @@ msgstr ""
 #: dashboards/admin/volumes/volume_types/forms.py:176
 #: dashboards/admin/volumes/volume_types/tables.py:209
 #: dashboards/admin/volumes/volumes/forms.py:68
-#: dashboards/admin/volumes/volumes/forms.py:224
-#: dashboards/identity/domains/tables.py:201
+#: dashboards/admin/volumes/volumes/forms.py:222
+#: dashboards/identity/domains/tables.py:281
 #: dashboards/identity/domains/workflows.py:37
 #: dashboards/identity/groups/forms.py:33
 #: dashboards/identity/groups/forms.py:59
@@ -768,24 +768,24 @@ msgstr ""
 #: dashboards/identity/projects/tables.py:231
 #: dashboards/identity/projects/workflows.py:151
 #: dashboards/identity/projects/templates/projects/_detail_overview.html:15
-#: dashboards/identity/users/forms.py:99 dashboards/identity/users/forms.py:197
+#: dashboards/identity/users/forms.py:99 dashboards/identity/users/forms.py:198
 #: dashboards/identity/users/tables.py:232
 #: dashboards/project/access_and_security/security_groups/forms.py:56
 #: dashboards/project/access_and_security/security_groups/tables.py:143
 #: dashboards/project/firewalls/forms.py:37
 #: dashboards/project/firewalls/forms.py:101
 #: dashboards/project/firewalls/forms.py:129
-#: dashboards/project/firewalls/tables.py:272
-#: dashboards/project/firewalls/tables.py:309
-#: dashboards/project/firewalls/tables.py:354
+#: dashboards/project/firewalls/tables.py:273
+#: dashboards/project/firewalls/tables.py:310
+#: dashboards/project/firewalls/tables.py:355
 #: dashboards/project/firewalls/workflows.py:34
 #: dashboards/project/firewalls/workflows.py:220
 #: dashboards/project/firewalls/workflows.py:278
 #: dashboards/project/firewalls/templates/firewalls/_firewall_details.html:10
 #: dashboards/project/firewalls/templates/firewalls/_policy_details.html:10
 #: dashboards/project/firewalls/templates/firewalls/_rule_details.html:10
-#: dashboards/project/images/images/forms.py:85
-#: dashboards/project/images/images/forms.py:279
+#: dashboards/project/images/images/forms.py:87
+#: dashboards/project/images/images/forms.py:286
 #: dashboards/project/images/templates/images/images/_detail_overview.html:12
 #: dashboards/project/loadbalancers/forms.py:36
 #: dashboards/project/loadbalancers/forms.py:78
@@ -837,7 +837,7 @@ msgstr ""
 #: contrib/sahara/content/data_processing/clusters/templates/data_processing.clusters/create.html:3
 #: contrib/sahara/content/data_processing/clusters/templates/data_processing.clusters/create_cluster.html:3
 #: contrib/sahara/content/data_processing/clusters/workflows/create.py:56
-#: contrib/sahara/content/data_processing/clusters/workflows/create.py:217
+#: contrib/sahara/content/data_processing/clusters/workflows/create.py:223
 msgid "Launch Cluster"
 msgstr ""
 
@@ -879,7 +879,7 @@ msgstr ""
 #: contrib/sahara/content/data_processing/cluster_templates/tables.py:131
 #: contrib/sahara/content/data_processing/cluster_templates/tabs.py:47
 #: contrib/sahara/content/data_processing/cluster_templates/templates/data_processing.cluster_templates/_nodegroups_details.html:3
-#: contrib/sahara/content/data_processing/cluster_templates/workflows/create.py:217
+#: contrib/sahara/content/data_processing/cluster_templates/workflows/create.py:226
 #: contrib/sahara/content/data_processing/clusters/tabs.py:84
 #: contrib/sahara/content/data_processing/clusters/templates/data_processing.clusters/_nodegroups_details.html:6
 msgid "Node Groups"
@@ -916,7 +916,7 @@ msgstr ""
 #: contrib/sahara/content/data_processing/cluster_templates/views.py:104
 #: contrib/sahara/content/data_processing/cluster_templates/templates/data_processing.cluster_templates/configure.html:3
 #: contrib/sahara/content/data_processing/cluster_templates/workflows/create.py:80
-#: contrib/sahara/content/data_processing/cluster_templates/workflows/create.py:235
+#: contrib/sahara/content/data_processing/cluster_templates/workflows/create.py:244
 msgid "Create Cluster Template"
 msgstr ""
 
@@ -982,7 +982,7 @@ msgstr ""
 #: dashboards/admin/volumes/templates/volumes/snapshots/_detail_overview.html:12
 #: dashboards/admin/volumes/volumes/forms.py:90
 #: dashboards/admin/volumes/volumes/forms.py:149
-#: dashboards/identity/roles/forms.py:37 dashboards/identity/users/forms.py:193
+#: dashboards/identity/roles/forms.py:37 dashboards/identity/users/forms.py:194
 #: dashboards/identity/users/templates/users/_detail_overview.html:19
 #: dashboards/project/access_and_security/templates/access_and_security/keypairs/detail.html:14
 #: dashboards/project/firewalls/templates/firewalls/_firewall_details.html:13
@@ -1092,41 +1092,49 @@ msgstr ""
 msgid "None"
 msgstr ""
 
-#: contrib/sahara/content/data_processing/cluster_templates/templates/data_processing.cluster_templates/_details.html:20
-#: contrib/sahara/content/data_processing/clusters/templates/data_processing.clusters/_details.html:46
+#: contrib/sahara/content/data_processing/cluster_templates/templates/data_processing.cluster_templates/_details.html:18
+#: contrib/sahara/content/data_processing/cluster_templates/templates/data_processing.cluster_templates/_nodegroups_details.html:26
+#: contrib/sahara/content/data_processing/clusters/templates/data_processing.clusters/_details.html:44
+#: contrib/sahara/content/data_processing/clusters/templates/data_processing.clusters/_nodegroups_details.html:29
+#: contrib/sahara/content/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/_details.html:37
+msgid "Use auto-configuration"
+msgstr ""
+
+#: contrib/sahara/content/data_processing/cluster_templates/templates/data_processing.cluster_templates/_details.html:22
+#: contrib/sahara/content/data_processing/clusters/templates/data_processing.clusters/_details.html:48
 msgid "Anti-affinity enabled for"
 msgstr ""
 
-#: contrib/sahara/content/data_processing/cluster_templates/templates/data_processing.cluster_templates/_details.html:30
-#: contrib/sahara/content/data_processing/clusters/templates/data_processing.clusters/_details.html:56
+#: contrib/sahara/content/data_processing/cluster_templates/templates/data_processing.cluster_templates/_details.html:32
+#: contrib/sahara/content/data_processing/clusters/templates/data_processing.clusters/_details.html:58
 msgid "no processes"
 msgstr ""
 
-#: contrib/sahara/content/data_processing/cluster_templates/templates/data_processing.cluster_templates/_details.html:34
-#: contrib/sahara/content/data_processing/cluster_templates/templates/data_processing.cluster_templates/_nodegroups_details.html:58
-#: contrib/sahara/content/data_processing/clusters/templates/data_processing.clusters/_details.html:60
-#: contrib/sahara/content/data_processing/clusters/templates/data_processing.clusters/_nodegroups_details.html:61
+#: contrib/sahara/content/data_processing/cluster_templates/templates/data_processing.cluster_templates/_details.html:36
+#: contrib/sahara/content/data_processing/cluster_templates/templates/data_processing.cluster_templates/_nodegroups_details.html:61
+#: contrib/sahara/content/data_processing/clusters/templates/data_processing.clusters/_details.html:62
+#: contrib/sahara/content/data_processing/clusters/templates/data_processing.clusters/_nodegroups_details.html:64
 msgid "Node Configurations"
 msgstr ""
 
-#: contrib/sahara/content/data_processing/cluster_templates/templates/data_processing.cluster_templates/_details.html:42
-#: contrib/sahara/content/data_processing/cluster_templates/templates/data_processing.cluster_templates/_nodegroups_details.html:66
-#: contrib/sahara/content/data_processing/clusters/templates/data_processing.clusters/_details.html:68
-#: contrib/sahara/content/data_processing/clusters/templates/data_processing.clusters/_nodegroups_details.html:69
+#: contrib/sahara/content/data_processing/cluster_templates/templates/data_processing.cluster_templates/_details.html:44
+#: contrib/sahara/content/data_processing/cluster_templates/templates/data_processing.cluster_templates/_nodegroups_details.html:69
+#: contrib/sahara/content/data_processing/clusters/templates/data_processing.clusters/_details.html:70
+#: contrib/sahara/content/data_processing/clusters/templates/data_processing.clusters/_nodegroups_details.html:72
 #, python-format
 msgid "%(conf_name)s: %(conf_value)s"
 msgstr ""
 
-#: contrib/sahara/content/data_processing/cluster_templates/templates/data_processing.cluster_templates/_details.html:46
-#: contrib/sahara/content/data_processing/cluster_templates/templates/data_processing.cluster_templates/_nodegroups_details.html:70
-#: contrib/sahara/content/data_processing/clusters/templates/data_processing.clusters/_details.html:72
-#: contrib/sahara/content/data_processing/clusters/templates/data_processing.clusters/_nodegroups_details.html:73
+#: contrib/sahara/content/data_processing/cluster_templates/templates/data_processing.cluster_templates/_details.html:48
+#: contrib/sahara/content/data_processing/cluster_templates/templates/data_processing.cluster_templates/_nodegroups_details.html:73
+#: contrib/sahara/content/data_processing/clusters/templates/data_processing.clusters/_details.html:74
+#: contrib/sahara/content/data_processing/clusters/templates/data_processing.clusters/_nodegroups_details.html:76
 #: contrib/sahara/content/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/_service_confs.html:17
 msgid "No configurations"
 msgstr ""
 
-#: contrib/sahara/content/data_processing/cluster_templates/templates/data_processing.cluster_templates/_details.html:51
-#: contrib/sahara/content/data_processing/clusters/templates/data_processing.clusters/_details.html:77
+#: contrib/sahara/content/data_processing/cluster_templates/templates/data_processing.cluster_templates/_details.html:53
+#: contrib/sahara/content/data_processing/clusters/templates/data_processing.clusters/_details.html:79
 msgid "Cluster configurations are not specified"
 msgstr ""
 
@@ -1162,12 +1170,12 @@ msgstr ""
 
 #: contrib/sahara/content/data_processing/cluster_templates/templates/data_processing.cluster_templates/_nodegroups_details.html:22
 #: contrib/sahara/content/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/_details.html:19
-#: contrib/sahara/content/data_processing/nodegroup_templates/workflows/create.py:50
+#: contrib/sahara/content/data_processing/nodegroup_templates/workflows/create.py:55
 #: dashboards/admin/aggregates/forms.py:28
 #: dashboards/admin/aggregates/tables.py:140
 #: dashboards/admin/aggregates/workflows.py:27
 #: dashboards/admin/volumes/volumes/forms.py:78
-#: dashboards/project/instances/tables.py:1076
+#: dashboards/project/instances/tables.py:1145
 #: dashboards/project/instances/templates/instances/_detail_overview.html:16
 #: dashboards/project/instances/workflows/create_instance.py:81
 #: dashboards/project/volumes/volumes/forms.py:122
@@ -1177,24 +1185,24 @@ msgstr ""
 msgid "Availability Zone"
 msgstr ""
 
-#: contrib/sahara/content/data_processing/cluster_templates/templates/data_processing.cluster_templates/_nodegroups_details.html:26
-#: contrib/sahara/content/data_processing/clusters/templates/data_processing.clusters/_nodegroups_details.html:29
-#: contrib/sahara/content/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/_details.html:37
-#: contrib/sahara/content/data_processing/nodegroup_templates/workflows/create.py:155
-msgid "Proxy Gateway"
-msgstr ""
-
 #: contrib/sahara/content/data_processing/cluster_templates/templates/data_processing.cluster_templates/_nodegroups_details.html:29
 #: contrib/sahara/content/data_processing/clusters/templates/data_processing.clusters/_nodegroups_details.html:32
-#: contrib/sahara/content/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/_details.html:42
-#: contrib/sahara/content/data_processing/nodegroup_templates/workflows/create.py:238
-msgid "Auto Security Group"
+#: contrib/sahara/content/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/_details.html:41
+#: contrib/sahara/content/data_processing/nodegroup_templates/workflows/create.py:160
+msgid "Proxy Gateway"
 msgstr ""
 
 #: contrib/sahara/content/data_processing/cluster_templates/templates/data_processing.cluster_templates/_nodegroups_details.html:32
 #: contrib/sahara/content/data_processing/clusters/templates/data_processing.clusters/_nodegroups_details.html:35
-#: contrib/sahara/content/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/_details.html:47
-#: contrib/sahara/content/data_processing/nodegroup_templates/workflows/create.py:253
+#: contrib/sahara/content/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/_details.html:46
+#: contrib/sahara/content/data_processing/nodegroup_templates/workflows/create.py:236
+msgid "Auto Security Group"
+msgstr ""
+
+#: contrib/sahara/content/data_processing/cluster_templates/templates/data_processing.cluster_templates/_nodegroups_details.html:35
+#: contrib/sahara/content/data_processing/clusters/templates/data_processing.clusters/_nodegroups_details.html:38
+#: contrib/sahara/content/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/_details.html:51
+#: contrib/sahara/content/data_processing/nodegroup_templates/workflows/create.py:251
 #: dashboards/admin/defaults/tables.py:53
 #: dashboards/admin/defaults/workflows.py:49
 #: dashboards/identity/projects/workflows.py:65
@@ -1202,26 +1210,27 @@ msgstr ""
 #: dashboards/project/access_and_security/tabs.py:43
 #: dashboards/project/access_and_security/security_groups/tables.py:150
 #: dashboards/project/instances/templates/instances/_detail_overview.html:87
-#: dashboards/project/instances/workflows/create_instance.py:556
+#: dashboards/project/instances/workflows/create_instance.py:555
 #: dashboards/project/instances/workflows/update_instance.py:80
 #: usage/quotas.py:71 usage/quotas.py:83 usage/views.py:73
 msgid "Security Groups"
 msgstr ""
 
-#: contrib/sahara/content/data_processing/cluster_templates/templates/data_processing.cluster_templates/_nodegroups_details.html:45
-#: contrib/sahara/content/data_processing/clusters/templates/data_processing.clusters/_nodegroups_details.html:48
+#: contrib/sahara/content/data_processing/cluster_templates/templates/data_processing.cluster_templates/_nodegroups_details.html:48
+#: contrib/sahara/content/data_processing/clusters/templates/data_processing.clusters/_nodegroups_details.html:51
 #: contrib/sahara/content/data_processing/nodegroup_templates/tables.py:97
-#: contrib/sahara/content/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/_details.html:62
+#: contrib/sahara/content/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/_details.html:66
+#: contrib/sahara/content/data_processing/nodegroup_templates/workflows/create.py:331
 msgid "Node Processes"
 msgstr ""
 
-#: contrib/sahara/content/data_processing/cluster_templates/templates/data_processing.cluster_templates/_nodegroups_details.html:55
-#: contrib/sahara/content/data_processing/clusters/templates/data_processing.clusters/_nodegroups_details.html:58
+#: contrib/sahara/content/data_processing/cluster_templates/templates/data_processing.cluster_templates/_nodegroups_details.html:58
+#: contrib/sahara/content/data_processing/clusters/templates/data_processing.clusters/_nodegroups_details.html:61
 msgid "Node processes are not specified"
 msgstr ""
 
-#: contrib/sahara/content/data_processing/cluster_templates/templates/data_processing.cluster_templates/_nodegroups_details.html:75
-#: contrib/sahara/content/data_processing/clusters/templates/data_processing.clusters/_nodegroups_details.html:78
+#: contrib/sahara/content/data_processing/cluster_templates/templates/data_processing.cluster_templates/_nodegroups_details.html:78
+#: contrib/sahara/content/data_processing/clusters/templates/data_processing.clusters/_nodegroups_details.html:81
 msgid "Node configurations are not specified"
 msgstr ""
 
@@ -1298,7 +1307,7 @@ msgstr ""
 msgid "Cluster Template copy %s created"
 msgstr ""
 
-#: contrib/sahara/content/data_processing/cluster_templates/workflows/copy.py:98
+#: contrib/sahara/content/data_processing/cluster_templates/workflows/copy.py:99
 msgid "Unable to fetch template to copy."
 msgstr ""
 
@@ -1307,7 +1316,7 @@ msgid "Unable to fetch plugin list."
 msgstr ""
 
 #: contrib/sahara/content/data_processing/cluster_templates/workflows/create.py:53
-#: contrib/sahara/content/data_processing/jobs/workflows/launch.py:378
+#: contrib/sahara/content/data_processing/jobs/workflows/launch.py:394
 msgid "Plugin name"
 msgstr ""
 
@@ -1316,7 +1325,7 @@ msgid "Select plugin and hadoop version for cluster template"
 msgstr ""
 
 #: contrib/sahara/content/data_processing/cluster_templates/workflows/create.py:81
-#: contrib/sahara/content/data_processing/nodegroup_templates/workflows/create.py:439
+#: contrib/sahara/content/data_processing/nodegroup_templates/workflows/create.py:517
 #: dashboards/project/stacks/views.py:93 dashboards/project/stacks/views.py:120
 #: dashboards/project/stacks/views.py:160
 msgid "Next"
@@ -1324,8 +1333,8 @@ msgstr ""
 
 #: contrib/sahara/content/data_processing/cluster_templates/workflows/create.py:82
 #: contrib/sahara/content/data_processing/job_executions/templates/data_processing.job_executions/_details.html:32
-#: contrib/sahara/content/data_processing/jobs/workflows/launch.py:431
-#: contrib/sahara/content/data_processing/nodegroup_templates/workflows/create.py:440
+#: contrib/sahara/content/data_processing/jobs/workflows/launch.py:447
+#: contrib/sahara/content/data_processing/nodegroup_templates/workflows/create.py:518
 #: contrib/trove/content/database_backups/tables.py:165
 #: contrib/trove/content/database_backups/templates/database_backups/details.html:32
 #: contrib/trove/content/databases/tables.py:388
@@ -1346,17 +1355,29 @@ msgid "Created"
 msgstr ""
 
 #: contrib/sahara/content/data_processing/cluster_templates/workflows/create.py:83
-#: contrib/sahara/content/data_processing/jobs/workflows/launch.py:432
-#: contrib/sahara/content/data_processing/nodegroup_templates/workflows/create.py:441
+#: contrib/sahara/content/data_processing/jobs/workflows/launch.py:448
+#: contrib/sahara/content/data_processing/nodegroup_templates/workflows/create.py:519
 msgid "Could not create"
 msgstr ""
 
 #: contrib/sahara/content/data_processing/cluster_templates/workflows/create.py:97
-#: contrib/sahara/content/data_processing/nodegroup_templates/workflows/create.py:41
+#: contrib/sahara/content/data_processing/nodegroup_templates/workflows/create.py:46
 msgid "Template Name"
 msgstr ""
 
-#: contrib/sahara/content/data_processing/cluster_templates/workflows/create.py:138
+#: contrib/sahara/content/data_processing/cluster_templates/workflows/create.py:104
+#: contrib/sahara/content/data_processing/nodegroup_templates/workflows/create.py:149
+msgid "Auto-configure"
+msgstr ""
+
+#: contrib/sahara/content/data_processing/cluster_templates/workflows/create.py:105
+msgid ""
+"If selected, instances of a cluster will be automatically configured "
+"during creation. Otherwise you should manually specify configuration "
+"values"
+msgstr ""
+
+#: contrib/sahara/content/data_processing/cluster_templates/workflows/create.py:148
 #: contrib/sahara/content/data_processing/data_plugins/tabs.py:26
 #: contrib/trove/content/database_backups/workflows/create_backup.py:43
 #: contrib/trove/content/databases/workflows/create_instance.py:48
@@ -1366,15 +1387,15 @@ msgstr ""
 msgid "Details"
 msgstr ""
 
-#: contrib/sahara/content/data_processing/cluster_templates/workflows/create.py:236
+#: contrib/sahara/content/data_processing/cluster_templates/workflows/create.py:245
 #: contrib/sahara/content/data_processing/data_sources/workflows/create.py:95
-#: contrib/sahara/content/data_processing/job_binaries/templates/data_processing.job_binaries/_create.html:25
+#: contrib/sahara/content/data_processing/job_binaries/views.py:68
 #: contrib/sahara/content/data_processing/jobs/workflows/create.py:170
-#: contrib/sahara/content/data_processing/jobs/workflows/launch.py:430
-#: contrib/sahara/content/data_processing/nodegroup_templates/workflows/create.py:288
+#: contrib/sahara/content/data_processing/jobs/workflows/launch.py:446
+#: contrib/sahara/content/data_processing/nodegroup_templates/workflows/create.py:365
 #: dashboards/admin/volumes/volume_types/views.py:159
 #: dashboards/admin/volumes/volume_types/extras/tables.py:48
-#: dashboards/admin/volumes/volume_types/extras/views.py:64
+#: dashboards/admin/volumes/volume_types/extras/views.py:65
 #: dashboards/admin/volumes/volume_types/qos_specs/tables.py:24
 #: dashboards/admin/volumes/volume_types/qos_specs/views.py:76
 #: dashboards/project/containers/templates/containers/_create_pseudo_folder.html:25
@@ -1383,12 +1404,12 @@ msgstr ""
 msgid "Create"
 msgstr ""
 
-#: contrib/sahara/content/data_processing/cluster_templates/workflows/create.py:237
+#: contrib/sahara/content/data_processing/cluster_templates/workflows/create.py:246
 #, python-format
 msgid "Created Cluster Template %s"
 msgstr ""
 
-#: contrib/sahara/content/data_processing/cluster_templates/workflows/create.py:326
+#: contrib/sahara/content/data_processing/cluster_templates/workflows/create.py:336
 msgid "Cluster template creation failed"
 msgstr ""
 
@@ -1399,6 +1420,7 @@ msgstr ""
 
 #: contrib/sahara/content/data_processing/cluster_templates/workflows/edit.py:37
 #: contrib/sahara/content/data_processing/data_sources/workflows/edit.py:30
+#: contrib/sahara/content/data_processing/job_binaries/views.py:88
 #: contrib/sahara/content/data_processing/nodegroup_templates/workflows/edit.py:36
 #: dashboards/project/stacks/views.py:212
 msgid "Update"
@@ -1412,7 +1434,7 @@ msgstr ""
 msgid "Unable to fetch template to edit."
 msgstr ""
 
-#: contrib/sahara/content/data_processing/cluster_templates/workflows/edit.py:101
+#: contrib/sahara/content/data_processing/cluster_templates/workflows/edit.py:102
 msgid "Cluster template update failed"
 msgstr ""
 
@@ -1445,13 +1467,13 @@ msgstr ""
 #: dashboards/admin/networks/templates/networks/ports/_detail_overview.html:17
 #: dashboards/admin/volumes/snapshots/forms.py:43
 #: dashboards/admin/volumes/templates/volumes/snapshots/_detail_overview.html:18
-#: dashboards/admin/volumes/volumes/forms.py:252
+#: dashboards/admin/volumes/volumes/forms.py:255
 #: dashboards/project/access_and_security/floating_ips/tables.py:202
-#: dashboards/project/firewalls/tables.py:361
+#: dashboards/project/firewalls/tables.py:362
 #: dashboards/project/firewalls/templates/firewalls/_firewall_details.html:25
 #: dashboards/project/images/images/tables.py:307
 #: dashboards/project/images/templates/images/images/_detail_overview.html:19
-#: dashboards/project/instances/tables.py:1071
+#: dashboards/project/instances/tables.py:1140
 #: dashboards/project/instances/templates/instances/_detail_overview.html:14
 #: dashboards/project/loadbalancers/tables.py:459
 #: dashboards/project/loadbalancers/tables.py:515
@@ -1514,8 +1536,8 @@ msgstr ""
 
 #: contrib/sahara/content/data_processing/clusters/tables.py:136
 #: contrib/sahara/content/data_processing/clusters/views.py:187
-#: contrib/sahara/content/data_processing/clusters/workflows/create.py:199
-#: contrib/sahara/content/data_processing/jobs/workflows/launch.py:336
+#: contrib/sahara/content/data_processing/clusters/workflows/create.py:205
+#: contrib/sahara/content/data_processing/jobs/workflows/launch.py:352
 msgid "Configure Cluster"
 msgstr ""
 
@@ -1554,7 +1576,7 @@ msgstr ""
 #: dashboards/admin/instances/templates/instances/index.html:3
 #: dashboards/identity/projects/workflows.py:52
 #: dashboards/project/instances/panel.py:21
-#: dashboards/project/instances/tables.py:1095
+#: dashboards/project/instances/tables.py:1164
 #: dashboards/project/instances/views.py:59
 #: dashboards/project/instances/templates/instances/index.html:3
 #: dashboards/project/network_topology/instances/tables.py:23
@@ -1586,10 +1608,10 @@ msgstr ""
 
 #: contrib/sahara/content/data_processing/clusters/views.py:126
 #: dashboards/admin/metadata_defs/templates/metadata_defs/_detail_overview.html:23
-#: dashboards/admin/networks/views.py:59
+#: dashboards/admin/networks/views.py:60
 #: dashboards/project/images/templates/images/images/_detail_overview.html:20
 #: dashboards/project/images/templates/images/images/_detail_overview.html:31
-#: dashboards/project/instances/tables.py:655
+#: dashboards/project/instances/tables.py:724
 #: dashboards/project/networks/templates/networks/_detail_overview.html:14
 #: dashboards/project/networks/templates/networks/_detail_overview.html:16
 #: dashboards/project/networks/templates/networks/_detail_overview.html:22
@@ -1655,21 +1677,21 @@ msgid "Error Details"
 msgstr ""
 
 #: contrib/sahara/content/data_processing/clusters/templates/data_processing.clusters/_details.html:36
-#: contrib/sahara/content/data_processing/clusters/workflows/create.py:83
+#: contrib/sahara/content/data_processing/clusters/workflows/create.py:89
 msgid "Base Image"
 msgstr ""
 
 #: contrib/sahara/content/data_processing/clusters/templates/data_processing.clusters/_details.html:39
-#: contrib/sahara/content/data_processing/clusters/workflows/create.py:100
+#: contrib/sahara/content/data_processing/clusters/workflows/create.py:106
 msgid "Neutron Management Network"
 msgstr ""
 
 #: contrib/sahara/content/data_processing/clusters/templates/data_processing.clusters/_details.html:42
-#: contrib/sahara/content/data_processing/clusters/workflows/create.py:87
+#: contrib/sahara/content/data_processing/clusters/workflows/create.py:93
 msgid "Keypair"
 msgstr ""
 
-#: contrib/sahara/content/data_processing/clusters/templates/data_processing.clusters/_details.html:86
+#: contrib/sahara/content/data_processing/clusters/templates/data_processing.clusters/_details.html:88
 #, python-format
 msgid "%(key)s: %(val)s"
 msgstr ""
@@ -1727,12 +1749,12 @@ msgstr ""
 
 #: contrib/sahara/content/data_processing/clusters/templates/data_processing.clusters/_nodegroups_details.html:18
 #: contrib/sahara/content/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/_details.html:25
-#: contrib/sahara/content/data_processing/nodegroup_templates/workflows/create.py:150
+#: contrib/sahara/content/data_processing/nodegroup_templates/workflows/create.py:144
 msgid "Floating IP Pool"
 msgstr ""
 
 #: contrib/sahara/content/data_processing/clusters/workflows/create.py:45
-#: contrib/sahara/content/data_processing/jobs/workflows/launch.py:418
+#: contrib/sahara/content/data_processing/jobs/workflows/launch.py:434
 msgid "Select plugin and hadoop version for cluster"
 msgstr ""
 
@@ -1744,46 +1766,54 @@ msgstr ""
 msgid "Cluster Template"
 msgstr ""
 
-#: contrib/sahara/content/data_processing/clusters/workflows/create.py:89
+#: contrib/sahara/content/data_processing/clusters/workflows/create.py:84
+msgid "Cluster Count"
+msgstr ""
+
+#: contrib/sahara/content/data_processing/clusters/workflows/create.py:87
+msgid "Number of clusters to launch."
+msgstr ""
+
+#: contrib/sahara/content/data_processing/clusters/workflows/create.py:95
 msgid "Which keypair to use for authentication."
 msgstr ""
 
-#: contrib/sahara/content/data_processing/clusters/workflows/create.py:130
+#: contrib/sahara/content/data_processing/clusters/workflows/create.py:136
 msgid "Unable to fetch image choices."
 msgstr ""
 
-#: contrib/sahara/content/data_processing/clusters/workflows/create.py:133
+#: contrib/sahara/content/data_processing/clusters/workflows/create.py:139
 msgid "No Images Available"
 msgstr ""
 
-#: contrib/sahara/content/data_processing/clusters/workflows/create.py:143
+#: contrib/sahara/content/data_processing/clusters/workflows/create.py:149
 msgid "Unable to fetch keypair choices."
 msgstr ""
 
-#: contrib/sahara/content/data_processing/clusters/workflows/create.py:145
+#: contrib/sahara/content/data_processing/clusters/workflows/create.py:151
 msgid "No keypair"
 msgstr ""
 
-#: contrib/sahara/content/data_processing/clusters/workflows/create.py:161
+#: contrib/sahara/content/data_processing/clusters/workflows/create.py:167
 msgid "No Templates Available"
 msgstr ""
 
-#: contrib/sahara/content/data_processing/clusters/workflows/create.py:218
-#: contrib/sahara/content/data_processing/jobs/workflows/launch.py:355
-#: contrib/sahara/content/data_processing/jobs/workflows/launch.py:440
+#: contrib/sahara/content/data_processing/clusters/workflows/create.py:224
+#: contrib/sahara/content/data_processing/jobs/workflows/launch.py:371
+#: contrib/sahara/content/data_processing/jobs/workflows/launch.py:456
 #: contrib/trove/content/databases/workflows/create_instance.py:337
 #: dashboards/project/images/images/tables.py:62
-#: dashboards/project/instances/workflows/create_instance.py:832
+#: dashboards/project/instances/workflows/create_instance.py:836
 #: dashboards/project/stacks/views.py:176
 msgid "Launch"
 msgstr ""
 
-#: contrib/sahara/content/data_processing/clusters/workflows/create.py:219
+#: contrib/sahara/content/data_processing/clusters/workflows/create.py:225
 #, python-format
 msgid "Launched Cluster %s"
 msgstr ""
 
-#: contrib/sahara/content/data_processing/clusters/workflows/create.py:251
+#: contrib/sahara/content/data_processing/clusters/workflows/create.py:258
 msgid "Unable to create the cluster"
 msgstr ""
 
@@ -1810,8 +1840,8 @@ msgstr ""
 #: contrib/sahara/content/data_processing/data_image_registry/forms.py:28
 #: contrib/trove/content/databases/tables.py:353
 #: dashboards/identity/groups/tables.py:190
-#: dashboards/identity/users/forms.py:96 dashboards/identity/users/forms.py:194
-#: dashboards/identity/users/forms.py:248
+#: dashboards/identity/users/forms.py:96 dashboards/identity/users/forms.py:195
+#: dashboards/identity/users/forms.py:249
 #: dashboards/identity/users/tables.py:228
 #: dashboards/identity/users/templates/users/_detail_overview.html:17
 #: dashboards/project/access_and_security/templates/access_and_security/api_access/_credentials.html:14
@@ -2102,8 +2132,8 @@ msgstr ""
 
 #: contrib/sahara/content/data_processing/data_sources/templates/data_processing.data_sources/_details.html:11
 #: contrib/sahara/content/data_processing/data_sources/workflows/create.py:40
-#: contrib/sahara/content/data_processing/job_binaries/forms.py:59
-#: contrib/sahara/content/data_processing/job_binaries/forms.py:65
+#: contrib/sahara/content/data_processing/job_binaries/forms.py:66
+#: contrib/sahara/content/data_processing/job_binaries/forms.py:72
 #: contrib/sahara/content/data_processing/job_binaries/templates/data_processing.job_binaries/_details.html:9
 #: dashboards/project/loadbalancers/workflows.py:517
 #: dashboards/project/loadbalancers/workflows.py:521
@@ -2147,73 +2177,76 @@ msgstr ""
 msgid "Could not update data source"
 msgstr ""
 
-#: contrib/sahara/content/data_processing/job_binaries/forms.py:51
+#: contrib/sahara/content/data_processing/job_binaries/forms.py:58
 msgid "Storage type"
 msgstr ""
 
-#: contrib/sahara/content/data_processing/job_binaries/forms.py:69
+#: contrib/sahara/content/data_processing/job_binaries/forms.py:76
 msgid "Internal binary"
 msgstr ""
 
-#: contrib/sahara/content/data_processing/job_binaries/forms.py:76
+#: contrib/sahara/content/data_processing/job_binaries/forms.py:83
 msgid "Internal Binary"
 msgstr ""
 
-#: contrib/sahara/content/data_processing/job_binaries/forms.py:80
-#: contrib/sahara/content/data_processing/job_binaries/forms.py:86
+#: contrib/sahara/content/data_processing/job_binaries/forms.py:87
+#: contrib/sahara/content/data_processing/job_binaries/forms.py:93
 msgid "Upload File"
 msgstr ""
 
-#: contrib/sahara/content/data_processing/job_binaries/forms.py:90
-#: contrib/sahara/content/data_processing/job_binaries/forms.py:96
+#: contrib/sahara/content/data_processing/job_binaries/forms.py:97
+#: contrib/sahara/content/data_processing/job_binaries/forms.py:103
 msgid "Script name"
 msgstr ""
 
-#: contrib/sahara/content/data_processing/job_binaries/forms.py:100
 #: contrib/sahara/content/data_processing/job_binaries/forms.py:107
+#: contrib/sahara/content/data_processing/job_binaries/forms.py:114
 msgid "Script text"
 msgstr ""
 
-#: contrib/sahara/content/data_processing/job_binaries/forms.py:111
-#: contrib/sahara/content/data_processing/job_binaries/forms.py:117
+#: contrib/sahara/content/data_processing/job_binaries/forms.py:118
+#: contrib/sahara/content/data_processing/job_binaries/forms.py:124
 msgid "Username"
 msgstr ""
 
-#: contrib/sahara/content/data_processing/job_binaries/forms.py:121
 #: contrib/sahara/content/data_processing/job_binaries/forms.py:128
+#: contrib/sahara/content/data_processing/job_binaries/forms.py:135
 #: contrib/trove/content/databases/workflows/create_instance.py:198
 #: dashboards/identity/users/forms.py:43
 #: dashboards/project/instances/forms.py:160
 msgid "Password"
 msgstr ""
 
-#: contrib/sahara/content/data_processing/job_binaries/forms.py:153
+#: contrib/sahara/content/data_processing/job_binaries/forms.py:171
 msgid "Failed to get list of internal binaries."
 msgstr ""
 
-#: contrib/sahara/content/data_processing/job_binaries/forms.py:183
-#: contrib/sahara/content/data_processing/job_binaries/forms.py:228
+#: contrib/sahara/content/data_processing/job_binaries/forms.py:201
+#: contrib/sahara/content/data_processing/job_binaries/forms.py:246
 msgid "Unable to create job binary"
 msgstr ""
 
-#: contrib/sahara/content/data_processing/job_binaries/forms.py:198
+#: contrib/sahara/content/data_processing/job_binaries/forms.py:216
 #: contrib/sahara/content/data_processing/job_binaries/tables.py:31
 #: contrib/sahara/content/data_processing/job_binaries/views.py:65
-#: contrib/sahara/content/data_processing/job_binaries/templates/data_processing.job_binaries/_create.html:11
 #: contrib/sahara/content/data_processing/job_binaries/templates/data_processing.job_binaries/create.html:3
 msgid "Create Job Binary"
 msgstr ""
 
-#: contrib/sahara/content/data_processing/job_binaries/forms.py:216
+#: contrib/sahara/content/data_processing/job_binaries/forms.py:234
 msgid "Unable to upload job binary"
 msgstr ""
 
-#: contrib/sahara/content/data_processing/job_binaries/forms.py:249
+#: contrib/sahara/content/data_processing/job_binaries/forms.py:267
 msgid "Failed to fetch internal binary list"
 msgstr ""
 
+#: contrib/sahara/content/data_processing/job_binaries/forms.py:310
+msgid "Unable to update job binary"
+msgstr ""
+
 #: contrib/sahara/content/data_processing/job_binaries/panel.py:22
-#: contrib/sahara/content/data_processing/job_binaries/tables.py:88
+#: contrib/sahara/content/data_processing/job_binaries/tables.py:95
 #: contrib/sahara/content/data_processing/job_binaries/views.py:47
 msgid "Job Binaries"
 msgstr ""
@@ -2234,7 +2267,12 @@ msgstr[1] ""
 msgid "Download Job Binary"
 msgstr ""
 
-#: contrib/sahara/content/data_processing/job_binaries/tables.py:82
+#: contrib/sahara/content/data_processing/job_binaries/tables.py:78
+#: contrib/sahara/content/data_processing/job_binaries/views.py:85
+msgid "Edit Job Binary"
+msgstr ""
+
+#: contrib/sahara/content/data_processing/job_binaries/tables.py:89
 msgid "Url"
 msgstr ""
 
@@ -2242,17 +2280,22 @@ msgstr ""
 msgid "Unable to fetch job binary list."
 msgstr ""
 
-#: contrib/sahara/content/data_processing/job_binaries/views.py:78
+#: contrib/sahara/content/data_processing/job_binaries/views.py:96
+#, python-format
+msgid "Unable to retrieve job binary \"%s\"."
+msgstr ""
+
+#: contrib/sahara/content/data_processing/job_binaries/views.py:111
 #: contrib/sahara/content/data_processing/job_binaries/templates/data_processing.job_binaries/details.html:3
 msgid "Job Binary Details"
 msgstr ""
 
-#: contrib/sahara/content/data_processing/job_binaries/views.py:86
+#: contrib/sahara/content/data_processing/job_binaries/views.py:119
 #, python-format
 msgid "Unable to retrieve details for job binary \"%s\"."
 msgstr ""
 
-#: contrib/sahara/content/data_processing/job_binaries/views.py:106
+#: contrib/sahara/content/data_processing/job_binaries/views.py:139
 #, python-format
 msgid "Unable to fetch job binary: %(exc)s"
 msgstr ""
@@ -2362,9 +2405,9 @@ msgstr[1] ""
 #: contrib/sahara/content/data_processing/jobs/views.py:118
 #: contrib/sahara/content/data_processing/jobs/views.py:131
 #: contrib/sahara/content/data_processing/jobs/templates/data_processing.jobs/launch.html:3
-#: contrib/sahara/content/data_processing/jobs/workflows/launch.py:354
-#: contrib/sahara/content/data_processing/jobs/workflows/launch.py:429
-#: contrib/sahara/content/data_processing/jobs/workflows/launch.py:439
+#: contrib/sahara/content/data_processing/jobs/workflows/launch.py:370
+#: contrib/sahara/content/data_processing/jobs/workflows/launch.py:445
+#: contrib/sahara/content/data_processing/jobs/workflows/launch.py:455
 msgid "Launch Job"
 msgid_plural "Launch Jobs"
 msgstr[0] ""
@@ -2393,8 +2436,8 @@ msgstr ""
 #: contrib/trove/content/databases/tables.py:248
 #: contrib/trove/content/databases/tables.py:265
 #: contrib/trove/content/databases/tables.py:271
-#: dashboards/project/instances/tables.py:895
-#: dashboards/project/instances/tables.py:902
+#: dashboards/project/instances/tables.py:964
+#: dashboards/project/instances/tables.py:971
 #: dashboards/project/instances/views.py:412
 #: dashboards/project/instances/templates/instances/_detail_overview.html:66
 #: dashboards/project/instances/templates/instances/_detail_overview.html:102
@@ -2696,16 +2739,16 @@ msgstr ""
 msgid "Add"
 msgstr ""
 
-#: contrib/sahara/content/data_processing/jobs/templates/data_processing.jobs/config_template.html:232
+#: contrib/sahara/content/data_processing/jobs/templates/data_processing.jobs/config_template.html:233
 msgid "Configuration"
 msgstr ""
 
-#: contrib/sahara/content/data_processing/jobs/templates/data_processing.jobs/config_template.html:235
+#: contrib/sahara/content/data_processing/jobs/templates/data_processing.jobs/config_template.html:236
 #: dashboards/project/stacks/templates/stacks/_preview_details.html:20
 msgid "Parameters"
 msgstr ""
 
-#: contrib/sahara/content/data_processing/jobs/templates/data_processing.jobs/config_template.html:238
+#: contrib/sahara/content/data_processing/jobs/templates/data_processing.jobs/config_template.html:239
 msgid "Arguments"
 msgstr ""
 
@@ -2777,69 +2820,79 @@ msgstr ""
 msgid "Unable to fetch clusters."
 msgstr ""
 
-#: contrib/sahara/content/data_processing/jobs/workflows/launch.py:158
+#: contrib/sahara/content/data_processing/jobs/workflows/launch.py:159
 msgid "Main Class"
 msgstr ""
 
-#: contrib/sahara/content/data_processing/jobs/workflows/launch.py:161
+#: contrib/sahara/content/data_processing/jobs/workflows/launch.py:162
 msgid "Java Opts"
 msgstr ""
 
-#: contrib/sahara/content/data_processing/jobs/workflows/launch.py:164
+#: contrib/sahara/content/data_processing/jobs/workflows/launch.py:165
 msgid "Mapper"
 msgstr ""
 
-#: contrib/sahara/content/data_processing/jobs/workflows/launch.py:166
+#: contrib/sahara/content/data_processing/jobs/workflows/launch.py:167
 msgid "Reducer"
 msgstr ""
 
-#: contrib/sahara/content/data_processing/jobs/workflows/launch.py:169
+#: contrib/sahara/content/data_processing/jobs/workflows/launch.py:170
 msgid "Use HBase Common library"
 msgstr ""
 
-#: contrib/sahara/content/data_processing/jobs/workflows/launch.py:170
+#: contrib/sahara/content/data_processing/jobs/workflows/launch.py:171
 msgid "Run HBase EDP Jobs with common HBase library on HDFS"
 msgstr ""
 
-#: contrib/sahara/content/data_processing/jobs/workflows/launch.py:251
+#: contrib/sahara/content/data_processing/jobs/workflows/launch.py:175
+msgid "Adapt For Oozie"
+msgstr ""
+
+#: contrib/sahara/content/data_processing/jobs/workflows/launch.py:176
+msgid ""
+"Automatically modify the Hadoop configuration so that job config values "
+"are set and so that Oozie will handle exit codes correctly."
+msgstr ""
+
+#: contrib/sahara/content/data_processing/jobs/workflows/launch.py:263
 msgid "Configure"
 msgstr ""
 
-#: contrib/sahara/content/data_processing/jobs/workflows/launch.py:332
+#: contrib/sahara/content/data_processing/jobs/workflows/launch.py:348
 msgid "Persist cluster after job exit"
 msgstr ""
 
-#: contrib/sahara/content/data_processing/jobs/workflows/launch.py:356
-#: contrib/sahara/content/data_processing/jobs/workflows/launch.py:441
+#: contrib/sahara/content/data_processing/jobs/workflows/launch.py:372
+#: contrib/sahara/content/data_processing/jobs/workflows/launch.py:457
 msgid "Job launched"
 msgstr ""
 
-#: contrib/sahara/content/data_processing/jobs/workflows/launch.py:357
-#: contrib/sahara/content/data_processing/jobs/workflows/launch.py:442
+#: contrib/sahara/content/data_processing/jobs/workflows/launch.py:373
+#: contrib/sahara/content/data_processing/jobs/workflows/launch.py:458
 msgid "Could not launch job"
 msgstr ""
 
-#: contrib/sahara/content/data_processing/jobs/workflows/launch.py:383
+#: contrib/sahara/content/data_processing/jobs/workflows/launch.py:399
 msgid "Job configs"
 msgstr ""
 
-#: contrib/sahara/content/data_processing/jobs/workflows/launch.py:387
+#: contrib/sahara/content/data_processing/jobs/workflows/launch.py:403
 msgid "Job args"
 msgstr ""
 
-#: contrib/sahara/content/data_processing/jobs/workflows/launch.py:391
+#: contrib/sahara/content/data_processing/jobs/workflows/launch.py:407
 msgid "Job params"
 msgstr ""
 
-#: contrib/sahara/content/data_processing/jobs/workflows/launch.py:397
+#: contrib/sahara/content/data_processing/jobs/workflows/launch.py:413
 msgid "Job Execution ID"
 msgstr ""
 
-#: contrib/sahara/content/data_processing/jobs/workflows/launch.py:473
+#: contrib/sahara/content/data_processing/jobs/workflows/launch.py:489
 msgid "Unable to create new cluster for job."
 msgstr ""
 
-#: contrib/sahara/content/data_processing/jobs/workflows/launch.py:486
+#: contrib/sahara/content/data_processing/jobs/workflows/launch.py:502
 msgid "Unable to launch job."
 msgstr ""
 
@@ -2882,8 +2935,8 @@ msgstr ""
 #: contrib/sahara/content/data_processing/nodegroup_templates/views.py:93
 #: contrib/sahara/content/data_processing/nodegroup_templates/views.py:101
 #: contrib/sahara/content/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/configure.html:3
-#: contrib/sahara/content/data_processing/nodegroup_templates/workflows/create.py:287
-#: contrib/sahara/content/data_processing/nodegroup_templates/workflows/create.py:438
+#: contrib/sahara/content/data_processing/nodegroup_templates/workflows/create.py:364
+#: contrib/sahara/content/data_processing/nodegroup_templates/workflows/create.py:516
 msgid "Create Node Group Template"
 msgstr ""
 
@@ -2920,41 +2973,41 @@ msgstr ""
 msgid "Select a plugin and version for the new Node Group template."
 msgstr ""
 
-#: contrib/sahara/content/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/_details.html:72
+#: contrib/sahara/content/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/_details.html:76
 msgid "HDFS placement"
 msgstr ""
 
-#: contrib/sahara/content/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/_details.html:74
+#: contrib/sahara/content/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/_details.html:78
 msgid "Cinder volumes"
 msgstr ""
 
-#: contrib/sahara/content/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/_details.html:75
-#: contrib/sahara/content/data_processing/nodegroup_templates/workflows/create.py:67
-#: contrib/sahara/content/data_processing/nodegroup_templates/workflows/create.py:73
+#: contrib/sahara/content/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/_details.html:79
+#: contrib/sahara/content/data_processing/nodegroup_templates/workflows/create.py:72
+#: contrib/sahara/content/data_processing/nodegroup_templates/workflows/create.py:78
 msgid "Volumes per node"
 msgstr ""
 
-#: contrib/sahara/content/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/_details.html:77
+#: contrib/sahara/content/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/_details.html:81
 msgid "Volumes size"
 msgstr ""
 
-#: contrib/sahara/content/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/_details.html:79
-#: contrib/sahara/content/data_processing/nodegroup_templates/workflows/create.py:89
+#: contrib/sahara/content/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/_details.html:83
 #: contrib/sahara/content/data_processing/nodegroup_templates/workflows/create.py:94
+#: contrib/sahara/content/data_processing/nodegroup_templates/workflows/create.py:99
 msgid "Volumes type"
 msgstr ""
 
-#: contrib/sahara/content/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/_details.html:81
+#: contrib/sahara/content/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/_details.html:85
 msgid "Volumes local to instance"
 msgstr ""
 
-#: contrib/sahara/content/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/_details.html:84
-#: contrib/sahara/content/data_processing/nodegroup_templates/workflows/create.py:111
-#: contrib/sahara/content/data_processing/nodegroup_templates/workflows/create.py:117
+#: contrib/sahara/content/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/_details.html:88
+#: contrib/sahara/content/data_processing/nodegroup_templates/workflows/create.py:116
+#: contrib/sahara/content/data_processing/nodegroup_templates/workflows/create.py:122
 msgid "Volumes Availability Zone"
 msgstr ""
 
-#: contrib/sahara/content/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/_details.html:88
+#: contrib/sahara/content/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/_details.html:92
 msgid "Ephemeral drive"
 msgstr ""
 
@@ -2985,107 +3038,119 @@ msgstr ""
 msgid "Node Group Template copy %s created"
 msgstr ""
 
-#: contrib/sahara/content/data_processing/nodegroup_templates/workflows/copy.py:103
+#: contrib/sahara/content/data_processing/nodegroup_templates/workflows/copy.py:108
 msgid "Unable to fetch plugin details."
 msgstr ""
 
-#: contrib/sahara/content/data_processing/nodegroup_templates/workflows/create.py:47
+#: contrib/sahara/content/data_processing/nodegroup_templates/workflows/create.py:52
 msgid "OpenStack Flavor"
 msgstr ""
 
-#: contrib/sahara/content/data_processing/nodegroup_templates/workflows/create.py:51
+#: contrib/sahara/content/data_processing/nodegroup_templates/workflows/create.py:56
 msgid "Launch instances in this availability zone."
 msgstr ""
 
-#: contrib/sahara/content/data_processing/nodegroup_templates/workflows/create.py:57
+#: contrib/sahara/content/data_processing/nodegroup_templates/workflows/create.py:62
 msgid "Storage location"
 msgstr ""
 
-#: contrib/sahara/content/data_processing/nodegroup_templates/workflows/create.py:58
+#: contrib/sahara/content/data_processing/nodegroup_templates/workflows/create.py:63
 msgid "Choose a storage location"
 msgstr ""
 
-#: contrib/sahara/content/data_processing/nodegroup_templates/workflows/create.py:78
-#: contrib/sahara/content/data_processing/nodegroup_templates/workflows/create.py:84
+#: contrib/sahara/content/data_processing/nodegroup_templates/workflows/create.py:83
+#: contrib/sahara/content/data_processing/nodegroup_templates/workflows/create.py:89
 msgid "Volumes size (GB)"
 msgstr ""
 
-#: contrib/sahara/content/data_processing/nodegroup_templates/workflows/create.py:99
-#: contrib/sahara/content/data_processing/nodegroup_templates/workflows/create.py:106
+#: contrib/sahara/content/data_processing/nodegroup_templates/workflows/create.py:104
+#: contrib/sahara/content/data_processing/nodegroup_templates/workflows/create.py:111
 msgid "Volume local to instance"
 msgstr ""
 
-#: contrib/sahara/content/data_processing/nodegroup_templates/workflows/create.py:101
+#: contrib/sahara/content/data_processing/nodegroup_templates/workflows/create.py:106
 msgid "Instance and attached volumes will be created on the same physical host"
 msgstr ""
 
-#: contrib/sahara/content/data_processing/nodegroup_templates/workflows/create.py:112
+#: contrib/sahara/content/data_processing/nodegroup_templates/workflows/create.py:117
 msgid "Create volumes in this availability zone."
 msgstr ""
 
-#: contrib/sahara/content/data_processing/nodegroup_templates/workflows/create.py:142
-msgid "Unable to generate process choices."
+#: contrib/sahara/content/data_processing/nodegroup_templates/workflows/create.py:150
+msgid ""
+"If selected, instances of a node group will be automatically configured "
+"during cluster creation. Otherwise you should manually specify "
+"configuration values."
 msgstr ""
 
-#: contrib/sahara/content/data_processing/nodegroup_templates/workflows/create.py:157
+#: contrib/sahara/content/data_processing/nodegroup_templates/workflows/create.py:162
 msgid ""
 "Sahara will use instances of this node group to access other cluster "
 "instances."
 msgstr ""
 
-#: contrib/sahara/content/data_processing/nodegroup_templates/workflows/create.py:162
-msgid "Processes"
-msgstr ""
-
-#: contrib/sahara/content/data_processing/nodegroup_templates/workflows/create.py:164
-msgid "Processes to be launched in node group"
-msgstr ""
-
-#: contrib/sahara/content/data_processing/nodegroup_templates/workflows/create.py:191
+#: contrib/sahara/content/data_processing/nodegroup_templates/workflows/create.py:189
 msgid "Unable to get volume type list."
 msgstr ""
 
-#: contrib/sahara/content/data_processing/nodegroup_templates/workflows/create.py:193
+#: contrib/sahara/content/data_processing/nodegroup_templates/workflows/create.py:191
 #: dashboards/admin/volumes/volumes/forms.py:92
 #: dashboards/project/volumes/volumes/forms.py:268
 msgid "No volume type"
 msgstr ""
 
-#: contrib/sahara/content/data_processing/nodegroup_templates/workflows/create.py:205
-#: contrib/sahara/content/data_processing/nodegroup_templates/workflows/create.py:212
+#: contrib/sahara/content/data_processing/nodegroup_templates/workflows/create.py:203
+#: contrib/sahara/content/data_processing/nodegroup_templates/workflows/create.py:210
 msgid "No availability zone specified"
 msgstr ""
 
-#: contrib/sahara/content/data_processing/nodegroup_templates/workflows/create.py:227
+#: contrib/sahara/content/data_processing/nodegroup_templates/workflows/create.py:225
 msgid "Configure Node Group Template"
 msgstr ""
 
-#: contrib/sahara/content/data_processing/nodegroup_templates/workflows/create.py:240
+#: contrib/sahara/content/data_processing/nodegroup_templates/workflows/create.py:238
 msgid "Create security group for this Node Group."
 msgstr ""
 
-#: contrib/sahara/content/data_processing/nodegroup_templates/workflows/create.py:248
+#: contrib/sahara/content/data_processing/nodegroup_templates/workflows/create.py:246
 msgid "Unable to get security group list."
 msgstr ""
 
-#: contrib/sahara/content/data_processing/nodegroup_templates/workflows/create.py:255
+#: contrib/sahara/content/data_processing/nodegroup_templates/workflows/create.py:253
 msgid "Launch instances in these security groups."
 msgstr ""
 
-#: contrib/sahara/content/data_processing/nodegroup_templates/workflows/create.py:260
+#: contrib/sahara/content/data_processing/nodegroup_templates/workflows/create.py:258
 msgid "Security"
 msgstr ""
 
-#: contrib/sahara/content/data_processing/nodegroup_templates/workflows/create.py:261
+#: contrib/sahara/content/data_processing/nodegroup_templates/workflows/create.py:259
 msgid "Control access to instances of the node group."
 msgstr ""
 
-#: contrib/sahara/content/data_processing/nodegroup_templates/workflows/create.py:289
+#: contrib/sahara/content/data_processing/nodegroup_templates/workflows/create.py:277
+#, python-format
+msgid "%s processes: "
+msgstr ""
+
+#: contrib/sahara/content/data_processing/nodegroup_templates/workflows/create.py:317
+msgid "Unable to generate process choices."
+msgstr ""
+
+#: contrib/sahara/content/data_processing/nodegroup_templates/workflows/create.py:325
+msgid "Select Node Group Processes"
+msgstr ""
+
+#: contrib/sahara/content/data_processing/nodegroup_templates/workflows/create.py:332
+msgid "Select node processes for the node group"
+msgstr ""
+
+#: contrib/sahara/content/data_processing/nodegroup_templates/workflows/create.py:366
 #, python-format
 msgid "Created Node Group Template %s"
 msgstr ""
 
-#: contrib/sahara/content/data_processing/nodegroup_templates/workflows/create.py:419
+#: contrib/sahara/content/data_processing/nodegroup_templates/workflows/create.py:497
 msgid "Select plugin and hadoop version"
 msgstr ""
 
@@ -3720,14 +3785,14 @@ msgstr ""
 
 #: contrib/trove/content/database_backups/workflows/create_backup.py:85
 #: contrib/trove/content/databases/workflows/create_instance.py:339
-#: dashboards/project/instances/workflows/create_instance.py:834
+#: dashboards/project/instances/workflows/create_instance.py:838
 #, python-format
 msgid "Unable to launch %(count)s named \"%(name)s\"."
 msgstr ""
 
 #: contrib/trove/content/database_backups/workflows/create_backup.py:95
 #: contrib/trove/content/databases/workflows/create_instance.py:355
-#: dashboards/project/instances/workflows/create_instance.py:851
+#: dashboards/project/instances/workflows/create_instance.py:855
 msgid "instance"
 msgstr ""
 
@@ -3794,26 +3859,26 @@ msgid "Unable to resize instance. %s"
 msgstr ""
 
 #: contrib/trove/content/databases/tables.py:35
-#: dashboards/project/instances/tables.py:87
+#: dashboards/project/instances/tables.py:89
 msgid "Terminated instances are not recoverable."
 msgstr ""
 
 #: contrib/trove/content/databases/tables.py:39
-#: dashboards/project/instances/tables.py:91
+#: dashboards/project/instances/tables.py:93
 msgid "Terminate Instance"
 msgid_plural "Terminate Instances"
 msgstr[0] ""
 msgstr[1] ""
 
 #: contrib/trove/content/databases/tables.py:47
-#: dashboards/project/instances/tables.py:99
+#: dashboards/project/instances/tables.py:101
 msgid "Scheduled termination of Instance"
 msgid_plural "Scheduled termination of Instances"
 msgstr[0] ""
 msgstr[1] ""
 
 #: contrib/trove/content/databases/tables.py:62
-#: dashboards/project/instances/tables.py:117
+#: dashboards/project/instances/tables.py:119
 msgid "Restarted instances will lose any data not saved in persistent storage."
 msgstr ""
 
@@ -3879,9 +3944,9 @@ msgstr ""
 #: contrib/trove/content/databases/templates/databases/launch.html:3
 #: contrib/trove/content/databases/workflows/create_instance.py:336
 #: dashboards/project/images/images/tables.py:36
-#: dashboards/project/instances/tables.py:309
-#: dashboards/project/instances/tables.py:337
-#: dashboards/project/instances/workflows/create_instance.py:831
+#: dashboards/project/instances/tables.py:378
+#: dashboards/project/instances/tables.py:406
+#: dashboards/project/instances/workflows/create_instance.py:835
 #: dashboards/project/network_topology/templates/network_topology/index.html:33
 #: dashboards/project/network_topology/templates/network_topology/index.html:36
 msgid "Launch Instance"
@@ -3892,7 +3957,7 @@ msgid "Resize Volume"
 msgstr ""
 
 #: contrib/trove/content/databases/tables.py:212
-#: dashboards/project/instances/tables.py:459
+#: dashboards/project/instances/tables.py:528
 #: dashboards/project/instances/workflows/resize_instance.py:84
 msgid "Resize Instance"
 msgstr ""
@@ -3964,8 +4029,8 @@ msgstr ""
 #: contrib/trove/content/databases/tables.py:320
 #: contrib/trove/content/databases/workflows/create_instance.py:36
 #: dashboards/admin/hypervisors/tables.py:70
-#: dashboards/project/instances/tables.py:1036
-#: dashboards/project/instances/tables.py:1059
+#: dashboards/project/instances/tables.py:1105
+#: dashboards/project/instances/tables.py:1128
 #: dashboards/project/instances/workflows/create_instance.py:84
 #: dashboards/project/overview/views.py:32 usage/tables.py:83
 msgid "Instance Name"
@@ -4000,7 +4065,7 @@ msgstr ""
 #: dashboards/project/containers/templates/containers/_object_detail.html:18
 #: dashboards/project/images/images/tables.py:323
 #: dashboards/project/images/templates/images/images/_detail_overview.html:46
-#: dashboards/project/instances/tables.py:1066
+#: dashboards/project/instances/tables.py:1135
 #: dashboards/project/instances/templates/instances/_instance_flavor.html:7
 #: dashboards/project/volumes/backups/tables.py:127
 #: dashboards/project/volumes/templates/volumes/backups/_detail_overview.html:37
@@ -4032,7 +4097,7 @@ msgstr ""
 #: dashboards/identity/ngusers/templates/ngusers/index.html:3
 #: dashboards/identity/users/panel.py:25
 #: dashboards/identity/users/tables.py:261
-#: dashboards/identity/users/views.py:46
+#: dashboards/identity/users/views.py:49
 #: dashboards/identity/users/templates/users/index.html:3
 msgid "Users"
 msgstr ""
@@ -4333,10 +4398,10 @@ msgstr ""
 #: contrib/trove/content/databases/workflows/create_instance.py:132
 #: dashboards/admin/networks/panel.py:21
 #: dashboards/admin/networks/tables.py:111
-#: dashboards/admin/networks/views.py:42
+#: dashboards/admin/networks/views.py:43
 #: dashboards/admin/networks/templates/networks/index.html:3
 #: dashboards/identity/projects/workflows.py:75
-#: dashboards/project/instances/workflows/create_instance.py:700
+#: dashboards/project/instances/workflows/create_instance.py:704
 #: dashboards/project/networks/panel.py:21
 #: dashboards/project/networks/tables.py:182
 #: dashboards/project/networks/views.py:45
@@ -4346,22 +4411,22 @@ msgid "Networks"
 msgstr ""
 
 #: contrib/trove/content/databases/workflows/create_instance.py:135
-#: dashboards/project/instances/workflows/create_instance.py:703
+#: dashboards/project/instances/workflows/create_instance.py:707
 msgid "At least one network must be specified."
 msgstr ""
 
 #: contrib/trove/content/databases/workflows/create_instance.py:138
-#: dashboards/project/instances/workflows/create_instance.py:706
+#: dashboards/project/instances/workflows/create_instance.py:710
 msgid "Launch instance with these networks"
 msgstr ""
 
 #: contrib/trove/content/databases/workflows/create_instance.py:148
-#: dashboards/project/instances/workflows/create_instance.py:728
+#: dashboards/project/instances/workflows/create_instance.py:732
 msgid "Networking"
 msgstr ""
 
 #: contrib/trove/content/databases/workflows/create_instance.py:150
-#: dashboards/project/instances/workflows/create_instance.py:730
+#: dashboards/project/instances/workflows/create_instance.py:734
 msgid "Select networks for your instance."
 msgstr ""
 
@@ -4459,7 +4524,7 @@ msgid "A master instance must be selected!"
 msgstr ""
 
 #: contrib/trove/content/databases/workflows/create_instance.py:338
-#: dashboards/project/instances/workflows/create_instance.py:833
+#: dashboards/project/instances/workflows/create_instance.py:837
 #, python-format
 msgid "Launched %(count)s named \"%(name)s\"."
 msgstr ""
@@ -4673,11 +4738,11 @@ msgstr ""
 #: dashboards/admin/aggregates/templates/aggregates/_update.html:24
 #: dashboards/admin/flavors/workflows.py:266
 #: dashboards/admin/metadata_defs/templates/metadata_defs/resource_types.html:79
-#: dashboards/admin/volumes/volume_types/extras/views.py:88
-#: dashboards/admin/volumes/volume_types/qos_specs/views.py:103
+#: dashboards/admin/volumes/volume_types/extras/views.py:90
+#: dashboards/admin/volumes/volume_types/qos_specs/views.py:104
 #: dashboards/identity/domains/workflows.py:300
 #: dashboards/identity/projects/workflows.py:582
-#: dashboards/identity/users/views.py:209
+#: dashboards/identity/users/views.py:227
 #: dashboards/project/instances/workflows/update_instance.py:133
 #: dashboards/project/networks/subnets/workflows.py:168
 #: dashboards/settings/user/views.py:30
@@ -4850,7 +4915,7 @@ msgstr ""
 #: dashboards/admin/volumes/templates/volumes/index.html:3
 #: dashboards/admin/volumes/volumes/tables.py:98
 #: dashboards/identity/projects/workflows.py:57
-#: dashboards/project/volumes/panel.py:21 dashboards/project/volumes/tabs.py:83
+#: dashboards/project/volumes/panel.py:21 dashboards/project/volumes/tabs.py:84
 #: dashboards/project/volumes/views.py:26
 #: dashboards/project/volumes/templates/volumes/index.html:3
 #: dashboards/project/volumes/volumes/tables.py:445 usage/quotas.py:75
@@ -4863,7 +4928,7 @@ msgstr ""
 #: dashboards/admin/volumes/tabs.py:115
 #: dashboards/admin/volumes/snapshots/tables.py:69
 #: dashboards/identity/projects/workflows.py:58
-#: dashboards/project/volumes/tabs.py:99
+#: dashboards/project/volumes/tabs.py:100
 #: dashboards/project/volumes/snapshots/tables.py:156 usage/quotas.py:76
 msgid "Volume Snapshots"
 msgstr ""
@@ -5062,8 +5127,8 @@ msgstr ""
 #: dashboards/project/containers/forms.py:47
 #: dashboards/project/containers/templates/containers/_container_detail.html:14
 #: dashboards/project/containers/templates/containers/_container_metadata.html:7
-#: dashboards/project/images/images/forms.py:157
-#: dashboards/project/images/images/forms.py:317
+#: dashboards/project/images/images/forms.py:161
+#: dashboards/project/images/images/forms.py:324
 #: dashboards/project/images/images/tables.py:210
 #: dashboards/project/images/images/tables.py:312
 #: dashboards/project/images/templates/images/images/_detail_overview.html:21
@@ -5507,7 +5572,7 @@ msgstr ""
 
 #: dashboards/admin/images/tables.py:72
 #: dashboards/admin/instances/tables.py:107
-#: dashboards/project/instances/tables.py:1037
+#: dashboards/project/instances/tables.py:1106
 msgid "Status ="
 msgstr ""
 
@@ -5526,7 +5591,7 @@ msgstr ""
 #: dashboards/admin/images/tables.py:81
 #: dashboards/admin/instances/tables.py:140
 #: dashboards/project/images/images/tables.py:302
-#: dashboards/project/instances/tables.py:1061
+#: dashboards/project/instances/tables.py:1130
 #: dashboards/project/instances/templates/instances/_detail_overview.html:116
 #: dashboards/project/instances/workflows/create_instance.py:108
 #: dashboards/project/volumes/volumes/forms.py:641
@@ -5548,8 +5613,8 @@ msgid "Project"
 msgstr ""
 
 #: dashboards/admin/images/views.py:80
-#: dashboards/project/images/images/forms.py:178
-#: dashboards/project/images/images/forms.py:194
+#: dashboards/project/images/images/forms.py:182
+#: dashboards/project/images/images/forms.py:198
 msgid "Unable to retrieve image list."
 msgstr ""
 
@@ -5614,7 +5679,7 @@ msgstr ""
 #: dashboards/admin/info/tables.py:26 dashboards/admin/info/tables.py:155
 #: dashboards/admin/info/templates/info/_cell_status.html:8
 #: dashboards/admin/networks/agents/tables.py:79
-#: dashboards/identity/domains/tables.py:203
+#: dashboards/identity/domains/tables.py:283
 #: dashboards/identity/domains/workflows.py:39
 #: dashboards/identity/groups/tables.py:195
 #: dashboards/identity/projects/tables.py:237
@@ -5626,7 +5691,7 @@ msgstr ""
 #: dashboards/identity/users/tables.py:252
 #: dashboards/identity/users/templates/users/_detail_overview.html:23
 #: dashboards/project/firewalls/forms.py:71
-#: dashboards/project/firewalls/tables.py:292
+#: dashboards/project/firewalls/tables.py:293
 #: dashboards/project/firewalls/workflows.py:67
 #: dashboards/project/firewalls/templates/firewalls/_rule_details.html:53
 #: dashboards/project/routers/templates/routers/_detail_overview.html:48
@@ -5659,7 +5724,7 @@ msgstr ""
 msgid "Service"
 msgstr ""
 
-#: dashboards/admin/info/tables.py:74 dashboards/admin/info/tabs.py:31
+#: dashboards/admin/info/tables.py:74
 msgid "Services"
 msgstr ""
 
@@ -5669,15 +5734,15 @@ msgctxt "Time since the last update"
 msgid "Last Updated"
 msgstr ""
 
-#: dashboards/admin/info/tables.py:112 dashboards/admin/info/tabs.py:47
+#: dashboards/admin/info/tables.py:112
 msgid "Compute Services"
 msgstr ""
 
-#: dashboards/admin/info/tables.py:136 dashboards/admin/info/tabs.py:65
+#: dashboards/admin/info/tables.py:136
 msgid "Block Storage Services"
 msgstr ""
 
-#: dashboards/admin/info/tables.py:185 dashboards/admin/info/tabs.py:83
+#: dashboards/admin/info/tables.py:185
 msgid "Network Agents"
 msgstr ""
 
@@ -5796,12 +5861,12 @@ msgid "IPv6 Address ="
 msgstr ""
 
 #: dashboards/admin/instances/tables.py:108
-#: dashboards/project/instances/tables.py:1038
+#: dashboards/project/instances/tables.py:1107
 msgid "Image ID ="
 msgstr ""
 
 #: dashboards/admin/instances/tables.py:109
-#: dashboards/project/instances/tables.py:1039
+#: dashboards/project/instances/tables.py:1108
 msgid "Flavor ID ="
 msgstr ""
 
@@ -5810,7 +5875,7 @@ msgstr ""
 #: dashboards/project/access_and_security/floating_ips/tables.py:194
 #: dashboards/project/access_and_security/floating_ips/workflows.py:33
 #: dashboards/project/access_and_security/floating_ips/workflows.py:40
-#: dashboards/project/instances/tables.py:1063
+#: dashboards/project/instances/tables.py:1132
 #: dashboards/project/loadbalancers/tables.py:505
 #: dashboards/project/networks/templates/networks/ports/_detail_overview.html:29
 #: dashboards/project/routers/templates/routers/_detail_overview.html:40
@@ -5818,17 +5883,17 @@ msgid "IP Address"
 msgstr ""
 
 #: dashboards/admin/instances/tables.py:155
-#: dashboards/project/instances/tables.py:1078
+#: dashboards/project/instances/tables.py:1147
 msgid "Task"
 msgstr ""
 
 #: dashboards/admin/instances/tables.py:162
-#: dashboards/project/instances/tables.py:1085
+#: dashboards/project/instances/tables.py:1154
 msgid "Power State"
 msgstr ""
 
 #: dashboards/admin/instances/tables.py:165
-#: dashboards/project/instances/tables.py:1088 usage/tables.py:86
+#: dashboards/project/instances/tables.py:1157 usage/tables.py:86
 msgid "Time since created"
 msgstr ""
 
@@ -5870,7 +5935,7 @@ msgid "Metadata Definition File"
 msgstr ""
 
 #: dashboards/admin/metadata_defs/forms.py:41
-#: dashboards/project/instances/workflows/create_instance.py:623
+#: dashboards/project/instances/workflows/create_instance.py:627
 #: dashboards/project/stacks/forms.py:63
 msgid "Direct Input"
 msgstr ""
@@ -5891,8 +5956,8 @@ msgstr ""
 #: dashboards/admin/metadata_defs/forms.py:62
 #: dashboards/admin/metadata_defs/tables.py:149
 #: dashboards/admin/metadata_defs/templates/metadata_defs/_detail_overview.html:20
-#: dashboards/project/images/images/forms.py:158
-#: dashboards/project/images/images/forms.py:318
+#: dashboards/project/images/images/forms.py:162
+#: dashboards/project/images/images/forms.py:325
 #: dashboards/project/images/images/tables.py:316
 #: dashboards/project/images/templates/images/images/_detail_overview.html:23
 msgid "Protected"
@@ -6250,6 +6315,7 @@ msgstr ""
 
 #: dashboards/admin/metering/views.py:106 dashboards/admin/overview/views.py:33
 #: dashboards/identity/projects/templates/projects/_detail_overview.html:9
+#: dashboards/identity/users/templates/users/_detail_overview.html:28
 #: dashboards/project/access_and_security/templates/access_and_security/api_access/_credentials.html:18
 #: usage/tables.py:43
 msgid "Project Name"
@@ -6442,7 +6508,7 @@ msgstr ""
 #: dashboards/admin/networks/ports/forms.py:48
 #: dashboards/admin/networks/templates/networks/ports/_detail_overview.html:19
 #: dashboards/project/firewalls/forms.py:134
-#: dashboards/project/firewalls/tables.py:364
+#: dashboards/project/firewalls/tables.py:365
 #: dashboards/project/firewalls/workflows.py:283
 #: dashboards/project/loadbalancers/forms.py:40
 #: dashboards/project/loadbalancers/forms.py:95
@@ -6479,8 +6545,8 @@ msgstr ""
 #: dashboards/admin/networks/tables.py:100
 #: dashboards/project/firewalls/forms.py:70
 #: dashboards/project/firewalls/forms.py:102
-#: dashboards/project/firewalls/tables.py:289
-#: dashboards/project/firewalls/tables.py:313
+#: dashboards/project/firewalls/tables.py:290
+#: dashboards/project/firewalls/tables.py:314
 #: dashboards/project/firewalls/workflows.py:65
 #: dashboards/project/firewalls/workflows.py:222
 #: dashboards/project/firewalls/templates/firewalls/_policy_details.html:31
@@ -6515,13 +6581,13 @@ msgid ""
 msgstr ""
 
 #: dashboards/admin/networks/forms.py:145
-#: dashboards/project/instances/workflows/create_instance.py:736
+#: dashboards/project/instances/workflows/create_instance.py:740
 #: dashboards/project/networks/workflows.py:76
 msgid "Select a profile"
 msgstr ""
 
 #: dashboards/admin/networks/forms.py:155
-#: dashboards/project/instances/workflows/create_instance.py:746
+#: dashboards/project/instances/workflows/create_instance.py:750
 #: dashboards/project/networks/workflows.py:86
 msgid "Network Profiles could not be retrieved."
 msgstr ""
@@ -6583,7 +6649,8 @@ msgstr[1] ""
 msgid "Failed to delete network %s"
 msgstr ""
 
-#: dashboards/admin/networks/tables.py:65 dashboards/admin/networks/views.py:99
+#: dashboards/admin/networks/tables.py:65
+#: dashboards/admin/networks/views.py:100
 #: dashboards/admin/networks/templates/networks/_create.html:9
 #: dashboards/admin/networks/templates/networks/_create.html:26
 #: dashboards/admin/networks/templates/networks/create.html:3
@@ -6632,36 +6699,36 @@ msgstr ""
 msgid "DHCP Agents"
 msgstr ""
 
-#: dashboards/admin/networks/views.py:50
+#: dashboards/admin/networks/views.py:51
 msgid "Unable to retrieve information about the networks' projects."
 msgstr ""
 
-#: dashboards/admin/networks/views.py:78
+#: dashboards/admin/networks/views.py:79
 #: dashboards/project/networks/views.py:54
 msgid "Network list can not be retrieved."
 msgstr ""
 
-#: dashboards/admin/networks/views.py:90 dashboards/admin/networks/views.py:137
+#: dashboards/admin/networks/views.py:91 dashboards/admin/networks/views.py:138
 #: dashboards/admin/networks/agents/forms.py:62
 msgid "Unable to list dhcp agents hosting network."
 msgstr ""
 
-#: dashboards/admin/networks/views.py:107
+#: dashboards/admin/networks/views.py:108
 #: dashboards/project/networks/views.py:103
 msgid "Network Details: {{ network.name }}"
 msgstr ""
 
-#: dashboards/admin/networks/views.py:116
+#: dashboards/admin/networks/views.py:117
 #: dashboards/project/networks/views.py:112
 msgid "Subnet list can not be retrieved."
 msgstr ""
 
-#: dashboards/admin/networks/views.py:126
+#: dashboards/admin/networks/views.py:127
 #: dashboards/project/networks/views.py:122
 msgid "Port list can not be retrieved."
 msgstr ""
 
-#: dashboards/admin/networks/views.py:149
+#: dashboards/admin/networks/views.py:150
 #: dashboards/admin/networks/subnets/tables.py:109
 #: dashboards/project/networks/views.py:133
 #: dashboards/project/networks/subnets/tables.py:143
@@ -7083,12 +7150,12 @@ msgstr ""
 #: dashboards/project/network_topology/routers/tables.py:27
 #: dashboards/project/routers/panel.py:22
 #: dashboards/project/routers/tables.py:244
-#: dashboards/project/routers/views.py:42
+#: dashboards/project/routers/views.py:43
 #: dashboards/project/routers/templates/routers/index.html:3 usage/quotas.py:81
 msgid "Routers"
 msgstr ""
 
-#: dashboards/admin/routers/views.py:42 dashboards/project/routers/views.py:53
+#: dashboards/admin/routers/views.py:42 dashboards/project/routers/views.py:54
 msgid "Unable to retrieve router list."
 msgstr ""
 
@@ -7106,13 +7173,13 @@ msgid "Interfaces"
 msgstr ""
 
 #: dashboards/admin/routers/templates/routers/detail.html:3
-#: dashboards/project/routers/views.py:102
+#: dashboards/project/routers/views.py:103
 #: dashboards/project/routers/templates/routers/detail.html:3
 msgid "Router Details"
 msgstr ""
 
 #: dashboards/admin/routers/templates/routers/update.html:3
-#: dashboards/project/routers/views.py:178
+#: dashboards/project/routers/views.py:194
 #: dashboards/project/routers/templates/routers/update.html:3
 msgid "Update Router"
 msgstr ""
@@ -7139,7 +7206,7 @@ msgstr ""
 msgid "Unable to retrieve QoS specs"
 msgstr ""
 
-#: dashboards/admin/volumes/tabs.py:133 dashboards/project/volumes/tabs.py:113
+#: dashboards/admin/volumes/tabs.py:133 dashboards/project/volumes/tabs.py:114
 #: dashboards/project/volumes/volumes/forms.py:232
 msgid "Unable to retrieve volume snapshots."
 msgstr ""
@@ -7440,7 +7507,7 @@ msgid "Close"
 msgstr ""
 
 #: dashboards/admin/volumes/templates/volumes/volume_types/extras/create.html:4
-#: dashboards/admin/volumes/volume_types/extras/views.py:62
+#: dashboards/admin/volumes/volume_types/extras/views.py:63
 msgid "Create Volume Type Extra Spec"
 msgstr ""
 
@@ -7709,7 +7776,7 @@ msgid "Edit Consumer"
 msgstr ""
 
 #: dashboards/admin/volumes/volume_types/tables.py:300
-#: dashboards/admin/volumes/volumes/forms.py:287
+#: dashboards/admin/volumes/volumes/forms.py:290
 msgid "Consumer"
 msgstr ""
 
@@ -7782,7 +7849,7 @@ msgid "Associate"
 msgstr ""
 
 #: dashboards/admin/volumes/volume_types/views.py:225
-#: dashboards/admin/volumes/volume_types/extras/views.py:36
+#: dashboards/admin/volumes/volume_types/extras/views.py:37
 msgid "Unable to retrieve volume type details."
 msgstr ""
 
@@ -7835,16 +7902,16 @@ msgstr[1] ""
 msgid "Extra Specs"
 msgstr ""
 
-#: dashboards/admin/volumes/volume_types/extras/views.py:55
+#: dashboards/admin/volumes/volume_types/extras/views.py:56
 msgid "Unable to retrieve extra spec list."
 msgstr ""
 
-#: dashboards/admin/volumes/volume_types/extras/views.py:86
+#: dashboards/admin/volumes/volume_types/extras/views.py:88
 #, python-format
 msgid "Edit Extra Spec Value: %s"
 msgstr ""
 
-#: dashboards/admin/volumes/volume_types/extras/views.py:107
+#: dashboards/admin/volumes/volume_types/extras/views.py:110
 msgid "Unable to retrieve volume type extra spec details."
 msgstr ""
 
@@ -7879,7 +7946,7 @@ msgid "undefined"
 msgstr ""
 
 #: dashboards/admin/volumes/volume_types/qos_specs/views.py:56
-#: dashboards/admin/volumes/volume_types/qos_specs/views.py:106
+#: dashboards/admin/volumes/volume_types/qos_specs/views.py:107
 msgid "QoS Spec: {{ qos_spec_name }}"
 msgstr ""
 
@@ -7891,11 +7958,11 @@ msgstr ""
 msgid "Spec: {{ qos_spec_name }}"
 msgstr ""
 
-#: dashboards/admin/volumes/volume_types/qos_specs/views.py:100
+#: dashboards/admin/volumes/volume_types/qos_specs/views.py:101
 msgid "Edit Spec Value"
 msgstr ""
 
-#: dashboards/admin/volumes/volume_types/qos_specs/views.py:120
+#: dashboards/admin/volumes/volume_types/qos_specs/views.py:121
 msgid "Unable to retrieve QoS spec details."
 msgstr ""
 
@@ -7990,35 +8057,40 @@ msgstr ""
 msgid "Failed to migrate volume."
 msgstr ""
 
-#: dashboards/admin/volumes/volumes/forms.py:230
+#: dashboards/admin/volumes/volumes/forms.py:228
 msgid "Volume type name can not be empty."
 msgstr ""
 
-#: dashboards/admin/volumes/volumes/forms.py:241
+#: dashboards/admin/volumes/volumes/forms.py:239
 #, python-format
 msgid "Successfully created volume type: %s"
 msgstr ""
 
-#: dashboards/admin/volumes/volumes/forms.py:247
+#: dashboards/admin/volumes/volumes/forms.py:244
+#, python-format
+msgid "Volume type name \"%s\" already exists."
+msgstr ""
+
+#: dashboards/admin/volumes/volumes/forms.py:250
 msgid "Unable to create volume type."
 msgstr ""
 
-#: dashboards/admin/volumes/volumes/forms.py:275
+#: dashboards/admin/volumes/volumes/forms.py:278
 #, python-format
 msgid "Successfully updated volume status to \"%s\"."
 msgstr ""
 
-#: dashboards/admin/volumes/volumes/forms.py:281
+#: dashboards/admin/volumes/volumes/forms.py:284
 #, python-format
 msgid "Unable to update volume status to \"%s\"."
 msgstr ""
 
-#: dashboards/admin/volumes/volumes/forms.py:296
+#: dashboards/admin/volumes/volumes/forms.py:299
 #, python-format
 msgid "Successfully created QoS Spec: %s"
 msgstr ""
 
-#: dashboards/admin/volumes/volumes/forms.py:302
+#: dashboards/admin/volumes/volumes/forms.py:305
 msgid "Unable to create QoS Spec."
 msgstr ""
 
@@ -8067,7 +8139,7 @@ msgid "Identity"
 msgstr ""
 
 #: dashboards/identity/domains/panel.py:23
-#: dashboards/identity/domains/tables.py:208
+#: dashboards/identity/domains/tables.py:288
 #: dashboards/identity/domains/views.py:36
 #: dashboards/identity/domains/templates/domains/index.html:3
 msgid "Domains"
@@ -8107,30 +8179,62 @@ msgstr[1] ""
 msgid "Domain \"%s\" must be disabled before it can be deleted."
 msgstr ""
 
-#: dashboards/identity/domains/tables.py:147
+#: dashboards/identity/domains/tables.py:129
+msgid "Disable Domain"
+msgid_plural "Disable Domains"
+msgstr[0] ""
+msgstr[1] ""
+
+#: dashboards/identity/domains/tables.py:137
+msgid "Disabled Domain"
+msgid_plural "Disabled Domains"
+msgstr[0] ""
+msgstr[1] ""
+
+#: dashboards/identity/domains/tables.py:145
+msgid "Disable Domains"
+msgstr ""
+
+#: dashboards/identity/domains/tables.py:169
+msgid "Enable Domain"
+msgid_plural "Enable Domains"
+msgstr[0] ""
+msgstr[1] ""
+
+#: dashboards/identity/domains/tables.py:177
+msgid "Enabled Domain"
+msgid_plural "Enabled Domains"
+msgstr[0] ""
+msgstr[1] ""
+
+#: dashboards/identity/domains/tables.py:185
+msgid "Enable Domains"
+msgstr ""
+
+#: dashboards/identity/domains/tables.py:227
 msgid "Set Domain Context"
 msgstr ""
 
-#: dashboards/identity/domains/tables.py:172
+#: dashboards/identity/domains/tables.py:252
 #, python-format
 msgid "Domain Context updated to Domain %s."
 msgstr ""
 
-#: dashboards/identity/domains/tables.py:176
+#: dashboards/identity/domains/tables.py:256
 msgid "Unable to set Domain Context."
 msgstr ""
 
-#: dashboards/identity/domains/tables.py:181
+#: dashboards/identity/domains/tables.py:261
 msgid "Clear Domain Context"
 msgstr ""
 
-#: dashboards/identity/domains/tables.py:195
+#: dashboards/identity/domains/tables.py:275
 msgid "Domain Context cleared."
 msgstr ""
 
-#: dashboards/identity/domains/tables.py:202
+#: dashboards/identity/domains/tables.py:282
 #: dashboards/identity/projects/workflows.py:141
-#: dashboards/identity/users/forms.py:90 dashboards/identity/users/forms.py:187
+#: dashboards/identity/users/forms.py:90 dashboards/identity/users/forms.py:188
 #: dashboards/identity/users/templates/users/_detail_overview.html:10
 msgid "Domain ID"
 msgstr ""
@@ -8176,7 +8280,7 @@ msgstr ""
 
 #: dashboards/identity/domains/workflows.py:89
 #: dashboards/identity/projects/workflows.py:272
-#: dashboards/identity/users/views.py:58
+#: dashboards/identity/users/views.py:61
 msgid "Unable to retrieve user list."
 msgstr ""
 
@@ -8355,7 +8459,7 @@ msgstr ""
 
 #: dashboards/identity/groups/tables.py:191
 #: dashboards/identity/users/forms.py:102
-#: dashboards/identity/users/forms.py:200
+#: dashboards/identity/users/forms.py:201
 #: dashboards/identity/users/tables.py:239
 #: dashboards/identity/users/templates/users/_detail_overview.html:21
 msgid "Email"
@@ -8517,8 +8621,8 @@ msgid "Unable to retrieve default Neutron quota values."
 msgstr ""
 
 #: dashboards/identity/projects/views.py:190
-#: dashboards/identity/users/views.py:116
-#: dashboards/identity/users/views.py:178
+#: dashboards/identity/users/views.py:119
+#: dashboards/identity/users/views.py:182
 msgid "Unable to retrieve project domain."
 msgstr ""
 
@@ -8557,7 +8661,7 @@ msgid "Set maximum quotas for the project."
 msgstr ""
 
 #: dashboards/identity/projects/workflows.py:144
-#: dashboards/identity/users/forms.py:93 dashboards/identity/users/forms.py:190
+#: dashboards/identity/users/forms.py:93 dashboards/identity/users/forms.py:191
 #: dashboards/identity/users/templates/users/_detail_overview.html:14
 msgid "Domain Name"
 msgstr ""
@@ -8760,7 +8864,7 @@ msgstr ""
 
 #: dashboards/identity/users/forms.py:57
 #: dashboards/project/instances/forms.py:96
-#: dashboards/project/instances/workflows/create_instance.py:596
+#: dashboards/project/instances/workflows/create_instance.py:600
 #: dashboards/settings/password/forms.py:50
 msgid "Passwords do not match."
 msgstr ""
@@ -8770,7 +8874,7 @@ msgid "No available projects"
 msgstr ""
 
 #: dashboards/identity/users/forms.py:104
-#: dashboards/identity/users/forms.py:202
+#: dashboards/identity/users/forms.py:203
 msgid "Primary Project"
 msgstr ""
 
@@ -8778,65 +8882,65 @@ msgstr ""
 msgid "Role"
 msgstr ""
 
-#: dashboards/identity/users/forms.py:159
+#: dashboards/identity/users/forms.py:160
 #, python-format
 msgid "User \"%s\" was successfully created."
 msgstr ""
 
-#: dashboards/identity/users/forms.py:175
+#: dashboards/identity/users/forms.py:176
 msgid "Unable to add user to primary project."
 msgstr ""
 
-#: dashboards/identity/users/forms.py:179
-#: dashboards/identity/users/forms.py:232
+#: dashboards/identity/users/forms.py:180
+#: dashboards/identity/users/forms.py:233
 #, python-format
 msgid "User name \"%s\" is already used."
 msgstr ""
 
-#: dashboards/identity/users/forms.py:182
+#: dashboards/identity/users/forms.py:183
 msgid "Unable to create user."
 msgstr ""
 
-#: dashboards/identity/users/forms.py:230
+#: dashboards/identity/users/forms.py:231
 msgid "User has been updated successfully."
 msgstr ""
 
-#: dashboards/identity/users/forms.py:237
+#: dashboards/identity/users/forms.py:238
 msgid "Unable to update the user."
 msgstr ""
 
-#: dashboards/identity/users/forms.py:257
-#: dashboards/project/instances/workflows/create_instance.py:547
+#: dashboards/identity/users/forms.py:258
+#: dashboards/project/instances/workflows/create_instance.py:546
 msgid "Admin Password"
 msgstr ""
 
-#: dashboards/identity/users/forms.py:277
+#: dashboards/identity/users/forms.py:278
 msgid "The admin password is incorrect."
 msgstr ""
 
-#: dashboards/identity/users/forms.py:286
+#: dashboards/identity/users/forms.py:287
 msgid "Password changed. Please log in to continue."
 msgstr ""
 
-#: dashboards/identity/users/forms.py:289
+#: dashboards/identity/users/forms.py:290
 msgid "User password has been updated successfully."
 msgstr ""
 
-#: dashboards/identity/users/forms.py:292
+#: dashboards/identity/users/forms.py:293
 msgid "Unable to update the user password."
 msgstr ""
 
 #: dashboards/identity/users/tables.py:32
-#: dashboards/identity/users/views.py:127
 #: dashboards/identity/users/views.py:130
 #: dashboards/identity/users/views.py:133
+#: dashboards/identity/users/views.py:136
 #: dashboards/identity/users/templates/users/create.html:3
 msgid "Create User"
 msgstr ""
 
 #: dashboards/identity/users/tables.py:61
-#: dashboards/identity/users/views.py:205
-#: dashboards/identity/users/views.py:211
+#: dashboards/identity/users/views.py:223
+#: dashboards/identity/users/views.py:229
 #: dashboards/identity/users/templates/users/change_password.html:3
 #: dashboards/settings/password/panel.py:23
 #: dashboards/settings/password/views.py:27
@@ -8873,30 +8977,30 @@ msgstr[1] ""
 msgid "You cannot disable the user you are currently logged in as."
 msgstr ""
 
-#: dashboards/identity/users/views.py:67 dashboards/identity/users/views.py:95
-#: dashboards/identity/users/views.py:226
+#: dashboards/identity/users/views.py:70 dashboards/identity/users/views.py:98
+#: dashboards/identity/users/views.py:244
 msgid "Unable to retrieve user information."
 msgstr ""
 
-#: dashboards/identity/users/views.py:69
+#: dashboards/identity/users/views.py:72
 msgid "Insufficient privilege level to view user information."
 msgstr ""
 
-#: dashboards/identity/users/views.py:76 dashboards/identity/users/views.py:79
-#: dashboards/identity/users/views.py:82
+#: dashboards/identity/users/views.py:79 dashboards/identity/users/views.py:82
+#: dashboards/identity/users/views.py:85
 #: dashboards/identity/users/templates/users/update.html:3
 msgid "Update User"
 msgstr ""
 
-#: dashboards/identity/users/views.py:147
+#: dashboards/identity/users/views.py:150
 msgid "Unable to retrieve user roles."
 msgstr ""
 
-#: dashboards/identity/users/views.py:164
+#: dashboards/identity/users/views.py:167
 msgid "User Details: {{ user.name }}"
 msgstr ""
 
-#: dashboards/identity/users/views.py:195
+#: dashboards/identity/users/views.py:213
 msgid "Unable to retrieve user details."
 msgstr ""
 
@@ -8924,12 +9028,12 @@ msgstr ""
 
 #: dashboards/project/access_and_security/panel.py:22
 #: dashboards/project/access_and_security/views.py:35
-#: dashboards/project/instances/workflows/create_instance.py:564
+#: dashboards/project/instances/workflows/create_instance.py:563
 msgid "Access & Security"
 msgstr ""
 
 #: dashboards/project/access_and_security/tabs.py:57
-#: dashboards/project/access_and_security/security_groups/views.py:138
+#: dashboards/project/access_and_security/security_groups/views.py:139
 #: usage/base.py:116
 msgid "Unable to retrieve security groups."
 msgstr ""
@@ -9032,7 +9136,7 @@ msgstr ""
 
 #: dashboards/project/access_and_security/floating_ips/tables.py:57
 #: dashboards/project/access_and_security/keypairs/tables.py:73
-#: dashboards/project/instances/tables.py:335
+#: dashboards/project/instances/tables.py:404
 #: dashboards/project/volumes/volumes/tables.py:119
 #: dashboards/project/volumes/volumes/tables.py:187
 msgid "(Quota exceeded)"
@@ -9067,7 +9171,7 @@ msgid "Successfully disassociated Floating IP: %s"
 msgstr ""
 
 #: dashboards/project/access_and_security/floating_ips/tables.py:155
-#: dashboards/project/instances/tables.py:649
+#: dashboards/project/instances/tables.py:718
 #: dashboards/project/loadbalancers/tables.py:373
 msgid "Unable to disassociate floating IP."
 msgstr ""
@@ -9479,9 +9583,9 @@ msgstr[1] ""
 
 #: dashboards/project/access_and_security/security_groups/tables.py:71
 #: dashboards/project/access_and_security/security_groups/tables.py:88
-#: dashboards/project/access_and_security/security_groups/views.py:155
-#: dashboards/project/access_and_security/security_groups/views.py:158
-#: dashboards/project/access_and_security/security_groups/views.py:162
+#: dashboards/project/access_and_security/security_groups/views.py:156
+#: dashboards/project/access_and_security/security_groups/views.py:159
+#: dashboards/project/access_and_security/security_groups/views.py:163
 #: dashboards/project/access_and_security/templates/access_and_security/security_groups/create.html:3
 msgid "Create Security Group"
 msgstr ""
@@ -9548,7 +9652,7 @@ msgstr ""
 msgid "Unable to retrieve security group."
 msgstr ""
 
-#: dashboards/project/access_and_security/security_groups/views.py:145
+#: dashboards/project/access_and_security/security_groups/views.py:146
 #, python-format
 msgid "%s (current)"
 msgstr ""
@@ -9748,7 +9852,7 @@ msgid "Unable to create container."
 msgstr ""
 
 #: dashboards/project/containers/forms.py:89
-#: dashboards/project/instances/workflows/create_instance.py:624
+#: dashboards/project/instances/workflows/create_instance.py:628
 #: dashboards/project/stacks/forms.py:62
 msgid "File"
 msgstr ""
@@ -10076,7 +10180,7 @@ msgid "Upload Object To Container: %(container_name)s"
 msgstr ""
 
 #: dashboards/project/firewalls/forms.py:39
-#: dashboards/project/firewalls/tables.py:276
+#: dashboards/project/firewalls/tables.py:277
 #: dashboards/project/firewalls/workflows.py:37
 #: dashboards/project/firewalls/templates/firewalls/_rule_details.html:22
 #: dashboards/project/loadbalancers/tables.py:454
@@ -10104,7 +10208,7 @@ msgid "ICMP"
 msgstr ""
 
 #: dashboards/project/firewalls/forms.py:41
-#: dashboards/project/firewalls/tables.py:274
+#: dashboards/project/firewalls/tables.py:275
 #: dashboards/project/firewalls/workflows.py:41
 #: dashboards/project/firewalls/templates/firewalls/_rule_details.html:23
 #: dashboards/project/firewalls/templates/firewalls/_rule_details.html:26
@@ -10119,7 +10223,7 @@ msgid "Protocol for the firewall rule"
 msgstr ""
 
 #: dashboards/project/firewalls/forms.py:44
-#: dashboards/project/firewalls/tables.py:287
+#: dashboards/project/firewalls/tables.py:288
 #: dashboards/project/firewalls/workflows.py:43
 #: dashboards/project/firewalls/templates/firewalls/_rule_details.html:19
 #: dashboards/project/instances/audit_tables.py:41
@@ -10189,7 +10293,7 @@ msgid "Failed to update rule %(name)s: %(reason)s"
 msgstr ""
 
 #: dashboards/project/firewalls/forms.py:103
-#: dashboards/project/firewalls/tables.py:316
+#: dashboards/project/firewalls/tables.py:317
 #: dashboards/project/firewalls/workflows.py:225
 #: dashboards/project/firewalls/templates/firewalls/_policy_details.html:34
 msgid "Audited"
@@ -10206,7 +10310,7 @@ msgid "Failed to update policy %(name)s: %(reason)s"
 msgstr ""
 
 #: dashboards/project/firewalls/forms.py:131
-#: dashboards/project/firewalls/tables.py:357
+#: dashboards/project/firewalls/tables.py:358
 #: dashboards/project/firewalls/workflows.py:280
 msgid "Policy"
 msgstr ""
@@ -10297,7 +10401,7 @@ msgid "Failed to retrieve available routers: %(reason)s"
 msgstr ""
 
 #: dashboards/project/firewalls/forms.py:359
-#: dashboards/project/firewalls/tables.py:359
+#: dashboards/project/firewalls/tables.py:360
 msgid "Associated Routers"
 msgstr ""
 
@@ -10321,7 +10425,7 @@ msgid "Failed to retrieve current routers in firewall %(name)s: %(reason)s"
 msgstr ""
 
 #: dashboards/project/firewalls/panel.py:25
-#: dashboards/project/firewalls/tables.py:369
+#: dashboards/project/firewalls/tables.py:370
 #: dashboards/project/firewalls/tabs.py:69
 #: dashboards/project/firewalls/views.py:57
 #: dashboards/project/firewalls/templates/firewalls/details_tabs.html:3
@@ -10393,102 +10497,102 @@ msgstr ""
 msgid "Remove Router"
 msgstr ""
 
-#: dashboards/project/firewalls/tables.py:266
+#: dashboards/project/firewalls/tables.py:267
 msgctxt "Action Name of a Firewall Rule"
 msgid "ALLOW"
 msgstr ""
 
-#: dashboards/project/firewalls/tables.py:267
+#: dashboards/project/firewalls/tables.py:268
 msgctxt "Action Name of a Firewall Rule"
 msgid "DENY"
 msgstr ""
 
-#: dashboards/project/firewalls/tables.py:278
+#: dashboards/project/firewalls/tables.py:279
 #: dashboards/project/loadbalancers/templates/loadbalancers/_create_pool_help.html:16
 msgid "Source IP"
 msgstr ""
 
-#: dashboards/project/firewalls/tables.py:280
+#: dashboards/project/firewalls/tables.py:281
 #: dashboards/project/firewalls/templates/firewalls/_rule_details.html:28
 msgid "Source Port"
 msgstr ""
 
-#: dashboards/project/firewalls/tables.py:282
+#: dashboards/project/firewalls/tables.py:283
 msgid "Destination IP"
 msgstr ""
 
-#: dashboards/project/firewalls/tables.py:284
+#: dashboards/project/firewalls/tables.py:285
 #: dashboards/project/firewalls/templates/firewalls/_rule_details.html:34
 msgid "Destination Port"
 msgstr ""
 
-#: dashboards/project/firewalls/tables.py:296
+#: dashboards/project/firewalls/tables.py:297
 msgid "In Policy"
 msgstr ""
 
-#: dashboards/project/firewalls/tables.py:300
-#: dashboards/project/firewalls/tables.py:311
+#: dashboards/project/firewalls/tables.py:301
+#: dashboards/project/firewalls/tables.py:312
 #: dashboards/project/firewalls/workflows.py:131
 #: dashboards/project/firewalls/workflows.py:137
 #: dashboards/project/firewalls/templates/firewalls/_policy_details.html:19
 msgid "Rules"
 msgstr ""
 
-#: dashboards/project/firewalls/tables.py:321
+#: dashboards/project/firewalls/tables.py:322
 msgid "Policies"
 msgstr ""
 
-#: dashboards/project/firewalls/tables.py:329
+#: dashboards/project/firewalls/tables.py:330
 msgctxt "Current status of a Firewall"
 msgid "Active"
 msgstr ""
 
-#: dashboards/project/firewalls/tables.py:331
+#: dashboards/project/firewalls/tables.py:332
 msgctxt "Current status of a Firewall"
 msgid "Down"
 msgstr ""
 
-#: dashboards/project/firewalls/tables.py:333
+#: dashboards/project/firewalls/tables.py:334
 msgctxt "Current status of a Firewall"
 msgid "Error"
 msgstr ""
 
-#: dashboards/project/firewalls/tables.py:335
+#: dashboards/project/firewalls/tables.py:336
 msgctxt "Current status of a Firewall"
 msgid "Created"
 msgstr ""
 
-#: dashboards/project/firewalls/tables.py:337
+#: dashboards/project/firewalls/tables.py:338
 msgctxt "Current status of a Firewall"
 msgid "Pending Create"
 msgstr ""
 
-#: dashboards/project/firewalls/tables.py:339
+#: dashboards/project/firewalls/tables.py:340
 msgctxt "Current status of a Firewall"
 msgid "Pending Update"
 msgstr ""
 
-#: dashboards/project/firewalls/tables.py:341
+#: dashboards/project/firewalls/tables.py:342
 msgctxt "Current status of a Firewall"
 msgid "Pending Delete"
 msgstr ""
 
-#: dashboards/project/firewalls/tables.py:343
+#: dashboards/project/firewalls/tables.py:344
 msgctxt "Current status of a Firewall"
 msgid "Inactive"
 msgstr ""
 
-#: dashboards/project/firewalls/tables.py:347
+#: dashboards/project/firewalls/tables.py:348
 msgctxt "Admin state of a Firewall"
 msgid "UP"
 msgstr ""
 
-#: dashboards/project/firewalls/tables.py:348
+#: dashboards/project/firewalls/tables.py:349
 msgctxt "Admin state of a Firewall"
 msgid "DOWN"
 msgstr ""
 
-#: dashboards/project/firewalls/tables.py:383
+#: dashboards/project/firewalls/tables.py:384
 #, python-format
 msgid "Failed to verify extension support %(reason)s"
 msgstr ""
@@ -10603,7 +10707,7 @@ msgstr ""
 #: dashboards/project/loadbalancers/views.py:312
 #: dashboards/project/networks/views.py:69
 #: dashboards/project/networks/ports/views.py:88
-#: dashboards/project/routers/views.py:179
+#: dashboards/project/routers/views.py:195
 #: dashboards/project/volumes/snapshots/views.py:37
 #: dashboards/project/vpn/views.py:277 dashboards/project/vpn/views.py:313
 #: dashboards/project/vpn/views.py:356 dashboards/project/vpn/views.py:398
@@ -10864,130 +10968,134 @@ msgstr ""
 msgid "Unable to retrieve images."
 msgstr ""
 
-#: dashboards/project/images/images/forms.py:88
+#: dashboards/project/images/images/forms.py:90
 msgid "Image Source"
 msgstr ""
 
-#: dashboards/project/images/images/forms.py:90
-#: dashboards/project/images/images/forms.py:95
-#: dashboards/project/images/images/forms.py:101
-#: dashboards/project/images/images/forms.py:155
+#: dashboards/project/images/images/forms.py:92
+#: dashboards/project/images/images/forms.py:97
+#: dashboards/project/images/images/forms.py:103
+#: dashboards/project/images/images/forms.py:159
 msgid "Image Location"
 msgstr ""
 
-#: dashboards/project/images/images/forms.py:91
-#: dashboards/project/images/images/forms.py:106
-#: dashboards/project/images/images/forms.py:111
+#: dashboards/project/images/images/forms.py:93
+#: dashboards/project/images/images/forms.py:110
+#: dashboards/project/images/images/forms.py:115
 msgid "Image File"
 msgstr ""
 
-#: dashboards/project/images/images/forms.py:96
+#: dashboards/project/images/images/forms.py:98
 msgid "An external (HTTP) URL to load the image from."
 msgstr ""
 
-#: dashboards/project/images/images/forms.py:107
+#: dashboards/project/images/images/forms.py:111
 msgid "A local image to upload."
 msgstr ""
 
-#: dashboards/project/images/images/forms.py:118
+#: dashboards/project/images/images/forms.py:122
 msgid "Kernel"
 msgstr ""
 
-#: dashboards/project/images/images/forms.py:124
+#: dashboards/project/images/images/forms.py:128
 msgid "Ramdisk"
 msgstr ""
 
-#: dashboards/project/images/images/forms.py:129
-#: dashboards/project/images/images/forms.py:299
+#: dashboards/project/images/images/forms.py:133
+#: dashboards/project/images/images/forms.py:306
 #: dashboards/project/images/images/tables.py:319
 msgid "Format"
 msgstr ""
 
-#: dashboards/project/images/images/forms.py:134
-#: dashboards/project/images/images/forms.py:294
+#: dashboards/project/images/images/forms.py:138
+#: dashboards/project/images/images/forms.py:301
 msgid "Architecture"
 msgstr ""
 
-#: dashboards/project/images/images/forms.py:137
-#: dashboards/project/images/images/forms.py:301
+#: dashboards/project/images/images/forms.py:141
+#: dashboards/project/images/images/forms.py:308
 msgid "Minimum Disk (GB)"
 msgstr ""
 
-#: dashboards/project/images/images/forms.py:139
-#: dashboards/project/images/images/forms.py:303
+#: dashboards/project/images/images/forms.py:143
+#: dashboards/project/images/images/forms.py:310
 msgid ""
 "The minimum disk size required to boot the image. If unspecified, this "
 "value defaults to 0 (no minimum)."
 msgstr ""
 
-#: dashboards/project/images/images/forms.py:143
-#: dashboards/project/images/images/forms.py:309
+#: dashboards/project/images/images/forms.py:147
+#: dashboards/project/images/images/forms.py:316
 msgid "Minimum RAM (MB)"
 msgstr ""
 
-#: dashboards/project/images/images/forms.py:145
-#: dashboards/project/images/images/forms.py:311
+#: dashboards/project/images/images/forms.py:149
+#: dashboards/project/images/images/forms.py:318
 msgid ""
 "The minimum memory size required to boot the image. If unspecified, this "
 "value defaults to 0 (no minimum)."
 msgstr ""
 
-#: dashboards/project/images/images/forms.py:149
+#: dashboards/project/images/images/forms.py:153
 msgid "Copy Data"
 msgstr ""
 
-#: dashboards/project/images/images/forms.py:150
+#: dashboards/project/images/images/forms.py:154
 msgid ""
 "Specify this option to copy image data to the image service. If "
 "unspecified, image data will be used in its current location."
 msgstr ""
 
-#: dashboards/project/images/images/forms.py:182
-#: dashboards/project/images/images/forms.py:198
+#: dashboards/project/images/images/forms.py:186
+#: dashboards/project/images/images/forms.py:202
 #: dashboards/project/volumes/volumes/forms.py:238
 msgid "Choose an image"
 msgstr ""
 
-#: dashboards/project/images/images/forms.py:235
+#: dashboards/project/images/images/forms.py:239
 msgid "A image or external image location must be specified."
 msgstr ""
 
-#: dashboards/project/images/images/forms.py:238
+#: dashboards/project/images/images/forms.py:242
 msgid "Can not specify both image and external image location."
 msgstr ""
 
-#: dashboards/project/images/images/forms.py:258
+#: dashboards/project/images/images/forms.py:262
 #, python-format
 msgid "Your image %s has been queued for creation."
 msgstr ""
 
-#: dashboards/project/images/images/forms.py:262
+#: dashboards/project/images/images/forms.py:266
 msgid "Unable to create new image"
 msgstr ""
 
-#: dashboards/project/images/images/forms.py:266
+#: dashboards/project/images/images/forms.py:270
 #, python-format
 msgid "Unable to create new image: Invalid disk format %s for image."
 msgstr ""
 
-#: dashboards/project/images/images/forms.py:269
+#: dashboards/project/images/images/forms.py:273
 msgid "Unable to create new image: Image name too long."
 msgstr ""
 
-#: dashboards/project/images/images/forms.py:283
+#: dashboards/project/images/images/forms.py:275
+msgid "Unable to create new image: URL scheme not supported."
+msgstr ""
+
+#: dashboards/project/images/images/forms.py:290
 msgid "Kernel ID"
 msgstr ""
 
-#: dashboards/project/images/images/forms.py:289
+#: dashboards/project/images/images/forms.py:296
 msgid "Ramdisk ID"
 msgstr ""
 
-#: dashboards/project/images/images/forms.py:331
+#: dashboards/project/images/images/forms.py:338
 #, python-format
 msgid "Unable to update image \"%s\"."
 msgstr ""
 
-#: dashboards/project/images/images/forms.py:339
+#: dashboards/project/images/images/forms.py:346
 msgid "Image was successfully updated."
 msgstr ""
 
@@ -11110,7 +11218,7 @@ msgstr ""
 #: dashboards/project/images/snapshots/views.py:40
 #: dashboards/project/images/snapshots/views.py:41
 #: dashboards/project/images/templates/images/snapshots/create.html:3
-#: dashboards/project/instances/tables.py:409
+#: dashboards/project/instances/tables.py:478
 #: dashboards/project/volumes/volumes/tables.py:168
 msgid "Create Snapshot"
 msgstr ""
@@ -11274,23 +11382,23 @@ msgid "Confirm Rebuild Password"
 msgstr ""
 
 #: dashboards/project/instances/forms.py:56
-#: dashboards/project/instances/workflows/create_instance.py:778
+#: dashboards/project/instances/workflows/create_instance.py:782
 msgid "Disk Partition"
 msgstr ""
 
 #: dashboards/project/instances/forms.py:82
-#: dashboards/project/instances/workflows/create_instance.py:796
+#: dashboards/project/instances/workflows/create_instance.py:800
 msgid "Automatic"
 msgstr ""
 
 #: dashboards/project/instances/forms.py:83
-#: dashboards/project/instances/workflows/create_instance.py:797
+#: dashboards/project/instances/workflows/create_instance.py:801
 msgid "Manual"
 msgstr ""
 
 #: dashboards/project/instances/forms.py:86
 #: dashboards/project/instances/workflows/create_instance.py:168
-#: dashboards/project/instances/workflows/create_instance.py:806
+#: dashboards/project/instances/workflows/create_instance.py:810
 msgid "Unable to retrieve extensions information."
 msgstr ""
 
@@ -11367,95 +11475,119 @@ msgstr ""
 msgid "Unable to detach interface."
 msgstr ""
 
-#: dashboards/project/instances/tables.py:122
+#: dashboards/project/instances/tables.py:124
 msgid "Hard Reboot Instance"
 msgid_plural "Hard Reboot Instances"
 msgstr[0] ""
 msgstr[1] ""
 
-#: dashboards/project/instances/tables.py:130
+#: dashboards/project/instances/tables.py:132
 msgid "Hard Rebooted Instance"
 msgid_plural "Hard Rebooted Instances"
 msgstr[0] ""
 msgstr[1] ""
 
-#: dashboards/project/instances/tables.py:153
+#: dashboards/project/instances/tables.py:155
 msgid "Soft Reboot Instance"
 msgid_plural "Soft Reboot Instances"
 msgstr[0] ""
 msgstr[1] ""
 
-#: dashboards/project/instances/tables.py:161
+#: dashboards/project/instances/tables.py:163
 msgid "Soft Rebooted Instance"
 msgid_plural "Soft Rebooted Instances"
 msgstr[0] ""
 msgstr[1] ""
 
-#: dashboards/project/instances/tables.py:178
+#: dashboards/project/instances/tables.py:180
 msgid "Pause Instance"
 msgid_plural "Pause Instances"
 msgstr[0] ""
 msgstr[1] ""
 
-#: dashboards/project/instances/tables.py:183
-#: dashboards/project/instances/tables.py:251
+#: dashboards/project/instances/tables.py:185
+#: dashboards/project/instances/tables.py:253
 msgid "Resume Instance"
 msgid_plural "Resume Instances"
 msgstr[0] ""
 msgstr[1] ""
 
-#: dashboards/project/instances/tables.py:193
+#: dashboards/project/instances/tables.py:195
 msgid "Paused Instance"
 msgid_plural "Paused Instances"
 msgstr[0] ""
 msgstr[1] ""
 
-#: dashboards/project/instances/tables.py:198
-#: dashboards/project/instances/tables.py:266
+#: dashboards/project/instances/tables.py:200
+#: dashboards/project/instances/tables.py:268
 msgid "Resumed Instance"
 msgid_plural "Resumed Instances"
 msgstr[0] ""
 msgstr[1] ""
 
-#: dashboards/project/instances/tables.py:246
+#: dashboards/project/instances/tables.py:248
 msgid "Suspend Instance"
 msgid_plural "Suspend Instances"
 msgstr[0] ""
 msgstr[1] ""
 
-#: dashboards/project/instances/tables.py:261
+#: dashboards/project/instances/tables.py:263
 msgid "Suspended Instance"
 msgid_plural "Suspended Instances"
 msgstr[0] ""
 msgstr[1] ""
 
-#: dashboards/project/instances/tables.py:373
+#: dashboards/project/instances/tables.py:316
+msgid "Shelve Instance"
+msgid_plural "Shelve Instances"
+msgstr[0] ""
+msgstr[1] ""
+
+#: dashboards/project/instances/tables.py:321
+msgid "Unshelve Instance"
+msgid_plural "Unshelve Instances"
+msgstr[0] ""
+msgstr[1] ""
+
+#: dashboards/project/instances/tables.py:331
+msgid "Shelved Instance"
+msgid_plural "Shelved Instances"
+msgstr[0] ""
+msgstr[1] ""
+
+#: dashboards/project/instances/tables.py:336
+msgid "Unshelved Instance"
+msgid_plural "Unshelved Instances"
+msgstr[0] ""
+msgstr[1] ""
+
+#: dashboards/project/instances/tables.py:442
 #: dashboards/project/instances/workflows/update_instance.py:132
 msgid "Edit Instance"
 msgstr ""
 
-#: dashboards/project/instances/tables.py:396
+#: dashboards/project/instances/tables.py:465
 msgid "Edit Security Groups"
 msgstr ""
 
-#: dashboards/project/instances/tables.py:422
+#: dashboards/project/instances/tables.py:491
 #: dashboards/project/instances/tabs.py:63
 msgid "Console"
 msgstr ""
 
-#: dashboards/project/instances/tables.py:442
+#: dashboards/project/instances/tables.py:511
 msgid "View Log"
 msgstr ""
 
-#: dashboards/project/instances/tables.py:483
+#: dashboards/project/instances/tables.py:552
 msgid "Confirm Resize/Migrate"
 msgstr ""
 
-#: dashboards/project/instances/tables.py:496
+#: dashboards/project/instances/tables.py:565
 msgid "Revert Resize/Migrate"
 msgstr ""
 
-#: dashboards/project/instances/tables.py:509
+#: dashboards/project/instances/tables.py:578
 #: dashboards/project/instances/views.py:261
 #: dashboards/project/instances/templates/instances/_rebuild.html:9
 #: dashboards/project/instances/templates/instances/_rebuild.html:27
@@ -11463,496 +11595,496 @@ msgstr ""
 msgid "Rebuild Instance"
 msgstr ""
 
-#: dashboards/project/instances/tables.py:526
+#: dashboards/project/instances/tables.py:595
 msgid "Retrieve Password"
 msgstr ""
 
-#: dashboards/project/instances/tables.py:549
-#: dashboards/project/instances/tables.py:580
+#: dashboards/project/instances/tables.py:618
+#: dashboards/project/instances/tables.py:649
 #: dashboards/project/loadbalancers/tables.py:305
 msgid "Associate Floating IP"
 msgstr ""
 
-#: dashboards/project/instances/tables.py:601
+#: dashboards/project/instances/tables.py:670
 #, python-format
 msgid "Successfully associated floating IP: %s"
 msgstr ""
 
-#: dashboards/project/instances/tables.py:605
+#: dashboards/project/instances/tables.py:674
 msgid "Unable to associate floating IP."
 msgstr ""
 
-#: dashboards/project/instances/tables.py:611
+#: dashboards/project/instances/tables.py:680
 #: dashboards/project/loadbalancers/tables.py:343
 msgid "Disassociate Floating IP"
 msgstr ""
 
-#: dashboards/project/instances/tables.py:643
+#: dashboards/project/instances/tables.py:712
 #: dashboards/project/loadbalancers/tables.py:369
 #, python-format
 msgid "Successfully disassociated floating IP: %s"
 msgstr ""
 
-#: dashboards/project/instances/tables.py:646
+#: dashboards/project/instances/tables.py:715
 #: dashboards/project/loadbalancers/tables.py:364
 msgid "No floating IPs to disassociate."
 msgstr ""
 
-#: dashboards/project/instances/tables.py:656
+#: dashboards/project/instances/tables.py:725
 #, python-format
 msgid "Please try again later [Error: %s]."
 msgstr ""
 
-#: dashboards/project/instances/tables.py:658
+#: dashboards/project/instances/tables.py:727
 msgid ""
 "There is not enough capacity for this flavor in the selected availability"
 " zone. Try again later or select a different availability zone."
 msgstr ""
 
-#: dashboards/project/instances/tables.py:670
+#: dashboards/project/instances/tables.py:739
 #, python-format
 msgid ""
 "Failed to perform requested operation on instance \"%s\", the instance "
 "has an error status"
 msgstr ""
 
-#: dashboards/project/instances/tables.py:686
+#: dashboards/project/instances/tables.py:755
 #: dashboards/project/instances/views.py:409
 #, python-format
 msgid "Unable to retrieve flavor information for instance \"%s\"."
 msgstr ""
 
-#: dashboards/project/instances/tables.py:702
+#: dashboards/project/instances/tables.py:771
 msgid "Start Instance"
 msgid_plural "Start Instances"
 msgstr[0] ""
 msgstr[1] ""
 
-#: dashboards/project/instances/tables.py:710
+#: dashboards/project/instances/tables.py:779
 msgid "Started Instance"
 msgid_plural "Started Instances"
 msgstr[0] ""
 msgstr[1] ""
 
-#: dashboards/project/instances/tables.py:728
-msgid "To power off a specific instance."
+#: dashboards/project/instances/tables.py:797
+msgid "The instance(s) will be shut off."
 msgstr ""
 
-#: dashboards/project/instances/tables.py:732
+#: dashboards/project/instances/tables.py:801
 msgctxt "Action to perform (the instance is currently running)"
 msgid "Shut Off Instance"
 msgid_plural "Shut Off Instances"
 msgstr[0] ""
 msgstr[1] ""
 
-#: dashboards/project/instances/tables.py:741
+#: dashboards/project/instances/tables.py:810
 msgctxt "Past action (the instance is currently already Shut Off)"
 msgid "Shut Off Instance"
 msgid_plural "Shut Off Instances"
 msgstr[0] ""
 msgstr[1] ""
 
-#: dashboards/project/instances/tables.py:763
+#: dashboards/project/instances/tables.py:832
 msgid "Lock Instance"
 msgid_plural "Lock Instances"
 msgstr[0] ""
 msgstr[1] ""
 
-#: dashboards/project/instances/tables.py:771
+#: dashboards/project/instances/tables.py:840
 msgid "Locked Instance"
 msgid_plural "Locked Instances"
 msgstr[0] ""
 msgstr[1] ""
 
-#: dashboards/project/instances/tables.py:794
+#: dashboards/project/instances/tables.py:863
 msgid "Unlock Instance"
 msgid_plural "Unlock Instances"
 msgstr[0] ""
 msgstr[1] ""
 
-#: dashboards/project/instances/tables.py:802
+#: dashboards/project/instances/tables.py:871
 msgid "Unlocked Instance"
 msgid_plural "Unlocked Instances"
 msgstr[0] ""
 msgstr[1] ""
 
-#: dashboards/project/instances/tables.py:821
+#: dashboards/project/instances/tables.py:890
 #: dashboards/project/instances/views.py:442
 #: dashboards/project/instances/views.py:444
 #: dashboards/project/instances/templates/instances/attach_interface.html:3
 msgid "Attach Interface"
 msgstr ""
 
-#: dashboards/project/instances/tables.py:841
+#: dashboards/project/instances/tables.py:910
 #: dashboards/project/instances/views.py:462
 #: dashboards/project/instances/views.py:464
 #: dashboards/project/instances/templates/instances/detach_interface.html:3
 msgid "Detach Interface"
 msgstr ""
 
-#: dashboards/project/instances/tables.py:885
+#: dashboards/project/instances/tables.py:954
 #, python-format
 msgid "%s GB"
 msgstr ""
 
-#: dashboards/project/instances/tables.py:910
-#: dashboards/project/instances/tables.py:932
+#: dashboards/project/instances/tables.py:979
+#: dashboards/project/instances/tables.py:1001
 msgctxt "Current status of an Instance"
 msgid "Deleted"
 msgstr ""
 
-#: dashboards/project/instances/tables.py:911
+#: dashboards/project/instances/tables.py:980
 msgctxt "Current status of an Instance"
 msgid "Active"
 msgstr ""
 
-#: dashboards/project/instances/tables.py:912
+#: dashboards/project/instances/tables.py:981
 msgctxt "Current status of an Instance"
 msgid "Shutoff"
 msgstr ""
 
-#: dashboards/project/instances/tables.py:913
+#: dashboards/project/instances/tables.py:982
 msgctxt "Current status of an Instance"
 msgid "Suspended"
 msgstr ""
 
-#: dashboards/project/instances/tables.py:915
+#: dashboards/project/instances/tables.py:984
 msgctxt "Current status of an Instance"
 msgid "Paused"
 msgstr ""
 
-#: dashboards/project/instances/tables.py:916
+#: dashboards/project/instances/tables.py:985
 msgctxt "Current status of an Instance"
 msgid "Error"
 msgstr ""
 
-#: dashboards/project/instances/tables.py:917
+#: dashboards/project/instances/tables.py:986
 msgctxt "Current status of an Instance"
 msgid "Resize/Migrate"
 msgstr ""
 
-#: dashboards/project/instances/tables.py:919
+#: dashboards/project/instances/tables.py:988
 msgctxt "Current status of an Instance"
 msgid "Confirm or Revert Resize/Migrate"
 msgstr ""
 
-#: dashboards/project/instances/tables.py:921
+#: dashboards/project/instances/tables.py:990
 msgctxt "Current status of an Instance"
 msgid "Revert Resize/Migrate"
 msgstr ""
 
-#: dashboards/project/instances/tables.py:923
+#: dashboards/project/instances/tables.py:992
 msgctxt "Current status of an Instance"
 msgid "Reboot"
 msgstr ""
 
-#: dashboards/project/instances/tables.py:924
+#: dashboards/project/instances/tables.py:993
 msgctxt "Current status of an Instance"
 msgid "Hard Reboot"
 msgstr ""
 
-#: dashboards/project/instances/tables.py:926
+#: dashboards/project/instances/tables.py:995
 msgctxt "Current status of an Instance"
 msgid "Password"
 msgstr ""
 
-#: dashboards/project/instances/tables.py:927
+#: dashboards/project/instances/tables.py:996
 msgctxt "Current status of an Instance"
 msgid "Rebuild"
 msgstr ""
 
-#: dashboards/project/instances/tables.py:928
+#: dashboards/project/instances/tables.py:997
 msgctxt "Current status of an Instance"
 msgid "Migrating"
 msgstr ""
 
-#: dashboards/project/instances/tables.py:930
+#: dashboards/project/instances/tables.py:999
 msgctxt "Current status of an Instance"
 msgid "Build"
 msgstr ""
 
-#: dashboards/project/instances/tables.py:931
+#: dashboards/project/instances/tables.py:1000
 msgctxt "Current status of an Instance"
 msgid "Rescue"
 msgstr ""
 
-#: dashboards/project/instances/tables.py:933
+#: dashboards/project/instances/tables.py:1002
 msgctxt "Current status of an Instance"
 msgid "Soft Deleted"
 msgstr ""
 
-#: dashboards/project/instances/tables.py:935
+#: dashboards/project/instances/tables.py:1004
 msgctxt "Current status of an Instance"
 msgid "Shelved"
 msgstr ""
 
-#: dashboards/project/instances/tables.py:936
+#: dashboards/project/instances/tables.py:1005
 msgctxt "Current status of an Instance"
 msgid "Shelved Offloaded"
 msgstr ""
 
-#: dashboards/project/instances/tables.py:940
+#: dashboards/project/instances/tables.py:1009
 msgctxt "Task status of an Instance"
 msgid "None"
 msgstr ""
 
-#: dashboards/project/instances/tables.py:944
+#: dashboards/project/instances/tables.py:1013
 msgctxt "Task status of an Instance"
 msgid "Scheduling"
 msgstr ""
 
-#: dashboards/project/instances/tables.py:946
+#: dashboards/project/instances/tables.py:1015
 msgctxt "Task status of an Instance"
 msgid "Block Device Mapping"
 msgstr ""
 
-#: dashboards/project/instances/tables.py:948
+#: dashboards/project/instances/tables.py:1017
 msgctxt "Task status of an Instance"
 msgid "Networking"
 msgstr ""
 
-#: dashboards/project/instances/tables.py:950
+#: dashboards/project/instances/tables.py:1019
 msgctxt "Task status of an Instance"
 msgid "Spawning"
 msgstr ""
 
-#: dashboards/project/instances/tables.py:951
+#: dashboards/project/instances/tables.py:1020
 msgctxt "Task status of an Instance"
 msgid "Snapshotting"
 msgstr ""
 
-#: dashboards/project/instances/tables.py:953
+#: dashboards/project/instances/tables.py:1022
 msgctxt "Task status of an Instance"
 msgid "Image Snapshot Pending"
 msgstr ""
 
-#: dashboards/project/instances/tables.py:955
+#: dashboards/project/instances/tables.py:1024
 msgctxt "Task status of an Instance"
 msgid "Image Pending Upload"
 msgstr ""
 
-#: dashboards/project/instances/tables.py:957
+#: dashboards/project/instances/tables.py:1026
 msgctxt "Task status of an Instance"
 msgid "Image Uploading"
 msgstr ""
 
-#: dashboards/project/instances/tables.py:959
+#: dashboards/project/instances/tables.py:1028
 msgctxt "Task status of an Instance"
 msgid "Image Backup"
 msgstr ""
 
-#: dashboards/project/instances/tables.py:961
+#: dashboards/project/instances/tables.py:1030
 msgctxt "Task status of an Instance"
 msgid "Updating Password"
 msgstr ""
 
-#: dashboards/project/instances/tables.py:963
+#: dashboards/project/instances/tables.py:1032
 msgctxt "Task status of an Instance"
 msgid "Preparing Resize or Migrate"
 msgstr ""
 
-#: dashboards/project/instances/tables.py:965
+#: dashboards/project/instances/tables.py:1034
 msgctxt "Task status of an Instance"
 msgid "Resizing or Migrating"
 msgstr ""
 
-#: dashboards/project/instances/tables.py:967
+#: dashboards/project/instances/tables.py:1036
 msgctxt "Task status of an Instance"
 msgid "Resized or Migrated"
 msgstr ""
 
-#: dashboards/project/instances/tables.py:969
+#: dashboards/project/instances/tables.py:1038
 msgctxt "Task status of an Instance"
 msgid "Finishing Resize or Migrate"
 msgstr ""
 
-#: dashboards/project/instances/tables.py:971
+#: dashboards/project/instances/tables.py:1040
 msgctxt "Task status of an Instance"
 msgid "Reverting Resize or Migrate"
 msgstr ""
 
-#: dashboards/project/instances/tables.py:973
+#: dashboards/project/instances/tables.py:1042
 msgctxt "Task status of an Instance"
 msgid "Confirming Resize or Migrate"
 msgstr ""
 
-#: dashboards/project/instances/tables.py:975
+#: dashboards/project/instances/tables.py:1044
 msgctxt "Task status of an Instance"
 msgid "Rebooting"
 msgstr ""
 
-#: dashboards/project/instances/tables.py:976
+#: dashboards/project/instances/tables.py:1045
 msgctxt "Task status of an Instance"
 msgid "Reboot Pending"
 msgstr ""
 
-#: dashboards/project/instances/tables.py:978
+#: dashboards/project/instances/tables.py:1047
 msgctxt "Task status of an Instance"
 msgid "Reboot Started"
 msgstr ""
 
-#: dashboards/project/instances/tables.py:980
+#: dashboards/project/instances/tables.py:1049
 msgctxt "Task status of an Instance"
 msgid "Rebooting Hard"
 msgstr ""
 
-#: dashboards/project/instances/tables.py:982
+#: dashboards/project/instances/tables.py:1051
 msgctxt "Task status of an Instance"
 msgid "Reboot Pending Hard"
 msgstr ""
 
-#: dashboards/project/instances/tables.py:984
+#: dashboards/project/instances/tables.py:1053
 msgctxt "Task status of an Instance"
 msgid "Reboot Started Hard"
 msgstr ""
 
-#: dashboards/project/instances/tables.py:986
+#: dashboards/project/instances/tables.py:1055
 msgctxt "Task status of an Instance"
 msgid "Pausing"
 msgstr ""
 
-#: dashboards/project/instances/tables.py:987
-#: dashboards/project/instances/tables.py:990
+#: dashboards/project/instances/tables.py:1056
+#: dashboards/project/instances/tables.py:1059
 msgctxt "Task status of an Instance"
 msgid "Resuming"
 msgstr ""
 
-#: dashboards/project/instances/tables.py:988
+#: dashboards/project/instances/tables.py:1057
 msgctxt "Task status of an Instance"
 msgid "Suspending"
 msgstr ""
 
-#: dashboards/project/instances/tables.py:991
+#: dashboards/project/instances/tables.py:1060
 msgctxt "Task status of an Instance"
 msgid "Powering Off"
 msgstr ""
 
-#: dashboards/project/instances/tables.py:993
+#: dashboards/project/instances/tables.py:1062
 msgctxt "Task status of an Instance"
 msgid "Powering On"
 msgstr ""
 
-#: dashboards/project/instances/tables.py:995
+#: dashboards/project/instances/tables.py:1064
 msgctxt "Task status of an Instance"
 msgid "Rescuing"
 msgstr ""
 
-#: dashboards/project/instances/tables.py:996
+#: dashboards/project/instances/tables.py:1065
 msgctxt "Task status of an Instance"
 msgid "Unrescuing"
 msgstr ""
 
-#: dashboards/project/instances/tables.py:998
+#: dashboards/project/instances/tables.py:1067
 msgctxt "Task status of an Instance"
 msgid "Rebuilding"
 msgstr ""
 
-#: dashboards/project/instances/tables.py:1000
+#: dashboards/project/instances/tables.py:1069
 msgctxt "Task status of an Instance"
 msgid "Rebuild Block Device Mapping"
 msgstr ""
 
-#: dashboards/project/instances/tables.py:1002
+#: dashboards/project/instances/tables.py:1071
 msgctxt "Task status of an Instance"
 msgid "Rebuild Spawning"
 msgstr ""
 
-#: dashboards/project/instances/tables.py:1004
+#: dashboards/project/instances/tables.py:1073
 msgctxt "Task status of an Instance"
 msgid "Migrating"
 msgstr ""
 
-#: dashboards/project/instances/tables.py:1005
+#: dashboards/project/instances/tables.py:1074
 msgctxt "Task status of an Instance"
 msgid "Deleting"
 msgstr ""
 
-#: dashboards/project/instances/tables.py:1006
+#: dashboards/project/instances/tables.py:1075
 msgctxt "Task status of an Instance"
 msgid "Soft Deleting"
 msgstr ""
 
-#: dashboards/project/instances/tables.py:1008
+#: dashboards/project/instances/tables.py:1077
 msgctxt "Task status of an Instance"
 msgid "Restoring"
 msgstr ""
 
-#: dashboards/project/instances/tables.py:1009
+#: dashboards/project/instances/tables.py:1078
 msgctxt "Task status of an Instance"
 msgid "Shelving"
 msgstr ""
 
-#: dashboards/project/instances/tables.py:1010
+#: dashboards/project/instances/tables.py:1079
 msgctxt "Task status of an Instance"
 msgid "Shelving Image Pending Upload"
 msgstr ""
 
-#: dashboards/project/instances/tables.py:1012
+#: dashboards/project/instances/tables.py:1081
 msgctxt "Task status of an Instance"
 msgid "Shelving Image Uploading"
 msgstr ""
 
-#: dashboards/project/instances/tables.py:1014
+#: dashboards/project/instances/tables.py:1083
 msgctxt "Task status of an Instance"
 msgid "Shelving Offloading"
 msgstr ""
 
-#: dashboards/project/instances/tables.py:1016
+#: dashboards/project/instances/tables.py:1085
 msgctxt "Task status of an Instance"
 msgid "Unshelving"
 msgstr ""
 
-#: dashboards/project/instances/tables.py:1021
+#: dashboards/project/instances/tables.py:1090
 msgctxt "Power state of an Instance"
 msgid "No State"
 msgstr ""
 
-#: dashboards/project/instances/tables.py:1022
+#: dashboards/project/instances/tables.py:1091
 msgctxt "Power state of an Instance"
 msgid "Running"
 msgstr ""
 
-#: dashboards/project/instances/tables.py:1023
+#: dashboards/project/instances/tables.py:1092
 msgctxt "Power state of an Instance"
 msgid "Blocked"
 msgstr ""
 
-#: dashboards/project/instances/tables.py:1024
+#: dashboards/project/instances/tables.py:1093
 msgctxt "Power state of an Instance"
 msgid "Paused"
 msgstr ""
 
-#: dashboards/project/instances/tables.py:1025
+#: dashboards/project/instances/tables.py:1094
 msgctxt "Power state of an Instance"
 msgid "Shut Down"
 msgstr ""
 
-#: dashboards/project/instances/tables.py:1026
+#: dashboards/project/instances/tables.py:1095
 msgctxt "Power state of an Instance"
 msgid "Shut Off"
 msgstr ""
 
-#: dashboards/project/instances/tables.py:1027
+#: dashboards/project/instances/tables.py:1096
 msgctxt "Power state of an Instance"
 msgid "Crashed"
 msgstr ""
 
-#: dashboards/project/instances/tables.py:1028
+#: dashboards/project/instances/tables.py:1097
 msgctxt "Power state of an Instance"
 msgid "Suspended"
 msgstr ""
 
-#: dashboards/project/instances/tables.py:1029
+#: dashboards/project/instances/tables.py:1098
 msgctxt "Power state of an Instance"
 msgid "Failed"
 msgstr ""
 
-#: dashboards/project/instances/tables.py:1030
+#: dashboards/project/instances/tables.py:1099
 msgctxt "Power state of an Instance"
 msgid "Building"
 msgstr ""
 
-#: dashboards/project/instances/tables.py:1068
+#: dashboards/project/instances/tables.py:1137
 #: dashboards/project/instances/workflows/create_instance.py:541
 msgid "Key Pair"
 msgstr ""
@@ -12539,115 +12671,115 @@ msgstr ""
 msgid "No volume snapshots available"
 msgstr ""
 
-#: dashboards/project/instances/workflows/create_instance.py:543
+#: dashboards/project/instances/workflows/create_instance.py:542
 msgid "Key pair to use for authentication."
 msgstr ""
 
-#: dashboards/project/instances/workflows/create_instance.py:553
+#: dashboards/project/instances/workflows/create_instance.py:552
 msgid "Confirm Admin Password"
 msgstr ""
 
-#: dashboards/project/instances/workflows/create_instance.py:560
+#: dashboards/project/instances/workflows/create_instance.py:559
 msgid "Launch instance in these security groups."
 msgstr ""
 
-#: dashboards/project/instances/workflows/create_instance.py:565
+#: dashboards/project/instances/workflows/create_instance.py:564
 msgid ""
 "Control access to your instance via key pairs, security groups, and other"
 " mechanisms."
 msgstr ""
 
-#: dashboards/project/instances/workflows/create_instance.py:586
+#: dashboards/project/instances/workflows/create_instance.py:590
 msgid "Unable to retrieve list of security groups"
 msgstr ""
 
-#: dashboards/project/instances/workflows/create_instance.py:618
+#: dashboards/project/instances/workflows/create_instance.py:622
 msgid "Post-Creation"
 msgstr ""
 
-#: dashboards/project/instances/workflows/create_instance.py:622
+#: dashboards/project/instances/workflows/create_instance.py:626
 msgid "Select Script Source"
 msgstr ""
 
-#: dashboards/project/instances/workflows/create_instance.py:627
+#: dashboards/project/instances/workflows/create_instance.py:631
 msgid "Customization Script Source"
 msgstr ""
 
-#: dashboards/project/instances/workflows/create_instance.py:632
+#: dashboards/project/instances/workflows/create_instance.py:636
 msgid ""
 "A script or set of commands to be executed after the instance has been "
 "built (max 16kb)."
 msgstr ""
 
-#: dashboards/project/instances/workflows/create_instance.py:636
-#: dashboards/project/instances/workflows/create_instance.py:641
+#: dashboards/project/instances/workflows/create_instance.py:640
+#: dashboards/project/instances/workflows/create_instance.py:645
 msgid "Script File"
 msgstr ""
 
-#: dashboards/project/instances/workflows/create_instance.py:645
-#: dashboards/project/instances/workflows/create_instance.py:650
+#: dashboards/project/instances/workflows/create_instance.py:649
+#: dashboards/project/instances/workflows/create_instance.py:654
 msgid "Script Data"
 msgstr ""
 
-#: dashboards/project/instances/workflows/create_instance.py:677
+#: dashboards/project/instances/workflows/create_instance.py:681
 msgid "File exceeds maximum size (16kb)"
 msgstr ""
 
-#: dashboards/project/instances/workflows/create_instance.py:685
+#: dashboards/project/instances/workflows/create_instance.py:689
 #: dashboards/project/stacks/forms.py:190
 #, python-format
 msgid "There was a problem parsing the %(prefix)s: %(error)s"
 msgstr ""
 
-#: dashboards/project/instances/workflows/create_instance.py:712
+#: dashboards/project/instances/workflows/create_instance.py:716
 msgid "Policy Profiles"
 msgstr ""
 
-#: dashboards/project/instances/workflows/create_instance.py:715
+#: dashboards/project/instances/workflows/create_instance.py:719
 msgid "Launch instance with this policy profile"
 msgstr ""
 
-#: dashboards/project/instances/workflows/create_instance.py:779
+#: dashboards/project/instances/workflows/create_instance.py:783
 msgid ""
 "Automatic: The entire disk is a single partition and automatically "
 "resizes. Manual: Results in faster build times but requires manual "
 "partitioning."
 msgstr ""
 
-#: dashboards/project/instances/workflows/create_instance.py:783
+#: dashboards/project/instances/workflows/create_instance.py:787
 msgid "Configuration Drive"
 msgstr ""
 
-#: dashboards/project/instances/workflows/create_instance.py:784
+#: dashboards/project/instances/workflows/create_instance.py:788
 msgid ""
 "Configure OpenStack to write metadata to a special configuration drive "
 "that attaches to the instance when it boots."
 msgstr ""
 
-#: dashboards/project/instances/workflows/create_instance.py:810
+#: dashboards/project/instances/workflows/create_instance.py:814
 msgid "Advanced Options"
 msgstr ""
 
-#: dashboards/project/instances/workflows/create_instance.py:848
+#: dashboards/project/instances/workflows/create_instance.py:852
 #, python-format
 msgid "%s instances"
 msgstr ""
 
-#: dashboards/project/instances/workflows/create_instance.py:891
+#: dashboards/project/instances/workflows/create_instance.py:895
 msgid "Unable to retrieve extensions information"
 msgstr ""
 
-#: dashboards/project/instances/workflows/create_instance.py:947
+#: dashboards/project/instances/workflows/create_instance.py:951
 #, python-format
 msgid "Port cleanup failed for these port-ids (%s)."
 msgstr ""
 
-#: dashboards/project/instances/workflows/create_instance.py:965
+#: dashboards/project/instances/workflows/create_instance.py:969
 #, python-format
 msgid "Unable to create port for profile \"%(profile_id)s\": %(reason)s"
 msgstr ""
 
-#: dashboards/project/instances/workflows/create_instance.py:975
+#: dashboards/project/instances/workflows/create_instance.py:979
 #, python-format
 msgid " Also failed to delete port %s"
 msgstr ""
@@ -12684,8 +12816,8 @@ msgstr ""
 
 #: dashboards/project/instances/workflows/update_instance.py:86
 msgid ""
-"Add and remove security groups to this project from the list of available"
-" security groups."
+"Add and remove security groups to this instance from the list of "
+"available security groups."
 msgstr ""
 
 #: dashboards/project/instances/workflows/update_instance.py:88
@@ -13688,9 +13820,9 @@ msgstr ""
 #: dashboards/project/network_topology/templates/network_topology/index.html:43
 #: dashboards/project/routers/tables.py:85
 #: dashboards/project/routers/tables.py:98
-#: dashboards/project/routers/views.py:164
-#: dashboards/project/routers/views.py:167
-#: dashboards/project/routers/views.py:168
+#: dashboards/project/routers/views.py:180
+#: dashboards/project/routers/views.py:183
+#: dashboards/project/routers/views.py:184
 #: dashboards/project/routers/templates/routers/create.html:3
 msgid "Create Router"
 msgstr ""
@@ -14041,7 +14173,7 @@ msgid "Port Details"
 msgstr ""
 
 #: dashboards/project/networks/ports/views.py:54
-#: dashboards/project/routers/views.py:135
+#: dashboards/project/routers/views.py:136
 #: dashboards/project/routers/ports/tabs.py:35
 msgid "Unable to retrieve port details."
 msgstr ""
@@ -14329,7 +14461,7 @@ msgid "Unable to delete router \"%s\""
 msgstr ""
 
 #: dashboards/project/routers/tables.py:106
-#: dashboards/project/routers/views.py:175
+#: dashboards/project/routers/views.py:191
 msgid "Edit Router"
 msgstr ""
 
@@ -14388,35 +14520,35 @@ msgstr ""
 msgid "HA mode"
 msgstr ""
 
-#: dashboards/project/routers/views.py:74
+#: dashboards/project/routers/views.py:75
 #, python-format
 msgid "Unable to retrieve a list of external networks \"%s\"."
 msgstr ""
 
-#: dashboards/project/routers/views.py:87
+#: dashboards/project/routers/views.py:88
 #, python-format
 msgid ""
 "External network \"%(ext_net_id)s\" expected but not found for router "
 "\"%(router_id)s\"."
 msgstr ""
 
-#: dashboards/project/routers/views.py:92
+#: dashboards/project/routers/views.py:93
 #, python-format
 msgctxt "External network not found"
 msgid "%s (Not Found)"
 msgstr ""
 
-#: dashboards/project/routers/views.py:111
+#: dashboards/project/routers/views.py:112
 #, python-format
 msgid "Unable to retrieve details for router \"%s\"."
 msgstr ""
 
-#: dashboards/project/routers/views.py:122
+#: dashboards/project/routers/views.py:123
 #, python-format
 msgid "Unable to retrieve an external network \"%s\"."
 msgstr ""
 
-#: dashboards/project/routers/views.py:195
+#: dashboards/project/routers/views.py:211
 msgid "Unable to retrieve router details."
 msgstr ""
 
@@ -15424,25 +15556,25 @@ msgstr ""
 msgid "Resource Details"
 msgstr ""
 
-#: dashboards/project/volumes/tabs.py:38
+#: dashboards/project/volumes/tabs.py:39
 msgid "Unable to retrieve volume list."
 msgstr ""
 
-#: dashboards/project/volumes/tabs.py:48
+#: dashboards/project/volumes/tabs.py:49
 msgid "Unable to retrieve volume/instance attachment information"
 msgstr ""
 
-#: dashboards/project/volumes/tabs.py:62
+#: dashboards/project/volumes/tabs.py:63
 msgid "Unable to retrieve snapshot list."
 msgstr ""
 
-#: dashboards/project/volumes/tabs.py:127
+#: dashboards/project/volumes/tabs.py:128
 #: dashboards/project/volumes/backups/tables.py:49
 #: dashboards/project/volumes/backups/tables.py:141
 msgid "Volume Backups"
 msgstr ""
 
-#: dashboards/project/volumes/tabs.py:144
+#: dashboards/project/volumes/tabs.py:145
 msgid "Unable to retrieve volume backups."
 msgstr ""
 
@@ -17180,7 +17312,7 @@ msgid "VPN Connections"
 msgstr ""
 
 #: dashboards/settings/dashboard.py:22 templates/_header.html:67
-#: themes/blue/templates/_header.html:48
+#: themes/material/templates/_header.html:76
 msgid "Settings"
 msgstr ""
 
@@ -17333,15 +17465,15 @@ msgid ""
 msgstr ""
 
 #: templates/500.html:74 templates/_header.html:74
-#: themes/blue/templates/_header.html:55
+#: themes/material/templates/_header.html:83
 msgid "Help"
 msgstr ""
 
-#: templates/_header.html:10 themes/blue/templates/_header.html:10
+#: templates/_header.html:10 themes/material/templates/_header.html:11
 msgid "Toggle navigation"
 msgstr ""
 
-#: templates/_header.html:82 themes/blue/templates/_header.html:63
+#: templates/_header.html:82 themes/material/templates/_header.html:91
 msgid "Sign Out"
 msgstr ""
 
@@ -17354,7 +17486,6 @@ msgid "Domains:"
 msgstr ""
 
 #: templates/context_selection/_project_list.html:6
-#: themes/blue/templates/context_selection/_project_list.html:6
 msgid "Projects:"
 msgstr ""
 
@@ -17370,7 +17501,8 @@ msgstr ""
 msgid "Unable to retrieve network quota information."
 msgstr ""
 
-#: usage/base.py:186 usage/quotas.py:389
+#: usage/base.py:186 usage/quotas.py:152 usage/quotas.py:347
+#: usage/quotas.py:398
 msgid "Unable to retrieve volume limit information."
 msgstr ""
 
@@ -17398,7 +17530,7 @@ msgstr ""
 msgid "Injected File Path Bytes"
 msgstr ""
 
-#: usage/quotas.py:375
+#: usage/quotas.py:384
 msgid "Unable to retrieve compute limit information."
 msgstr ""
 

@@ -4,22 +4,24 @@
 #
 # Translators:
 # Łukasz Jernaś <deejay1@srem.org>, 2015
+# OpenStack Infra <zanata@openstack.org>, 2015. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: Horizon\n"
+"Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-09-03 04:49+0000\n"
-"PO-Revision-Date: 2015-09-02 07:31+0000\n"
-"Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
-"Language-Team: Polish (Poland) (http://www.transifex.com/openstack/horizon/"
-"language/pl_PL/)\n"
+"POT-Creation-Date: 2015-09-16 18:25+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"PO-Revision-Date: 2015-09-08 11:14+0000\n"
+"Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
+"Language-Team: Polish (Poland) (http://www.transifex.com/openstack/horizon/"
+"language/pl_PL/)\n"
 "Generated-By: Babel 2.0\n"
-"Language: pl_PL\n"
+"Language: pl-PL\n"
 "Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
 "|| n%100>=20) ? 1 : 2);\n"
+"X-Generator: Zanata 3.7.1\n"
 
 msgid ""
 "\n"
@@ -781,13 +783,6 @@ msgstr "Dodaj VIP"
 
 msgid "Add VPN Service"
 msgstr "Dodaj usługę VPN"
-
-msgid ""
-"Add and remove security groups to this project from the list of available "
-"security groups."
-msgstr ""
-"Dodanie lub usunięcie grup zabezpieczeń do tego projektu z listy dostępnych "
-"grup zabezpieczeń."
 
 msgid "Add custom tag"
 msgstr "Dodaj własną etykietę"
@@ -6403,12 +6398,6 @@ msgstr "Prywatny"
 msgid "Private Key File"
 msgstr "Plik klucza prywatnego"
 
-msgid "Processes"
-msgstr "Procesy"
-
-msgid "Processes to be launched in node group"
-msgstr "Procesy do uruchomienia w grupie węzłów"
-
 msgid "Profile"
 msgstr "Profil"
 
@@ -8668,9 +8657,6 @@ msgid "To exit the fullscreen mode, click the browser's back button."
 msgstr ""
 "Aby wyjść z trybu pełnoekranowego, należy skorzystać z przycisku wstecz "
 "przeglądarki."
-
-msgid "To power off a specific instance."
-msgstr "Aby wyłączyć konkretną instancję."
 
 msgid ""
 "To specify an allowed IP range, select &quot;CIDR&quot;. To allow access "

@@ -6,21 +6,23 @@
 # İşbaran Akçayır <isbaran@gmail.com>, 2015
 # Mücahit Büyükyılmaz <mucahit@konya.edu.tr>, 2015
 # sercanaydogan <sercanaydogan@gmail.com>, 2014
+# OpenStack Infra <zanata@openstack.org>, 2015. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: Horizon\n"
+"Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-08-04 04:10+0000\n"
-"PO-Revision-Date: 2015-08-02 18:24+0000\n"
-"Last-Translator: Mücahit Büyükyılmaz <mucahit@konya.edu.tr>\n"
-"Language-Team: Turkish (Turkey) (http://www.transifex.com/openstack/horizon/"
-"language/tr_TR/)\n"
+"POT-Creation-Date: 2015-09-16 18:25+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"PO-Revision-Date: 2015-09-03 08:38+0000\n"
+"Last-Translator: İşbaran Akçayır <isbaran@gmail.com>\n"
+"Language-Team: Turkish (Turkey) (http://www.transifex.com/openstack/horizon/"
+"language/tr_TR/)\n"
 "Generated-By: Babel 2.0\n"
-"Language: tr_TR\n"
+"Language: tr-TR\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Zanata 3.7.1\n"
 
 #, python-format
 msgid "%s GB"
@@ -132,6 +134,10 @@ msgid "Displaying %s item"
 msgid_plural "Displaying %s items"
 msgstr[0] "%s adet gösteriliyor"
 
+#, python-format
+msgid "Displaying %s of %s items"
+msgstr "%s / %s öğe gösteriliyor"
+
 msgid "Duplicate keys are not allowed"
 msgstr "Tekrarlanan anahtarlara izin verilmiyor"
 
@@ -203,6 +209,9 @@ msgstr "Üstveri uygun değil"
 
 msgid "No data available."
 msgstr "Veri yok."
+
+msgid "No description available."
+msgstr "Açıklama yok."
 
 msgid "No existing metadata"
 msgstr "Üstveri mevcut değil"
@@ -337,6 +346,9 @@ msgstr ""
 #, python-format
 msgid "You have selected %s. "
 msgstr "Seçili %s var."
+
+msgid "description"
+msgstr "açıklama"
 
 msgid "m1.small"
 msgstr "m1.small"

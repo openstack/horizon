@@ -4,21 +4,24 @@
 #
 # Translators:
 # Tom Fifield <tom@openstack.org>, 2015
+# OpenStack Infra <zanata@openstack.org>, 2015. #zanata
+# Tom Fifield <tom@openstack.org>, 2015. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: Horizon\n"
+"Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-09-03 04:49+0000\n"
-"PO-Revision-Date: 2015-09-02 07:31+0000\n"
-"Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
-"Language-Team: English (Australia) (http://www.transifex.com/openstack/"
-"horizon/language/en_AU/)\n"
+"POT-Creation-Date: 2015-09-16 18:25+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"PO-Revision-Date: 2015-09-15 02:22+0000\n"
+"Last-Translator: Tom Fifield <tom@openstack.org>\n"
+"Language-Team: English (Australia) (http://www.transifex.com/openstack/"
+"horizon/language/en_AU/)\n"
 "Generated-By: Babel 2.0\n"
-"Language: en_AU\n"
+"Language: en-AU\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Zanata 3.7.1\n"
 
 msgid ""
 "\n"
@@ -280,6 +283,23 @@ msgstr ""
 
 msgid ""
 "\n"
+"    Migrate a volume to a specific host.\n"
+"    <br>\n"
+"    <br>\n"
+"    Force Host Copy: Enables or disables generic host-based force-migration, "
+"which bypasses driver optimizations.\n"
+"    "
+msgstr ""
+"\n"
+"    Migrate a volume to a specific host.\n"
+"    <br>\n"
+"    <br>\n"
+"    Force Host Copy: Enables or disables generic host-based force-migration, "
+"which bypasses driver optimizations.\n"
+"    "
+
+msgid ""
+"\n"
 "    The status of a volume is normally managed automatically.  In some "
 "circumstances an\n"
 "    administrator may need to explicitly update the status value.  This is "
@@ -333,6 +353,15 @@ msgstr ""
 
 msgid ""
 "\n"
+"   Volumes are block devices that can be attached to instances.\n"
+"   "
+msgstr ""
+"\n"
+"   Volumes are block devices that can be attached to instances.\n"
+"   "
+
+msgid ""
+"\n"
 "  Assign a name and description for the pool. Choose one subnet where all\n"
 "  members of this pool must be on. Select the protocol and load balancing\n"
 "  method for this pool. Admin State is UP (checked) by default.\n"
@@ -356,6 +385,21 @@ msgstr ""
 "  clicking the button, or dragging and dropping. You can change the\n"
 "  NIC order by dragging and dropping as well.\n"
 "  "
+
+msgid ""
+"\n"
+" Create a VIP for this pool. Assign a name, description, IP address, port,\n"
+" and maximum connections allowed for the VIP. Choose the protocol and "
+"session persistence\n"
+" method for the VIP. Admin State is UP (checked) by default.\n"
+" "
+msgstr ""
+"\n"
+" Create a VIP for this pool. Assign a name, description, IP address, port,\n"
+" and maximum connections allowed for the VIP. Choose the protocol and "
+"session persistence\n"
+" method for the VIP. Admin State is UP (checked) by default.\n"
+" "
 
 msgid " - End"
 msgstr " - End"
@@ -370,10 +414,28 @@ msgstr " Also failed to delete port %s"
 msgid " Done"
 msgstr " Done"
 
+msgid "\"Add Router Route\""
+msgstr "\"Add Router Route\""
+
 msgid ""
 "\"Customization Script\" is analogous to \"User Data\" in other systems."
 msgstr ""
 "\"Customisation Script\" is analogous to \"User Data\" in other systems."
+
+msgid "\"Edit Volume Type\""
+msgstr "\"Edit Volume Type\""
+
+msgid "\"N/A\""
+msgstr "\"N/A\""
+
+msgid "\"Namespace Resource Type Associations\""
+msgstr "\"Namespace Resource Type Associations\""
+
+msgid "\"No flavors meet minimum criteria for selected image.\""
+msgstr "\"No flavours meet minimum criteria for selected image.\""
+
+msgid "\"None\""
+msgstr "\"None\""
 
 msgid ""
 "\"None\" indicates that no QoS Spec is currently associated. Conversely, "
@@ -381,6 +443,14 @@ msgid ""
 msgstr ""
 "\"None\" indicates that no QoS Spec is currently associated. Conversely, "
 "setting the QoS Spec to \"None\" will remove the current association."
+
+msgid ""
+"\"Some flavors not meeting minimum image requirements have been disabled.\""
+msgstr ""
+"\"Some flavours not meeting minimum image requirements have been disabled.\""
+
+msgid "\"Users\""
+msgstr "\"Users\""
 
 #, python-format
 msgid "%(conf_name)s: %(conf_val)s"
@@ -474,6 +544,10 @@ msgstr "%s GB"
 #, python-format
 msgid "%s instances"
 msgstr "%s instances"
+
+#, python-format
+msgid "%s processes: "
+msgstr "%s processes: "
 
 #, python-format
 msgid "%sGB"
@@ -628,6 +702,14 @@ msgstr "ALLOW"
 msgid "ALLOW %(ethertype)s %(proto_port)s %(direction)s %(remote)s"
 msgstr "ALLOW %(ethertype)s %(proto_port)s %(direction)s %(remote)s"
 
+#, python-format
+msgid "ALLOW %(from)s:%(to)s/%(ip_protocol)s from %(cidr)s"
+msgstr "ALLOW %(from)s:%(to)s/%(ip_protocol)s from %(cidr)s"
+
+#, python-format
+msgid "ALLOW %(from)s:%(to)s/%(ip_protocol)s from %(group)s"
+msgstr "ALLOW %(from)s:%(to)s/%(ip_protocol)s from %(group)s"
+
 msgid "AMI - Amazon Machine Image"
 msgstr "AMI - Amazon Machine Image"
 
@@ -727,6 +809,9 @@ msgid ""
 msgstr ""
 "Actual device name may differ due to hypervisor settings. If not specified, "
 "then hypervisor will select a device name."
+
+msgid "Adapt For Oozie"
+msgstr "Adapt For Oozie"
 
 msgid "Add"
 msgstr "Add"
@@ -842,10 +927,10 @@ msgid "Add VPN Service"
 msgstr "Add VPN Service"
 
 msgid ""
-"Add and remove security groups to this project from the list of available "
+"Add and remove security groups to this instance from the list of available "
 "security groups."
 msgstr ""
-"Add and remove security groups to this project from the list of available "
+"Add and remove security groups to this instance from the list of available "
 "security groups."
 
 msgid "Add custom tag"
@@ -983,6 +1068,9 @@ msgstr ""
 msgid "Address"
 msgstr "Address"
 
+msgid "Address pool"
+msgstr "Address pool"
+
 msgid "Address:"
 msgstr "Address:"
 
@@ -1076,8 +1164,14 @@ msgstr "Allocate IP"
 msgid "Allocate IP To Project"
 msgstr "Allocate IP To Project"
 
+msgid "Allocate Network Address from a pool"
+msgstr "Allocate Network Address from a pool"
+
 msgid "Allocate a floating IP from a given floating IP pool."
 msgstr "Allocate a floating IP from a given floating IP pool."
+
+msgid "Allocated"
+msgstr "Allocated"
 
 #, python-format
 msgid "Allocated Floating IP %(ip)s."
@@ -1200,6 +1294,9 @@ msgstr "At least one member must be specified"
 msgid "At least one network must be specified."
 msgstr "At least one network must be specified."
 
+msgid "Attach Interface"
+msgstr "Attach Interface"
+
 msgid "Attach To Instance"
 msgstr "Attach To Instance"
 
@@ -1230,6 +1327,10 @@ msgid "Attaching"
 msgstr "Attaching"
 
 #, python-format
+msgid "Attaching interface for instance %s."
+msgstr "Attaching interface for instance %s."
+
+#, python-format
 msgid "Attaching volume %(vol)s to instance %(inst)s on %(dev)s."
 msgstr "Attaching volume %(vol)s to instance %(inst)s on %(dev)s."
 
@@ -1257,6 +1358,9 @@ msgstr "Authorization mode"
 msgid "Auto Security Group"
 msgstr "Auto Security Group"
 
+msgid "Auto-configure"
+msgstr "Auto-configure"
+
 msgid "Automatic"
 msgstr "Automatic"
 
@@ -1266,6 +1370,13 @@ msgid ""
 msgstr ""
 "Automatic: The entire disk is a single partition and automatically resizes. "
 "Manual: Results in faster build times but requires manual partitioning."
+
+msgid ""
+"Automatically modify the Hadoop configuration so that job config values are "
+"set and so that Oozie will handle exit codes correctly."
+msgstr ""
+"Automatically modify the Hadoop configuration so that job config values are "
+"set and so that Oozie will handle exit codes correctly."
 
 msgid "Availability Zone"
 msgstr "Availability Zone"
@@ -1555,6 +1666,9 @@ msgstr "Choose a main binary"
 msgid "Choose a new instance flavor."
 msgstr "Choose a new instance flavor."
 
+msgid "Choose a shell script"
+msgstr "Choose a shell script"
+
 msgid "Choose a snapshot"
 msgstr "Choose a snapshot"
 
@@ -1563,6 +1677,9 @@ msgstr "Choose a storage location"
 
 msgid "Choose a volume"
 msgstr "Choose a volume"
+
+msgid "Choose additional files"
+msgstr "Choose additional files"
 
 msgid "Choose an DHCP Agent to attach to."
 msgstr "Choose an DHCP Agent to attach to."
@@ -1633,6 +1750,12 @@ msgstr ""
 "Choose rule(s) from Available Rules to Selected Rule by push button or drag "
 "and drop,\n"
 "you may change their order by drag and drop as well. "
+
+msgid "Choose the Input Data Source (n/a for Java and Shell jobs)."
+msgstr "Choose the Input Data Source (n/a for Java and Shell jobs)."
+
+msgid "Choose the Output Data Source (n/a for Java and Shell jobs)."
+msgstr "Choose the Output Data Source (n/a for Java and Shell jobs)."
 
 msgid "Choose the binary which should be used in this Job."
 msgstr "Choose the binary which should be used in this Job."
@@ -1708,6 +1831,9 @@ msgstr "Cluster Creation Guide"
 msgid "Cluster Details"
 msgstr "Cluster Details"
 
+msgid "Cluster Events"
+msgstr "Cluster Events"
+
 msgid "Cluster Guide"
 msgstr "Cluster Guide"
 
@@ -1722,6 +1848,10 @@ msgstr "Cluster Overview"
 
 msgid "Cluster Template"
 msgstr "Cluster Template"
+
+#, python-format
+msgid "Cluster Template %s updated"
+msgstr "Cluster Template %s updated"
 
 msgid "Cluster Template Details"
 msgstr "Cluster Template Details"
@@ -1742,8 +1872,14 @@ msgstr "Cluster can be launched using existing Cluster Templates."
 msgid "Cluster configurations are not specified"
 msgstr "Cluster configurations are not specified"
 
+msgid "Cluster provision steps"
+msgstr "Cluster provision steps"
+
 msgid "Cluster template creation failed"
 msgstr "Cluster template creation failed"
+
+msgid "Cluster template update failed"
+msgstr "Cluster template update failed"
 
 msgid "Cluster type chosen"
 msgstr "Cluster type chosen"
@@ -1766,6 +1902,9 @@ msgstr "Comma-separated key=value pairs"
 msgctxt "Current status of a Database Backup"
 msgid "Completed"
 msgstr "Completed"
+
+msgid "Completed Successfully"
+msgstr "Completed Successfully"
 
 msgid "Component"
 msgstr "Component"
@@ -1954,6 +2093,9 @@ msgstr "Could not find default role \"%s\" in Keystone"
 
 msgid "Could not launch job"
 msgstr "Could not launch job"
+
+msgid "Could not update data source"
+msgstr "Could not update data source"
 
 #, python-format
 msgid "Couldn't get current security group list for instance %s."
@@ -2522,6 +2664,10 @@ msgctxt "Admin state of a Firewall"
 msgid "DOWN"
 msgstr "DOWN"
 
+msgctxt "Admin state of a Load balancer"
+msgid "DOWN"
+msgstr "DOWN"
+
 msgctxt "Admin state of a Network"
 msgid "DOWN"
 msgstr "DOWN"
@@ -2600,6 +2746,9 @@ msgstr ""
 
 msgid "Data source created"
 msgstr "Data source created"
+
+msgid "Data source updated"
+msgstr "Data source updated"
 
 msgid "Database"
 msgstr "Database"
@@ -2915,6 +3064,9 @@ msgid_plural "Delete Users"
 msgstr[0] "Delete User"
 msgstr[1] "Delete Users"
 
+msgid "Delete VIP"
+msgstr "Delete VIP"
+
 msgid "Delete VPN Service"
 msgid_plural "Delete VPN Services"
 msgstr[0] "Delete VPN Service"
@@ -3193,6 +3345,10 @@ msgctxt "Task status of an Instance"
 msgid "Deleting"
 msgstr "Deleting"
 
+#, python-format
+msgid "Deleting VIP %s from this pool cannot be undone."
+msgstr "Deleting VIP %s from this pool cannot be undone."
+
 msgid "Deny"
 msgstr "Deny"
 
@@ -3207,6 +3363,9 @@ msgstr "Destination"
 
 msgid "Destination CIDR"
 msgstr "Destination CIDR"
+
+msgid "Destination Host"
+msgstr "Destination Host"
 
 msgid "Destination IP"
 msgstr "Destination IP"
@@ -3238,6 +3397,9 @@ msgstr "Destination port (integer in [1, 65535] or range in a:b)"
 msgid "Destination:"
 msgstr "Destination:"
 
+msgid "Detach Interface"
+msgstr "Detach Interface"
+
 msgid "Detach Replica"
 msgid_plural "Detach Replicas"
 msgstr[0] "Detach Replica"
@@ -3250,6 +3412,10 @@ msgstr[1] "Detach Volumes"
 
 msgid "Detached"
 msgstr "Detached"
+
+#, python-format
+msgid "Detached interface %(port)s for instance %(instance)s."
+msgstr "Detached interface %(port)s for instance %(instance)s."
 
 msgid "Detaching"
 msgstr "Detaching"
@@ -3375,6 +3541,13 @@ msgstr ""
 "Do not use a colon ':' with OS::Glance::Images. This resource type does not "
 "support the use of colons."
 
+msgid "Docker"
+msgstr "Docker"
+
+msgctxt "Image format for display in table"
+msgid "Docker"
+msgstr "Docker"
+
 #, python-format
 msgid "Domain \"%s\" must be disabled before it can be deleted."
 msgstr "Domain \"%s\" must be disabled before it can be deleted."
@@ -3497,6 +3670,9 @@ msgstr "Download job binary"
 msgid "Download key pair &quot;%(keypair_name)s&quot;"
 msgstr "Download key pair &quot;%(keypair_name)s&quot;"
 
+msgid "Duration"
+msgstr "Duration"
+
 #, python-format
 msgid "Duration of instance type %s (openstack flavor)"
 msgstr "Duration of instance type %s (openstack flavour)"
@@ -3513,6 +3689,9 @@ msgstr "EC2 URL"
 msgid "Edit"
 msgstr "Edit"
 
+msgid "Edit Cluster Template"
+msgstr "Edit Cluster Template"
+
 msgid "Edit Connection"
 msgstr "Edit Connection"
 
@@ -3521,6 +3700,9 @@ msgstr "Edit Consumer"
 
 msgid "Edit Consumer of QoS Spec"
 msgstr "Edit Consumer of QoS Spec"
+
+msgid "Edit Data Source"
+msgstr "Edit Data Source"
 
 msgid "Edit Domain"
 msgstr "Edit Domain"
@@ -3562,6 +3744,9 @@ msgstr "Edit Image Tags"
 msgid "Edit Instance"
 msgstr "Edit Instance"
 
+msgid "Edit Job Binary"
+msgstr "Edit Job Binary"
+
 msgid "Edit Member"
 msgstr "Edit Member"
 
@@ -3570,6 +3755,9 @@ msgstr "Edit Monitor"
 
 msgid "Edit Network"
 msgstr "Edit Network"
+
+msgid "Edit Node Group Template"
+msgstr "Edit Node Group Template"
 
 msgid "Edit Object"
 msgstr "Edit Object"
@@ -3633,6 +3821,9 @@ msgstr "Edit VPN Service"
 
 msgid "Edit Volume"
 msgstr "Edit Volume"
+
+msgid "Edit Volume Type"
+msgstr "Edit Volume Type"
 
 msgid "Edit Volume Type Extra Spec"
 msgstr "Edit Volume Type Extra Spec"
@@ -3725,6 +3916,9 @@ msgstr "Energy (Kwapi)"
 
 msgid "Engine Id"
 msgstr "Engine Id"
+
+msgid "Enter Network Address manually"
+msgstr "Enter Network Address manually"
 
 msgid "Enter a value for ICMP code in the range (-1: 255)"
 msgstr "Enter a value for ICMP code in the range (-1: 255)"
@@ -3911,6 +4105,9 @@ msgid ""
 "Evacuate the servers from the selected down host to an active target host."
 msgstr ""
 "Evacuate the servers from the selected down host to an active target host."
+
+msgid "Event time"
+msgstr "Event time"
 
 msgid "Events"
 msgstr "Events"
@@ -4150,6 +4347,9 @@ msgstr "Failed to migrate host \"%s\"."
 #, python-format
 msgid "Failed to migrate instances: %s"
 msgstr "Failed to migrate instances: %s"
+
+msgid "Failed to migrate volume."
+msgstr "Failed to migrate volume."
 
 #, python-format
 msgid ""
@@ -4428,6 +4628,9 @@ msgstr "Floating IP"
 msgid "Floating IP Pool"
 msgstr "Floating IP Pool"
 
+msgid "Floating IP:"
+msgstr "Floating IP:"
+
 msgid "Floating IPs"
 msgstr "Floating IPs"
 
@@ -4457,6 +4660,18 @@ msgstr ""
 
 msgid "For Object Store job binaries, you must:"
 msgstr "For Object Store job binaries, you must:"
+
+msgid ""
+"For Shell Action jobs, any required files beyond the main script may be "
+"added as \"libraries\"."
+msgstr ""
+"For Shell Action jobs, any required files beyond the main script may be "
+"added as \"libraries\"."
+
+msgid ""
+"For Spark and Shell jobs, only a main is required, \"libs\" are optional."
+msgstr ""
+"For Spark and Shell jobs, only a main is required, \"libs\" are optional."
 
 msgid ""
 "For TCP and UDP rules you may choose to open either a single port or a range "
@@ -4497,6 +4712,9 @@ msgstr "Forbidden"
 msgctxt "Force upload volume in in-use status to image"
 msgid "Force"
 msgstr "Force"
+
+msgid "Force Host Copy"
+msgstr "Force Host Copy"
 
 #, python-format
 msgid "Forcing to create snapshot \"%s\" from attached volume."
@@ -4770,6 +4988,9 @@ msgstr "IP Protocol"
 msgid "IP Version"
 msgstr "IP Version"
 
+msgid "IP address"
+msgstr "IP address"
+
 #, python-format
 msgid "IP address %s associated."
 msgstr "IP address %s associated."
@@ -4874,6 +5095,21 @@ msgstr "Identity service does not allow editing user data."
 msgid "Identity service does not allow editing user password."
 msgstr "Identity service does not allow editing user password."
 
+#, python-format
+msgid ""
+"If \"No volume type\" is selected, the default volume type \"%(name)s\" will "
+"be set for the created volume."
+msgstr ""
+"If \"No volume type\" is selected, the default volume type \"%(name)s\" will "
+"be set for the created volume."
+
+msgid ""
+"If \"No volume type\" is selected, the volume will be created without a "
+"volume type."
+msgstr ""
+"If \"No volume type\" is selected, the volume will be created without a "
+"volume type."
+
 msgid ""
 "If console is not responding to keyboard input: click the grey status bar "
 "below."
@@ -4889,6 +5125,22 @@ msgstr ""
 "If no container name is provided, a default container named volumebackups "
 "will be provisioned for you. Backups will be the same size as the volume "
 "they originate from."
+
+msgid ""
+"If selected, instances of a cluster will be automatically configured during "
+"creation. Otherwise you should manually specify configuration values"
+msgstr ""
+"If selected, instances of a cluster will be automatically configured during "
+"creation. Otherwise you should manually specify configuration values"
+
+msgid ""
+"If selected, instances of a node group will be automatically configured "
+"during cluster creation. Otherwise you should manually specify configuration "
+"values."
+msgstr ""
+"If selected, instances of a node group will be automatically configured "
+"during cluster creation. Otherwise you should manually specify configuration "
+"values."
 
 msgid ""
 "If you select an image via an HTTP URL, the Image Location field MUST be a "
@@ -5013,6 +5265,9 @@ msgid ""
 msgstr ""
 "In addition, you can create an external network or a shared network by "
 "checking the corresponding checkbox."
+
+msgid "In progress"
+msgstr "In progress"
 
 msgctxt "Current status of a Volume"
 msgid "In-use"
@@ -5149,6 +5404,10 @@ msgstr "Instance Security Groups"
 
 msgid "Instance Snapshot"
 msgstr "Instance Snapshot"
+
+msgid "Instance and attached volumes will be created on the same physical host"
+msgstr ""
+"Instance and attached volumes will be created on the same physical host"
 
 msgid "Instance to be associated"
 msgstr "Instance to be associated"
@@ -5364,6 +5623,9 @@ msgstr "Killed"
 msgid "Kwapi"
 msgstr "Kwapi"
 
+msgid "LB Method"
+msgstr "LB Method"
+
 msgid "LUKS Volume Snapshots"
 msgstr "LUKS Volume Snapshots"
 
@@ -5493,6 +5755,10 @@ msgid ""
 msgstr ""
 "Launching multiple instances is only supported for images and instance "
 "snapshots."
+
+msgctxt "load balancing method"
+msgid "Least Connections"
+msgstr "Least Connections"
 
 msgid "Least connections"
 msgstr "Least connections"
@@ -5776,6 +6042,9 @@ msgid_plural "Migrate Instances"
 msgstr[0] "Migrate Instance"
 msgstr[1] "Migrate Instances"
 
+msgid "Migrate Volume"
+msgstr "Migrate Volume"
+
 msgid ""
 "Migrate all instances from a host with disabled nova-compute service. "
 "Optionally you can choose type of migration. All running instances of the "
@@ -5876,6 +6145,9 @@ msgstr "Modify name and description of a volume."
 
 msgid "Modify the name and description of a snapshot."
 msgstr "Modify the name and description of a snapshot."
+
+msgid "Modify volume type name and description."
+msgstr "Modify volume type name and description."
 
 msgid "Monitor"
 msgstr "Monitor"
@@ -5988,6 +6260,9 @@ msgstr "Network (Neutron)"
 msgid "Network Address"
 msgstr "Network Address"
 
+msgid "Network Address Source"
+msgstr "Network Address Source"
+
 msgid "Network Address and IP version are inconsistent."
 msgstr "Network Address and IP version are inconsistent."
 
@@ -6002,6 +6277,9 @@ msgstr "Network Details: {{ network.name }}"
 
 msgid "Network ID"
 msgstr "Network ID"
+
+msgid "Network Mask"
+msgstr "Network Mask"
 
 msgid "Network Name"
 msgstr "Network Name"
@@ -6067,6 +6345,12 @@ msgstr "New Host"
 
 msgid "New Size (GB)"
 msgstr "New Size (GB)"
+
+msgid "New name cannot be empty."
+msgstr "New name cannot be empty."
+
+msgid "New name conflicts with another volume type."
+msgstr "New name conflicts with another volume type."
 
 msgid "New password"
 msgstr "New password"
@@ -6139,6 +6423,9 @@ msgstr "No Images Available"
 msgid "No Master Node Group Template Created"
 msgstr "No Master Node Group Template Created"
 
+msgid "No Ports available"
+msgstr "No Ports available"
+
 msgid "No Session Persistence"
 msgstr "No Session Persistence"
 
@@ -6206,6 +6493,9 @@ msgstr "No images available"
 msgid "No images available."
 msgstr "No images available."
 
+msgid "No info available"
+msgstr "No info available"
+
 msgid "No input was provided for the namespace content."
 msgstr "No input was provided for the namespace content."
 
@@ -6224,14 +6514,23 @@ msgstr "No keypair"
 msgid "No networks available"
 msgstr "No networks available"
 
+msgid "No new QoS spec available"
+msgstr "No new QoS spec available"
+
 msgid "No options specified"
 msgstr "No options specified"
 
 msgid "No other agents available."
 msgstr "No other agents available."
 
+msgid "No other hosts available"
+msgstr "No other hosts available"
+
 msgid "No other hosts available."
 msgstr "No other hosts available."
+
+msgid "No other volume types available"
+msgstr "No other volume types available"
 
 msgid "No plugin chosen"
 msgstr "No plugin chosen"
@@ -6306,6 +6605,10 @@ msgstr "Node Configurations"
 msgid "Node Group"
 msgstr "Node Group"
 
+#, python-format
+msgid "Node Group Template %s updated"
+msgstr "Node Group Template %s updated"
+
 msgid "Node Group Template Details"
 msgstr "Node Group Template Details"
 
@@ -6350,6 +6653,9 @@ msgstr "None"
 msgctxt "Task status of an Instance"
 msgid "None"
 msgstr "None"
+
+msgid "None (removes spec)"
+msgstr "None (removes spec)"
 
 msgid "Normal"
 msgstr "Normal"
@@ -6570,6 +6876,9 @@ msgstr "Optionally provide a comma separated list of databases to create:"
 
 msgid "Optionally, you may choose to create a new volume."
 msgstr "Optionally, you may choose to create a new volume."
+
+msgid "Orchestration"
+msgstr "Orchestration"
 
 msgid "Orchestration Services"
 msgstr "Orchestration Services"
@@ -6859,6 +7168,10 @@ msgstr "Port ID"
 msgid "Port Range"
 msgstr "Port Range"
 
+#, python-format
+msgid "Port cleanup failed for these port-ids (%s)."
+msgstr "Port cleanup failed for these port-ids (%s)."
+
 msgid "Port list can not be retrieved."
 msgstr "Port list can not be retrieved."
 
@@ -6928,14 +7241,11 @@ msgstr "Private"
 msgid "Private Key File"
 msgstr "Private Key File"
 
-msgid "Processes"
-msgstr "Processes"
-
-msgid "Processes to be launched in node group"
-msgstr "Processes to be launched in node group"
-
 msgid "Profile"
 msgstr "Profile"
+
+msgid "Progress"
+msgstr "Progress"
 
 msgid "Project"
 msgstr "Project"
@@ -6982,6 +7292,10 @@ msgstr "Project Usage"
 
 msgid "Project Usage Overview"
 msgstr "Project Usage Overview"
+
+#, python-format
+msgid "Project name \"%s\" is already used."
+msgstr "Project name \"%s\" is already used."
 
 msgid "Projects"
 msgstr "Projects"
@@ -7587,6 +7901,10 @@ msgstr "Root Disk (GB)"
 msgid "Rotates requests evenly between multiple instances."
 msgstr "Rotates requests evenly between multiple instances."
 
+msgctxt "load balancing method"
+msgid "Round Robin"
+msgstr "Round Robin"
+
 msgid "Round robin"
 msgstr "Round robin"
 
@@ -7893,6 +8211,12 @@ msgstr "Select Instance Snapshot"
 msgid "Select Network"
 msgstr "Select Network"
 
+msgid "Select Node Group Processes"
+msgstr "Select Node Group Processes"
+
+msgid "Select Port"
+msgstr "Select Port"
+
 msgid "Select Script Source"
 msgstr "Select Script Source"
 
@@ -7958,6 +8282,9 @@ msgstr "Select a monitor template for %s"
 msgid "Select a name for your network."
 msgstr "Select a name for your network."
 
+msgid "Select a new QoS spec"
+msgstr "Select a new QoS spec"
+
 msgid "Select a new agent"
 msgstr "Select a new agent"
 
@@ -7967,11 +8294,17 @@ msgstr "Select a new flavor"
 msgid "Select a new host"
 msgstr "Select a new host"
 
+msgid "Select a new status"
+msgstr "Select a new status"
+
 msgid "Select a new template to preview a stack."
 msgstr "Select a new template to preview a stack."
 
 msgid "Select a new template to re-launch a stack."
 msgstr "Select a new template to re-launch a stack."
+
+msgid "Select a new volume type"
+msgstr "Select a new volume type"
 
 msgid "Select a plugin and version for a new Cluster template."
 msgstr "Select a plugin and version for a new Cluster template."
@@ -7981,6 +8314,9 @@ msgstr "Select a plugin and version for a new Cluster."
 
 msgid "Select a plugin and version for the new Node Group template."
 msgstr "Select a plugin and version for the new Node Group template."
+
+msgid "Select a pool"
+msgstr "Select a pool"
 
 msgid "Select a port"
 msgstr "Select a port"
@@ -8036,6 +8372,9 @@ msgstr "Select network"
 msgid "Select networks for your instance."
 msgstr "Select networks for your instance."
 
+msgid "Select node processes for the node group"
+msgstr "Select node processes for the node group"
+
 msgid "Select parent backup"
 msgstr "Select parent backup"
 
@@ -8069,6 +8408,12 @@ msgstr ""
 
 msgid "Select the image to rebuild your instance."
 msgstr "Select the image to rebuild your instance."
+
+msgid "Select the network for interface attaching."
+msgstr "Select the network for interface attaching."
+
+msgid "Select the port to detach."
+msgstr "Select the port to detach."
 
 msgid ""
 "Select the projects where the flavors will be used. If no projects are "
@@ -8191,6 +8536,12 @@ msgstr "Shared Storage"
 msgid "Shared with Me"
 msgstr "Shared with Me"
 
+msgid "Shell"
+msgstr "Shell"
+
+msgid "Shell Action"
+msgstr "Shell Action"
+
 msgctxt "Current status of an Instance"
 msgid "Shelved"
 msgstr "Shelved"
@@ -8273,6 +8624,9 @@ msgstr "Size of volume"
 msgid "Size: "
 msgstr "Size: "
 
+msgid "Slash is not allowed at the beginning or end of your string."
+msgstr "Slash is not allowed at the beginning or end of your string."
+
 msgid "Slash is not an allowed character."
 msgstr "Slash is not an allowed character."
 
@@ -8350,6 +8704,10 @@ msgstr "Source CIDR"
 msgid "Source IP"
 msgstr "Source IP"
 
+msgctxt "load balancing method"
+msgid "Source IP"
+msgstr "Source IP"
+
 msgid "Source IP Address"
 msgstr "Source IP Address"
 
@@ -8419,6 +8777,13 @@ msgstr "Specifies that the volume can be used to launch an instance"
 
 msgid "Specify \"Network Address\""
 msgstr "Specify \"Network Address\""
+
+msgid ""
+"Specify \"Network Address\", \"Address pool\" or clear \"Create Subnet\" "
+"checkbox."
+msgstr ""
+"Specify \"Network Address\", \"Address pool\" or clear \"Create Subnet\" "
+"checkbox."
 
 msgid "Specify IP address of gateway or check \"Disable Gateway\"."
 msgstr "Specify IP address of gateway or check \"Disable Gateway\"."
@@ -8551,6 +8916,9 @@ msgid_plural "Started Instances"
 msgstr[0] "Started Instance"
 msgstr[1] "Started Instances"
 
+msgid "Started at"
+msgstr "Started at"
+
 #, python-format
 msgid "Starting evacuation from %(current)s to %(target)s."
 msgstr "Starting evacuation from %(current)s to %(target)s."
@@ -8583,6 +8951,9 @@ msgstr "Status ="
 msgid "Status Reason"
 msgstr "Status Reason"
 
+msgid "Step Description"
+msgstr "Step Description"
+
 msgctxt "Action log of an instance"
 msgid "Stop"
 msgstr "Stop"
@@ -8592,6 +8963,9 @@ msgstr "Storage location"
 
 msgid "Storage type"
 msgstr "Storage type"
+
+msgid "Storm"
+msgstr "Storm"
 
 msgid "Streaming MapReduce"
 msgstr "Streaming MapReduce"
@@ -8629,6 +9003,9 @@ msgstr "Subnet: %(dest_subnetname)s"
 #, python-format
 msgid "Subnet: %(row_source_subnetname)s"
 msgstr "Subnet: %(row_source_subnetname)s"
+
+msgid "Subnetpool"
+msgstr "Subnetpool"
 
 msgid "Subnets"
 msgstr "Subnets"
@@ -8709,6 +9086,10 @@ msgid "Successfully sent the request to manage volume: %s"
 msgstr "Successfully sent the request to manage volume: %s"
 
 #, python-format
+msgid "Successfully sent the request to migrate volume: %s"
+msgstr "Successfully sent the request to migrate volume: %s"
+
+#, python-format
 msgid "Successfully sent the request to unmanage volume: %s"
 msgstr "Successfully sent the request to unmanage volume: %s"
 
@@ -8745,6 +9126,9 @@ msgstr "Successfully updated volume snapshot status: \"%s\"."
 #, python-format
 msgid "Successfully updated volume status to \"%s\"."
 msgstr "Successfully updated volume status to \"%s\"."
+
+msgid "Successfully updated volume type."
+msgstr "Successfully updated volume type."
 
 msgid "Sum."
 msgstr "Sum."
@@ -9162,6 +9546,9 @@ msgstr "The instance is preparing the live migration to host \"%s\"."
 msgid "The instance password encrypted with your public key."
 msgstr "The instance password encrypted with your public key."
 
+msgid "The instance(s) will be shut off."
+msgstr "The instance(s) will be shut off."
+
 #, python-format
 msgid ""
 "The key pair &quot;%(keypair_name)s&quot; should download automatically. If "
@@ -9351,6 +9738,10 @@ msgstr "This Node Group Template will be created for:"
 msgid "This action cannot be undone."
 msgstr "This action cannot be undone."
 
+msgid "This application requires JavaScript to be enabled in your web browser."
+msgstr ""
+"This application requires JavaScript to be enabled in your web browser."
+
 msgid ""
 "This generates a pair of keys: a key you keep private (cloud.key) and a "
 "public key (cloud.key.pub). Paste the contents of the public key file here."
@@ -9430,9 +9821,6 @@ msgstr ""
 msgid "To exit the fullscreen mode, click the browser's back button."
 msgstr "To exit the fullscreen mode, click the browser's back button."
 
-msgid "To power off a specific instance."
-msgstr "To power off a specific instance."
-
 msgid ""
 "To specify an allowed IP range, select &quot;CIDR&quot;. To allow access "
 "from all members of another security group select &quot;Security Group&quot;."
@@ -9442,6 +9830,9 @@ msgstr ""
 
 msgid "To:"
 msgstr "To:"
+
+msgid "Toggle navigation"
+msgstr "Toggle navigation"
 
 msgid "Topic"
 msgstr "Topic"
@@ -9507,6 +9898,10 @@ msgid "UP"
 msgstr "UP"
 
 msgctxt "Admin state of a Firewall"
+msgid "UP"
+msgstr "UP"
+
+msgctxt "Admin state of a Load balancer"
 msgid "UP"
 msgstr "UP"
 
@@ -9604,6 +9999,9 @@ msgstr "Unable to associate floating IP."
 
 msgid "Unable to associate monitor."
 msgstr "Unable to associate monitor."
+
+msgid "Unable to attach interface."
+msgstr "Unable to attach interface."
 
 msgid "Unable to attach volume."
 msgstr "Unable to attach volume."
@@ -9792,6 +10190,9 @@ msgstr "Unable to delete rule. %s"
 msgid "Unable to delete volume transfer."
 msgstr "Unable to delete volume transfer."
 
+msgid "Unable to detach interface."
+msgstr "Unable to detach interface."
+
 msgid "Unable to determine if availability zones extension is supported."
 msgstr "Unable to determine if availability zones extension is supported."
 
@@ -9885,6 +10286,9 @@ msgstr "Unable to fetch template object."
 
 msgid "Unable to fetch template to copy."
 msgstr "Unable to fetch template to copy."
+
+msgid "Unable to fetch template to edit."
+msgstr "Unable to fetch template to edit."
 
 msgid "Unable to fetch the image details"
 msgstr "Unable to fetch the image details"
@@ -9996,8 +10400,14 @@ msgstr "Unable to get the available hosts"
 msgid "Unable to get user data."
 msgstr "Unable to get user data."
 
+msgid "Unable to get volume type list."
+msgstr "Unable to get volume type list."
+
 msgid "Unable to import key pair."
 msgstr "Unable to import key pair."
+
+msgid "Unable to initialize subnetpools"
+msgstr "Unable to initialize subnetpools"
 
 #, python-format
 msgid "Unable to launch %(count)s named \"%(name)s\"."
@@ -10220,6 +10630,18 @@ msgid "Unable to retrieve details for backup: %s"
 msgstr "Unable to retrieve details for backup: %s"
 
 #, python-format
+msgid "Unable to retrieve details for cluster \"%s\"."
+msgstr "Unable to retrieve details for cluster \"%s\"."
+
+#, python-format
+msgid "Unable to retrieve details for cluster template \"%s\"."
+msgstr "Unable to retrieve details for cluster template \"%s\"."
+
+#, python-format
+msgid "Unable to retrieve details for data source \"%s\"."
+msgstr "Unable to retrieve details for data source \"%s\"."
+
+#, python-format
 msgid "Unable to retrieve details for database instance: %s"
 msgstr "Unable to retrieve details for database instance: %s"
 
@@ -10228,12 +10650,28 @@ msgid "Unable to retrieve details for instance \"%s\"."
 msgstr "Unable to retrieve details for instance \"%s\"."
 
 #, python-format
+msgid "Unable to retrieve details for job \"%s\"."
+msgstr "Unable to retrieve details for job \"%s\"."
+
+#, python-format
+msgid "Unable to retrieve details for job binary \"%s\"."
+msgstr "Unable to retrieve details for job binary \"%s\"."
+
+#, python-format
+msgid "Unable to retrieve details for job template \"%s\"."
+msgstr "Unable to retrieve details for job template \"%s\"."
+
+#, python-format
 msgid "Unable to retrieve details for keypair \"%s\"."
 msgstr "Unable to retrieve details for keypair \"%s\"."
 
 #, python-format
 msgid "Unable to retrieve details for network \"%s\"."
 msgstr "Unable to retrieve details for network \"%s\"."
+
+#, python-format
+msgid "Unable to retrieve details for node group template \"%s\"."
+msgstr "Unable to retrieve details for node group template \"%s\"."
 
 #, python-format
 msgid "Unable to retrieve details for parent backup: %s"
@@ -10254,6 +10692,9 @@ msgstr "Unable to retrieve domain information."
 
 msgid "Unable to retrieve domain list."
 msgstr "Unable to retrieve domain list."
+
+msgid "Unable to retrieve extensions information"
+msgstr "Unable to retrieve extensions information"
 
 msgid "Unable to retrieve extensions information."
 msgstr "Unable to retrieve extensions information."
@@ -10381,6 +10822,10 @@ msgstr "Unable to retrieve instances list."
 msgid "Unable to retrieve instances."
 msgstr "Unable to retrieve instances."
 
+#, python-format
+msgid "Unable to retrieve job binary \"%s\"."
+msgstr "Unable to retrieve job binary \"%s\"."
+
 msgid "Unable to retrieve key pair list."
 msgstr "Unable to retrieve key pair list."
 
@@ -10479,6 +10924,9 @@ msgstr "Unable to retrieve pool subnet. %s"
 msgid "Unable to retrieve pool. %s"
 msgstr "Unable to retrieve pool. %s"
 
+msgid "Unable to retrieve pools information."
+msgstr "Unable to retrieve pools information."
+
 msgid "Unable to retrieve pools list."
 msgstr "Unable to retrieve pools list."
 
@@ -10487,6 +10935,9 @@ msgstr "Unable to retrieve port details"
 
 msgid "Unable to retrieve port details."
 msgstr "Unable to retrieve port details."
+
+msgid "Unable to retrieve ports information."
+msgstr "Unable to retrieve ports information."
 
 msgid "Unable to retrieve project details."
 msgstr "Unable to retrieve project details."
@@ -10684,8 +11135,18 @@ msgstr "Unable to retrieve volume type encryption information."
 msgid "Unable to retrieve volume type extra spec details."
 msgstr "Unable to retrieve volume type extra spec details."
 
+#, python-format
+msgid "Unable to retrieve volume type for: \"%s\""
+msgstr "Unable to retrieve volume type for: \"%s\""
+
+msgid "Unable to retrieve volume type list."
+msgstr "Unable to retrieve volume type list."
+
 msgid "Unable to retrieve volume type name."
 msgstr "Unable to retrieve volume type name."
+
+msgid "Unable to retrieve volume type qos."
+msgstr "Unable to retrieve volume type qos."
 
 msgid "Unable to retrieve volume types"
 msgstr "Unable to retrieve volume types"
@@ -10743,6 +11204,9 @@ msgstr "Unable to update group."
 msgid "Unable to update image \"%s\"."
 msgstr "Unable to update image \"%s\"."
 
+msgid "Unable to update job binary"
+msgstr "Unable to update job binary"
+
 msgid "Unable to update object."
 msgstr "Unable to update object."
 
@@ -10772,6 +11236,9 @@ msgstr "Unable to update the user password."
 msgid "Unable to update the user."
 msgstr "Unable to update the user."
 
+msgid "Unable to update the volume type."
+msgstr "Unable to update the volume type."
+
 msgid "Unable to update volume snapshot status."
 msgstr "Unable to update volume snapshot status."
 
@@ -10781,6 +11248,9 @@ msgstr "Unable to update volume snapshot."
 #, python-format
 msgid "Unable to update volume status to \"%s\"."
 msgstr "Unable to update volume status to \"%s\"."
+
+msgid "Unable to update volume type."
+msgstr "Unable to update volume type."
 
 msgid "Unable to update volume."
 msgstr "Unable to update volume."
@@ -11060,6 +11530,9 @@ msgstr "Use anti-affinity groups for processes"
 
 msgid "Use anti-affinity groups for: "
 msgstr "Use anti-affinity groups for: "
+
+msgid "Use auto-configuration"
+msgstr "Use auto-configuration"
 
 msgid "Use image as a source"
 msgstr "Use image as a source"
@@ -11374,6 +11847,9 @@ msgstr "Volume Snapshots"
 msgid "Volume Source"
 msgstr "Volume Source"
 
+msgid "Volume Storage"
+msgstr "Volume Storage"
+
 msgid "Volume Transfer"
 msgstr "Volume Transfer"
 
@@ -11382,6 +11858,9 @@ msgstr "Volume Transfer Details"
 
 msgid "Volume Type"
 msgstr "Volume Type"
+
+msgid "Volume Type Description:"
+msgstr "Volume Type Description:"
 
 msgid "Volume Type Encryption Details"
 msgstr "Volume Type Encryption Details"
@@ -11419,6 +11898,9 @@ msgstr ""
 
 msgid "Volume is Unencrypted"
 msgstr "Volume is Unencrypted"
+
+msgid "Volume local to instance"
+msgstr "Volume local to instance"
 
 msgid ""
 "Volume mount point (e.g. 'vda' mounts at '/dev/vda'). Leave this field blank "
@@ -11473,6 +11955,10 @@ msgstr "Volume size must be greater than 0"
 msgid "Volume source must be specified"
 msgstr "Volume source must be specified"
 
+#, python-format
+msgid "Volume type name \"%s\" already exists."
+msgstr "Volume type name \"%s\" already exists."
+
 msgid "Volume type name can not be empty."
 msgstr "Volume type name can not be empty."
 
@@ -11485,6 +11971,9 @@ msgstr "Volumes Attached"
 msgid "Volumes Availability Zone"
 msgstr "Volumes Availability Zone"
 
+msgid "Volumes local to instance"
+msgstr "Volumes local to instance"
+
 msgid "Volumes per node"
 msgstr "Volumes per node"
 
@@ -11494,8 +11983,24 @@ msgstr "Volumes size"
 msgid "Volumes size (GB)"
 msgstr "Volumes size (GB)"
 
+msgid "Volumes type"
+msgstr "Volumes type"
+
 msgid "Weight"
 msgstr "Weight"
+
+msgid ""
+"When no IP address is provided, the VIP will obtain an address from\n"
+"  the selected subnet. If a specific IP address is desired, it may be "
+"provided and\n"
+"  must also be an address within the selected subnet.\n"
+"  "
+msgstr ""
+"When no IP address is provided, the VIP will obtain an address from\n"
+"  the selected subnet. If a specific IP address is desired, it may be "
+"provided and\n"
+"  must also be an address within the selected subnet.\n"
+"  "
 
 msgid "Which keypair to use for authentication."
 msgstr "Which keypair to use for authentication."

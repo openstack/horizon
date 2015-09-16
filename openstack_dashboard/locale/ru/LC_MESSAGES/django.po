@@ -13,23 +13,26 @@
 # Kyrylo Romanenko <kromanenko@mirantis.com>, 2015
 # Nikita Burtsev, 2015
 # Nikita Burtsev, 2015
+# Ilya Alekseyev <ilyaalekseyev@acm.org>, 2015. #zanata
+# OpenStack Infra <zanata@openstack.org>, 2015. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: Horizon\n"
+"Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-09-03 04:49+0000\n"
-"PO-Revision-Date: 2015-09-02 07:31+0000\n"
-"Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
-"Language-Team: Russian (http://www.transifex.com/openstack/horizon/language/"
-"ru/)\n"
+"POT-Creation-Date: 2015-09-16 18:25+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"PO-Revision-Date: 2015-09-11 04:11+0000\n"
+"Last-Translator: Ilya Alekseyev <ilyaalekseyev@acm.org>\n"
+"Language-Team: Russian (http://www.transifex.com/openstack/horizon/language/"
+"ru/)\n"
 "Generated-By: Babel 2.0\n"
 "Language: ru\n"
 "Plural-Forms: nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
 "%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || (n"
 "%100>=11 && n%100<=14)? 2 : 3);\n"
+"X-Generator: Zanata 3.7.1\n"
 
 msgid ""
 "\n"
@@ -592,6 +595,14 @@ msgstr "ALLOW"
 msgid "ALLOW %(ethertype)s %(proto_port)s %(direction)s %(remote)s"
 msgstr "ALLOW %(ethertype)s %(proto_port)s %(direction)s %(remote)s"
 
+#, python-format
+msgid "ALLOW %(from)s:%(to)s/%(ip_protocol)s from %(cidr)s"
+msgstr "РАЗРЕШИТЬ %(from)s:%(to)s/%(ip_protocol)s из %(cidr)s"
+
+#, python-format
+msgid "ALLOW %(from)s:%(to)s/%(ip_protocol)s from %(group)s"
+msgstr "РАЗРЕШИТЬ %(from)s:%(to)s/%(ip_protocol)s из%(group)s"
+
 msgid "AMI - Amazon Machine Image"
 msgstr "AMI - Amazon Machine Image"
 
@@ -803,13 +814,6 @@ msgstr "Добавить VIP"
 
 msgid "Add VPN Service"
 msgstr "Добавить сервис VPN"
-
-msgid ""
-"Add and remove security groups to this project from the list of available "
-"security groups."
-msgstr ""
-"Добавить и удалить группы безопасности в этом проекте из списка доступных "
-"групп безопасности."
 
 msgid "Add custom tag"
 msgstr "Добавить пользовательский тег"
@@ -1216,6 +1220,9 @@ msgstr "Режим авторизации"
 
 msgid "Auto Security Group"
 msgstr "Автоматическая группа безопасности"
+
+msgid "Auto-configure"
+msgstr "Автоконфигурация"
 
 msgid "Automatic"
 msgstr "Автоматически"
@@ -1680,6 +1687,9 @@ msgstr "Руководство по созданию кластера"
 msgid "Cluster Details"
 msgstr "Данные кластера"
 
+msgid "Cluster Events"
+msgstr "События кластера"
+
 msgid "Cluster Guide"
 msgstr "Мастер кластера"
 
@@ -1694,6 +1704,10 @@ msgstr "Обзор кластера"
 
 msgid "Cluster Template"
 msgstr "Шаблон кластера"
+
+#, python-format
+msgid "Cluster Template %s updated"
+msgstr "Шаблон кластера %s обновлен"
 
 msgid "Cluster Template Details"
 msgstr "Данные шаблона кластера"
@@ -1714,8 +1728,14 @@ msgstr "Кластер может быть запущен с помощью су
 msgid "Cluster configurations are not specified"
 msgstr "Конфигурации кластера не указаны"
 
+msgid "Cluster provision steps"
+msgstr "Шаги создания кластера"
+
 msgid "Cluster template creation failed"
 msgstr "Не удалось создать шаблон кластера"
+
+msgid "Cluster template update failed"
+msgstr "Обновление шаблона кластера не удалось"
 
 msgid "Cluster type chosen"
 msgstr "Выбран тип кластера"
@@ -1738,6 +1758,9 @@ msgstr "Разделенные запятой пары ключ=значение
 msgctxt "Current status of a Database Backup"
 msgid "Completed"
 msgstr "Завершено"
+
+msgid "Completed Successfully"
+msgstr "Успешно завершено"
 
 msgid "Component"
 msgstr "Компонент"
@@ -1926,6 +1949,9 @@ msgstr "В Keystone не удалось найти стандартную рол
 
 msgid "Could not launch job"
 msgstr "Не удалось запустить задачу"
+
+msgid "Could not update data source"
+msgstr "Невозможно обновить источник данных"
 
 #, python-format
 msgid "Couldn't get current security group list for instance %s."
@@ -2565,6 +2591,9 @@ msgstr ""
 msgid "Data source created"
 msgstr "Источник данных создан"
 
+msgid "Data source updated"
+msgstr "Источник данных обновлен"
+
 msgid "Database"
 msgstr "База данных"
 
@@ -2661,7 +2690,7 @@ msgid "Delete Cluster"
 msgid_plural "Delete Clusters"
 msgstr[0] "Удалить кластер"
 msgstr[1] "Удалить кластеры"
-msgstr[2] ""
+msgstr[2] "Удалить кластеры"
 msgstr[3] "Удалить кластеры"
 
 msgctxt "current status of stack"
@@ -2929,7 +2958,7 @@ msgid "Delete Template"
 msgid_plural "Delete Templates"
 msgstr[0] "Удалить шаблон"
 msgstr[1] "Удалить шаблоны"
-msgstr[2] ""
+msgstr[2] "Удалить шаблоны"
 msgstr[3] "Удалить шаблоны"
 
 msgid "Delete User"
@@ -2999,7 +3028,7 @@ msgid "Deleted Cluster"
 msgid_plural "Deleted Clusters"
 msgstr[0] "Кластер удален"
 msgstr[1] "Кластеры удалены"
-msgstr[2] ""
+msgstr[2] "Кластеры удалены"
 msgstr[3] "Кластеры удалены"
 
 msgid "Deleted Container"
@@ -3228,7 +3257,7 @@ msgid "Deleted Template"
 msgid_plural "Deleted Templates"
 msgstr[0] "Шаблон удален"
 msgstr[1] "Шаблоны удалены"
-msgstr[2] ""
+msgstr[2] "Шаблоны удалены"
 msgstr[3] "Шаблоны удалены"
 
 msgid "Deleted User"
@@ -3619,6 +3648,9 @@ msgstr "Скачать исполняемый файл"
 msgid "Download key pair &quot;%(keypair_name)s&quot;"
 msgstr "Загрузить пары ключей &quot;%(keypair_name)s&quot;"
 
+msgid "Duration"
+msgstr "Продолжительность"
+
 #, python-format
 msgid "Duration of instance type %s (openstack flavor)"
 msgstr "Время работы инстанса %s (тип инстанса OpenStack)"
@@ -3635,6 +3667,9 @@ msgstr "EC2 URL"
 msgid "Edit"
 msgstr "Изменить"
 
+msgid "Edit Cluster Template"
+msgstr "Редактировать шаблон кластера"
+
 msgid "Edit Connection"
 msgstr "Редактировать подключение"
 
@@ -3643,6 +3678,9 @@ msgstr "Редактировать потребителя"
 
 msgid "Edit Consumer of QoS Spec"
 msgstr "Изменить потребителя спецификации QoS"
+
+msgid "Edit Data Source"
+msgstr "Редактировать источник данных"
 
 msgid "Edit Domain"
 msgstr "Изменить домен"
@@ -4046,6 +4084,9 @@ msgid ""
 "Evacuate the servers from the selected down host to an active target host."
 msgstr ""
 "Эвакуировать инстансы с выбранного недоступного узла нв активный целевой узел"
+
+msgid "Event time"
+msgstr "Время события"
 
 msgid "Events"
 msgstr "События"
@@ -5155,6 +5196,9 @@ msgid ""
 msgstr ""
 "Кроме того, вы можете создать внешнюю или общую сеть, установив "
 "соответствующий флажок "
+
+msgid "In progress"
+msgstr "В процессе"
 
 msgctxt "Current status of a Volume"
 msgid "In-use"
@@ -6354,6 +6398,9 @@ msgstr "Нет доступных образов"
 msgid "No images available."
 msgstr "Нет доступных образов."
 
+msgid "No info available"
+msgstr "Нет доступной информации"
+
 msgid "No input was provided for the namespace content."
 msgstr "Не указано содержимое пространства имен."
 
@@ -7069,14 +7116,11 @@ msgstr "Частный"
 msgid "Private Key File"
 msgstr "Файл закрытого ключа"
 
-msgid "Processes"
-msgstr "Процессы"
-
-msgid "Processes to be launched in node group"
-msgstr "Процессы запущены в узле группы"
-
 msgid "Profile"
 msgstr "Профиль"
+
+msgid "Progress"
+msgstr "Прогресс"
 
 msgid "Project"
 msgstr "Проект"
@@ -8752,6 +8796,9 @@ msgstr[1] "Запущены инстансы"
 msgstr[2] ""
 msgstr[3] "Запущены инстансы"
 
+msgid "Started at"
+msgstr "Запущено "
+
 #, python-format
 msgid "Starting evacuation from %(current)s to %(target)s."
 msgstr "Запускается эвакуация с %(current)s на %(target)s."
@@ -8783,6 +8830,9 @@ msgstr "Статус ="
 
 msgid "Status Reason"
 msgstr "Причина статуса"
+
+msgid "Step Description"
+msgstr "Описание шага"
 
 msgctxt "Action log of an instance"
 msgid "Stop"
@@ -9609,9 +9659,6 @@ msgid "To exit the fullscreen mode, click the browser's back button."
 msgstr ""
 "Для выхода из полноэкранного режима нажмите на кнопку \"Назад\" в браузере."
 
-msgid "To power off a specific instance."
-msgstr "Выключить конкретную машину."
-
 msgid ""
 "To specify an allowed IP range, select &quot;CIDR&quot;. To allow access "
 "from all members of another security group select &quot;Security Group&quot;."
@@ -10071,6 +10118,9 @@ msgstr "Не удалось получить шаблон объекта."
 
 msgid "Unable to fetch template to copy."
 msgstr "Не удалось получить шаблон для копирования."
+
+msgid "Unable to fetch template to edit."
+msgstr "Невозможно получит шаблон для редактирования"
 
 msgid "Unable to fetch the image details"
 msgstr "Не удалось получить данные образа"
@@ -11286,6 +11336,9 @@ msgstr "Использовать анти-аффинные группы для �
 
 msgid "Use anti-affinity groups for: "
 msgstr "Использовать анти-аффинные группы для:"
+
+msgid "Use auto-configuration"
+msgstr "Использовать автоконфигурацию"
 
 msgid "Use image as a source"
 msgstr "Использовать образ как источник"

@@ -3,13 +3,8 @@
 # This file is distributed under the same license as the PROJECT project.
 #
 # Translators:
-# Allerson Yao, 2015
-# 刘俊朋 <liujunpeng@inspur.com>, 2015
-# Daisy <guoyingc@cn.ibm.com>, 2015. #zanata
 # OpenStack Infra <zanata@openstack.org>, 2015. #zanata
-# Xu Yang <xuyang@cn.fujitsu.com>, 2015. #zanata
-# Yu Zhiuguo <yuzg@cn.fujitsu.com>, 2015. #zanata
-# zhangjingwen <zhangjingwen@cn.fujitsu.com>, 2015. #zanata
+# Tom Fifield <tom@openstack.org>, 2015. #zanata
 msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
@@ -18,20 +13,20 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2015-09-11 07:21+0000\n"
-"Last-Translator: zhangjingwen <zhangjingwen@cn.fujitsu.com>\n"
-"Language-Team: Chinese (China) (http://www.transifex.com/openstack/horizon/"
-"language/zh_CN/)\n"
+"PO-Revision-Date: 2015-09-15 02:49+0000\n"
+"Last-Translator: Tom Fifield <tom@openstack.org>\n"
+"Language-Team: English (Australia) (http://www.transifex.com/openstack/"
+"horizon/language/en_AU/)\n"
 "Generated-By: Babel 2.0\n"
-"Language: zh-CN\n"
-"Plural-Forms: nplurals=1; plural=0;\n"
+"Language: en-AU\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Zanata 3.7.1\n"
 
 msgid "(Max: 16Kb)"
-msgstr "(最大:16Kb)"
+msgstr "(Max: 16Kb)"
 
 msgid "(None)"
-msgstr "(无)"
+msgstr "(None)"
 
 msgid ""
 "<li><b>Image (with Create New Volume checked)</b>: This options uses an "
@@ -39,24 +34,29 @@ msgid ""
 "data. You can specify volume size and whether to delete the volume on "
 "termination of the instance.</li>"
 msgstr ""
-"<li><b>镜像 (创建新卷)</b>：这个选项使用镜像启动实例，并且创建一个新卷用来持"
-"久化实例数据。您可以指定卷大小和在销毁实例时是否删除卷。</li>"
+"<li><b>Image (with Create New Volume checked)</b>: This options uses an "
+"image to boot the instance, and creates a new volume to persist instance "
+"data. You can specify volume size and whether to delete the volume on "
+"termination of the instance.</li>"
 
 msgid "<li><b>Image</b>: This option uses an image to boot the instance.</li>"
-msgstr "<li><b>镜像</b>：本选项使用一个镜像启动实例。</li>"
+msgstr "<li><b>Image</b>: This option uses an image to boot the instance.</li>"
 
 msgid ""
 "<li><b>Instance Snapshot</b>: This option uses an instance snapshot to boot "
 "the instance.</li>"
-msgstr "<li><b>实例快照</b>: 本选项使用一个实例快照启动实例。</li>"
+msgstr ""
+"<li><b>Instance Snapshot</b>: This option uses an instance snapshot to boot "
+"the instance.</li>"
 
 msgid ""
 "<li><b>Volume Snapshot</b>: This option uses a volume snapshot to boot the "
 "instance, and creates a new volume to persist instance data. You can choose "
 "to delete the volume on termination of the instance.</li>"
 msgstr ""
-"<li><b>卷快照</b>：这选项使用一个卷快照启动实例，并且创建一个新卷来持久化实例"
-"数据。您可以选择在销毁实例时删除这个卷。</li>"
+"<li><b>Volume Snapshot</b>: This option uses a volume snapshot to boot the "
+"instance, and creates a new volume to persist instance data. You can choose "
+"to delete the volume on termination of the instance.</li>"
 
 msgid ""
 "<li><b>Volume</b>: This option uses a volume that already exists. It does "
@@ -64,8 +64,10 @@ msgid ""
 "of the instance. <em>Note: when selecting Volume, you can only launch one "
 "instance.</em></li>"
 msgstr ""
-"<li><b>卷</b>：这个选项使用一个已存在的卷。它不创建一个新卷。您可以选择在销毁"
-"实例时删除卷。 <em>注意：当选择卷时，您只可以启动一个实例。</em></li>"
+"<li><b>Volume</b>: This option uses a volume that already exists. It does "
+"not create a new volume. You can choose to delete the volume on termination "
+"of the instance. <em>Note: when selecting Volume, you can only launch one "
+"instance.</em></li>"
 
 msgid ""
 "A floating IP allows instances to be addressable from an external network.\n"
@@ -77,27 +79,30 @@ msgid ""
 "    Then, select the <b>Associate Floating IP</b> option and enter the "
 "necessary details."
 msgstr ""
-"一个浮动IP允许实例从外部网络寻址。\n"
-"实例在创建时浮动IP地址病不会分配，在实例创建后可以指定。\n"
-"要附加一个浮动IP，在<b>Instances</b>查看并单击一个实例的\n"
-" <b>Actions</b>菜单到右边。\n"
-"然后，选择 <b>Associate Floating IP</b> 并输入必要的描述。"
+"A floating IP allows instances to be addressable from an external network.\n"
+"    Floating IPs are not allocated to instances at creation time and may be "
+"assigned\n"
+"    after the instance is created. To attach a floating IP, go to the "
+"<b>Instances</b>\n"
+"    view and click the <b>Actions</b> menu to the right of an instance.\n"
+"    Then, select the <b>Associate Floating IP</b> option and enter the "
+"necessary details."
 
 msgid ""
 "A key pair allows you to SSH into your newly created instance. You may "
 "select an existing key pair, import a key pair, or generate a new key pair."
 msgstr ""
-"密钥对允许您SSH到您新创建的实例。你可以选择一个已存在、导入或生成一个新的密钥"
-"对。"
+"A key pair allows you to SSH into your newly created instance. You may "
+"select an existing key pair, import a key pair, or generate a new key pair."
 
 msgid "A name is required for your instance."
-msgstr "您的实例名字是必须的。"
+msgstr "A name is required for your instance."
 
 msgid "Active"
-msgstr "运行中"
+msgstr "Active"
 
 msgid "Admin State"
-msgstr "管理员状态"
+msgstr "Admin State"
 
 msgid ""
 "Administrators are responsible for creating and managing flavors. A custom "
@@ -105,14 +110,17 @@ msgid ""
 "with the users assigned to that project. If you need a custom flavor, "
 "contact your administrator."
 msgstr ""
-"管理员负责创建和管理类型。可以为您或特定的项目创建一个自定义类型，特定的项目"
-"与另外一个项目的用户共享这个类型。如果您需要一个自定义类型，请联系您的管理"
-"员。"
+"Administrators are responsible for creating and managing flavours. A custom "
+"flavour can be created for you or for a specific project where it is shared "
+"with the users assigned to that project. If you need a custom flavour, "
+"contact your administrator."
 
 msgid ""
 "Administrators set up the pool of floating IPs that are available to attach "
 "to instances."
-msgstr "管理员建立可以绑定到实例的浮动IP池。"
+msgstr ""
+"Administrators set up the pool of floating IPs that are available to attach "
+"to instances."
 
 msgid ""
 "An <b>External</b> network is set up by an administrator.\n"
@@ -122,10 +130,12 @@ msgid ""
 "    You can use the <b>Network Topology</b> view to connect the router to "
 "the two networks."
 msgstr ""
-"<b>外部</b>网络由管理员创建。\n"
-"如果您希望云主机与数据中心的外部网络能够通信，\n"
-"那么可以在您的<b>项目</b>网络和<b>外部</b>网络之间添加一个路由。\n"
-"然后就可以通过 <b>网络拓扑</b>视图，使用此路由连接这两个网络。"
+"An <b>External</b> network is set up by an administrator.\n"
+"    If you want an instance to communicate outside of the data centre,\n"
+"    then attach a router between your <b>Project</b> network and the "
+"<b>External</b> network.\n"
+"    You can use the <b>Network Topology</b> view to connect the router to "
+"the two networks."
 
 msgid ""
 "An advanced option available when launching an instance is disk "
@@ -133,130 +143,136 @@ msgid ""
 "b> resizes the disk and sets it to a single partition. Selecting <b>Manual</"
 "b> allows you to create multiple partitions on the disk."
 msgstr ""
-"当启动实例时，一个可用的高级选项是磁盘分区。有两种磁盘分区选项目。选择<b>自动"
-"</b>调整磁盘并设置为一个单独的分区。选择<b>手动</b>允许您在一个磁盘上创建多个"
-"分区。"
+"An advanced option available when launching an instance is disk "
+"partitioning. There are two disk partition options. Selecting <b>Automatic</"
+"b> resizes the disk and sets it to a single partition. Selecting <b>Manual</"
+"b> allows you to create multiple partitions on the disk."
 
 msgid ""
 "An instance name is required and used to help you uniquely identify your "
 "instance in the dashboard."
-msgstr "实例名是必须的，用来帮助您在仪表盘中区分实例。"
+msgstr ""
+"An instance name is required and used to help you uniquely identify your "
+"instance in the dashboard."
 
 msgid "Automatic"
-msgstr "自动"
+msgstr "Automatic"
 
 msgid "Availability Zone"
-msgstr "可用域"
+msgstr "Availability Zone"
 
 msgid "Boot Source"
-msgstr "启动源 "
+msgstr "Boot Source"
 
 msgid "Cancel"
-msgstr "取消"
+msgstr "Cancel"
 
 msgid "Cannot get service catalog from keystone."
-msgstr "无法从认证获取服务目录。"
+msgstr "Cannot get service catalogue from keystone."
 
 msgid "Cannot get the Nova extension list."
-msgstr "无法查询Nova扩展列表。"
+msgstr "Cannot get the Nova extension list."
 
 msgid ""
 "Check the <b>Configuration Drive</b> box if you want to write metadata to a "
 "special configuration drive. When the instance boots, it attaches to the "
 "<b>Configuration Drive</b> and accesses the metadata."
 msgstr ""
-"如果您想将元数据写入指定的配置驱动器中，请选中<b>配置驱动</b> 复选框。当实例"
-"启动时，就会追加<b>配置驱动</b>并访问元数据。"
+"Check the <b>Configuration Drive</b> box if you want to write metadata to a "
+"special configuration drive. When the instance boots, it attaches to the "
+"<b>Configuration Drive</b> and accesses the metadata."
 
 msgid "Click to see more details"
-msgstr "点击查看更多细节"
+msgstr "Click to see more details"
 
 msgid "Configuration"
-msgstr "配置"
+msgstr "Configuration"
 
 msgid "Configuration Drive"
-msgstr "配置驱动器"
+msgstr "Configuration Drive"
 
 msgid "Configuration Help"
-msgstr "配置帮助"
+msgstr "Configuration Help"
 
 msgid "Count"
-msgstr "计数"
+msgstr "Count"
 
 msgid "Create Key Pair"
-msgstr "创建秘钥对"
+msgstr "Create Key Pair"
 
 msgid "Create New Volume"
-msgstr "创建新卷"
+msgstr "Create New Volume"
 
 msgid "Created"
-msgstr "已创建"
+msgstr "Created"
 
 msgid "Customization Script"
-msgstr "自定义脚本"
+msgstr "Customisation Script"
 
 msgid "Delete Volume on Terminate"
-msgstr "终止后删除卷"
+msgstr "Delete Volume on Terminate"
 
 msgid "Deleted"
-msgstr "删除"
+msgstr "Deleted"
 
 msgid "Description"
-msgstr "描述"
+msgstr "Description"
 
 msgid "Device Name"
-msgstr "设备名称"
+msgstr "Device Name"
 
 msgid "Direction"
-msgstr "直连"
+msgstr "Direction"
 
 msgid "Disk Partition"
-msgstr "磁盘分区"
+msgstr "Disk Partition"
 
 msgid "Domain ID"
-msgstr "域ID"
+msgstr "Domain ID"
 
 msgid "Down"
-msgstr "停止"
+msgstr "Down"
 
 msgid "Email"
-msgstr "邮箱"
+msgstr "Email"
 
 msgid "Enabled"
-msgstr "激活"
+msgstr "Enabled"
 
 msgid "Ephemeral Disk"
-msgstr "临时磁盘"
+msgstr "Ephemeral Disk"
 
 msgid "Ether Type"
-msgstr "以太网类型"
+msgstr "Ether Type"
 
 msgid "Event log is not available."
-msgstr "事件日志不可用。"
+msgstr "Event log is not available."
 
 #, python-format
 msgid "Extension is not enabled: %(extension)s."
-msgstr "扩展没有启用：%(extension)s。"
+msgstr "Extension is not enabled: %(extension)s."
 
 msgid "External Network"
-msgstr "外部网络"
+msgstr "External Network"
 
 msgid "Fingerprint"
-msgstr "指纹"
+msgstr "Fingerprint"
 
 msgid "Flavor"
-msgstr "云主机类型"
+msgstr "Flavour"
 
 msgid "Flavor Help"
-msgstr "类型帮助"
+msgstr "Flavour Help"
 
 msgid ""
 "Flavors manage the sizing for the compute, memory and storage capacity of "
 "the instance."
-msgstr "类型管理实例的计算、内存和存储容量的大小。"
+msgstr ""
+"Flavours manage the sizing for the compute, memory and storage capacity of "
+"the instance."
 
 msgid "Format"
-msgstr "镜像格式"
+msgstr "Format"
 
 #, python-format
 msgid ""
@@ -265,262 +281,273 @@ msgid ""
 "public key in the red highlighted box to your <samp>%(authorizeKeysFile)s</"
 "samp> file."
 msgstr ""
-"从一个Windows系统，你可以使用PuTTYGen生成公/私秘钥。使用PuTTY的秘钥生成器创建"
-"和保存这些值，然后从红色高亮框中复制公钥到您的<samp>%(authorizeKeysFile)s</"
-"samp>文件。"
+"From a Windows system, you can use PuTTYGen to create private/public keys. "
+"Use the PuTTY Key Generator to create and save the keys, then copy the "
+"public key in the red highlighted box to your <samp>%(authorizeKeysFile)s</"
+"samp> file."
 
 msgid "ID"
 msgstr "ID"
 
 msgid ""
 "If a network is shared, then all users in the project can access the network."
-msgstr "如果网络是共享的，在一个项目中的所有用户都可以访问这个网络。"
+msgstr ""
+"If a network is shared, then all users in the project can access the network."
 
 msgid ""
 "If a security group is not associated with an instance before it is "
 "launched, then you will have very limited access to the instance after it is "
 "deployed. You will only be able to access the instance from a VNC console."
 msgstr ""
-"如果实例启动前没有绑定安全组，在实例部署后您将只有非常有限的访问权限。您只能"
-"从VNC控制台访问实例。"
+"If a security group is not associated with an instance before it is "
+"launched, then you will have very limited access to the instance after it is "
+"deployed. You will only be able to access the instance from a VNC console."
 
 msgid ""
 "If you select an availability zone and plan to use the boot from volume "
 "option, make sure that the availability zone you select for the instance is "
 "the same availability zone where your bootable volume resides."
 msgstr ""
-"如果您选择一个可用域并且计划使用从卷选项启动，确保您为实例选择的可用域与您启"
-"动卷所在的域是同一个。"
+"If you select an availability zone and plan to use the boot from volume "
+"option, make sure that the availability zone you select for the instance is "
+"the same availability zone where your bootable volume resides."
 
 msgid ""
 "If you want to create an instance that uses persistent storage, meaning the "
 "instance data is saved when the instance is deleted, then select one of the "
 "following boot options:"
 msgstr ""
-"如果您想创建一个使用持久存储的实例，意味着当实例被删除时数据被保存，那么选择"
-"从以下启动项中选择一个："
+"If you want to create an instance that uses persistent storage, meaning the "
+"instance data is saved when the instance is deleted, then select one of the "
+"following boot options:"
 
 msgid "Image"
-msgstr "镜像"
+msgstr "Image"
 
 msgid "Image Name"
-msgstr "镜像名称"
+msgstr "Image Name"
 
 msgid "Impact on your quota"
-msgstr "影响您的配额"
+msgstr "Impact on your quota"
 
 msgid "Import Key Pair"
-msgstr "导入秘钥对"
+msgstr "Import Key Pair"
 
 msgid "Import Key Pair Help"
-msgstr "导入密钥对帮助"
+msgstr "Import Key Pair Help"
 
 msgid "Instance Details"
-msgstr "实例详情"
+msgstr "Instance Details"
 
 msgid "Instance Name"
-msgstr "实例名字"
+msgstr "Instance Name"
 
 msgid "Instance Snapshot"
-msgstr "云主机快照"
+msgstr "Instance Snapshot"
 
 msgid "Instance Source"
-msgstr "云主机源"
+msgstr "Instance Source"
 
 msgid "Instance count is required and must be an integer of at least 1"
-msgstr "实例数是必须的而且必须是至少为1的整数。"
+msgstr "Instance count is required and must be an integer of at least 1"
 
 msgid ""
 "Instance source is the template used to create an instance. You can use a "
 "snapshot of an existing instance, an image, or a volume (if enabled). You "
 "can also choose to use persistent storage by creating a new volume."
 msgstr ""
-"实例源时用来创建一个实例的模板。您可以用已存在实例的快照、镜像或者卷(如果启"
-"用)。您也可以选择一个持久存储来创建一个新的卷。"
+"Instance source is the template used to create an instance. You can use a "
+"snapshot of an existing instance, an image, or a volume (if enabled). You "
+"can also choose to use persistent storage by creating a new volume."
 
 msgid "Insufficient privilege level to view user information."
-msgstr "查看用户信息权限不足。"
+msgstr "Insufficient privilege level to view user information."
 
 msgid "Key Pair"
-msgstr "密钥对"
+msgstr "Key Pair"
 
 msgid "Key Pair Help"
-msgstr "秘钥对帮助"
+msgstr "Key Pair Help"
 
 msgid "Key Pair Name"
-msgstr "密钥对名字"
+msgstr "Key Pair Name"
 
 msgid ""
 "Key Pairs are how you login to your instance after it is launched. Choose a "
 "key pair name you will recognize and paste your SSH public key into the "
 "space provided."
 msgstr ""
-"密钥对是您在实例启动后登陆进去的一种方式。选择一个您易于识别的密钥对名字，粘"
-"贴您的SSH公钥到空白处。"
+"Key Pairs are how you login to your instance after it is launched. Choose a "
+"key pair name you will recognise and paste your SSH public key into the "
+"space provided."
 
 msgid ""
 "Key Pairs are how you login to your instance after it is launched. Choose a "
 "key pair name you will recognize."
 msgstr ""
-"密钥对是您在实例启动后登陆进去的一种方式。选择一个您易于识别的密钥对名字。"
+"Key Pairs are how you login to your instance after it is launched. Choose a "
+"key pair name you will recognise."
 
 msgid "Killed"
-msgstr "终止"
+msgstr "Killed"
 
 msgid "Launch Instance"
-msgstr "启动实例"
+msgstr "Launch Instance"
 
 msgid "Load script from a file"
-msgstr "从文件加载脚本"
+msgstr "Load script from a file"
 
 msgid "Manual"
-msgstr "手动"
+msgstr "Manual"
 
 msgid "Max Port"
-msgstr "最大端口"
+msgstr "Max Port"
 
 msgid "Min Disk"
-msgstr "最小磁盘"
+msgstr "Min Disk"
 
 msgid "Min Disk (GB)"
-msgstr "最小磁盘 (GB)"
+msgstr "Min Disk (GB)"
 
 msgid "Min Port"
-msgstr "最小端口"
+msgstr "Min Port"
 
 msgid "Min RAM"
-msgstr "最小内存"
+msgstr "Min RAM"
 
 msgid "Min RAM (MB)"
-msgstr "最小内存 (MB)"
+msgstr "Min RAM (MB)"
 
 msgid "Min Ram"
-msgstr "最小内存"
+msgstr "Min Ram"
 
 msgid "Name"
-msgstr "名称"
+msgstr "Name"
 
 msgid "Network"
-msgstr "网络"
+msgstr "Network"
 
 msgid "Network Help"
-msgstr "网络帮助"
+msgstr "Network Help"
 
 msgid "Network characteristics"
-msgstr "网络特性"
+msgstr "Network characteristics"
 
 msgid "Networks"
-msgstr "网络"
+msgstr "Networks"
 
 msgid "Networks provide the communication channels for instances in the cloud."
-msgstr "在云中，网络为实例提供通信通道。"
+msgstr ""
+"Networks provide the communication channels for instances in the cloud."
 
 msgid "No"
-msgstr "否"
+msgstr "No"
 
 msgid "No available items"
-msgstr "没有可选项"
+msgstr "No available items"
 
 msgid "OK"
-msgstr "确定"
+msgstr "OK"
 
 msgid "Pending Delete"
-msgstr "等待删除完成"
+msgstr "Pending Delete"
 
 msgid "Physical Network"
-msgstr "物理网络"
+msgstr "Physical Network"
 
 msgid ""
 "Please provide the initial host name for the instance, the availability zone "
 "where it will be deployed, and the instance count. Increase the Count to "
 "create multiple instances with the same settings."
 msgstr ""
-"请提供实例初始化名字，它部署的可用区域和实例数。减少数量来创建与设置数一样的"
-"实例。"
+"Please provide the initial host name for the instance, the availability zone "
+"where it will be deployed, and the instance count. Increase the Count to "
+"create multiple instances with the same settings."
 
 msgid "Policy check failed."
-msgstr "策略检查失败。"
+msgstr "Policy check failed."
 
 msgid "Private"
-msgstr "私有"
+msgstr "Private"
 
 msgid "Private Key"
-msgstr "私钥"
+msgstr "Private Key"
 
 msgid "Profile"
-msgstr "概要"
+msgstr "Profile"
 
 msgid "Project"
-msgstr "项目"
+msgstr "Project"
 
 msgid "Project ID"
-msgstr "项目ID"
+msgstr "Project ID"
 
 msgid ""
 "Project networks are created by users.\n"
 "    These networks are fully isolated and are project-specific."
 msgstr ""
-"项目网络是由用户创建。\n"
-"这些网络完全隔离，为具体项目专用。"
+"Project networks are created by users.\n"
+"    These networks are fully isolated and are project-specific."
 
 msgid "Protected"
-msgstr "受保护的"
+msgstr "Protected"
 
 msgid "Protocol"
-msgstr "协议"
+msgstr "Protocol"
 
 msgid "Provider Network"
-msgstr "提供者网络"
+msgstr "Provider Network"
 
 msgid ""
 "Provider networks are created by administrators.\n"
 "    These networks map to an existing physical network in the data center."
 msgstr ""
-"提供者网络是由管理员创建。\n"
-"这些网络映射到数据中心里现存的物理网络。"
+"Provider networks are created by administrators.\n"
+"    These networks map to an existing physical network in the data centre."
 
 msgid "Public"
-msgstr "公有"
+msgstr "Public"
 
 msgid "Public Key"
-msgstr "公钥"
+msgstr "Public Key"
 
 msgid "Queued"
-msgstr "已排队"
+msgstr "Queued"
 
 msgid "RAM"
-msgstr "内存"
+msgstr "RAM"
 
 msgid "Re-order items using drag and drop"
-msgstr "使用拖放重新排序"
+msgstr "Re-order items using drag and drop"
 
 msgid "Remote"
-msgstr "远程"
+msgstr "Remote"
 
 msgid "Required"
-msgstr "必须"
+msgstr "Required"
 
 msgid "Root Disk"
-msgstr "根磁盘"
+msgstr "Root Disk"
 
 msgid "Save"
-msgstr "保存"
+msgstr "Save"
 
 msgid "Saving"
-msgstr "保存中"
+msgstr "Saving"
 
 msgid "Script size"
-msgstr "脚本大小"
+msgstr "Script size"
 
 msgid "Security Groups"
-msgstr "安全组"
+msgstr "Security Groups"
 
 msgid "Security Groups Help"
-msgstr "安全组帮助"
+msgstr "Security Groups Help"
 
 msgid ""
 "Security groups are project-specific and cannot be shared across projects."
-msgstr "安全组为具体项目专用，不能跨项目共享。"
+msgstr ""
+"Security groups are project-specific and cannot be shared across projects."
 
 msgid ""
 "Security groups define a set of IP filter rules that determine how network "
@@ -530,91 +557,95 @@ msgid ""
 "Security</b> view, then find the security group and click <b>Manage Rules</"
 "b>."
 msgstr ""
-"安全组定义了IP过滤规则集合，这些规则决定网络流量如何到达和离开实例。为了将来"
-"为实例定义访问可选规则，用户可以往一个已存在的安全组添加额外的规则。创建额外"
-"规则，到<b>计算 | 访问 & 安全</b>视图，然后找到安全组，点击<b>规则管理</b>"
+"Security groups define a set of IP filter rules that determine how network "
+"traffic flows to and from an instance. Users can add additional rules to an "
+"existing security group to further define the access options for an "
+"instance. To create additional rules, go to the <b>Compute | Access & "
+"Security</b> view, then find the security group and click <b>Manage Rules</"
+"b>."
 
 msgid "Segmentation ID"
-msgstr "段ID"
+msgstr "Segmentation ID"
 
 msgid "Select Boot Source"
-msgstr "选择源"
+msgstr "Select Boot Source"
 
 msgid "Select Source"
-msgstr "选择源"
+msgstr "Select Source"
 
 msgid "Select Source Help"
-msgstr "选择源帮助"
+msgstr "Select Source Help"
 
 msgid "Select a key pair from the available key pairs below."
-msgstr "从以下可用的密钥对选择一个"
+msgstr "Select a key pair from the available key pairs below."
 
 msgid "Select a source from those listed below."
-msgstr "从以下列表选择一个源。"
+msgstr "Select a source from those listed below."
 
 msgid "Select an item from Available items below"
-msgstr "从以下可选项中选择一项"
+msgstr "Select an item from Available items below"
 
 msgid "Select at least one network"
-msgstr "至少选择一个网络"
+msgstr "Select at least one network"
 
 msgid "Select networks from those listed below."
-msgstr "从下拉列表选择网络"
+msgstr "Select networks from those listed below."
 
 msgid "Select one"
-msgstr "选择一个"
+msgstr "Select one"
 
 msgid "Select one or more"
-msgstr "选择一个或多个"
+msgstr "Select one or more"
 
 msgid "Select one or more security groups from the available groups below."
-msgstr "从以下可用的组中选择一个或多个安全组。"
+msgstr "Select one or more security groups from the available groups below."
 
 msgid "Select the security groups."
-msgstr "选择安全组。"
+msgstr "Select the security groups."
 
 #, python-format
 msgid "Service type is not enabled: %(desiredType)s"
-msgstr "服务类型未激活：%(desiredType)s"
+msgstr "Service type is not enabled: %(desiredType)s"
 
 #, python-format
 msgid "Setting is not enabled: %(setting)s"
-msgstr "配置没有启用：%(setting)s"
+msgstr "Setting is not enabled: %(setting)s"
 
 msgid "Shared"
-msgstr "共享的"
+msgstr "Shared"
 
 msgid "Show events"
-msgstr "显示事件"
+msgstr "Show events"
 
 msgid "Size"
-msgstr "大小"
+msgstr "Size"
 
 msgid "Size (GB)"
-msgstr "大小(GB)"
+msgstr "Size (GB)"
 
 msgid "Snapshot"
-msgstr "快照"
+msgstr "Snapshot"
 
 msgid "Status"
-msgstr "状态"
+msgstr "Status"
 
 msgid "Subnets Associated"
-msgstr "子网已连接"
+msgstr "Subnets Associated"
 
 #, python-format
 msgid "Successfully created key pair %(name)s."
-msgstr "成功创建密钥对%(name)s"
+msgstr "Successfully created key pair %(name)s."
 
 #, python-format
 msgid "Successfully imported key pair %(name)s."
-msgstr "成功导入密钥对%(name)s"
+msgstr "Successfully imported key pair %(name)s."
 
 msgid ""
 "The flavor you select for an instance determines the amount of compute, "
 "storage and memory resources that will be carved out for the instance."
 msgstr ""
-"您为实例选择的类型决定计算、存储和内存资源数量，这些资源将会决定实例配置。"
+"The flavour you select for an instance determines the amount of compute, "
+"storage and memory resources that will be carved out for the instance."
 
 msgid ""
 "The flavor you select must have enough resources allocated to support the "
@@ -622,17 +653,21 @@ msgid ""
 "enough resources for your instance are identified on the <b>Available</b> "
 "table with a yellow warning icon."
 msgstr ""
-"您所选择的云主机类型必须有足够的资源用来支持您想要创建的实例类型。未能给您的"
-"实例提供足够资源的云主机会被表<b>Available</b>中的一个黄色警告符号标识出。"
+"The flavour you select must have enough resources allocated to support the "
+"type of instance you are trying to create. Flavours that do not provide "
+"enough resources for your instance are identified on the <b>Available</b> "
+"table with a yellow warning icon."
 
 #, python-format
 msgid ""
 "The instance count must not exceed your quota available of "
 "%(maxInstanceCount)s instances"
-msgstr "实例数不能超过您的最大可用%(maxInstanceCount)s 实例数"
+msgstr ""
+"The instance count must not exceed your quota available of "
+"%(maxInstanceCount)s instances"
 
 msgid "The key pair allows you to SSH into the instance."
-msgstr "密钥对允许您SSH登陆实例。"
+msgstr "The key pair allows you to SSH into the instance."
 
 #, python-format
 msgid ""
@@ -640,307 +675,314 @@ msgid ""
 "root disk. Select a flavor with a larger root disk or use a different image "
 "source."
 msgstr ""
-"选择的源镜像需要一个至少%(minDisk)s GB根磁盘的类型。请选择一个更大根磁盘的类"
-"型或使用一个不同源镜像。"
+"The selected image source requires a flavour with at least %(minDisk)s GB of "
+"root disk. Select a flavour with a larger root disk or use a different image "
+"source."
 
 #, python-format
 msgid ""
 "The selected image source requires a flavor with at least %(minRam)s MB of "
 "RAM. Select a flavor with more RAM or use a different image source."
 msgstr ""
-"选择的源镜像需要一个至少%(minRam)s MB内存的类型。请选择一个更大内存的类型或使"
-"用一个不同源镜像。"
+"The selected image source requires a flavour with at least %(minRam)s MB of "
+"RAM. Select a flavour with more RAM or use a different image source."
 
 msgid "The status indicates whether the network has an active connection."
-msgstr "状态表明网络是否处于活跃连接。"
+msgstr "The status indicates whether the network has an active connection."
 
 msgid "The step has completed successfully. No events to display."
-msgstr "本步骤已成功完成，没有可以显示的事件。"
+msgstr "The step has completed successfully. No events to display."
 
 msgid ""
 "The subnet identifies a sub-section of a network. A subnet is specified in "
 "CIDR format.\n"
 "    A typical CIDR format looks like <samp>192.xxx.x.x/24</samp>."
 msgstr ""
-"一个子网确定了一个网段，被指定为CIDR格式。\n"
-"典型的CIDR格式类似<samp>192.xxx.x.x/24</samp>。"
+"The subnet identifies a sub-section of a network. A subnet is specified in "
+"CIDR format.\n"
+"    A typical CIDR format looks like <samp>192.xxx.x.x/24</samp>."
 
 #, python-format
 msgid "The volume size must be at least %(minVolumeSize)s GB"
-msgstr "卷大小至少%(minVolumeSize)s GB"
+msgstr "The volume size must be at least %(minVolumeSize)s GB"
 
 #, python-format
 msgid ""
 "There are two ways to generate a key pair. From a Linux system, generate the "
 "key pair with the <samp>%(genKeyPairCmd)s</samp> command:"
 msgstr ""
-"有两种方式创建秘钥对。从一个Linux系统，使用<samp>%(genKeyPairCmd)s</samp> 命"
-"令生成秘钥对。"
+"There are two ways to generate a key pair. From a Linux system, generate the "
+"key pair with the <samp>%(genKeyPairCmd)s</samp> command:"
 
 #, python-format
 msgid ""
 "This command generates a pair of keys: a private key (%(privateKeyPath)s) "
 "and a public key (%(publicKeyPath)s)."
 msgstr ""
-"这个命令生成一个秘钥对：私钥(%(privateKeyPath)s)和公钥(%(publicKeyPath)s)。"
+"This command generates a pair of keys: a private key (%(privateKeyPath)s) "
+"and a public key (%(publicKeyPath)s)."
 
 msgid ""
 "This flavor requires more RAM than your quota allows. Please select a "
 "smaller flavor or decrease the instance count."
 msgstr ""
-"这个类型需要比您的配额允许的更多的内存。请选择一个小的类型或减少实例数。"
+"This flavour requires more RAM than your quota allows. Please select a "
+"smaller flavour or decrease the instance count."
 
 msgid ""
 "This flavor requires more VCPUs than your quota allows. Please select a "
 "smaller flavor or decrease the instance count."
 msgstr ""
-"这个类型需要比您的配额允许的更多的虚拟处理器核数。请选择一个小的类型或减少实"
-"例数。"
+"This flavour requires more VCPUs than your quota allows. Please select a "
+"smaller flavour or decrease the instance count."
 
 msgid "This is your new key pair. Copy this information and keep it secure."
-msgstr "这是您新的密钥对。复制这些信息并安全保存。"
+msgstr "This is your new key pair. Copy this information and keep it secure."
 
 msgid "Total Disk"
-msgstr "磁盘总计"
+msgstr "Total Disk"
 
 msgid "Total Instances"
-msgstr "实例总计"
+msgstr "Total Instances"
 
 msgid "Total RAM"
-msgstr "内存总计"
+msgstr "Total RAM"
 
 msgid "Total VCPUs"
-msgstr "虚拟机处理器总计"
+msgstr "Total VCPUs"
 
 msgid "Type"
-msgstr "类型"
+msgstr "Type"
 
 msgid ""
 "Type your script directly into the Customization Script field. If your "
 "browser supports the HTML5 File API, you may choose to load your script from "
 "a file. The size of your script should not exceed 16 Kb."
 msgstr ""
-"直接在自定义脚本输入框中写入您的脚本。如果您的浏览器支持HTML5文件API，你可以"
-"选择从文件加载您的脚本。您的脚本的大小不能超过16Kb。"
+"Type your script directly into the Customization Script field. If your "
+"browser supports the HTML5 File API, you may choose to load your script from "
+"a file. The size of your script should not exceed 16 Kb."
 
 msgid "Unable to create the domain."
-msgstr "无法创建域。"
+msgstr "Unable to create the domain."
 
 msgid "Unable to create the keypair."
-msgstr "无法创建密钥对。"
+msgstr "Unable to create the keypair."
 
 msgid "Unable to create the network."
-msgstr "无法创建网络。"
+msgstr "Unable to create the network."
 
 msgid "Unable to create the project."
-msgstr "无法创建项目。"
+msgstr "Unable to create the project."
 
 msgid "Unable to create the role."
-msgstr "无法创建角色。"
+msgstr "Unable to create the role."
 
 msgid "Unable to create the server."
-msgstr "无法创建服务器。"
+msgstr "Unable to create the server."
 
 msgid "Unable to create the subnet."
-msgstr "无法创建子网。"
+msgstr "Unable to create the subnet."
 
 msgid "Unable to create the user."
-msgstr "无法创建用户。"
+msgstr "Unable to create the user."
 
 msgid "Unable to delete the domain."
-msgstr "无法删除域。"
+msgstr "Unable to delete the domain."
 
 msgid "Unable to delete the domains."
-msgstr "无法删除域。"
+msgstr "Unable to delete the domains."
 
 msgid "Unable to delete the project."
-msgstr "无法删除项目。"
+msgstr "Unable to delete the project."
 
 msgid "Unable to delete the projects."
-msgstr "无法删除项目。"
+msgstr "Unable to delete the projects."
 
 msgid "Unable to delete the role."
-msgstr "无法删除角色。"
+msgstr "Unable to delete the role."
 
 msgid "Unable to delete the roles."
-msgstr "无法删除角色。"
+msgstr "Unable to delete the roles."
 
 msgid "Unable to delete the user."
-msgstr "无法删除用户。"
+msgstr "Unable to delete the user."
 
 msgid "Unable to delete the users."
-msgstr "无法删除用户。"
+msgstr "Unable to delete the users."
 
 msgid "Unable to edit the aggregate extra specs."
-msgstr "无法编辑聚合额外的规格。"
+msgstr "Unable to edit the aggregate extra specs."
 
 msgid "Unable to edit the domain."
-msgstr "无法编辑域。"
+msgstr "Unable to edit the domain."
 
 msgid "Unable to edit the flavor extra specs."
-msgstr "无法编辑类型额外的规格。"
+msgstr "Unable to edit the flavour extra specs."
 
 msgid "Unable to edit the image custom properties."
-msgstr "无法编辑镜像的定制属性。"
+msgstr "Unable to edit the image custom properties."
 
 msgid "Unable to edit the project."
-msgstr "无法编辑项目。"
+msgstr "Unable to edit the project."
 
 msgid "Unable to edit the role."
-msgstr "无法编辑角色。"
+msgstr "Unable to edit the role."
 
 msgid "Unable to edit the user."
-msgstr "无法编辑用户。"
+msgstr "Unable to edit the user."
 
 msgid "Unable to fetch the service catalog."
-msgstr "无法取得服务目录"
+msgstr "Unable to fetch the service catalogue."
 
 msgid "Unable to get the Keystone service version."
-msgstr "无法获取Keystone服务版本"
+msgstr "Unable to get the Keystone service version."
 
 msgid "Unable to grant the role."
-msgstr "无法授予角色"
+msgstr "Unable to grant the role."
 
 msgid "Unable to import the keypair."
-msgstr "无法导入密钥对。"
+msgstr "Unable to import the keypair."
 
 msgid "Unable to retrieve settings."
-msgstr "无法获取配置。"
+msgstr "Unable to retrieve settings."
 
 msgid "Unable to retrieve the aggregate extra specs."
-msgstr "无法获取聚合额外的规格。"
+msgstr "Unable to retrieve the aggregate extra specs."
 
 msgid "Unable to retrieve the availability zones."
-msgstr "无法获取可用域。"
+msgstr "Unable to retrieve the availability zones."
 
 msgid "Unable to retrieve the current user session."
-msgstr "无法获取当前用户会话。"
+msgstr "Unable to retrieve the current user session."
 
 msgid "Unable to retrieve the domain."
-msgstr "无法获取域。"
+msgstr "Unable to retrieve the domain."
 
 msgid "Unable to retrieve the domains."
-msgstr "无法获取域。"
+msgstr "Unable to retrieve the domains."
 
 msgid "Unable to retrieve the extensions."
-msgstr "无法获取扩展。"
+msgstr "Unable to retrieve the extensions."
 
 msgid "Unable to retrieve the flavor extra specs."
-msgstr "无法获取类型额外的规格。"
+msgstr "Unable to retrieve the flavour extra specs."
 
 msgid "Unable to retrieve the flavor."
-msgstr "无法获取类型。"
+msgstr "Unable to retrieve the flavour."
 
 msgid "Unable to retrieve the flavors."
-msgstr "无法获取类型。"
+msgstr "Unable to retrieve the flavours."
 
 msgid "Unable to retrieve the image custom properties."
-msgstr "无法获得镜像的定制属性。"
+msgstr "Unable to retrieve the image custom properties."
 
 msgid "Unable to retrieve the image."
-msgstr "无法获取镜像。"
+msgstr "Unable to retrieve the image."
 
 msgid "Unable to retrieve the images."
-msgstr "无法获取镜像。"
+msgstr "Unable to retrieve the images."
 
 msgid "Unable to retrieve the keypairs."
-msgstr "无法获取密钥对。"
+msgstr "Unable to retrieve the keypairs."
 
 msgid "Unable to retrieve the limits."
-msgstr "无法获取限制。"
+msgstr "Unable to retrieve the limits."
 
 msgid "Unable to retrieve the namespaces."
-msgstr "无法获取命名空间。"
+msgstr "Unable to retrieve the namespaces."
 
 msgid "Unable to retrieve the networks."
-msgstr "无法获取网络。"
+msgstr "Unable to retrieve the networks."
 
 msgid "Unable to retrieve the ports."
-msgstr "无法获取端口。"
+msgstr "Unable to retrieve the ports."
 
 msgid "Unable to retrieve the project."
-msgstr "无法获取项目。"
+msgstr "Unable to retrieve the project."
 
 msgid "Unable to retrieve the projects."
-msgstr "无法获取项目。"
+msgstr "Unable to retrieve the projects."
 
 msgid "Unable to retrieve the role."
-msgstr "无法获取角色。"
+msgstr "Unable to retrieve the role."
 
 msgid "Unable to retrieve the roles."
-msgstr "无法获取角色。"
+msgstr "Unable to retrieve the roles."
 
 msgid "Unable to retrieve the security groups."
-msgstr "无法获取安全组。"
+msgstr "Unable to retrieve the security groups."
 
 msgid "Unable to retrieve the server."
-msgstr "无法获取服务器。"
+msgstr "Unable to retrieve the server."
 
 msgid "Unable to retrieve the subnets."
-msgstr "无法获取子网。"
+msgstr "Unable to retrieve the subnets."
 
 msgid "Unable to retrieve the user."
-msgstr "无法获取用户。"
+msgstr "Unable to retrieve the user."
 
 msgid "Unable to retrieve the users."
-msgstr "无法获取用户。"
+msgstr "Unable to retrieve the users."
 
 msgid "Unable to retrieve the volume snapshots."
-msgstr "无法获取卷快照。"
+msgstr "Unable to retrieve the volume snapshots."
 
 msgid "Unable to retrieve the volumes."
-msgstr "无法获取卷。"
+msgstr "Unable to retrieve the volumes."
 
 msgid "Unable to validate the template."
-msgstr "无法验证模板。"
+msgstr "Unable to validate the template."
 
 msgid "Up"
-msgstr "正常"
+msgstr "Up"
 
 msgid "Update Aggregate Metadata"
-msgstr "更新聚合元数据"
+msgstr "Update Aggregate Metadata"
 
 msgid "Update Flavor Metadata"
-msgstr "更新云主机类型的元数据"
+msgstr "Update Flavour Metadata"
 
 msgid "Update Image Metadata"
-msgstr "更新镜像元数据"
+msgstr "Update Image Metadata"
 
 msgid "Updated"
-msgstr "已更新"
+msgstr "Updated"
 
 msgid "User ID"
-msgstr "用户ID"
+msgstr "User ID"
 
 msgid "User Name"
-msgstr "用户名"
+msgstr "User Name"
 
 msgid "VCPUS"
-msgstr "虚拟内核"
+msgstr "VCPUS"
 
 msgid "Visibility"
-msgstr "可见"
+msgstr "Visibility"
 
 msgid "Volume"
-msgstr "卷"
+msgstr "Volume"
 
 msgid "Volume Snapshot"
-msgstr "卷快照"
+msgstr "Volume Snapshot"
 
 msgid "Volume size is required and must be an integer"
-msgstr "卷大小是必须的而且必须为整数。"
+msgstr "Volume size is required and must be an integer"
 
 msgid ""
 "Volumes can only be attached to 1 active instance at a time. Please either "
 "set your instance count to 1 or select a different source type."
 msgstr ""
-"同一时刻，卷只能绑定到一个活跃的实例。请设置您的实例数为1或者选择一个不同的源"
-"类型。"
+"Volumes can only be attached to 1 active instance at a time. Please either "
+"set your instance count to 1 or select a different source type."
 
 msgid ""
 "When selecting volume as boot source, please ensure the instance's "
 "availability zone is compatible with your volume's availability zone."
-msgstr "当选择卷为启动源时，请确保实例可用域与您的卷可用域兼容。"
+msgstr ""
+"When selecting volume as boot source, please ensure the instance's "
+"availability zone is compatible with your volume's availability zone."
 
 msgid ""
 "When the <b>Admin State</b> for a network is set to <b>Up</b>,\n"
@@ -948,15 +990,16 @@ msgid ""
 "b> to <b>Down</b>\n"
 "    if you are not ready for other users to access the network."
 msgstr ""
-"当网络的<b>Admin State</b> 被设置为<b>Up</b>,\n"
-"网络将会是可用的。如果你还没有准备让别人访问该网络，\n"
-"可以把 <b>Admin State</b> 设置为<b>Down</b>。"
+"When the <b>Admin State</b> for a network is set to <b>Up</b>,\n"
+"    then the network is available for use. You can set the <b>Admin State</"
+"b> to <b>Down</b>\n"
+"    if you are not ready for other users to access the network."
 
 msgid "Yes"
-msgstr "是"
+msgstr "Yes"
 
 msgid "bytes"
-msgstr "字节数"
+msgstr "bytes"
 
 msgid "{$ row['provider:network_type'] $}"
 msgstr "{$ row['provider:network_type'] $}"

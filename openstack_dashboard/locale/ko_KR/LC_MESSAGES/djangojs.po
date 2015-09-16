@@ -5,27 +5,45 @@
 # Translators:
 # Ian Y. Choi <ianyrchoi@gmail.com>, 2015
 # Sungjin Kang <potopro@gmail.com>, 2015
+# Ian Y. Choi <ianyrchoi@gmail.com>, 2015. #zanata
+# OpenStack Infra <zanata@openstack.org>, 2015. #zanata
+# Sungjin Kang <gang.sungjin@gmail.com>, 2015. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: Horizon\n"
+"Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-09-03 04:49+0000\n"
-"PO-Revision-Date: 2015-09-02 04:23+0000\n"
-"Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
-"Language-Team: Korean (Korea) (http://www.transifex.com/openstack/horizon/"
-"language/ko_KR/)\n"
+"POT-Creation-Date: 2015-09-16 18:25+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"PO-Revision-Date: 2015-09-16 04:57+0000\n"
+"Last-Translator: Ian Y. Choi <ianyrchoi@gmail.com>\n"
+"Language-Team: Korean (Korea) (http://www.transifex.com/openstack/horizon/"
+"language/ko_KR/)\n"
 "Generated-By: Babel 2.0\n"
-"Language: ko_KR\n"
+"Language: ko-KR\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Zanata 3.7.1\n"
 
 msgid "(Max: 16Kb)"
 msgstr "(최대: 16Kb)"
 
+msgid "(Modified)"
+msgstr "(수정됨)"
+
 msgid "(None)"
 msgstr "(None)"
+
+msgid ""
+"<li><b>Image (with Create New Volume checked)</b>: This options uses an "
+"image to boot the instance, and creates a new volume to persist instance "
+"data. You can specify volume size and whether to delete the volume on "
+"termination of the instance.</li>"
+msgstr ""
+"<li><b>이미지 (새 볼륨 생성 체크 포함)</b>: 이 옵션을 인스턴스를 부팅하는데 "
+"이미지를 사용하고, 인스턴스 데이터를 영구보존하기 위한 새로운 볼륨을 생성합니"
+"다. 볼륨 크기 및 인스턴스 종료시 해당 볼륨을 삭제할 것인지를 선택할 수 있습니"
+"다.</li>"
 
 msgid "<li><b>Image</b>: This option uses an image to boot the instance.</li>"
 msgstr ""
@@ -38,6 +56,41 @@ msgid ""
 msgstr ""
 "<li><b>인스턴스 스냅샷</b>:이 옵션은 인스턴스를 부팅하기 위해 인스턴스 스냅샷"
 "을 사용합니다.</li>"
+
+msgid ""
+"<li><b>Volume Snapshot</b>: This option uses a volume snapshot to boot the "
+"instance, and creates a new volume to persist instance data. You can choose "
+"to delete the volume on termination of the instance.</li>"
+msgstr ""
+"<li><b>볼륨 스냅샷</b>: 이 옵션은 인스턴스를 부팅하는데 볼륨 스냅샷을 사용하"
+"고, 인스턴스 데이터를 영구보존하기 위한 새로운 볼륨을 생성합니다. 인스턴스 종"
+"료시 해당 볼륨을 삭제하도록 선택할 수 있습니다.</li>"
+
+msgid ""
+"<li><b>Volume</b>: This option uses a volume that already exists. It does "
+"not create a new volume. You can choose to delete the volume on termination "
+"of the instance. <em>Note: when selecting Volume, you can only launch one "
+"instance.</em></li>"
+msgstr ""
+"<li><b>볼륨</b>: 이 옵션은 이미 존재하는 볼륨을 사용합니다. 새로운 볼륨을 생"
+"성하지 않습니다. 인스턴스 종료시 해당 볼륨을 삭제하도록 선택할 수 있습니다. "
+"<em>노트: 볼륨 선택시, 한 개의 인스턴스만 구동할 수 있습니다.</em></li>"
+
+msgid ""
+"A floating IP allows instances to be addressable from an external network.\n"
+"    Floating IPs are not allocated to instances at creation time and may be "
+"assigned\n"
+"    after the instance is created. To attach a floating IP, go to the "
+"<b>Instances</b>\n"
+"    view and click the <b>Actions</b> menu to the right of an instance.\n"
+"    Then, select the <b>Associate Floating IP</b> option and enter the "
+"necessary details."
+msgstr ""
+"유동 IP는 외부 네트워크에서 주소를 이용하여 인스턴스에 접근할 \n"
+"    수 있게 합니다. 유동 IP는 인스턴스가 생성 중에는 할당할 수 없으며, \n"
+"    생성된 후 할당이 가능합니다. 유동 IP 할당은 <b>인스턴스</b> 뷰로 \n"
+"    이동하여, 각 인스턴스의 오른쪽에 있는 <b>작업</b> 메뉴를 클릭합니다. \n"
+"   그런뒤 <b>유동 IP 할당</b> 옵션을 선택하여 필요한 정보를 입력합니다."
 
 msgid ""
 "A key pair allows you to SSH into your newly created instance. You may "
@@ -72,6 +125,21 @@ msgid ""
 msgstr "관리자는 인스턴스에 부착하여 사용 가능한 플로팅 IP 풀을 셋업합니다."
 
 msgid ""
+"An <b>External</b> network is set up by an administrator.\n"
+"    If you want an instance to communicate outside of the data center,\n"
+"    then attach a router between your <b>Project</b> network and the "
+"<b>External</b> network.\n"
+"    You can use the <b>Network Topology</b> view to connect the router to "
+"the two networks."
+msgstr ""
+"<b>외부</b> 네트워크는 관리자에 의해 셋업됩니다.\n"
+"  인스턴스를 데이터 센터 외부와 통신시키고자 할 때에,\n"
+"  <b>프로젝트</b> 네트워크와 <b>외부</b> 네트워크 사이에 있는 라우터에 연결합"
+"니다.\n"
+"  <b>네트워크 토폴로지</b>를 사용하여 라우터가 두 네트워크에 연결되어 있는지 "
+"볼 수 있습니다."
+
+msgid ""
 "An advanced option available when launching an instance is disk "
 "partitioning. There are two disk partition options. Selecting <b>Automatic</"
 "b> resizes the disk and sets it to a single partition. Selecting <b>Manual</"
@@ -94,6 +162,9 @@ msgstr "자동"
 
 msgid "Availability Zone"
 msgstr "가용 영역"
+
+msgid "Boot Source"
+msgstr "부팅 소스"
 
 msgid "Cancel"
 msgstr "취소"
@@ -137,18 +208,6 @@ msgstr "새로운 볼륨 생성"
 msgid "Created"
 msgstr "생성"
 
-#, python-format
-msgid ""
-"Custom scripts are attached to instances to perform specific actions when "
-"the instance is launched. For example, if you are unable to install <samp>"
-"%(cloutInit)s</samp> inside a guest operating system, you can use a custom "
-"script to get a public key and add it to the user account."
-msgstr ""
-"사용자 스크립트가 인스턴스에 붙어 해당 인스턴스가 구동될 때 특정한 액션을 수"
-"행합니다. 예를 들어, 게스트 운영체제 내에 <samp>%(cloutInit)s</samp>를 설치"
-"할 수 없는 경우, 사용자 스크립트를 사용하여 공개 키를 가져오고 사용자 계정에 "
-"해당 공개 키를 추가 가능합니다."
-
 msgid "Customization Script"
 msgstr "사용자 스크립트"
 
@@ -187,6 +246,9 @@ msgstr "Ephemeral 디스크"
 
 msgid "Ether Type"
 msgstr "Ether 형식"
+
+msgid "Event log is not available."
+msgstr "이벤트 로그를 사용할 수 없습니다."
 
 #, python-format
 msgid "Extension is not enabled: %(extension)s."
@@ -233,6 +295,23 @@ msgstr ""
 "네트워크가 공유 상태이면, 프로젝트 내 모든 사용자들은 네트워크에 접근 가능합"
 "니다."
 
+msgid ""
+"If you want to create an instance that uses ephemeral storage, meaning the "
+"instance data is lost when the instance is deleted, then choose one of the "
+"following boot sources:"
+msgstr ""
+"인스턴스가 삭제될 때 인스턴스 데이터를 잃게 되는 임시 스토리지를 사용하는 인"
+"스턴스를 생성하는 경우, 다음 부트 소스 중 하나를 선택합니다:"
+
+msgid ""
+"If you want to create an instance that uses persistent storage, meaning the "
+"instance data is saved when the instance is deleted, then select one of the "
+"following boot options:"
+msgstr ""
+"인스턴스가 삭제되어도 인스턴스 데이터가 유지되는 것을 의미하는 영구적인 스토"
+"리지를 사용하는 인스턴스를 생성하고자 하는 경우, 다음 부트 옵션 중 하나를 선"
+"택합니다:"
+
 msgid "Image"
 msgstr "이미지"
 
@@ -264,7 +343,7 @@ msgid "Instance count is required and must be an integer of at least 1"
 msgstr "인스턴스 개수가 필수이며 적어도 1 이상의 정수값이어야 합니다"
 
 msgid "Insufficient privilege level to view user information."
-msgstr "사용자 정보를 보기에 불충분한 권한 수준입니다."
+msgstr "사용자 정보를 볼 수 있는 권한이 없습니다."
 
 msgid "Key Pair"
 msgstr "키 페어"
@@ -323,9 +402,6 @@ msgstr "최소 RAM (MB)"
 msgid "Min Ram"
 msgstr "최소 램"
 
-msgid "Modified"
-msgstr "수정됨"
-
 msgid "Name"
 msgstr "이름"
 
@@ -377,6 +453,13 @@ msgstr "프로젝트"
 msgid "Project ID"
 msgstr "프로젝트 ID"
 
+msgid ""
+"Project networks are created by users.\n"
+"    These networks are fully isolated and are project-specific."
+msgstr ""
+"프로젝트 네트워크는 사용자에 의해 생성됩니다.\n"
+"  해당 네트워크는 완전히 격리되어 있으며 프로젝트 별로 관리됩니다."
+
 msgid "Protected"
 msgstr "보호됨"
 
@@ -384,7 +467,14 @@ msgid "Protocol"
 msgstr "프로토콜"
 
 msgid "Provider Network"
-msgstr "공급자 네트워크"
+msgstr "프로바이더 네트워크"
+
+msgid ""
+"Provider networks are created by administrators.\n"
+"    These networks map to an existing physical network in the data center."
+msgstr ""
+"프로바이더 네트워크는 관리자에 의해 생성됩니다.\n"
+"  해당 네트워크는 데이터 센터 내 존재하는 물리 네트워크에 매핑됩니다."
 
 msgid "Public"
 msgstr "공용"
@@ -418,9 +508,6 @@ msgstr "Saving"
 
 msgid "Script size"
 msgstr "스크립트 크기"
-
-msgid "Script size > 16Kb"
-msgstr "스크립트 크기 > 16Kb"
 
 msgid "Security Groups"
 msgstr "시큐리티 그룹"
@@ -483,6 +570,9 @@ msgstr "설정을 활성하지 못했습니다: %(setting)s"
 msgid "Shared"
 msgstr "공유"
 
+msgid "Show events"
+msgstr "이벤트 보기"
+
 msgid "Size"
 msgstr "크기"
 
@@ -524,9 +614,6 @@ msgstr ""
 msgid "The key pair allows you to SSH into the instance."
 msgstr "키 페어를 통해 인스턴스에 SSH 접속을 할 수 있습니다."
 
-msgid "The maximum script size is 16Kb."
-msgstr "최대 스크립트 크기는 16Kb 입니다."
-
 #, python-format
 msgid ""
 "The selected image source requires a flavor with at least %(minDisk)s GB of "
@@ -546,6 +633,18 @@ msgstr ""
 
 msgid "The status indicates whether the network has an active connection."
 msgstr "해당 상태는 네트워크가 활성화된 연결을 이루고 있는지를 가리킵니다."
+
+msgid "The step has completed successfully. No events to display."
+msgstr "이번 단계에서 성공적으로 완료하였습니다. 보여줄 이벤트가 없습니다."
+
+msgid ""
+"The subnet identifies a sub-section of a network. A subnet is specified in "
+"CIDR format.\n"
+"    A typical CIDR format looks like <samp>192.xxx.x.x/24</samp>."
+msgstr ""
+"서브넷은 네트워크의 서브섹션을 식별합니다. 서브넷은 CIDR 포맷으로 구체화합니"
+"다.\n"
+"  일반적인 CIDR 포맷은 <samp>192.xxx.x.x/24</samp>와 같습니다."
 
 #, python-format
 msgid "The volume size must be at least %(minVolumeSize)s GB"
@@ -656,8 +755,17 @@ msgstr "사용자를 삭제하지 못했습니다."
 msgid "Unable to delete the users."
 msgstr "사용자를 삭제하지 못했습니다."
 
+msgid "Unable to edit the aggregate extra specs."
+msgstr "집합에 대한 추가 사양을 수정할 수 없습니다."
+
 msgid "Unable to edit the domain."
 msgstr "도메인을 수정하지 못했습니다."
+
+msgid "Unable to edit the flavor extra specs."
+msgstr "Flavor 추가 사양을 수정할 수 없습니다."
+
+msgid "Unable to edit the image custom properties."
+msgstr "이미지 사용자 정의 속성을 수정하지 못했습니다."
 
 msgid "Unable to edit the project."
 msgstr "프로젝트를 수정하지 못했습니다."
@@ -683,6 +791,9 @@ msgstr "키페어를 가져오지 못했습니다."
 msgid "Unable to retrieve settings."
 msgstr "설정을 가져오지 못했습니다."
 
+msgid "Unable to retrieve the aggregate extra specs."
+msgstr "집합에 대한 추가 사양을 가져올 수 없습니다."
+
 msgid "Unable to retrieve the availability zones."
 msgstr "가용성 존을 가져오지 못했습니다."
 
@@ -699,13 +810,16 @@ msgid "Unable to retrieve the extensions."
 msgstr "확장을 가져오지 못했습니다."
 
 msgid "Unable to retrieve the flavor extra specs."
-msgstr "Flavor 추가 스펙을 가져오지 못했습니다."
+msgstr "Flavor 추가 사양을 가져오지 못했습니다."
 
 msgid "Unable to retrieve the flavor."
 msgstr "Flavor를 가져오지 못했습니다."
 
 msgid "Unable to retrieve the flavors."
 msgstr "Flavor를 가져오지 못했습니다."
+
+msgid "Unable to retrieve the image custom properties."
+msgstr "이미지 사용자 정의 속성을 찾지 못했습니다."
 
 msgid "Unable to retrieve the image."
 msgstr "이미지를 가져오지 못했습니다."
@@ -761,6 +875,9 @@ msgstr "볼륨 스냅샷을 찾지 못했습니다."
 msgid "Unable to retrieve the volumes."
 msgstr "볼륨을 가져오지 못했습니다."
 
+msgid "Unable to validate the template."
+msgstr "템플릿 유효성을 확인할 수 없습니다."
+
 msgid "Up"
 msgstr "Up"
 
@@ -781,6 +898,9 @@ msgstr "사용자 ID"
 
 msgid "User Name"
 msgstr "사용자 이름"
+
+msgid "VCPUS"
+msgstr "VCPUS"
 
 msgid "Visibility"
 msgstr "가시성"
@@ -808,8 +928,21 @@ msgstr ""
 "볼륨을 부팅 소스로 선택시, 인스턴스의 가용성 존이 볼륨의 가용성 존과 호환되는"
 "지 확인해주세요."
 
+msgid ""
+"When the <b>Admin State</b> for a network is set to <b>Up</b>,\n"
+"    then the network is available for use. You can set the <b>Admin State</"
+"b> to <b>Down</b>\n"
+"    if you are not ready for other users to access the network."
+msgstr ""
+"네트워크의 <b>관리 상태</b>가 <b>UP</b>으로 설정되어 있을 경우, \n"
+"    네트워크를 사용할 수 있습니다. <b>관리 상태</b>를 <b>Down</b>로 \n"
+"    설정한다면 다른 사용자들이 네트워크에 접근할 수 없습니다."
+
 msgid "Yes"
 msgstr "예"
 
 msgid "bytes"
 msgstr "bytes"
+
+msgid "{$ row['provider:network_type'] $}"
+msgstr "{$ row['provider:network_type'] $}"

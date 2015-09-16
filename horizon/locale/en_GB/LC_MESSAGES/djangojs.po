@@ -5,21 +5,24 @@
 # Translators:
 # Andi Chandler <andi@gowling.com>, 2014
 # Rob Cresswell <robert.cresswell@outlook.com>, 2015
+# Andi Chandler <andi@gowling.com>, 2015. #zanata
+# OpenStack Infra <zanata@openstack.org>, 2015. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: Horizon\n"
+"Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-08-26 20:04+0000\n"
-"PO-Revision-Date: 2015-08-26 16:23+0000\n"
-"Last-Translator: Rob Cresswell <robert.cresswell@outlook.com>\n"
-"Language-Team: English (United Kingdom) (http://www.transifex.com/openstack/"
-"horizon/language/en_GB/)\n"
+"POT-Creation-Date: 2015-09-16 18:25+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"PO-Revision-Date: 2015-09-16 03:07+0000\n"
+"Last-Translator: Andi Chandler <andi@gowling.com>\n"
+"Language-Team: English (United Kingdom) (http://www.transifex.com/openstack/"
+"horizon/language/en_GB/)\n"
 "Generated-By: Babel 2.0\n"
-"Language: en_GB\n"
+"Language: en-GB\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Zanata 3.7.1\n"
 
 #, python-format
 msgid "%s GB"
@@ -348,8 +351,14 @@ msgstr ""
 msgid "You have selected %s. "
 msgstr "You have selected %s. "
 
+msgid "description"
+msgstr "description"
+
 msgid "m1.small"
 msgstr "m1.small"
 
 msgid "m1.tiny"
 msgstr "m1.tiny"
+
+msgid "pool default"
+msgstr "pool default"

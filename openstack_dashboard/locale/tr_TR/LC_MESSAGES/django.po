@@ -7,21 +7,25 @@
 # İşbaran Akçayır <isbaran@gmail.com>, 2015
 # Mücahit Büyükyılmaz <mucahit@konya.edu.tr>, 2015
 # sercanaydogan <sercanaydogan@gmail.com>, 2014
+# Daisy <guoyingc@cn.ibm.com>, 2015. #zanata
+# Doug Fish <drfish@us.ibm.com>, 2015. #zanata
+# OpenStack Infra <zanata@openstack.org>, 2015. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: Horizon\n"
+"Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-09-03 04:49+0000\n"
-"PO-Revision-Date: 2015-09-02 07:31+0000\n"
-"Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
-"Language-Team: Turkish (Turkey) (http://www.transifex.com/openstack/horizon/"
-"language/tr_TR/)\n"
+"POT-Creation-Date: 2015-09-16 18:25+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"PO-Revision-Date: 2015-09-15 05:06+0000\n"
+"Last-Translator: Doug Fish <drfish@us.ibm.com>\n"
+"Language-Team: Turkish (Turkey) (http://www.transifex.com/openstack/horizon/"
+"language/tr_TR/)\n"
 "Generated-By: Babel 2.0\n"
-"Language: tr_TR\n"
+"Language: tr-TR\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Zanata 3.7.1\n"
 
 msgid ""
 "\n"
@@ -286,6 +290,23 @@ msgstr ""
 
 msgid ""
 "\n"
+"    Migrate a volume to a specific host.\n"
+"    <br>\n"
+"    <br>\n"
+"    Force Host Copy: Enables or disables generic host-based force-migration, "
+"which bypasses driver optimizations.\n"
+"    "
+msgstr ""
+"\n"
+"    Bir mantıksal sürücüyü belirli bir istemciye göç ettir.\n"
+"    <br>\n"
+"    <br>\n"
+"    İstemci Kopyalamaya Zorla: Genel istemci tabanlı göçe zorlamayı açar ya "
+"da kapatır, bu işlem sürücü iyileştirmelerinin atlanmasına sebep olur.\n"
+"    "
+
+msgid ""
+"\n"
 "    The status of a volume is normally managed automatically.  In some "
 "circumstances an\n"
 "    administrator may need to explicitly update the status value.  This is "
@@ -338,6 +359,29 @@ msgstr ""
 
 msgid ""
 "\n"
+"   Volumes are block devices that can be attached to instances.\n"
+"   "
+msgstr ""
+"\n"
+"    Mantıksal sürücüler sunuculara eklenebilen blok aygıtlardır.\n"
+"   "
+
+msgid ""
+"\n"
+"  Assign a name and description for the pool. Choose one subnet where all\n"
+"  members of this pool must be on. Select the protocol and load balancing\n"
+"  method for this pool. Admin State is UP (checked) by default.\n"
+"  "
+msgstr ""
+"\n"
+"  Havuz için bir isim ve açıklama atayın. Bu havuzun tüm üyelerinin "
+"bulunması\n"
+"  gereken bir alt ağ seçin. Bu havuz için iletişim kuralı ve yük dengeleme\n"
+"  yöntemi seçin. Varsayılan olarak Yönetici Durumu Açık (işaretli).\n"
+"  "
+
+msgid ""
+"\n"
 "  Move networks from 'Available Networks' to 'Selected Networks' by\n"
 "  clicking the button, or dragging and dropping. You can change the\n"
 "  NIC order by dragging and dropping as well.\n"
@@ -349,6 +393,23 @@ msgstr ""
 "  'Seçili Ağlar'a taşı. NIC sırasını da sürükleyip bırakarak "
 "değiştirebilirsiniz.\n"
 "  "
+
+msgid ""
+"\n"
+" Create a VIP for this pool. Assign a name, description, IP address, port,\n"
+" and maximum connections allowed for the VIP. Choose the protocol and "
+"session persistence\n"
+" method for the VIP. Admin State is UP (checked) by default.\n"
+" "
+msgstr ""
+"\n"
+" Bu havuz için bir VIP oluştur. Bir isim, tanımlama, IP adresi, bağlantı "
+"noktası,\n"
+" ve VIP için izin verilen azami bağlantıları ata. Varsayılan iletişim kuralı "
+"ve VIP için\n"
+" oturum kalıcılığı yöntemini seç. Yönetici Durumu varsayılan olarak açıktır "
+"(işaretli).\n"
+" "
 
 msgid " - End"
 msgstr " - Bitiş"
@@ -363,11 +424,29 @@ msgstr " Bağlantı noktası %s silinemedi de"
 msgid " Done"
 msgstr " Bitti"
 
+msgid "\"Add Router Route\""
+msgstr "\"Yönlendirici Rotası Ekle\""
+
 msgid ""
 "\"Customization Script\" is analogous to \"User Data\" in other systems."
 msgstr ""
 "\"Özelleştirme Betiği\" diğer sistemlerdeki \"Kullanıcı Verisi\" ile "
 "benzeşir."
+
+msgid "\"Edit Volume Type\""
+msgstr "\"Mantıksal Sürücü Türünü Düzenle\""
+
+msgid "\"N/A\""
+msgstr "\"N/A\""
+
+msgid "\"Namespace Resource Type Associations\""
+msgstr "\"İsim Uzayı Kaynak Türü İlişkilendirmeleri\""
+
+msgid "\"No flavors meet minimum criteria for selected image.\""
+msgstr "\"Seçili imaj için asgari gereklilikleri karşılayan nitelik yok.\""
+
+msgid "\"None\""
+msgstr "\"Hiçbiri\""
 
 msgid ""
 "\"None\" indicates that no QoS Spec is currently associated. Conversely, "
@@ -376,6 +455,13 @@ msgstr ""
 "\"Hiçbiri\" şu anda hiçbir QoS Özelliğinin ilişkili olmadığını gösterir. "
 "Aynı şekilde, QoS Özelliğini \"None\" olarak ayarlamak mevcut ilişkiyi "
 "kaldıracaktır."
+
+msgid ""
+"\"Some flavors not meeting minimum image requirements have been disabled.\""
+msgstr "Asgari imaj gerekliliklerini karşılamayan bazı nitelikler kapatıldı.\""
+
+msgid "\"Users\""
+msgstr "\"Kullanıcılar\""
 
 #, python-format
 msgid "%(conf_name)s: %(conf_val)s"
@@ -803,6 +889,9 @@ msgstr "Havuz Ekle"
 msgid "Add Router"
 msgstr "Yönlendirici Ekle"
 
+msgid "Add Router Route"
+msgstr "Yönlendirici Rotası Ekle"
+
 msgid "Add Router Rule"
 msgstr "Yönlendirici Kuralı Ekle"
 
@@ -839,13 +928,6 @@ msgstr "VIP Ekle"
 
 msgid "Add VPN Service"
 msgstr "VPN Servisi Ekle"
-
-msgid ""
-"Add and remove security groups to this project from the list of available "
-"security groups."
-msgstr ""
-"Kullanılabilir güvenlik grupları listesinden bu projeye güvenlik grubu "
-"ekleyin ya da çıkartın."
 
 msgid "Add custom tag"
 msgstr "Özel etiket ekle"
@@ -886,11 +968,17 @@ msgstr ""
 msgid "Add plugin tags"
 msgstr "Eklenti etiketleri ekle"
 
+msgid "Add route"
+msgstr "Rota ekle"
+
 msgid "Add rule"
 msgstr "Kural ekle"
 
 msgid "Add selected router(s) to the firewall."
 msgstr "Seçili yönlendiricileri güvenlik duvarına ekle."
+
+msgid "Add static route to the router."
+msgstr "Yönlendiriciye sabit rota ekle."
 
 msgid "Add, modify or remove the QoS Spec associated with this volume type."
 msgstr ""
@@ -976,6 +1064,9 @@ msgstr ""
 
 msgid "Address"
 msgstr "Adres"
+
+msgid "Address:"
+msgstr "Adres:"
 
 msgid "Admin"
 msgstr "Yönetici"
@@ -1076,6 +1167,11 @@ msgstr "Ayrılmış"
 #, python-format
 msgid "Allocated Floating IP %(ip)s."
 msgstr "Değişken IP %(ip)s ayrılıyor."
+
+msgid ""
+"Allocates requests to the instance with the least number of\n"
+"          active connections."
+msgstr "İstekleri en az etkin bağlantısı olan sunucuya aktarır."
 
 msgid "Allocation Pools"
 msgstr "Ayırma Havuzları"
@@ -1551,6 +1647,9 @@ msgstr "Bir ana ikilik seç"
 msgid "Choose a new instance flavor."
 msgstr "Yeni bir sunucu şablon seçin."
 
+msgid "Choose a shell script"
+msgstr "Bir kabuk betiği seçin"
+
 msgid "Choose a snapshot"
 msgstr "Anlık görüntü seçin"
 
@@ -1559,6 +1658,9 @@ msgstr "Bir depolama konumu seçin"
 
 msgid "Choose a volume"
 msgstr "Mantıksal sürücü seçin"
+
+msgid "Choose additional files"
+msgstr "Ek dosyaları seçin"
 
 msgid "Choose an DHCP Agent to attach to."
 msgstr "Bağlanılacak bir DHCP Ajanı seçin."
@@ -1629,6 +1731,12 @@ msgstr ""
 "Kullanılabilir Kurallardan Seçili Kurala düğme yardımıyla veya sürükleyip "
 "bırakarak kural seçin,\n"
 "sıralarını da sürükleyip bırakarak değiştirebilirsiniz. "
+
+msgid "Choose the Input Data Source (n/a for Java and Shell jobs)."
+msgstr "Girdi Veri Kaynağını Seçin (Java ve Kabuk işleri için n/a )."
+
+msgid "Choose the Output Data Source (n/a for Java and Shell jobs)."
+msgstr "Çıktı Veri Kaynağını Seçin (Java ve Kabuk işleri için n/a )."
 
 msgid "Choose the binary which should be used in this Job."
 msgstr "Bu işte kullanılması gereken bir ikilik seç."
@@ -1702,6 +1810,9 @@ msgstr "Küme Oluşturma Kılavuzu"
 msgid "Cluster Details"
 msgstr "Küme Detayları"
 
+msgid "Cluster Events"
+msgstr "Küme Olayları"
+
 msgid "Cluster Guide"
 msgstr "Küme Rehberi"
 
@@ -1740,6 +1851,9 @@ msgstr "Küme mevcut Küme Şablonları ile başlatılabilir."
 msgid "Cluster configurations are not specified"
 msgstr "Küme yapılandırmaları belirtilmemiş"
 
+msgid "Cluster provision steps"
+msgstr "Küme hazırlama adımları"
+
 msgid "Cluster template creation failed"
 msgstr "Küme şablonu oluşturma başarısız"
 
@@ -1767,6 +1881,9 @@ msgstr "Virgülle ayrılmış anahtar=değer çiftleri"
 msgctxt "Current status of a Database Backup"
 msgid "Completed"
 msgstr "Tamamlandı"
+
+msgid "Completed Successfully"
+msgstr "Başarıyla Tamamlandı"
 
 msgid "Component"
 msgstr "Bileşen"
@@ -1956,6 +2073,9 @@ msgstr "Varsayılan \"%s\" rolü Keystone'da bulunamadı"
 
 msgid "Could not launch job"
 msgstr "İş başlatılamadı"
+
+msgid "Could not update data source"
+msgstr "Veri kaynağı güncellenemedi"
 
 #, python-format
 msgid "Couldn't get current security group list for instance %s."
@@ -2388,6 +2508,9 @@ msgstr "\"%s\" özelliği oluşturuldu."
 msgid "Created subnet \"%s\"."
 msgstr "Alt ağ \"%s\" oluşturuldu."
 
+msgid "Created time"
+msgstr "Oluşturulma zamanı"
+
 msgid "Created volume transfer."
 msgstr "Oluşturulan hacim aktarımı."
 
@@ -2606,6 +2729,9 @@ msgstr ""
 
 msgid "Data source created"
 msgstr "Veri kanyağı oluşturuldu"
+
+msgid "Data source updated"
+msgstr "Veri kaynağı güncellendi"
 
 msgid "Database"
 msgstr "Veritabanı"
@@ -2878,6 +3004,9 @@ msgid "Delete User"
 msgid_plural "Delete Users"
 msgstr[0] "Kullanıcıları Sil"
 
+msgid "Delete VIP"
+msgstr "VIP Sil"
+
 msgid "Delete VPN Service"
 msgid_plural "Delete VPN Services"
 msgstr[0] "VPN Servislerini Sil"
@@ -3117,6 +3246,10 @@ msgctxt "Task status of an Instance"
 msgid "Deleting"
 msgstr "Siliniyor"
 
+#, python-format
+msgid "Deleting VIP %s from this pool cannot be undone."
+msgstr "%s VIP'inin bu havuzdan silinmesi geri alınamaz."
+
 msgid "Deny"
 msgstr "Reddet"
 
@@ -3131,6 +3264,9 @@ msgstr "Hedef"
 
 msgid "Destination CIDR"
 msgstr "Hedef CIDR"
+
+msgid "Destination Host"
+msgstr "Hedef İstemci"
 
 msgid "Destination IP"
 msgstr "Hedef IP"
@@ -3430,6 +3566,9 @@ msgstr "İş ikiliğini indir"
 msgid "Download key pair &quot;%(keypair_name)s&quot;"
 msgstr "&quot;%(keypair_name)s&quot; anahtar çiftini indir"
 
+msgid "Duration"
+msgstr "Süre"
+
 #, python-format
 msgid "Duration of instance type %s (openstack flavor)"
 msgstr "Sunucu türü %s'in açık kalma süresi (openstack şablonu)"
@@ -3457,6 +3596,9 @@ msgstr "Tüketiciyi Düzenle"
 
 msgid "Edit Consumer of QoS Spec"
 msgstr "QoS Özelliğinin Tüketicisini düzenle"
+
+msgid "Edit Data Source"
+msgstr "Veri Kaynağını Düzenle"
 
 msgid "Edit Domain"
 msgstr "Alan Değiştir"
@@ -3572,6 +3714,9 @@ msgstr "VPN Servisini Düzenle"
 
 msgid "Edit Volume"
 msgstr "Mantıksal Sürücüyü Düzenle"
+
+msgid "Edit Volume Type"
+msgstr "Mantıksal Sürücü Türünü Düzenle"
 
 msgid "Edit Volume Type Extra Spec"
 msgstr "Mantıksal Sürücü Türü Ek Özelliklerini Düzenle"
@@ -3846,6 +3991,9 @@ msgid ""
 "Evacuate the servers from the selected down host to an active target host."
 msgstr "Sunucuları seçili kapalı istemciden etkin hedef istemciye tahliye et."
 
+msgid "Event time"
+msgstr "Olay zamanı"
+
 msgid "Events"
 msgstr "Olaylar"
 
@@ -4083,6 +4231,9 @@ msgstr "\"%s\" istemcisinin geçişi başarısız oldu."
 #, python-format
 msgid "Failed to migrate instances: %s"
 msgstr "Örneklerin göçü başarısız: %s"
+
+msgid "Failed to migrate volume."
+msgstr "Mantıksal sürücü göç ettirilemedi."
 
 #, python-format
 msgid ""
@@ -4362,6 +4513,9 @@ msgstr "Değişken IP"
 msgid "Floating IP Pool"
 msgstr "Değişken IP Havuzu"
 
+msgid "Floating IP:"
+msgstr "Değişken IP:"
+
 msgid "Floating IPs"
 msgstr "Değişken IP'ler"
 
@@ -4393,6 +4547,19 @@ msgstr ""
 
 msgid "For Object Store job binaries, you must:"
 msgstr "Nesne Depolama iş ikilikleri için, yapmak zorunda olduklarınız:"
+
+msgid ""
+"For Shell Action jobs, any required files beyond the main script may be "
+"added as \"libraries\"."
+msgstr ""
+"Kabuk Eylem işleri için, ana betik dışında gerekli tüm dosyalar \"kitaplıklar"
+"\" olarak eklenebilir."
+
+msgid ""
+"For Spark and Shell jobs, only a main is required, \"libs\" are optional."
+msgstr ""
+"Spark ve Kabuk işleri için, yalnızca tek bir ana gereklidir, \"libs\" isteğe "
+"bağlıdır."
 
 msgid ""
 "For TCP and UDP rules you may choose to open either a single port or a range "
@@ -4435,6 +4602,9 @@ msgstr "Yasaklanmış"
 msgctxt "Force upload volume in in-use status to image"
 msgid "Force"
 msgstr "Zorla"
+
+msgid "Force Host Copy"
+msgstr "İstemci Kopyalamayı Zorla"
 
 #, python-format
 msgid "Forcing to create snapshot \"%s\" from attached volume."
@@ -4817,6 +4987,21 @@ msgstr "Kimlik servisi kullanıcı verisinin değiştirmeye izin vermiyor."
 msgid "Identity service does not allow editing user password."
 msgstr "Kimlik servisi kullanıcı parolasının değiştirilmesine izin vermiyor."
 
+#, python-format
+msgid ""
+"If \"No volume type\" is selected, the default volume type \"%(name)s\" will "
+"be set for the created volume."
+msgstr ""
+"\"Mantıksal sürücü türü yok\" seçilirse, oluşturulan mantıksal sürücü için "
+"varsayılan mantıksal sürücü türü \"%(name)s\" ayarlanır."
+
+msgid ""
+"If \"No volume type\" is selected, the volume will be created without a "
+"volume type."
+msgstr ""
+"\"Mantıksal sürücü türü yok\" seçiliyse, mantıksal sürücü mantıksal sürücü "
+"türü olmadan oluşturulur."
+
 msgid ""
 "If console is not responding to keyboard input: click the grey status bar "
 "below."
@@ -4957,6 +5142,9 @@ msgstr ""
 "Ek olarak, ilgili kontrol kutusunu işaretleyerek bir harici ağ ya da "
 "paylaşılan ağ oluşturabilirsiniz."
 
+msgid "In progress"
+msgstr "İşlemde"
+
 msgctxt "Current status of a Volume"
 msgid "In-use"
 msgstr "Kullanımda"
@@ -5092,6 +5280,10 @@ msgstr "Sunucu Güvenlik Grupları"
 
 msgid "Instance Snapshot"
 msgstr "Sunucu Anlık Görüntüsü"
+
+msgid "Instance and attached volumes will be created on the same physical host"
+msgstr ""
+"Sunucu ve eklenen mantıksal sürücüler aynı fiziksel istemcide oluşturulacak"
 
 msgid "Instance to be associated"
 msgstr "İlişkilendirilecen sunucu"
@@ -5444,6 +5636,9 @@ msgctxt "load balancing method"
 msgid "Least Connections"
 msgstr "En Az Bağlantı"
 
+msgid "Least connections"
+msgstr "En az bağlantı"
+
 msgid "Length of Injected File Path"
 msgstr "İçeri Atılan Dosya Yolunun Uzunluğu"
 
@@ -5717,6 +5912,9 @@ msgid "Migrate Instance"
 msgid_plural "Migrate Instances"
 msgstr[0] "Sunucuları Göç Ettir"
 
+msgid "Migrate Volume"
+msgstr "Mantıksal Sürücü Göç Ettir"
+
 msgid ""
 "Migrate all instances from a host with disabled nova-compute service. "
 "Optionally you can choose type of migration. All running instances of the "
@@ -5815,6 +6013,9 @@ msgstr "Mantıksal sürücü adı ve tanımlamasını değiştir."
 
 msgid "Modify the name and description of a snapshot."
 msgstr "Anlık görüntünün ismini ve tanımlamasını değiştir."
+
+msgid "Modify volume type name and description."
+msgstr "Mantıksal sürücü türü ismi ve tanımını düzenle."
 
 msgid "Monitor"
 msgstr "İzleyici"
@@ -6006,6 +6207,12 @@ msgstr "Yeni İstemci"
 msgid "New Size (GB)"
 msgstr "Yeni Boyut (GB)"
 
+msgid "New name cannot be empty."
+msgstr "Yeni isim boş olamaz."
+
+msgid "New name conflicts with another volume type."
+msgstr "Yeni isim başka bir mantıksal sürücü türüyle çatışıyor."
+
 msgid "New password"
 msgstr "Yeni parola"
 
@@ -6020,6 +6227,13 @@ msgstr "İleri"
 
 msgid "Next Hop"
 msgstr "Sonraki Nokta"
+
+msgid ""
+"Next Hop IP must be a part of one of the subnets to which the router "
+"interfaces are connected."
+msgstr ""
+"Sonraki Atlama IP'si yönlendirici arayüzlerinin bağlı olduğu alt ağlardan "
+"birinin parçası olmalı."
 
 msgid "Next Hops"
 msgstr "Sonraki Hops"
@@ -6138,6 +6352,9 @@ msgstr "Kullanılabilir imaj yok"
 
 msgid "No images available."
 msgstr "Kullanılabilir imaj yok."
+
+msgid "No info available"
+msgstr "Bilgi yok"
 
 msgid "No input was provided for the namespace content."
 msgstr "İsim uzayı içeriği için herhangi bir girdi sağlanmamış."
@@ -6810,6 +7027,12 @@ msgstr "Bağlantı Noktası ID'si"
 msgid "Port Range"
 msgstr "Bağlantı Noktası Aralığı"
 
+#, python-format
+msgid "Port cleanup failed for these port-ids (%s)."
+msgstr ""
+"Şu bağlantı noktası kimlikleri için bağlantı noktası temizliği başarısız "
+"(%s)."
+
 msgid "Port list can not be retrieved."
 msgstr "Port listesi alınamadı."
 
@@ -6879,14 +7102,11 @@ msgstr "Gizli"
 msgid "Private Key File"
 msgstr "Gizli Anahtar Dosyası"
 
-msgid "Processes"
-msgstr "Süreçler"
-
-msgid "Processes to be launched in node group"
-msgstr "Düğüm grubunda başlatılacak süreçler"
-
 msgid "Profile"
 msgstr "Profil"
+
+msgid "Progress"
+msgstr "Süreç"
 
 msgid "Project"
 msgstr "Proje"
@@ -7270,6 +7490,12 @@ msgstr "İstek ID'si"
 msgid "Requested snapshot would exceed the allowed quota."
 msgstr "İstenen anlık görüntü izin verilen kotayı aşardı."
 
+msgid ""
+"Requests from a unique source IP address are consistently\n"
+"          directed to the same instance."
+msgstr ""
+"Benzersiz kaynak IP adresine sahip istekler hep aynı sunucuya yönlendirilir"
+
 msgid "Required for APP_COOKIE persistence; Ignored otherwise."
 msgstr "APP_COOKIE kalıcılığı için gereklidir; Aksi halde göz ardı edilir."
 
@@ -7521,9 +7747,15 @@ msgstr "Root Disk"
 msgid "Root Disk (GB)"
 msgstr "Kök Disk (GB)"
 
+msgid "Rotates requests evenly between multiple instances."
+msgstr "İstekleri birden çok sunucu arasında eşit olarak dağıtır."
+
 msgctxt "load balancing method"
 msgid "Round Robin"
 msgstr "Round Robin"
+
+msgid "Round robin"
+msgstr "Round robin"
 
 msgid "Route mode"
 msgstr "Yönlendirme kipi"
@@ -7895,6 +8127,9 @@ msgstr "Yeni bir nitelik seçin"
 msgid "Select a new host"
 msgstr "Yeni bir istemci seçin"
 
+msgid "Select a new status"
+msgstr "Yeni bir durum seçin"
+
 msgid "Select a new template to preview a stack."
 msgstr "Bir yığını ön izlemek için yeni bir şablon seçin."
 
@@ -8000,6 +8235,12 @@ msgstr ""
 
 msgid "Select the image to rebuild your instance."
 msgstr "Sunucunuzu yeniden inşa için imaj seçin."
+
+msgid "Select the network for interface attaching."
+msgstr "Arayüz ekleme için ağı seçin."
+
+msgid "Select the port to detach."
+msgstr "Ayrılacak bağlantı noktasını seçin."
 
 msgid ""
 "Select the projects where the flavors will be used. If no projects are "
@@ -8123,6 +8364,12 @@ msgstr "Paylaşılan Depolama"
 msgid "Shared with Me"
 msgstr "Benimle Paylaşılan"
 
+msgid "Shell"
+msgstr "Kabuk"
+
+msgid "Shell Action"
+msgstr "Kabuk Eylemi"
+
 msgctxt "Current status of an Instance"
 msgid "Shelved"
 msgstr "Askıda"
@@ -8203,6 +8450,9 @@ msgstr "Mantıksal sürücü boyutu"
 msgid "Size: "
 msgstr "Boyut: "
 
+msgid "Slash is not allowed at the beginning or end of your string."
+msgstr "Karakter dizinizin başında ya da sonunda bölü işaretine izin verilmez."
+
 msgid "Slash is not an allowed character."
 msgstr "Bölü işareti izin verilen bir karakter değil."
 
@@ -8216,7 +8466,7 @@ msgid "Small"
 msgstr "Küçük"
 
 msgid "Snapshot"
-msgstr "Anlık Görüntü"
+msgstr "Anlık görüntü"
 
 msgctxt "Type of an image"
 msgid "Snapshot"
@@ -8485,6 +8735,9 @@ msgid "Started Instance"
 msgid_plural "Started Instances"
 msgstr[0] "Sunucular Başlatıldı"
 
+msgid "Started at"
+msgstr "Başlama zamanı"
+
 #, python-format
 msgid "Starting evacuation from %(current)s to %(target)s."
 msgstr "%(current)s alanından %(target)s alanına tahliye başlatılıyor."
@@ -8517,6 +8770,9 @@ msgstr "Durum ="
 msgid "Status Reason"
 msgstr "Durum Sebebi"
 
+msgid "Step Description"
+msgstr "Adım Tanımlaması"
+
 msgctxt "Action log of an instance"
 msgid "Stop"
 msgstr "Durdur"
@@ -8526,6 +8782,9 @@ msgstr "Depolama konumu"
 
 msgid "Storage type"
 msgstr "Depolama türü"
+
+msgid "Storm"
+msgstr "Storm"
 
 msgid "Streaming MapReduce"
 msgstr "MapReduce Akışı"
@@ -8644,6 +8903,10 @@ msgid "Successfully sent the request to manage volume: %s"
 msgstr "Mantıksal sürücünün yönetilmesi isteği başarıyla gönderildi: %s"
 
 #, python-format
+msgid "Successfully sent the request to migrate volume: %s"
+msgstr "İstek başarıyla mantıksal sürücü göçüne gönderildi: %s"
+
+#, python-format
 msgid "Successfully sent the request to unmanage volume: %s"
 msgstr "Mantıksal sürücünün yönetilmemesi isteği başarıyla gönderildi: %s"
 
@@ -8681,6 +8944,9 @@ msgstr "Mantıksal sürücü anlık görüntü durumu başarıyla güncellendi: 
 #, python-format
 msgid "Successfully updated volume status to \"%s\"."
 msgstr "Mantıksal sürücü durumu başarıyla \"%s\" olarak güncellendi."
+
+msgid "Successfully updated volume type."
+msgstr "Mantıksal sürücü türü başarıyla güncellendi."
 
 msgid "Sum."
 msgstr "Top."
@@ -9353,9 +9619,6 @@ msgstr ""
 msgid "To exit the fullscreen mode, click the browser's back button."
 msgstr "Tam ekran kipinden çıkmak için, tarayıcının geri düğmesine tıklayın."
 
-msgid "To power off a specific instance."
-msgstr "Belirli bir sunucuyu kapatmak için."
-
 msgid ""
 "To specify an allowed IP range, select &quot;CIDR&quot;. To allow access "
 "from all members of another security group select &quot;Security Group&quot;."
@@ -9366,6 +9629,9 @@ msgstr ""
 
 msgid "To:"
 msgstr "Bitiş:"
+
+msgid "Toggle navigation"
+msgstr "Gezintiyi değiştir"
 
 msgid "Topic"
 msgstr "Konu"
@@ -9822,6 +10088,9 @@ msgstr "Şablon nesnesi getirilemedi."
 msgid "Unable to fetch template to copy."
 msgstr "Kopyalanacak şablon getirilemedi."
 
+msgid "Unable to fetch template to edit."
+msgstr "Şablon düzenlenmek için getirilemiyor."
+
 msgid "Unable to fetch the image details"
 msgstr "İmaj detayları getirilemedi"
 
@@ -9931,6 +10200,9 @@ msgstr "Kullanılabilir istemciler alınamadı"
 
 msgid "Unable to get user data."
 msgstr "Kullanıcı verisi alınamadı."
+
+msgid "Unable to get volume type list."
+msgstr "Mantıksal sürücü türü listesi alınamıyor."
 
 msgid "Unable to import key pair."
 msgstr "Anahtar çifti içe aktarılamıyor."
@@ -10445,6 +10717,9 @@ msgstr "Havuz alt ağı alınamıyor. %s"
 msgid "Unable to retrieve pool. %s"
 msgstr "Havuz alınamadı. %s"
 
+msgid "Unable to retrieve pools information."
+msgstr "Havuz bilgisi alınamıyor."
+
 msgid "Unable to retrieve pools list."
 msgstr "Küme listesi alınamıyor."
 
@@ -10654,8 +10929,18 @@ msgstr "Mantıksal sürücü şifreleme bilgisi getirilemedi."
 msgid "Unable to retrieve volume type extra spec details."
 msgstr "Mantıksal sürücü türü ek özellik ayrıntıları alınamadı."
 
+#, python-format
+msgid "Unable to retrieve volume type for: \"%s\""
+msgstr "\"%s\" için mantıksal sürücü türü alınamıyor"
+
+msgid "Unable to retrieve volume type list."
+msgstr "Mantıksal sürücü tür listesi alınamıyor."
+
 msgid "Unable to retrieve volume type name."
 msgstr "Mantıksal sürücü türü ismi alınamıyor."
+
+msgid "Unable to retrieve volume type qos."
+msgstr "Mantıksal sürücü türü qos'u alınamıyor."
 
 msgid "Unable to retrieve volume types"
 msgstr "Mantıksal sürücü türleri alınamadı"
@@ -10742,6 +11027,9 @@ msgstr "Kullanıcı parolası değiştirilemedi."
 msgid "Unable to update the user."
 msgstr "Kullanıcı güncellenemedi."
 
+msgid "Unable to update the volume type."
+msgstr "Mantıksal sürücü türü güncellenemiyor."
+
 msgid "Unable to update volume snapshot status."
 msgstr "Mantıksal sürücü anlık görüntü durumu güncellenemedi."
 
@@ -10751,6 +11039,9 @@ msgstr "Mantıksal sürücü anlık görüntüsü güncellenemiyor."
 #, python-format
 msgid "Unable to update volume status to \"%s\"."
 msgstr "Mantıksal sürücü durumu \"%s\" olarak güncellenemedi."
+
+msgid "Unable to update volume type."
+msgstr "Mantıksal sürücü türü güncellenemiyor."
 
 msgid "Unable to update volume."
 msgstr "Mantıksal sürücü güncellenemiyor."
@@ -10957,6 +11248,9 @@ msgstr "Güncelleme saati"
 msgid "Updated subnet \"%s\"."
 msgstr "Alt ağ \"%s\" güncellendi."
 
+msgid "Updated time"
+msgstr "Güncelleme zamanı"
+
 msgctxt "Task status of an Instance"
 msgid "Updating Password"
 msgstr "Parola Güncelleniyor"
@@ -11046,6 +11340,11 @@ msgid ""
 msgstr ""
 "Bu yığın önizlenirken kullanılacak şablonu belirtmek için kullanılabilir "
 "şablon kaynak seçeneklerinden birini kullanın."
+
+msgid ""
+"Use one of these load balancing methods to distribute incoming requests:"
+msgstr ""
+"Gelen istekleri dağıtmak için şu yük dengeleme yöntemlerinden birini kullan:"
 
 msgid "Use snapshot as a source"
 msgstr "Kaynak olarak anlık görüntü kullan"
@@ -11352,6 +11651,9 @@ msgstr "Hacim Aktarım Ayrıntıları"
 msgid "Volume Type"
 msgstr "Mantıksal Sürücü Türü"
 
+msgid "Volume Type Description:"
+msgstr "Mantıksal Sürücü Türü Tanımı:"
+
 msgid "Volume Type Encryption Details"
 msgstr "Mantıksal Sürücü Türü Şifreleme Detayları"
 
@@ -11388,6 +11690,9 @@ msgstr ""
 
 msgid "Volume is Unencrypted"
 msgstr "Mantıksal Sürücü Şifrelenmemiş"
+
+msgid "Volume local to instance"
+msgstr "Sunucuya yerel mantıksal sürücü"
 
 msgid ""
 "Volume mount point (e.g. 'vda' mounts at '/dev/vda'). Leave this field blank "
@@ -11459,6 +11764,9 @@ msgstr "Bağlı Mantıksal Sürücüler"
 msgid "Volumes Availability Zone"
 msgstr "Mantıksal Sürücünün Kullanılabilir Bölgesi"
 
+msgid "Volumes local to instance"
+msgstr "Sunucuya yerel mantıksal sürücüler"
+
 msgid "Volumes per node"
 msgstr "Düğüm başına mantıksal sürücü"
 
@@ -11468,8 +11776,22 @@ msgstr "Mantıksal sürücülerin boyutu"
 msgid "Volumes size (GB)"
 msgstr "Mantıksal sürücülerin boyutu (GB)"
 
+msgid "Volumes type"
+msgstr "Mantıksal sürücü türü"
+
 msgid "Weight"
 msgstr "Ağırlık"
+
+msgid ""
+"When no IP address is provided, the VIP will obtain an address from\n"
+"  the selected subnet. If a specific IP address is desired, it may be "
+"provided and\n"
+"  must also be an address within the selected subnet.\n"
+"  "
+msgstr ""
+"IP adresi sağlanmadığında, VIP seçili alt ağdan bir adres\n"
+"  alır. Belirli bir IP adresi isteniyorsa, sağlanabilir ve seçili alt\n"
+"  ağdan bir adres olmak zorundadır."
 
 msgid "Which keypair to use for authentication."
 msgstr "Kimlik doğrulama için hangi anahtar çiftinin kullanılacağı."
