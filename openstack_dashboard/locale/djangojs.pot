@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-09-03 06:13+0000\n"
+"POT-Creation-Date: 2015-09-16 18:38+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -34,34 +34,28 @@ msgid "Insufficient privilege level to view user information."
 msgstr ""
 
 #: dashboards/identity/static/dashboard/identity/users/table/table.html:30
-#: dashboards/identity/static/dashboard/identity/users/table/table.html:80
 msgid "User Name"
 msgstr ""
 
 #: dashboards/identity/static/dashboard/identity/users/table/table.html:31
-#: dashboards/identity/static/dashboard/identity/users/table/table.html:83
+#: dashboards/identity/static/dashboard/identity/users/table/table.html:90
 msgid "Email"
 msgstr ""
 
 #: dashboards/identity/static/dashboard/identity/users/table/table.html:32
-#: dashboards/identity/static/dashboard/identity/users/table/table.html:86
 msgid "User ID"
 msgstr ""
 
 #: dashboards/identity/static/dashboard/identity/users/table/table.html:33
-#: dashboards/identity/static/dashboard/identity/users/table/table.html:89
+#: dashboards/identity/static/dashboard/identity/users/table/table.html:94
 msgid "Enabled"
 msgstr ""
 
-#: dashboards/identity/static/dashboard/identity/users/table/table.html:74
+#: dashboards/identity/static/dashboard/identity/users/table/table.html:80
 msgid "Domain ID"
 msgstr ""
 
-#: dashboards/identity/static/dashboard/identity/users/table/table.html:75
-msgid "{$ user.domain_id $}"
-msgstr ""
-
-#: dashboards/identity/static/dashboard/identity/users/table/table.html:77
+#: dashboards/identity/static/dashboard/identity/users/table/table.html:84
 msgid "Project ID"
 msgstr ""
 
@@ -119,31 +113,38 @@ msgid "Key Pair"
 msgstr ""
 
 #: dashboards/project/static/dashboard/project/workflow/launch-instance/launch-instance-workflow.service.js:65
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/configuration/configuration.controller.js:54
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/configuration/configuration.html:2
 msgid "Configuration"
 msgstr ""
 
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/configuration/configuration-help.controller.js:33
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/configuration/configuration.controller.js:54
+msgid "Automatic"
+msgstr ""
+
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/configuration/configuration.controller.js:55
+msgid "Manual"
+msgstr ""
+
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/configuration/configuration.help.html:2
 msgid "Configuration Help"
 msgstr ""
 
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/configuration/configuration-help.controller.js:37
-#, python-format
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/configuration/configuration.help.html:3
 msgid ""
 "Custom scripts are attached to instances to perform specific actions when"
 " the instance is launched. For example, if you are unable to install "
-"<samp>%(cloutInit)s</samp> inside a guest operating system, you can use a"
-" custom script to get a public key and add it to the user account."
+"<samp>cloud-init</samp> inside a guest operating system, you can use a "
+"custom script to get a public key and add it to the user account."
 msgstr ""
 
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/configuration/configuration-help.controller.js:41
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/configuration/configuration.help.html:4
 msgid ""
 "Type your script directly into the Customization Script field. If your "
 "browser supports the HTML5 File API, you may choose to load your script "
 "from a file. The size of your script should not exceed 16 Kb."
 msgstr ""
 
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/configuration/configuration-help.controller.js:42
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/configuration/configuration.help.html:5
 msgid ""
 "An advanced option available when launching an instance is disk "
 "partitioning. There are two disk partition options. Selecting "
@@ -152,59 +153,43 @@ msgid ""
 "disk."
 msgstr ""
 
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/configuration/configuration-help.controller.js:43
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/configuration/configuration.help.html:6
 msgid ""
 "Check the <b>Configuration Drive</b> box if you want to write metadata to"
 " a special configuration drive. When the instance boots, it attaches to "
 "the <b>Configuration Drive</b> and accesses the metadata."
 msgstr ""
 
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/configuration/configuration.controller.js:56
-msgid "Customization Script"
-msgstr ""
-
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/configuration/configuration.controller.js:57
-msgid "(Max: 16Kb)"
-msgstr ""
-
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/configuration/configuration.controller.js:58
-msgid "Load script from a file"
-msgstr ""
-
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/configuration/configuration.controller.js:59
-msgid "Configuration Drive"
-msgstr ""
-
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/configuration/configuration.controller.js:60
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/configuration/configuration.html:14
 msgid "Disk Partition"
 msgstr ""
 
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/configuration/configuration.controller.js:61
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/configuration/configuration.html:30
+msgid "Configuration Drive"
+msgstr ""
+
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/configuration/load-edit.html:3
+msgid "Customization Script"
+msgstr ""
+
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/configuration/load-edit.html:4
+msgid "(Modified)"
+msgstr ""
+
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/configuration/load-edit.html:17
 msgid "Script size"
 msgstr ""
 
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/configuration/configuration.controller.js:62
-msgid "Modified"
-msgstr ""
-
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/configuration/configuration.controller.js:63
-msgid "Script size > 16Kb"
-msgstr ""
-
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/configuration/configuration.controller.js:64
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/configuration/load-edit.html:19
 msgid "bytes"
 msgstr ""
 
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/configuration/configuration.controller.js:65
-msgid "The maximum script size is 16Kb."
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/configuration/load-edit.html:20
+msgid "(Max: 16Kb)"
 msgstr ""
 
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/configuration/configuration.controller.js:69
-msgid "Automatic"
-msgstr ""
-
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/configuration/configuration.controller.js:70
-msgid "Manual"
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/configuration/load-edit.html:32
+msgid "Load script from a file"
 msgstr ""
 
 #: dashboards/project/static/dashboard/project/workflow/launch-instance/flavor/flavor.controller.js:40
@@ -893,9 +878,9 @@ msgstr ""
 
 #: dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.help.html:13
 msgid ""
-"If you want to create an instance that uses ephemeral storage, meaning th"
-" instance data is lost when the instance is deleted, then choose one of "
-"the following boot sources:"
+"If you want to create an instance that uses ephemeral storage, meaning "
+"the instance data is lost when the instance is deleted, then choose one "
+"of the following boot sources:"
 msgstr ""
 
 #: dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.help.html:14

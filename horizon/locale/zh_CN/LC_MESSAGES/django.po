@@ -8,21 +8,41 @@
 # Ying Chun Guo <daisy.ycguo@gmail.com>, 2015
 # 刘俊朋 <liujunpeng@inspur.com>, 2015
 # 颜海峰 <yanheven@gmail.com>, 2015
+# Andreas Jaeger <jaegerandi@gmail.com>, 2015. #zanata
+# OpenStack Infra <zanata@openstack.org>, 2015. #zanata
+# Yu Zhiuguo <yuzg@cn.fujitsu.com>, 2015. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: Horizon\n"
+"Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-08-21 01:46+0000\n"
-"PO-Revision-Date: 2015-08-20 17:13+0000\n"
-"Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
-"Language-Team: Chinese (China) (http://www.transifex.com/openstack/horizon/"
-"language/zh_CN/)\n"
+"POT-Creation-Date: 2015-09-16 18:25+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"PO-Revision-Date: 2015-09-16 06:16+0000\n"
+"Last-Translator: Andreas Jaeger <jaegerandi@gmail.com>\n"
+"Language-Team: Chinese (China) (http://www.transifex.com/openstack/horizon/"
+"language/zh_CN/)\n"
 "Generated-By: Babel 2.0\n"
-"Language: zh_CN\n"
+"Language: zh-CN\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Zanata 3.7.1\n"
+
+#, python-format
+msgid ""
+"\n"
+"        Used <span> %(used)s </span>(No Limit)"
+msgstr ""
+"\n"
+"<span> %(used)s </span>(无限制)已使用"
+
+#, python-format
+msgid ""
+"\n"
+"        Used <span> %(used)s </span>of<span> %(available)s </span>"
+msgstr ""
+"\n"
+"<span> %(available)s </span>中的<span> %(used)s </span>已使用"
 
 #, python-format
 msgid ""
@@ -47,7 +67,8 @@ msgid ""
 "    "
 msgstr ""
 "\n"
-"如果你不确定使用哪种认证方式，请联系管理员。"
+"如果你不确定使用哪种认证方式，请联系管理员。\n"
+"    "
 
 #, python-format
 msgctxt "past"

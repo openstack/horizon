@@ -5,21 +5,23 @@
 # Translators:
 # KARTHIK SURESH HANASOGE <kali.karthik@gmail.com>, 2015
 # Savitha, 2015
+# OpenStack Infra <zanata@openstack.org>, 2015. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: Horizon\n"
+"Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-09-03 04:49+0000\n"
-"PO-Revision-Date: 2015-09-02 07:31+0000\n"
-"Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
-"Language-Team: Kannada (http://www.transifex.com/openstack/horizon/language/"
-"kn/)\n"
+"POT-Creation-Date: 2015-09-16 18:25+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"PO-Revision-Date: 2015-09-08 11:14+0000\n"
+"Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
+"Language-Team: Kannada (http://www.transifex.com/openstack/horizon/language/"
+"kn/)\n"
 "Generated-By: Babel 2.0\n"
 "Language: kn\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Zanata 3.7.1\n"
 
 #, python-format
 msgid ""
@@ -559,13 +561,6 @@ msgstr "VIP ಅನ್ನು ಸೇರಿಸಿ"
 
 msgid "Add VPN Service"
 msgstr "VPN ಸೇವೆಯನ್ನು ಸೇರಿಸಿ"
-
-msgid ""
-"Add and remove security groups to this project from the list of available "
-"security groups."
-msgstr ""
-"ಲಭ್ಯವಿರುವ ಸುರಕ್ಷತಾ ಗುಂಪುಗಳ ಪಟ್ಟಿಯಿಂದ ಸುರಕ್ಷತಾ ಗುಂಪುಗಳನ್ನು ಈ ಪರಿಯೋಜನೆಗೆ ಸೇರಿಸಿ "
-"ಮತ್ತು ತೆಗೆದುಹಾಕಿ."
 
 msgid "Add custom tag"
 msgstr "ಅಗತ್ಯಾನುಗುಣ ಟ್ಯಾಗ್ ಅನ್ನು ಸೇರಿಸಿ"
@@ -5062,12 +5057,6 @@ msgstr "ಖಾಸಗಿ"
 
 msgid "Private Key File"
 msgstr "ಖಾಸಗಿ ಕೀಲಿ ಕಡತ"
-
-msgid "Processes"
-msgstr "ಪ್ರಕ್ರಿಯೆಗಳು"
-
-msgid "Processes to be launched in node group"
-msgstr "ನೋಡ್ ಗುಂಪಿನಲ್ಲಿ ಆರಂಭಿಸಬೇಕಿರುವ ಪ್ರಕ್ರಿಯೆಗಳು"
 
 msgid "Project"
 msgstr "ಪರಿಯೋಜನೆ"

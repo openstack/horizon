@@ -6,23 +6,42 @@
 # Alexander Vasiliev <avasiliev@asdco.ru>, 2015
 # Ilya Alekseyev <ilyaalekseyev@acm.org>, 2015
 # Nikita Burtsev, 2015
+# Ilya Alekseyev <ilyaalekseyev@acm.org>, 2015. #zanata
+# OpenStack Infra <zanata@openstack.org>, 2015. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: Horizon\n"
+"Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-08-21 01:46+0000\n"
-"PO-Revision-Date: 2015-08-20 17:13+0000\n"
-"Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
-"Language-Team: Russian (http://www.transifex.com/openstack/horizon/language/"
-"ru/)\n"
+"POT-Creation-Date: 2015-09-16 18:25+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"PO-Revision-Date: 2015-09-10 01:47+0000\n"
+"Last-Translator: Ilya Alekseyev <ilyaalekseyev@acm.org>\n"
+"Language-Team: Russian (http://www.transifex.com/openstack/horizon/language/"
+"ru/)\n"
 "Generated-By: Babel 2.0\n"
 "Language: ru\n"
 "Plural-Forms: nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
 "%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || (n"
 "%100>=11 && n%100<=14)? 2 : 3);\n"
+"X-Generator: Zanata 3.7.1\n"
+
+#, python-format
+msgid ""
+"\n"
+"        Used <span> %(used)s </span>(No Limit)"
+msgstr ""
+"\n"
+"        Использовано <span> %(used)s </span>(без ограничений)"
+
+#, python-format
+msgid ""
+"\n"
+"        Used <span> %(used)s </span>of<span> %(available)s </span>"
+msgstr ""
+"\n"
+"       Использовано <span> %(used)s </span>из<span> %(available)s </span>"
 
 #, python-format
 msgid ""
@@ -78,7 +97,7 @@ msgid "%(size)d Byte"
 msgid_plural "%(size)d Bytes"
 msgstr[0] "%(size)d байт"
 msgstr[1] "%(size)d байт"
-msgstr[2] ""
+msgstr[2] "%(size)d байт"
 msgstr[3] "%(size)d байт"
 
 #, python-format
@@ -161,26 +180,26 @@ msgstr "Удалено"
 #, python-format
 msgid "Displaying %(content_items)s item"
 msgid_plural "Displaying %(content_items)s items"
-msgstr[0] "Показан %(content_items)s элемент"
-msgstr[1] "Показано %(content_items)s элементов"
-msgstr[2] ""
-msgstr[3] "Показано %(content_items)s элементов"
+msgstr[0] "Отображен %(content_items)s элемент"
+msgstr[1] "Отображено %(content_items)s элементов"
+msgstr[2] "Отображено %(content_items)s элементов"
+msgstr[3] "Отображено %(content_items)s элементов"
 
 #, python-format
 msgid "Displaying %(counter)s item"
 msgid_plural "Displaying %(counter)s items"
-msgstr[0] "Показан %(counter)s элемент"
-msgstr[1] "Показано %(counter)s элементов"
-msgstr[2] ""
-msgstr[3] "Показано %(counter)s элементов"
+msgstr[0] "Отображен %(counter)s элемент"
+msgstr[1] "Отображено %(counter)s элементов"
+msgstr[2] "Отображено %(counter)s элементов"
+msgstr[3] "Отображено %(counter)s элементов"
 
 #, python-format
 msgid "Displaying %(nav_items)s item"
 msgid_plural "Displaying %(nav_items)s items"
-msgstr[0] "Показан %(nav_items)s элемент"
-msgstr[1] "Показано %(nav_items)s элементов"
-msgstr[2] ""
-msgstr[3] "Показано %(nav_items)s элементов"
+msgstr[0] "Отображен %(nav_items)s элемент"
+msgstr[1] "Отображено %(nav_items)s элементов"
+msgstr[2] "Отображено %(nav_items)s элементов"
+msgstr[3] "Отображено %(nav_items)s элементов"
 
 msgid "Error: "
 msgstr "Ошибка:"
@@ -298,11 +317,25 @@ msgstr "Выберите %s для просмотра"
 msgid "Select a period of time to query its usage:"
 msgstr "Выберите временной интервал для запроса использования:"
 
+msgid "Sell Puppy"
+msgid_plural "Sell Puppies"
+msgstr[0] "Продать щенка"
+msgstr[1] "Продать щенков"
+msgstr[2] "Продать щенков"
+msgstr[3] "Продать щенков"
+
 msgid "Session timed out."
 msgstr "Время сеанса истекло."
 
 msgid "Sign In"
 msgstr "Вход"
+
+msgid "Sold Puppy"
+msgid_plural "Sold Puppies"
+msgstr[0] "Проданый щенок"
+msgstr[1] "Проданые щенки"
+msgstr[2] "Проданые щенки"
+msgstr[3] "Проданые щенки"
 
 msgid "Submit"
 msgstr "Отправить"

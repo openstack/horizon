@@ -8,21 +8,25 @@
 # Sungjin Kang <potopro@gmail.com>, 2015
 # whitekid <whitekid@gmail.com>, 2015
 # Yongbok Kim <ruo91@yongbok.net>, 2014
+# Ian Y. Choi <ianyrchoi@gmail.com>, 2015. #zanata
+# OpenStack Infra <zanata@openstack.org>, 2015. #zanata
+# Sungjin Kang <gang.sungjin@gmail.com>, 2015. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: Horizon\n"
+"Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-09-03 04:49+0000\n"
-"PO-Revision-Date: 2015-09-02 07:31+0000\n"
-"Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
-"Language-Team: Korean (Korea) (http://www.transifex.com/openstack/horizon/"
-"language/ko_KR/)\n"
+"POT-Creation-Date: 2015-09-16 18:25+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"PO-Revision-Date: 2015-09-11 04:04+0000\n"
+"Last-Translator: Sungjin Kang <gang.sungjin@gmail.com>\n"
+"Language-Team: Korean (Korea) (http://www.transifex.com/openstack/horizon/"
+"language/ko_KR/)\n"
 "Generated-By: Babel 2.0\n"
-"Language: ko_KR\n"
+"Language: ko-KR\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Zanata 3.7.1\n"
 
 msgid ""
 "\n"
@@ -150,9 +154,9 @@ msgid ""
 "  "
 msgstr ""
 "\n"
-"QoS 스펙은 볼륨 유형과 연결이 가능합니다.\n"
-"이는 볼륨 소유자에 의해 요청된 서비스 품질 기능 집합과 연결되는데 사용됩니"
-"다.\n"
+"QoS 스펙은 볼륨 타입과 연결이 가능합니다.\n"
+"이는 볼륨 소유자에 의해 요청된 서비스 품질 기능 \n"
+"집합과 연결되는데 사용됩니다.\n"
 "이는 <tt>cinder qos-create</tt> 명령어와 동일합니다.\n"
 "QoS 스펙이 생성되면, \"Manage Specs\" 버튼을 클릭하여 QoS 스펙에 대해 키-값 "
 "스펙을 관리하십시오.\n"
@@ -253,6 +257,23 @@ msgstr ""
 
 msgid ""
 "\n"
+"    Migrate a volume to a specific host.\n"
+"    <br>\n"
+"    <br>\n"
+"    Force Host Copy: Enables or disables generic host-based force-migration, "
+"which bypasses driver optimizations.\n"
+"    "
+msgstr ""
+"\n"
+"    특정 호스트에서 볼륨을 마이그레이션시킵니다.\n"
+"    <br>\n"
+"    <br>\n"
+"    강제 호스트 복사: 드라이버 최적화를 바이패스하여 일반적인 호스트 가반의 "
+"강제 마이그레이션을 활성화하고, 비활성화합니다.\n"
+"    "
+
+msgid ""
+"\n"
 "    The status of a volume is normally managed automatically.  In some "
 "circumstances an\n"
 "    administrator may need to explicitly update the status value.  This is "
@@ -299,6 +320,15 @@ msgstr ""
 
 msgid ""
 "\n"
+"   Volumes are block devices that can be attached to instances.\n"
+"   "
+msgstr ""
+"\n"
+"    볼륨은 인스턴스에 연결할 수 있는 블록 디바이스입니다.\n"
+"    "
+
+msgid ""
+"\n"
 "  Assign a name and description for the pool. Choose one subnet where all\n"
 "  members of this pool must be on. Select the protocol and load balancing\n"
 "  method for this pool. Admin State is UP (checked) by default.\n"
@@ -322,6 +352,20 @@ msgstr ""
 "'선택한 네트워크'로 네트워크를 이동합니다. \n"
 "드래그엔 드롭으로 NIC의 순서를 변경할 수 있습니다."
 
+msgid ""
+"\n"
+" Create a VIP for this pool. Assign a name, description, IP address, port,\n"
+" and maximum connections allowed for the VIP. Choose the protocol and "
+"session persistence\n"
+" method for the VIP. Admin State is UP (checked) by default.\n"
+" "
+msgstr ""
+"\n"
+" 이 pool의 VIP를 생성합니다. VIP에 대한 이름, 설명, IP 주소, 포트, \n"
+" 최대 접근 허용 범위를 작성합니다. VIP에 대한 프로토콜과 섹션 지속 \n"
+" 메서드을 선택합니다. 관리 상태는 기본으로 UP (확인된)입니다.\n"
+" "
+
 msgid " - End"
 msgstr "- 끝"
 
@@ -335,10 +379,22 @@ msgstr "포트 %s 제거 또한 실패하였습니다"
 msgid " Done"
 msgstr "완료"
 
+msgid "\"Add Router Route\""
+msgstr "\"라우터 경로 추가\""
+
 msgid ""
 "\"Customization Script\" is analogous to \"User Data\" in other systems."
 msgstr ""
 "\"사용자 정의 스크립트\"는 다른 시스템의 \"사용자 데이터\"와 유사합니다."
+
+msgid "\"Edit Volume Type\""
+msgstr "\"볼륨 타입 수정\""
+
+msgid "\"N/A\""
+msgstr "\"N/A\""
+
+msgid "\"None\""
+msgstr "\"없음\""
 
 msgid ""
 "\"None\" indicates that no QoS Spec is currently associated. Conversely, "
@@ -346,6 +402,13 @@ msgid ""
 msgstr ""
 "\"None\" 표시는 QoS 사양에 현재 관련되지 않았음을 나타냅니다. 반대로 QoS 스펙"
 "을 설정하면 \"None\"을 현재 연결에서 제거합니다."
+
+msgid ""
+"\"Some flavors not meeting minimum image requirements have been disabled.\""
+msgstr "\"최소 이미지를 만족하지 못하는 일부 flavor를 비활성되었습니다.\""
+
+msgid "\"Users\""
+msgstr "\"사용자\""
 
 #, python-format
 msgid "%(conf_name)s: %(conf_val)s"
@@ -439,6 +502,10 @@ msgstr "%s GB"
 #, python-format
 msgid "%s instances"
 msgstr "%s 인스턴스"
+
+#, python-format
+msgid "%s processes: "
+msgstr "%s 프로세스:"
 
 #, python-format
 msgid "%sGB"
@@ -808,11 +875,11 @@ msgid "Add VPN Service"
 msgstr "VPN 서비스 추가"
 
 msgid ""
-"Add and remove security groups to this project from the list of available "
+"Add and remove security groups to this instance from the list of available "
 "security groups."
 msgstr ""
-"사용 가능한 그룹 목록에서 이 프로젝트에 대한 시큐리티 그룹을 추가하거나 삭제"
-"합니다."
+"사용가능한 시큐리티 그룹의 목록에서 이 인스턴스에 시큐리티 그룹을 추가하거나 "
+"삭제합니다."
 
 msgid "Add custom tag"
 msgstr "커스텀 태그 추가"
@@ -949,6 +1016,9 @@ msgstr ""
 msgid "Address"
 msgstr "주소"
 
+msgid "Address pool"
+msgstr "주소 풀"
+
 msgid "Address:"
 msgstr "주소:"
 
@@ -1041,6 +1111,9 @@ msgstr "IP 할당"
 
 msgid "Allocate IP To Project"
 msgstr "프로젝트에  IP 할당"
+
+msgid "Allocate Network Address from a pool"
+msgstr "풀에서 네트워크 주소 할당"
 
 msgid "Allocate a floating IP from a given floating IP pool."
 msgstr "주어진 유동 IP pool에서 유동 IP를 할당하세요. "
@@ -1222,6 +1295,9 @@ msgstr "인증 모드"
 
 msgid "Auto Security Group"
 msgstr "자동 시큐리티 그룹"
+
+msgid "Auto-configure"
+msgstr "자동 구성"
 
 msgid "Automatic"
 msgstr "자동"
@@ -1604,6 +1680,12 @@ msgstr ""
 "선택합니다.\n"
 "드래그 앤 드롭으로 규칙 순서를 변경할 수 있습니다."
 
+msgid "Choose the Input Data Source (n/a for Java and Shell jobs)."
+msgstr "입력 데이터 소스 선택 (Java나 Shell job 은 해당안됨)."
+
+msgid "Choose the Output Data Source (n/a for Java and Shell jobs)."
+msgstr "출력 데이터 소스 선택 (Java나 Shell job은 해당안됨)."
+
 msgid "Choose the binary which should be used in this Job."
 msgstr "Job에 사용될 바이너리를 선택합니다."
 
@@ -1675,6 +1757,9 @@ msgstr "클러스터 생성 가이드"
 msgid "Cluster Details"
 msgstr "클러스터 자세한 정보"
 
+msgid "Cluster Events"
+msgstr "클러스터 이벤트"
+
 msgid "Cluster Guide"
 msgstr "클러스터 가이드"
 
@@ -1713,6 +1798,9 @@ msgstr "클러스터를 기존 클러스터 템플릿을 사용하여 시작할 
 msgid "Cluster configurations are not specified"
 msgstr "클러스터 구성을 지정하지 않았습니다."
 
+msgid "Cluster provision steps"
+msgstr "클러스터 배포 단계"
+
 msgid "Cluster template creation failed"
 msgstr "클러스터 템플릿을 생성하지 못 했습니다."
 
@@ -1740,6 +1828,9 @@ msgstr "콤마로 구분된 key=value 페어"
 msgctxt "Current status of a Database Backup"
 msgid "Completed"
 msgstr "Completed"
+
+msgid "Completed Successfully"
+msgstr "성공적으로 완료"
 
 msgid "Component"
 msgstr "구성 요소"
@@ -1929,6 +2020,9 @@ msgstr "Keystone에 기본 role \"%s\"를 찾을 수 없습니다"
 msgid "Could not launch job"
 msgstr "Job을 실행시키지 못 했습니다."
 
+msgid "Could not update data source"
+msgstr "데이터 소스를 업데이트 할 수 없습니다."
+
 #, python-format
 msgid "Couldn't get current security group list for instance %s."
 msgstr "인스턴스 %s 의 현재 시큐리티 그룹 목록을 가져올 수 없습니다."
@@ -1973,7 +2067,7 @@ msgid "Create Domain"
 msgstr "도메인 생성"
 
 msgid "Create Encrypted Volume Type"
-msgstr "암호화된 볼륨 유형 생성"
+msgstr "암호화된 볼륨 타입 생성"
 
 msgid "Create Encryption"
 msgstr "암호화 생성"
@@ -2132,7 +2226,7 @@ msgid "Create Volume Type Encryption"
 msgstr "볼륨 유형 암호화 생성"
 
 msgid "Create Volume Type Extra Spec"
-msgstr "볼륨 유형 추가 사양 생성"
+msgstr "볼륨 타입 추가 사양 생성"
 
 msgid "Create a Cluster Template"
 msgstr "클러스터 템플릿 생성"
@@ -2230,7 +2324,7 @@ msgstr ""
 "수를 지정하세요. 방식, URL 경로, 성공 시 예상된 HTTP 코드를 지정하세요. "
 
 msgid "Create a new \"extra spec\" key-value pair for a volume type."
-msgstr "볼륨 유형에대한 새로운 \"추가 사양\" 키-값을 생성합니다."
+msgstr "볼륨 타입에대한 새로운 \"추가 사양\" 키-값을 생성합니다."
 
 #, python-format
 msgid "Create a new \"spec\" key-value pair for QoS Spec \"%(qos_spec_name)s\""
@@ -2381,9 +2475,9 @@ msgid ""
 "type to be encrypted.  Encryption information cannot be added to a volume "
 "type if volumes are currently in use with that volume type."
 msgstr ""
-"볼륨 유형에 대한 암호화 생성은 암호화하고자 하는 해당 볼륨 유형에 대한 모든 "
-"볼륨에 적용됩니다. 해당 볼륨 유형에서 현재 사용 중인 볼륨이 있으면 해당 볼륨 "
-"유형에 암호화 정보를 추가할 수 없습니다."
+"볼륨 타입에 대한 암호화 생성은 암호화하고자 하는 해당 볼륨 타입에 대한 모든 "
+"볼륨에 적용됩니다. 해당 볼륨 타입에서 현재 사용 중인 볼륨이 있으면 해당 볼륨 "
+"타입에 암호화 정보를 추가할 수 없습니다."
 
 #, python-format
 msgid "Creating volume \"%s\""
@@ -2571,6 +2665,9 @@ msgstr ""
 
 msgid "Data source created"
 msgstr "데이터 소스를 생성했습니다."
+
+msgid "Data source updated"
+msgstr "데이터 소스 업데이트됨"
 
 msgid "Database"
 msgstr "데이터베이스"
@@ -3402,6 +3499,9 @@ msgstr "Job 바이너리 다운로드"
 msgid "Download key pair &quot;%(keypair_name)s&quot;"
 msgstr "키 페어 &quot;%(keypair_name)s&quot; 다운로드"
 
+msgid "Duration"
+msgstr "지속"
+
 #, python-format
 msgid "Duration of instance type %s (openstack flavor)"
 msgstr "인스턴스 유형 %s 지속 시간 (openstack flavor)"
@@ -3429,6 +3529,9 @@ msgstr "사용자 수정"
 
 msgid "Edit Consumer of QoS Spec"
 msgstr "QoS 스펙에 대한 사용자 편집"
+
+msgid "Edit Data Source"
+msgstr "데이터 소스 수정"
 
 msgid "Edit Domain"
 msgstr "도메인 편집"
@@ -3469,6 +3572,9 @@ msgstr "이미지 태그 수정"
 
 msgid "Edit Instance"
 msgstr "인스턴스 편집"
+
+msgid "Edit Job Binary"
+msgstr "Job 바이너리 수정"
 
 msgid "Edit Member"
 msgstr "멤버 편집"
@@ -3545,8 +3651,11 @@ msgstr "VPN 서비스 편집"
 msgid "Edit Volume"
 msgstr "볼륨 편집"
 
+msgid "Edit Volume Type"
+msgstr "볼륨 타입 수정"
+
 msgid "Edit Volume Type Extra Spec"
-msgstr "볼륨 유형 추가 사양 편집"
+msgstr "볼륨 타입 추가 사양 편집"
 
 msgid ""
 "Edit the flavor details. Flavors define the sizes for RAM, disk, number of "
@@ -3631,6 +3740,9 @@ msgstr "전력 (Kwapi) "
 
 msgid "Engine Id"
 msgstr "Engine Id"
+
+msgid "Enter Network Address manually"
+msgstr "네트워크 주소 수동 입력"
 
 msgid "Enter a value for ICMP code in the range (-1: 255)"
 msgstr "ICMP 코드의 범위 값을 입력하세요. (-1: 255)"
@@ -3816,6 +3928,9 @@ msgstr "호스트 이주"
 msgid ""
 "Evacuate the servers from the selected down host to an active target host."
 msgstr "선택된 다운 호스트에서 활성화된 대상 호스트로 서버를 이주합니다."
+
+msgid "Event time"
+msgstr "이벤트 시간"
 
 msgid "Events"
 msgstr "이벤트"
@@ -4336,6 +4451,9 @@ msgstr "유동 IP"
 msgid "Floating IP Pool"
 msgstr "유동 IP Pool"
 
+msgid "Floating IP:"
+msgstr "유동 IP:"
+
 msgid "Floating IPs"
 msgstr "유동 IP"
 
@@ -4683,6 +4801,9 @@ msgstr "IP 프로토콜"
 msgid "IP Version"
 msgstr "IP 버전"
 
+msgid "IP address"
+msgstr "IP 주소"
+
 #, python-format
 msgid "IP address %s associated."
 msgstr "IP 주소 %s 연결함."
@@ -4788,6 +4909,20 @@ msgstr "Identity 서비스는 사용자 데이터를 편집할 수 없습니다.
 msgid "Identity service does not allow editing user password."
 msgstr "Identity 서비스는 사용자 암호를 편집할 수 없습니다."
 
+#, python-format
+msgid ""
+"If \"No volume type\" is selected, the default volume type \"%(name)s\" will "
+"be set for the created volume."
+msgstr ""
+"\"볼륨 타입 없음\"을 선택하면, 기본 볼륨 형식인 \"%(name)s\"으로 생성된 볼륨"
+"이 설정됩니다."
+
+msgid ""
+"If \"No volume type\" is selected, the volume will be created without a "
+"volume type."
+msgstr ""
+"\"볼륨 타입 없음\"을 선택하면, 볼륨은 볼륨 타입이 없는 상태로 생성됩니다."
+
 msgid ""
 "If console is not responding to keyboard input: click the grey status bar "
 "below."
@@ -4800,6 +4935,13 @@ msgid ""
 msgstr ""
 "어떤 컨테이너 이름을 제공하지 않으면, volumebackups라는 기본 컨테이너 이름으"
 "로 프로비저닝됩니다. 백업은 기존 볼륨과 동일한 크기로 생성됩니다."
+
+msgid ""
+"If selected, instances of a cluster will be automatically configured during "
+"creation. Otherwise you should manually specify configuration values"
+msgstr ""
+"선택하면 생성 동안 클러스터 인스턴스를 자동으로 구성합니다. 그렇지 않으면 수"
+"동으로 구성 값을 지정해야 합니다."
 
 msgid ""
 "If you select an image via an HTTP URL, the Image Location field MUST be a "
@@ -4924,6 +5066,9 @@ msgid ""
 msgstr ""
 "또한, 외부 네트워크나 공유 네트워크를 해당 확인란을 선택하여 생성할 수 있습니"
 "다."
+
+msgid "In progress"
+msgstr "진행중"
 
 msgctxt "Current status of a Volume"
 msgid "In-use"
@@ -5060,6 +5205,9 @@ msgstr "인스턴스 시큐리티 그룹"
 
 msgid "Instance Snapshot"
 msgstr "인스턴스 스냅샷"
+
+msgid "Instance and attached volumes will be created on the same physical host"
+msgstr "인스턴스와 연결된 볼륨이 동일한 물리 호스트에 생성됩니다."
 
 msgid "Instance to be associated"
 msgstr "연결된 인스턴스"
@@ -5784,7 +5932,7 @@ msgid "Modify the name and description of a snapshot."
 msgstr "스냅샷에 대한 이름과 설명을 수정합니다."
 
 msgid "Modify volume type name and description."
-msgstr "볼륨 유형 이름 및 설명 수정."
+msgstr "볼륨 타입 이름 및 설명 수정."
 
 msgid "Monitor"
 msgstr "모니터"
@@ -5896,6 +6044,9 @@ msgstr "네트워크 (Neutron)"
 msgid "Network Address"
 msgstr "네트워크 주소"
 
+msgid "Network Address Source"
+msgstr "네트워크 주소 원본"
+
 msgid "Network Address and IP version are inconsistent."
 msgstr "네트워크 주소와 IP 버전이 일치하지 않습니다."
 
@@ -5910,6 +6061,9 @@ msgstr "네트워크 세부 정보: {{ network.name }}"
 
 msgid "Network ID"
 msgstr "네트워크 ID"
+
+msgid "Network Mask"
+msgstr "네트워크 마스크"
 
 msgid "Network Name"
 msgstr "네트워크 이름"
@@ -5976,6 +6130,12 @@ msgstr "새로운 호스트"
 msgid "New Size (GB)"
 msgstr "새로운 크기 (GB)"
 
+msgid "New name cannot be empty."
+msgstr "새로운 이름을 입력하여 주십시오."
+
+msgid "New name conflicts with another volume type."
+msgstr "다른 볼륨 형식의 이름과 동일합니다."
+
 msgid "New password"
 msgstr "새로운 비밀번호"
 
@@ -5990,6 +6150,12 @@ msgstr "다음"
 
 msgid "Next Hop"
 msgstr "다음 Hop"
+
+msgid ""
+"Next Hop IP must be a part of one of the subnets to which the router "
+"interfaces are connected."
+msgstr ""
+"다음 홉 IP는 라우터 인터페이스가 연결되어 있는 서브넷 중 하나여야 합니다."
 
 msgid "Next Hops"
 msgstr "다음 홉"
@@ -6106,6 +6272,9 @@ msgstr "사용 가능한 이미지가 없습니다."
 
 msgid "No images available."
 msgstr "사용 가능한 이미지가 없습니다."
+
+msgid "No info available"
+msgstr "사용 가능한 정보가 없습니다."
 
 msgid "No input was provided for the namespace content."
 msgstr "네임스페이스 내용에 대한 입력이 없습니다."
@@ -6843,14 +7012,11 @@ msgstr "사설"
 msgid "Private Key File"
 msgstr "개인 키 파일"
 
-msgid "Processes"
-msgstr "프로세스"
-
-msgid "Processes to be launched in node group"
-msgstr "노드 그룹에서 프로세스 실행"
-
 msgid "Profile"
 msgstr "프로필"
+
+msgid "Progress"
+msgstr "진행"
 
 msgid "Project"
 msgstr "프로젝트"
@@ -6933,7 +7099,7 @@ msgid "Provider"
 msgstr "공급자"
 
 msgid "Provider Network"
-msgstr "공급자 네트워크"
+msgstr "프로바이더 네트워크"
 
 msgid "Provider Network Type"
 msgstr "프로바이더 네트워크 유형"
@@ -7790,6 +7956,9 @@ msgstr "인스턴스 스냅샷 선택"
 msgid "Select Network"
 msgstr "네트워크 선택"
 
+msgid "Select Node Group Processes"
+msgstr "노드 그룹 프로세스 선택"
+
 msgid "Select Port"
 msgstr "포트 선택"
 
@@ -7870,6 +8039,9 @@ msgstr "새로운 flavor 선택"
 msgid "Select a new host"
 msgstr "새로운 호스트 선택"
 
+msgid "Select a new status"
+msgstr "새로운 상태 선택"
+
 msgid "Select a new template to preview a stack."
 msgstr "스택 미리보기할 새로운 템플릿 선택합니다."
 
@@ -7887,6 +8059,9 @@ msgstr "새로운 클러스터를 위한 플러그인 및 버전을 선택하세
 
 msgid "Select a plugin and version for the new Node Group template."
 msgstr "새로운 노드 그룹 템플릿에 대한 플러그인과 버전을 선택합니다."
+
+msgid "Select a pool"
+msgstr "풀 선택"
 
 msgid "Select a port"
 msgstr "포트 선택"
@@ -7941,6 +8116,9 @@ msgstr "네트워크 선택"
 
 msgid "Select networks for your instance."
 msgstr "인스턴스 네트워크 선택"
+
+msgid "Select node processes for the node group"
+msgstr "노드 그룹에 대한 노드 프로세스 선택"
 
 msgid "Select parent backup"
 msgstr "부모 백업 선택"
@@ -8337,6 +8515,13 @@ msgstr "인스턴스를 구동하기 위해 사용 가능한 볼륨을 지정합
 msgid "Specify \"Network Address\""
 msgstr "\"네트워크 주소\"를 지정합니다."
 
+msgid ""
+"Specify \"Network Address\", \"Address pool\" or clear \"Create Subnet\" "
+"checkbox."
+msgstr ""
+"\"네트워크 주소\", \"주소 풀\"을 지정하거나 \"서브넷 생성\" 체크박스를 초기화"
+"합니다."
+
 msgid "Specify IP address of gateway or check \"Disable Gateway\"."
 msgstr ""
 "게이트웨이 IP 주소를 작성하거나 \"개이트웨이 사용안함\"을 체크하십시오."
@@ -8499,6 +8684,9 @@ msgstr "Status ="
 msgid "Status Reason"
 msgstr "상태 현황"
 
+msgid "Step Description"
+msgstr "단계 설명"
+
 msgctxt "Action log of an instance"
 msgid "Stop"
 msgstr "Stop"
@@ -8508,6 +8696,9 @@ msgstr "스토리지 위치"
 
 msgid "Storage type"
 msgstr "스토리지 타입"
+
+msgid "Storm"
+msgstr "Storm"
 
 msgid "Streaming MapReduce"
 msgstr "스트리밍 MapReduce"
@@ -8546,6 +8737,9 @@ msgstr "Subnet: %(dest_subnetname)s"
 msgid "Subnet: %(row_source_subnetname)s"
 msgstr "Subnet: %(row_source_subnetname)s"
 
+msgid "Subnetpool"
+msgstr "서브넷풀"
+
 msgid "Subnets"
 msgstr "서브넷"
 
@@ -8574,7 +8768,7 @@ msgstr "QOS 사양을 성공적으로 생성했습니다: %s"
 
 #, python-format
 msgid "Successfully created encryption for volume type: %s"
-msgstr "볼륨 유형에 대한 암호화 생성 완료: %s"
+msgstr "볼륨 타입에 대한 암호화 생성 완료: %s"
 
 #, python-format
 msgid "Successfully created security group: %s"
@@ -8665,6 +8859,9 @@ msgstr "볼륨 스냅샷 상태를 업데이트 했습니다: \"%s\"."
 #, python-format
 msgid "Successfully updated volume status to \"%s\"."
 msgstr "성공적으로 %s에 볼륨 상태를 업데이트 했습니다."
+
+msgid "Successfully updated volume type."
+msgstr "볼륨 타입을 성공적으로 수정했습니다."
 
 msgid "Sum."
 msgstr "총합"
@@ -9063,6 +9260,9 @@ msgstr "인스턴스가 호스트 \"%s\"에서 라이브 마이그레이션을 �
 msgid "The instance password encrypted with your public key."
 msgstr "공개 키를 이용하여 인스턴스 비밀번호를 암호화합니다."
 
+msgid "The instance(s) will be shut off."
+msgstr "인스턴스 전원을 끌 수 있습니다."
+
 #, python-format
 msgid ""
 "The key pair &quot;%(keypair_name)s&quot; should download automatically. If "
@@ -9325,9 +9525,6 @@ msgstr ""
 msgid "To exit the fullscreen mode, click the browser's back button."
 msgstr "전체화면 모드에서 나가려면, 브라우저의 Back 버튼을 클릭하세요."
 
-msgid "To power off a specific instance."
-msgstr "특정 인스턴스 전원 종료"
-
 msgid ""
 "To specify an allowed IP range, select &quot;CIDR&quot;. To allow access "
 "from all members of another security group select &quot;Security Group&quot;."
@@ -9542,7 +9739,7 @@ msgid "Unable to create domain \"%s\"."
 msgstr "도메인 \"%s\" 을 만들 수 없습니다."
 
 msgid "Unable to create encrypted volume type."
-msgstr "볼륨 유형 암호화 생성 실패."
+msgstr "볼륨 타입 암호화 생성 실패."
 
 #, python-format
 msgid "Unable to create flavor \"%s\"."
@@ -9908,8 +10105,14 @@ msgstr "사용할 수 있는 호스트를 가져올 수 없습니다."
 msgid "Unable to get user data."
 msgstr "사용자 데이터를 가져욜 수 없습니다."
 
+msgid "Unable to get volume type list."
+msgstr "볼륨 타입 목록을 가져올 수 없습니다."
+
 msgid "Unable to import key pair."
 msgstr "키 페어를 가져오지 못 했습니다."
+
+msgid "Unable to initialize subnetpools"
+msgstr "서브넷 풀을 초기화할 수 없습니다."
 
 #, python-format
 msgid "Unable to launch %(count)s named \"%(name)s\"."
@@ -10323,6 +10526,10 @@ msgstr "인스턴스 목록을 찾지 못 했습니다."
 msgid "Unable to retrieve instances."
 msgstr "인스턴스를 찾지 못 했습니다."
 
+#, python-format
+msgid "Unable to retrieve job binary \"%s\"."
+msgstr "Job 바이너리 \"%s\"를 거져올 수 없습니다."
+
 msgid "Unable to retrieve key pair list."
 msgstr "키 페어 목록을 찾지 못 했습니다."
 
@@ -10634,8 +10841,18 @@ msgstr "볼륨 타입의 암호화 정보를 찾지 못했습니다."
 msgid "Unable to retrieve volume type extra spec details."
 msgstr "볼륨 타입 추가 사양에 대한 자세한 정보를 찾지 못 했습니다."
 
+#, python-format
+msgid "Unable to retrieve volume type for: \"%s\""
+msgstr "볼륨을 가져올 수 없습니다 : \"%s\""
+
+msgid "Unable to retrieve volume type list."
+msgstr "볼륨 타입 목록을 가져오지 못했습니다."
+
 msgid "Unable to retrieve volume type name."
 msgstr "볼륨 유형 이름을 가져올 수 없습니다."
+
+msgid "Unable to retrieve volume type qos."
+msgstr "볼륨 타입 qos를 가져올 수 없습니다."
 
 msgid "Unable to retrieve volume types"
 msgstr "볼륨 타입을 찾지 못했습니다."
@@ -10693,6 +10910,9 @@ msgstr "그룹을 업데이트 할 수 없습니다."
 msgid "Unable to update image \"%s\"."
 msgstr "이미지 \"%s\"를 업데이트 할 수 없습니다."
 
+msgid "Unable to update job binary"
+msgstr "Job 바이너리를 업데이트 할 수 없습니다."
+
 msgid "Unable to update object."
 msgstr "오브젝트를 업데이트할 수 없습니다."
 
@@ -10722,6 +10942,9 @@ msgstr "사용자 암호를 업데이트를 할 수 없습니다."
 msgid "Unable to update the user."
 msgstr "사용자 업데이트를 할 수 없습니다."
 
+msgid "Unable to update the volume type."
+msgstr "해당 볼륨 타입을 수정할 수 없습니다."
+
 msgid "Unable to update volume snapshot status."
 msgstr "볼륨 스냅샷 상태를 업데이트 하지 못했습니다."
 
@@ -10731,6 +10954,9 @@ msgstr "볼륨 스냅샷을 업데이트하지 못 했습니다."
 #, python-format
 msgid "Unable to update volume status to \"%s\"."
 msgstr "\"%s\"에 대한 볼륨 상태를 업데이트 할 수 없습니다."
+
+msgid "Unable to update volume type."
+msgstr "볼륨 타입을 수정할 수 없습니다."
 
 msgid "Unable to update volume."
 msgstr "볼륨을 업데이트 할 수 업습니다."
@@ -11005,6 +11231,9 @@ msgstr "프로세스에서 anti-affinity 그룹 사용"
 
 msgid "Use anti-affinity groups for: "
 msgstr "사용하는 anti-affinity 그룹:"
+
+msgid "Use auto-configuration"
+msgstr "자동 구성 사용"
 
 msgid "Use image as a source"
 msgstr "소스로 이미지를 사용"
@@ -11333,27 +11562,27 @@ msgid "Volume Type Description:"
 msgstr "볼륨 유형 설명:"
 
 msgid "Volume Type Encryption Details"
-msgstr "볼륨 유형 암호화 세부 사항"
+msgstr "볼륨 타입 암호화 세부 사항"
 
 msgid "Volume Type Encryption Overview"
-msgstr "볼륨 유형 암호화 개요"
+msgstr "볼륨 타입 암호화 개요"
 
 msgid "Volume Type Extra Specs"
-msgstr "볼륨 유형 추가 사양"
+msgstr "볼륨 타입 추가 사양"
 
 msgid "Volume Type Name"
 msgstr "볼륨 유형 이름"
 
 msgid "Volume Type is Unencrypted."
-msgstr "볼륨 유형이 암호화되지 않았습니다."
+msgstr "볼륨 타입이 암호화되지 않았습니다."
 
 #, python-format
 msgid "Volume Type: %(volume_type_name)s"
-msgstr "볼륨 유형: %(volume_type_name)s"
+msgstr "볼륨 타입: %(volume_type_name)s"
 
 #, python-format
 msgid "Volume Type: %(volume_type_name)s "
-msgstr "볼륨 유형: %(volume_type_name)s"
+msgstr "볼륨 타입: %(volume_type_name)s"
 
 msgid "Volume Types"
 msgstr "볼륨 타입"
@@ -11418,6 +11647,10 @@ msgstr "볼륨 크기는 0 이상이어야 합니다."
 msgid "Volume source must be specified"
 msgstr "볼륨 소스를 선택해야 합니다."
 
+#, python-format
+msgid "Volume type name \"%s\" already exists."
+msgstr "볼륨 타입 이름 \"%s\"가 이미 존재합니다."
+
 msgid "Volume type name can not be empty."
 msgstr "볼륨 유형 이름은 빈 상태로 둘 수 없습니다."
 
@@ -11439,8 +11672,23 @@ msgstr "볼륨 크기"
 msgid "Volumes size (GB)"
 msgstr "볼륨 크기 (GB)"
 
+msgid "Volumes type"
+msgstr "볼륨 타입"
+
 msgid "Weight"
 msgstr "Weight"
+
+msgid ""
+"When no IP address is provided, the VIP will obtain an address from\n"
+"  the selected subnet. If a specific IP address is desired, it may be "
+"provided and\n"
+"  must also be an address within the selected subnet.\n"
+"  "
+msgstr ""
+"IP 주소가 지정되지 않는 경우, VIP는 선택한 서브넷에서 \n"
+"  주소를 할당받습니다. 특정 IP 주소를 할당 받기위해선 \n"
+"  선택된 서브넷내의 주소에서 제공받을 수 있습니다.\n"
+"  "
 
 msgid "Which keypair to use for authentication."
 msgstr "인증을 위해 사용할 키페어 선택."

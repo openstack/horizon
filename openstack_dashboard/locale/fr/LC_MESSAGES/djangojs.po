@@ -7,24 +7,33 @@
 # Corinne Verheyde <cverheyd@hotmail.com>, 2015
 # Lucas Mascaro <mascaro.lucas@yahoo.fr>, 2015
 # Maxime COQUEREL <max.coquerel@gmail.com>, 2015
+# Corinne Verheyde <cverheyd@gmail.com>, 2015. #zanata
+# François Bureau <bureaufrancois@gmail.com>, 2015. #zanata
+# Gael Rehault <gael01@gmail.com>, 2015. #zanata
+# OpenStack Infra <zanata@openstack.org>, 2015. #zanata
+# andrew melim <nokostya.translation@gmail.com>, 2015. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: Horizon\n"
+"Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-09-03 04:49+0000\n"
-"PO-Revision-Date: 2015-09-02 04:23+0000\n"
-"Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
-"Language-Team: French (http://www.transifex.com/openstack/horizon/language/"
-"fr/)\n"
+"POT-Creation-Date: 2015-09-16 18:25+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"PO-Revision-Date: 2015-09-15 09:41+0000\n"
+"Last-Translator: Corinne Verheyde <cverheyd@gmail.com>\n"
+"Language-Team: French (http://www.transifex.com/openstack/horizon/language/"
+"fr/)\n"
 "Generated-By: Babel 2.0\n"
 "Language: fr\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"X-Generator: Zanata 3.7.1\n"
 
 msgid "(Max: 16Kb)"
 msgstr "(Max: 16Ko)"
+
+msgid "(Modified)"
+msgstr "(Modifié)"
 
 msgid "(None)"
 msgstr "(Aucun)"
@@ -167,6 +176,9 @@ msgstr "Automatique"
 msgid "Availability Zone"
 msgstr "Zone de disponibilité"
 
+msgid "Boot Source"
+msgstr "Source de démarrage"
+
 msgid "Cancel"
 msgstr "Annuler"
 
@@ -210,18 +222,17 @@ msgstr "Créer un nouveau volume"
 msgid "Created"
 msgstr "Créé"
 
-#, python-format
 msgid ""
 "Custom scripts are attached to instances to perform specific actions when "
-"the instance is launched. For example, if you are unable to install <samp>"
-"%(cloutInit)s</samp> inside a guest operating system, you can use a custom "
-"script to get a public key and add it to the user account."
+"the instance is launched. For example, if you are unable to install "
+"<samp>cloud-init</samp> inside a guest operating system, you can use a "
+"custom script to get a public key and add it to the user account."
 msgstr ""
-"Des scripts personnalisés sont joints aux instances pour pouvoir réaliser "
-"certaines actions quand l'instance est exécutée. Ainsi, si vous n'êtes pas "
-"en mesure d'installer  <samp>%(cloutInit)s</samp> dans un système "
-"d'exploitation, vous pouvez utiliser un script personnalisé pour pouvoir "
-"obtenir une clé publique et l'ajouter au compte utilisateur."
+"Les scripts personnalisés sont attachés à l'instance pour réaliser certaines "
+"actions spécifiques au lancement de l'instance. Par exemple, si vous ne "
+"pouvez pas installer <samp>cloud-init</samp> à l'intérieur d'un système "
+"d'exploitation invité, vous pouvez utiliser un script personnalisé pour "
+"récupérer une clé publique et l'ajouter au compte utilisateur."
 
 msgid "Customization Script"
 msgstr "Script de personnalisation"
@@ -261,6 +272,9 @@ msgstr "Disque Éphémère"
 
 msgid "Ether Type"
 msgstr "Type de protocole"
+
+msgid "Event log is not available."
+msgstr "Le journal des événements n'est pas disponible"
 
 #, python-format
 msgid "Extension is not enabled: %(extension)s."
@@ -443,9 +457,6 @@ msgstr "Ram Mon (Mo)"
 msgid "Min Ram"
 msgstr "RAM Min"
 
-msgid "Modified"
-msgstr "Modifié"
-
 msgid "Name"
 msgstr "Nom"
 
@@ -567,9 +578,6 @@ msgstr "Enregistrement"
 msgid "Script size"
 msgstr "Taille Script"
 
-msgid "Script size > 16Kb"
-msgstr "Taille du script > 16Ko"
-
 msgid "Security Groups"
 msgstr "Groupes de sécurité"
 
@@ -650,6 +658,9 @@ msgstr "Le paramètre n'est pas activé : %(setting)s"
 msgid "Shared"
 msgstr "Partagé"
 
+msgid "Show events"
+msgstr "Afficher les événements"
+
 msgid "Size"
 msgstr "Taille"
 
@@ -680,6 +691,17 @@ msgstr ""
 "Le gabarit que vous sélectionnez détermine le montant de ressources de "
 "mémoire, de stockage et de calcul qui seront réservés à votre instance."
 
+msgid ""
+"The flavor you select must have enough resources allocated to support the "
+"type of instance you are trying to create. Flavors that do not provide "
+"enough resources for your instance are identified on the <b>Available</b> "
+"table with a yellow warning icon."
+msgstr ""
+"Le gabarit que vous sélectionnez doit avoir assez de ressources pour "
+"soutenir le type d'instance que vous devez créer. Les gabarits que ne sont "
+"pas suffisants pour créer des instances sont identifiés sur le tableau "
+"<b>disponible</b> et l'icône d'avertissement jaune."
+
 #, python-format
 msgid ""
 "The instance count must not exceed your quota available of "
@@ -690,9 +712,6 @@ msgstr ""
 
 msgid "The key pair allows you to SSH into the instance."
 msgstr "La paire de clés vous permet d'SSH dans l'instance."
-
-msgid "The maximum script size is 16Kb."
-msgstr "La taille maximum du script est de 16Ko."
 
 #, python-format
 msgid ""
@@ -715,6 +734,9 @@ msgstr ""
 
 msgid "The status indicates whether the network has an active connection."
 msgstr "Le statut indique si le réseau a une connexion active."
+
+msgid "The step has completed successfully. No events to display."
+msgstr "L'étape s'est terminée avec succès. Aucun événement à afficher."
 
 msgid ""
 "The subnet identifies a sub-section of a network. A subnet is specified in "
@@ -840,8 +862,18 @@ msgstr "Impossible de supprimer l'utilisateur."
 msgid "Unable to delete the users."
 msgstr "Impossible de supprimer les utilisateurs."
 
+msgid "Unable to edit the aggregate extra specs."
+msgstr "Impossible d'éditer les paramètres supplémentaires de l'agrégat."
+
 msgid "Unable to edit the domain."
 msgstr "Impossible d'éditer le domaine."
+
+msgid "Unable to edit the flavor extra specs."
+msgstr ""
+"Impossible d'éditer les paramètres supplémentaires du gabarit d'instance."
+
+msgid "Unable to edit the image custom properties."
+msgstr "Impossible d'éditer les propriétés personnalisées de l'image."
 
 msgid "Unable to edit the project."
 msgstr "Impossible d'éditer le projet."
@@ -866,6 +898,9 @@ msgstr "Impossible d'importer la paire de clés."
 
 msgid "Unable to retrieve settings."
 msgstr "Impossible de récupérer les paramètres."
+
+msgid "Unable to retrieve the aggregate extra specs."
+msgstr "Impossible de récupérer les paramètres supplémentaires de l'agrégat."
 
 msgid "Unable to retrieve the availability zones."
 msgstr "Impossible de récupérer les zones de disponibilité."
@@ -892,6 +927,9 @@ msgstr "Impossible de récupérer le gabarit d'instance."
 
 msgid "Unable to retrieve the flavors."
 msgstr "Impossible de récupérer les gabarits d'instance."
+
+msgid "Unable to retrieve the image custom properties."
+msgstr "Impossible de récupérer les propriétés personnalisées de l'image."
 
 msgid "Unable to retrieve the image."
 msgstr "Impossible de récupérer l'image."
@@ -947,6 +985,9 @@ msgstr "Impossible de récupérer les instantanés de volume."
 msgid "Unable to retrieve the volumes."
 msgstr "Impossible de récupérer les volumes."
 
+msgid "Unable to validate the template."
+msgstr "Impossible de valider le modèle."
+
 msgid "Up"
 msgstr "Haut"
 
@@ -967,6 +1008,9 @@ msgstr "ID Utilisateur"
 
 msgid "User Name"
 msgstr "Nom d'utilisateur"
+
+msgid "VCPUS"
+msgstr "VCPUS"
 
 msgid "Visibility"
 msgstr "Visibilité"

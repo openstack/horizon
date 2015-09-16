@@ -9,21 +9,23 @@
 # Gabriel Wainer, 2015
 # maurosr <maurosmrodrigues@gmail.com>, 2015
 # Rodrigo Felix de Almeida <rodrigofelixdealmeida@gmail.com>, 2014
+# OpenStack Infra <zanata@openstack.org>, 2015. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: Horizon\n"
+"Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-08-04 04:10+0000\n"
-"PO-Revision-Date: 2015-07-27 13:39+0000\n"
-"Last-Translator: Gabriel Wainer\n"
-"Language-Team: Portuguese (Brazil) (http://www.transifex.com/openstack/"
-"horizon/language/pt_BR/)\n"
+"POT-Creation-Date: 2015-09-16 18:25+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"PO-Revision-Date: 2015-09-02 06:44+0000\n"
+"Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
+"Language-Team: Portuguese (Brazil) (http://www.transifex.com/openstack/"
+"horizon/language/pt_BR/)\n"
 "Generated-By: Babel 2.0\n"
-"Language: pt_BR\n"
+"Language: pt-BR\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"X-Generator: Zanata 3.7.1\n"
 
 #, python-format
 msgid "%s GB"

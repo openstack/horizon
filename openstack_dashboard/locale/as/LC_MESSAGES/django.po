@@ -3,21 +3,23 @@
 # This file is distributed under the same license as the PROJECT project.
 #
 # Translators:
+# OpenStack Infra <zanata@openstack.org>, 2015. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: Horizon\n"
+"Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-09-03 04:49+0000\n"
-"PO-Revision-Date: 2015-09-02 07:31+0000\n"
-"Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
-"Language-Team: Assamese (http://www.transifex.com/openstack/horizon/language/"
-"as/)\n"
+"POT-Creation-Date: 2015-09-16 18:25+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"PO-Revision-Date: 2015-09-08 11:14+0000\n"
+"Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
+"Language-Team: Assamese (http://www.transifex.com/openstack/horizon/language/"
+"as/)\n"
 "Generated-By: Babel 2.0\n"
 "Language: as\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Zanata 3.7.1\n"
 
 #, python-format
 msgid ""
@@ -556,13 +558,6 @@ msgstr "VIP যোগ কৰক"
 
 msgid "Add VPN Service"
 msgstr "VPN সেৱা যোগ কৰক"
-
-msgid ""
-"Add and remove security groups to this project from the list of available "
-"security groups."
-msgstr ""
-"উপলব্ধ সুৰক্ষাৰ গোটবোৰৰ তালিকাখনৰ পৰা এই প্ৰক্ষেপটোলৈ সুৰক্ষাৰ গোটবোৰ যোগ আৰু আতঁৰ "
-"কৰক."
 
 msgid "Add custom tag"
 msgstr "ব্যৱস্থা কৰা টেগ যোগ কৰক"
@@ -5008,12 +5003,6 @@ msgstr "ব্যক্তিগত"
 
 msgid "Private Key File"
 msgstr "ব্যক্তিগত মুখ্য ফাইল"
-
-msgid "Processes"
-msgstr "প্ৰক্ৰিয়াবোৰ"
-
-msgid "Processes to be launched in node group"
-msgstr "নোড গোটত আৰম্ভ কৰিবলগীয়া প্ৰক্ৰিয়াবোৰ"
 
 msgid "Project"
 msgstr "প্ৰক্ষেপ"

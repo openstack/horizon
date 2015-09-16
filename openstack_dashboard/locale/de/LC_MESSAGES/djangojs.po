@@ -7,24 +7,31 @@
 # Ettore Atalan <atalanttore@googlemail.com>, 2015
 # Frank Kloeker <eumel@arcor.de>, 2015
 # Robert Simai, 2015
+# Frank Kloeker <eumel@arcor.de>, 2015. #zanata
+# OpenStack Infra <zanata@openstack.org>, 2015. #zanata
+# Robert Simai <robert.simai@suse.com>, 2015. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: Horizon\n"
+"Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-09-03 04:49+0000\n"
-"PO-Revision-Date: 2015-09-03 00:50+0000\n"
-"Last-Translator: Ettore Atalan <atalanttore@googlemail.com>\n"
-"Language-Team: German (http://www.transifex.com/openstack/horizon/language/"
-"de/)\n"
+"POT-Creation-Date: 2015-09-16 18:25+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"PO-Revision-Date: 2015-09-16 03:24+0000\n"
+"Last-Translator: Robert Simai <robert.simai@suse.com>\n"
+"Language-Team: German (http://www.transifex.com/openstack/horizon/language/"
+"de/)\n"
 "Generated-By: Babel 2.0\n"
 "Language: de\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Zanata 3.7.1\n"
 
 msgid "(Max: 16Kb)"
 msgstr "(Max: 16 kB)"
+
+msgid "(Modified)"
+msgstr "(Verändert)"
 
 msgid "(None)"
 msgstr "(Kein)"
@@ -74,6 +81,26 @@ msgstr ""
 "Datenträger auswählen können Sie nur eine Instanz starten.</em></li>"
 
 msgid ""
+"A floating IP allows instances to be addressable from an external network.\n"
+"    Floating IPs are not allocated to instances at creation time and may be "
+"assigned\n"
+"    after the instance is created. To attach a floating IP, go to the "
+"<b>Instances</b>\n"
+"    view and click the <b>Actions</b> menu to the right of an instance.\n"
+"    Then, select the <b>Associate Floating IP</b> option and enter the "
+"necessary details."
+msgstr ""
+"Eine Floating IP erlaubt es einer Instanz von einem externen Netzwerk "
+"erreichbar zu sein.\n"
+"Floating IPs sind nicht einer Instanz in der Entstehungsphase zugewiesen und "
+"sollten \n"
+"zugewiesen werden, nachdem die Instanz erstellt wurde. Um eine Floating IP \n"
+"zuzuweisen, gehe zur <b>Instanzen</b>-Ansicht und klicke auf <b>Aktionen</b>-"
+"Menü \n"
+"rechts an der Instanz. Wähle dann <b>Floating IP zuweisen</b> und gebe die "
+"notwendigen Details ein."
+
+msgid ""
 "A key pair allows you to SSH into your newly created instance. You may "
 "select an existing key pair, import a key pair, or generate a new key pair."
 msgstr ""
@@ -108,6 +135,21 @@ msgid ""
 msgstr ""
 "Administratoren richten den Pool der Floating IPs für die Zuweisung zu "
 "Instanzen ein."
+
+msgid ""
+"An <b>External</b> network is set up by an administrator.\n"
+"    If you want an instance to communicate outside of the data center,\n"
+"    then attach a router between your <b>Project</b> network and the "
+"<b>External</b> network.\n"
+"    You can use the <b>Network Topology</b> view to connect the router to "
+"the two networks."
+msgstr ""
+"Ein <b>externes</b> Netzwerk wird von einem Administrator eingerichtet.\n"
+"    Wenn eine Instanz ausserhalb des Rechenzentrums kommunizieren soll, \n"
+"     dann füge einen Router zwischen Deinem <b>Projekt</b> Netzwerk und dem "
+"<b>Extern</b> Netzwerk ein.\n"
+"     Du kannst die <b>Netzwerk-Topologie</b> Ansicht verwenden, um den "
+"Router mit zwei Netzwerken zu verbinden."
 
 msgid ""
 "An advanced option available when launching an instance is disk "
@@ -180,18 +222,17 @@ msgstr "Neuen Datenträger erstellen"
 msgid "Created"
 msgstr "Erstellt"
 
-#, python-format
 msgid ""
 "Custom scripts are attached to instances to perform specific actions when "
-"the instance is launched. For example, if you are unable to install <samp>"
-"%(cloutInit)s</samp> inside a guest operating system, you can use a custom "
-"script to get a public key and add it to the user account."
+"the instance is launched. For example, if you are unable to install "
+"<samp>cloud-init</samp> inside a guest operating system, you can use a "
+"custom script to get a public key and add it to the user account."
 msgstr ""
-"Angepasste Skripte werden zu Instanzen hinzugefügt um besondere Aktionen bei "
-"deren Start auszuführen. Wenn Sie z.B. <samp>%(cloutInit)s</samp> in einem "
-"Gastbetriebssystem nicht installieren können, können Sie ein angepasstes "
-"Skript verwenden, um einen öffentlichen Schlüssel abzurufen und einem "
-"Benutzerkonto hinzuzufügen. "
+"Angepasste Skripte werden Instanzen zugewiesen, um beim Start der Instanz "
+"bestimmte Aktionen auszuführen. Als Beispiel, wenn Sie <samp>cloud-init</"
+"samp> nicht in einem Gastbetriebssystem installieren können, so können Sie "
+"ein angepasstes Skript verwenden, um einen öffentlichen Schlüssel zu holen "
+"und ihn dem Benutzerkonto hinzuzufügen."
 
 msgid "Customization Script"
 msgstr "Anpassungsskript"
@@ -299,6 +340,15 @@ msgstr ""
 "Wenn Sie eine Verfügbarkeitszone auswählen und von einem Datenträger booten "
 "wollen, stellen Sie sicher, dass für die Instanz die selbe "
 "Verfügbarkeitszone ausgewählt wird wie für den bootfähigen Datenträger."
+
+msgid ""
+"If you want to create an instance that uses ephemeral storage, meaning the "
+"instance data is lost when the instance is deleted, then choose one of the "
+"following boot sources:"
+msgstr ""
+"Wenn Sie eine Instanz zur Verwendung von flüchtigem Speicher erzeugen "
+"wollen, so dass die Instanzdaten beim Löschen der Instanz auch gelöscht "
+"werden, dann wählen Sie eine der folgenden Boot-Quellen:"
 
 msgid ""
 "If you want to create an instance that uses persistent storage, meaning the "
@@ -411,9 +461,6 @@ msgstr "Min RAM (MB)"
 
 msgid "Min Ram"
 msgstr "Min RAM"
-
-msgid "Modified"
-msgstr "Geändert"
 
 msgid "Name"
 msgstr "Name"
@@ -535,9 +582,6 @@ msgstr "Speichern"
 msgid "Script size"
 msgstr "Skriptgröße"
 
-msgid "Script size > 16Kb"
-msgstr "Skriptgröße > 16 kB"
-
 msgid "Security Groups"
 msgstr "Sicherheitsgruppen"
 
@@ -649,6 +693,17 @@ msgstr ""
 "Die ausgewählte Variante einer Instanz bestimmt die Menge der Compute-, "
 "Storage- und Speicherressourcen, die für die Instanz bereit gestellt werden."
 
+msgid ""
+"The flavor you select must have enough resources allocated to support the "
+"type of instance you are trying to create. Flavors that do not provide "
+"enough resources for your instance are identified on the <b>Available</b> "
+"table with a yellow warning icon."
+msgstr ""
+"Die ausgewählte Variante einer Instanz muß genug Resourcen zum Erstellen der "
+"Instanz zur Verfügung haben. Varianten, die nicht genug Resourcen zur "
+"Verfügung stellen können, sind in der <b>Verfügbarkeit</b>-Tabelle mit einem "
+"gelben Warn-Icon markiert."
+
 #, python-format
 msgid ""
 "The instance count must not exceed your quota available of "
@@ -659,9 +714,6 @@ msgstr ""
 
 msgid "The key pair allows you to SSH into the instance."
 msgstr "Das Schlüsselpaar erlaubt Ihnen SSH-Zugang zur Instanz."
-
-msgid "The maximum script size is 16Kb."
-msgstr "Die maximale Skriptgröße beträgt 16 kB."
 
 #, python-format
 msgid ""
@@ -687,6 +739,15 @@ msgstr "Der Status zeigt an, ob das Netzwerk eine aktive Verbindung hat."
 
 msgid "The step has completed successfully. No events to display."
 msgstr "Der Schritt wurde erfolgreich beendet. Keine Ereignisse zum Anzeigen."
+
+msgid ""
+"The subnet identifies a sub-section of a network. A subnet is specified in "
+"CIDR format.\n"
+"    A typical CIDR format looks like <samp>192.xxx.x.x/24</samp>."
+msgstr ""
+"Das Subnetz identifiziert einen Teilabschnitt eines Netzwerks. Ein Subnetz "
+"ist spezifiziert im CIDR Format.\n"
+"Ein typisches CIDR Format sieht aus wie <samp>192.xxx.xx.x/24</samp>."
 
 #, python-format
 msgid "The volume size must be at least %(minVolumeSize)s GB"
@@ -800,6 +861,9 @@ msgstr "Der Benutzer kann nicht gelöscht werden."
 msgid "Unable to delete the users."
 msgstr "Die Benutzer können nicht gelöscht werden."
 
+msgid "Unable to edit the aggregate extra specs."
+msgstr "Aggregat-Extraspezifikationen können nicht editiert werden."
+
 msgid "Unable to edit the domain."
 msgstr "Die Domäne kann nicht bearbeitet werden."
 
@@ -832,6 +896,9 @@ msgstr "Das Schlüsselpaar kann nicht importiert werden."
 
 msgid "Unable to retrieve settings."
 msgstr "Einstellungen können nicht abgerufen werden."
+
+msgid "Unable to retrieve the aggregate extra specs."
+msgstr "Aggregat-Extraspezifikationen können nicht abgerufen werden."
 
 msgid "Unable to retrieve the availability zones."
 msgstr "Die Verfügbarkeitszonen können nicht abgerufen werden. "
@@ -969,6 +1036,17 @@ msgstr ""
 "dass die Verfügbarkeitszone der Instanz und Ihres Datenträgers kompatibel "
 "sind."
 
+msgid ""
+"When the <b>Admin State</b> for a network is set to <b>Up</b>,\n"
+"    then the network is available for use. You can set the <b>Admin State</"
+"b> to <b>Down</b>\n"
+"    if you are not ready for other users to access the network."
+msgstr ""
+"Wenn der <b>Admin Status</b> für ein Netzwerk gesetzt ist auf  <b>Up</b>,\n"
+"dann ist das Netzwerk bereit zur Benutzung. Du kannst den <b>Admin Status</"
+"b> auf <b>Down</b> setzen,\n"
+"wenn andere Benutzer das Netzwerk noch nicht benutzen sollen."
+
 msgid "Yes"
 msgstr "Ja"
 
@@ -977,6 +1055,3 @@ msgstr "Bytes"
 
 msgid "{$ row['provider:network_type'] $}"
 msgstr "{$ row['provider:network_type'] $}"
-
-msgid "{$ user.domain_id $}"
-msgstr "{$ user.domain_id $}"

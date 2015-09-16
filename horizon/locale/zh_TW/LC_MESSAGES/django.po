@@ -6,21 +6,24 @@
 # Chen, Shang-Pin <dreamerwolf.tw@gmail.com>, 2015
 # Xiao Xi LIU <liuxx@cn.ibm.com>, 2014
 # Zhang Xiaowei <zero00072@gmail.com>, 2015
+# Liu Chi Han <t09sunny@gmail.com>, 2015. #zanata
+# OpenStack Infra <zanata@openstack.org>, 2015. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: Horizon\n"
+"Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-08-04 04:10+0000\n"
-"PO-Revision-Date: 2015-07-26 12:51+0000\n"
-"Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
-"Language-Team: Chinese (Taiwan) (http://www.transifex.com/openstack/horizon/"
-"language/zh_TW/)\n"
+"POT-Creation-Date: 2015-09-16 18:25+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"PO-Revision-Date: 2015-09-11 04:03+0000\n"
+"Last-Translator: Liu Chi Han <t09sunny@gmail.com>\n"
+"Language-Team: Chinese (Taiwan) (http://www.transifex.com/openstack/horizon/"
+"language/zh_TW/)\n"
 "Generated-By: Babel 2.0\n"
-"Language: zh_TW\n"
+"Language: zh-TW\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Zanata 3.7.1\n"
 
 #, python-format
 msgid ""
@@ -120,7 +123,7 @@ msgid "Actions"
 msgstr "動作"
 
 msgid "Active Instances:"
-msgstr "使用中的雲實例："
+msgstr "使用中的執行個體："
 
 msgid "Active RAM:"
 msgstr "使用中的隨機存取記憶體："

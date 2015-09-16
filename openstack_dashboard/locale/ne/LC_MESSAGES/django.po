@@ -3,21 +3,23 @@
 # This file is distributed under the same license as the PROJECT project.
 #
 # Translators:
+# OpenStack Infra <zanata@openstack.org>, 2015. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: Horizon\n"
+"Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-09-03 04:49+0000\n"
-"PO-Revision-Date: 2015-09-02 07:31+0000\n"
-"Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
-"Language-Team: Nepali (http://www.transifex.com/openstack/horizon/language/"
-"ne/)\n"
+"POT-Creation-Date: 2015-09-16 18:25+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"PO-Revision-Date: 2015-09-08 11:14+0000\n"
+"Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
+"Language-Team: Nepali (http://www.transifex.com/openstack/horizon/language/"
+"ne/)\n"
 "Generated-By: Babel 2.0\n"
 "Language: ne\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Zanata 3.7.1\n"
 
 #, python-format
 msgid ""
@@ -541,11 +543,6 @@ msgstr "VIP थप्नुहोस्"
 
 msgid "Add VPN Service"
 msgstr "VPN सर्त सेवा"
-
-msgid ""
-"Add and remove security groups to this project from the list of available "
-"security groups."
-msgstr "उपलब्ध सुरक्षा दलहरूको सूचीबाट यो प्रोजेक्टमा सुरक्षा दल थप्नुहोस् अनि हटाउनुहोस्।"
 
 msgid "Add custom tag"
 msgstr "कस्टम ट्यागहरू थप्नुहोस्"
@@ -4831,12 +4828,6 @@ msgstr "निजी"
 
 msgid "Private Key File"
 msgstr "निजी चाबी  फाइल"
-
-msgid "Processes"
-msgstr "प्रक्रियाहरू"
-
-msgid "Processes to be launched in node group"
-msgstr "नोड दलमा अरम्भ गर्नुपर्ने प्रक्रियाहरू"
 
 msgid "Project"
 msgstr "परियोजना"

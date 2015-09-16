@@ -1,0 +1,1031 @@
+# Translations template for PROJECT.
+# Copyright (C) 2015 ORGANIZATION
+# This file is distributed under the same license as the PROJECT project.
+#
+# Translators:
+# Akihiro Motoki <amotoki@gmail.com>, 2015
+# Shu Muto <shu-mutou@rf.jp.nec.com>, 2015
+# Akihiro Motoki <amotoki@gmail.com>, 2015. #zanata
+# Mie Yamamoto <myamamot@redhat.com>, 2015. #zanata
+# OpenStack Infra <zanata@openstack.org>, 2015. #zanata
+# Yuko Katabami <yukokatabami@gmail.com>, 2015. #zanata
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
+"POT-Creation-Date: 2015-09-16 18:25+0000\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"PO-Revision-Date: 2015-09-16 04:45+0000\n"
+"Last-Translator: Mie Yamamoto <myamamot@redhat.com>\n"
+"Language-Team: Japanese (http://www.transifex.com/openstack/horizon/language/"
+"ja/)\n"
+"Generated-By: Babel 2.0\n"
+"Language: ja\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Zanata 3.7.1\n"
+
+msgid "(Max: 16Kb)"
+msgstr "(最大 16Kb)"
+
+msgid "(None)"
+msgstr "(なし)"
+
+msgid ""
+"<li><b>Image (with Create New Volume checked)</b>: This options uses an "
+"image to boot the instance, and creates a new volume to persist instance "
+"data. You can specify volume size and whether to delete the volume on "
+"termination of the instance.</li>"
+msgstr ""
+"<li><b>イメージ (新しいボリュームを作成をチェックした場合)</b>: イメージを"
+"使ってインスタンスを起動します。新しいボリュームが作成され、そのボリュームに"
+"インスタンスのデータが保持されます。ボリュームサイズと、インスタンスの削除時"
+"にそのボリュームを削除するかを指定できます。</li>"
+
+msgid "<li><b>Image</b>: This option uses an image to boot the instance.</li>"
+msgstr "<li><b>イメージ</b>: イメージを使ってインスタンスを起動します。</li>"
+
+msgid ""
+"<li><b>Instance Snapshot</b>: This option uses an instance snapshot to boot "
+"the instance.</li>"
+msgstr ""
+"<li><b>インスタンスのスナップショット</b>: インスタンスのスナップショットを"
+"使ってインスタンスを起動します。</li>"
+
+msgid ""
+"<li><b>Volume Snapshot</b>: This option uses a volume snapshot to boot the "
+"instance, and creates a new volume to persist instance data. You can choose "
+"to delete the volume on termination of the instance.</li>"
+msgstr ""
+"<li><b>ボリュームのスナップショット</b>: ボリュームのスナップショットを使って"
+"インスタンスを起動します。新しいボリュームが作成され、そのボリュームにインス"
+"タンスのデータを保持します。インスタンスの削除時にそのボリュームを削除するか"
+"を指定できます。</li>"
+
+msgid ""
+"<li><b>Volume</b>: This option uses a volume that already exists. It does "
+"not create a new volume. You can choose to delete the volume on termination "
+"of the instance. <em>Note: when selecting Volume, you can only launch one "
+"instance.</em></li>"
+msgstr ""
+"<li><b>ボリューム</b>: 既存のボリュームを使用します。新しいボリュームは作成さ"
+"れません。インスタンスの削除時にそのボリュームを削除するかを指定できます。"
+"<em>注意: ボリュームを使用する場合、そのボリュームから起動できるインスタンス"
+"は 1 つだけです。</em></li>"
+
+msgid ""
+"A floating IP allows instances to be addressable from an external network.\n"
+"    Floating IPs are not allocated to instances at creation time and may be "
+"assigned\n"
+"    after the instance is created. To attach a floating IP, go to the "
+"<b>Instances</b>\n"
+"    view and click the <b>Actions</b> menu to the right of an instance.\n"
+"    Then, select the <b>Associate Floating IP</b> option and enter the "
+"necessary details."
+msgstr ""
+"Floating IP を使うと、外部のネットワークからインスタンスにアクセスできるよう"
+"になります。\n"
+"Floating IP はインスタンスの作成時には割り当てられるのではなく、インスタンス"
+"の作成後に関連付けます。\n"
+"Floating IP を関連付けるには、<b>インスタンス</b>画面で、\n"
+"インスタンスの右にある<b>アクション</b>メニューをクリックします。\n"
+"<b>Floating IP の関連付け</b>を選択し、必要な情報を入力してください。"
+
+msgid ""
+"A key pair allows you to SSH into your newly created instance. You may "
+"select an existing key pair, import a key pair, or generate a new key pair."
+msgstr ""
+"キーペアを使って、新しく作成したインスタンスに SSH でログインします。作成済み"
+"のキーペアを選択するか、キーペアをインポートするか、新しいキーペアを作成して"
+"ください。"
+
+msgid "A name is required for your instance."
+msgstr "インスタンス名は必須です。"
+
+msgid "Active"
+msgstr "稼働中"
+
+msgid "Admin State"
+msgstr "管理状態"
+
+msgid ""
+"Administrators are responsible for creating and managing flavors. A custom "
+"flavor can be created for you or for a specific project where it is shared "
+"with the users assigned to that project. If you need a custom flavor, "
+"contact your administrator."
+msgstr ""
+"フレーバーは管理者により作成、管理されます。プロジェクト固有のカスタムフレー"
+"バーを作成することもでき、カスタムフレーバーはそのプロジェクトの他のユーザー"
+"と共有できます。カスタムフレーバーが必要な場合は、管理者にお問い合わせくださ"
+"い。"
+
+msgid ""
+"Administrators set up the pool of floating IPs that are available to attach "
+"to instances."
+msgstr ""
+"管理者が Floating IP プールを用意し、そのプールから確保した Floating IP をイ"
+"ンスタンスに関連付けることができます。"
+
+msgid ""
+"An <b>External</b> network is set up by an administrator.\n"
+"    If you want an instance to communicate outside of the data center,\n"
+"    then attach a router between your <b>Project</b> network and the "
+"<b>External</b> network.\n"
+"    You can use the <b>Network Topology</b> view to connect the router to "
+"the two networks."
+msgstr ""
+"<b>外部</b>ネットワークは管理者により設定されます。\n"
+"インスタンスをデータセンター外部と通信させたい場合は、\n"
+"ルーターを<b>プロジェクト</b>ネットワークと<b>外部</b>ネットワークの両方に接"
+"続します。\n"
+"<b>ネットワークトポロジー</b>画面で、ルーターを両方のネットワークに接続するこ"
+"ともできます。"
+
+msgid ""
+"An advanced option available when launching an instance is disk "
+"partitioning. There are two disk partition options. Selecting <b>Automatic</"
+"b> resizes the disk and sets it to a single partition. Selecting <b>Manual</"
+"b> allows you to create multiple partitions on the disk."
+msgstr ""
+"インスタンスの起動時に使用できる高度なオプションは、ディスクのパーティショニ"
+"ングです。ディスクのパーティショニングのオプションには 2 つあります。<b>自動"
+"</b> を選択すると、ディスクがリサイズされ、単一のパーティションに設定されま"
+"す。<b>手動</b> を選択すると、ディスクに複数のパーティションを作成することが"
+"できます。"
+
+msgid ""
+"An instance name is required and used to help you uniquely identify your "
+"instance in the dashboard."
+msgstr ""
+"インスタンス名は必ず必要で、ダッシュボードでインスタンスを一意に特定するのに"
+"使用します。"
+
+msgid "Automatic"
+msgstr "自動"
+
+msgid "Availability Zone"
+msgstr "アベイラビリティーゾーン"
+
+msgid "Boot Source"
+msgstr "ブートソース"
+
+msgid "Cancel"
+msgstr "取り消し"
+
+msgid "Cannot get service catalog from keystone."
+msgstr "keystone からサービスカタログを取得できません。"
+
+msgid "Cannot get the Nova extension list."
+msgstr "Nova の拡張機能一覧を取得できません。"
+
+msgid ""
+"Check the <b>Configuration Drive</b> box if you want to write metadata to a "
+"special configuration drive. When the instance boots, it attaches to the "
+"<b>Configuration Drive</b> and accesses the metadata."
+msgstr ""
+"メタデータを特別なコンフィグドライブに書き込むには、<b>コンフィグドライブ</"
+"b> のボックスにチェックを付けます。インスタンスが起動する際には、<b>コンフィ"
+"グドライブ</b> に接続して、メタデータにアクセスします。"
+
+msgid "Click to see more details"
+msgstr "クリックすると詳しい情報が表示されます。"
+
+msgid "Configuration"
+msgstr "設定"
+
+msgid "Configuration Drive"
+msgstr "コンフィグドライブ"
+
+msgid "Configuration Help"
+msgstr "設定 のヘルプ"
+
+msgid "Count"
+msgstr "数"
+
+msgid "Create Key Pair"
+msgstr "キーペアの作成"
+
+msgid "Create New Volume"
+msgstr "新規ボリュームの作成"
+
+msgid "Created"
+msgstr "作成時刻"
+
+msgid ""
+"Custom scripts are attached to instances to perform specific actions when "
+"the instance is launched. For example, if you are unable to install "
+"<samp>cloud-init</samp> inside a guest operating system, you can use a "
+"custom script to get a public key and add it to the user account."
+msgstr ""
+"カスタムスクリプトは、インスタンスの起動時に特定のアクションを実行するため"
+"に、インスタンスに付属しています。たとえば、ゲストオペレーティングシステム内"
+"で  <samp>cloud-init</samp> をインストールできない場合には、カスタムスクリプ"
+"トを使用して公開鍵を取得し、ユーザーアカウントに追加することができます。"
+
+msgid "Customization Script"
+msgstr "カスタマイズスクリプト"
+
+msgid "Delete Volume on Terminate"
+msgstr "終了時にボリュームを削除"
+
+msgid "Deleted"
+msgstr "削除"
+
+msgid "Description"
+msgstr "説明"
+
+msgid "Device Name"
+msgstr "デバイス名"
+
+msgid "Direction"
+msgstr "方向"
+
+msgid "Disk Partition"
+msgstr "ディスクパーティション"
+
+msgid "Domain ID"
+msgstr "ドメイン ID"
+
+msgid "Down"
+msgstr "停止中"
+
+msgid "Email"
+msgstr "メール"
+
+msgid "Enabled"
+msgstr "有効"
+
+msgid "Ephemeral Disk"
+msgstr "一時ディスク"
+
+msgid "Ether Type"
+msgstr "Ethernet タイプ"
+
+msgid "Event log is not available."
+msgstr "イベントログはありません。"
+
+#, python-format
+msgid "Extension is not enabled: %(extension)s."
+msgstr "拡張機能 %(extension)s が有効ではありません。"
+
+msgid "External Network"
+msgstr "外部ネットワーク"
+
+msgid "Fingerprint"
+msgstr "フィンガープリント"
+
+msgid "Flavor"
+msgstr "フレーバー"
+
+msgid "Flavor Help"
+msgstr "フレーバーのヘルプ"
+
+msgid ""
+"Flavors manage the sizing for the compute, memory and storage capacity of "
+"the instance."
+msgstr ""
+"インスタンスのコンピュート、メモリー、ストレージリソースは、フレーバーとして"
+"定義されています。"
+
+msgid "Format"
+msgstr "形式"
+
+#, python-format
+msgid ""
+"From a Windows system, you can use PuTTYGen to create private/public keys. "
+"Use the PuTTY Key Generator to create and save the keys, then copy the "
+"public key in the red highlighted box to your <samp>%(authorizeKeysFile)s</"
+"samp> file."
+msgstr ""
+"Windows システムでは、PuTTYGen を使って秘密鍵と公開鍵を作成できます。 PuTTY "
+"鍵ジェネレーターを使って鍵を作成、保存してから、赤い枠に表示された公開鍵を "
+"<samp>%(authorizeKeysFile)s</samp> ファイルにコピーしてください。"
+
+msgid "ID"
+msgstr "ID"
+
+msgid ""
+"If a network is shared, then all users in the project can access the network."
+msgstr ""
+"共有ネットワークの場合には、すべてのユーザーがそのネットワークを利用できま"
+"す。"
+
+msgid ""
+"If a security group is not associated with an instance before it is "
+"launched, then you will have very limited access to the instance after it is "
+"deployed. You will only be able to access the instance from a VNC console."
+msgstr ""
+"起動前にセキュリティーグループをインスタンスに関連付けていない場合、起動直後"
+"のインスタンスへのアクセスは非常に限定的なものになります。VNC コンソールから"
+"のみインスタンスにアクセスできます。"
+
+msgid ""
+"If you select an availability zone and plan to use the boot from volume "
+"option, make sure that the availability zone you select for the instance is "
+"the same availability zone where your bootable volume resides."
+msgstr ""
+"アベイラビリティゾーンを指定し、かつボリュームからの起動を選択する場合、イン"
+"スタンスのアベイラビリティゾーンが起動可能なボリュームが置かれたアベイラビリ"
+"ティゾーンと同じになるようにしてください。"
+
+msgid ""
+"If you want to create an instance that uses persistent storage, meaning the "
+"instance data is saved when the instance is deleted, then select one of the "
+"following boot options:"
+msgstr ""
+"永続性のあるストレージを使うインスタンスを作成したい場合は、以下の起動方法が"
+"あります。この場合、インスタンスの削除後もインスタンスのデータは保存されま"
+"す。"
+
+msgid "Image"
+msgstr "イメージ"
+
+msgid "Image Name"
+msgstr "イメージ名"
+
+msgid "Impact on your quota"
+msgstr "クォータへの影響"
+
+msgid "Import Key Pair"
+msgstr "キーペアのインポート"
+
+msgid "Import Key Pair Help"
+msgstr "キーペアのインポートのヘルプ"
+
+msgid "Instance Details"
+msgstr "インスタンスの詳細"
+
+msgid "Instance Name"
+msgstr "インスタンス名"
+
+msgid "Instance Snapshot"
+msgstr "インスタンスのスナップショット"
+
+msgid "Instance Source"
+msgstr "インスタンスのソース"
+
+msgid "Instance count is required and must be an integer of at least 1"
+msgstr "インスタンス数は必須で、最低でも 1 以上の整数でなければなりません。"
+
+msgid ""
+"Instance source is the template used to create an instance. You can use a "
+"snapshot of an existing instance, an image, or a volume (if enabled). You "
+"can also choose to use persistent storage by creating a new volume."
+msgstr ""
+"インスタンスのソースは、インスタンスを作成する際のテンプレートです。ソースと"
+"して、既存のインスタンスのスナップショット、イメージ、ボリューム (有効になっ"
+"ている場合) が選択できます。永続的なストレージを選択して、新しいボリュームを"
+"作成することもできます。"
+
+msgid "Insufficient privilege level to view user information."
+msgstr "ユーザー情報を参照するのに必要な権限がありません。"
+
+msgid "Key Pair"
+msgstr "キーペア"
+
+msgid "Key Pair Help"
+msgstr "キーペアのヘルプ"
+
+msgid "Key Pair Name"
+msgstr "キーペア名"
+
+msgid ""
+"Key Pairs are how you login to your instance after it is launched. Choose a "
+"key pair name you will recognize and paste your SSH public key into the "
+"space provided."
+msgstr ""
+"キーペアは、インスタンスの起動後にそのインスタンスにログインするのに使用しま"
+"す。分かりやすいキーペア名を付けて、SSH 公開鍵を指定された欄に貼り付けてくだ"
+"さい。"
+
+msgid ""
+"Key Pairs are how you login to your instance after it is launched. Choose a "
+"key pair name you will recognize."
+msgstr ""
+"キーペアはインスタンスを起動した後でインスタンスへのログインに使用します。あ"
+"なたが認識できるキーペア名を選択してください。"
+
+msgid "Killed"
+msgstr "中止"
+
+msgid "Launch Instance"
+msgstr "インスタンスの起動"
+
+msgid "Load script from a file"
+msgstr "ファイルからのスクリプト読み込み"
+
+msgid "Manual"
+msgstr "手動"
+
+msgid "Max Port"
+msgstr "上限ポート番号"
+
+msgid "Min Disk"
+msgstr "最小ディスク"
+
+msgid "Min Disk (GB)"
+msgstr "最小ディスク (GB)"
+
+msgid "Min Port"
+msgstr "下限ポート番号"
+
+msgid "Min RAM"
+msgstr "最小メモリー"
+
+msgid "Min RAM (MB)"
+msgstr "最小メモリー (MB)"
+
+msgid "Min Ram"
+msgstr "最小メモリー"
+
+msgid "Name"
+msgstr "名前"
+
+msgid "Network"
+msgstr "ネットワーク"
+
+msgid "Network Help"
+msgstr "ネットワークのヘルプ"
+
+msgid "Network characteristics"
+msgstr "ネットワークの詳細"
+
+msgid "Networks"
+msgstr "ネットワーク"
+
+msgid "Networks provide the communication channels for instances in the cloud."
+msgstr "ネットワークはクラウド内のインスタンスに対する通信経路を提供します。"
+
+msgid "No"
+msgstr "いいえ"
+
+msgid "No available items"
+msgstr "利用できるアイテムがありません。"
+
+msgid "OK"
+msgstr "OK"
+
+msgid "Pending Delete"
+msgstr "削除待ち"
+
+msgid "Physical Network"
+msgstr "物理ネットワーク"
+
+msgid ""
+"Please provide the initial host name for the instance, the availability zone "
+"where it will be deployed, and the instance count. Increase the Count to "
+"create multiple instances with the same settings."
+msgstr ""
+"インスタンスの最初のホスト名、インスタンスを配置するアベイラビリティーゾー"
+"ン、作成するインスタンス数を指定してください。同じ設定で複数のインスタンスを"
+"作成したい場合はインスタンス数を増やしてください。"
+
+msgid "Policy check failed."
+msgstr "ポリシーチェックに失敗しました。"
+
+msgid "Private"
+msgstr "プライベート"
+
+msgid "Private Key"
+msgstr "秘密鍵"
+
+msgid "Profile"
+msgstr "プロファイル"
+
+msgid "Project"
+msgstr "プロジェクト"
+
+msgid "Project ID"
+msgstr "プロジェクト ID"
+
+msgid ""
+"Project networks are created by users.\n"
+"    These networks are fully isolated and are project-specific."
+msgstr ""
+"プロジェクトネットワークはユーザーが作成したものです。\n"
+"これらのネットワークは、完全に分離されており、そのプロジェクトでのみ使用でき"
+"ます。"
+
+msgid "Protected"
+msgstr "保護"
+
+msgid "Protocol"
+msgstr "プロトコル"
+
+msgid "Provider Network"
+msgstr "プロバイダーネットワーク"
+
+msgid ""
+"Provider networks are created by administrators.\n"
+"    These networks map to an existing physical network in the data center."
+msgstr ""
+"プロバイダーネットワークは管理者により作成されています。\n"
+"これらのネットワークは、データセンターの既存の物理ネットワークに関連付けられ"
+"ています。"
+
+msgid "Public"
+msgstr "パブリック"
+
+msgid "Public Key"
+msgstr "公開鍵"
+
+msgid "Queued"
+msgstr "処理待ち"
+
+msgid "RAM"
+msgstr "メモリー"
+
+msgid "Re-order items using drag and drop"
+msgstr "順番を並べ替えるには、アイテムをドラッグ＆ドロップしてください。"
+
+msgid "Remote"
+msgstr "接続相手"
+
+msgid "Required"
+msgstr "必須"
+
+msgid "Root Disk"
+msgstr "ルートディスク"
+
+msgid "Save"
+msgstr "保存"
+
+msgid "Saving"
+msgstr "保存中"
+
+msgid "Script size"
+msgstr "スクリプトサイズ"
+
+msgid "Security Groups"
+msgstr "セキュリティーグループ"
+
+msgid "Security Groups Help"
+msgstr "セキュリティーグループのヘルプ"
+
+msgid ""
+"Security groups are project-specific and cannot be shared across projects."
+msgstr ""
+"セキュリティーグループはプロジェクト単位で、プロジェクト間で共有することはで"
+"きません。"
+
+msgid ""
+"Security groups define a set of IP filter rules that determine how network "
+"traffic flows to and from an instance. Users can add additional rules to an "
+"existing security group to further define the access options for an "
+"instance. To create additional rules, go to the <b>Compute | Access & "
+"Security</b> view, then find the security group and click <b>Manage Rules</"
+"b>."
+msgstr ""
+"セキュリティーグループは、インスタンスに出入りするネットワークトラフィックを"
+"どのように扱うか決める IP フィルタールールの集合体です。ユーザーは、既存のセ"
+"キュリティーグループにルールを追加して、インスタンスへのアクセス設定を行えま"
+"す。ルールを追加するには、<b>コンピュート | アクセスとセキュリティー</b>画面"
+"を開いて、変更したいセキュリティーグループを見つけて、 <b>ルールの管理</b>を"
+"クリックします。"
+
+msgid "Segmentation ID"
+msgstr "セグメント ID"
+
+msgid "Select Boot Source"
+msgstr "ブートソースを選択してください"
+
+msgid "Select Source"
+msgstr "ソースを選択してください"
+
+msgid "Select Source Help"
+msgstr "起動元の選択のヘルプ"
+
+msgid "Select a key pair from the available key pairs below."
+msgstr "以下の利用可能なキーペアから、１つのキーペアを選択してください。"
+
+msgid "Select a source from those listed below."
+msgstr "以下のリストからソースを選択してください。"
+
+msgid "Select an item from Available items below"
+msgstr "以下の利用可能なアイテムから 1 つ選択してください。"
+
+msgid "Select at least one network"
+msgstr "少なくともネットワークを 1 つ選択してください"
+
+msgid "Select networks from those listed below."
+msgstr "以下のリストからネットワークを選択してください。"
+
+msgid "Select one"
+msgstr "1 つ選択してください。"
+
+msgid "Select one or more"
+msgstr "1 つ以上選択してください。"
+
+msgid "Select one or more security groups from the available groups below."
+msgstr ""
+"以下の利用可能なグループから、１つ以上のセキュリティグループを選択してくださ"
+"い。"
+
+msgid "Select the security groups."
+msgstr "セキュリティーグループを選択してください。"
+
+#, python-format
+msgid "Service type is not enabled: %(desiredType)s"
+msgstr "サービスタイプ %(desiredType)s が有効になっていません。"
+
+#, python-format
+msgid "Setting is not enabled: %(setting)s"
+msgstr "設定 %(setting)s が有効になっていません。"
+
+msgid "Shared"
+msgstr "共有"
+
+msgid "Show events"
+msgstr "イベントの表示"
+
+msgid "Size"
+msgstr "サイズ"
+
+msgid "Size (GB)"
+msgstr "サイズ (GB)"
+
+msgid "Snapshot"
+msgstr "スナップショット"
+
+msgid "Status"
+msgstr "ステータス"
+
+msgid "Subnets Associated"
+msgstr "割り当てサブネット"
+
+#, python-format
+msgid "Successfully created key pair %(name)s."
+msgstr "キーペア %(name)s を正常に作成できました。"
+
+#, python-format
+msgid "Successfully imported key pair %(name)s."
+msgstr "キーペア %(name)s を正常に取り込みました"
+
+msgid ""
+"The flavor you select for an instance determines the amount of compute, "
+"storage and memory resources that will be carved out for the instance."
+msgstr ""
+"選択したフレーバーにより、このインスタンスに払い出されるコンピュート、スト"
+"レージ、メモリーのリソース量が決定されます。"
+
+msgid ""
+"The flavor you select must have enough resources allocated to support the "
+"type of instance you are trying to create. Flavors that do not provide "
+"enough resources for your instance are identified on the <b>Available</b> "
+"table with a yellow warning icon."
+msgstr ""
+"選択するフレーバーは、作成しようとしているタイプのインスタンスを起動するのに"
+"十分なリソースを持っていなければいけません。インスタンスに対してリソースが不"
+"足しているフレーバーには、<b>利用可能</b>フレーバー一覧において黄色の警告アイ"
+"コンが表示されます。"
+
+#, python-format
+msgid ""
+"The instance count must not exceed your quota available of "
+"%(maxInstanceCount)s instances"
+msgstr ""
+"インスタンス数は、クォータ内で利用できる %(maxInstanceCount)s を上回ってはい"
+"けません。"
+
+msgid "The key pair allows you to SSH into the instance."
+msgstr "キーペアを使ってインスタンスに SSH でログインできます。"
+
+#, python-format
+msgid ""
+"The selected image source requires a flavor with at least %(minDisk)s GB of "
+"root disk. Select a flavor with a larger root disk or use a different image "
+"source."
+msgstr ""
+"選択した起動イメージでは、少なくとも %(minDisk)s  GB のルートディスクを持つフ"
+"レーバーが必要です。もっと大きなルートディスクを持つフレーバーを選択するか、"
+"別の起動イメージを使ってください。"
+
+#, python-format
+msgid ""
+"The selected image source requires a flavor with at least %(minRam)s MB of "
+"RAM. Select a flavor with more RAM or use a different image source."
+msgstr ""
+"選択した起動イメージでは、少なくとも %(minRam)s  MB のメモリーを持つフレー"
+"バーが必要です。もっと大きなメモリーを持つフレーバーを選択するか、別の起動イ"
+"メージを使ってください。"
+
+msgid "The status indicates whether the network has an active connection."
+msgstr "ステータスは、ネットワークにアクティブな接続があるかを示します。"
+
+msgid "The step has completed successfully. No events to display."
+msgstr "手順が正常に完了しました。表示するイベントはありません。"
+
+msgid ""
+"The subnet identifies a sub-section of a network. A subnet is specified in "
+"CIDR format.\n"
+"    A typical CIDR format looks like <samp>192.xxx.x.x/24</samp>."
+msgstr ""
+"サブネットはネットワークの IP アドレスを表します。サブネットは CIDR 形式で指"
+"定します。\n"
+"通常、 CIDR 形式は <samp>192.xxx.x.x/24</samp> のような形です。"
+
+#, python-format
+msgid "The volume size must be at least %(minVolumeSize)s GB"
+msgstr ""
+"ボリュームサイズは、少なくとも %(minVolumeSize)s GB でなければなりません。"
+
+#, python-format
+msgid ""
+"There are two ways to generate a key pair. From a Linux system, generate the "
+"key pair with the <samp>%(genKeyPairCmd)s</samp> command:"
+msgstr ""
+"キーペアを生成するには 2 つの方法があります。 Linux システムでは、<samp>"
+"%(genKeyPairCmd)s</samp> コマンドを使ってキーペアを生成します。"
+
+#, python-format
+msgid ""
+"This command generates a pair of keys: a private key (%(privateKeyPath)s) "
+"and a public key (%(publicKeyPath)s)."
+msgstr ""
+"このコマンドを実行すると、秘密鍵 (%(privateKeyPath)s) と公開鍵 "
+"(%(publicKeyPath)s) というペアが生成されます。"
+
+msgid ""
+"This flavor requires more RAM than your quota allows. Please select a "
+"smaller flavor or decrease the instance count."
+msgstr ""
+"このフレーバーには、クォータで許容されている以上の RAM が必要です。より小さい"
+"フレーバーを選択するか、インスタンスの数を減らしてください。"
+
+msgid ""
+"This flavor requires more VCPUs than your quota allows. Please select a "
+"smaller flavor or decrease the instance count."
+msgstr ""
+"このフレーバーには、クォータで許容されている以上の仮想 CPU が必要です。より小"
+"さいフレーバーを選択するか、インスタンスの数を減らしてください。"
+
+msgid "This is your new key pair. Copy this information and keep it secure."
+msgstr ""
+"以下が新しいキーペアです。この情報をコピーして、安全に保管してください。"
+
+msgid "Total Disk"
+msgstr "合計ディスク"
+
+msgid "Total Instances"
+msgstr "合計インスタンス"
+
+msgid "Total RAM"
+msgstr "合計メモリー"
+
+msgid "Total VCPUs"
+msgstr "合計仮想 CPU"
+
+msgid "Type"
+msgstr "種別"
+
+msgid ""
+"Type your script directly into the Customization Script field. If your "
+"browser supports the HTML5 File API, you may choose to load your script from "
+"a file. The size of your script should not exceed 16 Kb."
+msgstr ""
+"カスタムスクリプトのフィールドにスクリプトを直接入力してください。お使いのブ"
+"ラウザーが HTML5 File API をサポートしている場合には、ファイルからスクリプト"
+"の読み込みを選択することができます。スクリプトのサイズは、16 Kb 以下にする必"
+"要があります。"
+
+msgid "Unable to create the domain."
+msgstr "ドメインを作成できません。"
+
+msgid "Unable to create the keypair."
+msgstr "キーペアを取得できません。"
+
+msgid "Unable to create the network."
+msgstr "ネットワークを作成できません。"
+
+msgid "Unable to create the project."
+msgstr "プロジェクトを作成できません。"
+
+msgid "Unable to create the role."
+msgstr "ロールを作成できません。"
+
+msgid "Unable to create the server."
+msgstr "サーバーを作成できません。"
+
+msgid "Unable to create the subnet."
+msgstr "サブネットを作成できません。"
+
+msgid "Unable to create the user."
+msgstr "ユーザーを作成できません。"
+
+msgid "Unable to delete the domain."
+msgstr "ドメインを削除できません。"
+
+msgid "Unable to delete the domains."
+msgstr "ドメインを削除できません。"
+
+msgid "Unable to delete the project."
+msgstr "プロジェクトを削除できません。"
+
+msgid "Unable to delete the projects."
+msgstr "プロジェクトを削除できません。"
+
+msgid "Unable to delete the role."
+msgstr "ロールを削除できません。"
+
+msgid "Unable to delete the roles."
+msgstr "ロールを削除できません。"
+
+msgid "Unable to delete the user."
+msgstr "ユーザーを削除できません。"
+
+msgid "Unable to delete the users."
+msgstr "ユーザーを削除できません。"
+
+msgid "Unable to edit the aggregate extra specs."
+msgstr "アグリゲートの追加スペックを編集できません。"
+
+msgid "Unable to edit the domain."
+msgstr "ドメインを編集できません。"
+
+msgid "Unable to edit the flavor extra specs."
+msgstr "フレーバーの追加スペックを編集できません。"
+
+msgid "Unable to edit the image custom properties."
+msgstr "イメージのカスタム属性を編集できません。"
+
+msgid "Unable to edit the project."
+msgstr "プロジェクトを編集できません。"
+
+msgid "Unable to edit the role."
+msgstr "ロールを編集できません。"
+
+msgid "Unable to edit the user."
+msgstr "ユーザーを編集できません。"
+
+msgid "Unable to fetch the service catalog."
+msgstr "サービスカタログを取得できません。"
+
+msgid "Unable to get the Keystone service version."
+msgstr "Keystone のサービストークンを取得できません。"
+
+msgid "Unable to grant the role."
+msgstr "ロールを許可できません。"
+
+msgid "Unable to import the keypair."
+msgstr "キーペアをインポートできません。"
+
+msgid "Unable to retrieve settings."
+msgstr "設定を取得できません。"
+
+msgid "Unable to retrieve the aggregate extra specs."
+msgstr "アグリゲートの追加スペックを取得できません。"
+
+msgid "Unable to retrieve the availability zones."
+msgstr "アベイラビリティゾーンを取得できません。"
+
+msgid "Unable to retrieve the current user session."
+msgstr "現在のユーザーセッションを取得できません。"
+
+msgid "Unable to retrieve the domain."
+msgstr "ドメインを取得できません。"
+
+msgid "Unable to retrieve the domains."
+msgstr "ドメイン一覧を取得できません。"
+
+msgid "Unable to retrieve the extensions."
+msgstr "拡張機能を取得できません。"
+
+msgid "Unable to retrieve the flavor extra specs."
+msgstr "フレーバーの追加スペックを取得できません。"
+
+msgid "Unable to retrieve the flavor."
+msgstr "フレーバーを取得できません。"
+
+msgid "Unable to retrieve the flavors."
+msgstr "フレーバーの一覧を取得できません。"
+
+msgid "Unable to retrieve the image custom properties."
+msgstr "イメージのカスタム属性を取得できません。"
+
+msgid "Unable to retrieve the image."
+msgstr "イメージ情報を取得できません。"
+
+msgid "Unable to retrieve the images."
+msgstr "イメージ一覧を取得できません。"
+
+msgid "Unable to retrieve the keypairs."
+msgstr "キーペアの一覧を取得できません。"
+
+msgid "Unable to retrieve the limits."
+msgstr "上限を取得できません。"
+
+msgid "Unable to retrieve the namespaces."
+msgstr "名前空間一覧を取得できません。"
+
+msgid "Unable to retrieve the networks."
+msgstr "ネットワーク一覧を取得できません。"
+
+msgid "Unable to retrieve the ports."
+msgstr "ポートを取得できません。"
+
+msgid "Unable to retrieve the project."
+msgstr "プロジェクトを取得できません。"
+
+msgid "Unable to retrieve the projects."
+msgstr "プロジェクト一覧を取得できません。"
+
+msgid "Unable to retrieve the role."
+msgstr "ロールを取得できません。"
+
+msgid "Unable to retrieve the roles."
+msgstr "ロール一覧を取得できません。"
+
+msgid "Unable to retrieve the security groups."
+msgstr "セキュリティグループの一覧を取得できません。"
+
+msgid "Unable to retrieve the server."
+msgstr "サーバーを取得できません。"
+
+msgid "Unable to retrieve the subnets."
+msgstr "サブネットを取得できません。"
+
+msgid "Unable to retrieve the user."
+msgstr "ユーザーを取得できません。"
+
+msgid "Unable to retrieve the users."
+msgstr "ユーザーを取得できません。"
+
+msgid "Unable to retrieve the volume snapshots."
+msgstr "ボリュームスナップショットの一覧を取得できません。"
+
+msgid "Unable to retrieve the volumes."
+msgstr "ボリュームの一覧を取得できません。"
+
+msgid "Unable to validate the template."
+msgstr "テンプレートを検証できません。"
+
+msgid "Up"
+msgstr "動作中"
+
+msgid "Update Aggregate Metadata"
+msgstr "アグリゲートのメタデータの更新"
+
+msgid "Update Flavor Metadata"
+msgstr "フレーバーのメタデータの更新"
+
+msgid "Update Image Metadata"
+msgstr "イメージメタデータの更新"
+
+msgid "Updated"
+msgstr "更新時刻"
+
+msgid "User ID"
+msgstr "ユーザー ID"
+
+msgid "User Name"
+msgstr "ユーザー名"
+
+msgid "VCPUS"
+msgstr "仮想 CPU"
+
+msgid "Visibility"
+msgstr "公開範囲"
+
+msgid "Volume"
+msgstr "ボリューム"
+
+msgid "Volume Snapshot"
+msgstr "ボリュームのスナップショット"
+
+msgid "Volume size is required and must be an integer"
+msgstr "ボリュームサイズは必須で、整数でなければなりません。"
+
+msgid ""
+"Volumes can only be attached to 1 active instance at a time. Please either "
+"set your instance count to 1 or select a different source type."
+msgstr ""
+"ボリュームは同時に 1 つのインスタンスにしか接続できません。インスタンス数を "
+"1 にするか、別のブートソースを選択してください。"
+
+msgid ""
+"When selecting volume as boot source, please ensure the instance's "
+"availability zone is compatible with your volume's availability zone."
+msgstr ""
+"ブートソースとしてボリュームを選択した場合は、インスタンスのボリュームのアベ"
+"イラビリティーゾーンは一致していなければいけません。"
+
+msgid ""
+"When the <b>Admin State</b> for a network is set to <b>Up</b>,\n"
+"    then the network is available for use. You can set the <b>Admin State</"
+"b> to <b>Down</b>\n"
+"    if you are not ready for other users to access the network."
+msgstr ""
+"ネットワークの<b>管理状態</b>を<b>UP</b>に設定すると、そのネットワークは利用"
+"可能となります。\n"
+"そのネットワークをまだ他のユーザーに利用させたくない場合には、\n"
+"<b>管理状態</b>を<b>DOWN</b>に設定することができます。"
+
+msgid "Yes"
+msgstr "はい"
+
+msgid "bytes"
+msgstr "バイト"
+
+msgid "{$ row['provider:network_type'] $}"
+msgstr "{$ row['provider:network_type'] $}"

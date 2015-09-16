@@ -6,21 +6,25 @@
 # Heleno Jimenez de la Cruz <heleno.jimenez@gmail.com>, 2015
 # Marian Tort <marian.tort@gmail.com>, 2015
 # Pablo Iranzo Gómez <Pablo.Iranzo@gmail.com>, 2015
+# Marian T <marian.tort@gmail.com>, 2015. #zanata
+# OpenStack Infra <zanata@openstack.org>, 2015. #zanata
+# Veruska <reaching.out@gmail.com>, 2015. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: Horizon\n"
+"Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-09-03 04:49+0000\n"
-"PO-Revision-Date: 2015-09-02 04:23+0000\n"
-"Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
-"Language-Team: Spanish (http://www.transifex.com/openstack/horizon/language/"
-"es/)\n"
+"POT-Creation-Date: 2015-09-16 18:25+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"PO-Revision-Date: 2015-09-14 08:55+0000\n"
+"Last-Translator: Veruska <reaching.out@gmail.com>\n"
+"Language-Team: Spanish (http://www.transifex.com/openstack/horizon/language/"
+"es/)\n"
 "Generated-By: Babel 2.0\n"
 "Language: es\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Zanata 3.7.1\n"
 
 msgid "(Max: 16Kb)"
 msgstr "(Máximo: 16Kb)"
@@ -71,6 +75,27 @@ msgstr ""
 "<em>Nota: al escoger Volumen, sólo puede lanzar una instancia.</em></li>"
 
 msgid ""
+"A floating IP allows instances to be addressable from an external network.\n"
+"    Floating IPs are not allocated to instances at creation time and may be "
+"assigned\n"
+"    after the instance is created. To attach a floating IP, go to the "
+"<b>Instances</b>\n"
+"    view and click the <b>Actions</b> menu to the right of an instance.\n"
+"    Then, select the <b>Associate Floating IP</b> option and enter the "
+"necessary details."
+msgstr ""
+"Una IP flotante permite que las instancias sean accesibles desde una red "
+"externa.\n"
+"Las IPs flotantes no están asignadas a instancias al momento de su creación "
+"y deben ser asignadas\n"
+"luego que se cree la instancia. Para asignar una IP flotante, vaya a la "
+"vista de <b>Instancias</b> \n"
+"y haga click en el menú de <b>Acciones</b> en la parte derecha de una "
+"instancia.\n"
+"Luego, seleccione la opción <b>Asociar IP Flotante</b> e introduzca los "
+"detalles necesarios."
+
+msgid ""
 "A key pair allows you to SSH into your newly created instance. You may "
 "select an existing key pair, import a key pair, or generate a new key pair."
 msgstr ""
@@ -106,6 +131,21 @@ msgstr ""
 "asociarse a las instancias."
 
 msgid ""
+"An <b>External</b> network is set up by an administrator.\n"
+"    If you want an instance to communicate outside of the data center,\n"
+"    then attach a router between your <b>Project</b> network and the "
+"<b>External</b> network.\n"
+"    You can use the <b>Network Topology</b> view to connect the router to "
+"the two networks."
+msgstr ""
+"Una red  <b>Externa</b> es configurada por un administrador.\n"
+"Si desea que una instancia se comunique por fuera del data center,\n"
+"debe adjuntar un router entre su red de <b>Proyecto</b> y la red <b>Externa</"
+"b>.\n"
+"Puede usar la vista de  <b>Topología de Red</b> para conectar el router a "
+"ambas redes."
+
+msgid ""
 "An advanced option available when launching an instance is disk "
 "partitioning. There are two disk partition options. Selecting <b>Automatic</"
 "b> resizes the disk and sets it to a single partition. Selecting <b>Manual</"
@@ -129,6 +169,9 @@ msgstr "Automático"
 
 msgid "Availability Zone"
 msgstr "Zona de Disponibilidad"
+
+msgid "Boot Source"
+msgstr "Fuente de Arranque"
 
 msgid "Cancel"
 msgstr "Cancelar"
@@ -172,19 +215,6 @@ msgstr "Crear nuevo volumen"
 msgid "Created"
 msgstr "Creado"
 
-#, python-format
-msgid ""
-"Custom scripts are attached to instances to perform specific actions when "
-"the instance is launched. For example, if you are unable to install <samp>"
-"%(cloutInit)s</samp> inside a guest operating system, you can use a custom "
-"script to get a public key and add it to the user account."
-msgstr ""
-"Scripts Personalizados están adjuntos a instancias para realizar acciones "
-"específicas cuando la instancia es ejecutada. Por ejemplo, si no le ha sido "
-"posible instalar <samp>%(cloutInit)s</samp> dentro de un sistema operativo "
-"huésped, puede usar un script personalizado para obtener una llave pública y "
-"agregarla a la cuenta del usuario. "
-
 msgid "Customization Script"
 msgstr "Script de Personalización"
 
@@ -223,6 +253,9 @@ msgstr "Disco efímero"
 
 msgid "Ether Type"
 msgstr "Tipo Ethernet"
+
+msgid "Event log is not available."
+msgstr "Registro de eventos no se encuentra disponible."
 
 #, python-format
 msgid "Extension is not enabled: %(extension)s."
@@ -386,17 +419,20 @@ msgstr "Puerto máximo"
 msgid "Min Disk"
 msgstr "Disco mínimo"
 
+msgid "Min Disk (GB)"
+msgstr "Disco mín. (GB)"
+
 msgid "Min Port"
 msgstr "Puerto mínimo"
 
 msgid "Min RAM"
 msgstr "RAM mínima"
 
+msgid "Min RAM (MB)"
+msgstr "Memoria RAM mín. (MB)"
+
 msgid "Min Ram"
 msgstr "RAM mínima"
-
-msgid "Modified"
-msgstr "Modificado"
 
 msgid "Name"
 msgstr "Nombre"
@@ -459,6 +495,13 @@ msgstr "Proyecto"
 msgid "Project ID"
 msgstr "ID del proyecto"
 
+msgid ""
+"Project networks are created by users.\n"
+"    These networks are fully isolated and are project-specific."
+msgstr ""
+"Redes de proyectos son creadas por los usuarios.\n"
+"Estas redes están totalmente aisladas y son específicas por proyecto."
+
 msgid "Protected"
 msgstr "Protegido"
 
@@ -500,9 +543,6 @@ msgstr "Guardando"
 
 msgid "Script size"
 msgstr "Tamaño del script"
-
-msgid "Script size > 16Kb"
-msgstr "Tamaño del script > 16kb"
 
 msgid "Security Groups"
 msgstr "Grupos de Seguridad"
@@ -582,6 +622,9 @@ msgstr "Ajuste no habilitado: %(setting)s"
 msgid "Shared"
 msgstr "Compartido"
 
+msgid "Show events"
+msgstr "Mostrar eventos"
+
 msgid "Size"
 msgstr "Tamaño"
 
@@ -597,12 +640,31 @@ msgstr "Estado"
 msgid "Subnets Associated"
 msgstr "Subredes Asociadas"
 
+#, python-format
+msgid "Successfully created key pair %(name)s."
+msgstr "Se creado correctamente el par de claves %(name)s."
+
+#, python-format
+msgid "Successfully imported key pair %(name)s."
+msgstr "Se ha importado correctamente el par de claves %(name)s."
+
 msgid ""
 "The flavor you select for an instance determines the amount of compute, "
 "storage and memory resources that will be carved out for the instance."
 msgstr ""
 "El sabor que selecciona para una instancia determina la cantidad de computo, "
 "almacenamiento y recursos de memoria que serán reservados para la instancia."
+
+msgid ""
+"The flavor you select must have enough resources allocated to support the "
+"type of instance you are trying to create. Flavors that do not provide "
+"enough resources for your instance are identified on the <b>Available</b> "
+"table with a yellow warning icon."
+msgstr ""
+"The sabor que ha seleccionado debe tener suficientes recursos para soportar "
+"el tipo de instancia que está intentado crear. Los sabores sin recursos "
+"disponibles para su instancia aparecen en la tabla <b>Available</b> con un "
+"icono en amarillo como aviso."
 
 #, python-format
 msgid ""
@@ -614,9 +676,6 @@ msgstr ""
 
 msgid "The key pair allows you to SSH into the instance."
 msgstr "El par de claves te permite SSH dentro de la instancia."
-
-msgid "The maximum script size is 16Kb."
-msgstr "El tamaño máximo del script es 16Kb."
 
 #, python-format
 msgid ""
@@ -639,6 +698,18 @@ msgstr ""
 
 msgid "The status indicates whether the network has an active connection."
 msgstr "El estado indica si la red tiene una conexión activa"
+
+msgid "The step has completed successfully. No events to display."
+msgstr "Este paso se ha realizado con éxito. No hay eventos a mostrar."
+
+msgid ""
+"The subnet identifies a sub-section of a network. A subnet is specified in "
+"CIDR format.\n"
+"    A typical CIDR format looks like <samp>192.xxx.x.x/24</samp>."
+msgstr ""
+"La subred identifica una sub-sección de una red. Una subred está "
+"especificada en el formato CIDR.\n"
+"Un formato CIDR típico se ve como <samp>192.xxx.x.x/24</samp>."
 
 #, python-format
 msgid "The volume size must be at least %(minVolumeSize)s GB"
@@ -855,6 +926,9 @@ msgstr "No ha sido posible obtener las instantáneas de volumen."
 msgid "Unable to retrieve the volumes."
 msgstr "No ha sido posible obtener los volúmenes."
 
+msgid "Unable to validate the template."
+msgstr "No es posible validar la plantilla."
+
 msgid "Up"
 msgstr "Arriba"
 
@@ -875,6 +949,9 @@ msgstr "ID de usuario"
 
 msgid "User Name"
 msgstr "Usuario"
+
+msgid "VCPUS"
+msgstr "VCPUS"
 
 msgid "Visibility"
 msgstr "Visibilidad"
@@ -904,8 +981,23 @@ msgstr ""
 "que la zona de disponibilidad de la instanciaes compatible con sus zonas de "
 "disponibilidad del volumen."
 
+msgid ""
+"When the <b>Admin State</b> for a network is set to <b>Up</b>,\n"
+"    then the network is available for use. You can set the <b>Admin State</"
+"b> to <b>Down</b>\n"
+"    if you are not ready for other users to access the network."
+msgstr ""
+"Cuando el <b>Estado de Administrador</b> para una red se encuentra en "
+"<b>Arriba</b>,\n"
+"entonces la red se encuentra disponible para su uso. Puede cambiar el  "
+"<b>Estado de Administrador</b> a  <b>Abajo</b>\n"
+"si no se encuentra listo para que oros usuarios accedan a la red."
+
 msgid "Yes"
 msgstr "Sí"
 
 msgid "bytes"
 msgstr "bytes"
+
+msgid "{$ row['provider:network_type'] $}"
+msgstr "{$ row['provider:network_type'] $}"

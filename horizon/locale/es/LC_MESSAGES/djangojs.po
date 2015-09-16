@@ -7,22 +7,25 @@
 # Alberto Molina Coballes <alb.molina@gmail.com>, 2015
 # cametiope <aldohcasa@hotmail.com>, 2014
 # Marian Tort <marian.tort@gmail.com>, 2015
+# Miriam Godinez <miriamgc@hotmail.com>, 2015
 # Sergio Cuellar Valdes <scuellarv@kionetworks.com>, 2015
+# OpenStack Infra <zanata@openstack.org>, 2015. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: Horizon\n"
+"Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-08-04 04:10+0000\n"
-"PO-Revision-Date: 2015-07-03 18:02+0000\n"
-"Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
-"Language-Team: Spanish (http://www.transifex.com/openstack/horizon/language/"
-"es/)\n"
+"POT-Creation-Date: 2015-09-16 18:25+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"PO-Revision-Date: 2015-09-07 10:31+0000\n"
+"Last-Translator: Miriam Godinez <miriamgc@hotmail.com>\n"
+"Language-Team: Spanish (http://www.transifex.com/openstack/horizon/language/"
+"es/)\n"
 "Generated-By: Babel 2.0\n"
 "Language: es\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Zanata 3.7.1\n"
 
 #, python-format
 msgid "%s GB"
@@ -135,6 +138,10 @@ msgid_plural "Displaying %s items"
 msgstr[0] "Mostrando %s articulo"
 msgstr[1] "Mostrando %s articulos"
 
+#, python-format
+msgid "Displaying %s of %s items"
+msgstr "Mostrando %s de %s artículos"
+
 msgid "Duplicate keys are not allowed"
 msgstr "Las claves duplicadas no están permitidas"
 
@@ -206,6 +213,9 @@ msgstr "Metadatos no disponibles"
 
 msgid "No data available."
 msgstr "No hay datos disponibles."
+
+msgid "No description available."
+msgstr "Descripción no disponible."
 
 msgid "No existing metadata"
 msgstr "No hay metadatos existentes"
@@ -345,6 +355,9 @@ msgstr ""
 #, python-format
 msgid "You have selected %s. "
 msgstr "Ha seleccionado %s."
+
+msgid "description"
+msgstr "descripción"
 
 msgid "m1.small"
 msgstr "m1.small"

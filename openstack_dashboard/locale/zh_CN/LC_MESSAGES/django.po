@@ -15,21 +15,26 @@
 # Ying Chun Guo <daisy.ycguo@gmail.com>, 2015
 # 刘俊朋 <liujunpeng@inspur.com>, 2015
 # 颜海峰 <yanheven@gmail.com>, 2015
+# Andreas Jaeger <jaegerandi@gmail.com>, 2015. #zanata
+# OpenStack Infra <zanata@openstack.org>, 2015. #zanata
+# Xu Yang <xuyang@cn.fujitsu.com>, 2015. #zanata
+# Yu Zhiuguo <yuzg@cn.fujitsu.com>, 2015. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: Horizon\n"
+"Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-09-03 04:49+0000\n"
-"PO-Revision-Date: 2015-09-02 07:31+0000\n"
-"Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
-"Language-Team: Chinese (China) (http://www.transifex.com/openstack/horizon/"
-"language/zh_CN/)\n"
+"POT-Creation-Date: 2015-09-16 18:25+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"PO-Revision-Date: 2015-09-16 06:20+0000\n"
+"Last-Translator: Andreas Jaeger <jaegerandi@gmail.com>\n"
+"Language-Team: Chinese (China) (http://www.transifex.com/openstack/horizon/"
+"language/zh_CN/)\n"
 "Generated-By: Babel 2.0\n"
-"Language: zh_CN\n"
+"Language: zh-CN\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Zanata 3.7.1\n"
 
 msgid ""
 "\n"
@@ -252,6 +257,22 @@ msgstr ""
 
 msgid ""
 "\n"
+"    Migrate a volume to a specific host.\n"
+"    <br>\n"
+"    <br>\n"
+"    Force Host Copy: Enables or disables generic host-based force-migration, "
+"which bypasses driver optimizations.\n"
+"    "
+msgstr ""
+"\n"
+"    动态迁移一个实例到特定的主机\n"
+"    <br>\n"
+"    <br>\n"
+"    强制主机拷贝：启用或禁用通用的基于主机的绕过驱动优化的强制迁移。\n"
+"    "
+
+msgid ""
+"\n"
 "    The status of a volume is normally managed automatically.  In some "
 "circumstances an\n"
 "    administrator may need to explicitly update the status value.  This is "
@@ -298,6 +319,15 @@ msgstr ""
 
 msgid ""
 "\n"
+"   Volumes are block devices that can be attached to instances.\n"
+"   "
+msgstr ""
+"\n"
+"卷是可以被附属连接到实例的块设备。\n"
+"  "
+
+msgid ""
+"\n"
 "  Assign a name and description for the pool. Choose one subnet where all\n"
 "  members of this pool must be on. Select the protocol and load balancing\n"
 "  method for this pool. Admin State is UP (checked) by default.\n"
@@ -320,6 +350,20 @@ msgstr ""
 "或者你可以通过拖放的方式。当然你也可以\n"
 "通过拖放来改变网卡顺序。"
 
+msgid ""
+"\n"
+" Create a VIP for this pool. Assign a name, description, IP address, port,\n"
+" and maximum connections allowed for the VIP. Choose the protocol and "
+"session persistence\n"
+" method for the VIP. Admin State is UP (checked) by default.\n"
+" "
+msgstr ""
+"\n"
+"为这个资源池创建一个VIP。指定名称，描述，IP地址，端口，\n"
+"和允许的最大VIP连接数。为VIP选择协议和会话持久化的方法。\n"
+"默认情况下，Admin State是UP（选中的状态）。\n"
+" "
+
 msgid " - End"
 msgstr "-结束"
 
@@ -333,15 +377,40 @@ msgstr "删除端口%s 同样失败"
 msgid " Done"
 msgstr "完成"
 
+msgid "\"Add Router Route\""
+msgstr "\"添加路由器的路由表\""
+
 msgid ""
 "\"Customization Script\" is analogous to \"User Data\" in other systems."
 msgstr "\"定制脚本\"与其它系统中的\"用户数据\"类似."
+
+msgid "\"Edit Volume Type\""
+msgstr "编辑卷"
+
+msgid "\"N/A\""
+msgstr "\"N/A\""
+
+msgid "\"Namespace Resource Type Associations\""
+msgstr "命名空间资源类型"
+
+msgid "\"No flavors meet minimum criteria for selected image.\""
+msgstr "\"没有特性符合已选定image的最低标准\""
+
+msgid "\"None\""
+msgstr "\"None\""
 
 msgid ""
 "\"None\" indicates that no QoS Spec is currently associated. Conversely, "
 "setting the QoS Spec to \"None\" will remove the current association."
 msgstr ""
 "“无”表示当前没有设置 QoS 策略。同样的将 QoS 策略设置为“无”会清空之前的配置。"
+
+msgid ""
+"\"Some flavors not meeting minimum image requirements have been disabled.\""
+msgstr "\"一些未能达到image最低要求的特性已被禁用。\""
+
+msgid "\"Users\""
+msgstr "\"用户\""
 
 #, python-format
 msgid "%(conf_name)s: %(conf_val)s"
@@ -435,6 +504,10 @@ msgstr "%s GB"
 #, python-format
 msgid "%s instances"
 msgstr "%s 云主机"
+
+#, python-format
+msgid "%s processes: "
+msgstr "%s processes: "
 
 #, python-format
 msgid "%sGB"
@@ -684,6 +757,9 @@ msgstr ""
 "由于管理程序配置，实际设备名称可能不同。如果没有指定，那么管理程序会选择一个"
 "设备名称。"
 
+msgid "Adapt For Oozie"
+msgstr "适应Oozie"
+
 msgid "Add"
 msgstr "添加"
 
@@ -797,9 +873,9 @@ msgid "Add VPN Service"
 msgstr "添加VPN服务"
 
 msgid ""
-"Add and remove security groups to this project from the list of available "
+"Add and remove security groups to this instance from the list of available "
 "security groups."
-msgstr "从以下可用安全组列表中，增加删除该项目的安全组。"
+msgstr "从可用的安全组中增加和删除"
 
 msgid "Add custom tag"
 msgstr "添加自定义标签"
@@ -931,6 +1007,9 @@ msgstr ""
 msgid "Address"
 msgstr "地址"
 
+msgid "Address pool"
+msgstr "地址资源池"
+
 msgid "Address:"
 msgstr "地址:"
 
@@ -1021,6 +1100,9 @@ msgstr "分配IP"
 
 msgid "Allocate IP To Project"
 msgstr "分配IP给项目"
+
+msgid "Allocate Network Address from a pool"
+msgstr "从资源池分配网络地址"
 
 msgid "Allocate a floating IP from a given floating IP pool."
 msgstr "从指定的浮动IP池中分配一个浮动IP。"
@@ -1204,6 +1286,9 @@ msgstr "授权模式"
 msgid "Auto Security Group"
 msgstr "自动安全组"
 
+msgid "Auto-configure"
+msgstr "自动配置"
+
 msgid "Automatic"
 msgstr "自动"
 
@@ -1213,6 +1298,12 @@ msgid ""
 msgstr ""
 "自动：整个磁盘是一个独立分区，并且自动调整大小。手动：更快创建时间，但需要手"
 "动分区。"
+
+msgid ""
+"Automatically modify the Hadoop configuration so that job config values are "
+"set and so that Oozie will handle exit codes correctly."
+msgstr ""
+"自动地修改Hadoop的配置，使任务配置值被设置，这样的话Oozie会正确地处理退出码。"
 
 msgid "Availability Zone"
 msgstr "可用域"
@@ -1578,6 +1669,12 @@ msgstr ""
 "通过按下按钮或者拖放从可用策略中选择一个(或多个)添加至选定策略，\n"
 "你也可以利用拖放改变它们的顺序。"
 
+msgid "Choose the Input Data Source (n/a for Java and Shell jobs)."
+msgstr "选择输入数据源（n/a Java和Shell任务）"
+
+msgid "Choose the Output Data Source (n/a for Java and Shell jobs)."
+msgstr "选择输出数据源（n/a Java和Shell任务）"
+
 msgid "Choose the binary which should be used in this Job."
 msgstr "选择任务使用的二进制文件。"
 
@@ -1648,6 +1745,9 @@ msgstr "创建集群向导"
 msgid "Cluster Details"
 msgstr "集群详细信息"
 
+msgid "Cluster Events"
+msgstr "集群事件"
+
 msgid "Cluster Guide"
 msgstr "集群向导"
 
@@ -1686,6 +1786,9 @@ msgstr "集群可以通过已有的集群模板来创建"
 msgid "Cluster configurations are not specified"
 msgstr "集群配置没有被指定"
 
+msgid "Cluster provision steps"
+msgstr "集群"
+
 msgid "Cluster template creation failed"
 msgstr "集群模板创建失败"
 
@@ -1713,6 +1816,9 @@ msgstr "用逗号分开 key=value 键值对"
 msgctxt "Current status of a Database Backup"
 msgid "Completed"
 msgstr "完成"
+
+msgid "Completed Successfully"
+msgstr "成功完成"
 
 msgid "Component"
 msgstr "组件"
@@ -1898,6 +2004,9 @@ msgstr "在keystone中无法找到默认角色\"%s\""
 
 msgid "Could not launch job"
 msgstr "无法启动任务"
+
+msgid "Could not update data source"
+msgstr "无法更新数据源"
 
 #, python-format
 msgid "Couldn't get current security group list for instance %s."
@@ -2529,6 +2638,9 @@ msgstr ""
 msgid "Data source created"
 msgstr "数据源已创建"
 
+msgid "Data source updated"
+msgstr "数据源已更新"
+
 msgid "Database"
 msgstr "数据库"
 
@@ -3059,6 +3171,9 @@ msgstr "目的地"
 msgid "Destination CIDR"
 msgstr "目的CIDR"
 
+msgid "Destination Host"
+msgstr "目标主机"
+
 msgid "Destination IP"
 msgstr "目的IP"
 
@@ -3384,6 +3499,9 @@ msgstr "编辑消费者"
 msgid "Edit Consumer of QoS Spec"
 msgstr "编辑QOS规格的消费者"
 
+msgid "Edit Data Source"
+msgstr "编辑数据源"
+
 msgid "Edit Domain"
 msgstr "编辑域"
 
@@ -3423,6 +3541,9 @@ msgstr "编辑镜像标签"
 
 msgid "Edit Instance"
 msgstr "编辑云主机"
+
+msgid "Edit Job Binary"
+msgstr "编辑任务二进制文件"
 
 msgid "Edit Member"
 msgstr "编辑成员"
@@ -3497,6 +3618,9 @@ msgid "Edit VPN Service"
 msgstr "编辑VPN服务"
 
 msgid "Edit Volume"
+msgstr "编辑卷"
+
+msgid "Edit Volume Type"
 msgstr "编辑卷"
 
 msgid "Edit Volume Type Extra Spec"
@@ -3585,6 +3709,9 @@ msgstr "能源(Kwapi)"
 
 msgid "Engine Id"
 msgstr "Engine Id"
+
+msgid "Enter Network Address manually"
+msgstr "手动输入网络地址"
 
 msgid "Enter a value for ICMP code in the range (-1: 255)"
 msgstr "请输入ICMP代码范围 (-1: 255)"
@@ -3768,6 +3895,9 @@ msgstr "疏散主机"
 msgid ""
 "Evacuate the servers from the selected down host to an active target host."
 msgstr "疏散实例从宕机的主机到一个可用的目标主机"
+
+msgid "Event time"
+msgstr "事件时间"
 
 msgid "Events"
 msgstr "事件"
@@ -4001,6 +4131,9 @@ msgstr "迁移主机 \"%s\" 失败。"
 #, python-format
 msgid "Failed to migrate instances: %s"
 msgstr "迁移云主机 %s 失败"
+
+msgid "Failed to migrate volume."
+msgstr "迁移卷失败"
 
 #, python-format
 msgid ""
@@ -4266,6 +4399,9 @@ msgstr "浮动IP"
 msgid "Floating IP Pool"
 msgstr "浮动IP池"
 
+msgid "Floating IP:"
+msgstr "浮动IP:"
+
 msgid "Floating IPs"
 msgstr "浮动IP"
 
@@ -4293,6 +4429,15 @@ msgstr ""
 
 msgid "For Object Store job binaries, you must:"
 msgstr "对象存储二进制文件，你必须："
+
+msgid ""
+"For Shell Action jobs, any required files beyond the main script may be "
+"added as \"libraries\"."
+msgstr "对于shell动作，任何在主脚本之外的必须的文件将会被作为库添加"
+
+msgid ""
+"For Spark and Shell jobs, only a main is required, \"libs\" are optional."
+msgstr "对于Spark和Shell任务，只需要\"main\"， \"libs\"仅仅是可选的."
 
 msgid ""
 "For TCP and UDP rules you may choose to open either a single port or a range "
@@ -4330,6 +4475,9 @@ msgstr "禁止"
 msgctxt "Force upload volume in in-use status to image"
 msgid "Force"
 msgstr "强制"
+
+msgid "Force Host Copy"
+msgstr "强制主机拷贝"
 
 #, python-format
 msgid "Forcing to create snapshot \"%s\" from attached volume."
@@ -4699,6 +4847,17 @@ msgstr "认证服务不允许编辑用户数据。"
 msgid "Identity service does not allow editing user password."
 msgstr "认证服务不允许编辑用户密码。"
 
+#, python-format
+msgid ""
+"If \"No volume type\" is selected, the default volume type \"%(name)s\" will "
+"be set for the created volume."
+msgstr "如果\"No volume type\"被选中, 默认的卷类型 \"%(name)s\"  将被设定。"
+
+msgid ""
+"If \"No volume type\" is selected, the volume will be created without a "
+"volume type."
+msgstr "如果\"No volume type\"被选中, 卷被创建的时候将没有卷类型。"
+
 msgid ""
 "If console is not responding to keyboard input: click the grey status bar "
 "below."
@@ -4711,6 +4870,19 @@ msgid ""
 msgstr ""
 "如果不提供容器名字，默认会使用 volumebackups 来作为名字。备份会跟它们原来的卷"
 "大小一样。"
+
+msgid ""
+"If selected, instances of a cluster will be automatically configured during "
+"creation. Otherwise you should manually specify configuration values"
+msgstr ""
+"如果已选择，集群的实例将自动在集群创建的时候被配置。否则你需要手动配置。"
+
+msgid ""
+"If selected, instances of a node group will be automatically configured "
+"during cluster creation. Otherwise you should manually specify configuration "
+"values."
+msgstr ""
+"如果已选择，节点组的实例将自动在集群创建的时候被配置。否则你需要手动配置。"
 
 msgid ""
 "If you select an image via an HTTP URL, the Image Location field MUST be a "
@@ -4829,6 +5001,9 @@ msgid ""
 "In addition, you can create an external network or a shared network by "
 "checking the corresponding checkbox."
 msgstr "此外，你可以通过勾选相应的复选框来创建外部网络或者共享网络。"
+
+msgid "In progress"
+msgstr "进行中"
 
 msgctxt "Current status of a Volume"
 msgid "In-use"
@@ -4965,6 +5140,9 @@ msgstr "云主机安全组"
 
 msgid "Instance Snapshot"
 msgstr "云主机快照"
+
+msgid "Instance and attached volumes will be created on the same physical host"
+msgstr "实例和它所挂载的卷将会创建在同一台物理主机上"
 
 msgid "Instance to be associated"
 msgstr "待连接的云主机"
@@ -5577,6 +5755,9 @@ msgid "Migrate Instance"
 msgid_plural "Migrate Instances"
 msgstr[0] "迁移云主机实例"
 
+msgid "Migrate Volume"
+msgstr "迁移卷"
+
 msgid ""
 "Migrate all instances from a host with disabled nova-compute service. "
 "Optionally you can choose type of migration. All running instances of the "
@@ -5673,6 +5854,9 @@ msgstr "修改卷的名称和描述"
 
 msgid "Modify the name and description of a snapshot."
 msgstr "编辑快照的名称和描述"
+
+msgid "Modify volume type name and description."
+msgstr "更改卷名和描述"
 
 msgid "Monitor"
 msgstr "监控"
@@ -5782,6 +5966,9 @@ msgstr "网络(Neutron)"
 msgid "Network Address"
 msgstr "网络地址"
 
+msgid "Network Address Source"
+msgstr "网络地址资源"
+
 msgid "Network Address and IP version are inconsistent."
 msgstr "网络地址和IP版本是可变的"
 
@@ -5796,6 +5983,9 @@ msgstr "网络详情： {{ network.name }}"
 
 msgid "Network ID"
 msgstr "网络ID"
+
+msgid "Network Mask"
+msgstr "网络掩码"
 
 msgid "Network Name"
 msgstr "网络名称"
@@ -5861,6 +6051,12 @@ msgstr "新主机"
 
 msgid "New Size (GB)"
 msgstr "新大小(GB)"
+
+msgid "New name cannot be empty."
+msgstr "name不能为空"
+
+msgid "New name conflicts with another volume type."
+msgstr "新的名字与另一个卷类型冲突"
 
 msgid "New password"
 msgstr "新密码"
@@ -5995,6 +6191,9 @@ msgstr "没有可用镜像。"
 
 msgid "No images available."
 msgstr "无可用镜像。"
+
+msgid "No info available"
+msgstr "没有可用的信息"
 
 msgid "No input was provided for the namespace content."
 msgstr "未为命名空间内容提供输入。"
@@ -6717,14 +6916,11 @@ msgstr "私有"
 msgid "Private Key File"
 msgstr "私钥文件"
 
-msgid "Processes"
-msgstr "处理"
-
-msgid "Processes to be launched in node group"
-msgstr "结点群组上启动的任务进程"
-
 msgid "Profile"
 msgstr "概要"
+
+msgid "Progress"
+msgstr "进行"
 
 msgid "Project"
 msgstr "项目"
@@ -7654,6 +7850,9 @@ msgstr "选择云主机快照"
 msgid "Select Network"
 msgstr "选择网络"
 
+msgid "Select Node Group Processes"
+msgstr "选择节点组进程"
+
 msgid "Select Port"
 msgstr "选择端口"
 
@@ -7734,6 +7933,9 @@ msgstr "选择一个新的云主机类型"
 msgid "Select a new host"
 msgstr "选择一个新的主机"
 
+msgid "Select a new status"
+msgstr "选择一个新的状态"
+
 msgid "Select a new template to preview a stack."
 msgstr "重新选择模板来预览stack"
 
@@ -7751,6 +7953,9 @@ msgstr "为新的集群选择插件和版本。"
 
 msgid "Select a plugin and version for the new Node Group template."
 msgstr "为新的节点组模板选择一插件和版本"
+
+msgid "Select a pool"
+msgstr "选择一个资源池"
 
 msgid "Select a port"
 msgstr "选择端口"
@@ -7806,6 +8011,9 @@ msgstr "选择网络"
 msgid "Select networks for your instance."
 msgstr "选择网络"
 
+msgid "Select node processes for the node group"
+msgstr "为节点组选择节点进程"
+
 msgid "Select parent backup"
 msgstr "选择父备份"
 
@@ -7837,6 +8045,12 @@ msgstr "请为选中的云主机或端口选择要绑定的IP地址。"
 
 msgid "Select the image to rebuild your instance."
 msgstr "选择镜像以重建你的云主机。"
+
+msgid "Select the network for interface attaching."
+msgstr "选择附属接口的网络"
+
+msgid "Select the port to detach."
+msgstr "选择分离的端口"
 
 msgid ""
 "Select the projects where the flavors will be used. If no projects are "
@@ -7960,6 +8174,9 @@ msgstr "与我共享"
 
 msgid "Shell"
 msgstr "命令行解释器shell"
+
+msgid "Shell Action"
+msgstr "Shell动作"
 
 msgctxt "Current status of an Instance"
 msgid "Shelved"
@@ -8189,6 +8406,11 @@ msgstr "指定该存储卷可以用于启动实例"
 msgid "Specify \"Network Address\""
 msgstr "指定“网络地址”"
 
+msgid ""
+"Specify \"Network Address\", \"Address pool\" or clear \"Create Subnet\" "
+"checkbox."
+msgstr "指定\"网络地址\",\"地址资源池\"或者清空\"创建子网\"的复选框。"
+
 msgid "Specify IP address of gateway or check \"Disable Gateway\"."
 msgstr "填写网关ip或者选择\"禁用网关\""
 
@@ -8317,6 +8539,9 @@ msgid "Started Instance"
 msgid_plural "Started Instances"
 msgstr[0] "已启动的实例"
 
+msgid "Started at"
+msgstr "开始于"
+
 #, python-format
 msgid "Starting evacuation from %(current)s to %(target)s."
 msgstr "开始疏散实例从主机 %(current)s 到主机 %(target)s."
@@ -8349,6 +8574,9 @@ msgstr "状态 ="
 msgid "Status Reason"
 msgstr "状态原因"
 
+msgid "Step Description"
+msgstr "步骤说明"
+
 msgctxt "Action log of an instance"
 msgid "Stop"
 msgstr "关机"
@@ -8358,6 +8586,9 @@ msgstr "存储位置"
 
 msgid "Storage type"
 msgstr "存储类型"
+
+msgid "Storm"
+msgstr "风暴"
 
 msgid "Streaming MapReduce"
 msgstr "MapReduce流"
@@ -8395,6 +8626,9 @@ msgstr "子网: %(dest_subnetname)s"
 #, python-format
 msgid "Subnet: %(row_source_subnetname)s"
 msgstr "子网:%(row_source_subnetname)s"
+
+msgid "Subnetpool"
+msgstr "子网资源池"
 
 msgid "Subnets"
 msgstr "子网"
@@ -8472,6 +8706,10 @@ msgid "Successfully sent the request to manage volume: %s"
 msgstr "成功发送管理卷: %s 的请求"
 
 #, python-format
+msgid "Successfully sent the request to migrate volume: %s"
+msgstr "成功发送不管理卷: %s 的请求"
+
+#, python-format
 msgid "Successfully sent the request to unmanage volume: %s"
 msgstr "成功发送不管理卷: %s 的请求"
 
@@ -8507,6 +8745,9 @@ msgstr "更新卷快照状态成功：\"%s\"."
 #, python-format
 msgid "Successfully updated volume status to \"%s\"."
 msgstr "成功更新云硬盘状态为\"%s\"。"
+
+msgid "Successfully updated volume type."
+msgstr "成功更新卷类型"
 
 msgid "Sum."
 msgstr "总和"
@@ -8889,6 +9130,9 @@ msgstr "此实例正在准备热迁移到主机\"%s\"。"
 msgid "The instance password encrypted with your public key."
 msgstr "云主机密码已被你的公钥加密"
 
+msgid "The instance(s) will be shut off."
+msgstr "实例将会被关闭"
+
 #, python-format
 msgid ""
 "The key pair &quot;%(keypair_name)s&quot; should download automatically. If "
@@ -9134,9 +9378,6 @@ msgstr ""
 
 msgid "To exit the fullscreen mode, click the browser's back button."
 msgstr "要退出全屏模式，请点击浏览器的后退按键"
-
-msgid "To power off a specific instance."
-msgstr "关闭指定实例。"
 
 msgid ""
 "To specify an allowed IP range, select &quot;CIDR&quot;. To allow access "
@@ -9716,8 +9957,14 @@ msgstr "无法获取可用的主机"
 msgid "Unable to get user data."
 msgstr "无法获取用户数据。"
 
+msgid "Unable to get volume type list."
+msgstr "无法取得卷列表"
+
 msgid "Unable to import key pair."
 msgstr "无法导入密钥对。"
+
+msgid "Unable to initialize subnetpools"
+msgstr "无法初始化子网资源池"
 
 #, python-format
 msgid "Unable to launch %(count)s named \"%(name)s\"."
@@ -10129,6 +10376,10 @@ msgstr "无法获取云主机列表"
 msgid "Unable to retrieve instances."
 msgstr "无法获取云主机。"
 
+#, python-format
+msgid "Unable to retrieve job binary \"%s\"."
+msgstr "无法获取二进制任务\"%s\""
+
 msgid "Unable to retrieve key pair list."
 msgstr "找不到密钥对列表。"
 
@@ -10226,6 +10477,9 @@ msgstr "无法获取资源池子网 %s"
 #, python-format
 msgid "Unable to retrieve pool. %s"
 msgstr "无法获取资源池 %s "
+
+msgid "Unable to retrieve pools information."
+msgstr "无法获取资源池信息"
 
 msgid "Unable to retrieve pools list."
 msgstr "无法获得资源池列表"
@@ -10435,8 +10689,18 @@ msgstr "无法获取卷类型加密信息。"
 msgid "Unable to retrieve volume type extra spec details."
 msgstr "无法获取云硬盘类型扩展规格的详细信息。"
 
+#, python-format
+msgid "Unable to retrieve volume type for: \"%s\""
+msgstr "无法获取\"%s\"的卷类型"
+
+msgid "Unable to retrieve volume type list."
+msgstr "无法获取卷类型列表。"
+
 msgid "Unable to retrieve volume type name."
 msgstr "无法获取卷类型名称。"
+
+msgid "Unable to retrieve volume type qos."
+msgstr "无法获取卷类型QoS"
 
 msgid "Unable to retrieve volume types"
 msgstr "无法获得云硬盘类型"
@@ -10494,6 +10758,9 @@ msgstr "无法更新组。"
 msgid "Unable to update image \"%s\"."
 msgstr "更新镜像 \"%s\"失败。"
 
+msgid "Unable to update job binary"
+msgstr "无法更新任务二进制文件"
+
 msgid "Unable to update object."
 msgstr "无法更新对象。"
 
@@ -10523,6 +10790,9 @@ msgstr "无法更新用户密码。"
 msgid "Unable to update the user."
 msgstr "无法更新此用户。"
 
+msgid "Unable to update the volume type."
+msgstr "无法更新卷类型"
+
 msgid "Unable to update volume snapshot status."
 msgstr "不能更新卷快照状态。"
 
@@ -10532,6 +10802,9 @@ msgstr "无法更新云硬盘快照"
 #, python-format
 msgid "Unable to update volume status to \"%s\"."
 msgstr "无法更新卷状状态为\"%s\"."
+
+msgid "Unable to update volume type."
+msgstr "无法更新卷类型"
 
 msgid "Unable to update volume."
 msgstr "不能更新卷"
@@ -10804,6 +11077,9 @@ msgstr "为processes使用anti-affinity组"
 
 msgid "Use anti-affinity groups for: "
 msgstr "使用anti-affinity组："
+
+msgid "Use auto-configuration"
+msgstr "使用自动配置"
 
 msgid "Use image as a source"
 msgstr "使用镜像作为源"
@@ -11121,6 +11397,9 @@ msgstr "存储卷迁移详情"
 msgid "Volume Type"
 msgstr "云硬盘类型"
 
+msgid "Volume Type Description:"
+msgstr "卷类型描述:"
+
 msgid "Volume Type Encryption Details"
 msgstr "加密卷类型详情"
 
@@ -11155,6 +11434,9 @@ msgstr "云硬盘不能扩展到%(req)iGB，因为你的可用配置只有%(avai
 
 msgid "Volume is Unencrypted"
 msgstr "卷没有加密"
+
+msgid "Volume local to instance"
+msgstr "实例的本地卷"
 
 msgid ""
 "Volume mount point (e.g. 'vda' mounts at '/dev/vda'). Leave this field blank "
@@ -11206,6 +11488,10 @@ msgstr "卷大小必须大于0"
 msgid "Volume source must be specified"
 msgstr "卷的源必须被指定"
 
+#, python-format
+msgid "Volume type name \"%s\" already exists."
+msgstr "卷类型名 \"%s\" 已存在。"
+
 msgid "Volume type name can not be empty."
 msgstr "卷类型名称不能为 空."
 
@@ -11218,6 +11504,9 @@ msgstr "云硬盘已连接"
 msgid "Volumes Availability Zone"
 msgstr "卷的可用域"
 
+msgid "Volumes local to instance"
+msgstr "实例的本地卷"
+
 msgid "Volumes per node"
 msgstr "卷/节点"
 
@@ -11227,8 +11516,22 @@ msgstr "卷大小"
 msgid "Volumes size (GB)"
 msgstr "卷大小 (GB)"
 
+msgid "Volumes type"
+msgstr "卷类型"
+
 msgid "Weight"
 msgstr "重量"
+
+msgid ""
+"When no IP address is provided, the VIP will obtain an address from\n"
+"  the selected subnet. If a specific IP address is desired, it may be "
+"provided and\n"
+"  must also be an address within the selected subnet.\n"
+"  "
+msgstr ""
+"当没有IP地址提供时，VIP将获得一个来自子网的选定地址。\n"
+"如果需要一个特定的IP地址，那地址是需要可提供的并且\n"
+"必须是选定的子网内的地址。"
 
 msgid "Which keypair to use for authentication."
 msgstr "认证使用哪个密钥对。"

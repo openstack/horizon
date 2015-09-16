@@ -12,21 +12,26 @@
 # Robert Simai, 2015
 # Thorsten Michels, 2014
 # Uwe Krieg, 2015
+# Andreas Jaeger <jaegerandi@gmail.com>, 2015. #zanata
+# Frank Kloeker <eumel@arcor.de>, 2015. #zanata
+# OpenStack Infra <zanata@openstack.org>, 2015. #zanata
+# Robert Simai <robert.simai@suse.com>, 2015. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: Horizon\n"
+"Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-09-03 04:49+0000\n"
-"PO-Revision-Date: 2015-09-03 00:51+0000\n"
-"Last-Translator: Ettore Atalan <atalanttore@googlemail.com>\n"
-"Language-Team: German (http://www.transifex.com/openstack/horizon/language/"
-"de/)\n"
+"POT-Creation-Date: 2015-09-16 18:25+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"PO-Revision-Date: 2015-09-16 06:29+0000\n"
+"Last-Translator: Andreas Jaeger <jaegerandi@gmail.com>\n"
+"Language-Team: German (http://www.transifex.com/openstack/horizon/language/"
+"de/)\n"
 "Generated-By: Babel 2.0\n"
 "Language: de\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Zanata 3.7.1\n"
 
 msgid ""
 "\n"
@@ -259,6 +264,23 @@ msgstr ""
 
 msgid ""
 "\n"
+"    Migrate a volume to a specific host.\n"
+"    <br>\n"
+"    <br>\n"
+"    Force Host Copy: Enables or disables generic host-based force-migration, "
+"which bypasses driver optimizations.\n"
+"    "
+msgstr ""
+"\n"
+"    Migriere einen Datenträger zu einem speziellen Host.\n"
+"    <br>\n"
+"    <br>\n"
+"    Erzwinge Host Kopie: Aktiviere oder deaktiviere generische host-basierte "
+"Migration, welche Treiberoptimierung übergeht.\n"
+"    "
+
+msgid ""
+"\n"
 "    The status of a volume is normally managed automatically.  In some "
 "circumstances an\n"
 "    administrator may need to explicitly update the status value.  This is "
@@ -267,10 +289,12 @@ msgid ""
 "    "
 msgstr ""
 "\n"
+"\n"
 "Der Status eines Datenträgers wird normalerweise automatisch verwaltet. "
-"Unter gewissen Umständen kann es notwendig sein, dass ein Administrator "
-"explizit den Statuswert aktualisieren muss. Das ist gleichbedeutend mit dem "
-"<tt>cinder reset-state</tt> Kommando."
+"Unter gewissen Umständen kann es notwendig sein, \n"
+"dass ein Administrator explizit den Statuswert aktualisieren muss. Das ist "
+"gleichbedeutend mit \n"
+"dem <tt>cinder reset-state</tt> Kommando."
 
 msgid ""
 "\n"
@@ -283,9 +307,11 @@ msgid ""
 msgstr ""
 "\n"
 "Der Status einer Datenträger-Schattenkopie wird normalerweise automatisch "
-"verwaltet. Unter gewissen Umständen kann es notwendig sein, dass ein "
-"Administrator explizit den Statuswert aktualisieren muss. Das ist "
-"gleichbedeutend mit dem <tt>cinder snapshot-reset-state</tt> Kommando."
+"verwaltet. Unter gewissen Umständen \n"
+"kann es notwendig sein, dass ein Administrator explizit den Statuswert "
+"aktualisieren muss. Das ist gleichbedeutend \n"
+"mit \n"
+"dem <tt>cinder snapshot-reset-state</tt> Kommando."
 
 msgid ""
 "\n"
@@ -302,6 +328,15 @@ msgstr ""
 "OpenStack nicht mehr sichtbar ist. Beachten Sie, dass der Datenträger dabei "
 "nicht vom Cinder Host gelöscht wird. Die ist gleichbedeutend mit dem "
 "<tt>cinder unmanage</tt> Kommando."
+
+msgid ""
+"\n"
+"   Volumes are block devices that can be attached to instances.\n"
+"   "
+msgstr ""
+"\n"
+"Datenträger sind Block-Geräte, die an eine Instanz gehangen werden können.\n"
+"  "
 
 msgid ""
 "\n"
@@ -328,6 +363,22 @@ msgstr ""
 "\"Ausgewählte Netzwerke\" verschieben. Die Reihenfolge der Netzwerkkarten "
 "kann ebenfalls durch Drag&Drop verändert werden."
 
+msgid ""
+"\n"
+" Create a VIP for this pool. Assign a name, description, IP address, port,\n"
+" and maximum connections allowed for the VIP. Choose the protocol and "
+"session persistence\n"
+" method for the VIP. Admin State is UP (checked) by default.\n"
+" "
+msgstr ""
+"\n"
+" Erstelle eine VIP für diesen Pool. Weise einen Namen, Beschreibung, IP-"
+"Adresse, Port \n"
+"und maximal erlaubte Verbindungen zu. Wähle Protokoll und persistente "
+"Verbindung. \n"
+"\n"
+"Admin Status standardmässig ist UP (ausgewählt)."
+
 msgid " - End"
 msgstr "- Ende"
 
@@ -349,8 +400,18 @@ msgid ""
 msgstr ""
 "\"Anpassungsskript\" entspricht \"Benutzer Daten\" in anderen Systemen."
 
+msgid "\"Edit Volume Type\""
+msgstr "\"Editiere Datentraeger-Typ\""
+
 msgid "\"N/A\""
 msgstr "\"N/V\""
+
+msgid "\"Namespace Resource Type Associations\""
+msgstr "\"Namensraum Resourcentypzuordnung\""
+
+msgid "\"No flavors meet minimum criteria for selected image.\""
+msgstr ""
+"\"Keine Variante erfüllt die Mindestanforderungen an das ausgewählte Image.\""
 
 msgid "\"None\""
 msgstr "\"Kein\""
@@ -362,6 +423,12 @@ msgstr ""
 "\"Keine\" gibt an, dass gegenwärtig keine QoS Spezifikationen zugewiesen "
 "sind. Im Gegenzug, das Setzen der QoS Spezifikationen auf \"keine\" entfernt "
 "die aktuellen Zuweisungen."
+
+msgid ""
+"\"Some flavors not meeting minimum image requirements have been disabled.\""
+msgstr ""
+"\"Einige Varianten erfüllen nicht die Mindestanforderungen des Images und "
+"sind deaktiviert worden.\""
 
 msgid "\"Users\""
 msgstr "\"Benutzer\""
@@ -461,6 +528,10 @@ msgstr "%s GB"
 #, python-format
 msgid "%s instances"
 msgstr "%s Instanzen"
+
+#, python-format
+msgid "%s processes: "
+msgstr "%s Prozesse: "
 
 #, python-format
 msgid "%sGB"
@@ -729,6 +800,9 @@ msgstr ""
 "abweichen. Wird nichts angegeben, wird der Hypervisor einen Gerätenamen "
 "bestimmen."
 
+msgid "Adapt For Oozie"
+msgstr "Angepasst für Oozie"
+
 msgid "Add"
 msgstr "Hinzufügen"
 
@@ -843,11 +917,11 @@ msgid "Add VPN Service"
 msgstr "VPN Dienst hinzufügen"
 
 msgid ""
-"Add and remove security groups to this project from the list of available "
+"Add and remove security groups to this instance from the list of available "
 "security groups."
 msgstr ""
-"Aus der Liste der Sicherheitsgruppen dem Projekt Gruppen hinzufügen oder "
-"entfernen"
+"Hinzufügen und Löschen von Sicherheitsgruppen für diese Instanz aus der "
+"Liste der verfügbaren Sicherheitsgruppen."
 
 msgid "Add custom tag"
 msgstr "Benutzerspezifische Schlagwörter hinzufügen"
@@ -989,6 +1063,9 @@ msgstr ""
 msgid "Address"
 msgstr "Adresse"
 
+msgid "Address pool"
+msgstr "Adresspool"
+
 msgid "Address:"
 msgstr "Adresse:"
 
@@ -1081,6 +1158,9 @@ msgstr "IP belegen"
 
 msgid "Allocate IP To Project"
 msgstr "IP zu Projekt zuweisen"
+
+msgid "Allocate Network Address from a pool"
+msgstr "Weise eine Netzwerkadresse aus einem Pool zu."
 
 msgid "Allocate a floating IP from a given floating IP pool."
 msgstr "Floating IP aus einem angegebenen Pool belegen."
@@ -1272,6 +1352,9 @@ msgstr "Autorisierungsmodus"
 msgid "Auto Security Group"
 msgstr "Auto Sicherheitsgruppe"
 
+msgid "Auto-configure"
+msgstr "Auto-Konfigurieren"
+
 msgid "Automatic"
 msgstr "Automatisch"
 
@@ -1282,6 +1365,13 @@ msgstr ""
 "Automatisch: die komplette Festplatte ist eine einzige Partition und passt "
 "sich automatisch in der Größe an. Manuell: ergibt schnellere Bauzeiten aber "
 "erfordert manuelle Partitionierung."
+
+msgid ""
+"Automatically modify the Hadoop configuration so that job config values are "
+"set and so that Oozie will handle exit codes correctly."
+msgstr ""
+"Automatisches Modifizieren der Hadoop Konfiguration, so das Werte der Job-"
+"Konfiguration gesetzt werden und  Oozie Exit-Codes korrekt behandelt."
 
 msgid "Availability Zone"
 msgstr "Verfügbarkeitszone"
@@ -1668,6 +1758,12 @@ msgstr ""
 "drücken oder mit \"Drag and Drop\", Sie können die Reihenfolge auch mit "
 "\"Drag and Drop\" ändern."
 
+msgid "Choose the Input Data Source (n/a for Java and Shell jobs)."
+msgstr "Wähle die Eingangsdatenquelle (n/a für Java und Shell Aufgaben)."
+
+msgid "Choose the Output Data Source (n/a for Java and Shell jobs)."
+msgstr "Wähle die Ausgangsdatenquelle (n/a für Java und Shell Aufgaben)."
+
 msgid "Choose the binary which should be used in this Job."
 msgstr "Wählen Sie das für diese Aufgabe zu verwendende Binärprogramm."
 
@@ -1737,11 +1833,17 @@ msgstr "Schließen"
 msgid "Cluster"
 msgstr "Cluster"
 
+msgid "Cluster Count"
+msgstr "Anzahl Cluster"
+
 msgid "Cluster Creation Guide"
 msgstr "Clustererstellungsassistent"
 
 msgid "Cluster Details"
 msgstr "Cluster Details"
+
+msgid "Cluster Events"
+msgstr "Cluster Ereignisse"
 
 msgid "Cluster Guide"
 msgstr "Clusterassistent"
@@ -1782,6 +1884,9 @@ msgstr ""
 
 msgid "Cluster configurations are not specified"
 msgstr "Clusterkonfigurationen wurden nicht angegeben."
+
+msgid "Cluster provision steps"
+msgstr "Cluster Provisionierungsschritte"
 
 msgid "Cluster template creation failed"
 msgstr "Clustervorlagenerstellung fehlgeschlagen"
@@ -3372,6 +3477,14 @@ msgstr "Direkteingabe"
 msgid "Direction"
 msgstr "Richtung"
 
+msgid "Disable Domain"
+msgid_plural "Disable Domains"
+msgstr[0] "Domäne sperren"
+msgstr[1] "Domänen sperren"
+
+msgid "Disable Domains"
+msgstr "Domänen sperren"
+
 msgid "Disable Gateway"
 msgstr "Gateway abschalten"
 
@@ -3395,6 +3508,11 @@ msgstr "Deaktiviert"
 msgctxt "Current status of a Hypervisor"
 msgid "Disabled"
 msgstr "Deaktiviert"
+
+msgid "Disabled Domain"
+msgid_plural "Disabled Domains"
+msgstr[0] "Gesperrte Domäne"
+msgstr[1] "Gesperrte Domänen"
 
 msgid "Disabled User"
 msgid_plural "Disabled Users"
@@ -3656,6 +3774,9 @@ msgstr "Abbild Schlagwörter bearbeiten"
 msgid "Edit Instance"
 msgstr "Instanz bearbeiten"
 
+msgid "Edit Job Binary"
+msgstr "Editieren Job Binary"
+
 msgid "Edit Member"
 msgstr "Mitglied bearbeiten"
 
@@ -3731,6 +3852,9 @@ msgstr "VPN Dienst bearbeiten"
 msgid "Edit Volume"
 msgstr "Bearbeite Volume"
 
+msgid "Edit Volume Type"
+msgstr "Editieren Datenträger-Typ"
+
 msgid "Edit Volume Type Extra Spec"
 msgstr "Extra Spezifikation für Datenträgertyp bearbeiten"
 
@@ -3766,6 +3890,14 @@ msgstr "E-Mail"
 msgid "Enable DHCP"
 msgstr "DHCP aktivieren"
 
+msgid "Enable Domain"
+msgid_plural "Enable Domains"
+msgstr[0] "Domäne freigeben"
+msgstr[1] "Domänen freigeben"
+
+msgid "Enable Domains"
+msgstr "Domänen freigeben"
+
 msgid "Enable HA mode"
 msgstr "HA Modus aktivieren"
 
@@ -3789,6 +3921,11 @@ msgstr "Aktiviert"
 msgctxt "Current status of a Hypervisor"
 msgid "Enabled"
 msgstr "Aktiviert"
+
+msgid "Enabled Domain"
+msgid_plural "Enabled Domains"
+msgstr[0] "Freigegebene Domäne"
+msgstr[1] "Freigegebene Domänen"
 
 msgid "Enabled Service"
 msgid_plural "Enabled Services"
@@ -4269,6 +4406,9 @@ msgstr "Fehler beim migrieren von Host \"%s\"."
 msgid "Failed to migrate instances: %s"
 msgstr "Fehler beim migrieren der Instanzen: %s"
 
+msgid "Failed to migrate volume."
+msgstr "Migration des Datenträgers fehlgeschlagen."
+
 #, python-format
 msgid ""
 "Failed to modify %(num_groups_to_modify)d instance security groups: %(err)s"
@@ -4553,6 +4693,9 @@ msgstr "Floating IP"
 msgid "Floating IP Pool"
 msgstr "Floating IP Pool"
 
+msgid "Floating IP:"
+msgstr "Floating IP:"
+
 msgid "Floating IPs"
 msgstr "Floating IPs"
 
@@ -4578,10 +4721,23 @@ msgid ""
 "  or more \"libs\" for these jobs."
 msgstr ""
 "Für MapReduce oder Java Action Aufgaben sind \"Mains\" nicht zulässig. Es "
-"müssen eine oder mehrere \"libs\" zu diesen Aufgaben hinzugefügt werden."
+"müssen eine \n"
+"oder mehrere \"libs\" zu diesen Aufgaben hinzugefügt werden."
 
 msgid "For Object Store job binaries, you must:"
 msgstr "Für Objektspeicher Aufgaben-Binärprogramme müssen sie:"
+
+msgid ""
+"For Shell Action jobs, any required files beyond the main script may be "
+"added as \"libraries\"."
+msgstr ""
+"Für Shell Aufgaben sind alle Dateien hinter dem Hauptskript \"Bibliotheken\"."
+
+msgid ""
+"For Spark and Shell jobs, only a main is required, \"libs\" are optional."
+msgstr ""
+"Für Spark und Shell Aufgaben ist nur der Hauptteil erforderlich, \"libs\" "
+"sind optional."
 
 msgid ""
 "For TCP and UDP rules you may choose to open either a single port or a range "
@@ -5009,6 +5165,21 @@ msgstr "Der Identitäts-Service erlaubt das Editieren von Benutzerdaten nicht."
 msgid "Identity service does not allow editing user password."
 msgstr "Der Identitätsdienst erlaubt nicht das Ändern des Benutzerpasswortes."
 
+#, python-format
+msgid ""
+"If \"No volume type\" is selected, the default volume type \"%(name)s\" will "
+"be set for the created volume."
+msgstr ""
+"Wenn \"Kein Datenträger-Typ\" ausgewählt ist, der Standard-Datenträger-Typ "
+"\"%(name)s\" wird für die Erstellung des Datenträgers verwendet."
+
+msgid ""
+"If \"No volume type\" is selected, the volume will be created without a "
+"volume type."
+msgstr ""
+"Wenn \"Kein Datenträger-Typ\" ausgewählt ist, der Datenträger wird ohne "
+"Datenträger-Typ erstellt."
+
 msgid ""
 "If console is not responding to keyboard input: click the grey status bar "
 "below."
@@ -5024,6 +5195,22 @@ msgstr ""
 "Wird kein Containername angegeben, so wird ein Standardcontainer mit Namen "
 "volumebackups angelegt. Sicherungskopien haben die selbe Größe wie der "
 "Datenträger, von dem sie erstellt wurden."
+
+msgid ""
+"If selected, instances of a cluster will be automatically configured during "
+"creation. Otherwise you should manually specify configuration values"
+msgstr ""
+"Wenn ausgewählt, Instanzen eines Clusters werden automatisch konfiguriert "
+"während des Erstellens. Sonst sollte manuelle Konfiguration gewählt werden."
+
+msgid ""
+"If selected, instances of a node group will be automatically configured "
+"during cluster creation. Otherwise you should manually specify configuration "
+"values."
+msgstr ""
+"Wenn ausgewählt, Instanzen einer Node-Gruppe werden automatisch konfiguriert "
+"während der Cluster-Konfiguration. Sonst sollte manuelle Konfiguration "
+"gewählt werden."
 
 msgid ""
 "If you select an image via an HTTP URL, the Image Location field MUST be a "
@@ -5149,6 +5336,9 @@ msgid ""
 msgstr ""
 "Sie können zusätzlich ein externes Netzwerk oder ein geteiltes Netzwerk "
 "erstellen, in dem Sie das entsprechende Kontrollkästchen markieren."
+
+msgid "In progress"
+msgstr "In Bearbeitung"
 
 msgctxt "Current status of a Volume"
 msgid "In-use"
@@ -5285,6 +5475,11 @@ msgstr "Instanz Sicherheitsgruppen"
 
 msgid "Instance Snapshot"
 msgstr "Instanz-Schattenkopie"
+
+msgid "Instance and attached volumes will be created on the same physical host"
+msgstr ""
+"Instanz und angehangener Datenträger wird auf demselben physikalischen Host "
+"erstellt."
 
 msgid "Instance to be associated"
 msgstr "Instanz wird verknüpft"
@@ -5919,6 +6114,9 @@ msgid_plural "Migrate Instances"
 msgstr[0] "Migriere Instanz"
 msgstr[1] "Migriere Instanzen"
 
+msgid "Migrate Volume"
+msgstr "Migriere Datenträger"
+
 msgid ""
 "Migrate all instances from a host with disabled nova-compute service. "
 "Optionally you can choose type of migration. All running instances of the "
@@ -6023,6 +6221,9 @@ msgstr "Namen und Beschreibung eines Datenträgers ändern."
 
 msgid "Modify the name and description of a snapshot."
 msgstr "Name und Beschreibung einer Schattenkopie ändern."
+
+msgid "Modify volume type name and description."
+msgstr "Modifizieren Datentraeger-Typ, Name und Beschreibung."
 
 msgid "Monitor"
 msgstr "Monitor"
@@ -6154,6 +6355,9 @@ msgstr "Netzwerk Details: {{ network.name }}"
 msgid "Network ID"
 msgstr "Netzwerk-ID"
 
+msgid "Network Mask"
+msgstr "Netzwerkmaske"
+
 msgid "Network Name"
 msgstr "Netzwerkname"
 
@@ -6221,6 +6425,9 @@ msgstr "Neue Größe (GB)"
 
 msgid "New name cannot be empty."
 msgstr "Neuer Name darf nicht leer sein."
+
+msgid "New name conflicts with another volume type."
+msgstr "Neuer Name kollidiert mit einem anderen Datenträger-Typ."
 
 msgid "New password"
 msgstr "Neues Passwort"
@@ -6586,6 +6793,9 @@ msgstr "Anzahl der VCPUs"
 
 msgid "Number of Volumes"
 msgstr "Anzahl an Volumen"
+
+msgid "Number of clusters to launch."
+msgstr "Anzahl der zu startenden Cluster"
 
 msgid "Number of containers"
 msgstr "Anzahl der Container"
@@ -7107,12 +7317,6 @@ msgstr "Privat"
 msgid "Private Key File"
 msgstr "Private Schlüssel-Datei"
 
-msgid "Processes"
-msgstr "Prozesse"
-
-msgid "Processes to be launched in node group"
-msgstr "In der Knotengruppe zu startende Prozesse"
-
 msgid "Profile"
 msgstr "Profil"
 
@@ -7493,8 +7697,9 @@ msgid ""
 "                        creation process, but this time you are creating\n"
 "                        your \"worker\" Node Group Template."
 msgstr ""
-"Wiederholen des Node-Gruppenvorlagen Erstellungsprozess, aber diesmal für "
-"die \"Worker\" Node-Gruppenvorlagen."
+"Wiederholen des Node-Gruppenvorlagen \n"
+"Erstellungsprozess, aber diesmal für die \n"
+"\"Worker\" Node-Gruppenvorlagen."
 
 msgid "Replica Detached"
 msgid_plural "Replicas Detached"
@@ -8099,6 +8304,9 @@ msgstr "Instanz-Schattenkopie auswählen"
 msgid "Select Network"
 msgstr "Netzwerk auswählen"
 
+msgid "Select Node Group Processes"
+msgstr "Wähle Knotengruppenprozess"
+
 msgid "Select Port"
 msgstr "Port auswählen"
 
@@ -8201,6 +8409,9 @@ msgid "Select a plugin and version for the new Node Group template."
 msgstr ""
 "Wählen Sie ein Plugin und eine Version für die neue Node-Gruppenvorlage."
 
+msgid "Select a pool"
+msgstr "Wähle einen Pool."
+
 msgid "Select a port"
 msgstr "Einen Port auswählen"
 
@@ -8254,6 +8465,9 @@ msgstr "Netzwerk auswählen"
 
 msgid "Select networks for your instance."
 msgstr "Wählen Sie die Netzwerke für Ihre Instanz."
+
+msgid "Select node processes for the node group"
+msgstr "Wähle Knotenprozess für die Knotengruppe"
 
 msgid "Select parent backup"
 msgstr "Eltern-Sicherungskopie auswählen"
@@ -8421,9 +8635,19 @@ msgstr "Shell"
 msgid "Shell Action"
 msgstr "Shell-Aktion"
 
+msgid "Shelve Instance"
+msgid_plural "Shelve Instances"
+msgstr[0] "Instanz ablegen"
+msgstr[1] "Instanzen ablegen"
+
 msgctxt "Current status of an Instance"
 msgid "Shelved"
 msgstr "Gelagert"
+
+msgid "Shelved Instance"
+msgid_plural "Shelved Instances"
+msgstr[0] "Abgelegte Instanz"
+msgstr[1] "Abgelegte Instanzen"
 
 msgctxt "Current status of an Instance"
 msgid "Shelved Offloaded"
@@ -8662,6 +8886,13 @@ msgstr ""
 msgid "Specify \"Network Address\""
 msgstr "\"Netzwerkadresse\" angeben"
 
+msgid ""
+"Specify \"Network Address\", \"Address pool\" or clear \"Create Subnet\" "
+"checkbox."
+msgstr ""
+"Spezifiziere \"Netzwerkadresse\", \"Adresspool\" oder lösche \"Erstelle "
+"Subnetz\" Checkbox."
+
 msgid "Specify IP address of gateway or check \"Disable Gateway\"."
 msgstr ""
 "Geben Sie die IP-Adresse des Gateways an oder wählen Sie \"Gateway abschalten"
@@ -8884,6 +9115,9 @@ msgstr "Subnetz: %(dest_subnetname)s"
 msgid "Subnet: %(row_source_subnetname)s"
 msgstr "Subnetz: %(row_source_subnetname)s"
 
+msgid "Subnetpool"
+msgstr "Subnetzpool."
+
 msgid "Subnets"
 msgstr "Subnetze"
 
@@ -8965,6 +9199,10 @@ msgstr ""
 "Die Anfrage zur Datenträgerverwaltung wurde erfolgreich abgeschickt: %s"
 
 #, python-format
+msgid "Successfully sent the request to migrate volume: %s"
+msgstr "Erfolgreich Anfrage zur Migration des Datenträgers gesendet: %s"
+
+#, python-format
 msgid "Successfully sent the request to unmanage volume: %s"
 msgstr ""
 "Die Anfrage zur Aufhebung der Datenträgerverwaltung wurde erfolgreich "
@@ -9002,6 +9240,9 @@ msgstr "Status der Datenträger-Schattenkopie erfolgreich aktualisiert: \"%s\"."
 #, python-format
 msgid "Successfully updated volume status to \"%s\"."
 msgstr "Datenträgerstatus erfolgreich zu \"%s\" aktualisiert."
+
+msgid "Successfully updated volume type."
+msgstr "Erfolgreich Datenträger-Typ aktualisiert."
 
 msgid "Sum."
 msgstr "Sum."
@@ -9244,8 +9485,9 @@ msgid ""
 "Groups&quot; tab."
 msgstr ""
 "Das Clustervorlagenobjekt sollte Node-Gruppenvorlagen enthalten, die zum Bau "
-"des Clusters verwendet werden. Sie können Node-Gruppenvorlagen unter dem "
-"&quot;Node Gruppen&quot; Reiter hinzufügen."
+"des Clusters verwendet werden. \n"
+"Sie können Node-Gruppenvorlagen unter dem &quot;Node Gruppen&quot; Reiter "
+"hinzufügen."
 
 msgid ""
 "The Cluster object should specify OpenStack Image to boot instances for "
@@ -9298,9 +9540,12 @@ msgid ""
 "        configurations on corresponding tabs."
 msgstr ""
 "Das Node-Gruppenvorlagenobjekt spezifiziert die in jeder Instanz zu "
-"startenden Prozesse. Wählen Sie einen oder mehrere Prozesse. Wenn Prozesse "
-"ausgewählt sind, können Sie die <b>Node</b> bezogenen Konfigurationen unter "
-"den entsprechenden Reitern festlegen."
+"startenden\n"
+"Prozesse. Wählen Sie einen oder mehrere Prozesse. Wenn Prozesse ausgewählt "
+"sind,\n"
+"können Sie die <b>Node</b> bezogenen Konfigurationen unter den "
+"entsprechenden\n"
+"Reitern festlegen."
 
 msgid ""
 "The Transfer ID and the Authorization Key are needed by the recipient in "
@@ -9390,11 +9635,14 @@ msgid ""
 "pertinent\n"
 "                    to your desired cluster type."
 msgstr ""
-"Im ersten Schritt bestimmen Sie, welchen Clustertyp Sie laufen lassen "
-"wollen. Abhängig von der Systemkonfiguration haben Sie verschiedene zu "
-"Auswahl. Klicken Sie \"wähle Plugins\" um eine Liste von Datenverarbeitungs-"
-"Plugins anzuzeigen. Dort wählen Sie das Datenverarbeitungs-Plugin und dessen "
-"Versionsnummer. Wenn Sie dies vorab auswählen, erhalten Sie nur Optionen, "
+"Im ersten Schritt bestimmen Sie, welchen Clustertyp \n"
+"Sie laufen lassen wollen. Abhängig von der Systemkonfiguration \n"
+"haben Sie verschiedene zu Auswahl. \n"
+"Klicken Sie \"wähle Plugins\" um eine Liste von \n"
+"Datenverarbeitungs-Plugins anzuzeigen. \n"
+"Dort wählen Sie das Datenverarbeitungs-Plugin und \n"
+"dessen Versionsnummer. \n"
+"Wenn Sie dies vorab auswählen, erhalten Sie nur Optionen, \n"
 "die für den gewünschten Clustertyp möglich sind."
 
 #, python-format
@@ -9413,6 +9661,9 @@ msgstr "Die Instanz bereitet die Live-Migration zu Host \"%s\" vor."
 msgid "The instance password encrypted with your public key."
 msgstr ""
 "Das Passwort der Instanz, verschlüsselt mit Ihrem öffentlichen Schlüssel."
+
+msgid "The instance(s) will be shut off."
+msgstr "DIe Instanz(en) wird (werden) heruntergefahren."
 
 #, python-format
 msgid ""
@@ -9705,9 +9956,6 @@ msgid "To exit the fullscreen mode, click the browser's back button."
 msgstr ""
 "Mit dem Zurück-Knopf des Browsers können Sie den Vollbildmodus verlassen."
 
-msgid "To power off a specific instance."
-msgstr "Abschalten eine spezifischen Instanz"
-
 msgid ""
 "To specify an allowed IP range, select &quot;CIDR&quot;. To allow access "
 "from all members of another security group select &quot;Security Group&quot;."
@@ -9970,6 +10218,10 @@ msgid "Unable to create new image: Invalid disk format %s for image."
 msgstr ""
 "Neues Abbild kann nicht erstellt werden: ungültiges Festplattenformat %s für "
 "das Abbild."
+
+msgid "Unable to create new image: URL scheme not supported."
+msgstr ""
+"Neues Abbild kann nicht erstellt werden: URL-Schema wird nicht unterstützt."
 
 #, python-format
 msgid "Unable to create new namespace. %s"
@@ -10302,8 +10554,14 @@ msgstr "Verfügbare Hosts können nicht abgerufen werden"
 msgid "Unable to get user data."
 msgstr "Benutzerdaten können nicht abgerufen werden."
 
+msgid "Unable to get volume type list."
+msgstr "Kann Datenträger-Typenliste nicht beziehen"
+
 msgid "Unable to import key pair."
 msgstr "Schlüsselpaar kann nicht importiert werden."
+
+msgid "Unable to initialize subnetpools"
+msgstr "Initialisierung des Subnetzpools nicht möglich."
 
 #, python-format
 msgid "Unable to launch %(count)s named \"%(name)s\"."
@@ -10729,6 +10987,10 @@ msgstr "Liste der Instanzen kann nicht abgerufen werden."
 msgid "Unable to retrieve instances."
 msgstr "Instanzen können nicht abgerufen werden."
 
+#, python-format
+msgid "Unable to retrieve job binary \"%s\"."
+msgstr "Job Binary \"%s\" konnte nicht abgerufen werden."
+
 msgid "Unable to retrieve key pair list."
 msgstr "Liste der Schlüsselpaare kann nicht abgerufen werden."
 
@@ -10826,6 +11088,9 @@ msgstr "Das Pool-Subnetz kann nicht abgerufen werden. %s"
 #, python-format
 msgid "Unable to retrieve pool. %s"
 msgstr "Pools können nicht abgerufen werden. %s"
+
+msgid "Unable to retrieve pools information."
+msgstr "Abruf der Pool-Informationen nicht möglich."
 
 msgid "Unable to retrieve pools list."
 msgstr "Pool Liste kann nicht abgerufen werden."
@@ -11048,8 +11313,18 @@ msgid "Unable to retrieve volume type extra spec details."
 msgstr ""
 "Extraspezifikationen des Datenträgertyps können nicht abgerufen werden."
 
+#, python-format
+msgid "Unable to retrieve volume type for: \"%s\""
+msgstr "Konnte Datenträger-Typ für \"%s\" nicht abrufen."
+
+msgid "Unable to retrieve volume type list."
+msgstr "Konnte Datentraeger-Typ-Liste nicht abrufen."
+
 msgid "Unable to retrieve volume type name."
 msgstr "Name des Datenträger-Typs kann nicht abgerufen werden."
+
+msgid "Unable to retrieve volume type qos."
+msgstr "Konnte Datenträger-Typ QoS nicht abrufen."
 
 msgid "Unable to retrieve volume types"
 msgstr "Datenträgertypen können nicht abgerufen werden"
@@ -11108,6 +11383,9 @@ msgstr "Gruppe kann nicht aktualisiert werden."
 msgid "Unable to update image \"%s\"."
 msgstr "Abbild \"%s\" konnte nicht aktualisiert werden."
 
+msgid "Unable to update job binary"
+msgstr "Job Binary konnte nicht aktualisiert werden"
+
 msgid "Unable to update object."
 msgstr "Objekt kann nicht aktualisiert werden."
 
@@ -11137,6 +11415,9 @@ msgstr "Das Benutzerpasswort kann nicht aktualisiert werden."
 msgid "Unable to update the user."
 msgstr "Benutzer kann nicht aktualisiert werden."
 
+msgid "Unable to update the volume type."
+msgstr "Konnte Datenträger-Typ nicht aktualisieren."
+
 msgid "Unable to update volume snapshot status."
 msgstr "Status der Datenträger-Schattenkopie kann nicht aktualisiert werden."
 
@@ -11146,6 +11427,9 @@ msgstr "Schattenkopie kann nicht aktualisiert werden."
 #, python-format
 msgid "Unable to update volume status to \"%s\"."
 msgstr "Aktualisierung des Datenträgerstatus' zu \"%s\" nicht möglich."
+
+msgid "Unable to update volume type."
+msgstr "Konnte Datenträger-Typ nicht aktualisieren."
 
 msgid "Unable to update volume."
 msgstr "Datenträger konnte nicht aktualisiert werden."
@@ -11228,6 +11512,16 @@ msgid "Unselect the routers you want to disassociate from the firewall."
 msgstr ""
 "Wählen Sie die Router ab, für die Sie die Zuweisung zur Firewall aufheben "
 "wollen."
+
+msgid "Unshelve Instance"
+msgid_plural "Unshelve Instances"
+msgstr[0] "Instanz aus Ablage holen"
+msgstr[1] "Instanzen aus Ablage holen"
+
+msgid "Unshelved Instance"
+msgid_plural "Unshelved Instances"
+msgstr[0] "Aus Ablage geholte Instanz"
+msgstr[1] "Aus Ablage geholte Instanzen"
 
 msgctxt "Task status of an Instance"
 msgid "Unshelving"
@@ -11430,6 +11724,9 @@ msgstr "Anti-Affinität Gruppen für Prozesse nutzen"
 
 msgid "Use anti-affinity groups for: "
 msgstr "Benutze Anti-Affinity Gruppen für:"
+
+msgid "Use auto-configuration"
+msgstr "Benutze Auto-Konfiguration"
 
 msgid "Use image as a source"
 msgstr "Benutze Abbild als Quelle"
@@ -11760,6 +12057,9 @@ msgstr "Datenträger Transferdetails"
 msgid "Volume Type"
 msgstr "Datenträgertyp"
 
+msgid "Volume Type Description:"
+msgstr "Datentraeger-Typ Beschreibung:"
+
 msgid "Volume Type Encryption Details"
 msgstr "Volumentyp-Verschlüsselungsdetails"
 
@@ -11796,6 +12096,9 @@ msgstr ""
 
 msgid "Volume is Unencrypted"
 msgstr "Datenträger ist unverschlüsselt"
+
+msgid "Volume local to instance"
+msgstr "Lokaler Datenträger an Instanz"
 
 msgid ""
 "Volume mount point (e.g. 'vda' mounts at '/dev/vda'). Leave this field blank "
@@ -11853,6 +12156,10 @@ msgstr "Datenträgergröße muß größer als 0 sein"
 msgid "Volume source must be specified"
 msgstr "Quelle des Datenträgers muss angegeben werden"
 
+#, python-format
+msgid "Volume type name \"%s\" already exists."
+msgstr "Name des Datenträger-Typs \"%s\" existiert schon."
+
 msgid "Volume type name can not be empty."
 msgstr "Datenträgertypname darf nicht leer sein."
 
@@ -11865,6 +12172,9 @@ msgstr "Zugewiesene Datenträger"
 msgid "Volumes Availability Zone"
 msgstr "Datenträger Verfügbarkeitszone"
 
+msgid "Volumes local to instance"
+msgstr "Lokaler Datenträger für Instanz"
+
 msgid "Volumes per node"
 msgstr "Datenträger pro Knoten"
 
@@ -11874,8 +12184,25 @@ msgstr "Größe der Datenträger"
 msgid "Volumes size (GB)"
 msgstr "Größe der Datenträger (GB)"
 
+msgid "Volumes type"
+msgstr "Datenträgertyp"
+
 msgid "Weight"
 msgstr "Gewicht"
+
+msgid ""
+"When no IP address is provided, the VIP will obtain an address from\n"
+"  the selected subnet. If a specific IP address is desired, it may be "
+"provided and\n"
+"  must also be an address within the selected subnet.\n"
+"  "
+msgstr ""
+"Wenn keine IP-Adresse zur Verfügung gestellt wurde, wird die VIP eine "
+"Adresse vom\n"
+"ausgewählten Subnetz erhalten. Wenn eine IP-Adresse spezifiziert wurde, muß "
+"diese aus\n"
+"dem ausgewählten Subnetz stammen.\n"
+" "
 
 msgid "Which keypair to use for authentication."
 msgstr "Welches Schlüsselpaar soll für die Authentifizierung verwendet werden."

@@ -5,21 +5,23 @@
 # Translators:
 # rajesh <rajesh>, 2014
 # Rajesh Ranjan <rranjan@redhat.com>, 2014
+# OpenStack Infra <zanata@openstack.org>, 2015. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: Horizon\n"
+"Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-09-03 04:49+0000\n"
-"PO-Revision-Date: 2015-09-02 07:31+0000\n"
-"Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
-"Language-Team: Hindi (http://www.transifex.com/openstack/horizon/language/"
-"hi/)\n"
+"POT-Creation-Date: 2015-09-16 18:25+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"PO-Revision-Date: 2015-09-08 11:14+0000\n"
+"Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
+"Language-Team: Hindi (http://www.transifex.com/openstack/horizon/language/"
+"hi/)\n"
 "Generated-By: Babel 2.0\n"
 "Language: hi\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Zanata 3.7.1\n"
 
 msgid ""
 "\n"
@@ -4405,9 +4407,6 @@ msgstr "निजी"
 
 msgid "Private Key File"
 msgstr "निजी कुंजी फाइल"
-
-msgid "Processes"
-msgstr "प्रक्रिया"
 
 msgid "Project"
 msgstr "परियोजना"

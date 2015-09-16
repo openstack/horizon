@@ -10,21 +10,24 @@
 # Frédéric <frosmont@free.fr>, 2014
 # JF Taltavull <jftalta@gmail.com>, 2015
 # Maxime COQUEREL <max.coquerel@gmail.com>, 2015
+# Andreas Jaeger <jaegerandi@gmail.com>, 2015. #zanata
+# Kevin Tibi <kodokuu@gmail.com>, 2015. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: Horizon\n"
+"Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-08-21 10:26+0000\n"
-"PO-Revision-Date: 2015-08-21 07:55+0000\n"
-"Last-Translator: zopanix <christophe.vandekerchove-ext@cloudwatt.com>\n"
-"Language-Team: French (http://www.transifex.com/openstack/horizon/language/"
-"fr/)\n"
+"POT-Creation-Date: 2015-09-16 18:25+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"PO-Revision-Date: 2015-09-16 06:09+0000\n"
+"Last-Translator: Andreas Jaeger <jaegerandi@gmail.com>\n"
+"Language-Team: French (http://www.transifex.com/openstack/horizon/language/"
+"fr/)\n"
 "Generated-By: Babel 2.0\n"
 "Language: fr\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"X-Generator: Zanata 3.7.1\n"
 
 #, python-format
 msgid ""
@@ -66,7 +69,8 @@ msgid ""
 msgstr ""
 "\n"
 "Si vous n'êtes pas sûr de la méthode d'identification à utiliser, veuillez "
-"contacter votre administrateur."
+"contacter votre administrateur.\n"
+"    "
 
 #, python-format
 msgctxt "past"
@@ -125,7 +129,7 @@ msgid "%s did not complete."
 msgstr "%s ne s'est pas terminé."
 
 msgid "&laquo;&nbsp;Prev"
-msgstr "&laquo;&nbsp;Aperçu"
+msgstr "&laquo;&nbsp;Précédent"
 
 msgid "(No Limit)"
 msgstr "(Pas de limite)"
@@ -156,7 +160,7 @@ msgid "All available"
 msgstr "Disponibles"
 
 msgid "Available"
-msgstr "disponible(s)"
+msgstr "Disponible"
 
 msgid "Back"
 msgstr "Retour"
@@ -176,7 +180,7 @@ msgstr "Supprimé(e)"
 #, python-format
 msgid "Displaying %(content_items)s item"
 msgid_plural "Displaying %(content_items)s items"
-msgstr[0] "Affichage de l'item %(content_items)s"
+msgstr[0] "Affichage de l'élément %(content_items)s"
 msgstr[1] "Affichage des éléments %(content_items)s"
 
 #, python-format
@@ -188,8 +192,8 @@ msgstr[1] "Affichage de %(counter)s items"
 #, python-format
 msgid "Displaying %(nav_items)s item"
 msgid_plural "Displaying %(nav_items)s items"
-msgstr[0] "Affichage de l'item %(nav_items)s"
-msgstr[1] "Affichage des items %(nav_items)s"
+msgstr[0] "Affichage de l'élément %(nav_items)s"
+msgstr[1] "Affichage des éléments %(nav_items)s"
 
 msgid "Error: "
 msgstr "Erreur :"
@@ -211,8 +215,8 @@ msgstr "Information :"
 
 msgid "Invalid metadata entry. Use comma-separated key=value pairs"
 msgstr ""
-"Saisie de métadonnées non valide. Utiliser les paires clé=valeur séparées "
-"par des virgules"
+"La saisie des métadonnées est non valide. Utiliser les paires clé=valeur "
+"séparées par des virgules"
 
 msgid "Invalid subnet mask"
 msgstr "Masque de sous-réseau invalide"
@@ -302,10 +306,10 @@ msgstr "Enregistrer"
 
 #, python-format
 msgid "Select a %s to browse."
-msgstr "Sélectionner une %s à parcourir."
+msgstr "Sélectionner un(e) %s à parcourir."
 
 msgid "Select a period of time to query its usage:"
-msgstr "Sélectionnez une période de temps pour interroger son utilisation :"
+msgstr "Sélectionnez une période de temps pour connaitre son utilisation :"
 
 msgid "Sell Puppy"
 msgid_plural "Sell Puppies"
@@ -346,7 +350,7 @@ msgid "This Period's GB-Hours:"
 msgstr "GB-Heures de cette période :"
 
 msgid "This Period's RAM-Hours:"
-msgstr "Dans cette période RAM-Heures:"
+msgstr "RAM-Heures de cette période :"
 
 msgid "This Period's VCPU-Hours:"
 msgstr "VCPU-Heures de cette Période :"

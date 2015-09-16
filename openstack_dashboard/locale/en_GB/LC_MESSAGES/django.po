@@ -5,21 +5,24 @@
 # Translators:
 # Andi Chandler <andi@gowling.com>, 2015
 # Rob Cresswell <robert.cresswell@outlook.com>, 2015
+# Andi Chandler <andi@gowling.com>, 2015. #zanata
+# OpenStack Infra <zanata@openstack.org>, 2015. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: Horizon\n"
+"Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-09-03 04:49+0000\n"
-"PO-Revision-Date: 2015-09-02 07:31+0000\n"
-"Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
-"Language-Team: English (United Kingdom) (http://www.transifex.com/openstack/"
-"horizon/language/en_GB/)\n"
+"POT-Creation-Date: 2015-09-16 18:25+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"PO-Revision-Date: 2015-09-16 03:12+0000\n"
+"Last-Translator: Andi Chandler <andi@gowling.com>\n"
+"Language-Team: English (United Kingdom) (http://www.transifex.com/openstack/"
+"horizon/language/en_GB/)\n"
 "Generated-By: Babel 2.0\n"
-"Language: en_GB\n"
+"Language: en-GB\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Zanata 3.7.1\n"
 
 msgid ""
 "\n"
@@ -376,6 +379,12 @@ msgid ""
 msgstr ""
 "\"Customisation Script\" is analogous to \"User Data\" in other systems."
 
+msgid "\"Namespace Resource Type Associations\""
+msgstr "\"Namespace Resource Type Associations\""
+
+msgid "\"None\""
+msgstr "\"None\""
+
 msgid ""
 "\"None\" indicates that no QoS Spec is currently associated. Conversely, "
 "setting the QoS Spec to \"None\" will remove the current association."
@@ -475,6 +484,10 @@ msgstr "%s GB"
 #, python-format
 msgid "%s instances"
 msgstr "%s instances"
+
+#, python-format
+msgid "%s processes: "
+msgstr "%s processes: "
 
 #, python-format
 msgid "%sGB"
@@ -629,6 +642,14 @@ msgstr "ALLOW"
 msgid "ALLOW %(ethertype)s %(proto_port)s %(direction)s %(remote)s"
 msgstr "ALLOW %(ethertype)s %(proto_port)s %(direction)s %(remote)s"
 
+#, python-format
+msgid "ALLOW %(from)s:%(to)s/%(ip_protocol)s from %(cidr)s"
+msgstr "ALLOW %(from)s:%(to)s/%(ip_protocol)s from %(cidr)s"
+
+#, python-format
+msgid "ALLOW %(from)s:%(to)s/%(ip_protocol)s from %(group)s"
+msgstr "ALLOW %(from)s:%(to)s/%(ip_protocol)s from %(group)s"
+
 msgid "AMI - Amazon Machine Image"
 msgstr "AMI - Amazon Machine Image"
 
@@ -728,6 +749,9 @@ msgid ""
 msgstr ""
 "Actual device name may differ due to hypervisor settings. If not specified, "
 "then hypervisor will select a device name."
+
+msgid "Adapt For Oozie"
+msgstr "Adapt For Oozie"
 
 msgid "Add"
 msgstr "Add"
@@ -841,13 +865,6 @@ msgstr "Add VIP"
 
 msgid "Add VPN Service"
 msgstr "Add VPN Service"
-
-msgid ""
-"Add and remove security groups to this project from the list of available "
-"security groups."
-msgstr ""
-"Add and remove security groups to this project from the list of available "
-"security groups."
 
 msgid "Add custom tag"
 msgstr "Add custom tag"
@@ -1258,6 +1275,9 @@ msgstr "Authorisation mode"
 msgid "Auto Security Group"
 msgstr "Auto Security Group"
 
+msgid "Auto-configure"
+msgstr "Auto-configure"
+
 msgid "Automatic"
 msgstr "Automatic"
 
@@ -1267,6 +1287,13 @@ msgid ""
 msgstr ""
 "Automatic: The entire disk is a single partition and automatically resizes. "
 "Manual: Results in faster build times but requires manual partitioning."
+
+msgid ""
+"Automatically modify the Hadoop configuration so that job config values are "
+"set and so that Oozie will handle exit codes correctly."
+msgstr ""
+"Automatically modify the Hadoop configuration so that job config values are "
+"set and so that Oozie will handle exit codes correctly."
 
 msgid "Availability Zone"
 msgstr "Availability Zone"
@@ -1556,6 +1583,9 @@ msgstr "Choose a main binary"
 msgid "Choose a new instance flavor."
 msgstr "Choose a new instance flavour."
 
+msgid "Choose a shell script"
+msgstr "Choose a shell script"
+
 msgid "Choose a snapshot"
 msgstr "Choose a snapshot"
 
@@ -1564,6 +1594,9 @@ msgstr "Choose a storage location"
 
 msgid "Choose a volume"
 msgstr "Choose a volume"
+
+msgid "Choose additional files"
+msgstr "Choose additional files"
 
 msgid "Choose an DHCP Agent to attach to."
 msgstr "Choose an DHCP Agent to attach to."
@@ -1699,6 +1732,9 @@ msgstr "Cluster Creation Guide"
 msgid "Cluster Details"
 msgstr "Cluster Details"
 
+msgid "Cluster Events"
+msgstr "Cluster Events"
+
 msgid "Cluster Guide"
 msgstr "Cluster Guide"
 
@@ -1713,6 +1749,10 @@ msgstr "Cluster Overview"
 
 msgid "Cluster Template"
 msgstr "Cluster Template"
+
+#, python-format
+msgid "Cluster Template %s updated"
+msgstr "Cluster Template %s updated"
 
 msgid "Cluster Template Details"
 msgstr "Cluster Template Details"
@@ -1733,8 +1773,14 @@ msgstr "Cluster can be launched using existing Cluster Templates."
 msgid "Cluster configurations are not specified"
 msgstr "Cluster configurations are not specified"
 
+msgid "Cluster provision steps"
+msgstr "Cluster provision steps"
+
 msgid "Cluster template creation failed"
 msgstr "Cluster template creation failed"
+
+msgid "Cluster template update failed"
+msgstr "Cluster template update failed"
 
 msgid "Cluster type chosen"
 msgstr "Cluster type chosen"
@@ -1757,6 +1803,9 @@ msgstr "Comma-separated key=value pairs"
 msgctxt "Current status of a Database Backup"
 msgid "Completed"
 msgstr "Completed"
+
+msgid "Completed Successfully"
+msgstr "Completed Successfully"
 
 msgid "Component"
 msgstr "Component"
@@ -2685,6 +2734,11 @@ msgid_plural "Delete Backups"
 msgstr[0] "Delete Backup"
 msgstr[1] "Delete Backups"
 
+msgid "Delete Cluster"
+msgid_plural "Delete Clusters"
+msgstr[0] "Delete Cluster"
+msgstr[1] "Delete Clusters"
+
 msgctxt "current status of stack"
 msgid "Delete Complete"
 msgstr "Delete Complete"
@@ -2736,6 +2790,11 @@ msgid "Delete Group"
 msgid_plural "Delete Groups"
 msgstr[0] "Delete Group"
 msgstr[1] "Delete Groups"
+
+msgid "Delete Host Aggregate"
+msgid_plural "Delete Host Aggregates"
+msgstr[0] "Delete Host Aggregate"
+msgstr[1] "Delete Host Aggregates"
 
 msgid "Delete IKE Policy"
 msgid_plural "Delete IKE Policies"
@@ -2851,6 +2910,11 @@ msgid_plural "Delete Subnets"
 msgstr[0] "Delete Subnet"
 msgstr[1] "Delete Subnets"
 
+msgid "Delete Template"
+msgid_plural "Delete Templates"
+msgstr[0] "Delete Template"
+msgstr[1] "Delete Templates"
+
 msgid "Delete User"
 msgid_plural "Delete Users"
 msgstr[0] "Delete User"
@@ -2892,6 +2956,11 @@ msgid_plural "Deleted Backups"
 msgstr[0] "Deleted Backup"
 msgstr[1] "Deleted Backups"
 
+msgid "Deleted Cluster"
+msgid_plural "Deleted Clusters"
+msgstr[0] "Deleted Cluster"
+msgstr[1] "Deleted Clusters"
+
 msgid "Deleted DHCP Agent"
 msgid_plural "Deleted DHCP Agents"
 msgstr[0] "Deleted DHCP Agent"
@@ -2931,6 +3000,11 @@ msgid "Deleted Group"
 msgid_plural "Deleted Groups"
 msgstr[0] "Deleted Group"
 msgstr[1] "Deleted Groups"
+
+msgid "Deleted Host Aggregate"
+msgid_plural "Deleted Host Aggregates"
+msgstr[0] "Deleted Host Aggregate"
+msgstr[1] "Deleted Host Aggregates"
 
 #, python-format
 msgid "Deleted IKE Policy %s"
@@ -3023,6 +3097,11 @@ msgid "Deleted Subnet"
 msgid_plural "Deleted Subnets"
 msgstr[0] "Deleted Subnet"
 msgstr[1] "Deleted Subnets"
+
+msgid "Deleted Template"
+msgid_plural "Deleted Templates"
+msgstr[0] "Deleted Template"
+msgstr[1] "Deleted Templates"
 
 msgid "Deleted User"
 msgid_plural "Deleted Users"
@@ -3266,6 +3345,9 @@ msgstr ""
 "Do not use a colon ':' with OS::Glance::Images. This resource type does not "
 "support the use of colons."
 
+msgid "Docker"
+msgstr "Docker"
+
 #, python-format
 msgid "Domain \"%s\" must be disabled before it can be deleted."
 msgstr "Domain \"%s\" must be disabled before it can be deleted."
@@ -3388,6 +3470,9 @@ msgstr "Download job binary"
 msgid "Download key pair &quot;%(keypair_name)s&quot;"
 msgstr "Download key pair &quot;%(keypair_name)s&quot;"
 
+msgid "Duration"
+msgstr "Duration"
+
 #, python-format
 msgid "Duration of instance type %s (openstack flavor)"
 msgstr "Duration of instance type %s (openstack flavour)"
@@ -3403,6 +3488,9 @@ msgstr "EC2 URL"
 
 msgid "Edit"
 msgstr "Edit"
+
+msgid "Edit Cluster Template"
+msgstr "Edit Cluster Template"
 
 msgid "Edit Connection"
 msgstr "Edit Connection"
@@ -3461,6 +3549,9 @@ msgstr "Edit Monitor"
 
 msgid "Edit Network"
 msgstr "Edit Network"
+
+msgid "Edit Node Group Template"
+msgstr "Edit Node Group Template"
 
 msgid "Edit Object"
 msgstr "Edit Object"
@@ -3524,6 +3615,9 @@ msgstr "Edit VPN Service"
 
 msgid "Edit Volume"
 msgstr "Edit Volume"
+
+msgid "Edit Volume Type"
+msgstr "Edit Volume Type"
 
 msgid "Edit Volume Type Extra Spec"
 msgstr "Edit Volume Type Extra Spec"
@@ -4785,6 +4879,22 @@ msgstr ""
 "they originate from."
 
 msgid ""
+"If selected, instances of a cluster will be automatically configured during "
+"creation. Otherwise you should manually specify configuration values"
+msgstr ""
+"If selected, instances of a cluster will be automatically configured during "
+"creation. Otherwise you should manually specify configuration values"
+
+msgid ""
+"If selected, instances of a node group will be automatically configured "
+"during cluster creation. Otherwise you should manually specify configuration "
+"values."
+msgstr ""
+"If selected, instances of a node group will be automatically configured "
+"during cluster creation. Otherwise you should manually specify configuration "
+"values."
+
+msgid ""
 "If you select an image via an HTTP URL, the Image Location field MUST be a "
 "valid and direct URL to the image binary; it must also be accessible to the "
 "Image Service. URLs that redirect or serve error pages will result in "
@@ -4907,6 +5017,9 @@ msgid ""
 msgstr ""
 "In addition, you can create an external network or a shared network by "
 "checking the corresponding checkbox."
+
+msgid "In progress"
+msgstr "In progress"
 
 msgctxt "Current status of a Volume"
 msgid "In-use"
@@ -5043,6 +5156,10 @@ msgstr "Instance Security Groups"
 
 msgid "Instance Snapshot"
 msgstr "Instance Snapshot"
+
+msgid "Instance and attached volumes will be created on the same physical host"
+msgstr ""
+"Instance and attached volumes will be created on the same physical host"
 
 msgid "Instance to be associated"
 msgstr "Instance to be associated"
@@ -6090,6 +6207,9 @@ msgstr "No images available"
 msgid "No images available."
 msgstr "No images available."
 
+msgid "No info available"
+msgstr "No info available"
+
 msgid "No input was provided for the namespace content."
 msgstr "No input was provided for the namespace content."
 
@@ -6113,6 +6233,9 @@ msgstr "No options specified"
 
 msgid "No other agents available."
 msgstr "No other agents available."
+
+msgid "No other hosts available"
+msgstr "No other hosts available"
 
 msgid "No other hosts available."
 msgstr "No other hosts available."
@@ -6189,6 +6312,10 @@ msgstr "Node Configurations"
 
 msgid "Node Group"
 msgstr "Node Group"
+
+#, python-format
+msgid "Node Group Template %s updated"
+msgstr "Node Group Template %s updated"
 
 msgid "Node Group Template Details"
 msgstr "Node Group Template Details"
@@ -6812,14 +6939,11 @@ msgstr "Private"
 msgid "Private Key File"
 msgstr "Private Key File"
 
-msgid "Processes"
-msgstr "Processes"
-
-msgid "Processes to be launched in node group"
-msgstr "Processes to be launched in node group"
-
 msgid "Profile"
 msgstr "Profile"
+
+msgid "Progress"
+msgstr "Progress"
 
 msgid "Project"
 msgstr "Project"
@@ -7752,6 +7876,9 @@ msgstr "Select Instance Snapshot"
 msgid "Select Network"
 msgstr "Select Network"
 
+msgid "Select Node Group Processes"
+msgstr "Select Node Group Processes"
+
 msgid "Select Script Source"
 msgstr "Select Script Source"
 
@@ -7826,6 +7953,9 @@ msgstr "Select a new flavour"
 msgid "Select a new host"
 msgstr "Select a new host"
 
+msgid "Select a new status"
+msgstr "Select a new status"
+
 msgid "Select a new template to preview a stack."
 msgstr "Select a new template to preview a stack."
 
@@ -7894,6 +8024,9 @@ msgstr "Select network"
 
 msgid "Select networks for your instance."
 msgstr "Select networks for your instance."
+
+msgid "Select node processes for the node group"
+msgstr "Select node processes for the node group"
 
 msgid "Select parent backup"
 msgstr "Select parent backup"
@@ -8049,6 +8182,9 @@ msgstr "Shared Storage"
 
 msgid "Shared with Me"
 msgstr "Shared with Me"
+
+msgid "Shell"
+msgstr "Shell"
 
 msgctxt "Current status of an Instance"
 msgid "Shelved"
@@ -8410,6 +8546,9 @@ msgid_plural "Started Instances"
 msgstr[0] "Started Instance"
 msgstr[1] "Started Instances"
 
+msgid "Started at"
+msgstr "Started at"
+
 #, python-format
 msgid "Starting evacuation from %(current)s to %(target)s."
 msgstr "Starting evacuation from %(current)s to %(target)s."
@@ -8441,6 +8580,9 @@ msgstr "Status ="
 
 msgid "Status Reason"
 msgstr "Status Reason"
+
+msgid "Step Description"
+msgstr "Step Description"
 
 msgctxt "Action log of an instance"
 msgid "Stop"
@@ -9289,9 +9431,6 @@ msgstr ""
 msgid "To exit the fullscreen mode, click the browser's back button."
 msgstr "To exit the fullscreen mode, click the browser's back button."
 
-msgid "To power off a specific instance."
-msgstr "To power off a specific instance."
-
 msgid ""
 "To specify an allowed IP range, select &quot;CIDR&quot;. To allow access "
 "from all members of another security group select &quot;Security Group&quot;."
@@ -9745,6 +9884,9 @@ msgstr "Unable to fetch template object."
 msgid "Unable to fetch template to copy."
 msgstr "Unable to fetch template to copy."
 
+msgid "Unable to fetch template to edit."
+msgstr "Unable to fetch template to edit."
+
 msgid "Unable to fetch the image details"
 msgstr "Unable to fetch the image details"
 
@@ -9854,6 +9996,9 @@ msgstr "Unable to get the available hosts"
 
 msgid "Unable to get user data."
 msgstr "Unable to get user data."
+
+msgid "Unable to get volume type list."
+msgstr "Unable to get volume type list."
 
 msgid "Unable to import key pair."
 msgstr "Unable to import key pair."
@@ -10079,6 +10224,14 @@ msgid "Unable to retrieve details for backup: %s"
 msgstr "Unable to retrieve details for backup: %s"
 
 #, python-format
+msgid "Unable to retrieve details for cluster \"%s\"."
+msgstr "Unable to retrieve details for cluster \"%s\"."
+
+#, python-format
+msgid "Unable to retrieve details for cluster template \"%s\"."
+msgstr "Unable to retrieve details for cluster template \"%s\"."
+
+#, python-format
 msgid "Unable to retrieve details for database instance: %s"
 msgstr "Unable to retrieve details for database instance: %s"
 
@@ -10093,6 +10246,10 @@ msgstr "Unable to retrieve details for keypair \"%s\"."
 #, python-format
 msgid "Unable to retrieve details for network \"%s\"."
 msgstr "Unable to retrieve details for network \"%s\"."
+
+#, python-format
+msgid "Unable to retrieve details for node group template \"%s\"."
+msgstr "Unable to retrieve details for node group template \"%s\"."
 
 #, python-format
 msgid "Unable to retrieve details for parent backup: %s"
@@ -10910,6 +11067,9 @@ msgstr "Use anti-affinity groups for processes"
 msgid "Use anti-affinity groups for: "
 msgstr "Use anti-affinity groups for: "
 
+msgid "Use auto-configuration"
+msgstr "Use auto-configuration"
+
 msgid "Use image as a source"
 msgstr "Use image as a source"
 
@@ -11269,6 +11429,9 @@ msgstr ""
 msgid "Volume is Unencrypted"
 msgstr "Volume is Unencrypted"
 
+msgid "Volume local to instance"
+msgstr "Volume local to instance"
+
 msgid ""
 "Volume mount point (e.g. 'vda' mounts at '/dev/vda'). Leave this field blank "
 "to let the system choose a device name for you."
@@ -11334,6 +11497,9 @@ msgstr "Volumes Attached"
 msgid "Volumes Availability Zone"
 msgstr "Volumes Availability Zone"
 
+msgid "Volumes local to instance"
+msgstr "Volumes local to instance"
+
 msgid "Volumes per node"
 msgstr "Volumes per node"
 
@@ -11342,6 +11508,9 @@ msgstr "Volumes size"
 
 msgid "Volumes size (GB)"
 msgstr "Volumes size (GB)"
+
+msgid "Volumes type"
+msgstr "Volumes type"
 
 msgid "Weight"
 msgstr "Weight"

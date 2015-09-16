@@ -10,21 +10,24 @@
 # Ying Chun Guo <daisy.ycguo@gmail.com>, 2015
 # 刘俊朋 <liujunpeng@inspur.com>, 2015
 # 颜海峰 <yanheven@gmail.com>, 2015
+# OpenStack Infra <zanata@openstack.org>, 2015. #zanata
+# Yu Zhiuguo <yuzg@cn.fujitsu.com>, 2015. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: Horizon\n"
+"Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-08-29 02:57+0000\n"
-"PO-Revision-Date: 2015-08-28 13:08+0000\n"
-"Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
-"Language-Team: Chinese (China) (http://www.transifex.com/openstack/horizon/"
-"language/zh_CN/)\n"
+"POT-Creation-Date: 2015-09-16 18:25+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"PO-Revision-Date: 2015-09-10 11:25+0000\n"
+"Last-Translator: Yu Zhiuguo <yuzg@cn.fujitsu.com>\n"
+"Language-Team: Chinese (China) (http://www.transifex.com/openstack/horizon/"
+"language/zh_CN/)\n"
 "Generated-By: Babel 2.0\n"
-"Language: zh_CN\n"
+"Language: zh-CN\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Zanata 3.7.1\n"
 
 #, python-format
 msgid "%s GB"
@@ -136,6 +139,10 @@ msgid "Displaying %s item"
 msgid_plural "Displaying %s items"
 msgstr[0] "正在显示 %s 项"
 
+#, python-format
+msgid "Displaying %s of %s items"
+msgstr "正在显示 %s 中的 %s 项"
+
 msgid "Duplicate keys are not allowed"
 msgstr "复制密钥是不允许的"
 
@@ -207,6 +214,9 @@ msgstr "没有可用的元数据"
 
 msgid "No data available."
 msgstr "没有可用数据"
+
+msgid "No description available."
+msgstr "没有可用的描述。"
 
 msgid "No existing metadata"
 msgstr "不存在的元数据"
@@ -349,3 +359,6 @@ msgstr "m1.small"
 
 msgid "m1.tiny"
 msgstr "m1.tiny"
+
+msgid "pool default"
+msgstr "默认资源池"
