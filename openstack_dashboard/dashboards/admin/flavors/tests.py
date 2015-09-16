@@ -257,6 +257,32 @@ class CreateFlavorWorkflowTests(BaseFlavorWorkflowTests):
         self.assertFormErrors(res)
         self.assertContains(res, "field is required")
 
+    @test.create_stubs({api.keystone: ('tenant_list',),
+                        api.nova: ('flavor_list',)})
+    def test_create_flavor_missing_swap_and_ephemeral_fields(self):
+        flavor = self.flavors.first()
+        projects = self.tenants.list()
+
+        # init
+        api.keystone.tenant_list(IsA(http.HttpRequest)).AndReturn([projects,
+                                                                   False])
+
+        # handle
+        api.nova.flavor_list(IsA(http.HttpRequest), None) \
+            .AndReturn(self.flavors.list())
+        self.mox.ReplayAll()
+
+        workflow_data = self._get_workflow_data(flavor)
+        # Swap field empty
+        workflow_data['swap'] = None
+        # Ephemeral field empty
+        workflow_data['eph'] = None
+
+        url = reverse(constants.FLAVORS_CREATE_URL)
+        res = self.client.post(url, workflow_data)
+
+        self.assertFormErrors(res)
+
 
 class UpdateFlavorWorkflowTests(BaseFlavorWorkflowTests):
     @test.create_stubs({api.nova: ('flavor_get',
