@@ -39,11 +39,6 @@
                           { launchInstanceModel: model });
       }));
 
-      it('contains its general labels', function() {
-        expect(ctrl.label).toBeDefined();
-        expect(Object.keys(ctrl.label).length).toBeGreaterThan(0);
-      });
-
       it('contains its table labels', function() {
         expect(ctrl.tableData).toBeDefined();
         expect(Object.keys(ctrl.tableData).length).toBeGreaterThan(0);
@@ -62,37 +57,12 @@
         expect(ctrl.tableDetails).toBeDefined();
       });
 
-      it('defines table help', function() {
-        expect(ctrl.tableHelp).toBeDefined();
-        expect(Object.keys(ctrl.tableHelp).length).toBe(1);
-        expect(ctrl.tableHelp.noneAllocText).toBeDefined();
-      });
-
       it('allows allocation of only one', function() {
         expect(ctrl.tableLimits).toBeDefined();
         expect(Object.keys(ctrl.tableLimits).length).toBe(1);
         expect(ctrl.tableLimits.maxAllocation).toBe(1);
       });
 
-    });
-
-    describe('LaunchInstanceKeypairHelpController', function() {
-      var ctrl;
-
-      beforeEach(module('horizon.dashboard.project.workflow.launch-instance'));
-
-      beforeEach(inject(function($controller) {
-        ctrl = $controller('LaunchInstanceKeypairHelpController');
-      }));
-
-      it('defines the title', function() {
-        expect(ctrl.title).toBeDefined();
-      });
-
-      it('has paragraphs', function() {
-        expect(ctrl.paragraphs).toBeDefined();
-        expect(ctrl.paragraphs.length).toBeGreaterThan(0);
-      });
     });
 
     describe('LaunchInstanceCreateKeyPairController', function() {
@@ -109,10 +79,6 @@
       beforeEach(inject(function($controller) {
         ctrl = $controller('LaunchInstanceCreateKeyPairController');
       }));
-
-      it('contains its general labels', function() {
-        expect(ctrl.labels).toBeDefined();
-      });
 
       it('defines a model with a empty name', function() {
         expect(ctrl.model).toBeDefined();
@@ -141,10 +107,6 @@
         ctrl = $controller('LaunchInstanceNewKeyPairController', { keypair: {} });
       }));
 
-      it('contains its general labels', function() {
-        expect(ctrl.labels).toBeDefined();
-      });
-
       it('defines an empty keypair', function() {
         expect(ctrl.keypair).toBeDefined();
       });
@@ -169,10 +131,6 @@
         ctrl = $controller('LaunchInstanceImportKeyPairController');
       }));
 
-      it('contains its general labels', function() {
-        expect(ctrl.labels).toBeDefined();
-      });
-
       it('defines a model with a empty name and public key', function() {
         expect(ctrl.model).toBeDefined();
         expect(ctrl.model.name).toBe('');
@@ -187,26 +145,6 @@
         expect(ctrl.cancel).toBeDefined();
       });
     });
-
-    describe('LaunchInstanceImportKeyPairHelpController', function() {
-      var ctrl;
-
-      beforeEach(module('horizon.dashboard.project.workflow.launch-instance'));
-
-      beforeEach(inject(function($controller) {
-        ctrl = $controller('LaunchInstanceImportKeyPairHelpController');
-      }));
-
-      it('defines the title', function() {
-        expect(ctrl.title).toBeDefined();
-      });
-
-      it('has paragraphs', function() {
-        expect(ctrl.paragraphs).toBeDefined();
-        expect(ctrl.paragraphs.length).toBeGreaterThan(0);
-      });
-    });
-
   });
 
 })();

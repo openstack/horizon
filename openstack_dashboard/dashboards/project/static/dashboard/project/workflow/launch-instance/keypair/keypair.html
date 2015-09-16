@@ -1,26 +1,28 @@
 <div ng-controller="LaunchInstanceKeypairController as ctrl">
-  <h1>{$ ::ctrl.label.title $}</h1>
+  <h1 translate>Key Pair</h1>
 
   <div class="content">
-    <div class="subtitle">{$ ::ctrl.label.subtitle $}</div>
+    <div class="subtitle" translate>
+      A key pair allows you to SSH into your newly created instance.
+      You may select an existing key pair, import a key pair, or generate a new key pair.
+    </div>
 
     <div class="row form-group">
       <div class="col-sm-12 form-inline">
         <button type="button" class="btn btn-sm btn-primary pull-right"
                 ng-click="ctrl.createKeyPair()">
           <span class="fa fa-fw fa-plus"></span>
-          {$ ::ctrl.label.createKeyPair $}
+          <translate>Create Key Pair</translate>
         </button>
         <button type="button" class="btn btn-sm btn-primary pull-right"
                 ng-click="ctrl.importKeyPair()">
           <span class="fa fa-fw fa-upload"></span>
-          {$ ::ctrl.label.importKeyPair $}
+          <translate>Import Key Pair</translate>
         </button>
       </div>
     </div>
 
     <transfer-table tr-model="ctrl.tableData"
-                    help-text="ctrl.tableHelp"
                     limits="ctrl.tableLimits">
 
       <!-- Key Pairs Allocated-->
@@ -31,16 +33,16 @@
           <thead>
             <tr>
               <th class="expander"></th>
-              <th class="rsp-p1">{$ ::ctrl.label.name $}</th>
-              <th class="rsp-p2">{$ ::ctrl.tableLabels.fingerprint $}</th>
+              <th class="rsp-p1" translate>Name</th>
+              <th class="rsp-p2" translate>Fingerprint</th>
               <th></th>
             </tr>
           </thead>
           <tbody>
           <tr ng-if="ctrl.tableData.allocated.length === 0">
             <td colspan="8">
-              <div class="no-rows-help">
-                {$ ::trCtrl.helpText.noneAllocText $}
+              <div class="no-rows-help" translate>
+                Select a key pair from the available key pairs below.
               </div>
             </td>
           </tr>
@@ -85,8 +87,8 @@
             </tr>
             <tr>
               <th class="expander"></th>
-              <th st-sort="name" st-sort-default class="rsp-p1">{$ ::ctrl.label.name $}</th>
-              <th st-sort="fingerprint" class="rsp-p1">{$ ::ctrl.tableLabels.fingerprint $}</th>
+              <th st-sort="name" st-sort-default class="rsp-p1" translate>Name</th>
+              <th st-sort="fingerprint" class="rsp-p1" translate>Fingerprint</th>
               <th></th>
             </tr>
           </thead>
