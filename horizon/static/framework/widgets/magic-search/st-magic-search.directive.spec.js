@@ -42,12 +42,12 @@
       $timeout = $injector.get('$timeout');
 
       $scope.rows = [
-        { name: 'instance one', status: 'active', flavor: 'm1.tiny' },
-        { name: 'instance two', status: 'active', flavor: 'm1.small' },
-        { name: 'instance three', status: 'shutdown', flavor: 'm1.tiny' },
-        { name: 'instance four', status: 'shutdown', flavor: 'm1.small' },
-        { name: 'instance five', status: 'error', flavor: 'm1.tiny' },
-        { name: 'instance six', status: 'error', flavor: 'm1.small' }
+        { name: 'name 1', server_name: 'server 1', status: 'active', flavor: 'm1.tiny' },
+        { name: 'name 2', server_name: 'server 2', status: 'active', flavor: 'm1.small' },
+        { name: 'name 3', server_name: 'server 3', status: 'shutdown', flavor: 'm1.tiny' },
+        { name: 'name 4', server_name: 'server 4', status: 'shutdown', flavor: 'm1.small' },
+        { name: 'name 5', server_name: 'server 5', status: 'error', flavor: 'm1.tiny' },
+        { name: 'name 6', server_name: 'server 6', status: 'error', flavor: 'm1.small' }
       ];
 
       $scope.filterStrings = {
@@ -62,6 +62,12 @@
           name: 'name',
           label: gettext('Name'),
           singleton: true
+        },
+        {
+          name: 'server_name',
+          label: gettext('Server Name'),
+          singleton: true,
+          isServer: true
         },
         {
           name: 'status',
@@ -123,5 +129,19 @@
       $timeout.flush();
       expect($element.find('tbody tr').length).toBe(2);
     });
+
+    it('should filter table to 1 row if facet with name === "name 1"', function () {
+      $scope.$broadcast('searchUpdated', 'name=name 1');
+      $scope.$broadcast('textSearch', 'active');
+      $timeout.flush();
+      expect($element.find('tbody tr').length).toBe(1);
+    });
+
+    it('should not filter table if filter is server side', function () {
+      $scope.$broadcast('searchUpdated', 'server_name=server 1');
+      $timeout.flush();
+      expect($element.find('tbody tr').length).toBe(6);
+    });
+
   });
 })();
