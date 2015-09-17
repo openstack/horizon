@@ -57,6 +57,10 @@ def _decorate_urlconf(urlpatterns, decorator, *args, **kwargs):
             _decorate_urlconf(pattern.url_patterns, decorator, *args, **kwargs)
 
 
+# FIXME(lhcheng): We need to find a better way to cache the result.
+# Rather than storing it in the session, we could leverage the Django
+# session. Currently, thTs has been causing issue with cookie backend,
+# adding 1600+ in the cookie size.
 def access_cached(func):
     def inner(self, context):
         session = context['request'].session
@@ -109,7 +113,10 @@ class HorizonComponent(object):
                 urlpatterns = patterns('')
         return urlpatterns
 
-    @access_cached
+    # FIXME(lhcheng): Removed the access_cached decorator for now until
+    # a better implementation has been figured out. This has been causing
+    # issue with cookie backend, adding 1600+ in the cookie size.
+    # @access_cached
     def can_access(self, context):
         """Return whether the user has role based access to this component.
 
