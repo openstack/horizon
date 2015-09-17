@@ -723,7 +723,7 @@ horizon.network_topology = {
                 self.data.servers[device.data.id].networks = device.data.networks;
                 self.data.servers[device.data.id].ip_addresses = device.data.ip_addresses;
                 self.removeNode(self.data.servers[port.device_id]);
-                vmCount = Number(self.vis.selectAll('.vmCount').filter(filterNode(_network.data))[0][0].textContent)
+                vmCount = Number(self.vis.selectAll('.vmCount').filter(filterNode(_network.data))[0][0].textContent);
                 self.vis.selectAll('.vmCount').filter(filterNode(_network.data))[0][0].textContent = vmCount + 1;
                 continue;
               }
@@ -749,7 +749,7 @@ horizon.network_topology = {
             }
             self.new_node(server);
             // decrease collapsed vm count on network
-            vmCount = Number(self.vis.selectAll('.vmCount').filter(filterNode(server.networks[0]))[0][0].textContent)
+            vmCount = Number(self.vis.selectAll('.vmCount').filter(filterNode(server.networks[0]))[0][0].textContent);
             if (vmCount == 1) {
               self.vis.selectAll('.vmCount').filter(filterNode(server.networks[0]))[0][0].textContent = '';
             } else {
@@ -758,7 +758,7 @@ horizon.network_topology = {
             // Add back in first network link
             self.new_link(self.find_by_id(port.device_id), self.find_by_id(server.networks[0].id));
             // Add new link
-            self.new_link(self.find_by_id(port.device_id), self.find_by_id(port.network_id))
+            self.new_link(self.find_by_id(port.device_id), self.find_by_id(port.network_id));
             change = true;
           }
         }
