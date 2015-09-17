@@ -139,12 +139,17 @@ def get_staticfiles_dirs(webroot='/'):
     return STATICFILES_DIRS
 
 
-def find_static_files(ROOT_PATH, HORIZON_CONFIG):
+def find_static_files(HORIZON_CONFIG):
+    import horizon
+    import openstack_dashboard
+    os_dashboard_home_dir = openstack_dashboard.__path__[0]
+    horizon_home_dir = horizon.__path__[0]
+
     # note the path must end in a '/' or the resultant file paths will have a
     # leading "/"
     file_discovery.populate_horizon_config(
         HORIZON_CONFIG,
-        os.path.join(ROOT_PATH, '..', 'horizon', 'static/')
+        os.path.join(horizon_home_dir, 'static/')
     )
 
     # filter out non-angular javascript code and lib
@@ -155,6 +160,6 @@ def find_static_files(ROOT_PATH, HORIZON_CONFIG):
     # leading "/"
     file_discovery.populate_horizon_config(
         HORIZON_CONFIG,
-        os.path.join(ROOT_PATH, 'static/'),
+        os.path.join(os_dashboard_home_dir, 'static/'),
         sub_path='app/'
     )
