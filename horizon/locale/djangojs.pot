@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-09-03 06:13+0000\n"
+"POT-Creation-Date: 2015-09-17 06:23+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -62,7 +62,7 @@ msgstr[1] ""
 
 #: static/framework/util/filters/filters.js:177
 #, python-format
-msgid "Displaying %s of %s items"
+msgid "Displaying %(count)s of %(total)s items"
 msgstr ""
 
 #: static/framework/widgets/action-list/action-list.module.js:49
@@ -96,6 +96,7 @@ msgstr ""
 msgid "Total"
 msgstr ""
 
+#: static/framework/widgets/magic-search/hz-magic-search-bar.directive.js:95
 #: static/framework/widgets/magic-search/hz-magic-search-bar.spec.js:35
 #: static/framework/widgets/magic-search/magic-overrides.spec.js:50
 #: static/framework/widgets/magic-search/st-magic-search.spec.js:54
@@ -105,16 +106,25 @@ msgstr ""
 msgid "Cancel"
 msgstr ""
 
-#: static/framework/widgets/magic-search/hz-magic-search-bar.spec.js:36
-#: static/framework/widgets/magic-search/magic-overrides.spec.js:51
-#: static/framework/widgets/magic-search/st-magic-search.spec.js:55
-msgid "Prompt"
+#: static/framework/widgets/magic-search/hz-magic-search-bar.directive.js:96
+msgid "Click here for filters."
 msgstr ""
 
+#: static/framework/widgets/magic-search/hz-magic-search-bar.directive.js:97
 #: static/framework/widgets/magic-search/hz-magic-search-bar.spec.js:37
 #: static/framework/widgets/magic-search/magic-overrides.spec.js:52
 #: static/framework/widgets/magic-search/st-magic-search.spec.js:56
 msgid "Remove"
+msgstr ""
+
+#: static/framework/widgets/magic-search/hz-magic-search-bar.directive.js:98
+msgid "In current results"
+msgstr ""
+
+#: static/framework/widgets/magic-search/hz-magic-search-bar.spec.js:36
+#: static/framework/widgets/magic-search/magic-overrides.spec.js:51
+#: static/framework/widgets/magic-search/st-magic-search.spec.js:55
+msgid "Prompt"
 msgstr ""
 
 #: static/framework/widgets/magic-search/hz-magic-search-bar.spec.js:38

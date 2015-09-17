@@ -10,11 +10,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-09-16 18:25+0000\n"
+"POT-Creation-Date: 2015-09-17 00:21+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2015-09-15 02:16+0000\n"
+"PO-Revision-Date: 2015-09-17 03:44+0000\n"
 "Last-Translator: Tom Fifield <tom@openstack.org>\n"
 "Language-Team: English (Australia) (http://www.transifex.com/openstack/"
 "horizon/language/en_AU/)\n"
@@ -73,6 +73,9 @@ msgstr "Back"
 msgid "Cancel"
 msgstr "Cancel"
 
+msgid "Click here for filters."
+msgstr "Click here for filters."
+
 msgid "Click here to expand the row and view the errors."
 msgstr "Click here to expand the row and view the errors."
 
@@ -129,14 +132,14 @@ msgid "Detail Information"
 msgstr "Detail Information"
 
 #, python-format
+msgid "Displaying %(count)s of %(total)s items"
+msgstr "Displaying %(count)s of %(total)s items"
+
+#, python-format
 msgid "Displaying %s item"
 msgid_plural "Displaying %s items"
 msgstr[0] "Displaying %s item"
 msgstr[1] "Displaying %s items"
-
-#, python-format
-msgid "Displaying %s of %s items"
-msgstr "Displaying %s of %s items"
 
 msgid "Duplicate keys are not allowed"
 msgstr "Duplicate keys are not allowed"
@@ -167,6 +170,9 @@ msgstr "Flavour"
 
 msgid "ID"
 msgstr "ID"
+
+msgid "In current results"
+msgstr "In current results"
 
 msgid "Info"
 msgstr "Info"

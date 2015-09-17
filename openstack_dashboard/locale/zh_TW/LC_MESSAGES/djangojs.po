@@ -5,15 +5,16 @@
 # Translators:
 # Liu Chi Han <t09sunny@gmail.com>, 2015. #zanata
 # OpenStack Infra <zanata@openstack.org>, 2015. #zanata
+# Tom Fifield <tom@openstack.org>, 2015. #zanata
 msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-09-16 18:25+0000\n"
+"POT-Creation-Date: 2015-09-17 00:21+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2015-09-16 08:24+0000\n"
+"PO-Revision-Date: 2015-09-17 05:52+0000\n"
 "Last-Translator: Liu Chi Han <t09sunny@gmail.com>\n"
 "Language-Team: Chinese (Taiwan) (http://www.transifex.com/openstack/horizon/"
 "language/zh_TW/)\n"
@@ -85,11 +86,12 @@ msgstr ""
 "    然後選擇 <b>Associate Floating IP</b> 選項，輸入必須的詳細內容設置即可。"
 
 msgid ""
-"A key pair allows you to SSH into your newly created instance. You may "
-"select an existing key pair, import a key pair, or generate a new key pair."
+"A key pair allows you to SSH into your newly created instance.\n"
+"      You may select an existing key pair, import a key pair, or generate a "
+"new key pair."
 msgstr ""
-"金鑰對讓您可以使用SSH的方式登入新建立的執行個體。 您可以選擇一個已存在的金鑰"
-"對、導入金鑰對或是生成新的金鑰對。"
+"金鑰對讓您可以使用SSH的方式登入新建立的執行個體。 \n"
+"您可以選擇一個已存在的金鑰對、導入金鑰對或是生成新的金鑰對。"
 
 msgid "A name is required for your instance."
 msgstr "請輸入執行個體的名稱"
@@ -181,6 +183,9 @@ msgstr "驅動設置"
 msgid "Configuration Help"
 msgstr "設置幫助"
 
+msgid "Configuration Value"
+msgstr "配置值"
+
 msgid "Count"
 msgstr "數量"
 
@@ -205,6 +210,12 @@ msgstr ""
 
 msgid "Customization Script"
 msgstr "客製化腳本"
+
+msgid "Data Source"
+msgstr "資料來源"
+
+msgid "Default Value"
+msgstr "預設值"
 
 msgid "Delete Volume on Terminate"
 msgstr "終止以刪除磁碟區"
@@ -266,19 +277,32 @@ msgid ""
 "the instance."
 msgstr "Flavors 管理執行個體的計算能力、RAM以及儲存容量。"
 
+msgid ""
+"For configs and params, type the key name; for args, type the index as an "
+"integer, starting from 0."
+msgstr ""
+"對於 configs 和 params ，請輸入 key 名稱 ；對於 args ，請輸入整數索引 (>=0)。"
+
+msgid ""
+"For data sources, use a data source UUID or a path (as per data source "
+"creation.)"
+msgstr ""
+"對於資料來源，請使用資料來源的 UUID 或路徑 (和每個資料來源創建的路徑一樣)"
+
 msgid "Format"
 msgstr "格式"
 
-#, python-format
 msgid ""
-"From a Windows system, you can use PuTTYGen to create private/public keys. "
-"Use the PuTTY Key Generator to create and save the keys, then copy the "
-"public key in the red highlighted box to your <samp>%(authorizeKeysFile)s</"
-"samp> file."
+"From a Windows system, you can use PuTTYGen to create private/public keys.\n"
+"  Use the PuTTY Key Generator to create and save the keys, then copy\n"
+"  the public key in the red highlighted box to your <samp>.ssh/"
+"authorized_keys</samp>\n"
+"  file."
 msgstr ""
-"若是Windows作業系統，您可以使用 PuTTYGen 來生成公鑰/私鑰。 使用 PuTTYGen "
-"Generator 來建立和儲存金鑰，然後複製公鑰(紅色反白部分)到 <samp>"
-"%(authorizeKeysFile)s</samp> "
+"若是Windows作業系統，您可以使用 PuTTYGen 來生成公鑰/私鑰。\n"
+"    使用 PuTTYGen Generator 來建立和儲存金鑰，\n"
+"    然後複製公鑰(紅色反白部分)到 <samp>.ssh/authorized_keys</samp>\n"
+"    。"
 
 msgid "ID"
 msgstr "識別號"
@@ -331,9 +355,6 @@ msgstr "對配額的影響"
 msgid "Import Key Pair"
 msgstr "導入金鑰"
 
-msgid "Import Key Pair Help"
-msgstr "導入金鑰對幫助"
-
 msgid "Instance Details"
 msgstr "執行個體詳細資訊"
 
@@ -370,17 +391,21 @@ msgid "Key Pair Name"
 msgstr "金鑰對名稱"
 
 msgid ""
-"Key Pairs are how you login to your instance after it is launched. Choose a "
-"key pair name you will recognize and paste your SSH public key into the "
-"space provided."
+"Key Pairs are how you login to your instance after it is launched.\n"
+"        Choose a key pair name you will recognize and paste your SSH public "
+"key into the\n"
+"        space provided."
 msgstr ""
-"金鑰對是您登入執行個體的依據。 選擇一個能識別您的金鑰對，並且將您的SSH 公鑰貼"
-"在下列空白處。"
+"金鑰對是您登入執行個體的依據。 \n"
+"選擇一個能識別您的金鑰對，並且將您的SSH 公鑰貼在下列\n"
+"空白處。"
 
 msgid ""
-"Key Pairs are how you login to your instance after it is launched. Choose a "
-"key pair name you will recognize."
-msgstr "金鑰對是執行個體啟動後登入的依據，選擇一個金鑰對後可將您識別。"
+"Key Pairs are how you login to your instance after it is launched.\n"
+"        Choose a key pair name you will recognize."
+msgstr ""
+"金鑰對是執行個體啟動後登入的依據。\n"
+"選擇一個能識別您的金鑰對。"
 
 msgid "Killed"
 msgstr "已中斷"
@@ -391,8 +416,14 @@ msgstr "啟動執行個體"
 msgid "Load script from a file"
 msgstr "載入腳本"
 
+msgid "Location"
+msgstr "定位"
+
 msgid "Manual"
 msgstr "手動"
+
+msgid "Mapping Type"
+msgstr "映射類型"
 
 msgid "Max Port"
 msgstr "最大端口"
@@ -418,6 +449,9 @@ msgstr "最小 RAM"
 msgid "Name"
 msgstr "名稱"
 
+msgid "Named Parameter"
+msgstr "命名參數"
+
 msgid "Network"
 msgstr "網路"
 
@@ -439,6 +473,9 @@ msgstr "否"
 msgid "No available items"
 msgstr "無可用的項目"
 
+msgid "Number"
+msgstr "數字"
+
 msgid "OK"
 msgstr "OK"
 
@@ -458,6 +495,9 @@ msgstr ""
 
 msgid "Policy check failed."
 msgstr "Policy 檢驗失敗。"
+
+msgid "Positional Argument"
+msgstr "位置參數"
 
 msgid "Private"
 msgstr "私有的"
@@ -515,8 +555,14 @@ msgstr "使用拖拉來重新排列"
 msgid "Remote"
 msgstr "遠端"
 
+msgid "Remove"
+msgstr "刪除"
+
 msgid "Required"
 msgstr "需要"
+
+msgid "Required?"
+msgstr "需求?"
 
 msgid "Root Disk"
 msgstr "根磁碟"
@@ -552,6 +598,12 @@ msgstr ""
 "群組增加規則，以進一步定義一個執行個體的訪問方式。若您要為安全性群組新建規"
 "則，請到 <b>Compute | Access & Security</b> 頁面，找到security group 並點擊 "
 "<b>Manage Rules</b>."
+
+msgid ""
+"See http://docs.openstack.org/developer/sahara/userdoc/edp.html for "
+"definitions."
+msgstr ""
+"請從 http://docs.openstack.org/developer/sahara/userdoc/edp.html 頁面參考定義"
 
 msgid "Segmentation ID"
 msgstr "分段識別號"
@@ -618,6 +670,9 @@ msgstr "快照"
 msgid "Status"
 msgstr "狀態"
 
+msgid "String"
+msgstr "字串"
+
 msgid "Subnets Associated"
 msgstr "子網路已連接。"
 
@@ -648,9 +703,6 @@ msgid ""
 "The instance count must not exceed your quota available of "
 "%(maxInstanceCount)s instances"
 msgstr "執行個體數不可超過您可使用的配額 : %(maxInstanceCount)s"
-
-msgid "The key pair allows you to SSH into the instance."
-msgstr "金鑰對讓您可以通過SSH的方式使用執行個體。"
 
 #, python-format
 msgid ""
@@ -687,20 +739,19 @@ msgstr ""
 msgid "The volume size must be at least %(minVolumeSize)s GB"
 msgstr "磁碟區容量最少為 %(minVolumeSize)s GB"
 
-#, python-format
 msgid ""
-"There are two ways to generate a key pair. From a Linux system, generate the "
-"key pair with the <samp>%(genKeyPairCmd)s</samp> command:"
+"There are two ways to generate a key pair. From a Linux system,\n"
+"  generate the key pair with the <samp>ssh-keygen</samp> command:"
 msgstr ""
-"生成金鑰對有兩種方式，在Linux系統，使用 <samp>%(genKeyPairCmd)s</samp> 命令生"
-"成金鑰對:"
+"生成金鑰對有兩種方式，\n"
+"在Linux系統，使用 <samp>ssh-keygen</samp> 命令生成金鑰對:"
 
-#, python-format
 msgid ""
-"This command generates a pair of keys: a private key (%(privateKeyPath)s) "
-"and a public key (%(publicKeyPath)s)."
+"This command generates a pair of keys: a private key (cloud.key)\n"
+"  and a public key (cloud.key.pub)."
 msgstr ""
-"這個命令生成金鑰對: 私鑰 (%(privateKeyPath)s) 和公鑰 (%(publicKeyPath)s)."
+"這個命令能生成一個金鑰對: 私鑰 (cloud.key)\n"
+" 和公鑰 (cloud.key.pub)."
 
 msgid ""
 "This flavor requires more RAM than your quota allows. Please select a "
@@ -936,6 +987,9 @@ msgstr "用戶名稱"
 
 msgid "VCPUS"
 msgstr "VCPUS"
+
+msgid "Value Type"
+msgstr "變量類型"
 
 msgid "Visibility"
 msgstr "可見性"

@@ -10,16 +10,17 @@
 # Zhang Xiaowei <zero00072@gmail.com>, 2015
 # Liu Chi Han <t09sunny@gmail.com>, 2015. #zanata
 # OpenStack Infra <zanata@openstack.org>, 2015. #zanata
+# Tom Fifield <tom@openstack.org>, 2015. #zanata
 msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-09-16 18:25+0000\n"
+"POT-Creation-Date: 2015-09-17 00:21+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2015-09-11 04:03+0000\n"
-"Last-Translator: Liu Chi Han <t09sunny@gmail.com>\n"
+"PO-Revision-Date: 2015-09-17 03:48+0000\n"
+"Last-Translator: Tom Fifield <tom@openstack.org>\n"
 "Language-Team: Chinese (Taiwan) (http://www.transifex.com/openstack/horizon/"
 "language/zh_TW/)\n"
 "Generated-By: Babel 2.0\n"
@@ -332,3 +333,12 @@ msgstr ""
 #, python-format
 msgid "You have selected %s. "
 msgstr "您選擇了 %s。"
+
+msgid "description"
+msgstr "描述"
+
+msgid "m1.small"
+msgstr "m1.small"
+
+msgid "m1.tiny"
+msgstr "m1.tiny"

@@ -16,11 +16,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-09-16 18:25+0000\n"
+"POT-Creation-Date: 2015-09-17 00:21+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2015-09-16 08:57+0000\n"
+"PO-Revision-Date: 2015-09-17 06:21+0000\n"
 "Last-Translator: Liu Chi Han <t09sunny@gmail.com>\n"
 "Language-Team: Chinese (Taiwan) (http://www.transifex.com/openstack/horizon/"
 "language/zh_TW/)\n"
@@ -686,6 +686,9 @@ msgid ""
 msgstr ""
 "實際的裝置名稱可能由於虛擬機器管理程式的設定而有所不同。若未指定，虛擬機器管"
 "理程式會自己選擇裝置名稱。"
+
+msgid "Adapt For Oozie"
+msgstr "Adapt For Oozie"
 
 msgid "Add"
 msgstr "加入"
@@ -1467,6 +1470,9 @@ msgstr "選擇主要的程式"
 
 msgid "Choose a new instance flavor."
 msgstr "選擇新的雲實例虛擬硬體樣板。"
+
+msgid "Choose a shell script"
+msgstr "選擇一個Shell腳本"
 
 msgid "Choose a snapshot"
 msgstr "選擇即時存檔"
@@ -2478,6 +2484,9 @@ msgid ""
 msgstr ""
 "資料處理提供不同儲存空間位置的選項。您可能要選擇暫時性硬碟或 Cinder 雲硬碟來"
 "附加到執行個體。"
+
+msgid "Data Source"
+msgstr "資料來源"
 
 msgid "Data Source Details"
 msgstr "資料來源詳細資訊"
@@ -4944,6 +4953,9 @@ msgstr "權限的等級不足以檢視用戶資訊。"
 msgid "Intelligent Platform Management Interface (IPMI)"
 msgstr "智慧平臺管理介面（IPMI）"
 
+msgid "Interface Arguments"
+msgstr "介面參數"
+
 msgid "Interface added"
 msgstr "已加入網路卡"
 
@@ -6111,6 +6123,9 @@ msgstr ""
 "                        雲實例的數量。另外，您將有機會在\n"
 "                        新增叢集範本的表單額外的標籤裡\n"
 "                        設定叢集專用的設定項目。"
+
+msgid "Number"
+msgstr "數字"
 
 msgid "Number of API requests against swift"
 msgstr "針對 Swift 的 API 請求數量"
@@ -7333,6 +7348,9 @@ msgstr ""
 "規則是分配給安全性群組定義允許進入雲實例的交通。一條安全性群組規則包含三個主"
 "要的部份："
 
+msgid "Run HBase EDP Jobs with common HBase library on HDFS"
+msgstr "在HDFS上使用一般 HBase 程式庫運行 HBase EDP Jobs"
+
 msgctxt "Power state of an Instance"
 msgid "Running"
 msgstr "正在執行"
@@ -7573,6 +7591,9 @@ msgstr "選擇路由器"
 
 msgid "Select a Subnet"
 msgstr "選擇子網路"
+
+msgid "Select a Value Type for your next argument:"
+msgstr "請為您的下一個參數選擇一個變量類型:"
 
 msgid "Select a backup to restore"
 msgstr "選擇備份來恢復"
@@ -8215,6 +8236,9 @@ msgstr "Storm"
 
 msgid "Streaming MapReduce"
 msgstr "串流 MapReduce"
+
+msgid "String"
+msgstr "字串"
 
 msgid "Subnet"
 msgstr "子網域"
@@ -10598,6 +10622,9 @@ msgstr "使用量概觀"
 
 msgid "Usage Report"
 msgstr "使用量報告"
+
+msgid "Use HBase Common library"
+msgstr "使用HBase 一般程式庫"
 
 msgid "Use Server Default"
 msgstr "使用伺服器預設值"

@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-09-16 18:25+0000\n"
+"POT-Creation-Date: 2015-09-17 00:21+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -91,14 +91,6 @@ msgstr ""
 "    생성된 후 할당이 가능합니다. 유동 IP 할당은 <b>인스턴스</b> 뷰로 \n"
 "    이동하여, 각 인스턴스의 오른쪽에 있는 <b>작업</b> 메뉴를 클릭합니다. \n"
 "   그런뒤 <b>유동 IP 할당</b> 옵션을 선택하여 필요한 정보를 입력합니다."
-
-msgid ""
-"A key pair allows you to SSH into your newly created instance. You may "
-"select an existing key pair, import a key pair, or generate a new key pair."
-msgstr ""
-"키 페어를 통해 새로 생성한 인스턴스로 SSH 접속을 할 수 있습니다. 기존 키 페어"
-"를 선택하거나, 키 페어를 가져오거나, 또는 새로운 키 페어를 생성할 수 있습니"
-"다."
 
 msgid "A name is required for your instance."
 msgstr "인스턴스에 대한 이름이 필요합니다."
@@ -275,17 +267,6 @@ msgstr ""
 msgid "Format"
 msgstr "포멧"
 
-#, python-format
-msgid ""
-"From a Windows system, you can use PuTTYGen to create private/public keys. "
-"Use the PuTTY Key Generator to create and save the keys, then copy the "
-"public key in the red highlighted box to your <samp>%(authorizeKeysFile)s</"
-"samp> file."
-msgstr ""
-"Windows 시스템에서는, PuTTYGen을 사용하여 비밀/공개키를 생성할 수 있습니다. "
-"PuTTY 키 생성기를 사용하여 키를 생성 및 저장하고, 빨간 색으로 강조된 상자에 "
-"있는 공개 키를 <samp>%(authorizeKeysFile)s</samp> 파일에 복사합니다."
-
 msgid "ID"
 msgstr "ID"
 
@@ -324,9 +305,6 @@ msgstr "쿼터에 미치는 영향"
 msgid "Import Key Pair"
 msgstr "키 페어 등록"
 
-msgid "Import Key Pair Help"
-msgstr "키 페어 등록 도움말"
-
 msgid "Instance Details"
 msgstr "인스턴스 세부정보"
 
@@ -353,21 +331,6 @@ msgstr "키 페어 도움말"
 
 msgid "Key Pair Name"
 msgstr "키 페어 이름"
-
-msgid ""
-"Key Pairs are how you login to your instance after it is launched. Choose a "
-"key pair name you will recognize and paste your SSH public key into the "
-"space provided."
-msgstr ""
-"키 페어는 인스턴스가 구동된 후 로그인하는 방법에 대한 것입니다. 인식하고자 하"
-"는 키 페어 이름을 선택하고 SSH 공개키를 제공된 공간에 붙여넣기합니다."
-
-msgid ""
-"Key Pairs are how you login to your instance after it is launched. Choose a "
-"key pair name you will recognize."
-msgstr ""
-"키 페어는 인스턴스가 구동된 후 로그인하는 방법에 대한 것입니다. 인식하고자 하"
-"는 키 페어 이름을 선택합니다."
 
 msgid "Killed"
 msgstr "Killed"
@@ -611,9 +574,6 @@ msgstr ""
 "인스턴스 개수는 %(maxInstanceCount)s 인스턴스 중 사용 가능한 쿼터량을 초과하"
 "지 않아야 합니다"
 
-msgid "The key pair allows you to SSH into the instance."
-msgstr "키 페어를 통해 인스턴스에 SSH 접속을 할 수 있습니다."
-
 #, python-format
 msgid ""
 "The selected image source requires a flavor with at least %(minDisk)s GB of "
@@ -649,22 +609,6 @@ msgstr ""
 #, python-format
 msgid "The volume size must be at least %(minVolumeSize)s GB"
 msgstr "볼륨 크기는 최소 %(minVolumeSize)s GB여야 합니다."
-
-#, python-format
-msgid ""
-"There are two ways to generate a key pair. From a Linux system, generate the "
-"key pair with the <samp>%(genKeyPairCmd)s</samp> command:"
-msgstr ""
-"키 페어를 생성하는 두 가지 방법이 있습니다. Linux 시스템에서는, <samp>"
-"%(genKeyPairCmd)s</samp> 명령어로 키 페어를 생성합니다:"
-
-#, python-format
-msgid ""
-"This command generates a pair of keys: a private key (%(privateKeyPath)s) "
-"and a public key (%(publicKeyPath)s)."
-msgstr ""
-"해당 명령어는 비밀키 (%(privateKeyPath)s)와 공개키 (%(publicKeyPath)s) 키 페"
-"어를 생성합니다:"
 
 msgid ""
 "This flavor requires more RAM than your quota allows. Please select a "

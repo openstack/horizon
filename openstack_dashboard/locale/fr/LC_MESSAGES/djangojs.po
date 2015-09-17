@@ -9,18 +9,17 @@
 # Maxime COQUEREL <max.coquerel@gmail.com>, 2015
 # Corinne Verheyde <cverheyd@gmail.com>, 2015. #zanata
 # François Bureau <bureaufrancois@gmail.com>, 2015. #zanata
-# Gael Rehault <gael01@gmail.com>, 2015. #zanata
 # OpenStack Infra <zanata@openstack.org>, 2015. #zanata
 # andrew melim <nokostya.translation@gmail.com>, 2015. #zanata
 msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-09-16 18:25+0000\n"
+"POT-Creation-Date: 2015-09-17 00:21+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2015-09-15 09:41+0000\n"
+"PO-Revision-Date: 2015-09-16 11:28+0000\n"
 "Last-Translator: Corinne Verheyde <cverheyd@gmail.com>\n"
 "Language-Team: French (http://www.transifex.com/openstack/horizon/language/"
 "fr/)\n"
@@ -103,14 +102,6 @@ msgstr ""
 "Puis, sélectionnez l'option <b>IP Flottante Associée</b> et saisissez les "
 "informations nécessaires."
 
-msgid ""
-"A key pair allows you to SSH into your newly created instance. You may "
-"select an existing key pair, import a key pair, or generate a new key pair."
-msgstr ""
-"Une paire de clés vous permet d'SSH une instance nouvellement créée. Vous "
-"pouvez sélectionner une paire de clés existante, importer une paire de clés, "
-"ou générer une nouvelle paire de clés."
-
 msgid "A name is required for your instance."
 msgstr "Vous avez besoin d'un nom pour votre instance."
 
@@ -158,8 +149,8 @@ msgid ""
 "b> resizes the disk and sets it to a single partition. Selecting <b>Manual</"
 "b> allows you to create multiple partitions on the disk."
 msgstr ""
-"Le partitionnement de disques est une action avancée disponible quand on "
-"exécute une instance.  <b>Automatic</b> redimensionne le disque et le "
+"Le partitionnement de disques est une des actions avancées disponibles quand "
+"on lance une instance.  <b>Automatic</b> redimensionne le disque et le "
 "définit en tant que partition unique. <b>Manuel</b> vous permet de créer "
 "plusieurs partitions sur le disque."
 
@@ -193,10 +184,10 @@ msgid ""
 "special configuration drive. When the instance boots, it attaches to the "
 "<b>Configuration Drive</b> and accesses the metadata."
 msgstr ""
-"Configurer l'espace <b>Disque de configuration</b> pour écrire les "
-"métadonnées sur un disque de configuration spécifique. Quand l'instance sera "
-"exécutée, il s'attachera au <b>Disque de configuration</b> et pourra accéder "
-"aux métadonnées."
+"Cocher la case <b>Disque de configuration</b>  si vous souhaitez écrire les "
+"métadonnées sur un disque de configuration spécifique.Quand l'instance "
+"démarrera, elle s'attachera le <b>Disque de configuration</b> et pourra "
+"accéder aux métadonnées."
 
 msgid "Click to see more details"
 msgstr "Cliquer pour une vue plus détaillée"
@@ -205,7 +196,7 @@ msgid "Configuration"
 msgstr "Configuration"
 
 msgid "Configuration Drive"
-msgstr "Disque de configuration"
+msgstr "Disque de Configuration"
 
 msgid "Configuration Help"
 msgstr "Aide à la configuration"
@@ -235,7 +226,7 @@ msgstr ""
 "récupérer une clé publique et l'ajouter au compte utilisateur."
 
 msgid "Customization Script"
-msgstr "Script de personnalisation"
+msgstr "Script de Personnalisation"
 
 msgid "Delete Volume on Terminate"
 msgstr "Supprimer le volume après terminaison"
@@ -274,7 +265,7 @@ msgid "Ether Type"
 msgstr "Type de protocole"
 
 msgid "Event log is not available."
-msgstr "Le journal des événements n'est pas disponible"
+msgstr "Le journal des événements n'est pas disponible."
 
 #, python-format
 msgid "Extension is not enabled: %(extension)s."
@@ -301,18 +292,6 @@ msgstr ""
 
 msgid "Format"
 msgstr "Format"
-
-#, python-format
-msgid ""
-"From a Windows system, you can use PuTTYGen to create private/public keys. "
-"Use the PuTTY Key Generator to create and save the keys, then copy the "
-"public key in the red highlighted box to your <samp>%(authorizeKeysFile)s</"
-"samp> file."
-msgstr ""
-"Dans les systèmes Windows, vous pouvez utiliser PuTTYGen pour créer des clés "
-"privées/publiques. Utilisez le générateur de clés Putty Key Generator pour "
-"créer et sauvegarder les clés, puis copiez la clé publique dans la zone en "
-"surbrillance rouge dans votre fichier <samp>%(authorizeKeysFile)s</samp>."
 
 msgid "ID"
 msgstr "ID"
@@ -364,9 +343,6 @@ msgstr "Impact sur votre quota"
 msgid "Import Key Pair"
 msgstr "Importer Paire Clés"
 
-msgid "Import Key Pair Help"
-msgstr "Importer Paire Clés"
-
 msgid "Instance Details"
 msgstr "Détails de l'instance"
 
@@ -407,22 +383,6 @@ msgstr "Aide Paires Clés"
 
 msgid "Key Pair Name"
 msgstr "Nom Paire Clés"
-
-msgid ""
-"Key Pairs are how you login to your instance after it is launched. Choose a "
-"key pair name you will recognize and paste your SSH public key into the "
-"space provided."
-msgstr ""
-"Les paires de clés servent à se connecter à une instance après son "
-"lancement. Choisissez un nom de paire de clés que vous reconnaîtrez et "
-"collez votre clé publique SSH dans l'espace réservé à cet effet."
-
-msgid ""
-"Key Pairs are how you login to your instance after it is launched. Choose a "
-"key pair name you will recognize."
-msgstr ""
-"Les paires de clés servent à se connecter à une instance après son "
-"lancement. Choisissez un nom de paire de clés que vous reconnaîtrez."
 
 msgid "Killed"
 msgstr "Supprimé par force"
@@ -710,9 +670,6 @@ msgstr ""
 "Le nombre d'instances ne doit pas dépasser votre quota de "
 "%(maxInstanceCount)s  instances"
 
-msgid "The key pair allows you to SSH into the instance."
-msgstr "La paire de clés vous permet d'SSH dans l'instance."
-
 #, python-format
 msgid ""
 "The selected image source requires a flavor with at least %(minDisk)s GB of "
@@ -751,30 +708,13 @@ msgstr ""
 msgid "The volume size must be at least %(minVolumeSize)s GB"
 msgstr "La taille du volume doit être d'au moins %(minVolumeSize)s Go"
 
-#, python-format
-msgid ""
-"There are two ways to generate a key pair. From a Linux system, generate the "
-"key pair with the <samp>%(genKeyPairCmd)s</samp> command:"
-msgstr ""
-"Il y a deux façons de générer une paire de clés. Dans les systèmes Linux, "
-"vous pourrez générer une paire de clés grâce à la commande <samp>"
-"%(genKeyPairCmd)s</samp> :"
-
-#, python-format
-msgid ""
-"This command generates a pair of keys: a private key (%(privateKeyPath)s) "
-"and a public key (%(publicKeyPath)s)."
-msgstr ""
-"Cette commande génère une paire de clés : une clé privée "
-"(%(privateKeyPath)s) et une clé publique (%(publicKeyPath)s)."
-
 msgid ""
 "This flavor requires more RAM than your quota allows. Please select a "
 "smaller flavor or decrease the instance count."
 msgstr ""
-"Ce gabarit requiert un montant de mémoire RAM supérieur au montant autorisé "
-"par votre quota. Veuillez sélectionner un plus petit gabarit ou diminuez le "
-"nombre d'instances."
+"Ce gabarit requiert plus de mémoire RAM qu'autorisé par votre quota. "
+"Veuillez sélectionner un plus petit gabarit ou diminuez le nombre "
+"d'instances."
 
 msgid ""
 "This flavor requires more VCPUs than your quota allows. Please select a "
@@ -799,7 +739,7 @@ msgid "Total RAM"
 msgstr "Total RAM"
 
 msgid "Total VCPUs"
-msgstr "Total des VCPU"
+msgstr "Total des VCPUs"
 
 msgid "Type"
 msgstr "Type"

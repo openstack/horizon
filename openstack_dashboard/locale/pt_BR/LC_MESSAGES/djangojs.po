@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-09-16 18:25+0000\n"
+"POT-Creation-Date: 2015-09-17 00:21+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -73,14 +73,6 @@ msgstr ""
 "um novo volume. Você pode optar por excluir o volume ao término da "
 "instância. <em>Nota: ao selecionar Volume, você só pode lançar uma instância."
 "</em></ li>"
-
-msgid ""
-"A key pair allows you to SSH into your newly created instance. You may "
-"select an existing key pair, import a key pair, or generate a new key pair."
-msgstr ""
-"Um par de chaves permite que você faça SSH para sua instância recém criada. "
-"Você pode selecionar um par de chaves existente, importar um par de chaves "
-"ou gerar um novo."
 
 msgid "A name is required for your instance."
 msgstr "É preciso um nome para sua instância."
@@ -241,18 +233,6 @@ msgstr ""
 msgid "Format"
 msgstr "Formato"
 
-#, python-format
-msgid ""
-"From a Windows system, you can use PuTTYGen to create private/public keys. "
-"Use the PuTTY Key Generator to create and save the keys, then copy the "
-"public key in the red highlighted box to your <samp>%(authorizeKeysFile)s</"
-"samp> file."
-msgstr ""
-"A partir de um sistema Windows, você pode utilizar o PuTTYGen para criar "
-"chaves privadas/públicas. Utilize o PuTTY Key Generator para criar e salvar "
-"as chaves, então copie a chave pública na caixa destacada em vermelho para o "
-"seu arquivo <samp>%(authorizeKeysFile)s</samp>."
-
 msgid "ID"
 msgstr "ID"
 
@@ -303,9 +283,6 @@ msgstr "Impacto na sua cota"
 msgid "Import Key Pair"
 msgstr "Importar par de chaves"
 
-msgid "Import Key Pair Help"
-msgstr "Ajuda em Importar par de chaves "
-
 msgid "Instance Details"
 msgstr "Detalhes da Instância"
 
@@ -343,22 +320,6 @@ msgstr "Ajuda em Par de chaves"
 
 msgid "Key Pair Name"
 msgstr "Nome do par de chaves"
-
-msgid ""
-"Key Pairs are how you login to your instance after it is launched. Choose a "
-"key pair name you will recognize and paste your SSH public key into the "
-"space provided."
-msgstr ""
-"Par de chaves é a maneira de logar na sua instância após sua inicialização. "
-"Escolha um nome de par de chaves que você irá reconhecer e cole sua chave "
-"SSH pública no espaço fornecido."
-
-msgid ""
-"Key Pairs are how you login to your instance after it is launched. Choose a "
-"key pair name you will recognize."
-msgstr ""
-"Par de chaves é a maneira de logar na sua instância após sua inicialização. "
-"Escolha um nome de par de chaves que você irá reconhecer."
 
 msgid "Killed"
 msgstr "Morto"
@@ -612,9 +573,6 @@ msgstr ""
 "A quantidade de instâncias não deve exceder sua cota disponível de "
 "%(maxInstanceCount)s instâncias"
 
-msgid "The key pair allows you to SSH into the instance."
-msgstr "O par de chaves permite que você faça SSH para a instância."
-
 #, python-format
 msgid ""
 "The selected image source requires a flavor with at least %(minDisk)s GB of "
@@ -639,22 +597,6 @@ msgstr "O status indica se a rede tem uma conexão ativa."
 #, python-format
 msgid "The volume size must be at least %(minVolumeSize)s GB"
 msgstr "O tamanho do volume total deve ser de no mínimo %(minVolumeSize)s GB"
-
-#, python-format
-msgid ""
-"There are two ways to generate a key pair. From a Linux system, generate the "
-"key pair with the <samp>%(genKeyPairCmd)s</samp> command:"
-msgstr ""
-"Existem duas maneiras de gerar um par de chaves. De um sistema Linux, gere o "
-"par de chaves com o comando <samp>%(genKeyPairCmd)s</samp>:"
-
-#, python-format
-msgid ""
-"This command generates a pair of keys: a private key (%(privateKeyPath)s) "
-"and a public key (%(publicKeyPath)s)."
-msgstr ""
-"Este comando gera um par de chaves: uma chave privada (%(privateKeyPath)s) e "
-"uma chave pública (%(publicKeyPath)s)."
 
 msgid ""
 "This flavor requires more RAM than your quota allows. Please select a "

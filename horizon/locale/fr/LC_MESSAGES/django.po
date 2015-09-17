@@ -10,18 +10,18 @@
 # Frédéric <frosmont@free.fr>, 2014
 # JF Taltavull <jftalta@gmail.com>, 2015
 # Maxime COQUEREL <max.coquerel@gmail.com>, 2015
-# Andreas Jaeger <jaegerandi@gmail.com>, 2015. #zanata
+# Corinne Verheyde <cverheyd@gmail.com>, 2015. #zanata
 # Kevin Tibi <kodokuu@gmail.com>, 2015. #zanata
 msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-09-16 18:25+0000\n"
+"POT-Creation-Date: 2015-09-17 00:21+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2015-09-16 06:09+0000\n"
-"Last-Translator: Andreas Jaeger <jaegerandi@gmail.com>\n"
+"PO-Revision-Date: 2015-09-16 10:48+0000\n"
+"Last-Translator: Corinne Verheyde <cverheyd@gmail.com>\n"
 "Language-Team: French (http://www.transifex.com/openstack/horizon/language/"
 "fr/)\n"
 "Generated-By: Babel 2.0\n"
@@ -68,8 +68,8 @@ msgid ""
 "    "
 msgstr ""
 "\n"
-"Si vous n'êtes pas sûr de la méthode d'identification à utiliser, veuillez "
-"contacter votre administrateur.\n"
+"      Si vous n'êtes pas sûr de la méthode d'identification à utiliser, "
+"veuillez contacter votre administrateur.\n"
 "    "
 
 #, python-format
