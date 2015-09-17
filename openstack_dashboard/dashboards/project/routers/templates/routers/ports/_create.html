@@ -3,7 +3,7 @@
 {% load url from future %}
 
 {% block form_id %}add_interface_form{% endblock %}
-{% block form_action %}{% url 'horizon:project:routers:addinterface' router.id %}
+{% block form_action %}{% url form_url router.id %}
 {% endblock %}
 
 {% block modal-header %}{% trans "Add Interface" %}{% endblock %}

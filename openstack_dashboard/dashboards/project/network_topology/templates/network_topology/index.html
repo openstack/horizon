@@ -12,19 +12,20 @@
 {% include "project/network_topology/client_side/_balloon_container.html" %}
 {% include "project/network_topology/client_side/_balloon_device.html" %}
 {% include "project/network_topology/client_side/_balloon_port.html" %}
-
+{% include "project/network_topology/client_side/_balloon_net.html" %}
+{% include "project/network_topology/client_side/_balloon_instance.html" %}
+<div class='description'>
+  {% blocktrans %}
+Resize the canvas by scrolling up/down with your mouse/trackpad on the topology.
+Pan around the canvas by clicking and dragging the space behind the topology.
+  {% endblocktrans %}
+</div>
 <div class="topologyNavi">
-  <div class="toggleView btn-group" data-toggle="buttons">
-    <label class="btn btn-default" data-value="small">
-      <input type="radio" name="options" id="option1" checked>
-      <span class="fa fa-th"></span>
-      {% trans "Small" %}
-    </label>
-    <label class="btn btn-default" data-value="normal">
-      <input type="radio" name="options" id="option2">
-      <span class="fa fa-th-large"></span>
-      {% trans "Normal" %}
-    </label>
+  <div class="toggleView btn-group" data-toggle="buttons-radio">
+    <button type="button" class="btn btn-default" id="toggle_labels"><span class="fa
+        fa-th-large"></span> {%trans "Toggle labels" %}</button>
+    <button type="button" class="btn btn-default" id="toggle_networks"><span class="fa
+        fa-th"></span> {%trans "Toggle Network Collapse" %}</button>
   </div>
   <div class="launchButtons">
   {% if launch_instance_allowed %}
@@ -47,7 +48,6 @@
 
 <div id="topologyCanvasContainer">
   <div class="nodata">{% blocktrans %}There are no networks, routers, or connected instances to display.{% endblocktrans %}</div>
-  {% include "project/network_topology/_svg_element.html" %}
 </div>
 <span data-networktopology="{% url 'horizon:project:network_topology:json' %}" id="networktopology"></span>
 <div id="topologyMessages"></div>
