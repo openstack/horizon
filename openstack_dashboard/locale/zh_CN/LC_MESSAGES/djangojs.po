@@ -14,7 +14,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-09-16 18:25+0000\n"
+"POT-Creation-Date: 2015-09-17 00:21+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -82,13 +82,6 @@ msgstr ""
 "要附加一个浮动IP，在<b>Instances</b>查看并单击一个实例的\n"
 " <b>Actions</b>菜单到右边。\n"
 "然后，选择 <b>Associate Floating IP</b> 并输入必要的描述。"
-
-msgid ""
-"A key pair allows you to SSH into your newly created instance. You may "
-"select an existing key pair, import a key pair, or generate a new key pair."
-msgstr ""
-"密钥对允许您SSH到您新创建的实例。你可以选择一个已存在、导入或生成一个新的密钥"
-"对。"
 
 msgid "A name is required for your instance."
 msgstr "您的实例名字是必须的。"
@@ -258,17 +251,6 @@ msgstr "类型管理实例的计算、内存和存储容量的大小。"
 msgid "Format"
 msgstr "镜像格式"
 
-#, python-format
-msgid ""
-"From a Windows system, you can use PuTTYGen to create private/public keys. "
-"Use the PuTTY Key Generator to create and save the keys, then copy the "
-"public key in the red highlighted box to your <samp>%(authorizeKeysFile)s</"
-"samp> file."
-msgstr ""
-"从一个Windows系统，你可以使用PuTTYGen生成公/私秘钥。使用PuTTY的秘钥生成器创建"
-"和保存这些值，然后从红色高亮框中复制公钥到您的<samp>%(authorizeKeysFile)s</"
-"samp>文件。"
-
 msgid "ID"
 msgstr "ID"
 
@@ -312,9 +294,6 @@ msgstr "影响您的配额"
 msgid "Import Key Pair"
 msgstr "导入秘钥对"
 
-msgid "Import Key Pair Help"
-msgstr "导入密钥对帮助"
-
 msgid "Instance Details"
 msgstr "实例详情"
 
@@ -349,20 +328,6 @@ msgstr "秘钥对帮助"
 
 msgid "Key Pair Name"
 msgstr "密钥对名字"
-
-msgid ""
-"Key Pairs are how you login to your instance after it is launched. Choose a "
-"key pair name you will recognize and paste your SSH public key into the "
-"space provided."
-msgstr ""
-"密钥对是您在实例启动后登陆进去的一种方式。选择一个您易于识别的密钥对名字，粘"
-"贴您的SSH公钥到空白处。"
-
-msgid ""
-"Key Pairs are how you login to your instance after it is launched. Choose a "
-"key pair name you will recognize."
-msgstr ""
-"密钥对是您在实例启动后登陆进去的一种方式。选择一个您易于识别的密钥对名字。"
 
 msgid "Killed"
 msgstr "终止"
@@ -631,9 +596,6 @@ msgid ""
 "%(maxInstanceCount)s instances"
 msgstr "实例数不能超过您的最大可用%(maxInstanceCount)s 实例数"
 
-msgid "The key pair allows you to SSH into the instance."
-msgstr "密钥对允许您SSH登陆实例。"
-
 #, python-format
 msgid ""
 "The selected image source requires a flavor with at least %(minDisk)s GB of "
@@ -668,21 +630,6 @@ msgstr ""
 #, python-format
 msgid "The volume size must be at least %(minVolumeSize)s GB"
 msgstr "卷大小至少%(minVolumeSize)s GB"
-
-#, python-format
-msgid ""
-"There are two ways to generate a key pair. From a Linux system, generate the "
-"key pair with the <samp>%(genKeyPairCmd)s</samp> command:"
-msgstr ""
-"有两种方式创建秘钥对。从一个Linux系统，使用<samp>%(genKeyPairCmd)s</samp> 命"
-"令生成秘钥对。"
-
-#, python-format
-msgid ""
-"This command generates a pair of keys: a private key (%(privateKeyPath)s) "
-"and a public key (%(publicKeyPath)s)."
-msgstr ""
-"这个命令生成一个秘钥对：私钥(%(privateKeyPath)s)和公钥(%(publicKeyPath)s)。"
 
 msgid ""
 "This flavor requires more RAM than your quota allows. Please select a "

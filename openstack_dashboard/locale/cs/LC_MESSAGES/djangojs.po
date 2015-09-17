@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-09-16 18:25+0000\n"
+"POT-Creation-Date: 2015-09-17 00:21+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -87,14 +87,6 @@ msgstr ""
 "    <b>Instancí</b> a klikněte na nabídku <b>Činnosti</b> napravo od "
 "instance.\n"
 "    Pak zvolte volbu <b>Přidružit plovoucí IP</b> a zadejte potřebné údaje."
-
-msgid ""
-"A key pair allows you to SSH into your newly created instance. You may "
-"select an existing key pair, import a key pair, or generate a new key pair."
-msgstr ""
-"Pár klíčů Vám umožňuje se připojit pomocí SSH do vaší nově vytvořené "
-"instance. Zde můžete zvolit existující pár klíčů, importovat ho nebo "
-"vytvořit zcela nový."
 
 msgid "A name is required for your instance."
 msgstr "Název vaší instance je vyžadován."
@@ -275,18 +267,6 @@ msgstr ""
 msgid "Format"
 msgstr "Formátovat"
 
-#, python-format
-msgid ""
-"From a Windows system, you can use PuTTYGen to create private/public keys. "
-"Use the PuTTY Key Generator to create and save the keys, then copy the "
-"public key in the red highlighted box to your <samp>%(authorizeKeysFile)s</"
-"samp> file."
-msgstr ""
-"V systému Windows můžete použít program PuTTYGen pro vytvoření klíčů. "
-"Použijte generátor klíčů PuTTY a pro jejich vytvoření a uložení, pak "
-"zkopírujte veřejný klíč v červeně vyznačeném rámečku do avšeho souboru <samp>"
-"%(authorizeKeysFile)s</samp>."
-
 msgid "ID"
 msgstr "ID"
 
@@ -335,9 +315,6 @@ msgstr "Dopad na vaši kvótu"
 msgid "Import Key Pair"
 msgstr "Importovat pár klíče"
 
-msgid "Import Key Pair Help"
-msgstr "Nápověda k importu páru klíčů"
-
 msgid "Instance Details"
 msgstr "Podrobnosti instance"
 
@@ -373,22 +350,6 @@ msgstr "Nápověda k páru klíčů"
 
 msgid "Key Pair Name"
 msgstr "Název páru klíčů"
-
-msgid ""
-"Key Pairs are how you login to your instance after it is launched. Choose a "
-"key pair name you will recognize and paste your SSH public key into the "
-"space provided."
-msgstr ""
-"Pár klíčů je způsob jak se přihlásit do instance po jejím spuštění. Zvolte "
-"název páru klíčů, který si zapamatujete a vložte svůj veřejný klíč SSH do "
-"vyhrazeného prostoru."
-
-msgid ""
-"Key Pairs are how you login to your instance after it is launched. Choose a "
-"key pair name you will recognize."
-msgstr ""
-"Pár klíčů je způsob jak se přihlásit do instance po jejím spuštění. Zvolte "
-"název páru klíčů, který si zapamatujete."
 
 msgid "Killed"
 msgstr "Ukončit"
@@ -669,9 +630,6 @@ msgstr ""
 "Počet instancí nesmí překročit vaši dostupnou kvótu %(maxInstanceCount)s "
 "instancí"
 
-msgid "The key pair allows you to SSH into the instance."
-msgstr "Pár klíčů Vám umožňuje se do této instance připojit pomocí SSH."
-
 #, python-format
 msgid ""
 "The selected image source requires a flavor with at least %(minDisk)s GB of "
@@ -707,22 +665,6 @@ msgstr ""
 #, python-format
 msgid "The volume size must be at least %(minVolumeSize)s GB"
 msgstr "Velikost svazku musí být alespoň %(minVolumeSize)s GB"
-
-#, python-format
-msgid ""
-"There are two ways to generate a key pair. From a Linux system, generate the "
-"key pair with the <samp>%(genKeyPairCmd)s</samp> command:"
-msgstr ""
-"Existují dva způsoby jak vytvořit pár klíčů. V systému Linux se vytváří "
-"pomocí příkazu <samp>%(genKeyPairCmd)s</samp> ."
-
-#, python-format
-msgid ""
-"This command generates a pair of keys: a private key (%(privateKeyPath)s) "
-"and a public key (%(publicKeyPath)s)."
-msgstr ""
-"Tento příkaz vytvoří pár klíčů: soukromý (%(privateKeyPath)s) a veřejný  "
-"(%(publicKeyPath)s)."
 
 msgid ""
 "This flavor requires more RAM than your quota allows. Please select a "

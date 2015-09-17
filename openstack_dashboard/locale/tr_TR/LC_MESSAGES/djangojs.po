@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-09-16 18:25+0000\n"
+"POT-Creation-Date: 2015-09-17 00:21+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -89,14 +89,6 @@ msgstr ""
 "tıklayın.\n"
 "    Ardından <b>Değişken IP ile ilişkilendirmeyi</b> seçin ve gerekli "
 "detayları girin."
-
-msgid ""
-"A key pair allows you to SSH into your newly created instance. You may "
-"select an existing key pair, import a key pair, or generate a new key pair."
-msgstr ""
-"Bir anahtar çifti yeni oluşturduğunuz sunucuda SSH ile oturum açmanıza izin "
-"verir. Mevcut anahtar çiftinizi kullanabilir, bir anahtar çiftini içe "
-"aktarabilir veya yeni bir çift oluşturabilirsiniz."
 
 msgid "A name is required for your instance."
 msgstr "Sunucunuz için bir isim gerekiyor."
@@ -276,18 +268,6 @@ msgstr ""
 msgid "Format"
 msgstr "Biçim"
 
-#, python-format
-msgid ""
-"From a Windows system, you can use PuTTYGen to create private/public keys. "
-"Use the PuTTY Key Generator to create and save the keys, then copy the "
-"public key in the red highlighted box to your <samp>%(authorizeKeysFile)s</"
-"samp> file."
-msgstr ""
-"Bir Windows sisteminde gizli/açık anahtar çiftini oluşturmak için PuTTYGen "
-"kullanabilirsiniz. Anahtarları oluşturmak ve kaydetmek için PuTTY Anahtar "
-"Üreticisini kullandıktan sonra açık anahtarınızı <samp>"
-"%(authorizeKeysFile)s</samp> dosyasında kırmızı işaretli kutuya kopyalayın."
-
 msgid "ID"
 msgstr "KİMLİK"
 
@@ -334,9 +314,6 @@ msgstr "Kotanız etkisi"
 msgid "Import Key Pair"
 msgstr "Anahtar Çiftini İçe Aktar"
 
-msgid "Import Key Pair Help"
-msgstr "Anahtar Çifti Yardımını İçe Aktar"
-
 msgid "Instance Details"
 msgstr "Sunucu Ayrıntıları"
 
@@ -373,22 +350,6 @@ msgstr "Anahtar Çifti Yardımı"
 
 msgid "Key Pair Name"
 msgstr "Anahtar Çifti Adı"
-
-msgid ""
-"Key Pairs are how you login to your instance after it is launched. Choose a "
-"key pair name you will recognize and paste your SSH public key into the "
-"space provided."
-msgstr ""
-"Anahtar Çiftleri sunucunuz başlatıldığında nasıl oturum açacağınızı "
-"belirler. Anahtar çiftinize hatırlayabileceğiniz bir isim verin ve SSH açık "
-"anahtarınızı gösterilen alana kopyalayın."
-
-msgid ""
-"Key Pairs are how you login to your instance after it is launched. Choose a "
-"key pair name you will recognize."
-msgstr ""
-"Anahtar Çiftleri sunucunun başlatıldığında ona nasıl erişeceğinizi belirtir. "
-"Anahtar çiftinize hatırlayabileceğiniz bir isim verin."
 
 msgid "Killed"
 msgstr "Öldürüldü"
@@ -663,9 +624,6 @@ msgid ""
 "%(maxInstanceCount)s instances"
 msgstr "Sunucu sayısı en fazla %(maxInstanceCount)s olabilir"
 
-msgid "The key pair allows you to SSH into the instance."
-msgstr "Anahtar çifti sunucuya SSH ile bağlanmanıza izin veriyor."
-
 #, python-format
 msgid ""
 "The selected image source requires a flavor with at least %(minDisk)s GB of "
@@ -702,22 +660,6 @@ msgstr ""
 #, python-format
 msgid "The volume size must be at least %(minVolumeSize)s GB"
 msgstr "Hacmin boyutu en az %(minVolumeSize)s GB olmalıdır"
-
-#, python-format
-msgid ""
-"There are two ways to generate a key pair. From a Linux system, generate the "
-"key pair with the <samp>%(genKeyPairCmd)s</samp> command:"
-msgstr ""
-"Bir anahtar çifti oluşturmanın iki yolu vardır. Bir Linux sistemde <samp>"
-"%(genKeyPairCmd)s</samp> komutuyla anahtar çiftini oluşturun:"
-
-#, python-format
-msgid ""
-"This command generates a pair of keys: a private key (%(privateKeyPath)s) "
-"and a public key (%(publicKeyPath)s)."
-msgstr ""
-"Bu komut bir anahtar çifti oluşturur: bir özel (%(privateKeyPath)s) bir de "
-"açık anahtar (%(publicKeyPath)s)."
 
 msgid ""
 "This flavor requires more RAM than your quota allows. Please select a "

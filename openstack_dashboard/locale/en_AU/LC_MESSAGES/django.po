@@ -10,11 +10,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-09-16 18:25+0000\n"
+"POT-Creation-Date: 2015-09-17 00:21+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2015-09-15 02:22+0000\n"
+"PO-Revision-Date: 2015-09-17 03:44+0000\n"
 "Last-Translator: Tom Fifield <tom@openstack.org>\n"
 "Language-Team: English (Australia) (http://www.transifex.com/openstack/"
 "horizon/language/en_AU/)\n"
@@ -802,6 +802,9 @@ msgstr "Active"
 msgctxt "status of a network port"
 msgid "Active"
 msgstr "Active"
+
+msgid "Active Instances:"
+msgstr "Active Instances:"
 
 msgid ""
 "Actual device name may differ due to hypervisor settings. If not specified, "
@@ -1825,6 +1828,9 @@ msgstr "Close"
 msgid "Cluster"
 msgstr "Cluster"
 
+msgid "Cluster Count"
+msgstr "Cluster Count"
+
 msgid "Cluster Creation Guide"
 msgstr "Cluster Creation Guide"
 
@@ -1926,6 +1932,9 @@ msgstr "Configuration"
 
 msgid "Configuration Drive"
 msgstr "Configuration Drive"
+
+msgid "Configuration Value"
+msgstr "Configuration Value"
 
 msgid "Configure"
 msgstr "Configure"
@@ -2711,6 +2720,9 @@ msgstr ""
 "Data Processing provides different storage location options. You may choose "
 "Ephemeral Drive or a Cinder Volume to be attached to instances."
 
+msgid "Data Source"
+msgstr "Data Source"
+
 msgid "Data Source Details"
 msgstr "Data Source Details"
 
@@ -2803,6 +2815,9 @@ msgstr "Decrypt Password"
 
 msgid "Default Quotas"
 msgstr "Default Quotas"
+
+msgid "Default Value"
+msgstr "Default Value"
 
 msgid "Default quotas updated."
 msgstr "Default quotas updated."
@@ -3462,6 +3477,14 @@ msgstr "Direct Input"
 msgid "Direction"
 msgstr "Direction"
 
+msgid "Disable Domain"
+msgid_plural "Disable Domains"
+msgstr[0] "Disable Domain"
+msgstr[1] "Disable Domains"
+
+msgid "Disable Domains"
+msgstr "Disable Domains"
+
 msgid "Disable Gateway"
 msgstr "Disable Gateway"
 
@@ -3485,6 +3508,11 @@ msgstr "Disabled"
 msgctxt "Current status of a Hypervisor"
 msgid "Disabled"
 msgstr "Disabled"
+
+msgid "Disabled Domain"
+msgid_plural "Disabled Domains"
+msgstr[0] "Disabled Domain"
+msgstr[1] "Disabled Domains"
 
 msgid "Disabled User"
 msgid_plural "Disabled Users"
@@ -3860,6 +3888,14 @@ msgstr "Email"
 msgid "Enable DHCP"
 msgstr "Enable DHCP"
 
+msgid "Enable Domain"
+msgid_plural "Enable Domains"
+msgstr[0] "Enable Domain"
+msgstr[1] "Enable Domains"
+
+msgid "Enable Domains"
+msgstr "Enable Domains"
+
 msgid "Enable HA mode"
 msgstr "Enable HA mode"
 
@@ -3882,6 +3918,11 @@ msgstr "Enabled"
 msgctxt "Current status of a Hypervisor"
 msgid "Enabled"
 msgstr "Enabled"
+
+msgid "Enabled Domain"
+msgid_plural "Enabled Domains"
+msgstr[0] "Enabled Domain"
+msgstr[1] "Enabled Domains"
 
 msgid "Enabled Service"
 msgid_plural "Enabled Services"
@@ -5436,6 +5477,9 @@ msgstr "Insufficient privilege level to view user information."
 msgid "Intelligent Platform Management Interface (IPMI)"
 msgstr "Intelligent Platform Management Interface (IPMI)"
 
+msgid "Interface Arguments"
+msgstr "Interface Arguments"
+
 msgid "Interface added"
 msgstr "Interface added"
 
@@ -5830,6 +5874,9 @@ msgstr "Local Storage (total)"
 msgid "Local Storage (used)"
 msgstr "Local Storage (used)"
 
+msgid "Location"
+msgstr "Location"
+
 msgid "Lock Instance"
 msgid_plural "Lock Instances"
 msgstr[0] "Lock Instance"
@@ -5951,6 +5998,9 @@ msgstr "Mapped Fixed IP Address"
 
 msgid "Mapper"
 msgstr "Mapper"
+
+msgid "Mapping Type"
+msgstr "Mapping Type"
 
 msgid "Master Instance Name"
 msgstr "Master Instance Name"
@@ -6201,6 +6251,9 @@ msgstr "Name: %(name)s ID: %(uuid)s"
 #, python-format
 msgid "Name: %(node_group_name)s"
 msgstr "Name: %(node_group_name)s"
+
+msgid "Named Parameter"
+msgstr "Named Parameter"
 
 msgid "Namespace"
 msgstr "Namespace"
@@ -6708,6 +6761,9 @@ msgstr ""
 "                        configuration items in the additional tabs on the\n"
 "                        create Cluster Template form."
 
+msgid "Number"
+msgstr "Number"
+
 msgid "Number of API requests against swift"
 msgstr "Number of API requests against swift"
 
@@ -6725,6 +6781,9 @@ msgstr "Number of VCPUs"
 
 msgid "Number of Volumes"
 msgstr "Number of Volumes"
+
+msgid "Number of clusters to launch."
+msgstr "Number of clusters to launch."
 
 msgid "Number of containers"
 msgstr "Number of containers"
@@ -7184,6 +7243,9 @@ msgstr "Ports"
 msgid "Position in Policy"
 msgstr "Position in Policy"
 
+msgid "Positional Argument"
+msgstr "Positional Argument"
+
 msgid "Post-Creation"
 msgstr "Post-Creation"
 
@@ -7268,6 +7330,9 @@ msgstr "Project Groups"
 
 msgid "Project ID"
 msgstr "Project ID"
+
+msgid "Project ID:"
+msgstr "Project ID:"
 
 msgid "Project Information"
 msgstr "Project Information"
@@ -7641,6 +7706,9 @@ msgid ""
 msgstr ""
 "Requests from a unique source IP address are consistently\n"
 "          directed to the same instance."
+
+msgid "Required"
+msgstr "Required"
 
 msgid "Required for APP_COOKIE persistence; Ignored otherwise."
 msgstr "Required for APP_COOKIE persistence; Ignored otherwise."
@@ -8262,6 +8330,9 @@ msgstr "Select a Router"
 msgid "Select a Subnet"
 msgstr "Select a Subnet"
 
+msgid "Select a Value Type for your next argument:"
+msgstr "Select a Value Type for your next argument:"
+
 msgid "Select a backup to restore"
 msgstr "Select a backup to restore"
 
@@ -8542,9 +8613,19 @@ msgstr "Shell"
 msgid "Shell Action"
 msgstr "Shell Action"
 
+msgid "Shelve Instance"
+msgid_plural "Shelve Instances"
+msgstr[0] "Shelve Instance"
+msgstr[1] "Shelve Instances"
+
 msgctxt "Current status of an Instance"
 msgid "Shelved"
 msgstr "Shelved"
+
+msgid "Shelved Instance"
+msgid_plural "Shelved Instances"
+msgstr[0] "Shelved Instance"
+msgstr[1] "Shelved Instances"
 
 msgctxt "Current status of an Instance"
 msgid "Shelved Offloaded"
@@ -8969,6 +9050,9 @@ msgstr "Storm"
 
 msgid "Streaming MapReduce"
 msgstr "Streaming MapReduce"
+
+msgid "String"
+msgstr "String"
 
 msgid "Subnet"
 msgstr "Subnet"
@@ -9840,11 +9924,23 @@ msgstr "Topic"
 msgid "Topology"
 msgstr "Topology"
 
+msgid "Total Active RAM (MB):"
+msgstr "Total Active RAM (MB):"
+
 msgid "Total Disk"
 msgstr "Total Disk"
 
+msgid "Total Disk Size (GB):"
+msgstr "Total Disk Size (GB):"
+
+msgid "Total Disk Usage (Hours):"
+msgstr "Total Disk Usage (Hours):"
+
 msgid "Total Gigabytes"
 msgstr "Total Gigabytes"
+
+msgid "Total Memory Usage (Hours):"
+msgstr "Total Memory Usage (Hours):"
 
 msgid "Total RAM"
 msgstr "Total RAM"
@@ -9854,6 +9950,9 @@ msgstr "Total Size of LUKS Volumes and Snapshots (GB)"
 
 msgid "Total Size of Volumes and Snapshots (GB)"
 msgstr "Total Size of Volumes and Snapshots (GB)"
+
+msgid "Total VCPU Usage (Hours):"
+msgstr "Total VCPU Usage (Hours):"
 
 msgid ""
 "Total VCPU usage (Number of VCPU in instance * Hours Used) for the project"
@@ -10076,6 +10175,9 @@ msgstr "Unable to create new image: Image name too long."
 #, python-format
 msgid "Unable to create new image: Invalid disk format %s for image."
 msgstr "Unable to create new image: Invalid disk format %s for image."
+
+msgid "Unable to create new image: URL scheme not supported."
+msgstr "Unable to create new image: URL scheme not supported."
 
 #, python-format
 msgid "Unable to create new namespace. %s"
@@ -11329,6 +11431,16 @@ msgstr "Unselect the router(s) to be removed from firewall."
 msgid "Unselect the routers you want to disassociate from the firewall."
 msgstr "Unselect the routers you want to disassociate from the firewall."
 
+msgid "Unshelve Instance"
+msgid_plural "Unshelve Instances"
+msgstr[0] "Unshelve Instance"
+msgstr[1] "Unshelve Instances"
+
+msgid "Unshelved Instance"
+msgid_plural "Unshelved Instances"
+msgstr[0] "Unshelved Instance"
+msgstr[1] "Unshelved Instances"
+
 msgctxt "Task status of an Instance"
 msgid "Unshelving"
 msgstr "Unshelving"
@@ -11515,6 +11627,9 @@ msgstr "Usage Overview"
 
 msgid "Usage Report"
 msgstr "Usage Report"
+
+msgid "Usage Report For Period:"
+msgstr "Usage Report For Period:"
 
 msgid "Use HBase Common library"
 msgstr "Use HBase Common library"
@@ -11714,6 +11829,9 @@ msgstr "Value"
 
 msgid "Value (Avg)"
 msgstr "Value (Avg)"
+
+msgid "Value Type"
+msgstr "Value Type"
 
 msgid "Value:"
 msgstr "Value:"
