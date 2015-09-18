@@ -59,7 +59,7 @@ def _decorate_urlconf(urlpatterns, decorator, *args, **kwargs):
 
 # FIXME(lhcheng): We need to find a better way to cache the result.
 # Rather than storing it in the session, we could leverage the Django
-# session. Currently, thTs has been causing issue with cookie backend,
+# session. Currently, this has been causing issue with cookie backend,
 # adding 1600+ in the cookie size.
 def access_cached(func):
     def inner(self, context):
