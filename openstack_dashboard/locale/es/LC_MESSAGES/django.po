@@ -12,6 +12,7 @@
 # Pablo Iranzo Gómez <Pablo.Iranzo@gmail.com>, 2014
 # Sergio Cuellar Valdes <scuellarv@kionetworks.com>, 2015
 # Veruska Perinotto <reaching.out@gmail.com>, 2015
+# Alberto Laporte <alberto.riveralaporte@rackspace.com>, 2015. #zanata
 # Alberto Molina Coballes <alb.molina@gmail.com>, 2015. #zanata
 # Marian T <marian.tort@gmail.com>, 2015. #zanata
 # OpenStack Infra <zanata@openstack.org>, 2015. #zanata
@@ -21,12 +22,12 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-09-16 18:25+0000\n"
+"POT-Creation-Date: 2015-09-18 05:57+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2015-09-16 02:29+0000\n"
-"Last-Translator: Pedro Navarro Pérez <pednape@gmail.com>\n"
+"PO-Revision-Date: 2015-09-18 03:27+0000\n"
+"Last-Translator: Alberto Laporte <alberto.riveralaporte@rackspace.com>\n"
 "Language-Team: Spanish (http://www.transifex.com/openstack/horizon/language/"
 "es/)\n"
 "Generated-By: Babel 2.0\n"
@@ -2796,6 +2797,16 @@ msgctxt "current status of stack"
 msgid "Delete In Progress"
 msgstr "Eliminación en Progreso"
 
+msgid "Delete Job"
+msgid_plural "Delete Jobs"
+msgstr[0] "Eliminar trabajo"
+msgstr[1] "Eliminar trabajos"
+
+msgid "Delete Job Binary"
+msgid_plural "Delete Job Binaries"
+msgstr[0] "Eliminar trabajo binario"
+msgstr[1] "Eliminar tabajos binarios"
+
 msgid "Delete Network"
 msgid_plural "Delete Networks"
 msgstr[0] "Borrar red"
@@ -2889,6 +2900,16 @@ msgstr "Política IPSec %s eliminada"
 #, python-format
 msgid "Deleted IPSec Site Connection %s"
 msgstr "Conexión sitio a sitio IPSec \"%s\" eliminada"
+
+msgid "Deleted Job"
+msgid_plural "Deleted Jobs"
+msgstr[0] "Trabajo eliminado"
+msgstr[1] "Trabajos eliminados"
+
+msgid "Deleted Job Binary"
+msgid_plural "Deleted Job Binaries"
+msgstr[0] "Trabajo binario eliminado"
+msgstr[1] "Trabajos binarios eliminados"
 
 msgid "Deleted Network"
 msgid_plural "Deleted Networks"
@@ -4354,9 +4375,6 @@ msgstr "GRE"
 msgid "Gateway IP"
 msgstr "IP de la puerta de enlace"
 
-msgid "Gateway IP (optional)"
-msgstr "Dirección IP de la puerta de enlace (opcional)"
-
 msgid "Gateway IP and IP version are inconsistent."
 msgstr "La dirección IP de la puerta de enlace y la versión IP no concuerdan."
 
@@ -4617,15 +4635,6 @@ msgstr ""
 "192.168.0.0/24, 2001: DB8 :: 1 para 2001: DB8 :: / 48). Si utilizas el valor "
 "por defecto, déjalo en blanco. Si no deseas utilizar una pasarela, consulta "
 "'Desactivar pasarela' a ​​continuación."
-
-msgid ""
-"IP address of Gateway (e.g. 192.168.0.254). Specify an explicit address to "
-"set the gateway. If you do not want to use a gateway, check 'Disable "
-"Gateway' below."
-msgstr ""
-"Dirección IP de la pasarela(por ejemplo, 192.168.0.254). Especifica una "
-"dirección explicita para seleccionar la pasarela. Si no quieres utilizar una "
-"pasarela, consulta 'Desactivar pasarela' a continuación."
 
 msgid "IP allocation pool"
 msgstr "Pool de asignación IP"
@@ -5251,6 +5260,11 @@ msgstr "Lanzar instancia"
 msgid "Launch Instance (Quota exceeded)"
 msgstr "Lanzar Instancia (cuota superada)"
 
+msgid "Launch Job"
+msgid_plural "Launch Jobs"
+msgstr[0] "Lanzar trabajo"
+msgstr[1] "Lanzar trabajos"
+
 msgid "Launch On Existing Cluster"
 msgstr "Ejecutar en un clúster existente"
 
@@ -5313,6 +5327,11 @@ msgstr "Lanzadas %(count)s de nombre \"%(name)s\"."
 #, python-format
 msgid "Launched Cluster %s"
 msgstr "Clúster lanzado %s"
+
+msgid "Launched Job"
+msgid_plural "Launched Jobs"
+msgstr[0] "Trabajo lanzado"
+msgstr[1] "Trabajos lanzados"
 
 msgid ""
 "Launching multiple instances is only supported for images and instance "
@@ -8043,9 +8062,6 @@ msgid ""
 msgstr ""
 "Se permite el uso de la barra invertida. El Object Store la trata como una "
 "seudo-carpeta."
-
-msgid "Small"
-msgstr "Pequeño"
 
 msgid "Snapshot"
 msgstr "Instantánea"

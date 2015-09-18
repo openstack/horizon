@@ -17,17 +17,19 @@
 # ygbo <yves-gwenael.bourhis@cloudwatt.com>, 2015
 # Corinne Verheyde <cverheyd@gmail.com>, 2015. #zanata
 # Gael Rehault <gael01@gmail.com>, 2015. #zanata
+# JF Taltavull <jftalta@gmail.com>, 2015. #zanata
 # OpenStack Infra <zanata@openstack.org>, 2015. #zanata
+# Romain Chantereau <rchanter@redhat.com>, 2015. #zanata
 msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-09-17 00:21+0000\n"
+"POT-Creation-Date: 2015-09-18 05:57+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2015-09-16 11:06+0000\n"
-"Last-Translator: Corinne Verheyde <cverheyd@gmail.com>\n"
+"PO-Revision-Date: 2015-09-17 08:47+0000\n"
+"Last-Translator: JF Taltavull <jftalta@gmail.com>\n"
 "Language-Team: French (http://www.transifex.com/openstack/horizon/language/"
 "fr/)\n"
 "Generated-By: Babel 2.0\n"
@@ -85,11 +87,13 @@ msgstr "Retour"
 msgid "Cancel"
 msgstr "Annuler"
 
+#, fuzzy
 msgid "Click here for filters."
-msgstr "Cliquer ici pour les filtres."
+msgstr "Cliquez ici pour les filtres."
 
+#, fuzzy
 msgid "Click here to expand the row and view the errors."
-msgstr "Cliquez ici pour étendre la ligne et voir les erreurs"
+msgstr "Cliquez ici pour afficher la ligne complète et voir les erreurs."
 
 msgid "Click to see more details"
 msgstr "Cliquer pour une vue plus détaillée"
@@ -116,6 +120,9 @@ msgstr "Le mot de passe n'a pu être déchiffré"
 msgid "Could not read the file"
 msgstr "Le fichier n'a pu être lu"
 
+msgid "Create Subnet"
+msgstr "Créer un sous-réseau"
+
 msgid "Current Usage"
 msgstr "Utilisation actuelle"
 
@@ -137,8 +144,14 @@ msgstr "Supprimer"
 msgid "Delete Interface"
 msgstr "Supprimer l'Interface"
 
+msgid "Delete Network"
+msgstr "Supprimer le réseau"
+
 msgid "Delete Router"
 msgstr "Supprimer un Routeur"
+
+msgid "Delete Subnet"
+msgstr "Supprimer le sous-réseau"
 
 msgid "Detail Information"
 msgstr "Informations détaillées"
@@ -183,8 +196,12 @@ msgstr "Gabarit"
 msgid "ID"
 msgstr "ID"
 
+msgid "IP Addresses"
+msgstr "Adresses IP"
+
+#, fuzzy
 msgid "In current results"
-msgstr "Dans les résultats en cours"
+msgstr "Dans les résultats actuels"
 
 msgid "Info"
 msgstr "Informations"
@@ -305,6 +322,9 @@ msgstr "État : %s"
 msgid "Submit"
 msgstr "Envoyer"
 
+msgid "Subnets"
+msgstr "Sous-réseaux"
+
 msgid "Success"
 msgstr "Succès "
 
@@ -317,12 +337,13 @@ msgstr "Terminer l'Instance"
 msgid "Text"
 msgstr "Texte"
 
+#, fuzzy
 msgid ""
 "The action cannot be performed. The contents of this row have errors or are "
 "missing information."
 msgstr ""
 "L'action n'a pas pu être effectuée. Cette ligne présente des erreurs ou des "
-"informations manquantes."
+"informations sont manquantes."
 
 msgid "There was a problem communicating with the server, please try again."
 msgstr "Problème de communication avec le serveur, veuillez réessayer."

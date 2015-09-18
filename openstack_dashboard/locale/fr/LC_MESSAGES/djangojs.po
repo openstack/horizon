@@ -9,18 +9,20 @@
 # Maxime COQUEREL <max.coquerel@gmail.com>, 2015
 # Corinne Verheyde <cverheyd@gmail.com>, 2015. #zanata
 # François Bureau <bureaufrancois@gmail.com>, 2015. #zanata
+# JF Taltavull <jftalta@gmail.com>, 2015. #zanata
 # OpenStack Infra <zanata@openstack.org>, 2015. #zanata
+# Romain Chantereau <rchanter@redhat.com>, 2015. #zanata
 # andrew melim <nokostya.translation@gmail.com>, 2015. #zanata
 msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-09-17 00:21+0000\n"
+"POT-Creation-Date: 2015-09-18 05:57+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2015-09-16 11:28+0000\n"
-"Last-Translator: Corinne Verheyde <cverheyd@gmail.com>\n"
+"PO-Revision-Date: 2015-09-17 08:48+0000\n"
+"Last-Translator: JF Taltavull <jftalta@gmail.com>\n"
 "Language-Team: French (http://www.transifex.com/openstack/horizon/language/"
 "fr/)\n"
 "Generated-By: Babel 2.0\n"
@@ -101,6 +103,16 @@ msgstr ""
 "puis cliquez sur le menu <b>Actions</b> sur la droite de l'instance.\n"
 "Puis, sélectionnez l'option <b>IP Flottante Associée</b> et saisissez les "
 "informations nécessaires."
+
+msgid ""
+"A key pair allows you to SSH into your newly created instance.\n"
+"      You may select an existing key pair, import a key pair, or generate a "
+"new key pair."
+msgstr ""
+"Une paire de clés vous permet de vous connecter en SSH à vos instances "
+"nouvellement créées.\n"
+"    Vous pouvez sélectionner une paire de clés existante, en importer une "
+"existente ou en générer une nouvelle."
 
 msgid "A name is required for your instance."
 msgstr "Vous avez besoin d'un nom pour votre instance."
@@ -228,6 +240,13 @@ msgstr ""
 msgid "Customization Script"
 msgstr "Script de Personnalisation"
 
+#, fuzzy
+msgid "Data Source"
+msgstr "Source de données"
+
+msgid "Default Value"
+msgstr "Valeur par défaut"
+
 msgid "Delete Volume on Terminate"
 msgstr "Supprimer le volume après terminaison"
 
@@ -290,8 +309,30 @@ msgstr ""
 "Les gabarits sont en place pour gérer la taille de la capacité de stockage, "
 "de mémoire et de calcul d'une instance."
 
+#, fuzzy
+msgid ""
+"For data sources, use a data source UUID or a path (as per data source "
+"creation.)"
+msgstr ""
+"Pour les sources de données, utiliser le UUID de la source de données ou un "
+"chemin (tel que celui utilisé pour la création)"
+
 msgid "Format"
 msgstr "Format"
+
+msgid ""
+"From a Windows system, you can use PuTTYGen to create private/public keys.\n"
+"  Use the PuTTY Key Generator to create and save the keys, then copy\n"
+"  the public key in the red highlighted box to your <samp>.ssh/"
+"authorized_keys</samp>\n"
+"  file."
+msgstr ""
+"Sur un système Windows, vous pouvez utiliser PuTTYGen pour créer une paire "
+"de clés publique/privée.\n"
+"  Utilisez le générateur de clés de PuTTY pour créer et sauvegarder les "
+"clés, puis copiez\n"
+"  la clé publique dans la boite surlignée en rouge dans votre fichier\n"
+"  <samp>.ssh/authorized_keys</samp>."
 
 msgid "ID"
 msgstr "ID"
@@ -341,7 +382,7 @@ msgid "Impact on your quota"
 msgstr "Impact sur votre quota"
 
 msgid "Import Key Pair"
-msgstr "Importer Paire Clés"
+msgstr "Importer une Paire Clés"
 
 msgid "Instance Details"
 msgstr "Détails de l'instance"
@@ -384,6 +425,18 @@ msgstr "Aide Paires Clés"
 msgid "Key Pair Name"
 msgstr "Nom Paire Clés"
 
+msgid ""
+"Key Pairs are how you login to your instance after it is launched.\n"
+"        Choose a key pair name you will recognize and paste your SSH public "
+"key into the\n"
+"        space provided."
+msgstr ""
+"Les Paires de Clés définissent comment vous vous connectez à votre instance "
+"après l’avoir lancée.\n"
+"    Choisissez un nom représentatif pour votre paire de clés et coller votre "
+"clé publique SSH dans\n"
+"    l’espace prévu à cet effet."
+
 msgid "Killed"
 msgstr "Supprimé par force"
 
@@ -392,6 +445,10 @@ msgstr "Lancer Instance"
 
 msgid "Load script from a file"
 msgstr "Charger le script à partir d'un fichier"
+
+#, fuzzy
+msgid "Location"
+msgstr "Emplacement"
 
 msgid "Manual"
 msgstr "Manuelle"
@@ -420,6 +477,10 @@ msgstr "RAM Min"
 msgid "Name"
 msgstr "Nom"
 
+#, fuzzy
+msgid "Named Parameter"
+msgstr "Paramètre nommé"
+
 msgid "Network"
 msgstr "Réseau"
 
@@ -443,6 +504,10 @@ msgstr "Non"
 msgid "No available items"
 msgstr "Pas d'élément disponible"
 
+#, fuzzy
+msgid "Number"
+msgstr "Nombre"
+
 msgid "OK"
 msgstr "OK"
 
@@ -464,6 +529,10 @@ msgstr ""
 
 msgid "Policy check failed."
 msgstr "La vérification de la stratégie a échoué."
+
+#, fuzzy
+msgid "Positional Argument"
+msgstr "Argument positionnel"
 
 msgid "Private"
 msgstr "Privé"
@@ -523,8 +592,15 @@ msgstr ""
 msgid "Remote"
 msgstr "Distant"
 
+#, fuzzy
+msgid "Remove"
+msgstr "Supprimer"
+
 msgid "Required"
 msgstr "Obligatoire"
+
+msgid "Required?"
+msgstr "Exigé ?"
 
 msgid "Root Disk"
 msgstr "Disque Racine"
@@ -565,6 +641,13 @@ msgstr ""
 "précisément les options d'accès à une instance. Pour créer des règles "
 "supplémentaires, allez dans la vue <b>Compute | Accès & Sécurité</b>, "
 "cherchez le groupe de sécurité, et cliquez sur <b>Gestion des règles</b>."
+
+msgid ""
+"See http://docs.openstack.org/developer/sahara/userdoc/edp.html for "
+"definitions."
+msgstr ""
+"Lire http://docs.openstack.org/developer/sahara/userdoc/edp.html pour les "
+"définitions."
 
 msgid "Segmentation ID"
 msgstr "ID de segmentation"
@@ -633,6 +716,10 @@ msgstr "Instantané"
 msgid "Status"
 msgstr "Statut"
 
+#, fuzzy
+msgid "String"
+msgstr "Chaîne de caractères"
+
 msgid "Subnets Associated"
 msgstr "Sous-réseaux associés"
 
@@ -642,7 +729,7 @@ msgstr "La paire de clés %(name)s est maintenant créée."
 
 #, python-format
 msgid "Successfully imported key pair %(name)s."
-msgstr "La paire de clés %(name)s est maintenant importée."
+msgstr "La paire de clés %(name)s a été importée avec succès."
 
 msgid ""
 "The flavor you select for an instance determines the amount of compute, "
@@ -707,6 +794,20 @@ msgstr ""
 #, python-format
 msgid "The volume size must be at least %(minVolumeSize)s GB"
 msgstr "La taille du volume doit être d'au moins %(minVolumeSize)s Go"
+
+msgid ""
+"There are two ways to generate a key pair. From a Linux system,\n"
+"  generate the key pair with the <samp>ssh-keygen</samp> command:"
+msgstr ""
+"Il y a deux façons de générer une paire de clés. Sur un système Linux,\n"
+"  générez la paire avec la commande : <samp>ssh-keygen</samp>:"
+
+msgid ""
+"This command generates a pair of keys: a private key (cloud.key)\n"
+"  and a public key (cloud.key.pub)."
+msgstr ""
+"Cette commande génère une paire de clés : une clé privée (cloud.key)\n"
+"  et une clé publique (cloud.key.pub)."
 
 msgid ""
 "This flavor requires more RAM than your quota allows. Please select a "

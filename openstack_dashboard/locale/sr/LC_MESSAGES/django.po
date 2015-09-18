@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-09-16 18:25+0000\n"
+"POT-Creation-Date: 2015-09-18 05:57+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -2177,9 +2177,6 @@ msgstr "GET"
 msgid "Gateway IP"
 msgstr "IP gateway-a"
 
-msgid "Gateway IP (optional)"
-msgstr "IP gateway-a (neobavezno)"
-
 msgid "Gateway IP and IP version are inconsistent."
 msgstr "IP gateway-a i verzija IP su neusaglašene."
 
@@ -4079,9 +4076,6 @@ msgid ""
 msgstr ""
 "Kose crte su dozvoljene, i smatraju se pseudo-direktorijumima od Object "
 "Store-a."
-
-msgid "Small"
-msgstr "Mali"
 
 msgid "Snapshot"
 msgstr "Snapshot"

@@ -20,12 +20,12 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-09-16 18:25+0000\n"
+"POT-Creation-Date: 2015-09-18 05:57+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2015-09-16 06:29+0000\n"
-"Last-Translator: Andreas Jaeger <jaegerandi@gmail.com>\n"
+"PO-Revision-Date: 2015-09-17 07:41+0000\n"
+"Last-Translator: Robert Simai <robert.simai@suse.com>\n"
 "Language-Team: German (http://www.transifex.com/openstack/horizon/language/"
 "de/)\n"
 "Generated-By: Babel 2.0\n"
@@ -791,6 +791,9 @@ msgstr "Aktiv"
 msgctxt "status of a network port"
 msgid "Active"
 msgstr "Aktiv"
+
+msgid "Active Instances:"
+msgstr "Aktive Instanzen:"
 
 msgid ""
 "Actual device name may differ due to hypervisor settings. If not specified, "
@@ -1940,6 +1943,9 @@ msgstr "Konfiguration"
 msgid "Configuration Drive"
 msgstr "Konfigurationslaufwerk"
 
+msgid "Configuration Value"
+msgstr "Konfigurationswert"
+
 msgid "Configure"
 msgstr "Konfigurieren"
 
@@ -2733,6 +2739,9 @@ msgstr ""
 "können ein Flüchtiges Laufwerk oder einen Cinder-Datenträger mit Instanzen "
 "verbinden."
 
+msgid "Data Source"
+msgstr "Datenquelle"
+
 msgid "Data Source Details"
 msgstr "Datenquellendetails"
 
@@ -2820,6 +2829,9 @@ msgstr "Passwort entschlüsseln"
 
 msgid "Default Quotas"
 msgstr "Standardkontingente"
+
+msgid "Default Value"
+msgstr "Voreingestellter Wert"
 
 msgid "Default quotas updated."
 msgstr "Standard-Quotas aktualisiert."
@@ -4825,9 +4837,6 @@ msgstr "GRE"
 msgid "Gateway IP"
 msgstr "Gateway IP"
 
-msgid "Gateway IP (optional)"
-msgstr "Gateway-IP (optional)"
-
 msgid "Gateway IP and IP version are inconsistent."
 msgstr "Gateway-IP und IP-Version sind nicht konsistent."
 
@@ -5087,15 +5096,6 @@ msgstr ""
 "IP Adresse des Netzwerks (z.B. 192.168.0.1 für 192.168.0.0/24, 2001:DB8::1 "
 "für 2001:DB8::/48). Für den Standard das Feld leer lassen. Falls kein "
 "Gateway genutzt werden soll, bitte unten 'Gateway abschalten' auswählen."
-
-msgid ""
-"IP address of Gateway (e.g. 192.168.0.254). Specify an explicit address to "
-"set the gateway. If you do not want to use a gateway, check 'Disable "
-"Gateway' below."
-msgstr ""
-"IP Adresse des Gateways (z.B. 192.168.0.254).  Um das Gateway zu setzen, "
-"muss eine explizite IP Adresse angegeben werden. Wenn sie kein Gateway "
-"verwenden möchten, wählen sie unten 'Gateway abschalten' aus."
 
 msgid "IP allocation pool"
 msgstr "IP-Zuteilungspool"
@@ -5901,6 +5901,9 @@ msgstr "Lokaler Speicher (insgesamt)"
 
 msgid "Local Storage (used)"
 msgstr "Lokaler Speicher (belegt)"
+
+msgid "Location"
+msgstr "Ort"
 
 msgid "Lock Instance"
 msgid_plural "Lock Instances"
@@ -6776,6 +6779,9 @@ msgstr ""
 "Möglichkeit clusterspezifische Konfigurationseinstellungen in den "
 "zusätzlichen Reitern der Clustervorlagenmaske vorzunehmen."
 
+msgid "Number"
+msgstr "Zahl"
+
 msgid "Number of API requests against swift"
 msgstr "Anzahl der API Anfragen an Swift"
 
@@ -7345,6 +7351,9 @@ msgstr "Projektgruppen"
 msgid "Project ID"
 msgstr "Projekt-ID"
 
+msgid "Project ID:"
+msgstr "Projekt ID:"
+
 msgid "Project Information"
 msgstr "Projektinformation"
 
@@ -7728,6 +7737,9 @@ msgid ""
 msgstr ""
 "Anfragen von einer eindeutigen Quell-IP-Adresse werden konsequent an die "
 "selbe Instanz geleitet."
+
+msgid "Required"
+msgstr "Erforderlich"
 
 msgid "Required for APP_COOKIE persistence; Ignored otherwise."
 msgstr "Wird für die Persistenz des APP_COOKIE verwendet; ansonsten ignoriert."
@@ -8740,9 +8752,6 @@ msgstr ""
 "Schrägstriche (Slashes) sind erlaubt und werden als Pseudo-Ordner des Objekt-"
 "Speichers behandelt."
 
-msgid "Small"
-msgstr "Klein"
-
 msgid "Snapshot"
 msgstr "Schattenkopie"
 
@@ -9080,6 +9089,9 @@ msgstr "Sturm"
 
 msgid "Streaming MapReduce"
 msgstr "Streaming MapReduce"
+
+msgid "String"
+msgstr "Zeichenkette"
 
 msgid "Subnet"
 msgstr "Subnetz"
@@ -11710,6 +11722,9 @@ msgstr "Auslastungsübersicht"
 msgid "Usage Report"
 msgstr "Auslastungsbericht"
 
+msgid "Usage Report For Period:"
+msgstr "Verwendungsreport für den Zeitraum:"
+
 msgid "Use HBase Common library"
 msgstr "Allgemeine HBase Bibliothek verwenden"
 
@@ -11911,6 +11926,9 @@ msgstr "Wert"
 
 msgid "Value (Avg)"
 msgstr "Wert (Mittel)"
+
+msgid "Value Type"
+msgstr "Werttyp"
 
 msgid "Value:"
 msgstr "Wert:"
