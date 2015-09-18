@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-09-16 18:25+0000\n"
+"POT-Creation-Date: 2015-09-18 05:57+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -3056,9 +3056,6 @@ msgstr "GRE"
 msgid "Gateway IP"
 msgstr "गेटवे IP"
 
-msgid "Gateway IP (optional)"
-msgstr "गेटवे IP(वैकल्पिक)"
-
 msgid "Gateway IP and IP version are inconsistent."
 msgstr "गेटवे   IPअनि  IPसंसस्करणहरू नमिल्दा छन्।"
 
@@ -3282,14 +3279,6 @@ msgstr ""
 "192.168.0.1 for 192.168.0.0/24, 2001:DB8::1 for 2001:DB8::/48) हो. यदि तपाईँले "
 "डिफल्ट प्रयोग गर्नुभयो भने, खाली छोड्नुहोस्। यदि तपाईँ गेटवे प्रयोग गर्न चाहनुहुन्न भने, तल "
 "'डिसेवल गेटवे'जाँच गर्नुहोस्।"
-
-msgid ""
-"IP address of Gateway (e.g. 192.168.0.254). Specify an explicit address to "
-"set the gateway. If you do not want to use a gateway, check 'Disable "
-"Gateway' below."
-msgstr ""
-"गेटवेको IP ठेकाना (e.g. 192.168.0.254) गेटवे सेट गर्नका लागि निश्चित ठेकाना तोक्नुहोस्। "
-"यदि तपाईँ गेटवे हेर्न चाहनुहुन्न भने, 'गेटवे डिसेबल' जाँच गर्नुहोस्, तल"
 
 msgid "IP allocation pool"
 msgstr "IP  एलोकेसन पूल"
@@ -5621,9 +5610,6 @@ msgstr "स्ल्यास मञ्जुर गरिएको अक्ष
 msgid ""
 "Slashes are allowed, and are treated as pseudo-folders by the Object Store."
 msgstr "स्ल्यासहूर स्वीकार गरिन्छ, अनि अब्जेक्ट स्टोरद्वारा सुडो-फोल्डरको रूपमा लिइन्छ।"
-
-msgid "Small"
-msgstr "सानो"
 
 msgid "Snapshot"
 msgstr "स्नेपसट"

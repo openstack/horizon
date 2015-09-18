@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-09-16 18:25+0000\n"
+"POT-Creation-Date: 2015-09-18 05:57+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -2359,9 +2359,6 @@ msgstr "GRE"
 msgid "Gateway IP"
 msgstr "Gateway IP"
 
-msgid "Gateway IP (optional)"
-msgstr "Gateway IP (optioneel)"
-
 msgid "Gateway IP and IP version are inconsistent."
 msgstr "Gateway IP en IP versie zijn inconsistent."
 
@@ -4366,9 +4363,6 @@ msgid ""
 msgstr ""
 "Schuine strepen zijn toegestaan en worden behandeld als pseudo -mappen door "
 "de objectopslag."
-
-msgid "Small"
-msgstr "Klein"
 
 msgid "Snapshot"
 msgstr "Momentopname"

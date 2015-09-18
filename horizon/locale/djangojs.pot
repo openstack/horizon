@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-09-17 06:23+0000\n"
+"POT-Creation-Date: 2015-09-18 06:05+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -402,57 +402,78 @@ msgstr ""
 msgid "Loading"
 msgstr ""
 
-#: static/horizon/js/horizon.networktopology.js:531
-#: static/horizon/js/horizon.networktopology.js:537
+#: static/horizon/js/horizon.networktopology.js:929
+#: static/horizon/js/horizon.networktopology.js:935
+#: static/horizon/js/horizon.networktopology.js:941
 msgid "None"
 msgstr ""
 
-#: static/horizon/js/horizon.networktopology.js:551
+#: static/horizon/js/horizon.networktopology.js:964
 msgid "Delete"
 msgstr ""
 
-#: static/horizon/js/horizon.networktopology.js:554
+#: static/horizon/js/horizon.networktopology.js:967
 msgid "STATUS"
 msgstr ""
 
-#: static/horizon/js/horizon.networktopology.js:555
+#: static/horizon/js/horizon.networktopology.js:968
 msgid "ID"
 msgstr ""
 
-#: static/horizon/js/horizon.networktopology.js:556
+#: static/horizon/js/horizon.networktopology.js:969
 msgid "Interfaces"
 msgstr ""
 
-#: static/horizon/js/horizon.networktopology.js:557
+#: static/horizon/js/horizon.networktopology.js:970
+msgid "Subnets"
+msgstr ""
+
+#: static/horizon/js/horizon.networktopology.js:971
 msgid "Delete Interface"
 msgstr ""
 
-#: static/horizon/js/horizon.networktopology.js:558
+#: static/horizon/js/horizon.networktopology.js:972
+msgid "Delete Subnet"
+msgstr ""
+
+#: static/horizon/js/horizon.networktopology.js:973
 msgid "Open Console"
 msgstr ""
 
-#: static/horizon/js/horizon.networktopology.js:559
+#: static/horizon/js/horizon.networktopology.js:974
 msgid "View Details"
 msgstr ""
 
-#: static/horizon/js/horizon.networktopology.js:562
+#: static/horizon/js/horizon.networktopology.js:975
+msgid "IP Addresses"
+msgstr ""
+
+#: static/horizon/js/horizon.networktopology.js:979
 msgid "Delete Router"
 msgstr ""
 
-#: static/horizon/js/horizon.networktopology.js:563
+#: static/horizon/js/horizon.networktopology.js:980
 msgid "View Router Details"
 msgstr ""
 
-#: static/horizon/js/horizon.networktopology.js:566
+#: static/horizon/js/horizon.networktopology.js:983
 msgid "Add Interface"
 msgstr ""
 
-#: static/horizon/js/horizon.networktopology.js:572
+#: static/horizon/js/horizon.networktopology.js:989
 msgid "Terminate Instance"
 msgstr ""
 
-#: static/horizon/js/horizon.networktopology.js:573
+#: static/horizon/js/horizon.networktopology.js:990
 msgid "View Instance Details"
+msgstr ""
+
+#: static/horizon/js/horizon.networktopology.js:1004
+msgid "Delete Network"
+msgstr ""
+
+#: static/horizon/js/horizon.networktopology.js:1007
+msgid "Create Subnet"
 msgstr ""
 
 #: static/horizon/js/horizon.tables.js:45

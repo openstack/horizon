@@ -14,11 +14,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-09-17 00:21+0000\n"
+"POT-Creation-Date: 2015-09-18 05:57+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2015-09-16 03:24+0000\n"
+"PO-Revision-Date: 2015-09-17 07:39+0000\n"
 "Last-Translator: Robert Simai <robert.simai@suse.com>\n"
 "Language-Team: German (http://www.transifex.com/openstack/horizon/language/"
 "de/)\n"
@@ -202,6 +202,9 @@ msgstr "Konfigurationslaufwerk"
 msgid "Configuration Help"
 msgstr "Konfigurationshilfe"
 
+msgid "Configuration Value"
+msgstr "Konfigurationswert"
+
 msgid "Count"
 msgstr "Anzahl"
 
@@ -228,6 +231,12 @@ msgstr ""
 
 msgid "Customization Script"
 msgstr "Anpassungsskript"
+
+msgid "Data Source"
+msgstr "Datenquelle"
+
+msgid "Default Value"
+msgstr "Voreingestellter Wert"
 
 msgid "Delete Volume on Terminate"
 msgstr "Datenträger beim Beenden löschen"
@@ -290,6 +299,13 @@ msgid ""
 msgstr ""
 "Varianten beinhalten die Größen der Compute-, Speicher- und Storage-"
 "Kapazität einer Instanz."
+
+msgid ""
+"For configs and params, type the key name; for args, type the index as an "
+"integer, starting from 0."
+msgstr ""
+"Für Konfigurationen und Parameter geben Sie den Schlüsselnamen an. Für "
+"Argumente geben Sie den Index als Ganzzahl an, beginnend mit der 0."
 
 msgid "Format"
 msgstr "Abbildformat"
@@ -400,6 +416,9 @@ msgstr "Instanz starten"
 msgid "Load script from a file"
 msgstr "Skript aus einer Datei laden"
 
+msgid "Location"
+msgstr "Ort"
+
 msgid "Manual"
 msgstr "Manuell"
 
@@ -427,6 +446,9 @@ msgstr "Min RAM"
 msgid "Name"
 msgstr "Name"
 
+msgid "Named Parameter"
+msgstr "Bezeichneter Parameter"
+
 msgid "Network"
 msgstr "Netzwerk"
 
@@ -449,6 +471,9 @@ msgstr "Nein"
 
 msgid "No available items"
 msgstr "Keine verfügbaren Positionen"
+
+msgid "Number"
+msgstr "Zahl"
 
 msgid "OK"
 msgstr "OK"
@@ -529,8 +554,14 @@ msgstr "Umsortieren der Positionen durch ziehen und ablegen"
 msgid "Remote"
 msgstr "Entfernt"
 
+msgid "Remove"
+msgstr "Entfernen"
+
 msgid "Required"
 msgstr "Erforderlich"
+
+msgid "Required?"
+msgstr "Erforderlich?"
 
 msgid "Root Disk"
 msgstr "Root-Festplatte"
@@ -570,6 +601,13 @@ msgstr ""
 "für diese Instanz weiter zu definieren. Zum Erstellen zusätzlicher Regeln, "
 "gehe zu zur <b>Compute | Access & Security</b> Ansicht, finde die Security "
 "Group und klicke b>Manage Rules</b>."
+
+msgid ""
+"See http://docs.openstack.org/developer/sahara/userdoc/edp.html for "
+"definitions."
+msgstr ""
+"Definitionen finden Sie unter http://docs.openstack.org/developer/sahara/"
+"userdoc/edp.html"
 
 msgid "Segmentation ID"
 msgstr "Segmentierungskennung"
@@ -636,6 +674,9 @@ msgstr "Schattenkopie"
 
 msgid "Status"
 msgstr "Status"
+
+msgid "String"
+msgstr "Zeichenkette"
 
 msgid "Subnets Associated"
 msgstr "Subnetze zugewiesen"
@@ -949,6 +990,9 @@ msgstr "Benutzername"
 
 msgid "VCPUS"
 msgstr "VCPUS"
+
+msgid "Value Type"
+msgstr "Werttyp"
 
 msgid "Visibility"
 msgstr "Sichtbarkeit"

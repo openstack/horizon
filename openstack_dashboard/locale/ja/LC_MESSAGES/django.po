@@ -17,11 +17,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-09-16 18:25+0000\n"
+"POT-Creation-Date: 2015-09-18 05:57+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2015-09-16 04:35+0000\n"
+"PO-Revision-Date: 2015-09-17 07:13+0000\n"
 "Last-Translator: Akihiro Motoki <amotoki@gmail.com>\n"
 "Language-Team: Japanese (http://www.transifex.com/openstack/horizon/language/"
 "ja/)\n"
@@ -365,6 +365,21 @@ msgstr ""
 "す。\n"
 "仮想 IP でのセッション永続性の方法を選択してください。\n"
 "管理状態はデフォルトで 有効 (UP) になっています。"
+
+msgid ""
+"\n"
+"Resize the canvas by scrolling up/down with your mouse/trackpad on the "
+"topology.\n"
+"Pan around the canvas by clicking and dragging the space behind the "
+"topology.\n"
+"  "
+msgstr ""
+"\n"
+"\n"
+"表示の大きさを変更するには、トポロジー画面上でマウス/トラックパッドでスクロー"
+"ルアップ／ダウンします。\n"
+"画面をスクロールするには、トポロジーの後ろの背景をクリックしてドラッグしてく"
+"ださい。"
 
 msgid " - End"
 msgstr " - 末尾"
@@ -772,6 +787,9 @@ msgstr "稼働中"
 msgctxt "status of a network port"
 msgid "Active"
 msgstr "稼働中"
+
+msgid "Active Instances:"
+msgstr "稼働中のインスタンス:"
 
 msgid ""
 "Actual device name may differ due to hypervisor settings. If not specified, "
@@ -1901,6 +1919,9 @@ msgstr "設定"
 msgid "Configuration Drive"
 msgstr "コンフィグドライブ"
 
+msgid "Configuration Value"
+msgstr "設定値"
+
 msgid "Configure"
 msgstr "設定"
 
@@ -2688,6 +2709,9 @@ msgstr ""
 "データ処理基盤ではストレージの場所を選択できます。一時ドライブか、インスタン"
 "スに接続する Cinder ボリュームを選択できます。"
 
+msgid "Data Source"
+msgstr "データソース"
+
 msgid "Data Source Details"
 msgstr "データソースの詳細"
 
@@ -2774,6 +2798,9 @@ msgstr "パスワードの復号"
 
 msgid "Default Quotas"
 msgstr "標準のクォータ"
+
+msgid "Default Value"
+msgstr "デフォルト値"
 
 msgid "Default quotas updated."
 msgstr "標準のクォータを更新しました。"
@@ -4669,9 +4696,6 @@ msgstr "GRE"
 msgid "Gateway IP"
 msgstr "ゲートウェイ IP"
 
-msgid "Gateway IP (optional)"
-msgstr "ゲートウェイ IP (オプション)"
-
 msgid "Gateway IP and IP version are inconsistent."
 msgstr "ゲートウェイの IP アドレスと IP バージョンが一致していません。"
 
@@ -4927,15 +4951,6 @@ msgstr ""
 "の最初の IP です (例: 192.168.0.0/24 の場合 192.168.0.1、2001:DB8::/48 の場"
 "合 2001:DB8::1)。初期値を使用したければ、空白のままにしておきます。ゲートウェ"
 "イを使用する必要がなければ、下の「ゲートウェイなし」をチェックします。"
-
-msgid ""
-"IP address of Gateway (e.g. 192.168.0.254). Specify an explicit address to "
-"set the gateway. If you do not want to use a gateway, check 'Disable "
-"Gateway' below."
-msgstr ""
-"ゲートウェイの IP アドレス (例: 192.168.0.254)。ゲートウェイを設定するには、"
-"具体的なアドレスを指定する必要があります。ゲートウェイを使用する必要がなけれ"
-"ば、下の「ゲートウェイなし」をチェックしてください。"
 
 msgid "IP allocation pool"
 msgstr "IP アドレス割り当てプール"
@@ -5345,6 +5360,9 @@ msgstr "ユーザー情報を参照するのに必要な権限がありません
 msgid "Intelligent Platform Management Interface (IPMI)"
 msgstr "IPMI (Intelligent Platform Management Interface)"
 
+msgid "Interface Arguments"
+msgstr "インターフェース引き数"
+
 msgid "Interface added"
 msgstr "インターフェースを追加しました"
 
@@ -5731,6 +5749,9 @@ msgstr "ローカルストレージ (総量)"
 msgid "Local Storage (used)"
 msgstr "ローカルストレージ (使用中)"
 
+msgid "Location"
+msgstr "場所"
+
 msgid "Lock Instance"
 msgid_plural "Lock Instances"
 msgstr[0] "インスタンスのロック"
@@ -5850,6 +5871,9 @@ msgstr "対応する Fixed IP アドレス"
 
 msgid "Mapper"
 msgstr "Mapper"
+
+msgid "Mapping Type"
+msgstr "マッピング種別"
 
 msgid "Master Instance Name"
 msgstr "マスターインスタンス名"
@@ -6099,6 +6123,9 @@ msgstr "名前: %(name)s ID: %(uuid)s"
 #, python-format
 msgid "Name: %(node_group_name)s"
 msgstr "名前: %(node_group_name)s"
+
+msgid "Named Parameter"
+msgstr "名前付きパラメーター"
 
 msgid "Namespace"
 msgstr "名前空間"
@@ -6596,6 +6623,9 @@ msgstr ""
 "数を選択します。また、クラスターテンプレート作成のフォームの追加のタブで、ク"
 "ラスター固有の設定項目を指定することもできます。"
 
+msgid "Number"
+msgstr "数字"
+
 msgid "Number of API requests against swift"
 msgstr "swift への API 要求数"
 
@@ -7071,6 +7101,9 @@ msgstr "ポート"
 msgid "Position in Policy"
 msgstr "ポリシー内の位置"
 
+msgid "Positional Argument"
+msgstr "位置で決まる引き数 (Positional Argument)"
+
 msgid "Post-Creation"
 msgstr "作成後"
 
@@ -7155,6 +7188,9 @@ msgstr "プロジェクトグループ"
 
 msgid "Project ID"
 msgstr "プロジェクト ID"
+
+msgid "Project ID:"
+msgstr "プロジェクト ID:"
 
 msgid "Project Information"
 msgstr "プロジェクト情報"
@@ -7524,6 +7560,9 @@ msgid ""
 "Requests from a unique source IP address are consistently\n"
 "          directed to the same instance."
 msgstr "同じ送信元 IP アドレスからのリクエストは同じメンバーに転送します。"
+
+msgid "Required"
+msgstr "必須"
 
 msgid "Required for APP_COOKIE persistence; Ignored otherwise."
 msgstr ""
@@ -8130,6 +8169,9 @@ msgstr "ルーターの選択"
 msgid "Select a Subnet"
 msgstr "サブネットの選択"
 
+msgid "Select a Value Type for your next argument:"
+msgstr "次の引き数の値の型を選択してください:"
+
 msgid "Select a backup to restore"
 msgstr "リストアするバックアップを選択"
 
@@ -8507,9 +8549,6 @@ msgstr ""
 "スラッシュを使うことができます。オブジェクトストアにより擬似フォルダーとして"
 "取り扱われます。"
 
-msgid "Small"
-msgstr "コンパクト"
-
 msgid "Snapshot"
 msgstr "スナップショット"
 
@@ -8843,6 +8882,9 @@ msgstr "Storm"
 
 msgid "Streaming MapReduce"
 msgstr "ストリーミング MapReduce"
+
+msgid "String"
+msgstr "文字列"
 
 msgid "Subnet"
 msgstr "サブネット"
@@ -9690,6 +9732,12 @@ msgstr ""
 msgid "To:"
 msgstr "終了:"
 
+msgid "Toggle Network Collapse"
+msgstr "ネットワーク詳細表示の切り替え"
+
+msgid "Toggle labels"
+msgstr "ラベル表示の切り替え"
+
 msgid "Toggle navigation"
 msgstr "be"
 
@@ -9699,11 +9747,23 @@ msgstr "トピック"
 msgid "Topology"
 msgstr "トポロジー"
 
+msgid "Total Active RAM (MB):"
+msgstr "使用中の合計メモリー量 (GB):"
+
 msgid "Total Disk"
 msgstr "合計ディスク"
 
+msgid "Total Disk Size (GB):"
+msgstr "合計ディスクサイズ (GB):"
+
+msgid "Total Disk Usage (Hours):"
+msgstr "合計ディスク使用量 (時間):"
+
 msgid "Total Gigabytes"
 msgstr "合計ギガバイト"
+
+msgid "Total Memory Usage (Hours):"
+msgstr "合計メモリ使用量 (時間):"
 
 msgid "Total RAM"
 msgstr "合計メモリー"
@@ -9713,6 +9773,9 @@ msgstr "LUKS ボリュームとスナップショットの合計サイズ (GB)"
 
 msgid "Total Size of Volumes and Snapshots (GB)"
 msgstr "ボリュームとスナップショットの合計サイズ (GB)"
+
+msgid "Total VCPU Usage (Hours):"
+msgstr "合計仮想 CPU 使用量 (時間):"
 
 msgid ""
 "Total VCPU usage (Number of VCPU in instance * Hours Used) for the project"
@@ -11387,6 +11450,9 @@ msgstr "使用状況"
 msgid "Usage Report"
 msgstr "使用状況レポート"
 
+msgid "Usage Report For Period:"
+msgstr "期間中の使用状況レポート:"
+
 msgid "Use HBase Common library"
 msgstr "HBase 共通ライブラリーを使用"
 
@@ -11587,6 +11653,9 @@ msgstr "値"
 
 msgid "Value (Avg)"
 msgstr "値 (平均)"
+
+msgid "Value Type"
+msgstr "値の型"
 
 msgid "Value:"
 msgstr "値:"
