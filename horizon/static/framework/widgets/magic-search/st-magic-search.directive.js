@@ -98,6 +98,16 @@
             var predString = arr[0];
             var predicates = predString.split('.');
 
+            if (scope.filterFacets) {
+              var isServerFacet = scope.filterFacets.some(function checkIsServer(facet) {
+                return facet.name == predString && facet.isServer;
+              });
+
+              if (isServerFacet) {
+                return;
+              }
+            }
+
             // Allow nested property search
             if (predicates.length > 1) {
               var firstPred = predicates[0];
