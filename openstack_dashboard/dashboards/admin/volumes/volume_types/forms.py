@@ -11,7 +11,7 @@
 #    under the License.
 
 from django.core.urlresolvers import reverse
-
+from django.forms import ValidationError  # noqa
 from django.utils.translation import ugettext_lazy as _
 
 from horizon import exceptions
@@ -19,6 +19,64 @@ from horizon import forms
 from horizon import messages
 
 from openstack_dashboard.api import cinder
+
+
+class CreateVolumeType(forms.SelfHandlingForm):
+    name = forms.CharField(max_length=255, label=_("Name"))
+    vol_type_description = forms.CharField(
+        max_length=255,
+        widget=forms.Textarea(attrs={'rows': 4}),
+        label=_("Description"),
+        required=False)
+
+    def clean_name(self):
+        cleaned_name = self.cleaned_data['name']
+        if len(cleaned_name.strip()) == 0:
+            raise ValidationError(_('Volume type name can not be empty.'))
+
+        return cleaned_name
+
+    def handle(self, request, data):
+        try:
+            # Remove any new lines in the public key
+            volume_type = cinder.volume_type_create(
+                request,
+                data['name'],
+                data['vol_type_description'])
+            messages.success(request, _('Successfully created volume type: %s')
+                             % data['name'])
+            return volume_type
+        except Exception as e:
+            if getattr(e, 'code', None) == 409:
+                msg = _('Volume type name "%s" already '
+                        'exists.') % data['name']
+                self._errors['name'] = self.error_class([msg])
+            else:
+                redirect = reverse("horizon:admin:volumes:index")
+                exceptions.handle(request,
+                                  _('Unable to create volume type.'),
+                                  redirect=redirect)
+
+
+class CreateQosSpec(forms.SelfHandlingForm):
+    name = forms.CharField(max_length=255, label=_("Name"))
+    consumer = forms.ChoiceField(label=_("Consumer"),
+                                 choices=cinder.CONSUMER_CHOICES)
+
+    def handle(self, request, data):
+        try:
+            qos_spec = cinder.qos_spec_create(request,
+                                              data['name'],
+                                              {'consumer': data['consumer']})
+            messages.success(request,
+                             _('Successfully created QoS Spec: %s')
+                             % data['name'])
+            return qos_spec
+        except Exception:
+            redirect = reverse("horizon:admin:volumes:index")
+            exceptions.handle(request,
+                              _('Unable to create QoS Spec.'),
+                              redirect=redirect)
 
 
 class CreateVolumeTypeEncryption(forms.SelfHandlingForm):
