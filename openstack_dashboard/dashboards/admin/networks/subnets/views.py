@@ -12,9 +12,13 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
+from django.core.urlresolvers import reverse
+
 from openstack_dashboard.dashboards.project.networks.subnets \
     import views as project_views
 
+from openstack_dashboard.dashboards.admin.networks.subnets \
+    import tables as admin_tables
 from openstack_dashboard.dashboards.admin.networks.subnets import workflows
 
 
@@ -24,3 +28,16 @@ class CreateView(project_views.CreateView):
 
 class UpdateView(project_views.UpdateView):
     workflow_class = workflows.UpdateSubnet
+
+
+class DetailView(project_views.DetailView):
+    def get_context_data(self, **kwargs):
+        context = super(DetailView, self).get_context_data(**kwargs)
+        subnet = context['subnet']
+        table = admin_tables.SubnetsTable(self.request,
+                                          network_id=subnet.network_id)
+        context["actions"] = table.render_row_actions(subnet)
+        return context
+
+    def get_redirect_url(self):
+        return reverse('horizon:admin:networks:index')

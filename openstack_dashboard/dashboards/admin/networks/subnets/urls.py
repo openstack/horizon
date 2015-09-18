@@ -15,7 +15,7 @@
 from django.conf.urls import patterns
 from django.conf.urls import url
 
-from openstack_dashboard.dashboards.project.networks.subnets import views
+from openstack_dashboard.dashboards.admin.networks.subnets import views
 
 
 SUBNETS = r'^(?P<subnet_id>[^/]+)/%s$'
