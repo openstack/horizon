@@ -23,6 +23,7 @@
     .filter('mb', mbFilter)
     .filter('title', titleFilter)
     .filter('noUnderscore', noUnderscoreFilter)
+    .filter('noValue', noValueFilter)
     .filter('decode', decodeFilter)
     .filter('bytes', bytesFilter)
     .filter('itemCount', itemCountFilter);
@@ -109,6 +110,23 @@
 
   /**
    * @ngdoc filter
+   * @name noValue
+   * @description
+   * Replaces null / undefined / empty string with translated '-'.
+   */
+  function noValueFilter() {
+    return function (input) {
+      if (input === null || angular.isUndefined(input) ||
+        (angular.isString(input) && '' == input.trim())) {
+        return gettext('-');
+      } else {
+        return input;
+      }
+    };
+  }
+
+  /**
+   * @ngdoc filter
    * @name decode
    * @description
    * Returns values based on key and given mapping.  If key doesn't exist
@@ -161,7 +179,7 @@
    */
   function itemCountFilter() {
 
-    function ensureNonNegative (input) {
+    function ensureNonNegative(input) {
       var isNumeric = (input !== null && isFinite(input));
       var number = isNumeric ? Math.round(input) : 0;
       return (number > 0) ? number : 0;

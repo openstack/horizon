@@ -82,13 +82,13 @@
           </dl>
           <dl class="col-sm-2">
             <dt translate>Project ID</dt>
-            <dd>{$ user.tenantId || user.default_project_id || '-'$}</dd>
+            <dd>{$ user.tenantId || user.default_project_id | noValue $}</dd>
           </dl>
 
           <span class="rsp-alt-p2">
             <dl class="col-sm-2">
               <dt translate>Email</dt>
-              <dd>{$ user.email || '-' $}</dd>
+              <dd>{$ user.email | noValue $}</dd>
             </dl>
             <dl class="col-sm-2">
               <dt translate>Enabled</dt>

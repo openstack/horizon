@@ -127,6 +127,31 @@
       });
     });
 
+    describe('noValue', function () {
+      var noValueFilter;
+      beforeEach(inject(function (_noValueFilter_) {
+        noValueFilter = _noValueFilter_;
+      }));
+
+      it('returns value if there is a value', function () {
+        expect(noValueFilter('foo')).toBe('foo');
+        expect(noValueFilter('   foo   ')).toBe('   foo   ');
+        expect(noValueFilter(true)).toBe(true);
+        expect(noValueFilter(false)).toBe(false);
+        var object = {};
+        expect(noValueFilter(object)).toBe(object);
+        var array = [];
+        expect(noValueFilter(array)).toBe(array);
+      });
+
+      it('replaces undefined, null, blank with -', function () {
+        expect(noValueFilter(null)).toBe('-');
+        expect(noValueFilter()).toBe('-');
+        expect(noValueFilter('')).toBe('-');
+        expect(noValueFilter('     ')).toBe('-');
+      });
+    });
+
     describe("decode", function () {
       var decodeFilter;
       beforeEach(inject(function (_decodeFilter_) {
