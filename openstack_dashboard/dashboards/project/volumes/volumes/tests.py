@@ -661,6 +661,7 @@ class VolumeViewTests(test.TestCase):
         self.assertFormError(res, 'form', None, msg)
 
     @test.create_stubs({cinder: ('volume_type_list',
+                                 'volume_type_default',
                                  'availability_zone_list',
                                  'extension_supported'),
                         api.glance: ('image_get',
@@ -680,6 +681,8 @@ class VolumeViewTests(test.TestCase):
             AndReturn(self.volume_types.list())
         cinder.volume_type_list(IsA(http.HttpRequest)).\
             AndReturn(self.volume_types.list())
+        cinder.volume_type_default(IsA(http.HttpRequest)).\
+            AndReturn(self.volume_types.first())
         quotas.tenant_limit_usages(IsA(http.HttpRequest)).\
             AndReturn(usage_limit)
         api.glance.image_get(IsA(http.HttpRequest),
@@ -771,6 +774,7 @@ class VolumeViewTests(test.TestCase):
         self.assertEqual(res.context['form'].errors['__all__'], expected_error)
 
     @test.create_stubs({cinder: ('volume_snapshot_list',
+                                 'volume_type_default',
                                  'volume_type_list',
                                  'volume_list',
                                  'availability_zone_list',
@@ -791,6 +795,8 @@ class VolumeViewTests(test.TestCase):
             AndReturn(self.volume_types.list())
         cinder.volume_type_list(IsA(http.HttpRequest)).\
             AndReturn(self.volume_types.list())
+        cinder.volume_type_default(IsA(http.HttpRequest)).\
+            AndReturn(self.volume_types.first())
         quotas.tenant_limit_usages(IsA(http.HttpRequest)).\
             AndReturn(usage_limit)
         cinder.volume_snapshot_list(IsA(http.HttpRequest),
