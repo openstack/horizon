@@ -11,9 +11,9 @@
     <dt>{% trans "Project ID" %}</dt>
     <dd>{{ network.tenant_id|default:_("-") }}</dd>
     <dt>{% trans "Status" %}</dt>
-    <dd>{{ network.status|default:_("Unknown") }}</dd>
+    <dd>{{ network.status_label|default:_("Unknown") }}</dd>
     <dt>{% trans "Admin State" %}</dt>
-    <dd>{{ network.admin_state|default:_("Unknown") }}</dd>
+    <dd>{{ network.admin_state_label|default:_("Unknown") }}</dd>
     <dt>{% trans "Shared" %}</dt>
     <dd>{{ network.shared|yesno|capfirst }}</dd>
     <dt>{% trans "External Network" %}</dt>
