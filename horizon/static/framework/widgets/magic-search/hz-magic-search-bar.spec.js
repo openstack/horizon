@@ -85,12 +85,12 @@
 
     it('st-magic-search should be defined', function () {
       var stSearchBar = $element.find('st-magic-search');
-      expect(stSearchBar).toBeDefined();
+      expect(stSearchBar.length).toBe(1);
     });
 
     it('magic-search should be defined', function () {
       var searchBar = $element.find('magic-search');
-      expect(searchBar).toBeDefined();
+      expect(searchBar.length).toBe(1);
     });
 
     it('use filterStrings defaults if not provided as attribute', function () {

@@ -116,15 +116,15 @@
     });
 
     it('Max chart should have svg element', function () {
-      expect($elementMax.find('svg')).toBeDefined();
+      expect($elementMax.find('svg').length).toBe(1);
     });
 
     it('OverMax chart should have svg element', function () {
-      expect($elementOverMax.find('svg')).toBeDefined();
+      expect($elementOverMax.find('svg').length).toBe(1);
     });
 
     it('Total chart should have svg element', function () {
-      expect($elementTotal.find('svg')).toBeDefined();
+      expect($elementTotal.find('svg').length).toBe(1);
     });
 
     it('Max chart should have 3 path elements', function () {
@@ -176,15 +176,15 @@
     });
 
     it('Max chart should have a legend', function () {
-      expect($elementMax.find('.pie-chart-legend')).toBeDefined();
+      expect($elementMax.find('.pie-chart-legend').length).toBe(1);
     });
 
     it('OverMax chart should have a legend', function () {
-      expect($elementOverMax.find('.pie-chart-legend')).toBeDefined();
+      expect($elementOverMax.find('.pie-chart-legend').length).toBe(1);
     });
 
     it('Total chart should have a legend', function () {
-      expect($elementTotal.find('.pie-chart-legend')).toBeDefined();
+      expect($elementTotal.find('.pie-chart-legend').length).toBe(1);
     });
 
     it ('Max chart should have correct legend keys and labels', function () {
