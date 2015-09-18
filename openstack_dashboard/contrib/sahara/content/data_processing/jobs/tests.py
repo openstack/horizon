@@ -186,6 +186,7 @@ class DataProcessingJobTests(test.TestCase):
             'config': {},
             'argument_ids': '{}',
             'adapt_oozie': 'on',
+            'adapt_swift_spark': 'on',
             'hbase_common_lib': 'on',
             'java_opts': '',
             'job_args_array': [[], []],

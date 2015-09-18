@@ -162,6 +162,7 @@ class JobConfigAction(workflows.Action):
     EDP_PREFIX = "edp."
     EDP_HBASE_COMMON_LIB = "edp.hbase_common_lib"
     EDP_ADAPT_FOR_OOZIE = "edp.java.adapt_for_oozie"
+    EDP_ADAPT_SPARK_SWIFT = "edp.spark.adapt_for_swift"
 
     property_name = forms.ChoiceField(
         required=False,
@@ -203,6 +204,12 @@ class JobConfigAction(workflows.Action):
         help_text=_("Automatically modify the Hadoop configuration"
                     " so that job config values are set and so that"
                     " Oozie will handle exit codes correctly."),
+        required=False, initial=True)
+
+    adapt_spark_swift = forms.BooleanField(
+        label=_("Enable Swift Paths"),
+        help_text=_("Modify the configuration so that swift URLs can "
+                    "be dereferenced through HDFS at runtime."),
         required=False, initial=True)
 
     def __init__(self, request, *args, **kwargs):
@@ -248,6 +255,9 @@ class JobConfigAction(workflows.Action):
             if self.EDP_ADAPT_FOR_OOZIE in edp_configs:
                 self.fields['adapt_oozie'].initial = (
                     edp_configs[self.EDP_ADAPT_FOR_OOZIE])
+            if self.EDP_ADAPT_SPARK_SWIFT in edp_configs:
+                self.fields['adapt_spark_swift'].initial = (
+                    edp_configs[self.EDP_ADAPT_SPARK_SWIFT])
 
     def clean(self):
         cleaned_data = super(workflows.Action, self).clean()
@@ -283,7 +293,8 @@ class JobConfigAction(workflows.Action):
                          self.EDP_REDUCER,
                          self.MAIN_CLASS,
                          self.JAVA_OPTS,
-                         self.EDP_ADAPT_FOR_OOZIE, ]:
+                         self.EDP_ADAPT_FOR_OOZIE,
+                         self.EDP_ADAPT_SPARK_SWIFT]:
                 del configs[rmkey]
         return (configs, edp_configs)
 
@@ -348,6 +359,10 @@ class JobConfig(workflows.Step):
                 context["job_config"]["configs"][
                     JobConfigAction.EDP_ADAPT_FOR_OOZIE] = (
                         data.get("adapt_oozie", True))
+            if job_type == "Spark":
+                context["job_config"]["configs"][
+                    JobConfigAction.EDP_ADAPT_SPARK_SWIFT] = (
+                    data.get("adapt_spark_swift", True))
         elif job_type == "MapReduce.Streaming":
             context["job_config"]["configs"][JobConfigAction.EDP_MAPPER] = (
                 data.get("streaming_mapper", ""))

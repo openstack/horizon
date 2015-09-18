@@ -171,6 +171,9 @@
         $("[name=hbase_common_lib]").closest(".form-group").hide();
         $("[name=adapt_oozie]").closest(".form-group").hide();
       }
+      if (job_type != "Spark") {
+        $("[name=adapt_swift_spark]").closest(".form-group").hide();
+      }
     }
 
     function override_field_labels() {
