@@ -1,0 +1,6 @@
+<dl class="dl-horizontal">
+ {% for endpoint in endpoints %}
+  <dt title="{{ endpoint.interface|title }}">{{ endpoint.interface|title }}</dt>
+  <dd>{{ endpoint.url }}</dd>
+ {% endfor %}
+</dl>

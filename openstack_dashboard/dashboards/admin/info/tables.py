@@ -53,29 +53,38 @@ class SubServiceFilterAction(ServiceFilterAction):
     filter_field = 'binary'
 
 
-def get_status(service):
-    # if not configured in this region, neither option makes sense
-    if service.host:
-        return SERVICE_ENABLED if not service.disabled else SERVICE_DISABLED
+def show_endpoints(datanum):
+    if 'endpoints' in datanum:
+        template_name = 'admin/info/_cell_endpoints_v2.html'
+        context = None
+        if (len(datanum['endpoints']) > 0 and
+                "publicURL" in datanum['endpoints'][0]):
+            context = datanum['endpoints'][0]
+        else:
+            # this is a keystone v3 version of endpoints
+            template_name = 'admin/info/_cell_endpoints_v3.html'
+            context = {'endpoints': datanum['endpoints']}
+        return template.loader.render_to_string(template_name,
+                                                context)
     return None
 
 
 class ServicesTable(tables.DataTable):
     id = tables.Column('id', hidden=True)
     name = tables.Column("name", verbose_name=_('Name'))
-    service_type = tables.Column('__unicode__', verbose_name=_('Service'))
-    host = tables.Column('host', verbose_name=_('Host'))
-    status = tables.Column(get_status,
-                           verbose_name=_('Status'),
-                           status=True,
-                           display_choices=SERVICE_STATUS_DISPLAY_CHOICES)
+    service_type = tables.Column('type', verbose_name=_('Service'))
+    region = tables.Column('region', verbose_name=_('Region'))
+    endpoints = tables.Column(show_endpoints, verbose_name=_('Endpoints'))
+
+    def get_object_id(self, datum):
+        # this method is need b/c the parent impl does not handle dicts
+        return datum.get('id')
 
     class Meta(object):
         name = "services"
         verbose_name = _("Services")
         table_actions = (ServiceFilterAction,)
         multi_select = False
-        status_columns = ["status"]
 
 
 def get_available(zone):
