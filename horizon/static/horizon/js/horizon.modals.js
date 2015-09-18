@@ -73,11 +73,11 @@ horizon.modals.init_wizard = function () {
     }
 
     // Clear old errors.
-    $form.find('td.actions div.alert-danger').remove();
-    $form.find('.form-group.error').each(function () {
+    $form.find('div.row div.alert-danger').remove();
+    $form.find('.form-group.has-error').each(function () {
       var $group = $(this);
-      $group.removeClass('error');
-      $group.find('span.help-block.error').remove();
+      $group.removeClass('has-error');
+      $group.find('span.help-block.alert').remove();
     });
 
     // Send the data for validation.
@@ -106,7 +106,7 @@ horizon.modals.init_wizard = function () {
           if (field === '__all__') {
             // Add global errors.
             $.each(errors, function (index, error) {
-              $fieldset.find('td.actions').prepend(
+              $fieldset.find('div.row').prepend(
                 '<div class="alert alert-message alert-danger">' +
                 error + '</div>');
             });
@@ -115,10 +115,10 @@ horizon.modals.init_wizard = function () {
           }
           // Add field errors.
           $field = $fieldset.find('[name="' + field + '"]');
-          $field.closest('.form-group').addClass('error');
+          $field.closest('.form-group').addClass('has-error');
           $.each(errors, function (index, error) {
-            $field.before(
-              '<span class="help-block error">' +
+            $field.after(
+              '<span class="help-block alert alert-danger">' +
               error + '</span>');
           });
           // Focus the first invalid field.
