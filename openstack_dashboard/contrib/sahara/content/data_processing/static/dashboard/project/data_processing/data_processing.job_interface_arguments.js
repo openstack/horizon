@@ -172,4 +172,4 @@ horizon.job_interface_arguments = {
         });
         this.job_interface.hide();
     }
-}
+};
