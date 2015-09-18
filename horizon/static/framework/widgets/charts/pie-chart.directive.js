@@ -113,7 +113,16 @@
     return directive;
 
     function link(scope, element) {
+      function updateChartVisibility() {
+        var showChart = scope.chartData.maxLimit !== Infinity;
+        scope.chartData.showChart = showChart;
+        scope.chartData.chartless = showChart ? '' : 'chartless';
+        return showChart;
+      }
+
       var settings = {};
+      var showChart = updateChartVisibility();
+
       // if chartSettings is defined via the attribute value, use it
       if (angular.isObject(scope.chartSettings)) {
         settings = scope.chartSettings;
@@ -132,15 +141,17 @@
         }
       };
 
-      var d3Elt = d3.select(element[0]);
+      if (showChart) {
+        var d3Elt = d3.select(element[0]);
 
-      var arc = d3.svg.arc()
-                      .outerRadius(settings.outerRadius)
-                      .innerRadius(settings.innerRadius);
+        var arc = d3.svg.arc()
+          .outerRadius(settings.outerRadius)
+          .innerRadius(settings.innerRadius);
 
-      var pie = d3.layout.pie()
-                         .sort(null)
-                         .value(function (d) { return d.value; });
+        var pie = d3.layout.pie()
+          .sort(null)
+          .value(function (d) { return d.value; });
+      }
 
       var unwatch = scope.$watch('chartData', updateChart);
       scope.$on('$destroy', unwatch);
@@ -148,8 +159,18 @@
       scope.model = model;
 
       function updateChart() {
+        var showChart = updateChartVisibility();
+        angular.forEach(scope.chartData.data, function(item) {
+          if (item.value === Infinity) {
+            item.hideKey = true;
+          }
+        });
+
         // set labels depending on whether this is a max or total chart
-        if (angular.isDefined(scope.chartData.maxLimit)) {
+        if (!showChart) {
+          scope.model.total = null;
+          scope.model.totalLabel = gettext('no quota');
+        } else if (angular.isDefined(scope.chartData.maxLimit)) {
           scope.model.total = scope.chartData.maxLimit;
           scope.model.totalLabel = gettext('Max');
         } else {
@@ -159,41 +180,43 @@
         scope.model.tooltipData.enabled = false;
 
         // Generate or update slices
-        var chart = d3Elt.select('.slices')
-                         .selectAll('path.slice')
-                         .data(pie(scope.chartData.data));
+        if (showChart) {
+          var chart = d3Elt.select('.slices')
+            .selectAll('path.slice')
+            .data(pie(scope.chartData.data));
 
-        chart.enter().append('path')
-                     .attr('class', 'slice')
-                     .attr('d', arc);
+          chart.enter().append('path')
+            .attr('class', 'slice')
+            .attr('d', arc);
 
-        // Set the color or CSS class for the fill
-        chart.each(function (d) {
-          var slice = d3.select(this);
-          if (d.data.color) {
-            slice.style('fill', d.data.color);
-          } else if (d.data.colorClass) {
-            slice.classed(d.data.colorClass, true);
-          }
-        });
+          // Set the color or CSS class for the fill
+          chart.each(function (d) {
+            var slice = d3.select(this);
+            if (d.data.color) {
+              slice.style('fill', d.data.color);
+            } else if (d.data.colorClass) {
+              slice.classed(d.data.colorClass, true);
+            }
+          });
 
-        chart.on('mouseenter', function (d) { showTooltip(d, this); })
-             .on('mouseleave', clearTooltip);
+          chart.on('mouseenter', function (d) { showTooltip(d, this); })
+            .on('mouseleave', clearTooltip);
 
-        // Animate the slice rendering
-        chart.transition()
-             .duration(500)
-             .attrTween('d', function animate(d) {
-               this.lastAngle = this.lastAngle || { startAngle: 0, endAngle: 0 };
-               var interpolate = d3.interpolate(this.lastAngle, d);
-               this.lastAngle = interpolate(0);
+          // Animate the slice rendering
+          chart.transition()
+            .duration(500)
+            .attrTween('d', function animate(d) {
+              this.lastAngle = this.lastAngle || { startAngle: 0, endAngle: 0 };
+              var interpolate = d3.interpolate(this.lastAngle, d);
+              this.lastAngle = interpolate(0);
 
-               return function (t) {
-                 return arc(interpolate(t));
-               };
-             });
+              return function (t) {
+                return arc(interpolate(t));
+              };
+            });
 
-        chart.exit().remove();
+          chart.exit().remove();
+        }
       }
 
       function showTooltip(d, elt) {

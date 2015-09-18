@@ -26,12 +26,16 @@
   describe('pie chart directive', function () {
 
     var $scope, $elementMax, $elementTotal, $elementOverMax,
-        donutChartSettings, quotaChartDefaults;
+        $elementNoQuota, donutChartSettings, quotaChartDefaults;
 
     beforeEach(module('templates'));
     beforeEach(module('horizon.framework'));
     beforeEach(module('horizon.framework.widgets'));
     beforeEach(module('horizon.framework.widgets.charts'));
+
+    function cleanSpaces(string) {
+      return string.trim().replace(/\s+/, ' ');
+    }
 
     beforeEach(inject(function ($injector) {
       var $compile = $injector.get('$compile');
@@ -58,6 +62,7 @@
 
       $scope.testDataMax = {};
       $scope.testDataOverMax = {};
+      $scope.testDataNoQuota = {};
       // Max chart is similar to Total chart data structure
       // but has an additional 'maxLimit' property
       angular.copy($scope.testDataTotal, $scope.testDataMax);
@@ -68,6 +73,8 @@
       $scope.testDataOverMax.data[1].value = 3;
       $scope.testDataOverMax.data[2].value = 0;
       $scope.testDataOverMax.overMax = true;
+      angular.copy($scope.testDataMax, $scope.testDataNoQuota);
+      $scope.testDataNoQuota.maxLimit = Infinity;
 
       $scope.chartSettings = {
         innerRadius: 24,
@@ -100,6 +107,13 @@
       $elementTotal = angular.element(markupTotal);
       $compile($elementTotal)($scope);
 
+      // Unlimited quota chart markup
+      var markupNoQuota = '<pie-chart chart-data="testDataNoQuota" ' +
+                        '  chart-settings="chartSettings">' +
+                        '</pie-chart>';
+      $elementNoQuota = angular.element(markupNoQuota);
+      $compile($elementNoQuota)($scope);
+
       $scope.$apply();
     }));
 
@@ -125,6 +139,10 @@
 
     it('Total chart should have svg element', function () {
       expect($elementTotal.find('svg').length).toBe(1);
+    });
+
+    it('Unlimited quota chart should have no svg element', function () {
+      expect($elementNoQuota.find('svg').length).toBe(0);
     });
 
     it('Max chart should have 3 path elements', function () {
@@ -175,12 +193,21 @@
       expect(title).toBe('Total Instances (8 Total)');
     });
 
+    it('Unlimited Quota chart should have title "Total Instances (no quota)"', function () {
+      var title = $elementNoQuota.find('.pie-chart-title').text().trim();
+      expect(title).toBe('Total Instances (no quota)');
+    });
+
     it('Max chart should have a legend', function () {
       expect($elementMax.find('.pie-chart-legend').length).toBe(1);
     });
 
     it('OverMax chart should have a legend', function () {
       expect($elementOverMax.find('.pie-chart-legend').length).toBe(1);
+    });
+
+    it('Unlimited quotachart should have a legend', function () {
+      expect($elementNoQuota.find('.pie-chart-legend').length).toBe(1);
     });
 
     it('Total chart should have a legend', function () {
@@ -193,8 +220,8 @@
       var firstKeyLabel = legendKeys[0];
       var secondKeyLabel = legendKeys[1];
 
-      expect(firstKeyLabel.textContent.trim()).toBe('1 Current Usage');
-      expect(secondKeyLabel.textContent.trim()).toBe('1 Added');
+      expect(cleanSpaces(firstKeyLabel.textContent)).toBe('1 Current Usage');
+      expect(cleanSpaces(secondKeyLabel.textContent)).toBe('1 Added');
     });
 
     it ('OverMax chart should have correct legend keys and labels', function () {
@@ -203,8 +230,8 @@
       var firstKeyLabel = legendKeys[0];
       var secondKeyLabel = legendKeys[1];
 
-      expect(firstKeyLabel.textContent.trim()).toBe('6 Current Usage');
-      expect(secondKeyLabel.textContent.trim()).toBe('3 Added');
+      expect(cleanSpaces(firstKeyLabel.textContent)).toBe('6 Current Usage');
+      expect(cleanSpaces(secondKeyLabel.textContent)).toBe('3 Added');
     });
 
     it ('OverMax chart should have "danger" class', function () {
@@ -218,8 +245,18 @@
       var firstKeyLabel = legendKeys[0];
       var secondKeyLabel = legendKeys[1];
 
-      expect(firstKeyLabel.textContent.trim()).toBe('1 Current Usage');
-      expect(secondKeyLabel.textContent.trim()).toBe('1 Added');
+      expect(cleanSpaces(firstKeyLabel.textContent)).toEqual('1 Current Usage');
+      expect(cleanSpaces(secondKeyLabel.textContent)).toEqual('1 Added');
+    });
+
+    it ('Unlimited quota chart should have correct legend keys and labels', function () {
+      var legendKeys = $elementNoQuota.find('.pie-chart-legend .slice-legend');
+
+      var firstKeyLabel = legendKeys[0];
+      var secondKeyLabel = legendKeys[1];
+
+      expect(cleanSpaces(firstKeyLabel.textContent)).toEqual('1 Current Usage');
+      expect(cleanSpaces(secondKeyLabel.textContent)).toEqual('1 Added');
     });
   });
 

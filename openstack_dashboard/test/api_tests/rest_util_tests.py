@@ -11,6 +11,7 @@
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
+from openstack_dashboard.api.rest import json_encoder
 from openstack_dashboard.api.rest import utils
 from openstack_dashboard.test import helpers as test
 
@@ -166,3 +167,84 @@ class RestUtilsTestCase(test.TestCase):
             request)
         self.assertDictEqual({}, output_kwargs)
         self.assertDictEqual({}, output_filters)
+
+
+class JSONEncoderTestCase(test.TestCase):
+    # NOTE(tsufiev): NaN numeric is "conventional" in a sense that the custom
+    # NaNJSONEncoder encoder translates it to the same token that the standard
+    # JSONEncoder encoder does
+    conventional_data = {'key1': 'string', 'key2': 10, 'key4': [1, 'some'],
+                         'key5': {'subkey': 7}, 'nanKey': float('nan')}
+    data_nan = float('nan')
+    data_inf = float('inf')
+    data_neginf = -float('inf')
+
+    def test_custom_encoder_on_nan(self):
+        @utils.ajax(json_encoder=json_encoder.NaNJSONEncoder)
+        def f(self, request):
+            return self.data_nan
+
+        request = self.mock_rest_request()
+        response = f(self, request)
+        request.user.is_authenticated.assert_called_once_with()
+        self.assertStatusCode(response, 200)
+        self.assertEqual(response['content-type'], 'application/json')
+        self.assertEqual(response.content, 'NaN')
+
+    def test_custom_encoder_on_infinity(self):
+        @utils.ajax(json_encoder=json_encoder.NaNJSONEncoder)
+        def f(self, request):
+            return self.data_inf
+
+        request = self.mock_rest_request()
+        response = f(self, request)
+        request.user.is_authenticated.assert_called_once_with()
+        self.assertStatusCode(response, 200)
+        self.assertEqual(response['content-type'], 'application/json')
+        self.assertEqual(response.content, '1e+999')
+
+    def test_custom_encoder_on_negative_infinity(self):
+        @utils.ajax(json_encoder=json_encoder.NaNJSONEncoder)
+        def f(self, request):
+            return self.data_neginf
+
+        request = self.mock_rest_request()
+        response = f(self, request)
+        request.user.is_authenticated.assert_called_once_with()
+        self.assertStatusCode(response, 200)
+        self.assertEqual(response['content-type'], 'application/json')
+        self.assertEqual(response.content, '-1e+999')
+
+    def test_custom_encoder_yields_standard_json_for_conventional_data(self):
+        @utils.ajax()
+        def f(self, request):
+            return self.conventional_data
+
+        @utils.ajax(json_encoder=json_encoder.NaNJSONEncoder)
+        def g(self, request):
+            return self.conventional_data
+
+        request = self.mock_rest_request()
+        default_encoder_response = f(self, request)
+        custom_encoder_response = g(self, request)
+
+        self.assertEqual(default_encoder_response.content,
+                         custom_encoder_response.content)
+
+    def test_custom_encoder_yields_different_json_for_enhanced_data(self):
+        @utils.ajax()
+        def f(self, request):
+            return dict(tuple(self.conventional_data.items()) +
+                        (('key3', self.data_inf),))
+
+        @utils.ajax(json_encoder=json_encoder.NaNJSONEncoder)
+        def g(self, request):
+            return dict(tuple(self.conventional_data.items()) +
+                        (('key3', self.data_inf),))
+
+        request = self.mock_rest_request()
+        default_encoder_response = f(self, request)
+        custom_encoder_response = g(self, request)
+
+        self.assertNotEqual(default_encoder_response.content,
+                            custom_encoder_response.content)

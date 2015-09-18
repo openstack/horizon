@@ -1,6 +1,7 @@
 .pie-chart {
   display: inline-block;
   position: relative;
+  margin-left: 10px;
 
   .svg-pie-chart {
     float: left;
@@ -51,9 +52,19 @@
     font-size: $chart-legend-font-size;
     line-height: 1em;
     padding: $chart-legend-padding;
+    display: table;
 
     .slice-legend {
       padding: $chart-slice-legend-padding;
+      display: table-row;
+
+      & > :last-child {
+        padding-left: 5px;
+      }
+
+      div {
+        display: table-cell;
+      }
 
       .slice-key {
         color: transparent;
@@ -75,6 +86,24 @@
 
         &.remaining {
           background-color: $chart-quota-remaining-color;
+        }
+      }
+
+      .chartless {
+        font-size: x-large;
+        text-align: right;
+        padding-top: 10px;
+        font-weight: bold;
+        &.usage {
+          color: $chart-quota-usage-color;
+        }
+
+        &.added {
+          color: $chart-quota-added-color;
+        }
+
+        &.remaining {
+          color: $chart-quota-remaining-color;
         }
       }
     }

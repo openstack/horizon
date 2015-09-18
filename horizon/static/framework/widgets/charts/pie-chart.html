@@ -3,10 +3,11 @@
 
   <div ng-if="::model.settings.showTitle && chartData.title"
        class="pie-chart-title {$ ::model.settings.titleClass $}">
-    {$ ::chartData.title $} ({$ model.total $} {$ model.totalLabel $})
+    {$ ::chartData.title $} ({$ model.total ? model.total + ' ' : '' $}{$ model.totalLabel $})
   </div>
 
   <svg class="svg-pie-chart"
+    ng-if="chartData.showChart"
     ng-attr-height="{$ ::model.settings.diameter $}"
     ng-attr-width="{$ ::model.settings.diameter $}">
     <g class="chart"
@@ -22,10 +23,9 @@
   <div ng-if="::model.settings.showLegend" class="pie-chart-legend">
     <div ng-repeat="slice in chartData.data | showKeyFilter"
       class="slice-legend">
-      <div class="slice-key"
-        ng-class="slice.colorClass"
-        ng-style="{ 'background-color': '{$ slice.color $}' }"></div>
-      {$ slice.value $} {$ slice.label $}
+      <div ng-if="chartData.showChart" class="slice-key" ng-class="slice.colorClass"></div>
+      <div ng-class="[slice.colorClass, chartData.chartless]">{$ slice.value $}</div>
+      <div>{$ slice.label $}</div>
     </div>
   </div>
 </div>
