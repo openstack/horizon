@@ -99,7 +99,10 @@ class SelectTemplateView(forms.ModalFormView):
         initial = {}
         for name in [
             'template_url',
-            'template_source'
+            'template_source',
+            'template_data',
+            'environment_source',
+            'environment_data'
         ]:
             tmp = self.request.GET.get(name)
             if tmp:
