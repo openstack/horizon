@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-09-18 06:05+0000\n"
+"POT-Creation-Date: 2015-09-19 06:14+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,42 +17,46 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 2.0\n"
 
-#: static/framework/util/filters/filters.js:40
+#: static/framework/util/filters/filters.js:41
 msgid "Yes"
 msgstr ""
 
-#: static/framework/util/filters/filters.js:40
+#: static/framework/util/filters/filters.js:41
 msgid "No"
 msgstr ""
 
-#: static/framework/util/filters/filters.js:56
-#: static/framework/util/filters/filters.js:143
+#: static/framework/util/filters/filters.js:57
+#: static/framework/util/filters/filters.js:161
 #, python-format
 msgid "%s GB"
 msgstr ""
 
-#: static/framework/util/filters/filters.js:73
-#: static/framework/util/filters/filters.js:145
+#: static/framework/util/filters/filters.js:74
+#: static/framework/util/filters/filters.js:163
 #, python-format
 msgid "%s MB"
 msgstr ""
 
-#: static/framework/util/filters/filters.js:141
+#: static/framework/util/filters/filters.js:121
+msgid "-"
+msgstr ""
+
+#: static/framework/util/filters/filters.js:159
 #, python-format
 msgid "%s TB"
 msgstr ""
 
-#: static/framework/util/filters/filters.js:147
+#: static/framework/util/filters/filters.js:165
 #, python-format
 msgid "%s KB"
 msgstr ""
 
-#: static/framework/util/filters/filters.js:149
+#: static/framework/util/filters/filters.js:167
 #, python-format
 msgid "%s bytes"
 msgstr ""
 
-#: static/framework/util/filters/filters.js:173
+#: static/framework/util/filters/filters.js:191
 #: static/horizon/js/horizon.tables.js:405
 #, python-format
 msgid "Displaying %s item"
@@ -60,7 +64,7 @@ msgid_plural "Displaying %s items"
 msgstr[0] ""
 msgstr[1] ""
 
-#: static/framework/util/filters/filters.js:177
+#: static/framework/util/filters/filters.js:195
 #, python-format
 msgid "Displaying %(count)s of %(total)s items"
 msgstr ""
@@ -87,19 +91,23 @@ msgstr ""
 msgid "Remaining"
 msgstr ""
 
-#: static/framework/widgets/charts/pie-chart.directive.js:154
+#: static/framework/widgets/charts/pie-chart.directive.js:172
+msgid "no quota"
+msgstr ""
+
+#: static/framework/widgets/charts/pie-chart.directive.js:175
 #: static/framework/widgets/metadata/tree/tree.module.js:48
 msgid "Max"
 msgstr ""
 
-#: static/framework/widgets/charts/pie-chart.directive.js:157
+#: static/framework/widgets/charts/pie-chart.directive.js:178
 msgid "Total"
 msgstr ""
 
 #: static/framework/widgets/magic-search/hz-magic-search-bar.directive.js:95
 #: static/framework/widgets/magic-search/hz-magic-search-bar.spec.js:35
 #: static/framework/widgets/magic-search/magic-overrides.spec.js:50
-#: static/framework/widgets/magic-search/st-magic-search.spec.js:54
+#: static/framework/widgets/magic-search/st-magic-search.directive.spec.js:54
 #: static/framework/widgets/modal/simple-modal.service.js:66
 #: static/framework/widgets/wizard/wizard.module.js:47
 #: static/horizon/js/horizon.modals.js:33
@@ -113,7 +121,7 @@ msgstr ""
 #: static/framework/widgets/magic-search/hz-magic-search-bar.directive.js:97
 #: static/framework/widgets/magic-search/hz-magic-search-bar.spec.js:37
 #: static/framework/widgets/magic-search/magic-overrides.spec.js:52
-#: static/framework/widgets/magic-search/st-magic-search.spec.js:56
+#: static/framework/widgets/magic-search/st-magic-search.directive.spec.js:56
 msgid "Remove"
 msgstr ""
 
@@ -123,64 +131,68 @@ msgstr ""
 
 #: static/framework/widgets/magic-search/hz-magic-search-bar.spec.js:36
 #: static/framework/widgets/magic-search/magic-overrides.spec.js:51
-#: static/framework/widgets/magic-search/st-magic-search.spec.js:55
+#: static/framework/widgets/magic-search/st-magic-search.directive.spec.js:55
 msgid "Prompt"
 msgstr ""
 
 #: static/framework/widgets/magic-search/hz-magic-search-bar.spec.js:38
 #: static/framework/widgets/magic-search/magic-overrides.spec.js:53
-#: static/framework/widgets/magic-search/st-magic-search.spec.js:57
+#: static/framework/widgets/magic-search/st-magic-search.directive.spec.js:57
 msgid "Text"
 msgstr ""
 
 #: static/framework/widgets/magic-search/hz-magic-search-bar.spec.js:44
 #: static/framework/widgets/magic-search/magic-overrides.spec.js:59
-#: static/framework/widgets/magic-search/st-magic-search.spec.js:63
+#: static/framework/widgets/magic-search/st-magic-search.directive.spec.js:63
 #: static/framework/widgets/transfer-table/transfer-table.example.html:14
 msgid "Name"
 msgstr ""
 
 #: static/framework/widgets/magic-search/hz-magic-search-bar.spec.js:49
 #: static/framework/widgets/magic-search/magic-overrides.spec.js:64
-#: static/framework/widgets/magic-search/st-magic-search.spec.js:68
+#: static/framework/widgets/magic-search/st-magic-search.directive.spec.js:74
 msgid "Status"
 msgstr ""
 
 #: static/framework/widgets/magic-search/hz-magic-search-bar.spec.js:51
 #: static/framework/widgets/magic-search/magic-overrides.spec.js:66
-#: static/framework/widgets/magic-search/st-magic-search.spec.js:70
+#: static/framework/widgets/magic-search/st-magic-search.directive.spec.js:76
 msgid "Active"
 msgstr ""
 
 #: static/framework/widgets/magic-search/hz-magic-search-bar.spec.js:52
 #: static/framework/widgets/magic-search/magic-overrides.spec.js:67
-#: static/framework/widgets/magic-search/st-magic-search.spec.js:71
+#: static/framework/widgets/magic-search/st-magic-search.directive.spec.js:77
 msgid "Shutdown"
 msgstr ""
 
 #: static/framework/widgets/magic-search/hz-magic-search-bar.spec.js:53
 #: static/framework/widgets/magic-search/magic-overrides.spec.js:68
-#: static/framework/widgets/magic-search/st-magic-search.spec.js:72
+#: static/framework/widgets/magic-search/st-magic-search.directive.spec.js:78
 #: static/framework/widgets/toast/toast.service.js:59
 msgid "Error"
 msgstr ""
 
 #: static/framework/widgets/magic-search/hz-magic-search-bar.spec.js:58
 #: static/framework/widgets/magic-search/magic-overrides.spec.js:73
-#: static/framework/widgets/magic-search/st-magic-search.spec.js:77
+#: static/framework/widgets/magic-search/st-magic-search.directive.spec.js:83
 msgid "Flavor"
 msgstr ""
 
 #: static/framework/widgets/magic-search/hz-magic-search-bar.spec.js:61
 #: static/framework/widgets/magic-search/magic-overrides.spec.js:76
-#: static/framework/widgets/magic-search/st-magic-search.spec.js:80
+#: static/framework/widgets/magic-search/st-magic-search.directive.spec.js:86
 msgid "m1.tiny"
 msgstr ""
 
 #: static/framework/widgets/magic-search/hz-magic-search-bar.spec.js:62
 #: static/framework/widgets/magic-search/magic-overrides.spec.js:77
-#: static/framework/widgets/magic-search/st-magic-search.spec.js:81
+#: static/framework/widgets/magic-search/st-magic-search.directive.spec.js:87
 msgid "m1.small"
+msgstr ""
+
+#: static/framework/widgets/magic-search/st-magic-search.directive.spec.js:68
+msgid "Server Name"
 msgstr ""
 
 #: static/framework/widgets/metadata/display/metadata-display.html:25

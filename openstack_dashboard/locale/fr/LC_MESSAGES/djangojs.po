@@ -9,7 +9,6 @@
 # Maxime COQUEREL <max.coquerel@gmail.com>, 2015
 # Corinne Verheyde <cverheyd@gmail.com>, 2015. #zanata
 # François Bureau <bureaufrancois@gmail.com>, 2015. #zanata
-# JF Taltavull <jftalta@gmail.com>, 2015. #zanata
 # OpenStack Infra <zanata@openstack.org>, 2015. #zanata
 # Romain Chantereau <rchanter@redhat.com>, 2015. #zanata
 # andrew melim <nokostya.translation@gmail.com>, 2015. #zanata
@@ -17,12 +16,12 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-09-18 05:57+0000\n"
+"POT-Creation-Date: 2015-09-18 23:31+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2015-09-17 08:48+0000\n"
-"Last-Translator: JF Taltavull <jftalta@gmail.com>\n"
+"PO-Revision-Date: 2015-09-18 10:06+0000\n"
+"Last-Translator: Corinne Verheyde <cverheyd@gmail.com>\n"
 "Language-Team: French (http://www.transifex.com/openstack/horizon/language/"
 "fr/)\n"
 "Generated-By: Babel 2.0\n"
@@ -213,6 +212,9 @@ msgstr "Disque de Configuration"
 msgid "Configuration Help"
 msgstr "Aide à la configuration"
 
+msgid "Configuration Value"
+msgstr "Valeur de configuration"
+
 msgid "Count"
 msgstr "Compteur"
 
@@ -240,7 +242,6 @@ msgstr ""
 msgid "Customization Script"
 msgstr "Script de Personnalisation"
 
-#, fuzzy
 msgid "Data Source"
 msgstr "Source de données"
 
@@ -309,12 +310,11 @@ msgstr ""
 "Les gabarits sont en place pour gérer la taille de la capacité de stockage, "
 "de mémoire et de calcul d'une instance."
 
-#, fuzzy
 msgid ""
 "For data sources, use a data source UUID or a path (as per data source "
 "creation.)"
 msgstr ""
-"Pour les sources de données, utiliser le UUID de la source de données ou un "
+"Pour les sources de données, utiliser l'UUID de la source de données ou un "
 "chemin (tel que celui utilisé pour la création)"
 
 msgid "Format"
@@ -391,7 +391,7 @@ msgid "Instance Name"
 msgstr "Nom de l'instance"
 
 msgid "Instance Snapshot"
-msgstr "Instantané Instance"
+msgstr "Instantané d'Instance"
 
 msgid "Instance Source"
 msgstr "Source de l'instance"
@@ -446,7 +446,6 @@ msgstr "Lancer Instance"
 msgid "Load script from a file"
 msgstr "Charger le script à partir d'un fichier"
 
-#, fuzzy
 msgid "Location"
 msgstr "Emplacement"
 
@@ -477,7 +476,6 @@ msgstr "RAM Min"
 msgid "Name"
 msgstr "Nom"
 
-#, fuzzy
 msgid "Named Parameter"
 msgstr "Paramètre nommé"
 
@@ -504,7 +502,6 @@ msgstr "Non"
 msgid "No available items"
 msgstr "Pas d'élément disponible"
 
-#, fuzzy
 msgid "Number"
 msgstr "Nombre"
 
@@ -530,7 +527,6 @@ msgstr ""
 msgid "Policy check failed."
 msgstr "La vérification de la stratégie a échoué."
 
-#, fuzzy
 msgid "Positional Argument"
 msgstr "Argument positionnel"
 
@@ -592,7 +588,6 @@ msgstr ""
 msgid "Remote"
 msgstr "Distant"
 
-#, fuzzy
 msgid "Remove"
 msgstr "Supprimer"
 
@@ -716,7 +711,6 @@ msgstr "Instantané"
 msgid "Status"
 msgstr "Statut"
 
-#, fuzzy
 msgid "String"
 msgstr "Chaîne de caractères"
 
@@ -1053,6 +1047,9 @@ msgstr "Nom d'utilisateur"
 msgid "VCPUS"
 msgstr "VCPUS"
 
+msgid "Value Type"
+msgstr "Type de valeur"
+
 msgid "Visibility"
 msgstr "Visibilité"
 
@@ -1060,7 +1057,7 @@ msgid "Volume"
 msgstr "Volume"
 
 msgid "Volume Snapshot"
-msgstr "Instantané Volume"
+msgstr "Instantané de Volume"
 
 msgid "Volume size is required and must be an integer"
 msgstr ""
