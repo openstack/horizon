@@ -75,6 +75,7 @@
     return directive;
 
     function MagicOverridesController($element, $scope, $timeout, $window) {
+
       /**
        * showMenu and hideMenu depend on Foundation's dropdown. They need
        * to be modified to work with another dropdown implementation.
@@ -103,27 +104,39 @@
           $scope.initSearch();
         });
       });
+
       $scope.$on('$destroy', function () {
         facetsChangedWatcher();
       });
+
+      function getFacets(currentFacets) {
+        if (angular.isUndefined(currentFacets)) {
+          var initialFacets = $window.location.search;
+          if (initialFacets.indexOf('?') === 0) {
+            initialFacets = initialFacets.slice(1);
+          }
+          return initialFacets.split('&');
+        } else {
+          return currentFacets.map(function(facet) {
+            return facet.name;
+          });
+        }
+      }
 
       /**
        * Override magic_search.js 'initFacets' to fix browser refresh issue
        * and to emit('checkFacets') to flag facets as 'isServer'
        */
-      $scope.initFacets = function () {
-        // set facets selected and remove them from 'facetsObj'
-        var initialFacets = $window.location.search;
-        if (initialFacets.indexOf('?') === 0) {
-          initialFacets = initialFacets.slice(1);
-        }
-        initialFacets = initialFacets.split('&');
-        if (initialFacets.length > 1 || initialFacets[0].length > 0) {
+      $scope.initFacets = function(currentFacets) {
+        var facets = getFacets(currentFacets);
+
+        if (facets.length > 1 || (facets[0] && facets[0].length > 0)) {
           $timeout(function () {
             $scope.strings.prompt = '';
           });
         }
-        angular.forEach(initialFacets, function (facet) {
+
+        angular.forEach(facets, function(facet) {
           var facetParts = facet.split('=');
           angular.forEach($scope.facetsObj, function (value) {
             if (value.name == facetParts[0]) {
@@ -188,12 +201,15 @@
         }
         // re-init to restore facets cleanly
         $scope.facetsObj = $scope.copyFacets($scope.facetsSave);
+        var currentSearch = angular.copy($scope.currentSearch);
         $scope.currentSearch = [];
-        $scope.initFacets();
+        $scope.initFacets(currentSearch);
 
         // broadcast to check facets for server-side
         $scope.$emit('checkFacets', $scope.currentSearch);
       };
+
+      $scope.emitQuery();
     }
   }
 })();
