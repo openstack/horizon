@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-09-18 06:05+0000\n"
+"POT-Creation-Date: 2015-09-19 06:14+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -541,6 +541,11 @@ msgstr ""
 
 #: api/swift.py:327
 msgid "The pseudo folder cannot be deleted since it is not empty."
+msgstr ""
+
+#: api/rest/json_encoder.py:67
+#, python-format
+msgid "Out of range float values are not JSON compliant: %r"
 msgstr ""
 
 #: contrib/sahara/content/data_processing/cluster_templates/forms.py:31
@@ -1318,7 +1323,7 @@ msgid "Unable to fetch plugin list."
 msgstr ""
 
 #: contrib/sahara/content/data_processing/cluster_templates/workflows/create.py:53
-#: contrib/sahara/content/data_processing/jobs/workflows/launch.py:479
+#: contrib/sahara/content/data_processing/jobs/workflows/launch.py:494
 msgid "Plugin name"
 msgstr ""
 
@@ -1335,7 +1340,7 @@ msgstr ""
 
 #: contrib/sahara/content/data_processing/cluster_templates/workflows/create.py:82
 #: contrib/sahara/content/data_processing/job_executions/templates/data_processing.job_executions/_details.html:32
-#: contrib/sahara/content/data_processing/jobs/workflows/launch.py:531
+#: contrib/sahara/content/data_processing/jobs/workflows/launch.py:546
 #: contrib/sahara/content/data_processing/nodegroup_templates/workflows/create.py:518
 #: contrib/trove/content/database_backups/tables.py:165
 #: contrib/trove/content/database_backups/templates/database_backups/details.html:32
@@ -1357,7 +1362,7 @@ msgid "Created"
 msgstr ""
 
 #: contrib/sahara/content/data_processing/cluster_templates/workflows/create.py:83
-#: contrib/sahara/content/data_processing/jobs/workflows/launch.py:532
+#: contrib/sahara/content/data_processing/jobs/workflows/launch.py:547
 #: contrib/sahara/content/data_processing/nodegroup_templates/workflows/create.py:519
 msgid "Could not create"
 msgstr ""
@@ -1393,7 +1398,7 @@ msgstr ""
 #: contrib/sahara/content/data_processing/data_sources/workflows/create.py:95
 #: contrib/sahara/content/data_processing/job_binaries/views.py:68
 #: contrib/sahara/content/data_processing/jobs/workflows/create.py:228
-#: contrib/sahara/content/data_processing/jobs/workflows/launch.py:530
+#: contrib/sahara/content/data_processing/jobs/workflows/launch.py:545
 #: contrib/sahara/content/data_processing/nodegroup_templates/workflows/create.py:365
 #: dashboards/admin/volumes/volume_types/views.py:157
 #: dashboards/admin/volumes/volume_types/extras/tables.py:48
@@ -1539,7 +1544,7 @@ msgstr ""
 #: contrib/sahara/content/data_processing/clusters/tables.py:136
 #: contrib/sahara/content/data_processing/clusters/views.py:187
 #: contrib/sahara/content/data_processing/clusters/workflows/create.py:205
-#: contrib/sahara/content/data_processing/jobs/workflows/launch.py:380
+#: contrib/sahara/content/data_processing/jobs/workflows/launch.py:395
 msgid "Configure Cluster"
 msgstr ""
 
@@ -1755,7 +1760,7 @@ msgid "Floating IP Pool"
 msgstr ""
 
 #: contrib/sahara/content/data_processing/clusters/workflows/create.py:45
-#: contrib/sahara/content/data_processing/jobs/workflows/launch.py:518
+#: contrib/sahara/content/data_processing/jobs/workflows/launch.py:533
 msgid "Select plugin and hadoop version for cluster"
 msgstr ""
 
@@ -1800,8 +1805,8 @@ msgid "No Templates Available"
 msgstr ""
 
 #: contrib/sahara/content/data_processing/clusters/workflows/create.py:224
-#: contrib/sahara/content/data_processing/jobs/workflows/launch.py:450
-#: contrib/sahara/content/data_processing/jobs/workflows/launch.py:540
+#: contrib/sahara/content/data_processing/jobs/workflows/launch.py:465
+#: contrib/sahara/content/data_processing/jobs/workflows/launch.py:555
 #: contrib/trove/content/databases/workflows/create_instance.py:337
 #: dashboards/project/images/images/tables.py:62
 #: dashboards/project/instances/workflows/create_instance.py:836
@@ -2406,9 +2411,9 @@ msgstr[1] ""
 #: contrib/sahara/content/data_processing/jobs/views.py:118
 #: contrib/sahara/content/data_processing/jobs/views.py:131
 #: contrib/sahara/content/data_processing/jobs/templates/data_processing.jobs/launch.html:3
-#: contrib/sahara/content/data_processing/jobs/workflows/launch.py:449
-#: contrib/sahara/content/data_processing/jobs/workflows/launch.py:529
-#: contrib/sahara/content/data_processing/jobs/workflows/launch.py:539
+#: contrib/sahara/content/data_processing/jobs/workflows/launch.py:464
+#: contrib/sahara/content/data_processing/jobs/workflows/launch.py:544
+#: contrib/sahara/content/data_processing/jobs/workflows/launch.py:554
 msgid "Launch Job"
 msgid_plural "Launch Jobs"
 msgstr[0] ""
@@ -2740,16 +2745,16 @@ msgstr ""
 msgid "Add"
 msgstr ""
 
-#: contrib/sahara/content/data_processing/jobs/templates/data_processing.jobs/config_template.html:233
+#: contrib/sahara/content/data_processing/jobs/templates/data_processing.jobs/config_template.html:236
 msgid "Configuration"
 msgstr ""
 
-#: contrib/sahara/content/data_processing/jobs/templates/data_processing.jobs/config_template.html:236
+#: contrib/sahara/content/data_processing/jobs/templates/data_processing.jobs/config_template.html:239
 #: dashboards/project/stacks/templates/stacks/_preview_details.html:20
 msgid "Parameters"
 msgstr ""
 
-#: contrib/sahara/content/data_processing/jobs/templates/data_processing.jobs/config_template.html:239
+#: contrib/sahara/content/data_processing/jobs/templates/data_processing.jobs/config_template.html:242
 msgid "Arguments"
 msgstr ""
 
@@ -2827,7 +2832,7 @@ msgid "Choose a shell script"
 msgstr ""
 
 #: contrib/sahara/content/data_processing/jobs/workflows/create.py:186
-#: contrib/sahara/content/data_processing/jobs/workflows/launch.py:435
+#: contrib/sahara/content/data_processing/jobs/workflows/launch.py:450
 msgid "Interface Arguments"
 msgstr ""
 
@@ -2851,79 +2856,89 @@ msgstr ""
 msgid "Unable to fetch clusters."
 msgstr ""
 
-#: contrib/sahara/content/data_processing/jobs/workflows/launch.py:186
+#: contrib/sahara/content/data_processing/jobs/workflows/launch.py:187
 msgid "Main Class"
 msgstr ""
 
-#: contrib/sahara/content/data_processing/jobs/workflows/launch.py:189
+#: contrib/sahara/content/data_processing/jobs/workflows/launch.py:190
 msgid "Java Opts"
 msgstr ""
 
-#: contrib/sahara/content/data_processing/jobs/workflows/launch.py:192
+#: contrib/sahara/content/data_processing/jobs/workflows/launch.py:193
 msgid "Mapper"
 msgstr ""
 
-#: contrib/sahara/content/data_processing/jobs/workflows/launch.py:194
+#: contrib/sahara/content/data_processing/jobs/workflows/launch.py:195
 msgid "Reducer"
 msgstr ""
 
-#: contrib/sahara/content/data_processing/jobs/workflows/launch.py:197
+#: contrib/sahara/content/data_processing/jobs/workflows/launch.py:198
 msgid "Use HBase Common library"
 msgstr ""
 
-#: contrib/sahara/content/data_processing/jobs/workflows/launch.py:198
+#: contrib/sahara/content/data_processing/jobs/workflows/launch.py:199
 msgid "Run HBase EDP Jobs with common HBase library on HDFS"
 msgstr ""
 
-#: contrib/sahara/content/data_processing/jobs/workflows/launch.py:202
+#: contrib/sahara/content/data_processing/jobs/workflows/launch.py:203
 msgid "Adapt For Oozie"
 msgstr ""
 
-#: contrib/sahara/content/data_processing/jobs/workflows/launch.py:203
+#: contrib/sahara/content/data_processing/jobs/workflows/launch.py:204
 msgid ""
 "Automatically modify the Hadoop configuration so that job config values "
 "are set and so that Oozie will handle exit codes correctly."
 msgstr ""
 
-#: contrib/sahara/content/data_processing/jobs/workflows/launch.py:291
+#: contrib/sahara/content/data_processing/jobs/workflows/launch.py:210
+msgid "Enable Swift Paths"
+msgstr ""
+
+#: contrib/sahara/content/data_processing/jobs/workflows/launch.py:211
+msgid ""
+"Modify the configuration so that swift URLs can be dereferenced through "
+"HDFS at runtime."
+msgstr ""
+
+#: contrib/sahara/content/data_processing/jobs/workflows/launch.py:302
 msgid "Configure"
 msgstr ""
 
-#: contrib/sahara/content/data_processing/jobs/workflows/launch.py:376
+#: contrib/sahara/content/data_processing/jobs/workflows/launch.py:391
 msgid "Persist cluster after job exit"
 msgstr ""
 
-#: contrib/sahara/content/data_processing/jobs/workflows/launch.py:451
-#: contrib/sahara/content/data_processing/jobs/workflows/launch.py:541
+#: contrib/sahara/content/data_processing/jobs/workflows/launch.py:466
+#: contrib/sahara/content/data_processing/jobs/workflows/launch.py:556
 msgid "Job launched"
 msgstr ""
 
-#: contrib/sahara/content/data_processing/jobs/workflows/launch.py:452
-#: contrib/sahara/content/data_processing/jobs/workflows/launch.py:542
+#: contrib/sahara/content/data_processing/jobs/workflows/launch.py:467
+#: contrib/sahara/content/data_processing/jobs/workflows/launch.py:557
 msgid "Could not launch job"
 msgstr ""
 
-#: contrib/sahara/content/data_processing/jobs/workflows/launch.py:484
+#: contrib/sahara/content/data_processing/jobs/workflows/launch.py:499
 msgid "Job configs"
 msgstr ""
 
-#: contrib/sahara/content/data_processing/jobs/workflows/launch.py:488
+#: contrib/sahara/content/data_processing/jobs/workflows/launch.py:503
 msgid "Job args"
 msgstr ""
 
-#: contrib/sahara/content/data_processing/jobs/workflows/launch.py:492
+#: contrib/sahara/content/data_processing/jobs/workflows/launch.py:507
 msgid "Job params"
 msgstr ""
 
-#: contrib/sahara/content/data_processing/jobs/workflows/launch.py:498
+#: contrib/sahara/content/data_processing/jobs/workflows/launch.py:513
 msgid "Job Execution ID"
 msgstr ""
 
-#: contrib/sahara/content/data_processing/jobs/workflows/launch.py:578
+#: contrib/sahara/content/data_processing/jobs/workflows/launch.py:593
 msgid "Unable to create new cluster for job."
 msgstr ""
 
-#: contrib/sahara/content/data_processing/jobs/workflows/launch.py:592
+#: contrib/sahara/content/data_processing/jobs/workflows/launch.py:607
 msgid "Unable to launch job."
 msgstr ""
 

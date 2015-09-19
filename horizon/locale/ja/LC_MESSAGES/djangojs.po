@@ -14,12 +14,12 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-09-18 05:57+0000\n"
+"POT-Creation-Date: 2015-09-18 23:31+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2015-09-18 03:25+0000\n"
-"Last-Translator: Shu Muto <shu-mutou@rf.jp.nec.com>\n"
+"PO-Revision-Date: 2015-09-19 04:32+0000\n"
+"Last-Translator: Akihiro Motoki <amotoki@gmail.com>\n"
 "Language-Team: Japanese (http://www.transifex.com/openstack/horizon/language/"
 "ja/)\n"
 "Generated-By: Babel 2.0\n"
@@ -46,6 +46,9 @@ msgstr "%s TB"
 #, python-format
 msgid "%s bytes"
 msgstr "%s バイト"
+
+msgid "-"
+msgstr "-"
 
 msgid "Active"
 msgstr "稼働中"
@@ -294,6 +297,9 @@ msgstr "以下の利用可能なアイテムから 1 つ選択してください
 msgid "Select one"
 msgstr "1 つ選択してください。"
 
+msgid "Server Name"
+msgstr "サーバー名"
+
 msgid "Shutdown"
 msgstr "シャットダウン"
 
@@ -381,6 +387,9 @@ msgstr "m1.small"
 
 msgid "m1.tiny"
 msgstr "m1.tiny"
+
+msgid "no quota"
+msgstr "クォータなし"
 
 msgid "pool default"
 msgstr "プールのデフォルト値"
