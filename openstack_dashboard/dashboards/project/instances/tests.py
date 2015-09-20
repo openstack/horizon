@@ -2497,6 +2497,168 @@ class InstanceTests(helpers.TestCase):
                  'volume_snapshot_list',),
         quotas: ('tenant_quota_usages',)})
     def test_launch_instance_post_boot_from_snapshot(
+            self,
+            test_with_profile=False,
+            test_with_bdmv2=False
+    ):
+        flavor = self.flavors.first()
+        keypair = self.keypairs.first()
+        server = self.servers.first()
+        snapshot = self.cinder_volume_snapshots.first()
+        sec_group = self.security_groups.first()
+        avail_zone = self.availability_zones.first()
+        customization_script = 'user data'
+        device_name = u'vda'
+        snapshot_choice = "%s:snap" % snapshot.id
+        if test_with_bdmv2:
+            snapshot_source_id = snapshot.id.split(':')[0]
+            block_device_mapping = None
+            block_device_mapping_2 = [
+                {'device_name': u'vda',
+                 'source_type': 'snapshot',
+                 'destination_type': 'volume',
+                 'delete_on_termination': 0,
+                 'uuid': snapshot_source_id,
+                 'boot_index': '0',
+                 'volume_size': 1
+                 }
+            ]
+        else:
+            block_device_mapping = {device_name:
+                                    u"%s::False" % snapshot_choice}
+            block_device_mapping_2 = None
+
+        nics = [{"net-id": self.networks.first().id, "v4-fixed-ip": ''}]
+        quota_usages = self.quota_usages.first()
+
+        api.nova.extension_supported('BlockDeviceMappingV2Boot',
+                                     IsA(http.HttpRequest)) \
+            .AndReturn(test_with_bdmv2)
+        api.nova.flavor_list(IsA(http.HttpRequest)) \
+            .AndReturn(self.flavors.list())
+        api.nova.keypair_list(IsA(http.HttpRequest)) \
+            .AndReturn(self.keypairs.list())
+        api.network.security_group_list(IsA(http.HttpRequest)) \
+            .AndReturn(self.security_groups.list())
+        api.nova.availability_zone_list(IsA(http.HttpRequest)) \
+            .AndReturn(self.availability_zones.list())
+        api.glance.image_list_detailed(
+            IsA(http.HttpRequest),
+            filters={'is_public': True, 'status': 'active'}) \
+            .AndReturn([self.images.list(), False, False])
+        api.glance.image_list_detailed(
+            IsA(http.HttpRequest),
+            filters={'property-owner_id': self.tenant.id,
+                     'status': 'active'}) \
+            .AndReturn([[], False, False])
+        api.neutron.network_list(IsA(http.HttpRequest),
+                                 tenant_id=self.tenant.id,
+                                 shared=False) \
+            .AndReturn(self.networks.list()[:1])
+        api.neutron.network_list(IsA(http.HttpRequest),
+                                 shared=True) \
+            .AndReturn(self.networks.list()[1:])
+        api.nova.flavor_list(IsA(http.HttpRequest)) \
+            .AndReturn(self.flavors.list())
+        if test_with_profile:
+            policy_profiles = self.policy_profiles.list()
+            policy_profile_id = self.policy_profiles.first().id
+            port = self.ports.first()
+            api.neutron.profile_list(
+                IsA(http.HttpRequest),
+                'policy').AndReturn(policy_profiles)
+            api.neutron.port_create(
+                IsA(http.HttpRequest),
+                self.networks.first().id,
+                policy_profile_id=policy_profile_id).AndReturn(port)
+            nics = [{"port-id": port.id}]
+        api.nova.extension_supported('DiskConfig',
+                                     IsA(http.HttpRequest)) \
+            .AndReturn(True)
+        api.nova.extension_supported('ConfigDrive',
+                                     IsA(http.HttpRequest)).AndReturn(True)
+        snapshots = [v for v in self.cinder_volume_snapshots.list()
+                     if (v.status == AVAILABLE)]
+        cinder.volume_list(IsA(http.HttpRequest),
+                           search_opts=VOLUME_SEARCH_OPTS) \
+            .AndReturn([])
+        cinder.volume_snapshot_list(IsA(http.HttpRequest),
+                                    search_opts=SNAPSHOT_SEARCH_OPTS) \
+            .AndReturn(snapshots)
+        api.nova.extension_supported('BlockDeviceMappingV2Boot',
+                                     IsA(http.HttpRequest)) \
+            .AndReturn(test_with_bdmv2)
+
+        api.nova.server_create(IsA(http.HttpRequest),
+                               server.name,
+                               '',
+                               flavor.id,
+                               keypair.name,
+                               customization_script,
+                               [str(sec_group.id)],
+                               block_device_mapping=block_device_mapping,
+                               block_device_mapping_v2=block_device_mapping_2,
+                               nics=nics,
+                               availability_zone=avail_zone.zoneName,
+                               instance_count=IsA(int),
+                               admin_pass=u'',
+                               disk_config=u'AUTO',
+                               config_drive=True)
+        quotas.tenant_quota_usages(IsA(http.HttpRequest)) \
+              .AndReturn(quota_usages)
+
+        self.mox.ReplayAll()
+
+        form_data = {'flavor': flavor.id,
+                     'source_type': 'volume_snapshot_id',
+                     'source_id': snapshot_choice,
+                     'keypair': keypair.name,
+                     'name': server.name,
+                     'script_source': 'raw',
+                     'script_data': customization_script,
+                     'project_id': self.tenants.first().id,
+                     'user_id': self.user.id,
+                     'groups': str(sec_group.id),
+                     'availability_zone': avail_zone.zoneName,
+                     'volume_size': '1',
+                     'volume_snapshot_id': snapshot_choice,
+                     'device_name': device_name,
+                     'network': self.networks.first().id,
+                     'count': 1,
+                     'disk_config': 'AUTO',
+                     'config_drive': True}
+        if test_with_profile:
+            form_data['profile'] = self.policy_profiles.first().id
+        url = reverse('horizon:project:instances:launch')
+        res = self.client.post(url, form_data)
+
+        self.assertNoFormErrors(res)
+        self.assertRedirectsNoFollow(res, INDEX_URL)
+
+    def test_launch_instance_post_boot_from_snapshot_with_bdmv2(self):
+        self.test_launch_instance_post_boot_from_snapshot(test_with_bdmv2=True)
+
+    @helpers.update_settings(
+        OPENSTACK_NEUTRON_NETWORK={'profile_support': 'cisco'})
+    def test_launch_instance_post_boot_from_snapshot_with_profile(self):
+        self.test_launch_instance_post_boot_from_snapshot(
+            test_with_profile=True)
+
+    @helpers.create_stubs({
+        api.glance: ('image_list_detailed',),
+        api.neutron: ('network_list',
+                      'profile_list',
+                      'port_create',),
+        api.nova: ('extension_supported',
+                   'flavor_list',
+                   'keypair_list',
+                   'availability_zone_list',
+                   'server_create',),
+        api.network: ('security_group_list',),
+        cinder: ('volume_list',
+                 'volume_snapshot_list',),
+        quotas: ('tenant_quota_usages',)})
+    def test_launch_instance_post_boot_from_snapshot_error(
         self,
         test_with_profile=False,
     ):
