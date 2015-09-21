@@ -17,12 +17,12 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-09-18 23:31+0000\n"
+"POT-Creation-Date: 2015-09-19 06:33+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2015-09-18 06:54+0000\n"
-"Last-Translator: Akihiro Motoki <amotoki@gmail.com>\n"
+"PO-Revision-Date: 2015-09-19 09:30+0000\n"
+"Last-Translator: Yuko Katabami <yukokatabami@gmail.com>\n"
 "Language-Team: Japanese (http://www.transifex.com/openstack/horizon/language/"
 "ja/)\n"
 "Generated-By: Babel 2.0\n"
@@ -361,9 +361,8 @@ msgid ""
 msgstr ""
 "\n"
 "このプールに仮想 IP を作成します。\n"
-"名前、説明、IP アドレス、ポート、この仮想 IP で受け付ける最大接続数を指定しま"
-"す。\n"
-"仮想 IP でのセッション永続性の方法を選択してください。\n"
+"名前、説明、IP アドレス、ポート、この仮想 IP の最大許容接続数を指定します。\n"
+"プロトコルと、仮想 IP でのセッション永続性の方法を選択してください。\n"
 "管理状態はデフォルトで 有効 (UP) になっています。"
 
 msgid ""
@@ -917,8 +916,8 @@ msgid ""
 "Add and remove security groups to this instance from the list of available "
 "security groups."
 msgstr ""
-"インスタンスのセキュリティーグループを、利用可能なセキュリティーグループのリ"
-"ストから追加したり削除したりできます。"
+"利用可能なセキュリティーグループのリストからこのインスタンスに、セキュリ"
+"ティーグループを追加したり削除したりできます。"
 
 msgid "Add custom tag"
 msgstr "カスタムタグの追加"
@@ -939,7 +938,7 @@ msgid "Add interface"
 msgstr "インターフェースの追加"
 
 msgid "Add libraries to your job template."
-msgstr "ジョブテンプレートにライブラリを追加します。"
+msgstr "ジョブテンプレートにライブラリーを追加します。"
 
 msgid ""
 "Add member(s) to the selected pool.\n"
@@ -1169,7 +1168,9 @@ msgstr "Floating IP %(ip)s を確保しました。"
 msgid ""
 "Allocates requests to the instance with the least number of\n"
 "          active connections."
-msgstr "接続中のコネクションが最少のメンバーにリクエストを割り当てます。"
+msgstr ""
+"アクティブな接続数が最も少ないメンバーにリクエストを割り当てます。\n"
+" "
 
 msgid "Allocation Pools"
 msgstr "IP アドレス割り当てプール"
@@ -3260,7 +3261,7 @@ msgstr "削除中"
 
 #, python-format
 msgid "Deleting VIP %s from this pool cannot be undone."
-msgstr "プールからの仮想 IP %s の削除は取り消せません。"
+msgstr "プールからの仮想 IP %s の削除は元に戻すことはできません。"
 
 msgid "Deny"
 msgstr "拒否"
@@ -3278,7 +3279,7 @@ msgid "Destination CIDR"
 msgstr "宛先 CIDR"
 
 msgid "Destination Host"
-msgstr "移動先ホスト"
+msgstr "移行先ホスト"
 
 msgid "Destination IP"
 msgstr "宛先 IP アドレス"
@@ -4074,7 +4075,7 @@ msgid "Existence of volume"
 msgstr "ボリュームの有無"
 
 msgid "Expected Codes"
-msgstr "期待されるコード"
+msgstr "想定されるコード"
 
 msgid "Expected HTTP Status Codes"
 msgstr "HTTP ステータスコードの期待値"
@@ -5058,7 +5059,7 @@ msgid ""
 "creation. Otherwise you should manually specify configuration values"
 msgstr ""
 "自動設定を選択すると、クラスターのインスタンスは作成中に自動で設定されます。"
-"選択しなかった場合、設定値を手動で指定する必要があります。"
+"選択しなかった場合には、設定値を手動で指定する必要があります。"
 
 msgid ""
 "If selected, instances of a node group will be automatically configured "
@@ -5683,7 +5684,7 @@ msgid "Least Connections"
 msgstr "最小コネクション数"
 
 msgid "Least connections"
-msgstr "最小コネクション数"
+msgstr "最小接続数"
 
 msgid "Length of Injected File Path"
 msgstr "注入ファイルのパス長"
@@ -6819,6 +6820,10 @@ msgstr "その他"
 msgid "Other Protocol"
 msgstr "その他のプロトコル"
 
+#, python-format
+msgid "Out of range float values are not JSON compliant: %r"
+msgstr "範囲外の Float 値は JSON に準拠しません: %r"
+
 msgid "Output"
 msgstr "出力"
 
@@ -7095,7 +7100,7 @@ msgstr "ポート範囲"
 
 #, python-format
 msgid "Port cleanup failed for these port-ids (%s)."
-msgstr "削除出来なかったポートがあります (ポート ID: %s)"
+msgstr "削除できなかったポートがあります (ポート ID: %s)"
 
 msgid "Port list can not be retrieved."
 msgstr "ポート一覧を取得できません。"
@@ -7110,7 +7115,7 @@ msgid "Position in Policy"
 msgstr "ポリシー内の位置"
 
 msgid "Positional Argument"
-msgstr "位置で決まる引き数 (Positional Argument)"
+msgstr "位置指定引数 (Positional Argument)"
 
 msgid "Post-Creation"
 msgstr "作成後"
@@ -8071,7 +8076,7 @@ msgid "Script text"
 msgstr "スクリプト本文"
 
 msgid "Security"
-msgstr "セキュリティ"
+msgstr "セキュリティー"
 
 msgid "Security Group"
 msgstr "セキュリティーグループ"
@@ -9771,7 +9776,7 @@ msgid "Total Gigabytes"
 msgstr "合計ギガバイト"
 
 msgid "Total Memory Usage (Hours):"
-msgstr "合計メモリ使用量 (時間):"
+msgstr "合計メモリー使用量 (時間):"
 
 msgid "Total RAM"
 msgstr "合計メモリー"
@@ -10318,7 +10323,7 @@ msgid "Unable to get resources for stack \"%s\"."
 msgstr "スタック \"%s\" のリソースを取得できません。"
 
 msgid "Unable to get security group list."
-msgstr "セキュリティグループの一覧を取得できません。"
+msgstr "セキュリティーグループの一覧を取得できません。"
 
 #, python-format
 msgid "Unable to get subnet \"%s\""
@@ -12153,10 +12158,10 @@ msgid "You may update rule details here."
 msgstr "ルールの詳細をここから更新できます。"
 
 msgid "You may update the editable properties of your network here."
-msgstr "ネットワークの編集可能なプロパティーをここから更新できます。"
+msgstr "ネットワークの編集可能な属性をここから更新できます。"
 
 msgid "You may update the editable properties of your port here."
-msgstr "ポートの編集可能なプロパティーをここから更新できます。"
+msgstr "ポートの編集可能な属性をここから更新できます。"
 
 msgid "You may update the editable properties of your router here."
 msgstr "ルーターの変更可能な属性を更新できます。"
