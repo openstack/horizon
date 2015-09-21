@@ -84,8 +84,8 @@ class EditNetwork(policy.PolicyTargetMixin, tables.LinkAction):
 
 
 DISPLAY_CHOICES = (
-    ("UP", pgettext_lazy("Admin state of a Network", u"UP")),
-    ("DOWN", pgettext_lazy("Admin state of a Network", u"DOWN")),
+    ("up", pgettext_lazy("Admin state of a Network", u"UP")),
+    ("down", pgettext_lazy("Admin state of a Network", u"DOWN")),
 )
 
 

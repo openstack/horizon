@@ -34,6 +34,7 @@ from openstack_dashboard import api
 from openstack_dashboard.api import cinder
 from openstack_dashboard import exceptions as dashboard_exception
 from openstack_dashboard.usage import quotas
+from openstack_dashboard.utils import filters
 
 from openstack_dashboard.dashboards.project.volumes \
     .volumes import forms as project_forms
@@ -56,13 +57,8 @@ class DetailView(tabs.TabView):
         context["volume"] = volume
         context["url"] = self.get_redirect_url()
         context["actions"] = table.render_row_actions(volume)
-        status_label = [label for (value, label) in
-                        project_tables.VolumesTableBase.STATUS_DISPLAY_CHOICES
-                        if value.lower() == (volume.status or '').lower()]
-        if status_label:
-            volume.status_label = status_label[0]
-        else:
-            volume.status_label = volume.status
+        choices = project_tables.VolumesTableBase.STATUS_DISPLAY_CHOICES
+        volume.status_label = filters.get_display_label(choices, volume.status)
         return context
 
     @memoized.memoized_method

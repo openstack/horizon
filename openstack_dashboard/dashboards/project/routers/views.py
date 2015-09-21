@@ -30,7 +30,10 @@ from horizon import messages
 from horizon import tables
 from horizon import tabs
 from horizon.utils import memoized
+
 from openstack_dashboard import api
+from openstack_dashboard.utils import filters
+
 from openstack_dashboard.dashboards.project.routers\
     import forms as project_forms
 from openstack_dashboard.dashboards.project.routers import tables as rtables
@@ -152,22 +155,11 @@ class DetailView(tabs.TabbedTableView):
             self.request, "dvr", "get")
         context['ha_supported'] = api.neutron.get_feature_permission(
             self.request, "l3-ha", "get")
-        status_label = [label for (value, label) in
-                        table.STATUS_DISPLAY_CHOICES
-                        if value.lower() == (router.status or '').lower()]
-        if status_label:
-            router.status_label = status_label[0]
-        else:
-            router.status_label = router.status
-        admin_state_label = [state for (value, state) in
-                             table.ADMIN_STATE_DISPLAY_CHOICES
-                             if value.lower() ==
-                             (router.admin_state or '').lower()]
-        if admin_state_label:
-            router.admin_state_label = admin_state_label[0]
-        else:
-            router.admin_state_label = router.admin_state
-
+        choices = table.STATUS_DISPLAY_CHOICES
+        router.status_label = filters.get_display_label(choices, router.status)
+        choices = table.ADMIN_STATE_DISPLAY_CHOICES
+        router.admin_state_label = (
+            filters.get_display_label(choices, router.admin_state))
         return context
 
     def get_tabs(self, request, *args, **kwargs):

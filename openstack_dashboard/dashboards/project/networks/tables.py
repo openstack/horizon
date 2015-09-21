@@ -147,14 +147,14 @@ def get_subnets(network):
 
 
 DISPLAY_CHOICES = (
-    ("UP", pgettext_lazy("Admin state of a Network", u"UP")),
-    ("DOWN", pgettext_lazy("Admin state of a Network", u"DOWN")),
+    ("up", pgettext_lazy("Admin state of a Network", u"UP")),
+    ("down", pgettext_lazy("Admin state of a Network", u"DOWN")),
 )
 STATUS_DISPLAY_CHOICES = (
-    ("ACTIVE", pgettext_lazy("Current status of a Network", u"Active")),
-    ("BUILD", pgettext_lazy("Current status of a Network", u"Build")),
-    ("DOWN", pgettext_lazy("Current status of a Network", u"Down")),
-    ("ERROR", pgettext_lazy("Current status of a Network", u"Error")),
+    ("active", pgettext_lazy("Current status of a Network", u"Active")),
+    ("build", pgettext_lazy("Current status of a Network", u"Build")),
+    ("down", pgettext_lazy("Current status of a Network", u"Down")),
+    ("error", pgettext_lazy("Current status of a Network", u"Error")),
 )
 
 

@@ -26,6 +26,7 @@ from horizon.utils import memoized
 from horizon import workflows
 
 from openstack_dashboard import api
+from openstack_dashboard.utils import filters
 
 from openstack_dashboard.dashboards.project.networks \
     import forms as project_forms
@@ -150,21 +151,12 @@ class DetailView(tables.MultiTableView):
         table = project_tables.NetworksTable(self.request)
         context["url"] = self.get_redirect_url()
         context["actions"] = table.render_row_actions(network)
-        status_label = [label for (value, label) in
-                        project_tables.STATUS_DISPLAY_CHOICES
-                        if value.lower() == (network.status or '').lower()]
-        if status_label:
-            network.status_label = status_label[0]
-        else:
-            network.status_label = network.status
-        admin_state_label = [state for (value, state) in
-                             project_tables.DISPLAY_CHOICES
-                             if value.lower() ==
-                             (network.admin_state or '').lower()]
-        if admin_state_label:
-            network.admin_state_label = admin_state_label[0]
-        else:
-            network.admin_state_label = network.admin_state
+        choices = project_tables.STATUS_DISPLAY_CHOICES
+        network.status_label = (
+            filters.get_display_label(choices, network.status))
+        choices = project_tables.DISPLAY_CHOICES
+        network.admin_state_label = (
+            filters.get_display_label(choices, network.admin_state))
         return context
 
     @staticmethod
