@@ -5,15 +5,16 @@
 # Translators:
 # Zbyněk Schwarz <zbynek.schwarz@gmail.com>, 2014-2015
 # OpenStack Infra <zanata@openstack.org>, 2015. #zanata
+# Zbyněk Schwarz <zbynek.schwarz@gmail.com>, 2015. #zanata
 msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-09-16 18:25+0000\n"
+"POT-Creation-Date: 2015-09-19 06:33+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2015-08-21 04:57+0000\n"
+"PO-Revision-Date: 2015-09-21 07:08+0000\n"
 "Last-Translator: Zbyněk Schwarz <zbynek.schwarz@gmail.com>\n"
 "Language-Team: Czech (http://www.transifex.com/openstack/horizon/language/"
 "cs/)\n"
@@ -307,11 +308,23 @@ msgstr "Vyberte %s pro prohlížení."
 msgid "Select a period of time to query its usage:"
 msgstr "Vyberte časové období pro zobrazení využití:"
 
+msgid "Sell Puppy"
+msgid_plural "Sell Puppies"
+msgstr[0] "Prodat štěně"
+msgstr[1] "Prodat štěňata"
+msgstr[2] "Prodat štěňat"
+
 msgid "Session timed out."
 msgstr "Relace vypršela."
 
 msgid "Sign In"
 msgstr "Přihlásit"
+
+msgid "Sold Puppy"
+msgid_plural "Sold Puppies"
+msgstr[0] "Štěně prodáno"
+msgstr[1] "Štěňata prodána"
+msgstr[2] "Štěňata prodána"
 
 msgid "Submit"
 msgstr "Odeslat"

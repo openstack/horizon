@@ -15,11 +15,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-09-18 05:57+0000\n"
+"POT-Creation-Date: 2015-09-19 06:33+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2015-09-11 04:04+0000\n"
+"PO-Revision-Date: 2015-09-21 05:41+0000\n"
 "Last-Translator: Sungjin Kang <gang.sungjin@gmail.com>\n"
 "Language-Team: Korean (Korea) (http://www.transifex.com/openstack/horizon/"
 "language/ko_KR/)\n"
@@ -366,6 +366,20 @@ msgstr ""
 " 메서드을 선택합니다. 관리 상태는 기본으로 UP (확인된)입니다.\n"
 " "
 
+msgid ""
+"\n"
+"Resize the canvas by scrolling up/down with your mouse/trackpad on the "
+"topology.\n"
+"Pan around the canvas by clicking and dragging the space behind the "
+"topology.\n"
+"  "
+msgstr ""
+"\n"
+"토폴로지에서 마우스/트랙패드를 스크롤 업/다운하여 캔버스 크기를 조절합니다.\n"
+"토폴로지 뒤의 여백을 클릭 및 드래그하여 캔버스 주위를 상하[좌우]로 회전시킵니"
+"다.\n"
+"  "
+
 msgid " - End"
 msgstr "- 끝"
 
@@ -392,6 +406,13 @@ msgstr "\"볼륨 타입 수정\""
 
 msgid "\"N/A\""
 msgstr "\"N/A\""
+
+msgid "\"Namespace Resource Type Associations\""
+msgstr "\"네임스페이스 자원 유형 연관\""
+
+msgid "\"No flavors meet minimum criteria for selected image.\""
+msgstr ""
+"\"선택된 이미지에 대해 최소 기준을 충족하는 Flavor가 존재하지 않습니다.\""
 
 msgid "\"None\""
 msgstr "\"없음\""
@@ -755,12 +776,18 @@ msgctxt "status of a network port"
 msgid "Active"
 msgstr "Active"
 
+msgid "Active Instances:"
+msgstr "활성화된 인스턴스:"
+
 msgid ""
 "Actual device name may differ due to hypervisor settings. If not specified, "
 "then hypervisor will select a device name."
 msgstr ""
 "실제 장치 이름은 하이퍼바이저 설정에 따라 다를 수 있습니다. 지정되지 않은 경"
 "우, 하이퍼바이저는 장치 이름에서 선택합니다."
+
+msgid "Adapt For Oozie"
+msgstr "Oozie에 대한 적응"
 
 msgid "Add"
 msgstr "추가"
@@ -1125,6 +1152,13 @@ msgstr "할당됨"
 msgid "Allocated Floating IP %(ip)s."
 msgstr "유동 IP %(ip)s를 할당했습니다."
 
+msgid ""
+"Allocates requests to the instance with the least number of\n"
+"          active connections."
+msgstr ""
+"최소 개수의 활성화된 연결과 함께 인스턴스에 \n"
+" 요청을 할당합니다."
+
 msgid "Allocation Pools"
 msgstr "Pools 할당"
 
@@ -1310,14 +1344,21 @@ msgstr ""
 "동: 빠른 빌드 시간으로 결과를 확인할 수 있으나 수동으로 파티션을 조정해야합니"
 "다."
 
+msgid ""
+"Automatically modify the Hadoop configuration so that job config values are "
+"set and so that Oozie will handle exit codes correctly."
+msgstr ""
+"자동으로 Hadoop 구성을 수정하여 job 구성 값이 설정되도록 하고 Oozie가 올바르"
+"게 코드를 빠져도록 핸들링합니다."
+
 msgid "Availability Zone"
-msgstr "가용 영역"
+msgstr "가용성 존"
 
 msgid "Availability Zone Name"
-msgstr "가용 영역 이름"
+msgstr "가용성 존 이름"
 
 msgid "Availability Zones"
-msgstr "가용 영역"
+msgstr "가용성 존"
 
 msgid "Available"
 msgstr "사용 가능"
@@ -1430,7 +1471,7 @@ msgstr "바인딩: VNIC 유형"
 
 msgctxt "Task status of an Instance"
 msgid "Block Device Mapping"
-msgstr "Block Device Mapping"
+msgstr "블록 디바이스 매핑"
 
 msgid "Block Migration"
 msgstr "블록 마이그레이션"
@@ -1751,6 +1792,9 @@ msgstr "닫기"
 msgid "Cluster"
 msgstr "클러스터"
 
+msgid "Cluster Count"
+msgstr "클러스터 개수"
+
 msgid "Cluster Creation Guide"
 msgstr "클러스터 생성 가이드"
 
@@ -1852,6 +1896,9 @@ msgstr "구성"
 
 msgid "Configuration Drive"
 msgstr "드라이브 구성"
+
+msgid "Configuration Value"
+msgstr "구성값"
 
 msgid "Configure"
 msgstr "구성"
@@ -2389,7 +2436,7 @@ msgid "Create time"
 msgstr "시간 생성"
 
 msgid "Create volumes in this availability zone."
-msgstr "볼륨을 해당 가용 존에 생성합니다."
+msgstr "볼륨을 해당 가용성 존에 생성합니다."
 
 msgid "Created"
 msgstr "생성"
@@ -2634,6 +2681,9 @@ msgstr ""
 "데이터 프로세싱은 다른 저장 위치를 선택할 수 있도록 제공합니다. 임시 드라이"
 "브 또는 인스턴스에 연결된 Cinder 볼륨 을 선택합니다."
 
+msgid "Data Source"
+msgstr "데이터 원본"
+
 msgid "Data Source Details"
 msgstr "데이터 소스에 대한 자세한 설명"
 
@@ -2722,6 +2772,9 @@ msgstr "비밀번호 해독"
 
 msgid "Default Quotas"
 msgstr "기본 Quotas"
+
+msgid "Default Value"
+msgstr "기본값"
 
 msgid "Default quotas updated."
 msgstr "기본 quota가 업데이트되었습니다."
@@ -3294,6 +3347,13 @@ msgstr "직접 입력"
 msgid "Direction"
 msgstr "Direction"
 
+msgid "Disable Domain"
+msgid_plural "Disable Domains"
+msgstr[0] "도메인 비활성화"
+
+msgid "Disable Domains"
+msgstr "도메인 비활성화"
+
 msgid "Disable Gateway"
 msgstr "게이트웨이 비활성"
 
@@ -3316,6 +3376,10 @@ msgstr "비활성화"
 msgctxt "Current status of a Hypervisor"
 msgid "Disabled"
 msgstr "비활성화"
+
+msgid "Disabled Domain"
+msgid_plural "Disabled Domains"
+msgstr[0] "비활성화된 도메인"
 
 msgid "Disabled User"
 msgid_plural "Disabled Users"
@@ -3688,12 +3752,22 @@ msgstr "Email"
 msgid "Enable DHCP"
 msgstr "DHCP 사용"
 
+msgid "Enable Domain"
+msgid_plural "Enable Domains"
+msgstr[0] "도메인 활성화"
+
+msgid "Enable Domains"
+msgstr "도메인 활성화"
+
 msgid "Enable HA mode"
 msgstr "HA 모드 활성"
 
 msgid "Enable Service"
 msgid_plural "Enable Services"
 msgstr[0] "서비스 사용"
+
+msgid "Enable Swift Paths"
+msgstr "Swift 경로 활성화"
 
 msgid "Enable User"
 msgid_plural "Enable Users"
@@ -3708,6 +3782,10 @@ msgstr "활성화"
 msgctxt "Current status of a Hypervisor"
 msgid "Enabled"
 msgstr "활성화"
+
+msgid "Enabled Domain"
+msgid_plural "Enabled Domains"
+msgstr[0] "활성화된 도메인"
 
 msgid "Enabled Service"
 msgid_plural "Enabled Services"
@@ -4485,6 +4563,13 @@ msgid "For Object Store job binaries, you must:"
 msgstr "오브젝트 저장소 job 바이너리의 경우, 다음을 해야합니다:"
 
 msgid ""
+"For Shell Action jobs, any required files beyond the main script may be "
+"added as \"libraries\"."
+msgstr ""
+"Shell 액션 job에서, 메인 스크립트 이외 필수 파일들은 \"라이브러리\"로 추가할 "
+"수 있습니다."
+
+msgid ""
 "For Spark and Shell jobs, only a main is required, \"libs\" are optional."
 msgstr ""
 "Spark와 쉘 job의 경우, \"main\"은 꼭 필요하고 \"libs\"는 선택사항입니다."
@@ -4721,14 +4806,14 @@ msgid ""
 "together hosts. Create a host aggregate then select the hosts contained in "
 "it."
 msgstr ""
-"호스트 집합은 다수의 호스트로 구성한 논리 단위로 가용 영역을 나눕니다. 먼저 "
+"호스트 집합은 다수의 호스트로 구성한 논리 단위로 가용성 존을 나눕니다. 먼저 "
 "호스트 집합를 생성하고 포함할 호스트를 선택하십시오."
 
 msgid ""
 "Host aggregates divide an availability zone into logical units by grouping "
 "together hosts. Edit the aggregate host to select hosts contained in it."
 msgstr ""
-"호스트 집합은 가용 영역을 호스트를 묶어서 논리적인 부분으로 나눕니다. 포함할 "
+"호스트 집합은 가용성 존을 호스트를 묶어서 논리적인 부분으로 나눕니다. 포함할 "
 "호스트를 선택하려면 호스트 집합을 편집하십시오."
 
 msgid "Host or IP that the user is allowed to connect through."
@@ -4930,6 +5015,14 @@ msgid ""
 msgstr ""
 "선택하면 생성 동안 클러스터 인스턴스를 자동으로 구성합니다. 그렇지 않으면 수"
 "동으로 구성 값을 지정해야 합니다."
+
+msgid ""
+"If selected, instances of a node group will be automatically configured "
+"during cluster creation. Otherwise you should manually specify configuration "
+"values."
+msgstr ""
+"선택한 경우, 클러스터 생성시 노드 그룹에 대한 인스턴스가 자동으로 구성될 것입"
+"니다. 그렇지 않으면 수동으로 구성 값을 지정해야 합니다."
 
 msgid ""
 "If you select an image via an HTTP URL, the Image Location field MUST be a "
@@ -5224,6 +5317,9 @@ msgstr "불충분한 권한 수준으로 사용자 정보를 볼 수 있습니�
 msgid "Intelligent Platform Management Interface (IPMI)"
 msgstr "지능형 플랫폼 관리 인터페이스 (IPMI)"
 
+msgid "Interface Arguments"
+msgstr "인터페이스 매개변수"
+
 msgid "Interface added"
 msgstr "인터페이스 추가"
 
@@ -5495,7 +5591,7 @@ msgid "Launch instances in these security groups."
 msgstr "이 시큐리티 그룹에서 인스턴스를 구동합니다."
 
 msgid "Launch instances in this availability zone."
-msgstr "현재 가용 영역에서 인스턴스를 구동합니다."
+msgstr "현재 가용성 존에서 인스턴스를 구동합니다."
 
 msgid "Launch job"
 msgstr "Job 실행"
@@ -5611,6 +5707,9 @@ msgstr "로컬 저장소 (전체)"
 
 msgid "Local Storage (used)"
 msgstr "로컬 저장소 (사용됨)"
+
+msgid "Location"
+msgstr "위치"
 
 msgid "Lock Instance"
 msgid_plural "Lock Instances"
@@ -5730,6 +5829,9 @@ msgstr "고정 IP 주소 맵핑함"
 
 msgid "Mapper"
 msgstr "Mapper"
+
+msgid "Mapping Type"
+msgstr "매핑 유형"
 
 msgid "Master Instance Name"
 msgstr "마스터 인스턴스 이름"
@@ -5916,6 +6018,12 @@ msgstr "사용자의 데시보드 설정을 수정합니다."
 msgid "Modify name and description of a volume."
 msgstr "볼륨의 이름과 설명을 수정합니다."
 
+msgid ""
+"Modify the configuration so that swift URLs can be dereferenced through HDFS "
+"at runtime."
+msgstr ""
+"Swift URL이 런타임에서 HDFS를 통해 역참조할 수 있도록 구성을 수정합니다."
+
 msgid "Modify the name and description of a snapshot."
 msgstr "스냅샷에 대한 이름과 설명을 수정합니다."
 
@@ -5973,6 +6081,9 @@ msgstr "이름: %(name)s ID: %(uuid)s"
 #, python-format
 msgid "Name: %(node_group_name)s"
 msgstr "이름: %(node_group_name)s"
+
+msgid "Named Parameter"
+msgstr "이름 매개변수"
 
 msgid "Namespace"
 msgstr "네임스페이스"
@@ -6475,6 +6586,9 @@ msgstr ""
 "있는 임의의 클러스터-세부 구성 항목을 선택하는 \n"
 "단계가 나타날 것입니다."
 
+msgid "Number"
+msgstr "숫자"
+
 msgid "Number of API requests against swift"
 msgstr "Swift에 대한 API 요청 갯수"
 
@@ -6492,6 +6606,9 @@ msgstr "VCPUs 수"
 
 msgid "Number of Volumes"
 msgstr "볼륨 수"
+
+msgid "Number of clusters to launch."
+msgstr "구동할 클러스터 수."
 
 msgid "Number of containers"
 msgstr "컨테이너 갯수"
@@ -6654,6 +6771,10 @@ msgstr "다른"
 
 msgid "Other Protocol"
 msgstr "다른 프로토콜"
+
+#, python-format
+msgid "Out of range float values are not JSON compliant: %r"
+msgstr "범위에 벗어난 실수 값이 JSON과 호환되지 않습니다: %r"
 
 msgid "Output"
 msgstr "출력"
@@ -6943,6 +7064,9 @@ msgstr "포트"
 msgid "Position in Policy"
 msgstr "정책 위치"
 
+msgid "Positional Argument"
+msgstr "위치 매개변수"
+
 msgid "Post-Creation"
 msgstr "생성 이후"
 
@@ -6961,10 +7085,10 @@ msgid "Powering On"
 msgstr "Powering On"
 
 msgid "Pre-Shared Key (PSK) string"
-msgstr "사전 공유키 (PSK) 문자\t"
+msgstr "사전 공유키 (PSK) 문자"
 
 msgid "Pre-Shared Key string"
-msgstr "사전 공유키 문자\t"
+msgstr "사전 공유키 문자"
 
 msgid "Prefix: "
 msgstr "접두어:"
@@ -7027,6 +7151,9 @@ msgstr "프로젝트 그룹"
 
 msgid "Project ID"
 msgstr "프로젝트 ID"
+
+msgid "Project ID:"
+msgstr "프로젝트 ID:"
 
 msgid "Project Information"
 msgstr "프로젝트 정보"
@@ -7249,7 +7376,7 @@ msgstr "Rebuild"
 
 msgctxt "Task status of an Instance"
 msgid "Rebuild Block Device Mapping"
-msgstr "Rebuild Block Device Mapping"
+msgstr "블록 디바이스 매핑 다시 빌드"
 
 msgid "Rebuild Instance"
 msgstr "인스턴스 리빌드"
@@ -7394,6 +7521,9 @@ msgid ""
 msgstr ""
 "하나의 고유한 소스 IP 주소로부터의 요청들은 지속적으로  \n"
 "같은 인스턴스로 이동합니다."
+
+msgid "Required"
+msgstr "필수"
 
 msgid "Required for APP_COOKIE persistence; Ignored otherwise."
 msgstr "APP_COOKIE 지속성을 위해 요청되었습니다. 다른 경우 무시됩니다."
@@ -7995,6 +8125,9 @@ msgstr "라우터 선택"
 msgid "Select a Subnet"
 msgstr "서브넷 선택"
 
+msgid "Select a Value Type for your next argument:"
+msgstr "다음 매개변수에 대한 값 유형을 선택합니다:"
+
 msgid "Select a backup to restore"
 msgstr "복원할 백업본 선택"
 
@@ -8272,9 +8405,17 @@ msgstr "쉘"
 msgid "Shell Action"
 msgstr "쉘 실행"
 
+msgid "Shelve Instance"
+msgid_plural "Shelve Instances"
+msgstr[0] "인스턴스 Shelve"
+
 msgctxt "Current status of an Instance"
 msgid "Shelved"
 msgstr "Shelved"
+
+msgid "Shelved Instance"
+msgid_plural "Shelved Instances"
+msgstr[0] "Shelve된 인스턴스"
 
 msgctxt "Current status of an Instance"
 msgid "Shelved Offloaded"
@@ -8637,6 +8778,9 @@ msgid "Started Instance"
 msgid_plural "Started Instances"
 msgstr[0] "인스턴스 시작함"
 
+msgid "Started at"
+msgstr "시작됨"
+
 #, python-format
 msgid "Starting evacuation from %(current)s to %(target)s."
 msgstr "%(target)s에서 %(current)s으로 이전을 시작합니다."
@@ -8687,6 +8831,9 @@ msgstr "Storm"
 
 msgid "Streaming MapReduce"
 msgstr "스트리밍 MapReduce"
+
+msgid "String"
+msgstr "문자열"
 
 msgid "Subnet"
 msgstr "서브넷"
@@ -9521,6 +9668,12 @@ msgstr ""
 msgid "To:"
 msgstr "종료:"
 
+msgid "Toggle Network Collapse"
+msgstr "네트워크 축소 토글"
+
+msgid "Toggle labels"
+msgstr "라벨 토글"
+
 msgid "Toggle navigation"
 msgstr "내비게이션 토글"
 
@@ -9530,11 +9683,23 @@ msgstr "Topic"
 msgid "Topology"
 msgstr "토폴로지"
 
+msgid "Total Active RAM (MB):"
+msgstr "총 활성화된 RAM (MB):"
+
 msgid "Total Disk"
 msgstr "모든 디스크"
 
+msgid "Total Disk Size (GB):"
+msgstr "총 디스크 크기 (GB):"
+
+msgid "Total Disk Usage (Hours):"
+msgstr "총 디스크 사용량 (시간):"
+
 msgid "Total Gigabytes"
 msgstr "전체 기가 바이트"
+
+msgid "Total Memory Usage (Hours):"
+msgstr "총 메모리 사용량 (시간):"
 
 msgid "Total RAM"
 msgstr "모든 RAM"
@@ -9544,6 +9709,9 @@ msgstr "LUKS 볼륨 및 스냅샷 총량 (GB)"
 
 msgid "Total Size of Volumes and Snapshots (GB)"
 msgstr "볼륨 및 스냅샷 총량 (GB)"
+
+msgid "Total VCPU Usage (Hours):"
+msgstr "총 VCPU 사용량 (시간):"
 
 msgid ""
 "Total VCPU usage (Number of VCPU in instance * Hours Used) for the project"
@@ -9766,6 +9934,9 @@ msgstr "새로운 이미지를 생성할 수 없습니다: 이미지 이름이 �
 #, python-format
 msgid "Unable to create new image: Invalid disk format %s for image."
 msgstr "새 이미지 생성 실패: 이미지에 대한 잘못된 %s 디스크 포맷입니다."
+
+msgid "Unable to create new image: URL scheme not supported."
+msgstr "새로운 이미지를 생성할 수 없음: URL 스키마를 지원하지 않습니다."
 
 #, python-format
 msgid "Unable to create new namespace. %s"
@@ -10282,7 +10453,7 @@ msgid "Unable to retrieve attachment information."
 msgstr "연결 설정 정보를 찾지 못 했습니다."
 
 msgid "Unable to retrieve availability zone list."
-msgstr "가용 영역 목록을 찾지 못했습니다."
+msgstr "가용성 존 목록을 찾지 못했습니다."
 
 msgid "Unable to retrieve availability zones."
 msgstr "가용성 존에 대한 정보를 찾지 못 했습니다."
@@ -10849,7 +11020,7 @@ msgid "Unable to retrieve volume/instance attachment information"
 msgstr "볼륨/인스턴스 연결 정보를 찾을 수 없습니다."
 
 msgid "Unable to retrieve volumes availability zones."
-msgstr "볼륨 가용 존을 가져올 수 없습니다."
+msgstr "볼륨 가용성 존을 가져올 수 없습니다."
 
 msgid "Unable to set Domain Context."
 msgstr "도메인 컨텍스트를 설정할 수 없습니다. "
@@ -11015,6 +11186,14 @@ msgstr "방화벽에서 라우터를 선택 취소하여 제거합니다."
 
 msgid "Unselect the routers you want to disassociate from the firewall."
 msgstr "방화벽에서 라우터를 선택 취소하여 연결을 끊습니다."
+
+msgid "Unshelve Instance"
+msgid_plural "Unshelve Instances"
+msgstr[0] "인스턴스 Shelve 해제"
+
+msgid "Unshelved Instance"
+msgid_plural "Unshelved Instances"
+msgstr[0] "Shelve되지 않은 인스턴스"
 
 msgctxt "Task status of an Instance"
 msgid "Unshelving"
@@ -11201,6 +11380,9 @@ msgstr "사용 개요"
 
 msgid "Usage Report"
 msgstr "사용량 보고서"
+
+msgid "Usage Report For Period:"
+msgstr "기간에 대한 사용량 보고서:"
 
 msgid "Use HBase Common library"
 msgstr "HBase 공통 라이브러리 사용"
@@ -11401,6 +11583,9 @@ msgstr "값"
 msgid "Value (Avg)"
 msgstr "값 (평균)"
 
+msgid "Value Type"
+msgstr "값 유형"
+
 msgid "Value:"
 msgstr "값:"
 
@@ -11414,7 +11599,9 @@ msgstr "버전:"
 msgid ""
 "Version: %(version_info)s\n"
 "      "
-msgstr "버전: %(version_info)s"
+msgstr ""
+"버전: %(version_info)s\n"
+"      "
 
 msgid "View Container"
 msgstr "컨테이너 보기"
@@ -11582,6 +11769,9 @@ msgstr ""
 msgid "Volume is Unencrypted"
 msgstr "볼륨이 암호화되지 않은 상태임"
 
+msgid "Volume local to instance"
+msgstr "인스턴스에서 로컬 볼륨"
+
 msgid ""
 "Volume mount point (e.g. 'vda' mounts at '/dev/vda'). Leave this field blank "
 "to let the system choose a device name for you."
@@ -11646,7 +11836,10 @@ msgid "Volumes Attached"
 msgstr "볼륨 연결"
 
 msgid "Volumes Availability Zone"
-msgstr "볼륨 가용 존"
+msgstr "볼륨 가용성 존"
+
+msgid "Volumes local to instance"
+msgstr "인스턴스에서 로컬 볼륨"
 
 msgid "Volumes per node"
 msgstr "노드당 볼륨"

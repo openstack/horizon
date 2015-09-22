@@ -15,17 +15,18 @@
 # Rodrigo Felix de Almeida <rodrigofelixdealmeida@gmail.com>, 2014
 # Tiago OR (James) <tiagoor@gmail.com>, 2015
 # Zilmar de Souza Junior <zilmar.jr@gmail.com>, 2015
+# Gabriel Wainer <gabrielcw@gmail.com>, 2015. #zanata
 # OpenStack Infra <zanata@openstack.org>, 2015. #zanata
 msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-09-18 05:57+0000\n"
+"POT-Creation-Date: 2015-09-19 06:33+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2015-09-08 11:14+0000\n"
-"Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
+"PO-Revision-Date: 2015-09-21 10:57+0000\n"
+"Last-Translator: Gabriel Wainer <gabrielcw@gmail.com>\n"
 "Language-Team: Portuguese (Brazil) (http://www.transifex.com/openstack/"
 "horizon/language/pt_BR/)\n"
 "Generated-By: Babel 2.0\n"
@@ -731,6 +732,9 @@ msgstr ""
 "Se não for especificado, então hypervisor vai selecionar um nome de "
 "dispositivo."
 
+msgid "Adapt For Oozie"
+msgstr "Adaptar para Oozie"
+
 msgid "Add"
 msgstr "Adicionar"
 
@@ -1261,6 +1265,9 @@ msgstr "Modo de autorização"
 msgid "Auto Security Group"
 msgstr "Grupo de Segurança Automática"
 
+msgid "Auto-configure"
+msgstr "Auto-configure"
+
 msgid "Automatic"
 msgstr "Automático"
 
@@ -1727,11 +1734,17 @@ msgstr "Fechar"
 msgid "Cluster"
 msgstr "Cluster"
 
+msgid "Cluster Count"
+msgstr "Contagem de Cluster"
+
 msgid "Cluster Creation Guide"
 msgstr "Guia de Criação de Cluster"
 
 msgid "Cluster Details"
 msgstr "Detalhes do Cluster"
+
+msgid "Cluster Events"
+msgstr "Eventos de Cluster"
 
 msgid "Cluster Guide"
 msgstr "Guia do Cluster"
@@ -1771,6 +1784,9 @@ msgstr "Cluster pode ser lançado usando modelos cluster existente."
 msgid "Cluster configurations are not specified"
 msgstr "Configurações de Cluster não estão especificadas."
 
+msgid "Cluster provision steps"
+msgstr "Passos de provisionamento de cluster"
+
 msgid "Cluster template creation failed"
 msgstr "Falha na criação de modelo de cluster"
 
@@ -1798,6 +1814,9 @@ msgstr "Pares de chave=valor separados por vírgula"
 msgctxt "Current status of a Database Backup"
 msgid "Completed"
 msgstr "Completo"
+
+msgid "Completed Successfully"
+msgstr "Completado com Sucesso"
 
 msgid "Component"
 msgstr "Componente"
@@ -1986,6 +2005,9 @@ msgstr "Não foi possível encontrar o papel \"%s\" no Keystone"
 
 msgid "Could not launch job"
 msgstr "Não foi possível iniciar o trabalho"
+
+msgid "Could not update data source"
+msgstr "Não foi possível atualizar origem dos dados"
 
 #, python-format
 msgid "Couldn't get current security group list for instance %s."
@@ -2608,6 +2630,9 @@ msgstr ""
 "armazenamento. Você pode escolher Ephemereal Drive ou um Volume Cinder para "
 "ser anexado às instâncias."
 
+msgid "Data Source"
+msgstr "Origem de Dados"
+
 msgid "Data Source Details"
 msgstr "Detalhes do Data Source"
 
@@ -2639,6 +2664,9 @@ msgstr ""
 
 msgid "Data source created"
 msgstr "Data Source criado"
+
+msgid "Data source updated"
+msgstr "Origem de Dados atualizada"
 
 msgid "Database"
 msgstr "Banco de dados"
@@ -3542,6 +3570,9 @@ msgstr "Download Job Binário"
 msgid "Download key pair &quot;%(keypair_name)s&quot;"
 msgstr "Baixar par de chaves &quot;%(keypair_name)s&quot;"
 
+msgid "Duration"
+msgstr "Duração"
+
 #, python-format
 msgid "Duration of instance type %s (openstack flavor)"
 msgstr "Duração do tipo de instância %s (openstack flavor)"
@@ -3569,6 +3600,9 @@ msgstr "Editar Consumidor"
 
 msgid "Edit Consumer of QoS Spec"
 msgstr "Editar Consumidor de Especificação de QoS"
+
+msgid "Edit Data Source"
+msgstr "Editar Origem de Dados"
 
 msgid "Edit Domain"
 msgstr "Editar Domínio"
@@ -3609,6 +3643,9 @@ msgstr "Editar Tags de Imagem"
 
 msgid "Edit Instance"
 msgstr "Editar Instância"
+
+msgid "Edit Job Binary"
+msgstr "Editar Binário do Job"
 
 msgid "Edit Member"
 msgstr "Editar Membro"
@@ -3727,6 +3764,9 @@ msgid "Enable Service"
 msgid_plural "Enable Services"
 msgstr[0] "Habilitar Serviço"
 msgstr[1] "Habilitar Serviços"
+
+msgid "Enable Swift Paths"
+msgstr "Habilitar Paths Swift"
 
 msgid "Enable User"
 msgid_plural "Enable Users"
@@ -3967,6 +4007,9 @@ msgid ""
 "Evacuate the servers from the selected down host to an active target host."
 msgstr ""
 "Evacua os servidor do host selecionado abaixo para um host destino ativo."
+
+msgid "Event time"
+msgstr "Horário do Evento"
 
 msgid "Events"
 msgstr "Eventos"
@@ -4948,6 +4991,14 @@ msgstr ""
 "tamanho que o volume que se originam a partir de."
 
 msgid ""
+"If selected, instances of a cluster will be automatically configured during "
+"creation. Otherwise you should manually specify configuration values"
+msgstr ""
+"Se selecionado, instâncias de um cluster serão automaticamente configuradas "
+"durante a criação. Caso contrário você deve manualmente especificar valores "
+"de configuração"
+
+msgid ""
 "If you select an image via an HTTP URL, the Image Location field MUST be a "
 "valid and direct URL to the image binary; it must also be accessible to the "
 "Image Service. URLs that redirect or serve error pages will result in "
@@ -5071,6 +5122,9 @@ msgid ""
 msgstr ""
 "Além disso, você pode criar uma rede externa ou uma rede compartilhada "
 "marcando a opção correspondente."
+
+msgid "In progress"
+msgstr "Em progresso"
 
 msgctxt "Current status of a Volume"
 msgid "In-use"
@@ -5238,6 +5292,9 @@ msgstr ""
 
 msgid "Intelligent Platform Management Interface (IPMI)"
 msgstr "Plataforma Inteligente de Gerenciamento de Interface (IPMI)"
+
+msgid "Interface Arguments"
+msgstr "Argumentos de Interface"
 
 msgid "Interface added"
 msgstr "Interface adicionada"
@@ -5947,6 +6004,13 @@ msgstr "Modifica as configurações do dashboard para o seu usuário."
 msgid "Modify name and description of a volume."
 msgstr "Modifica o nome e descrição de um volume."
 
+msgid ""
+"Modify the configuration so that swift URLs can be dereferenced through HDFS "
+"at runtime."
+msgstr ""
+"Modifica a configuração para que URLs swift possam ser referenciadas "
+"indiretamente através de HDFS em tempo de execução."
+
 msgid "Modify the name and description of a snapshot."
 msgstr "Modificar o nome e a descrição de um snapshot."
 
@@ -6281,6 +6345,9 @@ msgstr "Sem imagens disponíveis"
 msgid "No images available."
 msgstr "Nenhuma imagem disponível."
 
+msgid "No info available"
+msgstr "Sem informação disponível"
+
 msgid "No input was provided for the namespace content."
 msgstr "Nenhuma entrada foi fornecida para o conteúdo do namespace."
 
@@ -6491,6 +6558,9 @@ msgstr ""
 "específica de cluster nas guias adicionais no\n"
 "formulário Modelo de Criação de Cluster."
 
+msgid "Number"
+msgstr "Número"
+
 msgid "Number of API requests against swift"
 msgstr "Número de requisições de API contra swift"
 
@@ -6508,6 +6578,9 @@ msgstr "Número de vCPUs"
 
 msgid "Number of Volumes"
 msgstr "Número de Volumes"
+
+msgid "Number of clusters to launch."
+msgstr "Número de clusters a disparar."
 
 msgid "Number of containers"
 msgstr "Número de contêineres"
@@ -6673,6 +6746,10 @@ msgstr "Outro"
 
 msgid "Other Protocol"
 msgstr "Outro Protocolo"
+
+#, python-format
+msgid "Out of range float values are not JSON compliant: %r"
+msgstr "Valores float fora da faixa não são compatíveis com JSON: %r"
 
 msgid "Output"
 msgstr "Output"
@@ -7022,6 +7099,9 @@ msgstr "Arquivo da chave privada"
 
 msgid "Profile"
 msgstr "Perfil"
+
+msgid "Progress"
+msgstr "Progresso"
 
 msgid "Project"
 msgstr "Projeto"
@@ -8036,6 +8116,9 @@ msgstr "Selecione um Roteador"
 msgid "Select a Subnet"
 msgstr "Selecione a sub-rede"
 
+msgid "Select a Value Type for your next argument:"
+msgstr "Selecione um Tipo de Valor para o seu próximo argumento:"
+
 msgid "Select a backup to restore"
 msgstr "Selecione um Backup para Restaurar"
 
@@ -8670,6 +8753,9 @@ msgid_plural "Started Instances"
 msgstr[0] "Instância Iniciada"
 msgstr[1] "Instâncias Iniciadas"
 
+msgid "Started at"
+msgstr "Iniciado em"
+
 #, python-format
 msgid "Starting evacuation from %(current)s to %(target)s."
 msgstr "Começando evacuação de %(current)s para %(target)s."
@@ -8702,6 +8788,9 @@ msgstr "Status ="
 msgid "Status Reason"
 msgstr "Razão do Status"
 
+msgid "Step Description"
+msgstr "Descrição dos passos"
+
 msgctxt "Action log of an instance"
 msgid "Stop"
 msgstr "Parado"
@@ -8712,8 +8801,14 @@ msgstr "Local de Armazenamento"
 msgid "Storage type"
 msgstr "Tipo de Storage"
 
+msgid "Storm"
+msgstr "Storm"
+
 msgid "Streaming MapReduce"
 msgstr "Streaming MapReduce"
+
+msgid "String"
+msgstr "String"
 
 msgid "Subnet"
 msgstr "Sub-rede"
@@ -10563,6 +10658,10 @@ msgstr "Não foi possível obter a lista de instâncias."
 msgid "Unable to retrieve instances."
 msgstr "Não foi possível recuperar instâncias."
 
+#, python-format
+msgid "Unable to retrieve job binary \"%s\"."
+msgstr "Não foi possível obter o binário do job \"%s\"."
+
 msgid "Unable to retrieve key pair list."
 msgstr "Não foi possível obter a lista de pares de chave."
 
@@ -10940,6 +11039,9 @@ msgstr "Não é possível atualizar grupo."
 msgid "Unable to update image \"%s\"."
 msgstr "Não é possível atualizar a imagem \"%s\"."
 
+msgid "Unable to update job binary"
+msgstr "Não foi possível atualizar o binário do job"
+
 msgid "Unable to update object."
 msgstr "Não foi possível atualizar o objeto."
 
@@ -11258,6 +11360,9 @@ msgstr "Use grupos anti-affinity para processos"
 
 msgid "Use anti-affinity groups for: "
 msgstr "Use grupos anti-affinity para:"
+
+msgid "Use auto-configuration"
+msgstr "Utilize auto-configuração"
 
 msgid "Use image as a source"
 msgstr "Utilizar imagem como origem"
@@ -11624,6 +11729,9 @@ msgstr ""
 msgid "Volume is Unencrypted"
 msgstr "Volume não é Criptografado"
 
+msgid "Volume local to instance"
+msgstr "Volume locais para a instância"
+
 msgid ""
 "Volume mount point (e.g. 'vda' mounts at '/dev/vda'). Leave this field blank "
 "to let the system choose a device name for you."
@@ -11692,6 +11800,9 @@ msgstr "Volumes Anexados"
 msgid "Volumes Availability Zone"
 msgstr "Zona de Disponibilidade de Volumes"
 
+msgid "Volumes local to instance"
+msgstr "Volumes locais para a instância"
+
 msgid "Volumes per node"
 msgstr "Volumes por node"
 
@@ -11700,6 +11811,9 @@ msgstr "Tamanho do Volume"
 
 msgid "Volumes size (GB)"
 msgstr "Tamanho dos Volumes (GB)"
+
+msgid "Volumes type"
+msgstr "Tipos de volume"
 
 msgid "Weight"
 msgstr "Peso"
