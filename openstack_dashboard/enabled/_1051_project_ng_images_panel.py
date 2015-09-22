@@ -27,4 +27,4 @@ PANEL = 'ngimages'
 DISABLED = True
 
 # Python panel class of the PANEL to be added.
-ADD_PANEL = ('openstack_dashboard.dashboards.project.ngimages.panel.NGImages')
+ADD_PANEL = 'openstack_dashboard.dashboards.project.ngimages.panel.NGImages'
