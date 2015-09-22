@@ -1,4 +1,5 @@
 # Copyright 2013 Rackspace Hosting.
+# Copyright 2015 HP Software, LLC
 #
 #    Licensed under the Apache License, Version 2.0 (the "License"); you may
 #    not use this file except in compliance with the License. You may obtain
@@ -13,6 +14,7 @@
 #    under the License.
 
 from troveclient.v1 import backups
+from troveclient.v1 import clusters
 from troveclient.v1 import databases
 from troveclient.v1 import datastores
 from troveclient.v1 import flavors
@@ -21,6 +23,104 @@ from troveclient.v1 import users
 
 from openstack_dashboard.test.test_data import utils
 
+
+CLUSTER_DATA_ONE = {
+    "status": "ACTIVE",
+    "id": "dfbbd9ca-b5e1-4028-adb7-f78643e17998",
+    "name": "Test Cluster",
+    "created": "2014-04-25T20:19:23",
+    "updated": "2014-04-25T20:19:23",
+    "links": [],
+    "datastore": {
+        "type": "mongodb",
+        "version": "2.6"
+    },
+    "ip": ["10.0.0.1"],
+    "instances": [
+        {
+            "id": "416b0b16-ba55-4302-bbd3-ff566032e1c1",
+            "shard_id": "5415b62f-f301-4e84-ba90-8ab0734d15a7",
+            "flavor": {
+                "id": "7",
+                "links": []
+            },
+            "volume": {
+                "size": 100
+            }
+        },
+        {
+            "id": "965ef811-7c1d-47fc-89f2-a89dfdd23ef2",
+            "shard_id": "5415b62f-f301-4e84-ba90-8ab0734d15a7",
+            "flavor": {
+                "id": "7",
+                "links": []
+            },
+            "volume": {
+                "size": 100
+            }
+        },
+        {
+            "id": "3642f41c-e8ad-4164-a089-3891bf7f2d2b",
+            "shard_id": "5415b62f-f301-4e84-ba90-8ab0734d15a7",
+            "flavor": {
+                "id": "7",
+                "links": []
+            },
+            "volume": {
+                "size": 100
+            }
+        }
+    ],
+    "task": {
+        "name": "test_task"
+    }
+}
+
+CLUSTER_DATA_TWO = {
+    "status": "ACTIVE",
+    "id": "dfbbd9ca-b5e1-4028-adb7-f78643e17998",
+    "name": "Test Cluster",
+    "created": "2014-04-25T20:19:23",
+    "updated": "2014-04-25T20:19:23",
+    "links": [],
+    "datastore": {
+        "type": "vertica",
+        "version": "7.1"
+    },
+    "ip": ["10.0.0.1"],
+    "instances": [
+        {
+            "id": "416b0b16-ba55-4302-bbd3-ff566032e1c1",
+            "flavor": {
+                "id": "7",
+                "links": []
+            },
+            "volume": {
+                "size": 100
+            }
+        },
+        {
+            "id": "965ef811-7c1d-47fc-89f2-a89dfdd23ef2",
+            "flavor": {
+                "id": "7",
+                "links": []
+            },
+            "volume": {
+                "size": 100
+            }
+        },
+        {
+            "id": "3642f41c-e8ad-4164-a089-3891bf7f2d2b",
+            "flavor": {
+                "id": "7",
+                "links": []
+            },
+            "volume": {
+                "size": 100
+            }
+        }
+    ]
+}
 
 DATABASE_DATA_ONE = {
     "status": "ACTIVE",
@@ -130,6 +230,12 @@ DATASTORE_TWO = {
     "name": "mysql"
 }
 
+DATASTORE_MONGODB = {
+    "id": "ccb31517-c472-409d-89b4-1a13db6bdd37",
+    "links": [],
+    "name": "mongodb"
+}
+
 VERSION_ONE = {
     "name": "5.5",
     "links": [],
@@ -171,8 +277,22 @@ FLAVOR_THREE = {
     "name": "test.1"
 }
 
+VERSION_MONGODB_2_6 = {
+    "name": "2.6",
+    "links": [],
+    "image": "c7956bb5-920e-4299-b68e-2347d830d937",
+    "active": 1,
+    "datastore": "ccb31517-c472-409d-89b4-1a13db6bdd37",
+    "packages": "2.6",
+    "id": "600a6d52-8347-4e00-8e4c-f4fa9cf96ae9"
+}
+
 
 def data(TEST):
+    cluster1 = clusters.Cluster(clusters.Clusters(None),
+                                CLUSTER_DATA_ONE)
+    cluster2 = clusters.Cluster(clusters.Clusters(None),
+                                CLUSTER_DATA_TWO)
     database1 = instances.Instance(instances.Instances(None),
                                    DATABASE_DATA_ONE)
     database2 = instances.Instance(instances.Instances(None),
@@ -186,18 +306,22 @@ def data(TEST):
 
     datastore1 = datastores.Datastore(datastores.Datastores(None),
                                       DATASTORE_ONE)
-
     version1 = datastores.\
         DatastoreVersion(datastores.DatastoreVersions(None),
                          VERSION_ONE)
-    version2 = datastores.\
-        DatastoreVersion(datastores.DatastoreVersions(None),
-                         VERSION_TWO)
 
     flavor1 = flavors.Flavor(flavors.Flavors(None), FLAVOR_ONE)
     flavor2 = flavors.Flavor(flavors.Flavors(None), FLAVOR_TWO)
     flavor3 = flavors.Flavor(flavors.Flavors(None), FLAVOR_THREE)
+    datastore_mongodb = datastores.Datastore(datastores.Datastores(None),
+                                             DATASTORE_MONGODB)
+    version_mongodb_2_6 = datastores.\
+        DatastoreVersion(datastores.DatastoreVersions(None),
+                         VERSION_MONGODB_2_6)
 
+    TEST.trove_clusters = utils.TestDataContainer()
+    TEST.trove_clusters.add(cluster1)
+    TEST.trove_clusters.add(cluster2)
     TEST.databases = utils.TestDataContainer()
     TEST.database_backups = utils.TestDataContainer()
     TEST.database_users = utils.TestDataContainer()
@@ -213,7 +337,8 @@ def data(TEST):
     TEST.database_user_dbs.add(user_db1)
     TEST.datastores = utils.TestDataContainer()
     TEST.datastores.add(datastore1)
-    TEST.datastore_versions = utils.TestDataContainer()
-    TEST.datastore_versions.add(version1)
-    TEST.datastore_versions.add(version2)
+    TEST.datastores.add(datastore_mongodb)
     TEST.database_flavors.add(flavor1, flavor2, flavor3)
+    TEST.datastore_versions = utils.TestDataContainer()
+    TEST.datastore_versions.add(version_mongodb_2_6)
+    TEST.datastore_versions.add(version1)

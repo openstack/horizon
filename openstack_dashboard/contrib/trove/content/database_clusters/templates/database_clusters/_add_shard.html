@@ -1,0 +1,25 @@
+{% extends "horizon/common/_modal_form.html" %}
+{% load i18n %}
+{% load url from future %}
+
+{% block form_id %}add_shard_form{% endblock %}
+{% block form_action %}{% url "horizon:project:database_clusters:add_shard" cluster_id %}{% endblock %}
+
+{% block modal_id %}add_shard_modal{% endblock %}
+{% block modal-header %}{% trans "Add Shard" %}{% endblock %}
+
+{% block modal-body %}
+<div class="left">
+  <fieldset>
+  {% include "horizon/common/_form_fields.html" %}
+  </fieldset>
+</div>
+<div class="right">
+  <p>{% blocktrans %}Specify the details for adding additional shards.{% endblocktrans %}</p>
+</div>
+{% endblock %}
+
+{% block modal-footer %}
+  <input class="btn btn-primary pull-right" type="submit" value="{% trans "Add Shard" %}" />
+  <a href="{% url "horizon:project:database_clusters:index" %}" class="btn btn-default secondary cancel close">{% trans "Cancel" %}</a>
+{% endblock %}

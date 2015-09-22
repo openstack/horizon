@@ -3,22 +3,30 @@
 
 {% block connection_info %}
   <div class="addresses row detail">
-    <h4>{% trans "Connection Info" %}</h4>
+    <h4>{% trans "Connection Information" %}</h4>
     <hr class="header_rule">
     <dl class="dl-horizontal">
-      {% with instance.host as host %}
-          <dt>{% trans "Host" %}</dt>
-          {% if not host %}
-              <dd>{% trans "Not Assigned" %}</dd>
-          {% else %}
-              <dd>{{ host }}</dd>
-              <dt>{% trans "Database Port" %}</dt>
-              <dd>27017</dd>
-              <dt>{% trans "Connection Examples" %}</dt>
-              <dd>mongo --host {{ host }}</dd>
-              <dd>mongodb://[{% trans "USERNAME" %}:{% trans "PASSWORD" %}@]{{ host }}:27017/{% trans "DATABASE" %}</dd>
-          {% endif %} <!-- ends else block -->
-      {% endwith %}
-    </dl>
-  </div>
+    {% if instance.cluster_id %}
+        <a href="/project/clusters/{{instance.cluster_id}}">Link</a> to Cluster Details for Connection Info
+    {% else %}
+        <dl>
+        {% with instance.host as host %}
+            <dt>{% trans "Host" %}</dt>
+            <dd>
+            {% if not host %}
+                {% trans "Not Assigned" %}
+            </dd>
+            {% else %}
+                {{ host }}
+            </dd>
+            <dt>{% trans "Database Port" %}</dt>
+            <dd>27017</dd>
+            <dt>{% trans "Connection Examples" %}</dt>
+            <dd>mongo --host {{ host }}</dd>
+            <dd>mongodb://[{% trans "USERNAME" %}:{% trans "PASSWORD" %}@]{{ host }}:27017/{% trans "DATABASE" %}</dd>
+            {% endif %} <!-- ends else block -->
+        {% endwith %}
+        </dl>
+    {% endif %}
+</div>
 {% endblock %}

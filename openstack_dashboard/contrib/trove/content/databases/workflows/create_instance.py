@@ -102,7 +102,7 @@ class SetInstanceDetailsAction(workflows.Action):
                         num_datastores_with_one_version += 1
                         if num_datastores_with_one_version > 1:
                             set_initial = True
-                if len(versions) > 0:
+                if versions:
                     # only add to choices if datastore has at least one version
                     version_choices = ()
                     for v in versions:

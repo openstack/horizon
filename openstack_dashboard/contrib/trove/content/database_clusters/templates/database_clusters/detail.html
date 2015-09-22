@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% load i18n sizeformat %}
+{% block title %}{% trans "Cluster Detail" %}{% endblock %}
+
+{% block main %}
+<div class="row-fluid">
+  <div class="col-sm-12">
+  {{ tab_group.render }}
+  </div>
+</div>
+{% endblock %}
+

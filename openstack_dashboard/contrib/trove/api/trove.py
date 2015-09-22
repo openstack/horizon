@@ -42,6 +42,57 @@ def troveclient(request):
     return c
 
 
+def cluster_list(request, marker=None):
+    page_size = utils.get_page_size(request)
+    return troveclient(request).clusters.list(limit=page_size, marker=marker)
+
+
+def cluster_get(request, cluster_id):
+    return troveclient(request).clusters.get(cluster_id)
+
+
+def cluster_delete(request, cluster_id):
+    return troveclient(request).clusters.delete(cluster_id)
+
+
+def cluster_create(request, name, volume, flavor, num_instances,
+                   datastore, datastore_version,
+                   nics=None, root_password=None):
+    # TODO(dklyle): adding to support trove without volume
+    # support for now until API supports checking for volume support
+    if volume > 0:
+        volume_params = {'size': volume}
+    else:
+        volume_params = None
+    instances = []
+    for i in range(num_instances):
+        instance = {}
+        instance["flavorRef"] = flavor
+        instance["volume"] = volume_params
+        if nics:
+            instance["nics"] = [{"net-id": nics}]
+        instances.append(instance)
+
+    # TODO(saurabhs): vertica needs root password on cluster create
+    return troveclient(request).clusters.create(
+        name,
+        datastore,
+        datastore_version,
+        instances=instances)
+
+
+def cluster_add_shard(request, cluster_id):
+    return troveclient(request).clusters.add_shard(cluster_id)
+
+
+def create_cluster_root(request, cluster_id, password):
+    # It appears the code below depends on this trove change
+    # https://review.openstack.org/#/c/166954/.  Comment out when that
+    # change merges.
+    # return troveclient(request).cluster.reset_root_password(cluster_id)
+    troveclient(request).root.create_cluster_root(cluster_id, password)
+
+
 def instance_list(request, marker=None):
     page_size = utils.get_page_size(request)
     return troveclient(request).instances.list(limit=page_size, marker=marker)
@@ -128,6 +179,19 @@ def backup_create(request, name, instance_id, description=None,
 
 def flavor_list(request):
     return troveclient(request).flavors.list()
+
+
+def datastore_flavors(request, datastore_name=None,
+                      datastore_version=None):
+    # if datastore info is available then get datastore specific flavors
+    if datastore_name and datastore_version:
+        try:
+            return troveclient(request).flavors.\
+                list_datastore_version_associated_flavors(datastore_name,
+                                                          datastore_version)
+        except Exception:
+            LOG.warn("Failed to retrieve datastore specific flavors")
+    return flavor_list(request)
 
 
 def flavor_get(request, flavor_id):
