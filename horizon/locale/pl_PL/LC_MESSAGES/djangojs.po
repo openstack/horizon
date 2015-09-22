@@ -5,16 +5,17 @@
 # Translators:
 # Łukasz Jernaś <deejay1@srem.org>, 2015
 # OpenStack Infra <zanata@openstack.org>, 2015. #zanata
+# Łukasz Jernas <deejay1@srem.org>, 2015. #zanata
 msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-09-16 18:25+0000\n"
+"POT-Creation-Date: 2015-09-19 06:33+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2015-09-02 06:44+0000\n"
-"Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
+"PO-Revision-Date: 2015-09-21 11:05+0000\n"
+"Last-Translator: Łukasz Jernas <deejay1@srem.org>\n"
 "Language-Team: Polish (Poland) (http://www.transifex.com/openstack/horizon/"
 "language/pl_PL/)\n"
 "Generated-By: Babel 2.0\n"
@@ -42,6 +43,9 @@ msgstr "%s TB"
 #, python-format
 msgid "%s bytes"
 msgstr "%s bajtów"
+
+msgid "-"
+msgstr "-"
 
 msgid "Active"
 msgstr "Aktywny"
@@ -73,6 +77,9 @@ msgstr "Wstecz"
 msgid "Cancel"
 msgstr "Anuluj"
 
+msgid "Click here for filters."
+msgstr "Kliknięcie tu, spowoduje wyświetlenie filtrów."
+
 msgid "Click here to expand the row and view the errors."
 msgstr "Kliknij tutaj, aby rozszerzyć wiersz i wyświetlić błędy."
 
@@ -101,6 +108,12 @@ msgstr "Nie można odszyfrować hasła"
 msgid "Could not read the file"
 msgstr "Nie można odczytać pliku"
 
+msgid "Create Subnet"
+msgstr "Utwórz podsieć"
+
+msgid "Current Usage"
+msgstr "Bieżące wykorzystanie"
+
 msgid "Custom"
 msgstr "Własne"
 
@@ -119,11 +132,21 @@ msgstr "Usuń"
 msgid "Delete Interface"
 msgstr "Usuń interfejs"
 
+msgid "Delete Network"
+msgstr "Usuń sieć"
+
 msgid "Delete Router"
 msgstr "Usuń router"
 
+msgid "Delete Subnet"
+msgstr "Usuń podsieć"
+
 msgid "Detail Information"
 msgstr "Szczegółowe informacje"
+
+#, python-format
+msgid "Displaying %(count)s of %(total)s items"
+msgstr "Wyświetlanie %(count)s z %(total)s pozycji"
 
 #, python-format
 msgid "Displaying %s item"
@@ -161,6 +184,12 @@ msgstr "Odmiana"
 
 msgid "ID"
 msgstr "ID"
+
+msgid "IP Addresses"
+msgstr "Adresy IP"
+
+msgid "In current results"
+msgstr "W bieżących wynikach"
 
 msgid "Info"
 msgstr "Info"
@@ -204,6 +233,9 @@ msgstr "Metadane niedostępne"
 msgid "No data available."
 msgstr "Brak dostępnych danych."
 
+msgid "No description available."
+msgstr "Brak dostępnego opisu."
+
 msgid "No existing metadata"
 msgstr "Brak metadanych"
 
@@ -237,8 +269,14 @@ msgstr "Szablon się nie zgadza"
 msgid "Please confirm your selection. "
 msgstr "Należy potwierdzić wybór."
 
+msgid "Prompt"
+msgstr "Zapytanie"
+
 msgid "Re-order items using drag and drop"
 msgstr "Zmień kolejność pozycji poprzez przesuwanie i upuszczanie"
+
+msgid "Remaining"
+msgstr "Pozostało"
 
 msgid "Remove"
 msgstr "Usuń"
@@ -258,6 +296,9 @@ msgstr "Należy wybrać pozycję z listy dostępnych pozycji poniżej"
 msgid "Select one"
 msgstr "Wybierz jedno"
 
+msgid "Server Name"
+msgstr "Nazwa serwera"
+
 msgid "Shutdown"
 msgstr "Wyłącz"
 
@@ -271,6 +312,9 @@ msgstr "Stan: %s"
 msgid "Submit"
 msgstr "Wyślij"
 
+msgid "Subnets"
+msgstr "Podsieci"
+
 msgid "Success"
 msgstr "Sukces"
 
@@ -279,6 +323,9 @@ msgstr "Powodzenie:"
 
 msgid "Terminate Instance"
 msgstr "Zniszcz instancję"
+
+msgid "Text"
+msgstr "Tekst"
 
 msgid ""
 "The action cannot be performed. The contents of this row have errors or are "
@@ -292,6 +339,9 @@ msgstr "Wystąpił problem w komunikacji z serwerem, proszę spróbować ponowni
 
 msgid "There was an error submitting the form. Please try again."
 msgstr "Wystąpił błąd podczas wysyłania formularza. Proszę spróbować ponownie."
+
+msgid "Total"
+msgstr "Łącznie"
 
 msgid "View Details"
 msgstr "Wyświetl szczegóły"
@@ -327,3 +377,18 @@ msgstr ""
 #, python-format
 msgid "You have selected %s. "
 msgstr "Wybrano %s."
+
+msgid "description"
+msgstr "opis"
+
+msgid "m1.small"
+msgstr "m1.small"
+
+msgid "m1.tiny"
+msgstr "m1.tiny"
+
+msgid "no quota"
+msgstr "brak limitu"
+
+msgid "pool default"
+msgstr "domyślna pula"

@@ -7,16 +7,17 @@
 # jaekwon.park <jaekwon.park@rockplace.co.kr>, 2014
 # Sungjin Kang <potopro@gmail.com>, 2015
 # OpenStack Infra <zanata@openstack.org>, 2015. #zanata
+# Sungjin Kang <gang.sungjin@gmail.com>, 2015. #zanata
 msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-09-16 18:25+0000\n"
+"POT-Creation-Date: 2015-09-19 06:33+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2015-09-05 03:26+0000\n"
-"Last-Translator: Sungjin Kang <potopro@gmail.com>\n"
+"PO-Revision-Date: 2015-09-21 06:16+0000\n"
+"Last-Translator: Sungjin Kang <gang.sungjin@gmail.com>\n"
 "Language-Team: Korean (Korea) (http://www.transifex.com/openstack/horizon/"
 "language/ko_KR/)\n"
 "Generated-By: Babel 2.0\n"
@@ -30,7 +31,7 @@ msgid ""
 "        Used <span> %(used)s </span>(No Limit)"
 msgstr ""
 "\n"
-"<span> %(used)s </span>(제한 없음) 사용함"
+"        <span> %(used)s </span>(제한 없음) 사용함"
 
 #, python-format
 msgid ""
@@ -38,7 +39,7 @@ msgid ""
 "        Used <span> %(used)s </span>of<span> %(available)s </span>"
 msgstr ""
 "\n"
-"<span> %(available)s </span>의 <span> %(used)s </span> 사용함"
+"         <span> %(available)s </span>의 <span> %(used)s </span> 사용함"
 
 #, python-format
 msgid ""
@@ -46,7 +47,7 @@ msgid ""
 "      <label>From:</label> %(start)s"
 msgstr ""
 "\n"
-"<label>시작:</label> %(start)s"
+"        <label>시작:</label> %(start)s"
 
 #, python-format
 msgid ""
@@ -54,7 +55,7 @@ msgid ""
 "      <label>To:</label>%(end)s"
 msgstr ""
 "\n"
-"<label>끝:</label>%(end)s"
+"        <label>끝:</label>%(end)s"
 
 msgid ""
 "\n"
@@ -63,7 +64,8 @@ msgid ""
 "    "
 msgstr ""
 "\n"
-"당신이 인증 방법을 모르는경우, 관리자에게 문의하십시오."
+"      당신이 인증 방법을 모르는경우, 관리자에게 문의하십시오.\n"
+"    "
 
 #, python-format
 msgctxt "past"
@@ -293,7 +295,7 @@ msgstr "저장"
 
 #, python-format
 msgid "Select a %s to browse."
-msgstr "브라우져에서 %s를 선택하십시오."
+msgstr "브라우저에서 %s를 선택하십시오."
 
 msgid "Select a period of time to query its usage:"
 msgstr "사용량을 조회할 기간을 선택하세요:"

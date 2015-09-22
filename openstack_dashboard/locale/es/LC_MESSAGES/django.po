@@ -14,6 +14,7 @@
 # Veruska Perinotto <reaching.out@gmail.com>, 2015
 # Alberto Laporte <alberto.riveralaporte@rackspace.com>, 2015. #zanata
 # Alberto Molina Coballes <alb.molina@gmail.com>, 2015. #zanata
+# Eduardo Gonzalez Gutierrez <dabarren@gmail.com>, 2015. #zanata
 # Marian T <marian.tort@gmail.com>, 2015. #zanata
 # OpenStack Infra <zanata@openstack.org>, 2015. #zanata
 # Pedro Navarro Pérez <pednape@gmail.com>, 2015. #zanata
@@ -26,8 +27,8 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2015-09-20 02:09+0000\n"
-"Last-Translator: Alberto Laporte <alberto.riveralaporte@rackspace.com>\n"
+"PO-Revision-Date: 2015-09-21 04:08+0000\n"
+"Last-Translator: Eduardo Gonzalez Gutierrez <dabarren@gmail.com>\n"
 "Language-Team: Spanish (http://www.transifex.com/openstack/horizon/language/"
 "es/)\n"
 "Generated-By: Babel 2.0\n"
@@ -344,6 +345,16 @@ msgstr ""
 
 msgid ""
 "\n"
+"   Volumes are block devices that can be attached to instances.\n"
+"   "
+msgstr ""
+"\n"
+"Los volúmenes son dispositivos en bloque que pueden ser asociados a "
+"instancias. \n"
+" "
+
+msgid ""
+"\n"
 "  Assign a name and description for the pool. Choose one subnet where all\n"
 "  members of this pool must be on. Select the protocol and load balancing\n"
 "  method for this pool. Admin State is UP (checked) by default.\n"
@@ -371,6 +382,23 @@ msgstr ""
 "en el botón o arrastrando y soltando. También puede cambiar el orden de la "
 "NIC arrastrando y soltando."
 
+msgid ""
+"\n"
+" Create a VIP for this pool. Assign a name, description, IP address, port,\n"
+" and maximum connections allowed for the VIP. Choose the protocol and "
+"session persistence\n"
+" method for the VIP. Admin State is UP (checked) by default.\n"
+" "
+msgstr ""
+"\n"
+"Crea un VIP para este pool. Establece un nombre, descripción, dirección IP, "
+"puerto, y límite \n"
+"de conexiones permitidas para el VIP. Escoge un protocolo y método de "
+"persistencia de \n"
+"sesión para el VIP. El estado de Administración es ARRIBA (marcado) por "
+"defecto.\n"
+" "
+
 msgid " - End"
 msgstr "- Fin"
 
@@ -383,6 +411,9 @@ msgstr "También falló eliminar el puerto %s"
 
 msgid " Done"
 msgstr "Hecho"
+
+msgid "\"Add Router Route\""
+msgstr "\"Añadir ruta al Router\""
 
 msgid ""
 "\"Customization Script\" is analogous to \"User Data\" in other systems."
@@ -5155,6 +5186,21 @@ msgstr "El servicio de identidad no permite editar datos de usuario."
 
 msgid "Identity service does not allow editing user password."
 msgstr "El servicio de Identidad no permite editar la contraseña del usuario."
+
+#, python-format
+msgid ""
+"If \"No volume type\" is selected, the default volume type \"%(name)s\" will "
+"be set for the created volume."
+msgstr ""
+"Si \"Sin tipo de volumen\" es seleccionado, el tipo de volumen por defecto "
+"\"%(name)s\" será establecido al volumen creado."
+
+msgid ""
+"If \"No volume type\" is selected, the volume will be created without a "
+"volume type."
+msgstr ""
+"Si \"Sin tipo de volumen\" es seleccionado, el volumen será creado sin tipo "
+"de volumen."
 
 msgid ""
 "If console is not responding to keyboard input: click the grey status bar "
@@ -10255,6 +10301,9 @@ msgstr ""
 "No ha sido posible crear una nueva imagen: Formato de disco inválido %s para "
 "la imagen."
 
+msgid "Unable to create new image: URL scheme not supported."
+msgstr "Incapaz de crear nueva imagen: Esquema de URL no soportado."
+
 #, python-format
 msgid "Unable to create new namespace. %s"
 msgstr "No se pudo crear un nuevo namespace. %s"
@@ -11365,6 +11414,9 @@ msgstr ""
 msgid "Unable to retrieve volume type for: \"%s\""
 msgstr "No se puede recuperar el tipo de volumen para: \"%s\""
 
+msgid "Unable to retrieve volume type list."
+msgstr "Incapaz de recuperar la lista de tipos de volumen."
+
 msgid "Unable to retrieve volume type name."
 msgstr "No ha sido posible obtener los tipos de volúmenes."
 
@@ -12107,6 +12159,9 @@ msgstr "Detalles de Transferencia de Volumen"
 msgid "Volume Type"
 msgstr "Tipo de volumen"
 
+msgid "Volume Type Description:"
+msgstr "Descripción del Tipo de Volumen:"
+
 msgid "Volume Type Encryption Details"
 msgstr "Detalle de cifrado de tipo Volumen."
 
@@ -12235,6 +12290,20 @@ msgstr "Tipo de volúmenes"
 
 msgid "Weight"
 msgstr "Peso"
+
+msgid ""
+"When no IP address is provided, the VIP will obtain an address from\n"
+"  the selected subnet. If a specific IP address is desired, it may be "
+"provided and\n"
+"  must also be an address within the selected subnet.\n"
+"  "
+msgstr ""
+"Cuando no se proporciona dirección IP, el VIP obtendrá una dirección de la "
+"subred\n"
+"seleccionada. Si se desea un dirección IP específica, puede ser "
+"proporcionada y tambien\n"
+"debe ser una dirección dentro de la subred seleccionada.\n"
+" "
 
 msgid "Which keypair to use for authentication."
 msgstr "Qué par de claves usar para la autenticación."

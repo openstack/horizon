@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-09-19 06:14+0000\n"
+"POT-Creation-Date: 2015-09-22 07:31+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -598,6 +598,9 @@ msgstr ""
 #: contrib/trove/content/database_backups/templates/database_backups/details.html:14
 #: contrib/trove/content/database_backups/templates/database_backups/details.html:60
 #: contrib/trove/content/database_backups/workflows/create_backup.py:32
+#: contrib/trove/content/database_clusters/tables.py:191
+#: contrib/trove/content/database_clusters/templates/database_clusters/_detail_overview.html:9
+#: contrib/trove/content/database_clusters/templates/database_clusters/_detail_overview_vertica.html:9
 #: contrib/trove/content/databases/tables.py:387
 #: contrib/trove/content/databases/templates/databases/_detail_overview.html:10
 #: dashboards/admin/aggregates/forms.py:26
@@ -845,6 +848,9 @@ msgstr ""
 #: contrib/sahara/content/data_processing/clusters/templates/data_processing.clusters/create_cluster.html:3
 #: contrib/sahara/content/data_processing/clusters/workflows/create.py:56
 #: contrib/sahara/content/data_processing/clusters/workflows/create.py:223
+#: contrib/trove/content/database_clusters/tables.py:60
+#: contrib/trove/content/database_clusters/templates/database_clusters/_launch.html:9
+#: contrib/trove/content/database_clusters/templates/database_clusters/launch.html:3
 msgid "Launch Cluster"
 msgstr ""
 
@@ -980,6 +986,8 @@ msgstr ""
 #: contrib/sahara/content/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/_details.html:8
 #: contrib/trove/content/database_backups/templates/database_backups/details.html:18
 #: contrib/trove/content/database_backups/templates/database_backups/details.html:62
+#: contrib/trove/content/database_clusters/templates/database_clusters/_detail_overview.html:11
+#: contrib/trove/content/database_clusters/templates/database_clusters/_detail_overview_vertica.html:11
 #: contrib/trove/content/databases/templates/databases/_detail_overview.html:12
 #: dashboards/admin/flavors/tables.py:154
 #: dashboards/admin/flavors/workflows.py:41
@@ -1157,6 +1165,10 @@ msgstr ""
 #: contrib/sahara/content/data_processing/cluster_templates/templates/data_processing.cluster_templates/_nodegroups_details.html:11
 #: contrib/sahara/content/data_processing/clusters/templates/data_processing.clusters/_nodegroups_details.html:14
 #: contrib/sahara/content/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/_details.html:14
+#: contrib/trove/content/database_clusters/forms.py:45
+#: contrib/trove/content/database_clusters/forms.py:53
+#: contrib/trove/content/database_clusters/forms.py:112
+#: contrib/trove/content/database_clusters/forms.py:118
 #: contrib/trove/content/databases/templates/databases/_detail_overview.html:27
 #: contrib/trove/content/databases/workflows/create_instance.py:37
 #: dashboards/project/instances/templates/instances/_detail_overview.html:50
@@ -1253,6 +1265,9 @@ msgstr ""
 #: contrib/sahara/content/data_processing/job_binaries/templates/data_processing.job_binaries/_create.html:26
 #: contrib/sahara/content/data_processing/wizard/templates/data_processing.wizard/_job_type_select.html:30
 #: contrib/sahara/content/data_processing/wizard/templates/data_processing.wizard/_plugin_select.html:30
+#: contrib/trove/content/database_clusters/templates/database_clusters/_add_shard.html:24
+#: contrib/trove/content/database_clusters/templates/database_clusters/_launch.html:21
+#: contrib/trove/content/database_clusters/templates/database_clusters/_reset_password.html:24
 #: contrib/trove/content/databases/templates/databases/_resize_instance.html:24
 #: contrib/trove/content/databases/templates/databases/_resize_volume.html:25
 #: dashboards/admin/aggregates/templates/aggregates/_update.html:25
@@ -1448,6 +1463,9 @@ msgstr ""
 #: contrib/sahara/content/data_processing/clusters/panel.py:22
 #: contrib/sahara/content/data_processing/clusters/tables.py:167
 #: contrib/sahara/content/data_processing/clusters/views.py:48
+#: contrib/trove/content/database_clusters/panel.py:23
+#: contrib/trove/content/database_clusters/tables.py:159
+#: contrib/trove/content/database_clusters/templates/database_clusters/index.html:3
 msgid "Clusters"
 msgstr ""
 
@@ -1462,6 +1480,7 @@ msgstr ""
 #: contrib/trove/content/database_backups/tables.py:174
 #: contrib/trove/content/database_backups/templates/database_backups/details.html:26
 #: contrib/trove/content/database_backups/templates/database_backups/details.html:67
+#: contrib/trove/content/database_clusters/tables.py:201
 #: contrib/trove/content/databases/tables.py:333
 #: contrib/trove/content/databases/tables.py:399
 #: contrib/trove/content/databases/templates/databases/_detail_overview.html:18
@@ -1570,6 +1589,8 @@ msgid "Cluster Instances"
 msgstr ""
 
 #: contrib/sahara/content/data_processing/clusters/tabs.py:150
+#: contrib/trove/content/database_clusters/tables.py:205
+#: contrib/trove/content/database_clusters/tabs.py:48
 #: contrib/trove/content/databases/panel.py:21
 #: contrib/trove/content/databases/tables.py:340
 #: contrib/trove/content/databases/views.py:50
@@ -1676,6 +1697,8 @@ msgid "Select a plugin and version for a new Cluster."
 msgstr ""
 
 #: contrib/sahara/content/data_processing/clusters/templates/data_processing.clusters/_details.html:3
+#: contrib/trove/content/database_clusters/templates/database_clusters/_detail_overview.html:3
+#: contrib/trove/content/database_clusters/templates/database_clusters/_detail_overview_vertica.html:3
 msgid "Cluster Overview"
 msgstr ""
 
@@ -1765,6 +1788,9 @@ msgid "Select plugin and hadoop version for cluster"
 msgstr ""
 
 #: contrib/sahara/content/data_processing/clusters/workflows/create.py:73
+#: contrib/trove/content/database_clusters/forms.py:35
+#: contrib/trove/content/database_clusters/forms.py:319
+#: contrib/trove/content/database_clusters/tables.py:143
 msgid "Cluster Name"
 msgstr ""
 
@@ -1807,6 +1833,7 @@ msgstr ""
 #: contrib/sahara/content/data_processing/clusters/workflows/create.py:224
 #: contrib/sahara/content/data_processing/jobs/workflows/launch.py:465
 #: contrib/sahara/content/data_processing/jobs/workflows/launch.py:555
+#: contrib/trove/content/database_clusters/templates/database_clusters/_launch.html:20
 #: contrib/trove/content/databases/workflows/create_instance.py:337
 #: dashboards/project/images/images/tables.py:62
 #: dashboards/project/instances/workflows/create_instance.py:836
@@ -2031,6 +2058,8 @@ msgstr ""
 
 #: contrib/sahara/content/data_processing/data_plugins/templates/data_processing.data_plugins/_details.html:6
 #: contrib/trove/content/database_backups/templates/database_backups/details.html:11
+#: contrib/trove/content/database_clusters/templates/database_clusters/_detail_overview.html:6
+#: contrib/trove/content/database_clusters/templates/database_clusters/_detail_overview_vertica.html:6
 #: contrib/trove/content/databases/templates/databases/_detail_overview.html:7
 #: dashboards/admin/volumes/templates/volumes/snapshots/_detail_overview.html:7
 #: dashboards/identity/projects/templates/projects/_detail_overview.html:6
@@ -2084,6 +2113,7 @@ msgstr ""
 #: contrib/sahara/content/data_processing/jobs/tables.py:31
 #: contrib/sahara/content/data_processing/jobs/tables.py:108
 #: contrib/sahara/content/data_processing/jobs/templates/data_processing.jobs/_details.html:10
+#: contrib/trove/content/database_clusters/tables.py:193
 #: dashboards/admin/hypervisors/tables.py:27
 #: dashboards/admin/info/tables.py:168
 #: dashboards/project/access_and_security/security_groups/forms.py:180
@@ -2438,6 +2468,9 @@ msgstr ""
 #: contrib/sahara/content/data_processing/job_executions/tables.py:166
 #: contrib/trove/content/database_backups/tables.py:144
 #: contrib/trove/content/database_backups/tables.py:150
+#: contrib/trove/content/database_clusters/tables.py:130
+#: contrib/trove/content/database_clusters/tables.py:172
+#: contrib/trove/content/database_clusters/tables.py:178
 #: contrib/trove/content/databases/tables.py:242
 #: contrib/trove/content/databases/tables.py:248
 #: contrib/trove/content/databases/tables.py:265
@@ -3234,6 +3267,7 @@ msgid "Shell"
 msgstr ""
 
 #: contrib/sahara/content/data_processing/utils/neutron_support.py:31
+#: contrib/trove/content/database_clusters/forms.py:207
 #: contrib/trove/content/databases/workflows/create_instance.py:162
 msgid "Unable to retrieve networks."
 msgstr ""
@@ -3693,6 +3727,10 @@ msgstr[1] ""
 
 #: contrib/trove/content/database_backups/tables.py:162
 #: contrib/trove/content/database_backups/templates/database_backups/details.html:21
+#: contrib/trove/content/database_clusters/forms.py:38
+#: contrib/trove/content/database_clusters/tables.py:145
+#: contrib/trove/content/database_clusters/templates/database_clusters/_detail_overview.html:13
+#: contrib/trove/content/database_clusters/templates/database_clusters/_detail_overview_vertica.html:13
 #: contrib/trove/content/databases/tables.py:322
 #: contrib/trove/content/databases/templates/databases/_detail_overview.html:14
 #: contrib/trove/content/databases/workflows/create_instance.py:43
@@ -3701,6 +3739,9 @@ msgstr ""
 
 #: contrib/trove/content/database_backups/tables.py:164
 #: contrib/trove/content/database_backups/templates/database_backups/details.html:23
+#: contrib/trove/content/database_clusters/tables.py:147
+#: contrib/trove/content/database_clusters/templates/database_clusters/_detail_overview.html:15
+#: contrib/trove/content/database_clusters/templates/database_clusters/_detail_overview_vertica.html:15
 #: contrib/trove/content/databases/tables.py:324
 #: contrib/trove/content/databases/templates/databases/_detail_overview.html:16
 msgid "Datastore Version"
@@ -3873,6 +3914,376 @@ msgstr ""
 msgid "Error creating database backup."
 msgstr ""
 
+#: contrib/trove/content/database_clusters/forms.py:39
+#: contrib/trove/content/databases/workflows/create_instance.py:44
+msgid "Type and version of datastore."
+msgstr ""
+
+#: contrib/trove/content/database_clusters/forms.py:46
+#: contrib/trove/content/database_clusters/forms.py:54
+msgid "Size of instance to launch."
+msgstr ""
+
+#: contrib/trove/content/database_clusters/forms.py:61
+#: dashboards/project/instances/forms.py:173
+#: dashboards/project/networks/workflows.py:93
+#: enabled/_1410_network_panel_group.py:6
+msgid "Network"
+msgstr ""
+
+#: contrib/trove/content/database_clusters/forms.py:62
+msgid "Network attached to instance."
+msgstr ""
+
+#: contrib/trove/content/database_clusters/forms.py:65
+#: contrib/trove/content/databases/tables.py:330
+#: contrib/trove/content/databases/templates/databases/_detail_overview.html:32
+#: contrib/trove/content/databases/workflows/create_instance.py:39
+msgid "Volume Size"
+msgstr ""
+
+#: contrib/trove/content/database_clusters/forms.py:68
+#: contrib/trove/content/databases/workflows/create_instance.py:42
+msgid "Size of the volume in GB."
+msgstr ""
+
+#: contrib/trove/content/database_clusters/forms.py:70
+#: contrib/trove/content/database_clusters/forms.py:119
+msgid "Root Password"
+msgstr ""
+
+#: contrib/trove/content/database_clusters/forms.py:72
+msgid "Password for root user."
+msgstr ""
+
+#: contrib/trove/content/database_clusters/forms.py:78
+#: contrib/trove/content/database_clusters/templates/database_clusters/_detail_overview.html:21
+#: contrib/trove/content/database_clusters/templates/database_clusters/_detail_overview_vertica.html:21
+#: dashboards/project/instances/templates/instances/_flavors_and_quotas.html:21
+msgid "Number of Instances"
+msgstr ""
+
+#: contrib/trove/content/database_clusters/forms.py:82
+msgid "Number of instances in the cluster. (Read only)"
+msgstr ""
+
+#: contrib/trove/content/database_clusters/forms.py:89
+#: contrib/trove/content/database_clusters/forms.py:113
+#: contrib/trove/content/database_clusters/forms.py:323
+msgid "Number of Shards"
+msgstr ""
+
+#: contrib/trove/content/database_clusters/forms.py:93
+msgid "Number of shards. (Read only)"
+msgstr ""
+
+#: contrib/trove/content/database_clusters/forms.py:100
+#: contrib/trove/content/database_clusters/forms.py:114
+#: contrib/trove/content/database_clusters/forms.py:326
+msgid "Instances Per Shard"
+msgstr ""
+
+#: contrib/trove/content/database_clusters/forms.py:103
+msgid "Number of instances per shard. (Read only)"
+msgstr ""
+
+#: contrib/trove/content/database_clusters/forms.py:139
+msgid "The number of shards must be greater than 1."
+msgstr ""
+
+#: contrib/trove/content/database_clusters/forms.py:144
+msgid "The flavor must be specified."
+msgstr ""
+
+#: contrib/trove/content/database_clusters/forms.py:147
+msgid "Password for root user must be specified."
+msgstr ""
+
+#: contrib/trove/content/database_clusters/forms.py:162
+#: contrib/trove/content/databases/workflows/create_instance.py:65
+msgid "Unable to obtain flavors."
+msgstr ""
+
+#: contrib/trove/content/database_clusters/forms.py:220
+msgid "Unable to obtain datastores."
+msgstr ""
+
+#: contrib/trove/content/database_clusters/forms.py:241
+msgid "Unable to obtain datastore versions."
+msgstr ""
+
+#: contrib/trove/content/database_clusters/forms.py:308
+#, python-format
+msgid "Launched cluster \"%s\""
+msgstr ""
+
+#: contrib/trove/content/database_clusters/forms.py:313
+#, python-format
+msgid "Unable to launch cluster. %s"
+msgstr ""
+
+#: contrib/trove/content/database_clusters/forms.py:345
+#, python-format
+msgid "Added shard to \"%s\""
+msgstr ""
+
+#: contrib/trove/content/database_clusters/forms.py:349
+#, python-format
+msgid "Unable to add shard. %s"
+msgstr ""
+
+#: contrib/trove/content/database_clusters/forms.py:357
+msgid "New Password"
+msgstr ""
+
+#: contrib/trove/content/database_clusters/forms.py:359
+msgid "New password for cluster access."
+msgstr ""
+
+#: contrib/trove/content/database_clusters/forms.py:369
+#, python-format
+msgid "Root password updated for cluster \"%s\""
+msgstr ""
+
+#: contrib/trove/content/database_clusters/forms.py:373
+#, python-format
+msgid "Unable to reset password. %s"
+msgstr ""
+
+#: contrib/trove/content/database_clusters/tables.py:36
+msgid "Terminated cluster is not recoverable."
+msgstr ""
+
+#: contrib/trove/content/database_clusters/tables.py:40
+msgid "Terminate Cluster"
+msgid_plural "Terminate Clusters"
+msgstr[0] ""
+msgstr[1] ""
+
+#: contrib/trove/content/database_clusters/tables.py:48
+msgid "Scheduled termination of Cluster"
+msgid_plural "Scheduled termination of Clusters"
+msgstr[0] ""
+msgstr[1] ""
+
+#: contrib/trove/content/database_clusters/tables.py:68
+#: contrib/trove/content/database_clusters/views.py:141
+#: contrib/trove/content/database_clusters/templates/database_clusters/_add_shard.html:9
+#: contrib/trove/content/database_clusters/templates/database_clusters/_add_shard.html:23
+#: contrib/trove/content/database_clusters/templates/database_clusters/add_shard.html:3
+msgid "Add Shard"
+msgstr ""
+
+#: contrib/trove/content/database_clusters/tables.py:82
+#: contrib/trove/content/database_clusters/views.py:194
+#: contrib/trove/content/database_clusters/templates/database_clusters/_reset_password.html:9
+#: contrib/trove/content/database_clusters/templates/database_clusters/_reset_password.html:23
+#: contrib/trove/content/database_clusters/templates/database_clusters/reset_password.html:3
+msgid "Reset Root Password"
+msgstr ""
+
+#: contrib/trove/content/database_clusters/tables.py:125
+#, python-format
+msgid "%(name)s | %(RAM)s RAM | %(instances)s instances"
+msgstr ""
+
+#: contrib/trove/content/database_clusters/tables.py:149
+msgid "Cluster Size"
+msgstr ""
+
+#: contrib/trove/content/database_clusters/tables.py:153
+#: contrib/trove/content/database_clusters/templates/database_clusters/_detail_overview.html:17
+#: contrib/trove/content/database_clusters/templates/database_clusters/_detail_overview_vertica.html:17
+msgid "Current Task"
+msgstr ""
+
+#: contrib/trove/content/database_clusters/tables.py:168
+#: contrib/trove/content/databases/tables.py:261
+#, python-format
+msgid "%(name)s | %(RAM)s RAM"
+msgstr ""
+
+#: contrib/trove/content/database_clusters/tables.py:186
+#: contrib/trove/content/database_clusters/templates/database_clusters/_detail_overview_mongodb.html:13
+#: contrib/trove/content/databases/tables.py:256
+#: contrib/trove/content/databases/templates/databases/_detail_overview_cassandra.html:12
+#: contrib/trove/content/databases/templates/databases/_detail_overview_couchbase.html:12
+#: contrib/trove/content/databases/templates/databases/_detail_overview_mongodb.html:17
+#: contrib/trove/content/databases/templates/databases/_detail_overview_mysql.html:12
+#: contrib/trove/content/databases/templates/databases/_detail_overview_redis.html:12
+msgid "Not Assigned"
+msgstr ""
+
+#: contrib/trove/content/database_clusters/tables.py:195
+#: contrib/trove/content/database_clusters/templates/database_clusters/_detail_overview_mongodb.html:10
+#: contrib/trove/content/databases/tables.py:325
+#: contrib/trove/content/databases/templates/databases/_detail_overview_cassandra.html:10
+#: contrib/trove/content/databases/templates/databases/_detail_overview_couchbase.html:10
+#: contrib/trove/content/databases/templates/databases/_detail_overview_mongodb.html:14
+#: contrib/trove/content/databases/templates/databases/_detail_overview_mysql.html:10
+#: contrib/trove/content/databases/templates/databases/_detail_overview_redis.html:10
+#: dashboards/admin/hypervisors/compute/forms.py:73
+#: dashboards/admin/hypervisors/compute/tables.py:142
+#: dashboards/admin/info/tables.py:66 dashboards/admin/info/tables.py:95
+#: dashboards/admin/info/tables.py:119 dashboards/admin/info/tables.py:170
+#: dashboards/admin/info/tables.py:209 dashboards/admin/instances/tables.py:134
+#: dashboards/admin/networks/agents/tables.py:91
+#: dashboards/admin/networks/templates/networks/ports/_detail_overview.html:50
+#: dashboards/admin/volumes/snapshots/tables.py:64
+#: dashboards/admin/volumes/volumes/forms.py:57
+#: dashboards/admin/volumes/volumes/forms.py:144
+#: dashboards/admin/volumes/volumes/tables.py:93
+#: dashboards/project/instances/templates/instances/_detail_overview.html:23
+msgid "Host"
+msgstr ""
+
+#: contrib/trove/content/database_clusters/tables.py:197
+#: contrib/trove/content/databases/tables.py:327
+#: dashboards/admin/instances/tables.py:145
+#: dashboards/admin/volumes/templates/volumes/snapshots/_detail_overview.html:33
+#: dashboards/project/containers/tables.py:451
+#: dashboards/project/containers/templates/containers/_container_detail.html:22
+#: dashboards/project/containers/templates/containers/_object_detail.html:18
+#: dashboards/project/images/images/tables.py:323
+#: dashboards/project/images/templates/images/images/_detail_overview.html:46
+#: dashboards/project/instances/tables.py:1135
+#: dashboards/project/instances/templates/instances/_instance_flavor.html:7
+#: dashboards/project/volumes/backups/tables.py:127
+#: dashboards/project/volumes/templates/volumes/backups/_detail_overview.html:37
+#: dashboards/project/volumes/templates/volumes/snapshots/_detail_overview.html:37
+#: dashboards/project/volumes/templates/volumes/volumes/_detail_overview.html:27
+#: dashboards/project/volumes/volumes/tables.py:404
+msgid "Size"
+msgstr ""
+
+#: contrib/trove/content/database_clusters/tabs.py:27
+#: contrib/trove/content/databases/tabs.py:26
+#: dashboards/admin/overview/panel.py:27
+#: dashboards/admin/volumes/snapshots/tabs.py:23
+#: dashboards/project/images/images/tabs.py:22
+#: dashboards/project/instances/tabs.py:31
+#: dashboards/project/networks/ports/tabs.py:21
+#: dashboards/project/networks/subnets/tabs.py:21
+#: dashboards/project/overview/panel.py:25
+#: dashboards/project/routers/tabs.py:27
+#: dashboards/project/routers/ports/tabs.py:24
+#: dashboards/project/stacks/tabs.py:53 dashboards/project/stacks/tabs.py:67
+#: dashboards/project/stacks/resource_types/tabs.py:21
+#: dashboards/project/volumes/backups/tabs.py:24
+#: dashboards/project/volumes/snapshots/tabs.py:25
+#: dashboards/project/volumes/volumes/tabs.py:21 usage/views.py:25
+msgid "Overview"
+msgstr ""
+
+#: contrib/trove/content/database_clusters/tabs.py:75
+msgid "Unable to get instances data."
+msgstr ""
+
+#: contrib/trove/content/database_clusters/views.py:55
+#: contrib/trove/content/databases/views.py:61
+msgid "Unable to retrieve database size information."
+msgstr ""
+
+#: contrib/trove/content/database_clusters/views.py:81
+msgid "Unable to retrieve database clusters."
+msgstr ""
+
+#: contrib/trove/content/database_clusters/views.py:99
+msgid "Cluster Details: {{ cluster.name }}"
+msgstr ""
+
+#: contrib/trove/content/database_clusters/views.py:113
+#, python-format
+msgid "Unable to retrieve details for database cluster: %s"
+msgstr ""
+
+#: contrib/trove/content/database_clusters/views.py:163
+#: contrib/trove/content/database_clusters/views.py:202
+msgid "Unable to retrieve cluster details."
+msgstr ""
+
+#: contrib/trove/content/database_clusters/views.py:177
+#: contrib/trove/content/databases/views.py:212
+#: dashboards/project/instances/views.py:423
+msgid "Unable to retrieve flavors."
+msgstr ""
+
+#: contrib/trove/content/database_clusters/templates/database_clusters/_add_shard.html:18
+msgid "Specify the details for adding additional shards."
+msgstr ""
+
+#: contrib/trove/content/database_clusters/templates/database_clusters/_detail_overview.html:19
+#: contrib/trove/content/database_clusters/templates/database_clusters/_detail_overview_vertica.html:19
+#: contrib/trove/content/databases/templates/databases/_detail_overview.html:29
+#: dashboards/admin/flavors/tables.py:143
+#: dashboards/project/instances/templates/instances/_detail_overview.html:55
+#: dashboards/project/instances/templates/instances/_flavors_and_quotas.html:14
+#: dashboards/project/instances/templates/instances/_instance_flavor.html:6
+#: usage/tables.py:37 usage/views.py:69
+msgid "RAM"
+msgstr ""
+
+#: contrib/trove/content/database_clusters/templates/database_clusters/_detail_overview_mongodb.html:6
+#: contrib/trove/content/databases/templates/databases/_detail_overview_cassandra.html:6
+#: contrib/trove/content/databases/templates/databases/_detail_overview_mongodb.html:6
+msgid "Connection Information"
+msgstr ""
+
+#: contrib/trove/content/database_clusters/templates/database_clusters/_detail_overview_mongodb.html:18
+#: contrib/trove/content/databases/templates/databases/_detail_overview_cassandra.html:15
+#: contrib/trove/content/databases/templates/databases/_detail_overview_mongodb.html:22
+#: contrib/trove/content/databases/templates/databases/_detail_overview_mysql.html:15
+msgid "Database Port"
+msgstr ""
+
+#: contrib/trove/content/database_clusters/templates/database_clusters/_detail_overview_mongodb.html:20
+#: contrib/trove/content/databases/templates/databases/_detail_overview_cassandra.html:17
+#: contrib/trove/content/databases/templates/databases/_detail_overview_couchbase.html:15
+#: contrib/trove/content/databases/templates/databases/_detail_overview_mongodb.html:24
+#: contrib/trove/content/databases/templates/databases/_detail_overview_mysql.html:17
+#: contrib/trove/content/databases/templates/databases/_detail_overview_redis.html:15
+msgid "Connection Examples"
+msgstr ""
+
+#: contrib/trove/content/database_clusters/templates/database_clusters/_detail_overview_mongodb.html:22
+#: contrib/trove/content/databases/templates/databases/_detail_overview_mongodb.html:26
+#: contrib/trove/content/databases/templates/databases/_detail_overview_mysql.html:18
+#: contrib/trove/content/databases/templates/databases/_detail_overview_mysql.html:19
+msgid "USERNAME"
+msgstr ""
+
+#: contrib/trove/content/database_clusters/templates/database_clusters/_detail_overview_mongodb.html:22
+#: contrib/trove/content/databases/templates/databases/_detail_overview_mongodb.html:26
+#: contrib/trove/content/databases/templates/databases/_detail_overview_mysql.html:19
+msgid "PASSWORD"
+msgstr ""
+
+#: contrib/trove/content/database_clusters/templates/database_clusters/_detail_overview_mongodb.html:22
+#: contrib/trove/content/databases/templates/databases/_detail_overview_mongodb.html:26
+#: contrib/trove/content/databases/templates/databases/_detail_overview_mysql.html:19
+msgid "DATABASE"
+msgstr ""
+
+#: contrib/trove/content/database_clusters/templates/database_clusters/_detail_overview_vertica.html:23
+msgid "Managment Console"
+msgstr ""
+
+#: contrib/trove/content/database_clusters/templates/database_clusters/_reset_password.html:18
+msgid "Specify the new root password for vertica cluster."
+msgstr ""
+
+#: contrib/trove/content/database_clusters/templates/database_clusters/detail.html:3
+msgid "Cluster Detail"
+msgstr ""
+
+#: contrib/trove/content/database_clusters/templates/database_clusters/index.html:6
+msgid "\"Clusters\""
+msgstr ""
+
+#: contrib/trove/content/database_clusters/templates/database_clusters/launch.html:6
+msgid "\"Launch Cluster\""
+msgstr ""
+
 #: contrib/trove/content/databases/forms.py:28
 #: dashboards/project/volumes/volumes/forms.py:702
 msgid "Current Size (GB)"
@@ -4035,20 +4446,6 @@ msgstr ""
 msgid "Resize Instance"
 msgstr ""
 
-#: contrib/trove/content/databases/tables.py:256
-#: contrib/trove/content/databases/templates/databases/_detail_overview_cassandra.html:12
-#: contrib/trove/content/databases/templates/databases/_detail_overview_couchbase.html:12
-#: contrib/trove/content/databases/templates/databases/_detail_overview_mongodb.html:12
-#: contrib/trove/content/databases/templates/databases/_detail_overview_mysql.html:12
-#: contrib/trove/content/databases/templates/databases/_detail_overview_redis.html:12
-msgid "Not Assigned"
-msgstr ""
-
-#: contrib/trove/content/databases/tables.py:261
-#, python-format
-msgid "%(name)s | %(RAM)s RAM"
-msgstr ""
-
 #: contrib/trove/content/databases/tables.py:296
 msgctxt "Current status of a Database Instance"
 msgid "Active"
@@ -4109,51 +4506,6 @@ msgstr ""
 msgid "Instance Name"
 msgstr ""
 
-#: contrib/trove/content/databases/tables.py:325
-#: contrib/trove/content/databases/templates/databases/_detail_overview_cassandra.html:10
-#: contrib/trove/content/databases/templates/databases/_detail_overview_couchbase.html:10
-#: contrib/trove/content/databases/templates/databases/_detail_overview_mongodb.html:10
-#: contrib/trove/content/databases/templates/databases/_detail_overview_mysql.html:10
-#: contrib/trove/content/databases/templates/databases/_detail_overview_redis.html:10
-#: dashboards/admin/hypervisors/compute/forms.py:73
-#: dashboards/admin/hypervisors/compute/tables.py:142
-#: dashboards/admin/info/tables.py:66 dashboards/admin/info/tables.py:95
-#: dashboards/admin/info/tables.py:119 dashboards/admin/info/tables.py:170
-#: dashboards/admin/info/tables.py:209 dashboards/admin/instances/tables.py:134
-#: dashboards/admin/networks/agents/tables.py:91
-#: dashboards/admin/networks/templates/networks/ports/_detail_overview.html:50
-#: dashboards/admin/volumes/snapshots/tables.py:64
-#: dashboards/admin/volumes/volumes/forms.py:57
-#: dashboards/admin/volumes/volumes/forms.py:144
-#: dashboards/admin/volumes/volumes/tables.py:93
-#: dashboards/project/instances/templates/instances/_detail_overview.html:23
-msgid "Host"
-msgstr ""
-
-#: contrib/trove/content/databases/tables.py:327
-#: dashboards/admin/instances/tables.py:145
-#: dashboards/admin/volumes/templates/volumes/snapshots/_detail_overview.html:33
-#: dashboards/project/containers/tables.py:451
-#: dashboards/project/containers/templates/containers/_container_detail.html:22
-#: dashboards/project/containers/templates/containers/_object_detail.html:18
-#: dashboards/project/images/images/tables.py:323
-#: dashboards/project/images/templates/images/images/_detail_overview.html:46
-#: dashboards/project/instances/tables.py:1135
-#: dashboards/project/instances/templates/instances/_instance_flavor.html:7
-#: dashboards/project/volumes/backups/tables.py:127
-#: dashboards/project/volumes/templates/volumes/backups/_detail_overview.html:37
-#: dashboards/project/volumes/templates/volumes/snapshots/_detail_overview.html:37
-#: dashboards/project/volumes/templates/volumes/volumes/_detail_overview.html:27
-#: dashboards/project/volumes/volumes/tables.py:404
-msgid "Size"
-msgstr ""
-
-#: contrib/trove/content/databases/tables.py:330
-#: contrib/trove/content/databases/templates/databases/_detail_overview.html:32
-#: contrib/trove/content/databases/workflows/create_instance.py:39
-msgid "Volume Size"
-msgstr ""
-
 #: contrib/trove/content/databases/tables.py:354
 msgid "Allowed Host"
 msgstr ""
@@ -4188,24 +4540,6 @@ msgstr ""
 msgid "Backup File"
 msgstr ""
 
-#: contrib/trove/content/databases/tabs.py:26
-#: dashboards/admin/overview/panel.py:27
-#: dashboards/admin/volumes/snapshots/tabs.py:23
-#: dashboards/project/images/images/tabs.py:22
-#: dashboards/project/instances/tabs.py:31
-#: dashboards/project/networks/ports/tabs.py:21
-#: dashboards/project/networks/subnets/tabs.py:21
-#: dashboards/project/overview/panel.py:25
-#: dashboards/project/routers/tabs.py:27
-#: dashboards/project/routers/ports/tabs.py:24
-#: dashboards/project/stacks/tabs.py:53 dashboards/project/stacks/tabs.py:67
-#: dashboards/project/stacks/resource_types/tabs.py:21
-#: dashboards/project/volumes/backups/tabs.py:24
-#: dashboards/project/volumes/snapshots/tabs.py:25
-#: dashboards/project/volumes/volumes/tabs.py:21 usage/views.py:25
-msgid "Overview"
-msgstr ""
-
 #: contrib/trove/content/databases/tabs.py:63
 msgid "Unable to get user data."
 msgstr ""
@@ -4216,10 +4550,6 @@ msgstr ""
 
 #: contrib/trove/content/databases/tabs.py:115
 msgid "Unable to get database backup data."
-msgstr ""
-
-#: contrib/trove/content/databases/views.py:61
-msgid "Unable to retrieve database size information."
 msgstr ""
 
 #: contrib/trove/content/databases/views.py:83
@@ -4262,11 +4592,6 @@ msgstr ""
 msgid "Resize Database Instance"
 msgstr ""
 
-#: contrib/trove/content/databases/views.py:212
-#: dashboards/project/instances/views.py:423
-msgid "Unable to retrieve flavors."
-msgstr ""
-
 #: contrib/trove/content/databases/templates/databases/_detail_overview.html:4
 #: dashboards/project/instances/templates/instances/_detail_overview.html:4
 #: dashboards/project/overview/templates/overview/usage.html:3
@@ -4286,15 +4611,6 @@ msgstr ""
 msgid "Specs"
 msgstr ""
 
-#: contrib/trove/content/databases/templates/databases/_detail_overview.html:29
-#: dashboards/admin/flavors/tables.py:143
-#: dashboards/project/instances/templates/instances/_detail_overview.html:55
-#: dashboards/project/instances/templates/instances/_flavors_and_quotas.html:14
-#: dashboards/project/instances/templates/instances/_instance_flavor.html:6
-#: usage/tables.py:37 usage/views.py:69
-msgid "RAM"
-msgstr ""
-
 #: contrib/trove/content/databases/templates/databases/_detail_overview.html:47
 msgid "Replication"
 msgstr ""
@@ -4307,42 +4623,10 @@ msgstr ""
 msgid "Replicas"
 msgstr ""
 
-#: contrib/trove/content/databases/templates/databases/_detail_overview_cassandra.html:6
 #: contrib/trove/content/databases/templates/databases/_detail_overview_couchbase.html:6
-#: contrib/trove/content/databases/templates/databases/_detail_overview_mongodb.html:6
 #: contrib/trove/content/databases/templates/databases/_detail_overview_mysql.html:6
 #: contrib/trove/content/databases/templates/databases/_detail_overview_redis.html:6
 msgid "Connection Info"
-msgstr ""
-
-#: contrib/trove/content/databases/templates/databases/_detail_overview_cassandra.html:15
-#: contrib/trove/content/databases/templates/databases/_detail_overview_mongodb.html:15
-#: contrib/trove/content/databases/templates/databases/_detail_overview_mysql.html:15
-msgid "Database Port"
-msgstr ""
-
-#: contrib/trove/content/databases/templates/databases/_detail_overview_cassandra.html:17
-#: contrib/trove/content/databases/templates/databases/_detail_overview_couchbase.html:15
-#: contrib/trove/content/databases/templates/databases/_detail_overview_mongodb.html:17
-#: contrib/trove/content/databases/templates/databases/_detail_overview_mysql.html:17
-#: contrib/trove/content/databases/templates/databases/_detail_overview_redis.html:15
-msgid "Connection Examples"
-msgstr ""
-
-#: contrib/trove/content/databases/templates/databases/_detail_overview_mongodb.html:19
-#: contrib/trove/content/databases/templates/databases/_detail_overview_mysql.html:18
-#: contrib/trove/content/databases/templates/databases/_detail_overview_mysql.html:19
-msgid "USERNAME"
-msgstr ""
-
-#: contrib/trove/content/databases/templates/databases/_detail_overview_mongodb.html:19
-#: contrib/trove/content/databases/templates/databases/_detail_overview_mysql.html:19
-msgid "PASSWORD"
-msgstr ""
-
-#: contrib/trove/content/databases/templates/databases/_detail_overview_mongodb.html:19
-#: contrib/trove/content/databases/templates/databases/_detail_overview_mysql.html:19
-msgid "DATABASE"
 msgstr ""
 
 #: contrib/trove/content/databases/templates/databases/_launch_advanced_help.html:3
@@ -4448,20 +4732,8 @@ msgstr ""
 msgid "Size of image to launch."
 msgstr ""
 
-#: contrib/trove/content/databases/workflows/create_instance.py:42
-msgid "Size of the volume in GB."
-msgstr ""
-
-#: contrib/trove/content/databases/workflows/create_instance.py:44
-msgid "Type and version of datastore."
-msgstr ""
-
 #: contrib/trove/content/databases/workflows/create_instance.py:53
 msgid "You must select a datastore type and version."
-msgstr ""
-
-#: contrib/trove/content/databases/workflows/create_instance.py:65
-msgid "Unable to obtain flavors."
 msgstr ""
 
 #: contrib/trove/content/databases/workflows/create_instance.py:116
@@ -11546,12 +11818,6 @@ msgstr ""
 msgid "Unable to retrieve instance password."
 msgstr ""
 
-#: dashboards/project/instances/forms.py:173
-#: dashboards/project/networks/workflows.py:93
-#: enabled/_1410_network_panel_group.py:6
-msgid "Network"
-msgstr ""
-
 #: dashboards/project/instances/forms.py:188
 #, python-format
 msgid "Attaching interface for instance %s."
@@ -12469,10 +12735,6 @@ msgstr ""
 msgid "Project Limits"
 msgstr ""
 
-#: dashboards/project/instances/templates/instances/_flavors_and_quotas.html:21
-msgid "Number of Instances"
-msgstr ""
-
 #: dashboards/project/instances/templates/instances/_flavors_and_quotas.html:22
 #: dashboards/project/instances/templates/instances/_flavors_and_quotas.html:29
 #, python-format
@@ -12872,21 +13134,21 @@ msgstr ""
 msgid "%s instances"
 msgstr ""
 
-#: dashboards/project/instances/workflows/create_instance.py:895
+#: dashboards/project/instances/workflows/create_instance.py:899
 msgid "Unable to retrieve extensions information"
 msgstr ""
 
-#: dashboards/project/instances/workflows/create_instance.py:951
+#: dashboards/project/instances/workflows/create_instance.py:955
 #, python-format
 msgid "Port cleanup failed for these port-ids (%s)."
 msgstr ""
 
-#: dashboards/project/instances/workflows/create_instance.py:969
+#: dashboards/project/instances/workflows/create_instance.py:973
 #, python-format
 msgid "Unable to create port for profile \"%(profile_id)s\": %(reason)s"
 msgstr ""
 
-#: dashboards/project/instances/workflows/create_instance.py:979
+#: dashboards/project/instances/workflows/create_instance.py:983
 #, python-format
 msgid " Also failed to delete port %s"
 msgstr ""

@@ -12,12 +12,12 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-09-17 00:21+0000\n"
+"POT-Creation-Date: 2015-09-19 06:33+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2015-09-16 04:57+0000\n"
-"Last-Translator: Ian Y. Choi <ianyrchoi@gmail.com>\n"
+"PO-Revision-Date: 2015-09-21 06:10+0000\n"
+"Last-Translator: Sungjin Kang <gang.sungjin@gmail.com>\n"
 "Language-Team: Korean (Korea) (http://www.transifex.com/openstack/horizon/"
 "language/ko_KR/)\n"
 "Generated-By: Babel 2.0\n"
@@ -188,6 +188,9 @@ msgstr "드라이브 구성"
 msgid "Configuration Help"
 msgstr "구성 도움말"
 
+msgid "Configuration Value"
+msgstr "구성 값"
+
 msgid "Count"
 msgstr "개수"
 
@@ -200,8 +203,24 @@ msgstr "새로운 볼륨 생성"
 msgid "Created"
 msgstr "생성"
 
+msgid ""
+"Custom scripts are attached to instances to perform specific actions when "
+"the instance is launched. For example, if you are unable to install "
+"<samp>cloud-init</samp> inside a guest operating system, you can use a "
+"custom script to get a public key and add it to the user account."
+msgstr ""
+"사용자 스크립트는 인스턴스 구동 시 연결되어 특정 작업을 진행합니다. 예를 들"
+"어, 게스트 OS에 <samp>cloud-init</samp>를 설치하지 않았을 경우, 사용자 스크립"
+"트를 이용하여 공개키를 가져오고, 새로운 사용자를 등록할 수 있습니다."
+
 msgid "Customization Script"
 msgstr "사용자 스크립트"
+
+msgid "Data Source"
+msgstr "데이터 소스"
+
+msgid "Default Value"
+msgstr "기본 값"
 
 msgid "Delete Volume on Terminate"
 msgstr "종료시 볼륨 삭제"
@@ -263,6 +282,20 @@ msgid ""
 "the instance."
 msgstr ""
 "Flavor는 인스턴스의 컴퓨트, 메모리 및 스토리지 용량에 대한 크기를 관리합니다."
+
+msgid ""
+"For configs and params, type the key name; for args, type the index as an "
+"integer, starting from 0."
+msgstr ""
+"구성 매개 변수는 키 이름 타입입니다. 인수로는 숫자로 된 인덱스 타입이며, 0부"
+"터 시작합니다."
+
+msgid ""
+"For data sources, use a data source UUID or a path (as per data source "
+"creation.)"
+msgstr ""
+"데이터 소스의 경우, 데이터 소스 UUID 또는 위치를 사용합니다. (데이터 소스 생"
+"성시 마다.)"
 
 msgid "Format"
 msgstr "포멧"
@@ -332,6 +365,23 @@ msgstr "키 페어 도움말"
 msgid "Key Pair Name"
 msgstr "키 페어 이름"
 
+msgid ""
+"Key Pairs are how you login to your instance after it is launched.\n"
+"        Choose a key pair name you will recognize and paste your SSH public "
+"key into the\n"
+"        space provided."
+msgstr ""
+"키 페어는 인스턴스가 구동된 후 누군가 로그인하는 방법입니다.\n"
+"        인식시킬 키 페이를 선택하고, SSH 공개 키를 제공된 공간에\n"
+"        붙여넣습니다."
+
+msgid ""
+"Key Pairs are how you login to your instance after it is launched.\n"
+"        Choose a key pair name you will recognize."
+msgstr ""
+"키 페어는 인스턴스가 구동된 후 누군가 로그인하는 방법입니다.\n"
+"        인식시킬 키 페어를 선택합니다."
+
 msgid "Killed"
 msgstr "Killed"
 
@@ -341,8 +391,14 @@ msgstr "인스턴스 시작"
 msgid "Load script from a file"
 msgstr "파일에서 스크립트 불러오기"
 
+msgid "Location"
+msgstr "장소"
+
 msgid "Manual"
 msgstr "수동"
+
+msgid "Mapping Type"
+msgstr "매핑 타입"
 
 msgid "Max Port"
 msgstr "최대 포트번호"
@@ -368,6 +424,9 @@ msgstr "최소 램"
 msgid "Name"
 msgstr "이름"
 
+msgid "Named Parameter"
+msgstr "이름 매개변수"
+
 msgid "Network"
 msgstr "네트워크"
 
@@ -389,6 +448,9 @@ msgstr "아니오"
 msgid "No available items"
 msgstr "사용 가능한 항목 없음"
 
+msgid "Number"
+msgstr "숫자"
+
 msgid "OK"
 msgstr "OK"
 
@@ -400,6 +462,9 @@ msgstr "물리적인 네트워크"
 
 msgid "Policy check failed."
 msgstr "정책 확인에 실패했습니다."
+
+msgid "Positional Argument"
+msgstr "위치 인수"
 
 msgid "Private"
 msgstr "사설"
@@ -457,8 +522,14 @@ msgstr "다시 주문할 아이템은 드래그 앤 드롭으로 가져옵니다
 msgid "Remote"
 msgstr "원격"
 
+msgid "Remove"
+msgstr "제거"
+
 msgid "Required"
 msgstr "필요한"
+
+msgid "Required?"
+msgstr "필요한?"
 
 msgid "Root Disk"
 msgstr "Root 디스크"
@@ -482,6 +553,13 @@ msgid ""
 "Security groups are project-specific and cannot be shared across projects."
 msgstr ""
 "시큐리티 그룹은 프로젝트에 지정되며 프로젝트에 걸쳐 공유될 수 없습니다."
+
+msgid ""
+"See http://docs.openstack.org/developer/sahara/userdoc/edp.html for "
+"definitions."
+msgstr ""
+"http://docs.openstack.org/developer/sahara/userdoc/edp.html 에서 정의를 확인"
+"하세요."
 
 msgid "Segmentation ID"
 msgstr "구분 ID"
@@ -548,6 +626,9 @@ msgstr "스냅샷"
 msgid "Status"
 msgstr "상태"
 
+msgid "String"
+msgstr "문자열"
+
 msgid "Subnets Associated"
 msgstr "서브넷 특징"
 
@@ -609,6 +690,20 @@ msgstr ""
 #, python-format
 msgid "The volume size must be at least %(minVolumeSize)s GB"
 msgstr "볼륨 크기는 최소 %(minVolumeSize)s GB여야 합니다."
+
+msgid ""
+"There are two ways to generate a key pair. From a Linux system,\n"
+"  generate the key pair with the <samp>ssh-keygen</samp> command:"
+msgstr ""
+"키 페어를 생성에는 두 가지 방법이 있습니다. 리눅스 시스템에서는,\n"
+"   <samp>ssh-keygen</samp> 명령을 이용하여 생성합니다:"
+
+msgid ""
+"This command generates a pair of keys: a private key (cloud.key)\n"
+"  and a public key (cloud.key.pub)."
+msgstr ""
+"이것을 이용하여 키 한쌍을 생성합니다: 개인키 (cloud.key)와\n"
+"  공개 키 (cloud.key.pub)."
 
 msgid ""
 "This flavor requires more RAM than your quota allows. Please select a "
@@ -845,6 +940,9 @@ msgstr "사용자 이름"
 
 msgid "VCPUS"
 msgstr "VCPUS"
+
+msgid "Value Type"
+msgstr "값 타입"
 
 msgid "Visibility"
 msgstr "가시성"
