@@ -1,0 +1,13 @@
+{% load i18n %}
+{% if external_v4_ip or external_v6_ip %}
+  <ul>
+    <li>
+      <strong>{% trans "IPv4:" %}</strong> {{ external_v4_ip }}
+    </li>
+    <li>
+      <strong>{% trans "IPv6:" %}</strong> {{ external_v6_ip }}
+    </li>
+  </ul>
+{% else %}
+  {% trans "-" %}
+{% endif %}

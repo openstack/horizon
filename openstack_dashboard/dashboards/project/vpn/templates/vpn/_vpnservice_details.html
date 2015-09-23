@@ -38,4 +38,15 @@
     <dt>{% trans "Status" %}</dt>
     <dd>{{ vpnservice.status }}</dd>
   </dl>
+
+  {% if vpnservice.external_v4_ip or vpnservice.external_v6_ip %}
+    <h4>Local Side Public IP Addresses</h4>
+    <hr class="header_rule">
+    <dl class="dl-horizontal">
+      <dt>{% trans "IPv4" %}</dt>
+      <dd>{{ vpnservice.external_v4_ip|default:_("None") }}</dd>
+      <dt>{% trans "IPv6" %}</dt>
+      <dd>{{ vpnservice.external_v6_ip|default:_("None") }}</dd>
+    </dl>
+  {% endif %}
 </div>
