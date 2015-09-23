@@ -469,11 +469,15 @@ class AttachForm(forms.SelfHandlingForm):
         # The name of the instance in the choices list has the ID appended to
         # it, so let's slice that off...
         instance_name = instance_name.rsplit(" (")[0]
+
+        # api requires non-empty device name or None
+        device = data.get('device') or None
+
         try:
             attach = api.nova.instance_volume_attach(request,
                                                      data['volume_id'],
                                                      data['instance'],
-                                                     data.get('device', ''))
+                                                     device)
             volume = cinder.volume_get(request, data['volume_id'])
             message = _('Attaching volume %(vol)s to instance '
                         '%(inst)s on %(dev)s.') % {"vol": volume.name,
