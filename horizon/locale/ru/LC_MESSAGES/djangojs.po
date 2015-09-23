@@ -15,11 +15,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-09-17 00:21+0000\n"
+"POT-Creation-Date: 2015-09-22 10:47+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2015-09-10 01:50+0000\n"
+"PO-Revision-Date: 2015-09-23 08:11+0000\n"
 "Last-Translator: Ilya Alekseyev <ilyaalekseyev@acm.org>\n"
 "Language-Team: Russian (http://www.transifex.com/openstack/horizon/language/"
 "ru/)\n"
@@ -49,6 +49,9 @@ msgstr "%s ТБ"
 #, python-format
 msgid "%s bytes"
 msgstr "%s байт"
+
+msgid "-"
+msgstr "-"
 
 msgid "Active"
 msgstr "Активный"
@@ -80,6 +83,9 @@ msgstr "Назад"
 msgid "Cancel"
 msgstr "Отмена"
 
+msgid "Click here for filters."
+msgstr "Нажмите здесь для фильтров."
+
 msgid "Click here to expand the row and view the errors."
 msgstr "Нажмите для показа ошибок."
 
@@ -108,6 +114,9 @@ msgstr "Не удалось расшифровать пароль"
 msgid "Could not read the file"
 msgstr "Не удалось прочитать файл"
 
+msgid "Create Subnet"
+msgstr "Создать подсеть"
+
 msgid "Current Usage"
 msgstr "Использовано на текущий момент"
 
@@ -129,11 +138,21 @@ msgstr "Удалить"
 msgid "Delete Interface"
 msgstr "Удалить интерфейс"
 
+msgid "Delete Network"
+msgstr "Удалить сеть"
+
 msgid "Delete Router"
 msgstr "Удалить маршрутизатор"
 
+msgid "Delete Subnet"
+msgstr "Удалить подсеть"
+
 msgid "Detail Information"
 msgstr "Подробная информация"
+
+#, python-format
+msgid "Displaying %(count)s of %(total)s items"
+msgstr "Отображение %(count)s из %(total)s элементов"
 
 #, python-format
 msgid "Displaying %s item"
@@ -172,6 +191,12 @@ msgstr "Тип инстанса"
 
 msgid "ID"
 msgstr "ID"
+
+msgid "IP Addresses"
+msgstr "IP адрес"
+
+msgid "In current results"
+msgstr "В текущих результатах"
 
 msgid "Info"
 msgstr "Информация"
@@ -278,6 +303,9 @@ msgstr "Выберите элемент из доступных элементо
 msgid "Select one"
 msgstr "Выберите один"
 
+msgid "Server Name"
+msgstr "Имя сервера"
+
 msgid "Shutdown"
 msgstr "Выключение"
 
@@ -290,6 +318,9 @@ msgstr "Статус: %s"
 
 msgid "Submit"
 msgstr "Отправить"
+
+msgid "Subnets"
+msgstr "Подсети"
 
 msgid "Success"
 msgstr "Успешно"
@@ -363,6 +394,9 @@ msgstr "m1.small"
 
 msgid "m1.tiny"
 msgstr "m1.tiny"
+
+msgid "no quota"
+msgstr "нет квоты"
 
 msgid "pool default"
 msgstr "пул по умолчанию"

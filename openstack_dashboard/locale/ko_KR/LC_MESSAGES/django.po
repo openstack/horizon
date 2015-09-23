@@ -15,11 +15,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-09-19 06:33+0000\n"
+"POT-Creation-Date: 2015-09-22 10:47+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2015-09-21 05:41+0000\n"
+"PO-Revision-Date: 2015-09-22 06:06+0000\n"
 "Last-Translator: Sungjin Kang <gang.sungjin@gmail.com>\n"
 "Language-Team: Korean (Korea) (http://www.transifex.com/openstack/horizon/"
 "language/ko_KR/)\n"
@@ -396,6 +396,9 @@ msgstr "완료"
 msgid "\"Add Router Route\""
 msgstr "\"라우터 경로 추가\""
 
+msgid "\"Clusters\""
+msgstr "\"클러스터\""
+
 msgid ""
 "\"Customization Script\" is analogous to \"User Data\" in other systems."
 msgstr ""
@@ -403,6 +406,9 @@ msgstr ""
 
 msgid "\"Edit Volume Type\""
 msgstr "\"볼륨 타입 수정\""
+
+msgid "\"Launch Cluster\""
+msgstr "\"클러스터 실행\""
 
 msgid "\"N/A\""
 msgstr "\"N/A\""
@@ -466,6 +472,10 @@ msgstr "%(name)s - %(size)s GB (%(label)s)"
 #, python-format
 msgid "%(name)s | %(RAM)s RAM"
 msgstr "%(name)s | %(RAM)s RAM"
+
+#, python-format
+msgid "%(name)s | %(RAM)s RAM | %(instances)s instances"
+msgstr "%(name)s | %(RAM)s RAM | %(instances)s 인스턴스"
 
 #, python-format
 msgid "%(offset)s: %(label)s"
@@ -1428,7 +1438,7 @@ msgid "Backup Database"
 msgstr "백업 데이터베이스"
 
 msgid "Backup Details"
-msgstr "백업에대한 자세한 정보"
+msgstr "백업에 대한 세부 정보"
 
 msgid "Backup Details: {{ backup.name }}"
 msgstr "백업 세부 정보: {{ backup.name }}"
@@ -1798,8 +1808,14 @@ msgstr "클러스터 개수"
 msgid "Cluster Creation Guide"
 msgstr "클러스터 생성 가이드"
 
+msgid "Cluster Detail"
+msgstr "클러스터 세부 정보"
+
 msgid "Cluster Details"
-msgstr "클러스터 자세한 정보"
+msgstr "클러스터 세부 정보"
+
+msgid "Cluster Details: {{ cluster.name }}"
+msgstr "클러스터 세부 정보: {{ cluster.name }}"
 
 msgid "Cluster Events"
 msgstr "클러스터 이벤트"
@@ -1816,6 +1832,9 @@ msgstr "클러스터 이름"
 msgid "Cluster Overview"
 msgstr "클러스터 개요"
 
+msgid "Cluster Size"
+msgstr "클러스터 크기"
+
 msgid "Cluster Template"
 msgstr "클러스터 템플릿"
 
@@ -1824,7 +1843,7 @@ msgid "Cluster Template %s updated"
 msgstr "업데이트된 클러스터 템플릿 %s"
 
 msgid "Cluster Template Details"
-msgstr "클러스터 템플릿 자세한 정보"
+msgstr "클러스터 템플릿 세부 정보"
 
 msgid "Cluster Template Name"
 msgstr "클러스터 템플릿 이름"
@@ -1959,6 +1978,9 @@ msgid "Connection Examples"
 msgstr "연결 예제"
 
 msgid "Connection Info"
+msgstr "연결 정보"
+
+msgid "Connection Information"
 msgstr "연결 정보"
 
 msgid "Connection Limit"
@@ -2562,6 +2584,9 @@ msgstr "현재 호스트"
 msgid "Current Size (GB)"
 msgstr "현재 크기 (GB)"
 
+msgid "Current Task"
+msgstr "현재 작업"
+
 msgid "Current choice:"
 msgstr "현재 선택:"
 
@@ -2663,7 +2688,7 @@ msgid "Data Processing Guides"
 msgstr "데이터 프로세싱 가이드"
 
 msgid "Data Processing Plugin Details"
-msgstr "데이터 플세싱 플러그인 상세 정보"
+msgstr "데이터 처리 플러그인 세부 정보"
 
 msgid "Data Processing Plugin Overview"
 msgstr "데이터 프로세싱 플러그인 개요"
@@ -2685,7 +2710,7 @@ msgid "Data Source"
 msgstr "데이터 원본"
 
 msgid "Data Source Details"
-msgstr "데이터 소스에 대한 자세한 설명"
+msgstr "데이터 소스에 대한 세부 설명"
 
 msgid "Data Source Overview"
 msgstr "데이터 소스 개요"
@@ -3484,7 +3509,7 @@ msgid ""
 "the domain."
 msgstr ""
 "서로 다른 조직에서 사용하는 사용자와 인프라 사이의 도메인을 분리하여 제공합니"
-"다. 도메인에서 그룹을 추가하거나 제거하며 도메인 정보를 편집합니다."
+"다. 도메인에서 그룹을 추가하거나 제거하며 도메인 세부 정보를 편집합니다."
 
 msgid "Domains:"
 msgstr "도메인:"
@@ -3735,10 +3760,10 @@ msgid "Edit the instance details."
 msgstr "인스턴스 상세 정보를 편집할 수 있습니다."
 
 msgid "Edit the project details."
-msgstr "프로젝트 상세 정보 편집"
+msgstr "프로젝트 세부 정보 편집"
 
 msgid "Edit the role's details."
-msgstr "Role에대한 자세한 정보를 편집합니다."
+msgstr "Role에 대한 세부 정보를 편집합니다."
 
 msgid "Edit the user's details, including the Primary Project."
 msgstr "주 프로젝트를 포함하여 사용자 세부 정보를 수정하세요."
@@ -3937,7 +3962,7 @@ msgid "Error Deleting"
 msgstr "삭제중 오류"
 
 msgid "Error Details"
-msgstr "에러 상세 정보"
+msgstr "에러 세부 정보"
 
 #, python-format
 msgid "Error Downloading RC File: %s"
@@ -5264,7 +5289,7 @@ msgid "Instance Count"
 msgstr "인스턴스 카운트"
 
 msgid "Instance Details"
-msgstr "인스턴스 세부정보"
+msgstr "인스턴스 세부 정보"
 
 msgid "Instance Details: {{ instance.name }}"
 msgstr "인스턴스 세부 정보: {{ instance.name }}"
@@ -5379,7 +5404,7 @@ msgid "Job Binaries"
 msgstr "Job 바이너리"
 
 msgid "Job Binary Details"
-msgstr "Job 바이너리에대한 자세한 정보"
+msgstr "Job 바이너리에 대한 세부 정보"
 
 msgid "Job Binary Overview"
 msgstr "Job 바이너리 개요"
@@ -5388,10 +5413,10 @@ msgid "Job Configuration"
 msgstr "Job 구성"
 
 msgid "Job Details"
-msgstr "Job에대한 자세한 정보"
+msgstr "Job에 대한 세부 정보"
 
 msgid "Job Execution Details"
-msgstr "Job 실행에대한 자세한 정보"
+msgstr "Job 실행에 대한 세부 정보"
 
 msgid "Job Execution Guide"
 msgstr "Job 실행 가이드"
@@ -5818,6 +5843,9 @@ msgstr "볼륨 관리"
 msgid "Management IP"
 msgstr "관리 IP"
 
+msgid "Managment Console"
+msgstr "관리 콘솔"
+
 msgid "Manual"
 msgstr "수동"
 
@@ -6188,6 +6216,9 @@ msgstr "CIDR 포멧의 네트워크 주소 (예, 192.168.0.0/24)"
 msgid "Network address in CIDR format (e.g. 192.168.0.0/24, 2001:DB8::/48)"
 msgstr "CIDR 형식의 네트워크 주소 (예. 192.168.0.0/24, 2001:DB8::/48)"
 
+msgid "Network attached to instance."
+msgstr "인스턴스에 네트워크 연결하였습니다."
+
 msgid "Network list can not be retrieved."
 msgstr "네트워크 목록을 찾을 수 없습니다."
 
@@ -6226,6 +6257,9 @@ msgstr "새로운 Flavor"
 msgid "New Host"
 msgstr "새로운 호스트"
 
+msgid "New Password"
+msgstr "새로운 암호"
+
 msgid "New Size (GB)"
 msgstr "새로운 크기 (GB)"
 
@@ -6237,6 +6271,9 @@ msgstr "다른 볼륨 형식의 이름과 동일합니다."
 
 msgid "New password"
 msgstr "새로운 비밀번호"
+
+msgid "New password for cluster access."
+msgstr "클러스터 접속을 위한 새로운 암호."
 
 msgid "New size for volume must be greater than current size."
 msgstr "볼륨의 새로운 크기는 현재 크기보다 커야합니다."
@@ -6490,7 +6527,7 @@ msgid "Node Group Template %s updated"
 msgstr "업데이트된 노드 그룹 템플릿 %s"
 
 msgid "Node Group Template Details"
-msgstr "노드 그룹 템플릿에 대한 자세한 정보"
+msgstr "노드 그룹 템플릿에 대한 세부 정보"
 
 #, python-format
 msgid "Node Group Template copy %s created"
@@ -6519,7 +6556,7 @@ msgid "Node processes are not specified"
 msgstr "노드 프로세스를 선택하지 않았습니다."
 
 msgid "Nodegroup Template Details"
-msgstr "노드 그룹 템플릿에 대한 자세한 정보"
+msgstr "노드 그룹 템플릿에 대한 세부 정보"
 
 msgid "Nodes Count"
 msgstr "노드 개수"
@@ -6630,6 +6667,9 @@ msgstr "VM 인터페이스에 대한 네트워크를 통해 들어오는 바이�
 
 msgid "Number of incoming packets for a VM interface"
 msgstr "VM 인터페이스에 대해서 들어오는 패킷 수"
+
+msgid "Number of instances in the cluster. (Read only)"
+msgstr "클러스터에 존재하는 인스턴스 수. (읽기 전용)"
 
 msgid "Number of instances to launch."
 msgstr "구동시 인스턴스 수"
@@ -6844,6 +6884,9 @@ msgstr "비밀번호를 변경하였습니다. 다시 로그인 해주십시오.
 
 msgid "Password changed. Please log in to continue."
 msgstr "비밀번호 변경하였습니다. 다시 로그인 해주십시오."
+
+msgid "Password for root user."
+msgstr "사용자 암호입니다."
 
 #, python-format
 msgid "Password for user \"%s\""
@@ -7545,6 +7588,9 @@ msgstr "클러스터 가이드 리셋"
 msgid "Reset Job Execution Guide"
 msgstr "Job실행 가이드 리셋"
 
+msgid "Reset Root Password"
+msgstr "루트 암호 변경"
+
 msgid "Reset to Default"
 msgstr "기본으로 되돌리기"
 
@@ -7776,6 +7822,13 @@ msgstr "Root 디스크"
 msgid "Root Disk (GB)"
 msgstr "Root 디스크 (GB)"
 
+msgid "Root Password"
+msgstr "루트 암호 설정"
+
+#, python-format
+msgid "Root password updated for cluster \"%s\""
+msgstr "클러스터 \"%s\"에 대한 루트 암호 업데이트"
+
 msgid "Rotates requests evenly between multiple instances."
 msgstr "여러 인스턴스들 사이에서 짝수로 요청을 순환합니다."
 
@@ -7999,6 +8052,10 @@ msgstr[0] "인스턴스 예약 마이그레이션 (확인 대기중)"
 #, python-format
 msgid "Scheduled resize of instance \"%s\"."
 msgstr "인스턴스  \"%s\" 예약된 크기 조정."
+
+msgid "Scheduled termination of Cluster"
+msgid_plural "Scheduled termination of Clusters"
+msgstr[0] "클러스터 예약 종료"
 
 msgid "Scheduled termination of Instance"
 msgid_plural "Scheduled termination of Instances"
@@ -8481,6 +8538,9 @@ msgstr "Ephemeral 디스크 크기"
 msgid "Size of image to launch."
 msgstr "시작시 이미지 크기"
 
+msgid "Size of instance to launch."
+msgstr "동작중인 인스턴스 크기"
+
 msgid "Size of root disk"
 msgstr "Root 디스크 크기"
 
@@ -8677,10 +8737,10 @@ msgid "Specify member IP address"
 msgstr "지정된 멤버 IP 주소"
 
 msgid "Specify the details for launching an instance."
-msgstr "인스턴스를 구동하기 위하여 세부 사항을 지정하십시오. "
+msgstr "인스턴스를 구동하기 위하여 세부 사양을 지정하십시오. "
 
 msgid "Specify the details for the database backup."
-msgstr "데이터베이스 백업에대한 세부 사항을 지정합니다."
+msgstr "데이터베이스 백업에 대한 세부 사항을 지정합니다."
 
 msgid "Specify the new volume size for the database instance."
 msgstr "데이터베이스 인스터스에 사용할 새로운 볼륨 크기를 지정합니다."
@@ -9134,9 +9194,16 @@ msgstr "템플릿 URL"
 msgid "Template not specified"
 msgstr "템플릿이 선택되지 않았습니다."
 
+msgid "Terminate Cluster"
+msgid_plural "Terminate Clusters"
+msgstr[0] "클러스터 종료"
+
 msgid "Terminate Instance"
 msgid_plural "Terminate Instances"
 msgstr[0] "인스턴스 종료"
+
+msgid "Terminated cluster is not recoverable."
+msgstr "종료된 클러스터는 복구할 수 없습니다."
 
 msgid "Terminated instances are not recoverable."
 msgstr "종료된 인스턴스는 복구 불가능합니다."
@@ -10112,7 +10179,7 @@ msgid "Unable to fetch image choices."
 msgstr "선택한 이미지를 가져오지 못 했습니다."
 
 msgid "Unable to fetch instance details."
-msgstr "인스턴스에 대한 자세한 정보를 가져오지 못 했습니다."
+msgstr "인스턴스에 대한 세부 정보를 가져오지 못 했습니다."
 
 msgid "Unable to fetch job binary list."
 msgstr "Job 바이너리 목록을 가져올 수 없습니다."
@@ -10131,13 +10198,13 @@ msgid "Unable to fetch keypair choices."
 msgstr "선택한 키 페어를 가져오지 못 했습니다."
 
 msgid "Unable to fetch node group details."
-msgstr "노드 그룹에 대한 자세한 정보를 가져올 수 없습니다."
+msgstr "노드 그룹에 대한 세부 정보를 가져올 수 없습니다."
 
 msgid "Unable to fetch node group template list."
 msgstr "노드 그룹 템플릿 목록을 가져올 수 없습니다."
 
 msgid "Unable to fetch plugin details."
-msgstr "플러그인에 대한 자세한 정보를 가져올 수 없습니다."
+msgstr "플러그인에 대한 세부 정보를 가져올 수 없습니다."
 
 msgid "Unable to fetch plugin list."
 msgstr "플러그인 목록을 가져오지 못 했습니다."
@@ -10152,7 +10219,7 @@ msgid "Unable to fetch template to edit."
 msgstr "편집할 템플릿을 가져올 수 없습니다."
 
 msgid "Unable to fetch the image details"
-msgstr "이미지 상세 정보를 가져올 수 없습니다."
+msgstr "이미지 세부 정보를 가져올 수 없습니다."
 
 msgid "Unable to find backup!"
 msgstr "백업을 찾을 수 없습니다!"
@@ -10211,6 +10278,9 @@ msgstr "Pool %(pool)s에 대한 상태 모니터 %(monitor_id)s를 가져올 수
 msgid "Unable to get host aggregate list"
 msgstr "호스트 집합 목록을 가져올 수 없습니다."
 
+msgid "Unable to get instances data."
+msgstr "인스턴스 데이터를 가져올 수 없습니다."
+
 #, python-format
 msgid "Unable to get log for instance \"%s\"."
 msgstr "인스턴스 \"%s\"에 대한 로그를 가져올 수 없습니다."
@@ -10226,7 +10296,7 @@ msgid "Unable to get network agents list."
 msgstr "네트워크 에이전트 목록을 불러올 수 없습니다."
 
 msgid "Unable to get node group details."
-msgstr "노드 그룹에 대한 자세한 정보를 가져올 수 없습니다."
+msgstr "노드 그룹에 대한 세부 정보를 가져올 수 없습니다."
 
 msgid "Unable to get nova services list."
 msgstr "Nova 서비스 목록을 가져올 수 없습니다"
@@ -10341,6 +10411,10 @@ msgstr "프로세스 플러그인 태그를 사용할 수 없습니다."
 
 msgid "Unable to rebuild instance."
 msgstr "인스턴스를 다시 빌드 할 수 없습니다."
+
+#, python-format
+msgid "Unable to reset password. %s"
+msgstr "암호를 재설정 할 수 없습니다. %s"
 
 #, python-format
 msgid "Unable to resize instance \"%s\"."
@@ -10461,6 +10535,9 @@ msgstr "가용성 존에 대한 정보를 찾지 못 했습니다."
 msgid "Unable to retrieve backup details."
 msgstr "백업에 대한 상세 정보를 찾지 못 했습니다."
 
+msgid "Unable to retrieve cluster details."
+msgstr "클러스터 세부 정보를 찾지 못 했습니다."
+
 msgid "Unable to retrieve compute host information."
 msgstr "Computer 호스트 정보를 찾지 못했습니다."
 
@@ -10472,6 +10549,9 @@ msgstr "컨테이너 목록을 찾지 못 했습니다."
 
 msgid "Unable to retrieve data processing plugins."
 msgstr "데이터 프로세싱 플러그인을 찾지 못했습니다."
+
+msgid "Unable to retrieve database clusters."
+msgstr "클러스터 데이터베이스를 찾지 못 했습니다."
 
 msgid "Unable to retrieve database instances."
 msgstr "인스턴스 데이터베이스를 찾지 못 했습니다."
@@ -10502,6 +10582,10 @@ msgid "Unable to retrieve details for data source \"%s\"."
 msgstr "데이터 소스 \"%s\"에 대한 세부 정보를 가져올 수 없습니다."
 
 #, python-format
+msgid "Unable to retrieve details for database cluster: %s"
+msgstr "클러스터 데이터베이스에 대한 세부 정보를 찾지 못 했습니다: %s"
+
+#, python-format
 msgid "Unable to retrieve details for database instance: %s"
 msgstr "인스턴스 데이터베이스에 대한 세부 정보를 찾지 못했습니다: %s"
 
@@ -10511,15 +10595,15 @@ msgstr "인스턴스 \"%s\"에 대한 세부 정보를 찾지 못 했습니다."
 
 #, python-format
 msgid "Unable to retrieve details for job \"%s\"."
-msgstr "작업 \"%s\"에 대한 세부 정보를 가져올 수 없습니다."
+msgstr "Job \"%s\"에 대한 세부 정보를 가져올 수 없습니다."
 
 #, python-format
 msgid "Unable to retrieve details for job binary \"%s\"."
-msgstr "작업 바이너리 \"%s\"에 대한 세부 정보를 가져올 수 없습니다."
+msgstr "Job 바이너리 \"%s\"에 대한 세부 정보를 가져올 수 없습니다."
 
 #, python-format
 msgid "Unable to retrieve details for job template \"%s\"."
-msgstr "작업 템플릿 \"%s\"에 대한 세부 정보를 가져올 수 없습니다."
+msgstr "Job 템플릿 \"%s\"에 대한 세부 정보를 가져올 수 없습니다."
 
 #, python-format
 msgid "Unable to retrieve details for keypair \"%s\"."
@@ -10535,7 +10619,7 @@ msgstr "노드 그룹 템플릿 \"%s\"에 대한 세부 정보를 가져올 수 
 
 #, python-format
 msgid "Unable to retrieve details for parent backup: %s"
-msgstr "부모 백업에 대한 세부 정보를 찾지 못했습니다: %s"
+msgstr "원본 백업에 대한 세부 정보를 찾지 못했습니다: %s"
 
 #, python-format
 msgid "Unable to retrieve details for router \"%s\"."
@@ -10849,7 +10933,7 @@ msgid "Unable to retrieve routers list."
 msgstr "라우터 목록을 찾지 못 했습니다."
 
 msgid "Unable to retrieve rule details."
-msgstr "규칙 세부 정보를 찾지 못 했습니다."
+msgstr "Rule 세부 정보를 찾지 못 했습니다."
 
 #, python-format
 msgid "Unable to retrieve rules (%(error)s)."
@@ -10995,7 +11079,7 @@ msgid "Unable to retrieve volume type encryption information."
 msgstr "볼륨 타입의 암호화 정보를 찾지 못했습니다."
 
 msgid "Unable to retrieve volume type extra spec details."
-msgstr "볼륨 타입 추가 사양에 대한 자세한 정보를 찾지 못 했습니다."
+msgstr "볼륨 타입 추가 사양에 대한 세부 정보를 찾지 못 했습니다."
 
 #, python-format
 msgid "Unable to retrieve volume type for: \"%s\""
@@ -12055,8 +12139,8 @@ msgid ""
 "You may update policy details here. Use 'Insert Rule' or 'Remove Rule' links "
 "instead to insert or remove a rule"
 msgstr ""
-"여기서 정책의 세부 사항을 업데이트 할 수 있습니다. 규칙을 삽입하거나 삭제하"
-"는 대신에 '귀칙 삽입' 또는 '규칙 삭제' 링크를 사용하십시오."
+"여기서 정책의 세부 사항을 업데이트 할 수 있습니다. Rule 을 삽입하거나 삭제하"
+"는 대신에 'Rule 삽입' 또는 'Rule 삭제' 링크를 사용하십시오."
 
 msgid ""
 "You may update pool attributes here: edit name, description, load balancing "
@@ -12066,7 +12150,7 @@ msgstr ""
 "리자 상태"
 
 msgid "You may update rule details here."
-msgstr "여기서 규칙 세부 사항을 업데이트 할 수 있습니다."
+msgstr "여기서 rule 세부 사항을 업데이트 할 수 있습니다."
 
 msgid "You may update the editable properties of your network here."
 msgstr "여기서 네트워크의 편집 가능한 속성을 업데이트할 수 있습니다."

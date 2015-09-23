@@ -6,19 +6,17 @@
 # Andreas Jaeger <jaegerandi@gmail.com>, 2015
 # Ettore Atalan <atalanttore@googlemail.com>, 2015
 # Robert Simai, 2015
-# Andreas Jaeger <jaegerandi@gmail.com>, 2015. #zanata
-# Frank Kloeker <eumel@arcor.de>, 2015. #zanata
-# OpenStack Infra <zanata@openstack.org>, 2015. #zanata
+# Carsten Duch <carsten.duch@posteo.de>, 2015. #zanata
 msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-09-19 06:33+0000\n"
+"POT-Creation-Date: 2015-09-22 10:47+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2015-09-21 06:50+0000\n"
-"Last-Translator: Andreas Jaeger <jaegerandi@gmail.com>\n"
+"PO-Revision-Date: 2015-09-22 08:38+0000\n"
+"Last-Translator: Carsten Duch <carsten.duch@posteo.de>\n"
 "Language-Team: German (http://www.transifex.com/openstack/horizon/language/"
 "de/)\n"
 "Generated-By: Babel 2.0\n"
@@ -89,7 +87,7 @@ msgid "Click to see more details"
 msgstr "Klicken, um mehr Details zu sehen"
 
 msgid "Click to show or hide"
-msgstr "Klicken zum zeigen oder verbergen"
+msgstr "Klicken zum Zeigen oder Verbergen"
 
 msgid "Closed"
 msgstr "Geschlossen"
@@ -274,7 +272,7 @@ msgid "Prompt"
 msgstr "Eingabeaufforderung"
 
 msgid "Re-order items using drag and drop"
-msgstr "Umsortieren der Positionen durch ziehen und ablegen"
+msgstr "Umsortieren der Positionen durch Ziehen und Ablegen"
 
 msgid "Remaining"
 msgstr "Verbleibend"
@@ -323,7 +321,7 @@ msgid "Success: "
 msgstr "Erfolg:"
 
 msgid "Terminate Instance"
-msgstr "Instanz terminieren"
+msgstr "Instanz beenden"
 
 msgid "Text"
 msgstr "Text"
@@ -377,7 +375,7 @@ msgid ""
 msgstr ""
 "Sie können Ressourcen-Metadaten bestimmen, indem Sie Positionen aus der "
 "linken Spalte in die rechte bewegen. In der linken Spalte finden Sie "
-"Metadaten-Definitionen aus dem Glace Metadaten-Katalog. Verwenden Sie die "
+"Metadaten-Definitionen aus dem Glance Metadaten-Katalog. Verwenden Sie die "
 "\"Andere\" Option, um Metadaten mit dem Schlüssel Ihrer Wahl hinzuzufügen."
 
 #, python-format

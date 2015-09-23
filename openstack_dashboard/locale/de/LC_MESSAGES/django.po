@@ -13,6 +13,7 @@
 # Thorsten Michels, 2014
 # Uwe Krieg, 2015
 # Andreas Jaeger <jaegerandi@gmail.com>, 2015. #zanata
+# Carsten Duch <carsten.duch@posteo.de>, 2015. #zanata
 # Frank Kloeker <eumel@arcor.de>, 2015. #zanata
 # OpenStack Infra <zanata@openstack.org>, 2015. #zanata
 # Robert Simai <robert.simai@suse.com>, 2015. #zanata
@@ -20,12 +21,12 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-09-19 06:33+0000\n"
+"POT-Creation-Date: 2015-09-22 10:47+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2015-09-21 06:43+0000\n"
-"Last-Translator: Andreas Jaeger <jaegerandi@gmail.com>\n"
+"PO-Revision-Date: 2015-09-22 08:53+0000\n"
+"Last-Translator: Carsten Duch <carsten.duch@posteo.de>\n"
 "Language-Team: German (http://www.transifex.com/openstack/horizon/language/"
 "de/)\n"
 "Generated-By: Babel 2.0\n"
@@ -379,6 +380,21 @@ msgstr ""
 "\n"
 "Admin Status standardmässig ist UP (ausgewählt)."
 
+msgid ""
+"\n"
+"Resize the canvas by scrolling up/down with your mouse/trackpad on the "
+"topology.\n"
+"Pan around the canvas by clicking and dragging the space behind the "
+"topology.\n"
+"  "
+msgstr ""
+"\n"
+"Vergrößern/verkleinern Sie die Ansicht der Topologie durch Hoch-/"
+"Runterscollen mit Ihrer Maus/Ihrem Trackpad.\n"
+"Bewegen Sie die Ansicht durch Klicken und Ziehen des Freiraums hinter der "
+"Topologie.\n"
+" "
+
 msgid " - End"
 msgstr "- Ende"
 
@@ -395,6 +411,9 @@ msgstr "Fertig"
 msgid "\"Add Router Route\""
 msgstr "\"Routerroute hinzufügen\""
 
+msgid "\"Clusters\""
+msgstr "\"Cluster\""
+
 msgid ""
 "\"Customization Script\" is analogous to \"User Data\" in other systems."
 msgstr ""
@@ -402,6 +421,9 @@ msgstr ""
 
 msgid "\"Edit Volume Type\""
 msgstr "\"Editiere Datentraeger-Typ\""
+
+msgid "\"Launch Cluster\""
+msgstr "\"Cluster aktivieren\""
 
 msgid "\"N/A\""
 msgstr "\"N/V\""
@@ -468,6 +490,10 @@ msgstr "%(name)s - %(size)s GB (%(label)s)"
 #, python-format
 msgid "%(name)s | %(RAM)s RAM"
 msgstr "%(name)s | %(RAM)s RAM"
+
+#, python-format
+msgid "%(name)s | %(RAM)s RAM | %(instances)s instances"
+msgstr "%(name)s | %(RAM)s RAM | %(instances)s Instanzen"
 
 #, python-format
 msgid "%(offset)s: %(label)s"
@@ -893,6 +919,9 @@ msgstr "Router hinzufügen"
 msgid "Add Rule"
 msgstr "Regel hinzufügen"
 
+msgid "Add Shard"
+msgstr "Shard hinzufügen"
+
 msgid "Add Static Route"
 msgstr "Statische Route hinzufügen"
 
@@ -1042,6 +1071,10 @@ msgstr "Monitor hinzugefügt"
 #, python-format
 msgid "Added pool \"%s\"."
 msgstr "Pool hinzugefügt \"%s\"."
+
+#, python-format
+msgid "Added shard to \"%s\""
+msgstr "Shard hinzugefügt zu \"%s\""
 
 msgid "Additional routes"
 msgstr "Zusätzliche Routen"
@@ -1842,8 +1875,14 @@ msgstr "Anzahl Cluster"
 msgid "Cluster Creation Guide"
 msgstr "Clustererstellungsassistent"
 
+msgid "Cluster Detail"
+msgstr "Clusterdetails"
+
 msgid "Cluster Details"
 msgstr "Cluster Details"
+
+msgid "Cluster Details: {{ cluster.name }}"
+msgstr "Cluster Details: {{ cluster.name }}"
 
 msgid "Cluster Events"
 msgstr "Cluster Ereignisse"
@@ -1859,6 +1898,9 @@ msgstr "Cluster Name"
 
 msgid "Cluster Overview"
 msgstr "Cluster Übersicht"
+
+msgid "Cluster Size"
+msgstr "Clustergröße"
 
 msgid "Cluster Template"
 msgstr "Clustervorlage"
@@ -2006,6 +2048,9 @@ msgid "Connection Examples"
 msgstr "Verbindungsbeispiele"
 
 msgid "Connection Info"
+msgstr "Verbindungsinformationen"
+
+msgid "Connection Information"
 msgstr "Verbindungsinformationen"
 
 msgid "Connection Limit"
@@ -2618,6 +2663,9 @@ msgstr "Aktueller Host"
 
 msgid "Current Size (GB)"
 msgstr "Aktuelle Größe (GB)"
+
+msgid "Current Task"
+msgstr "Aktuelle Aufgabe"
 
 msgid "Current choice:"
 msgstr "Im Moment gewählt:"
@@ -3917,6 +3965,9 @@ msgid "Enable Service"
 msgid_plural "Enable Services"
 msgstr[0] "Dienst aktivieren"
 msgstr[1] "Dienste aktivieren"
+
+msgid "Enable Swift Paths"
+msgstr "Swift-Pfade aktivieren"
 
 msgid "Enable User"
 msgid_plural "Enable Users"
@@ -5490,6 +5541,9 @@ msgstr "Instanzen"
 msgid "Instances Count"
 msgstr "Instanz Anzahl"
 
+msgid "Instances Per Shard"
+msgstr "Instanzen pro Shard"
+
 msgid "Insufficient privilege level to view domain information."
 msgstr "Unzureichende Berechtigungsebene um Domäneninformationen einzusehen."
 
@@ -5507,6 +5561,9 @@ msgstr "Unzureichende Berechtigungsebene um Benutzerinformationen einzusehen."
 
 msgid "Intelligent Platform Management Interface (IPMI)"
 msgstr "Intelligent Platform Management Interface (IPMI)"
+
+msgid "Interface Arguments"
+msgstr "Schnittstellenargumente"
 
 msgid "Interface added"
 msgstr "Schnittstelle hinzugefügt"
@@ -5821,6 +5878,10 @@ msgid_plural "Launched Jobs"
 msgstr[0] "Gestartete Aufgabe"
 msgstr[1] "Gestartete Aufgaben"
 
+#, python-format
+msgid "Launched cluster \"%s\""
+msgstr "Cluster \"%s\" gestartet"
+
 msgid ""
 "Launching multiple instances is only supported for images and instance "
 "snapshots."
@@ -6015,6 +6076,9 @@ msgstr "Einen Datenträger verwalten"
 msgid "Management IP"
 msgstr "Management IP"
 
+msgid "Managment Console"
+msgstr "Managementkonsole"
+
 msgid "Manual"
 msgstr "Manuell"
 
@@ -6026,6 +6090,9 @@ msgstr "Zugewiesene feste IP Adresse"
 
 msgid "Mapper"
 msgstr "Mapper"
+
+msgid "Mapping Type"
+msgstr "Abbildungstyp"
 
 msgid "Master Instance Name"
 msgstr "Master-Instanz Name"
@@ -6222,6 +6289,13 @@ msgstr "Verändern Sie Dashboard Einstellungen für Ihren Benutzer."
 msgid "Modify name and description of a volume."
 msgstr "Namen und Beschreibung eines Datenträgers ändern."
 
+msgid ""
+"Modify the configuration so that swift URLs can be dereferenced through HDFS "
+"at runtime."
+msgstr ""
+"Ändern Sie die Konfiguration, so dass die Swift URL während der Laufzeit "
+"durch HDFS zurückverfolgt werden kann."
+
 msgid "Modify the name and description of a snapshot."
 msgstr "Name und Beschreibung einer Schattenkopie ändern."
 
@@ -6388,6 +6462,9 @@ msgstr "Netzwerkadresse im CIDR Format (z.B. 192.168.0.0/24)"
 msgid "Network address in CIDR format (e.g. 192.168.0.0/24, 2001:DB8::/48)"
 msgstr "Netzwerkadresse im CIDR Format (z.B. 192.168.0.0/24, 2001:DB8::/48)"
 
+msgid "Network attached to instance."
+msgstr "Der Instanz zugewiesenes Netzwerk."
+
 msgid "Network list can not be retrieved."
 msgstr "Netzwerkliste kann nicht abgerufen werden."
 
@@ -6426,6 +6503,9 @@ msgstr "Neue Variante"
 msgid "New Host"
 msgstr "Neuer Host"
 
+msgid "New Password"
+msgstr "Neues Passwort"
+
 msgid "New Size (GB)"
 msgstr "Neue Größe (GB)"
 
@@ -6437,6 +6517,9 @@ msgstr "Neuer Name kollidiert mit einem anderen Datenträger-Typ."
 
 msgid "New password"
 msgstr "Neues Passwort"
+
+msgid "New password for cluster access."
+msgstr "Neues Passwort für den Clusterzugriff."
 
 msgid "New size for volume must be greater than current size."
 msgstr ""
@@ -6794,6 +6877,9 @@ msgstr "Anzahl der Instanzen"
 msgid "Number of Nodes"
 msgstr "Anzahl der Nodes"
 
+msgid "Number of Shards"
+msgstr "Anzahl der Shards"
+
 msgid "Number of Snapshots"
 msgstr "Anzahl der Momentaufnahmen"
 
@@ -6822,10 +6908,16 @@ msgid "Number of incoming bytes"
 msgstr "Anzahl der empfangenen Bytes"
 
 msgid "Number of incoming bytes on the network for a VM interface"
-msgstr "Anzahl der eingehenden Bytes für ein VM-Interface"
+msgstr "Anzahl der eingehenden Bytes für eine VM-Schnittstelle"
 
 msgid "Number of incoming packets for a VM interface"
 msgstr "Anzahl der eingehenden Pakete für eine VM-Schnittstelle"
+
+msgid "Number of instances in the cluster. (Read only)"
+msgstr "Anzahl der Instanzen im Cluster (nur lesen)"
+
+msgid "Number of instances per shard. (Read only)"
+msgstr "Anzahl der Instanzen pro Shard. (nur lesen)"
 
 msgid "Number of instances to launch."
 msgstr "Anzahl der zu startenden Instanzen."
@@ -6861,6 +6953,9 @@ msgstr ""
 
 msgid "Number of read requests"
 msgstr "Anzahl der Leseanfragen"
+
+msgid "Number of shards. (Read only)"
+msgstr "Anzahl der Shards. (nur lesen)"
 
 msgid "Number of write requests"
 msgstr "Anzahl der Schreibanfragen"
@@ -6974,6 +7069,10 @@ msgstr "Andere"
 msgid "Other Protocol"
 msgstr "Anderes Protokoll"
 
+#, python-format
+msgid "Out of range float values are not JSON compliant: %r"
+msgstr "Fließkommawerte außerhalb des Bereiches sind nicht JSON-konform: %r"
+
 msgid "Output"
 msgstr "Ausgabe"
 
@@ -7044,6 +7143,12 @@ msgstr "Passwort geändert. Bitte melden Sie sich erneut an um fortzufahren."
 
 msgid "Password changed. Please log in to continue."
 msgstr "Passwort geändert. Bitte loggen Sie sich ein, um fortzufahren."
+
+msgid "Password for root user must be specified."
+msgstr "Das Passwort für den Root-Benutzer muss angegeben werden."
+
+msgid "Password for root user."
+msgstr "Passwort des Root-Benutzers."
 
 #, python-format
 msgid "Password for user \"%s\""
@@ -7268,6 +7373,9 @@ msgstr "Ports"
 
 msgid "Position in Policy"
 msgstr "Position in Richtlinie"
+
+msgid "Positional Argument"
+msgstr "Stellungsargument"
 
 msgid "Post-Creation"
 msgstr "Nach Erstellung"
@@ -7764,6 +7872,9 @@ msgstr "Clusterassistent zurücksetzen"
 msgid "Reset Job Execution Guide"
 msgstr "Aufgabenausführungsassistent zurücksetzen"
 
+msgid "Reset Root Password"
+msgstr "Root-Passwort zurücksetzen"
+
 msgid "Reset to Default"
 msgstr "Auf Standard zurücksetzen"
 
@@ -7788,7 +7899,7 @@ msgid "Resize Instance"
 msgstr "Instanzgröße ändern"
 
 msgid "Resize Volume"
-msgstr "Größe des Datenträger anpassen"
+msgstr "Datenträgergröße ändern"
 
 msgctxt "Current status of an Instance"
 msgid "Resize/Migrate"
@@ -8000,6 +8111,13 @@ msgstr "Root-Festplatte"
 
 msgid "Root Disk (GB)"
 msgstr "Root-Festpplatte (GB)"
+
+msgid "Root Password"
+msgstr "Root-Passwort"
+
+#, python-format
+msgid "Root password updated for cluster \"%s\""
+msgstr "Root-Passwort für den Cluster \"%s\" aktualisiert"
 
 msgid "Rotates requests evenly between multiple instances."
 msgstr "Verteilt Anfragen gleichmäßig auf multiple Instanzen."
@@ -8242,10 +8360,15 @@ msgstr[1] "Geplante Migration von Instanzen (wartet auf Bestätigung)"
 msgid "Scheduled resize of instance \"%s\"."
 msgstr "Geplante Größenänderung der Instanz \"%s\"."
 
+msgid "Scheduled termination of Cluster"
+msgid_plural "Scheduled termination of Clusters"
+msgstr[0] "Geplante Beendigung des Clusters"
+msgstr[1] "Geplante Beendigungen der Cluster"
+
 msgid "Scheduled termination of Instance"
 msgid_plural "Scheduled termination of Instances"
-msgstr[0] "Geplante Terminierung der Instanz"
-msgstr[1] "Geplante Terminierung von Instanzen"
+msgstr[0] "Geplante Beendigung der Instanz"
+msgstr[1] "Geplante Beendigungen von Instanzen"
 
 msgctxt "Task status of an Instance"
 msgid "Scheduling"
@@ -8369,6 +8492,9 @@ msgstr "Wählen Sie einen Router"
 
 msgid "Select a Subnet"
 msgstr "Wählen Sie ein Subnetz"
+
+msgid "Select a Value Type for your next argument:"
+msgstr "Wählen Sie einen Werttetyp für Ihr nächstes Argument:"
 
 msgid "Select a backup to restore"
 msgstr "Wählen Sie eine Sicherungskopie zur Wiederherstellung aus"
@@ -8730,6 +8856,9 @@ msgstr "Größe der flüchtigen Festplatte"
 msgid "Size of image to launch."
 msgstr "Größe des zu startenden Abbildes."
 
+msgid "Size of instance to launch."
+msgstr "Anzahl der zu startenden Instanz."
+
 msgid "Size of root disk"
 msgstr "Größe der root-Festplatte"
 
@@ -8935,11 +9064,17 @@ msgstr "Wählen Sie ein Abbild zum Hochladen aus."
 msgid "Specify member IP address"
 msgstr "IP Adresse des Mitglieds spezifizieren"
 
+msgid "Specify the details for adding additional shards."
+msgstr "Geben Sie die Details an um zusätzliche Shards hinzuzufügen."
+
 msgid "Specify the details for launching an instance."
 msgstr "Geben Sie die Details zum Start einer Instanz an."
 
 msgid "Specify the details for the database backup."
 msgstr "Legen sie die Details für die Datenbanksicherung fest."
+
+msgid "Specify the new root password for vertica cluster."
+msgstr "Geben Sie das neue root Passwort für den Vertica Cluster an."
 
 msgid "Specify the new volume size for the database instance."
 msgstr "Die neue Größe des Datenträgers der Datenbankinstanz festlegen."
@@ -9403,13 +9538,21 @@ msgstr "Vorlage URL"
 msgid "Template not specified"
 msgstr "Vorlage nicht spezifiziert"
 
+msgid "Terminate Cluster"
+msgid_plural "Terminate Clusters"
+msgstr[0] "Cluster beenden"
+msgstr[1] "Cluster beenden"
+
 msgid "Terminate Instance"
 msgid_plural "Terminate Instances"
-msgstr[0] "Instanz terminieren"
-msgstr[1] "Instanzen terminieren"
+msgstr[0] "Instanz beenden"
+msgstr[1] "Instanzen beenden"
+
+msgid "Terminated cluster is not recoverable."
+msgstr "Der beendete Cluster kann nicht wiederhergestellt werden."
 
 msgid "Terminated instances are not recoverable."
-msgstr "Terminierte Instanzen können nicht wiederhergestellt werden."
+msgstr "Beendete Instanzen können nicht wiederhergestellt werden."
 
 msgid ""
 "The \"Bootable\" flag specifies that this volume can be used to launch an "
@@ -9622,7 +9765,7 @@ msgstr ""
 "zugreifen, wenn Sie dieses Volume der Instanz zuweisen."
 
 msgid "The dates haven't been recognized"
-msgstr "Die Datums wurden nicht berücksichtigt"
+msgstr "Die Daten wurden nicht berücksichtigt"
 
 msgid ""
 "The default IP address of the interface created is a gateway of the selected "
@@ -9668,6 +9811,9 @@ msgstr ""
 "Die Variante '%(flavor)s' ist zu klein für das angeforderte Abbild. \n"
 "Minimale Anforderungen: %(min_ram)s MB RAM und %(min_disk)s GB Root-"
 "Festplatte."
+
+msgid "The flavor must be specified."
+msgstr "Die Variante muss angegeben werden."
 
 #, python-format
 msgid "The instance is preparing the live migration to host \"%s\"."
@@ -9740,6 +9886,9 @@ msgid ""
 msgstr ""
 "Die nächsten Hop-Adressen können benutzt werden, um den Router des Clients "
 "zu überschreiben."
+
+msgid "The number of shards must be greater than 1."
+msgstr "Die Anzahl der Shards muss größer als 1 sein."
 
 msgid "The page you were looking for doesn't exist"
 msgstr "Diese Seite existiert nicht"
@@ -9982,6 +10131,12 @@ msgstr ""
 msgid "To:"
 msgstr "Bis:"
 
+msgid "Toggle Network Collapse"
+msgstr "Netzwerk einklappen umschalten"
+
+msgid "Toggle labels"
+msgstr "Label umschalten"
+
 msgid "Toggle navigation"
 msgstr "Navigation umschalten"
 
@@ -9992,13 +10147,22 @@ msgid "Topology"
 msgstr "Topologie"
 
 msgid "Total Active RAM (MB):"
-msgstr "Aktives RAM gesamt (MB)"
+msgstr "Aktives RAM gesamt (MB):"
 
 msgid "Total Disk"
 msgstr "Festplatte gesamt"
 
+msgid "Total Disk Size (GB):"
+msgstr "Festplatte gesamt:"
+
+msgid "Total Disk Usage (Hours):"
+msgstr "Gesamte Festplattenverwendung (Stunden):"
+
 msgid "Total Gigabytes"
 msgstr "Gesamt Gigabytes"
+
+msgid "Total Memory Usage (Hours):"
+msgstr "Gesamte Speicherverwendung (Stunden):"
 
 msgid "Total RAM"
 msgstr "RAM gesamt"
@@ -10010,7 +10174,7 @@ msgid "Total Size of Volumes and Snapshots (GB)"
 msgstr "Gesamtgröße von Datenträgern und Schattenkopien (GB)"
 
 msgid "Total VCPU Usage (Hours):"
-msgstr "Gesamte VCPU-Auslastung (Stunden)"
+msgstr "Gesamte VCPU-Auslastung (Stunden):"
 
 msgid ""
 "Total VCPU usage (Number of VCPU in instance * Hours Used) for the project"
@@ -10142,6 +10306,10 @@ msgstr "Pool \"%s\" kann nicht hinzugefügt werden."
 
 msgid "Unable to add rule to security group."
 msgstr "Regel konnte nicht zur Sicherheitsgruppe hinzugefügt werden. "
+
+#, python-format
+msgid "Unable to add shard. %s"
+msgstr "Hinzufügen der Shard nicht möglich. %s"
 
 msgid "Unable to add user to primary project."
 msgstr "Benutzer konnte dem primären Projekt nicht hinzugefügt werden."
@@ -10525,6 +10693,9 @@ msgstr ""
 msgid "Unable to get host aggregate list"
 msgstr "Hostaggregat-Liste kann nicht abgerufen werden"
 
+msgid "Unable to get instances data."
+msgstr "Instanzdaten können nicht abgerufen werden."
+
 #, python-format
 msgid "Unable to get log for instance \"%s\"."
 msgstr "Protokoll für die Instanz \"%s\" konnte nicht abgerufen werden."
@@ -10588,6 +10759,10 @@ msgstr "Initialisierung des Subnetzpools nicht möglich."
 msgid "Unable to launch %(count)s named \"%(name)s\"."
 msgstr "Außerstande %(count)s mal \"%(name)s\" zu starten."
 
+#, python-format
+msgid "Unable to launch cluster. %s"
+msgstr "Cluster \"%s\" kann nicht gestartet werden."
+
 msgid "Unable to launch job."
 msgstr "Die Aufgabe kann nicht ausgeführt werden."
 
@@ -10642,6 +10817,12 @@ msgstr "Kann Instanz \"%s\" nicht anpasen."
 msgid "Unable to modify project \"%s\"."
 msgstr "Projekt \"%s\" kann nicht geändert werden."
 
+msgid "Unable to obtain datastore versions."
+msgstr "Beziehen der Datastore Versionen nicht möglich."
+
+msgid "Unable to obtain datastores."
+msgstr "Beziehen des Datastore nicht möglich."
+
 msgid "Unable to obtain flavors."
 msgstr "Die Varianten können nicht abgerufen werden."
 
@@ -10657,6 +10838,10 @@ msgstr "Verarbeitung der Plugin Schlagwörter fehlgeschlagen"
 
 msgid "Unable to rebuild instance."
 msgstr "Instanz konnte nicht erneuert werden."
+
+#, python-format
+msgid "Unable to reset password. %s"
+msgstr "Das Passwort kann nicht zurückgesetzt werden. %s"
 
 #, python-format
 msgid "Unable to resize instance \"%s\"."
@@ -10778,6 +10963,9 @@ msgstr "Verfügbarkeitszonen können nicht abgerufen werden."
 msgid "Unable to retrieve backup details."
 msgstr "Details zur Sicherungskopie können nicht abgerufen werden."
 
+msgid "Unable to retrieve cluster details."
+msgstr "Clusterdetails können nicht abgerufen werden."
+
 msgid "Unable to retrieve compute host information."
 msgstr "Compute Host Informationen können nicht abgerufen werden."
 
@@ -10789,6 +10977,9 @@ msgstr "Containerliste kann nicht abgerufen werden."
 
 msgid "Unable to retrieve data processing plugins."
 msgstr "Datenverarbeitungsplugins können nicht abgerufen werden."
+
+msgid "Unable to retrieve database clusters."
+msgstr "Datenbankcluster können nicht abgerufen werden."
 
 msgid "Unable to retrieve database instances."
 msgstr "Liste der Datenbankinstanzen kann nicht abgerufen werden."
@@ -10817,6 +11008,10 @@ msgstr "Details zur Clustervorlage \"%s\" können nicht abgerufen werden."
 #, python-format
 msgid "Unable to retrieve details for data source \"%s\"."
 msgstr "Details zur Datenquelle \"%s\" können nicht abgerufen werden."
+
+#, python-format
+msgid "Unable to retrieve details for database cluster: %s"
+msgstr "Details zum Datenbankcluster können nicht abgerufen werden: %s"
 
 #, python-format
 msgid "Unable to retrieve details for database instance: %s"
@@ -10982,7 +11177,7 @@ msgid "Unable to retrieve instance action list."
 msgstr "Instanzen-Aktionsliste kann nicht abgerufen werden."
 
 msgid "Unable to retrieve instance details."
-msgstr "Instanzendetails können nicht aufgerufen werden. "
+msgstr "Instanzdetails können nicht aufgerufen werden. "
 
 msgid "Unable to retrieve instance flavors."
 msgstr "Instanzvarianten können nicht abgerufen werden."
@@ -12557,7 +12752,7 @@ msgid "esp"
 msgstr "esp"
 
 msgid "front-end"
-msgstr "Front-End"
+msgstr "Frontend"
 
 msgid "group14"
 msgstr "Gruppe14"

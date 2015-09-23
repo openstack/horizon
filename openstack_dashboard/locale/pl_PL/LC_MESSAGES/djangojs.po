@@ -1,0 +1,854 @@
+# Translations template for PROJECT.
+# Copyright (C) 2015 ORGANIZATION
+# This file is distributed under the same license as the PROJECT project.
+#
+# Translators:
+# Wiktor Jezioro <wikjezioro@op.pl>, 2015
+# OpenStack Infra <zanata@openstack.org>, 2015. #zanata
+# Łukasz Jernas <deejay1@srem.org>, 2015. #zanata
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
+"POT-Creation-Date: 2015-09-22 10:47+0000\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"PO-Revision-Date: 2015-09-22 11:56+0000\n"
+"Last-Translator: Łukasz Jernas <deejay1@srem.org>\n"
+"Language-Team: Polish (Poland) (http://www.transifex.com/openstack/horizon/"
+"language/pl_PL/)\n"
+"Generated-By: Babel 2.0\n"
+"Language: pl-PL\n"
+"Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
+"|| n%100>=20) ? 1 : 2);\n"
+"X-Generator: Zanata 3.7.1\n"
+
+msgid "(Max: 16Kb)"
+msgstr "(Max: 16Kb)"
+
+msgid "(Modified)"
+msgstr "(Zmodyfikowano)"
+
+msgid "(None)"
+msgstr "(brak)"
+
+msgid ""
+"A floating IP allows instances to be addressable from an external network.\n"
+"    Floating IPs are not allocated to instances at creation time and may be "
+"assigned\n"
+"    after the instance is created. To attach a floating IP, go to the "
+"<b>Instances</b>\n"
+"    view and click the <b>Actions</b> menu to the right of an instance.\n"
+"    Then, select the <b>Associate Floating IP</b> option and enter the "
+"necessary details."
+msgstr ""
+"Pływający adres IP pozwala instancji być widoczną z zewnętrznej sieci.\n"
+" Pływające adresy IP nie są przypisywane do instancji podczas ich tworzenia "
+"i mogą zostać\n"
+" przypisane później. W celu dołączenia pływającego adresu IP, należy "
+"przejść do widoku\n"
+" <b>Instancje</b>, kliknąć w menu <b>Akcje</b> po prawej stronie instancji,\n"
+" a następnie wybrać opcję <b>Przypisz pływający adres IP</b> i wprowadzić "
+"potrzebne szczegóły."
+
+msgid ""
+"A key pair allows you to SSH into your newly created instance.\n"
+"      You may select an existing key pair, import a key pair, or generate a "
+"new key pair."
+msgstr ""
+"Para kluczy pozwala na zalogowanie się po SSH do utworzonej instancji.\n"
+"   Można wybrać istniejącą parę kluczy, zaimportować parę kluczy lub "
+"wygenerować nową parę kluczy."
+
+msgid "Active"
+msgstr "Aktywny"
+
+msgid "Admin State"
+msgstr "Stan administracyjny"
+
+msgid ""
+"Administrators are responsible for creating and managing flavors. A custom "
+"flavor can be created for you or for a specific project where it is shared "
+"with the users assigned to that project. If you need a custom flavor, "
+"contact your administrator."
+msgstr ""
+"Administratorzy są odpowiedzialni za tworzenie i zarządzanie odmianami. "
+"Własne odmiany mogą być utworzone dla użytkownika lub projektu, gdzie są one "
+"współdzielone z użytkownikami przypisanymi do tego projektu. Jeśli wymagana "
+"jest własna odmiana, należy skontaktować się z administratorem."
+
+msgid ""
+"Administrators set up the pool of floating IPs that are available to attach "
+"to instances."
+msgstr ""
+"Administratorzy ustawiają pule pływających adresów IP dostępnych do "
+"przypisania instancjom."
+
+msgid ""
+"An <b>External</b> network is set up by an administrator.\n"
+"    If you want an instance to communicate outside of the data center,\n"
+"    then attach a router between your <b>Project</b> network and the "
+"<b>External</b> network.\n"
+"    You can use the <b>Network Topology</b> view to connect the router to "
+"the two networks."
+msgstr ""
+"Sieć <b>Zewnętrzna</b> jest utworzona przez administratora.\n"
+" Jeśli instancja ma się komunikować poza data center,\n"
+" należy dołączyć router między siecią <b>projektu</b> a siecią "
+"<b>zewnętrzną</b>.\n"
+" Wykorzystując widok <b>Topologia sieci</b> można połączyć router do obu "
+"sieci."
+
+msgid ""
+"An advanced option available when launching an instance is disk "
+"partitioning. There are two disk partition options. Selecting <b>Automatic</"
+"b> resizes the disk and sets it to a single partition. Selecting <b>Manual</"
+"b> allows you to create multiple partitions on the disk."
+msgstr ""
+"Jedną z zaawansowanych opcji przy uruchamianiu instancji jest "
+"partycjonowanie dysków. Są dostępne dwie różne opcje. Wybranie "
+"<b>Automatycznie</b> zmienia rozmiar dysku i ustawia na nim jedną partycję. "
+"Wybranie <b>Ręcznie</b> pozwala na utworzenie wielu partycji na dysku."
+
+msgid "Automatic"
+msgstr "Automatyczne"
+
+msgid "Cancel"
+msgstr "Anuluj"
+
+msgid "Cannot get service catalog from keystone."
+msgstr "Nie można pobrać katalogu usług z keystone."
+
+msgid "Cannot get the Nova extension list."
+msgstr "Nie można pobrać listy rozszerzeń Nova."
+
+msgid ""
+"Check the <b>Configuration Drive</b> box if you want to write metadata to a "
+"special configuration drive. When the instance boots, it attaches to the "
+"<b>Configuration Drive</b> and accesses the metadata."
+msgstr ""
+"Należy zaznaczyć pole <b>Dysk konfiguracyjny</b>, aby zapisać metadane na "
+"specjalnym dysku konfiguracyjnym. Podczas uruchamiania instancji, jest do "
+"niej dołączany <b>dysk konfiguracyjny</b> i odczytywane są z niego metadane."
+
+msgid "Click to see more details"
+msgstr "Kliknij, aby wyświetlić szczegóły"
+
+msgid "Configuration"
+msgstr "Konfiguracja"
+
+msgid "Configuration Drive"
+msgstr "Dysk konfiguracyjny"
+
+msgid "Configuration Help"
+msgstr "Pomoc konfiguracji"
+
+msgid "Configuration Value"
+msgstr "Wartość konfiguracyjna"
+
+msgid "Create Key Pair"
+msgstr "Utwórz parę kluczy"
+
+msgid ""
+"Custom scripts are attached to instances to perform specific actions when "
+"the instance is launched. For example, if you are unable to install "
+"<samp>cloud-init</samp> inside a guest operating system, you can use a "
+"custom script to get a public key and add it to the user account."
+msgstr ""
+"Własne skrypty są dołączane do instancji, aby wykonywały wskazane czynności "
+"podczas uruchamiania instancji. Na przykład, jeśli nie można zainstalować "
+"<samp>cloud-init</samp> wewnątrz systemu operacyjnego gościa, można "
+"wykorzystać własny skrypt w celu pobrania klucza publicznego i dodania go do "
+"konta użytkownika."
+
+msgid "Customization Script"
+msgstr "Skrypt modyfikujący"
+
+msgid "Data Source"
+msgstr "źródło danych"
+
+msgid "Default Value"
+msgstr "Domyślna wartość"
+
+msgid "Deleted"
+msgstr "Usunięto"
+
+msgid "Description"
+msgstr "Opis"
+
+msgid "Direction"
+msgstr "Kierunek"
+
+msgid "Disk Partition"
+msgstr "Partycjonowanie dysku"
+
+msgid "Domain ID"
+msgstr "ID domeny"
+
+msgid "Down"
+msgstr "Położony"
+
+msgid "Email"
+msgstr "Email"
+
+msgid "Enabled"
+msgstr "Włączone"
+
+msgid "Ephemeral Disk"
+msgstr "Ulotny dysk"
+
+msgid "Ether Type"
+msgstr "Typ medium"
+
+msgid "Event log is not available."
+msgstr "Log zdarzeń nie jest dostępny."
+
+#, python-format
+msgid "Extension is not enabled: %(extension)s."
+msgstr "Rozszerzenie jest wyłączone: %(extension)s"
+
+msgid "External Network"
+msgstr "Sieć zewnętrzna"
+
+msgid "Fingerprint"
+msgstr "Odcisk palca"
+
+msgid "Flavor"
+msgstr "Odmiana"
+
+msgid "Flavor Help"
+msgstr "Pomoc odmiany"
+
+msgid ""
+"Flavors manage the sizing for the compute, memory and storage capacity of "
+"the instance."
+msgstr ""
+"Odmiany zarządzają wymiarowaniem zasobów obliczeniowych, pamięci i dysku "
+"instancji."
+
+msgid ""
+"For configs and params, type the key name; for args, type the index as an "
+"integer, starting from 0."
+msgstr ""
+"Dla konfiguracji oraz parametrów należy podać nazwę klucza; dla argumentów "
+"należy podać indeks, jako liczbę całkowitą począwszy od 0."
+
+msgid ""
+"For data sources, use a data source UUID or a path (as per data source "
+"creation.)"
+msgstr ""
+"Dla źródeł danych, należy podać UUID źródła danych lub ścieżkę (jak podczas "
+"tworzenia źródła danych)."
+
+msgid "Format"
+msgstr "Format"
+
+msgid ""
+"From a Windows system, you can use PuTTYGen to create private/public keys.\n"
+"  Use the PuTTY Key Generator to create and save the keys, then copy\n"
+"  the public key in the red highlighted box to your <samp>.ssh/"
+"authorized_keys</samp>\n"
+"  file."
+msgstr ""
+"W systemie Windows, można wykorzystać PuTTYGen, aby utworzyć klucze prywatne "
+"i publiczne.\n"
+" Używając PuTTY Key Generator należy utworzyć klucze i zapisać je, następnie "
+"skopiować\n"
+" klucz publiczny w zaznaczonym na czerwono oknie do pliku\n"
+" <samp>.ssh/authorized_keys</samp>."
+
+msgid "ID"
+msgstr "ID"
+
+msgid ""
+"If a network is shared, then all users in the project can access the network."
+msgstr ""
+"Jeśli sieć jest współdzielona, wtedy wszyscy użytkownicy projektu mogą "
+"uzyskać do niej dostęp."
+
+msgid "Image"
+msgstr "Obraz"
+
+msgid "Image Name"
+msgstr "Nazwa obrazu"
+
+msgid "Impact on your quota"
+msgstr "Wpływ na limity"
+
+msgid "Import Key Pair"
+msgstr "Importuj parę kluczy"
+
+msgid "Instance Snapshot"
+msgstr "Migawka instancji"
+
+msgid "Insufficient privilege level to view user information."
+msgstr "Brak uprawnień do przeglądania informacji o użytkowniku."
+
+msgid "Key Pair"
+msgstr "Para kluczy"
+
+msgid "Key Pair Help"
+msgstr "Pomoc dla par kluczy"
+
+msgid "Key Pair Name"
+msgstr "Nazwa pary kluczy"
+
+msgid ""
+"Key Pairs are how you login to your instance after it is launched.\n"
+"        Choose a key pair name you will recognize and paste your SSH public "
+"key into the\n"
+"        space provided."
+msgstr ""
+"Pary kluczy pozwalają na zalogowanie się na instancję po jej uruchomieniu.\n"
+"   Należy wybrać łatwo rozpoznawalną nazwę a następnie wkleić publiczny "
+"klucz SSH\n"
+"   w podane miejsce."
+
+msgid ""
+"Key Pairs are how you login to your instance after it is launched.\n"
+"        Choose a key pair name you will recognize."
+msgstr ""
+"Pary kluczy pozwalają na zalogowanie się na instancję po jej uruchomieniu.\n"
+"    Należy wybierać łatwo rozpoznawalne nazwe dla nich"
+
+msgid "Killed"
+msgstr "Ubito"
+
+msgid "Launch Instance"
+msgstr "Uruchom instancję"
+
+msgid "Load script from a file"
+msgstr "Wczytaj skrypt z pliku"
+
+msgid "Location"
+msgstr "Położenie"
+
+msgid "Manual"
+msgstr "Ręczne"
+
+msgid "Mapping Type"
+msgstr "Typ mapowania"
+
+msgid "Max Port"
+msgstr "Maks. port"
+
+msgid "Min Port"
+msgstr "Min. port"
+
+msgid "Min RAM"
+msgstr "Min. RAM"
+
+msgid "Name"
+msgstr "Nazwa"
+
+msgid "Named Parameter"
+msgstr "Nazwany parametr"
+
+msgid "Network"
+msgstr "Sieć"
+
+msgid "Network Help"
+msgstr "Pomoc sieci"
+
+msgid "Network characteristics"
+msgstr "Charakterystyka sieci"
+
+msgid "Networks"
+msgstr "Sieci"
+
+msgid "Networks provide the communication channels for instances in the cloud."
+msgstr "Sieci zapewniają komunikację dla instancji w chmurze."
+
+msgid "No available items"
+msgstr "Brak dostępnych pozycji"
+
+msgid "Number"
+msgstr "liczba"
+
+msgid "OK"
+msgstr "OK"
+
+msgid "Pending Delete"
+msgstr "Oczekuje na usunięcie"
+
+msgid "Physical Network"
+msgstr "Sieć fizyczna"
+
+msgid "Positional Argument"
+msgstr "Argument pozycyjny"
+
+msgid "Private Key"
+msgstr "Klucz prywatny"
+
+msgid "Profile"
+msgstr "Profil"
+
+msgid "Project"
+msgstr "Projekt"
+
+msgid "Project ID"
+msgstr "ID projektu"
+
+msgid ""
+"Project networks are created by users.\n"
+"    These networks are fully isolated and are project-specific."
+msgstr ""
+"Sieci projektów są tworzone przez użytkowników.\n"
+"  Sieci te są w pełni izolowane i ograniczone do poszczególnych projektów."
+
+msgid "Protected"
+msgstr "Chroniony"
+
+msgid "Protocol"
+msgstr "Protokół"
+
+msgid "Provider Network"
+msgstr "Sieć dostawcy"
+
+msgid ""
+"Provider networks are created by administrators.\n"
+"    These networks map to an existing physical network in the data center."
+msgstr ""
+"Sieci dostępowe są tworzone przez administratorów.\n"
+"   Sieci te odwzorowują sieci fizyczne w data center."
+
+msgid "Public"
+msgstr "Publiczne"
+
+msgid "Public Key"
+msgstr "Klucz publiczny"
+
+msgid "Queued"
+msgstr "W kolejce"
+
+msgid "RAM"
+msgstr "RAM"
+
+msgid "Re-order items using drag and drop"
+msgstr "Zmień kolejność pozycji poprzez przesuwanie i upuszczanie"
+
+msgid "Remote"
+msgstr "Zdalne"
+
+msgid "Remove"
+msgstr "Usuń"
+
+msgid "Required"
+msgstr "Wymagane"
+
+msgid "Required?"
+msgstr "Wymagane?"
+
+msgid "Root Disk"
+msgstr "Główny dysk"
+
+msgid "Save"
+msgstr "Zapisz"
+
+msgid "Saving"
+msgstr "Zapisywanie"
+
+msgid "Script size"
+msgstr "Rozmiar skryptu"
+
+msgid "Security Groups"
+msgstr "Grupy zabezpieczeń"
+
+msgid "Security Groups Help"
+msgstr "Pomoc grup zabezpieczeń"
+
+msgid ""
+"Security groups are project-specific and cannot be shared across projects."
+msgstr ""
+"Grupy zabezpieczeń są tworzone dla określonych projektów i nie są "
+"współdzielone między projektami."
+
+msgid ""
+"Security groups define a set of IP filter rules that determine how network "
+"traffic flows to and from an instance. Users can add additional rules to an "
+"existing security group to further define the access options for an "
+"instance. To create additional rules, go to the <b>Compute | Access & "
+"Security</b> view, then find the security group and click <b>Manage Rules</"
+"b>."
+msgstr ""
+"Grupy zabezpieczeń określają zestaw reguł filtra IP, które określają jak "
+"ruch przemieszcza się z i do instancji. Użytkownicy mogą dodawać dodatkowe "
+"reguły do istniejącej grupy zabezpieczeń, aby dokładniej określić możliwości "
+"dostępu do instancji. W celu utworzenia dodatkowych reguł, należy przejść do "
+"widoku <b>Obliczenia | Dostęp i bezpieczeństwo</b>, a następnie kliknąć "
+"<b>Zarządzaj regułami</b>."
+
+msgid ""
+"See http://docs.openstack.org/developer/sahara/userdoc/edp.html for "
+"definitions."
+msgstr ""
+"Można zapoznać się z definicjami na stronie http://docs.openstack.org/"
+"developer/sahara/userdoc/edp.html ."
+
+msgid "Segmentation ID"
+msgstr "ID segmentacji"
+
+msgid "Select Source"
+msgstr "Wybierz źródło"
+
+msgid "Select a key pair from the available key pairs below."
+msgstr "Należy wybrać parę kluczy z listy dostępnych poniżej."
+
+msgid "Select an item from Available items below"
+msgstr "Należy wybrać pozycję z listy dostępnych pozycji poniżej"
+
+msgid "Select at least one network"
+msgstr "Należy wybrać przynajmniej jedną sieć"
+
+msgid "Select networks from those listed below."
+msgstr "Należy wybrać sieci z listy poniżej."
+
+msgid "Select one or more"
+msgstr "Należy wybrać jedną lub więcej"
+
+msgid "Select one or more security groups from the available groups below."
+msgstr ""
+"Należy wybrać jedną, lub więcej, grupę zabezpieczeń z listy grup poniżej."
+
+#, python-format
+msgid "Setting is not enabled: %(setting)s"
+msgstr "Ustawienie jest wyłączone: %(setting)s"
+
+msgid "Shared"
+msgstr "Współdzielona"
+
+msgid "Show events"
+msgstr "Wyświetl zdarzenia"
+
+msgid "Snapshot"
+msgstr "Migawka"
+
+msgid "Status"
+msgstr "Status"
+
+msgid "String"
+msgstr "ciąg znaków"
+
+msgid "Subnets Associated"
+msgstr "Powiązane podsieci"
+
+#, python-format
+msgid "Successfully created key pair %(name)s."
+msgstr "Utworzono parę kluczy %(name)s."
+
+#, python-format
+msgid "Successfully imported key pair %(name)s."
+msgstr "Zaimportowano parę kluczy %(name)s."
+
+msgid ""
+"The flavor you select for an instance determines the amount of compute, "
+"storage and memory resources that will be carved out for the instance."
+msgstr ""
+"Wybór odmiany dla instancji określa ilość dostępnej pamięci, zasobów "
+"dyskowych jak i mocy obliczeniowej, która zostanie przydzielona instancji."
+
+msgid ""
+"The flavor you select must have enough resources allocated to support the "
+"type of instance you are trying to create. Flavors that do not provide "
+"enough resources for your instance are identified on the <b>Available</b> "
+"table with a yellow warning icon."
+msgstr ""
+"Wybrana odmiana musi zapewniać odpowiednią ilość zasobów dla danego typu "
+"instancji, która ma zostać uruchomiona. Odmiany, które nie zapewniają "
+"wystarczającej ilości zasobów są oznaczone w tabeli <b>Dostępne</b> żółtym "
+"znakiem ostrzegawczym."
+
+#, python-format
+msgid ""
+"The selected image source requires a flavor with at least %(minDisk)s GB of "
+"root disk. Select a flavor with a larger root disk or use a different image "
+"source."
+msgstr ""
+"Wybrane źródło obrazu wymaga odmiany z przynajmniej %(minDisk)s GB dysku "
+"głównego. Należy wybrać odmianę z większym dyskiem głównym lub wybrać inne "
+"źródło obrazu."
+
+#, python-format
+msgid ""
+"The selected image source requires a flavor with at least %(minRam)s MB of "
+"RAM. Select a flavor with more RAM or use a different image source."
+msgstr ""
+"Wybrane źródło obrazu wymaga odmiany z przynajmniej %(minRam)s MB pamięci "
+"RAM. Należy wybrać odmianę z większą pamięcią RAM lub wybrać inne źródło "
+"obrazu."
+
+msgid "The status indicates whether the network has an active connection."
+msgstr "Status wskazuje czy sieć ma aktywne połączenie."
+
+msgid "The step has completed successfully. No events to display."
+msgstr "Ten krok zakończył się powodzeniem. Brak zdarzeń do wyświetlenia."
+
+msgid ""
+"The subnet identifies a sub-section of a network. A subnet is specified in "
+"CIDR format.\n"
+"    A typical CIDR format looks like <samp>192.xxx.x.x/24</samp>."
+msgstr ""
+"Podsieć identyfikuje pod sekcję sieci. Podsieć podaje się w formacie CIDR.\n"
+" Przykładowy format CIDR wygląda następująco <samp>192.xxx.x.x/24</samp>."
+
+msgid ""
+"There are two ways to generate a key pair. From a Linux system,\n"
+"  generate the key pair with the <samp>ssh-keygen</samp> command:"
+msgstr ""
+"Istnieją dwa sposoby na utworzenie pary kluczy. W systemie Linux,\n"
+" można utworzyć parę kluczy poleceniem <samp>ssh-keygen</samp>:"
+
+msgid ""
+"This command generates a pair of keys: a private key (cloud.key)\n"
+"  and a public key (cloud.key.pub)."
+msgstr ""
+"Polecenie to wygeneruję parę kluczy: klucz prywatny (cloud.key)\n"
+" oraz klucz publiczny (cloud.key.pub)."
+
+msgid ""
+"This flavor requires more RAM than your quota allows. Please select a "
+"smaller flavor or decrease the instance count."
+msgstr ""
+"Odmiana ta wymaga większej ilości pamięci RAM, niż pozwalają na to limity. "
+"Należy wybrać mniejszą odmianę lub zmniejszyć ilość instancji."
+
+msgid ""
+"This flavor requires more VCPUs than your quota allows. Please select a "
+"smaller flavor or decrease the instance count."
+msgstr ""
+"Odmiana ta wymaga większej ilości VCPU, niż pozwalają na to limity. Należy "
+"wybrać mniejszą odmianę lub zmniejszyć ilość instancji."
+
+msgid "This is your new key pair. Copy this information and keep it secure."
+msgstr ""
+"To jest nowa para kluczy. Należy skopiować te informacje i dbać o ich "
+"bezpieczeństwo."
+
+msgid "Total Disk"
+msgstr "Łącznie dysków"
+
+msgid "Total Instances"
+msgstr "Łącznie instancji"
+
+msgid "Total RAM"
+msgstr "Łącznie RAM"
+
+msgid "Total VCPUs"
+msgstr "Łącznie VCPU"
+
+msgid "Type"
+msgstr "Typ"
+
+msgid ""
+"Type your script directly into the Customization Script field. If your "
+"browser supports the HTML5 File API, you may choose to load your script from "
+"a file. The size of your script should not exceed 16 Kb."
+msgstr ""
+"Można wprowadzić skrypt bezpośrednio w pole „Skrypt modyfikujący”. Jeśli "
+"przeglądarka wspiera API HTML5 File, można wczytać skrypt z pliku. Rozmiar "
+"skryptu nie powinien przekraczać 16Kb."
+
+msgid "Unable to create the domain."
+msgstr "Nie można utworzyć domeny."
+
+msgid "Unable to create the keypair."
+msgstr "Nie można utworzyć pary kluczy."
+
+msgid "Unable to create the network."
+msgstr "Nie można utworzyć sieci."
+
+msgid "Unable to create the project."
+msgstr "Nie można utworzyć projektu."
+
+msgid "Unable to create the role."
+msgstr "Nie można utworzyć roli."
+
+msgid "Unable to create the server."
+msgstr "Nie można utworzyć serwera."
+
+msgid "Unable to create the subnet."
+msgstr "Nie można utworzyć podsieci."
+
+msgid "Unable to create the user."
+msgstr "Nie można utworzyć użytkownika."
+
+msgid "Unable to delete the domain."
+msgstr "Nie można usunąć domeny."
+
+msgid "Unable to delete the domains."
+msgstr "Nie można usunąć domen."
+
+msgid "Unable to delete the project."
+msgstr "Nie można usunąć projektu."
+
+msgid "Unable to delete the projects."
+msgstr "Nie można usunąć projektów."
+
+msgid "Unable to delete the role."
+msgstr "Nie można usunąć roli."
+
+msgid "Unable to delete the roles."
+msgstr "Nie można usunąć ról."
+
+msgid "Unable to delete the user."
+msgstr "Nie można usunąć użytkownika."
+
+msgid "Unable to delete the users."
+msgstr "Nie można usunąć użytkowników."
+
+msgid "Unable to edit the domain."
+msgstr "Nie można edytować domeny."
+
+msgid "Unable to edit the image custom properties."
+msgstr "Nie można edytować dodatkowych właściwości obrazu."
+
+msgid "Unable to edit the project."
+msgstr "Nie można edytować projektu."
+
+msgid "Unable to edit the role."
+msgstr "Nie można edytować roli."
+
+msgid "Unable to edit the user."
+msgstr "Nie można edytować użytkownika."
+
+msgid "Unable to fetch the service catalog."
+msgstr "Nie można pobrać katalogu usług."
+
+msgid "Unable to get the Keystone service version."
+msgstr "Nie można pobrać wersji usługi Keystone."
+
+msgid "Unable to grant the role."
+msgstr "Nie można nadać roli."
+
+msgid "Unable to import the keypair."
+msgstr "Nie można zaimportować pary kluczy."
+
+msgid "Unable to retrieve settings."
+msgstr "Nie można pobrać ustawień."
+
+msgid "Unable to retrieve the availability zones."
+msgstr "Nie można pobrać stref dostępności."
+
+msgid "Unable to retrieve the current user session."
+msgstr "Nie można pobrać sesji bieżącego użytkownika."
+
+msgid "Unable to retrieve the domain."
+msgstr "Nie można pobrać domeny."
+
+msgid "Unable to retrieve the domains."
+msgstr "Nie można pobrać domen."
+
+msgid "Unable to retrieve the extensions."
+msgstr "Nie można pobrać rozszerzeń."
+
+msgid "Unable to retrieve the flavor."
+msgstr "Nie można pobrać odmiany."
+
+msgid "Unable to retrieve the flavors."
+msgstr "Nie można pobrać odmian."
+
+msgid "Unable to retrieve the image custom properties."
+msgstr "Nie można pobrać dodatkowych właściwości obrazu."
+
+msgid "Unable to retrieve the image."
+msgstr "Nie można pobrać obrazu."
+
+msgid "Unable to retrieve the images."
+msgstr "Nie można pobrać obrazów."
+
+msgid "Unable to retrieve the keypairs."
+msgstr "Nie można pobrać pary kluczy."
+
+msgid "Unable to retrieve the limits."
+msgstr "Nie można pobrać ograniczeń."
+
+msgid "Unable to retrieve the namespaces."
+msgstr "Nie można pobrać przestrzeni nazw."
+
+msgid "Unable to retrieve the networks."
+msgstr "Nie można pobrać sieci."
+
+msgid "Unable to retrieve the ports."
+msgstr "Nie można pobrać portów."
+
+msgid "Unable to retrieve the project."
+msgstr "Nie można pobrać projektu."
+
+msgid "Unable to retrieve the projects."
+msgstr "Nie można pobrać projektów."
+
+msgid "Unable to retrieve the role."
+msgstr "Nie można pobrać roli."
+
+msgid "Unable to retrieve the roles."
+msgstr "Nie można pobrać ról."
+
+msgid "Unable to retrieve the security groups."
+msgstr "Nie można pobrać grup zabezpieczeń."
+
+msgid "Unable to retrieve the server."
+msgstr "Nie można pobrać serwera."
+
+msgid "Unable to retrieve the subnets."
+msgstr "Nie można pobrać podsieci."
+
+msgid "Unable to retrieve the user."
+msgstr "Nie można pobrać użytkownika."
+
+msgid "Unable to retrieve the users."
+msgstr "Nie można pobrać użytkowników."
+
+msgid "Unable to retrieve the volume snapshots."
+msgstr "Nie można pobrać migawek wolumenów."
+
+msgid "Unable to retrieve the volumes."
+msgstr "Nie można pobrać wolumenów."
+
+msgid "Up"
+msgstr "Podniesiony"
+
+msgid "Update Aggregate Metadata"
+msgstr "Aktualizuj metadane agregatu"
+
+msgid "Update Flavor Metadata"
+msgstr "Aktualizacja metadanych odmiany"
+
+msgid "Update Image Metadata"
+msgstr "Aktualizacja metadanych obrazu"
+
+msgid "User ID"
+msgstr "ID użytkownika"
+
+msgid "User Name"
+msgstr "Nazwa użytkownika"
+
+msgid "VCPUS"
+msgstr "VCPU"
+
+msgid "Value Type"
+msgstr "Typ wartości"
+
+msgid "Volume"
+msgstr "Wolumen"
+
+msgid "Volume Snapshot"
+msgstr "Migawka wolumenu"
+
+msgid ""
+"When the <b>Admin State</b> for a network is set to <b>Up</b>,\n"
+"    then the network is available for use. You can set the <b>Admin State</"
+"b> to <b>Down</b>\n"
+"    if you are not ready for other users to access the network."
+msgstr ""
+"Jeśli <b>stan administracyjny</b> sieci jest ustawiony na <b>Podniesiony</"
+"b>,\n"
+" to sieć jest dostępna do użycia. Można ustawić <b>stan administracyjny</b> "
+"na <b>Położony</b>,\n"
+" jeśli na chwilę obecną nikt nie powinien uzyskać do niej dostępu."
+
+msgid "bytes"
+msgstr "bajtów"
+
+msgid "{$ row['provider:network_type'] $}"
+msgstr "{$ row['provider:network_type'] $}"

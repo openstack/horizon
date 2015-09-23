@@ -17,12 +17,12 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-09-19 06:33+0000\n"
+"POT-Creation-Date: 2015-09-22 10:47+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2015-09-19 09:30+0000\n"
-"Last-Translator: Yuko Katabami <yukokatabami@gmail.com>\n"
+"PO-Revision-Date: 2015-09-22 09:20+0000\n"
+"Last-Translator: Akihiro Motoki <amotoki@gmail.com>\n"
 "Language-Team: Japanese (http://www.transifex.com/openstack/horizon/language/"
 "ja/)\n"
 "Generated-By: Babel 2.0\n"
@@ -396,6 +396,9 @@ msgstr " 完了"
 msgid "\"Add Router Route\""
 msgstr "ルータールートの追加"
 
+msgid "\"Clusters\""
+msgstr "クラスター"
+
 msgid ""
 "\"Customization Script\" is analogous to \"User Data\" in other systems."
 msgstr ""
@@ -403,6 +406,9 @@ msgstr ""
 
 msgid "\"Edit Volume Type\""
 msgstr "ボリューム種別の編集"
+
+msgid "\"Launch Cluster\""
+msgstr "クラスターの起動"
 
 msgid "\"N/A\""
 msgstr "なし"
@@ -465,6 +471,10 @@ msgstr "%(name)s - %(size)s GB (%(label)s)"
 #, python-format
 msgid "%(name)s | %(RAM)s RAM"
 msgstr "%(name)s | %(RAM)s RAM"
+
+#, python-format
+msgid "%(name)s | %(RAM)s RAM | %(instances)s instances"
+msgstr "%(name)s | %(RAM)s RAM | %(instances)s インスタンス"
 
 #, python-format
 msgid "%(offset)s: %(label)s"
@@ -887,6 +897,9 @@ msgstr "ルーターの追加"
 msgid "Add Rule"
 msgstr "ルールの追加"
 
+msgid "Add Shard"
+msgstr "shard の追加"
+
 msgid "Add Static Route"
 msgstr "静的ルートの追加"
 
@@ -1033,6 +1046,10 @@ msgstr "モニターが追加されました。"
 #, python-format
 msgid "Added pool \"%s\"."
 msgstr "プール \"%s\" を追加しました。"
+
+#, python-format
+msgid "Added shard to \"%s\""
+msgstr "shard を \"%s\" に追加しました"
 
 msgid "Additional routes"
 msgstr "追加のルート設定"
@@ -1821,8 +1838,14 @@ msgstr "クラスター数"
 msgid "Cluster Creation Guide"
 msgstr "クラスター作成のガイド"
 
+msgid "Cluster Detail"
+msgstr "クラスターの詳細"
+
 msgid "Cluster Details"
 msgstr "クラスターの詳細"
+
+msgid "Cluster Details: {{ cluster.name }}"
+msgstr "クラスターの詳細: {{ cluster.name }}"
 
 msgid "Cluster Events"
 msgstr "クラスターのイベント"
@@ -1838,6 +1861,9 @@ msgstr "クラスター名"
 
 msgid "Cluster Overview"
 msgstr "クラスターの概要"
+
+msgid "Cluster Size"
+msgstr "クラスターサイズ"
 
 msgid "Cluster Template"
 msgstr "クラスターテンプレート"
@@ -1983,6 +2009,9 @@ msgstr "コネクションの例"
 
 msgid "Connection Info"
 msgstr "コネクション情報"
+
+msgid "Connection Information"
+msgstr "接続情報"
 
 msgid "Connection Limit"
 msgstr "最大接続数"
@@ -2589,6 +2618,9 @@ msgstr "現在のホスト"
 
 msgid "Current Size (GB)"
 msgstr "現在のサイズ (GB)"
+
+msgid "Current Task"
+msgstr "現在のタスク"
 
 msgid "Current choice:"
 msgstr "現在の選択項目:"
@@ -5346,6 +5378,9 @@ msgstr "インスタンス"
 msgid "Instances Count"
 msgstr "インスタンス数"
 
+msgid "Instances Per Shard"
+msgstr "shard 当たりのインスタンス数"
+
 msgid "Insufficient privilege level to view domain information."
 msgstr "ドメイン情報を参照するのに必要な権限がありません。"
 
@@ -5672,6 +5707,10 @@ msgid "Launched Job"
 msgid_plural "Launched Jobs"
 msgstr[0] "ジョブを起動しました"
 
+#, python-format
+msgid "Launched cluster \"%s\""
+msgstr "クラスター \"%s\" を起動しました。"
+
 msgid ""
 "Launching multiple instances is only supported for images and instance "
 "snapshots."
@@ -5863,6 +5902,9 @@ msgstr "ボリュームの管理"
 
 msgid "Management IP"
 msgstr "管理 IP"
+
+msgid "Managment Console"
+msgstr "管理コンソール"
 
 msgid "Manual"
 msgstr "手動"
@@ -6239,6 +6281,9 @@ msgstr "CIDR 形式のネットワークアドレス (例: 192.168.0.0/24)"
 msgid "Network address in CIDR format (e.g. 192.168.0.0/24, 2001:DB8::/48)"
 msgstr "CIDR 形式のネットワークアドレス (例: 192.168.0.0/24, 2001:DB8::/48)"
 
+msgid "Network attached to instance."
+msgstr "インスタンスに接続するネットワーク。"
+
 msgid "Network list can not be retrieved."
 msgstr "ネットワーク一覧を取得できません。"
 
@@ -6277,6 +6322,9 @@ msgstr "新しいフレーバー"
 msgid "New Host"
 msgstr "新規ホスト"
 
+msgid "New Password"
+msgstr "新しいパスワード"
+
 msgid "New Size (GB)"
 msgstr "新しいサイズ (GB)"
 
@@ -6288,6 +6336,9 @@ msgstr "新しい名前は別のボリューム種別で使われています。
 
 msgid "New password"
 msgstr "新しいパスワード"
+
+msgid "New password for cluster access."
+msgstr "クラスターへのアクセスに使用する新しいパスワード。"
 
 msgid "New size for volume must be greater than current size."
 msgstr "新しいボリュームサイズは現在のサイズよりも大きい必要があります。"
@@ -6644,6 +6695,9 @@ msgstr "インスタンス数"
 msgid "Number of Nodes"
 msgstr "ノード数"
 
+msgid "Number of Shards"
+msgstr "shard 数"
+
 msgid "Number of Snapshots"
 msgstr "スナップショット数"
 
@@ -6677,6 +6731,12 @@ msgstr "VM インタフェースでのネットワーク受信バイト数"
 msgid "Number of incoming packets for a VM interface"
 msgstr "VM インタフェースでのネットワーク受信パケット数"
 
+msgid "Number of instances in the cluster. (Read only)"
+msgstr "クラスターのインスタンス数 (読み出し専用)"
+
+msgid "Number of instances per shard. (Read only)"
+msgstr "shard 当たりのインスタンス数 (読み出し専用)"
+
 msgid "Number of instances to launch."
 msgstr "起動するインスタンス数。"
 
@@ -6708,6 +6768,9 @@ msgstr "メンバーのステータスを「非稼働」に変更するまでに
 
 msgid "Number of read requests"
 msgstr "読み出し要求数"
+
+msgid "Number of shards. (Read only)"
+msgstr "shard 数 (読み出し専用)"
 
 msgid "Number of write requests"
 msgstr "ディスク書き込み要求数"
@@ -6893,6 +6956,12 @@ msgstr "パスワードが変更されました。続行するには、再度ロ
 
 msgid "Password changed. Please log in to continue."
 msgstr "パスワードが変更されました。続行するには、ログインしてください。"
+
+msgid "Password for root user must be specified."
+msgstr "ルートユーザーのパスワードを指定する必要があります。"
+
+msgid "Password for root user."
+msgstr "ルートユーザーのパスワード。"
 
 #, python-format
 msgid "Password for user \"%s\""
@@ -7599,6 +7668,9 @@ msgstr "クラスターのガイドのリセット"
 msgid "Reset Job Execution Guide"
 msgstr "ジョブ実行のガイドのリセット"
 
+msgid "Reset Root Password"
+msgstr "ルートパスワードの再設定"
+
 msgid "Reset to Default"
 msgstr "デフォルトに戻す"
 
@@ -7830,6 +7902,13 @@ msgstr "ルートディスク"
 msgid "Root Disk (GB)"
 msgstr "ルートディスク (GB)"
 
+msgid "Root Password"
+msgstr "ルートパスワード"
+
+#, python-format
+msgid "Root password updated for cluster \"%s\""
+msgstr "クラスター \"%s\" のルートパスワードを更新しました。"
+
 msgid "Rotates requests evenly between multiple instances."
 msgstr "リクエストを複数のメンバー間に順番に均等に割り当てます。"
 
@@ -8054,6 +8133,10 @@ msgstr[0] "(確認待ちでの) インスタンスのマイグレーションを
 #, python-format
 msgid "Scheduled resize of instance \"%s\"."
 msgstr "インスタンス \"%s\" のリサイズを予約しました。"
+
+msgid "Scheduled termination of Cluster"
+msgid_plural "Scheduled termination of Clusters"
+msgstr[0] "クラスターの削除を予約しました"
 
 msgid "Scheduled termination of Instance"
 msgid_plural "Scheduled termination of Instances"
@@ -8538,6 +8621,9 @@ msgstr "一時ディスクのサイズ"
 msgid "Size of image to launch."
 msgstr "起動するイメージの容量"
 
+msgid "Size of instance to launch."
+msgstr "起動するインスタンスのサイズ。"
+
 msgid "Size of root disk"
 msgstr "root ディスクのサイズ"
 
@@ -8739,11 +8825,17 @@ msgstr "イメージサービスにアップロードするイメージを指定
 msgid "Specify member IP address"
 msgstr "メンバーの IP アドレスを指定"
 
+msgid "Specify the details for adding additional shards."
+msgstr "追加する shard の詳細を指定します。"
+
 msgid "Specify the details for launching an instance."
 msgstr "インスタンスを起動するために詳細を指定します。"
 
 msgid "Specify the details for the database backup."
 msgstr "データベースバックアップの詳細を指定します。"
+
+msgid "Specify the new root password for vertica cluster."
+msgstr "vertica クラスターの新しいルートパスワードを指定します。"
 
 msgid "Specify the new volume size for the database instance."
 msgstr "データベースインスタンスのボリュームの新しいサイズを指定します。"
@@ -9198,9 +9290,16 @@ msgstr "テンプレート URL"
 msgid "Template not specified"
 msgstr "テンプレートは指定されていません"
 
+msgid "Terminate Cluster"
+msgid_plural "Terminate Clusters"
+msgstr[0] "クラスターの削除"
+
 msgid "Terminate Instance"
 msgid_plural "Terminate Instances"
 msgstr[0] "インスタンスの削除"
+
+msgid "Terminated cluster is not recoverable."
+msgstr "削除されたクラスターは元に戻すことはできません。"
 
 msgid "Terminated instances are not recoverable."
 msgstr "削除されたインスタンスは元に戻すことはできません。"
@@ -9453,6 +9552,9 @@ msgstr ""
 "最小でも %(min_ram)s MB の RAM と %(min_disk)s GB のルートディスクが必要で"
 "す。"
 
+msgid "The flavor must be specified."
+msgstr "フレーバーを指定する必要があります。"
+
 #, python-format
 msgid "The instance is preparing the live migration to host \"%s\"."
 msgstr "インスタンスはホスト \"%s\" へのライブマイグレーションを準備中。"
@@ -9518,6 +9620,9 @@ msgstr "仮想ネットワークが作成される物理ネットワーク名。
 msgid ""
 "The next hop addresses can be used to override the router used by the client."
 msgstr "ネクストホップを指定すると、ルーターの値を上書きできます。"
+
+msgid "The number of shards must be greater than 1."
+msgstr "shard 数は 1 より大きくなければいけません。"
 
 msgid "The page you were looking for doesn't exist"
 msgstr "お探しのページが見つかりません"
@@ -9919,6 +10024,10 @@ msgstr "プール \"%s\" を追加できません。"
 msgid "Unable to add rule to security group."
 msgstr "ルールをセキュリティーグループに追加できません。"
 
+#, python-format
+msgid "Unable to add shard. %s"
+msgstr "shard を追加できません。 %s"
+
 msgid "Unable to add user to primary project."
 msgstr "ユーザーを主プロジェクトに追加できません。"
 
@@ -10289,6 +10398,9 @@ msgstr "プール %(pool)s のヘルスモニター %(monitor_id)s を取得で�
 msgid "Unable to get host aggregate list"
 msgstr "ホストアグリゲート一覧を取得できません。"
 
+msgid "Unable to get instances data."
+msgstr "インスタンスのデータを取得できません。"
+
 #, python-format
 msgid "Unable to get log for instance \"%s\"."
 msgstr "インスタンス \"%s\" のログを取得できません。"
@@ -10352,6 +10464,10 @@ msgstr "サブネットプールを初期化できません。"
 msgid "Unable to launch %(count)s named \"%(name)s\"."
 msgstr "名前が \"%(name)s\" の %(count)s が起動できません。"
 
+#, python-format
+msgid "Unable to launch cluster. %s"
+msgstr "クラスターを起動できません。 %s"
+
 msgid "Unable to launch job."
 msgstr "ジョブを起動できません"
 
@@ -10405,6 +10521,12 @@ msgstr "インスタンス \"%s\" のログを取得できません。"
 msgid "Unable to modify project \"%s\"."
 msgstr "プロジェクト \"%s\" を変更できません。"
 
+msgid "Unable to obtain datastore versions."
+msgstr "データストアのバージョン一覧を取得できません。"
+
+msgid "Unable to obtain datastores."
+msgstr "データストアの一覧を取得できません。"
+
 msgid "Unable to obtain flavors."
 msgstr "フレーバー一覧を取得できません。"
 
@@ -10420,6 +10542,10 @@ msgstr "プラグインタグを処理できません"
 
 msgid "Unable to rebuild instance."
 msgstr "インスタンスを再作成できません。"
+
+#, python-format
+msgid "Unable to reset password. %s"
+msgstr "パスワードを再設定できません。 %s"
 
 #, python-format
 msgid "Unable to resize instance \"%s\"."
@@ -10541,6 +10667,9 @@ msgstr "アベイラビリティーゾーンを取得できません。"
 msgid "Unable to retrieve backup details."
 msgstr "バックアップの詳細を取得できません。"
 
+msgid "Unable to retrieve cluster details."
+msgstr "クラスターの詳細を取得できません。"
+
 msgid "Unable to retrieve compute host information."
 msgstr "コンピュートホスト情報を取得できません。"
 
@@ -10552,6 +10681,9 @@ msgstr "コンテナーの一覧を取得できません。"
 
 msgid "Unable to retrieve data processing plugins."
 msgstr "データ処理プラグイン一覧を取得できません。"
+
+msgid "Unable to retrieve database clusters."
+msgstr "データベースクラスターの一覧を取得できません。"
 
 msgid "Unable to retrieve database instances."
 msgstr "データベースインスタンスを取得できません。"
@@ -10580,6 +10712,10 @@ msgstr "クラスターテンプレート \"%s\" の詳細を取得できませ�
 #, python-format
 msgid "Unable to retrieve details for data source \"%s\"."
 msgstr "データソース \"%s\" の詳細を取得できません。"
+
+#, python-format
+msgid "Unable to retrieve details for database cluster: %s"
+msgstr "データベースクラスターの詳細を取得できません: %s"
 
 #, python-format
 msgid "Unable to retrieve details for database instance: %s"

@@ -5,17 +5,17 @@
 # Translators:
 # Andreas Jaeger <jaegerandi@gmail.com>, 2014
 # Ettore Atalan <atalanttore@googlemail.com>, 2015
-# OpenStack Infra <zanata@openstack.org>, 2015. #zanata
+# Carsten Duch <carsten.duch@posteo.de>, 2015. #zanata
 msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-09-16 18:25+0000\n"
+"POT-Creation-Date: 2015-09-22 10:47+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2015-08-30 01:01+0000\n"
-"Last-Translator: Ettore Atalan <atalanttore@googlemail.com>\n"
+"PO-Revision-Date: 2015-09-22 06:31+0000\n"
+"Last-Translator: Carsten Duch <carsten.duch@posteo.de>\n"
 "Language-Team: German (http://www.transifex.com/openstack/horizon/language/"
 "de/)\n"
 "Generated-By: Babel 2.0\n"
@@ -62,8 +62,9 @@ msgid ""
 "    "
 msgstr ""
 "\n"
-"Wenn Sie nicht sicher sind, welche Authentifizierungsmethode zu verwenden "
-"ist, kontaktieren Sie Ihren Administrator."
+"      Wenn Sie nicht sicher sind, welche Authentifizierungsmethode zu "
+"verwenden ist, kontaktieren Sie Ihren Administrator.\n"
+"    "
 
 #, python-format
 msgctxt "past"
@@ -240,7 +241,7 @@ msgid "More Actions"
 msgstr "Weitere Aktionen"
 
 msgid "N/A"
-msgstr "Nicht verfügbar"
+msgstr "Nicht zutreffend"
 
 msgid "Navigation Item"
 msgstr "Navigations-Eintrag"
@@ -255,7 +256,7 @@ msgid "Next&nbsp;&raquo;"
 msgstr "Weiter&nbsp;&raquo;"
 
 msgid "No items to display."
-msgstr "Keine Einträge zum anzeigen."
+msgstr "Keine Einträge zum Anzeigen."
 
 #, python-format
 msgid "No match returned for the id \"%s\"."

@@ -10,11 +10,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-09-19 06:33+0000\n"
+"POT-Creation-Date: 2015-09-22 10:47+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2015-09-21 08:22+0000\n"
+"PO-Revision-Date: 2015-09-23 07:41+0000\n"
 "Last-Translator: Zbyněk Schwarz <zbynek.schwarz@gmail.com>\n"
 "Language-Team: Czech (http://www.transifex.com/openstack/horizon/language/"
 "cs/)\n"
@@ -6473,6 +6473,9 @@ msgstr "Síťová adresa ve formátu CIDR (např.: 192.168.0.0/24)"
 msgid "Network address in CIDR format (e.g. 192.168.0.0/24, 2001:DB8::/48)"
 msgstr "Síťová adresa ve formátu CIDR (např.: 192.168.0.0/24, 2001:DB8::/48)"
 
+msgid "Network attached to instance."
+msgstr "Síť připojená k instanci."
+
 msgid "Network list can not be retrieved."
 msgstr "Nelze získat seznam sítí."
 
@@ -6918,6 +6921,9 @@ msgstr "Počet příchozích bajtů v síti pro rozhraní VM"
 msgid "Number of incoming packets for a VM interface"
 msgstr "Počet příchozích paketů pro rozhraní VM"
 
+msgid "Number of instances in the cluster. (Read only)"
+msgstr "Počet instanci v clusteru. (Pouze pro čtení)"
+
 msgid "Number of instances to launch."
 msgstr "Počet instancí ke spuštění."
 
@@ -7133,6 +7139,9 @@ msgstr "Heslo bylo změněno. Por pokračovaní se prosím znovu přihlaste."
 
 msgid "Password changed. Please log in to continue."
 msgstr "Heslo bylo změněno. Por pokračovaní se prosím přihlaste."
+
+msgid "Password for root user."
+msgstr "Heslo pro superuživatele."
 
 #, python-format
 msgid "Password for user \"%s\""
@@ -8097,6 +8106,9 @@ msgstr "Kořenový disk"
 msgid "Root Disk (GB)"
 msgstr "Kořenový disk (GB)"
 
+msgid "Root Password"
+msgstr "Heslo superuživatele"
+
 msgid "Rotates requests evenly between multiple instances."
 msgstr "Rovnoměrně cyklí požadavky mezi více instancemi."
 
@@ -8842,6 +8854,9 @@ msgstr "Velikost efemérního disku"
 
 msgid "Size of image to launch."
 msgstr "Velikost obrazu pro spuštění."
+
+msgid "Size of instance to launch."
+msgstr "Velikost instance pro spuštění."
 
 msgid "Size of root disk"
 msgstr "Velikost kořenového disku"

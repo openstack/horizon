@@ -19,11 +19,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-09-18 05:57+0000\n"
+"POT-Creation-Date: 2015-09-22 10:47+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2015-09-11 04:11+0000\n"
+"PO-Revision-Date: 2015-09-23 08:51+0000\n"
 "Last-Translator: Ilya Alekseyev <ilyaalekseyev@acm.org>\n"
 "Language-Team: Russian (http://www.transifex.com/openstack/horizon/language/"
 "ru/)\n"
@@ -443,6 +443,10 @@ msgid "%s instances"
 msgstr "%s инстансов"
 
 #, python-format
+msgid "%s processes: "
+msgstr "%s процессов: "
+
+#, python-format
 msgid "%sGB"
 msgstr "%s ГБ"
 
@@ -702,6 +706,9 @@ msgid ""
 msgstr ""
 "Реальное имя устройства может отличаться из-за настроек гипервизора. Если не "
 "указан, то гипервизор выберет имя устройства."
+
+msgid "Adapt For Oozie"
+msgstr "Адаптировать для Oozie"
 
 msgid "Add"
 msgstr "Добавить"
@@ -1530,6 +1537,9 @@ msgstr "Выбрать главный двоичный файл"
 msgid "Choose a new instance flavor."
 msgstr "Выберите новый тип для инстанса."
 
+msgid "Choose a shell script"
+msgstr "Выберите скрипт shell"
+
 msgid "Choose a snapshot"
 msgstr "Выбрать снимок"
 
@@ -1538,6 +1548,9 @@ msgstr "Выбрать место хранения"
 
 msgid "Choose a volume"
 msgstr "Выбрать диск"
+
+msgid "Choose additional files"
+msgstr "Выберите дополнительные файлы"
 
 msgid "Choose an DHCP Agent to attach to."
 msgstr "Выберите агент DHCP для прикрепления"
@@ -1610,6 +1623,14 @@ msgstr ""
 "мышью\n"
 "вы также можете изменить порядок с помощью мыши. "
 
+msgid "Choose the Input Data Source (n/a for Java and Shell jobs)."
+msgstr ""
+"Выберите входящий источник данных (недоступно для  заданий Java и Shell)."
+
+msgid "Choose the Output Data Source (n/a for Java and Shell jobs)."
+msgstr ""
+"Выберите исходящий источник данных (недоступно для  заданий Java и Shell)."
+
 msgid "Choose the binary which should be used in this Job."
 msgstr "Выберите исполняемые файл, который будет использован в этой задаче."
 
@@ -1680,6 +1701,9 @@ msgstr "Закрыть"
 
 msgid "Cluster"
 msgstr "Кластер"
+
+msgid "Cluster Count"
+msgstr "Количество кластеров"
 
 msgid "Cluster Creation Guide"
 msgstr "Руководство по созданию кластера"
@@ -2381,6 +2405,9 @@ msgstr "Создан параметр \"%s\"."
 msgid "Created subnet \"%s\"."
 msgstr "Создана подсеть \"%s\"."
 
+msgid "Created time"
+msgstr "Время создания"
+
 msgid "Created volume transfer."
 msgstr "Создана передача диска."
 
@@ -2559,6 +2586,9 @@ msgstr ""
 "Обработка данных предоставляет различные места хранения параметров. Вы "
 "можете выбрать временный диск или Cinder диск для подключения к машине."
 
+msgid "Data Source"
+msgstr "Источник данных"
+
 msgid "Data Source Details"
 msgstr "Информация об источнике данных"
 
@@ -2683,7 +2713,7 @@ msgid "Delete Backup"
 msgid_plural "Delete Backups"
 msgstr[0] "Удалить резервную копию"
 msgstr[1] "Удалить резервные копии"
-msgstr[2] ""
+msgstr[2] "Удалить резервные копии"
 msgstr[3] "Удалить резервные копии"
 
 msgid "Delete Cluster"
@@ -2715,7 +2745,7 @@ msgid "Delete Data Source"
 msgid_plural "Delete Data Sources"
 msgstr[0] "Удалить источник данных"
 msgstr[1] "Удалить источники данных"
-msgstr[2] ""
+msgstr[2] "Удалить источники данных"
 msgstr[3] "Удалить источники данных"
 
 msgid "Delete Database"
@@ -2823,24 +2853,24 @@ msgstr[3] "Удалить интерфейсы"
 
 msgid "Delete Job"
 msgid_plural "Delete Jobs"
-msgstr[0] "Удалить задача"
-msgstr[1] "Удалить задачи"
-msgstr[2] ""
-msgstr[3] "Удалить задачи"
+msgstr[0] "Удалить задание"
+msgstr[1] "Удалить задания"
+msgstr[2] "Удалить задания"
+msgstr[3] "Удалить задания"
 
 msgid "Delete Job Binary"
 msgid_plural "Delete Job Binaries"
-msgstr[0] "Удалить исполняемый файл задач"
-msgstr[1] "Удалить исполняемые файлы задач"
-msgstr[2] ""
-msgstr[3] "Удалить исполняемые файлы задач"
+msgstr[0] "Удалить исполняемый файл задания"
+msgstr[1] "Удалить исполняемые файлы задания"
+msgstr[2] "Удалить исполняемые файлы задания"
+msgstr[3] "Удалить исполняемые файлы задания"
 
 msgid "Delete Job Template"
 msgid_plural "Delete Job Templates"
-msgstr[0] "Удалить шаблон задач"
-msgstr[1] "Удалить шаблоны задач"
-msgstr[2] ""
-msgstr[3] "Удалить шаблоны задач"
+msgstr[0] "Удалить шаблон задания"
+msgstr[1] "Удалить шаблоны задания"
+msgstr[2] "Удалить шаблоны задания"
+msgstr[3] "Удалить шаблоны задания"
 
 msgid "Delete Key Pair"
 msgid_plural "Delete Key Pairs"
@@ -3021,7 +3051,7 @@ msgid "Deleted Backup"
 msgid_plural "Deleted Backups"
 msgstr[0] "Резервная копия удалена"
 msgstr[1] "Резервные копии удалены"
-msgstr[2] ""
+msgstr[2] "Резервные копии удалены"
 msgstr[3] "Резервные копии удалены"
 
 msgid "Deleted Cluster"
@@ -3049,7 +3079,7 @@ msgid "Deleted Data Source"
 msgid_plural "Deleted Data Sources"
 msgstr[0] "Источник данных удален"
 msgstr[1] "Источники данных удалены"
-msgstr[2] ""
+msgstr[2] "Источники данных удалены"
 msgstr[3] "Источники данных удалены"
 
 msgid "Deleted Database"
@@ -3129,24 +3159,24 @@ msgstr[3] "Интерфейсы удалены"
 
 msgid "Deleted Job"
 msgid_plural "Deleted Jobs"
-msgstr[0] "Задача удалена"
-msgstr[1] "Задачи удалены"
-msgstr[2] ""
-msgstr[3] "Задачи удалены"
+msgstr[0] "Задание удалено"
+msgstr[1] "Задания удалены"
+msgstr[2] "Задания удалены"
+msgstr[3] "Задания удалены"
 
 msgid "Deleted Job Binary"
 msgid_plural "Deleted Job Binaries"
-msgstr[0] "Исполняемый файл задачи удален"
-msgstr[1] "Исполняемые файлы задач удалены"
-msgstr[2] ""
-msgstr[3] "Исполняемые файлы задач удалены"
+msgstr[0] "Исполняемый файл задания удален"
+msgstr[1] "Исполняемые файлы задания удалены"
+msgstr[2] "Исполняемые файлы задания удалены"
+msgstr[3] "Исполняемые файлы задания удалены"
 
 msgid "Deleted Job Template"
 msgid_plural "Deleted Jobs Templates"
-msgstr[0] "Шаблон задач удален"
-msgstr[1] "Шаблоны задач удалены"
-msgstr[2] ""
-msgstr[3] "Шаблоны задач удалены"
+msgstr[0] "Шаблон задания удален"
+msgstr[1] "Шаблоны задания удалены"
+msgstr[2] "Шаблоны задания удалены"
+msgstr[3] "Шаблоны задания удалены"
 
 msgid "Deleted Key Pair"
 msgid_plural "Deleted Key Pairs"
@@ -3721,6 +3751,9 @@ msgstr "Редактировать теги образа"
 
 msgid "Edit Instance"
 msgstr "Редактировать экземпляр"
+
+msgid "Edit Job Binary"
+msgstr "Редактировать исполняемый файл задания"
 
 msgid "Edit Member"
 msgstr "Редактироват участника"
@@ -4634,6 +4667,19 @@ msgid "For Object Store job binaries, you must:"
 msgstr "Для исполняемых файлов Объектного Хранилища вы должны:"
 
 msgid ""
+"For Shell Action jobs, any required files beyond the main script may be "
+"added as \"libraries\"."
+msgstr ""
+"Для заданий Shell любые необходимые файлы, помимо основного скрипта, могут "
+"быть добавлены как библиотеки."
+
+msgid ""
+"For Spark and Shell jobs, only a main is required, \"libs\" are optional."
+msgstr ""
+"Для заданий Spark и Shell необходим только основной скрипт, библиотеки не "
+"обязательны."
+
+msgid ""
 "For TCP and UDP rules you may choose to open either a single port or a range "
 "of ports. Selecting the \"Port Range\" option will provide you with space to "
 "provide both the starting and ending ports for the range. For ICMP rules you "
@@ -5353,6 +5399,9 @@ msgstr ""
 msgid "Intelligent Platform Management Interface (IPMI)"
 msgstr "Интеллектуальный интерфейс управления платформой (IPMI)"
 
+msgid "Interface Arguments"
+msgstr "Аргументы интерфейса"
+
 msgid "Interface added"
 msgstr "Интерфейс добавлен"
 
@@ -5593,10 +5642,10 @@ msgstr "Запустить машину (Превышен лимит)"
 
 msgid "Launch Job"
 msgid_plural "Launch Jobs"
-msgstr[0] "Запустить задачу"
-msgstr[1] "Запустить задачи"
-msgstr[2] ""
-msgstr[3] "Запустить задачи"
+msgstr[0] "Выполнить задание"
+msgstr[1] "Выполнить задания"
+msgstr[2] "Выполнить задания"
+msgstr[3] "Выполнить задания"
 
 msgid "Launch On Existing Cluster"
 msgstr "Запустить на существующем кластере"
@@ -5662,10 +5711,10 @@ msgstr "Запущен кластер %s"
 
 msgid "Launched Job"
 msgid_plural "Launched Jobs"
-msgstr[0] "Задача запущена"
-msgstr[1] "Задачи запущены"
-msgstr[2] ""
-msgstr[3] "Задачи запущены"
+msgstr[0] "Задание запущена"
+msgstr[1] "Задания запущены"
+msgstr[2] "Задания запущены"
+msgstr[3] "Задания запущены"
 
 msgid ""
 "Launching multiple instances is only supported for images and instance "
@@ -5870,6 +5919,9 @@ msgstr "Сопоставлен фиксированный IP-адрес"
 
 msgid "Mapper"
 msgstr "Сопоставитель"
+
+msgid "Mapping Type"
+msgstr "Тип отображения"
 
 msgid "Master Instance Name"
 msgstr "Название основной инстансы"
@@ -6217,6 +6269,9 @@ msgstr "Сеть в формате CIDR (например 192.168.0.0/24)"
 
 msgid "Network address in CIDR format (e.g. 192.168.0.0/24, 2001:DB8::/48)"
 msgstr "Адрес сети в CIDR формате (например 192.168.0.0/24, 2001:DB8::/48)"
+
+msgid "Network attached to instance."
+msgstr "Сеть подключенная к инстансу."
 
 msgid "Network list can not be retrieved."
 msgstr "Не удалось получить список сетей."
@@ -6585,6 +6640,9 @@ msgstr ""
 "вы сможете задать любые настройки для конкретного кластера\n"
 "в дополнительных закладках формы создания шаблона кластера."
 
+msgid "Number"
+msgstr "Число"
+
 msgid "Number of API requests against swift"
 msgstr "Количество обращений к API Swift"
 
@@ -6602,6 +6660,9 @@ msgstr "Количество VCPU"
 
 msgid "Number of Volumes"
 msgstr "Количество дисков"
+
+msgid "Number of clusters to launch."
+msgstr "Количество кластеров для запуска."
 
 msgid "Number of containers"
 msgstr "Количество контейнеров"
@@ -6623,6 +6684,9 @@ msgstr "Объем входящего трафика на сетевом инт�
 
 msgid "Number of incoming packets for a VM interface"
 msgstr "Количество входящих пакетов на интерфейсе ВМ"
+
+msgid "Number of instances in the cluster. (Read only)"
+msgstr "Количество инстансов в кластере. (Только чтение)"
 
 msgid "Number of instances to launch."
 msgstr "Число инстансов для запуска."
@@ -6826,6 +6890,9 @@ msgstr "Пароль изменен. Снова войдите в систему
 
 msgid "Password changed. Please log in to continue."
 msgstr "Пароль изменен. Пожалуйста войдите в систему для продолжения."
+
+msgid "Password for root user."
+msgstr "Пароль пользователя root"
 
 #, python-format
 msgid "Password for user \"%s\""
@@ -7776,6 +7843,9 @@ msgstr "Корневой диск"
 msgid "Root Disk (GB)"
 msgstr "Корневой диск (ГБ)"
 
+msgid "Root Password"
+msgstr "Пароль root"
+
 msgctxt "load balancing method"
 msgid "Round Robin"
 msgstr "Равномерно"
@@ -7868,6 +7938,9 @@ msgid ""
 msgstr ""
 "Правила определяют какой трафик разрешен к машинам которым назначена группа "
 "безопасности. Правило группы безопасности состоит из трех основных частей:"
+
+msgid "Run HBase EDP Jobs with common HBase library on HDFS"
+msgstr "Выполнить задание HBase EDP с общей библиотекой HBase на HDFS"
 
 msgctxt "Power state of an Instance"
 msgid "Running"
@@ -8111,6 +8184,9 @@ msgstr "Выберите снимок инстанса"
 msgid "Select Network"
 msgstr "Выберите сеть"
 
+msgid "Select Node Group Processes"
+msgstr "Выберите процессы группы нод"
+
 msgid "Select Port"
 msgstr "Выберите порт"
 
@@ -8158,6 +8234,9 @@ msgstr "Выберите Маршрутизатор"
 
 msgid "Select a Subnet"
 msgstr "Выбор подсети"
+
+msgid "Select a Value Type for your next argument:"
+msgstr "Выберите тип значения для следующего аргумента:"
 
 msgid "Select a backup to restore"
 msgstr "Выбрать резервную копию для восстановления"
@@ -8406,6 +8485,12 @@ msgstr "Общее хранилище"
 msgid "Shared with Me"
 msgstr "В совместном доступе"
 
+msgid "Shell"
+msgstr "Shell"
+
+msgid "Shell Action"
+msgstr "Команда Shell"
+
 msgctxt "Current status of an Instance"
 msgid "Shelved"
 msgstr "Отложен"
@@ -8479,6 +8564,9 @@ msgstr "Размер временного диска"
 
 msgid "Size of image to launch."
 msgstr "Размер образа для запуска"
+
+msgid "Size of instance to launch."
+msgstr "Размер инстанса для запуска."
 
 msgid "Size of root disk"
 msgstr "Объем корневого диска"
@@ -8830,8 +8918,14 @@ msgstr "Место хранения"
 msgid "Storage type"
 msgstr "Тип хранения"
 
+msgid "Storm"
+msgstr "Storm"
+
 msgid "Streaming MapReduce"
 msgstr "Поточный MapReduce"
+
+msgid "String"
+msgstr "Строка"
 
 msgid "Subnet"
 msgstr "Подсеть"
@@ -10631,6 +10725,10 @@ msgstr "Не удалось получить список инстансов."
 msgid "Unable to retrieve instances."
 msgstr "Не удалось получить инстансы."
 
+#, python-format
+msgid "Unable to retrieve job binary \"%s\"."
+msgstr "Невозможно получить исполняемый файл задания \"%s\"."
+
 msgid "Unable to retrieve key pair list."
 msgstr "Не удалось получить список пар ключей"
 
@@ -10999,6 +11097,9 @@ msgstr "Не удалось изменить группу."
 msgid "Unable to update image \"%s\"."
 msgstr "Не удалось обновить образ \"%s\"."
 
+msgid "Unable to update job binary"
+msgstr "Невозможно обновить исполняемый файл задания"
+
 msgid "Unable to update object."
 msgstr "Не удалось обновить объект"
 
@@ -11103,15 +11204,15 @@ msgid "Unregister Image"
 msgid_plural "Unregister Images"
 msgstr[0] "Удалить образ"
 msgstr[1] "Удалить образы"
-msgstr[2] ""
+msgstr[2] "Удалить образы"
 msgstr[3] "Удалить образы"
 
 msgid "Unregistered Image"
 msgid_plural "Unregistered Images"
 msgstr[0] "Образ удалены"
 msgstr[1] "Образы удалены"
-msgstr[2] ""
-msgstr[3] "Образы удален"
+msgstr[2] "Образы удалены"
+msgstr[3] "Образы удалены"
 
 msgctxt "Task status of an Instance"
 msgid "Unrescuing"
@@ -11249,6 +11350,9 @@ msgstr "Обновлено"
 #, python-format
 msgid "Updated subnet \"%s\"."
 msgstr "Обновленная подсеть \"%s\"."
+
+msgid "Updated time"
+msgstr "Время обновления"
 
 msgctxt "Task status of an Instance"
 msgid "Updating Password"
