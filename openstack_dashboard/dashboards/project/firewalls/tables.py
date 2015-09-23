@@ -248,7 +248,7 @@ def get_rules_name(datum):
 
 def get_routers_name(firewall):
     if firewall.routers:
-        return ', '.join(router['name'] for router in firewall.routers)
+        return ', '.join(router.name_or_id for router in firewall.routers)
 
 
 def get_policy_name(datum):
