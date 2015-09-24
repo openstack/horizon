@@ -9,5 +9,5 @@ execfile(activate_this, dict(__file__=activate_this))
 sys.path.insert(0, '{{ PROJECT_ROOT }}')
 os.environ['DJANGO_SETTINGS_MODULE'] = '{{ DJANGO_SETTINGS_MODULE }}'
 
-import django.core.handlers.wsgi
-application = django.core.handlers.wsgi.WSGIHandler()
+import django.core.wsgi
+application = django.core.wsgi.get_wsgi_application()
