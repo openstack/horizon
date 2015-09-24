@@ -2465,7 +2465,8 @@ class InstanceTests(helpers.TestCase):
     @helpers.create_stubs({api.glance: ('image_list_detailed',),
                            api.neutron: ('network_list',
                                          'profile_list',
-                                         'port_create',),
+                                         'port_create',
+                                         'port_delete'),
                            api.nova: ('extension_supported',
                                       'flavor_list',
                                       'keypair_list',
@@ -2555,6 +2556,8 @@ class InstanceTests(helpers.TestCase):
                                disk_config='AUTO',
                                config_drive=False) \
             .AndRaise(self.exceptions.keystone)
+        if test_with_profile:
+            api.neutron.port_delete(IsA(http.HttpRequest), port.id)
         quotas.tenant_quota_usages(IsA(http.HttpRequest)) \
             .AndReturn(quota_usages)
         api.nova.flavor_list(IsA(http.HttpRequest)) \
