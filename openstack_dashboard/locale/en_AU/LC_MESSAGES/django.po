@@ -10,11 +10,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-09-18 05:57+0000\n"
+"POT-Creation-Date: 2015-09-23 15:07+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2015-09-17 03:44+0000\n"
+"PO-Revision-Date: 2015-09-24 06:19+0000\n"
 "Last-Translator: Tom Fifield <tom@openstack.org>\n"
 "Language-Team: English (Australia) (http://www.transifex.com/openstack/"
 "horizon/language/en_AU/)\n"
@@ -1049,6 +1049,10 @@ msgstr "Added monitor"
 msgid "Added pool \"%s\"."
 msgstr "Added pool \"%s\"."
 
+#, python-format
+msgid "Added shard to \"%s\""
+msgstr "Added shard to \"%s\""
+
 msgid "Additional routes"
 msgstr "Additional routes"
 
@@ -1837,6 +1841,9 @@ msgstr "Cluster Creation Guide"
 msgid "Cluster Details"
 msgstr "Cluster Details"
 
+msgid "Cluster Details: {{ cluster.name }}"
+msgstr "Cluster Details: {{ cluster.name }}"
+
 msgid "Cluster Events"
 msgstr "Cluster Events"
 
@@ -1996,6 +2003,9 @@ msgstr "Connection Examples"
 
 msgid "Connection Info"
 msgstr "Connection Info"
+
+msgid "Connection Information"
+msgstr "Connection Information"
 
 msgid "Connection Limit"
 msgstr "Connection Limit"
@@ -3904,6 +3914,9 @@ msgid_plural "Enable Services"
 msgstr[0] "Enable Service"
 msgstr[1] "Enable Services"
 
+msgid "Enable Swift Paths"
+msgstr "Enable Swift Paths"
+
 msgid "Enable User"
 msgid_plural "Enable Users"
 msgstr[0] "Enable User"
@@ -5447,6 +5460,9 @@ msgstr "Instances"
 msgid "Instances Count"
 msgstr "Instances Count"
 
+msgid "Instances Per Shard"
+msgstr "Instances Per Shard"
+
 msgid "Insufficient privilege level to view domain information."
 msgstr "Insufficient privilege level to view domain information."
 
@@ -5780,6 +5796,10 @@ msgid "Launched Job"
 msgid_plural "Launched Jobs"
 msgstr[0] "Launched Job"
 msgstr[1] "Launched Jobs"
+
+#, python-format
+msgid "Launched cluster \"%s\""
+msgstr "Launched cluster \"%s\""
 
 msgid ""
 "Launching multiple instances is only supported for images and instance "
@@ -6181,6 +6201,13 @@ msgstr "Modify dashboard settings for your user."
 msgid "Modify name and description of a volume."
 msgstr "Modify name and description of a volume."
 
+msgid ""
+"Modify the configuration so that swift URLs can be dereferenced through HDFS "
+"at runtime."
+msgstr ""
+"Modify the configuration so that swift URLs can be dereferenced through HDFS "
+"at runtime."
+
 msgid "Modify the name and description of a snapshot."
 msgstr "Modify the name and description of a snapshot."
 
@@ -6346,6 +6373,9 @@ msgstr "Network address in CIDR format (e.g. 192.168.0.0/24)"
 msgid "Network address in CIDR format (e.g. 192.168.0.0/24, 2001:DB8::/48)"
 msgstr "Network address in CIDR format (e.g. 192.168.0.0/24, 2001:DB8::/48)"
 
+msgid "Network attached to instance."
+msgstr "Network attached to instance."
+
 msgid "Network list can not be retrieved."
 msgstr "Network list can not be retrieved."
 
@@ -6384,6 +6414,9 @@ msgstr "New Flavor"
 msgid "New Host"
 msgstr "New Host"
 
+msgid "New Password"
+msgstr "New Password"
+
 msgid "New Size (GB)"
 msgstr "New Size (GB)"
 
@@ -6395,6 +6428,9 @@ msgstr "New name conflicts with another volume type."
 
 msgid "New password"
 msgstr "New password"
+
+msgid "New password for cluster access."
+msgstr "New password for cluster access."
 
 msgid "New size for volume must be greater than current size."
 msgstr "New size for volume must be greater than current size."
@@ -6761,6 +6797,9 @@ msgstr "Number of Instances"
 msgid "Number of Nodes"
 msgstr "Number of Nodes"
 
+msgid "Number of Shards"
+msgstr "Number of Shards"
+
 msgid "Number of Snapshots"
 msgstr "Number of Snapshots"
 
@@ -6793,6 +6832,12 @@ msgstr "Number of incoming bytes on the network for a VM interface"
 
 msgid "Number of incoming packets for a VM interface"
 msgstr "Number of incoming packets for a VM interface"
+
+msgid "Number of instances in the cluster. (Read only)"
+msgstr "Number of instances in the cluster. (Read only)"
+
+msgid "Number of instances per shard. (Read only)"
+msgstr "Number of instances per shard. (Read only)"
 
 msgid "Number of instances to launch."
 msgstr "Number of instances to launch."
@@ -6828,6 +6873,9 @@ msgstr ""
 
 msgid "Number of read requests"
 msgstr "Number of read requests"
+
+msgid "Number of shards. (Read only)"
+msgstr "Number of shards. (Read only)"
 
 msgid "Number of write requests"
 msgstr "Number of write requests"
@@ -6939,6 +6987,10 @@ msgstr "Other"
 msgid "Other Protocol"
 msgstr "Other Protocol"
 
+#, python-format
+msgid "Out of range float values are not JSON compliant: %r"
+msgstr "Out of range float values are not JSON compliant: %r"
+
 msgid "Output"
 msgstr "Output"
 
@@ -7009,6 +7061,12 @@ msgstr "Password changed. Please log in again to continue."
 
 msgid "Password changed. Please log in to continue."
 msgstr "Password changed. Please log in to continue."
+
+msgid "Password for root user must be specified."
+msgstr "Password for root user must be specified."
+
+msgid "Password for root user."
+msgstr "Password for root user."
 
 #, python-format
 msgid "Password for user \"%s\""
@@ -7954,6 +8012,13 @@ msgstr "Root Disk"
 msgid "Root Disk (GB)"
 msgstr "Root Disk (GB)"
 
+msgid "Root Password"
+msgstr "Root Password"
+
+#, python-format
+msgid "Root password updated for cluster \"%s\""
+msgstr "Root password updated for cluster \"%s\""
+
 msgid "Rotates requests evenly between multiple instances."
 msgstr "Rotates requests evenly between multiple instances."
 
@@ -8681,6 +8746,9 @@ msgstr "Size of ephemeral disk"
 msgid "Size of image to launch."
 msgstr "Size of image to launch."
 
+msgid "Size of instance to launch."
+msgstr "Size of instance to launch."
+
 msgid "Size of root disk"
 msgstr "Size of root disk"
 
@@ -8877,6 +8945,9 @@ msgstr "Specify an image to upload to the Image Service."
 
 msgid "Specify member IP address"
 msgstr "Specify member IP address"
+
+msgid "Specify the details for adding additional shards."
+msgstr "Specify the details for adding additional shards."
 
 msgid "Specify the details for launching an instance."
 msgstr "Specify the details for launching an instance."
@@ -9608,6 +9679,9 @@ msgstr ""
 "The flavor '%(flavor)s' is too small for requested image.\n"
 "Minimum requirements: %(min_ram)s MB of RAM and %(min_disk)s GB of Root Disk."
 
+msgid "The flavor must be specified."
+msgstr "The flavour must be specified."
+
 #, python-format
 msgid "The instance is preparing the live migration to host \"%s\"."
 msgstr "The instance is preparing the live migration to host \"%s\"."
@@ -9676,6 +9750,9 @@ msgid ""
 "The next hop addresses can be used to override the router used by the client."
 msgstr ""
 "The next hop addresses can be used to override the router used by the client."
+
+msgid "The number of shards must be greater than 1."
+msgstr "The number of shards must be greater than 1."
 
 msgid "The page you were looking for doesn't exist"
 msgstr "The page you were looking for doesn't exist"
@@ -10068,6 +10145,10 @@ msgstr "Unable to add pool \"%s\"."
 msgid "Unable to add rule to security group."
 msgstr "Unable to add rule to security group."
 
+#, python-format
+msgid "Unable to add shard. %s"
+msgstr "Unable to add shard. %s"
+
 msgid "Unable to add user to primary project."
 msgstr "Unable to add user to primary project."
 
@@ -10437,6 +10518,9 @@ msgstr "Unable to get health monitor %(monitor_id)s for pool %(pool)s."
 msgid "Unable to get host aggregate list"
 msgstr "Unable to get host aggregate list"
 
+msgid "Unable to get instances data."
+msgstr "Unable to get instances data."
+
 #, python-format
 msgid "Unable to get log for instance \"%s\"."
 msgstr "Unable to get log for instance \"%s\"."
@@ -10500,6 +10584,10 @@ msgstr "Unable to initialize subnetpools"
 msgid "Unable to launch %(count)s named \"%(name)s\"."
 msgstr "Unable to launch %(count)s named \"%(name)s\"."
 
+#, python-format
+msgid "Unable to launch cluster. %s"
+msgstr "Unable to launch cluster. %s"
+
 msgid "Unable to launch job."
 msgstr "Unable to launch job."
 
@@ -10552,6 +10640,12 @@ msgstr "Unable to modify instance \"%s\"."
 msgid "Unable to modify project \"%s\"."
 msgstr "Unable to modify project \"%s\"."
 
+msgid "Unable to obtain datastore versions."
+msgstr "Unable to obtain datastore versions."
+
+msgid "Unable to obtain datastores."
+msgstr "Unable to obtain datastores."
+
 msgid "Unable to obtain flavors."
 msgstr "Unable to obtain flavours."
 
@@ -10567,6 +10661,10 @@ msgstr "Unable to process plugin tags"
 
 msgid "Unable to rebuild instance."
 msgstr "Unable to rebuild instance."
+
+#, python-format
+msgid "Unable to reset password. %s"
+msgstr "Unable to reset password. %s"
 
 #, python-format
 msgid "Unable to resize instance \"%s\"."
@@ -10688,6 +10786,9 @@ msgstr "Unable to retrieve availability zones."
 msgid "Unable to retrieve backup details."
 msgstr "Unable to retrieve backup details."
 
+msgid "Unable to retrieve cluster details."
+msgstr "Unable to retrieve cluster details."
+
 msgid "Unable to retrieve compute host information."
 msgstr "Unable to retrieve compute host information."
 
@@ -10699,6 +10800,9 @@ msgstr "Unable to retrieve container list."
 
 msgid "Unable to retrieve data processing plugins."
 msgstr "Unable to retrieve data processing plugins."
+
+msgid "Unable to retrieve database clusters."
+msgstr "Unable to retrieve database clusters."
 
 msgid "Unable to retrieve database instances."
 msgstr "Unable to retrieve database instances."
@@ -10727,6 +10831,10 @@ msgstr "Unable to retrieve details for cluster template \"%s\"."
 #, python-format
 msgid "Unable to retrieve details for data source \"%s\"."
 msgstr "Unable to retrieve details for data source \"%s\"."
+
+#, python-format
+msgid "Unable to retrieve details for database cluster: %s"
+msgstr "Unable to retrieve details for database cluster: %s"
 
 #, python-format
 msgid "Unable to retrieve details for database instance: %s"

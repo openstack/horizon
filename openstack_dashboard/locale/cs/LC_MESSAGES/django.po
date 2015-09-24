@@ -10,11 +10,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-09-22 10:47+0000\n"
+"POT-Creation-Date: 2015-09-23 15:07+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2015-09-23 07:41+0000\n"
+"PO-Revision-Date: 2015-09-23 03:14+0000\n"
 "Last-Translator: Zbyněk Schwarz <zbynek.schwarz@gmail.com>\n"
 "Language-Team: Czech (http://www.transifex.com/openstack/horizon/language/"
 "cs/)\n"
@@ -422,6 +422,9 @@ msgstr "Hotovo"
 msgid "\"Add Router Route\""
 msgstr "\"Přidat cestu směrovače\""
 
+msgid "\"Clusters\""
+msgstr "\"Clustery\""
+
 msgid ""
 "\"Customization Script\" is analogous to \"User Data\" in other systems."
 msgstr ""
@@ -430,6 +433,9 @@ msgstr ""
 
 msgid "\"Edit Volume Type\""
 msgstr "\"Upravit typ svazku\""
+
+msgid "\"Launch Cluster\""
+msgstr "\"Spustit cluster\""
 
 msgid "\"N/A\""
 msgstr "\"Nedostupné\""
@@ -495,6 +501,10 @@ msgstr "%(name)s - %(size)s GB (%(label)s)"
 #, python-format
 msgid "%(name)s | %(RAM)s RAM"
 msgstr "%(name)s | %(RAM)s RAM"
+
+#, python-format
+msgid "%(name)s | %(RAM)s RAM | %(instances)s instances"
+msgstr "%(name)s | %(RAM)s RAM | %(instances)s instancí"
 
 #, python-format
 msgid "%(offset)s: %(label)s"
@@ -1852,6 +1862,9 @@ msgstr "Počet clusterů"
 msgid "Cluster Creation Guide"
 msgstr "Průvodce vytvořením clusteru"
 
+msgid "Cluster Detail"
+msgstr "Podrobnosti clusteru"
+
 msgid "Cluster Details"
 msgstr "Podrobnosti clusteru"
 
@@ -1869,6 +1882,9 @@ msgstr "Název clusteru"
 
 msgid "Cluster Overview"
 msgstr "Přehled clusterů"
+
+msgid "Cluster Size"
+msgstr "Velikost clusteru"
 
 msgid "Cluster Template"
 msgstr "Šablona clusteru"
@@ -2013,6 +2029,9 @@ msgid "Connection Examples"
 msgstr "Příklady připojení"
 
 msgid "Connection Info"
+msgstr "Informace o připojení"
+
+msgid "Connection Information"
 msgstr "Informace o připojení"
 
 msgid "Connection Limit"
@@ -5898,6 +5917,10 @@ msgstr[0] "Úkol spuštěny"
 msgstr[1] "Úkoly spuštěny"
 msgstr[2] "Úkoly spuštěny"
 
+#, python-format
+msgid "Launched cluster \"%s\""
+msgstr "Cluster \"%s\" spuštěn"
+
 msgid ""
 "Launching multiple instances is only supported for images and instance "
 "snapshots."
@@ -7139,6 +7162,9 @@ msgstr "Heslo bylo změněno. Por pokračovaní se prosím znovu přihlaste."
 
 msgid "Password changed. Please log in to continue."
 msgstr "Heslo bylo změněno. Por pokračovaní se prosím přihlaste."
+
+msgid "Password for root user must be specified."
+msgstr "Heslo pro superuživatele musí být zadáno."
 
 msgid "Password for root user."
 msgstr "Heslo pro superuživatele."
@@ -9790,6 +9816,9 @@ msgstr ""
 "Konfigurace '%(flavor)s' je pro požadovaný obraz příliš malá.\n"
 "Minimální požadavky: %(min_ram)s MB RAM a %(min_disk)s GB na kořenovém disku."
 
+msgid "The flavor must be specified."
+msgstr "Konfigurace musí být zadána."
+
 #, python-format
 msgid "The instance is preparing the live migration to host \"%s\"."
 msgstr "Instance se připravuje na přesun za běhu na hostitele \"%s\"."
@@ -10691,6 +10720,10 @@ msgstr "Nelze zavést zásoby podsítě"
 msgid "Unable to launch %(count)s named \"%(name)s\"."
 msgstr "Nelze spustit %(count)s pojmenovaných \"%(name)s\"."
 
+#, python-format
+msgid "Unable to launch cluster. %s"
+msgstr "Nelze spustit cluster. %s"
+
 msgid "Unable to launch job."
 msgstr "Nelze spustit úkol."
 
@@ -10742,6 +10775,12 @@ msgstr "Nelze změnit instanci \"%s\"."
 #, python-format
 msgid "Unable to modify project \"%s\"."
 msgstr "Nelze změnit projekt \"%s\"."
+
+msgid "Unable to obtain datastore versions."
+msgstr "Nelze získat verze datových úložišť."
+
+msgid "Unable to obtain datastores."
+msgstr "Nelze získat datová úložiště."
 
 msgid "Unable to obtain flavors."
 msgstr "Nelze získat konfigurace."
