@@ -109,7 +109,6 @@ def data(TEST):
         "availability_zone": None,
         "floating_ip_pool": None,
         "auto_security_group": True,
-        "security_groups": [],
         "hadoop_version": "1.2.1",
         "id": "c166dfcc-9cc7-4b48-adc9-f0946169bb36",
         "image_id": None,
