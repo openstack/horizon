@@ -192,13 +192,20 @@ class UpdateCell(tables.UpdateAction):
         try:
             user_obj = datum
             setattr(user_obj, cell_name, new_cell_value)
-            api.keystone.user_update(
-                request,
-                user_obj,
-                name=user_obj.name,
-                email=user_obj.email,
-                enabled=user_obj.enabled,
-                project=user_obj.project_id)
+            kwargs = {}
+            attr_to_keyword_map = {
+                'name': 'name',
+                'description': 'description',
+                'email': 'email',
+                'enabled': 'enabled',
+                'project_id': 'project'
+            }
+            for key in attr_to_keyword_map:
+                value = getattr(user_obj, key, None)
+                keyword_name = attr_to_keyword_map[key]
+                if value is not None:
+                    kwargs[keyword_name] = value
+            api.keystone.user_update(request, user_obj, **kwargs)
 
         except horizon_exceptions.Conflict:
             message = _("This name is already taken.")
