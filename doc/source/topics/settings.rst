@@ -147,6 +147,17 @@ If provided, will auto-fade the alert types specified. Valid alert types
 include: ['alert-success', 'alert-info', 'alert-warning', 'alert-error']
 Can also define the delay before the alert fades and the fade out duration.
 
+``bug_url``
+------------
+
+.. versionadded:: 9.0.0(Mitaka)
+
+Default: ``None``
+
+If provided, a "Report Bug" link will be displayed in the site header which
+links to the value of this setting (ideally a URL containing information on
+how to report issues).
+
 ``help_url``
 ------------
 
@@ -155,7 +166,7 @@ Can also define the delay before the alert fades and the fade out duration.
 Default: ``None``
 
 If provided, a "Help" link will be displayed in the site header which links
-to the value of this settings (ideally a URL containing help information).
+to the value of this setting (ideally a URL containing help information).
 
 ``exceptions``
 --------------

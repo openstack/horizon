@@ -71,6 +71,9 @@
       <div id="links">
         {% block links %}
         <p><a href="{{ CONF.WEBROOT }}">{% trans "Home" %}</a></p>
+        {% if CONF.HORIZON_CONFIG.bug_url %}
+        <p><a href="{{ CONF.HORIZON_CONFIG.bug_url }}">{% trans "Report Bug" %}</a></p>
+        {% endif %}
         <p><a href="{{ CONF.HORIZON_CONFIG.help_url }}">{% trans "Help" %}</a></p>
         {% endblock %}
       </div>
