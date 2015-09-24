@@ -2,9 +2,7 @@
 
 {% load url from future %}
 
-
-<h3>{% trans "Node Groups" %}</h3>
-<div class="status row detail">
+<div class="detail">
     {% for node_group in cluster.node_groups %}
         <dl class="well">
             <h4>{% blocktrans with node_group_name=node_group.name %}Name: {{ node_group_name }}{% endblocktrans %}</h4>

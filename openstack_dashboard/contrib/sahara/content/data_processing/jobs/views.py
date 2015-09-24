@@ -69,8 +69,8 @@ class CreateJobView(workflows.WorkflowView):
 
 class JobDetailsView(tabs.TabView):
     tab_group_class = _tabs.JobDetailsTabs
-    template_name = 'project/data_processing.jobs/details.html'
-    page_title = _("Job Template Details")
+    template_name = 'horizon/common/_detail.html'
+    page_title = "{{ job.name|default:job.id }}"
 
     @memoized.memoized_method
     def get_object(self):

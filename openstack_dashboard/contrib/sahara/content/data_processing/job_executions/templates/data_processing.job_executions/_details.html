@@ -1,7 +1,6 @@
 {% load i18n sizeformat %}
 {% load url from future %}
-<h3>{% trans "Job Overview" %}</h3>
-<div class="status row detail">
+<div class="detail">
   <dl class="dl-horizontal">
     <dt>{% trans "Status" %}</dt>
     <dd>{{ job_execution.info.status }}</dd>

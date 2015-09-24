@@ -1,10 +1,6 @@
 {% load i18n sizeformat %}
 
-<h3>{% trans "Stack Overview" %}</h3>
-
-<div class="info row detail">
-  <h4>{% trans "Information" %}</h4>
-  <hr class="header_rule">
+<div class="detail">
   <dl class="dl-horizontal">
     <dt>{% trans "Name" %}</dt>
     <dd>{{ stack.stack_name }}</dd>
@@ -13,9 +9,7 @@
     <dt>{% trans "Description" %}</dt>
     <dd>{{ stack.description }}</dd>
   </dl>
-</div>
 
-<div class="status row detail">
   <h4>{% trans "Status" %}</h4>
   <hr class="header_rule">
   <dl class="dl-horizontal">
@@ -28,9 +22,7 @@
       {% blocktrans with stack_status_title=stack.stack_status|title stack_status_reason=stack.stack_status_reason %}{{ stack_status_title }}: {{ stack_status_reason }}{% endblocktrans %}
     </dd>
   </dl>
-</div>
 
-<div class="outputs row detail">
   <h4>{% trans "Outputs" %}</h4>
   <hr class="header_rule">
   <dl class="dl-horizontal">
@@ -42,9 +34,7 @@
     </dd>
     {% endfor %}
   </dl>
-</div>
 
-<div class="parameters row detail">
   <h4>{% trans "Stack Parameters" %}</h4>
   <hr class="header_rule">
   <dl class="dl-horizontal">
@@ -53,9 +43,7 @@
     <dd>{{ value }}</dd>
     {% endfor %}
   </dl>
-</div>
 
-<div class="launch row detail">
   <h4>{% trans "Launch Parameters" %}</h4>
   <hr class="header_rule">
   <dl class="dl-horizontal">

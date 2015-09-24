@@ -61,8 +61,8 @@ class NodegroupTemplatesView(tables.DataTableView):
 
 class NodegroupTemplateDetailsView(tabs.TabView):
     tab_group_class = _tabs.NodegroupTemplateDetailsTabs
-    template_name = 'project/data_processing.nodegroup_templates/details.html'
-    page_title = _("Node Group Template Details")
+    template_name = 'horizon/common/_detail.html'
+    page_title = "{{ template.name|default:template.id }}"
 
     @memoized.memoized_method
     def get_object(self):

@@ -62,8 +62,8 @@ class JobExecutionsView(tables.DataTableView):
 
 class JobExecutionDetailsView(tabs.TabView):
     tab_group_class = _tabs.JobExecutionDetailsTabs
-    template_name = 'project/data_processing.job_executions/details.html'
-    page_title = _("Job Execution Details")
+    template_name = 'horizon/common/_detail.html'
+    page_title = "{{ job_execution.name|default:job_execution.id }}"
 
     @memoized.memoized_method
     def get_object(self):

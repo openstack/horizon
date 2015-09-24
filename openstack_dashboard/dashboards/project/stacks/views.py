@@ -277,8 +277,8 @@ class PreviewStackDetailsView(forms.ModalFormMixin, views.HorizonTemplateView):
 
 class DetailView(tabs.TabView):
     tab_group_class = project_tabs.StackDetailTabs
-    template_name = 'project/stacks/detail.html'
-    page_title = _("Stack Details: {{ stack.stack_name }}")
+    template_name = 'horizon/common/_detail.html'
+    page_title = "{{ stack.stack_name|default:stack.id }}"
 
     def get_context_data(self, **kwargs):
         context = super(DetailView, self).get_context_data(**kwargs)
@@ -326,7 +326,7 @@ class DetailView(tabs.TabView):
 class ResourceView(tabs.TabView):
     tab_group_class = project_tabs.ResourceDetailTabs
     template_name = 'project/stacks/resource.html'
-    page_title = _("Resource Details: {{ resource.resource_name }}")
+    page_title = "{{ resource.resource_name|default:resource.id }}"
 
     def get_context_data(self, **kwargs):
         context = super(ResourceView, self).get_context_data(**kwargs)

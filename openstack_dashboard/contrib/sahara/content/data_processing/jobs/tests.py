@@ -43,8 +43,7 @@ class DataProcessingJobTests(test.TestCase):
             .MultipleTimes().AndReturn(self.jobs.first())
         self.mox.ReplayAll()
         res = self.client.get(DETAILS_URL)
-        self.assertTemplateUsed(res,
-                                'project/data_processing.jobs/details.html')
+        self.assertTemplateUsed(res, 'horizon/common/_detail.html')
         self.assertContains(res, 'pigjob')
 
     @test.create_stubs({api.sahara: ('job_binary_list',

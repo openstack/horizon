@@ -50,10 +50,8 @@ class DataProcessingDataSourceTests(test.TestCase):
             .MultipleTimes().AndReturn(self.data_sources.first())
         self.mox.ReplayAll()
         res = self.client.get(DETAILS_URL)
-        self.assertTemplateUsed(
-            res, 'project/data_processing.data_sources/details.html')
+        self.assertTemplateUsed(res, 'horizon/common/_detail.html')
         self.assertContains(res, 'sampleOutput')
-        self.assertContains(res, 'Data Source Details')
 
     @test.create_stubs({api.sahara: ('data_source_list',
                                      'data_source_delete')})

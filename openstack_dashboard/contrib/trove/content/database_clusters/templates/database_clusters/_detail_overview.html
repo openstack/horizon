@@ -1,10 +1,6 @@
 {% load i18n sizeformat %}
 
-<h3>{% trans "Cluster Overview" %}</h3>
-
-<div class="status row detail">
-    <h4>{% trans "Information" %}</h4>
-    <hr class="header_rule">
+<div class="detail">
     <dl class="dl-horizontal">
         <dt>{% trans "Name" %}</dt>
         <dd>{{ cluster.name }}</dd>

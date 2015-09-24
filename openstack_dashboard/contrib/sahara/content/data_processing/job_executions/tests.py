@@ -48,8 +48,7 @@ class DataProcessingJobExecutionTests(test.TestCase):
             .MultipleTimes().AndReturn(self.job_executions.first())
         self.mox.ReplayAll()
         res = self.client.get(DETAILS_URL)
-        self.assertTemplateUsed(
-            res, 'project/data_processing.job_executions/details.html')
+        self.assertTemplateUsed(res, 'horizon/common/_detail.html')
         self.assertContains(res, 'RUNNING')
 
     @test.create_stubs({api.sahara: ('job_execution_list',

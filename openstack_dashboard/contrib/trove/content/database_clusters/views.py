@@ -97,12 +97,12 @@ class LaunchClusterView(horizon_forms.ModalFormView):
 
 class DetailView(horizon_tabs.TabbedTableView):
     tab_group_class = tabs.ClusterDetailTabs
-    template_name = 'project/database_clusters/detail.html'
-
-    page_title = _("Cluster Details: {{ cluster.name }}")
+    template_name = 'horizon/common/_detail.html'
+    page_title = "{{ cluster.name|default:cluster.id }}"
 
     def get_context_data(self, **kwargs):
         context = super(DetailView, self).get_context_data(**kwargs)
+        context["url"] = reverse('horizon:project:database_clusters:index')
         context["cluster"] = self.get_data()
         return context
 
