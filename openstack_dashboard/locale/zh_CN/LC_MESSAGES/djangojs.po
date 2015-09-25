@@ -14,11 +14,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-09-17 00:21+0000\n"
+"POT-Creation-Date: 2015-09-24 21:49+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2015-09-11 07:21+0000\n"
+"PO-Revision-Date: 2015-09-25 06:19+0000\n"
 "Last-Translator: zhangjingwen <zhangjingwen@cn.fujitsu.com>\n"
 "Language-Team: Chinese (China) (http://www.transifex.com/openstack/horizon/"
 "language/zh_CN/)\n"
@@ -29,6 +29,9 @@ msgstr ""
 
 msgid "(Max: 16Kb)"
 msgstr "(最大:16Kb)"
+
+msgid "(Modified)"
+msgstr "(已修改)"
 
 msgid "(None)"
 msgstr "(无)"
@@ -82,6 +85,14 @@ msgstr ""
 "要附加一个浮动IP，在<b>Instances</b>查看并单击一个实例的\n"
 " <b>Actions</b>菜单到右边。\n"
 "然后，选择 <b>Associate Floating IP</b> 并输入必要的描述。"
+
+msgid ""
+"A key pair allows you to SSH into your newly created instance.\n"
+"      You may select an existing key pair, import a key pair, or generate a "
+"new key pair."
+msgstr ""
+"密钥对允许您SSH到您新创建的实例。\n"
+"你可以选择一个已存在的密钥对、导入一个密钥对或生成一个新的密钥对。"
 
 msgid "A name is required for your instance."
 msgstr "您的实例名字是必须的。"
@@ -173,6 +184,9 @@ msgstr "配置驱动器"
 msgid "Configuration Help"
 msgstr "配置帮助"
 
+msgid "Configuration Value"
+msgstr "配置值"
+
 msgid "Count"
 msgstr "计数"
 
@@ -185,8 +199,24 @@ msgstr "创建新卷"
 msgid "Created"
 msgstr "已创建"
 
+msgid ""
+"Custom scripts are attached to instances to perform specific actions when "
+"the instance is launched. For example, if you are unable to install "
+"<samp>cloud-init</samp> inside a guest operating system, you can use a "
+"custom script to get a public key and add it to the user account."
+msgstr ""
+"当实例启动时，自定义脚本被绑定到实例执行特定的动作。比如，如果你无法在客户机"
+"操作系统内安装<samp>cloud-init</samp>，你可以使用自定义脚本获取一个公钥并把它"
+"添加到用户账户中。"
+
 msgid "Customization Script"
 msgstr "自定义脚本"
+
+msgid "Data Source"
+msgstr "数据源"
+
+msgid "Default Value"
+msgstr "缺省值"
 
 msgid "Delete Volume on Terminate"
 msgstr "终止后删除卷"
@@ -248,8 +278,30 @@ msgid ""
 "the instance."
 msgstr "类型管理实例的计算、内存和存储容量的大小。"
 
+msgid ""
+"For configs and params, type the key name; for args, type the index as an "
+"integer, starting from 0."
+msgstr "对于配置和参数，定义键名类型；对于参数，定义索引类型为从0开始的整数。"
+
+msgid ""
+"For data sources, use a data source UUID or a path (as per data source "
+"creation.)"
+msgstr "对于数据源，使用数据源UUID或者路径(根据数据源创建。)"
+
 msgid "Format"
 msgstr "镜像格式"
+
+msgid ""
+"From a Windows system, you can use PuTTYGen to create private/public keys.\n"
+"  Use the PuTTY Key Generator to create and save the keys, then copy\n"
+"  the public key in the red highlighted box to your <samp>.ssh/"
+"authorized_keys</samp>\n"
+"  file."
+msgstr ""
+"从一个Windows系统，你可以使用PuTTYGen生成公/私密钥。\n"
+"使用PuTTY密钥生成器来创建和保存这些密钥，\n"
+"然后复制红色高亮框中的公钥到您的\n"
+"<samp>.ssh/authorized_keys</samp>文件。"
 
 msgid "ID"
 msgstr "ID"
@@ -273,6 +325,14 @@ msgid ""
 msgstr ""
 "如果您选择一个可用域并且计划使用从卷选项启动，确保您为实例选择的可用域与您启"
 "动卷所在的域是同一个。"
+
+msgid ""
+"If you want to create an instance that uses ephemeral storage, meaning the "
+"instance data is lost when the instance is deleted, then choose one of the "
+"following boot sources:"
+msgstr ""
+"如果您想创建一个使用临时存储的实例，意味着当实例被删除时数据会丢失，那么从以"
+"下启动项中选择一个："
 
 msgid ""
 "If you want to create an instance that uses persistent storage, meaning the "
@@ -329,6 +389,23 @@ msgstr "秘钥对帮助"
 msgid "Key Pair Name"
 msgstr "密钥对名字"
 
+msgid ""
+"Key Pairs are how you login to your instance after it is launched.\n"
+"        Choose a key pair name you will recognize and paste your SSH public "
+"key into the\n"
+"        space provided."
+msgstr ""
+"密钥对是您在实例启动后登陆进去的一种方式。\n"
+"选择一个您易于识别的密钥对名字，并把您的SSH公钥粘贴到\n"
+"空白处。"
+
+msgid ""
+"Key Pairs are how you login to your instance after it is launched.\n"
+"        Choose a key pair name you will recognize."
+msgstr ""
+"密钥对是您在实例启动后登陆进去的一种方式。\n"
+"选择一个您易于识别的密钥对名字。"
+
 msgid "Killed"
 msgstr "终止"
 
@@ -338,8 +415,14 @@ msgstr "启动实例"
 msgid "Load script from a file"
 msgstr "从文件加载脚本"
 
+msgid "Location"
+msgstr "位置"
+
 msgid "Manual"
 msgstr "手动"
+
+msgid "Mapping Type"
+msgstr "映射类型"
 
 msgid "Max Port"
 msgstr "最大端口"
@@ -365,6 +448,9 @@ msgstr "最小内存"
 msgid "Name"
 msgstr "名称"
 
+msgid "Named Parameter"
+msgstr "命名参数"
+
 msgid "Network"
 msgstr "网络"
 
@@ -386,6 +472,9 @@ msgstr "否"
 msgid "No available items"
 msgstr "没有可选项"
 
+msgid "Number"
+msgstr "序号"
+
 msgid "OK"
 msgstr "确定"
 
@@ -405,6 +494,9 @@ msgstr ""
 
 msgid "Policy check failed."
 msgstr "策略检查失败。"
+
+msgid "Positional Argument"
+msgstr "定位参数"
 
 msgid "Private"
 msgstr "私有"
@@ -462,8 +554,14 @@ msgstr "使用拖放重新排序"
 msgid "Remote"
 msgstr "远程"
 
+msgid "Remove"
+msgstr "移除"
+
 msgid "Required"
 msgstr "必须"
+
+msgid "Required?"
+msgstr "必须?"
 
 msgid "Root Disk"
 msgstr "根磁盘"
@@ -498,6 +596,12 @@ msgstr ""
 "安全组定义了IP过滤规则集合，这些规则决定网络流量如何到达和离开实例。为了将来"
 "为实例定义访问可选规则，用户可以往一个已存在的安全组添加额外的规则。创建额外"
 "规则，到<b>计算 | 访问 & 安全</b>视图，然后找到安全组，点击<b>规则管理</b>"
+
+msgid ""
+"See http://docs.openstack.org/developer/sahara/userdoc/edp.html for "
+"definitions."
+msgstr ""
+"定义请参考http://docs.openstack.org/developer/sahara/userdoc/edp.html。"
 
 msgid "Segmentation ID"
 msgstr "段ID"
@@ -564,6 +668,9 @@ msgstr "快照"
 msgid "Status"
 msgstr "状态"
 
+msgid "String"
+msgstr "字符串"
+
 msgid "Subnets Associated"
 msgstr "子网已连接"
 
@@ -617,7 +724,7 @@ msgid "The status indicates whether the network has an active connection."
 msgstr "状态表明网络是否处于活跃连接。"
 
 msgid "The step has completed successfully. No events to display."
-msgstr "本步骤已成功完成，没有可以显示的事件。"
+msgstr "本步骤已成功完成。没有可以显示的事件。"
 
 msgid ""
 "The subnet identifies a sub-section of a network. A subnet is specified in "
@@ -630,6 +737,20 @@ msgstr ""
 #, python-format
 msgid "The volume size must be at least %(minVolumeSize)s GB"
 msgstr "卷大小至少%(minVolumeSize)s GB"
+
+msgid ""
+"There are two ways to generate a key pair. From a Linux system,\n"
+"  generate the key pair with the <samp>ssh-keygen</samp> command:"
+msgstr ""
+"有两种方式创建密钥对。从一个Linux系统，\n"
+"使用<samp>ssh-keygen</samp> 命令生成密钥对。"
+
+msgid ""
+"This command generates a pair of keys: a private key (cloud.key)\n"
+"  and a public key (cloud.key.pub)."
+msgstr ""
+"这个命令生成一对密钥：一个私钥 (cloud.key)\n"
+"和一个公钥(cloud.key.pub)。"
 
 msgid ""
 "This flavor requires more RAM than your quota allows. Please select a "
@@ -864,6 +985,9 @@ msgstr "用户名"
 
 msgid "VCPUS"
 msgstr "虚拟内核"
+
+msgid "Value Type"
+msgstr "值类型"
 
 msgid "Visibility"
 msgstr "可见"

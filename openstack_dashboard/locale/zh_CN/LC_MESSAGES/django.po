@@ -19,16 +19,17 @@
 # OpenStack Infra <zanata@openstack.org>, 2015. #zanata
 # Xu Yang <xuyang@cn.fujitsu.com>, 2015. #zanata
 # Yu Zhiuguo <yuzg@cn.fujitsu.com>, 2015. #zanata
+# zhangjingwen <zhangjingwen@cn.fujitsu.com>, 2015. #zanata
 msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-09-18 05:57+0000\n"
+"POT-Creation-Date: 2015-09-24 21:49+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2015-09-16 06:20+0000\n"
-"Last-Translator: Andreas Jaeger <jaegerandi@gmail.com>\n"
+"PO-Revision-Date: 2015-09-25 05:21+0000\n"
+"Last-Translator: zhangjingwen <zhangjingwen@cn.fujitsu.com>\n"
 "Language-Team: Chinese (China) (http://www.transifex.com/openstack/horizon/"
 "language/zh_CN/)\n"
 "Generated-By: Babel 2.0\n"
@@ -364,6 +365,19 @@ msgstr ""
 "默认情况下，Admin State是UP（选中的状态）。\n"
 " "
 
+msgid ""
+"\n"
+"Resize the canvas by scrolling up/down with your mouse/trackpad on the "
+"topology.\n"
+"Pan around the canvas by clicking and dragging the space behind the "
+"topology.\n"
+"  "
+msgstr ""
+"\n"
+"通过使用在拓扑上的你的鼠标/触控板上下滚动来调整画布。\n"
+"通过单击并拖拽拓扑后的空间来在画布周围平移。\n"
+"  "
+
 msgid " - End"
 msgstr "-结束"
 
@@ -380,12 +394,18 @@ msgstr "完成"
 msgid "\"Add Router Route\""
 msgstr "\"添加路由器的路由表\""
 
+msgid "\"Clusters\""
+msgstr "\"集群\""
+
 msgid ""
 "\"Customization Script\" is analogous to \"User Data\" in other systems."
 msgstr "\"定制脚本\"与其它系统中的\"用户数据\"类似."
 
 msgid "\"Edit Volume Type\""
 msgstr "编辑卷"
+
+msgid "\"Launch Cluster\""
+msgstr "\"启动集群\""
 
 msgid "\"N/A\""
 msgstr "\"N/A\""
@@ -447,6 +467,10 @@ msgstr "%(name)s - %(size)s GB (%(label)s)"
 #, python-format
 msgid "%(name)s | %(RAM)s RAM"
 msgstr "%(name)s | %(RAM)s 内存"
+
+#, python-format
+msgid "%(name)s | %(RAM)s RAM | %(instances)s instances"
+msgstr "%(name)s | %(RAM)s 内存 | %(instances)s 实例"
 
 #, python-format
 msgid "%(offset)s: %(label)s"
@@ -750,6 +774,9 @@ msgctxt "status of a network port"
 msgid "Active"
 msgstr "运行中"
 
+msgid "Active Instances:"
+msgstr "运行中的实例："
+
 msgid ""
 "Actual device name may differ due to hypervisor settings. If not specified, "
 "then hypervisor will select a device name."
@@ -846,6 +873,9 @@ msgstr "添加路由"
 
 msgid "Add Rule"
 msgstr "添加规则"
+
+msgid "Add Shard"
+msgstr "追加shard"
 
 msgid "Add Static Route"
 msgstr "添加路由表"
@@ -985,6 +1015,10 @@ msgstr "监控已添加"
 #, python-format
 msgid "Added pool \"%s\"."
 msgstr "资源池 \"%s\" 已添加。"
+
+#, python-format
+msgid "Added shard to \"%s\""
+msgstr "已追加shard到\"%s\""
 
 msgid "Additional routes"
 msgstr "附加路由"
@@ -1739,11 +1773,20 @@ msgstr "关闭"
 msgid "Cluster"
 msgstr "集群"
 
+msgid "Cluster Count"
+msgstr "集群数量"
+
 msgid "Cluster Creation Guide"
 msgstr "创建集群向导"
 
+msgid "Cluster Detail"
+msgstr "集群详细信息"
+
 msgid "Cluster Details"
 msgstr "集群详细信息"
+
+msgid "Cluster Details: {{ cluster.name }}"
+msgstr "集群详细信息： {{ cluster.name }}"
 
 msgid "Cluster Events"
 msgstr "集群事件"
@@ -1759,6 +1802,9 @@ msgstr "集群名称"
 
 msgid "Cluster Overview"
 msgstr "集群概要"
+
+msgid "Cluster Size"
+msgstr "集群大小"
 
 msgid "Cluster Template"
 msgstr "集群模板"
@@ -1841,6 +1887,9 @@ msgstr "配置"
 msgid "Configuration Drive"
 msgstr "配置驱动器"
 
+msgid "Configuration Value"
+msgstr "配置值"
+
 msgid "Configure"
 msgstr "配置"
 
@@ -1899,6 +1948,9 @@ msgid "Connection Examples"
 msgstr "连接举例"
 
 msgid "Connection Info"
+msgstr "连接信息"
+
+msgid "Connection Information"
 msgstr "连接信息"
 
 msgid "Connection Limit"
@@ -2491,6 +2543,9 @@ msgstr "当前主机"
 msgid "Current Size (GB)"
 msgstr "当前大小(GB)"
 
+msgid "Current Task"
+msgstr "当前任务"
+
 msgid "Current choice:"
 msgstr "当前选择："
 
@@ -2607,6 +2662,9 @@ msgstr ""
 "数据处理提供了多种不同的存储路径选择。你可以选择临时磁盘或者绑定到实例的"
 "Cinder卷"
 
+msgid "Data Source"
+msgstr "数据源"
+
 msgid "Data Source Details"
 msgstr "数据源详细信息"
 
@@ -2694,6 +2752,9 @@ msgstr "解密密码"
 
 msgid "Default Quotas"
 msgstr "默认配额"
+
+msgid "Default Value"
+msgstr "缺省值"
 
 msgid "Default quotas updated."
 msgstr "默认配额已更新."
@@ -3266,6 +3327,13 @@ msgstr "直接输入"
 msgid "Direction"
 msgstr "方向"
 
+msgid "Disable Domain"
+msgid_plural "Disable Domains"
+msgstr[0] "禁用域"
+
+msgid "Disable Domains"
+msgstr "禁用域"
+
 msgid "Disable Gateway"
 msgstr "禁用网关"
 
@@ -3288,6 +3356,10 @@ msgstr "已关闭"
 msgctxt "Current status of a Hypervisor"
 msgid "Disabled"
 msgstr "已关闭"
+
+msgid "Disabled Domain"
+msgid_plural "Disabled Domains"
+msgstr[0] "已禁用的域"
 
 msgid "Disabled User"
 msgid_plural "Disabled Users"
@@ -3657,12 +3729,22 @@ msgstr "邮箱"
 msgid "Enable DHCP"
 msgstr "激活DHCP"
 
+msgid "Enable Domain"
+msgid_plural "Enable Domains"
+msgstr[0] "激活域"
+
+msgid "Enable Domains"
+msgstr "激活域"
+
 msgid "Enable HA mode"
 msgstr "启用HA模式"
 
 msgid "Enable Service"
 msgid_plural "Enable Services"
 msgstr[0] "开启服务"
+
+msgid "Enable Swift Paths"
+msgstr "启用Swift路径"
 
 msgid "Enable User"
 msgid_plural "Enable Users"
@@ -3677,6 +3759,10 @@ msgstr "激活"
 msgctxt "Current status of a Hypervisor"
 msgid "Enabled"
 msgstr "激活"
+
+msgid "Enabled Domain"
+msgid_plural "Enabled Domains"
+msgstr[0] "激活域"
 
 msgid "Enabled Service"
 msgid_plural "Enabled Services"
@@ -4809,6 +4895,9 @@ msgstr "IPv4"
 msgid "IPv4 Address ="
 msgstr "IPv4 地址 ="
 
+msgid "IPv4:"
+msgstr "IPv4："
+
 msgid "IPv6"
 msgstr "IPv6"
 
@@ -4817,6 +4906,9 @@ msgstr "IPv6 地址 ="
 
 msgid "IPv6 Address Configuration Mode"
 msgstr "IPv6地址配置模式"
+
+msgid "IPv6:"
+msgstr "IPv6："
 
 msgid "ISO - Optical Disk Image"
 msgstr "ISO - 光盘镜像"
@@ -5142,6 +5234,9 @@ msgstr "实例"
 msgid "Instances Count"
 msgstr "实例数量"
 
+msgid "Instances Per Shard"
+msgstr "一个Shard的实例"
+
 msgid "Insufficient privilege level to view domain information."
 msgstr "查看域信息权限不足。"
 
@@ -5159,6 +5254,9 @@ msgstr "查看用户信息权限不足。"
 
 msgid "Intelligent Platform Management Interface (IPMI)"
 msgstr "智能平台管理接口(IPMI)"
+
+msgid "Interface Arguments"
+msgstr "接口参数"
 
 msgid "Interface added"
 msgstr "接口已增加"
@@ -5462,6 +5560,10 @@ msgid "Launched Job"
 msgid_plural "Launched Jobs"
 msgstr[0] "已启动的任务"
 
+#, python-format
+msgid "Launched cluster \"%s\""
+msgstr "启动集群\"%s\""
+
 msgid ""
 "Launching multiple instances is only supported for images and instance "
 "snapshots."
@@ -5535,11 +5637,17 @@ msgstr "Local"
 msgid "Local Disk Usage"
 msgstr "本地磁盘使用"
 
+msgid "Local Side Public IPs"
+msgstr "本地端公共IP"
+
 msgid "Local Storage (total)"
 msgstr "本地存储(总共）"
 
 msgid "Local Storage (used)"
 msgstr "本地存储(已使用)"
+
+msgid "Location"
+msgstr "位置"
 
 msgid "Lock Instance"
 msgid_plural "Lock Instances"
@@ -5643,6 +5751,9 @@ msgstr "管理已连接云硬盘"
 msgid "Manage a Volume"
 msgstr "管理一个卷"
 
+msgid "Management Console"
+msgstr "管理控制台"
+
 msgid "Management IP"
 msgstr "管理网络IP"
 
@@ -5657,6 +5768,9 @@ msgstr "已映射固定IP地址"
 
 msgid "Mapper"
 msgstr "Mapper"
+
+msgid "Mapping Type"
+msgstr "映射类型"
 
 msgid "Master Instance Name"
 msgstr "主实例名称"
@@ -5841,6 +5955,11 @@ msgstr "修改当前用户的界面设置"
 msgid "Modify name and description of a volume."
 msgstr "修改卷的名称和描述"
 
+msgid ""
+"Modify the configuration so that swift URLs can be dereferenced through HDFS "
+"at runtime."
+msgstr "更改配置，以便在运行时通过HDFS取消引用swift URLs。"
+
 msgid "Modify the name and description of a snapshot."
 msgstr "编辑快照的名称和描述"
 
@@ -5897,6 +6016,9 @@ msgstr "名称: %(name)s ID: %(uuid)s"
 #, python-format
 msgid "Name: %(node_group_name)s"
 msgstr "名称：%(node_group_name)s"
+
+msgid "Named Parameter"
+msgstr "命名参数"
 
 msgid "Namespace"
 msgstr "命名空间"
@@ -6000,6 +6122,9 @@ msgstr "CIDR网络地址类型(例如.192.168.0.0/24)"
 msgid "Network address in CIDR format (e.g. 192.168.0.0/24, 2001:DB8::/48)"
 msgstr "CIDR格式的网络地址 (例如 192.168.0.0/24, 2001:DB8::/48)"
 
+msgid "Network attached to instance."
+msgstr "附加到实例的网络。"
+
 msgid "Network list can not be retrieved."
 msgstr "无法获取网络列表"
 
@@ -6038,6 +6163,9 @@ msgstr "新的云主机类型"
 msgid "New Host"
 msgstr "新主机"
 
+msgid "New Password"
+msgstr "新密码"
+
 msgid "New Size (GB)"
 msgstr "新大小(GB)"
 
@@ -6049,6 +6177,9 @@ msgstr "新的名字与另一个卷类型冲突"
 
 msgid "New password"
 msgstr "新密码"
+
+msgid "New password for cluster access."
+msgstr "访问集群的新密码。"
 
 msgid "New size for volume must be greater than current size."
 msgstr "卷的新容量必须大于现在的容量"
@@ -6388,6 +6519,9 @@ msgstr ""
 "可以在额外的选项卡中设置集群\n"
 "专属的配置项。"
 
+msgid "Number"
+msgstr "数目"
+
 msgid "Number of API requests against swift"
 msgstr "Swift API请求数目"
 
@@ -6397,6 +6531,9 @@ msgstr "云主机数量"
 msgid "Number of Nodes"
 msgstr "节点数量"
 
+msgid "Number of Shards"
+msgstr "Shard数"
+
 msgid "Number of Snapshots"
 msgstr "快照数量"
 
@@ -6405,6 +6542,9 @@ msgstr "虚拟CPU数量"
 
 msgid "Number of Volumes"
 msgstr "云硬盘数量"
+
+msgid "Number of clusters to launch."
+msgstr "启动集群的数量。"
 
 msgid "Number of containers"
 msgstr "容器数目"
@@ -6426,6 +6566,12 @@ msgstr "流入虚拟机网络接口的字节数目"
 
 msgid "Number of incoming packets for a VM interface"
 msgstr "流入虚拟机网络接口的包数目"
+
+msgid "Number of instances in the cluster. (Read only)"
+msgstr "集群中的实例数。(只读)"
+
+msgid "Number of instances per shard. (Read only)"
+msgstr "一个shard的实例数。(只读)"
 
 msgid "Number of instances to launch."
 msgstr "启动云主机的个数"
@@ -6457,6 +6603,9 @@ msgstr "在将用户状态修改为非活跃之前的最大允许失败次数。
 
 msgid "Number of read requests"
 msgstr "读请求的数目"
+
+msgid "Number of shards. (Read only)"
+msgstr "shard数。(只读)"
 
 msgid "Number of write requests"
 msgstr "写请求的数目"
@@ -6564,6 +6713,10 @@ msgstr "其它"
 msgid "Other Protocol"
 msgstr "其他协议"
 
+#, python-format
+msgid "Out of range float values are not JSON compliant: %r"
+msgstr "超出范围的浮点值不符合JSON类型：%r"
+
 msgid "Output"
 msgstr "输出"
 
@@ -6630,6 +6783,12 @@ msgstr "密码已更改。请重新登录。"
 
 msgid "Password changed. Please log in to continue."
 msgstr "密码已修改，请登录以继续。"
+
+msgid "Password for root user must be specified."
+msgstr "必须指定root用户密码。"
+
+msgid "Password for root user."
+msgstr "root用户密码。"
 
 #, python-format
 msgid "Password for user \"%s\""
@@ -6848,6 +7007,9 @@ msgstr "端口"
 msgid "Position in Policy"
 msgstr "在策略中的位置"
 
+msgid "Positional Argument"
+msgstr "定位参数"
+
 msgid "Post-Creation"
 msgstr "创建后"
 
@@ -6932,6 +7094,9 @@ msgstr "项目组"
 
 msgid "Project ID"
 msgstr "项目ID"
+
+msgid "Project ID:"
+msgstr "项目ID："
 
 msgid "Project Information"
 msgstr "项目信息"
@@ -7294,6 +7459,9 @@ msgid ""
 "          directed to the same instance."
 msgstr "来自同一个源IP地址的请求将会从始至终都会分发给同一实例."
 
+msgid "Required"
+msgstr "必须"
+
 msgid "Required for APP_COOKIE persistence; Ignored otherwise."
 msgstr "需要使用APP_COOKIE持久化;忽略其他"
 
@@ -7313,6 +7481,9 @@ msgstr "重置集群向导"
 
 msgid "Reset Job Execution Guide"
 msgstr "重置任务执行向导"
+
+msgid "Reset Root Password"
+msgstr "重置root密码"
 
 msgid "Reset to Default"
 msgstr "设置为默认"
@@ -7543,6 +7714,13 @@ msgstr "根磁盘"
 msgid "Root Disk (GB)"
 msgstr "根磁盘(GB)"
 
+msgid "Root Password"
+msgstr "root密码"
+
+#, python-format
+msgid "Root password updated for cluster \"%s\""
+msgstr "为集群\"%s\"更新的root密码"
+
 msgid "Rotates requests evenly between multiple instances."
 msgstr "在多个实例之间均匀地分发请求"
 
@@ -7765,6 +7943,10 @@ msgstr[0] "已安排的实例迁移(待确认)"
 msgid "Scheduled resize of instance \"%s\"."
 msgstr "定期调整实例\"%s\"."
 
+msgid "Scheduled termination of Cluster"
+msgid_plural "Scheduled termination of Clusters"
+msgstr[0] "已安排集群的终止"
+
 msgid "Scheduled termination of Instance"
 msgid_plural "Scheduled termination of Instances"
 msgstr[0] "已安排实例的终止"
@@ -7889,6 +8071,9 @@ msgstr "选择一个路由器"
 
 msgid "Select a Subnet"
 msgstr "选择子网"
+
+msgid "Select a Value Type for your next argument:"
+msgstr "选择你的下一个参数值的类型："
 
 msgid "Select a backup to restore"
 msgstr "选择一个备份来恢复"
@@ -8167,9 +8352,17 @@ msgstr "命令行解释器shell"
 msgid "Shell Action"
 msgstr "Shell动作"
 
+msgid "Shelve Instance"
+msgid_plural "Shelve Instances"
+msgstr[0] "废弃实例"
+
 msgctxt "Current status of an Instance"
 msgid "Shelved"
 msgstr "搁置的"
+
+msgid "Shelved Instance"
+msgid_plural "Shelved Instances"
+msgstr[0] "已废弃的实例"
 
 msgctxt "Current status of an Instance"
 msgid "Shelved Offloaded"
@@ -8234,6 +8427,9 @@ msgstr "临时磁盘大小"
 
 msgid "Size of image to launch."
 msgstr "要启动的镜像大小"
+
+msgid "Size of instance to launch."
+msgstr "启动实例的大小"
 
 msgid "Size of root disk"
 msgstr "根磁盘大小"
@@ -8424,11 +8620,17 @@ msgstr "指定镜像上传到镜像服务"
 msgid "Specify member IP address"
 msgstr "指定成员的IP地址"
 
+msgid "Specify the details for adding additional shards."
+msgstr "为追加额外的shard指定详细信息。"
+
 msgid "Specify the details for launching an instance."
 msgstr "指定创建云主机的详细信息"
 
 msgid "Specify the details for the database backup."
 msgstr "指定数据库备份详情。"
+
+msgid "Specify the new root password for vertica cluster."
+msgstr "为vertica数据库集群指定新的root密码。"
 
 msgid "Specify the new volume size for the database instance."
 msgstr "指定数据库实例新的卷大小。"
@@ -8578,6 +8780,9 @@ msgstr "风暴"
 
 msgid "Streaming MapReduce"
 msgstr "MapReduce流"
+
+msgid "String"
+msgstr "字符串"
 
 msgid "Subnet"
 msgstr "子网"
@@ -8873,9 +9078,16 @@ msgstr "模板URL"
 msgid "Template not specified"
 msgstr "没有指定模板"
 
+msgid "Terminate Cluster"
+msgid_plural "Terminate Clusters"
+msgstr[0] "终止集群"
+
 msgid "Terminate Instance"
 msgid_plural "Terminate Instances"
 msgstr[0] "终止实例"
+
+msgid "Terminated cluster is not recoverable."
+msgstr "终止的实例无法恢复。"
 
 msgid "Terminated instances are not recoverable."
 msgstr "终止的实例均无法恢复。"
@@ -9109,6 +9321,9 @@ msgstr ""
 "对请求的镜像来说，该类型 '%(flavor)s'太小了。\n"
 "最小需求：内存 %(min_ram)s MB，根硬盘 %(min_disk)s GB。"
 
+msgid "The flavor must be specified."
+msgstr "必须指定类型模板。"
+
 #, python-format
 msgid "The instance is preparing the live migration to host \"%s\"."
 msgstr "此实例正在准备热迁移到主机\"%s\"。"
@@ -9167,6 +9382,9 @@ msgstr "物理网络上的虚拟网络的实现的名称。"
 msgid ""
 "The next hop addresses can be used to override the router used by the client."
 msgstr "用户可以在客户端修改下一跳地址"
+
+msgid "The number of shards must be greater than 1."
+msgstr "shard数必须大于1。"
 
 msgid "The page you were looking for doesn't exist"
 msgstr "你要找的页面不存在"
@@ -9375,6 +9593,12 @@ msgstr ""
 msgid "To:"
 msgstr "至："
 
+msgid "Toggle Network Collapse"
+msgstr "切换网络瘫痪"
+
+msgid "Toggle labels"
+msgstr "切换标签"
+
 msgid "Toggle navigation"
 msgstr "切换导航"
 
@@ -9384,11 +9608,23 @@ msgstr "主题"
 msgid "Topology"
 msgstr "拓扑"
 
+msgid "Total Active RAM (MB):"
+msgstr "运行中的内存总计(MB)："
+
 msgid "Total Disk"
 msgstr "磁盘总计"
 
+msgid "Total Disk Size (GB):"
+msgstr "磁盘总大小(GB)："
+
+msgid "Total Disk Usage (Hours):"
+msgstr "磁盘总用量(小时)："
+
 msgid "Total Gigabytes"
 msgstr "总大小(GB)"
+
+msgid "Total Memory Usage (Hours):"
+msgstr "内存总用量(小时)："
 
 msgid "Total RAM"
 msgstr "内存总计"
@@ -9398,6 +9634,9 @@ msgstr "LUKS卷和快照的总大小(GB)"
 
 msgid "Total Size of Volumes and Snapshots (GB)"
 msgstr "云硬盘和快照的总大小(GB)"
+
+msgid "Total VCPU Usage (Hours):"
+msgstr "VCPU总用量(小时):"
 
 msgid ""
 "Total VCPU usage (Number of VCPU in instance * Hours Used) for the project"
@@ -9527,6 +9766,10 @@ msgstr "无法添加资源池 \"%s\"。"
 msgid "Unable to add rule to security group."
 msgstr "无法为安全组添加规则。"
 
+#, python-format
+msgid "Unable to add shard. %s"
+msgstr "无法追加shard。%s"
+
 msgid "Unable to add user to primary project."
 msgstr "无法向首要项目添加用户。"
 
@@ -9619,6 +9862,9 @@ msgstr "无法创建新镜像：镜像名称太长。"
 #, python-format
 msgid "Unable to create new image: Invalid disk format %s for image."
 msgstr "无法创建新镜像：不能识别的镜像格式 %s。"
+
+msgid "Unable to create new image: URL scheme not supported."
+msgstr "无法创建新镜像：URL方案不支持。"
 
 #, python-format
 msgid "Unable to create new namespace. %s"
@@ -9893,6 +10139,9 @@ msgstr "无法获得资源池 %(pool)s 的健康监控%(monitor_id)s."
 msgid "Unable to get host aggregate list"
 msgstr "无法获取主机集合列表"
 
+msgid "Unable to get instances data."
+msgstr "无法获取实例数据。"
+
 #, python-format
 msgid "Unable to get log for instance \"%s\"."
 msgstr "无法获得云主机 \"%s\" 的日志。"
@@ -9956,6 +10205,10 @@ msgstr "无法初始化子网资源池"
 msgid "Unable to launch %(count)s named \"%(name)s\"."
 msgstr "无法启动%(count)s 名字 \"%(name)s\"."
 
+#, python-format
+msgid "Unable to launch cluster. %s"
+msgstr "无法启动集群。%s"
+
 msgid "Unable to launch job."
 msgstr "无法启动任务"
 
@@ -10008,6 +10261,12 @@ msgstr "无法修改云主机\"%s\""
 msgid "Unable to modify project \"%s\"."
 msgstr "无法修改项目\"%s\""
 
+msgid "Unable to obtain datastore versions."
+msgstr "无法获取数据存储版本。"
+
+msgid "Unable to obtain datastores."
+msgstr "无法获取数据存储。"
+
 msgid "Unable to obtain flavors."
 msgstr "无法获取的实例类型。"
 
@@ -10023,6 +10282,10 @@ msgstr "无法处理插件标签"
 
 msgid "Unable to rebuild instance."
 msgstr "无法重建云主机。"
+
+#, python-format
+msgid "Unable to reset password. %s"
+msgstr "无法重置密码。%s"
 
 #, python-format
 msgid "Unable to resize instance \"%s\"."
@@ -10142,6 +10405,9 @@ msgstr "无法获取可用域。"
 msgid "Unable to retrieve backup details."
 msgstr "无法获取卷备份详细信息。"
 
+msgid "Unable to retrieve cluster details."
+msgstr "无法获取集群详细信息。"
+
 msgid "Unable to retrieve compute host information."
 msgstr "无法获取计算节点信息。"
 
@@ -10153,6 +10419,9 @@ msgstr "无法检索容器列表。"
 
 msgid "Unable to retrieve data processing plugins."
 msgstr "无法获取数据处理插件。"
+
+msgid "Unable to retrieve database clusters."
+msgstr "无法获取数据库集群。"
 
 msgid "Unable to retrieve database instances."
 msgstr "无法获取数据库实例。"
@@ -10181,6 +10450,10 @@ msgstr "无法获取集群模板\"%s\"详情"
 #, python-format
 msgid "Unable to retrieve details for data source \"%s\"."
 msgstr "无法获取数据源\"%s\"详情"
+
+#, python-format
+msgid "Unable to retrieve details for database cluster: %s"
+msgstr "无法获取数据库集群的详细信息：%s"
 
 #, python-format
 msgid "Unable to retrieve details for database instance: %s"
@@ -10865,6 +11138,14 @@ msgstr "取消选择路由，以从防火墙中删除这些路由。"
 msgid "Unselect the routers you want to disassociate from the firewall."
 msgstr "取消选择你想要从防火墙中分离的路由。"
 
+msgid "Unshelve Instance"
+msgid_plural "Unshelve Instances"
+msgstr[0] "取消废弃实例"
+
+msgid "Unshelved Instance"
+msgid_plural "Unshelved Instances"
+msgstr[0] "已取消废弃的实例"
+
 msgctxt "Task status of an Instance"
 msgid "Unshelving"
 msgstr "取消搁置中"
@@ -11048,6 +11329,9 @@ msgstr "使用概况"
 
 msgid "Usage Report"
 msgstr "使用报告"
+
+msgid "Usage Report For Period:"
+msgstr "周期使用报告："
 
 msgid "Use HBase Common library"
 msgstr "使用HBase 公共库"
@@ -11242,6 +11526,9 @@ msgstr "值"
 
 msgid "Value (Avg)"
 msgstr "值(平均)"
+
+msgid "Value Type"
+msgstr "值类型"
 
 msgid "Value:"
 msgstr "值："

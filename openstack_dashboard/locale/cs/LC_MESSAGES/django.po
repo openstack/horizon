@@ -10,11 +10,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-09-23 15:07+0000\n"
+"POT-Creation-Date: 2015-09-24 21:49+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2015-09-23 03:14+0000\n"
+"PO-Revision-Date: 2015-09-24 10:09+0000\n"
 "Last-Translator: Zbyněk Schwarz <zbynek.schwarz@gmail.com>\n"
 "Language-Team: Czech (http://www.transifex.com/openstack/horizon/language/"
 "cs/)\n"
@@ -921,6 +921,9 @@ msgstr "Přidat směrovače"
 msgid "Add Rule"
 msgstr "Přidat pravidlo"
 
+msgid "Add Shard"
+msgstr "Přidat část"
+
 msgid "Add Static Route"
 msgstr "Přidat statickou cestu"
 
@@ -1071,6 +1074,10 @@ msgstr "Přidán monitor"
 #, python-format
 msgid "Added pool \"%s\"."
 msgstr "Přidána zásoba \"%s\"."
+
+#, python-format
+msgid "Added shard to \"%s\""
+msgstr "Část přidána do \"%s\""
 
 msgid "Additional routes"
 msgstr "Dodatečné cesty"
@@ -1868,6 +1875,9 @@ msgstr "Podrobnosti clusteru"
 msgid "Cluster Details"
 msgstr "Podrobnosti clusteru"
 
+msgid "Cluster Details: {{ cluster.name }}"
+msgstr "Podrobnosti clusteru: {{ cluster.name }}"
+
 msgid "Cluster Events"
 msgstr "Události clusteru"
 
@@ -2638,6 +2648,9 @@ msgstr "Současný hostitel"
 
 msgid "Current Size (GB)"
 msgstr "Současná velikost (GB)"
+
+msgid "Current Task"
+msgstr "Současný úkol"
 
 msgid "Current choice:"
 msgstr "Současná volba:"
@@ -5234,6 +5247,9 @@ msgstr "IPv4"
 msgid "IPv4 Address ="
 msgstr "Adresa IPv4 = "
 
+msgid "IPv4:"
+msgstr "IPv4:"
+
 msgid "IPv6"
 msgstr "IPv6"
 
@@ -5242,6 +5258,9 @@ msgstr "Adresa IPv6 ="
 
 msgid "IPv6 Address Configuration Mode"
 msgstr "Režim nastavení adresy IPv6"
+
+msgid "IPv6:"
+msgstr "IPv6:"
 
 msgid "ISO - Optical Disk Image"
 msgstr "ISO - Obraz optického disku"
@@ -5581,6 +5600,9 @@ msgstr "Instance"
 
 msgid "Instances Count"
 msgstr "Počet instancí"
+
+msgid "Instances Per Shard"
+msgstr "Instance v části"
 
 msgid "Insufficient privilege level to view domain information."
 msgstr "Nedostatečná úroveň oprávnění pro zobrazení informací o doméně."
@@ -5993,6 +6015,9 @@ msgstr "Místní"
 
 msgid "Local Disk Usage"
 msgstr "Využití místního disku"
+
+msgid "Local Side Public IPs"
+msgstr "Veřejné IP adresy na místní straně"
 
 msgid "Local Storage (total)"
 msgstr "Místní kapacita (celkem)"
@@ -6537,6 +6562,9 @@ msgstr "Nová konfigurace"
 msgid "New Host"
 msgstr "Nový hostitel"
 
+msgid "New Password"
+msgstr "Nové heslo"
+
 msgid "New Size (GB)"
 msgstr "Nová velkost (GB)"
 
@@ -6548,6 +6576,9 @@ msgstr "Nový název je v konfliktu s jiným typem."
 
 msgid "New password"
 msgstr "Nové heslo"
+
+msgid "New password for cluster access."
+msgstr "Nové heslo pro přístup ke clusteru"
 
 msgid "New size for volume must be greater than current size."
 msgstr "Nová velikost svazku musí být větší než současná."
@@ -6911,6 +6942,9 @@ msgstr "Počet instancí"
 msgid "Number of Nodes"
 msgstr "Počet uzlů"
 
+msgid "Number of Shards"
+msgstr "Počet částí"
+
 msgid "Number of Snapshots"
 msgstr "Počet snímků"
 
@@ -6947,6 +6981,9 @@ msgstr "Počet příchozích paketů pro rozhraní VM"
 msgid "Number of instances in the cluster. (Read only)"
 msgstr "Počet instanci v clusteru. (Pouze pro čtení)"
 
+msgid "Number of instances per shard. (Read only)"
+msgstr "Počet instancí v části (Pouze pro čtení)"
+
 msgid "Number of instances to launch."
 msgstr "Počet instancí ke spuštění."
 
@@ -6979,6 +7016,9 @@ msgstr "Počet přípustných selhání před změnou stavu člena na neaktivní
 
 msgid "Number of read requests"
 msgstr "Počet žádostí o čtení"
+
+msgid "Number of shards. (Read only)"
+msgstr "Počet částí. (Pouze pro čtení)"
 
 msgid "Number of write requests"
 msgstr "Počet žádostí o zápis"
@@ -7889,6 +7929,9 @@ msgstr "Resetovat průvodce clusterem"
 msgid "Reset Job Execution Guide"
 msgstr "Resetovat průvodce spuštěním úkolu"
 
+msgid "Reset Root Password"
+msgstr "Resetovat heslo superuživatele"
+
 msgid "Reset to Default"
 msgstr "Resetovat na výchozí"
 
@@ -8134,6 +8177,10 @@ msgstr "Kořenový disk (GB)"
 
 msgid "Root Password"
 msgstr "Heslo superuživatele"
+
+#, python-format
+msgid "Root password updated for cluster \"%s\""
+msgstr "Heslo superuživatele aktualizováno pro cluster \"%s\""
 
 msgid "Rotates requests evenly between multiple instances."
 msgstr "Rovnoměrně cyklí požadavky mezi více instancemi."
@@ -8386,6 +8433,12 @@ msgstr[2] "Naplánován přesun (čeká se na potvrzení) instancí"
 #, python-format
 msgid "Scheduled resize of instance \"%s\"."
 msgstr "Naplánovaná změna velikosti instance \"%s\"."
+
+msgid "Scheduled termination of Cluster"
+msgid_plural "Scheduled termination of Clusters"
+msgstr[0] "Ukončení clusteru naplánováno"
+msgstr[1] "Ukončení clusterů naplánováno"
+msgstr[2] "Ukončení clusterů naplánováno"
 
 msgid "Scheduled termination of Instance"
 msgid_plural "Scheduled termination of Instances"
@@ -9083,11 +9136,17 @@ msgstr "Zadejte obraz pro nahrání do Služby obrazů."
 msgid "Specify member IP address"
 msgstr "Zadejte IP adresu člena"
 
+msgid "Specify the details for adding additional shards."
+msgstr "Zadejte podrobnosti přidáním dalších částí"
+
 msgid "Specify the details for launching an instance."
 msgstr "Zadejte podrobnosti spuštění instance."
 
 msgid "Specify the details for the database backup."
 msgstr "Zadejte podrobnosti zálohy databáze."
+
+msgid "Specify the new root password for vertica cluster."
+msgstr "Zadejte nové heslo superuživatele pro vertikální cluster."
 
 msgid "Specify the new volume size for the database instance."
 msgstr "Zadejte novou velikost svazku instance databáze."
@@ -9552,11 +9611,20 @@ msgstr "URL šablony"
 msgid "Template not specified"
 msgstr "Šablona nezadána"
 
+msgid "Terminate Cluster"
+msgid_plural "Terminate Clusters"
+msgstr[0] "Ukončit cluster"
+msgstr[1] "Ukončit clustery"
+msgstr[2] "Ukončit clustery"
+
 msgid "Terminate Instance"
 msgid_plural "Terminate Instances"
 msgstr[0] "Ukončit instanci"
 msgstr[1] "Ukončit instance"
 msgstr[2] "Ukončit instance"
+
+msgid "Terminated cluster is not recoverable."
+msgstr "Ukončený cluster nelze obnovit."
 
 msgid "Terminated instances are not recoverable."
 msgstr "Ukončené instance nelze obnovit"
@@ -9886,6 +9954,9 @@ msgid ""
 msgstr ""
 "Adresy dalšího skoku mohou být použity k potlačení směrovače používaného "
 "klientem."
+
+msgid "The number of shards must be greater than 1."
+msgstr "Počet částí musí být větší než 1."
 
 msgid "The page you were looking for doesn't exist"
 msgstr "Stránka, kterou hledáte, neexistuje"
@@ -10288,6 +10359,10 @@ msgstr "Nelze získat zásobu \"%s\"."
 msgid "Unable to add rule to security group."
 msgstr "Nelze přidat pravidlo do bezpečnostní skupiny."
 
+#, python-format
+msgid "Unable to add shard. %s"
+msgstr "Nelze přidat část. %s"
+
 msgid "Unable to add user to primary project."
 msgstr "Nelze přidat roli do hlavního projektu."
 
@@ -10657,6 +10732,9 @@ msgstr "Nelze získat monitor funkčnosti %(monitor_id)s zásoby %(pool)s."
 msgid "Unable to get host aggregate list"
 msgstr "Nelze získat seznam agregátů hostitele."
 
+msgid "Unable to get instances data."
+msgstr "Nelze získat data instance."
+
 #, python-format
 msgid "Unable to get log for instance \"%s\"."
 msgstr "Nelze získat protokol instance \"%s\"."
@@ -10799,6 +10877,10 @@ msgid "Unable to rebuild instance."
 msgstr "Instanci nelze znovu sestavit."
 
 #, python-format
+msgid "Unable to reset password. %s"
+msgstr "Nelze resetovat heslo. %s"
+
+#, python-format
 msgid "Unable to resize instance \"%s\"."
 msgstr "Nelze změnit velikost instance \"%s\"."
 
@@ -10916,6 +10998,9 @@ msgstr "Nelze získat zóny dostupnosti."
 msgid "Unable to retrieve backup details."
 msgstr "Nelze získat podrobnosti zálohy."
 
+msgid "Unable to retrieve cluster details."
+msgstr "Nelze získat podrobnosti clusteru."
+
 msgid "Unable to retrieve compute host information."
 msgstr "Nelze získat informace o hostiteli výpočtu."
 
@@ -10927,6 +11012,9 @@ msgstr "Nelze získat seznam kontejnerů."
 
 msgid "Unable to retrieve data processing plugins."
 msgstr "Nelze získat zásuvné moduly zpracování dat."
+
+msgid "Unable to retrieve database clusters."
+msgstr "Nelze získat clustery databáze."
 
 msgid "Unable to retrieve database instances."
 msgstr "Nelze získat instance databáze."
@@ -10955,6 +11043,10 @@ msgstr "Nelze získat podrobnosti šablony clusteru \"%s\"."
 #, python-format
 msgid "Unable to retrieve details for data source \"%s\"."
 msgstr "Nelze získat podrobnosti zdroje dat \"%s\"."
+
+#, python-format
+msgid "Unable to retrieve details for database cluster: %s"
+msgstr "Nelze získat podrobnosti clusteru databáze: %s"
 
 #, python-format
 msgid "Unable to retrieve details for database instance: %s"

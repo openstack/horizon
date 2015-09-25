@@ -21,12 +21,12 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-09-22 10:47+0000\n"
+"POT-Creation-Date: 2015-09-24 21:49+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2015-09-22 08:53+0000\n"
-"Last-Translator: Carsten Duch <carsten.duch@posteo.de>\n"
+"PO-Revision-Date: 2015-09-24 12:44+0000\n"
+"Last-Translator: Robert Simai <robert.simai@suse.com>\n"
 "Language-Team: German (http://www.transifex.com/openstack/horizon/language/"
 "de/)\n"
 "Generated-By: Babel 2.0\n"
@@ -352,6 +352,7 @@ msgstr ""
 "Protokoll und das Lastverteilungsverfahren für diesen Pool. Als Admin State "
 "ist UP vorausgewählt (markiert)."
 
+#, fuzzy
 msgid ""
 "\n"
 "  Move networks from 'Available Networks' to 'Selected Networks' by\n"
@@ -360,9 +361,9 @@ msgid ""
 "  "
 msgstr ""
 "\n"
-"Durch Knopfdruck oder Drag&Drop Netzwerke von \"Verfügbare Netzwerke\" zu "
-"\"Ausgewählte Netzwerke\" verschieben. Die Reihenfolge der Netzwerkkarten "
-"kann ebenfalls durch Drag&Drop verändert werden."
+"Durch Knopfdruck oder ziehen und fallenlassen Netzwerke von \"Verfügbare "
+"Netzwerke\" zu \"Ausgewählte Netzwerke\" verschieben. Die Reihenfolge der "
+"Netzwerkkarten kann ebenfalls durch ziehen und fallenlassen verändert werden."
 
 msgid ""
 "\n"
@@ -5189,6 +5190,9 @@ msgstr "IPv4"
 msgid "IPv4 Address ="
 msgstr "IPv4 Adresse ="
 
+msgid "IPv4:"
+msgstr "IPv4:"
+
 msgid "IPv6"
 msgstr "IPv6"
 
@@ -5197,6 +5201,9 @@ msgstr "IPv6 Adresse ="
 
 msgid "IPv6 Address Configuration Mode"
 msgstr "IPv6 Adressenkonfigurationsmodus"
+
+msgid "IPv6:"
+msgstr "IPv6:"
 
 msgid "ISO - Optical Disk Image"
 msgstr "ISO - Datenträgerabbild"
@@ -5957,6 +5964,9 @@ msgstr "Local"
 msgid "Local Disk Usage"
 msgstr "Lokale Festplattenbelegung"
 
+msgid "Local Side Public IPs"
+msgstr "Lokale öffentliche IP"
+
 msgid "Local Storage (total)"
 msgstr "Lokaler Speicher (insgesamt)"
 
@@ -6073,11 +6083,11 @@ msgstr "Datenträgerverbindungen Verwalten"
 msgid "Manage a Volume"
 msgstr "Einen Datenträger verwalten"
 
+msgid "Management Console"
+msgstr "Management Konsole"
+
 msgid "Management IP"
 msgstr "Management IP"
-
-msgid "Managment Console"
-msgstr "Managementkonsole"
 
 msgid "Manual"
 msgstr "Manuell"
