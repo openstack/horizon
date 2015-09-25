@@ -10,11 +10,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-09-22 10:47+0000\n"
+"POT-Creation-Date: 2015-09-24 21:49+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2015-09-22 11:56+0000\n"
+"PO-Revision-Date: 2015-09-24 03:46+0000\n"
 "Last-Translator: Łukasz Jernas <deejay1@srem.org>\n"
 "Language-Team: Polish (Poland) (http://www.transifex.com/openstack/horizon/"
 "language/pl_PL/)\n"
@@ -60,6 +60,9 @@ msgstr ""
 "Para kluczy pozwala na zalogowanie się po SSH do utworzonej instancji.\n"
 "   Można wybrać istniejącą parę kluczy, zaimportować parę kluczy lub "
 "wygenerować nową parę kluczy."
+
+msgid "A name is required for your instance."
+msgstr "Nazwa dla instancji jest wymagana"
 
 msgid "Active"
 msgstr "Aktywny"
@@ -111,8 +114,18 @@ msgstr ""
 "<b>Automatycznie</b> zmienia rozmiar dysku i ustawia na nim jedną partycję. "
 "Wybranie <b>Ręcznie</b> pozwala na utworzenie wielu partycji na dysku."
 
+msgid ""
+"An instance name is required and used to help you uniquely identify your "
+"instance in the dashboard."
+msgstr ""
+"Nazwa instancji jest wymagana i wykorzystuje się ją do identyfikacji "
+"instancji w panelu."
+
 msgid "Automatic"
 msgstr "Automatyczne"
+
+msgid "Availability Zone"
+msgstr "Strefa dostępności"
 
 msgid "Cancel"
 msgstr "Anuluj"
@@ -147,8 +160,17 @@ msgstr "Pomoc konfiguracji"
 msgid "Configuration Value"
 msgstr "Wartość konfiguracyjna"
 
+msgid "Count"
+msgstr "Liczba"
+
 msgid "Create Key Pair"
 msgstr "Utwórz parę kluczy"
+
+msgid "Create New Volume"
+msgstr "Utwórz nowy wolumen"
+
+msgid "Created"
+msgstr "Utworzono"
 
 msgid ""
 "Custom scripts are attached to instances to perform specific actions when "
@@ -171,11 +193,17 @@ msgstr "źródło danych"
 msgid "Default Value"
 msgstr "Domyślna wartość"
 
+msgid "Delete Volume on Terminate"
+msgstr "Usuń wolumen podczas niszczenia"
+
 msgid "Deleted"
 msgstr "Usunięto"
 
 msgid "Description"
 msgstr "Opis"
+
+msgid "Device Name"
+msgstr "Nazwa urządzenia"
 
 msgid "Direction"
 msgstr "Kierunek"
@@ -279,8 +307,22 @@ msgstr "Wpływ na limity"
 msgid "Import Key Pair"
 msgstr "Importuj parę kluczy"
 
+msgid "Instance Details"
+msgstr "Szczegóły instancji"
+
+msgid "Instance Name"
+msgstr "Nazwa instancji"
+
 msgid "Instance Snapshot"
 msgstr "Migawka instancji"
+
+msgid "Instance Source"
+msgstr "Źródło instancji"
+
+msgid "Instance count is required and must be an integer of at least 1"
+msgstr ""
+"Liczba instancji jest wymagana, powinna być liczbą całkowitą większą lub "
+"równą 1"
 
 msgid "Insufficient privilege level to view user information."
 msgstr "Brak uprawnień do przeglądania informacji o użytkowniku."
@@ -333,11 +375,17 @@ msgstr "Typ mapowania"
 msgid "Max Port"
 msgstr "Maks. port"
 
+msgid "Min Disk"
+msgstr "Min. dysku"
+
 msgid "Min Port"
 msgstr "Min. port"
 
 msgid "Min RAM"
 msgstr "Min. RAM"
+
+msgid "Min Ram"
+msgstr "Min. Ram"
 
 msgid "Name"
 msgstr "Nazwa"
@@ -360,6 +408,9 @@ msgstr "Sieci"
 msgid "Networks provide the communication channels for instances in the cloud."
 msgstr "Sieci zapewniają komunikację dla instancji w chmurze."
 
+msgid "No"
+msgstr "Nie"
+
 msgid "No available items"
 msgstr "Brak dostępnych pozycji"
 
@@ -375,8 +426,23 @@ msgstr "Oczekuje na usunięcie"
 msgid "Physical Network"
 msgstr "Sieć fizyczna"
 
+msgid ""
+"Please provide the initial host name for the instance, the availability zone "
+"where it will be deployed, and the instance count. Increase the Count to "
+"create multiple instances with the same settings."
+msgstr ""
+"Należy podać początkową nazwę hosta dla instancji, strefę dostępności gdzie "
+"ma ona zostać uruchomiona oraz liczbę instancji. Można zwiększyć liczbę "
+"instancji, aby utworzyć wiele instancji z tymi samymi ustawieniami."
+
+msgid "Policy check failed."
+msgstr "Sprawdzenie polityki się nie powiodło."
+
 msgid "Positional Argument"
 msgstr "Argument pozycyjny"
+
+msgid "Private"
+msgstr "Prywatna"
 
 msgid "Private Key"
 msgstr "Klucz prywatny"
@@ -489,11 +555,20 @@ msgstr ""
 msgid "Segmentation ID"
 msgstr "ID segmentacji"
 
+msgid "Select Boot Source"
+msgstr "Wybór źródła uruchamiania"
+
 msgid "Select Source"
 msgstr "Wybierz źródło"
 
+msgid "Select Source Help"
+msgstr "Pomoc wyboru źródła"
+
 msgid "Select a key pair from the available key pairs below."
 msgstr "Należy wybrać parę kluczy z listy dostępnych poniżej."
+
+msgid "Select a source from those listed below."
+msgstr "Proszę wybrać źródło z podanych poniżej."
 
 msgid "Select an item from Available items below"
 msgstr "Należy wybrać pozycję z listy dostępnych pozycji poniżej"
@@ -504,12 +579,22 @@ msgstr "Należy wybrać przynajmniej jedną sieć"
 msgid "Select networks from those listed below."
 msgstr "Należy wybrać sieci z listy poniżej."
 
+msgid "Select one"
+msgstr "Należy wybrać jedno"
+
 msgid "Select one or more"
 msgstr "Należy wybrać jedną lub więcej"
 
 msgid "Select one or more security groups from the available groups below."
 msgstr ""
 "Należy wybrać jedną, lub więcej, grupę zabezpieczeń z listy grup poniżej."
+
+msgid "Select the security groups."
+msgstr "Wybór grup zabezpieczeń."
+
+#, python-format
+msgid "Service type is not enabled: %(desiredType)s"
+msgstr "Typ usługi nie jest włączony: %(desiredType)s"
 
 #, python-format
 msgid "Setting is not enabled: %(setting)s"
@@ -520,6 +605,12 @@ msgstr "Współdzielona"
 
 msgid "Show events"
 msgstr "Wyświetl zdarzenia"
+
+msgid "Size"
+msgstr "Rozmiar"
+
+msgid "Size (GB)"
+msgstr "Rozmiar (GB)"
 
 msgid "Snapshot"
 msgstr "Migawka"
@@ -558,6 +649,14 @@ msgstr ""
 "instancji, która ma zostać uruchomiona. Odmiany, które nie zapewniają "
 "wystarczającej ilości zasobów są oznaczone w tabeli <b>Dostępne</b> żółtym "
 "znakiem ostrzegawczym."
+
+#, python-format
+msgid ""
+"The instance count must not exceed your quota available of "
+"%(maxInstanceCount)s instances"
+msgstr ""
+"Liczba instancji nie może przekraczać dostępnego limitu %(maxInstanceCount)s "
+"instancji"
 
 #, python-format
 msgid ""
@@ -817,6 +916,9 @@ msgstr "Aktualizacja metadanych odmiany"
 msgid "Update Image Metadata"
 msgstr "Aktualizacja metadanych obrazu"
 
+msgid "Updated"
+msgstr "Zaktualizowano"
+
 msgid "User ID"
 msgstr "ID użytkownika"
 
@@ -829,11 +931,17 @@ msgstr "VCPU"
 msgid "Value Type"
 msgstr "Typ wartości"
 
+msgid "Visibility"
+msgstr "Widoczność"
+
 msgid "Volume"
 msgstr "Wolumen"
 
 msgid "Volume Snapshot"
 msgstr "Migawka wolumenu"
+
+msgid "Volume size is required and must be an integer"
+msgstr "Rozmiar wolumenu jest wymagany i musi być liczbą całkowitą"
 
 msgid ""
 "When the <b>Admin State</b> for a network is set to <b>Up</b>,\n"
@@ -846,6 +954,9 @@ msgstr ""
 " to sieć jest dostępna do użycia. Można ustawić <b>stan administracyjny</b> "
 "na <b>Położony</b>,\n"
 " jeśli na chwilę obecną nikt nie powinien uzyskać do niej dostępu."
+
+msgid "Yes"
+msgstr "Tak"
 
 msgid "bytes"
 msgstr "bajtów"

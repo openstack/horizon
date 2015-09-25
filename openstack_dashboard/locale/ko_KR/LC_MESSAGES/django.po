@@ -15,12 +15,12 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-09-22 10:47+0000\n"
+"POT-Creation-Date: 2015-09-24 21:49+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2015-09-22 06:06+0000\n"
-"Last-Translator: Sungjin Kang <gang.sungjin@gmail.com>\n"
+"PO-Revision-Date: 2015-09-25 01:53+0000\n"
+"Last-Translator: Ian Y. Choi <ianyrchoi@gmail.com>\n"
 "Language-Team: Korean (Korea) (http://www.transifex.com/openstack/horizon/"
 "language/ko_KR/)\n"
 "Generated-By: Babel 2.0\n"
@@ -886,6 +886,9 @@ msgstr "라우터 추가"
 msgid "Add Rule"
 msgstr "규칙 추가"
 
+msgid "Add Shard"
+msgstr "Shard 추가"
+
 msgid "Add Static Route"
 msgstr "정적 경로 추가"
 
@@ -1030,6 +1033,10 @@ msgstr "모니터를 추가하였습니다."
 #, python-format
 msgid "Added pool \"%s\"."
 msgstr "Pool \"%s\" 추가하였습니다."
+
+#, python-format
+msgid "Added shard to \"%s\""
+msgstr "Shard를 \"%s\"에 추가함"
 
 msgid "Additional routes"
 msgstr "추가 경로"
@@ -4980,6 +4987,9 @@ msgstr "IPv4"
 msgid "IPv4 Address ="
 msgstr "IPv4 Address ="
 
+msgid "IPv4:"
+msgstr "IPv4:"
+
 msgid "IPv6"
 msgstr "IPv6"
 
@@ -4988,6 +4998,9 @@ msgstr "IPv6 Address ="
 
 msgid "IPv6 Address Configuration Mode"
 msgstr "IPv6 주소 구성 모드"
+
+msgid "IPv6:"
+msgstr "IPv6:"
 
 msgid "ISO - Optical Disk Image"
 msgstr "ISO - Optical Disk Image"
@@ -5324,6 +5337,9 @@ msgstr "인스턴스"
 msgid "Instances Count"
 msgstr "인스턴스 개수"
 
+msgid "Instances Per Shard"
+msgstr "Shard 당 인스턴스"
+
 msgid "Insufficient privilege level to view domain information."
 msgstr "불충분한 권한 수준은 도메인 정보를 확인할 수 있습니다."
 
@@ -5652,6 +5668,10 @@ msgid "Launched Job"
 msgid_plural "Launched Jobs"
 msgstr[0] "Job 실행함"
 
+#, python-format
+msgid "Launched cluster \"%s\""
+msgstr "클러스터 \"%s\" 구동됨"
+
 msgid ""
 "Launching multiple instances is only supported for images and instance "
 "snapshots."
@@ -5726,6 +5746,9 @@ msgstr "로컬"
 
 msgid "Local Disk Usage"
 msgstr "로컬 디스크 사용량"
+
+msgid "Local Side Public IPs"
+msgstr "로컬 사이트 공용 IP"
 
 msgid "Local Storage (total)"
 msgstr "로컬 저장소 (전체)"
@@ -5840,11 +5863,11 @@ msgstr "볼륨 연결 관리"
 msgid "Manage a Volume"
 msgstr "볼륨 관리"
 
+msgid "Management Console"
+msgstr "관리 콘솔"
+
 msgid "Management IP"
 msgstr "관리 IP"
-
-msgid "Managment Console"
-msgstr "관리 콘솔"
 
 msgid "Manual"
 msgstr "수동"
@@ -6635,6 +6658,9 @@ msgstr "인스턴스 수"
 msgid "Number of Nodes"
 msgstr "노드 수"
 
+msgid "Number of Shards"
+msgstr "Shard 개수"
+
 msgid "Number of Snapshots"
 msgstr "스냅샷 수"
 
@@ -6671,6 +6697,9 @@ msgstr "VM 인터페이스에 대해서 들어오는 패킷 수"
 msgid "Number of instances in the cluster. (Read only)"
 msgstr "클러스터에 존재하는 인스턴스 수. (읽기 전용)"
 
+msgid "Number of instances per shard. (Read only)"
+msgstr "Shared 당 인스턴스 개수 (읽기 전용)"
+
 msgid "Number of instances to launch."
 msgstr "구동시 인스턴스 수"
 
@@ -6703,6 +6732,9 @@ msgstr "멤버 상태를 비활성상태로 변경하기 전 실패 횟수"
 
 msgid "Number of read requests"
 msgstr "읽기 요청량"
+
+msgid "Number of shards. (Read only)"
+msgstr "Shard 개수 (읽기 전용)"
 
 msgid "Number of write requests"
 msgstr "쓰기 요청량"
@@ -6884,6 +6916,9 @@ msgstr "비밀번호를 변경하였습니다. 다시 로그인 해주십시오.
 
 msgid "Password changed. Please log in to continue."
 msgstr "비밀번호 변경하였습니다. 다시 로그인 해주십시오."
+
+msgid "Password for root user must be specified."
+msgstr "root 사용자에 대한 암호가 지정되어야 합니다."
 
 msgid "Password for root user."
 msgstr "사용자 암호입니다."
@@ -8736,11 +8771,17 @@ msgstr "이미지 서비스에 업로드할 이미지를 지정합니다."
 msgid "Specify member IP address"
 msgstr "지정된 멤버 IP 주소"
 
+msgid "Specify the details for adding additional shards."
+msgstr "추가적인 Shard에 덧붙일 상세 정보를 지정합니다."
+
 msgid "Specify the details for launching an instance."
 msgstr "인스턴스를 구동하기 위하여 세부 사양을 지정하십시오. "
 
 msgid "Specify the details for the database backup."
 msgstr "데이터베이스 백업에 대한 세부 사항을 지정합니다."
+
+msgid "Specify the new root password for vertica cluster."
+msgstr "vertica 클러스터에 대한 새로운 root 암호를 지정합니다."
 
 msgid "Specify the new volume size for the database instance."
 msgstr "데이터베이스 인스터스에 사용할 새로운 볼륨 크기를 지정합니다."
@@ -9452,6 +9493,9 @@ msgstr ""
 "요청한 이미지의 flavor '%(flavor)s'가 적습니다.\n"
 "최소 사항: 램 %(min_ram)s MB와 root 디스크 %(min_disk)s GB."
 
+msgid "The flavor must be specified."
+msgstr "Flabor가 지정되어야 합니다."
+
 #, python-format
 msgid "The instance is preparing the live migration to host \"%s\"."
 msgstr "인스턴스가 호스트 \"%s\"에서 라이브 마이그레이션을 준비하고 있습니다."
@@ -9515,6 +9559,9 @@ msgstr "가상 네트워크를 구현되는 물리적 네트워크 이름을 가
 msgid ""
 "The next hop addresses can be used to override the router used by the client."
 msgstr "다음 홉 주소는 클라이언트에서 사용하는 라우터를 재정의 할 수 있습니다."
+
+msgid "The number of shards must be greater than 1."
+msgstr "Shared 개수는 1보다 커야 합니다."
 
 msgid "The page you were looking for doesn't exist"
 msgstr "찾고 있는 페이지가 존재하지 않습니다"
@@ -9907,6 +9954,10 @@ msgstr "Pool \"%s\"를 추가할 수 없습니다"
 
 msgid "Unable to add rule to security group."
 msgstr "시큐리티 그룹에 규칙을 추가할 수 없습니다."
+
+#, python-format
+msgid "Unable to add shard. %s"
+msgstr "Shard를 %s에 추가할 수 없음"
 
 msgid "Unable to add user to primary project."
 msgstr "기본 프로젝트에 사용자를 추가할 수 없습니다."
@@ -10344,6 +10395,10 @@ msgstr "서브넷 풀을 초기화할 수 없습니다."
 msgid "Unable to launch %(count)s named \"%(name)s\"."
 msgstr "%(count)s 개의 \"%(name)s\"을 구동할 수 없습니다."
 
+#, python-format
+msgid "Unable to launch cluster. %s"
+msgstr "클러스터 \"%s\"를 구동할 수 없음"
+
 msgid "Unable to launch job."
 msgstr "Job을 실행할 수 없습니다."
 
@@ -10395,6 +10450,12 @@ msgstr "인스턴스 \"%s\"를 수정할 수 없습니다."
 #, python-format
 msgid "Unable to modify project \"%s\"."
 msgstr "프로젝트 \"%s\"를 수정할 수 없습니다."
+
+msgid "Unable to obtain datastore versions."
+msgstr "데이터스토어 버전을 가져올 수 없습니다."
+
+msgid "Unable to obtain datastores."
+msgstr "데이터스토어를 가져올 수 없습니다."
 
 msgid "Unable to obtain flavors."
 msgstr "Flavor을 가져올 수 없습니다."
