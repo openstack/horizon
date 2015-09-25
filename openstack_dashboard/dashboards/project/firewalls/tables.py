@@ -57,6 +57,7 @@ class AddFirewallLink(tables.LinkAction):
 
 class DeleteRuleLink(policy.PolicyTargetMixin, tables.DeleteAction):
     name = "deleterule"
+    policy_rules = (("network", "delete_firewall_rule"),)
 
     @staticmethod
     def action_present(count):
@@ -74,11 +75,21 @@ class DeleteRuleLink(policy.PolicyTargetMixin, tables.DeleteAction):
             count
         )
 
-    policy_rules = (("network", "delete_firewall_rule"),)
+    def allowed(self, request, datum=None):
+        if datum and datum.policy:
+            return False
+        return True
+
+    def delete(self, request, obj_id):
+        try:
+            api.fwaas.rule_delete(request, obj_id)
+        except Exception as e:
+            exceptions.handle(request, _('Unable to delete rule. %s') % e)
 
 
 class DeletePolicyLink(policy.PolicyTargetMixin, tables.DeleteAction):
     name = "deletepolicy"
+    policy_rules = (("network", "delete_firewall_policy"),)
 
     @staticmethod
     def action_present(count):
@@ -96,12 +107,17 @@ class DeletePolicyLink(policy.PolicyTargetMixin, tables.DeleteAction):
             count
         )
 
-    policy_rules = (("network", "delete_firewall_policy"),)
+    def delete(self, request, obj_id):
+        try:
+            api.fwaas.policy_delete(request, obj_id)
+        except Exception as e:
+            exceptions.handle(request, _('Unable to delete policy. %s') % e)
 
 
 class DeleteFirewallLink(policy.PolicyTargetMixin,
                          tables.DeleteAction):
     name = "deletefirewall"
+    policy_rules = (("network", "delete_firewall"),)
 
     @staticmethod
     def action_present(count):
@@ -119,7 +135,11 @@ class DeleteFirewallLink(policy.PolicyTargetMixin,
             count
         )
 
-    policy_rules = (("network", "delete_firewall"),)
+    def delete(self, request, obj_id):
+        try:
+            api.fwaas.firewall_delete(request, obj_id)
+        except Exception as e:
+            exceptions.handle(request, _('Unable to delete firewall. %s') % e)
 
 
 class UpdateRuleLink(policy.PolicyTargetMixin, tables.LinkAction):
