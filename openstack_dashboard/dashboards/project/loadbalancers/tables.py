@@ -316,7 +316,7 @@ class AddVIPFloatingIP(policy.PolicyTargetMixin, tables.LinkAction):
         if hasattr(pool, "vip") and pool.vip:
             vip = pool.vip
             return not (hasattr(vip, "fip") and vip.fip)
-        return True
+        return False
 
     def get_link_url(self, datum):
         base_url = reverse(self.url)
