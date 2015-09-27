@@ -1930,7 +1930,7 @@ msgctxt "current status of router"
 msgid "Error"
 msgstr "Fout"
 
-msgctxt "status of a neteork port"
+msgctxt "status of a network port"
 msgid "Error"
 msgstr "Fout"
 
