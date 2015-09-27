@@ -59,7 +59,7 @@ DISPLAY_CHOICES = (
 STATUS_DISPLAY_CHOICES = (
     ("ACTIVE", pgettext_lazy("status of a network port", u"Active")),
     ("DOWN", pgettext_lazy("status of a network port", u"Down")),
-    ("ERROR", pgettext_lazy("status of a neteork port", u"Error")),
+    ("ERROR", pgettext_lazy("status of a network port", u"Error")),
     ("BUILD", pgettext_lazy("status of a network port", u"Build")),
 )
 
