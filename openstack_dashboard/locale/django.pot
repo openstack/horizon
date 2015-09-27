@@ -8,14 +8,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-09-25 06:22+0000\n"
+"POT-Creation-Date: 2015-09-27 06:24+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Generated-By: Babel 2.0\n"
+"Generated-By: Babel 2.1.1\n"
 
 #: settings.py:84
 msgid "Select format"
@@ -484,7 +484,7 @@ msgstr ""
 #: dashboards/project/networks/templates/networks/ports/_detail_overview.html:14
 #: dashboards/project/networks/templates/networks/subnets/_detail_overview.html:24
 #: dashboards/project/networks/templates/networks/subnets/_detail_overview.html:35
-#: dashboards/project/routers/tables.py:186
+#: dashboards/project/routers/tables.py:188
 #: dashboards/project/volumes/volumes/tables.py:356
 #: dashboards/project/vpn/templates/vpn/_vpn_ips.html:12
 msgid "-"
@@ -645,9 +645,9 @@ msgstr ""
 #: dashboards/project/firewalls/forms.py:34
 #: dashboards/project/firewalls/forms.py:99
 #: dashboards/project/firewalls/forms.py:126
-#: dashboards/project/firewalls/tables.py:271
-#: dashboards/project/firewalls/tables.py:308
-#: dashboards/project/firewalls/tables.py:353
+#: dashboards/project/firewalls/tables.py:291
+#: dashboards/project/firewalls/tables.py:328
+#: dashboards/project/firewalls/tables.py:373
 #: dashboards/project/firewalls/workflows.py:30
 #: dashboards/project/firewalls/workflows.py:218
 #: dashboards/project/firewalls/workflows.py:275
@@ -668,7 +668,7 @@ msgstr ""
 #: dashboards/project/loadbalancers/templates/loadbalancers/_pool_details.html:9
 #: dashboards/project/loadbalancers/templates/loadbalancers/_vip_details.html:9
 #: dashboards/project/networks/forms.py:35
-#: dashboards/project/networks/tables.py:168
+#: dashboards/project/networks/tables.py:172
 #: dashboards/project/networks/ports/forms.py:39
 #: dashboards/project/networks/ports/tables.py:69
 #: dashboards/project/networks/subnets/tables.py:129
@@ -676,7 +676,7 @@ msgstr ""
 #: dashboards/project/networks/templates/networks/ports/_detail_overview.html:6
 #: dashboards/project/networks/templates/networks/subnets/_detail_overview.html:10
 #: dashboards/project/routers/forms.py:117
-#: dashboards/project/routers/tables.py:209
+#: dashboards/project/routers/tables.py:211
 #: dashboards/project/routers/ports/tables.py:107
 #: dashboards/project/routers/templates/routers/_detail_overview.html:5
 #: dashboards/project/stacks/templates/stacks/_detail_overview.html:9
@@ -786,9 +786,9 @@ msgstr ""
 #: dashboards/project/firewalls/forms.py:37
 #: dashboards/project/firewalls/forms.py:101
 #: dashboards/project/firewalls/forms.py:129
-#: dashboards/project/firewalls/tables.py:273
-#: dashboards/project/firewalls/tables.py:310
-#: dashboards/project/firewalls/tables.py:355
+#: dashboards/project/firewalls/tables.py:293
+#: dashboards/project/firewalls/tables.py:330
+#: dashboards/project/firewalls/tables.py:375
 #: dashboards/project/firewalls/workflows.py:34
 #: dashboards/project/firewalls/workflows.py:220
 #: dashboards/project/firewalls/workflows.py:278
@@ -1498,7 +1498,7 @@ msgstr ""
 #: dashboards/admin/volumes/templates/volumes/snapshots/_detail_overview.html:18
 #: dashboards/admin/volumes/volumes/forms.py:217
 #: dashboards/project/access_and_security/floating_ips/tables.py:202
-#: dashboards/project/firewalls/tables.py:362
+#: dashboards/project/firewalls/tables.py:382
 #: dashboards/project/firewalls/templates/firewalls/_firewall_details.html:25
 #: dashboards/project/images/images/tables.py:307
 #: dashboards/project/images/templates/images/images/_detail_overview.html:19
@@ -1509,11 +1509,11 @@ msgstr ""
 #: dashboards/project/loadbalancers/templates/loadbalancers/_member_details.html:28
 #: dashboards/project/loadbalancers/templates/loadbalancers/_pool_details.html:66
 #: dashboards/project/loadbalancers/templates/loadbalancers/_vip_details.html:65
-#: dashboards/project/networks/tables.py:174
+#: dashboards/project/networks/tables.py:178
 #: dashboards/project/networks/ports/tables.py:74
 #: dashboards/project/networks/templates/networks/_detail_overview.html:13
 #: dashboards/project/networks/templates/networks/ports/_detail_overview.html:17
-#: dashboards/project/routers/tables.py:212
+#: dashboards/project/routers/tables.py:214
 #: dashboards/project/routers/ports/tables.py:112
 #: dashboards/project/routers/templates/routers/_detail_overview.html:11
 #: dashboards/project/stacks/tables.py:275
@@ -4752,7 +4752,7 @@ msgstr ""
 #: dashboards/project/instances/workflows/create_instance.py:704
 #: dashboards/project/network_topology/networks/tables.py:27
 #: dashboards/project/networks/panel.py:21
-#: dashboards/project/networks/tables.py:182
+#: dashboards/project/networks/tables.py:186
 #: dashboards/project/networks/views.py:45
 #: dashboards/project/networks/templates/networks/index.html:3
 #: usage/quotas.py:78
@@ -6040,7 +6040,7 @@ msgstr ""
 #: dashboards/identity/users/tables.py:252
 #: dashboards/identity/users/templates/users/_detail_overview.html:23
 #: dashboards/project/firewalls/forms.py:71
-#: dashboards/project/firewalls/tables.py:293
+#: dashboards/project/firewalls/tables.py:313
 #: dashboards/project/firewalls/workflows.py:67
 #: dashboards/project/firewalls/templates/firewalls/_rule_details.html:53
 #: dashboards/project/routers/templates/routers/_detail_overview.html:48
@@ -6857,7 +6857,7 @@ msgstr ""
 #: dashboards/admin/networks/ports/forms.py:48
 #: dashboards/admin/networks/templates/networks/ports/_detail_overview.html:19
 #: dashboards/project/firewalls/forms.py:134
-#: dashboards/project/firewalls/tables.py:365
+#: dashboards/project/firewalls/tables.py:385
 #: dashboards/project/firewalls/workflows.py:283
 #: dashboards/project/loadbalancers/forms.py:40
 #: dashboards/project/loadbalancers/forms.py:95
@@ -6871,7 +6871,7 @@ msgstr ""
 #: dashboards/project/loadbalancers/workflows.py:337
 #: dashboards/project/loadbalancers/workflows.py:541
 #: dashboards/project/networks/forms.py:43
-#: dashboards/project/networks/tables.py:177
+#: dashboards/project/networks/tables.py:181
 #: dashboards/project/networks/workflows.py:49
 #: dashboards/project/networks/ports/forms.py:43
 #: dashboards/project/networks/ports/tables.py:77
@@ -6879,7 +6879,7 @@ msgstr ""
 #: dashboards/project/networks/templates/networks/ports/_detail_overview.html:19
 #: dashboards/project/routers/forms.py:36
 #: dashboards/project/routers/forms.py:120
-#: dashboards/project/routers/tables.py:225
+#: dashboards/project/routers/tables.py:227
 #: dashboards/project/routers/ports/tables.py:117
 #: dashboards/project/routers/templates/routers/_detail_overview.html:13
 #: dashboards/project/vpn/forms.py:39 dashboards/project/vpn/forms.py:283
@@ -6894,13 +6894,13 @@ msgstr ""
 #: dashboards/admin/networks/tables.py:100
 #: dashboards/project/firewalls/forms.py:70
 #: dashboards/project/firewalls/forms.py:102
-#: dashboards/project/firewalls/tables.py:290
-#: dashboards/project/firewalls/tables.py:314
+#: dashboards/project/firewalls/tables.py:310
+#: dashboards/project/firewalls/tables.py:334
 #: dashboards/project/firewalls/workflows.py:65
 #: dashboards/project/firewalls/workflows.py:222
 #: dashboards/project/firewalls/templates/firewalls/_policy_details.html:31
 #: dashboards/project/firewalls/templates/firewalls/_rule_details.html:50
-#: dashboards/project/networks/tables.py:172
+#: dashboards/project/networks/tables.py:176
 #: dashboards/project/networks/templates/networks/_detail_overview.html:17
 msgid "Shared"
 msgstr ""
@@ -6908,7 +6908,7 @@ msgstr ""
 #: dashboards/admin/networks/forms.py:82 dashboards/admin/networks/forms.py:243
 #: dashboards/project/networks/templates/networks/_detail_overview.html:19
 #: dashboards/project/routers/forms.py:40
-#: dashboards/project/routers/tables.py:223
+#: dashboards/project/routers/tables.py:225
 #: dashboards/project/routers/ports/forms.py:153
 msgid "External Network"
 msgstr ""
@@ -7003,7 +7003,7 @@ msgstr ""
 #: dashboards/admin/networks/templates/networks/create.html:3
 #: dashboards/project/network_topology/templates/network_topology/index.html:41
 #: dashboards/project/networks/tables.py:87
-#: dashboards/project/networks/tables.py:100
+#: dashboards/project/networks/tables.py:102
 #: dashboards/project/networks/workflows.py:451
 #: dashboards/project/networks/templates/networks/_create.html:8
 #: dashboards/project/networks/templates/networks/_create.html:23
@@ -7011,19 +7011,19 @@ msgid "Create Network"
 msgstr ""
 
 #: dashboards/admin/networks/tables.py:74
-#: dashboards/project/networks/tables.py:109
+#: dashboards/project/networks/tables.py:111
 #: dashboards/project/networks/views.py:68
 msgid "Edit Network"
 msgstr ""
 
 #: dashboards/admin/networks/tables.py:87
-#: dashboards/project/networks/tables.py:146
+#: dashboards/project/networks/tables.py:150
 msgctxt "Admin state of a Network"
 msgid "UP"
 msgstr ""
 
 #: dashboards/admin/networks/tables.py:88
-#: dashboards/project/networks/tables.py:147
+#: dashboards/project/networks/tables.py:151
 msgctxt "Admin state of a Network"
 msgid "DOWN"
 msgstr ""
@@ -7037,7 +7037,7 @@ msgid "Network Name"
 msgstr ""
 
 #: dashboards/admin/networks/tables.py:97
-#: dashboards/project/networks/tables.py:171
+#: dashboards/project/networks/tables.py:175
 msgid "Subnets Associated"
 msgstr ""
 
@@ -7531,7 +7531,7 @@ msgstr ""
 #: dashboards/project/firewalls/templates/firewalls/_firewall_details.html:31
 #: dashboards/project/network_topology/routers/tables.py:27
 #: dashboards/project/routers/panel.py:22
-#: dashboards/project/routers/tables.py:244
+#: dashboards/project/routers/tables.py:246
 #: dashboards/project/routers/views.py:43
 #: dashboards/project/routers/templates/routers/index.html:3 usage/quotas.py:81
 msgid "Routers"
@@ -10000,7 +10000,7 @@ msgid "Add Rule"
 msgstr ""
 
 #: dashboards/project/access_and_security/security_groups/tables.py:177
-#: dashboards/project/firewalls/tables.py:63
+#: dashboards/project/firewalls/tables.py:64
 msgid "Delete Rule"
 msgid_plural "Delete Rules"
 msgstr[0] ""
@@ -10564,7 +10564,7 @@ msgid "Upload Object To Container: %(container_name)s"
 msgstr ""
 
 #: dashboards/project/firewalls/forms.py:39
-#: dashboards/project/firewalls/tables.py:277
+#: dashboards/project/firewalls/tables.py:297
 #: dashboards/project/firewalls/workflows.py:37
 #: dashboards/project/firewalls/templates/firewalls/_rule_details.html:22
 #: dashboards/project/loadbalancers/tables.py:463
@@ -10592,7 +10592,7 @@ msgid "ICMP"
 msgstr ""
 
 #: dashboards/project/firewalls/forms.py:41
-#: dashboards/project/firewalls/tables.py:275
+#: dashboards/project/firewalls/tables.py:295
 #: dashboards/project/firewalls/workflows.py:41
 #: dashboards/project/firewalls/templates/firewalls/_rule_details.html:23
 #: dashboards/project/firewalls/templates/firewalls/_rule_details.html:26
@@ -10607,7 +10607,7 @@ msgid "Protocol for the firewall rule"
 msgstr ""
 
 #: dashboards/project/firewalls/forms.py:44
-#: dashboards/project/firewalls/tables.py:288
+#: dashboards/project/firewalls/tables.py:308
 #: dashboards/project/firewalls/workflows.py:43
 #: dashboards/project/firewalls/templates/firewalls/_rule_details.html:19
 #: dashboards/project/instances/audit_tables.py:41
@@ -10677,7 +10677,7 @@ msgid "Failed to update rule %(name)s: %(reason)s"
 msgstr ""
 
 #: dashboards/project/firewalls/forms.py:103
-#: dashboards/project/firewalls/tables.py:317
+#: dashboards/project/firewalls/tables.py:337
 #: dashboards/project/firewalls/workflows.py:225
 #: dashboards/project/firewalls/templates/firewalls/_policy_details.html:34
 msgid "Audited"
@@ -10694,7 +10694,7 @@ msgid "Failed to update policy %(name)s: %(reason)s"
 msgstr ""
 
 #: dashboards/project/firewalls/forms.py:131
-#: dashboards/project/firewalls/tables.py:358
+#: dashboards/project/firewalls/tables.py:378
 #: dashboards/project/firewalls/workflows.py:280
 msgid "Policy"
 msgstr ""
@@ -10714,7 +10714,7 @@ msgid "Failed to update firewall %(name)s: %(reason)s"
 msgstr ""
 
 #: dashboards/project/firewalls/forms.py:180
-#: dashboards/project/firewalls/tables.py:171
+#: dashboards/project/firewalls/tables.py:191
 msgid "Insert Rule"
 msgstr ""
 
@@ -10742,7 +10742,7 @@ msgid "Failed to insert rule to policy %(name)s: %(reason)s"
 msgstr ""
 
 #: dashboards/project/firewalls/forms.py:243
-#: dashboards/project/firewalls/tables.py:185
+#: dashboards/project/firewalls/tables.py:205
 msgid "Remove Rule"
 msgstr ""
 
@@ -10785,7 +10785,7 @@ msgid "Failed to retrieve available routers: %(reason)s"
 msgstr ""
 
 #: dashboards/project/firewalls/forms.py:359
-#: dashboards/project/firewalls/tables.py:360
+#: dashboards/project/firewalls/tables.py:380
 msgid "Associated Routers"
 msgstr ""
 
@@ -10809,9 +10809,9 @@ msgid "Failed to retrieve current routers in firewall %(name)s: %(reason)s"
 msgstr ""
 
 #: dashboards/project/firewalls/panel.py:25
-#: dashboards/project/firewalls/tables.py:370
+#: dashboards/project/firewalls/tables.py:390
 #: dashboards/project/firewalls/tabs.py:69
-#: dashboards/project/firewalls/views.py:57
+#: dashboards/project/firewalls/views.py:54
 #: dashboards/project/firewalls/templates/firewalls/details_tabs.html:3
 msgid "Firewalls"
 msgstr ""
@@ -10825,158 +10825,173 @@ msgstr ""
 msgid "Create Firewall"
 msgstr ""
 
-#: dashboards/project/firewalls/tables.py:71
+#: dashboards/project/firewalls/tables.py:72
 msgid "Scheduled deletion of Rule"
 msgid_plural "Scheduled deletion of Rules"
 msgstr[0] ""
 msgstr[1] ""
 
-#: dashboards/project/firewalls/tables.py:85
+#: dashboards/project/firewalls/tables.py:87
+#, python-format
+msgid "Unable to delete rule. %s"
+msgstr ""
+
+#: dashboards/project/firewalls/tables.py:96
 msgid "Delete Policy"
 msgid_plural "Delete Policies"
 msgstr[0] ""
 msgstr[1] ""
 
-#: dashboards/project/firewalls/tables.py:93
+#: dashboards/project/firewalls/tables.py:104
 msgid "Scheduled deletion of Policy"
 msgid_plural "Scheduled deletion of Policies"
 msgstr[0] ""
 msgstr[1] ""
 
-#: dashboards/project/firewalls/tables.py:108
+#: dashboards/project/firewalls/tables.py:114
+#, python-format
+msgid "Unable to delete policy. %s"
+msgstr ""
+
+#: dashboards/project/firewalls/tables.py:124
 msgid "Delete Firewall"
 msgid_plural "Delete Firewalls"
 msgstr[0] ""
 msgstr[1] ""
 
-#: dashboards/project/firewalls/tables.py:116
+#: dashboards/project/firewalls/tables.py:132
 msgid "Scheduled deletion of Firewall"
 msgid_plural "Scheduled deletion of Firewalls"
 msgstr[0] ""
 msgstr[1] ""
 
-#: dashboards/project/firewalls/tables.py:127
-#: dashboards/project/firewalls/views.py:142
+#: dashboards/project/firewalls/tables.py:142
+#, python-format
+msgid "Unable to delete firewall. %s"
+msgstr ""
+
+#: dashboards/project/firewalls/tables.py:147
+#: dashboards/project/firewalls/views.py:106
 #: dashboards/project/firewalls/templates/firewalls/updaterule.html:3
 msgid "Edit Rule"
 msgstr ""
 
-#: dashboards/project/firewalls/tables.py:139
-#: dashboards/project/firewalls/views.py:183
+#: dashboards/project/firewalls/tables.py:159
+#: dashboards/project/firewalls/views.py:147
 #: dashboards/project/firewalls/templates/firewalls/updatepolicy.html:3
 msgid "Edit Policy"
 msgstr ""
 
-#: dashboards/project/firewalls/tables.py:151
-#: dashboards/project/firewalls/views.py:221
+#: dashboards/project/firewalls/tables.py:171
+#: dashboards/project/firewalls/views.py:185
 #: dashboards/project/firewalls/templates/firewalls/updatefirewall.html:3
 msgid "Edit Firewall"
 msgstr ""
 
-#: dashboards/project/firewalls/tables.py:204
+#: dashboards/project/firewalls/tables.py:224
 msgid "Add Router"
 msgstr ""
 
-#: dashboards/project/firewalls/tables.py:227
+#: dashboards/project/firewalls/tables.py:247
 msgid "Remove Router"
 msgstr ""
 
-#: dashboards/project/firewalls/tables.py:267
+#: dashboards/project/firewalls/tables.py:287
 msgctxt "Action Name of a Firewall Rule"
 msgid "ALLOW"
 msgstr ""
 
-#: dashboards/project/firewalls/tables.py:268
+#: dashboards/project/firewalls/tables.py:288
 msgctxt "Action Name of a Firewall Rule"
 msgid "DENY"
 msgstr ""
 
-#: dashboards/project/firewalls/tables.py:279
+#: dashboards/project/firewalls/tables.py:299
 #: dashboards/project/loadbalancers/templates/loadbalancers/_create_pool_help.html:16
 msgid "Source IP"
 msgstr ""
 
-#: dashboards/project/firewalls/tables.py:281
+#: dashboards/project/firewalls/tables.py:301
 #: dashboards/project/firewalls/templates/firewalls/_rule_details.html:28
 msgid "Source Port"
 msgstr ""
 
-#: dashboards/project/firewalls/tables.py:283
+#: dashboards/project/firewalls/tables.py:303
 msgid "Destination IP"
 msgstr ""
 
-#: dashboards/project/firewalls/tables.py:285
+#: dashboards/project/firewalls/tables.py:305
 #: dashboards/project/firewalls/templates/firewalls/_rule_details.html:34
 msgid "Destination Port"
 msgstr ""
 
-#: dashboards/project/firewalls/tables.py:297
+#: dashboards/project/firewalls/tables.py:317
 msgid "In Policy"
 msgstr ""
 
-#: dashboards/project/firewalls/tables.py:301
-#: dashboards/project/firewalls/tables.py:312
+#: dashboards/project/firewalls/tables.py:321
+#: dashboards/project/firewalls/tables.py:332
 #: dashboards/project/firewalls/workflows.py:131
 #: dashboards/project/firewalls/workflows.py:137
 #: dashboards/project/firewalls/templates/firewalls/_policy_details.html:19
 msgid "Rules"
 msgstr ""
 
-#: dashboards/project/firewalls/tables.py:322
+#: dashboards/project/firewalls/tables.py:342
 msgid "Policies"
 msgstr ""
 
-#: dashboards/project/firewalls/tables.py:330
+#: dashboards/project/firewalls/tables.py:350
 msgctxt "Current status of a Firewall"
 msgid "Active"
 msgstr ""
 
-#: dashboards/project/firewalls/tables.py:332
+#: dashboards/project/firewalls/tables.py:352
 msgctxt "Current status of a Firewall"
 msgid "Down"
 msgstr ""
 
-#: dashboards/project/firewalls/tables.py:334
+#: dashboards/project/firewalls/tables.py:354
 msgctxt "Current status of a Firewall"
 msgid "Error"
 msgstr ""
 
-#: dashboards/project/firewalls/tables.py:336
+#: dashboards/project/firewalls/tables.py:356
 msgctxt "Current status of a Firewall"
 msgid "Created"
 msgstr ""
 
-#: dashboards/project/firewalls/tables.py:338
+#: dashboards/project/firewalls/tables.py:358
 msgctxt "Current status of a Firewall"
 msgid "Pending Create"
 msgstr ""
 
-#: dashboards/project/firewalls/tables.py:340
+#: dashboards/project/firewalls/tables.py:360
 msgctxt "Current status of a Firewall"
 msgid "Pending Update"
 msgstr ""
 
-#: dashboards/project/firewalls/tables.py:342
+#: dashboards/project/firewalls/tables.py:362
 msgctxt "Current status of a Firewall"
 msgid "Pending Delete"
 msgstr ""
 
-#: dashboards/project/firewalls/tables.py:344
+#: dashboards/project/firewalls/tables.py:364
 msgctxt "Current status of a Firewall"
 msgid "Inactive"
 msgstr ""
 
-#: dashboards/project/firewalls/tables.py:348
+#: dashboards/project/firewalls/tables.py:368
 msgctxt "Admin state of a Firewall"
 msgid "UP"
 msgstr ""
 
-#: dashboards/project/firewalls/tables.py:349
+#: dashboards/project/firewalls/tables.py:369
 msgctxt "Admin state of a Firewall"
 msgid "DOWN"
 msgstr ""
 
-#: dashboards/project/firewalls/tables.py:384
+#: dashboards/project/firewalls/tables.py:404
 #, python-format
 msgid "Failed to verify extension support %(reason)s"
 msgstr ""
@@ -11002,89 +11017,59 @@ msgid "Unable to retrieve firewall list."
 msgstr ""
 
 #: dashboards/project/firewalls/tabs.py:97
-#: dashboards/project/firewalls/views.py:124
+#: dashboards/project/firewalls/views.py:88
 msgid "Firewall Rule Details"
 msgstr ""
 
 #: dashboards/project/firewalls/tabs.py:108
-#: dashboards/project/firewalls/views.py:166
+#: dashboards/project/firewalls/views.py:130
 msgid "Unable to retrieve rule details."
 msgstr ""
 
 #: dashboards/project/firewalls/tabs.py:114
-#: dashboards/project/firewalls/views.py:129
+#: dashboards/project/firewalls/views.py:93
 msgid "Firewall Policy Details"
 msgstr ""
 
 #: dashboards/project/firewalls/tabs.py:125
-#: dashboards/project/firewalls/views.py:207
-#: dashboards/project/firewalls/views.py:285
-#: dashboards/project/firewalls/views.py:325
+#: dashboards/project/firewalls/views.py:171
+#: dashboards/project/firewalls/views.py:249
+#: dashboards/project/firewalls/views.py:289
 msgid "Unable to retrieve policy details."
 msgstr ""
 
 #: dashboards/project/firewalls/tabs.py:131
-#: dashboards/project/firewalls/views.py:134
+#: dashboards/project/firewalls/views.py:98
 msgid "Firewall Details"
 msgstr ""
 
 #: dashboards/project/firewalls/tabs.py:152
-#: dashboards/project/firewalls/views.py:246
-#: dashboards/project/firewalls/views.py:360
+#: dashboards/project/firewalls/views.py:210
+#: dashboards/project/firewalls/views.py:324
 msgid "Unable to retrieve firewall details."
 msgstr ""
 
-#: dashboards/project/firewalls/views.py:69
-#, python-format
-msgid "Deleted rule %s"
-msgstr ""
-
-#: dashboards/project/firewalls/views.py:72
-#, python-format
-msgid "Unable to delete rule. %s"
-msgstr ""
-
-#: dashboards/project/firewalls/views.py:77
-#, python-format
-msgid "Deleted policy %s"
-msgstr ""
-
-#: dashboards/project/firewalls/views.py:80
-#, python-format
-msgid "Unable to delete policy. %s"
-msgstr ""
-
-#: dashboards/project/firewalls/views.py:86
-#, python-format
-msgid "Deleted firewall %s"
-msgstr ""
-
-#: dashboards/project/firewalls/views.py:89
-#, python-format
-msgid "Unable to delete firewall. %s"
-msgstr ""
-
-#: dashboards/project/firewalls/views.py:96
+#: dashboards/project/firewalls/views.py:60
 #: dashboards/project/firewalls/templates/firewalls/addrule.html:3
 msgid "Add New Rule"
 msgstr ""
 
-#: dashboards/project/firewalls/views.py:102
+#: dashboards/project/firewalls/views.py:66
 #: dashboards/project/firewalls/templates/firewalls/addpolicy.html:3
 msgid "Add New Policy"
 msgstr ""
 
-#: dashboards/project/firewalls/views.py:108
+#: dashboards/project/firewalls/views.py:72
 #: dashboards/project/firewalls/templates/firewalls/addfirewall.html:3
 msgid "Add New Firewall"
 msgstr ""
 
-#: dashboards/project/firewalls/views.py:143
-#: dashboards/project/firewalls/views.py:184
-#: dashboards/project/firewalls/views.py:222
-#: dashboards/project/firewalls/views.py:262
-#: dashboards/project/firewalls/views.py:301
-#: dashboards/project/firewalls/views.py:338
+#: dashboards/project/firewalls/views.py:107
+#: dashboards/project/firewalls/views.py:148
+#: dashboards/project/firewalls/views.py:186
+#: dashboards/project/firewalls/views.py:226
+#: dashboards/project/firewalls/views.py:265
+#: dashboards/project/firewalls/views.py:302
 #: dashboards/project/loadbalancers/views.py:188
 #: dashboards/project/loadbalancers/views.py:225
 #: dashboards/project/loadbalancers/views.py:276
@@ -11098,41 +11083,41 @@ msgstr ""
 msgid "Save Changes"
 msgstr ""
 
-#: dashboards/project/firewalls/views.py:146
+#: dashboards/project/firewalls/views.py:110
 msgid "Edit Rule {{ name }}"
 msgstr ""
 
-#: dashboards/project/firewalls/views.py:187
+#: dashboards/project/firewalls/views.py:151
 msgid "Edit Policy {{ name }}"
 msgstr ""
 
-#: dashboards/project/firewalls/views.py:225
+#: dashboards/project/firewalls/views.py:189
 msgid "Edit Firewall {{ name }}"
 msgstr ""
 
-#: dashboards/project/firewalls/views.py:258
+#: dashboards/project/firewalls/views.py:222
 msgid "Insert Rule into Policy"
 msgstr ""
 
-#: dashboards/project/firewalls/views.py:264
+#: dashboards/project/firewalls/views.py:228
 #: dashboards/project/firewalls/templates/firewalls/insert_rule_to_policy.html:3
 msgid "Insert Rule to Policy"
 msgstr ""
 
-#: dashboards/project/firewalls/views.py:298
-#: dashboards/project/firewalls/views.py:304
+#: dashboards/project/firewalls/views.py:262
+#: dashboards/project/firewalls/views.py:268
 #: dashboards/project/firewalls/templates/firewalls/remove_rule_from_policy.html:3
 msgid "Remove Rule from Policy"
 msgstr ""
 
-#: dashboards/project/firewalls/views.py:371
-#: dashboards/project/firewalls/views.py:374
+#: dashboards/project/firewalls/views.py:335
+#: dashboards/project/firewalls/views.py:338
 #: dashboards/project/firewalls/templates/firewalls/add_router_to_firewall.html:3
 msgid "Add Router to Firewall"
 msgstr ""
 
-#: dashboards/project/firewalls/views.py:379
-#: dashboards/project/firewalls/views.py:382
+#: dashboards/project/firewalls/views.py:343
+#: dashboards/project/firewalls/views.py:346
 #: dashboards/project/firewalls/templates/firewalls/remove_router_from_firewall.html:3
 msgid "Remove Router from Firewall"
 msgstr ""
@@ -14193,7 +14178,7 @@ msgstr ""
 #: dashboards/project/network_topology/templates/network_topology/create_router.html:3
 #: dashboards/project/network_topology/templates/network_topology/index.html:44
 #: dashboards/project/routers/tables.py:85
-#: dashboards/project/routers/tables.py:98
+#: dashboards/project/routers/tables.py:100
 #: dashboards/project/routers/views.py:180
 #: dashboards/project/routers/views.py:183
 #: dashboards/project/routers/views.py:184
@@ -14229,12 +14214,12 @@ msgid "Launch Instance (Quota exceeded)"
 msgstr ""
 
 #: dashboards/project/network_topology/templates/network_topology/index.html:41
-#: dashboards/project/networks/tables.py:98
+#: dashboards/project/networks/tables.py:100
 msgid "Create Network (Quota exceeded)"
 msgstr ""
 
 #: dashboards/project/network_topology/templates/network_topology/index.html:44
-#: dashboards/project/routers/tables.py:96
+#: dashboards/project/routers/tables.py:98
 msgid "Create Router (Quota exceeded)"
 msgstr ""
 
@@ -14242,31 +14227,31 @@ msgstr ""
 msgid "There are no networks, routers, or connected instances to display."
 msgstr ""
 
-#: dashboards/project/networks/tables.py:119
-#: dashboards/project/networks/tables.py:133
+#: dashboards/project/networks/tables.py:121
+#: dashboards/project/networks/tables.py:137
 msgid "Add Subnet"
 msgstr ""
 
-#: dashboards/project/networks/tables.py:131
+#: dashboards/project/networks/tables.py:135
 msgid "Add Subnet (Quota exceeded)"
 msgstr ""
 
-#: dashboards/project/networks/tables.py:150
+#: dashboards/project/networks/tables.py:154
 msgctxt "Current status of a Network"
 msgid "Active"
 msgstr ""
 
-#: dashboards/project/networks/tables.py:151
+#: dashboards/project/networks/tables.py:155
 msgctxt "Current status of a Network"
 msgid "Build"
 msgstr ""
 
-#: dashboards/project/networks/tables.py:152
+#: dashboards/project/networks/tables.py:156
 msgctxt "Current status of a Network"
 msgid "Down"
 msgstr ""
 
-#: dashboards/project/networks/tables.py:153
+#: dashboards/project/networks/tables.py:157
 msgctxt "Current status of a Network"
 msgid "Error"
 msgstr ""
@@ -14771,7 +14756,7 @@ msgstr ""
 #: dashboards/project/routers/forms.py:53
 #: dashboards/project/routers/forms.py:138
 #: dashboards/project/routers/forms.py:144
-#: dashboards/project/routers/tables.py:217
+#: dashboards/project/routers/tables.py:219
 #: dashboards/project/routers/templates/routers/_detail_overview.html:16
 msgid "Distributed"
 msgstr ""
@@ -14835,12 +14820,12 @@ msgstr[1] ""
 msgid "Unable to delete router \"%s\""
 msgstr ""
 
-#: dashboards/project/routers/tables.py:106
+#: dashboards/project/routers/tables.py:108
 #: dashboards/project/routers/views.py:191
 msgid "Edit Router"
 msgstr ""
 
-#: dashboards/project/routers/tables.py:115
+#: dashboards/project/routers/tables.py:117
 #: dashboards/project/routers/ports/views.py:69
 #: dashboards/project/routers/templates/routers/ports/_setgateway.html:9
 #: dashboards/project/routers/templates/routers/ports/_setgateway.html:24
@@ -14848,50 +14833,50 @@ msgstr ""
 msgid "Set Gateway"
 msgstr ""
 
-#: dashboards/project/routers/tables.py:128
+#: dashboards/project/routers/tables.py:130
 msgid ""
 "You may reset the gateway later by using the set gateway action, but the "
 "gateway IP may change."
 msgstr ""
 
-#: dashboards/project/routers/tables.py:133
+#: dashboards/project/routers/tables.py:135
 msgid "Clear Gateway"
 msgid_plural "Clear Gateways"
 msgstr[0] ""
 msgstr[1] ""
 
-#: dashboards/project/routers/tables.py:141
+#: dashboards/project/routers/tables.py:143
 msgid "Cleared Gateway"
 msgid_plural "Cleared Gateways"
 msgstr[0] ""
 msgstr[1] ""
 
-#: dashboards/project/routers/tables.py:158
+#: dashboards/project/routers/tables.py:160
 #, python-format
 msgid "Unable to clear gateway for router \"%(name)s\": \"%(msg)s\""
 msgstr ""
 
-#: dashboards/project/routers/tables.py:200
+#: dashboards/project/routers/tables.py:202
 msgctxt "current status of router"
 msgid "Active"
 msgstr ""
 
-#: dashboards/project/routers/tables.py:201
+#: dashboards/project/routers/tables.py:203
 msgctxt "current status of router"
 msgid "Error"
 msgstr ""
 
-#: dashboards/project/routers/tables.py:204
+#: dashboards/project/routers/tables.py:206
 msgctxt "Admin state of a Router"
 msgid "UP"
 msgstr ""
 
-#: dashboards/project/routers/tables.py:205
+#: dashboards/project/routers/tables.py:207
 msgctxt "Admin state of a Router"
 msgid "DOWN"
 msgstr ""
 
-#: dashboards/project/routers/tables.py:221
+#: dashboards/project/routers/tables.py:223
 msgid "HA mode"
 msgstr ""
 

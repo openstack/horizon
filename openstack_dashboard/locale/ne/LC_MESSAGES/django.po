@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-09-18 05:57+0000\n"
+"POT-Creation-Date: 2015-09-25 15:01+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -1938,10 +1938,6 @@ msgid "Deleted VPN Service %s"
 msgstr "VPN सेवा %s मेटाइयो"
 
 #, python-format
-msgid "Deleted firewall %s"
-msgstr "मेटाइएको फाइरवाल%s"
-
-#, python-format
 msgid "Deleted member %s"
 msgstr "मेटाइएको सदस्य %s"
 
@@ -1950,16 +1946,8 @@ msgid "Deleted monitor %s"
 msgstr "मेटाइएको मनिटर %s"
 
 #, python-format
-msgid "Deleted policy %s"
-msgstr "मेटाइएको शर्त %s"
-
-#, python-format
 msgid "Deleted pool %s"
 msgstr "मेटाइएको पूल  %s"
-
-#, python-format
-msgid "Deleted rule %s"
-msgstr "मेटाइएको नियम%s"
 
 msgid "Deleting"
 msgstr "मेटाइँदै"
