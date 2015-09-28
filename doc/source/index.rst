@@ -42,6 +42,7 @@ How to use Horizon in your own projects.
    topics/deployment
    topics/settings
    topics/customizing
+   topics/packaging
 
 Developer Docs
 ==============
