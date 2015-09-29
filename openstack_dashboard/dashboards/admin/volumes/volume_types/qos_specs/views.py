@@ -101,7 +101,7 @@ class EditKeyValuePairView(QosSpecMixin, forms.ModalFormView):
     modal_id = "qos_spec_edit_modal"
     template_name = 'admin/volumes/volume_types/qos_specs/edit.html'
     submit_label = _("Save")
-    submit_url = "horizon:admin:volumes:volume_types:qos_specs_edit"
+    submit_url = "horizon:admin:volumes:volume_types:qos_specs:edit"
     success_url = 'horizon:admin:volumes:volume_types:qos_specs:index'
     page_title = _("QoS Spec: {{ qos_spec_name }}")
 
