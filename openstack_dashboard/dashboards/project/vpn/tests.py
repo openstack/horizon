@@ -749,85 +749,66 @@ class VPNTests(test.TestCase):
         self.assertNoFormErrors(res)
         self.assertRedirectsNoFollow(res, str(self.INDEX_URL))
 
-    @test.create_stubs({api.vpn: ('ikepolicy_list', 'ipsecpolicy_list',
-                                  'vpnservice_list',
-                                  'ipsecsiteconnection_list',
-                                  'vpnservice_delete',)})
+    @test.create_stubs({api.vpn: ('vpnservice_list', 'vpnservice_delete',)})
     def test_delete_vpnservice(self):
-        self.set_up_expect()
-
-        vpnservice = self.vpnservices.first()
-
+        vpnservice = self.vpnservices.list()[1]
+        api.vpn.vpnservice_list(
+            IsA(http.HttpRequest), tenant_id=self.tenant.id) \
+            .AndReturn(self.vpnservices.list())
         api.vpn.vpnservice_delete(IsA(http.HttpRequest), vpnservice.id)
-
         self.mox.ReplayAll()
 
         form_data = {"action":
                      "vpnservicestable__deletevpnservice__%s" % vpnservice.id}
-
         res = self.client.post(self.INDEX_URL, form_data)
 
         self.assertNoFormErrors(res)
 
-    @test.create_stubs({api.vpn: ('ikepolicy_list', 'ipsecpolicy_list',
-                                  'vpnservice_list',
-                                  'ipsecsiteconnection_list',
-                                  'ikepolicy_delete',)})
+    @test.create_stubs({api.vpn: ('ikepolicy_list', 'ikepolicy_delete',)})
     def test_delete_ikepolicy(self):
-        self.set_up_expect()
-
-        ikepolicy = self.ikepolicies.first()
-
+        ikepolicy = self.ikepolicies.list()[1]
+        api.vpn.ikepolicy_list(
+            IsA(http.HttpRequest), tenant_id=self.tenant.id) \
+            .AndReturn(self.ikepolicies.list())
         api.vpn.ikepolicy_delete(IsA(http.HttpRequest), ikepolicy.id)
-
         self.mox.ReplayAll()
 
         form_data = {"action":
                      "ikepoliciestable__deleteikepolicy__%s" % ikepolicy.id}
-
         res = self.client.post(self.INDEX_URL, form_data)
 
         self.assertNoFormErrors(res)
 
-    @test.create_stubs({api.vpn: ('ikepolicy_list', 'ipsecpolicy_list',
-                                  'vpnservice_list',
-                                  'ipsecsiteconnection_list',
-                                  'ipsecpolicy_delete',)})
+    @test.create_stubs({api.vpn: ('ipsecpolicy_list', 'ipsecpolicy_delete',)})
     def test_delete_ipsecpolicy(self):
-        self.set_up_expect()
-
-        ipsecpolicy = self.ipsecpolicies.first()
-
+        ipsecpolicy = self.ipsecpolicies.list()[1]
+        api.vpn.ipsecpolicy_list(
+            IsA(http.HttpRequest), tenant_id=self.tenant.id) \
+            .AndReturn(self.ipsecpolicies.list())
         api.vpn.ipsecpolicy_delete(IsA(http.HttpRequest), ipsecpolicy.id)
-
         self.mox.ReplayAll()
 
         form_data = {"action":
                      "ipsecpoliciestable__deleteipsecpolicy__%s"
                      % ipsecpolicy.id}
-
         res = self.client.post(self.INDEX_URL, form_data)
 
         self.assertNoFormErrors(res)
 
-    @test.create_stubs({api.vpn: ('ikepolicy_list', 'ipsecpolicy_list',
-                                  'vpnservice_list',
-                                  'ipsecsiteconnection_list',
+    @test.create_stubs({api.vpn: ('ipsecsiteconnection_list',
                                   'ipsecsiteconnection_delete',)})
     def test_delete_ipsecsiteconnection(self):
-        self.set_up_expect()
-
         ipsecsiteconnection = self.ipsecsiteconnections.first()
-
+        api.vpn.ipsecsiteconnection_list(
+            IsA(http.HttpRequest), tenant_id=self.tenant.id) \
+            .AndReturn(self.ipsecsiteconnections.list())
         api.vpn.ipsecsiteconnection_delete(
             IsA(http.HttpRequest), ipsecsiteconnection.id)
-
         self.mox.ReplayAll()
 
         form_data = {"action":
                      "ipsecsiteconnectionstable__deleteipsecsiteconnection__%s"
                      % ipsecsiteconnection.id}
-
         res = self.client.post(self.INDEX_URL, form_data)
 
         self.assertNoFormErrors(res)
