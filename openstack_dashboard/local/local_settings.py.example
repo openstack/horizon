@@ -147,15 +147,33 @@ OPENSTACK_KEYSTONE_DEFAULT_ROLE = "_member_"
 # Determines which authentication choice to show as default.
 #WEBSSO_INITIAL_CHOICE = "credentials"
 
-# The list of authentication mechanisms
-# which include keystone federation protocols.
-# Current supported protocol IDs are 'saml2' and 'oidc'
-# which represent SAML 2.0, OpenID Connect respectively.
+# The list of authentication mechanisms which include keystone
+# federation protocols and identity provider/federation protocol
+# mapping keys (WEBSSO_IDP_MAPPING). Current supported protocol
+# IDs are 'saml2' and 'oidc'  which represent SAML 2.0, OpenID
+# Connect respectively.
 # Do not remove the mandatory credentials mechanism.
+# Note: The last two tuples are sample mapping keys to a identity provider
+# and federation protocol combination (WEBSSO_IDP_MAPPING).
 #WEBSSO_CHOICES = (
 #    ("credentials", _("Keystone Credentials")),
 #    ("oidc", _("OpenID Connect")),
-#    ("saml2", _("Security Assertion Markup Language")))
+#    ("saml2", _("Security Assertion Markup Language")),
+#    ("acme_oidc", "ACME - OpenID Connect"),
+#    ("acme_saml2", "ACME - SAML2")
+#)
+
+# A dictionary of specific identity provider and federation protocol
+# combinations. From the selected authentication mechanism, the value
+# will be looked up as keys in the dictionary. If a match is found,
+# it will redirect the user to a identity provider and federation protocol
+# specific WebSSO endpoint in keystone, otherwise it will use the value
+# as the protocol_id when redirecting to the WebSSO by protocol endpoint.
+# NOTE: The value is expected to be a tuple formatted as: (<idp_id>, <protocol_id>).
+#WEBSSO_IDP_MAPPING = {
+#    "acme_oidc": ("acme", "oidc"),
+#    "acme_saml2": ("acme", "saml2")
+#}
 
 # Disable SSL certificate checks (useful for self-signed certificates):
 #OPENSTACK_SSL_NO_VERIFY = True
