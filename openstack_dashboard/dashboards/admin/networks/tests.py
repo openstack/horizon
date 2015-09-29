@@ -687,9 +687,7 @@ class NetworkSubnetTests(test.BaseAdminViewTests):
                       args=[subnet.id])
         res = self.client.get(url)
 
-        # admin DetailView is shared with userpanel one, so
-        # redirection URL on error is userpanel index.
-        redir_url = reverse('horizon:project:networks:index')
+        redir_url = reverse('horizon:admin:networks:index')
         self.assertRedirectsNoFollow(res, redir_url)
 
     @test.create_stubs({api.neutron: ('network_get',)})
