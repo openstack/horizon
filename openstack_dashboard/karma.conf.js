@@ -46,7 +46,8 @@ module.exports = function (config) {
       // NOTE: the templates must also be listed in the files section below.
       './**/*.html': ['ng-html2js'],
       // Used to indicate files requiring coverage reports.
-      './**/!(*.spec).js': ['coverage']
+      '../static/**/!(*.spec).js': ['coverage'],
+      '../dashboards/**/static/**/!(*.spec).js': ['coverage']
     },
 
     // Sets up module to process templates.
@@ -160,10 +161,10 @@ module.exports = function (config) {
 
     // Coverage threshold values.
     thresholdReporter: {
-      statements: 93, // target 100
-      branches: 93, // target 100
-      functions: 93, // target 100
-      lines: 93 // target 100
+      statements: 89, // target 100
+      branches: 82, // target 100
+      functions: 88, // target 100
+      lines: 89 // target 100
     }
   });
 };
