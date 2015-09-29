@@ -26,10 +26,14 @@
 
     <dt>{% trans "VPN Connections" %}</dt>
     <dd>
-      {% for conn in vpnservice.ipsecsiteconns %}
-      {% url 'horizon:project:vpn:ipsecsiteconnectiondetails' conn.id as conn_url %}
-      <a href="{{ conn_url }}">{{ conn.name_or_id }}</a><br>
-      {% endfor %}
+      {% if vpnservice.ipsecsiteconns %}
+        {% for conn in vpnservice.ipsecsiteconns %}
+        {% url 'horizon:project:vpn:ipsecsiteconnectiondetails' conn.id as conn_url %}
+        <a href="{{ conn_url }}">{{ conn.name_or_id }}</a><br>
+        {% endfor %}
+      {% else %}
+        None
+      {% endif %}
     </dd>
 
     <dt>{% trans "Admin State" %}</dt>
