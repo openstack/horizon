@@ -31,7 +31,15 @@ class DummyBackend(object):
         pk=1111,
         save=lambda *args, **kwargs: None,
         is_authenticated=lambda: True,
-        has_perms=lambda perms: True)
+        has_perms=lambda perms: True
+    )
+
+    _user._meta = utils.ObjDictWrapper(
+        pk=utils.ObjDictWrapper(
+            value_to_string=lambda s: s.pk,
+            to_python=lambda s: s.pk
+        )
+    )
 
     def authenticate(self, *args, **kwargs):
         return self._user
