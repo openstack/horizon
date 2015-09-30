@@ -99,7 +99,31 @@ def _str_host_routes(host_routes):
                       for route in host_routes])
 
 
-class NetworkTests(test.TestCase):
+class NetworkStubMixin(object):
+    def _stub_net_list(self):
+        all_networks = self.networks.list()
+        api.neutron.network_list(
+            IsA(http.HttpRequest),
+            tenant_id=self.tenant.id,
+            shared=False).AndReturn([
+                network for network in all_networks
+                if network['tenant_id'] == self.tenant.id
+            ])
+        api.neutron.network_list(
+            IsA(http.HttpRequest),
+            shared=True).AndReturn([
+                network for network in all_networks
+                if network.get('shared')
+            ])
+        api.neutron.network_list(
+            IsA(http.HttpRequest),
+            **{'router:external': True}).AndReturn([
+                network for network in all_networks
+                if network.get('router:external')
+            ])
+
+
+class NetworkTests(test.TestCase, NetworkStubMixin):
 
     @test.create_stubs({api.neutron: ('network_list',),
                         quotas: ('tenant_quota_usages',)})
@@ -107,13 +131,7 @@ class NetworkTests(test.TestCase):
         quota_data = self.quota_usages.first()
         quota_data['networks']['available'] = 5
         quota_data['subnets']['available'] = 5
-        api.neutron.network_list(
-            IsA(http.HttpRequest),
-            tenant_id=self.tenant.id,
-            shared=False).AndReturn(self.networks.list())
-        api.neutron.network_list(
-            IsA(http.HttpRequest),
-            shared=True).AndReturn([])
+        self._stub_net_list()
         quotas.tenant_quota_usages(
             IsA(http.HttpRequest)) \
             .MultipleTimes().AndReturn(quota_data)
@@ -830,13 +848,7 @@ class NetworkTests(test.TestCase):
                                 network.id,
                                 expand_subnet=False)\
             .AndReturn(network)
-        api.neutron.network_list(IsA(http.HttpRequest),
-                                 tenant_id=network.tenant_id,
-                                 shared=False)\
-            .AndReturn([network])
-        api.neutron.network_list(IsA(http.HttpRequest),
-                                 shared=True)\
-            .AndReturn([])
+        self._stub_net_list()
         api.neutron.network_delete(IsA(http.HttpRequest), network.id)
 
         self.mox.ReplayAll()
@@ -857,12 +869,7 @@ class NetworkTests(test.TestCase):
                                 network.id,
                                 expand_subnet=False)\
             .AndReturn(network)
-        api.neutron.network_list(IsA(http.HttpRequest),
-                                 tenant_id=network.tenant_id,
-                                 shared=False)\
-            .AndReturn([network])
-        api.neutron.network_list(IsA(http.HttpRequest), shared=True)\
-            .AndReturn([])
+        self._stub_net_list()
         api.neutron.subnet_delete(IsA(http.HttpRequest), subnet_id)
         api.neutron.network_delete(IsA(http.HttpRequest), network.id)
 
@@ -885,13 +892,7 @@ class NetworkTests(test.TestCase):
                                 network.id,
                                 expand_subnet=False)\
             .AndReturn(network)
-        api.neutron.network_list(IsA(http.HttpRequest),
-                                 tenant_id=network.tenant_id,
-                                 shared=False)\
-            .AndReturn([network])
-        api.neutron.network_list(IsA(http.HttpRequest),
-                                 shared=True)\
-            .AndReturn([])
+        self._stub_net_list()
         api.neutron.subnet_delete(IsA(http.HttpRequest), subnet_id)
         api.neutron.network_delete(IsA(http.HttpRequest), network.id)\
             .AndRaise(self.exceptions.neutron)
@@ -2137,7 +2138,7 @@ class NetworkPortTests(test.TestCase):
         self.assertRedirectsNoFollow(res, redir_url)
 
 
-class NetworkViewTests(test.TestCase):
+class NetworkViewTests(test.TestCase, NetworkStubMixin):
 
     def _test_create_button_shown_when_quota_disabled(
             self, expected_string):
@@ -2148,13 +2149,7 @@ class NetworkViewTests(test.TestCase):
         quota_data['networks'].pop('available')
         quota_data['subnets'].pop('available')
 
-        api.neutron.network_list(
-            IsA(http.HttpRequest),
-            tenant_id=self.tenant.id,
-            shared=False).AndReturn(self.networks.list())
-        api.neutron.network_list(
-            IsA(http.HttpRequest),
-            shared=True).AndReturn([])
+        self._stub_net_list()
         quotas.tenant_quota_usages(
             IsA(http.HttpRequest)) \
             .MultipleTimes().AndReturn(quota_data)
@@ -2177,13 +2172,7 @@ class NetworkViewTests(test.TestCase):
         quota_data['networks']['available'] = network_quota
         quota_data['subnets']['available'] = subnet_quota
 
-        api.neutron.network_list(
-            IsA(http.HttpRequest),
-            tenant_id=self.tenant.id,
-            shared=False).AndReturn(self.networks.list())
-        api.neutron.network_list(
-            IsA(http.HttpRequest),
-            shared=True).AndReturn([])
+        self._stub_net_list()
         quotas.tenant_quota_usages(
             IsA(http.HttpRequest)) \
             .MultipleTimes().AndReturn(quota_data)

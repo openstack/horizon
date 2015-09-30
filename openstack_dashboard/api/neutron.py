@@ -635,13 +635,13 @@ def network_get(request, network_id, expand_subnet=True, **params):
     LOG.debug("network_get(): netid=%s, params=%s" % (network_id, params))
     network = neutronclient(request).show_network(network_id,
                                                   **params).get('network')
-    # Since the number of subnets per network must be small,
-    # call subnet_get() for each subnet instead of calling
-    # subnet_list() once.
     if expand_subnet:
-        network['subnets'] = [subnet_get(request, sid)
-                              for sid in network['subnets']]
-
+        if request.user.tenant_id == network['tenant_id'] or network['shared']:
+            # Since the number of subnets per network must be small,
+            # call subnet_get() for each subnet instead of calling
+            # subnet_list() once.
+            network['subnets'] = [subnet_get(request, sid)
+                                  for sid in network['subnets']]
     return Network(network)
 
 

@@ -175,6 +175,8 @@ class NetworksTable(tables.DataTable):
                             verbose_name=_("Subnets Associated"),)
     shared = tables.Column("shared", verbose_name=_("Shared"),
                            filters=(filters.yesno, filters.capfirst))
+    external = tables.Column("router:external", verbose_name=_("External"),
+                             filters=(filters.yesno, filters.capfirst))
     status = tables.Column("status", verbose_name=_("Status"),
                            display_choices=STATUS_DISPLAY_CHOICES)
     admin_state = tables.Column("admin_state",
