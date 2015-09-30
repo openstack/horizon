@@ -1,5 +1,4 @@
 /**
- *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -12,15 +11,19 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
 (function() {
   'use strict';
 
   angular
     .module('horizon.app.core.openstack-service-api')
-    .factory('horizon.app.core.openstack-service-api.policy', PolicyService);
+    .service('horizon.app.core.openstack-service-api.policy', PolicyService);
 
-  PolicyService.$inject = ['horizon.framework.util.http.service',
-                           'horizon.framework.widgets.toast.service'];
+  PolicyService.$inject = [
+    '$q',
+    'horizon.framework.util.http.service',
+    'horizon.framework.widgets.toast.service'
+  ];
 
   /**
    * @ngdoc service
@@ -28,12 +31,16 @@
    * @description Provides a direct pass through to the policy engine in
    * Horizon.
    */
-  function PolicyService(apiService, toastService) {
+  function PolicyService($q, apiService, toastService) {
+
     var service = {
-      check: check
+      check: check,
+      ifAllowed: ifAllowed
     };
 
     return service;
+
+    //////////////
 
     /**
      * @name horizon.app.core.openstack-service-api.policy.check
@@ -77,6 +84,33 @@
         .error(function() {
           toastService.add('warning', gettext('Policy check failed.'));
         });
+    }
+
+    /**
+     * @name ifAllowed
+     * @description
+     * Wrapper function for check that returns a deferred promise.
+     * Resolves if the response is allowed, rejects otherwise.
+     * The policyRules input is the same as the check function. Please
+     * refer to it for more information on the input.
+     *
+     * @example
+     * Assume if the users is not allowed to delete an object,
+     * you will delete the object, otherwise, you will do something else.
+     *
+     ```js
+     policyService.ifAllowed(myRules).then(deleteObject, doSomethingElse);
+     ```
+     */
+    function ifAllowed(policyRules) {
+      var deferred = $q.defer();
+      service.check(policyRules).then(success);
+      return deferred.promise;
+
+      function success(response) {
+        if (response.data.allowed) { deferred.resolve(); }
+        else { deferred.reject(); }
+      }
     }
   }
 }());

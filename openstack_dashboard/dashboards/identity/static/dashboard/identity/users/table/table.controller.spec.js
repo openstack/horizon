@@ -22,23 +22,14 @@
     var policy = { allowed: true };
     function fakePolicy() {
       return {
-        success: function(callback) {
-          callback(policy);
+        then: function(successFn, errorFn) {
+          if (policy.allowed) { successFn(); }
+          else { errorFn(); }
         }
       };
     }
-
-    function fakePromise() {
-      return {
-        success: function() {}
-      };
-    }
-
-    function fakeToast() {
-      return {
-        add: function(type, msg) {}
-      };
-    }
+    function fakePromise() { return { success: angular.noop }; }
+    function fakeToast() { return { add: angular.noop }; }
 
     var controller, toastService, policyAPI, keystoneAPI;
 
@@ -59,7 +50,7 @@
       controller = $injector.get('$controller');
 
       spyOn(toastService, 'add').and.callFake(fakeToast);
-      spyOn(policyAPI, 'check').and.callFake(fakePolicy);
+      spyOn(policyAPI, 'ifAllowed').and.callFake(fakePolicy);
       spyOn(keystoneAPI, 'getUsers').and.callFake(fakePromise);
       spyOn(keystoneAPI, 'getCurrentUserSession').and.callFake(fakePromise);
     }));
@@ -75,7 +66,7 @@
     it('should invoke keystone apis if policy passes', function() {
       policy.allowed = true;
       createController();
-      expect(policyAPI.check).toHaveBeenCalled();
+      expect(policyAPI.ifAllowed).toHaveBeenCalled();
       expect(keystoneAPI.getUsers).toHaveBeenCalled();
       expect(keystoneAPI.getCurrentUserSession).toHaveBeenCalled();
     });
@@ -83,7 +74,7 @@
     it('should not invoke keystone apis if policy fails', function() {
       policy.allowed = false;
       createController();
-      expect(policyAPI.check).toHaveBeenCalled();
+      expect(policyAPI.ifAllowed).toHaveBeenCalled();
       expect(toastService.add).toHaveBeenCalled();
       expect(keystoneAPI.getUsers).not.toHaveBeenCalled();
       expect(keystoneAPI.getCurrentUserSession).not.toHaveBeenCalled();
