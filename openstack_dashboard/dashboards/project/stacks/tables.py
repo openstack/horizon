@@ -41,6 +41,7 @@ class PreviewStack(tables.LinkAction):
     verbose_name = _("Preview Stack")
     url = "horizon:project:stacks:preview_template"
     classes = ("ajax-modal",)
+    icon = "eye"
     policy_rules = (("orchestration", "cloudformation:PreviewStack"),)
 
 
@@ -48,6 +49,7 @@ class CheckStack(tables.BatchAction):
     name = "check"
     verbose_name = _("Check Stack")
     policy_rules = (("orchestration", "cloudformation:CheckStack"),)
+    icon = "check-square"
 
     @staticmethod
     def action_present(count):
@@ -73,6 +75,7 @@ class SuspendStack(tables.BatchAction):
     name = "suspend"
     verbose_name = _("Suspend Stack")
     policy_rules = (("orchestration", "cloudformation:SuspendStack"),)
+    icon = "pause"
 
     @staticmethod
     def action_present(count):
@@ -98,6 +101,7 @@ class ResumeStack(tables.BatchAction):
     name = "resume"
     verbose_name = _("Resume Stack")
     policy_rules = (("orchestration", "cloudformation:ResumeStack"),)
+    icon = "play"
 
     @staticmethod
     def action_present(count):
