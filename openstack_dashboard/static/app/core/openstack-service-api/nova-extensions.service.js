@@ -18,9 +18,9 @@
 
   angular
     .module('horizon.app.core.openstack-service-api')
-    .factory('horizon.app.core.openstack-service-api.novaExtensions', NovaExtensionsAPI);
+    .factory('horizon.app.core.openstack-service-api.novaExtensions', novaExtensionsAPI);
 
-  NovaExtensionsAPI.$inject = [
+  novaExtensionsAPI.$inject = [
     '$cacheFactory',
     '$q',
     'horizon.app.core.openstack-service-api.nova'
@@ -39,7 +39,7 @@
    * speed up results. Even on a local devstack in informal testing,
    * this saved between 30 - 100 ms per request.
    */
-  function NovaExtensionsAPI($cacheFactory, $q, novaAPI) {
+  function novaExtensionsAPI($cacheFactory, $q, novaAPI) {
     var service = {
       cache: $cacheFactory(
         'horizon.app.core.openstack-service-api.novaExtensions',

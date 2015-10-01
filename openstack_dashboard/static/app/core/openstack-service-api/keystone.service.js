@@ -18,14 +18,14 @@
 
   angular
     .module('horizon.app.core.openstack-service-api')
-    .factory('horizon.app.core.openstack-service-api.keystone', KeystoneAPI);
+    .factory('horizon.app.core.openstack-service-api.keystone', keystoneAPI);
 
-  KeystoneAPI.$inject = [
+  keystoneAPI.$inject = [
     'horizon.framework.util.http.service',
     'horizon.framework.widgets.toast.service'
   ];
 
-  function KeystoneAPI(apiService, toastService) {
+  function keystoneAPI(apiService, toastService) {
     var service = {
       getVersion: getVersion,
       getUsers: getUsers,

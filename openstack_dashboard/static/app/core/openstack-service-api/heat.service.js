@@ -16,9 +16,9 @@
 
   angular
     .module('horizon.app.core.openstack-service-api')
-    .service('horizon.app.core.openstack-service-api.heat', HeatAPI);
+    .service('horizon.app.core.openstack-service-api.heat', heatAPI);
 
-  HeatAPI.$inject = [
+  heatAPI.$inject = [
     'horizon.framework.util.http.service',
     'horizon.framework.widgets.toast.service'
   ];
@@ -28,7 +28,7 @@
    * @name horizon.app.core.openstack-service-api.heat
    * @description Provides direct pass through to Heat with NO abstraction.
    */
-  function HeatAPI(apiService, toastService) {
+  function heatAPI(apiService, toastService) {
     var service = {
       validate: validate
     };

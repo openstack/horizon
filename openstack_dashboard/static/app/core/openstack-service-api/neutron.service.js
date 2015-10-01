@@ -18,9 +18,9 @@
 
   angular
     .module('horizon.app.core.openstack-service-api')
-    .factory('horizon.app.core.openstack-service-api.neutron', NeutronAPI);
+    .factory('horizon.app.core.openstack-service-api.neutron', neutronAPI);
 
-  NeutronAPI.$inject = [
+  neutronAPI.$inject = [
     'horizon.framework.util.http.service',
     'horizon.framework.widgets.toast.service'
   ];
@@ -30,7 +30,7 @@
    * @name horizon.app.core.openstack-service-api.neutron
    * @description Provides access to Neutron APIs.
    */
-  function NeutronAPI(apiService, toastService) {
+  function neutronAPI(apiService, toastService) {
     var service = {
       getNetworks: getNetworks,
       createNetwork: createNetwork,
