@@ -251,6 +251,7 @@
     var $scope, $compile, $element;
 
     beforeEach(module('templates'));
+    beforeEach(module('smart-table'));
     beforeEach(module('horizon.framework'));
 
     beforeEach(inject(function ($injector) {
