@@ -22,6 +22,8 @@ STATICFILES_DIRS = get_staticfiles_dirs()
 
 TEST_DIR = os.path.dirname(os.path.abspath(__file__))
 ROOT_PATH = os.path.abspath(os.path.join(TEST_DIR, ".."))
+MEDIA_ROOT = os.path.abspath(os.path.join(ROOT_PATH, '..', 'media'))
+MEDIA_URL = '/media/'
 STATIC_ROOT = os.path.abspath(os.path.join(ROOT_PATH, '..', 'static'))
 STATIC_URL = '/static/'
 WEBROOT = '/'
