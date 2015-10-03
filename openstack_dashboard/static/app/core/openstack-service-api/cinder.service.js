@@ -18,9 +18,9 @@
 
   angular
     .module('horizon.app.core.openstack-service-api')
-    .factory('horizon.app.core.openstack-service-api.cinder', CinderAPI);
+    .factory('horizon.app.core.openstack-service-api.cinder', cinderAPI);
 
-  CinderAPI.$inject = [
+  cinderAPI.$inject = [
     'horizon.framework.util.http.service',
     'horizon.framework.widgets.toast.service'
   ];
@@ -30,7 +30,7 @@
    * @name horizon.app.core.openstack-service-api.cinder
    * @description Provides direct access to Cinder APIs.
    */
-  function CinderAPI(apiService, toastService) {
+  function cinderAPI(apiService, toastService) {
     var service = {
       getVolumes: getVolumes,
       getVolumeSnapshots: getVolumeSnapshots

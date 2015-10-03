@@ -18,9 +18,9 @@
 
   angular
     .module('horizon.app.core.openstack-service-api')
-    .factory('horizon.app.core.openstack-service-api.security-group', SecurityGroupAPI);
+    .factory('horizon.app.core.openstack-service-api.security-group', securityGroupAPI);
 
-  SecurityGroupAPI.$inject = [
+  securityGroupAPI.$inject = [
     'horizon.framework.util.http.service',
     'horizon.framework.widgets.toast.service'
   ];
@@ -30,7 +30,7 @@
    * @name horizon.app.core.openstack-service-api.security-group
    * @description Provides access to Security Groups
    */
-  function SecurityGroupAPI(apiService, toastService) {
+  function securityGroupAPI(apiService, toastService) {
     var service = {
       query: query
     };

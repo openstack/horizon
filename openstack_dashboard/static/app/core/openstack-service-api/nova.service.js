@@ -18,9 +18,9 @@
 
   angular
     .module('horizon.app.core.openstack-service-api')
-    .factory('horizon.app.core.openstack-service-api.nova', NovaAPI);
+    .factory('horizon.app.core.openstack-service-api.nova', novaAPI);
 
-  NovaAPI.$inject = [
+  novaAPI.$inject = [
     'horizon.framework.util.http.service',
     'horizon.framework.widgets.toast.service'
   ];
@@ -30,7 +30,7 @@
    * @name horizon.app.core.openstack-service-api.nova
    * @description Provides access to Nova APIs.
    */
-  function NovaAPI(apiService, toastService) {
+  function novaAPI(apiService, toastService) {
 
     var service = {
       getKeypairs: getKeypairs,
