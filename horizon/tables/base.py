@@ -358,8 +358,8 @@ class Column(html.HTMLElement):
             try:
                 data = getattr(datum, self.transform)
             except AttributeError:
-                msg = _("The attribute %(attr)s doesn't exist on "
-                        "%(obj)s.") % {'attr': self.transform, 'obj': datum}
+                msg = ("The attribute %(attr)s doesn't exist on "
+                       "%(obj)s.") % {'attr': self.transform, 'obj': datum}
                 msg = termcolors.colorize(msg, **PALETTE['ERROR'])
                 LOG.warning(msg)
                 data = None
@@ -1577,8 +1577,7 @@ class DataTable(object):
 
             # If not allowed, neither edit mod or updating is allowed.
             if not cell.update_allowed:
-                datum_display = (self.get_object_display(datum) or
-                                 _("N/A"))
+                datum_display = (self.get_object_display(datum) or "N/A")
                 LOG.info('Permission denied to %s: "%s"' %
                          ("Update Action", datum_display))
                 return HttpResponse(status=401)
