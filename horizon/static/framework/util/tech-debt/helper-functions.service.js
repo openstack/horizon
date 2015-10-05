@@ -23,50 +23,10 @@
 
   function helperFunctionsService($rootScope, $compile) {
     var service = {
-      capitalize: capitalize,
-      humanizeNumbers: humanizeNumbers,
-      truncate: truncate,
       loadAngular: loadAngular
     };
 
     return service;
-
-    function capitalize(string) {
-      return string.charAt(0).toUpperCase() + string.slice(1);
-    }
-
-    /*
-     * Adds commas to any integer or numbers within a string for human display.
-     *
-     *  Example:
-     *  horizon.utils.humanizeNumbers(1234); -> "1,234"
-     *  horizon.utils.humanizeNumbers("My Total: 1234"); -> "My Total: 1,234"
-     *
-     */
-    function humanizeNumbers(number) {
-      return number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
-    }
-
-    /*
-     * Truncate a string at the desired length. Optionally append an ellipsis
-     * to the end of the string.
-     *
-     *  Example:
-     *  horizon.utils.truncate("String that is too long.", 18, true); ->
-     *  "String that is too&hellip;"
-     *
-     */
-    function truncate(string, size, includeEllipsis) {
-      if (string.length > size) {
-        if (includeEllipsis) {
-          return string.substring(0, (size - 3)) + '&hellip;';
-        }
-
-        return string.substring(0, size);
-      }
-
-      return string;
-    }
 
     /*
      * Compile angular directives in a DOM element that has typically been

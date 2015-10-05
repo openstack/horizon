@@ -16,6 +16,7 @@
   <script src='{{ STATIC_URL }}horizon/js/horizon.messages.js'></script>
   <script src='{{ STATIC_URL }}horizon/js/horizon.modals.js'></script>
   <script src='{{ STATIC_URL }}horizon/js/horizon.tables.js'></script>
+  <script src='{{ STATIC_URL }}horizon/js/horizon.quota.js'></script>
 
   {% include "horizon/client_side/templates.html" %}
 
@@ -33,6 +34,7 @@
   <script type="text/javascript" src="{{ STATIC_URL }}horizon/tests/jasmine/tables.legacy-spec.js"></script>
   <script type="text/javascript" src="{{ STATIC_URL }}horizon/tests/jasmine/instances.legacy-spec.js"></script>
   <script type="text/javascript" src="{{ STATIC_URL }}horizon/tests/jasmine/messages.legacy-spec.js"></script>
+  <script type="text/javascript" src="{{ STATIC_URL }}horizon/tests/jasmine/quota.legacy-spec.js"></script>
 {% endblock %}
 
 {% block content %}
