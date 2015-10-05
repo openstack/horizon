@@ -282,6 +282,7 @@ class ImagesTable(tables.DataTable):
         ("pending_delete", None),
         ("killed", False),
         ("deleted", False),
+        ("deactivated", False),
     )
     STATUS_DISPLAY_CHOICES = (
         ("active", pgettext_lazy("Current status of an Image", u"Active")),
@@ -291,6 +292,8 @@ class ImagesTable(tables.DataTable):
                                          u"Pending Delete")),
         ("killed", pgettext_lazy("Current status of an Image", u"Killed")),
         ("deleted", pgettext_lazy("Current status of an Image", u"Deleted")),
+        ("deactivated", pgettext_lazy("Current status of an Image",
+                                      u"Deactivated")),
     )
     TYPE_CHOICES = (
         ("image", pgettext_lazy("Type of an image", u"Image")),
