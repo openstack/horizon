@@ -103,7 +103,7 @@ class DataProcessingJobBinaryTests(test.TestCase):
     @test.create_stubs({api.sahara: ('job_binary_get',
                                      'job_binary_update')})
     def test_update(self):
-        jb = api.sahara.job_binary_get(IsA(http.HttpRequest), IsA(unicode)) \
+        jb = api.sahara.job_binary_get(IsA(http.HttpRequest), IsA(six.text_type)) \
             .AndReturn(self.job_binaries.first())
         api.sahara.job_binary_update(IsA(http.HttpRequest),
                                      IsA(str),

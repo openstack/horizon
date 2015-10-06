@@ -156,7 +156,7 @@ class DataProcessingJobTests(test.TestCase):
         cluster = self.clusters.first()
         input_ds = self.data_sources.first()
         output_ds = self.data_sources.first()
-        api.sahara.job_get(IsA(http.HttpRequest), IsA(unicode)) \
+        api.sahara.job_get(IsA(http.HttpRequest), IsA(six.text_type)) \
             .AndReturn(job)
         api.sahara.job_get_configs(IsA(http.HttpRequest), job.type) \
             .AndReturn(job)
@@ -166,13 +166,13 @@ class DataProcessingJobTests(test.TestCase):
             .MultipleTimes().AndReturn(self.data_sources.list())
         api.sahara.job_list(IsA(http.HttpRequest)) \
             .AndReturn(self.jobs.list())
-        api.sahara.job_get(IsA(http.HttpRequest), IsA(unicode)) \
+        api.sahara.job_get(IsA(http.HttpRequest), IsA(six.text_type)) \
             .AndReturn(job)
         api.sahara.job_execution_create(IsA(http.HttpRequest),
-                                        IsA(unicode),
-                                        IsA(unicode),
-                                        IsA(unicode),
-                                        IsA(unicode),
+                                        IsA(six.text_type),
+                                        IsA(six.text_type),
+                                        IsA(six.text_type),
+                                        IsA(six.text_type),
                                         IsA(dict),
                                         IsA(dict)).AndReturn(job_execution)
         self.mox.ReplayAll()
