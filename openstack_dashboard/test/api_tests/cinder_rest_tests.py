@@ -11,10 +11,12 @@
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
+import json
 import mock
 
 from django.conf import settings
 
+from openstack_dashboard import api
 from openstack_dashboard.api.rest import cinder
 from openstack_dashboard.test import helpers as test
 
@@ -206,3 +208,50 @@ class CinderRestTestCase(test.TestCase):
         self.assertStatusCode(response, 200)
         self.assertEqual(response.content.decode("utf-8"), '{"id": "one"}')
         cc.tenant_absolute_limits.assert_called_once_with(request)
+
+    #
+    # Services
+    #
+
+    @test.create_stubs({api.base: ('is_service_enabled',)})
+    @mock.patch.object(cinder.api, 'cinder')
+    def test_services_get(self, cc):
+        request = self.mock_rest_request(GET={})
+        cc.service_list.return_value = [mock.Mock(
+            binary='binary_1',
+            host='host_1',
+            zone='zone_1',
+            updated_at='updated_at_1',
+            status='status_1',
+            state='state_1'
+        ), mock.Mock(
+            binary='binary_2',
+            host='host_2',
+            zone='zone_2',
+            updated_at='updated_at_2',
+            status='status_2',
+            state='state_2'
+        )]
+        api.base.is_service_enabled(request, 'volume').AndReturn(True)
+
+        self.mox.ReplayAll()
+
+        response = cinder.Services().get(request)
+        self.assertStatusCode(response, 200)
+        response_as_json = json.loads(response.content.decode('utf-8'))
+        self.assertEqual(response_as_json['items'][0]['id'], 1)
+        self.assertEqual(response_as_json['items'][0]['binary'], 'binary_1')
+        self.assertEqual(response_as_json['items'][1]['id'], 2)
+        self.assertEqual(response_as_json['items'][1]['binary'], 'binary_2')
+        cc.service_list.assert_called_once_with(request)
+
+    @test.create_stubs({api.base: ('is_service_enabled',)})
+    def test_services_get_disabled(self):
+        request = self.mock_rest_request(GET={})
+
+        api.base.is_service_enabled(request, 'volume').AndReturn(False)
+
+        self.mox.ReplayAll()
+
+        response = cinder.Services().get(request)
+        self.assertStatusCode(response, 501)

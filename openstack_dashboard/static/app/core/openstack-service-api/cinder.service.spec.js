@@ -93,8 +93,12 @@
           'config'
         ]
       },
-      {
-        func: 'getVolumeSnapshots',
+      { func: 'getServices',
+        method: 'get',
+        path: '/api/cinder/services/',
+        error: 'Unable to retrieve the cinder services.' },
+
+      { func: 'getVolumeSnapshots',
         method: 'get',
         path: '/api/cinder/volumesnapshots/',
         data: {},

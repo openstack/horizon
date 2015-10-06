@@ -202,3 +202,31 @@ class TenantAbsoluteLimits(generic.View):
     @rest_utils.ajax()
     def get(self, request):
         return api.cinder.tenant_absolute_limits(request)
+
+
+@urls.register
+class Services(generic.View):
+    """API for cinder services.
+    """
+    url_regex = r'cinder/services/$'
+
+    @rest_utils.ajax()
+    def get(self, request):
+        """Get a list of cinder services.
+        Will return HTTP 501 status code if the service_list extension is
+        not supported.
+        """
+        if api.base.is_service_enabled(request, 'volume') and \
+           api.cinder.extension_supported(request, 'Services'):
+            result = api.cinder.service_list(request)
+            return {'items': [{
+                'binary': u.binary,
+                'host': u.host,
+                'zone': u.zone,
+                'updated_at': u.updated_at,
+                'status': u.status,
+                'state': u.state,
+                'id': idx + 1
+            } for idx, u in enumerate(result)]}
+        else:
+            raise rest_utils.AjaxError(501, '')

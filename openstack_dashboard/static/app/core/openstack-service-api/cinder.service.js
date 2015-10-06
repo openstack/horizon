@@ -41,7 +41,8 @@
       getExtensions: getExtensions,
       getQoSSpecs: getQoSSpecs,
       createVolume: createVolume,
-      getAbsoluteLimits: getAbsoluteLimits
+      getAbsoluteLimits: getAbsoluteLimits,
+      getServices: getServices
     };
 
     return service;
@@ -204,6 +205,22 @@
       return apiService.get('/api/cinder/extensions/', config)
         .error(function () {
           toastService.add('error', gettext('Unable to retrieve the extensions.'));
+        });
+    }
+
+    // Cinder Services
+
+    /**
+    * @name horizon.openstack-service-api.cinder.getServices
+    * @description Get the list of Cinder services.
+    *
+    * @returns The listing result is an object with property "services." Each item is
+    * a service.
+    */
+    function getServices() {
+      return apiService.get('/api/cinder/services/')
+        .error(function () {
+          toastService.add('error', gettext('Unable to retrieve the cinder services.'));
         });
     }
 

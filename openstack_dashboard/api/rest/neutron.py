@@ -136,3 +136,21 @@ class Ports(generic.View):
         # https://github.com/openstack/neutron/blob/master/neutron/api/v2/attributes.py
         result = api.neutron.port_list(request, **request.GET)
         return{'items': [n.to_dict() for n in result]}
+
+
+@urls.register
+class Services(generic.View):
+    """API for Neutron agents
+    """
+    url_regex = r'neutron/agents/$'
+
+    @rest_utils.ajax()
+    def get(self, request):
+        """Get a list of agents
+        """
+        if api.base.is_service_enabled(request, 'network') and \
+           api.neutron.is_extension_supported(request, 'agent'):
+            result = api.neutron.agent_list(request, **request.GET)
+            return {'items': [n.to_dict() for n in result]}
+        else:
+            raise rest_utils.AjaxError(501, '')

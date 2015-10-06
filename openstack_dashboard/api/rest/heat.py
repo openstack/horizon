@@ -1,4 +1,3 @@
-
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
 # You may obtain a copy of the License at
@@ -37,3 +36,20 @@ class Validate(generic.View):
         :param template_url: The template to validate
         """
         return api.heat.template_validate(request, **(request.DATA))
+
+
+@urls.register
+class Services(generic.View):
+    """API for heat services.
+    """
+    url_regex = r'heat/services/$'
+
+    @rest_utils.ajax()
+    def get(self, request):
+        """Get a list of heat services.
+        """
+        if api.base.is_service_enabled(request, 'orchestration'):
+            result = api.heat.service_list(request)
+            return {'items': [u.to_dict() for u in result]}
+        else:
+            raise rest_utils.AjaxError(501, '')

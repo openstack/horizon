@@ -64,6 +64,26 @@ class Keypairs(generic.View):
 
 
 @urls.register
+class Services(generic.View):
+    """API for nova services.
+    """
+    url_regex = r'nova/services/$'
+
+    @rest_utils.ajax()
+    def get(self, request):
+        """Get a list of nova services.
+        Will return HTTP 501 status code if the service_list extension is
+        not supported.
+        """
+        if api.base.is_service_enabled(request, 'compute') \
+           and api.nova.extension_supported('Services', request):
+            result = api.nova.service_list(request)
+            return {'items': [u.to_dict() for u in result]}
+        else:
+            raise rest_utils.AjaxError(501, '')
+
+
+@urls.register
 class AvailabilityZones(generic.View):
     """API for nova availability zones.
     """
