@@ -1,12 +1,3 @@
-# Translations template for PROJECT.
-# Copyright (C) 2015 ORGANIZATION
-# This file is distributed under the same license as the PROJECT project.
-#
-# Translators:
-# Corina Roe <croe@redhat.com>, 2015
-# Corinne Verheyde <cverheyd@hotmail.com>, 2015
-# Lucas Mascaro <mascaro.lucas@yahoo.fr>, 2015
-# Maxime COQUEREL <max.coquerel@gmail.com>, 2015
 # Corinne Verheyde <cverheyd@gmail.com>, 2015. #zanata
 # François Bureau <bureaufrancois@gmail.com>, 2015. #zanata
 # OpenStack Infra <zanata@openstack.org>, 2015. #zanata
@@ -16,18 +7,16 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-09-18 23:31+0000\n"
+"POT-Creation-Date: 2015-09-26 08:59+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2015-09-18 10:06+0000\n"
-"Last-Translator: Corinne Verheyde <cverheyd@gmail.com>\n"
-"Language-Team: French (http://www.transifex.com/openstack/horizon/language/"
-"fr/)\n"
-"Generated-By: Babel 2.0\n"
+"PO-Revision-Date: 2015-10-05 01:27+0000\n"
+"Last-Translator: François Bureau <bureaufrancois@gmail.com>\n"
+"Language-Team: French\n"
 "Language: fr\n"
-"Plural-Forms: nplurals=2; plural=(n > 1);\n"
 "X-Generator: Zanata 3.7.1\n"
+"Plural-Forms: nplurals=2; plural=(n > 1)\n"
 
 msgid "(Max: 16Kb)"
 msgstr "(Max: 16Ko)"
@@ -311,6 +300,13 @@ msgstr ""
 "de mémoire et de calcul d'une instance."
 
 msgid ""
+"For configs and params, type the key name; for args, type the index as an "
+"integer, starting from 0."
+msgstr ""
+"Pour configurer et paramétrer;  saisir le nom de la clé; Pour les args, "
+"saisir un entier pour l'index, en commençant par 0."
+
+msgid ""
 "For data sources, use a data source UUID or a path (as per data source "
 "creation.)"
 msgstr ""
@@ -362,6 +358,16 @@ msgstr ""
 "le démarrage de l'option volume, veillez à ce que la zone de disponibilité "
 "que vous avez sélectionnée pour l'instance est la même zone de disponibilité "
 "que celle où votre volume de démarrage se trouve."
+
+msgid ""
+"If you want to create an instance that uses ephemeral storage, meaning the "
+"instance data is lost when the instance is deleted, then choose one of the "
+"following boot sources:"
+msgstr ""
+"Si vous souhaitez créer une instance qui utilise un stockage temporaire, ce "
+"qui signifie que es données de l'instance seront perdues quand l'instance "
+"aura été supprimée, alors sélectionnez une des sources de démarrage "
+"suivantes:"
 
 msgid ""
 "If you want to create an instance that uses persistent storage, meaning the "
@@ -437,6 +443,14 @@ msgstr ""
 "clé publique SSH dans\n"
 "    l’espace prévu à cet effet."
 
+msgid ""
+"Key Pairs are how you login to your instance after it is launched.\n"
+"        Choose a key pair name you will recognize."
+msgstr ""
+"Les paires de clés servent à se connecter à une instance après son "
+"lancement.\n"
+" Choisissez un nom de paire de clés que vous reconnaîtrez."
+
 msgid "Killed"
 msgstr "Supprimé par force"
 
@@ -451,6 +465,9 @@ msgstr "Emplacement"
 
 msgid "Manual"
 msgstr "Manuelle"
+
+msgid "Mapping Type"
+msgstr "Type de mappage"
 
 msgid "Max Port"
 msgstr "Port Max"
