@@ -154,7 +154,8 @@ class SnapshotTab(tabs.TableTab):
 
         else:
             snapshots = []
-        return sorted(snapshots, key=lambda snapshot: snapshot.tenant_name)
+        return sorted(snapshots,
+                      key=lambda snapshot: snapshot.tenant_name or '')
 
 
 class VolumesGroupTabs(tabs.TabGroup):

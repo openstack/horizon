@@ -443,7 +443,7 @@ class SetInstanceDetailsAction(workflows.Action):
                     'volume_size' not in context:
                 context['volume_size'] = image.volume_size
         if choices:
-            choices.sort(key=lambda c: c[1].name)
+            choices.sort(key=lambda c: c[1].name or '')
             choices.insert(0, ("", _("Select Image")))
         else:
             choices.insert(0, ("", _("No images available")))

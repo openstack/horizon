@@ -135,7 +135,7 @@ class LaunchForm(forms.SelfHandlingForm):
             datastore = datastore_field_value.split(',')[0]
 
             if db_capability.is_mongodb_datastore(datastore):
-                if self.data.get("num_shards", None) < 1:
+                if self.data.get("num_shards", 0) < 1:
                     msg = _("The number of shards must be greater than 1.")
                     self._errors["num_shards"] = self.error_class([msg])
 
