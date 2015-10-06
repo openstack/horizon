@@ -179,13 +179,11 @@ SESSION_ENGINE = 'django.contrib.sessions.backends.signed_cookies'
 SESSION_COOKIE_HTTPONLY = True
 SESSION_EXPIRE_AT_BROWSER_CLOSE = True
 SESSION_COOKIE_SECURE = False
-SESSION_TIMEOUT = 1800
-# A token can be near the end of validity when a page starts loading, and
-# invalid during the rendering which can cause errors when a page load.
-# TOKEN_TIMEOUT_MARGIN defines a time in seconds we retrieve from token
-# validity to avoid this issue. You can adjust this time depending on the
-# performance of the infrastructure.
-TOKEN_TIMEOUT_MARGIN = 10
+
+# SESSION_TIMEOUT is a method to supercede the token timeout with a shorter
+# horizon session timeout (in seconds).  So if your token expires in 60
+# minutes, a value of 1800 will log users out after 30 minutes
+SESSION_TIMEOUT = 3600
 
 # When using cookie-based sessions, log error when the session cookie exceeds
 # the following size (common browsers drop cookies above a certain size):

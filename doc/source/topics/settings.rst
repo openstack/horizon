@@ -1112,10 +1112,12 @@ define the policy rules actions are verified against.
 
 .. versionadded:: 2013.2(Havana)
 
-Default: ``"1800"``
+Default: ``"3600"``
 
-Specifies the timespan in seconds inactivity, until a user is considered as
- logged out.
+This SESSION_TIMEOUT is a method to supercede the token timeout with a shorter
+horizon session timeout (in seconds).  So if your token expires in 60 minutes,
+a value of 1800 will log users out after 30 minutes.
+
 
 ``SAHARA_AUTO_IP_ALLOCATION_ENABLED``
 -------------------------------------

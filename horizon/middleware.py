@@ -21,7 +21,6 @@ Middleware provided and used by Horizon.
 
 import json
 import logging
-import time
 
 from django.conf import settings
 from django.contrib.auth import REDIRECT_FIELD_NAME  # noqa
@@ -30,10 +29,8 @@ from django.contrib import messages as django_messages
 from django import http
 from django import shortcuts
 from django.utils.encoding import iri_to_uri  # noqa
-from django.utils import timezone
 from django.utils.translation import ugettext_lazy as _
 
-from openstack_auth import utils as auth_utils
 from openstack_auth import views as auth_views
 import six
 
@@ -48,33 +45,6 @@ class HorizonMiddleware(object):
     """The main Horizon middleware class. Required for use of Horizon."""
 
     logout_reason = None
-
-    def _check_has_timed_timeout(self, request):
-        """Check for session timeout and return timestamp."""
-        has_timed_out = False
-        # Activate timezone handling
-        tz = request.session.get('django_timezone')
-        if tz:
-            timezone.activate(tz)
-        try:
-            timeout = settings.SESSION_TIMEOUT
-        except AttributeError:
-            timeout = 1800
-        last_activity = request.session.get('last_activity', None)
-        timestamp = int(time.time())
-        if (
-            hasattr(request, "user")
-            and hasattr(request.user, "token")
-            and not auth_utils.is_token_valid(request.user.token)
-        ):
-            # The user was logged in, but his keystone token expired.
-            has_timed_out = True
-        if isinstance(last_activity, int):
-            if (timestamp - last_activity) > timeout:
-                has_timed_out = True
-            if has_timed_out:
-                request.session.pop('last_activity')
-        return (has_timed_out, timestamp)
 
     def _logout(self, request, login_url=None, message=None):
         """Logout a user and display a logout message."""
@@ -96,11 +66,6 @@ class HorizonMiddleware(object):
             # it is CRITICAL to perform this check as early as possible
             # to avoid creating too many sessions
             return None
-
-        # Check for session timeout if user is (or was) authenticated.
-        has_timed_out, timestamp = self._check_has_timed_timeout(request)
-        if has_timed_out:
-            return self._logout(request, request.path, _("Session timed out."))
 
         if request.is_ajax():
             # if the request is Ajax we do not want to proceed, as clients can
@@ -140,8 +105,6 @@ class HorizonMiddleware(object):
                             'max_cookie_size': max_cookie_size,
                         }
                     )
-        # We have a valid session, so we set the timestamp
-        request.session['last_activity'] = timestamp
 
     def process_exception(self, request, exception):
         """Catches internal Horizon exception classes such as NotAuthorized,
