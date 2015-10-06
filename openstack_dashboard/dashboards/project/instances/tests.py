@@ -918,8 +918,6 @@ class InstanceTests(helpers.TestCase):
 
         self.assertItemsEqual(res.context['instance'].volumes, volumes)
 
-        self.assertItemsEqual(res.context['instance'].volumes, volumes)
-
     def test_instance_details_volume_sorting(self):
         server = self.servers.first()
         volumes = self.volumes.list()[1:3]
@@ -949,8 +947,7 @@ class InstanceTests(helpers.TestCase):
                             1)
         self.assertContains(res, "<dd>&lt;!--</dd>", 1)
         self.assertContains(res, "<dt>empty</dt>", 1)
-        # TODO(david-lyle): uncomment when fixed with Django 1.6
-        # self.assertContains(res, "<dd><em>N/A</em></dd>", 1)
+        self.assertContains(res, "<dd><em>N/A</em></dd>", 1)
 
     def test_instance_details_fault(self):
         server = self.servers.first()
