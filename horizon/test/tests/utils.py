@@ -264,7 +264,7 @@ class SecretKeyTests(test.TestCase):
         self.assertEqual(secret_key.generate_or_read_from_file(key_file), key)
 
         # Key file only be read/writable by user:
-        self.assertEqual("0600", oct(os.stat(key_file).st_mode & 0o777))
+        self.assertEqual(0o600, os.stat(key_file).st_mode & 0o777)
         os.chmod(key_file, 0o644)
         self.assertRaises(secret_key.FilePermissionError,
                           secret_key.generate_or_read_from_file, key_file)
