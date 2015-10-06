@@ -1,11 +1,12 @@
 {% extends 'base.html' %}
 {% load i18n %}
 {% block title %}{% trans "Images" %}{% endblock %}
+{% block page_header %}{% endblock %}
 
 {% block ng_route_base %}
   <base href="{{ WEBROOT }}">
 {% endblock %}
 
 {% block main %}
-  <ng-include src="'{{ STATIC_URL }}app/core/images/table/images-table.html'"></ng-include>
+  <div ng-view></div>
 {% endblock %}

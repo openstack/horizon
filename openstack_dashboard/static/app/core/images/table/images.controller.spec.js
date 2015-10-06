@@ -53,7 +53,7 @@
       2: {id: '2', is_public: false, owner: 'not_me', filtered_visibility: 'Shared with Me'}
     };
 
-    var $scope, controller, events;
+    var $scope, controller, events, detailsRoute;
 
     beforeEach(module('ui.bootstrap'));
     beforeEach(module('horizon.framework'));
@@ -71,6 +71,7 @@
       $scope = _$rootScope_.$new();
       events = $injector.get('horizon.app.core.images.events');
       controller = $injector.get('$controller');
+      detailsRoute = $injector.get('horizon.app.core.images.detailsRoute');
 
       spyOn(glanceAPI, 'getImages').and.callThrough();
       spyOn(userSession, 'get').and.callThrough();
@@ -86,6 +87,10 @@
         'horizon.app.core.images.row-actions.service': { initScope: angular.noop }
       });
     }
+
+    it('should set details route properly', function() {
+      expect(createController().detailsRoute).toEqual(detailsRoute);
+    });
 
     it('should invoke initialization apis', function() {
       var ctrl = createController();

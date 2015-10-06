@@ -20,5 +20,5 @@ from openstack_dashboard.dashboards.project.ngimages import views
 
 urlpatterns = patterns(
     'openstack_dashboard.dashboards.project.ngimages.views',
-    url(r'^$', views.IndexView.as_view(), name='index'),
+    url('', views.IndexView.as_view(), name='index'),
 )
