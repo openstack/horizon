@@ -314,7 +314,7 @@ def _get_tenant_network_usages(request, usages, disabled_quotas, tenant_id):
         networks = []
         networks = neutron.network_list(request, shared=False)
         if tenant_id:
-            networks = filter(lambda net: net.tenant_id == tenant_id, networks)
+            networks = [net for net in networks if net.tenant_id == tenant_id]
         usages.tally('networks', len(networks))
 
     if 'subnet' not in disabled_quotas:
