@@ -200,9 +200,9 @@ class SwiftTests(test.TestCase):
     def test_upload(self):
         container = self.containers.first()
         obj = self.objects.first()
-        OBJECT_DATA = 'objectData'
+        OBJECT_DATA = b'objectData'
 
-        temp_file = tempfile.TemporaryFile()
+        temp_file = tempfile.NamedTemporaryFile()
         temp_file.write(OBJECT_DATA)
         temp_file.flush()
         temp_file.seek(0)
@@ -367,8 +367,9 @@ class SwiftTests(test.TestCase):
 
                 # Check that the returned Content-Disposition filename is well
                 # surrounded by double quotes and with commas removed
-                expected_name = '"%s"' % obj.name.replace(
-                    ',', '').encode('utf-8')
+                expected_name = '"%s"' % obj.name.replace(',', '')
+                if six.PY2:
+                    expected_name = expected_name.encode('utf-8')
                 self.assertEqual(
                     res.get('Content-Disposition'),
                     'attachment; filename=%s' % expected_name
@@ -444,9 +445,9 @@ class SwiftTests(test.TestCase):
     def test_update_with_file(self):
         container = self.containers.first()
         obj = self.objects.first()
-        OBJECT_DATA = 'objectData'
+        OBJECT_DATA = b'objectData'
 
-        temp_file = tempfile.TemporaryFile()
+        temp_file = tempfile.NamedTemporaryFile()
         temp_file.write(OBJECT_DATA)
         temp_file.flush()
         temp_file.seek(0)

@@ -188,7 +188,7 @@ class AggregatesViewTests(test.BaseAdminViewTests):
 
         self.patchers['aggregates'].stop()
         res = self.client.get(reverse('horizon:admin:overview:index'))
-        self.assertNotIn('Host Aggregates', res.content)
+        self.assertNotIn(b'Host Aggregates', res.content)
 
     @test.create_stubs({api.nova: ('aggregate_details_list',
                                    'availability_zone_list',)})

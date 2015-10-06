@@ -14,9 +14,8 @@ from django.core.urlresolvers import reverse
 from django import http
 
 from mox3.mox import IsA  # noqa
-import six
-
 from oslo_serialization import jsonutils
+import six
 
 from openstack_dashboard import api
 from openstack_dashboard.test import helpers as test

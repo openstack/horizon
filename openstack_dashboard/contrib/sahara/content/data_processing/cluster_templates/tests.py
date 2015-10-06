@@ -12,12 +12,12 @@
 
 import base64
 import copy
-import json
 
 from django.core.urlresolvers import reverse
 from django import http
 
 from mox3.mox import IsA  # noqa
+from oslo_serialization import jsonutils
 import six
 
 from openstack_dashboard import api as dash_api
@@ -141,6 +141,9 @@ class DataProcessingClusterTemplateTests(test.TestCase):
         url = reverse('horizon:project:data_processing.cluster_templates:edit',
                       args=[ct.id])
 
+        def serialize(obj):
+            return base64.urlsafe_b64encode(jsonutils.dump_as_bytes(obj))
+
         res = self.client.post(
             url,
             {'ct_id': ct.id,
@@ -152,13 +155,11 @@ class DataProcessingClusterTemplateTests(test.TestCase):
              'template_id_0': ct.node_groups[0]['node_group_template_id'],
              'group_name_0': ct.node_groups[0]['name'],
              'count_0': 1,
-             'serialized_0': base64.urlsafe_b64encode(
-                 json.dumps(ct.node_groups[0])),
+             'serialized_0': serialize(ct.node_groups[0]),
              'template_id_1': ct.node_groups[1]['node_group_template_id'],
              'group_name_1': ct.node_groups[1]['name'],
              'count_1': 2,
-             'serialized_1': base64.urlsafe_b64encode(
-                 json.dumps(ct.node_groups[1])),
+             'serialized_1': serialize(ct.node_groups[1]),
              'forms_ids': "[0,1]",
              'anti-affinity': ct.anti_affinity,
              })
