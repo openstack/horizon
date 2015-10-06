@@ -77,12 +77,12 @@
 
             <div class="col-xs-12 col-sm-4" ng-if="model.newInstanceSpec.vol_create == true">
               <div class="form-group delete-volume">
-                <label translate class="on-top">Delete Volume on Terminate</label>
+                <label translate class="on-top">Delete Volume on Instance Delete</label>
                 <div class="form-field">
                   <div class="btn-group">
                     <label class="btn btn-toggle"
                       ng-repeat="option in ctrl.toggleButtonOptions"
-                      ng-model="model.newInstanceSpec.vol_delete_on_terminate"
+                      ng-model="model.newInstanceSpec.vol_delete_on_instance_delete"
                       btn-radio="option.value">{$ ::option.label $}</label>
                   </div>
                 </div>
@@ -96,12 +96,12 @@
             <div class="col-xs-12 col-sm-6">
 
               <div class="form-group delete-volume">
-                <label translate class="on-top">Delete Volume on Terminate</label>
+                <label translate class="on-top">Delete Volume on Instance Delete</label>
                 <div class="form-field">
                   <div class="btn-group">
                     <label class="btn btn-toggle"
                       ng-repeat="option in ctrl.toggleButtonOptions"
-                      ng-model="model.newInstanceSpec.vol_delete_on_terminate"
+                      ng-model="model.newInstanceSpec.vol_delete_on_instance_delete"
                       btn-radio="option.value">{$ ::option.label $}</label>
                   </div>
                 </div>

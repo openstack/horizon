@@ -22,5 +22,5 @@ class InstancesTable(tables.InstancesTable):
         name = "instances"
         verbose_name = _("Instances")
         row_actions = (
-            tables.TerminateInstance,
+            tables.DeleteInstance,
         )

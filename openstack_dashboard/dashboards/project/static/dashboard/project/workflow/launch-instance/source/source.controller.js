@@ -240,7 +240,7 @@
     function updateBootSourceSelection(selectedSource) {
       ctrl.currentBootSource = selectedSource;
       $scope.model.newInstanceSpec.vol_create = false;
-      $scope.model.newInstanceSpec.vol_delete_on_terminate = false;
+      $scope.model.newInstanceSpec.vol_delete_on_instance_delete = false;
       changeBootSource(selectedSource);
       validateBootSourceType();
     }

@@ -137,7 +137,7 @@
 
             expect(ctrl.currentBootSource).toEqual('image');
             expect(scope.model.newInstanceSpec.vol_create).toBe(false);
-            expect(scope.model.newInstanceSpec.vol_delete_on_terminate).toBe(false);
+            expect(scope.model.newInstanceSpec.vol_delete_on_instance_delete).toBe(false);
 
             // check table data
             expect(ctrl.tableData).toBeDefined();

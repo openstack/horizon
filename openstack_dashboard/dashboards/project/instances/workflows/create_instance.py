@@ -128,11 +128,11 @@ class SetInstanceDetailsAction(workflows.Action):
                                               "system choose a device name "
                                               "for you."))
 
-    delete_on_terminate = forms.BooleanField(label=_("Delete on Terminate"),
-                                             initial=False,
-                                             required=False,
-                                             help_text=_("Delete volume on "
-                                                         "instance terminate"))
+    vol_delete_on_instance_delete = forms.BooleanField(
+        label=_("Delete Volume on Instance Delete"),
+        initial=False,
+        required=False,
+        help_text=_("Delete volume when the instance is deleted"))
 
     class Meta(object):
         name = _("Details")
@@ -507,7 +507,7 @@ class SetInstanceDetails(workflows.Step):
     contributes = ("source_type", "source_id",
                    "availability_zone", "name", "count", "flavor",
                    "device_name",  # Can be None for an image.
-                   "delete_on_terminate")
+                   "vol_delete_on_instance_delete")
 
     def prepare_action_context(self, request, context):
         if 'source_type' in context and 'source_id' in context:
@@ -884,17 +884,18 @@ class LaunchInstance(workflows.Workflow):
                          'source_type': dev_source_type_mapping[source_type],
                          'destination_type': 'volume',
                          'delete_on_termination':
-                             bool(context['delete_on_terminate']),
+                             bool(context['vol_delete_on_instance_delete']),
                          'uuid': volume_source_id,
                          'boot_index': '0',
                          'volume_size': context['volume_size']
                          }
                     ]
                 else:
-                    dev_mapping_1 = {context['device_name']: '%s::%s' %
-                                     (context['source_id'],
-                                     bool(context['delete_on_terminate']))
-                                     }
+                    dev_mapping_1 = {
+                        context['device_name']: '%s::%s' %
+                        (context['source_id'],
+                         bool(context['vol_delete_on_instance_delete']))
+                    }
             except Exception:
                 msg = _('Unable to retrieve extensions information')
                 exceptions.handle(request, msg)
@@ -906,7 +907,7 @@ class LaunchInstance(workflows.Workflow):
                  'source_type': 'image',
                  'destination_type': 'volume',
                  'delete_on_termination':
-                     bool(context['delete_on_terminate']),
+                     bool(context['vol_delete_on_instance_delete']),
                  'uuid': context['source_id'],
                  'boot_index': '0',
                  'volume_size': context['volume_size']

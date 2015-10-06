@@ -171,7 +171,7 @@ class AdminInstancesTable(tables.DataTable):
         name = "instances"
         verbose_name = _("Instances")
         status_columns = ["status", "task"]
-        table_actions = (project_tables.TerminateInstance,
+        table_actions = (project_tables.DeleteInstance,
                          AdminInstanceFilterAction)
         row_class = AdminUpdateRow
         row_actions = (project_tables.ConfirmResize,
@@ -187,4 +187,4 @@ class AdminInstancesTable(tables.DataTable):
                        LiveMigrateInstance,
                        project_tables.SoftRebootInstance,
                        project_tables.RebootInstance,
-                       project_tables.TerminateInstance)
+                       project_tables.DeleteInstance)
