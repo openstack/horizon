@@ -37,7 +37,8 @@ class CsvDataMixin(object):
         self.out = StringIO()
         super(CsvDataMixin, self).__init__()
         if hasattr(self, "columns"):
-            self.writer = DictWriter(self.out, map(self.encode, self.columns))
+            columns = [self.encode(col) for col in self.columns]
+            self.writer = DictWriter(self.out, columns)
             self.is_dict = True
         else:
             self.writer = writer(self.out)
@@ -56,14 +57,17 @@ class CsvDataMixin(object):
     def write_csv_row(self, args):
         if self.is_dict:
             self.writer.writerow(dict(zip(
-                self.writer.fieldnames, map(self.encode, args))))
+                self.writer.fieldnames, [self.encode(col) for col in args])))
         else:
-            self.writer.writerow(map(self.encode, args))
+            self.writer.writerow([self.encode(col) for col in args])
 
     def encode(self, value):
-        # csv and StringIO cannot work with mixed encodings,
-        # so encode all with utf-8
-        return six.text_type(value).encode('utf-8')
+        value = six.text_type(value)
+        if six.PY2:
+            # csv and StringIO cannot work with mixed encodings,
+            # so encode all with utf-8
+            value = value.encode('utf-8')
+        return value
 
 
 class BaseCsvResponse(CsvDataMixin, HttpResponse):
