@@ -9,10 +9,10 @@
           <a class="btn btn-default btn-sm dropdown-toggle" data-toggle="dropdown" href="#">
             <span class="fa fa-caret-down"></span>
           </a>
-          <ul class="dropdown-menu row_actions dropdown-menu-right clearfix">
+          <ul class="dropdown-menu row_actions dropdown-menu-right">
         {% else %}
-          <li class="clearfix">
-              {% include "horizon/common/_data_table_row_action_dropdown.html" %}
+          <li>
+            {% include "horizon/common/_data_table_row_action_dropdown.html" %}
           </li>
         {% endif %}
         {% if forloop.last %}

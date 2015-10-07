@@ -14,9 +14,14 @@
       <span class="roles_display">[[roles_label]]</span>
       <span class="fa fa-caret-down"></span>
     </a>
-    <ul class="dropdown-menu role_dropdown clearfix">
+    <ul class="dropdown-menu dropdown-menu-right role_dropdown">
       [[#roles]]
-      <li data-role-id="[[role_id]]"><i class="fa fa-check"></i>  [[role_name]]</li>
+      <li data-role-id="[[role_id]]">
+        <a target="_blank">
+          <span class="fa fa-check"></span>
+          [[role_name]]
+        </a>
+      </li>
       [[/roles]]
     </ul>
   </li>

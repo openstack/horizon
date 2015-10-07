@@ -1,10 +1,3 @@
-// These are helper variables for this file only.
-// They inherit from bootstrap/variables and should
-// scope to only this logic for overriding the native
-// bootstrap navbar.
-$navbar-dropdown-arrow-size:   $font-size-small / 2;
-$navbar-dropdown-arrow-offset: $padding-small-horizontal;
-
 .navbar-brand {
   display: block;
   padding: 0 $padding-small-horizontal;
@@ -30,51 +23,5 @@ $navbar-dropdown-arrow-offset: $padding-small-horizontal;
   // Pushes the menu slightly down from the navbar
   li > .dropdown-menu {
     margin-top: 2px;
-  }
-
-  @media (min-width:$screen-sm) {
-    // Sets default values for upper arrow on navbar dropdowns
-    .dropdown-menu {
-      &:before, &:after {
-        position: absolute;
-        content: '';
-      }
-    }
-
-    // Defaults the arrow to the left side
-    .dropdown-menu {
-      &:before {
-        top: ($navbar-dropdown-arrow-size + 1) * -1;
-        left: $navbar-dropdown-arrow-offset - 1;
-        border-right: $navbar-dropdown-arrow-size + 1 solid transparent;
-        border-bottom: $navbar-dropdown-arrow-size + 1 solid $dropdown-border;
-        border-left: $navbar-dropdown-arrow-size + 1 solid transparent;
-        border-bottom-color: rgba(0, 0, 0, 0.2);
-      }
-
-      &:after {
-        top: -$navbar-dropdown-arrow-size;
-        left: $navbar-dropdown-arrow-offset;
-        border-right: $navbar-dropdown-arrow-size solid transparent;
-        border-bottom: $navbar-dropdown-arrow-size solid $body-bg;
-        border-left: $navbar-dropdown-arrow-size solid transparent;
-      }
-    }
-  }
-}
-
-// Changes the arrow to the right side for .navbar-right items
-.navbar-right .dropdown-menu {
-
-  &:before, &:after {
-    left: auto;
-  }
-
-  &:before {
-    right: $navbar-dropdown-arrow-offset - 1;
-  }
-
-  &:after {
-    right: $navbar-dropdown-arrow-offset;
   }
 }
