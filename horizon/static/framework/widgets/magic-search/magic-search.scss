@@ -1,109 +1,125 @@
-// Augments magic_search.scss with styles for bootstrap/Horizon.
+// Replaces magic_search.scss with styles for bootstrap/Horizon.
 
-.search-bar {
-  min-width: $magic-search-min-width;
-  border-color: $magic-search-border-color;
-  border-radius: $magic-search-border-radius;
-  margin-bottom: $magic-search-margin-bottom;
-  padding: $magic-search-margin-padding;
+/*-----------------------------------------
+   Magic Search bar
+  ----------------------------------------- */
 
-  .search-entry {
-    .search-input {
-      padding: 1px 0px;
-      font: normal normal normal 12.6px/normal;
-      outline: none;
-      height: 24px;
-    }
-    height: 24px;
-    position: relative;
-  }
+// Helper variable
+$magic-search-padding: ceil($input-height-base - $font-size-small * $line-height-base - $padding-small-vertical * 2)/2;
 
-  .item-list {
-    .item {
-      background-color: $gray-light;
-      a {
-        color: $brand-danger;
-      }
-    }
-    .server-side-item {
-      background-color: $gray-lighter;
-    }
-  }
+hz-magic-search-bar {
 
-  .fa-filter {
-    padding-left: 5px;
-    font-size: larger;
-  }
-
-  .fa-times {
-    font-size: larger;
-    cursor: pointer;
-  }
-
-  .label {
-    font-size: 100%;
-    font-weight: normal;
-  }
-}
-
-.search-main-area {
-  padding-left: 10px;
-}
-
-.hz-magic-search-bar {
-  .magic-search-bar {
+  .input-group {
     width: 100%;
 
-    .fa-search {
-      cursor: auto;
+    & > st-magic-search.form-control {
+      padding: 0 $padding-xs-horizontal 0 0;
+      min-height: $input-height-base + 2;
+      height: 100%;
+    }
+  }
+
+  // Specificity Required
+  .form-group .input-group .input-group-addon {
+    border-bottom-right-radius: 0;
+    border-top-right-radius: 0;
+  }
+
+  .input-group-btn {
+    // Notes:
+    // * We may need a better solution than this if we
+    // ever want to support button groups that are
+    // small or large, or a state other than default.
+    // But, until then, this does the trick for our
+    // standard use case!
+    // * If this seems odds, its because Bootstrap button
+    // groups don't allow the trailing button to grow in
+    // height so we have to make the whole span look like
+    // the button instead.  This can be confusing: the
+    // click event needs to live on the span now, not the button.
+    border-radius: 0 $border-radius-base $border-radius-base 0;
+    border: 1px solid $btn-default-border;
+    border-left: none;
+    cursor: pointer;
+    outline: 0;
+    background-image: none;
+    &:active {
+      @include box-shadow(inset 0 3px 5px rgba(0,0,0,.125));
+    }
+
+    @include button-variant($btn-default-color, $btn-default-bg, $btn-default-border);
+    button {
+      &,
+      &:hover {
+        background-color: transparent;
+        border: none;
+        box-shadow: none;
+      }
+      &:active {
+        @include box-shadow(none);
+      }
     }
   }
 
   .search-bar {
-    border-color: #cccccc;
-    border-bottom-right-radius: 4px;
-    border-top-right-radius: 4px;
-    margin-bottom: 0;
+    display: table;
+    width: 100%;
+    height: $line-height-computed;
 
-    i.cancel {
-      top: 0.45em;
+    // Layout
+    .magic-search-clear,
+    .search-main-area {
+      display: table-cell;
     }
 
     .search-main-area {
-      margin-left: 0;
-      padding-left: 0.2em;
+      padding-bottom: $magic-search-padding;
     }
 
-    .item-list {
-      .item {
-        padding-right: 0.3em;
-        padding-top: 0.3em;
+    .fi-filter {
+      display: none;
+    }
 
-        .remove {
-          padding-left: 0.3em;
-        }
+    // Input Text Box
+    .search-input {
+      border: none;
+      width: 250px;
+      margin: $magic-search-padding + 2 0 0 $magic-search-padding + 2;
+
+      &:focus {
+        outline: none;
       }
     }
 
+    // Token
+    .item {
+      font-size: $font-size-small;
+      border-radius: $border-radius-base;
+      display: inline-block;
+      background-color: $gray-lighter;
+      padding: $padding-small-vertical 0 $padding-small-vertical $padding-small-horizontal;
+      margin: $magic-search-padding 0 0 $padding-xs-horizontal;
+
+      .remove {
+        padding: 0 $padding-small-vertical;
+        color: $brand-danger;
+      }
+    }
+
+    // Pre-Token Label
     .search-selected {
-      padding-right: 0.3em;
+      color: $gray-light;
+      padding-left: $padding-small-vertical;
     }
 
-    .search-entry {
-      height: inherit;
-
-      li {
-        cursor: pointer;
-      }
-
-      .search-input {
-        min-width: 260px;
-
-        @include search-placeholder {
-          font-weight: normal;
-          color: $placeholder-text-color;
-        }
-      }
+    // Search Bar Clear Icon
+    .magic-search-clear {
+      font-size: $font-size-base;
+      color: $gray;
+      width: $font-size-base;
+      vertical-align: middle;
+      text-align: center;
     }
   }
 }
+

@@ -2,9 +2,9 @@
 <div class="magic-search" magic-overrides>
   <div class="search-bar">
     <i class="fi-filter fa fa-search go"></i>
-    <div class="search-main-area">
+    <span class="search-main-area">
       <span class="item-list">
-        <span class="label radius secondary item"
+        <span class="radius secondary item"
               ng-repeat="facet in currentSearch" ng-cloak="cloak" ng-class="{'server-side-item': facet.isServer}">
           <i data-toggle="tooltip" title="{$ ::strings.serverFacet $}"
              ng-class="{'fa fa-server': facet.isServer}"></i>
@@ -18,14 +18,14 @@
           </a>
         </span>
       </span>
-      <span class="search-selected label" ng-cloak="" ng-show="facetSelected">
+      <span class="search-selected" ng-cloak="" ng-show="facetSelected">
         {$ facetSelected.label[0] $}:
       </span>
       <!-- For bootstrap, the dropdown attribute is moved from input up to div. -->
-      <div class="search-entry" dropdown is-open="isMenuOpen">
+      <span class="search-entry" dropdown is-open="isMenuOpen">
         <input class="search-input" type="text" dropdown-toggle
                placeholder="{$ strings.prompt $}" autocomplete="off" />
-        <ul id="facet-drop" class="f-dropdown dropdown-menu" data-dropdown-content="">
+        <ul class="facet-drop f-dropdown dropdown-menu" data-dropdown-content="">
           <li ng-repeat="facet in filteredObj" ng-show="!facetSelected">
             <a ng-click="facetClicked($index, $event, facet.name)"
                ng-show="!isMatchLabel(facet.label)">{$ ::facet.label $}</a>
@@ -45,9 +45,9 @@
             </a>
           </li>
         </ul>
-      </div>
-    </div>
-    <a ng-click="clearSearch()" ng-show="currentSearch.length &gt; 0" title="{$ ::strings.cancel $}">
+      </span>
+    </span>
+    <a class="magic-search-clear" ng-click="clearSearch()" ng-show="currentSearch.length &gt; 0" title="{$ ::strings.cancel $}">
       <i class="fi-x fa fa-times cancel"></i>
     </a>
   </div>
