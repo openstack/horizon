@@ -217,7 +217,8 @@
           expect(model.metadataDefs.flavor).toBeNull();
           expect(model.metadataDefs.image).toBeNull();
           expect(model.metadataDefs.volume).toBeNull();
-          expect(Object.keys(model.metadataDefs).length).toBe(3);
+          expect(model.metadataDefs.instance).toBeNull();
+          expect(Object.keys(model.metadataDefs).length).toBe(4);
         });
 
         it('defaults "allow create volume from image" to false', function() {
@@ -230,6 +231,10 @@
 
         it('defaults "volume bootable" to false', function() {
           expect(model.volumeBootable).toBe(false);
+        });
+
+        it('defaults "metadataTree" to null', function() {
+          expect(model.metadataTree).toBe(null);
         });
 
         it('initializes "nova limits" to empty object', function() {
@@ -388,6 +393,7 @@
       });
 
       describe('Create Instance', function() {
+        var metadata;
 
         beforeEach(function() {
           // initialize some data
@@ -402,6 +408,13 @@
           model.newInstanceSpec.vol_delete_on_instance_delete = true;
           model.newInstanceSpec.vol_device_name = "volTestName";
           model.newInstanceSpec.vol_size = 10;
+
+          metadata = {'foo': 'bar'};
+          model.metadataTree = {
+            getExisting: function() {
+              return metadata;
+            }
+          };
         });
 
         it('should set final spec in format required by Nova (Neutron disabled)', function() {
@@ -525,6 +538,24 @@
           var finalSpec = model.createInstance();
           expect(finalSpec.block_device_mapping_v2[0].device_name).toBeNull();
         });
+
+        it('should not have meta property if no metadata specified', function() {
+          metadata = {};
+
+          var finalSpec = model.createInstance();
+          expect(finalSpec.meta).toBeUndefined();
+
+          model.metadataTree = null;
+
+          finalSpec = model.createInstance();
+          expect(finalSpec.meta).toBeUndefined();
+        });
+
+        it('should have meta property if metadata specified', function() {
+          var finalSpec = model.createInstance();
+          expect(finalSpec.meta).toBe(metadata);
+        });
+
       });
     });
   });

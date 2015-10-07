@@ -79,6 +79,12 @@
           templateUrl: basePath + 'configuration/configuration.html',
           helpUrl: basePath + 'configuration/configuration.help.html',
           formName: 'launchInstanceConfigurationForm'
+        },
+        {
+          title: gettext('Metadata'),
+          templateUrl: basePath + 'metadata/metadata.html',
+          helpUrl: basePath + 'metadata/metadata.help.html',
+          formName: 'launchInstanceMetadataForm'
         }
       ],
 
