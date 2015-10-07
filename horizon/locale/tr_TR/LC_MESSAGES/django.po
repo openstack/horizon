@@ -1,28 +1,18 @@
-# Translations template for PROJECT.
-# Copyright (C) 2015 ORGANIZATION
-# This file is distributed under the same license as the PROJECT project.
-#
-# Translators:
-# Mücahit Büyükyılmaz <mucahit@konya.edu.tr>, 2015
-# Orçun Karaman <ferfeit@gmail.com>, 2015
-# sercanaydogan <sercanaydogan@gmail.com>, 2014
-# OpenStack Infra <zanata@openstack.org>, 2015. #zanata
+# Mücahit Büyükyılmaz <mucahit@deltanoc.com>, 2015. #zanata
 msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-09-16 18:25+0000\n"
+"POT-Creation-Date: 2015-09-26 08:59+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2015-09-03 08:39+0000\n"
-"Last-Translator: İşbaran Akçayır <isbaran@gmail.com>\n"
-"Language-Team: Turkish (Turkey) (http://www.transifex.com/openstack/horizon/"
-"language/tr_TR/)\n"
-"Generated-By: Babel 2.0\n"
+"PO-Revision-Date: 2015-10-03 09:50+0000\n"
+"Last-Translator: Mücahit Büyükyılmaz <mucahit@deltanoc.com>\n"
+"Language-Team: Turkish (Turkey)\n"
 "Language: tr-TR\n"
-"Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Zanata 3.7.1\n"
+"Plural-Forms: nplurals=2; plural=(n>1)\n"
 
 #, python-format
 msgid ""
@@ -30,7 +20,7 @@ msgid ""
 "        Used <span> %(used)s </span>(No Limit)"
 msgstr ""
 "\n"
-"        <span> %(used)s </span> kullanıldı (Sınır Yok)"
+"        <span> %(used)s </span> kullanıldı (Sınırsız)"
 
 #, python-format
 msgid ""
@@ -63,8 +53,9 @@ msgid ""
 "    "
 msgstr ""
 "\n"
-"Hangi kimlik doğrulama yöntemini kullanıcağınızdan emin değilseniz , "
-"yöneticinize başvurunuz."
+"Hangi kimlik doğrulama yöntemini kullanacağınızdan emin değilseniz , "
+"yöneticinize başvurunuz.\n"
+"    "
 
 #, python-format
 msgctxt "past"
@@ -92,6 +83,7 @@ msgstr "%(name)s: %(error)s"
 msgid "%(size)d Byte"
 msgid_plural "%(size)d Bytes"
 msgstr[0] "%(size)d Byte"
+msgstr[1] "%(size)d Byte"
 
 #, python-format
 msgid "%s GB"
@@ -141,7 +133,7 @@ msgid "Actions"
 msgstr "İşlemler"
 
 msgid "Active Instances:"
-msgstr "Aktif Sunucular"
+msgstr "Aktif Instancelar:"
 
 msgid "Active RAM:"
 msgstr "Aktif RAM:"
@@ -168,22 +160,25 @@ msgid "Delete"
 msgstr "Sil"
 
 msgid "Deleted"
-msgstr "Silinmiş"
+msgstr "Silindi"
 
 #, python-format
 msgid "Displaying %(content_items)s item"
 msgid_plural "Displaying %(content_items)s items"
 msgstr[0] "%(content_items)s öge görüntüleniyor"
+msgstr[1] "%(content_items)s öge görüntüleniyor"
 
 #, python-format
 msgid "Displaying %(counter)s item"
 msgid_plural "Displaying %(counter)s items"
 msgstr[0] "%(counter)s öge görüntüleniyor"
+msgstr[1] "%(counter)s öge görüntüleniyor"
 
 #, python-format
 msgid "Displaying %(nav_items)s item"
 msgid_plural "Displaying %(nav_items)s items"
 msgstr[0] "%(nav_items)s öge görüntüleniyor"
+msgstr[1] "%(nav_items)s öge görüntüleniyor"
 
 msgid "Error: "
 msgstr "Hata:"
@@ -226,7 +221,7 @@ msgstr "Giriş"
 msgid ""
 "Login as different user or go back to <a href=\"%(home_url)s\"> home page</a>"
 msgstr ""
-"Başka bir kullanıcı ile giriş yapın veya  <a href=\"%(home_url)s\"> Ana "
+"Başka bir kullanıcı ile oturum açın veya <a href=\"%(home_url)s\"> Ana "
 "Sayfa</a>'ya gidin"
 
 msgid "Members"
@@ -261,7 +256,7 @@ msgid "No members."
 msgstr "Üye yok."
 
 msgid "None available."
-msgstr "Hiçbiri uygun değil"
+msgstr "Hiçbiri uygun değil."
 
 msgid "Not a valid IP protocol number"
 msgstr "Geçersiz IP Protokol numarası"
@@ -276,10 +271,10 @@ msgid "Other"
 msgstr "Diğer"
 
 msgid "Password is not accepted"
-msgstr "Şifre kabul edilmedi"
+msgstr "Parola kabul edilmedi"
 
 msgid "Please log in to continue."
-msgstr "Devam etmek için lütfen oturum açın."
+msgstr "Devam etmek için lütfen oturum açınız."
 
 msgid "Please select a row before taking that action."
 msgstr "Bir işlem yapmadan önce lütfen bir satır seçin."
@@ -303,6 +298,7 @@ msgstr "Kullanımı listelemek için zaman aralığı seçin."
 msgid "Sell Puppy"
 msgid_plural "Sell Puppies"
 msgstr[0] "Köpek Yavrusu Sat"
+msgstr[1] "Köpek Yavrularını Sat"
 
 msgid "Session timed out."
 msgstr "Oturum sona erdi."
@@ -313,6 +309,7 @@ msgstr "Oturum Aç"
 msgid "Sold Puppy"
 msgid_plural "Sold Puppies"
 msgstr[0] "Satılan Yavru"
+msgstr[1] "Satılan Yavrular"
 
 msgid "Submit"
 msgstr "Gönder"
@@ -331,13 +328,13 @@ msgid "The date should be in YYYY-mm-dd format."
 msgstr "Tarih YYYY-AA-GG formatında olmalı."
 
 msgid "The string may only contain ASCII printable characters."
-msgstr "Dizi sadece yazdırılabilir ASCII karakterleri içerebilir."
+msgstr "Metin sadece yazdırılabilir ASCII karakterleri içerebilir."
 
 msgid "This Period's GB-Hours:"
 msgstr "Bu periyodda kullanılan GB-Saat"
 
 msgid "This Period's RAM-Hours:"
-msgstr "Bu periyodda kullanılan GB-Saat"
+msgstr "Bu periyodda kullanılan RAM-Saat"
 
 msgid "This Period's VCPU-Hours:"
 msgstr "Bu periyodda kullanılan VCPU-Saat"
@@ -350,7 +347,7 @@ msgid "Unable to %(action)s: %(objs)s"
 msgstr "%(action)s: %(objs)s işlemi yapılamıyor."
 
 msgid "Unauthorized. Please try logging in again."
-msgstr "Yetkisiz Giriş. Lütfen tekrar giriş yapın. "
+msgstr "Yetkisiz Giriş. Lütfen tekrar oturum açınız. "
 
 #, python-format
 msgid "Unauthorized: %s"

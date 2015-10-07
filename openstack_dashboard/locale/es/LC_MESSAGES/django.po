@@ -1,20 +1,7 @@
-# Translations template for PROJECT.
-# Copyright (C) 2015 ORGANIZATION
-# This file is distributed under the same license as the PROJECT project.
-#
-# Translators:
-# Adriana Chisco Landazábal <achisco94@gmail.com>, 2015
-# Alberto Molina Coballes <alb.molina@gmail.com>, 2015
-# cametiope <aldohcasa@hotmail.com>, 2014
-# Eduardo Gonzalez Gutierrez <dabarren@gmail.com>, 2014
-# Guillermo Vitas Gil <gvitgo@gmail.com>, 2015
-# Heleno Jimenez de la Cruz <heleno.jimenez@gmail.com>, 2015
-# Pablo Iranzo Gómez <Pablo.Iranzo@gmail.com>, 2014
-# Sergio Cuellar Valdes <scuellarv@kionetworks.com>, 2015
-# Veruska Perinotto <reaching.out@gmail.com>, 2015
 # Alberto Laporte <alberto.riveralaporte@rackspace.com>, 2015. #zanata
 # Alberto Molina Coballes <alb.molina@gmail.com>, 2015. #zanata
 # Eduardo Gonzalez Gutierrez <dabarren@gmail.com>, 2015. #zanata
+# Gladys Guerrero <gguerrer@redhat.com>, 2015. #zanata
 # Marian T <marian.tort@gmail.com>, 2015. #zanata
 # OpenStack Infra <zanata@openstack.org>, 2015. #zanata
 # Pedro Navarro Pérez <pednape@gmail.com>, 2015. #zanata
@@ -23,18 +10,16 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-09-19 06:33+0000\n"
+"POT-Creation-Date: 2015-09-26 08:59+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2015-09-21 04:08+0000\n"
-"Last-Translator: Eduardo Gonzalez Gutierrez <dabarren@gmail.com>\n"
-"Language-Team: Spanish (http://www.transifex.com/openstack/horizon/language/"
-"es/)\n"
-"Generated-By: Babel 2.0\n"
+"PO-Revision-Date: 2015-10-02 04:01+0000\n"
+"Last-Translator: Gladys Guerrero <gguerrer@redhat.com>\n"
+"Language-Team: Spanish\n"
 "Language: es\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Zanata 3.7.1\n"
+"Plural-Forms: nplurals=2; plural=(n != 1)\n"
 
 msgid ""
 "\n"
@@ -399,6 +384,21 @@ msgstr ""
 "defecto.\n"
 " "
 
+msgid ""
+"\n"
+"Resize the canvas by scrolling up/down with your mouse/trackpad on the "
+"topology.\n"
+"Pan around the canvas by clicking and dragging the space behind the "
+"topology.\n"
+"  "
+msgstr ""
+"\n"
+"Redimensione el lienzo al desplazar arriba o abajo el ratón o touchpad sobre "
+"la topología.\n"
+"Desplácese por el lienzo haciendo clic y arrastrando el espacio detrás de la "
+"topología.\n"
+"   "
+
 msgid " - End"
 msgstr "- Fin"
 
@@ -415,6 +415,9 @@ msgstr "Hecho"
 msgid "\"Add Router Route\""
 msgstr "\"Añadir ruta al Router\""
 
+msgid "\"Clusters\""
+msgstr "\"Clústeres\""
+
 msgid ""
 "\"Customization Script\" is analogous to \"User Data\" in other systems."
 msgstr ""
@@ -423,6 +426,9 @@ msgstr ""
 
 msgid "\"Edit Volume Type\""
 msgstr "\"Editar Tipo de Volumen\""
+
+msgid "\"Launch Cluster\""
+msgstr "\"Lanzar clúster\""
 
 msgid "\"N/A\""
 msgstr "\"N/A\""
@@ -490,6 +496,10 @@ msgstr "%(name)s - %(size)s GB (%(label)s)"
 #, python-format
 msgid "%(name)s | %(RAM)s RAM"
 msgstr "%(name)s | %(RAM)s RAM"
+
+#, python-format
+msgid "%(name)s | %(RAM)s RAM | %(instances)s instances"
+msgstr "%(name)s | %(RAM)s RAM | %(instances)s instancias"
 
 #, python-format
 msgid "%(offset)s: %(label)s"
@@ -912,6 +922,9 @@ msgstr "Añadir Routers"
 msgid "Add Rule"
 msgstr "Agregar regla"
 
+msgid "Add Shard"
+msgstr "Añadir partición"
+
 msgid "Add Static Route"
 msgstr "Añadir rutas estáticas"
 
@@ -1061,6 +1074,10 @@ msgstr "Monitor agregado"
 #, python-format
 msgid "Added pool \"%s\"."
 msgstr "Pool \"%s\" añadido."
+
+#, python-format
+msgid "Added shard to \"%s\""
+msgstr "Partición añadida a \"%s\""
 
 msgid "Additional routes"
 msgstr "Rutas adicionales"
@@ -1858,8 +1875,14 @@ msgstr "Recuento de clústers"
 msgid "Cluster Creation Guide"
 msgstr "Guía de creación del clúster"
 
+msgid "Cluster Detail"
+msgstr "\""
+
 msgid "Cluster Details"
 msgstr "Detalles del Clúster"
+
+msgid "Cluster Details: {{ cluster.name }}"
+msgstr "Detalles del clúster: {{ cluster.name }}"
 
 msgid "Cluster Events"
 msgstr "Eventos de Clúster"
@@ -1875,6 +1898,9 @@ msgstr "Nombre del cluster"
 
 msgid "Cluster Overview"
 msgstr "Panorámica de Clúster"
+
+msgid "Cluster Size"
+msgstr "Tamaño de clúster"
 
 msgid "Cluster Template"
 msgstr "Plantilla del cluster"
@@ -2020,6 +2046,9 @@ msgid "Connection Examples"
 msgstr "Ejemplos de conexión"
 
 msgid "Connection Info"
+msgstr "Información de la conexión"
+
+msgid "Connection Information"
 msgstr "Información de la conexión"
 
 msgid "Connection Limit"
@@ -2633,6 +2662,9 @@ msgstr "Host actual"
 
 msgid "Current Size (GB)"
 msgstr "Tamaño actual (GB)"
+
+msgid "Current Task"
+msgstr "Tarea actual"
 
 msgid "Current choice:"
 msgstr "Selección actual:"
@@ -3348,10 +3380,6 @@ msgid_plural "Deleted Volume Types"
 msgstr[0] "Tipo de volumen eliminado"
 msgstr[1] "Tipos de volumen eliminados"
 
-#, python-format
-msgid "Deleted firewall %s"
-msgstr "Cortafuegos %s eliminado"
-
 msgid "Deleted images are not recoverable."
 msgstr "Imagenes eliminadas no son recuperables."
 
@@ -3364,16 +3392,8 @@ msgid "Deleted monitor %s"
 msgstr "Monitor %s eliminado"
 
 #, python-format
-msgid "Deleted policy %s"
-msgstr "Política %s eliminada"
-
-#, python-format
 msgid "Deleted pool %s"
 msgstr "Pool %s eliminado"
-
-#, python-format
-msgid "Deleted rule %s"
-msgstr "Regla %s eliminada"
 
 msgid "Deleting"
 msgstr "Borrando"
@@ -5160,6 +5180,9 @@ msgstr "IPv4"
 msgid "IPv4 Address ="
 msgstr "Dirección IPv4 ="
 
+msgid "IPv4:"
+msgstr "IPv4:"
+
 msgid "IPv6"
 msgstr "IPv6"
 
@@ -5168,6 +5191,9 @@ msgstr "Dirección IPv6 ="
 
 msgid "IPv6 Address Configuration Mode"
 msgstr "Modo de Configuracion de direcciones IPv6"
+
+msgid "IPv6:"
+msgstr "IPv6:"
 
 msgid "ISO - Optical Disk Image"
 msgstr "ISO - Imagen de disco óptico"
@@ -5511,6 +5537,9 @@ msgstr "Instancias"
 msgid "Instances Count"
 msgstr "Número de instancias"
 
+msgid "Instances Per Shard"
+msgstr "Instancias por particiones"
+
 msgid "Insufficient privilege level to view domain information."
 msgstr "Privilegios insuficientes para consultar la información del dominio."
 
@@ -5847,6 +5876,10 @@ msgid_plural "Launched Jobs"
 msgstr[0] "Trabajo lanzado"
 msgstr[1] "Trabajos lanzados"
 
+#, python-format
+msgid "Launched cluster \"%s\""
+msgstr "Clúster lanzado \"%s\""
+
 msgid ""
 "Launching multiple instances is only supported for images and instance "
 "snapshots."
@@ -5921,6 +5954,9 @@ msgstr "Local"
 
 msgid "Local Disk Usage"
 msgstr "Uso del disco local"
+
+msgid "Local Side Public IPs"
+msgstr "IP públicos del lado local"
 
 msgid "Local Storage (total)"
 msgstr "Almacenamiento local (total)"
@@ -6037,6 +6073,9 @@ msgstr "Administrar asociaciones de volumen"
 
 msgid "Manage a Volume"
 msgstr "Administrar un Volumen"
+
+msgid "Management Console"
+msgstr "Consola de gestión"
 
 msgid "Management IP"
 msgstr "IP de administración"
@@ -6424,6 +6463,9 @@ msgid "Network address in CIDR format (e.g. 192.168.0.0/24, 2001:DB8::/48)"
 msgstr ""
 "La dirección de la red en formato CIDR (p. ej. 192.168.0.0/24, 2001:DB8::/48)"
 
+msgid "Network attached to instance."
+msgstr "Red asociada a la instancia."
+
 msgid "Network list can not be retrieved."
 msgstr "No ha sido posible obtener la lista de redes."
 
@@ -6462,6 +6504,9 @@ msgstr "Sabor nuevo"
 msgid "New Host"
 msgstr "Nuevo host"
 
+msgid "New Password"
+msgstr "Contraseña nueva"
+
 msgid "New Size (GB)"
 msgstr "Nuevo tamaño (GB)"
 
@@ -6473,6 +6518,9 @@ msgstr "Nuevo nombre entra en conflicto con otro tipo de volumen."
 
 msgid "New password"
 msgstr "Contraseña nueva"
+
+msgid "New password for cluster access."
+msgstr "Nueva contraseña para el acceso al clúster."
 
 msgid "New size for volume must be greater than current size."
 msgstr "El nuevo tamaño para el volumen debe ser mayor que el actual."
@@ -6836,6 +6884,9 @@ msgstr "Número de instancias"
 msgid "Number of Nodes"
 msgstr "Número de nodos"
 
+msgid "Number of Shards"
+msgstr "Número de particiones"
+
 msgid "Number of Snapshots"
 msgstr "Número de instantáneas"
 
@@ -6868,6 +6919,12 @@ msgstr "Número de bytes entrantes en la red para una interfaz de la MV"
 
 msgid "Number of incoming packets for a VM interface"
 msgstr "Número de paquetes entrantes para una interfaz de la MV"
+
+msgid "Number of instances in the cluster. (Read only)"
+msgstr "Número de instancia en el clúster (solo lectura)."
+
+msgid "Number of instances per shard. (Read only)"
+msgstr "Número de instancias por particiones (solo lectura)."
 
 msgid "Number of instances to launch."
 msgstr "Número de instancias a lanzar."
@@ -6902,6 +6959,9 @@ msgstr ""
 
 msgid "Number of read requests"
 msgstr "Número de solicitudes de lectura"
+
+msgid "Number of shards. (Read only)"
+msgstr "Número de particiones (solo lectura),"
 
 msgid "Number of write requests"
 msgstr "Número de solicitudes de escritura"
@@ -7089,6 +7149,12 @@ msgstr "Se ha cambiado la contraseña. Inicie sesión de nuevo para continuar."
 
 msgid "Password changed. Please log in to continue."
 msgstr "Contraseña modificada. Por favor, acceda de nuevo para continuar."
+
+msgid "Password for root user must be specified."
+msgstr "Se debe especificar la contraseña de usuario root."
+
+msgid "Password for root user."
+msgstr "Contraseña para usuario root"
 
 #, python-format
 msgid "Password for user \"%s\""
@@ -7806,6 +7872,9 @@ msgstr "Reiniciar Guía del Clúster"
 msgid "Reset Job Execution Guide"
 msgstr "Reiniciar Guía de Ejecución del Trabajo"
 
+msgid "Reset Root Password"
+msgstr "Restablecer la contraseña root"
+
 msgid "Reset to Default"
 msgstr "Restablecer el valor por defecto"
 
@@ -8042,6 +8111,13 @@ msgstr "Disco raíz"
 
 msgid "Root Disk (GB)"
 msgstr "Disco raíz (GB)"
+
+msgid "Root Password"
+msgstr "Contraseña de root"
+
+#, python-format
+msgid "Root password updated for cluster \"%s\""
+msgstr "Contraseña de root actualizada para clúster \"%s\""
 
 msgid "Rotates requests evenly between multiple instances."
 msgstr "Rotación de solicitudes, aún entre múltiples instancias."
@@ -8288,6 +8364,11 @@ msgstr[1] "Cronograma de migración de instancias (pendientes de confirmación)"
 #, python-format
 msgid "Scheduled resize of instance \"%s\"."
 msgstr "Programado el redimensionado de la instancia \"%s\"."
+
+msgid "Scheduled termination of Cluster"
+msgid_plural "Scheduled termination of Clusters"
+msgstr[0] "Terminación programada de clúster"
+msgstr[1] "Terminación programada de clústeres"
 
 msgid "Scheduled termination of Instance"
 msgid_plural "Scheduled termination of Instances"
@@ -8782,6 +8863,9 @@ msgstr "Tamaño del disco efímero"
 msgid "Size of image to launch."
 msgstr "Tamaño de la imagen a lanzar."
 
+msgid "Size of instance to launch."
+msgstr "Tamaño de la instancia a lanzar."
+
 msgid "Size of root disk"
 msgstr "Tamaño del disco raíz"
 
@@ -8987,12 +9071,18 @@ msgstr "Especifique una imagen para subir al Servicio de imágenes."
 msgid "Specify member IP address"
 msgstr "Especificar la dirección IP del miembro"
 
+msgid "Specify the details for adding additional shards."
+msgstr "Especifique los detalles para añadir particiones adicionales."
+
 msgid "Specify the details for launching an instance."
 msgstr "Especifique los detalles de la instancia a lanzar."
 
 msgid "Specify the details for the database backup."
 msgstr ""
 "Especificar los detalles para la copia de seguridad de la base de datos."
+
+msgid "Specify the new root password for vertica cluster."
+msgstr "Especifique la nueva contraseña root para el clúster Vertica"
 
 msgid "Specify the new volume size for the database instance."
 msgstr ""
@@ -9459,10 +9549,18 @@ msgstr "URL de plantilla"
 msgid "Template not specified"
 msgstr "Plantilla no especificada"
 
+msgid "Terminate Cluster"
+msgid_plural "Terminate Clusters"
+msgstr[0] "Terminar clúster"
+msgstr[1] "Terminar clústeres"
+
 msgid "Terminate Instance"
 msgid_plural "Terminate Instances"
 msgstr[0] "Terminar Instancia"
 msgstr[1] "Terminar Instancias"
+
+msgid "Terminated cluster is not recoverable."
+msgstr "No es posible recuperar el clúster terminado."
 
 msgid "Terminated instances are not recoverable."
 msgstr "Las instancias terminadas no son recuperables."
@@ -9723,6 +9821,9 @@ msgstr ""
 "El sabor '%(flavor)s' es demasiado pequeño para la imagen solicitada.\n"
 "Requisitos mínimos:  %(min_ram)s MB de RAM y %(min_disk)s GB de disco raiz."
 
+msgid "The flavor must be specified."
+msgstr "Se debe especificar el sabor."
+
 #, python-format
 msgid "The instance is preparing the live migration to host \"%s\"."
 msgstr ""
@@ -9791,6 +9892,9 @@ msgid ""
 msgstr ""
 "Las direcciones del siguiente salto se pueden utilizar para ignorar el "
 "router usado por el cliente."
+
+msgid "The number of shards must be greater than 1."
+msgstr "El número de particiones debe ser mayor que 1."
 
 msgid "The page you were looking for doesn't exist"
 msgstr "La página que está buscando no existe"
@@ -10203,6 +10307,10 @@ msgstr "No ha sido posible agregar el pool \"%s. "
 msgid "Unable to add rule to security group."
 msgstr "No ha sido posible agregar la regla al grupo de seguridad."
 
+#, python-format
+msgid "Unable to add shard. %s"
+msgstr "No ha sido posible añadir la partición. %s"
+
 msgid "Unable to add user to primary project."
 msgstr "No ha sido posible añadir el usuario al proyecto principal."
 
@@ -10586,6 +10694,9 @@ msgstr ""
 msgid "Unable to get host aggregate list"
 msgstr "No ha sido posible obtener la lista de agregados de host"
 
+msgid "Unable to get instances data."
+msgstr "No ha sido posible obtener los datos de la instancia."
+
 #, python-format
 msgid "Unable to get log for instance \"%s\"."
 msgstr "No ha sido posible obtener el log de la instancia \"%s\"."
@@ -10649,6 +10760,10 @@ msgstr "Incapaz de inicializar pools de subnet"
 msgid "Unable to launch %(count)s named \"%(name)s\"."
 msgstr "No ha sido posible lanzar %(count)s de nombre \"%(name)s\"."
 
+#, python-format
+msgid "Unable to launch cluster. %s"
+msgstr "No ha sido posible lanzar el clúster. %s"
+
 msgid "Unable to launch job."
 msgstr "No ha sido posible ejecutar el trabajo."
 
@@ -10706,6 +10821,12 @@ msgstr "No ha sido posible modificar la instancia \"%s\"."
 msgid "Unable to modify project \"%s\"."
 msgstr "No ha sido posible modificar el proyecto \"%s\"."
 
+msgid "Unable to obtain datastore versions."
+msgstr "No ha sido posible obtener las versiones del almacén de datos."
+
+msgid "Unable to obtain datastores."
+msgstr "No ha sido posible obtener el almacén de datos."
+
 msgid "Unable to obtain flavors."
 msgstr "No ha sido posible obtener los sabores."
 
@@ -10721,6 +10842,10 @@ msgstr "No se pueden procesar las etiquetas del plugin"
 
 msgid "Unable to rebuild instance."
 msgstr "No ha sido posible reconstruir la instancia."
+
+#, python-format
+msgid "Unable to reset password. %s"
+msgstr "No ha sido posible restablecer la contraseña. %s"
 
 #, python-format
 msgid "Unable to resize instance \"%s\"."
@@ -10845,6 +10970,9 @@ msgstr "No ha sido posible obtener las zonas de disponibilidad."
 msgid "Unable to retrieve backup details."
 msgstr "No pude obtener los detalles del respaldo."
 
+msgid "Unable to retrieve cluster details."
+msgstr "No ha sido posible obtener los detalles del clúster."
+
 msgid "Unable to retrieve compute host information."
 msgstr "No ha sido posible obtener la información del anfitrión de cómputo."
 
@@ -10856,6 +10984,9 @@ msgstr "No ha sido posible obtener la lista de contenedores."
 
 msgid "Unable to retrieve data processing plugins."
 msgstr "No se pueden recuperar los plugins de procesamiento de datos."
+
+msgid "Unable to retrieve database clusters."
+msgstr "No ha sido posible obtener los clústeres de la base de datos."
 
 msgid "Unable to retrieve database instances."
 msgstr "No ha sido posible obtener las instancias de la base de datos."
@@ -10887,6 +11018,11 @@ msgstr ""
 #, python-format
 msgid "Unable to retrieve details for data source \"%s\"."
 msgstr "No ha sido posible obtener detalles para la fuente de datos \"%s\"."
+
+#, python-format
+msgid "Unable to retrieve details for database cluster: %s"
+msgstr ""
+"No ha sido posible obtener los detalles de los clústeres de la base datos: %s"
 
 #, python-format
 msgid "Unable to retrieve details for database instance: %s"
@@ -12214,7 +12350,7 @@ msgid "Volume name to be assigned"
 msgstr "Nombre de volumen a asignar"
 
 msgid "Volume of RAM"
-msgstr "Cantidad de RAM"
+msgstr "Volumen de RAM"
 
 msgid "Volume of RAM used"
 msgstr "Cantidad de RAM utilizada"

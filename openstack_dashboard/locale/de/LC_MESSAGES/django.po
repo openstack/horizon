@@ -1,17 +1,3 @@
-# Translations template for PROJECT.
-# Copyright (C) 2015 ORGANIZATION
-# This file is distributed under the same license as the PROJECT project.
-#
-# Translators:
-# Andreas Jaeger <jaegerandi@gmail.com>, 2015
-# avarx <a.vonarx@frappant.ch>, 2015
-# Christian Berendt <berendt@b1-systems.de>, 2015
-# Ettore Atalan <atalanttore@googlemail.com>, 2015
-# Eva Vo <eva.vonderheidt@gmail.com>, 2015
-# Frank Kloeker <eumel@arcor.de>, 2014-2015
-# Robert Simai, 2015
-# Thorsten Michels, 2014
-# Uwe Krieg, 2015
 # Andreas Jaeger <jaegerandi@gmail.com>, 2015. #zanata
 # Carsten Duch <carsten.duch@posteo.de>, 2015. #zanata
 # Frank Kloeker <eumel@arcor.de>, 2015. #zanata
@@ -21,18 +7,16 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-09-24 21:49+0000\n"
+"POT-Creation-Date: 2015-09-26 08:59+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2015-09-24 12:44+0000\n"
-"Last-Translator: Robert Simai <robert.simai@suse.com>\n"
-"Language-Team: German (http://www.transifex.com/openstack/horizon/language/"
-"de/)\n"
-"Generated-By: Babel 2.0\n"
+"PO-Revision-Date: 2015-09-26 03:25+0000\n"
+"Last-Translator: Andreas Jaeger <jaegerandi@gmail.com>\n"
+"Language-Team: German\n"
 "Language: de\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Zanata 3.7.1\n"
+"Plural-Forms: nplurals=2; plural=(n != 1)\n"
 
 msgid ""
 "\n"
@@ -352,7 +336,6 @@ msgstr ""
 "Protokoll und das Lastverteilungsverfahren für diesen Pool. Als Admin State "
 "ist UP vorausgewählt (markiert)."
 
-#, fuzzy
 msgid ""
 "\n"
 "  Move networks from 'Available Networks' to 'Selected Networks' by\n"
@@ -361,9 +344,12 @@ msgid ""
 "  "
 msgstr ""
 "\n"
-"Durch Knopfdruck oder ziehen und fallenlassen Netzwerke von \"Verfügbare "
-"Netzwerke\" zu \"Ausgewählte Netzwerke\" verschieben. Die Reihenfolge der "
-"Netzwerkkarten kann ebenfalls durch ziehen und fallenlassen verändert werden."
+" Durch Knopfdruck oder ziehen und fallenlassen Netzwerke von \"Verfügbare "
+"Netzwerke\" zu\n"
+" \"Ausgewählte Netzwerke\" verschieben. Die Reihenfolge der Netzwerkkarten "
+"kann\n"
+" ebenfalls durch ziehen und fallenlassen verändert werden.\n"
+" "
 
 msgid ""
 "\n"
@@ -3378,10 +3364,6 @@ msgid_plural "Deleted Volume Types"
 msgstr[0] "Gelöschter Datenträgertyp"
 msgstr[1] "Gelöschte Datenträgertypen"
 
-#, python-format
-msgid "Deleted firewall %s"
-msgstr "Firewall %s gelöscht"
-
 msgid "Deleted images are not recoverable."
 msgstr "Gelöschte Abbilder können nicht wieder hergestellt werden."
 
@@ -3394,16 +3376,8 @@ msgid "Deleted monitor %s"
 msgstr "Monitor gelöscht: %s"
 
 #, python-format
-msgid "Deleted policy %s"
-msgstr "Richtlinie %s gelöscht"
-
-#, python-format
 msgid "Deleted pool %s"
 msgstr "Pool gelöscht: %s"
-
-#, python-format
-msgid "Deleted rule %s"
-msgstr "Regel %s gelöscht"
 
 msgid "Deleting"
 msgstr "Löscht"

@@ -1,27 +1,18 @@
-# Translations template for PROJECT.
-# Copyright (C) 2015 ORGANIZATION
-# This file is distributed under the same license as the PROJECT project.
-#
-# Translators:
-# KARTHIK SURESH HANASOGE <kali.karthik@gmail.com>, 2015
-# Savitha, 2015
 # OpenStack Infra <zanata@openstack.org>, 2015. #zanata
 msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-09-18 05:57+0000\n"
+"POT-Creation-Date: 2015-09-26 08:59+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2015-09-08 11:14+0000\n"
-"Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
-"Language-Team: Kannada (http://www.transifex.com/openstack/horizon/language/"
-"kn/)\n"
-"Generated-By: Babel 2.0\n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: Kannada\n"
 "Language: kn\n"
-"Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Zanata 3.7.1\n"
+"Plural-Forms: nplurals=2; plural=(n!=1)\n"
 
 #, python-format
 msgid ""
@@ -1983,6 +1974,7 @@ msgstr "ವಿಳಂಬ"
 msgid "Delete Volume"
 msgid_plural "Delete Volumes"
 msgstr[0] "ಪರಿಮಾಣಗಳನ್ನು  ಅಳಿಸಿ "
+msgstr[1] ""
 
 msgid "Delete on Terminate"
 msgstr "ಕೊನೆಗೊಂಡಾಗ ಅಳಿಸು"
@@ -2026,10 +2018,6 @@ msgid "Deleted VPN Service %s"
 msgstr "ಅಳಿಸಲಾದ VPN ಸೇವೆ %s"
 
 #, python-format
-msgid "Deleted firewall %s"
-msgstr "ಅಳಿಸಲಾದ ಫೈರ್‌ವಾಲ್ %s"
-
-#, python-format
 msgid "Deleted member %s"
 msgstr "ಅಳಿಸಲಾದ ಅಂಗ %s"
 
@@ -2038,16 +2026,8 @@ msgid "Deleted monitor %s"
 msgstr "ಅಳಿಸಲಾದ ಮೇಲ್ವಿಚಾರಕ %s"
 
 #, python-format
-msgid "Deleted policy %s"
-msgstr "ಅಳಿಸಲಾದ ಪಾಲಿಸಿ %s"
-
-#, python-format
 msgid "Deleted pool %s"
 msgstr "ಅಳಿಸಲಾದ ಪೂಲ್ %s"
-
-#, python-format
-msgid "Deleted rule %s"
-msgstr "%s ಅಳಿಸಲಾದ ನಿಯಮ"
 
 msgid "Deleting"
 msgstr "ಅಳಿಸಲಾಗುತ್ತಿದೆ"

@@ -1,21 +1,5 @@
-# Translations template for PROJECT.
-# Copyright (C) 2015 ORGANIZATION
-# This file is distributed under the same license as the PROJECT project.
-#
-# Translators:
-# Alfred <alfredhuang211@qq.com>, 2015
-# Allerson Yao, 2015
-# blkart <blkart.org@gmail.com>, 2015
-# ChangBo Guo(gcb) <glongwave@gmail.com>, 2014
-# johnwoo_lee <lijiangsheng1@gmail.com>, 2015
-# LIU Yulong <dragon889@163.com>, 2015
-# Lucas H. Xu <xuh@bu.edu>, 2015
-# Tom Fifield <tom@openstack.org>, 2014
-# Xiao Xi LIU <liuxx@cn.ibm.com>, 2014
-# Ying Chun Guo <daisy.ycguo@gmail.com>, 2015
-# 刘俊朋 <liujunpeng@inspur.com>, 2015
-# 颜海峰 <yanheven@gmail.com>, 2015
 # Andreas Jaeger <jaegerandi@gmail.com>, 2015. #zanata
+# Daisy <guoyingc@cn.ibm.com>, 2015. #zanata
 # OpenStack Infra <zanata@openstack.org>, 2015. #zanata
 # Xu Yang <xuyang@cn.fujitsu.com>, 2015. #zanata
 # Yu Zhiuguo <yuzg@cn.fujitsu.com>, 2015. #zanata
@@ -24,18 +8,16 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-09-24 21:49+0000\n"
+"POT-Creation-Date: 2015-09-26 08:59+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2015-09-25 05:21+0000\n"
-"Last-Translator: zhangjingwen <zhangjingwen@cn.fujitsu.com>\n"
-"Language-Team: Chinese (China) (http://www.transifex.com/openstack/horizon/"
-"language/zh_CN/)\n"
-"Generated-By: Babel 2.0\n"
+"PO-Revision-Date: 2015-10-01 04:48+0000\n"
+"Last-Translator: Daisy <guoyingc@cn.ibm.com>\n"
+"Language-Team: Chinese (China)\n"
 "Language: zh-CN\n"
-"Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Zanata 3.7.1\n"
+"Plural-Forms: nplurals=1; plural=0\n"
 
 msgid ""
 "\n"
@@ -1870,7 +1852,7 @@ msgid "Component"
 msgstr "组件"
 
 msgid "Compute"
-msgstr "Compute"
+msgstr "计算"
 
 msgid "Compute (Nova)"
 msgstr "计算(Nova)"
@@ -3171,10 +3153,6 @@ msgid "Deleted Volume Type"
 msgid_plural "Deleted Volume Types"
 msgstr[0] "已删除的云硬盘类型"
 
-#, python-format
-msgid "Deleted firewall %s"
-msgstr "删除防火墙%s"
-
 msgid "Deleted images are not recoverable."
 msgstr "删除的镜像均无法恢复。"
 
@@ -3187,16 +3165,8 @@ msgid "Deleted monitor %s"
 msgstr "监控程序%s已删除"
 
 #, python-format
-msgid "Deleted policy %s"
-msgstr "删除策略%s"
-
-#, python-format
 msgid "Deleted pool %s"
 msgstr "已删除资源池%s"
-
-#, python-format
-msgid "Deleted rule %s"
-msgstr "删除规则%s"
 
 msgid "Deleting"
 msgstr "删除中"
@@ -4920,7 +4890,7 @@ msgid "Identifier Type"
 msgstr "标识符类型"
 
 msgid "Identity"
-msgstr "Identity"
+msgstr "身份管理"
 
 msgid "Identity service does not allow editing user data."
 msgstr "认证服务不允许编辑用户数据。"
