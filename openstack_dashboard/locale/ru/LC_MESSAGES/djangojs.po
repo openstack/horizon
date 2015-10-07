@@ -1,0 +1,1093 @@
+# Translations template for PROJECT.
+# Copyright (C) 2015 ORGANIZATION
+# This file is distributed under the same license as the PROJECT project.
+#
+# Translators:
+# Ilya Alekseyev <ilyaalekseyev@acm.org>, 2015
+# Ilya Shakhat <shakhat@gmail.com>, 2015
+# kogamatranslator49 <r.podarov@yandex.ru>, 2015
+# Fedor Tarasenko <feodor.tarasenko@gmail.com>, 2015. #zanata
+# Ilya Alekseyev <ilyaalekseyev@acm.org>, 2015. #zanata
+# OpenStack Infra <zanata@openstack.org>, 2015. #zanata
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
+"POT-Creation-Date: 2015-10-07 03:30+0000\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"PO-Revision-Date: 2015-10-06 02:06+0000\n"
+"Last-Translator: Fedor Tarasenko <feodor.tarasenko@gmail.com>\n"
+"Language-Team: Russian (http://www.transifex.com/openstack/horizon/language/"
+"ru/)\n"
+"Generated-By: Babel 2.0\n"
+"Language: ru\n"
+"Plural-Forms: nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || (n"
+"%100>=11 && n%100<=14)? 2 : 3);\n"
+"X-Generator: Zanata 3.7.1\n"
+
+msgid "(Max: 16Kb)"
+msgstr "(Максимум: 16Кб)"
+
+msgid "(Modified)"
+msgstr "(Изменено)"
+
+msgid "(None)"
+msgstr "(нет)"
+
+msgid ""
+"<li><b>Image (with Create New Volume checked)</b>: This options uses an "
+"image to boot the instance, and creates a new volume to persist instance "
+"data. You can specify volume size and whether to delete the volume on "
+"termination of the instance.</li>"
+msgstr ""
+"<li><b>Образ (выбрано создание нового диска)</b>: Данная опция использует "
+"образ для загрузки инстанса и создаёт новый диск для хранения постоянных "
+"данных. Можно указать размер диска и разрешить его удаление при завершении "
+"работы инстанса.</li>"
+
+msgid "<li><b>Image</b>: This option uses an image to boot the instance.</li>"
+msgstr ""
+"<li><b>Образ</b>: Данная опция использует образ в качестве источника для "
+"загрузки.</li>"
+
+msgid ""
+"<li><b>Instance Snapshot</b>: This option uses an instance snapshot to boot "
+"the instance.</li>"
+msgstr ""
+"<li><b>Снимок инстанса</b>: Данная опция использует снимок инстанса для его "
+"загрузки.</li>"
+
+msgid ""
+"<li><b>Volume Snapshot</b>: This option uses a volume snapshot to boot the "
+"instance, and creates a new volume to persist instance data. You can choose "
+"to delete the volume on termination of the instance.</li>"
+msgstr ""
+"<li><b>Снимок диска</b>: Данная опция использует снимок диска для загрузки "
+"инстанса, и создаёт новый диск для сохранения данных инстанса. Можно "
+"разрешить удаление диска при завершении работы инстанса.</li>"
+
+msgid ""
+"<li><b>Volume</b>: This option uses a volume that already exists. It does "
+"not create a new volume. You can choose to delete the volume on termination "
+"of the instance. <em>Note: when selecting Volume, you can only launch one "
+"instance.</em></li>"
+msgstr ""
+"<li><b>Диск</b>: Данная опция использует уже существующий диск. Она не "
+"создаёт новый диск. Можно разрешить удаление диска при завершении работы "
+"инстанса. <em>Замечание: опция Диск позволяет запустить только один "
+"экземпляр инстанса.</em></li>"
+
+msgid ""
+"A floating IP allows instances to be addressable from an external network.\n"
+"    Floating IPs are not allocated to instances at creation time and may be "
+"assigned\n"
+"    after the instance is created. To attach a floating IP, go to the "
+"<b>Instances</b>\n"
+"    view and click the <b>Actions</b> menu to the right of an instance.\n"
+"    Then, select the <b>Associate Floating IP</b> option and enter the "
+"necessary details."
+msgstr ""
+"Назначаемые IP адреса позволяют получать доступ к инстансам из внешних "
+"сетей.\n"
+"    Назначаемые IP адреса не присваиваются инстансам при создании и могут "
+"быть выделены \n"
+"    после создания инстанса. Чтобы подключить Назначемый IP, зайдите в "
+"раздел <b>Инстансы</b>\n"
+"    и нажмите меню  <b>Действия</b> справа от инстанса.\n"
+"    Затем выберите опцию <b>Привязать Назначаемый IP</b> и введите "
+"необходимые параметры."
+
+msgid ""
+"A key pair allows you to SSH into your newly created instance.\n"
+"      You may select an existing key pair, import a key pair, or generate a "
+"new key pair."
+msgstr ""
+"Связки ключей позволяют подключаться по SSH к инстансу после его запуска.\n"
+"      Вы должны выбрать существующую, импортировать или создать новую связку "
+"ключей."
+
+msgid "A name is required for your instance."
+msgstr "Требуется указать имя инстанса."
+
+msgid "Active"
+msgstr "Активный"
+
+msgid "Admin State"
+msgstr "Административное состояние"
+
+msgid ""
+"Administrators are responsible for creating and managing flavors. A custom "
+"flavor can be created for you or for a specific project where it is shared "
+"with the users assigned to that project. If you need a custom flavor, "
+"contact your administrator."
+msgstr ""
+"За создание и удаление типов инстансов отвечают администраторы. "
+"Нестандартный тип инстанса может быть создан для пользователя или проекта, "
+"где он доступен для всех пользователей, добавленных в этот проект. Если вам "
+"требуется нестандартный тип инстанса, свяжитесь с вашим администратором. "
+
+msgid ""
+"Administrators set up the pool of floating IPs that are available to attach "
+"to instances."
+msgstr ""
+"Администраторы задают пул Назначаемых IP адресов, доступных для подключения."
+
+msgid ""
+"An <b>External</b> network is set up by an administrator.\n"
+"    If you want an instance to communicate outside of the data center,\n"
+"    then attach a router between your <b>Project</b> network and the "
+"<b>External</b> network.\n"
+"    You can use the <b>Network Topology</b> view to connect the router to "
+"the two networks."
+msgstr ""
+"<b>Внешняя</b> сеть создаётся и настраивается администратором.\n"
+"    Если вы хотите, чтобы инстанс мог общаться с внешним миром,\n"
+"    подключите маршрутизатор между вашей <b>Проектной</b> и <b>Внешней</b> "
+"сетями.\n"
+"    Вы можете использовать раздел <b>Сетевая топология</b> чтобы подключить "
+"маршрутизатор к двум сетям."
+
+msgid ""
+"An advanced option available when launching an instance is disk "
+"partitioning. There are two disk partition options. Selecting <b>Automatic</"
+"b> resizes the disk and sets it to a single partition. Selecting <b>Manual</"
+"b> allows you to create multiple partitions on the disk."
+msgstr ""
+"Расширенные настройки доступны для разметки диска при создании инстанса. "
+"Есть два варианта разбивки. Выбор параметра <b>Автоматический</b> изменяет "
+"размер диска и создаёт на нём один раздел. Выбор параметра <b>Ручной</b> "
+"позволяет создавать несколько разделов на диске."
+
+msgid ""
+"An instance name is required and used to help you uniquely identify your "
+"instance in the dashboard."
+msgstr ""
+"Обязательно указание имя инстанса, которое используется для идентификации "
+"его на дашборде."
+
+msgid "Automatic"
+msgstr "Автоматически"
+
+msgid "Availability Zone"
+msgstr "Зона доступности"
+
+msgid "Boot Source"
+msgstr "Источник загрузки"
+
+msgid "Cancel"
+msgstr "Отмена"
+
+msgid "Cannot get service catalog from keystone."
+msgstr "Не удалось получить каталог служб из Keystone."
+
+msgid "Cannot get the Nova extension list."
+msgstr "Не удалось получить список расширений Nova."
+
+msgid ""
+"Check the <b>Configuration Drive</b> box if you want to write metadata to a "
+"special configuration drive. When the instance boots, it attaches to the "
+"<b>Configuration Drive</b> and accesses the metadata."
+msgstr ""
+"Поставьте флажок <b>Конфигурационный диск</b> если вы хотите записать "
+"метаданные на специальный конфигурационный диск. При загрузке инстанса, к "
+"нему подключается <b>Конфигурационный диск</b> и предоставляется доступ к "
+"метаданным."
+
+msgid "Click to see more details"
+msgstr "Нажмите для подробностей"
+
+msgid "Configuration"
+msgstr "Конфигурация"
+
+msgid "Configuration Drive"
+msgstr "Конфигурационный диск"
+
+msgid "Configuration Help"
+msgstr "Справка по конфигурации"
+
+msgid "Configuration Value"
+msgstr "Конфигурационное значение"
+
+msgid "Count"
+msgstr "Количество"
+
+msgid "Create Key Pair"
+msgstr "Создать связку ключей"
+
+msgid "Create New Volume"
+msgstr "Создать новый диск"
+
+msgid "Created"
+msgstr "Создан"
+
+msgid ""
+"Custom scripts are attached to instances to perform specific actions when "
+"the instance is launched. For example, if you are unable to install "
+"<samp>cloud-init</samp> inside a guest operating system, you can use a "
+"custom script to get a public key and add it to the user account."
+msgstr ""
+"Пользовательские скрипты прикрепляются к инстансам для выполнения "
+"определенных действий при запуске инстанса. Например, если вы не имели "
+"возможности установить  <samp>cloud-init</samp>  в гостевой операционной "
+"системе, вы можете использовать пользовательские скрипты для получения "
+"открытого ключа и добавления его к аккаунту пользователя."
+
+msgid "Customization Script"
+msgstr "Настройки скрипта"
+
+msgid "Data Source"
+msgstr "Источник данных"
+
+msgid "Default Value"
+msgstr "Значение по умолчанию"
+
+msgid "Delete Volume on Terminate"
+msgstr "Удалить диск при выключении"
+
+msgid "Deleted"
+msgstr "Удалено"
+
+msgid "Description"
+msgstr "Описание"
+
+msgid "Device Name"
+msgstr "Имя устройства"
+
+msgid "Direction"
+msgstr "Направление"
+
+msgid "Disk Partition"
+msgstr "Разбиение диска"
+
+msgid "Domain ID"
+msgstr "ID домена"
+
+msgid "Down"
+msgstr "Выключен"
+
+msgid "Email"
+msgstr "E-mail"
+
+msgid "Enabled"
+msgstr "Включено"
+
+msgid "Ephemeral Disk"
+msgstr "Временный диск"
+
+msgid "Ether Type"
+msgstr "Тип сети"
+
+msgid "Event log is not available."
+msgstr "Журнал событий недоступен."
+
+#, python-format
+msgid "Extension is not enabled: %(extension)s."
+msgstr "Расширение не включено: %(extension)s"
+
+msgid "External Network"
+msgstr "Внешняя сеть"
+
+msgid "Fingerprint"
+msgstr "Отпечаток"
+
+msgid "Flavor"
+msgstr "Тип инстанса"
+
+msgid "Flavor Help"
+msgstr "Помощь"
+
+msgid ""
+"Flavors manage the sizing for the compute, memory and storage capacity of "
+"the instance."
+msgstr ""
+"Типы инстансов отвечают за количество выделяемой памяти, дисков и "
+"процессорной мощности для создаваемых инстансов."
+
+msgid ""
+"For configs and params, type the key name; for args, type the index as an "
+"integer, starting from 0."
+msgstr ""
+"Для параметров и конфигурационных значений введите имя параметра, для "
+"аргументов введите индекс как целое число начиная с 0."
+
+msgid ""
+"For data sources, use a data source UUID or a path (as per data source "
+"creation.)"
+msgstr ""
+"Для источников данных используйте UUID источника или путь (такой же как при "
+"создании источника)"
+
+msgid "Format"
+msgstr "Формат"
+
+msgid ""
+"From a Windows system, you can use PuTTYGen to create private/public keys.\n"
+"  Use the PuTTY Key Generator to create and save the keys, then copy\n"
+"  the public key in the red highlighted box to your <samp>.ssh/"
+"authorized_keys</samp>\n"
+"  file."
+msgstr ""
+"Для Windows систем используется PuTTYGen для создания частных/публичных "
+"ключей.\n"
+"  Используйте PuTTY Key Generator для создания ключей, затем скопируйте\n"
+"  публичный ключ из подсвеченного красным окошка в ваш <samp>.ssh/"
+"authorized_keys</samp>\n"
+"  файл."
+
+msgid "ID"
+msgstr "ID"
+
+msgid ""
+"If a network is shared, then all users in the project can access the network."
+msgstr ""
+"Если предоставлен совместный доступ к сети, все пользователи проекта имеют к "
+"ней доступ."
+
+msgid ""
+"If a security group is not associated with an instance before it is "
+"launched, then you will have very limited access to the instance after it is "
+"deployed. You will only be able to access the instance from a VNC console."
+msgstr ""
+"Если не назначить группу безопасности инстансу перед его запуском, у вас "
+"будет сильно ограниченный доступ к нему после развёртывания. Фактически, "
+"доступ будет только через VNC консоль."
+
+msgid ""
+"If you select an availability zone and plan to use the boot from volume "
+"option, make sure that the availability zone you select for the instance is "
+"the same availability zone where your bootable volume resides."
+msgstr ""
+"Если вы выбираете зону доступности и планируете использовать загрузку с "
+"диска, убедитесь, что зоны доступности инстанса и диска совместимы."
+
+msgid ""
+"If you want to create an instance that uses ephemeral storage, meaning the "
+"instance data is lost when the instance is deleted, then choose one of the "
+"following boot sources:"
+msgstr ""
+"Если вы хотите создать инстанс, использующий эфемерный диск, который "
+"исчезает после удаления инстанса вместе с данным, используйте один из "
+"следующих источников для загрузки:"
+
+msgid ""
+"If you want to create an instance that uses persistent storage, meaning the "
+"instance data is saved when the instance is deleted, then select one of the "
+"following boot options:"
+msgstr ""
+"Если вы хотите создать инстанс, использующий постоянный диск, который не "
+"исчезает после удаления инстанса вместе с данными, используйте одну из "
+"следующих опций для загрузки:"
+
+msgid "Image"
+msgstr "Образ"
+
+msgid "Image Name"
+msgstr "Имя образа"
+
+msgid "Impact on your quota"
+msgstr "Влияние на квоту"
+
+msgid "Import Key Pair"
+msgstr "Импортировать пару ключей"
+
+msgid "Instance Details"
+msgstr "Детали инстанса"
+
+msgid "Instance Name"
+msgstr "Название инстанса"
+
+msgid "Instance Snapshot"
+msgstr "Снимок инстанса"
+
+msgid "Instance Source"
+msgstr "Источник инстанса"
+
+msgid "Instance count is required and must be an integer of at least 1"
+msgstr "Требуется указать количество инстансов (не менее 1)."
+
+msgid ""
+"Instance source is the template used to create an instance. You can use a "
+"snapshot of an existing instance, an image, or a volume (if enabled). You "
+"can also choose to use persistent storage by creating a new volume."
+msgstr ""
+"Источник инстанса - шаблон, используемый при создании инстанса. Можно "
+"использовать снепшот существующего инстанса, образ или диск (если доступно). "
+"Также можно выбрать постоянный тип хранения для нового диска."
+
+msgid "Insufficient privilege level to view user information."
+msgstr ""
+"Недостаточный уровень полномочий для просмотра информации о пользователе"
+
+msgid "Key Pair"
+msgstr "Ключевая пара"
+
+msgid "Key Pair Help"
+msgstr "Помощь по связке ключей"
+
+msgid "Key Pair Name"
+msgstr "Имя связки ключей"
+
+msgid ""
+"Key Pairs are how you login to your instance after it is launched.\n"
+"        Choose a key pair name you will recognize and paste your SSH public "
+"key into the\n"
+"        space provided."
+msgstr ""
+"Связки ключей позволяют подключаться к инстансу после его запуска.\n"
+"        Выберите имя для связки ключей, которое вы сможете запомнить и "
+"вставьте ваш \n"
+"        публичный SSH ключ в поле ниже."
+
+msgid ""
+"Key Pairs are how you login to your instance after it is launched.\n"
+"        Choose a key pair name you will recognize."
+msgstr ""
+"Связки ключей позволяют подключаться к инстансу после его запуска.\n"
+"        Выберите имя для связки ключей, которое вы сможете запомнить."
+
+msgid "Killed"
+msgstr "Убито"
+
+msgid "Launch Instance"
+msgstr "Запустить инстанс"
+
+msgid "Load script from a file"
+msgstr "Загрузить скрипт из файла"
+
+msgid "Location"
+msgstr "Расположение"
+
+msgid "Manual"
+msgstr "Вручную"
+
+msgid "Mapping Type"
+msgstr "Тип отображения"
+
+msgid "Max Port"
+msgstr "По порт"
+
+msgid "Min Disk"
+msgstr "Мин. диск"
+
+msgid "Min Disk (GB)"
+msgstr "Мин. размер диска (ГБ)"
+
+msgid "Min Port"
+msgstr "От порта"
+
+msgid "Min RAM"
+msgstr "Минимально RAM"
+
+msgid "Min RAM (MB)"
+msgstr "Мин ОЗУ (МБ)"
+
+msgid "Min Ram"
+msgstr "Мин. ОЗУ"
+
+msgid "Name"
+msgstr "Название"
+
+msgid "Named Parameter"
+msgstr "Именованный параметр"
+
+msgid "Network"
+msgstr "Сеть"
+
+msgid "Network Help"
+msgstr "Помощь - сеть"
+
+msgid "Network characteristics"
+msgstr "Характеристики сети"
+
+msgid "Networks"
+msgstr "Сети"
+
+msgid "Networks provide the communication channels for instances in the cloud."
+msgstr "Сеть предоставляет канал связи между инстансами в облаке."
+
+msgid "No"
+msgstr "Нет"
+
+msgid "No available items"
+msgstr "Нет доступных элементов"
+
+msgid "Number"
+msgstr "Число"
+
+msgid "OK"
+msgstr "ОК"
+
+msgid "Pending Delete"
+msgstr "Ожидает удаления"
+
+msgid "Physical Network"
+msgstr "Физическая сеть"
+
+msgid ""
+"Please provide the initial host name for the instance, the availability zone "
+"where it will be deployed, and the instance count. Increase the Count to "
+"create multiple instances with the same settings."
+msgstr ""
+"Пожалуйста укажите имя хоста для инстанса, зону доступности для его "
+"развёртывания и количество разворачиваемых инстансов. Увеличте количество "
+"инстансов для развёртывания нескольких одинаковых экземпляров."
+
+msgid "Policy check failed."
+msgstr "Проверка политики не удалась."
+
+msgid "Positional Argument"
+msgstr "Позиционный аргумент"
+
+msgid "Private"
+msgstr "Частный"
+
+msgid "Private Key"
+msgstr "Закрытый ключ"
+
+msgid "Profile"
+msgstr "Профиль"
+
+msgid "Project"
+msgstr "Проект"
+
+msgid "Project ID"
+msgstr " ID проекта"
+
+msgid ""
+"Project networks are created by users.\n"
+"    These networks are fully isolated and are project-specific."
+msgstr ""
+"Проектные сети создаются пользователями.\n"
+"    Эти сети полностью изолированы и принадлежат проекту."
+
+msgid "Protected"
+msgstr "Защищенный"
+
+msgid "Protocol"
+msgstr "Протокол"
+
+msgid "Provider Network"
+msgstr "Сеть провайдера"
+
+msgid ""
+"Provider networks are created by administrators.\n"
+"    These networks map to an existing physical network in the data center."
+msgstr ""
+"Провайдерские сети создаются администраторами.\n"
+"    Данные сети представляют существующую физическую сеть в дата-центре."
+
+msgid "Public"
+msgstr "Публичный"
+
+msgid "Public Key"
+msgstr "Открытый ключ"
+
+msgid "Queued"
+msgstr "Запланировано"
+
+msgid "RAM"
+msgstr "ОЗУ"
+
+msgid "Re-order items using drag and drop"
+msgstr "Переопределите элементы перемещением"
+
+msgid "Remote"
+msgstr "Удаленный адрес"
+
+msgid "Remove"
+msgstr "Удалить"
+
+msgid "Required"
+msgstr "Требуется"
+
+msgid "Required?"
+msgstr "Обязательно?"
+
+msgid "Root Disk"
+msgstr "Основной диск"
+
+msgid "Save"
+msgstr "Сохранить"
+
+msgid "Saving"
+msgstr "Сохранение"
+
+msgid "Script size"
+msgstr "Размер скрипта"
+
+msgid "Security Groups"
+msgstr "Группы безопасности"
+
+msgid "Security Groups Help"
+msgstr "Подсказка по группам безопасности"
+
+msgid ""
+"Security groups are project-specific and cannot be shared across projects."
+msgstr ""
+"Группы безопасности уникальны для проектов и не могут присутствовать в "
+"нескольких проектах."
+
+msgid ""
+"Security groups define a set of IP filter rules that determine how network "
+"traffic flows to and from an instance. Users can add additional rules to an "
+"existing security group to further define the access options for an "
+"instance. To create additional rules, go to the <b>Compute | Access & "
+"Security</b> view, then find the security group and click <b>Manage Rules</"
+"b>."
+msgstr ""
+"Группы безопасности задают набор правил, определяющих поведение сетевого "
+"трафика по направлению из/в инстанс. Пользователи могут добавлять "
+"дополнительные правила в существующие группы в будущем. Чтобы создать "
+"дополнительное правило, зайдите в раздел <b>Compute | Доступ и безопасность</"
+"b>, найдите нужную группу и нажмите <b>Управление правилами</b>."
+
+msgid ""
+"See http://docs.openstack.org/developer/sahara/userdoc/edp.html for "
+"definitions."
+msgstr ""
+"Смотрите http://docs.openstack.org/developer/sahara/userdoc/edp.html для "
+"определений."
+
+msgid "Segmentation ID"
+msgstr "ID сегмента"
+
+msgid "Select Boot Source"
+msgstr "Выберите источник загрузки"
+
+msgid "Select Source"
+msgstr "Выбрать источник"
+
+msgid "Select Source Help"
+msgstr "Выберите источник помощи"
+
+msgid "Select a key pair from the available key pairs below."
+msgstr "Выберите одну из доступных пар ключей."
+
+msgid "Select a source from those listed below."
+msgstr "Выберите источник из списка ниже."
+
+msgid "Select an item from Available items below"
+msgstr "Выберите элемент из доступных элементов ниже"
+
+msgid "Select at least one network"
+msgstr "Выберите как минимум одну сеть."
+
+msgid "Select networks from those listed below."
+msgstr "Выберите сети из списка."
+
+msgid "Select one"
+msgstr "Выберите одно"
+
+msgid "Select one or more"
+msgstr "Выберите одну или несколько"
+
+msgid "Select one or more security groups from the available groups below."
+msgstr "Выберите одну или более групп безопасности из доступных."
+
+msgid "Select the security groups."
+msgstr "Выберите группы безопасности."
+
+#, python-format
+msgid "Service type is not enabled: %(desiredType)s"
+msgstr "Тип службы не включен: %(desiredType)s"
+
+#, python-format
+msgid "Setting is not enabled: %(setting)s"
+msgstr "Настройка не включена: %(setting)s"
+
+msgid "Shared"
+msgstr "Общая"
+
+msgid "Show events"
+msgstr "Показать события"
+
+msgid "Size"
+msgstr "Размер"
+
+msgid "Size (GB)"
+msgstr "Размер (Гб)"
+
+msgid "Snapshot"
+msgstr "Снимок"
+
+msgid "Status"
+msgstr "Статус"
+
+msgid "String"
+msgstr "Строка"
+
+msgid "Subnets Associated"
+msgstr "Связанные подсети"
+
+#, python-format
+msgid "Successfully created key pair %(name)s."
+msgstr "Успешно создана связка ключей %(name)s."
+
+#, python-format
+msgid "Successfully imported key pair %(name)s."
+msgstr "Успешно импортирована связка ключей %(name)s."
+
+msgid ""
+"The flavor you select for an instance determines the amount of compute, "
+"storage and memory resources that will be carved out for the instance."
+msgstr ""
+"Тип инстанса определяет количество вычислительных, дисковых и ОЗУ ресурсов, "
+"которые будут выделены для создаваемого инстанса."
+
+msgid ""
+"The flavor you select must have enough resources allocated to support the "
+"type of instance you are trying to create. Flavors that do not provide "
+"enough resources for your instance are identified on the <b>Available</b> "
+"table with a yellow warning icon."
+msgstr ""
+"Выбранный тип инстанса должен иметь достаточное количество ресурсов для "
+"запуска инстанса, который вы пытаетесь создать. Типы инстансов, которые не "
+"предоставляют достаточное количество ресурсов, отображаются в таблице "
+"<b>Доступны</b> с жёлтым предупреждающим значком."
+
+#, python-format
+msgid ""
+"The instance count must not exceed your quota available of "
+"%(maxInstanceCount)s instances"
+msgstr "Количество инстансов не должно превышать %(maxInstanceCount)s "
+
+#, python-format
+msgid ""
+"The selected image source requires a flavor with at least %(minDisk)s GB of "
+"root disk. Select a flavor with a larger root disk or use a different image "
+"source."
+msgstr ""
+"Выбранный образ требует тип инстанса минимум с корневым диском размером не "
+"менее %(minDisk)s GB. Выберите тип инстанса с большим размером корневого "
+"диска или используйте другой источник для образа."
+
+#, python-format
+msgid ""
+"The selected image source requires a flavor with at least %(minRam)s MB of "
+"RAM. Select a flavor with more RAM or use a different image source."
+msgstr ""
+"Выбранный образ требует тип инстанса минимум с %(minRam)s MB ОЗУ. Выберите "
+"тип инстанса с большим размером ОЗУ или используйте другой источник для "
+"образа."
+
+msgid "The status indicates whether the network has an active connection."
+msgstr "Статус показывает, имеются ли активные подключения в данной сети."
+
+msgid "The step has completed successfully. No events to display."
+msgstr "Этап успешно завершен. Нет событий для отображения."
+
+msgid ""
+"The subnet identifies a sub-section of a network. A subnet is specified in "
+"CIDR format.\n"
+"    A typical CIDR format looks like <samp>192.xxx.x.x/24</samp>."
+msgstr ""
+"Подсеть определяет часть сети. Подсеть задаётся в формате CIDR.\n"
+"    Обычный формат CIDR выглядит как <samp>192.xxx.x.x/24</samp>."
+
+#, python-format
+msgid "The volume size must be at least %(minVolumeSize)s GB"
+msgstr "Размер диска должен быть не менее %(minVolumeSize)s GB"
+
+msgid ""
+"There are two ways to generate a key pair. From a Linux system,\n"
+"  generate the key pair with the <samp>ssh-keygen</samp> command:"
+msgstr ""
+"Есть два способа создания связок ключей. Для Linux систем,\n"
+"  создайте связку ключей командой <samp>ssh-keygen</samp> :"
+
+msgid ""
+"This command generates a pair of keys: a private key (cloud.key)\n"
+"  and a public key (cloud.key.pub)."
+msgstr ""
+"Данная команда создаёт связку ключей: приватный ключ (cloud.key)\n"
+"  и публичный ключ (cloud.key.pub)."
+
+msgid ""
+"This flavor requires more RAM than your quota allows. Please select a "
+"smaller flavor or decrease the instance count."
+msgstr ""
+"Данный тип инстанса требует больше RAM, чем позволяет ваша квота. "
+"Пожалуйста, выберите тип инстанса с меньшим количеством RAM или уменьшите "
+"количество инстансов."
+
+msgid ""
+"This flavor requires more VCPUs than your quota allows. Please select a "
+"smaller flavor or decrease the instance count."
+msgstr ""
+"Данный тип инстанса требует больше vCPU, чем позволяет ваша квота. "
+"Пожалуйста, выберите тип инстанса с меньшим количеством vCPU или уменьшите "
+"количество инстансов."
+
+msgid "This is your new key pair. Copy this information and keep it secure."
+msgstr "Это новая связка ключей. Скопируйте эту информацию в безопасное место."
+
+msgid "Total Disk"
+msgstr "Объем диска"
+
+msgid "Total Instances"
+msgstr "Всего машин"
+
+msgid "Total RAM"
+msgstr "Всего RAM"
+
+msgid "Total VCPUs"
+msgstr "Всего виртуальных ядер"
+
+msgid "Type"
+msgstr "Тип"
+
+msgid ""
+"Type your script directly into the Customization Script field. If your "
+"browser supports the HTML5 File API, you may choose to load your script from "
+"a file. The size of your script should not exceed 16 Kb."
+msgstr ""
+"Введите ваш скрипт напрямую в поле Пользовательский Скрипт. Если ваш браузер "
+"поддерживает файловое HTML5 API, вы можете выбрать загрузку скрипта из "
+"файла. Размер скрипта не должен превышать 16 Kb."
+
+msgid "Unable to create the domain."
+msgstr "Не удалось создать домен."
+
+msgid "Unable to create the keypair."
+msgstr "Не удалось создать пару ключей."
+
+msgid "Unable to create the network."
+msgstr "Не удалось создать сеть."
+
+msgid "Unable to create the project."
+msgstr "Не удалось создать проект"
+
+msgid "Unable to create the role."
+msgstr "Не удалось создать роль."
+
+msgid "Unable to create the server."
+msgstr "Не удалось создать сервер."
+
+msgid "Unable to create the subnet."
+msgstr "Не удалось создать подсеть."
+
+msgid "Unable to create the user."
+msgstr "Не удалось создать пользователя."
+
+msgid "Unable to delete the domain."
+msgstr "Не удалось удалить домен."
+
+msgid "Unable to delete the domains."
+msgstr "Не удалось удалить домены."
+
+msgid "Unable to delete the project."
+msgstr "Не удалось удалить проект."
+
+msgid "Unable to delete the projects."
+msgstr "Не удалось удалить проекты."
+
+msgid "Unable to delete the role."
+msgstr "Не удалось удалить роль."
+
+msgid "Unable to delete the roles."
+msgstr "Не удалось удалить роли."
+
+msgid "Unable to delete the user."
+msgstr "Не удалось удалить пользователя."
+
+msgid "Unable to delete the users."
+msgstr "Не удалось удалить пользователей."
+
+msgid "Unable to edit the aggregate extra specs."
+msgstr "Невозможно редактировать расширенные параметры для агрегатора."
+
+msgid "Unable to edit the domain."
+msgstr "Не удалось изменить домен."
+
+msgid "Unable to edit the flavor extra specs."
+msgstr "Невозможно редактировать расширенные параметры для типа инстанса"
+
+msgid "Unable to edit the image custom properties."
+msgstr "Невозможно редактировать расширенные свойства образа."
+
+msgid "Unable to edit the project."
+msgstr "Не удалось изменить проект."
+
+msgid "Unable to edit the role."
+msgstr "Не удалось изменить роль."
+
+msgid "Unable to edit the user."
+msgstr "Не удалось изменить пользователя."
+
+msgid "Unable to fetch the service catalog."
+msgstr "Не удалось получить каталог служб."
+
+msgid "Unable to get the Keystone service version."
+msgstr "Не удалось получить версию службы Keystone."
+
+msgid "Unable to grant the role."
+msgstr "Не удалось предоставить роль."
+
+msgid "Unable to import the keypair."
+msgstr "Не удалось импортировать пару ключей."
+
+msgid "Unable to retrieve settings."
+msgstr "Не удалось получить настройки."
+
+msgid "Unable to retrieve the aggregate extra specs."
+msgstr "Невозможно получить расширенные параметры для агрегатора."
+
+msgid "Unable to retrieve the availability zones."
+msgstr "Не удалось получить зоны доступности."
+
+msgid "Unable to retrieve the current user session."
+msgstr "Не удалось получить текущую сессию пользователя."
+
+msgid "Unable to retrieve the domain."
+msgstr "Не удалось получить домен."
+
+msgid "Unable to retrieve the domains."
+msgstr "Не удалось получить домены."
+
+msgid "Unable to retrieve the extensions."
+msgstr "Не удалось получить расширения."
+
+msgid "Unable to retrieve the flavor extra specs."
+msgstr "Невозможно получить расширенные параметры для типа инстанса."
+
+msgid "Unable to retrieve the flavor."
+msgstr "Невозможно получить тип инстанса."
+
+msgid "Unable to retrieve the flavors."
+msgstr "Невозможно получить типы инстансов."
+
+msgid "Unable to retrieve the image custom properties."
+msgstr "Не удалось получить расширенные свойства образа."
+
+msgid "Unable to retrieve the image."
+msgstr "Не удалось получить образ."
+
+msgid "Unable to retrieve the images."
+msgstr "Не удалось получить образы."
+
+msgid "Unable to retrieve the keypairs."
+msgstr "Не удалось получить пары ключей."
+
+msgid "Unable to retrieve the limits."
+msgstr "Не удалось получить лимиты."
+
+msgid "Unable to retrieve the namespaces."
+msgstr "Не удалось получить пространства имён."
+
+msgid "Unable to retrieve the networks."
+msgstr "Не удалось получить сети."
+
+msgid "Unable to retrieve the ports."
+msgstr "Не удалось получить порты."
+
+msgid "Unable to retrieve the project."
+msgstr "Не удалось получить проекты"
+
+msgid "Unable to retrieve the projects."
+msgstr "Не удалось получить проекты"
+
+msgid "Unable to retrieve the role."
+msgstr "Не удалось получить роль"
+
+msgid "Unable to retrieve the roles."
+msgstr "Не удалось получить роли пользователя."
+
+msgid "Unable to retrieve the security groups."
+msgstr "Не удалось получить группы безопасности."
+
+msgid "Unable to retrieve the server."
+msgstr "Не удалось получить сервер."
+
+msgid "Unable to retrieve the subnets."
+msgstr "Не удалось получить подсети."
+
+msgid "Unable to retrieve the user."
+msgstr "Не удалось получить пользователя."
+
+msgid "Unable to retrieve the users."
+msgstr "Не удалось получить список пользователей."
+
+msgid "Unable to retrieve the volume snapshots."
+msgstr "Не удалось получить снимки диска."
+
+msgid "Unable to retrieve the volumes."
+msgstr "Не удалось получить диски."
+
+msgid "Unable to validate the template."
+msgstr "Невозможно проверить шаблон."
+
+msgid "Up"
+msgstr "Включен"
+
+msgid "Update Aggregate Metadata"
+msgstr " Обновить метаданные агрегатора"
+
+msgid "Update Flavor Metadata"
+msgstr "Обновить метаданные типа инстанса"
+
+msgid "Update Image Metadata"
+msgstr "Обновить метаданные образа"
+
+msgid "Updated"
+msgstr "Обновлено"
+
+msgid "User ID"
+msgstr "ID пользователя"
+
+msgid "User Name"
+msgstr "Имя пользователя"
+
+msgid "VCPUS"
+msgstr "VCPUS"
+
+msgid "Value Type"
+msgstr "Тип значения"
+
+msgid "Visibility"
+msgstr "Видимость"
+
+msgid "Volume"
+msgstr "Диск"
+
+msgid "Volume Snapshot"
+msgstr "Снимок диска"
+
+msgid "Volume size is required and must be an integer"
+msgstr "Требуется указать размер диска в виде целого числа."
+
+msgid ""
+"Volumes can only be attached to 1 active instance at a time. Please either "
+"set your instance count to 1 or select a different source type."
+msgstr ""
+"Диск может быть подключен только к одному активному инстансу. Пожалуйста, "
+"уменьште количество инстансов до 1 или выберите другой тип источника."
+
+msgid ""
+"When selecting volume as boot source, please ensure the instance's "
+"availability zone is compatible with your volume's availability zone."
+msgstr ""
+"Если выбирать диск в качестве источника загрузки, необходимо, чтобы зоны "
+"доступности инстанса и диска были совместимы."
+
+msgid ""
+"When the <b>Admin State</b> for a network is set to <b>Up</b>,\n"
+"    then the network is available for use. You can set the <b>Admin State</"
+"b> to <b>Down</b>\n"
+"    if you are not ready for other users to access the network."
+msgstr ""
+"Когда <b>Состояние</b> сети выставлено в b>Включено</b>,\n"
+"    то сеть доступна для использования. Вы можете выставить <b>Состояние</b> "
+"в <b>Выключено</b>\n"
+"    если вы не хотите, чтобы другие пользователи имели к ней доступ."
+
+msgid "Yes"
+msgstr "Да"
+
+msgid "bytes"
+msgstr "байты"
+
+msgid "{$ row['provider:network_type'] $}"
+msgstr "{$ row['provider:network_type'] $}"

@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-09-25 15:01+0000\n"
+"POT-Creation-Date: 2015-10-07 03:29+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -3290,18 +3290,6 @@ msgstr[0] "Agregát hostitele smazán"
 msgstr[1] "Agregáty hostitele smazány"
 msgstr[2] "Agregáty hostitele smazány"
 
-#, python-format
-msgid "Deleted IKE Policy %s"
-msgstr "Smazána zásada IKE %s"
-
-#, python-format
-msgid "Deleted IPSec Policy %s"
-msgstr "Smazána zásada IPSec %s"
-
-#, python-format
-msgid "Deleted IPSec Site Connection %s"
-msgstr "Smazáno IPSec připojení k místu %s"
-
 msgid "Deleted Image"
 msgid_plural "Deleted Images"
 msgstr[0] "Obraz smazán"
@@ -3437,10 +3425,6 @@ msgstr[2] "Uživatelé smazáni"
 #, python-format
 msgid "Deleted VIP %s"
 msgstr "Smazán VIP %s"
-
-#, python-format
-msgid "Deleted VPN Service %s"
-msgstr "Smazána služba VPN %s"
 
 msgid "Deleted Volume Type"
 msgid_plural "Deleted Volume Types"
@@ -4200,10 +4184,6 @@ msgid "Error"
 msgstr "Chyba"
 
 msgctxt "current status of router"
-msgid "Error"
-msgstr "Chyba"
-
-msgctxt "status of a neteork port"
 msgid "Error"
 msgstr "Chyba"
 
@@ -10507,24 +10487,8 @@ msgid "Unable to create volume."
 msgstr "Nelze vytvořit svazek."
 
 #, python-format
-msgid "Unable to delete IKE Policy: %s"
-msgstr "Nelze smazat zásadu IKE: %s"
-
-#, python-format
-msgid "Unable to delete IPSec Policy: %s"
-msgstr "Nelze smazat zásadu IPSec: %s"
-
-#, python-format
-msgid "Unable to delete IPSec Site Connection: %s"
-msgstr "Nelze smazat IPSec připojení k místu: %s"
-
-#, python-format
 msgid "Unable to delete VIP. %s"
 msgstr "Nelze smazat VIP. %s"
-
-#, python-format
-msgid "Unable to delete VPN Service: %s"
-msgstr "Nelze smazat službu VPN: %s"
 
 msgid "Unable to delete container."
 msgstr "Nelze smazat kontejner."

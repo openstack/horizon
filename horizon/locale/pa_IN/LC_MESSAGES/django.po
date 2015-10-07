@@ -4,23 +4,40 @@
 #
 # Translators:
 # Amandeep Singh Saini <jimidar@gmail.com>, 2015
+# Amandeep Singh Saini <jimidar@gmail.com>, 2015. #zanata
 # OpenStack Infra <zanata@openstack.org>, 2015. #zanata
 msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-09-16 18:25+0000\n"
+"POT-Creation-Date: 2015-10-07 03:29+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2015-08-20 05:13+0000\n"
-"Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
+"PO-Revision-Date: 2015-10-06 02:02+0000\n"
+"Last-Translator: Amandeep Singh Saini <jimidar@gmail.com>\n"
 "Language-Team: Panjabi (Punjabi) (India) (http://www.transifex.com/openstack/"
 "horizon/language/pa_IN/)\n"
 "Generated-By: Babel 2.0\n"
 "Language: pa-IN\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Zanata 3.7.1\n"
+
+#, python-format
+msgid ""
+"\n"
+"        Used <span> %(used)s </span>(No Limit)"
+msgstr ""
+"\n"
+"        ਵਰਤੇ ਗਏ <span> %(used)s </span>(No Limit)"
+
+#, python-format
+msgid ""
+"\n"
+"        Used <span> %(used)s </span>of<span> %(available)s </span>"
+msgstr ""
+"\n"
+"        ਕੁੱਲ <span> %(available)s </span>ਵਿੱਚੋਂ<span> %(used)s </span>ਵਰਤੇ ਗਏ"
 
 #, python-format
 msgid ""
@@ -108,6 +125,9 @@ msgstr "%s ਪੂਰਾ ਨਹੀੰ ਹੋਇਆ।"
 msgid "&laquo;&nbsp;Prev"
 msgstr "&laquo;&nbsp;Prev"
 
+msgid "(No Limit)"
+msgstr "(ਕੋਈ ਹੱਦ ਨਹੀਂ)"
+
 msgid "-"
 msgstr "-"
 
@@ -152,10 +172,22 @@ msgid "Deleted"
 msgstr "ਮਿਟਾਇਆ ਗਿਆ"
 
 #, python-format
+msgid "Displaying %(content_items)s item"
+msgid_plural "Displaying %(content_items)s items"
+msgstr[0] "%(content_items)s ਚੀਜ਼ ਵਿਖਾ ਰਿਹਾ"
+msgstr[1] "%(content_items)s ਚੀਜ਼ਾਂ ਵਿਖਾ ਰਿਹਾ"
+
+#, python-format
 msgid "Displaying %(counter)s item"
 msgid_plural "Displaying %(counter)s items"
 msgstr[0] "%(counter)s ਚੀਜ ਵਿਖਾਈ ਜਾ ਰਹੀ"
 msgstr[1] "%(counter)s ਚੀਜਾਂ ਵਿਖਾਈਆਂ ਜਾ ਰਹੀਆਂ"
+
+#, python-format
+msgid "Displaying %(nav_items)s item"
+msgid_plural "Displaying %(nav_items)s items"
+msgstr[0] "%(nav_items)s ਚੀਜ਼ ਵਿਖਾ ਰਿਹਾ"
+msgstr[1] "%(nav_items)s ਚੀਜ਼ਾਂ ਵਿਖਾ ਰਿਹਾ"
 
 msgid "Error: "
 msgstr "ਗਲਤੀ: "
@@ -174,6 +206,9 @@ msgstr "IP ਪਤੇ ਲਈ ਗਲਤ ਬਣਤਰ"
 
 msgid "Info: "
 msgstr "ਜਾਣਕਾਰੀ: "
+
+msgid "Invalid metadata entry. Use comma-separated key=value pairs"
+msgstr "ਗਲਤ ਮੈਟਾਡੇਟਾ ਇੰਦਰਾਜ। ਕੌਮਿਆਂ ਨਾਲ ਵੱਖ ਕੀਤੇ ਹੋਏ key=value ਜੋੜੇ ਹੀ ਵਰਤੋ"
 
 msgid "Invalid subnet mask"
 msgstr "ਅਢੁਕਵਾਂ ਸਬਨੈੱਟ ਮਾਸਕ"
@@ -201,9 +236,6 @@ msgstr "ਜੀਅ"
 
 msgid "More Actions"
 msgstr "ਹੋਰ ਕਾਰਵਾਈਆਂ"
-
-msgid "N/A"
-msgstr "ਲਾਗੂ ਨਹੀਂ"
 
 msgid "Navigation Item"
 msgstr "ਨੈਵੀਗੇਸ਼ਨ ਚੀਜ਼"
@@ -272,9 +304,6 @@ msgid_plural "Sell Puppies"
 msgstr[0] "ਪਪੀ ਵੇਚੋ"
 msgstr[1] "ਪਪੀ ਵੇਚੋ"
 
-msgid "Session timed out."
-msgstr "ਸੈਸ਼ਨ ਸਮਾਂ ਮਿਆਦ ਪੁੱਗੀ।"
-
 msgid "Sign In"
 msgstr "ਸਾਈਨ ਇਨ ਕਰੋ"
 
@@ -291,10 +320,6 @@ msgstr "ਸਫਲਤਾ: "
 
 msgid "Summary"
 msgstr "ਸਾਰ"
-
-#, python-format
-msgid "The attribute %(attr)s doesn't exist on %(obj)s."
-msgstr "%(attr)s ਐਟਰੀਬਿਊਟ %(obj)s ਉੱਪਰ ਹੋਂਦ ਨਹੀੰ ਰਖ਼ਦਾ।"
 
 msgid "The date should be in YYYY-mm-dd format."
 msgstr "ਮਿਤੀ YYYY-mm-dd ਤਰਜ ਤੇ ਹੋਣੀ ਚਾਹੀਦੀ ਹੈ।"

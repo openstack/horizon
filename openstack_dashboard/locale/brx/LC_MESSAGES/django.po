@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-09-25 15:01+0000\n"
+"POT-Creation-Date: 2015-10-07 03:29+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -1985,24 +1985,8 @@ msgid "Deleted"
 msgstr "खोमोरबाय"
 
 #, python-format
-msgid "Deleted IKE Policy %s"
-msgstr "IKE पलिसि %s खौ खोमोरबाय"
-
-#, python-format
-msgid "Deleted IPSec Policy %s"
-msgstr "IPSec पलिसि %s खौ खोमोरबाय"
-
-#, python-format
-msgid "Deleted IPSec Site Connection %s"
-msgstr "IPSec साइट फोनांजाब %sखौ खोमोरबाय"
-
-#, python-format
 msgid "Deleted VIP %s"
 msgstr "खोमोरखानाय VIP %s"
-
-#, python-format
-msgid "Deleted VPN Service %s"
-msgstr "VPN सिबिथाय %s खौ खोमोरबाय"
 
 #, python-format
 msgid "Deleted member %s"
@@ -2581,10 +2565,6 @@ msgid "Error"
 msgstr "गोरोन्थि"
 
 msgctxt "current status of router"
-msgid "Error"
-msgstr "गोरोन्थि"
-
-msgctxt "status of a neteork port"
 msgid "Error"
 msgstr "गोरोन्थि"
 
@@ -6926,24 +6906,8 @@ msgid "Unable to create volume."
 msgstr "भलिउमखौ सोरजिनो हायाखै"
 
 #, python-format
-msgid "Unable to delete IKE Policy: %s"
-msgstr "IKE पलिसिखौ खोमोरनो हायाखै: %s"
-
-#, python-format
-msgid "Unable to delete IPSec Policy: %s"
-msgstr "IPSec पलिसिखौ खोमोरनो हायाखै: %s"
-
-#, python-format
-msgid "Unable to delete IPSec Site Connection: %s"
-msgstr "IPSec साइट फोनांजाबखौ खोमोरनो हायाखै: %s"
-
-#, python-format
 msgid "Unable to delete VIP. %s"
 msgstr "VIP खौ खोमोरनो हायाखै। %s"
-
-#, python-format
-msgid "Unable to delete VPN Service: %s"
-msgstr "VPN सिबिथायखौ खोमोरनो हायाखै: %s"
 
 msgid "Unable to delete container."
 msgstr "कन्टेनारखौ खोमोरनो हायाखै"

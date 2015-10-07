@@ -9,17 +9,18 @@
 # sercanaydogan <sercanaydogan@gmail.com>, 2014
 # Daisy <guoyingc@cn.ibm.com>, 2015. #zanata
 # Doug Fish <drfish@us.ibm.com>, 2015. #zanata
+# Mücahit Büyükyılmaz <mucahit@deltanoc.com>, 2015. #zanata
 # OpenStack Infra <zanata@openstack.org>, 2015. #zanata
 msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-09-25 15:01+0000\n"
+"POT-Creation-Date: 2015-10-07 03:29+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2015-09-15 05:06+0000\n"
-"Last-Translator: Doug Fish <drfish@us.ibm.com>\n"
+"PO-Revision-Date: 2015-10-06 02:06+0000\n"
+"Last-Translator: Mücahit Büyükyılmaz <mucahit@deltanoc.com>\n"
 "Language-Team: Turkish (Turkey) (http://www.transifex.com/openstack/horizon/"
 "language/tr_TR/)\n"
 "Generated-By: Babel 2.0\n"
@@ -425,7 +426,7 @@ msgid " Done"
 msgstr " Bitti"
 
 msgid "\"Add Router Route\""
-msgstr "\"Yönlendirici Rotası Ekle\""
+msgstr "\"Router Rotası Ekle\""
 
 msgid ""
 "\"Customization Script\" is analogous to \"User Data\" in other systems."
@@ -739,7 +740,7 @@ msgid "Accept Transfer"
 msgstr "Aktarımı Kabul Et"
 
 msgid "Accept Volume Transfer"
-msgstr "Hacim Aktarımını Kabul Et"
+msgstr "Birim Aktarımını Kabul Et"
 
 msgid "Access & Security"
 msgstr "Erişim & Güvenlik"
@@ -887,19 +888,19 @@ msgid "Add Pool"
 msgstr "Havuz Ekle"
 
 msgid "Add Router"
-msgstr "Yönlendirici Ekle"
+msgstr "Router Ekle"
 
 msgid "Add Router Route"
-msgstr "Yönlendirici Rotası Ekle"
+msgstr "Router Rotası Ekle"
 
 msgid "Add Router Rule"
-msgstr "Yönlendirici Kuralı Ekle"
+msgstr "Router Kuralı Ekle"
 
 msgid "Add Router to Firewall"
-msgstr "Güvenlik Duvarına Yönlendirici Ekle"
+msgstr "Güvenlik Duvarına Router Ekle"
 
 msgid "Add Routers"
-msgstr "Yönlendiriciler Ekle"
+msgstr "Routerler Ekle"
 
 msgid "Add Rule"
 msgstr "Kural Ekle"
@@ -978,7 +979,7 @@ msgid "Add selected router(s) to the firewall."
 msgstr "Seçili yönlendiricileri güvenlik duvarına ekle."
 
 msgid "Add static route to the router."
-msgstr "Yönlendiriciye sabit rota ekle."
+msgstr "Routerye sabit rota ekle."
 
 msgid "Add, modify or remove the QoS Spec associated with this volume type."
 msgstr ""
@@ -1268,7 +1269,7 @@ msgid "Associated Resource Types"
 msgstr "İlişkili Kaynak Türleri"
 
 msgid "Associated Routers"
-msgstr "İlişkili Yönlendiriciler"
+msgstr "İlişkili Routerler"
 
 msgid "Associated monitor."
 msgstr "İlişkilendirilmiş izleyici."
@@ -1379,7 +1380,7 @@ msgid "Available"
 msgstr "Uygun"
 
 msgid "Available Routers"
-msgstr "Kullanılabilir Yönlendiriciler"
+msgstr "Kullanılabilir Routerler"
 
 msgid "Available Rules"
 msgstr "Kullanılabilir Kurallar"
@@ -1720,8 +1721,8 @@ msgid ""
 "Choose router(s) from Available Routers to Selected Routers by push button "
 "or drag and drop. "
 msgstr ""
-"Kullanılabilir Yönlendiricilerden Seçilen Yönlendiricilere düğme veya "
-"sürükle bırak yardımıyla yönlendirici(ler) seçin. "
+"Kullanılabilir Routerlerden Seçilen Routerlere düğme veya sürükle bırak "
+"yardımıyla yönlendirici(ler) seçin. "
 
 msgid ""
 "Choose rule(s) from Available Rules to Selected Rule by push button or drag "
@@ -2212,10 +2213,10 @@ msgid "Create Role"
 msgstr "Rol Oluştur"
 
 msgid "Create Router"
-msgstr "Yönlendirici Oluştur"
+msgstr "Router Oluştur"
 
 msgid "Create Router (Quota exceeded)"
-msgstr "Yönlendirici Oluştur (Kota aşıldı)"
+msgstr "Router Oluştur (Kota aşıldı)"
 
 msgid "Create Security Group"
 msgstr "Güvenlik Grubu Oluştur"
@@ -2271,7 +2272,7 @@ msgid "Create Volume Snapshot (Force)"
 msgstr "Mantıksal Sürücü Anlık Görüntüsü Oluştur (Zorla)"
 
 msgid "Create Volume Transfer"
-msgstr "Hacim Aktarımını Oluştur"
+msgstr "Birim Aktarımını Oluştur"
 
 msgid "Create Volume Type"
 msgstr "Mantıksal Sürücü Türü Oluştur"
@@ -2301,7 +2302,7 @@ msgid "Create a QoS Spec"
 msgstr "QoS Özelliği oluştur"
 
 msgid "Create a Router"
-msgstr "Yönlendirici Oluştur"
+msgstr "Router Oluştur"
 
 msgid "Create a Snapshot"
 msgstr "Anlık Görüntü Oluştur"
@@ -2316,7 +2317,7 @@ msgid "Create a Volume Snapshot"
 msgstr "Mantıksal Sürücü Anlık Görüntüsü Oluştur"
 
 msgid "Create a Volume Transfer"
-msgstr "Bir Hacim Aktarımı Oluştur"
+msgstr "Bir Birim Aktarımı Oluştur"
 
 msgid "Create a Volume Type"
 msgstr "Mantıksal Sürücü Türü Oluştur"
@@ -2512,11 +2513,11 @@ msgid "Created time"
 msgstr "Oluşturulma zamanı"
 
 msgid "Created volume transfer."
-msgstr "Oluşturulan hacim aktarımı."
+msgstr "Oluşturulan birim aktarımı."
 
 #, python-format
 msgid "Created volume transfer: \"%s\"."
-msgstr "Oluşturulan hacim aktarımı: \"%s\"."
+msgstr "Oluşturulan birim aktarımı: \"%s\"."
 
 msgid "Creates a router with specified parameters."
 msgstr "Belirtilen parametrelerle bir yönlendirici oluşturur."
@@ -2634,7 +2635,7 @@ msgid ""
 "DHCPv6 stateless: Address discovered from OpenStack Router and additional "
 "information from OpenStack DHCP"
 msgstr ""
-"DHCPv6 stateless: OpenStack Yönlendiricisinden keşfedilen adres ve OpenStack "
+"DHCPv6 stateless: OpenStack Routersinden keşfedilen adres ve OpenStack "
 "DHCP'den gelen ek bilgi"
 
 msgid "DNS Name Servers"
@@ -3092,18 +3093,6 @@ msgid "Deleted Host Aggregate"
 msgid_plural "Deleted Host Aggregates"
 msgstr[0] "İstemci Takımları Silindi"
 
-#, python-format
-msgid "Deleted IKE Policy %s"
-msgstr "IKE İlkesi %s Silindi"
-
-#, python-format
-msgid "Deleted IPSec Policy %s"
-msgstr "IPSec İlkesi %s Silindi"
-
-#, python-format
-msgid "Deleted IPSec Site Connection %s"
-msgstr "IPSec Site Bağlantısı %s Silindi"
-
 msgid "Deleted Image"
 msgid_plural "Deleted Images"
 msgstr[0] "İmajlar Silindi"
@@ -3195,10 +3184,6 @@ msgstr[0] "Kullanıcılar Silindi"
 #, python-format
 msgid "Deleted VIP %s"
 msgstr "VIP %s silindi"
-
-#, python-format
-msgid "Deleted VPN Service %s"
-msgstr "VPN Servisi %s Silindi"
 
 msgid "Deleted Volume Type"
 msgid_plural "Deleted Volume Types"
@@ -3662,7 +3647,7 @@ msgid "Edit QoS Spec Consumer"
 msgstr "QoS Özelliği Tüketicisi Düzenle"
 
 msgid "Edit Router"
-msgstr "Yönlendiriciyi Düzenle"
+msgstr "Routeryi Düzenle"
 
 msgid "Edit Rule"
 msgstr "Kural Düzenle"
@@ -3901,10 +3886,6 @@ msgctxt "current status of router"
 msgid "Error"
 msgstr "Hata"
 
-msgctxt "status of a neteork port"
-msgid "Error"
-msgstr "Hata"
-
 msgid "Error Deleting"
 msgstr "Silmede Hata"
 
@@ -3997,7 +3978,7 @@ msgid "Existence of floating ip"
 msgstr "Değişken ip'nin varlığı"
 
 msgid "Existence of instance"
-msgstr "Sunucunun varlığı"
+msgstr "Instance varlığı"
 
 msgid "Existence of instance <type> (openstack types)"
 msgstr "Sunucunun <type> varlığı (openstack türleri)"
@@ -4009,7 +3990,7 @@ msgid "Existence of port"
 msgstr "Bağlantı noktasının varlığı"
 
 msgid "Existence of router"
-msgstr "Yönlendiricinin varlığı"
+msgstr "Routernin varlığı"
 
 msgid "Existence of subnet"
 msgstr "Alt ağın varlığı"
@@ -4105,11 +4086,11 @@ msgstr "Rota ekleme başarısız : %s"
 
 #, python-format
 msgid "Failed to add router rule %s"
-msgstr "Yönlendirici kuralı %s eklenemedi"
+msgstr "Router kuralı %s eklenemedi"
 
 #, python-format
 msgid "Failed to add router(s) to firewall %(name)s: %(reason)s"
-msgstr "Yönlendiriciler %(name)s güvenlik duvarına eklenemedi: %(reason)s"
+msgstr "Routerler %(name)s güvenlik duvarına eklenemedi: %(reason)s"
 
 #, python-format
 msgid "Failed to add_interface: %s"
@@ -4137,7 +4118,7 @@ msgstr "%s ağı oluşturulamadı"
 
 #, python-format
 msgid "Failed to create router \"%s\"."
-msgstr "Yönlendirici \"%s\" oluşturulamadı."
+msgstr "Router \"%s\" oluşturulamadı."
 
 #, python-format
 msgid ""
@@ -4355,7 +4336,7 @@ msgstr "%s portu güncellenemedi"
 
 #, python-format
 msgid "Failed to update router %s"
-msgstr "Yönlendirici %s güncellenemedi"
+msgstr "Router %s güncellenemedi"
 
 #, python-format
 msgid "Failed to update rule %(name)s: %(reason)s"
@@ -5213,7 +5194,7 @@ msgid "Insert Rule to Policy"
 msgstr "İlkeye Kural Ekle"
 
 msgid "Instance"
-msgstr "Sunucu"
+msgstr "Instance"
 
 msgid "Instance Action List"
 msgstr "Sunucu Eylem Listesi"
@@ -5265,10 +5246,10 @@ msgid "Instance to be associated"
 msgstr "İlişkilendirilecen sunucu"
 
 msgid "Instances"
-msgstr "Sunucular"
+msgstr "Instancelar"
 
 msgid "Instances Count"
-msgstr "Sunucu Sayısı"
+msgstr "Instance Sayısı"
 
 msgid "Insufficient privilege level to view domain information."
 msgstr "Alan bilgisini görüntülemek için yetersiz ayrıcalık seviyesi."
@@ -5921,7 +5902,7 @@ msgid "Migration Policy"
 msgstr "Göç İlkesi"
 
 msgid "Min Disk"
-msgstr "En az Disk"
+msgstr "Minimum Disk"
 
 msgid "Min RAM"
 msgstr "Asgari RAM"
@@ -5933,7 +5914,7 @@ msgid "Min. Size (MB)"
 msgstr "Asgari Boyut (MB)"
 
 msgid "Minimum Disk (GB)"
-msgstr "Asgari Disk (GB)"
+msgstr "Minimum Disk (GB)"
 
 msgid "Minimum RAM (MB)"
 msgstr "Asgari RAM (MB)"
@@ -7204,7 +7185,7 @@ msgid "Public URL"
 msgstr "Genel URL"
 
 msgid "QCOW2 - QEMU Emulator"
-msgstr "QEMU Emülatör"
+msgstr "QCOW2 - QEMU Emülatör"
 
 msgid "QoS Spec Consumer"
 msgstr "QoS Özelliği Tüketicisi"
@@ -7265,7 +7246,7 @@ msgid "Ramdisk"
 msgstr "Ramdisk"
 
 msgid "Ramdisk ID"
-msgstr "Ramdisk ID'si"
+msgstr "Ramdisk ID"
 
 msgid "Raw"
 msgstr "Raw"
@@ -7419,10 +7400,10 @@ msgid "Remove"
 msgstr "Sil"
 
 msgid "Remove Router"
-msgstr "Yönlendirici Kaldır"
+msgstr "Router Kaldır"
 
 msgid "Remove Router from Firewall"
-msgstr "Güvenlik Duvarından Yönlendiriciyi Kaldır"
+msgstr "Güvenlik Duvarından Routeryi Kaldır"
 
 msgid "Remove Rule"
 msgstr "Kural Kaldır"
@@ -7721,7 +7702,7 @@ msgid "Root Disk"
 msgstr "Root Disk"
 
 msgid "Root Disk (GB)"
-msgstr "Kök Disk (GB)"
+msgstr "Root Disk (GB)"
 
 msgid "Rotates requests evenly between multiple instances."
 msgstr "İstekleri birden çok sunucu arasında eşit olarak dağıtır."
@@ -7737,47 +7718,47 @@ msgid "Route mode"
 msgstr "Yönlendirme kipi"
 
 msgid "Router"
-msgstr "Yönlendirici"
+msgstr "Router"
 
 #, python-format
 msgid "Router %s was successfully created."
-msgstr "Yönlendirici %s başarıyla oluşturuldu."
+msgstr "Router %s başarıyla oluşturuldu."
 
 #, python-format
 msgid "Router %s was successfully updated."
-msgstr "Yönlendirici %s başarıyla güncellendi."
+msgstr "Router %s başarıyla güncellendi."
 
 msgid "Router Details"
 msgstr "Router Ayrıntıları"
 
 msgid "Router ID"
-msgstr "Yönlendirici ID'si"
+msgstr "Router ID'si"
 
 msgid "Router Name"
-msgstr "Yönlendirici İsmi"
+msgstr "Router İsmi"
 
 msgid "Router Rule Grid"
-msgstr "Yönlendirici Kural Izgarası"
+msgstr "Router Kural Izgarası"
 
 msgid "Router Rules"
 msgstr "Router Kuralları"
 
 msgid "Router Rules Grid"
-msgstr "Yönlendirici Kuralları Izgarası"
+msgstr "Router Kuralları Izgarası"
 
 msgid "Router Type"
-msgstr "Yönlendirici Türü"
+msgstr "Router Türü"
 
 msgid "Router rule added"
-msgstr "Yönlendirici kuralı eklendi"
+msgstr "Router kuralı eklendi"
 
 #, python-format
 msgid "Router(s)  was successfully removed from firewall %(firewall)s."
-msgstr "Yönlendiriciler %(firewall)s güvenlik duvarından başarıyla kaldırıldı."
+msgstr "Routerler %(firewall)s güvenlik duvarından başarıyla kaldırıldı."
 
 #, python-format
 msgid "Router(s) was/were successfully added to firewall %(firewall)s."
-msgstr "Yönlendiriciler %(firewall)s güvenlik duvarına başarıyla eklendi."
+msgstr "Routerler %(firewall)s güvenlik duvarına başarıyla eklendi."
 
 msgid "Routers"
 msgstr "Routers"
@@ -7786,8 +7767,8 @@ msgid ""
 "Routing rules to apply to router. Rules are matched by most specific source "
 "first and then by most specific destination."
 msgstr ""
-"Yönlendiriciye uygulanacak yönlendirme kuralları. Kurallar en özel kaynak "
-"önce ve en özel hedef önce olacak şekilde eşleşir."
+"Routerye uygulanacak yönlendirme kuralları. Kurallar en özel kaynak önce ve "
+"en özel hedef önce olacak şekilde eşleşir."
 
 msgid "Rule"
 msgstr "Kural"
@@ -7834,7 +7815,7 @@ msgid "S3 URL"
 msgstr "S3 Adresi"
 
 msgid "SLAAC: Address discovered from OpenStack Router"
-msgstr "SLAAC: OpenStack Yönlendiricisinden alınan adres"
+msgstr "SLAAC: OpenStack Routersinden alınan adres"
 
 msgid "SNAT"
 msgstr "SNAT"
@@ -8066,7 +8047,7 @@ msgid "Select a Protocol"
 msgstr "Bir İletişim Kuralı Seçin"
 
 msgid "Select a Router"
-msgstr "Bir Yönlendirici Seçin"
+msgstr "Bir Router Seçin"
 
 msgid "Select a Subnet"
 msgstr "Bir alt ağ seçin"
@@ -8263,7 +8244,7 @@ msgid "Selected Projects"
 msgstr "Seçili Projeler"
 
 msgid "Selected Routers"
-msgstr "Seçili Yönlendiriciler"
+msgstr "Seçili Routerler"
 
 msgid "Selected Rules"
 msgstr "Seçili Kurallar"
@@ -8415,7 +8396,7 @@ msgid "Size of image to launch."
 msgstr "Başlatılacak imaj boyutu."
 
 msgid "Size of root disk"
-msgstr "Kök diskin boyutu"
+msgstr "Root diskin boyutu"
 
 msgid "Size of the volume in GB."
 msgstr "Mantıksal sürücünün GB olarak boyutu."
@@ -8808,7 +8789,7 @@ msgstr "Başarılı"
 
 #, python-format
 msgid "Successfully accepted volume transfer: \"%s\""
-msgstr "Hacim aktarımı başarıyla kabul edildi: \"%s\""
+msgstr "Birim aktarımı başarıyla kabul edildi: \"%s\""
 
 #, python-format
 msgid "Successfully added rule: %s"
@@ -8975,7 +8956,7 @@ msgid "Swap Disk"
 msgstr "Swap Disk"
 
 msgid "Swap Disk (MB)"
-msgstr "Takas Diski (MB)"
+msgstr "Swap Diski (MB)"
 
 msgid "Swift"
 msgstr "Swift"
@@ -9615,6 +9596,12 @@ msgstr "Topoloji"
 msgid "Total Disk"
 msgstr "Toplam Disk"
 
+msgid "Total Disk Size (GB):"
+msgstr "Toplam Disk Boyutu (GB):"
+
+msgid "Total Disk Usage (Hours):"
+msgstr "Toplam Disk Kullanımı (Saat):"
+
 msgid "Total Gigabytes"
 msgstr "Toplam Gigabyte"
 
@@ -9706,7 +9693,7 @@ msgid "UTC %(hour)s:%(min)s"
 msgstr "UTC %(hour)s:%(min)s"
 
 msgid "Unable to accept volume transfer."
-msgstr "Hacim aktarımı kabul edilemedi."
+msgstr "Birim aktarımı kabul edilemedi."
 
 #, python-format
 msgid "Unable to add Firewall \"%s\"."
@@ -9787,7 +9774,7 @@ msgstr "Mantıksal sürücü için mantıksal sürücü türü değiştirilemedi
 
 #, python-format
 msgid "Unable to clear gateway for router \"%(name)s\": \"%(msg)s\""
-msgstr "Yönlendirici \"%(name)s\" için geçit temizlenemiyor: \"%(msg)s\""
+msgstr "Router \"%(name)s\" için geçit temizlenemiyor: \"%(msg)s\""
 
 msgid "Unable to connect to Neutron."
 msgstr "Neutron'a bağlanılamıyor."
@@ -9895,7 +9882,7 @@ msgid "Unable to create volume snapshot."
 msgstr "Mantıksal sürücü anlık görüntüsü oluşturulamıyor."
 
 msgid "Unable to create volume transfer."
-msgstr "Hacim aktarımı oluşturulamadı."
+msgstr "Birim aktarımı oluşturulamadı."
 
 msgid "Unable to create volume type extra spec."
 msgstr "Mantıksal sürücü türü ek özellikleri oluşturulamadı."
@@ -9907,24 +9894,8 @@ msgid "Unable to create volume."
 msgstr "Mantıksal sürücü oluşturulamıyor."
 
 #, python-format
-msgid "Unable to delete IKE Policy: %s"
-msgstr "IKE İlkesi silinemedi: %s"
-
-#, python-format
-msgid "Unable to delete IPSec Policy: %s"
-msgstr "IPSec İlkesi silinemedi: %s"
-
-#, python-format
-msgid "Unable to delete IPSec Site Connection: %s"
-msgstr "IPSec Site Bağlantısı silinemedi: %s"
-
-#, python-format
 msgid "Unable to delete VIP. %s"
 msgstr "VIP silinemiyor. %s"
-
-#, python-format
-msgid "Unable to delete VPN Service: %s"
-msgstr "VPN Servisi silinemedi: %s"
 
 msgid "Unable to delete container."
 msgstr "Kap silinemedi."
@@ -9951,10 +9922,10 @@ msgstr "Havuz silinemedi. %s"
 
 #, python-format
 msgid "Unable to delete router \"%s\""
-msgstr "Yönlendirici \"%s\" silinemedi"
+msgstr "Router \"%s\" silinemedi"
 
 msgid "Unable to delete router rule."
-msgstr "Yönlendirici kuralı silinemedi."
+msgstr "Router kuralı silinemedi."
 
 #, python-format
 msgid "Unable to delete rule. %s"
@@ -9971,7 +9942,7 @@ msgstr "Kullanılabilir bölgeler uzantısı destekleniyor mu anlaşılamadı."
 
 msgid "Unable to determine if volume type encryption is supported."
 msgstr ""
-"Mantıksal hacim türünün şifrelemeyi destekleyip desteklemediği belirlenemedi."
+"Mantıksal birim türünün şifrelemeyi destekleyip desteklemediği belirlenemedi."
 
 msgid "Unable to disassociate floating IP."
 msgstr "Değişken IP tahsisi kaldırılamadı."
@@ -10025,7 +9996,7 @@ msgid "Unable to fetch image choices."
 msgstr "İmaj seçenekleri getirilemiyor."
 
 msgid "Unable to fetch instance details."
-msgstr "Sunucu detayları alınamadı."
+msgstr "Instance detayları alınamadı."
 
 msgid "Unable to fetch job binary list."
 msgstr "İş ikiliği listesi getirilemedi."
@@ -10218,7 +10189,7 @@ msgid "Unable to lookup volume or backup information."
 msgstr "Mantıksal sürücü ya da yedek bilgisi aranamadı."
 
 msgid "Unable to manage volume."
-msgstr "Hacim yönetilemiyor."
+msgstr "Birim yönetilemiyor."
 
 #, python-format
 msgid "Unable to modify domain \"%s\"."
@@ -10268,7 +10239,7 @@ msgid "Unable to restore backup."
 msgstr "Yedekten geri yükleme başarısız."
 
 msgid "Unable to retrieve Ceilometer meter list."
-msgstr "Silometre metre listesi alınamıyor."
+msgstr "Ceilometer metre listesi alınamıyor."
 
 msgid "Unable to retrieve IKE Policies list."
 msgstr "IKE İlkeleri listesi alınamadı."
@@ -10351,7 +10322,7 @@ msgstr "VPN Servisleri listesi alınamadı."
 
 #, python-format
 msgid "Unable to retrieve a list of external networks \"%s\"."
-msgstr "Harici ağların listesi alınamıyor \"%s\"."
+msgstr "Dış ağların listesi alınamıyor \"%s\"."
 
 msgid "Unable to retrieve agent list."
 msgstr "Ajan listesi getirilemedi."
@@ -10376,7 +10347,7 @@ msgid "Unable to retrieve compute host information."
 msgstr "Hesap istemcisi bilgisi alınamadı."
 
 msgid "Unable to retrieve compute limit information."
-msgstr "Hesaplama sınır bilgisi alınamıyor."
+msgstr "Hesaplama limit bilgisi alınamıyor."
 
 msgid "Unable to retrieve container list."
 msgstr "Kap listesi alınamadı."
@@ -10450,7 +10421,7 @@ msgstr "Üst yedek için detaylar alınamadı: %s"
 
 #, python-format
 msgid "Unable to retrieve details for router \"%s\"."
-msgstr "Yönlendirici \"%s\" için detaylar alınamadı."
+msgstr "Router \"%s\" için detaylar alınamadı."
 
 msgid "Unable to retrieve details."
 msgstr "Detaylar alınamadı."
@@ -10599,7 +10570,7 @@ msgid "Unable to retrieve key pairs."
 msgstr "Anahtar çiftleri getirilemiyor."
 
 msgid "Unable to retrieve limit information."
-msgstr "Sınır bilgisi alınamıyor."
+msgstr "Limit bilgisi alınamıyor."
 
 msgid "Unable to retrieve list of security groups"
 msgstr "Güvenlik grupları listesi alınamıyor"
@@ -10697,10 +10668,10 @@ msgid "Unable to retrieve pools list."
 msgstr "Küme listesi alınamıyor."
 
 msgid "Unable to retrieve port details"
-msgstr "Bağlantı noktası detayları alınamıyor"
+msgstr "Port detayları alınamıyor"
 
 msgid "Unable to retrieve port details."
-msgstr "Port özellikleri alınamıyor."
+msgstr "Port detayları alınamıyor."
 
 msgid "Unable to retrieve ports information."
 msgstr "Bağlantı noktası bilgisi alınamadı."
@@ -10739,20 +10710,20 @@ msgid "Unable to retrieve roles list."
 msgstr "Rol listesi alınamadı."
 
 msgid "Unable to retrieve router details."
-msgstr "Yönlendirici detayları alınamıyor."
+msgstr "Router detayları alınamıyor."
 
 msgid "Unable to retrieve router list."
 msgstr "Router listesi alınamadı."
 
 msgid "Unable to retrieve router."
-msgstr "Yönlendirici alınamadı."
+msgstr "Router alınamadı."
 
 #, python-format
 msgid "Unable to retrieve routers (%(error)s)."
-msgstr "Yönlendiriciler alınamadı (%(error)s)."
+msgstr "Routerler alınamadı (%(error)s)."
 
 msgid "Unable to retrieve routers list."
-msgstr "Yönlendirici listesi alınamıyor."
+msgstr "Router listesi alınamıyor."
 
 msgid "Unable to retrieve rule details."
 msgstr "Kural detayları getirilemkiyor."
@@ -10804,10 +10775,10 @@ msgid "Unable to retrieve stack."
 msgstr "Yığın alınamıyor."
 
 msgid "Unable to retrieve subnet details"
-msgstr "Alt ağ detayları alınamıyor"
+msgstr "Subnet detayları alınamıyor"
 
 msgid "Unable to retrieve subnet details."
-msgstr "Alt ağ detayları alınamıyor."
+msgstr "Subnet detayları alınamıyor."
 
 msgid "Unable to retrieve tenant limits."
 msgstr "Kiracı sınırları alınamadı."
@@ -10869,7 +10840,7 @@ msgid "Unable to retrieve volume information."
 msgstr "Mantıksal sürücü bilgisi alınamadı."
 
 msgid "Unable to retrieve volume limit information."
-msgstr "Mantıksal sürücü sınır bilgisi alınamıyor."
+msgstr "Birim limit bilgisi alınamıyor."
 
 #, python-format
 msgid "Unable to retrieve volume list for instance \"%(name)s\" (%(id)s)."
@@ -10888,7 +10859,7 @@ msgid "Unable to retrieve volume snapshots."
 msgstr "Mantıksal sürücü anlık görüntüleri alınamadı."
 
 msgid "Unable to retrieve volume transfer."
-msgstr "Hacim aktarımı alınamadı."
+msgstr "Birim aktarımı alınamadı."
 
 msgid "Unable to retrieve volume type details."
 msgstr "Mantıksal sürücü türü detayları getirilemedi."
@@ -11152,7 +11123,7 @@ msgid "Update Role"
 msgstr "Rol Güncelle"
 
 msgid "Update Router"
-msgstr "Yönlendiriciyi Güncelle"
+msgstr "Routeryi Güncelle"
 
 msgid "Update Stack"
 msgstr "Yığını Güncelle"
@@ -11567,17 +11538,17 @@ msgid "Volume Details"
 msgstr "Mantıksal Sürücü Detayları"
 
 msgid "Volume Details: {{ volume.name }}"
-msgstr "Hacim Ayrıntıları: {{ volume.name }}"
+msgstr "Birim Ayrıntıları: {{ volume.name }}"
 
 msgid "Volume Encryption Details"
-msgstr "Hacim Şifreleme Ayrıntıları"
+msgstr "Birim Şifreleme Ayrıntıları"
 
 #, python-format
 msgid "Volume Encryption Details: %(volume_name)s"
-msgstr "Hacim Şifreleme Ayrıntıları: %(volume_name)s"
+msgstr "Birim Şifreleme Ayrıntıları: %(volume_name)s"
 
 msgid "Volume Encryption Details: {{ volume.name }}"
-msgstr "Hacim Şifreleme Ayrıntıları: {{ volume.name }}"
+msgstr "Birim Şifreleme Ayrıntıları: {{ volume.name }}"
 
 msgid "Volume Encryption Overview"
 msgstr "Mantıksal Sürücü Şifreleme Genel Görünümü"
@@ -11619,7 +11590,7 @@ msgid "Volume Transfer"
 msgstr "Mantıksal Sürücü Aktarımı"
 
 msgid "Volume Transfer Details"
-msgstr "Hacim Aktarım Ayrıntıları"
+msgstr "Birim Aktarım Ayrıntıları"
 
 msgid "Volume Type"
 msgstr "Mantıksal Sürücü Türü"
@@ -11640,7 +11611,7 @@ msgid "Volume Type Name"
 msgstr "Mantıksal Sürücü Türü İsmi"
 
 msgid "Volume Type is Unencrypted."
-msgstr "Hacim Türü Şifrelenmemiş"
+msgstr "Birim Türü Şifrelenmemiş"
 
 #, python-format
 msgid "Volume Type: %(volume_type_name)s"
@@ -11820,7 +11791,7 @@ msgid ""
 "network is regarded as a default route of the router and the router acts as "
 "a gateway for external connectivity."
 msgstr ""
-"Yönlendiriciye belirtilen bir harici ağı bağlayabilirsiniz. Harici ağ "
+"Routerye belirtilen bir harici ağı bağlayabilirsiniz. Harici ağ "
 "yönlendiricinin varsayılan rotası olarak addedilir ve yönlendirici harici "
 "bağlantılar için geçit rolü oynar."
 
@@ -11984,8 +11955,7 @@ msgstr ""
 "Portunuzun değiştirilebilir özelliklerini buradan güncelleyebilirsiniz."
 
 msgid "You may update the editable properties of your router here."
-msgstr ""
-"Yönlendiricinizi düzenlenebilir özelliklerini buradan güncelleyebilirsiniz."
+msgstr "Routernizi düzenlenebilir özelliklerini buradan güncelleyebilirsiniz."
 
 msgid ""
 "You must choose a flavor to determine the size (VCPUs, memory and storage) "

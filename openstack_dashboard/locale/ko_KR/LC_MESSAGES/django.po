@@ -15,11 +15,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-09-25 15:01+0000\n"
+"POT-Creation-Date: 2015-10-07 03:29+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2015-09-25 01:53+0000\n"
+"PO-Revision-Date: 2015-10-06 02:06+0000\n"
 "Last-Translator: Ian Y. Choi <ianyrchoi@gmail.com>\n"
 "Language-Team: Korean (Korea) (http://www.transifex.com/openstack/horizon/"
 "language/ko_KR/)\n"
@@ -101,8 +101,9 @@ msgid ""
 "       "
 msgstr ""
 "\n"
-"볼륨 상태가 \"In-use\"이면, \"강제\"를 사용하여 볼륨을 이미지에 업로드할 수 "
-"있습니다."
+"        볼륨 상태가 \"In-use\"이면, \"강제\"를 사용하여 볼륨을 \n"
+"        이미지에 업로드할 수 있습니다.\n"
+"       "
 
 #, python-format
 msgid ""
@@ -197,8 +198,9 @@ msgid ""
 "     "
 msgstr ""
 "\n"
-"볼륨을 이미지 서비스에 이미지로 업로드합니다.\n"
-"이는 <tt>cinder upload-to-image</tt> 명령어와 동일합니다."
+"      볼륨을 이미지 서비스에 이미지로 업로드합니다.\n"
+"      이는 <tt>cinder upload-to-image</tt> 명령어와 동일합니다.\n"
+"     "
 
 msgid ""
 "\n"
@@ -565,7 +567,7 @@ msgid "--"
 msgstr "--"
 
 msgid "-- not selected --"
-msgstr "- 선택하지 않음 -"
+msgstr "-- 선택하지 않음 --"
 
 msgid "3des"
 msgstr "3des"
@@ -646,8 +648,8 @@ msgid ""
 "automatically generated to control the behavior of the entire source/"
 "destination combination."
 msgstr ""
-"더욱 구체적인 규칙은 트래픽에 영향을 끼치므로, 전체 source/destination 결합 "
-"방식을 제어하는 규칙은 자동으로 생성될 수 없습니다. "
+"더욱 구체적인 규칙은 트래픽에 영향을 끼치므로, 전체 원본/대상 결합 방식을 제"
+"어하는 규칙은 자동으로 생성될 수 없습니다. "
 
 msgid "A new uploaded file will replace the content of the current object"
 msgstr "새로 업로드된 파일은 지금 오브젝트 내용을 대체합니다."
@@ -687,11 +689,11 @@ msgstr "%(ethertype)s %(proto_port)s %(direction)s %(remote)s 허용"
 
 #, python-format
 msgid "ALLOW %(from)s:%(to)s/%(ip_protocol)s from %(cidr)s"
-msgstr "%(cidr)s으로부터 %(from)s:%(to)s/%(ip_protocol)s 허용"
+msgstr "%(cidr)s에서 %(from)s:%(to)s/%(ip_protocol)s 허용"
 
 #, python-format
 msgid "ALLOW %(from)s:%(to)s/%(ip_protocol)s from %(group)s"
-msgstr "%(group)s으로부터 %(from)s:%(to)s/%(ip_protocol)s 허용"
+msgstr "%(group)s에서 %(from)s:%(to)s/%(ip_protocol)s 허용"
 
 msgid "AMI - Amazon Machine Image"
 msgstr "AMI - Amazon Machine Image"
@@ -733,7 +735,7 @@ msgid "Action Log"
 msgstr "액션 로그"
 
 msgid "Action for the firewall rule"
-msgstr "방화벽 규칙에 대한 행동"
+msgstr "방화벽 rule에 대한 작업"
 
 msgid "Action:"
 msgstr "동작:"
@@ -854,7 +856,7 @@ msgid "Add New Pool"
 msgstr "새로운 Pool 추가"
 
 msgid "Add New Rule"
-msgstr "새로운 규칙 추가"
+msgstr "새로운 Rule 추가"
 
 msgid "Add New VPN Service"
 msgstr "새로운 VPN 서비스 추가"
@@ -1195,7 +1197,7 @@ msgid "Allowed Host (optional)"
 msgstr "허용한 호스트 (선택적)"
 
 msgid "Amount of energy"
-msgstr "전력 총계"
+msgstr "전력 합계"
 
 msgid "An external (HTTP) URL to load the image from."
 msgstr "이미지를 외부 (HTTP) URL로 불러옵니다."
@@ -1366,10 +1368,10 @@ msgid ""
 "set and so that Oozie will handle exit codes correctly."
 msgstr ""
 "자동으로 Hadoop 구성을 수정하여 job 구성 값이 설정되도록 하고 Oozie가 올바르"
-"게 코드를 빠져도록 핸들링합니다."
+"게 코드로부터 빠지도록 핸들링합니다."
 
 msgid "Availability Zone"
-msgstr "가용성 존"
+msgstr "가용 구역"
 
 msgid "Availability Zone Name"
 msgstr "가용성 존 이름"
@@ -1413,16 +1415,16 @@ msgid "Average rate of write requests"
 msgstr "쓰기 요청에 대한 평균 비율"
 
 msgid "Average rate per sec of incoming bytes on a VM network interface"
-msgstr "VM 네트워크 인터페이스에 대한 들어오는 초당 평균 바이트 수"
+msgstr "VM 네트워크 인터페이스로 들어오는 초당 평균 바이트 수"
 
 msgid "Average rate per sec of incoming packets on a VM network interface"
-msgstr "VM 네트워크 인터페이스에 대한 들어오는 초당 평균 패킷 수"
+msgstr "VM 네트워크 인터페이스로 들어오는 초당 평균 패킷 수"
 
 msgid "Average rate per sec of outgoing bytes on a VM network interface"
-msgstr "VM 네트워크 인터페이스에 대한 나가는 초당 평균 바이트 수"
+msgstr "VM 네트워크 인터페이스에서 나가는 초당 평균 바이트 수"
 
 msgid "Average rate per sec of outgoing packets on a VM network interface"
-msgstr "VM 네트워크 인터페이스에 대한 나가는 초당 평균 패킷 수"
+msgstr "VM 네트워크 인터페이스에서 나가는 초당 평균 패킷 수"
 
 msgid "Average volume of writes"
 msgstr "쓰기 평균 비율"
@@ -1602,7 +1604,7 @@ msgstr "​사용자 암호를 변경합니다. 강한 사용자 암호를 만�
 
 msgid "Change your password. We highly recommend you create a strong one. "
 msgstr ""
-"비밀번호를 변경합니다. 비빈번호를 설정함으로써 보안을 더 강화시킬수 있습니다."
+"비밀번호를 변경합니다. 비밀번호를 설정함으로써 보안을 더 강화시킬수 있습니다."
 
 msgid "Changing password is not supported."
 msgstr "비밀번호 변경은 지원하지 않습니다."
@@ -2091,17 +2093,17 @@ msgstr "Job 템플릿 생성 불가"
 
 #, python-format
 msgid "Could not find default role \"%s\" in Keystone"
-msgstr "Keystone에 기본 role \"%s\"를 찾을 수 없습니다"
+msgstr "Keystone에 기본 역할 \"%s\"를 찾을 수 없습니다"
 
 msgid "Could not launch job"
-msgstr "Job을 실행시키지 못 했습니다."
+msgstr "Job을 실행시키지 못했습니다."
 
 msgid "Could not update data source"
 msgstr "데이터 소스를 업데이트 할 수 없습니다."
 
 #, python-format
 msgid "Couldn't get current security group list for instance %s."
-msgstr "인스턴스 %s 의 현재 시큐리티 그룹 목록을 가져올 수 없습니다."
+msgstr "%s 인스턴스의 현재 시큐리티 그룹 목록을 가져올 수 없습니다."
 
 msgid "Couldn't get security group list."
 msgstr "시큐리티 그룹 목록을 가져올 수 없습니다."
@@ -2231,7 +2233,7 @@ msgid "Create QoS Spec"
 msgstr "QOS 사양 생성:"
 
 msgid "Create Role"
-msgstr "Role 생성"
+msgstr "역할 생성"
 
 msgid "Create Router"
 msgstr "라우터 생성"
@@ -2275,7 +2277,7 @@ msgid ""
 "Specify a name, description, router, and subnet for the VPN Service. Admin "
 "State is Up (checked) by default."
 msgstr ""
-"현재 프로젝트에대한 VPN 서비스 생성.\n"
+"현재 프로젝트에 대한 VPN 서비스 생성.\n"
 "\n"
 "VPN 서비스의 이름, 설명, 라우터, 서브넷을 지정합니다. 관리 상태는 기본이 UP "
 "(선택된) 상태입니다."
@@ -2308,7 +2310,7 @@ msgid "Create a Cluster Template"
 msgstr "클러스터 템플릿 생성"
 
 msgid "Create a Data Source with a specified name."
-msgstr "지정된 이름을 가진 데이터 소스를 만듭니다."
+msgstr "이름이 지정된 데이터 소스를 만듭니다."
 
 msgid "Create a Master Node Group Template"
 msgstr "마스터 노드 그룹 템플릿 선택"
@@ -2418,7 +2420,7 @@ msgstr ""
 "성 가능합니다."
 
 msgid "Create a new role."
-msgstr "새로운 Role을 생성합니다."
+msgstr "새로운 역할을 생성합니다."
 
 msgid "Create a new stack with the provided values."
 msgstr "작성한 값에 가진 새로운 스택을 만들 수 있습니다."
@@ -2426,7 +2428,7 @@ msgstr "작성한 값에 가진 새로운 스택을 만들 수 있습니다."
 msgid ""
 "Create a new user and set related properties including the Primary Project "
 "and Role."
-msgstr "새 사용자를 생성하고 기본 프로젝트와 role을 포함한 속성을 설정합니다."
+msgstr "새 사용자를 생성하고 기본 프로젝트와 역할을 포함한 속성을 설정합니다."
 
 msgid "Create a policy with selected rules."
 msgstr "선택한 규칙에 대한 정책를 생성합니다."
@@ -2571,19 +2573,19 @@ msgid "Creation Timeout (minutes)"
 msgstr "생성 Timeout (분)"
 
 msgid "Creation requests for this floating ip"
-msgstr "유동 IP에 대해서 생성 요청"
+msgstr "유동 IP 생성 요청"
 
 msgid "Creation requests for this network"
-msgstr "네트워크에 대해서 생성 요청"
+msgstr "네트워크 생성 요청"
 
 msgid "Creation requests for this port"
-msgstr "포트에 대해서 생성 요청"
+msgstr "포트 생성 요청"
 
 msgid "Creation requests for this router"
-msgstr "라우터에 대해 생성 요청"
+msgstr "라우터 생성 요청"
 
 msgid "Creation requests for this subnet"
-msgstr "서브넷에 대해서 생성 요청"
+msgstr "서브넷 생성 요청"
 
 msgid "Current Host"
 msgstr "현재 호스트"
@@ -2710,8 +2712,8 @@ msgid ""
 "Data Processing provides different storage location options. You may choose "
 "Ephemeral Drive or a Cinder Volume to be attached to instances."
 msgstr ""
-"데이터 프로세싱은 다른 저장 위치를 선택할 수 있도록 제공합니다. 임시 드라이"
-"브 또는 인스턴스에 연결된 Cinder 볼륨 을 선택합니다."
+"데이터 프로세싱은 다른 저장 위치를 선택할 수 있도록 제공합니다. Ephemeral 드"
+"라이브 또는 인스턴스에 연결된 Cinder 볼륨 을 선택합니다."
 
 msgid "Data Source"
 msgstr "데이터 원본"
@@ -2749,7 +2751,7 @@ msgid "Data source created"
 msgstr "데이터 소스를 생성했습니다."
 
 msgid "Data source updated"
-msgstr "데이터 소스 업데이트됨"
+msgstr "데이터 소스 업데이트 완료"
 
 msgid "Database"
 msgstr "데이터베이스"
@@ -2985,7 +2987,7 @@ msgstr[0] "QOS 사양 삭제"
 
 msgid "Delete Role"
 msgid_plural "Delete Roles"
-msgstr[0] "Role 삭제"
+msgstr[0] "역할 삭제"
 
 msgid "Delete Router"
 msgid_plural "Delete Routers"
@@ -3081,7 +3083,7 @@ msgstr[0] "DHCP 에이전트 삭제함"
 
 msgid "Deleted Data Source"
 msgid_plural "Deleted Data Sources"
-msgstr[0] "데이터 원본 제거됨"
+msgstr[0] "데이터 원본 제거 완료"
 
 msgid "Deleted Database"
 msgid_plural "Deleted Databases"
@@ -3111,18 +3113,6 @@ msgid "Deleted Host Aggregate"
 msgid_plural "Deleted Host Aggregates"
 msgstr[0] "삭제된 호스트 집합"
 
-#, python-format
-msgid "Deleted IKE Policy %s"
-msgstr "IKE 정책 %s를 삭제하였습니다."
-
-#, python-format
-msgid "Deleted IPSec Policy %s"
-msgstr "IPSec 정책 %s를 삭제하였습니다."
-
-#, python-format
-msgid "Deleted IPSec Site Connection %s"
-msgstr "IPSec 사이트 연결 %s를 삭제하였습니다."
-
 msgid "Deleted Image"
 msgid_plural "Deleted Images"
 msgstr[0] "이미지 삭제함"
@@ -3133,7 +3123,7 @@ msgstr[0] "인터페이스 삭제함"
 
 msgid "Deleted Job"
 msgid_plural "Deleted Jobs"
-msgstr[0] "Job 삭제함"
+msgstr[0] "삭제된 Job"
 
 msgid "Deleted Job Binary"
 msgid_plural "Deleted Job Binaries"
@@ -3173,7 +3163,7 @@ msgstr[0] "삭제된 QOS 사양"
 
 msgid "Deleted Role"
 msgid_plural "Deleted Roles"
-msgstr[0] "Role 삭제함"
+msgstr[0] "역할 삭제함"
 
 msgid "Deleted Router"
 msgid_plural "Deleted Routers"
@@ -3214,10 +3204,6 @@ msgstr[0] "사용자 삭제함"
 #, python-format
 msgid "Deleted VIP %s"
 msgstr "VIP %s를 삭제하였습니다."
-
-#, python-format
-msgid "Deleted VPN Service %s"
-msgstr "VPN 서비스 %s를 삭제하였습니다."
 
 msgid "Deleted Volume Type"
 msgid_plural "Deleted Volume Types"
@@ -3270,7 +3256,7 @@ msgid "Destination"
 msgstr "대상"
 
 msgid "Destination CIDR"
-msgstr "목적지 CIDR"
+msgstr "대상 CIDR"
 
 msgid "Destination Host"
 msgstr "대상 호스트"
@@ -3514,7 +3500,7 @@ msgstr "완료"
 
 msgctxt "Current status of a Job"
 msgid "Done with Error"
-msgstr "Done with Error"
+msgstr "오류와 함께 완료"
 
 msgid "Down"
 msgstr "Down"
@@ -3588,7 +3574,7 @@ msgstr "지속"
 
 #, python-format
 msgid "Duration of instance type %s (openstack flavor)"
-msgstr "인스턴스 유형 %s 지속 시간 (openstack flavor)"
+msgstr "%s 인스턴스 형식에 대한 지속 시간 (openstack flavor)"
 
 msgid "EC2 Access Key"
 msgstr "EC2 접근 키"
@@ -3697,10 +3683,10 @@ msgid "Edit Router"
 msgstr "라우터 편집"
 
 msgid "Edit Rule"
-msgstr "규칙 편집"
+msgstr "Rule 편집"
 
 msgid "Edit Rule {{ name }}"
-msgstr "규칙 {{ name }} 편집"
+msgstr "{{ name }} Rule 편집"
 
 msgid "Edit Security Group"
 msgstr "시큐리티 그룹 편집"
@@ -3758,7 +3744,7 @@ msgid "Edit the project details."
 msgstr "프로젝트 세부 정보 편집"
 
 msgid "Edit the role's details."
-msgstr "Role에 대한 세부 정보를 편집합니다."
+msgstr "역할에 대한 세부 정보를 편집합니다."
 
 msgid "Edit the user's details, including the Primary Project."
 msgstr "주 프로젝트를 포함하여 사용자 세부 정보를 수정하세요."
@@ -3949,10 +3935,6 @@ msgctxt "current status of router"
 msgid "Error"
 msgstr "Error"
 
-msgctxt "status of a neteork port"
-msgid "Error"
-msgstr "Error"
-
 msgid "Error Deleting"
 msgstr "삭제중 오류"
 
@@ -4045,22 +4027,22 @@ msgid "Existence of floating ip"
 msgstr "유동 IP 존재"
 
 msgid "Existence of instance"
-msgstr "인스턴스가 존재"
+msgstr "인스턴스가 존재합니다"
 
 msgid "Existence of instance <type> (openstack types)"
-msgstr "인스턴스 <type> (openstack types)가 존재"
+msgstr "인스턴스 <type> (openstack types)가 존재합니다"
 
 msgid "Existence of network"
-msgstr "네트워크가 존재"
+msgstr "네트워크 존재"
 
 msgid "Existence of port"
-msgstr "포트가 존재"
+msgstr "포트 존재"
 
 msgid "Existence of router"
-msgstr "라우터가 존재"
+msgstr "라우터 존재"
 
 msgid "Existence of subnet"
-msgstr "서브넷이 존재"
+msgstr "서브넷 존재"
 
 msgid "Existence of volume"
 msgstr "볼륨 존재"
@@ -4113,7 +4095,7 @@ msgid "Extra Specs"
 msgstr "추가 사양"
 
 msgid "Failed"
-msgstr "Failed"
+msgstr "실패함"
 
 msgctxt "Current status of a Database Backup"
 msgid "Failed"
@@ -4125,7 +4107,7 @@ msgstr "Failed"
 
 msgctxt "Current status of a Job"
 msgid "Failed"
-msgstr "Failed"
+msgstr "실패"
 
 msgctxt "Power state of an Instance"
 msgid "Failed"
@@ -4167,7 +4149,7 @@ msgstr "add_interface 실패: %s"
 
 #, python-format
 msgid "Failed to check Neutron '%s' extension is not supported"
-msgstr "Neutron '%s' 확장을 실패에대해 확인을 지원하지 않습니다."
+msgstr "Neutron '%s' 확장을 지원하지 않습니다. 확장을 확인하지 못했습니다."
 
 msgid "Failed to check if Neutron extraroute extension is supported"
 msgstr "Neutron extraroute 확장을 지원하는지에 대한 확인 실패"
@@ -4239,7 +4221,7 @@ msgid "Failed to fetch internal binary list"
 msgstr "내부 바이너리 목록을 가져올 수 없습니다."
 
 msgid "Failed to get list of internal binaries."
-msgstr "내부 바이너리에 대한 목록을 가져오지 못 했습니다."
+msgstr "내부 바이너리 목록을 가져오지 못 했습니다."
 
 #, python-format
 msgid "Failed to get network list %s"
@@ -4257,7 +4239,7 @@ msgstr "리소스 이름 가져오기 실패: %s"
 
 #, python-format
 msgid "Failed to insert rule to policy %(name)s: %(reason)s"
-msgstr "정책 %(name)s에 규칙을 추가하지 못하였습니다.: %(reason)s"
+msgstr "%(name)s 정책에 rule을 추가하지 못하였습니다.: %(reason)s"
 
 #, python-format
 msgid "Failed to live migrate instance to host \"%s\"."
@@ -4322,7 +4304,7 @@ msgstr "방화벽 %(name)s 에서 라우터를 제거하지 못 했습니다: %(
 
 #, python-format
 msgid "Failed to remove rule from policy %(name)s: %(reason)s"
-msgstr "규칙을 정책 %(name)s에서 제거하지 못하였습니다.: %(reason)s"
+msgstr "Rule을 %(name)s 정책에서 제거하지 못하였습니다.: %(reason)s"
 
 #, python-format
 msgid "Failed to retrieve available routers: %(reason)s"
@@ -4330,7 +4312,7 @@ msgstr "사용가능한 라우터를 찾지 못 했습니다: %(reason)s"
 
 #, python-format
 msgid "Failed to retrieve available rules: %s"
-msgstr "사용가능한 규칙을 검색하지 못하였습니다.: %s"
+msgstr "사용가능한 rule을 검색하지 못하였습니다.: %s"
 
 #, python-format
 msgid "Failed to retrieve current routers in firewall %(name)s: %(reason)s"
@@ -4338,7 +4320,7 @@ msgstr "방화벽 %(name)s 에 있는 현재 라우터를 찾지 못 하였습�
 
 #, python-format
 msgid "Failed to retrieve current rules in policy %(name)s: %(reason)s"
-msgstr "정책 %(name)s에서 현재 규칙을 찾지 못하였습니다.: %(reason)s"
+msgstr "%(name)s 정책에서 현재 rule을 찾지 못하였습니다.: %(reason)s"
 
 msgid "Failed to retrieve health monitors."
 msgstr "상태 모니터를 찾을 수 없습니다"
@@ -4408,7 +4390,7 @@ msgstr "라우터 %s를 업데이트하지 못 했습니다."
 
 #, python-format
 msgid "Failed to update rule %(name)s: %(reason)s"
-msgstr "규칙 %(name)s를 업데이트하지 못하였습니다.: %(reason)s"
+msgstr "%(name)s 역할을 업데이트하지 못하였습니다.: %(reason)s"
 
 #, python-format
 msgid "Failed to update subnet \"%(sub)s\":  %(reason)s"
@@ -4467,10 +4449,10 @@ msgid "Firewall Policy Details"
 msgstr "방화벽 정책 세부 정보"
 
 msgid "Firewall Rule Details"
-msgstr "방화벽 규칙 세부 정보"
+msgstr "방화벽 Rule 세부 정보"
 
 msgid "Firewall Rules"
-msgstr "방화벽 규칙"
+msgstr "방화벽 Rule"
 
 msgid "Firewalls"
 msgstr "방화벽"
@@ -4600,9 +4582,9 @@ msgid ""
 "provide both the starting and ending ports for the range. For ICMP rules you "
 "instead specify an ICMP type and code in the spaces provided."
 msgstr ""
-"TCP와 UDP 규칙을 설정하려면, 단일 포트 또는 특정 범위의 포트를 열 수 있습니"
+"TCP와 UDP Rule을 설정하려면, 단일 포트 또는 특정 범위의 포트를 열 수 있습니"
 "다. \"포트 범위\" 옵션을 선택하면 포트 범위 시작 값과 최종 값을 설정할 수 있"
-"습니다. 그러나 ICMP 규칙은 주어진 칸에 ICMP 타입과 코드를 지정하여야 합니다. "
+"습니다. 그러나 ICMP Rule은 주어진 칸에 ICMP 타입과 코드를 지정하여야 합니다. "
 
 #, python-format
 msgid ""
@@ -4725,14 +4707,14 @@ msgid ""
 "Groups are used to manage access and assign roles to multiple users at once. "
 "After creating the group, edit the group to add users."
 msgstr ""
-"그룹은 한번에 여러 사용자에게 role을 할당하고 접근을 관리하는데 사용합니다. "
+"그룹은 한번에 여러 사용자에게 역할을 할당하고 접근을 관리하는데 사용합니다. "
 "그룹을 생성한 후, 사용자 추가하여 그룹을 수정할 수 있습니다."
 
 msgid ""
 "Groups are used to manage access and assign roles to multiple users at once. "
 "Edit the group to add users."
 msgstr ""
-"그룹은 한번에 여러 사용자에게 role을 할당하고 접근을 관리하는데 사용합니다. "
+"그룹은 한번에 여러 사용자에게 역할을 할당하고 접근을 관리하는데 사용합니다. "
 "사용자를 추가할 그룹을 편집합니다."
 
 msgid "Guided Cluster Creation"
@@ -5110,8 +5092,8 @@ msgid ""
 "Image Registry is used to provide additional information about images for "
 "Data Processing."
 msgstr ""
-"이미지 저장소는 데이터 프로세싱에서 사용된 이미지에 대한 추가 정보를 제공하는"
-"데 사용됩니다."
+"이미지 저장소는 데이터 프로세싱에서 사용된 이미지 추가 정보를 제공하는데 사용"
+"됩니다."
 
 msgid "Image Registry tool:"
 msgstr "이미지 저장소 도구:"
@@ -5260,10 +5242,10 @@ msgid "Input must be in CIDR format"
 msgstr "입력은 반드시 CIDR 포맷이어야 합니다."
 
 msgid "Insert Rule"
-msgstr "규칙 삽입"
+msgstr "Rule 삽입"
 
 msgid "Insert Rule into Policy"
-msgstr "정책에 규칙을 삽입"
+msgstr "정책에 Rule을 삽입"
 
 msgid "Insert Rule to Policy"
 msgstr "정책에 규칙을 추가"
@@ -5338,7 +5320,7 @@ msgid "Insufficient privilege level to view project information."
 msgstr "불충분한 권한 수준으로 프로젝트 정보를 볼 수 있습니다."
 
 msgid "Insufficient privilege level to view role information."
-msgstr "불충분한 권한 수준으로 role 정보를 볼 수 있습니다."
+msgstr "불충분한 권한 수준으로 역할 정보를 볼 수 있습니다."
 
 msgid "Insufficient privilege level to view user information."
 msgstr "불충분한 권한 수준으로 사용자 정보를 볼 수 있습니다."
@@ -5368,7 +5350,7 @@ msgid "Internal binary"
 msgstr "내부 바이너리"
 
 msgid "Invalid date format: Using today as default."
-msgstr "유효하지 않은 날짜 포맷: 오늘 날짜를 기본으로 사용"
+msgstr "올바르지 않은 날짜 포맷: 오늘 날짜를 기본으로 사용합니다."
 
 #, python-format
 msgid "Invalid format for routes : %s"
@@ -5377,13 +5359,13 @@ msgstr "잘못된 경로 포맷 : %s"
 msgid ""
 "Invalid time period. The end date should be more recent than the start date."
 msgstr ""
-"유효하지 않은 시간 주기입니다. 최종 날짜는 반드시 시작 날짜 이후여야 합니다. "
+"올바르지 않은 시간 주기입니다. 최종 날짜는 반드시 시작 날짜 이후여야 합니다. "
 
 msgid ""
 "Invalid time period. You are requesting data from the future which may not "
 "exist."
 msgstr ""
-"유효하지 않은 시간 주기입니다. 존재하지 않는 미래 시점에서 데이터를 요청하고 "
+"올바르지 않은 시간 주기입니다. 존재하지 않는 미래 시점에서 데이터를 요청하고 "
 "있습니다."
 
 msgid "Is a Replica Of"
@@ -5524,7 +5506,7 @@ msgstr "키 페어"
 
 msgctxt "Current status of a Job"
 msgid "Killed"
-msgstr "Killed"
+msgstr "실패"
 
 msgctxt "Current status of an Image"
 msgid "Killed"
@@ -5650,11 +5632,11 @@ msgstr "%(count)s 개의 \"%(name)s\"이 구동됨."
 
 #, python-format
 msgid "Launched Cluster %s"
-msgstr "실행된 클러스터 %s"
+msgstr "%s 클러스터 실행 완료"
 
 msgid "Launched Job"
 msgid_plural "Launched Jobs"
-msgstr[0] "Job 실행함"
+msgstr[0] "실행된 Job"
 
 #, python-format
 msgid "Launched cluster \"%s\""
@@ -5831,7 +5813,7 @@ msgid "Manage Rules"
 msgstr "규칙 관리"
 
 msgid "Manage Security Group Rules"
-msgstr "시큐리티 그룹 규칙 관리"
+msgstr "시큐리티 그룹 Rule 관리"
 
 msgid ""
 "Manage Security Group Rules: {{ security_group.name }} ({{ security_group."
@@ -6052,7 +6034,7 @@ msgid "Modify Usage Report Parameters"
 msgstr "사용 보고서 매개 변수 수정"
 
 msgid "Modify dashboard settings for your user."
-msgstr "사용자의 데시보드 설정을 수정합니다."
+msgstr "사용자의 대시보드 설정을 수정합니다."
 
 msgid "Modify name and description of a volume."
 msgstr "볼륨의 이름과 설명을 수정합니다."
@@ -6638,7 +6620,7 @@ msgid "Number"
 msgstr "숫자"
 
 msgid "Number of API requests against swift"
-msgstr "Swift에 대한 API 요청 갯수"
+msgstr "Swift API 요청 갯수"
 
 msgid "Number of Instances"
 msgstr "인스턴스 수"
@@ -6677,10 +6659,10 @@ msgid "Number of incoming bytes"
 msgstr "들어오는 바이트 수"
 
 msgid "Number of incoming bytes on the network for a VM interface"
-msgstr "VM 인터페이스에 대한 네트워크를 통해 들어오는 바이트 수"
+msgstr "VM 인터페이스로 네트워크를 통해 들어오는 바이트 수"
 
 msgid "Number of incoming packets for a VM interface"
-msgstr "VM 인터페이스에 대해서 들어오는 패킷 수"
+msgstr "VM 인터페이스로 들어오는 패킷 수"
 
 msgid "Number of instances in the cluster. (Read only)"
 msgstr "클러스터에 존재하는 인스턴스 수. (읽기 전용)"
@@ -6708,10 +6690,10 @@ msgid "Number of outgoing bytes"
 msgstr "나가는 바이트 수"
 
 msgid "Number of outgoing bytes on the network for a VM interface"
-msgstr "VM 인터페이스에 대한 네트워크에서 나가는 바이트 수"
+msgstr "VM 인터페이스에서 네트워크로 나가는 바이트 수"
 
 msgid "Number of outgoing packets for a VM interface"
-msgstr "VM 인터페이스에 대해서 나가는 패킷 수"
+msgstr "VM 인터페이스에서 나가는 패킷 수"
 
 msgid ""
 "Number of permissible failures before changing the status of member to "
@@ -6818,7 +6800,7 @@ msgid "Optionally, you may choose to create a new volume."
 msgstr "선택적으로 새로운 볼륨을 생성할 수 있습니다."
 
 msgid "Orchestration"
-msgstr "오케스트레이션"
+msgstr "Orchestration"
 
 msgid "Orchestration Services"
 msgstr "Orchestration 서비스"
@@ -6890,7 +6872,7 @@ msgid "Parent Backup"
 msgstr "부모 백업"
 
 msgid "Password"
-msgstr "비밀번호"
+msgstr "암호"
 
 msgctxt "Current status of an Instance"
 msgid "Password"
@@ -7274,7 +7256,7 @@ msgid "Protocol Port"
 msgstr "프로토콜 포트"
 
 msgid "Protocol for the firewall rule"
-msgstr "방화벽 규칙에 대한 프로토콜"
+msgstr "방화벽 rule에 대한 프로토콜"
 
 msgid "Provider"
 msgstr "공급자"
@@ -7473,7 +7455,7 @@ msgstr "이미지 등록"
 
 msgid ""
 "Register tags required for the Plugin with specified Data Processing Version"
-msgstr "지정한 데이터 프로세싱 버전과 플러그인에 대해 필요한 태그를 등록"
+msgstr "지정한 데이터 프로세싱 버전과 플러그인에 대해 필요한 태그 등록"
 
 msgid "Relative part of requests this pool member serves compared to others"
 msgstr ""
@@ -7540,7 +7522,7 @@ msgid "Remove Router from Firewall"
 msgstr "방화벽에서 라우터 제거"
 
 msgid "Remove Rule"
-msgstr "규칙 삭제"
+msgstr "Rule 삭제"
 
 msgid "Remove Rule from Policy"
 msgstr "정책에서 규칙 제거"
@@ -7804,22 +7786,22 @@ msgid "Reverting Resize or Migrate"
 msgstr "Reverting Resize or Migrate"
 
 msgid "Role"
-msgstr "Role"
+msgstr "역할"
 
 msgid "Role ID"
-msgstr "Role ID"
+msgstr "역할 ID"
 
 msgid "Role Name"
-msgstr "Role 이름"
+msgstr "역할 이름"
 
 msgid "Role created successfully."
-msgstr "Role을 성공적으로 생성하였습니다"
+msgstr "역할을 성공적으로 생성하였습니다"
 
 msgid "Role updated successfully."
-msgstr "Role을 성공적으로 업데이트 하였습니다."
+msgstr "역할을 성공적으로 업데이트 하였습니다."
 
 msgid "Roles"
-msgstr "Roles"
+msgstr "역할"
 
 msgid "Rollback"
 msgstr "롤백"
@@ -7923,15 +7905,15 @@ msgstr "규칙"
 
 #, python-format
 msgid "Rule %(rule)s was successfully inserted to policy %(policy)s."
-msgstr "규칙 %(rule)s를 정책 %(policy)s에 성공적으로 추가하였습니다."
+msgstr "%(rule)s Rule을 %(policy)s 정책에 성공적으로 추가하였습니다."
 
 #, python-format
 msgid "Rule %(rule)s was successfully removed from policy %(policy)s."
-msgstr "규칙 %(rule)s를 정책 %(policy)s에서 성공적으로 제거하였습니다."
+msgstr "%(rule)s Rule을 %(policy)s 정책에서 성공적으로 제거하였습니다."
 
 #, python-format
 msgid "Rule %s was successfully updated."
-msgstr "규칙 %s를 성공적으로 업데이트 하였습니다."
+msgstr "%s Rule을 성공적으로 업데이트 하였습니다."
 
 msgid "Rule Conflict"
 msgstr "규칙 충돌"
@@ -7940,7 +7922,7 @@ msgid "Rule:"
 msgstr "규칙:"
 
 msgid "Rules"
-msgstr "규칙"
+msgstr "Rules"
 
 msgid ""
 "Rules define which traffic is allowed to instances assigned to the security "
@@ -8001,16 +7983,16 @@ msgid "Saving"
 msgstr "Saving"
 
 msgid "Scale"
-msgstr "확장"
+msgstr "스케일"
 
 msgid "Scale Cluster"
-msgstr "클러스터 규모"
+msgstr "스케일 클러스터"
 
 msgid "Scale cluster operation failed"
-msgstr "클러스터 확장 작업 실패"
+msgstr "스케일 클러스터 작업 실패"
 
 msgid "Scaled cluster successfully started."
-msgstr "확장된 클러스터를 성공적으로 시작했습니다."
+msgstr "스케일 클러스터를 성공적으로 시작했습니다."
 
 #, python-format
 msgid "Scheduled backup \"%(name)s\"."
@@ -8054,7 +8036,7 @@ msgstr[0] "풀 예약 삭제"
 
 msgid "Scheduled deletion of Rule"
 msgid_plural "Scheduled deletion of Rules"
-msgstr[0] "규칙 예약 삭제"
+msgstr[0] "Rule 예약 삭제"
 
 msgid "Scheduled deletion of VPN Service"
 msgid_plural "Scheduled deletion of VPN Services"
@@ -8117,14 +8099,14 @@ msgid ""
 "settings for the VM. After the security group is created, you can add rules "
 "to the security group."
 msgstr ""
-"시큐리티 그룹은 VM에서 네트워크 설정에 적용되는 IP 필터 규칙에대한 묶음입니"
-"다. 시큐리티 그룹을 만든후, 시큐리티 그룹에서 규칙을 추가할 수 있습니다."
+"시큐리티 그룹은 VM에서 네트워크 설정에 적용되는 IP 필터 rule에 대한 묶음입니"
+"다. 시큐리티 그룹을 만든후, 시큐리티 그룹에서 rule을 추가할 수 있습니다."
 
 msgid ""
 "Security groups are sets of IP filter rules that are applied to the network "
 "settings for the VM. Edit the security group to add and change the rules."
 msgstr ""
-"시큐리티 그룹은 VM의 네트워크 설정에  IP 필터 규칙을 설정합니다. 규칙을 추가"
+"시큐리티 그룹은 VM의 네트워크 설정에  IP 필터 rule을 설정합니다. Rule을 추가"
 "하거나 변경하여 시큐리티 그룹을 편집합니다."
 
 msgid "Segmentation ID"
@@ -8188,7 +8170,7 @@ msgid "Select a New Flavor"
 msgstr "새로운 Flavor 선택"
 
 msgid "Select a Node Group Template to add:"
-msgstr "추가할 노트 그룹 템플릿 선택:"
+msgstr "추가할 노드 그룹 템플릿 선택:"
 
 msgid "Select a Policy"
 msgstr "정책 선택합니다."
@@ -8253,10 +8235,10 @@ msgid "Select a new volume type"
 msgstr "새로운 볼륨 유형 선택"
 
 msgid "Select a plugin and version for a new Cluster template."
-msgstr "새로운 클러스터 템플릿을 위한 플러그인 및 버전을 선택하세요."
+msgstr "새로운 클러스터 템플릿을 위한 플러그인과 버전을 선택하세요."
 
 msgid "Select a plugin and version for a new Cluster."
-msgstr "새로운 클러스터를 위한 플러그인 및 버전을 선택하세요."
+msgstr "새로운 클러스터에서 사용할 플러그인과 버전을 선택하세요."
 
 msgid "Select a plugin and version for the new Node Group template."
 msgstr "새로운 노드 그룹 템플릿에 대한 플러그인과 버전을 선택합니다."
@@ -8392,8 +8374,9 @@ msgid ""
 "    "
 msgstr ""
 "실행하고자 하는 Job 유형을 선택합니다.\n"
-"이 선택은 Job을 성공적으로 실행하기 위해 필요로 하는 다음\n"
-"단계에 영향을 줄 것입니다."
+"      이 선택은 Job을 성공적으로 실행하기 위해 필요로 하는 다음\n"
+"      단계에 영향을 줄 것입니다.\n"
+"    "
 
 msgid "Selected Hosts"
 msgstr "선택된 호스트"
@@ -8414,13 +8397,13 @@ msgid "Selected networks"
 msgstr "네트워크 선택됨"
 
 msgid "Sensor Current Reading"
-msgstr "현재 센서 읽기"
+msgstr "센서 전류값 읽는 중"
 
 msgid "Sensor Temperature Reading"
-msgstr "센서 온도 읽기"
+msgstr "센서 온도 읽는 중"
 
 msgid "Sensor Voltage Reading"
-msgstr "센서 볼트값 읽기"
+msgstr "센서 볼트값 읽는 중"
 
 msgid "Server Group Members"
 msgstr "서버 그룹 멤버"
@@ -8701,7 +8684,7 @@ msgid ""
 "Specified User Name will be used by Data Processing to apply configs and "
 "manage processes on instances."
 msgstr ""
-"지정한 사용자 이름은 구성한 데이터 프로세싱에서 사용되거나 인스턴스에서 프로"
+"작성한 사용자 이름은 구성한 데이터 프로세싱에서 사용되거나 인스턴스에서 프로"
 "세스를 관리하는데 사용됩니다."
 
 msgid ""
@@ -8913,7 +8896,7 @@ msgid "Storage location"
 msgstr "스토리지 위치"
 
 msgid "Storage type"
-msgstr "스토리지 타입"
+msgstr "스토리지 유형"
 
 msgid "Storm"
 msgstr "Storm"
@@ -8969,7 +8952,7 @@ msgstr "관련 서브넷"
 
 msgctxt "Current status of a Job"
 msgid "Succeeded"
-msgstr "Succeeded"
+msgstr "성공"
 
 #, python-format
 msgid "Successfully accepted volume transfer: \"%s\""
@@ -9150,31 +9133,31 @@ msgid "System"
 msgstr "시스템"
 
 msgid "System Airflow Reading"
-msgstr "시스템 공기흐름 읽기"
+msgstr "시스템 공기흐름 읽는 중"
 
 msgid "System CPU Utility Reading"
-msgstr "시스템 CPU 유틸 읽기"
+msgstr "시스템 CPU 유틸 읽는 중"
 
 msgid "System CUPS Reading"
-msgstr "시스템 CUPS 읽기"
+msgstr "시스템 CUPS 읽는 중"
 
 msgid "System Current Power"
 msgstr "시스템 현재 전력"
 
 msgid "System IO Utility Reading"
-msgstr "시스템 IO 유틸 읽기"
+msgstr "시스템 IO 유틸 읽는 중"
 
 msgid "System Information"
 msgstr "시스템 정보"
 
 msgid "System Memory Utility Reading"
-msgstr "시스템 메모리 유틸 읽기"
+msgstr "시스템 메모리 유틸 읽는 중"
 
 msgid "System Outlet Temperature Reading"
-msgstr "시스템 출구 온도 읽기"
+msgstr "시스템 사출구 온도 읽는 중"
 
 msgid "System Temperature Reading"
-msgstr "시스템 온도 읽기"
+msgstr "시스템 온도 읽는 중"
 
 msgid "TCP"
 msgstr "TCP"
@@ -9188,10 +9171,10 @@ msgid ""
 "        To add required tags, select a plugin and a Data Processing version "
 "and click &quot;Add plugin tags&quot; button."
 msgstr ""
-"태그는 각 플러그인과 각 데이터 프로세싱 버전에대한 적합한 이미지를 필터링하는"
+"태그는 각 플러그인과 각 데이터 프로세싱 버전에서 적합한 이미지를 필터링하는"
 "데 사용됩니다.\n"
-"태그를 추가하기 위해선, 플러그인과 데이터 프로세싱 버전을 선택하고 &quot;플러"
-"그인 태그 추가&quot; 버튼을 누릅니다."
+"        태그를 추가하기 위해선, 플러그인과 데이터 프로세싱 버전을 선택하고 "
+"&quot;플러그인 태그 추가&quot; 버튼을 누릅니다."
 
 msgid "Target Host"
 msgstr "대상 호스트"
@@ -9245,10 +9228,10 @@ msgstr ""
 "니다."
 
 msgid "The \"from\" port number is invalid."
-msgstr "\"보내는\" 포트 번호가 유효하지 않습니다."
+msgstr "\"보내는\" 포트 번호가 올바르지 않습니다."
 
 msgid "The \"to\" port number is invalid."
-msgstr "\"받는\" 포트 번호가 유효하지 않습니다."
+msgstr "\"받는\" 포트 번호가 올바르지 않습니다."
 
 msgid ""
 "The \"to\" port number must be greater than or equal to the \"from\" port "
@@ -9312,7 +9295,7 @@ msgid ""
 msgstr ""
 "클러스터 템플릿 오브젝트는 anti-affinity 그룹의 프로세스 목록에서 지정할 수 "
 "있습니다.\n"
-"즉, 이러한 프로세스는 하나의 호스트에 두번 이상 실행되지 않음을 의미합니다."
+"    이러한 프로세스는 하나의 호스트에 두번 이상 실행되지 않음을 의미합니다."
 
 msgid ""
 "The Cluster Template object should specify Node Group Templates that will be "
@@ -9320,26 +9303,26 @@ msgid ""
 "    You can add Node Groups using Node Group Templates on a &quot;Node "
 "Groups&quot; tab."
 msgstr ""
-"클러스터 템플릿 객체는 클러스터를 구성하기 위해 사용할 노드 그룹 템플릿을 지"
-"정해야 합니다.\n"
-"&quot;Node Groups&quot; 탭에 노드 그룹 템플릿을 사용하여 노드 그룹을 추가할 "
+"클러스터 템플릿 객체는 클러스터를 구성에 사용할 노드 그룹 템플릿을 지정해야 "
+"합니다.\n"
+"&quot;Node Groups&quot; 탭에 노드 그룹 템플릿을 이용하여 노드 그룹을 추가할 "
 "수 있습니다."
 
 msgid ""
 "The Cluster object should specify OpenStack Image to boot instances for "
 "Cluster."
 msgstr ""
-"클러스터 객체는 클러스터에 대해 인스턴스를 부팅할 OpenStack 이미지를 지정해"
-"야 합니다."
+"클러스터 객체는 클러스터에 인스턴스로 부팅할 OpenStack 이미지를 지정해야 합니"
+"다."
 
 msgid "The ICMP code is invalid."
-msgstr "ICMP 코드가 유효하지 않습니다."
+msgstr "ICMP 코드가 올바르지 않습니다."
 
 msgid "The ICMP code not in range (-1, 255)"
 msgstr "범위에 들지 않는 ICMP 코드 (-1, 255)"
 
 msgid "The ICMP type is invalid."
-msgstr "ICMP 타입이 유효하지 않습니다."
+msgstr "ICMP 타입이 올바르지 않습니다."
 
 msgid "The ICMP type not in range (-1, 255)"
 msgstr "범위에 들지 않는 ICMP 타입 (-1, 255)"
@@ -9376,9 +9359,10 @@ msgid ""
 "        When processes are selected, you may set <b>node</b> scoped\n"
 "        configurations on corresponding tabs."
 msgstr ""
-"노드 그룹 템플릿 객체 각 인스턴스에 시작된 프로세스를 지정합니다. 하나이 상"
-"의 프로세스를 확인합니다.\n"
-"프로세스를 선택하면, 해당 탭의 <b>노드</b> 범위 구성을 설정할 수 있습니다."
+"노드 그룹 템플릿 객체는 각 인스턴스에 시작된 \n"
+"        프로세스를 지정합니다. 하나 이상의 프로세스를 확인합니다.\n"
+"        프로세스를 선택하면, 해당 탭의 <b>노드</b> 범위 구성을 \n"
+"        설정할 수 있습니다."
 
 msgid ""
 "The Transfer ID and the Authorization Key are needed by the recipient in "
@@ -9418,13 +9402,14 @@ msgid ""
 "direction is outlined when hovering over an intersection.\n"
 " "
 msgstr ""
-"교차점에서의 색상 및 아이콘은 트래픽이 원본 (행)으로부터 목적지 (열)까지 허용"
-"되는지 아닌지를 가리킵니다.\n"
-"교차점에서 <i class=\"fa fa-random\"></i> 버튼을 클릭하여 트래픽 상태를 변경"
-"하는 규칙을 설치할 수 있습니다.<br/>\n"
+"교차점에서의 색상 및 아이콘은 트래픽이 원본 (행)으로부터 대상 (열)까지 허용되"
+"는지 아닌지를 가리킵니다.\n"
+"     교차점에서 <i class=\"fa fa-random\"></i> 버튼을 클릭하여 트래픽 상태를 "
+"변경하는 규칙을 설치할 수 있습니다.<br/>\n"
 "\n"
-"<b>참고:</b> 규칙은 트래픽의 한 방향으로만 영향을 미칩니다. 교차점에 마우스"
-"를 가져다 두면 반대 방향이 나타납니다."
+"     <b>참고:</b> 규칙은 트래픽의 한 방향으로만 영향을 미칩니다. 교차점에 마"
+"우스를 가져다 두면 반대 방향이 나타납니다.\n"
+" "
 
 msgid "The container cannot be deleted since it is not empty."
 msgstr "컨테이너가 비어있지 않아 삭제할 수 없습니다."
@@ -9611,7 +9596,7 @@ msgid ""
 msgstr "요청 인스턴스 포트는 이미 다른 floating IP에 연결되어 있습니다."
 
 msgid "The specified port is invalid."
-msgstr "지정된 포트 번호가 유효하지 않습니다."
+msgstr "지정된 포트 번호가 올바르지 않습니다."
 
 msgid "The state to start in."
 msgstr "시작시 상태를 나타냅니다."
@@ -9676,7 +9661,7 @@ msgid "This action cannot be undone."
 msgstr "이 작업은 취소할 수 없습니다."
 
 msgid "This application requires JavaScript to be enabled in your web browser."
-msgstr "이 애플리케이션은 웹 브라우져에서 JavaScript를 지원해야합니다."
+msgstr "이 애플리케이션은 웹 브라우저에서 JavaScript를 지원해야합니다."
 
 msgid ""
 "This generates a pair of keys: a key you keep private (cloud.key) and a "
@@ -9941,7 +9926,7 @@ msgid "Unable to add pool \"%s\"."
 msgstr "Pool \"%s\"를 추가할 수 없습니다"
 
 msgid "Unable to add rule to security group."
-msgstr "시큐리티 그룹에 규칙을 추가할 수 없습니다."
+msgstr "시큐리티 그룹에 Rele을 추가할 수 없습니다."
 
 #, python-format
 msgid "Unable to add shard. %s"
@@ -10060,7 +10045,7 @@ msgid "Unable to create pseudo-folder."
 msgstr "가상 폴더를 만들 수 없습니다."
 
 msgid "Unable to create role."
-msgstr "Role을 생성할 수 없습니다."
+msgstr "역할을 생성할 수 없습니다."
 
 #, python-format
 msgid "Unable to create security group: %s"
@@ -10101,24 +10086,8 @@ msgid "Unable to create volume."
 msgstr "볼륨을 생성할 수 없습니다."
 
 #, python-format
-msgid "Unable to delete IKE Policy: %s"
-msgstr "IKE 정책을 삭제할 수 없습니다: %s"
-
-#, python-format
-msgid "Unable to delete IPSec Policy: %s"
-msgstr "IPSec 정책을 삭제할 수 없습니다: %s"
-
-#, python-format
-msgid "Unable to delete IPSec Site Connection: %s"
-msgstr "IPSec Site 연결을 삭제할 수 없습니다: %s"
-
-#, python-format
 msgid "Unable to delete VIP. %s"
 msgstr "VIP를 삭제할 수 없습니다. %s"
-
-#, python-format
-msgid "Unable to delete VPN Service: %s"
-msgstr "VPN 서비스를 삭제할 수 없습니다: %s"
 
 msgid "Unable to delete container."
 msgstr "컨테이너를 삭제할 수 없습니다."
@@ -10152,7 +10121,7 @@ msgstr "라우터 규칙을 삭제할 수 없습니다."
 
 #, python-format
 msgid "Unable to delete rule. %s"
-msgstr "규칙을 삭제할 수 없습니다. %s"
+msgstr "Rule을 삭제할 수 없습니다. %s"
 
 msgid "Unable to delete volume transfer."
 msgstr "볼륨 이전을 삭제할 수 없습니다."
@@ -10197,10 +10166,10 @@ msgid "Unable to fetch cluster template."
 msgstr "클러스터 템플릿을 가져올 수 없습니다."
 
 msgid "Unable to fetch cluster to scale"
-msgstr "확장 클러스터를 가져오지 못 했습니다."
+msgstr "스케일 클러스터를 가져오지 못 했습니다."
 
 msgid "Unable to fetch cluster to scale."
-msgstr "확장 클러스터를 가져오지 못 했습니다."
+msgstr "스케일 클러스터를 가져오지 못 했습니다."
 
 msgid "Unable to fetch clusters."
 msgstr "클러스터를 가져올 수 없습니다."
@@ -10218,7 +10187,7 @@ msgid "Unable to fetch image choices."
 msgstr "선택한 이미지를 가져오지 못 했습니다."
 
 msgid "Unable to fetch instance details."
-msgstr "인스턴스에 대한 세부 정보를 가져오지 못 했습니다."
+msgstr "인스턴스 세부 정보를 가져오지 못 했습니다."
 
 msgid "Unable to fetch job binary list."
 msgstr "Job 바이너리 목록을 가져올 수 없습니다."
@@ -10237,7 +10206,7 @@ msgid "Unable to fetch keypair choices."
 msgstr "선택한 키 페어를 가져오지 못 했습니다."
 
 msgid "Unable to fetch node group details."
-msgstr "노드 그룹에 대한 세부 정보를 가져올 수 없습니다."
+msgstr "노드 그룹 세부 정보를 가져올 수 없습니다."
 
 msgid "Unable to fetch node group template list."
 msgstr "노드 그룹 템플릿 목록을 가져올 수 없습니다."
@@ -10264,7 +10233,7 @@ msgid "Unable to find backup!"
 msgstr "백업을 찾을 수 없습니다!"
 
 msgid "Unable to find default role."
-msgstr "기본 role을 찾을 수 없습니다."
+msgstr "기본 역할을 찾을 수 없습니다."
 
 msgid "Unable to find master instance!"
 msgstr "마스터 인스턴스를 찾을 수 없습니다!"
@@ -10288,7 +10257,7 @@ msgstr "인스턴스 \"%s\" SPICE 콘솔을 가져올 수 없습니다."
 
 #, python-format
 msgid "Unable to get VIP for pool %(pool)s."
-msgstr "Pool %(pool)s에 대한 VIP를 가져오지 못했습니다."
+msgstr "%(pool)s pool에서 VIP를 가져오지 못했습니다."
 
 #, python-format
 msgid "Unable to get VNC console for instance \"%s\"."
@@ -10312,7 +10281,7 @@ msgstr "Flavor 목록을 검색할 수 없습니다."
 
 #, python-format
 msgid "Unable to get health monitor %(monitor_id)s for pool %(pool)s."
-msgstr "Pool %(pool)s에 대한 상태 모니터 %(monitor_id)s를 가져올 수 없습니다."
+msgstr "%(pool)s pool에서 상태 모니터 %(monitor_id)s를 가져올 수 없습니다."
 
 msgid "Unable to get host aggregate list"
 msgstr "호스트 집합 목록을 가져올 수 없습니다."
@@ -10326,7 +10295,7 @@ msgstr "인스턴스 \"%s\"에 대한 로그를 가져올 수 없습니다."
 
 #, python-format
 msgid "Unable to get members for pool %(pool)s."
-msgstr "Pool %(pool)s에 대한 멤버를 가져오지 못했습니다."
+msgstr "%(pool)s pool에서 멤버를 가져오지 못했습니다."
 
 msgid "Unable to get network agents info."
 msgstr "네트워크 에이전트 정보를 가져올 수 없습니다."
@@ -10362,7 +10331,7 @@ msgstr "서브넷 \"%s\"를 가져올 수 없습니다."
 
 #, python-format
 msgid "Unable to get subnet for pool %(pool)s."
-msgstr "Pool %(pool)s에 대한 서브넷을 가져오지 못했습니다."
+msgstr "%(pool)s pool에서 서브넷을 가져오지 못했습니다."
 
 msgid "Unable to get the available hosts"
 msgstr "사용할 수 있는 호스트를 가져올 수 없습니다."
@@ -10450,7 +10419,7 @@ msgstr "Flavor을 가져올 수 없습니다."
 
 #, python-format
 msgid "Unable to parse IP address %s."
-msgstr "IP 주소 %s를 구문 분석할 수 없습니다."
+msgstr "%s IP 주소 구문을 분석할 수 없습니다."
 
 msgid "Unable to populate anti-affinity processes."
 msgstr "Anti-affinity 프로세스를 채우지 못 했습니다."
@@ -10620,15 +10589,15 @@ msgstr "백업에 대한 세부 정보를 찾지 못했습니다: %s"
 
 #, python-format
 msgid "Unable to retrieve details for cluster \"%s\"."
-msgstr "클러스터 \"%s\"에 대한 세부 정보를 가져올 수 없습니다."
+msgstr "\"%s\" 클러스터 세부 정보를 가져올 수 없습니다."
 
 #, python-format
 msgid "Unable to retrieve details for cluster template \"%s\"."
-msgstr "클러스터 템플릿 \"%s\"에 대한 세부 정보를 가져올 수 없습니다."
+msgstr "클러스터 템플릿 \"%s\" 세부 정보를 가져올 수 없습니다."
 
 #, python-format
 msgid "Unable to retrieve details for data source \"%s\"."
-msgstr "데이터 소스 \"%s\"에 대한 세부 정보를 가져올 수 없습니다."
+msgstr "\"%s\" 데이터 소스 세부 정보를 가져올 수 없습니다."
 
 #, python-format
 msgid "Unable to retrieve details for database cluster: %s"
@@ -10777,7 +10746,7 @@ msgstr "현재 프로젝트의 이미지를 찾지 못 했습니다."
 
 #, python-format
 msgid "Unable to retrieve images with filter %s."
-msgstr "필터 %s에 대한 이미지를 찾지 못 했습니다."
+msgstr "%s 필터에 대한 이미지를 찾지 못 했습니다."
 
 msgid "Unable to retrieve images."
 msgstr "이미지를 찾지 못 했습니다."
@@ -10960,10 +10929,10 @@ msgid "Unable to retrieve resource."
 msgstr "리소스를 찾지 못 했습니다."
 
 msgid "Unable to retrieve role list."
-msgstr "Role 목록을 찾지 못 했습니다."
+msgstr "역할 목록을 찾지 못 했습니다."
 
 msgid "Unable to retrieve roles list."
-msgstr "Role 목록을 찾지 못 했습니다."
+msgstr "역할 목록을 찾지 못 했습니다."
 
 msgid "Unable to retrieve router details."
 msgstr "라우터 세부 정보를 찾지 못 했습니다."
@@ -10989,7 +10958,7 @@ msgid "Unable to retrieve rules (%(error)s)."
 msgstr "규칙을 찾지 못했습니다 (%(error)s). "
 
 msgid "Unable to retrieve rules list."
-msgstr "규칙 목록을 찾지 못 했습니다."
+msgstr "Rule 목록을 찾지 못 했습니다."
 
 #, python-format
 msgid "Unable to retrieve security group %(group)s."
@@ -11059,7 +11028,7 @@ msgid "Unable to retrieve user details."
 msgstr "사용자 세부 정보를 가져올 수 없습니다."
 
 msgid "Unable to retrieve user domain role assignments."
-msgstr "사용자 도메인 role 할당을 찾지 못 했습니다."
+msgstr "사용자 도메인 역할 할당을 찾지 못 했습니다."
 
 msgid "Unable to retrieve user information."
 msgstr "사용자 정보를 찾지 못 했습니다."
@@ -11071,7 +11040,7 @@ msgid "Unable to retrieve user list. Please try again later."
 msgstr "사용자 목록을 찾지 못 했습니다. 잠시 후 다시 시도하세요."
 
 msgid "Unable to retrieve user roles."
-msgstr "사용자 role을 찾지 못 했습니다."
+msgstr "사용자 역할을 찾지 못 했습니다."
 
 msgid "Unable to retrieve users."
 msgstr "사용자를 찾지 못 했습니다."
@@ -11206,7 +11175,7 @@ msgid "Unable to update object."
 msgstr "오브젝트를 업데이트할 수 없습니다."
 
 msgid "Unable to update role."
-msgstr "Role을 업데이트 할 수 없습니다."
+msgstr "역할을 업데이트 할 수 없습니다."
 
 msgid "Unable to update row"
 msgstr "행을 업데이트 할 수 없습니다."
@@ -11382,7 +11351,7 @@ msgid "Update Port"
 msgstr "포트 업데이트"
 
 msgid "Update Role"
-msgstr "Role 업데이트"
+msgstr "역할 업데이트"
 
 msgid "Update Router"
 msgstr "라우터 업데이트"
@@ -11421,19 +11390,19 @@ msgstr ""
 "여 상세 구성이 가능합니다."
 
 msgid "Update requests for this floating ip"
-msgstr "유동 IP에 대해서 업데이트 요청"
+msgstr "유동 IP 업데이트 요청"
 
 msgid "Update requests for this network"
-msgstr "네트워크에 대해서 업데이트 요청"
+msgstr "네트워크 업데이트 요청"
 
 msgid "Update requests for this port"
-msgstr "포트에 대해서 업데이트 요청"
+msgstr "포트 업데이트 요청"
 
 msgid "Update requests for this router"
-msgstr "라우터에 대해 업데이트 요청"
+msgstr "라우터 업데이트 요청"
 
 msgid "Update requests for this subnet"
-msgstr "서브넷애 대해 업데이트 요청"
+msgstr "서브넷 업데이트 요청"
 
 #, python-format
 msgid "Update the \"extra spec\" value for \"%(key)s\""
@@ -11576,7 +11545,7 @@ msgstr "사용자 \"%s\"를 성공적으로 생성하였습니다."
 
 #, python-format
 msgid "User %s has no role defined for that project."
-msgstr "사용자 %s는 해당 프로젝트에 정의된 role이 없습니다."
+msgstr "%s 사용자는 해당 프로젝트에 정의된 역할이 없습니다."
 
 msgid "User Credentials"
 msgstr "사용자 자격증명"
@@ -11606,7 +11575,7 @@ msgid "User has been updated successfully."
 msgstr "사용자가 성공적으로 업데이트 되었습니다."
 
 msgid "User has to choose a keypair to have access to clusters instances."
-msgstr "사용자가 클러스터 인스턴스에 접근할 수 있는 키페어를 선택합니다."
+msgstr "사용자가 클러스터 인스턴스에 접근할 수 있는 키 페어를 선택합니다."
 
 #, python-format
 msgid "User name \"%s\" is already used."
@@ -12002,7 +11971,7 @@ msgstr ""
 "  "
 
 msgid "Which keypair to use for authentication."
-msgstr "인증을 위해 사용할 키페어 선택."
+msgstr "인증에서 사용할 키 페어 선택."
 
 msgid ""
 "Within a container you can group your objects into pseudo-folders, which "
@@ -12099,7 +12068,7 @@ msgid ""
 "privileges or remove the administrative role manually via the CLI."
 msgstr ""
 "현재 로그인한 도메인에서 관리자 권한을 취소할 수 있습니다. 관리자 권한을 이용"
-"하여 다른 도메인으로 전환하거나 CLI를 통해 수동으로 관리 role을 제거하십시오."
+"하여 다른 도메인으로 전환하거나 CLI를 통해 수동으로 관리 역할을 제거하십시오."
 
 msgid ""
 "You cannot revoke your administrative privileges from the project you are "
@@ -12107,7 +12076,7 @@ msgid ""
 "privileges or remove the administrative role manually via the CLI."
 msgstr ""
 "현재 로그인된 사용자로는 프로젝트에서 관리 권한을 무효할 수 없습니다. 관리자 "
-"권한이 있는 다른 프로젝트로 전환을 하거나, CLI를 통해 수동으로 관리자 role을 "
+"권한이 있는 다른 프로젝트로 전환을 하거나, CLI를 통해 수동으로 관리자 역할을 "
 "제거하십시오."
 
 msgid ""
@@ -12123,7 +12092,7 @@ msgid "You may also add any custom tag."
 msgstr "사용자 정의 태그를 추가할 수 있습니다."
 
 msgid "You may also enter an optional description for your Data Source."
-msgstr "데이터 소스에 대한 옵션 설명을 입력할 수 있습니다."
+msgstr "데이터 소스에 옵션 설명을 입력할 수 있습니다."
 
 msgid "You may also enter an optional description for your job binary."
 msgstr "Job 바이너리에 대한 옵션 설명을 입력할 수 있습니다."
@@ -12135,7 +12104,7 @@ msgid "You may have mistyped the address or the page may have moved."
 msgstr "주소가 잘못되었거나 페이지가 이동했을 수 있습니다."
 
 msgid "You may need to enter the username and password for your Data Source."
-msgstr "데이터 소스에대한 사용자 이름과 암호를 입력해야합니다."
+msgstr "데이터 소스에 사용자 이름과 암호를 입력해야합니다."
 
 msgid "You may optionally set a password on the rebuilt instance."
 msgstr "옵션으로 인스턴스 리빌드시 비밀번호를 설정할 수 있습니다."
@@ -12248,9 +12217,9 @@ msgid ""
 "any other instance in that security group access to any other instance via "
 "this rule."
 msgstr ""
-"이 규칙을 이용하여 허용 할 트래픽 소스를 지정해야 합니다. IP 주소 블록 "
+"이 Rule을 이용하여 허용 할 트래픽 소스를 지정해야 합니다. IP 주소 블록 "
 "(CIDR) 형태나 소스 그룹 (시큐리티 그룹) 중 하나를 선택하여 지정할 수 있습니"
-"다. 소스로 시큐리티 그룹을 선택하면, 이 규칙을 통해 다른 인스턴스에서 그 시큐"
+"다. 소스로 시큐리티 그룹을 선택하면, 이 Rule을 통해 다른 인스턴스에서 그 시큐"
 "리티 그룹에 있는 또다른 인스턴스 접근을 허용합니다."
 
 #, python-format
@@ -12322,7 +12291,7 @@ msgid "instance"
 msgstr "인스턴스"
 
 msgid "no processes"
-msgstr "no processes"
+msgstr "프로세스 없음"
 
 msgid "pseudo-folder"
 msgstr "가상 폴더"

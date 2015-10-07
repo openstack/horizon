@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-09-16 18:25+0000\n"
+"POT-Creation-Date: 2015-10-07 03:29+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -130,9 +130,6 @@ msgstr ""
 msgid "Members"
 msgstr "Mga Miyembro"
 
-msgid "N/A"
-msgstr "N/A"
-
 msgid "Navigation Item"
 msgstr "Navigation Item"
 
@@ -189,9 +186,6 @@ msgstr "I-Save"
 msgid "Select a %s to browse."
 msgstr "Pumili ng %s upang mag browse."
 
-msgid "Session timed out."
-msgstr "Ang sesyon ay nag time out."
-
 msgid "Sign In"
 msgstr "Mag Sign In"
 
@@ -203,10 +197,6 @@ msgstr "Tagumpay:"
 
 msgid "Summary"
 msgstr "Buod"
-
-#, python-format
-msgid "The attribute %(attr)s doesn't exist on %(obj)s."
-msgstr "Ang katangian %(attr)s ay hindi umiiral sa %(obj)s."
 
 msgid "The date should be in YYYY-mm-dd format."
 msgstr "Ang petsa ay dapat nasa YYYY-mm-dd format."

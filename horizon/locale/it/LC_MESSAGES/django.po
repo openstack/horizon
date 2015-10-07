@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-09-16 18:25+0000\n"
+"POT-Creation-Date: 2015-10-07 03:29+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -155,9 +155,6 @@ msgstr "Membri"
 msgid "More Actions"
 msgstr "Altre azioni"
 
-msgid "N/A"
-msgstr "N/A"
-
 msgid "Navigation Item"
 msgstr "Elemento di navigazione"
 
@@ -217,9 +214,6 @@ msgstr "Salva"
 msgid "Select a %s to browse."
 msgstr "Selezionare un %s per sfogliare."
 
-msgid "Session timed out."
-msgstr "Sessione scaduta."
-
 msgid "Sign In"
 msgstr "Accesso"
 
@@ -231,10 +225,6 @@ msgstr "Successo:"
 
 msgid "Summary"
 msgstr "Riepilogo"
-
-#, python-format
-msgid "The attribute %(attr)s doesn't exist on %(obj)s."
-msgstr "L'attributo %(attr)s non esiste in %(obj)s"
 
 msgid "The date should be in YYYY-mm-dd format."
 msgstr "La data deve essere nel formato YYYY-mm-dd."

@@ -21,12 +21,12 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-09-25 15:01+0000\n"
+"POT-Creation-Date: 2015-10-07 03:29+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2015-09-24 12:44+0000\n"
-"Last-Translator: Robert Simai <robert.simai@suse.com>\n"
+"PO-Revision-Date: 2015-10-06 02:03+0000\n"
+"Last-Translator: Andreas Jaeger <jaegerandi@gmail.com>\n"
 "Language-Team: German (http://www.transifex.com/openstack/horizon/language/"
 "de/)\n"
 "Generated-By: Babel 2.0\n"
@@ -352,7 +352,6 @@ msgstr ""
 "Protokoll und das Lastverteilungsverfahren für diesen Pool. Als Admin State "
 "ist UP vorausgewählt (markiert)."
 
-#, fuzzy
 msgid ""
 "\n"
 "  Move networks from 'Available Networks' to 'Selected Networks' by\n"
@@ -361,9 +360,12 @@ msgid ""
 "  "
 msgstr ""
 "\n"
-"Durch Knopfdruck oder ziehen und fallenlassen Netzwerke von \"Verfügbare "
-"Netzwerke\" zu \"Ausgewählte Netzwerke\" verschieben. Die Reihenfolge der "
-"Netzwerkkarten kann ebenfalls durch ziehen und fallenlassen verändert werden."
+" Durch Knopfdruck oder ziehen und fallenlassen Netzwerke von \"Verfügbare "
+"Netzwerke\" zu\n"
+" \"Ausgewählte Netzwerke\" verschieben. Die Reihenfolge der Netzwerkkarten "
+"kann\n"
+" ebenfalls durch ziehen und fallenlassen verändert werden.\n"
+" "
 
 msgid ""
 "\n"
@@ -3243,18 +3245,6 @@ msgid_plural "Deleted Host Aggregates"
 msgstr[0] "Gelöschtes Hostaggregat"
 msgstr[1] "Gelöschte Hostaggregate"
 
-#, python-format
-msgid "Deleted IKE Policy %s"
-msgstr "IKE Richtlinie löschen: %s"
-
-#, python-format
-msgid "Deleted IPSec Policy %s"
-msgstr "IPSec Richtlinie löschen: %s"
-
-#, python-format
-msgid "Deleted IPSec Site Connection %s"
-msgstr "IPSec Site Verbindung %s gelöscht"
-
 msgid "Deleted Image"
 msgid_plural "Deleted Images"
 msgstr[0] "Gelöschtes Abbild"
@@ -3368,10 +3358,6 @@ msgstr[1] "Gelöschte Benutzer"
 #, python-format
 msgid "Deleted VIP %s"
 msgstr "VIP %s gelöscht"
-
-#, python-format
-msgid "Deleted VPN Service %s"
-msgstr "VPN Dienst %s gelöscht."
 
 msgid "Deleted Volume Type"
 msgid_plural "Deleted Volume Types"
@@ -4126,10 +4112,6 @@ msgid "Error"
 msgstr "Fehler"
 
 msgctxt "current status of router"
-msgid "Error"
-msgstr "Fehler"
-
-msgctxt "status of a neteork port"
 msgid "Error"
 msgstr "Fehler"
 
@@ -10469,24 +10451,8 @@ msgid "Unable to create volume."
 msgstr "Datenträger konnte nicht erstellt werden."
 
 #, python-format
-msgid "Unable to delete IKE Policy: %s"
-msgstr "IKE Richtlinie %s konnte nicht gelöscht werden."
-
-#, python-format
-msgid "Unable to delete IPSec Policy: %s"
-msgstr "IPSec Richtlinie %s konnte nicht gelöscht werden."
-
-#, python-format
-msgid "Unable to delete IPSec Site Connection: %s"
-msgstr "IPSec Site Verbindung konnte nicht gelöscht werden: %s"
-
-#, python-format
 msgid "Unable to delete VIP. %s"
 msgstr "VIP %s kann nicht gelöscht werden."
-
-#, python-format
-msgid "Unable to delete VPN Service: %s"
-msgstr "VPN Dienst %s konnte nicht gelöscht werden."
 
 msgid "Unable to delete container."
 msgstr "Container kann nicht gelöscht werden."

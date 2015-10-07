@@ -16,20 +16,21 @@
 # Patte D <pattedeph@gmail.com>, 2015
 # ygbo <yves-gwenael.bourhis@cloudwatt.com>, 2015
 # Corinne Verheyde <cverheyd@gmail.com>, 2015. #zanata
+# François Bureau <bureaufrancois@gmail.com>, 2015. #zanata
 # Gael Rehault <gael01@gmail.com>, 2015. #zanata
-# JF Taltavull <jftalta@gmail.com>, 2015. #zanata
+# Olivier Buisson <olivier@openkumo.fr>, 2015. #zanata
 # OpenStack Infra <zanata@openstack.org>, 2015. #zanata
 # Romain Chantereau <rchanter@redhat.com>, 2015. #zanata
 msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-09-18 05:57+0000\n"
+"POT-Creation-Date: 2015-10-07 03:29+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2015-09-17 08:47+0000\n"
-"Last-Translator: JF Taltavull <jftalta@gmail.com>\n"
+"PO-Revision-Date: 2015-10-06 02:02+0000\n"
+"Last-Translator: François Bureau <bureaufrancois@gmail.com>\n"
 "Language-Team: French (http://www.transifex.com/openstack/horizon/language/"
 "fr/)\n"
 "Generated-By: Babel 2.0\n"
@@ -56,6 +57,9 @@ msgstr "%s To"
 #, python-format
 msgid "%s bytes"
 msgstr "%s octets"
+
+msgid "-"
+msgstr "-"
 
 msgid "Active"
 msgstr "Active"
@@ -87,13 +91,11 @@ msgstr "Retour"
 msgid "Cancel"
 msgstr "Annuler"
 
-#, fuzzy
 msgid "Click here for filters."
-msgstr "Cliquez ici pour les filtres."
+msgstr "Cliquer pour filtrer."
 
-#, fuzzy
 msgid "Click here to expand the row and view the errors."
-msgstr "Cliquez ici pour afficher la ligne complète et voir les erreurs."
+msgstr "Cliquer ici pour développer cette ligne et consulter l'erreur."
 
 msgid "Click to see more details"
 msgstr "Cliquer pour une vue plus détaillée"
@@ -199,9 +201,8 @@ msgstr "ID"
 msgid "IP Addresses"
 msgstr "Adresses IP"
 
-#, fuzzy
 msgid "In current results"
-msgstr "Dans les résultats actuels"
+msgstr "Résultats en cours."
 
 msgid "Info"
 msgstr "Informations"
@@ -309,6 +310,9 @@ msgstr "Sélectionner un élément depuis les éléments disponibles ci-dessous"
 msgid "Select one"
 msgstr "Sélectionner un"
 
+msgid "Server Name"
+msgstr "Nom du serveur"
+
 msgid "Shutdown"
 msgstr "Éteindre "
 
@@ -337,13 +341,12 @@ msgstr "Terminer l'Instance"
 msgid "Text"
 msgstr "Texte"
 
-#, fuzzy
 msgid ""
 "The action cannot be performed. The contents of this row have errors or are "
 "missing information."
 msgstr ""
-"L'action n'a pas pu être effectuée. Cette ligne présente des erreurs ou des "
-"informations sont manquantes."
+"Cette action ne peut pas être effectuée. Le contenu de cette ligne contient "
+"des erreurs ou des informations manquantes."
 
 msgid "There was a problem communicating with the server, please try again."
 msgstr "Problème de communication avec le serveur, veuillez réessayer."
@@ -399,6 +402,9 @@ msgstr "m1.small"
 
 msgid "m1.tiny"
 msgstr "m1.tiny"
+
+msgid "no quota"
+msgstr "pas de quota"
 
 msgid "pool default"
 msgstr "pool par défaut"

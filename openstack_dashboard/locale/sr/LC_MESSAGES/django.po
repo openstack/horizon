@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-09-18 05:57+0000\n"
+"POT-Creation-Date: 2015-10-07 03:29+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -1261,24 +1261,8 @@ msgid "Deleted"
 msgstr "Obrisano"
 
 #, python-format
-msgid "Deleted IKE Policy %s"
-msgstr "Obrisana IKE politika %s"
-
-#, python-format
-msgid "Deleted IPSec Policy %s"
-msgstr "Obrisana IPSec politika %s"
-
-#, python-format
-msgid "Deleted IPSec Site Connection %s"
-msgstr "Obrisana veza sa IPSec site-om %s"
-
-#, python-format
 msgid "Deleted VIP %s"
 msgstr "Obrisan VIP %s"
-
-#, python-format
-msgid "Deleted VPN Service %s"
-msgstr "Obrisan VPN servis %s"
 
 #, python-format
 msgid "Deleted member %s"
@@ -1731,10 +1715,6 @@ msgid "Error"
 msgstr "Greška"
 
 msgctxt "current status of router"
-msgid "Error"
-msgstr "Greška"
-
-msgctxt "status of a neteork port"
 msgid "Error"
 msgstr "Greška"
 
@@ -4767,24 +4747,8 @@ msgid "Unable to create volume."
 msgstr "Ne može se kreirati Volume."
 
 #, python-format
-msgid "Unable to delete IKE Policy: %s"
-msgstr "Nemoguće obrisati IKE Policy: %s"
-
-#, python-format
-msgid "Unable to delete IPSec Policy: %s"
-msgstr "Nemoguće je obrisati IPSec politiku: %s"
-
-#, python-format
-msgid "Unable to delete IPSec Site Connection: %s"
-msgstr "Nemoguće je obrisati vezu IPSec Site: %s"
-
-#, python-format
 msgid "Unable to delete VIP. %s"
 msgstr "Nemoguće je obrisati VIP. %s"
-
-#, python-format
-msgid "Unable to delete VPN Service: %s"
-msgstr "Nemguće obrisati VPN Servis: %s"
 
 #, python-format
 msgid "Unable to delete firewall. %s"

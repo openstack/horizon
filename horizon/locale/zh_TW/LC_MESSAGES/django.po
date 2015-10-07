@@ -6,25 +6,31 @@
 # Chen, Shang-Pin <dreamerwolf.tw@gmail.com>, 2015
 # Xiao Xi LIU <liuxx@cn.ibm.com>, 2014
 # Zhang Xiaowei <zero00072@gmail.com>, 2015
-# Liu Chi Han <t09sunny@gmail.com>, 2015. #zanata
-# OpenStack Infra <zanata@openstack.org>, 2015. #zanata
-# Tom Fifield <tom@openstack.org>, 2015. #zanata
+# Zhang Xiaowei <zero00072@gmail.com>, 2015. #zanata
 msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-09-17 00:21+0000\n"
+"POT-Creation-Date: 2015-10-07 03:29+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2015-09-17 03:46+0000\n"
-"Last-Translator: Tom Fifield <tom@openstack.org>\n"
+"PO-Revision-Date: 2015-10-06 02:02+0000\n"
+"Last-Translator: Liu Chi Han <t09sunny@gmail.com>\n"
 "Language-Team: Chinese (Taiwan) (http://www.transifex.com/openstack/horizon/"
 "language/zh_TW/)\n"
 "Generated-By: Babel 2.0\n"
 "Language: zh-TW\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Zanata 3.7.1\n"
+
+#, python-format
+msgid ""
+"\n"
+"        Used <span> %(used)s </span>(No Limit)"
+msgstr ""
+"\n"
+"        已使用 <span> %(used)s </span>（無限制）"
 
 #, python-format
 msgid ""
@@ -80,7 +86,7 @@ msgstr "%(context_name)s："
 
 #, python-format
 msgid "%(name)s: %(error)s"
-msgstr "%(name)s: %(error)s"
+msgstr "%(name)s：%(error)s"
 
 #, python-format
 msgid "%(size)d Byte"
@@ -118,6 +124,9 @@ msgstr "尚未完成 %s。"
 msgid "&laquo;&nbsp;Prev"
 msgstr "&laquo;&nbsp;上一頁"
 
+msgid "(No Limit)"
+msgstr "（無限制）"
+
 msgid "-"
 msgstr "-"
 
@@ -153,7 +162,7 @@ msgid "Cancel"
 msgstr "取消"
 
 msgid "Connect"
-msgstr "連線"
+msgstr "連接"
 
 msgid "Delete"
 msgstr "刪除"
@@ -223,9 +232,6 @@ msgstr "成員"
 msgid "More Actions"
 msgstr "更多動作"
 
-msgid "N/A"
-msgstr "N/A"
-
 msgid "Navigation Item"
 msgstr "導覽項目"
 
@@ -261,16 +267,16 @@ msgid "One colon allowed in port range"
 msgstr "允許以冒號隔開埠口範圍"
 
 msgid "Other"
-msgstr "其他"
+msgstr "其它"
 
 msgid "Password is not accepted"
-msgstr "不允許密碼"
+msgstr "不認可的密碼"
 
 msgid "Please log in to continue."
 msgstr "請登入以繼續。"
 
 msgid "Please select a row before taking that action."
-msgstr "執行動作前請選擇欄位。"
+msgstr "執行動作前請選擇一列。"
 
 msgid "Port number must be integer"
 msgstr "埠口號碼必須是整數"
@@ -292,9 +298,6 @@ msgid "Sell Puppy"
 msgid_plural "Sell Puppies"
 msgstr[0] "販賣小狗"
 
-msgid "Session timed out."
-msgstr "連線階段過期。"
-
 msgid "Sign In"
 msgstr "登入"
 
@@ -310,10 +313,6 @@ msgstr "成功："
 
 msgid "Summary"
 msgstr "摘要"
-
-#, python-format
-msgid "The attribute %(attr)s doesn't exist on %(obj)s."
-msgstr "%(obj)s 不存在 %(attr)s 屬性。"
 
 msgid "The date should be in YYYY-mm-dd format."
 msgstr "日期的格式應該為 YY-mm-dd。"

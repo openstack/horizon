@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-09-19 06:33+0000\n"
+"POT-Creation-Date: 2015-10-07 03:29+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -243,9 +243,6 @@ msgstr "Členové"
 msgid "More Actions"
 msgstr "Další činnosti"
 
-msgid "N/A"
-msgstr "Nedostupné"
-
 msgid "Navigation Item"
 msgstr "Položka navigace"
 
@@ -314,9 +311,6 @@ msgstr[0] "Prodat štěně"
 msgstr[1] "Prodat štěňata"
 msgstr[2] "Prodat štěňat"
 
-msgid "Session timed out."
-msgstr "Relace vypršela."
-
 msgid "Sign In"
 msgstr "Přihlásit"
 
@@ -334,10 +328,6 @@ msgstr "Úspěch:"
 
 msgid "Summary"
 msgstr "Přehled"
-
-#, python-format
-msgid "The attribute %(attr)s doesn't exist on %(obj)s."
-msgstr "Vlastnost %(attr)s neexistuje v %(obj)s."
 
 msgid "The date should be in YYYY-mm-dd format."
 msgstr "Datum by mělo být ve formátu RRRR-mm-dd."

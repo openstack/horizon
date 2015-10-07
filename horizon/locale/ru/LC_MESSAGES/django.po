@@ -6,17 +6,18 @@
 # Alexander Vasiliev <avasiliev@asdco.ru>, 2015
 # Ilya Alekseyev <ilyaalekseyev@acm.org>, 2015
 # Nikita Burtsev, 2015
+# Daisy <guoyingc@cn.ibm.com>, 2015. #zanata
 # Ilya Alekseyev <ilyaalekseyev@acm.org>, 2015. #zanata
 # OpenStack Infra <zanata@openstack.org>, 2015. #zanata
 msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-09-16 18:25+0000\n"
+"POT-Creation-Date: 2015-10-07 03:29+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2015-09-10 01:47+0000\n"
+"PO-Revision-Date: 2015-09-10 01:38+0000\n"
 "Last-Translator: Ilya Alekseyev <ilyaalekseyev@acm.org>\n"
 "Language-Team: Russian (http://www.transifex.com/openstack/horizon/language/"
 "ru/)\n"
@@ -252,9 +253,6 @@ msgstr "Участники"
 msgid "More Actions"
 msgstr "Еще действия"
 
-msgid "N/A"
-msgstr "Н/Д"
-
 msgid "Navigation Item"
 msgstr "Элемент навигации"
 
@@ -324,9 +322,6 @@ msgstr[1] "Продать щенков"
 msgstr[2] "Продать щенков"
 msgstr[3] "Продать щенков"
 
-msgid "Session timed out."
-msgstr "Время сеанса истекло."
-
 msgid "Sign In"
 msgstr "Вход"
 
@@ -345,10 +340,6 @@ msgstr "Успешно:"
 
 msgid "Summary"
 msgstr "Итого"
-
-#, python-format
-msgid "The attribute %(attr)s doesn't exist on %(obj)s."
-msgstr "Атрибут %(attr)s не существует для %(obj)s."
 
 msgid "The date should be in YYYY-mm-dd format."
 msgstr "Дата должна иметь формат YYYY-mm-dd."

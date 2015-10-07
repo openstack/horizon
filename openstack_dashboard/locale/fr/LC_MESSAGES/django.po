@@ -22,6 +22,7 @@
 # Patte D <pattedeph@gmail.com>, 2015
 # Paul Gonin <paul.gonin@gmail.com>, 2015
 # Corinne Verheyde <cverheyd@gmail.com>, 2015. #zanata
+# François Bureau <bureaufrancois@gmail.com>, 2015. #zanata
 # JF Taltavull <jftalta@gmail.com>, 2015. #zanata
 # Kevin Tibi <kodokuu@gmail.com>, 2015. #zanata
 # OpenStack Infra <zanata@openstack.org>, 2015. #zanata
@@ -32,12 +33,12 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-09-25 15:01+0000\n"
+"POT-Creation-Date: 2015-10-07 03:29+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2015-09-18 09:41+0000\n"
-"Last-Translator: SOURDET Henri <hsourdet@gmail.com>\n"
+"PO-Revision-Date: 2015-10-06 03:36+0000\n"
+"Last-Translator: JF Taltavull <jftalta@gmail.com>\n"
 "Language-Team: French (http://www.transifex.com/openstack/horizon/language/"
 "fr/)\n"
 "Generated-By: Babel 2.0\n"
@@ -250,15 +251,18 @@ msgid ""
 "     "
 msgstr ""
 "\n"
-"      Type de volume est un type ou un label qui peut être choisit au moment "
-"de la création du volume dans OpenStack. \n"
-"Il correspond habituellement aux fonctionnalités du pilote de stockage qui "
-"sera utilisé pour ce volume. Exemples : \"Performance\", \"SSD\", "
-"\"Sauvegarde\", etc. \n"
-"Ceci est l'équivalent de la commande <tt>cinder type-create</tt>. Une fois "
-"le type de volume créé, cliquez sur le bouton \"Voir les Spécifications "
-"Supplémentaires\" pour mettre en place les spécificités supplémentaires pour "
-"les paires de clés de valeurs ce type de volume."
+"      Le type de volume est un type ou un label qui peut être choisi au "
+"moment de la création du volume.\n"
+"      Il correspond habituellement aux fonctionnalités du backend utilisé "
+"pour ce volume.\n"
+"      Exemples : \"Performance\", \"SSD\", \"Sauvegarde\", etc. \n"
+"      \"SSD\", \"Backup\", etc. This is equivalent to the\n"
+"      Ceci est l'équivalent de la commande <tt>cinder type-create</tt>. Une "
+"fois le type de volume créé,\n"
+"      cliquez sur le bouton \"Voir les Spécifications Supplémentaires\" pour "
+"définir des paires clés-valeurs\n"
+"      supplémentaires pour ce type de volume.\n"
+"     "
 
 msgid ""
 "\n"
@@ -289,8 +293,9 @@ msgid ""
 msgstr ""
 "\n"
 "Chaque entité QoS Specs aura une valeur \"Consumer\" qui indique où\n"
-"l'administrateur voudra faire exécuter la stratégie QoS. Cette valeur peut-"
-"être \"front-end\"\n"
+"\n"
+"l'administrateur voudra appliquer la stratégie QoS. Cette valeur peut-être "
+"\"front-end\"\n"
 "(Nova Compute), \"back-end\" (Cinder back-end) ou \"both\" (les deux)."
 
 msgid ""
@@ -404,12 +409,12 @@ msgid ""
 " "
 msgstr ""
 "\n"
-"Créer un VIP pour ce pool. Attribuer un nom, une description, une adresse "
+"Créer une VIP pour ce pool. Attribuer un nom, une description, une adresse "
 "IP, un port\n"
-"et le nombre maximal de connections autorisées pour le VIP. Choisir le "
+"\n"
+"et le nombre maximal de connexions autorisées pour la VIP. Choisir le "
 "protocole et la méthode de persistance\n"
-"de la session pour le VIP. État Administrateur est démarré (coché) par "
-"défaut "
+"de session pour la VIP. Admin state est \"démarré\" (coché) par défaut ."
 
 msgid ""
 "\n"
@@ -442,6 +447,9 @@ msgstr "Terminé"
 msgid "\"Add Router Route\""
 msgstr "\"Ajouter la route du routeur\""
 
+msgid "\"Clusters\""
+msgstr "\"Clusters\""
+
 msgid ""
 "\"Customization Script\" is analogous to \"User Data\" in other systems."
 msgstr ""
@@ -449,7 +457,10 @@ msgstr ""
 "systèmes."
 
 msgid "\"Edit Volume Type\""
-msgstr "\"Editer le Type de Volume\""
+msgstr "\"Editer le type de volume\""
+
+msgid "\"Launch Cluster\""
+msgstr "\"Lancer un cluster\""
 
 msgid "\"N/A\""
 msgstr "\"N/D\""
@@ -517,6 +528,10 @@ msgstr "%(name)s - %(size)s Go (%(label)s)"
 #, python-format
 msgid "%(name)s | %(RAM)s RAM"
 msgstr "%(name)s | %(RAM)s RAM"
+
+#, python-format
+msgid "%(name)s | %(RAM)s RAM | %(instances)s instances"
+msgstr "%(name)s | %(RAM)s RAM | %(instances)s instances"
 
 #, python-format
 msgid "%(offset)s: %(label)s"
@@ -710,8 +725,8 @@ msgstr ""
 msgid ""
 "A snapshot is an image which preserves the disk state of a running instance."
 msgstr ""
-"Un instantané est une image qui préserve l'état d'un disque d'une instance "
-"en cours d'exécution."
+"Un snapshot est une image qui préserve l'état du disque d'une instance en "
+"cours d'exécution."
 
 #, python-format
 msgid ""
@@ -863,10 +878,10 @@ msgid "Add Group Assignment"
 msgstr "Ajouter une Assignation de Groupe"
 
 msgid "Add IKE Policy"
-msgstr "Ajouter une Stratégie IKE"
+msgstr "Ajouter une stratégie IKE"
 
 msgid "Add IPSec Policy"
-msgstr "Ajouter une Stratégie IPSec"
+msgstr "Ajouter une stratégie IPSec"
 
 msgid "Add IPSec Site Connection"
 msgstr "Ajouter une connexion IPSec de site"
@@ -884,10 +899,10 @@ msgid "Add New Firewall"
 msgstr "Ajouter un nouveau pare-feu"
 
 msgid "Add New IKE Policy"
-msgstr "Ajouter un nouvelle Stratégie IKE"
+msgstr "Ajouter une nouvelle stratégie IKE"
 
 msgid "Add New IPSec Policy"
-msgstr "Ajouter une nouvelle Stratégie IPSec"
+msgstr "Ajouter une nouvelle stratégie IPSec"
 
 msgid "Add New IPSec Site Connection"
 msgstr "Ajouter un nouvelle connexion IPSec de site "
@@ -899,7 +914,7 @@ msgid "Add New Monitor"
 msgstr "Ajouter un nouveau moniteur"
 
 msgid "Add New Policy"
-msgstr "Ajouter une nouvelle Stratégie"
+msgstr "Ajouter une nouvelle stratégie"
 
 msgid "Add New Pool"
 msgstr "Ajouter un nouveau pool"
@@ -936,6 +951,9 @@ msgstr "Ajouter des Routeurs"
 
 msgid "Add Rule"
 msgstr "Ajouter une règle"
+
+msgid "Add Shard"
+msgstr "Ajouter le fragment"
 
 msgid "Add Static Route"
 msgstr "Ajouter une route statique"
@@ -1084,6 +1102,10 @@ msgstr "Moniteur ajouté"
 msgid "Added pool \"%s\"."
 msgstr "Pool \"%s\" ajouté."
 
+#, python-format
+msgid "Added shard to \"%s\""
+msgstr "Fragment ajouté à \"%s\""
+
 msgid "Additional routes"
 msgstr "Routes supplémentaires"
 
@@ -1221,8 +1243,8 @@ msgid ""
 "Allocates requests to the instance with the least number of\n"
 "          active connections."
 msgstr ""
-"Alloue les requêtes  a l'instance avec le plus petit nombre\n"
-"de connexion active."
+"Alloue les requêtes  à l'instance avec le plus petit nombre\n"
+"de connexions actives."
 
 msgid "Allocation Pools"
 msgstr "Pools d'allocation"
@@ -1305,7 +1327,7 @@ msgid "Associate Monitor"
 msgstr "Moniteur associé"
 
 msgid "Associate QoS Spec"
-msgstr "Associer les Spécifications QoS"
+msgstr "Associer les spécifications QoS"
 
 msgid "Associate QoS Spec with Volume Type"
 msgstr "Associer les Spécifications QoS avec le Type de Volume"
@@ -1571,13 +1593,13 @@ msgid "Boot from image (creates a new volume)"
 msgstr "Démarrage depuis une image (crée un nouveau volume)"
 
 msgid "Boot from snapshot"
-msgstr "Démarrage depuis un instantané"
+msgstr "Démarrer depuis un snapshot"
 
 msgid "Boot from volume"
 msgstr "Démarrage depuis un volume"
 
 msgid "Boot from volume snapshot (creates a new volume)"
-msgstr "Démarrage depuis un instantané de volume (crée un nouveau volume)"
+msgstr "Démarrer depuis un snapshot de volume (crée un nouveau volume)"
 
 msgid "Bootable"
 msgstr "Amorçable"
@@ -1726,7 +1748,7 @@ msgid "Choose a shell script"
 msgstr "Choisissez un script shell"
 
 msgid "Choose a snapshot"
-msgstr "Choisir un instantané"
+msgstr "Choisir un snapshot"
 
 msgid "Choose a storage location"
 msgstr "Choisir un espace de stockage"
@@ -1890,12 +1912,17 @@ msgstr "Nombre de cluster"
 msgid "Cluster Creation Guide"
 msgstr "Guide de création d'un cluster"
 
+msgid "Cluster Detail"
+msgstr "Détail du cluster"
+
 msgid "Cluster Details"
 msgstr "Détails du cluster"
 
-#, fuzzy
+msgid "Cluster Details: {{ cluster.name }}"
+msgstr "Détail du cluster: {{ cluster.name }}"
+
 msgid "Cluster Events"
-msgstr "Événements du Cluster"
+msgstr "Cluster d’événements"
 
 msgid "Cluster Guide"
 msgstr "Guide du cluster"
@@ -1908,6 +1935,9 @@ msgstr "Nom du cluster"
 
 msgid "Cluster Overview"
 msgstr "Aperçu du cluster"
+
+msgid "Cluster Size"
+msgstr "Taille du cluster"
 
 msgid "Cluster Template"
 msgstr "Modèle de cluster"
@@ -1966,9 +1996,8 @@ msgctxt "Current status of a Database Backup"
 msgid "Completed"
 msgstr "Terminé"
 
-#, fuzzy
 msgid "Completed Successfully"
-msgstr "Terminé avec succés"
+msgstr "Terminé avec succès"
 
 msgid "Component"
 msgstr "Plugin"
@@ -1990,6 +2019,9 @@ msgstr "Configuration"
 
 msgid "Configuration Drive"
 msgstr "Disque de configuration"
+
+msgid "Configuration Value"
+msgstr "Configuration de la valeur"
 
 msgid "Configure"
 msgstr "Configurer"
@@ -2051,7 +2083,10 @@ msgid "Connection Examples"
 msgstr "Exemples de connexion"
 
 msgid "Connection Info"
-msgstr "Informations de Connexion"
+msgstr "Informations de connexion"
+
+msgid "Connection Information"
+msgstr "Information de connexion"
 
 msgid "Connection Limit"
 msgstr "Limite de connexion"
@@ -2094,7 +2129,7 @@ msgid "Contents"
 msgstr "Contenu"
 
 msgid "Control Location"
-msgstr "Emplacement du contrôle"
+msgstr "Emplacement de contrôle"
 
 msgid "Control access to instances of the node group."
 msgstr "Contrôlez l'accès aux instances du groupe de nœuds."
@@ -2123,9 +2158,8 @@ msgstr "\"%(orig)s\" copié vers \"%(dest)s\" en tant que \"%(new)s\"."
 msgid "Copy"
 msgstr "Copier"
 
-#, fuzzy
 msgid "Copy Cluster Template"
-msgstr "Copier le modèle de cluster"
+msgstr "Copier le modèle cluster"
 
 msgid "Copy Data"
 msgstr "Copier les Données"
@@ -2209,7 +2243,7 @@ msgid "Create Domain"
 msgstr "Créer un Domaine"
 
 msgid "Create Encrypted Volume Type"
-msgstr "Créer un type de volume crypté"
+msgstr "Créer un type de volume chiffré"
 
 msgid "Create Encryption"
 msgstr "Création d'un chiffrement"
@@ -2235,7 +2269,7 @@ msgid ""
 "\n"
 "Assign a name and description for the IKE Policy. "
 msgstr ""
-"Créer une Stratégie IKE pour le projet en cours.\n"
+"Créer une stratégie IKE pour le projet en cours.\n"
 "\n"
 "Attribuer un nom et une description à la stratégie IKE."
 
@@ -2244,7 +2278,7 @@ msgid ""
 "\n"
 "Assign a name and description for the IPSec Policy. "
 msgstr ""
-"Créer une Stratégie IPSec pour le projet en cours.\n"
+"Créer une stratégie IPSec pour le projet en cours.\n"
 "\n"
 "Attribuer un nom et une description à la stratégie IPSec."
 
@@ -2294,7 +2328,7 @@ msgid "Create Pseudo-folder"
 msgstr "Créer un pseudo-dossier"
 
 msgid "Create QoS Spec"
-msgstr "Créer les Spécifications QoS"
+msgstr "Créer les spécifications QoS"
 
 msgid "Create Role"
 msgstr "Créer un Rôle"
@@ -2312,7 +2346,7 @@ msgid "Create Security Group (Quota exceeded)"
 msgstr "Créer un Groupe de Sécurité (Quota excédé)"
 
 msgid "Create Snapshot"
-msgstr "Créer un instantané"
+msgstr "Créer le snapshot"
 
 msgid "Create Spec"
 msgstr "Créer une Spécification"
@@ -2353,22 +2387,22 @@ msgid "Create Volume Backup"
 msgstr "Créer un volume de sauvegarde"
 
 msgid "Create Volume Snapshot"
-msgstr "Création d'un instantané du volume"
+msgstr "Créer un snapshot de volume"
 
 msgid "Create Volume Snapshot (Force)"
-msgstr "Créer un instantané de volume (Forcer)"
+msgstr "Créer un snapshot de volume (Forcer)"
 
 msgid "Create Volume Transfer"
 msgstr "Créer un transfert de Volume"
 
 msgid "Create Volume Type"
-msgstr "Créer un Type de Volume"
+msgstr "Créer un type de Volume"
 
 msgid "Create Volume Type Encryption"
-msgstr "Créer une Codification de type de volume"
+msgstr "Créer un chiffrement du type de volume"
 
 msgid "Create Volume Type Extra Spec"
-msgstr "Créer une Spécification Supplémentaire pour le Type de Volume"
+msgstr "Créer une extra spec pour le type de volume"
 
 msgid "Create a Cluster Template"
 msgstr "Créer un modèle de cluster"
@@ -2392,7 +2426,7 @@ msgid "Create a Router"
 msgstr "Créer un routeur"
 
 msgid "Create a Snapshot"
-msgstr "Créer un instantané"
+msgstr "Créer un snapshot"
 
 msgid "Create a Volume"
 msgstr "Créer un Volume"
@@ -2401,7 +2435,7 @@ msgid "Create a Volume Backup"
 msgstr "Créer un volume de sauvegarde"
 
 msgid "Create a Volume Snapshot"
-msgstr "Création d'un instantané du volume"
+msgstr "Créer snapshot de volume"
 
 msgid "Create a Volume Transfer"
 msgstr "Créer un transfert de Volume"
@@ -2469,8 +2503,7 @@ msgstr ""
 
 msgid "Create a new \"extra spec\" key-value pair for a volume type."
 msgstr ""
-"Créer une nouvelle \"spécification supplémentaire\" pour la pair de clé du "
-"type de volume."
+"Créer une nouvelle paire clé-valeur \"extra spec\" pour un type de volume."
 
 #, python-format
 msgid "Create a new \"spec\" key-value pair for QoS Spec \"%(qos_spec_name)s\""
@@ -2624,10 +2657,10 @@ msgid ""
 "type to be encrypted.  Encryption information cannot be added to a volume "
 "type if volumes are currently in use with that volume type."
 msgstr ""
-"En créant la codification d'un volume, cela entraîne la codification de tous "
-"les volumes associés à ce volume. Les informations de codification peuvent "
-"être ajoutées à un type de volume si les volumes sont actuellement utilisés "
-"avec ce type de volume."
+"Activer le chiffrement sur un type de de volume entraîne le chiffrement de "
+"tous les volumes associés à ce type. Les informations de chiffrement ne "
+"peuvent pas être ajoutées à un type de volume si des volumes de ce type sont "
+"en cours d'utilisation."
 
 #, python-format
 msgid "Creating volume \"%s\""
@@ -2639,7 +2672,7 @@ msgstr "Création du volume pour la sauvegarde \"%s\""
 
 #, python-format
 msgid "Creating volume snapshot \"%s\"."
-msgstr "Création d'instantané de volume \"%s\"."
+msgstr "Création du snapshot de volume \"%s\"."
 
 msgid "Creation Timeout (minutes)"
 msgstr "Délai d'attente à la création (minutes)"
@@ -2664,6 +2697,9 @@ msgstr "Hôte actuel"
 
 msgid "Current Size (GB)"
 msgstr "Taille courante (GB)"
+
+msgid "Current Task"
+msgstr "Tâche courante"
 
 msgid "Current choice:"
 msgstr "Choix actuel :"
@@ -2961,8 +2997,8 @@ msgstr[1] "Supprimer les Domaines."
 
 msgid "Delete Encryption"
 msgid_plural "Delete Encryptions"
-msgstr[0] "Supprimer la codification"
-msgstr[1] "Supprimer les codifications"
+msgstr[0] "Supprimer le chiffrement"
+msgstr[1] "Supprimer les chiffrements"
 
 msgid "Delete Extra Spec"
 msgid_plural "Delete Extra Specs"
@@ -2999,18 +3035,18 @@ msgstr[1] "Supprimer les Agrégations d'hôtes"
 
 msgid "Delete IKE Policy"
 msgid_plural "Delete IKE Policies"
-msgstr[0] "Supprimer la Stratégie IKE"
-msgstr[1] "Supprimer les Stratégies IKE"
+msgstr[0] "Supprimer la stratégie IKE"
+msgstr[1] "Supprimer les stratégies IKE"
 
 msgid "Delete IPSec Policy"
 msgid_plural "Delete IPSec Policies"
-msgstr[0] "Supprimer la Stratégie IPSec"
-msgstr[1] "Supprimer les Stratégies IPSec"
+msgstr[0] "Supprimer la stratégie IPSec"
+msgstr[1] "Supprimer les stratégies IPSec"
 
 msgid "Delete IPSec Site Connection"
 msgid_plural "Delete IPSec Site Connections"
-msgstr[0] "Supprimer la Connexion IPSec de Site"
-msgstr[1] "Supprimer les Connexions IPSec de SIte"
+msgstr[0] "Supprimer la connexion IPSec de Site"
+msgstr[1] "Supprimer les connexions IPSec de SIte"
 
 msgid "Delete Image"
 msgid_plural "Delete Images"
@@ -3073,8 +3109,8 @@ msgstr[1] "Supprimer les objets"
 
 msgid "Delete Policy"
 msgid_plural "Delete Policies"
-msgstr[0] "Supprimer la Stratégie"
-msgstr[1] "Supprimer les Stratégies"
+msgstr[0] "Supprimer la stratégie"
+msgstr[1] "Supprimer les stratégies"
 
 msgid "Delete Pool"
 msgid_plural "Delete Pools"
@@ -3161,8 +3197,8 @@ msgstr[1] "Supprimer les volumes"
 
 msgid "Delete Volume Snapshot"
 msgid_plural "Delete Volume Snapshots"
-msgstr[0] "Supprimer l'instantané de volume"
-msgstr[1] "Supprimer les instantanés de volume"
+msgstr[0] "Supprimer le snapshot de volume"
+msgstr[1] "Supprimer les snapshots de volume"
 
 msgid "Delete Volume Type"
 msgid_plural "Delete Volume Types"
@@ -3197,7 +3233,6 @@ msgid_plural "Deleted Backups"
 msgstr[0] "Sauvegarde Supprimée"
 msgstr[1] "Sauvegardes Supprimées"
 
-#, fuzzy
 msgid "Deleted Cluster"
 msgid_plural "Deleted Clusters"
 msgstr[0] "Cluster supprimé"
@@ -3230,8 +3265,8 @@ msgstr[1] "Domaines Supprimés"
 
 msgid "Deleted Encryption"
 msgid_plural "Deleted Encryptions"
-msgstr[0] "Codification supprimée"
-msgstr[1] "Codifications supprimées"
+msgstr[0] "Chiffrement supprimé"
+msgstr[1] "Chiffrements supprimés"
 
 msgid "Deleted Extra Spec"
 msgid_plural "Deleted Extra Specs"
@@ -3252,18 +3287,6 @@ msgid "Deleted Host Aggregate"
 msgid_plural "Deleted Host Aggregates"
 msgstr[0] "Agrégation d'hôtes supprimée"
 msgstr[1] "Agrégations d'hôtes supprimées"
-
-#, python-format
-msgid "Deleted IKE Policy %s"
-msgstr "Stratégie IKE %s supprimée"
-
-#, python-format
-msgid "Deleted IPSec Policy %s"
-msgstr "Stratégie IPSec %s supprimée"
-
-#, python-format
-msgid "Deleted IPSec Site Connection %s"
-msgstr "Connexion IPSec de site %s supprimée"
 
 msgid "Deleted Image"
 msgid_plural "Deleted Images"
@@ -3365,7 +3388,6 @@ msgid_plural "Deleted Subnets"
 msgstr[0] "Sous-Réseau Supprimé"
 msgstr[1] "Sous-Réseaux Supprimés"
 
-#, fuzzy
 msgid "Deleted Template"
 msgid_plural "Deleted Templates"
 msgstr[0] "Modèle supprimé"
@@ -3379,10 +3401,6 @@ msgstr[1] "Utilisateurs Supprimés"
 #, python-format
 msgid "Deleted VIP %s"
 msgstr "VIP %s supprimée"
-
-#, python-format
-msgid "Deleted VPN Service %s"
-msgstr "Service VPN %s supprimé"
 
 msgid "Deleted Volume Type"
 msgid_plural "Deleted Volume Types"
@@ -3816,10 +3834,10 @@ msgid "Edit Host Aggregate"
 msgstr "Editer l'agrégat d'hôtes"
 
 msgid "Edit IKE Policy"
-msgstr "Editer la Stratégie IKE"
+msgstr "Editer la stratégie IKE"
 
 msgid "Edit IPSec Policy"
-msgstr "Editer la Stratégie IPSec"
+msgstr "Editer la stratégie IPSec"
 
 msgid "Edit IPSec Site Connection"
 msgstr "Editer la connexion IPSec de site"
@@ -3867,7 +3885,7 @@ msgid "Edit Project"
 msgstr "Editer le projet"
 
 msgid "Edit QoS Spec Consumer"
-msgstr "Éditer la Spécification QoS du Consommateur"
+msgstr "Éditer la spécification QoS du consommateur"
 
 msgid "Edit Router"
 msgstr "Editer le routeur"
@@ -3885,7 +3903,7 @@ msgid "Edit Security Groups"
 msgstr "Editer les groupes de sécurité"
 
 msgid "Edit Snapshot"
-msgstr "Modifier l'Instantané"
+msgstr "Editer le snapshot"
 
 msgid "Edit Spec"
 msgstr "Éditer Spécification"
@@ -3964,6 +3982,9 @@ msgid "Enable Service"
 msgid_plural "Enable Services"
 msgstr[0] "Activer les services"
 msgstr[1] "Activer les services"
+
+msgid "Enable Swift Paths"
+msgstr "Activation des chemins swifts"
 
 msgid "Enable User"
 msgid_plural "Enable Users"
@@ -4133,10 +4154,6 @@ msgid "Error"
 msgstr "Erreur"
 
 msgctxt "current status of router"
-msgid "Error"
-msgstr "Erreur"
-
-msgctxt "status of a neteork port"
 msgid "Error"
 msgstr "Erreur"
 
@@ -4554,11 +4571,11 @@ msgstr "Echec de définition de la passerelle %s"
 
 #, python-format
 msgid "Failed to update IKE Policy %s"
-msgstr "Impossible de mettre à jour la Stratégie IKE %s."
+msgstr "Impossible de mettre à jour la stratégie IKE %s."
 
 #, python-format
 msgid "Failed to update IPSec Policy %s"
-msgstr "Impossible de mettre à jour la Stratégie IPSec %s"
+msgstr "Impossible de mettre à jour la stratégie IPSec %s"
 
 #, python-format
 msgid "Failed to update IPSec Site Connection %s"
@@ -4853,7 +4870,7 @@ msgstr "Forcer la copie hôte"
 
 #, python-format
 msgid "Forcing to create snapshot \"%s\" from attached volume."
-msgstr "Forcé la création d'un instantané \"%s\" depuis le volume attaché."
+msgstr "Forcer la création d'un snapshot \"%s\" depuis le volume attaché."
 
 msgid "Format"
 msgstr "Format"
@@ -4871,8 +4888,7 @@ msgid "From here you can add a DHCP agent for the network."
 msgstr "Ici, vous pouvez ajouter un agent DHCP au réseau."
 
 msgid "From here you can create a snapshot of a volume."
-msgstr ""
-"De cet emplacement, vous pouvez créer un cliché instantané d'un volume."
+msgstr "D'ici, vous pouvez créer un snapshot de volume."
 
 msgid "From here you can update the default quotas (max limits)."
 msgstr ""
@@ -5103,7 +5119,7 @@ msgid "IKE Policy %s was successfully updated."
 msgstr "La Stratégie IKE %s a été mise à jour avec succès."
 
 msgid "IKE Policy Details"
-msgstr "Détails de la Stratégie IKE"
+msgstr "Détails de la stratégie IKE"
 
 msgid "IKE Policy associated with this connection"
 msgstr "Stratégie IKE associée à cette connexion"
@@ -5179,7 +5195,7 @@ msgid "IPSec Policy %s was successfully updated."
 msgstr "La Stratégie IPSec %s a été mise à jour avec succès."
 
 msgid "IPSec Policy Details"
-msgstr "Détails de la Stratégie IPSec"
+msgstr "Détails de la stratégie IPSec"
 
 msgid "IPSec Policy associated with this connection"
 msgstr "Stratégie IPSec associée à cette connexion"
@@ -5200,6 +5216,9 @@ msgstr "IPv4"
 msgid "IPv4 Address ="
 msgstr "Adresse IPv4 ="
 
+msgid "IPv4:"
+msgstr "IPv4:"
+
 msgid "IPv6"
 msgstr "IPv6"
 
@@ -5208,6 +5227,9 @@ msgstr "Adresse IPv6 ="
 
 msgid "IPv6 Address Configuration Mode"
 msgstr "Mode de Configuration d'Adresse IPv6"
+
+msgid "IPv6:"
+msgstr "IPv6:"
 
 msgid "ISO - Optical Disk Image"
 msgstr "ISO - Image ISO 9660"
@@ -5353,7 +5375,7 @@ msgid "Image Uploading"
 msgstr "Chargement de l'image"
 
 msgid "Image existence check"
-msgstr "Controle de l'existence de l'image"
+msgstr "Contrôle de l'existence de l'image"
 
 msgid "Image is downloaded"
 msgstr "L'image est téléchargée"
@@ -5492,7 +5514,7 @@ msgid "Insert Rule into Policy"
 msgstr "Insérer une règle dans la stratégie"
 
 msgid "Insert Rule to Policy"
-msgstr "Insérer une règle dans la Stratégie"
+msgstr "Insérer une règle dans la stratégie"
 
 msgid "Instance"
 msgstr "Instance"
@@ -5539,7 +5561,7 @@ msgid "Instance Security Groups"
 msgstr "Groupes de sécurité associés à l'instance"
 
 msgid "Instance Snapshot"
-msgstr "Instantané d'instance"
+msgstr "Snapshot de l'instance"
 
 msgid "Instance and attached volumes will be created on the same physical host"
 msgstr ""
@@ -5553,6 +5575,9 @@ msgstr "Instances"
 
 msgid "Instances Count"
 msgstr "Nombre d'instances"
+
+msgid "Instances Per Shard"
+msgstr "Instances par fragment"
 
 msgid "Insufficient privilege level to view domain information."
 msgstr ""
@@ -5728,7 +5753,7 @@ msgstr ""
 "Les paires de clés servent à se connecter à une instance après son lancement."
 
 msgid "Key Size (bits)"
-msgstr "Taille Clé (octets)"
+msgstr "Taille de la clé (bits)"
 
 msgid ""
 "Key pair name may only contain letters, numbers, underscores, spaces and "
@@ -5770,7 +5795,7 @@ msgid "LB Method"
 msgstr "Algorithme de répartition de charge"
 
 msgid "LUKS Volume Snapshots"
-msgstr "Instantanés de volumes LUKS "
+msgstr "Snapshots de volume LUKS "
 
 msgid "LUKS Volumes"
 msgstr "LUKS Volumes"
@@ -5895,19 +5920,23 @@ msgid_plural "Launched Jobs"
 msgstr[0] "Tâche démarrée"
 msgstr[1] "Tâches démarrées"
 
+#, python-format
+msgid "Launched cluster \"%s\""
+msgstr "Cluster démarré \"%s\""
+
 msgid ""
 "Launching multiple instances is only supported for images and instance "
 "snapshots."
 msgstr ""
-"Le lancement d'instances multiples n'est accepté que pour les images et les "
-"instantanés d'instance."
+"Le lancement d'instances multiples n'est possible que pour les images et les "
+"snapshots d'instance."
 
 msgctxt "load balancing method"
 msgid "Least Connections"
 msgstr "Least Connections"
 
 msgid "Least connections"
-msgstr "Dernières connexions"
+msgstr "Least Connections"
 
 msgid "Length of Injected File Path"
 msgstr "Longueur du chemin du fichier injecté"
@@ -5970,13 +5999,15 @@ msgstr "Local"
 msgid "Local Disk Usage"
 msgstr "Utilisation du Disque Local"
 
+msgid "Local Side Public IPs"
+msgstr "IPs  publiques locales"
+
 msgid "Local Storage (total)"
 msgstr "Stockage Local (total)"
 
 msgid "Local Storage (used)"
 msgstr "Stockage Local (utilisé)"
 
-#, fuzzy
 msgid "Location"
 msgstr "Emplacement"
 
@@ -6087,6 +6118,9 @@ msgstr "Gérer les attachements de volume"
 msgid "Manage a Volume"
 msgstr "Gérer un volume"
 
+msgid "Management Console"
+msgstr "Console de management"
+
 msgid "Management IP"
 msgstr "IP de management"
 
@@ -6101,6 +6135,9 @@ msgstr "Adresse IP fixe mappée"
 
 msgid "Mapper"
 msgstr "Mapper"
+
+msgid "Mapping Type"
+msgstr "Type de mapping"
 
 msgid "Master Instance Name"
 msgstr "Nom de l'instance Master"
@@ -6297,11 +6334,18 @@ msgstr "Modifier les paramètres du dashboard."
 msgid "Modify name and description of a volume."
 msgstr "Modifier le nom et la description du volume."
 
+msgid ""
+"Modify the configuration so that swift URLs can be dereferenced through HDFS "
+"at runtime."
+msgstr ""
+"Modifiez la configuration pour que les URLs swift soient déréférencées à "
+"travers HDFS au démarrage."
+
 msgid "Modify the name and description of a snapshot."
-msgstr "Modifier le nom et la description de l'instantané."
+msgstr "Modifier le nom et la description d'un snapshot."
 
 msgid "Modify volume type name and description."
-msgstr "Modifier le nom et la description du Type de Volume"
+msgstr "Modifier le nom et la description du type de volume"
 
 msgid "Monitor"
 msgstr "Moniteur"
@@ -6357,9 +6401,8 @@ msgstr "Nom : %(name)s ID : %(uuid)s"
 msgid "Name: %(node_group_name)s"
 msgstr "Nom : %(node_group_name)s"
 
-#, fuzzy
 msgid "Named Parameter"
-msgstr "Paramètre nommé"
+msgstr "Nom du paramètre"
 
 msgid "Namespace"
 msgstr "Espace de nom"
@@ -6464,6 +6507,9 @@ msgstr "Adresse réseau au format CIDR (i.e. 192.168.0.0/24)"
 msgid "Network address in CIDR format (e.g. 192.168.0.0/24, 2001:DB8::/48)"
 msgstr "Adresse du réseau au format CIDR (e.g. 192.168.0.0/24, 2001:DB8::/48)"
 
+msgid "Network attached to instance."
+msgstr "Réseau attaché à l'instance."
+
 msgid "Network list can not be retrieved."
 msgstr "Impossible de récupérer la liste des réseaux."
 
@@ -6502,6 +6548,9 @@ msgstr "Nouveau gabarit"
 msgid "New Host"
 msgstr "Nouvel hôte"
 
+msgid "New Password"
+msgstr "Nouveau mot de passe"
+
 msgid "New Size (GB)"
 msgstr "Nouvelle Taille (GB)"
 
@@ -6513,6 +6562,9 @@ msgstr "Le nouveau nom est en conflit avec un autre Type de Volume."
 
 msgid "New password"
 msgstr "Nouveau mot de passe"
+
+msgid "New password for cluster access."
+msgstr "Nouveau mot de passe pour accès au cluster"
 
 msgid "New size for volume must be greater than current size."
 msgstr "La nouvelle taille du volume doit être supérieur à sa taille actuelle."
@@ -6728,7 +6780,7 @@ msgid "No session persistence"
 msgstr "Pas de persistance de session"
 
 msgid "No snapshots available"
-msgstr "Pas d'instantanés disponibles"
+msgstr "Pas de snapshot disponible"
 
 msgid "No source, empty volume"
 msgstr "Aucune source, volume vide"
@@ -6746,7 +6798,7 @@ msgid "No users."
 msgstr "Aucun utilisateur."
 
 msgid "No volume snapshots available"
-msgstr "Pas instantanés de volume disponibles"
+msgstr "Pas de snapshot de volume disponible"
 
 msgid "No volume type"
 msgstr "Pas de type de volume"
@@ -6757,9 +6809,8 @@ msgstr "Aucun volume attaché."
 msgid "No volumes available"
 msgstr "Pas de volumes disponibles"
 
-#, fuzzy
 msgid "Node Configurations"
-msgstr "Configurations du noeud"
+msgstr "Configurations des noeud"
 
 msgid "Node Group"
 msgstr "Group de noeud"
@@ -6876,8 +6927,11 @@ msgstr "Nombre d'instances"
 msgid "Number of Nodes"
 msgstr "Nombre de noeuds"
 
+msgid "Number of Shards"
+msgstr "Nombre de fragments"
+
 msgid "Number of Snapshots"
-msgstr "Nombre de clichés instantanés"
+msgstr "Nombre de snapshots"
 
 msgid "Number of VCPUs"
 msgstr "Nombre de VCPUs"
@@ -6909,6 +6963,12 @@ msgstr ""
 
 msgid "Number of incoming packets for a VM interface"
 msgstr "Nombre de paquets entrant pour une interface de machine virtuelle"
+
+msgid "Number of instances in the cluster. (Read only)"
+msgstr "Nombre d'instances dans le cluster. (En lecture seule)"
+
+msgid "Number of instances per shard. (Read only)"
+msgstr "Nombre d'instances par fragment. (lecture seule)"
 
 msgid "Number of instances to launch."
 msgstr "Nombre d'instances de l'image à lancer."
@@ -6943,6 +7003,9 @@ msgstr "Nombre d'échecs permis avant de passer le statut d'un membre à inactif
 
 msgid "Number of read requests"
 msgstr "Nombre de requêtes de lecture"
+
+msgid "Number of shards. (Read only)"
+msgstr "Nombre de fragments. (lecture seule)"
 
 msgid "Number of write requests"
 msgstr "Nombre de requêtes d'écriture"
@@ -7056,6 +7119,12 @@ msgstr "Autre"
 msgid "Other Protocol"
 msgstr "Autre Protocole"
 
+#, python-format
+msgid "Out of range float values are not JSON compliant: %r"
+msgstr ""
+"Les valeurs flottantes en dehors des limites ne sont pas compatibles avec le "
+"JSON : %r"
+
 msgid "Output"
 msgstr "Sortie"
 
@@ -7126,6 +7195,12 @@ msgstr "Mot de passe modifié. Connectez-vous à nouveau pour poursuivre."
 
 msgid "Password changed. Please log in to continue."
 msgstr "Mot de passe modifié. Veuillez vous connecter pour continuer."
+
+msgid "Password for root user must be specified."
+msgstr "Le mot de passe pour l'utilisateur root doit être spécifié."
+
+msgid "Password for root user."
+msgstr "Mot de passe pour l'utilisateur root."
 
 #, python-format
 msgid "Password for user \"%s\""
@@ -7298,7 +7373,7 @@ msgid "Policy ID"
 msgstr "ID de stratégie"
 
 msgid "Policy Profiles"
-msgstr "Profils de Stratégie"
+msgstr "Profils de stratégie"
 
 msgid "Pool"
 msgstr "Pool"
@@ -7810,7 +7885,7 @@ msgid "Request ID"
 msgstr "ID de la requête"
 
 msgid "Requested snapshot would exceed the allowed quota."
-msgstr "L'instantané demandé dépasserait le quota disponible."
+msgstr "Le snapshot demandé dépasserait le quota disponible."
 
 msgid ""
 "Requests from a unique source IP address are consistently\n"
@@ -7833,16 +7908,17 @@ msgctxt "Task status of an Instance"
 msgid "Rescuing"
 msgstr "Mode secours"
 
-#, fuzzy
 msgid "Reset Cluster Creation Guide"
-msgstr "Réinitialiser le guide de création de clusters"
+msgstr "Réinitialisation du guide de création du cluster"
 
-#, fuzzy
 msgid "Reset Cluster Guide"
-msgstr "Réinitialiser le guide de cluster"
+msgstr "Réinitialisation du guide du cluster"
 
 msgid "Reset Job Execution Guide"
 msgstr "Réinitialiser le guide d'exécution de tâches"
+
+msgid "Reset Root Password"
+msgstr "Réinitialiser le mot de passe root"
 
 msgid "Reset to Default"
 msgstr "Rétablir les valeurs par défaut"
@@ -8081,6 +8157,13 @@ msgstr "Disque racine"
 msgid "Root Disk (GB)"
 msgstr "Disque racine (Go)"
 
+msgid "Root Password"
+msgstr "Mot de passe Root"
+
+#, python-format
+msgid "Root password updated for cluster \"%s\""
+msgstr "Mot de passe root mis à jour pour le cluster \"%s\""
+
 msgid "Rotates requests evenly between multiple instances."
 msgstr "Requêtes dirigées également entre plusieurs instances."
 
@@ -8262,13 +8345,13 @@ msgstr[1] "Effacement des Pare-feux planifié"
 
 msgid "Scheduled deletion of IKE Policy"
 msgid_plural "Scheduled deletion of IKE Policies"
-msgstr[0] "Effacement de la Stratégie IKE planifié"
-msgstr[1] "Effacement des Stratégies IKE planifié"
+msgstr[0] "Suppression de la stratégie IKE planifiée"
+msgstr[1] "Suppression des stratégies IKE planifiée"
 
 msgid "Scheduled deletion of IPSec Policy"
 msgid_plural "Scheduled deletion of IPSec Policies"
-msgstr[0] "Effacement de la Stratégie IPSec"
-msgstr[1] "Effacement des Stratégies IPSec planifié"
+msgstr[0] "Suppression de la stratégie IPSec planifiée"
+msgstr[1] "Suppression des stratégies IPSec planifiée"
 
 msgid "Scheduled deletion of IPSec Site Connection"
 msgid_plural "Scheduled deletion of IPSec Site Connections"
@@ -8287,8 +8370,8 @@ msgstr[1] "Suppression des Moniteurs planifiée"
 
 msgid "Scheduled deletion of Policy"
 msgid_plural "Scheduled deletion of Policies"
-msgstr[0] "Effacement de la Stratégie planifiée"
-msgstr[1] "Effacement des Stratégies planifiées"
+msgstr[0] "Effacement de la stratégie planifiée"
+msgstr[1] "Effacement des stratégies planifiées"
 
 msgid "Scheduled deletion of Pool"
 msgid_plural "Scheduled deletion of Pools"
@@ -8312,8 +8395,8 @@ msgstr[1] "Suppression des volumes planifiée"
 
 msgid "Scheduled deletion of Volume Snapshot"
 msgid_plural "Scheduled deletion of Volume Snapshots"
-msgstr[0] "Suppression de l'Instantané de Volume planifiée"
-msgstr[1] "Suppression des Instantanés de Volume planifiée"
+msgstr[0] "Suppression du snapshot de volume planifiée"
+msgstr[1] "Suppression des snapshots de volume planifiée"
 
 msgid "Scheduled migration (pending confirmation) of Instance"
 msgid_plural "Scheduled migration (pending confirmation) of Instances"
@@ -8323,6 +8406,11 @@ msgstr[1] "Migration planifiée (en attente de confirmation) d'Instances"
 #, python-format
 msgid "Scheduled resize of instance \"%s\"."
 msgstr "Redimensionnement de l'instance \"%s\" planifié."
+
+msgid "Scheduled termination of Cluster"
+msgid_plural "Scheduled termination of Clusters"
+msgstr[0] "Suppression planifiée du cluster"
+msgstr[1] "Suppression planifiée des clusters"
 
 msgid "Scheduled termination of Instance"
 msgid_plural "Scheduled termination of Instances"
@@ -8396,7 +8484,7 @@ msgid "Select Image"
 msgstr "Sélectionner une image "
 
 msgid "Select Instance Snapshot"
-msgstr "Sélectionner un Instantané d'instance"
+msgstr "Sélectionnez un snapshot d'instance"
 
 msgid "Select Network"
 msgstr "Sélectionner le réseau"
@@ -8423,7 +8511,7 @@ msgid "Select Volume"
 msgstr "Sélectionner un Volume "
 
 msgid "Select Volume Snapshot"
-msgstr "Sélectionner un Instantané de Volume"
+msgstr "Sélectionnez un snapshot de volume"
 
 msgid "Select a Method"
 msgstr "Sélectionner une méthode"
@@ -8438,7 +8526,7 @@ msgid "Select a Node Group Template to add:"
 msgstr "Sélectionner un Modèle de Groupe de Nœuds à ajouter :"
 
 msgid "Select a Policy"
-msgstr "Sélectionnez une Stratégie"
+msgstr "Sélectionnez une stratégie"
 
 msgid "Select a Pool"
 msgstr "Sélectionner un pool"
@@ -8447,10 +8535,13 @@ msgid "Select a Protocol"
 msgstr "Sélectionner un protocole"
 
 msgid "Select a Router"
-msgstr "Sélectionner un routeur"
+msgstr "Sélectionnez un routeur"
 
 msgid "Select a Subnet"
 msgstr "Sélectionner un sous-réseau"
+
+msgid "Select a Value Type for your next argument:"
+msgstr "Sélectionner un type de valeur pour votre prochain argument."
 
 msgid "Select a backup to restore"
 msgstr "Sélectionnez une sauvegarde à restaurer"
@@ -8496,14 +8587,12 @@ msgstr "Sélectionner un nouveau modèle pour relancer une Stack."
 msgid "Select a new volume type"
 msgstr "Sélectionner un nouveau type de volume"
 
-#, fuzzy
 msgid "Select a plugin and version for a new Cluster template."
 msgstr ""
-"Sélectionner un plugin et une version pour un nouveau modèle de Cluster."
+"Sélectionner un plugin et une version pour un nouveau modèle de cluster. "
 
-#, fuzzy
 msgid "Select a plugin and version for a new Cluster."
-msgstr "Sélectionner un plugin et une version pour le nouveau Cluster."
+msgstr "Sélectionner un plugin et une version pour un nouveau cluster. "
 
 msgid "Select a plugin and version for the new Node Group template."
 msgstr ""
@@ -8643,8 +8732,10 @@ msgid ""
 "      execute your job.\n"
 "    "
 msgstr ""
-"Sélectionner le type de tâche que vous souhaitez exécuter.\n"
-"Ce choix va dicter les étapes pour pouvoir la réussir."
+"Sélectionnez le type de tâche que vous souhaitez lancer.\n"
+"\n"
+"Ce choix dictera les étapes à suivre pour l'exécuter\n"
+"avec succès."
 
 msgid "Selected Hosts"
 msgstr "Hôtes sélectionnés"
@@ -8816,6 +8907,9 @@ msgstr "Taille du disque éphémère"
 msgid "Size of image to launch."
 msgstr "Gabarit de l'image à lancer."
 
+msgid "Size of instance to launch."
+msgstr "Taille de l'instance à lancer."
+
 msgid "Size of root disk"
 msgstr "Taille du disque root"
 
@@ -8843,36 +8937,36 @@ msgstr ""
 "dossiers par le Stockage d'Objet."
 
 msgid "Snapshot"
-msgstr "Instantané"
+msgstr "Snapshot"
 
 msgctxt "Type of an image"
 msgid "Snapshot"
-msgstr "Instantané"
+msgstr "Snapshot"
 
 #, python-format
 msgid "Snapshot \"%(name)s\" created for instance \"%(inst)s\""
-msgstr "L'instantané \"%(name)s\" a été crée pour l'instance \"%(inst)s\""
+msgstr "Le snapshot \"%(name)s\" a été créé pour l'instance \"%(inst)s\""
 
 msgctxt "current status of stack"
 msgid "Snapshot Complete"
-msgstr "Instantané réussi"
+msgstr "Snapshot réussi"
 
 msgctxt "current status of stack"
 msgid "Snapshot Failed"
-msgstr "Échec de l'instantané"
+msgstr "Échec du snapshot"
 
 msgctxt "current status of stack"
 msgid "Snapshot In Progress"
-msgstr "Instantané en cours"
+msgstr "Snapshot en cours"
 
 msgid "Snapshot Limits"
-msgstr "Limites du cliché instantané"
+msgstr "Limites du snapshot"
 
 msgid "Snapshot Name"
-msgstr "Nom de l'instantané"
+msgstr "Nom du snapshot"
 
 msgid "Snapshot source must be specified"
-msgstr "La source du cliché instantané doit être spécifiée"
+msgstr "La source du snapshot doit être spécifiée"
 
 msgctxt "Task status of an Instance"
 msgid "Snapshotting"
@@ -9021,11 +9115,17 @@ msgstr "Spécifier une image à charger vers le service d'Images."
 msgid "Specify member IP address"
 msgstr "Spécifier l'adresse IP du membre"
 
+msgid "Specify the details for adding additional shards."
+msgstr "Spécifiez les détails pour l'ajout de fragments supplémentaires."
+
 msgid "Specify the details for launching an instance."
 msgstr "Spécifiez les détails de démarrage d'une instance."
 
 msgid "Specify the details for the database backup."
 msgstr "Spécifiez les détails pour la sauvegarde de la base de données."
+
+msgid "Specify the new root password for vertica cluster."
+msgstr "Spécifier le nouveau mot de passe root pour le cluster vertica."
 
 msgid "Specify the new volume size for the database instance."
 msgstr ""
@@ -9455,9 +9555,9 @@ msgid ""
 "and click &quot;Add plugin tags&quot; button."
 msgstr ""
 "Les balises sont utilisées pour filtrer les images appropriées pour chaque "
-"greffon et chaque version de traitement de données en cours.\n"
-"Pour ajouter les balises requises, sélectionner un greffon et une version de "
-"traitement de données et cliquer sur le bouton &quot;Add plugin tags&quot;."
+"version de plugin et de Traitement de Données.\n"
+"Pour ajouter les balises requises, sélectionnez une version de plugin et  de "
+"Traitement de Données puis cliquez sur le bouton &quot;Add plugin tags&quot;."
 
 msgid "Target Host"
 msgstr "Hôte cible"
@@ -9489,10 +9589,18 @@ msgstr "URL du modèle"
 msgid "Template not specified"
 msgstr "Modèle non spécifié"
 
+msgid "Terminate Cluster"
+msgid_plural "Terminate Clusters"
+msgstr[0] "Supprimer le cluster"
+msgstr[1] "Supprimer les cluster"
+
 msgid "Terminate Instance"
 msgid_plural "Terminate Instances"
 msgstr[0] "Terminer l'instance"
 msgstr[1] "Terminer les instances"
+
+msgid "Terminated cluster is not recoverable."
+msgstr "Le cluster supprimé n'est pas récupérable."
 
 msgid "Terminated instances are not recoverable."
 msgstr "Les instances révolues ne sont pas récupérables."
@@ -9530,33 +9638,33 @@ msgid ""
 "aes-xts-plain64). If the field is left empty, the provider default will be "
 "used."
 msgstr ""
-"Le <strong>Cipher</strong> correspond à l'algorithme/mode de codification à "
-"utiliser (par ex., aes-xts-plain64). Si le champ reste vide, la valeur par "
-"défaut de fournisseur sera utilisée."
+"Le <strong>Cipher</strong> correspond à l'algorithme/mode de chiffrement  à "
+"utiliser (ex. : aes-xts-plain64). Si le champ est laissé vide, la valeur par "
+"défaut du fournisseur sera utilisée."
 
 msgid ""
 "The <strong>Control Location</strong> is the notional service where "
 "encryption is performed (e.g., front-end=Nova). The default value is 'front-"
 "end.'"
 msgstr ""
-"L' <strong>emplacement de contrôle</strong> est le service notionnel où la "
-"codification a lieu (par ex. front-end=Nova). La valeur par défaut est « "
+"L' <strong>emplacement de contrôle</strong> est le service notionnel où le "
+"chiffrement a lieu (par ex. front-end=Nova). La valeur par défaut est « "
 "front-end »."
 
 msgid ""
 "The <strong>Key Size</strong> is the size of the encryption key, in bits (e."
 "g., 128, 256). If the field is left empty, the provider default will be used."
 msgstr ""
-"La <strong>Taille Clé</strong> est la taille de la clé de codification (par "
-"ex., 128, 256). Si le champ reste vide, la valeur par défaut de fournisseur "
-"sera utilisée."
+"<strong>Taille de la clé</strong> est la taille de la clé de chiffrement "
+"(ex. :  128, 256). Si le champ est laissé vide, la valeur par défaut du "
+"fournisseur sera utilisée."
 
 msgid ""
 "The <strong>Provider</strong> is the class providing encryption support (e."
 "g. LuksEncryptor)."
 msgstr ""
-"La classe <strong>Provider</strong> fournit le support de codification (par "
-"ex. LuksEncryptor)."
+"La classe <strong>Provider</strong> fournit le support du chiffrement (ex. : "
+"LuksEncryptor)."
 
 msgid "The Aggregate was updated."
 msgstr "L'agrégat a été mis à jour."
@@ -9569,29 +9677,27 @@ msgstr ""
 "fermée. Vous devez donc vous l'approprier dès maintenant, sinon, vous ne "
 "pourrez pas l'utiliser pour le transfert."
 
-#, fuzzy
 msgid ""
 "The Cluster Template object may specify a list of processes in anti-affinity "
 "group.\n"
 "    That means these processes may not be launched more than once on a "
 "single host."
 msgstr ""
-"L'objet Modèle de Cluster peut spécifier une liste de processus dans un "
-"groupe d'anti-affinité.\n"
-"Ceci signifie que ces processus ne pourront pas être lancés simultanément "
-"sur un même hôte."
+"L'objet template de cluster doit spécifier une liste de processus dans un "
+"groupe d'anti affinité.\n"
+" Cela signifie que ces processus ne peuvent pas être lancés plus d'une fois "
+"sur un unique hôte."
 
-#, fuzzy
 msgid ""
 "The Cluster Template object should specify Node Group Templates that will be "
 "used to build a Cluster.\n"
 "    You can add Node Groups using Node Group Templates on a &quot;Node "
 "Groups&quot; tab."
 msgstr ""
-"L'objet Modèle de Cluster doit spécifier les Modèles de Groupe de Nœuds qui "
-"seront utilisés pour construire un Cluster.\n"
-"Vous pouvez ajouter des Groupes de Nœuds en utilisant les Modèles de Groupe "
-"de Nœuds sur l'onglet &quot;Groupes de Noeuds&quot; ."
+"L'objet modèle de cluster doit spécifier des modèles de groupe de node qui "
+"seront utilisés pour construire un cluster.\n"
+" Vous pouvez ajouter des groupes de node en utilisant des modèles de groupe "
+"de node sur l'onglet &quot;Groupes de node&quot;."
 
 msgid ""
 "The Cluster object should specify OpenStack Image to boot instances for "
@@ -9644,10 +9750,10 @@ msgid ""
 "        When processes are selected, you may set <b>node</b> scoped\n"
 "        configurations on corresponding tabs."
 msgstr ""
-"L'objet de Modèle de groupe de nœud précise les processus\n"
-"à lancer sur chaque instance. Choisissez un ou plusieurs processus.\n"
-"Quand les processus seront sélectionnés, vous pourrez définir les "
-"configurations de <b>noeud</b> scoped dans les onglets correspondant."
+"L'objet modèle de groupe de nœud précise les processus \n"
+"à lancer sur chaque instance. Sélectionnez un ou plusieurs processus.\n"
+"Quand les processus seront sélectionnés, vous pourrez définir les\n"
+"configurations de  <b>noeud</b> dans les onglets correspondants."
 
 msgid ""
 "The Transfer ID and the Authorization Key are needed by the recipient in "
@@ -9756,6 +9862,9 @@ msgstr ""
 "Exigences minimales : %(min_ram)s Mo de RAM et %(min_disk)s Go de Disque "
 "Racine."
 
+msgid "The flavor must be specified."
+msgstr "Le gabarit doit être spécifié."
+
 #, python-format
 msgid "The instance is preparing the live migration to host \"%s\"."
 msgstr ""
@@ -9825,6 +9934,9 @@ msgstr ""
 "Les sauts d'adresses suivants peuvent être utilisés pour remplacer le "
 "routeur utilisé par le client."
 
+msgid "The number of shards must be greater than 1."
+msgstr "Le nombre de fragment doit être supérieur à 1."
+
 msgid "The page you were looking for doesn't exist"
 msgstr "La page que vous recherchez n'existe pas"
 
@@ -9893,7 +10005,7 @@ msgid "The specified port is invalid."
 msgstr "Le port spécifié est invalide."
 
 msgid "The state to start in."
-msgstr "L'état pour commencer."
+msgstr "Etat au démarrage."
 
 msgid "The state to start the network in."
 msgstr "Etat du réseau au démarrage."
@@ -9919,8 +10031,7 @@ msgstr ""
 #, python-format
 msgid "The volume size cannot be less than the snapshot size (%sGB)"
 msgstr ""
-"La taille du volume ne peut pas être inférieure à celle de l'instantané "
-"(%sGo)"
+"La taille du volume ne peut pas être inférieure à celle du snapshot (%sGo)"
 
 #, python-format
 msgid "The volume size cannot be less than the source volume size (%sGB)"
@@ -9951,13 +10062,11 @@ msgid "There was a problem parsing the %(prefix)s: %(error)s"
 msgstr ""
 "Il y a eu un problème lors de l'analyse syntaxique de %(prefix)s: %(error)s"
 
-#, fuzzy
 msgid "This Cluster Template will be created for:"
-msgstr "Ce modèle de cluster sera créé pour :"
+msgstr "Ce modèle de cluster sera créé pour : "
 
-#, fuzzy
 msgid "This Cluster will be started with:"
-msgstr "Ce cluster sera démarré avec :"
+msgstr "Ce cluster sera démarré avec:"
 
 msgid "This Node Group Template will be created for:"
 msgstr "Ce modèle de groupe de noeud sera créé pour:"
@@ -10002,7 +10111,7 @@ msgid ""
 "snapshot from an attached volume can result in a corrupted snapshot."
 msgstr ""
 "Ce volume est attaché à une instance. Dans certains cas, la création d'un "
-"instantané depuis un volume attaché peut produire un instantané endommagé."
+"snapshot depuis un volume attaché peut produire un snapshot endommagé."
 
 msgid "Time"
 msgstr "Temps"
@@ -10062,6 +10171,12 @@ msgstr ""
 msgid "To:"
 msgstr "Vers :"
 
+msgid "Toggle Network Collapse"
+msgstr "Réduire l’écroulement réseau"
+
+msgid "Toggle labels"
+msgstr "Activation des libellés"
+
 msgid "Toggle navigation"
 msgstr "Changer la navigation"
 
@@ -10080,6 +10195,9 @@ msgstr "Total Disque"
 msgid "Total Disk Size (GB):"
 msgstr "Taille totale des disques (GiB) :"
 
+msgid "Total Disk Usage (Hours):"
+msgstr "Utilisation totale des disques (Heures):"
+
 msgid "Total Gigabytes"
 msgstr "Giga-octets totaux"
 
@@ -10090,10 +10208,10 @@ msgid "Total RAM"
 msgstr "Total RAM"
 
 msgid "Total Size of LUKS Volumes and Snapshots (GB)"
-msgstr "Taille totale des volumes et clichés instantanés LUKS (GB)"
+msgstr "Taille totale des volumes et snapshots LUKS (Go)"
 
 msgid "Total Size of Volumes and Snapshots (GB)"
-msgstr "Taille totale des volumes et des instantanés (Go)"
+msgstr "Taille totale des volumes et des snapshots (Go)"
 
 msgid "Total VCPU Usage (Hours):"
 msgstr "Total (en heures) de l’utilisation des VCPU :"
@@ -10187,11 +10305,11 @@ msgstr "Impossible d'ajouter le pare-feu \"%s\"."
 
 #, python-format
 msgid "Unable to add IKE Policy \"%s\"."
-msgstr "Impossible d'ajouter la Stratégie IKE \"%s\"."
+msgstr "Impossible d'ajouter la stratégie IKE \"%s\"."
 
 #, python-format
 msgid "Unable to add IPSec Policy \"%s\"."
-msgstr "Impossible d'ajouter la Stratégie IPSec \"%s\"."
+msgstr "Impossible d'ajouter la stratégie IPSec \"%s\"."
 
 #, python-format
 msgid "Unable to add IPSec Site Connection \"%s\"."
@@ -10228,6 +10346,10 @@ msgstr "Impossible d'ajouter le pool \"%s\"."
 
 msgid "Unable to add rule to security group."
 msgstr "Impossible d'ajouter la règle au groupe de sécurité."
+
+#, python-format
+msgid "Unable to add shard. %s"
+msgstr "Impossible d'ajouter le fragment. %s"
 
 msgid "Unable to add user to primary project."
 msgstr "Impossible d'ajouter un utilisateur au projet primaire."
@@ -10353,7 +10475,7 @@ msgid "Unable to create security group: %s"
 msgstr "Impossible de créer le groupe de sécurité: %s"
 
 msgid "Unable to create snapshot."
-msgstr "Impossible de générer l'instantané."
+msgstr "Impossible de créer le snapshot."
 
 msgid "Unable to create spec."
 msgstr "Incapable de créer une spécification."
@@ -10372,7 +10494,7 @@ msgid "Unable to create volume backup."
 msgstr "Impossible de créer le volume de sauvegarde."
 
 msgid "Unable to create volume snapshot."
-msgstr "Impossible de créer l'instantané du volume."
+msgstr "Impossible de créer un snapshot du volume."
 
 msgid "Unable to create volume transfer."
 msgstr "Impossible de créer un transfert de Volume."
@@ -10388,24 +10510,8 @@ msgid "Unable to create volume."
 msgstr "Impossible de créer le volume."
 
 #, python-format
-msgid "Unable to delete IKE Policy: %s"
-msgstr "Impossible de supprimer la Stratégie IKE : %s"
-
-#, python-format
-msgid "Unable to delete IPSec Policy: %s"
-msgstr "Impossible de supprimer la Stratégie IPSec : %s"
-
-#, python-format
-msgid "Unable to delete IPSec Site Connection: %s"
-msgstr "Impossible de supprimer la connexion IPSec de site : %s"
-
-#, python-format
 msgid "Unable to delete VIP. %s"
 msgstr "Impossible de supprimer la VIP %s"
-
-#, python-format
-msgid "Unable to delete VPN Service: %s"
-msgstr "Impossible de supprimer le service VPN : %s"
 
 msgid "Unable to delete container."
 msgstr "Impossible de supprimer le conteneur."
@@ -10454,8 +10560,8 @@ msgstr ""
 
 msgid "Unable to determine if volume type encryption is supported."
 msgstr ""
-"Impossible de déterminer si la codification du type de volume est prise en "
-"charge."
+"Impossible de déterminer si le chiffrement est supporté sur ce type de "
+"volume."
 
 msgid "Unable to disassociate floating IP."
 msgstr "Impossible de dissocier l'IP flottante."
@@ -10611,6 +10717,9 @@ msgstr ""
 msgid "Unable to get host aggregate list"
 msgstr "Impossible d'obtenir la liste des agrégats d'hôtes"
 
+msgid "Unable to get instances data."
+msgstr "Impossible d'obtenir les données de l'instance."
+
 #, python-format
 msgid "Unable to get log for instance \"%s\"."
 msgstr ""
@@ -10675,6 +10784,10 @@ msgstr "Impossible d'initialiser les pools de sous-réseau"
 msgid "Unable to launch %(count)s named \"%(name)s\"."
 msgstr "Impossible de démarrer %(count)s instance(s) nommée(s) \"%(name)s\"."
 
+#, python-format
+msgid "Unable to launch cluster. %s"
+msgstr "Impossible de démarrer le cluster. %s"
+
 msgid "Unable to launch job."
 msgstr "Impossible de démarrer la tâche."
 
@@ -10695,7 +10808,7 @@ msgid "Unable to load the specified image. %s"
 msgstr "Impossible de charger l'image spécifiée : %s"
 
 msgid "Unable to load the specified snapshot."
-msgstr "Impossible de charger l'instantané spécifié."
+msgstr "Impossible de charger le snapshot spécifié."
 
 #, python-format
 msgid "Unable to load the specified volume. %s"
@@ -10727,6 +10840,12 @@ msgstr "Impossible de modifier l'instance \"%s\"."
 msgid "Unable to modify project \"%s\"."
 msgstr "Impossible de modifier le projet \"%s\"."
 
+msgid "Unable to obtain datastore versions."
+msgstr "Impossible d'obtenir la version du datastore."
+
+msgid "Unable to obtain datastores."
+msgstr "Impossible d'obtenir les banques de données."
+
 msgid "Unable to obtain flavors."
 msgstr "Impossible d'obtenir les gabarits."
 
@@ -10742,6 +10861,10 @@ msgstr "Impossible de traiter les étiquettes de plugin"
 
 msgid "Unable to rebuild instance."
 msgstr "Impossible de reconstruire l'instance."
+
+#, python-format
+msgid "Unable to reset password. %s"
+msgstr "Impossible de réinitialiser le mot de passe. %s"
 
 #, python-format
 msgid "Unable to resize instance \"%s\"."
@@ -10762,10 +10885,10 @@ msgid "Unable to retrieve Ceilometer meter list."
 msgstr "Impossible de récupérer la liste des métriques Ceilometer."
 
 msgid "Unable to retrieve IKE Policies list."
-msgstr "Impossible de récupérer la liste des Stratégies IKE."
+msgstr "Impossible de récupérer la liste des stratégies IKE."
 
 msgid "Unable to retrieve IKE Policy details."
-msgstr "Impossible de récupérer le détail de la Stratégie IKE."
+msgstr "Impossible de récupérer les détails de la stratégie IKE."
 
 #, python-format
 msgid "Unable to retrieve IKE Policy details. %s"
@@ -10783,14 +10906,14 @@ msgid "Unable to retrieve IP addresses from Neutron."
 msgstr "Impossible de récupérer les adresses IP de Neutron."
 
 msgid "Unable to retrieve IPSec Policies list."
-msgstr "Impossible de récupérer la liste des Stratégies IPSec."
+msgstr "Impossible de récupérer la liste des stratégies IPSec."
 
 msgid "Unable to retrieve IPSec Policy details."
-msgstr "Impossible de récupérer le détail de la Stratégie IPSec."
+msgstr "Impossible de récupérer les détails de la stratégie IPSec."
 
 #, python-format
 msgid "Unable to retrieve IPSec Policy details. %s"
-msgstr "Impossible de récupérer le détail de la Stratégie IPSec %s"
+msgstr "Impossible de récupérer les détails de la stratégie IPSec %s"
 
 msgid "Unable to retrieve IPSec Site Connection details."
 msgstr "Impossible de récupérer les détails de la connexion IPSec de site."
@@ -10863,6 +10986,9 @@ msgstr "Impossible de récupérer les zones de disponibilité."
 msgid "Unable to retrieve backup details."
 msgstr "Impossible de récupérer les détails de la sauvegarde."
 
+msgid "Unable to retrieve cluster details."
+msgstr "Impossible de trouver les détails du cluster."
+
 msgid "Unable to retrieve compute host information."
 msgstr "Impossible de récupérer les informations sur l'hôte Compute."
 
@@ -10875,6 +11001,9 @@ msgstr "Impossible de récupérer la liste des conteneurs."
 
 msgid "Unable to retrieve data processing plugins."
 msgstr "Impossible de récupérer les plugins de traitement des données"
+
+msgid "Unable to retrieve database clusters."
+msgstr "Impossible de trouver les clusters de base de donnée."
 
 msgid "Unable to retrieve database instances."
 msgstr "Impossible de récupérer les instances de base de données"
@@ -10904,6 +11033,11 @@ msgstr "Impossible de récupérer les détails du modèle de cluster \"%s\"."
 #, python-format
 msgid "Unable to retrieve details for data source \"%s\"."
 msgstr "Impossible de récupérer les détails de la source de données \"%s\"."
+
+#, python-format
+msgid "Unable to retrieve details for database cluster: %s"
+msgstr ""
+"Impossible de récupérer les détails pour le cluster de base de données : %s"
 
 #, python-format
 msgid "Unable to retrieve details for database instance: %s"
@@ -11110,7 +11244,7 @@ msgid "Unable to retrieve list of security groups"
 msgstr "Impossible de récupérer la liste des groupes de sécurité"
 
 msgid "Unable to retrieve list of volume snapshots."
-msgstr "Impossible de récupérer la liste des instantanés du volume."
+msgstr "Impossible de récupérer la liste des snapshots du volume."
 
 msgid "Unable to retrieve list of volumes."
 msgstr "Impossible de récupérer la liste des volumes."
@@ -11168,7 +11302,7 @@ msgid "Unable to retrieve plugin."
 msgstr "Impossible de récupérer le plugin."
 
 msgid "Unable to retrieve policies list."
-msgstr "Impossible de récupérer la liste des Stratégies."
+msgstr "Impossible de récupérer la liste des stratégies."
 
 msgid "Unable to retrieve policy details."
 msgstr "Impossible de récupérer les détails de la stratégie."
@@ -11291,10 +11425,10 @@ msgid "Unable to retrieve security groups."
 msgstr "Impossible de récupérer les groupes de sécurité."
 
 msgid "Unable to retrieve snapshot data."
-msgstr "Impossible d'extraire les données d'instantané."
+msgstr "Impossible de récupérer les données du snapshot."
 
 msgid "Unable to retrieve snapshot details."
-msgstr "Impossible de récupérer les détails de l'instantané."
+msgstr "Impossible de récupérer les détails du snapshot."
 
 msgid "Unable to retrieve snapshot list."
 msgstr "Impossible de récupérer la liste des snapshot"
@@ -11370,8 +11504,7 @@ msgid "Unable to retrieve volume details."
 msgstr "Impossible de récupérer les détails du volume."
 
 msgid "Unable to retrieve volume encryption details."
-msgstr ""
-"Impossible de récupérer les informations sur la codification du volume."
+msgstr "Impossible de récupérer les détails de chiffrement du volume."
 
 #, python-format
 msgid "Unable to retrieve volume information for volume: \"%s\""
@@ -11396,10 +11529,10 @@ msgid "Unable to retrieve volume project information."
 msgstr "Impossible de récupérer les informations du projet associé au volume."
 
 msgid "Unable to retrieve volume snapshot."
-msgstr "Impossible de récupérer l'instantané du volume."
+msgstr "Impossible de récupérer le snapshhot du volume."
 
 msgid "Unable to retrieve volume snapshots."
-msgstr "Impossible de récupérer les instantanés de volume."
+msgstr "Impossible de récupérer les snapshots du volume."
 
 msgid "Unable to retrieve volume transfer."
 msgstr "Impossible d'extraire le transfert de volume."
@@ -11408,9 +11541,7 @@ msgid "Unable to retrieve volume type details."
 msgstr "Impossible de récupérer les détails du type de volume."
 
 msgid "Unable to retrieve volume type encryption details."
-msgstr ""
-"Impossible de récupérer les informations sur la codification du type de "
-"volume."
+msgstr "Impossible de récupérer les détails de chiffrement du type de volume."
 
 msgid "Unable to retrieve volume type encryption information."
 msgstr "Impossible d'extraire les informations de cryptage du type de volume."
@@ -11529,7 +11660,7 @@ msgid "Unable to update volume snapshot status."
 msgstr "Impossible d'actualiser le volume utilisé par les snapshots."
 
 msgid "Unable to update volume snapshot."
-msgstr "Impossible de mettre à jour l'instantané du volume."
+msgstr "Impossible de mettre à jour le snapshot du volume."
 
 #, python-format
 msgid "Unable to update volume status to \"%s\"."
@@ -11766,7 +11897,7 @@ msgstr "Mise à jour du colume \"%s\""
 
 #, python-format
 msgid "Updating volume snapshot \"%s\""
-msgstr "Mise à jour de l'instantané du volume \"%s\""
+msgstr "Mise à jour du snapshot de volume \"%s\""
 
 msgid "Upload"
 msgstr "Charger"
@@ -11859,7 +11990,7 @@ msgstr ""
 "requêtes entrantes:"
 
 msgid "Use snapshot as a source"
-msgstr "Utiliser un instantané comme source"
+msgstr "Utiliser un snapshot comme source"
 
 #, python-format
 msgid "Used <span> %(used)s </span> of <span> %(available)s </span>"
@@ -12019,6 +12150,9 @@ msgstr "Valeur"
 msgid "Value (Avg)"
 msgstr "Valeur (moyenne)"
 
+msgid "Value Type"
+msgstr "Type de valeur"
+
 msgid "Value:"
 msgstr "Valeur :"
 
@@ -12113,13 +12247,13 @@ msgstr "Détailsdu chiffrement du volume"
 
 #, python-format
 msgid "Volume Encryption Details: %(volume_name)s"
-msgstr "Informations de codification du volume : %(volume_name)s"
+msgstr "Détails du chiffrement du volume : %(volume_name)s"
 
 msgid "Volume Encryption Details: {{ volume.name }}"
 msgstr "Détails de Chiffrement du Volume : {{ volume.name }}"
 
 msgid "Volume Encryption Overview"
-msgstr "La codification de volume"
+msgstr "Aperçu du chiffrement du volume"
 
 msgid "Volume Limits"
 msgstr "Limites des volumes"
@@ -12134,19 +12268,19 @@ msgid "Volume Size"
 msgstr "Taille du Volume"
 
 msgid "Volume Snapshot"
-msgstr "Instantané du volume"
+msgstr "Snapshot du volume"
 
 msgid "Volume Snapshot Details"
-msgstr "Détails de l'instantané du volume"
+msgstr "Détails du snapshot du volume"
 
 msgid "Volume Snapshot Details: {{ snapshot.name }}"
-msgstr "Détail de l'instantanée de volume: {{ snapshot.name }}"
+msgstr "Détails du snapshot de volume: {{ snapshot.name }}"
 
 msgid "Volume Snapshot Overview"
-msgstr "Aperçu de l'instantané de volume"
+msgstr "Aperçu du snapshot de volume"
 
 msgid "Volume Snapshots"
-msgstr "Instantanés de volumes"
+msgstr "Snapshots du volume"
 
 msgid "Volume Source"
 msgstr "Source du volume"
@@ -12167,19 +12301,19 @@ msgid "Volume Type Description:"
 msgstr "Description de Type de Volume:"
 
 msgid "Volume Type Encryption Details"
-msgstr "Informations de codification Type de volume"
+msgstr "Détails du chiffrement du type de volume"
 
 msgid "Volume Type Encryption Overview"
-msgstr "Cryptage du type de volume"
+msgstr "Chiffrement du type de volume"
 
 msgid "Volume Type Extra Specs"
-msgstr "Spécificités Supplémentaires du Type de Volume"
+msgstr "Extra specs du type de volume"
 
 msgid "Volume Type Name"
 msgstr "Nom du type de volume"
 
 msgid "Volume Type is Unencrypted."
-msgstr "Le type de volume est crypté."
+msgstr "Le type de volume n'est pas chiffré."
 
 #, python-format
 msgid "Volume Type: %(volume_type_name)s"
@@ -12254,8 +12388,7 @@ msgstr ""
 #, python-format
 msgid "Volume size must be equal to or greater than the snapshot size (%sGB)"
 msgstr ""
-"La taille du volume doit être égale ou supérieure à celle de l'instantané  "
-"(%sGo)"
+"La taille du volume doit être égale ou supérieure à celle du snapshot  (%sGo)"
 
 msgid "Volume size must be greater than 0"
 msgstr "La taille du volume doit être supérieure à 0"
@@ -12304,7 +12437,8 @@ msgid ""
 "  must also be an address within the selected subnet.\n"
 "  "
 msgstr ""
-"Quand aucune adresse IP n'est fournie, le VIP obtiendra une adresse depuis\n"
+"Quand aucune adresse IP n'est fournie, la VIP obtiendra une adresse depuis\n"
+"\n"
 "le sous-réseau sélectionné. Si vous désirez une adresse IP spécifique, vous "
 "pouvez la fournir mais\n"
 "elle doit être incluse dans le sous-réseau sélectionné."
@@ -12486,10 +12620,10 @@ msgstr ""
 "onglets correspondants."
 
 msgid "You may update IKE Policy details here."
-msgstr "Mettez à jour les détails de la Stratégie IKE ici."
+msgstr "Ici, vous pouvez mettre à jour les détails de la stratégie IKE."
 
 msgid "You may update IPSec Policy details here."
-msgstr "Mettez à jour les détails de la Stratégie IPSec ici."
+msgstr "Ici, vous pouvez mettre à jour les détails de la stratégie IPSec."
 
 msgid "You may update IPSec Site Connection details here."
 msgstr ""
@@ -12563,7 +12697,7 @@ msgid "You must select a datastore type and version."
 msgstr "Vous devez sélectionne un type et une version de datastore."
 
 msgid "You must select a snapshot."
-msgstr "Vous devez sélectionner un instantané."
+msgstr "Vous devez sélectionner un snapshot."
 
 msgid "You must select a volume."
 msgstr "Vous devez sélectionner un volume."

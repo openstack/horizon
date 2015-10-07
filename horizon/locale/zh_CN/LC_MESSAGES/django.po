@@ -15,7 +15,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-09-16 18:25+0000\n"
+"POT-Creation-Date: 2015-10-07 03:29+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -236,9 +236,6 @@ msgstr "成员"
 msgid "More Actions"
 msgstr "更多操作"
 
-msgid "N/A"
-msgstr "无"
-
 msgid "Navigation Item"
 msgstr "导航条目"
 
@@ -305,9 +302,6 @@ msgid "Sell Puppy"
 msgid_plural "Sell Puppies"
 msgstr[0] "出售小狗"
 
-msgid "Session timed out."
-msgstr "会话超时。"
-
 msgid "Sign In"
 msgstr "登入"
 
@@ -323,10 +317,6 @@ msgstr "成功："
 
 msgid "Summary"
 msgstr "概要"
-
-#, python-format
-msgid "The attribute %(attr)s doesn't exist on %(obj)s."
-msgstr "属性 %(attr)s 并不存在于 %(obj)s。"
 
 msgid "The date should be in YYYY-mm-dd format."
 msgstr "日期应是YYYY-mm-dd格式。"

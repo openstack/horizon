@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-09-25 15:01+0000\n"
+"POT-Creation-Date: 2015-10-07 03:29+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -1974,24 +1974,8 @@ msgid "Deleted"
 msgstr "काडून उडयला"
 
 #, python-format
-msgid "Deleted IKE Policy %s"
-msgstr " IKE धोरण %s काडून उडयला"
-
-#, python-format
-msgid "Deleted IPSec Policy %s"
-msgstr "IPSec धोरण %s काडून उडयला"
-
-#, python-format
-msgid "Deleted IPSec Site Connection %s"
-msgstr "IPSec सायट जोडणी %s काडून उडयल्या"
-
-#, python-format
 msgid "Deleted VIP %s"
 msgstr "काडून उडयल्ले VIP %s "
-
-#, python-format
-msgid "Deleted VPN Service %s"
-msgstr " VPN  सेवा %s काडून उडयल्या"
 
 #, python-format
 msgid "Deleted member %s"
@@ -2566,10 +2550,6 @@ msgid "Error"
 msgstr "एरर"
 
 msgctxt "current status of router"
-msgid "Error"
-msgstr "एरर"
-
-msgctxt "status of a neteork port"
 msgid "Error"
 msgstr "एरर"
 
@@ -6879,24 +6859,8 @@ msgid "Unable to create volume."
 msgstr "आकार तयार करपाक शकना."
 
 #, python-format
-msgid "Unable to delete IKE Policy: %s"
-msgstr "IKE धोरण: %s काडून उडोवपाक शकना"
-
-#, python-format
-msgid "Unable to delete IPSec Policy: %s"
-msgstr "IPSec धोरण: %s काडून उडोवपाक शकना"
-
-#, python-format
-msgid "Unable to delete IPSec Site Connection: %s"
-msgstr "IPSec सायट जोडणी: %s काडून उडोवपाक शकना"
-
-#, python-format
 msgid "Unable to delete VIP. %s"
 msgstr "VIP काडून उडोवपाक शकना. %s "
-
-#, python-format
-msgid "Unable to delete VPN Service: %s"
-msgstr " VPN सोवा: %s काडून उडोवपाक शकना"
 
 msgid "Unable to delete container."
 msgstr "कंटेनर काडून उडोवपाक शकना."

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-09-16 18:25+0000\n"
+"POT-Creation-Date: 2015-10-07 03:29+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -139,9 +139,6 @@ msgstr ""
 msgid "Members"
 msgstr "Članovi"
 
-msgid "N/A"
-msgstr "Neprimenljivo"
-
 msgid "Navigation Item"
 msgstr "Stavka za navigaciju"
 
@@ -198,9 +195,6 @@ msgstr "Sačuvaj"
 msgid "Select a %s to browse."
 msgstr "Odaberite %s za pregledanje."
 
-msgid "Session timed out."
-msgstr "Seansa istekla."
-
 msgid "Sign In"
 msgstr "Pristup"
 
@@ -212,10 +206,6 @@ msgstr "Uspeh:"
 
 msgid "Summary"
 msgstr "Rezime"
-
-#, python-format
-msgid "The attribute %(attr)s doesn't exist on %(obj)s."
-msgstr "Atribut %(attr)s ne postoji na %(obj)s."
 
 msgid "The date should be in YYYY-mm-dd format."
 msgstr "Format datuma treba da bude GGGG-mm-dd."

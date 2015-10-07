@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-09-25 15:01+0000\n"
+"POT-Creation-Date: 2015-10-07 03:29+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -1976,24 +1976,8 @@ msgid "Deleted"
 msgstr "नष्ट करण्यात आले"
 
 #, python-format
-msgid "Deleted IKE Policy %s"
-msgstr "नष्ट केलेले आयकेई धोरण %s"
-
-#, python-format
-msgid "Deleted IPSec Policy %s"
-msgstr "नष्ट केलेले आयपीएसईसी धोरण %s"
-
-#, python-format
-msgid "Deleted IPSec Site Connection %s"
-msgstr "नष्ट केलेली आयपीएसईसी केंद्र जोडणी %s"
-
-#, python-format
 msgid "Deleted VIP %s"
 msgstr "नष्ट केलेला व्हीआयपी%s"
-
-#, python-format
-msgid "Deleted VPN Service %s"
-msgstr "नष्ट केलेली व्हीपीएन सेवा %s"
 
 #, python-format
 msgid "Deleted member %s"
@@ -2572,10 +2556,6 @@ msgid "Error"
 msgstr "चूक [बदलत्या आयपीची सध्याची स्थिती]"
 
 msgctxt "current status of router"
-msgid "Error"
-msgstr "चूक [बदलत्या आयपीची सध्याची स्थिती]"
-
-msgctxt "status of a neteork port"
 msgid "Error"
 msgstr "चूक [बदलत्या आयपीची सध्याची स्थिती]"
 
@@ -6912,24 +6892,8 @@ msgid "Unable to create volume."
 msgstr "खंड तयार करण्यास असमर्थ."
 
 #, python-format
-msgid "Unable to delete IKE Policy: %s"
-msgstr "आयकेई धोरण नष्ट करण्यास असमर्थ: %s"
-
-#, python-format
-msgid "Unable to delete IPSec Policy: %s"
-msgstr "आयपीएसईसी धोरण नष्ट करण्यास असमर्थ: %s"
-
-#, python-format
-msgid "Unable to delete IPSec Site Connection: %s"
-msgstr "आयपीएसईसी केंद्र जोडणी नष्ट करण्यास असमर्थ: %s"
-
-#, python-format
 msgid "Unable to delete VIP. %s"
 msgstr "व्हीआयपी नष्ट करण्यास असमर्थ. %s"
-
-#, python-format
-msgid "Unable to delete VPN Service: %s"
-msgstr "व्हीपीएन सेवा नष्ट करण्यास असमर्थ: %s"
 
 msgid "Unable to delete container."
 msgstr "पात्र नष्ट करण्यास अमसर्थ."

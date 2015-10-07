@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-09-16 18:25+0000\n"
+"POT-Creation-Date: 2015-10-07 03:29+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -237,9 +237,6 @@ msgstr "Members"
 msgid "More Actions"
 msgstr "More Actions"
 
-msgid "N/A"
-msgstr "N/A"
-
 msgid "Navigation Item"
 msgstr "Navigation Item"
 
@@ -307,9 +304,6 @@ msgid_plural "Sell Puppies"
 msgstr[0] "Sell Puppy"
 msgstr[1] "Sell Puppies"
 
-msgid "Session timed out."
-msgstr "Session timed out."
-
 msgid "Sign In"
 msgstr "Sign In"
 
@@ -326,10 +320,6 @@ msgstr "Success: "
 
 msgid "Summary"
 msgstr "Summary"
-
-#, python-format
-msgid "The attribute %(attr)s doesn't exist on %(obj)s."
-msgstr "The attribute %(attr)s doesn't exist on %(obj)s."
 
 msgid "The date should be in YYYY-mm-dd format."
 msgstr "The date should be in YYYY-mm-dd format."

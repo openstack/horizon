@@ -6,17 +6,16 @@
 # Ian Y. Choi <ianyrchoi@gmail.com>, 2015
 # jaekwon.park <jaekwon.park@rockplace.co.kr>, 2014
 # Sungjin Kang <potopro@gmail.com>, 2015
-# OpenStack Infra <zanata@openstack.org>, 2015. #zanata
 # Sungjin Kang <gang.sungjin@gmail.com>, 2015. #zanata
 msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-09-19 06:33+0000\n"
+"POT-Creation-Date: 2015-10-07 03:29+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2015-09-21 06:16+0000\n"
+"PO-Revision-Date: 2015-10-06 02:02+0000\n"
 "Last-Translator: Sungjin Kang <gang.sungjin@gmail.com>\n"
 "Language-Team: Korean (Korea) (http://www.transifex.com/openstack/horizon/"
 "language/ko_KR/)\n"
@@ -64,7 +63,7 @@ msgid ""
 "    "
 msgstr ""
 "\n"
-"      당신이 인증 방법을 모르는경우, 관리자에게 문의하십시오.\n"
+"      인증 방법을 모르는경우, 관리자에게 문의하십시오.\n"
 "    "
 
 #, python-format
@@ -136,7 +135,7 @@ msgstr "0 Bytes"
 
 #, python-format
 msgid "A %(resource)s with the name \"%(name)s\" already exists."
-msgstr "이름 \"%(name)s\"과 %(resource)s이 이미 존재합니다."
+msgstr "%(resource)s 에 이미 \"%(name)s\" 이름이 존재합니다."
 
 msgid "Actions"
 msgstr "작업"
@@ -206,7 +205,7 @@ msgstr "정보:"
 
 msgid "Invalid metadata entry. Use comma-separated key=value pairs"
 msgstr ""
-"유효하지 않은 메타데이터 항목. 콤마로 구분된 key=value 페어를 사용하세요."
+"올바르지 않은 메타데이터 항목. 콤마로 구분된 key=value 페어를 사용하세요."
 
 msgid "Invalid subnet mask"
 msgstr "서브넷 마스크가 잘못되었습니다."
@@ -235,9 +234,6 @@ msgstr "구성원"
 msgid "More Actions"
 msgstr "기타 작업"
 
-msgid "N/A"
-msgstr "N/A"
-
 msgid "Navigation Item"
 msgstr "네비게이션 항목"
 
@@ -261,13 +257,13 @@ msgid "No members."
 msgstr "구성원이 없습니다."
 
 msgid "None available."
-msgstr "사용할 수 있는 것이 없음."
+msgstr "사용할 수 있는 것이 없습니다."
 
 msgid "Not a valid IP protocol number"
-msgstr "유효하지 않은 IP 프로토콜 번호"
+msgstr "올바르지 않은 IP 프로토콜 번호"
 
 msgid "Not a valid port number"
-msgstr "유효하지 않은 포트 번호"
+msgstr "올바르지 않은 포트 번호"
 
 msgid "One colon allowed in port range"
 msgstr "포트 범위에서 콜론은 하나만 사용할 수 있습니다."
@@ -295,7 +291,7 @@ msgstr "저장"
 
 #, python-format
 msgid "Select a %s to browse."
-msgstr "브라우저에서 %s를 선택하십시오."
+msgstr "브라우저에서 %s 를 선택하십시오."
 
 msgid "Select a period of time to query its usage:"
 msgstr "사용량을 조회할 기간을 선택하세요:"
@@ -304,11 +300,8 @@ msgid "Sell Puppy"
 msgid_plural "Sell Puppies"
 msgstr[0] "강아지 판매"
 
-msgid "Session timed out."
-msgstr "세션 타임 아웃."
-
 msgid "Sign In"
-msgstr "등록"
+msgstr "로그인"
 
 msgid "Sold Puppy"
 msgid_plural "Sold Puppies"
@@ -323,10 +316,6 @@ msgstr "완료:"
 msgid "Summary"
 msgstr "요약"
 
-#, python-format
-msgid "The attribute %(attr)s doesn't exist on %(obj)s."
-msgstr "%(obj)s 에 %(attr)s 속성이 없습니다."
-
 msgid "The date should be in YYYY-mm-dd format."
 msgstr "날짜는 YYYY-mm-dd 형식이어야 합니다."
 
@@ -334,13 +323,13 @@ msgid "The string may only contain ASCII printable characters."
 msgstr "문자열은 ASCII 인쇄 문자를 포함할 수 있습니다."
 
 msgid "This Period's GB-Hours:"
-msgstr "이 기간의 GB-Hours 사용 시간:"
+msgstr "선택 기간 동안에 사용 시간당 GB:"
 
 msgid "This Period's RAM-Hours:"
-msgstr "이 기간의 RAM 사용 시간:"
+msgstr "선택 기단 동안에 사용 시간당 RAM:"
 
 msgid "This Period's VCPU-Hours:"
-msgstr "이 기간의 VCPU 사용 시간:"
+msgstr "선택 기간 동안에 사용 시간당 VCPU:"
 
 msgid "This action cannot be undone."
 msgstr "이 작업은 취소할 수 없습니다."
@@ -370,11 +359,11 @@ msgstr "경고:"
 
 #, python-format
 msgid "You are not allowed to %(action)s: %(objs)s"
-msgstr " %(action)s 이(가) 허용되지 않습니다: %(objs)s "
+msgstr "%(action)s 이(가) 허용되지 않았습니다: %(objs)s "
 
 #, python-format
 msgid "You are not authorized to access %s"
-msgstr "%s에 접근 권한이 없습니다. "
+msgstr "%s 에 접근 권한이 없습니다. "
 
 msgid "You do not have permission to access the resource:"
 msgstr "당신은 리소스에 접근할 권한이 없습니다.:"

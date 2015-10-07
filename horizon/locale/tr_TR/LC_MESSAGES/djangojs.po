@@ -6,17 +6,17 @@
 # İşbaran Akçayır <isbaran@gmail.com>, 2015
 # Mücahit Büyükyılmaz <mucahit@konya.edu.tr>, 2015
 # sercanaydogan <sercanaydogan@gmail.com>, 2014
-# OpenStack Infra <zanata@openstack.org>, 2015. #zanata
+# Mücahit Büyükyılmaz <mucahit@deltanoc.com>, 2015. #zanata
 msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-09-17 00:21+0000\n"
+"POT-Creation-Date: 2015-10-07 03:29+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2015-09-03 08:38+0000\n"
-"Last-Translator: İşbaran Akçayır <isbaran@gmail.com>\n"
+"PO-Revision-Date: 2015-10-06 02:02+0000\n"
+"Last-Translator: Mücahit Büyükyılmaz <mucahit@deltanoc.com>\n"
 "Language-Team: Turkish (Turkey) (http://www.transifex.com/openstack/horizon/"
 "language/tr_TR/)\n"
 "Generated-By: Babel 2.0\n"
@@ -42,7 +42,10 @@ msgstr "%s TB"
 
 #, python-format
 msgid "%s bytes"
-msgstr "%s bytes"
+msgstr "%s byte"
+
+msgid "-"
+msgstr "-"
 
 msgid "Active"
 msgstr "Etkin"
@@ -60,7 +63,7 @@ msgid "An error occurred while updating."
 msgstr "Güncelleme sırasında bir hata oluştu."
 
 msgid "An error occurred. Please try again later."
-msgstr "Bir hata oluştu. Lütfen tekrar deneyin."
+msgstr "Bir hata oluştu. Lütfen daha sonra tekrar deneyiniz."
 
 msgid "Available"
 msgstr "Uygun"
@@ -74,14 +77,17 @@ msgstr "Geri"
 msgid "Cancel"
 msgstr "İptal"
 
+msgid "Click here for filters."
+msgstr "Filtre için buraya tıklayın"
+
 msgid "Click here to expand the row and view the errors."
 msgstr "Satırı genişletmek ve hataları görüntülemek için burayı tıklayın."
 
 msgid "Click to see more details"
-msgstr "Daha fazla detaylar için tıklayın"
+msgstr "Daha fazla detay için tıklayın"
 
 msgid "Click to show or hide"
-msgstr "Göstermek ve saklamak için tıklayın"
+msgstr "Göstermek ve gizlemek için tıklayın"
 
 msgid "Closed"
 msgstr "Kapandı"
@@ -97,10 +103,13 @@ msgid "Connecting"
 msgstr "Bağlanıyor"
 
 msgid "Could not decrypt the password"
-msgstr "Şifre Çözülemedi"
+msgstr "Parola Çözülemedi"
 
 msgid "Could not read the file"
 msgstr "Dosya okunamadı"
+
+msgid "Create Subnet"
+msgstr "Subnet Oluştur"
 
 msgid "Current Usage"
 msgstr "Mevcut Kullanım"
@@ -123,16 +132,27 @@ msgstr "Sil"
 msgid "Delete Interface"
 msgstr "Arayüzü Sil"
 
+msgid "Delete Network"
+msgstr "Ağ Sil"
+
 msgid "Delete Router"
-msgstr "Yönlendiriciyi Sil"
+msgstr "Router'ı Sil"
+
+msgid "Delete Subnet"
+msgstr "Subnet Sil"
 
 msgid "Detail Information"
 msgstr "Detaylı Bilgi"
 
 #, python-format
+msgid "Displaying %(count)s of %(total)s items"
+msgstr "Toplam %(total)s öğenin %(count)s tanesi gösteriliyor"
+
+#, fuzzy, python-format
 msgid "Displaying %s item"
 msgid_plural "Displaying %s items"
 msgstr[0] "%s adet gösteriliyor"
+msgstr[1] "%s adet gösteriliyor"
 
 msgid "Duplicate keys are not allowed"
 msgstr "Tekrarlanan anahtarlara izin verilmiyor"
@@ -147,10 +167,10 @@ msgid "Existing Metadata"
 msgstr "Mevcut üstveri"
 
 msgid "Expand to see allocated items"
-msgstr "Öğeleri görmek için genişlet"
+msgstr "Ayrılmış öğeleri görmek için genişlet"
 
 msgid "Expand to see available items"
-msgstr "Uygun parçaları görmek için genişlet"
+msgstr "Uygun öğeleri görmek için genişlet"
 
 msgid "Filter"
 msgstr "Filtre"
@@ -162,7 +182,13 @@ msgid "Flavor"
 msgstr "Şablon"
 
 msgid "ID"
-msgstr "KİMLİK"
+msgstr "ID"
+
+msgid "IP Addresses"
+msgstr "IP Adresleri"
+
+msgid "In current results"
+msgstr "Şu andaki sonuçlar içinde"
 
 msgid "Info"
 msgstr "Bilgi"
@@ -198,10 +224,10 @@ msgid "No"
 msgstr "Hayır"
 
 msgid "No available items"
-msgstr "Uygun parça yok"
+msgstr "Uygun öğe yok"
 
 msgid "No available metadata"
-msgstr "Üstveri uygun değil"
+msgstr "Uygun üstveri mevcut değil"
 
 msgid "No data available."
 msgstr "Veri yok."
@@ -234,7 +260,7 @@ msgid "Open Console"
 msgstr "Konsol Aç"
 
 msgid "Passwords do not match."
-msgstr "Şifreler uyuşmuyor."
+msgstr "Parolalar uyuşmuyor."
 
 msgid "Pattern mismatch"
 msgstr "Model Uyumsuzluğu"
@@ -246,7 +272,7 @@ msgid "Prompt"
 msgstr "İleti"
 
 msgid "Re-order items using drag and drop"
-msgstr "Sürükle ve bırak kullanarak ögeleri yeniden sipariş ver"
+msgstr "Sürükle ve bırak kullanarak ögeleri yeniden sırala"
 
 msgid "Remaining"
 msgstr "Kalan"
@@ -255,7 +281,7 @@ msgid "Remove"
 msgstr "Sil"
 
 msgid "Required"
-msgstr "Gerekli"
+msgstr "Zorunlu"
 
 msgid "Roles"
 msgstr "Roller"
@@ -264,10 +290,13 @@ msgid "STATUS"
 msgstr "DURUM"
 
 msgid "Select an item from Available items below"
-msgstr "Aşağıdaki kullanılabilir öğelerden birini seçin."
+msgstr "Aşağıdaki kullanılabilir öğelerden birini seçin"
 
 msgid "Select one"
 msgstr "Birini seçin"
+
+msgid "Server Name"
+msgstr "Sunucu Adı"
 
 msgid "Shutdown"
 msgstr "Kapat"
@@ -282,6 +311,9 @@ msgstr "Durum: %s"
 msgid "Submit"
 msgstr "Gönder"
 
+msgid "Subnets"
+msgstr "Subnetler"
+
 msgid "Success"
 msgstr "Başarılı"
 
@@ -289,7 +321,7 @@ msgid "Success: "
 msgstr "Başarılı:"
 
 msgid "Terminate Instance"
-msgstr "Sunucuyu Sonlandır"
+msgstr "Instance'ı Yoket"
 
 msgid "Text"
 msgstr "Metin"
@@ -297,10 +329,12 @@ msgstr "Metin"
 msgid ""
 "The action cannot be performed. The contents of this row have errors or are "
 "missing information."
-msgstr "Eylem yapılamaz. Bu satırın içeriğinde hatalar var veya eksik."
+msgstr ""
+"Bu işlem yapılamaz. Bu satırın içeriğinde hatalar var veya eksik bilgi "
+"içeriyor."
 
 msgid "There was a problem communicating with the server, please try again."
-msgstr "Sunucu ile iletişimde bir sorun var, lütfen tekrar deneyin."
+msgstr "Sunucu ile iletişimde bir sorun var, lütfen tekrar deneyiniz."
 
 msgid "There was an error submitting the form. Please try again."
 msgstr "Formu gönderirken bir hata oluştu. Lütfen tekrar deneyin."
@@ -312,10 +346,10 @@ msgid "View Details"
 msgstr "Ayrıntıları Göster"
 
 msgid "View Instance Details"
-msgstr "Örnek detayları görüntüleme"
+msgstr "Instance Detaylarını Göster"
 
 msgid "View Router Details"
-msgstr "Router Ayrıntıları"
+msgstr "Router Ayrıntılarını Göster"
 
 msgid "Warning"
 msgstr "Uyarı"
@@ -335,19 +369,26 @@ msgid ""
 "the Glance Metadata Catalog. Use the \"Other\" option to add metadata with "
 "the key of your choice."
 msgstr ""
-"Doğru sütuna sol sütundaki ögeleri taşıyarak kaynak veriyi belirtebilirsiniz."
-"Sol sütunda Glance Metadata kataloğu'ndaki metaveri tanımları mevcuttur. "
-"Seçtiğiniz metaveriyi eklemek için \"Diğer\" seçeneğini kullanınız."
+"Kaynak üstveriyi sol sütundaki ögeleri sağ sütuna taşıyarak "
+"belirtebilirsiniz.Sol sütunda Glance Üstveri kataloğu'ndaki üstveri "
+"tanımları mevcuttur. Özel bir üstveri eklemek için \"Diğer\" seçeneğini "
+"kullanınız."
 
 #, python-format
 msgid "You have selected %s. "
-msgstr "Seçili %s var."
+msgstr "%s yi seçtiniz."
 
 msgid "description"
 msgstr "açıklama"
 
 msgid "m1.small"
-msgstr "m1.small"
+msgstr "m1.küçük"
 
 msgid "m1.tiny"
-msgstr "m1.tiny"
+msgstr "m1.minik"
+
+msgid "no quota"
+msgstr "kota yok"
+
+msgid "pool default"
+msgstr "Ön tanımlı havuz"

@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-09-18 05:57+0000\n"
+"POT-Creation-Date: 2015-10-07 03:29+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -1434,18 +1434,6 @@ msgid_plural "Deleted DHCP Agents"
 msgstr[0] "DHCP Agent Verwijderd"
 msgstr[1] "DHCP Agenten Verwijderd"
 
-#, python-format
-msgid "Deleted IKE Policy %s"
-msgstr "IKE beleidslijn \"%s\" verwijderd."
-
-#, python-format
-msgid "Deleted IPSec Policy %s"
-msgstr "IPSec beleidslijn \"%s\" verwijderd."
-
-#, python-format
-msgid "Deleted IPSec Site Connection %s"
-msgstr "IPSec locatieverbinding \"%s\" verwijderd."
-
 msgid "Deleted Network"
 msgid_plural "Deleted Networks"
 msgstr[0] "Netwerk Verwijderd"
@@ -1459,10 +1447,6 @@ msgstr[1] "Poorten Verwijderd"
 #, python-format
 msgid "Deleted VIP %s"
 msgstr "VIP \"%s\" verwijderd."
-
-#, python-format
-msgid "Deleted VPN Service %s"
-msgstr "VPN dienst \"%s\" verwijderd."
 
 #, python-format
 msgid "Deleted member %s"
@@ -1927,10 +1911,6 @@ msgid "Error"
 msgstr "Fout"
 
 msgctxt "current status of router"
-msgid "Error"
-msgstr "Fout"
-
-msgctxt "status of a neteork port"
 msgid "Error"
 msgstr "Fout"
 
@@ -5104,24 +5084,8 @@ msgid "Unable to create volume."
 msgstr "Niet in staat om het volume te creëren."
 
 #, python-format
-msgid "Unable to delete IKE Policy: %s"
-msgstr "Niet in staat om het IKE beleid te verwijderen: %s"
-
-#, python-format
-msgid "Unable to delete IPSec Policy: %s"
-msgstr "Niet in staat om het IPSec beleid te verwijderen: %s"
-
-#, python-format
-msgid "Unable to delete IPSec Site Connection: %s"
-msgstr "Niet in staat om de IPSec locatieverbinding te verwijderen: %s "
-
-#, python-format
 msgid "Unable to delete VIP. %s"
 msgstr "Niet in staat om het VIP te verwijderen. %s"
-
-#, python-format
-msgid "Unable to delete VPN Service: %s"
-msgstr "Niet in staat om de VPN dienst te verwijderen: %s"
 
 #, python-format
 msgid "Unable to delete firewall. %s"

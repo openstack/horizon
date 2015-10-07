@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-09-16 18:25+0000\n"
+"POT-Creation-Date: 2015-10-07 03:29+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -169,9 +169,6 @@ msgstr "Leden"
 msgid "More Actions"
 msgstr "Meer acties"
 
-msgid "N/A"
-msgstr "n.v.t."
-
 msgid "Navigation Item"
 msgstr "Navigatie Artikel"
 
@@ -228,9 +225,6 @@ msgstr "Opslaan"
 msgid "Select a %s to browse."
 msgstr "Selecteer een %s om te bladeren."
 
-msgid "Session timed out."
-msgstr "Sessie verlopen."
-
 msgid "Sign In"
 msgstr "Aanmelden"
 
@@ -242,10 +236,6 @@ msgstr "Gelukt: "
 
 msgid "Summary"
 msgstr "Samenvatting"
-
-#, python-format
-msgid "The attribute %(attr)s doesn't exist on %(obj)s."
-msgstr "Het attribuut %(attr)s bestaat niet op %(obj)s."
 
 msgid "The date should be in YYYY-mm-dd format."
 msgstr "De datum dient in het JJJJ-mm-dd formaat te zijn."

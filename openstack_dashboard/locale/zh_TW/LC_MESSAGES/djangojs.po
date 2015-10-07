@@ -3,18 +3,16 @@
 # This file is distributed under the same license as the PROJECT project.
 #
 # Translators:
-# Liu Chi Han <t09sunny@gmail.com>, 2015. #zanata
-# OpenStack Infra <zanata@openstack.org>, 2015. #zanata
-# Tom Fifield <tom@openstack.org>, 2015. #zanata
+# Zhang Xiaowei <zero00072@gmail.com>, 2015. #zanata
 msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-09-17 00:21+0000\n"
+"POT-Creation-Date: 2015-10-07 03:30+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2015-09-17 05:52+0000\n"
+"PO-Revision-Date: 2015-10-06 02:07+0000\n"
 "Last-Translator: Liu Chi Han <t09sunny@gmail.com>\n"
 "Language-Team: Chinese (Taiwan) (http://www.transifex.com/openstack/horizon/"
 "language/zh_TW/)\n"
@@ -24,13 +22,13 @@ msgstr ""
 "X-Generator: Zanata 3.7.1\n"
 
 msgid "(Max: 16Kb)"
-msgstr "(Max: 16Kb)"
+msgstr "(最大：16 Kb)"
 
 msgid "(Modified)"
-msgstr "(已修改)"
+msgstr "（已更改）"
 
 msgid "(None)"
-msgstr "(無)"
+msgstr "（無）"
 
 msgid ""
 "<li><b>Image (with Create New Volume checked)</b>: This options uses an "
@@ -38,25 +36,25 @@ msgid ""
 "data. You can specify volume size and whether to delete the volume on "
 "termination of the instance.</li>"
 msgstr ""
-"<li><b>Image (with Create New Volume checked)</b>: 這個選項是讓執行個體使用映"
-"像檔來開機，並且建立一個新的磁碟區來保存資料。 您可指定磁碟區容量和選擇是否在"
-"刪除執行個體時同時刪除磁碟區。</li>"
+"<li><b>映像檔（與新增新的雲硬碟一併勾選）</b>：這個選項利用映像檔來開機雲實"
+"例，並且新增一個新的雲硬碟來維持雲實例資料。您可以指定雲硬碟容量並決定在刪除"
+"雲實例時是否一併刪除雲硬碟。</li>"
 
 msgid "<li><b>Image</b>: This option uses an image to boot the instance.</li>"
-msgstr "<li><b>Image</b>: 這個選項是讓執行個體使用映像檔開機</li>"
+msgstr "<li><b>映像檔</b>：這個選項用映像檔來開機雲實例。</li>"
 
 msgid ""
 "<li><b>Instance Snapshot</b>: This option uses an instance snapshot to boot "
 "the instance.</li>"
-msgstr "<li><b>Instance Snapshot</b>: 這個選項是讓執行個體使用快照開機</li>"
+msgstr "<li><b>雲實例即時存檔</b>：這個選項用雲實例即時存檔來開機雲實例。</li>"
 
 msgid ""
 "<li><b>Volume Snapshot</b>: This option uses a volume snapshot to boot the "
 "instance, and creates a new volume to persist instance data. You can choose "
 "to delete the volume on termination of the instance.</li>"
 msgstr ""
-"<li><b>Volume Snapshot</b>: 這個選項是讓執行個體使用磁碟區快照來開機，並且建"
-"立一個新的磁碟區來保存資料。 您可刪除執行個體上的磁碟區來終止執行個體。</li>"
+"<li><b>雲硬碟即時存檔</b>：這個選項利用雲硬碟即時存檔來開機雲實例，並且新增新"
+"的雲硬碟來維持雲實例資料。您可以選擇在終止雲實例時一併刪除雲硬碟。</li>"
 
 msgid ""
 "<li><b>Volume</b>: This option uses a volume that already exists. It does "
@@ -64,9 +62,9 @@ msgid ""
 "of the instance. <em>Note: when selecting Volume, you can only launch one "
 "instance.</em></li>"
 msgstr ""
-"<li><b>Volume</b>: 這個選項是使用一個已存在的磁碟區，不會建立新的磁碟區。 您"
-"可以選擇是否在刪除執行個體時同時刪除磁碟區。<em>Note: 當選擇磁碟區時，您只能"
-"啟動一個執行個體</em></li>"
+"<li><b>雲硬碟</b>：這個選項利用已存在的雲硬碟。它不會新增新的雲硬碟。您可以選"
+"擇在終止雲實例時一併刪除雲硬碟。<em>留意：當選擇雲硬碟，您只能發動一個雲實"
+"例。</em></li>"
 
 msgid ""
 "A floating IP allows instances to be addressable from an external network.\n"
@@ -78,23 +76,22 @@ msgid ""
 "    Then, select the <b>Associate Floating IP</b> option and enter the "
 "necessary details."
 msgstr ""
-"浮動IP讓外部網路可以訪問執行個體。\n"
-"    浮動IP不會在執行個體被創建的時候就分配好。\n"
-"    而是在建立之後才可以指定的。\n"
-"    如果您要設置浮動IP，請到<b>Instances</b>畫面，點擊執行個體右側"
-"<b>Actions</b> 選單。\n"
-"    然後選擇 <b>Associate Floating IP</b> 選項，輸入必須的詳細內容設置即可。"
+"浮動 IP 允許從對外網路分配位址給雲實例。\n"
+"    浮動 IP 並不是在建立時間分配給雲實例，\n"
+"    而是等到雲實例已新增後再分配。欲附加浮動 IP，\n"
+"    請到<b>雲實例</b>下檢視並點擊雲實例右邊的<b>動作</b>選單。\n"
+"    然後選擇<b>聯結浮動 IP</b>選項並輸入所需的詳細資訊。"
 
 msgid ""
 "A key pair allows you to SSH into your newly created instance.\n"
 "      You may select an existing key pair, import a key pair, or generate a "
 "new key pair."
 msgstr ""
-"金鑰對讓您可以使用SSH的方式登入新建立的執行個體。 \n"
-"您可以選擇一個已存在的金鑰對、導入金鑰對或是生成新的金鑰對。"
+"一組密鑰對允許您以 SSH 的方式進入您新增的新雲實例裡。\n"
+"      您可能要選擇一組已存在的密鑰對、匯入密鑰對或產生全新的密鑰對。"
 
 msgid "A name is required for your instance."
-msgstr "請輸入執行個體的名稱"
+msgstr "為您的雲實例命名。"
 
 msgid "Active"
 msgstr "使用中"
@@ -108,13 +105,13 @@ msgid ""
 "with the users assigned to that project. If you need a custom flavor, "
 "contact your administrator."
 msgstr ""
-"管理員負責建立和管理 Flavors。您可以為特定的專案建立客製化 Flavor ，並且該"
-"Flavor是被專案內的用戶所共享的。 如果您需要客製化 Flavor ，請聯繫您的管理員。"
+"管理員負責新增及管理虛擬硬體樣板。可以為您或分享給您為成員的專案新增自訂的虛"
+"擬硬體樣板。若您需要自訂的虛擬硬體樣板，請聯絡您的管理員。"
 
 msgid ""
 "Administrators set up the pool of floating IPs that are available to attach "
 "to instances."
-msgstr "管理員建立浮動IP池，執行個體可以使用浮動IP池中的浮動IP進行設置。"
+msgstr "管理員安裝可用於附加到雲實例的浮動 IP 倉庫。"
 
 msgid ""
 "An <b>External</b> network is set up by an administrator.\n"
@@ -124,11 +121,10 @@ msgid ""
 "    You can use the <b>Network Topology</b> view to connect the router to "
 "the two networks."
 msgstr ""
-" <b>External</b> 網路是由管理員設定的。\n"
-"    如果希望執行個體可以與外界數據中心溝通，\n"
-"    那麼您需要在您的 <b>Project</b> 網路和 <b>External</b> 網路之間建立一個路"
-"由。 \n"
-"    您可以通過 <b>Network Topology</b> 檢視路由與兩個網路的連接。"
+"<b>對外</b>網路由管理員安裝。\n"
+"    若您想要與資料中心外通訊，\n"
+"    請在<b>專案</b>網路及<b>對外</b>網路間附加路由器。\n"
+"    您可以使用<b>網路拓撲</b>檢視兩個網路與路由器的連線。"
 
 msgid ""
 "An advanced option available when launching an instance is disk "
@@ -136,20 +132,19 @@ msgid ""
 "b> resizes the disk and sets it to a single partition. Selecting <b>Manual</"
 "b> allows you to create multiple partitions on the disk."
 msgstr ""
-"啟動執行個體時可以選擇使用磁碟分割這個進階選項。 磁碟分割有兩個選項 Automatic"
-"以及Manual 。 選擇  <b>Automatic</b> 時，會重新分配磁碟容量並設置為僅有一個分"
-"區；選擇 <b>Manual</b> 時，您可以在磁碟上建立多個分區。"
+"發動雲實例時有硬碟分割這個進階選項可用。有兩種硬碟分割選項。選擇<b>自動</b>來"
+"調整硬碟容量並設定於單一的分割。選擇<b>手動</b>允許您在硬碟上新增多個分割。"
 
 msgid ""
 "An instance name is required and used to help you uniquely identify your "
 "instance in the dashboard."
-msgstr "執行個體名稱能幫助您在儀表板中唯一標識該執行個體，必須指定。"
+msgstr "雲實例名稱是需要用來幫助您在儀表板上辨識唯一的雲實例的。"
 
 msgid "Automatic"
 msgstr "自動"
 
 msgid "Availability Zone"
-msgstr "Availability Zone"
+msgstr "可用區域"
 
 msgid "Boot Source"
 msgstr "開機來源"
@@ -158,18 +153,18 @@ msgid "Cancel"
 msgstr "取消"
 
 msgid "Cannot get service catalog from keystone."
-msgstr "無法從 Keystone 獲得服務類型。"
+msgstr "無法從 Keystone 獲得伺服器分類。"
 
 msgid "Cannot get the Nova extension list."
-msgstr "無法取得Nova extension清單"
+msgstr "不能獲得 Nova 擴充套件列表。"
 
 msgid ""
 "Check the <b>Configuration Drive</b> box if you want to write metadata to a "
 "special configuration drive. When the instance boots, it attaches to the "
 "<b>Configuration Drive</b> and accesses the metadata."
 msgstr ""
-"如果您想對特定驅動設置寫入metadata可查看<b>Configuration Drive</b>。 當執行個"
-"體開機時會連接<b>Configuration Drive</b>，並訪問metadata。"
+"若您想要寫入詮釋資料到特定的設定檔硬碟請勾選<b>設定檔硬碟</b>方格。當雲實例開"
+"機時，它會附加到<b>設定檔硬碟</b>並存取詮釋資料。"
 
 msgid "Click to see more details"
 msgstr "點擊來顯示更多詳細資訊"
@@ -178,25 +173,25 @@ msgid "Configuration"
 msgstr "設置"
 
 msgid "Configuration Drive"
-msgstr "驅動設置"
+msgstr "設定檔硬碟"
 
 msgid "Configuration Help"
-msgstr "設置幫助"
+msgstr "設置說明"
 
 msgid "Configuration Value"
-msgstr "配置值"
+msgstr "設置數值"
 
 msgid "Count"
-msgstr "數量"
+msgstr "計數"
 
 msgid "Create Key Pair"
-msgstr "建立金鑰對"
+msgstr "新增密鑰對"
 
 msgid "Create New Volume"
-msgstr "建立新磁碟區"
+msgstr "新增新雲硬碟"
 
 msgid "Created"
-msgstr "已建立"
+msgstr "已新增"
 
 msgid ""
 "Custom scripts are attached to instances to perform specific actions when "
@@ -218,7 +213,7 @@ msgid "Default Value"
 msgstr "預設值"
 
 msgid "Delete Volume on Terminate"
-msgstr "終止以刪除磁碟區"
+msgstr "在雲實例終止時刪除雲硬碟"
 
 msgid "Deleted"
 msgstr "已刪除"
@@ -233,7 +228,7 @@ msgid "Direction"
 msgstr "方向"
 
 msgid "Disk Partition"
-msgstr "磁碟分割"
+msgstr "硬碟分割"
 
 msgid "Domain ID"
 msgstr "地域識別號"
@@ -242,13 +237,13 @@ msgid "Down"
 msgstr "離線"
 
 msgid "Email"
-msgstr "E-mail"
+msgstr "電子郵件信箱"
 
 msgid "Enabled"
 msgstr "已啟用"
 
 msgid "Ephemeral Disk"
-msgstr "暫時磁碟"
+msgstr "暫時性硬碟"
 
 msgid "Ether Type"
 msgstr "網路協定類型"
@@ -258,36 +253,35 @@ msgstr "事件日誌不可用。"
 
 #, python-format
 msgid "Extension is not enabled: %(extension)s."
-msgstr "擴展功能未被啟用: %(extension)s."
+msgstr "未啟用擴充套件：%(extension)s."
 
 msgid "External Network"
-msgstr "外部網路"
+msgstr "對外網路"
 
 msgid "Fingerprint"
 msgstr "指紋"
 
 msgid "Flavor"
-msgstr "Flavor"
+msgstr "虛擬硬體樣板"
 
 msgid "Flavor Help"
-msgstr "Flavor 幫助"
+msgstr "虛擬硬體樣板說明"
 
 msgid ""
 "Flavors manage the sizing for the compute, memory and storage capacity of "
 "the instance."
-msgstr "Flavors 管理執行個體的計算能力、RAM以及儲存容量。"
+msgstr "虛擬硬體樣板管理雲實例的運算、記憶體及儲存容量規格。"
 
 msgid ""
 "For configs and params, type the key name; for args, type the index as an "
 "integer, starting from 0."
-msgstr ""
-"對於 configs 和 params ，請輸入 key 名稱 ；對於 args ，請輸入整數索引 (>=0)。"
+msgstr "對於設置及參數，請輸入鍵名；對於引數，請輸入從 0 開始的整數索引。"
 
 msgid ""
 "For data sources, use a data source UUID or a path (as per data source "
 "creation.)"
 msgstr ""
-"對於資料來源，請使用資料來源的 UUID 或路徑 (和每個資料來源創建的路徑一樣)"
+"對於資料來源，請使用資料來源的 UUID 或路徑（和每個資料來源創建的路徑一樣。）"
 
 msgid "Format"
 msgstr "格式"
@@ -299,49 +293,49 @@ msgid ""
 "authorized_keys</samp>\n"
 "  file."
 msgstr ""
-"若是Windows作業系統，您可以使用 PuTTYGen 來生成公鑰/私鑰。\n"
-"    使用 PuTTYGen Generator 來建立和儲存金鑰，\n"
-"    然後複製公鑰(紅色反白部分)到 <samp>.ssh/authorized_keys</samp>\n"
-"    。"
+"在 Windows 系統，您可以使用 PuTTYGen 來產生密鑰對。\n"
+"  使用 PuTTY 密鑰產生器來新增並儲存金鑰，然後複製\n"
+"  以紅色突顯方盒裡的公鑰到您的 <samp>.ssh/authorized_keys</samp>\n"
+"  檔案。"
 
 msgid "ID"
 msgstr "識別號"
 
 msgid ""
 "If a network is shared, then all users in the project can access the network."
-msgstr "如果一個網路被共享，在專案中所有的用戶都可以訪問這個網路。"
+msgstr "若網路被共享，所有專案裡的用戶皆可存取這個網路。"
 
 msgid ""
 "If a security group is not associated with an instance before it is "
 "launched, then you will have very limited access to the instance after it is "
 "deployed. You will only be able to access the instance from a VNC console."
 msgstr ""
-"如果安全性群組沒有在執行個體啟動前與執行個體關聯，那麼您訪問部屬後的執行個體"
-"將會有許多限制，並且只能從 VNC 控制台訪問執行個體。"
+"若未在發動雲實例前指定安全性群組，您在佈署後將只會擁有有限的權限存取雲實例。"
+"您將只可以從 VNC 主控臺存取雲實例。"
 
 msgid ""
 "If you select an availability zone and plan to use the boot from volume "
 "option, make sure that the availability zone you select for the instance is "
 "the same availability zone where your bootable volume resides."
 msgstr ""
-"如果您想要使用從磁碟區開機這個選項，請確保您選擇的 Availability Zone 和您的啟"
-"動磁碟區的相同。"
+"若您選擇了可用區域並打算用來從雲硬碟選項開機，請確認您選擇的雲實例可用區域與"
+"您用於開機的雲硬碟是相同的。"
 
 msgid ""
 "If you want to create an instance that uses ephemeral storage, meaning the "
 "instance data is lost when the instance is deleted, then choose one of the "
 "following boot sources:"
 msgstr ""
-"如果您想使用暫時存儲建立一個新的執行個體， 意味著執行個體中的資料在該執行個體"
-"被刪除時會遺失，然後從下列開機來源中選擇一項:"
+"若您想使用暫時性儲存空間新增雲實例，這意味著雲實例資料會在雲實例被刪除時一併"
+"遺失，那麼請選擇下列的開機來源："
 
 msgid ""
 "If you want to create an instance that uses persistent storage, meaning the "
 "instance data is saved when the instance is deleted, then select one of the "
 "following boot options:"
 msgstr ""
-"如果您想使用永久存儲建立一個新的執行個體， 意味著執行個體中被刪除時資料將會被"
-"保留，然後從下列開機源中選擇一項:"
+"如果您想要利用持續性儲存空間來新增雲實例，這意味著當雲實例被刪除時雲實例資料"
+"不會一併被刪除，那麼請選擇下列的開機來源："
 
 msgid "Image"
 msgstr "映像檔"
@@ -353,42 +347,42 @@ msgid "Impact on your quota"
 msgstr "對配額的影響"
 
 msgid "Import Key Pair"
-msgstr "導入金鑰"
+msgstr "匯入密鑰對"
 
 msgid "Instance Details"
-msgstr "執行個體詳細資訊"
+msgstr "雲實例詳細資訊"
 
 msgid "Instance Name"
-msgstr "執行個體名稱"
+msgstr "雲實例名稱"
 
 msgid "Instance Snapshot"
-msgstr "執行個體快照"
+msgstr "雲實例即時存檔"
 
 msgid "Instance Source"
-msgstr "執行個體來源"
+msgstr "雲實例來源"
 
 msgid "Instance count is required and must be an integer of at least 1"
-msgstr "請輸入執行個體的數量，必須為整數且大於1"
+msgstr "雲實例計數需要最少為 1 的整數"
 
 msgid ""
 "Instance source is the template used to create an instance. You can use a "
 "snapshot of an existing instance, an image, or a volume (if enabled). You "
 "can also choose to use persistent storage by creating a new volume."
 msgstr ""
-"執行個體來源是用來建立執行個體的。 您可以使用一個現有執行個體的快照、磁碟區"
-"(若是已啟用)或是建立一個新的磁碟區當作建立執行個體的範本。"
+"雲實例來源是用來新增雲實例的範本。您可以使用已存在雲實例的即時存檔、映像檔或"
+"雲硬碟（若已啟用）。您也可以選擇新增新的雲硬碟來使用持續性硬碟。"
 
 msgid "Insufficient privilege level to view user information."
-msgstr "權限不足，無法檢視用戶資訊。"
+msgstr "權限不足以檢視用戶資訊。"
 
 msgid "Key Pair"
-msgstr "金鑰對"
+msgstr "密鑰對"
 
 msgid "Key Pair Help"
-msgstr "金鑰對幫助"
+msgstr "密鑰對說明"
 
 msgid "Key Pair Name"
-msgstr "金鑰對名稱"
+msgstr "密鑰對名稱"
 
 msgid ""
 "Key Pairs are how you login to your instance after it is launched.\n"
@@ -396,28 +390,28 @@ msgid ""
 "key into the\n"
 "        space provided."
 msgstr ""
-"金鑰對是您登入執行個體的依據。 \n"
-"選擇一個能識別您的金鑰對，並且將您的SSH 公鑰貼在下列\n"
-"空白處。"
+"密鑰對是提供給您在發動雲實例後登入到您的雲實例的。\n"
+"        選擇您能分辨的密鑰對名稱並將您的 SSH 公鑰貼到\n"
+"        提供的空白處。"
 
 msgid ""
 "Key Pairs are how you login to your instance after it is launched.\n"
 "        Choose a key pair name you will recognize."
 msgstr ""
-"金鑰對是執行個體啟動後登入的依據。\n"
-"選擇一個能識別您的金鑰對。"
+"密鑰對是提供給您在發動雲實例後登入到您的雲實例的。\n"
+"        選擇您能分辨的密鑰對名稱。"
 
 msgid "Killed"
 msgstr "已中斷"
 
 msgid "Launch Instance"
-msgstr "啟動執行個體"
+msgstr "發動雲實例"
 
 msgid "Load script from a file"
-msgstr "載入腳本"
+msgstr "從檔案載入腳本"
 
 msgid "Location"
-msgstr "定位"
+msgstr "位置"
 
 msgid "Manual"
 msgstr "手動"
@@ -429,22 +423,22 @@ msgid "Max Port"
 msgstr "最大端口"
 
 msgid "Min Disk"
-msgstr "最小磁碟容量"
+msgstr "最小硬碟"
 
 msgid "Min Disk (GB)"
-msgstr "最小磁碟容量 (GB)"
+msgstr "最小硬碟（GB）"
 
 msgid "Min Port"
 msgstr "最小端口"
 
 msgid "Min RAM"
-msgstr "最小RAM"
+msgstr "最小隨機存取記憶體"
 
 msgid "Min RAM (MB)"
-msgstr "最小RAM (MB)"
+msgstr "最小隨機存取記憶體（MB）"
 
 msgid "Min Ram"
-msgstr "最小 RAM"
+msgstr "最小隨機存取記憶體"
 
 msgid "Name"
 msgstr "名稱"
@@ -456,7 +450,7 @@ msgid "Network"
 msgstr "網路"
 
 msgid "Network Help"
-msgstr "網路幫助"
+msgstr "網路說明"
 
 msgid "Network characteristics"
 msgstr "網路特徵"
@@ -465,7 +459,7 @@ msgid "Networks"
 msgstr "網路"
 
 msgid "Networks provide the communication channels for instances in the cloud."
-msgstr "網絡為執行個體提供通信頻道。"
+msgstr "網路為雲實例提供雲中的通訊頻道。"
 
 msgid "No"
 msgstr "否"
@@ -490,17 +484,17 @@ msgid ""
 "where it will be deployed, and the instance count. Increase the Count to "
 "create multiple instances with the same settings."
 msgstr ""
-"請輸入執行個體初始的Host Name 、將要佈署的 Availability Zone 以及執行個體"
-"數。 增加執行個體數將會建立多個有相同設定的執行個體。"
+"請提供給雲實例的初始主機名稱，然後提供可用區域來佈署，並且提供雲實例計數。增"
+"加計數來用相同的設定新增多個雲實例。"
 
 msgid "Policy check failed."
-msgstr "Policy 檢驗失敗。"
+msgstr "政策檢查失敗。"
 
 msgid "Positional Argument"
-msgstr "位置參數"
+msgstr "位置引數"
 
 msgid "Private"
-msgstr "私有的"
+msgstr "私人"
 
 msgid "Private Key"
 msgstr "私鑰"
@@ -512,14 +506,14 @@ msgid "Project"
 msgstr "專案"
 
 msgid "Project ID"
-msgstr "專案ID"
+msgstr "專案識別號"
 
 msgid ""
 "Project networks are created by users.\n"
 "    These networks are fully isolated and are project-specific."
 msgstr ""
-"Project 網路是由用戶建立的。\n"
-"    這些網路彼此間是完全獨立的且專案專屬的。"
+"專案網路由用戶新增。\n"
+"    這些網路完全統一並且專案專用。"
 
 msgid "Protected"
 msgstr "保護"
@@ -528,14 +522,14 @@ msgid "Protocol"
 msgstr "協定"
 
 msgid "Provider Network"
-msgstr "Provider 網路"
+msgstr "提供者網路"
 
 msgid ""
 "Provider networks are created by administrators.\n"
 "    These networks map to an existing physical network in the data center."
 msgstr ""
-"Provider 網絡是由管理員建立的。\n"
-"    這些網絡映射到資料中心裡一個現有的物理網絡。"
+"提供者網路由管理員新增。\n"
+"    這些網路對映到已存在於資料中心的實體網路。"
 
 msgid "Public"
 msgstr "公開"
@@ -547,7 +541,7 @@ msgid "Queued"
 msgstr "已排入"
 
 msgid "RAM"
-msgstr "RAM"
+msgstr "隨機存取記憶體"
 
 msgid "Re-order items using drag and drop"
 msgstr "使用拖拉來重新排列"
@@ -556,16 +550,16 @@ msgid "Remote"
 msgstr "遠端"
 
 msgid "Remove"
-msgstr "刪除"
+msgstr "移除"
 
 msgid "Required"
 msgstr "需要"
 
 msgid "Required?"
-msgstr "需求?"
+msgstr "必需？"
 
 msgid "Root Disk"
-msgstr "根磁碟"
+msgstr "根硬碟"
 
 msgid "Save"
 msgstr "儲存"
@@ -580,7 +574,7 @@ msgid "Security Groups"
 msgstr "安全性群組"
 
 msgid "Security Groups Help"
-msgstr "安全性群組幫助"
+msgstr "安全性群組說明"
 
 msgid ""
 "Security groups are project-specific and cannot be shared across projects."
@@ -594,16 +588,16 @@ msgid ""
 "Security</b> view, then find the security group and click <b>Manage Rules</"
 "b>."
 msgstr ""
-"安全性群組定義了一系列用於決定執行個體網路的過濾規則。用戶可以為現有的安全性"
-"群組增加規則，以進一步定義一個執行個體的訪問方式。若您要為安全性群組新建規"
-"則，請到 <b>Compute | Access & Security</b> 頁面，找到security group 並點擊 "
-"<b>Manage Rules</b>."
+"安全性群組定義一組 IP 篩選規則來決定流入與流出雲實例的網路交通。用戶可以加入"
+"額外的規則到已存在的安全性群組來增進已定義的雲實例存取選項。欲新增額外的規"
+"則，請到<b>運算|存取與安全性</b>檢視並尋找安全性群組並點擊<b>管理規則</b>。"
 
 msgid ""
 "See http://docs.openstack.org/developer/sahara/userdoc/edp.html for "
 "definitions."
 msgstr ""
-"請從 http://docs.openstack.org/developer/sahara/userdoc/edp.html 頁面參考定義"
+"請從 http://docs.openstack.org/developer/sahara/userdoc/edp.html 頁面參考定"
+"義。"
 
 msgid "Segmentation ID"
 msgstr "分段識別號"
@@ -615,38 +609,38 @@ msgid "Select Source"
 msgstr "選擇來源"
 
 msgid "Select Source Help"
-msgstr "選擇來源幫助"
+msgstr "選擇來源說明"
 
 msgid "Select a key pair from the available key pairs below."
-msgstr "請從下列金鑰對中選擇一個可使用的金鑰對。"
+msgstr "從下列可用的密鑰對中選擇。"
 
 msgid "Select a source from those listed below."
-msgstr "請從下列列表中選擇一個來源。"
+msgstr "從下列列表中選擇來源。"
 
 msgid "Select an item from Available items below"
-msgstr "請從下列可用項目中選擇一個項目"
+msgstr "從下列可用項目中選擇項目"
 
 msgid "Select at least one network"
-msgstr "請選擇至少一個網路"
+msgstr "選擇至少一個網路"
 
 msgid "Select networks from those listed below."
-msgstr "請從下列網路列表中選擇網路。"
+msgstr "從下列列表中選擇網路。"
 
 msgid "Select one"
-msgstr "請選擇一個"
+msgstr "擇一"
 
 msgid "Select one or more"
 msgstr "選擇一個或多個"
 
 msgid "Select one or more security groups from the available groups below."
-msgstr "從下列可用群組中選擇一個或多個安全性群組"
+msgstr "從下列可用群組中選擇一個或多個安全性群組。"
 
 msgid "Select the security groups."
-msgstr "選擇安全性群組"
+msgstr "選擇安全性群組。"
 
 #, python-format
 msgid "Service type is not enabled: %(desiredType)s"
-msgstr "未啟用服務類型：%(desiredType)s"
+msgstr "未啟用伺服器類型：%(desiredType)s"
 
 #, python-format
 msgid "Setting is not enabled: %(setting)s"
@@ -665,7 +659,7 @@ msgid "Size (GB)"
 msgstr "容量（GB）"
 
 msgid "Snapshot"
-msgstr "快照"
+msgstr "即時存檔"
 
 msgid "Status"
 msgstr "狀態"
@@ -674,20 +668,20 @@ msgid "String"
 msgstr "字串"
 
 msgid "Subnets Associated"
-msgstr "子網路已連接。"
+msgstr "子網路已聯結"
 
 #, python-format
 msgid "Successfully created key pair %(name)s."
-msgstr "成功建立金鑰對 %(name)s."
+msgstr "已成功新增密鑰對 %(name)s。"
 
 #, python-format
 msgid "Successfully imported key pair %(name)s."
-msgstr "成功導入金鑰對  %(name)s."
+msgstr "已成功匯入密鑰對  %(name)s。"
 
 msgid ""
 "The flavor you select for an instance determines the amount of compute, "
 "storage and memory resources that will be carved out for the instance."
-msgstr "您選擇的 Flavor 決定了欲製作的執行個體計算量、儲存量以及記憶體資源。"
+msgstr "您選擇的虛擬硬體樣板決定了雲實例所會用到的運算、儲存及記憶體資源。"
 
 msgid ""
 "The flavor you select must have enough resources allocated to support the "
@@ -695,14 +689,14 @@ msgid ""
 "enough resources for your instance are identified on the <b>Available</b> "
 "table with a yellow warning icon."
 msgstr ""
-"您選擇的 Flavor 必須有足夠配額以支持該類型執行個體的建立。Flavor 配額不足的執"
-"行個體會在<b>Available</b>表上標記一個黃色警告圖標。"
+"您所選的虛擬硬體樣板必須滿足您嘗試新增的雲實例所需。在<b>可用</b>表格中不能滿"
+"足雲實例需求虛擬硬體樣板會以黃色警告標誌突顯。"
 
 #, python-format
 msgid ""
 "The instance count must not exceed your quota available of "
 "%(maxInstanceCount)s instances"
-msgstr "執行個體數不可超過您可使用的配額 : %(maxInstanceCount)s"
+msgstr "雲實例計數不可超過您可用的 %(maxInstanceCount)s 個雲實例配額"
 
 #, python-format
 msgid ""
@@ -710,77 +704,77 @@ msgid ""
 "root disk. Select a flavor with a larger root disk or use a different image "
 "source."
 msgstr ""
-"選擇的映像來源需要根磁碟至少為 %(minDisk)s GB的 Flavor 。請選擇一個根磁碟較大"
-"的 Flavor ，或是使用不同的映像來源。"
+"選擇的映像檔來源需要最少 %(minDisk)s GB 根硬碟的虛擬硬體樣板。選擇大一點根硬"
+"碟的虛擬硬體樣板或使用不同的映像檔來源。"
 
 #, python-format
 msgid ""
 "The selected image source requires a flavor with at least %(minRam)s MB of "
 "RAM. Select a flavor with more RAM or use a different image source."
 msgstr ""
-"選擇的映像來源需要 RAM 大小至少為 %(minRam)s MB 的 Flavor 。請選擇一個RAM 大"
-"小較大的 Flavor ，或是使用不同的映像來源。"
+"選擇的映像檔來源需要最少 %(minRam)s MB 隨機存取記憶體的虛擬硬體樣板。選擇大一"
+"點隨機存取記憶體的虛擬硬體樣板或使用不同的映像檔來源。"
 
 msgid "The status indicates whether the network has an active connection."
-msgstr "這個狀態表示網路是否有使用中的連接。"
+msgstr "這個狀態表示這個網路是否有使用中的連線。"
 
 msgid "The step has completed successfully. No events to display."
-msgstr "這一步已經成功完成。沒有事件顯示。"
+msgstr "已成功完成步驟。沒有事件可顯示。"
 
 msgid ""
 "The subnet identifies a sub-section of a network. A subnet is specified in "
 "CIDR format.\n"
 "    A typical CIDR format looks like <samp>192.xxx.x.x/24</samp>."
 msgstr ""
-"子網標識網絡的子部分。指定子網時使用CIDR格式。\n"
-"一個標準的CIDR格式為 <samp>192.xxx.x.x/24</samp> 形式"
+"子網路指定了一個網路的子區段。子網路以 CIDR 格式來指定。\n"
+"    典型的 CIDR 格式看起來像 <samp>192.xxx.x.x/24</samp>。"
 
 #, python-format
 msgid "The volume size must be at least %(minVolumeSize)s GB"
-msgstr "磁碟區容量最少為 %(minVolumeSize)s GB"
+msgstr "雲硬碟容量最少需要 %(minVolumeSize)s GB"
 
 msgid ""
 "There are two ways to generate a key pair. From a Linux system,\n"
 "  generate the key pair with the <samp>ssh-keygen</samp> command:"
 msgstr ""
-"生成金鑰對有兩種方式，\n"
-"在Linux系統，使用 <samp>ssh-keygen</samp> 命令生成金鑰對:"
+"有兩種方法產生密鑰對。在 Linux 系統，\n"
+"  以 <samp>ssh-keygen</samp> 命令來產生密鑰對："
 
 msgid ""
 "This command generates a pair of keys: a private key (cloud.key)\n"
 "  and a public key (cloud.key.pub)."
 msgstr ""
-"這個命令能生成一個金鑰對: 私鑰 (cloud.key)\n"
-" 和公鑰 (cloud.key.pub)."
+"這道命令產生一組密鑰：一支私鑰（cloud.key）\n"
+"  及一支公鑰（cloud.key.pub）。"
 
 msgid ""
 "This flavor requires more RAM than your quota allows. Please select a "
 "smaller flavor or decrease the instance count."
 msgstr ""
-"Flavor 所需要的 RAM 大於您可使用的配額。 請選擇更小的 Flavor 或是刪減執行個體"
-"數量"
+"這個虛擬硬體樣板的隨機存取記憶體需求多於您允許的配額。請選擇小一點的虛擬硬體"
+"樣板或減少雲實例的計數。"
 
 msgid ""
 "This flavor requires more VCPUs than your quota allows. Please select a "
 "smaller flavor or decrease the instance count."
 msgstr ""
-"Flavor 所需要的 VCPUs 大於您可使用的配額。 請選擇更小的 Flavor 或是刪減執行個"
-"體數量"
+"這個虛擬硬體樣板的虛擬處理器需求多於您允許的配額。請選擇小一點的虛擬硬體樣板"
+"或減少雲實例的計數。"
 
 msgid "This is your new key pair. Copy this information and keep it secure."
-msgstr "這是您新的金鑰對，請複製這個訊息並且確保他是安全的。"
+msgstr "這是您新的密鑰對，複製這段訊息並保密。"
 
 msgid "Total Disk"
-msgstr "全部磁碟"
+msgstr "硬碟總合"
 
 msgid "Total Instances"
-msgstr "全部執行個體"
+msgstr "雲實例總合"
 
 msgid "Total RAM"
-msgstr "全部 RAM"
+msgstr "隨機存取記憶體總合"
 
 msgid "Total VCPUs"
-msgstr "全部 VCPUs"
+msgstr "虛擬處理器總合"
 
 msgid "Type"
 msgstr "類型"
@@ -790,35 +784,35 @@ msgid ""
 "browser supports the HTML5 File API, you may choose to load your script from "
 "a file. The size of your script should not exceed 16 Kb."
 msgstr ""
-"將您的腳本直接輸入到自定義腳本欄位中。如果您的瀏覽器支持 HTML5 ，可以選擇要加"
-"載的腳本檔案。腳本的大小不能超過16 KB。"
+"將您的腳本直接輸入到自定義腳本欄位中。如果您的瀏覽器支持 HTML5 檔案 API，您可"
+"以選擇從檔案載入您的腳本。腳本的大小不能超過 16 KB。"
 
 msgid "Unable to create the domain."
-msgstr "無法建立域。"
+msgstr "無法新增地域。"
 
 msgid "Unable to create the keypair."
-msgstr "無法新增金鑰對。"
+msgstr "無法新增密鑰對。"
 
 msgid "Unable to create the network."
 msgstr "無法新增網路。"
 
 msgid "Unable to create the project."
-msgstr "無法建立專案。"
+msgstr "無法新增專案。"
 
 msgid "Unable to create the role."
 msgstr "無法新增角色。"
 
 msgid "Unable to create the server."
-msgstr "無法建立伺服器。"
+msgstr "無法新增伺服器。"
 
 msgid "Unable to create the subnet."
 msgstr "無法新增子網路。"
 
 msgid "Unable to create the user."
-msgstr "無法建立用戶。"
+msgstr "無法新增用戶。"
 
 msgid "Unable to delete the domain."
-msgstr "無法刪除域。"
+msgstr "無法刪除地域。"
 
 msgid "Unable to delete the domains."
 msgstr "無法刪除地域。"
@@ -842,16 +836,16 @@ msgid "Unable to delete the users."
 msgstr "無法刪除用戶。"
 
 msgid "Unable to edit the aggregate extra specs."
-msgstr "無法編輯 aggregate flavor extra specs。"
+msgstr "無法編輯聚合額外規格。"
 
 msgid "Unable to edit the domain."
-msgstr "無法編輯域。"
+msgstr "無法編輯地域。"
 
 msgid "Unable to edit the flavor extra specs."
-msgstr "無法編輯 flavor extra specs。"
+msgstr "無法編輯虛擬硬體樣板額外規格。"
 
 msgid "Unable to edit the image custom properties."
-msgstr "無法編輯映像檔屬性"
+msgstr "無法編輯映像檔自訂屬性。"
 
 msgid "Unable to edit the project."
 msgstr "無法編輯專案。"
@@ -863,103 +857,103 @@ msgid "Unable to edit the user."
 msgstr "無法編輯用戶。"
 
 msgid "Unable to fetch the service catalog."
-msgstr "無法獲得服務類別。"
+msgstr "無法獲得伺服器分類。"
 
 msgid "Unable to get the Keystone service version."
-msgstr "無法取得 Keystone 服務版本。"
+msgstr "無法獲得 Keystone 伺服器版本。"
 
 msgid "Unable to grant the role."
 msgstr "無法賦予角色權力。"
 
 msgid "Unable to import the keypair."
-msgstr "無法導入金鑰對。"
+msgstr "無法匯入密鑰對。"
 
 msgid "Unable to retrieve settings."
-msgstr "無法獲取設定。"
+msgstr "無法獲得設定。"
 
 msgid "Unable to retrieve the aggregate extra specs."
-msgstr "無法獲取 aggregate flavor extra specs。"
+msgstr "無法獲得聚合額外規格。"
 
 msgid "Unable to retrieve the availability zones."
-msgstr "無法獲取availability zones。"
+msgstr "無法獲得可用區域。"
 
 msgid "Unable to retrieve the current user session."
 msgstr "無法獲得目前用戶連線階段。"
 
 msgid "Unable to retrieve the domain."
-msgstr "無法獲取域。"
+msgstr "無法獲得地域。"
 
 msgid "Unable to retrieve the domains."
-msgstr "無法獲取域列表。"
+msgstr "無法獲得地域。"
 
 msgid "Unable to retrieve the extensions."
-msgstr "無法獲取擴展功能。"
+msgstr "無法獲得擴充套件。"
 
 msgid "Unable to retrieve the flavor extra specs."
-msgstr "無法獲取 flavor extra specs。"
+msgstr "無法獲得虛擬硬體樣板額外規格。"
 
 msgid "Unable to retrieve the flavor."
-msgstr "無法獲取 Flavors 。"
+msgstr "無法獲得虛擬硬體樣板。"
 
 msgid "Unable to retrieve the flavors."
-msgstr "無法獲取 Flavors 。"
+msgstr "無法獲得虛擬硬體樣板。"
 
 msgid "Unable to retrieve the image custom properties."
-msgstr "無法獲取映像檔屬性"
+msgstr "無法獲得映像檔自訂屬性。"
 
 msgid "Unable to retrieve the image."
-msgstr "無法獲取映像檔"
+msgstr "無法獲得映像檔。"
 
 msgid "Unable to retrieve the images."
-msgstr "無法獲取映像檔"
+msgstr "無法獲得映像檔。"
 
 msgid "Unable to retrieve the keypairs."
-msgstr "無法獲取金鑰對"
+msgstr "無法獲得密鑰對。"
 
 msgid "Unable to retrieve the limits."
-msgstr "無法獲取限制。"
+msgstr "無法獲得限制。"
 
 msgid "Unable to retrieve the namespaces."
-msgstr "無法獲取命名空間。"
+msgstr "無法獲得命名空間。"
 
 msgid "Unable to retrieve the networks."
-msgstr "無法獲取網路。"
+msgstr "無法獲得網路。"
 
 msgid "Unable to retrieve the ports."
-msgstr "無法獲取端口"
+msgstr "無法獲得端口。"
 
 msgid "Unable to retrieve the project."
-msgstr "無法獲取專案。"
+msgstr "無法獲得專案。"
 
 msgid "Unable to retrieve the projects."
-msgstr "無法獲取專案列表。"
+msgstr "無法獲得專案。"
 
 msgid "Unable to retrieve the role."
-msgstr "無法獲取角色。"
+msgstr "無法獲得角色。"
 
 msgid "Unable to retrieve the roles."
-msgstr "無法獲取角色列表。"
+msgstr "無法獲得角色。"
 
 msgid "Unable to retrieve the security groups."
-msgstr "無法獲取安全組"
+msgstr "無法獲得安全性群組。"
 
 msgid "Unable to retrieve the server."
-msgstr "無法獲取端口。"
+msgstr "無法獲得伺服器。"
 
 msgid "Unable to retrieve the subnets."
-msgstr "無法獲取子網路。"
+msgstr "無法獲得子網路。"
 
 msgid "Unable to retrieve the user."
-msgstr "無法獲取用戶。"
+msgstr "無法獲得用戶。"
 
 msgid "Unable to retrieve the users."
-msgstr "無法獲取用戶。"
+msgstr "無法獲得用戶。"
 
 msgid "Unable to retrieve the volume snapshots."
-msgstr "無法獲取磁碟區快照列表"
+msgstr "無法獲得雲硬碟即時存檔。"
 
 msgid "Unable to retrieve the volumes."
-msgstr "無法獲取磁碟區列表"
+msgstr "無法獲得雲硬碟。"
 
 msgid "Unable to validate the template."
 msgstr "無法驗證範本。"
@@ -968,54 +962,53 @@ msgid "Up"
 msgstr "上線"
 
 msgid "Update Aggregate Metadata"
-msgstr "更新 Aggregate Metadata"
+msgstr "更新聚合詮釋資料"
 
 msgid "Update Flavor Metadata"
-msgstr "更新 RAM Metadata"
+msgstr "更新虛擬硬體樣板詮釋資料"
 
 msgid "Update Image Metadata"
-msgstr "更新映像檔 Metadata"
+msgstr "更新映像檔詮釋資料"
 
 msgid "Updated"
 msgstr "已更新"
 
 msgid "User ID"
-msgstr "用戶ID"
+msgstr "用戶識別號"
 
 msgid "User Name"
 msgstr "用戶名稱"
 
 msgid "VCPUS"
-msgstr "VCPUS"
+msgstr "虛擬處理器"
 
 msgid "Value Type"
-msgstr "變量類型"
+msgstr "數值類型"
 
 msgid "Visibility"
 msgstr "可見性"
 
 msgid "Volume"
-msgstr "磁碟區"
+msgstr "雲硬碟"
 
 msgid "Volume Snapshot"
-msgstr "磁碟區快照"
+msgstr "雲硬碟即時存檔"
 
 msgid "Volume size is required and must be an integer"
-msgstr "請輸入磁碟區的容量，必須為整數且大於1"
+msgstr "雲硬碟容量需要一個整數"
 
 msgid ""
 "Volumes can only be attached to 1 active instance at a time. Please either "
 "set your instance count to 1 or select a different source type."
 msgstr ""
-"一個磁碟區同時只能被一個使用中的執行個體連接。請將執行個體數設定為1，或選擇不"
-"同的執行個體來源。"
+"雲硬碟同時間只能被附加到一個使用中的雲實例。請設定您的雲實例計數為 1，不然就"
+"選擇另一種來源類型。"
 
 msgid ""
 "When selecting volume as boot source, please ensure the instance's "
 "availability zone is compatible with your volume's availability zone."
 msgstr ""
-"當選擇了一個磁碟區當作開機來源，請確保該執行個體的 Availability Zone 與磁碟區"
-"的兼容。"
+"當選擇雲硬碟為開機來源，請確定雲實例的可用區域與您的雲硬碟可用區域相容。"
 
 msgid ""
 "When the <b>Admin State</b> for a network is set to <b>Up</b>,\n"
@@ -1023,9 +1016,9 @@ msgid ""
 "b> to <b>Down</b>\n"
 "    if you are not ready for other users to access the network."
 msgstr ""
-"當網路的 <b>Admin State</b> 被設置成 <b>Up</b>,\n"
-"    就可以被使用。 如果您不想讓其他用戶存取這個網路，\n"
-"    您可以設置 <b>Admin State</b> 為 <b>Down</b>"
+"當網路的<b>管理員狀態</b>被設為<b>上線</b>時，\n"
+"    則可使用這個網路。若您不想讓其他用戶存取這個網路，\n"
+"    您可以將<b>管理員狀態</b>設為<b>離線</b>。"
 
 msgid "Yes"
 msgstr "是"

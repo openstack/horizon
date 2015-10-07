@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-09-25 15:01+0000\n"
+"POT-Creation-Date: 2015-10-07 03:29+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -1978,24 +1978,8 @@ msgid "Deleted"
 msgstr "मेटोअलक"
 
 #, python-format
-msgid "Deleted IKE Policy %s"
-msgstr "हटाएल गेल IKE नीति %s"
-
-#, python-format
-msgid "Deleted IPSec Policy %s"
-msgstr "हटाएल गेल IPSec नीति %s"
-
-#, python-format
-msgid "Deleted IPSec Site Connection %s"
-msgstr "हटाएल गेल IPSec साइट कनेक्शन %s"
-
-#, python-format
 msgid "Deleted VIP %s"
 msgstr "हटाएल गेल VIP %s"
-
-#, python-format
-msgid "Deleted VPN Service %s"
-msgstr "हटाएल गेल वीपीएन सेवा %s"
 
 #, python-format
 msgid "Deleted member %s"
@@ -2573,10 +2557,6 @@ msgid "Error"
 msgstr "त्रुटि"
 
 msgctxt "current status of router"
-msgid "Error"
-msgstr "त्रुटि"
-
-msgctxt "status of a neteork port"
 msgid "Error"
 msgstr "त्रुटि"
 
@@ -6910,24 +6890,8 @@ msgid "Unable to create volume."
 msgstr "वाल्यूम बनाबै मे असमर्थ."
 
 #, python-format
-msgid "Unable to delete IKE Policy: %s"
-msgstr "IKE नीति केँ हटाएब मे असमर्थ: %s"
-
-#, python-format
-msgid "Unable to delete IPSec Policy: %s"
-msgstr "IPSec नीति केँ हटाएब मे असमर्थ: %s"
-
-#, python-format
-msgid "Unable to delete IPSec Site Connection: %s"
-msgstr "IPSec साइट कनेक्शन हटाएब मे असमर्थ: %s"
-
-#, python-format
 msgid "Unable to delete VIP. %s"
 msgstr " %s VIP हटाएब मे असमर्थ."
-
-#, python-format
-msgid "Unable to delete VPN Service: %s"
-msgstr "वीपीएन सेवा हटाएब मे असमर्थ: %s"
 
 msgid "Unable to delete container."
 msgstr "कंटेनर मिटाबै मे असमर्थ."

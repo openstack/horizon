@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-09-25 15:01+0000\n"
+"POT-Creation-Date: 2015-10-07 03:29+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -2006,24 +2006,8 @@ msgid "Deleted"
 msgstr "ಅಳಿಸಲಾದ"
 
 #, python-format
-msgid "Deleted IKE Policy %s"
-msgstr "ಅಳಿಸಲಾದ IKE ಪಾಲಿಸಿ %s"
-
-#, python-format
-msgid "Deleted IPSec Policy %s"
-msgstr "ಅಳಿಸಲಾದ IPSec ಪಾಲಿಸಿ %s"
-
-#, python-format
-msgid "Deleted IPSec Site Connection %s"
-msgstr "ಅಳಿಸಲಾದ IPSec ಸೈಟ್‌ ಸಂಪರ್ಕ %s"
-
-#, python-format
 msgid "Deleted VIP %s"
 msgstr "ಅಳಿಸಲಾದ VIP %s"
-
-#, python-format
-msgid "Deleted VPN Service %s"
-msgstr "ಅಳಿಸಲಾದ VPN ಸೇವೆ %s"
 
 #, python-format
 msgid "Deleted member %s"
@@ -2610,10 +2594,6 @@ msgid "Error"
 msgstr "ದೋಷ"
 
 msgctxt "current status of router"
-msgid "Error"
-msgstr "ದೋಷ"
-
-msgctxt "status of a neteork port"
 msgid "Error"
 msgstr "ದೋಷ"
 
@@ -7034,24 +7014,8 @@ msgid "Unable to create volume."
 msgstr "ಪರಿಮಾಣವನ್ನು ರಚಿಸಲು ಸಾಧ್ಯವಾಗಿಲ್ಲ."
 
 #, python-format
-msgid "Unable to delete IKE Policy: %s"
-msgstr "IKE ಪಾಲಿಸಿಯನ್ನು ಅಳಿಸಲು ಸಾಧ್ಯವಾಗಿಲ್ಲ: %s"
-
-#, python-format
-msgid "Unable to delete IPSec Policy: %s"
-msgstr "IPSec ಪಾಲಿಸಿಯನ್ನು ಅಳಿಸಲು ಸಾಧ್ಯವಾಗಿಲ್ಲ: %s"
-
-#, python-format
-msgid "Unable to delete IPSec Site Connection: %s"
-msgstr "IPSec ಸೈಟ್‌ ಸಂಪರ್ಕವನ್ನು ಅಳಿಸಲು ಸಾಧ್ಯವಾಗಿಲ್ಲ: %s"
-
-#, python-format
 msgid "Unable to delete VIP. %s"
 msgstr "VIP ಅನ್ನು ಅಳಿಸಲು ಸಾಧ್ಯವಾಗಿಲ್ಲ. %s"
-
-#, python-format
-msgid "Unable to delete VPN Service: %s"
-msgstr "VPN ಸೇವೆಯನ್ನು ಅಳಿಸಲು ಸಾಧ್ಯವಾಗಿಲ್ಲ: %s"
 
 msgid "Unable to delete container."
 msgstr "ಕಂಟೇನರ್‌ ಅನ್ನು ಅಳಿಸಲು ಸಾಧ್ಯವಾಗಿಲ್ಲ."

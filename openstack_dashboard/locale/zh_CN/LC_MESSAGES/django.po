@@ -16,6 +16,7 @@
 # 刘俊朋 <liujunpeng@inspur.com>, 2015
 # 颜海峰 <yanheven@gmail.com>, 2015
 # Andreas Jaeger <jaegerandi@gmail.com>, 2015. #zanata
+# Daisy <guoyingc@cn.ibm.com>, 2015. #zanata
 # OpenStack Infra <zanata@openstack.org>, 2015. #zanata
 # Xu Yang <xuyang@cn.fujitsu.com>, 2015. #zanata
 # Yu Zhiuguo <yuzg@cn.fujitsu.com>, 2015. #zanata
@@ -24,12 +25,12 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-09-25 15:01+0000\n"
+"POT-Creation-Date: 2015-10-07 03:29+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2015-09-25 05:21+0000\n"
-"Last-Translator: zhangjingwen <zhangjingwen@cn.fujitsu.com>\n"
+"PO-Revision-Date: 2015-10-06 02:06+0000\n"
+"Last-Translator: Daisy <guoyingc@cn.ibm.com>\n"
 "Language-Team: Chinese (China) (http://www.transifex.com/openstack/horizon/"
 "language/zh_CN/)\n"
 "Generated-By: Babel 2.0\n"
@@ -1870,7 +1871,7 @@ msgid "Component"
 msgstr "组件"
 
 msgid "Compute"
-msgstr "Compute"
+msgstr "计算"
 
 msgid "Compute (Nova)"
 msgstr "计算(Nova)"
@@ -3059,18 +3060,6 @@ msgid "Deleted Host Aggregate"
 msgid_plural "Deleted Host Aggregates"
 msgstr[0] "已删除的主机聚合"
 
-#, python-format
-msgid "Deleted IKE Policy %s"
-msgstr "IKE策略 %s 已删除"
-
-#, python-format
-msgid "Deleted IPSec Policy %s"
-msgstr "IPSec策略 %s 已删除"
-
-#, python-format
-msgid "Deleted IPSec Site Connection %s"
-msgstr "IPSec站点连接 %s 已删除"
-
 msgid "Deleted Image"
 msgid_plural "Deleted Images"
 msgstr[0] "已删除的镜像"
@@ -3162,10 +3151,6 @@ msgstr[0] "已删除的用户"
 #, python-format
 msgid "Deleted VIP %s"
 msgstr "已删除VIP %s"
-
-#, python-format
-msgid "Deleted VPN Service %s"
-msgstr "VPN服务 %s 已删除"
 
 msgid "Deleted Volume Type"
 msgid_plural "Deleted Volume Types"
@@ -3889,10 +3874,6 @@ msgid "Error"
 msgstr "错误"
 
 msgctxt "current status of router"
-msgid "Error"
-msgstr "错误"
-
-msgctxt "status of a neteork port"
 msgid "Error"
 msgstr "错误"
 
@@ -4908,7 +4889,7 @@ msgid "Identifier Type"
 msgstr "标识符类型"
 
 msgid "Identity"
-msgstr "Identity"
+msgstr "身份管理"
 
 msgid "Identity service does not allow editing user data."
 msgstr "认证服务不允许编辑用户数据。"
@@ -9911,24 +9892,8 @@ msgid "Unable to create volume."
 msgstr "不能创建云硬盘。"
 
 #, python-format
-msgid "Unable to delete IKE Policy: %s"
-msgstr "无法删除IKE策略: %s"
-
-#, python-format
-msgid "Unable to delete IPSec Policy: %s"
-msgstr "无法删除IPSec策略: %s"
-
-#, python-format
-msgid "Unable to delete IPSec Site Connection: %s"
-msgstr "无法删除IPSec站点连接: %s"
-
-#, python-format
 msgid "Unable to delete VIP. %s"
 msgstr "无法删除VIP %s"
-
-#, python-format
-msgid "Unable to delete VPN Service: %s"
-msgstr "无法删除VPN服务: %s"
 
 msgid "Unable to delete container."
 msgstr "无法删除容器。"

@@ -7,18 +7,16 @@
 # naoki yoshida <oimotanaka1122@gmail.com>, 2015
 # Shu Muto <shu-mutou@rf.jp.nec.com>, 2015
 # Tom Fifield <tom@openstack.org>, 2015
-# Akihiro Motoki <amotoki@gmail.com>, 2015. #zanata
-# OpenStack Infra <zanata@openstack.org>, 2015. #zanata
-# Shu Muto <shu-mutou@rf.jp.nec.com>, 2015. #zanata
+# Yuko Katabami <yukokatabami@gmail.com>, 2015. #zanata
 msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-09-18 23:31+0000\n"
+"POT-Creation-Date: 2015-10-07 03:29+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2015-09-19 04:32+0000\n"
+"PO-Revision-Date: 2015-10-06 02:02+0000\n"
 "Last-Translator: Akihiro Motoki <amotoki@gmail.com>\n"
 "Language-Team: Japanese (http://www.transifex.com/openstack/horizon/language/"
 "ja/)\n"
@@ -106,7 +104,7 @@ msgid "Connecting"
 msgstr "接続中"
 
 msgid "Could not decrypt the password"
-msgstr "パスワードの復号化できませんでした。"
+msgstr "パスワードの復号できませんでした。"
 
 msgid "Could not read the file"
 msgstr "ファイルを読み取ることができませんでした。"
@@ -372,15 +370,15 @@ msgid ""
 msgstr ""
 "左の列から右の列にアイテムを移動して、リソースのメタデータを指定できます。左"
 "の列には、Glance のメタデータカタログに登録されているメタデータの定義が表示さ"
-"れています。任意のキーのメタデータを追加するには、\"Other\" オプションを使っ"
-"てください。"
+"れています。任意のキーのメタデータを追加するには、\"Other\" オプションを使用"
+"してください。"
 
 #, python-format
 msgid "You have selected %s. "
 msgstr "%s を選択しました。"
 
 msgid "description"
-msgstr "description"
+msgstr "説明"
 
 msgid "m1.small"
 msgstr "m1.small"

@@ -6,17 +6,16 @@
 # Shu Muto <shu-mutou@rf.jp.nec.com>, 2015
 # ykatabam <ykatabam@redhat.com>, 2015
 # ykatabam <ykatabam@redhat.com>, 2015
-# OpenStack Infra <zanata@openstack.org>, 2015. #zanata
 # Yuko Katabami <yukokatabami@gmail.com>, 2015. #zanata
 msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-09-19 06:33+0000\n"
+"POT-Creation-Date: 2015-10-07 03:29+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2015-09-19 08:55+0000\n"
+"PO-Revision-Date: 2015-10-06 02:02+0000\n"
 "Last-Translator: Yuko Katabami <yukokatabami@gmail.com>\n"
 "Language-Team: Japanese (http://www.transifex.com/openstack/horizon/language/"
 "ja/)\n"
@@ -237,9 +236,6 @@ msgstr "メンバー"
 msgid "More Actions"
 msgstr "その他のアクション"
 
-msgid "N/A"
-msgstr "N/A"
-
 msgid "Navigation Item"
 msgstr "ナビゲーション項目"
 
@@ -306,9 +302,6 @@ msgid "Sell Puppy"
 msgid_plural "Sell Puppies"
 msgstr[0] "子犬を売る"
 
-msgid "Session timed out."
-msgstr "セッションがタイムアウトしました。"
-
 msgid "Sign In"
 msgstr "ログイン"
 
@@ -324,10 +317,6 @@ msgstr "成功: "
 
 msgid "Summary"
 msgstr "概要"
-
-#, python-format
-msgid "The attribute %(attr)s doesn't exist on %(obj)s."
-msgstr "%(obj)s に 属性 %(attr)s が存在しません。"
 
 msgid "The date should be in YYYY-mm-dd format."
 msgstr "日付は YYYY-mm-dd 形式にする必要があります。"
@@ -372,7 +361,7 @@ msgstr "警告: "
 
 #, python-format
 msgid "You are not allowed to %(action)s: %(objs)s"
-msgstr "%(action)s は許可されていません： %(objs)s"
+msgstr "%(action)s は許可されていません:  %(objs)s"
 
 #, python-format
 msgid "You are not authorized to access %s"

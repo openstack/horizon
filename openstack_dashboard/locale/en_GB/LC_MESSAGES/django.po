@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-09-25 15:01+0000\n"
+"POT-Creation-Date: 2015-10-07 03:29+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -3006,18 +3006,6 @@ msgid_plural "Deleted Host Aggregates"
 msgstr[0] "Deleted Host Aggregate"
 msgstr[1] "Deleted Host Aggregates"
 
-#, python-format
-msgid "Deleted IKE Policy %s"
-msgstr "Deleted IKE Policy %s"
-
-#, python-format
-msgid "Deleted IPSec Policy %s"
-msgstr "Deleted IPSec Policy %s"
-
-#, python-format
-msgid "Deleted IPSec Site Connection %s"
-msgstr "Deleted IPSec Site Connection %s"
-
 msgid "Deleted Image"
 msgid_plural "Deleted Images"
 msgstr[0] "Deleted Image"
@@ -3111,10 +3099,6 @@ msgstr[1] "Deleted Users"
 #, python-format
 msgid "Deleted VIP %s"
 msgstr "Deleted VIP %s"
-
-#, python-format
-msgid "Deleted VPN Service %s"
-msgstr "Deleted VPN Service %s"
 
 msgid "Deleted Volume Type"
 msgid_plural "Deleted Volume Types"
@@ -3803,10 +3787,6 @@ msgid "Error"
 msgstr "Error"
 
 msgctxt "current status of router"
-msgid "Error"
-msgstr "Error"
-
-msgctxt "status of a neteork port"
 msgid "Error"
 msgstr "Error"
 
@@ -9707,24 +9687,8 @@ msgid "Unable to create volume."
 msgstr "Unable to create volume."
 
 #, python-format
-msgid "Unable to delete IKE Policy: %s"
-msgstr "Unable to delete IKE Policy: %s"
-
-#, python-format
-msgid "Unable to delete IPSec Policy: %s"
-msgstr "Unable to delete IPSec Policy: %s"
-
-#, python-format
-msgid "Unable to delete IPSec Site Connection: %s"
-msgstr "Unable to delete IPSec Site Connection: %s"
-
-#, python-format
 msgid "Unable to delete VIP. %s"
 msgstr "Unable to delete VIP. %s"
-
-#, python-format
-msgid "Unable to delete VPN Service: %s"
-msgstr "Unable to delete VPN Service: %s"
 
 msgid "Unable to delete container."
 msgstr "Unable to delete container."
