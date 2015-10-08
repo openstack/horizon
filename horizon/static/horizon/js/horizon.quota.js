@@ -245,13 +245,13 @@ horizon.Quota = {
     this.getSelectedFlavor();
 
     if (this.selected_flavor) {
-      var name = horizon.utils.truncate(this.selected_flavor.name, 14, true);
-      var vcpus = horizon.utils.humanizeNumbers(this.selected_flavor.vcpus);
-      var disk = horizon.utils.humanizeNumbers(this.selected_flavor.disk);
-      var ephemeral = horizon.utils.humanizeNumbers(this.selected_flavor["OS-FLV-EXT-DATA:ephemeral"]);
+      var name = horizon.Quota.truncate(this.selected_flavor.name, 14, true);
+      var vcpus = horizon.Quota.humanizeNumbers(this.selected_flavor.vcpus);
+      var disk = horizon.Quota.humanizeNumbers(this.selected_flavor.disk);
+      var ephemeral = horizon.Quota.humanizeNumbers(this.selected_flavor["OS-FLV-EXT-DATA:ephemeral"]);
       var disk_total = this.selected_flavor.disk + this.selected_flavor["OS-FLV-EXT-DATA:ephemeral"];
-      var disk_total_display = horizon.utils.humanizeNumbers(disk_total);
-      var ram = horizon.utils.humanizeNumbers(this.selected_flavor.ram);
+      var disk_total_display = horizon.Quota.humanizeNumbers(disk_total);
+      var ram = horizon.Quota.humanizeNumbers(this.selected_flavor.ram);
 
       $("#flavor_name").html(name);
       $("#flavor_vcpus").text(vcpus);
@@ -268,6 +268,39 @@ horizon.Quota = {
       $("#flavor_disk_total").text('');
       $("#flavor_ram").text('');
     }
+  },
+
+  /*
+   * Truncate a string at the desired length. Optionally append an ellipsis
+   * to the end of the string.
+   *
+   *  Example:
+   *  horizon.Quota.truncate("String that is too long.", 18, true); ->
+   *  "String that is too&hellip;"
+   *
+   */
+  truncate: function (string, size, includeEllipsis) {
+    if (string.length > size) {
+      if (includeEllipsis) {
+        return string.substring(0, (size - 3)) + '&hellip;';
+      }
+
+      return string.substring(0, size);
+    }
+
+    return string;
+  },
+
+  /*
+   * Adds commas to any integer or numbers within a string for human display.
+   *
+   * Example:
+   *  horizon.Quota.humanizeNumbers(1234); -> "1,234"
+   *  horizon.Quota.humanizeNumbers("My Total: 1234"); -> "My Total: 1,234"
+   *
+   */
+  humanizeNumbers: function (number) {
+    return number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
   },
 
   /*

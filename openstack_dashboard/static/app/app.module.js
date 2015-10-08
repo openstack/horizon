@@ -61,7 +61,6 @@
       .concat(horizonBuiltInModules)
       .concat(horizonPlugInModules)
     )
-
     .run(updateHorizon);
 
   updateHorizon.$inject = [
@@ -83,7 +82,7 @@
 
     $http.defaults.headers.post['X-CSRFToken'] = $cookies.csrftoken;
 
-    //expose the configuration for horizon legacy variable
+    // expose the legacy utils module
     horizon.utils = hzUtils;
 
     horizon.conf.spinner_options = spinnerOptions;
