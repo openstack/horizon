@@ -122,6 +122,21 @@ class KeystoneRestTestCase(test.TestCase):
             }
         )
 
+    def test_user_create_no_project(self):
+        self._test_user_create(
+            '{"name": "bob", '
+            '"password": "sekrit", "project_id": "", '
+            '"email": "spam@company.example"}',
+            {
+                'name': 'bob',
+                'password': 'sekrit',
+                'email': 'spam@company.example',
+                'project': None,
+                'domain': 'the_domain',
+                'enabled': True
+            }
+        )
+
     def test_user_create_partial(self):
         self._test_user_create(
             '{"name": "bob"}',
