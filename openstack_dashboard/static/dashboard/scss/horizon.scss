@@ -26,6 +26,7 @@
 @import "components/network_topology";
 @import "components/context_selection";
 @import "components/pie_charts";
+@import "components/table_actions";
 @import "/framework/framework";
 @import "components/tables";
 @import "components/table_actions";
@@ -411,14 +412,13 @@ a.current_item:hover h4 {
   }
 }
 
-/* Actions dropdown */
-
-.actions_column {
+/* Tables */
+/* This works around a known bug in Bootstrap, the
+   wrapping of button groups within the cell of a table:
+       https://github.com/twbs/bootstrap/issues/3130
+*/
+td .btn-group {
   white-space: nowrap;
-  padding: 10px;
-  position: relative;
-  width: 1em;
-  background-clip: padding-box;
 
   // We want the actions column to be a small button, but
   // we can't get to the class attribute yet to customize
@@ -426,118 +426,11 @@ a.current_item:hover h4 {
   .btn {
     @extend .btn-sm;
   }
-}
 
-form.actions_column {
-  width: auto;
-  font-family: $font-family-base;
-}
-
-// TODO(hurgleburgler): We need to fix this, we still support IE8+
-.actions_column .btn-group {
-  display: inline-flex;
-  display: -ms-inline-flexbox;
-  -ms-flex-direction: row;
-  display: -webkit-inline-flex;
-  display: -moz-inline-flex;
-}
-
-.actions_column .row_actions a,
-.actions_column .row_actions input,
-.actions_column .row_actions button,
-div.table_actions_menu .dropdown-menu a,
-div.table_actions_menu .dropdown-menu input,
-div.table_actions_menu .dropdown-menu button {
-  background: none;
-  float: none;
-  display: block;
-  padding: 5px 10px;
-  color: $text-color;
-  text-align: left;
-  border-radius: 0;
-  border: 0 none;
-  @include box-shadow(none);
-}
-
-.actions_column .row_actions .hide {
-  display: none;
-}
-
-.actions_column .btn-action-required {
-  font-weight: bold;
-}
-
-.tab-content {
-  overflow: visible;
-}
-
-/* Makes size consistent across browsers when mixing "btn-group" and "small" */
-.btn.hide, .btn-group .hide {
-  display: none;
-}
-.btn-group .dropdown-toggle:focus {
-  outline: none;
-}
-.dropdown-menu button {
-  line-height: 18px; /* Matches rule for ".dropdown-menu a" in bootstrap */
-  width: 100%;
-}
-.btn-group .dropdown-menu .btn {
-  border-radius: 0;
-}
-.dropdown-menu .btn.btn-danger,
-.dropdown-menu .btn.btn-danger:hover,
-.dropdown-menu .btn.btn-success,
-.dropdown-menu .btn.btn-success:hover,
-.dropdown-menu .btn.btn-info,
-.dropdown-menu .btn.btn-info:hover {
-  text-shadow: none; /* remove default bootstrap shadowing from button text. */
-}
-.dropdown-menu li:hover {
-  background: none;
-}
-
-.actions_column .dropdown-menu a:hover,
-.actions_column .dropdown-menu button:hover,
-div.table_actions_menu .dropdown-menu a:hover,
-div.table_actions_menu .dropdown-menu button:hover {
-  background-color: $gray-lighter;
-}
-.dropdown-menu .btn.btn-danger {
-  color: $brand-danger;
-}
-.dropdown-menu .btn.btn-danger:hover {
-  background-color: $gray-lighter;
-}
-
-
-/* Overrides for single-action rows (no dropdown) */
-
-tr .actions_column ul.row_actions.single,
-tr:hover .actions_column ul.row_actions.single,
-.actions_column ul.row_actions.single,
-.actions_column ul.row_actions.single:hover {
-  border: none;
-}
-
-.actions_column ul.row_actions.single li.action {
-  display: block;
-}
-
-.actions_column ul.row_actions.single li.action:hover {
-  background-color: transparent;
-}
-
-.actions_column ul.row_actions.single a,
-.actions_column ul.row_actions.single input,
-.actions_column ul.row_actions.single button {
-  color: $brand-info;
-}
-
-.actions_column ul.row_actions.single a:hover,
-.actions_column ul.row_actions.single input:hover,
-.actions_column ul.row_actions.single button:hover {
-  color: $text-color;
+  & > .btn-group,
+  & > .btn {
+    float: none;
+  }
 }
 
 div.input input[type="checkbox"] {

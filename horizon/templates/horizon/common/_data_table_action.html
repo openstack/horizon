@@ -1,0 +1,42 @@
+{% load horizon %}
+
+{% minifyspace %}
+  {% if action.method != "GET" %}
+    <button {{ action.attr_string_nc|safe }}
+      class="{% if is_single %}btn btn-default {% endif %}{% if is_small %}btn-sm {% endif %}{{ action.get_final_css|safe }}"
+      name="action"
+      {% if action.help_text %}
+        help_text="{{ action.help_text }}"
+      {% endif %}
+      type="submit"
+      {% if is_table_action %}
+        value="{{ action.get_param_name }}">
+        {% if action.icon != None %}
+          <span class="fa fa-{{ action.icon }}"></span>
+        {% endif %}
+        {% if action.handles_multiple %}
+          {{ action.verbose_name_plural }}
+        {% else %}
+          {{ action.verbose_name }}
+        {% endif %}
+      {% else %}
+        value="{{ action.table.name }}__{{ action.name }}__{{ row_id }}">
+        {{ action.verbose_name }}
+      {% endif %}
+    </button>
+  {% else %}
+    <a {{ action.attr_string_nc|safe }}
+      class="{% if is_single %}btn btn-default {% endif %}{% if is_small %}btn-sm {% endif %}{{ action.get_final_css|safe }}"
+      {% if is_table_action %}
+        href="{{ action.get_link_url }}"
+        title="{{ action.verbose_name }}">
+        {% if action.icon != None %}
+          <span class="fa fa-{{ action.icon }}"></span>
+        {% endif %}
+      {% else %}
+        href="{{ action.bound_url }}">
+      {% endif %}
+      {{ action.verbose_name }}
+    </a>
+  {% endif %}
+{% endminifyspace %}

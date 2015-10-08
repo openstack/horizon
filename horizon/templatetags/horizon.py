@@ -19,6 +19,7 @@ from horizon.contrib import bootstrap_datepicker
 
 from django.conf import settings
 from django import template
+from django.template import Node
 from django.utils.encoding import force_text
 from django.utils import translation
 from django.utils.translation import ugettext_lazy as _
@@ -26,8 +27,17 @@ from django.utils.translation import ugettext_lazy as _
 from horizon.base import Horizon  # noqa
 from horizon import conf
 
-
 register = template.Library()
+
+
+class MinifiedNode(Node):
+    def __init__(self, nodelist):
+        self.nodelist = nodelist
+
+    def render(self, context):
+        return ' '.join(
+            force_text(self.nodelist.render(context).strip()).split()
+        )
 
 
 @register.filter
@@ -198,3 +208,28 @@ def datepicker_locale():
     locale_mapping = getattr(settings, 'DATEPICKER_LOCALES',
                              bootstrap_datepicker.LOCALE_MAPPING)
     return locale_mapping.get(translation.get_language(), 'en')
+
+
+@register.tag
+def minifyspace(parser, token):
+    """Removes whitespace including tab and newline characters. Do not use this
+    if you are using a <pre> tag
+
+    Example usage::
+
+        {% minifyspace %}
+            <p>
+                <a title="foo"
+                   href="foo/">
+                     Foo
+                </a>
+            </p>
+        {% endminifyspace %}
+
+    This example would return this HTML::
+
+        <p><a title="foo" href="foo/">Foo</a></p>
+    """
+    nodelist = parser.parse(('endminifyspace',))
+    parser.delete_first_token()
+    return MinifiedNode(nodelist)
