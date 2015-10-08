@@ -42,6 +42,18 @@ PROJECT_USER_MEMBER_SLUG = "update_members"
 PROJECT_GROUP_MEMBER_SLUG = "update_group_members"
 COMMON_HORIZONTAL_TEMPLATE = "identity/projects/_common_horizontal_form.html"
 
+# NOTE(ZhengYue): Mapping for differents between keys from neutron usage
+# and tenant_quota_usages
+NEUTRON_USAGE_FIELDS_MAP = {
+    'network': 'networks',
+    'subnet': 'subnets',
+    'port': 'ports',
+    'router': 'routers',
+    'floatingip': 'floating_ips',
+    'security_group': 'security_groups',
+    'security_group_rule': 'security_group_rules'
+}
+
 
 class ProjectQuotaAction(workflows.Action):
     ifcb_label = _("Injected File Content (Bytes)")
@@ -95,7 +107,12 @@ class UpdateProjectQuotaAction(ProjectQuotaAction):
         # Validate the quota values before updating quotas.
         bad_values = []
         for key, value in cleaned_data.items():
-            used = usages[key].get('used', 0)
+            # NOTE(ZhengYue): Because the keys of network quota not match
+            # with fields from tenant_quota_usages, do some amend at here.
+            item_key = key
+            if key in NEUTRON_USAGE_FIELDS_MAP:
+                item_key = NEUTRON_USAGE_FIELDS_MAP[key]
+            used = usages[item_key].get('used', 0)
             if value is not None and value >= 0 and used > value:
                 bad_values.append(_('%(used)s %(key)s used') %
                                   {'used': used,
