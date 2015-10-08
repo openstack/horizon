@@ -100,6 +100,7 @@ class DetailView(tabs.TabbedTableView):
     tab_group_class = rdtabs.RouterDetailTabs
     template_name = 'project/routers/detail.html'
     failure_url = reverse_lazy('horizon:project:routers:index')
+    network_url = 'horizon:project:networks:detail'
     page_title = _("Router Details")
 
     @memoized.memoized_method
@@ -114,6 +115,8 @@ class DetailView(tabs.TabbedTableView):
             exceptions.handle(self.request, msg, redirect=self.failure_url)
         if router.external_gateway_info:
             ext_net_id = router.external_gateway_info['network_id']
+            router.external_gateway_info['network_url'] = reverse(
+                self.network_url, args=[ext_net_id])
             try:
                 ext_net = api.neutron.network_get(self.request, ext_net_id,
                                                   expand_subnet=False)
