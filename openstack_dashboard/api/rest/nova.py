@@ -1,4 +1,3 @@
-
 # Copyright 2014, Rackspace, US, Inc.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
@@ -239,7 +238,7 @@ class Servers(generic.View):
             )
         except KeyError as e:
             raise rest_utils.AjaxError(400, 'missing required parameter '
-                                       "'%s'" % e.args[0])
+                                            "'%s'" % e.args[0])
         kw = {}
         for name in self._optional_create:
             if name in request.DATA:
@@ -352,6 +351,33 @@ class Flavors(generic.View):
             result['items'].append(d)
         return result
 
+    @rest_utils.ajax(data_required=True)
+    def post(self, request):
+        flavor_access = request.DATA.get('flavor_access', [])
+        flavor_id = request.DATA['id']
+        is_public = not flavor_access
+
+        flavor = api.nova.flavor_create(request,
+                                        name=request.DATA['name'],
+                                        memory=request.DATA['ram'],
+                                        vcpu=request.DATA['vcpus'],
+                                        disk=request.DATA['disk'],
+                                        ephemeral=request
+                                        .DATA['OS-FLV-EXT-DATA:ephemeral'],
+                                        swap=request.DATA['swap'],
+                                        flavorid=flavor_id,
+                                        is_public=is_public
+                                        )
+
+        for project in flavor_access:
+            api.nova.add_tenant_to_flavor(
+                request, flavor.id, project.get('id'))
+
+        return rest_utils.CreatedResponse(
+            '/api/nova/flavors/%s' % flavor.id,
+            flavor.to_dict()
+        )
+
 
 @urls.register
 class Flavor(generic.View):
@@ -368,13 +394,63 @@ class Flavor(generic.View):
         Example GET:
         http://localhost/api/nova/flavors/1
         """
-        get_extras = request.GET.get('get_extras')
-        get_extras = bool(get_extras and get_extras.lower() == 'true')
+        get_extras = self.extract_boolean(request, 'get_extras')
+        get_access_list = self.extract_boolean(request, 'get_access_list')
         flavor = api.nova.flavor_get(request, flavor_id, get_extras=get_extras)
+
         result = flavor.to_dict()
+        # Bug: nova API stores and returns empty string when swap equals 0
+        # https://bugs.launchpad.net/nova/+bug/1408954
+        if 'swap' in result and result['swap'] == '':
+            result['swap'] = 0
         if get_extras:
             result['extras'] = flavor.extras
+
+        if get_access_list and not flavor.is_public:
+            access_list = [item.tenant_id for item in
+                           api.nova.flavor_access_list(request, flavor_id)]
+            result['access-list'] = access_list
         return result
+
+    @rest_utils.ajax()
+    def delete(self, request, flavor_id):
+        api.nova.flavor_delete(request, flavor_id)
+
+    @rest_utils.ajax(data_required=True)
+    def patch(self, request, flavor_id):
+        flavor_access = request.DATA.get('flavor_access', [])
+        is_public = not flavor_access
+
+        # Grab any existing extra specs, because flavor edit is currently
+        # implemented as a delete followed by a create.
+        extras_dict = api.nova.flavor_get_extras(request, flavor_id, raw=True)
+        # Mark the existing flavor as deleted.
+        api.nova.flavor_delete(request, flavor_id)
+        # Then create a new flavor with the same name but a new ID.
+        # This is in the same try/except block as the delete call
+        # because if the delete fails the API will error out because
+        # active flavors can't have the same name.
+        flavor = api.nova.flavor_create(request,
+                                        name=request.DATA['name'],
+                                        memory=request.DATA['ram'],
+                                        vcpu=request.DATA['vcpus'],
+                                        disk=request.DATA['disk'],
+                                        ephemeral=request
+                                        .DATA['OS-FLV-EXT-DATA:ephemeral'],
+                                        swap=request.DATA['swap'],
+                                        flavorid=flavor_id,
+                                        is_public=is_public
+                                        )
+        for project in flavor_access:
+            api.nova.add_tenant_to_flavor(
+                request, flavor.id, project.get('id'))
+
+        if extras_dict:
+            api.nova.flavor_extra_set(request, flavor.id, extras_dict)
+
+    def extract_boolean(self, request, name):
+        bool_string = request.GET.get(name)
+        return bool(bool_string and bool_string.lower() == 'true')
 
 
 @urls.register
