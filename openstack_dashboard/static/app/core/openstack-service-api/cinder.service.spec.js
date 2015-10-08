@@ -40,31 +40,47 @@
     });
 
     var tests = [
-      { func: 'getVolumes',
+      {
+        func: 'getVolumes',
         method: 'get',
         path: '/api/cinder/volumes/',
         data: { params: 'config' },
         error: 'Unable to retrieve the volumes.',
-        testInput: [ 'config' ] },
-
-      { func: 'getVolumes',
+        testInput: [ 'config' ]
+      },
+      {
+        func: 'getVolumes',
         method: 'get',
         path: '/api/cinder/volumes/',
         data: {},
-        error: 'Unable to retrieve the volumes.' },
-
-      { func: 'getVolumeSnapshots',
+        error: 'Unable to retrieve the volumes.'
+      },
+      {
+        'func': 'getExtensions',
+        'method': 'get',
+        'path': '/api/cinder/extensions/',
+        'data': 'config',
+        'error': 'Unable to retrieve the extensions.',
+        'testInput': [
+          'config'
+        ]
+      },
+      {
+        func: 'getVolumeSnapshots',
         method: 'get',
         path: '/api/cinder/volumesnapshots/',
         data: {},
-        error: 'Unable to retrieve the volume snapshots.' },
-
-      { func: 'getVolumeSnapshots',
+        error: 'Unable to retrieve the volume snapshots.'
+      },
+      {
+        func: 'getVolumeSnapshots',
         method: 'get',
         path: '/api/cinder/volumesnapshots/',
         data: { params: 'config' },
         error: 'Unable to retrieve the volume snapshots.',
-        testInput: [ 'config' ] } ] ;
+        testInput: [ 'config' ]
+      }
+    ];
 
     // Iterate through the defined tests and apply as Jasmine specs.
     angular.forEach(tests, function(params) {
