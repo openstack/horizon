@@ -271,6 +271,13 @@ OPENSTACK_NEUTRON_NETWORK = {
     'enable_vpn': True,
     'enable_fip_topology_check': True,
 
+    # Default dns servers you would like to use when a subnet is
+    # created.  This is only a default, users can still choose a different
+    # list of dns servers when creating a new subnet.
+    # The entries below are examples only, and are not appropriate for
+    # real deployments
+    # 'default_dns_nameservers': ["8.8.8.8", "8.8.4.4", "208.67.222.222"],
+
     # Neutron can be configured with a default Subnet Pool to be used for IPv4
     # subnet-allocation. Specify the label you wish to display in the Address
     # pool selector on the create subnet step if you want to use this feature.

@@ -15,6 +15,7 @@
 """
 Views for managing Neutron Subnets.
 """
+from django.conf import settings
 from django.core.urlresolvers import reverse
 from django.utils.translation import ugettext_lazy as _
 
@@ -48,10 +49,17 @@ class CreateView(workflows.WorkflowView):
             msg = _("Unable to retrieve network.")
             exceptions.handle(self.request, msg, redirect=redirect)
 
+    def get_default_dns_servers(self):
+        # this returns the default dns servers to be used for new subnets
+        dns_default = "\n".join(getattr(settings, 'OPENSTACK_NEUTRON_NETWORK',
+                                        {}).get('default_dns_nameservers', ''))
+        return dns_default
+
     def get_initial(self):
         network = self.get_object()
         return {"network_id": self.kwargs['network_id'],
-                "network_name": network.name_or_id}
+                "network_name": network.name_or_id,
+                "dns_nameservers": self.get_default_dns_servers()}
 
 
 class UpdateView(workflows.WorkflowView):
