@@ -1,6 +1,4 @@
 /**
- * (c) Copyright 2015 Hewlett-Packard Development Company, L.P.
- *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -18,19 +16,19 @@
 
   angular
     .module('horizon.app.core.openstack-service-api')
-    .factory('horizon.app.core.openstack-service-api.novaExtensions', novaExtensionsAPI);
+    .factory('horizon.app.core.openstack-service-api.cinderExtensions', cinderExtensionsAPI);
 
-  novaExtensionsAPI.$inject = [
+  cinderExtensionsAPI.$inject = [
     '$cacheFactory',
     'horizon.app.core.openstack-service-api.extensions',
-    'horizon.app.core.openstack-service-api.nova'
+    'horizon.app.core.openstack-service-api.cinder'
   ];
 
   /**
    * @ngdoc service
-   * @name horizon.app.core.openstack-service-api.novaExtensions
+   * @name horizon.app.core.openstack-service-api.cinderExtensions
    * @description
-   * Provides cached access to Nova Extensions with utilities to help
+   * Provides cached access to Cinder Extensions with utilities to help
    * with asynchronous data loading. The cache may be reset at any time
    * by accessing the cache and calling removeAll. The next call to any
    * function will retrieve fresh results.
@@ -39,13 +37,13 @@
    * speed up results. Even on a local devstack in informal testing,
    * this saved between 30 - 100 ms per request.
    */
-  function novaExtensionsAPI($cacheFactory, extensionsAPI, novaAPI) {
+  function cinderExtensionsAPI($cacheFactory, extensionsAPI, cinderAPI) {
     return extensionsAPI({
       cacheFactory: $cacheFactory(
-        'horizon.app.core.openstack-service-api.novaExtensions',
+        'horizon.app.core.openstack-service-api.cinderExtensions',
         {capacity: 1}
       ),
-      serviceAPI: novaAPI
+      serviceAPI: cinderAPI
     });
   }
 }());

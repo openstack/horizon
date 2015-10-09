@@ -1,6 +1,4 @@
 /*
- * (c) Copyright 2015 Hewlett-Packard Development Company, L.P.
- *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -17,21 +15,21 @@
 (function() {
   'use strict';
 
-  describe("novaExtensions", function() {
-    var factory, q, novaAPI;
+  describe("cinderExtensions", function() {
+    var factory, q, cinderAPI;
 
     beforeEach(module('horizon.app.core.openstack-service-api'));
 
     beforeEach(module(function($provide) {
-      novaAPI = {getExtensions: function() {return {then: angular.noop};}};
+      cinderAPI = {getExtensions: function() {return {then: angular.noop};}};
       q = {defer: function() { return {resolve: angular.noop}; }};
       $provide.value('$cacheFactory', function() {return "cache";});
       $provide.value('$q', q);
-      $provide.value('horizon.app.core.openstack-service-api.nova', novaAPI);
+      $provide.value('horizon.app.core.openstack-service-api.cinder', cinderAPI);
     }));
 
     beforeEach(inject(function($injector) {
-      factory = $injector.get('horizon.app.core.openstack-service-api.novaExtensions');
+      factory = $injector.get('horizon.app.core.openstack-service-api.cinderExtensions');
     }));
 
     it("is defined", function() {
@@ -45,10 +43,10 @@
     it("defines .get", function() {
       expect(factory.get).toBeDefined();
       var postAction = {then: angular.noop};
-      spyOn(novaAPI, 'getExtensions').and.returnValue(postAction);
+      spyOn(cinderAPI, 'getExtensions').and.returnValue(postAction);
       spyOn(postAction, 'then');
       factory.get();
-      expect(novaAPI.getExtensions).toHaveBeenCalledWith({cache: factory.cache});
+      expect(cinderAPI.getExtensions).toHaveBeenCalledWith({cache: factory.cache});
       expect(postAction.then).toHaveBeenCalled();
       var func = postAction.then.calls.argsFor(0)[0];
       var testData = {data: {items: [1, 2, 3]}};

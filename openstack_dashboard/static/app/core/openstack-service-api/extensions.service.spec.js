@@ -18,20 +18,36 @@
   'use strict';
 
   describe("novaExtensions", function() {
-    var factory, q, novaAPI;
+    var q = {
+      defer: function() {
+        return {
+          resolve: angular.noop
+        };
+      }
+    };
+
+    var cacheFactory = function() {
+      return "cache";
+    };
+
+    var serviceAPI = {
+      getExtensions: function() {
+        return {then: angular.noop};
+      }
+    };
+
+    var factory;
 
     beforeEach(module('horizon.app.core.openstack-service-api'));
 
     beforeEach(module(function($provide) {
-      novaAPI = {getExtensions: function() {return {then: angular.noop};}};
-      q = {defer: function() { return {resolve: angular.noop}; }};
-      $provide.value('$cacheFactory', function() {return "cache";});
       $provide.value('$q', q);
-      $provide.value('horizon.app.core.openstack-service-api.nova', novaAPI);
     }));
 
     beforeEach(inject(function($injector) {
-      factory = $injector.get('horizon.app.core.openstack-service-api.novaExtensions');
+      var factoryCreator = $injector.get('horizon.app.core.openstack-service-api.extensions');
+
+      factory = factoryCreator({cacheFactory:  cacheFactory, serviceAPI: serviceAPI});
     }));
 
     it("is defined", function() {
@@ -45,10 +61,10 @@
     it("defines .get", function() {
       expect(factory.get).toBeDefined();
       var postAction = {then: angular.noop};
-      spyOn(novaAPI, 'getExtensions').and.returnValue(postAction);
+      spyOn(serviceAPI, 'getExtensions').and.returnValue(postAction);
       spyOn(postAction, 'then');
       factory.get();
-      expect(novaAPI.getExtensions).toHaveBeenCalledWith({cache: factory.cache});
+      expect(serviceAPI.getExtensions).toHaveBeenCalledWith({cache: factory.cache});
       expect(postAction.then).toHaveBeenCalled();
       var func = postAction.then.calls.argsFor(0)[0];
       var testData = {data: {items: [1, 2, 3]}};
