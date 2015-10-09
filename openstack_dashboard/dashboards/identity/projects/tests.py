@@ -29,10 +29,10 @@ from mox3.mox import IsA  # noqa
 
 from horizon import exceptions
 from horizon.workflows import views
+from openstack_auth import policy as policy_backend
 
 from openstack_dashboard import api
 from openstack_dashboard.dashboards.identity.projects import workflows
-from openstack_dashboard import policy_backend
 from openstack_dashboard.test import helpers as test
 from openstack_dashboard import usage
 from openstack_dashboard.usage import quotas

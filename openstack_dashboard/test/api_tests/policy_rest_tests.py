@@ -11,9 +11,9 @@
 # limitations under the License.
 
 from django.test.utils import override_settings  # noqa
+from openstack_auth import policy as policy_backend
 
 from openstack_dashboard.api.rest import policy
-from openstack_dashboard import policy_backend
 from openstack_dashboard.test import helpers as test
 
 

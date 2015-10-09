@@ -352,8 +352,8 @@ if not SECRET_KEY:
     SECRET_KEY = secret_key.generate_or_read_from_file(os.path.join(LOCAL_PATH,
                                                        '.secret_key_store'))
 
-from openstack_dashboard import policy_backend
-POLICY_CHECK_FUNCTION = policy_backend.check
+from openstack_auth import policy
+POLICY_CHECK_FUNCTION = policy.check
 
 # Add HORIZON_CONFIG to the context information for offline compression
 COMPRESS_OFFLINE_CONTEXT = {
