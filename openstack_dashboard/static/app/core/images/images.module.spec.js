@@ -89,7 +89,19 @@
         { templateUrl: staticUrl + 'app/core/images/detail/image-detail.html'}
       ]);
     });
+  });
 
+  describe('horizon.app.core.images.imageFormats constant', function() {
+    var imageFormats;
+
+    beforeEach(module('horizon.app.core.images'));
+    beforeEach(inject(function ($injector) {
+      imageFormats = $injector.get('horizon.app.core.images.imageFormats');
+    }));
+
+    it('should be defined', function() {
+      expect(Object.keys(imageFormats).length).toEqual(11);
+    });
   });
 
 })();

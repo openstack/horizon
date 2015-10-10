@@ -305,6 +305,11 @@ if os.path.exists(LOCAL_SETTINGS_DIR_PATH):
                     logging.exception(
                         "Can not exec settings snippet %s" % filename)
 
+# The purpose of OPENSTACK_IMAGE_FORMATS is to provide a simple object
+# that does not contain the lazy-loaded translations, so the list can
+# be sent as JSON to the client-side (Angular).
+OPENSTACK_IMAGE_FORMATS = [fmt for (fmt, name)
+                           in OPENSTACK_IMAGE_BACKEND['image_formats']]
 
 if not WEBROOT.endswith('/'):
     WEBROOT += '/'
