@@ -22,6 +22,8 @@
   rowActionsService.$inject = [
     'horizon.app.core.images.actions.create-volume.service',
     'horizon.app.core.images.actions.row-delete.service',
+    'horizon.app.core.images.actions.launch-instance.service',
+    'horizon.app.core.images.actions.update-metadata.service',
     'horizon.framework.util.i18n.gettext'
   ];
 
@@ -33,6 +35,8 @@
   function rowActionsService(
     createVolumeService,
     deleteService,
+    launchInstanceService,
+    updateMetadataService,
     gettext
   ) {
     var service = {
@@ -45,7 +49,7 @@
     ///////////////
 
     function initScope(scope) {
-      angular.forEach([deleteService, createVolumeService], setActionScope);
+      angular.forEach([deleteService, createVolumeService, updateMetadataService], setActionScope);
 
       function setActionScope(action) {
         action.initScope(scope.$new());
@@ -54,9 +58,24 @@
 
     function actions() {
       return [{
+        service: launchInstanceService,
+        template: {
+          text: gettext('Launch')
+        }
+      }, {
+        service: launchInstanceService,
+        template: {
+          text: gettext('Launch Instance')
+        }
+      }, {
         service: createVolumeService,
         template: {
           text: gettext('Create Volume')
+        }
+      }, {
+        service: updateMetadataService,
+        template: {
+          text: gettext('Update Metadata')
         }
       }, {
         service: deleteService,

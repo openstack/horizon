@@ -23,14 +23,24 @@
     var createVolumeService = {
       initScope: angular.noop
     };
+    var launchInstanceService = {
+      initScope: angular.noop
+    };
+    var updateMetadataService = {
+      initScope: angular.noop
+    };
 
     ///////////////////////
 
     beforeEach(module('horizon.framework'));
-
+    beforeEach(module('horizon.app.core'));
     beforeEach(module('horizon.app.core.images', function($provide) {
       $provide.value('horizon.app.core.images.actions.create-volume.service', createVolumeService);
       $provide.value('horizon.app.core.images.actions.row-delete.service', deleteService);
+      $provide.value('horizon.app.core.images.actions.launch-instance.service',
+                     launchInstanceService);
+      $provide.value('horizon.app.core.images.actions.update-metadata.service',
+                     updateMetadataService);
     }));
 
     beforeEach(inject(function ($injector) {
@@ -40,25 +50,44 @@
     it('should call initScope on services', function() {
       spyOn(deleteService, 'initScope');
       spyOn(createVolumeService, 'initScope');
+      spyOn(launchInstanceService, 'initScope');
+      spyOn(updateMetadataService, 'initScope');
 
       var scope = {$new: function() { return 'custom_scope'; }};
       service.initScope(scope);
 
       expect(deleteService.initScope).toHaveBeenCalledWith('custom_scope');
       expect(createVolumeService.initScope).toHaveBeenCalledWith('custom_scope');
+      expect(launchInstanceService.initScope).not.toHaveBeenCalled();
+      expect(updateMetadataService.initScope).toHaveBeenCalledWith('custom_scope');
     });
 
     it('should return delete action', function() {
       var actions = service.actions();
 
-      expect(actions.length).toEqual(2);
-      expect(actions[0].service).toEqual(deleteService);
+      expect(actions.length).toEqual(5);
+      expect(actions[3].service).toEqual(deleteService);
+    });
+
+    it('should return launchInstance action twice', function() {
+      var actions = service.actions();
+
+      expect(actions.length).toEqual(5);
+      expect(actions[0].service).toEqual(launchInstanceService);
+      expect(actions[1].service).toEqual(launchInstanceService);
+    });
+
+    it('should return updateMetadata action', function() {
+      var actions = service.actions();
+
+      expect(actions.length).toEqual(5);
+      expect(actions[2].service).toEqual(updateMetadataService);
     });
 
     it('should return create volumne action', function() {
       var actions = service.actions();
 
-      expect(actions.length).toEqual(2);
+      expect(actions.length).toEqual(5);
       expect(actions[1].service).toEqual(createVolumeService);
     });
 
