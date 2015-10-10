@@ -29,6 +29,7 @@
 
   run.$inject = [
     'horizon.framework.conf.resource-type-registry.service',
+    'horizon.app.core.images.actions.edit.service',
     'horizon.app.core.images.actions.create-volume.service',
     'horizon.app.core.images.actions.delete-image.service',
     'horizon.app.core.images.actions.launch-instance.service',
@@ -38,6 +39,7 @@
 
   function run(
     registry,
+    editService,
     createVolumeService,
     deleteImageService,
     launchInstanceService,
@@ -58,6 +60,13 @@
         service: createVolumeService,
         template: {
           text: gettext('Create Volume')
+        }
+      })
+      .append({
+        id: 'editAction',
+        service: editService,
+        template: {
+          text: gettext('Edit Image')
         }
       })
       .append({

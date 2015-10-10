@@ -18,15 +18,20 @@
   'use strict';
 
   describe('horizon.app.core.images table controller', function() {
+    var images = [{id: '1', visibility: 'public', filtered_visibility: 'Public'},
+              {id: '2', is_public: false, owner: 'not_me', filtered_visibility: 'Shared with Me'}];
 
     var glanceAPI = {
       getImages: function () {
         return {
           data: {
             items: [
-              {id: '1', visibility: 'public'},
-              {id: '2', is_public: false, owner: 'not_me'}
+              {id: '1', visibility: 'public', filtered_visibility: 'Public'},
+              {id: '2', is_public: false, owner: 'not_me', filtered_visibility: 'Shared with Me'}
             ]
+          },
+          success: function(callback) {
+            callback({items : angular.copy(images)});
           }
         };
       },
