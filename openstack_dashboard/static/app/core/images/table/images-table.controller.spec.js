@@ -19,50 +19,72 @@
 
   describe('horizon.app.core.images table controller', function() {
 
-    function fakeGlance() {
-      return {
-        success: function(callback) {
-          callback({
-            items : []
-          });
-        }
-      };
-    }
+    var glanceAPI = {
+      getImages: function() {
+        return {
+          success: function(callback) {
+            callback({items : [{id: '1'},{id: '2'}]});
+          }
+        };
+      }
+    };
 
-    var controller, glanceAPI, staticUrl;
+    var $scope, controller, events;
 
-    ///////////////////////
+    beforeEach(module('ui.bootstrap'));
+    beforeEach(module('horizon.framework'));
 
     beforeEach(module('horizon.framework.conf'));
     beforeEach(module('horizon.framework.util.http'));
     beforeEach(module('horizon.framework.widgets.toast'));
-    beforeEach(module('horizon.app.core.openstack-service-api'));
+    beforeEach(module('horizon.app.core.openstack-service-api', function($provide) {
+      $provide.value('horizon.app.core.openstack-service-api.glance', glanceAPI);
+    }));
 
     beforeEach(module('horizon.app.core'));
     beforeEach(module('horizon.app.core.images'));
-    beforeEach(inject(function($injector) {
 
-      glanceAPI = $injector.get('horizon.app.core.openstack-service-api.glance');
+    beforeEach(inject(function ($injector, _$rootScope_) {
+      $scope = _$rootScope_.$new();
+
+      events = $injector.get('horizon.app.core.images.events');
       controller = $injector.get('$controller');
-      staticUrl = $injector.get('$window').STATIC_URL;
 
-      spyOn(glanceAPI, 'getImages').and.callFake(fakeGlance);
+      spyOn(glanceAPI, 'getImages').and.callThrough();
     }));
 
     function createController() {
       return controller('imagesTableController', {
-        glanceAPI: glanceAPI
+        glanceAPI: glanceAPI,
+        $scope: $scope
       });
     }
 
-    it('should set path properly', function() {
-      var path = staticUrl + 'app/core/images/table/';
-      expect(createController().path).toEqual(path);
+    it('should invoke glance apis', function() {
+      var ctrl = createController();
+
+      expect(glanceAPI.getImages).toHaveBeenCalled();
+      expect(ctrl.imagesSrc).toEqual([{id: '1'}, {id: '2'}]);
     });
 
-    it('should invoke glance apis', function() {
-      createController();
-      expect(glanceAPI.getImages).toHaveBeenCalled();
+    it('should refresh images after delete', function() {
+      var ctrl = createController();
+      expect(ctrl.imagesSrc).toEqual([{id: '1'}, {id: '2'}]);
+
+      $scope.$emit(events.DELETE_SUCCESS, ['1']);
+
+      expect($scope.selected).toEqual({});
+      expect($scope.numSelected).toEqual(0);
+      expect(ctrl.imagesSrc).toEqual([{id: '2'}]);
+    });
+
+    it('should destroy the event watchers', function() {
+      var ctrl = createController();
+
+      $scope.$emit('$destroy');
+      $scope.$emit(events.DELETE_SUCCESS, ['1']);
+
+      expect(ctrl.imagesSrc).toEqual([{id: '1'}, {id: '2'}]);
     });
 
   });
