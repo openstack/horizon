@@ -137,7 +137,6 @@ class DeletePoolLink(policy.PolicyTargetMixin, tables.DeleteAction):
     def delete(self, request, obj_id):
         try:
             api.lbaas.pool_delete(request, obj_id)
-            messages.success(request, _('Deleted pool %s') % obj_id)
         except Exception as e:
             exceptions.handle(request,
                               _('Unable to delete pool. %s') % e)
@@ -167,7 +166,6 @@ class DeleteMonitorLink(policy.PolicyTargetMixin,
     def delete(self, request, obj_id):
         try:
             api.lbaas.pool_health_monitor_delete(request, obj_id)
-            messages.success(request, _('Deleted monitor %s') % obj_id)
         except Exception as e:
             exceptions.handle(request,
                               _('Unable to delete monitor. %s') % e)
@@ -196,7 +194,6 @@ class DeleteMemberLink(policy.PolicyTargetMixin, tables.DeleteAction):
     def delete(self, request, obj_id):
         try:
             api.lbaas.member_delete(request, obj_id)
-            messages.success(request, _('Deleted member %s') % obj_id)
         except Exception as e:
             exceptions.handle(request,
                               _('Unable to delete member. %s') % e)
