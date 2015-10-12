@@ -21,11 +21,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-10-07 03:29+0000\n"
+"POT-Creation-Date: 2015-10-09 23:17+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2015-10-06 02:03+0000\n"
+"PO-Revision-Date: 2015-10-11 06:44+0000\n"
 "Last-Translator: Andreas Jaeger <jaegerandi@gmail.com>\n"
 "Language-Team: German (http://www.transifex.com/openstack/horizon/language/"
 "de/)\n"
@@ -2863,6 +2863,10 @@ msgstr "Datumsangaben können nicht erkannt werden."
 msgid "Day"
 msgstr "Tag"
 
+msgctxt "Current status of an Image"
+msgid "Deactivated"
+msgstr "Inaktiv"
+
 msgid "Dead peer detection action"
 msgstr "Action zum Aufspüren von toten Peers"
 
@@ -4115,6 +4119,10 @@ msgctxt "current status of router"
 msgid "Error"
 msgstr "Fehler"
 
+msgctxt "status of a network port"
+msgid "Error"
+msgstr "Fehler"
+
 msgid "Error Deleting"
 msgstr "Fehler beim Löschen"
 
@@ -4254,6 +4262,9 @@ msgstr "Erweitern"
 #, python-format
 msgid "Extending volume: \"%s\""
 msgstr "Erweitere Datenträger: \"%s\""
+
+msgid "External"
+msgstr "Extern"
 
 msgid "External Fixed IPs"
 msgstr "Externe feste IPs"
@@ -4726,6 +4737,10 @@ msgstr "Floating IP"
 
 msgid "Floating IP Pool"
 msgstr "Floating IP Pool"
+
+#, python-format
+msgid "Floating IP will be removed from VIP \"%s\"."
+msgstr "Floating IP wird von VIP \"%s\" entfernt."
 
 msgid "Floating IP:"
 msgstr "Floating IP:"
@@ -10451,8 +10466,24 @@ msgid "Unable to create volume."
 msgstr "Datenträger konnte nicht erstellt werden."
 
 #, python-format
+msgid "Unable to delete IKE Policy. %s"
+msgstr "IKE Richtlinie %s konnte nicht gelöscht werden."
+
+#, python-format
+msgid "Unable to delete IPSec Policy. %s"
+msgstr "IPSec Richtlinie %s konnte nicht gelöscht werden."
+
+#, python-format
+msgid "Unable to delete IPSec Site Connection. %s"
+msgstr "IPSec Site Verbindung konnte nicht gelöscht werden: %s"
+
+#, python-format
 msgid "Unable to delete VIP. %s"
 msgstr "VIP %s kann nicht gelöscht werden."
+
+#, python-format
+msgid "Unable to delete VPN Service. %s"
+msgstr "VPN Dienst %s konnte nicht gelöscht werden."
 
 msgid "Unable to delete container."
 msgstr "Container kann nicht gelöscht werden."

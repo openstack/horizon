@@ -3,24 +3,57 @@
 # This file is distributed under the same license as the PROJECT project.
 #
 # Translators:
+# Alessandra <alessandra@translated.net>, 2015. #zanata
 # Mattia Gandolfi <mgandolf@redhat.com>, 2015. #zanata
 # OpenStack Infra <zanata@openstack.org>, 2015. #zanata
 msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-10-07 03:29+0000\n"
+"POT-Creation-Date: 2015-10-09 23:17+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2015-09-11 12:37+0000\n"
-"Last-Translator: Mattia Gandolfi <mgandolf@redhat.com>\n"
+"PO-Revision-Date: 2015-10-10 04:17+0000\n"
+"Last-Translator: Alessandra <alessandra@translated.net>\n"
 "Language-Team: Italian (http://www.transifex.com/openstack/horizon/language/"
 "it/)\n"
 "Generated-By: Babel 2.0\n"
 "Language: it\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Zanata 3.7.1\n"
+
+#, python-format
+msgid ""
+"\n"
+"        Used <span> %(used)s </span>(No Limit)"
+msgstr ""
+"\n"
+"        Utilizzati <span> %(used)s </span>(Nessun limite)"
+
+#, python-format
+msgid ""
+"\n"
+"        Used <span> %(used)s </span>of<span> %(available)s </span>"
+msgstr ""
+"\n"
+"        Utilizzati <span> %(used)s </span>di<span> %(available)s </span>"
+
+#, python-format
+msgid ""
+"\n"
+"      <label>From:</label> %(start)s"
+msgstr ""
+"\n"
+"      <label>Da:</label> %(start)s"
+
+#, python-format
+msgid ""
+"\n"
+"      <label>To:</label>%(end)s"
+msgstr ""
+"\n"
+"      <label>A:</label>%(end)s"
 
 msgid ""
 "\n"
@@ -46,6 +79,20 @@ msgstr "%(action)s %(data_type)s"
 #, python-format
 msgid "%(action)s: %(objs)s"
 msgstr "%(action)s: %(objs)s"
+
+#, python-format
+msgid "%(context_name)s:"
+msgstr "%(context_name)s:"
+
+#, python-format
+msgid "%(name)s: %(error)s"
+msgstr "%(name)s: %(error)s"
+
+#, python-format
+msgid "%(size)d Byte"
+msgid_plural "%(size)d Bytes"
+msgstr[0] "%(size)d byte"
+msgstr[1] "%(size)d byte"
 
 #, python-format
 msgid "%s GB"
@@ -78,8 +125,14 @@ msgstr "%s non completato."
 msgid "&laquo;&nbsp;Prev"
 msgstr "&laquo;&nbsp;Precedente"
 
+msgid "(No Limit)"
+msgstr "(Nessun limite)"
+
 msgid "-"
 msgstr "-"
+
+msgid "0 Bytes"
+msgstr "0 byte"
 
 #, python-format
 msgid "A %(resource)s with the name \"%(name)s\" already exists."
@@ -87,6 +140,12 @@ msgstr "La risorsa %(resource)s con il nome \"%(name)s\" esiste."
 
 msgid "Actions"
 msgstr "Azioni"
+
+msgid "Active Instances:"
+msgstr "Istanze attive:"
+
+msgid "Active RAM:"
+msgstr "RAM attiva:"
 
 msgid "Add a row"
 msgstr "Aggiungi una linea"
@@ -112,8 +171,29 @@ msgstr "Elimina"
 msgid "Deleted"
 msgstr "Eliminato"
 
+#, python-format
+msgid "Displaying %(content_items)s item"
+msgid_plural "Displaying %(content_items)s items"
+msgstr[0] "Visualizzazione dell'elemento %(content_items)s"
+msgstr[1] "Visualizzazione degli elementi %(content_items)s"
+
+#, python-format
+msgid "Displaying %(counter)s item"
+msgid_plural "Displaying %(counter)s items"
+msgstr[0] "Visualizzazione dell'elemento %(counter)s"
+msgstr[1] "Visualizzazione degli elementi %(counter)s"
+
+#, python-format
+msgid "Displaying %(nav_items)s item"
+msgid_plural "Displaying %(nav_items)s items"
+msgstr[0] "Visualizzazione dell'elemento %(nav_items)s"
+msgstr[1] "Visualizzazione degli elementi %(nav_items)s"
+
 msgid "Error: "
 msgstr "Errore:"
+
+msgid "Fake"
+msgstr "Falso"
 
 msgid "Filter"
 msgstr "Filtro"
@@ -126,6 +206,11 @@ msgstr "Formato incorretto per l'indirizzo IP"
 
 msgid "Info: "
 msgstr "Info: "
+
+msgid "Invalid metadata entry. Use comma-separated key=value pairs"
+msgstr ""
+"Voce di metadati non valida. Utilizzare le coppie key=value separate da "
+"virgola"
 
 msgid "Invalid subnet mask"
 msgstr "Maschera sottorete non valida."
@@ -214,8 +299,22 @@ msgstr "Salva"
 msgid "Select a %s to browse."
 msgstr "Selezionare un %s per sfogliare."
 
+msgid "Select a period of time to query its usage:"
+msgstr ""
+"Selezionare un periodo di tempo per eseguire la query sul relativo utilizzo:"
+
+msgid "Sell Puppy"
+msgid_plural "Sell Puppies"
+msgstr[0] "Vendi cucciolo"
+msgstr[1] "Vendi cuccioli"
+
 msgid "Sign In"
 msgstr "Accesso"
+
+msgid "Sold Puppy"
+msgid_plural "Sold Puppies"
+msgstr[0] "Cucciolo venduto"
+msgstr[1] "Cuccioli venduti"
 
 msgid "Submit"
 msgstr "Invia"
@@ -228,6 +327,18 @@ msgstr "Riepilogo"
 
 msgid "The date should be in YYYY-mm-dd format."
 msgstr "La data deve essere nel formato YYYY-mm-dd."
+
+msgid "The string may only contain ASCII printable characters."
+msgstr "La stringa può contenere solo caratteri stampabili ASCII."
+
+msgid "This Period's GB-Hours:"
+msgstr "Ore-GB di questo periodo:"
+
+msgid "This Period's RAM-Hours:"
+msgstr "Ore-RAM di questo periodo:"
+
+msgid "This Period's VCPU-Hours:"
+msgstr "Ore-VCPU di questo periodo:"
 
 msgid "This action cannot be undone."
 msgstr "Questa azione non può essere annullata"
