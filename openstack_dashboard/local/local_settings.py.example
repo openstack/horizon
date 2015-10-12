@@ -162,6 +162,13 @@ OPENSTACK_HOST = "127.0.0.1"
 OPENSTACK_KEYSTONE_URL = "http://%s:5000/v2.0" % OPENSTACK_HOST
 OPENSTACK_KEYSTONE_DEFAULT_ROLE = "_member_"
 
+# For setting the default service region on a per-endpoint basis. Note that the
+# default value for this setting is {}, and below is just an example of how it
+# should be specified.
+#DEFAULT_SERVICE_REGIONS = {
+#    OPENSTACK_KEYSTONE_URL: 'RegionOne'
+#}
+
 # Enables keystone web single-sign-on if set to True.
 #WEBSSO_ENABLED = False
 
