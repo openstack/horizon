@@ -984,7 +984,6 @@ def data(TEST):
                 'router_ids': [TEST.routers.first().id],
                 'description': 'firewall description',
                 'status': 'PENDING_CREATE',
-                'shared': True,
                 'admin_state_up': True}
     TEST.api_firewalls.add(fw1_dict)
 
@@ -1001,7 +1000,6 @@ def data(TEST):
                 'name': '',
                 'description': '',
                 'status': 'PENDING_CREATE',
-                'shared': True,
                 'admin_state_up': True}
     TEST.api_firewalls.add(fw1_dict)
 

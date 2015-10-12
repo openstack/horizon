@@ -325,7 +325,6 @@ class FwaasApiTests(test.APITestCase):
         form_data = {'name': firewall.name,
                      'description': firewall.description,
                      'firewall_policy_id': firewall.firewall_policy_id,
-                     'shared': firewall.shared,
                      'admin_state_up': firewall.admin_state_up
                      }
 
