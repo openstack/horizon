@@ -998,7 +998,6 @@ STATUS_DISPLAY_CHOICES = (
                                 u"Migrating")),
     ("build", pgettext_lazy("Current status of an Instance", u"Build")),
     ("rescue", pgettext_lazy("Current status of an Instance", u"Rescue")),
-    ("deleted", pgettext_lazy("Current status of an Instance", u"Deleted")),
     ("soft_deleted", pgettext_lazy("Current status of an Instance",
                                    u"Soft Deleted")),
     ("shelved", pgettext_lazy("Current status of an Instance", u"Shelved")),
