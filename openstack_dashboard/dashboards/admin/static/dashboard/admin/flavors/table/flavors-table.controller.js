@@ -40,6 +40,8 @@
     ctrl.flavors = [];
     ctrl.iflavors = [];
 
+    ctrl.searchFacets = getSearchFacets();
+
     init();
 
     ////////////////////////////////
@@ -50,6 +52,35 @@
 
     function onGetFlavors(response) {
       ctrl.flavors = response.data.items;
+    }
+
+    function getSearchFacets() {
+      return [
+        {
+          label: gettext('Name'),
+          name: 'name',
+          singleton: true
+        },
+        {
+          label: gettext('VCPUs'),
+          name: 'vcpus',
+          singleton: true
+        },
+        {
+          label: gettext('RAM'),
+          name: 'ram',
+          singleton: true
+        },
+        {
+          label: gettext('Public'),
+          name: 'os-flavor-access:is_public',
+          singleton: true,
+          options: [
+            {label: gettext('Yes'), key: 'true'},
+            {label: gettext('No'), key: 'false'}
+          ]
+        }
+      ];
     }
 
   }
