@@ -38,7 +38,10 @@
       getVolumeType: getVolumeType,
       getDefaultVolumeType: getDefaultVolumeType,
       getVolumeSnapshots: getVolumeSnapshots,
-      getExtensions: getExtensions
+      getExtensions: getExtensions,
+      getQoSSpecs: getQoSSpecs,
+      createVolume: createVolume,
+      getAbsoluteLimits: getAbsoluteLimits
     };
 
     return service;
@@ -63,7 +66,7 @@
      * For example, "status": "available" will show all available volumes.
      */
     function getVolumes(params) {
-      var config = (params) ? {'params': params} : {};
+      var config = params ? {'params': params} : {};
       return apiService.get('/api/cinder/volumes/', config)
         .error(function () {
           toastService.add('error', gettext('Unable to retrieve the volumes.'));
@@ -83,6 +86,18 @@
       return apiService.get('/api/cinder/volumes/' + id)
         .error(function () {
           toastService.add('error', gettext('Unable to retrieve the volume.'));
+        });
+    }
+
+    /**
+     * @name horizon.app.core.openstack-service-api.cinder.createVolume
+     * @description
+     * Create a volume.
+     */
+    function createVolume(newVolume) {
+      return apiService.post('/api/cinder/volumes/', newVolume)
+        .error(function () {
+          toastService.add('error', gettext('Unable to create the volume.'));
         });
     }
 
@@ -152,7 +167,7 @@
      * snapshots.
      */
     function getVolumeSnapshots(params) {
-      var config = (params) ? {'params': params} : {};
+      var config = params ? {'params': params} : {};
       return apiService.get('/api/cinder/volumesnapshots/', config)
         .error(function () {
           toastService.add('error',
@@ -192,5 +207,39 @@
         });
     }
 
+    /**
+     * @name horizon.app.core.openstack-service-api.cinder.getQoSSpecs
+     * @description
+     * Get a list of Quality of Service.
+     *
+     * The listing result is an object with property "items." Each item is
+     * a Quality of Service Spec.
+     *
+     * @param {Object} params
+     * Query parameters. Optional.
+     *
+     */
+    function getQoSSpecs(params) {
+      var config = params ? {'params': params} : {};
+      return apiService.get('/api/cinder/qosspecs/', config)
+        .error(function () {
+          toastService.add('error',
+            gettext('Unable to retrieve the QoS Specs.'));
+        });
+    }
+
+    /**
+     * @name horizon.app.core.openstack-service-api.cinder.getAbsoluteLimits
+     * @description
+     * Get the limits for the current tenant.
+     *
+     */
+    function getAbsoluteLimits() {
+      return apiService.get('/api/cinder/tenantabsolutelimits/')
+        .error(function () {
+          toastService.add('error',
+            gettext('Unable to retrieve the Absolute Limits.'));
+        });
+    }
   }
 }());

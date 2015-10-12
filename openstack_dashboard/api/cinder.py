@@ -96,7 +96,8 @@ class VolumeSnapshot(BaseCinderAPIResourceWrapper):
 
 class VolumeType(BaseCinderAPIResourceWrapper):
 
-    _attrs = ['id', 'name', 'extra_specs', 'created_at',
+    _attrs = ['id', 'name', 'extra_specs', 'created_at', 'encryption',
+              'associated_qos_spec', 'description',
               'os-extended-snapshot-attributes:project_id']
 
 
@@ -113,6 +114,11 @@ class VolumeBackup(BaseCinderAPIResourceWrapper):
     @volume.setter
     def volume(self, value):
         self._volume = value
+
+
+class QosSpecs(BaseCinderAPIResourceWrapper):
+
+    _attrs = ['id', 'name', 'consumer', 'specs']
 
 
 class VolTypeExtraSpec(object):
@@ -579,6 +585,10 @@ def qos_spec_disassociate(request, qos_specs, vol_type_id):
 
 def qos_spec_get_associations(request, qos_spec_id):
     return cinderclient(request).qos_specs.get_associations(qos_spec_id)
+
+
+def qos_specs_list(request):
+    return [QosSpecs(s) for s in qos_spec_list(request)]
 
 
 @memoized
