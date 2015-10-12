@@ -29,7 +29,7 @@ LOG = logging.getLogger(__name__)
 class ClusterTemplatesFilterAction(tables.FilterAction):
     filter_type = "server"
     filter_choices = (('name', _("Name"), True),
-                      ('plugin', _("Plugin"), True),
+                      ('plugin_name', _("Plugin"), True),
                       ('hadoop_version', _("Version"), True),
                       ('description', _("Description")))
 
