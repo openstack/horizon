@@ -1,0 +1,5 @@
+---
+features:
+  - Added a new ``DEFAULT_SERVICE_REGIONS`` setting into local_settings.py.
+    If a value of this is specified, it will be the default region to use when
+    logging into the dashboard, instead of the value stored in cookies.
