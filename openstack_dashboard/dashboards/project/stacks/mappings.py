@@ -116,7 +116,9 @@ resource_urls = {
 
 
 def resource_to_url(resource):
-    if not resource or not resource.physical_resource_id:
+    if (not resource or
+            not resource.physical_resource_id or
+            not hasattr(resource, 'resource_type')):
         return None
 
     mapping = resource_urls.get(resource.resource_type, {})

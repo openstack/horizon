@@ -313,8 +313,7 @@ class EventsTable(tables.DataTable):
                                      verbose_name=_("Stack Resource"),
                                      link=get_resource_url)
     physical_resource = tables.Column('physical_resource_id',
-                                      verbose_name=_("Resource"),
-                                      link=mappings.resource_to_url)
+                                      verbose_name=_("Resource"))
     timestamp = tables.Column('event_time',
                               verbose_name=_("Time Since Event"),
                               filters=(filters.parse_isotime,
