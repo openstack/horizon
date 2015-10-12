@@ -58,8 +58,8 @@ class DetailView(tables.DataTableView):
         data = self._get_data()
         if data is None:
             return []
-        return sorted(data.rules, key=lambda rule: (rule.ip_protocol,
-                                                    rule.from_port))
+        return sorted(data.rules, key=lambda rule: (rule.ip_protocol or '',
+                                                    rule.from_port or 0))
 
     def get_context_data(self, **kwargs):
         context = super(DetailView, self).get_context_data(**kwargs)
