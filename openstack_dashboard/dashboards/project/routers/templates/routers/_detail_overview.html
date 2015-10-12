@@ -28,9 +28,8 @@
     <dl class="dl-horizontal">
       <dt>{% trans "Network Name" %}</dt>
       <dd>{{ router.external_gateway_info.network|default:_("None") }}</dd>
-      {% url 'horizon:admin:networks:detail' router.external_gateway_info.network_id as network_url %}
       <dt>{% trans "Network ID" %}</dt>
-      <dd><a href="{{ network_url }}">{{ router.external_gateway_info.network_id|default:_("Unknown") }}</a></dd>
+      <dd><a href="{{ router.external_gateway_info.network_url }}">{{ router.external_gateway_info.network_id|default:_("Unknown") }}</a></dd>
       <dt>{% trans "External Fixed IPs" %}</dt>
       <dd>
         <ul>
