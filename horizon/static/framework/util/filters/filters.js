@@ -51,8 +51,14 @@
    */
   function gbFilter() {
     return function (input) {
+      var tb = 1024;
+
       if (isNaN(input) || null === input) {
         return '';
+      } else if (input >= tb) {
+        return interpolate(gettext("%s TB"), [parseFloat(Number(input / tb).toFixed(2))]);
+      } else if (input === '') {
+        return interpolate(gettext("0 GB"));
       } else {
         return interpolate(gettext("%s GB"), [input.toString()]);
       }
@@ -68,8 +74,14 @@
    */
   function mbFilter() {
     return function (input) {
+      var gb = 1024;
+
       if (isNaN(input) || null === input) {
         return '';
+      } else if (input >= gb) {
+        return interpolate(gettext("%s GB"), [parseFloat(Number(input / gb).toFixed(2))]);
+      } else if (input === '') {
+        return interpolate(gettext("0 MB"));
       } else {
         return interpolate(gettext("%s MB"), [input.toString()]);
       }

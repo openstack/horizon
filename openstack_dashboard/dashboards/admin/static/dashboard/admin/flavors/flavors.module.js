@@ -17,30 +17,14 @@
   'use strict';
 
   /**
-   * @ngdoc horizon.dashboard.admin
+   * @ngdoc horizon.dashboard.admin.flavors
    * @ngModule
    *
    * @description
-   * Dashboard module to host various admin panels.
+   * Provides all of the services and widgets required
+   * to support and display the flavors panel.
    */
   angular
-    .module('horizon.dashboard.admin', [
-      'horizon.dashboard.admin.flavors'
-    ])
-    .config(config);
-
-  config.$inject = [
-    '$provide',
-    '$windowProvider'
-  ];
-
-  /**
-   * @name horizon.dashboard.admin.basePath
-   * @description Base path for the admin dashboard
-   */
-  function config($provide, $windowProvider) {
-    var path = $windowProvider.$get().STATIC_URL + 'dashboard/admin/';
-    $provide.constant('horizon.dashboard.admin.basePath', path);
-  }
+    .module('horizon.dashboard.admin.flavors', []);
 
 })();

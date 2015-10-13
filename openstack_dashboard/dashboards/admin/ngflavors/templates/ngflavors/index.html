@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+{% load i18n %}
+{% block title %}{% trans "Flavors" %}{% endblock %}
+
+{% block page_header %}
+  <hz-page-header header="'{% trans "Flavors" %}'"></hz-page-header>
+{% endblock %}
+
+{% block main %}
+  <ng-include src="'{{ STATIC_URL }}dashboard/admin/flavors/table/flavors-table.html'"></ng-include>
+{% endblock %}
