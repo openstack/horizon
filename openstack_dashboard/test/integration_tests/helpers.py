@@ -65,17 +65,43 @@ class BaseTestCase(testtools.TestCase):
                 self.vdisplay.xvfb_cmd.append("-ac")
                 self.vdisplay.start()
             # Start the Selenium webdriver and setup configuration.
-            self.driver = webdriver.WebDriverWrapper()
+            self.driver = webdriver.WebDriverWrapper(
+                logging_prefs={'browser': 'ALL'})
             self.driver.maximize_window()
             self.driver.implicitly_wait(self.CONFIG.selenium.implicit_wait)
             self.driver.set_page_load_timeout(
                 self.CONFIG.selenium.page_timeout)
             self.addOnException(self._dump_page_html_source)
+            self.addOnException(self._dump_browser_log)
             self.addOnException(self._save_screenshot)
         else:
             msg = "The INTEGRATION_TESTS env variable is not set."
             raise self.skipException(msg)
         super(BaseTestCase, self).setUp()
+
+    @staticmethod
+    def _unwrap_browser_log(_log):
+        def rec(log):
+            if isinstance(log, dict):
+                return log['message'].encode('utf-8')
+            elif isinstance(log, list):
+                return '\n'.join([rec(item) for item in log])
+            else:
+                return log.encode('utf-8')
+        return rec(_log)
+
+    def _dump_browser_log(self, exc_info):
+        content = None
+        try:
+            log = self.driver.get_log('browser')
+            content = testtools.content.Content(
+                testtools.content_type.UTF8_TEXT,
+                lambda: self._unwrap_browser_log(log))
+        except Exception:
+            exc_traceback = traceback.format_exc()
+            content = testtools.content.text_content(exc_traceback)
+        finally:
+            self.addDetail("BrowserLog.text", content)
 
     def _dump_page_html_source(self, exc_info):
         content = None
