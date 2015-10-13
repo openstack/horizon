@@ -1196,7 +1196,7 @@ Network types defined in Horizon or defined in ``extra_provider_types``
 settings can be specified in this list.
 As of the Newton release, the network types defined in Horizon include
 network types supported by Neutron ML2 plugin with Open vSwitch driver
-(``local``, ``flat``, ``vlan``, ``gre``, and ``vxlan``)
+(``local``, ``flat``, ``vlan``, ``gre``, ``vxlan`` and ``geneve``)
 and supported by Midonet plugin (``midonet`` and ``uplink``).
 ``["*"]`` means that all provider network types supported by Neutron
 ML2 plugin will be available to choose from.
