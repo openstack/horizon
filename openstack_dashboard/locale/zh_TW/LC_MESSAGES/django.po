@@ -17,7 +17,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-10-07 03:29+0000\n"
+"POT-Creation-Date: 2015-10-14 02:35+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -3177,18 +3177,6 @@ msgstr[0] "已刪除雲硬碟類型"
 
 msgid "Deleted images are not recoverable."
 msgstr "已刪除的映像檔將無法恢復。"
-
-#, python-format
-msgid "Deleted member %s"
-msgstr "已刪除成員 %s"
-
-#, python-format
-msgid "Deleted monitor %s"
-msgstr "刪除監視器 %s"
-
-#, python-format
-msgid "Deleted pool %s"
-msgstr "已刪除倉庫 %s"
 
 msgid "Deleting"
 msgstr "正在刪除"

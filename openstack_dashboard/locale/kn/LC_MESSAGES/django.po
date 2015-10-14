@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-10-07 03:29+0000\n"
+"POT-Creation-Date: 2015-10-14 02:35+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -2008,18 +2008,6 @@ msgstr "ಅಳಿಸಲಾದ"
 #, python-format
 msgid "Deleted VIP %s"
 msgstr "ಅಳಿಸಲಾದ VIP %s"
-
-#, python-format
-msgid "Deleted member %s"
-msgstr "ಅಳಿಸಲಾದ ಅಂಗ %s"
-
-#, python-format
-msgid "Deleted monitor %s"
-msgstr "ಅಳಿಸಲಾದ ಮೇಲ್ವಿಚಾರಕ %s"
-
-#, python-format
-msgid "Deleted pool %s"
-msgstr "ಅಳಿಸಲಾದ ಪೂಲ್ %s"
 
 msgid "Deleting"
 msgstr "ಅಳಿಸಲಾಗುತ್ತಿದೆ"
