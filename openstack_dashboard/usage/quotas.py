@@ -326,7 +326,7 @@ def _get_tenant_network_usages(request, usages, disabled_quotas, tenant_id):
         routers = []
         routers = neutron.router_list(request)
         if tenant_id:
-            routers = filter(lambda rou: rou.tenant_id == tenant_id, routers)
+            routers = [rou for rou in routers if rou.tenant_id == tenant_id]
         usages.tally('routers', len(routers))
 
 
