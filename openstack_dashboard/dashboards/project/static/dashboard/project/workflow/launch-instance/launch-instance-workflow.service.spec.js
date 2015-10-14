@@ -47,11 +47,12 @@
       expect(launchInstanceWorkflow.title).toBeDefined();
     });
 
-    it('should have the six steps defined', function () {
+    it('should have the seven steps defined', function () {
       expect(launchInstanceWorkflow.steps).toBeDefined();
-      expect(launchInstanceWorkflow.steps.length).toBe(6);
+      expect(launchInstanceWorkflow.steps.length).toBe(7);
 
       var forms = [
+        'launchInstanceDetailsForm',
         'launchInstanceSourceForm',
         'launchInstanceFlavorForm',
         'launchInstanceNetworkForm',
@@ -66,7 +67,7 @@
     });
 
     it('specifies that the network step requires the network service type', function() {
-      expect(launchInstanceWorkflow.steps[2].requiredServiceTypes).toEqual(['network']);
+      expect(launchInstanceWorkflow.steps[3].requiredServiceTypes).toEqual(['network']);
     });
   });
 

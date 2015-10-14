@@ -34,59 +34,29 @@
     '$scope',
     'horizon.dashboard.project.workflow.launch-instance.boot-source-types',
     'bytesFilter',
-    'horizon.framework.widgets.charts.donutChartSettings',
     'dateFilter',
     'decodeFilter',
     'diskFormatFilter',
     'gbFilter',
-    'horizon.framework.widgets.charts.quotaChartDefaults',
     'horizon.dashboard.project.workflow.launch-instance.basePath'
   ];
 
   function LaunchInstanceSourceController($scope,
     bootSourceTypes,
     bytesFilter,
-    donutChartSettings,
     dateFilter,
     decodeFilter,
     diskFormatFilter,
     gbFilter,
-    quotaChartDefaults,
     basePath
   ) {
 
     var ctrl = this;
 
-    ctrl.label = {
-      title: gettext('Instance Details'),
-      /*eslint-disable max-len */
-      subtitle: gettext('Please provide the initial host name for the instance, the availability zone where it will be deployed, and the instance count. Increase the Count to create multiple instances with the same settings.'),
-      /*eslint-enable max-len */
-      instanceName: gettext('Instance Name'),
-      availabilityZone: gettext('Availability Zone'),
-      instance_count: gettext('Count'),
-      instanceSourceTitle: gettext('Instance Source'),
-      /*eslint-disable max-len */
-      instanceSourceSubTitle: gettext('Instance source is the template used to create an instance. You can use a snapshot of an existing instance, an image, or a volume (if enabled). You can also choose to use persistent storage by creating a new volume.'),
-      /*eslint-enable max-len */
-      bootSource: gettext('Select Boot Source'),
-      volumeSize: gettext('Size (GB)'),
-      volumeCreate: gettext('Create New Volume'),
-      volumeDeviceName: gettext('Device Name'),
-      deleteVolumeOnTerminate: gettext('Delete Volume on Terminate'),
-      id: gettext('ID'),
-      min_ram: gettext('Min Ram'),
-      min_disk: gettext('Min Disk')
-    };
-
     // Error text for invalid fields
     /*eslint-disable max-len */
     ctrl.bootSourceTypeError = gettext('Volumes can only be attached to 1 active instance at a time. Please either set your instance count to 1 or select a different source type.');
     /*eslint-enable max-len */
-    ctrl.instanceNameError = gettext('A name is required for your instance.');
-    ctrl.instanceCountError = gettext(
-      'Instance count is required and must be an integer of at least 1'
-    );
     ctrl.volumeSizeError = gettext('Volume size is required and must be an integer');
 
     // toggle button label/value defaults
@@ -114,7 +84,6 @@
     ctrl.tableBodyCells = [];
     ctrl.tableData = {};
     ctrl.helpText = {};
-    ctrl.maxInstanceCount = 1;
     ctrl.sourceDetails = basePath + 'source/source-details.html';
 
     var selection = ctrl.selection = $scope.model.newInstanceSpec.source;
@@ -216,78 +185,13 @@
       ]
     };
 
-    /*
-     * Donut chart
-     */
-    ctrl.chartSettings = donutChartSettings;
-    var maxTotalInstances = 1; // Must have default value > 0
-    var totalInstancesUsed = 0;
-
-    if ($scope.model.novaLimits && $scope.model.novaLimits.maxTotalInstances) {
-      maxTotalInstances = $scope.model.novaLimits.maxTotalInstances;
-    }
-
-    if ($scope.model.novaLimits && $scope.model.novaLimits.totalInstancesUsed) {
-      totalInstancesUsed = $scope.model.novaLimits.totalInstancesUsed;
-    }
-
-    ctrl.instanceStats = {
-      title: gettext('Total Instances'),
-      maxLimit: maxTotalInstances,
-      label: '100%',
-      data: [
-        {
-          label: quotaChartDefaults.usageLabel,
-          value: 1,
-          colorClass: quotaChartDefaults.usageColorClass
-        },
-        {
-          label: quotaChartDefaults.addedLabel,
-          value: 1,
-          colorClass: quotaChartDefaults.addedColorClass
-        },
-        {
-          label: quotaChartDefaults.remainingLabel,
-          value: 1,
-          colorClass: quotaChartDefaults.remainingColorClass
-        }
-      ]
-    };
-
     var newSpecWatcher = $scope.$watch(
       function () {
         return $scope.model.newInstanceSpec.instance_count;
       },
       function (newValue, oldValue) {
         if (newValue !== oldValue) {
-          updateChart();
           validateBootSourceType();
-        }
-      }
-    );
-
-    var maxInstancesWatcher = $scope.$watch(
-      function () {
-        return $scope.model.novaLimits.maxTotalInstances;
-      },
-      function (newValue, oldValue) {
-        if (newValue !== oldValue) {
-          maxTotalInstances = Math.max(1, newValue);
-          updateChart();
-          updateMaxInstanceCount();
-        }
-      }
-    );
-
-    var instancesUsedWatcher = $scope.$watch(
-      function () {
-        return $scope.model.novaLimits.totalInstancesUsed;
-      },
-      function (newValue, oldValue) {
-        if (newValue !== oldValue) {
-          totalInstancesUsed = newValue;
-          updateChart();
-          updateMaxInstanceCount();
         }
       }
     );
@@ -296,10 +200,7 @@
       function () {
         return ctrl.tableData.allocated.length;
       },
-      function (newValue, oldValue) {
-        if (newValue !== oldValue) {
-          updateChart();
-        }
+      function (newValue) {
         checkVolumeForImage(newValue);
       }
     );
@@ -322,8 +223,6 @@
     // Explicitly remove watchers on desruction of this controller
     $scope.$on('$destroy', function() {
       newSpecWatcher();
-      maxInstancesWatcher();
-      instancesUsedWatcher();
       allocatedWatcher();
       imagesWatcher();
     });
@@ -352,8 +251,6 @@
       updateHelpText(key);
       updateTableHeadCells(key);
       updateTableBodyCells(key);
-      updateChart();
-      updateMaxInstanceCount();
     }
 
     function updateDataSource(key, preSelection) {
@@ -387,26 +284,6 @@
       Array.prototype.push.apply(arrayToRefill, contentArray);
     }
 
-    function updateChart() {
-      // Initialize instance_count to 1
-      if ($scope.model.newInstanceSpec.instance_count <= 0) {
-        $scope.model.newInstanceSpec.instance_count = 1;
-      }
-
-      var data = ctrl.instanceStats.data;
-      var added = $scope.model.newInstanceSpec.instance_count || 1;
-      var remaining = Math.max(0, maxTotalInstances - totalInstancesUsed - added);
-
-      ctrl.instanceStats.maxLimit = maxTotalInstances;
-      data[0].value = totalInstancesUsed;
-      data[1].value = added;
-      data[2].value = remaining;
-      var quotaCalc = Math.round((totalInstancesUsed + added) / maxTotalInstances * 100);
-      ctrl.instanceStats.overMax = quotaCalc > 100 ? true : false;
-      ctrl.instanceStats.label = quotaCalc + '%';
-      ctrl.instanceStats = angular.extend({}, ctrl.instanceStats);
-    }
-
     /*
      * Validation
      */
@@ -429,17 +306,6 @@
       } else {
         ctrl.minVolumeSize = undefined;
       }
-    }
-
-    // Update the maximum instance count based on nova limits
-    function updateMaxInstanceCount() {
-      ctrl.maxInstanceCount = maxTotalInstances - totalInstancesUsed;
-
-      var instanceCountText = gettext(
-        'The instance count must not exceed your quota available of %(maxInstanceCount)s instances'
-      );
-      var instanceCountObj = { maxInstanceCount: ctrl.maxInstanceCount };
-      ctrl.instanceCountMaxError = interpolate(instanceCountText, instanceCountObj, true);
     }
 
     // Validator for boot source type. Instance count must to be 1 if volume selected
