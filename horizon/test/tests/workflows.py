@@ -308,8 +308,8 @@ class WorkflowsTests(test.TestCase):
         req.is_ajax = lambda: True
         res = view(req)
         output = res.render()
-        self.assertRegexpMatches(str(output),
-                                 'class="[^"]*\\bfullscreen\\b[^"]*"')
+        self.assertRegexpMatches(bytes(output),
+                                 b'class="[^"]*\\bfullscreen\\b[^"]*"')
 
     def test_notfullscreenworkflow_view(self):
         view = TestWorkflowView.as_view()
@@ -317,5 +317,5 @@ class WorkflowsTests(test.TestCase):
         req.is_ajax = lambda: True
         res = view(req)
         output = res.render()
-        self.assertNotRegexpMatches(str(output),
-                                    'class="[^"]*\\bfullscreen\\b[^"]*"')
+        self.assertNotRegexpMatches(bytes(output),
+                                    b'class="[^"]*\\bfullscreen\\b[^"]*"')

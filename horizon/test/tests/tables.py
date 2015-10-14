@@ -617,11 +617,7 @@ class DataTableTests(test.TestCase):
         # Verify no table heading
         self.assertNotContains(resp, "<h3 class='table_title'")
         # Verify our XSS protection
-        self.assertContains(resp, '<a href="http://example.com/" '
-                                  'data-tip="click for dialog" '
-                                  'data-type="modal dialog" '
-                                  'class="link-modal">'
-                                  '&lt;strong&gt;evil&lt;/strong&gt;</a>', 1)
+        self.assertContains(resp, '&lt;strong&gt;evil&lt;/strong&gt;', 1)
         # Hidden Title = False shows the table title
         self.table._meta.hidden_title = False
         resp = http.HttpResponse(self.table.render())
@@ -1189,8 +1185,8 @@ class DataTableTests(test.TestCase):
         # Regression test for launchpad bug 964345.
         self.assertNotEqual(id(table1), id(table2))
         self.assertNotEqual(id(table1.columns), id(table2.columns))
-        t1cols = table1.columns.values()
-        t2cols = table2.columns.values()
+        t1cols = list(table1.columns.values())
+        t2cols = list(table2.columns.values())
         self.assertEqual(t1cols[0].name, t2cols[0].name)
         self.assertNotEqual(id(t1cols[0]), id(t2cols[0]))
         self.assertNotEqual(id(t1cols[0].table),
