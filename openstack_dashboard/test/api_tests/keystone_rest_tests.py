@@ -11,11 +11,11 @@
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
-import mock
 
 from django.conf import settings
-
+import mock
 from oslo_serialization import jsonutils
+import six
 
 from openstack_dashboard.api.rest import keystone
 from openstack_dashboard.test import helpers as test
@@ -31,7 +31,7 @@ class KeystoneRestTestCase(test.TestCase):
         kc.get_version.return_value = '2.0'
         response = keystone.Version().get(request)
         self.assertStatusCode(response, 200)
-        self.assertEqual(response.content, '{"version": "2.0"}')
+        self.assertEqual(response.json, {"version": "2.0"})
         kc.get_version.assert_called_once_with()
 
     #
@@ -43,7 +43,7 @@ class KeystoneRestTestCase(test.TestCase):
         kc.user_get.return_value.to_dict.return_value = {'name': 'Ni!'}
         response = keystone.User().get(request, 'the_id')
         self.assertStatusCode(response, 200)
-        self.assertEqual(response.content, '{"name": "Ni!"}')
+        self.assertEqual(response.json, {"name": "Ni!"})
         kc.user_get.assert_called_once_with(request, 'the_id')
 
     @mock.patch.object(keystone.api, 'keystone')
@@ -52,7 +52,7 @@ class KeystoneRestTestCase(test.TestCase):
         kc.user_get.return_value.to_dict.return_value = {'name': 'Ni!'}
         response = keystone.User().get(request, 'current')
         self.assertStatusCode(response, 200)
-        self.assertEqual(response.content, '{"name": "Ni!"}')
+        self.assertEqual(response.json, {"name": "Ni!"})
         kc.user_get.assert_called_once_with(request, 'current_id')
 
     @mock.patch.object(keystone.api, 'keystone')
@@ -67,8 +67,8 @@ class KeystoneRestTestCase(test.TestCase):
         ]
         response = keystone.Users().get(request)
         self.assertStatusCode(response, 200)
-        self.assertEqual(response.content,
-                         '{"items": [{"name": "Ni!"}, {"name": "Ptang!"}]}')
+        self.assertEqual(response.json,
+                         {"items": [{"name": "Ni!"}, {"name": "Ptang!"}]})
         kc.user_list.assert_called_once_with(request, project=None,
                                              domain='the_domain', group=None,
                                              filters=None)
@@ -86,8 +86,8 @@ class KeystoneRestTestCase(test.TestCase):
         ]
         response = keystone.Users().get(request)
         self.assertStatusCode(response, 200)
-        self.assertEqual(response.content,
-                         '{"items": [{"name": "Ni!"}, {"name": "Ptang!"}]}')
+        self.assertEqual(response.json,
+                         {"items": [{"name": "Ni!"}, {"name": "Ptang!"}]})
         kc.user_list.assert_called_once_with(request, project=None,
                                              domain='the_domain', group=None,
                                              filters=filters)
@@ -164,8 +164,8 @@ class KeystoneRestTestCase(test.TestCase):
         self.assertStatusCode(response, 201)
         self.assertEqual(response['location'],
                          '/api/keystone/users/user123')
-        self.assertEqual(response.content, '{"id": "user123", '
-                         '"name": "bob"}')
+        self.assertEqual(response.json,
+                         {"id": "user123", "name": "bob"})
         kc.user_create.assert_called_once_with(request, **add_user_call)
 
     @mock.patch.object(keystone.api, 'keystone')
@@ -176,7 +176,7 @@ class KeystoneRestTestCase(test.TestCase):
 
         response = keystone.Users().delete(request)
         self.assertStatusCode(response, 204)
-        self.assertEqual(response.content, '')
+        self.assertEqual(response.content, b'')
         kc.user_delete.assert_has_calls([
             mock.call(request, 'id1'),
             mock.call(request, 'id2'),
@@ -188,7 +188,7 @@ class KeystoneRestTestCase(test.TestCase):
         request = self.mock_rest_request()
         response = keystone.User().delete(request, 'the_id')
         self.assertStatusCode(response, 204)
-        self.assertEqual(response.content, '')
+        self.assertEqual(response.content, b'')
         kc.user_delete.assert_called_once_with(request, 'the_id')
 
     @mock.patch.object(keystone.api, 'keystone')
@@ -200,7 +200,7 @@ class KeystoneRestTestCase(test.TestCase):
         kc.user_get = mock.MagicMock(return_value=user)
         response = user.patch(request, 'user123')
         self.assertStatusCode(response, 204)
-        self.assertEqual(response.content, '')
+        self.assertEqual(response.content, b'')
         kc.user_update_password.assert_called_once_with(request,
                                                         user,
                                                         'sekrit')
@@ -214,7 +214,7 @@ class KeystoneRestTestCase(test.TestCase):
         kc.user_get = mock.MagicMock(return_value=user)
         response = user.patch(request, 'user123')
         self.assertStatusCode(response, 204)
-        self.assertEqual(response.content, '')
+        self.assertEqual(response.content, b'')
         kc.user_get.assert_called_once_with(request, 'user123')
         kc.user_update_enabled.assert_called_once_with(request,
                                                        user,
@@ -229,7 +229,7 @@ class KeystoneRestTestCase(test.TestCase):
         kc.user_get = mock.MagicMock(return_value=user)
         response = user.patch(request, 'user123')
         self.assertStatusCode(response, 204)
-        self.assertEqual(response.content, '')
+        self.assertEqual(response.content, b'')
         kc.user_update.assert_called_once_with(request,
                                                user,
                                                project='other123')
@@ -243,7 +243,7 @@ class KeystoneRestTestCase(test.TestCase):
         kc.user_get = mock.MagicMock(return_value=user)
         response = user.patch(request, 'user123')
         self.assertStatusCode(response, 204)
-        self.assertEqual(response.content, '')
+        self.assertEqual(response.content, b'')
         kc.user_update.assert_called_once_with(request,
                                                user,
                                                project='other123',
@@ -258,7 +258,7 @@ class KeystoneRestTestCase(test.TestCase):
         kc.role_get.return_value.to_dict.return_value = {'name': 'Ni!'}
         response = keystone.Role().get(request, 'the_id')
         self.assertStatusCode(response, 200)
-        self.assertEqual(response.content, '{"name": "Ni!"}')
+        self.assertEqual(response.json, {"name": "Ni!"})
         kc.role_get.assert_called_once_with(request, 'the_id')
 
     @mock.patch.object(keystone.api, 'keystone')
@@ -267,7 +267,7 @@ class KeystoneRestTestCase(test.TestCase):
         kc.get_default_role.return_value.to_dict.return_value = {'name': 'Ni!'}
         response = keystone.Role().get(request, 'default')
         self.assertStatusCode(response, 200)
-        self.assertEqual(response.content, '{"name": "Ni!"}')
+        self.assertEqual(response.json, {"name": "Ni!"})
         kc.get_default_role.assert_called_once_with(request)
         kc.role_get.assert_not_called()
 
@@ -280,8 +280,8 @@ class KeystoneRestTestCase(test.TestCase):
         ]
         response = keystone.Roles().get(request)
         self.assertStatusCode(response, 200)
-        self.assertEqual(response.content,
-                         '{"items": [{"name": "Ni!"}, {"name": "Ptang!"}]}')
+        self.assertEqual(response.json,
+                         {"items": [{"name": "Ni!"}, {"name": "Ptang!"}]})
         kc.role_list.assert_called_once_with(request)
 
     @mock.patch.object(keystone.api, 'keystone')
@@ -294,8 +294,8 @@ class KeystoneRestTestCase(test.TestCase):
         ]
         response = keystone.Roles().get(request)
         self.assertStatusCode(response, 200)
-        self.assertEqual(response.content,
-                         '{"items": [{"name": "Ni!"}, {"name": "Ptang!"}]}')
+        self.assertEqual(response.json,
+                         {"items": [{"name": "Ni!"}, {"name": "Ptang!"}]})
         kc.roles_for_user.assert_called_once_with(request, 'user123',
                                                   'project123')
 
@@ -313,7 +313,7 @@ class KeystoneRestTestCase(test.TestCase):
         self.assertStatusCode(response, 201)
         self.assertEqual(response['location'],
                          '/api/keystone/roles/role123')
-        self.assertEqual(response.content, '{"id": "role123", "name": "bob"}')
+        self.assertEqual(response.json, {"id": "role123", "name": "bob"})
         kc.role_create.assert_called_once_with(request, 'bob')
 
     @mock.patch.object(keystone.api, 'keystone')
@@ -325,7 +325,7 @@ class KeystoneRestTestCase(test.TestCase):
         response = keystone.ProjectRole().put(request, "project1", "role2",
                                               "user3")
         self.assertStatusCode(response, 204)
-        self.assertEqual(response.content, '')
+        self.assertEqual(response.content, b'')
         kc.add_tenant_user_role.assert_called_once_with(request, 'project1',
                                                         'user3', 'role2')
 
@@ -337,7 +337,7 @@ class KeystoneRestTestCase(test.TestCase):
 
         response = keystone.Roles().delete(request)
         self.assertStatusCode(response, 204)
-        self.assertEqual(response.content, '')
+        self.assertEqual(response.content, b'')
         kc.role_delete.assert_has_calls([
             mock.call(request, 'id1'),
             mock.call(request, 'id2'),
@@ -349,7 +349,7 @@ class KeystoneRestTestCase(test.TestCase):
         request = self.mock_rest_request()
         response = keystone.Role().delete(request, 'the_id')
         self.assertStatusCode(response, 204)
-        self.assertEqual(response.content, '')
+        self.assertEqual(response.content, b'')
         kc.role_delete.assert_called_once_with(request, 'the_id')
 
     @mock.patch.object(keystone.api, 'keystone')
@@ -357,7 +357,7 @@ class KeystoneRestTestCase(test.TestCase):
         request = self.mock_rest_request(body='{"name": "spam"}')
         response = keystone.Role().patch(request, 'the_id')
         self.assertStatusCode(response, 204)
-        self.assertEqual(response.content, '')
+        self.assertEqual(response.content, b'')
         kc.role_update.assert_called_once_with(request,
                                                'the_id',
                                                'spam')
@@ -371,7 +371,7 @@ class KeystoneRestTestCase(test.TestCase):
         kc.domain_get.return_value.to_dict.return_value = {'name': 'Ni!'}
         response = keystone.Domain().get(request, 'the_id')
         self.assertStatusCode(response, 200)
-        self.assertEqual(response.content, '{"name": "Ni!"}')
+        self.assertEqual(response.json, {"name": "Ni!"})
         kc.domain_get.assert_called_once_with(request, 'the_id')
 
     @mock.patch.object(keystone.api, 'keystone')
@@ -382,7 +382,7 @@ class KeystoneRestTestCase(test.TestCase):
         }
         response = keystone.Domain().get(request, 'default')
         self.assertStatusCode(response, 200)
-        self.assertEqual(response.content, '{"name": "Ni!"}')
+        self.assertEqual(response.json, {"name": "Ni!"})
         kc.get_default_domain.assert_called_once_with(request)
         kc.domain_get.assert_not_called()
 
@@ -395,8 +395,8 @@ class KeystoneRestTestCase(test.TestCase):
         ]
         response = keystone.Domains().get(request)
         self.assertStatusCode(response, 200)
-        self.assertEqual(response.content,
-                         '{"items": [{"name": "Ni!"}, {"name": "Ptang!"}]}')
+        self.assertEqual(response.json,
+                         {"items": [{"name": "Ni!"}, {"name": "Ptang!"}]})
         kc.domain_list.assert_called_once_with(request)
 
     def test_domain_create_full(self):
@@ -430,8 +430,7 @@ class KeystoneRestTestCase(test.TestCase):
         self.assertStatusCode(response, 201)
         self.assertEqual(response['location'],
                          '/api/keystone/domains/domain123')
-        self.assertEqual(response.content, '{"id": "domain123", '
-                         '"name": "bob"}')
+        self.assertEqual(response.json, {"id": "domain123", "name": "bob"})
         kc.domain_create.assert_called_once_with(request, 'bob',
                                                  **expected_call)
 
@@ -443,7 +442,7 @@ class KeystoneRestTestCase(test.TestCase):
 
         response = keystone.Domains().delete(request)
         self.assertStatusCode(response, 204)
-        self.assertEqual(response.content, '')
+        self.assertEqual(response.content, b'')
         kc.domain_delete.assert_has_calls([
             mock.call(request, 'id1'),
             mock.call(request, 'id2'),
@@ -455,7 +454,7 @@ class KeystoneRestTestCase(test.TestCase):
         request = self.mock_rest_request()
         response = keystone.Domain().delete(request, 'the_id')
         self.assertStatusCode(response, 204)
-        self.assertEqual(response.content, '')
+        self.assertEqual(response.content, b'')
         kc.domain_delete.assert_called_once_with(request, 'the_id')
 
     @mock.patch.object(keystone.api, 'keystone')
@@ -463,7 +462,7 @@ class KeystoneRestTestCase(test.TestCase):
         request = self.mock_rest_request(body='{"name": "spam"}')
         response = keystone.Domain().patch(request, 'the_id')
         self.assertStatusCode(response, 204)
-        self.assertEqual(response.content, '')
+        self.assertEqual(response.content, b'')
         kc.domain_update.assert_called_once_with(request,
                                                  'the_id',
                                                  name='spam',
@@ -479,7 +478,7 @@ class KeystoneRestTestCase(test.TestCase):
         kc.tenant_get.return_value.to_dict.return_value = {'name': 'Ni!'}
         response = keystone.Project().get(request, 'the_id')
         self.assertStatusCode(response, 200)
-        self.assertEqual(response.content, '{"name": "Ni!"}')
+        self.assertEqual(response.json, {"name": "Ni!"})
         kc.tenant_get.assert_called_once_with(request, 'the_id')
 
     def test_project_get_list(self):
@@ -537,8 +536,9 @@ class KeystoneRestTestCase(test.TestCase):
         with mock.patch.object(settings, 'DEBUG', True):
             response = keystone.Projects().get(request)
         self.assertStatusCode(response, 200)
-        self.assertEqual(response.content, '{"has_more": false, '
-                         '"items": [{"name": "Ni!"}, {"name": "Ptang!"}]}')
+        self.assertEqual(response.json,
+                         {"has_more": False,
+                          "items": [{"name": "Ni!"}, {"name": "Ptang!"}]})
         kc.tenant_list.assert_called_once_with(request, **expected_call)
 
     @mock.patch.object(keystone.api, 'keystone')
@@ -552,8 +552,9 @@ class KeystoneRestTestCase(test.TestCase):
         with mock.patch.object(settings, 'DEBUG', True):
             response = keystone.Projects().get(request)
         self.assertStatusCode(response, 200)
-        self.assertEqual(response.content, '{"has_more": false, '
-                         '"items": [{"name": "Ni!"}, {"name": "Ni!"}]}')
+        self.assertEqual(response.json,
+                         {"has_more": False,
+                          "items": [{"name": "Ni!"}, {"name": "Ni!"}]})
         kc.tenant_list.assert_called_once_with(request, paginate=False,
                                                marker=None, domain=None,
                                                user=None, admin=True,
@@ -593,8 +594,8 @@ class KeystoneRestTestCase(test.TestCase):
         self.assertStatusCode(response, 201)
         self.assertEqual(response['location'],
                          '/api/keystone/projects/project123')
-        self.assertEqual(response.content, '{"id": "project123", '
-                         '"name": "bob"}')
+        self.assertEqual(response.json,
+                         {"id": "project123", "name": "bob"})
         kc.tenant_create.assert_called_once_with(request, 'bob',
                                                  **expected_call)
 
@@ -606,7 +607,7 @@ class KeystoneRestTestCase(test.TestCase):
 
         response = keystone.Projects().delete(request)
         self.assertStatusCode(response, 204)
-        self.assertEqual(response.content, '')
+        self.assertEqual(response.content, b'')
         kc.tenant_delete.assert_has_calls([
             mock.call(request, 'id1'),
             mock.call(request, 'id2'),
@@ -618,7 +619,7 @@ class KeystoneRestTestCase(test.TestCase):
         request = self.mock_rest_request()
         response = keystone.Project().delete(request, 'the_id')
         self.assertStatusCode(response, 204)
-        self.assertEqual(response.content, '')
+        self.assertEqual(response.content, b'')
         kc.tenant_delete.assert_called_once_with(request, 'the_id')
 
     @mock.patch.object(keystone.api, 'keystone')
@@ -630,7 +631,7 @@ class KeystoneRestTestCase(test.TestCase):
         ''')
         response = keystone.Project().patch(request, 'spam123')
         self.assertStatusCode(response, 204)
-        self.assertEqual(response.content, '')
+        self.assertEqual(response.content, b'')
         kc.tenant_update.assert_called_once_with(request,
                                                  'spam123',
                                                  name='spam', foo='bar',
@@ -648,6 +649,8 @@ class KeystoneRestTestCase(test.TestCase):
         self.assertStatusCode(response, 200)
         content = jsonutils.dumps(request.user.service_catalog,
                                   sort_keys=settings.DEBUG)
+        if six.PY3:
+            content = content.encode('utf-8')
         self.assertEqual(content, response.content)
 
     #

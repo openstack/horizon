@@ -32,8 +32,8 @@ class NovaRestTestCase(test.TestCase):
         ]
         response = nova.Keypairs().get(request)
         self.assertStatusCode(response, 200)
-        self.assertEqual(response.content,
-                         '{"items": [{"id": "one"}, {"id": "two"}]}')
+        self.assertEqual(response.json,
+                         {"items": [{"id": "one"}, {"id": "two"}]})
         nc.keypair_list.assert_called_once_with(request)
 
     @mock.patch.object(nova.api, 'nova')
@@ -45,8 +45,8 @@ class NovaRestTestCase(test.TestCase):
         with mock.patch.object(settings, 'DEBUG', True):
             response = nova.Keypairs().post(request)
         self.assertStatusCode(response, 201)
-        self.assertEqual(response.content,
-                         '{"name": "Ni!", "public_key": "sekrit"}')
+        self.assertEqual(response.json,
+                         {"name": "Ni!", "public_key": "sekrit"})
         self.assertEqual(response['location'], '/api/nova/keypairs/Ni%21')
         nc.keypair_create.assert_called_once_with(request, 'Ni!')
 
@@ -61,8 +61,8 @@ class NovaRestTestCase(test.TestCase):
         with mock.patch.object(settings, 'DEBUG', True):
             response = nova.Keypairs().post(request)
         self.assertStatusCode(response, 201)
-        self.assertEqual(response.content,
-                         '{"name": "Ni!", "public_key": "hi"}')
+        self.assertEqual(response.json,
+                         {"name": "Ni!", "public_key": "hi"})
         self.assertEqual(response['location'], '/api/nova/keypairs/Ni%21')
         nc.keypair_import.assert_called_once_with(request, 'Ni!', 'hi')
 
@@ -87,8 +87,8 @@ class NovaRestTestCase(test.TestCase):
         ]
         response = nova.AvailabilityZones().get(request)
         self.assertStatusCode(response, 200)
-        self.assertEqual(response.content,
-                         '{"items": [{"id": "one"}, {"id": "two"}]}')
+        self.assertEqual(response.json,
+                         {"items": [{"id": "one"}, {"id": "two"}]})
         nc.availability_zone_list.assert_called_once_with(request, detail)
 
     #
@@ -110,7 +110,7 @@ class NovaRestTestCase(test.TestCase):
         response = nova.Limits().get(request)
         self.assertStatusCode(response, 200)
         nc.tenant_absolute_limits.assert_called_once_with(request, reserved)
-        self.assertEqual(response.content, '{"id": "one"}')
+        self.assertEqual(response.json, {"id": "one"})
 
     #
     # Servers
@@ -120,8 +120,8 @@ class NovaRestTestCase(test.TestCase):
         request = self.mock_rest_request(body='''{"name": "hi"}''')
         response = nova.Servers().post(request)
         self.assertStatusCode(response, 400)
-        self.assertEqual(response.content,
-                         '"missing required parameter \'source_id\'"')
+        self.assertEqual(response.json,
+                         "missing required parameter 'source_id'")
         nc.server_create.assert_not_called()
 
     @mock.patch.object(nova.api, 'nova')
@@ -136,7 +136,7 @@ class NovaRestTestCase(test.TestCase):
         new.id = 'server123'
         response = nova.Servers().post(request)
         self.assertStatusCode(response, 201)
-        self.assertEqual(response.content, '{"id": "server123"}')
+        self.assertEqual(response.json, {"id": "server123"})
         self.assertEqual(response['location'], '/api/nova/servers/server123')
         nc.server_create.assert_called_once_with(
             request, 'Ni!', 'image123', 'flavor123', 'sekrit', 'base64 yes',
@@ -167,8 +167,8 @@ class NovaRestTestCase(test.TestCase):
         ]
         response = nova.Extensions().get(request)
         self.assertStatusCode(response, 200)
-        self.assertEqual(response.content,
-                         '{"items": [{"name": "foo"}, {"name": "bar"}]}')
+        self.assertEqual(response.json,
+                         {"items": [{"name": "foo"}, {"name": "bar"}]})
         nc.list_extensions.assert_called_once_with(request)
 
     #
@@ -197,9 +197,9 @@ class NovaRestTestCase(test.TestCase):
         response = nova.Flavor().get(request, "1")
         self.assertStatusCode(response, 200)
         if get_extras:
-            self.assertEqual(response.content, '{"extras": {}, "name": "1"}')
+            self.assertEqual(response.json, {"extras": {}, "name": "1"})
         else:
-            self.assertEqual(response.content, '{"name": "1"}')
+            self.assertEqual(response.json, {"name": "1"})
         nc.flavor_get.assert_called_once_with(request, "1",
                                               get_extras=get_extras)
 
@@ -217,8 +217,8 @@ class NovaRestTestCase(test.TestCase):
         ]
         response = nova.Flavors().get(request)
         self.assertStatusCode(response, 200)
-        self.assertEqual(response.content,
-                         '{"items": [{"id": "1"}, {"id": "2"}]}')
+        self.assertEqual(response.json,
+                         {"items": [{"id": "1"}, {"id": "2"}]})
         nc.flavor_list.assert_called_once_with(request, is_public=is_public,
                                                get_extras=False)
 
@@ -247,12 +247,12 @@ class NovaRestTestCase(test.TestCase):
         response = nova.Flavors().get(request)
         self.assertStatusCode(response, 200)
         if get_extras:
-            self.assertEqual(response.content,
-                             '{"items": [{"extras": {}, "id": "1"}, '
-                             '{"extras": {}, "id": "2"}]}')
+            self.assertEqual(response.json,
+                             {"items": [{"extras": {}, "id": "1"},
+                                        {"extras": {}, "id": "2"}]})
         else:
-            self.assertEqual(response.content,
-                             '{"items": [{"id": "1"}, {"id": "2"}]}')
+            self.assertEqual(response.json,
+                             {"items": [{"id": "1"}, {"id": "2"}]})
         nc.flavor_list.assert_called_once_with(request, is_public=None,
                                                get_extras=get_extras)
 
@@ -282,7 +282,7 @@ class NovaRestTestCase(test.TestCase):
 
         response = nova.FlavorExtraSpecs().patch(request, '1')
         self.assertStatusCode(response, 204)
-        self.assertEqual(response.content, '')
+        self.assertEqual(response.content, b'')
         nc.flavor_extra_set.assert_called_once_with(
             request, '1', {'a': '1', 'b': '2'}
         )
@@ -297,7 +297,7 @@ class NovaRestTestCase(test.TestCase):
 
         response = nova.AggregateExtraSpecs().get(request, "1")
         self.assertStatusCode(response, 200)
-        self.assertEqual(response.content, '{"a": "1", "b": "2"}')
+        self.assertEqual(response.json, {"a": "1", "b": "2"})
         nc.aggregate_get.assert_called_once_with(request, "1")
 
     @mock.patch.object(nova.api, 'nova')
@@ -308,7 +308,7 @@ class NovaRestTestCase(test.TestCase):
 
         response = nova.AggregateExtraSpecs().patch(request, '1')
         self.assertStatusCode(response, 204)
-        self.assertEqual(response.content, '')
+        self.assertEqual(response.content, b'')
         nc.aggregate_set_metadata.assert_called_once_with(
             request, '1', {'a': '1', 'b': '2', 'c': None, 'd': None}
         )

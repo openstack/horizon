@@ -35,7 +35,17 @@ http_errors = exceptions.UNAUTHORIZED + exceptions.NOT_FOUND + \
     exceptions.RECOVERABLE + (AjaxError, )
 
 
-class CreatedResponse(http.HttpResponse):
+class _RestResponse(http.HttpResponse):
+    @property
+    def json(self):
+        content_type = self['Content-Type']
+        if content_type != 'application/json':
+            raise ValueError("content type is %s" % content_type)
+        body = self.content.decode('utf-8')
+        return json.loads(body)
+
+
+class CreatedResponse(_RestResponse):
     def __init__(self, location, data=None):
         if data is not None:
             content = jsonutils.dumps(data, sort_keys=settings.DEBUG)
@@ -48,7 +58,7 @@ class CreatedResponse(http.HttpResponse):
         self['Location'] = location
 
 
-class JSONResponse(http.HttpResponse):
+class JSONResponse(_RestResponse):
     def __init__(self, data, status=200, json_encoder=json.JSONEncoder):
         if status == 204:
             content = ''

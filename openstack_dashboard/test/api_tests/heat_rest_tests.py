@@ -24,6 +24,6 @@ class ValidateRestTestCase(test.TestCase):
         hc.template_validate.return_value = ({'Description': 'foo'})
         response = heat.Validate().post(request)
         self.assertStatusCode(response, 200)
-        self.assertEqual(response.content, '{"Description": "foo"}')
+        self.assertEqual(response.json, {"Description": "foo"})
         kwargs = json.loads(body)
         hc.template_validate.assert_called_once_with(request, **kwargs)
