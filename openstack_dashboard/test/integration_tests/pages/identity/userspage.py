@@ -71,14 +71,14 @@ class UsersPage(basepage.BaseNavigationPage):
         self.create_user_form.project.text = project
         self.create_user_form.role_id.text = role
         self.create_user_form.submit.click()
-        self._wait_till_spinner_disappears()
+        self.wait_till_popups_disappear()
 
     def delete_user(self, name):
         row = self._get_row_with_user_name(name)
         row.mark()
         self.users_table.delete_users.click()
         self.confirm_delete_users_form.submit.click()
-        self._wait_till_spinner_disappears()
+        self.wait_till_popups_disappear()
 
     def is_user_present(self, name):
         return bool(self._get_row_with_user_name(name))

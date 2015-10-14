@@ -63,7 +63,9 @@ class KeypairsPage(basepage.BaseNavigationPage):
         self.keypairs_table.create_key_pair.click()
         self.create_keypair_form.name.text = keypair_name
         self.create_keypair_form.submit.click()
+        self.wait_till_popups_disappear()
 
     def delete_keypair(self, name):
         self._get_row_with_keypair_name(name).delete_key_pair.click()
         self.delete_keypair_form.submit.click()
+        self.wait_till_popups_disappear()
