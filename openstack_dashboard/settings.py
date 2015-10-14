@@ -199,6 +199,7 @@ LANGUAGES = (
     ('de', 'German'),
     ('en', 'English'),
     ('en-au', 'Australian English'),
+    ('en-gb', 'British English'),
     ('es', 'Spanish'),
     ('fr', 'French'),
     ('ja', 'Japanese'),
