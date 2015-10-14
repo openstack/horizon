@@ -192,7 +192,7 @@ def filter_tenants():
 
 @memoized
 def filter_tenant_ids():
-    return map(lambda ft: ft['tenant'], filter_tenants())
+    return [ft['tenant'] for ft in filter_tenants()]
 
 
 class OwnerFilter(tables.FixedFilterAction):
