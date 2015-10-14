@@ -64,7 +64,7 @@ class GlobalOverview(usage.UsageView):
             exceptions.handle(self.request,
                               _('Unable to retrieve project list.'))
         for instance in data:
-            project = filter(lambda t: t.id == instance.tenant_id, projects)
+            project = [t for t in projects if t.id == instance.tenant_id]
             # If we could not get the project name, show the tenant_id with
             # a 'Deleted' identifier instead.
             if project:

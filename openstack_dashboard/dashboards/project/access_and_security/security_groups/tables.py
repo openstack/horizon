@@ -251,10 +251,10 @@ def check_rule_template(port, ip_proto):
     rules_dict = getattr(settings, 'SECURITY_GROUP_RULES', {})
     if not rules_dict:
         return port
-    templ_rule = filter(lambda rule: str(port) == rule['from_port']
-                        and str(port) == rule['to_port']
-                        and ip_proto == rule['ip_protocol'],
-                        [rule for rule in rules_dict.values()])
+    templ_rule = [rule for rule in rules_dict.values()
+                  if (str(port) == rule['from_port']
+                      and str(port) == rule['to_port']
+                      and ip_proto == rule['ip_protocol'])]
     if templ_rule:
         return u"%(from_port)s (%(name)s)" % templ_rule[0]
     return port

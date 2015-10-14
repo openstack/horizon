@@ -89,8 +89,8 @@ class VolumeViewTests(test.BaseAdminViewTests):
                                  'volume_get')})
     def test_unmanage_volume(self):
         # important - need to get the v2 cinder volume which has host data
-        volume_list = \
-            filter(lambda x: x.name == 'v2_volume', self.cinder_volumes.list())
+        volume_list = [x for x in self.cinder_volumes.list()
+                       if x.name == 'v2_volume']
         volume = volume_list[0]
         formData = {'volume_name': volume.name,
                     'host_name': 'host@backend-name#pool',
