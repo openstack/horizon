@@ -1,0 +1,143 @@
+=======================
+Horizon 8.0.0 "Liberty"
+=======================
+
+.. Note::
+
+  OpenStack moved to semver during this release cycle. The previous release
+  was 2015.1 "Kilo".
+
+
+Key New Features
+================
+
+* A new network topology - The network topology diagram has been replaced with
+  an interactive graph containing collapsible networks, and scales far better
+  in large deployments
+  (https://blueprints.launchpad.net/horizon/+spec/curvature-network-topology).
+
+* Plugin improvements - Horizon auto discovers JavaScript files for inclusion,
+  and now has mechanisms for pluggable SCSS and Django template overrides.
+
+* Compute (Nova)
+
+  - Support for shelving and unshelving of instances
+    (https://blueprints.launchpad.net/horizon/+spec/horizon-shelving-command).
+  - Support for v2 block device mapping, falling back to v1 when unavailable
+    (https://blueprints.launchpad.net/horizon/+spec/horizon-block-device-mapping-v2).
+
+* Networking (Neutron)
+
+  - Added support for subnet allocation via subnet pools
+    (https://blueprints.launchpad.net/horizon/+spec/neutron-subnet-allocation).
+  - Added actions to easily associate LBaaS VIP with a floating IP
+    (https://blueprints.launchpad.net/horizon/+spec/lbaas-vip-fip-associate).
+
+* Images (Glance)
+
+  - The metadata editor has been updated with AngularJS
+    (https://blueprints.launchpad.net/horizon/+spec/angularize-metadata-update-modals).
+  - Compute images metadata can now be edited from the Project dashboard, using
+    the new metadata editor
+    (https://blueprints.launchpad.net/horizon/+spec/project-images-metadata).
+
+* Block Storage (Cinder)
+
+  - Enabled support for migrating volumes
+    (https://blueprints.launchpad.net/horizon/+spec/volume-migration).
+  - Volume types can be now edited, and include description fields
+    (https://blueprints.launchpad.net/horizon/+spec/volume-type-description).
+
+* Orchestration (Heat)
+
+  - Improvements to the heat topology, making more resources identifiable
+    where previously they had no icons and were displayed as unknown resources
+    (https://blueprints.launchpad.net/horizon/+spec/heat-topology-display-improvement).
+
+* Data Processing (Sahara)
+
+  - Unified job interface map. This is a human readable method for passing in
+    configuration data that a job may require or accept
+    (https://blueprints.launchpad.net/horizon/+spec/unified-job-interface-map-ui).
+  - Added editing capabilities for job binaries
+    (https://blueprints.launchpad.net/horizon/+spec/allow-editing-of-job-binaries).
+  - Added editing capabilities for data sources
+    (https://blueprints.launchpad.net/horizon/+spec/allow-editing-of-data-sources).
+  - Added editing capabilities for job templates
+    (https://blueprints.launchpad.net/horizon/+spec/data-processing-edit-templates).
+  - Exposed event log for clusters
+    (https://blueprints.launchpad.net/horizon/+spec/sahara-event-log).
+  - Added support for shell job types
+    (https://blueprints.launchpad.net/horizon/+spec/sahara-shell-action-form).
+
+* Databases (Trove)
+
+  - Added initial support for database cluster creation and management.
+    Vertica and MongoDB are currently supported
+    (https://blueprints.launchpad.net/horizon/+spec/database-clustering-support).
+
+* Identity (Keystone)
+
+  - Added mapping for Identity Provider and Protocol specific WebSSO
+    (https://github.com/openstack/horizon/commit/3b4021c0ad0e8d7b10aa8c2dcd8c13a5717c450c).
+  - Configurable token hashing
+    (https://github.com/openstack/django_openstack_auth/commit/ece924a79d27ede1a8475d7f98e6d66bc3cffd6c
+    and
+    https://github.com/openstack/horizon/commit/48e651d05cbe9366884868c5331d49a501945adc).
+
+* Horizon (internal improvements)
+
+  - Full support for translation in AngularJS, along with simpler tooling
+    (https://blueprints.launchpad.net/horizon/+spec/angular-translate-makemessages).
+  - Added Karma for JavaScript testing
+    (https://blueprints.launchpad.net/horizon/+spec/karma).
+  - Added ESLint for JavaScript linting, using the eslint-config-openstack
+    rules
+    (https://blueprints.launchpad.net/horizon/+spec/jscs-cleanup).
+  - Horizon now supports overriding of existing Django templates
+    (https://blueprints.launchpad.net/horizon/+spec/horizon-theme-templates).
+  - JavaScript files are now automatically included
+    (https://blueprints.launchpad.net/horizon/+spec/auto-js-file-finding).
+
+
+Upgrade Notes
+=============
+
+* Django 1.8 is now supported, and Django 1.7 is our minimum supported version
+  (https://blueprints.launchpad.net/horizon/+spec/drop-django14-support).
+
+* Database-backed sessions will likely not persist across upgrades due to a
+  change in their structure
+  (https://github.com/openstack/django_openstack_auth/commit/8c64de92f4148d85704b10ea1f7bc441db2ddfee
+  and
+  https://github.com/openstack/horizon/commit/ee2771ab1a855342089abe5206fc6a5071a6d99e).
+
+* Horizon no longer uses QUnit in testing, and it has been removed from our
+  requirements
+  (https://blueprints.launchpad.net/horizon/+spec/replace-qunit-tests-with-jasmine).
+
+* Horizon now has multiple configuration options for the default web URL
+  (``WEBROOT``), static file location (``STATIC_ROOT``) and static file URL
+  (``STATIC_URL``) in its settings files.
+
+* Themes have moved location from ``openstack_dashboard/static/themes``, to
+  ``openstack_dashboard/themes``. Paths may need to be updated accordingly.
+  Furthermore, Horizon is aligning closer with Bootstrap markup, and themes
+  should be built around this ideology; see the top bar and side navigation for
+  details.
+
+* The deprecated ``OPENSTACK_QUANTUM_NETWORK`` configuration option has been
+  removed. If you still use it, you need to replace it with
+  ``OPENSTACK_NEUTRON_NETWORK``.
+
+* There is now an ``OPENSTACK_NOVA_EXTENSIONS_BLACKLIST`` option in the
+  settings, to disable selected extensions for performance reasons
+  (https://github.com/openstack/horizon/commit/18f4b752b8653c9389f8b0471eccaa0659707ebe).
+
+* Trove and Sahara panels now reside in ``openstack_dashboard/contrib``. This
+  is to provide separation for reviews provided mostly by the service teams. In
+  the future, these panels may become plugins rather than being kept in Horizon
+  (https://blueprints.launchpad.net/horizon/+spec/plugin-sanity).
+
+* Horizon requires both a ``volume`` and ``volumev2`` endpoint for Cinder, even
+  if only using v2.
