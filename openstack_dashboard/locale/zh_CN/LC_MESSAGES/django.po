@@ -25,7 +25,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-10-07 03:29+0000\n"
+"POT-Creation-Date: 2015-10-14 02:35+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -3158,18 +3158,6 @@ msgstr[0] "已删除的云硬盘类型"
 
 msgid "Deleted images are not recoverable."
 msgstr "删除的镜像均无法恢复。"
-
-#, python-format
-msgid "Deleted member %s"
-msgstr "已删除成员%s"
-
-#, python-format
-msgid "Deleted monitor %s"
-msgstr "监控程序%s已删除"
-
-#, python-format
-msgid "Deleted pool %s"
-msgstr "已删除资源池%s"
 
 msgid "Deleting"
 msgstr "删除中"

@@ -15,11 +15,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-10-07 03:29+0000\n"
+"POT-Creation-Date: 2015-10-14 02:35+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2015-10-06 02:06+0000\n"
+"PO-Revision-Date: 2015-10-12 12:58+0000\n"
 "Last-Translator: Ian Y. Choi <ianyrchoi@gmail.com>\n"
 "Language-Team: Korean (Korea) (http://www.transifex.com/openstack/horizon/"
 "language/ko_KR/)\n"
@@ -2789,6 +2789,10 @@ msgstr "날짜를 인식 할 수 없습니다."
 msgid "Day"
 msgstr "일"
 
+msgctxt "Current status of an Image"
+msgid "Deactivated"
+msgstr "비활성화됨"
+
 msgid "Dead peer detection action"
 msgstr "죽은 피어 감지 동작"
 
@@ -3211,18 +3215,6 @@ msgstr[0] "볼륨 타입 삭제됨"
 
 msgid "Deleted images are not recoverable."
 msgstr "삭제된 이미지는 복구 불가능합니다."
-
-#, python-format
-msgid "Deleted member %s"
-msgstr "멤버 %s를 삭제하였습니다."
-
-#, python-format
-msgid "Deleted monitor %s"
-msgstr "모니터 %s를 삭제하였습니다."
-
-#, python-format
-msgid "Deleted pool %s"
-msgstr "Pool %s를 삭제하였습니다."
 
 msgid "Deleting"
 msgstr "삭제 중"
@@ -3935,6 +3927,10 @@ msgctxt "current status of router"
 msgid "Error"
 msgstr "Error"
 
+msgctxt "status of a network port"
+msgid "Error"
+msgstr "오류"
+
 msgid "Error Deleting"
 msgstr "삭제중 오류"
 
@@ -4073,6 +4069,9 @@ msgstr "확장"
 #, python-format
 msgid "Extending volume: \"%s\""
 msgstr "선택한 볼륨 확장중: \"%s\""
+
+msgid "External"
+msgstr "외부"
 
 msgid "External Fixed IPs"
 msgstr "외부 고정 IP"
@@ -4530,6 +4529,10 @@ msgstr "유동 IP"
 
 msgid "Floating IP Pool"
 msgstr "유동 IP Pool"
+
+#, python-format
+msgid "Floating IP will be removed from VIP \"%s\"."
+msgstr "유동 IP는 VIP \"%s\"에서 제거될 것입니다."
 
 msgid "Floating IP:"
 msgstr "유동 IP:"
@@ -10086,8 +10089,24 @@ msgid "Unable to create volume."
 msgstr "볼륨을 생성할 수 없습니다."
 
 #, python-format
+msgid "Unable to delete IKE Policy. %s"
+msgstr "IKE 정책을 삭제할 수 없습니다. %s"
+
+#, python-format
+msgid "Unable to delete IPSec Policy. %s"
+msgstr "IPSec 정책을 삭제할 수 없습니다. %s"
+
+#, python-format
+msgid "Unable to delete IPSec Site Connection. %s"
+msgstr "IPSec 사이트 연결을 삭제할 수 없습니다. %s"
+
+#, python-format
 msgid "Unable to delete VIP. %s"
 msgstr "VIP를 삭제할 수 없습니다. %s"
+
+#, python-format
+msgid "Unable to delete VPN Service. %s"
+msgstr "VPN 서비스를 삭제할 수 없습니다. %s"
 
 msgid "Unable to delete container."
 msgstr "컨테이너를 삭제할 수 없습니다."
