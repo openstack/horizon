@@ -39,13 +39,22 @@ class IndexView(tables.DataTableView):
     template_name = 'admin/flavors/index.html'
     page_title = _("Flavors")
 
+    def has_more_data(self, table):
+        return self._more
+
     def get_data(self):
+        marker = self.request.GET.get(
+            project_tables.FlavorsTable._meta.pagination_param, None)
         request = self.request
         flavors = []
         try:
-            # "is_public=None" will return all flavors.
-            flavors = api.nova.flavor_list(request, None)
+            # Removing the pagination params and adding "is_public=None"
+            # will return all flavors.
+            flavors, self._more = api.nova.flavor_list_paged(request, None,
+                                                             marker=marker,
+                                                             paginate=True)
         except Exception:
+            self._more = False
             exceptions.handle(request,
                               _('Unable to retrieve flavor list.'))
         # Sort flavors by size
