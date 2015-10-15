@@ -12,7 +12,7 @@
           <div class="row form-group">
             <div class="col-sm-12 col-md-5">
               <div class="form-field required instance-name"
-                ng-class="{ 'has-warning': launchInstanceSourceForm['instance-name'].$invalid && launchInstanceSourceForm['instance-name'].$dirty }">
+                ng-class="{ 'has-error': launchInstanceSourceForm['instance-name'].$invalid && launchInstanceSourceForm['instance-name'].$dirty }">
                 <label translate class="on-top">Instance Name</label>
                 <span class="fa fa-exclamation-triangle invalid"
                     ng-show="launchInstanceSourceForm['instance-name'].$invalid && launchInstanceSourceForm.$dirty"
@@ -36,7 +36,7 @@
 
             <div class="col-sm-6 col-md-2">
               <div class="form-field instance_count"
-                ng-class="{ 'has-warning': launchInstanceSourceForm['instance-count'].$invalid }">
+                ng-class="{ 'has-error': launchInstanceSourceForm['instance-count'].$invalid }">
                 <label translate class="on-top">Count</label>
                 <span class="fa fa-exclamation-triangle invalid"
                     ng-show="launchInstanceSourceForm['instance-count'].$invalid"
@@ -75,7 +75,7 @@
         <div class="row">
           <div class="col-xs-12 col-sm-3">
             <div class="form-field image"
-              ng-class="{ 'has-warning': launchInstanceSourceForm['boot-source-type'].$invalid }">
+              ng-class="{ 'has-error': launchInstanceSourceForm['boot-source-type'].$invalid }">
               <label translate class="on-top">Boot Source</label>
               <span class="fa fa-exclamation-triangle invalid"
                     ng-show="launchInstanceSourceForm['boot-source-type'].$invalid"
@@ -123,7 +123,7 @@
 
             <div class="col-xs-12 col-sm-2 volume-size-wrapper" ng-if="model.newInstanceSpec.vol_create == true">
               <div class="form-field volume-size"
-                ng-class="{ 'has-warning': launchInstanceSourceForm['volume-size'].$invalid }">
+                ng-class="{ 'has-error': launchInstanceSourceForm['volume-size'].$invalid }">
                 <label translate class="on-top">Size (GB)</label>
                 <span class="fa fa-exclamation-triangle invalid"
                     ng-show="launchInstanceSourceForm['volume-size'].$invalid"
