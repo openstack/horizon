@@ -7,49 +7,56 @@
 # be installed in a specific order.
 #
 # PBR should always appear first
-pbr>=0.6,!=0.7,<1.0
+pbr!=0.7,<1.0,>=0.6
+
+# NOTE(tonyb) Horizon itself doesn't need oslo.config but
+# django-openstack-auth (doa) 1.1.9 (which meets the requirements below)
+# contains an uncapped dependancy on oslo.config.  Force this *BEFORE* doa so
+# that when doa is installed the requirement is already met and 2.x isn;t
+# installed.
+oslo.config<=1.6.0,>=1.4.0 # Apache-2.0
 # Horizon Core Requirements
-Django>=1.4.2,<1.7
-django_compressor>=1.4,<=1.4
-django_openstack_auth>=1.1.7,!=1.1.8,<=1.1.9
-django-pyscss>=1.0.3,<=1.0.6 # BSD License (2 clause)
-eventlet>=0.15.1,<=0.15.2
-httplib2>=0.7.5,<=0.9
-iso8601>=0.1.9,<=0.1.10
-kombu>=2.5.0,<=3.0.7
+Django<1.7,>=1.4.2
+django-compressor<=1.4,>=1.4
+django-openstack-auth!=1.1.8,<=1.1.9,>=1.1.7
+django-pyscss<=1.0.6,>=1.0.3 # BSD License (2 clause)
+eventlet<=0.15.2,>=0.15.1
+httplib2<=0.9,>=0.7.5
+iso8601<=0.1.10,>=0.1.9
+kombu<=3.0.15,>=2.5.0
 # Horizon Utility Requirements
 # for SECURE_KEY generation
-lockfile>=0.8,<=0.8
-netaddr>=0.7.12,<=0.7.13
-pyScss>=1.2.1,<1.3  # MIT License
-python-ceilometerclient>=1.0.6,<1.0.13
-python-cinderclient>=1.1.0,<=1.1.1
-python-glanceclient>=0.14.0,<=0.15.0
-python-heatclient>=0.2.9,<0.3.0
-python-keystoneclient>=0.10.0,<1.2.0
-python-neutronclient>=2.3.6,<2.4.0
-python-novaclient>=2.18.0,<=2.20.0
-python-saharaclient>=0.7.3,<=0.7.6
-python-swiftclient>=2.2.0,<=2.3.1
-python-troveclient>=1.0.4,<=1.0.8
+lockfile<=0.8,>=0.8
+netaddr<=0.7.13,>=0.7.12
+pyScss<1.3,>=1.2.1 # MIT License
+python-ceilometerclient!=1.0.12,!=1.0.13,!=1.0.14,<1.1.0,>=1.0.6
+python-cinderclient<=1.1.1,>=1.1.0
+python-glanceclient<0.15.0,>=0.14.0
+python-heatclient<0.3.0,>=0.2.9
+python-keystoneclient<1.2.0,>=0.10.0
+python-neutronclient<2.4.0,>=2.3.6
+python-novaclient<=2.20.0,>=2.18.0
+python-saharaclient<=0.7.6,>=0.7.3
+python-swiftclient<2.4.0,>=2.2.0
+python-troveclient<=1.0.8,>=1.0.4
 pytz
-six>=1.7.0,<=1.9.0
-XStatic>=1.0.0  # MIT License
-XStatic-angular>=1.2.1.1,<1.3.0  # MIT License
-XStatic-angular-cookies>=1.2.1.1  # MIT License
-XStatic-angular-mock>=1.2.1.1  # MIT License
-XStatic-bootstrap-datepicker>=1.3.1.0  # Apache 2.0 License
-XStatic-bootstrap-scss>=3  # Apache 2.0 License
-XStatic-d3>=3.1.6.2  # BSD License (3 clause)
-XStatic-hogan>=2.0.0.2  # Apache 2.0 License
-XStatic-font-awesome>=4.1.0  # SIL OFL 1.1 License, MIT License
-XStatic-jasmine>=1.3.1.1,<2  # MIT License
-XStatic-jquery>=1.7.2  # MIT License
-XStatic-jquery-migrate>=1.2.1.1  # MIT License
-XStatic-jquery.quicksearch>=2.0.3.1  # MIT License
-XStatic-jquery.tablesorter>=2.0.5b.0  # MIT License
-XStatic-jquery-ui>=1.10.1  # MIT License
-XStatic-jsencrypt>=2.0.0.2  # MIT License
-XStatic-qunit>=1.14.0.2  # MIT License
-XStatic-rickshaw>=1.5.0  # BSD License (prior)
-XStatic-spin>=1.2.5.2  # MIT License
+six<=1.9.0,>=1.7.0
+XStatic>=1.0.0 # MIT License
+XStatic-angular<1.3.0,>=1.2.1.1 # MIT License
+XStatic-angular-cookies>=1.2.1.1 # MIT License
+XStatic-angular-mock>=1.2.1.1 # MIT License
+XStatic-bootstrap-datepicker>=1.3.1.0 # Apache 2.0 License
+XStatic-bootstrap-scss>=3 # Apache 2.0 License
+XStatic-d3>=3.1.6.2 # BSD License (3 clause)
+XStatic-hogan>=2.0.0.2 # Apache 2.0 License
+XStatic-font-awesome>=4.1.0 # SIL OFL 1.1 License, MIT License
+XStatic-jasmine<2,>=1.3.1.1 # MIT License
+XStatic-jquery>=1.7.2 # MIT License
+XStatic-jquery-migrate>=1.2.1.1 # MIT License
+XStatic-jquery.quicksearch>=2.0.3.1 # MIT License
+XStatic-jquery.tablesorter>=2.0.5b.0 # MIT License
+XStatic-jquery-ui>=1.10.1 # MIT License
+XStatic-jsencrypt>=2.0.0.2 # MIT License
+XStatic-qunit>=1.14.0.2 # MIT License
+XStatic-rickshaw>=1.5.0 # BSD License (prior)
+XStatic-spin>=1.2.5.2 # MIT License
