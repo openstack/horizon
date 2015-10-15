@@ -86,13 +86,16 @@
 
       var element,
       helpText, authType,
-      userInput, passwordInput;
+      userInput, passwordInput,
+      domainInput, regionInput;
 
       beforeEach(function() {
         element = $compile(webssoMarkup)($rootScope);
         authType = element.find('#id_auth_type');
         userInput = element.find("#id_username").parents('.form-group');
         passwordInput = element.find("#id_password").parents('.form-group');
+        domainInput = element.find("#id_domain").parents('.form-group');
+        regionInput = element.find("#id_region").parents('.form-group');
         helpText = element.find('#help_text');
         $rootScope.$apply();
       });
@@ -114,12 +117,22 @@
         expect(passwordInput).toBeVisible();
       });
 
-      it('should hide username and password when user picks oidc', function() {
+      it('should hide username and password when authentication type is oidc', function() {
         authType.val('oidc');
         authType.change();
         $timeout.flush();
         expect(userInput).not.toBeVisible();
         expect(passwordInput).not.toBeVisible();
+      });
+
+      it('should show input fields when authentication type is credentials', function() {
+        authType.val('credentials');
+        authType.change();
+        $timeout.flush();
+        expect(userInput).toBeVisible();
+        expect(passwordInput).toBeVisible();
+        expect(domainInput).toBeVisible();
+        expect(regionInput).toBeVisible();
       });
     });
   });
