@@ -47,8 +47,8 @@
   <h4>{% trans "Specs" %}</h4>
   <hr class="header_rule">
   <dl class="dl-horizontal">
-    <dt>{% trans "Flavor" %}</dt>
     {% if instance.full_flavor %}
+      <dt>{% trans "Flavor Name" %}</dt>
       <dd>{{ instance.full_flavor.name }}</dd>
       <dt>{% trans "Flavor ID" %}</dt>
       <dd>{{ instance.full_flavor.id }}</dd>
@@ -63,7 +63,8 @@
         <dd>{{ instance.full_flavor.ephemeral }}{% trans "GB" %}</dd>
       {% endif %}
     {% else %}
-      {% trans "Not available" %}
+      <dt>{% trans "Flavor" %}</dt>
+      <dd>{% trans "Not available" %}</dd>
     {% endif %}
   </dl>
 </div>
@@ -113,14 +114,15 @@
       {% with formatted_default_key_name="<em>"|add:default_key_name|add:"</em>" %}
         <dd>{{ instance.key_name|default:formatted_default_key_name }}</dd>
       {% endwith %}
-      <dt>{% trans "Image Name" %}</dt>
-      <dd>
-        {% if instance.image %}
-          <a href="{{ instance.image_url }}">{{ instance.image_name }}</a>
-        {% else %}
-          <em>{% trans "None" %}</em>
-        {% endif %}
-      </dd>
+      {% if instance.image %}
+        <dt>{% trans "Image Name" %}</dt>
+        <dd><a href="{{ instance.image_url }}">{{ instance.image_name }}</a></dd>
+        <dt>{% trans "Image ID" %}</dt>
+        <dd>{{ instance.image.id }}</dd>
+      {% else %}
+        <dt>{% trans "Image" %}</dt>
+        <dd>{% trans "None" %}</dd>
+      {% endif %}
       {% with default_item_value="<em>"|add:_("N/A")|add:"</em>" %}
       {% for key, value in instance.metadata.items %}
         <dt>{{ key|force_escape }}</dt>
