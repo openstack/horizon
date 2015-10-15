@@ -28,6 +28,12 @@ class CreateVolumeType(forms.SelfHandlingForm):
         widget=forms.Textarea(attrs={'rows': 4}),
         label=_("Description"),
         required=False)
+    is_public = forms.BooleanField(
+        label=_("Public"),
+        initial=True,
+        required=False,
+        help_text=_("By default, volume type is created as public. To "
+                    "create a private volume type, uncheck this field."))
 
     def clean_name(self):
         cleaned_name = self.cleaned_data['name']
@@ -42,7 +48,8 @@ class CreateVolumeType(forms.SelfHandlingForm):
             volume_type = cinder.volume_type_create(
                 request,
                 data['name'],
-                data['vol_type_description'])
+                data['vol_type_description'],
+                data['is_public'])
             messages.success(request, _('Successfully created volume type: %s')
                              % data['name'])
             return volume_type
@@ -262,6 +269,10 @@ class EditVolumeType(forms.SelfHandlingForm):
                                   widget=forms.Textarea(attrs={'rows': 4}),
                                   label=_("Description"),
                                   required=False)
+    is_public = forms.BooleanField(label=_("Public"), required=False,
+                                   help_text=_(
+                                       "To make volume type private, uncheck "
+                                       "this field."))
 
     def clean_name(self):
         cleaned_name = self.cleaned_data['name']
@@ -277,7 +288,8 @@ class EditVolumeType(forms.SelfHandlingForm):
             cinder.volume_type_update(request,
                                       volume_type_id,
                                       data['name'],
-                                      data['description'])
+                                      data['description'],
+                                      data['is_public'])
             message = _('Successfully updated volume type.')
             messages.success(request, message)
             return True

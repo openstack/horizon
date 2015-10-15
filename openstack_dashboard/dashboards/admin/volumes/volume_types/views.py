@@ -137,6 +137,7 @@ class EditVolumeTypeView(forms.ModalFormView):
         volume_type = self.get_data()
         return {'id': self.kwargs['type_id'],
                 'name': volume_type.name,
+                'is_public': getattr(volume_type, 'is_public', True),
                 'description': getattr(volume_type, 'description', "")}
 
 
