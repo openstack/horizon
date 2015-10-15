@@ -1,0 +1,1083 @@
+# Translations template for PROJECT.
+# Copyright (C) 2015 ORGANIZATION
+# This file is distributed under the same license as the PROJECT project.
+#
+# Translators:
+# Rob Cresswell <robert.cresswell@outlook.com>, 2015
+# OpenStack Infra <zanata@openstack.org>, 2015. #zanata
+# Rob Cresswell <robert.cresswell@outlook.com>, 2015. #zanata
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
+"POT-Creation-Date: 2015-10-15 01:50+0000\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"PO-Revision-Date: 2015-10-14 09:35+0000\n"
+"Last-Translator: Rob Cresswell <robert.cresswell@outlook.com>\n"
+"Language-Team: English (United Kingdom) (http://www.transifex.com/openstack/"
+"horizon/language/en_GB/)\n"
+"Generated-By: Babel 2.0\n"
+"Language: en-GB\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Zanata 3.7.1\n"
+
+msgid "(Max: 16Kb)"
+msgstr "(Max: 16Kb)"
+
+msgid "(Modified)"
+msgstr "(Modified)"
+
+msgid "(None)"
+msgstr "(None)"
+
+msgid ""
+"<li><b>Image (with Create New Volume checked)</b>: This options uses an "
+"image to boot the instance, and creates a new volume to persist instance "
+"data. You can specify volume size and whether to delete the volume on "
+"termination of the instance.</li>"
+msgstr ""
+"<li><b>Image (with Create New Volume checked)</b>: This options uses an "
+"image to boot the instance, and creates a new volume to persist instance "
+"data. You can specify volume size and whether to delete the volume on "
+"termination of the instance.</li>"
+
+msgid "<li><b>Image</b>: This option uses an image to boot the instance.</li>"
+msgstr "<li><b>Image</b>: This option uses an image to boot the instance.</li>"
+
+msgid ""
+"<li><b>Instance Snapshot</b>: This option uses an instance snapshot to boot "
+"the instance.</li>"
+msgstr ""
+"<li><b>Instance Snapshot</b>: This option uses an instance snapshot to boot "
+"the instance.</li>"
+
+msgid ""
+"<li><b>Volume Snapshot</b>: This option uses a volume snapshot to boot the "
+"instance, and creates a new volume to persist instance data. You can choose "
+"to delete the volume on termination of the instance.</li>"
+msgstr ""
+"<li><b>Volume Snapshot</b>: This option uses a volume snapshot to boot the "
+"instance, and creates a new volume to persist instance data. You can choose "
+"to delete the volume on termination of the instance.</li>"
+
+msgid ""
+"<li><b>Volume</b>: This option uses a volume that already exists. It does "
+"not create a new volume. You can choose to delete the volume on termination "
+"of the instance. <em>Note: when selecting Volume, you can only launch one "
+"instance.</em></li>"
+msgstr ""
+"<li><b>Volume</b>: This option uses a volume that already exists. It does "
+"not create a new volume. You can choose to delete the volume on termination "
+"of the instance. <em>Note: when selecting Volume, you can only launch one "
+"instance.</em></li>"
+
+msgid ""
+"A floating IP allows instances to be addressable from an external network.\n"
+"    Floating IPs are not allocated to instances at creation time and may be "
+"assigned\n"
+"    after the instance is created. To attach a floating IP, go to the "
+"<b>Instances</b>\n"
+"    view and click the <b>Actions</b> menu to the right of an instance.\n"
+"    Then, select the <b>Associate Floating IP</b> option and enter the "
+"necessary details."
+msgstr ""
+"A floating IP allows instances to be addressable from an external network.\n"
+"    Floating IPs are not allocated to instances at creation time and may be "
+"assigned\n"
+"    after the instance is created. To attach a floating IP, go to the "
+"<b>Instances</b>\n"
+"    view and click the <b>Actions</b> menu to the right of an instance.\n"
+"    Then, select the <b>Associate Floating IP</b> option and enter the "
+"necessary details."
+
+msgid ""
+"A key pair allows you to SSH into your newly created instance.\n"
+"      You may select an existing key pair, import a key pair, or generate a "
+"new key pair."
+msgstr ""
+"A key pair allows you to SSH into your newly created instance.\n"
+"      You may select an existing key pair, import a key pair, or generate a "
+"new key pair."
+
+msgid "A name is required for your instance."
+msgstr "A name is required for your instance."
+
+msgid "Active"
+msgstr "Active"
+
+msgid "Admin State"
+msgstr "Admin State"
+
+msgid ""
+"Administrators are responsible for creating and managing flavors. A custom "
+"flavor can be created for you or for a specific project where it is shared "
+"with the users assigned to that project. If you need a custom flavor, "
+"contact your administrator."
+msgstr ""
+"Administrators are responsible for creating and managing flavours. A custom "
+"flavour can be created for you or for a specific project where it is shared "
+"with the users assigned to that project. If you need a custom flavour, "
+"contact your administrator."
+
+msgid ""
+"Administrators set up the pool of floating IPs that are available to attach "
+"to instances."
+msgstr ""
+"Administrators set up the pool of floating IPs that are available to attach "
+"to instances."
+
+msgid ""
+"An <b>External</b> network is set up by an administrator.\n"
+"    If you want an instance to communicate outside of the data center,\n"
+"    then attach a router between your <b>Project</b> network and the "
+"<b>External</b> network.\n"
+"    You can use the <b>Network Topology</b> view to connect the router to "
+"the two networks."
+msgstr ""
+"An <b>External</b> network is set up by an administrator.\n"
+"    If you want an instance to communicate outside of the data center,\n"
+"    then attach a router between your <b>Project</b> network and the "
+"<b>External</b> network.\n"
+"    You can use the <b>Network Topology</b> view to connect the router to "
+"the two networks."
+
+msgid ""
+"An advanced option available when launching an instance is disk "
+"partitioning. There are two disk partition options. Selecting <b>Automatic</"
+"b> resizes the disk and sets it to a single partition. Selecting <b>Manual</"
+"b> allows you to create multiple partitions on the disk."
+msgstr ""
+"An advanced option available when launching an instance is disk "
+"partitioning. There are two disk partition options. Selecting <b>Automatic</"
+"b> resizes the disk and sets it to a single partition. Selecting <b>Manual</"
+"b> allows you to create multiple partitions on the disk."
+
+msgid ""
+"An instance name is required and used to help you uniquely identify your "
+"instance in the dashboard."
+msgstr ""
+"An instance name is required and used to help you uniquely identify your "
+"instance in the dashboard."
+
+msgid "Automatic"
+msgstr "Automatic"
+
+msgid "Availability Zone"
+msgstr "Availability Zone"
+
+msgid "Boot Source"
+msgstr "Boot Source"
+
+msgid "Cancel"
+msgstr "Cancel"
+
+msgid "Cannot get service catalog from keystone."
+msgstr "Cannot get service catalog from keystone."
+
+msgid "Cannot get the Nova extension list."
+msgstr "Cannot get the Nova extension list."
+
+msgid ""
+"Check the <b>Configuration Drive</b> box if you want to write metadata to a "
+"special configuration drive. When the instance boots, it attaches to the "
+"<b>Configuration Drive</b> and accesses the metadata."
+msgstr ""
+"Check the <b>Configuration Drive</b> box if you want to write metadata to a "
+"special configuration drive. When the instance boots, it attaches to the "
+"<b>Configuration Drive</b> and accesses the metadata."
+
+msgid "Click to see more details"
+msgstr "Click to see more details"
+
+msgid "Configuration"
+msgstr "Configuration"
+
+msgid "Configuration Drive"
+msgstr "Configuration Drive"
+
+msgid "Configuration Help"
+msgstr "Configuration Help"
+
+msgid "Configuration Value"
+msgstr "Configuration Value"
+
+msgid "Count"
+msgstr "Count"
+
+msgid "Create Key Pair"
+msgstr "Create Key Pair"
+
+msgid "Create New Volume"
+msgstr "Create New Volume"
+
+msgid "Created"
+msgstr "Created"
+
+msgid ""
+"Custom scripts are attached to instances to perform specific actions when "
+"the instance is launched. For example, if you are unable to install "
+"<samp>cloud-init</samp> inside a guest operating system, you can use a "
+"custom script to get a public key and add it to the user account."
+msgstr ""
+"Custom scripts are attached to instances to perform specific actions when "
+"the instance is launched. For example, if you are unable to install "
+"<samp>cloud-init</samp> inside a guest operating system, you can use a "
+"custom script to get a public key and add it to the user account."
+
+msgid "Customization Script"
+msgstr "Customisation Script"
+
+msgid "Data Source"
+msgstr "Data Source"
+
+msgid "Default Value"
+msgstr "Default Value"
+
+msgid "Delete Volume on Terminate"
+msgstr "Delete Volume on Terminate"
+
+msgid "Deleted"
+msgstr "Deleted"
+
+msgid "Description"
+msgstr "Description"
+
+msgid "Device Name"
+msgstr "Device Name"
+
+msgid "Direction"
+msgstr "Direction"
+
+msgid "Disk Partition"
+msgstr "Disk Partition"
+
+msgid "Domain ID"
+msgstr "Domain ID"
+
+msgid "Down"
+msgstr "Down"
+
+msgid "Email"
+msgstr "Email"
+
+msgid "Enabled"
+msgstr "Enabled"
+
+msgid "Ephemeral Disk"
+msgstr "Ephemeral Disk"
+
+msgid "Ether Type"
+msgstr "Ether Type"
+
+msgid "Event log is not available."
+msgstr "Event log is not available."
+
+#, python-format
+msgid "Extension is not enabled: %(extension)s."
+msgstr "Extension is not enabled: %(extension)s."
+
+msgid "External Network"
+msgstr "External Network"
+
+msgid "Fingerprint"
+msgstr "Fingerprint"
+
+msgid "Flavor"
+msgstr "Flavour"
+
+msgid "Flavor Help"
+msgstr "Flavour Help"
+
+msgid ""
+"Flavors manage the sizing for the compute, memory and storage capacity of "
+"the instance."
+msgstr ""
+"Flavours manage the sizing for the compute, memory and storage capacity of "
+"the instance."
+
+msgid ""
+"For configs and params, type the key name; for args, type the index as an "
+"integer, starting from 0."
+msgstr ""
+"For configs and params, type the key name; for args, type the index as an "
+"integer, starting from 0."
+
+msgid ""
+"For data sources, use a data source UUID or a path (as per data source "
+"creation.)"
+msgstr ""
+"For data sources, use a data source UUID or a path (as per data source "
+"creation.)"
+
+msgid "Format"
+msgstr "Format"
+
+msgid ""
+"From a Windows system, you can use PuTTYGen to create private/public keys.\n"
+"  Use the PuTTY Key Generator to create and save the keys, then copy\n"
+"  the public key in the red highlighted box to your <samp>.ssh/"
+"authorized_keys</samp>\n"
+"  file."
+msgstr ""
+"From a Windows system, you can use PuTTYGen to create private/public keys.\n"
+"  Use the PuTTY Key Generator to create and save the keys, then copy\n"
+"  the public key in the red highlighted box to your <samp>.ssh/"
+"authorized_keys</samp>\n"
+"  file."
+
+msgid "ID"
+msgstr "ID"
+
+msgid ""
+"If a network is shared, then all users in the project can access the network."
+msgstr ""
+"If a network is shared, then all users in the project can access the network."
+
+msgid ""
+"If a security group is not associated with an instance before it is "
+"launched, then you will have very limited access to the instance after it is "
+"deployed. You will only be able to access the instance from a VNC console."
+msgstr ""
+"If a security group is not associated with an instance before it is "
+"launched, then you will have very limited access to the instance after it is "
+"deployed. You will only be able to access the instance from a VNC console."
+
+msgid ""
+"If you select an availability zone and plan to use the boot from volume "
+"option, make sure that the availability zone you select for the instance is "
+"the same availability zone where your bootable volume resides."
+msgstr ""
+"If you select an availability zone and plan to use the boot from volume "
+"option, make sure that the availability zone you select for the instance is "
+"the same availability zone where your bootable volume resides."
+
+msgid ""
+"If you want to create an instance that uses ephemeral storage, meaning the "
+"instance data is lost when the instance is deleted, then choose one of the "
+"following boot sources:"
+msgstr ""
+"If you want to create an instance that uses ephemeral storage, meaning the "
+"instance data is lost when the instance is deleted, then choose one of the "
+"following boot sources:"
+
+msgid ""
+"If you want to create an instance that uses persistent storage, meaning the "
+"instance data is saved when the instance is deleted, then select one of the "
+"following boot options:"
+msgstr ""
+"If you want to create an instance that uses persistent storage, meaning the "
+"instance data is saved when the instance is deleted, then select one of the "
+"following boot options:"
+
+msgid "Image"
+msgstr "Image"
+
+msgid "Image Name"
+msgstr "Image Name"
+
+msgid "Impact on your quota"
+msgstr "Impact on your quota"
+
+msgid "Import Key Pair"
+msgstr "Import Key Pair"
+
+msgid "Instance Details"
+msgstr "Instance Details"
+
+msgid "Instance Name"
+msgstr "Instance Name"
+
+msgid "Instance Snapshot"
+msgstr "Instance Snapshot"
+
+msgid "Instance Source"
+msgstr "Instance Source"
+
+msgid "Instance count is required and must be an integer of at least 1"
+msgstr "Instance count is required and must be an integer of at least 1"
+
+msgid ""
+"Instance source is the template used to create an instance. You can use a "
+"snapshot of an existing instance, an image, or a volume (if enabled). You "
+"can also choose to use persistent storage by creating a new volume."
+msgstr ""
+"Instance source is the template used to create an instance. You can use a "
+"snapshot of an existing instance, an image, or a volume (if enabled). You "
+"can also choose to use persistent storage by creating a new volume."
+
+msgid "Insufficient privilege level to view user information."
+msgstr "Insufficient privilege level to view user information."
+
+msgid "Key Pair"
+msgstr "Key Pair"
+
+msgid "Key Pair Help"
+msgstr "Key Pair Help"
+
+msgid "Key Pair Name"
+msgstr "Key Pair Name"
+
+msgid ""
+"Key Pairs are how you login to your instance after it is launched.\n"
+"        Choose a key pair name you will recognize and paste your SSH public "
+"key into the\n"
+"        space provided."
+msgstr ""
+"Key Pairs are how you login to your instance after it is launched.\n"
+"        Choose a key pair name you will recognize and paste your SSH public "
+"key into the\n"
+"        space provided."
+
+msgid ""
+"Key Pairs are how you login to your instance after it is launched.\n"
+"        Choose a key pair name you will recognize."
+msgstr ""
+"Key Pairs are how you login to your instance after it is launched.\n"
+"        Choose a key pair name you will recognize."
+
+msgid "Killed"
+msgstr "Killed"
+
+msgid "Launch Instance"
+msgstr "Launch Instance"
+
+msgid "Load script from a file"
+msgstr "Load script from a file"
+
+msgid "Location"
+msgstr "Location"
+
+msgid "Manual"
+msgstr "Manual"
+
+msgid "Mapping Type"
+msgstr "Mapping Type"
+
+msgid "Max Port"
+msgstr "Max Port"
+
+msgid "Min Disk"
+msgstr "Min Disk"
+
+msgid "Min Disk (GB)"
+msgstr "Min Disk (GB)"
+
+msgid "Min Port"
+msgstr "Min Port"
+
+msgid "Min RAM"
+msgstr "Min RAM"
+
+msgid "Min RAM (MB)"
+msgstr "Min RAM (MB)"
+
+msgid "Min Ram"
+msgstr "Min Ram"
+
+msgid "Name"
+msgstr "Name"
+
+msgid "Named Parameter"
+msgstr "Named Parameter"
+
+msgid "Network"
+msgstr "Network"
+
+msgid "Network Help"
+msgstr "Network Help"
+
+msgid "Network characteristics"
+msgstr "Network characteristics"
+
+msgid "Networks"
+msgstr "Networks"
+
+msgid "Networks provide the communication channels for instances in the cloud."
+msgstr ""
+"Networks provide the communication channels for instances in the cloud."
+
+msgid "No"
+msgstr "No"
+
+msgid "No available items"
+msgstr "No available items"
+
+msgid "Number"
+msgstr "Number"
+
+msgid "OK"
+msgstr "OK"
+
+msgid "Pending Delete"
+msgstr "Pending Delete"
+
+msgid "Physical Network"
+msgstr "Physical Network"
+
+msgid ""
+"Please provide the initial host name for the instance, the availability zone "
+"where it will be deployed, and the instance count. Increase the Count to "
+"create multiple instances with the same settings."
+msgstr ""
+"Please provide the initial host name for the instance, the availability zone "
+"where it will be deployed, and the instance count. Increase the Count to "
+"create multiple instances with the same settings."
+
+msgid "Policy check failed."
+msgstr "Policy check failed."
+
+msgid "Positional Argument"
+msgstr "Positional Argument"
+
+msgid "Private"
+msgstr "Private"
+
+msgid "Private Key"
+msgstr "Private Key"
+
+msgid "Profile"
+msgstr "Profile"
+
+msgid "Project"
+msgstr "Project"
+
+msgid "Project ID"
+msgstr "Project ID"
+
+msgid ""
+"Project networks are created by users.\n"
+"    These networks are fully isolated and are project-specific."
+msgstr ""
+"Project networks are created by users.\n"
+"    These networks are fully isolated and are project-specific."
+
+msgid "Protected"
+msgstr "Protected"
+
+msgid "Protocol"
+msgstr "Protocol"
+
+msgid "Provider Network"
+msgstr "Provider Network"
+
+msgid ""
+"Provider networks are created by administrators.\n"
+"    These networks map to an existing physical network in the data center."
+msgstr ""
+"Provider networks are created by administrators.\n"
+"    These networks map to an existing physical network in the data center."
+
+msgid "Public"
+msgstr "Public"
+
+msgid "Public Key"
+msgstr "Public Key"
+
+msgid "Queued"
+msgstr "Queued"
+
+msgid "RAM"
+msgstr "RAM"
+
+msgid "Re-order items using drag and drop"
+msgstr "Re-order items using drag and drop"
+
+msgid "Remote"
+msgstr "Remote"
+
+msgid "Remove"
+msgstr "Remove"
+
+msgid "Required"
+msgstr "Required"
+
+msgid "Required?"
+msgstr "Required?"
+
+msgid "Root Disk"
+msgstr "Root Disk"
+
+msgid "Save"
+msgstr "Save"
+
+msgid "Saving"
+msgstr "Saving"
+
+msgid "Script size"
+msgstr "Script size"
+
+msgid "Security Groups"
+msgstr "Security Groups"
+
+msgid "Security Groups Help"
+msgstr "Security Groups Help"
+
+msgid ""
+"Security groups are project-specific and cannot be shared across projects."
+msgstr ""
+"Security groups are project-specific and cannot be shared across projects."
+
+msgid ""
+"Security groups define a set of IP filter rules that determine how network "
+"traffic flows to and from an instance. Users can add additional rules to an "
+"existing security group to further define the access options for an "
+"instance. To create additional rules, go to the <b>Compute | Access & "
+"Security</b> view, then find the security group and click <b>Manage Rules</"
+"b>."
+msgstr ""
+"Security groups define a set of IP filter rules that determine how network "
+"traffic flows to and from an instance. Users can add additional rules to an "
+"existing security group to further define the access options for an "
+"instance. To create additional rules, go to the <b>Compute | Access & "
+"Security</b> view, then find the security group and click <b>Manage Rules</"
+"b>."
+
+msgid ""
+"See http://docs.openstack.org/developer/sahara/userdoc/edp.html for "
+"definitions."
+msgstr ""
+"See http://docs.openstack.org/developer/sahara/userdoc/edp.html for "
+"definitions."
+
+msgid "Segmentation ID"
+msgstr "Segmentation ID"
+
+msgid "Select Boot Source"
+msgstr "Select Boot Source"
+
+msgid "Select Source"
+msgstr "Select Source"
+
+msgid "Select Source Help"
+msgstr "Select Source Help"
+
+msgid "Select a key pair from the available key pairs below."
+msgstr "Select a key pair from the available key pairs below."
+
+msgid "Select a source from those listed below."
+msgstr "Select a source from those listed below."
+
+msgid "Select an item from Available items below"
+msgstr "Select an item from Available items below"
+
+msgid "Select at least one network"
+msgstr "Select at least one network"
+
+msgid "Select networks from those listed below."
+msgstr "Select networks from those listed below."
+
+msgid "Select one"
+msgstr "Select one"
+
+msgid "Select one or more"
+msgstr "Select one or more"
+
+msgid "Select one or more security groups from the available groups below."
+msgstr "Select one or more security groups from the available groups below."
+
+msgid "Select the security groups."
+msgstr "Select the security groups."
+
+#, python-format
+msgid "Service type is not enabled: %(desiredType)s"
+msgstr "Service type is not enabled: %(desiredType)s"
+
+#, python-format
+msgid "Setting is not enabled: %(setting)s"
+msgstr "Setting is not enabled: %(setting)s"
+
+msgid "Shared"
+msgstr "Shared"
+
+msgid "Show events"
+msgstr "Show events"
+
+msgid "Size"
+msgstr "Size"
+
+msgid "Size (GB)"
+msgstr "Size (GB)"
+
+msgid "Snapshot"
+msgstr "Snapshot"
+
+msgid "Status"
+msgstr "Status"
+
+msgid "String"
+msgstr "String"
+
+msgid "Subnets Associated"
+msgstr "Subnets Associated"
+
+#, python-format
+msgid "Successfully created key pair %(name)s."
+msgstr "Successfully created key pair %(name)s."
+
+#, python-format
+msgid "Successfully imported key pair %(name)s."
+msgstr "Successfully imported key pair %(name)s."
+
+msgid ""
+"The flavor you select for an instance determines the amount of compute, "
+"storage and memory resources that will be carved out for the instance."
+msgstr ""
+"The flavour you select for an instance determines the amount of compute, "
+"storage and memory resources that will be carved out for the instance."
+
+msgid ""
+"The flavor you select must have enough resources allocated to support the "
+"type of instance you are trying to create. Flavors that do not provide "
+"enough resources for your instance are identified on the <b>Available</b> "
+"table with a yellow warning icon."
+msgstr ""
+"The flavour you select must have enough resources allocated to support the "
+"type of instance you are trying to create. Flavours that do not provide "
+"enough resources for your instance are identified on the <b>Available</b> "
+"table with a yellow warning icon."
+
+#, python-format
+msgid ""
+"The instance count must not exceed your quota available of "
+"%(maxInstanceCount)s instances"
+msgstr ""
+"The instance count must not exceed your quota available of "
+"%(maxInstanceCount)s instances"
+
+#, python-format
+msgid ""
+"The selected image source requires a flavor with at least %(minDisk)s GB of "
+"root disk. Select a flavor with a larger root disk or use a different image "
+"source."
+msgstr ""
+"The selected image source requires a flavour with at least %(minDisk)s GB of "
+"root disk. Select a flavour with a larger root disk or use a different image "
+"source."
+
+#, python-format
+msgid ""
+"The selected image source requires a flavor with at least %(minRam)s MB of "
+"RAM. Select a flavor with more RAM or use a different image source."
+msgstr ""
+"The selected image source requires a flavour with at least %(minRam)s MB of "
+"RAM. Select a flavour with more RAM or use a different image source."
+
+msgid "The status indicates whether the network has an active connection."
+msgstr "The status indicates whether the network has an active connection."
+
+msgid "The step has completed successfully. No events to display."
+msgstr "The step has completed successfully. No events to display."
+
+msgid ""
+"The subnet identifies a sub-section of a network. A subnet is specified in "
+"CIDR format.\n"
+"    A typical CIDR format looks like <samp>192.xxx.x.x/24</samp>."
+msgstr ""
+"The subnet identifies a sub-section of a network. A subnet is specified in "
+"CIDR format.\n"
+"    A typical CIDR format looks like <samp>192.xxx.x.x/24</samp>."
+
+#, python-format
+msgid "The volume size must be at least %(minVolumeSize)s GB"
+msgstr "The volume size must be at least %(minVolumeSize)s GB"
+
+msgid ""
+"There are two ways to generate a key pair. From a Linux system,\n"
+"  generate the key pair with the <samp>ssh-keygen</samp> command:"
+msgstr ""
+"There are two ways to generate a key pair. From a Linux system,\n"
+"  generate the key pair with the <samp>ssh-keygen</samp> command:"
+
+msgid ""
+"This command generates a pair of keys: a private key (cloud.key)\n"
+"  and a public key (cloud.key.pub)."
+msgstr ""
+"This command generates a pair of keys: a private key (cloud.key)\n"
+"  and a public key (cloud.key.pub)."
+
+msgid ""
+"This flavor requires more RAM than your quota allows. Please select a "
+"smaller flavor or decrease the instance count."
+msgstr ""
+"This flavour requires more RAM than your quota allows. Please select a "
+"smaller flavour or decrease the instance count."
+
+msgid ""
+"This flavor requires more VCPUs than your quota allows. Please select a "
+"smaller flavor or decrease the instance count."
+msgstr ""
+"This flavour requires more VCPUs than your quota allows. Please select a "
+"smaller flavour or decrease the instance count."
+
+msgid "This is your new key pair. Copy this information and keep it secure."
+msgstr "This is your new key pair. Copy this information and keep it secure."
+
+msgid "Total Disk"
+msgstr "Total Disk"
+
+msgid "Total Instances"
+msgstr "Total Instances"
+
+msgid "Total RAM"
+msgstr "Total RAM"
+
+msgid "Total VCPUs"
+msgstr "Total VCPUs"
+
+msgid "Type"
+msgstr "Type"
+
+msgid ""
+"Type your script directly into the Customization Script field. If your "
+"browser supports the HTML5 File API, you may choose to load your script from "
+"a file. The size of your script should not exceed 16 Kb."
+msgstr ""
+"Type your script directly into the Customisation Script field. If your "
+"browser supports the HTML5 File API, you may choose to load your script from "
+"a file. The size of your script should not exceed 16 Kb."
+
+msgid "Unable to create the domain."
+msgstr "Unable to create the domain."
+
+msgid "Unable to create the keypair."
+msgstr "Unable to create the keypair."
+
+msgid "Unable to create the network."
+msgstr "Unable to create the network."
+
+msgid "Unable to create the project."
+msgstr "Unable to create the project."
+
+msgid "Unable to create the role."
+msgstr "Unable to create the role."
+
+msgid "Unable to create the server."
+msgstr "Unable to create the server."
+
+msgid "Unable to create the subnet."
+msgstr "Unable to create the subnet."
+
+msgid "Unable to create the user."
+msgstr "Unable to create the user."
+
+msgid "Unable to delete the domain."
+msgstr "Unable to delete the domain."
+
+msgid "Unable to delete the domains."
+msgstr "Unable to delete the domains."
+
+msgid "Unable to delete the project."
+msgstr "Unable to delete the project."
+
+msgid "Unable to delete the projects."
+msgstr "Unable to delete the projects."
+
+msgid "Unable to delete the role."
+msgstr "Unable to delete the role."
+
+msgid "Unable to delete the roles."
+msgstr "Unable to delete the roles."
+
+msgid "Unable to delete the user."
+msgstr "Unable to delete the user."
+
+msgid "Unable to delete the users."
+msgstr "Unable to delete the users."
+
+msgid "Unable to edit the aggregate extra specs."
+msgstr "Unable to edit the aggregate extra specs."
+
+msgid "Unable to edit the domain."
+msgstr "Unable to edit the domain."
+
+msgid "Unable to edit the flavor extra specs."
+msgstr "Unable to edit the flavour extra specs."
+
+msgid "Unable to edit the image custom properties."
+msgstr "Unable to edit the image custom properties."
+
+msgid "Unable to edit the project."
+msgstr "Unable to edit the project."
+
+msgid "Unable to edit the role."
+msgstr "Unable to edit the role."
+
+msgid "Unable to edit the user."
+msgstr "Unable to edit the user."
+
+msgid "Unable to fetch the service catalog."
+msgstr "Unable to fetch the service catalog."
+
+msgid "Unable to get the Keystone service version."
+msgstr "Unable to get the Keystone service version."
+
+msgid "Unable to grant the role."
+msgstr "Unable to grant the role."
+
+msgid "Unable to import the keypair."
+msgstr "Unable to import the keypair."
+
+msgid "Unable to retrieve settings."
+msgstr "Unable to retrieve settings."
+
+msgid "Unable to retrieve the aggregate extra specs."
+msgstr "Unable to retrieve the aggregate extra specs."
+
+msgid "Unable to retrieve the availability zones."
+msgstr "Unable to retrieve the availability zones."
+
+msgid "Unable to retrieve the current user session."
+msgstr "Unable to retrieve the current user session."
+
+msgid "Unable to retrieve the domain."
+msgstr "Unable to retrieve the domain."
+
+msgid "Unable to retrieve the domains."
+msgstr "Unable to retrieve the domains."
+
+msgid "Unable to retrieve the extensions."
+msgstr "Unable to retrieve the extensions."
+
+msgid "Unable to retrieve the flavor extra specs."
+msgstr "Unable to retrieve the flavour extra specs."
+
+msgid "Unable to retrieve the flavor."
+msgstr "Unable to retrieve the flavour."
+
+msgid "Unable to retrieve the flavors."
+msgstr "Unable to retrieve the flavours."
+
+msgid "Unable to retrieve the image custom properties."
+msgstr "Unable to retrieve the image custom properties."
+
+msgid "Unable to retrieve the image."
+msgstr "Unable to retrieve the image."
+
+msgid "Unable to retrieve the images."
+msgstr "Unable to retrieve the images."
+
+msgid "Unable to retrieve the keypairs."
+msgstr "Unable to retrieve the keypairs."
+
+msgid "Unable to retrieve the limits."
+msgstr "Unable to retrieve the limits."
+
+msgid "Unable to retrieve the namespaces."
+msgstr "Unable to retrieve the namespaces."
+
+msgid "Unable to retrieve the networks."
+msgstr "Unable to retrieve the networks."
+
+msgid "Unable to retrieve the ports."
+msgstr "Unable to retrieve the ports."
+
+msgid "Unable to retrieve the project."
+msgstr "Unable to retrieve the project."
+
+msgid "Unable to retrieve the projects."
+msgstr "Unable to retrieve the projects."
+
+msgid "Unable to retrieve the role."
+msgstr "Unable to retrieve the role."
+
+msgid "Unable to retrieve the roles."
+msgstr "Unable to retrieve the roles."
+
+msgid "Unable to retrieve the security groups."
+msgstr "Unable to retrieve the security groups."
+
+msgid "Unable to retrieve the server."
+msgstr "Unable to retrieve the server."
+
+msgid "Unable to retrieve the subnets."
+msgstr "Unable to retrieve the subnets."
+
+msgid "Unable to retrieve the user."
+msgstr "Unable to retrieve the user."
+
+msgid "Unable to retrieve the users."
+msgstr "Unable to retrieve the users."
+
+msgid "Unable to retrieve the volume snapshots."
+msgstr "Unable to retrieve the volume snapshots."
+
+msgid "Unable to retrieve the volumes."
+msgstr "Unable to retrieve the volumes."
+
+msgid "Unable to validate the template."
+msgstr "Unable to validate the template."
+
+msgid "Up"
+msgstr "Up"
+
+msgid "Update Aggregate Metadata"
+msgstr "Update Aggregate Metadata"
+
+msgid "Update Flavor Metadata"
+msgstr "Update Flavour Metadata"
+
+msgid "Update Image Metadata"
+msgstr "Update Image Metadata"
+
+msgid "Updated"
+msgstr "Updated"
+
+msgid "User ID"
+msgstr "User ID"
+
+msgid "User Name"
+msgstr "User Name"
+
+msgid "VCPUS"
+msgstr "VCPUS"
+
+msgid "Value Type"
+msgstr "Value Type"
+
+msgid "Visibility"
+msgstr "Visibility"
+
+msgid "Volume"
+msgstr "Volume"
+
+msgid "Volume Snapshot"
+msgstr "Volume Snapshot"
+
+msgid "Volume size is required and must be an integer"
+msgstr "Volume size is required and must be an integer"
+
+msgid ""
+"Volumes can only be attached to 1 active instance at a time. Please either "
+"set your instance count to 1 or select a different source type."
+msgstr ""
+"Volumes can only be attached to 1 active instance at a time. Please either "
+"set your instance count to 1 or select a different source type."
+
+msgid ""
+"When selecting volume as boot source, please ensure the instance's "
+"availability zone is compatible with your volume's availability zone."
+msgstr ""
+"When selecting volume as boot source, please ensure the instance's "
+"availability zone is compatible with your volume's availability zone."
+
+msgid ""
+"When the <b>Admin State</b> for a network is set to <b>Up</b>,\n"
+"    then the network is available for use. You can set the <b>Admin State</"
+"b> to <b>Down</b>\n"
+"    if you are not ready for other users to access the network."
+msgstr ""
+"When the <b>Admin State</b> for a network is set to <b>Up</b>,\n"
+"    then the network is available for use. You can set the <b>Admin State</"
+"b> to <b>Down</b>\n"
+"    if you are not ready for other users to access the network."
+
+msgid "Yes"
+msgstr "Yes"
+
+msgid "bytes"
+msgstr "bytes"
+
+msgid "{$ row['provider:network_type'] $}"
+msgstr "{$ row['provider:network_type'] $}"
