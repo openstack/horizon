@@ -150,9 +150,9 @@ module.exports = function (config) {
 
     // Coverage threshold values.
     thresholdReporter: {
-      statements: 86, // target 100
-      branches: 68, // target 100
-      functions: 87, // target 100
+      statements: 90, // target 100
+      branches: 77, // target 100
+      functions: 89, // target 100
       lines: 87 // target 100
     }
   });
