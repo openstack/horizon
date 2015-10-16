@@ -18,5 +18,5 @@
  * Disable the Angular Bootstrap slide in animation for wait spinner modals
  */
 .modal-wait-spinner.modal.fade .modal-dialog, .modal.in .modal-dialog {
-  transform: translate(0, 0);
+  @include translate(0, 0);
 }

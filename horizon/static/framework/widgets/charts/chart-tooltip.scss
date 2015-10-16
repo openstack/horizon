@@ -1,7 +1,7 @@
 .chart-tooltip {
   background-color: $tooltip-bg-color;
   border: $tooltip-border;
-  box-shadow: $tooltip-box-shadow;
+  @include box-shadow($tooltip-box-shadow);
   display: none;
   padding: $tooltip-padding;
   position: absolute;

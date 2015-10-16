@@ -379,10 +379,7 @@ table form {
 }
 
 .table-striped tr td {
-  transition: background 0.2s;
-  -webkit-transition: background 0.2s;
-  -moz-transition: background 0.2s;
-  -o-transition: background 0.2s;
+  @include transition(background 0.2s);
 }
 
 .inspect {
@@ -463,11 +460,7 @@ table form {
 }
 
 td.no-transition {
-  -webkit-transition: none !important;
-  -moz-transition: none !important;
-  -o-transition: none !important;
-  -ms-transition: none !important;
-  transition: none !important;
+  @include transition(none !important);
 }
 
 td.success {
@@ -1649,9 +1642,7 @@ label.log-length {
   border: 1px solid $border-color;
   min-height: 2em;
   width: auto !important;
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
+  @include box-sizing(border-box);
   li {
     width: 226px;
     list-style-type: none;
@@ -1760,9 +1751,7 @@ label.log-length {
   border: 1px solid $border-color;
   min-height: 2em;
   width: auto !important;
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
+  @include box-sizing(border-box);
   li {
     width: 226px;
     list-style-type: none;
