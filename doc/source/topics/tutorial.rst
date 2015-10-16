@@ -62,10 +62,8 @@ structure that looks like the following::
     ├── dashboard.pyc
     ├── __init__.py
     ├── __init__.pyc
-    ├── models.py
     ├── mypanel
     │   ├── __init__.py
-    │   ├── models.py
     │   ├── panel.py
     │   ├── templates
     │   │   └── mypanel
@@ -84,8 +82,8 @@ structure that looks like the following::
             └── base.html
 
 
-For this tutorial, we will not deal with the static directory, the ``models.py``
-file and tests.py file. Leave them as they are.
+For this tutorial, we will not deal with the static directory, or the
+``tests.py`` file. Leave them as they are.
 
 With the rest of the files and directories in place, we can move on to add our
 own dashboard.
