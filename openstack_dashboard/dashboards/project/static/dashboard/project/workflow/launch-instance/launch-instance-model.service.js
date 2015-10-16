@@ -237,7 +237,7 @@
     function createInstance() {
       var finalSpec = angular.copy(model.newInstanceSpec);
 
-      cleanNullProperties();
+      cleanNullProperties(finalSpec);
 
       setFinalSpecBootsource(finalSpec);
       setFinalSpecFlavor(finalSpec);
