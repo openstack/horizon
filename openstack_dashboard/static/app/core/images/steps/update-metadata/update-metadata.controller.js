@@ -47,7 +47,10 @@
     $scope.$watchCollection(getTree, onMetadataChanged);
     /* eslint-enable angular/ng_controller_as */
 
-    $scope.imagePromise.then(init);
+    if ($scope.imagePromise) {
+      // Launched from an image.
+      $scope.imagePromise.then(init);
+    }
 
     ////////////////////////////////
 
@@ -55,7 +58,7 @@
       var image = response.data;
       $q.all({
         available: metadataService.getNamespaces('image'),
-        existing: metadataService.getMetadata('image', image.id)
+        existing: getExistingMetdataPromise(image)
       }).then(onMetadataGet);
     }
 
@@ -68,6 +71,16 @@
 
     function getTree() {
       return ctrl.tree.getExisting();
+    }
+
+    function getExistingMetdataPromise(image) {
+      if (angular.isDefined(image.id)) {
+        return metadataService.getMetadata('image', image.id);
+      } else {
+        var deferred = $q.defer();
+        deferred.resolve({data: []});
+        return deferred.promise;
+      }
     }
 
     function onMetadataChanged(newValue, oldValue) {

@@ -87,6 +87,22 @@
         expect(metadataTreeService.Tree).toHaveBeenCalledWith(availableMetadata, existingMetadata);
       });
 
+      it('should setup up the metadata tree if image does not exist', function() {
+        var deferred = $q.defer();
+        deferred.resolve({data: {}});
+        $scope.imagePromise = deferred.promise;
+
+        spyOn(metadataTreeService, 'Tree').and.returnValue(mockTree);
+        spyOn(metadataService, 'getNamespaces').and.callThrough();
+
+        var ctrl = createController();
+        $scope.$apply();
+
+        expect(ctrl.tree).toEqual(mockTree);
+        expect(metadataTreeService.Tree).toHaveBeenCalledWith([], []);
+        expect(metadataTreeService.Tree).toHaveBeenCalledWith(availableMetadata, []);
+      });
+
       it('should emit imageMetadataChanged event when metadata changes', function() {
         var deferred = $q.defer();
         deferred.resolve({data: {id: '1'}});

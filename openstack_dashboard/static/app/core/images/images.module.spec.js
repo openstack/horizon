@@ -25,7 +25,6 @@
   describe('horizon.app.core.images.tableRoute constant', function () {
     var tableRoute;
 
-    beforeEach(module('horizon.app.core'));
     beforeEach(module('horizon.app.core.images'));
     beforeEach(inject(function ($injector) {
       tableRoute = $injector.get('horizon.app.core.images.tableRoute');
