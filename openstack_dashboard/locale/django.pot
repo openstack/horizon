@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-10-14 06:05+0000\n"
+"POT-Creation-Date: 2015-10-16 06:05+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -65,15 +65,15 @@ msgstr ""
 msgid "VMDK - Virtual Machine Disk"
 msgstr ""
 
-#: settings.py:240
+#: settings.py:241
 msgid "All TCP"
 msgstr ""
 
-#: settings.py:246
+#: settings.py:247
 msgid "All UDP"
 msgstr ""
 
-#: settings.py:252
+#: settings.py:253
 msgid "All ICMP"
 msgstr ""
 
@@ -1070,8 +1070,8 @@ msgstr ""
 #: dashboards/project/images/templates/images/images/_detail_overview.html:16
 #: dashboards/project/images/templates/images/images/_detail_overview.html:53
 #: dashboards/project/images/templates/images/images/_detail_overview.html:55
-#: dashboards/project/instances/templates/instances/_detail_overview.html:112
-#: dashboards/project/instances/templates/instances/_detail_overview.html:121
+#: dashboards/project/instances/templates/instances/_detail_overview.html:113
+#: dashboards/project/instances/templates/instances/_detail_overview.html:124
 #: dashboards/project/loadbalancers/templates/loadbalancers/_monitor_details.html:45
 #: dashboards/project/loadbalancers/templates/loadbalancers/_vip_details.html:56
 #: dashboards/project/networks/templates/networks/_detail_overview.html:8
@@ -1174,7 +1174,7 @@ msgstr ""
 #: contrib/trove/content/database_clusters/forms.py:118
 #: contrib/trove/content/databases/templates/databases/_detail_overview.html:27
 #: contrib/trove/content/databases/workflows/create_instance.py:37
-#: dashboards/project/instances/templates/instances/_detail_overview.html:50
+#: dashboards/project/instances/templates/instances/_detail_overview.html:66
 #: dashboards/project/instances/workflows/create_instance.py:87
 msgid "Flavor"
 msgstr ""
@@ -1231,7 +1231,7 @@ msgstr ""
 #: dashboards/identity/projects/workflows.py:71
 #: dashboards/project/access_and_security/tabs.py:43
 #: dashboards/project/access_and_security/security_groups/tables.py:150
-#: dashboards/project/instances/templates/instances/_detail_overview.html:87
+#: dashboards/project/instances/templates/instances/_detail_overview.html:88
 #: dashboards/project/instances/workflows/create_instance.py:555
 #: dashboards/project/instances/workflows/update_instance.py:80
 #: usage/quotas.py:71 usage/quotas.py:83 usage/views.py:73
@@ -1894,6 +1894,7 @@ msgstr ""
 
 #: contrib/sahara/content/data_processing/data_image_registry/forms.py:58
 #: contrib/sahara/content/data_processing/data_image_registry/tables.py:73
+#: dashboards/project/instances/templates/instances/_detail_overview.html:123
 #: dashboards/project/volumes/templates/volumes/volumes/_detail_overview.html:58
 #: dashboards/project/volumes/volumes/forms.py:237
 msgid "Image"
@@ -2481,8 +2482,8 @@ msgstr ""
 #: dashboards/project/instances/tables.py:964
 #: dashboards/project/instances/tables.py:971
 #: dashboards/project/instances/views.py:412
-#: dashboards/project/instances/templates/instances/_detail_overview.html:66
-#: dashboards/project/instances/templates/instances/_detail_overview.html:102
+#: dashboards/project/instances/templates/instances/_detail_overview.html:67
+#: dashboards/project/instances/templates/instances/_detail_overview.html:103
 msgid "Not available"
 msgstr ""
 
@@ -4070,7 +4071,7 @@ msgstr[0] ""
 msgstr[1] ""
 
 #: contrib/trove/content/database_clusters/tables.py:68
-#: contrib/trove/content/database_clusters/views.py:141
+#: contrib/trove/content/database_clusters/views.py:144
 #: contrib/trove/content/database_clusters/templates/database_clusters/_add_shard.html:9
 #: contrib/trove/content/database_clusters/templates/database_clusters/_add_shard.html:23
 #: contrib/trove/content/database_clusters/templates/database_clusters/add_shard.html:3
@@ -4078,7 +4079,7 @@ msgid "Add Shard"
 msgstr ""
 
 #: contrib/trove/content/database_clusters/tables.py:82
-#: contrib/trove/content/database_clusters/views.py:194
+#: contrib/trove/content/database_clusters/views.py:197
 #: contrib/trove/content/database_clusters/templates/database_clusters/_reset_password.html:9
 #: contrib/trove/content/database_clusters/templates/database_clusters/_reset_password.html:23
 #: contrib/trove/content/database_clusters/templates/database_clusters/reset_password.html:3
@@ -4182,30 +4183,30 @@ msgstr ""
 msgid "Unable to get instances data."
 msgstr ""
 
-#: contrib/trove/content/database_clusters/views.py:55
+#: contrib/trove/content/database_clusters/views.py:57
 #: contrib/trove/content/databases/views.py:61
 msgid "Unable to retrieve database size information."
 msgstr ""
 
-#: contrib/trove/content/database_clusters/views.py:81
+#: contrib/trove/content/database_clusters/views.py:84
 msgid "Unable to retrieve database clusters."
 msgstr ""
 
-#: contrib/trove/content/database_clusters/views.py:99
+#: contrib/trove/content/database_clusters/views.py:102
 msgid "Cluster Details: {{ cluster.name }}"
 msgstr ""
 
-#: contrib/trove/content/database_clusters/views.py:113
+#: contrib/trove/content/database_clusters/views.py:116
 #, python-format
 msgid "Unable to retrieve details for database cluster: %s"
 msgstr ""
 
-#: contrib/trove/content/database_clusters/views.py:163
-#: contrib/trove/content/database_clusters/views.py:202
+#: contrib/trove/content/database_clusters/views.py:166
+#: contrib/trove/content/database_clusters/views.py:205
 msgid "Unable to retrieve cluster details."
 msgstr ""
 
-#: contrib/trove/content/database_clusters/views.py:177
+#: contrib/trove/content/database_clusters/views.py:180
 #: contrib/trove/content/databases/views.py:212
 #: dashboards/project/instances/views.py:423
 msgid "Unable to retrieve flavors."
@@ -4952,7 +4953,7 @@ msgstr ""
 #: dashboards/admin/aggregates/tables.py:146
 #: dashboards/admin/flavors/tables.py:161
 #: dashboards/admin/volumes/volumes/forms.py:70
-#: dashboards/project/instances/templates/instances/_detail_overview.html:108
+#: dashboards/project/instances/templates/instances/_detail_overview.html:109
 #: dashboards/project/volumes/templates/volumes/backups/_detail_overview.html:46
 #: dashboards/project/volumes/templates/volumes/volumes/_detail_overview.html:68
 msgid "Metadata"
@@ -5451,6 +5452,7 @@ msgid "%sGB"
 msgstr ""
 
 #: dashboards/admin/flavors/tables.py:140
+#: dashboards/project/instances/templates/instances/_detail_overview.html:51
 msgid "Flavor Name"
 msgstr ""
 
@@ -5941,7 +5943,7 @@ msgstr ""
 #: dashboards/admin/instances/tables.py:140
 #: dashboards/project/images/images/tables.py:305
 #: dashboards/project/instances/tables.py:1129
-#: dashboards/project/instances/templates/instances/_detail_overview.html:116
+#: dashboards/project/instances/templates/instances/_detail_overview.html:118
 #: dashboards/project/instances/workflows/create_instance.py:108
 #: dashboards/project/volumes/volumes/forms.py:645
 msgid "Image Name"
@@ -7663,7 +7665,7 @@ msgid "Volume Snapshot Overview"
 msgstr ""
 
 #: dashboards/admin/volumes/templates/volumes/snapshots/_detail_overview.html:20
-#: dashboards/project/instances/templates/instances/_detail_overview.html:146
+#: dashboards/project/instances/templates/instances/_detail_overview.html:148
 #: dashboards/project/instances/workflows/create_instance.py:102
 #: dashboards/project/instances/workflows/create_instance.py:425
 #: dashboards/project/volumes/templates/volumes/backups/_detail_overview.html:23
@@ -12678,34 +12680,38 @@ msgstr ""
 msgid "Disk"
 msgstr ""
 
-#: dashboards/project/instances/templates/instances/_detail_overview.html:72
+#: dashboards/project/instances/templates/instances/_detail_overview.html:73
 msgid "IP Addresses"
 msgstr ""
 
-#: dashboards/project/instances/templates/instances/_detail_overview.html:97
+#: dashboards/project/instances/templates/instances/_detail_overview.html:98
 msgid "No rules defined."
 msgstr ""
 
-#: dashboards/project/instances/templates/instances/_detail_overview.html:111
+#: dashboards/project/instances/templates/instances/_detail_overview.html:112
 msgid "Key Name"
 msgstr ""
 
-#: dashboards/project/instances/templates/instances/_detail_overview.html:124
+#: dashboards/project/instances/templates/instances/_detail_overview.html:120
+msgid "Image ID"
+msgstr ""
+
+#: dashboards/project/instances/templates/instances/_detail_overview.html:126
 msgid "\"N/A\""
 msgstr ""
 
-#: dashboards/project/instances/templates/instances/_detail_overview.html:134
+#: dashboards/project/instances/templates/instances/_detail_overview.html:136
 msgid "Volumes Attached"
 msgstr ""
 
-#: dashboards/project/instances/templates/instances/_detail_overview.html:138
+#: dashboards/project/instances/templates/instances/_detail_overview.html:140
 #: dashboards/project/volumes/templates/volumes/volumes/_detail_overview.html:39
 #: dashboards/project/volumes/templates/volumes/volumes/_detail_overview.html:47
 #: dashboards/project/volumes/volumes/tables.py:432
 msgid "Attached To"
 msgstr ""
 
-#: dashboards/project/instances/templates/instances/_detail_overview.html:143
+#: dashboards/project/instances/templates/instances/_detail_overview.html:145
 #, python-format
 msgid ""
 "\n"
@@ -12714,7 +12720,7 @@ msgid ""
 "            "
 msgstr ""
 
-#: dashboards/project/instances/templates/instances/_detail_overview.html:147
+#: dashboards/project/instances/templates/instances/_detail_overview.html:149
 msgid "No volumes attached."
 msgstr ""
 

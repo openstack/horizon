@@ -20,17 +20,18 @@
 # OpenStack Infra <zanata@openstack.org>, 2015. #zanata
 # Xu Yang <xuyang@cn.fujitsu.com>, 2015. #zanata
 # Yu Zhiuguo <yuzg@cn.fujitsu.com>, 2015. #zanata
+# yan haifeng <yanheven@qq.com>, 2015. #zanata
 # zhangjingwen <zhangjingwen@cn.fujitsu.com>, 2015. #zanata
 msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-10-14 02:35+0000\n"
+"POT-Creation-Date: 2015-10-15 21:23+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2015-10-06 02:06+0000\n"
-"Last-Translator: Daisy <guoyingc@cn.ibm.com>\n"
+"PO-Revision-Date: 2015-10-15 01:12+0000\n"
+"Last-Translator: yan haifeng <yanheven@qq.com>\n"
 "Language-Team: Chinese (China) (http://www.transifex.com/openstack/horizon/"
 "language/zh_CN/)\n"
 "Generated-By: Babel 2.0\n"
@@ -375,8 +376,8 @@ msgid ""
 "  "
 msgstr ""
 "\n"
-"通过使用在拓扑上的你的鼠标/触控板上下滚动来调整画布。\n"
-"通过单击并拖拽拓扑后的空间来在画布周围平移。\n"
+"在拓扑图上上下滚动你的鼠标/触控板来调整画布大小。\n"
+"在拓扑图空白处点击并拖拽来移动浏览。\n"
 "  "
 
 msgid " - End"
@@ -2736,6 +2737,10 @@ msgstr "日期不能被识别"
 msgid "Day"
 msgstr "天"
 
+msgctxt "Current status of an Image"
+msgid "Deactivated"
+msgstr "无效的"
+
 msgid "Dead peer detection action"
 msgstr "已失效伙伴探测动作"
 
@@ -3865,6 +3870,10 @@ msgctxt "current status of router"
 msgid "Error"
 msgstr "错误"
 
+msgctxt "status of a network port"
+msgid "Error"
+msgstr "错误"
+
 msgid "Error Deleting"
 msgstr "删除错误"
 
@@ -4003,6 +4012,9 @@ msgstr "扩展中..."
 #, python-format
 msgid "Extending volume: \"%s\""
 msgstr "扩展硬盘大小: \"%s\""
+
+msgid "External"
+msgstr "外部"
 
 msgid "External Fixed IPs"
 msgstr "额外固定IP"
@@ -4441,6 +4453,10 @@ msgstr "浮动IP"
 
 msgid "Floating IP Pool"
 msgstr "浮动IP池"
+
+#, python-format
+msgid "Floating IP will be removed from VIP \"%s\"."
+msgstr "浮动IP 将被从 VIP \"%s\" 上移除."
 
 msgid "Floating IP:"
 msgstr "浮动IP:"
@@ -4953,6 +4969,9 @@ msgstr "镜像详情： {{ image.name }}"
 
 msgid "Image File"
 msgstr "镜像文件"
+
+msgid "Image ID"
+msgstr "镜像ID"
 
 msgid "Image ID ="
 msgstr "镜像ID ="
@@ -7160,6 +7179,10 @@ msgstr "QoS规格消费者"
 msgid ""
 "QoS Spec consumer value must be different than the current consumer value."
 msgstr "QoS规格消费者的值必须与当前消费者不同。"
+
+#, python-format
+msgid "QoS Spec name \"%s\" already exists."
+msgstr "QoS Spec 名字 \"%s\" 已存在."
 
 msgid "QoS Spec to be associated"
 msgstr "要关联的QoS规格"
@@ -9551,7 +9574,7 @@ msgid "To:"
 msgstr "至："
 
 msgid "Toggle Network Collapse"
-msgstr "切换网络瘫痪"
+msgstr "切换网络折叠模式"
 
 msgid "Toggle labels"
 msgstr "切换标签"
@@ -9880,8 +9903,24 @@ msgid "Unable to create volume."
 msgstr "不能创建云硬盘。"
 
 #, python-format
+msgid "Unable to delete IKE Policy. %s"
+msgstr "无法删除 IKE 策略 %s"
+
+#, python-format
+msgid "Unable to delete IPSec Policy. %s"
+msgstr "无法删除IPSec 策略. %s"
+
+#, python-format
+msgid "Unable to delete IPSec Site Connection. %s"
+msgstr "无法删除IPSec 对点链接. %s"
+
+#, python-format
 msgid "Unable to delete VIP. %s"
 msgstr "无法删除VIP %s"
+
+#, python-format
+msgid "Unable to delete VPN Service. %s"
+msgstr "无法删除VPN服务 %s"
 
 msgid "Unable to delete container."
 msgstr "无法删除容器。"
