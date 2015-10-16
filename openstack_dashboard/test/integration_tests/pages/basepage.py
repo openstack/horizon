@@ -26,6 +26,7 @@ class BasePage(pageobject.PageObject):
     _heading_locator = (by.By.CSS_SELECTOR, 'div.page-header > h2')
     _error_msg_locator = (by.By.CSS_SELECTOR, 'div.alert-danger.alert')
     _spinner_locator = (by.By.CSS_SELECTOR, 'div.modal-backdrop')
+    _message_locator = (by.By.CSS_SELECTOR, 'div.alert-success')
 
     @property
     def heading(self):
@@ -64,11 +65,10 @@ class BasePage(pageobject.PageObject):
     def go_to_help_page(self):
         self.topbar.user_dropdown_menu.click_on_help()
 
-    def _wait_till_spinner_disappears(self):
+    def wait_till_element_disappears(self, element_getter):
         try:
             self._turn_off_implicit_wait()
-            spinner = self._get_element(*self._spinner_locator)
-            self._wait_till_element_disappears(spinner)
+            self._wait_till_element_disappears(element_getter())
         except NoSuchElementException:
             # NOTE(mpavlase): This is valid state. When request completes
             # even before Selenium get a chance to get the spinner element,
@@ -76,6 +76,18 @@ class BasePage(pageobject.PageObject):
             pass
         finally:
             self._turn_on_implicit_wait()
+
+    def wait_till_spinner_disappears(self):
+        getter = lambda: self._get_element(*self._spinner_locator)
+        self.wait_till_element_disappears(getter)
+
+    def wait_till_message_disappears(self):
+        getter = lambda: self._get_element(*self._message_locator)
+        self.wait_till_element_disappears(getter)
+
+    def wait_till_popups_disappear(self):
+        self.wait_till_spinner_disappears()
+        self.wait_till_message_disappears()
 
     def change_project(self, name):
         self.topbar.user_dropdown_project.click_on_project(name)

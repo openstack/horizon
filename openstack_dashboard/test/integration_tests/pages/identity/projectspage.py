@@ -101,13 +101,14 @@ class ProjectsPage(basepage.BaseNavigationPage):
         if not is_enabled:
             self.create_project_form.enabled.unmark()
         self.create_project_form.submit.click()
-        self._wait_till_spinner_disappears()
+        self.wait_till_popups_disappear()
 
     def delete_project(self, project_name):
         row = self._get_row_with_project_name(project_name)
         row.mark()
         self.projects_table.delete_projects.click()
         self.delete_project_submit_button.click()
+        self.wait_till_popups_disappear()
 
     def is_project_present(self, project_name):
         return bool(self._get_row_with_project_name(project_name))
