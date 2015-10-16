@@ -39,9 +39,9 @@
       $scope = $injector.get('$rootScope').$new();
 
       $scope.fakeData = [
-          { id: '1', animal: 'cat' },
-          { id: '2', animal: 'dog' },
-          { id: '3', animal: 'fish' }
+        { id: '1', animal: 'cat' },
+        { id: '2', animal: 'dog' },
+        { id: '3', animal: 'fish' }
       ];
 
       var markup = '<test-bind-scope item-list="fakeData">{$ item.animal $}</test-bind-scope>';

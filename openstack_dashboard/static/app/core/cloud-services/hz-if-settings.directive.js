@@ -94,11 +94,11 @@
    */
   function hzSettingsToggle(hzPromiseToggleTemplate, settingsService) {
     return angular.extend(
-        hzPromiseToggleTemplate[0],
-        {
-          singlePromiseResolver: settingsService.ifEnabled,
-          name: 'hzIfSettings'
-        }
+      hzPromiseToggleTemplate[0],
+      {
+        singlePromiseResolver: settingsService.ifEnabled,
+        name: 'hzIfSettings'
+      }
     );
   }
 

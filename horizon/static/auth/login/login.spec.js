@@ -56,8 +56,8 @@
 
     describe('when websso is not enabled', function() {
       var element,
-      helpText, authType,
-      userInput, passwordInput;
+        helpText, authType,
+        userInput, passwordInput;
 
       beforeEach(function() {
         element = $compile(regularMarkup)($rootScope);
@@ -85,9 +85,9 @@
     describe('when websso is enabled', function() {
 
       var element,
-      helpText, authType,
-      userInput, passwordInput,
-      domainInput, regionInput;
+        helpText, authType,
+        userInput, passwordInput,
+        domainInput, regionInput;
 
       beforeEach(function() {
         element = $compile(webssoMarkup)($rootScope);

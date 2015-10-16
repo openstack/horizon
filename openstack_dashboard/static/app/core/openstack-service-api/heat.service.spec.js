@@ -22,9 +22,9 @@
 
     beforeEach(
       module('horizon.mock.openstack-service-api',
-             function($provide, initServices) {
-               testCall = initServices($provide, apiService, toastService);
-             })
+        function($provide, initServices) {
+          testCall = initServices($provide, apiService, toastService);
+        })
     );
 
     beforeEach(module('horizon.app.core.openstack-service-api'));

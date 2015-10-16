@@ -38,11 +38,6 @@
    * @param {Object} spec The input workflow specification object.
    * @returns {Object} The decorated workflow specification object, the same
    * reference to the input spec object.
-   *
-   * | Factories                                                                                                |
-   * |----------------------------------------------------------------------------------------------------------|
-   * | {@link horizon.app.core.workflow.factory:horizon.app.core.workflow.decorator `horizon.app.core.workflow.decorator`}  |
-   *
    */
   /* eslint-ensable max-len */
   angular

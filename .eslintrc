@@ -30,3 +30,7 @@ rules:
   angular/ng_controller_as_vm:
     - 1
     - "ctrl"
+
+  # Remove after migrating to angular 1.4 or later.
+  angular/ng_no_cookiestore:
+    - 1

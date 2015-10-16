@@ -24,8 +24,8 @@
 
   describe('wizard directive', function () {
     var $compile,
-        $scope,
-        element;
+      $scope,
+      element;
 
     beforeEach(module('templates'));
     beforeEach(module('horizon.framework.widgets'));
