@@ -13,6 +13,8 @@
 # limitations under the License.
 import mock
 
+from django.conf import settings
+
 from openstack_dashboard.api.rest import cinder
 from openstack_dashboard.test import helpers as test
 
@@ -77,3 +79,22 @@ class CinderRestTestCase(test.TestCase):
                          {"items": [{"id": "one"}, {"id": "two"}]})
         cc.volume_snapshot_list.assert_called_once_with(request,
                                                         search_opts=filters)
+
+    #
+    # Extensions
+    #
+    @mock.patch.object(cinder.api, 'cinder')
+    @mock.patch.object(settings,
+                       'OPENSTACK_CINDER_EXTENSIONS_BLACKLIST', ['baz'])
+    def _test_extension_list(self, cc):
+        request = self.mock_rest_request()
+        cc.list_extensions.return_value = [
+            mock.Mock(**{'to_dict.return_value': {'name': 'foo'}}),
+            mock.Mock(**{'to_dict.return_value': {'name': 'bar'}}),
+            mock.Mock(**{'to_dict.return_value': {'name': 'baz'}}),
+        ]
+        response = cinder.Extensions().get(request)
+        self.assertStatusCode(response, 200)
+        self.assertEqual(response.content,
+                         '{"items": [{"name": "foo"}, {"name": "bar"}]}')
+        cc.list_extensions.assert_called_once_with(request)

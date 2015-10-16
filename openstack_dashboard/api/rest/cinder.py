@@ -73,3 +73,31 @@ class VolumeSnapshots(generic.View):
             search_opts=rest_utils.parse_filters_kwargs(request)[0]
         )
         return {'items': [u.to_dict() for u in result]}
+
+
+@urls.register
+class Extensions(generic.View):
+    """API for cinder extensions.
+    """
+    url_regex = r'cinder/extensions/$'
+
+    @rest_utils.ajax()
+    def get(self, request):
+        """Get a list of extensions.
+
+        The listing result is an object with property "items". Each item is
+        an extension.
+
+        Example GET:
+        http://localhost/api/cinder/extensions
+        """
+        result = api.cinder.list_extensions(request)
+        return {'items': [{
+            'alias': e.alias,
+            'description': e.description,
+            'links': e.links,
+            'name': e.name,
+            'namespace': e.namespace,
+            'updated': e.updated
+
+        } for e in result]}
