@@ -1,11 +1,12 @@
-/*
- *    (c) Copyright 2015 Hewlett-Packard Development Company, L.P.
+/**
+ * (c) Copyright 2015 Hewlett-Packard Development Company, L.P.
+ * Copyright 2015 IBM Corp.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
- *    http://www.apache.org/licenses/LICENSE-2.0
+ * http://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
@@ -25,20 +26,17 @@
    * @description
    * A directive to ensure that password matches.
    * Changing the password or confirmation password triggers a validation check.
-   * However, only the confirmation password will show an error if match is false.
-   * The goal is to check that confirmation password matches the password,
-   * not whether the password matches the confirmation password.
-   * The behavior here is NOT bi-directional.
+   * The goal is to check that confirmation password matches the password.
    *
    * @restrict A
    *
    * @scope
-   * hzPasswordMatch - form model to validate against
+   * hzPasswordMatch - id of element to validate against
    *
    * @example:
    * <form name="form">
    *  <input type='password' id="psw" ng-model="user.psw" name="psw">
-   *  <input type='password' ng-model="user.cnf" hz-password-match="form.psw">
+   *  <input type='password' ng-model="user.cnf" hz-password-match="psw">
    * </form>
    *
    * Note that id and name are required for the password input.
@@ -52,7 +50,6 @@
     var directive = {
       restrict: 'A',
       require: 'ngModel',
-      scope: { pw: '=hzPasswordMatch' },
       link: link
     };
 
@@ -63,17 +60,17 @@
     function link(scope, element, attr, ctrl) {
 
       /**
-        * this ensures that typing in either input
-        * will trigger the password match
-        */
-      var pwElement = angular.element('#' + scope.pw.$name);
+       * this ensures that typing in either input
+       * will trigger the password match
+       */
+      var pwElement = angular.element('#' + attr.hzPasswordMatch);
       pwElement.on('keyup change', passwordCheck);
       element.on('keyup change', passwordCheck);
 
       // helper function to check that password matches
       function passwordCheck() {
         scope.$apply(function () {
-          var match = (ctrl.$modelValue === scope.pw.$modelValue);
+          var match = (ctrl.$modelValue === pwElement.val());
           ctrl.$setValidity('match', match);
         });
       }
