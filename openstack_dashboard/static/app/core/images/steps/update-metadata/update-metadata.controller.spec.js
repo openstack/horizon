@@ -1,4 +1,5 @@
-/*
+/**
+ * (c) Copyright 2016 Hewlett-Packard Development Company, L.P.
  *
  * Licensed under the Apache License, Version 2.0 (the "License"); you may
  * not use this file except in compliance with the License. You may obtain
@@ -85,6 +86,36 @@
         expect(ctrl.tree).toEqual(mockTree);
         expect(metadataTreeService.Tree).toHaveBeenCalledWith([], []);
         expect(metadataTreeService.Tree).toHaveBeenCalledWith(availableMetadata, existingMetadata);
+      });
+
+      it('should setup up the metadata tree even without an image', function() {
+        expect($scope.imagePromise).toBeUndefined();
+
+        spyOn(metadataTreeService, 'Tree').and.returnValue(mockTree);
+        spyOn(metadataService, 'getNamespaces').and.callThrough();
+        spyOn(metadataService, 'getMetadata').and.callThrough();
+
+        var ctrl = createController();
+        $scope.$apply();
+
+        expect(ctrl.tree).toEqual(mockTree);
+        expect(metadataTreeService.Tree).toHaveBeenCalledWith(availableMetadata, []);
+      });
+
+      it('should setup up the metadata tree if image does not exist', function() {
+        var deferred = $q.defer();
+        deferred.resolve({data: {}});
+        $scope.imagePromise = deferred.promise;
+
+        spyOn(metadataTreeService, 'Tree').and.returnValue(mockTree);
+        spyOn(metadataService, 'getNamespaces').and.callThrough();
+
+        var ctrl = createController();
+        $scope.$apply();
+
+        expect(ctrl.tree).toEqual(mockTree);
+        expect(metadataTreeService.Tree).toHaveBeenCalledWith([], []);
+        expect(metadataTreeService.Tree).toHaveBeenCalledWith(availableMetadata, []);
       });
 
       it('should emit imageMetadataChanged event when metadata changes', function() {

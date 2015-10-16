@@ -134,20 +134,6 @@
       expect(ctrl.image.container_format).toEqual('ari');
     });
 
-    it('should emit events on image change', function() {
-      spyOn($scope, '$emit').and.callThrough();
-
-      setImagePromise({id: '1', container_format: 'bare', properties: []});
-      var ctrl = createController();
-      ctrl.image = 1;
-      $scope.$apply();
-
-      ctrl.image = 2;
-      $scope.$apply();
-
-      expect($scope.$emit).toHaveBeenCalledWith('horizon.app.core.images.IMAGE_CHANGED', 2);
-    });
-
     it("should destroy the image changed watcher when the controller is destroyed", function() {
       setImagePromise({id: '1', container_format: 'bare', properties: []});
       spyOn($scope, '$emit').and.callThrough();

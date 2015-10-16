@@ -1,5 +1,5 @@
 /**
- * (c) Copyright 2015 Hewlett-Packard Development Company, L.P.
+ * (c) Copyright 2016 Hewlett-Packard Development Company, L.P.
  *
  * Licensed under the Apache License, Version 2.0 (the "License"); you may
  * not use this file except in compliance with the License. You may obtain
@@ -25,7 +25,6 @@
   describe('horizon.app.core.images.tableRoute constant', function () {
     var tableRoute;
 
-    beforeEach(module('horizon.app.core'));
     beforeEach(module('horizon.app.core.images'));
     beforeEach(inject(function ($injector) {
       tableRoute = $injector.get('horizon.app.core.images.tableRoute');

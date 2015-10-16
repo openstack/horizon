@@ -19,10 +19,11 @@
 
   angular
     .module('horizon.app.core.images')
-    .controller('horizon.app.core.images.steps.EditImageController', EditImageController);
+    .controller('horizon.app.core.images.steps.CreateImageController', CreateImageController);
 
-  EditImageController.$inject = [
+  CreateImageController.$inject = [
     '$scope',
+    'horizon.app.core.openstack-service-api.glance',
     'horizon.app.core.images.events',
     'horizon.app.core.images.imageFormats',
     'horizon.app.core.images.validationRules',
@@ -31,12 +32,13 @@
 
   /**
    * @ngdoc controller
-   * @name horizon.app.core.images.steps.EditImageController
+   * @name horizon.app.core.images.steps.CreateImageController
    * @description
-   * This controller is use for updating an image.
+   * This controller is use for creating an image.
    */
-  function EditImageController(
+  function CreateImageController(
     $scope,
+    glance,
     events,
     imageFormats,
     validationRules,
@@ -45,10 +47,28 @@
     var ctrl = this;
 
     settings.getSettings().then(getConfiguredFormats);
-    ctrl.diskFormats = [];
     ctrl.validationRules = validationRules;
+    ctrl.imageFormats = imageFormats;
+    ctrl.diskFormats = [];
+
+    ctrl.image = {
+      source_type: 'url',
+      image_url: '',
+      is_copying: true,
+      protected: false,
+      min_disk: 0,
+      min_ram: 0,
+      container_format: '',
+      disk_format: '',
+      visibility: 'public'
+    };
 
     ctrl.imageProtectedOptions = [
+      { label: gettext('Yes'), value: true },
+      { label: gettext('No'), value: false }
+    ];
+
+    ctrl.imageCopyOptions = [
       { label: gettext('Yes'), value: true },
       { label: gettext('No'), value: false }
     ];
@@ -58,9 +78,18 @@
       { label: gettext('Private'), value: 'private' }
     ];
 
+    ctrl.kernelImages = [];
+    ctrl.ramdiskImages = [];
+
     ctrl.setFormats = setFormats;
 
-    $scope.imagePromise.then(init);
+    init();
+
+    var imageChangedWatcher = $scope.$watchCollection('ctrl.image', watchImageCollection);
+
+    $scope.$on('$destroy', function() {
+      imageChangedWatcher();
+    });
 
     ///////////////////////////
 
@@ -76,18 +105,25 @@
       ctrl.imageFormats = dupe;
     }
 
-    function init(response) {
-      ctrl.image = response.data;
-      ctrl.image.kernel = ctrl.image.properties.kernel_id;
-      ctrl.image.ramdisk = ctrl.image.properties.ramdisk_id;
-      ctrl.image.architecture = ctrl.image.properties.architecture;
-      ctrl.image.visibility = ctrl.image.is_public ? 'public' : 'private';
-      ctrl.image_format = ctrl.image.disk_format;
-      if (ctrl.image.container_format === 'docker') {
-        ctrl.image_format = 'docker';
-        ctrl.image.disk_format = 'raw';
+    // emits new data to parent listeners
+    function watchImageCollection(newValue, oldValue) {
+      if (newValue !== oldValue) {
+        $scope.$emit(events.IMAGE_CHANGED, newValue);
       }
-      setFormats();
+    }
+
+    function init() {
+      glance.getImages({paginate: false}).success(onGetImages);
+    }
+
+    function onGetImages(response) {
+      ctrl.kernelImages = response.items.filter(function(elem) {
+        return elem.disk_format === 'aki';
+      });
+
+      ctrl.ramdiskImages = response.items.filter(function(elem) {
+        return elem.disk_format === 'ari';
+      });
     }
 
     function setFormats() {
@@ -101,7 +137,6 @@
         ctrl.image.disk_format = 'raw';
       }
     }
-
   } // end of controller
 
 })();
