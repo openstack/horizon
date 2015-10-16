@@ -28,6 +28,9 @@ HORIZON_CONFIG = {
     'ajax_queue_limit': 10,
     'ajax_poll_interval': 2500,
 
+    # URL for reporting issue with this site.
+    'bug_url': None,
+
     # URL for additional help with this site.
     'help_url': None,
 

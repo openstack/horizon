@@ -60,6 +60,7 @@ HORIZON_CONFIG = {
         'fade_duration': 1500,
         'types': ['alert-success', 'alert-info']
     },
+    'bug_url': None,
     'help_url': "http://docs.openstack.org",
     'exceptions': {'recoverable': exceptions.RECOVERABLE,
                    'not_found': exceptions.NOT_FOUND,

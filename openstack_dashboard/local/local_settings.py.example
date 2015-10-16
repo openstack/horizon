@@ -68,6 +68,11 @@ WEBROOT = '/'
 # Set to None explicitly if you want to deactivate the console.
 #CONSOLE_TYPE = "AUTO"
 
+# If provided, a "Report Bug" link will be displayed in the site header
+# which links to the value of this setting (ideally a URL containing
+# information on how to report issues).
+#HORIZON_CONFIG["bug_url"] = "http://bug-report.example.com"
+
 # Show backdrop element outside the modal, do not close the modal
 # after clicking on backdrop.
 #HORIZON_CONFIG["modal_backdrop"] = "static"

@@ -67,6 +67,14 @@
                 {% trans "Settings" %}
               </a>
             </li>
+            {% if HORIZON_CONFIG.bug_url %}
+              <li>
+                <a href="{{ HORIZON_CONFIG.bug_url }}" target="_blank">
+                  <span class="fa fa-bug"></span>
+                  {% trans "Report Bug" %}
+                </a>
+              </li>
+            {% endif %}
             {% if HORIZON_CONFIG.help_url %}
               <li>
                 <a href="{{ HORIZON_CONFIG.help_url }}" target="_blank">
