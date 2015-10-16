@@ -14,6 +14,7 @@
 import logging
 
 import django
+from django.conf import settings
 from django import shortcuts
 from django import template
 from django.template import defaultfilters as filters
@@ -33,7 +34,8 @@ from openstack_dashboard.dashboards.project.containers import utils
 
 
 LOG = logging.getLogger(__name__)
-LOADING_IMAGE = '<img src="/static/dashboard/img/loading.gif" />'
+static_url = getattr(settings, 'STATIC_URL', '/static/')
+LOADING_IMAGE = '<img src="%s/dashboard/img/loading.gif" />' % static_url
 
 
 def _escape_full_url(url):
