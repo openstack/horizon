@@ -115,14 +115,14 @@ class InstancesPage(basepage.BaseNavigationPage):
         if delete_on_terminate:
             instance.delete_on_terminate.mark()
         instance.submit.click()
-        self._wait_till_spinner_disappears()
+        self.wait_till_popups_disappear()
 
     def terminate_instance(self, name):
         row = self._get_row_with_instance_name(name)
         row.mark()
         self.instances_table.terminate.click()
         self.confirm_delete_instances_form.submit.click()
-        self._wait_till_spinner_disappears()
+        self.wait_till_popups_disappear()
 
     def is_instance_terminated(self, name):
         try:
