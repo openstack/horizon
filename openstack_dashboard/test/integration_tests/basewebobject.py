@@ -95,6 +95,10 @@ class BaseWebObject(unittest.TestCase):
         actually waiting for a _different_ element with a different text to
         appear in place of an old element. So a way to avoid capturing stale
         element reference should be provided for this use case.
+
+        Better to wrap getting entity status cell in a lambda
+        to avoid problems with cell being replaced with totally different
+        element by Javascript
         """
         def predicate(_):
             elt = element() if hasattr(element, '__call__') else element

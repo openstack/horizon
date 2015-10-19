@@ -79,6 +79,15 @@ InstancesGroup = [
                help="Boot Source to be selected for launch Instances"),
 ]
 
+VolumeGroup = [
+    cfg.StrOpt('volume_type',
+               default='lvmdriver-1',
+               help='Default volume type'),
+    cfg.StrOpt('volume_size',
+               default='1',
+               help='Default volume size ')
+]
+
 PluginGroup = [
     cfg.BoolOpt('is_plugin',
                 default='False',
@@ -110,5 +119,6 @@ def get_config():
     cfg.CONF.register_opts(ScenarioGroup, group="scenario")
     cfg.CONF.register_opts(InstancesGroup, group="launch_instances")
     cfg.CONF.register_opts(PluginGroup, group="plugin")
+    cfg.CONF.register_opts(VolumeGroup, group="volume")
 
     return cfg.CONF

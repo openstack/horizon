@@ -96,9 +96,6 @@ class ImagesPage(basepage.BaseNavigationPage):
     def is_image_active(self, name):
         row = self._get_row_with_image_name(name)
 
-        # NOTE(tsufiev): better to wrap getting image status cell in a lambda
-        # to avoid problems with cell being replaced with totally different
-        # element by Javascript
         def cell_getter():
             return row.cells[self.IMAGES_TABLE_STATUS_COLUMN]
         try:
