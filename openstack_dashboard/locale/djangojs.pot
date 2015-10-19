@@ -8,14 +8,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-09-17 06:23+0000\n"
+"POT-Creation-Date: 2015-10-19 06:35+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Generated-By: Babel 2.0\n"
+"Generated-By: Babel 2.1.1\n"
 
 #: contrib/sahara/content/data_processing/static/dashboard/project/data_processing/data_processing.event_log.js:15
 msgid "Event log is not available."
@@ -146,23 +146,23 @@ msgstr ""
 msgid "Project ID"
 msgstr ""
 
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/launch-instance-model.js:392
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/launch-instance-model.service.js:392
 #: dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:102
 #: static/app/core/images/filters/image-type.filter.js:41
 msgid "Image"
 msgstr ""
 
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/launch-instance-model.js:403
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/launch-instance-model.service.js:403
 #: dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:103
 msgid "Instance Snapshot"
 msgstr ""
 
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/launch-instance-model.js:411
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/launch-instance-model.service.js:411
 #: dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:104
 msgid "Volume"
 msgstr ""
 
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/launch-instance-model.js:415
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/launch-instance-model.service.js:415
 #: dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:105
 msgid "Volume Snapshot"
 msgstr ""
@@ -1048,12 +1048,17 @@ msgstr ""
 msgid "Save"
 msgstr ""
 
-#: static/app/core/openstack-service-api/cinder.service.js:64
+#: static/app/core/openstack-service-api/cinder.service.js:65
 msgid "Unable to retrieve the volumes."
 msgstr ""
 
-#: static/app/core/openstack-service-api/cinder.service.js:91
+#: static/app/core/openstack-service-api/cinder.service.js:92
 msgid "Unable to retrieve the volume snapshots."
+msgstr ""
+
+#: static/app/core/openstack-service-api/cinder.service.js:124
+#: static/app/core/openstack-service-api/nova.service.js:220
+msgid "Unable to retrieve the extensions."
 msgstr ""
 
 #: static/app/core/openstack-service-api/glance.service.js:58
@@ -1249,10 +1254,6 @@ msgstr ""
 msgid "Unable to retrieve the server."
 msgstr ""
 
-#: static/app/core/openstack-service-api/nova.service.js:220
-msgid "Unable to retrieve the extensions."
-msgstr ""
-
 #: static/app/core/openstack-service-api/nova.service.js:265
 msgid "Unable to retrieve the flavors."
 msgstr ""
@@ -1277,7 +1278,7 @@ msgstr ""
 msgid "Unable to edit the aggregate extra specs."
 msgstr ""
 
-#: static/app/core/openstack-service-api/policy.service.js:78
+#: static/app/core/openstack-service-api/policy.service.js:85
 msgid "Policy check failed."
 msgstr ""
 

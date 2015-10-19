@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-10-16 06:05+0000\n"
+"POT-Creation-Date: 2015-10-19 06:35+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,63 +17,63 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 2.1.1\n"
 
-#: settings.py:84
+#: settings.py:85
 msgid "Select format"
 msgstr ""
 
-#: settings.py:85
+#: settings.py:86
 msgid "AKI - Amazon Kernel Image"
 msgstr ""
 
-#: settings.py:86
+#: settings.py:87
 msgid "AMI - Amazon Machine Image"
 msgstr ""
 
-#: settings.py:87
+#: settings.py:88
 msgid "ARI - Amazon Ramdisk Image"
 msgstr ""
 
-#: settings.py:88
+#: settings.py:89
 msgid "Docker"
 msgstr ""
 
-#: settings.py:89
+#: settings.py:90
 msgid "ISO - Optical Disk Image"
 msgstr ""
 
-#: settings.py:90
+#: settings.py:91
 msgid "OVA - Open Virtual Appliance"
 msgstr ""
 
-#: settings.py:91
+#: settings.py:92
 msgid "QCOW2 - QEMU Emulator"
 msgstr ""
 
-#: settings.py:92
+#: settings.py:93
 msgid "Raw"
 msgstr ""
 
-#: settings.py:93
+#: settings.py:94
 msgid "VDI - Virtual Disk Image"
 msgstr ""
 
-#: settings.py:94
+#: settings.py:95
 msgid "VHD - Virtual Hard Disk"
 msgstr ""
 
-#: settings.py:95
+#: settings.py:96
 msgid "VMDK - Virtual Machine Disk"
 msgstr ""
 
-#: settings.py:241
+#: settings.py:242
 msgid "All TCP"
 msgstr ""
 
-#: settings.py:247
+#: settings.py:248
 msgid "All UDP"
 msgstr ""
 
-#: settings.py:253
+#: settings.py:254
 msgid "All ICMP"
 msgstr ""
 
@@ -629,7 +629,7 @@ msgstr ""
 #: dashboards/admin/volumes/volume_types/forms.py:236
 #: dashboards/admin/volumes/volume_types/tables.py:204
 #: dashboards/admin/volumes/volume_types/tables.py:299
-#: dashboards/admin/volumes/volumes/forms.py:88
+#: dashboards/admin/volumes/volumes/forms.py:89
 #: dashboards/admin/volumes/volumes/tables.py:91
 #: dashboards/identity/domains/tables.py:279
 #: dashboards/identity/domains/workflows.py:34
@@ -686,8 +686,8 @@ msgstr ""
 #: dashboards/project/volumes/templates/volumes/snapshots/_detail_overview.html:10
 #: dashboards/project/volumes/templates/volumes/volumes/_detail_overview.html:10
 #: dashboards/project/volumes/templates/volumes/volumes/_detail_overview.html:91
-#: dashboards/project/volumes/volumes/tables.py:398
-#: dashboards/project/volumes/volumes/tables.py:427
+#: dashboards/project/volumes/volumes/tables.py:401
+#: dashboards/project/volumes/volumes/tables.py:430
 #: dashboards/project/vpn/forms.py:31 dashboards/project/vpn/forms.py:66
 #: dashboards/project/vpn/forms.py:145 dashboards/project/vpn/forms.py:223
 #: dashboards/project/vpn/tables.py:271 dashboards/project/vpn/tables.py:328
@@ -770,7 +770,7 @@ msgstr ""
 #: dashboards/admin/volumes/volume_types/forms.py:29
 #: dashboards/admin/volumes/volume_types/forms.py:239
 #: dashboards/admin/volumes/volume_types/tables.py:209
-#: dashboards/admin/volumes/volumes/forms.py:67
+#: dashboards/admin/volumes/volumes/forms.py:68
 #: dashboards/identity/domains/tables.py:281
 #: dashboards/identity/domains/workflows.py:37
 #: dashboards/identity/groups/forms.py:33
@@ -817,7 +817,7 @@ msgstr ""
 #: dashboards/project/volumes/volumes/forms.py:84
 #: dashboards/project/volumes/volumes/forms.py:499
 #: dashboards/project/volumes/volumes/forms.py:607
-#: dashboards/project/volumes/volumes/tables.py:401
+#: dashboards/project/volumes/volumes/tables.py:404
 #: dashboards/project/vpn/forms.py:36 dashboards/project/vpn/forms.py:71
 #: dashboards/project/vpn/forms.py:150 dashboards/project/vpn/forms.py:228
 #: dashboards/project/vpn/tables.py:273 dashboards/project/vpn/tables.py:330
@@ -996,8 +996,8 @@ msgstr ""
 #: dashboards/admin/networks/agents/tables.py:90
 #: dashboards/admin/networks/templates/networks/ports/_detail_overview.html:8
 #: dashboards/admin/volumes/templates/volumes/snapshots/_detail_overview.html:12
-#: dashboards/admin/volumes/volumes/forms.py:89
-#: dashboards/admin/volumes/volumes/forms.py:148
+#: dashboards/admin/volumes/volumes/forms.py:90
+#: dashboards/admin/volumes/volumes/forms.py:149
 #: dashboards/identity/roles/forms.py:37 dashboards/identity/users/forms.py:194
 #: dashboards/identity/users/templates/users/_detail_overview.html:19
 #: dashboards/project/access_and_security/templates/access_and_security/keypairs/detail.html:14
@@ -1196,14 +1196,14 @@ msgstr ""
 #: dashboards/admin/aggregates/forms.py:28
 #: dashboards/admin/aggregates/tables.py:140
 #: dashboards/admin/aggregates/workflows.py:27
-#: dashboards/admin/volumes/volumes/forms.py:77
+#: dashboards/admin/volumes/volumes/forms.py:78
 #: dashboards/project/instances/tables.py:1144
 #: dashboards/project/instances/templates/instances/_detail_overview.html:16
 #: dashboards/project/instances/workflows/create_instance.py:81
 #: dashboards/project/volumes/volumes/forms.py:122
 #: dashboards/project/volumes/volumes/forms.py:127
 #: dashboards/project/volumes/volumes/forms.py:128
-#: dashboards/project/volumes/volumes/tables.py:434
+#: dashboards/project/volumes/volumes/tables.py:437
 msgid "Availability Zone"
 msgstr ""
 
@@ -1496,7 +1496,7 @@ msgstr ""
 #: dashboards/admin/networks/templates/networks/ports/_detail_overview.html:17
 #: dashboards/admin/volumes/snapshots/forms.py:43
 #: dashboards/admin/volumes/templates/volumes/snapshots/_detail_overview.html:18
-#: dashboards/admin/volumes/volumes/forms.py:217
+#: dashboards/admin/volumes/volumes/forms.py:218
 #: dashboards/project/access_and_security/floating_ips/tables.py:202
 #: dashboards/project/firewalls/tables.py:382
 #: dashboards/project/firewalls/templates/firewalls/_firewall_details.html:25
@@ -1527,7 +1527,7 @@ msgstr ""
 #: dashboards/project/volumes/templates/volumes/backups/_detail_overview.html:20
 #: dashboards/project/volumes/templates/volumes/snapshots/_detail_overview.html:18
 #: dashboards/project/volumes/templates/volumes/volumes/_detail_overview.html:18
-#: dashboards/project/volumes/volumes/tables.py:407
+#: dashboards/project/volumes/volumes/tables.py:410
 #: dashboards/project/vpn/tables.py:281 dashboards/project/vpn/tables.py:336
 #: dashboards/project/vpn/templates/vpn/_ipsecsiteconnection_details.html:71
 #: dashboards/project/vpn/templates/vpn/_vpnservice_details.html:42
@@ -1755,7 +1755,7 @@ msgstr ""
 
 #: contrib/sahara/content/data_processing/clusters/templates/data_processing.clusters/_event_log.html:31
 #: dashboards/project/access_and_security/floating_ips/workflows.py:37
-#: dashboards/project/volumes/volumes/tables.py:502
+#: dashboards/project/volumes/volumes/tables.py:505
 msgid "Instance"
 msgstr ""
 
@@ -2131,7 +2131,7 @@ msgstr ""
 #: dashboards/project/volumes/volumes/forms.py:118
 #: dashboards/project/volumes/volumes/forms.py:119
 #: dashboards/project/volumes/volumes/forms.py:753
-#: dashboards/project/volumes/volumes/tables.py:430
+#: dashboards/project/volumes/volumes/tables.py:433
 msgid "Type"
 msgstr ""
 
@@ -3177,7 +3177,7 @@ msgid "Unable to get volume type list."
 msgstr ""
 
 #: contrib/sahara/content/data_processing/nodegroup_templates/workflows/create.py:191
-#: dashboards/admin/volumes/volumes/forms.py:91
+#: dashboards/admin/volumes/volumes/forms.py:92
 #: dashboards/project/volumes/volumes/forms.py:268
 msgid "No volume type"
 msgstr ""
@@ -4134,8 +4134,8 @@ msgstr ""
 #: dashboards/admin/networks/agents/tables.py:91
 #: dashboards/admin/networks/templates/networks/ports/_detail_overview.html:50
 #: dashboards/admin/volumes/snapshots/tables.py:64
-#: dashboards/admin/volumes/volumes/forms.py:57
-#: dashboards/admin/volumes/volumes/forms.py:144
+#: dashboards/admin/volumes/volumes/forms.py:58
+#: dashboards/admin/volumes/volumes/forms.py:145
 #: dashboards/admin/volumes/volumes/tables.py:93
 #: dashboards/project/instances/templates/instances/_detail_overview.html:23
 msgid "Host"
@@ -4145,7 +4145,7 @@ msgstr ""
 #: contrib/trove/content/databases/tables.py:327
 #: dashboards/admin/instances/tables.py:145
 #: dashboards/admin/volumes/templates/volumes/snapshots/_detail_overview.html:33
-#: dashboards/project/containers/tables.py:451
+#: dashboards/project/containers/tables.py:453
 #: dashboards/project/containers/templates/containers/_container_detail.html:22
 #: dashboards/project/containers/templates/containers/_object_detail.html:18
 #: dashboards/project/images/images/tables.py:326
@@ -4156,7 +4156,7 @@ msgstr ""
 #: dashboards/project/volumes/templates/volumes/backups/_detail_overview.html:37
 #: dashboards/project/volumes/templates/volumes/snapshots/_detail_overview.html:37
 #: dashboards/project/volumes/templates/volumes/volumes/_detail_overview.html:27
-#: dashboards/project/volumes/volumes/tables.py:404
+#: dashboards/project/volumes/volumes/tables.py:407
 msgid "Size"
 msgstr ""
 
@@ -4536,7 +4536,7 @@ msgid "Database Name"
 msgstr ""
 
 #: contrib/trove/content/databases/tables.py:390
-#: dashboards/project/containers/tables.py:386
+#: dashboards/project/containers/tables.py:388
 msgid "Download"
 msgstr ""
 
@@ -4952,7 +4952,7 @@ msgstr ""
 
 #: dashboards/admin/aggregates/tables.py:146
 #: dashboards/admin/flavors/tables.py:161
-#: dashboards/admin/volumes/volumes/forms.py:70
+#: dashboards/admin/volumes/volumes/forms.py:71
 #: dashboards/project/instances/templates/instances/_detail_overview.html:109
 #: dashboards/project/volumes/templates/volumes/backups/_detail_overview.html:46
 #: dashboards/project/volumes/templates/volumes/volumes/_detail_overview.html:68
@@ -5268,7 +5268,7 @@ msgstr ""
 #: dashboards/project/volumes/panel.py:21 dashboards/project/volumes/tabs.py:84
 #: dashboards/project/volumes/views.py:26
 #: dashboards/project/volumes/templates/volumes/index.html:3
-#: dashboards/project/volumes/volumes/tables.py:445 usage/quotas.py:75
+#: dashboards/project/volumes/volumes/tables.py:448 usage/quotas.py:75
 #: usage/views.py:78
 msgid "Volumes"
 msgstr ""
@@ -5686,7 +5686,7 @@ msgstr ""
 #: dashboards/admin/hypervisors/compute/forms.py:25
 #: dashboards/admin/hypervisors/compute/forms.py:99
 #: dashboards/admin/instances/forms.py:27
-#: dashboards/admin/volumes/volumes/forms.py:172
+#: dashboards/admin/volumes/volumes/forms.py:173
 msgid "Current Host"
 msgstr ""
 
@@ -6150,17 +6150,17 @@ msgid "New Host"
 msgstr ""
 
 #: dashboards/admin/instances/forms.py:32
-#: dashboards/admin/volumes/volumes/forms.py:177
+#: dashboards/admin/volumes/volumes/forms.py:178
 msgid "Choose a Host to migrate to."
 msgstr ""
 
 #: dashboards/admin/instances/forms.py:56
-#: dashboards/admin/volumes/volumes/forms.py:194
+#: dashboards/admin/volumes/volumes/forms.py:195
 msgid "Select a new host"
 msgstr ""
 
 #: dashboards/admin/instances/forms.py:58
-#: dashboards/admin/volumes/volumes/forms.py:196
+#: dashboards/admin/volumes/volumes/forms.py:197
 msgid "No other hosts available"
 msgstr ""
 
@@ -7635,9 +7635,9 @@ msgid "Update Status"
 msgstr ""
 
 #: dashboards/admin/volumes/snapshots/tables.py:62
-#: dashboards/admin/volumes/volumes/forms.py:62
-#: dashboards/admin/volumes/volumes/forms.py:140
-#: dashboards/admin/volumes/volumes/forms.py:168
+#: dashboards/admin/volumes/volumes/forms.py:63
+#: dashboards/admin/volumes/volumes/forms.py:141
+#: dashboards/admin/volumes/volumes/forms.py:169
 #: dashboards/project/volumes/backups/tables.py:135
 #: dashboards/project/volumes/snapshots/tables.py:151
 #: dashboards/project/volumes/volumes/forms.py:80
@@ -8227,7 +8227,7 @@ msgstr ""
 #: dashboards/identity/domains/tables.py:81
 #: dashboards/identity/roles/tables.py:37
 #: dashboards/identity/users/tables.py:47
-#: dashboards/project/containers/tables.py:323
+#: dashboards/project/containers/tables.py:325
 msgid "Edit"
 msgstr ""
 
@@ -8394,91 +8394,95 @@ msgstr ""
 msgid "In Use"
 msgstr ""
 
-#: dashboards/admin/volumes/volumes/forms.py:50
-msgid "Identifier"
+#: dashboards/admin/volumes/volumes/forms.py:44
+msgid "Maintenance"
 msgstr ""
 
 #: dashboards/admin/volumes/volumes/forms.py:51
+msgid "Identifier"
+msgstr ""
+
+#: dashboards/admin/volumes/volumes/forms.py:52
 msgid "Name or other identifier for existing volume"
 msgstr ""
 
-#: dashboards/admin/volumes/volumes/forms.py:53
+#: dashboards/admin/volumes/volumes/forms.py:54
 msgid "Identifier Type"
 msgstr ""
 
-#: dashboards/admin/volumes/volumes/forms.py:54
+#: dashboards/admin/volumes/volumes/forms.py:55
 msgid "Type of backend device identifier provided"
 msgstr ""
 
-#: dashboards/admin/volumes/volumes/forms.py:58
+#: dashboards/admin/volumes/volumes/forms.py:59
 msgid ""
 "Cinder host on which the existing volume resides; takes the form: host"
 "@backend-name#pool"
 msgstr ""
 
-#: dashboards/admin/volumes/volumes/forms.py:64
+#: dashboards/admin/volumes/volumes/forms.py:65
 msgid "Volume name to be assigned"
 msgstr ""
 
-#: dashboards/admin/volumes/volumes/forms.py:71
+#: dashboards/admin/volumes/volumes/forms.py:72
 msgid "Comma-separated key=value pairs"
 msgstr ""
 
-#: dashboards/admin/volumes/volumes/forms.py:74
+#: dashboards/admin/volumes/volumes/forms.py:75
 msgid "Volume Type"
 msgstr ""
 
-#: dashboards/admin/volumes/volumes/forms.py:81
+#: dashboards/admin/volumes/volumes/forms.py:82
 #: dashboards/project/volumes/volumes/forms.py:609
-#: dashboards/project/volumes/volumes/tables.py:436
+#: dashboards/project/volumes/volumes/tables.py:439
 msgid "Bootable"
 msgstr ""
 
-#: dashboards/admin/volumes/volumes/forms.py:83
+#: dashboards/admin/volumes/volumes/forms.py:84
 msgid "Specifies that the newly created volume should be marked as bootable"
 msgstr ""
 
-#: dashboards/admin/volumes/volumes/forms.py:130
+#: dashboards/admin/volumes/volumes/forms.py:131
 #, python-format
 msgid "Successfully sent the request to manage volume: %s"
 msgstr ""
 
-#: dashboards/admin/volumes/volumes/forms.py:135
+#: dashboards/admin/volumes/volumes/forms.py:136
 msgid "Unable to manage volume."
 msgstr ""
 
-#: dashboards/admin/volumes/volumes/forms.py:158
+#: dashboards/admin/volumes/volumes/forms.py:159
 #, python-format
 msgid "Successfully sent the request to unmanage volume: %s"
 msgstr ""
 
-#: dashboards/admin/volumes/volumes/forms.py:163
+#: dashboards/admin/volumes/volumes/forms.py:164
 msgid "Unable to unmanage volume."
 msgstr ""
 
-#: dashboards/admin/volumes/volumes/forms.py:176
+#: dashboards/admin/volumes/volumes/forms.py:177
 msgid "Destination Host"
 msgstr ""
 
-#: dashboards/admin/volumes/volumes/forms.py:178
+#: dashboards/admin/volumes/volumes/forms.py:179
 msgid "Force Host Copy"
 msgstr ""
 
-#: dashboards/admin/volumes/volumes/forms.py:207
+#: dashboards/admin/volumes/volumes/forms.py:208
 #, python-format
 msgid "Successfully sent the request to migrate volume: %s"
 msgstr ""
 
-#: dashboards/admin/volumes/volumes/forms.py:212
+#: dashboards/admin/volumes/volumes/forms.py:213
 msgid "Failed to migrate volume."
 msgstr ""
 
-#: dashboards/admin/volumes/volumes/forms.py:240
+#: dashboards/admin/volumes/volumes/forms.py:241
 #, python-format
 msgid "Successfully updated volume status to \"%s\"."
 msgstr ""
 
-#: dashboards/admin/volumes/volumes/forms.py:246
+#: dashboards/admin/volumes/volumes/forms.py:247
 #, python-format
 msgid "Unable to update volume status to \"%s\"."
 msgstr ""
@@ -10219,7 +10223,7 @@ msgid "Private"
 msgstr ""
 
 #: dashboards/project/containers/forms.py:54
-#: dashboards/project/containers/tables.py:270
+#: dashboards/project/containers/tables.py:272
 #: dashboards/project/containers/templates/containers/_container_detail.html:10
 #: dashboards/project/volumes/backups/forms.py:39
 msgid "Container Name"
@@ -10249,7 +10253,7 @@ msgid "File"
 msgstr ""
 
 #: dashboards/project/containers/forms.py:93
-#: dashboards/project/containers/tables.py:448
+#: dashboards/project/containers/tables.py:450
 msgid "Object Name"
 msgstr ""
 
@@ -10310,55 +10314,55 @@ msgid "Unable to copy object."
 msgstr ""
 
 #: dashboards/project/containers/panel.py:25
-#: dashboards/project/containers/tables.py:281
+#: dashboards/project/containers/tables.py:283
 #: dashboards/project/containers/templates/containers/index.html:5
 #: dashboards/project/containers/templates/containers/index.html:9
 msgid "Containers"
 msgstr ""
 
-#: dashboards/project/containers/tables.py:50
-#: dashboards/project/containers/tables.py:311
+#: dashboards/project/containers/tables.py:52
+#: dashboards/project/containers/tables.py:313
 msgid "View Details"
 msgstr ""
 
-#: dashboards/project/containers/tables.py:61
+#: dashboards/project/containers/tables.py:63
 msgid "Make Public"
 msgstr ""
 
-#: dashboards/project/containers/tables.py:77
+#: dashboards/project/containers/tables.py:79
 msgid "Successfully updated container access to public."
 msgstr ""
 
-#: dashboards/project/containers/tables.py:81
-#: dashboards/project/containers/tables.py:107
+#: dashboards/project/containers/tables.py:83
+#: dashboards/project/containers/tables.py:109
 msgid "Unable to update container access."
 msgstr ""
 
-#: dashboards/project/containers/tables.py:87
+#: dashboards/project/containers/tables.py:89
 msgid "Make Private"
 msgstr ""
 
-#: dashboards/project/containers/tables.py:103
+#: dashboards/project/containers/tables.py:105
 msgid "Successfully updated container access to private."
 msgstr ""
 
-#: dashboards/project/containers/tables.py:114
+#: dashboards/project/containers/tables.py:116
 msgid "Delete Container"
 msgid_plural "Delete Containers"
 msgstr[0] ""
 msgstr[1] ""
 
-#: dashboards/project/containers/tables.py:122
+#: dashboards/project/containers/tables.py:124
 msgid "Deleted Container"
 msgid_plural "Deleted Containers"
 msgstr[0] ""
 msgstr[1] ""
 
-#: dashboards/project/containers/tables.py:137
+#: dashboards/project/containers/tables.py:139
 msgid "Unable to delete container."
 msgstr ""
 
-#: dashboards/project/containers/tables.py:154
+#: dashboards/project/containers/tables.py:156
 #: dashboards/project/containers/views.py:130
 #: dashboards/project/containers/templates/containers/_create.html:8
 #: dashboards/project/containers/templates/containers/_create.html:24
@@ -10366,50 +10370,50 @@ msgstr ""
 msgid "Create Container"
 msgstr ""
 
-#: dashboards/project/containers/tables.py:162
+#: dashboards/project/containers/tables.py:164
 msgid "View Container"
 msgstr ""
 
-#: dashboards/project/containers/tables.py:174
+#: dashboards/project/containers/tables.py:176
 #: dashboards/project/containers/views.py:154
 #: dashboards/project/containers/templates/containers/create_pseudo_folder.html:3
 msgid "Create Pseudo-folder"
 msgstr ""
 
-#: dashboards/project/containers/tables.py:202
+#: dashboards/project/containers/tables.py:204
 #: dashboards/project/containers/templates/containers/_upload.html:28
 #: dashboards/project/containers/templates/containers/upload.html:3
 msgid "Upload Object"
 msgstr ""
 
-#: dashboards/project/containers/tables.py:272
+#: dashboards/project/containers/tables.py:274
 #: dashboards/project/containers/views.py:275
 #: dashboards/project/containers/templates/containers/_container_detail.html:5
 #: dashboards/project/containers/templates/containers/container_detail.html:3
 msgid "Container Details"
 msgstr ""
 
-#: dashboards/project/containers/tables.py:337
+#: dashboards/project/containers/tables.py:339
 msgid "Delete Object"
 msgid_plural "Delete Objects"
 msgstr[0] ""
 msgstr[1] ""
 
-#: dashboards/project/containers/tables.py:345
+#: dashboards/project/containers/tables.py:347
 msgid "Deleted Object"
 msgid_plural "Deleted Objects"
 msgstr[0] ""
 msgstr[1] ""
 
-#: dashboards/project/containers/tables.py:373
+#: dashboards/project/containers/tables.py:375
 msgid "Copy"
 msgstr ""
 
-#: dashboards/project/containers/tables.py:433
+#: dashboards/project/containers/tables.py:435
 msgid "pseudo-folder"
 msgstr ""
 
-#: dashboards/project/containers/tables.py:455
+#: dashboards/project/containers/tables.py:457
 msgid "Objects"
 msgstr ""
 
@@ -12707,7 +12711,7 @@ msgstr ""
 #: dashboards/project/instances/templates/instances/_detail_overview.html:140
 #: dashboards/project/volumes/templates/volumes/volumes/_detail_overview.html:39
 #: dashboards/project/volumes/templates/volumes/volumes/_detail_overview.html:47
-#: dashboards/project/volumes/volumes/tables.py:432
+#: dashboards/project/volumes/volumes/tables.py:435
 msgid "Attached To"
 msgstr ""
 
@@ -16172,7 +16176,7 @@ msgid "Volume Overview"
 msgstr ""
 
 #: dashboards/project/volumes/templates/volumes/volumes/_detail_overview.html:35
-#: dashboards/project/volumes/volumes/tables.py:523
+#: dashboards/project/volumes/volumes/tables.py:526
 msgid "Attachments"
 msgstr ""
 
@@ -16747,98 +16751,103 @@ msgstr ""
 msgid "Yes"
 msgstr ""
 
-#: dashboards/project/volumes/volumes/tables.py:372
+#: dashboards/project/volumes/volumes/tables.py:373
 msgctxt "Current status of a Volume"
 msgid "Available"
 msgstr ""
 
-#: dashboards/project/volumes/volumes/tables.py:374
+#: dashboards/project/volumes/volumes/tables.py:375
 msgctxt "Current status of a Volume"
 msgid "In-use"
 msgstr ""
 
-#: dashboards/project/volumes/volumes/tables.py:375
+#: dashboards/project/volumes/volumes/tables.py:376
 msgctxt "Current status of a Volume"
 msgid "Error"
 msgstr ""
 
-#: dashboards/project/volumes/volumes/tables.py:376
+#: dashboards/project/volumes/volumes/tables.py:377
 msgctxt "Current status of a Volume"
 msgid "Creating"
 msgstr ""
 
-#: dashboards/project/volumes/volumes/tables.py:378
+#: dashboards/project/volumes/volumes/tables.py:379
 msgctxt "Current status of a Volume"
 msgid "Error Extending"
 msgstr ""
 
-#: dashboards/project/volumes/volumes/tables.py:380
+#: dashboards/project/volumes/volumes/tables.py:381
 msgctxt "Current status of a Volume"
 msgid "Extending"
 msgstr ""
 
-#: dashboards/project/volumes/volumes/tables.py:382
+#: dashboards/project/volumes/volumes/tables.py:383
 msgctxt "Current status of a Volume"
 msgid "Attaching"
 msgstr ""
 
-#: dashboards/project/volumes/volumes/tables.py:384
+#: dashboards/project/volumes/volumes/tables.py:385
 msgctxt "Current status of a Volume"
 msgid "Detaching"
 msgstr ""
 
-#: dashboards/project/volumes/volumes/tables.py:386
+#: dashboards/project/volumes/volumes/tables.py:387
 msgctxt "Current status of a Volume"
 msgid "Deleting"
 msgstr ""
 
-#: dashboards/project/volumes/volumes/tables.py:388
+#: dashboards/project/volumes/volumes/tables.py:389
 msgctxt "Current status of a Volume"
 msgid "Error deleting"
 msgstr ""
 
-#: dashboards/project/volumes/volumes/tables.py:390
+#: dashboards/project/volumes/volumes/tables.py:391
 msgctxt "Current status of a Volume"
 msgid "Backing Up"
 msgstr ""
 
-#: dashboards/project/volumes/volumes/tables.py:392
+#: dashboards/project/volumes/volumes/tables.py:393
 msgctxt "Current status of a Volume"
 msgid "Restoring Backup"
 msgstr ""
 
-#: dashboards/project/volumes/volumes/tables.py:394
+#: dashboards/project/volumes/volumes/tables.py:395
 msgctxt "Current status of a Volume"
 msgid "Error Restoring"
 msgstr ""
 
-#: dashboards/project/volumes/volumes/tables.py:439
+#: dashboards/project/volumes/volumes/tables.py:397
+msgctxt "Current status of a Volume"
+msgid "Maintenance"
+msgstr ""
+
+#: dashboards/project/volumes/volumes/tables.py:442
 msgid "Encrypted"
 msgstr ""
 
-#: dashboards/project/volumes/volumes/tables.py:460
+#: dashboards/project/volumes/volumes/tables.py:463
 msgid ""
 "The data will remain in the volume and another instance will be able to "
 "access the data if you attach this volume to it."
 msgstr ""
 
-#: dashboards/project/volumes/volumes/tables.py:466
+#: dashboards/project/volumes/volumes/tables.py:469
 msgid "Detach Volume"
 msgid_plural "Detach Volumes"
 msgstr[0] ""
 msgstr[1] ""
 
-#: dashboards/project/volumes/volumes/tables.py:475
+#: dashboards/project/volumes/volumes/tables.py:478
 msgid "Detaching Volume"
 msgid_plural "Detaching Volumes"
 msgstr[0] ""
 msgstr[1] ""
 
-#: dashboards/project/volumes/volumes/tables.py:504
+#: dashboards/project/volumes/volumes/tables.py:507
 msgid "Device"
 msgstr ""
 
-#: dashboards/project/volumes/volumes/tables.py:513
+#: dashboards/project/volumes/volumes/tables.py:516
 #, python-format
 msgid "Volume %(volume_name)s on instance %(instance_name)s"
 msgstr ""
@@ -17829,8 +17838,13 @@ msgid ""
 "doesn't help, contact your local administrator."
 msgstr ""
 
-#: templates/500.html:74 templates/_header.html:74
+#: templates/500.html:75 templates/_header.html:74
 #: themes/material/templates/_header.html:83
+msgid "Report Bug"
+msgstr ""
+
+#: templates/500.html:77 templates/_header.html:82
+#: themes/material/templates/_header.html:91
 msgid "Help"
 msgstr ""
 
@@ -17838,7 +17852,7 @@ msgstr ""
 msgid "Toggle navigation"
 msgstr ""
 
-#: templates/_header.html:82 themes/material/templates/_header.html:91
+#: templates/_header.html:90 themes/material/templates/_header.html:99
 msgid "Sign Out"
 msgstr ""
 
