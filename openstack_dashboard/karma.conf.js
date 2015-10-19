@@ -46,27 +46,43 @@ module.exports = function (config) {
       // NOTE: the templates must also be listed in the files section below.
       './**/*.html': ['ng-html2js'],
       // Used to indicate files requiring coverage reports.
-      '../static/**/!(*.spec).js': ['coverage'],
-      '../dashboards/**/static/**/!(*.spec).js': ['coverage']
+      './static/app/**/!(*.spec).js': ['coverage'],
+      './dashboards/**/static/**/!(*.spec).js': ['coverage']
     },
 
     // Sets up module to process templates.
     ngHtml2JsPreprocessor: {
-      prependPrefix: '/static/',
-      moduleName: 'templates'
+      moduleName: 'templates',
+      cacheIdFromPath: function(filepath) {
+        // This function takes the raw provided path from the file searches
+        // below (in the files: pattern list), applies the filter from the
+        // preprocessor above (basically, finds the html files), then uses
+        // this function to translate the relative file path into a path
+        // that matches what would actually be called in production.
+        //
+        // e.g.
+        // dashboards/project/static/dashboard/project/workflow/launch-instance/configuration/load-edit.html
+        // becomes:
+        // /static/dashboard/project/workflow/launch-instance/configuration/load-edit.html
+        // We can't just use stripPrefix because there are a couple of
+        // prefixes that need to be altered (and may be more).
+        return filepath.replace(/^dashboards\/[^\/]+/, '')
+          .replace(/^static\/app/, '/static/app');
+      },
     },
 
-    // Assumes you're in the top-level horizon directory.
-    basePath: './static/',
+    // This establishes the base for most referenced paths as being relative
+    // to this file, i.e. ./openstack_dashboard.
+    basePath: './',
 
     // Contains both source and test files.
     files: [
       /*
        * shim, partly stolen from /i18n/js/horizon/
        * Contains expected items not provided elsewhere (dynamically by
-       * Django or via jasmine template.
+       * Django or via jasmine template.  This is in the project root.
        */
-      '../../test-shim.js',
+      '../test-shim.js',
 
       // from jasmine.html
       xstaticPath + 'jquery/data/jquery.js',
@@ -83,24 +99,37 @@ module.exports = function (config) {
       xstaticPath + 'spin/data/spin.js',
       xstaticPath + 'spin/data/spin.jquery.js',
 
-      // TODO: These should be mocked.
-      '../../horizon/static/horizon/js/horizon.js',
+      // TODO: These should be mocked.  However, that could be complex
+      // and there's less harm in exposing these directly.  These are
+      // located in the project's ./horizon directory.
+      '../horizon/static/horizon/js/horizon.js',
 
       /**
        * Include framework source code from horizon that we need.
        * Otherwise, karma will not be able to find them when testing.
        * These files should be mocked in the foreseeable future.
+       * These are located within the project's ./horizon directory.
        */
-      '../../horizon/static/framework/**/*.module.js',
-      '../../horizon/static/framework/**/!(*.spec|*.mock).js',
+      '../horizon/static/framework/**/*.module.js',
+      '../horizon/static/framework/**/!(*.spec|*.mock).js',
+
+      /**
+       * Standard openstack_dashboard JS locations
+       *
+       * For now, all Angular code is located in ./static/app or
+       * ./dashboard/.../static/.
+       *
+       * Some other JS code exists in other directories (contrib, test) but
+       * but it isn't conformant to our current practices, etc.
+       */
 
       /**
        * First, list all the files that defines application's angular modules.
        * Those files have extension of `.module.js`. The order among them is
        * not significant.
        */
-      '**/*.module.js',
-      '../dashboards/**/static/**/*.module.js',
+      './static/app/**/*.module.js',
+      './dashboards/**/static/**/*.module.js',
 
       /**
        * Followed by other JavaScript files that defines angular providers
@@ -108,28 +137,28 @@ module.exports = function (config) {
        * files or spec files defined below. The order among them is not
        * significant.
        */
-      '**/!(*.spec|*.mock).js',
-      '../dashboards/**/static/**/!(*.spec|*.mock).js',
+      './static/app/**/!(*.spec|*.mock).js',
+      './dashboards/**/static/**/!(*.spec|*.mock).js',
 
       /**
        * Then, list files for mocks with `mock.js` extension. The order
        * among them should not be significant.
        */
-      '**/*.mock.js',
-      '../dashboards/**/static/**/*.mock.js',
+      './static/app/**/*.mock.js',
+      './dashboards/**/static/**/*.mock.js',
 
       /**
        * Finally, list files for spec with `spec.js` extension. The order
        * among them should not be significant.
        */
-      '**/*.spec.js',
-      '../dashboards/**/static/**/*.spec.js',
+      './static/app/**/*.spec.js',
+      './dashboards/**/static/**/*.spec.js',
 
       /**
        * Angular external templates
        */
-      '**/*.html',
-      '../dashboards/**/static/**/*.html'
+      './static/app/**/*.html',
+      './dashboards/**/static/**/*.html'
     ],
 
     autoWatch: true,
@@ -154,9 +183,10 @@ module.exports = function (config) {
       'karma-threshold-reporter'
     ],
 
+    // Places coverage report in HTML format in the subdirectory below.
     coverageReporter: {
       type: 'html',
-      dir: '../.coverage-karma/'
+      dir: './.coverage-karma/'
     },
 
     // Coverage threshold values.
