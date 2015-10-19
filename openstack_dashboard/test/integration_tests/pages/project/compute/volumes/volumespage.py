@@ -32,6 +32,8 @@ class VolumesTable(tables.TableRegion):
 
     EDIT_VOLUME_FORM_FIELDS = ("name", "description")
 
+    CREATE_VOLUME_SNAPSHOT_FORM_FIELDS = ("name", "description")
+
     @tables.bind_table_action('create')
     def create_volume(self, create_button):
         create_button.click()
@@ -49,6 +51,13 @@ class VolumesTable(tables.TableRegion):
         edit_button.click()
         return forms.FormRegion(self.driver, self.conf,
                                 field_mappings=self.EDIT_VOLUME_FORM_FIELDS)
+
+    @tables.bind_row_action('snapshots')
+    def create_snapshot(self, create_snapshot_button, row):
+        create_snapshot_button.click()
+        return forms.FormRegion(
+            self.driver, self.conf,
+            field_mappings=self.CREATE_VOLUME_SNAPSHOT_FORM_FIELDS)
 
 
 class VolumesPage(basepage.BaseNavigationPage):
@@ -135,3 +144,10 @@ class VolumesPage(basepage.BaseNavigationPage):
             return volume_form.image_source, conf.image_name
         if volume_source_type == VOLUME_SOURCE_TYPE:
             return volume_form.volume_id, volume_source
+
+    def create_volume_snapshot(self, row, snapshot_name, description='test'):
+        snapshot_form = self.volumes_table.create_snapshot(row)
+        snapshot_form.name.text = snapshot_name
+        if description is not None:
+            snapshot_form.description.text = description
+        snapshot_form.submit()
