@@ -62,6 +62,11 @@
       });
     });
 
+    it('suppresses the error for template validation as instructed by the param', function() {
+      spyOn(apiService, 'post').and.returnValue("promise");
+      expect(service.validate("whatever", true)).toBe("promise");
+    });
+
   });
 
 })();
