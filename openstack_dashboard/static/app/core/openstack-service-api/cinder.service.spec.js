@@ -138,6 +138,26 @@
         data: { params: 'config' },
         error: 'Unable to retrieve the QoS Specs.',
         testInput: [ 'config' ]
+      },
+      {
+        func: 'getDefaultQuotaSets',
+        method: 'get',
+        path: '/api/cinder/quota-sets/defaults/',
+        error: 'Unable to retrieve the default quotas.'
+      },
+      {
+        func: 'setDefaultQuotaSets',
+        "data": {
+          "id": 42
+        },
+        "testInput": [
+          {
+            "id": 42
+          }
+        ],
+        method: 'patch',
+        path: '/api/cinder/quota-sets/defaults/',
+        error: 'Unable to set the default quotas.'
       }
     ];
 

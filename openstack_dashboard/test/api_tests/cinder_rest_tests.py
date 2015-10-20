@@ -17,6 +17,7 @@ import mock
 from django.conf import settings
 
 from openstack_dashboard import api
+from openstack_dashboard.api.base import Quota
 from openstack_dashboard.api.rest import cinder
 from openstack_dashboard.test import helpers as test
 
@@ -257,3 +258,91 @@ class CinderRestTestCase(test.TestCase):
 
         response = cinder.Services().get(request)
         self.assertStatusCode(response, 501)
+
+    @mock.patch.object(cinder.api, 'cinder')
+    def test_quota_sets_defaults_get_when_service_is_enabled(self, cc):
+        self.maxDiff = None
+        filters = {'user': {'tenant_id': 'tenant'}}
+        request = self.mock_rest_request(**{'GET': dict(filters)})
+
+        cc.is_service_enabled.return_value = True
+        cc.default_quota_get.return_value = [Quota("volumes", 1),
+                                             Quota("snapshots", 2),
+                                             Quota("gigabytes", 3),
+                                             Quota("some_other_1", 100),
+                                             Quota("yet_another", 101)]
+
+        response = cinder.DefaultQuotaSets().get(request)
+
+        self.assertStatusCode(response, 200)
+        self.assertEqual(response.json,
+                         {"items":
+                          [{"limit": 1,
+                            "display_name": "Volumes", "name": "volumes"},
+                           {"limit": 2,
+                            "display_name": "Volume Snapshots",
+                            "name": "snapshots"},
+                           {"limit": 3,
+                            "display_name":
+                                "Total Size of Volumes and Snapshots (GB)",
+                            "name": "gigabytes"},
+                           {"limit": 100,
+                            "display_name": "Some Other 1",
+                            "name": "some_other_1"},
+                           {"limit": 101,
+                            "display_name": "Yet Another",
+                            "name": "yet_another"}]})
+
+        cc.default_quota_get.assert_called_once_with(request,
+                                                     request.user.tenant_id)
+
+    @mock.patch.object(cinder.api, 'cinder')
+    def test_quota_sets_defaults_get_when_service_is_disabled(self, cc):
+        filters = {'user': {'tenant_id': 'tenant'}}
+        request = self.mock_rest_request(**{'GET': dict(filters)})
+
+        cc.is_volume_service_enabled.return_value = False
+
+        response = cinder.DefaultQuotaSets().get(request)
+
+        self.assertStatusCode(response, 501)
+        self.assertEqual(response.content.decode('utf-8'),
+                         '"Service Cinder is disabled."')
+
+        cc.default_quota_get.assert_not_called()
+
+    @mock.patch.object(cinder.api, 'cinder')
+    def test_quota_sets_defaults_patch_when_service_is_enabled(self, cc):
+        request = self.mock_rest_request(body='''
+            {"volumes": "15", "snapshots": "5000",
+            "gigabytes": "5", "cores": "10"}
+        ''')
+
+        cc.is_volume_service_enabled.return_value = True
+
+        response = cinder.DefaultQuotaSets().patch(request)
+
+        self.assertStatusCode(response, 204)
+        self.assertEqual(response.content.decode('utf-8'), '')
+
+        cc.default_quota_update.assert_called_once_with(request,
+                                                        volumes='15',
+                                                        snapshots='5000',
+                                                        gigabytes='5')
+
+    @mock.patch.object(cinder.api, 'cinder')
+    def test_quota_sets_defaults_patch_when_service_is_disabled(self, cc):
+        request = self.mock_rest_request(body='''
+            {"volumes": "15", "snapshots": "5000",
+            "gigabytes": "5", "cores": "10"}
+        ''')
+
+        cc.is_volume_service_enabled.return_value = False
+
+        response = cinder.DefaultQuotaSets().patch(request)
+
+        self.assertStatusCode(response, 501)
+        self.assertEqual(response.content.decode('utf-8'),
+                         '"Service Cinder is disabled."')
+
+        cc.default_quota_update.assert_not_called()

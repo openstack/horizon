@@ -60,7 +60,9 @@
       getRegenerateKeypairUrl: getRegenerateKeypairUrl,
       createFlavor: createFlavor,
       updateFlavor: updateFlavor,
-      deleteFlavor: deleteFlavor
+      deleteFlavor: deleteFlavor,
+      getDefaultQuotaSets: getDefaultQuotaSets,
+      setDefaultQuotaSets: setDefaultQuotaSets
     };
 
     return service;
@@ -509,6 +511,37 @@
       ).error(function () {
         toastService.add('error', gettext('Unable to edit instance metadata.'));
       });
+    }
+
+    // Default Quota Sets
+
+    /**
+     * @name horizon.app.core.openstack-service-api.nova.getDefaultQuotaSets
+     * @description
+     * Get default quotasets
+     *
+     * The listing result is an object with property "items." Each item is
+     * a quota.
+     *
+     */
+    function getDefaultQuotaSets() {
+      return apiService.get('/api/nova/quota-sets/defaults/')
+        .error(function () {
+          toastService.add('error', gettext('Unable to retrieve the default quotas.'));
+        });
+    }
+
+    /**
+     * @name horizon.app.core.openstack-service-api.nova.setDefaultQuotaSets
+     * @description
+     * Set default quotasets
+     *
+     */
+    function setDefaultQuotaSets(quotas) {
+      return apiService.patch('/api/nova/quota-sets/defaults/', quotas)
+        .error(function () {
+          toastService.add('error', gettext('Unable to set the default quotas.'));
+        });
     }
 
     /**
