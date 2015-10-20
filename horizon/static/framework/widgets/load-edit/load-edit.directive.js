@@ -1,4 +1,6 @@
 /*
+ * Copyright 2015 Hewlett Packard Enterprise Development Company LP
+ *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -14,9 +16,9 @@
 (function () {
   'use strict';
 
-  /*
+  /**
    * @ngdoc directive
-   * @name horizon.dashboard.project.workflow.launch-instance:loadEdit
+   * @name horizon.framework.widgets:loadEdit
    * @scope
    * @element
    * @description
@@ -29,15 +31,16 @@
    * See configuration.html for example usage.
    */
   angular
-    .module('horizon.dashboard.project.workflow.launch-instance')
+    .module('horizon.framework.widgets.load-edit')
     .directive('loadEdit', loadEdit);
 
   loadEdit.$inject = [
-    'horizon.dashboard.project.workflow.launch-instance.basePath',
-    '$timeout'
+    '$timeout',
+    'horizon.framework.util.file.file-reader',
+    'horizon.framework.widgets.load-edit.basePath'
   ];
 
-  function loadEdit(basePath, $timeout) {
+  function loadEdit($timeout, fileReader, basePath) {
     var directive = {
       restrict: 'E',
       scope: {
@@ -46,7 +49,7 @@
         key: '@'
       },
       link: link,
-      templateUrl: basePath + 'configuration/load-edit.html'
+      templateUrl: basePath + 'load-edit.html'
     };
 
     return directive;
@@ -94,34 +97,25 @@
         var file = event.originalEvent.target.files[0];
 
         if (file) {
-          var reader = new FileReader();
-
-          reader.onloadend = function (e) {
-            $scope.$applyAsync(function () {
-              var charArray = new Uint8Array(e.target.result);
-
-              $scope.textContent = [].map.call(charArray,
-                function (char) {
-                  return String.fromCharCode(char);
-                }
-              ).join('');
-            });
-          };
-
-          reader.readAsArrayBuffer(file.slice(0, file.size));
-
-          /* Once the DOM manipulation is done, update the scriptLength, so that
-           * user knows the length of the script loaded into the <textarea>.
-           */
-          $timeout(function () {
-            onTextareaChange();
-            $scope.scriptModified = false;
-          }, 250, false);
-
-          // Focus the <textarea> element after injecting the code into it.
-          textarea.focus();
+          fileReader.readTextFile(file).then(updateTextArea);
         }
       }
+
+      function updateTextArea(fileContents) {
+        $scope.textContent = fileContents;
+
+        /* Once the DOM manipulation is done, update the scriptLength, so that
+         * user knows the length of the script loaded into the <textarea>.
+         */
+        $timeout(function () {
+          onTextareaChange();
+          $scope.scriptModified = false;
+        }, 250, false);
+
+        // Focus the <textarea> element after injecting the code into it.
+        textarea.focus();
+      }
+
     }
   }
 })();
