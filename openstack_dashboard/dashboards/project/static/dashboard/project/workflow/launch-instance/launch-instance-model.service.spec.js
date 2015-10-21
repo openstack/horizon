@@ -438,6 +438,85 @@
           var finalSpec = model.createInstance();
           expect(finalSpec.flavor_id).toBeUndefined();
         });
+
+        it('should handle source type of "volume"', function() {
+          model.newInstanceSpec.source_type.type = 'volume';
+          model.newInstanceSpec.source[0].id = 'imAnID';
+          model.newInstanceSpec.vol_delete_on_terminate = 'yep';
+
+          var finalSpec = model.createInstance();
+          expect(finalSpec.block_device_mapping.volTestName)
+            .toBe('imAnID:vol::yep');
+          expect(finalSpec.source_id).toBe('');
+        });
+
+        it('should handle source type of "snapshot"', function() {
+          model.newInstanceSpec.source_type.type = 'snapshot';
+          model.newInstanceSpec.source[0].id = 'imAnID';
+
+          var finalSpec = model.createInstance();
+          expect(finalSpec.source_id).toBe('imAnID');
+        });
+
+        it('should handle source type of "volume_snapshot"', function() {
+          model.newInstanceSpec.source_type.type = 'volume_snapshot';
+          model.newInstanceSpec.source[0].id = 'imAnID';
+          model.newInstanceSpec.vol_delete_on_terminate = 'yep';
+
+          var finalSpec = model.createInstance();
+          expect(finalSpec.block_device_mapping.volTestName)
+            .toBe('imAnID:snap::yep');
+          expect(finalSpec.source_id).toBe('');
+        });
+
+        it('should process source_id if unknown type', function() {
+          model.newInstanceSpec.source_type.type = 'unknown';
+          model.newInstanceSpec.source[0].id = 'imAnID';
+
+          var finalSpec = model.createInstance();
+          expect(finalSpec.source_id).toBe('imAnID');
+        });
+
+        it('should not create block device mappings if not creating a volume', function() {
+          model.newInstanceSpec.source_type.type = 'image';
+          model.newInstanceSpec.vol_create = false;
+
+          var finalSpec = model.createInstance();
+          expect(finalSpec.block_device_mapping_v2).toBeUndefined();
+        });
+
+        it('sets a null key name & removes keypair if no key pair presented', function() {
+          model.newInstanceSpec.key_pair = [];
+
+          var finalSpec = model.createInstance();
+          expect(finalSpec.key_name).toBeNull();
+          expect(finalSpec.key_pair).toBeUndefined();
+        });
+
+        it('leaves the key name and removes keypair property if no key pair presented', function() {
+          model.newInstanceSpec.key_pair = [];
+          model.newInstanceSpec.key_name = 'Jerry';
+
+          var finalSpec = model.createInstance();
+          expect(finalSpec.key_name).toBe('Jerry');
+          expect(finalSpec.key_pair).toBeUndefined();
+        });
+
+        it('stips null properties', function() {
+          model.newInstanceSpec.useless = null;
+
+          var finalSpec = model.createInstance();
+          expect(finalSpec.useless).toBeUndefined();
+        });
+
+        it('provides null for device_name when falsy', function() {
+          model.newInstanceSpec.source_type.type = 'image';
+          model.newInstanceSpec.vol_device_name = false;
+          model.newInstanceSpec.vol_create = true;
+
+          var finalSpec = model.createInstance();
+          expect(finalSpec.block_device_mapping_v2[0].device_name).toBeNull();
+        });
       });
     });
   });
