@@ -9,15 +9,15 @@
   <h3>{% trans "Description:" %}</h3>
   <p>
      {% if HORIZON_IMAGES_ALLOW_UPLOAD %}
-          {% trans "Images can be provided via an HTTP URL or be uploaded from your local file system. Compressed image binaries are supported (.zip and .tar.gz.)" %}
+          {% trans "Images can be provided via an HTTP/HTTPS URL or be uploaded from your local file system. Compressed image binaries are supported (.zip and .tar.gz.)" %}
      {% else %}
-          {% trans "Currently only images available via an HTTP URL are supported. The image location must be accessible to the Image Service. Compressed image binaries are supported (.zip and .tar.gz.)" %}
+          {% trans "Currently only images available via an HTTP/HTTPS URL are supported. The image location must be accessible to the Image Service. Compressed image binaries are supported (.zip and .tar.gz.)" %}
      {% endif %}
   </p>
   <p>
      <strong>{% trans "Please note: " %}</strong>
      {% if HORIZON_IMAGES_ALLOW_UPLOAD %}
-         {% trans "If you select an image via an HTTP URL, the Image Location field MUST be a valid and direct URL to the image binary; it must also be accessible to the Image Service. URLs that redirect or serve error pages will result in unusable images." %}
+         {% trans "If you select an image via an HTTP/HTTPS URL, the Image Location field MUST be a valid and direct URL to the image binary; it must also be accessible to the Image Service. URLs that redirect or serve error pages will result in unusable images." %}
      {% else %}
          {% trans "The Image Location field MUST be a valid and direct URL to the image binary. URLs that redirect or serve error pages will result in unusable images." %}
      {% endif %}

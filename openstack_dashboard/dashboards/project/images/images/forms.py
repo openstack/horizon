@@ -95,8 +95,8 @@ class CreateImageForm(forms.SelfHandlingForm):
             'class': 'switchable',
             'data-slug': 'source'}))
     image_url = forms.URLField(label=_("Image Location"),
-                               help_text=_("An external (HTTP) URL to load "
-                                           "the image from."),
+                               help_text=_("An external (HTTP/HTTPS) URL to "
+                                           "load the image from."),
                                widget=forms.TextInput(attrs={
                                    'class': 'switched',
                                    'data-switch-on': 'source',
