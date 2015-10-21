@@ -195,8 +195,8 @@ class ValidatorsTests(test.TestCase):
             self.assertRaises(ValidationError, ip.validate, cidr)
 
     def test_port_validator(self):
-        VALID_PORTS = (-1, 65535)
-        INVALID_PORTS = (-2, 65536)
+        VALID_PORTS = (1, 65535)
+        INVALID_PORTS = (-1, 0, 65536)
 
         for port in VALID_PORTS:
             self.assertIsNone(validators.validate_port_range(port))
@@ -207,8 +207,8 @@ class ValidatorsTests(test.TestCase):
                               port)
 
     def test_ip_proto_validator(self):
-        VALID_PROTO = (-1, 255)
-        INVALID_PROTO = (-2, 256)
+        VALID_PROTO = (0, 255)
+        INVALID_PROTO = (-1, 256)
 
         for proto in VALID_PROTO:
             self.assertIsNone(validators.validate_ip_protocol(proto))
@@ -220,9 +220,10 @@ class ValidatorsTests(test.TestCase):
 
     def test_port_range_validator(self):
         VALID_RANGE = ('1:65535',
-                       '-1:-1')
+                       '1:1')
         INVALID_RANGE = ('22:22:22:22',
-                         '-1:65536')
+                         '1:-1',
+                         '0:65535')
 
         test_call = validators.validate_port_or_colon_separated_port_range
         for prange in VALID_RANGE:
