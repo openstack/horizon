@@ -46,8 +46,8 @@ developing, be sure to check the coverage reports on the master branch and
 compare your development branch; this will help identify missing tests.
 
 To generate coverage reports, run ``npm run test``. The coverage reports can be
-found at ``horizon/.coverage-karma/`` (framework tests) and
-``openstack_dashboard/.coverage-karma/`` (dashboard tests). Load
+found at ``horizon/coverage-karma/`` (framework tests) and
+``openstack_dashboard/coverage-karma/`` (dashboard tests). Load
 ``<browser>/index.html`` in a browser to view the reports.
 
 Writing Tests
