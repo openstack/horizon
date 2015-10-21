@@ -771,3 +771,8 @@ REST_API_REQUIRED_SETTINGS = ['OPENSTACK_HYPERVISOR_FEATURES',
 #        " [%(http_status)s] [%(param)s]"),
 #}
 
+# The default date range in the Overview panel meters - either <today> minus N
+# days (if the value is integer N), or from the beginning of the current month
+# until today (if set to None). This setting should be used to limit the amount
+# of data fetched by default when rendering the Overview panel.
+#OVERVIEW_DAYS_RANGE = 1

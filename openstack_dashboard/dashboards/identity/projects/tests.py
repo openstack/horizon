@@ -1553,14 +1553,23 @@ class UsageViewTests(test.BaseAdminViewTests):
     def test_usage_csv_disabled(self):
         self._test_usage_csv(nova_stu_enabled=False)
 
-    def _test_usage_csv(self, nova_stu_enabled=True):
+    @override_settings(OVERVIEW_DAYS_RANGE=1)
+    def test_usage_csv_1_day(self):
+        self._test_usage_csv(nova_stu_enabled=True, overview_days_range=1)
+
+    def _test_usage_csv(self, nova_stu_enabled=True, overview_days_range=None):
         now = timezone.now()
         usage_obj = api.nova.NovaUsage(self.usages.first())
         self._stub_nova_api_calls(nova_stu_enabled)
         api.nova.extension_supported(
             'SimpleTenantUsage', IsA(http.HttpRequest)) \
             .AndReturn(nova_stu_enabled)
-        start = datetime.datetime(now.year, now.month, 1, 0, 0, 0, 0)
+        if overview_days_range:
+            start_day = now - datetime.timedelta(days=overview_days_range)
+        else:
+            start_day = datetime.date(now.year, now.month, 1)
+        start = datetime.datetime(start_day.year, start_day.month,
+                                  start_day.day, 0, 0, 0, 0)
         end = datetime.datetime(now.year, now.month, now.day, 23, 59, 59, 0)
 
         if nova_stu_enabled:

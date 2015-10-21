@@ -1,0 +1,11 @@
+---
+features:
+  - Add a new setting OVERVIEW_DAYS_RANGE.
+    It defines the default date range in the Overview panel meters - either
+    today minus N days (if the value is integer N), or from the beginning of
+    the current month until today (if set to None). This setting is be used to
+    limit the amount of data fetched by default when rendering the Overview
+    panel. The default value is 1, which differs from the past behaviour, since
+    it caused serious lags on large deployments.
+fixes:
+  - https://bugs.launchpad.net/horizon/+bug/1508571
