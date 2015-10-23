@@ -292,3 +292,168 @@ result of an error in the conditions of the test. Using the
 :meth:`~horizon.test.helpers.TestCase.assertMessageCount` will make it readily
 apparent what the problem is in the majority of cases. If not, then use ``pdb``
 and start interrupting the code flow to see where things are getting off track.
+
+Integration tests in Horizon
+============================
+
+The integration tests currently live in the Horizon repository, see `here`_,
+which also contains instructions on how to run the tests. To make integration
+tests more understandable and maintainable, the Page Object pattern is used
+throughout them.
+
+.. _here: https://github.com/openstack/horizon/tree/master/openstack_dashboard/test/integration_tests
+
+Page Object pattern
+-------------------
+
+Within any web application's user interface (UI) there are areas that the tests
+interact with. A Page Object simply models these as objects within the test
+code. This reduces the amount of duplicated code; if the UI changes, the fix
+needs only be applied in one place.
+
+Page Objects can be thought of as facing in two directions simultaneously.
+Facing towards the developer of a test, they represent the services offered by
+a particular page. Facing away from the developer, they should be the only
+thing that has a deep knowledge of the structure of the HTML of a page (or
+part of a page). It is simplest to think of the methods on a Page Object as
+offering the "services" that a page offers rather than exposing the details
+and mechanics of the page. As an example, think of the inbox of any web-based
+email system. Amongst the services that it offers are typically the ability to
+compose a new email, to choose to read a single email, and to list the subject
+lines of the emails in the inbox. How these are implemented should not matter
+to the test.
+
+Writing reusable and maintainable Page Objects
+----------------------------------------------
+
+Because the main idea is to encourage the developer of a test to try and think
+about the services that they are interacting with rather than the
+implementation, Page Objects should seldom expose the underlying WebDriver
+instance. To facilitate this, methods on the Page Object should return other
+Page Objects. This means that we can effectively model the user's journey
+through the application.
+
+Another important thing to mention is that a Page Object need not represent an
+entire page. It may represent a section that appears many times within a site
+or page, such as site navigation. The essential principle is that there is
+only one place in your test suite with knowledge of the structure of the HTML
+of a particular (part of a) page. With this in mind, a test developer builds
+up regions that become reusable components (`example of a base form`_). These
+properties can then be redefined or overridden (e.g. selectors) in the actual
+pages (subclasses) (`example of a tabbed form`_).
+
+The page objects are read-only and define the read-only and clickable elements
+of a page, which work to shield the tests. For instance, from the test
+perspective, if "Logout" used to be a link but suddenly becomes an option in a
+drop-down menu, there are no changes (in the test itself) because it still simply
+calls the "click_on_logout" action method.
+
+This approach has two main aspects:
+
+* The classes with the actual tests should be as readable as possible
+* The other parts of the testing framework should be as much about data as
+  possible, so that if the CSS etc. changes you only need to change that one
+  property. If the flow changes, only the action method should need to change.
+
+There is little that is Selenium-specific in the Pages, except for the
+properties. There is little coupling between the tests and the pages. Writing
+the tests becomes like writing out a list of steps (by using the previously
+mentioned action methods). One of the key points, particularly important for
+this kind of UI driven testing is to isolate the tests from what is behind
+them.
+
+.. _example of a base form: https://github.com/openstack/horizon/blob/8.0.0/openstack_dashboard/test/integration_tests/regions/forms.py#L250
+.. _example of a tabbed form: https://github.com/openstack/horizon/blob/8.0.0/openstack_dashboard/test/integration_tests/regions/forms.py#L322
+
+List of references
+------------------
+
+* https://wiki.openstack.org/wiki/Horizon/Testing/UI#Page_Object_Pattern_.28Selected_Approach.29
+* https://wiki.mozilla.org/QA/Execution/Web_Testing/Docs/Automation/StyleGuide#Page_Objects
+* https://code.google.com/p/selenium/wiki/PageObjects
+
+Debugging integration tests
+===========================
+
+Even perfectly designed Page Objects are not a guarantee that your integration
+test will not ever fail. This can happen due to different causes:
+
+The first and most anticipated kind of failure is the inability to perform a
+testing scenario by a living person simply because some OpenStack service or
+Horizon itself prevents them from doing so. This is exactly the kind that
+integration tests are designed to catch. Let us call them "good" failures.
+
+All other kinds of failures are unwanted and could be roughly split into the
+two following categories:
+
+#. The failures that occur due to changes in application's DOM. some CSS/ Xpath selectors no longer matching
+   Horizon app's DOM. The usual signature for that kind of failures is having
+   a DOM changing patch for which the test job fails with a message like
+   this `selenium.common.exceptions.NoSuchElementException: Message: Unable to
+   locate element: {"method":"css selector","selector":"div.modal-dialog"}`.
+   If you find yourself in such a situation, you should fix the Page Object
+   selectors according to the DOM changes you made.
+
+#. Unfortunately it is still quite possible to get the above error for a patch
+   which didn't implement any DOM changes. Among the reasons of such behavior
+   observed in past were:
+
+   * Integration tests relying on relative ordering of form fields and table
+     actions that broke with the addition of a new field. This issue should
+     be fixed by now, but may reappear in future for different entities.
+
+   * Integration tests relying on popups disappearing by the time a specific
+     action needs to be taken (or not existing at all). This expectation
+     turned out to be very fragile, since the speed of tests execution by
+     Jenkins workers may change independently of integration test code (hence,
+     popups disappear too late to free the way for the next action). The
+     unexpected (both too long and too short) timeouts aren't limited to just
+     popups, but apply to every situation when the element state transition
+     is not instant (like opening an external link, going to another page in
+     Horizon, waiting for button to become active, waiting for a table row to
+     change its state). Luckily, most transitions of "element becomes visible/
+     emerge to existence from non-existence" kind are already bulletproofed
+     using `implicit_wait` parameter in `integration_tests/horizon.conf` file.
+     Selenium just waits for specified amount of seconds for an element to
+     become visible (if it's not already visible) giving up when it exceeds
+     (with the above error). Also it's worth mentioning `explicit_wait` parameter
+     which is considered when the selenium `wait_until` method is involved (and
+     it is used, e.g. in waiting for spinner and messages popups to disappear).
+
+An inconvenient thing about reading test results in the `console.html` file
+attached to every `gate-horizon-dsvm-integration` finished job is that the test
+failure may appear either as failure (assertion failed), or as error (expected
+element didn't show up). In both cases an inquirer should suspect a legitimate
+failure first (i.e., treat errors as failures). Unfortunately, no clear method
+exists for the separation of "good" from from "bad" failures. Each case is
+unique and full of mysteries.
+
+The Horizon testing mechanism tries to alleviate this ambiguity by providing
+several facilities to aid in failure investigation:
+
+* First there comes a screenshot made for every failed test (in a separate
+  folder, on a same level as `console.html`) - almost instant snapshot of a
+  screen on the moment of failure (*almost* sometimes matters, especially in
+  a case of popups that hang on a screen for a limited time);
+* Then the patient inquirer may skim through the vast innards of
+  `console.html`, looking at browser log first (all javascript and css errors
+  should come there),
+* Then looking at a full textual snapshot of a page for which test failed
+  (sometimes it gives a more precise picture than a screenshot),
+* And finally looking at test error stacktrace (most useful) and a lengthy
+  output of requests/ responses with a selenium server. The last log sometimes
+  might tell us how long a specific web element was polled before failing (in
+  case of `implicit_wait` there should be a series of requests to the same
+  element).
+
+The best way to solve the cause of test failure is running and debugging the
+troublesome test locally. You could use `pdb` or Python IDE of your choice to
+stop test execution in arbitrary points and examining various Page Objects
+attributes to understand what they missed. Looking at the real page structure
+in browser developer tools also could explain why the test fails. Sometimes it
+may be worth to place breakpoints in JavaScript code (provided that static is
+served uncompressed) to examine the objects of interest. If it takes long, you
+may also want to increase the webdriver's timeout so it will not close browser
+windows forcefully. Finally, sometimes it may make sense to examine the
+contents of `logs` directory, especially apache logs - but that is mostly the
+case for the "good" failures.
