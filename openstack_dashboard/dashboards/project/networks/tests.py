@@ -357,7 +357,8 @@ class NetworkTests(test.TestCase, NetworkStubMixin):
                                  test_with_profile=False):
         network = self.networks.first()
         params = {'name': network.name,
-                  'admin_state_up': network.admin_state_up}
+                  'admin_state_up': network.admin_state_up,
+                  'shared': False}
         if test_with_profile:
             net_profiles = self.net_profiles.list()
             net_profile_id = self.net_profiles.first().id
@@ -370,6 +371,38 @@ class NetworkTests(test.TestCase, NetworkStubMixin):
 
         form_data = {'net_name': network.name,
                      'admin_state': network.admin_state_up,
+                     'shared': False,
+                     # subnet
+                     'with_subnet': False}
+        if test_with_profile:
+            form_data['net_profile_id'] = net_profile_id
+        form_data.update(form_data_no_subnet())
+        url = reverse('horizon:project:networks:create')
+        res = self.client.post(url, form_data)
+
+        self.assertNoFormErrors(res)
+        self.assertRedirectsNoFollow(res, INDEX_URL)
+
+    @test.create_stubs({api.neutron: ('network_create',
+                                      'profile_list',)})
+    def test_network_create_post_with_shared(self, test_with_profile=False):
+        network = self.networks.first()
+        params = {'name': network.name,
+                  'admin_state_up': network.admin_state_up,
+                  'shared': True}
+        if test_with_profile:
+            net_profiles = self.net_profiles.list()
+            net_profile_id = self.net_profiles.first().id
+            api.neutron.profile_list(IsA(http.HttpRequest),
+                                     'network').AndReturn(net_profiles)
+            params['net_profile_id'] = net_profile_id
+        api.neutron.network_create(IsA(http.HttpRequest),
+                                   **params).AndReturn(network)
+        self.mox.ReplayAll()
+
+        form_data = {'net_name': network.name,
+                     'admin_state': network.admin_state_up,
+                     'shared': True,
                      # subnet
                      'with_subnet': False}
         if test_with_profile:
@@ -395,7 +428,8 @@ class NetworkTests(test.TestCase, NetworkStubMixin):
         network = self.networks.first()
         subnet = self.subnets.first()
         params = {'name': network.name,
-                  'admin_state_up': network.admin_state_up}
+                  'admin_state_up': network.admin_state_up,
+                  'shared': False}
         subnet_params = {'network_id': network.id,
                          'name': subnet.name,
                          'cidr': subnet.cidr,
@@ -419,6 +453,7 @@ class NetworkTests(test.TestCase, NetworkStubMixin):
 
         form_data = {'net_name': network.name,
                      'admin_state': network.admin_state_up,
+                     'shared': False,
                      'with_subnet': True}
         if test_with_profile:
             form_data['net_profile_id'] = net_profile_id
@@ -444,6 +479,7 @@ class NetworkTests(test.TestCase, NetworkStubMixin):
                                                    test_with_profile=False):
         network = self.networks.first()
         params = {'name': network.name,
+                  'shared': False,
                   'admin_state_up': network.admin_state_up}
         if test_with_profile:
             net_profiles = self.net_profiles.list()
@@ -458,6 +494,7 @@ class NetworkTests(test.TestCase, NetworkStubMixin):
         form_data = {'net_name': network.name,
                      'admin_state': network.admin_state_up,
                      # subnet
+                     'shared': False,
                      'with_subnet': False}
         if test_with_profile:
             form_data['net_profile_id'] = net_profile_id
@@ -484,6 +521,7 @@ class NetworkTests(test.TestCase, NetworkStubMixin):
         network = self.networks.first()
         subnet = self.subnets.first()
         params = {'name': network.name,
+                  'shared': False,
                   'admin_state_up': network.admin_state_up}
         if test_with_profile:
             net_profiles = self.net_profiles.list()
@@ -497,6 +535,7 @@ class NetworkTests(test.TestCase, NetworkStubMixin):
 
         form_data = {'net_name': network.name,
                      'admin_state': network.admin_state_up,
+                     'shared': False,
                      'with_subnet': True}
         if test_with_profile:
             form_data['net_profile_id'] = net_profile_id
@@ -526,6 +565,7 @@ class NetworkTests(test.TestCase, NetworkStubMixin):
         network = self.networks.first()
         subnet = self.subnets.first()
         params = {'name': network.name,
+                  'shared': False,
                   'admin_state_up': network.admin_state_up}
         if test_with_profile:
             net_profiles = self.net_profiles.list()
@@ -554,6 +594,7 @@ class NetworkTests(test.TestCase, NetworkStubMixin):
 
         form_data = {'net_name': network.name,
                      'admin_state': network.admin_state_up,
+                     'shared': False,
                      'with_subnet': True}
         if test_with_profile:
             form_data['net_profile_id'] = net_profile_id
@@ -592,6 +633,7 @@ class NetworkTests(test.TestCase, NetworkStubMixin):
 
         form_data = {'net_name': network.name,
                      'admin_state': network.admin_state_up,
+                     'shared': False,
                      'with_subnet': True}
         if test_with_profile:
             form_data['net_profile_id'] = net_profile_id
@@ -640,6 +682,7 @@ class NetworkTests(test.TestCase, NetworkStubMixin):
         self.mox.ReplayAll()
 
         form_data = {'net_name': network.name,
+                     'shared': False,
                      'admin_state': network.admin_state_up,
                      'with_subnet': True}
         if test_with_profile:
@@ -692,6 +735,7 @@ class NetworkTests(test.TestCase, NetworkStubMixin):
         # dummy IPv6 address
         cidr = '2001:0DB8:0:CD30:123:4567:89AB:CDEF/60'
         form_data = {'net_name': network.name,
+                     'shared': False,
                      'admin_state': network.admin_state_up,
                      'with_subnet': True}
         if test_with_profile:
@@ -744,6 +788,7 @@ class NetworkTests(test.TestCase, NetworkStubMixin):
         # dummy IPv6 address
         gateway_ip = '2001:0DB8:0:CD30:123:4567:89AB:CDEF'
         form_data = {'net_name': network.name,
+                     'shared': False,
                      'admin_state': network.admin_state_up,
                      'with_subnet': True}
         if test_with_profile:
@@ -802,13 +847,15 @@ class NetworkTests(test.TestCase, NetworkStubMixin):
         network = self.networks.first()
         api.neutron.network_update(IsA(http.HttpRequest), network.id,
                                    name=network.name,
-                                   admin_state_up=network.admin_state_up)\
+                                   admin_state_up=network.admin_state_up,
+                                   shared=network.shared)\
             .AndReturn(network)
         api.neutron.network_get(IsA(http.HttpRequest), network.id)\
             .AndReturn(network)
         self.mox.ReplayAll()
 
         form_data = {'network_id': network.id,
+                     'shared': False,
                      'name': network.name,
                      'admin_state': network.admin_state_up,
                      'tenant_id': network.tenant_id}
@@ -823,13 +870,15 @@ class NetworkTests(test.TestCase, NetworkStubMixin):
         network = self.networks.first()
         api.neutron.network_update(IsA(http.HttpRequest), network.id,
                                    name=network.name,
-                                   admin_state_up=network.admin_state_up)\
+                                   admin_state_up=network.admin_state_up,
+                                   shared=False)\
             .AndRaise(self.exceptions.neutron)
         api.neutron.network_get(IsA(http.HttpRequest), network.id)\
             .AndReturn(network)
         self.mox.ReplayAll()
 
         form_data = {'network_id': network.id,
+                     'shared': False,
                      'name': network.name,
                      'admin_state': network.admin_state_up,
                      'tenant_id': network.tenant_id}
