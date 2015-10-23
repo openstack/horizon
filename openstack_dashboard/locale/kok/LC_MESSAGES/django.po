@@ -8,18 +8,17 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-10-14 02:35+0000\n"
+"POT-Creation-Date: 2015-10-22 08:58+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "PO-Revision-Date: 2015-09-08 11:14+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
-"Language-Team: Konkani (http://www.transifex.com/openstack/horizon/language/"
-"kok/)\n"
-"Generated-By: Babel 2.0\n"
 "Language: kok\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Generated-By: Babel 2.0\n"
 "X-Generator: Zanata 3.7.1\n"
+"Language-Team: Konkani\n"
 
 #, python-format
 msgid ""
@@ -751,9 +750,6 @@ msgstr "परवानगी आशिल्ले येजमान (वै�
 
 msgid "Amount of energy"
 msgstr "ऊर्जेचे प्रमाण"
-
-msgid "An external (HTTP) URL to load the image from."
-msgstr "प्रतिमा लोड करपाक भायले  (HTTP) URL ."
 
 msgid "An external (HTTP) URL to load the template from."
 msgstr "टेंप्लेट लोड करपाक भायले (HTTP) URL."
@@ -1802,15 +1798,6 @@ msgstr "सद्याचो आकार (GB)"
 
 msgid "Current password"
 msgstr "सद्याचो पासवर्ड"
-
-msgid ""
-"Currently only images available via an HTTP URL are supported. The image "
-"location must be accessible to the Image Service. Compressed image binaries "
-"are supported (.zip and .tar.gz.)"
-msgstr ""
-"सध्या फकत HTTP URL वरवीं उपलब्ध आशिल्ल्या प्रतिमांक फाटबळ दिता. प्रतिमा थळ प्रतिमा "
-"सेवेक प्रवेश करपायोग्य आसपाक जाय. चेपिल्ल्यो प्रतिमा बायनरींक फाटबळ आसा. (.झीप आणि ."
-"टार.जीझेड)"
 
 msgid "Custom ICMP Rule"
 msgstr "कस्टम ICMP नेम"
@@ -3389,16 +3376,6 @@ msgstr ""
 "जर कंटेनराचे नाव दिल्ले ना, मुळावो आकारमानबॅकअप नावाचो कंटेनर तुमका दिलो वतलो. बॅकअप हे "
 "ते ज्या आकारमानातल्यान येतात त्याच आकाराचे आसतले."
 
-msgid ""
-"If you select an image via an HTTP URL, the Image Location field MUST be a "
-"valid and direct URL to the image binary; it must also be accessible to the "
-"Image Service. URLs that redirect or serve error pages will result in "
-"unusable images."
-msgstr ""
-"जर तुमी एक प्रतिमा HTTP URL वरवीं निवडली, जाल्यार प्रतिमा थळ MUST हे वैध आणि प्रतिमा "
-"बायनरीक थेट URL आसपाक जाय; ते प्रतिमा सेवेक प्रवेशयोग्य आसपाक जाय. URLs जे नवी दिशा "
-"दाखयतात वो एरर पान दाखयतात ते वापरपाक न येवपी प्रतिमांनी बदलतले."
-
 msgid "Image"
 msgstr "प्रतिमा"
 
@@ -3478,13 +3455,6 @@ msgstr "प्रतिमा यशस्विपणान सुदाल्�
 
 msgid "Images"
 msgstr "प्रतिमा"
-
-msgid ""
-"Images can be provided via an HTTP URL or be uploaded from your local file "
-"system. Compressed image binaries are supported (.zip and .tar.gz.)"
-msgstr ""
-"प्रतिमा HTTP URL वरवीं पुरोवपाक येता वो तुमच्या थळाव्या फायल व्यवस्थेतल्यान अपलोड करपाक "
-"येता. कंप्रेस्ड प्रतिमा बायनरीजांक फाटबळ आसा (.zip and .tar.gz.)"
 
 msgid "Import Key Pair"
 msgstr "की जोडी आयात करात"

@@ -6,23 +6,23 @@
 # Akihiro Motoki <amotoki@gmail.com>, 2015
 # Shu Muto <shu-mutou@rf.jp.nec.com>, 2015
 # Akihiro Motoki <amotoki@gmail.com>, 2015. #zanata
+# Shu Muto <shu-mutou@rf.jp.nec.com>, 2015. #zanata
 # Yuko Katabami <yukokatabami@gmail.com>, 2015. #zanata
 msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-10-07 03:30+0000\n"
+"POT-Creation-Date: 2015-10-22 08:58+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2015-10-06 02:07+0000\n"
-"Last-Translator: Yuko Katabami <yukokatabami@gmail.com>\n"
-"Language-Team: Japanese (http://www.transifex.com/openstack/horizon/language/"
-"ja/)\n"
-"Generated-By: Babel 2.0\n"
+"PO-Revision-Date: 2015-10-23 03:16+0000\n"
+"Last-Translator: Shu Muto <shu-mutou@rf.jp.nec.com>\n"
 "Language: ja\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
+"Generated-By: Babel 2.0\n"
 "X-Generator: Zanata 3.7.1\n"
+"Language-Team: Japanese\n"
 
 msgid "(Max: 16Kb)"
 msgstr "(最大 16 Kb)"
@@ -178,8 +178,8 @@ msgstr "取り消し"
 msgid "Cannot get service catalog from keystone."
 msgstr "keystone からサービスカタログを取得できません。"
 
-msgid "Cannot get the Nova extension list."
-msgstr "Nova の拡張機能一覧を取得できません。"
+msgid "Cannot get the extension list."
+msgstr "拡張機能一覧を取得できません。"
 
 msgid ""
 "Check the <b>Configuration Drive</b> box if you want to write metadata to a "
@@ -291,6 +291,9 @@ msgstr "フレーバー"
 
 msgid "Flavor Help"
 msgstr "フレーバーのヘルプ"
+
+msgid "Flavor Name"
+msgstr "フレーバー名"
 
 msgid ""
 "Flavors manage the sizing for the compute, memory and storage capacity of "
@@ -458,6 +461,9 @@ msgstr "マッピング種別"
 
 msgid "Max Port"
 msgstr "上限ポート番号"
+
+msgid "Metadata"
+msgstr "メタデータ"
 
 msgid "Min Disk"
 msgstr "最小ディスク"
@@ -724,6 +730,9 @@ msgstr "キーペア %(name)s を正常に作成できました。"
 #, python-format
 msgid "Successfully imported key pair %(name)s."
 msgstr "キーペア %(name)s を正常に取り込みました"
+
+msgid "Swap Disk"
+msgstr "スワップディスク"
 
 msgid ""
 "The flavor you select for an instance determines the amount of compute, "
@@ -1041,6 +1050,9 @@ msgid "User Name"
 msgstr "ユーザー名"
 
 msgid "VCPUS"
+msgstr "仮想 CPU"
+
+msgid "VCPUs"
 msgstr "仮想 CPU"
 
 msgid "Value Type"

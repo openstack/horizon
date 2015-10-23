@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-10-19 06:35+0000\n"
+"POT-Creation-Date: 2015-10-23 06:35+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -5406,6 +5406,9 @@ msgstr ""
 #: dashboards/admin/flavors/panel.py:25 dashboards/admin/flavors/tables.py:169
 #: dashboards/admin/flavors/views.py:40
 #: dashboards/admin/flavors/templates/flavors/index.html:3
+#: dashboards/admin/ngflavors/panel.py:22
+#: dashboards/admin/ngflavors/templates/ngflavors/index.html:3
+#: dashboards/admin/ngflavors/templates/ngflavors/index.html:6
 msgid "Flavors"
 msgstr ""
 
@@ -5999,8 +6002,8 @@ msgstr ""
 #: dashboards/admin/images/templates/images/_create.html:11
 #: dashboards/project/images/templates/images/images/_create.html:14
 msgid ""
-"Currently only images available via an HTTP URL are supported. The image "
-"location must be accessible to the Image Service. Compressed image "
+"Currently only images available via an HTTP/HTTPS URL are supported. The "
+"image location must be accessible to the Image Service. Compressed image "
 "binaries are supported (.zip and .tar.gz.)"
 msgstr ""
 
@@ -11366,7 +11369,7 @@ msgid "Image File"
 msgstr ""
 
 #: dashboards/project/images/images/forms.py:98
-msgid "An external (HTTP) URL to load the image from."
+msgid "An external (HTTP/HTTPS) URL to load the image from."
 msgstr ""
 
 #: dashboards/project/images/images/forms.py:111
@@ -11618,16 +11621,17 @@ msgstr ""
 
 #: dashboards/project/images/templates/images/images/_create.html:12
 msgid ""
-"Images can be provided via an HTTP URL or be uploaded from your local "
-"file system. Compressed image binaries are supported (.zip and .tar.gz.)"
+"Images can be provided via an HTTP/HTTPS URL or be uploaded from your "
+"local file system. Compressed image binaries are supported (.zip and "
+".tar.gz.)"
 msgstr ""
 
 #: dashboards/project/images/templates/images/images/_create.html:20
 msgid ""
-"If you select an image via an HTTP URL, the Image Location field MUST be "
-"a valid and direct URL to the image binary; it must also be accessible to"
-" the Image Service. URLs that redirect or serve error pages will result "
-"in unusable images."
+"If you select an image via an HTTP/HTTPS URL, the Image Location field "
+"MUST be a valid and direct URL to the image binary; it must also be "
+"accessible to the Image Service. URLs that redirect or serve error pages "
+"will result in unusable images."
 msgstr ""
 
 #: dashboards/project/images/templates/images/images/_detail_overview.html:3

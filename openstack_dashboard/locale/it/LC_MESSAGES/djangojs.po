@@ -1,0 +1,1103 @@
+# Translations template for PROJECT.
+# Copyright (C) 2015 ORGANIZATION
+# This file is distributed under the same license as the PROJECT project.
+#
+# Translators:
+# Alessandra <alessandra@translated.net>, 2015. #zanata
+# Mattia Gandolfi <mgandolf@redhat.com>, 2015. #zanata
+# OpenStack Infra <zanata@openstack.org>, 2015. #zanata
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
+"POT-Creation-Date: 2015-10-22 08:58+0000\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"PO-Revision-Date: 2015-10-19 02:33+0000\n"
+"Last-Translator: Alessandra <alessandra@translated.net>\n"
+"Language: it\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Generated-By: Babel 2.0\n"
+"X-Generator: Zanata 3.7.1\n"
+"Language-Team: Italian\n"
+
+msgid "(Max: 16Kb)"
+msgstr "(Max: 16Kb)"
+
+msgid "(Modified)"
+msgstr "(Modificato)"
+
+msgid "(None)"
+msgstr "(None)"
+
+msgid ""
+"<li><b>Image (with Create New Volume checked)</b>: This options uses an "
+"image to boot the instance, and creates a new volume to persist instance "
+"data. You can specify volume size and whether to delete the volume on "
+"termination of the instance.</li>"
+msgstr ""
+"<li><b>Immagine (con l'opzione Crea nuovo volume selezionata)</b>: questa "
+"opzione utilizza un'immagine per avviare l'istanza e crea un nuovo volume "
+"per mantenere i dati dell'istanza. È possibile specificare la dimensione del "
+"volume e se eliminare il volume al termine dell'istanza.</li>"
+
+msgid "<li><b>Image</b>: This option uses an image to boot the instance.</li>"
+msgstr ""
+"<li><b>Immagine</b>: questa opzione utilizza un'immagine per avviare "
+"l'istanza.</li>"
+
+msgid ""
+"<li><b>Instance Snapshot</b>: This option uses an instance snapshot to boot "
+"the instance.</li>"
+msgstr ""
+"<li><b>Istantanea istanza</b>: questa opzione utilizza un'istantanea "
+"dell'istanza per avviare l'istanza.</li>"
+
+msgid ""
+"<li><b>Volume Snapshot</b>: This option uses a volume snapshot to boot the "
+"instance, and creates a new volume to persist instance data. You can choose "
+"to delete the volume on termination of the instance.</li>"
+msgstr ""
+"<li><b>Istantanea volume</b>: questa opzione utilizza un'istantanea del "
+"volume per avviare l'istanza e crea un nuovo volume per mantenere l'istanza. "
+"È possibile scegliere di eliminare il volume al termine dell'istanza.</li>"
+
+msgid ""
+"<li><b>Volume</b>: This option uses a volume that already exists. It does "
+"not create a new volume. You can choose to delete the volume on termination "
+"of the instance. <em>Note: when selecting Volume, you can only launch one "
+"instance.</em></li>"
+msgstr ""
+"<li><b>Volume</b>: questa opzione utilizza un volume che esiste già. Non "
+"crea un nuovo volume. È possibile scegliere di eliminare il volume al "
+"termine dell'istanza. <em>Nota: se si seleziona Volume, è possibile avviare "
+"una sola istanza.</em></li>"
+
+msgid ""
+"A floating IP allows instances to be addressable from an external network.\n"
+"    Floating IPs are not allocated to instances at creation time and may be "
+"assigned\n"
+"    after the instance is created. To attach a floating IP, go to the "
+"<b>Instances</b>\n"
+"    view and click the <b>Actions</b> menu to the right of an instance.\n"
+"    Then, select the <b>Associate Floating IP</b> option and enter the "
+"necessary details."
+msgstr ""
+"Un IP mobile consente alle istanze di essere indirizzabili da una rete "
+"esterna.\n"
+"    Gli IP mobili non vengono allocati alle istanze al momento della "
+"creazione e possono essere assegnati\n"
+"    dopo la creazione dell'istanza. Per collegare un IP mobile, andare alla "
+"vista <b>Istanze</b>\n"
+"    e fare clic sul menu <b>Azioni</b> a destra di un'istanza.\n"
+"    Quindi, selezionare l'opzione <b>Associa IP mobile</b> e inserire i "
+"dettagli necessari."
+
+msgid ""
+"A key pair allows you to SSH into your newly created instance.\n"
+"      You may select an existing key pair, import a key pair, or generate a "
+"new key pair."
+msgstr ""
+"Una coppia di chiavi consente di eseguire SSH nell'istanza appena creata.\n"
+"      È possibile selezionare una coppia di chiavi esistente, importare una "
+"coppia di chiavi o generare una nuova coppia di chiavi."
+
+msgid "A name is required for your instance."
+msgstr "Un nome è obbligatorio per l'istanza."
+
+msgid "Active"
+msgstr "Attivo"
+
+msgid "Admin State"
+msgstr "Stato Admin"
+
+msgid ""
+"Administrators are responsible for creating and managing flavors. A custom "
+"flavor can be created for you or for a specific project where it is shared "
+"with the users assigned to that project. If you need a custom flavor, "
+"contact your administrator."
+msgstr ""
+"Gli amministratori sono responsabili della creazione e della gestione dei "
+"flavor. Un flavor personalizzato può essere creato per l'utente o per uno "
+"specifico progetto in cui viene condiviso con gli utenti assegnati a quel "
+"progetto . Se è necessario un flavor personalizzato, contattare "
+"l'amministratore."
+
+msgid ""
+"Administrators set up the pool of floating IPs that are available to attach "
+"to instances."
+msgstr ""
+"Gli amministratori configurano il pool di IP mobili che sono disponibili per "
+"essere allegati alle istanze."
+
+msgid ""
+"An <b>External</b> network is set up by an administrator.\n"
+"    If you want an instance to communicate outside of the data center,\n"
+"    then attach a router between your <b>Project</b> network and the "
+"<b>External</b> network.\n"
+"    You can use the <b>Network Topology</b> view to connect the router to "
+"the two networks."
+msgstr ""
+"Una rete <b>Esterna</b> è configurata da un amministratore.\n"
+"    Se si desidera che un'istanza comunichi al di fuori del data center,\n"
+"    collegare un router tra la rete <b>Progetto</b> e la rete <b>Esterna</"
+"b>.\n"
+"    È possibile utilizzare la <b>Topologia di rete</b> per collegare il "
+"router alle due reti."
+
+msgid ""
+"An advanced option available when launching an instance is disk "
+"partitioning. There are two disk partition options. Selecting <b>Automatic</"
+"b> resizes the disk and sets it to a single partition. Selecting <b>Manual</"
+"b> allows you to create multiple partitions on the disk."
+msgstr ""
+"Un'opzione disponibile avanzata quando si avvia un'istanza è il "
+"partizionamento del disco. Esistono due opzioni di partizione del disco. Se "
+"si seleziona <b>Automatico</b> il disco viene ridimensionato e impostato su "
+"una singola partizione. Se si seleziona <b>Manuale</b> è possibile creare "
+"sul disco più partizioni."
+
+msgid ""
+"An instance name is required and used to help you uniquely identify your "
+"instance in the dashboard."
+msgstr ""
+"Un nome istanza è obbligatorio e viene utilizzato per identificare in modo "
+"univoco l'istanza nel dashboard."
+
+msgid "Automatic"
+msgstr "Automatico"
+
+msgid "Availability Zone"
+msgstr "Zona di disponibilità"
+
+msgid "Boot Source"
+msgstr "Origine avvio"
+
+msgid "Cancel"
+msgstr "Annulla"
+
+msgid "Cannot get service catalog from keystone."
+msgstr "Impossibile ottenere il catalogo del servizio dal keystone."
+
+msgid ""
+"Check the <b>Configuration Drive</b> box if you want to write metadata to a "
+"special configuration drive. When the instance boots, it attaches to the "
+"<b>Configuration Drive</b> and accesses the metadata."
+msgstr ""
+"Selezionare la casella <b>Unità di configurazione</b> per scrivere i dati in "
+"una particolare unità di configurazione. Quando l'istanza viene avviata, "
+"viene allegata all'<b>Unità di configurazione</b> e accede ai metadati."
+
+msgid "Click to see more details"
+msgstr "Fare clic per visualizzare ulteriori dettagli"
+
+msgid "Configuration"
+msgstr "Configurazione"
+
+msgid "Configuration Drive"
+msgstr "Unità di configurazione"
+
+msgid "Configuration Help"
+msgstr "Guida alla configurazione"
+
+msgid "Configuration Value"
+msgstr "Valore di configurazione"
+
+msgid "Count"
+msgstr "Numero"
+
+msgid "Create Key Pair"
+msgstr "Crea coppia di chiavi"
+
+msgid "Create New Volume"
+msgstr "Crea nuovo volume"
+
+msgid "Created"
+msgstr "Creato"
+
+msgid ""
+"Custom scripts are attached to instances to perform specific actions when "
+"the instance is launched. For example, if you are unable to install "
+"<samp>cloud-init</samp> inside a guest operating system, you can use a "
+"custom script to get a public key and add it to the user account."
+msgstr ""
+"Gli script personalizzati sono allegati alle istanze per eseguire azioni "
+"specifiche quando l'istanza viene avviata. Ad esempio, se non si è in grado "
+"di installare <samp>cloud-init</samp> all'interno di un sistema operativo "
+"guest, è possibile utilizzare uno script personalizzato per visualizzare una "
+"chiave pubblica e aggiungerla all'account utente."
+
+msgid "Customization Script"
+msgstr "Script di personalizzazione"
+
+msgid "Data Source"
+msgstr "Origine dati"
+
+msgid "Default Value"
+msgstr "Valore predefinito"
+
+msgid "Delete Volume on Terminate"
+msgstr "Elimina volume al termine"
+
+msgid "Deleted"
+msgstr "Eliminato"
+
+msgid "Description"
+msgstr "Descrizione"
+
+msgid "Device Name"
+msgstr "Nome dispositivo"
+
+msgid "Direction"
+msgstr "Direzione"
+
+msgid "Disk Partition"
+msgstr "Partizione disco"
+
+msgid "Domain ID"
+msgstr "Identificativo di Dominio"
+
+msgid "Down"
+msgstr "Disattivo"
+
+msgid "Email"
+msgstr "Email"
+
+msgid "Enabled"
+msgstr "Abilitato"
+
+msgid "Ephemeral Disk"
+msgstr "Disco temporaneo"
+
+msgid "Ether Type"
+msgstr "Tipo Ether"
+
+msgid "Event log is not available."
+msgstr "Il log degli eventi non è disponibile"
+
+#, python-format
+msgid "Extension is not enabled: %(extension)s."
+msgstr "Estensione non abilitata: %(extension)s."
+
+msgid "External Network"
+msgstr "Rete esterna"
+
+msgid "Fingerprint"
+msgstr "Impronta digitale"
+
+msgid "Flavor"
+msgstr "Flavor"
+
+msgid "Flavor Help"
+msgstr "Guida sul flavor"
+
+msgid ""
+"Flavors manage the sizing for the compute, memory and storage capacity of "
+"the instance."
+msgstr ""
+"I flavor gestiscono la dimensione della capacità di calcolo, memoria e "
+"archiviazione dell'istanza."
+
+msgid ""
+"For configs and params, type the key name; for args, type the index as an "
+"integer, starting from 0."
+msgstr ""
+"Per le configurazioni e i parametri, immettere il nome della chiave; per gli "
+"argomenti, immettere l'indice come un numero intero, a partire da 0."
+
+msgid ""
+"For data sources, use a data source UUID or a path (as per data source "
+"creation.)"
+msgstr ""
+"Per le origini dati, utilizzare un'origine dati UUID o un percorso (ad "
+"esempio per la creazione di un'origine dati)."
+
+msgid "Format"
+msgstr "Formato"
+
+msgid ""
+"From a Windows system, you can use PuTTYGen to create private/public keys.\n"
+"  Use the PuTTY Key Generator to create and save the keys, then copy\n"
+"  the public key in the red highlighted box to your <samp>.ssh/"
+"authorized_keys</samp>\n"
+"  file."
+msgstr ""
+"Da un sistema Windows, è possibile utilizzare PuTTYGen per creare chiavi "
+"pubbliche/private.\n"
+"  Utilizzare il generatore PuTTY Key per creare e salvare le chiavi, \n"
+"  quindi copiare la chiave pubblica nella casella rossa evidenziata nel "
+"file\n"
+" <samp>.ssh/authorized_keys</samp>."
+
+msgid "ID"
+msgstr "Identificativo"
+
+msgid ""
+"If a network is shared, then all users in the project can access the network."
+msgstr ""
+"Se una rete è condivisa, tutti gli utenti del progetti possono accedervi."
+
+msgid ""
+"If a security group is not associated with an instance before it is "
+"launched, then you will have very limited access to the instance after it is "
+"deployed. You will only be able to access the instance from a VNC console."
+msgstr ""
+"Se un gruppo di sicurezza non viene associato a un'istanza prima di essere "
+"avviato, dopo la distribuzione dell'istanza l'accesso sarà molto limitato. "
+"L'utente sarà in grado di accedere all'istanza solo da una console VNC.  "
+
+msgid ""
+"If you select an availability zone and plan to use the boot from volume "
+"option, make sure that the availability zone you select for the instance is "
+"the same availability zone where your bootable volume resides."
+msgstr ""
+"Se si seleziona una zona di disponibilità e si prevede di utilizzare "
+"l'opzione di avvio dal volume, verificare che la zona di disponibilità "
+"selezionata per l'istanza sia la stessa zona di disponibilità in cui risiede "
+"il volume avviabile."
+
+msgid ""
+"If you want to create an instance that uses ephemeral storage, meaning the "
+"instance data is lost when the instance is deleted, then choose one of the "
+"following boot sources:"
+msgstr ""
+"Se si desidera creare un'istanza che utilizzi la memoria temporanea, il che "
+"significa che i dati dell'istanza sono andati perduti quando l'istanza è "
+"stata eliminata, scegliere una delle seguenti origini di avvio:"
+
+msgid ""
+"If you want to create an instance that uses persistent storage, meaning the "
+"instance data is saved when the instance is deleted, then select one of the "
+"following boot options:"
+msgstr ""
+"Se si desidera creare un'istanza che utilizza la memoria persistente, "
+"significa che i dati dell'istanza vengono salvati quando l'istanza viene "
+"eliminata, quindi selezionare una delle seguenti opzioni di avvio:"
+
+msgid "Image"
+msgstr "Immagine"
+
+msgid "Image Name"
+msgstr "Nome dell'Immagine"
+
+msgid "Impact on your quota"
+msgstr "Impatto sulla quota"
+
+msgid "Import Key Pair"
+msgstr "Importa coppia di chiavi"
+
+msgid "Instance Details"
+msgstr "Dettagli istanza"
+
+msgid "Instance Name"
+msgstr "Nome istanza"
+
+msgid "Instance Snapshot"
+msgstr "Istantanea dell'istanza"
+
+msgid "Instance Source"
+msgstr "Origine dell'istanza"
+
+msgid "Instance count is required and must be an integer of at least 1"
+msgstr ""
+"Il numero di istanze è obbligatorio e deve essere un numero intero superiore "
+"a 1"
+
+msgid ""
+"Instance source is the template used to create an instance. You can use a "
+"snapshot of an existing instance, an image, or a volume (if enabled). You "
+"can also choose to use persistent storage by creating a new volume."
+msgstr ""
+"L'origine dell'istanza è il template utilizzato per creare un'istanza. È "
+"possibile utilizzare un'istantanea di un'istanza esistente, un'immagine o un "
+"volume (se abilitato). È inoltre possibile scegliere di utilizzare la "
+"memoria persistente creando un nuovo volume."
+
+msgid "Insufficient privilege level to view user information."
+msgstr "Privilegi insufficienti per visualizzare le informazioni utente"
+
+msgid "Key Pair"
+msgstr "Coppia di chiavi"
+
+msgid "Key Pair Help"
+msgstr "Guida sulla coppia di chiavi"
+
+msgid "Key Pair Name"
+msgstr "Nome coppia di chiavi"
+
+msgid ""
+"Key Pairs are how you login to your instance after it is launched.\n"
+"        Choose a key pair name you will recognize and paste your SSH public "
+"key into the\n"
+"        space provided."
+msgstr ""
+"Le coppie di chiavi indicano la modalità con cui si accede all'istanza dopo "
+"che questa è stata avviata.\n"
+"        Scegliere un nome per la coppia di chiavi che verrà riconosciuto e "
+"incollare la chiave pubblica SSH nello\n"
+"        spazio fornito."
+
+msgid ""
+"Key Pairs are how you login to your instance after it is launched.\n"
+"        Choose a key pair name you will recognize."
+msgstr ""
+"Le coppie di chiavi indicano la modalità con cui si accede all'istanza dopo "
+"che questa è stata avviata.\n"
+"        Scegliere un nome per la coppia di chiavi che verrà riconosciuto."
+
+msgid "Killed"
+msgstr "Terminato"
+
+msgid "Launch Instance"
+msgstr "Esegui instanza"
+
+msgid "Load script from a file"
+msgstr "Carica script da un file"
+
+msgid "Location"
+msgstr "Ubicazione"
+
+msgid "Manual"
+msgstr "Manuale"
+
+msgid "Mapping Type"
+msgstr "Tipo di associazione"
+
+msgid "Max Port"
+msgstr "Porta max"
+
+msgid "Min Disk"
+msgstr "Disco min"
+
+msgid "Min Disk (GB)"
+msgstr "Disco min (GB)"
+
+msgid "Min Port"
+msgstr "Porta min"
+
+msgid "Min RAM"
+msgstr "RAM min"
+
+msgid "Min RAM (MB)"
+msgstr "RAM min (MB)"
+
+msgid "Min Ram"
+msgstr "Ram min"
+
+msgid "Name"
+msgstr "Nome "
+
+msgid "Named Parameter"
+msgstr "Parametro denominato"
+
+msgid "Network"
+msgstr "Rete"
+
+msgid "Network Help"
+msgstr "Guida sulle reti"
+
+msgid "Network characteristics"
+msgstr "Caratteristiche di rete"
+
+msgid "Networks"
+msgstr "Reti"
+
+msgid "Networks provide the communication channels for instances in the cloud."
+msgstr "Le reti forniscono i canali di comunicazione per le istanze nel cloud."
+
+msgid "No"
+msgstr "No"
+
+msgid "No available items"
+msgstr "Nessun elemento disponibile"
+
+msgid "Number"
+msgstr "Numero"
+
+msgid "OK"
+msgstr "OK"
+
+msgid "Pending Delete"
+msgstr "Eliminazione in sospeso"
+
+msgid "Physical Network"
+msgstr "Rete fisica"
+
+msgid ""
+"Please provide the initial host name for the instance, the availability zone "
+"where it will be deployed, and the instance count. Increase the Count to "
+"create multiple instances with the same settings."
+msgstr ""
+"Fornire il nome host iniziale per l'istanza, la zona di disponibilità in cui "
+"sarà distribuita e il numero di istanze. Aumentare il numero per creare più "
+"istanze con le stesse impostazioni."
+
+msgid "Policy check failed."
+msgstr "Controllo della politica non riuscito."
+
+msgid "Positional Argument"
+msgstr "Argomento posizionale"
+
+msgid "Private"
+msgstr "Privato"
+
+msgid "Private Key"
+msgstr "Chiave privata"
+
+msgid "Profile"
+msgstr "Profilo"
+
+msgid "Project"
+msgstr "Progetto"
+
+msgid "Project ID"
+msgstr "Identificativo del Progetto"
+
+msgid ""
+"Project networks are created by users.\n"
+"    These networks are fully isolated and are project-specific."
+msgstr ""
+"Le reti di progetto vengono create dagli utenti.\n"
+"    Queste reti sono completamente isolate e sono specifiche del progetto."
+
+msgid "Protected"
+msgstr "Protetto"
+
+msgid "Protocol"
+msgstr "Protocollo"
+
+msgid "Provider Network"
+msgstr "Rete di provider"
+
+msgid ""
+"Provider networks are created by administrators.\n"
+"    These networks map to an existing physical network in the data center."
+msgstr ""
+"Le reti di provider vengono create dagli amministratori.\n"
+"    Queste reti vengono associate a una rete fisica esistente nel data "
+"center."
+
+msgid "Public"
+msgstr "Pubblico"
+
+msgid "Public Key"
+msgstr "Chiave pubblica"
+
+msgid "Queued"
+msgstr "In coda"
+
+msgid "RAM"
+msgstr "RAM"
+
+msgid "Re-order items using drag and drop"
+msgstr "Riordina gli elementi utilizzando la funzione di trascinamento"
+
+msgid "Remote"
+msgstr "Remoto"
+
+msgid "Remove"
+msgstr "Rimuovi"
+
+msgid "Required"
+msgstr "Richiesto"
+
+msgid "Required?"
+msgstr "Richiesto?"
+
+msgid "Root Disk"
+msgstr "Disco root"
+
+msgid "Save"
+msgstr "Salva"
+
+msgid "Saving"
+msgstr "Salvataggio"
+
+msgid "Script size"
+msgstr "Dimensione script"
+
+msgid "Security Groups"
+msgstr "Gruppi di sicurezza"
+
+msgid "Security Groups Help"
+msgstr "Guida per i gruppi di sicurezza"
+
+msgid ""
+"Security groups are project-specific and cannot be shared across projects."
+msgstr ""
+"I gruppi di sicurezza sono specifici del progetto e non possono essere "
+"condivisi tra progetti."
+
+msgid ""
+"Security groups define a set of IP filter rules that determine how network "
+"traffic flows to and from an instance. Users can add additional rules to an "
+"existing security group to further define the access options for an "
+"instance. To create additional rules, go to the <b>Compute | Access & "
+"Security</b> view, then find the security group and click <b>Manage Rules</"
+"b>."
+msgstr ""
+"I gruppi di sicurezza definiscono un set di regole di filtro IP che "
+"determinano il flusso del traffico di rete da e verso un'istanza. Gli utenti "
+"possono aggiungere regole a un gruppo di sicurezza esistente per definire "
+"ulteriormente le opzioni di accesso per un'istanza. Per creare altre regole, "
+"andare alla vista <b>Compute | Accesso e Sicurezza</b>, quindi trovare il "
+"gruppo di sicurezza e fare clic su <b>Gestisci regole</b>."
+
+msgid ""
+"See http://docs.openstack.org/developer/sahara/userdoc/edp.html for "
+"definitions."
+msgstr ""
+"Per le definizioni, vedere http://docs.openstack.org/developer/sahara/"
+"userdoc/edp.html."
+
+msgid "Segmentation ID"
+msgstr "ID segmentazione"
+
+msgid "Select Boot Source"
+msgstr "Seleziona origine di avvio"
+
+msgid "Select Source"
+msgstr "Selezionare l'origine"
+
+msgid "Select Source Help"
+msgstr "Seleziona guida sull'origine"
+
+msgid "Select a key pair from the available key pairs below."
+msgstr ""
+"Selezionare una coppia di chiavi dall'elenco di coppie di chiavi disponibili "
+"in basso."
+
+msgid "Select a source from those listed below."
+msgstr "Selezionare un'origine dall'elenco in basso."
+
+msgid "Select an item from Available items below"
+msgstr "Seleziona un elemento dagli elementi disponibili in basso"
+
+msgid "Select at least one network"
+msgstr "Seleziona almeno una rete"
+
+msgid "Select networks from those listed below."
+msgstr "Selezionare le reti dall'elenco in basso."
+
+msgid "Select one"
+msgstr "Seleziona uno"
+
+msgid "Select one or more"
+msgstr "Seleziona uno o più"
+
+msgid "Select one or more security groups from the available groups below."
+msgstr ""
+"Selezionare uno o più gruppi di sicurezza dai gruppi disponibili in basso."
+
+msgid "Select the security groups."
+msgstr "Selezionare i gruppi di sicurezza."
+
+#, python-format
+msgid "Service type is not enabled: %(desiredType)s"
+msgstr "Il tipo di servizio non è abilitato: %(desiredType)s"
+
+#, python-format
+msgid "Setting is not enabled: %(setting)s"
+msgstr "Impostazione non abilitata: %(setting)s"
+
+msgid "Shared"
+msgstr "Condiviso"
+
+msgid "Show events"
+msgstr "Mostra eventi"
+
+msgid "Size"
+msgstr "Dimensione"
+
+msgid "Size (GB)"
+msgstr "Dimensione (GB)"
+
+msgid "Snapshot"
+msgstr "Istantanea"
+
+msgid "Status"
+msgstr "Stato"
+
+msgid "String"
+msgstr "Stringa"
+
+msgid "Subnets Associated"
+msgstr "Sottoreti associate"
+
+#, python-format
+msgid "Successfully created key pair %(name)s."
+msgstr "Coppia di chiavi %(name)s creata correttamente."
+
+#, python-format
+msgid "Successfully imported key pair %(name)s."
+msgstr "Coppia di chiavi %(name)s importata correttamente."
+
+msgid ""
+"The flavor you select for an instance determines the amount of compute, "
+"storage and memory resources that will be carved out for the instance."
+msgstr ""
+"Il flavor selezionato per un'istanza determina la quantità di risorse di "
+"calcolo, archiviazione e memoria che saranno utilizzate per l'istanza."
+
+msgid ""
+"The flavor you select must have enough resources allocated to support the "
+"type of instance you are trying to create. Flavors that do not provide "
+"enough resources for your instance are identified on the <b>Available</b> "
+"table with a yellow warning icon."
+msgstr ""
+"Il flavor selezionato deve presentare un numero sufficiente di risorse "
+"assegnate per supportare il tipo di istanza che si sta tentando di creare. I "
+"flavor che non forniscono risorse sufficienti per l'istanza sono "
+"identificati nella tabella <b>Disponibile</b> con un'icona di avvertenza "
+"gialla."
+
+#, python-format
+msgid ""
+"The instance count must not exceed your quota available of "
+"%(maxInstanceCount)s instances"
+msgstr ""
+"Il numero di istanze non deve superare la quota disponibile di "
+"%(maxInstanceCount)s istanze"
+
+#, python-format
+msgid ""
+"The selected image source requires a flavor with at least %(minDisk)s GB of "
+"root disk. Select a flavor with a larger root disk or use a different image "
+"source."
+msgstr ""
+"L'origine dell'immagine selezionata richiede un flavor con almeno "
+"%(minDisk)s GB di disco root. Selezionare un flavor con un disco root più "
+"grande o utilizzare un'origine dell'immagine diversa."
+
+#, python-format
+msgid ""
+"The selected image source requires a flavor with at least %(minRam)s MB of "
+"RAM. Select a flavor with more RAM or use a different image source."
+msgstr ""
+"L'origine dell'immagine selezionata richiede un flavor con almeno %(minRam)s "
+"MB di RAM. Selezionare un flavor con più RAM o utilizzare un'origine "
+"dell'immagine diversa."
+
+msgid "The status indicates whether the network has an active connection."
+msgstr "Lo stato indica se la rete presenta una connessione attiva."
+
+msgid "The step has completed successfully. No events to display."
+msgstr "Nessun elemento da visualizzare"
+
+msgid ""
+"The subnet identifies a sub-section of a network. A subnet is specified in "
+"CIDR format.\n"
+"    A typical CIDR format looks like <samp>192.xxx.x.x/24</samp>."
+msgstr ""
+"La sottorete identifica una sezione secondaria di una rete. Una sottorete "
+"viene specificata nel formato CIDR.\n"
+"    Un formato CIDR tipico è simile a <samp>192.xxx.x.x/24</samp>."
+
+#, python-format
+msgid "The volume size must be at least %(minVolumeSize)s GB"
+msgstr "La dimensione del volume deve essere almeno %(minVolumeSize)s GB"
+
+msgid ""
+"There are two ways to generate a key pair. From a Linux system,\n"
+"  generate the key pair with the <samp>ssh-keygen</samp> command:"
+msgstr ""
+"Esistono due modi per generare una coppia di chiavi. Da un sistema Linux,\n"
+"  generare la coppia di chiavi con il comando <samp>ssh-keygen</samp>:"
+
+msgid ""
+"This command generates a pair of keys: a private key (cloud.key)\n"
+"  and a public key (cloud.key.pub)."
+msgstr ""
+"Questo comando genera una coppia di chiavi: una chiave privata (cloud.key)\n"
+"  e una chiave pubblica (cloud.key.pub)."
+
+msgid ""
+"This flavor requires more RAM than your quota allows. Please select a "
+"smaller flavor or decrease the instance count."
+msgstr ""
+"Questo flavor richiede una quantità di RAM maggiore della quantità "
+"consentita dalla quota. Selezionare un flavor più piccolo o ridurre il "
+"numero di istanze."
+
+msgid ""
+"This flavor requires more VCPUs than your quota allows. Please select a "
+"smaller flavor or decrease the instance count."
+msgstr ""
+"Questo flavor richiede una quantità di VCPU maggiore della quantità "
+"consentita dalla quota. Selezionare un flavor più piccolo o ridurre il "
+"numero di istanze."
+
+msgid "This is your new key pair. Copy this information and keep it secure."
+msgstr ""
+"Questa è la nuova coppia di chiavi. Copiare queste informazioni e "
+"conservarle in modo sicuro."
+
+msgid "Total Disk"
+msgstr "Disco totale"
+
+msgid "Total Instances"
+msgstr "Istanze totali"
+
+msgid "Total RAM"
+msgstr "RAM totale"
+
+msgid "Total VCPUs"
+msgstr "VCPU totali"
+
+msgid "Type"
+msgstr "Tipo"
+
+msgid ""
+"Type your script directly into the Customization Script field. If your "
+"browser supports the HTML5 File API, you may choose to load your script from "
+"a file. The size of your script should not exceed 16 Kb."
+msgstr ""
+"Digitare lo script direttamente nel campo Script di personalizzazione. Se il "
+"browser supporta l'API File HTML5, è possibile scegliere di caricare lo "
+"script da un file. La dimensione dello script non deve superare 16 Kb."
+
+msgid "Unable to create the domain."
+msgstr "Impossibile creare il dominio."
+
+msgid "Unable to create the keypair."
+msgstr "Impossibile creare la coppia di chiavi."
+
+msgid "Unable to create the network."
+msgstr "Impossibile creare la rete. "
+
+msgid "Unable to create the project."
+msgstr "Impossibile creare il progetto."
+
+msgid "Unable to create the role."
+msgstr "Impossibile creare il ruolo."
+
+msgid "Unable to create the server."
+msgstr "Impossibile creare il server."
+
+msgid "Unable to create the subnet."
+msgstr "Impossibile creare la sottorete."
+
+msgid "Unable to create the user."
+msgstr "Impossibile creare l'utente."
+
+msgid "Unable to delete the domain."
+msgstr "Impossibile eliminare il dominio."
+
+msgid "Unable to delete the domains."
+msgstr "Impossibile eliminare i domini."
+
+msgid "Unable to delete the project."
+msgstr "Impossibile eliminare il progetto."
+
+msgid "Unable to delete the projects."
+msgstr "Impossibile eliminare i progetti."
+
+msgid "Unable to delete the role."
+msgstr "Impossibile eliminare il ruolo."
+
+msgid "Unable to delete the roles."
+msgstr "Impossibile eliminare i ruoli."
+
+msgid "Unable to delete the user."
+msgstr "Impossibile eliminare l'utente."
+
+msgid "Unable to delete the users."
+msgstr "Impossibile eliminare gli utenti."
+
+msgid "Unable to edit the aggregate extra specs."
+msgstr "Impossibile modificare le specifiche supplementari dell'aggregato."
+
+msgid "Unable to edit the domain."
+msgstr "Impossibile modificare il dominio."
+
+msgid "Unable to edit the flavor extra specs."
+msgstr "Impossibile modificare le specifiche supplementari del flavor."
+
+msgid "Unable to edit the image custom properties."
+msgstr "Impossibile modificare le proprietà personalizzate dell'immagine."
+
+msgid "Unable to edit the project."
+msgstr "Impossibile modificare il progetto."
+
+msgid "Unable to edit the role."
+msgstr "Impossibile modificare il ruolo."
+
+msgid "Unable to edit the user."
+msgstr "Impossibile modificare l'utente."
+
+msgid "Unable to fetch the service catalog."
+msgstr "Impossibile recuperare il catalogo del servizio."
+
+msgid "Unable to get the Keystone service version."
+msgstr "Impossibile ottenere la versione del servizio Keystone."
+
+msgid "Unable to grant the role."
+msgstr "Impossibile concedere il ruolo."
+
+msgid "Unable to import the keypair."
+msgstr "Impossibile importare la coppia di chiavi."
+
+msgid "Unable to retrieve settings."
+msgstr "Impossibile richiamare le impostazioni. "
+
+msgid "Unable to retrieve the aggregate extra specs."
+msgstr "Impossibile richiamare le specifiche supplementari dell'aggregato."
+
+msgid "Unable to retrieve the availability zones."
+msgstr "Impossibile richiamare le zone di disponibilità."
+
+msgid "Unable to retrieve the current user session."
+msgstr "Impossibile richiamare la sessione utente corrente."
+
+msgid "Unable to retrieve the domain."
+msgstr "Impossibile richiamare il dominio."
+
+msgid "Unable to retrieve the domains."
+msgstr "Impossibile richiamare i domini."
+
+msgid "Unable to retrieve the extensions."
+msgstr "Impossibile richiamare le estensioni."
+
+msgid "Unable to retrieve the flavor extra specs."
+msgstr "Impossibile richiamare le specifiche supplementari del flavor."
+
+msgid "Unable to retrieve the flavor."
+msgstr "Impossibile richiamare il flavor."
+
+msgid "Unable to retrieve the flavors."
+msgstr "Impossibile richiamare i flavor."
+
+msgid "Unable to retrieve the image custom properties."
+msgstr "Impossibile richiamare le proprietà personalizzate dell'immagine."
+
+msgid "Unable to retrieve the image."
+msgstr "Impossibile richiamare l'immagine."
+
+msgid "Unable to retrieve the images."
+msgstr "Impossibile richiamare le immagini."
+
+msgid "Unable to retrieve the keypairs."
+msgstr "Impossibile richiamare le coppie di chiavi."
+
+msgid "Unable to retrieve the limits."
+msgstr "Impossibile richiamare i limiti."
+
+msgid "Unable to retrieve the namespaces."
+msgstr "Impossibile richiamare gli spazi dei nomi."
+
+msgid "Unable to retrieve the networks."
+msgstr "Impossibile richiamare le reti."
+
+msgid "Unable to retrieve the ports."
+msgstr "Impossibile richiamare le porte."
+
+msgid "Unable to retrieve the project."
+msgstr "Impossibile richiamare il progetto."
+
+msgid "Unable to retrieve the projects."
+msgstr "Impossibile richiamare i progetti."
+
+msgid "Unable to retrieve the role."
+msgstr "Impossibile richiamare il ruolo."
+
+msgid "Unable to retrieve the roles."
+msgstr "Impossibile richiamare i ruoli."
+
+msgid "Unable to retrieve the security groups."
+msgstr "Impossibile richiamare i gruppi di sicurezza."
+
+msgid "Unable to retrieve the server."
+msgstr "Impossibile richiamare il server."
+
+msgid "Unable to retrieve the subnets."
+msgstr "Impossibile richiamare le sottoreti."
+
+msgid "Unable to retrieve the user."
+msgstr "Impossibile richiamare l'utente."
+
+msgid "Unable to retrieve the users."
+msgstr "Impossibile richiamare gli utenti."
+
+msgid "Unable to retrieve the volume snapshots."
+msgstr "Impossibile richiamare le istantanee dei volumi."
+
+msgid "Unable to retrieve the volumes."
+msgstr "Impossibile richiamare i volumi."
+
+msgid "Unable to validate the template."
+msgstr "Impossibile convalidare il template."
+
+msgid "Up"
+msgstr "Attivo"
+
+msgid "Update Aggregate Metadata"
+msgstr "Aggiorna metadati aggregato"
+
+msgid "Update Flavor Metadata"
+msgstr "Aggiorna metadati flavor"
+
+msgid "Update Image Metadata"
+msgstr "Aggiorna metadati immagine"
+
+msgid "Updated"
+msgstr "Aggiornato"
+
+msgid "User ID"
+msgstr "Identificativo Utente"
+
+msgid "User Name"
+msgstr "Nome Utente"
+
+msgid "VCPUS"
+msgstr "VCPU"
+
+msgid "Value Type"
+msgstr "Tipo di valore"
+
+msgid "Visibility"
+msgstr "Visibilità"
+
+msgid "Volume"
+msgstr "Volume"
+
+msgid "Volume Snapshot"
+msgstr "Istantanea del volume"
+
+msgid "Volume size is required and must be an integer"
+msgstr "La dimensione del volume è obbligatoria e deve essere un numero intero"
+
+msgid ""
+"Volumes can only be attached to 1 active instance at a time. Please either "
+"set your instance count to 1 or select a different source type."
+msgstr ""
+"I volumi possono essere collegati a un'istanza attiva alla volta. Impostare "
+"il numero di istanze su 1 o selezionare un tipo di origine diverso."
+
+msgid ""
+"When selecting volume as boot source, please ensure the instance's "
+"availability zone is compatible with your volume's availability zone."
+msgstr ""
+"Quando si seleziona un volume come origine di avvio, verificare che la zona "
+"di disponibilità dell'istanza sia compatibile con la zona di disponibilità "
+"del volume."
+
+msgid ""
+"When the <b>Admin State</b> for a network is set to <b>Up</b>,\n"
+"    then the network is available for use. You can set the <b>Admin State</"
+"b> to <b>Down</b>\n"
+"    if you are not ready for other users to access the network."
+msgstr ""
+"Quando lo <b>Stato Admin</b> per una rete è impostato su <b>Attivo</b>,\n"
+"    la rete è disponibile per l'utilizzo. È possibile impostare lo <b>Stato "
+"Admin</b> su <b>Disattivo</b>\n"
+"    se non si è pronti a consentire l'accesso alla rete ad altri utenti."
+
+msgid "Yes"
+msgstr "Si"
+
+msgid "bytes"
+msgstr "byte"
+
+msgid "{$ row['provider:network_type'] $}"
+msgstr "{$ row['provider:network_type'] $}"

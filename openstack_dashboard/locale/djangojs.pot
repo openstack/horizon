@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-10-19 06:35+0000\n"
+"POT-Creation-Date: 2015-10-23 06:36+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -114,6 +114,53 @@ msgstr ""
 msgid ""
 "For data sources, use a data source UUID or a path (as per data source "
 "creation.)"
+msgstr ""
+
+#: dashboards/admin/static/dashboard/admin/flavors/table/flavors-table.html:22
+msgid "Flavor Name"
+msgstr ""
+
+#: dashboards/admin/static/dashboard/admin/flavors/table/flavors-table.html:23
+msgid "VCPUs"
+msgstr ""
+
+#: dashboards/admin/static/dashboard/admin/flavors/table/flavors-table.html:24
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/flavor/select-flavor-table.html:30
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/flavor/select-flavor-table.html:31
+msgid "RAM"
+msgstr ""
+
+#: dashboards/admin/static/dashboard/admin/flavors/table/flavors-table.html:25
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/flavor/select-flavor-table.html:33
+msgid "Root Disk"
+msgstr ""
+
+#: dashboards/admin/static/dashboard/admin/flavors/table/flavors-table.html:26
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/flavor/select-flavor-table.html:34
+msgid "Ephemeral Disk"
+msgstr ""
+
+#: dashboards/admin/static/dashboard/admin/flavors/table/flavors-table.html:27
+msgid "Swap Disk"
+msgstr ""
+
+#: dashboards/admin/static/dashboard/admin/flavors/table/flavors-table.html:28
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/network/network.html:70
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/network/network.html:157
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:77
+msgid "ID"
+msgstr ""
+
+#: dashboards/admin/static/dashboard/admin/flavors/table/flavors-table.html:29
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/flavor/select-flavor-table.html:35
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:182
+#: static/app/core/images/table/images-table.html:38
+#: static/app/core/images/table/images-table.html:93
+msgid "Public"
+msgstr ""
+
+#: dashboards/admin/static/dashboard/admin/flavors/table/flavors-table.html:30
+msgid "Metadata"
 msgstr ""
 
 #: dashboards/identity/static/dashboard/identity/users/table/table.controller.js:64
@@ -355,28 +402,8 @@ msgstr ""
 msgid "VCPUS"
 msgstr ""
 
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/flavor/select-flavor-table.html:30
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/flavor/select-flavor-table.html:31
-msgid "RAM"
-msgstr ""
-
 #: dashboards/project/static/dashboard/project/workflow/launch-instance/flavor/select-flavor-table.html:32
 msgid "Total Disk"
-msgstr ""
-
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/flavor/select-flavor-table.html:33
-msgid "Root Disk"
-msgstr ""
-
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/flavor/select-flavor-table.html:34
-msgid "Ephemeral Disk"
-msgstr ""
-
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/flavor/select-flavor-table.html:35
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:182
-#: static/app/core/images/table/images-table.html:38
-#: static/app/core/images/table/images-table.html:93
-msgid "Public"
 msgstr ""
 
 #: dashboards/project/static/dashboard/project/workflow/launch-instance/flavor/select-flavor-table.html:102
@@ -645,12 +672,6 @@ msgstr ""
 #: dashboards/project/static/dashboard/project/workflow/launch-instance/network/network.html:47
 #: dashboards/project/static/dashboard/project/workflow/launch-instance/network/network.html:129
 msgid "Click to see more details"
-msgstr ""
-
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/network/network.html:70
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/network/network.html:157
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:77
-msgid "ID"
 msgstr ""
 
 #: dashboards/project/static/dashboard/project/workflow/launch-instance/network/network.html:72
@@ -1061,6 +1082,15 @@ msgstr ""
 msgid "Unable to retrieve the extensions."
 msgstr ""
 
+#: static/app/core/openstack-service-api/extensions.service.js:77
+#, python-format
+msgid "Extension is not enabled: %(extension)s."
+msgstr ""
+
+#: static/app/core/openstack-service-api/extensions.service.js:84
+msgid "Cannot get the extension list."
+msgstr ""
+
 #: static/app/core/openstack-service-api/glance.service.js:58
 msgid "Unable to retrieve the image."
 msgstr ""
@@ -1215,15 +1245,6 @@ msgstr ""
 
 #: static/app/core/openstack-service-api/neutron.service.js:212
 msgid "Unable to retrieve the ports."
-msgstr ""
-
-#: static/app/core/openstack-service-api/nova-extensions.service.js:74
-#, python-format
-msgid "Extension is not enabled: %(extension)s."
-msgstr ""
-
-#: static/app/core/openstack-service-api/nova-extensions.service.js:81
-msgid "Cannot get the Nova extension list."
 msgstr ""
 
 #: static/app/core/openstack-service-api/nova.service.js:68

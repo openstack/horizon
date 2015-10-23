@@ -8,18 +8,17 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-10-14 02:35+0000\n"
+"POT-Creation-Date: 2015-10-22 08:58+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "PO-Revision-Date: 2015-09-08 11:14+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
-"Language-Team: Marathi (http://www.transifex.com/openstack/horizon/language/"
-"mr/)\n"
-"Generated-By: Babel 2.0\n"
 "Language: mr\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Generated-By: Babel 2.0\n"
 "X-Generator: Zanata 3.7.1\n"
+"Language-Team: Marathi\n"
 
 #, python-format
 msgid ""
@@ -754,9 +753,6 @@ msgstr "परवानगी देण्यात आलेला होस्
 
 msgid "Amount of energy"
 msgstr "उर्जेचे प्रमाण"
-
-msgid "An external (HTTP) URL to load the image from."
-msgstr "च्यामधून चित्र उघडण्यासाठी एक बाह्य (एचटीटीपी) यूआरएल."
 
 msgid "An external (HTTP) URL to load the template from."
 msgstr "साचा उघडण्यासाठी बाह्य (एचटीटीपी) यूआरएल."
@@ -1805,14 +1801,6 @@ msgstr "सध्याचा आकार (जीबी)"
 
 msgid "Current password"
 msgstr "सध्याचा पासवर्ड"
-
-msgid ""
-"Currently only images available via an HTTP URL are supported. The image "
-"location must be accessible to the Image Service. Compressed image binaries "
-"are supported (.zip and .tar.gz.)"
-msgstr ""
-"सध्या केवळ एचटीटीपी यूआरएलद्वारे उपलब्ध चित्रांनाच सहाय्य आहे. चित्राचे ठिकाण चित्र "
-"सेवेसाठी उपलब्ध असले पाहिजे. संपीडित चित्र द्विअंकींना सहाय्य आहे (.झिप व .टीएआर.जीझेड.)"
 
 msgid "Custom ICMP Rule"
 msgstr "स्वपसंत आय़सीएमपी नियम"
@@ -3402,17 +3390,6 @@ msgstr ""
 "पात्राचे नाव देण्यात आले नसेल, तर एक खंड राखीवसाठे नावाच्या पूर्वनिर्धारित पात्राची "
 "तुमच्यासाठी तरतूद केली जाईल. राखीव साठे ज्या खंडातून तयार झाले त्याच आकाराचे असतील."
 
-msgid ""
-"If you select an image via an HTTP URL, the Image Location field MUST be a "
-"valid and direct URL to the image binary; it must also be accessible to the "
-"Image Service. URLs that redirect or serve error pages will result in "
-"unusable images."
-msgstr ""
-"तुम्ही एखाद्या एचटीटीपी यूआरएलद्वारे एखादे चित्र निवडले, तर चित्र ठिकाण क्षेत्र वैध असले "
-"पाहिजे व चित्र द्विंअंकास थेट यूआरएल असली पाहिजे; त्याद्वारे चित्र सेवा उपलब्धही झाली "
-"पाहिजे. जी यूआरएल पुनर्निदेशित करते किंवा सर्वर चूक दाखवते त्यामुळे न वापरण्यासारखी चित्रे "
-"दिसू लागतात."
-
 msgid "Image"
 msgstr "चित्र"
 
@@ -3492,13 +3469,6 @@ msgstr "चित्र यशस्वीपणे सुधारित कर
 
 msgid "Images"
 msgstr "चित्रे"
-
-msgid ""
-"Images can be provided via an HTTP URL or be uploaded from your local file "
-"system. Compressed image binaries are supported (.zip and .tar.gz.)"
-msgstr ""
-"चित्रे एचटीटीपी यूआरएलद्वारे दिली जाऊ शकतात किंवा तुमच्या स्थानिक धारिका यंत्रणेवरुन "
-"अपलोड केली जाऊ शकतात. संपीडित चित्र द्विअंकांना सहाय्य आहे (.झिप व .टीएआर.जीझेड.)"
 
 msgid "Import Key Pair"
 msgstr "कळ जोडी आयात करा"

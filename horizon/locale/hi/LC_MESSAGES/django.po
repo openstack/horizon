@@ -10,18 +10,17 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-10-07 03:29+0000\n"
+"POT-Creation-Date: 2015-10-22 08:58+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "PO-Revision-Date: 2015-08-20 05:13+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
-"Language-Team: Hindi (http://www.transifex.com/openstack/horizon/language/"
-"hi/)\n"
-"Generated-By: Babel 2.0\n"
 "Language: hi\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Generated-By: Babel 2.0\n"
 "X-Generator: Zanata 3.7.1\n"
+"Language-Team: Hindi\n"
 
 #, python-format
 msgid ""
@@ -248,9 +247,6 @@ msgstr "जारी रखने के लिए में लॉग इन �
 
 msgid "Please select a row before taking that action."
 msgstr "कृपया इस क्रिया को करने से पहले पंक्ति का चयन करें."
-
-msgid "Port number must be integer"
-msgstr "पोर्ट संख्या में एक पूर्णांक होना चाहिये"
 
 msgid "Processing..."
 msgstr "प्रोसेसिंग..."

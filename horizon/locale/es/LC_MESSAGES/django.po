@@ -9,24 +9,23 @@
 # Orizhial <contact@prunier.es>, 2015
 # Pablo Iranzo Gómez <Pablo.Iranzo@gmail.com>, 2015
 # Veruska Perinotto <reaching.out@gmail.com>, 2015
-# Marian T <marian.tort@gmail.com>, 2015. #zanata
+# Marian Tort <marian.tort@gmail.com>, 2015. #zanata
 # OpenStack Infra <zanata@openstack.org>, 2015. #zanata
 msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-10-07 03:29+0000\n"
+"POT-Creation-Date: 2015-10-22 08:58+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "PO-Revision-Date: 2015-09-11 01:52+0000\n"
-"Last-Translator: Marian T <marian.tort@gmail.com>\n"
-"Language-Team: Spanish (http://www.transifex.com/openstack/horizon/language/"
-"es/)\n"
-"Generated-By: Babel 2.0\n"
+"Last-Translator: Marian Tort <marian.tort@gmail.com>\n"
 "Language: es\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Generated-By: Babel 2.0\n"
 "X-Generator: Zanata 3.7.1\n"
+"Language-Team: Spanish\n"
 
 #, python-format
 msgid ""
@@ -287,9 +286,6 @@ msgstr "Inicie sesión para continuar."
 
 msgid "Please select a row before taking that action."
 msgstr "Seleccione una fila antes de realizar la acción."
-
-msgid "Port number must be integer"
-msgstr "El número de puerto debe ser un entero"
 
 msgid "Processing..."
 msgstr "Procesando..."

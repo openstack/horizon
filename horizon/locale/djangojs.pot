@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-10-15 06:07+0000\n"
+"POT-Creation-Date: 2015-10-23 06:35+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -25,38 +25,48 @@ msgstr ""
 msgid "No"
 msgstr ""
 
-#: static/framework/util/filters/filters.js:57
-#: static/framework/util/filters/filters.js:161
-#, python-format
-msgid "%s GB"
-msgstr ""
-
-#: static/framework/util/filters/filters.js:74
-#: static/framework/util/filters/filters.js:163
-#, python-format
-msgid "%s MB"
-msgstr ""
-
-#: static/framework/util/filters/filters.js:121
-msgid "-"
-msgstr ""
-
-#: static/framework/util/filters/filters.js:159
+#: static/framework/util/filters/filters.js:59
+#: static/framework/util/filters/filters.js:171
 #, python-format
 msgid "%s TB"
 msgstr ""
 
-#: static/framework/util/filters/filters.js:165
+#: static/framework/util/filters/filters.js:61
+msgid "0 GB"
+msgstr ""
+
+#: static/framework/util/filters/filters.js:63
+#: static/framework/util/filters/filters.js:82
+#: static/framework/util/filters/filters.js:173
+#, python-format
+msgid "%s GB"
+msgstr ""
+
+#: static/framework/util/filters/filters.js:84
+msgid "0 MB"
+msgstr ""
+
+#: static/framework/util/filters/filters.js:86
+#: static/framework/util/filters/filters.js:175
+#, python-format
+msgid "%s MB"
+msgstr ""
+
+#: static/framework/util/filters/filters.js:133
+msgid "-"
+msgstr ""
+
+#: static/framework/util/filters/filters.js:177
 #, python-format
 msgid "%s KB"
 msgstr ""
 
-#: static/framework/util/filters/filters.js:167
+#: static/framework/util/filters/filters.js:179
 #, python-format
 msgid "%s bytes"
 msgstr ""
 
-#: static/framework/util/filters/filters.js:191
+#: static/framework/util/filters/filters.js:203
 #: static/horizon/js/horizon.tables.js:405
 #, python-format
 msgid "Displaying %s item"
@@ -64,7 +74,7 @@ msgid_plural "Displaying %s items"
 msgstr[0] ""
 msgstr[1] ""
 
-#: static/framework/util/filters/filters.js:195
+#: static/framework/util/filters/filters.js:207
 #, python-format
 msgid "Displaying %(count)s of %(total)s items"
 msgstr ""
@@ -79,7 +89,7 @@ msgstr ""
 msgid "Click here to expand the row and view the errors."
 msgstr ""
 
-#: static/framework/widgets/action-list/split-button.html:14
+#: static/framework/widgets/action-list/split-button.html:13
 msgid "Toggle Dropdown"
 msgstr ""
 
@@ -112,7 +122,7 @@ msgstr ""
 #: static/framework/widgets/magic-search/hz-magic-search-bar.spec.js:35
 #: static/framework/widgets/magic-search/magic-overrides.directive.spec.js:50
 #: static/framework/widgets/magic-search/st-magic-search.directive.spec.js:54
-#: static/framework/widgets/modal/simple-modal.service.js:66
+#: static/framework/widgets/modal/simple-modal.service.js:82
 #: static/framework/widgets/wizard/wizard.module.js:47
 #: static/horizon/js/horizon.modals.js:33
 msgid "Cancel"
@@ -269,7 +279,7 @@ msgstr ""
 msgid "No existing metadata"
 msgstr ""
 
-#: static/framework/widgets/modal/simple-modal.service.js:65
+#: static/framework/widgets/modal/simple-modal.service.js:81
 msgid "Submit"
 msgstr ""
 

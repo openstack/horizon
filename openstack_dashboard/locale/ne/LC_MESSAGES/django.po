@@ -8,18 +8,17 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-10-14 02:35+0000\n"
+"POT-Creation-Date: 2015-10-22 08:58+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "PO-Revision-Date: 2015-09-08 11:14+0000\n"
 "Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
-"Language-Team: Nepali (http://www.transifex.com/openstack/horizon/language/"
-"ne/)\n"
-"Generated-By: Babel 2.0\n"
 "Language: ne\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Generated-By: Babel 2.0\n"
 "X-Generator: Zanata 3.7.1\n"
+"Language-Team: Nepali\n"
 
 #, python-format
 msgid ""
@@ -744,9 +743,6 @@ msgstr "अनुमतिप्राप्त होस्ट(वैकल्�
 
 msgid "Amount of energy"
 msgstr "ऊर्जा को मात्रा"
-
-msgid "An external (HTTP) URL to load the image from."
-msgstr "चित्र रूप लोड गर्नका लागि बाह्य (HTTP) URL"
 
 msgid "An external (HTTP) URL to load the template from."
 msgstr "बाट टेम्प्लेट लोड गर्नका लागि एउटा बाह्य (HTTP) URL"
@@ -1747,14 +1743,6 @@ msgstr "वर्तामान आकार(GB)"
 
 msgid "Current password"
 msgstr "वर्तमान पासवर्ड"
-
-msgid ""
-"Currently only images available via an HTTP URL are supported. The image "
-"location must be accessible to the Image Service. Compressed image binaries "
-"are supported (.zip and .tar.gz.)"
-msgstr ""
-"वर्तमान HTTP URL मा उपलब्ध चित्रहरूलाई मात्र सपोर्ट गर्छ। चित्रको स्थ्न चित्र सेवाले "
-"प्राप्त गर्न सक्ने हुनुपर्छ।खुम्चाइएको चित्र वाइनेरीहरूलाइ सपोर्ट गर्छ (.zip and .tar.gz.)"
 
 msgid "Custom ICMP Rule"
 msgstr "कस्टम ICMP  नियम"
@@ -3306,16 +3294,6 @@ msgstr ""
 "यदि कुनै पनि कन्टेनर नाम दिइएको छैन भने, भोल्युमबेकअप नाम गर्को डिफल्ट कन्टेनर तपाईको "
 "निम्ति उपलब्ध गराइन्छ। बेकअप भोल्युम सृजना भएको आकारजति नै हुन्छ"
 
-msgid ""
-"If you select an image via an HTTP URL, the Image Location field MUST be a "
-"valid and direct URL to the image binary; it must also be accessible to the "
-"Image Service. URLs that redirect or serve error pages will result in "
-"unusable images."
-msgstr ""
-"यदि तपाईँले HTTP URLमार्फत एउटा चित्र चयन गर्नुभयो भन, चित्र लोकेसन क्षेत्र बैध हुनैपर्छ "
-"अनि चित्र बाइनेरीमा सिधा URL; यो चित्र सेवाका लागि उपलब्ध पनि हुनुपर्छ। रिडाइरेक्ट हुने "
-"URL अनि पृष्ठहरूमा हुने त्रुटिका परिणामले कामनलाग्ने चित्रहरू बन्दछन्।"
-
 msgid "Image"
 msgstr "चित्र"
 
@@ -3380,13 +3358,6 @@ msgstr "चित्र सफलतापूर्वक अपडेट गर
 
 msgid "Images"
 msgstr "चित्रहरू"
-
-msgid ""
-"Images can be provided via an HTTP URL or be uploaded from your local file "
-"system. Compressed image binaries are supported (.zip and .tar.gz.)"
-msgstr ""
-"चित्रहरू HTTP URL  मार्फत प्रदान गर्न सकिन्छ वा तपाईँको लोकल फाइल सिस्टमबाट अपलोड "
-"गर्न सकिन्छ। कम्प्रेस गरिएका चित्र बाइनेरीहरू सपोर्ट गर्छ(.zip अनि .tar.gz.)"
 
 msgid "Import Key Pair"
 msgstr " चाबी जोडा आयात गर्नुहोस्"

@@ -16,7 +16,7 @@
 # Alberto Molina Coballes <alb.molina@gmail.com>, 2015. #zanata
 # Eduardo Gonzalez Gutierrez <dabarren@gmail.com>, 2015. #zanata
 # Gladys Guerrero <gguerrer@redhat.com>, 2015. #zanata
-# Marian T <marian.tort@gmail.com>, 2015. #zanata
+# Marian Tort <marian.tort@gmail.com>, 2015. #zanata
 # OpenStack Infra <zanata@openstack.org>, 2015. #zanata
 # Pedro Navarro Pérez <pednape@gmail.com>, 2015. #zanata
 # Veruska <reaching.out@gmail.com>, 2015. #zanata
@@ -24,18 +24,17 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-10-14 02:35+0000\n"
+"POT-Creation-Date: 2015-10-22 08:58+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "PO-Revision-Date: 2015-10-02 04:01+0000\n"
 "Last-Translator: Gladys Guerrero <gguerrer@redhat.com>\n"
-"Language-Team: Spanish (http://www.transifex.com/openstack/horizon/language/"
-"es/)\n"
-"Generated-By: Babel 2.0\n"
 "Language: es\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Generated-By: Babel 2.0\n"
 "X-Generator: Zanata 3.7.1\n"
+"Language-Team: Spanish\n"
 
 msgid ""
 "\n"
@@ -1254,9 +1253,6 @@ msgstr "Anfitrión permitido (opcional)"
 
 msgid "Amount of energy"
 msgstr "Cantidad de energía"
-
-msgid "An external (HTTP) URL to load the image from."
-msgstr "Una (HTTP) URL externa desde la que cargar la imagen."
 
 msgid "An external (HTTP) URL to load the template from."
 msgstr "Una URL externa (HTTP) a cargar desde la plantilla."
@@ -2690,15 +2686,6 @@ msgstr "Contraseña actual"
 
 msgid "Current type:"
 msgstr "Tipo actual:"
-
-msgid ""
-"Currently only images available via an HTTP URL are supported. The image "
-"location must be accessible to the Image Service. Compressed image binaries "
-"are supported (.zip and .tar.gz.)"
-msgstr ""
-"Actualmente sólo se es compatible con imágenes disponibles a través de una "
-"URL HTTP. El Servicio de imágenes debe poder acceder a la ubicación de la "
-"imagen. También son válidas las imágenes comprimidas (.zip y .tar.gz.)"
 
 msgid "Custom ICMP Rule"
 msgstr "Regla ICMP a medida"
@@ -5244,17 +5231,6 @@ msgstr ""
 "automáticamente durante la creación del clúster. De lo contrario, debe "
 "especificar manualmente los valores de configuración."
 
-msgid ""
-"If you select an image via an HTTP URL, the Image Location field MUST be a "
-"valid and direct URL to the image binary; it must also be accessible to the "
-"Image Service. URLs that redirect or serve error pages will result in "
-"unusable images."
-msgstr ""
-"Si selecciona una imagen a través de una URL HTTP, la ubicación de la imagen "
-"DEBE ser una URL válida y directa al binario con la imagen, además debe ser "
-"accesible para el Servicio de Imágenes. URLs que redireccionen o páginas de "
-"error producirán imágenes no utilizables."
-
 msgid "Image"
 msgstr "Imagen"
 
@@ -5338,14 +5314,6 @@ msgstr "La imagen se actualizó correctamente."
 
 msgid "Images"
 msgstr "Imágenes "
-
-msgid ""
-"Images can be provided via an HTTP URL or be uploaded from your local file "
-"system. Compressed image binaries are supported (.zip and .tar.gz.)"
-msgstr ""
-"Se pueden proporcionar imágenes a través de una URL HTTP o se pueden cargar "
-"desde el sistema de ficheros local. Los binarios con imágenes comprimidas "
-"están soportados (.zip y .tar.gz)."
 
 msgid "Implementation"
 msgstr "Implementación"
