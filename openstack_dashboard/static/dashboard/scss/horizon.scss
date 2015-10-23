@@ -577,11 +577,6 @@ td.loading {
     width: 1em;
   }
 
-  input {
-    padding: 2px 5px;
-    margin: 0;
-  }
-
   th span.required:after {
     content: "*";
     font-weight: bold;
@@ -888,11 +883,6 @@ th.multi_select_column, td.multi_select_column {
 
 .table-fixed {
   table-layout: fixed;
-}
-
-.table input[type="checkbox"] {
-  display: inline;
-  vertical-align: middle;
 }
 
 div.input input[type="checkbox"] {
