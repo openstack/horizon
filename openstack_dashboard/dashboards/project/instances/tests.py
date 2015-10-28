@@ -742,6 +742,7 @@ class InstanceTests(helpers.TestCase):
 
     @helpers.create_stubs({api.nova: ('server_lock',
                                       'server_list',
+                                      'flavor_list',
                                       'extension_supported',),
                            api.glance: ('image_list_detailed',),
                            api.network: ('servers_update_addresses',)})
@@ -753,6 +754,8 @@ class InstanceTests(helpers.TestCase):
             http.HttpRequest)).MultipleTimes().AndReturn(True)
         api.glance.image_list_detailed(IgnoreArg()).AndReturn((
             self.images.list(), False, False))
+        api.nova.flavor_list(IsA(http.HttpRequest)) \
+            .AndReturn(self.flavors.list())
         search_opts = {'marker': None, 'paginate': True}
         api.nova.server_list(
             IsA(http.HttpRequest),
@@ -769,6 +772,7 @@ class InstanceTests(helpers.TestCase):
 
     @helpers.create_stubs({api.nova: ('server_lock',
                                       'server_list',
+                                      'flavor_list',
                                       'extension_supported',),
                            api.glance: ('image_list_detailed',),
                            api.network: ('servers_update_addresses',)})
@@ -780,6 +784,8 @@ class InstanceTests(helpers.TestCase):
             http.HttpRequest)).MultipleTimes().AndReturn(True)
         api.glance.image_list_detailed(IgnoreArg()).AndReturn((
             self.images.list(), False, False))
+        api.nova.flavor_list(IsA(http.HttpRequest)) \
+            .AndReturn(self.flavors.list())
         search_opts = {'marker': None, 'paginate': True}
         api.nova.server_list(
             IsA(http.HttpRequest),
@@ -797,6 +803,7 @@ class InstanceTests(helpers.TestCase):
 
     @helpers.create_stubs({api.nova: ('server_unlock',
                                       'server_list',
+                                      'flavor_list',
                                       'extension_supported',),
                            api.glance: ('image_list_detailed',),
                            api.network: ('servers_update_addresses',)})
@@ -805,6 +812,8 @@ class InstanceTests(helpers.TestCase):
         server = servers[0]
         api.nova.extension_supported('AdminActions', IsA(
             http.HttpRequest)).MultipleTimes().AndReturn(True)
+        api.nova.flavor_list(IsA(http.HttpRequest)) \
+            .AndReturn(self.flavors.list())
         api.glance.image_list_detailed(IgnoreArg()).AndReturn((
             self.images.list(), False, False))
         search_opts = {'marker': None, 'paginate': True}
@@ -823,6 +832,7 @@ class InstanceTests(helpers.TestCase):
 
     @helpers.create_stubs({api.nova: ('server_unlock',
                                       'server_list',
+                                      'flavor_list',
                                       'extension_supported',),
                            api.glance: ('image_list_detailed',),
                            api.network: ('servers_update_addresses',)})
@@ -835,6 +845,8 @@ class InstanceTests(helpers.TestCase):
         api.glance.image_list_detailed(IgnoreArg()).AndReturn((
             self.images.list(), False, False))
         search_opts = {'marker': None, 'paginate': True}
+        api.nova.flavor_list(IsA(http.HttpRequest)) \
+            .AndReturn(self.flavors.list())
         api.nova.server_list(
             IsA(http.HttpRequest),
             search_opts=search_opts).AndReturn([servers, False])
