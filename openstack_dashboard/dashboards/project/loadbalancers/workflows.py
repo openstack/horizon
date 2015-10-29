@@ -37,7 +37,7 @@ class AddPoolAction(workflows.Action):
     description = forms.CharField(
         initial="", required=False,
         max_length=80, label=_("Description"))
-    # provider is optional because some LBaaS implemetation does
+    # provider is optional because some LBaaS implementation does
     # not support service-type extension.
     provider = forms.ChoiceField(label=_("Provider"), required=False)
     subnet_id = forms.ChoiceField(label=_("Subnet"))

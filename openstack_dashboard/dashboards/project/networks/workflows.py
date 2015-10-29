@@ -280,7 +280,7 @@ class CreateSubnetInfoAction(workflows.Action):
         address_source = cleaned_data.get('address_source')
 
         # When creating network from a pool it is allowed to supply empty
-        # subnetpool_id signalling that Neutron should choose the default
+        # subnetpool_id signaling that Neutron should choose the default
         # pool configured by the operator. This is also part of the IPv6
         # Prefix Delegation Workflow.
         if not cidr and address_source != 'subnetpool':

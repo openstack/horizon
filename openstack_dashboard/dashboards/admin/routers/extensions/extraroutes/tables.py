@@ -22,6 +22,6 @@ from openstack_dashboard.dashboards.project.routers.extensions.extraroutes\
 class AdminRouterRoutesTable(routes_table.ExtraRoutesTable):
 
     class Meta(object):
-        # Redifine Meta class to disable action (admin)
+        # Redefine Meta class to disable action (admin)
         name = "extra_routes"
         verbose_name = _("Static Routes")

@@ -107,7 +107,7 @@ class CreateVolumeTypeEncryption(forms.SelfHandlingForm):
             if data['cipher'] is u'':
                 data['cipher'] = None
 
-            # Create encyrption for the volume type
+            # Create encryption for the volume type
             volume_type = cinder.\
                 volume_encryption_type_create(request,
                                               data['volume_type_id'],

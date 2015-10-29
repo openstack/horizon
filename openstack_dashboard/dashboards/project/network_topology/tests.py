@@ -90,7 +90,7 @@ class NetworkTopologyTests(test.TestCase):
             for server in self.servers.list()]
         self.assertEqual(expect_server_urls, data['servers'])
 
-        # rotuers
+        # routers
         # result_router_urls = [(router['id'], router['url'])
         #                       for router in data['routers']]
         if router_enable:
