@@ -41,6 +41,12 @@
 
     var tests = [
       {
+        "func": "getVersion",
+        "method": "get",
+        "path": "/api/glance/version/",
+        "error": "Unable to get the Glance service version."
+      },
+      {
         "func": "getImage",
         "method": "get",
         "path": "/api/glance/images/42",
