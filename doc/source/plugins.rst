@@ -25,6 +25,8 @@ Horizon Plugin Registry
 +-----------------------+-----------------------------------------------------+
 |Group Based Policy UI  |https://github.com/openstack/group-based-policy-ui   |
 +-----------------------+-----------------------------------------------------+
+|Freezer Web UI         |https://github.com/openstack/freezer-web-ui          |
++-----------------------+-----------------------------------------------------+
 |Magnum UI              |http://github.com/openstack/magnum-ui                |
 +-----------------------+-----------------------------------------------------+
 |Manila UI              |http://github.com/openstack/manila-ui                |
@@ -38,6 +40,12 @@ Horizon Plugin Registry
 |Neutron LBaaS Dashboard|https://github.com/openstack/neutron-lbaas-dashboard |
 +-----------------------+-----------------------------------------------------+
 |Tacker UI              |https://github.com/openstack/tacker-horizon          |
++-----------------------+-----------------------------------------------------+
+|Senlin Dashboard       |https://github.com/openstack/senlin-dashboard        |
++-----------------------+-----------------------------------------------------+
+|Solum Dashboard        |https://github.com/openstack/solum-dashboard         |
++-----------------------+-----------------------------------------------------+
+|Sticks Dashboard       |https://github.com/openstack/sticks-dashboard        |
 +-----------------------+-----------------------------------------------------+
 |Tuskar UI              |http://github.com/openstack/tuskar-ui                |
 +-----------------------+-----------------------------------------------------+
