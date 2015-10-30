@@ -32,6 +32,7 @@
    */
   function glanceAPI(apiService, toastService) {
     var service = {
+      getVersion: getVersion,
       getImage: getImage,
       getImageProps: getImageProps,
       editImageProps: editImageProps,
@@ -42,6 +43,14 @@
     return service;
 
     ///////////////
+
+    // Version
+    function getVersion() {
+      return apiService.get('/api/glance/version/')
+        .error(function () {
+          toastService.add('error', gettext('Unable to get the Glance service version.'));
+        });
+    }
 
     // Images
 

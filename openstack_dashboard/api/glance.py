@@ -347,3 +347,7 @@ def metadefs_namespace_remove_resource_type(request,
                                             resource_type_name):
     glanceclient(request, '2').metadefs_resource_type.deassociate(
         namespace_name, resource_type_name)
+
+
+def get_version():
+    return VERSIONS.active

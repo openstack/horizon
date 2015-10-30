@@ -19,6 +19,18 @@ from openstack_dashboard.test import helpers as test
 
 
 class ImagesRestTestCase(test.TestCase):
+    #
+    # Version
+    #
+    @mock.patch.object(glance.api, 'glance')
+    def test_version_get(self, gc):
+        request = self.mock_rest_request()
+        gc.get_version.return_value = '2.0'
+        response = glance.Version().get(request)
+        self.assertStatusCode(response, 200)
+        self.assertEqual(response.json, {"version": "2.0"})
+        gc.get_version.assert_called_once_with()
+
     @mock.patch.object(glance.api, 'glance')
     def test_image_get_single(self, gc):
         request = self.mock_rest_request()
