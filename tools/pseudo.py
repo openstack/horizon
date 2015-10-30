@@ -28,7 +28,7 @@ def translate(segment):
     if segment.startswith('\n'):
         prefix = u"\n"
     orig_size = len(segment)
-    # Add extra expansion space based on recommenation from
+    # Add extra expansion space based on recommendation from
     # http://www-01.ibm.com/software/globalization/guidelines/a3.html
     if orig_size < 20:
         multiplier = 1

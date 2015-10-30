@@ -350,7 +350,7 @@ class SecurityGroupManager(network_base.SecurityGroupManager):
             # Exception, since the former is recognized as a
             # "recoverable" exception by horizon, and therefore the
             # error message is passed along to the end user, while
-            # Exception is swallowed alive by horizon and a gneric
+            # Exception is swallowed alive by horizon and a generic
             # error message is given to the end user
             raise nova_exceptions.ClientException(
                 err.code,

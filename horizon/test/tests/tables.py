@@ -988,7 +988,7 @@ class DataTableTests(test.TestCase):
                                  ['FakeObject: object_2'],
                                  transform=six.text_type)
 
-        # Ensure fitering respects the request method, e.g. no filter here
+        # Ensure filtering respects the request method, e.g. no filter here
         req = self.factory.get('/my_url/', {action_string: '2'})
         self.table = MyTable(req, TEST_DATA)
         handled = self.table.maybe_handle()
