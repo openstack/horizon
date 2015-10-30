@@ -9,6 +9,7 @@
 # Maxime COQUEREL <max.coquerel@gmail.com>, 2015
 # Corinne Verheyde <cverheyd@gmail.com>, 2015. #zanata
 # François Bureau <bureaufrancois@gmail.com>, 2015. #zanata
+# Gael Rehault <gael01@gmail.com>, 2015. #zanata
 # OpenStack Infra <zanata@openstack.org>, 2015. #zanata
 # Romain Chantereau <rchanter@redhat.com>, 2015. #zanata
 # andrew melim <nokostya.translation@gmail.com>, 2015. #zanata
@@ -20,8 +21,8 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2015-10-05 01:27+0000\n"
-"Last-Translator: François Bureau <bureaufrancois@gmail.com>\n"
+"PO-Revision-Date: 2015-10-27 11:09+0000\n"
+"Last-Translator: Gael Rehault <gael01@gmail.com>\n"
 "Language: fr\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 "Generated-By: Babel 2.0\n"
@@ -186,6 +187,9 @@ msgstr "Annuler"
 msgid "Cannot get service catalog from keystone."
 msgstr "Impossible d'obtenir le catalogue de services Keystone"
 
+msgid "Cannot get the extension list."
+msgstr "Impossible d'obtenir la liste des extensions."
+
 msgid ""
 "Check the <b>Configuration Drive</b> box if you want to write metadata to a "
 "special configuration drive. When the instance boots, it attaches to the "
@@ -298,6 +302,9 @@ msgstr "Gabarit"
 
 msgid "Flavor Help"
 msgstr "Aide Gabarits"
+
+msgid "Flavor Name"
+msgstr "Nom du Gabarit"
 
 msgid ""
 "Flavors manage the sizing for the compute, memory and storage capacity of "
@@ -478,6 +485,9 @@ msgstr "Type de mappage"
 
 msgid "Max Port"
 msgstr "Port Max"
+
+msgid "Metadata"
+msgstr "Métadonnées"
 
 msgid "Min Disk"
 msgstr "Disque Min"
@@ -748,6 +758,9 @@ msgstr "La paire de clés %(name)s est maintenant créée."
 #, python-format
 msgid "Successfully imported key pair %(name)s."
 msgstr "La paire de clés %(name)s a été importée avec succès."
+
+msgid "Swap Disk"
+msgstr "Disque d'échange"
 
 msgid ""
 "The flavor you select for an instance determines the amount of compute, "
@@ -1070,6 +1083,9 @@ msgstr "Nom d'utilisateur"
 
 msgid "VCPUS"
 msgstr "VCPUS"
+
+msgid "VCPUs"
+msgstr "VCPUs"
 
 msgid "Value Type"
 msgstr "Type de valeur"
