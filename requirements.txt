@@ -12,7 +12,7 @@ pbr>=1.6
 Babel>=1.3
 Django<1.9,>=1.7
 Pint>=0.5 # BSD
-django-babel>=0.3.4
+django-babel>=0.4.0
 django-compressor>=1.4
 django-openstack-auth>=2.0.0
 django-pyscss>=2.0.2 # BSD License (2 clause)
@@ -22,10 +22,10 @@ iso8601>=0.1.9
 kombu>=3.0.7
 netaddr!=0.7.16,>=0.7.12
 oslo.concurrency>=2.3.0 # Apache-2.0
-oslo.config>=2.3.0 # Apache-2.0
+oslo.config>=2.6.0 # Apache-2.0
 oslo.i18n>=1.5.0 # Apache-2.0
 oslo.policy>=0.5.0 # Apache-2.0
-oslo.serialization>=1.4.0 # Apache-2.0
+oslo.serialization>=1.10.0 # Apache-2.0
 oslo.utils!=2.6.0,>=2.4.0 # Apache-2.0
 pyScss>=1.3.4 # MIT License
 python-ceilometerclient>=1.5.0
@@ -34,7 +34,7 @@ python-glanceclient>=0.18.0
 python-heatclient>=0.6.0
 python-keystoneclient!=1.8.0,>=1.6.0
 python-neutronclient>=2.6.0
-python-novaclient>=2.29.0
+python-novaclient!=2.33.0,>=2.29.0
 python-saharaclient>=0.10.0
 python-swiftclient>=2.2.0
 python-troveclient>=1.2.0
