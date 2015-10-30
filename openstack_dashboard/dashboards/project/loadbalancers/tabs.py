@@ -12,14 +12,12 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
-
 from django.utils.translation import ugettext_lazy as _
 
 from horizon import exceptions
 from horizon import tabs
 
 from openstack_dashboard import api
-
 from openstack_dashboard.dashboards.project.loadbalancers import tables
 
 
@@ -109,18 +107,7 @@ class VipDetailsTab(tabs.Tab):
     template_name = "project/loadbalancers/_vip_details.html"
 
     def get_context_data(self, request):
-        vid = self.tab_group.kwargs['vip_id']
-        vip = []
-        try:
-            vip = api.lbaas.vip_get(request, vid)
-            fips = api.network.tenant_floating_ip_list(self.tab_group.request)
-            vip_fip = [fip for fip in fips
-                       if fip.port_id == vip.port.id]
-            if vip_fip:
-                vip.fip = vip_fip[0]
-        except Exception:
-            exceptions.handle(self.tab_group.request,
-                              _('Unable to retrieve VIP details.'))
+        vip = self.tab_group.kwargs['vip']
         return {'vip': vip}
 
 

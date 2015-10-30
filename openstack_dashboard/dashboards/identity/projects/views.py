@@ -18,12 +18,12 @@
 
 from django.core.urlresolvers import reverse
 from django.utils.translation import ugettext_lazy as _
-from django.views import generic
 
 from horizon import exceptions
 from horizon import messages
 from horizon import tables
 from horizon.utils import memoized
+from horizon import views
 from horizon import workflows
 
 from openstack_dashboard import api
@@ -206,15 +206,15 @@ class UpdateProjectView(workflows.WorkflowView):
         return initial
 
 
-class DetailProjectView(generic.TemplateView):
+class DetailProjectView(views.HorizonTemplateView):
     template_name = 'identity/projects/detail.html'
+    page_title = "{{ project.name }}"
 
     def get_context_data(self, **kwargs):
         context = super(DetailProjectView, self).get_context_data(**kwargs)
         project = self.get_data()
         table = project_tables.TenantsTable(self.request)
         context["project"] = project
-        context["page_title"] = _("Project Details: %s") % project.name
         context["url"] = reverse(INDEX_URL)
         context["actions"] = table.render_row_actions(project)
         return context

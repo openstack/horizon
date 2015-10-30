@@ -1,11 +1,18 @@
 {% extends 'base.html' %}
 {% load i18n %}
+{% load breadcrumb_nav %}
 {% block title %}{% trans "Hypervisor Servers" %}{% endblock %}
 
-{% block main %}
-<div class="row">
-  <div class="col-sm-12">
-  {{ table.render }}
+{% block page_header %}
+  <div class='page-header'>
+    {% breadcrumb_nav %}
   </div>
-</div>
+{% endblock %}
+
+{% block main %}
+  <div class="row">
+    <div class="col-sm-12">
+    {{ table.render }}
+    </div>
+  </div>
 {% endblock %}
