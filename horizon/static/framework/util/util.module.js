@@ -8,6 +8,7 @@
       'horizon.framework.util.http',
       'horizon.framework.util.i18n',
       'horizon.framework.util.promise-toggle',
+      'horizon.framework.util.q',
       'horizon.framework.util.tech-debt',
       'horizon.framework.util.workflow',
       'horizon.framework.util.validators',
