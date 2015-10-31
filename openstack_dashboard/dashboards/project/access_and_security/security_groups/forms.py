@@ -216,7 +216,8 @@ class AddRule(forms.SelfHandlingForm):
                          required=False,
                          initial="0.0.0.0/0",
                          help_text=_("Classless Inter-Domain Routing "
-                                     "(e.g. 192.168.0.0/24)"),
+                                     "(e.g. 192.168.0.0/24, or "
+                                     "2001:db8::/128)"),
                          version=forms.IPv4 | forms.IPv6,
                          mask=True,
                          widget=forms.TextInput(
