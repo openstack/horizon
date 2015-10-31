@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-10-23 06:36+0000\n"
+"POT-Creation-Date: 2015-10-31 06:37+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -1091,23 +1091,27 @@ msgstr ""
 msgid "Cannot get the extension list."
 msgstr ""
 
-#: static/app/core/openstack-service-api/glance.service.js:58
+#: static/app/core/openstack-service-api/glance.service.js:51
+msgid "Unable to get the Glance service version."
+msgstr ""
+
+#: static/app/core/openstack-service-api/glance.service.js:67
 msgid "Unable to retrieve the image."
 msgstr ""
 
-#: static/app/core/openstack-service-api/glance.service.js:71
+#: static/app/core/openstack-service-api/glance.service.js:80
 msgid "Unable to retrieve the image custom properties."
 msgstr ""
 
-#: static/app/core/openstack-service-api/glance.service.js:92
+#: static/app/core/openstack-service-api/glance.service.js:101
 msgid "Unable to edit the image custom properties."
 msgstr ""
 
-#: static/app/core/openstack-service-api/glance.service.js:134
+#: static/app/core/openstack-service-api/glance.service.js:143
 msgid "Unable to retrieve the images."
 msgstr ""
 
-#: static/app/core/openstack-service-api/glance.service.js:197
+#: static/app/core/openstack-service-api/glance.service.js:206
 msgid "Unable to retrieve the namespaces."
 msgstr ""
 
