@@ -14,6 +14,7 @@ import copy
 
 from django.utils.functional import empty  # noqa
 from django.utils.functional import LazyObject  # noqa
+from django.utils.functional import SimpleLazyObject  # noqa
 
 
 class LazySettings(LazyObject):
@@ -44,4 +45,11 @@ class LazySettings(LazyObject):
             self._setup(name)
         return self._wrapped.get(name, fallback)
 
+
+def get_webroot():
+    from django.conf import settings
+    return settings.WEBROOT
+
+
 HORIZON_CONFIG = LazySettings()
+WEBROOT = SimpleLazyObject(get_webroot)
