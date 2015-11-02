@@ -181,11 +181,6 @@ virtualenv and installs all the necessary packages.
 If dependencies are added to either ``horizon`` or ``openstack_dashboard``,
 they should be added to ``requirements.txt``.
 
-  .. important::
-
-    If you do anything which changes the environment (adding new dependencies
-    or renaming directories are both great examples) be sure to increment the
-    ``environment_version`` counter in :doc:`run_tests.sh <ref/run_tests>`.
 
 Project
 =======
