@@ -13,11 +13,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-10-22 08:58+0000\n"
+"POT-Creation-Date: 2015-11-02 22:10+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2015-10-06 02:02+0000\n"
+"PO-Revision-Date: 2015-11-02 09:58+0000\n"
 "Last-Translator: Zhang Xiaowei <zero00072@gmail.com>\n"
 "Language: zh-TW\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
@@ -47,6 +47,12 @@ msgstr "%s 位元組"
 
 msgid "-"
 msgstr "-"
+
+msgid "0 GB"
+msgstr "0 GB"
+
+msgid "0 MB"
+msgstr "0 MB"
 
 msgid "Active"
 msgstr "使用中"
@@ -336,6 +342,9 @@ msgstr "與伺服器間的通訊有問題，請再試一次。"
 
 msgid "There was an error submitting the form. Please try again."
 msgstr "提交表單時有錯誤。請再試一次。"
+
+msgid "Toggle Dropdown"
+msgstr "切換下拉式選單"
 
 msgid "Total"
 msgstr "總共"

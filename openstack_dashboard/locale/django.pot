@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-10-23 06:35+0000\n"
+"POT-Creation-Date: 2015-11-03 06:37+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -7314,7 +7314,7 @@ msgstr ""
 #: dashboards/admin/networks/subnets/tables.py:94
 #: dashboards/project/access_and_security/security_groups/forms.py:203
 #: dashboards/project/access_and_security/security_groups/forms.py:215
-#: dashboards/project/access_and_security/security_groups/forms.py:225
+#: dashboards/project/access_and_security/security_groups/forms.py:226
 #: dashboards/project/networks/templates/networks/subnets/_detail_overview.html:25
 msgid "CIDR"
 msgstr ""
@@ -9858,8 +9858,8 @@ msgid "Remote"
 msgstr ""
 
 #: dashboards/project/access_and_security/security_groups/forms.py:204
-#: dashboards/project/access_and_security/security_groups/forms.py:227
-#: dashboards/project/access_and_security/security_groups/forms.py:232
+#: dashboards/project/access_and_security/security_groups/forms.py:228
+#: dashboards/project/access_and_security/security_groups/forms.py:233
 msgid "Security Group"
 msgstr ""
 
@@ -9871,99 +9871,99 @@ msgid ""
 msgstr ""
 
 #: dashboards/project/access_and_security/security_groups/forms.py:218
-msgid "Classless Inter-Domain Routing (e.g. 192.168.0.0/24)"
+msgid "Classless Inter-Domain Routing (e.g. 192.168.0.0/24, or 2001:db8::/128)"
 msgstr ""
 
-#: dashboards/project/access_and_security/security_groups/forms.py:236
-#: dashboards/project/access_and_security/security_groups/forms.py:244
+#: dashboards/project/access_and_security/security_groups/forms.py:237
+#: dashboards/project/access_and_security/security_groups/forms.py:245
 #: dashboards/project/access_and_security/security_groups/tables.py:268
 msgid "Ether Type"
 msgstr ""
 
-#: dashboards/project/access_and_security/security_groups/forms.py:238
+#: dashboards/project/access_and_security/security_groups/forms.py:239
 #: dashboards/project/vpn/templates/vpn/_vpnservice_details.html:50
 msgid "IPv4"
 msgstr ""
 
-#: dashboards/project/access_and_security/security_groups/forms.py:239
+#: dashboards/project/access_and_security/security_groups/forms.py:240
 #: dashboards/project/vpn/templates/vpn/_vpnservice_details.html:52
 msgid "IPv6"
 msgstr ""
 
-#: dashboards/project/access_and_security/security_groups/forms.py:254
+#: dashboards/project/access_and_security/security_groups/forms.py:255
 msgid "No security groups available"
 msgstr ""
 
-#: dashboards/project/access_and_security/security_groups/forms.py:264
+#: dashboards/project/access_and_security/security_groups/forms.py:265
 msgid "Custom TCP Rule"
 msgstr ""
 
-#: dashboards/project/access_and_security/security_groups/forms.py:265
+#: dashboards/project/access_and_security/security_groups/forms.py:266
 msgid "Custom UDP Rule"
 msgstr ""
 
-#: dashboards/project/access_and_security/security_groups/forms.py:266
+#: dashboards/project/access_and_security/security_groups/forms.py:267
 msgid "Custom ICMP Rule"
 msgstr ""
 
-#: dashboards/project/access_and_security/security_groups/forms.py:268
+#: dashboards/project/access_and_security/security_groups/forms.py:269
 msgid "Other Protocol"
 msgstr ""
 
-#: dashboards/project/access_and_security/security_groups/forms.py:273
+#: dashboards/project/access_and_security/security_groups/forms.py:274
 #: dashboards/project/access_and_security/security_groups/tables.py:239
 msgid "Ingress"
 msgstr ""
 
-#: dashboards/project/access_and_security/security_groups/forms.py:274
+#: dashboards/project/access_and_security/security_groups/forms.py:275
 #: dashboards/project/access_and_security/security_groups/tables.py:241
 msgid "Egress"
 msgstr ""
 
-#: dashboards/project/access_and_security/security_groups/forms.py:293
+#: dashboards/project/access_and_security/security_groups/forms.py:294
 msgid "The ICMP type is invalid."
 msgstr ""
 
-#: dashboards/project/access_and_security/security_groups/forms.py:296
+#: dashboards/project/access_and_security/security_groups/forms.py:297
 msgid "The ICMP code is invalid."
 msgstr ""
 
-#: dashboards/project/access_and_security/security_groups/forms.py:299
+#: dashboards/project/access_and_security/security_groups/forms.py:300
 msgid "The ICMP type not in range (-1, 255)"
 msgstr ""
 
-#: dashboards/project/access_and_security/security_groups/forms.py:302
+#: dashboards/project/access_and_security/security_groups/forms.py:303
 msgid "The ICMP code not in range (-1, 255)"
 msgstr ""
 
-#: dashboards/project/access_and_security/security_groups/forms.py:321
+#: dashboards/project/access_and_security/security_groups/forms.py:322
 msgid "The specified port is invalid."
 msgstr ""
 
-#: dashboards/project/access_and_security/security_groups/forms.py:326
+#: dashboards/project/access_and_security/security_groups/forms.py:327
 msgid "The \"from\" port number is invalid."
 msgstr ""
 
-#: dashboards/project/access_and_security/security_groups/forms.py:329
+#: dashboards/project/access_and_security/security_groups/forms.py:330
 msgid "The \"to\" port number is invalid."
 msgstr ""
 
-#: dashboards/project/access_and_security/security_groups/forms.py:332
+#: dashboards/project/access_and_security/security_groups/forms.py:333
 msgid ""
 "The \"to\" port number must be greater than or equal to the \"from\" port"
 " number."
 msgstr ""
 
-#: dashboards/project/access_and_security/security_groups/forms.py:381
+#: dashboards/project/access_and_security/security_groups/forms.py:382
 msgid "CIDR must be specified."
 msgstr ""
 
-#: dashboards/project/access_and_security/security_groups/forms.py:404
+#: dashboards/project/access_and_security/security_groups/forms.py:405
 #, python-format
 msgid "Successfully added rule: %s"
 msgstr ""
 
-#: dashboards/project/access_and_security/security_groups/forms.py:411
+#: dashboards/project/access_and_security/security_groups/forms.py:412
 msgid "Unable to add rule to security group."
 msgstr ""
 
