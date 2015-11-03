@@ -51,7 +51,8 @@
       return {
         aggregate: nova.getAggregateExtraSpecs,
         flavor: nova.getFlavorExtraSpecs,
-        image: glance.getImageProps
+        image: glance.getImageProps,
+        instance: nova.getInstanceMetadata
       }[resource](id);
     }
 
@@ -67,7 +68,8 @@
       return {
         aggregate: nova.editAggregateExtraSpecs,
         flavor: nova.editFlavorExtraSpecs,
-        image: glance.editImageProps
+        image: glance.editImageProps,
+        instance: nova.editInstanceMetadata
       }[resource](id, updated, removed);
     }
 
@@ -81,7 +83,8 @@
         resource_type: {
           aggregate: 'OS::Nova::Aggregate',
           flavor: 'OS::Nova::Flavor',
-          image: 'OS::Glance::Image'
+          image: 'OS::Glance::Image',
+          instance: 'OS::Nova::Instance'
         }[resource]
       }, false);
     }

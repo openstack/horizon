@@ -23,7 +23,9 @@
     var nova = {getAggregateExtraSpecs: function() {},
                 getFlavorExtraSpecs: function() {},
                 editAggregateExtraSpecs: function() {},
-                editFlavorExtraSpecs: function() {} };
+                editFlavorExtraSpecs: function() {},
+                getInstanceMetadata: function() {},
+                editInstanceMetadata: function() {} };
 
     var glance = {getImageProps: function() {},
                   editImageProps: function() {},
@@ -100,6 +102,26 @@
       metadataService.getNamespaces('image');
       expect(glance.getNamespaces)
       .toHaveBeenCalledWith({ resource_type: 'OS::Glance::Image' }, false);
+    });
+
+    it('should get instance metadata', function() {
+      var expected = 'instance metadata';
+      spyOn(nova, 'getInstanceMetadata').and.returnValue(expected);
+      var actual = metadataService.getMetadata('instance', '1');
+      expect(actual).toBe(expected);
+    });
+
+    it('should edit instance metadata', function() {
+      spyOn(nova, 'editInstanceMetadata');
+      metadataService.editMetadata('instance', '1', 'updated', ['removed']);
+      expect(nova.editInstanceMetadata).toHaveBeenCalledWith('1', 'updated', ['removed']);
+    });
+
+    it('should get instance namespace', function() {
+      spyOn(glance, 'getNamespaces');
+      metadataService.getNamespaces('instance');
+      expect(glance.getNamespaces)
+      .toHaveBeenCalledWith({ resource_type: 'OS::Nova::Instance' }, false);
     });
 
   });

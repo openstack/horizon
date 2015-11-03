@@ -720,6 +720,14 @@ def server_unlock(request, instance_id):
     novaclient(request).servers.unlock(instance_id)
 
 
+def server_metadata_update(request, instance_id, metadata):
+    novaclient(request).servers.set_meta(instance_id, metadata)
+
+
+def server_metadata_delete(request, instance_id, keys):
+    novaclient(request).servers.delete_meta(instance_id, keys)
+
+
 def tenant_quota_get(request, tenant_id):
     return base.QuotaSet(novaclient(request).quotas.get(tenant_id))
 

@@ -719,6 +719,29 @@ class SimpleDisassociateIP(policy.PolicyTargetMixin, tables.Action):
         return shortcuts.redirect(request.get_full_path())
 
 
+class UpdateMetadata(policy.PolicyTargetMixin, tables.LinkAction):
+    name = "update_metadata"
+    verbose_name = _("Update Metadata")
+    ajax = False
+    icon = "pencil"
+    attrs = {"ng-controller": "MetadataModalHelperController as modal"}
+    policy_rules = (("compute", "compute:update_instance_metadata"),)
+
+    def __init__(self, attrs=None, **kwargs):
+        kwargs['preempt'] = True
+        super(UpdateMetadata, self).__init__(attrs, **kwargs)
+
+    def get_link_url(self, datum):
+        instance_id = self.table.get_object_id(datum)
+        self.attrs['ng-click'] = (
+            "modal.openMetadataModal('instance', '%s', true)" % instance_id)
+        return "javascript:void(0);"
+
+    def allowed(self, request, instance=None):
+        return (instance and
+                instance.status.lower() != 'error')
+
+
 def instance_fault_to_friendly_message(instance):
     fault = getattr(instance, 'fault', {})
     message = fault.get('message', _("Unknown"))
@@ -1177,7 +1200,7 @@ class InstancesTable(tables.DataTable):
         row_actions = (StartInstance, ConfirmResize, RevertResize,
                        CreateSnapshot, SimpleAssociateIP, AssociateIP,
                        SimpleDisassociateIP, AttachInterface,
-                       DetachInterface, EditInstance,
+                       DetachInterface, EditInstance, UpdateMetadata,
                        DecryptInstancePassword, EditInstanceSecurityGroups,
                        ConsoleLink, LogLink, TogglePause, ToggleSuspend,
                        ToggleShelve, ResizeLink, LockInstance, UnlockInstance,
