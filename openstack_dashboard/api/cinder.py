@@ -485,6 +485,7 @@ def volume_type_update(request, volume_type_id, name=None, description=None):
                                                      description)
 
 
+@memoized
 def volume_type_default(request):
     return cinderclient(request).volume_types.default()
 

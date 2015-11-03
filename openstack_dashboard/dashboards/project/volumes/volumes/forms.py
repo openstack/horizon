@@ -268,6 +268,10 @@ class CreateForm(forms.SelfHandlingForm):
         self.fields['type'].choices = [("no_type", _("No volume type"))] + \
                                       [(type.name, type.name)
                                        for type in volume_types]
+        if 'initial' in kwargs and 'type' in kwargs['initial']:
+            # if there is a default volume type to select, then remove
+            # the first ""No volume type" entry
+            self.fields['type'].choices.pop(0)
 
         if "snapshot_id" in request.GET:
             self.prepare_source_fields_if_snapshot_specified(request)
