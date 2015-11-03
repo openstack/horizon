@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-10-22 08:58+0000\n"
+"POT-Creation-Date: 2015-11-02 22:10+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -1822,9 +1822,6 @@ msgstr "Wolumeny Cinder"
 
 msgid "Cipher"
 msgstr "Szyfr"
-
-msgid "Classless Inter-Domain Routing (e.g. 192.168.0.0/24)"
-msgstr "Classless Inter-Domain Routing (np. 192.168.0.0/24)"
 
 msgid "Clear Domain Context"
 msgstr "Wyczyść kontekst domeny"
