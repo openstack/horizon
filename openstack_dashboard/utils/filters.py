@@ -27,3 +27,19 @@ def get_int_or_uuid(value):
         return value
     except (ValueError, AttributeError):
         return int(value)
+
+
+def get_display_label(choices, status):
+    """This method is used in places where a resource's status or
+    admin state labels need to assigned before they are sent to the
+    view template.
+    """
+
+    for (value, label) in choices:
+        if value == (status or '').lower():
+            display_label = label
+            break
+    else:
+        display_label = status
+
+    return display_label

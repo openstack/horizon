@@ -203,8 +203,8 @@ class RoutersTable(tables.DataTable):
         ("error", pgettext_lazy("current status of router", u"Error")),
     )
     ADMIN_STATE_DISPLAY_CHOICES = (
-        ("UP", pgettext_lazy("Admin state of a Router", u"UP")),
-        ("DOWN", pgettext_lazy("Admin state of a Router", u"DOWN")),
+        ("up", pgettext_lazy("Admin state of a Router", u"UP")),
+        ("down", pgettext_lazy("Admin state of a Router", u"DOWN")),
     )
 
     name = tables.Column("name",
