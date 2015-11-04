@@ -10,6 +10,7 @@
 .noseids
 .DS_STORE
 coverage.xml
+coverage-karma
 nosetests.xml
 pep8.txt
 pylint.txt
