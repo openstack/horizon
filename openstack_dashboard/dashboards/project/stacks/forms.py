@@ -139,17 +139,18 @@ class TemplateForm(forms.SelfHandlingForm):
 
         # Validate the template and get back the params.
         kwargs = {}
-        if cleaned['template_data']:
-            kwargs['template'] = cleaned['template_data']
-        else:
-            kwargs['template_url'] = cleaned['template_url']
-
         if cleaned['environment_data']:
             kwargs['environment'] = cleaned['environment_data']
-
         try:
+            files, tpl =\
+                api.heat.get_template_files(cleaned.get('template_data'),
+                                            cleaned.get('template_url'))
+            kwargs['files'] = files
+            kwargs['template'] = tpl
             validated = api.heat.template_validate(self.request, **kwargs)
             cleaned['template_validate'] = validated
+            cleaned['template_validate']['files'] = files
+            cleaned['template_validate']['template'] = tpl
         except Exception as e:
             raise forms.ValidationError(six.text_type(e))
 
@@ -209,9 +210,7 @@ class TemplateForm(forms.SelfHandlingForm):
 
     def create_kwargs(self, data):
         kwargs = {'parameters': data['template_validate'],
-                  'environment_data': data['environment_data'],
-                  'template_data': data['template_data'],
-                  'template_url': data['template_url']}
+                  'environment_data': data['environment_data']}
         if data.get('stack_id'):
             kwargs['stack_id'] = data['stack_id']
         return kwargs
@@ -250,12 +249,6 @@ class CreateStackForm(forms.SelfHandlingForm):
     class Meta(object):
         name = _('Create Stack')
 
-    template_data = forms.CharField(
-        widget=forms.widgets.HiddenInput,
-        required=False)
-    template_url = forms.CharField(
-        widget=forms.widgets.HiddenInput,
-        required=False)
     environment_data = forms.CharField(
         widget=forms.widgets.HiddenInput,
         required=False)
@@ -375,14 +368,11 @@ class CreateStackForm(forms.SelfHandlingForm):
             'timeout_mins': data.get('timeout_mins'),
             'disable_rollback': not(data.get('enable_rollback')),
             'parameters': dict(params_list),
+            'files': json.loads(data.get('parameters')).get('files'),
+            'template': json.loads(data.get('parameters')).get('template')
         }
         if data.get('password'):
             fields['password'] = data.get('password')
-
-        if data.get('template_data'):
-            fields['template'] = data.get('template_data')
-        else:
-            fields['template_url'] = data.get('template_url')
 
         if data.get('environment_data'):
             fields['environment'] = data.get('environment_data')
@@ -430,18 +420,11 @@ class EditStackForm(CreateStackForm):
             'timeout_mins': data.get('timeout_mins'),
             'disable_rollback': not(data.get('enable_rollback')),
             'parameters': dict(params_list),
+            'files': json.loads(data.get('parameters')).get('files'),
+            'template': json.loads(data.get('parameters')).get('template')
         }
         if data.get('password'):
             fields['password'] = data.get('password')
-
-        # if the user went directly to this form, resubmit the existing
-        # template data. otherwise, submit what they had from the first form
-        if data.get('template_data'):
-            fields['template'] = data.get('template_data')
-        elif data.get('template_url'):
-            fields['template_url'] = data.get('template_url')
-        elif data.get('parameters'):
-            fields['template'] = data.get('parameters')
 
         try:
             api.heat.stack_update(self.request, stack_id=stack_id, **fields)
@@ -469,12 +452,9 @@ class PreviewStackForm(CreateStackForm):
             'timeout_mins': data.get('timeout_mins'),
             'disable_rollback': not(data.get('enable_rollback')),
             'parameters': dict(params_list),
+            'files': json.loads(data.get('parameters')).get('files'),
+            'template': json.loads(data.get('parameters')).get('template')
         }
-
-        if data.get('template_data'):
-            fields['template'] = data.get('template_data')
-        else:
-            fields['template_url'] = data.get('template_url')
 
         if data.get('environment_data'):
             fields['environment'] = data.get('environment_data')

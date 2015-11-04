@@ -24,6 +24,7 @@ from django.utils import html
 from mox3.mox import IsA  # noqa
 import six
 
+from heatclient.common import template_format as hc_format
 from openstack_dashboard import api
 from openstack_dashboard.test import helpers as test
 
@@ -230,16 +231,18 @@ class StackTests(test.TestCase):
         stack = self.stacks.first()
 
         api.heat.template_validate(IsA(http.HttpRequest),
-                                   template=template.data) \
+                                   files={},
+                                   template=hc_format.parse(template.data)) \
            .AndReturn(json.loads(template.validate))
 
         api.heat.stack_create(IsA(http.HttpRequest),
                               stack_name=stack.stack_name,
                               timeout_mins=60,
                               disable_rollback=True,
-                              template=template.data,
+                              template=None,
                               parameters=IsA(dict),
-                              password='password')
+                              password='password',
+                              files=None)
         api.neutron.network_list_for_tenant(IsA(http.HttpRequest),
                                             self.tenant.id) \
             .AndReturn(self.networks.list())
@@ -287,7 +290,8 @@ class StackTests(test.TestCase):
         stack = self.stacks.first()
 
         api.heat.template_validate(IsA(http.HttpRequest),
-                                   template=template.data,
+                                   files={},
+                                   template=hc_format.parse(template.data),
                                    environment=environment.data) \
            .AndReturn(json.loads(template.validate))
 
@@ -295,10 +299,11 @@ class StackTests(test.TestCase):
                               stack_name=stack.stack_name,
                               timeout_mins=60,
                               disable_rollback=True,
-                              template=template.data,
+                              template=None,
                               environment=environment.data,
                               parameters=IsA(dict),
-                              password='password')
+                              password='password',
+                              files=None)
         api.neutron.network_list_for_tenant(IsA(http.HttpRequest),
                                             self.tenant.id) \
             .AndReturn(self.networks.list())
@@ -371,7 +376,8 @@ class StackTests(test.TestCase):
             }
         }
         api.heat.template_validate(IsA(http.HttpRequest),
-                                   template=template['data']) \
+                                   files={},
+                                   template=hc_format.parse(template['data'])) \
            .AndReturn(template['validate'])
 
         self.mox.ReplayAll()
@@ -448,7 +454,8 @@ class StackTests(test.TestCase):
             }
         }
         api.heat.template_validate(IsA(http.HttpRequest),
-                                   template=template['data']) \
+                                   files={},
+                                   template=hc_format.parse(template['data'])) \
            .AndReturn(template['validate'])
 
         self.mox.ReplayAll()
@@ -522,20 +529,22 @@ class StackTests(test.TestCase):
         stack = self.stacks.first()
 
         api.heat.template_validate(IsA(http.HttpRequest),
-                                   template=template['data']) \
+                                   files={},
+                                   template=hc_format.parse(template['data'])) \
            .AndReturn(template['validate'])
 
         api.heat.stack_create(IsA(http.HttpRequest),
                               stack_name=stack.stack_name,
                               timeout_mins=60,
                               disable_rollback=True,
-                              template=template['data'],
+                              template=hc_format.parse(template['data']),
                               parameters={'param1': 'some string',
                                           'param2': 42,
                                           'param3': '{"key": "value"}',
                                           'param4': 'a,b,c',
                                           'param5': True},
-                              password='password')
+                              password='password',
+                              files={})
 
         self.mox.ReplayAll()
 
@@ -612,7 +621,8 @@ class StackTests(test.TestCase):
                            stack.id).AndReturn(stack)
         # POST template form, validation
         api.heat.template_validate(IsA(http.HttpRequest),
-                                   template=template.data) \
+                                   files={},
+                                   template=hc_format.parse(template.data)) \
            .AndReturn(json.loads(template.validate))
 
         # GET to edit form
@@ -631,8 +641,9 @@ class StackTests(test.TestCase):
             'disable_rollback': True,
             'timeout_mins': 61,
             'password': 'password',
-            'template': IsA(six.text_type),
-            'parameters': IsA(dict)
+            'template': None,
+            'parameters': IsA(dict),
+            'files': None
         }
         api.heat.stack_update(IsA(http.HttpRequest),
                               stack_id=stack.id,
@@ -755,15 +766,17 @@ class StackTests(test.TestCase):
         stack = self.stacks.first()
 
         api.heat.template_validate(IsA(http.HttpRequest),
-                                   template=template.data) \
+                                   files={},
+                                   template=hc_format.parse(template.data)) \
            .AndReturn(json.loads(template.validate))
 
         api.heat.stack_preview(IsA(http.HttpRequest),
                                stack_name=stack.stack_name,
                                timeout_mins=60,
                                disable_rollback=True,
-                               template=template.data,
-                               parameters=IsA(dict)).AndReturn(stack)
+                               template=None,
+                               parameters=IsA(dict),
+                               files=None).AndReturn(stack)
 
         self.mox.ReplayAll()
 

@@ -170,6 +170,26 @@ class AlreadyExists(HorizonException):
         return self.msg % self.attrs
 
 
+@six.python_2_unicode_compatible
+class GetFileError(HorizonException):
+    """Exception to be raised when the value of get_file did not start with
+    https:// or http://
+    """
+    def __init__(self, name, resource_type):
+        self.attrs = {"name": name, "resource": resource_type}
+        self.msg = _('The value of %(resource)s is %(name)s inside the '
+                     'template. When launching a stack from this interface,'
+                     ' the value must start with "http://" or "https://"')
+
+    def __repr__(self):
+        return '<%s name=%r resource_type=%r>' % (self.__class__.__name__,
+                                                  self.attrs['name'],
+                                                  self.attrs['resource_type'])
+
+    def __str__(self):
+        return self.msg % self.attrs
+
+
 class ConfigurationError(HorizonException):
     """Exception to be raised when invalid settings have been provided."""
     pass
@@ -203,6 +223,7 @@ class HandledException(HorizonException):
 UNAUTHORIZED = tuple(HORIZON_CONFIG['exceptions']['unauthorized'])
 UNAUTHORIZED += (NotAuthorized,)
 NOT_FOUND = tuple(HORIZON_CONFIG['exceptions']['not_found'])
+NOT_FOUND += (GetFileError,)
 RECOVERABLE = (AlreadyExists, Conflict, NotAvailable, ServiceCatalogException)
 RECOVERABLE += tuple(HORIZON_CONFIG['exceptions']['recoverable'])
 
