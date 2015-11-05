@@ -1,4 +1,5 @@
-# Eduardo Gonzalez Gutierrez <dabarren@gmail.com>, 2015. #zanata
+# Alessandra <alessandra@translated.net>, 2015. #zanata
+# Mattia Gandolfi <mgandolf@redhat.com>, 2015. #zanata
 # OpenStack Infra <zanata@openstack.org>, 2015. #zanata
 msgid ""
 msgstr ""
@@ -8,12 +9,12 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2015-09-21 04:20+0000\n"
-"Last-Translator: Eduardo Gonzalez Gutierrez <dabarren@gmail.com>\n"
-"Language: es\n"
+"PO-Revision-Date: 2015-10-19 02:29+0000\n"
+"Last-Translator: Alessandra <alessandra@translated.net>\n"
+"Language: it\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
 "X-Generator: Zanata 3.7.1\n"
-"Language-Team: Spanish\n"
+"Language-Team: Italian\n"
 
 #, python-format
 msgid "%s GB"
@@ -33,328 +34,326 @@ msgstr "%s TB"
 
 #, python-format
 msgid "%s bytes"
-msgstr "%s bytes"
+msgstr "%s byte"
 
 msgid "-"
 msgstr "-"
 
 msgid "Active"
-msgstr "Activo"
+msgstr "Attivo"
 
 msgid "Add Interface"
-msgstr "Añadir interfaz"
+msgstr "Aggiungi interfaccia"
 
 msgid "Added"
-msgstr "Añadido"
+msgstr "Aggiunto"
 
 msgid "Allocated"
-msgstr "Asignados"
+msgstr "Allocato"
 
 msgid "An error occurred while updating."
-msgstr "Ha ocurrido un error durante la actualización."
+msgstr "Si è verificato un errore durante l'aggiornamento."
 
 msgid "An error occurred. Please try again later."
-msgstr "Ha ocurrido un error. Inténtelo de nuevo más tarde."
+msgstr "Si è verificato un errore. Per favore riprova più tardi."
 
 msgid "Available"
-msgstr "Disponible"
+msgstr "Disponibile"
 
 msgid "Available Metadata"
-msgstr "Metadatos disponibles"
+msgstr "Metadati disponibili"
 
 msgid "Back"
-msgstr "Anterior"
+msgstr "Indietro"
 
 msgid "Cancel"
-msgstr "Cancelar "
+msgstr "Annulla"
 
 msgid "Click here for filters."
-msgstr "Pulse aquí para filtros."
+msgstr "Fare clic qui per i filtri."
 
 msgid "Click here to expand the row and view the errors."
-msgstr "Haga click aquí para ver los errores."
+msgstr "Fare clic qui per espandere la riga e visualizzare gli errori."
 
 msgid "Click to see more details"
-msgstr "Haga click para ver más detalles"
+msgstr "Fare clic per visualizzare ulteriori dettagli"
 
 msgid "Click to show or hide"
-msgstr "Haga click para mostrar u ocultar"
+msgstr "Fare clic per visualizzare o nascondere"
 
 msgid "Closed"
-msgstr "Cerrada"
+msgstr "Chiuso"
 
 msgid "Closing"
-msgstr "Cerrando"
+msgstr "Chiusura"
 
 #, python-format
 msgid "Confirm %s"
-msgstr "Confirmar %s"
+msgstr "Conferma %s"
 
 msgid "Connecting"
-msgstr "Conectando"
+msgstr "Connessione"
 
 msgid "Could not decrypt the password"
-msgstr "No se ha podido descifrar la contraseña"
+msgstr "Impossibile decodificare la password"
 
 msgid "Could not read the file"
-msgstr "No se ha podido leer el fichero"
+msgstr "Impossibile leggere il file"
 
 msgid "Create Subnet"
-msgstr "Crear Subred"
+msgstr "Crea sottorete"
 
 msgid "Current Usage"
-msgstr "Uso actual"
+msgstr "Utilizzo attuale"
 
 msgid "Custom"
-msgstr "Personalizar"
+msgstr "Personalizzato"
 
 msgid "Danger"
-msgstr "Peligro"
+msgstr "Pericolo"
 
 msgid "Danger: "
-msgstr "Peligro:"
+msgstr "Pericolo:"
 
 msgid "Decimal required"
-msgstr "Decimal obligatorio"
+msgstr "Numero decimale richiesto"
 
 msgid "Delete"
-msgstr "Eliminar"
+msgstr "Elimina"
 
 msgid "Delete Interface"
-msgstr "Eliminar interfaz"
+msgstr "Elimina interfaccia"
 
 msgid "Delete Network"
-msgstr "Borrar Red"
+msgstr "Elimina rete"
 
 msgid "Delete Router"
-msgstr "Eliminar router"
+msgstr "Elimina router"
 
 msgid "Delete Subnet"
-msgstr "Borrar Subred"
+msgstr "Elimina sottorete"
 
 msgid "Detail Information"
-msgstr "Información detallada"
+msgstr "Informazioni dettagliate"
 
 #, python-format
 msgid "Displaying %(count)s of %(total)s items"
-msgstr "Mostrando %(count)s de %(total)s elementos"
+msgstr "Visualizzazione di %(count)s di %(total)s elementi"
 
 #, python-format
 msgid "Displaying %s item"
 msgid_plural "Displaying %s items"
-msgstr[0] "Mostrando %s articulo"
-msgstr[1] "Mostrando %s articulos"
+msgstr[0] "Visualizzazione di %s elemento"
+msgstr[1] "Visualizzazione di %s elementi"
 
 msgid "Duplicate keys are not allowed"
-msgstr "Las claves duplicadas no están permitidas"
+msgstr "Le chiavi duplicate non sono consentite"
 
 msgid "Error"
-msgstr "Error"
+msgstr "Errore"
 
 msgid "Error: "
-msgstr "Error: "
+msgstr "Errore:"
 
 msgid "Existing Metadata"
-msgstr "Metadatos existentes"
+msgstr "Metadati esistenti"
 
 msgid "Expand to see allocated items"
-msgstr "Expandir para ver los ítems asociados"
+msgstr "Espandi per visualizzare gli elementi allocati"
 
 msgid "Expand to see available items"
-msgstr "Expandir para ver los ítems disponibles"
+msgstr "Espandi per visualizzare gli elementi disponibili"
 
 msgid "Filter"
-msgstr "Filtrar"
+msgstr "Filtro"
 
 msgid "Finish"
-msgstr "Finalizar"
+msgstr "Fine"
 
 msgid "Flavor"
-msgstr "Sabor"
+msgstr "Flavor"
 
 msgid "ID"
 msgstr "ID"
 
 msgid "IP Addresses"
-msgstr "Direcciones IP"
+msgstr "Indirizzi IP"
 
 msgid "In current results"
-msgstr "En resultados actuales"
+msgstr "Nei risultati correnti"
 
 msgid "Info"
-msgstr "Info"
+msgstr "Informazioni"
 
 msgid "Integer required"
-msgstr "Entero obligatorio"
+msgstr "Numero intero richiesto"
 
 msgid "Interfaces"
-msgstr "Interfaces"
+msgstr "Interfacce"
 
 msgid "Loading"
-msgstr "Cargando"
+msgstr "Caricamento"
 
 msgid "Max"
-msgstr "Máx."
+msgstr "Massimo"
 
 msgid "Max length"
-msgstr "Longitud máx."
+msgstr "Lunghezza massima"
 
 msgid "Min"
-msgstr "Mín."
+msgstr "Min"
 
 msgid "Min length"
-msgstr "Longitud mín."
+msgstr "Lunghezza minima"
 
 msgid "Name"
-msgstr "Nombre"
+msgstr "Nome"
 
 msgid "Next"
-msgstr "Siguiente"
+msgstr "Avanti"
 
 msgid "No"
 msgstr "No"
 
 msgid "No available items"
-msgstr "No hay ítems disponibles"
+msgstr "Nessun elemento disponibile"
 
 msgid "No available metadata"
-msgstr "Metadatos no disponibles"
+msgstr "Nessun metadato disponibile"
 
 msgid "No data available."
-msgstr "No hay datos disponibles."
+msgstr "Nessun dato disponibile."
 
 msgid "No description available."
-msgstr "Descripción no disponible."
+msgstr "Nessuna descrizione disponibile."
 
 msgid "No existing metadata"
-msgstr "No hay metadatos existentes"
+msgstr "Nessun metadato esistente"
 
 msgid "No items to display."
-msgstr "No hay ítems que mostrar."
+msgstr "Nessun elemento da visualizzare"
 
 msgid "No roles"
-msgstr "Sin roles"
+msgstr "Nessun ruolo"
 
 msgid "None"
-msgstr "Ninguno"
+msgstr "None"
 
 msgid "Not authorized to do this operation."
-msgstr "No tiene autorización para realizar esta operación."
+msgstr "Non si è autorizzati a eseguire questa operazione."
 
 msgid "Notice: "
-msgstr "Aviso:"
+msgstr "Avviso:"
 
 msgid "Open"
-msgstr "Abierta"
+msgstr "Apri"
 
 msgid "Open Console"
-msgstr "Abrir consola"
+msgstr "Apri console"
 
 msgid "Passwords do not match."
-msgstr "Las contraseñas no coinciden."
+msgstr "La password non coincide."
 
 msgid "Pattern mismatch"
-msgstr "Discrepancia en el patrón"
+msgstr "Mancata corrispondenza del modello"
 
 msgid "Please confirm your selection. "
-msgstr "Confirme su selección."
+msgstr "Confermare la selezione."
 
 msgid "Prompt"
-msgstr "Inmediato"
+msgstr "Prompt"
 
 msgid "Re-order items using drag and drop"
-msgstr "Reordene los ítems arrastrando y soltando."
+msgstr "Riordina gli elementi utilizzando la funzione di trascinamento"
 
 msgid "Remaining"
-msgstr "Restante "
+msgstr "Restante"
 
 msgid "Remove"
-msgstr "Eliminar"
+msgstr "Rimuovi"
 
 msgid "Required"
-msgstr "Obligatorio"
+msgstr "Richiesto"
 
 msgid "Roles"
-msgstr "Roles"
+msgstr "Ruoli"
 
 msgid "STATUS"
-msgstr "ESTADO"
+msgstr "STATO"
 
 msgid "Select an item from Available items below"
-msgstr "Seleccione un ítem de los disponibles abajo"
+msgstr "Selezionare un elemento dagli elementi disponibili in basso"
 
 msgid "Select one"
-msgstr "Seleccione uno"
+msgstr "Seleziona uno"
 
 msgid "Server Name"
-msgstr "Nombre del servidor"
+msgstr "Nome server"
 
 msgid "Shutdown"
-msgstr "Apagar"
+msgstr "Chiusura"
 
 msgid "Status"
-msgstr "Estado"
+msgstr "Stato"
 
 #, python-format
 msgid "Status: %s"
-msgstr "Estado: %s"
+msgstr "Stato: %s"
 
 msgid "Submit"
-msgstr "Enviar"
+msgstr "Invia"
 
 msgid "Subnets"
-msgstr "Subredes"
+msgstr "Sottoreti"
 
 msgid "Success"
-msgstr "Éxito"
+msgstr "Riuscito"
 
 msgid "Success: "
-msgstr "Correcto:"
+msgstr "Successo:"
 
 msgid "Terminate Instance"
-msgstr "Terminar instancia"
+msgstr "Termina interfaccia"
 
 msgid "Text"
-msgstr "Texto"
+msgstr "Testo"
 
 msgid ""
 "The action cannot be performed. The contents of this row have errors or are "
 "missing information."
 msgstr ""
-"Esta acción no se puede llevar a cabo. Esta columna contiene errores o "
-"carece de información."
+"L'azione non può essere eseguita. Il contenuto di questa riga contiene o "
+"errori o informazioni mancanti"
 
 msgid "There was a problem communicating with the server, please try again."
-msgstr ""
-"Ha ocurrido un problema en la comunicación con el servidor, inténtelo de "
-"nuevo."
+msgstr "Si è verificato un errore di comunicazione con il server, riprova."
 
 msgid "There was an error submitting the form. Please try again."
-msgstr "Ha ocurrido un error al enviar el formulario. Inténtelo de nuevo."
+msgstr "Si è verificato un errore durante l'invio dei dati. Riprova."
 
 msgid "Total"
-msgstr "Total"
+msgstr "Totale"
 
 msgid "View Details"
-msgstr "Ver detalles"
+msgstr "Visualizza dettagli"
 
 msgid "View Instance Details"
-msgstr "Ver detalles de la instancia"
+msgstr "Visualizza dettagli istanza"
 
 msgid "View Router Details"
-msgstr "Ver detalles del router"
+msgstr "Visualizza dettagli router"
 
 msgid "Warning"
-msgstr "Advertencia:"
+msgstr "Avvertenza"
 
 msgid "Warning: "
-msgstr "Advertencia:"
+msgstr "Attenzione:"
 
 msgid "Working"
-msgstr "Trabajando"
+msgstr "In corso"
 
 msgid "Yes"
-msgstr "Sí"
+msgstr "Sì"
 
 msgid ""
 "You can specify resource metadata by moving items from the left column to "
@@ -362,17 +361,18 @@ msgid ""
 "the Glance Metadata Catalog. Use the \"Other\" option to add metadata with "
 "the key of your choice."
 msgstr ""
-"Puede especificar los metadatos de los recursos moviendo los ítems de la "
-"columna de la izquierda a la de la derecha. En las columnas de la izquierda "
-"hay definiciones de metadatos del Glance Metadata Catalog. Utilice la opcion "
-"\"Otro\" para añadir metadatos con la clave que desee. "
+"È possibile specificare i metadati della risorsa spostando gli elementi "
+"dalla colonna di sinistra alla colonna di destra. Nelle colonne di sinistra "
+"sono presenti definizioni di metadati del catalogo di metadati glance. "
+"Utilizzare l'opzione \"Altro\" per aggiungere i metadati con la chiave "
+"desiderata."
 
 #, python-format
 msgid "You have selected %s. "
-msgstr "Ha seleccionado %s."
+msgstr "Hai selezionato %s."
 
 msgid "description"
-msgstr "descripción"
+msgstr "descrizione"
 
 msgid "m1.small"
 msgstr "m1.small"
@@ -381,7 +381,7 @@ msgid "m1.tiny"
 msgstr "m1.tiny"
 
 msgid "no quota"
-msgstr "Sin cuota"
+msgstr "nessuna quota"
 
 msgid "pool default"
-msgstr "Predeterminados del pool"
+msgstr "pool predefinito"

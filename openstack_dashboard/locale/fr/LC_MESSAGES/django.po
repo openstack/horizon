@@ -10,16 +10,16 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-10-07 00:54+0000\n"
+"POT-Creation-Date: 2015-11-04 14:35+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2015-10-06 07:18+0000\n"
-"Last-Translator: François Bureau <bureaufrancois@gmail.com>\n"
-"Language-Team: French\n"
+"PO-Revision-Date: 2015-10-30 02:57+0000\n"
+"Last-Translator: JF Taltavull <jftalta@gmail.com>\n"
 "Language: fr\n"
-"X-Generator: Zanata 3.7.1\n"
 "Plural-Forms: nplurals=2; plural=(n > 1)\n"
+"X-Generator: Zanata 3.7.1\n"
+"Language-Team: French\n"
 
 msgid ""
 "\n"
@@ -596,7 +596,7 @@ msgid "--"
 msgstr "--"
 
 msgid "-- not selected --"
-msgstr "-- aucune selection --"
+msgstr "-- aucune sélection --"
 
 msgid "3des"
 msgstr "3des"
@@ -607,9 +607,9 @@ msgid ""
 "  If your binary requires a particular name or extension (ie: \".jar\"), be "
 "sure to include it here."
 msgstr ""
-"<b>Important</b> : Le nom que vous donnez à votre tâche binaire sera le nom "
-"utilisé dans l'exécution de votre t.âche\n"
-"Si votre binaire nécessite un nom particulier ou une extension (ie: \".jar"
+"<b>Important</b> : Le nom que vous donnez à votre binairede tâĉhe sera le "
+"nom utilisé dans l'exécution de votre tâche.\n"
+"Si votre binaire nécessite un nom particulier ou une extension (ie : \".jar"
 "\"), assurez-vous de l'inclure ici."
 
 #, python-format
@@ -964,7 +964,7 @@ msgstr ""
 "liste des groupes de sécurité disponibles."
 
 msgid "Add custom tag"
-msgstr "Ajouter étiquette personnalisée"
+msgstr "Ajouter une étiquette personnalisée"
 
 msgid ""
 "Add hosts to this aggregate or remove hosts from it. Hosts can be in "
@@ -1000,7 +1000,7 @@ msgstr ""
 "e.g. 80. Un seul port peut être associé à chaque instance."
 
 msgid "Add plugin tags"
-msgstr "Ajouter les étiquettes du plugin"
+msgstr "Ajouter des étiquettes de plugin"
 
 msgid "Add route"
 msgstr "Ajout d'une route"
@@ -1813,7 +1813,7 @@ msgid "Choose the Output Data Source (n/a for Java and Shell jobs)."
 msgstr "Choisissez la source de données de sortie (n/a pour les tâches Shell)."
 
 msgid "Choose the binary which should be used in this Job."
-msgstr "Choisissez le binaire qui pourra être utilisé pour cette Tâche."
+msgstr "Choisissez le binaire qui pourra être utilisé pour cette tâche."
 
 msgid "Choose the cluster to use for the job."
 msgstr "Sélectionnez le cluster à utiliser pour cette tâche."
@@ -2276,7 +2276,7 @@ msgid "Create In Progress"
 msgstr "En cours de création"
 
 msgid "Create Job Binary"
-msgstr "Créer un Binaire de Tâche"
+msgstr "Créer un binaire de tâche"
 
 msgid "Create Job Template"
 msgstr "Créer un modèle de tâche"
@@ -2779,16 +2779,16 @@ msgid "Data Processing Guides"
 msgstr "Guides de traitement des données"
 
 msgid "Data Processing Plugin Details"
-msgstr "Détails du plugin de traitement des données"
+msgstr "Détails du plugin de traitement de données"
 
 msgid "Data Processing Plugin Overview"
-msgstr "Aperçu du plugin de traitement des données"
+msgstr "Aperçu du plugin de traitement de données"
 
 msgid "Data Processing Plugins"
 msgstr "Plugins de traitement des données"
 
 msgid "Data Processing internal database"
-msgstr "Base de donnée interne du Traitement des Données"
+msgstr "Base de donnée interne du traitement de données"
 
 msgid ""
 "Data Processing provides different storage location options. You may choose "
@@ -2838,7 +2838,7 @@ msgid "Data source created"
 msgstr "Source de données créée"
 
 msgid "Data source updated"
-msgstr "Source de Données mise à jour"
+msgstr "Source de données mise à jour"
 
 msgid "Database"
 msgstr "Base de données"
@@ -3044,7 +3044,7 @@ msgstr[1] "Supprimer les tâches"
 
 msgid "Delete Job Binary"
 msgid_plural "Delete Job Binaries"
-msgstr[0] "Sources de Données Supprimées"
+msgstr[0] "Sources de données supprimées"
 msgstr[1] "Supprimer les binaires de tâche"
 
 msgid "Delete Job Template"
@@ -3800,7 +3800,7 @@ msgid "Edit Consumer of QoS Spec"
 msgstr "Éditer le Consommateur de spécifications QoS"
 
 msgid "Edit Data Source"
-msgstr "Modification de la Source de Données"
+msgstr "Modification de la source de données"
 
 msgid "Edit Domain"
 msgstr "Editer un Domaine"
@@ -3837,13 +3837,13 @@ msgid "Edit Image"
 msgstr "Editer l'image"
 
 msgid "Edit Image Tags"
-msgstr "Editer l'étiquettage de l'image"
+msgstr "Editer les étiquettes de l'image"
 
 msgid "Edit Instance"
 msgstr "Editer l'instance"
 
 msgid "Edit Job Binary"
-msgstr "Modification du Binaire de Tâche"
+msgstr "Modification du binaire de tâche"
 
 msgid "Edit Member"
 msgstr "Editer le membre"
@@ -3906,7 +3906,7 @@ msgid "Edit Subnet"
 msgstr "Editer le sous-réseau"
 
 msgid "Edit Tags"
-msgstr "Modifier les Etiquettes"
+msgstr "Modifier les étiquettes"
 
 msgid "Edit Template"
 msgstr "Editer le modèle"
@@ -4156,7 +4156,7 @@ msgid "Error Deleting"
 msgstr "Erreur lors de la suppression"
 
 msgid "Error Details"
-msgstr "Détails de l'Erreur"
+msgstr "Détails de l'erreur"
 
 #, python-format
 msgid "Error Downloading RC File: %s"
@@ -4794,8 +4794,8 @@ msgid ""
 "required to add one\n"
 "  or more \"libs\" for these jobs."
 msgstr ""
-"Pour MapReduce ou les tâches Action Java, les \"mains\" ne sont pas "
-"applicables. Vous devez en ajouter un\n"
+"Pour MapReduce ou les tâches Action Java, \"mains\" n'est pas applicable. "
+"Vous devez ajouter un\n"
 "ou plusieurs \"libs\" pour ces tâches."
 
 msgid "For Object Store job binaries, you must:"
@@ -4811,7 +4811,7 @@ msgstr ""
 msgid ""
 "For Spark and Shell jobs, only a main is required, \"libs\" are optional."
 msgstr ""
-"Pour les travaux Spark et Shell, seulement l'attribut 'main' est nécessaire, "
+"Pour les travaux Spark et Shell, seul l'attribut 'main' est nécessaire, "
 "'libs' est facultatif."
 
 msgid ""
@@ -5346,17 +5346,17 @@ msgid "Image Pending Upload"
 msgstr "Image en attente de chargement"
 
 msgid "Image Registry"
-msgstr "Registre des Images"
+msgstr "Registre des images"
 
 msgid ""
 "Image Registry is used to provide additional information about images for "
 "Data Processing."
 msgstr ""
-"Le Registre des Images est utilisé pour fournir des informations "
+"Le registre des images est utilisé pour fournir des informations "
 "supplémentaires sur les images dédiées au Traitement de Données."
 
 msgid "Image Registry tool:"
-msgstr "Outil de Registre des Images :"
+msgstr "Outil de registre d'images :"
 
 msgctxt "Task status of an Instance"
 msgid "Image Snapshot Pending"
@@ -5446,7 +5446,7 @@ msgid "Info"
 msgstr "Informations"
 
 msgid "Information"
-msgstr "Information"
+msgstr "Informations"
 
 msgid "Ingress"
 msgstr "Entrée"
@@ -5494,7 +5494,7 @@ msgid "Injected Files"
 msgstr "Fichiers injectés"
 
 msgid "Input"
-msgstr "Entréé"
+msgstr "Entrée"
 
 msgid "Input Data Source"
 msgstr "Source de données d'entrée"
@@ -5596,7 +5596,7 @@ msgid "Intelligent Platform Management Interface (IPMI)"
 msgstr "IPMI (Intelligent Platform Management Interface)"
 
 msgid "Interface Arguments"
-msgstr "Arguments de l’Interface"
+msgstr "Arguments de l’interface"
 
 msgid "Interface added"
 msgstr "Interface ajoutée"
@@ -5605,7 +5605,7 @@ msgid "Interfaces"
 msgstr "Interfaces"
 
 msgid "Internal Binary"
-msgstr "Binaire Interne"
+msgstr "Binaire interne"
 
 msgid "Internal IP"
 msgstr "IP interne"
@@ -5614,7 +5614,7 @@ msgid "Internal Interface"
 msgstr "Interface interne"
 
 msgid "Internal binary"
-msgstr "binaire Interne"
+msgstr "Binaire interne"
 
 msgid "Invalid date format: Using today as default."
 msgstr "Format de date invalide : date du jour utilisée par défaut."
@@ -5654,13 +5654,13 @@ msgid "Job"
 msgstr "Tâche"
 
 msgid "Job Binaries"
-msgstr "Binaires de Tâche"
+msgstr "Binaires de tâche"
 
 msgid "Job Binary Details"
-msgstr "Détails du Binaire de Tâche"
+msgstr "Détails du binaire de tâche"
 
 msgid "Job Binary Overview"
-msgstr "Vue d'ensemble du Binaire de Tâche"
+msgstr "Vue d'ensemble du binaire de tâche"
 
 msgid "Job Configuration"
 msgstr "Configuration de la tâche"
@@ -5687,10 +5687,10 @@ msgid "Job Template"
 msgstr "Modèle de tâche"
 
 msgid "Job Template Details"
-msgstr "Informations Modèle Tâches"
+msgstr "Détails du modèle de tâche"
 
 msgid "Job Templates"
-msgstr "Modèles de tâches"
+msgstr "Modèles de tâche"
 
 msgid "Job Type"
 msgstr "Type de tâche"
@@ -5880,7 +5880,7 @@ msgid "Launch job"
 msgstr "Démarrer un travail"
 
 msgid "Launch the given job template on a cluster."
-msgstr "Lancer le modèle de tâche sélectionnée sur un cluster."
+msgstr "Lancer le modèle de tâche sélectionné sur un cluster."
 
 msgid ""
 "Launch your job.  When\n"
@@ -6622,7 +6622,7 @@ msgid "No Hosts found."
 msgstr "Aucun hôte trouvé."
 
 msgid "No Images Available"
-msgstr "Pas d'images disponible"
+msgstr "Pas d'image disponible"
 
 msgid "No Master Node Group Template Created"
 msgstr "Aucun Modèle de groupe de nœuds Master créé"
@@ -6638,7 +6638,7 @@ msgid "No State"
 msgstr "Pas d'état"
 
 msgid "No Templates Available"
-msgstr "Pas de templates disponible"
+msgstr "Pas de template disponible"
 
 msgid "No Worker Node Group Template Created"
 msgstr "Aucun Modèle de groupe de nœud Worker créé"
@@ -6805,7 +6805,7 @@ msgid "No volumes available"
 msgstr "Pas de volumes disponibles"
 
 msgid "Node Configurations"
-msgstr "Configurations des noeud"
+msgstr "Configurations des noeuds"
 
 msgid "Node Group"
 msgstr "Group de noeud"
@@ -7769,7 +7769,7 @@ msgstr "Inscrire l'image"
 msgid ""
 "Register tags required for the Plugin with specified Data Processing Version"
 msgstr ""
-"Enregistrer les étiquettes demandées pour le Plugin avec la Version "
+"Enregistrer les étiquettes demandées pour le plugin avec la version "
 "spécifiée de Traitement de Données"
 
 msgid "Relative part of requests this pool member serves compared to others"
@@ -8703,13 +8703,13 @@ msgstr ""
 "projets."
 
 msgid "Select the storage type for your job binary."
-msgstr "Sélectionner le type de stockage pour votre tâche binaire."
+msgstr "Sélectionner le type de stockage pour votre binaire de tâche."
 
 msgid "Select the type of your Data Source."
 msgstr "Sélectionner le type de source de données."
 
 msgid "Select the type of your job:"
-msgstr "Sélectionner le type de votre tâche:"
+msgstr "Sélectionner le type de votre tâche :"
 
 msgid "Select type"
 msgstr "Sélectionner le type"
@@ -9048,7 +9048,7 @@ msgid ""
 "Specified User Name will be used by Data Processing to apply configs and "
 "manage processes on instances."
 msgstr ""
-"Le Nom d'Utilisateur Spécifié sera utilisé par le Traitement de Données afin "
+"Le nom d'utilisateur spécifié sera utilisé par le Traitement de Données afin "
 "d'appliquer les configurations et administrer les processus sur les "
 "instances."
 
@@ -11011,7 +11011,7 @@ msgid "Unable to retrieve container list."
 msgstr "Impossible de récupérer la liste des conteneurs."
 
 msgid "Unable to retrieve data processing plugins."
-msgstr "Impossible de récupérer les plugins de traitement des données"
+msgstr "Impossible de récupérer les plugins de traitement des données."
 
 msgid "Unable to retrieve database clusters."
 msgstr "Impossible de trouver les clusters de base de donnée."
@@ -11732,8 +11732,8 @@ msgstr "Volume non-géré"
 
 msgid "Unnecessary tags may be removed by clicking a cross near tag's name."
 msgstr ""
-"Les étiquettes non-obligatoires peuvent être supprimée en cliquant sur le "
-"crois à côté du nom de l'étiquette"
+"Les étiquettes non obligatoires peuvent être supprimées en cliquant sur la "
+"croix à côté du nom de l'étiquette."
 
 msgctxt "Action log of an instance"
 msgid "Unpause"
@@ -11741,13 +11741,13 @@ msgstr "Reprendre"
 
 msgid "Unregister Image"
 msgid_plural "Unregister Images"
-msgstr[0] "Désinscrire l'Image"
-msgstr[1] "Désinscrire les Images"
+msgstr[0] "Désinscrire l'image"
+msgstr[1] "Désinscrire les images"
 
 msgid "Unregistered Image"
 msgid_plural "Unregistered Images"
-msgstr[0] "Image Désinscrite"
-msgstr[1] "Images Désinscrites"
+msgstr[0] "Image désinscrite"
+msgstr[1] "Images désinscrites"
 
 msgctxt "Task status of an Instance"
 msgid "Unrescuing"
