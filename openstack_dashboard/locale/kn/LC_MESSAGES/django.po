@@ -1,18 +1,20 @@
 # OpenStack Infra <zanata@openstack.org>, 2015. #zanata
+# Steve Kowalik <steven@wedontsleep.org>, 2015. #zanata
+# sharath rao <sharath.rao@ericsson.com>, 2015. #zanata
 msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-09-26 08:59+0000\n"
+"POT-Creation-Date: 2015-11-04 14:35+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: \n"
-"Last-Translator: \n"
-"Language-Team: Kannada\n"
+"PO-Revision-Date: 2015-10-15 04:56+0000\n"
+"Last-Translator: sharath rao <sharath.rao@ericsson.com>\n"
 "Language: kn\n"
-"X-Generator: Zanata 3.7.1\n"
 "Plural-Forms: nplurals=2; plural=(n!=1)\n"
+"X-Generator: Zanata 3.7.1\n"
+"Language-Team: Kannada\n"
 
 #, python-format
 msgid ""
@@ -1143,6 +1145,9 @@ msgid ""
 msgstr ""
 "ನಿಮ್ಮ ಮುಖ್ಯ ಬೈನರಿಯನ್ನು ಆರಿಸಿ ಅಥವ ರಚಿಸಿ. \"Libs\" ಟ್ಯಾಬ್‌ನಿಂದ ಹೆಚ್ಚುವರಿ ಲೈಬ್ರರಿಗಳನ್ನು "
 "ಸೇರಿಸಬಹುದು."
+
+msgid "Choose plugin"
+msgstr "ಪ್ಲಗ್ಇನ್ ಆರಿಸಿ"
 
 msgid ""
 "Choose rule(s) from Available Rules to Selected Rule by push button or drag "
@@ -3227,6 +3232,9 @@ msgstr ""
 "ನಿಲುಕನ್ನು ನೋಡಿಕೊಳ್ಳಲು ಮತ್ತು ಒಂದೇ ಬಾರಿಗೆ ಅನೇಕ ಬಳಕೆದಾರರಿಗೆ ಪಾತ್ರಗಳನ್ನು ನಿಯೋಜಿಸಲು "
 "ಗುಂಪುಗಳನ್ನು ಬಳಸಲಾಗುತ್ತದೆ. ಬಳಕೆದಾರರನ್ನು ಸೇರಿಸಲು ಗುಂಪನ್ನು ಸಂಪಾದಿಸಿ."
 
+msgid "Guides"
+msgstr "ಮಾರ್ಗದರ್ಶಕಿ"
+
 msgid "HA mode"
 msgstr "HA ಸ್ಥಿತಿ"
 
@@ -3773,7 +3781,7 @@ msgid "Java Action"
 msgstr "Java Action"
 
 msgid "Java Opts"
-msgstr "Java Opts"
+msgstr "ಜವ ಓಪ್ತ್ಸ್"
 
 msgid "Job"
 msgstr "ಕೆಲಸ"
@@ -4027,6 +4035,9 @@ msgstr "ಸ್ಥಳೀಯ ಶೇಖರಣೆ (ಒಟ್ಟು)"
 
 msgid "Local Storage (used)"
 msgstr "ಸ್ಥಳೀಯ ಶೇಖರಣೆ (ಬಳಸಲಾಗಿರುವುದು)"
+
+msgid "Location"
+msgstr "ಸ್ಥಳ"
 
 msgid "Log"
 msgstr "ಲಾಗ್"
@@ -4650,6 +4661,9 @@ msgstr ""
 msgid "Nova"
 msgstr "ನೋವಾ"
 
+msgid "Number"
+msgstr "ಸಂಖ್ಯೆ"
+
 msgid "Number of API requests against swift"
 msgstr "ಸ್ವಿಫ್ಟ್‌ಗೆ API ಮನವಿಗಳ ಸಂಖ್ಯೆ"
 
@@ -4925,6 +4939,9 @@ msgstr "ಪ್ಲಗಿನ್‌ ಹೆಸರು"
 
 msgid "Plugin name"
 msgstr "ಪ್ಲಗಿನ್‌ ಹೆಸರು"
+
+msgid "Plugin:"
+msgstr "ಪ್ಲಗ್ಇನ್:"
 
 msgid "Plugins"
 msgstr "ಪ್ಲಗ್‌ಇನ್‌ಗಳು"
@@ -5305,6 +5322,9 @@ msgstr "ಪಾಲಿಸಿಯಿಂದ ನಿಯಮವನ್ನು ತೆಗೆ�
 msgid "Request ID"
 msgstr "ಮನವಿಯ ID"
 
+msgid "Required"
+msgstr "ಅಗತ್ಯ"
+
 msgid "Required for APP_COOKIE persistence; Ignored otherwise."
 msgstr "APP_COOKIE ಸ್ಥಿರತೆಗಾಗಿನ ಅಗತ್ಯವಿದೆ; ಇಲ್ಲದೆ ಹೋದಲ್ಲಿ ಕಡೆಗಣಿಸಲಾಗುತ್ತದೆ."
 
@@ -5630,6 +5650,9 @@ msgstr "ಸೆಗ್ಮೆಂಟೇಶನ್ ID"
 
 msgid "Segmentation ID:"
 msgstr "ಸೆಗ್ಮೆಂಟೇಶನ್ ID:"
+
+msgid "Select"
+msgstr "ಆರಿಸಿ"
 
 msgid "Select IKE Policy"
 msgstr "IKE ಪಾಲಿಸಿಯನ್ನು ಆರಿಸಿ"
@@ -6188,6 +6211,9 @@ msgstr "ಶೇಖರಣೆಯ ಬಗೆ"
 
 msgid "Streaming MapReduce"
 msgstr "MapReduce ಅನ್ನು ಸ್ಟ್ರೀಮ್‌ಮಾಡಲಾಗುತ್ತಿದೆ"
+
+msgid "String"
+msgstr " ವಾಕ್ಯಾಂಶ"
 
 msgid "Subnet"
 msgstr "ಸಬ್‌ನೆಟ್"
@@ -7920,6 +7946,9 @@ msgstr "ಗೇಟ್‌ವೇ ಅನ್ನು ಹೊಂದಿಸಲು ಸಾಧ
 
 msgid "Unable to set project quotas."
 msgstr "ಪರಿಯೋಜನೆಗಾಗಿ ಕೋಟಾವನ್ನು ಹೊಂದಿಸಲಾಗಿಲ್ಲ."
+
+msgid "Unable to show guides"
+msgstr "ಮಾರ್ಗದರ್ಶಿಗಳು ತೋರಿಸಲು ಸಾಧ್ಯವಾಗುವುದಿಲ್ಲ"
 
 msgid "Unable to sort instance flavors."
 msgstr "ಇನ್‌ಸ್ಟೆನ್ಸ್‌ ಫ್ಲೇವರ್‌ಗಳನ್ನು ವಿಂಗಡಿಸಲು ಸಾಧ್ಯವಾಗಿಲ್ಲ."
