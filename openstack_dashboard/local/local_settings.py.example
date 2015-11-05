@@ -22,7 +22,6 @@ WEBROOT = '/'
 # Do not set it to '/home/', as this will cause circular redirect loop
 #LOGIN_REDIRECT_URL = WEBROOT
 
-# Required for Django 1.5.
 # If horizon is running in production (DEBUG is False), set this
 # with the list of host/domain names that the application can serve.
 # For more information see:
@@ -30,12 +29,10 @@ WEBROOT = '/'
 #ALLOWED_HOSTS = ['horizon.example.com', ]
 
 # Set SSL proxy settings:
-# For Django 1.4+ pass this header from the proxy after terminating the SSL,
+# Pass this header from the proxy after terminating the SSL,
 # and don't forget to strip it from the client's request.
 # For more information see:
-# https://docs.djangoproject.com/en/1.4/ref/settings/#secure-proxy-ssl-header
-#SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTOCOL', 'https')
-# https://docs.djangoproject.com/en/1.5/ref/settings/#secure-proxy-ssl-header
+# https://docs.djangoproject.com/en/1.8/ref/settings/#secure-proxy-ssl-header
 #SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 
 # If Horizon is being served through SSL, then uncomment the following two
