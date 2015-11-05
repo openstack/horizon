@@ -315,13 +315,14 @@ $.tablesorter.addParser({
 $.tablesorter.addParser({
   id: 'IPv4Address',
   is: function(s, table, cell) {
-    // the first arg to this function is a string of all the cell's
-    // innertext smashed together with no delimiters, so we need to find
-    // the original cell and grab its first element to do the work
+    // The first arg to this function is a string of all the cell's innertext smashed together
+    // with no delimiters, so to make this work with the Instances and Ports tables where the
+    // IP address cell content is an unordered list we need to check the content of the first
+    // <li> element. In the Floating IPs and Subnets tables the cell content is not a list so
+    // we just check the cell content directly.
     var a = $(cell).find('li').first().text().split('.');
-    // if the cell doesn't contains the list, try to get the text directly
-    if (a === "") {
-        a = $(cell).text().split('.');
+    if (a.length === 1 && a[0] === '') {
+      a = s.split('.');
     }
     if (a.length !== 4) {
       return false;
@@ -339,9 +340,8 @@ $.tablesorter.addParser({
   format: function(s, table, cell) {
     var result = 0;
     var a = $(cell).find('li').first().text().split('.');
-    // if the cell doesn't contains the list, try to get the text directly
-    if (a === "") {
-        a = $(cell).text().split('.');
+    if (a.length === 1 && a[0] === '') {
+      a = s.split('.');
     }
     var last_index = a.length - 1;
     // inet_aton(3), Javascript-style.  The unsigned-right-shift operation is
