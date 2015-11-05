@@ -26,6 +26,11 @@ from horizon import views
 
 from openstack_dashboard import usage
 
+from openstack_dashboard.dashboards.project.instances \
+    import tables as project_tables
+
+from openstack_dashboard.utils import filters
+
 
 class ProjectUsageCsvRenderer(csvbase.BaseCsvResponse):
 
@@ -35,14 +40,17 @@ class ProjectUsageCsvRenderer(csvbase.BaseCsvResponse):
 
     def get_row_data(self):
 
+        choices = project_tables.STATUS_DISPLAY_CHOICES
         for inst in self.context['usage'].get_instances():
+            state_label = (
+                filters.get_display_label(choices, inst['state']))
             yield (inst['name'],
                    inst['vcpus'],
                    inst['memory_mb'],
                    inst['local_gb'],
                    floatformat(inst['hours'], 2),
                    inst['uptime'],
-                   capfirst(inst['state']))
+                   capfirst(state_label))
 
 
 class ProjectOverview(usage.UsageView):
