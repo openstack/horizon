@@ -203,6 +203,7 @@ LANGUAGES = (
     ('en-gb', 'British English'),
     ('es', 'Spanish'),
     ('fr', 'French'),
+    ('it', 'Italian'),
     ('ja', 'Japanese'),
     ('ko', 'Korean (Korea)'),
     ('pl', 'Polish'),
