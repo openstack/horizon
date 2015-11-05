@@ -18,6 +18,8 @@ from django.test.utils import override_settings
 import horizon
 
 from openstack_dashboard.test import helpers as test
+from openstack_dashboard.test.test_panels.another_panel \
+    import panel as another_panel
 from openstack_dashboard.test.test_panels.plugin_panel \
     import panel as plugin_panel
 from openstack_dashboard.test.test_panels.second_panel \
@@ -76,3 +78,10 @@ class PanelGroupPluginTests(test.PluginTestCase):
     def test_unregistered_panel_group(self):
         dashboard = horizon.get_dashboard("admin")
         self.assertIsNone(dashboard.get_panel_group("nonexistent_panel"))
+
+    def test_add_panel_to_default_panel_group(self):
+        dashboard = horizon.get_dashboard('admin')
+        default_panel_group = dashboard.get_panel_group('default')
+        self.assertIsNotNone(default_panel_group)
+        self.assertIn(another_panel.AnotherPanel,
+                      [p.__class__ for p in default_panel_group])

@@ -46,6 +46,8 @@ from horizon.decorators import require_perms  # noqa
 from horizon import loaders
 
 
+# Name of the panel group for panels to be displayed without a group.
+DEFAULT_PANEL_GROUP = 'default'
 LOG = logging.getLogger(__name__)
 
 
@@ -335,7 +337,7 @@ class PanelGroup(object):
     """
     def __init__(self, dashboard, slug=None, name=None, panels=None):
         self.dashboard = dashboard
-        self.slug = slug or getattr(self, "slug", "default")
+        self.slug = slug or getattr(self, "slug", DEFAULT_PANEL_GROUP)
         self.name = name or getattr(self, "name", None)
         # Our panels must be mutable so it can be extended by others.
         self.panels = list(panels or getattr(self, "panels", []))
@@ -561,6 +563,7 @@ class Dashboard(Registry, HorizonComponent):
             self.panels = [self.panels]
 
         # Now iterate our panel sets.
+        default_created = False
         for panel_set in self.panels:
             # Instantiate PanelGroup classes.
             if not isinstance(panel_set, collections.Iterable) and \
@@ -573,7 +576,14 @@ class Dashboard(Registry, HorizonComponent):
             # Put our results into their appropriate places
             panels_to_discover.extend(panel_group.panels)
             panel_groups.append((panel_group.slug, panel_group))
+            if panel_group.slug == DEFAULT_PANEL_GROUP:
+                default_created = True
 
+        # Plugin panels can be added to a default panel group. Make sure such a
+        # default group exists.
+        if not default_created:
+            default_group = PanelGroup(self)
+            panel_groups.insert(0, (default_group.slug, default_group))
         self._panel_groups = collections.OrderedDict(panel_groups)
 
         # Do the actual discovery
