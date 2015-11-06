@@ -23,10 +23,12 @@ class TestKeypair(helpers.TestCase):
     KEYPAIR_NAME = helpers.gen_random_resource_name("keypair")
 
     def test_keypair(self):
-        keypair_page = self.home_pg.go_to_accessandsecurity_keypairspage()
+        keypair_page = self.home_pg.\
+            go_to_compute_accessandsecurity_keypairspage()
         keypair_page.create_keypair(self.KEYPAIR_NAME)
 
-        keypair_page = self.home_pg.go_to_accessandsecurity_keypairspage()
+        keypair_page = self.home_pg.\
+            go_to_compute_accessandsecurity_keypairspage()
         self.assertTrue(keypair_page.is_keypair_present(self.KEYPAIR_NAME))
 
         keypair_page.delete_keypair(self.KEYPAIR_NAME)

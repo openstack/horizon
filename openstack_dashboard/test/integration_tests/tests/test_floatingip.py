@@ -21,7 +21,7 @@ class TestFloatingip(helpers.TestCase):
 
     def test_floatingip(self):
         floatingip_page = \
-            self.home_pg.go_to_accessandsecurity_floatingipspage()
+            self.home_pg.go_to_compute_accessandsecurity_floatingipspage()
         floating_ip = floatingip_page.allocate_floatingip()
         self.assertTrue(floatingip_page.is_floatingip_present(floating_ip))
 

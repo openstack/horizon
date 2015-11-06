@@ -278,11 +278,13 @@ class Navigation(object):
 
             * consist of 'go_to_subsubmenu_menuitem_page'
             """
-            submenu, menu_item = self.path[-2:]
+            if len(self.path) < 4:
+                path_2_name = list(self.path[-2:])
+            else:
+                path_2_name = list(self.path[-3:])
 
-            name = "".join((self.METHOD_NAME_PREFIX, submenu,
-                            self.METHOD_NAME_DELIMITER, menu_item,
-                            self.METHOD_NAME_SUFFIX))
+            name = self.METHOD_NAME_DELIMITER.join(path_2_name)
+            name = self.METHOD_NAME_PREFIX + name + self.METHOD_NAME_SUFFIX
             name = Navigation.unify_page_path(name, preserve_spaces=False)
             return name
 
