@@ -8,16 +8,17 @@
 # Frank Kloeker <eumel@arcor.de>, 2015
 # Robert Simai, 2015
 # Carsten Duch <carsten.duch@posteo.de>, 2015. #zanata
+# Robert Simai <robert.simai@suse.com>, 2015. #zanata
 msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-10-22 08:58+0000\n"
+"POT-Creation-Date: 2015-11-05 22:23+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2015-09-22 08:30+0000\n"
-"Last-Translator: Carsten Duch <carsten.duch@posteo.de>\n"
+"PO-Revision-Date: 2015-11-04 02:25+0000\n"
+"Last-Translator: Robert Simai <robert.simai@suse.com>\n"
 "Language: de\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "Generated-By: Babel 2.0\n"
@@ -184,6 +185,9 @@ msgstr "Abbrechen"
 msgid "Cannot get service catalog from keystone."
 msgstr "Dienstkatalog kann nicht von Keystone abgerufen werden."
 
+msgid "Cannot get the extension list."
+msgstr "List der Erweiterungen kann nicht abgerufen werden."
+
 msgid ""
 "Check the <b>Configuration Drive</b> box if you want to write metadata to a "
 "special configuration drive. When the instance boots, it attaches to the "
@@ -296,6 +300,9 @@ msgstr "Variante"
 
 msgid "Flavor Help"
 msgstr "Variantenhilfe"
+
+msgid "Flavor Name"
+msgstr "Variantenname"
 
 msgid ""
 "Flavors manage the sizing for the compute, memory and storage capacity of "
@@ -473,6 +480,9 @@ msgstr "Abbildungstyp"
 
 msgid "Max Port"
 msgstr "Max Port"
+
+msgid "Metadata"
+msgstr "Metadaten"
 
 msgid "Min Disk"
 msgstr "Min Festplatte"
@@ -743,6 +753,9 @@ msgstr "Erstellung der Schlüsselpaares %(name)s erfolgreich."
 msgid "Successfully imported key pair %(name)s."
 msgstr "Importieren des Schlüsselpaares %(name)s erfolgreich."
 
+msgid "Swap Disk"
+msgstr "Auslagerungsplatte"
+
 msgid ""
 "The flavor you select for an instance determines the amount of compute, "
 "storage and memory resources that will be carved out for the instance."
@@ -937,6 +950,9 @@ msgstr "Der Benutzer kann nicht bearbeitet werden."
 msgid "Unable to fetch the service catalog."
 msgstr "Der Dienstkatalog kann nicht abgerufen werden."
 
+msgid "Unable to get the Glance service version."
+msgstr "Glance Dienst-Version kann nicht abgerufen werden."
+
 msgid "Unable to get the Keystone service version."
 msgstr "Keystone Dienst-Version kann nicht abgerufen werden."
 
@@ -1059,6 +1075,9 @@ msgstr "Benutzername"
 
 msgid "VCPUS"
 msgstr "VCPUS"
+
+msgid "VCPUs"
+msgstr "VCPUs"
 
 msgid "Value Type"
 msgstr "Werttyp"

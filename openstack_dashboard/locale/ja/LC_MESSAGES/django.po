@@ -17,11 +17,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-11-03 08:36+0000\n"
+"POT-Creation-Date: 2015-11-05 22:23+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2015-11-03 11:42+0000\n"
+"PO-Revision-Date: 2015-11-05 11:50+0000\n"
 "Last-Translator: Shu Muto <shu-mutou@rf.jp.nec.com>\n"
 "Language: ja\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
@@ -1269,6 +1269,9 @@ msgstr ""
 "予期しないエラーが発生しました。ページの再読み込みを試してください。解決しな"
 "ければ、管理者に連絡してください。"
 
+msgid "Another Plugin-based Panel"
+msgstr "他のプラグインによるパネル"
+
 msgid "Anti-affinity enabled for"
 msgstr "anti-affinity の指定"
 
@@ -1583,6 +1586,10 @@ msgid "Build"
 msgstr "作成中"
 
 msgctxt "Current status of a Database Backup"
+msgid "Building"
+msgstr "作成中"
+
+msgctxt "Current status of an Instance"
 msgid "Building"
 msgstr "作成中"
 
@@ -5064,14 +5071,6 @@ msgstr "Identity Service ではユーザーデータの編集が許可されて�
 msgid "Identity service does not allow editing user password."
 msgstr "Identity Service ではユーザーパスワードの編集ができません。"
 
-#, python-format
-msgid ""
-"If \"No volume type\" is selected, the default volume type \"%(name)s\" will "
-"be set for the created volume."
-msgstr ""
-"もし「ボリューム種別の指定なし」が選択された場合、作成されるボリュームにデ"
-"フォルトのボリューム種別 \"%(name)s\" が設定されます。"
-
 msgid ""
 "If \"No volume type\" is selected, the volume will be created without a "
 "volume type."
@@ -7700,6 +7699,10 @@ msgctxt "Current status of an Instance"
 msgid "Rescue"
 msgstr "レスキュー中"
 
+msgctxt "Current status of an Instance"
+msgid "Rescued"
+msgstr "レスキュー済み"
+
 msgctxt "Task status of an Instance"
 msgid "Rescuing"
 msgstr "レスキュー中"
@@ -7745,6 +7748,10 @@ msgstr "ボリュームのリサイズ"
 msgctxt "Current status of an Instance"
 msgid "Resize/Migrate"
 msgstr "リサイズ/マイグレーション中"
+
+msgctxt "Current status of an Instance"
+msgid "Resized"
+msgstr "リサイズ済み"
 
 msgctxt "Task status of an Instance"
 msgid "Resized or Migrated"
@@ -9023,6 +9030,10 @@ msgstr "説明"
 
 msgctxt "Action log of an instance"
 msgid "Stop"
+msgstr "停止"
+
+msgctxt "Current status of an Instance"
+msgid "Stopped"
 msgstr "停止"
 
 msgid "Storage location"

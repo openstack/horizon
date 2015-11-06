@@ -21,12 +21,12 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-11-02 22:10+0000\n"
+"POT-Creation-Date: 2015-11-05 22:23+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2015-10-11 06:44+0000\n"
-"Last-Translator: Andreas Jaeger <jaegerandi@gmail.com>\n"
+"PO-Revision-Date: 2015-11-04 02:23+0000\n"
+"Last-Translator: Robert Simai <robert.simai@suse.com>\n"
 "Language: de\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "Generated-By: Babel 2.0\n"
@@ -1241,6 +1241,9 @@ msgstr "Energiemenge"
 msgid "An external (HTTP) URL to load the template from."
 msgstr "Eine externe (HTTP) URL, von der die Vorlage geladen wird."
 
+msgid "An external (HTTP/HTTPS) URL to load the image from."
+msgstr "Externe URL (HTTP/HTTPS), von der das Abbild geladen werden soll."
+
 msgid ""
 "An instance can be launched with varying types of attached storage. You may "
 "select from those options here."
@@ -1842,6 +1845,10 @@ msgstr "Cinder Datenträger"
 
 msgid "Cipher"
 msgstr "Chiffre"
+
+msgid "Classless Inter-Domain Routing (e.g. 192.168.0.0/24, or 2001:db8::/128)"
+msgstr ""
+"Klassenloses Inter-Domain Routing (z.B. 192.168.0.0/24, oder 2001:db8::/128)"
 
 msgid "Clear Domain Context"
 msgstr "Domänen-Kontext löschen"
@@ -2671,6 +2678,15 @@ msgstr "Aktuelles Passwort"
 
 msgid "Current type:"
 msgstr "Aktueller Typ:"
+
+msgid ""
+"Currently only images available via an HTTP/HTTPS URL are supported. The "
+"image location must be accessible to the Image Service. Compressed image "
+"binaries are supported (.zip and .tar.gz.)"
+msgstr ""
+"Zur Zeit werden nur Abbilder, die über eine HTTP/HTTPS URL verfügbar sind "
+"unterstützt. Der Abbild-Ort muss vom Abbild-Dienst aus erreichbar sein. "
+"Komprimierte Binär-Abbilder werden unterstützt (.zip und .tar.gz)"
 
 msgid "Custom ICMP Rule"
 msgstr "Angepasste ICMP-Regel"
@@ -5180,14 +5196,6 @@ msgstr "Der Identitäts-Service erlaubt das Editieren von Benutzerdaten nicht."
 msgid "Identity service does not allow editing user password."
 msgstr "Der Identitätsdienst erlaubt nicht das Ändern des Benutzerpasswortes."
 
-#, python-format
-msgid ""
-"If \"No volume type\" is selected, the default volume type \"%(name)s\" will "
-"be set for the created volume."
-msgstr ""
-"Wenn \"Kein Datenträger-Typ\" ausgewählt ist, der Standard-Datenträger-Typ "
-"\"%(name)s\" wird für die Erstellung des Datenträgers verwendet."
-
 msgid ""
 "If \"No volume type\" is selected, the volume will be created without a "
 "volume type."
@@ -5227,6 +5235,17 @@ msgstr ""
 "während der Cluster-Konfiguration. Sonst sollte manuelle Konfiguration "
 "gewählt werden."
 
+msgid ""
+"If you select an image via an HTTP/HTTPS URL, the Image Location field MUST "
+"be a valid and direct URL to the image binary; it must also be accessible to "
+"the Image Service. URLs that redirect or serve error pages will result in "
+"unusable images."
+msgstr ""
+"Wenn Sie ein Abbild über eine HTTP/HTTPS URL angeben, muss der Abbild-Ort "
+"eine gültige direkte URL sein, die vom Abbild-Dienst erreichbar ist. URLs "
+"mit einer Weiterleitung oder die eine Fehlerseite ausgeben führen zu "
+"unbenutzbaren Abbildern."
+
 msgid "Image"
 msgstr "Abbild"
 
@@ -5249,6 +5268,9 @@ msgstr "Abbild Details: {{ image.name }}"
 
 msgid "Image File"
 msgstr "Abbilddatei"
+
+msgid "Image ID"
+msgstr "Abbild ID"
 
 msgid "Image ID ="
 msgstr "Abbild ID ="
@@ -5310,6 +5332,14 @@ msgstr "Abbild wurde erfolgreich aktualisiert."
 
 msgid "Images"
 msgstr "Abbilder"
+
+msgid ""
+"Images can be provided via an HTTP/HTTPS URL or be uploaded from your local "
+"file system. Compressed image binaries are supported (.zip and .tar.gz.)"
+msgstr ""
+"Abbilder können über eine HTTP/HTTPS URL bereit gestellt oder aus dem "
+"lokalen Dateisystem hochgeladen werden. Komprimierte Binär-Abbilder werden "
+"unterstützt (.zip und .tar.gz)"
 
 msgid "Implementation"
 msgstr "Implementierung"
@@ -5956,6 +5986,13 @@ msgstr "Main Class"
 
 msgid "Mains"
 msgstr "Mains"
+
+msgid "Maintenance"
+msgstr "Wartung"
+
+msgctxt "Current status of a Volume"
+msgid "Maintenance"
+msgstr "Wartung"
 
 msgid "Make Private"
 msgstr "Privat machen"
@@ -7525,6 +7562,10 @@ msgstr ""
 "Der Wert für den Verbraucher der QOS Spezifikation muss ein anderer als der "
 "derzeitige sein."
 
+#, python-format
+msgid "QoS Spec name \"%s\" already exists."
+msgstr "QoS Spezifikation mit dem Namen \"%s\" existiert bereits."
+
 msgid "QoS Spec to be associated"
 msgstr "Zu verbindende QoS Spezifikation"
 
@@ -7782,6 +7823,9 @@ msgstr "Repliziere aus Instanz"
 
 msgid "Replication"
 msgstr "Replikation"
+
+msgid "Report Bug"
+msgstr "Bug melden"
 
 msgid "Request ID"
 msgstr "Anfrage ID"

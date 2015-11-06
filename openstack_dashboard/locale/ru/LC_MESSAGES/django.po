@@ -23,7 +23,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-11-02 22:10+0000\n"
+"POT-Creation-Date: 2015-11-05 22:23+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -5332,14 +5332,6 @@ msgstr "Служба идентификации запретила редакт�
 
 msgid "Identity service does not allow editing user password."
 msgstr "Служба идентификации не разрешает менять пароль пользователя."
-
-#, python-format
-msgid ""
-"If \"No volume type\" is selected, the default volume type \"%(name)s\" will "
-"be set for the created volume."
-msgstr ""
-"Если выбрано \"Не указан тип\", тип диска по умолчанию \"%(name)s\" будет "
-"установлен для создаваемого диска."
 
 msgid ""
 "If \"No volume type\" is selected, the volume will be created without a "

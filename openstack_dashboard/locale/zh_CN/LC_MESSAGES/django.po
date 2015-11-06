@@ -19,6 +19,7 @@
 # Daisy <guoyingc@cn.ibm.com>, 2015. #zanata
 # OpenStack Infra <zanata@openstack.org>, 2015. #zanata
 # Xu Yang <xuyang@cn.fujitsu.com>, 2015. #zanata
+# Yang Hongyang <hongyang.yang@easystack.cn>, 2015. #zanata
 # Yu Zhiuguo <yuzg@cn.fujitsu.com>, 2015. #zanata
 # yan haifeng <yanheven@qq.com>, 2015. #zanata
 # zhangjingwen <zhangjingwen@cn.fujitsu.com>, 2015. #zanata
@@ -26,12 +27,12 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-11-02 22:10+0000\n"
+"POT-Creation-Date: 2015-11-05 22:23+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2015-10-15 01:12+0000\n"
-"Last-Translator: yan haifeng <yanheven@qq.com>\n"
+"PO-Revision-Date: 2015-11-05 12:16+0000\n"
+"Last-Translator: Yang Hongyang <hongyang.yang@easystack.cn>\n"
 "Language: zh-CN\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 "Generated-By: Babel 2.0\n"
@@ -4885,12 +4886,6 @@ msgstr "认证服务不允许编辑用户数据。"
 
 msgid "Identity service does not allow editing user password."
 msgstr "认证服务不允许编辑用户密码。"
-
-#, python-format
-msgid ""
-"If \"No volume type\" is selected, the default volume type \"%(name)s\" will "
-"be set for the created volume."
-msgstr "如果\"No volume type\"被选中, 默认的卷类型 \"%(name)s\"  将被设定。"
 
 msgid ""
 "If \"No volume type\" is selected, the volume will be created without a "
@@ -10738,7 +10733,7 @@ msgid "Unable to retrieve router details."
 msgstr "无法获取路由详情"
 
 msgid "Unable to retrieve router list."
-msgstr "无法获取路优列表"
+msgstr "无法获取路由列表"
 
 msgid "Unable to retrieve router."
 msgstr "无法重新获得路由"
