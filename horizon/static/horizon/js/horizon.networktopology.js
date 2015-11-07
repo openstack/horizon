@@ -140,7 +140,6 @@ horizon.network_topology = {
         var message = angular.element.parseJSON(e.originalEvent.data);
         if (self.previous_message !== message.message) {
           horizon.alert(message.type, message.message);
-          horizon.autoDismissAlerts();
           self.previous_message = message.message;
           self.delete_post_message(message.iframe_id);
           if (message.type == 'success' && self.deleting_device) {
