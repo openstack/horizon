@@ -33,6 +33,7 @@ from django.conf.urls import url
 from django.core.exceptions import ImproperlyConfigured  # noqa
 from django.core.urlresolvers import reverse
 from django.utils.encoding import python_2_unicode_compatible
+from django.utils.functional import empty
 from django.utils.functional import SimpleLazyObject  # noqa
 from django.utils.importlib import import_module  # noqa
 from django.utils.module_loading import module_has_submodule  # noqa
@@ -650,12 +651,6 @@ class Dashboard(Registry, HorizonComponent):
 
 class Workflow(object):
     pass
-
-try:
-    from django.utils.functional import empty  # noqa
-except ImportError:
-    # Django 1.3 fallback
-    empty = None
 
 
 class LazyURLPattern(SimpleLazyObject):

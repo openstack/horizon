@@ -12,12 +12,10 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
-import django
 from django.conf import settings
 from django.core.urlresolvers import reverse
 from django import http
 from django.utils.six.moves.urllib.parse import urlsplit  # noqa
-from django.utils import unittest
 
 from mox3.mox import IsA  # noqa
 
@@ -54,9 +52,6 @@ class ChangePasswordTests(test.TestCase):
 
         self.assertFormError(res, "form", None, ['Passwords do not match.'])
 
-    @unittest.skipUnless(django.VERSION[0] >= 1 and django.VERSION[1] >= 6,
-                         "'HttpResponseRedirect' object has no attribute "
-                         "'url' prior to Django 1.6")
     @test.create_stubs({api.keystone: ('user_update_own_password', )})
     def test_change_password_sets_logout_reason(self):
         api.keystone.user_update_own_password(IsA(http.HttpRequest),

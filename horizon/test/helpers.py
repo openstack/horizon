@@ -16,7 +16,6 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
-import django
 import logging
 import os
 import socket
@@ -32,16 +31,12 @@ from django.core.handlers import wsgi
 from django import http
 from django import test as django_test
 from django.test.client import RequestFactory  # noqa
-from django.test import testcases
 from django.utils.encoding import force_text
 from django.utils import unittest
 import six
 
-if django.VERSION < (1, 7):
-    from django.test import LiveServerTestCase  # noqa
-else:
-    from django.contrib.staticfiles.testing \
-            import StaticLiveServerTestCase as LiveServerTestCase  # noqa
+from django.contrib.staticfiles.testing \
+    import StaticLiveServerTestCase as LiveServerTestCase
 
 LOG = logging.getLogger(__name__)
 
@@ -224,60 +219,6 @@ class TestCase(django_test.TestCase):
             assert len(msgs) == count, \
                 "%s messages not as expected: %s" % (msg_type.title(),
                                                      ", ".join(msgs))
-
-    def assertNotContains(self, response, text, status_code=200,
-                          msg_prefix='', html=False):
-        # Prior to Django 1.7 assertContains and assertNotContains behaved
-        # differently regarding response's 'streaming' flag
-        if django.VERSION < (1, 7):
-            return self._assertNotContains(response, text, status_code,
-                                           msg_prefix, html)
-        else:
-            return super(TestCase, self).assertNotContains(
-                response, text, status_code, msg_prefix, html)
-
-    def _assertNotContains(self, response, text, status_code=200,
-                           msg_prefix='', html=False):
-        """Asserts that a response indicates that some content was retrieved
-        successfully, (i.e., the HTTP status code was as expected), and that
-        ``text`` doesn't occurs in the content of the response.
-
-        This is an override of django_test.TestCase.assertNotContains method,
-        which is able to work with StreamingHttpResponse. Should be called
-        for Django versions prior to 1.7.
-        """
-        # If the response supports deferred rendering and hasn't been rendered
-        # yet, then ensure that it does get rendered before proceeding further.
-        if (hasattr(response, 'render') and callable(response.render) and
-                not response.is_rendered):
-            response.render()
-
-        if msg_prefix:
-            msg_prefix += ": "
-
-        self.assertEqual(
-            response.status_code, status_code,
-            msg_prefix + "Couldn't retrieve content: Response code was %d"
-            " (expected %d)" % (response.status_code, status_code))
-
-        if getattr(response, 'streaming', False):
-            content = b''.join(response.streaming_content)
-        else:
-            content = response.content
-        if not isinstance(text, bytes) or html:
-            text = force_text(text, encoding=response._charset)
-            content = content.decode(response._charset)
-            text_repr = "'%s'" % text
-        else:
-            text_repr = repr(text)
-        if html:
-            content = testcases.assert_and_parse_html(
-                self, content, None, 'Response\'s content is not valid HTML:')
-            text = testcases.assert_and_parse_html(
-                self, text, None, 'Second argument is not valid HTML:')
-        self.assertEqual(
-            content.count(text), 0,
-            msg_prefix + "Response should not contain %s" % text_repr)
 
 
 @unittest.skipUnless(os.environ.get('WITH_SELENIUM', False),
