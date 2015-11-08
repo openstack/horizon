@@ -7,18 +7,19 @@
 # Lafaiet <coldmetall@gmail.com>, 2015
 # Luís Eduardo Tenório Silva <eduardovansilva@gmail.com>, 2015
 # Tiago OR (James) <tiagoor@gmail.com>, 2015
+# André Campos <andrecbezerra@gmail.com>, 2015. #zanata
 # Marcelo Dieder <marcelodieder@gmail.com>, 2015. #zanata
 # OpenStack Infra <zanata@openstack.org>, 2015. #zanata
 msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-10-22 08:58+0000\n"
+"POT-Creation-Date: 2015-11-05 22:23+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2015-10-02 02:54+0000\n"
-"Last-Translator: Marcelo Dieder <marcelodieder@gmail.com>\n"
+"PO-Revision-Date: 2015-11-06 06:27+0000\n"
+"Last-Translator: André Campos <andrecbezerra@gmail.com>\n"
 "Language: pt-BR\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 "Generated-By: Babel 2.0\n"
@@ -182,6 +183,9 @@ msgstr "Cancelar"
 msgid "Cannot get service catalog from keystone."
 msgstr "Não é possível obter o catálogo de serviços a partir do keystone."
 
+msgid "Cannot get the extension list."
+msgstr "Não foi possível obter lista de extensão."
+
 msgid ""
 "Check the <b>Configuration Drive</b> box if you want to write metadata to a "
 "special configuration drive. When the instance boots, it attaches to the "
@@ -293,6 +297,9 @@ msgstr "Flavor"
 
 msgid "Flavor Help"
 msgstr "Ajuda em Flavor"
+
+msgid "Flavor Name"
+msgstr "Nome do Flavor"
 
 msgid ""
 "Flavors manage the sizing for the compute, memory and storage capacity of "
@@ -469,6 +476,9 @@ msgstr "Tipo de mapeamento"
 
 msgid "Max Port"
 msgstr "Máx. Porta"
+
+msgid "Metadata"
+msgstr "Metadado"
 
 msgid "Min Disk"
 msgstr "Mín. Disco"
@@ -733,6 +743,9 @@ msgstr "Par de chaves %(name)s criado com sucesso."
 msgid "Successfully imported key pair %(name)s."
 msgstr "Par de chaves %(name)s importados com sucesso."
 
+msgid "Swap Disk"
+msgstr "Disco de Swap"
+
 msgid ""
 "The flavor you select for an instance determines the amount of compute, "
 "storage and memory resources that will be carved out for the instance."
@@ -926,6 +939,9 @@ msgstr "Não foi possível editar o usuário."
 msgid "Unable to fetch the service catalog."
 msgstr "Não é possível obter o catálogo de serviços."
 
+msgid "Unable to get the Glance service version."
+msgstr "Não foi possível obter versão do serviço Glance."
+
 msgid "Unable to get the Keystone service version."
 msgstr "Não foi possível obter a versão do serviço Keystone."
 
@@ -1048,6 +1064,9 @@ msgstr "Nome do Usuário"
 
 msgid "VCPUS"
 msgstr "VCPUS"
+
+msgid "VCPUs"
+msgstr "VPCUs"
 
 msgid "Value Type"
 msgstr "Tipo de Valor"

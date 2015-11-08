@@ -9,18 +9,19 @@
 # Gabriel Wainer, 2015
 # maurosr <maurosmrodrigues@gmail.com>, 2015
 # Rodrigo Felix de Almeida <rodrigofelixdealmeida@gmail.com>, 2014
+# André Campos <andrecbezerra@gmail.com>, 2015. #zanata
 # Gabriel Wainer <gabrielcw@gmail.com>, 2015. #zanata
 # OpenStack Infra <zanata@openstack.org>, 2015. #zanata
 msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-10-22 08:58+0000\n"
+"POT-Creation-Date: 2015-11-05 22:23+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2015-09-21 10:41+0000\n"
-"Last-Translator: Gabriel Wainer <gabrielcw@gmail.com>\n"
+"PO-Revision-Date: 2015-11-06 06:26+0000\n"
+"Last-Translator: André Campos <andrecbezerra@gmail.com>\n"
 "Language: pt-BR\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 "Generated-By: Babel 2.0\n"
@@ -49,6 +50,12 @@ msgstr "%s bytes"
 
 msgid "-"
 msgstr "-"
+
+msgid "0 GB"
+msgstr "0 GB"
+
+msgid "0 MB"
+msgstr "0 MB"
 
 msgid "Active"
 msgstr "Ativo"
@@ -342,6 +349,9 @@ msgstr ""
 
 msgid "There was an error submitting the form. Please try again."
 msgstr "Houve um erro ao enviar o formulário. Por favor tente novamente."
+
+msgid "Toggle Dropdown"
+msgstr "Alternar Opções"
 
 msgid "Total"
 msgstr "Total"

@@ -15,6 +15,7 @@
 # Rodrigo Felix de Almeida <rodrigofelixdealmeida@gmail.com>, 2014
 # Tiago OR (James) <tiagoor@gmail.com>, 2015
 # Zilmar de Souza Junior <zilmar.jr@gmail.com>, 2015
+# André Campos <andrecbezerra@gmail.com>, 2015. #zanata
 # Gabriel Wainer <gabrielcw@gmail.com>, 2015. #zanata
 # Marcelo Dieder <marcelodieder@gmail.com>, 2015. #zanata
 # OpenStack Infra <zanata@openstack.org>, 2015. #zanata
@@ -26,8 +27,8 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2015-10-06 02:04+0000\n"
-"Last-Translator: Marcelo Dieder <marcelodieder@gmail.com>\n"
+"PO-Revision-Date: 2015-11-06 07:00+0000\n"
+"Last-Translator: André Campos <andrecbezerra@gmail.com>\n"
 "Language: pt-BR\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 "Generated-By: Babel 2.0\n"
@@ -1240,6 +1241,9 @@ msgstr "Quantidade de energia"
 msgid "An external (HTTP) URL to load the template from."
 msgstr "Uma URL (HTTP) externa de onde carregar o modelo."
 
+msgid "An external (HTTP/HTTPS) URL to load the image from."
+msgstr "Uma URL externa (HTTP/HTTPS) para carregar a imagem."
+
 msgid ""
 "An instance can be launched with varying types of attached storage. You may "
 "select from those options here."
@@ -1267,6 +1271,9 @@ msgid ""
 msgstr ""
 "Um erro inesperado ocorreu. Tente atualizar a página. Se não resolver, "
 "contate seu administrador local."
+
+msgid "Another Plugin-based Panel"
+msgstr "Outro painel baseado em plugins."
 
 msgid "Anti-affinity enabled for"
 msgstr "Anti-affinity ativada Para"
@@ -1594,6 +1601,10 @@ msgctxt "Current status of a Database Backup"
 msgid "Building"
 msgstr "Construindo"
 
+msgctxt "Current status of an Instance"
+msgid "Building"
+msgstr "Construindo"
+
 msgctxt "Power state of an Instance"
 msgid "Building"
 msgstr "Construindo"
@@ -1845,6 +1856,9 @@ msgstr "Volumes Cinder"
 
 msgid "Cipher"
 msgstr "Cifra"
+
+msgid "Classless Inter-Domain Routing (e.g. 192.168.0.0/24, or 2001:db8::/128)"
+msgstr "Roteamento Sem Classes (CIDR) (e.g. 192.168.0.0/24, ou 2001:db8::/128)"
 
 msgid "Clear Domain Context"
 msgstr "Limpar Contexto de Domínio"
@@ -2671,6 +2685,15 @@ msgstr "Senha atual"
 msgid "Current type:"
 msgstr "Tipo atual:"
 
+msgid ""
+"Currently only images available via an HTTP/HTTPS URL are supported. The "
+"image location must be accessible to the Image Service. Compressed image "
+"binaries are supported (.zip and .tar.gz.)"
+msgstr ""
+"Atualmente somente imagens disponíveis via URL HTTP/HTTPS são suportadas. O "
+"local da imagem deve ser acessível ao serviço de Imagem. Binários de imagem "
+"comprimidos são suportados (.zip e .tar.gz.)"
+
 msgid "Custom ICMP Rule"
 msgstr "Regra ICMP customizada"
 
@@ -2846,6 +2869,10 @@ msgstr "Datas não puderam ser reconhecidas."
 
 msgid "Day"
 msgstr "Dia"
+
+msgctxt "Current status of an Image"
+msgid "Deactivated"
+msgstr "Desativado"
 
 msgid "Dead peer detection action"
 msgstr "Ação de detecção de peer morto"
@@ -4082,6 +4109,10 @@ msgctxt "current status of router"
 msgid "Error"
 msgstr "Erro"
 
+msgctxt "status of a network port"
+msgid "Error"
+msgstr "Erro"
+
 msgid "Error Deleting"
 msgstr "Erro ao Deletar"
 
@@ -4222,6 +4253,9 @@ msgstr "Estendendo"
 #, python-format
 msgid "Extending volume: \"%s\""
 msgstr "Estendendo o volume: \"%s\""
+
+msgid "External"
+msgstr "Externo"
 
 msgid "External Fixed IPs"
 msgstr "IPs fixos externos"
@@ -4677,6 +4711,10 @@ msgstr "IP Flutuante"
 
 msgid "Floating IP Pool"
 msgstr "Pool de IPs flutuantes"
+
+#, python-format
+msgid "Floating IP will be removed from VIP \"%s\"."
+msgstr "IP flutuante será removido da VIP \"%s\"."
 
 msgid "Floating IP:"
 msgstr "IP Flutuante:"
@@ -5186,6 +5224,17 @@ msgstr ""
 "automaticamente durante a criação do cluster. Caso contrário, você deve "
 "especificar manualmente os valores de configuração."
 
+msgid ""
+"If you select an image via an HTTP/HTTPS URL, the Image Location field MUST "
+"be a valid and direct URL to the image binary; it must also be accessible to "
+"the Image Service. URLs that redirect or serve error pages will result in "
+"unusable images."
+msgstr ""
+"Se você selecionar uma imagem através de um URL HTTP/HTTPS, o campo "
+"Localização da Imagem deve ser uma URL válida e direta com a imagem binária; "
+"ele também deve ser acessível para o Serviço de Imagem. URLs que "
+"redirecionam ou servir páginas de erro resultará em imagens inutilizáveis​​."
+
 msgid "Image"
 msgstr "Imagem"
 
@@ -5208,6 +5257,9 @@ msgstr "Detalhes da Imagem: {{ image.name }}"
 
 msgid "Image File"
 msgstr "Arquivo de Imagem"
+
+msgid "Image ID"
+msgstr "ID da Imagem"
 
 msgid "Image ID ="
 msgstr "ID da Imagem ="
@@ -5269,6 +5321,14 @@ msgstr "A imagem foi atualizado com sucesso."
 
 msgid "Images"
 msgstr "Imagens"
+
+msgid ""
+"Images can be provided via an HTTP/HTTPS URL or be uploaded from your local "
+"file system. Compressed image binaries are supported (.zip and .tar.gz.)"
+msgstr ""
+"Imagens podem ser fornecidas através de uma URL HTTP/HTTPS ou serem "
+"carregadas do seu sistema de arquivos local. Binários de imagens comprimidas "
+"são suportados (.zip e .tar.gz.)"
 
 msgid "Implementation"
 msgstr "Implementação"
@@ -5919,6 +5979,13 @@ msgstr "Classe principal"
 
 msgid "Mains"
 msgstr "Mains"
+
+msgid "Maintenance"
+msgstr "Manutenção"
+
+msgctxt "Current status of a Volume"
+msgid "Maintenance"
+msgstr "Manutenção"
 
 msgid "Make Private"
 msgstr "Criar Privado"
@@ -7488,6 +7555,10 @@ msgstr ""
 "O valor do consumidor da Especificação de QoS deve ser different do valor do "
 "consumidor atual."
 
+#, python-format
+msgid "QoS Spec name \"%s\" already exists."
+msgstr "Nome da especificação QoS \"%s\" já existe"
+
 msgid "QoS Spec to be associated"
 msgstr "Especificação de QoS a ser associada"
 
@@ -7744,6 +7815,9 @@ msgstr "Replicar da Instância"
 msgid "Replication"
 msgstr "Replicação"
 
+msgid "Report Bug"
+msgstr "Reportar Bug"
+
 msgid "Request ID"
 msgstr "Request ID"
 
@@ -7766,6 +7840,10 @@ msgstr "Requerido para persistência de APP_COOKIE; Ignorado caso contrário."
 msgctxt "Current status of an Instance"
 msgid "Rescue"
 msgstr "Resgate"
+
+msgctxt "Current status of an Instance"
+msgid "Rescued"
+msgstr "Recuperado"
 
 msgctxt "Task status of an Instance"
 msgid "Rescuing"
@@ -7812,6 +7890,10 @@ msgstr "Redimensionar volume"
 msgctxt "Current status of an Instance"
 msgid "Resize/Migrate"
 msgstr "Redimensionar/Migrar"
+
+msgctxt "Current status of an Instance"
+msgid "Resized"
+msgstr "Redimensionado"
 
 msgctxt "Task status of an Instance"
 msgid "Resized or Migrated"
@@ -9118,6 +9200,10 @@ msgctxt "Action log of an instance"
 msgid "Stop"
 msgstr "Parado"
 
+msgctxt "Current status of an Instance"
+msgid "Stopped"
+msgstr "Parado"
+
 msgid "Storage location"
 msgstr "Local de Armazenamento"
 
@@ -10349,8 +10435,24 @@ msgid "Unable to create volume."
 msgstr "Incapaz de criar volume."
 
 #, python-format
+msgid "Unable to delete IKE Policy. %s"
+msgstr "Não foi possível deletar a Política IKE. %s"
+
+#, python-format
+msgid "Unable to delete IPSec Policy. %s"
+msgstr "Não foi possível apagar a política IPSEC. %s"
+
+#, python-format
+msgid "Unable to delete IPSec Site Connection. %s"
+msgstr "Não foi possível excluir conexão do site IPSEC. %s"
+
+#, python-format
 msgid "Unable to delete VIP. %s"
 msgstr "Não é possível excluir vIP. %s"
+
+#, python-format
+msgid "Unable to delete VPN Service. %s"
+msgstr "Não foi possível deletar o serviço de VPN. %s"
 
 msgid "Unable to delete container."
 msgstr "Não foi possível excluír container."
