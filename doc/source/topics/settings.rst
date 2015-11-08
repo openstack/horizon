@@ -1059,9 +1059,10 @@ Default::
             'enable_firewall': True,
             'enable_vpn': True,
             'profile_support': None,
-            'supported_provider_types': ["*"],
             'supported_vnic_types': ["*"],
+            'supported_provider_types': ["*"],
             'segmentation_id_range': {},
+            'extra_provider_types': {},
             'enable_fip_topology_check': True,
         }
 
@@ -1190,9 +1191,14 @@ Default: ``["*"]``
 
 For use with the provider network extension. Use this to explicitly set which
 provider network types are supported. Only the network types in this list will
-be available to choose from when creating a network. Network types include
-local, flat, vlan, gre, and vxlan. By default all provider network types will
-be available to choose from.
+be available to choose from when creating a network.
+Network types defined in Horizon or defined in ``extra_provider_types``
+settings can be specified in this list.
+As of the Liberty release, the network types defined in Horizon include
+network types supported by Neutron ML2 plugin with Open vSwitch driver
+(``local``, ``flat``, ``vlan``, ``gre``, and ``vxlan``).
+``["*"]`` means that all provider network types supported by Neutron
+ML2 plugin will be available to choose from.
 
 Example: ``['local', 'flat', 'gre']``
 
@@ -1226,7 +1232,48 @@ number is the maximum segmentation ID. Pertains only to the vlan, gre, and
 vxlan network types. By default this option is not provided and each minimum
 and maximum value will be the default for the provider network type.
 
-Example: ``{'vlan': [1024, 2048], 'gre': [4094, 65536]}``
+Example::
+
+    {
+        'vlan': [1024, 2048],
+        'gre': [4094, 65536]
+    }
+
+``extra_provider_types``
+~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. versionadded:: 10.0.0(Newton)
+
+Default: ``{}``
+
+For use with the provider network extension.
+This is a dictionary to define extra provider network definitions.
+Network types supported by Neutron depend on the configured plugin.
+Horizon has predefined provider network types but horizon cannot cover
+all of them. If you are using a provider network type not defined
+in advance, you can add a definition through this setting.
+
+The **key** name of each item in this must be a network type used
+in the Neutron API. * **value** should be a dictionary which contains
+the following items:
+
+* ``display_name``: string displayed in the network creation form.
+* ``require_physical_network``: a boolean parameter which indicates
+  this network type requires a physical network.
+* ``require_segmentation_id``: a boolean parameter which indicates
+  this network type requires a segmentation ID.
+  If True, a valid segmentation ID range must be configureed
+  in ``segmentation_id_range`` settings above.
+
+Example::
+
+    {
+        'awesome': {
+            'display_name': 'Awesome',
+            'require_physical_network': False,
+            'require_segmentation_id': True,
+        },
+    }
 
 ``enable_fip_topology_check``
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
