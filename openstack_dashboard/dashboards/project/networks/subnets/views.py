@@ -99,8 +99,8 @@ class UpdateView(workflows.WorkflowView):
 
 class DetailView(tabs.TabView):
     tab_group_class = project_tabs.SubnetDetailTabs
-    template_name = 'project/networks/subnets/detail.html'
-    page_title = _("Subnet Details")
+    template_name = 'horizon/common/_detail.html'
+    page_title = "{{ subnet.name|default:subnet.id }}"
 
     @memoized.memoized_method
     def get_data(self):
@@ -128,11 +128,32 @@ class DetailView(tabs.TabView):
 
         return subnet
 
+    @memoized.memoized_method
+    def get_network(self, network_id):
+        try:
+            network = api.neutron.network_get(self.request, network_id)
+        except Exception:
+            network = {}
+            msg = _('Unable to retrieve network details.')
+            exceptions.handle(self.request, msg)
+
+        return network
+
     def get_context_data(self, **kwargs):
         context = super(DetailView, self).get_context_data(**kwargs)
         subnet = self.get_data()
+        network = self.get_network(subnet.network_id)
+        subnet.network_name = network.get('name')
+        network_nav = subnet.network_name or subnet.network_id
         table = project_tables.SubnetsTable(self.request,
                                             network_id=subnet.network_id)
+        # TODO(robcresswell) Add URL for "Subnets" crumb after bug/1416838
+        breadcrumb = [
+            ("Networks", self.get_redirect_url()),
+            (network_nav, reverse('horizon:project:networks:detail',
+                                  args=(subnet.network_id,))),
+            ("Subnets",), ]
+        context["custom_breadcrumb"] = breadcrumb
         context["subnet"] = subnet
         context["url"] = self.get_redirect_url()
         context["actions"] = table.render_row_actions(subnet)

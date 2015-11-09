@@ -1,11 +1,7 @@
 {% load i18n sizeformat %}
 {% load url from future %}
 
-<h3>{% trans "Instance Overview" %}</h3>
-
-<div class="status detail">
-  <h4>{% trans "Information" %}</h4>
-  <hr class="header_rule">
+<div class="detail">
   <dl class="dl-horizontal">
     <dt>{% trans "Name" %}</dt>
     <dd>{{ instance.name }}</dd>
@@ -24,10 +20,8 @@
       <dd>{{ instance.host_server|default:_("-") }}</dd>
     {% endif %}
   </dl>
-</div>
 
-{% if instance.fault %}
-<div class="status detail">
+  {% if instance.fault %}
     <h4>{% trans "Fault" %}</h4>
     <hr class="header_rule">
     <dl class="dl-horizontal">
@@ -40,10 +34,8 @@
       <dt>{% trans "Created" %}</dt>
       <dd>{{ instance.fault.created|parse_isotime }}</dd>
     </dl>
-</div>
-{% endif %}
+  {% endif %}
 
-<div class="specs detail">
   <h4>{% trans "Specs" %}</h4>
   <hr class="header_rule">
   <dl class="dl-horizontal">
@@ -67,9 +59,7 @@
       <dd>{% trans "Not available" %}</dd>
     {% endif %}
   </dl>
-</div>
 
-<div class="addresses detail">
     <h4>{% trans "IP Addresses" %}</h4>
     <hr class="header_rule">
     <dl class="dl-horizontal">
@@ -82,9 +72,7 @@
         </dd>
       {% endfor %}
     </dl>
-</div>
 
-<div class="security_groups detail">
     <h4>{% trans "Security Groups" %}</h4>
     <hr class="header_rule">
     <dl class="dl-horizontal">
@@ -103,9 +91,7 @@
         {% trans "Not available" %}
       {% endfor %}
     </dl>
-</div>
 
-<div class="meta detail">
     <h4>{% trans "Metadata" %}</h4>
     <hr class="header_rule">
     <dl class="dl-horizontal">
@@ -130,9 +116,7 @@
       {% endfor %}
       {% endwith %}
     </dl>
-</div>
 
-<div class="volumes detail">
     <h4>{% trans "Volumes Attached" %}</h4>
     <hr class="header_rule">
     <dl class="dl-horizontal">

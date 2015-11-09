@@ -35,8 +35,8 @@ STATUS_DICT = dict(project_tables.STATUS_DISPLAY_CHOICES)
 
 class DetailView(tabs.TabView):
     tab_group_class = project_tabs.PortDetailTabs
-    template_name = 'project/networks/ports/detail.html'
-    page_title = _("Port Details")
+    template_name = 'horizon/common/_detail.html'
+    page_title = "{{ port.name|default:port.id }}"
 
     @memoized.memoized_method
     def get_data(self):
@@ -60,11 +60,32 @@ class DetailView(tabs.TabView):
 
         return port
 
+    @memoized.memoized_method
+    def get_network(self, network_id):
+        try:
+            network = api.neutron.network_get(self.request, network_id)
+        except Exception:
+            network = {}
+            msg = _('Unable to retrieve network details.')
+            exceptions.handle(self.request, msg)
+
+        return network
+
     def get_context_data(self, **kwargs):
         context = super(DetailView, self).get_context_data(**kwargs)
         port = self.get_data()
+        network = self.get_network(port.network_id)
+        port.network_name = network.get('name')
+        network_nav = port.network_name or port.network_id
         table = project_tables.PortsTable(self.request,
                                           network_id=port.network_id)
+        # TODO(robcresswell) Add URL for "Ports" crumb after bug/1416838
+        breadcrumb = [
+            ("Networks", self.get_redirect_url()),
+            (network_nav, reverse('horizon:project:networks:detail',
+                                  args=(port.network_id,))),
+            ("Ports",), ]
+        context["custom_breadcrumb"] = breadcrumb
         context["port"] = port
         context["url"] = self.get_redirect_url()
         context["actions"] = table.render_row_actions(port)

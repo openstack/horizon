@@ -298,11 +298,9 @@ class ImageViewTests(test.TestCase):
                                       args=[image.id]))
 
         self.assertTemplateUsed(res,
-                                'project/images/images/detail.html')
+                                'horizon/common/_detail.html')
         self.assertEqual(res.context['image'].name, image.name)
         self.assertEqual(res.context['image'].protected, image.protected)
-        self.assertContains(res, "<h1>Image Details: %s</h1>" % image.name,
-                            1, 200)
 
     @test.create_stubs({api.glance: ('image_get',)})
     def test_image_detail_custom_props_get(self):
@@ -343,7 +341,7 @@ class ImageViewTests(test.TestCase):
             reverse('horizon:project:images:images:detail',
                     args=[image.id]))
         self.assertTemplateUsed(res,
-                                'project/images/images/detail.html')
+                                'horizon/common/_detail.html')
         self.assertEqual(res.context['image'].protected, image.protected)
 
     @test.create_stubs({api.glance: ('image_get',)})

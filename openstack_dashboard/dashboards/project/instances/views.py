@@ -290,9 +290,9 @@ class DecryptPasswordView(forms.ModalFormView):
 
 class DetailView(tabs.TabView):
     tab_group_class = project_tabs.InstanceDetailTabs
-    template_name = 'project/instances/detail.html'
+    template_name = 'horizon/common/_detail.html'
     redirect_url = 'horizon:project:instances:index'
-    page_title = _("Instance Details: {{ instance.name }}")
+    page_title = "{{ instance.name|default:instance.id }}"
     image_url = 'horizon:project:images:images:detail'
     volume_url = 'horizon:project:volumes:volumes:detail'
 

@@ -1,13 +1,7 @@
 {% load i18n sizeformat parse_date %}
 {% load url from future %}
 
-<h3>
-  {% blocktrans with backup_display_name=backup.display_name %}Volume Backup Overview: {{ backup_display_name }}{% endblocktrans %}
-</h3>
-
-<div class="info row detail">
-  <h4>{% trans "Information" %}</h4>
-  <hr class="header_rule">
+<div class="detail">
   <dl class="dl-horizontal">
     <dt>{% trans "Name" %}</dt>
     <dd>{{ backup.name }}</dd>
@@ -28,9 +22,7 @@
     </dd>
     {% endif %}
   </dl>
-</div>
 
-<div class="specs row detail">
   <h4>{% trans "Specs" %}</h4>
   <hr class="header_rule">
   <dl class="dl-horizontal">
@@ -39,10 +31,7 @@
     <dt>{% trans "Created" %}</dt>
     <dd>{{ backup.created_at|parse_date }}</dd>
   </dl>
-</div>
 
-
-<div class="status row detail">
   <h4>{% trans "Metadata" %}</h4>
   <hr class="header_rule">
   <dl class="dl-horizontal">

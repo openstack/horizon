@@ -28,12 +28,9 @@ from openstack_dashboard.dashboards.project.volumes.volumes \
 
 
 class DetailView(volumes_views.DetailView):
-    template_name = "admin/volumes/volumes/detail.html"
-
     def get_context_data(self, **kwargs):
         context = super(DetailView, self).get_context_data(**kwargs)
         table = volumes_tables.VolumesTable(self.request)
-        context["url"] = self.get_redirect_url()
         context["actions"] = table.render_row_actions(context["volume"])
         return context
 
