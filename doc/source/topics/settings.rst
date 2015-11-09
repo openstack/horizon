@@ -830,6 +830,21 @@ A dictionary of settings which can be used to enable optional services provided
 by cinder.  Currently only the backup service is available.
 
 
+``OPENSTACK_HEAT_STACK``
+-----------------------------
+
+.. versionadded:: 9.0.0(Mitaka)
+
+Default: ``{'enable_user_pass': True}``
+
+A dictionary of settings to use with heat stacks. Currently, the only setting
+available is "enable_user_pass", which can be used to disable the password
+field while launching the stack. Currently HEAT API needs user password to
+perform all the heat operations because in HEAT API trusts is not enabled by
+default. So, this setting can be set as "False" in-case HEAT uses trusts by
+default otherwise it needs to be set as "True".
+
+
 ``OPENSTACK_NEUTRON_NETWORK``
 -----------------------------
 
