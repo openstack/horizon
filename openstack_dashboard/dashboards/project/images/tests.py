@@ -17,7 +17,9 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
+import os
 from socket import timeout as socket_timeout  # noqa
+import unittest
 
 from django.core.urlresolvers import reverse
 from django import http
@@ -411,6 +413,8 @@ class SeleniumTests(test.SeleniumTestCase):
         self.assertTrue("ISO" in body.text,
                         "ISO should be selected when the extension is *.iso")
 
+    @unittest.skipIf(os.environ.get('SELENIUM_PHANTOMJS'),
+                     "PhantomJS cannot test file upload widgets.")
     @test.create_stubs({api.glance: ('image_list_detailed',)})
     def test_modal_create_image_from_file(self):
         driver = self.selenium
@@ -471,6 +475,8 @@ class SeleniumTests(test.SeleniumTestCase):
         self.assertTrue("ISO" in body.text,
                         "ISO should be selected when the extension is *.iso")
 
+    @unittest.skipIf(os.environ.get('SELENIUM_PHANTOMJS'),
+                     "PhantomJS cannot test file upload widgets.")
     @test.create_stubs({api.glance: ('image_list_detailed',)})
     def test_create_image_from_file(self):
         driver = self.selenium
