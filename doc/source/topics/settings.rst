@@ -873,7 +873,8 @@ A dictionary of settings which can be used to enable optional services provided
 by Neutron and configure Neutron specific features.  The following options are
 available.
 
-``enable_router``:
+``enable_router``
+~~~~~~~~~~~~~~~~~
 
 .. versionadded:: 2014.2(Juno)
 
@@ -885,7 +886,8 @@ when Neutron is enabled. If your Neutron deployment has no support for
 Layer-3 features, or you do not wish to provide the Layer-3
 features through the Dashboard, this should be set to ``False``.
 
-``enable_distributed_router``:
+``enable_distributed_router``
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. versionadded:: 2014.2(Juno)
 
@@ -898,7 +900,8 @@ when your Neutron plugin (like ML2 plugin) supports DVR feature, DVR
 feature depends on l3-agent configuration, so deployers should set this
 option appropriately depending on your deployment.
 
-``enable_ha_router``:
+``enable_ha_router``
+~~~~~~~~~~~~~~~~~~~~
 
 .. versionadded:: 2014.2(Juno)
 
@@ -911,7 +914,8 @@ Even when your Neutron plugin (like ML2 plugin) supports HA router mode,
 the feature depends on l3-agent configuration, so deployers should set this
 option appropriately depending on your deployment.
 
-``enable_lb``:
+``enable_lb``
+~~~~~~~~~~~~~
 
 .. versionadded:: 2013.1(Grizzly)
 
@@ -928,7 +932,8 @@ The load balancer panel is now enabled only when LBaaS feature is available in N
 and this option is no longer needed. We suggest not to use this option to disable the
 load balancer panel from now on.
 
-``enable_quotas``:
+``enable_quotas``
+~~~~~~~~~~~~~~~~~
 
 Default: ``False``
 
@@ -936,7 +941,8 @@ Enable support for Neutron quotas feature. To make this feature work
 appropriately, you need to use Neutron plugins with quotas extension support
 and quota_driver should be DbQuotaDriver (default config).
 
-``enable_firewall``:
+``enable_firewall``
+~~~~~~~~~~~~~~~~~~~
 
 (Deprecated)
 
@@ -953,7 +959,8 @@ when FWaaS feature is available in Neutron and this option is no
 longer needed. We suggest not to use this option to disable the
 firewall panel from now on.
 
-``enable_vpn``:
+``enable_vpn``
+~~~~~~~~~~~~~~
 
 (Deprecated)
 
@@ -969,7 +976,8 @@ when VPNaaS feature is available in Neutron and this option is no
 longer needed. We suggest not to use this option to disable the
 VPN panel from now on.
 
-``profile_support``:
+``profile_support``
+~~~~~~~~~~~~~~~~~~~
 
 Default: ``None``
 
@@ -977,7 +985,8 @@ This option specifies a type of network port profile support. Currently the
 available value is either ``None`` or ``"cisco"``. ``None`` means to disable
 port profile support. ``cisco`` can be used with Neutron Cisco plugins.
 
-``supported_provider_types``:
+``supported_provider_types``
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. versionadded:: 2014.2(Juno)
 
@@ -991,7 +1000,8 @@ be available to choose from.
 
 Example: ``['local', 'flat', 'gre']``
 
-``supported_vnic_types``:
+``supported_vnic_types``
+~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. versionadded:: 2015.1(Kilo)
 
@@ -1006,7 +1016,8 @@ Example ``['normal', 'direct']``
 
 To disable VNIC type selection, set an empty list or None.
 
-``segmentation_id_range``:
+``segmentation_id_range``
+~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. versionadded:: 2014.2(Juno)
 
@@ -1021,7 +1032,8 @@ and maximum value will be the default for the provider network type.
 
 Example: ``{'vlan': [1024, 2048], 'gre': [4094, 65536]}``
 
-``enable_fip_topology_check``:
+``enable_fip_topology_check``
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Default: ``True``
 
@@ -1037,7 +1049,8 @@ subnet with no router if your Neutron backend allows it.
 
 .. versionadded:: 8.0.0(Liberty)
 
-``default_ipv4_subnet_pool_label``:
+``default_ipv4_subnet_pool_label``
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. versionadded:: 8.0.0(Liberty)
 
@@ -1047,7 +1060,8 @@ Neutron can be configured with a default Subnet Pool to be used for IPv4
 subnet-allocation. Specify the label you wish to display in the Address pool
 selector on the create subnet step if you want to use this feature.
 
-``default_ipv6_subnet_pool_label``:
+``default_ipv6_subnet_pool_label``
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. versionadded:: 8.0.0(Liberty)
 
