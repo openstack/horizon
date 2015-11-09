@@ -1323,12 +1323,16 @@ class DataTable(object):
         Uses :meth:`~horizon.tables.DataTable.get_object_id` internally.
         """
         if not isinstance(lookup, six.text_type):
-            lookup = six.text_type(str(lookup), 'utf-8')
+            lookup = str(lookup)
+            if six.PY2:
+                lookup = lookup.decode('utf-8')
         matches = []
         for datum in self.data:
             obj_id = self.get_object_id(datum)
             if not isinstance(obj_id, six.text_type):
-                obj_id = six.text_type(str(obj_id), 'utf-8')
+                obj_id = str(obj_id)
+                if six.PY2:
+                    obj_id = obj_id.decode('utf-8')
             if obj_id == lookup:
                 matches.append(datum)
         if len(matches) > 1:

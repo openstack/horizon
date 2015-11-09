@@ -10,12 +10,11 @@
 # License for the specific language governing permissions and limitations
 # under the License.
 
-import json
-
 from django.core.urlresolvers import reverse
 from django import http
 
 from mox3.mox import IsA  # noqa
+from oslo_serialization import jsonutils
 
 from openstack_dashboard.contrib.sahara import api
 from openstack_dashboard.test import helpers as test
@@ -61,7 +60,7 @@ class DataProcessingClusterTests(test.TestCase):
         url = reverse(
             'horizon:project:data_processing.clusters:events', args=["cl2"])
         res = self.client.get(url)
-        data = json.loads(res.content)
+        data = jsonutils.loads(res.content)
 
         self.assertIn("provision_steps", data)
         self.assertEqual(data["need_update"], False)

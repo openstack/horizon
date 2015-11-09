@@ -80,7 +80,7 @@ def data(TEST):
                      "last_modified": None,
                      "hash": u"object_hash"}
     obj_dicts = [object_dict, object_dict_2, object_dict_3, object_dict_4]
-    obj_data = "Fake Data"
+    obj_data = b"Fake Data"
 
     for obj_dict in obj_dicts:
         swift_object = swift.StorageObject(obj_dict,
