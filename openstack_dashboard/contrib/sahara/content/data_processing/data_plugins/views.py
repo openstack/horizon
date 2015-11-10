@@ -45,5 +45,5 @@ class PluginsView(tables.DataTableView):
 
 class PluginDetailsView(tabs.TabView):
     tab_group_class = p_tabs.PluginDetailsTabs
-    template_name = 'project/data_processing.data_plugins/details.html'
+    template_name = 'horizon/common/_detail.html'
     page_title = _("Data Processing Plugin Details")

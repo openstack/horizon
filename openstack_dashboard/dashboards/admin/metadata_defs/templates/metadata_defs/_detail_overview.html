@@ -1,52 +1,42 @@
 {% load i18n sizeformat %}
 
-<h3>{% trans "Namespace Overview" %}</h3>
+<div class="detail">
+  <dl class="dl-horizontal">
+    <dt>{% trans "Display Name" %}</dt>
+    <dd>{{ namespace.display_name|default:_("None") }}</dd>
+    <dt>{% trans "Namespace" %}</dt>
+    <dd>{{ namespace.namespace|default:_("None") }}</dd>
+    {% if namespace.description %}
+      <dt>{% trans "Description" %}</dt>
+      <dd>{{ namespace.description }}</dd>
+    {% endif %}
+    <dt>{% trans "Public" %}</dt>
+    <dd>{{ namespace.public|yesno|capfirst }}</dd>
+    <dt>{% trans "Protected" %}</dt>
+    <dd>{{ namespace.protected|yesno|capfirst }}</dd>
+    <dt>{% trans "Created" %}</dt>
+    <dd>{{ namespace.created_at|parse_isotime|default:_("Unknown") }}</dd>
+    <dt>{% trans "Updated" %}</dt>
+    <dd>{{ namespace.updated_at|parse_isotime|default:_("Never updated") }}</dd>
+  </dl>
 
-<div class="info row detail">
-  <div class="col-sm-12">
-    <h4>{% trans "Info" %}</h4>
-    <hr class="header_rule">
-    <dl class="dl-horizontal">
-      <dt>{% trans "Display Name" %}</dt>
-      <dd>{{ namespace.display_name|default:_("None") }}</dd>
-      <dt>{% trans "Namespace" %}</dt>
-      <dd>{{ namespace.namespace|default:_("None") }}</dd>
-      {% if namespace.description %}
-        <dt>{% trans "Description" %}</dt>
-        <dd>{{ namespace.description }}</dd>
-      {% endif %}
-      <dt>{% trans "Public" %}</dt>
-      <dd>{{ namespace.public|yesno|capfirst }}</dd>
-      <dt>{% trans "Protected" %}</dt>
-      <dd>{{ namespace.protected|yesno|capfirst }}</dd>
-      <dt>{% trans "Created" %}</dt>
-      <dd>{{ namespace.created_at|parse_isotime|default:_("Unknown") }}</dd>
-      <dt>{% trans "Updated" %}</dt>
-      <dd>{{ namespace.updated_at|parse_isotime|default:_("Never updated") }}</dd>
-    </dl>
-  </div>
-</div>
-
-<div class="resource_types row detail">
-  <div class="col-sm-12">
-    <h4>{% trans "Associated Resource Types" %}</h4>
-    <hr class="header_rule">
-    <dl class="dl-horizontal">
-      {% with default_item_value="<em>"|add:_("None")|add:"</em>" %}
-        {% for resource_type in namespace.resource_type_associations %}
-          <dt>{{ resource_type.name }}</dt>
-          <dd>
-            <li>{% trans "Prefix: " %}
-              {{ resource_type.prefix|default:default_item_value }}
-            </li>
-            <li>{% trans "Properties Target: " %}
-              {{ resource_type.properties_target|default:default_item_value }}
-            </li>
-          </dd>
-        {% empty %}
-          <em>{% trans "No associations defined." %}</em>
-        {% endfor %}
-      {% endwith %}
-    </dl>
-  </div>
+  <h4>{% trans "Associated Resource Types" %}</h4>
+  <hr class="header_rule">
+  <dl class="dl-horizontal">
+    {% with default_item_value="<em>"|add:_("None")|add:"</em>" %}
+      {% for resource_type in namespace.resource_type_associations %}
+        <dt>{{ resource_type.name }}</dt>
+        <dd>
+          <li>{% trans "Prefix: " %}
+            {{ resource_type.prefix|default:default_item_value }}
+          </li>
+          <li>{% trans "Properties Target: " %}
+            {{ resource_type.properties_target|default:default_item_value }}
+          </li>
+        </dd>
+      {% empty %}
+        <em>{% trans "No associations defined." %}</em>
+      {% endfor %}
+    {% endwith %}
+  </dl>
 </div>

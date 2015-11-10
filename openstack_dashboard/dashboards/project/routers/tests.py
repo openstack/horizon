@@ -148,7 +148,7 @@ class RouterTests(RouterMixin, test.TestCase):
         router = self.routers.first()
         res = self._get_detail(router)
 
-        self.assertTemplateUsed(res, '%s/routers/detail.html' % self.DASHBOARD)
+        self.assertTemplateUsed(res, 'horizon/common/_detail.html')
         ports = res.context['interfaces_table'].data
         self.assertItemsEqual(ports, [self.ports.first()])
 
@@ -687,7 +687,7 @@ class RouterRuleTests(RouterMixin, test.TestCase):
         router = self.routers.first()
         res = self._get_detail(router)
 
-        self.assertTemplateUsed(res, '%s/routers/detail.html' % self.DASHBOARD)
+        self.assertTemplateUsed(res, 'horizon/common/_detail.html')
         self.assertTemplateNotUsed(
             res,
             '%s/routers/extensions/routerrules/grid.html' % self.DASHBOARD)
@@ -705,7 +705,7 @@ class RouterRuleTests(RouterMixin, test.TestCase):
                 shared=True).AndReturn([])
         res = self._get_detail(router)
 
-        self.assertTemplateUsed(res, '%s/routers/detail.html' % self.DASHBOARD)
+        self.assertTemplateUsed(res, 'horizon/common/_detail.html')
         if self.DASHBOARD == 'project':
             self.assertTemplateUsed(
                 res,
@@ -831,14 +831,14 @@ class RouterRouteTests(RouterMixin, test.TestCase):
         router = self.routers_with_routes.first()
         res = self._get_detail(router, extraroute=False)
 
-        self.assertTemplateUsed(res, '%s/routers/detail.html' % self.DASHBOARD)
+        self.assertTemplateUsed(res, 'horizon/common/_detail.html')
         self.assertNotIn('extra_routes_table', res.context)
 
     def test_routerroute_detail(self):
         router = self.routers_with_routes.first()
         res = self._get_detail(router, extraroute=True)
 
-        self.assertTemplateUsed(res, '%s/routers/detail.html' % self.DASHBOARD)
+        self.assertTemplateUsed(res, 'horizon/common/_detail.html')
         routes = res.context['extra_routes_table'].data
         routes_dict = [r._apidict for r in routes]
         self.assertItemsEqual(routes_dict, router['routes'])

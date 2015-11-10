@@ -93,11 +93,8 @@ class DataProcessingNodeGroupTests(test.TestCase):
             .MultipleTimes().AndReturn(ngt)
         self.mox.ReplayAll()
         res = self.client.get(DETAILS_URL)
-        self.assertTemplateUsed(res,
-                                'project/data_processing.nodegroup_templates/'
-                                'details.html')
+        self.assertTemplateUsed(res, 'horizon/common/_detail.html')
         self.assertContains(res, 'sample-template')
-        self.assertContains(res, 'Template Overview')
 
     @test.create_stubs({api.sahara: ('nodegroup_template_list',
                                      'nodegroup_template_delete')})

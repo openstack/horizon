@@ -107,8 +107,8 @@ class EditJobBinaryView(CreateJobBinaryView):
 
 class JobBinaryDetailsView(tabs.TabView):
     tab_group_class = _tabs.JobBinaryDetailsTabs
-    template_name = 'project/data_processing.job_binaries/details.html'
-    page_title = _("Job Binary Details")
+    template_name = 'horizon/common/_detail.html'
+    page_title = "{{ job_binary.name|default:job_binary.id }}"
 
     @memoized.memoized_method
     def get_object(self):

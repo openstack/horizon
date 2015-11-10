@@ -63,8 +63,8 @@ class ClustersView(tables.DataTableView):
 
 class ClusterDetailsView(tabs.TabView):
     tab_group_class = _tabs.ClusterDetailsTabs
-    template_name = 'project/data_processing.clusters/details.html'
-    page_title = _("Cluster Details")
+    template_name = 'horizon/common/_detail.html'
+    page_title = "{{ cluster.name|default:cluster.id }}"
 
     @memoized.memoized_method
     def get_object(self):

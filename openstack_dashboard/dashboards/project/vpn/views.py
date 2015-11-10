@@ -56,8 +56,8 @@ class AddIPSecPolicyView(workflows.WorkflowView):
 
 class IKEPolicyDetailsView(tabs.TabView):
     tab_group_class = vpn_tabs.IKEPolicyDetailsTabs
-    template_name = 'project/vpn/details_tabs.html'
-    page_title = _("IKE Policy Details")
+    template_name = 'horizon/common/_detail.html'
+    page_title = "{{ ikepolicy.name|default:ikepolicy.id }}"
 
     @memoized.memoized_method
     def get_data(self):
@@ -89,8 +89,8 @@ class IKEPolicyDetailsView(tabs.TabView):
 
 class IPSecPolicyDetailsView(tabs.TabView):
     tab_group_class = vpn_tabs.IPSecPolicyDetailsTabs
-    template_name = 'project/vpn/details_tabs.html'
-    page_title = _("IPSec Policy Details")
+    template_name = 'horizon/common/_detail.html'
+    page_title = "{{ ipsecpolicy.name|default:ipsecpolicy.id }}"
 
     @memoized.memoized_method
     def get_data(self):
@@ -123,8 +123,8 @@ class IPSecPolicyDetailsView(tabs.TabView):
 
 class VPNServiceDetailsView(tabs.TabView):
     tab_group_class = vpn_tabs.VPNServiceDetailsTabs
-    template_name = 'project/vpn/details_tabs.html'
-    page_title = _("VPN Service Details")
+    template_name = 'horizon/common/_detail.html'
+    page_title = "{{ vpnservice.name|default:vpnservice.id }}"
 
     @memoized.memoized_method
     def get_data(self):
@@ -166,8 +166,8 @@ class VPNServiceDetailsView(tabs.TabView):
 
 class IPSecSiteConnectionDetailsView(tabs.TabView):
     tab_group_class = vpn_tabs.IPSecSiteConnectionDetailsTabs
-    template_name = 'project/vpn/details_tabs.html'
-    page_title = _("IPSec Site Connection Details")
+    template_name = 'horizon/common/_detail.html'
+    page_title = "{{ ipsecsiteconnection.name|default:ipsecsiteconnection.id}}"
 
     @memoized.memoized_method
     def get_data(self):

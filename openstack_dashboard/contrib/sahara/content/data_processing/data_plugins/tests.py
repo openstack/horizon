@@ -44,8 +44,6 @@ class DataProcessingPluginsTests(test.TestCase):
             .AndReturn(self.plugins.list()[0])
         self.mox.ReplayAll()
         res = self.client.get(DETAILS_URL)
-        self.assertTemplateUsed(
-            res, 'project/data_processing.data_plugins/details.html')
+        self.assertTemplateUsed(res, 'horizon/common/_detail.html')
         self.assertContains(res, 'vanilla')
         self.assertContains(res, 'plugin')
-        self.assertContains(res, 'Plugin Overview')

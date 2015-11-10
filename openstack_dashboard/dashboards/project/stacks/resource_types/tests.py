@@ -46,7 +46,5 @@ class ResourceTypesTests(test.TestCase):
                       args=[rt['resource_type']])
         res = self.client.get(url)
 
-        self.assertTemplateUsed(
-            res, 'project/stacks.resource_types/details.html')
-        self.assertContains(res, "<h1>Resource Type Details</h1>", 1, 200)
+        self.assertTemplateUsed(res, 'horizon/common/_detail.html')
         self.assertNoMessages()

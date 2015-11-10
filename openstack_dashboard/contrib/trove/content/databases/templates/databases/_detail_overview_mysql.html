@@ -2,7 +2,6 @@
 {% load i18n sizeformat %}
 
 {% block connection_info %}
-  <div class="addresses row detail">
     <h4>{% trans "Connection Info" %}</h4>
     <hr class="header_rule">
     <dl class="dl-horizontal">
@@ -20,5 +19,4 @@
           {% endif %} <!-- ends else block -->
       {% endwith %}
     </dl>
-  </div>
 {% endblock %}

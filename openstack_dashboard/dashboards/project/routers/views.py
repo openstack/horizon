@@ -101,10 +101,10 @@ class IndexView(tables.DataTableView):
 
 class DetailView(tabs.TabbedTableView):
     tab_group_class = rdtabs.RouterDetailTabs
-    template_name = 'project/routers/detail.html'
+    template_name = 'horizon/common/_detail.html'
     failure_url = reverse_lazy('horizon:project:routers:index')
     network_url = 'horizon:project:networks:detail'
-    page_title = _("Router Details")
+    page_title = "{{ router.name|default:router.id }}"
 
     @memoized.memoized_method
     def _get_data(self):

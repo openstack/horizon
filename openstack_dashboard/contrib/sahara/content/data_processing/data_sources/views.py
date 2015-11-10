@@ -79,8 +79,8 @@ class EditDataSourceView(CreateDataSourceView):
 
 class DataSourceDetailsView(tabs.TabView):
     tab_group_class = _tabs.DataSourceDetailsTabs
-    template_name = 'project/data_processing.data_sources/details.html'
-    page_title = _("Data Source Details")
+    template_name = 'horizon/common/_detail.html'
+    page_title = "{{ data_source.name|default:data_source.id }}"
 
     @memoized.memoized_method
     def get_object(self):

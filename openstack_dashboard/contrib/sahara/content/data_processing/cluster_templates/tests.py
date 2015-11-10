@@ -55,9 +55,7 @@ class DataProcessingClusterTemplateTests(test.TestCase):
             .MultipleTimes().AndReturn(ct)
         self.mox.ReplayAll()
         res = self.client.get(DETAILS_URL)
-        self.assertTemplateUsed(res,
-                                'project/data_processing.cluster_templates/'
-                                'details.html')
+        self.assertTemplateUsed(res, 'horizon/common/_detail.html')
 
     @test.create_stubs({api.sahara: ('cluster_template_get',
                                      'plugin_get_version_details',

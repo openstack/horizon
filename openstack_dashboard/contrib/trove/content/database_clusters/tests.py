@@ -291,5 +291,5 @@ class ClustersTests(test.TestCase):
         details_url = reverse('horizon:project:database_clusters:detail',
                               args=[cluster.id])
         res = self.client.get(details_url)
-        self.assertTemplateUsed(res, 'project/database_clusters/detail.html')
+        self.assertTemplateUsed(res, 'horizon/common/_detail.html')
         self.assertContains(res, cluster.ip[0])
