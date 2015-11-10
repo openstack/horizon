@@ -3417,7 +3417,7 @@ class InstanceTests(helpers.TestCase):
                      'volume_type': 'volume_id',
                      'volume_id': volume_choice,
                      'volume_size': max(
-                         image.min_disk, image.size / 1024 ** 3),
+                         image.min_disk, image.size // 1024 ** 3),
                      'device_name': device_name,
                      'count': 1}
 
@@ -3556,7 +3556,7 @@ class InstanceTests(helpers.TestCase):
     def test_launch_form_instance_volume_size_error(self,
                                                     test_with_profile=False):
         image = self.images.get(name='protected_images')
-        volume_size = image.min_disk / 2
+        volume_size = image.min_disk // 2
         msg = ("The Volume size is too small for the &#39;%s&#39; image" %
                image.name)
         self._test_launch_form_instance_volume_size(image, volume_size, msg,
@@ -4439,7 +4439,7 @@ class InstanceTests(helpers.TestCase):
 
     def test_clean_file_upload_form_invalid_data(self):
         t = workflows.create_instance.CustomizeAction(self.request, {})
-        upload_str = '\x81'
+        upload_str = b'\x81'
         files = {'script_upload':
                  self.SimpleFile('script_name',
                                  upload_str,
