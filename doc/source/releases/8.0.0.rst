@@ -141,3 +141,8 @@ Upgrade Notes
 
 * Horizon requires both a ``volume`` and ``volumev2`` endpoint for Cinder, even
   if only using v2.
+
+* Many JavaScript files and most notably the base page template
+  (``horizon/templates/base.html``) have moved from the framework portion of
+  the repo (``horizon``) to the application side (``openstack_dashboard``) to
+  better separate the framework from the application.
