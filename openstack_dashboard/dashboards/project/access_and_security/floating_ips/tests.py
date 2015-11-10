@@ -332,6 +332,66 @@ class FloatingIpNeutronViewTests(FloatingIpViewTests):
             .AndReturn(self.subnets.list())
         api.neutron.network_list(IsA(http.HttpRequest), shared=False) \
             .AndReturn(self.networks.list())
+        api.neutron.network_list(IsA(http.HttpRequest), shared=True) \
+            .AndReturn(list())
+        api.network.floating_ip_supported(IsA(http.HttpRequest)) \
+            .AndReturn(True)
+        api.network.tenant_floating_ip_list(IsA(http.HttpRequest)) \
+            .MultipleTimes().AndReturn(self.floating_ips.list())
+        api.network.floating_ip_pools_list(IsA(http.HttpRequest)) \
+            .AndReturn(self.pools.list())
+        api.network.security_group_list(IsA(http.HttpRequest)) \
+            .AndReturn(self.security_groups.list())
+        self.mox.ReplayAll()
+
+        url = reverse('%s:allocate' % NAMESPACE)
+        res = self.client.get(url)
+        self.assertEqual(res.context['usages']['floating_ips']['quota'],
+                         self.neutron_quotas.first().get('floatingip').limit)
+
+    @test.create_stubs({api.nova: ('tenant_quota_get', 'flavor_list',
+                                   'server_list'),
+                        api.network: ('floating_ip_pools_list',
+                                      'floating_ip_supported',
+                                      'security_group_list',
+                                      'tenant_floating_ip_list'),
+                        api.neutron: ('is_extension_supported',
+                                      'tenant_quota_get',
+                                      'network_list',
+                                      'router_list',
+                                      'subnet_list'),
+                        api.base: ('is_service_enabled',)})
+    @test.update_settings(OPENSTACK_NEUTRON_NETWORK={'enable_quotas': True})
+    def test_correct_quotas_displayed_shared_networks(self):
+        servers = [s for s in self.servers.list()
+                   if s.tenant_id == self.request.user.tenant_id]
+
+        api.base.is_service_enabled(IsA(http.HttpRequest), 'volume') \
+            .AndReturn(False)
+        api.base.is_service_enabled(IsA(http.HttpRequest), 'network') \
+            .MultipleTimes().AndReturn(True)
+        api.nova.tenant_quota_get(IsA(http.HttpRequest), '1') \
+            .AndReturn(self.quotas.first())
+        api.nova.flavor_list(IsA(http.HttpRequest)) \
+            .AndReturn(self.flavors.list())
+        search_opts = {'tenant_id': self.request.user.tenant_id}
+        api.nova.server_list(IsA(http.HttpRequest), search_opts=search_opts,
+                             all_tenants=True) \
+            .AndReturn([servers, False])
+        api.neutron.is_extension_supported(
+            IsA(http.HttpRequest), 'security-group').AndReturn(True)
+        api.neutron.is_extension_supported(IsA(http.HttpRequest), 'quotas') \
+            .AndReturn(True)
+        api.neutron.tenant_quota_get(IsA(http.HttpRequest), self.tenant.id) \
+            .AndReturn(self.neutron_quotas.first())
+        api.neutron.router_list(IsA(http.HttpRequest)) \
+            .AndReturn(self.routers.list())
+        api.neutron.subnet_list(IsA(http.HttpRequest)) \
+            .AndReturn(self.subnets.list())
+        api.neutron.network_list(IsA(http.HttpRequest), shared=False) \
+            .AndReturn(list())
+        api.neutron.network_list(IsA(http.HttpRequest), shared=True) \
+            .AndReturn(self.networks.list())
         api.network.floating_ip_supported(IsA(http.HttpRequest)) \
             .AndReturn(True)
         api.network.tenant_floating_ip_list(IsA(http.HttpRequest)) \
