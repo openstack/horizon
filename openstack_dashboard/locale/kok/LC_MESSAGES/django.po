@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-11-02 22:10+0000\n"
+"POT-Creation-Date: 2015-11-10 01:06+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -3387,9 +3387,6 @@ msgctxt "Task status of an Instance"
 msgid "Image Backup"
 msgstr "प्रतिमा बॅकअप"
 
-msgid "Image Details"
-msgstr "प्रतिमेचो तपशील"
-
 msgid "Image File"
 msgstr "प्रतिमा फायल"
 
@@ -3404,9 +3401,6 @@ msgstr "प्रतिमेचे नाव"
 
 msgid "Image Name ="
 msgstr "प्रतिमेचे नाव ="
-
-msgid "Image Overview"
-msgstr "प्रतिमा अवलोकन"
 
 msgctxt "Task status of an Instance"
 msgid "Image Pending Upload"
@@ -4804,9 +4798,6 @@ msgstr "%s पोर्ट यशस्विपणान तयार जाल
 msgid "Port %s was successfully updated."
 msgstr "%s पोर्ट यशस्विपणान सुदारला."
 
-msgid "Port Details"
-msgstr "पोर्ट तपशील"
-
 msgid "Port ID"
 msgstr "पोर्ट ID "
 
@@ -6028,9 +6019,6 @@ msgstr "उपनेट ID"
 
 msgid "Subnet Name"
 msgstr "उपनेटाचे नाव"
-
-msgid "Subnet Overview"
-msgstr "उपनेट अवलोकन"
 
 msgid "Subnet list can not be retrieved."
 msgstr "उपनेट वळेरी परत मेळोवपाक शकना."
@@ -8130,13 +8118,6 @@ msgstr "आकार (सिंडर)"
 msgid "Volume Backup"
 msgstr "आकार बॅकअप"
 
-msgid "Volume Backup Details"
-msgstr "आकार बॅकअप तपशील"
-
-#, python-format
-msgid "Volume Backup Overview: %(backup_display_name)s"
-msgstr "आकारमान बॅकअप अवलोकन: %(backup_display_name)s"
-
 msgid "Volume Backup:"
 msgstr "आकार बॅकअप:"
 
@@ -8150,26 +8131,17 @@ msgstr ""
 "वस्त साठवण सेवा वापरून आकारमान बॅकअप्स साठयले वतात. बॅकअप तयार करपाक तुमचेकडे ही सेवा "
 "सक्षम केल्ली आसपाक जाय."
 
-msgid "Volume Details"
-msgstr "आकाराचो तपशील"
-
 msgid "Volume Limits"
 msgstr "आकाराची मर्यादा"
 
 msgid "Volume Name"
 msgstr "आकाराचे नाव"
 
-msgid "Volume Overview"
-msgstr "आकार अवलोकन"
-
 msgid "Volume Size"
 msgstr "आकारमानाचो आकार"
 
 msgid "Volume Snapshot"
 msgstr " आकार स्नॅपशॉट"
-
-msgid "Volume Snapshot Details"
-msgstr "आकार स्नॅपशॉट तपशील"
 
 msgid "Volume Snapshot Overview"
 msgstr "आकार स्नॅपशॉट अवलोकन"

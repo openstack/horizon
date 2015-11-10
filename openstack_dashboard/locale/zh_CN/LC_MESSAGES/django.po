@@ -27,7 +27,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-11-05 22:23+0000\n"
+"POT-Creation-Date: 2015-11-10 01:06+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -4932,12 +4932,6 @@ msgctxt "Task status of an Instance"
 msgid "Image Backup"
 msgstr "镜像备份"
 
-msgid "Image Details"
-msgstr "镜像详情 "
-
-msgid "Image Details: {{ image.name }}"
-msgstr "镜像详情： {{ image.name }}"
-
 msgid "Image File"
 msgstr "镜像文件"
 
@@ -4955,9 +4949,6 @@ msgstr "镜像名称"
 
 msgid "Image Name ="
 msgstr "镜像名称 ="
-
-msgid "Image Overview"
-msgstr "镜像概况"
 
 msgctxt "Task status of an Instance"
 msgid "Image Pending Upload"
@@ -6922,9 +6913,6 @@ msgstr "成功创建%s端口"
 msgid "Port %s was successfully updated."
 msgstr "端口%s更新成功"
 
-msgid "Port Details"
-msgstr "端口详情"
-
 msgid "Port ID"
 msgstr "端口ID"
 
@@ -8747,9 +8735,6 @@ msgstr "子网ID"
 
 msgid "Subnet Name"
 msgstr "子网名称"
-
-msgid "Subnet Overview"
-msgstr "子网概况"
 
 msgid "Subnet list can not be retrieved."
 msgstr "无法获取子网列表"
@@ -11532,16 +11517,6 @@ msgstr "云硬盘 (Cinder)"
 msgid "Volume Backup"
 msgstr "卷备份"
 
-msgid "Volume Backup Details"
-msgstr "卷备份详情"
-
-msgid "Volume Backup Details: {{ backup.name }}"
-msgstr "备份卷详情： {{ backup.name }}"
-
-#, python-format
-msgid "Volume Backup Overview: %(backup_display_name)s"
-msgstr "云硬盘备份概要：%(backup_display_name)s"
-
 msgid "Volume Backup:"
 msgstr "卷备份:"
 
@@ -11552,12 +11527,6 @@ msgid ""
 "Volume Backups are stored using the Object Storage service. You must have "
 "this service activated in order to create a backup."
 msgstr "卷备份使用的是对象存储服务。你必须激活这个对象存储服务才能创建备份。"
-
-msgid "Volume Details"
-msgstr "云硬盘详情"
-
-msgid "Volume Details: {{ volume.name }}"
-msgstr "卷详细信息:{{ volume.name }}"
 
 msgid "Volume Encryption Details"
 msgstr "存储卷加密详情"
@@ -11578,20 +11547,11 @@ msgstr "云硬盘限度"
 msgid "Volume Name"
 msgstr "云硬盘名称"
 
-msgid "Volume Overview"
-msgstr "云硬盘概览"
-
 msgid "Volume Size"
 msgstr "云硬盘大小"
 
 msgid "Volume Snapshot"
 msgstr "云硬盘快照"
-
-msgid "Volume Snapshot Details"
-msgstr "云硬盘快照详情"
-
-msgid "Volume Snapshot Details: {{ snapshot.name }}"
-msgstr "卷快照详情: {{ snapshot.name }}"
 
 msgid "Volume Snapshot Overview"
 msgstr "云硬盘快照概览"

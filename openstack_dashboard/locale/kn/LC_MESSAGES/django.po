@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-11-02 22:10+0000\n"
+"POT-Creation-Date: 2015-11-10 01:06+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -3469,9 +3469,6 @@ msgctxt "Task status of an Instance"
 msgid "Image Backup"
 msgstr "ಚಿತ್ರಿಕೆಯ ಬ್ಯಾಕ್‌ಅಪ್"
 
-msgid "Image Details"
-msgstr "ಚಿತ್ರಿಕೆಯ ವಿವರಗಳು"
-
 msgid "Image File"
 msgstr "ಚಿತ್ರಿಕೆ ಕಡತ"
 
@@ -3486,9 +3483,6 @@ msgstr "ಚಿತ್ರಿಕೆಯ ಹೆಸರು"
 
 msgid "Image Name ="
 msgstr "ಚಿತ್ರಿಕೆಯ ಹೆಸರು ="
-
-msgid "Image Overview"
-msgstr "ಚಿತ್ರಿಕೆ ಅವಲೋಕನ"
 
 msgctxt "Task status of an Instance"
 msgid "Image Pending Upload"
@@ -4935,9 +4929,6 @@ msgstr "%s ಪೋರ್ಟ್‌ ಅನ್ನು ಯಶಸ್ವಿಯಾಗಿ 
 msgid "Port %s was successfully updated."
 msgstr "%s ಪೋರ್ಟ್‌ ಅನ್ನು ಯಶಸ್ವಿಯಾಗಿ ಅಪ್‌ಡೇಟ್‌ ಮಾಡಲಾಗಿದೆ."
 
-msgid "Port Details"
-msgstr "ಪೋರ್ಟ್ ವಿವರಗಳು"
-
 msgid "Port ID"
 msgstr "ಪೋರ್ಟ್ ID"
 
@@ -6183,9 +6174,6 @@ msgstr "ಸಬ್‌ನೆಟ್ ID"
 
 msgid "Subnet Name"
 msgstr "ಸಬ್‌ನೆಟ್‌ನ ಹೆಸರು"
-
-msgid "Subnet Overview"
-msgstr "ಸಬ್‌ನೆಟ್ ಅವಲೋಕನ"
 
 msgid "Subnet list can not be retrieved."
 msgstr "ಸಬ್‌ನೆಟ್‌ ಪಟ್ಟಿಯನ್ನು ಹಿಂದಕ್ಕೆ ಪಡೆಯಲು ಸಾಧ್ಯವಾಗಿಲ್ಲ."
@@ -8336,13 +8324,6 @@ msgstr "ಪರಿಮಾಣ (ಸಿಂಡರ್)"
 msgid "Volume Backup"
 msgstr "ಪರಿಮಾಣದ ಬ್ಯಾಕ್ಅಪ್"
 
-msgid "Volume Backup Details"
-msgstr "ಪರಿಮಾಣದ ಬ್ಯಾಕ್ಅಪ್ ವಿವರಗಳು"
-
-#, python-format
-msgid "Volume Backup Overview: %(backup_display_name)s"
-msgstr "ಪರಿಮಾಣದ ಬ್ಯಾಕ್ಅಪ್ ಅವಲೋಕನ: %(backup_display_name)s"
-
 msgid "Volume Backup:"
 msgstr "ಪರಿಮಾಣದ ಬ್ಯಾಕ್ಅಪ್:"
 
@@ -8356,26 +8337,17 @@ msgstr ""
 "ಪರಿಮಾಣದ ಬ್ಯಾಕ್ಅಪ್‌ಗಳನ್ನು ಆಬ್ಜೆಕ್ಟ್ ಶೇಖರಣಾ ಸೇವೆಯನ್ನು ಬಳಸಿಕೊಂಡು ಶೇಖರಿಸಿ ಇರಿಸಲಾಗುತ್ತದೆ. "
 "ಒಂದು ಬ್ಯಾಕ್ಅಪ್ ಅನ್ನು ರಚಿಸಲು ನೀವು ಈ ಸೇವೆಯನ್ನು ಸಕ್ರಿಯಗೊಳಿಸಿರಬೇಕಿರುತ್ತದೆ."
 
-msgid "Volume Details"
-msgstr "ಪರಿಮಾಣದ ವಿವರಗಳು"
-
 msgid "Volume Limits"
 msgstr "ಪರಿಮಾಣದ ಮಿತಿಗಳು"
 
 msgid "Volume Name"
 msgstr "ಪರಿಮಾಣದ ಹೆಸರು"
 
-msgid "Volume Overview"
-msgstr "ಪರಿಮಾಣ ಅವಲೋಕನ"
-
 msgid "Volume Size"
 msgstr "ಪರಿಮಾಣದ ಗಾತ್ರ"
 
 msgid "Volume Snapshot"
 msgstr "ಪರಿಮಾಣದ ಸ್ನ್ಯಾಪ್‌ಶಾಟ್‌"
-
-msgid "Volume Snapshot Details"
-msgstr "ಪರಿಮಾಣದ ಸ್ನ್ಯಾಪ್‌ಶಾಟ್‌ ವಿವರಗಳು"
 
 msgid "Volume Snapshot Overview"
 msgstr "ಪರಿಮಾಣ ಸ್ನ್ಯಾಪ್‌ಶಾಟ್‌ ಅವಲೋಕನ"

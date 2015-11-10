@@ -23,7 +23,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-11-05 22:23+0000\n"
+"POT-Creation-Date: 2015-11-10 01:06+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -5384,12 +5384,6 @@ msgctxt "Task status of an Instance"
 msgid "Image Backup"
 msgstr "Резервная копия образа"
 
-msgid "Image Details"
-msgstr "Подробности образа"
-
-msgid "Image Details: {{ image.name }}"
-msgstr "Детали образа: {{ image.name }}"
-
 msgid "Image File"
 msgstr "Файл Образа"
 
@@ -5404,9 +5398,6 @@ msgstr "Название образа"
 
 msgid "Image Name ="
 msgstr "Название образа ="
-
-msgid "Image Overview"
-msgstr "Обзор образов"
 
 msgctxt "Task status of an Instance"
 msgid "Image Pending Upload"
@@ -7444,9 +7435,6 @@ msgstr "Порт %s был успешно создан."
 msgid "Port %s was successfully updated."
 msgstr "Порт %s был успешно обновлен."
 
-msgid "Port Details"
-msgstr "Детали порта"
-
 msgid "Port ID"
 msgstr "Порт ID"
 
@@ -9393,9 +9381,6 @@ msgstr "ID подсети"
 
 msgid "Subnet Name"
 msgstr "Название подсети"
-
-msgid "Subnet Overview"
-msgstr "Обзор подсети"
 
 msgid "Subnet list can not be retrieved."
 msgstr "Не удалось получить список подсетей."
@@ -12278,16 +12263,6 @@ msgstr "Диски (Cinder)"
 msgid "Volume Backup"
 msgstr "Резервные копии диска"
 
-msgid "Volume Backup Details"
-msgstr "Данные резервной копии диска"
-
-msgid "Volume Backup Details: {{ backup.name }}"
-msgstr "Детали резервной копии диска: {{ backup.name }}"
-
-#, python-format
-msgid "Volume Backup Overview: %(backup_display_name)s"
-msgstr "Обзор резервной копии диска: %(backup_display_name)s"
-
 msgid "Volume Backup:"
 msgstr "Резервная копия диска:"
 
@@ -12300,12 +12275,6 @@ msgid ""
 msgstr ""
 "Резервные копии диска хранятся, используя сервис хранения объектов. У вас "
 "должен быть активирован этот сервис, чтобы создать резервную копию."
-
-msgid "Volume Details"
-msgstr "Информация о диске"
-
-msgid "Volume Details: {{ volume.name }}"
-msgstr "Подробности о диске: {{ volume.name }}"
 
 msgid "Volume Encryption Details"
 msgstr "Подробности шифрования диска."
@@ -12326,20 +12295,11 @@ msgstr "Ограничения диска"
 msgid "Volume Name"
 msgstr "Название диска"
 
-msgid "Volume Overview"
-msgstr "Обзор диска"
-
 msgid "Volume Size"
 msgstr "Размер диска"
 
 msgid "Volume Snapshot"
 msgstr "Снимок диска"
-
-msgid "Volume Snapshot Details"
-msgstr "Информация о снимке диска"
-
-msgid "Volume Snapshot Details: {{ snapshot.name }}"
-msgstr "Детали снимка диска: {{ snapshot.name }}"
 
 msgid "Volume Snapshot Overview"
 msgstr "Обзор снимка диска"

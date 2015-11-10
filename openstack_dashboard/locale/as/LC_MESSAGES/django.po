@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-11-02 22:10+0000\n"
+"POT-Creation-Date: 2015-11-10 01:06+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -3426,9 +3426,6 @@ msgctxt "Task status of an Instance"
 msgid "Image Backup"
 msgstr "ছবি বেকআপ কৰিছে"
 
-msgid "Image Details"
-msgstr "ছবিৰ পূংখানুপূংখ বিৱৰণ"
-
 msgid "Image File"
 msgstr "ছবিৰ ফাইল"
 
@@ -3443,9 +3440,6 @@ msgstr "ছবিৰ নাম"
 
 msgid "Image Name ="
 msgstr "ছবিৰ নাম ="
-
-msgid "Image Overview"
-msgstr "ছবি অৱলোকন"
 
 msgctxt "Task status of an Instance"
 msgid "Image Pending Upload"
@@ -4858,9 +4852,6 @@ msgstr "%s পোৰ্ট সফলতাৰে তৈয়াৰ কৰা হ�
 msgid "Port %s was successfully updated."
 msgstr "%s পোৰ্টটো সফলতাৰে আপডেট কৰা হৈছিল."
 
-msgid "Port Details"
-msgstr "পোৰ্টৰ পূংখানুপূংখ বিৱৰণ"
-
 msgid "Port ID"
 msgstr "পোৰ্ট ID"
 
@@ -6085,9 +6076,6 @@ msgstr "উপনেট ID"
 
 msgid "Subnet Name"
 msgstr "উপনেট নাম"
-
-msgid "Subnet Overview"
-msgstr "উপনেট অৱলোকন"
 
 msgid "Subnet list can not be retrieved."
 msgstr "উপনেট তালিকা উদ্ধাৰ কৰিব পৰা নগল."
@@ -8206,13 +8194,6 @@ msgstr "আয়তন (ছাইণ্ডাৰ)"
 msgid "Volume Backup"
 msgstr "আয়তন বেকআপ"
 
-msgid "Volume Backup Details"
-msgstr "আয়তন বেকআপৰ বিৱৰণবোৰ"
-
-#, python-format
-msgid "Volume Backup Overview: %(backup_display_name)s"
-msgstr "আয়তন বেকআপ অৱলোকন: %(backup_display_name)s"
-
 msgid "Volume Backup:"
 msgstr "আয়তন বেকআপ:"
 
@@ -8226,26 +8207,17 @@ msgstr ""
 "বস্তু ভঁৰাল সেৱাটো ব্যৱহাৰ কৰি আয়তন বেকআপবোৰ সঞ্চয় কৰা হৈছে. বেকআপ এটা তৈয়াৰ "
 "কৰিবলৈ আপুনি এই সেৱাটো সক্ৰিয় কৰাটো অপৰিহাৰ্য."
 
-msgid "Volume Details"
-msgstr "আয়তনৰ পূংখানুপূংখ বিৱৰণ"
-
 msgid "Volume Limits"
 msgstr "আয়তন সীমাবোৰ"
 
 msgid "Volume Name"
 msgstr "আয়তনৰ নাম"
 
-msgid "Volume Overview"
-msgstr "আয়তন অৱলোকন"
-
 msgid "Volume Size"
 msgstr "আয়তনৰ আকাৰ"
 
 msgid "Volume Snapshot"
 msgstr "আয়তন স্নেপশ্বট"
-
-msgid "Volume Snapshot Details"
-msgstr "আয়তন স্নেপশ্বটৰ পূংখানুপূংখ বিৱৰণ"
 
 msgid "Volume Snapshot Overview"
 msgstr "আয়তন স্নেপশ্বট অৱলোকন"

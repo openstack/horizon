@@ -15,7 +15,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-11-05 22:23+0000\n"
+"POT-Creation-Date: 2015-11-10 01:06+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -5025,12 +5025,6 @@ msgctxt "Task status of an Instance"
 msgid "Image Backup"
 msgstr "Image Backup"
 
-msgid "Image Details"
-msgstr "이미지 세부 정보"
-
-msgid "Image Details: {{ image.name }}"
-msgstr "이미지 세부 정보: {{ image.name }}"
-
 msgid "Image File"
 msgstr "이미지 파일"
 
@@ -5045,9 +5039,6 @@ msgstr "이미지 이름"
 
 msgid "Image Name ="
 msgstr "Image Name ="
-
-msgid "Image Overview"
-msgstr "이미지 개요"
 
 msgctxt "Task status of an Instance"
 msgid "Image Pending Upload"
@@ -7048,9 +7039,6 @@ msgstr "포트 %s를 성공적으로 생성하였습니다."
 msgid "Port %s was successfully updated."
 msgstr "포트 %s를 성공적으로 업데이트 하였습니다."
 
-msgid "Port Details"
-msgstr "포트 세부 정보들"
-
 msgid "Port ID"
 msgstr "포트 ID"
 
@@ -8887,9 +8875,6 @@ msgstr "서브넷 ID"
 
 msgid "Subnet Name"
 msgstr "서브넷 이름"
-
-msgid "Subnet Overview"
-msgstr "서브넷 개요"
 
 msgid "Subnet list can not be retrieved."
 msgstr "서브넷 목록을 찾을 수 없습니다."
@@ -11725,16 +11710,6 @@ msgstr "볼륨 (Cinder)"
 msgid "Volume Backup"
 msgstr "볼륨 백업"
 
-msgid "Volume Backup Details"
-msgstr "볼륨 백업 상세 정보"
-
-msgid "Volume Backup Details: {{ backup.name }}"
-msgstr "볼륨 백업 세부 정보: {{ backup.name }}"
-
-#, python-format
-msgid "Volume Backup Overview: %(backup_display_name)s"
-msgstr "볼륨 백업 개요: %(backup_display_name)s"
-
 msgid "Volume Backup:"
 msgstr "볼륨 백업"
 
@@ -11747,12 +11722,6 @@ msgid ""
 msgstr ""
 "볼륨 백업은 오브젝트 스토리지 서비스를 사용하여 저장됩니다. 백업을 생성하기 "
 "위해 활성화된 서비스가 있어야합니다."
-
-msgid "Volume Details"
-msgstr "볼륨 세부 정보"
-
-msgid "Volume Details: {{ volume.name }}"
-msgstr "볼륨 세부 정보: {{ volume.name }}"
 
 msgid "Volume Encryption Details"
 msgstr "볼륨 암호화 세부 정보"
@@ -11773,20 +11742,11 @@ msgstr "볼륨 제한"
 msgid "Volume Name"
 msgstr "볼륨 이름"
 
-msgid "Volume Overview"
-msgstr "볼륨 개요"
-
 msgid "Volume Size"
 msgstr "볼륨 크기"
 
 msgid "Volume Snapshot"
 msgstr "볼륨 스냅샷"
-
-msgid "Volume Snapshot Details"
-msgstr "볼륨 스냅샷 세부 정보"
-
-msgid "Volume Snapshot Details: {{ snapshot.name }}"
-msgstr "볼륨 스냅샷 세부 정보: {{ snapshot.name }}"
 
 msgid "Volume Snapshot Overview"
 msgstr "볼륨 스냅샷 개요"

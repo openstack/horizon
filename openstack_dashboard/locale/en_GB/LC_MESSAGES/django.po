@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-11-05 22:23+0000\n"
+"POT-Creation-Date: 2015-11-10 01:06+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -5190,12 +5190,6 @@ msgctxt "Task status of an Instance"
 msgid "Image Backup"
 msgstr "Image Backup"
 
-msgid "Image Details"
-msgstr "Image Details"
-
-msgid "Image Details: {{ image.name }}"
-msgstr "Image Details: {{ image.name }}"
-
 msgid "Image File"
 msgstr "Image File"
 
@@ -5210,9 +5204,6 @@ msgstr "Image Name"
 
 msgid "Image Name ="
 msgstr "Image Name ="
-
-msgid "Image Overview"
-msgstr "Image Overview"
 
 msgctxt "Task status of an Instance"
 msgid "Image Pending Upload"
@@ -7244,9 +7235,6 @@ msgstr "Port %s was successfully created."
 msgid "Port %s was successfully updated."
 msgstr "Port %s was successfully updated."
 
-msgid "Port Details"
-msgstr "Port Details"
-
 msgid "Port ID"
 msgstr "Port ID"
 
@@ -9124,9 +9112,6 @@ msgstr "Subnet ID"
 
 msgid "Subnet Name"
 msgstr "Subnet Name"
-
-msgid "Subnet Overview"
-msgstr "Subnet Overview"
 
 msgid "Subnet list can not be retrieved."
 msgstr "Subnet list can not be retrieved."
@@ -11995,16 +11980,6 @@ msgstr "Volume (Cinder)"
 msgid "Volume Backup"
 msgstr "Volume Backup"
 
-msgid "Volume Backup Details"
-msgstr "Volume Backup Details"
-
-msgid "Volume Backup Details: {{ backup.name }}"
-msgstr "Volume Backup Details: {{ backup.name }}"
-
-#, python-format
-msgid "Volume Backup Overview: %(backup_display_name)s"
-msgstr "Volume Backup Overview: %(backup_display_name)s"
-
 msgid "Volume Backup:"
 msgstr "Volume Backup:"
 
@@ -12017,12 +11992,6 @@ msgid ""
 msgstr ""
 "Volume Backups are stored using the Object Storage service. You must have "
 "this service activated in order to create a backup."
-
-msgid "Volume Details"
-msgstr "Volume Details"
-
-msgid "Volume Details: {{ volume.name }}"
-msgstr "Volume Details: {{ volume.name }}"
 
 msgid "Volume Encryption Details"
 msgstr "Volume Encryption Details"
@@ -12043,20 +12012,11 @@ msgstr "Volume Limits"
 msgid "Volume Name"
 msgstr "Volume Name"
 
-msgid "Volume Overview"
-msgstr "Volume Overview"
-
 msgid "Volume Size"
 msgstr "Volume Size"
 
 msgid "Volume Snapshot"
 msgstr "Volume Snapshot"
-
-msgid "Volume Snapshot Details"
-msgstr "Volume Snapshot Details"
-
-msgid "Volume Snapshot Details: {{ snapshot.name }}"
-msgstr "Volume Snapshot Details: {{ snapshot.name }}"
 
 msgid "Volume Snapshot Overview"
 msgstr "Volume Snapshot Overview"

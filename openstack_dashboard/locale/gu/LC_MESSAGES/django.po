@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-11-02 22:10+0000\n"
+"POT-Creation-Date: 2015-11-10 01:06+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -3393,9 +3393,6 @@ msgctxt "Task status of an Instance"
 msgid "Image Backup"
 msgstr "ઇમેજ બૅકઅપ"
 
-msgid "Image Details"
-msgstr "ઇમેજની વિગતો"
-
 msgid "Image File"
 msgstr "ઈમેજ ફાઈલ"
 
@@ -3410,9 +3407,6 @@ msgstr "ઈમેજ નામ"
 
 msgid "Image Name ="
 msgstr "ઈમેજ નામ ="
-
-msgid "Image Overview"
-msgstr "ઇમેજ અવલોકન"
 
 msgctxt "Task status of an Instance"
 msgid "Image Pending Upload"
@@ -4813,9 +4807,6 @@ msgstr "પોર્ટ% s સફળતાપૂર્વક બનાવવા�
 msgid "Port %s was successfully updated."
 msgstr "પોર્ટ %s સફળતાપૂર્વક અદ્યતન કરવામાં આવ્યા."
 
-msgid "Port Details"
-msgstr "પોર્ટ વિગતો"
-
 msgid "Port ID"
 msgstr "પોર્ટ ID (આઈડી)"
 
@@ -6037,9 +6028,6 @@ msgstr "સબનેટ ID"
 
 msgid "Subnet Name"
 msgstr "સબનેટ નામ"
-
-msgid "Subnet Overview"
-msgstr "સબનેટ અવલોકન"
 
 msgid "Subnet list can not be retrieved."
 msgstr "ઉપનેટ યાદી પુનઃપ્રાપ્ત કરી શકાઈ નથી."
@@ -8149,13 +8137,6 @@ msgstr "વોલ્યુમ (સિન્ડેર)"
 msgid "Volume Backup"
 msgstr "વોલ્યુમ બેકઅપ"
 
-msgid "Volume Backup Details"
-msgstr "વોલ્યુમ બેકઅપની વિગતો"
-
-#, python-format
-msgid "Volume Backup Overview: %(backup_display_name)s"
-msgstr "વોલ્યુમ બેકઅપનું અવલોકન: %(backup_display_name)s"
-
 msgid "Volume Backup:"
 msgstr "વોલ્યુમ બેકઅપ:"
 
@@ -8169,26 +8150,17 @@ msgstr ""
 "વોલ્યુમ બેકઅપ આ Object સંગ્રહ સેવા ઉપયોગ કરીને સંગ્રહવામાં આવે છે. બેકઅપ બનાવવા માટે તમારી "
 "પાસે સેવા સક્રિય હોવી જ જોઈએ."
 
-msgid "Volume Details"
-msgstr "વોલ્યુમ વિગતો"
-
 msgid "Volume Limits"
 msgstr "વોલ્યુમની મર્યાદાઓ"
 
 msgid "Volume Name"
 msgstr "વોલ્યુમનું નામ"
 
-msgid "Volume Overview"
-msgstr "વોલ્યુમના અવલોકન"
-
 msgid "Volume Size"
 msgstr "વોલ્યુમ માપ"
 
 msgid "Volume Snapshot"
 msgstr "વોલ્યુમ સ્નેપશોટ"
-
-msgid "Volume Snapshot Details"
-msgstr "વોલ્યુમ સ્નેપશોટની વિગતો"
 
 msgid "Volume Snapshot Overview"
 msgstr "વોલ્યુમ સ્નેપશોટ અવલોકન"

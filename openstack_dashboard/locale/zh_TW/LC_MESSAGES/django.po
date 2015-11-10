@@ -17,7 +17,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-11-05 22:23+0000\n"
+"POT-Creation-Date: 2015-11-10 01:06+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -4952,12 +4952,6 @@ msgctxt "Task status of an Instance"
 msgid "Image Backup"
 msgstr "映像檔備份"
 
-msgid "Image Details"
-msgstr "映像檔詳細資訊"
-
-msgid "Image Details: {{ image.name }}"
-msgstr "映像檔詳細資訊：{{ image.name }}"
-
 msgid "Image File"
 msgstr "映像檔"
 
@@ -4972,9 +4966,6 @@ msgstr "映像檔名稱"
 
 msgid "Image Name ="
 msgstr "映像檔名稱 ="
-
-msgid "Image Overview"
-msgstr "映像檔概觀"
 
 msgctxt "Task status of an Instance"
 msgid "Image Pending Upload"
@@ -6960,9 +6951,6 @@ msgstr "已成功新增接口 %s。"
 msgid "Port %s was successfully updated."
 msgstr "已成功更新接口 %s。"
 
-msgid "Port Details"
-msgstr "接口詳細資訊"
-
 msgid "Port ID"
 msgstr "接口識別號"
 
@@ -8788,9 +8776,6 @@ msgstr "子網路識別號"
 
 msgid "Subnet Name"
 msgstr "子網路名稱"
-
-msgid "Subnet Overview"
-msgstr "子網路概觀"
 
 msgid "Subnet list can not be retrieved."
 msgstr "不能獲得子網路列表。"
@@ -11561,16 +11546,6 @@ msgstr "雲硬碟（Cinder）"
 msgid "Volume Backup"
 msgstr "雲硬碟備份"
 
-msgid "Volume Backup Details"
-msgstr "雲硬碟備份的詳細資訊"
-
-msgid "Volume Backup Details: {{ backup.name }}"
-msgstr "雲硬碟備份的詳細資訊：{{ backup.name }}"
-
-#, python-format
-msgid "Volume Backup Overview: %(backup_display_name)s"
-msgstr "雲硬碟備份概觀：%(backup_display_name)s"
-
 msgid "Volume Backup:"
 msgstr "雲硬碟備份："
 
@@ -11583,12 +11558,6 @@ msgid ""
 msgstr ""
 "雲硬碟備份使用了物件式儲存空間伺服器來儲存。您必須已啟動此伺服器才能新增備"
 "份。"
-
-msgid "Volume Details"
-msgstr "雲硬碟的詳細資訊"
-
-msgid "Volume Details: {{ volume.name }}"
-msgstr "雲硬碟詳細資訊：{{ volume.name }}"
 
 msgid "Volume Encryption Details"
 msgstr "雲硬碟加密詳細資訊"
@@ -11609,20 +11578,11 @@ msgstr "雲硬碟限制"
 msgid "Volume Name"
 msgstr "雲硬碟名稱"
 
-msgid "Volume Overview"
-msgstr "雲硬碟概觀"
-
 msgid "Volume Size"
 msgstr "雲硬碟容量"
 
 msgid "Volume Snapshot"
 msgstr "雲硬碟即時存檔"
-
-msgid "Volume Snapshot Details"
-msgstr "雲硬碟即時存檔的詳細資訊"
-
-msgid "Volume Snapshot Details: {{ snapshot.name }}"
-msgstr "雲硬碟即時存檔的詳細資訊：{{ snapshot.name }}"
 
 msgid "Volume Snapshot Overview"
 msgstr "雲硬碟即時存檔概觀"

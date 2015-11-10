@@ -21,7 +21,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-11-05 22:23+0000\n"
+"POT-Creation-Date: 2015-11-10 01:06+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -5260,12 +5260,6 @@ msgctxt "Task status of an Instance"
 msgid "Image Backup"
 msgstr "Abbild-Sicherungskopie"
 
-msgid "Image Details"
-msgstr "Abbilddetails"
-
-msgid "Image Details: {{ image.name }}"
-msgstr "Abbild Details: {{ image.name }}"
-
 msgid "Image File"
 msgstr "Abbilddatei"
 
@@ -5283,9 +5277,6 @@ msgstr "Abbildname"
 
 msgid "Image Name ="
 msgstr "Abbildname ="
-
-msgid "Image Overview"
-msgstr "Abbildübersicht"
 
 msgctxt "Task status of an Instance"
 msgid "Image Pending Upload"
@@ -7334,9 +7325,6 @@ msgstr "Port %s wurde erfolgreich erstellt."
 msgid "Port %s was successfully updated."
 msgstr "Port %s wurde erfolgreich aktualisiert."
 
-msgid "Port Details"
-msgstr "Portdetails"
-
 msgid "Port ID"
 msgstr "Port ID"
 
@@ -9242,9 +9230,6 @@ msgstr "Subnetz-ID"
 
 msgid "Subnet Name"
 msgstr "Subnetzname"
-
-msgid "Subnet Overview"
-msgstr "Subnetzübersicht"
 
 msgid "Subnet list can not be retrieved."
 msgstr "Subnetzliste kann nicht abgerufen werden."
@@ -12186,16 +12171,6 @@ msgstr "Datenträger (Cinder)"
 msgid "Volume Backup"
 msgstr "Datenträger Sicherungskopie"
 
-msgid "Volume Backup Details"
-msgstr "Datenträger Sicherungskopie Details"
-
-msgid "Volume Backup Details: {{ backup.name }}"
-msgstr "Datenträger Sicherungskopie Details: {{ backup.name }}"
-
-#, python-format
-msgid "Volume Backup Overview: %(backup_display_name)s"
-msgstr "Datenträger Sicherungskopien Übersicht: %(backup_display_name)s"
-
 msgid "Volume Backup:"
 msgstr "Datenträger Sicherungskopie:"
 
@@ -12209,12 +12184,6 @@ msgstr ""
 "Datenträger-Sicherungskopien werden mit Hilfe des Object Storage Dienstes "
 "gespeichert.  Dieser Dienst muss aktiviert sein, um Sicherungen "
 "durchzuführen."
-
-msgid "Volume Details"
-msgstr "Datenträgerdetails"
-
-msgid "Volume Details: {{ volume.name }}"
-msgstr "Datenträger Details: {{ volume.name }}"
 
 msgid "Volume Encryption Details"
 msgstr "Datenträger Verschlüsselungsdetails"
@@ -12235,20 +12204,11 @@ msgstr "Datenträger-Begrenzungen"
 msgid "Volume Name"
 msgstr "Datenträger Name"
 
-msgid "Volume Overview"
-msgstr "Volume-Übersicht"
-
 msgid "Volume Size"
 msgstr "Datenträgergröße"
 
 msgid "Volume Snapshot"
 msgstr "Schattenkopie"
-
-msgid "Volume Snapshot Details"
-msgstr "Schattenkopiedetails"
-
-msgid "Volume Snapshot Details: {{ snapshot.name }}"
-msgstr "Datenträger Schattenkopie Details: {{ snapshot.name }}"
 
 msgid "Volume Snapshot Overview"
 msgstr "Schattenkopieübersicht"
