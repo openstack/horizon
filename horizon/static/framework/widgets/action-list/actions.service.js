@@ -130,7 +130,7 @@
       function getSplitButton(actionTemplate) {
         var actionElement = angular.element(actionTemplate.template);
         actionElement.attr('button-type', 'split-button');
-        actionElement.attr('action-classes', '"btn btn-default"');
+        actionElement.attr('action-classes', actionElement.attr('action-classes'));
         actionElement.attr('callback', actionTemplate.callback);
         return actionElement;
       }
@@ -157,18 +157,55 @@
       /**
        * Fetch the HTML Template for the Action
        */
-      function getTemplate(permittedAction) {
+      function getTemplate(permittedAction, index, permittedActions) {
         var defered = $q.defer();
         var action = permittedAction.context;
-        $http.get(getTemplateUrl(action), {cache: $templateCache}).then(onTemplateGet);
+        $http.get(getTemplateUrl(action, permittedActions.length), {cache: $templateCache})
+          .then(onTemplateGet);
         return defered.promise;
 
         function onTemplateGet(response) {
           var template = response.data
-                .replace('$action-classes$', action.template.actionClasses || '')
+                .replace(
+                  '$action-classes$', getActionClasses(action, index, permittedActions.length)
+                )
                 .replace('$text$', action.template.text)
                 .replace('$item$', item);
           defered.resolve({template: template, callback: action.callback});
+        }
+      }
+
+      /**
+       * Get the ActionClasses for the Action
+       *
+       * This returns 'btn-danger' for the 'delete' and 'danger'
+       * action types for row and 'btn-default' for other action
+       * type for row.
+       *
+       * For batch types, the classes are determined as given in the template.
+       *
+       */
+      function getActionClasses(action, index, numPermittedActions) {
+        var actionClassesParam = action.template.actionClasses || "";
+        if (listType === 'row') {
+          if (numPermittedActions === 1 || index === 0) {
+            var actionClasses = "btn btn-sm pull-right ";
+            if (action.template.type === "delete" || action.template.type === 'danger') {
+              actionClasses += "btn-danger ";
+            } else {
+              actionClasses += "btn-default ";
+            }
+            return actionClasses + actionClassesParam;
+          } else {
+            if (action.template.type === "delete" || action.template.type === 'danger') {
+              return 'text-danger' + actionClassesParam;
+            } else {
+              return actionClassesParam;
+            }
+          }
+          return "text-danger";
+        } else {
+          return actionClassesParam;
         }
       }
 
