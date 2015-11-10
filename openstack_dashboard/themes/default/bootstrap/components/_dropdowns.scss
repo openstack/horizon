@@ -1,0 +1,46 @@
+@mixin dropdown_arrow($size, $offset) {
+  &:before, &:after {
+    position: absolute;
+    content: '';
+  }
+
+  // Defaults the arrow to the left side
+  &:before {
+    top: ($size + 1) * -1;
+    left: $offset - 1;
+    border-right: ($size + 1) solid transparent;
+    border-bottom: ($size + 1) solid $dropdown-border;
+    border-left: ($size + 1) solid transparent;
+    border-bottom-color: rgba(0, 0, 0, 0.2);
+  }
+  &:after {
+    top: -$size;
+    left: $offset;
+    border-right: $size solid transparent;
+    border-bottom: $size solid $body-bg;
+    border-left: $size solid transparent;
+  }
+}
+
+@mixin dropdown_arrow_right($size, $offset) {
+  @include dropdown_arrow;
+  &:before, &:after {
+    left: auto;
+  }
+
+  &:before {
+    right: $offset - 1;
+  }
+
+  &:after {
+    right: $offset;
+  }
+}
+
+.dropdown-menu {
+  @include dropdown_arrow($dropdown-arrow-size, $dropdown-arrow-offset);
+}
+
+.dropdown-menu-right {
+  @include dropdown_arrow_right($dropdown-arrow-size, $dropdown-arrow-offset);
+}
