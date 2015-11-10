@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-10-23 06:35+0000\n"
+"POT-Creation-Date: 2015-11-10 06:35+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -77,6 +77,10 @@ msgstr[1] ""
 #: static/framework/util/filters/filters.js:207
 #, python-format
 msgid "Displaying %(count)s of %(total)s items"
+msgstr ""
+
+#: static/framework/widgets/action-list/action-delete.mock.html:2
+msgid "Delete Image"
 msgstr ""
 
 #: static/framework/widgets/action-list/action-list.module.js:49
@@ -279,6 +283,30 @@ msgstr ""
 msgid "No existing metadata"
 msgstr ""
 
+#: static/framework/widgets/modal/delete-modal.service.spec.js:20
+msgid "Confirm Delete Foobars"
+msgstr ""
+
+#: static/framework/widgets/modal/delete-modal.service.spec.js:21
+#, python-format
+msgid "selected \"%s\""
+msgstr ""
+
+#: static/framework/widgets/modal/delete-modal.service.spec.js:22
+#: static/horizon/js/horizon.networktopology.js:964
+msgid "Delete"
+msgstr ""
+
+#: static/framework/widgets/modal/delete-modal.service.spec.js:23
+#, python-format
+msgid "Deleted : %s."
+msgstr ""
+
+#: static/framework/widgets/modal/delete-modal.service.spec.js:24
+#, python-format
+msgid "Unable to delete: %s."
+msgstr ""
+
 #: static/framework/widgets/modal/simple-modal.service.js:81
 msgid "Submit"
 msgstr ""
@@ -432,10 +460,6 @@ msgstr ""
 #: static/horizon/js/horizon.networktopology.js:935
 #: static/horizon/js/horizon.networktopology.js:941
 msgid "None"
-msgstr ""
-
-#: static/horizon/js/horizon.networktopology.js:964
-msgid "Delete"
 msgstr ""
 
 #: static/horizon/js/horizon.networktopology.js:967

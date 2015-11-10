@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-11-05 22:23+0000\n"
+"POT-Creation-Date: 2015-11-10 01:06+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -5265,12 +5265,6 @@ msgctxt "Task status of an Instance"
 msgid "Image Backup"
 msgstr "Kopia zapasowa obrazu"
 
-msgid "Image Details"
-msgstr "Szczegóły obrazu"
-
-msgid "Image Details: {{ image.name }}"
-msgstr "Szczegóły obrazu: {{ image.name }}"
-
 msgid "Image File"
 msgstr "Plik obrazu"
 
@@ -5285,9 +5279,6 @@ msgstr "Nazwa obrazu"
 
 msgid "Image Name ="
 msgstr "Nazwa obrazu ="
-
-msgid "Image Overview"
-msgstr "Przegląd obrazów"
 
 msgctxt "Task status of an Instance"
 msgid "Image Pending Upload"
@@ -7322,9 +7313,6 @@ msgstr "Port %s został utworzony."
 msgid "Port %s was successfully updated."
 msgstr "Port %s został uaktualniony."
 
-msgid "Port Details"
-msgstr "Szczegóły portu"
-
 msgid "Port ID"
 msgstr "ID portu"
 
@@ -9245,9 +9233,6 @@ msgstr "ID podsieci"
 
 msgid "Subnet Name"
 msgstr "Nazwa podsieci"
-
-msgid "Subnet Overview"
-msgstr "Przegląd podsieci"
 
 msgid "Subnet list can not be retrieved."
 msgstr "Nie można pobrać listy podsieci."
@@ -12124,16 +12109,6 @@ msgstr "Wolumeny (Cinder)"
 msgid "Volume Backup"
 msgstr "Kopia zapasowa wolumenu"
 
-msgid "Volume Backup Details"
-msgstr "Szczegóły kopii zapasowej wolumenu"
-
-msgid "Volume Backup Details: {{ backup.name }}"
-msgstr "Szczegóły kopii zapasowej wolumenu: {{ backup.name }}"
-
-#, python-format
-msgid "Volume Backup Overview: %(backup_display_name)s"
-msgstr "Przegląd kopii zapasowych: %(backup_display_name)s"
-
 msgid "Volume Backup:"
 msgstr "Kopia zapasowa wolumenu:"
 
@@ -12146,12 +12121,6 @@ msgid ""
 msgstr ""
 "Kopie zapasowe wolumenów są przechowywane za pomocą usługi przechowywania "
 "obiektów. Usługa ta musi być aktywna, aby można było utworzyć kopię zapasową."
-
-msgid "Volume Details"
-msgstr "Szczegóły wolumenu"
-
-msgid "Volume Details: {{ volume.name }}"
-msgstr "Szczegóły wolumenu: {{ volume.name }}"
 
 msgid "Volume Encryption Details"
 msgstr "Szczegóły szyfrowania wolumenu"
@@ -12172,20 +12141,11 @@ msgstr "Limity wolumenów"
 msgid "Volume Name"
 msgstr "Nazwa wolumenu"
 
-msgid "Volume Overview"
-msgstr "Przegląd wolumenu"
-
 msgid "Volume Size"
 msgstr "Rozmiar wolumenu"
 
 msgid "Volume Snapshot"
 msgstr "Migawka wolumenu"
-
-msgid "Volume Snapshot Details"
-msgstr "Szczegóły migawki wolumenu"
-
-msgid "Volume Snapshot Details: {{ snapshot.name }}"
-msgstr "Szczegóły migawki wolumenu: {{ snapshot.name }}"
 
 msgid "Volume Snapshot Overview"
 msgstr "Szczegóły migawki wolumenu"

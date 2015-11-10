@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-11-02 22:10+0000\n"
+"POT-Creation-Date: 2015-11-10 01:06+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -2360,9 +2360,6 @@ msgstr "Image"
 msgid "Image (Glance)"
 msgstr "Otisak sadržine diska (Glance)"
 
-msgid "Image Details"
-msgstr "Detalji image-a"
-
 msgid "Image File"
 msgstr "Image File"
 
@@ -2377,9 +2374,6 @@ msgstr "Ime image-a"
 
 msgid "Image Name ="
 msgstr "Ime image-a"
-
-msgid "Image Overview"
-msgstr "Pregled image-a"
 
 msgid "Image Source"
 msgstr "Izvor Image-a"
@@ -4188,9 +4182,6 @@ msgstr "ID podmreže"
 msgid "Subnet Name"
 msgstr "Ime podmreže"
 
-msgid "Subnet Overview"
-msgstr "Pregled podmreže"
-
 msgid "Subnet list can not be retrieved."
 msgstr "Nije moguće izvući listu Subnet-ova"
 
@@ -5673,26 +5664,17 @@ msgstr "Volume"
 msgid "Volume (Cinder)"
 msgstr "Volume (Cinder)"
 
-msgid "Volume Details"
-msgstr "Detalji volume-a"
-
 msgid "Volume Limits"
 msgstr "Ograničenja volume-a"
 
 msgid "Volume Name"
 msgstr "Ime volume-a"
 
-msgid "Volume Overview"
-msgstr "Pregled Volume-a"
-
 msgid "Volume Size"
 msgstr "Veličina Volume-a"
 
 msgid "Volume Snapshot"
 msgstr "Snapshot volume-a"
-
-msgid "Volume Snapshot Details"
-msgstr "Detalji snapshot-a volume-a"
 
 msgid "Volume Snapshot Overview"
 msgstr "Pregled snapshot-a volume-a"

@@ -24,7 +24,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-11-05 22:23+0000\n"
+"POT-Creation-Date: 2015-11-10 01:06+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -5234,12 +5234,6 @@ msgctxt "Task status of an Instance"
 msgid "Image Backup"
 msgstr "Copia de seguridad de la imagen"
 
-msgid "Image Details"
-msgstr "Detalles de la imagen"
-
-msgid "Image Details: {{ image.name }}"
-msgstr "Detalles de la Imagen: {{ image.name }}"
-
 msgid "Image File"
 msgstr "Fichero de imagen"
 
@@ -5254,9 +5248,6 @@ msgstr "Nombre de la imagen"
 
 msgid "Image Name ="
 msgstr "Nombre de imagen ="
-
-msgid "Image Overview"
-msgstr "Vista general de imágenes"
 
 msgctxt "Task status of an Instance"
 msgid "Image Pending Upload"
@@ -7295,9 +7286,6 @@ msgstr "El puerto %s se ha creado correctamente. "
 msgid "Port %s was successfully updated."
 msgstr "El puerto %s fue actualizado con éxito."
 
-msgid "Port Details"
-msgstr "Detalles del puerto"
-
 msgid "Port ID"
 msgstr "ID puerto"
 
@@ -9200,9 +9188,6 @@ msgstr "ID de subred"
 
 msgid "Subnet Name"
 msgstr "Nombre de subred"
-
-msgid "Subnet Overview"
-msgstr "Visión general de las subredes"
 
 msgid "Subnet list can not be retrieved."
 msgstr "No ha sido posible obtener la lista de subredes."
@@ -12134,17 +12119,6 @@ msgstr "Volume (Cinder)"
 msgid "Volume Backup"
 msgstr "Copia de seguridad del volumen"
 
-msgid "Volume Backup Details"
-msgstr "Detalles del respaldo del volumen"
-
-msgid "Volume Backup Details: {{ backup.name }}"
-msgstr "Detalles del volumen de la copia de seguridad: {{ backup.name }}"
-
-#, python-format
-msgid "Volume Backup Overview: %(backup_display_name)s"
-msgstr ""
-"Vista general del Volumen de la Copia de Seguridad: %(backup_display_name)s"
-
 msgid "Volume Backup:"
 msgstr "Volumen de la copia de seguridad:"
 
@@ -12158,12 +12132,6 @@ msgstr ""
 "Las copias de seguridad de los Volúmenes se guardan utilizando el servicio "
 "Object Storage. Debes tener este servicio activado para poder crear copias "
 "de seguridad. "
-
-msgid "Volume Details"
-msgstr "Detalles del volumen"
-
-msgid "Volume Details: {{ volume.name }}"
-msgstr "Detalles de volumen: {{ volume.name }}"
 
 msgid "Volume Encryption Details"
 msgstr "Detalles del cifrado de Volumen."
@@ -12184,20 +12152,11 @@ msgstr "Límites del volumen"
 msgid "Volume Name"
 msgstr "Nombre del volumen"
 
-msgid "Volume Overview"
-msgstr "Vista general de volúmenes"
-
 msgid "Volume Size"
 msgstr "Tamaño del volumen"
 
 msgid "Volume Snapshot"
 msgstr "Instantánea de volumen"
-
-msgid "Volume Snapshot Details"
-msgstr "Detalles de la Instantánea de volumen"
-
-msgid "Volume Snapshot Details: {{ snapshot.name }}"
-msgstr "Detalles de la Instantánea del Volumen: {{ snapshot.name }}"
 
 msgid "Volume Snapshot Overview"
 msgstr "Vista general de la snapshot de volumen"

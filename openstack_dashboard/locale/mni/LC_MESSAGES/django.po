@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-11-02 22:10+0000\n"
+"POT-Creation-Date: 2015-11-10 01:06+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -3331,9 +3331,6 @@ msgstr "ইমেজ"
 msgid "Image (Glance)"
 msgstr "ইমেজ (গ্লান্স)"
 
-msgid "Image Details"
-msgstr "ইমেজগী অকুপ্পা মরোলশীং"
-
 msgid "Image File"
 msgstr "ইমেজ ফাইল"
 
@@ -3348,9 +3345,6 @@ msgstr "ইমেজ মমীং"
 
 msgid "Image Name ="
 msgstr "ইমেজ মমীং ="
-
-msgid "Image Overview"
-msgstr "ইমেজ ওভরভ্যু"
 
 msgid "Image Registry"
 msgstr "ইমেজ রেজিষ্ট্রি"
@@ -4740,9 +4734,6 @@ msgstr "পোর্ত %s মায় পাক্না শেমখ্রে।
 msgid "Port %s was successfully updated."
 msgstr "পোর্ত %s মায়পাক্না অপদেত তৌখ্রে।"
 
-msgid "Port Details"
-msgstr "পোর্তকী অকুপ্পা মরোলশীং"
-
 msgid "Port ID"
 msgstr "পোর্ত ID"
 
@@ -5819,9 +5810,6 @@ msgstr "সবনেত ID "
 
 msgid "Subnet Name"
 msgstr "সবনেত মমীং"
-
-msgid "Subnet Overview"
-msgstr "সবনেত ওভরভ্যু"
 
 msgid "Subnet list can not be retrieved."
 msgstr "সবনেত লিষ্ট রিত্রিভ তৌবা য়াদে।"
@@ -7925,13 +7913,6 @@ msgstr "ভোল্যুম (সিন্দর)"
 msgid "Volume Backup"
 msgstr "ভোল্যুম বেকঅপ"
 
-msgid "Volume Backup Details"
-msgstr "ভোল্যুম বেকঅপকী অকুপ্পা মরোলশীং"
-
-#, python-format
-msgid "Volume Backup Overview: %(backup_display_name)s"
-msgstr "ভোল্যুম বেকঅপ ওভরভ্যু: %(backup_display_name)s"
-
 msgid "Volume Backup:"
 msgstr "ভোল্যুম বেকঅপ:"
 
@@ -7945,26 +7926,17 @@ msgstr ""
 "ভোল্যুম বেকঅপশীং অসি ওবজেক্ত ষ্টোরেজ সর্ভিস শীজিন্নদুনা ষ্টোর তৌই। বেকঅপ অমা "
 "শেম্নবগীদমক নহাক্না সর্ভিস অসি এক্তিভেত তৌগদবনি।"
 
-msgid "Volume Details"
-msgstr "ভোল্যুমগী অকুপ্পা মরোলশীং"
-
 msgid "Volume Limits"
 msgstr "ভোল্যুম লিমিতশীং"
 
 msgid "Volume Name"
 msgstr "ভোল্যুম মমীং"
 
-msgid "Volume Overview"
-msgstr "ভোল্যুম ওভরভ্যু"
-
 msgid "Volume Size"
 msgstr "ভোল্যুমগী সাইজ"
 
 msgid "Volume Snapshot"
 msgstr "ভোল্যুম স্নেপশোত"
-
-msgid "Volume Snapshot Details"
-msgstr "ভোল্যুম স্নেপশোতকী অকুপ্পা মরোলশীং"
 
 msgid "Volume Snapshot Overview"
 msgstr "ভোল্যুম স্নেপশোত ওভরভ্যু"

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-11-02 22:10+0000\n"
+"POT-Creation-Date: 2015-11-10 01:06+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -3313,9 +3313,6 @@ msgstr "شکل"
 msgid "Image (Glance)"
 msgstr "شکل (أکھ نظر)"
 
-msgid "Image Details"
-msgstr "شکل تَفصیل"
-
 msgid "Image File"
 msgstr "شکل فآیل"
 
@@ -3330,9 +3327,6 @@ msgstr "شکل نآو"
 
 msgid "Image Name ="
 msgstr "شکل نآو ="
-
-msgid "Image Overview"
-msgstr "شکل اوور ویو"
 
 msgid "Image Registry"
 msgstr "شکل ریجسٹری"
@@ -4709,9 +4703,6 @@ msgstr "پورٹ %sآو کامیابی سآن بَناونہٕ"
 msgid "Port %s was successfully updated."
 msgstr "پورٹ  %s  گئو کامیابی سآن اَپڈیٹ  "
 
-msgid "Port Details"
-msgstr "پورٹ تَفصیل"
-
 msgid "Port ID"
 msgstr "پورٹ ID"
 
@@ -5786,9 +5777,6 @@ msgstr "سب نیٹ آئی ڈی"
 
 msgid "Subnet Name"
 msgstr "سب نیٹ نٲو"
-
-msgid "Subnet Overview"
-msgstr "سب نیٹ اوور ویو"
 
 msgid "Subnet list can not be retrieved."
 msgstr "سب نیٹ  لِسٹ ہیکو نہٖ واپس اَنیتھ"
@@ -7884,13 +7872,6 @@ msgstr "والیوم(سِنڈر)"
 msgid "Volume Backup"
 msgstr "والیوم بیک اَپ"
 
-msgid "Volume Backup Details"
-msgstr " والیوم بیک اَپ تَفصیل"
-
-#, python-format
-msgid "Volume Backup Overview: %(backup_display_name)s"
-msgstr "والیوم بیک اَپ اوور ویو  :: %(backup_display_name)s"
-
 msgid "Volume Backup:"
 msgstr "بَناوان  بیک اَپ"
 
@@ -7904,26 +7885,17 @@ msgstr ""
 " والیوم  بیک اَپ چھ جمع کئریتھ اِستعمال کئریتھ آبجیکٹ سِٹوریج سئروِستوہیہٕ گئژہ "
 "آسین یہِ سئروِس تٲکہٕ بیک اَپ بَنہٕ "
 
-msgid "Volume Details"
-msgstr "والیوم تَفصیل"
-
 msgid "Volume Limits"
 msgstr "والیوم حد"
 
 msgid "Volume Name"
 msgstr "والیوم  نآو"
 
-msgid "Volume Overview"
-msgstr "والیوم اوور ویو"
-
 msgid "Volume Size"
 msgstr "والیوم سآیز"
 
 msgid "Volume Snapshot"
 msgstr "والیوم سِنیپ شآئٹس"
-
-msgid "Volume Snapshot Details"
-msgstr "والیوم سِنیپشآٹس تَفصیل"
 
 msgid "Volume Snapshot Overview"
 msgstr "والیوم  سِنیپ شآٹس اوور ویو"

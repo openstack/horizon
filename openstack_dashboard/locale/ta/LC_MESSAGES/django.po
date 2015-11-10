@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-11-02 22:10+0000\n"
+"POT-Creation-Date: 2015-11-10 01:06+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -3440,9 +3440,6 @@ msgctxt "Task status of an Instance"
 msgid "Image Backup"
 msgstr "படிம காப்பு"
 
-msgid "Image Details"
-msgstr "படிம விவரங்கள்"
-
 msgid "Image File"
 msgstr "படிமக் கோப்பு"
 
@@ -3457,9 +3454,6 @@ msgstr "படிமப் பெயர்"
 
 msgid "Image Name ="
 msgstr "படிமப் பெயர் ="
-
-msgid "Image Overview"
-msgstr "படிம கண்ணோட்டம்"
 
 msgctxt "Task status of an Instance"
 msgid "Image Pending Upload"
@@ -4878,9 +4872,6 @@ msgstr "துறை %s வெற்றிகரமாக உருவாக்�
 msgid "Port %s was successfully updated."
 msgstr "துறை %s வெற்றிகரமாக புதுப்பிக்கப்பட்டது"
 
-msgid "Port Details"
-msgstr "துறை விவரங்கள்"
-
 msgid "Port ID"
 msgstr "துறை ஐடி"
 
@@ -6118,9 +6109,6 @@ msgstr "உபவலை ஐடி"
 
 msgid "Subnet Name"
 msgstr "உபவலை பெயர்"
-
-msgid "Subnet Overview"
-msgstr "உபவலை கண்ணோட்டம்"
 
 msgid "Subnet list can not be retrieved."
 msgstr "உபவலை  பட்டியை மீட்க முடியவில்லை."
@@ -8255,13 +8243,6 @@ msgstr "தொகுதி (சிந்தர்)"
 msgid "Volume Backup"
 msgstr "தொகுதி காப்பு"
 
-msgid "Volume Backup Details"
-msgstr "தொகுதி காப்பு விவரங்கள்"
-
-#, python-format
-msgid "Volume Backup Overview: %(backup_display_name)s"
-msgstr "தொகுதி காப்பு கண்ணோட்டம்: %(backup_display_name)s"
-
 msgid "Volume Backup:"
 msgstr "தொகுதி காப்பு:"
 
@@ -8275,26 +8256,17 @@ msgstr ""
 "தொகுதி காப்புகள் பொருள் சேமிப்பு சேவையை பயன்படுத்தி சேமிக்கப்படும். நீங்கள் ஒரு காப்பை "
 "உருவாக்க வேண்டுமென்றால் இந்த சேவை செயலாக்கத்தில் இருக்கவேண்டும்.."
 
-msgid "Volume Details"
-msgstr "தொகுதி விவரங்கள்"
-
 msgid "Volume Limits"
 msgstr "தொகுதி வரம்புகள்"
 
 msgid "Volume Name"
 msgstr "தொகுதி பெயர்"
 
-msgid "Volume Overview"
-msgstr "தொகுதி கண்ணோட்டம்"
-
 msgid "Volume Size"
 msgstr "தொகுதி அளவு"
 
 msgid "Volume Snapshot"
 msgstr "தொகுதி ஸ்னாப்ஷாட்டு"
-
-msgid "Volume Snapshot Details"
-msgstr "தொகுதி ஸ்னாப்ஷாட் விவரங்கள்"
 
 msgid "Volume Snapshot Overview"
 msgstr "தொகுதி ஸ்னாப்ஷாட்டு கண்ணோட்டம்"

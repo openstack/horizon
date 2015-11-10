@@ -34,7 +34,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-11-05 22:23+0000\n"
+"POT-Creation-Date: 2015-11-10 01:06+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -5314,12 +5314,6 @@ msgctxt "Task status of an Instance"
 msgid "Image Backup"
 msgstr "Création d'une sauvegarde"
 
-msgid "Image Details"
-msgstr "Détails de l'image"
-
-msgid "Image Details: {{ image.name }}"
-msgstr "Détails de l'image : {{ image.name }}"
-
 msgid "Image File"
 msgstr "Fichier image"
 
@@ -5337,9 +5331,6 @@ msgstr "Nom de l'image"
 
 msgid "Image Name ="
 msgstr "Nom de l'image ="
-
-msgid "Image Overview"
-msgstr "Aperçu de l'image"
 
 msgctxt "Task status of an Instance"
 msgid "Image Pending Upload"
@@ -7401,9 +7392,6 @@ msgstr "Le port %s a été créé avec succès."
 msgid "Port %s was successfully updated."
 msgstr "Le port %s a été mis à jour avec succès."
 
-msgid "Port Details"
-msgstr "Détails du port "
-
 msgid "Port ID"
 msgstr "Port ID"
 
@@ -9312,9 +9300,6 @@ msgstr "ID du sous-réseau"
 
 msgid "Subnet Name"
 msgstr "Nom du sous-réseau"
-
-msgid "Subnet Overview"
-msgstr "Aperçu du sous-réseau"
 
 msgid "Subnet list can not be retrieved."
 msgstr "Impossible de récupérer la liste des sous-réseaux."
@@ -12238,16 +12223,6 @@ msgstr "Volume (Cinder)"
 msgid "Volume Backup"
 msgstr "Volume de sauvegarde"
 
-msgid "Volume Backup Details"
-msgstr "Détails du volume de sauvegarde"
-
-msgid "Volume Backup Details: {{ backup.name }}"
-msgstr "Détail du volume de sauvegarde: {{ backup.name }}"
-
-#, python-format
-msgid "Volume Backup Overview: %(backup_display_name)s"
-msgstr "Aperçu du volume de sauvegarde : %(backup_display_name)s"
-
 msgid "Volume Backup:"
 msgstr "Sauvegarde d'un Volume :"
 
@@ -12260,12 +12235,6 @@ msgid ""
 msgstr ""
 "Les volumes de sauvegarde sont stockés en utilisant le service Object "
 "Storage. Vous devez avoir ce service activé afin de créer une sauvegarde."
-
-msgid "Volume Details"
-msgstr "Détails du Volume"
-
-msgid "Volume Details: {{ volume.name }}"
-msgstr "Détails du volume: {{ volume.name }}"
 
 msgid "Volume Encryption Details"
 msgstr "Détailsdu chiffrement du volume"
@@ -12286,20 +12255,11 @@ msgstr "Limites des volumes"
 msgid "Volume Name"
 msgstr "Nom du volume"
 
-msgid "Volume Overview"
-msgstr "Vue d'ensemble du volume"
-
 msgid "Volume Size"
 msgstr "Taille du Volume"
 
 msgid "Volume Snapshot"
 msgstr "Snapshot du volume"
-
-msgid "Volume Snapshot Details"
-msgstr "Détails du snapshot du volume"
-
-msgid "Volume Snapshot Details: {{ snapshot.name }}"
-msgstr "Détails du snapshot de volume: {{ snapshot.name }}"
 
 msgid "Volume Snapshot Overview"
 msgstr "Aperçu du snapshot de volume"

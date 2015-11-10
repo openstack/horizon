@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-11-02 22:10+0000\n"
+"POT-Creation-Date: 2015-11-10 01:06+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -3401,9 +3401,6 @@ msgctxt "Task status of an Instance"
 msgid "Image Backup"
 msgstr "छवि बैकअप"
 
-msgid "Image Details"
-msgstr "बिंब विवरण"
-
 msgid "Image File"
 msgstr "बिंब फाइल"
 
@@ -3418,9 +3415,6 @@ msgstr "बिंब नाम"
 
 msgid "Image Name ="
 msgstr "बिंब नाम ="
-
-msgid "Image Overview"
-msgstr "बिंब अवलोकन"
 
 msgctxt "Task status of an Instance"
 msgid "Image Pending Upload"
@@ -4826,9 +4820,6 @@ msgstr "पोर्ट %s केँ सफलतापूर्वक बनै
 msgid "Port %s was successfully updated."
 msgstr "पोर्ट %s सफलतापूर्वक अद्यतन कएल गेल छल."
 
-msgid "Port Details"
-msgstr "पोर्ट क विवरण"
-
 msgid "Port ID"
 msgstr "पोर्ट आईडी"
 
@@ -6053,9 +6044,6 @@ msgstr "सबनेट  आईडी "
 
 msgid "Subnet Name"
 msgstr "सबनेट नाम"
-
-msgid "Subnet Overview"
-msgstr "सबनेट अवलोकन"
 
 msgid "Subnet list can not be retrieved."
 msgstr "सबनेट सूची प्राप्त नहि कएल जाए सकैत अछि."
@@ -8165,13 +8153,6 @@ msgstr "वाल्यूम (सिंडर)"
 msgid "Volume Backup"
 msgstr "वाल्यूम बैकअप"
 
-msgid "Volume Backup Details"
-msgstr "वाल्यूम बैकअप क विवरण"
-
-#, python-format
-msgid "Volume Backup Overview: %(backup_display_name)s"
-msgstr "वाल्यूम बैकअप सारांश: %(backup_display_name)s"
-
 msgid "Volume Backup:"
 msgstr "वाल्यूम बैकअप:"
 
@@ -8185,26 +8166,17 @@ msgstr ""
 "वस्तु भंडारण सेवा क उपयोग कएक वाल्यूम बैकअप केँ संग्रहित कएल गेल. एकटा बैकअप बनाबै क लेल "
 "अहाँकेँ ई सेवा सक्रिय अवश्य सक्रिय कएनाइ हएताह. "
 
-msgid "Volume Details"
-msgstr "वाल्यूम विवरण"
-
 msgid "Volume Limits"
 msgstr "वाल्यूम सीमा"
 
 msgid "Volume Name"
 msgstr "वाल्यूम नाम"
 
-msgid "Volume Overview"
-msgstr "वाल्यूम अवलोकन"
-
 msgid "Volume Size"
 msgstr "वाल्यूम आकार"
 
 msgid "Volume Snapshot"
 msgstr "वाल्यूम स्नैपशाट"
-
-msgid "Volume Snapshot Details"
-msgstr "वाल्यूम स्नैपशाट विवरण"
 
 msgid "Volume Snapshot Overview"
 msgstr "वाल्यूम स्नैपशाट अवलोकन"

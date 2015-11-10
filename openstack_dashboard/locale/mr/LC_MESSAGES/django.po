@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-11-02 22:10+0000\n"
+"POT-Creation-Date: 2015-11-10 01:06+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -3401,9 +3401,6 @@ msgctxt "Task status of an Instance"
 msgid "Image Backup"
 msgstr "चित्र राखीव साठा"
 
-msgid "Image Details"
-msgstr "चित्र तपशील"
-
 msgid "Image File"
 msgstr "चित्र धारिका"
 
@@ -3418,9 +3415,6 @@ msgstr "चित्राचे नाव"
 
 msgid "Image Name ="
 msgstr "चित्राचे नाव ="
-
-msgid "Image Overview"
-msgstr "चित्र आढावा"
 
 msgctxt "Task status of an Instance"
 msgid "Image Pending Upload"
@@ -4827,9 +4821,6 @@ msgstr "पोर्ट %s यशस्वीपणे तयार करण्
 msgid "Port %s was successfully updated."
 msgstr "पोर्ट %s मध्ये यशस्वीपणे सुधारणा करण्यात आली."
 
-msgid "Port Details"
-msgstr "पोर्टचे तपशील"
-
 msgid "Port ID"
 msgstr "पोर्ट ओळख क्रमांक"
 
@@ -6054,9 +6045,6 @@ msgstr "उपनेट आयडी"
 
 msgid "Subnet Name"
 msgstr "उपनेटचे नाव"
-
-msgid "Subnet Overview"
-msgstr "उपनेट आढावा"
 
 msgid "Subnet list can not be retrieved."
 msgstr "उपनेट यादी मिळवता आली नाही."
@@ -8165,13 +8153,6 @@ msgstr "प्रमाण (सिंडर)"
 msgid "Volume Backup"
 msgstr "खंड राखीव साठा"
 
-msgid "Volume Backup Details"
-msgstr "खंड राखीव साठा तपशील"
-
-#, python-format
-msgid "Volume Backup Overview: %(backup_display_name)s"
-msgstr "खंड राखीव साठा आढावा: %(backup_display_name)s"
-
 msgid "Volume Backup:"
 msgstr "खंड राखीव साठा:"
 
@@ -8185,26 +8166,17 @@ msgstr ""
 "घटक संग्रह सेवा वापरुन खंड राखीव साठे संग्रहित केले जातात. राखीव साठा तयार करण्यासाठी "
 "तुम्ही ही सेवा सक्रिय केली पाहिजे."
 
-msgid "Volume Details"
-msgstr "खंड तपशील"
-
 msgid "Volume Limits"
 msgstr "खंड मर्यादा"
 
 msgid "Volume Name"
 msgstr "खंडाचे नाव"
 
-msgid "Volume Overview"
-msgstr "खंड आढावा"
-
 msgid "Volume Size"
 msgstr "खंडाचा आकार"
 
 msgid "Volume Snapshot"
 msgstr "खंड क्षणचित्र"
-
-msgid "Volume Snapshot Details"
-msgstr "खंड क्षणचित्र तपशील."
 
 msgid "Volume Snapshot Overview"
 msgstr "खंड क्षणचित्र आढावा"

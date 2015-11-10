@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-11-05 22:23+0000\n"
+"POT-Creation-Date: 2015-11-10 01:06+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -5320,12 +5320,6 @@ msgctxt "Task status of an Instance"
 msgid "Image Backup"
 msgstr "Záloha obrazu"
 
-msgid "Image Details"
-msgstr "Podrobnosti obrazu"
-
-msgid "Image Details: {{ image.name }}"
-msgstr "Podrobnosti obrazu: {{ image.name }}"
-
 msgid "Image File"
 msgstr "Soubor obrazu"
 
@@ -5343,9 +5337,6 @@ msgstr "Název obrazu"
 
 msgid "Image Name ="
 msgstr "Název obrazu ="
-
-msgid "Image Overview"
-msgstr "Přehled obrazů"
 
 msgctxt "Task status of an Instance"
 msgid "Image Pending Upload"
@@ -7391,9 +7382,6 @@ msgstr "Port %s byl úspěšně vytvořen."
 msgid "Port %s was successfully updated."
 msgstr "Port %s byl úspěšně aktualizován."
 
-msgid "Port Details"
-msgstr "Podrobnosti portu"
-
 msgid "Port ID"
 msgstr "ID portu"
 
@@ -9328,9 +9316,6 @@ msgstr "ID podsítě"
 
 msgid "Subnet Name"
 msgstr "Název podsítě"
-
-msgid "Subnet Overview"
-msgstr "Přehled podsítě"
 
 msgid "Subnet list can not be retrieved."
 msgstr "Nelze získat seznam podsítí."
@@ -12210,16 +12195,6 @@ msgstr "Svazek (Cinder)"
 msgid "Volume Backup"
 msgstr "Záloha svazku"
 
-msgid "Volume Backup Details"
-msgstr "Podrobnosti zálohy svazku"
-
-msgid "Volume Backup Details: {{ backup.name }}"
-msgstr "Podrobnosti zálohy svazku: {{ backup.name }}"
-
-#, python-format
-msgid "Volume Backup Overview: %(backup_display_name)s"
-msgstr "Přehled záloh svazku: %(backup_display_name)s"
-
 msgid "Volume Backup:"
 msgstr "Záloha svazku:"
 
@@ -12232,12 +12207,6 @@ msgid ""
 msgstr ""
 "Zálohy svazku jsou ukládány pomocí služby Úložiště objektů. Pro vytvoření "
 "zálohy je nutné uto službu mít aktivovanou."
-
-msgid "Volume Details"
-msgstr "Podrobnosti svazku"
-
-msgid "Volume Details: {{ volume.name }}"
-msgstr "Podrobnosti svazku: {{ volume.name }}"
 
 msgid "Volume Encryption Details"
 msgstr "Podrobnosti šifrování svazku"
@@ -12258,20 +12227,11 @@ msgstr "Omezení svazku"
 msgid "Volume Name"
 msgstr "Název svazku"
 
-msgid "Volume Overview"
-msgstr "Přehled svazků"
-
 msgid "Volume Size"
 msgstr "Velikost svazku"
 
 msgid "Volume Snapshot"
 msgstr "Snímek svazku"
-
-msgid "Volume Snapshot Details"
-msgstr "Podrobnosti snímku svazku"
-
-msgid "Volume Snapshot Details: {{ snapshot.name }}"
-msgstr "Podrobnosti snímku svazku: {{ snapshot.name }}"
 
 msgid "Volume Snapshot Overview"
 msgstr "Přehled snímku svazku"

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-11-02 22:10+0000\n"
+"POT-Creation-Date: 2015-11-10 01:06+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -3301,9 +3301,6 @@ msgstr "चित्र"
 msgid "Image (Glance)"
 msgstr "चित्र(ग्लेन्स)"
 
-msgid "Image Details"
-msgstr "चित्र विवरण"
-
 msgid "Image File"
 msgstr "चित्र फाइल"
 
@@ -3318,9 +3315,6 @@ msgstr "चित्र नाम"
 
 msgid "Image Name ="
 msgstr "चित्र नाम ="
-
-msgid "Image Overview"
-msgstr "चित्र ओभऱभ्यु"
 
 msgid "Image Registry"
 msgstr "चित्र कार्यालय"
@@ -4697,9 +4691,6 @@ msgstr "पोर्ट %s सफलतापूर्वक बनाइएक�
 msgid "Port %s was successfully updated."
 msgstr "पोर्ट %s सफलतापूर्वक अपडेट गरिएको थियो।"
 
-msgid "Port Details"
-msgstr "पोर्ट विवरण"
-
 msgid "Port ID"
 msgstr "पोर्ट ID"
 
@@ -5770,9 +5761,6 @@ msgstr "सबनेट ID"
 
 msgid "Subnet Name"
 msgstr "सबनेट नाम"
-
-msgid "Subnet Overview"
-msgstr "सबनेट ओभरभ्यु"
 
 msgid "Subnet list can not be retrieved."
 msgstr "सबनेट सूची प्राप्त गर्न सकिन्न"
@@ -7863,13 +7851,6 @@ msgstr "आकार(सिन्डर)"
 msgid "Volume Backup"
 msgstr "भोल्युम बेकअप"
 
-msgid "Volume Backup Details"
-msgstr "भोल्युममा बेकअप विवरणहरू"
-
-#, python-format
-msgid "Volume Backup Overview: %(backup_display_name)s"
-msgstr "भोल्युम बेकअप ओभरभ्यु: %(backup_display_name)s"
-
 msgid "Volume Backup:"
 msgstr "भोल्युम बेकअपः"
 
@@ -7883,26 +7864,17 @@ msgstr ""
 "अब्जेक्ट स्टोरेज सेवा प्रयोग गरेर भोल्युम बेकअपहरू स्टोर गरिएको छ। एउटा बेकअप बनाउनका लागि "
 "तपाईँले आवस्यक रूपा यो सेवा चालु राखेको हुनुपर्छ।"
 
-msgid "Volume Details"
-msgstr "भोल्युम विवरण"
-
 msgid "Volume Limits"
 msgstr "भोल्युम  सिमाहरू"
 
 msgid "Volume Name"
 msgstr "भोल्युमको नाम"
 
-msgid "Volume Overview"
-msgstr "भल्युम ओभरभ्यु"
-
 msgid "Volume Size"
 msgstr "भोल्युम आकार"
 
 msgid "Volume Snapshot"
 msgstr "भोल्युम  स्नेपसुट"
-
-msgid "Volume Snapshot Details"
-msgstr "भोल्युम स्नेपसूट विवरणहरू"
 
 msgid "Volume Snapshot Overview"
 msgstr "आकार स्नेपसुट ओभरभ्यु"
