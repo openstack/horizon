@@ -17,7 +17,7 @@
   'use strict';
 
   describe('horizon.framework.util.i18n', function () {
-    beforeEach(module('horizon.framework.util.i18n'));
+    beforeEach(module('horizon.framework'));
 
     describe('gettext', function () {
       var factory;

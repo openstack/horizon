@@ -108,10 +108,7 @@
       var $scope, $element;
 
       beforeEach(module('templates'));
-      beforeEach(module('horizon.framework.widgets'));
-      beforeEach(module('horizon.framework.widgets.metadata'));
-      beforeEach(module('horizon.framework.widgets.metadata.tree'));
-      beforeEach(module('horizon.framework.widgets.metadata.display'));
+      beforeEach(module('horizon.framework'));
       beforeEach(inject(function ($injector) {
         var $compile = $injector.get('$compile');
         $scope = $injector.get('$rootScope').$new();

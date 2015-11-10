@@ -28,8 +28,7 @@
       element;
 
     beforeEach(module('templates'));
-    beforeEach(module('horizon.framework.widgets'));
-    beforeEach(module('horizon.framework.widgets.wizard'));
+    beforeEach(module('horizon.framework'));
     beforeEach(inject(function ($injector) {
       $scope = $injector.get('$rootScope').$new();
       $compile = $injector.get('$compile');
@@ -197,7 +196,7 @@
   describe("ModalContainerController", function() {
     var ctrl, scope, modalInstance, launchContext;
 
-    beforeEach(module('horizon.framework.widgets.wizard'));
+    beforeEach(module('horizon.framework'));
 
     beforeEach(inject(function($controller) {
       scope = {};

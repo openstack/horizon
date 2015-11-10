@@ -21,8 +21,6 @@
 
     beforeEach(module('templates'));
     beforeEach(module('horizon.framework'));
-    beforeEach(module('horizon.framework.widgets'));
-    beforeEach(module('horizon.framework.widgets.charts'));
 
     beforeEach(inject(function (_$compile_, _$rootScope_) {
       var $compile = _$compile_;

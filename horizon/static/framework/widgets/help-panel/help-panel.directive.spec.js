@@ -21,8 +21,7 @@
       element;
 
     beforeEach(module('templates'));
-    beforeEach(module('horizon.framework.widgets'));
-    beforeEach(module('horizon.framework.widgets.help-panel'));
+    beforeEach(module('horizon.framework'));
     beforeEach(inject(function ($injector) {
       $scope = $injector.get('$rootScope').$new();
       $compile = $injector.get('$compile');

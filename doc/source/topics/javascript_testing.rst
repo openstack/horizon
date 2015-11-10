@@ -132,7 +132,7 @@ Lines added to ``horizon/test/jasmine/jasmine_tests.py``:
 
     describe('horizon.framework.widgets.modal module', function() {
 
-      beforeEach(module('horizon.framework.widgets.modal'));
+      beforeEach(module('horizon.framework'));
 
       describe('simpleModalCtrl', function() {
         var scope;

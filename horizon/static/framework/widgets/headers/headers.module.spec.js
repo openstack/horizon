@@ -26,8 +26,6 @@
     var headersBasePath, staticUrl;
 
     beforeEach(module('horizon.framework'));
-    beforeEach(module('horizon.framework.widgets'));
-    beforeEach(module('horizon.framework.widgets.headers'));
     beforeEach(inject(function ($injector) {
       headersBasePath = $injector.get('horizon.framework.widgets.headers.basePath');
       staticUrl =  $injector.get('$window').STATIC_URL;
