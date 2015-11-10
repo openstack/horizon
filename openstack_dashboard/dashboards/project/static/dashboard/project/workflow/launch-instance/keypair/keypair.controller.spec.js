@@ -19,18 +19,35 @@
   describe('Launch Instance Keypair Step', function() {
 
     describe('LaunchInstanceKeypairController', function() {
-      var ctrl;
+      var ctrl, q, settings;
       var $modal = { open: angular.noop };
       var toastServiceMock = {add: angular.noop};
 
       beforeEach(module('horizon.dashboard.project'));
 
+      beforeEach(function() {
+          settings = {
+            OPENSTACK_HYPERVISOR_FEATURES: {
+              requires_keypair: false
+            }
+          };
+        });
+
       beforeEach(module(function ($provide) {
         $provide.value('$modal', $modal);
         $provide.value('horizon.framework.widgets.toast.service', toastServiceMock);
+        $provide.value('horizon.app.core.openstack-service-api.settings', {
+          getSetting: function(setting) {
+            setting = setting.split('.');
+            var deferred = q.defer();
+            deferred.resolve(settings[setting[0]][setting[1]]);
+            return deferred.promise;
+          }
+        });
       }));
 
-      beforeEach(inject(function($controller) {
+      beforeEach(inject(function($controller, $q) {
+        q = $q;
         var model = {
           newInstanceSpec: {
             key_pair: ['key1']
@@ -156,6 +173,19 @@
         createKeypair({name: "newKeypair"});
 
         expect(ctrl.tableData.allocated[0].name).toEqual("newKeypair");
+      });
+
+      it('defines isKeypairRequired', function() {
+        expect(ctrl.isKeypairRequired).toBeDefined();
+        expect(ctrl.isKeypairRequired).toBe(0);
+      });
+
+      it('sets isKeypairRequired properly', function() {
+        expect(ctrl.isKeypairRequired).toBeDefined();
+        ctrl.setKeypairRequired(true);
+        expect(ctrl.isKeypairRequired).toBe(1);
+        ctrl.setKeypairRequired(false);
+        expect(ctrl.isKeypairRequired).toBe(0);
       });
     });
 

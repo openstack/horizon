@@ -25,7 +25,8 @@
     'horizon.dashboard.project.workflow.launch-instance.basePath',
     'launchInstanceModel',
     '$modal',
-    'horizon.framework.widgets.toast.service'
+    'horizon.framework.widgets.toast.service',
+    'horizon.app.core.openstack-service-api.settings'
   ];
 
   /**
@@ -34,7 +35,13 @@
    * @description
    * Allows selection of key pairs.
    */
-  function LaunchInstanceKeypairController(basePath, launchInstanceModel, $modal, toastService) {
+  function LaunchInstanceKeypairController(
+    basePath,
+    launchInstanceModel,
+    $modal,
+    toastService,
+    settingsService
+  ) {
     var ctrl = this;
 
     ctrl.isKeypairCreated = false;
@@ -46,6 +53,7 @@
     ctrl.allocateNewKeyPair = allocateNewKeyPair;
     ctrl.createKeyPair = createKeyPair;
     ctrl.importKeyPair = importKeyPair;
+    ctrl.setKeypairRequired = setKeypairRequired;
 
     ctrl.tableData = {
       available: launchInstanceModel.keypairs,
@@ -59,6 +67,12 @@
     ctrl.tableLimits = {
       maxAllocation: 1
     };
+
+    ctrl.isKeypairRequired = 0;
+
+    settingsService.getSetting(
+      'OPENSTACK_HYPERVISOR_FEATURES.requires_keypair'
+    ).then(setKeypairRequired);
 
     //////////
 
@@ -137,6 +151,17 @@
 
     function getName(item) {
       return item.name;
+    }
+
+    /**
+     * @ngdoc function
+     * @name setKeypairRequired
+     * @description
+     * Set if a KeyPair is required based on the settings
+     * @param {Boolean} setting The requires_keypair setting
+     */
+    function setKeypairRequired(setting) {
+      ctrl.isKeypairRequired = setting ? 1 : 0;
     }
   }
 

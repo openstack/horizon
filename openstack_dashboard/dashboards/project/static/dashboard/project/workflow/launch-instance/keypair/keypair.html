@@ -31,7 +31,7 @@
                   limits="ctrl.tableLimits">
 
     <!-- Key Pairs Allocated-->
-    <allocated>
+    <allocated validate-number-min="ctrl.isKeypairRequired" ng-model="ctrl.tableData.allocated.length">
       <table st-table="ctrl.tableData.displayedAllocated"
              st-safe-src="ctrl.tableData.allocated" hz-table
              class="table table-striped table-rsp table-detail">
@@ -129,6 +129,5 @@
         </tbody>
       </table>
     </available>
-
   </transfer-table> <!-- End Key Pairs Table -->
 </div> <!-- End Controller -->
