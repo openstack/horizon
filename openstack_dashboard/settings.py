@@ -267,6 +267,19 @@ try:
 except ImportError:
     logging.warning("No local_settings file found.")
 
+# allow to drop settings snippets into a local_settings_dir
+LOCAL_SETTINGS_DIR_PATH = os.path.join(ROOT_PATH, "local", "local_settings.d")
+if os.path.exists(LOCAL_SETTINGS_DIR_PATH):
+    for (dirpath, dirnames, filenames) in os.walk(LOCAL_SETTINGS_DIR_PATH):
+        for filename in sorted(filenames):
+            if filename.endswith(".py"):
+                try:
+                    execfile(os.path.join(dirpath, filename))
+                except Exception as e:
+                    logging.exception(
+                        "Can not exec settings snippet %s" % (filename))
+
+
 if not WEBROOT.endswith('/'):
     WEBROOT += '/'
 if LOGIN_URL is None:
