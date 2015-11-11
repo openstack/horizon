@@ -525,8 +525,8 @@ class CreateNetwork(workflows.Workflow):
             network_id = network.id
             network_name = network.name
         else:
-            network_id = self.context.get('net_id')
-            network_name = self.context.get('net_name')
+            network_id = self.context.get('network_id')
+            network_name = self.context.get('network_name')
         try:
             params = {'network_id': network_id,
                       'name': data['subnet_name']}
