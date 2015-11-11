@@ -41,15 +41,17 @@ from django.contrib.staticfiles.testing \
 LOG = logging.getLogger(__name__)
 
 
+# NOTE: Several distributions can't ship Selenium, or the Firefox
+# component of it, due to its non-free license. So they have to patch
+# it out of test-requirements.txt Avoid import failure and force not
+# running selenium tests if we attempt to run selenium tests using the
+# Firefox driver and it is not available.
 try:
     from selenium.webdriver.support import ui as selenium_ui
     import xvfbwrapper  # Only needed when running the Selenium tests headless
 
     from horizon.test.webdriver import WebDriver  # noqa
 except ImportError as e:
-    # NOTE(saschpe): Several distribution can't ship selenium due to its
-    # non-free license. So they have to patch it out of test-requirements.txt
-    # Avoid import failure and force not running selenium tests.
     LOG.warning("{0}, force WITH_SELENIUM=False".format(str(e)))
     os.environ['WITH_SELENIUM'] = ''
 

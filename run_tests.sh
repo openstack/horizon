@@ -420,6 +420,10 @@ function run_integration_tests {
     export SELENIUM_HEADLESS=1
   fi
 
+  if [ $selenium_phantomjs -eq 1 ]; then
+    export SELENIUM_PHANTOMJS=1
+  fi
+
   echo "Running Horizon integration tests..."
   if [ -z "$testargs" ]; then
       ${command_wrapper} nosetests openstack_dashboard/test/integration_tests/tests
