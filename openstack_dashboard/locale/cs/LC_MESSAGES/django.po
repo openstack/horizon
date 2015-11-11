@@ -10,11 +10,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-11-10 01:06+0000\n"
+"POT-Creation-Date: 2015-11-11 05:16+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2015-11-07 09:11+0000\n"
+"PO-Revision-Date: 2015-11-10 08:47+0000\n"
 "Last-Translator: Zbyněk Schwarz <zbynek.schwarz@gmail.com>\n"
 "Language: cs\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
@@ -1017,15 +1017,6 @@ msgstr ""
 msgid "Add/Remove Hosts to Aggregate"
 msgstr "Přidat/odstranit hostitele z agregátu"
 
-msgid "AddFirewall"
-msgstr "Přidat bránu firewall"
-
-msgid "AddPolicy"
-msgstr "Přidat zásadu"
-
-msgid "AddRule"
-msgstr "Přidat pravidlo"
-
 #, python-format
 msgid "Added Firewall \"%s\"."
 msgstr "Přidána brána firewall \"%s\"."
@@ -1876,15 +1867,6 @@ msgstr "Počet clusterů"
 msgid "Cluster Creation Guide"
 msgstr "Průvodce vytvořením clusteru"
 
-msgid "Cluster Detail"
-msgstr "Podrobnosti clusteru"
-
-msgid "Cluster Details"
-msgstr "Podrobnosti clusteru"
-
-msgid "Cluster Details: {{ cluster.name }}"
-msgstr "Podrobnosti clusteru: {{ cluster.name }}"
-
 msgid "Cluster Events"
 msgstr "Události clusteru"
 
@@ -1897,9 +1879,6 @@ msgstr "Instance clusteru"
 msgid "Cluster Name"
 msgstr "Název clusteru"
 
-msgid "Cluster Overview"
-msgstr "Přehled clusterů"
-
 msgid "Cluster Size"
 msgstr "Velikost clusteru"
 
@@ -1909,9 +1888,6 @@ msgstr "Šablona clusteru"
 #, python-format
 msgid "Cluster Template %s updated"
 msgstr "Šablona clusteru %s aktualizována"
-
-msgid "Cluster Template Details"
-msgstr "Podrobnosti šablony clusteru"
 
 msgid "Cluster Template Name"
 msgstr "Název šablony clusteru"
@@ -2762,9 +2738,6 @@ msgstr "Průvodce zpracováním dat"
 msgid "Data Processing Plugin Details"
 msgstr "Podrobnosti zásuvného modulu zpracování dat"
 
-msgid "Data Processing Plugin Overview"
-msgstr "Přehled zásuvných modulů zpracování dat"
-
 msgid "Data Processing Plugins"
 msgstr "Zásuvné moduly zpracování dat"
 
@@ -2780,12 +2753,6 @@ msgstr ""
 
 msgid "Data Source"
 msgstr "Zdroj dat"
-
-msgid "Data Source Details"
-msgstr "Podrobnosti zdroje dat"
-
-msgid "Data Source Overview"
-msgstr "Přehled zdrojů dat"
 
 msgid "Data Source Type"
 msgstr "Typ zdroje dat"
@@ -4696,17 +4663,8 @@ msgstr "Dokončování Změny velikosti nebo Přesunu"
 msgid "Firewall %s was successfully updated."
 msgstr "Brána firewall %s byla úspěšně aktualizována."
 
-msgid "Firewall Details"
-msgstr "Podrobnosti brány firewall"
-
 msgid "Firewall Policies"
 msgstr "Zásady brány firewall"
-
-msgid "Firewall Policy Details"
-msgstr "Podrobnosti zásady brány firewall"
-
-msgid "Firewall Rule Details"
-msgstr "Podrobnosti pravidla brány firewall"
 
 msgid "Firewall Rules"
 msgstr "Pravidla brány firewall"
@@ -5529,12 +5487,6 @@ msgstr "Protokol konzole instance"
 msgid "Instance Count"
 msgstr "Počet instancí"
 
-msgid "Instance Details"
-msgstr "Podrobnosti instance"
-
-msgid "Instance Details: {{ instance.name }}"
-msgstr "Podrobnosti instance: {{ instance.name }}"
-
 msgid "Instance ID"
 msgstr "ID instance"
 
@@ -5648,20 +5600,8 @@ msgstr "Úkol"
 msgid "Job Binaries"
 msgstr "Binární soubory úkolu"
 
-msgid "Job Binary Details"
-msgstr "Podrobnosti binárního souboru úkolu"
-
-msgid "Job Binary Overview"
-msgstr "Přehled binárních souborů úkolu"
-
 msgid "Job Configuration"
 msgstr "Konfigurace úkolu"
-
-msgid "Job Details"
-msgstr "Podrobnosti úkolu"
-
-msgid "Job Execution Details"
-msgstr "Podrobnosti spuštění úkolu"
 
 msgid "Job Execution Guide"
 msgstr "Průvodce spuštěním úkolu"
@@ -5672,14 +5612,8 @@ msgstr "ID spuštění úkolu"
 msgid "Job Guide"
 msgstr "Průvodce úkolem"
 
-msgid "Job Overview"
-msgstr "Přehled úkolů"
-
 msgid "Job Template"
 msgstr "Šablona úkolu"
-
-msgid "Job Template Details"
-msgstr "Podrobnosti šablony úkolu"
 
 msgid "Job Templates"
 msgstr "Šablony úkolu"
@@ -6403,12 +6337,6 @@ msgstr "Jmenný prostor %s byl vytvořen."
 msgid "Namespace Definition Source"
 msgstr "Zdroj vymezení jmenného prostoru"
 
-msgid "Namespace Details"
-msgstr "Podrobnosti jmenného prostoru"
-
-msgid "Namespace Details: {{ namespace.namespace }}"
-msgstr "Podrobnosti jmenného prostoru: {{ namespace.namespace }}"
-
 msgid "Namespace JSON"
 msgstr "JSON jmenného prostoru"
 
@@ -6808,9 +6736,6 @@ msgstr "Skupina uzlu"
 msgid "Node Group Template %s updated"
 msgstr "Šablona skupiny uzlu %s byla aktualizována"
 
-msgid "Node Group Template Details"
-msgstr "Podrobnosti šablony skupiny uzlu"
-
 #, python-format
 msgid "Node Group Template copy %s created"
 msgstr "Kopie šablony skupiny uzlu %s vytvořena"
@@ -6836,9 +6761,6 @@ msgstr "Cluster skupiny uzlu"
 
 msgid "Node processes are not specified"
 msgstr "Procesy uzlu nezadány"
-
-msgid "Nodegroup Template Details"
-msgstr "Podrobnosti šablony skupiny uzlu"
 
 msgid "Nodes Count"
 msgstr "Počet uzlů"
@@ -7968,12 +7890,6 @@ msgstr "Měnění velikosti svazku \"%s\""
 msgid "Resource"
 msgstr "Zdroj"
 
-msgid "Resource Details"
-msgstr "Podrobnosti zdroje"
-
-msgid "Resource Details: {{ resource.resource_name }}"
-msgstr "Podrobnosti zdroje: {{ resource.resource_name }}"
-
 msgid "Resource ID"
 msgstr "ID zdroje"
 
@@ -7982,12 +7898,6 @@ msgstr "Metadata zdroje"
 
 msgid "Resource Overview"
 msgstr "Přehled zdroje"
-
-msgid "Resource Type"
-msgstr "Typy zdroje"
-
-msgid "Resource Type Details"
-msgstr "Podrobnosti typu zdroje"
 
 msgid "Resource Types"
 msgstr "Typy zdrojů"
@@ -8192,9 +8102,6 @@ msgstr "Směrovač %s byl úspěšně vytvořen."
 #, python-format
 msgid "Router %s was successfully updated."
 msgstr "Směrovač %s byl úspěšně aktualizován."
-
-msgid "Router Details"
-msgstr "Podrobnosti směrovače"
 
 msgid "Router ID"
 msgstr "ID směrovače"
@@ -9149,12 +9056,6 @@ msgstr ""
 msgid "Specs"
 msgstr "Specifikace"
 
-msgid "Stack Details"
-msgstr "Podrobnosti zásobníku"
-
-msgid "Stack Details: {{ stack.stack_name }}"
-msgstr "Podrobnosti zásobníku: {{ stack.stack_name }}"
-
 msgid "Stack Events"
 msgstr "Události zásobníku"
 
@@ -9163,9 +9064,6 @@ msgstr "ID zásobníku"
 
 msgid "Stack Name"
 msgstr "Název zásobníku"
-
-msgid "Stack Overview"
-msgstr "Přehled zásobíků"
 
 msgid "Stack Parameters"
 msgstr "Parametry zásobníku"
@@ -9586,9 +9484,6 @@ msgstr "Soubor šablony"
 
 msgid "Template Name"
 msgstr "Název šablony"
-
-msgid "Template Overview"
-msgstr "Přehled šablon"
 
 msgid "Template Source"
 msgstr "Zdroj šablony"
@@ -11663,9 +11558,6 @@ msgstr "Nelze nahrát objekt."
 msgid "Unable to upload volume to image for volume: \"%s\""
 msgstr "Nelze nahrát svazek \"%s\" do obrazu."
 
-msgid "Undefined"
-msgstr "Neurčeno"
-
 msgid "Unit"
 msgstr "Jednotka"
 
@@ -12763,3 +12655,6 @@ msgstr "v1"
 
 msgid "v2"
 msgstr "v2"
+
+msgid "{{ image.name }}"
+msgstr "{{ image.name }}"

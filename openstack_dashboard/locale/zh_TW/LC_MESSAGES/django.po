@@ -17,7 +17,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-11-10 01:06+0000\n"
+"POT-Creation-Date: 2015-11-11 05:16+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -977,15 +977,6 @@ msgstr "加入、更改或移除已聯結到此雲硬碟類型的 QoS 規格。"
 msgid "Add/Remove Hosts to Aggregate"
 msgstr "加入/移除主機到聚合中"
 
-msgid "AddFirewall"
-msgstr "加入防火牆"
-
-msgid "AddPolicy"
-msgstr "加入政策"
-
-msgid "AddRule"
-msgstr "加入規則"
-
 #, python-format
 msgid "Added Firewall \"%s\"."
 msgstr "加入了防火牆「%s」。"
@@ -1789,15 +1780,6 @@ msgstr "叢集計數"
 msgid "Cluster Creation Guide"
 msgstr "叢集建立精靈"
 
-msgid "Cluster Detail"
-msgstr "叢集詳細資訊"
-
-msgid "Cluster Details"
-msgstr "叢集詳細資訊"
-
-msgid "Cluster Details: {{ cluster.name }}"
-msgstr "叢集詳細資訊：{{ cluster.name }}"
-
 msgid "Cluster Events"
 msgstr "叢集事件"
 
@@ -1810,9 +1792,6 @@ msgstr "叢集雲實例"
 msgid "Cluster Name"
 msgstr "叢集名稱"
 
-msgid "Cluster Overview"
-msgstr "叢集概觀"
-
 msgid "Cluster Size"
 msgstr "叢集規模"
 
@@ -1822,9 +1801,6 @@ msgstr "叢集範本"
 #, python-format
 msgid "Cluster Template %s updated"
 msgstr "已更新叢集範本 %s"
-
-msgid "Cluster Template Details"
-msgstr "叢集範本詳細資訊"
 
 msgid "Cluster Template Name"
 msgstr "叢集範本名稱"
@@ -2648,9 +2624,6 @@ msgstr "資料處理精靈"
 msgid "Data Processing Plugin Details"
 msgstr "資料處理插件詳細資訊"
 
-msgid "Data Processing Plugin Overview"
-msgstr "資料處理插件概觀"
-
 msgid "Data Processing Plugins"
 msgstr "資料處理插件"
 
@@ -2666,12 +2639,6 @@ msgstr ""
 
 msgid "Data Source"
 msgstr "資料來源"
-
-msgid "Data Source Details"
-msgstr "資料來源詳細資訊"
-
-msgid "Data Source Overview"
-msgstr "資料來源概觀"
 
 msgid "Data Source Type"
 msgstr "資料來源類型"
@@ -4365,17 +4332,8 @@ msgstr "正在完成調整容量或轉移"
 msgid "Firewall %s was successfully updated."
 msgstr "已成功更新防火牆 %s。"
 
-msgid "Firewall Details"
-msgstr "防火牆詳細資訊"
-
 msgid "Firewall Policies"
 msgstr "防火牆政策"
-
-msgid "Firewall Policy Details"
-msgstr "防火牆政策詳細資訊"
-
-msgid "Firewall Rule Details"
-msgstr "防火牆規則詳細資訊"
 
 msgid "Firewall Rules"
 msgstr "防火牆規則"
@@ -5146,12 +5104,6 @@ msgstr "雲實例主控臺記錄"
 msgid "Instance Count"
 msgstr "雲實例計數"
 
-msgid "Instance Details"
-msgstr "雲實例詳細資訊"
-
-msgid "Instance Details: {{ instance.name }}"
-msgstr "雲實例詳細資訊：{{ instance.name }}"
-
 msgid "Instance ID"
 msgstr "雲實例識別號"
 
@@ -5261,20 +5213,8 @@ msgstr "工作"
 msgid "Job Binaries"
 msgstr "工作程式"
 
-msgid "Job Binary Details"
-msgstr "工作程式詳細資訊"
-
-msgid "Job Binary Overview"
-msgstr "工作程式概觀"
-
 msgid "Job Configuration"
 msgstr "工作設置"
-
-msgid "Job Details"
-msgstr "工作詳細資訊"
-
-msgid "Job Execution Details"
-msgstr "工作執行任務詳細資訊"
 
 msgid "Job Execution Guide"
 msgstr "工作執行任務精靈"
@@ -5285,14 +5225,8 @@ msgstr "工作執行任務識別號"
 msgid "Job Guide"
 msgstr "工作精靈"
 
-msgid "Job Overview"
-msgstr "工作概觀"
-
 msgid "Job Template"
 msgstr "工作範本"
-
-msgid "Job Template Details"
-msgstr "工作範本詳細資訊"
 
 msgid "Job Templates"
 msgstr "工作範本"
@@ -5988,12 +5922,6 @@ msgstr "已新增命名空間 %s。"
 msgid "Namespace Definition Source"
 msgstr "命名空間定義檔來源"
 
-msgid "Namespace Details"
-msgstr "命名空間詳細資訊"
-
-msgid "Namespace Details: {{ namespace.namespace }}"
-msgstr "命名空間詳細資訊：{{ namespace.namespace }}"
-
 msgid "Namespace JSON"
 msgstr "JSON 格式命名空間"
 
@@ -6388,9 +6316,6 @@ msgstr "節點群組"
 msgid "Node Group Template %s updated"
 msgstr "已更新節點群組範本 %s"
 
-msgid "Node Group Template Details"
-msgstr "節點群組範本詳細資訊"
-
 #, python-format
 msgid "Node Group Template copy %s created"
 msgstr "已新增節點群組範本複本 %s"
@@ -6416,9 +6341,6 @@ msgstr "節點群組叢集"
 
 msgid "Node processes are not specified"
 msgstr "未指定節點處理行程"
-
-msgid "Nodegroup Template Details"
-msgstr "節點群組範本詳細資訊"
 
 msgid "Nodes Count"
 msgstr "節點計數"
@@ -7506,12 +7428,6 @@ msgstr "正在調整雲硬碟「%s」容量"
 msgid "Resource"
 msgstr "資源"
 
-msgid "Resource Details"
-msgstr "資源詳細資訊"
-
-msgid "Resource Details: {{ resource.resource_name }}"
-msgstr "資源詳細資訊：{{ resource.resource_name }}"
-
 msgid "Resource ID"
 msgstr "資源識別號"
 
@@ -7520,12 +7436,6 @@ msgstr "資源詮釋資料"
 
 msgid "Resource Overview"
 msgstr "資源概觀"
-
-msgid "Resource Type"
-msgstr "資源類型"
-
-msgid "Resource Type Details"
-msgstr "資源類型詳細資訊"
 
 msgid "Resource Types"
 msgstr "資源類型"
@@ -7716,9 +7626,6 @@ msgstr "已成功新增路由器 %s。"
 #, python-format
 msgid "Router %s was successfully updated."
 msgstr "已成功更新路由器 %s。"
-
-msgid "Router Details"
-msgstr "路由器詳細資訊"
 
 msgid "Router ID"
 msgstr "路由器識別號"
@@ -8617,12 +8524,6 @@ msgstr ""
 msgid "Specs"
 msgstr "規格"
 
-msgid "Stack Details"
-msgstr "機櫃詳細資訊"
-
-msgid "Stack Details: {{ stack.stack_name }}"
-msgstr "機櫃詳細資訊：{{ stack.stack_name }}"
-
 msgid "Stack Events"
 msgstr "機櫃事件"
 
@@ -8631,9 +8532,6 @@ msgstr "機櫃識別號"
 
 msgid "Stack Name"
 msgstr "機櫃名稱"
-
-msgid "Stack Overview"
-msgstr "機櫃概觀"
 
 msgid "Stack Parameters"
 msgstr "機櫃參數"
@@ -9034,9 +8932,6 @@ msgstr "範本檔案"
 
 msgid "Template Name"
 msgstr "範本名稱"
-
-msgid "Template Overview"
-msgstr "範本概觀"
 
 msgid "Template Source"
 msgstr "範本來源"
@@ -11036,9 +10931,6 @@ msgstr "無法上傳物件。"
 #, python-format
 msgid "Unable to upload volume to image for volume: \"%s\""
 msgstr "無法為雲硬碟上傳雲硬碟到映像檔：「%s」"
-
-msgid "Undefined"
-msgstr "未定義"
 
 msgid "Unit"
 msgstr "單位"

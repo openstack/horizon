@@ -21,7 +21,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-11-10 01:06+0000\n"
+"POT-Creation-Date: 2015-11-11 05:16+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -1018,15 +1018,6 @@ msgstr ""
 msgid "Add/Remove Hosts to Aggregate"
 msgstr "Hinzufügen/Entfernen von Hosts zum/vom Aggregat"
 
-msgid "AddFirewall"
-msgstr "Firewall hinzufügen"
-
-msgid "AddPolicy"
-msgstr "Richtlinie hinzufügen"
-
-msgid "AddRule"
-msgstr "Regel hinzufügen"
-
 #, python-format
 msgid "Added Firewall \"%s\"."
 msgstr "Firewall \"%s\" hinzugefügt."
@@ -1878,15 +1869,6 @@ msgstr "Anzahl Cluster"
 msgid "Cluster Creation Guide"
 msgstr "Clustererstellungsassistent"
 
-msgid "Cluster Detail"
-msgstr "Clusterdetails"
-
-msgid "Cluster Details"
-msgstr "Cluster Details"
-
-msgid "Cluster Details: {{ cluster.name }}"
-msgstr "Cluster Details: {{ cluster.name }}"
-
 msgid "Cluster Events"
 msgstr "Cluster Ereignisse"
 
@@ -1899,9 +1881,6 @@ msgstr "Cluster Instanzen"
 msgid "Cluster Name"
 msgstr "Cluster Name"
 
-msgid "Cluster Overview"
-msgstr "Cluster Übersicht"
-
 msgid "Cluster Size"
 msgstr "Clustergröße"
 
@@ -1911,9 +1890,6 @@ msgstr "Clustervorlage"
 #, python-format
 msgid "Cluster Template %s updated"
 msgstr "Clustervorlage %s aktualisiert"
-
-msgid "Cluster Template Details"
-msgstr "Clustervorlage Details"
 
 msgid "Cluster Template Name"
 msgstr "Name der Clustervorlage"
@@ -2773,9 +2749,6 @@ msgstr "Datenverarbeitung Assistenten"
 msgid "Data Processing Plugin Details"
 msgstr "Datenverarbeitungsplugins Details"
 
-msgid "Data Processing Plugin Overview"
-msgstr "Datenverarbeitungsplugins Übersicht"
-
 msgid "Data Processing Plugins"
 msgstr "Datenverarbeitungsplugins"
 
@@ -2792,12 +2765,6 @@ msgstr ""
 
 msgid "Data Source"
 msgstr "Datenquelle"
-
-msgid "Data Source Details"
-msgstr "Datenquellendetails"
-
-msgid "Data Source Overview"
-msgstr "Datenquellenübersicht"
 
 msgid "Data Source Type"
 msgstr "Datenquellentyp"
@@ -4634,17 +4601,8 @@ msgstr "Größenänderung oder Migration wird abgeschlossen"
 msgid "Firewall %s was successfully updated."
 msgstr "Firewall %s wurde wurde erfolgreich aktualisiert."
 
-msgid "Firewall Details"
-msgstr "Firewalldetails"
-
 msgid "Firewall Policies"
 msgstr "Firewallrichtlinien"
-
-msgid "Firewall Policy Details"
-msgstr "Firewall Richtlinien Details"
-
-msgid "Firewall Rule Details"
-msgstr "Details der Firewallregeln"
 
 msgid "Firewall Rules"
 msgstr "Firewallregeln"
@@ -5469,12 +5427,6 @@ msgstr "Instanz Konsolen-Log"
 msgid "Instance Count"
 msgstr "Instanzenanzahl"
 
-msgid "Instance Details"
-msgstr "Instanzdetails"
-
-msgid "Instance Details: {{ instance.name }}"
-msgstr "Instanz Details: {{ instance.name }}"
-
 msgid "Instance ID"
 msgstr "Instanz-ID"
 
@@ -5589,20 +5541,8 @@ msgstr "Aufgabe"
 msgid "Job Binaries"
 msgstr "Aufgaben-Binärprogramme"
 
-msgid "Job Binary Details"
-msgstr "Aufgaben-Binärprogramm Details"
-
-msgid "Job Binary Overview"
-msgstr "Aufgaben-Binärprogramm Übersicht"
-
 msgid "Job Configuration"
 msgstr "Aufgaben Konfiguration"
-
-msgid "Job Details"
-msgstr "Aufgaben Details"
-
-msgid "Job Execution Details"
-msgstr "Aufgaben Ausführungsdetails"
 
 msgid "Job Execution Guide"
 msgstr "Aufgabenausführungsassistent"
@@ -5613,14 +5553,8 @@ msgstr "Aufgaben Ausführungs-ID"
 msgid "Job Guide"
 msgstr "Aufgabenassistent"
 
-msgid "Job Overview"
-msgstr "Aufgaben Überblick"
-
 msgid "Job Template"
 msgstr "Aufgabenvorlage"
-
-msgid "Job Template Details"
-msgstr "Aufgabenvorlage Details."
 
 msgid "Job Templates"
 msgstr "Aufgabenvorlagen"
@@ -6345,12 +6279,6 @@ msgstr "Namensraum %s wurde erstellt."
 msgid "Namespace Definition Source"
 msgstr "Namensraum Definitionsquelle"
 
-msgid "Namespace Details"
-msgstr "Namensraum Details"
-
-msgid "Namespace Details: {{ namespace.namespace }}"
-msgstr "Namensraum Details: {{ namespace.namespace }}"
-
 msgid "Namespace JSON"
 msgstr "Namensraum JSON"
 
@@ -6747,9 +6675,6 @@ msgstr "Node Gruppe"
 msgid "Node Group Template %s updated"
 msgstr "Knotengruppenvorlage %s aktualisiert"
 
-msgid "Node Group Template Details"
-msgstr "Knotengruppenvorlagendetails"
-
 #, python-format
 msgid "Node Group Template copy %s created"
 msgstr "Knotengruppenvorlagenkopie %s erstellt"
@@ -6775,9 +6700,6 @@ msgstr "Knotengruppencluster"
 
 msgid "Node processes are not specified"
 msgstr "Node Prozesse wurden nicht angegeben"
-
-msgid "Nodegroup Template Details"
-msgstr "Node Gruppen Vorlagen Details"
 
 msgid "Nodes Count"
 msgstr "Nodeanzahl"
@@ -7904,12 +7826,6 @@ msgstr "Ändere Größe des Datenträgers \"%s\""
 msgid "Resource"
 msgstr "Ressource"
 
-msgid "Resource Details"
-msgstr "Ressourcendetails"
-
-msgid "Resource Details: {{ resource.resource_name }}"
-msgstr "Ressource Details: {{ resource.resource_name }}"
-
 msgid "Resource ID"
 msgstr "Ressourcenkennung"
 
@@ -7918,12 +7834,6 @@ msgstr "Ressource Metadaten"
 
 msgid "Resource Overview"
 msgstr "Ressourcenübersicht"
-
-msgid "Resource Type"
-msgstr "Ressourcentyp"
-
-msgid "Resource Type Details"
-msgstr "Ressourcentype Details"
 
 msgid "Resource Types"
 msgstr "Ressourcentypen"
@@ -8122,9 +8032,6 @@ msgstr "Router %s wurde erfolgreich angelegt."
 #, python-format
 msgid "Router %s was successfully updated."
 msgstr "Router %s wurde erfolgreich aktualisiert."
-
-msgid "Router Details"
-msgstr "Router-Details"
 
 msgid "Router ID"
 msgstr "Router-ID"
@@ -9069,12 +8976,6 @@ msgstr ""
 msgid "Specs"
 msgstr "Spezifikationen"
 
-msgid "Stack Details"
-msgstr "Stapeldetails"
-
-msgid "Stack Details: {{ stack.stack_name }}"
-msgstr "Stack Details: {{ stack.stack_name }}"
-
 msgid "Stack Events"
 msgstr "Stackereignisse"
 
@@ -9083,9 +8984,6 @@ msgstr "Stack-ID"
 
 msgid "Stack Name"
 msgstr "Stack Name"
-
-msgid "Stack Overview"
-msgstr "Stack Übersicht"
 
 msgid "Stack Parameters"
 msgstr "Stack Parameter"
@@ -9502,9 +9400,6 @@ msgstr "Vorlagendatei"
 
 msgid "Template Name"
 msgstr "Vorlage Name"
-
-msgid "Template Overview"
-msgstr "Vorlagenübersicht"
 
 msgid "Template Source"
 msgstr "Vorlagenquelle"
@@ -11640,9 +11535,6 @@ msgstr "Objekt konnte nicht hochgeladen werden."
 msgid "Unable to upload volume to image for volume: \"%s\""
 msgstr ""
 "Hochladen des Datenträgers zum Abbild fehlgeschlagen für Datenträger: \"%s\""
-
-msgid "Undefined"
-msgstr "Undefiniert"
 
 msgid "Unit"
 msgstr "Einheit"

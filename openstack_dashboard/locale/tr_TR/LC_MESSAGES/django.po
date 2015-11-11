@@ -15,7 +15,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-11-10 01:06+0000\n"
+"POT-Creation-Date: 2015-11-11 05:16+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -988,15 +988,6 @@ msgstr ""
 msgid "Add/Remove Hosts to Aggregate"
 msgstr "Takıma İstemci Ekle/Çıkar"
 
-msgid "AddFirewall"
-msgstr "GüvenlikDuvarıEkle"
-
-msgid "AddPolicy"
-msgstr "İlkeEkle"
-
-msgid "AddRule"
-msgstr "KuralEkle"
-
 #, python-format
 msgid "Added Firewall \"%s\"."
 msgstr "Güvenlik Duvarı \"%s\" Eklendi."
@@ -1801,9 +1792,6 @@ msgstr "Küme"
 msgid "Cluster Creation Guide"
 msgstr "Küme Oluşturma Kılavuzu"
 
-msgid "Cluster Details"
-msgstr "Küme Detayları"
-
 msgid "Cluster Events"
 msgstr "Küme Olayları"
 
@@ -1816,18 +1804,12 @@ msgstr "Küme Sunucular"
 msgid "Cluster Name"
 msgstr "Küme İsmi"
 
-msgid "Cluster Overview"
-msgstr "Küme Genel Görünüm"
-
 msgid "Cluster Template"
 msgstr "Küme Şablonu"
 
 #, python-format
 msgid "Cluster Template %s updated"
 msgstr "Küme Şablonu %s güncellendi"
-
-msgid "Cluster Template Details"
-msgstr "Küme Şablonu Detayları"
 
 msgid "Cluster Template Name"
 msgstr "Küme Şablon İsmi"
@@ -2666,9 +2648,6 @@ msgstr "Veri İşleme Rehberleri"
 msgid "Data Processing Plugin Details"
 msgstr "Veri İşleme Ekleneti Detayları"
 
-msgid "Data Processing Plugin Overview"
-msgstr "Veri İşleme Eklentisi Genel Görünüm"
-
 msgid "Data Processing Plugins"
 msgstr "Veri İşleme Eklentileri"
 
@@ -2681,12 +2660,6 @@ msgid ""
 msgstr ""
 "Veri İşleme değişik depolama konumu seçenekleri sağlar. Sunuculara eklenecek "
 "bir Geçici Sürücü veya Cinde Mantıksal sürücüsü seçebilirsiniz."
-
-msgid "Data Source Details"
-msgstr "Veri Kaynağı Detayları"
-
-msgid "Data Source Overview"
-msgstr "Veri Kaynağı Genel Görünümü"
 
 msgid "Data Source Type"
 msgstr "Veri Kaynağı Türü"
@@ -4361,17 +4334,8 @@ msgstr "Yeniden Boyutlama ya da Göç Bitiriliyor"
 msgid "Firewall %s was successfully updated."
 msgstr "%s güvenlik duvarı başarıyla güncellendi."
 
-msgid "Firewall Details"
-msgstr "Güvenlik Duvarı Detayları"
-
 msgid "Firewall Policies"
 msgstr "Güvenlik Duvarı İlkeleri"
-
-msgid "Firewall Policy Details"
-msgstr "Güvenlik Duvarı İlke Detayları"
-
-msgid "Firewall Rule Details"
-msgstr "Güvenlik Duvarı Kural Detayları"
 
 msgid "Firewall Rules"
 msgstr "Güvenlik Duvarı Kuralları"
@@ -5151,12 +5115,6 @@ msgstr "Sunucu Konsol Günlüğü"
 msgid "Instance Count"
 msgstr "Sunucu Sayısı"
 
-msgid "Instance Details"
-msgstr "Sunucu Ayrıntıları"
-
-msgid "Instance Details: {{ instance.name }}"
-msgstr "Sunucu Detayları: {{ instance.name }}"
-
 msgid "Instance ID"
 msgstr "Sunucu ID"
 
@@ -5264,20 +5222,8 @@ msgstr "İş"
 msgid "Job Binaries"
 msgstr "İş İkilikleri"
 
-msgid "Job Binary Details"
-msgstr "İş İkiliği Detayları"
-
-msgid "Job Binary Overview"
-msgstr "İş İkiliği Genel Görünüm"
-
 msgid "Job Configuration"
 msgstr "İş Yapılandırması"
-
-msgid "Job Details"
-msgstr "İş Detayları"
-
-msgid "Job Execution Details"
-msgstr "İş Çalıştırma Detayları"
 
 msgid "Job Execution Guide"
 msgstr "İş Çalıştırma Rehberi"
@@ -5288,14 +5234,8 @@ msgstr "İş Çalıştırma ID'si"
 msgid "Job Guide"
 msgstr "İş Rehberi"
 
-msgid "Job Overview"
-msgstr "İş Genel Görünümü"
-
 msgid "Job Template"
 msgstr "İş Şablonu"
-
-msgid "Job Template Details"
-msgstr "İş Şablon Ayrıntıları"
 
 msgid "Job Templates"
 msgstr "İş Şablonları"
@@ -5973,12 +5913,6 @@ msgstr "İsim uzayı %s oluşturuldu."
 msgid "Namespace Definition Source"
 msgstr "İsim Alanı Tanımlama Kaynağı"
 
-msgid "Namespace Details"
-msgstr "İsim Uzayı Detayları"
-
-msgid "Namespace Details: {{ namespace.namespace }}"
-msgstr "İsim Alanı Ayrıntıları: {{ namespace.namespace }}"
-
 msgid "Namespace JSON"
 msgstr "İsim Alanı JSON"
 
@@ -6363,9 +6297,6 @@ msgstr "Düğüm Grubu"
 msgid "Node Group Template %s updated"
 msgstr "Düğüm Grup Şablonu \"%s\" güncellendi"
 
-msgid "Node Group Template Details"
-msgstr "Düğüm Grubu Şablonu Detayları"
-
 #, python-format
 msgid "Node Group Template copy %s created"
 msgstr "Düğüm Grubu Şablonu kopya %s oluşturuldu"
@@ -6391,9 +6322,6 @@ msgstr "Düğüm grup kümesi"
 
 msgid "Node processes are not specified"
 msgstr "Düğüm süreçleri belirtilmemiş"
-
-msgid "Nodegroup Template Details"
-msgstr "Düğüm Grubu Şablonu Detayları"
 
 msgid "Nodes Count"
 msgstr "Düğüm Sayısı"
@@ -7456,12 +7384,6 @@ msgstr "Mantıksal sürücü \"%s\" yeniden boyutlanıyor"
 msgid "Resource"
 msgstr "Kaynak"
 
-msgid "Resource Details"
-msgstr "Kaynak Detayları"
-
-msgid "Resource Details: {{ resource.resource_name }}"
-msgstr "Kaynak Ayrıntıları: {{ resource.resource_name }}"
-
 msgid "Resource ID"
 msgstr "Kaynak ID'si"
 
@@ -7470,12 +7392,6 @@ msgstr "Kaynak Metadata'sı"
 
 msgid "Resource Overview"
 msgstr "Kaynak Genel Görünüm"
-
-msgid "Resource Type"
-msgstr "Kaynak Türü"
-
-msgid "Resource Type Details"
-msgstr "Kaynak Türü Ayrıntıları"
 
 msgid "Resource Types"
 msgstr "Kaynak Türleri"
@@ -7661,9 +7577,6 @@ msgstr "Router %s başarıyla oluşturuldu."
 #, python-format
 msgid "Router %s was successfully updated."
 msgstr "Router %s başarıyla güncellendi."
-
-msgid "Router Details"
-msgstr "Router Ayrıntıları"
 
 msgid "Router ID"
 msgstr "Router ID'si"
@@ -8540,12 +8453,6 @@ msgstr ""
 msgid "Specs"
 msgstr "Özellikler"
 
-msgid "Stack Details"
-msgstr "Yığın Detayları"
-
-msgid "Stack Details: {{ stack.stack_name }}"
-msgstr "Yığın Ayrıntıları: {{ stack.stack_name }}"
-
 msgid "Stack Events"
 msgstr "Yığın Olayları"
 
@@ -8554,9 +8461,6 @@ msgstr "Yığın ID'si"
 
 msgid "Stack Name"
 msgstr "Yığın İsmi"
-
-msgid "Stack Overview"
-msgstr "Yığın Genel Görünümü"
 
 msgid "Stack Parameters"
 msgstr "Yığın Parametreleri"
@@ -8959,9 +8863,6 @@ msgstr "Şablon Dosyası"
 
 msgid "Template Name"
 msgstr "Şablon İsmi"
-
-msgid "Template Overview"
-msgstr "Şablon Genel Görünüm"
 
 msgid "Template Source"
 msgstr "Şablon Kaynağı"
@@ -10935,9 +10836,6 @@ msgid "Unable to upload volume to image for volume: \"%s\""
 msgstr ""
 "Mantıksal sürücünün imaja yüklenmesi şu mantıksal sürücü için başarısız: \"%s"
 "\""
-
-msgid "Undefined"
-msgstr "Tanımlanmamış"
 
 msgid "Unit"
 msgstr "Birim"

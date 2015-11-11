@@ -23,7 +23,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-11-10 01:06+0000\n"
+"POT-Creation-Date: 2015-11-11 05:16+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -1017,15 +1017,6 @@ msgstr ""
 msgid "Add/Remove Hosts to Aggregate"
 msgstr "Добавить/удалить узлы в агрегаторе"
 
-msgid "AddFirewall"
-msgstr "Добавить межсетевой экран"
-
-msgid "AddPolicy"
-msgstr "Добавить политику"
-
-msgid "AddRule"
-msgstr "Добавить правило"
-
 #, python-format
 msgid "Added Firewall \"%s\"."
 msgstr "Добавлен межсетевой экран \"%s\"."
@@ -1873,15 +1864,6 @@ msgstr "Количество кластеров"
 msgid "Cluster Creation Guide"
 msgstr "Руководство по созданию кластера"
 
-msgid "Cluster Detail"
-msgstr "Сведения кластера"
-
-msgid "Cluster Details"
-msgstr "Данные кластера"
-
-msgid "Cluster Details: {{ cluster.name }}"
-msgstr "Сведения кластера: {{ cluster.name }}"
-
 msgid "Cluster Events"
 msgstr "События кластера"
 
@@ -1894,9 +1876,6 @@ msgstr "Машины кластера"
 msgid "Cluster Name"
 msgstr "Название кластера"
 
-msgid "Cluster Overview"
-msgstr "Обзор кластера"
-
 msgid "Cluster Size"
 msgstr "Размер кластера"
 
@@ -1906,9 +1885,6 @@ msgstr "Шаблон кластера"
 #, python-format
 msgid "Cluster Template %s updated"
 msgstr "Шаблон кластера %s обновлен"
-
-msgid "Cluster Template Details"
-msgstr "Данные шаблона кластера"
 
 msgid "Cluster Template Name"
 msgstr "Название шаблона кластера"
@@ -2751,9 +2727,6 @@ msgstr "Мастер обработки данных"
 msgid "Data Processing Plugin Details"
 msgstr "Данные плагина обработки данных"
 
-msgid "Data Processing Plugin Overview"
-msgstr "Обзор плагина обработки данных"
-
 msgid "Data Processing Plugins"
 msgstr "Плагины обработки данных"
 
@@ -2769,12 +2742,6 @@ msgstr ""
 
 msgid "Data Source"
 msgstr "Источник данных"
-
-msgid "Data Source Details"
-msgstr "Информация об источнике данных"
-
-msgid "Data Source Overview"
-msgstr "Обзор источника данных"
 
 msgid "Data Source Type"
 msgstr "Тип источника данных"
@@ -4773,17 +4740,8 @@ msgstr "Завершение изменения типа или миграции
 msgid "Firewall %s was successfully updated."
 msgstr "Межсетевой экран  %s был успешно обновлен."
 
-msgid "Firewall Details"
-msgstr "Информация о межсетевом экране"
-
 msgid "Firewall Policies"
 msgstr "Политики межсетевого экрана"
-
-msgid "Firewall Policy Details"
-msgstr "Информация о политике межсетевого экрана"
-
-msgid "Firewall Rule Details"
-msgstr "Информация о правиле межсетевого экрана"
 
 msgid "Firewall Rules"
 msgstr "Правила межсетевого экрана"
@@ -5582,12 +5540,6 @@ msgstr "Лог консоли инстанса"
 msgid "Instance Count"
 msgstr "Количество инстансов"
 
-msgid "Instance Details"
-msgstr "Детали инстанса"
-
-msgid "Instance Details: {{ instance.name }}"
-msgstr "Детали инстансы: {{ instance.name }}"
-
 msgid "Instance ID"
 msgstr "ID инстанса"
 
@@ -5700,20 +5652,8 @@ msgstr "Задача"
 msgid "Job Binaries"
 msgstr "Исполняемые файлы задач"
 
-msgid "Job Binary Details"
-msgstr "Данные исполняемого файла"
-
-msgid "Job Binary Overview"
-msgstr "Обзор исполняемых файлов"
-
 msgid "Job Configuration"
 msgstr "Конфигурация задачи"
-
-msgid "Job Details"
-msgstr "Данные задачи"
-
-msgid "Job Execution Details"
-msgstr "Данные выполнения задачи"
 
 msgid "Job Execution Guide"
 msgstr "Мастер запуска задачи"
@@ -5724,14 +5664,8 @@ msgstr "ID выполнения задачи"
 msgid "Job Guide"
 msgstr "Мастер задач"
 
-msgid "Job Overview"
-msgstr "Обзор задачи"
-
 msgid "Job Template"
 msgstr "Шаблон задачи"
-
-msgid "Job Template Details"
-msgstr "Детали шаблона задачи"
 
 msgid "Job Templates"
 msgstr "Шаблоны задачи"
@@ -6456,12 +6390,6 @@ msgstr "Пространство имён %s создано."
 msgid "Namespace Definition Source"
 msgstr "Источник определения пространства имён"
 
-msgid "Namespace Details"
-msgstr "Детали пространства имен"
-
-msgid "Namespace Details: {{ namespace.namespace }}"
-msgstr "Детали пространства имен: {{ namespace.namespace }}"
-
 msgid "Namespace JSON"
 msgstr "Пространство имён JSON"
 
@@ -6859,9 +6787,6 @@ msgstr "Узел группы"
 msgid "Node Group Template %s updated"
 msgstr "Шаблон группы узлов %s обновлён"
 
-msgid "Node Group Template Details"
-msgstr "Данные шаблона узла группы"
-
 #, python-format
 msgid "Node Group Template copy %s created"
 msgstr "Копия шаблона узла группы %s создана"
@@ -6887,9 +6812,6 @@ msgstr "Кластер узла группы"
 
 msgid "Node processes are not specified"
 msgstr "Узел процессов не указан"
-
-msgid "Nodegroup Template Details"
-msgstr "Данные шаблона узлов"
 
 msgid "Nodes Count"
 msgstr "Подсчет узлов"
@@ -8007,12 +7929,6 @@ msgstr "Изменяем размер диска \"%s\" "
 msgid "Resource"
 msgstr "Ресурс"
 
-msgid "Resource Details"
-msgstr "Детали ресурсов"
-
-msgid "Resource Details: {{ resource.resource_name }}"
-msgstr "Детали ресурса: {{ resource.resource_name }}"
-
 msgid "Resource ID"
 msgstr "ID ресурса"
 
@@ -8021,12 +7937,6 @@ msgstr "Метаданные ресурса"
 
 msgid "Resource Overview"
 msgstr "Обзор ресурса"
-
-msgid "Resource Type"
-msgstr "Тип ресурсы"
-
-msgid "Resource Type Details"
-msgstr "Детали типа ресурса"
 
 msgid "Resource Types"
 msgstr "Типы ресурсов"
@@ -8237,9 +8147,6 @@ msgstr "Маршрутизатор %s успешно создан."
 #, python-format
 msgid "Router %s was successfully updated."
 msgstr "Маршрутизатор %s был успешно обновлен."
-
-msgid "Router Details"
-msgstr "Информация о маршрутизаторе"
 
 msgid "Router ID"
 msgstr "ID Маршрутизатора"
@@ -9216,12 +9123,6 @@ msgstr ""
 msgid "Specs"
 msgstr "Specs"
 
-msgid "Stack Details"
-msgstr "Детали стека"
-
-msgid "Stack Details: {{ stack.stack_name }}"
-msgstr "Детали стека: {{ stack.stack_name }}"
-
 msgid "Stack Events"
 msgstr "События стека"
 
@@ -9230,9 +9131,6 @@ msgstr "ID стека"
 
 msgid "Stack Name"
 msgstr "Название стека"
-
-msgid "Stack Overview"
-msgstr "Обзор Стека"
 
 msgid "Stack Parameters"
 msgstr "Параметры стека"
@@ -9657,9 +9555,6 @@ msgstr "Файл шаблона"
 
 msgid "Template Name"
 msgstr "Название шаблона"
-
-msgid "Template Overview"
-msgstr "Обзор шаблона"
 
 msgid "Template Source"
 msgstr "Источник шаблона"
@@ -11725,9 +11620,6 @@ msgstr "Не удалось загрузить объект."
 #, python-format
 msgid "Unable to upload volume to image for volume: \"%s\""
 msgstr "Не удалось загрузить диск на образ для диска: \"%s\""
-
-msgid "Undefined"
-msgstr "Не определено"
 
 msgid "Unit"
 msgstr "Единица"

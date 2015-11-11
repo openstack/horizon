@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-11-10 01:06+0000\n"
+"POT-Creation-Date: 2015-11-11 05:16+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -361,15 +361,6 @@ msgstr "Regel toevoegen"
 
 msgid "Add/Remove Hosts to Aggregate"
 msgstr "Toevoegen/verwijderen van gastheren aan het aggregaat"
-
-msgid "AddFirewall"
-msgstr "Firewall toevoegen"
-
-msgid "AddPolicy"
-msgstr "Beleid toevoegen"
-
-msgid "AddRule"
-msgstr "Regel toevoegen"
 
 #, python-format
 msgid "Added Firewall \"%s\"."
@@ -802,17 +793,11 @@ msgstr "Sluiten"
 msgid "Cluster"
 msgstr "Cluster"
 
-msgid "Cluster Details"
-msgstr "Cluster Details"
-
 msgid "Cluster Instances"
 msgstr "Cluster Exemplaren"
 
 msgid "Cluster Name"
 msgstr "Cluster Naam"
-
-msgid "Cluster Overview"
-msgstr "Cluster Overzicht"
 
 msgid "Cluster Template"
 msgstr "Cluster Sjabloon"
@@ -1298,9 +1283,6 @@ msgstr "OMLAAG"
 
 msgid "Daily Usage Report"
 msgstr "Dagelijks Gebruiksrapport"
-
-msgid "Data Source Overview"
-msgstr "Databron Overzicht"
 
 msgid "Data Sources"
 msgstr "Databronnen"
@@ -2194,17 +2176,8 @@ msgstr "Herdimensionering of verplaatsing aan het afronden"
 msgid "Firewall %s was successfully updated."
 msgstr "Firewall %s is succesvol bijgewerkt."
 
-msgid "Firewall Details"
-msgstr "Firewall Details"
-
 msgid "Firewall Policies"
 msgstr "Firewall beleidslijnen"
-
-msgid "Firewall Policy Details"
-msgstr "Beleidsdetails firewall"
-
-msgid "Firewall Rule Details"
-msgstr "Firewall regeldetails"
 
 msgid "Firewall Rules"
 msgstr "Firewall regels"
@@ -2658,9 +2631,6 @@ msgstr "Exemplaar beheervenster log"
 
 msgid "Instance Count"
 msgstr "Exemplaartelling"
-
-msgid "Instance Details"
-msgstr "Exemplaardetails"
 
 msgid "Instance ID"
 msgstr "Exemplaar ID"
@@ -3997,9 +3967,6 @@ msgstr "Router %s was succesvol gecreeerd."
 msgid "Router %s was successfully updated."
 msgstr "Router %s is succesvol bijgewerkt."
 
-msgid "Router Details"
-msgstr "Routerdetails"
-
 msgid "Router ID"
 msgstr "Router ID"
 
@@ -4382,9 +4349,6 @@ msgstr "Stapel ID"
 msgid "Stack Name"
 msgstr "Stapelnaam"
 
-msgid "Stack Overview"
-msgstr "Stapeloverzicht"
-
 msgid "Stack Parameters"
 msgstr "Stapelparameters"
 
@@ -4575,9 +4539,6 @@ msgstr "Sjabloonbestand"
 
 msgid "Template Name"
 msgstr "Sjabloon Naam"
-
-msgid "Template Overview"
-msgstr "Sjabloon Overzicht"
 
 msgid "Template Source"
 msgstr "Sjabloonbron"
@@ -5706,9 +5667,6 @@ msgstr "Niet in staat om volume bij te werken."
 
 msgid "Unable to upload object."
 msgstr "Niet in staan om object te uploaden."
-
-msgid "Undefined"
-msgstr "Onbepaald"
 
 msgid "Unknown"
 msgstr "Onbekend"

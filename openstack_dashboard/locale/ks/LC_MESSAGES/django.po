@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-11-10 01:06+0000\n"
+"POT-Creation-Date: 2015-11-11 05:16+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -584,15 +584,6 @@ msgstr "جمع کئریو رول"
 msgid "Add/Remove Hosts to Aggregate"
 msgstr "جغمع کئریو/ کئڈیو ہوسٹ ایگریگیٹ سیتھ"
 
-msgid "AddFirewall"
-msgstr "فآئر وال کئریو جمع"
-
-msgid "AddPolicy"
-msgstr "جمع کئریو پآلیسی"
-
-msgid "AddRule"
-msgstr "جمع کئریو رول"
-
 #, python-format
 msgid "Added Firewall \"%s\"."
 msgstr "فآئر وال کئور جمع \"%s\"."
@@ -1123,23 +1114,14 @@ msgstr "بَند"
 msgid "Cluster"
 msgstr "کِلسٹر"
 
-msgid "Cluster Details"
-msgstr "کِلسٹر تَفصیل"
-
 msgid "Cluster Instances"
 msgstr "کِلسٹر اِنسٹنسِز"
 
 msgid "Cluster Name"
 msgstr "کِلسٹر نآو"
 
-msgid "Cluster Overview"
-msgstr "کِلسٹر اوور ویو"
-
 msgid "Cluster Template"
 msgstr "کلسٹر ٹیمپلیٹ"
-
-msgid "Cluster Template Details"
-msgstr "کلسٹر ٹیمپلیٹ تَفصیل"
 
 msgid "Cluster Template Name"
 msgstr "ٹیمپلیٹ کِلسٹر نآو"
@@ -1789,9 +1771,6 @@ msgstr "ڈیٹا پروسیسِنگ"
 msgid "Data Processing Plugin Details"
 msgstr "ڈیٹآ پروسیسِنگ پِلگ اِن تَفصیل"
 
-msgid "Data Processing Plugin Overview"
-msgstr "ڈیٹآ پروسیسِنگ پِلگ اِن اوور ویو"
-
 msgid "Data Processing Plugins"
 msgstr "ڈیٹآ پروسیسِنگ پِلگ اِن"
 
@@ -1804,12 +1783,6 @@ msgid ""
 msgstr ""
 "ڈیٹا پروسیسِنگ چُھ دِوان اَلگ جآے ٲپشنز ۔ توہیہ ہیکو ژاریتھ یا اَکھ سِنڈر والیم "
 "اِنسٹنس جوڈنہ خآطرہ ایپحیمیرل ڈریو"
-
-msgid "Data Source Details"
-msgstr "ڈیٹآ سورس تَفصیل"
-
-msgid "Data Source Overview"
-msgstr "ڈیٹآ سورس اوور ویو"
 
 msgid "Data Source Type"
 msgstr "ڈیٹا سورس قِسم"
@@ -2826,17 +2799,8 @@ msgstr "اُنگجین ہِند نِشآن"
 msgid "Firewall %s was successfully updated."
 msgstr "فآئر وال  %s  گئو کامیابی سآن اَپڈیٹ  "
 
-msgid "Firewall Details"
-msgstr "فآئر وال تَفصیل"
-
 msgid "Firewall Policies"
 msgstr "فآئر وال پآلیسی"
-
-msgid "Firewall Policy Details"
-msgstr "فآئر وال پآلیسی  تَفصیل"
-
-msgid "Firewall Rule Details"
-msgstr "فآئر وال رول  تَفصیل"
 
 msgid "Firewall Rules"
 msgstr "فآئر وال رولز"
@@ -3457,9 +3421,6 @@ msgstr "اِنسٹئنس کئنسول لاگ"
 msgid "Instance Count"
 msgstr "اِنسٹئنس گئنتی"
 
-msgid "Instance Details"
-msgstr "اِنسٹنسِ تَفصیل"
-
 msgid "Instance ID"
 msgstr "اِنسٹئنس ID"
 
@@ -3544,20 +3505,8 @@ msgstr "جآب"
 msgid "Job Binaries"
 msgstr "جآب بینری"
 
-msgid "Job Binary Details"
-msgstr "جآب بینری تَفصیل"
-
-msgid "Job Binary Overview"
-msgstr "جآب بینری اوور ویو"
-
 msgid "Job Configuration"
 msgstr "جآب کنفِگریشن"
-
-msgid "Job Details"
-msgstr "جآب تَفصیل"
-
-msgid "Job Execution Details"
-msgstr "جآب ایکزیکوشن تَفصیل"
 
 msgid "Job Execution ID"
 msgstr "جآب ایکزیکوشن ID"
@@ -4322,9 +4271,6 @@ msgstr "کاہ والیوم چُھنہٕ دَستِیاب"
 msgid "Node Configurations"
 msgstr "نوڈ   کئنفِگریشن"
 
-msgid "Node Group Template Details"
-msgstr "نوڈ گروپ ٹیمپلیٹ تَفصیل"
-
 #, python-format
 msgid "Node Group Template copy %s created"
 msgstr "نوڈ گروپ ٹیمپلیٹ کاپی %s بَناومِت"
@@ -4350,9 +4296,6 @@ msgstr "نوڈ گروپ کلیسٹر"
 
 msgid "Node processes are not specified"
 msgstr "نوڈ پراسیس چُھ نہ وَضاحت کئریتھ "
-
-msgid "Nodegroup Template Details"
-msgstr "نوڈ گروپ ٹیمپلیٹ تَفصیل"
 
 msgid "Nodes Count"
 msgstr "نوڈ گنتی"
@@ -5014,9 +4957,6 @@ msgstr "دوبآرہ  سآیز والیوم \"%s\""
 msgid "Resource"
 msgstr "زخیرزہ"
 
-msgid "Resource Details"
-msgstr "زَخیرہ تَفصیل"
-
 msgid "Resource ID"
 msgstr "ریسوئرس ID"
 
@@ -5109,9 +5049,6 @@ msgstr "راوٹر%s گئوہ کامیابی سآن بَناونہٕ"
 #, python-format
 msgid "Router %s was successfully updated."
 msgstr "رآوٹر%s گئو کامیابی سآن اَپڈیٹ"
-
-msgid "Router Details"
-msgstr "راوٹرِک  تَفصیل"
 
 msgid "Router ID"
 msgstr "راوٹر  ID"
@@ -5661,9 +5598,6 @@ msgstr "وَضاحت   کئریتھ نوہ والیوم سآیز  اِنسٹنس
 msgid "Specs"
 msgstr "سِپیکس"
 
-msgid "Stack Details"
-msgstr "سِٹیک تَفصیل"
-
 msgid "Stack Events"
 msgstr "سِٹیک ایوینٹس"
 
@@ -5672,9 +5606,6 @@ msgstr "سِٹیک ID"
 
 msgid "Stack Name"
 msgstr "سِٹیک نٲو"
-
-msgid "Stack Overview"
-msgstr "سِٹیک نَظارہ"
 
 msgid "Stack Parameters"
 msgstr "سِٹیک پیرامیٹر"
@@ -5949,9 +5880,6 @@ msgstr "ٹیمپلیٹ فآئل"
 
 msgid "Template Name"
 msgstr " نآو ٹیمپلیٹ"
-
-msgid "Template Overview"
-msgstr "ٹیمپلیٹ  اوور ویو"
 
 msgid "Template Source"
 msgstr "ٹیمپلیٹ ضریعہٕ"

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-11-10 06:35+0000\n"
+"POT-Creation-Date: 2015-11-11 06:33+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -458,16 +458,16 @@ msgstr ""
 #: api/nova.py:111 api/nova.py:121
 #: contrib/trove/content/databases/tables.py:279
 #: dashboards/admin/networks/templates/networks/ports/_detail_overview.html:14
-#: dashboards/project/firewalls/templates/firewalls/_firewall_details.html:8
-#: dashboards/project/firewalls/templates/firewalls/_firewall_details.html:11
-#: dashboards/project/firewalls/templates/firewalls/_firewall_details.html:39
-#: dashboards/project/firewalls/templates/firewalls/_policy_details.html:8
-#: dashboards/project/firewalls/templates/firewalls/_policy_details.html:11
-#: dashboards/project/firewalls/templates/firewalls/_policy_details.html:27
-#: dashboards/project/firewalls/templates/firewalls/_rule_details.html:8
-#: dashboards/project/firewalls/templates/firewalls/_rule_details.html:11
-#: dashboards/project/firewalls/templates/firewalls/_rule_details.html:43
-#: dashboards/project/firewalls/templates/firewalls/_rule_details.html:48
+#: dashboards/project/firewalls/templates/firewalls/_firewall_details.html:7
+#: dashboards/project/firewalls/templates/firewalls/_firewall_details.html:10
+#: dashboards/project/firewalls/templates/firewalls/_firewall_details.html:38
+#: dashboards/project/firewalls/templates/firewalls/_policy_details.html:7
+#: dashboards/project/firewalls/templates/firewalls/_policy_details.html:10
+#: dashboards/project/firewalls/templates/firewalls/_policy_details.html:26
+#: dashboards/project/firewalls/templates/firewalls/_rule_details.html:7
+#: dashboards/project/firewalls/templates/firewalls/_rule_details.html:10
+#: dashboards/project/firewalls/templates/firewalls/_rule_details.html:42
+#: dashboards/project/firewalls/templates/firewalls/_rule_details.html:47
 #: dashboards/project/instances/templates/instances/_detail_overview.html:13
 #: dashboards/project/instances/templates/instances/_detail_overview.html:20
 #: dashboards/project/loadbalancers/tables.py:545
@@ -556,7 +556,7 @@ msgstr ""
 #: contrib/sahara/content/data_processing/cluster_templates/forms.py:39
 #: contrib/sahara/content/data_processing/cluster_templates/templates/data_processing.cluster_templates/_nodegroups_details.html:14
 #: contrib/sahara/content/data_processing/clusters/templates/data_processing.clusters/_details.html:30
-#: contrib/sahara/content/data_processing/clusters/templates/data_processing.clusters/_nodegroups_details.html:22
+#: contrib/sahara/content/data_processing/clusters/templates/data_processing.clusters/_nodegroups_details.html:20
 #: dashboards/project/stacks/tabs.py:143
 msgid "Template"
 msgstr ""
@@ -578,7 +578,7 @@ msgstr ""
 #: contrib/sahara/content/data_processing/clusters/tables.py:146
 #: contrib/sahara/content/data_processing/clusters/tabs.py:136
 #: contrib/sahara/content/data_processing/clusters/templates/data_processing.clusters/_details.html:6
-#: contrib/sahara/content/data_processing/data_plugins/templates/data_processing.data_plugins/_details.html:9
+#: contrib/sahara/content/data_processing/data_plugins/templates/data_processing.data_plugins/_details.html:5
 #: contrib/sahara/content/data_processing/data_sources/tables.py:64
 #: contrib/sahara/content/data_processing/data_sources/templates/data_processing.data_sources/_details.html:5
 #: contrib/sahara/content/data_processing/data_sources/workflows/create.py:30
@@ -600,10 +600,10 @@ msgstr ""
 #: contrib/trove/content/database_backups/templates/database_backups/details.html:60
 #: contrib/trove/content/database_backups/workflows/create_backup.py:32
 #: contrib/trove/content/database_clusters/tables.py:191
-#: contrib/trove/content/database_clusters/templates/database_clusters/_detail_overview.html:9
-#: contrib/trove/content/database_clusters/templates/database_clusters/_detail_overview_vertica.html:9
+#: contrib/trove/content/database_clusters/templates/database_clusters/_detail_overview.html:5
+#: contrib/trove/content/database_clusters/templates/database_clusters/_detail_overview_vertica.html:5
 #: contrib/trove/content/databases/tables.py:387
-#: contrib/trove/content/databases/templates/databases/_detail_overview.html:10
+#: contrib/trove/content/databases/templates/databases/_detail_overview.html:6
 #: dashboards/admin/aggregates/forms.py:26
 #: dashboards/admin/aggregates/tables.py:138
 #: dashboards/admin/aggregates/workflows.py:24
@@ -651,9 +651,9 @@ msgstr ""
 #: dashboards/project/firewalls/workflows.py:30
 #: dashboards/project/firewalls/workflows.py:218
 #: dashboards/project/firewalls/workflows.py:275
-#: dashboards/project/firewalls/templates/firewalls/_firewall_details.html:7
-#: dashboards/project/firewalls/templates/firewalls/_policy_details.html:7
-#: dashboards/project/firewalls/templates/firewalls/_rule_details.html:7
+#: dashboards/project/firewalls/templates/firewalls/_firewall_details.html:6
+#: dashboards/project/firewalls/templates/firewalls/_policy_details.html:6
+#: dashboards/project/firewalls/templates/firewalls/_rule_details.html:6
 #: dashboards/project/images/images/forms.py:86
 #: dashboards/project/images/images/forms.py:285
 #: dashboards/project/images/templates/images/images/_detail_overview.html:5
@@ -679,7 +679,7 @@ msgstr ""
 #: dashboards/project/routers/tables.py:211
 #: dashboards/project/routers/ports/tables.py:107
 #: dashboards/project/routers/templates/routers/_detail_overview.html:5
-#: dashboards/project/stacks/templates/stacks/_detail_overview.html:9
+#: dashboards/project/stacks/templates/stacks/_detail_overview.html:5
 #: dashboards/project/volumes/backups/tables.py:121
 #: dashboards/project/volumes/snapshots/tables.py:147
 #: dashboards/project/volumes/templates/volumes/backups/_detail_overview.html:6
@@ -696,10 +696,10 @@ msgstr ""
 #: dashboards/project/vpn/workflows.py:111
 #: dashboards/project/vpn/workflows.py:214
 #: dashboards/project/vpn/workflows.py:317
-#: dashboards/project/vpn/templates/vpn/_ikepolicy_details.html:6
-#: dashboards/project/vpn/templates/vpn/_ipsecpolicy_details.html:6
-#: dashboards/project/vpn/templates/vpn/_ipsecsiteconnection_details.html:7
-#: dashboards/project/vpn/templates/vpn/_vpnservice_details.html:7
+#: dashboards/project/vpn/templates/vpn/_ikepolicy_details.html:5
+#: dashboards/project/vpn/templates/vpn/_ipsecpolicy_details.html:5
+#: dashboards/project/vpn/templates/vpn/_ipsecsiteconnection_details.html:6
+#: dashboards/project/vpn/templates/vpn/_vpnservice_details.html:6
 msgid "Name"
 msgstr ""
 
@@ -744,7 +744,7 @@ msgstr ""
 #: contrib/sahara/content/data_processing/clusters/workflows/create.py:75
 #: contrib/sahara/content/data_processing/data_image_registry/forms.py:30
 #: contrib/sahara/content/data_processing/data_plugins/tables.py:36
-#: contrib/sahara/content/data_processing/data_plugins/templates/data_processing.data_plugins/_details.html:13
+#: contrib/sahara/content/data_processing/data_plugins/templates/data_processing.data_plugins/_details.html:9
 #: contrib/sahara/content/data_processing/data_sources/tables.py:70
 #: contrib/sahara/content/data_processing/data_sources/templates/data_processing.data_sources/_details.html:13
 #: contrib/sahara/content/data_processing/data_sources/workflows/create.py:62
@@ -761,7 +761,7 @@ msgstr ""
 #: contrib/trove/content/database_backups/templates/database_backups/details.html:16
 #: contrib/trove/content/database_backups/workflows/create_backup.py:34
 #: dashboards/admin/metadata_defs/tables.py:132
-#: dashboards/admin/metadata_defs/templates/metadata_defs/_detail_overview.html:15
+#: dashboards/admin/metadata_defs/templates/metadata_defs/_detail_overview.html:10
 #: dashboards/admin/metadata_defs/templates/metadata_defs/resource_types.html:57
 #: dashboards/admin/metering/tables.py:45
 #: dashboards/admin/metering/tables.py:66
@@ -792,9 +792,9 @@ msgstr ""
 #: dashboards/project/firewalls/workflows.py:34
 #: dashboards/project/firewalls/workflows.py:220
 #: dashboards/project/firewalls/workflows.py:278
-#: dashboards/project/firewalls/templates/firewalls/_firewall_details.html:10
-#: dashboards/project/firewalls/templates/firewalls/_policy_details.html:10
-#: dashboards/project/firewalls/templates/firewalls/_rule_details.html:10
+#: dashboards/project/firewalls/templates/firewalls/_firewall_details.html:9
+#: dashboards/project/firewalls/templates/firewalls/_policy_details.html:9
+#: dashboards/project/firewalls/templates/firewalls/_rule_details.html:9
 #: dashboards/project/images/images/forms.py:87
 #: dashboards/project/images/images/forms.py:286
 #: dashboards/project/images/templates/images/images/_detail_overview.html:8
@@ -806,7 +806,7 @@ msgstr ""
 #: dashboards/project/loadbalancers/templates/loadbalancers/_pool_details.html:12
 #: dashboards/project/loadbalancers/templates/loadbalancers/_vip_details.html:12
 #: dashboards/project/routers/templates/routers/extensions/routerrules/grid.html:122
-#: dashboards/project/stacks/templates/stacks/_detail_overview.html:13
+#: dashboards/project/stacks/templates/stacks/_detail_overview.html:9
 #: dashboards/project/stacks/templates/stacks/_resource_overview.html:29
 #: dashboards/project/volumes/backups/forms.py:35
 #: dashboards/project/volumes/backups/tables.py:124
@@ -826,10 +826,10 @@ msgstr ""
 #: dashboards/project/vpn/workflows.py:114
 #: dashboards/project/vpn/workflows.py:217
 #: dashboards/project/vpn/workflows.py:320
-#: dashboards/project/vpn/templates/vpn/_ikepolicy_details.html:9
-#: dashboards/project/vpn/templates/vpn/_ipsecpolicy_details.html:9
-#: dashboards/project/vpn/templates/vpn/_ipsecsiteconnection_details.html:10
-#: dashboards/project/vpn/templates/vpn/_vpnservice_details.html:10
+#: dashboards/project/vpn/templates/vpn/_ikepolicy_details.html:8
+#: dashboards/project/vpn/templates/vpn/_ipsecpolicy_details.html:8
+#: dashboards/project/vpn/templates/vpn/_ipsecsiteconnection_details.html:9
+#: dashboards/project/vpn/templates/vpn/_vpnservice_details.html:9
 msgid "Description"
 msgstr ""
 
@@ -892,10 +892,8 @@ msgstr ""
 
 #: contrib/sahara/content/data_processing/cluster_templates/tables.py:131
 #: contrib/sahara/content/data_processing/cluster_templates/tabs.py:47
-#: contrib/sahara/content/data_processing/cluster_templates/templates/data_processing.cluster_templates/_nodegroups_details.html:3
 #: contrib/sahara/content/data_processing/cluster_templates/workflows/create.py:226
 #: contrib/sahara/content/data_processing/clusters/tabs.py:84
-#: contrib/sahara/content/data_processing/clusters/templates/data_processing.clusters/_nodegroups_details.html:6
 msgid "Node Groups"
 msgstr ""
 
@@ -915,11 +913,6 @@ msgstr ""
 
 #: contrib/sahara/content/data_processing/cluster_templates/views.py:61
 msgid "Unable to fetch cluster template list"
-msgstr ""
-
-#: contrib/sahara/content/data_processing/cluster_templates/views.py:68
-#: contrib/sahara/content/data_processing/cluster_templates/templates/data_processing.cluster_templates/details.html:3
-msgid "Cluster Template Details"
 msgstr ""
 
 #: contrib/sahara/content/data_processing/cluster_templates/views.py:76
@@ -971,25 +964,20 @@ msgstr ""
 msgid "Select a plugin and version for a new Cluster template."
 msgstr ""
 
-#: contrib/sahara/content/data_processing/cluster_templates/templates/data_processing.cluster_templates/_details.html:3
-#: contrib/sahara/content/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/_details.html:3
-msgid "Template Overview"
-msgstr ""
-
 #: contrib/sahara/content/data_processing/cluster_templates/templates/data_processing.cluster_templates/_details.html:8
 #: contrib/sahara/content/data_processing/clusters/templates/data_processing.clusters/_details.html:8
 #: contrib/sahara/content/data_processing/data_sources/templates/data_processing.data_sources/_details.html:7
 #: contrib/sahara/content/data_processing/job_binaries/templates/data_processing.job_binaries/_details.html:7
 #: contrib/sahara/content/data_processing/job_executions/tables.py:37
 #: contrib/sahara/content/data_processing/job_executions/tables.py:186
-#: contrib/sahara/content/data_processing/job_executions/templates/data_processing.job_executions/_details.html:8
+#: contrib/sahara/content/data_processing/job_executions/templates/data_processing.job_executions/_details.html:7
 #: contrib/sahara/content/data_processing/jobs/templates/data_processing.jobs/_details.html:8
 #: contrib/sahara/content/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/_details.html:8
 #: contrib/trove/content/database_backups/templates/database_backups/details.html:18
 #: contrib/trove/content/database_backups/templates/database_backups/details.html:62
-#: contrib/trove/content/database_clusters/templates/database_clusters/_detail_overview.html:11
-#: contrib/trove/content/database_clusters/templates/database_clusters/_detail_overview_vertica.html:11
-#: contrib/trove/content/databases/templates/databases/_detail_overview.html:12
+#: contrib/trove/content/database_clusters/templates/database_clusters/_detail_overview.html:7
+#: contrib/trove/content/database_clusters/templates/database_clusters/_detail_overview_vertica.html:7
+#: contrib/trove/content/databases/templates/databases/_detail_overview.html:8
 #: dashboards/admin/flavors/tables.py:154
 #: dashboards/admin/flavors/workflows.py:41
 #: dashboards/admin/networks/forms.py:236
@@ -1001,9 +989,9 @@ msgstr ""
 #: dashboards/identity/roles/forms.py:37 dashboards/identity/users/forms.py:194
 #: dashboards/identity/users/templates/users/_detail_overview.html:19
 #: dashboards/project/access_and_security/templates/access_and_security/keypairs/detail.html:14
-#: dashboards/project/firewalls/templates/firewalls/_firewall_details.html:13
-#: dashboards/project/firewalls/templates/firewalls/_policy_details.html:13
-#: dashboards/project/firewalls/templates/firewalls/_rule_details.html:13
+#: dashboards/project/firewalls/templates/firewalls/_firewall_details.html:12
+#: dashboards/project/firewalls/templates/firewalls/_policy_details.html:12
+#: dashboards/project/firewalls/templates/firewalls/_rule_details.html:12
 #: dashboards/project/images/templates/images/images/_detail_overview.html:11
 #: dashboards/project/instances/templates/instances/_detail_overview.html:8
 #: dashboards/project/instances/templates/instances/_instance_flavor.html:4
@@ -1022,17 +1010,17 @@ msgstr ""
 #: dashboards/project/networks/templates/networks/subnets/_detail_overview.html:8
 #: dashboards/project/routers/forms.py:121
 #: dashboards/project/routers/templates/routers/_detail_overview.html:7
-#: dashboards/project/stacks/templates/stacks/_detail_overview.html:11
+#: dashboards/project/stacks/templates/stacks/_detail_overview.html:7
 #: dashboards/project/volumes/templates/volumes/backups/_detail_overview.html:8
 #: dashboards/project/volumes/templates/volumes/snapshots/_detail_overview.html:8
 #: dashboards/project/volumes/templates/volumes/volumes/_detail_overview.html:8
 #: dashboards/project/volumes/templates/volumes/volumes/_detail_overview.html:73
 #: dashboards/project/vpn/forms.py:33 dashboards/project/vpn/forms.py:68
 #: dashboards/project/vpn/forms.py:147 dashboards/project/vpn/forms.py:225
-#: dashboards/project/vpn/templates/vpn/_ikepolicy_details.html:12
-#: dashboards/project/vpn/templates/vpn/_ipsecpolicy_details.html:12
-#: dashboards/project/vpn/templates/vpn/_ipsecsiteconnection_details.html:13
-#: dashboards/project/vpn/templates/vpn/_vpnservice_details.html:13
+#: dashboards/project/vpn/templates/vpn/_ikepolicy_details.html:11
+#: dashboards/project/vpn/templates/vpn/_ipsecpolicy_details.html:11
+#: dashboards/project/vpn/templates/vpn/_ipsecsiteconnection_details.html:12
+#: dashboards/project/vpn/templates/vpn/_vpnservice_details.html:12
 msgid "ID"
 msgstr ""
 
@@ -1045,8 +1033,8 @@ msgstr ""
 #: contrib/sahara/content/data_processing/jobs/templates/data_processing.jobs/_details.html:24
 #: contrib/sahara/content/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/_details.html:11
 #: contrib/trove/content/databases/workflows/create_instance.py:234
-#: dashboards/admin/metadata_defs/templates/metadata_defs/_detail_overview.html:11
-#: dashboards/admin/metadata_defs/templates/metadata_defs/_detail_overview.html:13
+#: dashboards/admin/metadata_defs/templates/metadata_defs/_detail_overview.html:6
+#: dashboards/admin/metadata_defs/templates/metadata_defs/_detail_overview.html:8
 #: dashboards/admin/networks/templates/networks/ports/_detail_overview.html:7
 #: dashboards/admin/networks/templates/networks/ports/_detail_overview.html:9
 #: dashboards/admin/networks/templates/networks/ports/_detail_overview.html:12
@@ -1099,23 +1087,23 @@ msgstr ""
 #: dashboards/project/routers/templates/routers/_detail_overview.html:41
 #: dashboards/project/routers/templates/routers/_detail_overview.html:53
 #: dashboards/project/volumes/templates/volumes/volumes/_detail_overview.html:65
-#: dashboards/project/vpn/templates/vpn/_ikepolicy_details.html:7
-#: dashboards/project/vpn/templates/vpn/_ikepolicy_details.html:10
-#: dashboards/project/vpn/templates/vpn/_ipsecpolicy_details.html:7
-#: dashboards/project/vpn/templates/vpn/_ipsecpolicy_details.html:10
-#: dashboards/project/vpn/templates/vpn/_ipsecsiteconnection_details.html:8
-#: dashboards/project/vpn/templates/vpn/_ipsecsiteconnection_details.html:11
-#: dashboards/project/vpn/templates/vpn/_vpnservice_details.html:8
-#: dashboards/project/vpn/templates/vpn/_vpnservice_details.html:11
-#: dashboards/project/vpn/templates/vpn/_vpnservice_details.html:51
-#: dashboards/project/vpn/templates/vpn/_vpnservice_details.html:53
+#: dashboards/project/vpn/templates/vpn/_ikepolicy_details.html:6
+#: dashboards/project/vpn/templates/vpn/_ikepolicy_details.html:9
+#: dashboards/project/vpn/templates/vpn/_ipsecpolicy_details.html:6
+#: dashboards/project/vpn/templates/vpn/_ipsecpolicy_details.html:9
+#: dashboards/project/vpn/templates/vpn/_ipsecsiteconnection_details.html:7
+#: dashboards/project/vpn/templates/vpn/_ipsecsiteconnection_details.html:10
+#: dashboards/project/vpn/templates/vpn/_vpnservice_details.html:7
+#: dashboards/project/vpn/templates/vpn/_vpnservice_details.html:10
+#: dashboards/project/vpn/templates/vpn/_vpnservice_details.html:50
+#: dashboards/project/vpn/templates/vpn/_vpnservice_details.html:52
 msgid "None"
 msgstr ""
 
 #: contrib/sahara/content/data_processing/cluster_templates/templates/data_processing.cluster_templates/_details.html:18
 #: contrib/sahara/content/data_processing/cluster_templates/templates/data_processing.cluster_templates/_nodegroups_details.html:26
 #: contrib/sahara/content/data_processing/clusters/templates/data_processing.clusters/_details.html:44
-#: contrib/sahara/content/data_processing/clusters/templates/data_processing.clusters/_nodegroups_details.html:29
+#: contrib/sahara/content/data_processing/clusters/templates/data_processing.clusters/_nodegroups_details.html:27
 #: contrib/sahara/content/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/_details.html:37
 msgid "Use auto-configuration"
 msgstr ""
@@ -1133,14 +1121,14 @@ msgstr ""
 #: contrib/sahara/content/data_processing/cluster_templates/templates/data_processing.cluster_templates/_details.html:36
 #: contrib/sahara/content/data_processing/cluster_templates/templates/data_processing.cluster_templates/_nodegroups_details.html:61
 #: contrib/sahara/content/data_processing/clusters/templates/data_processing.clusters/_details.html:62
-#: contrib/sahara/content/data_processing/clusters/templates/data_processing.clusters/_nodegroups_details.html:64
+#: contrib/sahara/content/data_processing/clusters/templates/data_processing.clusters/_nodegroups_details.html:62
 msgid "Node Configurations"
 msgstr ""
 
 #: contrib/sahara/content/data_processing/cluster_templates/templates/data_processing.cluster_templates/_details.html:44
 #: contrib/sahara/content/data_processing/cluster_templates/templates/data_processing.cluster_templates/_nodegroups_details.html:69
 #: contrib/sahara/content/data_processing/clusters/templates/data_processing.clusters/_details.html:70
-#: contrib/sahara/content/data_processing/clusters/templates/data_processing.clusters/_nodegroups_details.html:72
+#: contrib/sahara/content/data_processing/clusters/templates/data_processing.clusters/_nodegroups_details.html:70
 #, python-format
 msgid "%(conf_name)s: %(conf_value)s"
 msgstr ""
@@ -1148,7 +1136,7 @@ msgstr ""
 #: contrib/sahara/content/data_processing/cluster_templates/templates/data_processing.cluster_templates/_details.html:48
 #: contrib/sahara/content/data_processing/cluster_templates/templates/data_processing.cluster_templates/_nodegroups_details.html:73
 #: contrib/sahara/content/data_processing/clusters/templates/data_processing.clusters/_details.html:74
-#: contrib/sahara/content/data_processing/clusters/templates/data_processing.clusters/_nodegroups_details.html:76
+#: contrib/sahara/content/data_processing/clusters/templates/data_processing.clusters/_nodegroups_details.html:74
 #: contrib/sahara/content/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/_service_confs.html:17
 msgid "No configurations"
 msgstr ""
@@ -1168,13 +1156,13 @@ msgid "Nodes Count"
 msgstr ""
 
 #: contrib/sahara/content/data_processing/cluster_templates/templates/data_processing.cluster_templates/_nodegroups_details.html:11
-#: contrib/sahara/content/data_processing/clusters/templates/data_processing.clusters/_nodegroups_details.html:14
+#: contrib/sahara/content/data_processing/clusters/templates/data_processing.clusters/_nodegroups_details.html:12
 #: contrib/sahara/content/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/_details.html:14
 #: contrib/trove/content/database_clusters/forms.py:45
 #: contrib/trove/content/database_clusters/forms.py:53
 #: contrib/trove/content/database_clusters/forms.py:112
 #: contrib/trove/content/database_clusters/forms.py:118
-#: contrib/trove/content/databases/templates/databases/_detail_overview.html:27
+#: contrib/trove/content/databases/templates/databases/_detail_overview.html:21
 #: contrib/trove/content/databases/workflows/create_instance.py:37
 #: dashboards/project/instances/templates/instances/_detail_overview.html:58
 #: dashboards/project/instances/workflows/create_instance.py:87
@@ -1182,13 +1170,13 @@ msgid "Flavor"
 msgstr ""
 
 #: contrib/sahara/content/data_processing/cluster_templates/templates/data_processing.cluster_templates/_nodegroups_details.html:12
-#: contrib/sahara/content/data_processing/clusters/templates/data_processing.clusters/_nodegroups_details.html:15
+#: contrib/sahara/content/data_processing/clusters/templates/data_processing.clusters/_nodegroups_details.html:13
 msgid "Flavor is not specified"
 msgstr ""
 
 #: contrib/sahara/content/data_processing/cluster_templates/templates/data_processing.cluster_templates/_nodegroups_details.html:18
 #: contrib/sahara/content/data_processing/clusters/templates/data_processing.clusters/_details.html:34
-#: contrib/sahara/content/data_processing/clusters/templates/data_processing.clusters/_nodegroups_details.html:26
+#: contrib/sahara/content/data_processing/clusters/templates/data_processing.clusters/_nodegroups_details.html:24
 msgid "Template not specified"
 msgstr ""
 
@@ -1210,21 +1198,21 @@ msgid "Availability Zone"
 msgstr ""
 
 #: contrib/sahara/content/data_processing/cluster_templates/templates/data_processing.cluster_templates/_nodegroups_details.html:29
-#: contrib/sahara/content/data_processing/clusters/templates/data_processing.clusters/_nodegroups_details.html:32
+#: contrib/sahara/content/data_processing/clusters/templates/data_processing.clusters/_nodegroups_details.html:30
 #: contrib/sahara/content/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/_details.html:41
 #: contrib/sahara/content/data_processing/nodegroup_templates/workflows/create.py:160
 msgid "Proxy Gateway"
 msgstr ""
 
 #: contrib/sahara/content/data_processing/cluster_templates/templates/data_processing.cluster_templates/_nodegroups_details.html:32
-#: contrib/sahara/content/data_processing/clusters/templates/data_processing.clusters/_nodegroups_details.html:35
+#: contrib/sahara/content/data_processing/clusters/templates/data_processing.clusters/_nodegroups_details.html:33
 #: contrib/sahara/content/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/_details.html:46
 #: contrib/sahara/content/data_processing/nodegroup_templates/workflows/create.py:236
 msgid "Auto Security Group"
 msgstr ""
 
 #: contrib/sahara/content/data_processing/cluster_templates/templates/data_processing.cluster_templates/_nodegroups_details.html:35
-#: contrib/sahara/content/data_processing/clusters/templates/data_processing.clusters/_nodegroups_details.html:38
+#: contrib/sahara/content/data_processing/clusters/templates/data_processing.clusters/_nodegroups_details.html:36
 #: contrib/sahara/content/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/_details.html:51
 #: contrib/sahara/content/data_processing/nodegroup_templates/workflows/create.py:251
 #: dashboards/admin/defaults/tables.py:53
@@ -1241,7 +1229,7 @@ msgid "Security Groups"
 msgstr ""
 
 #: contrib/sahara/content/data_processing/cluster_templates/templates/data_processing.cluster_templates/_nodegroups_details.html:48
-#: contrib/sahara/content/data_processing/clusters/templates/data_processing.clusters/_nodegroups_details.html:51
+#: contrib/sahara/content/data_processing/clusters/templates/data_processing.clusters/_nodegroups_details.html:49
 #: contrib/sahara/content/data_processing/nodegroup_templates/tables.py:97
 #: contrib/sahara/content/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/_details.html:66
 #: contrib/sahara/content/data_processing/nodegroup_templates/workflows/create.py:331
@@ -1249,12 +1237,12 @@ msgid "Node Processes"
 msgstr ""
 
 #: contrib/sahara/content/data_processing/cluster_templates/templates/data_processing.cluster_templates/_nodegroups_details.html:58
-#: contrib/sahara/content/data_processing/clusters/templates/data_processing.clusters/_nodegroups_details.html:61
+#: contrib/sahara/content/data_processing/clusters/templates/data_processing.clusters/_nodegroups_details.html:59
 msgid "Node processes are not specified"
 msgstr ""
 
 #: contrib/sahara/content/data_processing/cluster_templates/templates/data_processing.cluster_templates/_nodegroups_details.html:78
-#: contrib/sahara/content/data_processing/clusters/templates/data_processing.clusters/_nodegroups_details.html:81
+#: contrib/sahara/content/data_processing/clusters/templates/data_processing.clusters/_nodegroups_details.html:79
 msgid "Node configurations are not specified"
 msgstr ""
 
@@ -1359,21 +1347,21 @@ msgid "Next"
 msgstr ""
 
 #: contrib/sahara/content/data_processing/cluster_templates/workflows/create.py:82
-#: contrib/sahara/content/data_processing/job_executions/templates/data_processing.job_executions/_details.html:32
+#: contrib/sahara/content/data_processing/job_executions/templates/data_processing.job_executions/_details.html:31
 #: contrib/sahara/content/data_processing/jobs/workflows/launch.py:546
 #: contrib/sahara/content/data_processing/nodegroup_templates/workflows/create.py:518
 #: contrib/trove/content/database_backups/tables.py:165
 #: contrib/trove/content/database_backups/templates/database_backups/details.html:32
 #: contrib/trove/content/databases/tables.py:388
-#: contrib/trove/content/databases/templates/databases/_detail_overview.html:35
-#: dashboards/admin/metadata_defs/templates/metadata_defs/_detail_overview.html:22
+#: contrib/trove/content/databases/templates/databases/_detail_overview.html:29
+#: dashboards/admin/metadata_defs/templates/metadata_defs/_detail_overview.html:17
 #: dashboards/admin/volumes/templates/volumes/snapshots/_detail_overview.html:35
 #: dashboards/project/access_and_security/templates/access_and_security/keypairs/detail.html:18
 #: dashboards/project/images/templates/images/images/_detail_overview.html:23
 #: dashboards/project/instances/templates/instances/_detail_overview.html:14
 #: dashboards/project/instances/templates/instances/_detail_overview.html:34
 #: dashboards/project/stacks/tables.py:266
-#: dashboards/project/stacks/templates/stacks/_detail_overview.html:22
+#: dashboards/project/stacks/templates/stacks/_detail_overview.html:16
 #: dashboards/project/volumes/templates/volumes/backups/_detail_overview.html:31
 #: dashboards/project/volumes/templates/volumes/snapshots/_detail_overview.html:33
 #: dashboards/project/volumes/templates/volumes/volumes/_detail_overview.html:23
@@ -1481,14 +1469,14 @@ msgstr ""
 #: contrib/sahara/content/data_processing/clusters/templates/data_processing.clusters/_event_log.html:34
 #: contrib/sahara/content/data_processing/job_executions/tables.py:40
 #: contrib/sahara/content/data_processing/job_executions/tables.py:205
-#: contrib/sahara/content/data_processing/job_executions/templates/data_processing.job_executions/_details.html:6
+#: contrib/sahara/content/data_processing/job_executions/templates/data_processing.job_executions/_details.html:5
 #: contrib/trove/content/database_backups/tables.py:174
 #: contrib/trove/content/database_backups/templates/database_backups/details.html:26
 #: contrib/trove/content/database_backups/templates/database_backups/details.html:67
 #: contrib/trove/content/database_clusters/tables.py:201
 #: contrib/trove/content/databases/tables.py:333
 #: contrib/trove/content/databases/tables.py:399
-#: contrib/trove/content/databases/templates/databases/_detail_overview.html:18
+#: contrib/trove/content/databases/templates/databases/_detail_overview.html:14
 #: dashboards/admin/hypervisors/compute/tables.py:148
 #: dashboards/admin/info/tables.py:68 dashboards/admin/info/tables.py:97
 #: dashboards/admin/info/tables.py:121 dashboards/admin/info/tables.py:171
@@ -1501,7 +1489,7 @@ msgstr ""
 #: dashboards/admin/volumes/volumes/forms.py:218
 #: dashboards/project/access_and_security/floating_ips/tables.py:202
 #: dashboards/project/firewalls/tables.py:382
-#: dashboards/project/firewalls/templates/firewalls/_firewall_details.html:25
+#: dashboards/project/firewalls/templates/firewalls/_firewall_details.html:24
 #: dashboards/project/images/images/tables.py:310
 #: dashboards/project/images/templates/images/images/_detail_overview.html:15
 #: dashboards/project/instances/tables.py:1144
@@ -1521,8 +1509,8 @@ msgstr ""
 #: dashboards/project/stacks/tables.py:279
 #: dashboards/project/stacks/tables.py:323
 #: dashboards/project/stacks/tables.py:374
-#: dashboards/project/stacks/templates/stacks/_detail_overview.html:19
-#: dashboards/project/stacks/templates/stacks/_detail_overview.html:26
+#: dashboards/project/stacks/templates/stacks/_detail_overview.html:13
+#: dashboards/project/stacks/templates/stacks/_detail_overview.html:20
 #: dashboards/project/stacks/templates/stacks/_resource_overview.html:35
 #: dashboards/project/stacks/templates/stacks/_resource_overview.html:40
 #: dashboards/project/volumes/backups/tables.py:130
@@ -1531,8 +1519,8 @@ msgstr ""
 #: dashboards/project/volumes/templates/volumes/volumes/_detail_overview.html:14
 #: dashboards/project/volumes/volumes/tables.py:410
 #: dashboards/project/vpn/tables.py:281 dashboards/project/vpn/tables.py:336
-#: dashboards/project/vpn/templates/vpn/_ipsecsiteconnection_details.html:71
-#: dashboards/project/vpn/templates/vpn/_vpnservice_details.html:42
+#: dashboards/project/vpn/templates/vpn/_ipsecsiteconnection_details.html:70
+#: dashboards/project/vpn/templates/vpn/_vpnservice_details.html:41
 msgid "Status"
 msgstr ""
 
@@ -1589,7 +1577,6 @@ msgid "Management IP"
 msgstr ""
 
 #: contrib/sahara/content/data_processing/clusters/tabs.py:146
-#: contrib/sahara/content/data_processing/clusters/templates/data_processing.clusters/_instances_details.html:2
 msgid "Cluster Instances"
 msgstr ""
 
@@ -1629,18 +1616,13 @@ msgstr ""
 msgid "Unable to fetch cluster list"
 msgstr ""
 
-#: contrib/sahara/content/data_processing/clusters/views.py:67
-#: contrib/sahara/content/data_processing/clusters/templates/data_processing.clusters/details.html:3
-msgid "Cluster Details"
-msgstr ""
-
 #: contrib/sahara/content/data_processing/clusters/views.py:75
 #, python-format
 msgid "Unable to retrieve details for cluster \"%s\"."
 msgstr ""
 
 #: contrib/sahara/content/data_processing/clusters/views.py:126
-#: dashboards/admin/metadata_defs/templates/metadata_defs/_detail_overview.html:23
+#: dashboards/admin/metadata_defs/templates/metadata_defs/_detail_overview.html:18
 #: dashboards/admin/networks/views.py:61
 #: dashboards/project/images/templates/images/images/_detail_overview.html:16
 #: dashboards/project/images/templates/images/images/_detail_overview.html:27
@@ -1699,12 +1681,6 @@ msgstr ""
 
 #: contrib/sahara/content/data_processing/clusters/templates/data_processing.clusters/_create_general_help.html:3
 msgid "Select a plugin and version for a new Cluster."
-msgstr ""
-
-#: contrib/sahara/content/data_processing/clusters/templates/data_processing.clusters/_details.html:3
-#: contrib/trove/content/database_clusters/templates/database_clusters/_detail_overview.html:3
-#: contrib/trove/content/database_clusters/templates/database_clusters/_detail_overview_vertica.html:3
-msgid "Cluster Overview"
 msgstr ""
 
 #: contrib/sahara/content/data_processing/clusters/templates/data_processing.clusters/_details.html:17
@@ -1766,22 +1742,21 @@ msgid "Event time"
 msgstr ""
 
 #: contrib/sahara/content/data_processing/clusters/templates/data_processing.clusters/_event_log.html:33
-#: dashboards/admin/metadata_defs/templates/metadata_defs/_detail_overview.html:7
 #: dashboards/admin/volumes/templates/volumes/volume_types/_volume_encryption_type_detail.html:8
 #: dashboards/project/volumes/templates/volumes/volumes/_encryption_detail_overview.html:8
 msgid "Info"
 msgstr ""
 
-#: contrib/sahara/content/data_processing/clusters/templates/data_processing.clusters/_nodegroups_details.html:10
+#: contrib/sahara/content/data_processing/clusters/templates/data_processing.clusters/_nodegroups_details.html:8
 #, python-format
 msgid "Name: %(node_group_name)s"
 msgstr ""
 
-#: contrib/sahara/content/data_processing/clusters/templates/data_processing.clusters/_nodegroups_details.html:11
+#: contrib/sahara/content/data_processing/clusters/templates/data_processing.clusters/_nodegroups_details.html:9
 msgid "Number of Nodes"
 msgstr ""
 
-#: contrib/sahara/content/data_processing/clusters/templates/data_processing.clusters/_nodegroups_details.html:18
+#: contrib/sahara/content/data_processing/clusters/templates/data_processing.clusters/_nodegroups_details.html:16
 #: contrib/sahara/content/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/_details.html:25
 #: contrib/sahara/content/data_processing/nodegroup_templates/workflows/create.py:144
 msgid "Floating IP Pool"
@@ -2032,12 +2007,12 @@ msgid "Plugins"
 msgstr ""
 
 #: contrib/sahara/content/data_processing/data_plugins/tables.py:26
-#: contrib/sahara/content/data_processing/data_plugins/templates/data_processing.data_plugins/_details.html:11
+#: contrib/sahara/content/data_processing/data_plugins/templates/data_processing.data_plugins/_details.html:7
 msgid "Title"
 msgstr ""
 
 #: contrib/sahara/content/data_processing/data_plugins/tables.py:31
-#: contrib/sahara/content/data_processing/data_plugins/templates/data_processing.data_plugins/_details.html:15
+#: contrib/sahara/content/data_processing/data_plugins/templates/data_processing.data_plugins/_details.html:11
 msgid "Supported Versions"
 msgstr ""
 
@@ -2054,27 +2029,7 @@ msgid "Unable to retrieve data processing plugins."
 msgstr ""
 
 #: contrib/sahara/content/data_processing/data_plugins/views.py:49
-#: contrib/sahara/content/data_processing/data_plugins/templates/data_processing.data_plugins/details.html:3
 msgid "Data Processing Plugin Details"
-msgstr ""
-
-#: contrib/sahara/content/data_processing/data_plugins/templates/data_processing.data_plugins/_details.html:3
-msgid "Data Processing Plugin Overview"
-msgstr ""
-
-#: contrib/sahara/content/data_processing/data_plugins/templates/data_processing.data_plugins/_details.html:6
-#: contrib/trove/content/database_backups/templates/database_backups/details.html:11
-#: contrib/trove/content/database_clusters/templates/database_clusters/_detail_overview.html:6
-#: contrib/trove/content/database_clusters/templates/database_clusters/_detail_overview_vertica.html:6
-#: contrib/trove/content/databases/templates/databases/_detail_overview.html:7
-#: dashboards/admin/volumes/templates/volumes/snapshots/_detail_overview.html:7
-#: dashboards/identity/projects/templates/projects/_detail_overview.html:6
-#: dashboards/identity/users/templates/users/_detail_overview.html:6
-#: dashboards/project/access_and_security/templates/access_and_security/keypairs/detail.html:9
-#: dashboards/project/instances/workflows/update_instance.py:119
-#: dashboards/project/stacks/templates/stacks/_detail_overview.html:6
-#: dashboards/project/stacks/templates/stacks/_resource_overview.html:6
-msgid "Information"
 msgstr ""
 
 #: contrib/sahara/content/data_processing/data_sources/panel.py:22
@@ -2137,11 +2092,6 @@ msgstr ""
 msgid "Unable to fetch data sources."
 msgstr ""
 
-#: contrib/sahara/content/data_processing/data_sources/views.py:83
-#: contrib/sahara/content/data_processing/data_sources/templates/data_processing.data_sources/details.html:3
-msgid "Data Source Details"
-msgstr ""
-
 #: contrib/sahara/content/data_processing/data_sources/views.py:91
 #, python-format
 msgid "Unable to retrieve details for data source \"%s\"."
@@ -2161,10 +2111,6 @@ msgstr ""
 
 #: contrib/sahara/content/data_processing/data_sources/templates/data_processing.data_sources/_create_data_source_help.html:13
 msgid "You may also enter an optional description for your Data Source."
-msgstr ""
-
-#: contrib/sahara/content/data_processing/data_sources/templates/data_processing.data_sources/_details.html:2
-msgid "Data Source Overview"
 msgstr ""
 
 #: contrib/sahara/content/data_processing/data_sources/templates/data_processing.data_sources/_details.html:11
@@ -2322,11 +2268,6 @@ msgstr ""
 msgid "Unable to retrieve job binary \"%s\"."
 msgstr ""
 
-#: contrib/sahara/content/data_processing/job_binaries/views.py:111
-#: contrib/sahara/content/data_processing/job_binaries/templates/data_processing.job_binaries/details.html:3
-msgid "Job Binary Details"
-msgstr ""
-
 #: contrib/sahara/content/data_processing/job_binaries/views.py:119
 #, python-format
 msgid "Unable to retrieve details for job binary \"%s\"."
@@ -2392,10 +2333,6 @@ msgstr ""
 msgid "You may also enter an optional description for your job binary."
 msgstr ""
 
-#: contrib/sahara/content/data_processing/job_binaries/templates/data_processing.job_binaries/_details.html:2
-msgid "Job Binary Overview"
-msgstr ""
-
 #: contrib/sahara/content/data_processing/job_binaries/templates/data_processing.job_binaries/_details.html:16
 msgid "Download job binary"
 msgstr ""
@@ -2415,7 +2352,7 @@ msgstr ""
 
 #: contrib/sahara/content/data_processing/job_executions/tables.py:39
 #: contrib/sahara/content/data_processing/job_executions/tables.py:198
-#: contrib/sahara/content/data_processing/job_executions/templates/data_processing.job_executions/_details.html:20
+#: contrib/sahara/content/data_processing/job_executions/templates/data_processing.job_executions/_details.html:19
 #: contrib/sahara/content/data_processing/jobs/workflows/launch.py:107
 msgid "Cluster"
 msgstr ""
@@ -2505,8 +2442,7 @@ msgid "Succeeded"
 msgstr ""
 
 #: contrib/sahara/content/data_processing/job_executions/tables.py:193
-#: contrib/sahara/content/data_processing/job_executions/templates/data_processing.job_executions/_details.html:10
-#: contrib/sahara/content/data_processing/jobs/templates/data_processing.jobs/_details.html:3
+#: contrib/sahara/content/data_processing/job_executions/templates/data_processing.job_executions/_details.html:9
 msgid "Job Template"
 msgstr ""
 
@@ -2514,60 +2450,48 @@ msgstr ""
 msgid "Unable to fetch job executions."
 msgstr ""
 
-#: contrib/sahara/content/data_processing/job_executions/views.py:66
-msgid "Job Execution Details"
-msgstr ""
-
 #: contrib/sahara/content/data_processing/job_executions/views.py:74
 #, python-format
 msgid "Unable to retrieve details for job \"%s\"."
 msgstr ""
 
-#: contrib/sahara/content/data_processing/job_executions/templates/data_processing.job_executions/_details.html:3
-msgid "Job Overview"
-msgstr ""
-
-#: contrib/sahara/content/data_processing/job_executions/templates/data_processing.job_executions/_details.html:13
+#: contrib/sahara/content/data_processing/job_executions/templates/data_processing.job_executions/_details.html:12
 msgid "Input Data Source"
 msgstr ""
 
-#: contrib/sahara/content/data_processing/job_executions/templates/data_processing.job_executions/_details.html:17
+#: contrib/sahara/content/data_processing/job_executions/templates/data_processing.job_executions/_details.html:16
 msgid "Output Data Source"
 msgstr ""
 
-#: contrib/sahara/content/data_processing/job_executions/templates/data_processing.job_executions/_details.html:22
-#: dashboards/project/stacks/templates/stacks/_detail_overview.html:24
+#: contrib/sahara/content/data_processing/job_executions/templates/data_processing.job_executions/_details.html:21
+#: dashboards/project/stacks/templates/stacks/_detail_overview.html:18
 #: dashboards/project/stacks/templates/stacks/_resource_overview.html:38
 msgid "Last Updated"
 msgstr ""
 
-#: contrib/sahara/content/data_processing/job_executions/templates/data_processing.job_executions/_details.html:24
+#: contrib/sahara/content/data_processing/job_executions/templates/data_processing.job_executions/_details.html:23
 msgid "Started"
 msgstr ""
 
-#: contrib/sahara/content/data_processing/job_executions/templates/data_processing.job_executions/_details.html:26
+#: contrib/sahara/content/data_processing/job_executions/templates/data_processing.job_executions/_details.html:25
 msgid "Ended"
 msgstr ""
 
-#: contrib/sahara/content/data_processing/job_executions/templates/data_processing.job_executions/_details.html:28
+#: contrib/sahara/content/data_processing/job_executions/templates/data_processing.job_executions/_details.html:27
 msgid "Return Code"
 msgstr ""
 
-#: contrib/sahara/content/data_processing/job_executions/templates/data_processing.job_executions/_details.html:30
+#: contrib/sahara/content/data_processing/job_executions/templates/data_processing.job_executions/_details.html:29
 msgid "Oozie Job ID"
 msgstr ""
 
-#: contrib/sahara/content/data_processing/job_executions/templates/data_processing.job_executions/_details.html:34
+#: contrib/sahara/content/data_processing/job_executions/templates/data_processing.job_executions/_details.html:33
 msgid "Job Configuration"
 msgstr ""
 
-#: contrib/sahara/content/data_processing/job_executions/templates/data_processing.job_executions/_details.html:36
+#: contrib/sahara/content/data_processing/job_executions/templates/data_processing.job_executions/_details.html:35
 #, python-format
 msgid "%(group)s:"
-msgstr ""
-
-#: contrib/sahara/content/data_processing/job_executions/templates/data_processing.job_executions/details.html:3
-msgid "Job Details"
 msgstr ""
 
 #: contrib/sahara/content/data_processing/jobs/panel.py:22
@@ -2608,11 +2532,6 @@ msgstr ""
 #: contrib/sahara/content/data_processing/jobs/views.py:56
 #: contrib/sahara/content/data_processing/jobs/workflows/launch.py:92
 msgid "Unable to fetch jobs."
-msgstr ""
-
-#: contrib/sahara/content/data_processing/jobs/views.py:73
-#: contrib/sahara/content/data_processing/jobs/templates/data_processing.jobs/details.html:3
-msgid "Job Template Details"
 msgstr ""
 
 #: contrib/sahara/content/data_processing/jobs/views.py:81
@@ -3003,10 +2922,6 @@ msgstr ""
 msgid "Unable to fetch node group template list."
 msgstr ""
 
-#: contrib/sahara/content/data_processing/nodegroup_templates/views.py:65
-msgid "Node Group Template Details"
-msgstr ""
-
 #: contrib/sahara/content/data_processing/nodegroup_templates/views.py:73
 #, python-format
 msgid "Unable to retrieve details for node group template \"%s\"."
@@ -3107,10 +3022,6 @@ msgstr ""
 #: contrib/sahara/content/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/_service_confs.html:12
 #, python-format
 msgid "%(conf_name)s: %(conf_val)s"
-msgstr ""
-
-#: contrib/sahara/content/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/details.html:3
-msgid "Nodegroup Template Details"
 msgstr ""
 
 #: contrib/sahara/content/data_processing/nodegroup_templates/workflows/copy.py:29
@@ -3730,10 +3641,10 @@ msgstr[1] ""
 #: contrib/trove/content/database_backups/templates/database_backups/details.html:21
 #: contrib/trove/content/database_clusters/forms.py:38
 #: contrib/trove/content/database_clusters/tables.py:145
-#: contrib/trove/content/database_clusters/templates/database_clusters/_detail_overview.html:13
-#: contrib/trove/content/database_clusters/templates/database_clusters/_detail_overview_vertica.html:13
+#: contrib/trove/content/database_clusters/templates/database_clusters/_detail_overview.html:9
+#: contrib/trove/content/database_clusters/templates/database_clusters/_detail_overview_vertica.html:9
 #: contrib/trove/content/databases/tables.py:322
-#: contrib/trove/content/databases/templates/databases/_detail_overview.html:14
+#: contrib/trove/content/databases/templates/databases/_detail_overview.html:10
 #: contrib/trove/content/databases/workflows/create_instance.py:43
 msgid "Datastore"
 msgstr ""
@@ -3741,10 +3652,10 @@ msgstr ""
 #: contrib/trove/content/database_backups/tables.py:164
 #: contrib/trove/content/database_backups/templates/database_backups/details.html:23
 #: contrib/trove/content/database_clusters/tables.py:147
-#: contrib/trove/content/database_clusters/templates/database_clusters/_detail_overview.html:15
-#: contrib/trove/content/database_clusters/templates/database_clusters/_detail_overview_vertica.html:15
+#: contrib/trove/content/database_clusters/templates/database_clusters/_detail_overview.html:11
+#: contrib/trove/content/database_clusters/templates/database_clusters/_detail_overview_vertica.html:11
 #: contrib/trove/content/databases/tables.py:324
-#: contrib/trove/content/databases/templates/databases/_detail_overview.html:16
+#: contrib/trove/content/databases/templates/databases/_detail_overview.html:12
 msgid "Datastore Version"
 msgstr ""
 
@@ -3805,6 +3716,16 @@ msgstr ""
 msgid "Backup Overview"
 msgstr ""
 
+#: contrib/trove/content/database_backups/templates/database_backups/details.html:11
+#: dashboards/admin/volumes/templates/volumes/snapshots/_detail_overview.html:7
+#: dashboards/identity/projects/templates/projects/_detail_overview.html:6
+#: dashboards/identity/users/templates/users/_detail_overview.html:6
+#: dashboards/project/access_and_security/templates/access_and_security/keypairs/detail.html:9
+#: dashboards/project/instances/workflows/update_instance.py:119
+#: dashboards/project/stacks/templates/stacks/_resource_overview.html:6
+msgid "Information"
+msgstr ""
+
 #: contrib/trove/content/database_backups/templates/database_backups/details.html:28
 msgid "Backup File Location"
 msgstr ""
@@ -3831,8 +3752,8 @@ msgid "GB"
 msgstr ""
 
 #: contrib/trove/content/database_backups/templates/database_backups/details.html:34
-#: contrib/trove/content/databases/templates/databases/_detail_overview.html:37
-#: dashboards/admin/metadata_defs/templates/metadata_defs/_detail_overview.html:24
+#: contrib/trove/content/databases/templates/databases/_detail_overview.html:31
+#: dashboards/admin/metadata_defs/templates/metadata_defs/_detail_overview.html:19
 #: dashboards/project/access_and_security/templates/access_and_security/keypairs/detail.html:21
 #: dashboards/project/images/templates/images/images/_detail_overview.html:29
 #: dashboards/project/stacks/tables.py:270
@@ -3938,7 +3859,7 @@ msgstr ""
 
 #: contrib/trove/content/database_clusters/forms.py:65
 #: contrib/trove/content/databases/tables.py:330
-#: contrib/trove/content/databases/templates/databases/_detail_overview.html:32
+#: contrib/trove/content/databases/templates/databases/_detail_overview.html:26
 #: contrib/trove/content/databases/workflows/create_instance.py:39
 msgid "Volume Size"
 msgstr ""
@@ -3958,8 +3879,8 @@ msgid "Password for root user."
 msgstr ""
 
 #: contrib/trove/content/database_clusters/forms.py:78
-#: contrib/trove/content/database_clusters/templates/database_clusters/_detail_overview.html:21
-#: contrib/trove/content/database_clusters/templates/database_clusters/_detail_overview_vertica.html:21
+#: contrib/trove/content/database_clusters/templates/database_clusters/_detail_overview.html:17
+#: contrib/trove/content/database_clusters/templates/database_clusters/_detail_overview_vertica.html:17
 #: dashboards/project/instances/templates/instances/_flavors_and_quotas.html:21
 msgid "Number of Instances"
 msgstr ""
@@ -4093,8 +4014,8 @@ msgid "Cluster Size"
 msgstr ""
 
 #: contrib/trove/content/database_clusters/tables.py:153
-#: contrib/trove/content/database_clusters/templates/database_clusters/_detail_overview.html:17
-#: contrib/trove/content/database_clusters/templates/database_clusters/_detail_overview_vertica.html:17
+#: contrib/trove/content/database_clusters/templates/database_clusters/_detail_overview.html:13
+#: contrib/trove/content/database_clusters/templates/database_clusters/_detail_overview_vertica.html:13
 msgid "Current Task"
 msgstr ""
 
@@ -4105,24 +4026,24 @@ msgid "%(name)s | %(RAM)s RAM"
 msgstr ""
 
 #: contrib/trove/content/database_clusters/tables.py:186
-#: contrib/trove/content/database_clusters/templates/database_clusters/_detail_overview_mongodb.html:13
+#: contrib/trove/content/database_clusters/templates/database_clusters/_detail_overview_mongodb.html:12
 #: contrib/trove/content/databases/tables.py:256
-#: contrib/trove/content/databases/templates/databases/_detail_overview_cassandra.html:12
-#: contrib/trove/content/databases/templates/databases/_detail_overview_couchbase.html:12
-#: contrib/trove/content/databases/templates/databases/_detail_overview_mongodb.html:17
-#: contrib/trove/content/databases/templates/databases/_detail_overview_mysql.html:12
-#: contrib/trove/content/databases/templates/databases/_detail_overview_redis.html:12
+#: contrib/trove/content/databases/templates/databases/_detail_overview_cassandra.html:11
+#: contrib/trove/content/databases/templates/databases/_detail_overview_couchbase.html:11
+#: contrib/trove/content/databases/templates/databases/_detail_overview_mongodb.html:16
+#: contrib/trove/content/databases/templates/databases/_detail_overview_mysql.html:11
+#: contrib/trove/content/databases/templates/databases/_detail_overview_redis.html:11
 msgid "Not Assigned"
 msgstr ""
 
 #: contrib/trove/content/database_clusters/tables.py:195
-#: contrib/trove/content/database_clusters/templates/database_clusters/_detail_overview_mongodb.html:10
+#: contrib/trove/content/database_clusters/templates/database_clusters/_detail_overview_mongodb.html:9
 #: contrib/trove/content/databases/tables.py:325
-#: contrib/trove/content/databases/templates/databases/_detail_overview_cassandra.html:10
-#: contrib/trove/content/databases/templates/databases/_detail_overview_couchbase.html:10
-#: contrib/trove/content/databases/templates/databases/_detail_overview_mongodb.html:14
-#: contrib/trove/content/databases/templates/databases/_detail_overview_mysql.html:10
-#: contrib/trove/content/databases/templates/databases/_detail_overview_redis.html:10
+#: contrib/trove/content/databases/templates/databases/_detail_overview_cassandra.html:9
+#: contrib/trove/content/databases/templates/databases/_detail_overview_couchbase.html:9
+#: contrib/trove/content/databases/templates/databases/_detail_overview_mongodb.html:13
+#: contrib/trove/content/databases/templates/databases/_detail_overview_mysql.html:9
+#: contrib/trove/content/databases/templates/databases/_detail_overview_redis.html:9
 #: dashboards/admin/hypervisors/compute/forms.py:73
 #: dashboards/admin/hypervisors/compute/tables.py:142
 #: dashboards/admin/info/tables.py:66 dashboards/admin/info/tables.py:95
@@ -4189,10 +4110,6 @@ msgstr ""
 msgid "Unable to retrieve database clusters."
 msgstr ""
 
-#: contrib/trove/content/database_clusters/views.py:102
-msgid "Cluster Details: {{ cluster.name }}"
-msgstr ""
-
 #: contrib/trove/content/database_clusters/views.py:116
 #, python-format
 msgid "Unable to retrieve details for database cluster: %s"
@@ -4213,9 +4130,9 @@ msgstr ""
 msgid "Specify the details for adding additional shards."
 msgstr ""
 
-#: contrib/trove/content/database_clusters/templates/database_clusters/_detail_overview.html:19
-#: contrib/trove/content/database_clusters/templates/database_clusters/_detail_overview_vertica.html:19
-#: contrib/trove/content/databases/templates/databases/_detail_overview.html:29
+#: contrib/trove/content/database_clusters/templates/database_clusters/_detail_overview.html:15
+#: contrib/trove/content/database_clusters/templates/database_clusters/_detail_overview_vertica.html:15
+#: contrib/trove/content/databases/templates/databases/_detail_overview.html:23
 #: dashboards/admin/flavors/tables.py:143
 #: dashboards/project/instances/templates/instances/_detail_overview.html:47
 #: dashboards/project/instances/templates/instances/_flavors_and_quotas.html:14
@@ -4224,57 +4141,53 @@ msgstr ""
 msgid "RAM"
 msgstr ""
 
-#: contrib/trove/content/database_clusters/templates/database_clusters/_detail_overview_mongodb.html:6
-#: contrib/trove/content/databases/templates/databases/_detail_overview_cassandra.html:6
-#: contrib/trove/content/databases/templates/databases/_detail_overview_mongodb.html:6
+#: contrib/trove/content/database_clusters/templates/database_clusters/_detail_overview_mongodb.html:5
+#: contrib/trove/content/databases/templates/databases/_detail_overview_cassandra.html:5
+#: contrib/trove/content/databases/templates/databases/_detail_overview_mongodb.html:5
 msgid "Connection Information"
 msgstr ""
 
-#: contrib/trove/content/database_clusters/templates/database_clusters/_detail_overview_mongodb.html:18
-#: contrib/trove/content/databases/templates/databases/_detail_overview_cassandra.html:15
-#: contrib/trove/content/databases/templates/databases/_detail_overview_mongodb.html:22
-#: contrib/trove/content/databases/templates/databases/_detail_overview_mysql.html:15
+#: contrib/trove/content/database_clusters/templates/database_clusters/_detail_overview_mongodb.html:17
+#: contrib/trove/content/databases/templates/databases/_detail_overview_cassandra.html:14
+#: contrib/trove/content/databases/templates/databases/_detail_overview_mongodb.html:21
+#: contrib/trove/content/databases/templates/databases/_detail_overview_mysql.html:14
 msgid "Database Port"
 msgstr ""
 
-#: contrib/trove/content/database_clusters/templates/database_clusters/_detail_overview_mongodb.html:20
-#: contrib/trove/content/databases/templates/databases/_detail_overview_cassandra.html:17
-#: contrib/trove/content/databases/templates/databases/_detail_overview_couchbase.html:15
-#: contrib/trove/content/databases/templates/databases/_detail_overview_mongodb.html:24
-#: contrib/trove/content/databases/templates/databases/_detail_overview_mysql.html:17
-#: contrib/trove/content/databases/templates/databases/_detail_overview_redis.html:15
+#: contrib/trove/content/database_clusters/templates/database_clusters/_detail_overview_mongodb.html:19
+#: contrib/trove/content/databases/templates/databases/_detail_overview_cassandra.html:16
+#: contrib/trove/content/databases/templates/databases/_detail_overview_couchbase.html:14
+#: contrib/trove/content/databases/templates/databases/_detail_overview_mongodb.html:23
+#: contrib/trove/content/databases/templates/databases/_detail_overview_mysql.html:16
+#: contrib/trove/content/databases/templates/databases/_detail_overview_redis.html:14
 msgid "Connection Examples"
 msgstr ""
 
-#: contrib/trove/content/database_clusters/templates/database_clusters/_detail_overview_mongodb.html:22
-#: contrib/trove/content/databases/templates/databases/_detail_overview_mongodb.html:26
+#: contrib/trove/content/database_clusters/templates/database_clusters/_detail_overview_mongodb.html:21
+#: contrib/trove/content/databases/templates/databases/_detail_overview_mongodb.html:25
+#: contrib/trove/content/databases/templates/databases/_detail_overview_mysql.html:17
 #: contrib/trove/content/databases/templates/databases/_detail_overview_mysql.html:18
-#: contrib/trove/content/databases/templates/databases/_detail_overview_mysql.html:19
 msgid "USERNAME"
 msgstr ""
 
-#: contrib/trove/content/database_clusters/templates/database_clusters/_detail_overview_mongodb.html:22
-#: contrib/trove/content/databases/templates/databases/_detail_overview_mongodb.html:26
-#: contrib/trove/content/databases/templates/databases/_detail_overview_mysql.html:19
+#: contrib/trove/content/database_clusters/templates/database_clusters/_detail_overview_mongodb.html:21
+#: contrib/trove/content/databases/templates/databases/_detail_overview_mongodb.html:25
+#: contrib/trove/content/databases/templates/databases/_detail_overview_mysql.html:18
 msgid "PASSWORD"
 msgstr ""
 
-#: contrib/trove/content/database_clusters/templates/database_clusters/_detail_overview_mongodb.html:22
-#: contrib/trove/content/databases/templates/databases/_detail_overview_mongodb.html:26
-#: contrib/trove/content/databases/templates/databases/_detail_overview_mysql.html:19
+#: contrib/trove/content/database_clusters/templates/database_clusters/_detail_overview_mongodb.html:21
+#: contrib/trove/content/databases/templates/databases/_detail_overview_mongodb.html:25
+#: contrib/trove/content/databases/templates/databases/_detail_overview_mysql.html:18
 msgid "DATABASE"
 msgstr ""
 
-#: contrib/trove/content/database_clusters/templates/database_clusters/_detail_overview_vertica.html:23
+#: contrib/trove/content/database_clusters/templates/database_clusters/_detail_overview_vertica.html:19
 msgid "Management Console"
 msgstr ""
 
 #: contrib/trove/content/database_clusters/templates/database_clusters/_reset_password.html:18
 msgid "Specify the new root password for vertica cluster."
-msgstr ""
-
-#: contrib/trove/content/database_clusters/templates/database_clusters/detail.html:3
-msgid "Cluster Detail"
 msgstr ""
 
 #: contrib/trove/content/database_clusters/templates/database_clusters/index.html:6
@@ -4562,7 +4475,7 @@ msgid "Launch Database"
 msgstr ""
 
 #: contrib/trove/content/databases/views.py:104
-msgid "Instance Details: {{ instance.name }}"
+msgid "{{ instance.name }}"
 msgstr ""
 
 #: contrib/trove/content/databases/views.py:123
@@ -4592,12 +4505,7 @@ msgstr ""
 msgid "Resize Database Instance"
 msgstr ""
 
-#: contrib/trove/content/databases/templates/databases/_detail_overview.html:4
-#: dashboards/project/overview/templates/overview/usage.html:3
-msgid "Instance Overview"
-msgstr ""
-
-#: contrib/trove/content/databases/templates/databases/_detail_overview.html:24
+#: contrib/trove/content/databases/templates/databases/_detail_overview.html:18
 #: dashboards/admin/volumes/templates/volumes/snapshots/_detail_overview.html:30
 #: dashboards/admin/volumes/templates/volumes/volume_types/qos_specs/_index.html:7
 #: dashboards/admin/volumes/volume_types/tables.py:302
@@ -4610,21 +4518,21 @@ msgstr ""
 msgid "Specs"
 msgstr ""
 
-#: contrib/trove/content/databases/templates/databases/_detail_overview.html:47
+#: contrib/trove/content/databases/templates/databases/_detail_overview.html:39
 msgid "Replication"
 msgstr ""
 
-#: contrib/trove/content/databases/templates/databases/_detail_overview.html:51
+#: contrib/trove/content/databases/templates/databases/_detail_overview.html:43
 msgid "Is a Replica Of"
 msgstr ""
 
-#: contrib/trove/content/databases/templates/databases/_detail_overview.html:59
+#: contrib/trove/content/databases/templates/databases/_detail_overview.html:51
 msgid "Replicas"
 msgstr ""
 
-#: contrib/trove/content/databases/templates/databases/_detail_overview_couchbase.html:6
-#: contrib/trove/content/databases/templates/databases/_detail_overview_mysql.html:6
-#: contrib/trove/content/databases/templates/databases/_detail_overview_redis.html:6
+#: contrib/trove/content/databases/templates/databases/_detail_overview_couchbase.html:5
+#: contrib/trove/content/databases/templates/databases/_detail_overview_mysql.html:5
+#: contrib/trove/content/databases/templates/databases/_detail_overview_redis.html:5
 msgid "Connection Info"
 msgstr ""
 
@@ -4721,10 +4629,6 @@ msgid ""
 "existing volume size."
 msgstr ""
 
-#: contrib/trove/content/databases/templates/databases/detail.html:3
-msgid "Instance Details"
-msgstr ""
-
 #: contrib/trove/content/databases/workflows/create_instance.py:38
 #: dashboards/project/instances/workflows/create_instance.py:88
 msgid "Size of image to launch."
@@ -4749,6 +4653,7 @@ msgstr ""
 #: dashboards/project/networks/panel.py:21
 #: dashboards/project/networks/tables.py:188
 #: dashboards/project/networks/views.py:46
+#: dashboards/project/networks/ports/views.py:84
 #: dashboards/project/networks/templates/networks/index.html:3
 #: usage/quotas.py:78
 msgid "Networks"
@@ -5471,7 +5376,7 @@ msgstr ""
 #: dashboards/admin/flavors/tables.py:156
 #: dashboards/admin/metadata_defs/forms.py:61
 #: dashboards/admin/metadata_defs/tables.py:142
-#: dashboards/admin/metadata_defs/templates/metadata_defs/_detail_overview.html:18
+#: dashboards/admin/metadata_defs/templates/metadata_defs/_detail_overview.html:13
 #: dashboards/project/containers/forms.py:47
 #: dashboards/project/containers/templates/containers/_container_detail.html:14
 #: dashboards/project/containers/templates/containers/_container_metadata.html:7
@@ -6041,9 +5946,9 @@ msgstr ""
 #: dashboards/project/firewalls/forms.py:71
 #: dashboards/project/firewalls/tables.py:313
 #: dashboards/project/firewalls/workflows.py:67
-#: dashboards/project/firewalls/templates/firewalls/_rule_details.html:53
+#: dashboards/project/firewalls/templates/firewalls/_rule_details.html:52
 #: dashboards/project/routers/templates/routers/_detail_overview.html:47
-#: dashboards/project/stacks/templates/stacks/_detail_overview.html:65
+#: dashboards/project/stacks/templates/stacks/_detail_overview.html:53
 msgid "Enabled"
 msgstr ""
 
@@ -6051,7 +5956,7 @@ msgstr ""
 #: dashboards/admin/info/templates/info/_cell_status.html:3
 #: dashboards/admin/networks/agents/tables.py:80
 #: dashboards/project/routers/templates/routers/_detail_overview.html:49
-#: dashboards/project/stacks/templates/stacks/_detail_overview.html:65
+#: dashboards/project/stacks/templates/stacks/_detail_overview.html:53
 msgid "Disabled"
 msgstr ""
 
@@ -6303,7 +6208,7 @@ msgstr ""
 
 #: dashboards/admin/metadata_defs/forms.py:62
 #: dashboards/admin/metadata_defs/tables.py:149
-#: dashboards/admin/metadata_defs/templates/metadata_defs/_detail_overview.html:20
+#: dashboards/admin/metadata_defs/templates/metadata_defs/_detail_overview.html:15
 #: dashboards/project/images/images/forms.py:162
 #: dashboards/project/images/images/forms.py:325
 #: dashboards/project/images/images/tables.py:319
@@ -6385,7 +6290,6 @@ msgid "Namespaces"
 msgstr ""
 
 #: dashboards/admin/metadata_defs/tabs.py:26
-#: dashboards/admin/metadata_defs/templates/metadata_defs/_detail_overview.html:3
 msgid "Namespace Overview"
 msgstr ""
 
@@ -6411,10 +6315,6 @@ msgstr ""
 msgid "Create a Metadata Namespace"
 msgstr ""
 
-#: dashboards/admin/metadata_defs/views.py:93
-msgid "Namespace Details: {{ namespace.namespace }}"
-msgstr ""
-
 #: dashboards/admin/metadata_defs/views.py:129
 #: dashboards/admin/metadata_defs/views.py:147
 #: dashboards/admin/metadata_defs/views.py:161
@@ -6435,40 +6335,36 @@ msgid ""
 "definitions into Glance: "
 msgstr ""
 
-#: dashboards/admin/metadata_defs/templates/metadata_defs/_detail_contents.html:4
-msgid "Undefined"
-msgstr ""
-
-#: dashboards/admin/metadata_defs/templates/metadata_defs/_detail_overview.html:10
+#: dashboards/admin/metadata_defs/templates/metadata_defs/_detail_overview.html:5
 msgid "Display Name"
 msgstr ""
 
-#: dashboards/admin/metadata_defs/templates/metadata_defs/_detail_overview.html:12
+#: dashboards/admin/metadata_defs/templates/metadata_defs/_detail_overview.html:7
 msgid "Namespace"
 msgstr ""
 
-#: dashboards/admin/metadata_defs/templates/metadata_defs/_detail_overview.html:25
+#: dashboards/admin/metadata_defs/templates/metadata_defs/_detail_overview.html:20
 #: dashboards/project/images/templates/images/images/_detail_overview.html:33
 msgid "Never updated"
 msgstr ""
 
-#: dashboards/admin/metadata_defs/templates/metadata_defs/_detail_overview.html:32
+#: dashboards/admin/metadata_defs/templates/metadata_defs/_detail_overview.html:23
 msgid "Associated Resource Types"
 msgstr ""
 
-#: dashboards/admin/metadata_defs/templates/metadata_defs/_detail_overview.html:35
+#: dashboards/admin/metadata_defs/templates/metadata_defs/_detail_overview.html:26
 msgid "\"None\""
 msgstr ""
 
-#: dashboards/admin/metadata_defs/templates/metadata_defs/_detail_overview.html:39
+#: dashboards/admin/metadata_defs/templates/metadata_defs/_detail_overview.html:30
 msgid "Prefix: "
 msgstr ""
 
-#: dashboards/admin/metadata_defs/templates/metadata_defs/_detail_overview.html:42
+#: dashboards/admin/metadata_defs/templates/metadata_defs/_detail_overview.html:33
 msgid "Properties Target: "
 msgstr ""
 
-#: dashboards/admin/metadata_defs/templates/metadata_defs/_detail_overview.html:47
+#: dashboards/admin/metadata_defs/templates/metadata_defs/_detail_overview.html:38
 msgid "No associations defined."
 msgstr ""
 
@@ -6479,10 +6375,6 @@ msgstr ""
 
 #: dashboards/admin/metadata_defs/templates/metadata_defs/_resource_types.html:8
 msgid "\"Namespace Resource Type Associations\""
-msgstr ""
-
-#: dashboards/admin/metadata_defs/templates/metadata_defs/detail.html:4
-msgid "Namespace Details"
 msgstr ""
 
 #: dashboards/admin/metadata_defs/templates/metadata_defs/resource_types.html:15
@@ -6884,8 +6776,8 @@ msgstr ""
 #: dashboards/project/vpn/forms.py:39 dashboards/project/vpn/forms.py:283
 #: dashboards/project/vpn/workflows.py:33
 #: dashboards/project/vpn/workflows.py:434
-#: dashboards/project/vpn/templates/vpn/_ipsecsiteconnection_details.html:68
-#: dashboards/project/vpn/templates/vpn/_vpnservice_details.html:39
+#: dashboards/project/vpn/templates/vpn/_ipsecsiteconnection_details.html:67
+#: dashboards/project/vpn/templates/vpn/_vpnservice_details.html:38
 msgid "Admin State"
 msgstr ""
 
@@ -6897,8 +6789,8 @@ msgstr ""
 #: dashboards/project/firewalls/tables.py:334
 #: dashboards/project/firewalls/workflows.py:65
 #: dashboards/project/firewalls/workflows.py:222
-#: dashboards/project/firewalls/templates/firewalls/_policy_details.html:31
-#: dashboards/project/firewalls/templates/firewalls/_rule_details.html:50
+#: dashboards/project/firewalls/templates/firewalls/_policy_details.html:30
+#: dashboards/project/firewalls/templates/firewalls/_rule_details.html:49
 #: dashboards/project/networks/tables.py:176
 #: dashboards/project/networks/templates/networks/_detail_overview.html:17
 msgid "Shared"
@@ -7269,7 +7161,8 @@ msgstr ""
 
 #: dashboards/admin/networks/ports/tables.py:87
 #: dashboards/identity/projects/workflows.py:76
-#: dashboards/project/networks/ports/tables.py:87 usage/quotas.py:80
+#: dashboards/project/networks/ports/tables.py:87
+#: dashboards/project/networks/ports/views.py:87 usage/quotas.py:80
 msgid "Ports"
 msgstr ""
 
@@ -7385,9 +7278,9 @@ msgstr ""
 #: dashboards/identity/projects/templates/projects/_detail_overview.html:11
 #: dashboards/identity/users/templates/users/_detail_overview.html:25
 #: dashboards/project/access_and_security/templates/access_and_security/api_access/_credentials.html:22
-#: dashboards/project/firewalls/templates/firewalls/_firewall_details.html:16
-#: dashboards/project/firewalls/templates/firewalls/_policy_details.html:16
-#: dashboards/project/firewalls/templates/firewalls/_rule_details.html:16
+#: dashboards/project/firewalls/templates/firewalls/_firewall_details.html:15
+#: dashboards/project/firewalls/templates/firewalls/_policy_details.html:15
+#: dashboards/project/firewalls/templates/firewalls/_rule_details.html:15
 #: dashboards/project/loadbalancers/templates/loadbalancers/_member_details.html:9
 #: dashboards/project/loadbalancers/templates/loadbalancers/_monitor_details.html:9
 #: dashboards/project/loadbalancers/templates/loadbalancers/_pool_details.html:15
@@ -7395,10 +7288,10 @@ msgstr ""
 #: dashboards/project/networks/templates/networks/_detail_overview.html:11
 #: dashboards/project/networks/templates/networks/ports/_detail_overview.html:15
 #: dashboards/project/routers/templates/routers/_detail_overview.html:9
-#: dashboards/project/vpn/templates/vpn/_ikepolicy_details.html:15
-#: dashboards/project/vpn/templates/vpn/_ipsecpolicy_details.html:15
-#: dashboards/project/vpn/templates/vpn/_ipsecsiteconnection_details.html:16
-#: dashboards/project/vpn/templates/vpn/_vpnservice_details.html:16
+#: dashboards/project/vpn/templates/vpn/_ikepolicy_details.html:14
+#: dashboards/project/vpn/templates/vpn/_ipsecpolicy_details.html:14
+#: dashboards/project/vpn/templates/vpn/_ipsecsiteconnection_details.html:15
+#: dashboards/project/vpn/templates/vpn/_vpnservice_details.html:15
 msgid "Project ID"
 msgstr ""
 
@@ -7419,7 +7312,7 @@ msgstr ""
 #: dashboards/admin/networks/templates/networks/ports/_detail_overview.html:32
 #: dashboards/project/networks/templates/networks/ports/_detail_overview.html:37
 #: dashboards/project/routers/templates/routers/_detail_overview.html:38
-#: dashboards/project/vpn/templates/vpn/_vpnservice_details.html:23
+#: dashboards/project/vpn/templates/vpn/_vpnservice_details.html:22
 msgid "Subnet ID"
 msgstr ""
 
@@ -7529,7 +7422,7 @@ msgstr ""
 #: dashboards/identity/projects/workflows.py:77
 #: dashboards/project/firewalls/workflows.py:173
 #: dashboards/project/firewalls/workflows.py:179
-#: dashboards/project/firewalls/templates/firewalls/_firewall_details.html:31
+#: dashboards/project/firewalls/templates/firewalls/_firewall_details.html:30
 #: dashboards/project/network_topology/routers/tables.py:27
 #: dashboards/project/routers/panel.py:22
 #: dashboards/project/routers/tables.py:246
@@ -7553,12 +7446,6 @@ msgstr ""
 #: dashboards/project/routers/tabs.py:37
 #: dashboards/project/routers/ports/tables.py:125
 msgid "Interfaces"
-msgstr ""
-
-#: dashboards/admin/routers/templates/routers/detail.html:3
-#: dashboards/project/routers/views.py:107
-#: dashboards/project/routers/templates/routers/detail.html:3
-msgid "Router Details"
 msgstr ""
 
 #: dashboards/admin/routers/templates/routers/update.html:3
@@ -9769,6 +9656,8 @@ msgid "Unable to update security group: %s"
 msgstr ""
 
 #: dashboards/project/access_and_security/security_groups/forms.py:103
+#: dashboards/project/firewalls/tabs.py:96
+#: dashboards/project/firewalls/workflows.py:73
 msgid "Rule"
 msgstr ""
 
@@ -9871,12 +9760,12 @@ msgid "Ether Type"
 msgstr ""
 
 #: dashboards/project/access_and_security/security_groups/forms.py:239
-#: dashboards/project/vpn/templates/vpn/_vpnservice_details.html:50
+#: dashboards/project/vpn/templates/vpn/_vpnservice_details.html:49
 msgid "IPv4"
 msgstr ""
 
 #: dashboards/project/access_and_security/security_groups/forms.py:240
-#: dashboards/project/vpn/templates/vpn/_vpnservice_details.html:52
+#: dashboards/project/vpn/templates/vpn/_vpnservice_details.html:51
 msgid "IPv6"
 msgstr ""
 
@@ -10570,7 +10459,7 @@ msgstr ""
 #: dashboards/project/firewalls/forms.py:39
 #: dashboards/project/firewalls/tables.py:297
 #: dashboards/project/firewalls/workflows.py:37
-#: dashboards/project/firewalls/templates/firewalls/_rule_details.html:22
+#: dashboards/project/firewalls/templates/firewalls/_rule_details.html:21
 #: dashboards/project/loadbalancers/tables.py:460
 #: dashboards/project/loadbalancers/workflows.py:44
 #: dashboards/project/loadbalancers/workflows.py:166
@@ -10598,11 +10487,11 @@ msgstr ""
 #: dashboards/project/firewalls/forms.py:41
 #: dashboards/project/firewalls/tables.py:295
 #: dashboards/project/firewalls/workflows.py:41
-#: dashboards/project/firewalls/templates/firewalls/_rule_details.html:23
-#: dashboards/project/firewalls/templates/firewalls/_rule_details.html:26
-#: dashboards/project/firewalls/templates/firewalls/_rule_details.html:29
-#: dashboards/project/firewalls/templates/firewalls/_rule_details.html:32
-#: dashboards/project/firewalls/templates/firewalls/_rule_details.html:35
+#: dashboards/project/firewalls/templates/firewalls/_rule_details.html:22
+#: dashboards/project/firewalls/templates/firewalls/_rule_details.html:25
+#: dashboards/project/firewalls/templates/firewalls/_rule_details.html:28
+#: dashboards/project/firewalls/templates/firewalls/_rule_details.html:31
+#: dashboards/project/firewalls/templates/firewalls/_rule_details.html:34
 msgid "ANY"
 msgstr ""
 
@@ -10613,7 +10502,7 @@ msgstr ""
 #: dashboards/project/firewalls/forms.py:44
 #: dashboards/project/firewalls/tables.py:308
 #: dashboards/project/firewalls/workflows.py:43
-#: dashboards/project/firewalls/templates/firewalls/_rule_details.html:19
+#: dashboards/project/firewalls/templates/firewalls/_rule_details.html:18
 #: dashboards/project/instances/audit_tables.py:41
 #: dashboards/project/routers/extensions/routerrules/forms.py:52
 #: dashboards/project/routers/extensions/routerrules/tables.py:73
@@ -10683,7 +10572,7 @@ msgstr ""
 #: dashboards/project/firewalls/forms.py:103
 #: dashboards/project/firewalls/tables.py:337
 #: dashboards/project/firewalls/workflows.py:225
-#: dashboards/project/firewalls/templates/firewalls/_policy_details.html:34
+#: dashboards/project/firewalls/templates/firewalls/_policy_details.html:33
 msgid "Audited"
 msgstr ""
 
@@ -10699,6 +10588,8 @@ msgstr ""
 
 #: dashboards/project/firewalls/forms.py:131
 #: dashboards/project/firewalls/tables.py:378
+#: dashboards/project/firewalls/tabs.py:105
+#: dashboards/project/firewalls/workflows.py:233
 #: dashboards/project/firewalls/workflows.py:280
 msgid "Policy"
 msgstr ""
@@ -10814,8 +10705,10 @@ msgstr ""
 
 #: dashboards/project/firewalls/panel.py:25
 #: dashboards/project/firewalls/tables.py:390
-#: dashboards/project/firewalls/tabs.py:69
+#: dashboards/project/firewalls/tabs.py:68
 #: dashboards/project/firewalls/views.py:54
+#: dashboards/project/firewalls/views.py:93
+#: dashboards/project/firewalls/views.py:129
 #: dashboards/project/firewalls/templates/firewalls/details_tabs.html:3
 msgid "Firewalls"
 msgstr ""
@@ -10875,19 +10768,19 @@ msgid "Unable to delete firewall. %s"
 msgstr ""
 
 #: dashboards/project/firewalls/tables.py:147
-#: dashboards/project/firewalls/views.py:106
+#: dashboards/project/firewalls/views.py:210
 #: dashboards/project/firewalls/templates/firewalls/updaterule.html:3
 msgid "Edit Rule"
 msgstr ""
 
 #: dashboards/project/firewalls/tables.py:159
-#: dashboards/project/firewalls/views.py:147
+#: dashboards/project/firewalls/views.py:251
 #: dashboards/project/firewalls/templates/firewalls/updatepolicy.html:3
 msgid "Edit Policy"
 msgstr ""
 
 #: dashboards/project/firewalls/tables.py:171
-#: dashboards/project/firewalls/views.py:185
+#: dashboards/project/firewalls/views.py:289
 #: dashboards/project/firewalls/templates/firewalls/updatefirewall.html:3
 msgid "Edit Firewall"
 msgstr ""
@@ -10916,7 +10809,7 @@ msgid "Source IP"
 msgstr ""
 
 #: dashboards/project/firewalls/tables.py:301
-#: dashboards/project/firewalls/templates/firewalls/_rule_details.html:28
+#: dashboards/project/firewalls/templates/firewalls/_rule_details.html:27
 msgid "Source Port"
 msgstr ""
 
@@ -10925,7 +10818,7 @@ msgid "Destination IP"
 msgstr ""
 
 #: dashboards/project/firewalls/tables.py:305
-#: dashboards/project/firewalls/templates/firewalls/_rule_details.html:34
+#: dashboards/project/firewalls/templates/firewalls/_rule_details.html:33
 msgid "Destination Port"
 msgstr ""
 
@@ -10935,13 +10828,15 @@ msgstr ""
 
 #: dashboards/project/firewalls/tables.py:321
 #: dashboards/project/firewalls/tables.py:332
+#: dashboards/project/firewalls/views.py:95
 #: dashboards/project/firewalls/workflows.py:131
 #: dashboards/project/firewalls/workflows.py:137
-#: dashboards/project/firewalls/templates/firewalls/_policy_details.html:19
+#: dashboards/project/firewalls/templates/firewalls/_policy_details.html:18
 msgid "Rules"
 msgstr ""
 
 #: dashboards/project/firewalls/tables.py:342
+#: dashboards/project/firewalls/views.py:131
 msgid "Policies"
 msgstr ""
 
@@ -11000,57 +10895,29 @@ msgstr ""
 msgid "Failed to verify extension support %(reason)s"
 msgstr ""
 
-#: dashboards/project/firewalls/tabs.py:31
+#: dashboards/project/firewalls/tabs.py:30
 msgid "Firewall Rules"
 msgstr ""
 
-#: dashboards/project/firewalls/tabs.py:43
+#: dashboards/project/firewalls/tabs.py:42
 msgid "Unable to retrieve rules list."
 msgstr ""
 
-#: dashboards/project/firewalls/tabs.py:50
+#: dashboards/project/firewalls/tabs.py:49
 msgid "Firewall Policies"
 msgstr ""
 
-#: dashboards/project/firewalls/tabs.py:62
+#: dashboards/project/firewalls/tabs.py:61
 msgid "Unable to retrieve policies list."
 msgstr ""
 
-#: dashboards/project/firewalls/tabs.py:91
+#: dashboards/project/firewalls/tabs.py:90
 msgid "Unable to retrieve firewall list."
 msgstr ""
 
-#: dashboards/project/firewalls/tabs.py:97
-#: dashboards/project/firewalls/views.py:88
-msgid "Firewall Rule Details"
-msgstr ""
-
-#: dashboards/project/firewalls/tabs.py:108
-#: dashboards/project/firewalls/views.py:130
-msgid "Unable to retrieve rule details."
-msgstr ""
-
 #: dashboards/project/firewalls/tabs.py:114
-#: dashboards/project/firewalls/views.py:93
-msgid "Firewall Policy Details"
-msgstr ""
-
-#: dashboards/project/firewalls/tabs.py:125
-#: dashboards/project/firewalls/views.py:171
-#: dashboards/project/firewalls/views.py:249
-#: dashboards/project/firewalls/views.py:289
-msgid "Unable to retrieve policy details."
-msgstr ""
-
-#: dashboards/project/firewalls/tabs.py:131
-#: dashboards/project/firewalls/views.py:98
-msgid "Firewall Details"
-msgstr ""
-
-#: dashboards/project/firewalls/tabs.py:152
-#: dashboards/project/firewalls/views.py:210
-#: dashboards/project/firewalls/views.py:324
-msgid "Unable to retrieve firewall details."
+#: dashboards/project/firewalls/workflows.py:304
+msgid "Firewall"
 msgstr ""
 
 #: dashboards/project/firewalls/views.py:60
@@ -11068,12 +10935,34 @@ msgstr ""
 msgid "Add New Firewall"
 msgstr ""
 
-#: dashboards/project/firewalls/views.py:107
-#: dashboards/project/firewalls/views.py:148
-#: dashboards/project/firewalls/views.py:186
-#: dashboards/project/firewalls/views.py:226
-#: dashboards/project/firewalls/views.py:265
-#: dashboards/project/firewalls/views.py:302
+#: dashboards/project/firewalls/views.py:109
+#: dashboards/project/firewalls/views.py:234
+msgid "Unable to retrieve rule details."
+msgstr ""
+
+#: dashboards/project/firewalls/views.py:146
+#: dashboards/project/firewalls/views.py:275
+#: dashboards/project/firewalls/views.py:353
+#: dashboards/project/firewalls/views.py:393
+msgid "Unable to retrieve policy details."
+msgstr ""
+
+#: dashboards/project/firewalls/views.py:179
+#: dashboards/project/firewalls/views.py:314
+#: dashboards/project/firewalls/views.py:428
+msgid "Unable to retrieve firewall details."
+msgstr ""
+
+#: dashboards/project/firewalls/views.py:197
+msgid "Unable to retrieve list of routers."
+msgstr ""
+
+#: dashboards/project/firewalls/views.py:211
+#: dashboards/project/firewalls/views.py:252
+#: dashboards/project/firewalls/views.py:290
+#: dashboards/project/firewalls/views.py:330
+#: dashboards/project/firewalls/views.py:369
+#: dashboards/project/firewalls/views.py:406
 #: dashboards/project/loadbalancers/views.py:188
 #: dashboards/project/loadbalancers/views.py:225
 #: dashboards/project/loadbalancers/views.py:276
@@ -11087,47 +10976,43 @@ msgstr ""
 msgid "Save Changes"
 msgstr ""
 
-#: dashboards/project/firewalls/views.py:110
+#: dashboards/project/firewalls/views.py:214
 msgid "Edit Rule {{ name }}"
 msgstr ""
 
-#: dashboards/project/firewalls/views.py:151
+#: dashboards/project/firewalls/views.py:255
 msgid "Edit Policy {{ name }}"
 msgstr ""
 
-#: dashboards/project/firewalls/views.py:189
+#: dashboards/project/firewalls/views.py:293
 msgid "Edit Firewall {{ name }}"
 msgstr ""
 
-#: dashboards/project/firewalls/views.py:222
+#: dashboards/project/firewalls/views.py:326
 msgid "Insert Rule into Policy"
 msgstr ""
 
-#: dashboards/project/firewalls/views.py:228
+#: dashboards/project/firewalls/views.py:332
 #: dashboards/project/firewalls/templates/firewalls/insert_rule_to_policy.html:3
 msgid "Insert Rule to Policy"
 msgstr ""
 
-#: dashboards/project/firewalls/views.py:262
-#: dashboards/project/firewalls/views.py:268
+#: dashboards/project/firewalls/views.py:366
+#: dashboards/project/firewalls/views.py:372
 #: dashboards/project/firewalls/templates/firewalls/remove_rule_from_policy.html:3
 msgid "Remove Rule from Policy"
 msgstr ""
 
-#: dashboards/project/firewalls/views.py:335
-#: dashboards/project/firewalls/views.py:338
+#: dashboards/project/firewalls/views.py:439
+#: dashboards/project/firewalls/views.py:442
 #: dashboards/project/firewalls/templates/firewalls/add_router_to_firewall.html:3
 msgid "Add Router to Firewall"
 msgstr ""
 
-#: dashboards/project/firewalls/views.py:343
-#: dashboards/project/firewalls/views.py:346
+#: dashboards/project/firewalls/views.py:447
+#: dashboards/project/firewalls/views.py:450
 #: dashboards/project/firewalls/templates/firewalls/remove_router_from_firewall.html:3
 msgid "Remove Router from Firewall"
-msgstr ""
-
-#: dashboards/project/firewalls/workflows.py:73
-msgid "AddRule"
 msgstr ""
 
 #: dashboards/project/firewalls/workflows.py:75
@@ -11173,10 +11058,6 @@ msgstr ""
 msgid "Unable to retrieve routers (%(error)s)."
 msgstr ""
 
-#: dashboards/project/firewalls/workflows.py:233
-msgid "AddPolicy"
-msgstr ""
-
 #: dashboards/project/firewalls/workflows.py:235
 msgid ""
 "Create a firewall policy with an ordered list of firewall rules.\n"
@@ -11204,10 +11085,6 @@ msgstr ""
 msgid "Unable to retrieve policy list (%(error)s)."
 msgstr ""
 
-#: dashboards/project/firewalls/workflows.py:304
-msgid "AddFirewall"
-msgstr ""
-
 #: dashboards/project/firewalls/workflows.py:306
 msgid ""
 "Create a firewall based on a policy.\n"
@@ -11233,11 +11110,11 @@ msgstr ""
 msgid "Choose the router(s) you want to add."
 msgstr ""
 
-#: dashboards/project/firewalls/templates/firewalls/_firewall_details.html:19
+#: dashboards/project/firewalls/templates/firewalls/_firewall_details.html:18
 msgid "Policy ID"
 msgstr ""
 
-#: dashboards/project/firewalls/templates/firewalls/_firewall_details.html:28
+#: dashboards/project/firewalls/templates/firewalls/_firewall_details.html:27
 #: dashboards/project/loadbalancers/templates/loadbalancers/_member_details.html:25
 #: dashboards/project/loadbalancers/templates/loadbalancers/_monitor_details.html:35
 #: dashboards/project/loadbalancers/templates/loadbalancers/_pool_details.html:63
@@ -11260,19 +11137,19 @@ msgstr ""
 msgid "Choose the rule you want to remove."
 msgstr ""
 
-#: dashboards/project/firewalls/templates/firewalls/_rule_details.html:25
+#: dashboards/project/firewalls/templates/firewalls/_rule_details.html:24
 msgid "Source IP Address"
 msgstr ""
 
-#: dashboards/project/firewalls/templates/firewalls/_rule_details.html:31
+#: dashboards/project/firewalls/templates/firewalls/_rule_details.html:30
 msgid "Destination IP Address"
 msgstr ""
 
-#: dashboards/project/firewalls/templates/firewalls/_rule_details.html:37
+#: dashboards/project/firewalls/templates/firewalls/_rule_details.html:36
 msgid "Used in Policy"
 msgstr ""
 
-#: dashboards/project/firewalls/templates/firewalls/_rule_details.html:47
+#: dashboards/project/firewalls/templates/firewalls/_rule_details.html:46
 msgid "Position in Policy"
 msgstr ""
 
@@ -13345,7 +13222,7 @@ msgstr ""
 #: dashboards/project/loadbalancers/tables.py:553
 #: dashboards/project/loadbalancers/workflows.py:493
 #: dashboards/project/loadbalancers/templates/loadbalancers/_monitor_details.html:18
-#: dashboards/project/stacks/templates/stacks/_detail_overview.html:62
+#: dashboards/project/stacks/templates/stacks/_detail_overview.html:50
 msgid "Timeout"
 msgstr ""
 
@@ -14645,7 +14522,7 @@ msgid "Network Overview"
 msgstr ""
 
 #: dashboards/project/networks/templates/networks/_detail_overview.html:21
-#: dashboards/project/vpn/templates/vpn/_ipsecsiteconnection_details.html:47
+#: dashboards/project/vpn/templates/vpn/_ipsecsiteconnection_details.html:46
 msgid "MTU"
 msgstr ""
 
@@ -14733,6 +14610,10 @@ msgstr ""
 
 #: dashboards/project/overview/templates/overview/usage.csv:2
 msgid "Project ID:"
+msgstr ""
+
+#: dashboards/project/overview/templates/overview/usage.html:3
+msgid "Instance Overview"
 msgstr ""
 
 #: dashboards/project/routers/forms.py:35
@@ -14990,7 +14871,7 @@ msgstr ""
 #: dashboards/project/routers/extensions/routerrules/forms.py:56
 #: dashboards/project/routers/ports/forms.py:38
 #: dashboards/project/routers/ports/forms.py:157
-#: dashboards/project/vpn/templates/vpn/_vpnservice_details.html:19
+#: dashboards/project/vpn/templates/vpn/_vpnservice_details.html:18
 msgid "Router ID"
 msgstr ""
 
@@ -15770,16 +15651,8 @@ msgstr ""
 msgid "Preview Stack Details"
 msgstr ""
 
-#: dashboards/project/stacks/views.py:281
-msgid "Stack Details: {{ stack.stack_name }}"
-msgstr ""
-
 #: dashboards/project/stacks/views.py:312
 msgid "Unable to retrieve stack template."
-msgstr ""
-
-#: dashboards/project/stacks/views.py:329
-msgid "Resource Details: {{ resource.resource_name }}"
 msgstr ""
 
 #: dashboards/project/stacks/views.py:346
@@ -15806,24 +15679,15 @@ msgstr ""
 msgid "Unable to retrieve stack resource types."
 msgstr ""
 
-#: dashboards/project/stacks/resource_types/views.py:49
-#: dashboards/project/stacks/resource_types/templates/stacks.resource_types/details.html:3
-msgid "Resource Type Details"
-msgstr ""
-
 #: dashboards/project/stacks/resource_types/views.py:58
 msgid "Unable to retrieve resource type details."
 msgstr ""
 
-#: dashboards/project/stacks/resource_types/templates/stacks.resource_types/_details.html:4
-msgid "Resource Type"
-msgstr ""
-
-#: dashboards/project/stacks/resource_types/templates/stacks.resource_types/_details.html:12
+#: dashboards/project/stacks/resource_types/templates/stacks.resource_types/_details.html:8
 msgid "Attributes"
 msgstr ""
 
-#: dashboards/project/stacks/resource_types/templates/stacks.resource_types/_details.html:18
+#: dashboards/project/stacks/resource_types/templates/stacks.resource_types/_details.html:12
 msgid "Properties"
 msgstr ""
 
@@ -15838,32 +15702,28 @@ msgstr ""
 msgid "Create a new stack with the provided values."
 msgstr ""
 
-#: dashboards/project/stacks/templates/stacks/_detail_overview.html:3
-msgid "Stack Overview"
-msgstr ""
-
-#: dashboards/project/stacks/templates/stacks/_detail_overview.html:28
+#: dashboards/project/stacks/templates/stacks/_detail_overview.html:22
 #, python-format
 msgid "%(stack_status_title)s: %(stack_status_reason)s"
 msgstr ""
 
-#: dashboards/project/stacks/templates/stacks/_detail_overview.html:34
+#: dashboards/project/stacks/templates/stacks/_detail_overview.html:26
 msgid "Outputs"
 msgstr ""
 
-#: dashboards/project/stacks/templates/stacks/_detail_overview.html:48
+#: dashboards/project/stacks/templates/stacks/_detail_overview.html:38
 msgid "Stack Parameters"
 msgstr ""
 
-#: dashboards/project/stacks/templates/stacks/_detail_overview.html:59
+#: dashboards/project/stacks/templates/stacks/_detail_overview.html:47
 msgid "Launch Parameters"
 msgstr ""
 
-#: dashboards/project/stacks/templates/stacks/_detail_overview.html:63
+#: dashboards/project/stacks/templates/stacks/_detail_overview.html:51
 msgid "Minutes"
 msgstr ""
 
-#: dashboards/project/stacks/templates/stacks/_detail_overview.html:64
+#: dashboards/project/stacks/templates/stacks/_detail_overview.html:52
 msgid "Rollback"
 msgstr ""
 
@@ -15915,14 +15775,6 @@ msgid ""
 "Update a stack with the provided values. Please note that any encrypted "
 "parameters, such as passwords, will be reset to default if you do not "
 "change them here."
-msgstr ""
-
-#: dashboards/project/stacks/templates/stacks/detail.html:3
-msgid "Stack Details"
-msgstr ""
-
-#: dashboards/project/stacks/templates/stacks/resource.html:3
-msgid "Resource Details"
 msgstr ""
 
 #: dashboards/project/volumes/tabs.py:39
@@ -16898,8 +16750,8 @@ msgstr ""
 #: dashboards/project/vpn/tables.py:356 dashboards/project/vpn/tables.py:377
 #: dashboards/project/vpn/workflows.py:115
 #: dashboards/project/vpn/workflows.py:218
-#: dashboards/project/vpn/templates/vpn/_ikepolicy_details.html:18
-#: dashboards/project/vpn/templates/vpn/_ipsecpolicy_details.html:18
+#: dashboards/project/vpn/templates/vpn/_ikepolicy_details.html:17
+#: dashboards/project/vpn/templates/vpn/_ipsecpolicy_details.html:17
 msgid "Authorization algorithm"
 msgstr ""
 
@@ -16911,8 +16763,8 @@ msgstr ""
 #: dashboards/project/vpn/tables.py:359 dashboards/project/vpn/tables.py:380
 #: dashboards/project/vpn/workflows.py:117
 #: dashboards/project/vpn/workflows.py:222
-#: dashboards/project/vpn/templates/vpn/_ikepolicy_details.html:21
-#: dashboards/project/vpn/templates/vpn/_ipsecpolicy_details.html:24
+#: dashboards/project/vpn/templates/vpn/_ikepolicy_details.html:20
+#: dashboards/project/vpn/templates/vpn/_ipsecpolicy_details.html:23
 msgid "Encryption algorithm"
 msgstr ""
 
@@ -16933,7 +16785,7 @@ msgid "aes-256"
 msgstr ""
 
 #: dashboards/project/vpn/forms.py:86 dashboards/project/vpn/workflows.py:119
-#: dashboards/project/vpn/templates/vpn/_ikepolicy_details.html:24
+#: dashboards/project/vpn/templates/vpn/_ikepolicy_details.html:23
 msgid "IKE version"
 msgstr ""
 
@@ -16966,8 +16818,8 @@ msgstr ""
 #: dashboards/project/vpn/forms.py:102 dashboards/project/vpn/forms.py:181
 #: dashboards/project/vpn/workflows.py:127
 #: dashboards/project/vpn/workflows.py:231
-#: dashboards/project/vpn/templates/vpn/_ikepolicy_details.html:33
-#: dashboards/project/vpn/templates/vpn/_ipsecpolicy_details.html:33
+#: dashboards/project/vpn/templates/vpn/_ikepolicy_details.html:32
+#: dashboards/project/vpn/templates/vpn/_ipsecpolicy_details.html:32
 msgid "Perfect Forward Secrecy"
 msgstr ""
 
@@ -16984,7 +16836,7 @@ msgid "group14"
 msgstr ""
 
 #: dashboards/project/vpn/forms.py:109 dashboards/project/vpn/workflows.py:129
-#: dashboards/project/vpn/templates/vpn/_ikepolicy_details.html:36
+#: dashboards/project/vpn/templates/vpn/_ikepolicy_details.html:35
 msgid "IKE Phase1 negotiation mode"
 msgstr ""
 
@@ -16999,7 +16851,7 @@ msgid "Failed to update IKE Policy %s"
 msgstr ""
 
 #: dashboards/project/vpn/forms.py:158 dashboards/project/vpn/workflows.py:220
-#: dashboards/project/vpn/templates/vpn/_ipsecpolicy_details.html:21
+#: dashboards/project/vpn/templates/vpn/_ipsecpolicy_details.html:20
 msgid "Encapsulation mode"
 msgstr ""
 
@@ -17020,7 +16872,7 @@ msgid "Lifetime value"
 msgstr ""
 
 #: dashboards/project/vpn/forms.py:187 dashboards/project/vpn/workflows.py:232
-#: dashboards/project/vpn/templates/vpn/_ipsecpolicy_details.html:36
+#: dashboards/project/vpn/templates/vpn/_ipsecpolicy_details.html:35
 msgid "Transform Protocol"
 msgstr ""
 
@@ -17047,7 +16899,7 @@ msgid "Failed to update IPSec Policy %s"
 msgstr ""
 
 #: dashboards/project/vpn/forms.py:230 dashboards/project/vpn/workflows.py:328
-#: dashboards/project/vpn/templates/vpn/_ipsecsiteconnection_details.html:31
+#: dashboards/project/vpn/templates/vpn/_ipsecsiteconnection_details.html:30
 msgid "Peer gateway public IPv4/IPv6 Address or FQDN"
 msgstr ""
 
@@ -17056,7 +16908,7 @@ msgid "Peer gateway public IPv4/IPv6 address or FQDN for the VPN Connection"
 msgstr ""
 
 #: dashboards/project/vpn/forms.py:236 dashboards/project/vpn/workflows.py:334
-#: dashboards/project/vpn/templates/vpn/_ipsecsiteconnection_details.html:34
+#: dashboards/project/vpn/templates/vpn/_ipsecsiteconnection_details.html:33
 msgid "Peer router identity for authentication (Peer ID)"
 msgstr ""
 
@@ -17115,7 +16967,7 @@ msgid "restart-by-peer"
 msgstr ""
 
 #: dashboards/project/vpn/forms.py:269 dashboards/project/vpn/workflows.py:422
-#: dashboards/project/vpn/templates/vpn/_ipsecsiteconnection_details.html:56
+#: dashboards/project/vpn/templates/vpn/_ipsecsiteconnection_details.html:55
 msgid "Dead peer detection interval"
 msgstr ""
 
@@ -17124,7 +16976,7 @@ msgid "Valid integer lesser than the DPD timeout"
 msgstr ""
 
 #: dashboards/project/vpn/forms.py:274 dashboards/project/vpn/workflows.py:427
-#: dashboards/project/vpn/templates/vpn/_ipsecsiteconnection_details.html:59
+#: dashboards/project/vpn/templates/vpn/_ipsecsiteconnection_details.html:58
 msgid "Dead peer detection timeout"
 msgstr ""
 
@@ -17133,7 +16985,7 @@ msgid "Valid integer greater than the DPD interval"
 msgstr ""
 
 #: dashboards/project/vpn/forms.py:277 dashboards/project/vpn/workflows.py:431
-#: dashboards/project/vpn/templates/vpn/_ipsecsiteconnection_details.html:50
+#: dashboards/project/vpn/templates/vpn/_ipsecsiteconnection_details.html:49
 msgid "Initiator state"
 msgstr ""
 
@@ -17285,17 +17137,17 @@ msgid "Error"
 msgstr ""
 
 #: dashboards/project/vpn/tables.py:275
-#: dashboards/project/vpn/templates/vpn/_ipsecsiteconnection_details.html:19
+#: dashboards/project/vpn/templates/vpn/_ipsecsiteconnection_details.html:18
 msgid "VPN Service"
 msgstr ""
 
 #: dashboards/project/vpn/tables.py:277
-#: dashboards/project/vpn/templates/vpn/_ipsecsiteconnection_details.html:23
+#: dashboards/project/vpn/templates/vpn/_ipsecsiteconnection_details.html:22
 msgid "IKE Policy"
 msgstr ""
 
 #: dashboards/project/vpn/tables.py:279
-#: dashboards/project/vpn/templates/vpn/_ipsecsiteconnection_details.html:27
+#: dashboards/project/vpn/templates/vpn/_ipsecsiteconnection_details.html:26
 msgid "IPSec Policy"
 msgstr ""
 
@@ -17383,24 +17235,23 @@ msgstr ""
 msgid "Unable to retrieve IPSec Policies list."
 msgstr ""
 
-#: dashboards/project/vpn/tabs.py:106 dashboards/project/vpn/views.py:60
+#: dashboards/project/vpn/tabs.py:106
 msgid "IKE Policy Details"
 msgstr ""
 
-#: dashboards/project/vpn/tabs.py:121 dashboards/project/vpn/views.py:93
+#: dashboards/project/vpn/tabs.py:121
 msgid "IPSec Policy Details"
 msgstr ""
 
-#: dashboards/project/vpn/tabs.py:136 dashboards/project/vpn/views.py:127
+#: dashboards/project/vpn/tabs.py:136
 msgid "VPN Service Details"
 msgstr ""
 
-#: dashboards/project/vpn/tabs.py:151 dashboards/project/vpn/views.py:170
+#: dashboards/project/vpn/tabs.py:151
 msgid "IPSec Site Connection Details"
 msgstr ""
 
 #: dashboards/project/vpn/views.py:38
-#: dashboards/project/vpn/templates/vpn/details_tabs.html:3
 #: dashboards/project/vpn/templates/vpn/index.html:3
 msgid "Virtual Private Network"
 msgstr ""
@@ -17587,33 +17438,33 @@ msgstr ""
 msgid "Unable to add IPSec Site Connection \"%s\"."
 msgstr ""
 
-#: dashboards/project/vpn/templates/vpn/_ikepolicy_details.html:27
-#: dashboards/project/vpn/templates/vpn/_ipsecpolicy_details.html:27
+#: dashboards/project/vpn/templates/vpn/_ikepolicy_details.html:26
+#: dashboards/project/vpn/templates/vpn/_ipsecpolicy_details.html:26
 msgid "Lifetime Units"
 msgstr ""
 
-#: dashboards/project/vpn/templates/vpn/_ikepolicy_details.html:30
-#: dashboards/project/vpn/templates/vpn/_ipsecpolicy_details.html:30
+#: dashboards/project/vpn/templates/vpn/_ikepolicy_details.html:29
+#: dashboards/project/vpn/templates/vpn/_ipsecpolicy_details.html:29
 msgid "Lifetime Value"
 msgstr ""
 
-#: dashboards/project/vpn/templates/vpn/_ipsecsiteconnection_details.html:37
+#: dashboards/project/vpn/templates/vpn/_ipsecsiteconnection_details.html:36
 msgid "Remote peer subnet"
 msgstr ""
 
-#: dashboards/project/vpn/templates/vpn/_ipsecsiteconnection_details.html:44
+#: dashboards/project/vpn/templates/vpn/_ipsecsiteconnection_details.html:43
 msgid "Pre-Shared Key string"
 msgstr ""
 
-#: dashboards/project/vpn/templates/vpn/_ipsecsiteconnection_details.html:53
+#: dashboards/project/vpn/templates/vpn/_ipsecsiteconnection_details.html:52
 msgid "Dead peer detection action"
 msgstr ""
 
-#: dashboards/project/vpn/templates/vpn/_ipsecsiteconnection_details.html:62
+#: dashboards/project/vpn/templates/vpn/_ipsecsiteconnection_details.html:61
 msgid "Authorization mode"
 msgstr ""
 
-#: dashboards/project/vpn/templates/vpn/_ipsecsiteconnection_details.html:65
+#: dashboards/project/vpn/templates/vpn/_ipsecsiteconnection_details.html:64
 msgid "Route mode"
 msgstr ""
 
@@ -17641,7 +17492,7 @@ msgstr ""
 msgid "IPv6:"
 msgstr ""
 
-#: dashboards/project/vpn/templates/vpn/_vpnservice_details.html:27
+#: dashboards/project/vpn/templates/vpn/_vpnservice_details.html:26
 msgid "VPN Connections"
 msgstr ""
 
@@ -17844,8 +17695,8 @@ msgstr ""
 msgid "Unable to retrieve network quota information."
 msgstr ""
 
-#: usage/base.py:186 usage/quotas.py:152 usage/quotas.py:347
-#: usage/quotas.py:401
+#: usage/base.py:186 usage/quotas.py:152 usage/quotas.py:353
+#: usage/quotas.py:407
 msgid "Unable to retrieve volume limit information."
 msgstr ""
 
@@ -17873,7 +17724,7 @@ msgstr ""
 msgid "Injected File Path Bytes"
 msgstr ""
 
-#: usage/quotas.py:384
+#: usage/quotas.py:390
 msgid "Unable to retrieve compute limit information."
 msgstr ""
 

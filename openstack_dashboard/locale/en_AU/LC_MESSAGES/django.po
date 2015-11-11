@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-11-10 01:06+0000\n"
+"POT-Creation-Date: 2015-11-11 05:16+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -1021,15 +1021,6 @@ msgstr "Add, modify or remove the QoS Spec associated with this volume type."
 msgid "Add/Remove Hosts to Aggregate"
 msgstr "Add/Remove Hosts to Aggregate"
 
-msgid "AddFirewall"
-msgstr "AddFirewall"
-
-msgid "AddPolicy"
-msgstr "AddPolicy"
-
-msgid "AddRule"
-msgstr "AddRule"
-
 #, python-format
 msgid "Added Firewall \"%s\"."
 msgstr "Added Firewall \"%s\"."
@@ -1860,15 +1851,6 @@ msgstr "Cluster Count"
 msgid "Cluster Creation Guide"
 msgstr "Cluster Creation Guide"
 
-msgid "Cluster Detail"
-msgstr "Cluster Detail"
-
-msgid "Cluster Details"
-msgstr "Cluster Details"
-
-msgid "Cluster Details: {{ cluster.name }}"
-msgstr "Cluster Details: {{ cluster.name }}"
-
 msgid "Cluster Events"
 msgstr "Cluster Events"
 
@@ -1881,9 +1863,6 @@ msgstr "Cluster Instances"
 msgid "Cluster Name"
 msgstr "Cluster Name"
 
-msgid "Cluster Overview"
-msgstr "Cluster Overview"
-
 msgid "Cluster Size"
 msgstr "Cluster Size"
 
@@ -1893,9 +1872,6 @@ msgstr "Cluster Template"
 #, python-format
 msgid "Cluster Template %s updated"
 msgstr "Cluster Template %s updated"
-
-msgid "Cluster Template Details"
-msgstr "Cluster Template Details"
 
 msgid "Cluster Template Name"
 msgstr "Cluster Template Name"
@@ -2736,9 +2712,6 @@ msgstr "Data Processing Guides"
 msgid "Data Processing Plugin Details"
 msgstr "Data Processing Plugin Details"
 
-msgid "Data Processing Plugin Overview"
-msgstr "Data Processing Plugin Overview"
-
 msgid "Data Processing Plugins"
 msgstr "Data Processing Plugins"
 
@@ -2754,12 +2727,6 @@ msgstr ""
 
 msgid "Data Source"
 msgstr "Data Source"
-
-msgid "Data Source Details"
-msgstr "Data Source Details"
-
-msgid "Data Source Overview"
-msgstr "Data Source Overview"
 
 msgid "Data Source Type"
 msgstr "Data Source Type"
@@ -4566,17 +4533,8 @@ msgstr "Finishing Resize or Migrate"
 msgid "Firewall %s was successfully updated."
 msgstr "Firewall %s was successfully updated."
 
-msgid "Firewall Details"
-msgstr "Firewall Details"
-
 msgid "Firewall Policies"
 msgstr "Firewall Policies"
-
-msgid "Firewall Policy Details"
-msgstr "Firewall Policy Details"
-
-msgid "Firewall Rule Details"
-msgstr "Firewall Rule Details"
 
 msgid "Firewall Rules"
 msgstr "Firewall Rules"
@@ -5372,12 +5330,6 @@ msgstr "Instance Console Log"
 msgid "Instance Count"
 msgstr "Instance Count"
 
-msgid "Instance Details"
-msgstr "Instance Details"
-
-msgid "Instance Details: {{ instance.name }}"
-msgstr "Instance Details: {{ instance.name }}"
-
 msgid "Instance ID"
 msgstr "Instance ID"
 
@@ -5491,20 +5443,8 @@ msgstr "Job"
 msgid "Job Binaries"
 msgstr "Job Binaries"
 
-msgid "Job Binary Details"
-msgstr "Job Binary Details"
-
-msgid "Job Binary Overview"
-msgstr "Job Binary Overview"
-
 msgid "Job Configuration"
 msgstr "Job Configuration"
-
-msgid "Job Details"
-msgstr "Job Details"
-
-msgid "Job Execution Details"
-msgstr "Job Execution Details"
 
 msgid "Job Execution Guide"
 msgstr "Job Execution Guide"
@@ -5515,14 +5455,8 @@ msgstr "Job Execution ID"
 msgid "Job Guide"
 msgstr "Job Guide"
 
-msgid "Job Overview"
-msgstr "Job Overview"
-
 msgid "Job Template"
 msgstr "Job Template"
-
-msgid "Job Template Details"
-msgstr "Job Template Details"
 
 msgid "Job Templates"
 msgstr "Job Templates"
@@ -6235,12 +6169,6 @@ msgstr "Namespace %s has been created."
 msgid "Namespace Definition Source"
 msgstr "Namespace Definition Source"
 
-msgid "Namespace Details"
-msgstr "Namespace Details"
-
-msgid "Namespace Details: {{ namespace.namespace }}"
-msgstr "Namespace Details: {{ namespace.namespace }}"
-
 msgid "Namespace JSON"
 msgstr "Namespace JSON"
 
@@ -6641,9 +6569,6 @@ msgstr "Node Group"
 msgid "Node Group Template %s updated"
 msgstr "Node Group Template %s updated"
 
-msgid "Node Group Template Details"
-msgstr "Node Group Template Details"
-
 #, python-format
 msgid "Node Group Template copy %s created"
 msgstr "Node Group Template copy %s created"
@@ -6669,9 +6594,6 @@ msgstr "Node group cluster"
 
 msgid "Node processes are not specified"
 msgstr "Node processes are not specified"
-
-msgid "Nodegroup Template Details"
-msgstr "Nodegroup Template Details"
 
 msgid "Nodes Count"
 msgstr "Nodes Count"
@@ -7780,12 +7702,6 @@ msgstr "Resizing volume \"%s\""
 msgid "Resource"
 msgstr "Resource"
 
-msgid "Resource Details"
-msgstr "Resource Details"
-
-msgid "Resource Details: {{ resource.resource_name }}"
-msgstr "Resource Details: {{ resource.resource_name }}"
-
 msgid "Resource ID"
 msgstr "Resource ID"
 
@@ -7794,12 +7710,6 @@ msgstr "Resource Metadata"
 
 msgid "Resource Overview"
 msgstr "Resource Overview"
-
-msgid "Resource Type"
-msgstr "Resource Type"
-
-msgid "Resource Type Details"
-msgstr "Resource Type Details"
 
 msgid "Resource Types"
 msgstr "Resource Types"
@@ -7997,9 +7907,6 @@ msgstr "Router %s was successfully created."
 #, python-format
 msgid "Router %s was successfully updated."
 msgstr "Router %s was successfully updated."
-
-msgid "Router Details"
-msgstr "Router Details"
 
 msgid "Router ID"
 msgstr "Router ID"
@@ -8931,12 +8838,6 @@ msgstr ""
 msgid "Specs"
 msgstr "Specs"
 
-msgid "Stack Details"
-msgstr "Stack Details"
-
-msgid "Stack Details: {{ stack.stack_name }}"
-msgstr "Stack Details: {{ stack.stack_name }}"
-
 msgid "Stack Events"
 msgstr "Stack Events"
 
@@ -8945,9 +8846,6 @@ msgstr "Stack ID"
 
 msgid "Stack Name"
 msgstr "Stack Name"
-
-msgid "Stack Overview"
-msgstr "Stack Overview"
 
 msgid "Stack Parameters"
 msgstr "Stack Parameters"
@@ -9360,9 +9258,6 @@ msgstr "Template File"
 
 msgid "Template Name"
 msgstr "Template Name"
-
-msgid "Template Overview"
-msgstr "Template Overview"
 
 msgid "Template Source"
 msgstr "Template Source"
@@ -11420,9 +11315,6 @@ msgstr "Unable to upload object."
 #, python-format
 msgid "Unable to upload volume to image for volume: \"%s\""
 msgstr "Unable to upload volume to image for volume: \"%s\""
-
-msgid "Undefined"
-msgstr "Undefined"
 
 msgid "Unit"
 msgstr "Unit"
