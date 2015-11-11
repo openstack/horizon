@@ -470,7 +470,7 @@ CSS library to Horizon, follow those steps:
     the right version, contact the original packager.
  2. Package the library as an Xstatic package by following the instructions in
     Xstatic documentation_.
- 3. `Create a new repository on StackForge`_. Use "xstatic-core" and
+ 3. `Create a new repository under OpenStack`_. Use "xstatic-core" and
     "xstatic-ptl" groups for the ACLs. Make sure to include the
     ``publish-to-pypi`` job.
  4. `Setup PyPi`_ to allow OpenStack to publish your package.
@@ -492,7 +492,7 @@ CSS library to Horizon, follow those steps:
     newer package.
 
 .. _documentation: http://xstatic.rtfd.org/en/latest/packaging.html
-.. _`Create a new repository on StackForge`: http://docs.openstack.org/infra/manual/creators.html
+.. _`Create a new repository under OpenStack`: http://docs.openstack.org/infra/manual/creators.html
 .. _`Tag your release`: http://docs.openstack.org/infra/manual/drivers.html#tagging-a-release
 .. _`Setup PyPi`: http://docs.openstack.org/infra/manual/creators.html#give-openstack-permission-to-publish-releases
 .. _global-requirements: https://github.com/openstack/requirements/blob/master/global-requirements.txt
