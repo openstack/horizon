@@ -101,7 +101,7 @@ class LaunchInstanceView(horizon_workflows.WorkflowView):
 class DetailView(horizon_tabs.TabbedTableView):
     tab_group_class = tabs.InstanceDetailTabs
     template_name = 'horizon/common/_detail.html'
-    page_title = _("{{ instance.name }}")
+    page_title = "{{ instance.name }}"
 
     def get_context_data(self, **kwargs):
         context = super(DetailView, self).get_context_data(**kwargs)

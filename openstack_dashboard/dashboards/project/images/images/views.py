@@ -118,7 +118,7 @@ class UpdateView(forms.ModalFormView):
 class DetailView(tabs.TabView):
     tab_group_class = project_tabs.ImageDetailTabs
     template_name = 'horizon/common/_detail.html'
-    page_title = _("{{ image.name }}")
+    page_title = "{{ image.name }}"
 
     def get_context_data(self, **kwargs):
         context = super(DetailView, self).get_context_data(**kwargs)
