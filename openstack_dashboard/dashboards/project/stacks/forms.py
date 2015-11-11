@@ -342,7 +342,7 @@ class CreateStackForm(forms.SelfHandlingForm):
             elif param_type in ('CommaDelimitedList', 'String', 'Json'):
                 if 'MinLength' in param:
                     field_args['min_length'] = int(param['MinLength'])
-                    field_args['required'] = param.get('MinLength', 0) > 0
+                    field_args['required'] = field_args['min_length'] > 0
                 if 'MaxLength' in param:
                     field_args['max_length'] = int(param['MaxLength'])
                 if hidden:
