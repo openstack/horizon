@@ -47,7 +47,7 @@ def get_quota_name(quota):
         'injected_files': _('Injected Files'),
         'volumes': _('Volumes'),
         'snapshots': _('Volume Snapshots'),
-        'gigabytes': _('Total Size of Volumes and Snapshots (GB)'),
+        'gigabytes': _('Total Size of Volumes and Snapshots (GiB)'),
         'ram': _('RAM (MB)'),
         'floating_ips': _('Floating IPs'),
         'security_groups': _('Security Groups'),
@@ -57,7 +57,7 @@ def get_quota_name(quota):
         'dm-crypt': _('dm-crypt'),
         'server_group_members': _('Server Group Members'),
         'server_groups': _('Server Groups'),
-        'backup_gigabytes': _('Backup Gigabytes'),
+        'backup_gigabytes': _('Backup Size (GiB)'),
         'backups': _('Backups'),
         'per_volume_gigabytes': _('Per Volume Size (GiB)'),
     }

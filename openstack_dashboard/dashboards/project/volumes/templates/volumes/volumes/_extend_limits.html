@@ -7,8 +7,8 @@
 <h3>{% trans "Volume Limits" %}</h3>
 
 <div class="quota_title clearfix">
-  <strong>{% trans "Total Gigabytes" %} <span>({{ usages.gigabytesUsed|intcomma }} {% trans "GB" %})</span></strong>
-  <p>{{ usages.maxTotalVolumeGigabytes|intcomma|quota:_("GB") }}</p>
+  <strong>{% trans "Total Gibibytes" %} <span>({{ usages.gigabytesUsed|intcomma }} {% trans "GiB" %})</span></strong>
+  <p>{{ usages.maxTotalVolumeGigabytes|intcomma|quota:_("GiB") }}</p>
 </div>
 
 <div id="quota_size" data-progress-indicator-for="id_new_size" data-quota-limit="{{ usages.maxTotalVolumeGigabytes }}" data-quota-used="{{ usages.gigabytesUsed }}" class="quota_bar">

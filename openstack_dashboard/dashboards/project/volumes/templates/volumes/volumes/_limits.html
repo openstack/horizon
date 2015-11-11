@@ -16,8 +16,8 @@
 <h3>{% block head %}{% trans "Volume Limits" %}{% endblock %}</h3>
 
 <div class="quota_title clearfix">
-    <strong>{% trans "Total Gigabytes" %} <span>({% block gigabytes_used %}{{ usages.gigabytesUsed|intcomma }}{% endblock %} {% trans "GB" %})</span></strong>
-  <p>{{ usages.maxTotalVolumeGigabytes|intcomma|quota:_("GB") }}</p>
+    <strong>{% trans "Total Gibibytes" %} <span>({% block gigabytes_used %}{{ usages.gigabytesUsed|intcomma }}{% endblock %} {% trans "GiB" %})</span></strong>
+  <p>{{ usages.maxTotalVolumeGigabytes|intcomma|quota:_("GiB") }}</p>
 </div>
 
 <div id="quota_size" data-progress-indicator-for="id_size" data-quota-limit="{{ usages.maxTotalVolumeGigabytes }}" data-quota-used={% block gigabytes_used_progress %}"{{ usages.gigabytesUsed }}"{% endblock %} class="quota_bar">
