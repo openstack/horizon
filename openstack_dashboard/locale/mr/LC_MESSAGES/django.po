@@ -3,17 +3,18 @@
 # This file is distributed under the same license as the PROJECT project.
 #
 # Translators:
+# Chandrakant Dhutadmal <cpdhutadmal@yahoo.com>, 2015. #zanata
 # OpenStack Infra <zanata@openstack.org>, 2015. #zanata
 msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-11-10 01:06+0000\n"
+"POT-Creation-Date: 2015-11-11 05:16+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2015-09-08 11:14+0000\n"
-"Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
+"PO-Revision-Date: 2015-11-10 09:15+0000\n"
+"Last-Translator: Chandrakant Dhutadmal <cpdhutadmal@yahoo.com>\n"
 "Language: mr\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "Generated-By: Babel 2.0\n"
@@ -593,15 +594,6 @@ msgstr "नियम समाविष्ट करा"
 msgid "Add/Remove Hosts to Aggregate"
 msgstr "सरासरीमध्ये होस्ट समाविष्ट/नष्ट करा"
 
-msgid "AddFirewall"
-msgstr "फायरवॉलसमाविष्टकरा"
-
-msgid "AddPolicy"
-msgstr "धोरण समाविष्ट करा"
-
-msgid "AddRule"
-msgstr "नियमसमाविष्ट करा"
-
 #, python-format
 msgid "Added Firewall \"%s\"."
 msgstr "समाविष्ट फायरवॉल \"%s\"."
@@ -1172,23 +1164,14 @@ msgstr "बंद करा"
 msgid "Cluster"
 msgstr "समूह"
 
-msgid "Cluster Details"
-msgstr "समूह तपशील"
-
 msgid "Cluster Instances"
 msgstr "समूह उदाहरणे"
 
 msgid "Cluster Name"
 msgstr "समूह नाव"
 
-msgid "Cluster Overview"
-msgstr "समूह आढावा"
-
 msgid "Cluster Template"
 msgstr "समूह साचा"
-
-msgid "Cluster Template Details"
-msgstr "समूह साचा तपशील"
 
 msgid "Cluster Template Name"
 msgstr "समूह साचा नाव"
@@ -1845,9 +1828,6 @@ msgstr "डाटा प्रक्रिया"
 msgid "Data Processing Plugin Details"
 msgstr "डाटा प्रक्रिया प्लगइन तपशील"
 
-msgid "Data Processing Plugin Overview"
-msgstr "डाटा प्रक्रिया प्लगइन आढावा"
-
 msgid "Data Processing Plugins"
 msgstr "डाटा प्रक्रिया प्लगइन"
 
@@ -1860,12 +1840,6 @@ msgid ""
 msgstr ""
 "डाटा प्रक्रियेमध्ये विविध साठवणूक ठिकाणाचे पर्याय दिले जातात. तुम्ही तात्पुरता ड्राईव्ह "
 "निवडू शकता किंवा घटकास जोडायचा सिंडर खंड निवडू शकता."
-
-msgid "Data Source Details"
-msgstr "डाटा स्रोत तपशील"
-
-msgid "Data Source Overview"
-msgstr "डाटा स्रोत आढावा"
 
 msgid "Data Source Type"
 msgstr "डाटा स्रोत प्रकार"
@@ -2902,17 +2876,8 @@ msgstr "आकार बदलणे किंवा स्थलांतर �
 msgid "Firewall %s was successfully updated."
 msgstr "फायरवॉलमध्ये %s यशस्वीपणे सुधारणा करण्यात आली."
 
-msgid "Firewall Details"
-msgstr "फायरवॉल तपशील"
-
 msgid "Firewall Policies"
 msgstr "फायरवॉल धोरणे"
-
-msgid "Firewall Policy Details"
-msgstr "फायरवॉल धोरणांचे तपशील"
-
-msgid "Firewall Rule Details"
-msgstr "फायरवॉल यादी तपशील"
 
 msgid "Firewall Rules"
 msgstr "फायरवॉल नियम"
@@ -3558,9 +3523,6 @@ msgstr "घटक कन्सोल नोंद"
 msgid "Instance Count"
 msgstr "घटक संख्या"
 
-msgid "Instance Details"
-msgstr "घटक तपशील"
-
 msgid "Instance ID"
 msgstr "घटना ओळख क्रमांक"
 
@@ -3647,20 +3609,8 @@ msgstr "कार्य"
 msgid "Job Binaries"
 msgstr "कार्य द्विअंकी"
 
-msgid "Job Binary Details"
-msgstr "कार्य द्विअंक तपशील"
-
-msgid "Job Binary Overview"
-msgstr "कार्य द्विअंक आढावा"
-
 msgid "Job Configuration"
 msgstr "कार्य मांडणी"
-
-msgid "Job Details"
-msgstr "कार्य तपशील"
-
-msgid "Job Execution Details"
-msgstr "कार्य अंमलबजावणी तपशील"
 
 msgid "Job Execution ID"
 msgstr "कार्य अंमलबजावणी ओळख क्रमांक"
@@ -4431,9 +4381,6 @@ msgstr "कोणतेही खंड उपलब्ध नाहीत"
 msgid "Node Configurations"
 msgstr "नोड मांडणी"
 
-msgid "Node Group Template Details"
-msgstr "नोड गट साचा तपशील"
-
 #, python-format
 msgid "Node Group Template copy %s created"
 msgstr "नोड गट साचा प्रत %s तयार केली"
@@ -4459,9 +4406,6 @@ msgstr "नोड गट समूह"
 
 msgid "Node processes are not specified"
 msgstr "नोड प्रक्रिया स्पष्ट केलेल्या नाहीत"
-
-msgid "Nodegroup Template Details"
-msgstr "नोडगट साचा तपशील"
 
 msgid "Nodes Count"
 msgstr "नोड संख्या"
@@ -5205,9 +5149,6 @@ msgstr "खंडाच्या आकारात फेरबदल करण
 msgid "Resource"
 msgstr "संसाधन"
 
-msgid "Resource Details"
-msgstr "संसाधन तपशील"
-
 msgid "Resource ID"
 msgstr "संसाधन ओळख क्रमांक"
 
@@ -5316,9 +5257,6 @@ msgstr "राउटर %s यशस्वीपणे तयार करण्
 #, python-format
 msgid "Router %s was successfully updated."
 msgstr "राउटर %s यशस्वीपण सुधारित करण्यात आला."
-
-msgid "Router Details"
-msgstr "राउटरचे तपशील"
 
 msgid "Router ID"
 msgstr "राउटर ओळख क्रमांक"
@@ -5926,9 +5864,6 @@ msgstr "डाटाबेस घटकासाठी नवीन खंडा
 msgid "Specs"
 msgstr "निर्देश"
 
-msgid "Stack Details"
-msgstr "मर्यादित डाटा रचना"
-
 msgid "Stack Events"
 msgstr "मर्यादित डाटा रचना घटना"
 
@@ -5937,9 +5872,6 @@ msgstr "मर्यादित डाटा रचना ओळख क्र�
 
 msgid "Stack Name"
 msgstr "मर्यादित डाटा रचना नाव"
-
-msgid "Stack Overview"
-msgstr "मर्यादित डाटा रचना आढावा"
 
 msgid "Stack Parameters"
 msgstr "मर्यादित डाटा रचना निर्देशांक"
@@ -6220,9 +6152,6 @@ msgstr "साचा धारिका"
 
 msgid "Template Name"
 msgstr "साचा नाव"
-
-msgid "Template Overview"
-msgstr "साचा आढावा"
 
 msgid "Template Source"
 msgstr "साचा स्रोत"
@@ -7130,6 +7059,9 @@ msgstr "खंडाच्या आकारात फेरबदल करण
 
 msgid "Unable to restore backup."
 msgstr "राखीव साठा पुनर्स्थापित करण्यास असमर्थ."
+
+msgid "Unable to retrieve Ceilometer meter list."
+msgstr "सेलिओमीटरची मीटरयादी शोधता आली नाही."
 
 msgid "Unable to retrieve IKE Policies list."
 msgstr "आयकेई धोरणे यादी मिळविण्यास असमर्थ."

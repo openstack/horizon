@@ -15,7 +15,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-11-10 01:06+0000\n"
+"POT-Creation-Date: 2015-11-11 05:16+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -980,15 +980,6 @@ msgstr "이 볼륨 타입에 QoS 스팩과 관련된 것을 추가, 수정, 제�
 msgid "Add/Remove Hosts to Aggregate"
 msgstr "호스트 집합에 호스트 추가/삭제"
 
-msgid "AddFirewall"
-msgstr "방화벽 추가"
-
-msgid "AddPolicy"
-msgstr "정책 추가"
-
-msgid "AddRule"
-msgstr "규칙 추가"
-
 #, python-format
 msgid "Added Firewall \"%s\"."
 msgstr "방화벽 \"%s\"를 추가하였습니다."
@@ -1810,15 +1801,6 @@ msgstr "클러스터 개수"
 msgid "Cluster Creation Guide"
 msgstr "클러스터 생성 가이드"
 
-msgid "Cluster Detail"
-msgstr "클러스터 세부 정보"
-
-msgid "Cluster Details"
-msgstr "클러스터 세부 정보"
-
-msgid "Cluster Details: {{ cluster.name }}"
-msgstr "클러스터 세부 정보: {{ cluster.name }}"
-
 msgid "Cluster Events"
 msgstr "클러스터 이벤트"
 
@@ -1831,9 +1813,6 @@ msgstr "클러스터 인스턴스"
 msgid "Cluster Name"
 msgstr "클러스터 이름"
 
-msgid "Cluster Overview"
-msgstr "클러스터 개요"
-
 msgid "Cluster Size"
 msgstr "클러스터 크기"
 
@@ -1843,9 +1822,6 @@ msgstr "클러스터 템플릿"
 #, python-format
 msgid "Cluster Template %s updated"
 msgstr "업데이트된 클러스터 템플릿 %s"
-
-msgid "Cluster Template Details"
-msgstr "클러스터 템플릿 세부 정보"
 
 msgid "Cluster Template Name"
 msgstr "클러스터 템플릿 이름"
@@ -2683,9 +2659,6 @@ msgstr "데이터 프로세싱 가이드"
 msgid "Data Processing Plugin Details"
 msgstr "데이터 처리 플러그인 세부 정보"
 
-msgid "Data Processing Plugin Overview"
-msgstr "데이터 프로세싱 플러그인 개요"
-
 msgid "Data Processing Plugins"
 msgstr "데이터 프로세싱 플러그인"
 
@@ -2701,12 +2674,6 @@ msgstr ""
 
 msgid "Data Source"
 msgstr "데이터 원본"
-
-msgid "Data Source Details"
-msgstr "데이터 소스에 대한 세부 설명"
-
-msgid "Data Source Overview"
-msgstr "데이터 소스 개요"
 
 msgid "Data Source Type"
 msgstr "데이터 소스 타입"
@@ -4422,17 +4389,8 @@ msgstr "Finishing Resize or Migrate"
 msgid "Firewall %s was successfully updated."
 msgstr "방화벽 %s를 성공적으로 업데이트하지 못하였습니다."
 
-msgid "Firewall Details"
-msgstr "방화벽 세부 정보"
-
 msgid "Firewall Policies"
 msgstr "방화벽 정책"
-
-msgid "Firewall Policy Details"
-msgstr "방화벽 정책 세부 정보"
-
-msgid "Firewall Rule Details"
-msgstr "방화벽 Rule 세부 정보"
 
 msgid "Firewall Rules"
 msgstr "방화벽 Rule"
@@ -5223,12 +5181,6 @@ msgstr "인스턴스 콘솔 로그"
 msgid "Instance Count"
 msgstr "인스턴스 카운트"
 
-msgid "Instance Details"
-msgstr "인스턴스 세부 정보"
-
-msgid "Instance Details: {{ instance.name }}"
-msgstr "인스턴스 세부 정보: {{ instance.name }}"
-
 msgid "Instance ID"
 msgstr "인스턴스 ID"
 
@@ -5341,20 +5293,8 @@ msgstr "Job"
 msgid "Job Binaries"
 msgstr "Job 바이너리"
 
-msgid "Job Binary Details"
-msgstr "Job 바이너리에 대한 세부 정보"
-
-msgid "Job Binary Overview"
-msgstr "Job 바이너리 개요"
-
 msgid "Job Configuration"
 msgstr "Job 구성"
-
-msgid "Job Details"
-msgstr "Job에 대한 세부 정보"
-
-msgid "Job Execution Details"
-msgstr "Job 실행에 대한 세부 정보"
 
 msgid "Job Execution Guide"
 msgstr "Job 실행 가이드"
@@ -5365,14 +5305,8 @@ msgstr "Job 실행 ID"
 msgid "Job Guide"
 msgstr "Job 가이드"
 
-msgid "Job Overview"
-msgstr "Job 개요"
-
 msgid "Job Template"
 msgstr "Job 템플릿"
-
-msgid "Job Template Details"
-msgstr "Job 템플릿 세부 정보"
 
 msgid "Job Templates"
 msgstr "Job 템플릿"
@@ -6068,12 +6002,6 @@ msgstr "%s의 네임스페이스가 생성 되었습니다."
 msgid "Namespace Definition Source"
 msgstr "소스의 네임스페이스를 정의"
 
-msgid "Namespace Details"
-msgstr "네임스페이스 세부 정보"
-
-msgid "Namespace Details: {{ namespace.namespace }}"
-msgstr "네임스페이스 세부 정보: {{ namespace.namespace }}"
-
 msgid "Namespace JSON"
 msgstr "JSON 네임스페이스"
 
@@ -6471,9 +6399,6 @@ msgstr "노드 그룹"
 msgid "Node Group Template %s updated"
 msgstr "업데이트된 노드 그룹 템플릿 %s"
 
-msgid "Node Group Template Details"
-msgstr "노드 그룹 템플릿에 대한 세부 정보"
-
 #, python-format
 msgid "Node Group Template copy %s created"
 msgstr "노드 그룹 템플릿 복사본 %s를 생성함"
@@ -6499,9 +6424,6 @@ msgstr "노드 그룹 클러스터"
 
 msgid "Node processes are not specified"
 msgstr "노드 프로세스를 선택하지 않았습니다."
-
-msgid "Nodegroup Template Details"
-msgstr "노드 그룹 템플릿에 대한 세부 정보"
 
 msgid "Nodes Count"
 msgstr "노드 개수"
@@ -7594,12 +7516,6 @@ msgstr "볼륨 \"%s\" 크기 조정"
 msgid "Resource"
 msgstr "리소스"
 
-msgid "Resource Details"
-msgstr "리소스 세부 정보"
-
-msgid "Resource Details: {{ resource.resource_name }}"
-msgstr "리소스 세부 정보: {{ resource.resource_name }}"
-
 msgid "Resource ID"
 msgstr "리소스 ID"
 
@@ -7608,12 +7524,6 @@ msgstr "리소스 메타데이터"
 
 msgid "Resource Overview"
 msgstr "리소스 개요"
-
-msgid "Resource Type"
-msgstr "자원 유형"
-
-msgid "Resource Type Details"
-msgstr "자원 유형 세부 정보"
 
 msgid "Resource Types"
 msgstr "자원 유형"
@@ -7806,9 +7716,6 @@ msgstr "라우터 %s를 성공적으로 생성하였습니다."
 #, python-format
 msgid "Router %s was successfully updated."
 msgstr "라우터 %s를 성공적으로 업데이트 했습니다."
-
-msgid "Router Details"
-msgstr "라우터 세부 정보"
 
 msgid "Router ID"
 msgstr "라우터 ID"
@@ -8716,12 +8623,6 @@ msgstr ""
 msgid "Specs"
 msgstr "사양"
 
-msgid "Stack Details"
-msgstr "스택 세부 정보들"
-
-msgid "Stack Details: {{ stack.stack_name }}"
-msgstr "스택 세부 정보: {{ stack.stack_name }}"
-
 msgid "Stack Events"
 msgstr "스택 이벤트"
 
@@ -8730,9 +8631,6 @@ msgstr "스택 ID"
 
 msgid "Stack Name"
 msgstr "스택 이름"
-
-msgid "Stack Overview"
-msgstr "스택 개요"
 
 msgid "Stack Parameters"
 msgstr "스택 매개 변수"
@@ -9139,9 +9037,6 @@ msgstr "템플릿 파일"
 
 msgid "Template Name"
 msgstr "템플릿 이름"
-
-msgid "Template Overview"
-msgstr "템플릿 개요"
 
 msgid "Template Source"
 msgstr "템플릿 소스"
@@ -11193,9 +11088,6 @@ msgstr "오브젝트를 업로드 할 수 없습니다."
 #, python-format
 msgid "Unable to upload volume to image for volume: \"%s\""
 msgstr "볼륨에대한 이미지를 볼륨 업로드를 할 수 없습니다: \"%s\""
-
-msgid "Undefined"
-msgstr "정의되지 않음"
 
 msgid "Unit"
 msgstr "유닛"

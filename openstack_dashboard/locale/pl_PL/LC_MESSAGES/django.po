@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-11-10 01:06+0000\n"
+"POT-Creation-Date: 2015-11-11 05:16+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -997,15 +997,6 @@ msgstr ""
 msgid "Add/Remove Hosts to Aggregate"
 msgstr "Dodaj/usuń hosty z agregatu"
 
-msgid "AddFirewall"
-msgstr "Dodanie zapory ogniowej"
-
-msgid "AddPolicy"
-msgstr "Dodanie zasady"
-
-msgid "AddRule"
-msgstr "Dodanie reguły"
-
 #, python-format
 msgid "Added Firewall \"%s\"."
 msgstr "Dodano zaporę ogniową „%s”."
@@ -1853,15 +1844,6 @@ msgstr "Liczba klastrów"
 msgid "Cluster Creation Guide"
 msgstr "Przewodnik tworzenia klastra"
 
-msgid "Cluster Detail"
-msgstr "Szczegóły klastra"
-
-msgid "Cluster Details"
-msgstr "Szczegóły klastra"
-
-msgid "Cluster Details: {{ cluster.name }}"
-msgstr "Szczegóły klastra: {{ cluster.name }}"
-
 msgid "Cluster Events"
 msgstr "Zdarzenia klastra"
 
@@ -1874,9 +1856,6 @@ msgstr "Instancje klastra"
 msgid "Cluster Name"
 msgstr "Nazwa klastra"
 
-msgid "Cluster Overview"
-msgstr "Przegląd klastra"
-
 msgid "Cluster Size"
 msgstr "Rozmiar klastra"
 
@@ -1886,9 +1865,6 @@ msgstr "Szablon klastra"
 #, python-format
 msgid "Cluster Template %s updated"
 msgstr "Zaktualizowano szablon klastra %s"
-
-msgid "Cluster Template Details"
-msgstr "Szczegółu szablonu klastra"
 
 msgid "Cluster Template Name"
 msgstr "Nazwa szablonu klastra"
@@ -2733,9 +2709,6 @@ msgstr "Przewodnik przetwarzania danych"
 msgid "Data Processing Plugin Details"
 msgstr "Szczegóły wtyczki przetwarzania danych"
 
-msgid "Data Processing Plugin Overview"
-msgstr "Przegląd wtyczek przetwarzania danych"
-
 msgid "Data Processing Plugins"
 msgstr "Wtyczki przetwarzania danych"
 
@@ -2751,12 +2724,6 @@ msgstr ""
 
 msgid "Data Source"
 msgstr "Źródło danych"
-
-msgid "Data Source Details"
-msgstr "Szczegóły źródła danych"
-
-msgid "Data Source Overview"
-msgstr "Przegląd źródła danych"
 
 msgid "Data Source Type"
 msgstr "Typ źródła danych"
@@ -4655,17 +4622,8 @@ msgstr "Kończenie zmiany rozmiaru lub migracji"
 msgid "Firewall %s was successfully updated."
 msgstr "Zaktualizowano zaporę ogniową %s."
 
-msgid "Firewall Details"
-msgstr "Szczegóły zapory ogniowej"
-
 msgid "Firewall Policies"
 msgstr "Zasady zapory ogniowej"
-
-msgid "Firewall Policy Details"
-msgstr "Szczegóły zasad zapory ogniowej"
-
-msgid "Firewall Rule Details"
-msgstr "Szczegóły reguły zapory ogniowej"
 
 msgid "Firewall Rules"
 msgstr "Reguły zapory ogniowej"
@@ -5463,12 +5421,6 @@ msgstr "Log konsoli instancji"
 msgid "Instance Count"
 msgstr "Ilość instancji"
 
-msgid "Instance Details"
-msgstr "Szczegóły instancji"
-
-msgid "Instance Details: {{ instance.name }}"
-msgstr "Szczegóły instancji: {{ instance.name }}"
-
 msgid "Instance ID"
 msgstr "ID instancji"
 
@@ -5584,20 +5536,8 @@ msgstr "Zadanie"
 msgid "Job Binaries"
 msgstr "Pliki binarne zadania"
 
-msgid "Job Binary Details"
-msgstr "Szczegóły pliku binarnego zadania"
-
-msgid "Job Binary Overview"
-msgstr "Przegląd pliku binarnego zadania"
-
 msgid "Job Configuration"
 msgstr "Konfiguracja zadania"
-
-msgid "Job Details"
-msgstr "Szczegóły zadania"
-
-msgid "Job Execution Details"
-msgstr "Szczegóły wykonania zadania"
 
 msgid "Job Execution Guide"
 msgstr "Przewodnik wykonywania zadań"
@@ -5608,14 +5548,8 @@ msgstr "Execution ID zadania"
 msgid "Job Guide"
 msgstr "Przewodnik zadań"
 
-msgid "Job Overview"
-msgstr "Przegląd zadania"
-
 msgid "Job Template"
 msgstr "Szablon zadania"
-
-msgid "Job Template Details"
-msgstr "Szczegóły szablonu zadania"
 
 msgid "Job Templates"
 msgstr "Szablony zadań"
@@ -6336,12 +6270,6 @@ msgstr "Utworzono przestrzeń nazw %s."
 msgid "Namespace Definition Source"
 msgstr "Źródło definicji przestrzeni nazw"
 
-msgid "Namespace Details"
-msgstr "Szczegóły przestrzeni nazw"
-
-msgid "Namespace Details: {{ namespace.namespace }}"
-msgstr "Szczegóły przestrzeni nazw: {{ namespace.namespace }}"
-
 msgid "Namespace JSON"
 msgstr "JSON przestrzeni nazw"
 
@@ -6736,9 +6664,6 @@ msgstr "Grupa węzłów"
 msgid "Node Group Template %s updated"
 msgstr "Zaktualizowano szablon grupy węzłów %s"
 
-msgid "Node Group Template Details"
-msgstr "Szczegóły szablonu grupy węzłów"
-
 #, python-format
 msgid "Node Group Template copy %s created"
 msgstr "Utworzono kopię szablonu grupy węzłów %s."
@@ -6764,9 +6689,6 @@ msgstr "Klaster grupy węzłów"
 
 msgid "Node processes are not specified"
 msgstr "Nie podano procesów węzła"
-
-msgid "Nodegroup Template Details"
-msgstr "Szczegóły szablonu grupy węzłów"
 
 msgid "Nodes Count"
 msgstr "Liczba węzłów"
@@ -7885,12 +7807,6 @@ msgstr "Zmienianie rozmiaru wolumenu „%s”"
 msgid "Resource"
 msgstr "Zasób"
 
-msgid "Resource Details"
-msgstr "Szczegóły zasobu"
-
-msgid "Resource Details: {{ resource.resource_name }}"
-msgstr "Szczegóły zasobu: {{ resource.resource_name }}"
-
 msgid "Resource ID"
 msgstr "ID zasobu"
 
@@ -7899,12 +7815,6 @@ msgstr "Metadane zasobu"
 
 msgid "Resource Overview"
 msgstr "Przegląd zasobu"
-
-msgid "Resource Type"
-msgstr "Typ zasobu"
-
-msgid "Resource Type Details"
-msgstr "Szczegóły typu zasobu"
 
 msgid "Resource Types"
 msgstr "Typy zasobów"
@@ -8109,9 +8019,6 @@ msgstr "Utworzono router %s."
 #, python-format
 msgid "Router %s was successfully updated."
 msgstr "Zaktualizowano router %s."
-
-msgid "Router Details"
-msgstr "Szczegóły routera"
 
 msgid "Router ID"
 msgstr "ID routera"
@@ -9070,12 +8977,6 @@ msgstr ""
 msgid "Specs"
 msgstr "Specyfikacja"
 
-msgid "Stack Details"
-msgstr "Szczegóły stosu"
-
-msgid "Stack Details: {{ stack.stack_name }}"
-msgstr "Szczegóły stosu: {{ stack.stack_name }}"
-
 msgid "Stack Events"
 msgstr "Zdarzenia stosu"
 
@@ -9084,9 +8985,6 @@ msgstr "ID stosu"
 
 msgid "Stack Name"
 msgstr "Nazwa stosu"
-
-msgid "Stack Overview"
-msgstr "Przegląd stosu"
 
 msgid "Stack Parameters"
 msgstr "Parametry stosu"
@@ -9505,9 +9403,6 @@ msgstr "Plik szablonu"
 
 msgid "Template Name"
 msgstr "Nazwa szablonu"
-
-msgid "Template Overview"
-msgstr "Przegląd szablonu"
 
 msgid "Template Source"
 msgstr "Źródło szablonu"
@@ -11576,9 +11471,6 @@ msgstr "Nie można wysłać obiektu."
 #, python-format
 msgid "Unable to upload volume to image for volume: \"%s\""
 msgstr "Nie można przesłać obrazu wolumenu dla wolumenu: „%s”."
-
-msgid "Undefined"
-msgstr "Niezdefiniowane"
 
 msgid "Unit"
 msgstr "Jednostka"

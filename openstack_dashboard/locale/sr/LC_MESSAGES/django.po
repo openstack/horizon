@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-11-10 01:06+0000\n"
+"POT-Creation-Date: 2015-11-11 05:16+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -313,15 +313,6 @@ msgstr "Dodaj pravilo"
 
 msgid "Add/Remove Hosts to Aggregate"
 msgstr "Dodaj/Izbaci host iz skupa"
-
-msgid "AddFirewall"
-msgstr "AddFirewall"
-
-msgid "AddPolicy"
-msgstr "AddPolicy"
-
-msgid "AddRule"
-msgstr "AddRule"
 
 #, python-format
 msgid "Added Firewall \"%s\"."
@@ -2013,17 +2004,8 @@ msgstr "Završena promena veličine ili seoba"
 msgid "Firewall %s was successfully updated."
 msgstr "Firewall %s je uspešno izmenjen."
 
-msgid "Firewall Details"
-msgstr "Detalji firewall-a"
-
 msgid "Firewall Policies"
 msgstr "Politike Firewall-a"
-
-msgid "Firewall Policy Details"
-msgstr "Detalji politika Firewall-a"
-
-msgid "Firewall Rule Details"
-msgstr "Detalji pravila firewall-a"
 
 msgid "Firewall Rules"
 msgstr "Pravila Firewall-a"
@@ -2458,9 +2440,6 @@ msgstr "Log konzole instance"
 
 msgid "Instance Count"
 msgstr "Broj instanci"
-
-msgid "Instance Details"
-msgstr "Detalji instance"
 
 msgid "Instance ID"
 msgstr "ID instance"
@@ -3709,9 +3688,6 @@ msgstr "Ruter"
 msgid "Router %s was successfully created."
 msgstr "Ruter %s je uspešno kreiran."
 
-msgid "Router Details"
-msgstr "Detalji rutera"
-
 msgid "Router ID"
 msgstr "ID rutera"
 
@@ -4094,9 +4070,6 @@ msgstr "ID stack-a"
 
 msgid "Stack Name"
 msgstr "Ime stack-a"
-
-msgid "Stack Overview"
-msgstr "Pregled stack-a"
 
 msgid "Stack Parameters"
 msgstr "Parametri stack-a"

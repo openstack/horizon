@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-11-10 01:06+0000\n"
+"POT-Creation-Date: 2015-11-11 05:16+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -590,15 +590,6 @@ msgstr "નિયમ ઉમેરો"
 msgid "Add/Remove Hosts to Aggregate"
 msgstr "સમુહમાં યજમાનો ઉમેરો/દૂર કરો"
 
-msgid "AddFirewall"
-msgstr "ફાયરવોલ ઉમેરો"
-
-msgid "AddPolicy"
-msgstr "પોલિસી ઉમેરો"
-
-msgid "AddRule"
-msgstr "નિયમ ઉમેરો"
-
 #, python-format
 msgid "Added Firewall \"%s\"."
 msgstr "ઉમેરવામાં આવેલ ફાયરવોલ \"%s\"."
@@ -1169,23 +1160,14 @@ msgstr "બંધ કરો"
 msgid "Cluster"
 msgstr "ક્લસ્ટર"
 
-msgid "Cluster Details"
-msgstr "ક્લસ્ટર વિગતો"
-
 msgid "Cluster Instances"
 msgstr "ક્લસ્ટર ઉદાહરણો"
 
 msgid "Cluster Name"
 msgstr "ક્લસ્ટર નામ"
 
-msgid "Cluster Overview"
-msgstr "ક્લસ્ટર અવલોકન"
-
 msgid "Cluster Template"
 msgstr "ક્લસ્ટર ટેમ્પલેટ"
-
-msgid "Cluster Template Details"
-msgstr "ક્લસ્ટર ટેમ્પલેટ વિગતો"
 
 msgid "Cluster Template Name"
 msgstr "ક્લસ્ટર ટેમ્પલેટ નામ"
@@ -1842,9 +1824,6 @@ msgstr "ડેટા પ્રોસેસીંગ"
 msgid "Data Processing Plugin Details"
 msgstr "માહિતી પ્રક્રિયા પ્લગઇન વિગતો"
 
-msgid "Data Processing Plugin Overview"
-msgstr "માહિતી પ્રક્રિયા પ્લગઇન અવલોકન"
-
 msgid "Data Processing Plugins"
 msgstr "માહિતી પ્રક્રિયા પ્લગઇન "
 
@@ -1857,12 +1836,6 @@ msgid ""
 msgstr ""
 "ડેટા પ્રક્રિયા વિવિધ સંગ્રહ સ્થાનના વિકલ્પો પૂરા પાડે છે. ઉદાહરણો સાથે જોડવા માટે તમે "
 "ક્ષણિક ડ્રાઇવ અથવા સિન્ડેર વોલ્યુમ પસંદ કરી શકો છો."
-
-msgid "Data Source Details"
-msgstr "માહિતી સ્રોત વિગતો"
-
-msgid "Data Source Overview"
-msgstr "માહિતી સ્રોત અવલોકન"
 
 msgid "Data Source Type"
 msgstr "માહિતી સ્રોત પ્રકાર"
@@ -2894,17 +2867,8 @@ msgstr "માપ બદલી અથવા સ્થળાંતર સમા�
 msgid "Firewall %s was successfully updated."
 msgstr "ફાયરવોલ% s સફળતાપૂર્વક અદ્યતન કરવામાં આવી."
 
-msgid "Firewall Details"
-msgstr "ફાયરવોલ વિગતો"
-
 msgid "Firewall Policies"
 msgstr "ફાયરવોલ પૉલિસીઓ"
-
-msgid "Firewall Policy Details"
-msgstr "ફાયરવોલ પોલિસી વિગતો"
-
-msgid "Firewall Rule Details"
-msgstr "ફાયરવોલ નિયમની વિગતો"
 
 msgid "Firewall Rules"
 msgstr "ફાયરવોલ નિયમો"
@@ -3549,9 +3513,6 @@ msgstr "ઇન્સ્ટન્સ કન્સોલ લોગ"
 msgid "Instance Count"
 msgstr "ઇન્સ્ટન્સ ગણક"
 
-msgid "Instance Details"
-msgstr "ઉદાહરણની વિગતો"
-
 msgid "Instance ID"
 msgstr "ઇન્સ્ટન્સ ID"
 
@@ -3636,20 +3597,8 @@ msgstr "જોબ"
 msgid "Job Binaries"
 msgstr "જોબ(નોકરી) બાઇનરી"
 
-msgid "Job Binary Details"
-msgstr "જોબ બાઈનરી વિગતો"
-
-msgid "Job Binary Overview"
-msgstr "જોબ બાઈનરી અવલોકન"
-
 msgid "Job Configuration"
 msgstr "જોબ રૂપરેખાંકન"
-
-msgid "Job Details"
-msgstr "નોકરીની વિગતો"
-
-msgid "Job Execution Details"
-msgstr "જોબ એક્ઝેક્યુશન વિગતો"
 
 msgid "Job Execution ID"
 msgstr "જોબ એક્ઝેક્યુશન ID"
@@ -4418,9 +4367,6 @@ msgstr "કોઈ વોલ્યુમો ઉપલબ્ધ નથી"
 msgid "Node Configurations"
 msgstr "નોડ રૂપરેખાંકનો"
 
-msgid "Node Group Template Details"
-msgstr "નોડ ગ્રુપ ટેમ્પલેટ વિગતો"
-
 #, python-format
 msgid "Node Group Template copy %s created"
 msgstr "નોડ ગ્રુપ ટેમ્પલેટ નકલ %s બનાવેલ"
@@ -4446,9 +4392,6 @@ msgstr "નોડ જૂથ ક્લસ્ટર"
 
 msgid "Node processes are not specified"
 msgstr "નોડ પ્રક્રિયાઓ સ્પષ્ટ કરવામાં આવેલ નથી"
-
-msgid "Nodegroup Template Details"
-msgstr "Nodegroup ટેમ્પલેટ વિગતો"
 
 msgid "Nodes Count"
 msgstr "નોડ્સ કાઉન્ટ"
@@ -5190,9 +5133,6 @@ msgstr "વોલ્યુમ માપ બદલી રહ્યા છે \"%s
 msgid "Resource"
 msgstr "સંસાધન"
 
-msgid "Resource Details"
-msgstr "સંસાધનની વિગતો"
-
 msgid "Resource ID"
 msgstr "સંસાધન ID"
 
@@ -5301,9 +5241,6 @@ msgstr "રૂટર %s સફળતાપૂર્વક બનાવવામ�
 #, python-format
 msgid "Router %s was successfully updated."
 msgstr "રૂટર %s સફળતાપૂર્વક સુધારવામાં આવ્યું હતું."
-
-msgid "Router Details"
-msgstr "રૂટર વિગતો"
 
 msgid "Router ID"
 msgstr "રૂટર ID"
@@ -5909,9 +5846,6 @@ msgstr "ડેટાબેઝ ઉદાહરણ માટે નવા વો�
 msgid "Specs"
 msgstr "સ્પેક્સ"
 
-msgid "Stack Details"
-msgstr "સ્ટેક વિગતો"
-
 msgid "Stack Events"
 msgstr "સ્ટેક ઘટનાઓ"
 
@@ -5920,9 +5854,6 @@ msgstr "સ્ટેક ID"
 
 msgid "Stack Name"
 msgstr "સ્ટેક નામ"
-
-msgid "Stack Overview"
-msgstr "સ્ટેક અવલોકન"
 
 msgid "Stack Parameters"
 msgstr "સ્ટેક પરિમાણો"
@@ -6204,9 +6135,6 @@ msgstr "ટેમ્પલેટ ફાઇલ"
 
 msgid "Template Name"
 msgstr "ટેમ્પલેટ નામ"
-
-msgid "Template Overview"
-msgstr "ટેમ્પલેટ અવલોકન"
 
 msgid "Template Source"
 msgstr "ટેમ્પલેટ સ્રોત"

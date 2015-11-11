@@ -34,7 +34,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-11-10 01:06+0000\n"
+"POT-Creation-Date: 2015-11-11 05:16+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -1046,15 +1046,6 @@ msgstr ""
 msgid "Add/Remove Hosts to Aggregate"
 msgstr "Ajouter/Enlever des hôtes dans l'agrégat."
 
-msgid "AddFirewall"
-msgstr "Ajouter un pare-feu"
-
-msgid "AddPolicy"
-msgstr "Ajouter une stratégie"
-
-msgid "AddRule"
-msgstr "Ajouter une règle"
-
 #, python-format
 msgid "Added Firewall \"%s\"."
 msgstr "Pare-feu \"%s\" ajouté."
@@ -1909,15 +1900,6 @@ msgstr "Nombre de cluster"
 msgid "Cluster Creation Guide"
 msgstr "Guide de création d'un cluster"
 
-msgid "Cluster Detail"
-msgstr "Détail du cluster"
-
-msgid "Cluster Details"
-msgstr "Détails du cluster"
-
-msgid "Cluster Details: {{ cluster.name }}"
-msgstr "Détail du cluster: {{ cluster.name }}"
-
 msgid "Cluster Events"
 msgstr "Cluster d’événements"
 
@@ -1930,9 +1912,6 @@ msgstr "Instances de cluster"
 msgid "Cluster Name"
 msgstr "Nom du cluster"
 
-msgid "Cluster Overview"
-msgstr "Aperçu du cluster"
-
 msgid "Cluster Size"
 msgstr "Taille du cluster"
 
@@ -1942,9 +1921,6 @@ msgstr "Modèle de cluster"
 #, python-format
 msgid "Cluster Template %s updated"
 msgstr "Modèle de cluster %s mis a jour"
-
-msgid "Cluster Template Details"
-msgstr "Détails du modèle de cluster"
 
 msgid "Cluster Template Name"
 msgstr "Nom du Modèle de Cluster"
@@ -2803,9 +2779,6 @@ msgstr "Guides de traitement des données"
 msgid "Data Processing Plugin Details"
 msgstr "Détails du plugin de traitement des données"
 
-msgid "Data Processing Plugin Overview"
-msgstr "Aperçu du plugin de traitement des données"
-
 msgid "Data Processing Plugins"
 msgstr "Plugins de traitement des données"
 
@@ -2822,12 +2795,6 @@ msgstr ""
 
 msgid "Data Source"
 msgstr "Source de données"
-
-msgid "Data Source Details"
-msgstr "Détails de la source de données"
-
-msgid "Data Source Overview"
-msgstr "Aperçu de la source de données"
 
 msgid "Data Source Type"
 msgstr "Type de la source de données"
@@ -4671,17 +4638,8 @@ msgstr "Finalisation du redimensionnement ou de la migration"
 msgid "Firewall %s was successfully updated."
 msgstr "Le pare-feu %s a été mis à jour avec succès."
 
-msgid "Firewall Details"
-msgstr "Détails du pare-feu"
-
 msgid "Firewall Policies"
 msgstr "Stratégies de pare-feu"
-
-msgid "Firewall Policy Details"
-msgstr "Détails de la stratégie de pare-feu"
-
-msgid "Firewall Rule Details"
-msgstr "Détails de la règle de pare-feu"
 
 msgid "Firewall Rules"
 msgstr "Règles de pare-feu"
@@ -5523,12 +5481,6 @@ msgstr "Journal de la console de l'instance"
 msgid "Instance Count"
 msgstr "Nombre d'instances"
 
-msgid "Instance Details"
-msgstr "Détails de l'instance"
-
-msgid "Instance Details: {{ instance.name }}"
-msgstr "Détails de l'instance : {{ instance.name }}"
-
 msgid "Instance ID"
 msgstr "ID de l'instance"
 
@@ -5647,20 +5599,8 @@ msgstr "Tâche"
 msgid "Job Binaries"
 msgstr "Binaires de Tâche"
 
-msgid "Job Binary Details"
-msgstr "Détails du Binaire de Tâche"
-
-msgid "Job Binary Overview"
-msgstr "Vue d'ensemble du Binaire de Tâche"
-
 msgid "Job Configuration"
 msgstr "Configuration de la tâche"
-
-msgid "Job Details"
-msgstr "Détails de la tâche"
-
-msgid "Job Execution Details"
-msgstr "Détails sur l'exécution de la tâche"
 
 msgid "Job Execution Guide"
 msgstr "Guide d'exécution de tâches"
@@ -5671,14 +5611,8 @@ msgstr "ID de l'exécution du job"
 msgid "Job Guide"
 msgstr "Guide pour une tâche"
 
-msgid "Job Overview"
-msgstr "Aperçu de la tâche"
-
 msgid "Job Template"
 msgstr "Modèle de tâche"
-
-msgid "Job Template Details"
-msgstr "Informations Modèle Tâches"
 
 msgid "Job Templates"
 msgstr "Modèles de tâches"
@@ -6407,12 +6341,6 @@ msgstr "L'espace de nom %s a été créé."
 msgid "Namespace Definition Source"
 msgstr "Source de la définition de l'espace de nom"
 
-msgid "Namespace Details"
-msgstr "Détails de l'espace de nom"
-
-msgid "Namespace Details: {{ namespace.namespace }}"
-msgstr "Informations sur l'espace de nom : {{ namespace.namespace }}"
-
 msgid "Namespace JSON"
 msgstr "Espace de nom JSON"
 
@@ -6812,9 +6740,6 @@ msgstr "Group de noeud"
 msgid "Node Group Template %s updated"
 msgstr "Le modèle de groupe de noeuds \"%s\" a été mis à jour"
 
-msgid "Node Group Template Details"
-msgstr "Détails du modèle de groupe de noeud"
-
 #, python-format
 msgid "Node Group Template copy %s created"
 msgstr "Copie du modèle de groupe de noeud %s créée"
@@ -6840,9 +6765,6 @@ msgstr "Groupe de nœud pour le cluster"
 
 msgid "Node processes are not specified"
 msgstr "Les processus du noeud ne sont pas spécifiés"
-
-msgid "Nodegroup Template Details"
-msgstr "Détails du modèle de groupe de noeud"
 
 msgid "Nodes Count"
 msgstr "Compteur de noeuds"
@@ -7966,12 +7888,6 @@ msgstr "Redimensionnement du volume \"%s\" en cours"
 msgid "Resource"
 msgstr "Ressource"
 
-msgid "Resource Details"
-msgstr "Détails de la ressource"
-
-msgid "Resource Details: {{ resource.resource_name }}"
-msgstr "Détails des ressources : {{ resource.resource_name }}"
-
 msgid "Resource ID"
 msgstr "Ressource ID"
 
@@ -7980,12 +7896,6 @@ msgstr "Métadonnées de la ressource"
 
 msgid "Resource Overview"
 msgstr "Aperçu de la Ressource"
-
-msgid "Resource Type"
-msgstr "Type de ressource"
-
-msgid "Resource Type Details"
-msgstr "Détails du type de ressource"
 
 msgid "Resource Types"
 msgstr "Types de ressource"
@@ -8184,9 +8094,6 @@ msgstr "Le routeur %s a été créé avec succès."
 #, python-format
 msgid "Router %s was successfully updated."
 msgstr "Le routeur %s a été mis à jour avec succès."
-
-msgid "Router Details"
-msgstr "Détails du routeur"
 
 msgid "Router ID"
 msgstr "ID du routeur"
@@ -9139,12 +9046,6 @@ msgstr ""
 msgid "Specs"
 msgstr "Spécifications"
 
-msgid "Stack Details"
-msgstr "Détails de la Stack"
-
-msgid "Stack Details: {{ stack.stack_name }}"
-msgstr "Détails de la Stack : {{ stack.stack_name }}"
-
 msgid "Stack Events"
 msgstr "Évènements de la stack"
 
@@ -9153,9 +9054,6 @@ msgstr "ID Stack"
 
 msgid "Stack Name"
 msgstr "Nom de la stack"
-
-msgid "Stack Overview"
-msgstr "Vue d'ensemble de la Stack"
 
 msgid "Stack Parameters"
 msgstr "Paramètres de la Stack"
@@ -9570,9 +9468,6 @@ msgstr "Fichier du modèle"
 
 msgid "Template Name"
 msgstr "Nom du modèle"
-
-msgid "Template Overview"
-msgstr "Aperçu du modèle"
 
 msgid "Template Source"
 msgstr "Source du modèle"
@@ -11694,9 +11589,6 @@ msgstr "Impossible de télécharger l'objet."
 #, python-format
 msgid "Unable to upload volume to image for volume: \"%s\""
 msgstr "Incapable de charger le volume dans l'image pour le volume : \"%s\""
-
-msgid "Undefined"
-msgstr "Non défini"
 
 msgid "Unit"
 msgstr "Unité"

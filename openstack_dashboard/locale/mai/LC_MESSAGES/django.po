@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-11-10 01:06+0000\n"
+"POT-Creation-Date: 2015-11-11 05:16+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -594,15 +594,6 @@ msgstr "नियम जोड़ू"
 msgid "Add/Remove Hosts to Aggregate"
 msgstr "सकल सँ मेजबान जोड़ू / हटाउ"
 
-msgid "AddFirewall"
-msgstr "फायरवाल जोड़ू"
-
-msgid "AddPolicy"
-msgstr "नीति जोड़ू"
-
-msgid "AddRule"
-msgstr "नियम जोड़ू"
-
 #, python-format
 msgid "Added Firewall \"%s\"."
 msgstr "जोड़ल गेल फायरवाल \"%s\"."
@@ -1172,23 +1163,14 @@ msgstr "बन्न करू"
 msgid "Cluster"
 msgstr "क्लस्टर"
 
-msgid "Cluster Details"
-msgstr "क्लस्टर विवरण"
-
 msgid "Cluster Instances"
 msgstr "क्लस्टर इंस्टैंस"
 
 msgid "Cluster Name"
 msgstr "क्लस्टर नाम"
 
-msgid "Cluster Overview"
-msgstr "क्लस्टर सारांश"
-
 msgid "Cluster Template"
 msgstr "क्लस्टर नमूना"
-
-msgid "Cluster Template Details"
-msgstr "क्लस्टर नमूना विवरण"
 
 msgid "Cluster Template Name"
 msgstr "क्लस्टर नमूना नाम"
@@ -1846,9 +1828,6 @@ msgstr "डाटा प्रक्रमित कए रहल अछि"
 msgid "Data Processing Plugin Details"
 msgstr "डाटा प्रक्रमन प्लगिन विवरण"
 
-msgid "Data Processing Plugin Overview"
-msgstr "डाटा प्लगिन सारांश"
-
 msgid "Data Processing Plugins"
 msgstr "डाटा प्रक्रमन प्लगिन"
 
@@ -1861,12 +1840,6 @@ msgid ""
 msgstr ""
 "डाटा प्रोसेसिंग अलग-अलग भंडारण स्थान क विकल्प प्रदान करैत अछि. अहाँ दृष्टांत मे संलग्न "
 "करबाक लेल एफिमेरल ड्राइव अथवा एकटा सिंडर वाल्यूम क विकल्प चुन सकैत अछि."
-
-msgid "Data Source Details"
-msgstr "डाटा स्रोत विवरण"
-
-msgid "Data Source Overview"
-msgstr "डाटा स्रोत सारांश"
 
 msgid "Data Source Type"
 msgstr "डाटा स्रोत प्रकार"
@@ -2901,17 +2874,8 @@ msgstr "आकार बदलब अथवा माइग्रेट हो�
 msgid "Firewall %s was successfully updated."
 msgstr "फायरवाल %s सफलतापूर्वक अद्यतन कएल गेल छल."
 
-msgid "Firewall Details"
-msgstr "फायरवाल विवरण"
-
 msgid "Firewall Policies"
 msgstr "फायरवाल नीतियाँ"
-
-msgid "Firewall Policy Details"
-msgstr "फायरवाल नीति विवरण"
-
-msgid "Firewall Rule Details"
-msgstr "फायरवाल नियम विवरण"
 
 msgid "Firewall Rules"
 msgstr "फायरवाल नियम"
@@ -3559,9 +3523,6 @@ msgstr "इंस्टांस कँसोल लाग"
 msgid "Instance Count"
 msgstr "इंस्टांस गणना"
 
-msgid "Instance Details"
-msgstr "इंस्टांस विवरण"
-
 msgid "Instance ID"
 msgstr "इंस्टैंस आईडी"
 
@@ -3647,20 +3608,8 @@ msgstr "काज"
 msgid "Job Binaries"
 msgstr "काज बाइनरीज़"
 
-msgid "Job Binary Details"
-msgstr "काज द्विपदीय विवरण"
-
-msgid "Job Binary Overview"
-msgstr "काज द्विपदीय सारांश"
-
 msgid "Job Configuration"
 msgstr "काज विन्यास"
-
-msgid "Job Details"
-msgstr "काज विवरण"
-
-msgid "Job Execution Details"
-msgstr "काज निष्पादन क विवरण"
 
 msgid "Job Execution ID"
 msgstr "काज निष्पादन ID"
@@ -4431,9 +4380,6 @@ msgstr "कोनो वाल्यूम मोजुद नहि"
 msgid "Node Configurations"
 msgstr "नोड विन्यास"
 
-msgid "Node Group Template Details"
-msgstr "नोड समूह नमूना क विवरण"
-
 #, python-format
 msgid "Node Group Template copy %s created"
 msgstr "नोड समूह नमूना प्रति %s बनायी गेल"
@@ -4459,9 +4405,6 @@ msgstr "नोड समूह क्लस्टर"
 
 msgid "Node processes are not specified"
 msgstr "नोड प्रक्रिया निर्दिष्ट नहि"
-
-msgid "Nodegroup Template Details"
-msgstr "नोडसमूह नमूना क विवरण"
 
 msgid "Nodes Count"
 msgstr "नोड गिनती"
@@ -5203,9 +5146,6 @@ msgstr "वाल्यूम \"%s\" क आकार बदलल जाए र
 msgid "Resource"
 msgstr "साधन"
 
-msgid "Resource Details"
-msgstr "संसाधन क विवरण"
-
 msgid "Resource ID"
 msgstr "संसाधन ID"
 
@@ -5314,9 +5254,6 @@ msgstr "रूटर %s सफलतापूर्वक बनाएल गे
 #, python-format
 msgid "Router %s was successfully updated."
 msgstr "राटर %s सफलतापूर्वक अद्यतन कएल गेल छल."
-
-msgid "Router Details"
-msgstr "रूटर विवरण"
 
 msgid "Router ID"
 msgstr "रूटर आईडी"
@@ -5925,9 +5862,6 @@ msgstr "डाटाबेस दृष्टांत क लेल नव व�
 msgid "Specs"
 msgstr "विशिष्टता"
 
-msgid "Stack Details"
-msgstr "स्टैक क विवरण"
-
 msgid "Stack Events"
 msgstr "ढेर घटनाक्रम"
 
@@ -5936,9 +5870,6 @@ msgstr "ढेर आईडी"
 
 msgid "Stack Name"
 msgstr " ढेर नाम"
-
-msgid "Stack Overview"
-msgstr "ढेर अवलोकन"
 
 msgid "Stack Parameters"
 msgstr "ढेर पैरामीटर्स"
@@ -6218,9 +6149,6 @@ msgstr "नमूना फाइल"
 
 msgid "Template Name"
 msgstr "नमूना नाम"
-
-msgid "Template Overview"
-msgstr "नमूना सारांश"
 
 msgid "Template Source"
 msgstr "नमूना स्रोत"

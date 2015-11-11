@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-11-10 01:06+0000\n"
+"POT-Creation-Date: 2015-11-11 05:16+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -463,15 +463,6 @@ msgstr "नियम जोड़ें"
 
 msgid "Add/Remove Hosts to Aggregate"
 msgstr "सकल से होस्ट जोड़ें / हटाये"
-
-msgid "AddFirewall"
-msgstr "फ़ायरवॉल जोड़ें"
-
-msgid "AddPolicy"
-msgstr "नीति जोड़ें"
-
-msgid "AddRule"
-msgstr "नियम जोड़ें"
 
 #, python-format
 msgid "Added Firewall \"%s\"."
@@ -983,23 +974,14 @@ msgstr "केवल कंसोल दिखाने के लिए यह�
 msgid "Close"
 msgstr "बंद करें"
 
-msgid "Cluster Details"
-msgstr "क्लस्टर विवरण"
-
 msgid "Cluster Instances"
 msgstr "क्लस्टर इंस्टैंस"
 
 msgid "Cluster Name"
 msgstr "क्लस्टर नाम"
 
-msgid "Cluster Overview"
-msgstr "क्लस्टर सारांश"
-
 msgid "Cluster Template"
 msgstr "क्लस्टर नमूना"
-
-msgid "Cluster Template Details"
-msgstr "क्लस्टर टैम्प्लेट विवरण"
 
 msgid "Cluster Template Name"
 msgstr "क्लस्टर टैम्प्लेट नाम"
@@ -1525,17 +1507,8 @@ msgstr "डाटा प्रक्रमित कर रहा है"
 msgid "Data Processing Plugin Details"
 msgstr "डाटा प्रक्रमन प्लगिन विवरण"
 
-msgid "Data Processing Plugin Overview"
-msgstr "डाटा प्लगिन सारांश"
-
 msgid "Data Processing Plugins"
 msgstr "डाटा प्रक्रमन प्लगिन"
-
-msgid "Data Source Details"
-msgstr "डाटा स्रोत विवरण"
-
-msgid "Data Source Overview"
-msgstr "डाटा स्रोत सारांश"
 
 msgid "Data Source Type"
 msgstr "डेटा स्रोत प्रकार"
@@ -2694,17 +2667,8 @@ msgstr "आकार बदलने या माइग्रेट होन�
 msgid "Firewall %s was successfully updated."
 msgstr "फ़ायरवॉल %s सफलतापूर्वक अद्यतन किया गया था."
 
-msgid "Firewall Details"
-msgstr "फायरवॉल विवरण"
-
 msgid "Firewall Policies"
 msgstr "फ़ायरवॉल नीतियाँ"
-
-msgid "Firewall Policy Details"
-msgstr "फ़ायरवॉल नीति विवरण"
-
-msgid "Firewall Rule Details"
-msgstr "फ़ायरवॉल नियम विवरण"
 
 msgid "Firewall Rules"
 msgstr "फायरवॉल नियम"
@@ -3226,9 +3190,6 @@ msgstr "इंस्टांस कंसोल लॉग"
 msgid "Instance Count"
 msgstr "इंस्टांस गणना"
 
-msgid "Instance Details"
-msgstr "इंस्टांस विवरण"
-
 msgid "Instance ID"
 msgstr "इंस्टैंस आईडी"
 
@@ -3307,17 +3268,8 @@ msgstr "कार्य"
 msgid "Job Binaries"
 msgstr "कार्य बाइनरीज़"
 
-msgid "Job Binary Details"
-msgstr "कार्य द्विपदीय विवरण"
-
-msgid "Job Binary Overview"
-msgstr "कार्य बाइनरी सारांश"
-
 msgid "Job Configuration"
 msgstr "कार्य विन्यास"
-
-msgid "Job Details"
-msgstr "कार्य विवरण"
 
 msgid "Job Type"
 msgstr "कार्य क़िस्म"
@@ -4692,9 +4644,6 @@ msgstr "रूटर %s सफलतापूर्वक बनाया गय
 msgid "Router %s was successfully updated."
 msgstr "रॉटर %s सफलतापूर्वक अद्यतन किया गया था."
 
-msgid "Router Details"
-msgstr "रूटर विवरण"
-
 msgid "Router ID"
 msgstr "रूटर आईडी"
 
@@ -5152,9 +5101,6 @@ msgstr "ढेर आईडी"
 msgid "Stack Name"
 msgstr " ढेर नाम"
 
-msgid "Stack Overview"
-msgstr "ढेर अवलोकन"
-
 msgid "Stack Parameters"
 msgstr "ढेर पैरामीटर्स"
 
@@ -5377,9 +5323,6 @@ msgstr "टेम्पलेट फ़ाइल"
 
 msgid "Template Name"
 msgstr "टैम्प्लेट नाम"
-
-msgid "Template Overview"
-msgstr "नमूना सारांश"
 
 msgid "Template Source"
 msgstr "टेम्पलेट स्रोत"

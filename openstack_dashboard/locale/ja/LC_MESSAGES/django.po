@@ -17,7 +17,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-11-10 01:06+0000\n"
+"POT-Creation-Date: 2015-11-11 05:16+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -1017,15 +1017,6 @@ msgstr ""
 msgid "Add/Remove Hosts to Aggregate"
 msgstr "アグリゲートのホストを追加・削除"
 
-msgid "AddFirewall"
-msgstr "ファイアウォールの追加"
-
-msgid "AddPolicy"
-msgstr "ポリシーの追加"
-
-msgid "AddRule"
-msgstr "ルールの追加"
-
 #, python-format
 msgid "Added Firewall \"%s\"."
 msgstr "ファイアウォール \"%s\" を追加しました。"
@@ -1870,15 +1861,6 @@ msgstr "クラスター数"
 msgid "Cluster Creation Guide"
 msgstr "クラスター作成のガイド"
 
-msgid "Cluster Detail"
-msgstr "クラスターの詳細"
-
-msgid "Cluster Details"
-msgstr "クラスターの詳細"
-
-msgid "Cluster Details: {{ cluster.name }}"
-msgstr "クラスターの詳細: {{ cluster.name }}"
-
 msgid "Cluster Events"
 msgstr "クラスターのイベント"
 
@@ -1891,9 +1873,6 @@ msgstr "クラスターインスタンス"
 msgid "Cluster Name"
 msgstr "クラスター名"
 
-msgid "Cluster Overview"
-msgstr "クラスターの概要"
-
 msgid "Cluster Size"
 msgstr "クラスターサイズ"
 
@@ -1903,9 +1882,6 @@ msgstr "クラスターテンプレート"
 #, python-format
 msgid "Cluster Template %s updated"
 msgstr " クラスターテンプレート %s が更新されました。"
-
-msgid "Cluster Template Details"
-msgstr "クラスターテンプレートの詳細"
 
 msgid "Cluster Template Name"
 msgstr "クラスターテンプレート名"
@@ -2758,9 +2734,6 @@ msgstr "データ処理のガイド"
 msgid "Data Processing Plugin Details"
 msgstr "データ処理プラグインの詳細"
 
-msgid "Data Processing Plugin Overview"
-msgstr "データ処理プラグインの概要"
-
 msgid "Data Processing Plugins"
 msgstr "データ処理プラグイン"
 
@@ -2776,12 +2749,6 @@ msgstr ""
 
 msgid "Data Source"
 msgstr "データソース"
-
-msgid "Data Source Details"
-msgstr "データソースの詳細"
-
-msgid "Data Source Overview"
-msgstr "データソースの概要"
 
 msgid "Data Source Type"
 msgstr "データソース種別"
@@ -4509,17 +4476,8 @@ msgstr "リサイズ/マイグレーションの終了中"
 msgid "Firewall %s was successfully updated."
 msgstr "ファイアウォール %s が正常に更新されました。"
 
-msgid "Firewall Details"
-msgstr "ファイアウォールの詳細"
-
 msgid "Firewall Policies"
 msgstr "ファイアウォールポリシー"
-
-msgid "Firewall Policy Details"
-msgstr "ファイアウォールポリシーの詳細"
-
-msgid "Firewall Rule Details"
-msgstr "ファイアウォールルールの詳細"
 
 msgid "Firewall Rules"
 msgstr "ファイアウォールルール"
@@ -5344,12 +5302,6 @@ msgstr "インスタンスのコンソールログ"
 msgid "Instance Count"
 msgstr "インスタンス数"
 
-msgid "Instance Details"
-msgstr "インスタンスの詳細"
-
-msgid "Instance Details: {{ instance.name }}"
-msgstr "インスタンスの詳細: {{ instance.name }}"
-
 msgid "Instance ID"
 msgstr "インスタンス ID"
 
@@ -5459,20 +5411,8 @@ msgstr "ジョブ"
 msgid "Job Binaries"
 msgstr "ジョブバイナリー"
 
-msgid "Job Binary Details"
-msgstr "ジョブバイナリーの詳細"
-
-msgid "Job Binary Overview"
-msgstr "ジョブバイナリーの概要"
-
 msgid "Job Configuration"
 msgstr "ジョブ設定"
-
-msgid "Job Details"
-msgstr "ジョブ詳細"
-
-msgid "Job Execution Details"
-msgstr "ジョブ実行の詳細"
 
 msgid "Job Execution Guide"
 msgstr "ジョブ実行のガイド"
@@ -5483,14 +5423,8 @@ msgstr "ジョブ実行 ID"
 msgid "Job Guide"
 msgstr "ジョブのガイド"
 
-msgid "Job Overview"
-msgstr "ジョブの概要"
-
 msgid "Job Template"
 msgstr "ジョブテンプレート"
-
-msgid "Job Template Details"
-msgstr "ジョブテンプレートの詳細"
 
 msgid "Job Templates"
 msgstr "ジョブテンプレート"
@@ -6204,12 +6138,6 @@ msgstr "名前空間 %s が作成されました。"
 msgid "Namespace Definition Source"
 msgstr "名前空間定義の入力方法"
 
-msgid "Namespace Details"
-msgstr "名前空間の詳細"
-
-msgid "Namespace Details: {{ namespace.namespace }}"
-msgstr "名前空間の詳細: {{ namespace.namespace }}"
-
 msgid "Namespace JSON"
 msgstr "名前空間のJSON"
 
@@ -6611,9 +6539,6 @@ msgstr "ノードグループ"
 msgid "Node Group Template %s updated"
 msgstr "ノードグループテンプレート %s が更新されました。"
 
-msgid "Node Group Template Details"
-msgstr "ノードグループテンプレートの詳細"
-
 #, python-format
 msgid "Node Group Template copy %s created"
 msgstr "ノードグループテンプレートのコピー %s を作成しました"
@@ -6639,9 +6564,6 @@ msgstr "ノードグループクラスター"
 
 msgid "Node processes are not specified"
 msgstr "ノードプロセスは指定されていません"
-
-msgid "Nodegroup Template Details"
-msgstr "ノードグループテンプレートの詳細"
 
 msgid "Nodes Count"
 msgstr "ノード数"
@@ -7760,12 +7682,6 @@ msgstr "ボリューム \"%s\" をリサイズ中"
 msgid "Resource"
 msgstr "リソース"
 
-msgid "Resource Details"
-msgstr "リソースの詳細"
-
-msgid "Resource Details: {{ resource.resource_name }}"
-msgstr "リソースの詳細: {{ resource.resource_name }}"
-
 msgid "Resource ID"
 msgstr "リソース ID"
 
@@ -7774,12 +7690,6 @@ msgstr "リソースのメタデータ"
 
 msgid "Resource Overview"
 msgstr "リソースの概要"
-
-msgid "Resource Type"
-msgstr "リソース種別"
-
-msgid "Resource Type Details"
-msgstr "リソース種別の詳細"
 
 msgid "Resource Types"
 msgstr "リソース種別"
@@ -7972,9 +7882,6 @@ msgstr "ルーター %s が正常に作成されました。"
 #, python-format
 msgid "Router %s was successfully updated."
 msgstr "ルーター %s が正常に更新されました。"
-
-msgid "Router Details"
-msgstr "ルーターの詳細"
 
 msgid "Router ID"
 msgstr "ルーター ID"
@@ -8895,12 +8802,6 @@ msgstr ""
 msgid "Specs"
 msgstr "スペック"
 
-msgid "Stack Details"
-msgstr "スタックの詳細"
-
-msgid "Stack Details: {{ stack.stack_name }}"
-msgstr "スタックの詳細: {{ stack.stack_name }}"
-
 msgid "Stack Events"
 msgstr "スタックイベント"
 
@@ -8909,9 +8810,6 @@ msgstr "スタック ID"
 
 msgid "Stack Name"
 msgstr "スタック名"
-
-msgid "Stack Overview"
-msgstr "スタックの概要"
 
 msgid "Stack Parameters"
 msgstr "スタックのパラメーター"
@@ -9322,9 +9220,6 @@ msgstr "テンプレートファイル"
 
 msgid "Template Name"
 msgstr "テンプレート名"
-
-msgid "Template Overview"
-msgstr "テンプレートの概要"
 
 msgid "Template Source"
 msgstr "テンプレートの指定方法"
@@ -11393,9 +11288,6 @@ msgstr "オブジェクトをアップロードできません。"
 #, python-format
 msgid "Unable to upload volume to image for volume: \"%s\""
 msgstr "ボリューム %s をイメージにアップロードできません。"
-
-msgid "Undefined"
-msgstr "未定義"
 
 msgid "Unit"
 msgstr "単位"
