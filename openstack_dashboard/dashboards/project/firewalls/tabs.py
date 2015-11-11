@@ -12,7 +12,6 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
-from django.core.urlresolvers import reverse_lazy
 from django.utils.translation import ugettext_lazy as _
 
 from horizon import exceptions
@@ -94,64 +93,30 @@ class FirewallsTab(tabs.TableTab):
 
 
 class RuleDetailsTab(tabs.Tab):
-    name = _("Firewall Rule Details")
+    name = _("Rule")
     slug = "ruledetails"
     template_name = "project/firewalls/_rule_details.html"
-    failure_url = reverse_lazy('horizon:project:firewalls:index')
 
     def get_context_data(self, request):
-        rid = self.tab_group.kwargs['rule_id']
-        try:
-            rule = api.fwaas.rule_get(request, rid)
-        except Exception:
-            exceptions.handle(request,
-                              _('Unable to retrieve rule details.'),
-                              redirect=self.failure_url)
-        return {'rule': rule}
+        return {"rule": self.tab_group.kwargs['rule']}
 
 
 class PolicyDetailsTab(tabs.Tab):
-    name = _("Firewall Policy Details")
+    name = _("Policy")
     slug = "policydetails"
     template_name = "project/firewalls/_policy_details.html"
-    failure_url = reverse_lazy('horizon:project:firewalls:index')
 
     def get_context_data(self, request):
-        pid = self.tab_group.kwargs['policy_id']
-        try:
-            policy = api.fwaas.policy_get(request, pid)
-        except Exception:
-            exceptions.handle(request,
-                              _('Unable to retrieve policy details.'),
-                              redirect=self.failure_url)
-        return {'policy': policy}
+        return {"policy": self.tab_group.kwargs['policy']}
 
 
 class FirewallDetailsTab(tabs.Tab):
-    name = _("Firewall Details")
+    name = _("Firewall")
     slug = "firewalldetails"
     template_name = "project/firewalls/_firewall_details.html"
-    failure_url = reverse_lazy('horizon:project:firewalls:index')
 
     def get_context_data(self, request):
-        fid = self.tab_group.kwargs['firewall_id']
-        try:
-            firewall = api.fwaas.firewall_get(request, fid)
-            body = {'firewall': firewall}
-            if api.neutron.is_extension_supported(request,
-                                                  'fwaasrouterinsertion'):
-                tenant_id = self.request.user.tenant_id
-                tenant_routers = api.neutron.router_list(request,
-                                                         tenant_id=tenant_id)
-                router_ids = firewall.get_dict()['router_ids']
-                routers = [r for r in tenant_routers
-                           if r['id'] in router_ids]
-                body['routers'] = routers
-        except Exception:
-            exceptions.handle(request,
-                              _('Unable to retrieve firewall details.'),
-                              redirect=self.failure_url)
-        return body
+        return {"firewall": self.tab_group.kwargs['firewall']}
 
 
 class FirewallTabs(tabs.TabGroup):

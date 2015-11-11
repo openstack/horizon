@@ -81,10 +81,10 @@ class DetailView(tabs.TabView):
                                           network_id=port.network_id)
         # TODO(robcresswell) Add URL for "Ports" crumb after bug/1416838
         breadcrumb = [
-            ("Networks", self.get_redirect_url()),
+            (_("Networks"), self.get_redirect_url()),
             (network_nav, reverse('horizon:project:networks:detail',
                                   args=(port.network_id,))),
-            ("Ports",), ]
+            (_("Ports"),), ]
         context["custom_breadcrumb"] = breadcrumb
         context["port"] = port
         context["url"] = self.get_redirect_url()

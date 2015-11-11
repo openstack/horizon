@@ -79,23 +79,127 @@ class AddFirewallView(workflows.WorkflowView):
         return workflow
 
 
-class FireWallDetailTabs(tabs.TabView):
-    template_name = 'project/firewalls/details_tabs.html'
-
-
-class RuleDetailsView(FireWallDetailTabs):
+class RuleDetailsView(tabs.TabView):
     tab_group_class = (RuleDetailsTabs)
-    page_title = _("Firewall Rule Details")
+    template_name = 'horizon/common/_detail.html'
+    page_title = "{{ rule.name|default:rule.id }}"
+    failure_url = reverse_lazy('horizon:project:firewalls:index')
+
+    def get_context_data(self, **kwargs):
+        context = super(RuleDetailsView, self).get_context_data(**kwargs)
+        rule = self.get_data()
+        table = fw_tabs.RulesTable(self.request)
+        breadcrumb = [
+            (_("Firewalls"),
+             reverse_lazy('horizon:project:firewalls:firewalls')),
+            (_("Rules"), reverse_lazy('horizon:project:firewalls:rules'))]
+        context["custom_breadcrumb"] = breadcrumb
+        context["rule"] = rule
+        context["url"] = self.failure_url
+        context["actions"] = table.render_row_actions(rule)
+        return context
+
+    @memoized.memoized_method
+    def get_data(self):
+        try:
+            rule_id = self.kwargs['rule_id']
+            rule = api.fwaas.rule_get(self.request, rule_id)
+        except Exception:
+            exceptions.handle(self.request,
+                              _('Unable to retrieve rule details.'),
+                              redirect=self.failure_url)
+        return rule
+
+    def get_tabs(self, request, *args, **kwargs):
+        rule = self.get_data()
+        return self.tab_group_class(request, rule=rule, **kwargs)
 
 
-class PolicyDetailsView(FireWallDetailTabs):
+class PolicyDetailsView(tabs.TabView):
     tab_group_class = (PolicyDetailsTabs)
-    page_title = _("Firewall Policy Details")
+    template_name = 'horizon/common/_detail.html'
+    page_title = "{{ policy.name|default:policy.id }}"
+    failure_url = reverse_lazy('horizon:project:firewalls:index')
+
+    def get_context_data(self, **kwargs):
+        context = super(PolicyDetailsView, self).get_context_data(**kwargs)
+        policy = self.get_data()
+        table = fw_tabs.PoliciesTable(self.request)
+        breadcrumb = [
+            (_("Firewalls"),
+             reverse_lazy('horizon:project:firewalls:firewalls')),
+            (_("Policies"),
+             reverse_lazy('horizon:project:firewalls:policies'))]
+        context["custom_breadcrumb"] = breadcrumb
+        context["policy"] = policy
+        context["url"] = self.failure_url
+        context["actions"] = table.render_row_actions(policy)
+        return context
+
+    @memoized.memoized_method
+    def get_data(self):
+        try:
+            policy_id = self.kwargs['policy_id']
+            policy = api.fwaas.policy_get(self.request, policy_id)
+        except Exception:
+            exceptions.handle(self.request,
+                              _('Unable to retrieve policy details.'),
+                              redirect=self.failure_url)
+        return policy
+
+    def get_tabs(self, request, *args, **kwargs):
+        policy = self.get_data()
+        return self.tab_group_class(request, policy=policy, **kwargs)
 
 
-class FirewallDetailsView(FireWallDetailTabs):
+class FirewallDetailsView(tabs.TabView):
     tab_group_class = (FirewallDetailsTabs)
-    page_title = _("Firewall Details")
+    template_name = 'horizon/common/_detail.html'
+    page_title = "{{ firewall.name|default:firewall.id }}"
+    failure_url = reverse_lazy('horizon:project:firewalls:index')
+
+    def get_context_data(self, **kwargs):
+        context = super(FirewallDetailsView, self).get_context_data(**kwargs)
+        firewall = self.get_data()
+        routers = self.get_routers_data(firewall)
+        table = fw_tabs.FirewallsTable(self.request)
+        context["firewall"] = firewall
+        context["routers"] = routers
+        context["url"] = self.failure_url
+        context["actions"] = table.render_row_actions(firewall)
+        return context
+
+    @memoized.memoized_method
+    def get_data(self):
+        try:
+            firewall_id = self.kwargs['firewall_id']
+            firewall = api.fwaas.firewall_get(self.request, firewall_id)
+        except Exception:
+            exceptions.handle(self.request,
+                              _('Unable to retrieve firewall details.'),
+                              redirect=self.failure_url)
+        return firewall
+
+    @memoized.memoized_method
+    def get_routers_data(self, firewall):
+        routers = []
+        try:
+            if api.neutron.is_extension_supported(self.request,
+                                                  'fwaasrouterinsertion'):
+                tenant_id = self.request.user.tenant_id
+                tenant_routers = api.neutron.router_list(self.request,
+                                                         tenant_id=tenant_id)
+                router_ids = firewall.get_dict()['router_ids']
+                routers = [r for r in tenant_routers
+                           if r['id'] in router_ids]
+        except Exception:
+            exceptions.handle(self.request,
+                              _('Unable to retrieve list of routers.'), )
+        return routers
+
+    def get_tabs(self, request, *args, **kwargs):
+        firewall = self.get_data()
+        return self.tab_group_class(request, firewall=firewall, **kwargs)
 
 
 class UpdateRuleView(forms.ModalFormView):

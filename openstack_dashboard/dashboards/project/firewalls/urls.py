@@ -20,6 +20,11 @@ from openstack_dashboard.dashboards.project.firewalls import views
 urlpatterns = patterns(
     'openstack_dashboard.dashboards.project.firewalls.views',
     url(r'^$', views.IndexView.as_view(), name='index'),
+    url(r'^\?tab=fwtabs__firewalls$',
+        views.IndexView.as_view(), name='firewalls'),
+    url(r'^\?tab=fwtabs__rules$', views.IndexView.as_view(), name='rules'),
+    url(r'^\?tab=fwtabs__policies$',
+        views.IndexView.as_view(), name='policies'),
     url(r'^addrule$', views.AddRuleView.as_view(), name='addrule'),
     url(r'^addpolicy$', views.AddPolicyView.as_view(), name='addpolicy'),
     url(r'^addfirewall/(?P<policy_id>[^/]+)/$',
