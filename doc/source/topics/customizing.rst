@@ -21,6 +21,24 @@ Both the Dashboard custom variables and Bootstrap variables can be overridden.
 For a full list of the Dashboard SCSS variables that can be changed, see the
 variables file at ``openstack_dashboard/static/dashboard/scss/_variables.scss``.
 
+In order to build a custom theme, both ``_variables.scss`` and ``_styles.scss``
+are required and ``_variables.scss`` must provide all the default Bootstrap
+variables.
+
+Inherit from an Existing Theme
+------------------------------
+
+Custom themes must implement all of the Bootstrap variables required by
+Horizon in ``_variables.scss`` and ``_styles.scss``. To make this easier, you
+can inherit the variables needed in the default theme and only override those
+that you need to customize. To inherit from the default theme, put this in your
+theme's ``_variables.scss``::
+
+   @import "../themes/default/variables";
+
+Once you have made your changes you must re-generate the static files with
+ ``./run_tests.py -m collectstatic``.
+
 Organizing Your Theme Directory
 -------------------------------
 
@@ -29,23 +47,23 @@ level of customization that is desired, as it can include static files
 as well as Django templates.  It can include special subdirectories that will
 be used differently: ``static``, ``templates`` and ``img``.
 
-The Static Folder
------------------
+The ``static`` Folder
+~~~~~~~~~~~~~~~~~~~~~
 
 If the theme folder contains a sub-folder called ``static``, then that sub
 folder will be used as the **static root of the theme**.  I.e., Horizon will
 look in that sub-folder for the _variables.scss and _styles.scss files.
 The contents of this folder will also be served up at ``/static/custom``.
 
-The Templates Folder
---------------------
+The ``templates`` Folder
+~~~~~~~~~~~~~~~~~~~~~~~~
 
 If the theme folder contains a sub-folder ``templates``, then the path
 to that sub-folder will be prepended to the ``TEMPLATE_DIRS`` tuple to
 allow for theme specific template customizations.
 
-Using the Templates Folder
---------------------------
+Using the ``templates`` Folder
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Any Django template that is used in Horizon can be overridden through a theme.
 This allows highly customized user experiences to exist within the scope of
@@ -57,8 +75,8 @@ to live at ``horizon/_sidebar.html``.  You would need to duplicate that
 directory structure under your templates directory, such that your override
 would live at ``{CUSTOM_THEME_PATH}/templates/horizon/_sidebar.html``.
 
-The Img Folder
---------------
+The ``img`` Folder
+~~~~~~~~~~~~~~~~~~
 
 If the static root of the theme folder contains an ``img`` directory,
 then all images contained within ``dashboard/img`` can be overridden by
@@ -71,14 +89,14 @@ Customizing the Logo
 --------------------
 
 If you wish to customize the logo that is used on the splash screen or in the
-top navigation bar, then you simply need to create an ``img`` directory under
-your theme's static root directory and place your custom ``logo.png`` or
+top navigation bar, then you need to create an ``img`` directory under your
+theme's static root directory and place your custom ``logo.png`` or
 ``logo-splash.png`` within it.
 
 If you wish to override the ``logo.png`` using the previous method, and if the
-image used is larger than the height of the top navbar, then the image will be
+image used is larger than the height of the top navigation, then the image will be
 constrained to fit within the height of nav.  You can customize the height of
-the top navigation by customizing the SCSS variable: ``$navbar-height``.
+the top navigation bar by customizing the SCSS variable: ``$navbar-height``.
 If the image's height is smaller than the navbar height, then the image
 will retain its original resolution and size, and simply be centered
 vertically in the available space.
@@ -86,6 +104,96 @@ vertically in the available space.
 Prior to the Kilo release the images files inside of Horizon needed to be
 replaced by your images files or the Horizon stylesheets needed to be altered
 to point to the location of your image.
+
+Branding Horizon
+================
+
+As of the Liberty release, Horizon has begun to conform more strictly to
+Bootstrap standards in an effort to embrace more responsive web design as well
+as alleviate the future need to re-brand new functionality for every release.
+
+Supported Components
+--------------------
+The following components, organized by release, are the only ones that make
+full use of the Bootstrap theme architecture.
+
+8.0.0 (Liberty)
+~~~~~~~~~~~~~~~
+
+* `Top Navbar`_
+* `Side Nav`_
+* `Pie Charts`_
+
+Step 1
+------
+
+The first step needed to create a custom branded theme for Horizon is to create
+a custom Bootstrap theme.  There are several tools to aid in this. Some of the
+more useful ones include:
+
+- `Bootswatchr`_
+- `Paintstrap`_
+- `Bootstrap`_
+
+.. note::
+
+    Bootstrap uses LESS by default, but we use SCSS.  All of the above
+    tools will provide the ``variables.less`` file, which will need to be
+    converted to ``_variables.scss``
+
+.. _Top Navbar:
+
+The Top Navbar
+--------------
+
+The top navbar in Horizon now uses a native Bootstrap ``navbar``.  There are a
+number of variables that can be used to customize this element.  Please see the
+**Navbar** section of your variables file for specifics on what can be set: any
+variables that use ``navbar-default``.
+
+It is important to also note that the navbar now uses native Bootstrap
+dropdowns, which are customizable with variables.  Please see the **Dropdowns**
+section of your variables file.
+
+The top navbar is now responsive on smaller screens.  When the window size hits
+your ``$screen-sm`` value, the topbar will compress into a design that is
+better suited for small screens.
+
+.. _Side Nav:
+
+The Side Nav
+------------
+
+The side navigation component has been refactored to use the native Stacked
+Pills element from Bootstrap.  See **Pills** section of your variables file
+for specific variables to customize.
+
+.. _Pie Charts:
+
+Pie Charts
+----------
+
+Pie Charts, in Horizon, are SVG elements.  SVG elements allow CSS
+customizations for only a basic element's look and feel (i.e. colors, size).
+
+Since there is no native element in Bootstrap specifically for pie charts,
+the look and feel of the charts are inheriting from other elements of the
+theme. Please see ``_pie_charts.scss`` for specifics.
+
+Bootswatch and Material Design
+------------------------------
+
+`Bootswatch`_ is a collection of free themes for Bootstrap and is now
+available for use in Horizon.
+
+In order to showcase what can be done to enhance an existing Bootstrap theme,
+Horizon now includes a secondary theme, roughly based on `Google's Material
+Design`_ called ``material``.  Bootswatch's **Paper** is a simple Bootstrap
+implementation of Material Design and is used by ``material``.
+
+Bootswatch provides a number of other themes, that once Horizon is fully theme
+compliant, will allow easy toggling and customizations for darker or
+accessibility driven experiences.
 
 Changing the Site Title
 =======================
@@ -243,12 +351,11 @@ similar way, add the new column definition and then use the ``Meta``
         WSGIDaemonProcess [... existing options ...] python-path=/opt/python
 
 
-Button Icons
-============
+Icons
+=====
 
-Horizon uses font icons (glyphicons) from Twitter Bootstrap to add icons to buttons.
-Please see http://bootstrapdocs.com/v3.1.1/docs/components/#glyphicons for instructions
-how to use icons in the code.
+Horizon uses font icons from Font Awesome.  Please see `Font Awesome`_ for
+instructions on how to use icons in the code.
 
 To add icon to Table Action, use icon property. Example:
 
@@ -353,3 +460,10 @@ Customizing Meta Attributes
 To add custom metadata attributes to your project's base template, include
 them in the ``horizon/_custom_meta.html`` file. The contents of this file will be
 inserted into the page's <head> just after the default Horizon meta tags.
+
+..  _Bootswatch: http://bootswatch.com
+..  _Bootswatchr: http://bootswatchr.com/create#!
+..  _Paintstrap: http://paintstrap.com
+..  _Bootstrap: http://getbootstrap.com/customize/
+..  _Google's Material Design: https://www.google.com/design/spec/material-design/introduction.html
+..  _Font Awesome: https://fortawesome.github.io/Font-Awesome/
