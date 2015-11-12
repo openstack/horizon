@@ -251,7 +251,7 @@
     function cleanNullProperties(finalSpec) {
       // Initially clean fields that don't have any value.
       for (var key in finalSpec) {
-        if (finalSpec.hasOwnProperty(key)  && finalSpec[key] === null) {
+        if (finalSpec.hasOwnProperty(key) && finalSpec[key] === null) {
           delete finalSpec[key];
         }
       }
@@ -414,7 +414,7 @@
         SOURCE_TYPE_VOLUME_SNAPSHOT,
         gettext('Volume Snapshot')
       );
-      volumePromises.push(cinderAPI.getVolumes({ status: 'available',  bootable: 1 })
+      volumePromises.push(cinderAPI.getVolumes({ status: 'available', bootable: 1 })
                           .then(onGetVolumes));
       volumePromises.push(cinderAPI.getVolumeSnapshots({ status: 'available' })
                           .then(onGetVolumeSnapshots));

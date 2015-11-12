@@ -60,7 +60,7 @@
    * ```
    */
   function magicOverrides() {
-    var directive =  {
+    var directive = {
       restrict: 'A',
       controller: MagicOverridesController
     };

@@ -63,7 +63,7 @@
    *
    */
   function hzTable() {
-    var directive =  {
+    var directive = {
       restrict: 'A',
       require: 'stTable',
       scope: true,

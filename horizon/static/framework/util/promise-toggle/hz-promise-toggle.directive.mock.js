@@ -21,7 +21,7 @@
     .module('horizon.framework.util.promise-toggle')
     .directive('hzPromiseToggleMock', hzPromiseToggleMock);
 
-  hzPromiseToggleMock.$inject =  [
+  hzPromiseToggleMock.$inject = [
     'hzPromiseToggleTemplateDirective',
     'mockService'
   ];

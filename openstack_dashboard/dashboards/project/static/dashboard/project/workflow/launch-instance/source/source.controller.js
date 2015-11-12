@@ -375,7 +375,7 @@
     }
 
     function updateTableHeadCells(key) {
-      refillArray(ctrl.tableHeadCells,  tableHeadCellsMap[key]);
+      refillArray(ctrl.tableHeadCells, tableHeadCellsMap[key]);
     }
 
     function updateTableBodyCells(key) {

@@ -21,7 +21,7 @@
     .module('horizon.app.core.cloud-services')
     .directive('hzIfServices', hzIfServices);
 
-  hzIfServices.$inject =  [
+  hzIfServices.$inject = [
     'hzPromiseToggleTemplateDirective',
     'horizon.app.core.openstack-service-api.serviceCatalog'
   ];

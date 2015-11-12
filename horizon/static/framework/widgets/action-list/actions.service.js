@@ -215,7 +215,7 @@
           return basePath + 'action-list/actions-' + action.template.type + '.template.html';
         } else {
           // determine the template by `listType` which can be row or batch
-          return basePath + 'action-list/actions-' + listType  + '.template.html';
+          return basePath + 'action-list/actions-' + listType + '.template.html';
         }
       }
 
