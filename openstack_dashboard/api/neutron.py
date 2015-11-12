@@ -585,7 +585,7 @@ def list_resources_with_long_filters(list_method,
 
         val_maxlen = max(len(val) for val in filter_values)
         filter_maxlen = len(filter_attr) + val_maxlen + 2
-        chunk_size = allowed_filter_len / filter_maxlen
+        chunk_size = allowed_filter_len // filter_maxlen
 
         resources = []
         for i in range(0, len(filter_values), chunk_size):

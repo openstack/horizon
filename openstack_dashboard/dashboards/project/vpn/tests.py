@@ -15,7 +15,6 @@
 from mox3.mox import IsA  # noqa
 
 from django.core.urlresolvers import reverse
-from django.core.urlresolvers import reverse_lazy
 from django import http
 
 from horizon.workflows import views
@@ -35,7 +34,7 @@ class VPNTests(test.TestCase):
             self[attr] = value
 
     DASHBOARD = 'project'
-    INDEX_URL = reverse_lazy('horizon:%s:vpn:index' % DASHBOARD)
+    INDEX_URL = reverse('horizon:%s:vpn:index' % DASHBOARD)
 
     ADDIKEPOLICY_PATH = 'horizon:%s:vpn:addikepolicy' % DASHBOARD
     ADDIPSECPOLICY_PATH = 'horizon:%s:vpn:addipsecpolicy' % DASHBOARD

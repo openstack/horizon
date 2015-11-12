@@ -20,6 +20,7 @@ from django.core.urlresolvers import reverse
 from django import http
 
 from mox3.mox import IsA  # noqa
+import six
 
 from openstack_dashboard import api
 from openstack_dashboard.dashboards.admin.metadata_defs \
@@ -271,9 +272,13 @@ class MetadataDefinitionsCreateViewTest(test.BaseAdminViewTests):
         res = self.client.post(reverse(constants.METADATA_CREATE_URL),
                                form_data)
 
-        self.assertFormError(res, "form", None, ['There was a problem loading '
-                                                 'the namespace: No JSON '
-                                                 'object could be decoded.'])
+        if six.PY3:
+            err_msg = ('There was a problem loading the namespace: '
+                       'Expecting value: line 1 column 1 (char 0).')
+        else:
+            err_msg = ('There was a problem loading the namespace: '
+                       'No JSON object could be decoded.')
+        self.assertFormError(res, "form", None, [err_msg])
 
     def test_admin_metadata_defs_create_namespace_empty_json_post_raw(self):
         form_data = {
