@@ -21,8 +21,6 @@ from django.conf import settings
 from django.core.urlresolvers import reverse
 from django.utils.translation import ugettext_lazy as _
 
-from openstack_auth import utils as auth_utils
-
 from horizon import exceptions
 from horizon import forms
 from horizon import messages
@@ -484,8 +482,6 @@ class CreateProject(CommonQuotaWorkflow):
                                 'members%(group_msg)s and set project quotas.')
                               % {'users_to_add': users_to_add,
                                  'group_msg': group_msg})
-        finally:
-            auth_utils.remove_project_cache(request.user.token.unscoped_token)
 
     def _update_project_groups(self, request, data, project_id):
         # update project groups
@@ -748,8 +744,6 @@ class UpdateProject(CommonQuotaWorkflow):
                               % {'users_to_modify': users_to_modify,
                                  'group_msg': group_msg})
             return False
-        finally:
-            auth_utils.remove_project_cache(request.user.token.unscoped_token)
 
     def _update_project_groups(self, request, data, project_id, domain_id):
         # update project groups
