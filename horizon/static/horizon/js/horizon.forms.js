@@ -57,7 +57,7 @@ horizon.forms = {
   },
 
   handle_subnet_address_source: function() {
-    $("div.table_wrapper, #modal_wrapper").on("change", "select#id_address_source", function(evt) {
+    $("div.table_wrapper, #modal_wrapper").on("change", "select#id_address_source", function() {
       var $option = $(this).find("option:selected");
       var $form = $(this).closest("form");
       var $ipVersion = $form.find("select#id_ip_version");
@@ -79,12 +79,11 @@ horizon.forms = {
   },
 
   handle_subnet_subnetpool: function() {
-    $("div.table_wrapper, #modal_wrapper").on("change", "select#id_subnetpool", function(evt) {
+    $("div.table_wrapper, #modal_wrapper").on("change", "select#id_subnetpool", function() {
       var $option = $(this).find("option:selected");
       var $form = $(this).closest("form");
       var $ipVersion = $form.find("select#id_ip_version");
       var $prefixLength = $form.find("select#id_prefixlen");
-      var $ipv6Modes = $form.find("select#id_ipv6_modes");
       var subnetpoolIpVersion = parseInt($option.data("ip_version"), 10) || 4;
       var minPrefixLen = parseInt($option.data("min_prefixlen"), 10) || 1;
       var maxPrefixLen = parseInt($option.data("max_prefixlen"), 10);

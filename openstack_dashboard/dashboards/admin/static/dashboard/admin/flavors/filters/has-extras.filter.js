@@ -28,7 +28,7 @@
    * If input is defined and has more than one property return 'Yes' else return 'No'
    *
    */
-  function hasExtrasFilter(gettext) {
+  function hasExtrasFilter() {
     return function check(input) {
       if (input &&
           angular.isObject(input) &&

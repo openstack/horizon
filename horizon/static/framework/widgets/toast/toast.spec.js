@@ -24,7 +24,7 @@
 
   describe('toast factory', function() {
 
-    var $compile, $scope, $timeout, service;
+    var $timeout, service;
 
     var successMsg = "I am success.";
     var dangerMsg = "I am danger.";
@@ -34,8 +34,6 @@
     beforeEach(module('horizon.framework'));
     beforeEach(inject(function ($injector) {
       service = $injector.get('horizon.framework.widgets.toast.service');
-      $scope = $injector.get('$rootScope').$new();
-      $compile = $injector.get('$compile');
       $timeout = $injector.get('$timeout');
     }));
 

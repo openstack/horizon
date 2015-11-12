@@ -93,13 +93,13 @@
 
       describe('Maximal Values Passed to the Modal', function() {
 
-        var returned, passed, passedContext;
+        var passed, passedContext;
 
         beforeEach(function() {
           var opts = { title: 'my title', body: 'my body', submit: 'Yes',
                        cancel: 'No' };
           spyOn(modal, 'open');
-          returned = service.modal(opts);
+          service.modal(opts);
           passed = modal.open.calls.argsFor(0)[0];
           passedContext = passed.resolve.context();
         });
@@ -132,12 +132,12 @@
 
       describe('Minimal Values Passed to the Modal', function() {
 
-        var returned, passed, passedContext;
+        var passed, passedContext;
 
         beforeEach(function() {
           var opts = { title: 'my title', body: 'my body' };
           spyOn(modal, 'open');
-          returned = service.modal(opts);
+          service.modal(opts);
           passed = modal.open.calls.argsFor(0)[0];
           passedContext = passed.resolve.context();
         });

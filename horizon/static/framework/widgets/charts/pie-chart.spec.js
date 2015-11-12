@@ -26,7 +26,7 @@
   describe('pie chart directive', function () {
 
     var $scope, $elementMax, $elementTotal, $elementOverMax,
-      $elementNoQuota, donutChartSettings, quotaChartDefaults;
+      $elementNoQuota, quotaChartDefaults;
 
     beforeEach(module('templates'));
     beforeEach(module('horizon.framework'));
@@ -38,7 +38,6 @@
     beforeEach(inject(function ($injector) {
       var $compile = $injector.get('$compile');
       $scope = $injector.get('$rootScope').$new();
-      donutChartSettings = $injector.get('horizon.framework.widgets.charts.donutChartSettings');
       quotaChartDefaults = $injector.get('horizon.framework.widgets.charts.quotaChartDefaults');
 
       $scope.testDataTotal = {
