@@ -432,7 +432,7 @@ horizon.Quota = {
   update: function(element, value) {
     var full = "#D0342B";
     var addition = "#00D300";
-    var already_used = parseInt(d3.select("#"+element).select(".usedbar").attr("d"));
+    var already_used = parseInt(d3.select("#"+element).select(".usedbar").attr("d"), 10);
     d3.select("#"+element).select(".newbar")
       .transition()
       .duration(500)

@@ -58,7 +58,7 @@ horizon.d3_pie_chart_usage = {
         self.data = data[0];
         self.pieChart(i, false);
       } else {
-        var used = Math.min(parseInt(data), 100);
+        var used = Math.min(parseInt(data, 10), 100);
         self.data = [{"percentage":used}, {"percentage":100 - used}];
         self.pieChart(i, true);
       }
@@ -160,7 +160,7 @@ horizon.d3_pie_chart_distribution = {
 
     var total = 0;
     for (var j = 0; j < self.data.length; j++) {
-      total = total + parseInt(self.data[j].value);
+      total = total + parseInt(self.data[j].value, 10);
     }
 
     var initial_data = [];

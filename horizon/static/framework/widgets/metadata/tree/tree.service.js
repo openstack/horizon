@@ -75,7 +75,7 @@
 
       switch (this.type) {
         case 'integer':
-          this.value = parseInt(value);
+          this.value = parseInt(value, 10);
           break;
         case 'number':
           this.value = parseFloat(value);
