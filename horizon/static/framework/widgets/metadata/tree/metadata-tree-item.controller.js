@@ -32,7 +32,7 @@
     ctrl.formatErrorMessage = formatErrorMessage;
     ctrl.opened = false;
 
-    if (ctrl.item.leaf.type === 'array') {
+    if ('item' in ctrl && 'leaf' in ctrl.item && ctrl.item.leaf.type === 'array') {
       ctrl.values = ctrl.item.leaf.items.enum.filter(filter).sort();
 
       if (!ctrl.item.leaf.readonly) {
