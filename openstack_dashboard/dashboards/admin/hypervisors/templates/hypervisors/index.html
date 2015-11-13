@@ -6,25 +6,28 @@
 {% block main %}
 <div class="quota-dynamic">
   <h3>{% trans "Hypervisor Summary" %}</h3>
-    <div class="d3_quota_bar">
-    <div class="d3_pie_chart_usage" data-used="{% widthratio stats.vcpus_used stats.vcpus 100 %}"></div>
-     <strong>{% trans "VCPU Usage" %} <br />
-         {% blocktrans with used=stats.vcpus_used|intcomma available=stats.vcpus|intcomma %}Used <span> {{ used }} </span> of <span> {{ available }} </span>{% endblocktrans %}
-     </strong>
+    <div class="col-sm-4 d3_quota_bar">
+      <div class="d3_pie_chart_usage" data-used="{% widthratio stats.vcpus_used stats.vcpus 100 %}"></div>
+      <div class="h5">{% trans "VCPU Usage" %}</div>
+      <div class="h6">
+        {% blocktrans with used=stats.vcpus_used|intcomma available=stats.vcpus|intcomma %}Used <span> {{ used }} </span> of <span> {{ available }} </span>{% endblocktrans %}
+      </div>
     </div>
 
-    <div class="d3_quota_bar">
-    <div class="d3_pie_chart_usage" data-used="{% widthratio stats.memory_mb_used stats.memory_mb 100 %}"></div>
-     <strong>{% trans "Memory Usage" %} <br />
+    <div class="col-sm-4 d3_quota_bar">
+      <div class="d3_pie_chart_usage" data-used="{% widthratio stats.memory_mb_used stats.memory_mb 100 %}"></div>
+      <div class="h5">{% trans "Memory Usage" %}</div>
+      <div class="h6">
          {% blocktrans with used=stats.memory_mb_used|mb_float_format available=stats.memory_mb|mb_float_format %}Used <span> {{ used }} </span> of <span> {{ available }} </span>{% endblocktrans %}
-     </strong>
+      </div>
     </div>
 
-    <div class="d3_quota_bar">
-    <div class="d3_pie_chart_usage" data-used="{% widthratio stats.local_gb_used stats.local_gb 100 %}"></div>
-     <strong>{% trans "Local Disk Usage" %} <br />
+    <div class="col-sm-4 d3_quota_bar">
+      <div class="d3_pie_chart_usage" data-used="{% widthratio stats.local_gb_used stats.local_gb 100 %}"></div>
+       <div class="h5">{% trans "Local Disk Usage" %}</div>
+       <div class="h6">
          {% blocktrans with used=stats.local_gb_used|diskgbformat available=stats.local_gb|diskgbformat %}Used <span> {{ used }} </span> of <span> {{ available }} </span>{% endblocktrans %}
-     </strong>
+       </div>
     </div>
 </div>
 <div class="row-fluid">

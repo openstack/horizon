@@ -1,0 +1,26 @@
+.d3_quota_bar {
+  text-align: center;
+}
+
+.d3_pie_chart_usage {
+  width: $font-size-h2 * 3;
+  display: inline-block;
+}
+
+.quota-dynamic {
+  overflow: hidden;
+  padding-bottom: $padding-large-horizontal;
+}
+
+.quota_title {
+  margin-bottom: $padding-large-vertical;
+  @extend .h5;
+
+  & > span {
+    color: $gray-light;
+  }
+}
+
+.quota_subtitle {
+  @extend .h6;
+}

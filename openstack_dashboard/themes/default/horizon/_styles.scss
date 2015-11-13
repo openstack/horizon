@@ -1,11 +1,12 @@
 @import '/bootstrap/scss/bootstrap/mixins/_vendor-prefixes.scss';
 
-@import 'components/_context_selection';
+@import 'components/breadcrumb_header';
+@import 'components/context_selection';
+@import 'components/pie_charts';
+@import 'components/quota';
 @import 'components/sidebar';
 @import 'components/tables';
 @import 'components/table_actions';
-@import 'components/pie_charts';
-@import 'components/breadcrumb_header';
 
 .navbar-brand {
   // The 114 is a legacy value to push the context-menu over

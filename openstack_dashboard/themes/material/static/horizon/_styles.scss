@@ -20,8 +20,10 @@
   }
 }
 
-#main-content {
+#main_content {
   display: block;
+  min-width: unset;
+  width: 100%;
 }
 
 
