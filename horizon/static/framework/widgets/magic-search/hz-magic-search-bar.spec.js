@@ -23,7 +23,7 @@
     beforeEach(module('templates'));
     beforeEach(module('smart-table'));
     beforeEach(module('horizon.framework'));
-    beforeEach(module('MagicSearch'));
+    beforeEach(module('horizon.framework.widgets.magic-search'));
 
     beforeEach(inject(function ($injector) {
       $compile = $injector.get('$compile');

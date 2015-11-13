@@ -15,7 +15,7 @@
   'use strict';
 
   angular
-    .module('MagicSearch')
+    .module('horizon.framework.widgets.magic-search')
     .directive('hzMagicSearchBar', hzMagicSearchBar);
 
   hzMagicSearchBar.$inject = ['horizon.framework.widgets.basePath'];

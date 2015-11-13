@@ -1,11 +1,11 @@
 <!--! Magic Searchbar -->
-<div class="magic-search" magic-overrides>
+<div class="magic-search">
   <div class="search-bar">
     <span class="fi-filter fa fa-search go"></span>
     <span class="search-main-area">
       <span class="item-list">
         <span class="radius secondary item"
-              ng-repeat="facet in currentSearch" ng-cloak="cloak" ng-class="{'server-side-item': facet.isServer}">
+              ng-repeat="facet in ctrl.currentSearch" ng-cloak="cloak" ng-class="{'server-side-item': facet.isServer}">
           <span data-toggle="tooltip" title="{$ ::strings.serverFacet $}"
              ng-class="{'fa fa-server': facet.isServer}"></span>
           <span data-toggle="tooltip" title="{$ ::strings.clientFacet $}"
@@ -13,41 +13,41 @@
           <span>
             {$ ::facet.label[0] $}: <b>{$ ::facet.label[1] $}</b>
           </span>
-          <a class="remove" ng-click="removeFacet($index, $event)" title="{$ ::strings.remove $}">
+          <a class="remove" ng-click="ctrl.removeFacet($index, $event)" title="{$ ::strings.remove $}">
             <span class="fi-x fa fa-times"></span>
           </a>
         </span>
       </span>
-      <span class="search-selected" ng-cloak="" ng-show="facetSelected">
-        {$ facetSelected.label[0] $}:
+      <span class="search-selected" ng-cloak="" ng-show="ctrl.facetSelected">
+        {$ ctrl.facetSelected.label[0] $}:
       </span>
       <!-- For bootstrap, the dropdown attribute is moved from input up to div. -->
-      <span class="search-entry" dropdown is-open="isMenuOpen">
+      <span class="search-entry" dropdown is-open="ctrl.isMenuOpen">
         <input class="search-input" type="text" dropdown-toggle
                placeholder="{$ strings.prompt $}" autocomplete="off" />
         <ul class="facet-drop f-dropdown dropdown-menu" data-dropdown-content="">
-          <li ng-repeat="facet in filteredObj" ng-show="!facetSelected">
-            <a ng-click="facetClicked($index, $event, facet.name)"
-               ng-show="!isMatchLabel(facet.label)">{$ ::facet.label $}</a>
-            <a ng-click="facetClicked($index, $event, facet.name)"
-               ng-show="isMatchLabel(facet.label)">
+          <li ng-repeat="facet in ctrl.filteredObj" ng-show="!ctrl.facetSelected">
+            <a ng-click="ctrl.facetClicked($index, $event, facet.name)"
+               ng-show="!ctrl.isMatchLabel(facet.label)">{$ ::facet.label $}</a>
+            <a ng-click="ctrl.facetClicked($index, $event, facet.name)"
+               ng-show="ctrl.isMatchLabel(facet.label)">
                {$ ::facet.label[0] $}<span class="match">{$ ::facet.label[1] $}</span>{$ ::facet.label[2] $}
             </a>
           </li>
-          <li ng-repeat="option in filteredOptions" ng-show="facetSelected">
-            <a ng-click="optionClicked($index, $event, option.key)"
-               ng-show="!isMatchLabel(option.label)">
+          <li ng-repeat="option in ctrl.filteredOptions" ng-show="ctrl.facetSelected">
+            <a ng-click="ctrl.optionClicked($index, $event, option.key)"
+               ng-show="!ctrl.isMatchLabel(option.label)">
                {$ option.label $}
             </a>
-            <a ng-click="optionClicked($index, $event, option.key)"
-               ng-show="isMatchLabel(option.label)">
+            <a ng-click="ctrl.optionClicked($index, $event, option.key)"
+               ng-show="ctrl.isMatchLabel(option.label)">
                {$ ::option.label[0] $}<span class="match">{$ ::option.label[1] $}</span>{$ ::option.label[2] $}
             </a>
           </li>
         </ul>
       </span>
     </span>
-    <a class="magic-search-clear" ng-click="clearSearch()" ng-show="currentSearch.length &gt; 0" title="{$ ::strings.cancel $}">
+    <a class="magic-search-clear" ng-click="ctrl.clearSearch()" ng-show="ctrl.currentSearch.length &gt; 0" title="{$ ::strings.cancel $}">
       <span class="fi-x fa fa-times cancel"></span>
     </a>
   </div>

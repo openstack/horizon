@@ -15,7 +15,7 @@
   'use strict';
 
   angular
-    .module('MagicSearch')
+    .module('horizon.framework.widgets.magic-search')
     .directive('stMagicSearch', stMagicSearch);
 
   stMagicSearch.$inject = ['$timeout', '$window'];

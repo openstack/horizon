@@ -55,7 +55,6 @@ XStatic-JQuery.quicksearch>=2.0.3.1 # MIT License
 XStatic-JQuery.TableSorter>=2.14.5.1 # MIT License
 XStatic-jquery-ui>=1.10.1 # MIT License
 XStatic-JSEncrypt>=2.0.0.2 # MIT License
-XStatic-Magic-Search>=0.2.5.1 # Apache 2.0 License
 XStatic-mdi==1.1.70.1 # SIL OPEN FONT LICENSE Version 1.1
 XStatic-Rickshaw>=1.5.0 # BSD License (prior)
 XStatic-roboto-fontface>=0.4.3.2 # Apache 2.0 License
