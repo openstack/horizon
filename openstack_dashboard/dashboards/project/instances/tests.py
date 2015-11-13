@@ -18,7 +18,6 @@
 
 import json
 import sys
-import uuid
 
 from django.conf import settings
 from django.core.urlresolvers import reverse
@@ -155,55 +154,6 @@ class InstanceTests(helpers.TestCase):
         self.assertTemplateUsed(res, 'project/instances/index.html')
         instances = res.context['instances_table'].data
 
-        self.assertItemsEqual(instances, self.servers.list())
-
-    @helpers.create_stubs({
-        api.nova: ('flavor_list', 'server_list', 'flavor_get',
-                   'tenant_absolute_limits', 'extension_supported',),
-        api.glance: ('image_list_detailed',),
-        api.network: ('floating_ip_simple_associate_supported',
-                      'floating_ip_supported',
-                      'servers_update_addresses',),
-    })
-    def test_index_flavor_get_exception(self):
-        servers = self.servers.list()
-        flavors = self.flavors.list()
-        api.nova.extension_supported('AdminActions',
-                                     IsA(http.HttpRequest)) \
-            .MultipleTimes().AndReturn(True)
-        # UUIDs generated using indexes are unlikely to match
-        # any of existing flavor ids and are guaranteed to be deterministic.
-        for i, server in enumerate(servers):
-            server.flavor['id'] = str(uuid.UUID(int=i))
-
-        search_opts = {'marker': None, 'paginate': True}
-        api.nova.server_list(IsA(http.HttpRequest), search_opts=search_opts) \
-            .AndReturn([servers, False])
-        api.network.servers_update_addresses(IsA(http.HttpRequest), servers)
-        api.nova.flavor_list(IsA(http.HttpRequest)).AndReturn(flavors)
-        api.glance.image_list_detailed(IgnoreArg()) \
-            .AndReturn((self.images.list(), False, False))
-        for server in servers:
-            api.nova.flavor_get(IsA(http.HttpRequest), server.flavor["id"]). \
-                AndRaise(self.exceptions.nova)
-        api.nova.tenant_absolute_limits(IsA(http.HttpRequest), reserved=True) \
-           .MultipleTimes().AndReturn(self.limits['absolute'])
-        api.network.floating_ip_supported(IsA(http.HttpRequest)) \
-            .MultipleTimes().AndReturn(True)
-        api.network.floating_ip_simple_associate_supported(
-            IsA(http.HttpRequest)).MultipleTimes().AndReturn(True)
-
-        self.mox.ReplayAll()
-
-        res = self.client.get(INDEX_URL)
-
-        instances = res.context['instances_table'].data
-
-        self.assertTemplateUsed(res, 'project/instances/index.html')
-        # Since error messages produced for each instance are identical,
-        # there will be only one error message for all instances
-        # (messages de-duplication)
-        self.assertMessageCount(res, error=1)
         self.assertItemsEqual(instances, self.servers.list())
 
     @helpers.create_stubs({

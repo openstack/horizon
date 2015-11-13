@@ -19,6 +19,8 @@
 """
 Views for managing instances.
 """
+import logging
+
 from django.core.urlresolvers import reverse
 from django.core.urlresolvers import reverse_lazy
 from django import http
@@ -45,6 +47,8 @@ from openstack_dashboard.dashboards.project.instances \
     import tabs as project_tabs
 from openstack_dashboard.dashboards.project.instances \
     import workflows as project_workflows
+
+LOG = logging.getLogger(__name__)
 
 
 class IndexView(tables.DataTableView):
@@ -116,8 +120,9 @@ class IndexView(tables.DataTableView):
                         instance.full_flavor = api.nova.flavor_get(
                             self.request, flavor_id)
                 except Exception:
-                    msg = _('Unable to retrieve instance size information.')
-                    exceptions.handle(self.request, msg)
+                    msg = ('Unable to retrieve flavor "%s" for instance "%s".'
+                           % (flavor_id, instance.id))
+                    LOG.info(msg)
         return instances
 
     def get_filters(self, filters):
