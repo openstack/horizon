@@ -1,4 +1,4 @@
-{% load i18n horizon humanize %}
+{% load i18n horizon humanize bootstrap %}
 
 {% block help_message %}
 {% endblock %}
@@ -8,7 +8,7 @@
   <tbody>
     <tr><td class="flavor_name">{% trans "Name" %}</td><td><span id="flavor_name"></span></td></tr>
     <tr><td class="flavor_name">{% trans "VCPUs" %}</td><td><span id="flavor_vcpus"></span></td></tr>
-    <tr><td class="flavor_name">{% trans "Root Disk" %}</td><td><span id="flavor_disk"> </span> {% trans "GB" %}</td></tr>
+    <tr><td class="flavor_name">{% trans "Root Disk" %}</td><td><span id="flavor_disk"></span> {% trans "GB" %}</td></tr>
     <tr><td class="flavor_name">{% trans "Ephemeral Disk" %}</td><td><span id="flavor_ephemeral"></span> {% trans "GB" %}</td></tr>
     <tr><td class="flavor_name">{% trans "Total Disk" %}</td><td><span id="flavor_disk_total"></span> {% trans "GB" %}</td></tr>
     <tr><td class="flavor_name">{% trans "RAM" %}</td><td><span id="flavor_ram"></span> {% trans "MB" %}</td></tr>
@@ -17,27 +17,62 @@
 
 <div class="quota-dynamic">
   <h4>{% trans "Project Limits" %}</h4>
-  <div class="quota_title clearfix">
-    <strong>{% trans "Number of Instances" %}</strong>
-    {% blocktrans with used=usages.totalInstancesUsed|intcomma quota=usages.maxTotalInstances|intcomma|quotainf %}<p>{{ used }} of {{ quota }} Used</p>{% endblocktrans %}
-  </div>
-  <div id="{{ resize_instance|yesno:"quota_resize_instance,quota_instances" }}" class="quota_bar" data-progress-indicator-flavor data-quota-limit="{{ usages.maxTotalInstances }}" data-quota-used="{{ usages.totalInstancesUsed }}">
-  </div>
-
-  <div class="quota_title clearfix">
-    <strong>{% trans "Number of VCPUs" %}</strong>
-    {% blocktrans with used=usages.totalCoresUsed|intcomma quota=usages.maxTotalCores|intcomma|quotainf %}<p>{{ used }} of {{ quota }} Used</p>{% endblocktrans %}
-  </div>
-  <div id="quota_vcpus" class="quota_bar" data-progress-indicator-flavor data-quota-limit="{{ usages.maxTotalCores }}" data-quota-used="{{ usages.totalCoresUsed }}">
+  <div class="quota_title">
+    <strong class="pull-left">{% trans "Number of Instances" %}</strong>
+    {% blocktrans with used=usages.totalInstancesUsed|intcomma quota=usages.maxTotalInstances|intcomma|quotainf %}
+      <span class="pull-right">{{ used }} of {{ quota }} Used</span>
+    {% endblocktrans %}
   </div>
 
-  <div class="quota_title clearfix">
-    <strong>{% trans "Total RAM" %}</strong>
-    {% blocktrans with used=usages.totalRAMUsed|intcomma quota=usages.maxTotalRAMSize|intcomma|quotainf %}<p>{{ used }} of {{ quota }} MB Used</p>{% endblocktrans %}
+ {{ minifyspace }}
+  <div id="{{ resize_instance|yesno:"quota_resize_instance,quota_instances" }}"
+       class="quota_bar"
+       data-progress-indicator-flavor
+       data-quota-limit="{{ usages.maxTotalInstances }}"
+       data-quota-used="{{ usages.totalInstancesUsed }}">
+    {% widthratio usages.totalInstancesUsed usages.maxTotalInstances 100 as instance_percent %}
+    {% bs_progress_bar instance_percent 0 %}
   </div>
-  <div id="quota_ram" data-progress-indicator-flavor data-quota-limit="{{ usages.maxTotalRAMSize }}" data-quota-used="{{ usages.totalRAMUsed }}" class="quota_bar">
+ {{ endminifyspace }}
+
+  <div class="quota_title">
+    <strong class="pull-left">{% trans "Number of VCPUs" %}</strong>
+    {% blocktrans with used=usages.totalCoresUsed|intcomma quota=usages.maxTotalCores|intcomma|quotainf %}
+      <span class="pull-right">{{ used }} of {{ quota }} Used</span>
+    {% endblocktrans %}
   </div>
+
+  {{ minifyspace }}
+  <div id="quota_vcpus"
+       class="quota_bar"
+       data-progress-indicator-flavor
+       data-quota-limit="{{ usages.maxTotalCores }}"
+       data-quota-used="{{ usages.totalCoresUsed }}">
+    {% widthratio usages.totalCoresUsed usages.maxTotalCores 100 as vcpu_percent %}
+    {% bs_progress_bar vcpu_percent 0 %}
+  </div>
+  {{ endminifyspace }}
+
+  <div class="quota_title">
+    <strong class="pull-left">{% trans "Total RAM" %}</strong>
+    {% blocktrans with used=usages.totalRAMUsed|intcomma quota=usages.maxTotalRAMSize|intcomma|quotainf %}
+      <span class="pull-right">{{ used }} of {{ quota }} MB Used</span>
+    {% endblocktrans %}
+  </div>
+
+  {{ minifyspace }}
+  <div id="quota_ram"
+       class="quota_bar"
+       data-progress-indicator-flavor
+       data-quota-limit="{{ usages.maxTotalRAMSize }}"
+       data-quota-used="{{ usages.totalRAMUsed }}">
+    {% widthratio usages.totalRAMUsed usages.maxTotalRAMSize 100 as vcpu_percent %}
+    {% bs_progress_bar vcpu_percent 0 %}
+  </div>
+  {{ endminifyspace }}
+
 </div>
+
 
 <script type="text/javascript" charset="utf-8">
   some_disabled_msg = '{{_("Some flavors not meeting minimum image requirements have been disabled.")|escapejs }}';

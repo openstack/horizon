@@ -13,14 +13,16 @@
 }
 
 .quota_title {
-  margin-bottom: $padding-large-vertical;
-  @extend .h5;
+  font-size: $font-size-h6;
+  margin-bottom: 0;
+  @include clearfix();
 
   & > span {
     color: $gray-light;
   }
 }
 
+// This extend is important as it inherits the padding as well as font size
 .quota_subtitle {
   @extend .h6;
 }

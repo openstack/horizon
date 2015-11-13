@@ -66,12 +66,6 @@ horizon.Quota = {
       return ('#' + $(elm).attr('data-progress-indicator-for'));
     }));
 
-    // Draw the initial progress bars
-    this._initialCreation(this.user_value_progress_bars);
-    this._initialCreation(this.auto_value_progress_bars);
-    this._initialCreation(this.flavor_progress_bars);
-
-    this._initialAnimations();
     this._attachInputHandlers();
   },
 
@@ -358,99 +352,57 @@ horizon.Quota = {
 
   // Does the math to calculate what percentage to update a progress bar by.
   updateUsageFor: function(progress_element, increment_by) {
-    progress_element = $(progress_element);
+    var $progress_element = $(progress_element);
 
     //var update_indicator = progress_element.find('.progress_bar_selected');
-    var quota_limit = parseInt(progress_element.attr('data-quota-limit'), 10);
+    var quota_limit = parseInt($progress_element.attr('data-quota-limit'), 10);
     var percentage_to_update = ((increment_by / quota_limit) * 100);
 
-    this.update($(progress_element).attr('id'), percentage_to_update);
-  },
-
-  // Create a new d3 bar and populate it with the current amount used
-  drawUsed: function(element, used) {
-    var w = "100%";
-    var h = 20;
-    var lvl_curve = 4;
-    var bkgrnd = "#F2F2F2";
-    var frgrnd = "#006CCF";
-    var full = "#D0342B";
-    var addition = "#00D300";
-    var nearlyfull = "orange";
-
-    // Horizontal Bars
-    var bar = d3.select("#"+element).append("svg:svg")
-      .attr("class", "chart")
-      .attr("width", w)
-      .attr("height", h)
-      .style("background-color", "white")
-      .append("g");
-
-    // background - unused resources
-    bar.append("rect")
-      .attr("y", 0)
-      .attr("width", w)
-      .attr("height", h)
-      .attr("rx", lvl_curve)
-      .attr("ry", lvl_curve)
-      .style("fill", bkgrnd)
-      .style("stroke", "#CCCCCC")
-      .style("stroke-width", 1);
-
-    // new resources
-    bar.append("rect")
-      .attr("y",0)
-      .attr("class", "newbar")
-      .attr("width", 0)
-      .attr("height", h)
-      .attr("rx", lvl_curve)
-      .attr("ry", lvl_curve)
-      .style("fill", function () { return addition; });
-
-    // used resources
-    bar.insert("rect")
-      .attr("class", "usedbar")
-      .attr("y", 0)
-      .attr("id", "test")
-      .attr("width", 0)
-      .attr("height", h)
-      .attr("rx", lvl_curve)
-      .attr("ry", lvl_curve)
-      .style("fill", function () { return frgrnd; })
-      .attr("d", used)
-      .transition()
-      .duration(500)
-      .attr("width", used + "%")
-      .style("fill", function () {
-        if (used >= 100) { return full; }
-        else if (used >= 80) { return nearlyfull; }
-        else { return frgrnd; }
-      });
+    this.update($progress_element.attr('id'), percentage_to_update);
   },
 
   // Update the progress Bar
   update: function(element, value) {
-    var full = "#D0342B";
-    var addition = "#00D300";
-    var already_used = parseInt(d3.select("#"+element).select(".usedbar").attr("d"), 10);
-    d3.select("#"+element).select(".newbar")
-      .transition()
-      .duration(500)
-      .attr("width", function () {
-        if ((value + already_used) >= 100) {
-          return "100%";
-        } else {
-          return (value + already_used)+ "%";
-        }
-      })
-      .style("fill", function() {
-        if (value > (100 - already_used)) {
-          return full;
-        } else {
-          return addition;
-        }
-      });
 
+    // Find Progress Bars, we'll need both of them
+    var bars = $('#' + element).find('.progress-bar');
+
+    // Determine how much is already used -> this is the first bar
+    // Also, convert it to an int ;)
+    var used_val = +$(bars[0]).attr('aria-valuenow');
+
+    // Calculate new total
+    var total = used_val + value;
+
+    // Make sure to normalize the value to 100 or less
+    if (total > 100) {
+      value = 100 - used_val;
+    }
+
+    // Turn percentage into a proper percentage string for style
+    var percent_str = value + '%';
+
+    // jQuery construct it and then cache it, we need it more than once
+    var $bar = $(bars[1]);
+
+    // Update the second progress bar
+    $bar.css('width', percent_str)
+      .attr('aria-valuenow', value)
+      .find('.sr-only')
+      .html(percent_str);
+
+    // If the value is going to set total to 100+, set danger class
+    if (total > 99) {
+      $bar.removeClass('progress-bar-warning').addClass('progress-bar-danger');
+    } else {
+      $bar.removeClass('progress-bar-danger');
+
+      /*eslint-disable */
+      total > 89 ?
+        $bar.addClass('progress-bar-warning') :
+        $bar.removeClass('progress-bar-warning');
+      /*eslint-enable */
+    }
   },
 
   /*
@@ -476,9 +428,10 @@ horizon.Quota = {
     }
 
     $(this.user_value_form_inputs).each(function(index, element) {
-      $(element).on('input', function(evt) {
-        var progress_element = $('div[data-progress-indicator-for=' + $(evt.target).attr('id') + ']');
-        var integers_in_input = $(evt.target).val().match(/\d+/g);
+      $(element).on('input', function() {
+        var $this = $(this);
+        var $progress_element = $('div[data-progress-indicator-for=' + $this.attr('id') + ']');
+        var integers_in_input = $this.val().match(/\d+/g);
         var user_integer;
 
         if(integers_in_input === null) {
@@ -496,44 +449,8 @@ horizon.Quota = {
 
         var progress_amount = parseInt(user_integer, 10);
 
-        scope.updateUsageFor(progress_element, progress_amount);
+        scope.updateUsageFor($progress_element, progress_amount);
       });
-    });
-  },
-
-  /*
-   Animate the progress bars of elements which indicate they should
-   automatically be incremented, as opposed to elements which trigger
-   progress updates based on form element input or changes.
-   */
-  _initialAnimations: function() {
-    var scope = this;
-
-    $(this.auto_value_progress_bars).each(function(index, element) {
-      var auto_progress = $(element);
-      var update_amount = parseInt(auto_progress.attr('data-progress-indicator-step-by'), 10);
-
-      scope.updateUsageFor(auto_progress, update_amount);
-    });
-  },
-
-  // Draw the initial d3 bars
-  _initialCreation: function(bars) {
-    // Draw the initial progress bars
-    var scope = this;
-    $(bars).each(function(index, element) {
-      var progress_element = $(element);
-
-      var quota_limit = parseInt(progress_element.attr('data-quota-limit'), 10);
-      var quota_used = parseInt(progress_element.attr('data-quota-used'), 10);
-      var percentage_used = 0;
-
-      if (!isNaN(quota_limit) && !isNaN(quota_used)) {
-        // If NaN percentage_used is 0
-        percentage_used = (quota_used / quota_limit) * 100;
-      }
-
-      scope.drawUsed($(element).attr('id'), percentage_used);
     });
   }
 };

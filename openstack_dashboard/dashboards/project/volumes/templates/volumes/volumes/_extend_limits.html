@@ -1,4 +1,4 @@
-{% load i18n horizon humanize %}
+{% load i18n horizon humanize bootstrap %}
 
 <h3>{% trans "Description:" %}</h3>
 
@@ -6,12 +6,21 @@
 
 <h3>{% trans "Volume Limits" %}</h3>
 
-<div class="quota_title clearfix">
-  <strong>{% trans "Total Gibibytes" %} <span>({{ usages.gigabytesUsed|intcomma }} {% trans "GiB" %})</span></strong>
-  <p>{{ usages.maxTotalVolumeGigabytes|intcomma|quota:_("GiB") }}</p>
+<div class="quota_title">
+  <div class="pull-left">
+    <strong>{% trans "Total Gibibytes" %}</strong>
+    <span>({{ usages.gigabytesUsed|intcomma }} {% trans "GiB" %})</span>
+  </div>
+  <span class="pull-right">{{ usages.maxTotalVolumeGigabytes|intcomma|quota:_("GiB") }}</span>
 </div>
 
-<div id="quota_size" data-progress-indicator-for="id_new_size" data-quota-limit="{{ usages.maxTotalVolumeGigabytes }}" data-quota-used="{{ usages.gigabytesUsed }}" class="quota_bar">
+<div id="quota_size"
+     data-progress-indicator-for="id_new_size"
+     data-quota-limit="{{ usages.maxTotalVolumeGigabytes }}"
+     data-quota-used="{{ usages.gigabytesUsed }}"
+     class="quota_bar">
+  {% widthratio usages.gigabytesUsed usages.maxTotalVolumeGigabytes 100 as gigabytes_percent %}
+  {% bs_progress_bar gigabytes_percent 0 %}
 </div>
 
 <script type="text/javascript" charset="utf-8">
