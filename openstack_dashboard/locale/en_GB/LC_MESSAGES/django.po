@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-11-11 05:16+0000\n"
+"POT-Creation-Date: 2015-11-12 12:09+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -470,9 +470,6 @@ msgid ""
 "\"Some flavors not meeting minimum image requirements have been disabled.\""
 msgstr ""
 "\"Some flavours not meeting minimum image requirements have been disabled.\""
-
-msgid "\"Users\""
-msgstr "\"Users\""
 
 #, python-format
 msgid "%(conf_name)s: %(conf_val)s"

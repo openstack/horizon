@@ -10,11 +10,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-10-30 03:48+0000\n"
+"POT-Creation-Date: 2015-11-12 12:09+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2015-10-30 08:27+0000\n"
+"PO-Revision-Date: 2015-11-12 08:31+0000\n"
 "Last-Translator: Zbyněk Schwarz <zbynek.schwarz@gmail.com>\n"
 "Language: cs\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
@@ -379,6 +379,9 @@ msgstr "Obraz"
 
 msgid "Image Name"
 msgstr "Název obrazu"
+
+msgid "Images"
+msgstr "Obrazy"
 
 msgid "Impact on your quota"
 msgstr "Dopad na vaši kvótu"
@@ -1040,6 +1043,9 @@ msgstr "ID uživatele"
 
 msgid "User Name"
 msgstr "Uživatelské jméno"
+
+msgid "Users"
+msgstr "Uživatelé"
 
 msgid "VCPUS"
 msgstr "VCPUS"

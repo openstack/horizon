@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-10-31 06:37+0000\n"
+"POT-Creation-Date: 2015-11-13 06:33+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -154,8 +154,8 @@ msgstr ""
 #: dashboards/admin/static/dashboard/admin/flavors/table/flavors-table.html:29
 #: dashboards/project/static/dashboard/project/workflow/launch-instance/flavor/select-flavor-table.html:35
 #: dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:182
-#: static/app/core/images/table/images-table.html:38
-#: static/app/core/images/table/images-table.html:93
+#: static/app/core/images/table/images-table.html:40
+#: static/app/core/images/table/images-table.html:95
 msgid "Public"
 msgstr ""
 
@@ -167,29 +167,33 @@ msgstr ""
 msgid "Insufficient privilege level to view user information."
 msgstr ""
 
-#: dashboards/identity/static/dashboard/identity/users/table/table.html:30
-msgid "User Name"
-msgstr ""
-
-#: dashboards/identity/static/dashboard/identity/users/table/table.html:31
-#: dashboards/identity/static/dashboard/identity/users/table/table.html:90
-msgid "Email"
+#: dashboards/identity/static/dashboard/identity/users/table/table.html:1
+msgid "Users"
 msgstr ""
 
 #: dashboards/identity/static/dashboard/identity/users/table/table.html:32
-msgid "User ID"
+msgid "User Name"
 msgstr ""
 
 #: dashboards/identity/static/dashboard/identity/users/table/table.html:33
-#: dashboards/identity/static/dashboard/identity/users/table/table.html:94
+#: dashboards/identity/static/dashboard/identity/users/table/table.html:92
+msgid "Email"
+msgstr ""
+
+#: dashboards/identity/static/dashboard/identity/users/table/table.html:34
+msgid "User ID"
+msgstr ""
+
+#: dashboards/identity/static/dashboard/identity/users/table/table.html:35
+#: dashboards/identity/static/dashboard/identity/users/table/table.html:96
 msgid "Enabled"
 msgstr ""
 
-#: dashboards/identity/static/dashboard/identity/users/table/table.html:80
+#: dashboards/identity/static/dashboard/identity/users/table/table.html:82
 msgid "Domain ID"
 msgstr ""
 
-#: dashboards/identity/static/dashboard/identity/users/table/table.html:84
+#: dashboards/identity/static/dashboard/identity/users/table/table.html:86
 msgid "Project ID"
 msgstr ""
 
@@ -657,7 +661,7 @@ msgstr ""
 #: dashboards/project/static/dashboard/project/workflow/launch-instance/network/network.html:27
 #: dashboards/project/static/dashboard/project/workflow/launch-instance/network/network.html:114
 #: dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:177
-#: static/app/core/images/table/images-table.html:37
+#: static/app/core/images/table/images-table.html:39
 msgid "Status"
 msgstr ""
 
@@ -694,7 +698,7 @@ msgstr ""
 #: dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:155
 #: dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:162
 #: dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:169
-#: static/app/core/images/table/images-table.html:36
+#: static/app/core/images/table/images-table.html:38
 msgid "Type"
 msgstr ""
 
@@ -895,8 +899,8 @@ msgstr ""
 #: dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:161
 #: dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:168
 #: dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:175
-#: static/app/core/images/table/images-table.html:41
-#: static/app/core/images/table/images-table.html:105
+#: static/app/core/images/table/images-table.html:43
+#: static/app/core/images/table/images-table.html:107
 msgid "Size"
 msgstr ""
 
@@ -1031,25 +1035,29 @@ msgstr ""
 msgid "Snapshot"
 msgstr ""
 
-#: static/app/core/images/table/images-table.html:35
+#: static/app/core/images/table/images-table.html:1
+msgid "Images"
+msgstr ""
+
+#: static/app/core/images/table/images-table.html:37
 msgid "Image Name"
 msgstr ""
 
-#: static/app/core/images/table/images-table.html:39
-#: static/app/core/images/table/images-table.html:97
+#: static/app/core/images/table/images-table.html:41
+#: static/app/core/images/table/images-table.html:99
 msgid "Protected"
 msgstr ""
 
-#: static/app/core/images/table/images-table.html:40
-#: static/app/core/images/table/images-table.html:101
+#: static/app/core/images/table/images-table.html:42
+#: static/app/core/images/table/images-table.html:103
 msgid "Format"
 msgstr ""
 
-#: static/app/core/images/table/images-table.html:113
+#: static/app/core/images/table/images-table.html:115
 msgid "Min Disk (GB)"
 msgstr ""
 
-#: static/app/core/images/table/images-table.html:117
+#: static/app/core/images/table/images-table.html:119
 msgid "Min RAM (MB)"
 msgstr ""
 

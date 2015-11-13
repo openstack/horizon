@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-11-11 06:33+0000\n"
+"POT-Creation-Date: 2015-11-13 06:33+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -4474,10 +4474,6 @@ msgstr ""
 msgid "Launch Database"
 msgstr ""
 
-#: contrib/trove/content/databases/views.py:104
-msgid "{{ instance.name }}"
-msgstr ""
-
 #: contrib/trove/content/databases/views.py:123
 #, python-format
 msgid "Unable to retrieve details for database instance: %s"
@@ -5815,7 +5811,6 @@ msgstr ""
 #: dashboards/project/images/templates/images/index.html:3
 #: dashboards/project/ngimages/panel.py:21
 #: dashboards/project/ngimages/templates/ngimages/index.html:3
-#: dashboards/project/ngimages/templates/ngimages/index.html:6
 msgid "Images"
 msgstr ""
 
@@ -8824,10 +8819,6 @@ msgstr ""
 msgid "Group Management"
 msgstr ""
 
-#: dashboards/identity/ngusers/templates/ngusers/index.html:6
-msgid "\"Users\""
-msgstr ""
-
 #: dashboards/identity/projects/panel.py:25
 #: dashboards/identity/projects/tables.py:246
 #: dashboards/identity/projects/views.py:71
@@ -11445,10 +11436,6 @@ msgstr ""
 
 #: dashboards/project/images/images/views.py:86
 msgid "Unable to retrieve image."
-msgstr ""
-
-#: dashboards/project/images/images/views.py:121
-msgid "{{ image.name }}"
 msgstr ""
 
 #: dashboards/project/images/images/views.py:144
