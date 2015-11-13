@@ -752,3 +752,46 @@ def keystone_backend_name():
 
 def get_version():
     return VERSIONS.active
+
+
+def is_federation_management_enabled():
+    return getattr(settings, 'OPENSTACK_KEYSTONE_FEDERATION_MANAGEMENT', False)
+
+
+def identity_provider_create(request, idp_id, description=None,
+                             enabled=False, remote_ids=None):
+    manager = keystoneclient(request, admin=True).federation.identity_providers
+    try:
+        return manager.create(id=idp_id,
+                              description=description,
+                              enabled=enabled,
+                              remote_ids=remote_ids)
+    except keystone_exceptions.Conflict:
+        raise exceptions.Conflict()
+
+
+def identity_provider_get(request, idp_id):
+    manager = keystoneclient(request, admin=True).federation.identity_providers
+    return manager.get(idp_id)
+
+
+def identity_provider_update(request, idp_id, description=None,
+                             enabled=False, remote_ids=None):
+    manager = keystoneclient(request, admin=True).federation.identity_providers
+    try:
+        return manager.update(idp_id,
+                              description=description,
+                              enabled=enabled,
+                              remote_ids=remote_ids)
+    except keystone_exceptions.Conflict:
+        raise exceptions.Conflict()
+
+
+def identity_provider_delete(request, idp_id):
+    manager = keystoneclient(request, admin=True).federation.identity_providers
+    return manager.delete(idp_id)
+
+
+def identity_provider_list(request):
+    manager = keystoneclient(request, admin=True).federation.identity_providers
+    return manager.list()

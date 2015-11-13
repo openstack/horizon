@@ -61,6 +61,12 @@ WEBROOT = '/'
 # with Keystone V3. All entities will be created in the default domain.
 #OPENSTACK_KEYSTONE_DEFAULT_DOMAIN = 'Default'
 
+# Set this to True to enable panels that provide the ability for users to
+# manage Identity Providers (IdPs) and establish a set of rules to map
+# federation protocol attributes to Identity API attributes.
+# This extension requires v3.0+ of the Identity API.
+#OPENSTACK_KEYSTONE_FEDERATION_MANAGEMENT = False
+
 # Set Console type:
 # valid options are "AUTO"(default), "VNC", "SPICE", "RDP", "SERIAL" or None
 # Set to None explicitly if you want to deactivate the console.
