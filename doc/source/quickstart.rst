@@ -142,7 +142,7 @@ Editing Horizon's Source
 
 Although DevStack installs and configures an instance of Horizon when running
 stack.sh, the preferred development setup follows the instructions above on the
-server/VM running DevStack. The are several advantages to maintaining a
+server/VM running DevStack. There are several advantages to maintaining a
 separate copy of the Horizon repo, rather than editing the devstack installed
 copy.
 
