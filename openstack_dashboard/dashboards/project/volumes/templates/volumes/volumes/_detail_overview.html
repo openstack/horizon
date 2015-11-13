@@ -20,6 +20,18 @@
   <dl class="dl-horizontal">
     <dt>{% trans "Size" %}</dt>
     <dd>{{ volume.size }} {% trans "GB" %}</dd>
+    {% if volume.volume_type %}
+    <dt>{% trans "Type" %}</dt>
+    <dd>{{ volume.volume_type }}</dd>
+    {% endif %}
+    {% if volume.availabilty_zone %}
+    <dt>{% trans "Availability zone" %}</dt>
+    <dd>{{ volume.availability_zone }}</dd>
+    {% endif %}
+    <dt>{% trans "Bootable" %}</dt>
+    <dd>{{ volume.is_bootable|yesno|capfirst }}</dd>
+    <dt>{% trans "Encrypted" %}</dt>
+    <dd><a href="{% url 'horizon:project:volumes:volumes:encryption_detail' volume.id %}">{{ volume.encrypted|yesno:_("yes,no,-")|capfirst }}</a></dd>
     <dt>{% trans "Created" context "Created time" %}</dt>
     <dd>{{ volume.created_at|parse_date }}</dd>
   </dl>
