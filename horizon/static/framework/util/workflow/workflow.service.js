@@ -1,6 +1,7 @@
 /*
  *    (c) Copyright 2015 Hewlett-Packard Development Company, L.P.
  *    (c) Copyright 2015 ThoughtWorks, Inc.
+ *    Copyright 2015 IBM Corp.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -20,6 +21,10 @@
   angular
     .module('horizon.framework.util.workflow')
     .factory('horizon.framework.util.workflow.service', workflowService);
+
+  workflowService.$inject = [
+    'horizon.framework.util.extensible.service'
+  ];
 
   /**
    * @ngdoc factory
@@ -87,12 +92,14 @@
     }
    ```
    */
-  function workflowService() {
-    return function workflow(spec, decorators) {
-      angular.forEach(decorators, function service(decorator) {
+  function workflowService(extensibleService) {
+    return function createWorkflow(spec, decorators) {
+      angular.forEach(decorators, function decorate(decorator) {
         decorator(spec);
       });
+      extensibleService(spec, spec.steps);
       return spec;
     };
   }
+
 })();
