@@ -102,7 +102,8 @@ class UpdateView(forms.ModalFormView):
         return {'network_id': network['id'],
                 'tenant_id': network['tenant_id'],
                 'name': network['name'],
-                'admin_state': network['admin_state_up']}
+                'admin_state': network['admin_state_up'],
+                'shared': network['shared']}
 
 
 class DetailView(tables.MultiTableView):
