@@ -1,6 +1,5 @@
 {% extends "horizon/common/_modal_form.html" %}
 {% load i18n %}
-{% load url from future %}
 
 {% block form_class %}{{ block.super }} horizontal {% if show_attach %}split_half{% else %} no_split{% endif %}{% endblock %}
 

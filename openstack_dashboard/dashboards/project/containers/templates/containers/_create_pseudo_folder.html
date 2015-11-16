@@ -1,6 +1,5 @@
 {% extends "horizon/common/_modal_form.html" %}
 {% load i18n %}
-{% load url from future %}
 
 {% block form_id %}create_directory_form{% endblock %}
 {% block form_action %}{% url 'horizon:project:containers:create_pseudo_folder' container_name %}{% endblock %}

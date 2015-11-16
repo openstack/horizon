@@ -1,6 +1,5 @@
 {% extends "horizon/common/_modal_form.html" %}
 {% load i18n horizon humanize %}
-{% load url from future %}
 
 {% block form_id %}{% endblock %}
 {% block form_action %}{% url 'horizon:project:network_topology:createrouter' %}?{{ request.GET.urlencode }}{% endblock %}
