@@ -1,0 +1,25 @@
+.table {
+  & > tbody tr,
+  & > tbody td,
+  & > tfoot {
+    border: 1px solid $table-border-color;
+  }
+
+  & > tfoot {
+    font-size: $font-size-small * .9;
+  }
+
+  & > thead,
+  & > tfoot {
+    background: $gray-lighter;
+  }
+
+  & > thead {
+    border-left: 1px solid $table-border-color;
+    border-right: 1px solid $table-border-color;
+    border-top: 1px solid $table-border-color;
+    th {
+      border-left: 1px solid $table-border-color;
+    }
+  }
+}

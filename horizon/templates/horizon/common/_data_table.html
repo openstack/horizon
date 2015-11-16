@@ -4,7 +4,7 @@
   {% if needs_form_wrapper %}<form action="{{ table.get_full_url }}" method="POST">{% csrf_token %}{% endif %}
   {% with columns=table.get_columns rows=table.get_rows %}
 {% block table %}
-   <table id="{{ table.slugify_name }}" class="{% block table_css_classes %}table table-bordered table-striped datatable {{ table.css_classes }}{% endblock %}">
+   <table id="{{ table.slugify_name }}" class="{% block table_css_classes %}table table-striped datatable {{ table.css_classes }}{% endblock %}">
    <thead>
   {% block table_caption %}
       <tr class='table_caption'>
@@ -27,7 +27,7 @@
   {% endblock table_breadcrumb %}
   {% block table_columns %}
       {% if not table.is_browser_table %}
-      <tr>
+      <tr class="table_column_header">
         {% for column in columns %}
           <th {{ column.attr_string|safe }}>
             {{ column }}

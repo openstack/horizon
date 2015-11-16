@@ -1,0 +1,131 @@
+.table {
+  & > thead,
+  & > tbody,
+  & > tfoot {
+    > tr {
+       & > th,
+       & > td {
+        vertical-align: middle;
+      }
+    }
+  }
+
+  .multi_select_column {
+    text-align: center;
+  }
+
+  .empty {
+    text-align: center;
+  }
+
+  // Specificity Required!
+  & > tbody > tr > td {
+    &.loading {
+      background-color: $gray-lighter;
+    }
+    &.success {
+      background-color: lighten($brand-success, 35%);
+    }
+  }
+
+  tr.terminated {
+    color: $gray-light;
+  }
+
+  th.multi_select_column, td.multi_select_column {
+    width: $font-size-base * 3;
+    text-align: center;
+  }
+
+  .normal_column ul {
+    padding: 0;
+  }
+}
+
+// Sometimes the header is empty, lets keep the same look either way
+.table_header {
+  min-height: $input-height-base;
+
+  // We put headings in the table for the title, so these headings shouldn't
+  // function like normal Type H3's ... remove the margin on top
+  h3 {
+    display: inline-block;
+    margin-top: 0;
+  }
+}
+
+// Sort Indicator
+.tablesorter-header.sortable {
+  cursor: pointer;
+}
+
+.tablesorter-header-inner {
+  display: inline;
+}
+
+.tablesorter-headerAsc:after,
+.tablesorter-headerDesc:after {
+  @include fa-icon();
+  font-size: $font-size-h4;
+  color: $gray-light;
+  float: right;
+}
+
+.tablesorter-headerAsc:after {
+  content: $fa-var-caret-up;
+}
+
+.tablesorter-headerDesc:after {
+  content: $fa-var-caret-down;
+}
+
+///*
+// * Bootstrap styles table backgrounds using nth-child(2n+1), which is
+// * oblivious to hidden elements. The styles below allow us to override
+// * the bootstrap style when necessary by setting the odd/even classes.
+// */
+.table-striped.datatable tbody {
+  td {
+    background-clip: padding-box;
+  }
+  tr.odd {
+    td {
+      background-color: $table-bg-odd;
+    }
+
+    &.status_unknown td {
+      background-color: lighten($brand-warning, 6%);
+    }
+  }
+  tr.even {
+    td {
+      background-color: inherit;
+    }
+
+    &.status_unknown td {
+      background-color: lighten($brand-warning, 10%);
+    }
+  }
+
+  // Hover stuffs!
+  tr.odd:hover td,
+  tr.even:hover td,
+  tr:hover th {
+    background-color: $table-bg-hover;
+  }
+
+  tr.odd.status_unknown:hover td,
+  tr.even.status_unknown:hover td {
+    background-color: lighten($brand-warning, 6%);
+  }
+}
+
+// Force Table Fixed
+.table-fixed {
+  table-layout: fixed;
+}
+
+// Don't wrap a column
+.nowrap-col {
+  white-space: nowrap;
+}

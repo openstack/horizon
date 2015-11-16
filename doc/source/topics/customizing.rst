@@ -124,6 +124,11 @@ full use of the Bootstrap theme architecture.
 * `Side Nav`_
 * `Pie Charts`_
 
+9.0.0 (Mitaka)
+~~~~~~~~~~~~~~
+
+* Tables_
+
 Step 1
 ------
 
@@ -179,6 +184,18 @@ customizations for only a basic element's look and feel (i.e. colors, size).
 Since there is no native element in Bootstrap specifically for pie charts,
 the look and feel of the charts are inheriting from other elements of the
 theme. Please see ``_pie_charts.scss`` for specifics.
+
+.. _Tables:
+
+Tables
+------
+
+The standard Django tables now make use of the native Bootstrap table markup.
+See **Tables** section of your variables file for variables to customize.
+
+The standard Bootstrap tables will be borderless by default.  If you wish to
+add a border, like the ``default`` theme, see
+``openstack_dashboard/themes/default/horizon/components/_tables.scss``
 
 Bootswatch and Material Design
 ------------------------------
