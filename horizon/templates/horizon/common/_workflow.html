@@ -1,5 +1,7 @@
 {% load i18n %}
+
 {% with workflow.get_entry_point as entry_point %}
+
 <div class="workflow {{ layout|join:' ' }}" data-backdrop="{{ modal_backdrop }}">
   <form {{ workflow.attr_string|safe }} action="{{ workflow.get_absolute_url }}" {% if add_to_field %}data-add-to-field="{{ add_to_field }}"{% endif %} method="POST"{% if workflow.multipart %} enctype="multipart/form-data"{% endif %}>{% csrf_token %}
     {% if REDIRECT_URL %}<input type="hidden" name="{{ workflow.redirect_param_name }}" value="{{ REDIRECT_URL }}"/>{% endif %}
@@ -11,12 +13,15 @@
           <h3 class="modal-title">{{ workflow.name }}</h3>
         {% endblock %}
         </div>
-        <div class="modal-body clearfix">
+        <div class="modal-body">
         {% block modal-body %}
         <ul class="nav nav-tabs{% if workflow.wizard %} wizard-tabs{% endif %}" role="tablist">
             {% for step in workflow.steps %}
             <li class="{% if entry_point == step.slug %}active{% endif %}{% if step.has_errors %} error{% endif %}{% if step.has_required_fields %} required{% endif %}">
-              <a href="#{{ step.get_id }}" data-toggle="tab" data-target="#{{ step.get_id }}">{{ step }}</a>
+              <a href="#{{ step.get_id }}" data-toggle="tab" data-target="#{{ step.get_id }}">
+                {{ step }}
+                {% if step.has_required_fields %}<span class="hz-icon-required fa fa-asterisk"></span>{% endif %}
+              </a>
             </li>
             {% endfor %}
           </ul>
@@ -37,10 +42,10 @@
           {% if workflow.wizard %}
           <div class="row">
             <div class="col-sm-6 back">
-                <button type="button" class="btn btn-default button-previous">&laquo; {% trans "Back" %}</button>
+              <button type="button" class="btn btn-default button-previous">&laquo; {% trans "Back" %}</button>
             </div>
             <div class="col-sm-6 next">
-                <button type="button" class="btn btn-primary button-next">{% trans "Next" %} &raquo;</button>
+              <button type="button" class="btn btn-primary button-next">{% trans "Next" %} &raquo;</button>
               <button type="submit" class="btn btn-primary button-final">{{ workflow.finalize_button_name }}</button>
             </div>
           </div>
@@ -54,7 +59,9 @@
     </div>
   </form>
 </div>
+
 {% endwith %}
+
 {% block modal-js %}
   {% if workflow.wizard %}
   <script type="text/javascript">
