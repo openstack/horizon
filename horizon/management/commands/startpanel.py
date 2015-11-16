@@ -22,29 +22,31 @@ import horizon
 
 
 class Command(TemplateCommand):
-    args = "[name] [dashboard name] [optional destination directory]"
-    option_list = TemplateCommand.option_list + (
-        make_option('--dashboard', '-d',
-                    dest='dashboard',
-                    action='store',
-                    default=None,
-                    help='The dotted python path to the '
-                         'dashboard which this panel will be '
-                         'registered with.'),
-        make_option('--target',
-                    dest='target',
-                    action='store',
-                    default=None,
-                    help='The directory in which the panel '
-                         'should be created. Defaults to the '
-                         'current directory. The value "auto" '
-                         'may also be used to automatically '
-                         'create the panel inside the specified '
-                         'dashboard module.'),)
     template = os.path.join(horizon.__path__[0], "conf", "panel_template")
     help = ("Creates a Django app directory structure for a new panel "
             "with the given name in the current directory or optionally in "
             "the given directory.")
+
+    def add_arguments(self, parser):
+        add = parser.add_argument
+        add('panel_name', help='Panel name')
+        add('--template', help='The path or URL to load the template from.')
+        add('--extension', '-e', dest='extensions', action='append',
+            default=["py", "tmpl", "html"],
+            help='The file extension(s) to render (default: "py"). Separate '
+            'multiple extensions with commas, or use -e multiple times.')
+        add('--name', '-n', dest='files', action='append', default=[],
+            help='The file name(s) to render. Separate multiple extensions '
+            'with commas, or use -n multiple times.')
+        add('--dashboard', '-d', dest='dashboard', action='store',
+            default=None,
+            help='The dotted python path to the dashboard which this panel '
+            'will be registered with.')
+        add('--target', dest='target', action='store', default=None,
+            help='The directory in which the panel should be created. '
+            'Defaults to the current directory. The value "auto" may also be '
+            'used to automatically create the panel inside the specified '
+            'dashboard module.')
 
     def handle(self, panel_name=None, **options):
         if panel_name is None:
@@ -80,9 +82,6 @@ class Command(TemplateCommand):
         # Use our default template if one isn't specified.
         if not options.get("template", None):
             options["template"] = self.template
-
-        # We have html templates as well, so make sure those are included.
-        options["extensions"].extend(["tmpl", "html"])
 
         # Check that the app_name cannot be imported.
         try:

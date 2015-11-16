@@ -23,20 +23,24 @@ import horizon
 
 class Command(TemplateCommand):
     template = os.path.join(horizon.__path__[0], "conf", "dash_template")
-    option_list = TemplateCommand.option_list + (
-        make_option('--target',
-                    dest='target',
-                    action='store',
-                    default=None,
-                    help='The directory in which the panel '
-                         'should be created. Defaults to the '
-                         'current directory. The value "auto" '
-                         'may also be used to automatically '
-                         'create the panel inside the specified '
-                         'dashboard module.'),)
     help = ("Creates a Django app directory structure for a new dashboard "
             "with the given name in the current directory or optionally in "
             "the given directory.")
+
+    def add_arguments(self, parser):
+        add = parser.add_argument
+        add('dash_name', help='Dashboard name')
+        add('--template', help='The path or URL to load the template from.')
+        add('--extension', '-e', dest='extensions', action='append',
+            default=["py", "tmpl", "html", "js", "css"],
+            help='The file extension(s) to render (default: "py"). Separate '
+            'multiple extensions with commas, or use -e multiple times.')
+        add('--name', '-n', dest='files', action='append', default=[],
+            help='The file name(s) to render. Separate multiple extensions '
+            'with commas, or use -n multiple times.')
+        add('--target', dest='target', action='store', default=None,
+            help='The directory in which the dashboard should be created. '
+            'Defaults to the current directory.')
 
     def handle(self, dash_name=None, **options):
         if dash_name is None:
@@ -45,9 +49,6 @@ class Command(TemplateCommand):
         # Use our default template if one isn't specified.
         if not options.get("template", None):
             options["template"] = self.template
-
-        # We have html templates as well, so make sure those are included.
-        options["extensions"].extend(["tmpl", "html", "js", "css"])
 
         # Check that the app_name cannot be imported.
         try:
