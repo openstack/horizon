@@ -149,10 +149,10 @@ class DetailView(tabs.TabView):
                                             network_id=subnet.network_id)
         # TODO(robcresswell) Add URL for "Subnets" crumb after bug/1416838
         breadcrumb = [
-            ("Networks", self.get_redirect_url()),
+            (_("Networks"), self.get_redirect_url()),
             (network_nav, reverse('horizon:project:networks:detail',
                                   args=(subnet.network_id,))),
-            ("Subnets",), ]
+            (_("Subnets"),), ]
         context["custom_breadcrumb"] = breadcrumb
         context["subnet"] = subnet
         context["url"] = self.get_redirect_url()

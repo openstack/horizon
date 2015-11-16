@@ -1,7 +1,6 @@
 {% load i18n sizeformat parse_date %}
 
-<div class="info row detail">
-  <hr class="header_rule">
+<div class="detail">
   <dl class="dl-horizontal">
     <dt>{% trans "ID" %}</dt>
     <dd>{{ pool.id }}</dd>
@@ -20,7 +19,7 @@
       {% url 'horizon:project:loadbalancers:vipdetails' pool.vip_id as vip_url %}
       <dd><a href="{{ vip_url }}">{{ pool.vip.name_or_id }}</a></dd>
     {% else %}
-      <dd>{% trans "-" %}</dd>
+      <dd>{% trans "None" %}</dd>
     {% endif %}
 
     <dt>{% trans "Provider" %}</dt>
@@ -36,34 +35,40 @@
     <dt>{% trans "Load Balancing Method" %}</dt>
     <dd>{{ pool.lb_method }}</dd>
 
-    <dt>{% trans "Members" %}</dt>
-    <dd>
-      {% if pool.members %}
-      {% for member in pool.members %}
-      {% url 'horizon:project:loadbalancers:memberdetails' member.id as member_url %}
-      <a href="{{ member_url }}">{{ member.address }}:{{ member.protocol_port }}</a><br>
-      {% endfor %}
-      {% else %}
-      <dd>{% trans "-" %}</dd>
-      {% endif %}
-    </dd>
-
-    <dt>{% trans "Health Monitors" %}</dt>
-    <dd>
-      {% if pool.health_monitors %}
-      {% for monitor in pool.health_monitors %}
-      {% url 'horizon:project:loadbalancers:monitordetails' monitor.id as monitor_url %}
-      <a href="{{ monitor_url }}">{{ monitor.display_name }}</a><br>
-      {% endfor %}
-      {% else %}
-      <dd>{% trans "-" %}</dd>
-      {% endif %}
-    </dd>
-
     <dt>{% trans "Admin State Up" %}</dt>
     <dd>{{ pool.admin_state_up|yesno|capfirst }}</dd>
 
     <dt>{% trans "Status" %}</dt>
     <dd>{{ pool.status }}</dd>
+  </dl>
+
+  <dl class="dl-horizontal">
+    <h4>{% trans "Members" %}</h4>
+    <hr class="header_rule">
+    {% if pool.members %}
+      <ul>
+      {% for member in pool.members %}
+        {% url 'horizon:project:loadbalancers:memberdetails' member.id as member_url %}
+        <li><a href="{{ member_url }}">{{ member.address }}:{{ member.protocol_port }}</a></li>
+        {% endfor %}
+      <ul>
+    {% else %}
+      {% trans "None" %}
+    {% endif %}
+  </dl>
+
+  <dl class="dl-horizontal">
+    <h4>{% trans "Health Monitors" %}</h4>
+    <hr class="header_rule">
+    {% if pool.health_monitors %}
+      <ul>
+        {% for monitor in pool.health_monitors %}
+          {% url 'horizon:project:loadbalancers:monitordetails' monitor.id as monitor_url %}
+          <li><a href="{{ monitor_url }}">{{ monitor.display_name }}</a></li>
+        {% endfor %}
+      </ul>
+    {% else %}
+      {% trans "None" %}
+    {% endif %}
   </dl>
 </div>

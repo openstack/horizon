@@ -1586,8 +1586,6 @@ class DetailProjectViewTests(test.BaseAdminViewTests):
         self.assertTemplateUsed(res, 'identity/projects/detail.html')
         self.assertEqual(res.context['project'].name, project.name)
         self.assertEqual(res.context['project'].id, project.id)
-        self.assertContains(res, "Project Details: %s" % project.name,
-                            1, 200)
 
     @test.create_stubs({api.keystone: ('tenant_get',)})
     def test_detail_view_with_exception(self):

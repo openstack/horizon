@@ -1,7 +1,6 @@
 {% load i18n sizeformat parse_date %}
 
-<div class="info row detail">
-  <hr class="header_rule">
+<div class="detail">
   <dl class="dl-horizontal">
     <dt>{% trans "ID" %}</dt>
     <dd>{{ monitor.id }}</dd>
@@ -34,15 +33,19 @@
 
     <dt>{% trans "Admin State Up" %}</dt>
     <dd>{{ monitor.admin_state_up|yesno|capfirst }}</dd>
+  </dl>
 
-    <dt>{% trans "Pools" %}</dt>
+  <dl class="dl-horizontal">
+    <h4>{% trans "Pools" %}</h4>
+    <hr class="header_rule">
     {% if monitor.pools %}
-    {% for pool in monitor.pools %}
-    {% url 'horizon:project:loadbalancers:pooldetails' pool.id as pool_url %}
-    <dd><a href="{{ pool_url }}">{{ pool.name_or_id }}</a></dd>
-    {% endfor %}
+    <ul>
+      {% for pool in monitor.pools %}
+        {% url 'horizon:project:loadbalancers:pooldetails' pool.id as pool_url %}
+        <li><a href="{{ pool_url }}">{{ pool.name_or_id }}</a></li>
+      {% endfor %}
     {% else %}
-    <dd>{% trans "None" %}</dd>
+      {% trans "None" %}
     {% endif %}
   </dl>
 </div>

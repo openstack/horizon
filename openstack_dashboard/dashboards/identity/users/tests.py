@@ -600,8 +600,6 @@ class UsersViewTests(test.BaseAdminViewTests):
         self.assertTemplateUsed(res, 'identity/users/detail.html')
         self.assertEqual(res.context['user'].name, user.name)
         self.assertEqual(res.context['user'].id, user.id)
-        self.assertContains(res, "<h1>User Details: %s</h1>" % user.name,
-                            1, 200)
         self.assertEqual(res.context['tenant_name'], tenant.name)
 
     @test.create_stubs({api.keystone: ('user_get',)})

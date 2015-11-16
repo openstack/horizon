@@ -21,6 +21,9 @@ from openstack_dashboard.dashboards.project.loadbalancers import views
 urlpatterns = patterns(
     'openstack_dashboard.dashboards.project.loadbalancers.views',
     url(r'^$', views.IndexView.as_view(), name='index'),
+    url(r'^\?tab=lbtabs__members$', views.IndexView.as_view(), name='members'),
+    url(r'^\?tab=lbtabs__monitors$',
+        views.IndexView.as_view(), name='monitors'),
     url(r'^addpool$', views.AddPoolView.as_view(), name='addpool'),
     url(r'^updatepool/(?P<pool_id>[^/]+)/$',
         views.UpdatePoolView.as_view(), name='updatepool'),
