@@ -7,7 +7,7 @@
    {% for region in regions.available %}
      {% if region.name != regions.current.name %}
        <li>
-         <a class="ajax-modal" href="{% url 'login' %}?region={{ region.endpoint|urlencode }}">
+         <a class="ajax-modal" href="{% url 'login' %}?region={{ region.endpoint|urlencode }}&is_modal">
            {{ region.name }}
          </a>
        </li>

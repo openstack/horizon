@@ -11,3 +11,13 @@
   // The 114 is a legacy value to push the context-menu over
   padding-right: 114px;
 }
+
+// TODO(hurgleburgler): This seems awfully global ... and strange
+// need to look into why we are actually doing this.
+form label {
+  text-align: left;
+  color: $gray;
+  font-weight: bold;
+  display: inline-block;
+}
+

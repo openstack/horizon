@@ -1,0 +1,28 @@
+/**
+ * Styling for the splash/login page.
+ */
+
+.login {
+  margin-top: $navbar-height*2;
+
+  .splash-logo {
+    padding: $padding-large-horizontal $padding-large-vertical;
+    max-width: 100%;
+  }
+
+  .help_text {
+    display: none;
+  }
+
+  .login-title {
+    display: inline-block;
+  }
+
+  ul.errorlist {
+    padding-left: 0;
+  }
+
+  .modal-content .panel {
+    margin-bottom: 0;
+  }
+}

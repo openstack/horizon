@@ -128,6 +128,7 @@ full use of the Bootstrap theme architecture.
 ~~~~~~~~~~~~~~
 
 * Tables_
+* Login_
 
 Step 1
 ------
@@ -196,6 +197,25 @@ See **Tables** section of your variables file for variables to customize.
 The standard Bootstrap tables will be borderless by default.  If you wish to
 add a border, like the ``default`` theme, see
 ``openstack_dashboard/themes/default/horizon/components/_tables.scss``
+
+.. _Login:
+
+Login
+-----
+
+Login Splash Page
+~~~~~~~~~~~~~~~~~
+
+The login splash page now uses a standard Bootstrap panel in its implementation.
+See the **Panels** section in your variables file to variables to easily
+customize.
+
+Modal Login
+~~~~~~~~~~~
+
+The modal login experience, as used when switching regions, uses a standard
+Bootstrap dialog.  See the **Modals** section of your variables file for
+specific variables to customize.
 
 Bootswatch and Material Design
 ------------------------------
