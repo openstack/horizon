@@ -30,6 +30,7 @@ from neutronclient.common import exceptions as neutron_exc
 from neutronclient.v2_0 import client as neutron_client
 import six
 
+from horizon import exceptions
 from horizon import messages
 from horizon.utils.memoized import memoized  # noqa
 from openstack_dashboard.api import base
@@ -297,7 +298,10 @@ class SecurityGroupManager(network_base.SecurityGroupManager):
                  'port_range_max': to_port,
                  'remote_ip_prefix': cidr,
                  'remote_group_id': group_id}}
-        rule = self.client.create_security_group_rule(body)
+        try:
+            rule = self.client.create_security_group_rule(body)
+        except neutron_exc.Conflict:
+            raise exceptions.Conflict(_('Security group rule already exists.'))
         rule = rule.get('security_group_rule')
         sg_dict = self._sg_name_dict(parent_group_id, [rule])
         return SecurityGroupRule(rule, sg_dict)

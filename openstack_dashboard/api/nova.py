@@ -286,12 +286,16 @@ class SecurityGroupManager(network_base.SecurityGroupManager):
                     ip_protocol=None, from_port=None, to_port=None,
                     cidr=None, group_id=None):
         # Nova Security Group API does not use direction and ethertype fields.
-        sg = self.client.security_group_rules.create(parent_group_id,
-                                                     ip_protocol,
-                                                     from_port,
-                                                     to_port,
-                                                     cidr,
-                                                     group_id)
+        try:
+            sg = self.client.security_group_rules.create(parent_group_id,
+                                                         ip_protocol,
+                                                         from_port,
+                                                         to_port,
+                                                         cidr,
+                                                         group_id)
+        except nova_exceptions.BadRequest:
+            raise horizon_exceptions.Conflict(
+                _('Security group rule already exists.'))
         return SecurityGroupRule(sg)
 
     def rule_delete(self, security_group_rule_id):
