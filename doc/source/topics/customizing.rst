@@ -131,6 +131,7 @@ full use of the Bootstrap theme architecture.
 * `Bar Charts`_
 * Login_
 * Tabs_
+* Alerts_
 
 Step 1
 ------
@@ -236,6 +237,12 @@ Tabs
 The standard tabs make use of the native Bootstrap tab markup.
 
 See **Tabs** section of your variables file for variables to customize.
+
+Alerts
+------
+
+Alerts use the basic Bootstrap brand colors.  See **Colors** section of your
+variables file for specifics.
 
 Bootswatch and Material Design
 ------------------------------

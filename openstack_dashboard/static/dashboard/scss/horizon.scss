@@ -34,6 +34,7 @@
 @import "components/table_actions";
 @import "/framework/framework";
 @import "components/tables";
+@import "components/messages";
 @import "components/table_actions";
 
 
@@ -152,46 +153,6 @@ a.current_item:hover h4 {
   border: 2px solid #d8d8d8;
   border-right: 0;
   border-bottom-color: #ccc;
-}
-
-.messages {
-  position: fixed;
-  z-index: 9999;
-  top: 20px;
-  right: 20px;
-  width: 300px;
-  .alert {
-    @include box-shadow(0 3px 7px rgba(0, 0, 0, 0.3));
-  }
-  .alert.alert-danger {
-    border-width: 1px;
-    border-style: solid;
-    border-color: darken($brand-danger, 5%);
-  }
-  .alert.alert-success {
-    border-width: 1px;
-    border-style: solid;
-    border-color: darken($brand-success, 5%);
-  }
-}
-
-.alert .alert-actions {
-  margin-top: -23px;
-  margin-right: -23px;
-}
-
-.modal > form,
-.alert-actions > form {
-  margin-bottom: 0;
-}
-
-.alert p {
-  overflow: hidden;
-  word-wrap: break-word;
-}
-
-.alert p:last-child {
-  margin-bottom: 0;
 }
 
 #actions.single {

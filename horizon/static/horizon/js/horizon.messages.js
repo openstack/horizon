@@ -20,7 +20,7 @@ horizon.alert = function (type, message, extra_tags) {
 
   var template = horizon.templates.compiled_templates["#alert_message_template"],
     params = {
-      "type": type,
+      "type": type || 'default',
       "type_display": type_display,
       "message": message,
       "safe": safe
