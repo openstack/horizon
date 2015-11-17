@@ -332,6 +332,14 @@ class APITestCase(TestCase):
             """
             return self.stub_keystoneclient()
 
+        def fake_glanceclient(request, version='1'):
+            """Returns the stub glanceclient.
+
+            Only necessary because the function takes too many arguments to
+            conveniently be a lambda.
+            """
+            return self.stub_glanceclient()
+
         # Store the original clients
         self._original_glanceclient = api.glance.glanceclient
         self._original_keystoneclient = api.keystone.keystoneclient
@@ -342,7 +350,7 @@ class APITestCase(TestCase):
         self._original_ceilometerclient = api.ceilometer.ceilometerclient
 
         # Replace the clients with our stubs.
-        api.glance.glanceclient = lambda request: self.stub_glanceclient()
+        api.glance.glanceclient = fake_glanceclient
         api.keystone.keystoneclient = fake_keystoneclient
         api.nova.novaclient = lambda request: self.stub_novaclient()
         api.neutron.neutronclient = lambda request: self.stub_neutronclient()
