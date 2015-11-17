@@ -241,28 +241,6 @@ a.current_item:hover h4 {
   font-size: 24px;
 }
 
-#monitoring {
-  background: $body-bg;
-  font-size: 14px;
-  height: 20px;
-  margin: -18px 0 25px;
-  padding: 10px;
-  border: 1px solid $border-color;
-}
-
-#monitoring h3 {
-    font-size: 14px;
-    font-weight: normal;
-    float: left;
-    line-height: 18px;
-}
-
-#external_links, #external_links li {
-    float: left;
-}
-#external_links li { margin: 0 0 0 15px; }
-
-
 /* Forms */
 
 .datepicker {
