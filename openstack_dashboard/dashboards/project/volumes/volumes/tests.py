@@ -15,7 +15,6 @@
 #    WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
 #    License for the specific language governing permissions and limitations
 #    under the License.
-
 import django
 from django.core.urlresolvers import reverse
 from django.forms import widgets
@@ -24,11 +23,10 @@ from django.test.utils import override_settings
 
 from mox3.mox import IsA  # noqa
 import six
+from six import moves
 
 from openstack_dashboard import api
 from openstack_dashboard.api import cinder
-from openstack_dashboard.dashboards.project.volumes \
-    .volumes import tables
 from openstack_dashboard.test import helpers as test
 from openstack_dashboard.usage import quotas
 
@@ -1021,6 +1019,50 @@ class VolumeViewTests(test.TestCase):
                          server.id)
         self.assertEqual(res.status_code, 200)
 
+    def _get_volume_row_action_from_ajax(self, res, action_name, row_id):
+        def _matches_row_id(context_row):
+            return (len(context_row.dicts) > 1 and
+                    isinstance(context_row.dicts[1], dict) and
+                    context_row.dicts[1].get('row_id', None) == row_id)
+
+        matching = list(moves.filter(lambda r: _matches_row_id(r),
+                                     res.context))
+        self.assertTrue(len(matching) > 1,
+                        "Expected at least one row matching %s" % row_id)
+        row = matching[-1].dicts[1]
+        matching_actions = list(moves.filter(lambda a: a.name == action_name,
+                                             row['row_actions']))
+        self.assertEqual(1, len(matching_actions),
+                         "Expected one row action named '%s'" % action_name)
+        return matching_actions[0]
+
+    @test.create_stubs({cinder: ('tenant_absolute_limits',
+                                 'volume_get',)})
+    def test_create_snapshot_button_attributes(self):
+        limits = {'maxTotalSnapshots': 2}
+        limits['totalSnapshotsUsed'] = 1
+        volume = self.cinder_volumes.first()
+
+        cinder.volume_get(IsA(http.HttpRequest), volume.id).AndReturn(volume)
+        cinder.tenant_absolute_limits(IsA(http.HttpRequest)).AndReturn(limits)
+        self.mox.ReplayAll()
+
+        res_url = (VOLUME_INDEX_URL +
+                   "?action=row_update&table=volumes&obj_id=" + volume.id)
+
+        res = self.client.get(res_url, {},
+                              HTTP_X_REQUESTED_WITH='XMLHttpRequest')
+
+        snapshot_action = self._get_volume_row_action_from_ajax(
+            res, 'snapshots', volume.id)
+        self.assertEqual('horizon:project:volumes:volumes:create_snapshot',
+                         snapshot_action.url)
+        self.assertEqual(set(['ajax-modal']), set(snapshot_action.classes))
+        self.assertEqual('Create Snapshot',
+                         six.text_type(snapshot_action.verbose_name))
+        self.assertEqual((('volume', 'volume:create_snapshot'),),
+                         snapshot_action.policy_rules)
+
     @test.create_stubs({cinder: ('tenant_absolute_limits',
                                  'volume_get',)})
     def test_create_snapshot_button_disabled_when_quota_exceeded(self):
@@ -1032,25 +1074,57 @@ class VolumeViewTests(test.TestCase):
         cinder.tenant_absolute_limits(IsA(http.HttpRequest)).AndReturn(limits)
         self.mox.ReplayAll()
 
-        create_link = tables.CreateSnapshot()
-        url = reverse(create_link.get_link_url(), args=[volume.id])
         res_url = (VOLUME_INDEX_URL +
                    "?action=row_update&table=volumes&obj_id=" + volume.id)
 
         res = self.client.get(res_url, {},
                               HTTP_X_REQUESTED_WITH='XMLHttpRequest')
 
-        classes = (list(create_link.get_default_classes())
-                   + list(create_link.classes))
-        link_name = "%s (%s)" % (six.text_type(create_link.verbose_name),
-                                 "Quota exceeded")
-        expected_string = "<a href='%s' class=\"%s disabled\" "\
-            "id=\"volumes__row_%s__action_snapshots\">%s</a>" \
-            % (url, " ".join(classes), volume.id, link_name)
+        snapshot_action = self._get_volume_row_action_from_ajax(
+            res, 'snapshots', volume.id)
+        self.assertTrue('disabled' in snapshot_action.classes,
+                        'The create snapshot button should be disabled')
 
-        self.assertContains(
-            res, expected_string, html=True,
-            msg_prefix="The create snapshot button is not disabled")
+    @test.create_stubs({cinder: ('tenant_absolute_limits',
+                                 'volume_list',
+                                 'volume_snapshot_list',
+                                 'volume_backup_supported',),
+                        api.nova: ('server_list',)})
+    def test_create_button_attributes(self):
+        limits = self.cinder_limits['absolute']
+        limits['maxTotalVolumes'] = 10
+        limits['totalVolumesUsed'] = 1
+        volumes = self.cinder_volumes.list()
+
+        api.cinder.volume_backup_supported(IsA(http.HttpRequest)). \
+            MultipleTimes().AndReturn(True)
+        cinder.volume_list(IsA(http.HttpRequest), search_opts=None)\
+            .AndReturn(volumes)
+        cinder.volume_snapshot_list(IsA(http.HttpRequest),
+                                    search_opts=None).\
+            AndReturn([])
+        api.nova.server_list(IsA(http.HttpRequest), search_opts=None)\
+            .AndReturn([self.servers.list(), False])
+        cinder.tenant_absolute_limits(IsA(http.HttpRequest))\
+            .MultipleTimes().AndReturn(limits)
+        self.mox.ReplayAll()
+
+        res = self.client.get(VOLUME_INDEX_URL)
+        self.assertTemplateUsed(res, 'project/volumes/index.html')
+
+        volumes = res.context['volumes_table'].data
+        self.assertItemsEqual(volumes, self.cinder_volumes.list())
+
+        create_action = self.getAndAssertTableAction(res, 'volumes', 'create')
+
+        self.assertEqual(set(['ajax-modal', 'ajax-update', 'btn-create']),
+                         set(create_action.classes))
+        self.assertEqual('Create Volume',
+                         six.text_type(create_action.verbose_name))
+        self.assertEqual('horizon:project:volumes:volumes:create',
+                         create_action.url)
+        self.assertEqual((('volume', 'volume:create'),),
+                         create_action.policy_rules)
 
     @test.create_stubs({cinder: ('tenant_absolute_limits',
                                  'volume_list',
@@ -1081,19 +1155,9 @@ class VolumeViewTests(test.TestCase):
         volumes = res.context['volumes_table'].data
         self.assertItemsEqual(volumes, self.cinder_volumes.list())
 
-        create_link = tables.CreateVolume()
-        url = create_link.get_link_url()
-        classes = (list(create_link.get_default_classes())
-                   + list(create_link.classes))
-        link_name = "%s (%s)" % (six.text_type(create_link.verbose_name),
-                                 "Quota exceeded")
-        expected_string = "<a href='%s' title='%s'  class='%s disabled' "\
-            "id='volumes__action_create'  data-update-url=" \
-            "'/project/volumes/?action=create&amp;table=volumes'> "\
-            "<span class='fa fa-plus'></span>%s</a>" \
-            % (url, link_name, " ".join(classes), link_name)
-        self.assertContains(res, expected_string, html=True,
-                            msg_prefix="The create button is not disabled")
+        create_action = self.getAndAssertTableAction(res, 'volumes', 'create')
+        self.assertTrue('disabled' in create_action.classes,
+                        'The create button should be disabled')
 
     @test.create_stubs({cinder: ('tenant_absolute_limits',
                                  'volume_get',),

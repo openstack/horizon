@@ -23,7 +23,6 @@ import six
 from openstack_dashboard import api
 from openstack_dashboard.dashboards.project.routers.extensions.routerrules\
     import rulemanager
-from openstack_dashboard.dashboards.project.routers import tables
 from openstack_dashboard.test import helpers as test
 from openstack_dashboard.usage import quotas
 
@@ -938,18 +937,11 @@ class RouterViewTests(RouterMixin, test.TestCase):
         routers = res.context['Routers_table'].data
         self.assertItemsEqual(routers, self.routers.list())
 
-        create_link = tables.CreateRouter()
-        url = create_link.get_link_url()
-        classes = (list(create_link.get_default_classes())
-                   + list(create_link.classes))
-        link_name = "%s (%s)" % (six.text_type(create_link.verbose_name),
-                                 "Quota exceeded")
-        expected_string = "<a href='%s' title='%s'  class='%s disabled' "\
-            "id='Routers__action_create'>" \
-            "<span class='fa fa-plus'></span>%s</a>" \
-            % (url, link_name, " ".join(classes), link_name)
-        self.assertContains(res, expected_string, html=True,
-                            msg_prefix="The create button is not disabled")
+        create_action = self.getAndAssertTableAction(res, 'Routers', 'create')
+        self.assertTrue('disabled' in create_action.classes,
+                        'Create button is not disabled')
+        self.assertEqual('Create Router (Quota exceeded)',
+                         create_action.verbose_name)
 
     @test.create_stubs({api.neutron: ('router_list', 'network_list'),
                         quotas: ('tenant_quota_usages',)})
@@ -973,14 +965,38 @@ class RouterViewTests(RouterMixin, test.TestCase):
         routers = res.context['Routers_table'].data
         self.assertItemsEqual(routers, self.routers.list())
 
-        create_link = tables.CreateRouter()
-        url = create_link.get_link_url()
-        classes = (list(create_link.get_default_classes())
-                   + list(create_link.classes))
-        link_name = "%s" % (six.text_type(create_link.verbose_name))
-        expected_string = "<a href='%s' title='%s'  class='%s' "\
-            "id='Routers__action_create'>" \
-            "<span class='fa fa-plus'></span>%s</a>" \
-            % (url, link_name, " ".join(classes), link_name)
-        self.assertContains(res, expected_string, html=True,
-                            msg_prefix="The create button is not displayed")
+        create_action = self.getAndAssertTableAction(res, 'Routers', 'create')
+        self.assertFalse('disabled' in create_action.classes,
+                         'Create button should not be disabled')
+        self.assertEqual('Create Router',
+                         create_action.verbose_name)
+
+    @test.create_stubs({api.neutron: ('router_list', 'network_list'),
+                        quotas: ('tenant_quota_usages',)})
+    def test_create_button_attributes(self):
+        quota_data = self.neutron_quota_usages.first()
+        quota_data['routers']['available'] = 10
+        api.neutron.router_list(
+            IsA(http.HttpRequest),
+            tenant_id=self.tenant.id,
+            search_opts=None).AndReturn(self.routers.list())
+        quotas.tenant_quota_usages(
+            IsA(http.HttpRequest)) \
+            .MultipleTimes().AndReturn(quota_data)
+
+        self._mock_external_network_list()
+        self.mox.ReplayAll()
+
+        res = self.client.get(self.INDEX_URL)
+        self.assertTemplateUsed(res, 'project/routers/index.html')
+
+        routers = res.context['Routers_table'].data
+        self.assertItemsEqual(routers, self.routers.list())
+
+        create_action = self.getAndAssertTableAction(res, 'Routers', 'create')
+        self.assertEqual(set(['ajax-modal']), set(create_action.classes))
+        self.assertEqual('Create Router',
+                         six.text_type(create_action.verbose_name))
+        self.assertEqual('horizon:project:routers:create', create_action.url)
+        self.assertEqual((('network', 'create_router'),),
+                         create_action.policy_rules)

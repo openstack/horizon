@@ -280,6 +280,44 @@ class TestCase(horizon_helpers.TestCase):
     def assertItemsCollectionEqual(self, response, items_list):
         self.assertEqual(response.json, {"items": items_list})
 
+    def getAndAssertTableRowAction(self, response, table_name,
+                                   action_name, row_id):
+        table = response.context[table_name + '_table']
+        full_row_id = '%s__row__%s' % (table_name, row_id)
+        rows = list(moves.filter(lambda x: x.id == full_row_id,
+                                 table.get_rows()))
+        self.assertEqual(1, len(rows),
+                         "Did not find a row matching id '%s'" % row_id)
+        row_actions = table.get_row_actions(rows[0])
+
+        msg_args = (table_name, action_name, row_id)
+        self.assertTrue(
+            len(row_actions) > 0,
+            "No action named '%s' found in table '%s' row '%s'" % msg_args)
+
+        self.assertEqual(
+            1, len(row_actions),
+            "Multiple actions '%s' found in table '%s' row '%s'" % msg_args)
+
+        return row_actions[0]
+
+    def getAndAssertTableAction(self, response, table_name, action_name):
+
+        table = response.context[table_name + '_table']
+        table_actions = table.get_table_actions()
+        actions = list(moves.filter(lambda x: x.name == action_name,
+                                    table_actions))
+        msg_args = (table_name, action_name)
+        self.assertTrue(
+            len(actions) > 0,
+            "No action named '%s' found in table '%s'" % msg_args)
+
+        self.assertEqual(
+            1, len(actions),
+            "More than one action named '%s' found in table '%s'" % msg_args)
+
+        return actions[0]
+
     @staticmethod
     def mock_rest_request(**args):
         mock_args = {
