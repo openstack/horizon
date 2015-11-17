@@ -24,7 +24,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-11-12 12:09+0000\n"
+"POT-Creation-Date: 2015-11-17 06:14+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -7305,10 +7305,6 @@ msgstr "Proyecto="
 msgid "Project Details"
 msgstr "Detalles del proyecto"
 
-#, python-format
-msgid "Project Details: %s"
-msgstr "Detalles del Proyecto: %s"
-
 msgid "Project Groups"
 msgstr "Grupos de proyecto"
 
@@ -7329,9 +7325,6 @@ msgstr "Miembros del proyecto"
 
 msgid "Project Name"
 msgstr "Nombre del proyecto"
-
-msgid "Project Overview"
-msgstr "Vista General del proyecto"
 
 msgid "Project Quotas"
 msgstr "Cuotas del proyecto"
@@ -11814,17 +11807,11 @@ msgstr "Detalles de las credenciales de usuario"
 msgid "User Details"
 msgstr "Detalles de usuario"
 
-msgid "User Details: {{ user.name }}"
-msgstr "Detalles de Usuario:  {{ user.name }}"
-
 msgid "User ID"
 msgstr "ID de usuario"
 
 msgid "User Name"
 msgstr "Usuario"
-
-msgid "User Overview"
-msgstr "Vista General de usuario"
 
 msgid "User Settings"
 msgstr "Ajustes de usuario"
