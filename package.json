@@ -6,8 +6,8 @@
   "repository": "none",
   "license": "Apache 2.0",
   "devDependencies": {
-    "eslint": "1.2.0",
-    "eslint-config-openstack": "1.2.2",
+    "eslint": "1.2.1",
+    "eslint-config-openstack": "1.2.3",
     "eslint-plugin-angular": "0.4.0",
     "jasmine-core": "2.2.0",
     "karma": "0.12.31",
