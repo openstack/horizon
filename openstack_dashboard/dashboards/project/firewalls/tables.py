@@ -286,6 +286,7 @@ class RulesTable(tables.DataTable):
     ACTION_DISPLAY_CHOICES = (
         ("Allow", pgettext_lazy("Action Name of a Firewall Rule", u"ALLOW")),
         ("Deny", pgettext_lazy("Action Name of a Firewall Rule", u"DENY")),
+        ("Reject", pgettext_lazy("Action Name of a Firewall Rule", u"REJECT")),
     )
     name = tables.Column("name_or_id",
                          verbose_name=_("Name"),
