@@ -15,7 +15,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-11-12 12:09+0000\n"
+"POT-Creation-Date: 2015-11-17 06:14+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -7058,10 +7058,6 @@ msgstr "Project ="
 msgid "Project Details"
 msgstr "프로젝트 세부 정보"
 
-#, python-format
-msgid "Project Details: %s"
-msgstr "프로젝트 세부 정보: %s"
-
 msgid "Project Groups"
 msgstr "프로젝트 그룹"
 
@@ -7082,9 +7078,6 @@ msgstr "프로젝트 멤버"
 
 msgid "Project Name"
 msgstr "프로젝트 이름"
-
-msgid "Project Overview"
-msgstr "프로젝트 개요"
 
 msgid "Project Quotas"
 msgstr "프로젝트 Quotas"
@@ -11407,17 +11400,11 @@ msgstr "사용자 인증서 세부 정보"
 msgid "User Details"
 msgstr "사용자 세부 정보"
 
-msgid "User Details: {{ user.name }}"
-msgstr "사용자 세부 사항: {{ user.name }}"
-
 msgid "User ID"
 msgstr "사용자 ID"
 
 msgid "User Name"
 msgstr "사용자 이름"
-
-msgid "User Overview"
-msgstr "사용자 개요"
 
 msgid "User Settings"
 msgstr "사용자 설정"

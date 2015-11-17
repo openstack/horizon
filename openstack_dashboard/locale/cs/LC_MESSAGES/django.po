@@ -10,11 +10,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-11-14 14:00+0000\n"
+"POT-Creation-Date: 2015-11-17 06:14+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2015-11-15 09:01+0000\n"
+"PO-Revision-Date: 2015-11-16 10:02+0000\n"
 "Last-Translator: Zbyněk Schwarz <zbynek.schwarz@gmail.com>\n"
 "Language: cs\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
@@ -7407,10 +7407,6 @@ msgstr "Projekt ="
 msgid "Project Details"
 msgstr "Podrobnosti projektu"
 
-#, python-format
-msgid "Project Details: %s"
-msgstr "Podrobnosti projektu: %s"
-
 msgid "Project Groups"
 msgstr "Skupiny projektu"
 
@@ -7431,9 +7427,6 @@ msgstr "Členové projektu"
 
 msgid "Project Name"
 msgstr "Název projektu"
-
-msgid "Project Overview"
-msgstr "Přehled projektu"
 
 msgid "Project Quotas"
 msgstr "Kvóty projektu"
@@ -8692,6 +8685,9 @@ msgstr "Skupiny serveru"
 
 msgid "Server error"
 msgstr "Chyba serveru"
+
+msgid "Servers"
+msgstr "Servery"
 
 msgid "Service"
 msgstr "Služba"
@@ -11900,17 +11896,11 @@ msgstr "Ověřovací údaje uživatele."
 msgid "User Details"
 msgstr "Podrobnosti uživatele"
 
-msgid "User Details: {{ user.name }}"
-msgstr "Podrobnosti uživatele: {{ user.name }}"
-
 msgid "User ID"
 msgstr "ID uživatele"
 
 msgid "User Name"
 msgstr "Uživatelské jméno"
-
-msgid "User Overview"
-msgstr "Přehled uživatelů"
 
 msgid "User Settings"
 msgstr "Uživatelská nastavení"
