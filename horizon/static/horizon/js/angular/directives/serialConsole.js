@@ -19,77 +19,89 @@ limitations under the License.
   'use strict';
 
   angular.module('serialConsoleApp', [])
-    .constant('protocols', ['binary', 'base64'])
-    .constant('states', [gettext('Connecting'), gettext('Open'), gettext('Closing'), gettext('Closed')])
+    .constant('protocols', [
+      'binary',
+      'base64'
+    ])
+    .constant('states', [
+      gettext('Connecting'),
+      gettext('Open'),
+      gettext('Closing'),
+      gettext('Closed')
+    ])
 
     /**
-    * @ngdoc directive
-    * @ngname serialConsole
-    *
-    * @description
-    * The serial-console element creates a terminal based on the widely-used term.js.
-    * The "connection" attribute is input to a WebSocket object, which connects
-    * to a server. In Horizon, this directive is used to connect to nova-serialproxy,
-    * opening a serial console to any instance. Each key the user types is transmitted
-    * to the instance, and each character the instance reponds with is displayed.
-    */
-    .directive('serialConsole', function(protocols, states) {
-      return {
-        scope: true,
-        template: '<div id="terminalNode"></div><br>{{statusMessage()}}',
-        restrict: 'E',
-        link: function postLink(scope, element, attrs) {
+     * @ngdoc directive
+     * @ngname serialConsole
+     *
+     * @description
+     * The serial-console element creates a terminal based on the widely-used term.js.
+     * The "connection" attribute is input to a WebSocket object, which connects
+     * to a server. In Horizon, this directive is used to connect to nova-serialproxy,
+     * opening a serial console to any instance. Each key the user types is transmitted
+     * to the instance, and each character the instance reponds with is displayed.
+     */
+    .directive('serialConsole', serialConsole);
 
-          var connection = scope.$eval(attrs.connection);
-          var term = new Terminal();
-          var socket = new WebSocket(connection, protocols);
+  serialConsole.$inject = ['protocols', 'states'];
 
-          socket.onerror = function() {
-            scope.$apply(scope.status);
-          };
-          socket.onopen = function() {
-            scope.$apply(scope.status);
-            // initialize by "hitting enter"
-            socket.send(String.fromCharCode(13));
-          };
-          socket.onclose = function() {
-            scope.$apply(scope.status);
-          };
+  function serialConsole(protocols, states) {
+    return {
+      scope: true,
+      template: '<div id="terminalNode"></div><br>{{statusMessage()}}',
+      restrict: 'E',
+      link: function postLink(scope, element, attrs) {
 
-          // turn the angular jQlite element into a raw DOM element so we can
-          // attach the Terminal to it
-          var termElement = angular.element(element)[0];
-          term.open(termElement.ownerDocument.getElementById('terminalNode'));
+        var connection = scope.$eval(attrs.connection);
+        var term = new Terminal();
+        var socket = new WebSocket(connection, protocols);
 
-          term.on('data', function(data) {
-            socket.send(data);
-          });
+        socket.onerror = function() {
+          scope.$apply(scope.status);
+        };
+        socket.onopen = function() {
+          scope.$apply(scope.status);
+          // initialize by "hitting enter"
+          socket.send(String.fromCharCode(13));
+        };
+        socket.onclose = function() {
+          scope.$apply(scope.status);
+        };
 
-          socket.onmessage = function(e) {
-            if (e.data instanceof Blob) {
-              var f = new FileReader();
-              f.onload = function() {
-                term.write(f.result);
-              };
-              f.readAsText(e.data);
-            } else {
-              term.write(e.data);
-            }
-          };
+        // turn the angular jQlite element into a raw DOM element so we can
+        // attach the Terminal to it
+        var termElement = angular.element(element)[0];
+        term.open(termElement.ownerDocument.getElementById('terminalNode'));
 
-          scope.status = function() {
-            return states[socket.readyState];
-          };
+        term.on('data', function(data) {
+          socket.send(data);
+        });
 
-          scope.statusMessage = function() {
-            return interpolate(gettext('Status: %s'), [scope.status()]);
-          };
+        socket.onmessage = function(e) {
+          if (e.data instanceof Blob) {
+            var f = new FileReader();
+            f.onload = function() {
+              term.write(f.result);
+            };
+            f.readAsText(e.data);
+          } else {
+            term.write(e.data);
+          }
+        };
 
-          scope.$on('$destroy', function() {
-            socket.close();
-          });
+        scope.status = function() {
+          return states[socket.readyState];
+        };
 
-        }
-      };
-    });
+        scope.statusMessage = function() {
+          return interpolate(gettext('Status: %s'), [scope.status()]);
+        };
+
+        scope.$on('$destroy', function() {
+          socket.close();
+        });
+      }
+    };
+  }
+
 }());
