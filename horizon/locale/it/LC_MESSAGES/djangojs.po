@@ -5,11 +5,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-11-04 14:35+0000\n"
+"POT-Creation-Date: 2015-11-11 21:22+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2015-10-19 02:29+0000\n"
+"PO-Revision-Date: 2015-11-16 11:03+0000\n"
 "Last-Translator: Alessandra <alessandra@translated.net>\n"
 "Language: it\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
@@ -237,7 +237,7 @@ msgid "No roles"
 msgstr "Nessun ruolo"
 
 msgid "None"
-msgstr "None"
+msgstr "Nessuno"
 
 msgid "Not authorized to do this operation."
 msgstr "Non si è autorizzati a eseguire questa operazione."
@@ -252,13 +252,13 @@ msgid "Open Console"
 msgstr "Apri console"
 
 msgid "Passwords do not match."
-msgstr "La password non coincide."
+msgstr "Le password non corrispondono."
 
 msgid "Pattern mismatch"
 msgstr "Mancata corrispondenza del modello"
 
 msgid "Please confirm your selection. "
-msgstr "Confermare la selezione."
+msgstr "Confermare la selezione. "
 
 msgid "Prompt"
 msgstr "Prompt"
@@ -307,13 +307,13 @@ msgid "Subnets"
 msgstr "Sottoreti"
 
 msgid "Success"
-msgstr "Riuscito"
+msgstr "Operazione completata"
 
 msgid "Success: "
-msgstr "Successo:"
+msgstr "Operazione completata: "
 
 msgid "Terminate Instance"
-msgstr "Termina interfaccia"
+msgstr "Termina istanza"
 
 msgid "Text"
 msgstr "Testo"
@@ -369,7 +369,7 @@ msgstr ""
 
 #, python-format
 msgid "You have selected %s. "
-msgstr "Hai selezionato %s."
+msgstr "È stato selezionato %s. "
 
 msgid "description"
 msgstr "descrizione"

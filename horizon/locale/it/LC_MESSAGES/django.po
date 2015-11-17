@@ -5,11 +5,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-11-04 14:35+0000\n"
+"POT-Creation-Date: 2015-11-11 21:21+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2015-10-19 01:40+0000\n"
+"PO-Revision-Date: 2015-11-16 10:32+0000\n"
 "Last-Translator: Alessandra <alessandra@translated.net>\n"
 "Language: it\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
@@ -30,7 +30,7 @@ msgid ""
 "        Used <span> %(used)s </span>of<span> %(available)s </span>"
 msgstr ""
 "\n"
-"        Utilizzati <span> %(used)s </span>di<span> %(available)s </span>"
+"        Utilizzata <span> %(used)s </span>di<span> %(available)s </span>"
 
 #, python-format
 msgid ""
@@ -156,7 +156,7 @@ msgid "Cancel"
 msgstr "Annulla"
 
 msgid "Connect"
-msgstr "Collegati"
+msgstr "Connetti"
 
 msgid "Delete"
 msgstr "Elimina"
@@ -167,20 +167,20 @@ msgstr "Eliminato"
 #, python-format
 msgid "Displaying %(content_items)s item"
 msgid_plural "Displaying %(content_items)s items"
-msgstr[0] "Visualizzazione dell'elemento %(content_items)s"
-msgstr[1] "Visualizzazione degli elementi %(content_items)s"
+msgstr[0] "Visualizzazione di %(content_items)s elemento"
+msgstr[1] "Visualizzazione di %(content_items)s elementi"
 
 #, python-format
 msgid "Displaying %(counter)s item"
 msgid_plural "Displaying %(counter)s items"
-msgstr[0] "Visualizzazione dell'elemento %(counter)s"
-msgstr[1] "Visualizzazione degli elementi %(counter)s"
+msgstr[0] "Visualizzazione di %(counter)s elemento"
+msgstr[1] "Visualizzazione di %(counter)s elementi"
 
 #, python-format
 msgid "Displaying %(nav_items)s item"
 msgid_plural "Displaying %(nav_items)s items"
-msgstr[0] "Visualizzazione dell'elemento %(nav_items)s"
-msgstr[1] "Visualizzazione degli elementi %(nav_items)s"
+msgstr[0] "Visualizzazione di %(nav_items)s elemento"
+msgstr[1] "Visualizzazione di %(nav_items)s elementi"
 
 msgid "Error: "
 msgstr "Errore:"
@@ -212,10 +212,10 @@ msgid "Invalid version for IP address"
 msgstr "Versione dell'indirizzo IP non valida"
 
 msgid "Limit Summary"
-msgstr "Riepilogo dei Limiti"
+msgstr "Riepilogo dei limiti"
 
 msgid "Log In"
-msgstr "Log In"
+msgstr "Accedi"
 
 msgid "Login"
 msgstr "Login"
@@ -243,7 +243,7 @@ msgid "Never"
 msgstr "Mai"
 
 msgid "Next"
-msgstr "Prossimo"
+msgstr "Avanti"
 
 msgid "Next&nbsp;&raquo;"
 msgstr "Successivo&nbsp;&raquo;"
@@ -268,7 +268,7 @@ msgid "Not a valid port number"
 msgstr "Numero porta non valido"
 
 msgid "One colon allowed in port range"
-msgstr "Una virgola permessa nell'intervallo delle porte"
+msgstr "Un carattere di due punti consentito nell'intervallo di porte"
 
 msgid "Other"
 msgstr "Altro"
@@ -296,8 +296,7 @@ msgid "Select a %s to browse."
 msgstr "Selezionare un %s da cercare."
 
 msgid "Select a period of time to query its usage:"
-msgstr ""
-"Selezionare un periodo di tempo per eseguire la query sul relativo utilizzo:"
+msgstr "Selezionare un periodo di tempo per eseguire la query sull'utilizzo:"
 
 msgid "Sell Puppy"
 msgid_plural "Sell Puppies"
@@ -319,7 +318,7 @@ msgid "Submit"
 msgstr "Invia"
 
 msgid "Success: "
-msgstr "Successo:"
+msgstr "Operazione completata: "
 
 msgid "Summary"
 msgstr "Riepilogo"
@@ -364,7 +363,7 @@ msgid "Updated"
 msgstr "Aggiornato"
 
 msgid "Usage Summary"
-msgstr "Riepilogo dell'Utilizzo"
+msgstr "Riepilogo dell'utilizzo"
 
 msgid "Warning: "
 msgstr "Attenzione:"
