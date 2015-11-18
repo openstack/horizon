@@ -87,6 +87,7 @@ module.exports = function (config) {
       // from jasmine.html
       xstaticPath + 'jquery/data/jquery.js',
       xstaticPath + 'angular/data/angular.js',
+      xstaticPath + 'angular/data/angular-route.js',
       xstaticPath + 'angular/data/angular-mocks.js',
       xstaticPath + 'angular/data/angular-cookies.js',
       xstaticPath + 'angular_bootstrap/data/angular-bootstrap.js',
