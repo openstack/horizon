@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-10-22 08:58+0000\n"
+"POT-Creation-Date: 2015-11-18 04:22+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -215,17 +215,8 @@ msgstr "IP 주소 버전이 잘못되었습니다."
 msgid "Limit Summary"
 msgstr "간략한 요약"
 
-msgid "Log In"
-msgstr "로그인"
-
 msgid "Login"
 msgstr "로그인"
-
-#, python-format
-msgid ""
-"Login as different user or go back to <a href=\"%(home_url)s\"> home page</a>"
-msgstr ""
-"다른 사용자로 로그인하거나 <a href=\"%(home_url)s\">홈페이지</a>로 되돌아가기"
 
 msgid "Members"
 msgstr "구성원"

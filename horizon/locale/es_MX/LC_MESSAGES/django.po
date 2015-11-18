@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-10-22 08:58+0000\n"
+"POT-Creation-Date: 2015-11-18 04:22+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -195,17 +195,8 @@ msgstr "Versión de dirección IP no válida"
 msgid "Limit Summary"
 msgstr "Resumen de Límite"
 
-msgid "Log In"
-msgstr "Ingresar"
-
 msgid "Login"
 msgstr "Nombre de usuario"
-
-#, python-format
-msgid ""
-"Login as different user or go back to <a href=\"%(home_url)s\"> home page</a>"
-msgstr ""
-"Ingresar como otro usuario o volver a <a href=\"%(home_url)s\"> home page</a>"
 
 msgid "Members"
 msgstr "Miembros"

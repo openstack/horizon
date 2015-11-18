@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-10-22 08:58+0000\n"
+"POT-Creation-Date: 2015-11-18 04:22+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -221,18 +221,8 @@ msgstr "Geçersiz IP adres versiyonu"
 msgid "Limit Summary"
 msgstr "Özeti Sınırla"
 
-msgid "Log In"
-msgstr "Oturum Aç"
-
 msgid "Login"
 msgstr "Giriş"
-
-#, python-format
-msgid ""
-"Login as different user or go back to <a href=\"%(home_url)s\"> home page</a>"
-msgstr ""
-"Başka bir kullanıcı ile oturum açın veya <a href=\"%(home_url)s\"> Ana "
-"Sayfa</a>'ya gidin"
 
 msgid "Members"
 msgstr "Üyeler"

@@ -34,11 +34,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-11-17 06:14+0000\n"
+"POT-Creation-Date: 2015-11-18 04:22+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2015-10-27 11:06+0000\n"
+"PO-Revision-Date: 2015-11-17 11:13+0000\n"
 "Last-Translator: Gael Rehault <gael01@gmail.com>\n"
 "Language: fr\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
@@ -1439,6 +1439,9 @@ msgstr "Nom de la zone de disponibilité"
 msgid "Availability Zones"
 msgstr "Zones de disponibilité"
 
+msgid "Availability zone"
+msgstr "Zone de disponibilité"
+
 msgid "Available"
 msgstr "disponible(s)"
 
@@ -1613,6 +1616,10 @@ msgid "Build"
 msgstr "Construction"
 
 msgctxt "Current status of a Database Backup"
+msgid "Building"
+msgstr "Construction"
+
+msgctxt "Current status of an Instance"
 msgid "Building"
 msgstr "Construction"
 
@@ -4630,6 +4637,9 @@ msgstr "Empreinte"
 msgctxt "Task status of an Instance"
 msgid "Finishing Resize or Migrate"
 msgstr "Finalisation du redimensionnement ou de la migration"
+
+msgid "Firewall"
+msgstr "Pare-feu"
 
 #, python-format
 msgid "Firewall %s was successfully updated."
@@ -7859,6 +7869,10 @@ msgctxt "Current status of an Instance"
 msgid "Resize/Migrate"
 msgstr "Redimensionnement/Migration"
 
+msgctxt "Current status of an Instance"
+msgid "Resized"
+msgstr "Redimensionnée "
+
 msgctxt "Task status of an Instance"
 msgid "Resized or Migrated"
 msgstr "Redimensionnée ou Migrée"
@@ -8667,6 +8681,9 @@ msgstr "Groupe de serveurs"
 msgid "Server error"
 msgstr "Erreur serveur"
 
+msgid "Servers"
+msgstr "Serveurs"
+
 msgid "Service"
 msgstr "Service"
 
@@ -9153,6 +9170,10 @@ msgstr "Description de l'étape"
 msgctxt "Action log of an instance"
 msgid "Stop"
 msgstr "Stop"
+
+msgctxt "Current status of an Instance"
+msgid "Stopped"
+msgstr "Stoppé"
 
 msgid "Storage location"
 msgstr "Emplacement de stockage"
@@ -11135,6 +11156,9 @@ msgstr "Impossible de récupérer les paires de clés."
 msgid "Unable to retrieve limit information."
 msgstr "Impossible de récupérer les informations de limite."
 
+msgid "Unable to retrieve list of routers."
+msgstr "Impossible de récupérer la liste des routeurs."
+
 msgid "Unable to retrieve list of security groups"
 msgstr "Impossible de récupérer la liste des groupes de sécurité"
 
@@ -12704,3 +12728,6 @@ msgstr "v1"
 
 msgid "v2"
 msgstr "v2"
+
+msgid "yes,no,-"
+msgstr "oui,non-"

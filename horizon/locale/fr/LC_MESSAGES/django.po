@@ -11,22 +11,35 @@
 # JF Taltavull <jftalta@gmail.com>, 2015
 # Maxime COQUEREL <max.coquerel@gmail.com>, 2015
 # Corinne Verheyde <cverheyd@gmail.com>, 2015. #zanata
+# Gael Rehault <gael01@gmail.com>, 2015. #zanata
 # Kevin Tibi <kodokuu@gmail.com>, 2015. #zanata
 msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-10-22 08:58+0000\n"
+"POT-Creation-Date: 2015-11-18 04:22+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2015-09-16 10:48+0000\n"
-"Last-Translator: Corinne Verheyde <cverheyd@gmail.com>\n"
+"PO-Revision-Date: 2015-11-17 11:11+0000\n"
+"Last-Translator: Gael Rehault <gael01@gmail.com>\n"
 "Language: fr\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 "Generated-By: Babel 2.0\n"
 "X-Generator: Zanata 3.7.1\n"
 "Language-Team: French\n"
+
+#, python-format
+msgid ""
+"\n"
+"                Login as different user or go back to <a href=\"%(home_url)s"
+"\">home page</a>\n"
+"              "
+msgstr ""
+"\n"
+"                Connectez-vous avec un autre nom d'utilisateur ou revenez à "
+"<a href=\"%(home_url)s\">home page</a>\n"
+"              "
 
 #, python-format
 msgid ""
@@ -226,18 +239,11 @@ msgstr "Version d'adresse IP invalide"
 msgid "Limit Summary"
 msgstr "Synthèse  des Quotas"
 
-msgid "Log In"
+msgid "Log in"
 msgstr "Se connecter"
 
 msgid "Login"
 msgstr "Identifiant"
-
-#, python-format
-msgid ""
-"Login as different user or go back to <a href=\"%(home_url)s\"> home page</a>"
-msgstr ""
-"Connectez-vous avec un autre nom d'utilisateur ou revenez à <a href="
-"\"%(home_url)s\"> la page d’accueil</a>"
 
 msgid "Members"
 msgstr "Membres"

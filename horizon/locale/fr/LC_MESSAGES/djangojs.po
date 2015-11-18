@@ -25,11 +25,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-10-22 08:58+0000\n"
+"POT-Creation-Date: 2015-11-18 04:22+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2015-10-27 11:11+0000\n"
+"PO-Revision-Date: 2015-11-17 11:14+0000\n"
 "Last-Translator: Gael Rehault <gael01@gmail.com>\n"
 "Language: fr\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
@@ -147,6 +147,9 @@ msgstr "Nombre décimal requis"
 
 msgid "Delete"
 msgstr "Supprimer"
+
+msgid "Delete Image"
+msgstr "Supprimer une image"
 
 msgid "Delete Interface"
 msgstr "Supprimer l'Interface"
@@ -362,6 +365,10 @@ msgstr "Erreur lors de la soumission du formulaire. Veuillez réessayer. "
 msgid "Total"
 msgstr "Total"
 
+#, python-format
+msgid "Unable to delete: %s."
+msgstr "Impossible de supprimer: %s."
+
 msgid "View Details"
 msgstr "Voir les détails"
 
@@ -413,3 +420,7 @@ msgstr "pas de quota"
 
 msgid "pool default"
 msgstr "pool par défaut"
+
+#, python-format
+msgid "selected \"%s\""
+msgstr "Vous avez sélectionné \"%s\""

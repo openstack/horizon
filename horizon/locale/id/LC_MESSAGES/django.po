@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-10-22 08:58+0000\n"
+"POT-Creation-Date: 2015-11-18 04:22+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -177,17 +177,8 @@ msgstr "Versi alamat IP salah."
 msgid "Limit Summary"
 msgstr "Ringkasan Batasan"
 
-msgid "Log In"
-msgstr "Masuk"
-
 msgid "Login"
 msgstr "Login"
-
-#, python-format
-msgid ""
-"Login as different user or go back to <a href=\"%(home_url)s\"> home page</a>"
-msgstr ""
-"Masuk sebagai user lain atau kembali ke <a href=\"%(home_url)s\"> beranda</a>"
 
 msgid "Members"
 msgstr "Anggota"

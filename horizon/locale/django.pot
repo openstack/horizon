@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-10-23 06:35+0000\n"
+"POT-Creation-Date: 2015-11-18 06:35+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 2.1.1\n"
 
-#: base.py:497
+#: base.py:500
 msgid "Other"
 msgstr ""
 
@@ -73,7 +73,7 @@ msgstr ""
 msgid "Submit"
 msgstr ""
 
-#: forms/views.py:133 templates/horizon/common/_workflow.html:49
+#: forms/views.py:133 templates/horizon/common/_workflow.html:54
 msgid "Cancel"
 msgstr ""
 
@@ -145,12 +145,12 @@ msgstr ""
 msgid "Actions"
 msgstr ""
 
-#: tables/base.py:1339
+#: tables/base.py:1343
 #, python-format
 msgid "No match returned for the id \"%s\"."
 msgstr ""
 
-#: tables/base.py:1497
+#: tables/base.py:1501
 msgid "Please select a row before taking that action."
 msgstr ""
 
@@ -162,26 +162,28 @@ msgid ""
 "    "
 msgstr ""
 
-#: templates/auth/_login.html:5
-msgid "Log In"
+#: templates/auth/_login_form.html:18
+msgid "Log in"
 msgstr ""
 
-#: templates/auth/_login.html:26
+#: templates/auth/_login_form.html:39
 msgid "You do not have permission to access the resource:"
 msgstr ""
 
-#: templates/auth/_login.html:28
+#: templates/auth/_login_form.html:50
 #, python-format
 msgid ""
-"Login as different user or go back to <a href=\"%(home_url)s\"> home "
-"page</a>"
+"\n"
+"                Login as different user or go back to <a "
+"href=\"%(home_url)s\">home page</a>\n"
+"              "
 msgstr ""
 
-#: templates/auth/_login.html:44
+#: templates/auth/_login_form.html:70
 msgid "Sign In"
 msgstr ""
 
-#: templates/auth/_login.html:45
+#: templates/auth/_login_form.html:71
 msgid "Connect"
 msgstr ""
 
@@ -205,22 +207,22 @@ msgstr ""
 msgid "Error: "
 msgstr ""
 
-#: templates/horizon/common/_data_table.html:64
+#: templates/horizon/common/_data_table.html:63
 msgid "Summary"
 msgstr ""
 
-#: templates/horizon/common/_data_table.html:73
+#: templates/horizon/common/_data_table.html:72
 #, python-format
 msgid "Displaying %(counter)s item"
 msgid_plural "Displaying %(counter)s items"
 msgstr[0] ""
 msgstr[1] ""
 
-#: templates/horizon/common/_data_table.html:78
+#: templates/horizon/common/_data_table.html:77
 msgid "&laquo;&nbsp;Prev"
 msgstr ""
 
-#: templates/horizon/common/_data_table.html:81
+#: templates/horizon/common/_data_table.html:80
 msgid "Next&nbsp;&raquo;"
 msgstr ""
 
@@ -320,11 +322,11 @@ msgstr ""
 msgid "This Period's RAM-Hours:"
 msgstr ""
 
-#: templates/horizon/common/_workflow.html:40
+#: templates/horizon/common/_workflow.html:45
 msgid "Back"
 msgstr ""
 
-#: templates/horizon/common/_workflow.html:43
+#: templates/horizon/common/_workflow.html:48
 msgid "Next"
 msgstr ""
 

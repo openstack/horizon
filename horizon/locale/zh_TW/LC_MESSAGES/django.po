@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-10-22 08:58+0000\n"
+"POT-Creation-Date: 2015-11-18 04:22+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -214,16 +214,8 @@ msgstr "無效的 IP 位址版本"
 msgid "Limit Summary"
 msgstr "限制摘要"
 
-msgid "Log In"
-msgstr "登入"
-
 msgid "Login"
 msgstr "登入"
-
-#, python-format
-msgid ""
-"Login as different user or go back to <a href=\"%(home_url)s\"> home page</a>"
-msgstr "以不同的用戶身份登入，或者回到<a href=\"%(home_url)s\">首頁</a>"
 
 msgid "Members"
 msgstr "成員"

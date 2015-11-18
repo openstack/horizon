@@ -17,11 +17,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-10-22 08:58+0000\n"
+"POT-Creation-Date: 2015-11-18 04:22+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2015-10-27 11:09+0000\n"
+"PO-Revision-Date: 2015-11-17 11:09+0000\n"
 "Last-Translator: Gael Rehault <gael01@gmail.com>\n"
 "Language: fr\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
@@ -397,6 +397,9 @@ msgstr "Image"
 
 msgid "Image Name"
 msgstr "Nom de l'Image"
+
+msgid "Images"
+msgstr "Images"
 
 msgid "Impact on your quota"
 msgstr "Impact sur votre quota"
@@ -959,6 +962,9 @@ msgstr "Impossible d'éditer l'utilisateur"
 msgid "Unable to fetch the service catalog."
 msgstr "Impossible d'extraire le catalogue de services."
 
+msgid "Unable to get the Glance service version."
+msgstr "Impossible d'obtenir la version du service Glance."
+
 msgid "Unable to get the Keystone service version."
 msgstr "Impossible d'obtenir la version de service Keystone."
 
@@ -1080,6 +1086,9 @@ msgstr "ID Utilisateur"
 
 msgid "User Name"
 msgstr "Nom d'utilisateur"
+
+msgid "Users"
+msgstr "Utilisateurs"
 
 msgid "VCPUS"
 msgstr "VCPUS"
