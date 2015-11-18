@@ -22,10 +22,13 @@ from socket import timeout as socket_timeout  # noqa
 from django.core.urlresolvers import reverse
 from django import http
 
+from glanceclient.common import exceptions as glance_exec
+
 from mox3.mox import IsA  # noqa
 import six
 
 from horizon import exceptions
+from horizon import messages
 
 from openstack_dashboard import api
 from openstack_dashboard.dashboards.project.images import utils
@@ -224,6 +227,62 @@ class ImagesAndSnapshotsUtilsTests(test.TestCase):
             .AndRaise(self.exceptions.glance)
         exceptions.handle(IsA(http.HttpRequest),
                           "Unable to retrieve public images.")
+        api.glance.image_list_detailed(
+            IsA(http.HttpRequest),
+            filters={'property-owner_id': self.tenant.id,
+                     'status': 'active'}) \
+            .AndReturn([private_images, False, False])
+        api.glance.image_list_detailed(
+            IsA(http.HttpRequest),
+            filters={'is_public': True, 'status': 'active'}) \
+            .AndReturn([public_images, False, False])
+
+        self.mox.ReplayAll()
+
+        images_cache = {}
+        ret = utils.get_available_images(self.request, self.tenant.id,
+                                         images_cache)
+
+        expected_images = [image for image in private_images
+                           if image.container_format not in ('ami', 'aki')]
+        self.assertEqual(len(expected_images), len(ret))
+        self.assertNotIn('public_images', images_cache)
+        self.assertEqual(1, len(images_cache['images_by_project']))
+        self.assertEqual(
+            len(private_images),
+            len(images_cache['images_by_project'][self.tenant.id]))
+
+        ret = utils.get_available_images(self.request, self.tenant.id,
+                                         images_cache)
+
+        expected_images = [image for image in self.images.list()
+                           if image.container_format not in ('ami', 'aki')]
+        self.assertEqual(len(expected_images), len(ret))
+        self.assertEqual(
+            len(public_images),
+            len(images_cache['public_images']))
+        self.assertEqual(1, len(images_cache['images_by_project']))
+        self.assertEqual(
+            len(private_images),
+            len(images_cache['images_by_project'][self.tenant.id]))
+
+    @test.create_stubs({api.glance: ('image_list_detailed',),
+                        messages: ('error',)})
+    def test_list_image_communication_error_public_image_list(self):
+        public_images = [image for image in self.images.list()
+                         if image.status == 'active' and image.is_public]
+        private_images = [image for image in self.images.list()
+                          if (image.status == 'active' and
+                              not image.is_public)]
+        api.glance.image_list_detailed(
+            IsA(http.HttpRequest),
+            filters={'is_public': True, 'status': 'active'}) \
+            .AndRaise(glance_exec.CommunicationError)
+        # Make sure the exception is handled with the correct
+        # error message. If the exception cannot be handled,
+        # the error message will be different.
+        messages.error(IsA(http.HttpRequest),
+                       "Unable to retrieve public images.")
         api.glance.image_list_detailed(
             IsA(http.HttpRequest),
             filters={'property-owner_id': self.tenant.id,
