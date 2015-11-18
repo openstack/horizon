@@ -21,7 +21,7 @@
     .module('horizon.app.core.cloud-services')
     .directive('hzIfNovaExtensions', hzNovaExtensions);
 
-  hzNovaExtensions.$inject =  [
+  hzNovaExtensions.$inject = [
     'hzPromiseToggleTemplateDirective',
     'horizon.app.core.openstack-service-api.novaExtensions'
   ];

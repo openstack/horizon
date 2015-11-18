@@ -348,14 +348,14 @@ horizon.network_topology = {
             if (d.source.data.networks.length === 0) {
               return dist + 20;
             } else if (d.target.data.instances) {
-              return dist * d.source.data.networks.length  + (10 * d.target.data.instances) + 20;
+              return dist * d.source.data.networks.length + (10 * d.target.data.instances) + 20;
             }
             return dist * d.source.data.networks.length + 20;
           } else if (d.target.data.networks) {
             if (d.target.data.networks.length === 0) {
               return dist + 20;
             } else if (d.source.data.instances) {
-              return dist * d.target.data.networks.length  + (10 * d.source.data.instances) + 20;
+              return dist * d.target.data.networks.length + (10 * d.source.data.instances) + 20;
             }
             return dist * d.source.data.networks.length + 20;
           }

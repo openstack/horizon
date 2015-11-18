@@ -19,7 +19,7 @@
     .module('horizon.app.core.cloud-services')
     .directive('hzIfCinderExtensions', hzCinderExtensions);
 
-  hzCinderExtensions.$inject =  [
+  hzCinderExtensions.$inject = [
     'hzPromiseToggleTemplateDirective',
     'horizon.app.core.openstack-service-api.cinderExtensions'
   ];

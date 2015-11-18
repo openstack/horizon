@@ -19,10 +19,10 @@
 
         $scope.count = 0;
 
-        var markup =  '<form name="testForm">' +
+        var markup = '<form name="testForm">' +
                         '<input type="text" name="count" ng-model="count" ' +
                           'validate-number-max="1"/>' +
-                      '</form>';
+                     '</form>';
 
         $compile(angular.element(markup))($scope);
         $form = $scope.testForm;
@@ -59,10 +59,10 @@
 
         $scope.count = 0;
 
-        var markup =  '<form name="testForm">' +
+        var markup = '<form name="testForm">' +
                         '<input type="text" name="count" ng-model="count" ' +
                           'validate-number-min="1"/>' +
-                      '</form>';
+                     '</form>';
 
         $compile(angular.element(markup))($scope);
         $form = $scope.testForm;
