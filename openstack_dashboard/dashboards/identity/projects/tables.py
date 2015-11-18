@@ -241,6 +241,23 @@ class TenantsTable(tables.DataTable):
                                 required=False),
                             update_action=UpdateCell)
 
+    def get_project_detail_link(self, project):
+        # this method is an ugly monkey patch, needed because
+        # the column link method does not provide access to the request
+        if policy.check((("identity", "identity:get_project"),),
+                        self.request, target={"project": project}):
+            return reverse("horizon:identity:projects:detail",
+                           args=(project.id,))
+        return None
+
+    def __init__(self, request, data=None, needs_form_wrapper=None, **kwargs):
+        super(TenantsTable,
+              self).__init__(request, data=data,
+                             needs_form_wrapper=needs_form_wrapper,
+                             **kwargs)
+        # see the comment above about ugly monkey patches
+        self.columns['name'].get_link_url = self.get_project_detail_link
+
     class Meta(object):
         name = "tenants"
         verbose_name = _("Projects")
