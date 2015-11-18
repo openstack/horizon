@@ -129,6 +129,7 @@ full use of the Bootstrap theme architecture.
 
 * Tables_
 * Login_
+* Tabs_
 
 Step 1
 ------
@@ -147,10 +148,8 @@ more useful ones include:
     tools will provide the ``variables.less`` file, which will need to be
     converted to ``_variables.scss``
 
-.. _Top Navbar:
-
-The Top Navbar
---------------
+Top Navbar
+----------
 
 The top navbar in Horizon now uses a native Bootstrap ``navbar``.  There are a
 number of variables that can be used to customize this element.  Please see the
@@ -165,16 +164,12 @@ The top navbar is now responsive on smaller screens.  When the window size hits
 your ``$screen-sm`` value, the topbar will compress into a design that is
 better suited for small screens.
 
-.. _Side Nav:
-
-The Side Nav
-------------
+Side Nav
+--------
 
 The side navigation component has been refactored to use the native Stacked
 Pills element from Bootstrap.  See **Pills** section of your variables file
 for specific variables to customize.
-
-.. _Pie Charts:
 
 Pie Charts
 ----------
@@ -185,8 +180,6 @@ customizations for only a basic element's look and feel (i.e. colors, size).
 Since there is no native element in Bootstrap specifically for pie charts,
 the look and feel of the charts are inheriting from other elements of the
 theme. Please see ``_pie_charts.scss`` for specifics.
-
-.. _Tables:
 
 Tables
 ------
@@ -216,6 +209,13 @@ Modal Login
 The modal login experience, as used when switching regions, uses a standard
 Bootstrap dialog.  See the **Modals** section of your variables file for
 specific variables to customize.
+
+Tabs
+----
+
+The standard tabs make use of the native Bootstrap tab markup.
+
+See **Tabs** section of your variables file for variables to customize.
 
 Bootswatch and Material Design
 ------------------------------

@@ -54,6 +54,7 @@ $icon-swap: (
   share-square-o: 'share',
   link: 'link-variant',
   exchange: 'swap-horizontal',
+  asterisk: 'star',
 );
 
 @each $fa-icon, $mdi-icon in $icon-swap {

@@ -114,7 +114,7 @@ class TemplateTagTests(test.TestCase):
     def test_horizon_main_nav(self):
         text = "{% horizon_main_nav %}"
         expected = """
-                <div class='clearfix'>
+                <div>
                     <ul class=\"nav nav-tabs\" role=\"tablist\">
                         <li>
                             <a href=\"/cats/\" tabindex='1'>Cats</a>
