@@ -38,6 +38,9 @@ class PageObject(basewebobject.BaseWebObject):
     def close_window(self):
         return self.driver.close()
 
+    def is_nth_window_opened(self, n):
+        return len(self.driver.window_handles) == n
+
     def switch_window(self, window_name=None, window_index=None):
         """Switches focus between the webdriver windows.
         Args:
