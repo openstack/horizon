@@ -13,6 +13,7 @@
 #    under the License.
 
 from django.utils.translation import ugettext_lazy as _
+import netaddr
 
 from horizon import exceptions
 from horizon import forms
@@ -61,6 +62,9 @@ class AddRuleAction(workflows.Action):
         label=_("Destination Port/Port Range"),
         required=False,
         validators=[port_validator])
+    ip_version = forms.ChoiceField(
+        label=_("IP Version"), required=False,
+        choices=[('4', '4'), ('6', '6')])
     shared = forms.BooleanField(
         label=_("Shared"), initial=False, required=False)
     enabled = forms.BooleanField(
@@ -68,6 +72,24 @@ class AddRuleAction(workflows.Action):
 
     def __init__(self, request, *args, **kwargs):
         super(AddRuleAction, self).__init__(request, *args, **kwargs)
+
+    def _check_ip_addr_and_ip_version(self, cleaned_data):
+        ip_version = int(str(cleaned_data.get('ip_version')))
+        src_ip = cleaned_data.get('source_ip_address')
+        dst_ip = cleaned_data.get('destination_ip_address')
+        msg = _('Source/Destination Network Address and IP version '
+                'are inconsistent. Please make them consistent.')
+        if (src_ip and
+                netaddr.IPNetwork(src_ip).version != ip_version):
+                self._errors['ip_version'] = self.error_class([msg])
+
+        elif (dst_ip and
+              netaddr.IPNetwork(dst_ip).version != ip_version):
+            self._errors['ip_version'] = self.error_class([msg])
+
+    def clean(self):
+        cleaned_data = super(AddRuleAction, self).clean()
+        self._check_ip_addr_and_ip_version(cleaned_data)
 
     class Meta(object):
         name = _("Rule")
@@ -82,7 +104,7 @@ class AddRuleStep(workflows.Step):
     contributes = ("name", "description", "protocol", "action",
                    "source_ip_address", "source_port",
                    "destination_ip_address", "destination_port",
-                   "enabled", "shared")
+                   "enabled", "shared", "ip_version")
 
     def contribute(self, data, context):
         context = super(AddRuleStep, self).contribute(data, context)
