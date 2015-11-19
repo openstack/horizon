@@ -22,7 +22,7 @@
 
   getText.$inject = ['$window'];
 
-  /*
+  /**
    * @name horizon.framework.util.i18n.gettext
    * @description
    * Provides a wrapper for translation, using the global 'gettext'
