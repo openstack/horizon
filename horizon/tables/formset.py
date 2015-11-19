@@ -51,7 +51,7 @@ class FormsetRow(horizon_tables.Row):
     def __init__(self, column, datum, form):
         self.form = form
         super(FormsetRow, self).__init__(column, datum)
-        if self.cells == []:
+        if not self.cells:
             # We need to be able to handle empty rows, because there may
             # be extra empty forms in a formset. The original DataTable breaks
             # on this, because it sets self.cells to [], but later expects a
