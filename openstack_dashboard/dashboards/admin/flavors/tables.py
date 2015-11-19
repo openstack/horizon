@@ -151,6 +151,7 @@ class FlavorsTable(tables.DataTable):
     swap = tables.Column(get_swap_size,
                          verbose_name=_('Swap Disk'),
                          attrs={'data-type': 'size'})
+    rxtx_factor = tables.Column('rxtx_factor', verbose_name=_("RX/TX factor"))
     flavor_id = tables.Column('id', verbose_name=_('ID'))
     public = tables.Column("is_public",
                            verbose_name=_("Public"),
