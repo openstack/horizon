@@ -95,18 +95,19 @@ class AddRuleAction(workflows.Action):
         name = _("Rule")
         permissions = ('openstack.services.network',)
         help_text = _("Create a firewall rule.\n\n"
-                      "Firewall rule is an association of the following "
+                      "A Firewall rule is an association of the following "
                       "attributes:\n\n"
-                      "<li>IP Addresses : The addresses from/to which the "
-                      "traffic filtration needs to be applied</li>"
-                      "<li>IP Version : The type of IP packets (IP V4/V6) "
-                      "that needs to be filtered</li>"
-                      "<li>Protocol: Type of packets (UDP, ICMP, TCP) that "
-                      "needs to be checked.</li>"
+                      "<li>IP Addresses: The addresses from/to which the "
+                      "traffic filtration needs to be applied.</li>"
+                      "<li>IP Version: The type of IP packets (IP V4/V6) "
+                      "that needs to be filtered.</li>"
+                      "<li>Protocol: Type of packets (UDP, ICMP, TCP, Any) "
+                      "that needs to be checked.</li>"
                       "<li>Action: Action is the type of filtration "
-                      "required.</li>"
-                      "Protocol and action must be specified. "
-                      "Other fields are optional.")
+                      "required, it can be Reject/Deny/Allow data "
+                      "packets.</li>\n"
+                      "The protocol and action fields are required, all "
+                      "others are optional.")
 
 
 class AddRuleStep(workflows.Step):
@@ -265,23 +266,24 @@ class AddPolicyAction(workflows.Action):
         name = _("Policy")
         permissions = ('openstack.services.network',)
         help_text = _("Create a firewall policy with an ordered list "
-                      "of firewall rules."
-                      "A policy is an ordered collection of firewall rules. "
-                      "So if the traffic matches the first rule, the other "
-                      "rules are not executed. If the traffic does not "
-                      "match, then the next rule is executed. Policy has the "
-                      "following attributes:\n\n"
+                      "of firewall rules.\n\n"
+                      "A firewall policy is an ordered collection of firewall "
+                      "rules. So if the traffic matches the first rule, the "
+                      "other rules are not executed. If the traffic does not "
+                      "match the current rule, then the next rule is "
+                      "executed. A firewall policy has the following "
+                      "attributes:\n\n"
                       "<li>Shared: A firewall policy can be shared across "
                       "tenants. Thus it can also be made part of an audit "
                       "workflow wherein the firewall policy can be audited "
                       "by the relevant entity that is authorized.</li>"
-                      "<li>Audited: When audited set to True indicates that "
-                      "the firewall policy has been audited. "
+                      "<li>Audited: When audited is set to True, it indicates "
+                      "that the firewall policy has been audited. "
                       "Each time the firewall policy or the associated "
                       "firewall rules are changed, this attribute will be "
                       "set to False and will have to be explicitly set to "
-                      "True through an update operation.</li>"
-                      "A name must be given.")
+                      "True through an update operation.</li>\n"
+                      "The name field is required, all others are optional.")
 
 
 class AddPolicyStep(workflows.Step):
@@ -350,7 +352,7 @@ class AddFirewallAction(workflows.Action):
         name = _("Firewall")
         permissions = ('openstack.services.network',)
         help_text = _("Create a firewall based on a policy.\n\n"
-                      "Firewall represents a logical firewall resource that "
+                      "A firewall represents a logical firewall resource that "
                       "a tenant can instantiate and manage. A firewall must "
                       "be associated with one policy, all other fields are "
                       "optional.")
