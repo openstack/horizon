@@ -524,6 +524,14 @@ Unexpected warnings often appear when building the documentation, and slight
 reST syntax errors frequently cause links or cross-references not to work
 correctly.
 
+Documentation is generated with Sphinx using the tox command. To create HTML docs and man pages:
+
+.. code-block:: bash
+
+    $ tox -e docs
+
+The results are in the doc/build/html and doc/build/man directories respectively.
+
 Conventions
 -----------
 
