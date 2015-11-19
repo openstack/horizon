@@ -950,7 +950,8 @@ def data(TEST):
                   'firewall_policy_id': 'abcdef-c3eb-4fee-9763-12de3338041e',
                   'position': 1,
                   'shared': True,
-                  'enabled': True}
+                  'enabled': True,
+                  'ip_version': '4'}
     TEST.api_fw_rules.add(rule1_dict)
 
     rule1 = fwaas.Rule(copy.deepcopy(rule1_dict))
@@ -971,7 +972,8 @@ def data(TEST):
                   'firewall_policy_id': 'abcdef-c3eb-4fee-9763-12de3338041e',
                   'position': 2,
                   'shared': True,
-                  'enabled': True}
+                  'enabled': True,
+                  'ip_version': '6'}
     TEST.api_fw_rules.add(rule2_dict)
 
     rule2 = fwaas.Rule(copy.deepcopy(rule2_dict))
@@ -992,7 +994,8 @@ def data(TEST):
                   'firewall_policy_id': None,
                   'position': None,
                   'shared': True,
-                  'enabled': True}
+                  'enabled': True,
+                  'ip_version': '4'}
     TEST.api_fw_rules.add(rule3_dict)
 
     rule3 = fwaas.Rule(copy.deepcopy(rule3_dict))
