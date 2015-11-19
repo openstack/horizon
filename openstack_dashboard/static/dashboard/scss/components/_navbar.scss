@@ -1,4 +1,14 @@
-.navbar-brand img {
-  max-height: $navbar-height;
-  vertical-align: middle;
+.navbar-brand {
+  padding: 0 $padding-small-horizontal;
+  margin: 0;
+  display: block;
+
+  // These allow the vertical centering to work properly
+  line-height: $navbar-height;
+  font-size: 0;
+
+  img {
+    max-height: $navbar-height;
+    vertical-align: middle;
+  }
 }
