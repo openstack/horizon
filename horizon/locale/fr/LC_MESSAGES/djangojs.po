@@ -25,11 +25,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-11-18 04:22+0000\n"
+"POT-Creation-Date: 2015-11-19 04:15+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2015-11-17 11:14+0000\n"
+"PO-Revision-Date: 2015-11-18 10:57+0000\n"
 "Last-Translator: Gael Rehault <gael01@gmail.com>\n"
 "Language: fr\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
@@ -162,6 +162,10 @@ msgstr "Supprimer un Routeur"
 
 msgid "Delete Subnet"
 msgstr "Supprimer le sous-réseau"
+
+#, python-format
+msgid "Deleted : %s."
+msgstr "Supprimé : %s."
 
 msgid "Detail Information"
 msgstr "Informations détaillées"
@@ -361,6 +365,9 @@ msgstr "Problème de communication avec le serveur, veuillez réessayer."
 
 msgid "There was an error submitting the form. Please try again."
 msgstr "Erreur lors de la soumission du formulaire. Veuillez réessayer. "
+
+msgid "Toggle Dropdown"
+msgstr "Activation du menu déroulant"
 
 msgid "Total"
 msgstr "Total"
