@@ -33,7 +33,6 @@ rules:
   eqeqeq: 1
   consistent-return: 1
   callback-return: 1
-  radix: 1
   guard-for-in: 1
   block-scoped-var: 1
   semi-spacing: 1

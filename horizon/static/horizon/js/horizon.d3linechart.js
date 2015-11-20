@@ -479,7 +479,7 @@ horizon.d3_line_chart = {
           graph: graph,
           formatter: function(series, x, y) {
             if(y % 1 === 0) {
-              y = parseInt(y);
+              y = parseInt(y, 10);
             } else {
               y = parseFloat(y).toFixed(2);
             }

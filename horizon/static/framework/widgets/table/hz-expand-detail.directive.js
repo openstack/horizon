@@ -76,7 +76,7 @@
 
         var summaryRow = element.closest('tr');
         var detailCell = summaryRow.next('tr').find('.detail');
-        var duration = scope.duration ? parseInt(scope.duration) : settings.duration;
+        var duration = scope.duration ? parseInt(scope.duration, 10) : settings.duration;
 
         if (summaryRow.hasClass('expanded')) {
           var options = {
