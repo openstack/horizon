@@ -37,6 +37,8 @@
     // this can happen when session expires
     $httpProvider.interceptors.push(redirect);
 
+    redirect.$inject = ['$q'];
+
     function redirect($q) {
       return {
         responseError: function (error) {

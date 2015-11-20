@@ -27,71 +27,75 @@
      * this directive is the hook to make it more dynamic.
      * Only visible if websso is enabled.
      */
-    .directive('hzLoginFinder', function($timeout) {
-      return {
-        restrict: 'A',
-        controller: 'hzLoginController',
-        link: function(scope, element, attrs, ctrl) {
+    .directive('hzLoginFinder', hzLoginFinder);
 
-          /**
-           * Test code does not have access to document,
-           * so we are restricted to search through the element
-           */
-          var authType = element.find('#id_auth_type');
-          var userInput = element.find("#id_username").parents('.form-group');
-          var passwordInput = element.find("#id_password").parents('.form-group');
-          var domainInput = element.find('#id_domain').parents('form-group');
-          var regionInput = element.find('#id_region').parents('form-group');
+  hzLoginFinder.$inject = ['$timeout'];
 
-          /**
-           * `helpText` exists outside of element,
-           * so we have to traverse one node up
-           */
-          var helpText = element.parent().find('.help_text');
-          helpText.hide();
+  function hzLoginFinder($timeout) {
+    return {
+      restrict: 'A',
+      controller: 'hzLoginController',
+      link: function(scope, element, attrs, ctrl) {
 
-          // Update the visuals when user selects item from dropdown
-          function onChange() {
-            $timeout(function() {
+        /**
+         * Test code does not have access to document,
+         * so we are restricted to search through the element
+         */
+        var authType = element.find('#id_auth_type');
+        var userInput = element.find("#id_username").parents('.form-group');
+        var passwordInput = element.find("#id_password").parents('.form-group');
+        var domainInput = element.find('#id_domain').parents('form-group');
+        var regionInput = element.find('#id_region').parents('form-group');
 
-              /**
-               * If auth_type is 'credential', show the username and password fields,
-               * and domain and region if applicable
-               */
-              ctrl.auth_type = authType.val();
-              switch (ctrl.auth_type) {
-                case 'credentials':
-                  userInput.show();
-                  passwordInput.show();
-                  domainInput.show();
-                  regionInput.show();
-                  break;
-                default:
-                  userInput.hide();
-                  passwordInput.hide();
-                  domainInput.hide();
-                  regionInput.hide();
-              }
-            }); // end of timeout
-          } // end of onChange
+        /**
+         * `helpText` exists outside of element,
+         * so we have to traverse one node up
+         */
+        var helpText = element.parent().find('.help_text');
+        helpText.hide();
 
-          // If authType field exists then websso was enabled
-          if (authType.length > 0) {
+        // Update the visuals when user selects item from dropdown
+        function onChange() {
+          $timeout(function() {
 
             /**
-             * Programmatically insert help text after dropdown.
-             * This is the only way to do it since template is generated server side,
-             * via form_fields
+             * If auth_type is 'credential', show the username and password fields,
+             * and domain and region if applicable
              */
-            authType.after(helpText);
-            helpText.show();
+            ctrl.auth_type = authType.val();
+            switch (ctrl.auth_type) {
+              case 'credentials':
+                userInput.show();
+                passwordInput.show();
+                domainInput.show();
+                regionInput.show();
+                break;
+              default:
+                userInput.hide();
+                passwordInput.hide();
+                domainInput.hide();
+                regionInput.hide();
+            }
+          }); // end of timeout
+        } // end of onChange
 
-            // Trigger the onChange on first load so that initial choice is auto-selected
-            onChange();
-            authType.change(onChange);
-          }
-        } // end of link
-      }; // end of return
-    }); // end of directive
+        // If authType field exists then websso was enabled
+        if (authType.length > 0) {
+
+          /**
+           * Programmatically insert help text after dropdown.
+           * This is the only way to do it since template is generated server side,
+           * via form_fields
+           */
+          authType.after(helpText);
+          helpText.show();
+
+          // Trigger the onChange on first load so that initial choice is auto-selected
+          onChange();
+          authType.change(onChange);
+        }
+      } // end of link
+    }; // end of return
+  } // end of directive
 
 })();

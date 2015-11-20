@@ -84,6 +84,9 @@
    * For multiple input / multiple promise resolution:
    *
    */
+
+  hzPromiseToggleTemplate.$inject = ['$q', '$parse'];
+
   function hzPromiseToggleTemplate($q, $parse) {
     var directive = {
       name: null,
