@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-11-19 06:36+0000\n"
+"POT-Creation-Date: 2015-11-20 06:35+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -646,8 +646,8 @@ msgstr ""
 #: dashboards/project/firewalls/tables.py:328
 #: dashboards/project/firewalls/tables.py:373
 #: dashboards/project/firewalls/workflows.py:31
-#: dashboards/project/firewalls/workflows.py:250
-#: dashboards/project/firewalls/workflows.py:321
+#: dashboards/project/firewalls/workflows.py:251
+#: dashboards/project/firewalls/workflows.py:323
 #: dashboards/project/firewalls/templates/firewalls/_firewall_details.html:5
 #: dashboards/project/firewalls/templates/firewalls/_policy_details.html:5
 #: dashboards/project/firewalls/templates/firewalls/_rule_details.html:5
@@ -787,8 +787,8 @@ msgstr ""
 #: dashboards/project/firewalls/tables.py:330
 #: dashboards/project/firewalls/tables.py:375
 #: dashboards/project/firewalls/workflows.py:35
-#: dashboards/project/firewalls/workflows.py:252
-#: dashboards/project/firewalls/workflows.py:324
+#: dashboards/project/firewalls/workflows.py:253
+#: dashboards/project/firewalls/workflows.py:326
 #: dashboards/project/firewalls/templates/firewalls/_firewall_details.html:8
 #: dashboards/project/firewalls/templates/firewalls/_policy_details.html:8
 #: dashboards/project/firewalls/templates/firewalls/_rule_details.html:8
@@ -2685,9 +2685,9 @@ msgstr ""
 #: contrib/sahara/content/data_processing/jobs/templates/data_processing.jobs/config_template.html:59
 #: contrib/sahara/content/data_processing/jobs/templates/data_processing.jobs/config_template.html:69
 #: dashboards/project/access_and_security/security_groups/views.py:111
-#: dashboards/project/firewalls/workflows.py:136
-#: dashboards/project/firewalls/workflows.py:300
-#: dashboards/project/firewalls/workflows.py:373
+#: dashboards/project/firewalls/workflows.py:137
+#: dashboards/project/firewalls/workflows.py:302
+#: dashboards/project/firewalls/workflows.py:375
 #: dashboards/project/loadbalancers/workflows.py:131
 #: dashboards/project/loadbalancers/workflows.py:250
 #: dashboards/project/loadbalancers/workflows.py:416
@@ -6700,7 +6700,7 @@ msgstr ""
 #: dashboards/admin/networks/forms.py:77 dashboards/admin/networks/forms.py:239
 #: dashboards/admin/networks/ports/forms.py:46
 #: dashboards/project/firewalls/forms.py:136
-#: dashboards/project/firewalls/workflows.py:327
+#: dashboards/project/firewalls/workflows.py:329
 #: dashboards/project/loadbalancers/forms.py:38
 #: dashboards/project/loadbalancers/forms.py:93
 #: dashboards/project/loadbalancers/forms.py:176
@@ -6722,7 +6722,7 @@ msgstr ""
 #: dashboards/admin/networks/forms.py:78 dashboards/admin/networks/forms.py:240
 #: dashboards/admin/networks/ports/forms.py:47
 #: dashboards/project/firewalls/forms.py:137
-#: dashboards/project/firewalls/workflows.py:328
+#: dashboards/project/firewalls/workflows.py:330
 #: dashboards/project/loadbalancers/forms.py:39
 #: dashboards/project/loadbalancers/forms.py:94
 #: dashboards/project/loadbalancers/forms.py:177
@@ -6748,7 +6748,7 @@ msgstr ""
 #: dashboards/admin/networks/templates/networks/ports/_detail_overview.html:18
 #: dashboards/project/firewalls/forms.py:138
 #: dashboards/project/firewalls/tables.py:385
-#: dashboards/project/firewalls/workflows.py:329
+#: dashboards/project/firewalls/workflows.py:331
 #: dashboards/project/loadbalancers/forms.py:40
 #: dashboards/project/loadbalancers/forms.py:95
 #: dashboards/project/loadbalancers/forms.py:178
@@ -6787,7 +6787,7 @@ msgstr ""
 #: dashboards/project/firewalls/tables.py:310
 #: dashboards/project/firewalls/tables.py:334
 #: dashboards/project/firewalls/workflows.py:69
-#: dashboards/project/firewalls/workflows.py:254
+#: dashboards/project/firewalls/workflows.py:255
 #: dashboards/project/firewalls/templates/firewalls/_policy_details.html:29
 #: dashboards/project/firewalls/templates/firewalls/_rule_details.html:48
 #: dashboards/project/networks/forms.py:44
@@ -7424,8 +7424,8 @@ msgstr ""
 #: dashboards/admin/routers/panel.py:22 dashboards/admin/routers/tables.py:46
 #: dashboards/admin/routers/templates/routers/index.html:3
 #: dashboards/identity/projects/workflows.py:77
-#: dashboards/project/firewalls/workflows.py:205
-#: dashboards/project/firewalls/workflows.py:211
+#: dashboards/project/firewalls/workflows.py:206
+#: dashboards/project/firewalls/workflows.py:212
 #: dashboards/project/firewalls/templates/firewalls/_firewall_details.html:29
 #: dashboards/project/network_topology/routers/tables.py:27
 #: dashboards/project/routers/panel.py:22
@@ -9872,7 +9872,7 @@ msgstr ""
 #: dashboards/project/access_and_security/security_groups/views.py:114
 #: dashboards/project/access_and_security/templates/access_and_security/security_groups/add_rule.html:3
 #: dashboards/project/firewalls/tables.py:33
-#: dashboards/project/firewalls/workflows.py:135
+#: dashboards/project/firewalls/workflows.py:136
 msgid "Add Rule"
 msgstr ""
 
@@ -10559,7 +10559,7 @@ msgstr ""
 
 #: dashboards/project/firewalls/forms.py:107
 #: dashboards/project/firewalls/tables.py:337
-#: dashboards/project/firewalls/workflows.py:257
+#: dashboards/project/firewalls/workflows.py:258
 #: dashboards/project/firewalls/templates/firewalls/_policy_details.html:32
 msgid "Audited"
 msgstr ""
@@ -10577,8 +10577,8 @@ msgstr ""
 #: dashboards/project/firewalls/forms.py:135
 #: dashboards/project/firewalls/tables.py:378
 #: dashboards/project/firewalls/tabs.py:105
-#: dashboards/project/firewalls/workflows.py:265
-#: dashboards/project/firewalls/workflows.py:326
+#: dashboards/project/firewalls/workflows.py:266
+#: dashboards/project/firewalls/workflows.py:328
 msgid "Policy"
 msgstr ""
 
@@ -10702,7 +10702,7 @@ msgid "Firewalls"
 msgstr ""
 
 #: dashboards/project/firewalls/tables.py:42
-#: dashboards/project/firewalls/workflows.py:299
+#: dashboards/project/firewalls/workflows.py:301
 msgid "Add Policy"
 msgstr ""
 
@@ -10817,8 +10817,8 @@ msgstr ""
 #: dashboards/project/firewalls/tables.py:321
 #: dashboards/project/firewalls/tables.py:332
 #: dashboards/project/firewalls/views.py:95
-#: dashboards/project/firewalls/workflows.py:163
-#: dashboards/project/firewalls/workflows.py:169
+#: dashboards/project/firewalls/workflows.py:164
+#: dashboards/project/firewalls/workflows.py:170
 #: dashboards/project/firewalls/templates/firewalls/_policy_details.html:17
 msgid "Rules"
 msgstr ""
@@ -10904,7 +10904,7 @@ msgid "Unable to retrieve firewall list."
 msgstr ""
 
 #: dashboards/project/firewalls/tabs.py:114
-#: dashboards/project/firewalls/workflows.py:350
+#: dashboards/project/firewalls/workflows.py:352
 msgid "Firewall"
 msgstr ""
 
@@ -11013,108 +11013,110 @@ msgstr ""
 msgid ""
 "Create a firewall rule.\n"
 "\n"
-"Firewall rule is an association of the following attributes:\n"
+"A Firewall rule is an association of the following attributes:\n"
 "\n"
-"<li>IP Addresses : The addresses from/to which the traffic filtration "
-"needs to be applied</li><li>IP Version : The type of IP packets (IP "
-"V4/V6) that needs to be filtered</li><li>Protocol: Type of packets (UDP, "
-"ICMP, TCP) that needs to be checked.</li><li>Action: Action is the type "
-"of filtration required.</li>Protocol and action must be specified. Other "
-"fields are optional."
-msgstr ""
-
-#: dashboards/project/firewalls/workflows.py:137
-#, python-format
-msgid "Added Rule \"%s\"."
+"<li>IP Addresses: The addresses from/to which the traffic filtration "
+"needs to be applied.</li><li>IP Version: The type of IP packets (IP "
+"V4/V6) that needs to be filtered.</li><li>Protocol: Type of packets (UDP,"
+" ICMP, TCP, Any) that needs to be checked.</li><li>Action: Action is the "
+"type of filtration required, it can be Reject/Deny/Allow data "
+"packets.</li>\n"
+"The protocol and action fields are required, all others are optional."
 msgstr ""
 
 #: dashboards/project/firewalls/workflows.py:138
 #, python-format
+msgid "Added Rule \"%s\"."
+msgstr ""
+
+#: dashboards/project/firewalls/workflows.py:139
+#, python-format
 msgid "Unable to add Rule \"%s\"."
 msgstr ""
 
-#: dashboards/project/firewalls/workflows.py:166
+#: dashboards/project/firewalls/workflows.py:167
 msgid "Create a policy with selected rules."
 msgstr ""
 
-#: dashboards/project/firewalls/workflows.py:171
+#: dashboards/project/firewalls/workflows.py:172
 msgid "Select rules for your policy."
 msgstr ""
 
-#: dashboards/project/firewalls/workflows.py:184
+#: dashboards/project/firewalls/workflows.py:185
 #, python-format
 msgid "Unable to retrieve rules (%(error)s)."
 msgstr ""
 
-#: dashboards/project/firewalls/workflows.py:208
+#: dashboards/project/firewalls/workflows.py:209
 msgid "Create a firewall with selected routers."
 msgstr ""
 
-#: dashboards/project/firewalls/workflows.py:213
+#: dashboards/project/firewalls/workflows.py:214
 msgid "Select routers for your firewall."
 msgstr ""
 
-#: dashboards/project/firewalls/workflows.py:224
+#: dashboards/project/firewalls/workflows.py:225
 #, python-format
 msgid "Unable to retrieve routers (%(error)s)."
 msgstr ""
 
-#: dashboards/project/firewalls/workflows.py:267
+#: dashboards/project/firewalls/workflows.py:268
 msgid ""
-"Create a firewall policy with an ordered list of firewall rules.A policy "
-"is an ordered collection of firewall rules. So if the traffic matches the"
-" first rule, the other rules are not executed. If the traffic does not "
-"match, then the next rule is executed. Policy has the following "
-"attributes:\n"
+"Create a firewall policy with an ordered list of firewall rules.\n"
+"\n"
+"A firewall policy is an ordered collection of firewall rules. So if the "
+"traffic matches the first rule, the other rules are not executed. If the "
+"traffic does not match the current rule, then the next rule is executed. "
+"A firewall policy has the following attributes:\n"
 "\n"
 "<li>Shared: A firewall policy can be shared across tenants. Thus it can "
 "also be made part of an audit workflow wherein the firewall policy can be"
 " audited by the relevant entity that is authorized.</li><li>Audited: When"
-" audited set to True indicates that the firewall policy has been audited."
-" Each time the firewall policy or the associated firewall rules are "
-"changed, this attribute will be set to False and will have to be "
-"explicitly set to True through an update operation.</li>A name must be "
-"given."
+" audited is set to True, it indicates that the firewall policy has been "
+"audited. Each time the firewall policy or the associated firewall rules "
+"are changed, this attribute will be set to False and will have to be "
+"explicitly set to True through an update operation.</li>\n"
+"The name field is required, all others are optional."
 msgstr ""
 
-#: dashboards/project/firewalls/workflows.py:301
+#: dashboards/project/firewalls/workflows.py:303
 #, python-format
 msgid "Added Policy \"%s\"."
 msgstr ""
 
-#: dashboards/project/firewalls/workflows.py:302
+#: dashboards/project/firewalls/workflows.py:304
 #, python-format
 msgid "Unable to add Policy \"%s\"."
 msgstr ""
 
-#: dashboards/project/firewalls/workflows.py:334
+#: dashboards/project/firewalls/workflows.py:336
 msgid "Select a Policy"
 msgstr ""
 
-#: dashboards/project/firewalls/workflows.py:342
+#: dashboards/project/firewalls/workflows.py:344
 #, python-format
 msgid "Unable to retrieve policy list (%(error)s)."
 msgstr ""
 
-#: dashboards/project/firewalls/workflows.py:352
+#: dashboards/project/firewalls/workflows.py:354
 msgid ""
 "Create a firewall based on a policy.\n"
 "\n"
-"Firewall represents a logical firewall resource that a tenant can "
+"A firewall represents a logical firewall resource that a tenant can "
 "instantiate and manage. A firewall must be associated with one policy, "
 "all other fields are optional."
 msgstr ""
 
-#: dashboards/project/firewalls/workflows.py:372
+#: dashboards/project/firewalls/workflows.py:374
 msgid "Add Firewall"
 msgstr ""
 
-#: dashboards/project/firewalls/workflows.py:374
+#: dashboards/project/firewalls/workflows.py:376
 #, python-format
 msgid "Added Firewall \"%s\"."
 msgstr ""
 
-#: dashboards/project/firewalls/workflows.py:375
+#: dashboards/project/firewalls/workflows.py:377
 #, python-format
 msgid "Unable to add Firewall \"%s\"."
 msgstr ""
@@ -17687,7 +17689,7 @@ msgstr ""
 msgid "Sign Out"
 msgstr ""
 
-#: templates/base.html:22
+#: templates/base.html:23
 msgid "This application requires JavaScript to be enabled in your web browser."
 msgstr ""
 
