@@ -1,0 +1,16 @@
+---
+prelude: >
+    New network topology panel.
+    Added support for subnet allocation.
+features:
+  - Added support for subnet allocation via subnet pools.
+    See `this <https://blueprints.launchpad.net/horizon/+spec/neutron-subnet-allocation>`_
+    for more details.
+  - Added actions to easily associate LBaaS VIP with a floating IP.
+    See `this <https://blueprints.launchpad.net/horizon/+spec/lbaas-vip-fip-associate>`_
+    for more details.
+  - The network topology diagram has been replaced with
+    an interactive graph containing collapsible networks, and scales far better
+    in large deployments.
+    See `this <https://blueprints.launchpad.net/horizon/+spec/curvature-network-topology>`_
+    for more details.

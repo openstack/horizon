@@ -1,0 +1,8 @@
+---
+prelude: >
+    Added new Trove features.
+features:
+  - Added initial support for database cluster creation and management.
+    Vertica and MongoDB are currently supported.
+    See `this <https://blueprints.launchpad.net/horizon/+spec/database-clustering-support>`_
+    for more details.

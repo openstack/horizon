@@ -1,0 +1,7 @@
+---
+prelude: >
+    Improved WebSSO support.
+features:
+  - Added mapping for Identity Provider and Protocol specific WebSSO.
+  - Configurable token hashing, to disable Horizon from hashing the token
+    passed to the OpenStack services.

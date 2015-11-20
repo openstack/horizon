@@ -1,0 +1,11 @@
+---
+prelude: >
+    Image metadata editor upgraded.
+features:
+  - The metadata editor has been updated with AngularJS.
+    See `this <https://blueprints.launchpad.net/horizon/+spec/angularize-metadata-update-modals>`_
+    for more details.
+  - Compute images metadata can now be edited from the Project dashboard, using
+    the new metadata editor.
+    See `this <https://blueprints.launchpad.net/horizon/+spec/project-images-metadata>`_
+    for more details.

@@ -1,0 +1,10 @@
+---
+prelude: >
+    Volume migration is now supported.
+features:
+  - Enabled support for migrating volumes.
+    See `this <https://blueprints.launchpad.net/horizon/+spec/volume-migration>`_
+    for more details.
+  - Volume types can be now edited, and include description fields.
+    See `this <https://blueprints.launchpad.net/horizon/+spec/volume-type-descriptio>`_
+    for more details.

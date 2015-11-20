@@ -1,0 +1,22 @@
+---
+prelude: >
+    Enhanced plugin support for javasciprt, SCSS and Django template.
+features:
+  - Plugin improvements, Horizon auto discovers JavaScript files for inclusion,
+    and now has mechanisms for pluggable SCSS and Django template overrides.
+  - Full support for translation in AngularJS, along with simpler tooling.
+    See `this <https://blueprints.launchpad.net/horizon/+spec/angular-translate-makemessages>`_
+    for more details.
+  - Added Karma for JavaScript testing.
+    See `this <https://blueprints.launchpad.net/horizon/+spec/karma>`_
+    for more details.
+  - Added ESLint for JavaScript linting, using the eslint-config-openstack
+    rules.
+    See `this <https://blueprints.launchpad.net/horizon/+spec/jscs-cleanup>`_
+    for more details.
+  - Horizon now supports overriding of existing Django templates.
+    See `this <https://blueprints.launchpad.net/horizon/+spec/horizon-theme-templates>`_
+    for more details.
+  - JavaScript files are now automatically included.
+    See `this <https://blueprints.launchpad.net/horizon/+spec/auto-js-file-finding>`_
+    for more details.

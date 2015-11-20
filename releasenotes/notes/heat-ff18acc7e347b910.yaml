@@ -1,0 +1,8 @@
+---
+prelude: >
+    Heat topology improvements.
+features:
+  - Improvements to the heat topology, making more resources identifiable
+    where previously they had no icons and were displayed as unknown resources.
+    See `this <https://blueprints.launchpad.net/horizon/+spec/heat-topology-display-improvement>`_
+    for more details.
