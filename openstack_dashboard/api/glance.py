@@ -42,6 +42,20 @@ from openstack_dashboard.api import base
 LOG = logging.getLogger(__name__)
 VERSIONS = base.APIVersionManager("image", preferred_version=2)
 
+try:
+    from glanceclient.v2 import client as glance_client_v2
+    VERSIONS.load_supported_version(2, {"client": glance_client_v2,
+                                        "version": 2})
+except ImportError:
+    pass
+
+try:
+    from glanceclient.v1 import client as glance_client_v1
+    VERSIONS.load_supported_version(1, {"client": glance_client_v1,
+                                        "version": 1})
+except ImportError:
+    pass
+
 
 @memoized
 def glanceclient(request, version='1'):
@@ -256,6 +270,11 @@ def metadefs_namespace_list(request,
         3) A boolean of whether or not there are more page(s).
 
     """
+    # Listing namespaces requires the v2 API. If not supported we return an
+    # empty array so callers don't need to worry about version checking.
+    if get_version() < 2:
+        return [], False, False
+
     limit = getattr(settings, 'API_RESULT_LIMIT', 1000)
     page_size = utils.get_page_size(request)
 
