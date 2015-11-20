@@ -164,7 +164,7 @@
       /**
        * Get the HTML for a `menu`
        */
-      function getMenu(actionList, scope) {
+      function getMenu(actionList) {
         var menuElem = angular.element('<menu>');
         menuElem.append(actionList);
         return menuElem;

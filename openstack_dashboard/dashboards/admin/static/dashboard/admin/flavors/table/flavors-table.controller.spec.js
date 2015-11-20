@@ -20,7 +20,7 @@
     var flavors = [{id: '1'}, {id: '2'}];
 
     var novaAPI = {
-      getFlavors: function(params) {
+      getFlavors: function() {
         var deferred = $q.defer();
         deferred.resolve({data: {items: flavors}});
         return deferred.promise;

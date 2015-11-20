@@ -72,10 +72,9 @@ horizon.membership = {
   init_current_membership: function(step_slug) {
     horizon.membership.current_membership[step_slug] = [];
     var members_list = [];
-    var role_name, role_id, selected_members;
+    var role_id, selected_members;
     angular.forEach(this.get_role_element(step_slug, ''), function(value) {
       role_id = horizon.membership.get_field_id($(value).attr('id'));
-      role_name = $('label[for="id_' + step_slug + '_role_' + role_id + '"]').text();
 
       // get the array of members who are selected in this list
       selected_members = $(value).find("option:selected");

@@ -21,7 +21,7 @@
     var ctrl;
 
     beforeEach(module('horizon.framework.widgets.metadata.tree'));
-    beforeEach(inject(function ($controller, $injector) {
+    beforeEach(inject(function ($controller) {
       ctrl = $controller('MetadataTreeItemController');
     }));
 

@@ -242,7 +242,7 @@ horizon.network_topology = {
       .attr('width', '100%')
       .attr('height', '100%')
       .attr('fill', 'white')
-      .on('click', function(d) {
+      .on('click', function() {
         self.delete_balloon();
       });
 

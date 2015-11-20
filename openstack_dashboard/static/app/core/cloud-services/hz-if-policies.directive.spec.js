@@ -21,7 +21,7 @@
 
     var $scope, deferred, element;
     var policyService = {
-      ifAllowed: function(policyRules) {
+      ifAllowed: function() {
         return deferred.promise;
       }
     };

@@ -36,7 +36,7 @@
       log = { error: function() {} };
       var attrs = angular.noop;
       var parse = function(attr) {
-        return function(scope) {
+        return function() {
           return attr ? attr : {};
         };
       };

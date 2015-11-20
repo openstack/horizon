@@ -27,7 +27,7 @@
   });
 
   describe('magic-overrides directive', function () {
-    var $window, $scope, $magicScope, $element, $timeout;
+    var $window, $scope, $magicScope, $timeout;
 
     beforeEach(module('templates'));
     beforeEach(module('MagicSearch'));
@@ -88,7 +88,7 @@
         '</magic-search>';
       /* eslint-enable angular/ng_window_service */
 
-      $element = $compile(angular.element(markup))($scope);
+      $compile(angular.element(markup))($scope);
 
       $scope.$apply();
 

@@ -57,7 +57,7 @@
 
     it('should get aggregate namespace', function() {
       spyOn(glance, 'getNamespaces');
-      var actual = metadataService.getNamespaces('aggregate');
+      metadataService.getNamespaces('aggregate');
       expect(glance.getNamespaces)
       .toHaveBeenCalledWith({ resource_type: 'OS::Nova::Aggregate' }, false);
     });
@@ -77,7 +77,7 @@
 
     it('should get flavor namespace', function() {
       spyOn(glance, 'getNamespaces');
-      var actual = metadataService.getNamespaces('flavor');
+      metadataService.getNamespaces('flavor');
       expect(glance.getNamespaces)
       .toHaveBeenCalledWith({ resource_type: 'OS::Nova::Flavor' }, false);
     });
@@ -97,7 +97,7 @@
 
     it('should get image namespace', function() {
       spyOn(glance, 'getNamespaces');
-      var actual = metadataService.getNamespaces('image');
+      metadataService.getNamespaces('image');
       expect(glance.getNamespaces)
       .toHaveBeenCalledWith({ resource_type: 'OS::Glance::Image' }, false);
     });

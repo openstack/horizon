@@ -54,7 +54,7 @@
       add: function() {}
     };
 
-    var $scope, $q, service, events;
+    var $scope, $q, service;
 
     function getContext() {
       return {
@@ -84,7 +84,7 @@
     it('should open the modal with correct message', function() {
       var fakeModalService = {
         result: {
-          then: function (callback) {}
+          then: function () {}
         }
       };
 

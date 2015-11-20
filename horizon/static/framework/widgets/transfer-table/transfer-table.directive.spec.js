@@ -47,7 +47,7 @@
     describe('render with allocated and available tags', function() {
 
       var $element;
-      beforeEach(inject(function($injector) {
+      beforeEach(inject(function() {
         var path = 'transfer-table/transfer-table.basic.mock.html';
         var markup = $templateCache.get(basePath + path);
         $element = angular.element(markup);
@@ -80,7 +80,7 @@
     describe('clone content', function() {
 
       var $element;
-      beforeEach(inject(function($injector) {
+      beforeEach(inject(function() {
         var path = 'transfer-table/transfer-table.clone.mock.html';
         var markup = $templateCache.get(basePath + path);
         $element = angular.element(markup);
