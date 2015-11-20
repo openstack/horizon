@@ -58,4 +58,7 @@ urlpatterns = [
     url(r'^(?P<volume_id>[^/]+)/encryption_detail/$',
         views.EncryptionDetailView.as_view(),
         name='encryption_detail'),
+    url(r'^(?P<transfer_id>[^/]+)/download_creds/(?P<auth_key>[^/]+)$',
+        views.DownloadTransferCreds.as_view(),
+        name='download_transfer_creds'),
 ]
