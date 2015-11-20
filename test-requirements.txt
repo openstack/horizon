@@ -19,7 +19,7 @@ nose-exclude
 nosehtmloutput>=0.0.3
 nosexcover
 openstack.nose-plugin>=0.7
-oslosphinx>=2.5.0 # Apache-2.0
+oslosphinx!=3.4.0,>=2.5.0 # Apache-2.0
 reno>=0.1.1 # Apache2
 selenium
 sphinx!=1.2.0,!=1.3b1,<1.3,>=1.1.2
