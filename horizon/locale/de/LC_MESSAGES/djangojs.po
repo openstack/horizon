@@ -12,16 +12,16 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-11-05 22:23+0000\n"
+"POT-Creation-Date: 2015-11-20 01:25+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2015-11-04 02:24+0000\n"
+"PO-Revision-Date: 2015-11-20 11:09+0000\n"
 "Last-Translator: Robert Simai <robert.simai@suse.com>\n"
 "Language: de\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "Generated-By: Babel 2.0\n"
-"X-Generator: Zanata 3.7.1\n"
+"X-Generator: Zanata 3.7.3\n"
 "Language-Team: German\n"
 
 #, python-format
@@ -105,6 +105,9 @@ msgstr "Schließvorgang"
 msgid "Confirm %s"
 msgstr "%s bestätigen"
 
+msgid "Confirm Delete Foobars"
+msgstr "Löschen bestätigen Foobars"
+
 msgid "Connecting"
 msgstr "Verbindungsaufbau"
 
@@ -135,6 +138,9 @@ msgstr "Dezimalzahl erforderlich"
 msgid "Delete"
 msgstr "Löschen"
 
+msgid "Delete Image"
+msgstr "Abbild löschen"
+
 msgid "Delete Interface"
 msgstr "Schnittstelle löschen"
 
@@ -146,6 +152,10 @@ msgstr "Router löschen"
 
 msgid "Delete Subnet"
 msgstr "Lösche Subnetz"
+
+#, python-format
+msgid "Deleted : %s."
+msgstr "Gelöscht: %s."
 
 msgid "Detail Information"
 msgstr "Detailinformationen"
@@ -355,6 +365,10 @@ msgstr "Dropdown-Liste umschalten"
 msgid "Total"
 msgstr "Total"
 
+#, python-format
+msgid "Unable to delete: %s."
+msgstr "Löschen nicht möglich: %s."
+
 msgid "View Details"
 msgstr "Details anzeigen"
 
@@ -405,3 +419,7 @@ msgstr "Kein Kontingent"
 
 msgid "pool default"
 msgstr "Standard-Pool"
+
+#, python-format
+msgid "selected \"%s\""
+msgstr "\"%s\" ausgewählt"
