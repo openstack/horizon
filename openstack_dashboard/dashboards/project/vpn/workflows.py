@@ -28,11 +28,12 @@ class AddVPNServiceAction(workflows.Action):
         max_length=80, label=_("Description"))
     router_id = forms.ChoiceField(label=_("Router"))
     subnet_id = forms.ChoiceField(label=_("Subnet"))
-    admin_state_up = forms.ChoiceField(choices=[(True, _('UP')),
-                                                (False, _('DOWN'))],
-                                       label=_("Admin State"),
-                                       help_text=_("The state to start in."),
-                                       required=False)
+    admin_state_up = forms.ChoiceField(
+        choices=[(True, _('UP')), (False, _('DOWN'))],
+        label=_("Admin State"),
+        help_text=_("The state of VPN service to start in. "
+                    "If DOWN (False) VPN service does not forward packets."),
+        required=False)
 
     def __init__(self, request, *args, **kwargs):
         super(AddVPNServiceAction, self).__init__(request, *args, **kwargs)
@@ -70,9 +71,15 @@ class AddVPNServiceAction(workflows.Action):
         name = _("Add New VPN Service")
         permissions = ('openstack.services.network',)
         help_text = _("Create VPN Service for current project.\n\n"
+                      "The VPN service is attached to a router "
+                      "and references to a single subnet "
+                      "to push to a remote site.\n"
                       "Specify a name, description, router, and subnet "
                       "for the VPN Service. "
-                      "Admin State is Up (checked) by default."
+                      "Admin State is UP (True) by default.\n\n"
+                      "The router, subnet and admin state "
+                      "fields are required, "
+                      "all others are optional."
                       )
 
 
@@ -169,7 +176,25 @@ class AddIKEPolicyAction(workflows.Action):
         name = _("Add New IKE Policy")
         permissions = ('openstack.services.network',)
         help_text = _("Create IKE Policy for current project.\n\n"
-                      "Assign a name and description for the IKE Policy. "
+                      "An IKE policy is an association "
+                      "of the following attributes:\n\n"
+                      "<li>Authorization algorithm: "
+                      "Auth algorithm limited to SHA1 only.</li>"
+                      "<li>Encryption algorithm: "
+                      "The type of algorithm "
+                      "(3des, aes-128, aes-192, aes-256) "
+                      "used in the IKE Policy.</li>"
+                      "<li>IKE version: The type of version (v1/v2) "
+                      "that needs to be filtered.</li>"
+                      "<li>Lifetime: Life time consists of units and value. "
+                      "Units in 'seconds' "
+                      "and the default value is 3600.</li>"
+                      "<li>Perfect Forward Secrecy: "
+                      "PFS limited to using Diffie-Hellman "
+                      "groups 2, 5(default) and 14.</li>"
+                      "<li>IKE Phase 1 negotiation mode: "
+                      "Limited to 'main' mode only.</li>\n"
+                      "All fields are optional."
                       )
 
 
@@ -272,7 +297,27 @@ class AddIPSecPolicyAction(workflows.Action):
         name = _("Add New IPSec Policy")
         permissions = ('openstack.services.network',)
         help_text = _("Create IPSec Policy for current project.\n\n"
-                      "Assign a name and description for the IPSec Policy. "
+                      "An IPSec policy is an association "
+                      "of the following attributes:\n\n"
+                      "<li>Authorization algorithm: "
+                      "Auth_algorithm limited to SHA1 only.</li>"
+                      "<li>Encapsulation mode: "
+                      "The type of IPsec tunnel (tunnel/transport) "
+                      "to be used.</li>"
+                      "<li>Encryption algorithm: "
+                      "The type of algorithm "
+                      "(3des, aes-128, aes-192, aes-256) "
+                      "used in the IPSec Policy.</li>"
+                      "<li>Lifetime: Life time consists of units and value. "
+                      "Units in 'seconds' "
+                      "and the default value is 3600.</li>"
+                      "<li>Perfect Forward Secrecy: "
+                      "PFS limited to using Diffie-Hellman "
+                      "groups 2, 5(default) and 14.</li>"
+                      "<li>Transform Protocol: "
+                      "The type of protocol "
+                      "(esp, ah, ah-esp) used in IPSec Policy.</li>\n"
+                      "All fields are optional."
                       )
 
 
@@ -344,8 +389,11 @@ class AddIPSecSiteConnectionAction(workflows.Action):
                     "(e.g. 20.1.0.0/24, 21.1.0.0/24)"),
         version=forms.IPv4 | forms.IPv6,
         mask=True)
-    psk = forms.CharField(max_length=80,
-                          label=_("Pre-Shared Key (PSK) string"))
+    psk = forms.CharField(
+        max_length=80,
+        label=_("Pre-Shared Key (PSK) string"),
+        help_text=_("The pre-defined key string "
+                    "between the two peers of the VPN connection"))
 
     def populate_ikepolicy_id_choices(self, request, context):
         ikepolicy_id_choices = [('', _("Select IKE Policy"))]
@@ -429,11 +477,13 @@ class AddIPSecSiteConnectionOptionalAction(workflows.Action):
         required=False,
         help_text=_("Valid integer greater than the DPD interval"))
     initiator = forms.ChoiceField(label=_("Initiator state"), required=False)
-    admin_state_up = forms.ChoiceField(choices=[(True, _('UP')),
-                                                (False, _('DOWN'))],
-                                       label=_("Admin State"),
-                                       required=False,
-                                       help_text=_("The state to start in."))
+    admin_state_up = forms.ChoiceField(
+        choices=[(True, _('UP')), (False, _('DOWN'))],
+        label=_("Admin State"),
+        required=False,
+        help_text=_("The state of IPSec site connection to start in. "
+                    "If DOWN (False), IPSec site connection "
+                    "does not forward packets."))
 
     def __init__(self, request, *args, **kwargs):
         super(AddIPSecSiteConnectionOptionalAction, self).__init__(
