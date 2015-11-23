@@ -95,6 +95,7 @@ class CreateView(forms.ModalFormView):
 
     def get_initial(self):
         initial = super(CreateView, self).get_initial()
+        self.default_vol_type = None
         try:
             self.default_vol_type = cinder.volume_type_default(self.request)
             initial['type'] = self.default_vol_type.name
