@@ -20,6 +20,7 @@ from horizon import exceptions
 from horizon import forms
 from horizon import messages
 from horizon import tables
+from horizon import tabs
 from horizon.utils import memoized
 
 from openstack_dashboard import api
@@ -29,6 +30,8 @@ from openstack_dashboard.dashboards.identity.identity_providers \
     import forms as idp_forms
 from openstack_dashboard.dashboards.identity.identity_providers \
     import tables as idp_tables
+from openstack_dashboard.dashboards.identity.identity_providers \
+    import tabs as idp_tabs
 
 
 class IndexView(tables.DataTableView):
@@ -51,6 +54,51 @@ class IndexView(tables.DataTableView):
                     "information.")
             messages.info(self.request, msg)
         return idps
+
+
+class DetailView(tabs.TabbedTableView):
+    tab_group_class = idp_tabs.IdPDetailTabs
+    template_name = 'horizon/common/_detail.html'
+    failure_url = reverse_lazy('horizon:identity:identity_providers:index')
+    page_title = "{{ identity_provider.id }}"
+
+    @memoized.memoized_method
+    def _get_data(self):
+        try:
+            return api.keystone.identity_provider_get(
+                self.request,
+                self.kwargs['identity_provider_id'])
+        except Exception:
+            redirect = reverse("horizon:identity:identity_providers:index")
+            exceptions.handle(self.request,
+                              _('Unable to retrieve identity provider'
+                                ' information.'),
+                              redirect=redirect)
+
+    @memoized.memoized_method
+    def _get_protocols_data(self):
+        try:
+            return api.keystone.protocol_list(
+                self.request,
+                self.kwargs['identity_provider_id'])
+        except Exception:
+            redirect = reverse("horizon:identity:identity_providers:index")
+            exceptions.handle(self.request,
+                              _('Unable to retrieve protocol list.'),
+                              redirect=redirect)
+
+    def get_context_data(self, **kwargs):
+        context = super(DetailView, self).get_context_data(**kwargs)
+        idp = self._get_data()
+        context["identity_provider"] = idp
+        return context
+
+    def get_tabs(self, request, *args, **kwargs):
+        identity_provider = self._get_data()
+        protocols = self._get_protocols_data()
+        return self.tab_group_class(request,
+                                    identity_provider=identity_provider,
+                                    protocols=protocols, **kwargs)
 
 
 class UpdateView(forms.ModalFormView):

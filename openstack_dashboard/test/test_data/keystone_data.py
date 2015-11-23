@@ -25,6 +25,7 @@ from keystoneclient.v2_0 import tenants
 from keystoneclient.v2_0 import users
 from keystoneclient.v3.contrib.federation import identity_providers
 from keystoneclient.v3.contrib.federation import mappings
+from keystoneclient.v3.contrib.federation import protocols
 from keystoneclient.v3 import domains
 from keystoneclient.v3 import groups
 from keystoneclient.v3 import role_assignments
@@ -148,6 +149,7 @@ def data(TEST):
 
     TEST.identity_providers = utils.TestDataContainer()
     TEST.idp_mappings = utils.TestDataContainer()
+    TEST.idp_protocols = utils.TestDataContainer()
 
     admin_role_dict = {'id': '1',
                        'name': 'admin'}
@@ -425,3 +427,10 @@ def data(TEST):
         mappings.MappingManager(None),
         idp_mapping_dict)
     TEST.idp_mappings.add(idp_mapping)
+
+    idp_protocol_dict_1 = {'id': 'protocol_1',
+                           'mapping_id': 'mapping_1'}
+    idp_protocol = protocols.Protocol(
+        protocols.ProtocolManager,
+        idp_protocol_dict_1)
+    TEST.idp_protocols.add(idp_protocol)
