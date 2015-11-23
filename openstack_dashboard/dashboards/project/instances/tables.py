@@ -1014,9 +1014,7 @@ class InstancesTable(tables.DataTable):
     ip = tables.Column(get_ips,
                        verbose_name=_("IP Address"),
                        attrs={'data-type': "ip"})
-    size = tables.Column(get_size,
-                         verbose_name=_("Size"),
-                         attrs={'data-type': 'size'})
+    size = tables.Column(get_size, sortable=False, verbose_name=_("Size"))
     keypair = tables.Column(get_keyname, verbose_name=_("Key Pair"))
     status = tables.Column("status",
                            filters=(title, filters.replace_underscores),
