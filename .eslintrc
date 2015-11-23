@@ -30,7 +30,6 @@ rules:
   brace-style: 1
   strict: 1
   no-extra-parens: 1
-  eqeqeq: 1
   consistent-return: 1
   callback-return: 1
   guard-for-in: 1

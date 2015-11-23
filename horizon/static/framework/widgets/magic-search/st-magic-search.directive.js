@@ -100,7 +100,7 @@
 
             if (scope.filterFacets) {
               var isServerFacet = scope.filterFacets.some(function checkIsServer(facet) {
-                return facet.name == predString && facet.isServer;
+                return facet.name === predString && facet.isServer;
               });
 
               if (isServerFacet) {
