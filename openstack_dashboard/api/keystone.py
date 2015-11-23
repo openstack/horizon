@@ -795,3 +795,31 @@ def identity_provider_delete(request, idp_id):
 def identity_provider_list(request):
     manager = keystoneclient(request, admin=True).federation.identity_providers
     return manager.list()
+
+
+def mapping_create(request, mapping_id, rules):
+    manager = keystoneclient(request, admin=True).federation.mappings
+    try:
+        return manager.create(mapping_id=mapping_id, rules=rules)
+    except keystone_exceptions.Conflict:
+        raise exceptions.Conflict()
+
+
+def mapping_get(request, mapping_id):
+    manager = keystoneclient(request, admin=True).federation.mappings
+    return manager.get(mapping_id)
+
+
+def mapping_update(request, mapping_id, rules):
+    manager = keystoneclient(request, admin=True).federation.mappings
+    return manager.update(mapping_id, rules=rules)
+
+
+def mapping_delete(request, mapping_id):
+    manager = keystoneclient(request, admin=True).federation.mappings
+    return manager.delete(mapping_id)
+
+
+def mapping_list(request):
+    manager = keystoneclient(request, admin=True).federation.mappings
+    return manager.list()
