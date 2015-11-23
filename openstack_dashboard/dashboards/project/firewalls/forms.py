@@ -42,7 +42,8 @@ class UpdateRule(forms.SelfHandlingForm):
         help_text=_('Protocol for the firewall rule'))
     action = forms.ChoiceField(
         label=_("Action"), required=False,
-        choices=[('ALLOW', _('ALLOW')), ('DENY', _('DENY'))],
+        choices=[('ALLOW', _('ALLOW')), ('DENY', _('DENY')),
+                 ('REJECT', _('REJECT'))],
         help_text=_('Action for the firewall rule'))
     source_ip_address = forms.IPField(
         label=_("Source IP Address/Subnet"),

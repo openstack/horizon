@@ -43,7 +43,8 @@ class AddRuleAction(workflows.Action):
     action = forms.ChoiceField(
         label=_("Action"),
         choices=[('allow', _('ALLOW')),
-                 ('deny', _('DENY'))],)
+                 ('deny', _('DENY')),
+                 ('reject', _('REJECT'))],)
     source_ip_address = forms.IPField(
         label=_("Source IP Address/Subnet"),
         version=forms.IPv4 | forms.IPv6,
