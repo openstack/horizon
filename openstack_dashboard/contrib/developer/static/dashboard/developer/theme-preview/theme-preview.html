@@ -515,7 +515,7 @@
             <div class="form-group">
               <label translate for="inputEmail" class="col-lg-2 control-label">Email</label>
               <div class="col-lg-10">
-                <input translate type="text" class="form-control" id="inputEmail" placeholder="Email">
+                <input translate type="email" class="form-control" id="inputEmail" placeholder="Email">
               </div>
             </div>
             <div class="form-group">
@@ -568,15 +568,76 @@
                   <option translate>1</option>
                   <option translate>2</option>
                   <option translate>3</option>
-                  <option translate>4</option>
-                  <option translate>5</option>
                 </select>
               </div>
             </div>
             <div class="form-group">
-              <div class="col-lg-10 col-lg-offset-2">
+              <div class="col-lg-4 col-lg-offset-2">
                 <button translate class="btn btn-default">Cancel</button>
                 <button translate type="submit" class="btn btn-primary">Submit</button>
+              </div>
+            </div>
+          </fieldset>
+        </form>
+      </div>
+      <div class="well bs-component">
+        <form class="form-horizontal">
+          <fieldset>
+            <legend translate>Other Input Types</legend>
+            <div class="form-group">
+              <label translate class="col-lg-2 control-label" for="datetime-localInput">Datetime</label>
+              <div class="col-lg-10">
+                <input type="datetime-local" class="form-control" id="datetime-localInput">
+              </div>
+            </div>
+            <div class="form-group">
+              <label translate class="col-lg-2 control-label" for="dateInput">Date</label>
+              <div class="col-lg-4">
+                <input type="date" class="form-control" id="dateInput">
+              </div>
+              <label translate class="col-lg-2 control-label" for="monthInput">Month</label>
+              <div class="col-lg-4">
+                <input type="month" class="form-control" id="monthInput">
+              </div>
+            </div>
+            <div class="form-group">
+              <label translate class="col-lg-2 control-label" for="timeInput">Time</label>
+              <div class="col-lg-4">
+                <input type="time" class="form-control" id="timeInput">
+              </div>
+              <label translate class="col-lg-2 control-label" for="weekInput">Week</label>
+              <div class="col-lg-4">
+                <input type="week" class="form-control" id="weekInput">
+              </div>
+            </div>
+            <div class="form-group">
+              <label translate class="col-lg-2 control-label" for="numberInput">Number</label>
+              <div class="col-lg-4">
+                <input type="number" class="form-control" id="numberInput">
+              </div>
+              <label translate class="col-lg-2 control-label" for="emailInput">Email</label>
+              <div class="col-lg-4">
+                <input type="email" class="form-control" id="emailInput">
+              </div>
+            </div>
+            <div class="form-group">
+              <label translate class="col-lg-2 control-label" for="urlInput">Url</label>
+              <div class="col-lg-4">
+                <input type="url" class="form-control" id="Input">
+              </div>
+              <label translate class="col-lg-2 control-label" for="searchInput">Search</label>
+              <div class="col-lg-4">
+                <input type="search" class="form-control" id="searchInput">
+              </div>
+            </div>
+            <div class="form-group">
+              <label translate class="col-lg-2 control-label" for="telInput">Tel</label>
+              <div class="col-lg-4">
+                <input type="tel" class="form-control" id="telInput">
+              </div>
+              <label translate class="col-lg-2 control-label" for="colorInput">Color</label>
+              <div class="col-lg-4">
+                <input type="color" class="form-control" id="colorInput">
               </div>
             </div>
           </fieldset>
@@ -586,6 +647,7 @@
     <div class="col-lg-4 col-lg-offset-1">
 
       <form class="bs-component">
+        <h3 translate>Input States</h3>
         <div class="form-group">
           <label translate class="control-label" for="focusedInput">Focused input</label>
           <input translate class="form-control" id="focusedInput" type="text" value="This is focused... ">
@@ -611,6 +673,7 @@
           <input type="text" class="form-control" id="inputSuccess">
         </div>
 
+        <h3 translate>Input Sizes</h3>
         <div class="form-group">
           <label translate class="control-label" for="inputLarge">Large input</label>
           <input class="form-control input-lg" type="text" id="inputLarge">
