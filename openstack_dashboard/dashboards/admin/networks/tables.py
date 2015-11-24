@@ -99,6 +99,9 @@ class NetworksTable(tables.DataTable):
                                verbose_name=_("DHCP Agents"))
     shared = tables.Column("shared", verbose_name=_("Shared"),
                            filters=(filters.yesno, filters.capfirst))
+    external = tables.Column("router:external",
+                             verbose_name=_("External"),
+                             filters=(filters.yesno, filters.capfirst))
     status = tables.Column(
         "status", verbose_name=_("Status"),
         display_choices=project_tables.STATUS_DISPLAY_CHOICES)
