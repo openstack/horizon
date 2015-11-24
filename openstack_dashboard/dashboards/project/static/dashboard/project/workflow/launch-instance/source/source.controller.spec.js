@@ -70,8 +70,6 @@
 
       it('has defined error messages for invalid fields', function() {
         expect(ctrl.bootSourceTypeError).toBeDefined();
-        expect(ctrl.instanceNameError).toBeDefined();
-        expect(ctrl.instanceCountError).toBeDefined();
         expect(ctrl.volumeSizeError).toBeDefined();
       });
 
@@ -146,128 +144,10 @@
             expect(Object.keys(ctrl.tableData)).toEqual(tableKeys);
             expect(ctrl.tableHeadCells.length).toBeGreaterThan(0);
             expect(ctrl.tableBodyCells.length).toBeGreaterThan(0);
-
-            expect(ctrl.maxInstanceCount).toBe(10);
-
-            // check chart data and labels
-            expect(ctrl.instanceStats.label).toBe('10%');
-            expect(ctrl.instanceStats.data[0].value).toEqual(0);
-            expect(ctrl.instanceStats.data[1].value).toEqual(1);
-            expect(ctrl.instanceStats.data[2].value).toEqual(9);
-          });
-        });
-
-        describe('novaLimits.totalInstancesUsed watcher', function() {
-
-          it('should update maxInstanceCount when maxTotalInstances changes', function() {
-            scope.model.novaLimits.maxTotalInstances = 9;
-            scope.$apply();
-
-            expect(ctrl.maxInstanceCount).toBe(9);
-
-            // check chart data and labels
-            expect(ctrl.instanceStats.label).toBe('11%');
-            expect(ctrl.instanceStats.data[0].value).toEqual(0);
-            expect(ctrl.instanceStats.data[1].value).toEqual(1);
-            expect(ctrl.instanceStats.data[2].value).toEqual(8);
-          });
-        });
-
-        describe('novaLimits.totalInstancesUsed watcher', function() {
-
-          it('should update chart stats when totalInstancesUsed changes', function() {
-            scope.model.novaLimits.totalInstancesUsed = 1;
-            scope.$apply();
-
-            expect(ctrl.maxInstanceCount).toBe(9);
-
-            // check chart data and labels
-            expect(ctrl.instanceStats.label).toBe('20%');
-            expect(ctrl.instanceStats.data[0].value).toEqual(1);
-            expect(ctrl.instanceStats.data[1].value).toEqual(1);
-            expect(ctrl.instanceStats.data[2].value).toEqual(8);
-          });
-        });
-
-        describe('the instanceStats chart is set up correctly', function() {
-
-          it('chart should have a title of "Total Instances"', function() {
-            expect(ctrl.instanceStats.title).toBe('Total Instances');
-          });
-
-          it('chart should have a maxLimit value defined', function() {
-            expect(ctrl.instanceStats.maxLimit).toBeDefined();
-          });
-
-          it('instanceStats.overMax should get set to true if instance_count exceeds maxLimit',
-            function() {
-              ctrl.tableData.allocated.push({ name: 'image-1', size: 0, min_disk: 0 });
-              scope.model.newInstanceSpec.instance_count = 11;
-              scope.$apply();
-
-              // check chart data and labels
-              expect(ctrl.instanceStats.label).toBe('110%');
-              expect(ctrl.instanceStats.data[0].value).toEqual(0);
-              expect(ctrl.instanceStats.data[1].value).toEqual(11);
-              expect(ctrl.instanceStats.data[2].value).toEqual(0);
-              // check to ensure overMax
-              expect(ctrl.instanceStats.overMax).toBe(true);
-            }
-          );
-        });
-
-        describe('instanceCount watcher', function() {
-
-          it('should reset instance count to 1 if instance count set to 0', function() {
-            scope.model.newInstanceSpec.instance_count = 0;
-            scope.$apply();
-
-            expect(scope.model.newInstanceSpec.instance_count).toBe(1);
-          });
-
-          it('should reset instance count to 1 if instance count set to -1', function() {
-            scope.model.newInstanceSpec.instance_count = -1;
-            scope.$apply();
-
-            expect(scope.model.newInstanceSpec.instance_count).toBe(1);
-          });
-
-          it('should update chart stats if instance count = 2 and no source selected', function() {
-            scope.model.newInstanceSpec.instance_count = 2;
-            scope.$apply();
-
-            // check chart data and labels
-            expect(ctrl.instanceStats.label).toBe('20%');
-            expect(ctrl.instanceStats.data[0].value).toEqual(0);
-            expect(ctrl.instanceStats.data[1].value).toEqual(2);
-            expect(ctrl.instanceStats.data[2].value).toEqual(8);
-          });
-
-          it('should update chart stats if instance count = 2 and source selected', function() {
-            ctrl.tableData.allocated.push({ name: 'image-1', size: 0, min_disk: 0 });
-            scope.model.newInstanceSpec.instance_count = 2;
-            scope.$apply();
-
-            // check chart data and labels
-            expect(ctrl.instanceStats.label).toBe('20%');
-            expect(ctrl.instanceStats.data[0].value).toEqual(0);
-            expect(ctrl.instanceStats.data[1].value).toEqual(2);
-            expect(ctrl.instanceStats.data[2].value).toEqual(8);
           });
         });
 
         describe('source allocation', function() {
-
-          it('should update chart stats if source allocated', function() {
-            ctrl.tableData.allocated.push({ name: 'image-1', size: 0, min_disk: 0 });
-            scope.$apply();
-
-            // check chart data and labels
-            expect(ctrl.instanceStats.label).toBe('10%');
-            expect(ctrl.instanceStats.data[0].value).toEqual(0);
-            expect(ctrl.instanceStats.data[1].value).toEqual(1);
-            expect(ctrl.instanceStats.data[2].value).toEqual(9);
-          });
 
           it('should set minVolumeSize to 1 if source allocated and size = min_disk = 1GB',
             function() {
