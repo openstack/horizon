@@ -1,15 +1,3 @@
-.navbar-brand {
-  display: block;
-  padding: 0 $padding-small-horizontal;
-
-  &:before {
-    content: '';
-    display: inline-block;
-    height: 100%;
-    vertical-align: middle;
-  }
-}
-
 .navbar {
   margin-bottom: 0;
   border-top: none;
