@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-10-22 08:58+0000\n"
+"POT-Creation-Date: 2015-11-25 05:47+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -19,7 +19,7 @@ msgstr ""
 "Language: ko-KR\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 "Generated-By: Babel 2.0\n"
-"X-Generator: Zanata 3.7.1\n"
+"X-Generator: Zanata 3.7.3\n"
 "Language-Team: Korean (South Korea)\n"
 
 msgid "(Max: 16Kb)"
@@ -160,9 +160,6 @@ msgstr "자동"
 
 msgid "Availability Zone"
 msgstr "가용 구역"
-
-msgid "Boot Source"
-msgstr "부팅 소스"
 
 msgid "Cancel"
 msgstr "취소"
@@ -335,15 +332,6 @@ msgstr ""
 "니다."
 
 msgid ""
-"If you select an availability zone and plan to use the boot from volume "
-"option, make sure that the availability zone you select for the instance is "
-"the same availability zone where your bootable volume resides."
-msgstr ""
-"가용 구역을 선택한 다음, 볼륨 옵션으로부터 부팅을 사용하고자 하는 경우에는, "
-"인스턴스에 대해 선택한 가용 구역이 부팅 가능한 볼륨이 있는 가용 구역과 같은 "
-"위치에 있는지 확인하십시오."
-
-msgid ""
 "If you want to create an instance that uses ephemeral storage, meaning the "
 "instance data is lost when the instance is deleted, then choose one of the "
 "following boot sources:"
@@ -386,15 +374,6 @@ msgstr "인스턴스 소스"
 
 msgid "Instance count is required and must be an integer of at least 1"
 msgstr "인스턴스 개수는 필수이며 적어도 1 이상의 정수값이어야 합니다"
-
-msgid ""
-"Instance source is the template used to create an instance. You can use a "
-"snapshot of an existing instance, an image, or a volume (if enabled). You "
-"can also choose to use persistent storage by creating a new volume."
-msgstr ""
-"인스턴스 소스는 인스턴스를 생성할 때 사용되는 템플릿입니다. 기존 인스턴스에 "
-"대한 스냅샷, 이미지, 또는 볼륨 (활성화된 경우)을 사용 가능합니다. 또한 새 볼"
-"륨을 생성할 때 영구적인 스토리지를 사용하도록 선택할 수 있습니다."
 
 msgid "Insufficient privilege level to view user information."
 msgstr "사용자 정보를 볼 수 있는 권한이 없습니다."
@@ -461,9 +440,6 @@ msgstr "최소 RAM"
 msgid "Min RAM (MB)"
 msgstr "최소 RAM (MB)"
 
-msgid "Min Ram"
-msgstr "최소 RAM"
-
 msgid "Name"
 msgstr "이름"
 
@@ -502,14 +478,6 @@ msgstr "Pending Delete"
 
 msgid "Physical Network"
 msgstr "물리 네트워크"
-
-msgid ""
-"Please provide the initial host name for the instance, the availability zone "
-"where it will be deployed, and the instance count. Increase the Count to "
-"create multiple instances with the same settings."
-msgstr ""
-"가용 구역에 배치되고 인스턴스 수를 확인할 수 있는 초기 호스트 이름을 추가해주"
-"세요. 동일한 설정으로 여러 개의 인스턴스를 생성할 경우 값이 늘어납니다."
 
 msgid "Policy check failed."
 msgstr "정책 확인을 하지 못했습니다."
@@ -631,12 +599,6 @@ msgstr "구분 ID"
 
 msgid "Select Boot Source"
 msgstr "부팅 소스 선택"
-
-msgid "Select Source"
-msgstr "소스 선택"
-
-msgid "Select Source Help"
-msgstr "소스 도움말 선택"
 
 msgid "Select a key pair from the available key pairs below."
 msgstr "아래에서 사용 가능한 키 페어 중 하나를 선택합니다."

@@ -13,7 +13,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-10-22 08:58+0000\n"
+"POT-Creation-Date: 2015-11-25 05:47+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -24,7 +24,7 @@ msgstr ""
 "%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || (n"
 "%100>=11 && n%100<=14)? 2 : 3);\n"
 "Generated-By: Babel 2.0\n"
-"X-Generator: Zanata 3.7.1\n"
+"X-Generator: Zanata 3.7.3\n"
 "Language-Team: Russian\n"
 
 msgid "(Max: 16Kb)"
@@ -172,9 +172,6 @@ msgstr "Автоматически"
 
 msgid "Availability Zone"
 msgstr "Зона доступности"
-
-msgid "Boot Source"
-msgstr "Источник загрузки"
 
 msgid "Cancel"
 msgstr "Отмена"
@@ -352,14 +349,6 @@ msgstr ""
 "доступ будет только через VNC консоль."
 
 msgid ""
-"If you select an availability zone and plan to use the boot from volume "
-"option, make sure that the availability zone you select for the instance is "
-"the same availability zone where your bootable volume resides."
-msgstr ""
-"Если вы выбираете зону доступности и планируете использовать загрузку с "
-"диска, убедитесь, что зоны доступности инстанса и диска совместимы."
-
-msgid ""
 "If you want to create an instance that uses ephemeral storage, meaning the "
 "instance data is lost when the instance is deleted, then choose one of the "
 "following boot sources:"
@@ -403,15 +392,6 @@ msgstr "Источник инстанса"
 
 msgid "Instance count is required and must be an integer of at least 1"
 msgstr "Требуется указать количество инстансов (не менее 1)."
-
-msgid ""
-"Instance source is the template used to create an instance. You can use a "
-"snapshot of an existing instance, an image, or a volume (if enabled). You "
-"can also choose to use persistent storage by creating a new volume."
-msgstr ""
-"Источник инстанса - шаблон, используемый при создании инстанса. Можно "
-"использовать снепшот существующего инстанса, образ или диск (если доступно). "
-"Также можно выбрать постоянный тип хранения для нового диска."
 
 msgid "Insufficient privilege level to view user information."
 msgstr ""
@@ -480,9 +460,6 @@ msgstr "Минимально RAM"
 msgid "Min RAM (MB)"
 msgstr "Мин ОЗУ (МБ)"
 
-msgid "Min Ram"
-msgstr "Мин. ОЗУ"
-
 msgid "Name"
 msgstr "Название"
 
@@ -521,15 +498,6 @@ msgstr "Ожидает удаления"
 
 msgid "Physical Network"
 msgstr "Физическая сеть"
-
-msgid ""
-"Please provide the initial host name for the instance, the availability zone "
-"where it will be deployed, and the instance count. Increase the Count to "
-"create multiple instances with the same settings."
-msgstr ""
-"Пожалуйста укажите имя хоста для инстанса, зону доступности для его "
-"развёртывания и количество разворачиваемых инстансов. Увеличте количество "
-"инстансов для развёртывания нескольких одинаковых экземпляров."
 
 msgid "Policy check failed."
 msgstr "Проверка политики не удалась."
@@ -652,12 +620,6 @@ msgstr "ID сегмента"
 
 msgid "Select Boot Source"
 msgstr "Выберите источник загрузки"
-
-msgid "Select Source"
-msgstr "Выбрать источник"
-
-msgid "Select Source Help"
-msgstr "Выберите источник помощи"
 
 msgid "Select a key pair from the available key pairs below."
 msgstr "Выберите одну из доступных пар ключей."

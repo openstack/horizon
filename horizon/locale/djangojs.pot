@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-11-10 06:35+0000\n"
+"POT-Creation-Date: 2015-11-25 06:21+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -187,7 +187,7 @@ msgstr ""
 #: static/framework/widgets/magic-search/hz-magic-search-bar.spec.js:53
 #: static/framework/widgets/magic-search/magic-overrides.directive.spec.js:68
 #: static/framework/widgets/magic-search/st-magic-search.directive.spec.js:78
-#: static/framework/widgets/toast/toast.service.js:59
+#: static/framework/widgets/toast/toast.service.js:62
 msgid "Error"
 msgstr ""
 
@@ -220,9 +220,9 @@ msgstr ""
 #: static/framework/widgets/metadata/tree/tree.module.js:45
 msgid ""
 "You can specify resource metadata by moving items from the left column to"
-" the right column. In the left columns there are metadata definitions "
-"from the Glance Metadata Catalog. Use the \"Other\" option to add "
-"metadata with the key of your choice."
+" the right column. In the left column there are metadata definitions from"
+" the Glance Metadata Catalog. Use the \"Custom\" option to add metadata "
+"with the key of your choice."
 msgstr ""
 
 #: static/framework/widgets/metadata/tree/tree.module.js:47
@@ -259,7 +259,7 @@ msgstr ""
 
 #: static/framework/widgets/metadata/tree/tree.module.js:56
 #: static/framework/widgets/table/table.module.js:50
-#: static/horizon/js/horizon.forms.js:246
+#: static/horizon/js/horizon.forms.js:245
 msgid "Filter"
 msgstr ""
 
@@ -311,19 +311,19 @@ msgstr ""
 msgid "Submit"
 msgstr ""
 
-#: static/framework/widgets/toast/toast.service.js:55
+#: static/framework/widgets/toast/toast.service.js:58
 msgid "Danger"
 msgstr ""
 
-#: static/framework/widgets/toast/toast.service.js:56
+#: static/framework/widgets/toast/toast.service.js:59
 msgid "Warning"
 msgstr ""
 
-#: static/framework/widgets/toast/toast.service.js:57
+#: static/framework/widgets/toast/toast.service.js:60
 msgid "Info"
 msgstr ""
 
-#: static/framework/widgets/toast/toast.service.js:58
+#: static/framework/widgets/toast/toast.service.js:61
 msgid "Success"
 msgstr ""
 
@@ -401,7 +401,7 @@ msgstr ""
 msgid "There was a problem communicating with the server, please try again."
 msgstr ""
 
-#: static/horizon/js/horizon.forms.js:108
+#: static/horizon/js/horizon.forms.js:107
 msgid "pool default"
 msgstr ""
 
@@ -414,11 +414,11 @@ msgstr ""
 msgid "Could not decrypt the password"
 msgstr ""
 
-#: static/horizon/js/horizon.membership.js:186
+#: static/horizon/js/horizon.membership.js:185
 msgid "No roles"
 msgstr ""
 
-#: static/horizon/js/horizon.membership.js:218
+#: static/horizon/js/horizon.membership.js:217
 msgid "Roles"
 msgstr ""
 
@@ -563,23 +563,23 @@ msgstr ""
 msgid "No description available."
 msgstr ""
 
-#: static/horizon/js/angular/directives/serialConsole.js:23
+#: static/horizon/js/angular/directives/serialConsole.js:27
 msgid "Connecting"
 msgstr ""
 
-#: static/horizon/js/angular/directives/serialConsole.js:23
+#: static/horizon/js/angular/directives/serialConsole.js:28
 msgid "Open"
 msgstr ""
 
-#: static/horizon/js/angular/directives/serialConsole.js:23
+#: static/horizon/js/angular/directives/serialConsole.js:29
 msgid "Closing"
 msgstr ""
 
-#: static/horizon/js/angular/directives/serialConsole.js:23
+#: static/horizon/js/angular/directives/serialConsole.js:30
 msgid "Closed"
 msgstr ""
 
-#: static/horizon/js/angular/directives/serialConsole.js:85
+#: static/horizon/js/angular/directives/serialConsole.js:97
 #, python-format
 msgid "Status: %s"
 msgstr ""

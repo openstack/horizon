@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-10-22 08:58+0000\n"
+"POT-Creation-Date: 2015-11-25 05:47+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Language: en-AU\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "Generated-By: Babel 2.0\n"
-"X-Generator: Zanata 3.7.1\n"
+"X-Generator: Zanata 3.7.3\n"
 "Language-Team: English (Australia)\n"
 
 msgid "(Max: 16Kb)"
@@ -164,9 +164,6 @@ msgstr "Automatic"
 
 msgid "Availability Zone"
 msgstr "Availability Zone"
-
-msgid "Boot Source"
-msgstr "Boot Source"
 
 msgid "Cancel"
 msgstr "Cancel"
@@ -340,15 +337,6 @@ msgstr ""
 "deployed. You will only be able to access the instance from a VNC console."
 
 msgid ""
-"If you select an availability zone and plan to use the boot from volume "
-"option, make sure that the availability zone you select for the instance is "
-"the same availability zone where your bootable volume resides."
-msgstr ""
-"If you select an availability zone and plan to use the boot from volume "
-"option, make sure that the availability zone you select for the instance is "
-"the same availability zone where your bootable volume resides."
-
-msgid ""
 "If you want to create an instance that uses ephemeral storage, meaning the "
 "instance data is lost when the instance is deleted, then choose one of the "
 "following boot sources:"
@@ -392,15 +380,6 @@ msgstr "Instance Source"
 
 msgid "Instance count is required and must be an integer of at least 1"
 msgstr "Instance count is required and must be an integer of at least 1"
-
-msgid ""
-"Instance source is the template used to create an instance. You can use a "
-"snapshot of an existing instance, an image, or a volume (if enabled). You "
-"can also choose to use persistent storage by creating a new volume."
-msgstr ""
-"Instance source is the template used to create an instance. You can use a "
-"snapshot of an existing instance, an image, or a volume (if enabled). You "
-"can also choose to use persistent storage by creating a new volume."
 
 msgid "Insufficient privilege level to view user information."
 msgstr "Insufficient privilege level to view user information."
@@ -468,9 +447,6 @@ msgstr "Min RAM"
 msgid "Min RAM (MB)"
 msgstr "Min RAM (MB)"
 
-msgid "Min Ram"
-msgstr "Min Ram"
-
 msgid "Name"
 msgstr "Name"
 
@@ -510,15 +486,6 @@ msgstr "Pending Delete"
 
 msgid "Physical Network"
 msgstr "Physical Network"
-
-msgid ""
-"Please provide the initial host name for the instance, the availability zone "
-"where it will be deployed, and the instance count. Increase the Count to "
-"create multiple instances with the same settings."
-msgstr ""
-"Please provide the initial host name for the instance, the availability zone "
-"where it will be deployed, and the instance count. Increase the Count to "
-"create multiple instances with the same settings."
 
 msgid "Policy check failed."
 msgstr "Policy check failed."
@@ -641,12 +608,6 @@ msgstr "Segmentation ID"
 
 msgid "Select Boot Source"
 msgstr "Select Boot Source"
-
-msgid "Select Source"
-msgstr "Select Source"
-
-msgid "Select Source Help"
-msgstr "Select Source Help"
 
 msgid "Select a key pair from the available key pairs below."
 msgstr "Select a key pair from the available key pairs below."

@@ -17,11 +17,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-11-20 01:25+0000\n"
+"POT-Creation-Date: 2015-11-25 05:47+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2015-11-19 11:52+0000\n"
+"PO-Revision-Date: 2015-11-24 12:19+0000\n"
 "Last-Translator: Shu Muto <shu-mutou@rf.jp.nec.com>\n"
 "Language: ja\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
@@ -704,11 +704,11 @@ msgid "AKI - Amazon Kernel Image"
 msgstr "AKI - Amazon カーネルイメージ"
 
 msgid "ALLOW"
-msgstr "ALLOW"
+msgstr "許可"
 
 msgctxt "Action Name of a Firewall Rule"
 msgid "ALLOW"
-msgstr "ALLOW"
+msgstr "許可"
 
 #, python-format
 msgid "ALLOW %(ethertype)s %(proto_port)s %(direction)s %(remote)s"
@@ -2447,7 +2447,7 @@ msgstr ""
 "です。</li><li>IP バージョン : フィルタリングされる必要がある IP パケットの種"
 "別 (IP V4/V6) です。</li><li>プロトコル: チェックされる必要があるパケットの種"
 "別 (UDP, ICMP, TCP, Any) です。</li><li>アクション: アクションは必要なフィル"
-"ターの種別で、データパケットを拒絶/拒否/許可できます。</li>\n"
+"ターの種別で、データパケットを拒否/破棄/許可できます。</li>\n"
 "プロトコルとアクションは必須項目であり、他のフィールドはすべて省略可能です。"
 
 msgid "Create a firewall with selected routers."
@@ -2706,11 +2706,11 @@ msgid "DATABASE"
 msgstr "DATABASE"
 
 msgid "DENY"
-msgstr "DENY"
+msgstr "破棄"
 
 msgctxt "Action Name of a Firewall Rule"
 msgid "DENY"
-msgstr "DENY"
+msgstr "破棄"
 
 msgid "DHCP Agents"
 msgstr "DHCP エージェント"
@@ -3304,7 +3304,7 @@ msgid "Deleting VIP %s from this pool cannot be undone."
 msgstr "プールからの仮想 IP %s の削除は元に戻すことはできません。"
 
 msgid "Deny"
-msgstr "拒否"
+msgstr "破棄"
 
 msgid "Description"
 msgstr "説明"
@@ -7414,6 +7414,13 @@ msgstr "メモリー (使用中)"
 #, python-format
 msgid "RAM(Available: %(avail)s, Requested: %(req)s)"
 msgstr "メモリー (利用可能: %(avail)s, 要求: %(req)s)"
+
+msgid "REJECT"
+msgstr "拒否"
+
+msgctxt "Action Name of a Firewall Rule"
+msgid "REJECT"
+msgstr "拒否"
 
 msgid "Ramdisk"
 msgstr "RAM ディスク"

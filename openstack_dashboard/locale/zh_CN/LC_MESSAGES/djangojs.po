@@ -14,7 +14,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-10-22 08:58+0000\n"
+"POT-Creation-Date: 2015-11-25 05:47+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -23,7 +23,7 @@ msgstr ""
 "Language: zh-CN\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 "Generated-By: Babel 2.0\n"
-"X-Generator: Zanata 3.7.1\n"
+"X-Generator: Zanata 3.7.3\n"
 "Language-Team: Chinese (China)\n"
 
 msgid "(Max: 16Kb)"
@@ -150,9 +150,6 @@ msgstr "自动"
 
 msgid "Availability Zone"
 msgstr "可用域"
-
-msgid "Boot Source"
-msgstr "启动源 "
 
 msgid "Cancel"
 msgstr "取消"
@@ -315,14 +312,6 @@ msgstr ""
 "从VNC控制台访问实例。"
 
 msgid ""
-"If you select an availability zone and plan to use the boot from volume "
-"option, make sure that the availability zone you select for the instance is "
-"the same availability zone where your bootable volume resides."
-msgstr ""
-"如果您选择一个可用域并且计划使用从卷选项启动，确保您为实例选择的可用域与您启"
-"动卷所在的域是同一个。"
-
-msgid ""
 "If you want to create an instance that uses ephemeral storage, meaning the "
 "instance data is lost when the instance is deleted, then choose one of the "
 "following boot sources:"
@@ -364,14 +353,6 @@ msgstr "云主机源"
 
 msgid "Instance count is required and must be an integer of at least 1"
 msgstr "实例数是必须的而且必须是至少为1的整数。"
-
-msgid ""
-"Instance source is the template used to create an instance. You can use a "
-"snapshot of an existing instance, an image, or a volume (if enabled). You "
-"can also choose to use persistent storage by creating a new volume."
-msgstr ""
-"实例源时用来创建一个实例的模板。您可以用已存在实例的快照、镜像或者卷(如果启"
-"用)。您也可以选择一个持久存储来创建一个新的卷。"
 
 msgid "Insufficient privilege level to view user information."
 msgstr "查看用户信息权限不足。"
@@ -438,9 +419,6 @@ msgstr "最小内存"
 msgid "Min RAM (MB)"
 msgstr "最小内存 (MB)"
 
-msgid "Min Ram"
-msgstr "最小内存"
-
 msgid "Name"
 msgstr "名称"
 
@@ -479,14 +457,6 @@ msgstr "等待删除完成"
 
 msgid "Physical Network"
 msgstr "物理网络"
-
-msgid ""
-"Please provide the initial host name for the instance, the availability zone "
-"where it will be deployed, and the instance count. Increase the Count to "
-"create multiple instances with the same settings."
-msgstr ""
-"请提供实例初始化名字，它部署的可用区域和实例数。减少数量来创建与设置数一样的"
-"实例。"
 
 msgid "Policy check failed."
 msgstr "策略检查失败。"
@@ -604,12 +574,6 @@ msgstr "段ID"
 
 msgid "Select Boot Source"
 msgstr "选择源"
-
-msgid "Select Source"
-msgstr "选择源"
-
-msgid "Select Source Help"
-msgstr "选择源帮助"
 
 msgid "Select a key pair from the available key pairs below."
 msgstr "从以下可用的密钥对选择一个"

@@ -18,7 +18,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-10-22 08:58+0000\n"
+"POT-Creation-Date: 2015-11-25 05:47+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -27,7 +27,7 @@ msgstr ""
 "Language: zh-CN\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 "Generated-By: Babel 2.0\n"
-"X-Generator: Zanata 3.7.1\n"
+"X-Generator: Zanata 3.7.3\n"
 "Language-Team: Chinese (China)\n"
 
 #, python-format
@@ -368,15 +368,6 @@ msgstr "进行中"
 
 msgid "Yes"
 msgstr "是"
-
-msgid ""
-"You can specify resource metadata by moving items from the left column to "
-"the right column. In the left columns there are metadata definitions from "
-"the Glance Metadata Catalog. Use the \"Other\" option to add metadata with "
-"the key of your choice."
-msgstr ""
-"你可以通过从左边栏目目录选择到右边栏目来指定资源的元数据。在左边栏目是按照"
-"glance 元数据目录来定义的元数据。使用\"其他\"选项来增加元数据。"
 
 #, python-format
 msgid "You have selected %s. "

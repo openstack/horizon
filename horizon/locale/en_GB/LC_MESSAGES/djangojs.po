@@ -12,16 +12,16 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-10-22 08:58+0000\n"
+"POT-Creation-Date: 2015-11-25 05:47+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2015-10-07 12:09+0000\n"
+"PO-Revision-Date: 2015-11-24 04:15+0000\n"
 "Last-Translator: Rob Cresswell <robert.cresswell@outlook.com>\n"
 "Language: en-GB\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "Generated-By: Babel 2.0\n"
-"X-Generator: Zanata 3.7.1\n"
+"X-Generator: Zanata 3.7.3\n"
 "Language-Team: English (United Kingdom)\n"
 
 #, python-format
@@ -46,6 +46,12 @@ msgstr "%s bytes"
 
 msgid "-"
 msgstr "-"
+
+msgid "0 GB"
+msgstr "0 GB"
+
+msgid "0 MB"
+msgstr "0 MB"
 
 msgid "Active"
 msgstr "Active"
@@ -128,6 +134,9 @@ msgstr "Decimal required"
 
 msgid "Delete"
 msgstr "Delete"
+
+msgid "Delete Image"
+msgstr "Delete Image"
 
 msgid "Delete Interface"
 msgstr "Delete Interface"
@@ -339,6 +348,9 @@ msgstr "There was a problem communicating with the server, please try again."
 msgid "There was an error submitting the form. Please try again."
 msgstr "There was an error submitting the form. Please try again."
 
+msgid "Toggle Dropdown"
+msgstr "Toggle Dropdown"
+
 msgid "Total"
 msgstr "Total"
 
@@ -362,17 +374,6 @@ msgstr "Working"
 
 msgid "Yes"
 msgstr "Yes"
-
-msgid ""
-"You can specify resource metadata by moving items from the left column to "
-"the right column. In the left columns there are metadata definitions from "
-"the Glance Metadata Catalog. Use the \"Other\" option to add metadata with "
-"the key of your choice."
-msgstr ""
-"You can specify resource metadata by moving items from the left column to "
-"the right column. In the left columns there are metadata definitions from "
-"the Glance Metadata Catalog. Use the \"Other\" option to add metadata with "
-"the key of your choice."
 
 #, python-format
 msgid "You have selected %s. "
