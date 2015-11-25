@@ -138,8 +138,8 @@
       expect($elementTotal.find('svg').length).toBe(1);
     });
 
-    it('Unlimited quota chart should have no svg element', function () {
-      expect($elementNoQuota.find('svg').length).toBe(0);
+    it('Unlimited quota chart should have hidden svg element', function () {
+      expect($elementNoQuota.find('svg').is(':hidden')).toBe(true);
     });
 
     it('Max chart should have 3 path elements', function () {
