@@ -483,8 +483,8 @@ class SecurityGroupsViewTests(test.TestCase):
         sec_group_list = self.security_groups.list()
         icmp_rule = self.security_group_rules.list()[1]
 
-        # Call POST 4 times
-        for i in range(4):
+        # Call POST 5 times
+        for i in range(5):
             api.network.security_group_backend(
                 IsA(http.HttpRequest)).AndReturn(self.secgroup_backend)
             api.network.security_group_list(
@@ -526,7 +526,7 @@ class SecurityGroupsViewTests(test.TestCase):
                     'remote': 'cidr'}
         res = self.client.post(self.edit_url, formData)
         self.assertNoMessages()
-        self.assertContains(res, "The ICMP code is invalid")
+        self.assertContains(res, "The ICMP code not in range (-1, 255)")
 
         formData = {'method': 'AddRule',
                     'id': sec_group.id,
@@ -538,7 +538,20 @@ class SecurityGroupsViewTests(test.TestCase):
                     'remote': 'cidr'}
         res = self.client.post(self.edit_url, formData)
         self.assertNoMessages()
-        self.assertContains(res, "The ICMP type is invalid")
+        self.assertContains(res, "The ICMP type not in range (-1, 255)")
+
+        formData = {'method': 'AddRule',
+                    'id': sec_group.id,
+                    'port_or_range': 'port',
+                    'icmp_type': -1,
+                    'icmp_code': icmp_rule.to_port,
+                    'rule_menu': icmp_rule.ip_protocol,
+                    'cidr': icmp_rule.ip_range['cidr'],
+                    'remote': 'cidr'}
+        res = self.client.post(self.edit_url, formData)
+        self.assertNoMessages()
+        self.assertContains(
+            res, "ICMP code is provided but ICMP type is missing.")
 
     @test.create_stubs({api.network: ('security_group_rule_create',
                                       'security_group_list',
