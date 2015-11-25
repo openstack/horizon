@@ -45,6 +45,16 @@ for a Debian OS flavour, or for Fedora/Red Hat flavours:
 
     $ sudo yum install xorg-x11-server-Xvfb
 
+If you can't run a virtual display, or would prefer not to, you can use the
+PhantomJS web driver instead:
+
+    $ ./run_tests.sh --with-selenium --selenium-phantomjs
+
+If you need to install PhantomJS, you may do so with `npm` like this:
+
+    $ npm -g install phantomjs
+
+
 Writing tests
 =============
 
