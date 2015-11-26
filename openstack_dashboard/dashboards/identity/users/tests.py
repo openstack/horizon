@@ -307,8 +307,7 @@ class UsersViewTests(test.BaseAdminViewTests):
                                  user.id,
                                  email=user.email,
                                  name=user.name,
-                                 project=self.tenant.id,
-                                 description=user.description).AndReturn(None)
+                                 project=self.tenant.id).AndReturn(None)
 
         self.mox.ReplayAll()
 
@@ -346,8 +345,7 @@ class UsersViewTests(test.BaseAdminViewTests):
                                  user.id,
                                  email=user.email,
                                  name=user.name,
-                                 project=self.tenant.id,
-                                 description=user.description).AndReturn(None)
+                                 project=self.tenant.id).AndReturn(None)
 
         self.mox.ReplayAll()
 
@@ -647,6 +645,46 @@ class UsersViewTests(test.BaseAdminViewTests):
                          user.domain_id)
         self.assertEqual(res.context['form']['domain_name'].value(),
                          domain.name)
+
+    @test.create_stubs({api.keystone: ('user_get',
+                                       'domain_get',
+                                       'tenant_list',
+                                       'user_update_tenant',
+                                       'user_update_password',
+                                       'user_update',
+                                       'roles_for_user', )})
+    def test_update_different_description(self):
+        user = self.users.get(id="1")
+        domain_id = user.domain_id
+        domain = self.domains.get(id=domain_id)
+
+        api.keystone.user_get(IsA(http.HttpRequest), '1',
+                              admin=True).AndReturn(user)
+        api.keystone.domain_get(IsA(http.HttpRequest),
+                                domain_id).AndReturn(domain)
+        api.keystone.tenant_list(IgnoreArg(),
+                                 domain=domain_id,
+                                 user=user.id) \
+            .AndReturn([self.tenants.list(), False])
+        api.keystone.user_update(IsA(http.HttpRequest),
+                                 user.id,
+                                 email=user.email,
+                                 name=user.name,
+                                 project=self.tenant.id,
+                                 description='changed').AndReturn(None)
+
+        self.mox.ReplayAll()
+
+        formData = {'method': 'UpdateUserForm',
+                    'id': user.id,
+                    'name': user.name,
+                    'description': 'changed',
+                    'email': user.email,
+                    'project': self.tenant.id}
+
+        res = self.client.post(USER_UPDATE_URL, formData)
+
+        self.assertNoFormErrors(res)
 
 
 class SeleniumTests(test.SeleniumAdminTestCase):

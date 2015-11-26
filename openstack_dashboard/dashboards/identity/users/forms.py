@@ -151,7 +151,7 @@ class CreateUserForm(PasswordMixin, BaseUserForm):
                 api.keystone.user_create(request,
                                          name=data['name'],
                                          email=data['email'],
-                                         description=desc,
+                                         description=desc or None,
                                          password=data['password'],
                                          project=data['project'] or None,
                                          enabled=data['enabled'],
@@ -223,6 +223,9 @@ class UpdateUserForm(BaseUserForm):
 
         data.pop('domain_id')
         data.pop('domain_name')
+
+        if 'description' not in self.changed_data:
+            data.pop('description')
         try:
             if "email" in data:
                 data['email'] = data['email'] or None
