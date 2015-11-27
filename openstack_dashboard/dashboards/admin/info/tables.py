@@ -208,14 +208,16 @@ class HeatServiceTable(tables.DataTable):
     engine_id = tables.Column('engine_id', verbose_name=_('Engine Id'))
     host = tables.Column('host', verbose_name=_('Host'))
     topic = tables.Column('topic', verbose_name=_('Topic'))
+    # For consistent with other tables in system info, set column name to
+    # 'state'
+    state = tables.Column('status', verbose_name=_('State'),
+                          display_choices=SERVICE_STATE_DISPLAY_CHOICES)
     updated_at = tables.Column('updated_at',
                                verbose_name=pgettext_lazy(
                                    'Time since the last update',
                                    u'Last Updated'),
                                filters=(utils_filters.parse_isotime,
                                         filters.timesince))
-    status = tables.Column('status', verbose_name=_('Status'),
-                           display_choices=SERVICE_STATE_DISPLAY_CHOICES)
 
     def get_object_id(self, obj):
         return "%s" % obj.engine_id
