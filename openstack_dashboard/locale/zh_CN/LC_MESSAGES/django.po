@@ -27,16 +27,16 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-11-19 04:15+0000\n"
+"POT-Creation-Date: 2015-11-25 05:47+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2015-11-05 12:16+0000\n"
-"Last-Translator: Yang Hongyang <hongyang.yang@easystack.cn>\n"
+"PO-Revision-Date: 2015-11-26 07:07+0000\n"
+"Last-Translator: zhangjingwen <zhangjingwen@cn.fujitsu.com>\n"
 "Language: zh-CN\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 "Generated-By: Babel 2.0\n"
-"X-Generator: Zanata 3.7.1\n"
+"X-Generator: Zanata 3.7.3\n"
 "Language-Team: Chinese (China)\n"
 
 msgid ""
@@ -1737,6 +1737,9 @@ msgstr "Cinder卷"
 msgid "Cipher"
 msgstr "Cipher"
 
+msgid "Classless Inter-Domain Routing (e.g. 192.168.0.0/24, or 2001:db8::/128)"
+msgstr "无类别域间路由(e.g. 192.168.0.0/24，或者2001:db8::/128)"
+
 msgid "Clear Domain Context"
 msgstr "清除域上下文。"
 
@@ -2277,6 +2280,28 @@ msgstr "创建一个工作节点组模板"
 msgid "Create a data source"
 msgstr "创建一数据源"
 
+msgid ""
+"Create a firewall rule.\n"
+"\n"
+"A Firewall rule is an association of the following attributes:\n"
+"\n"
+"<li>IP Addresses: The addresses from/to which the traffic filtration needs "
+"to be applied.</li><li>IP Version: The type of IP packets (IP V4/V6) that "
+"needs to be filtered.</li><li>Protocol: Type of packets (UDP, ICMP, TCP, "
+"Any) that needs to be checked.</li><li>Action: Action is the type of "
+"filtration required, it can be Reject/Deny/Allow data packets.</li>\n"
+"The protocol and action fields are required, all others are optional."
+msgstr ""
+"创建防火墙规则。\n"
+"\n"
+"防火墙规则由以下属性关联形成：\n"
+"\n"
+"<li>IP地址：来自/去到需要被应用的交通过滤地址。</li><li>IP版本：需要被过滤的"
+"IP包(IP V4/V6)的累类型。</li><li>协议:：需要被检查的数据包(UDP, ICMP, TCP, "
+"Any)的类型。</li><li>动作：动作是Action is the type of filtration required, "
+"it can be Reject/Deny/Allow data packets.</li>\n"
+"The protocol and action fields are required, all others are optional."
+
 msgid "Create a firewall with selected routers."
 msgstr "为所选择的路由创建一防火墙。"
 
@@ -2495,6 +2520,14 @@ msgstr "当前密码"
 
 msgid "Current type:"
 msgstr "当前类型"
+
+msgid ""
+"Currently only images available via an HTTP/HTTPS URL are supported. The "
+"image location must be accessible to the Image Service. Compressed image "
+"binaries are supported (.zip and .tar.gz.)"
+msgstr ""
+"目前只支持HTTP/HTTPS URL可用镜像。镜像服务必须能够访问到镜像地址。支持镜像的"
+"二进制压缩格式(.zip,.tar,.gz.)"
 
 msgid "Custom ICMP Rule"
 msgstr "定制ICMP规则"
@@ -4282,6 +4315,9 @@ msgctxt "Task status of an Instance"
 msgid "Finishing Resize or Migrate"
 msgstr "正在完成重建或者迁移"
 
+msgid "Firewall"
+msgstr "防火墙"
+
 #, python-format
 msgid "Firewall %s was successfully updated."
 msgstr "防火墙 %s 被成功更新。"
@@ -4711,6 +4747,9 @@ msgstr "IP协议"
 
 msgid "IP Version"
 msgstr "IP版本"
+
+msgid "IP Version for Firewall Rule"
+msgstr "防火墙的IP版本"
 
 msgid "IP address"
 msgstr "IP地址::"
@@ -5523,6 +5562,9 @@ msgstr "主类"
 
 msgid "Mains"
 msgstr "Mains"
+
+msgid "Maintenance"
+msgstr "维护"
 
 msgid "Make Private"
 msgstr "私有化"
@@ -7068,6 +7110,13 @@ msgstr "内存(已使用)"
 msgid "RAM(Available: %(avail)s, Requested: %(req)s)"
 msgstr "RAM(可用: %(avail)s, 已请求: %(req)s)"
 
+msgid "REJECT"
+msgstr "拒绝"
+
+msgctxt "Action Name of a Firewall Rule"
+msgid "REJECT"
+msgstr "拒绝"
+
 msgid "Ramdisk"
 msgstr "内存盘"
 
@@ -8099,6 +8148,9 @@ msgstr "主机组"
 msgid "Server error"
 msgstr "服务器报错"
 
+msgid "Servers"
+msgstr "服务器"
+
 msgid "Service"
 msgstr "服务"
 
@@ -8348,6 +8400,11 @@ msgstr "源端口([1, 65535]区间内的整数或者以a:b形式表示的范围)
 
 msgid "Source username"
 msgstr "源用户名"
+
+msgid ""
+"Source/Destination Network Address and IP version are inconsistent. Please "
+"make them consistent."
+msgstr "源/目的网络地址和IP版本不一致。请确保它们一致。"
 
 msgid "Source:"
 msgstr "源"
@@ -10433,6 +10490,9 @@ msgstr "找不到密钥对。"
 
 msgid "Unable to retrieve limit information."
 msgstr "无法获取限制信息。"
+
+msgid "Unable to retrieve list of routers."
+msgstr "无法取回路由列表。"
 
 msgid "Unable to retrieve list of security groups"
 msgstr "无法获取安全组列表"

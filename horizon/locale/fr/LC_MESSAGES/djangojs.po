@@ -18,6 +18,7 @@
 # Corinne Verheyde <cverheyd@gmail.com>, 2015. #zanata
 # François Bureau <bureaufrancois@gmail.com>, 2015. #zanata
 # Gael Rehault <gael01@gmail.com>, 2015. #zanata
+# Maxime Coquerel <max.coquerel@gmail.com>, 2015. #zanata
 # Olivier Buisson <olivier@openkumo.fr>, 2015. #zanata
 # OpenStack Infra <zanata@openstack.org>, 2015. #zanata
 # Romain Chantereau <rchanter@redhat.com>, 2015. #zanata
@@ -29,8 +30,8 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2015-11-18 10:57+0000\n"
-"Last-Translator: Gael Rehault <gael01@gmail.com>\n"
+"PO-Revision-Date: 2015-11-27 02:40+0000\n"
+"Last-Translator: Maxime Coquerel <max.coquerel@gmail.com>\n"
 "Language: fr\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 "Generated-By: Babel 2.0\n"
@@ -117,6 +118,9 @@ msgstr "En cours de fermeture"
 #, python-format
 msgid "Confirm %s"
 msgstr "Confirmez %s"
+
+msgid "Confirm Delete Foobars"
+msgstr "Confirmer la suppression de Foobars"
 
 msgid "Connecting"
 msgstr "En cours de connexion"

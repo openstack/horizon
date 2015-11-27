@@ -26,6 +26,7 @@
 # Gael Rehault <gael01@gmail.com>, 2015. #zanata
 # JF Taltavull <jftalta@gmail.com>, 2015. #zanata
 # Kevin Tibi <kodokuu@gmail.com>, 2015. #zanata
+# Maxime Coquerel <max.coquerel@gmail.com>, 2015. #zanata
 # OpenStack Infra <zanata@openstack.org>, 2015. #zanata
 # Romain Chantereau <rchanter@redhat.com>, 2015. #zanata
 # SOURDET Henri <hsourdet@gmail.com>, 2015. #zanata
@@ -34,16 +35,16 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-11-19 04:15+0000\n"
+"POT-Creation-Date: 2015-11-25 05:47+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2015-11-17 11:13+0000\n"
-"Last-Translator: Gael Rehault <gael01@gmail.com>\n"
+"PO-Revision-Date: 2015-11-27 02:37+0000\n"
+"Last-Translator: Maxime Coquerel <max.coquerel@gmail.com>\n"
 "Language: fr\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 "Generated-By: Babel 2.0\n"
-"X-Generator: Zanata 3.7.1\n"
+"X-Generator: Zanata 3.7.3\n"
 "Language-Team: French\n"
 
 msgid ""
@@ -5077,6 +5078,9 @@ msgstr "Protocole IP"
 msgid "IP Version"
 msgstr "Version IP"
 
+msgid "IP Version for Firewall Rule"
+msgstr "Version IP pour la règle de pare-feu"
+
 msgid "IP address"
 msgstr "Adresse IP"
 
@@ -7562,6 +7566,13 @@ msgstr "RAM (utilisée)"
 msgid "RAM(Available: %(avail)s, Requested: %(req)s)"
 msgstr "RAM (Disponible : %(avail)s, Demandée : %(req)s)"
 
+msgid "REJECT"
+msgstr "REJETER"
+
+msgctxt "Action Name of a Firewall Rule"
+msgid "REJECT"
+msgstr "REJETER"
+
 msgid "Ramdisk"
 msgstr "Ramdisk"
 
@@ -7792,6 +7803,10 @@ msgstr "Obligatoire pour la persistance APP_COOKIE; ignoré sinon."
 msgctxt "Current status of an Instance"
 msgid "Rescue"
 msgstr "Mode Secours"
+
+msgctxt "Current status of an Instance"
+msgid "Rescued"
+msgstr "Sauvée"
 
 msgctxt "Task status of an Instance"
 msgid "Rescuing"

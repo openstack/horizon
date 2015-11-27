@@ -10,6 +10,7 @@
 # Corinne Verheyde <cverheyd@gmail.com>, 2015. #zanata
 # François Bureau <bureaufrancois@gmail.com>, 2015. #zanata
 # Gael Rehault <gael01@gmail.com>, 2015. #zanata
+# Maxime Coquerel <max.coquerel@gmail.com>, 2015. #zanata
 # OpenStack Infra <zanata@openstack.org>, 2015. #zanata
 # Romain Chantereau <rchanter@redhat.com>, 2015. #zanata
 # andrew melim <nokostya.translation@gmail.com>, 2015. #zanata
@@ -21,8 +22,8 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2015-11-17 11:09+0000\n"
-"Last-Translator: Gael Rehault <gael01@gmail.com>\n"
+"PO-Revision-Date: 2015-11-27 02:38+0000\n"
+"Last-Translator: Maxime Coquerel <max.coquerel@gmail.com>\n"
 "Language: fr\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 "Generated-By: Babel 2.0\n"
@@ -254,6 +255,9 @@ msgstr "Supprimée"
 msgid "Description"
 msgstr "Description"
 
+msgid "Details"
+msgstr "Détails"
+
 msgid "Device Name"
 msgstr "Nom du périphérique"
 
@@ -397,6 +401,9 @@ msgstr "Importer une Paire Clés"
 msgid "Instance Details"
 msgstr "Détails de l'instance"
 
+msgid "Instance Details Help"
+msgstr "Aide avec les détails de l'instance"
+
 msgid "Instance Name"
 msgstr "Nom de l'instance"
 
@@ -405,6 +412,9 @@ msgstr "Instantané d'Instance"
 
 msgid "Instance Source"
 msgstr "Source de l'instance"
+
+msgid "Instance Source Help"
+msgstr "Aide à la source de l'instance"
 
 msgid "Instance count is required and must be an integer of at least 1"
 msgstr ""
@@ -702,6 +712,9 @@ msgstr "Taille (Go)"
 
 msgid "Snapshot"
 msgstr "Instantané"
+
+msgid "Source"
+msgstr "Source"
 
 msgid "Status"
 msgstr "Statut"
