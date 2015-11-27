@@ -1106,7 +1106,7 @@ POWER_DISPLAY_CHOICES = (
 
 class InstancesFilterAction(tables.FilterAction):
     filter_type = "server"
-    filter_choices = (('name', _("Instance Name"), True),
+    filter_choices = (('name', _("Instance Name ="), True),
                       ('status', _("Status ="), True),
                       ('image', _("Image ID ="), True),
                       ('flavor', _("Flavor ID ="), True))
