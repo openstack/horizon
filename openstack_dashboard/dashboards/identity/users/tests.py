@@ -614,6 +614,40 @@ class UsersViewTests(test.BaseAdminViewTests):
 
         self.assertRedirectsNoFollow(res, USERS_INDEX_URL)
 
+    @test.create_stubs({api.keystone: ('user_get',
+                                       'domain_get',
+                                       'tenant_list',)})
+    def test_get_update_form_init_values(self):
+        user = self.users.get(id="1")
+        domain_id = user.domain_id
+        domain = self.domains.get(id=domain_id)
+
+        api.keystone.user_get(IsA(http.HttpRequest), '1',
+                              admin=True).AndReturn(user)
+        api.keystone.domain_get(IsA(http.HttpRequest),
+                                domain_id).AndReturn(domain)
+        api.keystone.tenant_list(IgnoreArg(),
+                                 domain=domain_id,
+                                 user=user.id) \
+            .AndReturn([self.tenants.list(), False])
+
+        self.mox.ReplayAll()
+
+        res = self.client.get(USER_UPDATE_URL)
+
+        # Check that the form contains the default values as initialized by
+        # the UpdateView
+        self.assertEqual(res.context['form']['name'].value(), user.name)
+        self.assertEqual(res.context['form']['email'].value(), user.email)
+        self.assertEqual(res.context['form']['description'].value(),
+                         user.description)
+        self.assertEqual(res.context['form']['project'].value(),
+                         user.project_id)
+        self.assertEqual(res.context['form']['domain_id'].value(),
+                         user.domain_id)
+        self.assertEqual(res.context['form']['domain_name'].value(),
+                         domain.name)
+
 
 class SeleniumTests(test.SeleniumAdminTestCase):
     def _get_default_domain(self):
