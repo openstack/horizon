@@ -320,7 +320,9 @@ class RulesTable(tables.DataTable):
     class Meta(object):
         name = "rulestable"
         verbose_name = _("Rules")
-        table_actions = (AddRuleLink, DeleteRuleLink)
+        table_actions = (AddRuleLink,
+                         DeleteRuleLink,
+                         tables.NameFilterAction)
         row_actions = (UpdateRuleLink, DeleteRuleLink)
 
 
@@ -341,7 +343,9 @@ class PoliciesTable(tables.DataTable):
     class Meta(object):
         name = "policiestable"
         verbose_name = _("Policies")
-        table_actions = (AddPolicyLink, DeletePolicyLink)
+        table_actions = (AddPolicyLink,
+                         DeletePolicyLink,
+                         tables.NameFilterAction)
         row_actions = (UpdatePolicyLink, InsertRuleToPolicyLink,
                        RemoveRuleFromPolicyLink, DeletePolicyLink)
 
@@ -389,7 +393,9 @@ class FirewallsTable(tables.DataTable):
     class Meta(object):
         name = "firewallstable"
         verbose_name = _("Firewalls")
-        table_actions = (AddFirewallLink, DeleteFirewallLink)
+        table_actions = (AddFirewallLink,
+                         DeleteFirewallLink,
+                         tables.NameFilterAction)
         row_actions = (UpdateFirewallLink, DeleteFirewallLink,
                        AddRouterToFirewallLink, RemoveRouterFromFirewallLink)
 
