@@ -185,12 +185,21 @@ def data(TEST):
          'size': 80,
          'status': 'available',
          'volume_id': '31023e92-8008-4c8b-8059-7f2293ff1234'})
+    snapshot3 = vol_snaps.Snapshot(
+        vol_snaps.SnapshotManager(None),
+        {'id': 'c9d0881a-4c0b-4158-a212-ad27e11c2b0e',
+         'name': '',
+         'description': 'v2 volume snapshot description 2',
+         'size': 80,
+         'status': 'available',
+         'volume_id': '31023e92-8008-4c8b-8059-7f2293ff1234'})
 
     snapshot.bootable = 'true'
     snapshot2.bootable = 'true'
 
     TEST.cinder_volume_snapshots.add(api.cinder.VolumeSnapshot(snapshot))
     TEST.cinder_volume_snapshots.add(api.cinder.VolumeSnapshot(snapshot2))
+    TEST.cinder_volume_snapshots.add(api.cinder.VolumeSnapshot(snapshot3))
     TEST.cinder_volume_snapshots.first()._volume = volume
 
     # Volume Type Encryption
@@ -233,8 +242,19 @@ def data(TEST):
          'container_name': 'volumebackups',
          'volume_id': '31023e92-8008-4c8b-8059-7f2293ff1234'})
 
+    volume_backup3 = vol_backups.VolumeBackup(
+        vol_backups.VolumeBackupManager(None),
+        {'id': 'c321cbb8-3f99-4c3f-a2ef-3edbec842e53',
+         'name': 'backup3',
+         'description': 'volume backup 3',
+         'size': 20,
+         'status': 'available',
+         'container_name': 'volumebackups',
+         'volume_id': '31023e92-8008-4c8b-8059-7f2293ff1234'})
+
     TEST.cinder_volume_backups.add(volume_backup1)
     TEST.cinder_volume_backups.add(volume_backup2)
+    TEST.cinder_volume_backups.add(volume_backup3)
 
     # Volume Encryption
     vol_enc_metadata1 = volumes.Volume(

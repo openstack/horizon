@@ -21,6 +21,8 @@ from mox3.mox import IsA  # noqa
 from openstack_dashboard import api
 from openstack_dashboard.api import cinder
 from openstack_dashboard.api import keystone
+from openstack_dashboard.dashboards.project.volumes.snapshots \
+    import tables as snapshot_tables
 from openstack_dashboard.dashboards.project.volumes.volumes \
     import tables as volume_tables
 from openstack_dashboard.test import helpers as test
@@ -174,12 +176,13 @@ class VolumeTests(test.BaseAdminViewTests):
         self.assertItemsEqual(qos_specs, self.cinder_qos_specs.list())
 
     @test.create_stubs({cinder: ('volume_list',
-                                 'volume_snapshot_list',),
+                                 'volume_snapshot_list_paged',),
                         keystone: ('tenant_list',)})
     def test_snapshots_tab(self):
-        cinder.volume_snapshot_list(IsA(http.HttpRequest), search_opts={
-            'all_tenants': True}). \
-            AndReturn(self.cinder_volume_snapshots.list())
+        cinder.volume_snapshot_list_paged(
+            IsA(http.HttpRequest), paginate=True, marker=None, sort_dir='desc',
+            search_opts={'all_tenants': True},).AndReturn(
+            [self.cinder_volume_snapshots.list(), False, False])
         cinder.volume_list(IsA(http.HttpRequest), search_opts={
             'all_tenants': True}).\
             AndReturn(self.cinder_volumes.list())
@@ -193,3 +196,90 @@ class VolumeTests(test.BaseAdminViewTests):
         self.assertTemplateUsed(res, 'horizon/common/_detail_table.html')
         snapshots = res.context['volume_snapshots_table'].data
         self.assertItemsEqual(snapshots, self.cinder_volume_snapshots.list())
+
+    @test.create_stubs({cinder: ('volume_list',
+                                 'volume_snapshot_list_paged',),
+                        keystone: ('tenant_list',)})
+    def _test_snapshots_index_paginated(self, marker, sort_dir, snapshots, url,
+                                        has_more, has_prev):
+        cinder.volume_snapshot_list_paged(
+            IsA(http.HttpRequest), paginate=True, marker=marker,
+            sort_dir=sort_dir, search_opts={'all_tenants': True}) \
+            .AndReturn([snapshots, has_more, has_prev])
+        cinder.volume_list(IsA(http.HttpRequest), search_opts={
+            'all_tenants': True}).\
+            AndReturn(self.cinder_volumes.list())
+        keystone.tenant_list(IsA(http.HttpRequest)) \
+            .AndReturn([self.tenants.list(), False])
+
+        self.mox.ReplayAll()
+
+        res = self.client.get(url)
+
+        self.assertTemplateUsed(res, 'admin/volumes/index.html')
+        self.assertEqual(res.status_code, 200)
+
+        self.mox.UnsetStubs()
+        return res
+
+    @override_settings(API_RESULT_PAGE_SIZE=1)
+    def test_snapshots_index_paginated(self):
+        size = settings.API_RESULT_PAGE_SIZE
+        mox_snapshots = self.cinder_volume_snapshots.list()
+        base_url = reverse('horizon:admin:volumes:snapshots_tab')
+        next = snapshot_tables.VolumeSnapshotsTable._meta.pagination_param
+
+        # get first page
+        expected_snapshots = mox_snapshots[:size]
+        res = self._test_snapshots_index_paginated(
+            marker=None, sort_dir="desc", snapshots=expected_snapshots,
+            url=base_url, has_more=True, has_prev=False)
+        snapshots = res.context['volume_snapshots_table'].data
+        self.assertItemsEqual(snapshots, expected_snapshots)
+
+        # get second page
+        expected_snapshots = mox_snapshots[size:2 * size]
+        marker = expected_snapshots[0].id
+        url = "&".join([base_url, "=".join([next, marker])])
+        res = self._test_snapshots_index_paginated(
+            marker=marker, sort_dir="desc", snapshots=expected_snapshots,
+            url=url, has_more=True, has_prev=True)
+        snapshots = res.context['volume_snapshots_table'].data
+        self.assertItemsEqual(snapshots, expected_snapshots)
+
+        # get last page
+        expected_snapshots = mox_snapshots[-size:]
+        marker = expected_snapshots[0].id
+        url = "&".join([base_url, "=".join([next, marker])])
+        res = self._test_snapshots_index_paginated(
+            marker=marker, sort_dir="desc", snapshots=expected_snapshots,
+            url=url, has_more=False, has_prev=True)
+        snapshots = res.context['volume_snapshots_table'].data
+        self.assertItemsEqual(snapshots, expected_snapshots)
+
+    @override_settings(API_RESULT_PAGE_SIZE=1)
+    def test_snapshots_index_paginated_prev(self):
+        size = settings.API_RESULT_PAGE_SIZE
+        max_snapshots = self.cinder_volume_snapshots.list()
+        base_url = reverse('horizon:admin:volumes:snapshots_tab')
+        prev = snapshot_tables.VolumeSnapshotsTable._meta.prev_pagination_param
+
+        # prev from some page
+        expected_snapshots = max_snapshots[size:2 * size]
+        marker = max_snapshots[0].id
+        url = "&".join([base_url, "=".join([prev, marker])])
+        res = self._test_snapshots_index_paginated(
+            marker=marker, sort_dir="asc", snapshots=expected_snapshots,
+            url=url, has_more=False, has_prev=True)
+        snapshots = res.context['volume_snapshots_table'].data
+        self.assertItemsEqual(snapshots, expected_snapshots)
+
+        # back to first page
+        expected_snapshots = max_snapshots[:size]
+        marker = max_snapshots[0].id
+        url = "&".join([base_url, "=".join([prev, marker])])
+        res = self._test_snapshots_index_paginated(
+            marker=marker, sort_dir="asc", snapshots=expected_snapshots,
+            url=url, has_more=True, has_prev=False)
+        snapshots = res.context['volume_snapshots_table'].data
+        self.assertItemsEqual(snapshots, expected_snapshots)

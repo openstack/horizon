@@ -154,6 +154,8 @@ class VolumeSnapshotsTable(volume_tables.VolumesTableBase):
     class Meta(object):
         name = "volume_snapshots"
         verbose_name = _("Volume Snapshots")
+        pagination_param = 'snapshot_marker'
+        prev_pagination_param = 'prev_snapshot_marker'
         table_actions = (VolumeSnapshotsFilterAction, DeleteVolumeSnapshot,)
         row_actions = (CreateVolumeFromSnapshot, LaunchSnapshot,
                        EditVolumeSnapshot, DeleteVolumeSnapshot)

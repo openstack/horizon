@@ -30,7 +30,8 @@ from openstack_dashboard.dashboards.project.volumes \
     import tabs as volumes_tabs
 
 
-class VolumeTab(tabs.TableTab, volumes_tabs.VolumeTableMixIn):
+class VolumeTab(volumes_tabs.PagedTableMixin, tabs.TableTab,
+                volumes_tabs.VolumeTableMixIn):
     table_classes = (volumes_tables.VolumesTable,)
     name = _("Volumes")
     slug = "volumes_tab"
@@ -60,12 +61,6 @@ class VolumeTab(tabs.TableTab, volumes_tabs.VolumeTableMixIn):
             volume.tenant_name = getattr(tenant, "name", None)
 
         return volumes
-
-    def has_prev_data(self, table):
-        return self._has_prev_data
-
-    def has_more_data(self, table):
-        return self._has_more_data
 
 
 class VolumeTypesTab(tabs.TableTab, volumes_tabs.VolumeTableMixIn):
@@ -116,7 +111,7 @@ class VolumeTypesTab(tabs.TableTab, volumes_tabs.VolumeTableMixIn):
         return qos_specs
 
 
-class SnapshotTab(tabs.TableTab):
+class SnapshotTab(volumes_tabs.PagedTableMixin, tabs.TableTab):
     table_classes = (snapshots_tables.VolumeSnapshotsTable,)
     name = _("Volume Snapshots")
     slug = "snapshots_tab"
@@ -126,9 +121,11 @@ class SnapshotTab(tabs.TableTab):
     def get_volume_snapshots_data(self):
         if api.base.is_service_enabled(self.request, 'volume'):
             try:
-                snapshots = cinder.volume_snapshot_list(
-                    self.request,
-                    search_opts={'all_tenants': True})
+                marker, sort_dir = self._get_marker()
+                snapshots, self._has_more_data, self._has_prev_data = \
+                    cinder.volume_snapshot_list_paged(
+                        self.request, paginate=True, marker=marker,
+                        sort_dir=sort_dir, search_opts={'all_tenants': True})
                 volumes = cinder.volume_list(
                     self.request,
                     search_opts={'all_tenants': True})
