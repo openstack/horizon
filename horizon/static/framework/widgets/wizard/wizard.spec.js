@@ -172,6 +172,14 @@
       expect(element[0].querySelector('button.finish').hasAttribute('disabled')).toBe(false);
     });
 
+    it('should have finish button disabled if isSubmitting is set', function () {
+      $scope.viewModel = { };
+      $scope.$apply();
+      $scope.viewModel.isSubmitting = true;
+      $scope.$apply();
+      expect(element[0].querySelector('button.finish').hasAttribute('disabled')).toBe(true);
+    });
+
     it('should show error message after calling method showError', function () {
       var errorMessage = 'some error message';
       $scope.$apply();
