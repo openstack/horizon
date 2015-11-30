@@ -26,7 +26,8 @@
     'horizon.app.core.openstack-service-api.nova',
     'horizon.app.core.openstack-service-api.novaExtensions',
     'horizon.app.core.openstack-service-api.security-group',
-    'horizon.app.core.openstack-service-api.serviceCatalog'
+    'horizon.app.core.openstack-service-api.serviceCatalog',
+    'horizon.framework.widgets.toast.service'
   ];
 
   /**
@@ -51,7 +52,8 @@
     novaAPI,
     novaExtensions,
     securityGroup,
-    serviceCatalog
+    serviceCatalog,
+    toast
   ) {
 
     var initPromise;
@@ -245,7 +247,13 @@
       setFinalSpecKeyPairs(finalSpec);
       setFinalSpecSecurityGroups(finalSpec);
 
-      return novaAPI.createServer(finalSpec);
+      return novaAPI.createServer(finalSpec).then(successMessage);
+    }
+
+    function successMessage() {
+      var numberInstances = model.newInstanceSpec.instance_count;
+      var message = ngettext('Instance launched.', '%s instances launched.', numberInstances);
+      toast.add('success', interpolate(message, [numberInstances]));
     }
 
     function cleanNullProperties(finalSpec) {
