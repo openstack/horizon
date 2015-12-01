@@ -56,6 +56,34 @@
         error: 'Unable to retrieve the volumes.'
       },
       {
+        func: 'getVolume',
+        method: 'get',
+        path: '/api/cinder/volumes/1',
+        error: 'Unable to retrieve the volume.',
+        testInput: [1]
+      },
+      {
+        func: 'getVolumeTypes',
+        method: 'get',
+        path: '/api/cinder/volumetypes/',
+        error: 'Unable to retrieve the volume types.',
+        testInput: []
+      },
+      {
+        func: 'getVolumeType',
+        method: 'get',
+        path: '/api/cinder/volumetypes/1',
+        error: 'Unable to retrieve the volume type.',
+        testInput: [1]
+      },
+      {
+        func: 'getDefaultVolumeType',
+        method: 'get',
+        path: '/api/cinder/volumetypes/default',
+        error: 'Unable to retrieve the default volume type.',
+        testInput: []
+      },
+      {
         'func': 'getExtensions',
         'method': 'get',
         'path': '/api/cinder/extensions/',

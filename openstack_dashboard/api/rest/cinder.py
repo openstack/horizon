@@ -56,6 +56,68 @@ class Volumes(generic.View):
 
 
 @urls.register
+class Volume(generic.View):
+    """API for cinder volume.
+    """
+    url_regex = r'cinder/volumes/(?P<volume_id>[^/]+)/$'
+
+    @rest_utils.ajax()
+    def get(self, request, volume_id):
+        """Get a single volume's details with the volume id.
+
+        The following get parameters may be passed in the GET
+
+        :param volume_id the id of the volume
+
+        The result is a volume object.
+        """
+        return api.cinder.volume_get(request, volume_id).to_dict()
+
+
+@urls.register
+class VolumeTypes(generic.View):
+    """API for volume types.
+    """
+    url_regex = r'cinder/volumetypes/$'
+
+    @rest_utils.ajax()
+    def get(self, request):
+        """Get a list of volume types.
+
+        The listing result is an object with the property "items".
+        """
+        result = api.cinder.volume_type_list(request)
+        return {'items': [api.cinder.VolumeType(u).to_dict() for u in result]}
+
+
+@urls.register
+class VolumeType(generic.View):
+    """API for getting a volume type.
+    """
+    url_regex = r'cinder/volumetypes/(?P<volumetype_id>[^/]+)/$'
+
+    @rest_utils.ajax()
+    def get(self, request, volumetype_id):
+        """Get a single volume type details with the volume type id.
+
+        The following get parameters may be passed in the GET
+
+        :param volumetype_id the id of the volume type
+
+        If 'default' is passed as the volumetype_id then
+        it returns the default volumetype
+
+        The result is a volume type object.
+        """
+        if volumetype_id == 'default':
+            volumetype = api.cinder.volume_type_default(request)
+        else:
+            volumetype = api.cinder.volume_type_get(request, volumetype_id)
+
+        return api.cinder.VolumeType(volumetype).to_dict()
+
+
+@urls.register
 class VolumeSnapshots(generic.View):
     """API for cinder volume snapshots.
     """

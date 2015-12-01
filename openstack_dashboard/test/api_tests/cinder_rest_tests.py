@@ -20,6 +20,10 @@ from openstack_dashboard.test import helpers as test
 
 
 class CinderRestTestCase(test.TestCase):
+
+    #
+    # Volumes
+    #
     def test_volumes_get(self):
         self._test_volumes_get(False, {})
 
@@ -51,6 +55,58 @@ class CinderRestTestCase(test.TestCase):
             cc.volume_list.assert_called_once_with(request,
                                                    search_opts=filters)
 
+    @mock.patch.object(cinder.api, 'cinder')
+    def test_volume_get(self, cc):
+        request = self.mock_rest_request(**{'GET': {}})
+        cc.volume_get.return_value = mock.Mock(
+            **{'to_dict.return_value': {'id': 'one'}})
+        response = cinder.Volume().get(request, '1')
+        self.assertStatusCode(response, 200)
+        self.assertEqual(response.json, {"id": "one"})
+        cc.volume_get.assert_called_once_with(request, '1')
+
+    #
+    # Volume Types
+    #
+    @mock.patch.object(cinder.api, 'cinder')
+    def test_volume_types_get(self, cc):
+        request = self.mock_rest_request(**{'GET': {}})
+        cc.VolumeType.return_value = mock.Mock(
+            **{'to_dict.return_value': {'id': 'one'}})
+        cc.volume_type_list.return_value = [{'id': 'one'}]
+        response = cinder.VolumeTypes().get(request)
+        self.assertStatusCode(response, 200)
+        self.assertEqual(response.json, {"items": [{"id": "one"}]})
+        cc.volume_type_list.assert_called_once_with(request)
+        cc.VolumeType.assert_called_once_with({'id': 'one'})
+
+    @mock.patch.object(cinder.api, 'cinder')
+    def test_volume_type_get(self, cc):
+        request = self.mock_rest_request(**{'GET': {}})
+        cc.volume_type_get.return_value = {'name': 'one'}
+        cc.VolumeType.return_value = mock.Mock(
+            **{'to_dict.return_value': {'id': 'one'}})
+        response = cinder.VolumeType().get(request, '1')
+        self.assertStatusCode(response, 200)
+        self.assertEqual(response.json, {"id": "one"})
+        cc.volume_type_get.assert_called_once_with(request, '1')
+        cc.VolumeType.assert_called_once_with({'name': 'one'})
+
+    @mock.patch.object(cinder.api, 'cinder')
+    def test_volume_type_get_default(self, cc):
+        request = self.mock_rest_request(**{'GET': {}})
+        cc.volume_type_default.return_value = {'name': 'one'}
+        cc.VolumeType.return_value = mock.Mock(
+            **{'to_dict.return_value': {'id': 'one'}})
+        response = cinder.VolumeType().get(request, 'default')
+        self.assertStatusCode(response, 200)
+        self.assertEqual(response.json, {"id": "one"})
+        cc.volume_type_default.assert_called_once_with(request)
+        cc.VolumeType.assert_called_once_with({'name': 'one'})
+
+    #
+    # Volume Snapshots
+    #
     @mock.patch.object(cinder.api, 'cinder')
     def test_volume_snaps_get(self, cc):
         request = self.mock_rest_request(**{'GET': {}})

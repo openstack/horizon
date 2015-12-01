@@ -33,6 +33,10 @@
   function cinderAPI(apiService, toastService) {
     var service = {
       getVolumes: getVolumes,
+      getVolume: getVolume,
+      getVolumeTypes: getVolumeTypes,
+      getVolumeType: getVolumeType,
+      getDefaultVolumeType: getDefaultVolumeType,
       getVolumeSnapshots: getVolumeSnapshots,
       getExtensions: getExtensions
     };
@@ -63,6 +67,69 @@
       return apiService.get('/api/cinder/volumes/', config)
         .error(function () {
           toastService.add('error', gettext('Unable to retrieve the volumes.'));
+        });
+    }
+
+    /**
+     * @name horizon.app.core.openstack-service-api.cinder.getVolume
+     * @description
+     * Get a single Volume by ID.
+     *
+     * @param {string} id
+     * Specifies the id of the Volume to request.
+     *
+     */
+    function getVolume(id) {
+      return apiService.get('/api/cinder/volumes/' + id)
+        .error(function () {
+          toastService.add('error', gettext('Unable to retrieve the volume.'));
+        });
+    }
+
+    // Volume Types
+
+    /**
+     * @name horizon.app.core.openstack-service-api.cinder.getVolumeTypes
+     * @description
+     * Get a list of volume types.
+     *
+     * The listing result is an object with property "items." Each item is
+     * a volume type.
+     *
+     */
+    function getVolumeTypes() {
+      return apiService.get('/api/cinder/volumetypes/')
+        .error(function () {
+          toastService.add('error', gettext('Unable to retrieve the volume types.'));
+        });
+    }
+
+    /**
+     * @name horizon.app.core.openstack-service-api.cinder.getVolumeType
+     * @description
+     * Get a single Volume Type by ID.
+     *
+     * @param {string} id
+     * Specifies the id of the Volume Type to request.
+     *
+     */
+    function getVolumeType(id) {
+      return apiService.get('/api/cinder/volumetypes/' + id)
+        .error(function () {
+          toastService.add('error', gettext('Unable to retrieve the volume type.'));
+        });
+    }
+
+    /**
+     * @name horizon.app.core.openstack-service-api.cinder.getDefaultVolumeType
+     * @description
+     * Get the default Volume Type
+     *
+     */
+    function getDefaultVolumeType() {
+      return apiService.get('/api/cinder/volumetypes/default')
+        .error(function () {
+          toastService.add('error', gettext('Unable to retrieve the default volume type.'));
         });
     }
 
