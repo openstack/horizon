@@ -3,15 +3,15 @@ prelude: >
     Django 1.8 is now supported, and Django 1.7 is our minimum supported version.
 features:
   - Django 1.8 is now supported, and Django 1.7 is our minimum supported version.
-    See `this <https://blueprints.launchpad.net/horizon/+spec/drop-django14-support>`_
+    See `this <https://blueprints.launchpad.net/horizon/+spec/drop-django14-support>`__
     for more details.
   - Database-backed sessions will likely not persist across upgrades due to a
     change in their structure.
-    See `this <https://github.com/openstack/django_openstack_auth/commit/8c64de92f4148d85704b10ea1f7bc441db2ddfee>`_
+    See `this <https://github.com/openstack/django_openstack_auth/commit/8c64de92f4148d85704b10ea1f7bc441db2ddfee>`__
     for more details.
   - Horizon no longer uses QUnit in testing, and it has been removed from our
     requirements.
-    See `this <https://blueprints.launchpad.net/horizon/+spec/replace-qunit-tests-with-jasmine>`_
+    See `this <https://blueprints.launchpad.net/horizon/+spec/replace-qunit-tests-with-jasmine>`__
     for more details.
   - Horizon now has multiple configuration options for the default web URL
     (``WEBROOT``), static file location (``STATIC_ROOT``) and static file URL
@@ -26,12 +26,12 @@ features:
     ``OPENSTACK_NEUTRON_NETWORK``.
   - There is now an ``OPENSTACK_NOVA_EXTENSIONS_BLACKLIST`` option in the
     settings, to disable selected extensions for performance reasons.
-    See `this <https://github.com/openstack/horizon/commit/18f4b752b8653c9389f8b0471eccaa0659707ebe>`_
+    See `this <https://github.com/openstack/horizon/commit/18f4b752b8653c9389f8b0471eccaa0659707ebe>`__
     for more details.
   - Trove and Sahara panels now reside in ``openstack_dashboard/contrib``. This
     is to provide separation for reviews provided mostly by the service teams. In
     the future, these panels may become plugins rather than being kept in Horizon.
-    See `this <https://blueprints.launchpad.net/horizon/+spec/plugin-sanity>`_
+    See `this <https://blueprints.launchpad.net/horizon/+spec/plugin-sanity>`__
     for more details.
   - Horizon requires both a ``volume`` and ``volumev2`` endpoint for Cinder, even
     if only using v2.

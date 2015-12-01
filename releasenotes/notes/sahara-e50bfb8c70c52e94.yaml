@@ -4,20 +4,20 @@ prelude: >
 features:
   - Unified job interface map. This is a human readable method for passing in
     configuration data that a job may require or accept.
-    See `this <https://blueprints.launchpad.net/horizon/+spec/unified-job-interface-map-ui>`_
+    See `this <https://blueprints.launchpad.net/horizon/+spec/unified-job-interface-map-ui>`__
     for more details.
   - Added editing capabilities for job binaries.
-    See `this <https://blueprints.launchpad.net/horizon/+spec/allow-editing-of-job-binaries>`_
+    See `this <https://blueprints.launchpad.net/horizon/+spec/allow-editing-of-job-binaries>`__
     for more details.
   - Added editing capabilities for data sources.
-    See `this <https://blueprints.launchpad.net/horizon/+spec/allow-editing-of-data-sources>`_
+    See `this <https://blueprints.launchpad.net/horizon/+spec/allow-editing-of-data-sources>`__
     for more details.
   - Added editing capabilities for job templates.
-    See `this <https://blueprints.launchpad.net/horizon/+spec/data-processing-edit-templates>`_
+    See `this <https://blueprints.launchpad.net/horizon/+spec/data-processing-edit-templates>`__
     for more details.
   - Exposed event log for clusters.
-    See `this <https://blueprints.launchpad.net/horizon/+spec/sahara-event-log>`_
+    See `this <https://blueprints.launchpad.net/horizon/+spec/sahara-event-log>`__
     for more details.
   - Added support for shell job types.
-    See `this <https://blueprints.launchpad.net/horizon/+spec/sahara-shell-action-form>`_
+    See `this <https://blueprints.launchpad.net/horizon/+spec/sahara-shell-action-form>`__
     for more details.

@@ -3,8 +3,8 @@ prelude: >
     Instance shelving and unshelving now supported.
 features:
   - Support for shelving and unshelving of instances.
-    See `this <https://blueprints.launchpad.net/horizon/+spec/horizon-shelving-command>`_
+    See `this <https://blueprints.launchpad.net/horizon/+spec/horizon-shelving-command>`__
     for more details.
   - Support for v2 block device mapping, falling back to v1 when unavailable.
-    See `this <https://blueprints.launchpad.net/horizon/+spec/horizon-block-device-mapping-v2>`_.
+    See `this <https://blueprints.launchpad.net/horizon/+spec/horizon-block-device-mapping-v2>`__.
     for more details.
