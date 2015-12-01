@@ -306,28 +306,6 @@ $.tablesorter.addParser({
 });
 
 $.tablesorter.addParser({
-  id: 'naturalSort',
-  is: function(s) {
-    return false;
-  },
-  // compare int values, non-integers use the ordinal value of the first byte
-  format: function(s) {
-    result = parseInt(s);
-    if (isNaN(result)) {
-      m = s.match(/\d+/);
-      if (m && m.length) {
-        return parseInt(m[0]);
-      } else {
-        return s.charCodeAt(0);
-      }
-    } else {
-      return result;
-    }
-  },
-  type: 'numeric'
-});
-
-$.tablesorter.addParser({
   id: 'IPv4Address',
   is: function(s, table, cell) {
     // the first arg to this function is a string of all the cell's
@@ -466,8 +444,6 @@ horizon.datatables.set_table_sorting = function (parent) {
           header_options[i] = {sorter: 'timesinceSorter'};
         } else if ($th.data('type') === 'timestamp'){
           header_options[i] = {sorter: 'timestampSorter'};
-        } else if ($th.data('type') == 'naturalSort'){
-          header_options[i] = {sorter: 'naturalSort'};
         } else if ($th.data('type') == 'uuid'){
           header_options[i] = {sorter: 'uuid'};
         }
