@@ -34,8 +34,8 @@
     // wizard and modal-container controller
     /*eslint-disable angular/ng_controller_as */
     $scope.launchContext = launchContext;
-    $scope.close = function() {
-      $modalInstance.close();
+    $scope.close = function(args) {
+      $modalInstance.close(args);
     };
     $scope.cancel = function() {
       $modalInstance.dismiss();
