@@ -29,7 +29,8 @@
   <div class="launchButtons">
   {% if launch_instance_allowed %}
   {% if show_ng_launch %}
-  <a ng-controller="LaunchInstanceModalCtrl" ng-click="openLaunchInstanceWizard({successUrl: '/project/network_topology/', dismissUrl: '/project/network_topology/'})" id="instances__action_launch" class="btn btn-default btn-sm btn-launch ajax-modal {% if instance_quota_exceeded %}disabled{% endif %}"><span class="fa fa-cloud-upload"></span> {% if instance_quota_exceeded %}{% trans "Launch Instance (Quota exceeded)"%}{% else %}{% trans "Launch Instance"%}{% endif %}</a>
+    {% url 'horizon:project:network_topology:index' as networkUrl %}
+  <a ng-controller="LaunchInstanceModalCtrl" ng-click="openLaunchInstanceWizard({successUrl: '{{networkUrl}}', dismissUrl: '{{networkUrl}}'})" id="instances__action_launch" class="btn btn-default btn-sm btn-launch ajax-modal {% if instance_quota_exceeded %}disabled{% endif %}"><span class="fa fa-cloud-upload"></span> {% if instance_quota_exceeded %}{% trans "Launch Instance (Quota exceeded)"%}{% else %}{% trans "Launch Instance"%}{% endif %}</a>
   {% endif %}
   <a href="{% url 'horizon:project:network_topology:launchinstance' %}" id="instances__action_launch" class="btn btn-default btn-sm btn-launch ajax-modal {% if instance_quota_exceeded %}disabled{% endif %}"><span class="fa fa-cloud-upload"></span> {% if instance_quota_exceeded %}{% trans "Launch Instance (Quota exceeded)"%}{% else %}{% trans "Launch Instance"%}{% endif %}</a>
   {% endif %}

@@ -16,7 +16,7 @@ limitations under the License.
 /*global angular*/
 (function () {
   'use strict';
-  function ApiService($http, $log) {
+  function ApiService($http, $log, webroot) {
 
     var httpCall = function (method, url, data, config) {
       if (!angular.isDefined(config)) {
@@ -24,7 +24,7 @@ limitations under the License.
       }
       // url and method are always provided
       config.method = method;
-      config.url = url;
+      config.url = webroot + url;
       if (angular.isDefined(data)) {
         config.data = data;
       }
@@ -56,5 +56,10 @@ limitations under the License.
   }
 
   angular.module('hz.api.service', [])
-    .service('apiService', ['$http', '$log', ApiService]);
+    .config(config)
+    .service('apiService', ['$http', '$log', 'webroot', ApiService]);
+
+  function config($provide, $windowProvider) {
+    $provide.constant('webroot', $windowProvider.$get().WEBROOT);
+  }
 }());

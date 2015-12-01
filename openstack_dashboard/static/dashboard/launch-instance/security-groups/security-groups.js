@@ -11,7 +11,8 @@
    */
   module.controller('LaunchInstanceSecurityGroupsCtrl', [
     'launchInstanceModel',
-    function (launchInstanceModel) {
+    '$window',
+    function (launchInstanceModel, $window) {
       var ctrl = this;
 
       ctrl.label = {
@@ -37,8 +38,8 @@
         displayedAllocated: []
       };
 
-      ctrl.tableDetails =
-        '/static/dashboard/launch-instance/security-groups/security-group-details.html';
+      ctrl.tableDetails = $window.STATIC_URL +
+        'dashboard/launch-instance/security-groups/security-group-details.html';
 
       ctrl.tableHelp = {
         noneAllocText: gettext('Select one or more security groups from the available groups below.'),

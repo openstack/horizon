@@ -53,4 +53,7 @@ def openstack(request):
                              region in available_regions]}
     context['regions'] = regions
 
+    # Adding webroot access
+    context['WEBROOT'] = getattr(settings, "WEBROOT", "/")
+
     return context

@@ -349,19 +349,17 @@ class LaunchLink(tables.LinkAction):
 
 class LaunchLinkNG(LaunchLink):
     name = "launch-ng"
+    url = "horizon:project:instances:index"
     verbose_name = _("Launch Instance NG")
     ajax = False
     classes = ("btn-launch")
 
-    def __init__(self,
-                 attrs={
-                     "ng-controller": "LaunchInstanceModalCtrl",
-                     "ng-click": "openLaunchInstanceWizard(" +
-                                 "{successUrl: '/project/instances/'})"
-                 },
-                 **kwargs):
-        kwargs['preempt'] = True
-        super(LaunchLink, self).__init__(attrs, **kwargs)
+    def get_default_attrs(self):
+        url = urlresolvers.reverse(self.url)
+        ngclick = "openLaunchInstanceWizard({ successUrl: '%s' })" % url
+        self.attrs.update({'ng-controller': 'LaunchInstanceModalCtrl',
+                           'ng-click': ngclick})
+        return super(LaunchLinkNG, self).get_default_attrs()
 
     def get_link_url(self, datum=None):
         return "javascript:void(0);"
