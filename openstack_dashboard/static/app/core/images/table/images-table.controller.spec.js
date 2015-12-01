@@ -83,7 +83,8 @@
         glanceAPI: glanceAPI,
         userSession: userSession,
         $q: mockQ,
-        $scope: $scope
+        $scope: $scope,
+        'horizon.app.core.images.row-actions.service': { initScope: angular.noop }
       });
     }
 
