@@ -548,8 +548,11 @@ Simply by convention, we have a few rules about naming:
 Release Notes
 =============
 
-The release notes for a patch should be included in the patch. If not, the
-release notes should be in a follow-on review.
+Release notes for a patch should be included in the patch with the
+associated changes whenever possible. This allow for simpler tracking. It also
+enables a single cherry pick to be done if the change is backported to a
+previous release. In some cases, such as a feature that is provided via
+multiple patches, release notes can be done in a follow-on review.
 
 If the following applies to the patch, a release note is required:
 
