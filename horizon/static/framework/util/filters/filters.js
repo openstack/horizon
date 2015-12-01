@@ -129,7 +129,7 @@
   function noValueFilter() {
     return function (input) {
       if (input === null || angular.isUndefined(input) ||
-        (angular.isString(input) && '' == input.trim())) {
+        (angular.isString(input) && '' === input.trim())) {
         return gettext('-');
       } else {
         return input;

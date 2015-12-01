@@ -139,7 +139,7 @@
         angular.forEach(facets, function(facet) {
           var facetParts = facet.split('=');
           angular.forEach($scope.facetsObj, function (value) {
-            if (value.name == facetParts[0]) {
+            if (value.name === facetParts[0]) {
               if (angular.isUndefined(value.options)) {
                 $scope.currentSearch.push({
                   'name': facet,
@@ -154,7 +154,7 @@
 
               } else {
                 angular.forEach(value.options, function (option) {
-                  if (option.key == facetParts[1]) {
+                  if (option.key === facetParts[1]) {
                     $scope.currentSearch.push({
                       'name': facet,
                       'label': [value.label, option.label]
