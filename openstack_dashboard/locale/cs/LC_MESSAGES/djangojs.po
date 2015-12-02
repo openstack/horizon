@@ -10,11 +10,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-11-25 05:47+0000\n"
+"POT-Creation-Date: 2015-12-02 02:47+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2015-11-24 03:57+0000\n"
+"PO-Revision-Date: 2015-12-01 08:21+0000\n"
 "Last-Translator: Zbyněk Schwarz <zbynek.schwarz@gmail.com>\n"
 "Language: cs\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
@@ -946,6 +946,9 @@ msgstr "Nelze získat zóny dostupnosti."
 msgid "Unable to retrieve the current user session."
 msgstr "Nelze získat současné sezení uživatele."
 
+msgid "Unable to retrieve the default volume type."
+msgstr "Nelze získat výchozí typ svazku."
+
 msgid "Unable to retrieve the domain."
 msgstr "Nelze získat doménu."
 
@@ -1017,6 +1020,15 @@ msgstr "Nelze získat uživatele"
 
 msgid "Unable to retrieve the volume snapshots."
 msgstr "Nelze získat svazky snímků."
+
+msgid "Unable to retrieve the volume type."
+msgstr "Nelze získat typ svazku."
+
+msgid "Unable to retrieve the volume types."
+msgstr "Nelze získat typy svazků."
+
+msgid "Unable to retrieve the volume."
+msgstr "Nelze získat svazek."
 
 msgid "Unable to retrieve the volumes."
 msgstr "Nelze získat svazky."
