@@ -1617,11 +1617,11 @@ class InstanceTests(helpers.TestCase):
         else:
             self.assertNotContains(res, boot_from_image_field_label)
 
-        checked_label = '<label for="id_network_0"><input checked="checked"'
+        checked_box = '<input checked="checked" id="id_network_0"'
         if only_one_network:
-            self.assertContains(res, checked_label)
+            self.assertContains(res, checked_box)
         else:
-            self.assertNotContains(res, checked_label)
+            self.assertNotContains(res, checked_box)
 
         disk_config_field_label = 'Disk Partition'
         if disk_config:

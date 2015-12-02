@@ -36,6 +36,10 @@ form label {
   }
 }
 
+.help-icon {
+  color: $gray;
+}
+
 // Note (hurgleburgler) : the combination of display: table-cell, width: 100%
 // and max-width has strange consequences in CSS.  This is required to make sure
 // that the width does not stretch beyond 100%.  Please see the answer to

@@ -16,6 +16,7 @@ import re
 
 import netaddr
 import six
+import uuid
 
 from django.core.exceptions import ValidationError  # noqa
 from django.core import urlresolvers
@@ -253,3 +254,44 @@ class DynamicChoiceField(fields.ChoiceField):
 class DynamicTypedChoiceField(DynamicChoiceField, fields.TypedChoiceField):
     """Simple mix of ``DynamicChoiceField`` and ``TypedChoiceField``."""
     pass
+
+
+class ThemableCheckboxInput(widgets.CheckboxInput):
+    """A subclass of the ``Checkbox`` widget which renders extra markup to
+    allow a custom checkbox experience.
+    """
+    def render(self, name, value, attrs=None):
+        label_for = attrs.get('id', '')
+
+        if not label_for:
+            attrs['id'] = uuid.uuid4()
+            label_for = attrs['id']
+
+        return html.format_html(
+            u'<div class="themable-checkbox">{}<label for="{}"></label></div>',
+            super(ThemableCheckboxInput, self).render(name, value, attrs),
+            label_for
+        )
+
+
+class ThemableCheckboxChoiceInput(widgets.CheckboxChoiceInput):
+    def render(self, name=None, value=None, attrs=None, choices=()):
+        if self.id_for_label:
+            label_for = html.format_html(' for="{}"', self.id_for_label)
+        else:
+            label_for = ''
+        attrs = dict(self.attrs, **attrs) if attrs else self.attrs
+        return html.format_html(
+            u'<div class="themable-checkbox">{}<label{}>' +
+            u'<span>{}</span></label></div>',
+            self.tag(attrs), label_for, self.choice_label
+        )
+
+
+class ThemableCheckboxFieldRenderer(widgets.CheckboxFieldRenderer):
+    choice_input_class = ThemableCheckboxChoiceInput
+
+
+class ThemableCheckboxSelectMultiple(widgets.CheckboxSelectMultiple):
+    renderer = ThemableCheckboxFieldRenderer
+    _empty_value = []

@@ -338,7 +338,7 @@ class AddRouterToFirewall(RouterInsertionFormBase):
     router_ids = forms.MultipleChoiceField(
         label=_("Add Routers"),
         required=False,
-        widget=forms.CheckboxSelectMultiple(),
+        widget=forms.ThemableCheckboxSelectMultiple(),
         help_text=_("Add selected router(s) to the firewall."))
 
     failure_url = 'horizon:project:firewalls:index'
@@ -363,7 +363,7 @@ class RemoveRouterFromFirewall(RouterInsertionFormBase):
     router_ids = forms.MultipleChoiceField(
         label=_("Associated Routers"),
         required=False,
-        widget=forms.CheckboxSelectMultiple(),
+        widget=forms.ThemableCheckboxSelectMultiple(),
         help_text=_("Unselect the router(s) to be removed from firewall."))
 
     failure_url = 'horizon:project:firewalls:index'

@@ -338,10 +338,10 @@ class GetUserHomeTests(BaseHorizonTests):
         conf.HORIZON_CONFIG._setup()
 
     def test_using_callable(self):
-        def fancy_user_fnc(user):
+        def themable_user_fnc(user):
             return user.username.upper()
 
-        settings.HORIZON_CONFIG['user_home'] = fancy_user_fnc
+        settings.HORIZON_CONFIG['user_home'] = themable_user_fnc
         conf.HORIZON_CONFIG._setup()
 
         self.assertEqual(self.test_user.username.upper(),

@@ -209,6 +209,7 @@ full use of the Bootstrap theme architecture.
 * Login_
 * Tabs_
 * Alerts_
+* Checkboxes_
 
 Step 1
 ------
@@ -320,6 +321,13 @@ Alerts
 
 Alerts use the basic Bootstrap brand colors.  See **Colors** section of your
 variables file for specifics.
+
+Checkboxes
+----------
+
+Horizon uses icon fonts to represent checkboxes.  In order to customize
+this, you simply need to override the standard scss.  For an example of
+this, see themes/material/static/horizon/components/_checkboxes.scss
 
 Bootswatch and Material Design
 ------------------------------

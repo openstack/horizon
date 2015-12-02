@@ -37,7 +37,7 @@ class LazyLoadedTabsTests(test.SeleniumTestCase):
     table_selector = 'div.tab-content > div#{0} > div.table_wrapper'.format(
         tab_id)
     button_selector = 'button#lazy_puppies__action_delete'
-    checkbox_selector = 'td.multi_select_column > input[type=checkbox]'
+    checkbox_selector = 'td.multi_select_column input[type=checkbox]'
     select_all_selector = 'th.multi_select_column input[type=checkbox]'
 
     def setUp(self):
