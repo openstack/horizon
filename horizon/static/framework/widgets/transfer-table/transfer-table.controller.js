@@ -100,7 +100,17 @@
       };
 
       ctrl.allocatedIds = {};
-      angular.forEach(ctrl.allocated.sourceItems, function(item) {
+      markAllocatedItems();
+
+      $scope.$watchCollection(getAllocated, markAllocatedItems);
+    }
+
+    function getAllocated() {
+      return ctrl.allocated.sourceItems;
+    }
+
+    function markAllocatedItems() {
+      angular.forEach(ctrl.allocated.sourceItems, function flag(item) {
         ctrl.allocatedIds[item.id] = true;
       });
     }
