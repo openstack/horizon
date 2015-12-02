@@ -71,8 +71,8 @@ class AdminImageFilterAction(tables.FilterAction):
     filter_choices = (('name', _("Image Name ="), True),
                       ('status', _('Status ='), True),
                       ('disk_format', _('Format ='), True),
-                      ('size_min', _('Min. Size (MB)'), True),
-                      ('size_max', _('Max. Size (MB)'), True))
+                      ('size_min', _('Min. Size (MB) ='), True),
+                      ('size_max', _('Max. Size (MB) ='), True))
 
 
 class AdminImagesTable(project_tables.ImagesTable):

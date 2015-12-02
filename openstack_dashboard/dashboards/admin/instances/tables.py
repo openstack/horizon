@@ -101,7 +101,7 @@ class AdminInstanceFilterAction(tables.FilterAction):
     filter_type = "server"
     filter_choices = (('project', _("Project ="), True),
                       ('host', _("Host ="), True),
-                      ('name', _("Name"), True),
+                      ('name', _("Name ="), True),
                       ('ip', _("IPv4 Address ="), True),
                       ('ip6', _("IPv6 Address ="), True),
                       ('status', _("Status ="), True),
