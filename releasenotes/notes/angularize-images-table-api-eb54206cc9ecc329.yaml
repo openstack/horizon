@@ -1,0 +1,5 @@
+---
+prelude: >
+    Added new JS REST features for Glance
+features:
+  - Image create/update/delete calls (post/patch/delete)
