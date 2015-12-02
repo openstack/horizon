@@ -17,6 +17,7 @@ import logging
 import tempfile
 import zipfile
 
+from django.core.urlresolvers import reverse_lazy
 from django import http
 from django import shortcuts
 from django.template.loader import render_to_string
@@ -30,7 +31,8 @@ from horizon import messages
 from horizon import views
 
 from openstack_dashboard import api
-
+from openstack_dashboard.dashboards.project.access_and_security.api_access \
+    import forms as project_forms
 
 LOG = logging.getLogger(__name__)
 
@@ -167,3 +169,15 @@ class CredentialsView(forms.ModalFormMixin, views.HorizonTemplateView):
                 exceptions.handle(self.request,
                                   _('Unable to get EC2 credentials'))
         return context
+
+
+class RecreateCredentialsView(forms.ModalFormView):
+    form_class = project_forms.RecreateCredentials
+    form_id = "recreate_credentials"
+    modal_header = _("Recreate EC2 Credentials")
+    template_name = \
+        'project/access_and_security/api_access/recreate_credentials.html'
+    submit_label = _("Recreate EC2 Credentials")
+    submit_url = reverse_lazy(
+        "horizon:project:access_and_security:api_access:recreate_credentials")
+    success_url = reverse_lazy('horizon:project:access_and_security:index')
