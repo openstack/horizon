@@ -20,7 +20,7 @@ from openstack_dashboard.usage import base
 
 class UsageView(tables.DataTableView):
     usage_class = None
-    show_terminated = True
+    show_deleted = True
     csv_template_name = None
     page_title = _("Overview")
 

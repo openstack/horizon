@@ -25,13 +25,13 @@ class InstancesPage(basepage.BaseNavigationPage):
     DEFAULT_VOLUME_NAME = None
     DEFAULT_SNAPSHOT_NAME = None
     DEFAULT_VOLUME_SNAPSHOT_NAME = None
-    DEFAULT_DELETE_ON_TERMINATE = False
+    DEFAULT_VOL_DELETE_ON_INSTANCE_DELETE = False
     DEFAULT_SECURITY_GROUP = True
 
     _instances_table_locator = (by.By.CSS_SELECTOR, 'table#instances')
 
     INSTANCES_TABLE_NAME = "instances"
-    INSTANCES_TABLE_ACTIONS = ("launch_ng", "launch", "terminate",
+    INSTANCES_TABLE_ACTIONS = ("launch_ng", "launch", "delete",
                                ('start', 'stop', "reboot"))
     INSTANCES_TABLE_NAME_COLUMN_INDEX = 0
     INSTANCES_TABLE_STATUS_COLUMN_INDEX = 5
@@ -41,14 +41,14 @@ class InstancesPage(basepage.BaseNavigationPage):
             "associate_floating_ip", "disassociate_floating_ip",
             "edit_instance", "edit_security_groups", "console",
             "view_log", "pause", "suspend", "resize", "lock", "unlock",
-            "soft_reboot", "hard_reboot", "shutoff", "rebuild", "terminate")
+            "soft_reboot", "hard_reboot", "shutoff", "rebuild", "delete")
     }
 
     CREATE_INSTANCE_FORM_FIELDS = ((
         "availability_zone", "name", "flavor",
         "count", "source_type", "instance_snapshot_id",
         "volume_id", "volume_snapshot_id", "image_id", "volume_size",
-        "delete_on_terminate"),
+        "vol_delete_on_instance_delete"),
         ("keypair", "groups"),
         ("script_source", "script_upload", "script_data"),
         ("disk_config", "config_drive")
@@ -88,14 +88,16 @@ class InstancesPage(basepage.BaseNavigationPage):
     def is_instance_present(self, name):
         return bool(self._get_row_with_instance_name(name))
 
-    def create_instance(self, instance_name,
-                        available_zone=None,
-                        instance_count=DEFAULT_COUNT,
-                        flavor=DEFAULT_FLAVOR,
-                        boot_source=DEFAULT_BOOT_SOURCE,
-                        source_name=None,
-                        device_size=None,
-                        delete_on_terminate=DEFAULT_DELETE_ON_TERMINATE):
+    def create_instance(
+            self, instance_name,
+            available_zone=None,
+            instance_count=DEFAULT_COUNT,
+            flavor=DEFAULT_FLAVOR,
+            boot_source=DEFAULT_BOOT_SOURCE,
+            source_name=None,
+            device_size=None,
+            vol_delete_on_instance_delete=DEFAULT_VOL_DELETE_ON_INSTANCE_DELETE
+    ):
         if not available_zone:
             available_zone = self.conf.launch_instances.available_zone
         self.instances_table.launch.click()
@@ -112,19 +114,19 @@ class InstancesPage(basepage.BaseNavigationPage):
         boot_source[0].text = source_name
         if device_size:
             instance.volume_size.value = device_size
-        if delete_on_terminate:
-            instance.delete_on_terminate.mark()
+        if vol_delete_on_instance_delete:
+            instance.vol_delete_on_instance_delete.mark()
         instance.submit.click()
         self.wait_till_popups_disappear()
 
-    def terminate_instance(self, name):
+    def delete_instance(self, name):
         row = self._get_row_with_instance_name(name)
         row.mark()
-        self.instances_table.terminate.click()
+        self.instances_table.delete.click()
         self.confirm_delete_instances_form.submit.click()
         self.wait_till_popups_disappear()
 
-    def is_instance_terminated(self, name):
+    def is_instance_deleted(self, name):
         try:
             row = self._get_row_with_instance_name(name)
             self._wait_till_element_disappears(row)

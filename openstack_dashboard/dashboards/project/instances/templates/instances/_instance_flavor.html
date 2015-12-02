@@ -10,7 +10,7 @@
 <script type="text/javascript" charset="utf-8">
 $(function () {
   var $flavor = $("#flavor_details_{{ id }}");
-  // NOTE(tsufiev): check this in case this template is used in network topology -> terminate instance
+  // NOTE(tsufiev): check this in case this template is used in network topology -> delete instance
   if ( $flavor.popover ) {
     $flavor.popover({html:true});
   }

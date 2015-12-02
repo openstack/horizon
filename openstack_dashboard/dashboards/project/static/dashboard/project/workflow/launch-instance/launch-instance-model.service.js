@@ -160,7 +160,7 @@
         vol_create: false,
         // May be null
         vol_device_name: 'vda',
-        vol_delete_on_terminate: false,
+        vol_delete_on_instance_delete: false,
         vol_size: 1
       };
     }
@@ -472,7 +472,7 @@
       delete finalSpec.source_type;
       delete finalSpec.vol_create;
       delete finalSpec.vol_device_name;
-      delete finalSpec.vol_delete_on_terminate;
+      delete finalSpec.vol_delete_on_instance_delete;
       delete finalSpec.vol_size;
     }
 
@@ -486,7 +486,7 @@
             'device_name': deviceName,
             'source_type': SOURCE_TYPE_IMAGE,
             'destination_type': SOURCE_TYPE_VOLUME,
-            'delete_on_termination': finalSpec.vol_delete_on_terminate,
+            'delete_on_termination': finalSpec.vol_delete_on_instance_delete,
             'uuid': finalSpec.source_id,
             'boot_index': '0',
             'volume_size': finalSpec.vol_size
@@ -503,7 +503,7 @@
         ':',
         sourceType,
         '::',
-        finalSpec.vol_delete_on_terminate
+        finalSpec.vol_delete_on_instance_delete
       ].join('');
 
       // Source ID must be empty for API

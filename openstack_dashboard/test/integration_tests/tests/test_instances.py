@@ -17,12 +17,12 @@ INSTANCES_NAME = helpers.gen_random_resource_name('instance',
 
 class TestInstances(helpers.AdminTestCase):
     """This is a basic scenario to test:
-    * Create Instance and Terminate Instance
+    * Create Instance and Delete Instance
     """
 
-    def test_create_terminate_instance(self):
+    def test_create_delete_instance(self):
         instances_page = self.home_pg.go_to_compute_instancespage()
         instances_page.create_instance(INSTANCES_NAME)
         self.assertTrue(instances_page.is_instance_active(INSTANCES_NAME))
-        instances_page.terminate_instance(INSTANCES_NAME)
-        self.assertTrue(instances_page.is_instance_terminated(INSTANCES_NAME))
+        instances_page.delete_instance(INSTANCES_NAME)
+        self.assertTrue(instances_page.is_instance_deleted(INSTANCES_NAME))

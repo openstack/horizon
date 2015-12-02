@@ -242,7 +242,7 @@ class InstanceTests(helpers.TestCase):
                                       'server_delete',),
                            api.glance: ('image_list_detailed',),
                            api.network: ('servers_update_addresses',)})
-    def test_terminate_instance(self):
+    def test_delete_instance(self):
         servers = self.servers.list()
         server = servers[0]
 
@@ -256,7 +256,7 @@ class InstanceTests(helpers.TestCase):
         api.nova.server_delete(IsA(http.HttpRequest), server.id)
         self.mox.ReplayAll()
 
-        formData = {'action': 'instances__terminate__%s' % server.id}
+        formData = {'action': 'instances__delete__%s' % server.id}
         res = self.client.post(INDEX_URL, formData)
 
         self.assertRedirectsNoFollow(res, INDEX_URL)
@@ -266,7 +266,7 @@ class InstanceTests(helpers.TestCase):
                                       'server_delete',),
                            api.glance: ('image_list_detailed',),
                            api.network: ('servers_update_addresses',)})
-    def test_terminate_instance_exception(self):
+    def test_delete_instance_exception(self):
         servers = self.servers.list()
         server = servers[0]
 
@@ -282,7 +282,7 @@ class InstanceTests(helpers.TestCase):
 
         self.mox.ReplayAll()
 
-        formData = {'action': 'instances__terminate__%s' % server.id}
+        formData = {'action': 'instances__delete__%s' % server.id}
         res = self.client.post(INDEX_URL, formData)
 
         self.assertRedirectsNoFollow(res, INDEX_URL)
@@ -4384,7 +4384,7 @@ class InstanceTests(helpers.TestCase):
                                       'server_delete',),
                            api.glance: ('image_list_detailed',),
                            api.network: ('servers_update_addresses',)})
-    def test_terminate_instance_with_pagination(self):
+    def test_delete_instance_with_pagination(self):
         """Instance should be deleted from
            the next page.
         """
@@ -4408,7 +4408,7 @@ class InstanceTests(helpers.TestCase):
                            servers[page_size - 1].id])
         next_page_url = "?".join([reverse('horizon:project:instances:index'),
                                   params])
-        formData = {'action': 'instances__terminate__%s' % server.id}
+        formData = {'action': 'instances__delete__%s' % server.id}
         res = self.client.post(next_page_url, formData)
 
         self.assertRedirectsNoFollow(res, next_page_url)

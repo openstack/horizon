@@ -986,7 +986,7 @@ horizon.network_topology = {
         table2:portTmpl
       });
     } else if (d instanceof Server) {
-      htmlData.delete_label = gettext('Terminate Instance');
+      htmlData.delete_label = gettext('Delete Instance');
       htmlData.view_details_label = gettext('View Instance Details');
       htmlData.console_id = d.id;
       htmlData.ips = d.ip_addresses;
