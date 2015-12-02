@@ -299,25 +299,23 @@ class AddMemberAction(workflows.Action):
             'data-slug': 'membertype'
         }))
     members = forms.MultipleChoiceField(
-        label=_("Member(s)"),
         required=False,
         initial=["default"],
         widget=forms.SelectMultiple(attrs={
             'class': 'switched',
             'data-switch-on': 'membertype',
-            'data-membertype-server_list': _("Member(s)"),
+            'data-membertype-server_list': _("Member Instance(s)"),
         }),
         help_text=_("Select members for this pool "))
-    address = forms.IPField(required=False, label=_("Member address"),
-                            help_text=_("Specify member IP address"),
-                            widget=forms.TextInput(attrs={
-                                'class': 'switched',
-                                'data-switch-on': 'membertype',
-                                'data-membertype-member_address':
-                                _("Member address"),
-                            }),
-                            initial="", version=forms.IPv4 | forms.IPv6,
-                            mask=False)
+    address = forms.IPField(
+        required=False,
+        help_text=_("Specify member IP address"),
+        widget=forms.TextInput(attrs={
+            'class': 'switched',
+            'data-switch-on': 'membertype',
+            'data-membertype-member_address': _("Member Address"),
+        }),
+        initial="", version=forms.IPv4 | forms.IPv6, mask=False)
     weight = forms.IntegerField(
         max_value=256, min_value=1, label=_("Weight"), required=False,
         help_text=_("Relative part of requests this pool member serves "
@@ -362,11 +360,10 @@ class AddMemberAction(workflows.Action):
                               _('Unable to retrieve instances list.'))
 
         if len(servers) == 0:
-            self.fields['members'].label = _(
-                "No servers available. To add a member, you "
-                "need at least one running instance.")
-            self.fields['pool_id'].required = False
-            self.fields['protocol_port'].required = False
+            self.fields['members'].widget.attrs[
+                'data-membertype-server_list'] = _(
+                    "No servers available. To add a member, you "
+                    "need at least one running instance.")
             return
 
         for m in servers:
