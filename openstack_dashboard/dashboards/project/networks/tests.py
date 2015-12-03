@@ -19,10 +19,9 @@ from django.utils.html import escape
 from horizon.workflows import views
 
 from mox3.mox import IsA  # noqa
+import six
 
 from openstack_dashboard import api
-from openstack_dashboard.dashboards.project.networks.subnets import tables\
-    as subnets_tables
 from openstack_dashboard.dashboards.project.networks import tables\
     as networks_tables
 from openstack_dashboard.dashboards.project.networks import workflows
@@ -2013,7 +2012,8 @@ class NetworkSubnetTests(test.TestCase):
 class NetworkViewTests(test.TestCase, NetworkStubMixin):
 
     def _test_create_button_shown_when_quota_disabled(
-            self, expected_string):
+            self,
+            find_button_fn):
         # if quota_data doesnt contain a networks|subnets|routers key or
         # these keys are empty dicts, its disabled
         quota_data = self.neutron_quota_usages.first()
@@ -2033,11 +2033,14 @@ class NetworkViewTests(test.TestCase, NetworkStubMixin):
 
         networks = res.context['networks_table'].data
         self.assertItemsEqual(networks, self.networks.list())
-        self.assertContains(res, expected_string, True, html=True,
-                            msg_prefix="The enabled create button not shown")
+
+        button = find_button_fn(res)
+        self.assertFalse('disabled' in button.classes,
+                         "The create button should not be disabled")
+        return button
 
     def _test_create_button_disabled_when_quota_exceeded(
-            self, expected_string, network_quota=5, subnet_quota=5):
+            self, find_button_fn, network_quota=5, subnet_quota=5, ):
 
         quota_data = self.neutron_quota_usages.first()
 
@@ -2056,69 +2059,55 @@ class NetworkViewTests(test.TestCase, NetworkStubMixin):
 
         networks = res.context['networks_table'].data
         self.assertItemsEqual(networks, self.networks.list())
-        self.assertContains(res, expected_string, True, html=True,
-                            msg_prefix="The create button is not disabled")
+
+        button = find_button_fn(res)
+        self.assertTrue('disabled' in button.classes,
+                        "The create button should be disabled")
+        return button
 
     @test.create_stubs({api.neutron: ('network_list',),
                         quotas: ('tenant_quota_usages',)})
     def test_network_create_button_disabled_when_quota_exceeded_index(self):
-        create_link = networks_tables.CreateNetwork()
-        url = create_link.get_link_url()
-        classes = (list(create_link.get_default_classes())
-                   + list(create_link.classes))
-        link_name = "%s (%s)" % (create_link.verbose_name, "Quota exceeded")
-        expected_string = "<a href='%s' title='%s'  class='%s disabled' "\
-            "id='networks__action_create'>" \
-            "<span class='fa fa-plus'></span>%s</a>" \
-            % (url, link_name, " ".join(classes), link_name)
-        self._test_create_button_disabled_when_quota_exceeded(expected_string,
-                                                              network_quota=0
-                                                              )
+        networks_tables.CreateNetwork()
+
+        def _find_net_button(res):
+            return self.getAndAssertTableAction(res, 'networks', 'create')
+        self._test_create_button_disabled_when_quota_exceeded(_find_net_button,
+                                                              network_quota=0)
 
     @test.create_stubs({api.neutron: ('network_list',),
                         quotas: ('tenant_quota_usages',)})
     def test_subnet_create_button_disabled_when_quota_exceeded_index(self):
         network_id = self.networks.first().id
-        create_link = networks_tables.CreateSubnet()
-        url = reverse(create_link.get_link_url(), args=[network_id])
-        classes = (list(create_link.get_default_classes())
-                   + list(create_link.classes))
-        link_name = "%s (%s)" % (create_link.verbose_name, "Quota exceeded")
-        expected_string = "<a href='%s' class='%s disabled' " \
-                          "id='networks__row_%s__action_subnet'>%s</a>" \
-                          % (url, " ".join(classes), network_id, link_name)
-        self._test_create_button_disabled_when_quota_exceeded(expected_string,
-                                                              subnet_quota=0
-                                                              )
+        networks_tables.CreateSubnet()
+
+        def _find_subnet_button(res):
+            return self.getAndAssertTableRowAction(res, 'networks',
+                                                   'subnet', network_id)
+
+        self._test_create_button_disabled_when_quota_exceeded(
+            _find_subnet_button, subnet_quota=0)
 
     @test.create_stubs({api.neutron: ('network_list',),
                         quotas: ('tenant_quota_usages',)})
     def test_network_create_button_shown_when_quota_disabled_index(self):
         # if quota_data doesnt contain a networks["available"] key its disabled
-        create_link = networks_tables.CreateNetwork()
-        url = create_link.get_link_url()
-        classes = (list(create_link.get_default_classes())
-                   + list(create_link.classes))
-        expected_string = "<a href='%s' title='%s'  class='%s' "\
-            "id='networks__action_create'>" \
-            "<span class='fa fa-plus'></span>%s</a>" \
-            % (url, create_link.verbose_name, " ".join(classes),
-               create_link.verbose_name)
-        self._test_create_button_shown_when_quota_disabled(expected_string)
+        networks_tables.CreateNetwork()
+        self._test_create_button_shown_when_quota_disabled(
+            lambda res: self.getAndAssertTableAction(res, 'networks', 'create')
+        )
 
     @test.create_stubs({api.neutron: ('network_list',),
                         quotas: ('tenant_quota_usages',)})
     def test_subnet_create_button_shown_when_quota_disabled_index(self):
         # if quota_data doesnt contain a subnets["available"] key, its disabled
         network_id = self.networks.first().id
-        create_link = networks_tables.CreateSubnet()
-        url = reverse(create_link.get_link_url(), args=[network_id])
-        classes = (list(create_link.get_default_classes())
-                   + list(create_link.classes))
-        expected_string = "<a href='%s' class='%s' "\
-            "id='networks__row_%s__action_subnet'>%s</a>" \
-            % (url, " ".join(classes), network_id, create_link.verbose_name)
-        self._test_create_button_shown_when_quota_disabled(expected_string)
+
+        def _find_subnet_button(res):
+            return self.getAndAssertTableRowAction(res, 'networks',
+                                                   'subnet', network_id)
+
+        self._test_create_button_shown_when_quota_disabled(_find_subnet_button)
 
     @test.create_stubs({api.neutron: ('network_get',
                                       'subnet_list',
@@ -2155,17 +2144,65 @@ class NetworkViewTests(test.TestCase, NetworkStubMixin):
         subnets = res.context['subnets_table'].data
         self.assertItemsEqual(subnets, self.subnets.list())
 
-        class FakeTable(object):
-            kwargs = {'network_id': network_id}
-        create_link = subnets_tables.CreateSubnet()
-        create_link.table = FakeTable()
-        url = create_link.get_link_url()
-        classes = (list(create_link.get_default_classes())
-                   + list(create_link.classes))
-        link_name = "%s (%s)" % (create_link.verbose_name, "Quota exceeded")
-        expected_string = "<a href='%s' title='%s'  class='%s disabled' "\
-            "id='subnets__action_create'>" \
-            "<span class='fa fa-plus'></span>%s</a>" \
-            % (url, link_name, " ".join(classes), link_name)
-        self.assertContains(res, expected_string, html=True,
-                            msg_prefix="The create button is not disabled")
+        create_action = self.getAndAssertTableAction(res, 'subnets', 'create')
+        self.assertTrue('disabled' in create_action.classes,
+                        'The create button should be disabled')
+
+    @test.create_stubs({api.neutron: ('network_list',),
+                        quotas: ('tenant_quota_usages',)})
+    def test_create_button_attributes(self):
+        create_action = self._test_create_button_shown_when_quota_disabled(
+            lambda res: self.getAndAssertTableAction(res, 'networks', 'create')
+        )
+
+        self.assertEqual(set(['ajax-modal']), set(create_action.classes))
+        self.assertEqual('horizon:project:networks:create', create_action.url)
+        self.assertEqual('Create Network',
+                         six.text_type(create_action.verbose_name))
+        self.assertEqual((('network', 'create_network'),),
+                         create_action.policy_rules)
+
+    @test.create_stubs({api.neutron: ('network_get',
+                                      'subnet_list',
+                                      'port_list',
+                                      'is_extension_supported',),
+                        quotas: ('tenant_quota_usages',)})
+    def test_create_subnet_button_attributes(self):
+        network_id = self.networks.first().id
+        quota_data = self.neutron_quota_usages.first()
+        quota_data['subnets']['available'] = 1
+
+        api.neutron.network_get(
+            IsA(http.HttpRequest), network_id)\
+            .MultipleTimes().AndReturn(self.networks.first())
+        api.neutron.subnet_list(
+            IsA(http.HttpRequest), network_id=network_id)\
+            .AndReturn(self.subnets.list())
+        api.neutron.port_list(
+            IsA(http.HttpRequest), network_id=network_id)\
+            .AndReturn([self.ports.first()])
+        api.neutron.is_extension_supported(
+            IsA(http.HttpRequest), 'mac-learning')\
+            .AndReturn(False)
+        quotas.tenant_quota_usages(
+            IsA(http.HttpRequest)) \
+            .MultipleTimes().AndReturn(quota_data)
+
+        self.mox.ReplayAll()
+
+        res = self.client.get(reverse('horizon:project:networks:detail',
+                                      args=[network_id]))
+        self.assertTemplateUsed(res, 'project/networks/detail.html')
+
+        subnets = res.context['subnets_table'].data
+        self.assertItemsEqual(subnets, self.subnets.list())
+
+        create_action = self.getAndAssertTableAction(res, 'subnets', 'create')
+
+        self.assertEqual(set(['ajax-modal']), set(create_action.classes))
+        self.assertEqual('horizon:project:networks:addsubnet',
+                         create_action.url)
+        self.assertEqual('Create Subnet',
+                         six.text_type(create_action.verbose_name))
+        self.assertEqual((('network', 'create_subnet'),),
+                         create_action.policy_rules)

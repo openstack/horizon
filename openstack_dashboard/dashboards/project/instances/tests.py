@@ -28,7 +28,6 @@ from django.core.urlresolvers import reverse
 from django.forms import widgets
 from django import http
 import django.test
-from django.utils import encoding
 from django.utils.http import urlencode
 from mox3.mox import IgnoreArg  # noqa
 from mox3.mox import IsA  # noqa
@@ -3595,6 +3594,54 @@ class InstanceTests(helpers.TestCase):
                       'floating_ip_supported',
                       'servers_update_addresses',),
     })
+    def test_launch_button_attributes(self):
+        servers = self.servers.list()
+        limits = self.limits['absolute']
+        limits['totalInstancesUsed'] = 0
+
+        api.nova.extension_supported('AdminActions',
+                                     IsA(http.HttpRequest)) \
+            .MultipleTimes().AndReturn(True)
+        api.nova.extension_supported('Shelve', IsA(http.HttpRequest)) \
+            .MultipleTimes().AndReturn(True)
+        api.nova.flavor_list(IsA(http.HttpRequest)) \
+            .AndReturn(self.flavors.list())
+        api.glance.image_list_detailed(IgnoreArg()) \
+            .AndReturn((self.images.list(), False, False))
+        search_opts = {'marker': None, 'paginate': True}
+        api.nova.server_list(IsA(http.HttpRequest), search_opts=search_opts) \
+            .AndReturn([servers, False])
+        api.network.servers_update_addresses(IsA(http.HttpRequest), servers)
+        api.nova.tenant_absolute_limits(IsA(http.HttpRequest), reserved=True) \
+            .MultipleTimes().AndReturn(limits)
+        api.network.floating_ip_supported(IsA(http.HttpRequest)) \
+            .MultipleTimes().AndReturn(True)
+        api.network.floating_ip_simple_associate_supported(
+            IsA(http.HttpRequest)).MultipleTimes().AndReturn(True)
+
+        self.mox.ReplayAll()
+
+        tables.LaunchLink()
+        res = self.client.get(INDEX_URL)
+
+        launch_action = self.getAndAssertTableAction(res, 'instances',
+                                                     'launch')
+
+        self.assertEqual(set(['ajax-modal', 'ajax-update', 'btn-launch']),
+                         set(launch_action.classes))
+        self.assertEqual('Launch Instance', launch_action.verbose_name)
+        self.assertEqual('horizon:project:instances:launch', launch_action.url)
+        self.assertEqual((('compute', 'compute:create'),),
+                         launch_action.policy_rules)
+
+    @helpers.create_stubs({
+        api.nova: ('flavor_list', 'server_list', 'tenant_absolute_limits',
+                   'extension_supported',),
+        api.glance: ('image_list_detailed',),
+        api.network: ('floating_ip_simple_associate_supported',
+                      'floating_ip_supported',
+                      'servers_update_addresses',),
+    })
     def test_launch_button_disabled_when_quota_exceeded(self):
         servers = self.servers.list()
         limits = self.limits['absolute']
@@ -3622,27 +3669,16 @@ class InstanceTests(helpers.TestCase):
 
         self.mox.ReplayAll()
 
-        launch = tables.LaunchLink()
-        url = launch.get_link_url()
-        classes = list(launch.get_default_classes()) + list(launch.classes)
-        link_name = "%s (%s)" % (six.text_type(launch.verbose_name),
-                                 "Quota exceeded")
-
+        tables.LaunchLink()
         res = self.client.get(INDEX_URL)
-        if django.VERSION < (1, 8, 0):
-            resp_charset = res._charset
-        else:
-            resp_charset = res.charset
-        expected_string = encoding.smart_str(u'''
-            <a href="%s" title="%s" class="%s disabled"
-            data-update-url=
-            "/project/instances/?action=launch&amp;table=instances"
-            id="instances__action_launch">
-            <span class="fa fa-cloud-upload"></span>%s</a>
-            ''' % (url, link_name, " ".join(classes), link_name), resp_charset)
 
-        self.assertContains(res, expected_string, html=True,
-                            msg_prefix="The launch button is not disabled")
+        launch_action = self.getAndAssertTableAction(
+            res, 'instances', 'launch')
+
+        self.assertTrue('disabled' in launch_action.classes,
+                        'The launch button should be disabled')
+        self.assertEqual('Launch Instance (Quota exceeded)',
+                         six.text_type(launch_action.verbose_name))
 
     @helpers.create_stubs({api.glance: ('image_list_detailed',),
                            api.neutron: ('network_list',),

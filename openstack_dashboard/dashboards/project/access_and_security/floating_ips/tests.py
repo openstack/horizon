@@ -25,8 +25,6 @@ from mox3.mox import IsA  # noqa
 import six
 
 from openstack_dashboard import api
-from openstack_dashboard.dashboards.project.access_and_security \
-    .floating_ips import tables
 from openstack_dashboard.test import helpers as test
 from openstack_dashboard.usage import quotas
 
@@ -222,6 +220,68 @@ class FloatingIpViewTests(test.TestCase):
                                    'server_list',),
                         quotas: ('tenant_quota_usages',),
                         api.base: ('is_service_enabled',)})
+    def test_allocate_button_attributes(self):
+        keypairs = self.keypairs.list()
+        floating_ips = self.floating_ips.list()
+        floating_pools = self.pools.list()
+        quota_data = self.quota_usages.first()
+        quota_data['floating_ips']['available'] = 10
+        sec_groups = self.security_groups.list()
+
+        api.network.floating_ip_supported(
+            IsA(http.HttpRequest)) \
+            .AndReturn(True)
+        api.network.tenant_floating_ip_list(
+            IsA(http.HttpRequest)) \
+            .AndReturn(floating_ips)
+        api.network.security_group_list(
+            IsA(http.HttpRequest)).MultipleTimes()\
+            .AndReturn(sec_groups)
+        api.network.floating_ip_pools_list(
+            IsA(http.HttpRequest)) \
+            .AndReturn(floating_pools)
+        api.nova.keypair_list(
+            IsA(http.HttpRequest)) \
+            .AndReturn(keypairs)
+        api.nova.server_list(
+            IsA(http.HttpRequest)) \
+            .AndReturn([self.servers.list(), False])
+        quotas.tenant_quota_usages(
+            IsA(http.HttpRequest)).MultipleTimes() \
+            .AndReturn(quota_data)
+
+        api.base.is_service_enabled(
+            IsA(http.HttpRequest),
+            'network').MultipleTimes() \
+            .AndReturn(True)
+        api.base.is_service_enabled(
+            IsA(http.HttpRequest),
+            'ec2').MultipleTimes() \
+            .AndReturn(False)
+
+        self.mox.ReplayAll()
+
+        res = self.client.get(INDEX_URL +
+                              "?tab=access_security_tabs__floating_ips_tab")
+
+        allocate_action = self.getAndAssertTableAction(res, 'floating_ips',
+                                                       'allocate')
+        self.assertEqual(set(['ajax-modal']), set(allocate_action.classes))
+        self.assertEqual('Allocate IP To Project',
+                         six.text_type(allocate_action.verbose_name))
+        self.assertEqual(None, allocate_action.policy_rules)
+
+        url = 'horizon:project:access_and_security:floating_ips:allocate'
+        self.assertEqual(url, allocate_action.url)
+
+    @test.create_stubs({api.network: ('floating_ip_supported',
+                                      'tenant_floating_ip_list',
+                                      'security_group_list',
+                                      'floating_ip_pools_list',),
+                        api.nova: ('keypair_list',
+                                   'server_list',),
+                        quotas: ('tenant_quota_usages',),
+                        api.base: ('is_service_enabled',)})
     def test_allocate_button_disabled_when_quota_exceeded(self):
         keypairs = self.keypairs.list()
         floating_ips = self.floating_ips.list()
@@ -266,19 +326,12 @@ class FloatingIpViewTests(test.TestCase):
         res = self.client.get(INDEX_URL +
                               "?tab=access_security_tabs__floating_ips_tab")
 
-        allocate_link = tables.AllocateIP()
-        url = allocate_link.get_link_url()
-        classes = (list(allocate_link.get_default_classes())
-                   + list(allocate_link.classes))
-        link_name = "%s (%s)" % (six.text_type(allocate_link.verbose_name),
-                                 "Quota exceeded")
-        expected_string = ("<a href='%s' title='%s' class='%s disabled' "
-                           "id='floating_ips__action_allocate'>"
-                           "<span class='fa fa-link'>"
-                           "</span>%s</a>"
-                           % (url, link_name, " ".join(classes), link_name))
-        self.assertContains(res, expected_string, html=True,
-                            msg_prefix="The create button is not disabled")
+        allocate_action = self.getAndAssertTableAction(res, 'floating_ips',
+                                                       'allocate')
+        self.assertTrue('disabled' in allocate_action.classes,
+                        'The create button should be disabled')
+        self.assertEqual('Allocate IP To Project (Quota exceeded)',
+                         six.text_type(allocate_action.verbose_name))
 
 
 class FloatingIpNeutronViewTests(FloatingIpViewTests):
