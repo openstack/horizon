@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-12-02 06:20+0000\n"
+"POT-Creation-Date: 2015-12-03 06:18+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -607,7 +607,6 @@ msgstr ""
 #: dashboards/admin/flavors/workflows.py:36 dashboards/admin/info/tables.py:64
 #: dashboards/admin/info/tables.py:94 dashboards/admin/info/tables.py:118
 #: dashboards/admin/info/tables.py:169 dashboards/admin/info/tables.py:207
-#: dashboards/admin/instances/tables.py:104
 #: dashboards/admin/instances/tables.py:138
 #: dashboards/admin/metadata_defs/tables.py:128
 #: dashboards/admin/networks/forms.py:38 dashboards/admin/networks/forms.py:234
@@ -1537,6 +1536,7 @@ msgid "Scale Cluster"
 msgstr ""
 
 #: contrib/sahara/content/data_processing/clusters/tables.py:66
+#: contrib/trove/content/database_clusters/tables.py:40
 msgid "Delete Cluster"
 msgid_plural "Delete Clusters"
 msgstr[0] ""
@@ -3972,18 +3972,12 @@ msgid "Unable to reset password. %s"
 msgstr ""
 
 #: contrib/trove/content/database_clusters/tables.py:36
-msgid "Terminated cluster is not recoverable."
+msgid "Deleted cluster is not recoverable."
 msgstr ""
 
-#: contrib/trove/content/database_clusters/tables.py:40
-msgid "Terminate Cluster"
-msgid_plural "Terminate Clusters"
-msgstr[0] ""
-msgstr[1] ""
-
 #: contrib/trove/content/database_clusters/tables.py:48
-msgid "Scheduled termination of Cluster"
-msgid_plural "Scheduled termination of Clusters"
+msgid "Scheduled deletion of Cluster"
+msgid_plural "Scheduled deletion of Clusters"
 msgstr[0] ""
 msgstr[1] ""
 
@@ -4257,20 +4251,20 @@ msgstr ""
 
 #: contrib/trove/content/databases/tables.py:35
 #: dashboards/project/instances/tables.py:89
-msgid "Terminated instances are not recoverable."
+msgid "Deleted instances are not recoverable."
 msgstr ""
 
 #: contrib/trove/content/databases/tables.py:39
 #: dashboards/project/instances/tables.py:93
-msgid "Terminate Instance"
-msgid_plural "Terminate Instances"
+msgid "Delete Instance"
+msgid_plural "Delete Instances"
 msgstr[0] ""
 msgstr[1] ""
 
 #: contrib/trove/content/databases/tables.py:47
 #: dashboards/project/instances/tables.py:101
-msgid "Scheduled termination of Instance"
-msgid_plural "Scheduled termination of Instances"
+msgid "Scheduled deletion of Instance"
+msgid_plural "Scheduled deletion of Instances"
 msgstr[0] ""
 msgstr[1] ""
 
@@ -4412,7 +4406,6 @@ msgstr ""
 #: contrib/trove/content/databases/tables.py:320
 #: contrib/trove/content/databases/workflows/create_instance.py:36
 #: dashboards/admin/hypervisors/tables.py:70
-#: dashboards/project/instances/tables.py:1109
 #: dashboards/project/instances/tables.py:1132
 #: dashboards/project/instances/workflows/create_instance.py:84
 #: dashboards/project/overview/views.py:37 usage/tables.py:83
@@ -5833,11 +5826,11 @@ msgid "Format ="
 msgstr ""
 
 #: dashboards/admin/images/tables.py:74
-msgid "Min. Size (MB)"
+msgid "Min. Size (MB) ="
 msgstr ""
 
 #: dashboards/admin/images/tables.py:75
-msgid "Max. Size (MB)"
+msgid "Max. Size (MB) ="
 msgstr ""
 
 #: dashboards/admin/images/tables.py:81
@@ -6102,6 +6095,10 @@ msgstr ""
 
 #: dashboards/admin/instances/tables.py:103
 msgid "Host ="
+msgstr ""
+
+#: dashboards/admin/instances/tables.py:104
+msgid "Name ="
 msgstr ""
 
 #: dashboards/admin/instances/tables.py:105
@@ -12371,6 +12368,10 @@ msgctxt "Power state of an Instance"
 msgid "Building"
 msgstr ""
 
+#: dashboards/project/instances/tables.py:1109
+msgid "Instance Name ="
+msgstr ""
+
 #: dashboards/project/instances/tables.py:1139
 #: dashboards/project/instances/workflows/create_instance.py:541
 msgid "Key Pair"
@@ -12783,12 +12784,12 @@ msgid ""
 "blank to let the system choose a device name for you."
 msgstr ""
 
-#: dashboards/project/instances/workflows/create_instance.py:131
-msgid "Delete on Terminate"
+#: dashboards/project/instances/workflows/create_instance.py:132
+msgid "Delete Volume on Instance Delete"
 msgstr ""
 
-#: dashboards/project/instances/workflows/create_instance.py:134
-msgid "Delete volume on instance terminate"
+#: dashboards/project/instances/workflows/create_instance.py:135
+msgid "Delete volume when the instance is deleted"
 msgstr ""
 
 #: dashboards/project/instances/workflows/create_instance.py:154
@@ -13052,21 +13053,21 @@ msgstr ""
 msgid "%s instances"
 msgstr ""
 
-#: dashboards/project/instances/workflows/create_instance.py:899
+#: dashboards/project/instances/workflows/create_instance.py:900
 msgid "Unable to retrieve extensions information"
 msgstr ""
 
-#: dashboards/project/instances/workflows/create_instance.py:955
+#: dashboards/project/instances/workflows/create_instance.py:956
 #, python-format
 msgid "Port cleanup failed for these port-ids (%s)."
 msgstr ""
 
-#: dashboards/project/instances/workflows/create_instance.py:973
+#: dashboards/project/instances/workflows/create_instance.py:974
 #, python-format
 msgid "Unable to create port for profile \"%(profile_id)s\": %(reason)s"
 msgstr ""
 
-#: dashboards/project/instances/workflows/create_instance.py:983
+#: dashboards/project/instances/workflows/create_instance.py:984
 #, python-format
 msgid " Also failed to delete port %s"
 msgstr ""

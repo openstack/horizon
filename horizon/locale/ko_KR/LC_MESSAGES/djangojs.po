@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-11-25 05:47+0000\n"
+"POT-Creation-Date: 2015-12-02 23:42+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -317,9 +317,6 @@ msgstr "완료"
 
 msgid "Success: "
 msgstr "완료:"
-
-msgid "Terminate Instance"
-msgstr "인스턴스 종료"
 
 msgid "Text"
 msgstr "텍스트"

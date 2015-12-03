@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-11-19 04:15+0000\n"
+"POT-Creation-Date: 2015-12-02 23:42+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Language: mr\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "Generated-By: Babel 2.0\n"
-"X-Generator: Zanata 3.7.1\n"
+"X-Generator: Zanata 3.7.3\n"
 "Language-Team: Marathi\n"
 
 #, python-format
@@ -1885,15 +1885,9 @@ msgstr "पूर्वनिर्धारित"
 msgid "Delay"
 msgstr "उशीर"
 
-msgid "Delete on Terminate"
-msgstr "संपल्यावर नष्ट करा"
-
 #, python-format
 msgid "Delete the created network \"%s\" due to subnet creation failure."
 msgstr "तयार केलेली नेटवर्क नष्ट करा \"%s\" उपनेट निर्मिती अपयशी झाल्यामुळे."
-
-msgid "Delete volume on instance terminate"
-msgstr "घटक संपल्यानंतर खंड नष्ट करा"
 
 msgid "Deleted"
 msgstr "नष्ट करण्यात आले"
@@ -3904,9 +3898,6 @@ msgstr "कमाल पुनर्प्रयत्न (१~१०)"
 msgid "Max."
 msgstr "कमाल."
 
-msgid "Max. Size (MB)"
-msgstr "कमाल आकार (एमबी)"
-
 msgid "Maximum Transmission Unit size for the connection"
 msgstr "जोडणीसाठी कमाल प्रसारण विभाग आकार"
 
@@ -3976,9 +3967,6 @@ msgstr "किमान रॅम"
 
 msgid "Min."
 msgstr "किमान."
-
-msgid "Min. Size (MB)"
-msgstr "किमान आकार (एमबी)"
 
 msgid "Minimum Disk (GB)"
 msgstr "किमान डिस्क (जीबी)"

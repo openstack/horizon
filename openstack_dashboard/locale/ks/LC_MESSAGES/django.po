@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-11-19 04:15+0000\n"
+"POT-Creation-Date: 2015-12-02 23:42+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Language: ks\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "Generated-By: Babel 2.0\n"
-"X-Generator: Zanata 3.7.1\n"
+"X-Generator: Zanata 3.7.3\n"
 "Language-Team: Kashmiri\n"
 
 #, python-format
@@ -1828,15 +1828,9 @@ msgstr "ڈیفالٹ"
 msgid "Delay"
 msgstr "ژیئر"
 
-msgid "Delete on Terminate"
-msgstr "مِٹایئو  ٹئرمِنیٹ پئٹھ "
-
 #, python-format
 msgid "Delete the created network \"%s\" due to subnet creation failure."
 msgstr "مِٹایئو بٔناومُت نیٹ وئرک \"%s\"  کیازکہٖ سب نیٹ کئریشن چھ ناکامیاب"
-
-msgid "Delete volume on instance terminate"
-msgstr "مِٹایئو والیوم اِنسٹئنس ٹئرمِنیٹ پئٹھ "
 
 msgid "Deleted"
 msgstr "مِٹاویتھ"
@@ -3798,9 +3792,6 @@ msgstr " (1~10) زیادہ خوتھ زیادہ"
 msgid "Max."
 msgstr "زیادہ خوتہٕ زیادہ"
 
-msgid "Max. Size (MB)"
-msgstr "زیادہ خوتہ زیادہ  سآئز  (MB)"
-
 msgid "Maximum Transmission Unit size for the connection"
 msgstr "زیادہ خوتہٕ زیادہ ٹرانسمیشن یونِٹ سآئز کئنیکشن  خآطرہ"
 
@@ -3869,9 +3860,6 @@ msgstr "کم از کمRAM"
 
 msgid "Min."
 msgstr "کم از کم"
-
-msgid "Min. Size (MB)"
-msgstr "کم از کم سآئز  (MB)"
 
 msgid "Minimum Disk (GB)"
 msgstr "کم از کم ڈِسک (GB)"

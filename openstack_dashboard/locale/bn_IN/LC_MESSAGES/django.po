@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-11-19 04:15+0000\n"
+"POT-Creation-Date: 2015-12-02 23:42+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Language: bn-IN\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "Generated-By: Babel 2.0\n"
-"X-Generator: Zanata 3.7.1\n"
+"X-Generator: Zanata 3.7.3\n"
 "Language-Team: Bengali (India)\n"
 
 #, python-format
@@ -1835,15 +1835,9 @@ msgstr "স্থিতক"
 msgid "Delay"
 msgstr "দেরী"
 
-msgid "Delete on Terminate"
-msgstr "সমাপ্তিতে মুছে ফেলুন"
-
 #, python-format
 msgid "Delete the created network \"%s\" due to subnet creation failure."
 msgstr "সাবনেট নির্মাণ ব্যর্থের কারণে তৈরি করা নেটওয়ার্ক \"%s\" মুছে ফেলুন."
-
-msgid "Delete volume on instance terminate"
-msgstr "উদাহরণ সমাপ্তিতে ভলিয়্যুম মুছে ফেলুন"
 
 msgid "Deleted"
 msgstr "মোছা"
@@ -3800,9 +3794,6 @@ msgstr "অধিকতম প্রচেষ্টা (1~10)"
 msgid "Max."
 msgstr "সর্বাধিক"
 
-msgid "Max. Size (MB)"
-msgstr "সর্বাধিক  আয়তন (MB)"
-
 msgid "Maximum Transmission Unit size for the connection"
 msgstr "সংযোগটির জন্য সর্বাধিক সঞ্চার ইউনিট আয়তন"
 
@@ -3870,9 +3861,6 @@ msgstr "ন্যূনতম RAM"
 
 msgid "Min."
 msgstr "ন্যূনতম"
-
-msgid "Min. Size (MB)"
-msgstr "ন্যূনতম আয়তন (MB)"
 
 msgid "Minimum Disk (GB)"
 msgstr "ন্যূনতম ডিস্ক (GB)"

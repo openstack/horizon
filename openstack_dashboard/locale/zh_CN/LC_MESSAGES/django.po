@@ -27,7 +27,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-11-25 05:47+0000\n"
+"POT-Creation-Date: 2015-12-02 23:42+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -2951,15 +2951,9 @@ msgid "Delete Volume Type"
 msgid_plural "Delete Volume Types"
 msgstr[0] "删除云硬盘类型"
 
-msgid "Delete on Terminate"
-msgstr "终止后删除"
-
 #, python-format
 msgid "Delete the created network \"%s\" due to subnet creation failure."
 msgstr "创建子网时删除网络\"%s\"失败"
-
-msgid "Delete volume on instance terminate"
-msgstr "终止云主机后删除云硬盘"
 
 msgid "Deleted"
 msgstr "删除"
@@ -5663,9 +5657,6 @@ msgstr "最大重试次数(1~10)"
 msgid "Max."
 msgstr "最大"
 
-msgid "Max. Size (MB)"
-msgstr "容量最大值 (MB)"
-
 msgid "Maximum Transmission Unit size for the connection"
 msgstr "这个连接的最大传输单元大小"
 
@@ -5773,9 +5764,6 @@ msgstr "最小内存"
 
 msgid "Min."
 msgstr "最小"
-
-msgid "Min. Size (MB)"
-msgstr "容量最小值 (MB)"
 
 msgid "Minimum Disk (GB)"
 msgstr "最小磁盘（GB）"
@@ -7793,14 +7781,6 @@ msgstr[0] "已安排的实例迁移(待确认)"
 msgid "Scheduled resize of instance \"%s\"."
 msgstr "定期调整实例\"%s\"."
 
-msgid "Scheduled termination of Cluster"
-msgid_plural "Scheduled termination of Clusters"
-msgstr[0] "已安排集群的终止"
-
-msgid "Scheduled termination of Instance"
-msgid_plural "Scheduled termination of Instances"
-msgstr[0] "已安排实例的终止"
-
 msgctxt "Task status of an Instance"
 msgid "Scheduling"
 msgstr "调度"
@@ -8920,20 +8900,6 @@ msgstr "模板URL"
 
 msgid "Template not specified"
 msgstr "没有指定模板"
-
-msgid "Terminate Cluster"
-msgid_plural "Terminate Clusters"
-msgstr[0] "终止集群"
-
-msgid "Terminate Instance"
-msgid_plural "Terminate Instances"
-msgstr[0] "终止实例"
-
-msgid "Terminated cluster is not recoverable."
-msgstr "终止的实例无法恢复。"
-
-msgid "Terminated instances are not recoverable."
-msgstr "终止的实例均无法恢复。"
 
 msgid ""
 "The \"Bootable\" flag specifies that this volume can be used to launch an "
