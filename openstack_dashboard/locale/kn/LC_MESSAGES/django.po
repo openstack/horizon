@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-11-19 04:15+0000\n"
+"POT-Creation-Date: 2015-12-02 23:42+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -20,7 +20,7 @@ msgstr ""
 "Language: kn\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 "Generated-By: Babel 2.0\n"
-"X-Generator: Zanata 3.7.1\n"
+"X-Generator: Zanata 3.7.3\n"
 "Language-Team: Kannada\n"
 
 #, python-format
@@ -1922,15 +1922,9 @@ msgid "Delete Volume"
 msgid_plural "Delete Volumes"
 msgstr[0] "ಪರಿಮಾಣಗಳನ್ನು  ಅಳಿಸಿ "
 
-msgid "Delete on Terminate"
-msgstr "ಕೊನೆಗೊಂಡಾಗ ಅಳಿಸು"
-
 #, python-format
 msgid "Delete the created network \"%s\" due to subnet creation failure."
 msgstr "ಸಬ್‌ನೆಟ್‌ ರಚಿಸುವಲ್ಲಿನ ವಿಫಲತೆಯ ಕಾರಣದಿಂದಾಗಿ ರಚಿಸಲಾದ \"%s\" ಜಾಲಬಂಧವನ್ನು ಅಳಿಸಿ."
-
-msgid "Delete volume on instance terminate"
-msgstr "ಇನ್‌ಸ್ಟನ್ಸ್ ಕೊನೆಗೊಂಡಾಗ ಪರಿಮಾಣವನ್ನು ಅಳಿಸು"
 
 msgid "Deleted"
 msgstr "ಅಳಿಸಲಾದ"
@@ -3995,9 +3989,6 @@ msgstr "ಗರಿಷ್ಟ ಮರುಪ್ರಯತ್ನಗಳು (1~10)"
 msgid "Max."
 msgstr "ಗರಿಷ್ಟ"
 
-msgid "Max. Size (MB)"
-msgstr "ಗರಿಷ್ಟ ಗಾತ್ರ (MB)"
-
 msgid "Maximum Transmission Unit size for the connection"
 msgstr "ಸಂಪರ್ಕಕ್ಕಾಗಿನ ಗರಿಷ್ಟ ವರ್ಗಾವಣೆ ಘಟಕದ ಗಾತ್ರ"
 
@@ -4070,9 +4061,6 @@ msgstr "ಕನಿಷ್ಟ RAM"
 
 msgid "Min."
 msgstr "ಕನಿಷ್ಟ"
-
-msgid "Min. Size (MB)"
-msgstr "ಕನಿಷ್ಟ ಗಾತ್ರ (MB)"
 
 msgid "Minimum Disk (GB)"
 msgstr "ಕನಿಷ್ಠ ಡಿಸ್ಕ್ (GB)"

@@ -17,11 +17,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-11-25 05:47+0000\n"
+"POT-Creation-Date: 2015-12-02 23:42+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2015-11-24 12:19+0000\n"
+"PO-Revision-Date: 2015-12-03 12:51+0000\n"
 "Last-Translator: Shu Muto <shu-mutou@rf.jp.nec.com>\n"
 "Language: ja\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
@@ -2996,6 +2996,10 @@ msgctxt "current status of stack"
 msgid "Delete In Progress"
 msgstr "削除中"
 
+msgid "Delete Instance"
+msgid_plural "Delete Instances"
+msgstr[0] "インスタンスの削除"
+
 msgid "Delete Interface"
 msgid_plural "Delete Interfaces"
 msgstr[0] "インタフェースの削除"
@@ -3115,16 +3119,16 @@ msgid "Delete Volume Type"
 msgid_plural "Delete Volume Types"
 msgstr[0] "ボリューム種別の削除"
 
-msgid "Delete on Terminate"
-msgstr "インスタンス削除時に削除"
+msgid "Delete Volume on Instance Delete"
+msgstr "インスタンス削除時のボリュームを削除します"
 
 #, python-format
 msgid "Delete the created network \"%s\" due to subnet creation failure."
 msgstr ""
 "サブネット作成に失敗したため、作成したネットワーク \"%s\" を削除しました。"
 
-msgid "Delete volume on instance terminate"
-msgstr "インスタンス削除時にボリュームを削除します"
+msgid "Delete volume when the instance is deleted"
+msgstr "インスタンスが削除された時にボリュームを削除します"
 
 msgid "Deleted"
 msgstr "削除"
@@ -3281,8 +3285,14 @@ msgid "Deleted Volume Type"
 msgid_plural "Deleted Volume Types"
 msgstr[0] "ボリューム種別を削除しました"
 
+msgid "Deleted cluster is not recoverable."
+msgstr "削除されたクラスターは元に戻すことはできません。"
+
 msgid "Deleted images are not recoverable."
 msgstr "削除されたイメージは元に戻せません。"
+
+msgid "Deleted instances are not recoverable."
+msgstr "削除されたインスタンスは元に戻すことはできません。"
 
 msgid "Deleting"
 msgstr "削除中"
@@ -5353,6 +5363,9 @@ msgstr "インスタンス ID"
 msgid "Instance Name"
 msgstr "インスタンス名"
 
+msgid "Instance Name ="
+msgstr "インスタンス名 = "
+
 msgid "Instance Overview"
 msgstr "インスタンスの概要"
 
@@ -5931,8 +5944,8 @@ msgstr "最大試行回数 (1〜10)"
 msgid "Max."
 msgstr "最大値"
 
-msgid "Max. Size (MB)"
-msgstr "最大サイズ (MB)"
+msgid "Max. Size (MB) ="
+msgstr "最大サイズ (MB) = "
 
 msgid "Maximum Transmission Unit size for the connection"
 msgstr "この接続の MTU （最大転送単位）の大きさ"
@@ -6047,8 +6060,8 @@ msgstr "最小メモリー"
 msgid "Min."
 msgstr "最小値"
 
-msgid "Min. Size (MB)"
-msgstr "最小サイズ (MB)"
+msgid "Min. Size (MB) ="
+msgstr "最小サイズ (MB) = "
 
 msgid "Minimum Disk (GB)"
 msgstr "最小ディスク (GB)"
@@ -6144,6 +6157,9 @@ msgstr "なし"
 
 msgid "Name"
 msgstr "名前"
+
+msgid "Name ="
+msgstr "名前 = "
 
 msgid ""
 "Name may only contain letters, numbers, underscores, periods and hyphens."
@@ -8070,6 +8086,10 @@ msgstr "バックアップ \"%(name)s\" の作成を予約しました。"
 msgid "Scheduled deletion of %(data_type)s"
 msgstr "%(data_type)s の削除を予約しました。"
 
+msgid "Scheduled deletion of Cluster"
+msgid_plural "Scheduled deletion of Clusters"
+msgstr[0] "クラスターの削除を予約しました"
+
 msgid "Scheduled deletion of Firewall"
 msgid_plural "Scheduled deletion of Firewalls"
 msgstr[0] "ファイアウォールの削除を予約しました"
@@ -8085,6 +8105,10 @@ msgstr[0] "IPSec ポリシーの削除を予約しました"
 msgid "Scheduled deletion of IPSec Site Connection"
 msgid_plural "Scheduled deletion of IPSec Site Connections"
 msgstr[0] "IPSec サイト間接続の削除を予約しました"
+
+msgid "Scheduled deletion of Instance"
+msgid_plural "Scheduled deletion of Instances"
+msgstr[0] "インスタンスの削除を予約しました"
 
 msgid "Scheduled deletion of Member"
 msgid_plural "Scheduled deletion of Members"
@@ -8125,14 +8149,6 @@ msgstr[0] "(確認待ちでの) インスタンスのマイグレーションを
 #, python-format
 msgid "Scheduled resize of instance \"%s\"."
 msgstr "インスタンス \"%s\" のリサイズを予約しました。"
-
-msgid "Scheduled termination of Cluster"
-msgid_plural "Scheduled termination of Clusters"
-msgstr[0] "クラスターの削除を予約しました"
-
-msgid "Scheduled termination of Instance"
-msgid_plural "Scheduled termination of Instances"
-msgstr[0] "インスタンスの削除を予約しました。"
 
 msgctxt "Task status of an Instance"
 msgid "Scheduling"
@@ -9284,20 +9300,6 @@ msgstr "テンプレート URL"
 
 msgid "Template not specified"
 msgstr "テンプレートは指定されていません"
-
-msgid "Terminate Cluster"
-msgid_plural "Terminate Clusters"
-msgstr[0] "クラスターの削除"
-
-msgid "Terminate Instance"
-msgid_plural "Terminate Instances"
-msgstr[0] "インスタンスの削除"
-
-msgid "Terminated cluster is not recoverable."
-msgstr "削除されたクラスターは元に戻すことはできません。"
-
-msgid "Terminated instances are not recoverable."
-msgstr "削除されたインスタンスは元に戻すことはできません。"
 
 msgid ""
 "The \"Bootable\" flag specifies that this volume can be used to launch an "

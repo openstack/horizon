@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-12-02 06:20+0000\n"
+"POT-Creation-Date: 2015-12-03 06:18+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -948,22 +948,22 @@ msgid ""
 "<li><b>Image (with Create New Volume checked)</b>: This options uses an "
 "image to boot the instance, and creates a new volume to persist instance "
 "data. You can specify volume size and whether to delete the volume on "
-"termination of the instance.</li>"
+"deletion of the instance.</li>"
 msgstr ""
 
 #: dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.help.html:10
 msgid ""
 "<li><b>Volume</b>: This option uses a volume that already exists. It does"
-" not create a new volume. You can choose to delete the volume on "
-"termination of the instance. <em>Note: when selecting Volume, you can "
-"only launch one instance.</em></li>"
+" not create a new volume. You can choose to delete the volume on deletion"
+" of the instance. <em>Note: when selecting Volume, you can only launch "
+"one instance.</em></li>"
 msgstr ""
 
 #: dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.help.html:11
 msgid ""
 "<li><b>Volume Snapshot</b>: This option uses a volume snapshot to boot "
 "the instance, and creates a new volume to persist instance data. You can "
-"choose to delete the volume on termination of the instance.</li>"
+"choose to delete the volume on deletion of the instance.</li>"
 msgstr ""
 
 #: dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.html:3
@@ -996,7 +996,7 @@ msgstr ""
 
 #: dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.html:80
 #: dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.html:99
-msgid "Delete Volume on Terminate"
+msgid "Delete Volume on Instance Delete"
 msgstr ""
 
 #: static/app/core/images/filters/image-status.filter.js:36

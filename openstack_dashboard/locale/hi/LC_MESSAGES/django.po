@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-11-19 04:15+0000\n"
+"POT-Creation-Date: 2015-12-02 23:42+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -19,7 +19,7 @@ msgstr ""
 "Language: hi\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "Generated-By: Babel 2.0\n"
-"X-Generator: Zanata 3.7.1\n"
+"X-Generator: Zanata 3.7.3\n"
 "Language-Team: Hindi\n"
 
 msgid ""
@@ -1680,15 +1680,9 @@ msgid_plural "Delete Volume Snapshots"
 msgstr[0] "वॉल्यूम स्नैपशॉट मिटाएँ"
 msgstr[1] "वॉल्यूम स्नैपशॉट मिटाएँ"
 
-msgid "Delete on Terminate"
-msgstr "बर्खास्त पर हटाएं"
-
 #, python-format
 msgid "Delete the created network \"%s\" due to subnet creation failure."
 msgstr "\"%s\" बनाया संजाल हटाएं सबनेट निर्माण की विफलता की वजह से"
-
-msgid "Delete volume on instance terminate"
-msgstr "बर्खास्त इंस्टेंस पर वॉल्यूम हटाएं"
 
 msgid "Deleted"
 msgstr "मिटाया"
@@ -3494,9 +3488,6 @@ msgstr "अधिकतम कोशिशों (1 ~ 10)"
 msgid "Max."
 msgstr "अधि."
 
-msgid "Max. Size (MB)"
-msgstr "अधिकतम आकार (MB)"
-
 msgid "Maximum Transmission Unit size for the connection"
 msgstr "कनेक्शन के लिए अधिकतम संचार इकाई आकार"
 
@@ -3561,9 +3552,6 @@ msgstr "न्यूनतम रैम"
 
 msgid "Min."
 msgstr "न्यून."
-
-msgid "Min. Size (MB)"
-msgstr "न्यूतम आकार (MB)"
 
 msgid "Minimum Disk (GB)"
 msgstr "न्यूनतम डिस्क (जीबी)"

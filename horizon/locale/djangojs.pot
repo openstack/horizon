@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-11-25 06:21+0000\n"
+"POT-Creation-Date: 2015-12-03 06:18+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -511,7 +511,7 @@ msgid "Add Interface"
 msgstr ""
 
 #: static/horizon/js/horizon.networktopology.js:989
-msgid "Terminate Instance"
+msgid "Delete Instance"
 msgstr ""
 
 #: static/horizon/js/horizon.networktopology.js:990

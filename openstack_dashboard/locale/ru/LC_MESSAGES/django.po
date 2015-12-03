@@ -23,7 +23,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-11-19 04:15+0000\n"
+"POT-Creation-Date: 2015-12-02 23:42+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -34,7 +34,7 @@ msgstr ""
 "%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || (n"
 "%100>=11 && n%100<=14)? 2 : 3);\n"
 "Generated-By: Babel 2.0\n"
-"X-Generator: Zanata 3.7.1\n"
+"X-Generator: Zanata 3.7.3\n"
 "Language-Team: Russian\n"
 
 msgid ""
@@ -3168,15 +3168,9 @@ msgstr[1] "Удалить типы дисков"
 msgstr[2] "Удалить типы дисков"
 msgstr[3] "Удалить типы дисков"
 
-msgid "Delete on Terminate"
-msgstr "Удалить по завершении"
-
 #, python-format
 msgid "Delete the created network \"%s\" due to subnet creation failure."
 msgstr "Удалите созданную сеть \"%s\" в связи со сбоем создания подсети."
-
-msgid "Delete volume on instance terminate"
-msgstr "Удалить диск при удалении инстанса"
 
 msgid "Deleted"
 msgstr "Удалено"
@@ -6096,9 +6090,6 @@ msgstr "Количество попыток (1~10)"
 msgid "Max."
 msgstr "Max."
 
-msgid "Max. Size (MB)"
-msgstr "Максимальный размер (МБ)"
-
 msgid "Maximum Transmission Unit size for the connection"
 msgstr "Размер MTU для подключения"
 
@@ -6218,9 +6209,6 @@ msgstr "Минимально RAM"
 
 msgid "Min."
 msgstr "Мин."
-
-msgid "Min. Size (MB)"
-msgstr "Минимальный размер (МБ)"
 
 msgid "Minimum Disk (GB)"
 msgstr "Минимальный размер диска (GB)"
@@ -8346,20 +8334,6 @@ msgstr[3] "Запланирована миграция инстансов (ож�
 msgid "Scheduled resize of instance \"%s\"."
 msgstr "Запланированное изменение размера инстанса \"%s\"."
 
-msgid "Scheduled termination of Cluster"
-msgid_plural "Scheduled termination of Clusters"
-msgstr[0] "Запланировано удаление кластера"
-msgstr[1] "Запланировано удаление кластеров"
-msgstr[2] "Запланировано удаление кластеров"
-msgstr[3] ""
-
-msgid "Scheduled termination of Instance"
-msgid_plural "Scheduled termination of Instances"
-msgstr[0] "Запланировано удаление инстанса"
-msgstr[1] "Запланировано удаление инстансов"
-msgstr[2] "Запланировано удаление машин"
-msgstr[3] "Запланировано удаление машин"
-
 msgctxt "Task status of an Instance"
 msgid "Scheduling"
 msgstr "Планирование"
@@ -9524,26 +9498,6 @@ msgstr "URL шаблона"
 
 msgid "Template not specified"
 msgstr "Шаблон не указан"
-
-msgid "Terminate Cluster"
-msgid_plural "Terminate Clusters"
-msgstr[0] "Остановить кластер"
-msgstr[1] "Остановить кластеры"
-msgstr[2] "Остановить кластеры"
-msgstr[3] ""
-
-msgid "Terminate Instance"
-msgid_plural "Terminate Instances"
-msgstr[0] "Удалить инстанс"
-msgstr[1] "Удалить инстансы"
-msgstr[2] "Удалить инстансы"
-msgstr[3] "Удалить инстансы"
-
-msgid "Terminated cluster is not recoverable."
-msgstr "Остановленный кластер не подлежит восстановить."
-
-msgid "Terminated instances are not recoverable."
-msgstr "Удаленные инстансы нельзя восстановить."
 
 msgid ""
 "The \"Bootable\" flag specifies that this volume can be used to launch an "

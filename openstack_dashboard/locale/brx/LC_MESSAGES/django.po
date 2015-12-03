@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-11-19 04:15+0000\n"
+"POT-Creation-Date: 2015-12-02 23:42+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Language: brx\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "Generated-By: Babel 2.0\n"
-"X-Generator: Zanata 3.7.1\n"
+"X-Generator: Zanata 3.7.3\n"
 "Language-Team: Bodo\n"
 
 #, python-format
@@ -1891,15 +1891,9 @@ msgstr "डिफल्ट"
 msgid "Delay"
 msgstr "गोबाव"
 
-msgid "Delete on Terminate"
-msgstr "फोजोबनायाव खोमोर"
-
 #, python-format
 msgid "Delete the created network \"%s\" due to subnet creation failure."
 msgstr "साबनेट सोरजिनाया फेलें जानायनि थाखाय सोरजिखानाय नेटवार्क \"%s\" खौ खोमोर।"
-
-msgid "Delete volume on instance terminate"
-msgstr "बिदिन्थि फोजोबनायाव भलिउमखौ खोमोर"
 
 msgid "Deleted"
 msgstr "खोमोरबाय"
@@ -3914,9 +3908,6 @@ msgstr "बांसिन फिन-नाजानाय (1~10)"
 msgid "Max."
 msgstr "बांसिन"
 
-msgid "Max. Size (MB)"
-msgstr "बांसिन महर (MB)"
-
 msgid "Maximum Transmission Unit size for the connection"
 msgstr "फोनांजाबनि थाखाय बांसिन जायगा सोलायनाय सानगुदि महर"
 
@@ -3986,9 +3977,6 @@ msgstr "खमसिन रेम"
 
 msgid "Min."
 msgstr "खमसिन"
-
-msgid "Min. Size (MB)"
-msgstr "खमसिन महर (MB)"
 
 msgid "Minimum Disk (GB)"
 msgstr "खमसिन डिस्क (GB)"

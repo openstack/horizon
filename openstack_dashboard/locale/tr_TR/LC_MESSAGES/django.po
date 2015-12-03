@@ -15,7 +15,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-11-19 04:15+0000\n"
+"POT-Creation-Date: 2015-12-02 23:42+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -24,7 +24,7 @@ msgstr ""
 "Language: tr-TR\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 "Generated-By: Babel 2.0\n"
-"X-Generator: Zanata 3.7.1\n"
+"X-Generator: Zanata 3.7.3\n"
 "Language-Team: Turkish (Turkey)\n"
 
 msgid ""
@@ -2948,15 +2948,9 @@ msgid "Delete Volume Type"
 msgid_plural "Delete Volume Types"
 msgstr[0] "Mantıksal Sürücü Türlerini Sil"
 
-msgid "Delete on Terminate"
-msgstr "Sonlandırmada Sil"
-
 #, python-format
 msgid "Delete the created network \"%s\" due to subnet creation failure."
 msgstr "Oluşturulan \"%s\" ağını alt ağ oluşturma hatası sebebiyle sil."
-
-msgid "Delete volume on instance terminate"
-msgstr "Sunucu sonlandırmada mantıksal sürücüyü sil"
 
 msgid "Deleted"
 msgstr "Silinmiş"
@@ -5642,9 +5636,6 @@ msgstr "Azami Yeniden Deneme (1~10)"
 msgid "Max."
 msgstr "Maks."
 
-msgid "Max. Size (MB)"
-msgstr "Azami Boyut (MB)"
-
 msgid "Maximum Transmission Unit size for the connection"
 msgstr "Bağlantı için Azami Aktarım Birimi boyutu"
 
@@ -5753,9 +5744,6 @@ msgstr "Asgari RAM"
 
 msgid "Min."
 msgstr "Min."
-
-msgid "Min. Size (MB)"
-msgstr "Asgari Boyut (MB)"
 
 msgid "Minimum Disk (GB)"
 msgstr "Minimum Disk (GB)"
@@ -7735,10 +7723,6 @@ msgstr[0] "Sunucuların göçü (doğrulama bekleniyor) zamanlandı"
 msgid "Scheduled resize of instance \"%s\"."
 msgstr "\"%s\" sunucusunun yeniden boyutlandırılması zamanlandı."
 
-msgid "Scheduled termination of Instance"
-msgid_plural "Scheduled termination of Instances"
-msgstr[0] "Sunucuların sonlandırılması zamanlandı"
-
 msgctxt "Task status of an Instance"
 msgid "Scheduling"
 msgstr "Zamanlanıyor"
@@ -8832,13 +8816,6 @@ msgstr "Şablon URL'si"
 
 msgid "Template not specified"
 msgstr "Şablon belirtilmemiş"
-
-msgid "Terminate Instance"
-msgid_plural "Terminate Instances"
-msgstr[0] "Sunucuları Sonlandır"
-
-msgid "Terminated instances are not recoverable."
-msgstr "Kurtarılamayacak sunucular sonlandırıldı."
 
 msgid ""
 "The \"Bootable\" flag specifies that this volume can be used to launch an "
