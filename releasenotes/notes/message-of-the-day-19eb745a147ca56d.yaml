@@ -1,0 +1,9 @@
+---
+features:
+  - >
+   [`blueprint message-of-the-day <https://blueprints.launchpad.net/horizon/+spec/message-of-the-day>`_]
+   Message of the day can now be configured in horizon, this will be displayed
+   to the user whenever they login. To enable the feature set ``MESSAGES_PATH``
+   in the local_settting.py to the directory where message files are located.
+   The message file must have a .json file extension.
+

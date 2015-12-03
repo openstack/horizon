@@ -508,6 +508,28 @@ This setting can be used in the case where a separate panel is used for
 managing a custom property or if a certain custom property should never be
 edited.
 
+
+``MESSAGES_PATH``
+-----------------
+
+.. versionadded:: 9.0.0(Mitaka)
+
+Default: ``None``
+
+The absolute path to the directory where message files are collected.
+
+When the user logins to horizon, the message files collected are processed
+and displayed to the user. Each message file should contain a JSON formatted
+data and must have a .json file extension. For example::
+
+    {
+        "level": "info",
+        "message": "message of the day here"
+    }
+
+Possible values for level are: success, info, warning and error.
+
+
 ``OPENSTACK_API_VERSIONS``
 --------------------------
 
