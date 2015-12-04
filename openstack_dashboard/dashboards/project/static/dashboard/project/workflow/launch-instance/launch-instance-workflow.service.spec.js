@@ -49,15 +49,16 @@
       expect(launchInstanceWorkflow.title).toBeDefined();
     });
 
-    it('should have the eight steps defined', function () {
+    it('should have the nine steps defined', function () {
       expect(launchInstanceWorkflow.steps).toBeDefined();
-      expect(launchInstanceWorkflow.steps.length).toBe(8);
+      expect(launchInstanceWorkflow.steps.length).toBe(9);
 
       var forms = [
         'launchInstanceDetailsForm',
         'launchInstanceSourceForm',
         'launchInstanceFlavorForm',
         'launchInstanceNetworkForm',
+        'launchInstanceNetworkPortForm',
         'launchInstanceAccessAndSecurityForm',
         'launchInstanceKeypairForm',
         'launchInstanceConfigurationForm',
@@ -71,6 +72,10 @@
 
     it('specifies that the network step requires the network service type', function() {
       expect(launchInstanceWorkflow.steps[3].requiredServiceTypes).toEqual(['network']);
+    });
+
+    it('specifies that the network port step requires the network service type', function() {
+      expect(launchInstanceWorkflow.steps[4].requiredServiceTypes).toEqual(['network']);
     });
   });
 

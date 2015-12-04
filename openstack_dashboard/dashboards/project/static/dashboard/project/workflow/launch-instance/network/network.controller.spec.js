@@ -23,21 +23,43 @@
     beforeEach(module('horizon.dashboard.project.workflow.launch-instance'));
 
     describe('LaunchInstanceNetworkController', function() {
-      var scope, ctrl;
+      var scope, ctrl, model;
 
-      beforeEach(inject(function($controller) {
-        scope = {
-          model: {
-            newInstanceSpec: {
-              networks: ['net-a']
-            },
-            networks: ['net-a', 'net-b']
-          }
+      beforeEach(inject(function($controller, $rootScope) {
+        scope = $rootScope.$new();
+
+        model = {
+          newInstanceSpec: {
+            networks: ['net-a'],
+            ports: []
+          },
+          networks: ['net-a', 'net-b']
         };
+
+        scope.model = model;
+
+        spyOn(scope, '$watch').and.callThrough();
+        spyOn(scope, '$watchCollection').and.callThrough();
+
         ctrl = $controller('LaunchInstanceNetworkController', {
-          $scope: scope
+          $scope: scope,
+          launchInstanceModel: model
         });
       }));
+
+      it("establishes one watch", function () {
+        expect(scope.$watch.calls.count()).toBe(1);
+      });
+
+      it("changes the network items required based on the ports", function() {
+        expect(ctrl.tableDataMulti.minItems).toEqual(1);
+        model.newInstanceSpec.ports = [{name: "1", id: "1"}];
+        scope.$apply();
+        expect(ctrl.tableDataMulti.minItems).toEqual(0);
+        model.newInstanceSpec.ports = [];
+        scope.$apply();
+        expect(ctrl.tableDataMulti.minItems).toEqual(1);
+      });
 
       it('has correct network statuses', function() {
         expect(ctrl.networkStatuses).toBeDefined();
@@ -70,6 +92,7 @@
         expect(ctrl.tableDataMulti.allocated).toEqual(['net-a']);
         expect(ctrl.tableDataMulti.displayedAllocated).toEqual([]);
         expect(ctrl.tableDataMulti.displayedAvailable).toEqual([]);
+        expect(ctrl.tableDataMulti.minItems).toEqual(1);
       });
 
       it('should set facets for search', function() {

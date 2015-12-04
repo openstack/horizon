@@ -60,6 +60,14 @@
           requiredServiceTypes: ['network']
         },
         {
+          id: 'ports',
+          title: gettext('Network Ports'),
+          templateUrl: basePath + 'networkports/ports.html',
+          helpUrl: basePath + 'networkports/ports.help.html',
+          formName: 'launchInstanceNetworkPortForm',
+          requiredServiceTypes: ['network']
+        },
+        {
           id: 'secgroups',
           title: gettext('Security Groups'),
           templateUrl: basePath + 'security-groups/security-groups.html',

@@ -28,10 +28,11 @@
 
   LaunchInstanceNetworkController.$inject = [
     '$scope',
-    'horizon.framework.widgets.action-list.button-tooltip.row-warning.service'
+    'horizon.framework.widgets.action-list.button-tooltip.row-warning.service',
+    'launchInstanceModel'
   ];
 
-  function LaunchInstanceNetworkController($scope, tooltipService) {
+  function LaunchInstanceNetworkController($scope, tooltipService, launchInstanceModel) {
     var ctrl = this;
 
     ctrl.networkStatuses = {
@@ -48,7 +49,8 @@
       available: $scope.model.networks,
       allocated: $scope.model.newInstanceSpec.networks,
       displayedAvailable: [],
-      displayedAllocated: []
+      displayedAllocated: [],
+      minItems: 1
     };
 
     ctrl.tableLimits = {
@@ -101,6 +103,28 @@
         ]
       }
     ];
+
+    function getPorts() {
+      return launchInstanceModel.newInstanceSpec.ports;
+    }
+
+    function toggleNetworksRequirement(newValue) {
+      // if there is a port selected, remove the validate-number-min
+      // for networks table
+      if (newValue.length > 0) {
+        ctrl.tableDataMulti.minItems = 0;
+      }
+      // if no port is selected restore the validate-number-min value
+      if (newValue.length === 0) {
+        ctrl.tableDataMulti.minItems = 1;
+      }
+    }
+    // If a port is selected, then networks are not required
+    var portWatcher = $scope.$watch(getPorts, toggleNetworksRequirement, true);
+
+    $scope.$on('$destroy', function() {
+      portWatcher();
+    });
   }
 
 })();
