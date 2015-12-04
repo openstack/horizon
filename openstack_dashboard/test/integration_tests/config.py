@@ -52,12 +52,6 @@ ImageGroup = [
                help='http accessible image'),
 ]
 
-AvailableServiceGroup = [
-    cfg.BoolOpt('sahara',
-                default=True,
-                help='Whether is Sahara expected to be available')
-]
-
 SeleniumGroup = [
     cfg.IntOpt('implicit_wait',
                default=10,
@@ -88,6 +82,17 @@ InstancesGroup = [
                help="Boot Source to be selected for launch Instances"),
 ]
 
+PluginGroup = [
+    cfg.BoolOpt('is_plugin',
+                default='False',
+                help="Set to true if this is a plugin"),
+    cfg.MultiStrOpt('plugin_page_path',
+                    default='',
+                    help='Additional path to look for plugin page content'),
+    cfg.MultiStrOpt('plugin_page_structure',
+                    default='')
+]
+
 
 def _get_config_files():
     conf_dir = os.path.join(
@@ -103,10 +108,10 @@ def get_config():
 
     cfg.CONF.register_opts(DashboardGroup, group="dashboard")
     cfg.CONF.register_opts(IdentityGroup, group="identity")
-    cfg.CONF.register_opts(AvailableServiceGroup, group="service_available")
     cfg.CONF.register_opts(SeleniumGroup, group="selenium")
     cfg.CONF.register_opts(ImageGroup, group="image")
     cfg.CONF.register_opts(ScenarioGroup, group="scenario")
     cfg.CONF.register_opts(InstancesGroup, group="launch_instances")
+    cfg.CONF.register_opts(PluginGroup, group="plugin")
 
     return cfg.CONF
