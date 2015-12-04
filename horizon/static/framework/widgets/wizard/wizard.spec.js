@@ -25,6 +25,7 @@
   describe('wizard directive', function () {
     var $compile,
       $scope,
+      $q,
       element;
 
     beforeEach(module('templates'));
@@ -32,6 +33,7 @@
     beforeEach(inject(function ($injector) {
       $scope = $injector.get('$rootScope').$new();
       $compile = $injector.get('$compile');
+      $q = $injector.get('$q');
       element = $compile('<wizard></wizard>')($scope);
     }));
 
@@ -199,6 +201,19 @@
       expect(checkedStep.checkReadiness).toHaveBeenCalled();
     });
 
+    it('should pass result of submit function on to close function', function () {
+      $scope.$apply();
+      $scope.submit = function() {
+        var deferred = $q.defer();
+        deferred.resolve('foo');
+        return deferred.promise;
+      };
+      $scope.close = angular.noop;
+      spyOn($scope, 'close');
+      element[0].querySelector('button.finish').click();
+      expect($scope.close).toHaveBeenCalledWith('foo');
+    });
+
   });
 
   describe("ModalContainerController", function() {
@@ -229,6 +244,12 @@
       spyOn(modalInstance, 'close');
       scope.close();
       expect(modalInstance.close).toHaveBeenCalled();
+    });
+
+    it('passes arguments to scope.close on to the modal close function', function() {
+      spyOn(modalInstance, 'close');
+      scope.close('foo');
+      expect(modalInstance.close).toHaveBeenCalledWith('foo');
     });
 
     it('sets scope.cancel to a function that dismisses the modal', function() {

@@ -95,10 +95,10 @@
       $scope.$broadcast(wizardEvents.BEFORE_SUBMIT);
     }
 
-    function afterSubmit() {
+    function afterSubmit(args) {
       $scope.$broadcast(wizardEvents.AFTER_SUBMIT);
       /*eslint-disable angular/ng_controller_as */
-      $scope.close();
+      $scope.close(args);
       /*eslint-enable angular/ng_controller_as */
     }
 
