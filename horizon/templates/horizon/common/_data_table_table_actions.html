@@ -30,14 +30,23 @@
         {% endfor %}
       </select>
       <input class="form-control" value="{{ filter.filter_string|default:'' }}" type="text" name="{{ filter.get_param_name }}" />
-      <button type="submit" {{ filter.attr_string|safe }}>{% trans "Filter" %}</button>
+      <button type="submit" class="btn btn-default {{ filter.get_final_css|safe }}" {{ filter.attr_string_nc|safe }}>{% trans "Filter" %}</button>
     </div>
   {% endif %}
 {% endblock table_filter %}
+
 {% block table_actions %}
+
+  {% comment %}
+    For each single action in the Table Actions area
+  {% endcomment %}
   {% for action in table_actions_buttons %}
-    {%  include "horizon/common/_data_table_table_action.html" %}
+    {% include "horizon/common/_data_table_action.html" with is_table_action=1 is_single=1 %}
   {% endfor %}
+
+  {% comment %}
+    If additional actions are defined, scoop them into the actions dropdown menu
+  {% endcomment %}
   {% if table_actions_menu|length > 0 %}
     <div class="btn-group table_actions_menu">
       <a class="btn btn-default dropdown-toggle" data-toggle="dropdown" href="#">
@@ -51,11 +60,12 @@
       <ul class="dropdown-menu dropdown-menu-right">
       {% for action in table_actions_menu %}
         <li>
-          {% include "horizon/common/_data_table_table_action.html" %}
+          {% include "horizon/common/_data_table_action.html" with is_table_action=1 %}
         </li>
       {% endfor %}
       </ul>
     </div>
   {% endif %}
 {% endblock table_actions %}
+
 </div>

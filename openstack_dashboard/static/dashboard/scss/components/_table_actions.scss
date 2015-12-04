@@ -1,3 +1,56 @@
+/* Table Dropdowns */
+/* Unfortunately, we want to style a button in a dropdown
+   the same way that we style an anchor.  This isn't possible
+   in the current Bootstrap:
+       https://github.com/twbs/bootstrap/issues/10248
+   Until it is, wrap all buttons with anchors ...
+   and we have this workaround.
+*/
+/* Specificity required */
+.table_actions_menu .dropdown-menu > li > button,
+.actions_column .dropdown-menu > li > button {
+  border: none;
+  margin: 0; // prevent the form-inline styles from messing with margin
+  padding: 3px 20px; // Hardcoded in Bootstrap also, see _dropdowns.scss
+  color: $dropdown-link-color;
+  white-space: nowrap; // prevent links from breaking onto new lines
+  min-width: 100%;
+  text-align: left;
+  background: transparent;
+  display: block;
+  clear: both;
+  font-weight: normal;
+  line-height: $line-height-base;
+
+  &:hover,
+  &:focus {
+    text-decoration: none;
+    color: $dropdown-link-hover-color;
+    background-color: $dropdown-link-hover-bg;
+  }
+
+  &.disabled,
+  &[disabled] {
+    cursor: not-allowed;
+    pointer-events: none; // Future-proof disabling of clicks
+    @include opacity(.65);
+    @include box-shadow(none);
+  }
+
+  &.btn-primary {
+    color: $brand-primary;
+  }
+  &.btn-danger {
+    color: $brand-danger;
+  }
+  &.btn-warning {
+    color: $brand-warning;
+  }
+  &.btn-info {
+    color: $brand-info;
+  }
+}
+
 .table_actions {
   float: right;
   @extend .form-inline;

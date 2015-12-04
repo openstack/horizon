@@ -33,13 +33,17 @@ class HTMLElement(object):
         """
         return {}
 
-    def get_final_attrs(self):
+    def get_final_attrs(self, classes=True):
         """Returns a dict containing the final attributes of this element
         which will be rendered.
         """
         final_attrs = copy.copy(self.get_default_attrs())
         final_attrs.update(self.attrs)
-        final_attrs['class'] = self.get_final_css()
+        if classes:
+            final_attrs['class'] = self.get_final_css()
+        else:
+            final_attrs.pop('class', None)
+
         return final_attrs
 
     def get_final_css(self):
@@ -57,6 +61,13 @@ class HTMLElement(object):
         ``attrs`` dict provided to the class.
         """
         return flatatt(self.get_final_attrs())
+
+    @property
+    def attr_string_nc(self):
+        """Returns a flattened string of HTML attributes based on the
+        ``attrs`` dict provided to the class.
+        """
+        return flatatt(self.get_final_attrs(False))
 
     @property
     def class_string(self):
