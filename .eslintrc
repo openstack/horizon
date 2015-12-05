@@ -28,7 +28,6 @@ rules:
   valid-jsdoc: 1
   no-undefined: 1
   brace-style: 1
-  strict: 1
   no-extra-parens: 1
   consistent-return: 1
   callback-return: 1
