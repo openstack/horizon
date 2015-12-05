@@ -135,15 +135,7 @@ SERVICE_CATALOG = [
          {"region": "RegionOne",
           "adminURL": "http://admin.trove.example.com:8779/v1.0",
           "publicURL": "http://public.trove.example.com:8779/v1.0",
-          "internalURL": "http://int.trove.example.com:8779/v1.0"}]},
-    {"type": "data-processing",
-     "name": "Sahara",
-     "endpoints_links": [],
-     "endpoints": [
-         {"region": "RegionOne",
-          "adminURL": "http://admin.sahara.example.com:8386/v1.1",
-          "publicURL": "http://public.sahara.example.com:8386/v1.1",
-          "internalURL": "http://int.sahara.example.com:8386/v1.1"}]}
+          "internalURL": "http://int.trove.example.com:8779/v1.0"}]}
 ]
 
 

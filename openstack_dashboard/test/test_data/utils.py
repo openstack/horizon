@@ -22,7 +22,6 @@ def load_test_data(load_onto=None):
     from openstack_dashboard.test.test_data import keystone_data
     from openstack_dashboard.test.test_data import neutron_data
     from openstack_dashboard.test.test_data import nova_data
-    from openstack_dashboard.test.test_data import sahara_data
     from openstack_dashboard.test.test_data import swift_data
     from openstack_dashboard.test.test_data import trove_data
 
@@ -38,7 +37,6 @@ def load_test_data(load_onto=None):
         heat_data.data,
         ceilometer_data.data,
         trove_data.data,
-        sahara_data.data,
     )
     if load_onto:
         for data_func in loaders:
