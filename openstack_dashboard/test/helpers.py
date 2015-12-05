@@ -283,23 +283,25 @@ class TestCase(horizon_helpers.TestCase):
     def getAndAssertTableRowAction(self, response, table_name,
                                    action_name, row_id):
         table = response.context[table_name + '_table']
-        full_row_id = '%s__row__%s' % (table_name, row_id)
-        rows = list(moves.filter(lambda x: x.id == full_row_id,
-                                 table.get_rows()))
+        rows = list(moves.filter(lambda x: x.id == row_id,
+                                 table.data))
         self.assertEqual(1, len(rows),
                          "Did not find a row matching id '%s'" % row_id)
         row_actions = table.get_row_actions(rows[0])
+        actions = list(moves.filter(lambda x: x.name == action_name,
+                                    row_actions))
 
-        msg_args = (table_name, action_name, row_id)
+        msg_args = (action_name, table_name, row_id)
         self.assertTrue(
-            len(row_actions) > 0,
-            "No action named '%s' found in table '%s' row '%s'" % msg_args)
+            len(actions) > 0,
+            "No action named '%s' found in '%s' table for id '%s'" % msg_args)
 
         self.assertEqual(
-            1, len(row_actions),
-            "Multiple actions '%s' found in table '%s' row '%s'" % msg_args)
+            1, len(actions),
+            "Multiple actions named '%s' found in '%s' table for id '%s'"
+            % msg_args)
 
-        return row_actions[0]
+        return actions[0]
 
     def getAndAssertTableAction(self, response, table_name, action_name):
 
@@ -307,14 +309,14 @@ class TestCase(horizon_helpers.TestCase):
         table_actions = table.get_table_actions()
         actions = list(moves.filter(lambda x: x.name == action_name,
                                     table_actions))
-        msg_args = (table_name, action_name)
+        msg_args = (action_name, table_name)
         self.assertTrue(
             len(actions) > 0,
-            "No action named '%s' found in table '%s'" % msg_args)
+            "No action named '%s' found in '%s' table" % msg_args)
 
         self.assertEqual(
             1, len(actions),
-            "More than one action named '%s' found in table '%s'" % msg_args)
+            "More than one action named '%s' found in '%s' table" % msg_args)
 
         return actions[0]
 
