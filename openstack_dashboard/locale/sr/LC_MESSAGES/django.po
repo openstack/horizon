@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-12-02 23:42+0000\n"
+"POT-Creation-Date: 2015-12-05 16:12+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -2025,9 +2025,6 @@ msgstr ""
 msgid "Floating IP"
 msgstr "Slobodna IP"
 
-msgid "Floating IP Pool"
-msgstr "Grupa slobodnih IP"
-
 msgid "Floating IPs"
 msgstr "Slobodne IP"
 
@@ -2489,9 +2486,6 @@ msgstr ""
 "pokreću. Kreiranje novog para ključeva registruje javni ključ i skida "
 "privatni ključ (.perm datoteka)"
 
-msgid "Keypair"
-msgstr "Par sigurnosnih ključeva"
-
 msgid "Kwapi"
 msgstr "Kwapi"
 
@@ -2937,9 +2931,6 @@ msgstr "Nije pronađen ni jedan host."
 
 msgid "No images available"
 msgstr "Nema dostupnih image-a"
-
-msgid "No images available."
-msgstr "Nema dostupnih image-a."
 
 msgid "No instances available"
 msgstr "Nema dostupnih instanci"
@@ -3517,9 +3508,6 @@ msgstr ""
 "Adresa(e) subnet(ova) udaljenih peer-ova sa maskom(ama) u CIDR formatu "
 "odvojenizarezom ako treba (npr. 20.1.0.0/24, 21,1,0,0/24)"
 
-msgid "Remove"
-msgstr "Ukloni"
-
 msgid "Remove Rule"
 msgstr "Ukinite pravilo"
 
@@ -4071,9 +4059,6 @@ msgstr "Početna adresa je veća od krajnje (vrednost=%s)"
 #, python-format
 msgid "Start and end addresses must be specified (value=%s)"
 msgstr "Početna i krajnja adresa moraju biti određene (vrednost=%s)"
-
-msgid "Started"
-msgstr "Pokrenuto"
 
 #, python-format
 msgid "Starting evacuation from %(current)s to %(target)s."
@@ -5428,9 +5413,6 @@ msgstr "Smestite objekat na sistem"
 msgid "Uploaded image size"
 msgstr "Veličina postavljenog otiska sadržaja diska"
 
-msgid "Url"
-msgstr "URL"
-
 msgid "Usage"
 msgstr "Iskorišćenje"
 
@@ -5669,9 +5651,6 @@ msgstr "Pridruženi volume-i"
 
 msgid "Weight"
 msgstr "Težina"
-
-msgid "Which keypair to use for authentication."
-msgstr "Koji par ključeva se koristi za proveru autentičnosti?"
 
 msgid ""
 "Within a container you can group your objects into pseudo-folders, which "

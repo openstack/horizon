@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-12-02 23:42+0000\n"
+"POT-Creation-Date: 2015-12-05 16:12+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -136,20 +136,9 @@ msgstr "خَتم"
 msgid " : Next hop"
 msgstr " :بیاکھ ہاپ"
 
-msgid " Done"
-msgstr "ختم"
-
 msgid ""
 "\"Customization Script\" is analogous to \"User Data\" in other systems."
 msgstr "\"Customization Script\" چُھ ہیوی \"User Data\" بآقی سِسٹم مَنز"
-
-#, python-format
-msgid "%(conf_name)s: %(conf_val)s"
-msgstr "%(conf_name)s: %(conf_val)s"
-
-#, python-format
-msgid "%(conf_name)s: %(conf_value)s"
-msgstr "%(conf_name)s: %(conf_value)s"
 
 #, python-format
 msgid "%(field_name)s: Invalid IP address (value=%(ip)s)"
@@ -160,16 +149,8 @@ msgid "%(field_name)s: Invalid IP address (value=%(network)s)"
 msgstr "%(field_name)s: نا واجِب IP ایڈریس (value=%(network)s)"
 
 #, python-format
-msgid "%(group)s:"
-msgstr "%(group)s:"
-
-#, python-format
 msgid "%(instance_name)s %(fixed_ip)s"
 msgstr "%(instance_name)s %(fixed_ip)s"
-
-#, python-format
-msgid "%(key)s: %(val)s"
-msgstr "%(key)s: %(val)s"
 
 #, python-format
 msgid "%(name)s - %(size)s GB (%(label)s)"
@@ -254,21 +235,8 @@ msgstr "-"
 msgid "--"
 msgstr "--"
 
-msgid "-- not selected --"
-msgstr "ژاریتھ نہ"
-
 msgid "3des"
 msgstr "۳des"
-
-msgid ""
-"<b>Important</b>:  The name that you give your job binary will be the name "
-"used in your job execution.\n"
-"  If your binary requires a particular name or extension (ie: \".jar\"), be "
-"sure to include it here."
-msgstr ""
-"<b>Important</b>: نآو  یُس توہیہ چھو دِتمُت جآب بینری ہیوی نآو ییہی اِستعمال "
-"کرنہ تُہندِ جآب ایکزیکیوشن خآطرہ\n"
-"اگر  ضرورت چُھ خاص نآو یا ایکسٹینشن(ie: \".jar\") یاد تھایو شآمِل کرون بینری"
 
 #, python-format
 msgid "<p>%(used)s of %(quota)s MB Used</p>"
@@ -513,9 +481,6 @@ msgstr "جمع رول نوہ کریو "
 msgid "Add New VPN Service"
 msgstr "جمع کئریونئوہ VPN  سئروِس"
 
-msgid "Add Node Group"
-msgstr "جمع کریو نوڈ گروپ"
-
 msgid "Add Policy"
 msgstr "جمع کئریئو پٲلیسی"
 
@@ -542,9 +507,6 @@ msgstr "جمع کئریو VIP"
 
 msgid "Add VPN Service"
 msgstr "جمع کئریو VPNسئروِس"
-
-msgid "Add custom tag"
-msgstr "جمع کریو قسٹم ٹیگ"
 
 msgid ""
 "Add hosts to this aggregate or remove hosts from it. Hosts can be in "
@@ -574,9 +536,6 @@ msgstr ""
 "نیومرِک وَزن تہ پورٹ نمبر ژارمِت میمبر خآطرہ کامہ  خآطرہ; e.g., 80. \n"
 "\n"
 "صِرف اَکھ پورٹ جوڈیتہ ہر اِنسٹنس خآطرہ"
-
-msgid "Add plugin tags"
-msgstr "جمع کریوپِلگ اِن ٹیگ"
 
 msgid "Add rule"
 msgstr "جمع کئریو رول"
@@ -765,9 +724,6 @@ msgstr ""
 "اَکھ نا اُمید غَلطی گئی ظاہر۔ کوشئش کئغریو فیج فریش کئرئون ۔ اگر اَمہٕ سیتھ مدد "
 "گئژہ نہٕ  رآبطہٕ کئریو تُہند لوکل اِنتِظامیہٕ"
 
-msgid "Anti-affinity enabled for"
-msgstr "اینٹی ایفِنیٹی چآلو کریتھ"
-
 msgid "Any"
 msgstr "کاہ تہ"
 
@@ -776,9 +732,6 @@ msgstr "کاہ دَستِیاب زون نٖہ"
 
 msgid "Architecture"
 msgstr "آرکیٹیکچر"
-
-msgid "Arguments"
-msgstr "آرگیومینٹ"
 
 msgid "Associate"
 msgstr "جوڈیو"
@@ -861,9 +814,6 @@ msgstr "آتھرئزیشن  ایلگورِتھم"
 msgid "Authorization mode"
 msgstr "آتھورئزیشن موڈ"
 
-msgid "Auto Security Group"
-msgstr "آٹو حِفاظتی گروپ"
-
 msgid "Automatic"
 msgstr "آٹومیٹِک"
 
@@ -937,9 +887,6 @@ msgstr "  بیک اَپ اوور ویو"
 msgid "Backups"
 msgstr "بیک اَپ"
 
-msgid "Base Image"
-msgstr "بیس شکل"
-
 msgid "Before"
 msgstr "گوڈے"
 
@@ -1011,9 +958,6 @@ msgstr " پآس وئرڈ تَبدیل کئرون خآطرہ چُھ نہٕ تعا
 msgid "Checksum"
 msgstr "چیک کریو سم"
 
-msgid "Choose"
-msgstr "ژارمِژ"
-
 msgid "Choose Your Boot Source Type."
 msgstr "ژاریئو تُہند بُٹ ضریعہٖ قِسم"
 
@@ -1030,23 +974,14 @@ msgstr ""
 "ژاریو اَکھ کی جورہ نآو توہیہ پریزنایو تہ پیسٹ کریو تُہندِسSSH عام کی مَنز یَتھ "
 "جٲے چھ"
 
-msgid "Choose a main binary"
-msgstr "ژاریو مین بینریہ"
-
 msgid "Choose a snapshot"
 msgstr "ژاریئو أکھ سِنیپ شآٹ"
-
-msgid "Choose a storage location"
-msgstr "ژاریو سِٹوریج جآے"
 
 msgid "Choose a volume"
 msgstr "ژاریئو أکھوالیوم"
 
 msgid "Choose an DHCP Agent to attach to."
 msgstr "ژاریئو اَکھ DHCP ایجینٹ جوڈنہٖ خآطرہ"
-
-msgid "Choose an existing file"
-msgstr "ژاریو اَکھ موجود فٲئل"
 
 msgid "Choose an image"
 msgstr "ژاریئو أکھ شکل"
@@ -1057,21 +992,12 @@ msgstr "ژإریئو جوڈیتھ QoS سِپیک"
 msgid "Choose consumer for this QoS Spec."
 msgstr "ژریئو کئنزیومر یَتھ QoS سِپیک خآطرہ"
 
-msgid "Choose libraries"
-msgstr "ژاریو لیبریری"
-
 msgid ""
 "Choose network from Available networks to Selected networks by push button "
 "or drag and drop, you may change NIC order by drag and drop as well. "
 msgstr ""
 " توہیہ ہیکو بدلاویتھNIC آرڈر ڈریگ تہ ڈراپ سیتھ اریو رول  دَستِیاب رولز مَنز "
 "ژارنہ خآطرہ رول پُش بَٹن سیتھ یا ڈریگ تھ ڈراپ، "
-
-msgid ""
-"Choose or create your main binary.  Additional libraries can be added from "
-"the \"Libs\" tab."
-msgstr ""
-"ژاریو اَکھ یا بَنایو بینری۔ مَزید لیبریری ہیکو جمع کریتھ ٹیبس\"Libs\"  پیٹھ"
 
 msgid ""
 "Choose rule(s) from Available Rules to Selected Rule by push button or drag "
@@ -1081,23 +1007,14 @@ msgstr ""
 "ژاریو رول  دَستِیاب رولز مَنز ژارنہ خآطرہ رول پُش بَٹن سیتھ یا ڈریگ تھ ڈراپ، \n"
 " توہیہ ہیکو بدلاویتھ آرڈر ڈریگ تہ ڈراپ سیتھ"
 
-msgid "Choose the binary which should be used in this Job."
-msgstr "ژاریو بینری یُس جآبس مَنز چُھ اِستعمال کرون"
-
 msgid "Choose the flavor to launch."
 msgstr "ژاریئو اَکھ فِلوئر لانچ خآطرہ"
 
 msgid "Choose the rule you want to remove."
 msgstr "ژاریو رول یُس توہیہ یَژہان چھو کڈون"
 
-msgid "Chosen Libraries"
-msgstr "ژارمِژ لیبریری"
-
 msgid "Cinder"
 msgstr "سِنڈر"
-
-msgid "Cinder volumes"
-msgstr "سِنڈر والیوم"
 
 msgid "Cipher"
 msgstr "سطپیہر"
@@ -1111,36 +1028,8 @@ msgstr "کِلک کئریو یَتینس کئنسول ہاونہٕ خآطرہ"
 msgid "Close"
 msgstr "بَند"
 
-msgid "Cluster"
-msgstr "کِلسٹر"
-
-msgid "Cluster Instances"
-msgstr "کِلسٹر اِنسٹنسِز"
-
 msgid "Cluster Name"
 msgstr "کِلسٹر نآو"
-
-msgid "Cluster Template"
-msgstr "کلسٹر ٹیمپلیٹ"
-
-msgid "Cluster Template Name"
-msgstr "ٹیمپلیٹ کِلسٹر نآو"
-
-#, python-format
-msgid "Cluster Template copy %s created"
-msgstr " کلسٹر ٹیمپلیٹ کاپی%s بَناویتھ"
-
-msgid "Cluster Templates"
-msgstr " ٹیمپلیٹ کِلسٹر"
-
-msgid "Cluster can be launched using existing Cluster Templates."
-msgstr "کلسٹر ٹیمپلیٹ کلسٹر ہیکو لانچ کریتھ اِستعمال کران"
-
-msgid "Cluster configurations are not specified"
-msgstr "  کئنفِگریشن کلسٹر وَضاحت کئریتھ نہ "
-
-msgid "Cluster template creation failed"
-msgstr "کلسٹر ٹیمپلیٹ بَناوُن نا کامیاب"
 
 msgid "Clusters"
 msgstr "کِلسٹر"
@@ -1163,23 +1052,8 @@ msgstr "کئمپیوٹ ہوسٹ"
 msgid "Compute Services"
 msgstr "کئمپیوٹ سئروِس"
 
-msgid "Configuration"
-msgstr "کئنفِگریشن"
-
 msgid "Configuration Drive"
 msgstr "کئنفِگریشن ڈریئو"
-
-msgid "Configure"
-msgstr "کنفِگر"
-
-msgid "Configure Cluster"
-msgstr "کنفِگر کِلسٹر"
-
-msgid "Configure Cluster Template"
-msgstr "کنفِگر کِلسٹر ٹیمپلیٹ"
-
-msgid "Configure Node Group Template"
-msgstr "کنفِیگر نوڈ گروپ ٹیمپلیٹ"
 
 msgid ""
 "Configure OpenStack to write metadata to a special configuration drive that "
@@ -1187,9 +1061,6 @@ msgid ""
 msgstr ""
 "کنفِیگر اوپن سِٹیک لیکھنہ خآطرہ میٹا ڈیٹا خاص کنفِیگریشن ڈریو یُس جوڈیو اِنسٹنس "
 "بڈت گژہنہ برونٹہ"
-
-msgid "Configure Template"
-msgstr "کنفِیگر ٹیمپلیٹ"
 
 msgid "Confirm Admin Password"
 msgstr "کئفعرم کئریو ایڈمِن پآس وئرڈ"
@@ -1284,25 +1155,13 @@ msgstr "کاپی آبجیکٹ  "
 msgid "Copy Object: %(object_name)s"
 msgstr "کاپی آبجیکٹ  : %(object_name)s"
 
-msgid "Copy Template"
-msgstr "کاپی  ٹیمپلیٹ"
-
 #, python-format
 msgid "Cores(Available: %(avail)s, Requested: %(req)s)"
 msgstr "Cores(Available: %(avail)s, Requested: %(req)s)"
 
-msgid "Could not create"
-msgstr "ہیکو نہ بَناویتھ"
-
-msgid "Could not create data source"
-msgstr "ہیکو نہ بَناویئھ ڈیٹا سورسبب"
-
 #, python-format
 msgid "Could not find default role \"%s\" in Keystone"
 msgstr "ہیکئو نہٕ ژہانڈیتھ ڈیفالٹ کئردار  \"%s\"کئی سِٹون"
-
-msgid "Could not launch job"
-msgstr "ہیکو نہ لانچ کریتھ جاب"
 
 #, python-format
 msgid "Couldn't get current security group list for instance %s."
@@ -1310,9 +1169,6 @@ msgstr "ہیکئو نہٕ اَنیتھ  حآلی حِفاظتی گروپ لِس�
 
 msgid "Couldn't get security group list."
 msgstr "ہیکئو نہٕ اَنیتھ حِفاظتی گروپ لِسٹ"
-
-msgid "Count"
-msgstr "گینتی"
 
 msgid "Create"
 msgstr "بَنایئو"
@@ -1327,14 +1183,8 @@ msgstr "بَنایئو اَکھ شکل"
 msgid "Create Backup"
 msgstr " بیک اَپ بَنایئو  "
 
-msgid "Create Cluster Template"
-msgstr "بَناومُت کلسٹر ٹیمپلیٹ"
-
 msgid "Create Container"
 msgstr "کنٹینر بَنایو"
-
-msgid "Create Data Source"
-msgstr "بَنایو ڈیٹا سورس "
 
 msgid "Create Domain"
 msgstr "بَنایئو ڈومین"
@@ -1391,9 +1241,6 @@ msgstr ""
 msgid "Create Image"
 msgstr "بَنایئو شکل"
 
-msgid "Create Job Binary"
-msgstr "بَنایئو جآب بینری"
-
 msgid "Create Key Pair"
 msgstr "کی جورہ بَنایو"
 
@@ -1402,9 +1249,6 @@ msgstr "بَنایئو نیٹ وئرک"
 
 msgid "Create Network (Quota exceeded)"
 msgstr "بَنایئو نیٹ وئرک (کئوٹا گئو زیادہ)"
-
-msgid "Create Node Group Template"
-msgstr " نوڈ گروپ ٹیمپلیٹ بَنایو"
 
 msgid "Create Port"
 msgstr "بَنایئو پورٹ"
@@ -1448,9 +1292,6 @@ msgstr "بَنایئو سب نیٹ"
 msgid "Create Subnet (Quota exceeded)"
 msgstr "بَنایئو سب نیٹ (کئوٹا چُھ زیادہ)"
 
-msgid "Create Template"
-msgstr "  ٹیمپلیٹ بَنایو "
-
 msgid "Create User"
 msgstr "بَنایئ یوزر"
 
@@ -1486,9 +1327,6 @@ msgstr "بَنایئو والیوم قِسم اینکریپشن"
 
 msgid "Create Volume Type Extra Spec"
 msgstr "بَنایئو والیوم قِسم علاوہ سِپیک"
-
-msgid "Create a Data Source with a specified name."
-msgstr "بَنایو ڈیٹا سورس خآص نآو سیتھ"
 
 msgid "Create a New Volume"
 msgstr "بَناوان  اَکھ نئوہ والیوم"
@@ -1557,9 +1395,6 @@ msgstr "بَنایئو اَکھ پآلیسی ژارمِت رولز سیتھ"
 msgid "Create a project to organize users."
 msgstr "بَنایو اَکھ پروجیکٹ یوزر آرگینیز کرنہ کآطرہ"
 
-msgid "Create a script to be uploaded dynamically"
-msgstr "بَنایئو اَکھ سِکریپٹ اَپلوڈ کئرنہ خآطرہ"
-
 msgid ""
 "Create a subnet associated with the network. Advanced configuration is "
 "available by clicking on the \"Subnet Details\" tab."
@@ -1577,12 +1412,6 @@ msgstr ""
 "بَنایو  اَکھ ٲپشنل یوزر \n"
 "یَمس یوزرس آسہ ایکسس سآرسی ڈیٹا بیس خآطرہ یَس توہیہ بَنایو"
 
-msgid "Create security group for this Node Group."
-msgstr "بَنایو  ِفاظتی گروپس   نوڈ گروپس مَنز"
-
-msgid "Create time"
-msgstr "بَنایو وَقت"
-
 msgid "Created"
 msgstr "بَناومُت"
 
@@ -1597,14 +1426,6 @@ msgstr "بَناومُت"
 msgctxt "Current status of a VPN Service"
 msgid "Created"
 msgstr "بَناومُت"
-
-#, python-format
-msgid "Created Cluster Template %s"
-msgstr "بَناومُت کلسٹر ٹیمپلیٹ %s"
-
-#, python-format
-msgid "Created Node Group Template %s"
-msgstr "بَناومُت  نوڈ گروپ ٹیمپلیٹ%s"
 
 #, python-format
 msgid "Created extra spec \"%s\"."
@@ -1736,34 +1557,6 @@ msgstr "DNSنٱو سئرور"
 
 msgid "Daily Usage Report"
 msgstr "دوہے یوسیج ریپورٹ"
-
-msgid "Data Processing"
-msgstr "ڈیٹا پروسیسِنگ"
-
-msgid "Data Processing Plugin Details"
-msgstr "ڈیٹآ پروسیسِنگ پِلگ اِن تَفصیل"
-
-msgid "Data Processing Plugins"
-msgstr "ڈیٹآ پروسیسِنگ پِلگ اِن"
-
-msgid "Data Processing internal database"
-msgstr "ڈیٹا پروسیسِنگ اِنٹرنل ڈیٹا بیس"
-
-msgid ""
-"Data Processing provides different storage location options. You may choose "
-"Ephemeral Drive or a Cinder Volume to be attached to instances."
-msgstr ""
-"ڈیٹا پروسیسِنگ چُھ دِوان اَلگ جآے ٲپشنز ۔ توہیہ ہیکو ژاریتھ یا اَکھ سِنڈر والیم "
-"اِنسٹنس جوڈنہ خآطرہ ایپحیمیرل ڈریو"
-
-msgid "Data Source Type"
-msgstr "ڈیٹا سورس قِسم"
-
-msgid "Data Sources"
-msgstr " ڈیٹا سورس "
-
-msgid "Data source created"
-msgstr "ڈیٹا سورس بَناومُت"
 
 msgid "Database"
 msgstr "ڈیٹا بیس"
@@ -2059,9 +1852,6 @@ msgstr ""
 msgid "Domains:"
 msgstr "ڈومینز:"
 
-msgid "Done"
-msgstr "خَتم"
-
 msgid "Down"
 msgstr "ڈاون"
 
@@ -2113,17 +1903,11 @@ msgstr "ڈوان لوڈ کئریوCSV  خَلاصہٖ"
 msgid "Download EC2 Credentials"
 msgstr " کریڈینشلEC2 ڈاون لڈ کریو"
 
-msgid "Download Job Binary"
-msgstr "ڈاون لوڈ جآب بینری"
-
 msgid "Download Key Pair"
 msgstr "ڈاون لوڈ کی جورہ"
 
 msgid "Download OpenStack RC File"
 msgstr "ڈاون لڈ کریو کھولیتھ سِٹیک فآیل RC "
-
-msgid "Download job binary"
-msgstr "ڈاونلوڈ جآب بینری"
 
 #, python-format
 msgid "Download key pair &quot;%(keypair_name)s&quot;"
@@ -2178,9 +1962,6 @@ msgstr "شیرئو IP سیک پآلیسی"
 msgid "Edit IPSec Site Connection"
 msgstr "شیرئوIP سیک سآئٹ کئنیکشن"
 
-msgid "Edit Image Tags"
-msgstr "شیریو شکل ٹیگس"
-
 msgid "Edit Instance"
 msgstr "شیریو   اِنسٹنسِز"
 
@@ -2231,9 +2012,6 @@ msgstr "شیریئو سِپیک "
 
 msgid "Edit Subnet"
 msgstr "شیریئو  سب نیٹ"
-
-msgid "Edit Tags"
-msgstr "شیریو ٹیگس"
 
 msgid "Edit Template"
 msgstr "شیریئو ٹیمپلیٹ"
@@ -2328,15 +2106,6 @@ msgstr ""
 "داخِل کریو اَکھ اینٹیجر ویلیو ۱ تھ ۶۵۵۳۵ مَنر ۔ ہیوی پورٹ یہی اِستعمال  کئرنہ "
 "سآرنی ژارمِت کرنہ سآرنی ژارمِت میمبرس خآطرہ تہ ہیکہ شیریتہ پ پَتہ"
 
-msgid "Enter any custom configuration required for your job's execution."
-msgstr "داخِل کریو قسٹم کئنفِگریشن ضرورت چھ جآب ایکزیکیوشن  خآطرہ"
-
-msgid "Enter the URL for the file"
-msgstr "داخِل کریو فٲئل ہُندURL"
-
-msgid "Enter the username and password required to access that file"
-msgstr "داخِل کئریو یوزر نآو تہ پآس ورڈ فٲئل ایکسس خآطرہ"
-
 msgid "Environment Data"
 msgstr "مٲحول  ڈیٹا"
 
@@ -2351,9 +2120,6 @@ msgstr "ایپحیمئرل ڈِسک"
 
 msgid "Ephemeral Disk (GB)"
 msgstr "ایپحیمئرل ڈِسک (GB)"
-
-msgid "Ephemeral drive"
-msgstr "ایپہیمیرل ڈریو"
 
 msgid "Equal to or greater than 60"
 msgstr "برابر یا زیادہ ۶۰ خوتہٕ"
@@ -2418,9 +2184,6 @@ msgstr "غَلطی"
 
 msgid "Error Deleting"
 msgstr "غَلطی مِٹاونہٖ وَقتہٕ"
-
-msgid "Error Details"
-msgstr "غَلطی تَفصیل"
 
 #, python-format
 msgid "Error Downloading RC File: %s"
@@ -2599,12 +2362,6 @@ msgstr "ناکامیاب ہوسٹ خآلی کئرنہِ  خآطرہ : %s."
 msgid "Failed to evacuate instances: %s"
 msgstr "نا کامیاب اِنسٹئنس خآلی کئرنہٕ خٲطرہ: %s"
 
-msgid "Failed to fetch internal binary list"
-msgstr "ناکامیاب بینری اِنٹرنل لِسٹ اَنہ خآطرہ"
-
-msgid "Failed to get list of internal binaries."
-msgstr "ناکامیاب بینری اِنٹرنل لِسٹ اَنہ خآطرہ"
-
 #, python-format
 msgid "Failed to get network list %s"
 msgstr "ناکامیاب نیٹ وئرک لِسٹ اَنہٕ خآطرہ %s"
@@ -2701,9 +2458,6 @@ msgstr " نآکآمیاب  فٲیر وال اَپڈیٹ کئرنئ خٲطرہ %(
 #, python-format
 msgid "Failed to update health monitor %s"
 msgstr "ناکامیاب صحت مآنیٹر اَپڈیٹ کئرنہٖ خآطرہ  %s"
-
-msgid "Failed to update image."
-msgstr "ناکامیاب شکل اَپڈیٹ کرَنہ خآطرہ"
 
 #, python-format
 msgid "Failed to update member %s"
@@ -2815,9 +2569,6 @@ msgstr "فِلیوئر تَفصیل"
 msgid "Flavor Name"
 msgstr "فلیوئر نآو"
 
-msgid "Flavor is not specified"
-msgstr "فِلیور وَضاحت کئریتھ نہ "
-
 msgid "Flavors"
 msgstr "فلیورس"
 
@@ -2831,34 +2582,15 @@ msgstr ""
 msgid "Floating IP"
 msgstr "فلوٹینگ IP"
 
-msgid "Floating IP Pool"
-msgstr "فلوٹینگ IPپول"
-
 msgid "Floating IPs"
 msgstr "فِلوٹینگ IPs"
 
 msgid "Folder created successfully."
 msgstr "فولڈر آو کامیابی سآن بَناونہ"
 
-msgid ""
-"For Data Processing internal job binaries, you may choose from the following:"
-msgstr "ڈیٹا پروسیسِنگ اِنٹرنل جآب بینریز، توہیہ پئزیو ژارثُن یَمہ مَنز"
-
 #, python-format
 msgid "For GRE networks, valid tunnel IDs are %(min)s through %(max)s."
 msgstr "VLAN networks, valid VLAN IDs چُھ %(min)s through %(max)sخآطرہ"
-
-msgid ""
-"For MapReduce or Java Action jobs, \"mains\" are not applicable.  You are "
-"required to add one\n"
-"  or more \"libs\" for these jobs."
-msgstr ""
-"میپ کم یا جاوا ایکضن جٲبس،  \"mains\" چُھ نہ ضَروری۔ توہیہ چھو ضروری جمع "
-"کروناَکھ \n"
-"یا زیادہ جآبس \"libs\" خآطرہ"
-
-msgid "For Object Store job binaries, you must:"
-msgstr "جآب بینری  آبجیکٹ سِٹور خآطرہ توہیہ پَئزیو"
 
 msgid ""
 "For TCP and UDP rules you may choose to open either a single port or a range "
@@ -2944,9 +2676,6 @@ msgstr "گیٹ وے IP تہ  IPوئرجن چُھ  مُستئکِل "
 msgid "Gateway interface is added"
 msgstr "گیٹ وے اینٹر فیس چُھ جمع کئریتھ"
 
-msgid "General Info"
-msgstr "عام اِطلاع"
-
 msgid "Glance"
 msgstr "أکھ نظر"
 
@@ -2992,9 +2721,6 @@ msgstr ""
 msgid "HA mode"
 msgstr "HA موڈ"
 
-msgid "HDFS placement"
-msgstr "پِلیسمینٹ HDFS"
-
 msgid "HTTP"
 msgstr "HTTP "
 
@@ -3020,14 +2746,8 @@ msgstr "ہیلتھ مآنیٹر  %s گئو کامیابی سآن اَپڈیٹ"
 msgid "Help"
 msgstr "مدد"
 
-msgid "Hide full configuration"
-msgstr "کھٹیو پورہ  کنفِگریشن"
-
 msgid "High Availability Mode"
 msgstr "تھود دَستِیاب موڈس مَنز"
-
-msgid "Hive"
-msgstr "ہآیو"
 
 msgid "Home"
 msgstr "ہوم"
@@ -3258,17 +2978,6 @@ msgstr "شکل نآو"
 msgid "Image Name ="
 msgstr "شکل نآو ="
 
-msgid "Image Registry"
-msgstr "شکل ریجسٹری"
-
-msgid ""
-"Image Registry is used to provide additional information about images for "
-"Data Processing."
-msgstr "شکل ریجسٹری چھ اِستعمال  یوان کرنہ مَزید اِطلاع شکل مُطلِ  ڈیٹا پروسیسِنگ"
-
-msgid "Image Registry tool:"
-msgstr "شکل ریجسٹری آلہ"
-
 msgid "Image Source"
 msgstr "شکل سورس"
 
@@ -3351,12 +3060,6 @@ msgstr "اِنجیکٹِڈ فآئل پآتھ بئٹس"
 msgid "Injected Files"
 msgstr "اِنجیکٹِڈ فآئل"
 
-msgid "Input"
-msgstr "اِن پُٹ"
-
-msgid "Input Data Source"
-msgstr "اِن  پُٹ ڈیٹا سورس"
-
 msgid "Input must be in CIDR format"
 msgstr "اِنپُٹ گئژہ آسون CIDR فارمیٹس ۄمَنز"
 
@@ -3411,9 +3114,6 @@ msgstr " اِنسٹنس یِم جوڈیتھ چھ"
 msgid "Instances"
 msgstr "اِنسٹئنسِز"
 
-msgid "Instances Count"
-msgstr "اِنسٹنسِز گنتی"
-
 msgid "Insufficient privilege level to view domain information."
 msgstr "نا کافی پریویلی لیول ڈومین اِطلاع وِچھنہٕ خآطرہ"
 
@@ -3435,14 +3135,8 @@ msgstr "اینٹر فیس  جمع کئریتھ"
 msgid "Interfaces"
 msgstr "اِنٹر فیس"
 
-msgid "Internal IP"
-msgstr "اِنٹرنل IP"
-
 msgid "Internal Interface"
 msgstr " اینٹر فیس نیبرُم"
-
-msgid "Internal binary"
-msgstr "بینری اِنٹرنل"
 
 msgid "Invalid date format: Using today as default."
 msgstr "نا واجِب تآریخ فارمیٹ : اِستعمال اَز ڈیفالٹ پئٹھ"
@@ -3458,45 +3152,6 @@ msgstr "ناقابِل وَقتُک پیرڈ ۔ توہِیہٕ چھو  دَخو�
 
 msgid "Items Per Page"
 msgstr " آئٹمز فئی صفحس پئٹھ"
-
-msgid "Java Action"
-msgstr "جآواآیکشن"
-
-msgid "Java Opts"
-msgstr "جآوا ٲپٹس"
-
-msgid "Job"
-msgstr "جآب"
-
-msgid "Job Binaries"
-msgstr "جآب بینری"
-
-msgid "Job Configuration"
-msgstr "جآب کنفِگریشن"
-
-msgid "Job Execution ID"
-msgstr "جآب ایکزیکوشن ID"
-
-msgid "Job Type"
-msgstr "جآب قِسم"
-
-msgid "Job args"
-msgstr "جب آرگس"
-
-msgid "Job configs"
-msgstr "جآب کنفِگس"
-
-msgid "Job created"
-msgstr "جآب بَناویتھ"
-
-msgid "Job launched"
-msgstr "لانچ کور جاب"
-
-msgid "Job params"
-msgstr "جآب پیرمز"
-
-msgid "Jobs"
-msgstr " جآب"
 
 msgid "Kernel ID"
 msgstr "ID کرنل"
@@ -3541,9 +3196,6 @@ msgstr ""
 
 msgid "Key-Value Pairs"
 msgstr "کئی -ویلیو جورہ"
-
-msgid "Keypair"
-msgstr "کی جورہ"
 
 msgid "Kwapi"
 msgstr "کواپی"
@@ -3597,12 +3249,6 @@ msgstr "لانچ اِنسٹنس"
 msgid "Launch Instance (Quota exceeded)"
 msgstr "لانچ کئریو اِنسٹئنسِز (کئوٹا گئو زیادہ)"
 
-msgid "Launch On Existing Cluster"
-msgstr "لآنچ  کئریو حآلی کِلسٹر پیٹھ"
-
-msgid "Launch On New Cluster"
-msgstr "لآنچ  کئریو نوہ کِلسٹر"
-
 msgid "Launch Parameters"
 msgstr "پیرامیٹر کئریو لانچ"
 
@@ -3621,12 +3267,6 @@ msgstr "لانچ کریتھ اِنسٹنس یَمہ نیٹ ورک خآطرہ"
 msgid "Launch instance with this policy profile"
 msgstr "لانچ کریو اِنسٹنس یَتھ پآلیسی پروفآیل سیتھ"
 
-msgid "Launch instances in these security groups."
-msgstr "لانچ  اِنسٹنسِز یِمن حِفاظتی گروپس مَنز"
-
-msgid "Launch instances in this availability zone."
-msgstr "لانچ  اِنسٹنسِز یِمن حِفاظتی گروپس مَنز"
-
 #, python-format
 msgid "Launched %(count)s named \"%(name)s\"."
 msgstr "لٲنچڈ %(count)s named \"%(name)s\". "
@@ -3638,9 +3278,6 @@ msgstr "لانچینگ ملٹیپل اِنسٹنسِز چُھ تعاوُن شک�
 
 msgid "Length of Injected File Path"
 msgstr "زیچھر  اِنجیکٹِڈ فآئل پآتھ"
-
-msgid "Libs"
-msgstr "لیبس"
 
 msgid "Lifetime Units"
 msgstr "لآئف ٹآئم یونِٹس"
@@ -3715,12 +3352,6 @@ msgstr "MB"
 msgid "MTU"
 msgstr "MTU"
 
-msgid "Main Class"
-msgstr "مین کِلاس"
-
-msgid "Mains"
-msgstr "مینز"
-
 msgid "Make Private"
 msgstr "زآتی بَنایو"
 
@@ -3768,20 +3399,11 @@ msgstr "مینیج کئریو سِپیکس"
 msgid "Manage Volume Attachments"
 msgstr "مینیج کئریو والیوم ایٹیچمینٹ"
 
-msgid "Management IP"
-msgstr "مینیجمینٹ IP"
-
 msgid "Manual"
 msgstr "مینول"
 
-msgid "MapReduce"
-msgstr "نَقشہ کم"
-
 msgid "Mapped Fixed IP Address"
 msgstr "میپڈ فیکسIP نیب"
-
-msgid "Mapper"
-msgstr "میپر"
 
 msgid "Max Retries"
 msgstr "زیادہ خوتہٕ زیادہ کوشئش"
@@ -3964,10 +3586,6 @@ msgstr "تعداد سِٹیک بَناونُک"
 msgid "Name: %(name)s ID: %(uuid)s"
 msgstr "Name: %(name)s ID: %(uuid)s"
 
-#, python-format
-msgid "Name: %(node_group_name)s"
-msgstr "نآو: %(node_group_name)s"
-
 msgid "Network"
 msgstr "نیٹ ورک"
 
@@ -4041,9 +3659,6 @@ msgstr " نیٹ وئرک"
 msgid "Neutron"
 msgstr "نیوران"
 
-msgid "Neutron Management Network"
-msgstr "نیوٹران مینیجمینٹ نیٹ ورک"
-
 msgid "Never"
 msgstr "زہین نہٕ "
 
@@ -4086,20 +3701,11 @@ msgstr "کاہ ہوسٹ آو نہٕ  ژارنہٕ"
 msgid "No Hosts found."
 msgstr "کاہ ہوسٹ آو نہٕ ژہانڈنہٖ"
 
-msgid "No Images Available"
-msgstr " دَستِیاب کاہ شکل نہ "
-
 msgid "No Session Persistence"
 msgstr "کاہ سیشن چُھنہٖ جآری"
 
-msgid "No Templates Available"
-msgstr "کاہ ٹیمپلیٹ چُھ نہ  دَستِیاب"
-
 msgid "No attached device"
 msgstr "کاہ جوڈیتھ آلہٕ نہٖ"
-
-msgid "No availability zone specified"
-msgstr "کاہ تہ دَستِیاب زون چھ نہ  وَضاحت کئریتھ"
 
 msgid "No availability zones found"
 msgstr "کاہ دَستِیاب زون آیئہٕ نہٕ لَبنہٕ"
@@ -4112,9 +3718,6 @@ msgstr "کاھ دَستِیاب تِفسیل نِہ"
 
 msgid "No backups available"
 msgstr "کاہ بیک اَپ چُھ نہ  دَستِیاب"
-
-msgid "No configurations"
-msgstr "  کئنفِگریشن نہ"
 
 msgid "No flavors available"
 msgstr "کاہ فِلیوئر چُھنہٕ دَستِیاب"
@@ -4143,17 +3746,11 @@ msgstr "کاہ ہوسٹ آو نہٕ ژہانڈنہٖ"
 msgid "No images available"
 msgstr "کاہ شَکل چھ نہ دَستِیاب"
 
-msgid "No images available."
-msgstr "کاہ شکل چھ نہ  دَستِیاب"
-
 msgid "No instances available"
 msgstr "کاہ اِنسٹنس چُھ نہ دَستِیاب"
 
 msgid "No key pairs available"
 msgstr "کاہ کئی جورہ چھ نئ دَستِیاب"
-
-msgid "No keypair"
-msgstr "کی جورہ نہ"
 
 msgid "No networks available"
 msgstr "کاہ نیٹ وئرک چُھ نہٕ دَستِیاب"
@@ -4228,38 +3825,6 @@ msgstr "کاہ والیوم جوڈیتھ چُھنہٕ"
 msgid "No volumes available"
 msgstr "کاہ والیوم چُھنہٕ دَستِیاب"
 
-msgid "Node Configurations"
-msgstr "نوڈ   کئنفِگریشن"
-
-#, python-format
-msgid "Node Group Template copy %s created"
-msgstr "نوڈ گروپ ٹیمپلیٹ کاپی %s بَناومِت"
-
-msgid "Node Group Templates"
-msgstr "نوڈ گروپ ٹیمپلیٹ"
-
-#, python-format
-msgid "Node Group: %(node_group_name)s"
-msgstr "نوڈ گروپ: %(node_group_name)s"
-
-msgid "Node Groups"
-msgstr "نوڈ گروپس"
-
-msgid "Node Processes"
-msgstr "نوڈ پراسیس "
-
-msgid "Node configurations are not specified"
-msgstr "نوڈ کئنفِگریشن چُھ نہ وَضاحت کئریتھ  "
-
-msgid "Node group cluster"
-msgstr "نوڈ گروپ کلیسٹر"
-
-msgid "Node processes are not specified"
-msgstr "نوڈ پراسیس چُھ نہ وَضاحت کئریتھ "
-
-msgid "Nodes Count"
-msgstr "نوڈ گنتی"
-
 msgid "Non-Members"
 msgstr "نآن -میمبرس"
 
@@ -4303,9 +3868,6 @@ msgstr "تعداد API  درخواست ہُند سویفٹ خِلاف"
 
 msgid "Number of Instances"
 msgstr "تعداد اِنسٹئنس ہُند۱"
-
-msgid "Number of Nodes"
-msgstr "نوڈس ہُند تعداد"
 
 msgid "Number of Snapshots"
 msgstr "تعداد سِنیپ شآٹس  ہُند"
@@ -4393,17 +3955,11 @@ msgstr "پُرئون  فِلیوئر"
 msgid "On Demand"
 msgstr "ڈیمانڈ پئٹھ "
 
-msgid "Oozie Job ID"
-msgstr "اووزی جآبID"
-
 msgid "Open Port"
 msgstr "کھولیو پورٹ"
 
 msgid "Open Port/Port Range:"
 msgstr "کھولیو پورٹ / پورٹ رینج"
-
-msgid "OpenStack Flavor"
-msgstr "کھولیتھ سِٹیک فِلیور"
 
 msgid "Optional Backup Description"
 msgstr "آپشنل تَفصیل  بیک اَپ"
@@ -4428,12 +3984,6 @@ msgstr "بیاکھ"
 
 msgid "Other Protocol"
 msgstr "بآقی پروٹوکال"
-
-msgid "Output"
-msgstr "آوٹ پُٹ"
-
-msgid "Output Data Source"
-msgstr "ٲوٹ پُٹ ڈیٹا سورس"
 
 msgid "Outputs"
 msgstr "آوٹ پُٹ"
@@ -4518,17 +4068,11 @@ msgstr "پیرڈ"
 msgid "Permit"
 msgstr "اِجازت"
 
-msgid "Persist cluster after job exit"
-msgstr "جآب مَنز نیرنہ پَتہ کلسٹر تھایو  "
-
 msgid "Physical Network"
 msgstr "فیزیکل نیٹ وئرک"
 
 msgid "Physical Network:"
 msgstr "فیزیکل نیٹوئرک"
-
-msgid "Pig"
-msgstr "پیگ"
 
 msgid "Please choose a HTTP method"
 msgstr "مہربآنی کئریتھ ژاریو اَکھ HTTP طَریقہٕ"
@@ -4553,18 +4097,6 @@ msgstr "مہربآنی کئریتھ وَضاحت کئریو اَکھ URL"
 #, python-format
 msgid "Please try again later [Error: %s]."
 msgstr "مہربآنی کریتھ کوشیش کریو دوبارہ [Error: %s]."
-
-msgid "Plugin"
-msgstr " پِلگ اِن "
-
-msgid "Plugin Name"
-msgstr "پِلگ اِن نآو"
-
-msgid "Plugin name"
-msgstr " پِلگ اِن نآو"
-
-msgid "Plugins"
-msgstr "پِلگ اِن"
 
 msgid "Policies"
 msgstr "پآلیسیز"
@@ -4819,18 +4351,8 @@ msgstr " پآس ورڈ دوبآرہ بَناوُن"
 msgid "Rebuilding instance %s."
 msgstr "Rebuilding instance %s."
 
-msgid "Reducer"
-msgstr "کم کرن ویول "
-
 msgid "Regions:"
 msgstr "علاقہٕ:"
-
-msgid "Register Image"
-msgstr "رجیسٹر  شکلہ"
-
-msgid ""
-"Register tags required for the Plugin with specified Data Processing Version"
-msgstr "ریجِسٹر کریو ٹیغس ضرورت چھ کآص ڈیٹا پروسیسِنگ ورجن خآطرہ"
 
 msgid "Relative part of requests this pool member serves compared to others"
 msgstr "ریلیٹیو حِصہ دَرخاست ہُند یہ پول میمبر کرہ بآقی لوکن ہِنز خِدمت"
@@ -4843,12 +4365,6 @@ msgstr ""
 "ریلیٹیو حِصہ دَرخواست ہُند یہ پول میمبر کرہ بآقی لوکن ہِنز خِدمت \n"
 "ہوی وَزن یہی لاگو کرنہ سآرنی میمبرس خآطرہ تہ یہی ضیرنہ پَتہ ۔ وَزن گژہ ٲسون ۱ "
 "پیٹہ ۲۵۶ تآن"
-
-msgid "Relaunch On Existing Cluster"
-msgstr "دوبآرہ کریہو لانچ حآلی کِلسٹر"
-
-msgid "Relaunch On New Cluster"
-msgstr "دوبآرہ کریہو لانچ نوہ کِلسٹر "
 
 msgid "Reload"
 msgstr "ریلوڈ"
@@ -4871,9 +4387,6 @@ msgstr ""
 
 msgid "Remote:"
 msgstr "دور"
-
-msgid "Remove"
-msgstr "کڈیو"
 
 msgid "Remove Rule"
 msgstr "کئڈئو رول"
@@ -4955,9 +4468,6 @@ msgstr "واپس کئریو اِنسٹئنس پآسوئرڈ"
 
 msgid "Retrieve Password"
 msgstr "واپس اَنیو پآس ورڈ"
-
-msgid "Return Code"
-msgstr "واپس کوڈ"
 
 msgid "Revert Resize/Migrate"
 msgstr "واپس تَبدیل کئریو ریسآئز /مئگریٹ"
@@ -5092,18 +4602,6 @@ msgstr "مَحفوظ علاوہ  سِپیک \"%s\""
 msgid "Saved spec \"%s\"."
 msgstr "مَحفوظ سِپیک  \"%s\""
 
-msgid "Scale"
-msgstr "سِکیل  "
-
-msgid "Scale Cluster"
-msgstr "سِکیل کِلسٹر"
-
-msgid "Scale cluster operation failed"
-msgstr "سِکیل کِلسٹر آپریشن ناکامیاب "
-
-msgid "Scaled cluster successfully started."
-msgstr "سِکیل کِلسٹر کامیاب شُروع "
-
 #, python-format
 msgid "Scheduled backup \"%(name)s\"."
 msgstr "سِکیڈیولڈ  بیک اَپ\"%(name)s\""
@@ -5121,12 +4619,6 @@ msgstr "سِکریپٹ ڈیٹا"
 
 msgid "Script File"
 msgstr "سِکریپٹ فٲئل"
-
-msgid "Script name"
-msgstr "سِکریپٹ نآو"
-
-msgid "Script text"
-msgstr "سِکریپٹ مواد"
 
 msgid "Security Group"
 msgstr "حِفآظتی گروپ"
@@ -5197,9 +4689,6 @@ msgstr "ژاریو اَکھ مانیٹر"
 msgid "Select a New Flavor"
 msgstr "ژاریئو اَکھ نئوہ فِلوئر"
 
-msgid "Select a Node Group Template to add:"
-msgstr "ژاریونوڈ گروپ ٹیمپلیٹ  جمع خآطرہ"
-
 msgid "Select a Policy"
 msgstr "ژاریئو اَکھ پآلیسی"
 
@@ -5240,12 +4729,6 @@ msgstr "ژاریئو اَکھ نئوہ ہوسٹ"
 
 msgid "Select a new template to re-launch a stack."
 msgstr "ژاریئو أکھ نئوہ ٹیمپلیٹ سِٹیک   ریلانچ کئرنہٕ خآطرہ"
-
-msgid "Select a plugin and version for a new Cluster template."
-msgstr "ژاریو اَکھ پِلگ اِن تہ ورجن  کلسٹر ٹیمپلیٹ خآطرہ"
-
-msgid "Select a plugin and version for a new Cluster."
-msgstr "ژاریو اَکھ پِلگ اِن تہ ورجن نوہ  کلسٹر  خآطرہ"
 
 msgid "Select a port"
 msgstr "ژاریو اَکھ پورٹ"
@@ -5301,18 +4784,6 @@ msgstr " تُہند اِنسٹنسِز خآطرہ ژاریئو نیٹ ورک "
 msgid "Select parent backup"
 msgstr "ژاریئو پیرنٹ بیک اَپ"
 
-msgid "Select plugin and hadoop version"
-msgstr "ژاریئو پِلگ اِن تہ ہیڈوپ ورجن"
-
-msgid "Select plugin and hadoop version for cluster"
-msgstr "ژاریو اَکھ پِلگ اِن تہ ہیڈوپ  کلسٹرخآطرہ "
-
-msgid "Select plugin and hadoop version for cluster template"
-msgstr "ژاریو اَکھ پِلگ اِن تہ ہیڈوپ  کلسٹر ٹیمپلیٹ خآطرہ"
-
-msgid "Select property name"
-msgstr "ژاریئو پراپرٹی نآو"
-
 msgid "Select rules for your policy."
 msgstr "ژاریئو رولز تُہندہ پآلیسی خٲطرہ"
 
@@ -5328,15 +4799,6 @@ msgid ""
 msgstr ""
 "ژاریئو پروجیکٹس یَتینئس فِلیوئرس گئژہن اِستعمال۔ اگر کاہ  پروجیکٹس   آسہٕ نہٕ "
 "ژاریتھ، تیلہٕ فِلیوئر آسہٕ دَستِیاب سآرنی پروجیکٹس مَنز"
-
-msgid "Select the storage type for your job binary."
-msgstr "ژاریئو سِٹوریج قِسم تُہندِ کیم بینیری"
-
-msgid "Select the type of your Data Source."
-msgstr "ژاریو قِسم تُہندِ ڈیٹا سورس خآطرٖہ"
-
-msgid "Select the type of your job:"
-msgstr "ژاریئوقسم کام ہُند "
 
 msgid "Selected Hosts"
 msgstr "ژاریمیت ہوسٹ"
@@ -5358,9 +4820,6 @@ msgstr "سٗرور غَلطی"
 
 msgid "Service"
 msgstr "سئروِس"
-
-msgid "Service Configurations"
-msgstr "سروِس کنفِگریشن"
 
 msgid "Service Endpoint"
 msgstr " آخری پآنٹ سروِس "
@@ -5403,9 +4862,6 @@ msgstr "بئگراویتھ ہوسٹ"
 
 msgid "Shared with Me"
 msgstr "بئگرایئو میہ سیتھ"
-
-msgid "Show full configuration"
-msgstr "ہایو پورہ  کنفِگریشن"
 
 msgid "Sign Out"
 msgstr "سآئن آوٹ"
@@ -5486,30 +4942,14 @@ msgstr "سورس پورٹ"
 msgid "Source Port/Port Range"
 msgstr "سورس پورٹ /پورٹ رینج"
 
-msgid "Source password"
-msgstr " سورس پآس ورڈ"
-
 msgid "Source port (integer in [1, 65535] or range in a:b)"
 msgstr "سورس پورٹ (اِنٹیجر  [1, 65535] or range in a:b)"
-
-msgid "Source username"
-msgstr "سورس یوزر نآو"
 
 msgid "Source:"
 msgstr "ضریعہٕ :"
 
-msgid "Spark"
-msgstr "سِپآرک"
-
 msgid "Spec"
 msgstr "سِپیک"
-
-msgid ""
-"Specified User Name will be used by Data Processing to apply configs and "
-"manage processes on instances."
-msgstr ""
-" وَضاحت کریتھ یوزر نٲو گژہ اِستعمال ڈیٹا پروسیسِنگ لاگو کرنہ خآطرہ کنفِگ تہ "
-"مینیج کریو پراسیسز اِنسٹنسِز پیٹھ"
 
 msgid ""
 "Specifies how IPv6 addresses and additional information are configured. We "
@@ -5640,15 +5080,6 @@ msgstr "سِٹیٹس="
 msgid "Status Reason"
 msgstr "سِٹیٹس وَجہٕ"
 
-msgid "Storage location"
-msgstr "سِٹوریج جآے"
-
-msgid "Storage type"
-msgstr "سِٹوریج قِسم"
-
-msgid "Streaming MapReduce"
-msgstr "سِٹریم کران نَقشہ کم کرون"
-
 msgid "Subnet"
 msgstr "سب  نیٹ"
 
@@ -5759,9 +5190,6 @@ msgstr "کامیابی سآن   اَپبڈیٹ  کئریو کئنٹینر ایک
 msgid "Successfully updated container access to public."
 msgstr "کامیابی سآن   اَپبڈیٹ  کئریوکئنٹینر ایکسئس عوام  خآطرہ"
 
-msgid "Successfully updated image."
-msgstr "کامیابی سآن   اَپبڈیٹ  کئریوشکل"
-
 #, python-format
 msgid "Successfully updated security group: %s"
 msgstr "کامیابی سآن   اَپڈیٹ    کئریو  حِفاظتئی گروپ : %s"
@@ -5776,9 +5204,6 @@ msgstr "کامیابی سآن اَپڈیٹ کئریو وایوم سِٹیٹس \"
 
 msgid "Sum."
 msgstr "کُل"
-
-msgid "Supported Versions"
-msgstr "تعاوُن ورجن"
 
 msgctxt "Current status of an Instance"
 msgid "Suspended"
@@ -5809,20 +5234,6 @@ msgstr "سیسٹم اِطلاع"
 msgid "TCP"
 msgstr "TCP"
 
-msgid "Tags"
-msgstr "ٹیگس"
-
-msgid ""
-"Tags are used for filtering images suitable for each plugin and each Data "
-"Processing version.\n"
-"        To add required tags, select a plugin and a Data Processing version "
-"and click &quot;Add plugin tags&quot; button."
-msgstr ""
-"ٹیگس چہ اِستعمال یوان کرنہ فِلٹر کرنہ خآطرہ شکل یُس قابِل آسہ ہر پِلگ اِن  خآطرہ "
-"تہ ہر ڈیٹا پروسیسِنگ ورجن خآطرہ\n"
-"جمع کرنہ خآطرہ ضروری ٹیگس، ژاریو پِلگ اِن تہ ڈیٹا پروسیسِنگ تہ کوٹ؛بَٹن  ورجن تہ "
-"کِلک کریو تہ کوٹ؛جمع  پِلگ اِن ٹیگس"
-
 msgid "Target Host"
 msgstr "نِشآن دہ ہوسٹ"
 
@@ -5838,17 +5249,11 @@ msgstr "ٹیمپلیٹ ڈیٹا"
 msgid "Template File"
 msgstr "ٹیمپلیٹ فآئل"
 
-msgid "Template Name"
-msgstr " نآو ٹیمپلیٹ"
-
 msgid "Template Source"
 msgstr "ٹیمپلیٹ ضریعہٕ"
 
 msgid "Template URL"
 msgstr "ٹیمپلیٹ URL"
-
-msgid "Template not specified"
-msgstr " ٹیمپلیٹ  نہ وَضاحت کئرتھ "
 
 msgid "The \"from\" port number is invalid."
 msgstr "پورٹ نمبر  چُھ نہ واجِب  \"from\" "
@@ -5901,31 +5306,6 @@ msgstr ""
 
 msgid "The Aggregate was updated."
 msgstr " ایگریگیٹ آو اَپڈیٹ کئرنہٕ"
-
-msgid ""
-"The Cluster Template object may specify a list of processes in anti-affinity "
-"group.\n"
-"    That means these processes may not be launched more than once on a "
-"single host."
-msgstr ""
-"کِلسٹر ٹیمپلیٹ ٲبجیکٹ کرہ وَضاحت کریتہ اَکھ  ِسٹ پروسیس خآطرہ اینٹی ایفینیٹی "
-"غروپ خآطرہ۔ \n"
-"اَمُک مَطلب گو پراسیس چُھنہ لانچ اَکھ خوتہ زیادہ ہوسٹ خآطرہ"
-
-msgid ""
-"The Cluster Template object should specify Node Group Templates that will be "
-"used to build a Cluster.\n"
-"    You can add Node Groups using Node Group Templates on a &quot;Node "
-"Groups&quot; tab."
-msgstr ""
-"کِلسٹر ٹیمپلیٹ ٲبجیکٹ کرہ وَضاحت کریتہ اَکھ نوڈ گروپس  خآطرہ گروپ خآطرہ۔ \n"
-"توہیہ ہیکیو جمع کریتھ نوڈ گروپس  خآطرہ اِستعمال  کریتھ  نوڈ گروپس ٹیمپلیٹ کوٹ "
-"پیٹھ؛  نوڈ گروپس  تہ کوٹ ؛ ٹیب"
-
-msgid ""
-"The Cluster object should specify OpenStack Image to boot instances for "
-"Cluster."
-msgstr "کِلسٹر آبجیکٹ گژہ واضح کرون کھولیتھ سِٹیک  شکل اِسٹنسِز بوٹ کِلسٹر خآطرہ"
 
 msgid "The ICMP code is invalid."
 msgstr "کوڈ چُھ نہ واجِب  ICMP "
@@ -6140,15 +5520,6 @@ msgstr ""
 msgid "There was a problem parsing the %(prefix)s: %(error)s"
 msgstr "اَکھ مُشکِل گئی دَرپیش پٲرسِنگ  وَقتئ  %(prefix)s: %(error)s"
 
-msgid "This Cluster Template will be created for:"
-msgstr "یہ کلسٹر ٹیمپلیٹ بَناونہ  خآطرہ"
-
-msgid "This Cluster will be started with:"
-msgstr "کِلسٹر گژہ  چآلو"
-
-msgid "This Node Group Template will be created for:"
-msgstr "یہ نوڈ گروپ ٹیمپلیٹ یہ بَناونہ  خآطرہ:"
-
 msgid ""
 "This generates a pair of keys: a key you keep private (cloud.key) and a "
 "public key (cloud.key.pub). Paste the contents of the public key file here."
@@ -6188,9 +5559,6 @@ msgstr "ٹآئم آوٹ"
 
 msgid "Timezone"
 msgstr "ٹآئم زون"
-
-msgid "Title"
-msgstr "عنوان"
 
 msgid "To"
 msgstr "تآن"
@@ -6392,9 +5760,6 @@ msgstr "ناقابِل  ہوسٹ  ایگرِگیٹ بَناونہٕ خآطرہ\"
 msgid "Unable to create host aggregate."
 msgstr "اقابِل  ہوسٹ  ایگرِگیٹ بَناونہٕ خآطرہ"
 
-msgid "Unable to create job binary"
-msgstr "نا قابِل کئم بئنیری  واپس  اَنہٕ   خآطرہ "
-
 #, python-format
 msgid "Unable to create key pair: %(exc)s"
 msgstr "نا قابِل کئی جورہ بَناونہٕ   خآطرہ : %(exc)s"
@@ -6402,9 +5767,6 @@ msgstr "نا قابِل کئی جورہ بَناونہٕ   خآطرہ : %(exc)s"
 #, python-format
 msgid "Unable to create network \"%s\"."
 msgstr "نا قابِل نیٹ وئرک بَناواَنہٕ خآطرہ۔ \"%s\""
-
-msgid "Unable to create new cluster for job."
-msgstr "نا قابِل نئوہ   کئلسٹر کئم ہُند واپس  اَنہٕ   خآطرہ"
 
 #, python-format
 msgid "Unable to create project \"%s\"."
@@ -6425,9 +5787,6 @@ msgstr "نا قابِل بناَنہٕ خآطرہ سِپیک"
 #, python-format
 msgid "Unable to create subnet \"%s\"."
 msgstr "نا قابِل سب نیٹ بَناواَنہٕ خآطرہ۔  \"%s\""
-
-msgid "Unable to create the cluster"
-msgstr "نا قابِل کئلسٹر بَناونہٕ    خآطرہ"
 
 msgid "Unable to create user."
 msgstr "نا قابِل یوزر بَناونہٕ خآطرہ"
@@ -6509,87 +5868,11 @@ msgstr "نا قابِل والئومبئڈراونہٕ  خآطرہ"
 msgid "Unable to fetch EC2 credentials."
 msgstr "نا قابِل EC2کئریڈینشل واپس اَنہٕ خآطرہ"
 
-msgid "Unable to fetch available images."
-msgstr "نا قابِل دَستِیاب شکل  واپس  اَنہٕ   خآطرہ "
-
-msgid "Unable to fetch cluster list"
-msgstr "نا قابِل کئلئسٹر لِسٹ اَنہٕ   خآطرہ"
-
-msgid "Unable to fetch cluster template list"
-msgstr "نا قابِل کئلئسٹر ٹیمپلیٹ لِسٹ اَنہٕ   خآطرہ"
-
-msgid "Unable to fetch cluster template."
-msgstr "نا قابِل کئلئسٹر ٹیمپلیٹ  اَنہٕ   خآطرہ"
-
-msgid "Unable to fetch cluster to scale"
-msgstr "نا قابِل کئلئسٹر سِکیل تآن  اَنہٕ   خآطرہ"
-
-msgid "Unable to fetch cluster to scale."
-msgstr "نا قابِل کئلئسٹر سِکیل تآن  اَنہٕ   خآطرہ"
-
-msgid "Unable to fetch clusters."
-msgstr "نا قابِل کئلسٹر  واپس  اَنہٕ   خآطرہ"
-
-msgid "Unable to fetch data sources."
-msgstr "نا قابِل ڈیٹا تَفصیل واپس  اَنہٕ   خآطرہ "
-
-msgid "Unable to fetch flavor for template."
-msgstr "نا قابِل ٹیمپلیٹ خآطرہ فِلیور  واپس  اَنہٕ   خآطرہ"
-
-msgid "Unable to fetch floating ip pools."
-msgstr "نا قابِل فلوٹینگ آیی پئی پولز  واپس  اَنہٕ   خآطرہ"
-
-msgid "Unable to fetch image choices."
-msgstr "نا قابِل شکل اِنتِخاب اَنہٕ   خآطرہ"
-
-msgid "Unable to fetch instance details."
-msgstr "نا قابِل اِنسٹئنس  تَفصیل اَنہٕ   خآطرہ"
-
-msgid "Unable to fetch job binary list."
-msgstr "نا قابِل کئم بئنیری لِسٹ  واپس  اَنہٕ   خآطرہ "
-
-#, python-format
-msgid "Unable to fetch job binary: %(exc)s"
-msgstr "نا قابِل کئم بئنیری  واپس  اَنہٕ   خآطرہ : %(exc)s"
-
-msgid "Unable to fetch job executions."
-msgstr "نا قابِل کئم ایکزیکئوشن  واپس  اَنہٕ   خآطرہ"
-
-msgid "Unable to fetch jobs."
-msgstr "نا قابِل کئم   واپس  اَنہٕ   خآطرہ"
-
-msgid "Unable to fetch keypair choices."
-msgstr "نا قابِل کئی جورہ اِنتِخآب اَنہٕ   خآطرہ"
-
-msgid "Unable to fetch node group details."
-msgstr "نا قابِل فیچ نوٹ تَفصیل اَنہٕ   خآطرہ"
-
-msgid "Unable to fetch node group template list."
-msgstr "نا قابِل گروپ ٹیمپلیٹ   واپس  اَنہٕ   خآطرہ"
-
-msgid "Unable to fetch plugin details."
-msgstr "نا قابِل پِلگ اِن تَفصیل  واپس  اَنہٕ   خآطرہ"
-
-msgid "Unable to fetch plugin list."
-msgstr "نا قابِل کئلئسٹر ٹیمپلیٹ تَفصیل اَنہٕ   خآطرہ"
-
-msgid "Unable to fetch template object."
-msgstr "نا قابِل ٹیمپلیٹ آبجئکٹ  واپس  اَنہٕ   خآطرہ"
-
-msgid "Unable to fetch template to copy."
-msgstr "نا قابِل ٹیمپلیٹ نَقل کئرَنہٕ   خآطرہ"
-
-msgid "Unable to fetch the image details"
-msgstr "نا قابِل شکل تَفصیل واپس  اَنہٕ   خآطرہ "
-
 msgid "Unable to find backup!"
 msgstr "نا قابِل بیک اَپ ژہانڈنہٕ خآطرہ!"
 
 msgid "Unable to find default role."
 msgstr "نا قابِل ڈیفالٹ کئردار ژہانڈنہٕ خآطرہ"
-
-msgid "Unable to generate process choices."
-msgstr "نا قابِل پروسئس اِنتِخآب اَنہٕ   خآطرہ"
 
 msgid "Unable to get EC2 credentials"
 msgstr "نا قابِل عئوپِن ٲر سی ۲کئریڈینشل واپس اَنہٕ خآطرہ"
@@ -6635,9 +5918,6 @@ msgstr "نا قابِل واپس اَنہٕ خآطرہ نیٹ وئرک ایجئ�
 msgid "Unable to get network agents list."
 msgstr "نا قابِل واپس اَنہٕ خآطرہ نیٹ وئرک ایجئنٹ لِسٹ"
 
-msgid "Unable to get node group details."
-msgstr "نا قابِل نوڈ  تَفصیل اَنہٕ   خآطرہ"
-
 msgid "Unable to get nova services list."
 msgstr "نا قابِل واپس اَنہٕ خآطرہ  نئوا سئروِس لِسٹ"
 
@@ -6667,9 +5947,6 @@ msgstr "نا قابِل کئی جورہ در آمد کئرنہٕ  خآطرہ "
 #, python-format
 msgid "Unable to launch %(count)s named \"%(name)s\"."
 msgstr "نا قابِل لانچ کئرنہٕ خآطرہ  %(count)s named \"%(name)s\"."
-
-msgid "Unable to launch job."
-msgstr "نا قابِل کئم   اَنہٕ   خآطرہ"
 
 msgid "Unable to list containers."
 msgstr "نا قابِل کئنٹینر لِسٹ اَنہٕ خآطرہ"
@@ -6723,12 +6000,6 @@ msgstr "نا قابِل فِلیوئرس واپس خآطرہ"
 #, python-format
 msgid "Unable to parse IP address %s."
 msgstr "نل قابِلIP  ایڈریس%s  پآرس  کئرنہٕ خآطرہ"
-
-msgid "Unable to populate anti-affinity processes."
-msgstr "نا قابِل اینٹی ایفینیٹی پروسئس  کئرنہٕ  خآطرہ"
-
-msgid "Unable to process plugin tags"
-msgstr "نا قابِل پِلگ اِن ٹیگس  پراسئس کئرنہٕ   خآطرہ"
 
 msgid "Unable to rebuild instance."
 msgstr "نا قابِل اِنسٹئنس دوبارہ بٔناونہٕ خآطرہ"
@@ -6853,9 +6124,6 @@ msgstr "ناقابِل کئمپیوٹ حد تَفصیل واپس اَنہٕ خآ
 msgid "Unable to retrieve container list."
 msgstr "نا قابِل کئنٹینرٕ وااپس اَنہٕ  خآطرہ"
 
-msgid "Unable to retrieve data processing plugins."
-msgstr "نا قابِل ڈاٹا  پروسئسینگ پِلگ اِن واپس  اَنہٕ   خآطرہ "
-
 msgid "Unable to retrieve database instances."
 msgstr "ناقابِل ڈیٹا بیس اِنسٹئنسز واپس کئرنہٕ خآطرہ"
 
@@ -6975,9 +6243,6 @@ msgstr "نا قابِل واپس اَنہٕ خآطرہ  ہیپروئزرسِٹی
 msgid "Unable to retrieve image details."
 msgstr "نا قابِل  شَکل تَفصیل واپس اَنہٕ خآطرہ"
 
-msgid "Unable to retrieve image list"
-msgstr "نا قابِل شکل لِسٹ واپس  اَنہٕ   خآطرہ "
-
 msgid "Unable to retrieve image list."
 msgstr "نا قابِل واپس اَنہٕ خآطرہ  شکل لِسٹ"
 
@@ -6986,10 +6251,6 @@ msgstr "نا قابِل  شَکل واپس اَنہٕ خآطرہ"
 
 msgid "Unable to retrieve images for the current project."
 msgstr "نا قابِل حٲلی پروجیکٹ شَکل واپس اَنہٕ خآطرہ"
-
-#, python-format
-msgid "Unable to retrieve images with filter %s."
-msgstr "نا قابِل شکل فِلٹر سیتھ واپس  اَنہٕ   خآطرہ %s"
 
 msgid "Unable to retrieve images."
 msgstr "نا قابِل  شَکل واپس اَنہٕ خآطرہ"
@@ -7084,9 +6345,6 @@ msgstr "نا قابِل کئنٹینر  آبجیکٹ لِسٹ کئرنہٕ  خآ
 
 msgid "Unable to retrieve object."
 msgstr "نا قابِل آبجیکٹ واپس اَنہٕ  خآطرہ"
-
-msgid "Unable to retrieve plugin."
-msgstr "نا قابِل پِلگ اِن واپس  اَنہٕ   خآطرہ "
 
 msgid "Unable to retrieve policies list."
 msgstr "نا قابِل پآلیسیز لِسٹ واپس اَنہٕ خآطرہ"
@@ -7346,9 +6604,6 @@ msgstr "نا قابِل آبجیکٹ اَپڈیٹ کئرنہٕ  خآطرہ"
 msgid "Unable to update role."
 msgstr "نا قابِل  اَپڈیٹ کئرنہٕ خآطرہ کئردار"
 
-msgid "Unable to update row"
-msgstr "نا قابِل رو اَپڈیٹ کئرنہٕ خآطرہ"
-
 #, python-format
 msgid "Unable to update subnet \"%s\"."
 msgstr "نا قابِل سب نیٹاَپڈیٹ کئرنہٕ خآطرہ\"%s\""
@@ -7375,12 +6630,6 @@ msgstr "نا قابِل اَپڈیٹ کئرنہٕ ٕ خآطرہ   والیوم �
 msgid "Unable to update volume."
 msgstr "نا قابِل والئوم اَپڈیٹ  کئرنہٕ ٕ خآطرہ "
 
-msgid "Unable to upload cluster template file"
-msgstr "نا قابِل کئلئسٹر ٹیمپلیٹ فآئل اَپلوڈ کئرنہٕ  خآطرہ"
-
-msgid "Unable to upload job binary"
-msgstr "نا قابِل کئم بئنیری  واپس  اَنہٕ   خآطرہ "
-
 msgid "Unable to upload object."
 msgstr "نا قابِل آبجیکٹ اَپلوڈ کئرنہٕ  خآطرہ"
 
@@ -7396,9 +6645,6 @@ msgstr "نامعلوم مِثال"
 
 msgid "Unknown instance (None)"
 msgstr "نا معلوم اِنسٹئنس(کِہین نہٖ ) "
-
-msgid "Unnecessary tags may be removed by clicking a cross near tag's name."
-msgstr "فَضول ٹیگس ہیکو کڈیتھ کِلک کرنہ سیتھ قراس ٹیگ نآوس برونٹھ کن"
 
 msgid "Up"
 msgstr "ہیور"
@@ -7518,9 +6764,6 @@ msgstr "والیوم سِنیپ شآٹس اَپڈیٹ کئران \"%s\""
 msgid "Upload"
 msgstr "اَپلوڈ"
 
-msgid "Upload File"
-msgstr "اَپلوڈ فٲئل"
-
 msgid "Upload Object"
 msgstr "اَپلوڈ ابجیکٹ"
 
@@ -7531,23 +6774,14 @@ msgstr "اَپلوڈ آبجیکٹ کنٹینر خآطرہ : %(container_name)s"
 msgid "Upload Objects"
 msgstr "اَپلوڈ آبجیکٹ"
 
-msgid "Upload Template"
-msgstr "اَپلوڈ  ٹیمپلیٹ"
-
 msgid "Upload Volume to Image"
 msgstr "اَپلوڈ کئریو والیوم   شکل  خآطرہ"
-
-msgid "Upload a new file"
-msgstr "اَپلوڈ کئریو نئوہ فٲئل"
 
 msgid "Upload to Image"
 msgstr "اَپلوڈ کئریو شکل"
 
 msgid "Uploaded image size"
 msgstr "اَپلوڈیڈ شکل سآئز"
-
-msgid "Url"
-msgstr "Url"
 
 msgid "Usage"
 msgstr "اِستعمال"
@@ -7566,12 +6800,6 @@ msgstr "استعمال سئرور ڈیفالٹ"
 
 msgid "Use a volume as source"
 msgstr "اِستعمال کئریو والیوم ضریعہٕ پئٹٰھ"
-
-msgid "Use anti-affinity groups for processes"
-msgstr "اِستعمال  کئریو اینٹی ایفِنیٹی گروپس پروسیس  خآطرہ"
-
-msgid "Use anti-affinity groups for: "
-msgstr "اِستعمال  کئریو اینٹی ایفِنیٹی گروپس   خآطرہ"
 
 msgid "Use image as a source"
 msgstr "اِستعمال کئریو شکل ضریعہٕ پئٹٰھ"
@@ -7622,15 +6850,9 @@ msgstr "یوزر سیٹینگس"
 msgid "User has been updated successfully."
 msgstr "یوزر ٲو کامیابی اَپڈیٹ کئرنئ"
 
-msgid "User has to choose a keypair to have access to clusters instances."
-msgstr "یوزرس چُھ ژارُن اَکھ کی جورہ کِلسٹر اِ نسٹنسِز ایکسس خٲطرہ "
-
 #, python-format
 msgid "User name \"%s\" is already used."
 msgstr "یوزر \"%s\" چُھ گوڈے موجود"
-
-msgid "Username"
-msgstr "یوزر نآو"
 
 msgid "Username (required)"
 msgstr "یوزر نآو(ضرورت)"
@@ -7708,9 +6930,6 @@ msgstr "قیمت (Avg)"
 
 msgid "Value:"
 msgstr "ویلیو:"
-
-msgid "Version"
-msgstr "ورجن"
 
 #, python-format
 msgid ""
@@ -7867,20 +7086,8 @@ msgstr "جآے"
 msgid "Volumes Attached"
 msgstr "والیوم جوڈیتھ"
 
-msgid "Volumes per node"
-msgstr "والیوم فی نوڈ"
-
-msgid "Volumes size"
-msgstr "والیوم سآیز"
-
-msgid "Volumes size (GB)"
-msgstr "والیوم سآیز"
-
 msgid "Weight"
 msgstr "وزن"
-
-msgid "Which keypair to use for authentication."
-msgstr "کوس کی جورہ گژہ اِستعمال کرون آتھنٹِکیشن"
 
 msgid ""
 "Within a container you can group your objects into pseudo-folders, which "
@@ -7965,27 +7172,11 @@ msgstr ""
 "چھو ۔ مہر بآنی کریتھ سِویچ کریو بیاکھ ڈومین  یِم   اِنتِظامیہ پریویلیج  ہیتہ یا "
 "کڈیو  اِنتِظامیہ رول پآنےCLI ضریعہ"
 
-msgid "You may also add any custom tag."
-msgstr "توہیہ ہیکو جمع کریتہ کاہ تہ قسٹم ٹیگ"
-
-msgid "You may also enter an optional description for your Data Source."
-msgstr "توہیہ ہیکو داخِل کریتھ اَکھ آپشنل وَضاحت تِہندِ ڈیٹا سورس خآطرہ"
-
-msgid "You may also enter an optional description for your job binary."
-msgstr "توہیہ پزیو داخِل کئرون اَکھ آپشنل تَفصیل تُہند جآب بینئری"
-
 msgid "You may have mistyped the address or the page may have moved."
 msgstr "توہِیہٕ آسہٕ غَلط ٹآئپ کئورمُت ایڈریس یا پیج آسہٕ کونہٕ حِلاومُت"
 
-msgid "You may need to enter the username and password for your Data Source."
-msgstr "توہیہ چھو ضرورت داخل کرون یوزر نآو تہ پآس ورڈ تُہندِ ڈیٹا سورس خآطرہ"
-
 msgid "You may optionally set a password on the rebuilt instance."
 msgstr "توہیہ ہیکو آپضنلی سیٹ کریتھ اَکھ پآس ورڈ ریبیلٹ اِنسٹنس پیٹھ"
-
-msgid "You may set <b>cluster</b> scoped configurations on corresponding tabs."
-msgstr ""
-" سِکوپڈ کنفِگریشن  کارسپٲنڈینگ ٹیبس توہیہ ہیکو سیٹ کریتھ <b>cluster</b>ہ  خٲطرہ"
 
 msgid "You may update IKE Policy details here."
 msgstr "توہِیہٕ ہیکئو  اَپڈیٹ کئریتھIKE  سیک پآلیسی  تَفصیل یَتینئس"
@@ -8150,9 +7341,6 @@ msgstr "ہولڈ"
 
 msgid "instance"
 msgstr " اِنسٹنس"
-
-msgid "no processes"
-msgstr "کاہ پروسیس نہ"
 
 msgid "pseudo-folder"
 msgstr "سیودو فولڈر"

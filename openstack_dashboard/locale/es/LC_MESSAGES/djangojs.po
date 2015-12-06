@@ -9,13 +9,12 @@
 # Eduardo Gonzalez Gutierrez <dabarren@gmail.com>, 2015. #zanata
 # Marian Tort <marian.tort@gmail.com>, 2015. #zanata
 # OpenStack Infra <zanata@openstack.org>, 2015. #zanata
-# Pedro Navarro Pérez <pednape@gmail.com>, 2015. #zanata
 # Veruska <reaching.out@gmail.com>, 2015. #zanata
 msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-12-02 23:42+0000\n"
+"POT-Creation-Date: 2015-12-05 16:12+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -172,9 +171,6 @@ msgstr "Unidad de Configuración"
 msgid "Configuration Help"
 msgstr "Ayuda de Configuración"
 
-msgid "Configuration Value"
-msgstr "Valor de Configuración "
-
 msgid "Count"
 msgstr "Número"
 
@@ -201,12 +197,6 @@ msgstr ""
 
 msgid "Customization Script"
 msgstr "Script de Personalización"
-
-msgid "Data Source"
-msgstr "Fuente de Datos"
-
-msgid "Default Value"
-msgstr "Valor por defecto"
 
 msgid "Deleted"
 msgstr "Eliminado"
@@ -241,9 +231,6 @@ msgstr "Disco efímero"
 msgid "Ether Type"
 msgstr "Tipo Ethernet"
 
-msgid "Event log is not available."
-msgstr "Registro de eventos no se encuentra disponible."
-
 #, python-format
 msgid "Extension is not enabled: %(extension)s."
 msgstr "Extensión no habilitada: %(extension)s"
@@ -266,20 +253,6 @@ msgid ""
 msgstr ""
 "Los sabores definen el tamaño que tendrá la instancia respecto a CPU, "
 "memoria y almacenamiento."
-
-msgid ""
-"For configs and params, type the key name; for args, type the index as an "
-"integer, starting from 0."
-msgstr ""
-"Para variables de configuración y parámetros, escriba el nombre de la clave. "
-"Para argumentos, escriba el índex como número entero, empezando con 0."
-
-msgid ""
-"For data sources, use a data source UUID or a path (as per data source "
-"creation.)"
-msgstr ""
-"Para fuentes de datos, use una fuente de datos UUID o una ruta (según los "
-"datos de creación de la fuente)."
 
 msgid "Format"
 msgstr "Formato"
@@ -401,14 +374,8 @@ msgstr "Ejecutar Instancia"
 msgid "Load script from a file"
 msgstr "Cargar script desde un archivo"
 
-msgid "Location"
-msgstr "Localización"
-
 msgid "Manual"
 msgstr "Manual"
-
-msgid "Mapping Type"
-msgstr "Tipo de Asignación"
 
 msgid "Max Port"
 msgstr "Puerto máximo"
@@ -430,9 +397,6 @@ msgstr "Memoria RAM mín. (MB)"
 
 msgid "Name"
 msgstr "Nombre"
-
-msgid "Named Parameter"
-msgstr "Parámetro denominado"
 
 msgid "Network"
 msgstr "Red"
@@ -456,9 +420,6 @@ msgstr "No"
 msgid "No available items"
 msgstr "No hay ítems disponibles"
 
-msgid "Number"
-msgstr "Número"
-
 msgid "OK"
 msgstr "OK"
 
@@ -470,9 +431,6 @@ msgstr "Red Física"
 
 msgid "Policy check failed."
 msgstr "Comprobación de política fallada."
-
-msgid "Positional Argument"
-msgstr "Argumento posicional"
 
 msgid "Private"
 msgstr "Privado"
@@ -530,14 +488,8 @@ msgstr "Reordene los ítems arrastrando y soltando."
 msgid "Remote"
 msgstr "Remoto"
 
-msgid "Remove"
-msgstr "Eliminar"
-
 msgid "Required"
 msgstr "Obligatorio"
-
-msgid "Required?"
-msgstr "¿Requerido?"
 
 msgid "Root Disk"
 msgstr "Disco raíz"
@@ -577,13 +529,6 @@ msgstr ""
 "opciones adicionales de acceso a una instancia. Para crear reglas "
 "adicionales, vaya a la vista <b>Compute | Acceso y Seguridad</b>, busque el "
 "grupo de seguridad y haga click en <b>Gestionar reglas</b>."
-
-msgid ""
-"See http://docs.openstack.org/developer/sahara/userdoc/edp.html for "
-"definitions."
-msgstr ""
-"Mire http://docs.openstack.org/developer/sahara/userdoc/edp.html para las "
-"definiciones."
 
 msgid "Segmentation ID"
 msgstr "ID de Segmentación"
@@ -631,9 +576,6 @@ msgstr "Ajuste no habilitado: %(setting)s"
 msgid "Shared"
 msgstr "Compartido"
 
-msgid "Show events"
-msgstr "Mostrar eventos"
-
 msgid "Size"
 msgstr "Tamaño"
 
@@ -645,9 +587,6 @@ msgstr "Instantánea"
 
 msgid "Status"
 msgstr "Estado"
-
-msgid "String"
-msgstr "Cadena"
 
 msgid "Subnets Associated"
 msgstr "Subredes Asociadas"
@@ -707,9 +646,6 @@ msgstr ""
 
 msgid "The status indicates whether the network has an active connection."
 msgstr "El estado indica si la red tiene una conexión activa"
-
-msgid "The step has completed successfully. No events to display."
-msgstr "Este paso se ha realizado con éxito. No hay eventos a mostrar."
 
 msgid ""
 "The subnet identifies a sub-section of a network. A subnet is specified in "
@@ -976,9 +912,6 @@ msgstr "Usuario"
 
 msgid "VCPUS"
 msgstr "VCPUS"
-
-msgid "Value Type"
-msgstr "Tipo de valor"
 
 msgid "Visibility"
 msgstr "Visibilidad"

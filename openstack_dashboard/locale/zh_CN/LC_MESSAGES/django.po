@@ -20,14 +20,13 @@
 # OpenStack Infra <zanata@openstack.org>, 2015. #zanata
 # Xu Yang <xuyang@cn.fujitsu.com>, 2015. #zanata
 # Yang Hongyang <hongyang.yang@easystack.cn>, 2015. #zanata
-# Yu Zhiuguo <yuzg@cn.fujitsu.com>, 2015. #zanata
 # yan haifeng <yanheven@qq.com>, 2015. #zanata
 # zhangjingwen <zhangjingwen@cn.fujitsu.com>, 2015. #zanata
 msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-12-02 23:42+0000\n"
+"POT-Creation-Date: 2015-12-05 16:12+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -38,45 +37,6 @@ msgstr ""
 "Generated-By: Babel 2.0\n"
 "X-Generator: Zanata 3.7.3\n"
 "Language-Team: Chinese (China)\n"
-
-msgid ""
-"\n"
-"                  In order to run a Data Processing job, you need to make\n"
-"                  the files for your program available to the\n"
-"                  Data Processing system, define where the input and output\n"
-"                  need to go and create a Job Template that describes\n"
-"                  how to run your job.  Each of those steps can be done\n"
-"                  manually or you can follow this guide to help take you\n"
-"                  through the steps to run a job on an existing cluster.\n"
-"            "
-msgstr ""
-"\n"
-"为了运行数据处理任务，您需要为您的程序制作文件，\n"
-"且可被数据处理系统使用，需要定义哪里输入和哪里输\n"
-"出，且创建一任务模板，模板描述了如何运行您的任务。\n"
-"您可以手动的参与每一步骤，或者 您跟着此向导，向导\n"
-"会帮助您一步步的在集群中运行任务。"
-
-msgid ""
-"\n"
-"                 Each of the Data Processing frameworks require a cluster of "
-"machines\n"
-"                 in order to do the work they are assigned.  A cluster is\n"
-"                 formed by creating a set of Node Group Templates, "
-"combining\n"
-"                 those into a Cluster Template and then launching a "
-"Cluster.\n"
-"                 You can do each of those steps manually, or you can follow\n"
-"                 this guide to help take you through the steps of\n"
-"                 Cluster creation.\n"
-"             "
-msgstr ""
-"\n"
-"每个数据处理框架均需要一个机器的集群，以\n"
-"分配他们的任务，集群是由所创建的节点\n"
-"组模板形成的，组合它们为一集群模板，然后\n"
-"启动一集群。您可以手动的参与每一步骤，或者\n"
-"您跟着此向导，向导会帮助您一步步的创建集群。"
 
 #, python-format
 msgid ""
@@ -390,9 +350,6 @@ msgstr ":下一跳"
 msgid " Also failed to delete port %s"
 msgstr "删除端口%s 同样失败"
 
-msgid " Done"
-msgstr "完成"
-
 msgid "\"Add Router Route\""
 msgstr "\"添加路由器的路由表\""
 
@@ -432,14 +389,6 @@ msgid ""
 msgstr "\"一些未能达到image最低要求的特性已被禁用。\""
 
 #, python-format
-msgid "%(conf_name)s: %(conf_val)s"
-msgstr "%(conf_name)s: %(conf_val)s"
-
-#, python-format
-msgid "%(conf_name)s: %(conf_value)s"
-msgstr "%(conf_name)s: %(conf_value)s"
-
-#, python-format
 msgid "%(field_name)s: Invalid IP address (value=%(ip)s)"
 msgstr "%(field_name)s:ip地址不可用 (value=%(ip)s)"
 
@@ -448,16 +397,8 @@ msgid "%(field_name)s: Invalid IP address (value=%(network)s)"
 msgstr "%(field_name)s:ip地址不可用 (value=%(network)s)"
 
 #, python-format
-msgid "%(group)s:"
-msgstr "%(group)s："
-
-#, python-format
 msgid "%(instance_name)s %(fixed_ip)s"
 msgstr "%(instance_name)s %(fixed_ip)s"
-
-#, python-format
-msgid "%(key)s: %(val)s"
-msgstr "%(key)s: %(val)s"
 
 #, python-format
 msgid "%(name)s - %(size)s GB (%(label)s)"
@@ -529,10 +470,6 @@ msgid "%s instances"
 msgstr "%s 云主机"
 
 #, python-format
-msgid "%s processes: "
-msgstr "%s processes: "
-
-#, python-format
 msgid "%sGB"
 msgstr "%sGB"
 
@@ -558,21 +495,8 @@ msgstr "-"
 msgid "--"
 msgstr "--"
 
-msgid "-- not selected --"
-msgstr "-- 未选择 --"
-
 msgid "3des"
 msgstr "3des"
-
-msgid ""
-"<b>Important</b>:  The name that you give your job binary will be the name "
-"used in your job execution.\n"
-"  If your binary requires a particular name or extension (ie: \".jar\"), be "
-"sure to include it here."
-msgstr ""
-"<b>重要</b>: 你的任务二进制文件名就是你执行任务的名字。\n"
-"如果你的二进制文件需要一个特别名字或者拓展后缀(如：“.jar”)，请确保其名字包含"
-"在此。"
 
 #, python-format
 msgid "<p>%(used)s of %(quota)s MB Used</p>"
@@ -783,9 +707,6 @@ msgstr ""
 "由于管理程序配置，实际设备名称可能不同。如果没有指定，那么管理程序会选择一个"
 "设备名称。"
 
-msgid "Adapt For Oozie"
-msgstr "适应Oozie"
-
 msgid "Add"
 msgstr "添加"
 
@@ -846,9 +767,6 @@ msgstr "添加新的规则"
 msgid "Add New VPN Service"
 msgstr "添加新的VPN服务"
 
-msgid "Add Node Group"
-msgstr "增加节点组"
-
 msgid "Add Policy"
 msgstr "增加策略"
 
@@ -906,9 +824,6 @@ msgid ""
 "security groups."
 msgstr "从可用的安全组中增加和删除"
 
-msgid "Add custom tag"
-msgstr "添加自定义标签"
-
 msgid ""
 "Add hosts to this aggregate or remove hosts from it. Hosts can be in "
 "multiple aggregates."
@@ -919,9 +834,6 @@ msgstr "增加主机到这个集合。主机可以加入多个集合。"
 
 msgid "Add interface"
 msgstr "增加接口"
-
-msgid "Add libraries to your job template."
-msgstr "为您的任务模板添加类库。"
 
 msgid ""
 "Add member(s) to the selected pool.\n"
@@ -938,9 +850,6 @@ msgstr ""
 "如, 80. \n"
 "\n"
 "每个实例只能关联一个端口."
-
-msgid "Add plugin tags"
-msgstr "增加插件标签"
 
 msgid "Add route"
 msgstr "创建路由器"
@@ -1189,9 +1098,6 @@ msgid ""
 "help, contact your local administrator."
 msgstr "报错.请刷新,如需帮助请联系管理员."
 
-msgid "Anti-affinity enabled for"
-msgstr "启用Anti-affinity属性"
-
 msgid "Any"
 msgstr "任何"
 
@@ -1200,9 +1106,6 @@ msgstr "任何可用域"
 
 msgid "Architecture"
 msgstr "构架"
-
-msgid "Arguments"
-msgstr "Arguments"
 
 msgid "Associate"
 msgstr "关联"
@@ -1304,12 +1207,6 @@ msgstr "授权算法"
 msgid "Authorization mode"
 msgstr "授权模式"
 
-msgid "Auto Security Group"
-msgstr "自动安全组"
-
-msgid "Auto-configure"
-msgstr "自动配置"
-
 msgid "Automatic"
 msgstr "自动"
 
@@ -1319,12 +1216,6 @@ msgid ""
 msgstr ""
 "自动：整个磁盘是一个独立分区，并且自动调整大小。手动：更快创建时间，但需要手"
 "动分区。"
-
-msgid ""
-"Automatically modify the Hadoop configuration so that job config values are "
-"set and so that Oozie will handle exit codes correctly."
-msgstr ""
-"自动地修改Hadoop的配置，使任务配置值被设置，这样的话Oozie会正确地处理退出码。"
 
 msgid "Availability Zone"
 msgstr "可用域"
@@ -1428,9 +1319,6 @@ msgstr "备份概况"
 
 msgid "Backups"
 msgstr "备份"
-
-msgid "Base Image"
-msgstr "基本镜像"
 
 msgid "Before"
 msgstr "前于"
@@ -1587,9 +1475,6 @@ msgstr[0] "已经检查过的栈"
 msgid "Checksum"
 msgstr "校验和"
 
-msgid "Choose"
-msgstr "选择"
-
 msgid "Choose Your Boot Source Type."
 msgstr "选择你的启动源的类型"
 
@@ -1604,32 +1489,17 @@ msgid ""
 "the space provided."
 msgstr "为密钥对起一个你容易记住的名字，然后在提供的空白处粘贴你的SSH公钥。"
 
-msgid "Choose a main binary"
-msgstr "选择main二进制文件"
-
 msgid "Choose a new instance flavor."
 msgstr "选择一新的实例类型。"
-
-msgid "Choose a shell script"
-msgstr "选择一个shell脚本"
 
 msgid "Choose a snapshot"
 msgstr "选择快照"
 
-msgid "Choose a storage location"
-msgstr "选择一个存储位置"
-
 msgid "Choose a volume"
 msgstr "选择云硬盘"
 
-msgid "Choose additional files"
-msgstr "选择其他文件"
-
 msgid "Choose an DHCP Agent to attach to."
 msgstr "选择添加一个DHCP Agent。"
-
-msgid "Choose an existing file"
-msgstr "选择一个现有的文件"
 
 msgid "Choose an image"
 msgstr "选择一个镜像"
@@ -1640,21 +1510,8 @@ msgstr "选择关联的QoS规格。"
 msgid "Choose consumer for this QoS Spec."
 msgstr "为此QoS规格选择消费者。"
 
-msgid ""
-"Choose from the list of binaries and click \"choose\" to add the library to "
-"your job template.  This can be repeated for additional libraries."
-msgstr ""
-"在二进程文件列表中进行选择，然后点击“选择”将该文件加入到您的任务模板中。这里"
-"可以多次添加不同的文件。"
-
 msgid "Choose initial state."
 msgstr "选择初始化状态。"
-
-msgid "Choose job type"
-msgstr "选择任务类型"
-
-msgid "Choose libraries"
-msgstr "选择库文件"
 
 msgid ""
 "Choose network from Available networks to Selected networks by push button "
@@ -1662,20 +1519,6 @@ msgid ""
 msgstr ""
 "请选择要添加的网络，可以通过按钮添加也可以拖动添加，你还可以拖动已经添加的网"
 "络来改变NIC的顺序。"
-
-msgid ""
-"Choose or create your main binary.  Additional libraries can be added from "
-"the \"Libs\" tab."
-msgstr "选择或创建你的主二进制文件。额外库可以通过“库”选项卡来添加。"
-
-msgid "Choose plugin"
-msgstr "选择插件"
-
-msgid "Choose plugin and version"
-msgstr "选择插件和版本"
-
-msgid "Choose plugin type and version"
-msgstr "选择插件类型和版本"
 
 msgid ""
 "Choose router(s) from Available Routers to Selected Routers by push button "
@@ -1689,18 +1532,6 @@ msgid ""
 msgstr ""
 "通过按下按钮或者拖放从可用策略中选择一个(或多个)添加至选定策略，\n"
 "你也可以利用拖放改变它们的顺序。"
-
-msgid "Choose the Input Data Source (n/a for Java and Shell jobs)."
-msgstr "选择输入数据源（n/a Java和Shell任务）"
-
-msgid "Choose the Output Data Source (n/a for Java and Shell jobs)."
-msgstr "选择输出数据源（n/a Java和Shell任务）"
-
-msgid "Choose the binary which should be used in this Job."
-msgstr "选择任务使用的二进制文件。"
-
-msgid "Choose the cluster to use for the job."
-msgstr "选择用于任务的集群"
 
 msgid "Choose the flavor to launch."
 msgstr "选择用于启动的云主机类型"
@@ -1719,9 +1550,6 @@ msgstr ""
 msgid "Choose the rule you want to remove."
 msgstr "选择你希望移除的规则。"
 
-msgid "Chosen Libraries"
-msgstr "选中的库文件"
-
 msgid "Cinder"
 msgstr "Cinder"
 
@@ -1730,9 +1558,6 @@ msgid ""
 "host@backend-name#pool"
 msgstr ""
 "Cinder主机就是那个卷驻留的地方；使用这样的形式： host@backend-name#pool"
-
-msgid "Cinder volumes"
-msgstr "Cinder卷"
 
 msgid "Cipher"
 msgstr "Cipher"
@@ -1757,64 +1582,11 @@ msgstr "点击此处只显示控制台"
 msgid "Close"
 msgstr "关闭"
 
-msgid "Cluster"
-msgstr "集群"
-
-msgid "Cluster Count"
-msgstr "集群数量"
-
-msgid "Cluster Creation Guide"
-msgstr "创建集群向导"
-
-msgid "Cluster Events"
-msgstr "集群事件"
-
-msgid "Cluster Guide"
-msgstr "集群向导"
-
-msgid "Cluster Instances"
-msgstr "集群实例"
-
 msgid "Cluster Name"
 msgstr "集群名称"
 
 msgid "Cluster Size"
 msgstr "集群大小"
-
-msgid "Cluster Template"
-msgstr "集群模板"
-
-#, python-format
-msgid "Cluster Template %s updated"
-msgstr "集群模板%s已更新"
-
-msgid "Cluster Template Name"
-msgstr "集群模板名称"
-
-#, python-format
-msgid "Cluster Template copy %s created"
-msgstr "集群模板副本%s成功创建"
-
-msgid "Cluster Templates"
-msgstr "集群模板"
-
-msgid "Cluster can be launched using existing Cluster Templates."
-msgstr "集群可以通过已有的集群模板来创建"
-
-msgid "Cluster configurations are not specified"
-msgstr "集群配置没有被指定"
-
-msgid "Cluster provision steps"
-msgstr "集群"
-
-msgid "Cluster template creation failed"
-msgstr "集群模板创建失败"
-
-msgid "Cluster template update failed"
-msgstr "集群模板更新失败"
-
-msgid "Cluster type chosen"
-msgstr "选择集群类型"
 
 msgid "Clusters"
 msgstr "集群"
@@ -1835,9 +1607,6 @@ msgctxt "Current status of a Database Backup"
 msgid "Completed"
 msgstr "完成"
 
-msgid "Completed Successfully"
-msgstr "成功完成"
-
 msgid "Component"
 msgstr "组件"
 
@@ -1853,35 +1622,14 @@ msgstr "计算主机"
 msgid "Compute Services"
 msgstr "计算服务"
 
-msgid "Configuration"
-msgstr "配置"
-
 msgid "Configuration Drive"
 msgstr "配置驱动器"
-
-msgid "Configuration Value"
-msgstr "配置值"
-
-msgid "Configure"
-msgstr "配置"
-
-msgid "Configure Cluster"
-msgstr "设置集群"
-
-msgid "Configure Cluster Template"
-msgstr "配置集群模板"
-
-msgid "Configure Node Group Template"
-msgstr "配置结点群组模板"
 
 msgid ""
 "Configure OpenStack to write metadata to a special configuration drive that "
 "attaches to the instance when it boots."
 msgstr ""
 "配置OpenStack，将元数据写入某个指定的配置驱动器中，在实例启动时附加到实例上。"
-
-msgid "Configure Template"
-msgstr "配置模板"
 
 msgid "Confirm Admin Password"
 msgstr "确认管理员密码"
@@ -1968,9 +1716,6 @@ msgstr "内容"
 msgid "Control Location"
 msgstr "控制地点"
 
-msgid "Control access to instances of the node group."
-msgstr "节点组实例访问控制。"
-
 msgid ""
 "Control access to your instance via key pairs, security groups, and other "
 "mechanisms."
@@ -1993,9 +1738,6 @@ msgstr "将\"%(orig)s\"复制到\"%(dest)s\"、并改名为\"%(new)s\"。"
 msgid "Copy"
 msgstr "复制"
 
-msgid "Copy Cluster Template"
-msgstr "复制集群模板"
-
 msgid "Copy Data"
 msgstr "数据复制"
 
@@ -2006,31 +1748,13 @@ msgstr "复制对象"
 msgid "Copy Object: %(object_name)s"
 msgstr "复制对象：%(object_name)s"
 
-msgid "Copy Template"
-msgstr "复制模板"
-
 #, python-format
 msgid "Cores(Available: %(avail)s, Requested: %(req)s)"
 msgstr "核(可用: %(avail)s, 已请求: %(req)s)"
 
-msgid "Could not create"
-msgstr "不能创建"
-
-msgid "Could not create data source"
-msgstr "无法创建数据源"
-
-msgid "Could not create job template"
-msgstr "无法创建任务模板"
-
 #, python-format
 msgid "Could not find default role \"%s\" in Keystone"
 msgstr "在keystone中无法找到默认角色\"%s\""
-
-msgid "Could not launch job"
-msgstr "无法启动任务"
-
-msgid "Could not update data source"
-msgstr "无法更新数据源"
 
 #, python-format
 msgid "Couldn't get current security group list for instance %s."
@@ -2038,9 +1762,6 @@ msgstr "无法为云主机%s获得当前安全组列表"
 
 msgid "Couldn't get security group list."
 msgstr "无法获得安全组列表。"
-
-msgid "Count"
-msgstr "计数"
 
 msgctxt "Power state of an Instance"
 msgid "Crashed"
@@ -2059,18 +1780,12 @@ msgstr "创建一个镜像"
 msgid "Create Backup"
 msgstr "创建备份"
 
-msgid "Create Cluster Template"
-msgstr "创建集群模板"
-
 msgctxt "current status of stack"
 msgid "Create Complete"
 msgstr "创建完成"
 
 msgid "Create Container"
 msgstr "创建容器"
-
-msgid "Create Data Source"
-msgstr "创建数据源"
 
 msgid "Create Domain"
 msgstr "创建域"
@@ -2132,12 +1847,6 @@ msgctxt "current status of stack"
 msgid "Create In Progress"
 msgstr "正在创建"
 
-msgid "Create Job Binary"
-msgstr "创建任务二进制文件"
-
-msgid "Create Job Template"
-msgstr "创建任务模板"
-
 msgid "Create Key Pair"
 msgstr "创建密钥对"
 
@@ -2146,9 +1855,6 @@ msgstr "创建网络"
 
 msgid "Create Network (Quota exceeded)"
 msgstr "创建网络 (配额用尽)"
-
-msgid "Create Node Group Template"
-msgstr "创建节点组模板"
 
 msgid "Create Port"
 msgstr "创建端口"
@@ -2192,9 +1898,6 @@ msgstr "创建子网"
 msgid "Create Subnet (Quota exceeded)"
 msgstr "创建子网 (配额用尽)"
 
-msgid "Create Template"
-msgstr "创建模板"
-
 msgid "Create Transfer"
 msgstr "创建传送"
 
@@ -2235,15 +1938,6 @@ msgstr "创建加密卷类型"
 msgid "Create Volume Type Extra Spec"
 msgstr "创建云硬盘类型扩展规格"
 
-msgid "Create a Cluster Template"
-msgstr "创建一集群模板"
-
-msgid "Create a Data Source with a specified name."
-msgstr "通过指定的名字创建数据源。"
-
-msgid "Create a Master Node Group Template"
-msgstr "创建一主节点组模板"
-
 msgid "Create a Metadata Namespace"
 msgstr "创建一元数据命名空间"
 
@@ -2274,12 +1968,6 @@ msgstr "新增储卷迁移"
 msgid "Create a Volume Type"
 msgstr "创建云硬盘类型"
 
-msgid "Create a Worker Node Group Template"
-msgstr "创建一个工作节点组模板"
-
-msgid "Create a data source"
-msgstr "创建一数据源"
-
 msgid ""
 "Create a firewall rule.\n"
 "\n"
@@ -2304,12 +1992,6 @@ msgstr ""
 
 msgid "Create a firewall with selected routers."
 msgstr "为所选择的路由创建一防火墙。"
-
-msgid "Create a job template"
-msgstr "创建一任务模板"
-
-msgid "Create a job template with a specified name."
-msgstr "指定一个名字来创建一任务模板。"
 
 msgid ""
 "Create a monitor template.\n"
@@ -2355,9 +2037,6 @@ msgstr "使用选定的规则创建策略。"
 msgid "Create a project to organize users."
 msgstr "为组织用户创建一个项目"
 
-msgid "Create a script to be uploaded dynamically"
-msgstr "创建一个可以动态上传的脚本。"
-
 msgid ""
 "Create a subnet associated with the network. Advanced configuration is "
 "available by clicking on the \"Subnet Details\" tab."
@@ -2377,15 +2056,6 @@ msgstr ""
 msgid "Create pseudo-folder in container %(container_name)s"
 msgstr "在容器 %(container_name)s 里面创建虚拟文件夹"
 
-msgid "Create security group for this Node Group."
-msgstr "为该节点组创建安全组"
-
-msgid "Create time"
-msgstr "创建时间"
-
-msgid "Create volumes in this availability zone."
-msgstr "在此可用域创建卷。"
-
 msgid "Created"
 msgstr "已创建"
 
@@ -2400,14 +2070,6 @@ msgstr "已创建"
 msgctxt "Current status of a VPN Service"
 msgid "Created"
 msgstr "已创建"
-
-#, python-format
-msgid "Created Cluster Template %s"
-msgstr "创建集群模板 %s"
-
-#, python-format
-msgid "Created Node Group Template %s"
-msgstr "创建结点群组模板%s"
 
 #, python-format
 msgid "Created extra spec \"%s\"."
@@ -2440,9 +2102,6 @@ msgstr "创建规格\"%s\"."
 #, python-format
 msgid "Created subnet \"%s\"."
 msgstr "已新增子网\"%s\"."
-
-msgid "Created time"
-msgstr "创建时间"
 
 msgid "Created volume transfer."
 msgstr "已创建的卷传送。"
@@ -2512,14 +2171,8 @@ msgstr "当前大小(GB)"
 msgid "Current Task"
 msgstr "当前任务"
 
-msgid "Current choice:"
-msgstr "当前选择："
-
 msgid "Current password"
 msgstr "当前密码"
-
-msgid "Current type:"
-msgstr "当前类型"
 
 msgid ""
 "Currently only images available via an HTTP/HTTPS URL are supported. The "
@@ -2603,59 +2256,6 @@ msgstr "DPD超时大小必须大于DPD间隔"
 msgid "Daily Usage Report"
 msgstr "每日使用报告"
 
-msgid "Data Processing"
-msgstr "数据处理"
-
-msgid "Data Processing Guides"
-msgstr "数据处理向导"
-
-msgid "Data Processing Plugin Details"
-msgstr "数据处理插件详细信息"
-
-msgid "Data Processing Plugins"
-msgstr "数据处理插件"
-
-msgid "Data Processing internal database"
-msgstr "数据处理内部数据库"
-
-msgid ""
-"Data Processing provides different storage location options. You may choose "
-"Ephemeral Drive or a Cinder Volume to be attached to instances."
-msgstr ""
-"数据处理提供了多种不同的存储路径选择。你可以选择临时磁盘或者绑定到实例的"
-"Cinder卷"
-
-msgid "Data Source"
-msgstr "数据源"
-
-msgid "Data Source Type"
-msgstr "数据源类型"
-
-msgid "Data Sources"
-msgstr "数据源"
-
-msgid ""
-"Data Sources are what your\n"
-"                            job uses for input and output.  Depending on the "
-"type\n"
-"                            of job you will be running, you may need to "
-"define one\n"
-"                            or more data sources.  You can create multiple "
-"data\n"
-"                            sources by repeating this step.\n"
-"                        "
-msgstr ""
-"数据源为你的作业提供输入和输出。\n"
-"根据你的作业需要，你可能需要定义\n"
-"一个或多个数据源。你可以重复这个步骤，\n"
-"创建多个数据源。"
-
-msgid "Data source created"
-msgstr "数据源已创建"
-
-msgid "Data source updated"
-msgstr "数据源已更新"
-
 msgid "Database"
 msgstr "数据库"
 
@@ -2714,30 +2314,11 @@ msgstr "解密密码"
 msgid "Default Quotas"
 msgstr "默认配额"
 
-msgid "Default Value"
-msgstr "缺省值"
-
 msgid "Default quotas updated."
 msgstr "默认配额已更新."
 
 msgid "Defaults"
 msgstr "默认值"
-
-msgid ""
-"Define your Job Template.\n"
-"                        This is where you choose the type of job that you\n"
-"                        want to run (Pig, Java Action, Spark, etc) and "
-"choose\n"
-"                        or upload the files necessary to run it.  The "
-"inputs\n"
-"                        and outputs will be defined later.\n"
-"                    "
-msgstr ""
-"定义你的作业模板。\n"
-"这里，你可以决定要运行的作业类型\n"
-"(如Pig, Java Action, Spark等等)然后选择\n"
-"或者上传运行作业所必需的文件。输入和\n"
-"输出将会随后定义。"
 
 msgid "Delay"
 msgstr "延迟"
@@ -2767,10 +2348,6 @@ msgstr[0] "删除容器"
 msgid "Delete DHCP Agent"
 msgid_plural "Delete DHCP Agents"
 msgstr[0] "删除DHCP Agent"
-
-msgid "Delete Data Source"
-msgid_plural "Delete Data Sources"
-msgstr[0] "删除数据源"
 
 msgid "Delete Database"
 msgid_plural "Delete Databases"
@@ -2835,18 +2412,6 @@ msgstr "正在删除"
 msgid "Delete Interface"
 msgid_plural "Delete Interfaces"
 msgstr[0] "删除接口"
-
-msgid "Delete Job"
-msgid_plural "Delete Jobs"
-msgstr[0] "删除任务"
-
-msgid "Delete Job Binary"
-msgid_plural "Delete Job Binaries"
-msgstr[0] "删除任务文件"
-
-msgid "Delete Job Template"
-msgid_plural "Delete Job Templates"
-msgstr[0] "删除任务模板"
 
 msgid "Delete Key Pair"
 msgid_plural "Delete Key Pairs"
@@ -2924,10 +2489,6 @@ msgid "Delete Subnet"
 msgid_plural "Delete Subnets"
 msgstr[0] "删除子网"
 
-msgid "Delete Template"
-msgid_plural "Delete Templates"
-msgstr[0] "删除模板"
-
 msgid "Delete User"
 msgid_plural "Delete Users"
 msgstr[0] "删除用户"
@@ -2970,10 +2531,6 @@ msgid "Deleted Backup"
 msgid_plural "Deleted Backups"
 msgstr[0] "已删除的备份"
 
-msgid "Deleted Cluster"
-msgid_plural "Deleted Clusters"
-msgstr[0] "已删除的集群"
-
 msgid "Deleted Container"
 msgid_plural "Deleted Containers"
 msgstr[0] "已删除的容器"
@@ -2981,10 +2538,6 @@ msgstr[0] "已删除的容器"
 msgid "Deleted DHCP Agent"
 msgid_plural "Deleted DHCP Agents"
 msgstr[0] "已删除的DHCP Agent"
-
-msgid "Deleted Data Source"
-msgid_plural "Deleted Data Sources"
-msgstr[0] "已删除的数据源"
 
 msgid "Deleted Database"
 msgid_plural "Deleted Databases"
@@ -3021,18 +2574,6 @@ msgstr[0] "已删除的镜像"
 msgid "Deleted Interface"
 msgid_plural "Deleted Interfaces"
 msgstr[0] "已删除接口"
-
-msgid "Deleted Job"
-msgid_plural "Deleted Jobs"
-msgstr[0] "已删除的任务"
-
-msgid "Deleted Job Binary"
-msgid_plural "Deleted Job Binaries"
-msgstr[0] "已删除的任务文件"
-
-msgid "Deleted Job Template"
-msgid_plural "Deleted Jobs Templates"
-msgstr[0] "删除任务模板"
 
 msgid "Deleted Key Pair"
 msgid_plural "Deleted Key Pairs"
@@ -3093,10 +2634,6 @@ msgstr[0] "已删除静态路由表"
 msgid "Deleted Subnet"
 msgid_plural "Deleted Subnets"
 msgstr[0] "已删除的子网"
-
-msgid "Deleted Template"
-msgid_plural "Deleted Templates"
-msgstr[0] "已删除的模板"
 
 msgid "Deleted User"
 msgid_plural "Deleted Users"
@@ -3381,13 +2918,6 @@ msgstr ""
 msgid "Domains:"
 msgstr "域："
 
-msgid "Done"
-msgstr "完成"
-
-msgctxt "Current status of a Job"
-msgid "Done with Error"
-msgstr "完成但有错误发生"
-
 msgid "Down"
 msgstr "向下"
 
@@ -3439,24 +2969,15 @@ msgstr "下载 CSV 摘要"
 msgid "Download EC2 Credentials"
 msgstr "下载EC2凭证"
 
-msgid "Download Job Binary"
-msgstr "下载任务二进制文件"
-
 msgid "Download Key Pair"
 msgstr "下载密钥对"
 
 msgid "Download OpenStack RC File"
 msgstr "下载 OpenStack RC 文件"
 
-msgid "Download job binary"
-msgstr "下载任务二进制文件"
-
 #, python-format
 msgid "Download key pair &quot;%(keypair_name)s&quot;"
 msgstr "下载密钥对&quot;%(keypair_name)s&quot;"
-
-msgid "Duration"
-msgstr "存在时间"
 
 #, python-format
 msgid "Duration of instance type %s (openstack flavor)"
@@ -3474,9 +2995,6 @@ msgstr "EC2 URL"
 msgid "Edit"
 msgstr "编辑"
 
-msgid "Edit Cluster Template"
-msgstr "编辑集群模板"
-
 msgid "Edit Connection"
 msgstr "编辑连接"
 
@@ -3485,9 +3003,6 @@ msgstr "编辑消费者"
 
 msgid "Edit Consumer of QoS Spec"
 msgstr "编辑QOS规格的消费者"
-
-msgid "Edit Data Source"
-msgstr "编辑数据源"
 
 msgid "Edit Domain"
 msgstr "编辑域"
@@ -3523,14 +3038,8 @@ msgstr "编辑IPSec站点连接"
 msgid "Edit Image"
 msgstr "编辑镜像"
 
-msgid "Edit Image Tags"
-msgstr "编辑镜像标签"
-
 msgid "Edit Instance"
 msgstr "编辑云主机"
-
-msgid "Edit Job Binary"
-msgstr "编辑任务二进制文件"
 
 msgid "Edit Member"
 msgstr "编辑成员"
@@ -3540,9 +3049,6 @@ msgstr "编辑监控"
 
 msgid "Edit Network"
 msgstr "编辑网络"
-
-msgid "Edit Node Group Template"
-msgstr "编辑节点组模板"
 
 msgid "Edit Object"
 msgstr "编辑对象"
@@ -3591,9 +3097,6 @@ msgstr "编辑说明的值:"
 
 msgid "Edit Subnet"
 msgstr "编辑子网"
-
-msgid "Edit Tags"
-msgstr "编辑标签"
 
 msgid "Edit Template"
 msgstr "编辑模板"
@@ -3658,9 +3161,6 @@ msgid "Enable Service"
 msgid_plural "Enable Services"
 msgstr[0] "开启服务"
 
-msgid "Enable Swift Paths"
-msgstr "启用Swift路径"
-
 msgid "Enable User"
 msgid_plural "Enable Users"
 msgstr[0] "激活用户"
@@ -3702,9 +3202,6 @@ msgstr "jiami"
 msgid "Encryption algorithm"
 msgstr "加密算法"
 
-msgid "Ended"
-msgstr "结束"
-
 msgid "Energy (Kwapi)"
 msgstr "能源(Kwapi)"
 
@@ -3732,15 +3229,6 @@ msgid ""
 msgstr ""
 "请输入一个1到65535的整数.同一端口将用于所有选定的成员，可以稍后进行修改."
 
-msgid "Enter any custom configuration required for your job's execution."
-msgstr "输入你的任务执行需要的其他自定义配置"
-
-msgid "Enter the URL for the file"
-msgstr "输入文件的URL"
-
-msgid "Enter the username and password required to access that file"
-msgstr "输入获取文件的用户名和密码"
-
 msgid "Environment Data"
 msgstr "环境数据"
 
@@ -3755,9 +3243,6 @@ msgstr "临时磁盘"
 
 msgid "Ephemeral Disk (GB)"
 msgstr "临时磁盘(GB)"
-
-msgid "Ephemeral drive"
-msgstr "临时驱动"
 
 msgid "Equal to or greater than 60"
 msgstr "等于或大于60"
@@ -3826,9 +3311,6 @@ msgstr "错误"
 msgid "Error Deleting"
 msgstr "删除错误"
 
-msgid "Error Details"
-msgstr "错误详情"
-
 #, python-format
 msgid "Error Downloading RC File: %s"
 msgstr "下载RC文件出错：%s"
@@ -3896,9 +3378,6 @@ msgstr "疏散主机"
 msgid ""
 "Evacuate the servers from the selected down host to an active target host."
 msgstr "疏散实例从宕机的主机到一个可用的目标主机"
-
-msgid "Event time"
-msgstr "事件时间"
 
 msgid "Events"
 msgstr "事件"
@@ -3983,18 +3462,11 @@ msgstr "路由器\"%(router_id)s\"的外部网络\"%(ext_net_id)s\"没有找到�
 msgid "Extra Specs"
 msgstr "特别设定"
 
-msgid "Failed"
-msgstr "失败"
-
 msgctxt "Current status of a Database Backup"
 msgid "Failed"
 msgstr "失败"
 
 msgctxt "Current status of a Database Instance"
-msgid "Failed"
-msgstr "失败"
-
-msgctxt "Current status of a Job"
 msgid "Failed"
 msgstr "失败"
 
@@ -4099,12 +3571,6 @@ msgstr "无法疏散主机: %s."
 #, python-format
 msgid "Failed to evacuate instances: %s"
 msgstr "疏散云主机 %s 失败"
-
-msgid "Failed to fetch internal binary list"
-msgstr "获取内部二进制文件列表失败"
-
-msgid "Failed to get list of internal binaries."
-msgstr "获取Hadoop内部使用的二进制文件失败。"
 
 #, python-format
 msgid "Failed to get network list %s"
@@ -4237,9 +3703,6 @@ msgstr "无法更新防火墙 %(name)s: %(reason)s"
 msgid "Failed to update health monitor %s"
 msgstr "无法更新健康监控 %s 。"
 
-msgid "Failed to update image."
-msgstr "更新镜像失败。"
-
 #, python-format
 msgid "Failed to update member %s"
 msgstr "无法更新成员 %s。"
@@ -4325,16 +3788,6 @@ msgstr "防火墙规则"
 msgid "Firewalls"
 msgstr "防火墙"
 
-msgid ""
-"First, select which type of job that\n"
-"                            you want to run.  This choice will determine "
-"which\n"
-"                            other steps are required\n"
-"                        "
-msgstr ""
-"首先，选择您希望运行的作业的类型。\n"
-"作业的类型将决定需要哪些步骤。"
-
 msgid "Fixed IP"
 msgstr "固定IP"
 
@@ -4379,9 +3832,6 @@ msgstr "主机类型信息"
 msgid "Flavor Name"
 msgstr "云主机类型名称"
 
-msgid "Flavor is not specified"
-msgstr "没有指定云主机类型"
-
 msgid "Flavors"
 msgstr "云主机类型"
 
@@ -4393,9 +3843,6 @@ msgstr ""
 
 msgid "Floating IP"
 msgstr "浮动IP"
-
-msgid "Floating IP Pool"
-msgstr "浮动IP池"
 
 #, python-format
 msgid "Floating IP will be removed from VIP \"%s\"."
@@ -4413,33 +3860,9 @@ msgstr "浮动IP:"
 msgid "Folder created successfully."
 msgstr "目录创建成功。"
 
-msgid ""
-"For Data Processing internal job binaries, you may choose from the following:"
-msgstr "数据处理内部二进制文件，你可以选择："
-
 #, python-format
 msgid "For GRE networks, valid tunnel IDs are %(min)s through %(max)s."
 msgstr "对于GRE网络，有效的隧道ID是从 %(min)s 到 %(max)s。"
-
-msgid ""
-"For MapReduce or Java Action jobs, \"mains\" are not applicable.  You are "
-"required to add one\n"
-"  or more \"libs\" for these jobs."
-msgstr ""
-"对于MapReduce 或者Java 响应任务，“main”不适用。你必须增加一个。\n"
-"或者为这个任务增加更多的“库”。"
-
-msgid "For Object Store job binaries, you must:"
-msgstr "对象存储二进制文件，你必须："
-
-msgid ""
-"For Shell Action jobs, any required files beyond the main script may be "
-"added as \"libraries\"."
-msgstr "对于shell动作，任何在主脚本之外的必须的文件将会被作为库添加"
-
-msgid ""
-"For Spark and Shell jobs, only a main is required, \"libs\" are optional."
-msgstr "对于Spark和Shell任务，只需要\"main\"， \"libs\"仅仅是可选的."
 
 msgid ""
 "For TCP and UDP rules you may choose to open either a single port or a range "
@@ -4530,9 +3953,6 @@ msgstr "网关IP和IP版本是可变的"
 msgid "Gateway interface is added"
 msgstr "已新增网关接口"
 
-msgid "General Info"
-msgstr "一般信息"
-
 msgid "Glance"
 msgstr "Glance"
 
@@ -4575,20 +3995,8 @@ msgid ""
 "Edit the group to add users."
 msgstr "组被用于管理使用权，同时为多个用于分配角色。编辑组，添加用户."
 
-msgid "Guided Cluster Creation"
-msgstr "创建集群向导"
-
-msgid "Guided Job Execution"
-msgstr "指导任务执行"
-
-msgid "Guides"
-msgstr "指南"
-
 msgid "HA mode"
 msgstr "HA模式"
-
-msgid "HDFS placement"
-msgstr "HDFS位置"
 
 msgid "HTTP"
 msgstr "HTTP"
@@ -4627,14 +4035,8 @@ msgstr "健康监控 %s 更新成功。"
 msgid "Help"
 msgstr "帮助"
 
-msgid "Hide full configuration"
-msgstr "隐藏所有配置项"
-
 msgid "High Availability Mode"
 msgstr "高可用模式"
-
-msgid "Hive"
-msgstr "Hive"
 
 msgid "Home"
 msgstr "主页"
@@ -4865,19 +4267,6 @@ msgstr ""
 "如果不提供容器名字，默认会使用 volumebackups 来作为名字。备份会跟它们原来的卷"
 "大小一样。"
 
-msgid ""
-"If selected, instances of a cluster will be automatically configured during "
-"creation. Otherwise you should manually specify configuration values"
-msgstr ""
-"如果已选择，集群的实例将自动在集群创建的时候被配置。否则你需要手动配置。"
-
-msgid ""
-"If selected, instances of a node group will be automatically configured "
-"during cluster creation. Otherwise you should manually specify configuration "
-"values."
-msgstr ""
-"如果已选择，节点组的实例将自动在集群创建的时候被配置。否则你需要手动配置。"
-
 msgid "Image"
 msgstr "镜像"
 
@@ -4913,17 +4302,6 @@ msgstr "镜像名称 ="
 msgctxt "Task status of an Instance"
 msgid "Image Pending Upload"
 msgstr "等待上传镜像"
-
-msgid "Image Registry"
-msgstr "镜像注册"
-
-msgid ""
-"Image Registry is used to provide additional information about images for "
-"Data Processing."
-msgstr "镜像注册表是用来为数据处理提供镜像的额外信息。"
-
-msgid "Image Registry tool:"
-msgstr "镜像注册工具："
 
 msgctxt "Task status of an Instance"
 msgid "Image Snapshot Pending"
@@ -4973,9 +4351,6 @@ msgid ""
 "In addition, you can create an external network or a shared network by "
 "checking the corresponding checkbox."
 msgstr "此外，你可以通过勾选相应的复选框来创建外部网络或者共享网络。"
-
-msgid "In progress"
-msgstr "进行中"
 
 msgctxt "Current status of a Volume"
 msgid "In-use"
@@ -5050,12 +4425,6 @@ msgstr "注入的文件目录字节数"
 msgid "Injected Files"
 msgstr "注入的文件"
 
-msgid "Input"
-msgstr "输入"
-
-msgid "Input Data Source"
-msgstr "输入数据源"
-
 msgid "Input must be in CIDR format"
 msgstr "输入必须是CIDR格式"
 
@@ -5107,17 +4476,11 @@ msgstr "云主机安全组"
 msgid "Instance Snapshot"
 msgstr "云主机快照"
 
-msgid "Instance and attached volumes will be created on the same physical host"
-msgstr "实例和它所挂载的卷将会创建在同一台物理主机上"
-
 msgid "Instance to be associated"
 msgstr "待连接的云主机"
 
 msgid "Instances"
 msgstr "实例"
-
-msgid "Instances Count"
-msgstr "实例数量"
 
 msgid "Instances Per Shard"
 msgstr "一个Shard的实例"
@@ -5140,26 +4503,14 @@ msgstr "查看用户信息权限不足。"
 msgid "Intelligent Platform Management Interface (IPMI)"
 msgstr "智能平台管理接口(IPMI)"
 
-msgid "Interface Arguments"
-msgstr "接口参数"
-
 msgid "Interface added"
 msgstr "接口已增加"
 
 msgid "Interfaces"
 msgstr "接口"
 
-msgid "Internal Binary"
-msgstr "内部二进制"
-
-msgid "Internal IP"
-msgstr "内网IP"
-
 msgid "Internal Interface"
 msgstr "内部接口"
-
-msgid "Internal binary"
-msgstr "内部二进制"
 
 msgid "Invalid date format: Using today as default."
 msgstr "无效的日期格式：默认为今天。"
@@ -5182,66 +4533,6 @@ msgstr "镜像于"
 
 msgid "Items Per Page"
 msgstr "每页条目数"
-
-msgid "Java"
-msgstr "Java"
-
-msgid "Java Action"
-msgstr "Java动作"
-
-msgid "Java Opts"
-msgstr "Java 选择"
-
-msgid "Job"
-msgstr "任务"
-
-msgid "Job Binaries"
-msgstr "任务二进制"
-
-msgid "Job Configuration"
-msgstr "任务配置"
-
-msgid "Job Execution Guide"
-msgstr "任务执行向导"
-
-msgid "Job Execution ID"
-msgstr "任务执行ID"
-
-msgid "Job Guide"
-msgstr "任务指南"
-
-msgid "Job Template"
-msgstr "任务模板"
-
-msgid "Job Templates"
-msgstr "任务模板"
-
-msgid "Job Type"
-msgstr "人物类型"
-
-msgid "Job args"
-msgstr "任务参数"
-
-msgid "Job configs"
-msgstr "任务配置"
-
-msgid "Job created"
-msgstr "任务已创建"
-
-msgid "Job launched"
-msgstr "任务已启动"
-
-msgid "Job params"
-msgstr "任务参数"
-
-msgid "Job template:"
-msgstr "任务模板："
-
-msgid "Job type chosen"
-msgstr "任务类型选择"
-
-msgid "Jobs"
-msgstr "任务"
 
 msgid "Kernel"
 msgstr "内核"
@@ -5291,13 +4582,6 @@ msgstr ""
 
 msgid "Key-Value Pairs"
 msgstr "键-值对"
-
-msgid "Keypair"
-msgstr "密钥对"
-
-msgctxt "Current status of a Job"
-msgid "Killed"
-msgstr "已杀死"
 
 msgctxt "Current status of an Image"
 msgid "Killed"
@@ -5358,24 +4642,11 @@ msgstr "启动云主机"
 msgid "Launch Instance (Quota exceeded)"
 msgstr "启动实例 (配额用尽)"
 
-msgid "Launch Job"
-msgid_plural "Launch Jobs"
-msgstr[0] "启动任务"
-
-msgid "Launch On Existing Cluster"
-msgstr "在已存在集群启动"
-
-msgid "Launch On New Cluster"
-msgstr "在新集群启动"
-
 msgid "Launch Parameters"
 msgstr "启动参数"
 
 msgid "Launch Stack"
 msgstr "启动栈"
-
-msgid "Launch a Cluster"
-msgstr "启动一集群"
 
 msgid "Launch as Instance"
 msgstr "作为实例启动"
@@ -5389,43 +4660,9 @@ msgstr "使用这些网络启动云主机"
 msgid "Launch instance with this policy profile"
 msgstr "使用这个策略概要来启动云主机"
 
-msgid "Launch instances in these security groups."
-msgstr "在这些安全组下启动实例"
-
-msgid "Launch instances in this availability zone."
-msgstr "在此可用域中启动实例。"
-
-msgid "Launch job"
-msgstr "启动任务"
-
-msgid "Launch the given job template on a cluster."
-msgstr "在一个集群上启动给定的任务模板。"
-
-msgid ""
-"Launch your job.  When\n"
-"                        launching, you may need to choose your input and\n"
-"                        output data sources.  This is where you would also\n"
-"                        add any special configuration values, parameters,\n"
-"                        or arguments that you need to pass along\n"
-"                        to your job.\n"
-"                        "
-msgstr ""
-"启动你的作业。当启动时，你\n"
-"需要选择输入输出的数据源。这里\n"
-"你可以添加其他特殊的配置、参数，\n"
-"这些配置和参数将传递给你的作业。"
-
 #, python-format
 msgid "Launched %(count)s named \"%(name)s\"."
 msgstr "启动了%(count)s 名称\"%(name)s\"."
-
-#, python-format
-msgid "Launched Cluster %s"
-msgstr "启动集群 %s"
-
-msgid "Launched Job"
-msgid_plural "Launched Jobs"
-msgstr[0] "已启动的任务"
 
 #, python-format
 msgid "Launched cluster \"%s\""
@@ -5445,9 +4682,6 @@ msgstr "至少连接"
 
 msgid "Length of Injected File Path"
 msgstr "注入文件路径的长度"
-
-msgid "Libs"
-msgstr "Libs"
 
 msgid "Lifetime Units"
 msgstr "生存期单位"
@@ -5513,9 +4747,6 @@ msgstr "本地存储(总共）"
 msgid "Local Storage (used)"
 msgstr "本地存储(已使用)"
 
-msgid "Location"
-msgstr "位置"
-
 msgid "Lock Instance"
 msgid_plural "Lock Instances"
 msgstr[0] "锁定实例"
@@ -5550,12 +4781,6 @@ msgstr "MTU"
 
 msgid "MacVTap"
 msgstr "MacVTap"
-
-msgid "Main Class"
-msgstr "主类"
-
-msgid "Mains"
-msgstr "Mains"
 
 msgid "Maintenance"
 msgstr "维护"
@@ -5624,29 +4849,14 @@ msgstr "管理一个卷"
 msgid "Management Console"
 msgstr "管理控制台"
 
-msgid "Management IP"
-msgstr "管理网络IP"
-
 msgid "Manual"
 msgstr "手动"
-
-msgid "MapReduce"
-msgstr "MapReduce"
 
 msgid "Mapped Fixed IP Address"
 msgstr "已映射固定IP地址"
 
-msgid "Mapper"
-msgstr "Mapper"
-
-msgid "Mapping Type"
-msgstr "映射类型"
-
 msgid "Master Instance Name"
 msgstr "主实例名称"
-
-msgid "Master Node Group Template:"
-msgstr "主节点组模板："
 
 msgid "Max Retries"
 msgstr "最大尝试次数"
@@ -5819,11 +5029,6 @@ msgstr "修改当前用户的界面设置"
 msgid "Modify name and description of a volume."
 msgstr "修改卷的名称和描述"
 
-msgid ""
-"Modify the configuration so that swift URLs can be dereferenced through HDFS "
-"at runtime."
-msgstr "更改配置，以便在运行时通过HDFS取消引用swift URLs。"
-
 msgid "Modify the name and description of a snapshot."
 msgstr "编辑快照的名称和描述"
 
@@ -5876,13 +5081,6 @@ msgstr "已有云硬盘的名称或者其他标识符"
 #, python-format
 msgid "Name: %(name)s ID: %(uuid)s"
 msgstr "名称: %(name)s ID: %(uuid)s"
-
-#, python-format
-msgid "Name: %(node_group_name)s"
-msgstr "名称：%(node_group_name)s"
-
-msgid "Named Parameter"
-msgstr "命名参数"
 
 msgid "Namespace"
 msgstr "命名空间"
@@ -5999,9 +5197,6 @@ msgstr "网络"
 msgid "Neutron"
 msgstr "Neutron"
 
-msgid "Neutron Management Network"
-msgstr "Neutron管理网络"
-
 msgid "Never"
 msgstr "从不"
 
@@ -6062,43 +5257,14 @@ msgstr "下一跳"
 msgid "Next&nbsp;&raquo;"
 msgstr "后页&nbsp;&raquo;"
 
-msgid ""
-"Next, you need to define the different\n"
-"                        types of machines in your cluster.  This is done by\n"
-"                        defining a Node Group Template for each type of\n"
-"                        machine.  A very common case is where you\n"
-"                        need to have one or more machines running a \"master"
-"\"\n"
-"                        set of processes while another set of machines need\n"
-"                        to be running the \"worker\" processes.  Here,\n"
-"                        you will define the Node Group Template for your\n"
-"                        \"master\" node(s).\n"
-"                     "
-msgstr ""
-"下一步，需要在集群中需要定义不同的机器类型。\n"
-" 可以通过为每种机器类型定义节点组模板来实现。\n"
-"常见的案例是需要有一个或多个机器运行“主”\n"
-"流程，而另外一些机器则运行“从”流程。这样，你\n"
-"将会为你的\"主\"节点(们)定义节点组模板。\n"
-"                     "
-
 msgid "No"
 msgstr "不"
-
-msgid "No Cluster Template Created"
-msgstr "没有创建集群模板"
 
 msgid "No Host selected."
 msgstr "没有选中的主机。"
 
 msgid "No Hosts found."
 msgstr "没有找到主机。"
-
-msgid "No Images Available"
-msgstr "没有可用的镜像"
-
-msgid "No Master Node Group Template Created"
-msgstr "没有创建主节点组模板"
 
 msgid "No Ports available"
 msgstr "无可用端口"
@@ -6110,20 +5276,11 @@ msgctxt "Power state of an Instance"
 msgid "No State"
 msgstr "无状态"
 
-msgid "No Templates Available"
-msgstr "没有可用的模板"
-
-msgid "No Worker Node Group Template Created"
-msgstr "没有创建从节点组模板"
-
 msgid "No associations defined."
 msgstr "没有定义关联。"
 
 msgid "No attached device"
 msgstr "没有挂载设备"
-
-msgid "No availability zone specified"
-msgstr "未指定可用域"
 
 msgid "No availability zones found"
 msgstr "找不到可用域。"
@@ -6136,9 +5293,6 @@ msgstr "没有可用项目"
 
 msgid "No backups available"
 msgstr "没有可用的备份"
-
-msgid "No configurations"
-msgstr "没有配置"
 
 msgid "No flavors available"
 msgstr "没有可用的云主机类型。"
@@ -6167,26 +5321,14 @@ msgstr "没有找到主机。"
 msgid "No images available"
 msgstr "没有可用镜像。"
 
-msgid "No images available."
-msgstr "无可用镜像。"
-
-msgid "No info available"
-msgstr "没有可用的信息"
-
 msgid "No input was provided for the namespace content."
 msgstr "未为命名空间内容提供输入。"
 
 msgid "No instances available"
 msgstr "无可用云主机"
 
-msgid "No job template created"
-msgstr "没有创建任务模板"
-
 msgid "No key pairs available"
 msgstr "没有有效的密钥对"
-
-msgid "No keypair"
-msgstr "没有密钥对"
 
 msgid "No networks available"
 msgstr "没有可用的网络"
@@ -6208,9 +5350,6 @@ msgstr "没有其他可用的主机"
 
 msgid "No other volume types available"
 msgstr "没有其它卷类型可用"
-
-msgid "No plugin chosen"
-msgstr "没有选择插件"
 
 msgid "No ports available"
 msgstr "无可用端口"
@@ -6253,9 +5392,6 @@ msgstr "没有源，空白云硬盘。"
 msgid "No subnets available"
 msgstr "没有可用的子网"
 
-msgid "No type chosen"
-msgstr "没有选择类型"
-
 msgid "No users found."
 msgstr "没有找到用户"
 
@@ -6273,45 +5409,6 @@ msgstr "未连接云硬盘。"
 
 msgid "No volumes available"
 msgstr "没有可用云硬盘。"
-
-msgid "Node Configurations"
-msgstr "节点配置"
-
-msgid "Node Group"
-msgstr "节点组"
-
-#, python-format
-msgid "Node Group Template %s updated"
-msgstr "节点组模板 %s 已更新"
-
-#, python-format
-msgid "Node Group Template copy %s created"
-msgstr "节点组模板复制 %s 已创建"
-
-msgid "Node Group Templates"
-msgstr "节点组模板"
-
-#, python-format
-msgid "Node Group: %(node_group_name)s"
-msgstr "节点组：%(node_group_name)s"
-
-msgid "Node Groups"
-msgstr "节点组"
-
-msgid "Node Processes"
-msgstr "节点处理"
-
-msgid "Node configurations are not specified"
-msgstr "没有指定结点配置"
-
-msgid "Node group cluster"
-msgstr "节点组集群"
-
-msgid "Node processes are not specified"
-msgstr "节点处理没有被指定"
-
-msgid "Nodes Count"
-msgstr "节点数量"
 
 msgid "Non-Members"
 msgstr "非成员"
@@ -6352,36 +5449,11 @@ msgstr "注意：一个公有容器会允许任何人通过公共URL去使用你
 msgid "Nova"
 msgstr "Nova"
 
-msgid ""
-"Now you need to set the layout of your\n"
-"                        cluster.  By\n"
-"                        creating a Cluster Template, you will be choosing "
-"the\n"
-"                        number of instances of each Node Group Template "
-"that\n"
-"                        will appear in your cluster.  Additionally,\n"
-"                        you will have a chance to set any cluster-specific\n"
-"                        configuration items in the additional tabs on the\n"
-"                        create Cluster Template form."
-msgstr ""
-"现在你需要设置你的集群布局。\n"
-"通过创建集群模板，你可以决定\n"
-"每个节点组模板的实例数。而且，\n"
-"在创建集群模板的表单中，你还\n"
-"可以在额外的选项卡中设置集群\n"
-"专属的配置项。"
-
-msgid "Number"
-msgstr "数目"
-
 msgid "Number of API requests against swift"
 msgstr "Swift API请求数目"
 
 msgid "Number of Instances"
 msgstr "云主机数量"
-
-msgid "Number of Nodes"
-msgstr "节点数量"
 
 msgid "Number of Shards"
 msgstr "Shard数"
@@ -6394,9 +5466,6 @@ msgstr "虚拟CPU数量"
 
 msgid "Number of Volumes"
 msgstr "云硬盘数量"
-
-msgid "Number of clusters to launch."
-msgstr "启动集群的数量。"
 
 msgid "Number of containers"
 msgstr "容器数目"
@@ -6515,17 +5584,11 @@ msgstr "一旦一个floating IP释放，就无法保证再一次将同一个IP�
 msgid "Only definitions in raw JSON format are supported."
 msgstr "仅支持定义为裸JSON格式。"
 
-msgid "Oozie Job ID"
-msgstr "Oozie任务ID"
-
 msgid "Open Port"
 msgstr "打开端口"
 
 msgid "Open Port/Port Range:"
 msgstr "打开端口/端口范围："
-
-msgid "OpenStack Flavor"
-msgstr "OpenStack虚拟机类型"
 
 msgid "Optional Backup Description"
 msgstr "可选备份描述"
@@ -6568,12 +5631,6 @@ msgstr "其他协议"
 #, python-format
 msgid "Out of range float values are not JSON compliant: %r"
 msgstr "超出范围的浮点值不符合JSON类型：%r"
-
-msgid "Output"
-msgstr "输出"
-
-msgid "Output Data Source"
-msgstr "输出数据源"
 
 msgid "Outputs"
 msgstr "输出"
@@ -6743,17 +5800,11 @@ msgstr "周期："
 msgid "Permit"
 msgstr "许可"
 
-msgid "Persist cluster after job exit"
-msgstr "任务退出后保留集群"
-
 msgid "Physical Network"
 msgstr "物理网络"
 
 msgid "Physical Network:"
 msgstr "物理网络:"
-
-msgid "Pig"
-msgstr "Pig"
 
 msgid "Please choose a HTTP method"
 msgstr "请选择一个HTTP方法"
@@ -6778,21 +5829,6 @@ msgstr "请指定一个URL"
 #, python-format
 msgid "Please try again later [Error: %s]."
 msgstr "请稍后再试 [错误: %s]."
-
-msgid "Plugin"
-msgstr "插件"
-
-msgid "Plugin Name"
-msgstr "插件名称"
-
-msgid "Plugin name"
-msgstr "插件名称"
-
-msgid "Plugin:"
-msgstr "插件："
-
-msgid "Plugins"
-msgstr "插件"
 
 msgid "Policies"
 msgstr "策略"
@@ -6856,9 +5892,6 @@ msgstr "端口"
 msgid "Position in Policy"
 msgstr "在策略中的位置"
 
-msgid "Positional Argument"
-msgstr "定位参数"
-
 msgid "Post-Creation"
 msgstr "创建后"
 
@@ -6918,9 +5951,6 @@ msgstr "私钥文件"
 
 msgid "Profile"
 msgstr "概要"
-
-msgid "Progress"
-msgstr "进行"
 
 msgid "Project"
 msgstr "项目"
@@ -7014,9 +6044,6 @@ msgid ""
 msgstr ""
 "可以创建供应商指定网络。你可以为虚拟网络指定物理网络类型(如Flat, VLAN, GRE, "
 "和 VXLAN)以及segmentation_id，或者物理网络名称。"
-
-msgid "Proxy Gateway"
-msgstr "网关代理"
 
 msgid "Pseudo-folder Name"
 msgstr "虚拟目录名称"
@@ -7191,18 +6218,8 @@ msgstr "正在重建"
 msgid "Rebuilding instance %s."
 msgstr "重建云主机  %s。"
 
-msgid "Reducer"
-msgstr "Reducer"
-
 msgid "Regions:"
 msgstr "Regions:"
-
-msgid "Register Image"
-msgstr "注册镜像"
-
-msgid ""
-"Register tags required for the Plugin with specified Data Processing Version"
-msgstr "指定数据处理版本必须的插件注册标签"
 
 msgid "Relative part of requests this pool member serves compared to others"
 msgstr "这个资源池成员服务的申请的相关部分与其他的相比"
@@ -7214,12 +6231,6 @@ msgid ""
 msgstr ""
 "与其他部分相对比该池的部分成员的请求服务. \n"
 "相同的权重将适用于所有选定的成员，可以稍后进行修改。权重必须在范围1到256。"
-
-msgid "Relaunch On Existing Cluster"
-msgstr "在现有的集群上重新启动"
-
-msgid "Relaunch On New Cluster"
-msgstr "在新的集群的重新启动"
 
 msgid "Release Floating IP"
 msgid_plural "Release Floating IPs"
@@ -7257,9 +6268,6 @@ msgstr ""
 msgid "Remote:"
 msgstr "远程："
 
-msgid "Remove"
-msgstr "移除"
-
 msgid "Remove Router"
 msgstr "删除路由"
 
@@ -7279,14 +6287,6 @@ msgstr[0] "删除用户"
 msgid "Removed User"
 msgid_plural "Removed Users"
 msgstr[0] "已删除的用户"
-
-msgid ""
-"Repeat the Node Group Template\n"
-"                        creation process, but this time you are creating\n"
-"                        your \"worker\" Node Group Template."
-msgstr ""
-"重复操作创建节点组模板的步骤，\n"
-"但是这次，为你的\"从\"节点组创建模板。"
 
 msgid "Replica Detached"
 msgid_plural "Replicas Detached"
@@ -7312,9 +6312,6 @@ msgid ""
 "          directed to the same instance."
 msgstr "来自同一个源IP地址的请求将会从始至终都会分发给同一实例."
 
-msgid "Required"
-msgstr "必须"
-
 msgid "Required for APP_COOKIE persistence; Ignored otherwise."
 msgstr "需要使用APP_COOKIE持久化;忽略其他"
 
@@ -7325,15 +6322,6 @@ msgstr "恢复"
 msgctxt "Task status of an Instance"
 msgid "Rescuing"
 msgstr "正在进行拯救"
-
-msgid "Reset Cluster Creation Guide"
-msgstr "重置集群创建向导"
-
-msgid "Reset Cluster Guide"
-msgstr "重置集群向导"
-
-msgid "Reset Job Execution Guide"
-msgstr "重置任务执行向导"
 
 msgid "Reset Root Password"
 msgstr "重置root密码"
@@ -7499,9 +6487,6 @@ msgstr "取回云主机密码"
 msgid "Retrieve Password"
 msgstr "取回密码"
 
-msgid "Return Code"
-msgstr "返回代码"
-
 msgid "Revert Resize/Migrate"
 msgstr "恢复修改尺寸/移植"
 
@@ -7656,9 +6641,6 @@ msgstr ""
 "云主机可以关联安全组，组中的规则定义了允许哪些访问到达被关联的云主机。安全组"
 "由以下三个主要组件组成："
 
-msgid "Run HBase EDP Jobs with common HBase library on HDFS"
-msgstr "通过HBase公共库在HDFS上运行HBase EDP任务"
-
 msgctxt "Power state of an Instance"
 msgid "Running"
 msgstr "运行中"
@@ -7677,11 +6659,6 @@ msgstr "SNAT"
 
 msgid "SSH key pairs can be generated with the ssh-keygen command:"
 msgstr "可以使用ssh-keygen命令来生成SSH密钥对："
-
-msgid ""
-"Sahara will use instances of this node group to access other cluster "
-"instances."
-msgstr "Sahara将使用这个节点组中的实例以访问其它集群中的实例。"
 
 msgid "Save"
 msgstr "保存"
@@ -7704,18 +6681,6 @@ msgstr "保存中"
 msgctxt "Current status of an Image"
 msgid "Saving"
 msgstr "保存中"
-
-msgid "Scale"
-msgstr "规模"
-
-msgid "Scale Cluster"
-msgstr "规模集群"
-
-msgid "Scale cluster operation failed"
-msgstr "规模集群操作失败"
-
-msgid "Scaled cluster successfully started."
-msgstr "规模集群成功启动。"
 
 #, python-format
 msgid "Scheduled backup \"%(name)s\"."
@@ -7791,15 +6756,6 @@ msgstr "脚本数据"
 msgid "Script File"
 msgstr "脚本文件"
 
-msgid "Script name"
-msgstr "脚本名称"
-
-msgid "Script text"
-msgstr "脚本文本"
-
-msgid "Security"
-msgstr "安全性"
-
 msgid "Security Group"
 msgstr "安全组"
 
@@ -7830,9 +6786,6 @@ msgstr "段ID"
 msgid "Segmentation ID:"
 msgstr "段ID："
 
-msgid "Select"
-msgstr "选择"
-
 msgid "Select Flavor"
 msgstr "选择实例类型"
 
@@ -7850,9 +6803,6 @@ msgstr "选择云主机快照"
 
 msgid "Select Network"
 msgstr "选择网络"
-
-msgid "Select Node Group Processes"
-msgstr "选择节点组进程"
 
 msgid "Select Port"
 msgstr "选择端口"
@@ -7884,9 +6834,6 @@ msgstr "选择监控"
 msgid "Select a New Flavor"
 msgstr "选择一个新的云主机类型"
 
-msgid "Select a Node Group Template to add:"
-msgstr "选择以添加一个节点组模板："
-
 msgid "Select a Policy"
 msgstr "选择一个策略"
 
@@ -7901,9 +6848,6 @@ msgstr "选择一个路由器"
 
 msgid "Select a Subnet"
 msgstr "选择子网"
-
-msgid "Select a Value Type for your next argument:"
-msgstr "选择你的下一个参数值的类型："
 
 msgid "Select a backup to restore"
 msgstr "选择一个备份来恢复"
@@ -7948,15 +6892,6 @@ msgstr "重新选择模板来启动stack"
 
 msgid "Select a new volume type"
 msgstr "选择一个新卷类型"
-
-msgid "Select a plugin and version for a new Cluster template."
-msgstr "为新的集群模板选择插件和版本。"
-
-msgid "Select a plugin and version for a new Cluster."
-msgstr "为新的集群选择插件和版本。"
-
-msgid "Select a plugin and version for the new Node Group template."
-msgstr "为新的节点组模板选择一插件和版本"
 
 msgid "Select a pool"
 msgstr "选择一个资源池"
@@ -8015,23 +6950,8 @@ msgstr "选择网络"
 msgid "Select networks for your instance."
 msgstr "选择网络"
 
-msgid "Select node processes for the node group"
-msgstr "为节点组选择节点进程"
-
 msgid "Select parent backup"
 msgstr "选择父备份"
-
-msgid "Select plugin and hadoop version"
-msgstr "选择插件和hadoop 版本"
-
-msgid "Select plugin and hadoop version for cluster"
-msgstr "为集群选择插件和Hadoop版本"
-
-msgid "Select plugin and hadoop version for cluster template"
-msgstr "为集群模板选择一个插件和一个Hadoop版本"
-
-msgid "Select property name"
-msgstr "选择属性名称"
 
 msgid "Select routers for your firewall."
 msgstr "为您的防火墙选择路由。"
@@ -8062,35 +6982,6 @@ msgid ""
 msgstr ""
 "选择云主机类型可以使用的项目。如果没有选择任何项目，云主机类型可以在所有项目"
 "中使用。"
-
-msgid "Select the storage type for your job binary."
-msgstr "为你的任务二进制文件选择存储类型。"
-
-msgid "Select the type of your Data Source."
-msgstr "选择你的数据源类型"
-
-msgid "Select the type of your job:"
-msgstr "请选择你的任务类型："
-
-msgid "Select type"
-msgstr "选择类型"
-
-msgid ""
-"Select which plugin and version that you\n"
-"    want to use to create your cluster."
-msgstr ""
-"选择那个插件和版本，用于您\n"
-"创建集群。"
-
-msgid ""
-"Select which type of job that you want to run.\n"
-"      This choice will dictate which steps are required to successfully\n"
-"      execute your job.\n"
-"    "
-msgstr ""
-"选择您希望运行的任务的类型。\n"
-"任务的类型将决定要成功完成任务\n"
-"需要哪些步骤。"
 
 msgid "Selected Hosts"
 msgstr "选中的主机"
@@ -8134,9 +7025,6 @@ msgstr "服务器"
 msgid "Service"
 msgstr "服务"
 
-msgid "Service Configurations"
-msgstr "服务配置"
-
 msgid "Service Endpoint"
 msgstr "服务端点"
 
@@ -8179,12 +7067,6 @@ msgstr "共享存储"
 msgid "Shared with Me"
 msgstr "与我共享"
 
-msgid "Shell"
-msgstr "命令行解释器shell"
-
-msgid "Shell Action"
-msgstr "Shell动作"
-
 msgid "Shelve Instance"
 msgid_plural "Shelve Instances"
 msgstr[0] "废弃实例"
@@ -8216,9 +7098,6 @@ msgstr "搁置镜像上传"
 msgctxt "Task status of an Instance"
 msgid "Shelving Offloading"
 msgstr "搁置卸载中"
-
-msgid "Show full configuration"
-msgstr "显示所有配置项"
 
 msgctxt "Power state of an Instance"
 msgid "Shut Down"
@@ -8372,14 +7251,8 @@ msgstr "源端口/端口范围"
 msgid "Source for Initial State"
 msgstr "初始状态来源"
 
-msgid "Source password"
-msgstr "源密码"
-
 msgid "Source port (integer in [1, 65535] or range in a:b)"
 msgstr "源端口([1, 65535]区间内的整数或者以a:b形式表示的范围)"
-
-msgid "Source username"
-msgstr "源用户名"
 
 msgid ""
 "Source/Destination Network Address and IP version are inconsistent. Please "
@@ -8388,9 +7261,6 @@ msgstr "源/目的网络地址和IP版本不一致。请确保它们一致。"
 
 msgid "Source:"
 msgstr "源"
-
-msgid "Spark"
-msgstr "Spark"
 
 msgctxt "Task status of an Instance"
 msgid "Spawning"
@@ -8401,11 +7271,6 @@ msgstr "规格"
 
 msgid "Spec: {{ qos_spec_name }}"
 msgstr "说明书: {{ qos_spec_name }}"
-
-msgid ""
-"Specified User Name will be used by Data Processing to apply configs and "
-"manage processes on instances."
-msgstr "数据处理过程中，用户名会被用来在实例上应用配置和管理这些处理任务。"
 
 msgid ""
 "Specifies how IPv6 addresses and additional information are configured. We "
@@ -8549,15 +7414,9 @@ msgstr "需要指出起始和结束地址 (value=%s)"
 msgid "Start must be earlier than end of period."
 msgstr "起始时间必须早于结束时间"
 
-msgid "Started"
-msgstr "已开始"
-
 msgid "Started Instance"
 msgid_plural "Started Instances"
 msgstr[0] "已启动的实例"
-
-msgid "Started at"
-msgstr "开始于"
 
 #, python-format
 msgid "Starting evacuation from %(current)s to %(target)s."
@@ -8591,27 +7450,9 @@ msgstr "状态 ="
 msgid "Status Reason"
 msgstr "状态原因"
 
-msgid "Step Description"
-msgstr "步骤说明"
-
 msgctxt "Action log of an instance"
 msgid "Stop"
 msgstr "关机"
-
-msgid "Storage location"
-msgstr "存储位置"
-
-msgid "Storage type"
-msgstr "存储类型"
-
-msgid "Storm"
-msgstr "风暴"
-
-msgid "Streaming MapReduce"
-msgstr "MapReduce流"
-
-msgid "String"
-msgstr "字符串"
 
 msgid "Subnet"
 msgstr "子网"
@@ -8652,10 +7493,6 @@ msgstr "子网"
 
 msgid "Subnets Associated"
 msgstr "子网已连接"
-
-msgctxt "Current status of a Job"
-msgid "Succeeded"
-msgstr "成功"
 
 #, python-format
 msgid "Successfully accepted volume transfer: \"%s\""
@@ -8748,9 +7585,6 @@ msgstr "成功更新容器为私有访问类型"
 msgid "Successfully updated container access to public."
 msgstr "成功更新容器为公开访问类型"
 
-msgid "Successfully updated image."
-msgstr "成功更新镜像。"
-
 #, python-format
 msgid "Successfully updated security group: %s"
 msgstr "成功更新安全组: %s"
@@ -8768,9 +7602,6 @@ msgstr "成功更新卷类型"
 
 msgid "Sum."
 msgstr "总和"
-
-msgid "Supported Versions"
-msgstr "支持的版本"
 
 msgctxt "Action log of an instance"
 msgid "Suspend"
@@ -8861,19 +7692,6 @@ msgstr "系统温度读取中"
 msgid "TCP"
 msgstr "TCP"
 
-msgid "Tags"
-msgstr "标签"
-
-msgid ""
-"Tags are used for filtering images suitable for each plugin and each Data "
-"Processing version.\n"
-"        To add required tags, select a plugin and a Data Processing version "
-"and click &quot;Add plugin tags&quot; button."
-msgstr ""
-"标签被用于过滤适合插件和数据处理版本的镜像。\n"
-"如要增加标签，选择一个插件和一个数据处理版本，并点击&quot;增加插件标签&quot;"
-"按钮。"
-
 msgid "Target Host"
 msgstr "目标主机"
 
@@ -8889,17 +7707,11 @@ msgstr "模板数据"
 msgid "Template File"
 msgstr "模板文件"
 
-msgid "Template Name"
-msgstr "模板名称"
-
 msgid "Template Source"
 msgstr "模板源"
 
 msgid "Template URL"
 msgstr "模板URL"
-
-msgid "Template not specified"
-msgstr "没有指定模板"
 
 msgid ""
 "The \"Bootable\" flag specifies that this volume can be used to launch an "
@@ -8961,29 +7773,6 @@ msgid ""
 "must capture it now, or else you will be unable to use the transfer."
 msgstr "认证密钥将在关闭此页面后失效，请现在就将其收集，否则您将无法进行转移。"
 
-msgid ""
-"The Cluster Template object may specify a list of processes in anti-affinity "
-"group.\n"
-"    That means these processes may not be launched more than once on a "
-"single host."
-msgstr ""
-"Cluster Template对象可以指定一系列任务在anti-affinity组上。\n"
-"这样这些任务就不会在同一个物理主机上启动多个。"
-
-msgid ""
-"The Cluster Template object should specify Node Group Templates that will be "
-"used to build a Cluster.\n"
-"    You can add Node Groups using Node Group Templates on a &quot;Node "
-"Groups&quot; tab."
-msgstr ""
-"集群模板对象应该指定用于创建集群的节点组模板。\n"
-"你可以使用&quot;节点组&quot;选项卡上的\"节点组模板\"来新增节点组。"
-
-msgid ""
-"The Cluster object should specify OpenStack Image to boot instances for "
-"Cluster."
-msgstr "集群对象应该指定用于创建集群中实例的OpenStack镜像。"
-
 msgid "The ICMP code is invalid."
 msgstr "无效的ICMP代码。"
 
@@ -9019,17 +7808,6 @@ msgstr "命名空间的JSON格式内容"
 
 msgid "The Key Pair name that was associated with the instance"
 msgstr "关联到该云主机上的密钥对名称"
-
-msgid ""
-"The Node Group Template object specifies the processes\n"
-"        that will be launched on each instance. Check one or more "
-"processes.\n"
-"        When processes are selected, you may set <b>node</b> scoped\n"
-"        configurations on corresponding tabs."
-msgstr ""
-"节点组模板对像是用于配置在每一个实例上需要运行的数据处理任务。可以指定一个或"
-"者多个处理任务。当处理任务选择完成之后，您可以在相应的选项卡对 <b>节点</b> 范"
-"围进行配置。"
 
 msgid ""
 "The Transfer ID and the Authorization Key are needed by the recipient in "
@@ -9096,31 +7874,6 @@ msgid ""
 msgstr ""
 "被创建接口的默认IP地址是被选用子网的网关。在此你可以指定接口的另一个IP地址。"
 "你必须从上述列表中选择一个子网，这个指定的IP地址应属于该子网。"
-
-msgid ""
-"The first step is to determine which type of\n"
-"                    cluster you want to run.  You may have several choices\n"
-"                    available depending on the configuration of your "
-"system.\n"
-"                    Click on \"choose plugin\" to bring up the list of data\n"
-"                    processing plugins.  There you will be able to choose "
-"the\n"
-"                    data processing plugin along with the version number.\n"
-"                    Choosing this up front will allow the rest of the "
-"cluster\n"
-"                    creation steps to focus only on options that are "
-"pertinent\n"
-"                    to your desired cluster type."
-msgstr ""
-"第一步是确定集群的类\n"
-"型。基于系统的部署情况\n"
-"会有几种集群类型供您选择。\n"
-"点击“选择插件”会打开数据\n"
-"处理插件列表，您可以对插\n"
-"件及对应它们的版本进行选\n"
-"择。之后在集群创建的余下\n"
-"步骤中，您可以只关注和集\n"
-"群类型相关的选项。"
 
 #, python-format
 msgid ""
@@ -9301,15 +8054,6 @@ msgstr "命名空间加载时出错：%s。"
 msgid "There was a problem parsing the %(prefix)s: %(error)s"
 msgstr "解析%(prefix)s遇到问题: %(error)s"
 
-msgid "This Cluster Template will be created for:"
-msgstr "这个集群模板将被创建给："
-
-msgid "This Cluster will be started with:"
-msgstr "这个集群将开始运行："
-
-msgid "This Node Group Template will be created for:"
-msgstr "这个结点群组模板创建来："
-
 msgid "This action cannot be undone."
 msgstr "这个动作不能撤消。"
 
@@ -9368,9 +8112,6 @@ msgstr "超时"
 
 msgid "Timezone"
 msgstr "时区"
-
-msgid "Title"
-msgstr "标题"
 
 msgid "To"
 msgstr "至"
@@ -9648,9 +8389,6 @@ msgstr "无法创建主机集合 \"%s\"."
 msgid "Unable to create host aggregate."
 msgstr "无法创建主机集合."
 
-msgid "Unable to create job binary"
-msgstr "无法创建任务二进制文件"
-
 #, python-format
 msgid "Unable to create key pair: %(exc)s"
 msgstr "无法创建密钥对：%(exc)s"
@@ -9658,9 +8396,6 @@ msgstr "无法创建密钥对：%(exc)s"
 #, python-format
 msgid "Unable to create network \"%s\"."
 msgstr "无法创建网络\"%s\"."
-
-msgid "Unable to create new cluster for job."
-msgstr "无法为任务创建信的集群"
 
 msgid "Unable to create new image"
 msgstr "无法创建新的镜像"
@@ -9706,9 +8441,6 @@ msgstr "无法创建规格"
 #, python-format
 msgid "Unable to create subnet \"%s\"."
 msgstr "无法创建子网\"%s\"."
-
-msgid "Unable to create the cluster"
-msgstr "无法创建集群"
 
 msgid "Unable to create user."
 msgstr "无法创建用户。"
@@ -9815,82 +8547,6 @@ msgstr "无法扩展云硬盘"
 msgid "Unable to fetch EC2 credentials."
 msgstr "无法获得EC2凭证。"
 
-msgid "Unable to fetch available images."
-msgstr "无法获取可用镜像。"
-
-msgid "Unable to fetch cluster list"
-msgstr "无法获取集群列表"
-
-msgid "Unable to fetch cluster template list"
-msgstr "无法获取集群模板列表"
-
-msgid "Unable to fetch cluster template."
-msgstr "无法获取集群模板。"
-
-msgid "Unable to fetch cluster to scale"
-msgstr "无法获取集群规模"
-
-msgid "Unable to fetch cluster to scale."
-msgstr "无法获取集群规模。"
-
-msgid "Unable to fetch clusters."
-msgstr "无法获取集群"
-
-msgid "Unable to fetch data sources."
-msgstr "无法获取数据源。"
-
-msgid "Unable to fetch flavor for template."
-msgstr "无法获取模板的实例类型"
-
-msgid "Unable to fetch floating ip pools."
-msgstr "无法获取浮动IP池"
-
-msgid "Unable to fetch image choices."
-msgstr "无法获取镜像选项。"
-
-msgid "Unable to fetch instance details."
-msgstr "无法获取云主机实例详情。"
-
-msgid "Unable to fetch job binary list."
-msgstr "无法获取任务二进制文件列表"
-
-#, python-format
-msgid "Unable to fetch job binary: %(exc)s"
-msgstr "无法获取任务二进制文件： %(exc)s"
-
-msgid "Unable to fetch job executions."
-msgstr "无法获取任务执行列表。"
-
-msgid "Unable to fetch jobs."
-msgstr "无法获取任务"
-
-msgid "Unable to fetch keypair choices."
-msgstr "无法获取密钥对选项。"
-
-msgid "Unable to fetch node group details."
-msgstr "无法获取节点组的详细信息。"
-
-msgid "Unable to fetch node group template list."
-msgstr "无法获取结点组模板列表"
-
-msgid "Unable to fetch plugin details."
-msgstr "无法获取插件详情"
-
-msgid "Unable to fetch plugin list."
-msgstr "无法获取插件列表。"
-
-msgid "Unable to fetch template object."
-msgstr "无法获取模板对象。"
-
-msgid "Unable to fetch template to copy."
-msgstr "无法获取模板进行复制。"
-
-msgid "Unable to fetch template to edit."
-msgstr "无法获取模板进行编辑"
-
-msgid "Unable to fetch the image details"
-msgstr "无法获取镜像详细信息"
-
 msgid "Unable to find backup!"
 msgstr "无法找到备份！"
 
@@ -9899,9 +8555,6 @@ msgstr "无法获取默认角色"
 
 msgid "Unable to find master instance!"
 msgstr "无法找到主实例！"
-
-msgid "Unable to generate process choices."
-msgstr "无法生成处理选项。"
 
 msgid "Unable to get EC2 credentials"
 msgstr "无法获取EC2凭证"
@@ -9965,9 +8618,6 @@ msgstr "无法获取网络agents信息。"
 msgid "Unable to get network agents list."
 msgstr "无法获取网络代理列表。"
 
-msgid "Unable to get node group details."
-msgstr "无法获取节点组详细信息。"
-
 msgid "Unable to get nova services list."
 msgstr "无法查询nova服务列表。"
 
@@ -9984,9 +8634,6 @@ msgstr "无法得到配额信息。"
 msgid "Unable to get resources for stack \"%s\"."
 msgstr "无法获取栈 \"%s\" 的资源。"
 
-msgid "Unable to get security group list."
-msgstr "无法获取安全组列表。"
-
 #, python-format
 msgid "Unable to get subnet \"%s\""
 msgstr "无法获取子网 \"%s\""
@@ -10001,9 +8648,6 @@ msgstr "无法获取可用的主机"
 msgid "Unable to get user data."
 msgstr "无法获取用户数据。"
 
-msgid "Unable to get volume type list."
-msgstr "无法取得卷列表"
-
 msgid "Unable to import key pair."
 msgstr "无法导入密钥对。"
 
@@ -10017,9 +8661,6 @@ msgstr "无法启动%(count)s 名字 \"%(name)s\"."
 #, python-format
 msgid "Unable to launch cluster. %s"
 msgstr "无法启动集群。%s"
-
-msgid "Unable to launch job."
-msgstr "无法启动任务"
 
 msgid "Unable to list containers."
 msgstr "找不到容器列表。"
@@ -10082,12 +8723,6 @@ msgstr "无法获取的实例类型。"
 #, python-format
 msgid "Unable to parse IP address %s."
 msgstr "无法解析IP地址 %s."
-
-msgid "Unable to populate anti-affinity processes."
-msgstr "无法填充anti-affinity processes."
-
-msgid "Unable to process plugin tags"
-msgstr "无法处理插件标签"
 
 msgid "Unable to rebuild instance."
 msgstr "无法重建云主机。"
@@ -10226,9 +8861,6 @@ msgstr "无法获取计算限制信息。"
 msgid "Unable to retrieve container list."
 msgstr "无法检索容器列表。"
 
-msgid "Unable to retrieve data processing plugins."
-msgstr "无法获取数据处理插件。"
-
 msgid "Unable to retrieve database clusters."
 msgstr "无法获取数据库集群。"
 
@@ -10249,18 +8881,6 @@ msgid "Unable to retrieve details for backup: %s"
 msgstr "无法获取备份%s的详细信息"
 
 #, python-format
-msgid "Unable to retrieve details for cluster \"%s\"."
-msgstr "无法获取集群 \"%s\".详情。"
-
-#, python-format
-msgid "Unable to retrieve details for cluster template \"%s\"."
-msgstr "无法获取集群模板\"%s\"详情"
-
-#, python-format
-msgid "Unable to retrieve details for data source \"%s\"."
-msgstr "无法获取数据源\"%s\"详情"
-
-#, python-format
 msgid "Unable to retrieve details for database cluster: %s"
 msgstr "无法获取数据库集群的详细信息：%s"
 
@@ -10273,28 +8893,12 @@ msgid "Unable to retrieve details for instance \"%s\"."
 msgstr "无法获取云主机 \"%s\" 的详情。"
 
 #, python-format
-msgid "Unable to retrieve details for job \"%s\"."
-msgstr "无法获取任务\"%s\"详情"
-
-#, python-format
-msgid "Unable to retrieve details for job binary \"%s\"."
-msgstr "无法获取二进制任务\"%s\"详情"
-
-#, python-format
-msgid "Unable to retrieve details for job template \"%s\"."
-msgstr "无法获取任务模板\"%s\"详情"
-
-#, python-format
 msgid "Unable to retrieve details for keypair \"%s\"."
 msgstr "无法获取密钥对 \"%s\" 详情。"
 
 #, python-format
 msgid "Unable to retrieve details for network \"%s\"."
 msgstr "无法获取网络\"%s\"的详情."
-
-#, python-format
-msgid "Unable to retrieve details for node group template \"%s\"."
-msgstr "无法获取节点组模板\"%s\"详情"
 
 #, python-format
 msgid "Unable to retrieve details for parent backup: %s"
@@ -10389,9 +8993,6 @@ msgstr "无法获取虚拟机管理器统计信息。"
 msgid "Unable to retrieve image details."
 msgstr "无法检索到镜像细节。"
 
-msgid "Unable to retrieve image list"
-msgstr "无法获取镜像列表"
-
 msgid "Unable to retrieve image list."
 msgstr "无法查询镜像列表。"
 
@@ -10403,10 +9004,6 @@ msgstr "无法获取镜像"
 
 msgid "Unable to retrieve images for the current project."
 msgstr "找不到镜像。"
-
-#, python-format
-msgid "Unable to retrieve images with filter %s."
-msgstr "无法根据过滤器 %s 获取镜像。"
 
 msgid "Unable to retrieve images."
 msgstr "找不到镜像。"
@@ -10443,10 +9040,6 @@ msgstr "无法获取云主机列表"
 
 msgid "Unable to retrieve instances."
 msgstr "无法获取云主机。"
-
-#, python-format
-msgid "Unable to retrieve job binary \"%s\"."
-msgstr "无法获取二进制任务\"%s\""
 
 msgid "Unable to retrieve key pair list."
 msgstr "找不到密钥对列表。"
@@ -10517,9 +9110,6 @@ msgstr "找不到对象列表。"
 
 msgid "Unable to retrieve object."
 msgstr "找不到对象。"
-
-msgid "Unable to retrieve plugin."
-msgstr "无法获取插件。"
 
 msgid "Unable to retrieve policies list."
 msgstr "无法获取策略列表。"
@@ -10622,10 +9212,6 @@ msgstr "无法获取规则 (%(error)s).。"
 
 msgid "Unable to retrieve rules list."
 msgstr "无法获取规则列表。"
-
-#, python-format
-msgid "Unable to retrieve security group %(group)s."
-msgstr "无法获取安全组 %(group)s。"
 
 msgid "Unable to retrieve security group list. Please try again later."
 msgstr "无法得到安全组列表.请稍后重试."
@@ -10791,9 +9377,6 @@ msgstr "无法设定域上下文。"
 msgid "Unable to set bootable flag on volume."
 msgstr "无法设存储卷的可启动标记。"
 
-msgid "Unable to set cluster type"
-msgstr "无法设置集群类型"
-
 #, python-format
 msgid "Unable to set flavor access for project %s."
 msgstr "无法设置项目%s访问云主机类型。"
@@ -10801,14 +9384,8 @@ msgstr "无法设置项目%s访问云主机类型。"
 msgid "Unable to set gateway."
 msgstr "无法设置网关"
 
-msgid "Unable to set job type"
-msgstr "无法设置任务类型"
-
 msgid "Unable to set project quotas."
 msgstr "无法设置项目配额"
-
-msgid "Unable to show guides"
-msgstr "无法显示指南"
 
 msgid "Unable to sort instance flavors."
 msgstr "无法对云主机类型排序."
@@ -10829,17 +9406,11 @@ msgstr "无法更新组。"
 msgid "Unable to update image \"%s\"."
 msgstr "更新镜像 \"%s\"失败。"
 
-msgid "Unable to update job binary"
-msgstr "无法更新任务二进制文件"
-
 msgid "Unable to update object."
 msgstr "无法更新对象。"
 
 msgid "Unable to update role."
 msgstr "无法更新角色。"
-
-msgid "Unable to update row"
-msgstr "无法更新行"
 
 #, python-format
 msgid "Unable to update security group: %s"
@@ -10880,12 +9451,6 @@ msgstr "无法更新卷类型"
 msgid "Unable to update volume."
 msgstr "不能更新卷"
 
-msgid "Unable to upload cluster template file"
-msgstr "无法上传集群模板文件"
-
-msgid "Unable to upload job binary"
-msgstr "无法上传任务二进制文件"
-
 msgid "Unable to upload object."
 msgstr "无法上传对象。"
 
@@ -10922,20 +9487,9 @@ msgstr "非管理卷"
 msgid "Unmanage a Volume"
 msgstr "非管理卷"
 
-msgid "Unnecessary tags may be removed by clicking a cross near tag's name."
-msgstr "可以点击标签名字旁边的叉来删除没用的标签"
-
 msgctxt "Action log of an instance"
 msgid "Unpause"
 msgstr "取消挂起"
-
-msgid "Unregister Image"
-msgid_plural "Unregister Images"
-msgstr[0] "注销镜像"
-
-msgid "Unregistered Image"
-msgid_plural "Unregistered Images"
-msgstr[0] "已注销的镜像"
 
 msgctxt "Task status of an Instance"
 msgid "Unrescuing"
@@ -11078,9 +9632,6 @@ msgstr "已更新于"
 msgid "Updated subnet \"%s\"."
 msgstr "已更新子网\"%s\"."
 
-msgid "Updated time"
-msgstr "更新时间"
-
 msgctxt "Task status of an Instance"
 msgid "Updating Password"
 msgstr "密码更新中"
@@ -11096,9 +9647,6 @@ msgstr "正在更新云硬盘快照\"%s\""
 msgid "Upload"
 msgstr "上传"
 
-msgid "Upload File"
-msgstr "上传文件"
-
 msgid "Upload Object"
 msgstr "上传对象"
 
@@ -11109,23 +9657,14 @@ msgstr "上传对象到容器中：%(container_name)s"
 msgid "Upload Objects"
 msgstr "上传对象"
 
-msgid "Upload Template"
-msgstr "上传模板"
-
 msgid "Upload Volume to Image"
 msgstr "上传卷到镜像"
-
-msgid "Upload a new file"
-msgstr "上传新文件"
 
 msgid "Upload to Image"
 msgstr "上传镜像"
 
 msgid "Uploaded image size"
 msgstr "已上传镜像大小"
-
-msgid "Url"
-msgstr "Url"
 
 msgid "Usage"
 msgstr "用量"
@@ -11142,23 +9681,11 @@ msgstr "使用报告"
 msgid "Usage Report For Period:"
 msgstr "周期使用报告："
 
-msgid "Use HBase Common library"
-msgstr "使用HBase 公共库"
-
 msgid "Use Server Default"
 msgstr "使用默认服务"
 
 msgid "Use a volume as source"
 msgstr "将云硬盘作为源"
-
-msgid "Use anti-affinity groups for processes"
-msgstr "为processes使用anti-affinity组"
-
-msgid "Use anti-affinity groups for: "
-msgstr "使用anti-affinity组："
-
-msgid "Use auto-configuration"
-msgstr "使用自动配置"
 
 msgid "Use image as a source"
 msgstr "使用镜像作为源"
@@ -11219,18 +9746,12 @@ msgstr "用户设置"
 msgid "User has been updated successfully."
 msgstr "用户更新成功"
 
-msgid "User has to choose a keypair to have access to clusters instances."
-msgstr "用户必须选择密钥对去连接集群中的实例"
-
 #, python-format
 msgid "User name \"%s\" is already used."
 msgstr "用户名\"%s\"已经被使用。"
 
 msgid "User password has been updated successfully."
 msgstr "用户密码已经更新成功。"
-
-msgid "Username"
-msgstr "用户名"
 
 msgid "Username (required)"
 msgstr "用户名(必填)"
@@ -11330,17 +9851,8 @@ msgstr "值"
 msgid "Value (Avg)"
 msgstr "值(平均)"
 
-msgid "Value Type"
-msgstr "值类型"
-
 msgid "Value:"
 msgstr "值："
-
-msgid "Version"
-msgstr "版本"
-
-msgid "Version:"
-msgstr "版本："
 
 #, python-format
 msgid ""
@@ -11486,9 +9998,6 @@ msgstr "云硬盘不能扩展到%(req)iGB，因为你的可用配置只有%(avai
 msgid "Volume is Unencrypted"
 msgstr "卷没有加密"
 
-msgid "Volume local to instance"
-msgstr "实例的本地卷"
-
 msgid ""
 "Volume mount point (e.g. 'vda' mounts at '/dev/vda'). Leave this field blank "
 "to let the system choose a device name for you."
@@ -11552,24 +10061,6 @@ msgstr "云硬盘"
 msgid "Volumes Attached"
 msgstr "云硬盘已连接"
 
-msgid "Volumes Availability Zone"
-msgstr "卷的可用域"
-
-msgid "Volumes local to instance"
-msgstr "实例的本地卷"
-
-msgid "Volumes per node"
-msgstr "卷/节点"
-
-msgid "Volumes size"
-msgstr "卷大小"
-
-msgid "Volumes size (GB)"
-msgstr "卷大小 (GB)"
-
-msgid "Volumes type"
-msgstr "卷类型"
-
 msgid "Weight"
 msgstr "重量"
 
@@ -11584,9 +10075,6 @@ msgstr ""
 "如果需要一个特定的IP地址，那地址是需要可提供的并且\n"
 "必须是选定的子网内的地址。"
 
-msgid "Which keypair to use for authentication."
-msgstr "认证使用哪个密钥对。"
-
 msgid ""
 "Within a container you can group your objects into pseudo-folders, which "
 "behave similarly to folders in your desktop operating system, with the "
@@ -11598,9 +10086,6 @@ msgstr ""
 "果报错他们将通过一个共同的前缀定义的对象名称来进行虚拟整合.在对象存储中字符"
 "(/)用来分割虚拟目录."
 
-msgid "Worker Node Group Template:"
-msgstr "工作节点组模板:"
-
 msgid "Yes"
 msgstr "是"
 
@@ -11609,21 +10094,6 @@ msgstr "你已经使用了你全部可用的浮动IP地址。"
 
 msgid "You are already using all of your available volumes."
 msgstr "所有可用云硬盘已使用完"
-
-msgid ""
-"You are now ready to\n"
-"                        launch your cluster.  When you click on the link\n"
-"                        below, you will need to give your cluster a name,\n"
-"                        choose the Cluster Template to use and choose which\n"
-"                        image to use to build your instances.  After you\n"
-"                        click on \"Create\", your instances will begin to\n"
-"                        spawn.  Your cluster should be operational in a few\n"
-"                        minutes."
-msgstr ""
-"现在你可以启动你的集群了。当你点击下面链接\n"
-"时，你需要给你的集群命名，选择集群模板，设定\n"
-"启动实例的镜像。在你点击\"创建\"之后，你的实例将\n"
-"开始生产。你的集群会在数分钟后运行起来。"
 
 msgid ""
 "You can connect a specified external network to the router. The external "
@@ -11693,23 +10163,8 @@ msgstr ""
 "访问此处的内容。如果您认为这是一个错\n"
 "误，请联系您的项目负责人。"
 
-msgid "You may also add any custom tag."
-msgstr "你还可以增加任意的自定义标签。"
-
-msgid "You may also enter an optional description for your Data Source."
-msgstr "你还可以为你的数据源输入描述。"
-
-msgid "You may also enter an optional description for your job binary."
-msgstr "你还可以选择增加你的任务二进制文件描述。"
-
-msgid "You may also enter an optional description for your job template."
-msgstr "你可以选择性增加你的任务模板描述。"
-
 msgid "You may have mistyped the address or the page may have moved."
 msgstr "你可能输入了错误的地址，或者该页面被删除了"
-
-msgid "You may need to enter the username and password for your Data Source."
-msgstr "你要为你的数据源输入用户名和密码。"
 
 msgid "You may optionally set a password on the rebuilt instance."
 msgstr "在重建云主机时你可以选择设定密码。"
@@ -11718,9 +10173,6 @@ msgid ""
 "You may reset the gateway later by using the set gateway action, but the "
 "gateway IP may change."
 msgstr "你可以通过使用网关配置动作稍后重置网关，但网关IP可能改变。"
-
-msgid "You may set <b>cluster</b> scoped configurations on corresponding tabs."
-msgstr "你可以在相应的选项卡中设置 <b>集群</b>辖域的配置。"
 
 msgid "You may update IKE Policy details here."
 msgstr "你可以在此处更新IKE策略详情。"
@@ -11775,11 +10227,6 @@ msgstr "更新您的端口名称"
 
 msgid "You may update the editable properties of your router here."
 msgstr "你可以在这里更新路由的属性"
-
-msgid ""
-"You must choose a flavor to determine the size (VCPUs, memory and storage) "
-"of all launched VMs."
-msgstr "您必须对所有的虚拟机的实例类型进行配置（虚拟 CPU 、内存、存储）。"
 
 msgid "You must select a datastore type and version."
 msgstr "必须选择数据存储类型和版本"
@@ -11883,9 +10330,6 @@ msgstr "保留"
 
 msgid "instance"
 msgstr "云主机"
-
-msgid "no processes"
-msgstr "没有过程"
 
 msgid "pseudo-folder"
 msgstr "虚拟目录"

@@ -18,12 +18,12 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-12-02 23:42+0000\n"
+"POT-Creation-Date: 2015-12-05 16:12+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2015-11-27 02:38+0000\n"
-"Last-Translator: Maxime Coquerel <max.coquerel@gmail.com>\n"
+"PO-Revision-Date: 2015-12-04 09:32+0000\n"
+"Last-Translator: Gael Rehault <gael01@gmail.com>\n"
 "Language: fr\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 "Generated-By: Babel 2.0\n"
@@ -39,6 +39,18 @@ msgstr "(Modifié)"
 msgid "(None)"
 msgstr "(Aucun)"
 
+msgid ""
+"<li><b>Image (with Create New Volume checked)</b>: This options uses an "
+"image to boot the instance, and creates a new volume to persist instance "
+"data. You can specify volume size and whether to delete the volume on "
+"deletion of the instance.</li>"
+msgstr ""
+"<li><b>Image (avec Créer Nouveau volume sélectionné)</b>: cette option "
+"utilise une image pour démarrer d'instance, et crée un nouveau volume pour "
+"persister les données de l'instance. Vous pouvez spécifier la taille du "
+"volume et définir si on doit supprimer le volume lorsque l'instance se "
+"termine.</li>"
+
 msgid "<li><b>Image</b>: This option uses an image to boot the instance.</li>"
 msgstr ""
 "<li><b>Image</b>: cette option utilise une image pour démarrer l'instance.</"
@@ -50,6 +62,27 @@ msgid ""
 msgstr ""
 "<li><b>Capture d'instance</b>: cette option utilise une capture d'instantané "
 "d'instance pour démarrer l'instance.</li>"
+
+msgid ""
+"<li><b>Volume Snapshot</b>: This option uses a volume snapshot to boot the "
+"instance, and creates a new volume to persist instance data. You can choose "
+"to delete the volume on deletion of the instance.</li>"
+msgstr ""
+"<li><b>Capture de volume</b>: cette option utilise une capture d'instantané "
+"de volume pour démarrer d'instance, et crée un nouveau volume pour persister "
+"les données de l'instance. Vous pouvez définir si on doit supprimer le "
+"volume lorsque l'instance se termine.</li>"
+
+msgid ""
+"<li><b>Volume</b>: This option uses a volume that already exists. It does "
+"not create a new volume. You can choose to delete the volume on deletion of "
+"the instance. <em>Note: when selecting Volume, you can only launch one "
+"instance.</em></li>"
+msgstr ""
+"<li><b>Volume</b>: cette option utilise un volume déjà existant. Elle ne "
+"crée pas de nouveau volume. Vous pouvez choisir de supprimer le volume "
+"lorsque l'instance est terminée.<em> Remarque : quand vous sélectionnez un "
+"volume, vous ne pouvez exécuter qu'une instance.</em></li>"
 
 msgid ""
 "A floating IP allows instances to be addressable from an external network.\n"
@@ -177,9 +210,6 @@ msgstr "Disque de Configuration"
 msgid "Configuration Help"
 msgstr "Aide à la configuration"
 
-msgid "Configuration Value"
-msgstr "Valeur de configuration"
-
 msgid "Count"
 msgstr "Compteur"
 
@@ -207,11 +237,8 @@ msgstr ""
 msgid "Customization Script"
 msgstr "Script de Personnalisation"
 
-msgid "Data Source"
-msgstr "Source de données"
-
-msgid "Default Value"
-msgstr "Valeur par défaut"
+msgid "Delete Volume on Instance Delete"
+msgstr "Supprimer le volume après terminaison de l'instance"
 
 msgid "Deleted"
 msgstr "Supprimée"
@@ -249,9 +276,6 @@ msgstr "Disque Éphémère"
 msgid "Ether Type"
 msgstr "Type de protocole"
 
-msgid "Event log is not available."
-msgstr "Le journal des événements n'est pas disponible."
-
 #, python-format
 msgid "Extension is not enabled: %(extension)s."
 msgstr "L'extension n'est pas activée : %(extension)s"
@@ -277,20 +301,6 @@ msgid ""
 msgstr ""
 "Les gabarits sont en place pour gérer la taille de la capacité de stockage, "
 "de mémoire et de calcul d'une instance."
-
-msgid ""
-"For configs and params, type the key name; for args, type the index as an "
-"integer, starting from 0."
-msgstr ""
-"Pour configurer et paramétrer;  saisir le nom de la clé; Pour les args, "
-"saisir un entier pour l'index, en commençant par 0."
-
-msgid ""
-"For data sources, use a data source UUID or a path (as per data source "
-"creation.)"
-msgstr ""
-"Pour les sources de données, utiliser l'UUID de la source de données ou un "
-"chemin (tel que celui utilisé pour la création)"
 
 msgid "Format"
 msgstr "Format"
@@ -327,6 +337,17 @@ msgstr ""
 "lancement, vous aurez un accès très limité à cette instance une fois que "
 "celle-ci aura été déployée. Vous ne pourrez accéder à l'instance qu'à partir "
 "d'une console VNC."
+
+msgid ""
+"If you select an availability zone and plan to use the 'boot from volume' "
+"option in the Source step, make sure that the availability zone you select "
+"for the instance is the same availability zone where your bootable volume "
+"resides."
+msgstr ""
+"Si vous sélectionnez une zone de disponibilité et que vous pensez utiliser "
+"le démarrage de l'option volume, veillez à ce que la zone de disponibilité "
+"que vous avez sélectionnée pour l'instance soit la même que celle où votre "
+"volume de démarrage se trouve."
 
 msgid ""
 "If you want to create an instance that uses ephemeral storage, meaning the "
@@ -385,6 +406,17 @@ msgstr ""
 "Le nombre d'instances est obligatoire et doit correspondre à un nombre "
 "entier supérieur ou égal à 1"
 
+msgid ""
+"Instance source is the template used to create an instance. You can use a "
+"snapshot of an existing instance, an image, or a volume (if enabled).\n"
+"      You can also choose to use persistent storage by creating a new volume."
+msgstr ""
+"La source d'instance est le modèle utilisé pour créer une instance. Vous "
+"pouvez utiliser une capture d'instance déjà existante, une image ou un "
+"volume (si actif). \n"
+"      Vous pouvez aussi opter pour un stockage persistant en créant un "
+"nouveau volume."
+
 msgid "Insufficient privilege level to view user information."
 msgstr ""
 "Niveau de  privilèges insuffisant pour voir les informations de "
@@ -428,14 +460,8 @@ msgstr "Lancer Instance"
 msgid "Load script from a file"
 msgstr "Charger le script à partir d'un fichier"
 
-msgid "Location"
-msgstr "Emplacement"
-
 msgid "Manual"
 msgstr "Manuelle"
-
-msgid "Mapping Type"
-msgstr "Type de mappage"
 
 msgid "Max Port"
 msgstr "Port Max"
@@ -461,9 +487,6 @@ msgstr "Ram Mon (Mo)"
 msgid "Name"
 msgstr "Nom"
 
-msgid "Named Parameter"
-msgstr "Paramètre nommé"
-
 msgid "Network"
 msgstr "Réseau"
 
@@ -487,9 +510,6 @@ msgstr "Non"
 msgid "No available items"
 msgstr "Pas d'élément disponible"
 
-msgid "Number"
-msgstr "Nombre"
-
 msgid "OK"
 msgstr "OK"
 
@@ -499,11 +519,18 @@ msgstr "Suppression de Mise en attente"
 msgid "Physical Network"
 msgstr "Réseau physique"
 
+msgid ""
+"Please provide the initial hostname for the instance, the availability zone "
+"where it will be deployed, and the instance count.\n"
+"      Increase the Count to create multiple instances with the same settings."
+msgstr ""
+"Veuillez fournir le nom d'hôte initial de l'instance, la zone de "
+"disponibilité où elle sera déployée, et le nombre d'instances au compteur. \n"
+"      Augmenter le nombre pour pouvoir créer plusieurs instances sur les "
+"mêmes bases de configuration."
+
 msgid "Policy check failed."
 msgstr "La vérification de la stratégie a échoué."
-
-msgid "Positional Argument"
-msgstr "Argument positionnel"
 
 msgid "Private"
 msgstr "Privé"
@@ -563,14 +590,8 @@ msgstr ""
 msgid "Remote"
 msgstr "Distant"
 
-msgid "Remove"
-msgstr "Supprimer"
-
 msgid "Required"
 msgstr "Obligatoire"
-
-msgid "Required?"
-msgstr "Exigé ?"
 
 msgid "Root Disk"
 msgstr "Disque Racine"
@@ -611,13 +632,6 @@ msgstr ""
 "précisément les options d'accès à une instance. Pour créer des règles "
 "supplémentaires, allez dans la vue <b>Compute | Accès & Sécurité</b>, "
 "cherchez le groupe de sécurité, et cliquez sur <b>Gestion des règles</b>."
-
-msgid ""
-"See http://docs.openstack.org/developer/sahara/userdoc/edp.html for "
-"definitions."
-msgstr ""
-"Lire http://docs.openstack.org/developer/sahara/userdoc/edp.html pour les "
-"définitions."
 
 msgid "Segmentation ID"
 msgstr "ID de segmentation"
@@ -665,9 +679,6 @@ msgstr "Le paramètre n'est pas activé : %(setting)s"
 msgid "Shared"
 msgstr "Partagé"
 
-msgid "Show events"
-msgstr "Afficher les événements"
-
 msgid "Size"
 msgstr "Taille"
 
@@ -682,9 +693,6 @@ msgstr "Source"
 
 msgid "Status"
 msgstr "Statut"
-
-msgid "String"
-msgstr "Chaîne de caractères"
 
 msgid "Subnets Associated"
 msgstr "Sous-réseaux associés"
@@ -747,9 +755,6 @@ msgstr ""
 
 msgid "The status indicates whether the network has an active connection."
 msgstr "Le statut indique si le réseau a une connexion active."
-
-msgid "The step has completed successfully. No events to display."
-msgstr "L'étape s'est terminée avec succès. Aucun événement à afficher."
 
 msgid ""
 "The subnet identifies a sub-section of a network. A subnet is specified in "
@@ -827,6 +832,9 @@ msgstr ""
 msgid "Unable to create the domain."
 msgstr "Impossible de créer le domaine."
 
+msgid "Unable to create the image."
+msgstr "Impossible de créer l'image."
+
 msgid "Unable to create the keypair."
 msgstr "Impossible de créer la paire de clés"
 
@@ -853,6 +861,9 @@ msgstr "Impossible de supprimer le domaine."
 
 msgid "Unable to delete the domains."
 msgstr "Impossible de supprimer les domaines."
+
+msgid "Unable to delete the image with id: "
+msgstr "Impossible de supprimer cette image:"
 
 msgid "Unable to delete the project."
 msgstr "Impossible de supprimer le projet."
@@ -921,6 +932,9 @@ msgstr "Impossible de récupérer les zones de disponibilité."
 msgid "Unable to retrieve the current user session."
 msgstr ""
 "Impossible de récupérer les informations de session de l'utilisateur courant."
+
+msgid "Unable to retrieve the default volume type."
+msgstr "Impossible de récupérer le type de volume par défaut."
 
 msgid "Unable to retrieve the domain."
 msgstr "Impossible de récupérer le domaine."
@@ -995,8 +1009,20 @@ msgstr "Impossible de récupérer les utilisateurs."
 msgid "Unable to retrieve the volume snapshots."
 msgstr "Impossible de récupérer les instantanés de volume."
 
+msgid "Unable to retrieve the volume type."
+msgstr "Impossible de récupérer le type de volume."
+
+msgid "Unable to retrieve the volume types."
+msgstr "Impossible de récupérer les types de volumes."
+
+msgid "Unable to retrieve the volume."
+msgstr "Impossible de récupérer le volume."
+
 msgid "Unable to retrieve the volumes."
 msgstr "Impossible de récupérer les volumes."
+
+msgid "Unable to update the image."
+msgstr "Impossible de mettre à jour l'image."
 
 msgid "Unable to validate the template."
 msgstr "Impossible de valider le modèle."
@@ -1030,9 +1056,6 @@ msgstr "VCPUS"
 
 msgid "VCPUs"
 msgstr "VCPUs"
-
-msgid "Value Type"
-msgstr "Type de valeur"
 
 msgid "Visibility"
 msgstr "Visibilité"

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-12-03 06:18+0000\n"
+"POT-Creation-Date: 2015-12-06 06:17+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -546,52 +546,89 @@ msgstr ""
 msgid "Out of range float values are not JSON compliant: %r"
 msgstr ""
 
-#: contrib/sahara/content/data_processing/cluster_templates/forms.py:31
-msgid "Cluster Template Name"
+#: contrib/trove/content/database_backups/panel.py:21
+#: contrib/trove/content/database_backups/tables.py:181
+#: contrib/trove/content/database_backups/views.py:36
+#: contrib/trove/content/databases/tables.py:406
+#: contrib/trove/content/databases/tabs.py:104
+#: dashboards/admin/defaults/tables.py:65
+msgid "Backups"
 msgstr ""
 
-#: contrib/sahara/content/data_processing/cluster_templates/forms.py:39
-#: contrib/sahara/content/data_processing/cluster_templates/templates/data_processing.cluster_templates/_nodegroups_details.html:13
-#: contrib/sahara/content/data_processing/clusters/templates/data_processing.clusters/_details.html:29
-#: contrib/sahara/content/data_processing/clusters/templates/data_processing.clusters/_nodegroups_details.html:19
-#: dashboards/project/stacks/tabs.py:143
-msgid "Template"
+#: contrib/trove/content/database_backups/tables.py:36
+msgctxt "Current status of a Database Backup"
+msgid "Building"
 msgstr ""
 
-#: contrib/sahara/content/data_processing/cluster_templates/forms.py:57
-msgid "Unable to upload cluster template file"
+#: contrib/trove/content/database_backups/tables.py:38
+msgctxt "Current status of a Database Backup"
+msgid "Completed"
 msgstr ""
 
-#: contrib/sahara/content/data_processing/cluster_templates/panel.py:22
-#: contrib/sahara/content/data_processing/cluster_templates/tables.py:139
-#: contrib/sahara/content/data_processing/cluster_templates/views.py:48
-msgid "Cluster Templates"
+#: contrib/trove/content/database_backups/tables.py:40
+msgctxt "Current status of a Database Backup"
+msgid "Delete Failed"
 msgstr ""
 
-#: contrib/sahara/content/data_processing/cluster_templates/tables.py:31
-#: contrib/sahara/content/data_processing/cluster_templates/tables.py:123
-#: contrib/sahara/content/data_processing/cluster_templates/templates/data_processing.cluster_templates/_details.html:5
-#: contrib/sahara/content/data_processing/clusters/tables.py:35
-#: contrib/sahara/content/data_processing/clusters/tables.py:146
-#: contrib/sahara/content/data_processing/clusters/tabs.py:136
-#: contrib/sahara/content/data_processing/clusters/templates/data_processing.clusters/_details.html:5
-#: contrib/sahara/content/data_processing/data_plugins/templates/data_processing.data_plugins/_details.html:5
-#: contrib/sahara/content/data_processing/data_sources/tables.py:64
-#: contrib/sahara/content/data_processing/data_sources/templates/data_processing.data_sources/_details.html:5
-#: contrib/sahara/content/data_processing/data_sources/workflows/create.py:30
-#: contrib/sahara/content/data_processing/job_binaries/forms.py:55
-#: contrib/sahara/content/data_processing/job_binaries/tables.py:86
-#: contrib/sahara/content/data_processing/job_binaries/templates/data_processing.job_binaries/_details.html:5
-#: contrib/sahara/content/data_processing/jobs/tables.py:30
-#: contrib/sahara/content/data_processing/jobs/tables.py:105
-#: contrib/sahara/content/data_processing/jobs/templates/data_processing.jobs/_details.html:5
-#: contrib/sahara/content/data_processing/jobs/templates/data_processing.jobs/config_template.html:54
-#: contrib/sahara/content/data_processing/jobs/workflows/create.py:75
-#: contrib/sahara/content/data_processing/nodegroup_templates/tables.py:28
-#: contrib/sahara/content/data_processing/nodegroup_templates/tables.py:90
-#: contrib/sahara/content/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/_details.html:5
-#: contrib/sahara/content/data_processing/utils/workflow_helpers.py:114
-#: contrib/sahara/content/data_processing/utils/workflow_helpers.py:133
+#: contrib/trove/content/database_backups/tables.py:42
+msgctxt "Current status of a Database Backup"
+msgid "Failed"
+msgstr ""
+
+#: contrib/trove/content/database_backups/tables.py:44
+msgctxt "Current status of a Database Backup"
+msgid "New"
+msgstr ""
+
+#: contrib/trove/content/database_backups/tables.py:46
+msgctxt "Current status of a Database Backup"
+msgid "Saving"
+msgstr ""
+
+#: contrib/trove/content/database_backups/tables.py:53
+#: contrib/trove/content/databases/tables.py:182
+#: dashboards/project/volumes/volumes/tables.py:204
+msgid "Create Backup"
+msgstr ""
+
+#: contrib/trove/content/database_backups/tables.py:61
+#: dashboards/project/volumes/backups/tables.py:64
+msgid "Restore Backup"
+msgstr ""
+
+#: contrib/trove/content/database_backups/tables.py:76
+msgid "Download Backup"
+msgstr ""
+
+#: contrib/trove/content/database_backups/tables.py:95
+msgid "Delete Backup"
+msgid_plural "Delete Backups"
+msgstr[0] ""
+msgstr[1] ""
+
+#: contrib/trove/content/database_backups/tables.py:103
+msgid "Deleted Backup"
+msgid_plural "Deleted Backups"
+msgstr[0] ""
+msgstr[1] ""
+
+#: contrib/trove/content/database_backups/tables.py:144
+#: contrib/trove/content/database_backups/tables.py:150
+#: contrib/trove/content/database_clusters/tables.py:130
+#: contrib/trove/content/database_clusters/tables.py:172
+#: contrib/trove/content/database_clusters/tables.py:178
+#: contrib/trove/content/databases/tables.py:242
+#: contrib/trove/content/databases/tables.py:248
+#: contrib/trove/content/databases/tables.py:265
+#: contrib/trove/content/databases/tables.py:271
+#: dashboards/project/instances/tables.py:964
+#: dashboards/project/instances/tables.py:971
+#: dashboards/project/instances/views.py:409
+#: dashboards/project/instances/templates/instances/_detail_overview.html:58
+#: dashboards/project/instances/templates/instances/_detail_overview.html:90
+msgid "Not available"
+msgstr ""
+
 #: contrib/trove/content/database_backups/tables.py:160
 #: contrib/trove/content/database_backups/templates/database_backups/details.html:14
 #: contrib/trove/content/database_backups/templates/database_backups/details.html:60
@@ -699,61 +736,166 @@ msgstr ""
 msgid "Name"
 msgstr ""
 
-#: contrib/sahara/content/data_processing/cluster_templates/tables.py:32
-#: contrib/sahara/content/data_processing/cluster_templates/tables.py:127
-#: contrib/sahara/content/data_processing/cluster_templates/templates/data_processing.cluster_templates/_configure_general_help.html:6
-#: contrib/sahara/content/data_processing/cluster_templates/templates/data_processing.cluster_templates/_details.html:13
-#: contrib/sahara/content/data_processing/clusters/tables.py:151
-#: contrib/sahara/content/data_processing/clusters/templates/data_processing.clusters/_configure_general_help.html:6
-#: contrib/sahara/content/data_processing/clusters/templates/data_processing.clusters/_details.html:23
-#: contrib/sahara/content/data_processing/data_image_registry/templates/data_processing.data_image_registry/_tag_form.html:7
-#: contrib/sahara/content/data_processing/nodegroup_templates/tables.py:29
-#: contrib/sahara/content/data_processing/nodegroup_templates/tables.py:93
-#: contrib/sahara/content/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/_configure_general_help.html:6
-#: contrib/sahara/content/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/_details.html:29
-msgid "Plugin"
+#: contrib/trove/content/database_backups/tables.py:162
+#: contrib/trove/content/database_backups/templates/database_backups/details.html:21
+#: contrib/trove/content/database_clusters/forms.py:38
+#: contrib/trove/content/database_clusters/tables.py:145
+#: contrib/trove/content/database_clusters/templates/database_clusters/_detail_overview.html:9
+#: contrib/trove/content/database_clusters/templates/database_clusters/_detail_overview_vertica.html:9
+#: contrib/trove/content/databases/tables.py:322
+#: contrib/trove/content/databases/templates/databases/_detail_overview.html:9
+#: contrib/trove/content/databases/workflows/create_instance.py:43
+msgid "Datastore"
 msgstr ""
 
-#: contrib/sahara/content/data_processing/cluster_templates/tables.py:33
-#: contrib/sahara/content/data_processing/cluster_templates/tables.py:129
-#: contrib/sahara/content/data_processing/cluster_templates/templates/data_processing.cluster_templates/_configure_general_help.html:8
-#: contrib/sahara/content/data_processing/cluster_templates/templates/data_processing.cluster_templates/_details.html:15
-#: contrib/sahara/content/data_processing/cluster_templates/workflows/create.py:60
-#: contrib/sahara/content/data_processing/clusters/tables.py:154
-#: contrib/sahara/content/data_processing/clusters/templates/data_processing.clusters/_configure_general_help.html:8
-#: contrib/sahara/content/data_processing/clusters/templates/data_processing.clusters/_details.html:25
-#: contrib/sahara/content/data_processing/data_image_registry/templates/data_processing.data_image_registry/_tag_form.html:8
-#: contrib/sahara/content/data_processing/nodegroup_templates/tables.py:30
-#: contrib/sahara/content/data_processing/nodegroup_templates/tables.py:95
-#: contrib/sahara/content/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/_configure_general_help.html:8
-#: contrib/sahara/content/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/_details.html:31
-#: contrib/sahara/content/data_processing/utils/workflow_helpers.py:233
-#: contrib/sahara/content/data_processing/wizard/forms.py:64
-msgid "Version"
+#: contrib/trove/content/database_backups/tables.py:164
+#: contrib/trove/content/database_backups/templates/database_backups/details.html:23
+#: contrib/trove/content/database_clusters/tables.py:147
+#: contrib/trove/content/database_clusters/templates/database_clusters/_detail_overview.html:11
+#: contrib/trove/content/database_clusters/templates/database_clusters/_detail_overview_vertica.html:11
+#: contrib/trove/content/databases/tables.py:324
+#: contrib/trove/content/databases/templates/databases/_detail_overview.html:11
+msgid "Datastore Version"
 msgstr ""
 
-#: contrib/sahara/content/data_processing/cluster_templates/tables.py:34
-#: contrib/sahara/content/data_processing/cluster_templates/tables.py:135
-#: contrib/sahara/content/data_processing/cluster_templates/templates/data_processing.cluster_templates/_details.html:9
-#: contrib/sahara/content/data_processing/cluster_templates/workflows/create.py:99
-#: contrib/sahara/content/data_processing/clusters/templates/data_processing.clusters/_details.html:9
-#: contrib/sahara/content/data_processing/clusters/workflows/create.py:75
-#: contrib/sahara/content/data_processing/data_image_registry/forms.py:30
-#: contrib/sahara/content/data_processing/data_plugins/tables.py:36
-#: contrib/sahara/content/data_processing/data_plugins/templates/data_processing.data_plugins/_details.html:9
-#: contrib/sahara/content/data_processing/data_sources/tables.py:70
-#: contrib/sahara/content/data_processing/data_sources/templates/data_processing.data_sources/_details.html:13
-#: contrib/sahara/content/data_processing/data_sources/workflows/create.py:62
-#: contrib/sahara/content/data_processing/job_binaries/forms.py:139
-#: contrib/sahara/content/data_processing/job_binaries/tables.py:91
-#: contrib/sahara/content/data_processing/job_binaries/templates/data_processing.job_binaries/_details.html:11
-#: contrib/sahara/content/data_processing/jobs/tables.py:32
-#: contrib/sahara/content/data_processing/jobs/tables.py:110
-#: contrib/sahara/content/data_processing/jobs/templates/data_processing.jobs/_details.html:11
-#: contrib/sahara/content/data_processing/jobs/workflows/create.py:101
-#: contrib/sahara/content/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/_details.html:9
-#: contrib/sahara/content/data_processing/nodegroup_templates/workflows/create.py:48
-#: contrib/sahara/content/data_processing/utils/workflow_helpers.py:137
+#: contrib/trove/content/database_backups/tables.py:165
+#: contrib/trove/content/database_backups/templates/database_backups/details.html:32
+#: contrib/trove/content/databases/tables.py:388
+#: contrib/trove/content/databases/templates/databases/_detail_overview.html:28
+#: dashboards/admin/metadata_defs/templates/metadata_defs/_detail_overview.html:17
+#: dashboards/admin/volumes/templates/volumes/snapshots/_detail_overview.html:34
+#: dashboards/project/access_and_security/templates/access_and_security/keypairs/detail.html:18
+#: dashboards/project/images/templates/images/images/_detail_overview.html:23
+#: dashboards/project/instances/templates/instances/_detail_overview.html:13
+#: dashboards/project/instances/templates/instances/_detail_overview.html:33
+#: dashboards/project/stacks/tables.py:266
+#: dashboards/project/stacks/templates/stacks/_detail_overview.html:16
+#: dashboards/project/volumes/templates/volumes/backups/_detail_overview.html:30
+#: dashboards/project/volumes/templates/volumes/snapshots/_detail_overview.html:32
+#: dashboards/project/volumes/templates/volumes/volumes/_detail_overview.html:34
+#: dashboards/project/volumes/templates/volumes/volumes/_detail_overview.html:92
+msgid "Created"
+msgstr ""
+
+#: contrib/trove/content/database_backups/tables.py:168
+#: enabled/_1710_database_panel_group.py:6
+msgid "Database"
+msgstr ""
+
+#: contrib/trove/content/database_backups/tables.py:170
+#: contrib/trove/content/databases/tables.py:394
+msgid "Incremental"
+msgstr ""
+
+#: contrib/trove/content/database_backups/tables.py:174
+#: contrib/trove/content/database_backups/templates/database_backups/details.html:26
+#: contrib/trove/content/database_backups/templates/database_backups/details.html:67
+#: contrib/trove/content/database_clusters/tables.py:201
+#: contrib/trove/content/databases/tables.py:333
+#: contrib/trove/content/databases/tables.py:399
+#: contrib/trove/content/databases/templates/databases/_detail_overview.html:13
+#: dashboards/admin/hypervisors/compute/tables.py:148
+#: dashboards/admin/info/tables.py:68 dashboards/admin/info/tables.py:97
+#: dashboards/admin/info/tables.py:121 dashboards/admin/info/tables.py:171
+#: dashboards/admin/info/tables.py:217 dashboards/admin/instances/tables.py:150
+#: dashboards/admin/networks/tables.py:106
+#: dashboards/admin/networks/agents/tables.py:92
+#: dashboards/admin/networks/templates/networks/ports/_detail_overview.html:16
+#: dashboards/admin/volumes/snapshots/forms.py:43
+#: dashboards/admin/volumes/templates/volumes/snapshots/_detail_overview.html:17
+#: dashboards/admin/volumes/volumes/forms.py:218
+#: dashboards/project/access_and_security/floating_ips/tables.py:202
+#: dashboards/project/firewalls/tables.py:387
+#: dashboards/project/firewalls/templates/firewalls/_firewall_details.html:23
+#: dashboards/project/images/images/tables.py:310
+#: dashboards/project/images/templates/images/images/_detail_overview.html:15
+#: dashboards/project/instances/tables.py:1142
+#: dashboards/project/instances/templates/instances/_detail_overview.html:9
+#: dashboards/project/loadbalancers/tables.py:465
+#: dashboards/project/loadbalancers/tables.py:521
+#: dashboards/project/loadbalancers/templates/loadbalancers/_member_details.html:27
+#: dashboards/project/loadbalancers/templates/loadbalancers/_pool_details.html:41
+#: dashboards/project/loadbalancers/templates/loadbalancers/_vip_details.html:64
+#: dashboards/project/networks/tables.py:180
+#: dashboards/project/networks/ports/tables.py:74
+#: dashboards/project/networks/templates/networks/_detail_overview.html:13
+#: dashboards/project/networks/templates/networks/ports/_detail_overview.html:18
+#: dashboards/project/routers/tables.py:214
+#: dashboards/project/routers/ports/tables.py:112
+#: dashboards/project/routers/templates/routers/_detail_overview.html:11
+#: dashboards/project/stacks/tables.py:279
+#: dashboards/project/stacks/tables.py:323
+#: dashboards/project/stacks/tables.py:374
+#: dashboards/project/stacks/templates/stacks/_detail_overview.html:13
+#: dashboards/project/stacks/templates/stacks/_detail_overview.html:20
+#: dashboards/project/stacks/templates/stacks/_resource_overview.html:35
+#: dashboards/project/stacks/templates/stacks/_resource_overview.html:40
+#: dashboards/project/volumes/backups/tables.py:130
+#: dashboards/project/volumes/templates/volumes/backups/_detail_overview.html:13
+#: dashboards/project/volumes/templates/volumes/snapshots/_detail_overview.html:13
+#: dashboards/project/volumes/templates/volumes/volumes/_detail_overview.html:13
+#: dashboards/project/volumes/volumes/tables.py:410
+#: dashboards/project/vpn/tables.py:281 dashboards/project/vpn/tables.py:336
+#: dashboards/project/vpn/templates/vpn/_ipsecsiteconnection_details.html:69
+#: dashboards/project/vpn/templates/vpn/_vpnservice_details.html:40
+msgid "Status"
+msgstr ""
+
+#: contrib/trove/content/database_backups/views.py:50
+msgid "Not Found"
+msgstr ""
+
+#: contrib/trove/content/database_backups/views.py:62
+msgid "Error getting database backup list."
+msgstr ""
+
+#: contrib/trove/content/database_backups/views.py:70
+#: contrib/trove/content/database_backups/templates/database_backups/backup.html:3
+#: contrib/trove/content/database_backups/workflows/create_backup.py:82
+msgid "Backup Database"
+msgstr ""
+
+#: contrib/trove/content/database_backups/views.py:81
+msgid "Backup Details: {{ backup.name }}"
+msgstr ""
+
+#: contrib/trove/content/database_backups/views.py:92
+#, python-format
+msgid "Unable to retrieve details for backup: %s"
+msgstr ""
+
+#: contrib/trove/content/database_backups/views.py:100
+#, python-format
+msgid "Unable to retrieve details for parent backup: %s"
+msgstr ""
+
+#: contrib/trove/content/database_backups/templates/database_backups/_backup_details_help.html:3
+msgid "Specify the details for the database backup."
+msgstr ""
+
+#: contrib/trove/content/database_backups/templates/database_backups/_backup_details_help.html:4
+msgid ""
+"You can perform an incremental backup by specifying a parent backup. "
+"<strong>However,</strong> not all databases support incremental backups "
+"in which case this operation will result in an error."
+msgstr ""
+
+#: contrib/trove/content/database_backups/templates/database_backups/details.html:3
+msgid "Backup Details"
+msgstr ""
+
+#: contrib/trove/content/database_backups/templates/database_backups/details.html:8
+msgid "Backup Overview"
+msgstr ""
+
+#: contrib/trove/content/database_backups/templates/database_backups/details.html:11
+#: dashboards/admin/volumes/templates/volumes/snapshots/_detail_overview.html:6
+#: dashboards/project/access_and_security/templates/access_and_security/keypairs/detail.html:9
+#: dashboards/project/instances/workflows/update_instance.py:119
+#: dashboards/project/stacks/templates/stacks/_resource_overview.html:6
+msgid "Information"
+msgstr ""
+
 #: contrib/trove/content/database_backups/templates/database_backups/details.html:16
 #: contrib/trove/content/database_backups/workflows/create_backup.py:34
 #: dashboards/admin/metadata_defs/tables.py:132
@@ -829,146 +971,6 @@ msgstr ""
 msgid "Description"
 msgstr ""
 
-#: contrib/sahara/content/data_processing/cluster_templates/tables.py:39
-#: contrib/sahara/content/data_processing/cluster_templates/views.py:95
-#: contrib/sahara/content/data_processing/cluster_templates/templates/data_processing.cluster_templates/_upload_file.html:10
-#: contrib/sahara/content/data_processing/cluster_templates/templates/data_processing.cluster_templates/upload_file.html:3
-msgid "Upload Template"
-msgstr ""
-
-#: contrib/sahara/content/data_processing/cluster_templates/tables.py:47
-#: contrib/sahara/content/data_processing/clusters/tables.py:47
-#: contrib/sahara/content/data_processing/clusters/views.py:180
-#: contrib/sahara/content/data_processing/clusters/templates/data_processing.clusters/_create_cluster.html:9
-#: contrib/sahara/content/data_processing/clusters/templates/data_processing.clusters/configure.html:3
-#: contrib/sahara/content/data_processing/clusters/templates/data_processing.clusters/create.html:3
-#: contrib/sahara/content/data_processing/clusters/templates/data_processing.clusters/create_cluster.html:3
-#: contrib/sahara/content/data_processing/clusters/workflows/create.py:56
-#: contrib/sahara/content/data_processing/clusters/workflows/create.py:223
-#: contrib/trove/content/database_clusters/tables.py:60
-#: contrib/trove/content/database_clusters/templates/database_clusters/_launch.html:9
-#: contrib/trove/content/database_clusters/templates/database_clusters/launch.html:3
-msgid "Launch Cluster"
-msgstr ""
-
-#: contrib/sahara/content/data_processing/cluster_templates/tables.py:63
-#: contrib/sahara/content/data_processing/nodegroup_templates/tables.py:54
-msgid "Copy Template"
-msgstr ""
-
-#: contrib/sahara/content/data_processing/cluster_templates/tables.py:70
-#: contrib/sahara/content/data_processing/nodegroup_templates/tables.py:61
-#: dashboards/project/stacks/forms.py:231
-msgid "Edit Template"
-msgstr ""
-
-#: contrib/sahara/content/data_processing/cluster_templates/tables.py:78
-#: contrib/sahara/content/data_processing/nodegroup_templates/tables.py:69
-msgid "Delete Template"
-msgid_plural "Delete Templates"
-msgstr[0] ""
-msgstr[1] ""
-
-#: contrib/sahara/content/data_processing/cluster_templates/tables.py:86
-#: contrib/sahara/content/data_processing/nodegroup_templates/tables.py:77
-msgid "Deleted Template"
-msgid_plural "Deleted Templates"
-msgstr[0] ""
-msgstr[1] ""
-
-#: contrib/sahara/content/data_processing/cluster_templates/tables.py:98
-#: contrib/sahara/content/data_processing/nodegroup_templates/tables.py:35
-msgid "Create Template"
-msgstr ""
-
-#: contrib/sahara/content/data_processing/cluster_templates/tables.py:107
-#: contrib/sahara/content/data_processing/cluster_templates/views.py:111
-msgid "Configure Cluster Template"
-msgstr ""
-
-#: contrib/sahara/content/data_processing/cluster_templates/tables.py:131
-#: contrib/sahara/content/data_processing/cluster_templates/tabs.py:47
-#: contrib/sahara/content/data_processing/cluster_templates/workflows/create.py:226
-#: contrib/sahara/content/data_processing/clusters/tabs.py:84
-msgid "Node Groups"
-msgstr ""
-
-#: contrib/sahara/content/data_processing/cluster_templates/tabs.py:31
-#: contrib/sahara/content/data_processing/clusters/tabs.py:36
-#: contrib/sahara/content/data_processing/data_sources/tabs.py:26
-#: contrib/sahara/content/data_processing/job_binaries/tabs.py:26
-#: contrib/sahara/content/data_processing/job_executions/tabs.py:26
-#: contrib/sahara/content/data_processing/jobs/tabs.py:26
-#: contrib/sahara/content/data_processing/nodegroup_templates/tabs.py:33
-msgid "General Info"
-msgstr ""
-
-#: contrib/sahara/content/data_processing/cluster_templates/tabs.py:69
-msgid "Unable to fetch node group details."
-msgstr ""
-
-#: contrib/sahara/content/data_processing/cluster_templates/views.py:61
-msgid "Unable to fetch cluster template list"
-msgstr ""
-
-#: contrib/sahara/content/data_processing/cluster_templates/views.py:76
-#, python-format
-msgid "Unable to retrieve details for cluster template \"%s\"."
-msgstr ""
-
-#: contrib/sahara/content/data_processing/cluster_templates/views.py:104
-#: contrib/sahara/content/data_processing/cluster_templates/templates/data_processing.cluster_templates/configure.html:3
-#: contrib/sahara/content/data_processing/cluster_templates/workflows/create.py:80
-#: contrib/sahara/content/data_processing/cluster_templates/workflows/create.py:244
-msgid "Create Cluster Template"
-msgstr ""
-
-#: contrib/sahara/content/data_processing/cluster_templates/views.py:118
-msgid "Copy Cluster Template"
-msgstr ""
-
-#: contrib/sahara/content/data_processing/cluster_templates/views.py:136
-#: contrib/sahara/content/data_processing/clusters/views.py:218
-msgid "Unable to fetch cluster template."
-msgstr ""
-
-#: contrib/sahara/content/data_processing/cluster_templates/templates/data_processing.cluster_templates/_configure_general_help.html:4
-msgid "This Cluster Template will be created for:"
-msgstr ""
-
-#: contrib/sahara/content/data_processing/cluster_templates/templates/data_processing.cluster_templates/_configure_general_help.html:13
-msgid ""
-"The Cluster Template object should specify Node Group Templates that will"
-" be used to build a Cluster.\n"
-"    You can add Node Groups using Node Group Templates on a &quot;Node "
-"Groups&quot; tab."
-msgstr ""
-
-#: contrib/sahara/content/data_processing/cluster_templates/templates/data_processing.cluster_templates/_configure_general_help.html:16
-msgid "You may set <b>cluster</b> scoped configurations on corresponding tabs."
-msgstr ""
-
-#: contrib/sahara/content/data_processing/cluster_templates/templates/data_processing.cluster_templates/_configure_general_help.html:20
-msgid ""
-"The Cluster Template object may specify a list of processes in anti-"
-"affinity group.\n"
-"    That means these processes may not be launched more than once on a "
-"single host."
-msgstr ""
-
-#: contrib/sahara/content/data_processing/cluster_templates/templates/data_processing.cluster_templates/_create_general_help.html:3
-msgid "Select a plugin and version for a new Cluster template."
-msgstr ""
-
-#: contrib/sahara/content/data_processing/cluster_templates/templates/data_processing.cluster_templates/_details.html:7
-#: contrib/sahara/content/data_processing/clusters/templates/data_processing.clusters/_details.html:7
-#: contrib/sahara/content/data_processing/data_sources/templates/data_processing.data_sources/_details.html:7
-#: contrib/sahara/content/data_processing/job_binaries/templates/data_processing.job_binaries/_details.html:7
-#: contrib/sahara/content/data_processing/job_executions/tables.py:37
-#: contrib/sahara/content/data_processing/job_executions/tables.py:186
-#: contrib/sahara/content/data_processing/job_executions/templates/data_processing.job_executions/_details.html:7
-#: contrib/sahara/content/data_processing/jobs/templates/data_processing.jobs/_details.html:7
-#: contrib/sahara/content/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/_details.html:7
 #: contrib/trove/content/database_backups/templates/database_backups/details.html:18
 #: contrib/trove/content/database_backups/templates/database_backups/details.html:62
 #: contrib/trove/content/database_clusters/templates/database_clusters/_detail_overview.html:7
@@ -1018,2711 +1020,6 @@ msgstr ""
 #: dashboards/project/vpn/templates/vpn/_ipsecsiteconnection_details.html:11
 #: dashboards/project/vpn/templates/vpn/_vpnservice_details.html:11
 msgid "ID"
-msgstr ""
-
-#: contrib/sahara/content/data_processing/cluster_templates/templates/data_processing.cluster_templates/_details.html:10
-#: contrib/sahara/content/data_processing/clusters/templates/data_processing.clusters/_details.html:10
-#: contrib/sahara/content/data_processing/data_sources/templates/data_processing.data_sources/_details.html:14
-#: contrib/sahara/content/data_processing/job_binaries/templates/data_processing.job_binaries/_details.html:12
-#: contrib/sahara/content/data_processing/jobs/templates/data_processing.jobs/_details.html:12
-#: contrib/sahara/content/data_processing/jobs/templates/data_processing.jobs/_details.html:17
-#: contrib/sahara/content/data_processing/jobs/templates/data_processing.jobs/_details.html:23
-#: contrib/sahara/content/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/_details.html:10
-#: contrib/trove/content/databases/workflows/create_instance.py:234
-#: dashboards/admin/metadata_defs/templates/metadata_defs/_detail_overview.html:6
-#: dashboards/admin/metadata_defs/templates/metadata_defs/_detail_overview.html:8
-#: dashboards/admin/networks/templates/networks/ports/_detail_overview.html:6
-#: dashboards/admin/networks/templates/networks/ports/_detail_overview.html:8
-#: dashboards/admin/networks/templates/networks/ports/_detail_overview.html:11
-#: dashboards/admin/networks/templates/networks/ports/_detail_overview.html:15
-#: dashboards/admin/networks/templates/networks/ports/_detail_overview.html:17
-#: dashboards/admin/networks/templates/networks/ports/_detail_overview.html:19
-#: dashboards/admin/networks/templates/networks/ports/_detail_overview.html:35
-#: dashboards/admin/networks/templates/networks/ports/_detail_overview.html:41
-#: dashboards/admin/networks/templates/networks/ports/_detail_overview.html:43
-#: dashboards/admin/networks/templates/networks/ports/_detail_overview.html:50
-#: dashboards/admin/networks/templates/networks/ports/_detail_overview.html:52
-#: dashboards/admin/networks/templates/networks/ports/_detail_overview.html:65
-#: dashboards/identity/projects/templates/projects/_detail_overview.html:12
-#: dashboards/identity/users/templates/users/_detail_overview.html:18
-#: dashboards/project/access_and_security/templates/access_and_security/keypairs/detail.html:13
-#: dashboards/project/access_and_security/templates/access_and_security/keypairs/detail.html:15
-#: dashboards/project/access_and_security/templates/access_and_security/keypairs/detail.html:17
-#: dashboards/project/access_and_security/templates/access_and_security/keypairs/detail.html:25
-#: dashboards/project/access_and_security/templates/access_and_security/keypairs/detail.html:27
-#: dashboards/project/images/templates/images/images/_detail_overview.html:6
-#: dashboards/project/images/templates/images/images/_detail_overview.html:12
-#: dashboards/project/images/templates/images/images/_detail_overview.html:47
-#: dashboards/project/images/templates/images/images/_detail_overview.html:49
-#: dashboards/project/instances/templates/instances/_detail_overview.html:98
-#: dashboards/project/instances/templates/instances/_detail_overview.html:109
-#: dashboards/project/loadbalancers/templates/loadbalancers/_monitor_details.html:48
-#: dashboards/project/loadbalancers/templates/loadbalancers/_pool_details.html:22
-#: dashboards/project/loadbalancers/templates/loadbalancers/_pool_details.html:56
-#: dashboards/project/loadbalancers/templates/loadbalancers/_pool_details.html:71
-#: dashboards/project/loadbalancers/templates/loadbalancers/_vip_details.html:55
-#: dashboards/project/networks/templates/networks/_detail_overview.html:8
-#: dashboards/project/networks/templates/networks/_detail_overview.html:10
-#: dashboards/project/networks/templates/networks/ports/_detail_overview.html:6
-#: dashboards/project/networks/templates/networks/ports/_detail_overview.html:8
-#: dashboards/project/networks/templates/networks/ports/_detail_overview.html:10
-#: dashboards/project/networks/templates/networks/ports/_detail_overview.html:13
-#: dashboards/project/networks/templates/networks/ports/_detail_overview.html:17
-#: dashboards/project/networks/templates/networks/ports/_detail_overview.html:19
-#: dashboards/project/networks/templates/networks/ports/_detail_overview.html:21
-#: dashboards/project/networks/templates/networks/ports/_detail_overview.html:40
-#: dashboards/project/networks/templates/networks/ports/_detail_overview.html:49
-#: dashboards/project/networks/templates/networks/ports/_detail_overview.html:51
-#: dashboards/project/networks/templates/networks/subnets/_detail_overview.html:6
-#: dashboards/project/networks/templates/networks/subnets/_detail_overview.html:8
-#: dashboards/project/networks/templates/networks/subnets/_detail_overview.html:10
-#: dashboards/project/networks/templates/networks/subnets/_detail_overview.html:13
-#: dashboards/project/networks/templates/networks/subnets/_detail_overview.html:18
-#: dashboards/project/networks/templates/networks/subnets/_detail_overview.html:23
-#: dashboards/project/networks/templates/networks/subnets/_detail_overview.html:51
-#: dashboards/project/networks/templates/networks/subnets/_detail_overview.html:59
-#: dashboards/project/routers/templates/routers/_detail_overview.html:6
-#: dashboards/project/routers/templates/routers/_detail_overview.html:30
-#: dashboards/project/routers/templates/routers/_detail_overview.html:41
-#: dashboards/project/routers/templates/routers/_detail_overview.html:53
-#: dashboards/project/volumes/templates/volumes/volumes/_detail_overview.html:76
-#: dashboards/project/vpn/templates/vpn/_ikepolicy_details.html:6
-#: dashboards/project/vpn/templates/vpn/_ikepolicy_details.html:9
-#: dashboards/project/vpn/templates/vpn/_ipsecpolicy_details.html:6
-#: dashboards/project/vpn/templates/vpn/_ipsecpolicy_details.html:9
-#: dashboards/project/vpn/templates/vpn/_ipsecsiteconnection_details.html:6
-#: dashboards/project/vpn/templates/vpn/_ipsecsiteconnection_details.html:9
-#: dashboards/project/vpn/templates/vpn/_vpnservice_details.html:6
-#: dashboards/project/vpn/templates/vpn/_vpnservice_details.html:9
-#: dashboards/project/vpn/templates/vpn/_vpnservice_details.html:49
-#: dashboards/project/vpn/templates/vpn/_vpnservice_details.html:51
-msgid "None"
-msgstr ""
-
-#: contrib/sahara/content/data_processing/cluster_templates/templates/data_processing.cluster_templates/_details.html:17
-#: contrib/sahara/content/data_processing/cluster_templates/templates/data_processing.cluster_templates/_nodegroups_details.html:25
-#: contrib/sahara/content/data_processing/clusters/templates/data_processing.clusters/_details.html:43
-#: contrib/sahara/content/data_processing/clusters/templates/data_processing.clusters/_nodegroups_details.html:26
-#: contrib/sahara/content/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/_details.html:36
-msgid "Use auto-configuration"
-msgstr ""
-
-#: contrib/sahara/content/data_processing/cluster_templates/templates/data_processing.cluster_templates/_details.html:21
-#: contrib/sahara/content/data_processing/clusters/templates/data_processing.clusters/_details.html:47
-msgid "Anti-affinity enabled for"
-msgstr ""
-
-#: contrib/sahara/content/data_processing/cluster_templates/templates/data_processing.cluster_templates/_details.html:31
-#: contrib/sahara/content/data_processing/clusters/templates/data_processing.clusters/_details.html:57
-msgid "no processes"
-msgstr ""
-
-#: contrib/sahara/content/data_processing/cluster_templates/templates/data_processing.cluster_templates/_details.html:35
-#: contrib/sahara/content/data_processing/cluster_templates/templates/data_processing.cluster_templates/_nodegroups_details.html:60
-#: contrib/sahara/content/data_processing/clusters/templates/data_processing.clusters/_details.html:61
-#: contrib/sahara/content/data_processing/clusters/templates/data_processing.clusters/_nodegroups_details.html:61
-msgid "Node Configurations"
-msgstr ""
-
-#: contrib/sahara/content/data_processing/cluster_templates/templates/data_processing.cluster_templates/_details.html:43
-#: contrib/sahara/content/data_processing/cluster_templates/templates/data_processing.cluster_templates/_nodegroups_details.html:68
-#: contrib/sahara/content/data_processing/clusters/templates/data_processing.clusters/_details.html:69
-#: contrib/sahara/content/data_processing/clusters/templates/data_processing.clusters/_nodegroups_details.html:69
-#, python-format
-msgid "%(conf_name)s: %(conf_value)s"
-msgstr ""
-
-#: contrib/sahara/content/data_processing/cluster_templates/templates/data_processing.cluster_templates/_details.html:47
-#: contrib/sahara/content/data_processing/cluster_templates/templates/data_processing.cluster_templates/_nodegroups_details.html:72
-#: contrib/sahara/content/data_processing/clusters/templates/data_processing.clusters/_details.html:73
-#: contrib/sahara/content/data_processing/clusters/templates/data_processing.clusters/_nodegroups_details.html:73
-#: contrib/sahara/content/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/_service_confs.html:17
-msgid "No configurations"
-msgstr ""
-
-#: contrib/sahara/content/data_processing/cluster_templates/templates/data_processing.cluster_templates/_details.html:52
-#: contrib/sahara/content/data_processing/clusters/templates/data_processing.clusters/_details.html:78
-msgid "Cluster configurations are not specified"
-msgstr ""
-
-#: contrib/sahara/content/data_processing/cluster_templates/templates/data_processing.cluster_templates/_nodegroups_details.html:6
-#, python-format
-msgid "Node Group: %(node_group_name)s"
-msgstr ""
-
-#: contrib/sahara/content/data_processing/cluster_templates/templates/data_processing.cluster_templates/_nodegroups_details.html:7
-msgid "Nodes Count"
-msgstr ""
-
-#: contrib/sahara/content/data_processing/cluster_templates/templates/data_processing.cluster_templates/_nodegroups_details.html:10
-#: contrib/sahara/content/data_processing/clusters/templates/data_processing.clusters/_nodegroups_details.html:11
-#: contrib/sahara/content/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/_details.html:13
-#: contrib/trove/content/database_clusters/forms.py:45
-#: contrib/trove/content/database_clusters/forms.py:53
-#: contrib/trove/content/database_clusters/forms.py:112
-#: contrib/trove/content/database_clusters/forms.py:118
-#: contrib/trove/content/databases/templates/databases/_detail_overview.html:20
-#: contrib/trove/content/databases/workflows/create_instance.py:37
-#: dashboards/project/instances/templates/instances/_detail_overview.html:57
-#: dashboards/project/instances/workflows/create_instance.py:87
-msgid "Flavor"
-msgstr ""
-
-#: contrib/sahara/content/data_processing/cluster_templates/templates/data_processing.cluster_templates/_nodegroups_details.html:11
-#: contrib/sahara/content/data_processing/clusters/templates/data_processing.clusters/_nodegroups_details.html:12
-msgid "Flavor is not specified"
-msgstr ""
-
-#: contrib/sahara/content/data_processing/cluster_templates/templates/data_processing.cluster_templates/_nodegroups_details.html:17
-#: contrib/sahara/content/data_processing/clusters/templates/data_processing.clusters/_details.html:33
-#: contrib/sahara/content/data_processing/clusters/templates/data_processing.clusters/_nodegroups_details.html:23
-msgid "Template not specified"
-msgstr ""
-
-#: contrib/sahara/content/data_processing/cluster_templates/templates/data_processing.cluster_templates/_nodegroups_details.html:21
-#: contrib/sahara/content/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/_details.html:18
-#: contrib/sahara/content/data_processing/nodegroup_templates/workflows/create.py:55
-#: dashboards/admin/aggregates/forms.py:28
-#: dashboards/admin/aggregates/tables.py:140
-#: dashboards/admin/aggregates/workflows.py:27
-#: dashboards/admin/volumes/volumes/forms.py:78
-#: dashboards/project/instances/tables.py:1147
-#: dashboards/project/instances/templates/instances/_detail_overview.html:11
-#: dashboards/project/instances/workflows/create_instance.py:81
-#: dashboards/project/volumes/volumes/forms.py:122
-#: dashboards/project/volumes/volumes/forms.py:127
-#: dashboards/project/volumes/volumes/forms.py:128
-#: dashboards/project/volumes/volumes/tables.py:437
-msgid "Availability Zone"
-msgstr ""
-
-#: contrib/sahara/content/data_processing/cluster_templates/templates/data_processing.cluster_templates/_nodegroups_details.html:28
-#: contrib/sahara/content/data_processing/clusters/templates/data_processing.clusters/_nodegroups_details.html:29
-#: contrib/sahara/content/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/_details.html:40
-#: contrib/sahara/content/data_processing/nodegroup_templates/workflows/create.py:160
-msgid "Proxy Gateway"
-msgstr ""
-
-#: contrib/sahara/content/data_processing/cluster_templates/templates/data_processing.cluster_templates/_nodegroups_details.html:31
-#: contrib/sahara/content/data_processing/clusters/templates/data_processing.clusters/_nodegroups_details.html:32
-#: contrib/sahara/content/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/_details.html:45
-#: contrib/sahara/content/data_processing/nodegroup_templates/workflows/create.py:236
-msgid "Auto Security Group"
-msgstr ""
-
-#: contrib/sahara/content/data_processing/cluster_templates/templates/data_processing.cluster_templates/_nodegroups_details.html:34
-#: contrib/sahara/content/data_processing/clusters/templates/data_processing.clusters/_nodegroups_details.html:35
-#: contrib/sahara/content/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/_details.html:50
-#: contrib/sahara/content/data_processing/nodegroup_templates/workflows/create.py:251
-#: dashboards/admin/defaults/tables.py:53
-#: dashboards/admin/defaults/workflows.py:49
-#: dashboards/identity/projects/workflows.py:65
-#: dashboards/identity/projects/workflows.py:71
-#: dashboards/project/access_and_security/tabs.py:43
-#: dashboards/project/access_and_security/security_groups/tables.py:150
-#: dashboards/project/instances/templates/instances/_detail_overview.html:75
-#: dashboards/project/instances/workflows/create_instance.py:555
-#: dashboards/project/instances/workflows/update_instance.py:80
-#: usage/quotas.py:71 usage/quotas.py:83 usage/views.py:73
-msgid "Security Groups"
-msgstr ""
-
-#: contrib/sahara/content/data_processing/cluster_templates/templates/data_processing.cluster_templates/_nodegroups_details.html:47
-#: contrib/sahara/content/data_processing/clusters/templates/data_processing.clusters/_nodegroups_details.html:48
-#: contrib/sahara/content/data_processing/nodegroup_templates/tables.py:97
-#: contrib/sahara/content/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/_details.html:65
-#: contrib/sahara/content/data_processing/nodegroup_templates/workflows/create.py:331
-msgid "Node Processes"
-msgstr ""
-
-#: contrib/sahara/content/data_processing/cluster_templates/templates/data_processing.cluster_templates/_nodegroups_details.html:57
-#: contrib/sahara/content/data_processing/clusters/templates/data_processing.clusters/_nodegroups_details.html:58
-msgid "Node processes are not specified"
-msgstr ""
-
-#: contrib/sahara/content/data_processing/cluster_templates/templates/data_processing.cluster_templates/_nodegroups_details.html:77
-#: contrib/sahara/content/data_processing/clusters/templates/data_processing.clusters/_nodegroups_details.html:78
-msgid "Node configurations are not specified"
-msgstr ""
-
-#: contrib/sahara/content/data_processing/cluster_templates/templates/data_processing.cluster_templates/_upload_file.html:21
-#: dashboards/project/volumes/volumes/views.py:218
-msgid "Upload"
-msgstr ""
-
-#: contrib/sahara/content/data_processing/cluster_templates/templates/data_processing.cluster_templates/_upload_file.html:22
-#: contrib/sahara/content/data_processing/clusters/templates/data_processing.clusters/_create_cluster.html:21
-#: contrib/sahara/content/data_processing/data_image_registry/templates/data_processing.data_image_registry/_edit_tags.html:27
-#: contrib/sahara/content/data_processing/data_image_registry/templates/data_processing.data_image_registry/_register_image.html:25
-#: contrib/sahara/content/data_processing/job_binaries/templates/data_processing.job_binaries/_create.html:25
-#: contrib/sahara/content/data_processing/wizard/templates/data_processing.wizard/_job_type_select.html:29
-#: contrib/sahara/content/data_processing/wizard/templates/data_processing.wizard/_plugin_select.html:29
-#: contrib/trove/content/database_clusters/templates/database_clusters/_add_shard.html:24
-#: contrib/trove/content/database_clusters/templates/database_clusters/_launch.html:21
-#: contrib/trove/content/database_clusters/templates/database_clusters/_reset_password.html:24
-#: contrib/trove/content/databases/templates/databases/_resize_instance.html:23
-#: contrib/trove/content/databases/templates/databases/_resize_volume.html:24
-#: dashboards/admin/aggregates/templates/aggregates/_update.html:24
-#: dashboards/admin/hypervisors/templates/hypervisors/compute/_disable_service.html:23
-#: dashboards/admin/hypervisors/templates/hypervisors/compute/_evacuate_host.html:23
-#: dashboards/admin/hypervisors/templates/hypervisors/compute/_migrate_host.html:22
-#: dashboards/admin/instances/templates/instances/_live_migrate.html:23
-#: dashboards/admin/metadata_defs/templates/metadata_defs/_create.html:35
-#: dashboards/admin/metadata_defs/templates/metadata_defs/resource_types.html:80
-#: dashboards/admin/metering/templates/metering/_daily.html:24
-#: dashboards/admin/networks/templates/networks/_create.html:26
-#: dashboards/identity/groups/templates/groups/_add_non_member.html:7
-#: dashboards/project/containers/templates/containers/_copy.html:23
-#: dashboards/project/containers/templates/containers/_create.html:24
-#: dashboards/project/containers/templates/containers/_create_pseudo_folder.html:25
-#: dashboards/project/containers/templates/containers/_update.html:27
-#: dashboards/project/containers/templates/containers/_upload.html:28
-#: dashboards/project/instances/templates/instances/_decryptpassword.html:33
-#: dashboards/project/instances/templates/instances/_rebuild.html:27
-#: dashboards/project/network_topology/templates/network_topology/_create_router.html:20
-#: dashboards/project/networks/templates/networks/_create.html:23
-#: dashboards/project/networks/templates/networks/create.html:7
-#: dashboards/project/networks/templates/networks/create.html:14
-#: dashboards/project/routers/templates/routers/extensions/routerroutes/_create.html:27
-#: dashboards/project/routers/templates/routers/extensions/routerrules/_create.html:27
-#: dashboards/project/routers/templates/routers/ports/_create.html:29
-#: dashboards/project/routers/templates/routers/ports/_setgateway.html:24
-#: dashboards/project/volumes/templates/volumes/volumes/_attach.html:19
-#: dashboards/project/volumes/templates/volumes/volumes/_create_snapshot.html:16
-msgid "Cancel"
-msgstr ""
-
-#: contrib/sahara/content/data_processing/cluster_templates/templates/data_processing.cluster_templates/cluster_node_groups_template.html:95
-msgid "Select a Node Group Template to add:"
-msgstr ""
-
-#: contrib/sahara/content/data_processing/cluster_templates/templates/data_processing.cluster_templates/cluster_templates.html:3
-#: contrib/sahara/content/data_processing/clusters/templates/data_processing.clusters/clusters.html:3
-#: contrib/sahara/content/data_processing/data_image_registry/templates/data_processing.data_image_registry/image_registry.html:3
-#: contrib/sahara/content/data_processing/data_plugins/templates/data_processing.data_plugins/plugins.html:3
-#: contrib/sahara/content/data_processing/data_sources/templates/data_processing.data_sources/data_sources.html:3
-#: contrib/sahara/content/data_processing/job_binaries/templates/data_processing.job_binaries/job_binaries.html:3
-#: contrib/sahara/content/data_processing/job_executions/templates/data_processing.job_executions/job_executions.html:3
-#: contrib/sahara/content/data_processing/jobs/templates/data_processing.jobs/jobs.html:3
-#: contrib/sahara/content/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/nodegroup_templates.html:3
-#: contrib/sahara/content/data_processing/wizard/templates/data_processing.wizard/cluster_guide.html:3
-#: contrib/sahara/content/data_processing/wizard/templates/data_processing.wizard/jobex_guide.html:3
-#: contrib/sahara/content/data_processing/wizard/templates/data_processing.wizard/wizard.html:3
-#: enabled/_1810_data_processing_panel_group.py:6
-msgid "Data Processing"
-msgstr ""
-
-#: contrib/sahara/content/data_processing/cluster_templates/templates/data_processing.cluster_templates/cluster_templates.html:19
-msgid "Add Node Group"
-msgstr ""
-
-#: contrib/sahara/content/data_processing/cluster_templates/workflows/copy.py:32
-#, python-format
-msgid "Cluster Template copy %s created"
-msgstr ""
-
-#: contrib/sahara/content/data_processing/cluster_templates/workflows/copy.py:99
-msgid "Unable to fetch template to copy."
-msgstr ""
-
-#: contrib/sahara/content/data_processing/cluster_templates/workflows/create.py:49
-msgid "Unable to fetch plugin list."
-msgstr ""
-
-#: contrib/sahara/content/data_processing/cluster_templates/workflows/create.py:53
-#: contrib/sahara/content/data_processing/jobs/workflows/launch.py:494
-msgid "Plugin name"
-msgstr ""
-
-#: contrib/sahara/content/data_processing/cluster_templates/workflows/create.py:69
-msgid "Select plugin and hadoop version for cluster template"
-msgstr ""
-
-#: contrib/sahara/content/data_processing/cluster_templates/workflows/create.py:81
-#: contrib/sahara/content/data_processing/nodegroup_templates/workflows/create.py:517
-#: dashboards/project/stacks/views.py:93 dashboards/project/stacks/views.py:123
-#: dashboards/project/stacks/views.py:163
-msgid "Next"
-msgstr ""
-
-#: contrib/sahara/content/data_processing/cluster_templates/workflows/create.py:82
-#: contrib/sahara/content/data_processing/job_executions/templates/data_processing.job_executions/_details.html:31
-#: contrib/sahara/content/data_processing/jobs/workflows/launch.py:546
-#: contrib/sahara/content/data_processing/nodegroup_templates/workflows/create.py:518
-#: contrib/trove/content/database_backups/tables.py:165
-#: contrib/trove/content/database_backups/templates/database_backups/details.html:32
-#: contrib/trove/content/databases/tables.py:388
-#: contrib/trove/content/databases/templates/databases/_detail_overview.html:28
-#: dashboards/admin/metadata_defs/templates/metadata_defs/_detail_overview.html:17
-#: dashboards/admin/volumes/templates/volumes/snapshots/_detail_overview.html:34
-#: dashboards/project/access_and_security/templates/access_and_security/keypairs/detail.html:18
-#: dashboards/project/images/templates/images/images/_detail_overview.html:23
-#: dashboards/project/instances/templates/instances/_detail_overview.html:13
-#: dashboards/project/instances/templates/instances/_detail_overview.html:33
-#: dashboards/project/stacks/tables.py:266
-#: dashboards/project/stacks/templates/stacks/_detail_overview.html:16
-#: dashboards/project/volumes/templates/volumes/backups/_detail_overview.html:30
-#: dashboards/project/volumes/templates/volumes/snapshots/_detail_overview.html:32
-#: dashboards/project/volumes/templates/volumes/volumes/_detail_overview.html:34
-#: dashboards/project/volumes/templates/volumes/volumes/_detail_overview.html:92
-msgid "Created"
-msgstr ""
-
-#: contrib/sahara/content/data_processing/cluster_templates/workflows/create.py:83
-#: contrib/sahara/content/data_processing/jobs/workflows/launch.py:547
-#: contrib/sahara/content/data_processing/nodegroup_templates/workflows/create.py:519
-msgid "Could not create"
-msgstr ""
-
-#: contrib/sahara/content/data_processing/cluster_templates/workflows/create.py:97
-#: contrib/sahara/content/data_processing/nodegroup_templates/workflows/create.py:46
-msgid "Template Name"
-msgstr ""
-
-#: contrib/sahara/content/data_processing/cluster_templates/workflows/create.py:104
-#: contrib/sahara/content/data_processing/nodegroup_templates/workflows/create.py:149
-msgid "Auto-configure"
-msgstr ""
-
-#: contrib/sahara/content/data_processing/cluster_templates/workflows/create.py:105
-msgid ""
-"If selected, instances of a cluster will be automatically configured "
-"during creation. Otherwise you should manually specify configuration "
-"values"
-msgstr ""
-
-#: contrib/sahara/content/data_processing/cluster_templates/workflows/create.py:148
-#: contrib/sahara/content/data_processing/data_plugins/tabs.py:26
-#: contrib/trove/content/database_backups/workflows/create_backup.py:43
-#: contrib/trove/content/databases/workflows/create_instance.py:48
-#: dashboards/project/instances/templates/instances/_detail_overview.html:31
-#: dashboards/project/instances/workflows/create_instance.py:138
-#: dashboards/project/loadbalancers/tables.py:555
-msgid "Details"
-msgstr ""
-
-#: contrib/sahara/content/data_processing/cluster_templates/workflows/create.py:245
-#: contrib/sahara/content/data_processing/data_sources/workflows/create.py:95
-#: contrib/sahara/content/data_processing/job_binaries/views.py:68
-#: contrib/sahara/content/data_processing/jobs/workflows/create.py:228
-#: contrib/sahara/content/data_processing/jobs/workflows/launch.py:545
-#: contrib/sahara/content/data_processing/nodegroup_templates/workflows/create.py:365
-#: dashboards/admin/volumes/volume_types/views.py:157
-#: dashboards/admin/volumes/volume_types/extras/tables.py:48
-#: dashboards/admin/volumes/volume_types/extras/views.py:65
-#: dashboards/admin/volumes/volume_types/qos_specs/tables.py:24
-#: dashboards/admin/volumes/volume_types/qos_specs/views.py:76
-#: dashboards/project/containers/templates/containers/_create_pseudo_folder.html:24
-#: dashboards/project/networks/workflows.py:455
-#: dashboards/project/networks/subnets/workflows.py:60
-msgid "Create"
-msgstr ""
-
-#: contrib/sahara/content/data_processing/cluster_templates/workflows/create.py:246
-#, python-format
-msgid "Created Cluster Template %s"
-msgstr ""
-
-#: contrib/sahara/content/data_processing/cluster_templates/workflows/create.py:336
-msgid "Cluster template creation failed"
-msgstr ""
-
-#: contrib/sahara/content/data_processing/cluster_templates/workflows/edit.py:35
-#, python-format
-msgid "Cluster Template %s updated"
-msgstr ""
-
-#: contrib/sahara/content/data_processing/cluster_templates/workflows/edit.py:37
-#: contrib/sahara/content/data_processing/data_sources/workflows/edit.py:30
-#: contrib/sahara/content/data_processing/job_binaries/views.py:88
-#: contrib/sahara/content/data_processing/nodegroup_templates/workflows/edit.py:36
-#: dashboards/project/stacks/views.py:215
-msgid "Update"
-msgstr ""
-
-#: contrib/sahara/content/data_processing/cluster_templates/workflows/edit.py:38
-msgid "Edit Cluster Template"
-msgstr ""
-
-#: contrib/sahara/content/data_processing/cluster_templates/workflows/edit.py:56
-msgid "Unable to fetch template to edit."
-msgstr ""
-
-#: contrib/sahara/content/data_processing/cluster_templates/workflows/edit.py:102
-msgid "Cluster template update failed"
-msgstr ""
-
-#: contrib/sahara/content/data_processing/clusters/panel.py:22
-#: contrib/sahara/content/data_processing/clusters/tables.py:167
-#: contrib/sahara/content/data_processing/clusters/views.py:48
-#: contrib/trove/content/database_clusters/panel.py:23
-#: contrib/trove/content/database_clusters/tables.py:159
-#: contrib/trove/content/database_clusters/templates/database_clusters/index.html:3
-msgid "Clusters"
-msgstr ""
-
-#: contrib/sahara/content/data_processing/clusters/tables.py:36
-#: contrib/sahara/content/data_processing/clusters/tables.py:158
-#: contrib/sahara/content/data_processing/clusters/templates/data_processing.clusters/_details.html:11
-#: contrib/sahara/content/data_processing/clusters/templates/data_processing.clusters/_event_log.html:11
-#: contrib/sahara/content/data_processing/clusters/templates/data_processing.clusters/_event_log.html:34
-#: contrib/sahara/content/data_processing/job_executions/tables.py:40
-#: contrib/sahara/content/data_processing/job_executions/tables.py:205
-#: contrib/sahara/content/data_processing/job_executions/templates/data_processing.job_executions/_details.html:5
-#: contrib/trove/content/database_backups/tables.py:174
-#: contrib/trove/content/database_backups/templates/database_backups/details.html:26
-#: contrib/trove/content/database_backups/templates/database_backups/details.html:67
-#: contrib/trove/content/database_clusters/tables.py:201
-#: contrib/trove/content/databases/tables.py:333
-#: contrib/trove/content/databases/tables.py:399
-#: contrib/trove/content/databases/templates/databases/_detail_overview.html:13
-#: dashboards/admin/hypervisors/compute/tables.py:148
-#: dashboards/admin/info/tables.py:68 dashboards/admin/info/tables.py:97
-#: dashboards/admin/info/tables.py:121 dashboards/admin/info/tables.py:171
-#: dashboards/admin/info/tables.py:217 dashboards/admin/instances/tables.py:150
-#: dashboards/admin/networks/tables.py:106
-#: dashboards/admin/networks/agents/tables.py:92
-#: dashboards/admin/networks/templates/networks/ports/_detail_overview.html:16
-#: dashboards/admin/volumes/snapshots/forms.py:43
-#: dashboards/admin/volumes/templates/volumes/snapshots/_detail_overview.html:17
-#: dashboards/admin/volumes/volumes/forms.py:218
-#: dashboards/project/access_and_security/floating_ips/tables.py:202
-#: dashboards/project/firewalls/tables.py:387
-#: dashboards/project/firewalls/templates/firewalls/_firewall_details.html:23
-#: dashboards/project/images/images/tables.py:310
-#: dashboards/project/images/templates/images/images/_detail_overview.html:15
-#: dashboards/project/instances/tables.py:1142
-#: dashboards/project/instances/templates/instances/_detail_overview.html:9
-#: dashboards/project/loadbalancers/tables.py:465
-#: dashboards/project/loadbalancers/tables.py:521
-#: dashboards/project/loadbalancers/templates/loadbalancers/_member_details.html:27
-#: dashboards/project/loadbalancers/templates/loadbalancers/_pool_details.html:41
-#: dashboards/project/loadbalancers/templates/loadbalancers/_vip_details.html:64
-#: dashboards/project/networks/tables.py:180
-#: dashboards/project/networks/ports/tables.py:74
-#: dashboards/project/networks/templates/networks/_detail_overview.html:13
-#: dashboards/project/networks/templates/networks/ports/_detail_overview.html:18
-#: dashboards/project/routers/tables.py:214
-#: dashboards/project/routers/ports/tables.py:112
-#: dashboards/project/routers/templates/routers/_detail_overview.html:11
-#: dashboards/project/stacks/tables.py:279
-#: dashboards/project/stacks/tables.py:323
-#: dashboards/project/stacks/tables.py:374
-#: dashboards/project/stacks/templates/stacks/_detail_overview.html:13
-#: dashboards/project/stacks/templates/stacks/_detail_overview.html:20
-#: dashboards/project/stacks/templates/stacks/_resource_overview.html:35
-#: dashboards/project/stacks/templates/stacks/_resource_overview.html:40
-#: dashboards/project/volumes/backups/tables.py:130
-#: dashboards/project/volumes/templates/volumes/backups/_detail_overview.html:13
-#: dashboards/project/volumes/templates/volumes/snapshots/_detail_overview.html:13
-#: dashboards/project/volumes/templates/volumes/volumes/_detail_overview.html:13
-#: dashboards/project/volumes/volumes/tables.py:410
-#: dashboards/project/vpn/tables.py:281 dashboards/project/vpn/tables.py:336
-#: dashboards/project/vpn/templates/vpn/_ipsecsiteconnection_details.html:69
-#: dashboards/project/vpn/templates/vpn/_vpnservice_details.html:40
-msgid "Status"
-msgstr ""
-
-#: contrib/sahara/content/data_processing/clusters/tables.py:41
-#: contrib/sahara/content/data_processing/wizard/templates/data_processing.wizard/wizard.html:26
-msgid "Cluster Creation Guide"
-msgstr ""
-
-#: contrib/sahara/content/data_processing/clusters/tables.py:55
-#: contrib/sahara/content/data_processing/clusters/views.py:200
-#: contrib/sahara/content/data_processing/clusters/templates/data_processing.clusters/scale.html:3
-#: contrib/sahara/content/data_processing/clusters/workflows/scale.py:42
-msgid "Scale Cluster"
-msgstr ""
-
-#: contrib/sahara/content/data_processing/clusters/tables.py:66
-#: contrib/trove/content/database_clusters/tables.py:40
-msgid "Delete Cluster"
-msgid_plural "Delete Clusters"
-msgstr[0] ""
-msgstr[1] ""
-
-#: contrib/sahara/content/data_processing/clusters/tables.py:74
-msgid "Deleted Cluster"
-msgid_plural "Deleted Clusters"
-msgstr[0] ""
-msgstr[1] ""
-
-#: contrib/sahara/content/data_processing/clusters/tables.py:95
-#: contrib/sahara/content/data_processing/job_executions/tables.py:132
-msgid "Unable to update row"
-msgstr ""
-
-#: contrib/sahara/content/data_processing/clusters/tables.py:136
-#: contrib/sahara/content/data_processing/clusters/views.py:187
-#: contrib/sahara/content/data_processing/clusters/workflows/create.py:205
-#: contrib/sahara/content/data_processing/jobs/workflows/launch.py:395
-msgid "Configure Cluster"
-msgstr ""
-
-#: contrib/sahara/content/data_processing/clusters/tables.py:163
-msgid "Instances Count"
-msgstr ""
-
-#: contrib/sahara/content/data_processing/clusters/tabs.py:113
-msgid "Unable to get node group details."
-msgstr ""
-
-#: contrib/sahara/content/data_processing/clusters/tabs.py:139
-msgid "Internal IP"
-msgstr ""
-
-#: contrib/sahara/content/data_processing/clusters/tabs.py:142
-msgid "Management IP"
-msgstr ""
-
-#: contrib/sahara/content/data_processing/clusters/tabs.py:146
-msgid "Cluster Instances"
-msgstr ""
-
-#: contrib/sahara/content/data_processing/clusters/tabs.py:150
-#: contrib/trove/content/database_clusters/tables.py:205
-#: contrib/trove/content/database_clusters/tabs.py:48
-#: contrib/trove/content/databases/panel.py:21
-#: contrib/trove/content/databases/tables.py:340
-#: contrib/trove/content/databases/views.py:50
-#: contrib/trove/content/databases/templates/databases/index.html:3
-#: dashboards/admin/defaults/tables.py:46
-#: dashboards/admin/defaults/workflows.py:42
-#: dashboards/admin/hypervisors/tables.py:56
-#: dashboards/admin/instances/panel.py:25
-#: dashboards/admin/instances/tables.py:172
-#: dashboards/admin/instances/views.py:68
-#: dashboards/admin/instances/templates/instances/index.html:3
-#: dashboards/identity/projects/workflows.py:52
-#: dashboards/project/instances/panel.py:21
-#: dashboards/project/instances/tables.py:1166
-#: dashboards/project/instances/views.py:60
-#: dashboards/project/instances/templates/instances/index.html:3
-#: dashboards/project/network_topology/instances/tables.py:23
-#: usage/quotas.py:65 usage/views.py:67
-msgid "Instances"
-msgstr ""
-
-#: contrib/sahara/content/data_processing/clusters/tabs.py:175
-msgid "Unable to fetch instance details."
-msgstr ""
-
-#: contrib/sahara/content/data_processing/clusters/tabs.py:180
-msgid "Cluster Events"
-msgstr ""
-
-#: contrib/sahara/content/data_processing/clusters/views.py:60
-msgid "Unable to fetch cluster list"
-msgstr ""
-
-#: contrib/sahara/content/data_processing/clusters/views.py:75
-#, python-format
-msgid "Unable to retrieve details for cluster \"%s\"."
-msgstr ""
-
-#: contrib/sahara/content/data_processing/clusters/views.py:126
-#: dashboards/admin/metadata_defs/templates/metadata_defs/_detail_overview.html:18
-#: dashboards/admin/networks/views.py:61
-#: dashboards/project/images/templates/images/images/_detail_overview.html:16
-#: dashboards/project/images/templates/images/images/_detail_overview.html:27
-#: dashboards/project/instances/tables.py:724
-#: dashboards/project/networks/templates/networks/_detail_overview.html:14
-#: dashboards/project/networks/templates/networks/_detail_overview.html:16
-#: dashboards/project/networks/templates/networks/_detail_overview.html:22
-#: dashboards/project/networks/templates/networks/_detail_overview.html:25
-#: dashboards/project/routers/templates/routers/_detail_overview.html:14
-#: dashboards/project/routers/templates/routers/_detail_overview.html:32
-#: dashboards/project/routers/templates/routers/_detail_overview.html:38
-#: dashboards/project/volumes/backups/tables.py:37
-#: dashboards/project/volumes/snapshots/tables.py:126
-msgid "Unknown"
-msgstr ""
-
-#: contrib/sahara/content/data_processing/clusters/views.py:129
-#: contrib/sahara/content/data_processing/clusters/views.py:154
-msgid "Completed Successfully"
-msgstr ""
-
-#: contrib/sahara/content/data_processing/clusters/views.py:131
-#: contrib/sahara/content/data_processing/clusters/views.py:156
-msgid "Failed"
-msgstr ""
-
-#: contrib/sahara/content/data_processing/clusters/views.py:136
-msgid "No info available"
-msgstr ""
-
-#: contrib/sahara/content/data_processing/clusters/views.py:149
-msgid "In progress"
-msgstr ""
-
-#: contrib/sahara/content/data_processing/clusters/templates/data_processing.clusters/_configure_general_help.html:4
-msgid "This Cluster will be started with:"
-msgstr ""
-
-#: contrib/sahara/content/data_processing/clusters/templates/data_processing.clusters/_configure_general_help.html:12
-msgid "Cluster can be launched using existing Cluster Templates."
-msgstr ""
-
-#: contrib/sahara/content/data_processing/clusters/templates/data_processing.clusters/_configure_general_help.html:15
-msgid ""
-"The Cluster object should specify OpenStack Image to boot instances for "
-"Cluster."
-msgstr ""
-
-#: contrib/sahara/content/data_processing/clusters/templates/data_processing.clusters/_configure_general_help.html:18
-msgid "User has to choose a keypair to have access to clusters instances."
-msgstr ""
-
-#: contrib/sahara/content/data_processing/clusters/templates/data_processing.clusters/_create_cluster.html:20
-msgid " Done"
-msgstr ""
-
-#: contrib/sahara/content/data_processing/clusters/templates/data_processing.clusters/_create_general_help.html:3
-msgid "Select a plugin and version for a new Cluster."
-msgstr ""
-
-#: contrib/sahara/content/data_processing/clusters/templates/data_processing.clusters/_details.html:16
-msgid "Error Details"
-msgstr ""
-
-#: contrib/sahara/content/data_processing/clusters/templates/data_processing.clusters/_details.html:35
-#: contrib/sahara/content/data_processing/clusters/workflows/create.py:89
-msgid "Base Image"
-msgstr ""
-
-#: contrib/sahara/content/data_processing/clusters/templates/data_processing.clusters/_details.html:38
-#: contrib/sahara/content/data_processing/clusters/workflows/create.py:106
-msgid "Neutron Management Network"
-msgstr ""
-
-#: contrib/sahara/content/data_processing/clusters/templates/data_processing.clusters/_details.html:41
-#: contrib/sahara/content/data_processing/clusters/workflows/create.py:93
-msgid "Keypair"
-msgstr ""
-
-#: contrib/sahara/content/data_processing/clusters/templates/data_processing.clusters/_details.html:87
-#, python-format
-msgid "%(key)s: %(val)s"
-msgstr ""
-
-#: contrib/sahara/content/data_processing/clusters/templates/data_processing.clusters/_event_log.html:3
-msgid "Cluster provision steps"
-msgstr ""
-
-#: contrib/sahara/content/data_processing/clusters/templates/data_processing.clusters/_event_log.html:7
-msgid "Step Description"
-msgstr ""
-
-#: contrib/sahara/content/data_processing/clusters/templates/data_processing.clusters/_event_log.html:8
-msgid "Started at"
-msgstr ""
-
-#: contrib/sahara/content/data_processing/clusters/templates/data_processing.clusters/_event_log.html:9
-msgid "Duration"
-msgstr ""
-
-#: contrib/sahara/content/data_processing/clusters/templates/data_processing.clusters/_event_log.html:10
-msgid "Progress"
-msgstr ""
-
-#: contrib/sahara/content/data_processing/clusters/templates/data_processing.clusters/_event_log.html:30
-msgid "Node Group"
-msgstr ""
-
-#: contrib/sahara/content/data_processing/clusters/templates/data_processing.clusters/_event_log.html:31
-#: dashboards/project/access_and_security/floating_ips/workflows.py:37
-#: dashboards/project/volumes/volumes/tables.py:505
-msgid "Instance"
-msgstr ""
-
-#: contrib/sahara/content/data_processing/clusters/templates/data_processing.clusters/_event_log.html:32
-msgid "Event time"
-msgstr ""
-
-#: contrib/sahara/content/data_processing/clusters/templates/data_processing.clusters/_event_log.html:33
-#: dashboards/admin/volumes/templates/volumes/volume_types/_volume_encryption_type_detail.html:8
-#: dashboards/project/volumes/templates/volumes/volumes/_encryption_detail_overview.html:8
-msgid "Info"
-msgstr ""
-
-#: contrib/sahara/content/data_processing/clusters/templates/data_processing.clusters/_nodegroups_details.html:7
-#, python-format
-msgid "Name: %(node_group_name)s"
-msgstr ""
-
-#: contrib/sahara/content/data_processing/clusters/templates/data_processing.clusters/_nodegroups_details.html:8
-msgid "Number of Nodes"
-msgstr ""
-
-#: contrib/sahara/content/data_processing/clusters/templates/data_processing.clusters/_nodegroups_details.html:15
-#: contrib/sahara/content/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/_details.html:24
-#: contrib/sahara/content/data_processing/nodegroup_templates/workflows/create.py:144
-msgid "Floating IP Pool"
-msgstr ""
-
-#: contrib/sahara/content/data_processing/clusters/workflows/create.py:45
-#: contrib/sahara/content/data_processing/jobs/workflows/launch.py:533
-msgid "Select plugin and hadoop version for cluster"
-msgstr ""
-
-#: contrib/sahara/content/data_processing/clusters/workflows/create.py:73
-#: contrib/trove/content/database_clusters/forms.py:35
-#: contrib/trove/content/database_clusters/forms.py:319
-#: contrib/trove/content/database_clusters/tables.py:143
-msgid "Cluster Name"
-msgstr ""
-
-#: contrib/sahara/content/data_processing/clusters/workflows/create.py:78
-msgid "Cluster Template"
-msgstr ""
-
-#: contrib/sahara/content/data_processing/clusters/workflows/create.py:84
-msgid "Cluster Count"
-msgstr ""
-
-#: contrib/sahara/content/data_processing/clusters/workflows/create.py:87
-msgid "Number of clusters to launch."
-msgstr ""
-
-#: contrib/sahara/content/data_processing/clusters/workflows/create.py:95
-msgid "Which keypair to use for authentication."
-msgstr ""
-
-#: contrib/sahara/content/data_processing/clusters/workflows/create.py:136
-msgid "Unable to fetch image choices."
-msgstr ""
-
-#: contrib/sahara/content/data_processing/clusters/workflows/create.py:139
-msgid "No Images Available"
-msgstr ""
-
-#: contrib/sahara/content/data_processing/clusters/workflows/create.py:149
-msgid "Unable to fetch keypair choices."
-msgstr ""
-
-#: contrib/sahara/content/data_processing/clusters/workflows/create.py:151
-msgid "No keypair"
-msgstr ""
-
-#: contrib/sahara/content/data_processing/clusters/workflows/create.py:167
-msgid "No Templates Available"
-msgstr ""
-
-#: contrib/sahara/content/data_processing/clusters/workflows/create.py:224
-#: contrib/sahara/content/data_processing/jobs/workflows/launch.py:465
-#: contrib/sahara/content/data_processing/jobs/workflows/launch.py:555
-#: contrib/trove/content/database_clusters/templates/database_clusters/_launch.html:20
-#: contrib/trove/content/databases/workflows/create_instance.py:337
-#: dashboards/project/images/images/tables.py:62
-#: dashboards/project/instances/workflows/create_instance.py:836
-#: dashboards/project/stacks/views.py:179
-msgid "Launch"
-msgstr ""
-
-#: contrib/sahara/content/data_processing/clusters/workflows/create.py:225
-#, python-format
-msgid "Launched Cluster %s"
-msgstr ""
-
-#: contrib/sahara/content/data_processing/clusters/workflows/create.py:258
-msgid "Unable to create the cluster"
-msgstr ""
-
-#: contrib/sahara/content/data_processing/clusters/workflows/scale.py:43
-msgid "Scale"
-msgstr ""
-
-#: contrib/sahara/content/data_processing/clusters/workflows/scale.py:50
-msgid "Scaled cluster successfully started."
-msgstr ""
-
-#: contrib/sahara/content/data_processing/clusters/workflows/scale.py:107
-msgid "Unable to fetch cluster to scale"
-msgstr ""
-
-#: contrib/sahara/content/data_processing/clusters/workflows/scale.py:162
-msgid "Unable to fetch cluster to scale."
-msgstr ""
-
-#: contrib/sahara/content/data_processing/clusters/workflows/scale.py:172
-msgid "Scale cluster operation failed"
-msgstr ""
-
-#: contrib/sahara/content/data_processing/data_image_registry/forms.py:28
-#: contrib/trove/content/databases/tables.py:353
-#: dashboards/identity/groups/tables.py:190
-#: dashboards/identity/users/forms.py:96 dashboards/identity/users/forms.py:195
-#: dashboards/identity/users/forms.py:249
-#: dashboards/identity/users/tables.py:228
-#: dashboards/identity/users/templates/users/_detail_overview.html:13
-#: dashboards/project/access_and_security/templates/access_and_security/api_access/_credentials.html:13
-msgid "User Name"
-msgstr ""
-
-#: contrib/sahara/content/data_processing/data_image_registry/forms.py:45
-msgid "Successfully updated image."
-msgstr ""
-
-#: contrib/sahara/content/data_processing/data_image_registry/forms.py:49
-msgid "Failed to update image."
-msgstr ""
-
-#: contrib/sahara/content/data_processing/data_image_registry/forms.py:58
-#: contrib/sahara/content/data_processing/data_image_registry/tables.py:73
-#: dashboards/project/instances/templates/instances/_detail_overview.html:108
-#: dashboards/project/volumes/templates/volumes/volumes/_detail_overview.html:59
-#: dashboards/project/volumes/volumes/forms.py:237
-msgid "Image"
-msgstr ""
-
-#: contrib/sahara/content/data_processing/data_image_registry/forms.py:70
-#: dashboards/project/images/utils.py:99
-#: dashboards/project/instances/forms.py:42
-#: dashboards/project/instances/forms.py:68
-#: dashboards/project/instances/workflows/create_instance.py:447
-msgid "Select Image"
-msgstr ""
-
-#: contrib/sahara/content/data_processing/data_image_registry/forms.py:72
-msgid "No images available."
-msgstr ""
-
-#: contrib/sahara/content/data_processing/data_image_registry/forms.py:82
-#, python-format
-msgid "Unable to retrieve images with filter %s."
-msgstr ""
-
-#: contrib/sahara/content/data_processing/data_image_registry/forms.py:109
-msgid "Unable to fetch available images."
-msgstr ""
-
-#: contrib/sahara/content/data_processing/data_image_registry/panel.py:22
-#: contrib/sahara/content/data_processing/data_image_registry/tables.py:81
-#: contrib/sahara/content/data_processing/data_image_registry/views.py:41
-msgid "Image Registry"
-msgstr ""
-
-#: contrib/sahara/content/data_processing/data_image_registry/tables.py:30
-msgid "Edit Tags"
-msgstr ""
-
-#: contrib/sahara/content/data_processing/data_image_registry/tables.py:44
-#: contrib/sahara/content/data_processing/data_image_registry/views.py:119
-#: contrib/sahara/content/data_processing/data_image_registry/templates/data_processing.data_image_registry/_register_image.html:9
-#: contrib/sahara/content/data_processing/data_image_registry/templates/data_processing.data_image_registry/register_image.html:3
-msgid "Register Image"
-msgstr ""
-
-#: contrib/sahara/content/data_processing/data_image_registry/tables.py:53
-msgid "Unregister Image"
-msgid_plural "Unregister Images"
-msgstr[0] ""
-msgstr[1] ""
-
-#: contrib/sahara/content/data_processing/data_image_registry/tables.py:61
-msgid "Unregistered Image"
-msgid_plural "Unregistered Images"
-msgstr[0] ""
-msgstr[1] ""
-
-#: contrib/sahara/content/data_processing/data_image_registry/tables.py:77
-msgid "Tags"
-msgstr ""
-
-#: contrib/sahara/content/data_processing/data_image_registry/views.py:48
-msgid "Unable to retrieve image list"
-msgstr ""
-
-#: contrib/sahara/content/data_processing/data_image_registry/views.py:58
-#: contrib/sahara/content/data_processing/data_image_registry/views.py:73
-msgid "Unable to process plugin tags"
-msgstr ""
-
-#: contrib/sahara/content/data_processing/data_image_registry/views.py:85
-#: contrib/sahara/content/data_processing/data_image_registry/templates/data_processing.data_image_registry/_edit_tags.html:9
-#: contrib/sahara/content/data_processing/data_image_registry/templates/data_processing.data_image_registry/edit_tags.html:3
-msgid "Edit Image Tags"
-msgstr ""
-
-#: contrib/sahara/content/data_processing/data_image_registry/views.py:100
-msgid "Unable to fetch the image details"
-msgstr ""
-
-#: contrib/sahara/content/data_processing/data_image_registry/templates/data_processing.data_image_registry/_edit_tags.html:26
-#: contrib/sahara/content/data_processing/data_image_registry/templates/data_processing.data_image_registry/_register_image.html:24
-msgid "Done"
-msgstr ""
-
-#: contrib/sahara/content/data_processing/data_image_registry/templates/data_processing.data_image_registry/_help.html:3
-msgid "Image Registry tool:"
-msgstr ""
-
-#: contrib/sahara/content/data_processing/data_image_registry/templates/data_processing.data_image_registry/_help.html:6
-msgid ""
-"Image Registry is used to provide additional information about images for"
-" Data Processing."
-msgstr ""
-
-#: contrib/sahara/content/data_processing/data_image_registry/templates/data_processing.data_image_registry/_help.html:9
-msgid ""
-"Specified User Name will be used by Data Processing to apply configs and "
-"manage processes on instances."
-msgstr ""
-
-#: contrib/sahara/content/data_processing/data_image_registry/templates/data_processing.data_image_registry/_help.html:13
-msgid ""
-"Tags are used for filtering images suitable for each plugin and each Data"
-" Processing version.\n"
-"        To add required tags, select a plugin and a Data Processing "
-"version and click &quot;Add plugin tags&quot; button."
-msgstr ""
-
-#: contrib/sahara/content/data_processing/data_image_registry/templates/data_processing.data_image_registry/_help.html:16
-msgid "You may also add any custom tag."
-msgstr ""
-
-#: contrib/sahara/content/data_processing/data_image_registry/templates/data_processing.data_image_registry/_help.html:19
-msgid "Unnecessary tags may be removed by clicking a cross near tag's name."
-msgstr ""
-
-#: contrib/sahara/content/data_processing/data_image_registry/templates/data_processing.data_image_registry/_tag_form.html:5
-msgid ""
-"Register tags required for the Plugin with specified Data Processing "
-"Version"
-msgstr ""
-
-#: contrib/sahara/content/data_processing/data_image_registry/templates/data_processing.data_image_registry/_tag_form.html:30
-msgid "Add plugin tags"
-msgstr ""
-
-#: contrib/sahara/content/data_processing/data_image_registry/templates/data_processing.data_image_registry/_tag_form.html:38
-msgid "Add custom tag"
-msgstr ""
-
-#: contrib/sahara/content/data_processing/data_plugins/panel.py:22
-#: contrib/sahara/content/data_processing/data_plugins/tables.py:40
-msgid "Plugins"
-msgstr ""
-
-#: contrib/sahara/content/data_processing/data_plugins/tables.py:26
-#: contrib/sahara/content/data_processing/data_plugins/templates/data_processing.data_plugins/_details.html:7
-msgid "Title"
-msgstr ""
-
-#: contrib/sahara/content/data_processing/data_plugins/tables.py:31
-#: contrib/sahara/content/data_processing/data_plugins/templates/data_processing.data_plugins/_details.html:11
-msgid "Supported Versions"
-msgstr ""
-
-#: contrib/sahara/content/data_processing/data_plugins/tabs.py:39
-msgid "Unable to retrieve plugin."
-msgstr ""
-
-#: contrib/sahara/content/data_processing/data_plugins/views.py:34
-msgid "Data Processing Plugins"
-msgstr ""
-
-#: contrib/sahara/content/data_processing/data_plugins/views.py:41
-msgid "Unable to retrieve data processing plugins."
-msgstr ""
-
-#: contrib/sahara/content/data_processing/data_plugins/views.py:49
-msgid "Data Processing Plugin Details"
-msgstr ""
-
-#: contrib/sahara/content/data_processing/data_sources/panel.py:22
-#: contrib/sahara/content/data_processing/data_sources/tables.py:74
-#: contrib/sahara/content/data_processing/data_sources/views.py:42
-msgid "Data Sources"
-msgstr ""
-
-#: contrib/sahara/content/data_processing/data_sources/tables.py:28
-#: contrib/sahara/content/data_processing/data_sources/views.py:60
-#: contrib/sahara/content/data_processing/data_sources/templates/data_processing.data_sources/create.html:3
-#: contrib/sahara/content/data_processing/data_sources/workflows/create.py:70
-#: contrib/sahara/content/data_processing/data_sources/workflows/create.py:94
-msgid "Create Data Source"
-msgstr ""
-
-#: contrib/sahara/content/data_processing/data_sources/tables.py:37
-msgid "Delete Data Source"
-msgid_plural "Delete Data Sources"
-msgstr[0] ""
-msgstr[1] ""
-
-#: contrib/sahara/content/data_processing/data_sources/tables.py:45
-msgid "Deleted Data Source"
-msgid_plural "Deleted Data Sources"
-msgstr[0] ""
-msgstr[1] ""
-
-#: contrib/sahara/content/data_processing/data_sources/tables.py:57
-#: contrib/sahara/content/data_processing/data_sources/views.py:65
-#: contrib/sahara/content/data_processing/data_sources/workflows/edit.py:29
-msgid "Edit Data Source"
-msgstr ""
-
-#: contrib/sahara/content/data_processing/data_sources/tables.py:68
-#: contrib/sahara/content/data_processing/data_sources/templates/data_processing.data_sources/_details.html:9
-#: contrib/sahara/content/data_processing/jobs/tables.py:31
-#: contrib/sahara/content/data_processing/jobs/tables.py:108
-#: contrib/sahara/content/data_processing/jobs/templates/data_processing.jobs/_details.html:9
-#: contrib/trove/content/database_clusters/tables.py:193
-#: dashboards/admin/hypervisors/tables.py:27
-#: dashboards/admin/info/tables.py:168
-#: dashboards/project/access_and_security/security_groups/forms.py:180
-#: dashboards/project/access_and_security/security_groups/forms.py:187
-#: dashboards/project/images/images/tables.py:307
-#: dashboards/project/loadbalancers/workflows.py:476
-#: dashboards/project/loadbalancers/templates/loadbalancers/_monitor_details.html:11
-#: dashboards/project/routers/ports/tables.py:115
-#: dashboards/project/stacks/resource_types/tables.py:31
-#: dashboards/project/volumes/templates/volumes/volumes/_detail_overview.html:23
-#: dashboards/project/volumes/volumes/forms.py:113
-#: dashboards/project/volumes/volumes/forms.py:118
-#: dashboards/project/volumes/volumes/forms.py:119
-#: dashboards/project/volumes/volumes/forms.py:757
-#: dashboards/project/volumes/volumes/tables.py:433
-msgid "Type"
-msgstr ""
-
-#: contrib/sahara/content/data_processing/data_sources/views.py:50
-#: contrib/sahara/content/data_processing/jobs/workflows/launch.py:78
-msgid "Unable to fetch data sources."
-msgstr ""
-
-#: contrib/sahara/content/data_processing/data_sources/views.py:91
-#, python-format
-msgid "Unable to retrieve details for data source \"%s\"."
-msgstr ""
-
-#: contrib/sahara/content/data_processing/data_sources/templates/data_processing.data_sources/_create_data_source_help.html:4
-msgid "Create a Data Source with a specified name."
-msgstr ""
-
-#: contrib/sahara/content/data_processing/data_sources/templates/data_processing.data_sources/_create_data_source_help.html:7
-msgid "Select the type of your Data Source."
-msgstr ""
-
-#: contrib/sahara/content/data_processing/data_sources/templates/data_processing.data_sources/_create_data_source_help.html:10
-msgid "You may need to enter the username and password for your Data Source."
-msgstr ""
-
-#: contrib/sahara/content/data_processing/data_sources/templates/data_processing.data_sources/_create_data_source_help.html:13
-msgid "You may also enter an optional description for your Data Source."
-msgstr ""
-
-#: contrib/sahara/content/data_processing/data_sources/templates/data_processing.data_sources/_details.html:11
-#: contrib/sahara/content/data_processing/data_sources/workflows/create.py:40
-#: contrib/sahara/content/data_processing/job_binaries/forms.py:66
-#: contrib/sahara/content/data_processing/job_binaries/forms.py:72
-#: contrib/sahara/content/data_processing/job_binaries/templates/data_processing.job_binaries/_details.html:9
-#: dashboards/project/loadbalancers/workflows.py:517
-#: dashboards/project/loadbalancers/workflows.py:521
-#: dashboards/project/loadbalancers/workflows.py:522
-#: dashboards/project/stacks/forms.py:65
-msgid "URL"
-msgstr ""
-
-#: contrib/sahara/content/data_processing/data_sources/templates/data_processing.data_sources/_details.html:15
-#: contrib/sahara/content/data_processing/job_binaries/templates/data_processing.job_binaries/_details.html:13
-msgid "Create time"
-msgstr ""
-
-#: contrib/sahara/content/data_processing/data_sources/workflows/create.py:33
-msgid "Data Source Type"
-msgstr ""
-
-#: contrib/sahara/content/data_processing/data_sources/workflows/create.py:43
-#: contrib/sahara/content/data_processing/data_sources/workflows/create.py:48
-msgid "Source username"
-msgstr ""
-
-#: contrib/sahara/content/data_processing/data_sources/workflows/create.py:55
-#: contrib/sahara/content/data_processing/data_sources/workflows/create.py:58
-msgid "Source password"
-msgstr ""
-
-#: contrib/sahara/content/data_processing/data_sources/workflows/create.py:96
-msgid "Data source created"
-msgstr ""
-
-#: contrib/sahara/content/data_processing/data_sources/workflows/create.py:97
-msgid "Could not create data source"
-msgstr ""
-
-#: contrib/sahara/content/data_processing/data_sources/workflows/edit.py:31
-msgid "Data source updated"
-msgstr ""
-
-#: contrib/sahara/content/data_processing/data_sources/workflows/edit.py:32
-msgid "Could not update data source"
-msgstr ""
-
-#: contrib/sahara/content/data_processing/job_binaries/forms.py:58
-msgid "Storage type"
-msgstr ""
-
-#: contrib/sahara/content/data_processing/job_binaries/forms.py:76
-msgid "Internal binary"
-msgstr ""
-
-#: contrib/sahara/content/data_processing/job_binaries/forms.py:83
-msgid "Internal Binary"
-msgstr ""
-
-#: contrib/sahara/content/data_processing/job_binaries/forms.py:87
-#: contrib/sahara/content/data_processing/job_binaries/forms.py:93
-msgid "Upload File"
-msgstr ""
-
-#: contrib/sahara/content/data_processing/job_binaries/forms.py:97
-#: contrib/sahara/content/data_processing/job_binaries/forms.py:103
-msgid "Script name"
-msgstr ""
-
-#: contrib/sahara/content/data_processing/job_binaries/forms.py:107
-#: contrib/sahara/content/data_processing/job_binaries/forms.py:114
-msgid "Script text"
-msgstr ""
-
-#: contrib/sahara/content/data_processing/job_binaries/forms.py:118
-#: contrib/sahara/content/data_processing/job_binaries/forms.py:124
-msgid "Username"
-msgstr ""
-
-#: contrib/sahara/content/data_processing/job_binaries/forms.py:128
-#: contrib/sahara/content/data_processing/job_binaries/forms.py:135
-#: contrib/trove/content/databases/workflows/create_instance.py:198
-#: dashboards/identity/users/forms.py:43
-#: dashboards/project/instances/forms.py:160
-msgid "Password"
-msgstr ""
-
-#: contrib/sahara/content/data_processing/job_binaries/forms.py:171
-msgid "Failed to get list of internal binaries."
-msgstr ""
-
-#: contrib/sahara/content/data_processing/job_binaries/forms.py:201
-#: contrib/sahara/content/data_processing/job_binaries/forms.py:246
-msgid "Unable to create job binary"
-msgstr ""
-
-#: contrib/sahara/content/data_processing/job_binaries/forms.py:216
-#: contrib/sahara/content/data_processing/job_binaries/tables.py:31
-#: contrib/sahara/content/data_processing/job_binaries/views.py:65
-#: contrib/sahara/content/data_processing/job_binaries/templates/data_processing.job_binaries/create.html:3
-msgid "Create Job Binary"
-msgstr ""
-
-#: contrib/sahara/content/data_processing/job_binaries/forms.py:234
-msgid "Unable to upload job binary"
-msgstr ""
-
-#: contrib/sahara/content/data_processing/job_binaries/forms.py:267
-msgid "Failed to fetch internal binary list"
-msgstr ""
-
-#: contrib/sahara/content/data_processing/job_binaries/forms.py:310
-msgid "Unable to update job binary"
-msgstr ""
-
-#: contrib/sahara/content/data_processing/job_binaries/panel.py:22
-#: contrib/sahara/content/data_processing/job_binaries/tables.py:95
-#: contrib/sahara/content/data_processing/job_binaries/views.py:47
-msgid "Job Binaries"
-msgstr ""
-
-#: contrib/sahara/content/data_processing/job_binaries/tables.py:40
-msgid "Delete Job Binary"
-msgid_plural "Delete Job Binaries"
-msgstr[0] ""
-msgstr[1] ""
-
-#: contrib/sahara/content/data_processing/job_binaries/tables.py:48
-msgid "Deleted Job Binary"
-msgid_plural "Deleted Job Binaries"
-msgstr[0] ""
-msgstr[1] ""
-
-#: contrib/sahara/content/data_processing/job_binaries/tables.py:71
-msgid "Download Job Binary"
-msgstr ""
-
-#: contrib/sahara/content/data_processing/job_binaries/tables.py:78
-#: contrib/sahara/content/data_processing/job_binaries/views.py:85
-msgid "Edit Job Binary"
-msgstr ""
-
-#: contrib/sahara/content/data_processing/job_binaries/tables.py:89
-msgid "Url"
-msgstr ""
-
-#: contrib/sahara/content/data_processing/job_binaries/views.py:55
-msgid "Unable to fetch job binary list."
-msgstr ""
-
-#: contrib/sahara/content/data_processing/job_binaries/views.py:96
-#, python-format
-msgid "Unable to retrieve job binary \"%s\"."
-msgstr ""
-
-#: contrib/sahara/content/data_processing/job_binaries/views.py:119
-#, python-format
-msgid "Unable to retrieve details for job binary \"%s\"."
-msgstr ""
-
-#: contrib/sahara/content/data_processing/job_binaries/views.py:139
-#, python-format
-msgid "Unable to fetch job binary: %(exc)s"
-msgstr ""
-
-#: contrib/sahara/content/data_processing/job_binaries/templates/data_processing.job_binaries/_create_job_binary_help.html:5
-msgid ""
-"<b>Important</b>:  The name that you give your job binary will be the "
-"name used in your job execution.\n"
-"  If your binary requires a particular name or extension (ie: \".jar\"), "
-"be sure to include it here."
-msgstr ""
-
-#: contrib/sahara/content/data_processing/job_binaries/templates/data_processing.job_binaries/_create_job_binary_help.html:8
-msgid "Select the storage type for your job binary."
-msgstr ""
-
-#: contrib/sahara/content/data_processing/job_binaries/templates/data_processing.job_binaries/_create_job_binary_help.html:10
-msgid "Data Processing internal database"
-msgstr ""
-
-#: contrib/sahara/content/data_processing/job_binaries/templates/data_processing.job_binaries/_create_job_binary_help.html:11
-#: dashboards/project/containers/browsers.py:24
-msgid "Swift"
-msgstr ""
-
-#: contrib/sahara/content/data_processing/job_binaries/templates/data_processing.job_binaries/_create_job_binary_help.html:15
-msgid ""
-"For Data Processing internal job binaries, you may choose from the "
-"following:"
-msgstr ""
-
-#: contrib/sahara/content/data_processing/job_binaries/templates/data_processing.job_binaries/_create_job_binary_help.html:17
-msgid "Choose an existing file"
-msgstr ""
-
-#: contrib/sahara/content/data_processing/job_binaries/templates/data_processing.job_binaries/_create_job_binary_help.html:18
-msgid "Upload a new file"
-msgstr ""
-
-#: contrib/sahara/content/data_processing/job_binaries/templates/data_processing.job_binaries/_create_job_binary_help.html:19
-msgid "Create a script to be uploaded dynamically"
-msgstr ""
-
-#: contrib/sahara/content/data_processing/job_binaries/templates/data_processing.job_binaries/_create_job_binary_help.html:23
-msgid "For Object Store job binaries, you must:"
-msgstr ""
-
-#: contrib/sahara/content/data_processing/job_binaries/templates/data_processing.job_binaries/_create_job_binary_help.html:25
-msgid "Enter the URL for the file"
-msgstr ""
-
-#: contrib/sahara/content/data_processing/job_binaries/templates/data_processing.job_binaries/_create_job_binary_help.html:26
-msgid "Enter the username and password required to access that file"
-msgstr ""
-
-#: contrib/sahara/content/data_processing/job_binaries/templates/data_processing.job_binaries/_create_job_binary_help.html:30
-msgid "You may also enter an optional description for your job binary."
-msgstr ""
-
-#: contrib/sahara/content/data_processing/job_binaries/templates/data_processing.job_binaries/_details.html:16
-msgid "Download job binary"
-msgstr ""
-
-#: contrib/sahara/content/data_processing/job_executions/panel.py:22
-#: contrib/sahara/content/data_processing/job_executions/tables.py:214
-#: contrib/sahara/content/data_processing/job_executions/views.py:41
-msgid "Jobs"
-msgstr ""
-
-#: contrib/sahara/content/data_processing/job_executions/tables.py:38
-#: contrib/sahara/content/data_processing/jobs/workflows/launch.py:59
-#: contrib/sahara/content/data_processing/jobs/workflows/launch.py:100
-#: contrib/sahara/content/data_processing/jobs/workflows/launch.py:125
-msgid "Job"
-msgstr ""
-
-#: contrib/sahara/content/data_processing/job_executions/tables.py:39
-#: contrib/sahara/content/data_processing/job_executions/tables.py:198
-#: contrib/sahara/content/data_processing/job_executions/templates/data_processing.job_executions/_details.html:19
-#: contrib/sahara/content/data_processing/jobs/workflows/launch.py:107
-msgid "Cluster"
-msgstr ""
-
-#: contrib/sahara/content/data_processing/job_executions/tables.py:45
-msgid "Job Guide"
-msgstr ""
-
-#: contrib/sahara/content/data_processing/job_executions/tables.py:52
-msgid "Delete Job"
-msgid_plural "Delete Jobs"
-msgstr[0] ""
-msgstr[1] ""
-
-#: contrib/sahara/content/data_processing/job_executions/tables.py:60
-msgid "Deleted Job"
-msgid_plural "Deleted Jobs"
-msgstr[0] ""
-msgstr[1] ""
-
-#: contrib/sahara/content/data_processing/job_executions/tables.py:73
-#: contrib/sahara/content/data_processing/job_executions/tables.py:102
-#: contrib/sahara/content/data_processing/jobs/views.py:97
-#: contrib/sahara/content/data_processing/jobs/views.py:118
-#: contrib/sahara/content/data_processing/jobs/views.py:131
-#: contrib/sahara/content/data_processing/jobs/templates/data_processing.jobs/launch.html:3
-#: contrib/sahara/content/data_processing/jobs/workflows/launch.py:464
-#: contrib/sahara/content/data_processing/jobs/workflows/launch.py:544
-#: contrib/sahara/content/data_processing/jobs/workflows/launch.py:554
-msgid "Launch Job"
-msgid_plural "Launch Jobs"
-msgstr[0] ""
-msgstr[1] ""
-
-#: contrib/sahara/content/data_processing/job_executions/tables.py:81
-#: contrib/sahara/content/data_processing/job_executions/tables.py:110
-msgid "Launched Job"
-msgid_plural "Launched Jobs"
-msgstr[0] ""
-msgstr[1] ""
-
-#: contrib/sahara/content/data_processing/job_executions/tables.py:88
-msgid "Relaunch On Existing Cluster"
-msgstr ""
-
-#: contrib/sahara/content/data_processing/job_executions/tables.py:117
-msgid "Relaunch On New Cluster"
-msgstr ""
-
-#: contrib/sahara/content/data_processing/job_executions/tables.py:151
-#: contrib/sahara/content/data_processing/job_executions/tables.py:166
-#: contrib/trove/content/database_backups/tables.py:144
-#: contrib/trove/content/database_backups/tables.py:150
-#: contrib/trove/content/database_clusters/tables.py:130
-#: contrib/trove/content/database_clusters/tables.py:172
-#: contrib/trove/content/database_clusters/tables.py:178
-#: contrib/trove/content/databases/tables.py:242
-#: contrib/trove/content/databases/tables.py:248
-#: contrib/trove/content/databases/tables.py:265
-#: contrib/trove/content/databases/tables.py:271
-#: dashboards/project/instances/tables.py:964
-#: dashboards/project/instances/tables.py:971
-#: dashboards/project/instances/views.py:409
-#: dashboards/project/instances/templates/instances/_detail_overview.html:58
-#: dashboards/project/instances/templates/instances/_detail_overview.html:90
-msgid "Not available"
-msgstr ""
-
-#: contrib/sahara/content/data_processing/job_executions/tables.py:175
-msgctxt "Current status of a Job"
-msgid "Done with Error"
-msgstr ""
-
-#: contrib/sahara/content/data_processing/job_executions/tables.py:177
-msgctxt "Current status of a Job"
-msgid "Failed"
-msgstr ""
-
-#: contrib/sahara/content/data_processing/job_executions/tables.py:179
-msgctxt "Current status of a Job"
-msgid "Killed"
-msgstr ""
-
-#: contrib/sahara/content/data_processing/job_executions/tables.py:181
-msgctxt "Current status of a Job"
-msgid "Succeeded"
-msgstr ""
-
-#: contrib/sahara/content/data_processing/job_executions/tables.py:193
-#: contrib/sahara/content/data_processing/job_executions/templates/data_processing.job_executions/_details.html:9
-msgid "Job Template"
-msgstr ""
-
-#: contrib/sahara/content/data_processing/job_executions/views.py:59
-msgid "Unable to fetch job executions."
-msgstr ""
-
-#: contrib/sahara/content/data_processing/job_executions/views.py:74
-#, python-format
-msgid "Unable to retrieve details for job \"%s\"."
-msgstr ""
-
-#: contrib/sahara/content/data_processing/job_executions/templates/data_processing.job_executions/_details.html:12
-msgid "Input Data Source"
-msgstr ""
-
-#: contrib/sahara/content/data_processing/job_executions/templates/data_processing.job_executions/_details.html:16
-msgid "Output Data Source"
-msgstr ""
-
-#: contrib/sahara/content/data_processing/job_executions/templates/data_processing.job_executions/_details.html:21
-#: dashboards/project/stacks/templates/stacks/_detail_overview.html:18
-#: dashboards/project/stacks/templates/stacks/_resource_overview.html:38
-msgid "Last Updated"
-msgstr ""
-
-#: contrib/sahara/content/data_processing/job_executions/templates/data_processing.job_executions/_details.html:23
-msgid "Started"
-msgstr ""
-
-#: contrib/sahara/content/data_processing/job_executions/templates/data_processing.job_executions/_details.html:25
-msgid "Ended"
-msgstr ""
-
-#: contrib/sahara/content/data_processing/job_executions/templates/data_processing.job_executions/_details.html:27
-msgid "Return Code"
-msgstr ""
-
-#: contrib/sahara/content/data_processing/job_executions/templates/data_processing.job_executions/_details.html:29
-msgid "Oozie Job ID"
-msgstr ""
-
-#: contrib/sahara/content/data_processing/job_executions/templates/data_processing.job_executions/_details.html:33
-msgid "Job Configuration"
-msgstr ""
-
-#: contrib/sahara/content/data_processing/job_executions/templates/data_processing.job_executions/_details.html:35
-#, python-format
-msgid "%(group)s:"
-msgstr ""
-
-#: contrib/sahara/content/data_processing/jobs/panel.py:22
-#: contrib/sahara/content/data_processing/jobs/tables.py:114
-#: contrib/sahara/content/data_processing/jobs/views.py:44
-msgid "Job Templates"
-msgstr ""
-
-#: contrib/sahara/content/data_processing/jobs/tables.py:37
-#: contrib/sahara/content/data_processing/jobs/views.py:67
-#: contrib/sahara/content/data_processing/jobs/templates/data_processing.jobs/create.html:3
-#: contrib/sahara/content/data_processing/jobs/workflows/create.py:140
-#: contrib/sahara/content/data_processing/jobs/workflows/create.py:227
-msgid "Create Job Template"
-msgstr ""
-
-#: contrib/sahara/content/data_processing/jobs/tables.py:46
-msgid "Delete Job Template"
-msgid_plural "Delete Job Templates"
-msgstr[0] ""
-msgstr[1] ""
-
-#: contrib/sahara/content/data_processing/jobs/tables.py:54
-msgid "Deleted Job Template"
-msgid_plural "Deleted Jobs Templates"
-msgstr[0] ""
-msgstr[1] ""
-
-#: contrib/sahara/content/data_processing/jobs/tables.py:66
-msgid "Launch On Existing Cluster"
-msgstr ""
-
-#: contrib/sahara/content/data_processing/jobs/tables.py:79
-#: contrib/sahara/content/data_processing/jobs/tables.py:92
-msgid "Launch On New Cluster"
-msgstr ""
-
-#: contrib/sahara/content/data_processing/jobs/views.py:56
-#: contrib/sahara/content/data_processing/jobs/workflows/launch.py:92
-msgid "Unable to fetch jobs."
-msgstr ""
-
-#: contrib/sahara/content/data_processing/jobs/views.py:81
-#, python-format
-msgid "Unable to retrieve details for job template \"%s\"."
-msgstr ""
-
-#: contrib/sahara/content/data_processing/jobs/templates/data_processing.jobs/_create_job_help.html:4
-msgid "Create a job template with a specified name."
-msgstr ""
-
-#: contrib/sahara/content/data_processing/jobs/templates/data_processing.jobs/_create_job_help.html:7
-msgid "Select the type of your job:"
-msgstr ""
-
-#: contrib/sahara/content/data_processing/jobs/templates/data_processing.jobs/_create_job_help.html:9
-#: contrib/sahara/content/data_processing/utils/helpers.py:126
-msgid "Pig"
-msgstr ""
-
-#: contrib/sahara/content/data_processing/jobs/templates/data_processing.jobs/_create_job_help.html:10
-#: contrib/sahara/content/data_processing/utils/helpers.py:127
-msgid "Hive"
-msgstr ""
-
-#: contrib/sahara/content/data_processing/jobs/templates/data_processing.jobs/_create_job_help.html:11
-#: contrib/sahara/content/data_processing/utils/helpers.py:128
-msgid "Spark"
-msgstr ""
-
-#: contrib/sahara/content/data_processing/jobs/templates/data_processing.jobs/_create_job_help.html:12
-#: contrib/sahara/content/data_processing/utils/helpers.py:129
-msgid "Storm"
-msgstr ""
-
-#: contrib/sahara/content/data_processing/jobs/templates/data_processing.jobs/_create_job_help.html:13
-#: contrib/sahara/content/data_processing/utils/helpers.py:130
-msgid "MapReduce"
-msgstr ""
-
-#: contrib/sahara/content/data_processing/jobs/templates/data_processing.jobs/_create_job_help.html:14
-msgid "Java Action"
-msgstr ""
-
-#: contrib/sahara/content/data_processing/jobs/templates/data_processing.jobs/_create_job_help.html:15
-msgid "Shell Action"
-msgstr ""
-
-#: contrib/sahara/content/data_processing/jobs/templates/data_processing.jobs/_create_job_help.html:19
-msgid ""
-"Choose or create your main binary.  Additional libraries can be added "
-"from the \"Libs\" tab."
-msgstr ""
-
-#: contrib/sahara/content/data_processing/jobs/templates/data_processing.jobs/_create_job_help.html:22
-msgid "For Spark and Shell jobs, only a main is required, \"libs\" are optional."
-msgstr ""
-
-#: contrib/sahara/content/data_processing/jobs/templates/data_processing.jobs/_create_job_help.html:26
-msgid ""
-"For MapReduce or Java Action jobs, \"mains\" are not applicable.  You are"
-" required to add one\n"
-"  or more \"libs\" for these jobs."
-msgstr ""
-
-#: contrib/sahara/content/data_processing/jobs/templates/data_processing.jobs/_create_job_help.html:29
-msgid "You may also enter an optional description for your job template."
-msgstr ""
-
-#: contrib/sahara/content/data_processing/jobs/templates/data_processing.jobs/_create_job_libs_help.html:4
-msgid "Add libraries to your job template."
-msgstr ""
-
-#: contrib/sahara/content/data_processing/jobs/templates/data_processing.jobs/_create_job_libs_help.html:7
-msgid ""
-"Choose from the list of binaries and click \"choose\" to add the library "
-"to your job template.  This can be repeated for additional libraries."
-msgstr ""
-
-#: contrib/sahara/content/data_processing/jobs/templates/data_processing.jobs/_create_job_libs_help.html:10
-msgid ""
-"For Shell Action jobs, any required files beyond the main script may be "
-"added as \"libraries\"."
-msgstr ""
-
-#: contrib/sahara/content/data_processing/jobs/templates/data_processing.jobs/_details.html:13
-msgid "Mains"
-msgstr ""
-
-#: contrib/sahara/content/data_processing/jobs/templates/data_processing.jobs/_details.html:19
-#: contrib/sahara/content/data_processing/jobs/workflows/create.py:69
-msgid "Libs"
-msgstr ""
-
-#: contrib/sahara/content/data_processing/jobs/templates/data_processing.jobs/_details.html:25
-msgid "Created time"
-msgstr ""
-
-#: contrib/sahara/content/data_processing/jobs/templates/data_processing.jobs/_details.html:27
-msgid "Updated time"
-msgstr ""
-
-#: contrib/sahara/content/data_processing/jobs/templates/data_processing.jobs/_details.html:28
-#: dashboards/project/volumes/volumes/forms.py:758
-msgid "Never"
-msgstr ""
-
-#: contrib/sahara/content/data_processing/jobs/templates/data_processing.jobs/_launch_job_configure_help.html:4
-msgid "Enter any custom configuration required for your job's execution."
-msgstr ""
-
-#: contrib/sahara/content/data_processing/jobs/templates/data_processing.jobs/_launch_job_help.html:4
-msgid "Launch the given job template on a cluster."
-msgstr ""
-
-#: contrib/sahara/content/data_processing/jobs/templates/data_processing.jobs/_launch_job_help.html:7
-msgid "Choose the cluster to use for the job."
-msgstr ""
-
-#: contrib/sahara/content/data_processing/jobs/templates/data_processing.jobs/_launch_job_help.html:10
-msgid "Choose the Input Data Source (n/a for Java and Shell jobs)."
-msgstr ""
-
-#: contrib/sahara/content/data_processing/jobs/templates/data_processing.jobs/_launch_job_help.html:13
-msgid "Choose the Output Data Source (n/a for Java and Shell jobs)."
-msgstr ""
-
-#: contrib/sahara/content/data_processing/jobs/templates/data_processing.jobs/config_template.html:5
-msgid "Select property name"
-msgstr ""
-
-#: contrib/sahara/content/data_processing/jobs/templates/data_processing.jobs/config_template.html:16
-#: contrib/sahara/content/data_processing/jobs/templates/data_processing.jobs/config_template.html:34
-#: contrib/sahara/content/data_processing/jobs/templates/data_processing.jobs/config_template.html:47
-#: contrib/sahara/content/data_processing/jobs/templates/data_processing.jobs/library_template.html:3
-msgid "Remove"
-msgstr ""
-
-#: contrib/sahara/content/data_processing/jobs/templates/data_processing.jobs/config_template.html:55
-#: contrib/sahara/content/data_processing/jobs/templates/data_processing.jobs/config_template.html:65
-#: dashboards/admin/volumes/volume_types/extras/forms.py:25
-#: dashboards/admin/volumes/volume_types/extras/forms.py:44
-#: dashboards/admin/volumes/volume_types/extras/tables.py:70
-#: dashboards/admin/volumes/volume_types/qos_specs/forms.py:26
-#: dashboards/admin/volumes/volume_types/qos_specs/forms.py:49
-#: dashboards/admin/volumes/volume_types/qos_specs/tables.py:59
-msgid "Value"
-msgstr ""
-
-#: contrib/sahara/content/data_processing/jobs/templates/data_processing.jobs/config_template.html:59
-#: contrib/sahara/content/data_processing/jobs/templates/data_processing.jobs/config_template.html:69
-#: dashboards/project/access_and_security/security_groups/views.py:111
-#: dashboards/project/firewalls/workflows.py:138
-#: dashboards/project/firewalls/workflows.py:303
-#: dashboards/project/firewalls/workflows.py:376
-#: dashboards/project/loadbalancers/workflows.py:131
-#: dashboards/project/loadbalancers/workflows.py:250
-#: dashboards/project/loadbalancers/workflows.py:416
-#: dashboards/project/loadbalancers/workflows.py:601
-#: dashboards/project/vpn/workflows.py:93
-#: dashboards/project/vpn/workflows.py:196
-#: dashboards/project/vpn/workflows.py:299
-#: dashboards/project/vpn/workflows.py:500
-msgid "Add"
-msgstr ""
-
-#: contrib/sahara/content/data_processing/jobs/templates/data_processing.jobs/config_template.html:236
-msgid "Configuration"
-msgstr ""
-
-#: contrib/sahara/content/data_processing/jobs/templates/data_processing.jobs/config_template.html:239
-#: dashboards/project/stacks/templates/stacks/_preview_details.html:19
-msgid "Parameters"
-msgstr ""
-
-#: contrib/sahara/content/data_processing/jobs/templates/data_processing.jobs/config_template.html:242
-msgid "Arguments"
-msgstr ""
-
-#: contrib/sahara/content/data_processing/jobs/templates/data_processing.jobs/job_interface_arguments_template.html:3
-msgid "Select a Value Type for your next argument:"
-msgstr ""
-
-#: contrib/sahara/content/data_processing/jobs/templates/data_processing.jobs/job_interface_arguments_template.html:7
-#: contrib/sahara/content/data_processing/wizard/templates/data_processing.wizard/_job_type_select.html:27
-#: contrib/sahara/content/data_processing/wizard/templates/data_processing.wizard/_plugin_select.html:27
-msgid "Select"
-msgstr ""
-
-#: contrib/sahara/content/data_processing/jobs/templates/data_processing.jobs/job_interface_arguments_template.html:8
-#: contrib/sahara/content/data_processing/utils/workflow_helpers.py:155
-msgid "String"
-msgstr ""
-
-#: contrib/sahara/content/data_processing/jobs/templates/data_processing.jobs/job_interface_arguments_template.html:9
-#: contrib/sahara/content/data_processing/utils/workflow_helpers.py:156
-msgid "Number"
-msgstr ""
-
-#: contrib/sahara/content/data_processing/jobs/templates/data_processing.jobs/job_interface_arguments_template.html:10
-#: contrib/sahara/content/data_processing/utils/workflow_helpers.py:157
-msgid "Data Source"
-msgstr ""
-
-#: contrib/sahara/content/data_processing/jobs/templates/data_processing.jobs/library_template.html:86
-msgid "Choose"
-msgstr ""
-
-#: contrib/sahara/content/data_processing/jobs/templates/data_processing.jobs/library_template.html:98
-msgid "Chosen Libraries"
-msgstr ""
-
-#: contrib/sahara/content/data_processing/jobs/workflows/create.py:40
-#: contrib/sahara/content/data_processing/jobs/workflows/create.py:47
-#: contrib/sahara/content/data_processing/jobs/workflows/create.py:48
-#: contrib/sahara/content/data_processing/jobs/workflows/create.py:50
-#: contrib/sahara/content/data_processing/jobs/workflows/create.py:51
-#: contrib/sahara/content/data_processing/jobs/workflows/create.py:52
-msgid "Choose libraries"
-msgstr ""
-
-#: contrib/sahara/content/data_processing/jobs/workflows/create.py:49
-msgid "Choose additional files"
-msgstr ""
-
-#: contrib/sahara/content/data_processing/jobs/workflows/create.py:64
-#: contrib/sahara/content/data_processing/jobs/workflows/create.py:127
-msgid "-- not selected --"
-msgstr ""
-
-#: contrib/sahara/content/data_processing/jobs/workflows/create.py:77
-#: contrib/sahara/content/data_processing/wizard/forms.py:91
-msgid "Job Type"
-msgstr ""
-
-#: contrib/sahara/content/data_processing/jobs/workflows/create.py:84
-#: contrib/sahara/content/data_processing/jobs/workflows/create.py:93
-#: contrib/sahara/content/data_processing/jobs/workflows/create.py:94
-#: contrib/sahara/content/data_processing/jobs/workflows/create.py:96
-#: contrib/sahara/content/data_processing/jobs/workflows/create.py:97
-#: contrib/sahara/content/data_processing/jobs/workflows/create.py:98
-msgid "Choose a main binary"
-msgstr ""
-
-#: contrib/sahara/content/data_processing/jobs/workflows/create.py:86
-msgid "Choose the binary which should be used in this Job."
-msgstr ""
-
-#: contrib/sahara/content/data_processing/jobs/workflows/create.py:95
-msgid "Choose a shell script"
-msgstr ""
-
-#: contrib/sahara/content/data_processing/jobs/workflows/create.py:186
-#: contrib/sahara/content/data_processing/jobs/workflows/launch.py:450
-msgid "Interface Arguments"
-msgstr ""
-
-#: contrib/sahara/content/data_processing/jobs/workflows/create.py:229
-msgid "Job created"
-msgstr ""
-
-#: contrib/sahara/content/data_processing/jobs/workflows/create.py:230
-msgid "Could not create job template"
-msgstr ""
-
-#: contrib/sahara/content/data_processing/jobs/workflows/launch.py:41
-msgid "Input"
-msgstr ""
-
-#: contrib/sahara/content/data_processing/jobs/workflows/launch.py:47
-msgid "Output"
-msgstr ""
-
-#: contrib/sahara/content/data_processing/jobs/workflows/launch.py:117
-msgid "Unable to fetch clusters."
-msgstr ""
-
-#: contrib/sahara/content/data_processing/jobs/workflows/launch.py:187
-msgid "Main Class"
-msgstr ""
-
-#: contrib/sahara/content/data_processing/jobs/workflows/launch.py:190
-msgid "Java Opts"
-msgstr ""
-
-#: contrib/sahara/content/data_processing/jobs/workflows/launch.py:193
-msgid "Mapper"
-msgstr ""
-
-#: contrib/sahara/content/data_processing/jobs/workflows/launch.py:195
-msgid "Reducer"
-msgstr ""
-
-#: contrib/sahara/content/data_processing/jobs/workflows/launch.py:198
-msgid "Use HBase Common library"
-msgstr ""
-
-#: contrib/sahara/content/data_processing/jobs/workflows/launch.py:199
-msgid "Run HBase EDP Jobs with common HBase library on HDFS"
-msgstr ""
-
-#: contrib/sahara/content/data_processing/jobs/workflows/launch.py:203
-msgid "Adapt For Oozie"
-msgstr ""
-
-#: contrib/sahara/content/data_processing/jobs/workflows/launch.py:204
-msgid ""
-"Automatically modify the Hadoop configuration so that job config values "
-"are set and so that Oozie will handle exit codes correctly."
-msgstr ""
-
-#: contrib/sahara/content/data_processing/jobs/workflows/launch.py:210
-msgid "Enable Swift Paths"
-msgstr ""
-
-#: contrib/sahara/content/data_processing/jobs/workflows/launch.py:211
-msgid ""
-"Modify the configuration so that swift URLs can be dereferenced through "
-"HDFS at runtime."
-msgstr ""
-
-#: contrib/sahara/content/data_processing/jobs/workflows/launch.py:302
-msgid "Configure"
-msgstr ""
-
-#: contrib/sahara/content/data_processing/jobs/workflows/launch.py:391
-msgid "Persist cluster after job exit"
-msgstr ""
-
-#: contrib/sahara/content/data_processing/jobs/workflows/launch.py:466
-#: contrib/sahara/content/data_processing/jobs/workflows/launch.py:556
-msgid "Job launched"
-msgstr ""
-
-#: contrib/sahara/content/data_processing/jobs/workflows/launch.py:467
-#: contrib/sahara/content/data_processing/jobs/workflows/launch.py:557
-msgid "Could not launch job"
-msgstr ""
-
-#: contrib/sahara/content/data_processing/jobs/workflows/launch.py:499
-msgid "Job configs"
-msgstr ""
-
-#: contrib/sahara/content/data_processing/jobs/workflows/launch.py:503
-msgid "Job args"
-msgstr ""
-
-#: contrib/sahara/content/data_processing/jobs/workflows/launch.py:507
-msgid "Job params"
-msgstr ""
-
-#: contrib/sahara/content/data_processing/jobs/workflows/launch.py:513
-msgid "Job Execution ID"
-msgstr ""
-
-#: contrib/sahara/content/data_processing/jobs/workflows/launch.py:593
-msgid "Unable to create new cluster for job."
-msgstr ""
-
-#: contrib/sahara/content/data_processing/jobs/workflows/launch.py:607
-msgid "Unable to launch job."
-msgstr ""
-
-#: contrib/sahara/content/data_processing/nodegroup_templates/panel.py:22
-#: contrib/sahara/content/data_processing/nodegroup_templates/tables.py:103
-#: contrib/sahara/content/data_processing/nodegroup_templates/views.py:45
-msgid "Node Group Templates"
-msgstr ""
-
-#: contrib/sahara/content/data_processing/nodegroup_templates/tables.py:44
-msgid "Configure Template"
-msgstr ""
-
-#: contrib/sahara/content/data_processing/nodegroup_templates/tabs.py:54
-msgid "Unable to fetch flavor for template."
-msgstr ""
-
-#: contrib/sahara/content/data_processing/nodegroup_templates/tabs.py:63
-msgid "Unable to fetch floating ip pools."
-msgstr ""
-
-#: contrib/sahara/content/data_processing/nodegroup_templates/tabs.py:80
-#: contrib/sahara/content/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/_service_confs.html:2
-msgid "Service Configurations"
-msgstr ""
-
-#: contrib/sahara/content/data_processing/nodegroup_templates/views.py:58
-msgid "Unable to fetch node group template list."
-msgstr ""
-
-#: contrib/sahara/content/data_processing/nodegroup_templates/views.py:73
-#, python-format
-msgid "Unable to retrieve details for node group template \"%s\"."
-msgstr ""
-
-#: contrib/sahara/content/data_processing/nodegroup_templates/views.py:93
-#: contrib/sahara/content/data_processing/nodegroup_templates/views.py:101
-#: contrib/sahara/content/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/configure.html:3
-#: contrib/sahara/content/data_processing/nodegroup_templates/workflows/create.py:364
-#: contrib/sahara/content/data_processing/nodegroup_templates/workflows/create.py:516
-msgid "Create Node Group Template"
-msgstr ""
-
-#: contrib/sahara/content/data_processing/nodegroup_templates/views.py:131
-msgid "Unable to fetch template object."
-msgstr ""
-
-#: contrib/sahara/content/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/_configure_general_help.html:4
-msgid "This Node Group Template will be created for:"
-msgstr ""
-
-#: contrib/sahara/content/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/_configure_general_help.html:15
-msgid ""
-"The Node Group Template object specifies the processes\n"
-"        that will be launched on each instance. Check one or more "
-"processes.\n"
-"        When processes are selected, you may set <b>node</b> scoped\n"
-"        configurations on corresponding tabs."
-msgstr ""
-
-#: contrib/sahara/content/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/_configure_general_help.html:18
-msgid ""
-"You must choose a flavor to determine the size (VCPUs, memory and "
-"storage) of all launched VMs."
-msgstr ""
-
-#: contrib/sahara/content/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/_configure_general_help.html:21
-msgid ""
-"Data Processing provides different storage location options. You may "
-"choose Ephemeral Drive or a Cinder Volume to be attached to instances."
-msgstr ""
-
-#: contrib/sahara/content/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/_create_general_help.html:3
-msgid "Select a plugin and version for the new Node Group template."
-msgstr ""
-
-#: contrib/sahara/content/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/_details.html:75
-msgid "HDFS placement"
-msgstr ""
-
-#: contrib/sahara/content/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/_details.html:77
-msgid "Cinder volumes"
-msgstr ""
-
-#: contrib/sahara/content/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/_details.html:78
-#: contrib/sahara/content/data_processing/nodegroup_templates/workflows/create.py:72
-#: contrib/sahara/content/data_processing/nodegroup_templates/workflows/create.py:78
-msgid "Volumes per node"
-msgstr ""
-
-#: contrib/sahara/content/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/_details.html:80
-msgid "Volumes size"
-msgstr ""
-
-#: contrib/sahara/content/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/_details.html:82
-#: contrib/sahara/content/data_processing/nodegroup_templates/workflows/create.py:94
-#: contrib/sahara/content/data_processing/nodegroup_templates/workflows/create.py:99
-msgid "Volumes type"
-msgstr ""
-
-#: contrib/sahara/content/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/_details.html:84
-msgid "Volumes local to instance"
-msgstr ""
-
-#: contrib/sahara/content/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/_details.html:87
-#: contrib/sahara/content/data_processing/nodegroup_templates/workflows/create.py:116
-#: contrib/sahara/content/data_processing/nodegroup_templates/workflows/create.py:122
-msgid "Volumes Availability Zone"
-msgstr ""
-
-#: contrib/sahara/content/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/_details.html:91
-msgid "Ephemeral drive"
-msgstr ""
-
-#: contrib/sahara/content/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/_fields_help.html:3
-#: dashboards/admin/metadata_defs/templates/metadata_defs/resource_types.html:19
-msgid "Filter"
-msgstr ""
-
-#: contrib/sahara/content/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/_fields_help.html:4
-msgid "Show full configuration"
-msgstr ""
-
-#: contrib/sahara/content/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/_fields_help.html:5
-msgid "Hide full configuration"
-msgstr ""
-
-#: contrib/sahara/content/data_processing/nodegroup_templates/templates/data_processing.nodegroup_templates/_service_confs.html:12
-#, python-format
-msgid "%(conf_name)s: %(conf_val)s"
-msgstr ""
-
-#: contrib/sahara/content/data_processing/nodegroup_templates/workflows/copy.py:29
-#, python-format
-msgid "Node Group Template copy %s created"
-msgstr ""
-
-#: contrib/sahara/content/data_processing/nodegroup_templates/workflows/copy.py:108
-msgid "Unable to fetch plugin details."
-msgstr ""
-
-#: contrib/sahara/content/data_processing/nodegroup_templates/workflows/create.py:52
-msgid "OpenStack Flavor"
-msgstr ""
-
-#: contrib/sahara/content/data_processing/nodegroup_templates/workflows/create.py:56
-msgid "Launch instances in this availability zone."
-msgstr ""
-
-#: contrib/sahara/content/data_processing/nodegroup_templates/workflows/create.py:62
-msgid "Storage location"
-msgstr ""
-
-#: contrib/sahara/content/data_processing/nodegroup_templates/workflows/create.py:63
-msgid "Choose a storage location"
-msgstr ""
-
-#: contrib/sahara/content/data_processing/nodegroup_templates/workflows/create.py:83
-#: contrib/sahara/content/data_processing/nodegroup_templates/workflows/create.py:89
-msgid "Volumes size (GB)"
-msgstr ""
-
-#: contrib/sahara/content/data_processing/nodegroup_templates/workflows/create.py:104
-#: contrib/sahara/content/data_processing/nodegroup_templates/workflows/create.py:111
-msgid "Volume local to instance"
-msgstr ""
-
-#: contrib/sahara/content/data_processing/nodegroup_templates/workflows/create.py:106
-msgid "Instance and attached volumes will be created on the same physical host"
-msgstr ""
-
-#: contrib/sahara/content/data_processing/nodegroup_templates/workflows/create.py:117
-msgid "Create volumes in this availability zone."
-msgstr ""
-
-#: contrib/sahara/content/data_processing/nodegroup_templates/workflows/create.py:150
-msgid ""
-"If selected, instances of a node group will be automatically configured "
-"during cluster creation. Otherwise you should manually specify "
-"configuration values."
-msgstr ""
-
-#: contrib/sahara/content/data_processing/nodegroup_templates/workflows/create.py:162
-msgid ""
-"Sahara will use instances of this node group to access other cluster "
-"instances."
-msgstr ""
-
-#: contrib/sahara/content/data_processing/nodegroup_templates/workflows/create.py:189
-msgid "Unable to get volume type list."
-msgstr ""
-
-#: contrib/sahara/content/data_processing/nodegroup_templates/workflows/create.py:191
-#: dashboards/admin/volumes/volumes/forms.py:92
-#: dashboards/project/volumes/volumes/forms.py:268
-msgid "No volume type"
-msgstr ""
-
-#: contrib/sahara/content/data_processing/nodegroup_templates/workflows/create.py:203
-#: contrib/sahara/content/data_processing/nodegroup_templates/workflows/create.py:210
-msgid "No availability zone specified"
-msgstr ""
-
-#: contrib/sahara/content/data_processing/nodegroup_templates/workflows/create.py:225
-msgid "Configure Node Group Template"
-msgstr ""
-
-#: contrib/sahara/content/data_processing/nodegroup_templates/workflows/create.py:238
-msgid "Create security group for this Node Group."
-msgstr ""
-
-#: contrib/sahara/content/data_processing/nodegroup_templates/workflows/create.py:246
-msgid "Unable to get security group list."
-msgstr ""
-
-#: contrib/sahara/content/data_processing/nodegroup_templates/workflows/create.py:253
-msgid "Launch instances in these security groups."
-msgstr ""
-
-#: contrib/sahara/content/data_processing/nodegroup_templates/workflows/create.py:258
-msgid "Security"
-msgstr ""
-
-#: contrib/sahara/content/data_processing/nodegroup_templates/workflows/create.py:259
-msgid "Control access to instances of the node group."
-msgstr ""
-
-#: contrib/sahara/content/data_processing/nodegroup_templates/workflows/create.py:277
-#, python-format
-msgid "%s processes: "
-msgstr ""
-
-#: contrib/sahara/content/data_processing/nodegroup_templates/workflows/create.py:317
-msgid "Unable to generate process choices."
-msgstr ""
-
-#: contrib/sahara/content/data_processing/nodegroup_templates/workflows/create.py:325
-msgid "Select Node Group Processes"
-msgstr ""
-
-#: contrib/sahara/content/data_processing/nodegroup_templates/workflows/create.py:332
-msgid "Select node processes for the node group"
-msgstr ""
-
-#: contrib/sahara/content/data_processing/nodegroup_templates/workflows/create.py:366
-#, python-format
-msgid "Created Node Group Template %s"
-msgstr ""
-
-#: contrib/sahara/content/data_processing/nodegroup_templates/workflows/create.py:497
-msgid "Select plugin and hadoop version"
-msgstr ""
-
-#: contrib/sahara/content/data_processing/nodegroup_templates/workflows/edit.py:35
-#, python-format
-msgid "Node Group Template %s updated"
-msgstr ""
-
-#: contrib/sahara/content/data_processing/nodegroup_templates/workflows/edit.py:37
-msgid "Edit Node Group Template"
-msgstr ""
-
-#: contrib/sahara/content/data_processing/utils/anti_affinity.py:31
-msgid "Use anti-affinity groups for: "
-msgstr ""
-
-#: contrib/sahara/content/data_processing/utils/anti_affinity.py:33
-msgid "Use anti-affinity groups for processes"
-msgstr ""
-
-#: contrib/sahara/content/data_processing/utils/anti_affinity.py:66
-msgid "Unable to populate anti-affinity processes."
-msgstr ""
-
-#: contrib/sahara/content/data_processing/utils/helpers.py:131
-msgid "Streaming MapReduce"
-msgstr ""
-
-#: contrib/sahara/content/data_processing/utils/helpers.py:133
-msgid "Java"
-msgstr ""
-
-#: contrib/sahara/content/data_processing/utils/helpers.py:134
-msgid "Shell"
-msgstr ""
-
-#: contrib/sahara/content/data_processing/utils/neutron_support.py:31
-#: contrib/trove/content/database_clusters/forms.py:207
-#: contrib/trove/content/databases/workflows/create_instance.py:162
-msgid "Unable to retrieve networks."
-msgstr ""
-
-#: contrib/sahara/content/data_processing/utils/workflow_helpers.py:118
-msgid "Node group cluster"
-msgstr ""
-
-#: contrib/sahara/content/data_processing/utils/workflow_helpers.py:122
-msgid "Count"
-msgstr ""
-
-#: contrib/sahara/content/data_processing/utils/workflow_helpers.py:141
-msgid "Mapping Type"
-msgstr ""
-
-#: contrib/sahara/content/data_processing/utils/workflow_helpers.py:144
-msgid "Positional Argument"
-msgstr ""
-
-#: contrib/sahara/content/data_processing/utils/workflow_helpers.py:145
-msgid "Configuration Value"
-msgstr ""
-
-#: contrib/sahara/content/data_processing/utils/workflow_helpers.py:146
-msgid "Named Parameter"
-msgstr ""
-
-#: contrib/sahara/content/data_processing/utils/workflow_helpers.py:148
-msgid "Location"
-msgstr ""
-
-#: contrib/sahara/content/data_processing/utils/workflow_helpers.py:152
-msgid "Value Type"
-msgstr ""
-
-#: contrib/sahara/content/data_processing/utils/workflow_helpers.py:160
-msgid "Required"
-msgstr ""
-
-#: contrib/sahara/content/data_processing/utils/workflow_helpers.py:164
-msgid "Default Value"
-msgstr ""
-
-#: contrib/sahara/content/data_processing/utils/workflow_helpers.py:193
-#, python-format
-msgid "Unable to retrieve security group %(group)s."
-msgstr ""
-
-#: contrib/sahara/content/data_processing/utils/workflow_helpers.py:226
-#: contrib/sahara/content/data_processing/wizard/forms.py:56
-msgid "Plugin Name"
-msgstr ""
-
-#: contrib/sahara/content/data_processing/wizard/forms.py:43
-msgid "Cluster type chosen"
-msgstr ""
-
-#: contrib/sahara/content/data_processing/wizard/forms.py:47
-msgid "Unable to set cluster type"
-msgstr ""
-
-#: contrib/sahara/content/data_processing/wizard/forms.py:86
-msgid "Choose plugin type and version"
-msgstr ""
-
-#: contrib/sahara/content/data_processing/wizard/forms.py:116
-msgid "Job type chosen"
-msgstr ""
-
-#: contrib/sahara/content/data_processing/wizard/forms.py:120
-msgid "Unable to set job type"
-msgstr ""
-
-#: contrib/sahara/content/data_processing/wizard/panel.py:22
-msgid "Guides"
-msgstr ""
-
-#: contrib/sahara/content/data_processing/wizard/views.py:35
-msgid "Data Processing Guides"
-msgstr ""
-
-#: contrib/sahara/content/data_processing/wizard/views.py:41
-msgid "Unable to show guides"
-msgstr ""
-
-#: contrib/sahara/content/data_processing/wizard/views.py:48
-msgid "Guided Cluster Creation"
-msgstr ""
-
-#: contrib/sahara/content/data_processing/wizard/views.py:64
-msgid "Guided Job Execution"
-msgstr ""
-
-#: contrib/sahara/content/data_processing/wizard/views.py:93
-#: contrib/sahara/content/data_processing/wizard/templates/data_processing.wizard/_plugin_select.html:12
-#: contrib/sahara/content/data_processing/wizard/templates/data_processing.wizard/plugin_select.html:3
-msgid "Choose plugin and version"
-msgstr ""
-
-#: contrib/sahara/content/data_processing/wizard/views.py:102
-#: contrib/sahara/content/data_processing/wizard/templates/data_processing.wizard/_job_type_select.html:12
-#: contrib/sahara/content/data_processing/wizard/templates/data_processing.wizard/job_type_select.html:3
-msgid "Choose job type"
-msgstr ""
-
-#: contrib/sahara/content/data_processing/wizard/templates/data_processing.wizard/_job_type_select_help.html:6
-msgid ""
-"Select which type of job that you want to run.\n"
-"      This choice will dictate which steps are required to successfully\n"
-"      execute your job.\n"
-"    "
-msgstr ""
-
-#: contrib/sahara/content/data_processing/wizard/templates/data_processing.wizard/_plugin_select_help.html:4
-msgid ""
-"Select which plugin and version that you\n"
-"    want to use to create your cluster."
-msgstr ""
-
-#: contrib/sahara/content/data_processing/wizard/templates/data_processing.wizard/cluster_guide.html:19
-msgid ""
-"The first step is to determine which type of\n"
-"                    cluster you want to run.  You may have several "
-"choices\n"
-"                    available depending on the configuration of your "
-"system.\n"
-"                    Click on \"choose plugin\" to bring up the list of "
-"data\n"
-"                    processing plugins.  There you will be able to choose"
-" the\n"
-"                    data processing plugin along with the version number."
-"\n"
-"                    Choosing this up front will allow the rest of the "
-"cluster\n"
-"                    creation steps to focus only on options that are "
-"pertinent\n"
-"                    to your desired cluster type."
-msgstr ""
-
-#: contrib/sahara/content/data_processing/wizard/templates/data_processing.wizard/cluster_guide.html:22
-msgid "Choose plugin"
-msgstr ""
-
-#: contrib/sahara/content/data_processing/wizard/templates/data_processing.wizard/cluster_guide.html:23
-#: contrib/sahara/content/data_processing/wizard/templates/data_processing.wizard/cluster_guide.html:59
-#: contrib/sahara/content/data_processing/wizard/templates/data_processing.wizard/cluster_guide.html:86
-#: contrib/sahara/content/data_processing/wizard/templates/data_processing.wizard/cluster_guide.html:118
-msgid "Current choice:"
-msgstr ""
-
-#: contrib/sahara/content/data_processing/wizard/templates/data_processing.wizard/cluster_guide.html:26
-msgid "Plugin:"
-msgstr ""
-
-#: contrib/sahara/content/data_processing/wizard/templates/data_processing.wizard/cluster_guide.html:28
-msgid "Version:"
-msgstr ""
-
-#: contrib/sahara/content/data_processing/wizard/templates/data_processing.wizard/cluster_guide.html:33
-msgid "No plugin chosen"
-msgstr ""
-
-#: contrib/sahara/content/data_processing/wizard/templates/data_processing.wizard/cluster_guide.html:51
-msgid ""
-"Next, you need to define the different\n"
-"                        types of machines in your cluster.  This is done "
-"by\n"
-"                        defining a Node Group Template for each type of\n"
-"                        machine.  A very common case is where you\n"
-"                        need to have one or more machines running a "
-"\"master\"\n"
-"                        set of processes while another set of machines "
-"need\n"
-"                        to be running the \"worker\" processes.  Here,\n"
-"                        you will define the Node Group Template for your\n"
-"                        \"master\" node(s).\n"
-"                     "
-msgstr ""
-
-#: contrib/sahara/content/data_processing/wizard/templates/data_processing.wizard/cluster_guide.html:57
-msgid "Create a Master Node Group Template"
-msgstr ""
-
-#: contrib/sahara/content/data_processing/wizard/templates/data_processing.wizard/cluster_guide.html:62
-msgid "Master Node Group Template:"
-msgstr ""
-
-#: contrib/sahara/content/data_processing/wizard/templates/data_processing.wizard/cluster_guide.html:67
-msgid "No Master Node Group Template Created"
-msgstr ""
-
-#: contrib/sahara/content/data_processing/wizard/templates/data_processing.wizard/cluster_guide.html:78
-msgid ""
-"Repeat the Node Group Template\n"
-"                        creation process, but this time you are creating\n"
-"                        your \"worker\" Node Group Template."
-msgstr ""
-
-#: contrib/sahara/content/data_processing/wizard/templates/data_processing.wizard/cluster_guide.html:84
-msgid "Create a Worker Node Group Template"
-msgstr ""
-
-#: contrib/sahara/content/data_processing/wizard/templates/data_processing.wizard/cluster_guide.html:89
-#: contrib/sahara/content/data_processing/wizard/templates/data_processing.wizard/cluster_guide.html:121
-msgid "Worker Node Group Template:"
-msgstr ""
-
-#: contrib/sahara/content/data_processing/wizard/templates/data_processing.wizard/cluster_guide.html:94
-msgid "No Worker Node Group Template Created"
-msgstr ""
-
-#: contrib/sahara/content/data_processing/wizard/templates/data_processing.wizard/cluster_guide.html:110
-msgid ""
-"Now you need to set the layout of your\n"
-"                        cluster.  By\n"
-"                        creating a Cluster Template, you will be choosing"
-" the\n"
-"                        number of instances of each Node Group Template "
-"that\n"
-"                        will appear in your cluster.  Additionally,\n"
-"                        you will have a chance to set any cluster-"
-"specific\n"
-"                        configuration items in the additional tabs on the"
-"\n"
-"                        create Cluster Template form."
-msgstr ""
-
-#: contrib/sahara/content/data_processing/wizard/templates/data_processing.wizard/cluster_guide.html:116
-msgid "Create a Cluster Template"
-msgstr ""
-
-#: contrib/sahara/content/data_processing/wizard/templates/data_processing.wizard/cluster_guide.html:126
-msgid "No Cluster Template Created"
-msgstr ""
-
-#: contrib/sahara/content/data_processing/wizard/templates/data_processing.wizard/cluster_guide.html:142
-msgid ""
-"You are now ready to\n"
-"                        launch your cluster.  When you click on the link\n"
-"                        below, you will need to give your cluster a name,"
-"\n"
-"                        choose the Cluster Template to use and choose "
-"which\n"
-"                        image to use to build your instances.  After you\n"
-"                        click on \"Create\", your instances will begin to"
-"\n"
-"                        spawn.  Your cluster should be operational in a "
-"few\n"
-"                        minutes."
-msgstr ""
-
-#: contrib/sahara/content/data_processing/wizard/templates/data_processing.wizard/cluster_guide.html:148
-msgid "Launch a Cluster"
-msgstr ""
-
-#: contrib/sahara/content/data_processing/wizard/templates/data_processing.wizard/cluster_guide.html:156
-msgid "Reset Cluster Guide"
-msgstr ""
-
-#: contrib/sahara/content/data_processing/wizard/templates/data_processing.wizard/cluster_guide.html:158
-msgid "Reset Cluster Creation Guide"
-msgstr ""
-
-#: contrib/sahara/content/data_processing/wizard/templates/data_processing.wizard/jobex_guide.html:15
-msgid ""
-"First, select which type of job that\n"
-"                            you want to run.  This choice will determine "
-"which\n"
-"                            other steps are required\n"
-"                        "
-msgstr ""
-
-#: contrib/sahara/content/data_processing/wizard/templates/data_processing.wizard/jobex_guide.html:20
-msgid "Select type"
-msgstr ""
-
-#: contrib/sahara/content/data_processing/wizard/templates/data_processing.wizard/jobex_guide.html:23
-msgid "Current type:"
-msgstr ""
-
-#: contrib/sahara/content/data_processing/wizard/templates/data_processing.wizard/jobex_guide.html:30
-msgid "No type chosen"
-msgstr ""
-
-#: contrib/sahara/content/data_processing/wizard/templates/data_processing.wizard/jobex_guide.html:46
-msgid ""
-"Data Sources are what your\n"
-"                            job uses for input and output.  Depending on "
-"the type\n"
-"                            of job you will be running, you may need to "
-"define one\n"
-"                            or more data sources.  You can create "
-"multiple data\n"
-"                            sources by repeating this step.\n"
-"                        "
-msgstr ""
-
-#: contrib/sahara/content/data_processing/wizard/templates/data_processing.wizard/jobex_guide.html:51
-msgid "Create a data source"
-msgstr ""
-
-#: contrib/sahara/content/data_processing/wizard/templates/data_processing.wizard/jobex_guide.html:65
-msgid ""
-"Define your Job Template.\n"
-"                        This is where you choose the type of job that you"
-"\n"
-"                        want to run (Pig, Java Action, Spark, etc) and "
-"choose\n"
-"                        or upload the files necessary to run it.  The "
-"inputs\n"
-"                        and outputs will be defined later.\n"
-"                    "
-msgstr ""
-
-#: contrib/sahara/content/data_processing/wizard/templates/data_processing.wizard/jobex_guide.html:70
-msgid "Create a job template"
-msgstr ""
-
-#: contrib/sahara/content/data_processing/wizard/templates/data_processing.wizard/jobex_guide.html:72
-msgid "Job template:"
-msgstr ""
-
-#: contrib/sahara/content/data_processing/wizard/templates/data_processing.wizard/jobex_guide.html:79
-msgid "No job template created"
-msgstr ""
-
-#: contrib/sahara/content/data_processing/wizard/templates/data_processing.wizard/jobex_guide.html:94
-msgid ""
-"Launch your job.  When\n"
-"                        launching, you may need to choose your input and\n"
-"                        output data sources.  This is where you would "
-"also\n"
-"                        add any special configuration values, parameters,"
-"\n"
-"                        or arguments that you need to pass along\n"
-"                        to your job.\n"
-"                        "
-msgstr ""
-
-#: contrib/sahara/content/data_processing/wizard/templates/data_processing.wizard/jobex_guide.html:98
-msgid "Launch job"
-msgstr ""
-
-#: contrib/sahara/content/data_processing/wizard/templates/data_processing.wizard/jobex_guide.html:107
-#: contrib/sahara/content/data_processing/wizard/templates/data_processing.wizard/jobex_guide.html:109
-msgid "Reset Job Execution Guide"
-msgstr ""
-
-#: contrib/sahara/content/data_processing/wizard/templates/data_processing.wizard/wizard.html:19
-msgid ""
-"\n"
-"                 Each of the Data Processing frameworks require a cluster"
-" of machines\n"
-"                 in order to do the work they are assigned.  A cluster is"
-"\n"
-"                 formed by creating a set of Node Group Templates, "
-"combining\n"
-"                 those into a Cluster Template and then launching a "
-"Cluster.\n"
-"                 You can do each of those steps manually, or you can "
-"follow\n"
-"                 this guide to help take you through the steps of\n"
-"                 Cluster creation.\n"
-"             "
-msgstr ""
-
-#: contrib/sahara/content/data_processing/wizard/templates/data_processing.wizard/wizard.html:24
-msgid "Cluster Guide"
-msgstr ""
-
-#: contrib/sahara/content/data_processing/wizard/templates/data_processing.wizard/wizard.html:41
-msgid ""
-"\n"
-"                  In order to run a Data Processing job, you need to make"
-"\n"
-"                  the files for your program available to the\n"
-"                  Data Processing system, define where the input and "
-"output\n"
-"                  need to go and create a Job Template that describes\n"
-"                  how to run your job.  Each of those steps can be done\n"
-"                  manually or you can follow this guide to help take you\n"
-"                  through the steps to run a job on an existing cluster.\n"
-"            "
-msgstr ""
-
-#: contrib/sahara/content/data_processing/wizard/templates/data_processing.wizard/wizard.html:46
-#: contrib/sahara/content/data_processing/wizard/templates/data_processing.wizard/wizard.html:48
-msgid "Job Execution Guide"
-msgstr ""
-
-#: contrib/trove/content/database_backups/panel.py:21
-#: contrib/trove/content/database_backups/tables.py:181
-#: contrib/trove/content/database_backups/views.py:36
-#: contrib/trove/content/databases/tables.py:406
-#: contrib/trove/content/databases/tabs.py:104
-#: dashboards/admin/defaults/tables.py:65
-msgid "Backups"
-msgstr ""
-
-#: contrib/trove/content/database_backups/tables.py:36
-msgctxt "Current status of a Database Backup"
-msgid "Building"
-msgstr ""
-
-#: contrib/trove/content/database_backups/tables.py:38
-msgctxt "Current status of a Database Backup"
-msgid "Completed"
-msgstr ""
-
-#: contrib/trove/content/database_backups/tables.py:40
-msgctxt "Current status of a Database Backup"
-msgid "Delete Failed"
-msgstr ""
-
-#: contrib/trove/content/database_backups/tables.py:42
-msgctxt "Current status of a Database Backup"
-msgid "Failed"
-msgstr ""
-
-#: contrib/trove/content/database_backups/tables.py:44
-msgctxt "Current status of a Database Backup"
-msgid "New"
-msgstr ""
-
-#: contrib/trove/content/database_backups/tables.py:46
-msgctxt "Current status of a Database Backup"
-msgid "Saving"
-msgstr ""
-
-#: contrib/trove/content/database_backups/tables.py:53
-#: contrib/trove/content/databases/tables.py:182
-#: dashboards/project/volumes/volumes/tables.py:204
-msgid "Create Backup"
-msgstr ""
-
-#: contrib/trove/content/database_backups/tables.py:61
-#: dashboards/project/volumes/backups/tables.py:64
-msgid "Restore Backup"
-msgstr ""
-
-#: contrib/trove/content/database_backups/tables.py:76
-msgid "Download Backup"
-msgstr ""
-
-#: contrib/trove/content/database_backups/tables.py:95
-msgid "Delete Backup"
-msgid_plural "Delete Backups"
-msgstr[0] ""
-msgstr[1] ""
-
-#: contrib/trove/content/database_backups/tables.py:103
-msgid "Deleted Backup"
-msgid_plural "Deleted Backups"
-msgstr[0] ""
-msgstr[1] ""
-
-#: contrib/trove/content/database_backups/tables.py:162
-#: contrib/trove/content/database_backups/templates/database_backups/details.html:21
-#: contrib/trove/content/database_clusters/forms.py:38
-#: contrib/trove/content/database_clusters/tables.py:145
-#: contrib/trove/content/database_clusters/templates/database_clusters/_detail_overview.html:9
-#: contrib/trove/content/database_clusters/templates/database_clusters/_detail_overview_vertica.html:9
-#: contrib/trove/content/databases/tables.py:322
-#: contrib/trove/content/databases/templates/databases/_detail_overview.html:9
-#: contrib/trove/content/databases/workflows/create_instance.py:43
-msgid "Datastore"
-msgstr ""
-
-#: contrib/trove/content/database_backups/tables.py:164
-#: contrib/trove/content/database_backups/templates/database_backups/details.html:23
-#: contrib/trove/content/database_clusters/tables.py:147
-#: contrib/trove/content/database_clusters/templates/database_clusters/_detail_overview.html:11
-#: contrib/trove/content/database_clusters/templates/database_clusters/_detail_overview_vertica.html:11
-#: contrib/trove/content/databases/tables.py:324
-#: contrib/trove/content/databases/templates/databases/_detail_overview.html:11
-msgid "Datastore Version"
-msgstr ""
-
-#: contrib/trove/content/database_backups/tables.py:168
-#: enabled/_1710_database_panel_group.py:6
-msgid "Database"
-msgstr ""
-
-#: contrib/trove/content/database_backups/tables.py:170
-#: contrib/trove/content/databases/tables.py:394
-msgid "Incremental"
-msgstr ""
-
-#: contrib/trove/content/database_backups/views.py:50
-msgid "Not Found"
-msgstr ""
-
-#: contrib/trove/content/database_backups/views.py:62
-msgid "Error getting database backup list."
-msgstr ""
-
-#: contrib/trove/content/database_backups/views.py:70
-#: contrib/trove/content/database_backups/templates/database_backups/backup.html:3
-#: contrib/trove/content/database_backups/workflows/create_backup.py:82
-msgid "Backup Database"
-msgstr ""
-
-#: contrib/trove/content/database_backups/views.py:81
-msgid "Backup Details: {{ backup.name }}"
-msgstr ""
-
-#: contrib/trove/content/database_backups/views.py:92
-#, python-format
-msgid "Unable to retrieve details for backup: %s"
-msgstr ""
-
-#: contrib/trove/content/database_backups/views.py:100
-#, python-format
-msgid "Unable to retrieve details for parent backup: %s"
-msgstr ""
-
-#: contrib/trove/content/database_backups/templates/database_backups/_backup_details_help.html:3
-msgid "Specify the details for the database backup."
-msgstr ""
-
-#: contrib/trove/content/database_backups/templates/database_backups/_backup_details_help.html:4
-msgid ""
-"You can perform an incremental backup by specifying a parent backup. "
-"<strong>However,</strong> not all databases support incremental backups "
-"in which case this operation will result in an error."
-msgstr ""
-
-#: contrib/trove/content/database_backups/templates/database_backups/details.html:3
-msgid "Backup Details"
-msgstr ""
-
-#: contrib/trove/content/database_backups/templates/database_backups/details.html:8
-msgid "Backup Overview"
-msgstr ""
-
-#: contrib/trove/content/database_backups/templates/database_backups/details.html:11
-#: dashboards/admin/volumes/templates/volumes/snapshots/_detail_overview.html:6
-#: dashboards/project/access_and_security/templates/access_and_security/keypairs/detail.html:9
-#: dashboards/project/instances/workflows/update_instance.py:119
-#: dashboards/project/stacks/templates/stacks/_resource_overview.html:6
-msgid "Information"
 msgstr ""
 
 #: contrib/trove/content/database_backups/templates/database_backups/details.html:28
@@ -3792,6 +1089,14 @@ msgstr ""
 msgid "Optional parent backup"
 msgstr ""
 
+#: contrib/trove/content/database_backups/workflows/create_backup.py:43
+#: contrib/trove/content/databases/workflows/create_instance.py:48
+#: dashboards/project/instances/templates/instances/_detail_overview.html:31
+#: dashboards/project/instances/workflows/create_instance.py:138
+#: dashboards/project/loadbalancers/tables.py:555
+msgid "Details"
+msgstr ""
+
 #: contrib/trove/content/database_backups/workflows/create_backup.py:53
 msgid "Unable to list database instances to backup."
 msgstr ""
@@ -3835,9 +1140,26 @@ msgstr ""
 msgid "Error creating database backup."
 msgstr ""
 
+#: contrib/trove/content/database_clusters/forms.py:35
+#: contrib/trove/content/database_clusters/forms.py:319
+#: contrib/trove/content/database_clusters/tables.py:143
+msgid "Cluster Name"
+msgstr ""
+
 #: contrib/trove/content/database_clusters/forms.py:39
 #: contrib/trove/content/databases/workflows/create_instance.py:44
 msgid "Type and version of datastore."
+msgstr ""
+
+#: contrib/trove/content/database_clusters/forms.py:45
+#: contrib/trove/content/database_clusters/forms.py:53
+#: contrib/trove/content/database_clusters/forms.py:112
+#: contrib/trove/content/database_clusters/forms.py:118
+#: contrib/trove/content/databases/templates/databases/_detail_overview.html:20
+#: contrib/trove/content/databases/workflows/create_instance.py:37
+#: dashboards/project/instances/templates/instances/_detail_overview.html:57
+#: dashboards/project/instances/workflows/create_instance.py:87
+msgid "Flavor"
 msgstr ""
 
 #: contrib/trove/content/database_clusters/forms.py:46
@@ -3925,6 +1247,11 @@ msgstr ""
 msgid "Unable to obtain flavors."
 msgstr ""
 
+#: contrib/trove/content/database_clusters/forms.py:207
+#: contrib/trove/content/databases/workflows/create_instance.py:162
+msgid "Unable to retrieve networks."
+msgstr ""
+
 #: contrib/trove/content/database_clusters/forms.py:220
 msgid "Unable to obtain datastores."
 msgstr ""
@@ -3971,15 +1298,33 @@ msgstr ""
 msgid "Unable to reset password. %s"
 msgstr ""
 
+#: contrib/trove/content/database_clusters/panel.py:23
+#: contrib/trove/content/database_clusters/tables.py:159
+#: contrib/trove/content/database_clusters/templates/database_clusters/index.html:3
+msgid "Clusters"
+msgstr ""
+
 #: contrib/trove/content/database_clusters/tables.py:36
 msgid "Deleted cluster is not recoverable."
 msgstr ""
+
+#: contrib/trove/content/database_clusters/tables.py:40
+msgid "Delete Cluster"
+msgid_plural "Delete Clusters"
+msgstr[0] ""
+msgstr[1] ""
 
 #: contrib/trove/content/database_clusters/tables.py:48
 msgid "Scheduled deletion of Cluster"
 msgid_plural "Scheduled deletion of Clusters"
 msgstr[0] ""
 msgstr[1] ""
+
+#: contrib/trove/content/database_clusters/tables.py:60
+#: contrib/trove/content/database_clusters/templates/database_clusters/_launch.html:9
+#: contrib/trove/content/database_clusters/templates/database_clusters/launch.html:3
+msgid "Launch Cluster"
+msgstr ""
 
 #: contrib/trove/content/database_clusters/tables.py:68
 #: contrib/trove/content/database_clusters/views.py:144
@@ -4029,6 +1374,25 @@ msgstr ""
 msgid "Not Assigned"
 msgstr ""
 
+#: contrib/trove/content/database_clusters/tables.py:193
+#: dashboards/admin/hypervisors/tables.py:27
+#: dashboards/admin/info/tables.py:168
+#: dashboards/project/access_and_security/security_groups/forms.py:180
+#: dashboards/project/access_and_security/security_groups/forms.py:187
+#: dashboards/project/images/images/tables.py:307
+#: dashboards/project/loadbalancers/workflows.py:476
+#: dashboards/project/loadbalancers/templates/loadbalancers/_monitor_details.html:11
+#: dashboards/project/routers/ports/tables.py:115
+#: dashboards/project/stacks/resource_types/tables.py:31
+#: dashboards/project/volumes/templates/volumes/volumes/_detail_overview.html:23
+#: dashboards/project/volumes/volumes/forms.py:113
+#: dashboards/project/volumes/volumes/forms.py:118
+#: dashboards/project/volumes/volumes/forms.py:119
+#: dashboards/project/volumes/volumes/forms.py:757
+#: dashboards/project/volumes/volumes/tables.py:433
+msgid "Type"
+msgstr ""
+
 #: contrib/trove/content/database_clusters/tables.py:195
 #: contrib/trove/content/database_clusters/templates/database_clusters/_detail_overview_mongodb.html:9
 #: contrib/trove/content/databases/tables.py:325
@@ -4069,6 +1433,29 @@ msgstr ""
 #: dashboards/project/volumes/templates/volumes/volumes/_detail_overview.html:20
 #: dashboards/project/volumes/volumes/tables.py:407
 msgid "Size"
+msgstr ""
+
+#: contrib/trove/content/database_clusters/tables.py:205
+#: contrib/trove/content/database_clusters/tabs.py:48
+#: contrib/trove/content/databases/panel.py:21
+#: contrib/trove/content/databases/tables.py:340
+#: contrib/trove/content/databases/views.py:50
+#: contrib/trove/content/databases/templates/databases/index.html:3
+#: dashboards/admin/defaults/tables.py:46
+#: dashboards/admin/defaults/workflows.py:42
+#: dashboards/admin/hypervisors/tables.py:56
+#: dashboards/admin/instances/panel.py:25
+#: dashboards/admin/instances/tables.py:172
+#: dashboards/admin/instances/views.py:68
+#: dashboards/admin/instances/templates/instances/index.html:3
+#: dashboards/identity/projects/workflows.py:52
+#: dashboards/project/instances/panel.py:21
+#: dashboards/project/instances/tables.py:1166
+#: dashboards/project/instances/views.py:60
+#: dashboards/project/instances/templates/instances/index.html:3
+#: dashboards/project/network_topology/instances/tables.py:23
+#: usage/quotas.py:65 usage/views.py:67
+msgid "Instances"
 msgstr ""
 
 #: contrib/trove/content/database_clusters/tabs.py:27
@@ -4121,6 +1508,41 @@ msgstr ""
 
 #: contrib/trove/content/database_clusters/templates/database_clusters/_add_shard.html:18
 msgid "Specify the details for adding additional shards."
+msgstr ""
+
+#: contrib/trove/content/database_clusters/templates/database_clusters/_add_shard.html:24
+#: contrib/trove/content/database_clusters/templates/database_clusters/_launch.html:21
+#: contrib/trove/content/database_clusters/templates/database_clusters/_reset_password.html:24
+#: contrib/trove/content/databases/templates/databases/_resize_instance.html:23
+#: contrib/trove/content/databases/templates/databases/_resize_volume.html:24
+#: dashboards/admin/aggregates/templates/aggregates/_update.html:24
+#: dashboards/admin/hypervisors/templates/hypervisors/compute/_disable_service.html:23
+#: dashboards/admin/hypervisors/templates/hypervisors/compute/_evacuate_host.html:23
+#: dashboards/admin/hypervisors/templates/hypervisors/compute/_migrate_host.html:22
+#: dashboards/admin/instances/templates/instances/_live_migrate.html:23
+#: dashboards/admin/metadata_defs/templates/metadata_defs/_create.html:35
+#: dashboards/admin/metadata_defs/templates/metadata_defs/resource_types.html:80
+#: dashboards/admin/metering/templates/metering/_daily.html:24
+#: dashboards/admin/networks/templates/networks/_create.html:26
+#: dashboards/identity/groups/templates/groups/_add_non_member.html:7
+#: dashboards/project/containers/templates/containers/_copy.html:23
+#: dashboards/project/containers/templates/containers/_create.html:24
+#: dashboards/project/containers/templates/containers/_create_pseudo_folder.html:25
+#: dashboards/project/containers/templates/containers/_update.html:27
+#: dashboards/project/containers/templates/containers/_upload.html:28
+#: dashboards/project/instances/templates/instances/_decryptpassword.html:33
+#: dashboards/project/instances/templates/instances/_rebuild.html:27
+#: dashboards/project/network_topology/templates/network_topology/_create_router.html:20
+#: dashboards/project/networks/templates/networks/_create.html:23
+#: dashboards/project/networks/templates/networks/create.html:7
+#: dashboards/project/networks/templates/networks/create.html:14
+#: dashboards/project/routers/templates/routers/extensions/routerroutes/_create.html:27
+#: dashboards/project/routers/templates/routers/extensions/routerrules/_create.html:27
+#: dashboards/project/routers/templates/routers/ports/_create.html:29
+#: dashboards/project/routers/templates/routers/ports/_setgateway.html:24
+#: dashboards/project/volumes/templates/volumes/volumes/_attach.html:19
+#: dashboards/project/volumes/templates/volumes/volumes/_create_snapshot.html:16
+msgid "Cancel"
 msgstr ""
 
 #: contrib/trove/content/database_clusters/templates/database_clusters/_detail_overview.html:15
@@ -4177,6 +1599,14 @@ msgstr ""
 
 #: contrib/trove/content/database_clusters/templates/database_clusters/_detail_overview_vertica.html:19
 msgid "Management Console"
+msgstr ""
+
+#: contrib/trove/content/database_clusters/templates/database_clusters/_launch.html:20
+#: contrib/trove/content/databases/workflows/create_instance.py:337
+#: dashboards/project/images/images/tables.py:62
+#: dashboards/project/instances/workflows/create_instance.py:836
+#: dashboards/project/stacks/views.py:179
+msgid "Launch"
 msgstr ""
 
 #: contrib/trove/content/database_clusters/templates/database_clusters/_reset_password.html:18
@@ -4410,6 +1840,16 @@ msgstr ""
 #: dashboards/project/instances/workflows/create_instance.py:84
 #: dashboards/project/overview/views.py:37 usage/tables.py:83
 msgid "Instance Name"
+msgstr ""
+
+#: contrib/trove/content/databases/tables.py:353
+#: dashboards/identity/groups/tables.py:190
+#: dashboards/identity/users/forms.py:96 dashboards/identity/users/forms.py:195
+#: dashboards/identity/users/forms.py:249
+#: dashboards/identity/users/tables.py:228
+#: dashboards/identity/users/templates/users/_detail_overview.html:13
+#: dashboards/project/access_and_security/templates/access_and_security/api_access/_credentials.html:13
+msgid "User Name"
 msgstr ""
 
 #: contrib/trove/content/databases/tables.py:354
@@ -4676,6 +2116,12 @@ msgstr ""
 msgid "Initial admin user to add"
 msgstr ""
 
+#: contrib/trove/content/databases/workflows/create_instance.py:198
+#: dashboards/identity/users/forms.py:43
+#: dashboards/project/instances/forms.py:160
+msgid "Password"
+msgstr ""
+
 #: contrib/trove/content/databases/workflows/create_instance.py:202
 msgid "Host or IP that the user is allowed to connect through."
 msgstr ""
@@ -4698,6 +2144,77 @@ msgstr ""
 
 #: contrib/trove/content/databases/workflows/create_instance.py:232
 msgid "Choose initial state."
+msgstr ""
+
+#: contrib/trove/content/databases/workflows/create_instance.py:234
+#: dashboards/admin/metadata_defs/templates/metadata_defs/_detail_overview.html:6
+#: dashboards/admin/metadata_defs/templates/metadata_defs/_detail_overview.html:8
+#: dashboards/admin/networks/templates/networks/ports/_detail_overview.html:6
+#: dashboards/admin/networks/templates/networks/ports/_detail_overview.html:8
+#: dashboards/admin/networks/templates/networks/ports/_detail_overview.html:11
+#: dashboards/admin/networks/templates/networks/ports/_detail_overview.html:15
+#: dashboards/admin/networks/templates/networks/ports/_detail_overview.html:17
+#: dashboards/admin/networks/templates/networks/ports/_detail_overview.html:19
+#: dashboards/admin/networks/templates/networks/ports/_detail_overview.html:35
+#: dashboards/admin/networks/templates/networks/ports/_detail_overview.html:41
+#: dashboards/admin/networks/templates/networks/ports/_detail_overview.html:43
+#: dashboards/admin/networks/templates/networks/ports/_detail_overview.html:50
+#: dashboards/admin/networks/templates/networks/ports/_detail_overview.html:52
+#: dashboards/admin/networks/templates/networks/ports/_detail_overview.html:65
+#: dashboards/identity/projects/templates/projects/_detail_overview.html:12
+#: dashboards/identity/users/templates/users/_detail_overview.html:18
+#: dashboards/project/access_and_security/templates/access_and_security/keypairs/detail.html:13
+#: dashboards/project/access_and_security/templates/access_and_security/keypairs/detail.html:15
+#: dashboards/project/access_and_security/templates/access_and_security/keypairs/detail.html:17
+#: dashboards/project/access_and_security/templates/access_and_security/keypairs/detail.html:25
+#: dashboards/project/access_and_security/templates/access_and_security/keypairs/detail.html:27
+#: dashboards/project/images/templates/images/images/_detail_overview.html:6
+#: dashboards/project/images/templates/images/images/_detail_overview.html:12
+#: dashboards/project/images/templates/images/images/_detail_overview.html:47
+#: dashboards/project/images/templates/images/images/_detail_overview.html:49
+#: dashboards/project/instances/templates/instances/_detail_overview.html:98
+#: dashboards/project/instances/templates/instances/_detail_overview.html:109
+#: dashboards/project/loadbalancers/templates/loadbalancers/_monitor_details.html:48
+#: dashboards/project/loadbalancers/templates/loadbalancers/_pool_details.html:22
+#: dashboards/project/loadbalancers/templates/loadbalancers/_pool_details.html:56
+#: dashboards/project/loadbalancers/templates/loadbalancers/_pool_details.html:71
+#: dashboards/project/loadbalancers/templates/loadbalancers/_vip_details.html:55
+#: dashboards/project/networks/templates/networks/_detail_overview.html:8
+#: dashboards/project/networks/templates/networks/_detail_overview.html:10
+#: dashboards/project/networks/templates/networks/ports/_detail_overview.html:6
+#: dashboards/project/networks/templates/networks/ports/_detail_overview.html:8
+#: dashboards/project/networks/templates/networks/ports/_detail_overview.html:10
+#: dashboards/project/networks/templates/networks/ports/_detail_overview.html:13
+#: dashboards/project/networks/templates/networks/ports/_detail_overview.html:17
+#: dashboards/project/networks/templates/networks/ports/_detail_overview.html:19
+#: dashboards/project/networks/templates/networks/ports/_detail_overview.html:21
+#: dashboards/project/networks/templates/networks/ports/_detail_overview.html:40
+#: dashboards/project/networks/templates/networks/ports/_detail_overview.html:49
+#: dashboards/project/networks/templates/networks/ports/_detail_overview.html:51
+#: dashboards/project/networks/templates/networks/subnets/_detail_overview.html:6
+#: dashboards/project/networks/templates/networks/subnets/_detail_overview.html:8
+#: dashboards/project/networks/templates/networks/subnets/_detail_overview.html:10
+#: dashboards/project/networks/templates/networks/subnets/_detail_overview.html:13
+#: dashboards/project/networks/templates/networks/subnets/_detail_overview.html:18
+#: dashboards/project/networks/templates/networks/subnets/_detail_overview.html:23
+#: dashboards/project/networks/templates/networks/subnets/_detail_overview.html:51
+#: dashboards/project/networks/templates/networks/subnets/_detail_overview.html:59
+#: dashboards/project/routers/templates/routers/_detail_overview.html:6
+#: dashboards/project/routers/templates/routers/_detail_overview.html:30
+#: dashboards/project/routers/templates/routers/_detail_overview.html:41
+#: dashboards/project/routers/templates/routers/_detail_overview.html:53
+#: dashboards/project/volumes/templates/volumes/volumes/_detail_overview.html:76
+#: dashboards/project/vpn/templates/vpn/_ikepolicy_details.html:6
+#: dashboards/project/vpn/templates/vpn/_ikepolicy_details.html:9
+#: dashboards/project/vpn/templates/vpn/_ipsecpolicy_details.html:6
+#: dashboards/project/vpn/templates/vpn/_ipsecpolicy_details.html:9
+#: dashboards/project/vpn/templates/vpn/_ipsecsiteconnection_details.html:6
+#: dashboards/project/vpn/templates/vpn/_ipsecsiteconnection_details.html:9
+#: dashboards/project/vpn/templates/vpn/_vpnservice_details.html:6
+#: dashboards/project/vpn/templates/vpn/_vpnservice_details.html:9
+#: dashboards/project/vpn/templates/vpn/_vpnservice_details.html:49
+#: dashboards/project/vpn/templates/vpn/_vpnservice_details.html:51
+msgid "None"
 msgstr ""
 
 #: contrib/trove/content/databases/workflows/create_instance.py:235
@@ -4769,6 +2286,20 @@ msgstr ""
 
 #: dashboards/admin/dashboard.py:21
 msgid "Admin"
+msgstr ""
+
+#: dashboards/admin/aggregates/forms.py:28
+#: dashboards/admin/aggregates/tables.py:140
+#: dashboards/admin/aggregates/workflows.py:27
+#: dashboards/admin/volumes/volumes/forms.py:78
+#: dashboards/project/instances/tables.py:1147
+#: dashboards/project/instances/templates/instances/_detail_overview.html:11
+#: dashboards/project/instances/workflows/create_instance.py:81
+#: dashboards/project/volumes/volumes/forms.py:122
+#: dashboards/project/volumes/volumes/forms.py:127
+#: dashboards/project/volumes/volumes/forms.py:128
+#: dashboards/project/volumes/volumes/tables.py:437
+msgid "Availability Zone"
 msgstr ""
 
 #: dashboards/admin/aggregates/forms.py:41
@@ -5194,6 +2725,19 @@ msgstr ""
 #: dashboards/project/access_and_security/floating_ips/tables.py:222
 #: usage/quotas.py:69 usage/quotas.py:82 usage/views.py:71
 msgid "Floating IPs"
+msgstr ""
+
+#: dashboards/admin/defaults/tables.py:53
+#: dashboards/admin/defaults/workflows.py:49
+#: dashboards/identity/projects/workflows.py:65
+#: dashboards/identity/projects/workflows.py:71
+#: dashboards/project/access_and_security/tabs.py:43
+#: dashboards/project/access_and_security/security_groups/tables.py:150
+#: dashboards/project/instances/templates/instances/_detail_overview.html:75
+#: dashboards/project/instances/workflows/create_instance.py:555
+#: dashboards/project/instances/workflows/update_instance.py:80
+#: usage/quotas.py:71 usage/quotas.py:83 usage/views.py:73
+msgid "Security Groups"
 msgstr ""
 
 #: dashboards/admin/defaults/tables.py:54
@@ -6339,6 +3883,23 @@ msgstr ""
 msgid "Namespace"
 msgstr ""
 
+#: dashboards/admin/metadata_defs/templates/metadata_defs/_detail_overview.html:18
+#: dashboards/admin/networks/views.py:61
+#: dashboards/project/images/templates/images/images/_detail_overview.html:16
+#: dashboards/project/images/templates/images/images/_detail_overview.html:27
+#: dashboards/project/instances/tables.py:724
+#: dashboards/project/networks/templates/networks/_detail_overview.html:14
+#: dashboards/project/networks/templates/networks/_detail_overview.html:16
+#: dashboards/project/networks/templates/networks/_detail_overview.html:22
+#: dashboards/project/networks/templates/networks/_detail_overview.html:25
+#: dashboards/project/routers/templates/routers/_detail_overview.html:14
+#: dashboards/project/routers/templates/routers/_detail_overview.html:32
+#: dashboards/project/routers/templates/routers/_detail_overview.html:38
+#: dashboards/project/volumes/backups/tables.py:37
+#: dashboards/project/volumes/snapshots/tables.py:126
+msgid "Unknown"
+msgstr ""
+
 #: dashboards/admin/metadata_defs/templates/metadata_defs/_detail_overview.html:20
 #: dashboards/project/images/templates/images/images/_detail_overview.html:33
 msgid "Never updated"
@@ -6375,6 +3936,10 @@ msgstr ""
 
 #: dashboards/admin/metadata_defs/templates/metadata_defs/resource_types.html:15
 msgid "Available Types"
+msgstr ""
+
+#: dashboards/admin/metadata_defs/templates/metadata_defs/resource_types.html:19
+msgid "Filter"
 msgstr ""
 
 #: dashboards/admin/metadata_defs/templates/metadata_defs/resource_types.html:59
@@ -7690,6 +5255,11 @@ msgstr ""
 msgid "Volume Type Encryption Overview"
 msgstr ""
 
+#: dashboards/admin/volumes/templates/volumes/volume_types/_volume_encryption_type_detail.html:8
+#: dashboards/project/volumes/templates/volumes/volumes/_encryption_detail_overview.html:8
+msgid "Info"
+msgstr ""
+
 #: dashboards/admin/volumes/templates/volumes/volume_types/_volume_encryption_type_detail.html:13
 #: dashboards/admin/volumes/volume_types/forms.py:91
 #: dashboards/project/loadbalancers/tables.py:457
@@ -8126,6 +5696,17 @@ msgstr ""
 msgid "Create a QoS Spec"
 msgstr ""
 
+#: dashboards/admin/volumes/volume_types/views.py:157
+#: dashboards/admin/volumes/volume_types/extras/tables.py:48
+#: dashboards/admin/volumes/volume_types/extras/views.py:65
+#: dashboards/admin/volumes/volume_types/qos_specs/tables.py:24
+#: dashboards/admin/volumes/volume_types/qos_specs/views.py:76
+#: dashboards/project/containers/templates/containers/_create_pseudo_folder.html:24
+#: dashboards/project/networks/workflows.py:455
+#: dashboards/project/networks/subnets/workflows.py:60
+msgid "Create"
+msgstr ""
+
 #: dashboards/admin/volumes/volume_types/views.py:164
 msgid "Edit Consumer of QoS Spec"
 msgstr ""
@@ -8168,6 +5749,15 @@ msgstr ""
 #: dashboards/admin/volumes/volume_types/qos_specs/forms.py:25
 #: dashboards/admin/volumes/volume_types/qos_specs/tables.py:58
 msgid "Key"
+msgstr ""
+
+#: dashboards/admin/volumes/volume_types/extras/forms.py:25
+#: dashboards/admin/volumes/volume_types/extras/forms.py:44
+#: dashboards/admin/volumes/volume_types/extras/tables.py:70
+#: dashboards/admin/volumes/volume_types/qos_specs/forms.py:26
+#: dashboards/admin/volumes/volume_types/qos_specs/forms.py:49
+#: dashboards/admin/volumes/volume_types/qos_specs/tables.py:59
+msgid "Value"
 msgstr ""
 
 #: dashboards/admin/volumes/volume_types/extras/forms.py:33
@@ -8327,6 +5917,11 @@ msgstr ""
 
 #: dashboards/admin/volumes/volumes/forms.py:84
 msgid "Specifies that the newly created volume should be marked as bootable"
+msgstr ""
+
+#: dashboards/admin/volumes/volumes/forms.py:92
+#: dashboards/project/volumes/volumes/forms.py:268
+msgid "No volume type"
 msgstr ""
 
 #: dashboards/admin/volumes/volumes/forms.py:131
@@ -9477,6 +7072,11 @@ msgstr ""
 msgid "No floating IP pools available"
 msgstr ""
 
+#: dashboards/project/access_and_security/floating_ips/workflows.py:37
+#: dashboards/project/volumes/volumes/tables.py:505
+msgid "Instance"
+msgstr ""
+
 #: dashboards/project/access_and_security/floating_ips/workflows.py:41
 msgid ""
 "Select the IP address you wish to associate with the selected instance or"
@@ -9915,6 +7515,21 @@ msgstr ""
 msgid "Unable to retrieve security group."
 msgstr ""
 
+#: dashboards/project/access_and_security/security_groups/views.py:111
+#: dashboards/project/firewalls/workflows.py:138
+#: dashboards/project/firewalls/workflows.py:303
+#: dashboards/project/firewalls/workflows.py:376
+#: dashboards/project/loadbalancers/workflows.py:131
+#: dashboards/project/loadbalancers/workflows.py:250
+#: dashboards/project/loadbalancers/workflows.py:416
+#: dashboards/project/loadbalancers/workflows.py:601
+#: dashboards/project/vpn/workflows.py:93
+#: dashboards/project/vpn/workflows.py:196
+#: dashboards/project/vpn/workflows.py:299
+#: dashboards/project/vpn/workflows.py:500
+msgid "Add"
+msgstr ""
+
 #: dashboards/project/access_and_security/security_groups/views.py:146
 #, python-format
 msgid "%s (current)"
@@ -10070,6 +7685,10 @@ msgstr ""
 
 #: dashboards/project/access_and_security/templates/access_and_security/security_groups/detail.html:3
 msgid "Manage Security Group Rules"
+msgstr ""
+
+#: dashboards/project/containers/browsers.py:24
+msgid "Swift"
 msgstr ""
 
 #: dashboards/project/containers/browsers.py:27
@@ -11233,6 +8852,13 @@ msgstr ""
 
 #: dashboards/project/images/utils.py:97
 msgid "Unable to retrieve images"
+msgstr ""
+
+#: dashboards/project/images/utils.py:99
+#: dashboards/project/instances/forms.py:42
+#: dashboards/project/instances/forms.py:68
+#: dashboards/project/instances/workflows/create_instance.py:447
+msgid "Select Image"
 msgstr ""
 
 #: dashboards/project/images/utils.py:106
@@ -12610,6 +10236,12 @@ msgstr ""
 msgid "Image ID"
 msgstr ""
 
+#: dashboards/project/instances/templates/instances/_detail_overview.html:108
+#: dashboards/project/volumes/templates/volumes/volumes/_detail_overview.html:59
+#: dashboards/project/volumes/volumes/forms.py:237
+msgid "Image"
+msgstr ""
+
 #: dashboards/project/instances/templates/instances/_detail_overview.html:111
 msgid "\"N/A\""
 msgstr ""
@@ -13850,6 +11482,13 @@ msgstr ""
 
 #: dashboards/project/loadbalancers/workflows.py:506
 msgid "HTTP method used to check health status of a member"
+msgstr ""
+
+#: dashboards/project/loadbalancers/workflows.py:517
+#: dashboards/project/loadbalancers/workflows.py:521
+#: dashboards/project/loadbalancers/workflows.py:522
+#: dashboards/project/stacks/forms.py:65
+msgid "URL"
 msgstr ""
 
 #: dashboards/project/loadbalancers/workflows.py:529
@@ -15276,6 +12915,10 @@ msgstr ""
 msgid "You must specify a template via one of the available sources."
 msgstr ""
 
+#: dashboards/project/stacks/forms.py:231
+msgid "Edit Template"
+msgstr ""
+
 #: dashboards/project/stacks/forms.py:232
 msgid "Select a new template to re-launch a stack."
 msgstr ""
@@ -15648,8 +13291,17 @@ msgstr ""
 msgid "Unable to get resources for stack \"%s\"."
 msgstr ""
 
+#: dashboards/project/stacks/tabs.py:143
+msgid "Template"
+msgstr ""
+
 #: dashboards/project/stacks/views.py:83
 msgid "Unable to retrieve stack list."
+msgstr ""
+
+#: dashboards/project/stacks/views.py:93 dashboards/project/stacks/views.py:123
+#: dashboards/project/stacks/views.py:163
+msgid "Next"
 msgstr ""
 
 #: dashboards/project/stacks/views.py:127
@@ -15661,6 +13313,10 @@ msgstr ""
 #: dashboards/project/stacks/views.py:245
 #: dashboards/project/stacks/views.py:301
 msgid "Unable to retrieve stack."
+msgstr ""
+
+#: dashboards/project/stacks/views.py:215
+msgid "Update"
 msgstr ""
 
 #: dashboards/project/stacks/views.py:218
@@ -15727,6 +13383,11 @@ msgstr ""
 msgid "Create a new stack with the provided values."
 msgstr ""
 
+#: dashboards/project/stacks/templates/stacks/_detail_overview.html:18
+#: dashboards/project/stacks/templates/stacks/_resource_overview.html:38
+msgid "Last Updated"
+msgstr ""
+
 #: dashboards/project/stacks/templates/stacks/_detail_overview.html:22
 #, python-format
 msgid "%(stack_status_title)s: %(stack_status_reason)s"
@@ -15758,6 +13419,10 @@ msgstr ""
 
 #: dashboards/project/stacks/templates/stacks/_preview_details.html:4
 msgid "Stack Preview"
+msgstr ""
+
+#: dashboards/project/stacks/templates/stacks/_preview_details.html:19
+msgid "Parameters"
 msgstr ""
 
 #: dashboards/project/stacks/templates/stacks/_preview_details.html:30
@@ -16505,6 +14170,10 @@ msgstr ""
 msgid "Unable to extend volume."
 msgstr ""
 
+#: dashboards/project/volumes/volumes/forms.py:758
+msgid "Never"
+msgstr ""
+
 #: dashboards/project/volumes/volumes/forms.py:759
 msgid "On Demand"
 msgstr ""
@@ -16737,6 +14406,10 @@ msgstr ""
 msgid ""
 "This volume is currently attached to an instance. In some cases, creating"
 " a snapshot from an attached volume can result in a corrupted snapshot."
+msgstr ""
+
+#: dashboards/project/volumes/volumes/views.py:218
+msgid "Upload"
 msgstr ""
 
 #: dashboards/project/volumes/volumes/views.py:229

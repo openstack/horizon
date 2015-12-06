@@ -13,7 +13,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-12-02 23:42+0000\n"
+"POT-Creation-Date: 2015-12-05 16:12+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -170,9 +170,6 @@ msgstr "Конфигурационный диск"
 msgid "Configuration Help"
 msgstr "Справка по конфигурации"
 
-msgid "Configuration Value"
-msgstr "Конфигурационное значение"
-
 msgid "Count"
 msgstr "Количество"
 
@@ -199,12 +196,6 @@ msgstr ""
 
 msgid "Customization Script"
 msgstr "Настройки скрипта"
-
-msgid "Data Source"
-msgstr "Источник данных"
-
-msgid "Default Value"
-msgstr "Значение по умолчанию"
 
 msgid "Deleted"
 msgstr "Удалено"
@@ -239,9 +230,6 @@ msgstr "Временный диск"
 msgid "Ether Type"
 msgstr "Тип сети"
 
-msgid "Event log is not available."
-msgstr "Журнал событий недоступен."
-
 #, python-format
 msgid "Extension is not enabled: %(extension)s."
 msgstr "Расширение не включено: %(extension)s"
@@ -264,20 +252,6 @@ msgid ""
 msgstr ""
 "Типы инстансов отвечают за количество выделяемой памяти, дисков и "
 "процессорной мощности для создаваемых инстансов."
-
-msgid ""
-"For configs and params, type the key name; for args, type the index as an "
-"integer, starting from 0."
-msgstr ""
-"Для параметров и конфигурационных значений введите имя параметра, для "
-"аргументов введите индекс как целое число начиная с 0."
-
-msgid ""
-"For data sources, use a data source UUID or a path (as per data source "
-"creation.)"
-msgstr ""
-"Для источников данных используйте UUID источника или путь (такой же как при "
-"создании источника)"
 
 msgid "Format"
 msgstr "Формат"
@@ -399,14 +373,8 @@ msgstr "Запустить инстанс"
 msgid "Load script from a file"
 msgstr "Загрузить скрипт из файла"
 
-msgid "Location"
-msgstr "Расположение"
-
 msgid "Manual"
 msgstr "Вручную"
-
-msgid "Mapping Type"
-msgstr "Тип отображения"
 
 msgid "Max Port"
 msgstr "По порт"
@@ -429,9 +397,6 @@ msgstr "Мин ОЗУ (МБ)"
 msgid "Name"
 msgstr "Название"
 
-msgid "Named Parameter"
-msgstr "Именованный параметр"
-
 msgid "Network"
 msgstr "Сеть"
 
@@ -453,9 +418,6 @@ msgstr "Нет"
 msgid "No available items"
 msgstr "Нет доступных элементов"
 
-msgid "Number"
-msgstr "Число"
-
 msgid "OK"
 msgstr "ОК"
 
@@ -467,9 +429,6 @@ msgstr "Физическая сеть"
 
 msgid "Policy check failed."
 msgstr "Проверка политики не удалась."
-
-msgid "Positional Argument"
-msgstr "Позиционный аргумент"
 
 msgid "Private"
 msgstr "Частный"
@@ -527,14 +486,8 @@ msgstr "Переопределите элементы перемещением"
 msgid "Remote"
 msgstr "Удаленный адрес"
 
-msgid "Remove"
-msgstr "Удалить"
-
 msgid "Required"
 msgstr "Требуется"
-
-msgid "Required?"
-msgstr "Обязательно?"
 
 msgid "Root Disk"
 msgstr "Основной диск"
@@ -573,13 +526,6 @@ msgstr ""
 "дополнительные правила в существующие группы в будущем. Чтобы создать "
 "дополнительное правило, зайдите в раздел <b>Compute | Доступ и безопасность</"
 "b>, найдите нужную группу и нажмите <b>Управление правилами</b>."
-
-msgid ""
-"See http://docs.openstack.org/developer/sahara/userdoc/edp.html for "
-"definitions."
-msgstr ""
-"Смотрите http://docs.openstack.org/developer/sahara/userdoc/edp.html для "
-"определений."
 
 msgid "Segmentation ID"
 msgstr "ID сегмента"
@@ -625,9 +571,6 @@ msgstr "Настройка не включена: %(setting)s"
 msgid "Shared"
 msgstr "Общая"
 
-msgid "Show events"
-msgstr "Показать события"
-
 msgid "Size"
 msgstr "Размер"
 
@@ -639,9 +582,6 @@ msgstr "Снимок"
 
 msgid "Status"
 msgstr "Статус"
-
-msgid "String"
-msgstr "Строка"
 
 msgid "Subnets Associated"
 msgstr "Связанные подсети"
@@ -699,9 +639,6 @@ msgstr ""
 
 msgid "The status indicates whether the network has an active connection."
 msgstr "Статус показывает, имеются ли активные подключения в данной сети."
-
-msgid "The step has completed successfully. No events to display."
-msgstr "Этап успешно завершен. Нет событий для отображения."
 
 msgid ""
 "The subnet identifies a sub-section of a network. A subnet is specified in "
@@ -966,9 +903,6 @@ msgstr "Имя пользователя"
 
 msgid "VCPUS"
 msgstr "VCPUS"
-
-msgid "Value Type"
-msgstr "Тип значения"
 
 msgid "Visibility"
 msgstr "Видимость"

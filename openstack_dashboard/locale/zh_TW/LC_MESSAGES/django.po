@@ -17,7 +17,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-12-02 23:42+0000\n"
+"POT-Creation-Date: 2015-12-05 16:12+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -28,51 +28,6 @@ msgstr ""
 "Generated-By: Babel 2.0\n"
 "X-Generator: Zanata 3.7.3\n"
 "Language-Team: Chinese (Taiwan)\n"
-
-msgid ""
-"\n"
-"                  In order to run a Data Processing job, you need to make\n"
-"                  the files for your program available to the\n"
-"                  Data Processing system, define where the input and output\n"
-"                  need to go and create a Job Template that describes\n"
-"                  how to run your job.  Each of those steps can be done\n"
-"                  manually or you can follow this guide to help take you\n"
-"                  through the steps to run a job on an existing cluster.\n"
-"            "
-msgstr ""
-"\n"
-"                  為了執行資料處理工作，您需要\n"
-"                  讓您的檔案可以用於資料處理\n"
-"                  系統，定義輸入及輸出的流向並\n"
-"                  新增工作範本來描述如何執行您的\n"
-"                  工作。每一步都可以手動來作或使用\n"
-"                  這個精靈來幫助您在已存在的叢集上\n"
-"                  執行工作。\n"
-"            "
-
-msgid ""
-"\n"
-"                 Each of the Data Processing frameworks require a cluster of "
-"machines\n"
-"                 in order to do the work they are assigned.  A cluster is\n"
-"                 formed by creating a set of Node Group Templates, "
-"combining\n"
-"                 those into a Cluster Template and then launching a "
-"Cluster.\n"
-"                 You can do each of those steps manually, or you can follow\n"
-"                 this guide to help take you through the steps of\n"
-"                 Cluster creation.\n"
-"             "
-msgstr ""
-"\n"
-"                 每種資料處理架構都需要機器叢集\n"
-"                 來完成您指定的工作。叢集以新增\n"
-"                 節點群組範本的集合來統一，組合\n"
-"                 它們到叢集範本並發動叢集。\n"
-"                 您可以手動來作每一步，或者您\n"
-"                 可以跟著這個精靈來幫助您建立\n"
-"                 叢集。\n"
-"             "
 
 #, python-format
 msgid ""
@@ -406,9 +361,6 @@ msgstr "：下一跳點"
 msgid " Also failed to delete port %s"
 msgstr "並且刪除接口 %s 時失敗"
 
-msgid " Done"
-msgstr " 完成"
-
 msgid "\"Add Router Route\""
 msgstr "「加入路由器路由」"
 
@@ -449,14 +401,6 @@ msgid ""
 msgstr "「已關閉不滿足映像檔最低需求的虛擬硬體樣板。」"
 
 #, python-format
-msgid "%(conf_name)s: %(conf_val)s"
-msgstr "%(conf_name)s：%(conf_val)s"
-
-#, python-format
-msgid "%(conf_name)s: %(conf_value)s"
-msgstr "%(conf_name)s：%(conf_value)s"
-
-#, python-format
 msgid "%(field_name)s: Invalid IP address (value=%(ip)s)"
 msgstr "%(field_name)s：無效的 IP 位址（值為 %(ip)s）"
 
@@ -465,16 +409,8 @@ msgid "%(field_name)s: Invalid IP address (value=%(network)s)"
 msgstr "%(field_name)s：無效的 IP 位址（值為 %(network)s）"
 
 #, python-format
-msgid "%(group)s:"
-msgstr "%(group)s："
-
-#, python-format
 msgid "%(instance_name)s %(fixed_ip)s"
 msgstr "%(instance_name)s %(fixed_ip)s"
-
-#, python-format
-msgid "%(key)s: %(val)s"
-msgstr "%(key)s：%(val)s"
 
 #, python-format
 msgid "%(name)s - %(size)s GB (%(label)s)"
@@ -546,10 +482,6 @@ msgid "%s instances"
 msgstr "%s 個雲實例"
 
 #, python-format
-msgid "%s processes: "
-msgstr "%s處理行程："
-
-#, python-format
 msgid "%sGB"
 msgstr "%sGB"
 
@@ -575,20 +507,8 @@ msgstr "-"
 msgid "--"
 msgstr "--"
 
-msgid "-- not selected --"
-msgstr "-- 未選擇 --"
-
 msgid "3des"
 msgstr "3des"
-
-msgid ""
-"<b>Important</b>:  The name that you give your job binary will be the name "
-"used in your job execution.\n"
-"  If your binary requires a particular name or extension (ie: \".jar\"), be "
-"sure to include it here."
-msgstr ""
-"<b>重要</b>：您給予您工作程式的名稱將用於命名您的工作執行任務。\n"
-"  若您的程式有特殊的名稱或副檔名（如「.jar」），請確定這裡有包括它。"
 
 #, python-format
 msgid "<p>%(used)s of %(quota)s MB Used</p>"
@@ -797,9 +717,6 @@ msgstr ""
 "實際的裝置名稱可能由於虛擬機器管理程式的設定而有所不同。若未指定，虛擬機器管"
 "理程式會自己選擇裝置名稱。"
 
-msgid "Adapt For Oozie"
-msgstr "適用於 Oozie"
-
 msgid "Add"
 msgstr "加入"
 
@@ -860,9 +777,6 @@ msgstr "加入新的規則"
 msgid "Add New VPN Service"
 msgstr "加入新的虛擬私人網路伺服器"
 
-msgid "Add Node Group"
-msgstr "加入節點群組"
-
 msgid "Add Policy"
 msgstr "加入政策"
 
@@ -920,9 +834,6 @@ msgid ""
 "security groups."
 msgstr "從可用的安全性群組列表加入及移除此雲實例的安全性群組。"
 
-msgid "Add custom tag"
-msgstr "加入自訂的標籤"
-
 msgid ""
 "Add hosts to this aggregate or remove hosts from it. Hosts can be in "
 "multiple aggregates."
@@ -933,9 +844,6 @@ msgstr "加入主機到這個聚合裡。主機可以放在多個聚合裡。"
 
 msgid "Add interface"
 msgstr "加入網路卡"
-
-msgid "Add libraries to your job template."
-msgstr "加入程式庫到您的工作範本。"
 
 msgid ""
 "Add member(s) to the selected pool.\n"
@@ -952,9 +860,6 @@ msgstr ""
 "成員來處理；如 80。\n"
 "\n"
 "每個雲實例只有一個埠口能分配。"
-
-msgid "Add plugin tags"
-msgstr "加入插件標籤"
 
 msgid "Add route"
 msgstr "加入路由"
@@ -1205,9 +1110,6 @@ msgid ""
 "help, contact your local administrator."
 msgstr "發生了意外錯誤。試著重整頁面。若這沒有幫助，請聯絡您的在地管理員。"
 
-msgid "Anti-affinity enabled for"
-msgstr "已啟用反共鳴於"
-
 msgid "Any"
 msgstr "任意"
 
@@ -1216,9 +1118,6 @@ msgstr "任何可用區域"
 
 msgid "Architecture"
 msgstr "架構"
-
-msgid "Arguments"
-msgstr "輸入參數"
 
 msgid "Associate"
 msgstr "聯結"
@@ -1320,12 +1219,6 @@ msgstr "認證演算法"
 msgid "Authorization mode"
 msgstr "認證模式"
 
-msgid "Auto Security Group"
-msgstr "自動安全性群組"
-
-msgid "Auto-configure"
-msgstr "自動設置"
-
 msgid "Automatic"
 msgstr "自動"
 
@@ -1335,11 +1228,6 @@ msgid ""
 msgstr ""
 "自動：全部的硬碟是同一個分割並會自動地調整容量。手動：較快建立但需要手動分割"
 "硬碟。"
-
-msgid ""
-"Automatically modify the Hadoop configuration so that job config values are "
-"set and so that Oozie will handle exit codes correctly."
-msgstr "自動更改 Hadoop 設置以設定工作設定值並讓 Oozie 正確地處理離開代碼。"
 
 msgid "Availability Zone"
 msgstr "可用區域"
@@ -1443,9 +1331,6 @@ msgstr "備份概觀"
 
 msgid "Backups"
 msgstr "備份"
-
-msgid "Base Image"
-msgstr "基礎映像檔"
 
 msgid "Before"
 msgstr "之前"
@@ -1602,9 +1487,6 @@ msgstr[0] "已檢查機櫃"
 msgid "Checksum"
 msgstr "檢查碼"
 
-msgid "Choose"
-msgstr "選擇"
-
 msgid "Choose Your Boot Source Type."
 msgstr "選擇您要開機的來源類型"
 
@@ -1619,32 +1501,17 @@ msgid ""
 "the space provided."
 msgstr "選擇您可以辨識的密鑰對名稱並在空白處貼上您的 SSH 公鑰。"
 
-msgid "Choose a main binary"
-msgstr "選擇主要的程式"
-
 msgid "Choose a new instance flavor."
 msgstr "選擇新的雲實例虛擬硬體樣板。"
-
-msgid "Choose a shell script"
-msgstr "選擇 Shell 腳本"
 
 msgid "Choose a snapshot"
 msgstr "選擇即時存檔"
 
-msgid "Choose a storage location"
-msgstr "選擇儲存空間位置"
-
 msgid "Choose a volume"
 msgstr "選擇雲硬碟"
 
-msgid "Choose additional files"
-msgstr "選擇額外的檔案"
-
 msgid "Choose an DHCP Agent to attach to."
 msgstr "選擇 DHCP 媒介來附加。"
-
-msgid "Choose an existing file"
-msgstr "選擇已存在的檔案"
 
 msgid "Choose an image"
 msgstr "選擇映像檔"
@@ -1655,21 +1522,8 @@ msgstr "選擇已聯結的 QoS 規格。"
 msgid "Choose consumer for this QoS Spec."
 msgstr "為此 QoS 規格選擇規範用戶。"
 
-msgid ""
-"Choose from the list of binaries and click \"choose\" to add the library to "
-"your job template.  This can be repeated for additional libraries."
-msgstr ""
-"在程式列表裡選擇並點擊「選擇」來加入程式庫到您的工作範本。可以一直重復這個動"
-"作來加入額外程式庫。"
-
 msgid "Choose initial state."
 msgstr "選擇初始狀態。"
-
-msgid "Choose job type"
-msgstr "選擇工作類型"
-
-msgid "Choose libraries"
-msgstr "選擇程式庫"
 
 msgid ""
 "Choose network from Available networks to Selected networks by push button "
@@ -1677,20 +1531,6 @@ msgid ""
 msgstr ""
 "可以用點擊按鈕或拖拉的方式從「可用的網路」選擇網路到「已選擇的網路」，您可以"
 "自行以拖拉的方式更換網路卡的順序。"
-
-msgid ""
-"Choose or create your main binary.  Additional libraries can be added from "
-"the \"Libs\" tab."
-msgstr "選擇或新增您的主程式。可以從「程式庫」標籤裡加入額外程式庫。"
-
-msgid "Choose plugin"
-msgstr "選擇插件"
-
-msgid "Choose plugin and version"
-msgstr "選擇插件和版本"
-
-msgid "Choose plugin type and version"
-msgstr "選擇插件類型和版本"
 
 msgid ""
 "Choose router(s) from Available Routers to Selected Routers by push button "
@@ -1704,18 +1544,6 @@ msgid ""
 msgstr ""
 "以按鍵或者拖拉的方式從可用的規則中選擇規則，\n"
 "您可以以拖拉的方式更換它們的排序。"
-
-msgid "Choose the Input Data Source (n/a for Java and Shell jobs)."
-msgstr "選擇輸入的資料來源（Java 和 Shell 工作選擇 N/A）。"
-
-msgid "Choose the Output Data Source (n/a for Java and Shell jobs)."
-msgstr "選擇輸出的資料來源（Java 和 Shell 工作選擇 N/A）。"
-
-msgid "Choose the binary which should be used in this Job."
-msgstr "選擇用於此工作的程式。"
-
-msgid "Choose the cluster to use for the job."
-msgstr "為此工作選擇叢集來用。"
 
 msgid "Choose the flavor to launch."
 msgstr "選擇要發動的虛擬硬體樣板。"
@@ -1734,9 +1562,6 @@ msgstr ""
 msgid "Choose the rule you want to remove."
 msgstr "選擇您要移除的規則"
 
-msgid "Chosen Libraries"
-msgstr "已選擇的程式庫"
-
 msgid "Cinder"
 msgstr "Cinder"
 
@@ -1744,9 +1569,6 @@ msgid ""
 "Cinder host on which the existing volume resides; takes the form: "
 "host@backend-name#pool"
 msgstr "雲硬碟存放在哪個 Cinder 主機；使用這個格式：host@backend-name#pool"
-
-msgid "Cinder volumes"
-msgstr "Cinder 雲硬碟"
 
 msgid "Cipher"
 msgstr "加密協定"
@@ -1768,64 +1590,11 @@ msgstr "點擊這裡以顯示單獨的主控臺"
 msgid "Close"
 msgstr "關閉"
 
-msgid "Cluster"
-msgstr "叢集"
-
-msgid "Cluster Count"
-msgstr "叢集計數"
-
-msgid "Cluster Creation Guide"
-msgstr "叢集建立精靈"
-
-msgid "Cluster Events"
-msgstr "叢集事件"
-
-msgid "Cluster Guide"
-msgstr "叢集精靈"
-
-msgid "Cluster Instances"
-msgstr "叢集雲實例"
-
 msgid "Cluster Name"
 msgstr "叢集名稱"
 
 msgid "Cluster Size"
 msgstr "叢集規模"
-
-msgid "Cluster Template"
-msgstr "叢集範本"
-
-#, python-format
-msgid "Cluster Template %s updated"
-msgstr "已更新叢集範本 %s"
-
-msgid "Cluster Template Name"
-msgstr "叢集範本名稱"
-
-#, python-format
-msgid "Cluster Template copy %s created"
-msgstr "已新增叢集範本複本 %s"
-
-msgid "Cluster Templates"
-msgstr "叢集範本"
-
-msgid "Cluster can be launched using existing Cluster Templates."
-msgstr "可用已存在的叢集範本來發動叢集。"
-
-msgid "Cluster configurations are not specified"
-msgstr "未指定叢集設置"
-
-msgid "Cluster provision steps"
-msgstr "叢集預備步驟"
-
-msgid "Cluster template creation failed"
-msgstr "叢集範本的建立失敗"
-
-msgid "Cluster template update failed"
-msgstr "更新叢集範本時失敗"
-
-msgid "Cluster type chosen"
-msgstr "已選擇的叢集類型"
 
 msgid "Clusters"
 msgstr "叢集"
@@ -1846,9 +1615,6 @@ msgctxt "Current status of a Database Backup"
 msgid "Completed"
 msgstr "已完成"
 
-msgid "Completed Successfully"
-msgstr "已成功地完成"
-
 msgid "Component"
 msgstr "元件"
 
@@ -1864,34 +1630,13 @@ msgstr "運算主機"
 msgid "Compute Services"
 msgstr "運算伺服器"
 
-msgid "Configuration"
-msgstr "設置"
-
 msgid "Configuration Drive"
 msgstr "設定檔硬碟"
-
-msgid "Configuration Value"
-msgstr "設置值"
-
-msgid "Configure"
-msgstr "設置"
-
-msgid "Configure Cluster"
-msgstr "設置叢集"
-
-msgid "Configure Cluster Template"
-msgstr "設置叢集範本"
-
-msgid "Configure Node Group Template"
-msgstr "設置節點群組範本"
 
 msgid ""
 "Configure OpenStack to write metadata to a special configuration drive that "
 "attaches to the instance when it boots."
 msgstr "設置 OpenStack 來寫入詮釋資料到一開機雲實例就會附加的設定檔硬碟。"
-
-msgid "Configure Template"
-msgstr "設置範本"
 
 msgid "Confirm Admin Password"
 msgstr "確認管理員密碼"
@@ -1978,9 +1723,6 @@ msgstr "內容"
 msgid "Control Location"
 msgstr "控制位置"
 
-msgid "Control access to instances of the node group."
-msgstr "存取節點群組的雲實例。"
-
 msgid ""
 "Control access to your instance via key pairs, security groups, and other "
 "mechanisms."
@@ -2003,9 +1745,6 @@ msgstr "已複製「%(orig)s」到「%(dest)s」裡的「%(new)s」。"
 msgid "Copy"
 msgstr "複製"
 
-msgid "Copy Cluster Template"
-msgstr "複製叢集範本"
-
 msgid "Copy Data"
 msgstr "複製資料"
 
@@ -2016,31 +1755,13 @@ msgstr "複製物件"
 msgid "Copy Object: %(object_name)s"
 msgstr "複製物件：%(object_name)s"
 
-msgid "Copy Template"
-msgstr "複製範本"
-
 #, python-format
 msgid "Cores(Available: %(avail)s, Requested: %(req)s)"
 msgstr "核心數（可用：%(avail)s、已請求：%(req)s）"
 
-msgid "Could not create"
-msgstr "不能新增"
-
-msgid "Could not create data source"
-msgstr "不能新增資料來源"
-
-msgid "Could not create job template"
-msgstr "不能新增工作範本"
-
 #, python-format
 msgid "Could not find default role \"%s\" in Keystone"
 msgstr "在 Keystone 裡找不到預設的角色「%s」"
-
-msgid "Could not launch job"
-msgstr "不能發動工作"
-
-msgid "Could not update data source"
-msgstr "不能更新資料來源"
 
 #, python-format
 msgid "Couldn't get current security group list for instance %s."
@@ -2048,9 +1769,6 @@ msgstr "不能為雲實例 %s 獲得目前的安全性群組列表。"
 
 msgid "Couldn't get security group list."
 msgstr "不能獲得安全性群組列表。"
-
-msgid "Count"
-msgstr "計數"
 
 msgctxt "Power state of an Instance"
 msgid "Crashed"
@@ -2069,18 +1787,12 @@ msgstr "新增映像檔"
 msgid "Create Backup"
 msgstr "新增備份"
 
-msgid "Create Cluster Template"
-msgstr "新增叢集範本"
-
 msgctxt "current status of stack"
 msgid "Create Complete"
 msgstr "新增完成"
 
 msgid "Create Container"
 msgstr "新增容器"
-
-msgid "Create Data Source"
-msgstr "新增資料來源"
 
 msgid "Create Domain"
 msgstr "新增地域"
@@ -2142,12 +1854,6 @@ msgctxt "current status of stack"
 msgid "Create In Progress"
 msgstr "正在新增"
 
-msgid "Create Job Binary"
-msgstr "新增工作程式"
-
-msgid "Create Job Template"
-msgstr "新增工作範本"
-
 msgid "Create Key Pair"
 msgstr "新增密鑰對"
 
@@ -2156,9 +1862,6 @@ msgstr "新增網路"
 
 msgid "Create Network (Quota exceeded)"
 msgstr "新增網路（超過配額）"
-
-msgid "Create Node Group Template"
-msgstr "新增節點群組範本"
 
 msgid "Create Port"
 msgstr "新增接口"
@@ -2202,9 +1905,6 @@ msgstr "新增子網路"
 msgid "Create Subnet (Quota exceeded)"
 msgstr "新增子網路（超過配額）"
 
-msgid "Create Template"
-msgstr "新增範本"
-
 msgid "Create Transfer"
 msgstr "新增轉移"
 
@@ -2246,15 +1946,6 @@ msgstr "新增雲硬碟類型加密"
 msgid "Create Volume Type Extra Spec"
 msgstr "新增雲硬碟類型的額外規格"
 
-msgid "Create a Cluster Template"
-msgstr "新增叢集範本"
-
-msgid "Create a Data Source with a specified name."
-msgstr "以指定名稱來新增資料來源。"
-
-msgid "Create a Master Node Group Template"
-msgstr "新增主管節點群組範本"
-
 msgid "Create a Metadata Namespace"
 msgstr "新增詮釋資料命名空間"
 
@@ -2285,20 +1976,8 @@ msgstr "新增雲硬碟轉移"
 msgid "Create a Volume Type"
 msgstr "新增新的雲硬碟類型"
 
-msgid "Create a Worker Node Group Template"
-msgstr "新增從屬節點群組範本"
-
-msgid "Create a data source"
-msgstr "新增資料來源"
-
 msgid "Create a firewall with selected routers."
 msgstr "以選擇的路由器新增防火牆"
-
-msgid "Create a job template"
-msgstr "新增工作範本"
-
-msgid "Create a job template with a specified name."
-msgstr "以指定的名稱新增工作範本。"
 
 msgid ""
 "Create a monitor template.\n"
@@ -2344,9 +2023,6 @@ msgstr "以選擇的規則新增政策。"
 msgid "Create a project to organize users."
 msgstr "新增專案以組織用戶。"
 
-msgid "Create a script to be uploaded dynamically"
-msgstr "新增腳本來動態上傳"
-
 msgid ""
 "Create a subnet associated with the network. Advanced configuration is "
 "available by clicking on the \"Subnet Details\" tab."
@@ -2366,15 +2042,6 @@ msgstr ""
 msgid "Create pseudo-folder in container %(container_name)s"
 msgstr "在容器 %(container_name)s 裡新增虛擬資料夾"
 
-msgid "Create security group for this Node Group."
-msgstr "為此節點群組新增安全性群組。"
-
-msgid "Create time"
-msgstr "新增時間"
-
-msgid "Create volumes in this availability zone."
-msgstr "在此可用區域新增雲硬碟。"
-
 msgid "Created"
 msgstr "已新增"
 
@@ -2389,14 +2056,6 @@ msgstr "已新增"
 msgctxt "Current status of a VPN Service"
 msgid "Created"
 msgstr "已新增"
-
-#, python-format
-msgid "Created Cluster Template %s"
-msgstr "已新增叢集範本 %s"
-
-#, python-format
-msgid "Created Node Group Template %s"
-msgstr "已新增節點群組範本 %s"
 
 #, python-format
 msgid "Created extra spec \"%s\"."
@@ -2429,9 +2088,6 @@ msgstr "已新增額外的規格「%s」。"
 #, python-format
 msgid "Created subnet \"%s\"."
 msgstr "已新增子網路「%s」。"
-
-msgid "Created time"
-msgstr "新增於"
 
 msgid "Created volume transfer."
 msgstr "已新增雲硬碟轉移。"
@@ -2501,14 +2157,8 @@ msgstr "目前容量（GB）"
 msgid "Current Task"
 msgstr "目前任務"
 
-msgid "Current choice:"
-msgstr "目前的選擇："
-
 msgid "Current password"
 msgstr "目前密碼"
-
-msgid "Current type:"
-msgstr "目前類型："
 
 msgid "Custom ICMP Rule"
 msgstr "自訂 ICMP 規則"
@@ -2584,61 +2234,6 @@ msgstr "死亡節點偵測逾期必須大於死亡節點偵測間隔"
 msgid "Daily Usage Report"
 msgstr "日使用量報告"
 
-msgid "Data Processing"
-msgstr "資料處理"
-
-msgid "Data Processing Guides"
-msgstr "資料處理精靈"
-
-msgid "Data Processing Plugin Details"
-msgstr "資料處理插件詳細資訊"
-
-msgid "Data Processing Plugins"
-msgstr "資料處理插件"
-
-msgid "Data Processing internal database"
-msgstr "資料處理內部資料庫"
-
-msgid ""
-"Data Processing provides different storage location options. You may choose "
-"Ephemeral Drive or a Cinder Volume to be attached to instances."
-msgstr ""
-"資料處理提供不同儲存空間位置的選項。您可能要選擇暫時性硬碟或 Cinder 雲硬碟來"
-"附加到雲實例。"
-
-msgid "Data Source"
-msgstr "資料來源"
-
-msgid "Data Source Type"
-msgstr "資料來源類型"
-
-msgid "Data Sources"
-msgstr "資料來源"
-
-msgid ""
-"Data Sources are what your\n"
-"                            job uses for input and output.  Depending on the "
-"type\n"
-"                            of job you will be running, you may need to "
-"define one\n"
-"                            or more data sources.  You can create multiple "
-"data\n"
-"                            sources by repeating this step.\n"
-"                        "
-msgstr ""
-"資料來源是用來輸出及輸入您的工作的。\n"
-"                            依您想執行的工作類型不同，\n"
-"                            您可能想要定義一個或\n"
-"                            多個資料來源。您可以重覆這一步來\n"
-"                            新增多個資料來源。\n"
-"                        "
-
-msgid "Data source created"
-msgstr "已新增資料來源"
-
-msgid "Data source updated"
-msgstr "已更新資料來源"
-
 msgid "Database"
 msgstr "資料庫"
 
@@ -2693,31 +2288,11 @@ msgstr "解鎖密碼"
 msgid "Default Quotas"
 msgstr "預設配額"
 
-msgid "Default Value"
-msgstr "預設值"
-
 msgid "Default quotas updated."
 msgstr "已更新預設配額。"
 
 msgid "Defaults"
 msgstr "預設值"
-
-msgid ""
-"Define your Job Template.\n"
-"                        This is where you choose the type of job that you\n"
-"                        want to run (Pig, Java Action, Spark, etc) and "
-"choose\n"
-"                        or upload the files necessary to run it.  The "
-"inputs\n"
-"                        and outputs will be defined later.\n"
-"                    "
-msgstr ""
-"定義您工作的範本。\n"
-"                        這可以選擇您所想要執行的工作類型\n"
-"                        （Pig、Java Action 或 Spark 等等）\n"
-"                        並選擇或上傳所需的資料來執行。\n"
-"                        將在稍後定義輸入及輸出。\n"
-"                    "
 
 msgid "Delay"
 msgstr "延遲"
@@ -2747,10 +2322,6 @@ msgstr[0] "刪除容器"
 msgid "Delete DHCP Agent"
 msgid_plural "Delete DHCP Agents"
 msgstr[0] "刪除 DHCP 媒介"
-
-msgid "Delete Data Source"
-msgid_plural "Delete Data Sources"
-msgstr[0] "刪除資料來源"
 
 msgid "Delete Database"
 msgid_plural "Delete Databases"
@@ -2815,18 +2386,6 @@ msgstr "正在刪除"
 msgid "Delete Interface"
 msgid_plural "Delete Interfaces"
 msgstr[0] "刪除網路卡"
-
-msgid "Delete Job"
-msgid_plural "Delete Jobs"
-msgstr[0] "刪除工作"
-
-msgid "Delete Job Binary"
-msgid_plural "Delete Job Binaries"
-msgstr[0] "刪除工作程式"
-
-msgid "Delete Job Template"
-msgid_plural "Delete Job Templates"
-msgstr[0] "刪除工作範本"
 
 msgid "Delete Key Pair"
 msgid_plural "Delete Key Pairs"
@@ -2904,10 +2463,6 @@ msgid "Delete Subnet"
 msgid_plural "Delete Subnets"
 msgstr[0] "刪除子網路"
 
-msgid "Delete Template"
-msgid_plural "Delete Templates"
-msgstr[0] "刪除範本"
-
 msgid "Delete User"
 msgid_plural "Delete Users"
 msgstr[0] "刪除用戶"
@@ -2950,10 +2505,6 @@ msgid "Deleted Backup"
 msgid_plural "Deleted Backups"
 msgstr[0] "已刪除備份"
 
-msgid "Deleted Cluster"
-msgid_plural "Deleted Clusters"
-msgstr[0] "已刪除叢集"
-
 msgid "Deleted Container"
 msgid_plural "Deleted Containers"
 msgstr[0] "已刪除容器"
@@ -2961,10 +2512,6 @@ msgstr[0] "已刪除容器"
 msgid "Deleted DHCP Agent"
 msgid_plural "Deleted DHCP Agents"
 msgstr[0] "已刪除 DHCP 媒介"
-
-msgid "Deleted Data Source"
-msgid_plural "Deleted Data Sources"
-msgstr[0] "已刪除資料來源"
 
 msgid "Deleted Database"
 msgid_plural "Deleted Databases"
@@ -3001,18 +2548,6 @@ msgstr[0] "已刪除映像檔"
 msgid "Deleted Interface"
 msgid_plural "Deleted Interfaces"
 msgstr[0] "已刪除網路卡"
-
-msgid "Deleted Job"
-msgid_plural "Deleted Jobs"
-msgstr[0] "已刪除工作"
-
-msgid "Deleted Job Binary"
-msgid_plural "Deleted Job Binaries"
-msgstr[0] "已刪除工作程式"
-
-msgid "Deleted Job Template"
-msgid_plural "Deleted Jobs Templates"
-msgstr[0] "已刪除工作範本"
 
 msgid "Deleted Key Pair"
 msgid_plural "Deleted Key Pairs"
@@ -3073,10 +2608,6 @@ msgstr[0] "已刪除靜態路由"
 msgid "Deleted Subnet"
 msgid_plural "Deleted Subnets"
 msgstr[0] "已刪除子網路"
-
-msgid "Deleted Template"
-msgid_plural "Deleted Templates"
-msgstr[0] "已刪除範本"
 
 msgid "Deleted User"
 msgid_plural "Deleted Users"
@@ -3361,13 +2892,6 @@ msgstr ""
 msgid "Domains:"
 msgstr "地域："
 
-msgid "Done"
-msgstr "完成"
-
-msgctxt "Current status of a Job"
-msgid "Done with Error"
-msgstr "有錯誤地完成"
-
 msgid "Down"
 msgstr "離線"
 
@@ -3419,24 +2943,15 @@ msgstr "下載 CSV 摘要"
 msgid "Download EC2 Credentials"
 msgstr "下載 EC2 格式的憑證"
 
-msgid "Download Job Binary"
-msgstr "下載工作程式"
-
 msgid "Download Key Pair"
 msgstr "下載密鑰對"
 
 msgid "Download OpenStack RC File"
 msgstr "下載 OpenStack 用的 RC 檔"
 
-msgid "Download job binary"
-msgstr "下載工作程式"
-
 #, python-format
 msgid "Download key pair &quot;%(keypair_name)s&quot;"
 msgstr "下載密鑰對「%(keypair_name)s」"
-
-msgid "Duration"
-msgstr "持續時間"
 
 #, python-format
 msgid "Duration of instance type %s (openstack flavor)"
@@ -3454,9 +2969,6 @@ msgstr "EC2 網址"
 msgid "Edit"
 msgstr "編輯"
 
-msgid "Edit Cluster Template"
-msgstr "編輯叢集範本"
-
 msgid "Edit Connection"
 msgstr "編輯連線"
 
@@ -3465,9 +2977,6 @@ msgstr "編輯規範用戶"
 
 msgid "Edit Consumer of QoS Spec"
 msgstr "編輯 QoS 規格規範的對象"
-
-msgid "Edit Data Source"
-msgstr "編輯資料來源"
 
 msgid "Edit Domain"
 msgstr "編輯地域"
@@ -3503,14 +3012,8 @@ msgstr "編輯 IPSec 網站連線"
 msgid "Edit Image"
 msgstr "編輯映像檔"
 
-msgid "Edit Image Tags"
-msgstr "編輯映像檔標籤"
-
 msgid "Edit Instance"
 msgstr "編輯雲實例"
-
-msgid "Edit Job Binary"
-msgstr "編輯工作程式"
 
 msgid "Edit Member"
 msgstr "編輯成員"
@@ -3520,9 +3023,6 @@ msgstr "編輯監視器"
 
 msgid "Edit Network"
 msgstr "編輯網路"
-
-msgid "Edit Node Group Template"
-msgstr "編輯節點群組範本"
 
 msgid "Edit Object"
 msgstr "編輯物件"
@@ -3571,9 +3071,6 @@ msgstr "編輯規格的值："
 
 msgid "Edit Subnet"
 msgstr "編輯子網路"
-
-msgid "Edit Tags"
-msgstr "編輯標籤"
 
 msgid "Edit Template"
 msgstr "編輯範本"
@@ -3638,9 +3135,6 @@ msgid "Enable Service"
 msgid_plural "Enable Services"
 msgstr[0] "啟用伺服器"
 
-msgid "Enable Swift Paths"
-msgstr "啟用 Swift 路徑"
-
 msgid "Enable User"
 msgid_plural "Enable Users"
 msgstr[0] "啟用用戶"
@@ -3682,9 +3176,6 @@ msgstr "加密"
 msgid "Encryption algorithm"
 msgstr "加密演算法"
 
-msgid "Ended"
-msgstr "結束於"
-
 msgid "Energy (Kwapi)"
 msgstr "能源（Kwapi）"
 
@@ -3713,15 +3204,6 @@ msgstr ""
 "輸入在 1 到 65535 間的整數值。會使用同樣的埠口於所有所選的成員並可以在稍後更"
 "改。"
 
-msgid "Enter any custom configuration required for your job's execution."
-msgstr "為您的工作執行任務輸入任何需要的自訂設置。"
-
-msgid "Enter the URL for the file"
-msgstr "為檔案輸入網址"
-
-msgid "Enter the username and password required to access that file"
-msgstr "輸入需要的用戶名稱及密碼來存取檔案"
-
 msgid "Environment Data"
 msgstr "環境資料"
 
@@ -3736,9 +3218,6 @@ msgstr "暫時性硬碟"
 
 msgid "Ephemeral Disk (GB)"
 msgstr "暫時性硬碟（GB）"
-
-msgid "Ephemeral drive"
-msgstr "暫時性硬碟"
 
 msgid "Equal to or greater than 60"
 msgstr "大於等於 60"
@@ -3807,9 +3286,6 @@ msgstr "錯誤"
 msgid "Error Deleting"
 msgstr "刪除時出錯"
 
-msgid "Error Details"
-msgstr "錯誤詳細資訊"
-
 #, python-format
 msgid "Error Downloading RC File: %s"
 msgstr "下載 RC 檔錯誤：%s"
@@ -3877,9 +3353,6 @@ msgstr "撤離主機"
 msgid ""
 "Evacuate the servers from the selected down host to an active target host."
 msgstr "從選擇的離線主機撤離伺服器到使用中的目標主機。"
-
-msgid "Event time"
-msgstr "事件時間"
 
 msgid "Events"
 msgstr "事件"
@@ -3964,18 +3437,11 @@ msgstr "預計但是不能為路由器「%(router_id)s」找到對外網路「%(
 msgid "Extra Specs"
 msgstr "額外規格"
 
-msgid "Failed"
-msgstr "已失敗"
-
 msgctxt "Current status of a Database Backup"
 msgid "Failed"
 msgstr "已失敗"
 
 msgctxt "Current status of a Database Instance"
-msgid "Failed"
-msgstr "已失敗"
-
-msgctxt "Current status of a Job"
 msgid "Failed"
 msgstr "已失敗"
 
@@ -4080,12 +3546,6 @@ msgstr "撤離主機時失敗：%s。"
 #, python-format
 msgid "Failed to evacuate instances: %s"
 msgstr "撤離雲實例時失敗：%s"
-
-msgid "Failed to fetch internal binary list"
-msgstr "獲得內部程式列表時失敗"
-
-msgid "Failed to get list of internal binaries."
-msgstr "獲得內部程式列表時失敗。"
 
 #, python-format
 msgid "Failed to get network list %s"
@@ -4218,9 +3678,6 @@ msgstr "更新防火牆 %(name)s 時失敗：%(reason)s"
 msgid "Failed to update health monitor %s"
 msgstr "更新健康監視器 %s 時失敗"
 
-msgid "Failed to update image."
-msgstr "更新映像檔時失敗。"
-
 #, python-format
 msgid "Failed to update member %s"
 msgstr "更新成員 %s 時失敗"
@@ -4304,18 +3761,6 @@ msgstr "防火牆規則"
 msgid "Firewalls"
 msgstr "防火牆"
 
-msgid ""
-"First, select which type of job that\n"
-"                            you want to run.  This choice will determine "
-"which\n"
-"                            other steps are required\n"
-"                        "
-msgstr ""
-"首先，選擇您想執行的工作類型。\n"
-"                            這個選擇將會決定\n"
-"                            其他需要的步驟\n"
-"                        "
-
 msgid "Fixed IP"
 msgstr "固定 IP"
 
@@ -4360,9 +3805,6 @@ msgstr "虛擬硬體樣板資訊"
 msgid "Flavor Name"
 msgstr "虛擬硬體樣板名稱"
 
-msgid "Flavor is not specified"
-msgstr "未指定虛擬硬體樣板"
-
 msgid "Flavors"
 msgstr "虛擬硬體樣板"
 
@@ -4376,9 +3818,6 @@ msgstr ""
 msgid "Floating IP"
 msgstr "浮動 IP"
 
-msgid "Floating IP Pool"
-msgstr "浮動 IP 倉庫"
-
 msgid "Floating IP:"
 msgstr "浮動 IP："
 
@@ -4391,35 +3830,9 @@ msgstr "浮動 IP："
 msgid "Folder created successfully."
 msgstr "已成功新增資料夾。"
 
-msgid ""
-"For Data Processing internal job binaries, you may choose from the following:"
-msgstr "給資料處理用的內部工作程式，您可以從以下選擇："
-
 #, python-format
 msgid "For GRE networks, valid tunnel IDs are %(min)s through %(max)s."
 msgstr "在 GRE 網路裡，有效的通道識別號從 %(min)s 到 %(max)s。"
-
-msgid ""
-"For MapReduce or Java Action jobs, \"mains\" are not applicable.  You are "
-"required to add one\n"
-"  or more \"libs\" for these jobs."
-msgstr ""
-"對於 MapReduce 或 Java Action 工作，不會用到「主程式」。您需要為此工作從「程"
-"式庫」\n"
-"加入一個或多個程式庫。"
-
-msgid "For Object Store job binaries, you must:"
-msgstr "給物件式儲存空間用的工作程式，您必須："
-
-msgid ""
-"For Shell Action jobs, any required files beyond the main script may be "
-"added as \"libraries\"."
-msgstr ""
-"對於 Shell Action 的工作，任何在主腳本以外的所需的檔案要以「程式庫」來加入。"
-
-msgid ""
-"For Spark and Shell jobs, only a main is required, \"libs\" are optional."
-msgstr "對於 Spark 及 Shell 工作，只需要主程式，「程式庫」不是必要的。"
 
 msgid ""
 "For TCP and UDP rules you may choose to open either a single port or a range "
@@ -4511,9 +3924,6 @@ msgstr "閘道 IP 和 IP 版本不一致。"
 msgid "Gateway interface is added"
 msgstr "已加入閘道網路卡"
 
-msgid "General Info"
-msgstr "一般資訊"
-
 msgid "Glance"
 msgstr "Glance"
 
@@ -4557,20 +3967,8 @@ msgid ""
 "Edit the group to add users."
 msgstr "群組是用來管理權限和一次分配角色給多個用戶的。編輯群組來加入用戶。"
 
-msgid "Guided Cluster Creation"
-msgstr "引導叢集建立"
-
-msgid "Guided Job Execution"
-msgstr "引導工作執行任務"
-
-msgid "Guides"
-msgstr "精靈"
-
 msgid "HA mode"
 msgstr "高可用性模式"
-
-msgid "HDFS placement"
-msgstr "HDFS 放置"
 
 msgid "HTTP"
 msgstr "HTTP"
@@ -4609,14 +4007,8 @@ msgstr "已成功更新健康監視器 %s。"
 msgid "Help"
 msgstr "幫助"
 
-msgid "Hide full configuration"
-msgstr "隱藏完整的設置"
-
 msgid "High Availability Mode"
 msgstr "高可用性模式"
-
-msgid "Hive"
-msgstr "Hive"
 
 msgid "Home"
 msgstr "首頁"
@@ -4844,21 +4236,6 @@ msgstr ""
 "若不提供容器名稱，將提供您預設的容器命名 volumebackups。備份將擁有與雲硬碟原"
 "本容量相同的容量。"
 
-msgid ""
-"If selected, instances of a cluster will be automatically configured during "
-"creation. Otherwise you should manually specify configuration values"
-msgstr ""
-"如果選擇的話，叢集的 instance 會在建立期間自動被配置。不然的話，您應該手動指"
-"定配置值"
-
-msgid ""
-"If selected, instances of a node group will be automatically configured "
-"during cluster creation. Otherwise you should manually specify configuration "
-"values."
-msgstr ""
-"若選擇了，節點群組的雲實例將會在群組建立期間自動設置。不然您應該手動指定設置"
-"值。"
-
 msgid "Image"
 msgstr "映像檔"
 
@@ -4891,17 +4268,6 @@ msgstr "映像檔名稱 ="
 msgctxt "Task status of an Instance"
 msgid "Image Pending Upload"
 msgstr "等候映像檔上傳"
-
-msgid "Image Registry"
-msgstr "映像檔註冊"
-
-msgid ""
-"Image Registry is used to provide additional information about images for "
-"Data Processing."
-msgstr "映像檔註冊用於提供資料處理的映像檔額外資訊。"
-
-msgid "Image Registry tool:"
-msgstr "映像檔註冊工具："
 
 msgctxt "Task status of an Instance"
 msgid "Image Snapshot Pending"
@@ -4951,9 +4317,6 @@ msgid ""
 "In addition, you can create an external network or a shared network by "
 "checking the corresponding checkbox."
 msgstr "另外，您可以勾選對應的空格以新增對外網路或分享的網路。"
-
-msgid "In progress"
-msgstr "進行中"
 
 msgctxt "Current status of a Volume"
 msgid "In-use"
@@ -5028,12 +4391,6 @@ msgstr "已注入的資料路徑位元組"
 msgid "Injected Files"
 msgstr "已注入的資料"
 
-msgid "Input"
-msgstr "輸入"
-
-msgid "Input Data Source"
-msgstr "輸入資料來源"
-
 msgid "Input must be in CIDR format"
 msgstr "必須以 CIDR 格式輸入"
 
@@ -5085,17 +4442,11 @@ msgstr "雲實例的安全性群組"
 msgid "Instance Snapshot"
 msgstr "雲實例即時存檔"
 
-msgid "Instance and attached volumes will be created on the same physical host"
-msgstr "雲實例及附加的雲硬碟將在相同的實體主機上新增"
-
 msgid "Instance to be associated"
 msgstr "欲聯結的雲實例"
 
 msgid "Instances"
 msgstr "雲實例"
-
-msgid "Instances Count"
-msgstr "雲實例計數"
 
 msgid "Instances Per Shard"
 msgstr "每個碎片的雲實例"
@@ -5118,26 +4469,14 @@ msgstr "權限的等級不足以檢視用戶資訊。"
 msgid "Intelligent Platform Management Interface (IPMI)"
 msgstr "智慧平臺管理介面（IPMI）"
 
-msgid "Interface Arguments"
-msgstr "網路卡輸入參數"
-
 msgid "Interface added"
 msgstr "已加入網路卡"
 
 msgid "Interfaces"
 msgstr "網路卡"
 
-msgid "Internal Binary"
-msgstr "內部程式"
-
-msgid "Internal IP"
-msgstr "內部 IP"
-
 msgid "Internal Interface"
 msgstr "內部網路卡"
-
-msgid "Internal binary"
-msgstr "內部程式"
 
 msgid "Invalid date format: Using today as default."
 msgstr "無效的日期格式：預設使用今日。"
@@ -5160,66 +4499,6 @@ msgstr "共用資料屬於"
 
 msgid "Items Per Page"
 msgstr "每頁的項目"
-
-msgid "Java"
-msgstr "Java"
-
-msgid "Java Action"
-msgstr "Java Action"
-
-msgid "Java Opts"
-msgstr "Java 選項"
-
-msgid "Job"
-msgstr "工作"
-
-msgid "Job Binaries"
-msgstr "工作程式"
-
-msgid "Job Configuration"
-msgstr "工作設置"
-
-msgid "Job Execution Guide"
-msgstr "工作執行任務精靈"
-
-msgid "Job Execution ID"
-msgstr "工作執行任務識別號"
-
-msgid "Job Guide"
-msgstr "工作精靈"
-
-msgid "Job Template"
-msgstr "工作範本"
-
-msgid "Job Templates"
-msgstr "工作範本"
-
-msgid "Job Type"
-msgstr "工作類型"
-
-msgid "Job args"
-msgstr "工作輸入參數"
-
-msgid "Job configs"
-msgstr "工作設置"
-
-msgid "Job created"
-msgstr "已新增工作"
-
-msgid "Job launched"
-msgstr "已發動工作"
-
-msgid "Job params"
-msgstr "工作參數"
-
-msgid "Job template:"
-msgstr "工作範本："
-
-msgid "Job type chosen"
-msgstr "已選擇的工作類型"
-
-msgid "Jobs"
-msgstr "工作"
 
 msgid "Kernel"
 msgstr "核心"
@@ -5269,13 +4548,6 @@ msgstr ""
 
 msgid "Key-Value Pairs"
 msgstr "鍵值對"
-
-msgid "Keypair"
-msgstr "密鑰對"
-
-msgctxt "Current status of a Job"
-msgid "Killed"
-msgstr "已中斷"
 
 msgctxt "Current status of an Image"
 msgid "Killed"
@@ -5336,24 +4608,11 @@ msgstr "發動雲實例"
 msgid "Launch Instance (Quota exceeded)"
 msgstr "發動雲實例（超過配額）"
 
-msgid "Launch Job"
-msgid_plural "Launch Jobs"
-msgstr[0] "發動工作"
-
-msgid "Launch On Existing Cluster"
-msgstr "發動於已存在的叢集"
-
-msgid "Launch On New Cluster"
-msgstr "發動於新的叢集"
-
 msgid "Launch Parameters"
 msgstr "發動參數"
 
 msgid "Launch Stack"
 msgstr "發動機櫃"
-
-msgid "Launch a Cluster"
-msgstr "發動叢集"
 
 msgid "Launch as Instance"
 msgstr "發動成雲實例"
@@ -5367,46 +4626,9 @@ msgstr "以這些網路發動雲實例"
 msgid "Launch instance with this policy profile"
 msgstr "以這個政策基本資料發動雲實例"
 
-msgid "Launch instances in these security groups."
-msgstr "用這些安全性群組來發動雲實例。"
-
-msgid "Launch instances in this availability zone."
-msgstr "在此可用區域發動雲實例。"
-
-msgid "Launch job"
-msgstr "發動工作"
-
-msgid "Launch the given job template on a cluster."
-msgstr "在叢集上發動給定的工作範本。"
-
-msgid ""
-"Launch your job.  When\n"
-"                        launching, you may need to choose your input and\n"
-"                        output data sources.  This is where you would also\n"
-"                        add any special configuration values, parameters,\n"
-"                        or arguments that you need to pass along\n"
-"                        to your job.\n"
-"                        "
-msgstr ""
-"發動您的工作。\n"
-"                        當發動時，您可能需要選擇\n"
-"                        您的輸入及輸出資料來源。\n"
-"                        您也可以在這加入任何\n"
-"                        您想丟給您工作的專用設置、\n"
-"                        參數或自訂參數。\n"
-"                        "
-
 #, python-format
 msgid "Launched %(count)s named \"%(name)s\"."
 msgstr "已發動名為「%(name)s」%(count)s 個。"
-
-#, python-format
-msgid "Launched Cluster %s"
-msgstr "發動叢集 %s"
-
-msgid "Launched Job"
-msgid_plural "Launched Jobs"
-msgstr[0] "已發動工作"
 
 #, python-format
 msgid "Launched cluster \"%s\""
@@ -5426,9 +4648,6 @@ msgstr "最少連線"
 
 msgid "Length of Injected File Path"
 msgstr "已注入的資料路徑長度"
-
-msgid "Libs"
-msgstr "程式庫"
 
 msgid "Lifetime Units"
 msgstr "有效期單位"
@@ -5494,9 +4713,6 @@ msgstr "當地儲存容量（總計）"
 msgid "Local Storage (used)"
 msgstr "當地儲存容量（使用中）"
 
-msgid "Location"
-msgstr "位置"
-
 msgid "Lock Instance"
 msgid_plural "Lock Instances"
 msgstr[0] "鎖住雲實例"
@@ -5531,12 +4747,6 @@ msgstr "最大傳輸單元"
 
 msgid "MacVTap"
 msgstr "MacVTap"
-
-msgid "Main Class"
-msgstr "主類別"
-
-msgid "Mains"
-msgstr "主程式"
 
 msgid "Maintenance"
 msgstr "維護"
@@ -5610,29 +4820,14 @@ msgstr "管理雲硬碟"
 msgid "Management Console"
 msgstr "管理主控臺"
 
-msgid "Management IP"
-msgstr "IP 管理"
-
 msgid "Manual"
 msgstr "手動"
-
-msgid "MapReduce"
-msgstr "MapReduce"
 
 msgid "Mapped Fixed IP Address"
 msgstr "已映射的固字 IP 位址"
 
-msgid "Mapper"
-msgstr "Mapper"
-
-msgid "Mapping Type"
-msgstr "映射類型"
-
 msgid "Master Instance Name"
 msgstr "主管雲實例名稱"
-
-msgid "Master Node Group Template:"
-msgstr "主管節點群組範本："
 
 msgid "Max Retries"
 msgstr "最大重試數"
@@ -5805,11 +5000,6 @@ msgstr "為您的用戶更改儀表板設定。"
 msgid "Modify name and description of a volume."
 msgstr "更改雲硬碟的名稱及描述。"
 
-msgid ""
-"Modify the configuration so that swift URLs can be dereferenced through HDFS "
-"at runtime."
-msgstr "更改設置以使 Swift 網址可以在執行中經由 HDFS 反參照。"
-
 msgid "Modify the name and description of a snapshot."
 msgstr "更改即時存檔的名稱和描述。"
 
@@ -5861,13 +5051,6 @@ msgstr "給已存在的雲硬碟的名稱或其他認證者"
 #, python-format
 msgid "Name: %(name)s ID: %(uuid)s"
 msgstr "名稱：%(name)s 識別號：%(uuid)s"
-
-#, python-format
-msgid "Name: %(node_group_name)s"
-msgstr "名稱：%(node_group_name)s"
-
-msgid "Named Parameter"
-msgstr "命名參數"
 
 msgid "Namespace"
 msgstr "命名空間"
@@ -5984,9 +5167,6 @@ msgstr "網路"
 msgid "Neutron"
 msgstr "Neutron"
 
-msgid "Neutron Management Network"
-msgstr "Neutron 網路管理"
-
 msgid "Never"
 msgstr "永不"
 
@@ -6047,47 +5227,14 @@ msgstr "下一跳點"
 msgid "Next&nbsp;&raquo;"
 msgstr "下一頁&nbsp;&raquo;"
 
-msgid ""
-"Next, you need to define the different\n"
-"                        types of machines in your cluster.  This is done by\n"
-"                        defining a Node Group Template for each type of\n"
-"                        machine.  A very common case is where you\n"
-"                        need to have one or more machines running a \"master"
-"\"\n"
-"                        set of processes while another set of machines need\n"
-"                        to be running the \"worker\" processes.  Here,\n"
-"                        you will define the Node Group Template for your\n"
-"                        \"master\" node(s).\n"
-"                     "
-msgstr ""
-"下一步，您需要定義您叢集裡\n"
-"                        不同類型的機器。這會\n"
-"                        定義節點群組範本給每一種\n"
-"                        機器類型。常見的情況\n"
-"                        是您會需要一個或多個機器\n"
-"                        組合執行「主管」處理行程，\n"
-"                        而其他機器組合執行「從屬」\n"
-"                        處理行程。在此，您將為您的\n"
-"                        「主管」節點定義節點群組範本。\n"
-"                        "
-
 msgid "No"
 msgstr "否"
-
-msgid "No Cluster Template Created"
-msgstr "沒有已建立的叢集範本"
 
 msgid "No Host selected."
 msgstr "未選擇主機。"
 
 msgid "No Hosts found."
 msgstr "找不到主機。"
-
-msgid "No Images Available"
-msgstr "無可用的映像檔"
-
-msgid "No Master Node Group Template Created"
-msgstr "沒有已建立的主管節點群組範本"
 
 msgid "No Ports available"
 msgstr "無可用的接口"
@@ -6099,20 +5246,11 @@ msgctxt "Power state of an Instance"
 msgid "No State"
 msgstr "沒有狀態"
 
-msgid "No Templates Available"
-msgstr "無可用的範本"
-
-msgid "No Worker Node Group Template Created"
-msgstr "沒有已建立的從屬節點群組範本"
-
 msgid "No associations defined."
 msgstr "無已定義的聯結。"
 
 msgid "No attached device"
 msgstr "無附加的裝置"
-
-msgid "No availability zone specified"
-msgstr "未指定可用區域"
 
 msgid "No availability zones found"
 msgstr "找不到可用區域"
@@ -6125,9 +5263,6 @@ msgstr "無可用的專案"
 
 msgid "No backups available"
 msgstr "無可用的備份"
-
-msgid "No configurations"
-msgstr "沒有設置"
 
 msgid "No flavors available"
 msgstr "無可用的虛擬硬體樣板"
@@ -6156,26 +5291,14 @@ msgstr "找不到主機。"
 msgid "No images available"
 msgstr "無可用的映像檔"
 
-msgid "No images available."
-msgstr "無可用的映像檔。"
-
-msgid "No info available"
-msgstr "無可用資訊"
-
 msgid "No input was provided for the namespace content."
 msgstr "未輸入命名空間的內容。"
 
 msgid "No instances available"
 msgstr "無可用的雲實例"
 
-msgid "No job template created"
-msgstr "沒有已建立的工作範本"
-
 msgid "No key pairs available"
 msgstr "無可用的密鑰對"
-
-msgid "No keypair"
-msgstr "無密鑰對"
 
 msgid "No networks available"
 msgstr "無可用的網路"
@@ -6197,9 +5320,6 @@ msgstr "無其他主機可用。"
 
 msgid "No other volume types available"
 msgstr "無可用的其他雲硬碟類型"
-
-msgid "No plugin chosen"
-msgstr "沒有選擇插件"
 
 msgid "No ports available"
 msgstr "無可用的接口"
@@ -6242,9 +5362,6 @@ msgstr "無來源，空的雲硬碟"
 msgid "No subnets available"
 msgstr "無可用的子網路"
 
-msgid "No type chosen"
-msgstr "沒有選擇類型"
-
 msgid "No users found."
 msgstr "找不到任何用戶。"
 
@@ -6262,45 +5379,6 @@ msgstr "無已附加的雲硬碟。"
 
 msgid "No volumes available"
 msgstr "無可用的雲硬碟"
-
-msgid "Node Configurations"
-msgstr "節點設置"
-
-msgid "Node Group"
-msgstr "節點群組"
-
-#, python-format
-msgid "Node Group Template %s updated"
-msgstr "已更新節點群組範本 %s"
-
-#, python-format
-msgid "Node Group Template copy %s created"
-msgstr "已新增節點群組範本複本 %s"
-
-msgid "Node Group Templates"
-msgstr "節點群組範本"
-
-#, python-format
-msgid "Node Group: %(node_group_name)s"
-msgstr "節點群組：%(node_group_name)s"
-
-msgid "Node Groups"
-msgstr "節點群組"
-
-msgid "Node Processes"
-msgstr "節點處理行程"
-
-msgid "Node configurations are not specified"
-msgstr "未指定節點設置"
-
-msgid "Node group cluster"
-msgstr "節點群組叢集"
-
-msgid "Node processes are not specified"
-msgstr "未指定節點處理行程"
-
-msgid "Nodes Count"
-msgstr "節點計數"
 
 msgid "Non-Members"
 msgstr "非成員"
@@ -6342,38 +5420,11 @@ msgstr ""
 msgid "Nova"
 msgstr "Nova"
 
-msgid ""
-"Now you need to set the layout of your\n"
-"                        cluster.  By\n"
-"                        creating a Cluster Template, you will be choosing "
-"the\n"
-"                        number of instances of each Node Group Template "
-"that\n"
-"                        will appear in your cluster.  Additionally,\n"
-"                        you will have a chance to set any cluster-specific\n"
-"                        configuration items in the additional tabs on the\n"
-"                        create Cluster Template form."
-msgstr ""
-"現在，您需要設定您叢集的布局。\n"
-"                        利用新增叢集範本的時候，\n"
-"                        您將要針對節點群組範本\n"
-"                        選擇要套用的雲實例的數量。\n"
-"                        另外，您將有機會在\n"
-"                        新增叢集範本的表單額外的\n"
-"                        標籤裡設定叢集專用的\n"
-"                        設定項目。"
-
-msgid "Number"
-msgstr "數字"
-
 msgid "Number of API requests against swift"
 msgstr "針對 Swift 的 API 請求數量"
 
 msgid "Number of Instances"
 msgstr "雲實例數量"
-
-msgid "Number of Nodes"
-msgstr "節點數量"
 
 msgid "Number of Shards"
 msgstr "碎片數量"
@@ -6386,9 +5437,6 @@ msgstr "虛擬處理器數量"
 
 msgid "Number of Volumes"
 msgstr "雲硬碟數量"
-
-msgid "Number of clusters to launch."
-msgstr "要發動的叢集數量。"
 
 msgid "Number of containers"
 msgstr "容器數量"
@@ -6507,17 +5555,11 @@ msgstr "當一釋放浮動 IP，不能保證可以再分配到相同 IP。"
 msgid "Only definitions in raw JSON format are supported."
 msgstr "只支援原始 JSON 格式的定義。"
 
-msgid "Oozie Job ID"
-msgstr "Oozie 工作識別號"
-
 msgid "Open Port"
 msgstr "開放埠口"
 
 msgid "Open Port/Port Range:"
 msgstr "開放埠口/埠口範圍："
-
-msgid "OpenStack Flavor"
-msgstr "OpenStack 虛擬硬體樣板"
 
 msgid "Optional Backup Description"
 msgstr "選填的備份描述"
@@ -6561,12 +5603,6 @@ msgstr "其他協定"
 #, python-format
 msgid "Out of range float values are not JSON compliant: %r"
 msgstr "超出範圍的浮點數不符合 JSON 規範：%r"
-
-msgid "Output"
-msgstr "輸出"
-
-msgid "Output Data Source"
-msgstr "輸出資料來源"
 
 msgid "Outputs"
 msgstr "輸出"
@@ -6739,17 +5775,11 @@ msgstr "時段："
 msgid "Permit"
 msgstr "允許"
 
-msgid "Persist cluster after job exit"
-msgstr "工作離開後依然保持叢集"
-
 msgid "Physical Network"
 msgstr "實體網路"
 
 msgid "Physical Network:"
 msgstr "實體網路："
-
-msgid "Pig"
-msgstr "Pig"
 
 msgid "Please choose a HTTP method"
 msgstr "請選擇 HTTP 方法"
@@ -6774,21 +5804,6 @@ msgstr "請指定網址"
 #, python-format
 msgid "Please try again later [Error: %s]."
 msgstr "請稍後再試一次。[錯誤：%s]"
-
-msgid "Plugin"
-msgstr "插件"
-
-msgid "Plugin Name"
-msgstr "插件名稱"
-
-msgid "Plugin name"
-msgstr "插件名稱"
-
-msgid "Plugin:"
-msgstr "插件："
-
-msgid "Plugins"
-msgstr "插件"
 
 msgid "Policies"
 msgstr "政策"
@@ -6852,9 +5867,6 @@ msgstr "接口"
 msgid "Position in Policy"
 msgstr "政策中的定位"
 
-msgid "Positional Argument"
-msgstr "位置輸入參數"
-
 msgid "Post-Creation"
 msgstr "前置作業"
 
@@ -6914,9 +5926,6 @@ msgstr "私人密鑰檔案"
 
 msgid "Profile"
 msgstr "基本資料"
-
-msgid "Progress"
-msgstr "進度"
 
 msgid "Project"
 msgstr "專案"
@@ -7010,9 +6019,6 @@ msgid ""
 msgstr ""
 "可以新增提供者指定的網路。您可以為新的虛擬網路指定實體網路類型（像是 Flat、虛"
 "擬區域網路、GRE 及 VXLAN）和它的 segmentation_id 或實體網路名稱。"
-
-msgid "Proxy Gateway"
-msgstr "代理閘道"
 
 msgid "Pseudo-folder Name"
 msgstr "虛擬資料夾名稱"
@@ -7176,18 +6182,8 @@ msgstr "正在重建"
 msgid "Rebuilding instance %s."
 msgstr "正在重建雲實例 %s。"
 
-msgid "Reducer"
-msgstr "Reducer"
-
 msgid "Regions:"
 msgstr "地區："
-
-msgid "Register Image"
-msgstr "註冊映像檔"
-
-msgid ""
-"Register tags required for the Plugin with specified Data Processing Version"
-msgstr "需要為以指定的資料處理版本的插件註冊標籤"
 
 msgid "Relative part of requests this pool member serves compared to others"
 msgstr "有關此倉庫成員與其他相比的服務請求數"
@@ -7200,12 +6196,6 @@ msgstr ""
 "用於與其他請求此倉庫的成員服務比較的相關部份。\n"
 "相同的權重會套用到所有所選的成員並可以在稍後更改。權重必須是在範圍 1 到 256 "
 "內。"
-
-msgid "Relaunch On Existing Cluster"
-msgstr "重新在已存在的叢集發動"
-
-msgid "Relaunch On New Cluster"
-msgstr "重新在新的叢集發動"
 
 msgid "Release Floating IP"
 msgid_plural "Release Floating IPs"
@@ -7242,9 +6232,6 @@ msgstr ""
 msgid "Remote:"
 msgstr "遙控："
 
-msgid "Remove"
-msgstr "移除"
-
 msgid "Remove Router"
 msgstr "移除路由器"
 
@@ -7264,15 +6251,6 @@ msgstr[0] "移除用戶"
 msgid "Removed User"
 msgid_plural "Removed Users"
 msgstr[0] "已移除用戶"
-
-msgid ""
-"Repeat the Node Group Template\n"
-"                        creation process, but this time you are creating\n"
-"                        your \"worker\" Node Group Template."
-msgstr ""
-"重覆建立節點群組範本行程，\n"
-"                        但這次您要建立的是\n"
-"                        「從屬」節點範本。"
 
 msgid "Replica Detached"
 msgid_plural "Replicas Detached"
@@ -7303,9 +6281,6 @@ msgstr ""
 "從單一來源 IP 位址來的請求\n"
 "          會持續地導向到相同的雲實例。"
 
-msgid "Required"
-msgstr "需要"
-
 msgid "Required for APP_COOKIE persistence; Ignored otherwise."
 msgstr "APP_COOKIE 維持需要；否則忽略。"
 
@@ -7316,15 +6291,6 @@ msgstr "救援中"
 msgctxt "Task status of an Instance"
 msgid "Rescuing"
 msgstr "正在救援"
-
-msgid "Reset Cluster Creation Guide"
-msgstr "重設叢集建立精靈"
-
-msgid "Reset Cluster Guide"
-msgstr "重設叢集精靈"
-
-msgid "Reset Job Execution Guide"
-msgstr "重設工作執行任務精靈"
 
 msgid "Reset Root Password"
 msgstr "重設超級用戶密碼"
@@ -7490,9 +6456,6 @@ msgstr "獲得雲實例密碼"
 msgid "Retrieve Password"
 msgstr "獲得密碼"
 
-msgid "Return Code"
-msgstr "回傳碼"
-
 msgid "Revert Resize/Migrate"
 msgstr "還原調整容量/轉移"
 
@@ -7647,9 +6610,6 @@ msgstr ""
 "規則是分配給安全性群組定義允許進入雲實例的交通。一條安全性群組規則包含三個主"
 "要的部份："
 
-msgid "Run HBase EDP Jobs with common HBase library on HDFS"
-msgstr "在 HDFS 上以常用 HBase 程式庫執行 HBase EDP 工作"
-
 msgctxt "Power state of an Instance"
 msgid "Running"
 msgstr "正在執行"
@@ -7668,11 +6628,6 @@ msgstr "SNAT"
 
 msgid "SSH key pairs can be generated with the ssh-keygen command:"
 msgstr "SSH 密鑰對可以用 ssh-keygen 命令來產生："
-
-msgid ""
-"Sahara will use instances of this node group to access other cluster "
-"instances."
-msgstr "Sahara 會用到這個節點群組的雲實例來存取其他叢集的雲實例。"
 
 msgid "Save"
 msgstr "儲存"
@@ -7695,18 +6650,6 @@ msgstr "正在儲存"
 msgctxt "Current status of an Image"
 msgid "Saving"
 msgstr "正在儲存"
-
-msgid "Scale"
-msgstr "調整比例"
-
-msgid "Scale Cluster"
-msgstr "調整叢集比例"
-
-msgid "Scale cluster operation failed"
-msgstr "調整叢集比例作業時失敗"
-
-msgid "Scaled cluster successfully started."
-msgstr "已成功開始調整叢集的比例。"
 
 #, python-format
 msgid "Scheduled backup \"%(name)s\"."
@@ -7782,15 +6725,6 @@ msgstr "腳本資料"
 msgid "Script File"
 msgstr "腳本檔案"
 
-msgid "Script name"
-msgstr "腳本名稱"
-
-msgid "Script text"
-msgstr "腳本文字"
-
-msgid "Security"
-msgstr "安全性"
-
 msgid "Security Group"
 msgstr "安全性群組"
 
@@ -7821,9 +6755,6 @@ msgstr "分段識別號"
 msgid "Segmentation ID:"
 msgstr "分段識別號："
 
-msgid "Select"
-msgstr "選擇"
-
 msgid "Select Flavor"
 msgstr "選擇虛擬硬體樣板"
 
@@ -7841,9 +6772,6 @@ msgstr "選擇雲實例即時存檔"
 
 msgid "Select Network"
 msgstr "選擇網路"
-
-msgid "Select Node Group Processes"
-msgstr "選擇節點群組處理行程"
 
 msgid "Select Port"
 msgstr "選擇接口"
@@ -7875,9 +6803,6 @@ msgstr "選擇監視器"
 msgid "Select a New Flavor"
 msgstr "選擇新的虛擬硬體樣板"
 
-msgid "Select a Node Group Template to add:"
-msgstr "選擇節點群組範本來加入："
-
 msgid "Select a Policy"
 msgstr "選擇政策"
 
@@ -7892,9 +6817,6 @@ msgstr "選擇路由器"
 
 msgid "Select a Subnet"
 msgstr "選擇子網路"
-
-msgid "Select a Value Type for your next argument:"
-msgstr "為您下一個輸入參數選擇值的類型："
 
 msgid "Select a backup to restore"
 msgstr "選擇備份來還原"
@@ -7939,15 +6861,6 @@ msgstr "選擇新的範本來重新發動機櫃。"
 
 msgid "Select a new volume type"
 msgstr "選擇新的雲硬碟類型"
-
-msgid "Select a plugin and version for a new Cluster template."
-msgstr "為新的叢集範本選擇插件和版本。"
-
-msgid "Select a plugin and version for a new Cluster."
-msgstr "為新叢集選擇插件和版本。"
-
-msgid "Select a plugin and version for the new Node Group template."
-msgstr "為新節點群組範本選擇插件和版本。"
 
 msgid "Select a pool"
 msgstr "選擇倉庫"
@@ -8006,23 +6919,8 @@ msgstr "選擇網路"
 msgid "Select networks for your instance."
 msgstr "為您的雲實例選擇網路。"
 
-msgid "Select node processes for the node group"
-msgstr "為節點群組選擇節點處理行程"
-
 msgid "Select parent backup"
 msgstr "選擇母體備份"
-
-msgid "Select plugin and hadoop version"
-msgstr "選擇插件和 Hadoop 版本"
-
-msgid "Select plugin and hadoop version for cluster"
-msgstr "為叢集選擇插件和 Hadoop 版本"
-
-msgid "Select plugin and hadoop version for cluster template"
-msgstr "為叢集範本選擇插件和 Hadoop 版本"
-
-msgid "Select property name"
-msgstr "選擇屬性名稱"
 
 msgid "Select routers for your firewall."
 msgstr "為您的防火牆選擇路由器。"
@@ -8052,36 +6950,6 @@ msgid ""
 "selected, then the flavor will be available in all projects."
 msgstr ""
 "選擇要使用虛擬硬體樣板的專案。若未選擇專案，此虛擬硬體樣板將用於所有的專案。"
-
-msgid "Select the storage type for your job binary."
-msgstr "為您的工作程式選擇儲存空間類型。"
-
-msgid "Select the type of your Data Source."
-msgstr "選擇您資料來源的類型。"
-
-msgid "Select the type of your job:"
-msgstr "為您的工作選擇類型："
-
-msgid "Select type"
-msgstr "選擇類型"
-
-msgid ""
-"Select which plugin and version that you\n"
-"    want to use to create your cluster."
-msgstr ""
-"選擇您想要新增您的叢集\n"
-"    所用的插件及版本。"
-
-msgid ""
-"Select which type of job that you want to run.\n"
-"      This choice will dictate which steps are required to successfully\n"
-"      execute your job.\n"
-"    "
-msgstr ""
-"選擇您想執行的工作類型。\n"
-"      這個選擇將會指派需要的步驟來\n"
-"      成功執行您的工作。\n"
-"      "
 
 msgid "Selected Hosts"
 msgstr "已選擇的主機"
@@ -8121,9 +6989,6 @@ msgstr "伺服器錯誤"
 
 msgid "Service"
 msgstr "伺服器"
-
-msgid "Service Configurations"
-msgstr "伺服器設置"
 
 msgid "Service Endpoint"
 msgstr "伺服器端點"
@@ -8167,12 +7032,6 @@ msgstr "已分享的儲存容量"
 msgid "Shared with Me"
 msgstr "與我分享"
 
-msgid "Shell"
-msgstr "Shell"
-
-msgid "Shell Action"
-msgstr "Shell Action"
-
 msgid "Shelve Instance"
 msgid_plural "Shelve Instances"
 msgstr[0] "擱置雲實例"
@@ -8204,9 +7063,6 @@ msgstr "正在擱置映像檔上傳"
 msgctxt "Task status of an Instance"
 msgid "Shelving Offloading"
 msgstr "正在擱置卸載"
-
-msgid "Show full configuration"
-msgstr "顯示完整的設置"
 
 msgctxt "Power state of an Instance"
 msgid "Shut Down"
@@ -8360,20 +7216,11 @@ msgstr "來源埠口/埠口範圍"
 msgid "Source for Initial State"
 msgstr "初始狀態時的來源"
 
-msgid "Source password"
-msgstr "來源密碼"
-
 msgid "Source port (integer in [1, 65535] or range in a:b)"
 msgstr "來源埠口（[1, 65535] 的整數或範圍 a:b）"
 
-msgid "Source username"
-msgstr "來源用戶名稱"
-
 msgid "Source:"
 msgstr "來源："
-
-msgid "Spark"
-msgstr "Spark"
 
 msgctxt "Task status of an Instance"
 msgid "Spawning"
@@ -8384,11 +7231,6 @@ msgstr "規格"
 
 msgid "Spec: {{ qos_spec_name }}"
 msgstr "規格：{{ qos_spec_name }}"
-
-msgid ""
-"Specified User Name will be used by Data Processing to apply configs and "
-"manage processes on instances."
-msgstr "指定的用戶名稱將用於資料處理以套用設置和管理在雲實例上的處理行程。"
 
 msgid ""
 "Specifies how IPv6 addresses and additional information are configured. We "
@@ -8533,15 +7375,9 @@ msgstr "必須指定開始與結束位址（值為 %s）"
 msgid "Start must be earlier than end of period."
 msgstr "啟始點必須早於時段的終點。"
 
-msgid "Started"
-msgstr "開始於"
-
 msgid "Started Instance"
 msgid_plural "Started Instances"
 msgstr[0] "已開始雲實例"
-
-msgid "Started at"
-msgstr "開始於"
 
 #, python-format
 msgid "Starting evacuation from %(current)s to %(target)s."
@@ -8575,27 +7411,9 @@ msgstr "狀態 ="
 msgid "Status Reason"
 msgstr "狀態原因"
 
-msgid "Step Description"
-msgstr "步驟描述"
-
 msgctxt "Action log of an instance"
 msgid "Stop"
 msgstr "停止"
-
-msgid "Storage location"
-msgstr "儲存空間位置"
-
-msgid "Storage type"
-msgstr "儲存空間類型"
-
-msgid "Storm"
-msgstr "Storm"
-
-msgid "Streaming MapReduce"
-msgstr "串流 MapReduce"
-
-msgid "String"
-msgstr "字串"
 
 msgid "Subnet"
 msgstr "子網域"
@@ -8636,10 +7454,6 @@ msgstr "子網域"
 
 msgid "Subnets Associated"
 msgstr "子網路已聯結"
-
-msgctxt "Current status of a Job"
-msgid "Succeeded"
-msgstr "已成功"
 
 #, python-format
 msgid "Successfully accepted volume transfer: \"%s\""
@@ -8732,9 +7546,6 @@ msgstr "已成功更新容器的存取權為私人。"
 msgid "Successfully updated container access to public."
 msgstr "已成功更新容器的存取權為公開。"
 
-msgid "Successfully updated image."
-msgstr "已成功更新映像檔。"
-
 #, python-format
 msgid "Successfully updated security group: %s"
 msgstr "已成功更新安全性群組：%s"
@@ -8752,9 +7563,6 @@ msgstr "已成功更新雲硬碟類型。"
 
 msgid "Sum."
 msgstr "總合"
-
-msgid "Supported Versions"
-msgstr "已支援的版本"
 
 msgctxt "Action log of an instance"
 msgid "Suspend"
@@ -8845,18 +7653,6 @@ msgstr "系統溫度讀數"
 msgid "TCP"
 msgstr "TCP"
 
-msgid "Tags"
-msgstr "標籤"
-
-msgid ""
-"Tags are used for filtering images suitable for each plugin and each Data "
-"Processing version.\n"
-"        To add required tags, select a plugin and a Data Processing version "
-"and click &quot;Add plugin tags&quot; button."
-msgstr ""
-"標籤用於篩選適用於插件和每個資料處理版本的映像檔。\n"
-"        要加入所需的標籤，選擇插件和資料處理版本並點選「加入插件標籤」按鈕。"
-
 msgid "Target Host"
 msgstr "目標主機"
 
@@ -8872,17 +7668,11 @@ msgstr "範本資料"
 msgid "Template File"
 msgstr "範本檔案"
 
-msgid "Template Name"
-msgstr "範本名稱"
-
 msgid "Template Source"
 msgstr "範本來源"
 
 msgid "Template URL"
 msgstr "範本網址"
-
-msgid "Template not specified"
-msgstr "未指定範本"
 
 msgid ""
 "The \"Bootable\" flag specifies that this volume can be used to launch an "
@@ -8945,29 +7735,6 @@ msgid ""
 msgstr ""
 "認證密鑰將會在關閉這一頁後失效，所以您必須現在截取它，不然您將無法使用轉移。"
 
-msgid ""
-"The Cluster Template object may specify a list of processes in anti-affinity "
-"group.\n"
-"    That means these processes may not be launched more than once on a "
-"single host."
-msgstr ""
-"叢集範本物件可能要在反共鳴群組內指定處理行程列表。\n"
-"    也就是說可能不會在同一個主機裡發動這些處理行程多於一次。"
-
-msgid ""
-"The Cluster Template object should specify Node Group Templates that will be "
-"used to build a Cluster.\n"
-"    You can add Node Groups using Node Group Templates on a &quot;Node "
-"Groups&quot; tab."
-msgstr ""
-"叢集範本物件應該指定用於建立叢集的節點群組範本。\n"
-"    您可以於「節點群組」標籤上用節點群組範本來加入節點群組。"
-
-msgid ""
-"The Cluster object should specify OpenStack Image to boot instances for "
-"Cluster."
-msgstr "叢集物件應該要為叢集指定 OpenStack 映像檔來開雲實例。"
-
 msgid "The ICMP code is invalid."
 msgstr "ICMP 代碼是無效的"
 
@@ -9002,18 +7769,6 @@ msgstr "命名空間的 JSON 格式內容。"
 
 msgid "The Key Pair name that was associated with the instance"
 msgstr "密鑰對名稱已聯結至雲實例"
-
-msgid ""
-"The Node Group Template object specifies the processes\n"
-"        that will be launched on each instance. Check one or more "
-"processes.\n"
-"        When processes are selected, you may set <b>node</b> scoped\n"
-"        configurations on corresponding tabs."
-msgstr ""
-"節點群組範本物件指定將要在每一個\n"
-"        雲實例發動的處理行程。檢查一個或多個\n"
-"        處理行程。當選擇了處理行程，您將要在\n"
-"        對應的標籤上設定用於<b>節點</b>的設置。"
 
 msgid ""
 "The Transfer ID and the Authorization Key are needed by the recipient in "
@@ -9079,31 +7834,6 @@ msgid ""
 msgstr ""
 "新增網路卡時預設的 IP 位址是已選擇子網路的閘道。您可以在此指定另外的網路卡介"
 "面 IP 位址。您必須選擇上列清單上有包含指定 IP 的子網路。"
-
-msgid ""
-"The first step is to determine which type of\n"
-"                    cluster you want to run.  You may have several choices\n"
-"                    available depending on the configuration of your "
-"system.\n"
-"                    Click on \"choose plugin\" to bring up the list of data\n"
-"                    processing plugins.  There you will be able to choose "
-"the\n"
-"                    data processing plugin along with the version number.\n"
-"                    Choosing this up front will allow the rest of the "
-"cluster\n"
-"                    creation steps to focus only on options that are "
-"pertinent\n"
-"                    to your desired cluster type."
-msgstr ""
-"首先，先決定您想執行哪種類型的叢集。\n"
-"                    依據系統設置的不同，\n"
-"                    您有一些可用的選擇。\n"
-"                    點擊「選擇插件」來展開\n"
-"                    資料處理插件。您將可以以版本號\n"
-"                    來單獨選擇資料處理插件。\n"
-"                    選擇這上方將允許略過叢集\n"
-"                    建立步驟，並專注於您所想要的\n"
-"                    叢集類型的專用選項。"
 
 #, python-format
 msgid ""
@@ -9287,15 +8017,6 @@ msgstr "讀取命名空間出了問題：%s。"
 msgid "There was a problem parsing the %(prefix)s: %(error)s"
 msgstr "解析 %(prefix)s 時出了問題：%(error)s"
 
-msgid "This Cluster Template will be created for:"
-msgstr "此叢集範本將被新增於："
-
-msgid "This Cluster will be started with:"
-msgstr "此叢集將開始以："
-
-msgid "This Node Group Template will be created for:"
-msgstr "將新增此節點群組範本予："
-
 msgid "This action cannot be undone."
 msgstr "不能反悔這個動作。"
 
@@ -9354,9 +8075,6 @@ msgstr "逾期"
 
 msgid "Timezone"
 msgstr "時區"
-
-msgid "Title"
-msgstr "標題"
 
 msgid "To"
 msgstr "至"
@@ -9634,9 +8352,6 @@ msgstr "無法新增主機聚合「%s」。"
 msgid "Unable to create host aggregate."
 msgstr "無法新增主機聚合。"
 
-msgid "Unable to create job binary"
-msgstr "無法新增工作程式"
-
 #, python-format
 msgid "Unable to create key pair: %(exc)s"
 msgstr "無法新增密鑰對：%(exc)s"
@@ -9644,9 +8359,6 @@ msgstr "無法新增密鑰對：%(exc)s"
 #, python-format
 msgid "Unable to create network \"%s\"."
 msgstr "無法新增網路「%s」。"
-
-msgid "Unable to create new cluster for job."
-msgstr "無法為工作新增新的叢集。"
 
 msgid "Unable to create new image"
 msgstr "無法新增新的映像檔"
@@ -9692,9 +8404,6 @@ msgstr "無法新增規格。"
 #, python-format
 msgid "Unable to create subnet \"%s\"."
 msgstr "無法新增子網路「%s」。"
-
-msgid "Unable to create the cluster"
-msgstr "無法新增叢集"
 
 msgid "Unable to create user."
 msgstr "無法新增用戶。"
@@ -9785,82 +8494,6 @@ msgstr "無法擴充雲硬碟。"
 msgid "Unable to fetch EC2 credentials."
 msgstr "無法獲得 EC2 格式的憑證"
 
-msgid "Unable to fetch available images."
-msgstr "無法獲得可用的映像檔。"
-
-msgid "Unable to fetch cluster list"
-msgstr "無法獲得叢集列表"
-
-msgid "Unable to fetch cluster template list"
-msgstr "無法獲得叢集範本列表"
-
-msgid "Unable to fetch cluster template."
-msgstr "無法獲得叢集範本。"
-
-msgid "Unable to fetch cluster to scale"
-msgstr "無法獲得叢集來調整比例"
-
-msgid "Unable to fetch cluster to scale."
-msgstr "無法獲得叢集來調整比例。"
-
-msgid "Unable to fetch clusters."
-msgstr "無法獲得叢集。"
-
-msgid "Unable to fetch data sources."
-msgstr "無法獲得資料來源。"
-
-msgid "Unable to fetch flavor for template."
-msgstr "無法獲得此範本的虛擬硬體樣板。"
-
-msgid "Unable to fetch floating ip pools."
-msgstr "無法獲得浮動 IP 倉庫。"
-
-msgid "Unable to fetch image choices."
-msgstr "無法獲得映像檔選項。"
-
-msgid "Unable to fetch instance details."
-msgstr "無法獲得雲實例的詳細資訊。"
-
-msgid "Unable to fetch job binary list."
-msgstr "無法獲得工作程式列表。"
-
-#, python-format
-msgid "Unable to fetch job binary: %(exc)s"
-msgstr "無法獲得工作程式：%(exc)s"
-
-msgid "Unable to fetch job executions."
-msgstr "無法獲得工作執行任務。"
-
-msgid "Unable to fetch jobs."
-msgstr "無法獲得工作。"
-
-msgid "Unable to fetch keypair choices."
-msgstr "無法獲得密鑰對選項。"
-
-msgid "Unable to fetch node group details."
-msgstr "無法獲得節點群組詳細資訊。"
-
-msgid "Unable to fetch node group template list."
-msgstr "無法獲得節點群組範本列表。"
-
-msgid "Unable to fetch plugin details."
-msgstr "無法獲得插件詳細資訊。"
-
-msgid "Unable to fetch plugin list."
-msgstr "無法獲得插件列表。"
-
-msgid "Unable to fetch template object."
-msgstr "無法獲得範本物件。"
-
-msgid "Unable to fetch template to copy."
-msgstr "無法獲得範本來複製。"
-
-msgid "Unable to fetch template to edit."
-msgstr "無法獲得範本來編輯。"
-
-msgid "Unable to fetch the image details"
-msgstr "無法獲得映像檔詳細資訊"
-
 msgid "Unable to find backup!"
 msgstr "找不到備份！"
 
@@ -9869,9 +8502,6 @@ msgstr "找不到預設的角色。"
 
 msgid "Unable to find master instance!"
 msgstr "找不到主管雲實例！"
-
-msgid "Unable to generate process choices."
-msgstr "無法產生處理的選項。"
 
 msgid "Unable to get EC2 credentials"
 msgstr "無法獲得 EC2 格式的憑證"
@@ -9935,9 +8565,6 @@ msgstr "無法獲得網路媒介資訊。"
 msgid "Unable to get network agents list."
 msgstr "無法獲得網路媒介列表。"
 
-msgid "Unable to get node group details."
-msgstr "無法獲得節點群組詳細資訊。"
-
 msgid "Unable to get nova services list."
 msgstr "無法獲得 Nova 伺服器列表。"
 
@@ -9954,9 +8581,6 @@ msgstr "無法獲得配額資訊。"
 msgid "Unable to get resources for stack \"%s\"."
 msgstr "無法獲得機櫃「%s」的資源。"
 
-msgid "Unable to get security group list."
-msgstr "無法獲得安全性群組列表。"
-
 #, python-format
 msgid "Unable to get subnet \"%s\""
 msgstr "無法獲得子網路「%s」"
@@ -9971,9 +8595,6 @@ msgstr "無法獲得可用的主機"
 msgid "Unable to get user data."
 msgstr "無法獲得用戶資料。"
 
-msgid "Unable to get volume type list."
-msgstr "無法獲得雲硬碟類型列表。"
-
 msgid "Unable to import key pair."
 msgstr "無法匯入密鑰對。"
 
@@ -9987,9 +8608,6 @@ msgstr "無法發動名為「%(name)s」%(count)s 個。"
 #, python-format
 msgid "Unable to launch cluster. %s"
 msgstr "無法發動叢集。%s"
-
-msgid "Unable to launch job."
-msgstr "無法發動工作。"
 
 msgid "Unable to list containers."
 msgstr "無法列出容器。"
@@ -10052,12 +8670,6 @@ msgstr "無法獲得虛擬硬體樣板。"
 #, python-format
 msgid "Unable to parse IP address %s."
 msgstr "無法分析 IP 位址 %s。"
-
-msgid "Unable to populate anti-affinity processes."
-msgstr "無法套用反共鳴處理行程。"
-
-msgid "Unable to process plugin tags"
-msgstr "無法處理插件標籤"
 
 msgid "Unable to rebuild instance."
 msgstr "無法重建雲實例。"
@@ -10196,9 +8808,6 @@ msgstr "無法獲得運算限制資訊。"
 msgid "Unable to retrieve container list."
 msgstr "無法獲得容器列表。"
 
-msgid "Unable to retrieve data processing plugins."
-msgstr "無法獲得資料處理插件。"
-
 msgid "Unable to retrieve database clusters."
 msgstr "無法獲得資料庫叢集。"
 
@@ -10219,18 +8828,6 @@ msgid "Unable to retrieve details for backup: %s"
 msgstr "無法獲得備份的詳細資訊：%s"
 
 #, python-format
-msgid "Unable to retrieve details for cluster \"%s\"."
-msgstr "無法為叢集「%s」獲得詳細資訊。"
-
-#, python-format
-msgid "Unable to retrieve details for cluster template \"%s\"."
-msgstr "無法為叢集範本「%s」獲得詳細資訊。"
-
-#, python-format
-msgid "Unable to retrieve details for data source \"%s\"."
-msgstr "無法為資料來源「%s」獲得詳細資訊。"
-
-#, python-format
 msgid "Unable to retrieve details for database cluster: %s"
 msgstr "無法為資料庫叢集獲得詳細資訊：%s"
 
@@ -10243,28 +8840,12 @@ msgid "Unable to retrieve details for instance \"%s\"."
 msgstr "無法獲得雲實例「%s」的詳細資訊。"
 
 #, python-format
-msgid "Unable to retrieve details for job \"%s\"."
-msgstr "無法為工作「%s」獲得詳細資訊。"
-
-#, python-format
-msgid "Unable to retrieve details for job binary \"%s\"."
-msgstr "無法為工作程式「%s」獲得詳細資訊。"
-
-#, python-format
-msgid "Unable to retrieve details for job template \"%s\"."
-msgstr "無法為工作範本「%s」獲得詳細資訊。"
-
-#, python-format
 msgid "Unable to retrieve details for keypair \"%s\"."
 msgstr "無法獲得密鑰對「%s」的詳細資訊。"
 
 #, python-format
 msgid "Unable to retrieve details for network \"%s\"."
 msgstr "無法獲得網路「%s」的詳細資訊。"
-
-#, python-format
-msgid "Unable to retrieve details for node group template \"%s\"."
-msgstr "無法獲得節點群組範本「%s」。"
 
 #, python-format
 msgid "Unable to retrieve details for parent backup: %s"
@@ -10359,9 +8940,6 @@ msgstr "無法獲得虛擬機器管理程式的統計資料。"
 msgid "Unable to retrieve image details."
 msgstr "無法獲得映像檔詳細資訊。"
 
-msgid "Unable to retrieve image list"
-msgstr "無法獲得映像檔列表"
-
 msgid "Unable to retrieve image list."
 msgstr "無法獲得映像檔列表。"
 
@@ -10373,10 +8951,6 @@ msgstr "無法獲得映像檔"
 
 msgid "Unable to retrieve images for the current project."
 msgstr "無法獲得此專案專用的映像檔。"
-
-#, python-format
-msgid "Unable to retrieve images with filter %s."
-msgstr "無法用 %s 篩選來獲得映像檔。"
 
 msgid "Unable to retrieve images."
 msgstr "無法獲得映像檔。"
@@ -10413,10 +8987,6 @@ msgstr "無法獲得雲實例列表。"
 
 msgid "Unable to retrieve instances."
 msgstr "無法獲得雲實例。"
-
-#, python-format
-msgid "Unable to retrieve job binary \"%s\"."
-msgstr "無法獲得工作程式「%s」。"
 
 msgid "Unable to retrieve key pair list."
 msgstr "無法獲得密鑰對列表。"
@@ -10484,9 +9054,6 @@ msgstr "無法獲得物件列表。"
 
 msgid "Unable to retrieve object."
 msgstr "無法獲得物件。"
-
-msgid "Unable to retrieve plugin."
-msgstr "無法獲得插件。"
 
 msgid "Unable to retrieve policies list."
 msgstr "無法獲得政策列表。"
@@ -10589,10 +9156,6 @@ msgstr "無法獲得規則。（%(error)s）"
 
 msgid "Unable to retrieve rules list."
 msgstr "無法獲得規則列表。"
-
-#, python-format
-msgid "Unable to retrieve security group %(group)s."
-msgstr "無法獲得安全性群組 %(group)s。"
 
 msgid "Unable to retrieve security group list. Please try again later."
 msgstr "無法獲得安全性群組列表。請稍後再試一次。"
@@ -10758,9 +9321,6 @@ msgstr "無法設定地域環境。"
 msgid "Unable to set bootable flag on volume."
 msgstr "無法在雲硬碟上設定可開機旗標。"
 
-msgid "Unable to set cluster type"
-msgstr "無法設定叢集類型"
-
 #, python-format
 msgid "Unable to set flavor access for project %s."
 msgstr "無法為專案 %s 設定虛擬硬體樣板存取權。"
@@ -10768,14 +9328,8 @@ msgstr "無法為專案 %s 設定虛擬硬體樣板存取權。"
 msgid "Unable to set gateway."
 msgstr "無法設定閘道"
 
-msgid "Unable to set job type"
-msgstr "無法設定工作類型"
-
 msgid "Unable to set project quotas."
 msgstr "無法設定專案的配額。"
-
-msgid "Unable to show guides"
-msgstr "無法呼叫精靈"
 
 msgid "Unable to sort instance flavors."
 msgstr "無法排序雲實例的虛擬硬體樣板。"
@@ -10796,17 +9350,11 @@ msgstr "無法更新群組。"
 msgid "Unable to update image \"%s\"."
 msgstr "無法更新映像檔「%s」。"
 
-msgid "Unable to update job binary"
-msgstr "無法更新工作程式"
-
 msgid "Unable to update object."
 msgstr "無法更新物件。"
 
 msgid "Unable to update role."
 msgstr "無法更新角色。"
-
-msgid "Unable to update row"
-msgstr "無法更新列"
 
 #, python-format
 msgid "Unable to update security group: %s"
@@ -10847,12 +9395,6 @@ msgstr "無法更新雲硬碟類型。"
 msgid "Unable to update volume."
 msgstr "無法更新雲硬碟。"
 
-msgid "Unable to upload cluster template file"
-msgstr "無法上傳叢集範本檔"
-
-msgid "Unable to upload job binary"
-msgstr "無法上傳工作程式"
-
 msgid "Unable to upload object."
 msgstr "無法上傳物件。"
 
@@ -10889,20 +9431,9 @@ msgstr "放棄管理雲硬碟"
 msgid "Unmanage a Volume"
 msgstr "放棄管理雲硬碟"
 
-msgid "Unnecessary tags may be removed by clicking a cross near tag's name."
-msgstr "不需要的標籤可以按下標籤名稱旁的「X」來移除。"
-
 msgctxt "Action log of an instance"
 msgid "Unpause"
 msgstr "取消暫停"
-
-msgid "Unregister Image"
-msgid_plural "Unregister Images"
-msgstr[0] "註銷映像檔"
-
-msgid "Unregistered Image"
-msgid_plural "Unregistered Images"
-msgstr[0] "已註銷映像檔"
 
 msgctxt "Task status of an Instance"
 msgid "Unrescuing"
@@ -11045,9 +9576,6 @@ msgstr "已更新"
 msgid "Updated subnet \"%s\"."
 msgstr "已更新子網路「%s」。"
 
-msgid "Updated time"
-msgstr "更新於"
-
 msgctxt "Task status of an Instance"
 msgid "Updating Password"
 msgstr "正在更新密碼"
@@ -11063,9 +9591,6 @@ msgstr "正在更新雲硬碟即時存檔「%s」"
 msgid "Upload"
 msgstr "上傳"
 
-msgid "Upload File"
-msgstr "上傳檔案"
-
 msgid "Upload Object"
 msgstr "上傳物件"
 
@@ -11076,23 +9601,14 @@ msgstr "上傳物件到容器：%(container_name)s"
 msgid "Upload Objects"
 msgstr "上傳物件"
 
-msgid "Upload Template"
-msgstr "上傳範本"
-
 msgid "Upload Volume to Image"
 msgstr "上傳雲硬碟至映像檔"
-
-msgid "Upload a new file"
-msgstr "上傳新的檔案"
 
 msgid "Upload to Image"
 msgstr "上傳至映像檔"
 
 msgid "Uploaded image size"
 msgstr "已上傳映像檔容量"
-
-msgid "Url"
-msgstr "網址"
 
 msgid "Usage"
 msgstr "使用量"
@@ -11109,23 +9625,11 @@ msgstr "使用量報告"
 msgid "Usage Report For Period:"
 msgstr "針對時段所作的使用量報告："
 
-msgid "Use HBase Common library"
-msgstr "使用 HBase 常用程式庫"
-
 msgid "Use Server Default"
 msgstr "使用伺服器預設值"
 
 msgid "Use a volume as source"
 msgstr "以雲硬碟為來源"
-
-msgid "Use anti-affinity groups for processes"
-msgstr "給予處理行程使用反共鳴群組"
-
-msgid "Use anti-affinity groups for: "
-msgstr "使用反共鳴群組予："
-
-msgid "Use auto-configuration"
-msgstr "使用自動設置"
 
 msgid "Use image as a source"
 msgstr "以映像檔為來源"
@@ -11186,18 +9690,12 @@ msgstr "用戶設定"
 msgid "User has been updated successfully."
 msgstr "已成功更新用戶。"
 
-msgid "User has to choose a keypair to have access to clusters instances."
-msgstr "用戶要選擇密鑰對來存取叢集雲實例。"
-
 #, python-format
 msgid "User name \"%s\" is already used."
 msgstr "已經有其他人用了用戶名稱「%s」。"
 
 msgid "User password has been updated successfully."
 msgstr "已成功更新用戶密碼。"
-
-msgid "Username"
-msgstr "用戶名稱"
 
 msgid "Username (required)"
 msgstr "用戶名稱（必填）"
@@ -11297,17 +9795,8 @@ msgstr "數值"
 msgid "Value (Avg)"
 msgstr "值（平均）"
 
-msgid "Value Type"
-msgstr "數值類型"
-
 msgid "Value:"
 msgstr "數值："
-
-msgid "Version"
-msgstr "版本"
-
-msgid "Version:"
-msgstr "版本："
 
 #, python-format
 msgid ""
@@ -11457,9 +9946,6 @@ msgstr "您只擁有 %(avail)iGB 配額可用以致於您不能擴充雲硬碟�
 msgid "Volume is Unencrypted"
 msgstr "雲硬碟未加密"
 
-msgid "Volume local to instance"
-msgstr "雲實例當地連接至雲碟碟的位置"
-
 msgid ""
 "Volume mount point (e.g. 'vda' mounts at '/dev/vda'). Leave this field blank "
 "to let the system choose a device name for you."
@@ -11523,24 +10009,6 @@ msgstr "雲硬碟"
 msgid "Volumes Attached"
 msgstr "已附加雲硬碟"
 
-msgid "Volumes Availability Zone"
-msgstr "雲硬碟可用區域"
-
-msgid "Volumes local to instance"
-msgstr "雲實例當地連接至雲碟碟的位置"
-
-msgid "Volumes per node"
-msgstr "每一節點雲硬碟數"
-
-msgid "Volumes size"
-msgstr "雲硬碟容量"
-
-msgid "Volumes size (GB)"
-msgstr "雲硬碟容量（GB）"
-
-msgid "Volumes type"
-msgstr "雲硬碟類型"
-
 msgid "Weight"
 msgstr "權重"
 
@@ -11556,9 +10024,6 @@ msgstr ""
 "  以所選的子網路來提供位址。\n"
 "  "
 
-msgid "Which keypair to use for authentication."
-msgstr "要用哪個密鑰對來認證。"
-
 msgid ""
 "Within a container you can group your objects into pseudo-folders, which "
 "behave similarly to folders in your desktop operating system, with the "
@@ -11570,9 +10035,6 @@ msgstr ""
 "裡的資料夾，除了它們是以逗號前綴物件的名稱定義的虛擬集合。斜線（/）字符是用於"
 "物件式儲存空間裡的虛擬資料夾的分隔號。"
 
-msgid "Worker Node Group Template:"
-msgstr "從屬節點群組範本："
-
 msgid "Yes"
 msgstr "是"
 
@@ -11581,25 +10043,6 @@ msgstr "您已經用掉您所有可用的浮動 IP 了。"
 
 msgid "You are already using all of your available volumes."
 msgstr "您已經用掉您所有可用的雲硬碟了。"
-
-msgid ""
-"You are now ready to\n"
-"                        launch your cluster.  When you click on the link\n"
-"                        below, you will need to give your cluster a name,\n"
-"                        choose the Cluster Template to use and choose which\n"
-"                        image to use to build your instances.  After you\n"
-"                        click on \"Create\", your instances will begin to\n"
-"                        spawn.  Your cluster should be operational in a few\n"
-"                        minutes."
-msgstr ""
-"您現在已經準備好要發動您的叢集了。\n"
-"                        當您點擊下列的超連結，\n"
-"                        您需要為您的叢集取名、\n"
-"                        選擇叢集範本來使用\n"
-"                        以及選擇建立雲實例的映像檔。\n"
-"                        點擊「新增」後，將會開始\n"
-"                        生成您的雲實例。\n"
-"                        您的叢集應該會在一些時間後作成。"
 
 msgid ""
 "You can connect a specified external network to the router. The external "
@@ -11670,23 +10113,8 @@ msgstr ""
 "          若您相信這個訊息是個錯誤，\n"
 "          請通知您的專案管理員。"
 
-msgid "You may also add any custom tag."
-msgstr "您也可以加入任何自訂的標籤。"
-
-msgid "You may also enter an optional description for your Data Source."
-msgstr "您可能也要為您的資料來源輸入選填的描述。"
-
-msgid "You may also enter an optional description for your job binary."
-msgstr "您也可能需要為您的工作程式輸入選填的描述。"
-
-msgid "You may also enter an optional description for your job template."
-msgstr "您也可能要為您的工作範本輸入選填的描述。"
-
 msgid "You may have mistyped the address or the page may have moved."
 msgstr "您可能輸入錯的位址或此頁面已移除"
-
-msgid "You may need to enter the username and password for your Data Source."
-msgstr "您可能需要為您的資料來源輸入用戶名稱和密碼。"
 
 msgid "You may optionally set a password on the rebuilt instance."
 msgstr "您可以在重建雲實例時選填密碼。"
@@ -11695,9 +10123,6 @@ msgid ""
 "You may reset the gateway later by using the set gateway action, but the "
 "gateway IP may change."
 msgstr "您可以稍後設定閘道行為來重設閘道，但是會更換閘道 IP。"
-
-msgid "You may set <b>cluster</b> scoped configurations on corresponding tabs."
-msgstr "您可能要在對應的標籤上設定用於<b>叢集</b>的設置。"
 
 msgid "You may update IKE Policy details here."
 msgstr "您可以在此更新網際網路密鑰交換政策詳細資訊。"
@@ -11754,13 +10179,6 @@ msgstr "您將在這更新您的接口上可供編輯的屬性。"
 
 msgid "You may update the editable properties of your router here."
 msgstr "您將在這更新您的路由器上可供編輯的屬性。"
-
-msgid ""
-"You must choose a flavor to determine the size (VCPUs, memory and storage) "
-"of all launched VMs."
-msgstr ""
-"您必須選擇虛擬硬體樣板來決定所有要發動的虛擬機器的容量（虛擬處理器、記憶體或"
-"儲存空間）。"
 
 msgid "You must select a datastore type and version."
 msgstr "您必須選擇資料倉庫類型及版本。"
@@ -11864,9 +10282,6 @@ msgstr "保留"
 
 msgid "instance"
 msgstr "雲實例"
-
-msgid "no processes"
-msgstr "無處理行程"
 
 msgid "pseudo-folder"
 msgstr "虛擬資料夾"

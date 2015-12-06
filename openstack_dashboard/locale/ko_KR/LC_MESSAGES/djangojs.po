@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-12-02 23:42+0000\n"
+"POT-Creation-Date: 2015-12-05 16:12+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -158,9 +158,6 @@ msgstr "드라이브 구성"
 msgid "Configuration Help"
 msgstr "구성 도움말"
 
-msgid "Configuration Value"
-msgstr "구성 값"
-
 msgid "Count"
 msgstr "개수"
 
@@ -185,12 +182,6 @@ msgstr ""
 
 msgid "Customization Script"
 msgstr "사용자 스크립트"
-
-msgid "Data Source"
-msgstr "데이터 소스"
-
-msgid "Default Value"
-msgstr "기본 값"
 
 msgid "Deleted"
 msgstr "삭제 완료"
@@ -225,9 +216,6 @@ msgstr "Ephemeral 디스크"
 msgid "Ether Type"
 msgstr "Ether 유형"
 
-msgid "Event log is not available."
-msgstr "이벤트 로그를 사용할 수 없습니다."
-
 #, python-format
 msgid "Extension is not enabled: %(extension)s."
 msgstr "확장을 활성화하지 못했습니다: %(extension)s"
@@ -249,20 +237,6 @@ msgid ""
 "the instance."
 msgstr ""
 "Flavor는 인스턴스의 컴퓨트, 메모리 및 스토리지 용량에 대한 크기를 관리합니다."
-
-msgid ""
-"For configs and params, type the key name; for args, type the index as an "
-"integer, starting from 0."
-msgstr ""
-"구성과 매개 변수는 키 이름 타입입니다. 인수로는 숫자로 된 인덱스 타입이며, 0"
-"부터 시작합니다."
-
-msgid ""
-"For data sources, use a data source UUID or a path (as per data source "
-"creation.)"
-msgstr ""
-"데이터 소스의 경우, 데이터 소스 UUID 또는 위치를 사용합니다. (데이터 소스 생"
-"성시 마다.)"
 
 msgid "Format"
 msgstr "포멧"
@@ -380,14 +354,8 @@ msgstr "인스턴스 시작"
 msgid "Load script from a file"
 msgstr "파일에서 스크립트 불러오기"
 
-msgid "Location"
-msgstr "장소"
-
 msgid "Manual"
 msgstr "수동"
-
-msgid "Mapping Type"
-msgstr "매핑 타입"
 
 msgid "Max Port"
 msgstr "최대 포트번호"
@@ -410,9 +378,6 @@ msgstr "최소 RAM (MB)"
 msgid "Name"
 msgstr "이름"
 
-msgid "Named Parameter"
-msgstr "이름 매개변수"
-
 msgid "Network"
 msgstr "네트워크"
 
@@ -434,9 +399,6 @@ msgstr "아니오"
 msgid "No available items"
 msgstr "사용 가능한 항목 없음"
 
-msgid "Number"
-msgstr "숫자"
-
 msgid "OK"
 msgstr "OK"
 
@@ -448,9 +410,6 @@ msgstr "물리 네트워크"
 
 msgid "Policy check failed."
 msgstr "정책 확인을 하지 못했습니다."
-
-msgid "Positional Argument"
-msgstr "위치 인수"
 
 msgid "Private"
 msgstr "사설"
@@ -508,14 +467,8 @@ msgstr "다시 주문할 아이템은 드래그 앤 드롭으로 가져옵니다
 msgid "Remote"
 msgstr "원격"
 
-msgid "Remove"
-msgstr "제거"
-
 msgid "Required"
 msgstr "필요한"
-
-msgid "Required?"
-msgstr "필요합니까?"
 
 msgid "Root Disk"
 msgstr "Root 디스크"
@@ -553,13 +506,6 @@ msgstr ""
 "션을 기존 시큐리티 그룹에 규칙을 추가할 수 있습니다. 규칙을 추가하려면, "
 "<b>Compute | 접근 & 시큐리티</b> 뷰에서 시큐리티 그룹을 찾은 뒤 <b>규칙 관리"
 "</b>를 선택합니다."
-
-msgid ""
-"See http://docs.openstack.org/developer/sahara/userdoc/edp.html for "
-"definitions."
-msgstr ""
-"http://docs.openstack.org/developer/sahara/userdoc/edp.html 에서 정의를 확인"
-"하세요."
 
 msgid "Segmentation ID"
 msgstr "구분 ID"
@@ -605,9 +551,6 @@ msgstr "설정을 활성하지 못했습니다: %(setting)s"
 msgid "Shared"
 msgstr "공유"
 
-msgid "Show events"
-msgstr "이벤트 보기"
-
 msgid "Size"
 msgstr "크기"
 
@@ -619,9 +562,6 @@ msgstr "스냅샷"
 
 msgid "Status"
 msgstr "상태"
-
-msgid "String"
-msgstr "문자열"
 
 msgid "Subnets Associated"
 msgstr "서브넷 특징"
@@ -678,9 +618,6 @@ msgstr ""
 
 msgid "The status indicates whether the network has an active connection."
 msgstr "해당 상태는 네트워크가 활성화된 연결을 이루고 있는지를 가리킵니다."
-
-msgid "The step has completed successfully. No events to display."
-msgstr "이번 단계에서 성공적으로 완료하였습니다. 보여줄 이벤트가 없습니다."
 
 msgid ""
 "The subnet identifies a sub-section of a network. A subnet is specified in "
@@ -944,9 +881,6 @@ msgstr "사용자 이름"
 
 msgid "VCPUS"
 msgstr "VCPUS"
-
-msgid "Value Type"
-msgstr "값 유형"
 
 msgid "Visibility"
 msgstr "가시성"

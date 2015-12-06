@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-12-02 23:42+0000\n"
+"POT-Creation-Date: 2015-12-05 16:12+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -135,20 +135,9 @@ msgstr " - শেষ"
 msgid " : Next hop"
 msgstr " : পরের হপ"
 
-msgid " Done"
-msgstr "হয়েছে"
-
 msgid ""
 "\"Customization Script\" is analogous to \"User Data\" in other systems."
 msgstr "অন্যান্য সিস্টেমগুলিতে \"Customization Script\" হল \"User Data\" এর অনুরূপ."
-
-#, python-format
-msgid "%(conf_name)s: %(conf_val)s"
-msgstr "%(conf_name)s: %(conf_val)s"
-
-#, python-format
-msgid "%(conf_name)s: %(conf_value)s"
-msgstr "%(conf_name)s: %(conf_value)s"
 
 #, python-format
 msgid "%(field_name)s: Invalid IP address (value=%(ip)s)"
@@ -159,16 +148,8 @@ msgid "%(field_name)s: Invalid IP address (value=%(network)s)"
 msgstr "%(field_name)s: অবৈধ IP ঠিকানা (value=%(network)s)"
 
 #, python-format
-msgid "%(group)s:"
-msgstr "%(group)s:"
-
-#, python-format
 msgid "%(instance_name)s %(fixed_ip)s"
 msgstr "%(instance_name)s %(fixed_ip)s"
-
-#, python-format
-msgid "%(key)s: %(val)s"
-msgstr "%(key)s: %(val)s"
 
 #, python-format
 msgid "%(name)s - %(size)s GB (%(label)s)"
@@ -253,22 +234,8 @@ msgstr "-"
 msgid "--"
 msgstr "--"
 
-msgid "-- not selected --"
-msgstr "-- নির্বাচিত নেই --"
-
 msgid "3des"
 msgstr "3des"
-
-msgid ""
-"<b>Important</b>:  The name that you give your job binary will be the name "
-"used in your job execution.\n"
-"  If your binary requires a particular name or extension (ie: \".jar\"), be "
-"sure to include it here."
-msgstr ""
-"<b>গুরুত্বপূর্ণ</b>:  আপনি কার্য বাইনারীতে যে নাম দিয়েছেন সেই নাম কার্য সম্পাদনে "
-"ব্যবহার হবে.\n"
-"  আপনার বাইনারী একটি বিশেষ নাম বা এক্সটেনশন চাইলে (যেমন: \".jar\"), এখানে "
-"অন্তর্ভুক্ত করতে নিশ্চিত হন."
 
 #, python-format
 msgid "<p>%(used)s of %(quota)s MB Used</p>"
@@ -514,9 +481,6 @@ msgstr "নতুন নিয়ম যোগ করুন"
 msgid "Add New VPN Service"
 msgstr "নতুন VPN সেবা যোগ করুন"
 
-msgid "Add Node Group"
-msgstr "নোড শ্রেণি যোগ করুন"
-
 msgid "Add Policy"
 msgstr "নীতি যোগ করুন"
 
@@ -547,9 +511,6 @@ msgstr "VIP যোগ করুন"
 msgid "Add VPN Service"
 msgstr "VPN সেবা যোগ করুন"
 
-msgid "Add custom tag"
-msgstr "কাস্টম ট্যাগ যোগ করুন"
-
 msgid ""
 "Add hosts to this aggregate or remove hosts from it. Hosts can be in "
 "multiple aggregates."
@@ -578,9 +539,6 @@ msgstr ""
 "নির্বাচিত সদস্যদের জন্য সাংখ্যিক ওজন এবং পোর্ট নম্বর নিয়োগ করুন; যেমন, 80. \n"
 "\n"
 "প্রতিটি উদাহরণে কেবলমাত্র একটি পোর্ট মিলিত হতে পারে."
-
-msgid "Add plugin tags"
-msgstr "প্লাগইন ট্যাগ যোগ করুন"
 
 msgid "Add rule"
 msgstr "নিয়ম যোগ করুন"
@@ -770,9 +728,6 @@ msgstr ""
 "একটি অপ্রত্যাশিত ভুল হয়েছে. পাতাটি নবায়নের চেষ্টা করুন. এটি সাহায্য না করলে, আপনার "
 "স্থানীয় অ্যাডমিনিষ্ট্রেটরের সঙ্গে যোগাযোগ করুন."
 
-msgid "Anti-affinity enabled for"
-msgstr "জন্য অ্যান্টি-অ্যাফিনিটি সমর্থ"
-
 msgid "Any"
 msgstr "যে কোনো"
 
@@ -781,9 +736,6 @@ msgstr "যে কোনো লভ্যতা অঞ্চল"
 
 msgid "Architecture"
 msgstr "আর্কিটেকচার"
-
-msgid "Arguments"
-msgstr "চুক্তি"
 
 msgid "Associate"
 msgstr "সংশ্লিষ্ট"
@@ -866,9 +818,6 @@ msgstr "অনুমোদন অ্যালগারিদম"
 msgid "Authorization mode"
 msgstr "অনুমোদন প্রণালী"
 
-msgid "Auto Security Group"
-msgstr "স্বতো সুরক্ষা শ্রেণি"
-
 msgid "Automatic"
 msgstr "স্বতোশ্চল"
 
@@ -942,9 +891,6 @@ msgstr "ব্যাকআপ একনজর"
 msgid "Backups"
 msgstr "ব্যাকআপ"
 
-msgid "Base Image"
-msgstr "বেস ইমেজ"
-
 msgid "Before"
 msgstr "আগে"
 
@@ -1014,9 +960,6 @@ msgstr "পাসওয়ার্ড বদলানো সমর্থিত ন
 msgid "Checksum"
 msgstr "চেকসাম"
 
-msgid "Choose"
-msgstr "নির্বাচন করুন"
-
 msgid "Choose Your Boot Source Type."
 msgstr "আপনার বুট উত্স প্রকার বাছুন."
 
@@ -1033,23 +976,14 @@ msgstr ""
 "কী জোড়া নাম বাছুন যা আপনি চিনবেন এবং আপনার  SSH পাবলিক কী দেওয়া স্থানে তুলে "
 "বসান."
 
-msgid "Choose a main binary"
-msgstr "মূখ্য বাইনারী বাছুন"
-
 msgid "Choose a snapshot"
 msgstr "একটি স্ন্যাপশট বাছুন"
-
-msgid "Choose a storage location"
-msgstr "একটি ভাণ্ডারের অবস্থান বাছুন"
 
 msgid "Choose a volume"
 msgstr "একটি ভলিয়্যুম বাছুন"
 
 msgid "Choose an DHCP Agent to attach to."
 msgstr "সংলগ্ন করতে একটি  DHCP এজেন্ট বাছুন."
-
-msgid "Choose an existing file"
-msgstr "একটি বর্তমান ফাইল নির্বাচন করুন"
 
 msgid "Choose an image"
 msgstr "একটি ছবি বাছুন"
@@ -1060,22 +994,12 @@ msgstr "মিলিত QoS স্পেক বাছুন."
 msgid "Choose consumer for this QoS Spec."
 msgstr "এই QoS স্পেকের জন্য ক্রেতা বাছুন."
 
-msgid "Choose libraries"
-msgstr "লাইব্রেরি বাছাই করুন"
-
 msgid ""
 "Choose network from Available networks to Selected networks by push button "
 "or drag and drop, you may change NIC order by drag and drop as well. "
 msgstr ""
 "লভ্য নেটওয়ার্ক থেকে পুশ বোতাম বা ড্র্যাগ ও ড্রপ বোতাম দ্বারা নির্বাচিত নেটওয়ার্কে "
 "নেটওয়ার্ক বাছুন, আপনি সাথে সাথে ড্র্যাগ ও ড্রপ দ্বারা NIC ক্রম বদল করতে পারেন. "
-
-msgid ""
-"Choose or create your main binary.  Additional libraries can be added from "
-"the \"Libs\" tab."
-msgstr ""
-"আপনার মূখ্য বাইনারী তৈরি করুন বা বাছুন.  অতিরিক্ত লাইব্রেরি  \"Libs\" ট্যাব থেকে "
-"যোগ হতে পারে."
 
 msgid ""
 "Choose rule(s) from Available Rules to Selected Rule by push button or drag "
@@ -1085,23 +1009,14 @@ msgstr ""
 "পুশ বোতাম বা টানা ও ফেলা দ্বারা নির্বাচিত নিয়মে লভ্য নিয়মগুলি থেকে নিয়ম বাছুন,\n"
 "আপনি টানা ও ফেলা দ্বারা তাদের ক্রম বদল করতেও পারেন. "
 
-msgid "Choose the binary which should be used in this Job."
-msgstr "এই কার্যে ব্যবহার হওয়া চাই এমন বাইনারী বাছুন."
-
 msgid "Choose the flavor to launch."
 msgstr "শুরু করতে ফ্লেভার বাছুন."
 
 msgid "Choose the rule you want to remove."
 msgstr "আপনি যে নিয়মটি সরিয়ে ফেলতে চান তা বাছুন."
 
-msgid "Chosen Libraries"
-msgstr "বাছাই করা লাইব্রেরি"
-
 msgid "Cinder"
 msgstr "সিন্ডার"
-
-msgid "Cinder volumes"
-msgstr "সিন্ডার ভলিয়্যুম"
 
 msgid "Cipher"
 msgstr "সিফার"
@@ -1115,36 +1030,8 @@ msgstr "কেবলমাত্র কনসোল দেখাতে এখা
 msgid "Close"
 msgstr "বন্ধ করুন"
 
-msgid "Cluster"
-msgstr "ক্লস্টার"
-
-msgid "Cluster Instances"
-msgstr "ক্লস্টার উদাহরণ"
-
 msgid "Cluster Name"
 msgstr "ক্লস্টার নাম"
-
-msgid "Cluster Template"
-msgstr "ক্লস্টার টেমপ্লেট"
-
-msgid "Cluster Template Name"
-msgstr "ক্লস্টার টেমপ্লেট নাম"
-
-#, python-format
-msgid "Cluster Template copy %s created"
-msgstr "ক্লস্টার টেমপ্লেট %s তৈরি করতে কপি করুন"
-
-msgid "Cluster Templates"
-msgstr "ক্লস্টার টেমপ্লেট"
-
-msgid "Cluster can be launched using existing Cluster Templates."
-msgstr "বর্তমান ক্লস্টার টেমপ্লেট ব্যবহার করে ক্লস্টার শুরু করা যেতে পারে."
-
-msgid "Cluster configurations are not specified"
-msgstr "ক্লস্টার রূপাকৃতি নির্দিষ্ট নয়"
-
-msgid "Cluster template creation failed"
-msgstr "ক্লস্টার টেমপ্লেট তৈরি ব্যর্থ"
 
 msgid "Clusters"
 msgstr "ক্লস্টার"
@@ -1167,23 +1054,8 @@ msgstr "গণনা হোস্ট"
 msgid "Compute Services"
 msgstr "গণনা সেবা"
 
-msgid "Configuration"
-msgstr "রূপাকৃত"
-
 msgid "Configuration Drive"
 msgstr "রূপাকৃতি ড্রাইভ"
-
-msgid "Configure"
-msgstr "রূপাকৃত করুন"
-
-msgid "Configure Cluster"
-msgstr "ক্লস্টার রূপাকৃত করুন"
-
-msgid "Configure Cluster Template"
-msgstr "ক্লস্টার টেমপ্লেট রূপাকৃত করুন"
-
-msgid "Configure Node Group Template"
-msgstr "নোড শ্রেণি টেমপ্লেট রূপাকৃত করুন"
 
 msgid ""
 "Configure OpenStack to write metadata to a special configuration drive that "
@@ -1191,9 +1063,6 @@ msgid ""
 msgstr ""
 "বিশেষ রূপাকৃতি ড্রাইভে মেটাডেটা লিখতে OpenStack রূপাকৃতি করুন যা বুট হওয়ার সময "
 "উদাহরণে সংলগ্ন করে."
-
-msgid "Configure Template"
-msgstr "টেমপ্লেট রূপাকৃত করুন"
 
 msgid "Confirm Admin Password"
 msgstr "নিশ্চিত অ্যাডমিন পাসওয়ার্ড"
@@ -1294,25 +1163,13 @@ msgstr "বস্তু কপি করুন"
 msgid "Copy Object: %(object_name)s"
 msgstr "বস্তু কপি করুন: %(object_name)s"
 
-msgid "Copy Template"
-msgstr "টেমপ্লেট কপি করুন"
-
 #, python-format
 msgid "Cores(Available: %(avail)s, Requested: %(req)s)"
 msgstr "কোর(লভ্য: %(avail)s, অনুরোধ করা: %(req)s)"
 
-msgid "Could not create"
-msgstr "তৈরি করা গেল না"
-
-msgid "Could not create data source"
-msgstr "ডেটা উত্স তৈরি করা গেল না"
-
 #, python-format
 msgid "Could not find default role \"%s\" in Keystone"
 msgstr "\"%s\" কীস্টোনে স্থিতক ভূমিকা পাওয়া গেল না"
-
-msgid "Could not launch job"
-msgstr "কার্য চালু করা গেল না"
 
 #, python-format
 msgid "Couldn't get current security group list for instance %s."
@@ -1320,9 +1177,6 @@ msgstr "উদাহরণের  %s জন্য বর্তমান সু�
 
 msgid "Couldn't get security group list."
 msgstr "সুরক্ষা শ্রেণি তালিকা পাওয়া যেতে পারে না."
-
-msgid "Count"
-msgstr "গণনা"
 
 msgid "Create"
 msgstr "তৈরি করুন"
@@ -1337,14 +1191,8 @@ msgstr "একটি ইমেজ তৈরি করুন"
 msgid "Create Backup"
 msgstr "ব্যাকআপ তৈরি করুন"
 
-msgid "Create Cluster Template"
-msgstr "ক্লস্টার টেমপ্লেট তৈরি করুন"
-
 msgid "Create Container"
 msgstr "কন্টেনার তৈরি করুন"
-
-msgid "Create Data Source"
-msgstr "ডেটা উত্স তৈরি করুন"
 
 msgid "Create Domain"
 msgstr "ডোমেন তৈরি করুন"
@@ -1399,9 +1247,6 @@ msgstr ""
 msgid "Create Image"
 msgstr "ইমেজ তৈরি করুন"
 
-msgid "Create Job Binary"
-msgstr "কার্য বাইনারী তৈরি করুন"
-
 msgid "Create Key Pair"
 msgstr "কী যুগ্ম তৈরি করুন"
 
@@ -1410,9 +1255,6 @@ msgstr "নেটওয়ার্ক তৈরি করুন"
 
 msgid "Create Network (Quota exceeded)"
 msgstr "নেটওয়ার্ক তৈরি করুন (কোটা ছাড়িয়ে গেছে)"
-
-msgid "Create Node Group Template"
-msgstr "নোড শ্রেণি টেমপ্লেট তৈরি করুন"
 
 msgid "Create Port"
 msgstr "পোর্ট তৈরি করুন"
@@ -1456,9 +1298,6 @@ msgstr "সাবনেট তৈরি করুন"
 msgid "Create Subnet (Quota exceeded)"
 msgstr "সাবনেট তৈরি করুন (কোটা পেরিয়ে গেছে)"
 
-msgid "Create Template"
-msgstr "টেমপ্লেট তৈরি করুন"
-
 msgid "Create User"
 msgstr "ব্যবহর্তা তৈরি করুন"
 
@@ -1493,9 +1332,6 @@ msgstr "ভলিয়্যুম প্রকার এনক্রিপশন 
 
 msgid "Create Volume Type Extra Spec"
 msgstr "ভলিয়্যুম প্রকার অতিরিক্ত স্পেক তৈরি করুন"
-
-msgid "Create a Data Source with a specified name."
-msgstr "একটি নির্দিষ্ট নাম সহ একটি ডেটা উত্স তৈরি করুন."
 
 msgid "Create a New Volume"
 msgstr "একটি নতুন ভলিয়্যুম তৈরি করুন"
@@ -1564,9 +1400,6 @@ msgstr "নির্বাচিত নিয়মগুলি সহ একটি
 msgid "Create a project to organize users."
 msgstr "ব্যবহর্তাদের সংগঠিত করতে একটি প্রোজেক্ট তৈরি করুন."
 
-msgid "Create a script to be uploaded dynamically"
-msgstr "একটি লিপি তৈরি করুন যা গতিশীলভাবে আপলোড করা যাবে"
-
 msgid ""
 "Create a subnet associated with the network. Advanced configuration is "
 "available by clicking on the \"Subnet Details\" tab."
@@ -1584,12 +1417,6 @@ msgstr ""
 "একটি বৈকল্পিক প্রারম্ভিক ব্যবহর্তা তৈরি করুন.\n"
 "   এই ব্যবহর্তা আপনার তৈরি সব ডেটাবেসে অ্যাক্সেস পাবে."
 
-msgid "Create security group for this Node Group."
-msgstr "এই নোড শ্রেণির জন্য সুরক্ষা শ্রেণি তৈরি করুন."
-
-msgid "Create time"
-msgstr "তৈরির সময়"
-
 msgid "Created"
 msgstr "তৈরি"
 
@@ -1604,14 +1431,6 @@ msgstr "তৈরি"
 msgctxt "Current status of a VPN Service"
 msgid "Created"
 msgstr "তৈরি"
-
-#, python-format
-msgid "Created Cluster Template %s"
-msgstr "তৈরি করা ক্লস্টার টেমপ্লেট %s"
-
-#, python-format
-msgid "Created Node Group Template %s"
-msgstr "%s নোড শ্রেণি টেমপ্লেট তৈরি"
 
 #, python-format
 msgid "Created extra spec \"%s\"."
@@ -1743,34 +1562,6 @@ msgstr "DNS নাম সার্ভার"
 
 msgid "Daily Usage Report"
 msgstr "দৈনিক প্রয়োগ রিপোর্ট"
-
-msgid "Data Processing"
-msgstr "ডেটা প্রক্রিয়ণ"
-
-msgid "Data Processing Plugin Details"
-msgstr "ডেটা প্রক্রিয়ণ প্লাগইন বিশদ"
-
-msgid "Data Processing Plugins"
-msgstr "ডেটা প্রক্রিয়ণ প্লাগইন"
-
-msgid "Data Processing internal database"
-msgstr "ডেটা প্রক্রিয়ণ আভ্যন্তরীণ ডেটাবেস"
-
-msgid ""
-"Data Processing provides different storage location options. You may choose "
-"Ephemeral Drive or a Cinder Volume to be attached to instances."
-msgstr ""
-"ডেটা প্রক্রিয়ণ বিভিন্ন ভাণ্ডার অবস্থান বিকল্প প্রদান করে. আপনি উদাহরণে সংযুক্ত অস্থায়ী "
-"ড্রাইভ বা সিন্ডার ভলিয়্যুম বাছতে পারেন."
-
-msgid "Data Source Type"
-msgstr "ডেটা উত্স প্রকার"
-
-msgid "Data Sources"
-msgstr "ডেটা উত্স"
-
-msgid "Data source created"
-msgstr "ডেটা উত্স তৈরি"
 
 msgid "Database"
 msgstr "ডেটাবেস"
@@ -2059,9 +1850,6 @@ msgstr ""
 msgid "Domains:"
 msgstr "ডোমেন:"
 
-msgid "Done"
-msgstr "হয়েছে"
-
 msgid "Down"
 msgstr "নিচে"
 
@@ -2113,17 +1901,11 @@ msgstr "CSV সারাংশ ডাউনলোড করুন"
 msgid "Download EC2 Credentials"
 msgstr "EC2 ক্রেডেনশিয়াল ডাউনলোড করুন"
 
-msgid "Download Job Binary"
-msgstr "কার্য বাইনারী ডাউনলোড করুন"
-
 msgid "Download Key Pair"
 msgstr "কী যুগ্ম ডাউনলোড করুন"
 
 msgid "Download OpenStack RC File"
 msgstr "OpenStack RC ফাইল ডাউনলোড করুন"
-
-msgid "Download job binary"
-msgstr "কার্য বাইনারী ডাউনলোড করুন"
 
 #, python-format
 msgid "Download key pair &quot;%(keypair_name)s&quot;"
@@ -2178,9 +1960,6 @@ msgstr "IPSec নীতি সম্পাদনা করুন"
 msgid "Edit IPSec Site Connection"
 msgstr "IPSec সাইট সংযোগ সম্পাদনা করুন"
 
-msgid "Edit Image Tags"
-msgstr "ইমেজ ট্যাগ সম্পাদনা করুন"
-
 msgid "Edit Instance"
 msgstr "উদাহরণ সম্পাদনা করুন"
 
@@ -2231,9 +2010,6 @@ msgstr "স্পেক সম্পাদনা করুন"
 
 msgid "Edit Subnet"
 msgstr "সাবনেট সম্পাদনা করুন"
-
-msgid "Edit Tags"
-msgstr "ট্যাগগুলি সম্পাদনা করুন"
 
 msgid "Edit Template"
 msgstr "টেমপ্লেট সম্পাদনা করুন"
@@ -2329,15 +2105,6 @@ msgstr ""
 "1 এবং 65535 এর মধ্যে একটি পূর্ণসংখ্যা মান ভরুন. সকল নির্বাচিত সদস্যের জন্য একই পোর্ট "
 "ব্যবহার হবে এবং পরে সংশোধিত হতে পারে."
 
-msgid "Enter any custom configuration required for your job's execution."
-msgstr "আপনার কার্য সম্পাদনার জন্য প্রয়োজনীয় যে কোনো ব্যবহর্তা-বিহিত রূপাকৃতি ভরুন."
-
-msgid "Enter the URL for the file"
-msgstr "ফাইলের জন্য URL ভরুন"
-
-msgid "Enter the username and password required to access that file"
-msgstr "ঐ ফাইলে প্রবেশ করতে প্রয়োজনীয় ব্যবহর্তা নাম ও পাসওয়ার্ড ভরুন"
-
 msgid "Environment Data"
 msgstr "পরিবেশ ডেটা"
 
@@ -2352,9 +2119,6 @@ msgstr "অস্থায়ী ডিস্ক"
 
 msgid "Ephemeral Disk (GB)"
 msgstr "অস্থায়ী ডিস্ক (GB)"
-
-msgid "Ephemeral drive"
-msgstr "অস্থায়ী ড্রাইভ"
 
 msgid "Equal to or greater than 60"
 msgstr "সমান বা 60 এর চেয়ে বড়"
@@ -2419,9 +2183,6 @@ msgstr "ভুল"
 
 msgid "Error Deleting"
 msgstr "মুছতে ভুল"
-
-msgid "Error Details"
-msgstr "ভুলের বিশদ"
 
 #, python-format
 msgid "Error Downloading RC File: %s"
@@ -2598,12 +2359,6 @@ msgstr "হোস্ট অপসরণ করতে ব্যর্থ: %s."
 msgid "Failed to evacuate instances: %s"
 msgstr "উদাহরণ অপসরণ করতে ব্যর্থ: %s"
 
-msgid "Failed to fetch internal binary list"
-msgstr "অভ্যন্তরীণ বাইনারী তালিকা আনতে ব্যর্থ"
-
-msgid "Failed to get list of internal binaries."
-msgstr "অভ্যন্তরীণ বাইনারীর তালিকা পেতে ব্যর্থ."
-
 #, python-format
 msgid "Failed to get network list %s"
 msgstr "নেটওয়ার্ক তালিকা %s পেতে ব্যর্থ"
@@ -2698,9 +2453,6 @@ msgstr "ফায়ারওয়াল আপডেট করতে ব্যর্
 #, python-format
 msgid "Failed to update health monitor %s"
 msgstr "%s স্বাস্থ্য মনিটর আপডেট করতে ব্যর্থ"
-
-msgid "Failed to update image."
-msgstr "ইমেজ আপডেট করতে ব্যর্থ."
 
 #, python-format
 msgid "Failed to update member %s"
@@ -2813,9 +2565,6 @@ msgstr "ফ্লেভার তথ্য"
 msgid "Flavor Name"
 msgstr "ফ্লেভার নাম"
 
-msgid "Flavor is not specified"
-msgstr "ফ্লেভার নির্দিষ্ট নয়"
-
 msgid "Flavors"
 msgstr "ফ্লেভার"
 
@@ -2829,35 +2578,15 @@ msgstr ""
 msgid "Floating IP"
 msgstr "ভাসমান IP"
 
-msgid "Floating IP Pool"
-msgstr "ফ্লোটিং IP পুল"
-
 msgid "Floating IPs"
 msgstr "ভাসমান IPs"
 
 msgid "Folder created successfully."
 msgstr "ফোল্ডার সফলভাবে তৈরি হয়েছে."
 
-msgid ""
-"For Data Processing internal job binaries, you may choose from the following:"
-msgstr ""
-"ডেটা প্রক্রিয়ণ অভ্যন্তরীণ কার্য বাইনারীর জন্য আপনি নিচের গুলির থেকে বাছতেও পারেন:"
-
 #, python-format
 msgid "For GRE networks, valid tunnel IDs are %(min)s through %(max)s."
 msgstr "GRE নেটওয়ার্কের জন্য, বৈধ tunnel IDs %(min)s থেকে %(max)s পর্যন্ত."
-
-msgid ""
-"For MapReduce or Java Action jobs, \"mains\" are not applicable.  You are "
-"required to add one\n"
-"  or more \"libs\" for these jobs."
-msgstr ""
-"MapReduce বা জাভা ক্রিয়া কার্যের জন্য, \"mains\" প্রযোজ্য নয়.  এই কার্যগুলির জন্য "
-"আপনাকে\n"
-"  এক বা একাধিক \"libs\" যোগ করা প্রয়োজন."
-
-msgid "For Object Store job binaries, you must:"
-msgstr "বিষয়বস্তু ভাণ্ডার কার্য বাইনারীর জন্য, আপনাকে অবশ্যই:"
 
 msgid ""
 "For TCP and UDP rules you may choose to open either a single port or a range "
@@ -2944,9 +2673,6 @@ msgstr "গেটওয়ে IP এবং  IP সংস্করণ অসঙ্�
 msgid "Gateway interface is added"
 msgstr "গেটওয়ে ইন্টারফেস যুক্ত"
 
-msgid "General Info"
-msgstr "সাধারণ তথ্য"
-
 msgid "Glance"
 msgstr "গ্ল্যান্স"
 
@@ -2992,9 +2718,6 @@ msgstr ""
 msgid "HA mode"
 msgstr "HA প্রণালী"
 
-msgid "HDFS placement"
-msgstr "HDFS স্থাপন"
-
 msgid "HTTP"
 msgstr "HTTP"
 
@@ -3020,14 +2743,8 @@ msgstr "স্বাস্থ্য মনিটর %s সফলভাবে আ
 msgid "Help"
 msgstr "সাহায্য"
 
-msgid "Hide full configuration"
-msgstr "পূর্ণ রূপাকৃতি লুকান"
-
 msgid "High Availability Mode"
 msgstr "উচ্চ লভ্যতা প্রণালী"
-
-msgid "Hive"
-msgstr "মৌচাক"
 
 msgid "Home"
 msgstr "হোম"
@@ -3256,18 +2973,6 @@ msgstr "ইমেজের নাম"
 msgid "Image Name ="
 msgstr "ইমেজ নাম ="
 
-msgid "Image Registry"
-msgstr "ইমেজ রেজিষ্ট্রি"
-
-msgid ""
-"Image Registry is used to provide additional information about images for "
-"Data Processing."
-msgstr ""
-"ডেটা প্রক্রিয়ণের জন্য ইমেজ সম্বন্ধে অতিরিক্ত তথ্য প্রদান করতে ইমেজ নিবন্ধন ব্যবহার হয়."
-
-msgid "Image Registry tool:"
-msgstr "ইমেজ নিবন্ধ টুল:"
-
 msgid "Image Source"
 msgstr "ইমেজ উত্স"
 
@@ -3350,12 +3055,6 @@ msgstr "ইঞ্জেক্ট করা ফাইল পথ বাইট"
 msgid "Injected Files"
 msgstr "ইঞ্জেক্ট করা ফাইলগুলি"
 
-msgid "Input"
-msgstr "ইনপুট"
-
-msgid "Input Data Source"
-msgstr "ইনপুট ডেটা উত্স"
-
 msgid "Input must be in CIDR format"
 msgstr "ইনপুট CIDR ফরম্যাটে থাকা চাই"
 
@@ -3410,9 +3109,6 @@ msgstr "মিলিত হতে উদাহরণ"
 msgid "Instances"
 msgstr "উদাহরণ"
 
-msgid "Instances Count"
-msgstr "উদাহরণের গণনা"
-
 msgid "Insufficient privilege level to view domain information."
 msgstr "ডোমেন তথ্য দেখতে অপর্যাপ্ত অগ্রাধিকার স্তর."
 
@@ -3434,14 +3130,8 @@ msgstr "ইন্টারফেস যুক্ত"
 msgid "Interfaces"
 msgstr "ইন্টারফেস"
 
-msgid "Internal IP"
-msgstr "অভ্যন্তরীণ IP"
-
 msgid "Internal Interface"
 msgstr "অভ্যন্তরীণ ইন্টারফেস"
-
-msgid "Internal binary"
-msgstr "অভ্যন্তরীণ বাইনারী"
 
 msgid "Invalid date format: Using today as default."
 msgstr "অবৈধ তারিখ ফরম্যাট: স্থিতক হিসেবে আজ ব্যবহার করুন."
@@ -3458,45 +3148,6 @@ msgstr ""
 
 msgid "Items Per Page"
 msgstr "পাতা প্রতি বিষয়"
-
-msgid "Java Action"
-msgstr "জাভা ক্রিয়া"
-
-msgid "Java Opts"
-msgstr "জাভা ওপ্ট্‌স"
-
-msgid "Job"
-msgstr "কাজ"
-
-msgid "Job Binaries"
-msgstr "কার্য বাইনারী"
-
-msgid "Job Configuration"
-msgstr "কার্য রূপাকৃতি"
-
-msgid "Job Execution ID"
-msgstr "কার্য সম্পাদন ID"
-
-msgid "Job Type"
-msgstr "কাজের প্রকার"
-
-msgid "Job args"
-msgstr "Job args"
-
-msgid "Job configs"
-msgstr "কার্য রূপাকৃতি"
-
-msgid "Job created"
-msgstr "তৈরি করা কার্য"
-
-msgid "Job launched"
-msgstr "কার্য চালু করেছে"
-
-msgid "Job params"
-msgstr "কার্য পরম"
-
-msgid "Jobs"
-msgstr "কার্য"
 
 msgid "Kernel ID"
 msgstr "কার্নেল ID"
@@ -3542,9 +3193,6 @@ msgstr ""
 
 msgid "Key-Value Pairs"
 msgstr "কী-মান জোড়া"
-
-msgid "Keypair"
-msgstr "কী যুগ্ম"
 
 msgid "Kwapi"
 msgstr "কোওয়াপি"
@@ -3598,12 +3246,6 @@ msgstr "উদাহরণ শুরু করুন"
 msgid "Launch Instance (Quota exceeded)"
 msgstr "উদাহরণ শুরু করুন (কোটা পেরিয়ে গেছে)"
 
-msgid "Launch On Existing Cluster"
-msgstr "বর্তমান ক্লস্টারে শুরু করুন"
-
-msgid "Launch On New Cluster"
-msgstr "নতুন ক্লস্টারে শুরু করুন"
-
 msgid "Launch Parameters"
 msgstr "পরিশর্ত শুরু করুন"
 
@@ -3622,12 +3264,6 @@ msgstr "এই নেটওয়ার্কগুলি সহ উদাহরণ
 msgid "Launch instance with this policy profile"
 msgstr "এই নীতি প্রোফাইল সহ উদাহরণ শুরু করুন"
 
-msgid "Launch instances in these security groups."
-msgstr "এই সুরক্ষা শ্রেণিগুলিতে উদাহরণগুলি চালু করুন."
-
-msgid "Launch instances in this availability zone."
-msgstr "এই লভ্যতা অঞ্চলে উদাহরণগুলি শুরু করুন."
-
 #, python-format
 msgid "Launched %(count)s named \"%(name)s\"."
 msgstr "%(count)s শুরু করা \"%(name)s\" নামে."
@@ -3639,9 +3275,6 @@ msgstr "বহু উদাহরণ শুরু করা কেবলমা�
 
 msgid "Length of Injected File Path"
 msgstr "ইঞ্জেক্ট করা ফাইল পথের দৈর্ঘ্য"
-
-msgid "Libs"
-msgstr "Libs"
 
 msgid "Lifetime Units"
 msgstr "আজীবন ইউনিট"
@@ -3716,12 +3349,6 @@ msgstr "MB"
 msgid "MTU"
 msgstr "MTU"
 
-msgid "Main Class"
-msgstr "প্রধান ক্লাস"
-
-msgid "Mains"
-msgstr "Mains"
-
 msgid "Make Private"
 msgstr "ব্যক্তিগত তৈরি করুন"
 
@@ -3770,20 +3397,11 @@ msgstr "স্পেক পরিচালনা করুন"
 msgid "Manage Volume Attachments"
 msgstr "ভলিয়্যুম সংলগ্ন পরিচালনা করুন"
 
-msgid "Management IP"
-msgstr "ম্যানেজমেন্ট IP"
-
 msgid "Manual"
 msgstr "ম্যানুয়েল"
 
-msgid "MapReduce"
-msgstr "MapReduce"
-
 msgid "Mapped Fixed IP Address"
 msgstr "ম্যাপ করা স্থির IP ঠিকানা"
-
-msgid "Mapper"
-msgstr "ম্যাপার"
 
 msgid "Max Retries"
 msgstr "অধিকতম প্রচেষ্টা"
@@ -3964,10 +3582,6 @@ msgstr "তৈরি করতে স্ট্যাকের নাম."
 msgid "Name: %(name)s ID: %(uuid)s"
 msgstr "নাম: %(name)s ID: %(uuid)s"
 
-#, python-format
-msgid "Name: %(node_group_name)s"
-msgstr "নাম: %(node_group_name)s"
-
 msgid "Network"
 msgstr "নেটওয়ার্ক"
 
@@ -4041,9 +3655,6 @@ msgstr "নেটওয়ার্ক"
 msgid "Neutron"
 msgstr "নিউট্রন"
 
-msgid "Neutron Management Network"
-msgstr "নিউট্রন ম্যানেজমেন্ট নেটওয়ার্ক"
-
 msgid "Never"
 msgstr "কখনো না"
 
@@ -4086,20 +3697,11 @@ msgstr "কোনো হোস্ট নির্বাচিত নয়."
 msgid "No Hosts found."
 msgstr "কোনো হোস্ট পাওয়া গেল না."
 
-msgid "No Images Available"
-msgstr "কোনো ইমেজ লভ্য নয়"
-
 msgid "No Session Persistence"
 msgstr "কোনো সেশন দৃঢ়তা নেই"
 
-msgid "No Templates Available"
-msgstr "কোনো টেমপ্লেট লভ্য নয়"
-
 msgid "No attached device"
 msgstr "কোনো সংযুক্ত ডিভাইস নেই"
-
-msgid "No availability zone specified"
-msgstr "কোনো লভ্যতা অঞ্চল নির্দিষ্ট নয়"
 
 msgid "No availability zones found"
 msgstr "কোনো লভ্যতা অঞ্চল খুঁজে পাওয়া গেল না"
@@ -4112,9 +3714,6 @@ msgstr "কোনো লভ্য প্রোজেক্ট নেই"
 
 msgid "No backups available"
 msgstr "কোনো ব্যাকআপ লভ্য নয়"
-
-msgid "No configurations"
-msgstr "কোনো রূপাকৃতি নেই"
 
 msgid "No flavors available"
 msgstr "কোনো ফ্লেভার লভ্য নয়"
@@ -4143,17 +3742,11 @@ msgstr "কোনো হোস্ট পাওয়া গেল না."
 msgid "No images available"
 msgstr "কোনো ইমেজ লভ্য নয়"
 
-msgid "No images available."
-msgstr "কোনো ইমেজ লভ্য নয়."
-
 msgid "No instances available"
 msgstr "কোনো উদাহরণ লভ্য নয়"
 
 msgid "No key pairs available"
 msgstr "কোনো কী জোড়া লভ্য নয়"
-
-msgid "No keypair"
-msgstr "কোনো কী যুগ্ম নেই"
 
 msgid "No networks available"
 msgstr "কোনো নেটওয়ার্ক লভ্য নয়"
@@ -4227,38 +3820,6 @@ msgstr "কোনো ভলিয়্যুম সংযুক্ত নেই."
 msgid "No volumes available"
 msgstr "কোনো ভলিয়্যুম লভ্য নয়"
 
-msgid "Node Configurations"
-msgstr "নোড রূপাকৃতি"
-
-#, python-format
-msgid "Node Group Template copy %s created"
-msgstr "নোড শ্রেণি টেমপ্লেট কপি %s তৈরি করা"
-
-msgid "Node Group Templates"
-msgstr "নোড শ্রেণি টেমপ্লেট"
-
-#, python-format
-msgid "Node Group: %(node_group_name)s"
-msgstr "নোড শ্রেণি: %(node_group_name)s"
-
-msgid "Node Groups"
-msgstr "নোড শ্রেণি"
-
-msgid "Node Processes"
-msgstr "নোড প্রক্রিয়া"
-
-msgid "Node configurations are not specified"
-msgstr "নোড রূপাকৃতি নির্দিষ্ট নয়"
-
-msgid "Node group cluster"
-msgstr "নোড শ্রেণি ক্লস্টার"
-
-msgid "Node processes are not specified"
-msgstr "নোড প্রক্রিয়া  নির্দিষ্ট নয়"
-
-msgid "Nodes Count"
-msgstr "নোডের গণনা"
-
 msgid "Non-Members"
 msgstr "অ-সদস্য"
 
@@ -4302,9 +3863,6 @@ msgstr "স্যুইফ্টের বিরুদ্ধে API অনুর
 
 msgid "Number of Instances"
 msgstr "উদাহরণের সংখ্যা"
-
-msgid "Number of Nodes"
-msgstr "নোডের সংখ্যা"
 
 msgid "Number of Snapshots"
 msgstr "স্ন্যাপশটের সংখ্যা"
@@ -4392,17 +3950,11 @@ msgstr "পুরোনো ফ্লেভার"
 msgid "On Demand"
 msgstr "চাহিদায়"
 
-msgid "Oozie Job ID"
-msgstr "Oozie কার্য ID"
-
 msgid "Open Port"
 msgstr "পোর্ট খুলুন"
 
 msgid "Open Port/Port Range:"
 msgstr "পোর্ট/পোর্ট ব্যপ্তি খুলুন:"
-
-msgid "OpenStack Flavor"
-msgstr "OpenStack ফ্লেভার"
 
 msgid "Optional Backup Description"
 msgstr "বৈকল্পিক ব্যাকআপ বিবরণ"
@@ -4427,12 +3979,6 @@ msgstr "অন্যান্য"
 
 msgid "Other Protocol"
 msgstr "অন্যান্য প্রোটোকল"
-
-msgid "Output"
-msgstr "আউটপুট"
-
-msgid "Output Data Source"
-msgstr "আউটপুট ডেটা উত্স"
 
 msgid "Outputs"
 msgstr "আউটপুট"
@@ -4517,17 +4063,11 @@ msgstr "সময়কাল:"
 msgid "Permit"
 msgstr "অনুমতি"
 
-msgid "Persist cluster after job exit"
-msgstr "কাজ থেকে বেরিয়ে যাওয়ার পরে ক্লস্টার চালু রাখা"
-
 msgid "Physical Network"
 msgstr "ভৌতিক নেটওয়ার্ক"
 
 msgid "Physical Network:"
 msgstr "ভৌতিক নেটওয়ার্ক:"
-
-msgid "Pig"
-msgstr "শুয়োর"
 
 msgid "Please choose a HTTP method"
 msgstr "একটি HTTP পদ্ধতি বাছুন"
@@ -4552,18 +4092,6 @@ msgstr "একটি URL নির্দিষ্ট করুন"
 #, python-format
 msgid "Please try again later [Error: %s]."
 msgstr "পরে আবার চেষ্টা করুন [ভুল: %s]."
-
-msgid "Plugin"
-msgstr "প্লাগইন"
-
-msgid "Plugin Name"
-msgstr "প্লাগইন নাম"
-
-msgid "Plugin name"
-msgstr "প্লাগইন নাম"
-
-msgid "Plugins"
-msgstr "প্লাগইন"
 
 msgid "Policies"
 msgstr "নীতিগুলি"
@@ -4818,18 +4346,8 @@ msgstr "পাসওয়ার্ড পুনর্নিমাণ করুন"
 msgid "Rebuilding instance %s."
 msgstr "উদাহরণ %s পুননির্মাণ করছে."
 
-msgid "Reducer"
-msgstr "রি়ডিউসার"
-
 msgid "Regions:"
 msgstr "অঞ্চল:"
-
-msgid "Register Image"
-msgstr "ইমেজ নিবন্ধন করুন"
-
-msgid ""
-"Register tags required for the Plugin with specified Data Processing Version"
-msgstr "নির্দিষ্ট ডেটা প্রক্রিয়ণ সংস্করণ সহ প্লাগইনের জন্য প্রয়োজনীয় ট্যাগ নিবন্ধন করুন"
 
 msgid "Relative part of requests this pool member serves compared to others"
 msgstr "অনুরোধের সম্বন্ধিত অংশ এই পুল সদস্য অন্যের তুলনায় সেবা দেয়"
@@ -4842,12 +4360,6 @@ msgstr ""
 "অনুরোধের সম্বন্ধিত অংশ অন্যের তুলনায় এই পুল সদস্য পূর্ণ করে. \n"
 "একই ওজন সকল নির্বাচিত সদস্যের ক্ষেত্রে প্রযোজ্য হবে এবং পরে সংশোধন করা যেতে পারে. "
 "ওজন 1 থেকে 256 ব্যপ্তিতে হওয়া চাই."
-
-msgid "Relaunch On Existing Cluster"
-msgstr "বর্তমান ক্লস্টারে পুনরায় শুরু করুন"
-
-msgid "Relaunch On New Cluster"
-msgstr "নতুন ক্লস্টারে পুনরায় শুরু করুন"
 
 msgid "Reload"
 msgstr "আবার লোড করুন"
@@ -4870,9 +4382,6 @@ msgstr ""
 
 msgid "Remote:"
 msgstr "রিমোট:"
-
-msgid "Remove"
-msgstr "সরিয়ে ফেলুন"
 
 msgid "Remove Rule"
 msgstr "নিয়ম সরিয়ে ফেলুন"
@@ -4954,9 +4463,6 @@ msgstr "উদাহরণ পাসওয়ার্ড পুনরুদ্ধ�
 
 msgid "Retrieve Password"
 msgstr "পাসওয়ার্ড পুনরুদ্ধার করুন"
-
-msgid "Return Code"
-msgstr "ফেরত কোড"
 
 msgid "Revert Resize/Migrate"
 msgstr "পুনঃআয়তন/মাইগ্রেট প্রত্যাবর্তন করুন"
@@ -5091,18 +4597,6 @@ msgstr "বাঁচানো অতিরিক্ত স্পেক \"%s\"."
 msgid "Saved spec \"%s\"."
 msgstr "বাঁচানো স্পেক \"%s\"."
 
-msgid "Scale"
-msgstr "স্কেল"
-
-msgid "Scale Cluster"
-msgstr "স্কেল ক্লস্টার"
-
-msgid "Scale cluster operation failed"
-msgstr "স্কেল ক্লস্টার সংসাধন ব্যর্থ"
-
-msgid "Scaled cluster successfully started."
-msgstr "স্কেল করা ক্লস্টার সফলভাবে শুরু."
-
 #, python-format
 msgid "Scheduled backup \"%(name)s\"."
 msgstr "তালিকাভুক্ত ব্যাকআপ \"%(name)s\"."
@@ -5120,12 +4614,6 @@ msgstr "স্ক্রিপ্ট ডেটা"
 
 msgid "Script File"
 msgstr "স্ক্রিপ্ট ফাইল"
-
-msgid "Script name"
-msgstr "স্ক্রিপ্ট নাম"
-
-msgid "Script text"
-msgstr "স্ক্রিপ্ট পাঠ"
 
 msgid "Security Group"
 msgstr "সুরক্ষা শ্রেণি"
@@ -5196,9 +4684,6 @@ msgstr "একটি মনিটর নির্বাচন করুন"
 msgid "Select a New Flavor"
 msgstr "একটি নতুন ফ্লেভার নির্বাচন করুন"
 
-msgid "Select a Node Group Template to add:"
-msgstr "যোগ করতে একটি নোড শ্রেণি টেমপ্লেট নির্বাচন করুন:"
-
 msgid "Select a Policy"
 msgstr "একটি নীতি যোগ করুন"
 
@@ -5239,12 +4724,6 @@ msgstr "নতুন হোস্ট নির্বাচন করুন"
 
 msgid "Select a new template to re-launch a stack."
 msgstr "একটি স্টেক পুনরায় শুরু করতে একটি নতুন টেমপ্লেট নির্বাচন করুন."
-
-msgid "Select a plugin and version for a new Cluster template."
-msgstr "একটি নতুন ক্লস্টার টেমপ্লেটের জন্য প্লাগইন ও সংস্করণ নির্বাচন করুন."
-
-msgid "Select a plugin and version for a new Cluster."
-msgstr "একটি নতুন ক্লস্টারের জন্য প্লাগইন ও সংস্করণ নির্বাচিত করুন."
 
 msgid "Select a port"
 msgstr "একটি পোর্ট নির্বাচন করুন"
@@ -5300,18 +4779,6 @@ msgstr "আপনার উদাহরণের জন্য নেটওয়া
 msgid "Select parent backup"
 msgstr "প্যারেন্ট ব্যাকআপ নির্বাচন করুন"
 
-msgid "Select plugin and hadoop version"
-msgstr "প্লাগইন ও hadoop সংস্করণ নির্বাচন করুন"
-
-msgid "Select plugin and hadoop version for cluster"
-msgstr "ক্লস্টারের জন্য প্লাগইন এবং hadoop সংস্করণ নির্বাচন করুন"
-
-msgid "Select plugin and hadoop version for cluster template"
-msgstr "ক্লস্টার টেমপ্লেটের জন্য প্লাগইন ও hadoop সংস্করণ নির্বাচন করুন"
-
-msgid "Select property name"
-msgstr "বৈশিষ্ট্য নাম নির্বাচন করুন"
-
 msgid "Select rules for your policy."
 msgstr "আপনার নীতির জন্য নিয়ম নির্বাচন করুন."
 
@@ -5327,15 +4794,6 @@ msgid ""
 msgstr ""
 "প্রোজেক্ট নির্বাচন করুন যেখানে ফ্লেভার ব্য়বহার হবে. কোনো প্রোজেক্ট নির্বাচিত না হলে, "
 "ফ্লেভার সব প্রোজেক্টে লভ্য হবে."
-
-msgid "Select the storage type for your job binary."
-msgstr "আপনার কার্য বাইনারীর জন্য ভাণ্ডার প্রকার নির্বাচন করুন."
-
-msgid "Select the type of your Data Source."
-msgstr "আপনার ডেটা উৎসের প্রকার নির্বাচন করুন."
-
-msgid "Select the type of your job:"
-msgstr "আপনার কার্যের প্রকার নির্বাচন করুন:"
 
 msgid "Selected Hosts"
 msgstr "নির্বাচিত হোস্ট"
@@ -5357,9 +4815,6 @@ msgstr "সার্ভার ভুল"
 
 msgid "Service"
 msgstr "সেবা"
-
-msgid "Service Configurations"
-msgstr "সেবা রূপাকৃতি"
 
 msgid "Service Endpoint"
 msgstr "সেবা অন্তিমবিন্দু"
@@ -5402,9 +4857,6 @@ msgstr "অংশীদারী ভাণ্ডার"
 
 msgid "Shared with Me"
 msgstr "আমার সঙ্গে ভাগ করুন"
-
-msgid "Show full configuration"
-msgstr "পূর্ণ রূপাকৃতি দেখান"
 
 msgid "Sign Out"
 msgstr "সাইন আউট"
@@ -5481,30 +4933,14 @@ msgstr "উত্স পোর্ট"
 msgid "Source Port/Port Range"
 msgstr "উত্স পোর্ট/পোর্ট ব্যপ্তি"
 
-msgid "Source password"
-msgstr "উত্স পাসওয়ার্ড"
-
 msgid "Source port (integer in [1, 65535] or range in a:b)"
 msgstr "উত্স পোর্ট ([1, 65535] তে পূর্ণসংখ্যা বা a:b তে ব্যপ্তি)"
-
-msgid "Source username"
-msgstr "উত্স ব্যবহর্তা নাম"
 
 msgid "Source:"
 msgstr "উত্স:"
 
-msgid "Spark"
-msgstr "স্ফুলিঙ্গ"
-
 msgid "Spec"
 msgstr "স্পেক"
-
-msgid ""
-"Specified User Name will be used by Data Processing to apply configs and "
-"manage processes on instances."
-msgstr ""
-"নির্দিষ্ট ব্যবহর্তা নাম রূপাকৃতি প্রয়োগ করতে এবং উদাহরণে প্রক্রিয়া পরিচালনা করতে ডেটা "
-"প্রক্রিয়ণ দ্বারা ব্যবহার হবে."
 
 msgid ""
 "Specifies how IPv6 addresses and additional information are configured. We "
@@ -5636,15 +5072,6 @@ msgstr "স্থিতি ="
 msgid "Status Reason"
 msgstr "স্থিতির কারণ"
 
-msgid "Storage location"
-msgstr "ভাণ্ডারের অবস্থান"
-
-msgid "Storage type"
-msgstr "ভান্ডারের প্রকার"
-
-msgid "Streaming MapReduce"
-msgstr "স্ট্রিমিং ম্যাপরিডিউস"
-
 msgid "Subnet"
 msgstr "সাবনেট"
 
@@ -5755,9 +5182,6 @@ msgstr "প্রাইভেটে কন্টেনার অ্যাক্�
 msgid "Successfully updated container access to public."
 msgstr "পাবলিকে কন্টেনার অ্যাক্সেস সফলভাবে আপডেট করা."
 
-msgid "Successfully updated image."
-msgstr "ইমেজ সফলভাবে আপডেট হয়েছে."
-
 #, python-format
 msgid "Successfully updated security group: %s"
 msgstr "সফলভাবে আপডেট করা সুরক্ষা শ্রেণি: %s"
@@ -5772,9 +5196,6 @@ msgstr "\"%s\" তে ভলিয়্যুম স্থিতি সফলভ�
 
 msgid "Sum."
 msgstr "যোগফল"
-
-msgid "Supported Versions"
-msgstr "সমর্থিত সংস্করণ"
 
 msgctxt "Current status of an Instance"
 msgid "Suspended"
@@ -5805,20 +5226,6 @@ msgstr "সিস্টেম তথ্য"
 msgid "TCP"
 msgstr "TCP"
 
-msgid "Tags"
-msgstr "ট্যাগ"
-
-msgid ""
-"Tags are used for filtering images suitable for each plugin and each Data "
-"Processing version.\n"
-"        To add required tags, select a plugin and a Data Processing version "
-"and click &quot;Add plugin tags&quot; button."
-msgstr ""
-"ট্যাগগুলি ইমেজ ফিল্টারের জন্য ব্যবহার হয় প্রতিটি প্লাগইন এবং প্রতিটি ডেটা প্রক্রিয়ণ "
-"সংস্করণের জন্য যোগ্য.\n"
-"        প্রয়োজনীয় ট্যাগ যোগ করতে, একটি প্লাগইন ও একটি ডেটা প্রক্রিয়ণ সংস্করণ "
-"নির্বাচন করুন এবং &quot;Add plugin tags&quot; বোতামে ক্লিক করুন."
-
 msgid "Target Host"
 msgstr "লক্ষ্য হোস্ট"
 
@@ -5834,17 +5241,11 @@ msgstr "টেমপ্লেট ডেটা"
 msgid "Template File"
 msgstr "টেনপ্লেট ফাইল"
 
-msgid "Template Name"
-msgstr "টেমপ্লেটের নাম"
-
 msgid "Template Source"
 msgstr "টেমপ্লেট উত্স"
 
 msgid "Template URL"
 msgstr "টেমপ্লেট URL"
-
-msgid "Template not specified"
-msgstr "টেমপ্লেট নির্দিষ্ট নয়"
 
 msgid "The \"from\" port number is invalid."
 msgstr "\"from\" পোর্ট নম্বর অবৈধ."
@@ -5897,33 +5298,6 @@ msgstr ""
 
 msgid "The Aggregate was updated."
 msgstr "সমূহ সদ্যতন ছিল."
-
-msgid ""
-"The Cluster Template object may specify a list of processes in anti-affinity "
-"group.\n"
-"    That means these processes may not be launched more than once on a "
-"single host."
-msgstr ""
-"ক্লস্টার টেমপ্লেট বস্তু অ্যান্টি-অ্যাফিনিটি শ্রেণিতে প্রক্রিয়ার তালিকা নির্দিষ্ট করতেও "
-"পারে.\n"
-"    এর মানে এই প্রক্রিয়াগুলির একটি একক হোস্ট একের অধিক শুরু করা যেতে পারে না."
-
-msgid ""
-"The Cluster Template object should specify Node Group Templates that will be "
-"used to build a Cluster.\n"
-"    You can add Node Groups using Node Group Templates on a &quot;Node "
-"Groups&quot; tab."
-msgstr ""
-"ক্লস্টার টেমপ্লেট বস্তু নোড শ্রেণই টেমপ্লেট নির্দিষ্ট করা চাই যা ক্লস্টার তৈরিতে ব্যবহার "
-"হবে.\n"
-"    আপনি &quot;Node Groups&quot; ট্যাবে নোড শ্রেণি টেমপ্লেট ব্যবহার করে নোড "
-"শ্রেণি যোগ করতে পারেন."
-
-msgid ""
-"The Cluster object should specify OpenStack Image to boot instances for "
-"Cluster."
-msgstr ""
-"ক্লস্টারের উদাহরণ বুট করতে ক্লস্টার বিষয়বস্তুর OpenStack ইমেজ নির্দিষ্ট হওয়া চাই."
 
 msgid "The ICMP code is invalid."
 msgstr "ICMP কোড অবৈধ."
@@ -6138,15 +5512,6 @@ msgstr ""
 msgid "There was a problem parsing the %(prefix)s: %(error)s"
 msgstr "%(prefix)s পার্স করতে সমস্যা ছিল: %(error)s"
 
-msgid "This Cluster Template will be created for:"
-msgstr "এই ক্লস্টার টেমপ্লেট তৈরি করা হবে এর জন্য:"
-
-msgid "This Cluster will be started with:"
-msgstr "এই ক্লস্টার শুরু হবে সাথে:"
-
-msgid "This Node Group Template will be created for:"
-msgstr "এই নোড শ্রেণি টেমপ্লেট তৈরি হবে এর জন্য:"
-
 msgid ""
 "This generates a pair of keys: a key you keep private (cloud.key) and a "
 "public key (cloud.key.pub). Paste the contents of the public key file here."
@@ -6186,9 +5551,6 @@ msgstr "বিরতি"
 
 msgid "Timezone"
 msgstr "টাইমজোন"
-
-msgid "Title"
-msgstr "শিরোনাম"
 
 msgid "To"
 msgstr "প্রতি"
@@ -6392,9 +5754,6 @@ msgstr "হোস্ট সমুহ \"%s\" তৈরি করতে অসম�
 msgid "Unable to create host aggregate."
 msgstr "হোস্ট সমূহ তৈরি করতে অসমর্থ."
 
-msgid "Unable to create job binary"
-msgstr "কার্য বাইনারী তৈরি করতে অসমর্থ"
-
 #, python-format
 msgid "Unable to create key pair: %(exc)s"
 msgstr "কী যুগ্ম তৈরি করতে অসমর্থ: %(exc)s"
@@ -6402,9 +5761,6 @@ msgstr "কী যুগ্ম তৈরি করতে অসমর্থ: %(e
 #, python-format
 msgid "Unable to create network \"%s\"."
 msgstr "নেটওয়ার্ক  \"%s\" তৈরি করতে অসমর্থ."
-
-msgid "Unable to create new cluster for job."
-msgstr "কার্যের জন্য নতুন ক্লস্টার তৈরি করতে অসমর্থ."
 
 #, python-format
 msgid "Unable to create project \"%s\"."
@@ -6425,9 +5781,6 @@ msgstr "স্পেক তৈরি করতে অসমর্থ."
 #, python-format
 msgid "Unable to create subnet \"%s\"."
 msgstr "সাবনেট \"%s\" তৈরি করতে অসমর্থ."
-
-msgid "Unable to create the cluster"
-msgstr "ক্লস্টার তৈরি করতে অসমর্থ"
 
 msgid "Unable to create user."
 msgstr "ব্যবহর্তা তৈরি করতে অসমর্থ."
@@ -6509,87 +5862,11 @@ msgstr "ভলিয়্যুম বিস্তৃত করতে অসমর
 msgid "Unable to fetch EC2 credentials."
 msgstr "EC2 ক্রেডেনশিয়াল আনতে অসমর্থ."
 
-msgid "Unable to fetch available images."
-msgstr "লভ্য ইমেজগুলি আনতে অসমর্থ."
-
-msgid "Unable to fetch cluster list"
-msgstr "ক্লস্টার তালিকা আনতে অসমর্থ."
-
-msgid "Unable to fetch cluster template list"
-msgstr "ক্লস্টার টেমপ্লেট তালিকা আনতে অসমর্থ."
-
-msgid "Unable to fetch cluster template."
-msgstr "ক্লস্টার টেমপ্লেট আনতে অসমর্থ."
-
-msgid "Unable to fetch cluster to scale"
-msgstr "স্কেলে ক্লস্টার আনতে অসমর্থ"
-
-msgid "Unable to fetch cluster to scale."
-msgstr "স্কেলে ক্লস্টার আনতে অসমর্থ."
-
-msgid "Unable to fetch clusters."
-msgstr "ক্লস্টার আনতে অসমর্থ."
-
-msgid "Unable to fetch data sources."
-msgstr "ডেটা উত্স আনতে অসমর্থ."
-
-msgid "Unable to fetch flavor for template."
-msgstr "টেমপ্লেটের জন্য ফ্লেভার আনতে অসমর্থ."
-
-msgid "Unable to fetch floating ip pools."
-msgstr "ভাসমান ip পুল আনতে অসমর্থ."
-
-msgid "Unable to fetch image choices."
-msgstr "ইমেজ পছন্দ আনতে অসমর্থ."
-
-msgid "Unable to fetch instance details."
-msgstr "উদাহরণ বিশদ আনতে অসমর্থ."
-
-msgid "Unable to fetch job binary list."
-msgstr "কার্য বাইনারী তালিকা আনতে অসমর্থ."
-
-#, python-format
-msgid "Unable to fetch job binary: %(exc)s"
-msgstr "কার্য বাইনারী আনতে অসমর্থ: %(exc)s"
-
-msgid "Unable to fetch job executions."
-msgstr "কার্য সম্পাদনা আনতে অসমর্থ."
-
-msgid "Unable to fetch jobs."
-msgstr "কার্যগুলি আনতে অসমর্থ."
-
-msgid "Unable to fetch keypair choices."
-msgstr "কীজোড়া পছন্দ আনতে অসমর্থ."
-
-msgid "Unable to fetch node group details."
-msgstr "নোড শ্রেণি বিশদ আনতে অসমর্থ."
-
-msgid "Unable to fetch node group template list."
-msgstr "নোড শ্রেণি টেমপ্লেট তালিকা আনতে অসমর্থ."
-
-msgid "Unable to fetch plugin details."
-msgstr "প্লাগইন বিশদ আনতে অসমর্থ."
-
-msgid "Unable to fetch plugin list."
-msgstr "প্লাগইন তালিকা আনতে অসমর্থ."
-
-msgid "Unable to fetch template object."
-msgstr "টেমপ্লেট বস্তু আনতে অসমর্থ."
-
-msgid "Unable to fetch template to copy."
-msgstr "কপি করতে টেমপ্লেট আনতে অসমর্থ."
-
-msgid "Unable to fetch the image details"
-msgstr "ইমেজ বিশদ আনতে অসমর্থ"
-
 msgid "Unable to find backup!"
 msgstr "ব্যাকআপ খুঁজতে অসমর্থ!"
 
 msgid "Unable to find default role."
 msgstr "স্থিতক ভূমিকা খুঁজতে অসমর্থ."
-
-msgid "Unable to generate process choices."
-msgstr "প্রক্রিয়া পছন্দ তৈরি করতে অসমর্থ."
 
 msgid "Unable to get EC2 credentials"
 msgstr "EC2 ক্রেডেনশিয়াল পেতে অসমর্থ"
@@ -6635,9 +5912,6 @@ msgstr "নেটওয়ার্ক এজেন্ট তথ্য পেতে
 msgid "Unable to get network agents list."
 msgstr "নেটওয়ার্ক এজেন্ট তালিকা পেতে অসমর্থ."
 
-msgid "Unable to get node group details."
-msgstr "নোড শ্রেণি বিশদ পেতে অসমর্থ."
-
 msgid "Unable to get nova services list."
 msgstr "নোভা সেবা তালিকা পেতে অসমর্থ."
 
@@ -6667,9 +5941,6 @@ msgstr "কী যুগ্ম আমদানি করতে অসমর্�
 #, python-format
 msgid "Unable to launch %(count)s named \"%(name)s\"."
 msgstr "\"%(name)s\"নামের %(count)s শুরু করতে অসমর্থ."
-
-msgid "Unable to launch job."
-msgstr "কার্য চালু করতে অসমর্থ."
 
 msgid "Unable to list containers."
 msgstr "কন্টেনার তালিকা করতে অসমর্থ."
@@ -6723,12 +5994,6 @@ msgstr "ফ্লেভার পেতে অসমর্থ."
 #, python-format
 msgid "Unable to parse IP address %s."
 msgstr "IP ঠিকানা %s বিশ্লেষণ করতে অসমর্থ."
-
-msgid "Unable to populate anti-affinity processes."
-msgstr "অ্যান্টি-অ্যাফিনিটি প্রক্রিয়া পূরণ করতে অসমর্থ."
-
-msgid "Unable to process plugin tags"
-msgstr "প্লাগইন ট্যাগ প্রক্রিয়া করতে অসমর্থ"
 
 msgid "Unable to rebuild instance."
 msgstr "উদাহরণ পুনর্নিমাণ করতে অসমর্থ."
@@ -6854,9 +6119,6 @@ msgstr "গণনা সীমা তথ্য পুনরুদ্ধার �
 msgid "Unable to retrieve container list."
 msgstr "কন্টেনার তালিকা পুনরুদ্ধার করতে অসমর্থ."
 
-msgid "Unable to retrieve data processing plugins."
-msgstr "ডেটা প্রক্রিয়ণ প্লাগইন পুনরুদ্ধার করতে অসমর্থ."
-
 msgid "Unable to retrieve database instances."
 msgstr "ডেটাবেস উদাহরণ পুনরুদ্ধার করতে অসমর্থ."
 
@@ -6975,9 +6237,6 @@ msgstr "হাইপারভাইসর পরিসংখ্যান পু�
 msgid "Unable to retrieve image details."
 msgstr "ইমেজ বিশদ পুনরুদ্ধার করতে অসমর্থ."
 
-msgid "Unable to retrieve image list"
-msgstr "ইমেজ তালিকা পুনরুদ্ধার করতে অসমর্থ"
-
 msgid "Unable to retrieve image list."
 msgstr "ইমেজ তালিকা পুনরুদ্ধার করতে অসমর্থ."
 
@@ -6986,10 +6245,6 @@ msgstr "ইমেজ পুনরুদ্ধার করতে অসমর্
 
 msgid "Unable to retrieve images for the current project."
 msgstr "বর্তমান প্রোজেক্টের জন্য ইমেজ পুনরুদ্ধার করতে অসমর্থ."
-
-#, python-format
-msgid "Unable to retrieve images with filter %s."
-msgstr "%s ফিল্টার সহ ইমেজ পুনরুদ্ধার করতে অসমর্থ."
 
 msgid "Unable to retrieve images."
 msgstr "ইমেজগুলি পুনরুদ্ধার করতে অসমর্থ."
@@ -7084,9 +6339,6 @@ msgstr "বস্তু তালিকা পুনরুদ্ধার কর
 
 msgid "Unable to retrieve object."
 msgstr "বস্তু পুনরুদ্ধার করতে অসমর্থ."
-
-msgid "Unable to retrieve plugin."
-msgstr "প্লাগইন পুনরুদ্ধার করতে অসমর্থ."
 
 msgid "Unable to retrieve policies list."
 msgstr "পলিসি তালিকা পুনরুদ্ধার করতে অসমর্থ."
@@ -7342,9 +6594,6 @@ msgstr "বস্তু আপডেট করতে অসমর্থ."
 msgid "Unable to update role."
 msgstr "ভূমিকা আপডেট করতে অসমর্থ."
 
-msgid "Unable to update row"
-msgstr "এখন আপডেট করতে অসমর্থ"
-
 #, python-format
 msgid "Unable to update subnet \"%s\"."
 msgstr "\"%s\" সাবনেট আপডেট করতে অসমর্থ."
@@ -7371,12 +6620,6 @@ msgstr "\"%s\" তে ভলিয়্যুম স্থিতি আপডে�
 msgid "Unable to update volume."
 msgstr "ভলিয়্যুম আপডেট করতে অসমর্থ."
 
-msgid "Unable to upload cluster template file"
-msgstr "ক্লস্টার টেমপ্লেট ফাইল আপলোড করতে অসমর্থ"
-
-msgid "Unable to upload job binary"
-msgstr "কার্য বাইনারী আপলোড করতে অসমর্থ"
-
 msgid "Unable to upload object."
 msgstr "বস্তু আপলোড করতে অসমর্থ."
 
@@ -7392,9 +6635,6 @@ msgstr "অজানা উদাহরণ"
 
 msgid "Unknown instance (None)"
 msgstr "অজানা উদাহরণ (কিছু না)"
-
-msgid "Unnecessary tags may be removed by clicking a cross near tag's name."
-msgstr "ট্যাগ নামের কাছে একটি ক্রশে ক্লিক করে অপ্রয়োজনীয় ট্যাগগুলি সরানো যেতে পারে."
 
 msgid "Up"
 msgstr "উপর"
@@ -7513,9 +6753,6 @@ msgstr "ভলিয়্যুম স্ন্যাপশট \"%s\" আপডে
 msgid "Upload"
 msgstr "আপলোড করুন"
 
-msgid "Upload File"
-msgstr "ফাইল আপলোড করুন"
-
 msgid "Upload Object"
 msgstr "বস্তু আপলোড করুন"
 
@@ -7526,23 +6763,14 @@ msgstr "কন্টেনারে বস্তু আপলোড করুন
 msgid "Upload Objects"
 msgstr "বস্তু আপলোড করুন"
 
-msgid "Upload Template"
-msgstr "টেমপ্লেট আপলোড করুন"
-
 msgid "Upload Volume to Image"
 msgstr "ইমেজে ভলিয়্যুম আপলোড করুন"
-
-msgid "Upload a new file"
-msgstr "একটি নতুন ফাইল আপলোড করুন"
 
 msgid "Upload to Image"
 msgstr "আপলোডের জন্য ছবি"
 
 msgid "Uploaded image size"
 msgstr "আপলোড করা ইমেজ আয়তন"
-
-msgid "Url"
-msgstr "Url"
 
 msgid "Usage"
 msgstr "প্রয়োগ"
@@ -7561,12 +6789,6 @@ msgstr "সার্ভার স্থিতক ব্যবহার"
 
 msgid "Use a volume as source"
 msgstr "উত্স হিসেবে ভলিয়্যুম ব্যবহার করুন"
-
-msgid "Use anti-affinity groups for processes"
-msgstr "প্রক্রিয়ার জন্য অ্যান্টি-অ্যাফিনিটি শ্রেণি ব্যবহার করুন "
-
-msgid "Use anti-affinity groups for: "
-msgstr "এর জন্য অ্যান্টি-অ্যাফিনিটি শ্রেণি ব্যবহার করুন: "
 
 msgid "Use image as a source"
 msgstr "উত্স হিসেবে ইমেজ ব্যবহার করুন"
@@ -7617,15 +6839,9 @@ msgstr "\t সেটিং"
 msgid "User has been updated successfully."
 msgstr "ব্যবহর্তা সফলভাবে আপডেট হয়েছে."
 
-msgid "User has to choose a keypair to have access to clusters instances."
-msgstr "ব্যবহর্তাকে ক্লস্টার উদাহরণে প্রবেশ করতে কীজোড়া বাছুন."
-
 #, python-format
 msgid "User name \"%s\" is already used."
 msgstr "\"%s\" ব্যবহর্তা নাম ইতিমধ্যেই ব্যবহারে."
-
-msgid "Username"
-msgstr "ব্যবহর্তা নাম"
 
 msgid "Username (required)"
 msgstr "ব্যবহর্তা নাম (আবশ্যক)"
@@ -7703,9 +6919,6 @@ msgstr "মান (গড়)"
 
 msgid "Value:"
 msgstr "মান:"
-
-msgid "Version"
-msgstr "সংস্করণ"
 
 #, python-format
 msgid ""
@@ -7861,20 +7074,8 @@ msgstr "ভলিয়্যুম"
 msgid "Volumes Attached"
 msgstr "ভলিয়্যুম যুক্ত"
 
-msgid "Volumes per node"
-msgstr "নোড প্রতি ভলিয়্যুম"
-
-msgid "Volumes size"
-msgstr "ভলিয়্যুম আয়তন"
-
-msgid "Volumes size (GB)"
-msgstr "ভলিয়্যুম আয়তন (GB)"
-
 msgid "Weight"
 msgstr "ওজন"
-
-msgid "Which keypair to use for authentication."
-msgstr "প্রত্যয়নের জন্য কোন কীজোড়া ব্যবহারের."
 
 msgid ""
 "Within a container you can group your objects into pseudo-folders, which "
@@ -7961,26 +7162,11 @@ msgstr ""
 "আপনি প্রত্যাহার করতে পারেন না. অ্যাডমিনিষ্ট্রেটিভ অগ্রাধিকার সহ অন্য প্রোজেক্ট যেতে "
 "বা CLI এর মাধ্যমে ম্যানুয়েলভাবে অ্যাডমিনিষ্ট্রেটিভ রোল সরিয়ে ফেলুন."
 
-msgid "You may also add any custom tag."
-msgstr "আপনি যে কোনো ব্যবহর্তা-বিহিত ট্যাগ যোগ করতেও পারেন."
-
-msgid "You may also enter an optional description for your Data Source."
-msgstr "আপনার ডেট উত্সের জন্য বৈকল্পিক বিবরণ ভরতেও পারেন."
-
-msgid "You may also enter an optional description for your job binary."
-msgstr "আপনার কার্য বাইনারীর জন্য একটি বৈকল্পিক বিবরণও ভরতে পারেন॥॥॥॥."
-
 msgid "You may have mistyped the address or the page may have moved."
 msgstr "আপনি হয়ত ঠিকানা ভুল টাইপ করেছেন বা পাতাটি সরে গেছে."
 
-msgid "You may need to enter the username and password for your Data Source."
-msgstr "আপনার ডেটা উৎসের জন্য আপনাকে ব্যবহর্তা নাম ও পাসওয়ার্ড ভরা প্রয়োজন."
-
 msgid "You may optionally set a password on the rebuilt instance."
 msgstr "আপনি পুনর্নির্মাণ উদাহরণে বৈকল্পিকভাবে একটি পাসওয়ার্ড সেট করতেও পারেন."
-
-msgid "You may set <b>cluster</b> scoped configurations on corresponding tabs."
-msgstr "সম্বন্ধিত ট্যাবে <b>cluster</b> স্কোপ্‌ড্‌ রূপাকৃতি সেট করতেও পারেন."
 
 msgid "You may update IKE Policy details here."
 msgstr "আপনি এখানে IKE নীতি বিশদ আপডেটও করতে পারেন."
@@ -8142,9 +7328,6 @@ msgstr "ধরুন"
 
 msgid "instance"
 msgstr "উদাহরণ"
-
-msgid "no processes"
-msgstr "কোনো প্রক্রিয়া নেই"
 
 msgid "pseudo-folder"
 msgstr "সুডো-ফোল্ডার"

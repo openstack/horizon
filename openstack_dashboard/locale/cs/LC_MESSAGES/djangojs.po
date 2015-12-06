@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-12-02 23:42+0000\n"
+"POT-Creation-Date: 2015-12-05 16:12+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -166,9 +166,6 @@ msgstr "Konfigurační jednotka"
 msgid "Configuration Help"
 msgstr "Nápověda pro nastavení"
 
-msgid "Configuration Value"
-msgstr "Hodnota nastavení"
-
 msgid "Count"
 msgstr "Počet"
 
@@ -194,12 +191,6 @@ msgstr ""
 
 msgid "Customization Script"
 msgstr "Skript přizpůsobení"
-
-msgid "Data Source"
-msgstr "Zdroj dat"
-
-msgid "Default Value"
-msgstr "Výchozí hodnota"
 
 msgid "Deleted"
 msgstr "Smazáno"
@@ -237,9 +228,6 @@ msgstr "Efemérní disk"
 msgid "Ether Type"
 msgstr "Typ ethernetu"
 
-msgid "Event log is not available."
-msgstr "Záznam události není dostupný."
-
 #, python-format
 msgid "Extension is not enabled: %(extension)s."
 msgstr "Rozšíření není povoleno: %(extension)s."
@@ -265,19 +253,6 @@ msgid ""
 msgstr ""
 "Konfigurace určují velikost výpočetních, pamětních a úložných možností "
 "instance."
-
-msgid ""
-"For configs and params, type the key name; for args, type the index as an "
-"integer, starting from 0."
-msgstr ""
-"Pro nastavení a parametry zadejte název klíče; pro argumenty zadejte index "
-"jako celé číslo počínaje od 0."
-
-msgid ""
-"For data sources, use a data source UUID or a path (as per data source "
-"creation.)"
-msgstr ""
-"Pro zdroj dat použijte UUID zdroje nebo cestu (podle vytvoření data zdroje.)"
 
 msgid "Format"
 msgstr "Formátovat"
@@ -425,14 +400,8 @@ msgstr "Spustit instanci"
 msgid "Load script from a file"
 msgstr "Načíst skript ze souboru"
 
-msgid "Location"
-msgstr "Umístění"
-
 msgid "Manual"
 msgstr "Ručně"
-
-msgid "Mapping Type"
-msgstr "Typ mapování"
 
 msgid "Max Port"
 msgstr "Maximální port"
@@ -458,9 +427,6 @@ msgstr "Min RAM (MB)"
 msgid "Name"
 msgstr "Název"
 
-msgid "Named Parameter"
-msgstr "Pojmenovaný parametr"
-
 msgid "Network"
 msgstr "Síť"
 
@@ -482,9 +448,6 @@ msgstr "Ne"
 msgid "No available items"
 msgstr "Žádné dostupné položky"
 
-msgid "Number"
-msgstr "Číslo"
-
 msgid "OK"
 msgstr "OK"
 
@@ -505,9 +468,6 @@ msgstr ""
 
 msgid "Policy check failed."
 msgstr "Kontrola zásady selhala."
-
-msgid "Positional Argument"
-msgstr "Poziční argument"
 
 msgid "Private"
 msgstr "Soukromé"
@@ -565,14 +525,8 @@ msgstr "ˇ5azení položek změňte přetažením"
 msgid "Remote"
 msgstr "Vzdálené"
 
-msgid "Remove"
-msgstr "Odstranit"
-
 msgid "Required"
 msgstr "Vyžadováno"
-
-msgid "Required?"
-msgstr "Vyžadováno?"
 
 msgid "Root Disk"
 msgstr "Kořenový disk"
@@ -612,12 +566,6 @@ msgstr ""
 "přístup k instanci. Pro vytvoření dalších pravidel přejděte na <b>Výpočet | "
 "Přístup a zabezpečení</b>, pak klikněte na bezpečnostní skupinu a klikněte "
 "na <b>Správa pravidel</b>."
-
-msgid ""
-"See http://docs.openstack.org/developer/sahara/userdoc/edp.html for "
-"definitions."
-msgstr ""
-"Viz http://docs.openstack.org/developer/sahara/userdoc/edp.html pro definice."
 
 msgid "Segmentation ID"
 msgstr "ID členění"
@@ -664,9 +612,6 @@ msgstr "Nastavení není povoleno: %(setting)s"
 msgid "Shared"
 msgstr "Sdíleno"
 
-msgid "Show events"
-msgstr "Zobrazit události"
-
 msgid "Size"
 msgstr "Velikost"
 
@@ -681,9 +626,6 @@ msgstr "Zdroj"
 
 msgid "Status"
 msgstr "Stav"
-
-msgid "String"
-msgstr "Řetězec"
 
 msgid "Subnets Associated"
 msgstr "Podsítě přidruženy"
@@ -745,9 +687,6 @@ msgstr ""
 
 msgid "The status indicates whether the network has an active connection."
 msgstr "Stav udává, zda síť má aktivní připojení."
-
-msgid "The step has completed successfully. No events to display."
-msgstr "Krok byl úspěšně dokončen. Žádné události k zobrazení."
 
 msgid ""
 "The subnet identifies a sub-section of a network. A subnet is specified in "
@@ -1031,9 +970,6 @@ msgstr "VCPUS"
 
 msgid "VCPUs"
 msgstr "VCPU"
-
-msgid "Value Type"
-msgstr "Typ hodnoty"
 
 msgid "Visibility"
 msgstr "Viditelnost"

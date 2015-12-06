@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-12-03 06:18+0000\n"
+"POT-Creation-Date: 2015-12-06 06:17+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -16,105 +16,6 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 2.1.1\n"
-
-#: contrib/sahara/content/data_processing/static/dashboard/project/data_processing/data_processing.event_log.js:15
-msgid "Event log is not available."
-msgstr ""
-
-#: contrib/sahara/content/data_processing/static/dashboard/project/data_processing/data_processing.event_log.js:42
-msgid "Show events"
-msgstr ""
-
-#: contrib/sahara/content/data_processing/static/dashboard/project/data_processing/data_processing.event_log.js:107
-msgid "The step has completed successfully. No events to display."
-msgstr ""
-
-#: contrib/sahara/content/data_processing/static/dashboard/project/data_processing/data_processing.job_interface_arguments.js:8
-msgid "Remove"
-msgstr ""
-
-#: contrib/sahara/content/data_processing/static/dashboard/project/data_processing/data_processing.job_interface_arguments.js:12
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/flavor/select-flavor-table.html:27
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/keypair/keypair.html:36
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/keypair/keypair.html:90
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/security-groups/security-groups.html:19
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/security-groups/security-groups.html:72
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:121
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:128
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:135
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:142
-msgid "Name"
-msgstr ""
-
-#: contrib/sahara/content/data_processing/static/dashboard/project/data_processing/data_processing.job_interface_arguments.js:21
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/security-groups/security-groups.html:20
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/security-groups/security-groups.html:73
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:136
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:143
-msgid "Description"
-msgstr ""
-
-#: contrib/sahara/content/data_processing/static/dashboard/project/data_processing/data_processing.job_interface_arguments.js:30
-msgid "Mapping Type"
-msgstr ""
-
-#: contrib/sahara/content/data_processing/static/dashboard/project/data_processing/data_processing.job_interface_arguments.js:31
-msgid ""
-"See http://docs.openstack.org/developer/sahara/userdoc/edp.html for "
-"definitions."
-msgstr ""
-
-#: contrib/sahara/content/data_processing/static/dashboard/project/data_processing/data_processing.job_interface_arguments.js:37
-msgid "Positional Argument"
-msgstr ""
-
-#: contrib/sahara/content/data_processing/static/dashboard/project/data_processing/data_processing.job_interface_arguments.js:38
-msgid "Named Parameter"
-msgstr ""
-
-#: contrib/sahara/content/data_processing/static/dashboard/project/data_processing/data_processing.job_interface_arguments.js:39
-msgid "Configuration Value"
-msgstr ""
-
-#: contrib/sahara/content/data_processing/static/dashboard/project/data_processing/data_processing.job_interface_arguments.js:46
-msgid "Location"
-msgstr ""
-
-#: contrib/sahara/content/data_processing/static/dashboard/project/data_processing/data_processing.job_interface_arguments.js:47
-msgid ""
-"For configs and params, type the key name; for args, type the index as an"
-" integer, starting from 0."
-msgstr ""
-
-#: contrib/sahara/content/data_processing/static/dashboard/project/data_processing/data_processing.job_interface_arguments.js:58
-msgid "Value Type"
-msgstr ""
-
-#: contrib/sahara/content/data_processing/static/dashboard/project/data_processing/data_processing.job_interface_arguments.js:62
-msgid "String"
-msgstr ""
-
-#: contrib/sahara/content/data_processing/static/dashboard/project/data_processing/data_processing.job_interface_arguments.js:63
-msgid "Number"
-msgstr ""
-
-#: contrib/sahara/content/data_processing/static/dashboard/project/data_processing/data_processing.job_interface_arguments.js:64
-msgid "Data Source"
-msgstr ""
-
-#: contrib/sahara/content/data_processing/static/dashboard/project/data_processing/data_processing.job_interface_arguments.js:71
-msgid "Required?"
-msgstr ""
-
-#: contrib/sahara/content/data_processing/static/dashboard/project/data_processing/data_processing.job_interface_arguments.js:80
-msgid "Default Value"
-msgstr ""
-
-#: contrib/sahara/content/data_processing/static/dashboard/project/data_processing/data_processing.job_interface_arguments.js:81
-msgid ""
-"For data sources, use a data source UUID or a path (as per data source "
-"creation.)"
-msgstr ""
 
 #: dashboards/admin/static/dashboard/admin/flavors/table/flavors-table.html:22
 msgid "Flavor Name"
@@ -461,6 +362,18 @@ msgstr ""
 msgid ""
 "Flavors manage the sizing for the compute, memory and storage capacity of"
 " the instance."
+msgstr ""
+
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/flavor/select-flavor-table.html:27
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/keypair/keypair.html:36
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/keypair/keypair.html:90
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/security-groups/security-groups.html:19
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/security-groups/security-groups.html:72
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:121
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:128
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:135
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:142
+msgid "Name"
 msgstr ""
 
 #: dashboards/project/static/dashboard/project/workflow/launch-instance/flavor/select-flavor-table.html:28
@@ -841,6 +754,13 @@ msgstr ""
 
 #: dashboards/project/static/dashboard/project/workflow/launch-instance/security-groups/security-groups.html:5
 msgid "Select the security groups."
+msgstr ""
+
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/security-groups/security-groups.html:20
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/security-groups/security-groups.html:73
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:136
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:143
+msgid "Description"
 msgstr ""
 
 #: dashboards/project/static/dashboard/project/workflow/launch-instance/source/source-details.html:7

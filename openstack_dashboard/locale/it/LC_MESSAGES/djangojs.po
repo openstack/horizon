@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-12-02 23:42+0000\n"
+"POT-Creation-Date: 2015-12-05 16:12+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -167,9 +167,6 @@ msgstr "Unità di configurazione"
 msgid "Configuration Help"
 msgstr "Guida alla configurazione"
 
-msgid "Configuration Value"
-msgstr "Valore di configurazione"
-
 msgid "Count"
 msgstr "Numero"
 
@@ -196,12 +193,6 @@ msgstr ""
 
 msgid "Customization Script"
 msgstr "Script di personalizzazione"
-
-msgid "Data Source"
-msgstr "Origine dati"
-
-msgid "Default Value"
-msgstr "Valore predefinito"
 
 msgid "Deleted"
 msgstr "Eliminato"
@@ -236,9 +227,6 @@ msgstr "Disco temporaneo"
 msgid "Ether Type"
 msgstr "Tipo Ether"
 
-msgid "Event log is not available."
-msgstr "Il log degli eventi non è disponibile"
-
 #, python-format
 msgid "Extension is not enabled: %(extension)s."
 msgstr "Estensione non abilitata: %(extension)s."
@@ -261,20 +249,6 @@ msgid ""
 msgstr ""
 "I flavor gestiscono la dimensione della capacità di calcolo, memoria e "
 "archiviazione dell'istanza."
-
-msgid ""
-"For configs and params, type the key name; for args, type the index as an "
-"integer, starting from 0."
-msgstr ""
-"Per le configurazioni e i parametri, immettere il nome della chiave; per gli "
-"argomenti, immettere l'indice come un numero intero, a partire da 0."
-
-msgid ""
-"For data sources, use a data source UUID or a path (as per data source "
-"creation.)"
-msgstr ""
-"Per le origini dati, utilizzare un'origine dati UUID o un percorso (ad "
-"esempio per la creazione di un'origine dati)."
 
 msgid "Format"
 msgstr "Formato"
@@ -398,14 +372,8 @@ msgstr "Esegui instanza"
 msgid "Load script from a file"
 msgstr "Carica script da un file"
 
-msgid "Location"
-msgstr "Ubicazione"
-
 msgid "Manual"
 msgstr "Manuale"
-
-msgid "Mapping Type"
-msgstr "Tipo di associazione"
 
 msgid "Max Port"
 msgstr "Porta max"
@@ -428,9 +396,6 @@ msgstr "RAM min (MB)"
 msgid "Name"
 msgstr "Nome "
 
-msgid "Named Parameter"
-msgstr "Parametro denominato"
-
 msgid "Network"
 msgstr "Rete"
 
@@ -452,9 +417,6 @@ msgstr "No"
 msgid "No available items"
 msgstr "Nessun elemento disponibile"
 
-msgid "Number"
-msgstr "Numero"
-
 msgid "OK"
 msgstr "OK"
 
@@ -466,9 +428,6 @@ msgstr "Rete fisica"
 
 msgid "Policy check failed."
 msgstr "Controllo della politica non riuscito."
-
-msgid "Positional Argument"
-msgstr "Argomento posizionale"
 
 msgid "Private"
 msgstr "Privato"
@@ -527,14 +486,8 @@ msgstr "Riordina gli elementi utilizzando la funzione di trascinamento"
 msgid "Remote"
 msgstr "Remoto"
 
-msgid "Remove"
-msgstr "Rimuovi"
-
 msgid "Required"
 msgstr "Richiesto"
-
-msgid "Required?"
-msgstr "Richiesto?"
 
 msgid "Root Disk"
 msgstr "Disco root"
@@ -574,13 +527,6 @@ msgstr ""
 "ulteriormente le opzioni di accesso per un'istanza. Per creare altre regole, "
 "andare alla vista <b>Compute | Accesso e Sicurezza</b>, quindi trovare il "
 "gruppo di sicurezza e fare clic su <b>Gestisci regole</b>."
-
-msgid ""
-"See http://docs.openstack.org/developer/sahara/userdoc/edp.html for "
-"definitions."
-msgstr ""
-"Per le definizioni, vedere http://docs.openstack.org/developer/sahara/"
-"userdoc/edp.html."
 
 msgid "Segmentation ID"
 msgstr "ID segmentazione"
@@ -629,9 +575,6 @@ msgstr "Impostazione non abilitata: %(setting)s"
 msgid "Shared"
 msgstr "Condiviso"
 
-msgid "Show events"
-msgstr "Mostra eventi"
-
 msgid "Size"
 msgstr "Dimensione"
 
@@ -643,9 +586,6 @@ msgstr "Istantanea"
 
 msgid "Status"
 msgstr "Stato"
-
-msgid "String"
-msgstr "Stringa"
 
 msgid "Subnets Associated"
 msgstr "Sottoreti associate"
@@ -706,9 +646,6 @@ msgstr ""
 
 msgid "The status indicates whether the network has an active connection."
 msgstr "Lo stato indica se la rete presenta una connessione attiva."
-
-msgid "The step has completed successfully. No events to display."
-msgstr "Nessun elemento da visualizzare"
 
 msgid ""
 "The subnet identifies a sub-section of a network. A subnet is specified in "
@@ -976,9 +913,6 @@ msgstr "Nome Utente"
 
 msgid "VCPUS"
 msgstr "VCPU"
-
-msgid "Value Type"
-msgstr "Tipo di valore"
 
 msgid "Visibility"
 msgstr "Visibilità"

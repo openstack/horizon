@@ -15,7 +15,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-12-02 23:42+0000\n"
+"POT-Creation-Date: 2015-12-05 16:12+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -26,55 +26,6 @@ msgstr ""
 "Generated-By: Babel 2.0\n"
 "X-Generator: Zanata 3.7.3\n"
 "Language-Team: Turkish (Turkey)\n"
-
-msgid ""
-"\n"
-"                  In order to run a Data Processing job, you need to make\n"
-"                  the files for your program available to the\n"
-"                  Data Processing system, define where the input and output\n"
-"                  need to go and create a Job Template that describes\n"
-"                  how to run your job.  Each of those steps can be done\n"
-"                  manually or you can follow this guide to help take you\n"
-"                  through the steps to run a job on an existing cluster.\n"
-"            "
-msgstr ""
-"\n"
-"                Bir Veri İşleme işi çalıştırmak için, programınız için\n"
-"                gerekli dosyaları Veri İşleme sistemi tarafından "
-"kullanılabilir\n"
-"                yapmalısınız, girdi ve çıktının nereye gitmesi gerektiğini\n"
-"                tanımlamalı ve işinizin nasıl çalışacağını tanımlayan bir "
-"İş\n"
-"                Şablonu oluşturmalısınız.  Bu adımların her biri elle veya\n"
-"                mevcut bir kümede işlerin nasıl çalıştırılacağını anlatan\n"
-"                bu kılavuz yardımıyla yapılabilir.\n"
-"           "
-
-msgid ""
-"\n"
-"                 Each of the Data Processing frameworks require a cluster of "
-"machines\n"
-"                 in order to do the work they are assigned.  A cluster is\n"
-"                 formed by creating a set of Node Group Templates, "
-"combining\n"
-"                 those into a Cluster Template and then launching a "
-"Cluster.\n"
-"                 You can do each of those steps manually, or you can follow\n"
-"                 this guide to help take you through the steps of\n"
-"                 Cluster creation.\n"
-"             "
-msgstr ""
-"\n"
-"                Veri İşleme uygulama iskeletlerinin her biri atandıkları işi "
-"yapabilmek için\n"
-"                makine kümesine ihtiyaç duyar. Bir küme, bir grup Düğüm Grup "
-"Şablonu oluşturup\n"
-"                bunları bir Küme Şablonunda birleştirerek ve bir Küme "
-"başlatarak elde edilir.\n"
-"                Bu adımların hepsini elle yapabilirsiniz, ya da bu kılavuzu "
-"kullanarak Küme\n"
-"                oluşturma adımlarını yardımla takip edebilirsiniz.\n"
-"            "
 
 #, python-format
 msgid ""
@@ -421,9 +372,6 @@ msgstr " : Sonraki nokta"
 msgid " Also failed to delete port %s"
 msgstr " Bağlantı noktası %s silinemedi de"
 
-msgid " Done"
-msgstr " Bitti"
-
 msgid "\"Add Router Route\""
 msgstr "\"Router Rotası Ekle\""
 
@@ -461,14 +409,6 @@ msgid ""
 msgstr "Asgari imaj gerekliliklerini karşılamayan bazı nitelikler kapatıldı.\""
 
 #, python-format
-msgid "%(conf_name)s: %(conf_val)s"
-msgstr "%(conf_name)s: %(conf_val)s"
-
-#, python-format
-msgid "%(conf_name)s: %(conf_value)s"
-msgstr "%(conf_name)s: %(conf_value)s"
-
-#, python-format
 msgid "%(field_name)s: Invalid IP address (value=%(ip)s)"
 msgstr "%(field_name)s: Geçersiz IP adresi (değer=%(ip)s)"
 
@@ -477,16 +417,8 @@ msgid "%(field_name)s: Invalid IP address (value=%(network)s)"
 msgstr "%(field_name)s: Geçersiz IP adresi (değer=%(network)s)"
 
 #, python-format
-msgid "%(group)s:"
-msgstr "%(group)s:"
-
-#, python-format
 msgid "%(instance_name)s %(fixed_ip)s"
 msgstr "%(instance_name)s %(fixed_ip)s"
-
-#, python-format
-msgid "%(key)s: %(val)s"
-msgstr "%(key)s: %(val)s"
 
 #, python-format
 msgid "%(name)s - %(size)s GB (%(label)s)"
@@ -580,22 +512,8 @@ msgstr "-"
 msgid "--"
 msgstr "--"
 
-msgid "-- not selected --"
-msgstr "-- seçilmedi --"
-
 msgid "3des"
 msgstr "3des"
-
-msgid ""
-"<b>Important</b>:  The name that you give your job binary will be the name "
-"used in your job execution.\n"
-"  If your binary requires a particular name or extension (ie: \".jar\"), be "
-"sure to include it here."
-msgstr ""
-"<b>Önemli</b>:  İş ikiliğinize verdiğiniz isim işi çalıştırırken "
-"kullanılacaktır.\n"
-"  İkiliğiniz belirli bir isim ya da uzantıya (örn: \".jar\") ihtiyaç "
-"duyuyorsa, burada onu da dahil ettiğinizden emin olun."
 
 #, python-format
 msgid "<p>%(used)s of %(quota)s MB Used</p>"
@@ -874,9 +792,6 @@ msgstr "Yeni Kural Ekle"
 msgid "Add New VPN Service"
 msgstr "Yeni VPN Servisi Ekle"
 
-msgid "Add Node Group"
-msgstr "Düğüm Grubu Ekleyin"
-
 msgid "Add Policy"
 msgstr "İlke Ekle"
 
@@ -926,9 +841,6 @@ msgstr "VIP Ekle"
 msgid "Add VPN Service"
 msgstr "VPN Servisi Ekle"
 
-msgid "Add custom tag"
-msgstr "Özel etiket ekle"
-
 msgid ""
 "Add hosts to this aggregate or remove hosts from it. Hosts can be in "
 "multiple aggregates."
@@ -941,9 +853,6 @@ msgstr "Bu takıma istemciler ekle. İstemciler birden çok takımda olabilirler
 
 msgid "Add interface"
 msgstr "Arayüz ekle"
-
-msgid "Add libraries to your job template."
-msgstr "İş şablonuna kitaplıklar ekle."
 
 msgid ""
 "Add member(s) to the selected pool.\n"
@@ -961,9 +870,6 @@ msgstr ""
 "numarası atayın; örn., 80.\n"
 "\n"
 "Her sunucuyla yalnızca bir bağlantı noktası ilişkilendirilebilir."
-
-msgid "Add plugin tags"
-msgstr "Eklenti etiketleri ekle"
 
 msgid "Add route"
 msgstr "Rota ekle"
@@ -1213,9 +1119,6 @@ msgstr ""
 "Beklenmedik bir hata oluştu. Sayfayı tazelemeyi deneyin. Bu yardımcı "
 "olmazsa, yerel yöneticinizle iletişime geçin."
 
-msgid "Anti-affinity enabled for"
-msgstr "Zıt-ilişki etkin"
-
 msgid "Any"
 msgstr "Herhangi biri"
 
@@ -1224,9 +1127,6 @@ msgstr "Herhangi Bir Kullanılabilir Bölge"
 
 msgid "Architecture"
 msgstr "Mimari"
-
-msgid "Arguments"
-msgstr "Bağımsız değişkenler"
 
 msgid "Associate"
 msgstr "İlişkilendir"
@@ -1328,9 +1228,6 @@ msgstr "Yetkilendirme algoritması"
 
 msgid "Authorization mode"
 msgstr "Yetkilendirme kipi"
-
-msgid "Auto Security Group"
-msgstr "Otomatik Güvenlik Grubu"
 
 msgid "Automatic"
 msgstr "Otomatik"
@@ -1445,9 +1342,6 @@ msgstr "Yedek Genel Görünüm"
 
 msgid "Backups"
 msgstr "Yedekler"
-
-msgid "Base Image"
-msgstr "Temel İmaj"
 
 msgid "Before"
 msgstr "Önce"
@@ -1607,9 +1501,6 @@ msgstr[0] "Yığınlar Kontrol Edildi"
 msgid "Checksum"
 msgstr "Sağlama Toplamı"
 
-msgid "Choose"
-msgstr "Seçin"
-
 msgid "Choose Your Boot Source Type."
 msgstr "Ön Yükleme Kaynağı Türünüzü Seçin."
 
@@ -1626,32 +1517,17 @@ msgstr ""
 "Hatırlayacağınız bir anahtar çifti adı seçin ve verilen boşluğa SSH genel "
 "anahtarınızı yapıştırın."
 
-msgid "Choose a main binary"
-msgstr "Bir ana ikilik seç"
-
 msgid "Choose a new instance flavor."
 msgstr "Yeni bir sunucu şablon seçin."
-
-msgid "Choose a shell script"
-msgstr "Bir kabuk betiği seçin"
 
 msgid "Choose a snapshot"
 msgstr "Anlık görüntü seçin"
 
-msgid "Choose a storage location"
-msgstr "Bir depolama konumu seçin"
-
 msgid "Choose a volume"
 msgstr "Mantıksal sürücü seçin"
 
-msgid "Choose additional files"
-msgstr "Ek dosyaları seçin"
-
 msgid "Choose an DHCP Agent to attach to."
 msgstr "Bağlanılacak bir DHCP Ajanı seçin."
-
-msgid "Choose an existing file"
-msgstr "Mevcut bir dosya seçin"
 
 msgid "Choose an image"
 msgstr "İmaj seç"
@@ -1662,21 +1538,8 @@ msgstr "İlişkilendirilmiş QoS Özelliği seçin."
 msgid "Choose consumer for this QoS Spec."
 msgstr "Bu QoS Özelliği için tüketici seç."
 
-msgid ""
-"Choose from the list of binaries and click \"choose\" to add the library to "
-"your job template.  This can be repeated for additional libraries."
-msgstr ""
-"Kitaplığı şablonunuza eklemek için ikilik listesinden seçiminizi yapıp \"seç"
-"\"e tıklayın.  Ek kitaplıklar için bu işlem tekrarlanabilir."
-
 msgid "Choose initial state."
 msgstr "Başlangıç durumu seçin."
-
-msgid "Choose job type"
-msgstr "İş türünü seçin"
-
-msgid "Choose libraries"
-msgstr "Kitaplıkarı Seç"
 
 msgid ""
 "Choose network from Available networks to Selected networks by push button "
@@ -1684,22 +1547,6 @@ msgid ""
 msgstr ""
 "Kullanılabilir ağlardan Seçili ağlara sürükle bırak veya düğme ile taşıyarak "
 "ağ seçin, NIC sırasını da sürükle bırak ile değiştirebilirsiniz. "
-
-msgid ""
-"Choose or create your main binary.  Additional libraries can be added from "
-"the \"Libs\" tab."
-msgstr ""
-"Ana ikiliğinizi seçin ya da oluşturun.  Ek kitaplıklar \"Kitaplıklar\" "
-"sekmesinden eklenebilir."
-
-msgid "Choose plugin"
-msgstr "Eklenti seçin"
-
-msgid "Choose plugin and version"
-msgstr "Eklentiyi ve sürümünü seçin"
-
-msgid "Choose plugin type and version"
-msgstr "Eklenti türünü ve sürümünü seçin"
 
 msgid ""
 "Choose router(s) from Available Routers to Selected Routers by push button "
@@ -1716,18 +1563,6 @@ msgstr ""
 "Kullanılabilir Kurallardan Seçili Kurala düğme yardımıyla veya sürükleyip "
 "bırakarak kural seçin,\n"
 "sıralarını da sürükleyip bırakarak değiştirebilirsiniz. "
-
-msgid "Choose the Input Data Source (n/a for Java and Shell jobs)."
-msgstr "Girdi Veri Kaynağını Seçin (Java ve Kabuk işleri için n/a )."
-
-msgid "Choose the Output Data Source (n/a for Java and Shell jobs)."
-msgstr "Çıktı Veri Kaynağını Seçin (Java ve Kabuk işleri için n/a )."
-
-msgid "Choose the binary which should be used in this Job."
-msgstr "Bu işte kullanılması gereken bir ikilik seç."
-
-msgid "Choose the cluster to use for the job."
-msgstr "İş için kullanılacak kümeyi seçin."
 
 msgid "Choose the flavor to launch."
 msgstr "Başlatma için şablon seçin."
@@ -1747,9 +1582,6 @@ msgstr ""
 msgid "Choose the rule you want to remove."
 msgstr "Çıkarmak istediğiniz kuralı seçin."
 
-msgid "Chosen Libraries"
-msgstr "Seçilmiş Kitaplıklar"
-
 msgid "Cinder"
 msgstr "Cinder"
 
@@ -1759,9 +1591,6 @@ msgid ""
 msgstr ""
 "Mevcut mantıksal sürücünün bulunduğu Cinder istemcisi, şu biçimdedir: "
 "istemci@arkauc-ismi#havuz"
-
-msgid "Cinder volumes"
-msgstr "Cinder mantıksal sürücüleri"
 
 msgid "Cipher"
 msgstr "Şifreleme"
@@ -1783,58 +1612,8 @@ msgstr "Yalnızca konsolu göstermek için buraya tıklayın"
 msgid "Close"
 msgstr "Kapat"
 
-msgid "Cluster"
-msgstr "Küme"
-
-msgid "Cluster Creation Guide"
-msgstr "Küme Oluşturma Kılavuzu"
-
-msgid "Cluster Events"
-msgstr "Küme Olayları"
-
-msgid "Cluster Guide"
-msgstr "Küme Rehberi"
-
-msgid "Cluster Instances"
-msgstr "Küme Sunucular"
-
 msgid "Cluster Name"
 msgstr "Küme İsmi"
-
-msgid "Cluster Template"
-msgstr "Küme Şablonu"
-
-#, python-format
-msgid "Cluster Template %s updated"
-msgstr "Küme Şablonu %s güncellendi"
-
-msgid "Cluster Template Name"
-msgstr "Küme Şablon İsmi"
-
-#, python-format
-msgid "Cluster Template copy %s created"
-msgstr "Küme Şablonu kopya %s oluşturuldu"
-
-msgid "Cluster Templates"
-msgstr "Küme Şablonları"
-
-msgid "Cluster can be launched using existing Cluster Templates."
-msgstr "Küme mevcut Küme Şablonları ile başlatılabilir."
-
-msgid "Cluster configurations are not specified"
-msgstr "Küme yapılandırmaları belirtilmemiş"
-
-msgid "Cluster provision steps"
-msgstr "Küme hazırlama adımları"
-
-msgid "Cluster template creation failed"
-msgstr "Küme şablonu oluşturma başarısız"
-
-msgid "Cluster template update failed"
-msgstr "Küme şablonu güncelleme başarısız"
-
-msgid "Cluster type chosen"
-msgstr "Seçilen küme türü"
 
 msgid "Clusters"
 msgstr "Kümeler"
@@ -1855,9 +1634,6 @@ msgctxt "Current status of a Database Backup"
 msgid "Completed"
 msgstr "Tamamlandı"
 
-msgid "Completed Successfully"
-msgstr "Başarıyla Tamamlandı"
-
 msgid "Component"
 msgstr "Bileşen"
 
@@ -1873,23 +1649,8 @@ msgstr "Hesap İstemcisi"
 msgid "Compute Services"
 msgstr "Compute servisleri"
 
-msgid "Configuration"
-msgstr "Yapılandırma"
-
 msgid "Configuration Drive"
 msgstr "Yapılandırma Sürücüsü"
-
-msgid "Configure"
-msgstr "Yapılandır"
-
-msgid "Configure Cluster"
-msgstr "Kümeyi Yapılandır"
-
-msgid "Configure Cluster Template"
-msgstr "Küme Şablonunu Yapılandır"
-
-msgid "Configure Node Group Template"
-msgstr "Düğüm Grup Şablonunu Yapılandır"
 
 msgid ""
 "Configure OpenStack to write metadata to a special configuration drive that "
@@ -1897,9 +1658,6 @@ msgid ""
 msgstr ""
 "OpenStack'i metadata'yı ön yükleme sırasında sunucuya eklenecek özel bir "
 "yapılandırma sürücüsüne yazacak şekilde yapılandır."
-
-msgid "Configure Template"
-msgstr "Şablon Yapılandır"
 
 msgid "Confirm Admin Password"
 msgstr "Yöneticisi Parolasını Onayla"
@@ -1983,9 +1741,6 @@ msgstr "İçerik"
 msgid "Control Location"
 msgstr "Denetim Konumu"
 
-msgid "Control access to instances of the node group."
-msgstr "Düğüm grubu sunucularına erişimi kontrol et."
-
 msgid ""
 "Control access to your instance via key pairs, security groups, and other "
 "mechanisms."
@@ -2011,9 +1766,6 @@ msgstr ""
 msgid "Copy"
 msgstr "Kopyala"
 
-msgid "Copy Cluster Template"
-msgstr "Küme Şablonu Kopyala"
-
 msgid "Copy Data"
 msgstr "Veriyi Kopyala"
 
@@ -2024,31 +1776,13 @@ msgstr "Nesne Kopyala"
 msgid "Copy Object: %(object_name)s"
 msgstr "Nesne Kopyala: %(object_name)s"
 
-msgid "Copy Template"
-msgstr "Şablon Kopyala"
-
 #, python-format
 msgid "Cores(Available: %(avail)s, Requested: %(req)s)"
 msgstr "Çekirdekler(Kullanılabilir: %(avail)s, İstenen: %(req)s)"
 
-msgid "Could not create"
-msgstr "Oluşturulamadı"
-
-msgid "Could not create data source"
-msgstr "Veri kaynağı oluşturulamadı"
-
-msgid "Could not create job template"
-msgstr "İş şablonu oluşturulamadı"
-
 #, python-format
 msgid "Could not find default role \"%s\" in Keystone"
 msgstr "Varsayılan \"%s\" rolü Keystone'da bulunamadı"
-
-msgid "Could not launch job"
-msgstr "İş başlatılamadı"
-
-msgid "Could not update data source"
-msgstr "Veri kaynağı güncellenemedi"
 
 #, python-format
 msgid "Couldn't get current security group list for instance %s."
@@ -2056,9 +1790,6 @@ msgstr "Şimdiki güvenlik grubu listesi bu sunucu %s için alınamadı."
 
 msgid "Couldn't get security group list."
 msgstr "Güvenlik grubu listesi alınamadı."
-
-msgid "Count"
-msgstr "Sayı"
 
 msgctxt "Power state of an Instance"
 msgid "Crashed"
@@ -2077,18 +1808,12 @@ msgstr "İmaj Oluştur"
 msgid "Create Backup"
 msgstr "Yedek Oluştur"
 
-msgid "Create Cluster Template"
-msgstr "Küme Şablonu Oluştur"
-
 msgctxt "current status of stack"
 msgid "Create Complete"
 msgstr "Oluşturma Tamamlandı"
 
 msgid "Create Container"
 msgstr "Kap Oluştur"
-
-msgid "Create Data Source"
-msgstr "Veri Kaynağı Oluştur"
 
 msgid "Create Domain"
 msgstr "Alan yarat"
@@ -2151,12 +1876,6 @@ msgctxt "current status of stack"
 msgid "Create In Progress"
 msgstr "Oluşturma Sürüyor"
 
-msgid "Create Job Binary"
-msgstr "İş İkiliği Oluştur"
-
-msgid "Create Job Template"
-msgstr "İş Şablonu Oluştur"
-
 msgid "Create Key Pair"
 msgstr "Anahtar Çifti Oluştur"
 
@@ -2165,9 +1884,6 @@ msgstr "Ağ Oluştur"
 
 msgid "Create Network (Quota exceeded)"
 msgstr "Ağ Oluştur (Kota aşıldı)"
-
-msgid "Create Node Group Template"
-msgstr "Düğüm Grubu Şablonu Oluştur"
 
 msgid "Create Port"
 msgstr "Port Oluştur"
@@ -2211,9 +1927,6 @@ msgstr "Subnet Oluştur"
 msgid "Create Subnet (Quota exceeded)"
 msgstr "Alt Ağ Oluştur (Kota aşıldı)"
 
-msgid "Create Template"
-msgstr "Şablon Oluştur"
-
 msgid "Create Transfer"
 msgstr "Aktarım Oluştur"
 
@@ -2255,15 +1968,6 @@ msgstr "Mantıksal Sürücü Türü Şifrelemesi Oluştur"
 msgid "Create Volume Type Extra Spec"
 msgstr "Mantıksal Sürücü Türü Ek Özelliği Oluştur"
 
-msgid "Create a Cluster Template"
-msgstr "Bir Küme Şablonu Oluştur"
-
-msgid "Create a Data Source with a specified name."
-msgstr "Belirtilen bir isimle Veri Kaynağı oluştur."
-
-msgid "Create a Master Node Group Template"
-msgstr "Bir Ana Düğüm Grup Şablonu Oluştur"
-
 msgid "Create a Metadata Namespace"
 msgstr "Metadata İsim Uzayı Oluştur"
 
@@ -2294,20 +1998,8 @@ msgstr "Bir Birim Aktarımı Oluştur"
 msgid "Create a Volume Type"
 msgstr "Mantıksal Sürücü Türü Oluştur"
 
-msgid "Create a Worker Node Group Template"
-msgstr "Bir İşçi Düğüm Grubu Şablonu Oluştur"
-
-msgid "Create a data source"
-msgstr "Bir veri kaynağı oluştur"
-
 msgid "Create a firewall with selected routers."
 msgstr "Seçilen yönlendiricilerle bir güvenlik duvarı oluştur."
-
-msgid "Create a job template"
-msgstr "Bir iş şablonu oluştur"
-
-msgid "Create a job template with a specified name."
-msgstr "Belirtilen isimde bir iş şablonu oluştur."
 
 msgid ""
 "Create a monitor template.\n"
@@ -2363,9 +2055,6 @@ msgstr "Seçili kurallardan bir ilke oluştur."
 msgid "Create a project to organize users."
 msgstr "Kullanıcıları düzenlemek için bir proje oluşturun."
 
-msgid "Create a script to be uploaded dynamically"
-msgstr "Dinamik olarak yüklenecek bir betik oluştur"
-
 msgid ""
 "Create a subnet associated with the network. Advanced configuration is "
 "available by clicking on the \"Subnet Details\" tab."
@@ -2387,15 +2076,6 @@ msgstr ""
 msgid "Create pseudo-folder in container %(container_name)s"
 msgstr "%(container_name)s kabı içinde sahte-dizin oluştur"
 
-msgid "Create security group for this Node Group."
-msgstr "Bu Düğüm Grubu için güvenlik grubu oluştur."
-
-msgid "Create time"
-msgstr "Zaman oluştur"
-
-msgid "Create volumes in this availability zone."
-msgstr "Bu kullanılabilir bölgede mantıksal sürücüler oluştur."
-
 msgid "Created"
 msgstr "Oluşturuldu"
 
@@ -2410,14 +2090,6 @@ msgstr "Oluşturuldu"
 msgctxt "Current status of a VPN Service"
 msgid "Created"
 msgstr "Oluşturuldu"
-
-#, python-format
-msgid "Created Cluster Template %s"
-msgstr "Küme Şablonu %s Oluşturuldu"
-
-#, python-format
-msgid "Created Node Group Template %s"
-msgstr "Düğüm Grup Şablonu Oluşturuldu %s"
 
 #, python-format
 msgid "Created extra spec \"%s\"."
@@ -2450,9 +2122,6 @@ msgstr "\"%s\" özelliği oluşturuldu."
 #, python-format
 msgid "Created subnet \"%s\"."
 msgstr "Alt ağ \"%s\" oluşturuldu."
-
-msgid "Created time"
-msgstr "Oluşturulma zamanı"
 
 msgid "Created volume transfer."
 msgstr "Oluşturulan birim aktarımı."
@@ -2521,14 +2190,8 @@ msgstr "Mevcut İstemci"
 msgid "Current Size (GB)"
 msgstr "Mevcut Boyut (GB)"
 
-msgid "Current choice:"
-msgstr "Şu anki seçim:"
-
 msgid "Current password"
 msgstr "Mevcut parola"
-
-msgid "Current type:"
-msgstr "Şu anki tür:"
 
 msgid "Custom ICMP Rule"
 msgstr "Özel ICMP Kuralı"
@@ -2606,58 +2269,6 @@ msgstr "DPD Zaman aşımı DPD Aralığından büyük olmalıdır"
 msgid "Daily Usage Report"
 msgstr "Günlük Kullanım Raporu"
 
-msgid "Data Processing"
-msgstr "Veri İşleme"
-
-msgid "Data Processing Guides"
-msgstr "Veri İşleme Rehberleri"
-
-msgid "Data Processing Plugin Details"
-msgstr "Veri İşleme Ekleneti Detayları"
-
-msgid "Data Processing Plugins"
-msgstr "Veri İşleme Eklentileri"
-
-msgid "Data Processing internal database"
-msgstr "Veri İşleme dahili veri tabanı"
-
-msgid ""
-"Data Processing provides different storage location options. You may choose "
-"Ephemeral Drive or a Cinder Volume to be attached to instances."
-msgstr ""
-"Veri İşleme değişik depolama konumu seçenekleri sağlar. Sunuculara eklenecek "
-"bir Geçici Sürücü veya Cinde Mantıksal sürücüsü seçebilirsiniz."
-
-msgid "Data Source Type"
-msgstr "Veri Kaynağı Türü"
-
-msgid "Data Sources"
-msgstr "Veri Kaynakları"
-
-msgid ""
-"Data Sources are what your\n"
-"                            job uses for input and output.  Depending on the "
-"type\n"
-"                            of job you will be running, you may need to "
-"define one\n"
-"                            or more data sources.  You can create multiple "
-"data\n"
-"                            sources by repeating this step.\n"
-"                        "
-msgstr ""
-"Veri Kaynakları işinizin girdi ve çıktı\n"
-"                    için kullandığı şeylerdir.  Çalıştıracağınız iş\n"
-"                    türüne göre, bir ya da daha fazla veri kaynağı\n"
-"                    belirtmeniz gerekebilir.  Bu adımı tekrarlayarak\n"
-"                    birden fazla veri kaynağı belirtebilirsiniz.\n"
-"                "
-
-msgid "Data source created"
-msgstr "Veri kanyağı oluşturuldu"
-
-msgid "Data source updated"
-msgstr "Veri kaynağı güncellendi"
-
 msgid "Database"
 msgstr "Veritabanı"
 
@@ -2718,24 +2329,6 @@ msgstr "Varsayılan kotalar güncellendi."
 msgid "Defaults"
 msgstr "Varsayılanlar"
 
-msgid ""
-"Define your Job Template.\n"
-"                        This is where you choose the type of job that you\n"
-"                        want to run (Pig, Java Action, Spark, etc) and "
-"choose\n"
-"                        or upload the files necessary to run it.  The "
-"inputs\n"
-"                        and outputs will be defined later.\n"
-"                    "
-msgstr ""
-"İş Şablonunuzu Tanımlayın.\n"
-"                    Burası çalıştırmak istediğiniz iş türünü\n"
-"                    seçtiğiniz (Pig, Java Action, Spark, vs) ve çalıştırmak\n"
-"                    için gerekli dosyaları seçtiğiniz ya da yüklediğiniz "
-"yer.\n"
-"                    Girdi ve çıktılar daha sonra tanımlanacak.\n"
-"                "
-
 msgid "Delay"
 msgstr "Gecikme"
 
@@ -2764,10 +2357,6 @@ msgstr[0] "Kapları Sil"
 msgid "Delete DHCP Agent"
 msgid_plural "Delete DHCP Agents"
 msgstr[0] "DHCP Ajanlarını Sil"
-
-msgid "Delete Data Source"
-msgid_plural "Delete Data Sources"
-msgstr[0] "Veri Kaynaklarını Sil"
 
 msgid "Delete Database"
 msgid_plural "Delete Databases"
@@ -2832,18 +2421,6 @@ msgstr "Silme Sürüyor"
 msgid "Delete Interface"
 msgid_plural "Delete Interfaces"
 msgstr[0] "Arayüzleri Sil"
-
-msgid "Delete Job"
-msgid_plural "Delete Jobs"
-msgstr[0] "İşleri Sil"
-
-msgid "Delete Job Binary"
-msgid_plural "Delete Job Binaries"
-msgstr[0] "İş İkiliklerini Sil"
-
-msgid "Delete Job Template"
-msgid_plural "Delete Job Templates"
-msgstr[0] "İş Şablonlarını Sil"
 
 msgid "Delete Key Pair"
 msgid_plural "Delete Key Pairs"
@@ -2921,10 +2498,6 @@ msgid "Delete Subnet"
 msgid_plural "Delete Subnets"
 msgstr[0] "Alt Ağları Sil"
 
-msgid "Delete Template"
-msgid_plural "Delete Templates"
-msgstr[0] "Şablonları Sil"
-
 msgid "Delete User"
 msgid_plural "Delete Users"
 msgstr[0] "Kullanıcıları Sil"
@@ -2967,10 +2540,6 @@ msgid "Deleted Backup"
 msgid_plural "Deleted Backups"
 msgstr[0] "Yedekler Silindi"
 
-msgid "Deleted Cluster"
-msgid_plural "Deleted Clusters"
-msgstr[0] "Kümeler Silindi"
-
 msgid "Deleted Container"
 msgid_plural "Deleted Containers"
 msgstr[0] "Kaplar Silindi"
@@ -2978,10 +2547,6 @@ msgstr[0] "Kaplar Silindi"
 msgid "Deleted DHCP Agent"
 msgid_plural "Deleted DHCP Agents"
 msgstr[0] "DHCP Ajanları Silindi"
-
-msgid "Deleted Data Source"
-msgid_plural "Deleted Data Sources"
-msgstr[0] "Veri Kaynakları Silindi"
 
 msgid "Deleted Database"
 msgid_plural "Deleted Databases"
@@ -3018,18 +2583,6 @@ msgstr[0] "İmajlar Silindi"
 msgid "Deleted Interface"
 msgid_plural "Deleted Interfaces"
 msgstr[0] "Arayüzler Silindi"
-
-msgid "Deleted Job"
-msgid_plural "Deleted Jobs"
-msgstr[0] "İşler Silindi"
-
-msgid "Deleted Job Binary"
-msgid_plural "Deleted Job Binaries"
-msgstr[0] "İş İkilikleri Silindi"
-
-msgid "Deleted Job Template"
-msgid_plural "Deleted Jobs Templates"
-msgstr[0] "İş Şablonları Silindi"
 
 msgid "Deleted Key Pair"
 msgid_plural "Deleted Key Pairs"
@@ -3090,10 +2643,6 @@ msgstr[0] "Statik Rotalar Silindi"
 msgid "Deleted Subnet"
 msgid_plural "Deleted Subnets"
 msgstr[0] "Alt Ağlar Silindi"
-
-msgid "Deleted Template"
-msgid_plural "Deleted Templates"
-msgstr[0] "Şablonlar Silindi"
 
 msgid "Deleted User"
 msgid_plural "Deleted Users"
@@ -3371,13 +2920,6 @@ msgstr ""
 msgid "Domains:"
 msgstr "Alanlar:"
 
-msgid "Done"
-msgstr "Bitti"
-
-msgctxt "Current status of a Job"
-msgid "Done with Error"
-msgstr "Hatayla bitti"
-
 msgid "Down"
 msgstr "Alt"
 
@@ -3429,24 +2971,15 @@ msgstr "CSV Özetini İndir"
 msgid "Download EC2 Credentials"
 msgstr "EC2 Kimliklerini İndir"
 
-msgid "Download Job Binary"
-msgstr "İş İkiliği İndir"
-
 msgid "Download Key Pair"
 msgstr "Anahtar Çiftini İndir"
 
 msgid "Download OpenStack RC File"
 msgstr "Openstack RC Dosyası İndir"
 
-msgid "Download job binary"
-msgstr "İş ikiliğini indir"
-
 #, python-format
 msgid "Download key pair &quot;%(keypair_name)s&quot;"
 msgstr "&quot;%(keypair_name)s&quot; anahtar çiftini indir"
-
-msgid "Duration"
-msgstr "Süre"
 
 #, python-format
 msgid "Duration of instance type %s (openstack flavor)"
@@ -3464,9 +2997,6 @@ msgstr "EC2 Adresi"
 msgid "Edit"
 msgstr "Değiştir"
 
-msgid "Edit Cluster Template"
-msgstr "Küme Şablonun Düzenle"
-
 msgid "Edit Connection"
 msgstr "Bağlantıyı Düzenle"
 
@@ -3475,9 +3005,6 @@ msgstr "Tüketiciyi Düzenle"
 
 msgid "Edit Consumer of QoS Spec"
 msgstr "QoS Özelliğinin Tüketicisini düzenle"
-
-msgid "Edit Data Source"
-msgstr "Veri Kaynağını Düzenle"
 
 msgid "Edit Domain"
 msgstr "Alan Değiştir"
@@ -3513,9 +3040,6 @@ msgstr "IPSec Site Bağlantısının Düzenle"
 msgid "Edit Image"
 msgstr "İmajı Düzenle"
 
-msgid "Edit Image Tags"
-msgstr "İmaj Etiketlerini Düzenle"
-
 msgid "Edit Instance"
 msgstr "Sunucu Düzenle"
 
@@ -3527,9 +3051,6 @@ msgstr "İzleyici Düzenle"
 
 msgid "Edit Network"
 msgstr "Ağ Değiştir"
-
-msgid "Edit Node Group Template"
-msgstr "Düğüm Grup Şablonunu Düzenle"
 
 msgid "Edit Object"
 msgstr "Nesneyi Düzenle"
@@ -3578,9 +3099,6 @@ msgstr "Özellik Değerini Düzenle"
 
 msgid "Edit Subnet"
 msgstr "Subnet Değiştir"
-
-msgid "Edit Tags"
-msgstr "Etiketleri Düzenle"
 
 msgid "Edit Template"
 msgstr "Şablon Düzenle"
@@ -3676,9 +3194,6 @@ msgstr "Şifreleme"
 msgid "Encryption algorithm"
 msgstr "Şifreleme algoritması"
 
-msgid "Ended"
-msgstr "Bitti"
-
 msgid "Energy (Kwapi)"
 msgstr "Enerji (Kwapi)"
 
@@ -3704,15 +3219,6 @@ msgstr ""
 "1 ile 65535 aralığında tam sayı değeri girin. Aynı bağlantı noktası seçili "
 "tüm üyelere uygulanır ve daha sonra değiştirilebilir."
 
-msgid "Enter any custom configuration required for your job's execution."
-msgstr "İşinizin çalıştırılması için gerekli tüm özel yapılandırmaları girin."
-
-msgid "Enter the URL for the file"
-msgstr "Dosya için URL girin"
-
-msgid "Enter the username and password required to access that file"
-msgstr "Bu dosyaya erişim için gerekli kullanıcı adı ve parolayı yazın"
-
 msgid "Environment Data"
 msgstr "Çevre Verisi"
 
@@ -3727,9 +3233,6 @@ msgstr "Geçici Disk"
 
 msgid "Ephemeral Disk (GB)"
 msgstr "Geçici Disk (GB)"
-
-msgid "Ephemeral drive"
-msgstr "Geçici aygıt"
 
 msgid "Equal to or greater than 60"
 msgstr "60'a eşit ya da 60'dan daha büyük"
@@ -3794,9 +3297,6 @@ msgstr "Hata"
 
 msgid "Error Deleting"
 msgstr "Silmede Hata"
-
-msgid "Error Details"
-msgstr "Hata Detayları"
 
 #, python-format
 msgid "Error Downloading RC File: %s"
@@ -3865,9 +3365,6 @@ msgstr "İstemciyi Tahliye Et"
 msgid ""
 "Evacuate the servers from the selected down host to an active target host."
 msgstr "Sunucuları seçili kapalı istemciden etkin hedef istemciye tahliye et."
-
-msgid "Event time"
-msgstr "Olay zamanı"
 
 msgid "Events"
 msgstr "Olaylar"
@@ -3951,18 +3448,11 @@ msgstr ""
 msgid "Extra Specs"
 msgstr "Ekstra Özellikler"
 
-msgid "Failed"
-msgstr "Başarısız"
-
 msgctxt "Current status of a Database Backup"
 msgid "Failed"
 msgstr "Başarısız"
 
 msgctxt "Current status of a Database Instance"
-msgid "Failed"
-msgstr "Başarısız"
-
-msgctxt "Current status of a Job"
 msgid "Failed"
 msgstr "Başarısız"
 
@@ -4070,12 +3560,6 @@ msgstr "İstemci tahliye edilemedi: %s."
 #, python-format
 msgid "Failed to evacuate instances: %s"
 msgstr "Örnekler tahliye edilemedi: %s"
-
-msgid "Failed to fetch internal binary list"
-msgstr "Dahili ikilik listesi alınamadı"
-
-msgid "Failed to get list of internal binaries."
-msgstr "Dahili ikilik listesi alınamadı."
 
 #, python-format
 msgid "Failed to get network list %s"
@@ -4217,9 +3701,6 @@ msgstr "%(name)s güvenli duvarı güncellenemedi: %(reason)s"
 msgid "Failed to update health monitor %s"
 msgstr "Sağlık izleyici %s güncellenemedi"
 
-msgid "Failed to update image."
-msgstr "İmaj güncelleme başarısız."
-
 #, python-format
 msgid "Failed to update member %s"
 msgstr "Üye %s güncellenemedi"
@@ -4304,18 +3785,6 @@ msgstr "Güvenlik Duvarı Kuralları"
 msgid "Firewalls"
 msgstr "Güvenlik duvarları"
 
-msgid ""
-"First, select which type of job that\n"
-"                            you want to run.  This choice will determine "
-"which\n"
-"                            other steps are required\n"
-"                        "
-msgstr ""
-"Önce, çalıştırmak istediğiniz işin \n"
-"                          türünü seçin.  Bu seçim hangi diğer adımların\n"
-"                          gerekli olacağını gösterir\n"
-"                       "
-
 msgid "Fixed IP"
 msgstr "Sabit IP"
 
@@ -4360,9 +3829,6 @@ msgstr "Şablon Bilgisi"
 msgid "Flavor Name"
 msgstr "Şablon İsmi"
 
-msgid "Flavor is not specified"
-msgstr "Nitelik belirtilmemiş"
-
 msgid "Flavors"
 msgstr "Şablonlar"
 
@@ -4376,9 +3842,6 @@ msgstr ""
 msgid "Floating IP"
 msgstr "Değişken IP"
 
-msgid "Floating IP Pool"
-msgstr "Değişken IP Havuzu"
-
 msgid "Floating IP:"
 msgstr "Değişken IP:"
 
@@ -4391,41 +3854,10 @@ msgstr "Değişken IP'ler:"
 msgid "Folder created successfully."
 msgstr "Dizin başarıyla oluşturuldu."
 
-msgid ""
-"For Data Processing internal job binaries, you may choose from the following:"
-msgstr ""
-"Veri İşleme dahili veri tabanı ikilikleri için, aşağıdakilerden "
-"seçebilirsiniz:"
-
 #, python-format
 msgid "For GRE networks, valid tunnel IDs are %(min)s through %(max)s."
 msgstr ""
 "GRE ağları için, geçerli tünel ID'leri %(min)s ile %(max)s arasındadır."
-
-msgid ""
-"For MapReduce or Java Action jobs, \"mains\" are not applicable.  You are "
-"required to add one\n"
-"  or more \"libs\" for these jobs."
-msgstr ""
-"MapReduce veya Java Action işleri için \"main\"ler uygulanabilir değildir.  "
-"Bu işler için bir ya da\n"
-"  daha fazla \"kitaplık\" eklemelisiniz."
-
-msgid "For Object Store job binaries, you must:"
-msgstr "Nesne Depolama iş ikilikleri için, yapmak zorunda olduklarınız:"
-
-msgid ""
-"For Shell Action jobs, any required files beyond the main script may be "
-"added as \"libraries\"."
-msgstr ""
-"Kabuk Eylem işleri için, ana betik dışında gerekli tüm dosyalar \"kitaplıklar"
-"\" olarak eklenebilir."
-
-msgid ""
-"For Spark and Shell jobs, only a main is required, \"libs\" are optional."
-msgstr ""
-"Spark ve Kabuk işleri için, yalnızca tek bir ana gereklidir, \"libs\" isteğe "
-"bağlıdır."
 
 msgid ""
 "For TCP and UDP rules you may choose to open either a single port or a range "
@@ -4521,9 +3953,6 @@ msgstr "Geçit IP'si ve IP sürümü tutarlı değil."
 msgid "Gateway interface is added"
 msgstr "Geçit arayüzü eklendi"
 
-msgid "General Info"
-msgstr "Genel Bilgi"
-
 msgid "Glance"
 msgstr "Glance"
 
@@ -4570,20 +3999,8 @@ msgstr ""
 "Gruplar birden çok kullanıcıya aynı anda rol atama ve erişimi yönetme için "
 "kullanılırlar. Kullanıcı eklemek için grubu düzenleyin."
 
-msgid "Guided Cluster Creation"
-msgstr "Kılavuzlu Küme Oluşturma"
-
-msgid "Guided Job Execution"
-msgstr "Kılavuzlu İş Çalıştırma"
-
-msgid "Guides"
-msgstr "Rehberler"
-
 msgid "HA mode"
 msgstr "HA kipi"
-
-msgid "HDFS placement"
-msgstr "HDFS yerleştirme"
 
 msgid "HTTP"
 msgstr "HTTP"
@@ -4622,14 +4039,8 @@ msgstr "Sağlık izleyici %s başarıyla güncellendi."
 msgid "Help"
 msgstr "Yardım"
 
-msgid "Hide full configuration"
-msgstr "Tam yapılandırmayı gizle"
-
 msgid "High Availability Mode"
 msgstr "Yüksek Kullanılırlık Kipi"
-
-msgid "Hive"
-msgstr "Hive"
 
 msgid "Home"
 msgstr "Anasayfa"
@@ -4897,19 +4308,6 @@ msgctxt "Task status of an Instance"
 msgid "Image Pending Upload"
 msgstr "İmaj Yüklemesi Beklemede"
 
-msgid "Image Registry"
-msgstr "İmaj Kaydı"
-
-msgid ""
-"Image Registry is used to provide additional information about images for "
-"Data Processing."
-msgstr ""
-"İmaj Kaydı Veri İşleme için imajlar hakkında daha fazla bilgi sağlaması için "
-"kullanılır."
-
-msgid "Image Registry tool:"
-msgstr "İmaj Kayıt aracı:"
-
 msgctxt "Task status of an Instance"
 msgid "Image Snapshot Pending"
 msgstr "İmaj Anlık Görüntüsü Beklemede"
@@ -4960,9 +4358,6 @@ msgid ""
 msgstr ""
 "Ek olarak, ilgili kontrol kutusunu işaretleyerek bir harici ağ ya da "
 "paylaşılan ağ oluşturabilirsiniz."
-
-msgid "In progress"
-msgstr "İşlemde"
 
 msgctxt "Current status of a Volume"
 msgid "In-use"
@@ -5037,12 +4432,6 @@ msgstr "İçeri Atılan Dosya Yolu Byte'ı"
 msgid "Injected Files"
 msgstr "İçeri Atılan Dosyalar"
 
-msgid "Input"
-msgstr "Girdi"
-
-msgid "Input Data Source"
-msgstr "Girdi Veri Kaynağı"
-
 msgid "Input must be in CIDR format"
 msgstr "Girdi CIDR biçiminde olmalıdır"
 
@@ -5094,18 +4483,11 @@ msgstr "Sunucu Güvenlik Grupları"
 msgid "Instance Snapshot"
 msgstr "Sunucu Anlık Görüntüsü"
 
-msgid "Instance and attached volumes will be created on the same physical host"
-msgstr ""
-"Sunucu ve eklenen mantıksal sürücüler aynı fiziksel istemcide oluşturulacak"
-
 msgid "Instance to be associated"
 msgstr "İlişkilendirilecen sunucu"
 
 msgid "Instances"
 msgstr "Instancelar"
-
-msgid "Instances Count"
-msgstr "Instance Sayısı"
 
 msgid "Insufficient privilege level to view domain information."
 msgstr "Alan bilgisini görüntülemek için yetersiz ayrıcalık seviyesi."
@@ -5131,17 +4513,8 @@ msgstr "Arayüz eklendi"
 msgid "Interfaces"
 msgstr "Arayüzler"
 
-msgid "Internal Binary"
-msgstr "Dahili Çalıştırılabilir"
-
-msgid "Internal IP"
-msgstr "Dahili IP"
-
 msgid "Internal Interface"
 msgstr "Dahili Arayüz"
-
-msgid "Internal binary"
-msgstr "Dahili ikilik"
 
 msgid "Invalid date format: Using today as default."
 msgstr "Geçersiz tarih biçimi: Varsayılan olarak bugün kullanılıyor."
@@ -5167,66 +4540,6 @@ msgstr "Çoğaltılmışıdır"
 
 msgid "Items Per Page"
 msgstr "Sayfa Başına Öğe"
-
-msgid "Java"
-msgstr "Java"
-
-msgid "Java Action"
-msgstr "Java Action"
-
-msgid "Java Opts"
-msgstr "Java Seçenekleri"
-
-msgid "Job"
-msgstr "İş"
-
-msgid "Job Binaries"
-msgstr "İş İkilikleri"
-
-msgid "Job Configuration"
-msgstr "İş Yapılandırması"
-
-msgid "Job Execution Guide"
-msgstr "İş Çalıştırma Rehberi"
-
-msgid "Job Execution ID"
-msgstr "İş Çalıştırma ID'si"
-
-msgid "Job Guide"
-msgstr "İş Rehberi"
-
-msgid "Job Template"
-msgstr "İş Şablonu"
-
-msgid "Job Templates"
-msgstr "İş Şablonları"
-
-msgid "Job Type"
-msgstr "İş Türü"
-
-msgid "Job args"
-msgstr "İş bağımsız değişkenleri"
-
-msgid "Job configs"
-msgstr "İş yapılandırmaları"
-
-msgid "Job created"
-msgstr "İş oluşturuldu"
-
-msgid "Job launched"
-msgstr "İş başlatıldı"
-
-msgid "Job params"
-msgstr "İş parametreleri"
-
-msgid "Job template:"
-msgstr "İş şablonu:"
-
-msgid "Job type chosen"
-msgstr "İş türü seçildi"
-
-msgid "Jobs"
-msgstr "İşler"
 
 msgid "Kernel"
 msgstr "Çekirdek"
@@ -5279,13 +4592,6 @@ msgstr ""
 
 msgid "Key-Value Pairs"
 msgstr "Anahtar-Değer Çiftleri"
-
-msgid "Keypair"
-msgstr "Anahtar çifti"
-
-msgctxt "Current status of a Job"
-msgid "Killed"
-msgstr "Öldürüldü"
 
 msgctxt "Current status of an Image"
 msgid "Killed"
@@ -5346,24 +4652,11 @@ msgstr "Sunucu Başlat"
 msgid "Launch Instance (Quota exceeded)"
 msgstr "Sunucuyu Başlat (Kota aşıldı)"
 
-msgid "Launch Job"
-msgid_plural "Launch Jobs"
-msgstr[0] "İşleri Başlat"
-
-msgid "Launch On Existing Cluster"
-msgstr "Mevcut Kümede Başlat"
-
-msgid "Launch On New Cluster"
-msgstr "Yeni Kümede Başlat"
-
 msgid "Launch Parameters"
 msgstr "Başlatma Parametreleri"
 
 msgid "Launch Stack"
 msgstr "Yığını Başlat"
-
-msgid "Launch a Cluster"
-msgstr "Bir Kümeyi başlat"
 
 msgid "Launch as Instance"
 msgstr "Sunucu olarak Başlat"
@@ -5377,48 +4670,9 @@ msgstr "Bu ağlarla sunucu başlat"
 msgid "Launch instance with this policy profile"
 msgstr "Bu ilke profilinde sunucu başlat"
 
-msgid "Launch instances in these security groups."
-msgstr "Bu güvenlik gruplarında sunucular oluştur."
-
-msgid "Launch instances in this availability zone."
-msgstr "Bu kullanılabilir bölgede sunucular başlat."
-
-msgid "Launch job"
-msgstr "İşi başlat"
-
-msgid "Launch the given job template on a cluster."
-msgstr "Verilen iş şablonunu bir küme de başlat."
-
-msgid ""
-"Launch your job.  When\n"
-"                        launching, you may need to choose your input and\n"
-"                        output data sources.  This is where you would also\n"
-"                        add any special configuration values, parameters,\n"
-"                        or arguments that you need to pass along\n"
-"                        to your job.\n"
-"                        "
-msgstr ""
-"İşinizi başlatın.  Başlatırken,\n"
-"                               girdi ve çıktı veri kaynaklarınızı "
-"belirtmeniz gerekebilir.\n"
-"                               Ayrıca işinize aktarmanız gereken tüm özel "
-"yapılandırma\n"
-"                               değerleri, parametreler veya bağımsız "
-"değişkenleri de\n"
-"                               burada eklersiniz.\n"
-"                               "
-
 #, python-format
 msgid "Launched %(count)s named \"%(name)s\"."
 msgstr "\"%(name)s\" isimli %(count)s başlatıldı."
-
-#, python-format
-msgid "Launched Cluster %s"
-msgstr "Küme %s Başlatıldı"
-
-msgid "Launched Job"
-msgid_plural "Launched Jobs"
-msgstr[0] "İşler Başlatıldı"
 
 msgid ""
 "Launching multiple instances is only supported for images and instance "
@@ -5436,9 +4690,6 @@ msgstr "En az bağlantı"
 
 msgid "Length of Injected File Path"
 msgstr "İçeri Atılan Dosya Yolunun Uzunluğu"
-
-msgid "Libs"
-msgstr "Kitaplıklar"
 
 msgid "Lifetime Units"
 msgstr "Ömür Birimleri"
@@ -5536,12 +4787,6 @@ msgstr "MTU"
 msgid "MacVTap"
 msgstr "MacVTap"
 
-msgid "Main Class"
-msgstr "Ana Sınıf"
-
-msgid "Mains"
-msgstr "Sahibi"
-
 msgid "Make Private"
 msgstr "Özel Yap"
 
@@ -5606,26 +4851,14 @@ msgstr "Mantıksal Sürücü Eklentilerini Yönet"
 msgid "Manage a Volume"
 msgstr "Bir Hacmi Yönet"
 
-msgid "Management IP"
-msgstr "Yönetim IP'si"
-
 msgid "Manual"
 msgstr "Elle"
-
-msgid "MapReduce"
-msgstr "MapReduce"
 
 msgid "Mapped Fixed IP Address"
 msgstr "Sabit IP Adresi Haritalandı"
 
-msgid "Mapper"
-msgstr "Map"
-
 msgid "Master Instance Name"
 msgstr "Ana Sunucu Adı"
-
-msgid "Master Node Group Template:"
-msgstr "Ana Düğüm Grup Şablonu:"
 
 msgid "Max Retries"
 msgstr "Azami Yeniden Deneme"
@@ -5854,10 +5087,6 @@ msgstr "Mevcut mantıksal sürücü için isim veya başka bir tanımlayıcı"
 msgid "Name: %(name)s ID: %(uuid)s"
 msgstr "İsim: %(name)s ID: %(uuid)s"
 
-#, python-format
-msgid "Name: %(node_group_name)s"
-msgstr "İsim: %(node_group_name)s"
-
 msgid "Namespace"
 msgstr "İsim uzayı"
 
@@ -5965,9 +5194,6 @@ msgstr "Ağlar"
 msgid "Neutron"
 msgstr "Neutron"
 
-msgid "Neutron Management Network"
-msgstr "Neutron Yönetim Ağı"
-
 msgid "Never"
 msgstr "Asla"
 
@@ -6024,47 +5250,14 @@ msgstr "Sonraki Hops"
 msgid "Next&nbsp;&raquo;"
 msgstr "İleri&nbsp;&raquo;"
 
-msgid ""
-"Next, you need to define the different\n"
-"                        types of machines in your cluster.  This is done by\n"
-"                        defining a Node Group Template for each type of\n"
-"                        machine.  A very common case is where you\n"
-"                        need to have one or more machines running a \"master"
-"\"\n"
-"                        set of processes while another set of machines need\n"
-"                        to be running the \"worker\" processes.  Here,\n"
-"                        you will define the Node Group Template for your\n"
-"                        \"master\" node(s).\n"
-"                     "
-msgstr ""
-"Sonra, kümenizdeki değişik türde makineleri\n"
-"                    tanımlamalısınız.  Bu, her bir makine türü için\n"
-"                    bir Düğüm Grup Şablonu tanımlayarak yapılır.\n"
-"                    Sık görülen bir durum bir ya da daha fazla makinede\n"
-"                    \"ana\" süreçlerin çalıştığı,  başka bir küme makinede "
-"ise\n"
-"                    \"işçi\" süreçlerin çalıştığı durumdur.  Burda, \"ana\"\n"
-"                    düğüm(ler)iniz için Düğüm Grup şablonunu "
-"tanımlayacaksınız.\n"
-"                 "
-
 msgid "No"
 msgstr "Hayır"
-
-msgid "No Cluster Template Created"
-msgstr "Küme Şablonu Oluşturulmadı"
 
 msgid "No Host selected."
 msgstr "Hiçbir istemci seçilmedi."
 
 msgid "No Hosts found."
 msgstr "İstemci bulunamadı."
-
-msgid "No Images Available"
-msgstr "Kullanılabilir İmaj Yok"
-
-msgid "No Master Node Group Template Created"
-msgstr "Ana Düğüm Grubu Şablonu Oluşturulmadı"
 
 msgid "No Ports available"
 msgstr "Kullanılabilir Bağlantı Noktası Yok"
@@ -6076,20 +5269,11 @@ msgctxt "Power state of an Instance"
 msgid "No State"
 msgstr "Durum Yok"
 
-msgid "No Templates Available"
-msgstr "Kullanılabilir Şablon Yok"
-
-msgid "No Worker Node Group Template Created"
-msgstr "İşçi Düğüm Grup Şablonu Oluşturulmadı"
-
 msgid "No associations defined."
 msgstr "Tanımlanmış ilişki yok."
 
 msgid "No attached device"
 msgstr "Eklenmiş aygıt yok"
-
-msgid "No availability zone specified"
-msgstr "Kullanılabilir bölge belirtilmedi"
 
 msgid "No availability zones found"
 msgstr "Kullanılabilir bölge bulunamadı"
@@ -6102,9 +5286,6 @@ msgstr "Uygun proje yok"
 
 msgid "No backups available"
 msgstr "Kullanılabilir yedek yok"
-
-msgid "No configurations"
-msgstr "Yapılandırma yok"
 
 msgid "No flavors available"
 msgstr "Kullanılabilir nitelik yok"
@@ -6133,26 +5314,14 @@ msgstr "İstemci bulunamadı."
 msgid "No images available"
 msgstr "Kullanılabilir imaj yok"
 
-msgid "No images available."
-msgstr "Kullanılabilir imaj yok."
-
-msgid "No info available"
-msgstr "Bilgi yok"
-
 msgid "No input was provided for the namespace content."
 msgstr "İsim uzayı içeriği için herhangi bir girdi sağlanmamış."
 
 msgid "No instances available"
 msgstr "Uygun sunucu yok"
 
-msgid "No job template created"
-msgstr "Hiç iş şablonu oluşturulmadı"
-
 msgid "No key pairs available"
 msgstr "Kullanılabilir anahtar çifti yok"
-
-msgid "No keypair"
-msgstr "Anahtar çifti yok"
 
 msgid "No networks available"
 msgstr "Kullanılabilir ağ yok"
@@ -6174,9 +5343,6 @@ msgstr "Uygun başka istemci yok."
 
 msgid "No other volume types available"
 msgstr "Kullanılabilir başka mantıksal sürücü türü yok"
-
-msgid "No plugin chosen"
-msgstr "Eklenti seçilmedi"
 
 msgid "No ports available"
 msgstr "Uygun port yok"
@@ -6221,9 +5387,6 @@ msgstr "Kaynak yok, mantıksal sürücü boş"
 msgid "No subnets available"
 msgstr "Kullanılabilir alt ağ yok"
 
-msgid "No type chosen"
-msgstr "Tür seçilmedi"
-
 msgid "No users found."
 msgstr "Hiç kullanıcı bulunamadı."
 
@@ -6241,45 +5404,6 @@ msgstr "Bağlı mantıksal sürücü yok."
 
 msgid "No volumes available"
 msgstr "Kullanılabilir mantıksal sürücü yok"
-
-msgid "Node Configurations"
-msgstr "Düğüm Yapılandırmaları"
-
-msgid "Node Group"
-msgstr "Düğüm Grubu"
-
-#, python-format
-msgid "Node Group Template %s updated"
-msgstr "Düğüm Grup Şablonu \"%s\" güncellendi"
-
-#, python-format
-msgid "Node Group Template copy %s created"
-msgstr "Düğüm Grubu Şablonu kopya %s oluşturuldu"
-
-msgid "Node Group Templates"
-msgstr "Düğüm Grup Şablonları"
-
-#, python-format
-msgid "Node Group: %(node_group_name)s"
-msgstr "Düğüm Grubu: %(node_group_name)s"
-
-msgid "Node Groups"
-msgstr "Düğüm Grupları"
-
-msgid "Node Processes"
-msgstr "Düğüm Süreçleri"
-
-msgid "Node configurations are not specified"
-msgstr "Düğüm yapılandırmaları belirtilmemiş"
-
-msgid "Node group cluster"
-msgstr "Düğüm grup kümesi"
-
-msgid "Node processes are not specified"
-msgstr "Düğüm süreçleri belirtilmemiş"
-
-msgid "Nodes Count"
-msgstr "Düğüm Sayısı"
 
 msgid "Non-Members"
 msgstr "Üye Olmayanlar"
@@ -6322,36 +5446,11 @@ msgstr ""
 msgid "Nova"
 msgstr "Nova"
 
-msgid ""
-"Now you need to set the layout of your\n"
-"                        cluster.  By\n"
-"                        creating a Cluster Template, you will be choosing "
-"the\n"
-"                        number of instances of each Node Group Template "
-"that\n"
-"                        will appear in your cluster.  Additionally,\n"
-"                        you will have a chance to set any cluster-specific\n"
-"                        configuration items in the additional tabs on the\n"
-"                        create Cluster Template form."
-msgstr ""
-"Şimdi kümenizin yerleşimini ayarlamalısınız.\n"
-"                               Bir Küme Şablonu oluşturarak, kümenizde\n"
-"                               görünecek her Düğüm Grubu Şablonundaki\n"
-"                               sunucu sayısını seçmiş olursunuz.  Ek olarak, "
-"Küme\n"
-"                               Şablonu oluşturma formundaki ek sekmelerde, "
-"kümeye\n"
-"                               özel yapılandırma öğelerini ayarlama imkanı "
-"bulacaksınız."
-
 msgid "Number of API requests against swift"
 msgstr "Swift'e karşı talep edilmiş API sayısı"
 
 msgid "Number of Instances"
 msgstr "Sunucu Sayısı"
-
-msgid "Number of Nodes"
-msgstr "Düğüm Sayısı"
 
 msgid "Number of Snapshots"
 msgstr "Anlık Görüntü Sayısı"
@@ -6476,17 +5575,11 @@ msgstr ""
 msgid "Only definitions in raw JSON format are supported."
 msgstr "Sadece işlem görmemiş JSON biçimleri desteklenmektedir."
 
-msgid "Oozie Job ID"
-msgstr "Oozie İş ID'si"
-
 msgid "Open Port"
 msgstr "Bağlantı Noktasını Aç"
 
 msgid "Open Port/Port Range:"
 msgstr "Açık Bağlantı Noktası / Bağlantı Noktası Aralığı:"
-
-msgid "OpenStack Flavor"
-msgstr "OpenStack Niteliği"
 
 msgid "Optional Backup Description"
 msgstr "İsteğe Bağlı Yedek Tanımı"
@@ -6530,12 +5623,6 @@ msgstr "Diğer"
 
 msgid "Other Protocol"
 msgstr "Diğer İletişim Kuralı"
-
-msgid "Output"
-msgstr "Çıktı"
-
-msgid "Output Data Source"
-msgstr "Çıktı Veri Kaynağı"
 
 msgid "Outputs"
 msgstr "Çıktılar"
@@ -6704,17 +5791,11 @@ msgstr "Dönem:"
 msgid "Permit"
 msgstr "İzin Ver"
 
-msgid "Persist cluster after job exit"
-msgstr "İş bitiminde küme kalsın"
-
 msgid "Physical Network"
 msgstr "Fiziksel Ağ"
 
 msgid "Physical Network:"
 msgstr "Fiziksel Ağ:"
-
-msgid "Pig"
-msgstr "Pig"
 
 msgid "Please choose a HTTP method"
 msgstr "Lütfen bir HTTP metodu seçin"
@@ -6739,21 +5820,6 @@ msgstr "Bir URL belirtin"
 #, python-format
 msgid "Please try again later [Error: %s]."
 msgstr "Lütfen daha sonra tekrar deneyin [Hata: %s]."
-
-msgid "Plugin"
-msgstr "Eklenti"
-
-msgid "Plugin Name"
-msgstr "Eklenti İsmi"
-
-msgid "Plugin name"
-msgstr "Eklenti ismi"
-
-msgid "Plugin:"
-msgstr "Eklenti:"
-
-msgid "Plugins"
-msgstr "Eklentiler"
 
 msgid "Policies"
 msgstr "İlkeler"
@@ -6879,9 +5945,6 @@ msgstr "Gizli Anahtar Dosyası"
 msgid "Profile"
 msgstr "Profil"
 
-msgid "Progress"
-msgstr "Süreç"
-
 msgid "Project"
 msgstr "Proje"
 
@@ -6972,9 +6035,6 @@ msgstr ""
 "Sağlayıcı tarafından belirtilmiş ağ oluşturulabilir. Yeni bir sanal ağ için "
 "bir fiziksel ağ türü (Flat, VLAN, GRE, ve VXLAN gibi) ve bölünme_id'sini "
 "veya fiziksel ağ adını belirtebilirsiniz."
-
-msgid "Proxy Gateway"
-msgstr "Vekil Geçit"
 
 msgid "Pseudo-folder Name"
 msgstr "Sahte-dizin İsmi"
@@ -7138,19 +6198,8 @@ msgstr "Yeniden İnşa Ediliyor"
 msgid "Rebuilding instance %s."
 msgstr "Sunucu %s tekrar inşa ediliyor."
 
-msgid "Reducer"
-msgstr "Reduce"
-
 msgid "Regions:"
 msgstr "Bölgeler:"
-
-msgid "Register Image"
-msgstr "İmaj Kaydet"
-
-msgid ""
-"Register tags required for the Plugin with specified Data Processing Version"
-msgstr ""
-"Belirtilen Veri İşleme Sürümüne s ahip Eklenti için gerekli etiketleri kaydet"
 
 msgid "Relative part of requests this pool member serves compared to others"
 msgstr "Bu havuz üyesinin diğerlerine kıyasla istekleri sunma ilişkisi"
@@ -7163,12 +6212,6 @@ msgstr ""
 "Bu havuz üyesinin diğerlerine kıyasla sunduğu istek oranı.\n"
 "Aynı ağırlık seçili tüm üyelere uygulanır ve daha sonra değiştirilebilir. "
 "Ağırlık 1 ve 256 aralığında olmalıdır."
-
-msgid "Relaunch On Existing Cluster"
-msgstr "Mevcut Kümede Tekrar Başlat"
-
-msgid "Relaunch On New Cluster"
-msgstr "Yeni Kümede Tekrar Başlat"
 
 msgid "Release Floating IP"
 msgid_plural "Release Floating IPs"
@@ -7206,9 +6249,6 @@ msgstr ""
 msgid "Remote:"
 msgstr "Uzak:"
 
-msgid "Remove"
-msgstr "Sil"
-
 msgid "Remove Router"
 msgstr "Router Kaldır"
 
@@ -7228,15 +6268,6 @@ msgstr[0] "Kullanıcıları Kaldır"
 msgid "Removed User"
 msgid_plural "Removed Users"
 msgstr[0] "Kullanıcılar Kaldırıldı"
-
-msgid ""
-"Repeat the Node Group Template\n"
-"                        creation process, but this time you are creating\n"
-"                        your \"worker\" Node Group Template."
-msgstr ""
-"Düğüm Grubp Şablonu oluşturma\\                                  sürecini "
-"tekrar edin, ama bu sefer \"işçi\" Düğüm\n"
-"                                  Grup Şablonunuzu oluşturuyorsunuz."
 
 msgid "Replica Detached"
 msgid_plural "Replicas Detached"
@@ -7273,15 +6304,6 @@ msgstr "Kurtar"
 msgctxt "Task status of an Instance"
 msgid "Rescuing"
 msgstr "Kurtarılıyor"
-
-msgid "Reset Cluster Creation Guide"
-msgstr "Küme Oluşturma Kılavuzunu Sıfırla"
-
-msgid "Reset Cluster Guide"
-msgstr "Küme Kılavuzunu Sıfırla"
-
-msgid "Reset Job Execution Guide"
-msgstr "İş Çalıştırma Rehberini Sıfırla"
 
 msgid "Reset to Default"
 msgstr "Varsayılana Sıfırla"
@@ -7446,9 +6468,6 @@ msgstr "Sunucu Parolası Alınamıyor"
 msgid "Retrieve Password"
 msgstr "Parolayı Al"
 
-msgid "Return Code"
-msgstr "Dönüş Kodu"
-
 msgid "Revert Resize/Migrate"
 msgstr "Yeniden Boyutlama/Geçirmeyi Geri Al"
 
@@ -7596,9 +6615,6 @@ msgstr ""
 "Kurallar güvenli grubuna atanan sunuculara hangi trafiğini izin verileceğini "
 "belirler. Bir güvenli grubu kuralının üç ana kısmı vardır:"
 
-msgid "Run HBase EDP Jobs with common HBase library on HDFS"
-msgstr "HBase EDP İşlerini HDFS üzerinde yaygın HBASE kitaplığı ile çalıştır"
-
 msgctxt "Power state of an Instance"
 msgid "Running"
 msgstr "Çalışıyor"
@@ -7617,13 +6633,6 @@ msgstr "SNAT"
 
 msgid "SSH key pairs can be generated with the ssh-keygen command:"
 msgstr "SSH anahtar çiftleri ssh-keygen komutuyla üretilebilirler:"
-
-msgid ""
-"Sahara will use instances of this node group to access other cluster "
-"instances."
-msgstr ""
-"Sahara diğer küme sunucularına erişmek için bu düğüm grubundaki sunucuları "
-"kullanacak."
 
 msgid "Save"
 msgstr "Kaydet"
@@ -7646,18 +6655,6 @@ msgstr "Kaydediliyor"
 msgctxt "Current status of an Image"
 msgid "Saving"
 msgstr "Kaydediliyor"
-
-msgid "Scale"
-msgstr "Ölçekle"
-
-msgid "Scale Cluster"
-msgstr "Kümeyi Ölçekle"
-
-msgid "Scale cluster operation failed"
-msgstr "Küme ölçekleme işlemi başarısız"
-
-msgid "Scaled cluster successfully started."
-msgstr "Ölçeklenmiş küme başarıyla başlatıldı."
 
 #, python-format
 msgid "Scheduled backup \"%(name)s\"."
@@ -7733,15 +6730,6 @@ msgstr "Betik Verisi"
 msgid "Script File"
 msgstr "Betik Dosyası"
 
-msgid "Script name"
-msgstr "Betik ismi"
-
-msgid "Script text"
-msgstr "Betik metni"
-
-msgid "Security"
-msgstr "Güvenlik"
-
 msgid "Security Group"
 msgstr "Güvenlik Grubu"
 
@@ -7773,9 +6761,6 @@ msgstr "Bölünme ID'si"
 
 msgid "Segmentation ID:"
 msgstr "Bölünmesi ID'si:"
-
-msgid "Select"
-msgstr "Seç"
 
 msgid "Select Flavor"
 msgstr "Şablon Seçin"
@@ -7824,9 +6809,6 @@ msgstr "Bir İzleyici Seçin"
 
 msgid "Select a New Flavor"
 msgstr "Yeni bir Şablon Seç"
-
-msgid "Select a Node Group Template to add:"
-msgstr "Eklemek için bir Düğüm Grup Şablonu seçin:"
 
 msgid "Select a Policy"
 msgstr "Bir İlke Seçin"
@@ -7887,15 +6869,6 @@ msgstr "Yığını tekrar başlatmak için yeni bir şablon seçin."
 msgid "Select a new volume type"
 msgstr "Yeni bir mantıksal sürücü türü seçin"
 
-msgid "Select a plugin and version for a new Cluster template."
-msgstr "Yeni bir Küme şablonu için eklenti ve sürüm seçin."
-
-msgid "Select a plugin and version for a new Cluster."
-msgstr "Yeni Küme için bir eklenti ve sürüm seçin."
-
-msgid "Select a plugin and version for the new Node Group template."
-msgstr "Yeni Düğüm Grup şablonu için eklenti ve sürüm seçin."
-
 msgid "Select a port"
 msgstr "Bir port seçin"
 
@@ -7953,18 +6926,6 @@ msgstr "Sunucunuz için ağlar seçin."
 msgid "Select parent backup"
 msgstr "Üst yedeği seçin"
 
-msgid "Select plugin and hadoop version"
-msgstr "Eklenti ve hadoop sürümü seçin"
-
-msgid "Select plugin and hadoop version for cluster"
-msgstr "Küme için eklenti ve hadoop sürümü seçin"
-
-msgid "Select plugin and hadoop version for cluster template"
-msgstr "Küme şablonu için eklenti ve hadoop sürümü seçin"
-
-msgid "Select property name"
-msgstr "Özellik ismi seçin"
-
 msgid "Select routers for your firewall."
 msgstr "Güvenlik duvarınız için yönlendiricileri seçin."
 
@@ -7996,37 +6957,6 @@ msgid ""
 msgstr ""
 "Niteliklerin kullanılacağı projeleri seçin. Hiçbir proje seçilmezse, nitelik "
 "tüm projelerde kullanılabilir olur."
-
-msgid "Select the storage type for your job binary."
-msgstr "İş ikiliğiniz için bir depolama türü seçin."
-
-msgid "Select the type of your Data Source."
-msgstr "Veri Kaynağınızın türünü seçin"
-
-msgid "Select the type of your job:"
-msgstr "İşiniz için bir tür girin:"
-
-msgid "Select type"
-msgstr "Tür seçin"
-
-msgid ""
-"Select which plugin and version that you\n"
-"    want to use to create your cluster."
-msgstr ""
-"Kümenizi oluşturmak için hangi eklenti ve\n"
-"    sürümü kullanmak istediğinizi seçin."
-
-msgid ""
-"Select which type of job that you want to run.\n"
-"      This choice will dictate which steps are required to successfully\n"
-"      execute your job.\n"
-"    "
-msgstr ""
-"Ne tür bir iş çalıştırmak istediğinizi seçin.\n"
-"      Bu seçim işinizi başarıyla çalıştırmak için hangi adımların "
-"gerektiğini\n"
-"      belirleyecek.\n"
-"    "
 
 msgid "Selected Hosts"
 msgstr "Seçili İstemciler"
@@ -8066,9 +6996,6 @@ msgstr "Sunucu hatası"
 
 msgid "Service"
 msgstr "Servis"
-
-msgid "Service Configurations"
-msgstr "Servis Yapılandırmaları"
 
 msgid "Service Endpoint"
 msgstr "Servis Endpoint"
@@ -8112,12 +7039,6 @@ msgstr "Paylaşılan Depolama"
 msgid "Shared with Me"
 msgstr "Benimle Paylaşılan"
 
-msgid "Shell"
-msgstr "Kabuk"
-
-msgid "Shell Action"
-msgstr "Kabuk Eylemi"
-
 msgctxt "Current status of an Instance"
 msgid "Shelved"
 msgstr "Askıda"
@@ -8141,9 +7062,6 @@ msgstr "Askılanan İmaj Yükleniyor"
 msgctxt "Task status of an Instance"
 msgid "Shelving Offloading"
 msgstr "Askılanıyor Yük Aktarılıyor"
-
-msgid "Show full configuration"
-msgstr "Tam yapılandırmayı göster"
 
 msgctxt "Power state of an Instance"
 msgid "Shut Down"
@@ -8296,20 +7214,11 @@ msgstr "Kaynak Bağlantı Noktası Aralığı"
 msgid "Source for Initial State"
 msgstr "Başlangıç Durumu için Kaynak"
 
-msgid "Source password"
-msgstr "Kaynak parolası"
-
 msgid "Source port (integer in [1, 65535] or range in a:b)"
 msgstr "Kaynak bağlantı noktası ([1, 65535] veya a:b aralığında tam sayı)"
 
-msgid "Source username"
-msgstr "Kaynak kullanıcı adı"
-
 msgid "Source:"
 msgstr "Kaynak:"
-
-msgid "Spark"
-msgstr "Spark"
 
 msgctxt "Task status of an Instance"
 msgid "Spawning"
@@ -8320,13 +7229,6 @@ msgstr "Özellik"
 
 msgid "Spec: {{ qos_spec_name }}"
 msgstr "Özellik: {{ qos_spec_name }}"
-
-msgid ""
-"Specified User Name will be used by Data Processing to apply configs and "
-"manage processes on instances."
-msgstr ""
-"Belirtilen Kullanıcı İsmi Veri İşleme tarafından yapılandırmaları uygulamak "
-"ve sunucular üzerinde süreçleri yönetmek için kullanılacak."
 
 msgid ""
 "Specifies how IPv6 addresses and additional information are configured. We "
@@ -8464,15 +7366,9 @@ msgstr "Başlangıç ve bitiş adresleri belirtilmelidir (değer=%s)"
 msgid "Start must be earlier than end of period."
 msgstr "Dönemin başlangıcı bitişinden önce olmalıdır."
 
-msgid "Started"
-msgstr "Başlatıldı"
-
 msgid "Started Instance"
 msgid_plural "Started Instances"
 msgstr[0] "Sunucular Başlatıldı"
-
-msgid "Started at"
-msgstr "Başlama zamanı"
 
 #, python-format
 msgid "Starting evacuation from %(current)s to %(target)s."
@@ -8506,24 +7402,9 @@ msgstr "Durum ="
 msgid "Status Reason"
 msgstr "Durum Sebebi"
 
-msgid "Step Description"
-msgstr "Adım Tanımlaması"
-
 msgctxt "Action log of an instance"
 msgid "Stop"
 msgstr "Durdur"
-
-msgid "Storage location"
-msgstr "Depolama konumu"
-
-msgid "Storage type"
-msgstr "Depolama türü"
-
-msgid "Storm"
-msgstr "Storm"
-
-msgid "Streaming MapReduce"
-msgstr "MapReduce Akışı"
 
 msgid "Subnet"
 msgstr "Subnet"
@@ -8561,10 +7442,6 @@ msgstr "Subnetler"
 
 msgid "Subnets Associated"
 msgstr "Bağlanmış Alt Ağlar"
-
-msgctxt "Current status of a Job"
-msgid "Succeeded"
-msgstr "Başarılı"
 
 #, python-format
 msgid "Successfully accepted volume transfer: \"%s\""
@@ -8663,9 +7540,6 @@ msgstr "Kap erişimi başarıyla özel yapıldı."
 msgid "Successfully updated container access to public."
 msgstr "Kap erişimi başarıyla genele açık yapıldı."
 
-msgid "Successfully updated image."
-msgstr "İmaj başaıryla güncellendi."
-
 #, python-format
 msgid "Successfully updated security group: %s"
 msgstr "%s güvenlik grubu başarıyla güncellendi"
@@ -8683,9 +7557,6 @@ msgstr "Mantıksal sürücü türü başarıyla güncellendi."
 
 msgid "Sum."
 msgstr "Top."
-
-msgid "Supported Versions"
-msgstr "Desteklenen Sürümler"
 
 msgctxt "Action log of an instance"
 msgid "Suspend"
@@ -8776,20 +7647,6 @@ msgstr "Sistem Sıcaklığı Değeri"
 msgid "TCP"
 msgstr "TCP"
 
-msgid "Tags"
-msgstr "Etiketler"
-
-msgid ""
-"Tags are used for filtering images suitable for each plugin and each Data "
-"Processing version.\n"
-"        To add required tags, select a plugin and a Data Processing version "
-"and click &quot;Add plugin tags&quot; button."
-msgstr ""
-"Etiketler her eklenti ve her Veri İşleme sürümü için uygun imajları "
-"filtrelemek için kullanılır.\n"
-"        Gerekli etiketleri eklemek için, bir eklenti ve Veri İşleme sürümü "
-"seçin ve &quot;Eklenti etiketleri ekle&quot; düğmesine tıklayın."
-
 msgid "Target Host"
 msgstr "Hedef İstemci"
 
@@ -8805,17 +7662,11 @@ msgstr "Şablon Verisi"
 msgid "Template File"
 msgstr "Şablon Dosyası"
 
-msgid "Template Name"
-msgstr "Şablon İsmi"
-
 msgid "Template Source"
 msgstr "Şablon Kaynağı"
 
 msgid "Template URL"
 msgstr "Şablon URL'si"
-
-msgid "Template not specified"
-msgstr "Şablon belirtilmemiş"
 
 msgid ""
 "The \"Bootable\" flag specifies that this volume can be used to launch an "
@@ -8883,35 +7734,6 @@ msgstr ""
 "Yetkilendirme Anahtarı bu sayfayı kapattıktan sonra var olmayacaktır, yani "
 "şimdi yakalamalısınız, yoksa aktarımı kullanamayacaksınız."
 
-msgid ""
-"The Cluster Template object may specify a list of processes in anti-affinity "
-"group.\n"
-"    That means these processes may not be launched more than once on a "
-"single host."
-msgstr ""
-"Küme Şablon nesnesi zıt-ilişki grubunda olacak bir süreç listesi "
-"belirtebilir.\n"
-"    Bunun anlamı bu süreçlerin aynı istemci üzerinde birden fazla "
-"çalıştırılamayacağıdır."
-
-msgid ""
-"The Cluster Template object should specify Node Group Templates that will be "
-"used to build a Cluster.\n"
-"    You can add Node Groups using Node Group Templates on a &quot;Node "
-"Groups&quot; tab."
-msgstr ""
-"Küme Şablon nesnesi Küme oluştururken kullanılacak Düğüm Grup Şablonlarını "
-"belirtmelidir.\n"
-"    Düğüm Gruplarını &quot;Düğüm Grupları&quot; sekmesindeki Düğüm Grup "
-"Şablonlarını kullanarak ekleyebilirsiniz."
-
-msgid ""
-"The Cluster object should specify OpenStack Image to boot instances for "
-"Cluster."
-msgstr ""
-"Küme nesnesi Küme için sunucuları ön yüklemek için bir OpenStack İmajı "
-"belirtmelidir."
-
 msgid "The ICMP code is invalid."
 msgstr "ICMP kodu geçersiz."
 
@@ -8947,18 +7769,6 @@ msgstr "İsim alanının JSON biçiminde içeriği."
 
 msgid "The Key Pair name that was associated with the instance"
 msgstr "Sunucu ile ilişkilendirilmiş Anahtar Çifti"
-
-msgid ""
-"The Node Group Template object specifies the processes\n"
-"        that will be launched on each instance. Check one or more "
-"processes.\n"
-"        When processes are selected, you may set <b>node</b> scoped\n"
-"        configurations on corresponding tabs."
-msgstr ""
-"Düğüm Grup Şablonu nesnesi her sunucuda başlatılacak\n"
-"        süreçleri belirtmeye yarar. Bir ya da daha fazla süreç seçin.\n"
-"        Süreçler seçildiğinde, ilgili sekmelerde <b>düğüm</b> kapsamlı\n"
-"        yapılandırmalar ayarlayabilirsiniz."
 
 msgid ""
 "The Transfer ID and the Authorization Key are needed by the recipient in "
@@ -9031,33 +7841,6 @@ msgstr ""
 "Oluşturulan sunucunun varsayılan IP adresi seçili alt ağların bir geçididir. "
 "Buradan sunucunun başka bir IP adresini seçebilirsiniz. Aşağıdaki listeden "
 "belirtilen IP adresinin ait olduğu bir alt ağ seçmelisiniz."
-
-msgid ""
-"The first step is to determine which type of\n"
-"                    cluster you want to run.  You may have several choices\n"
-"                    available depending on the configuration of your "
-"system.\n"
-"                    Click on \"choose plugin\" to bring up the list of data\n"
-"                    processing plugins.  There you will be able to choose "
-"the\n"
-"                    data processing plugin along with the version number.\n"
-"                    Choosing this up front will allow the rest of the "
-"cluster\n"
-"                    creation steps to focus only on options that are "
-"pertinent\n"
-"                    to your desired cluster type."
-msgstr ""
-"İlk adım ne tür bir küme çalıştırmak istediğinizi\n"
-"                    belirlemektir.  Sisteminizin yapılandırmasına bağlı "
-"olarak\n"
-"                    birden fazla seçeneğiniz olabilir. Veri işleme "
-"eklentilerinin\n"
-"                    listesini görmek için \"eklenti seç\"e tıklayın.  Burada "
-"veri\n"
-"                    işleme eklentisi ve sürüm numarasını seçebileceksiniz.\n"
-"                    Bunu önceden seçmek sonraki küme oluşturma adımlarında\n"
-"                    yalnızca istediğiniz küme türüne göre seçeneklere\n"
-"                    odaklanabilmenizi sağlar."
 
 #, python-format
 msgid ""
@@ -9247,15 +8030,6 @@ msgstr "İsim uzayı yüklenirken bir problem oluştu: %s."
 msgid "There was a problem parsing the %(prefix)s: %(error)s"
 msgstr "%(prefix)s ayrıştırmasında hata: %(error)s"
 
-msgid "This Cluster Template will be created for:"
-msgstr "Bu Küme Şablonu şunun için oluşturulacak:"
-
-msgid "This Cluster will be started with:"
-msgstr "Bu Küme şununla başlatılacak:"
-
-msgid "This Node Group Template will be created for:"
-msgstr "Bu Düğüm Grup Şablonu şunun için oluşturulacak:"
-
 msgid "This action cannot be undone."
 msgstr "Bu işlem geri alınamaz."
 
@@ -9316,9 +8090,6 @@ msgstr "Zaman aşımı"
 
 msgid "Timezone"
 msgstr "Zaman dilimi"
-
-msgid "Title"
-msgstr "Başlık"
 
 msgid "To"
 msgstr "Buraya"
@@ -9581,9 +8352,6 @@ msgstr "İstemci takımı \"%s\" oluşturulamadı."
 msgid "Unable to create host aggregate."
 msgstr "İstemci takımı oluşturulamadı."
 
-msgid "Unable to create job binary"
-msgstr "İş ikiliği oluşturulamadı"
-
 #, python-format
 msgid "Unable to create key pair: %(exc)s"
 msgstr "Anahtar çifti oluşturulamadı: %(exc)s"
@@ -9591,9 +8359,6 @@ msgstr "Anahtar çifti oluşturulamadı: %(exc)s"
 #, python-format
 msgid "Unable to create network \"%s\"."
 msgstr "Ağ \"%s\" oluşturulamadı."
-
-msgid "Unable to create new cluster for job."
-msgstr "İş için yeni bir küme oluşturulamadı."
 
 msgid "Unable to create new image"
 msgstr "Yeni imaj oluşturulamadı"
@@ -9637,9 +8402,6 @@ msgstr "Özellik oluşturulamadı."
 #, python-format
 msgid "Unable to create subnet \"%s\"."
 msgstr "Alt ağ \"%s\" oluşturulamadı."
-
-msgid "Unable to create the cluster"
-msgstr "Küme oluşturulamadı"
 
 msgid "Unable to create user."
 msgstr "Kullanıcı oluşturulamadı."
@@ -9731,82 +8493,6 @@ msgstr "Mantıksal sürücü büyütülemiyor."
 msgid "Unable to fetch EC2 credentials."
 msgstr "EC2 Kimlikleri getirilemedi."
 
-msgid "Unable to fetch available images."
-msgstr "Kullanılabilir imajlar getirilemiyor."
-
-msgid "Unable to fetch cluster list"
-msgstr "Küme listesi alınamaıyor"
-
-msgid "Unable to fetch cluster template list"
-msgstr "Küme şablon listesi getirilemedi"
-
-msgid "Unable to fetch cluster template."
-msgstr "Küme şablonu getirilemedi."
-
-msgid "Unable to fetch cluster to scale"
-msgstr "Küme ölçeklemek için getirilemedi"
-
-msgid "Unable to fetch cluster to scale."
-msgstr "Küme ölçeklemek için getirilemedi."
-
-msgid "Unable to fetch clusters."
-msgstr "Kümeler getirilemiyor."
-
-msgid "Unable to fetch data sources."
-msgstr "Veri kaynakları getirilemedi."
-
-msgid "Unable to fetch flavor for template."
-msgstr "Şablon için nitelik alınamadı."
-
-msgid "Unable to fetch floating ip pools."
-msgstr "Değişken ip havuzları getirilemiyor."
-
-msgid "Unable to fetch image choices."
-msgstr "İmaj seçenekleri getirilemiyor."
-
-msgid "Unable to fetch instance details."
-msgstr "Instance detayları alınamadı."
-
-msgid "Unable to fetch job binary list."
-msgstr "İş ikiliği listesi getirilemedi."
-
-#, python-format
-msgid "Unable to fetch job binary: %(exc)s"
-msgstr "İş ikiliği getirilemedi: %(exc)s"
-
-msgid "Unable to fetch job executions."
-msgstr "Çalıştırılan işler getirilemedi."
-
-msgid "Unable to fetch jobs."
-msgstr "İşler getirilemedi."
-
-msgid "Unable to fetch keypair choices."
-msgstr "Anahtar çifti seçenekleri getirilemiyor."
-
-msgid "Unable to fetch node group details."
-msgstr "Düğüm grup detayları getirilemedi."
-
-msgid "Unable to fetch node group template list."
-msgstr "Düğüm grup şablon listesi getirilemedi."
-
-msgid "Unable to fetch plugin details."
-msgstr "Eklenti detayları getirilemedi."
-
-msgid "Unable to fetch plugin list."
-msgstr "Eklenti listesi getirilemedi."
-
-msgid "Unable to fetch template object."
-msgstr "Şablon nesnesi getirilemedi."
-
-msgid "Unable to fetch template to copy."
-msgstr "Kopyalanacak şablon getirilemedi."
-
-msgid "Unable to fetch template to edit."
-msgstr "Şablon düzenlenmek için getirilemiyor."
-
-msgid "Unable to fetch the image details"
-msgstr "İmaj detayları getirilemedi"
-
 msgid "Unable to find backup!"
 msgstr "Yedek bulunamadı!"
 
@@ -9815,9 +8501,6 @@ msgstr "Varsayılan rol bulunamadı."
 
 msgid "Unable to find master instance!"
 msgstr "Ana sunucu bulunamadı!"
-
-msgid "Unable to generate process choices."
-msgstr "Süreç seçimleri üretilemiyor."
 
 msgid "Unable to get EC2 credentials"
 msgstr "EC2 Kimlikleri getirilemedi."
@@ -9878,9 +8561,6 @@ msgstr "Ağ ajanları bilgisi alınamadı."
 msgid "Unable to get network agents list."
 msgstr "Ağ ajanları listesi alınamıyor."
 
-msgid "Unable to get node group details."
-msgstr "Düğüm grubu detayları alınamıyor."
-
 msgid "Unable to get nova services list."
 msgstr "Nova servis listesi alınamıyor."
 
@@ -9897,9 +8577,6 @@ msgstr "Kota bilgileri alınamıyor."
 msgid "Unable to get resources for stack \"%s\"."
 msgstr "Yığın \"%s\" için kaynaklar alınamıyor."
 
-msgid "Unable to get security group list."
-msgstr "Güvenlik grubu listesi alınamadı."
-
 #, python-format
 msgid "Unable to get subnet \"%s\""
 msgstr "Alt ağ \"%s\" alınamadı"
@@ -9914,18 +8591,12 @@ msgstr "Kullanılabilir istemciler alınamadı"
 msgid "Unable to get user data."
 msgstr "Kullanıcı verisi alınamadı."
 
-msgid "Unable to get volume type list."
-msgstr "Mantıksal sürücü türü listesi alınamıyor."
-
 msgid "Unable to import key pair."
 msgstr "Anahtar çifti içe aktarılamıyor."
 
 #, python-format
 msgid "Unable to launch %(count)s named \"%(name)s\"."
 msgstr "\"%(name)s\" isimli %(count)s çalıştırılamadı."
-
-msgid "Unable to launch job."
-msgstr "İş başlatılamadı."
 
 msgid "Unable to list containers."
 msgstr "Kaplar listelenemedi."
@@ -9982,12 +8653,6 @@ msgstr "Nitelikler elde edilemedi."
 #, python-format
 msgid "Unable to parse IP address %s."
 msgstr "IP adres ayrıştırılamıyor %s."
-
-msgid "Unable to populate anti-affinity processes."
-msgstr "Zıt-ilişki süreçleri doldurulamıyor."
-
-msgid "Unable to process plugin tags"
-msgstr "Eklenti etiketleri işlenemedi"
 
 msgid "Unable to rebuild instance."
 msgstr "Sunucu yeniden inşa edilemedi."
@@ -10121,9 +8786,6 @@ msgstr "Hesaplama limit bilgisi alınamıyor."
 msgid "Unable to retrieve container list."
 msgstr "Kap listesi alınamadı."
 
-msgid "Unable to retrieve data processing plugins."
-msgstr "Veri işleme eklentiler alınamadı."
-
 msgid "Unable to retrieve database instances."
 msgstr "Veritabanı sunucuları alınamadı."
 
@@ -10141,18 +8803,6 @@ msgid "Unable to retrieve details for backup: %s"
 msgstr "Yedek için detaylar alınamadı: %s"
 
 #, python-format
-msgid "Unable to retrieve details for cluster \"%s\"."
-msgstr "Küme \"%s\" için detaylar alınamadı."
-
-#, python-format
-msgid "Unable to retrieve details for cluster template \"%s\"."
-msgstr "Küme şablonu \"%s\" için detaylar alınamadı."
-
-#, python-format
-msgid "Unable to retrieve details for data source \"%s\"."
-msgstr "Veri kaynağı \"%s\" için detaylar alınamadı."
-
-#, python-format
 msgid "Unable to retrieve details for database instance: %s"
 msgstr "Veritabanı sunucusu için detaylar alınamadı: %s"
 
@@ -10161,28 +8811,12 @@ msgid "Unable to retrieve details for instance \"%s\"."
 msgstr "\"%s\" sunucusu için detaylar alınamadı."
 
 #, python-format
-msgid "Unable to retrieve details for job \"%s\"."
-msgstr "İş \"%s\" için detaylar alınamadı."
-
-#, python-format
-msgid "Unable to retrieve details for job binary \"%s\"."
-msgstr "İş ikiliği \"%s\" için detaylar alınamadı."
-
-#, python-format
-msgid "Unable to retrieve details for job template \"%s\"."
-msgstr "İş şablonu \"%s\" için detaylar alınamadı."
-
-#, python-format
 msgid "Unable to retrieve details for keypair \"%s\"."
 msgstr "\"%s\" anahtar çifti için ayrıntılar alınamadı."
 
 #, python-format
 msgid "Unable to retrieve details for network \"%s\"."
 msgstr "\"%s\" ağı için detaylar alınamadı."
-
-#, python-format
-msgid "Unable to retrieve details for node group template \"%s\"."
-msgstr "Düğüm grup şablonu \"%s\" için detaylar alınamadı."
 
 #, python-format
 msgid "Unable to retrieve details for parent backup: %s"
@@ -10277,9 +8911,6 @@ msgstr "Hypervisor istatistikleri alınamıyor."
 msgid "Unable to retrieve image details."
 msgstr "İmaj detayları alınamadı."
 
-msgid "Unable to retrieve image list"
-msgstr "İmaj listesi alınamadı"
-
 msgid "Unable to retrieve image list."
 msgstr "İmaj listesi alınamıyor."
 
@@ -10291,10 +8922,6 @@ msgstr "İmajlar alınamadı"
 
 msgid "Unable to retrieve images for the current project."
 msgstr "Mevcut proje için imajlar alınamadı."
-
-#, python-format
-msgid "Unable to retrieve images with filter %s."
-msgstr "%s filtresi ile imajlar getirilemiyor."
 
 msgid "Unable to retrieve images."
 msgstr "İmajlar getirilemedi."
@@ -10399,9 +9026,6 @@ msgstr "Nesne listesi alınamadı."
 msgid "Unable to retrieve object."
 msgstr "Nesne alınamadı."
 
-msgid "Unable to retrieve plugin."
-msgstr "Eklenti alınamadı."
-
 msgid "Unable to retrieve policies list."
 msgstr "İlke listesi getirilemedi."
 
@@ -10503,10 +9127,6 @@ msgstr "Kurallar getirilemedi (%(error)s)."
 
 msgid "Unable to retrieve rules list."
 msgstr "Kural listesi getirilemedi."
-
-#, python-format
-msgid "Unable to retrieve security group %(group)s."
-msgstr "Güvenlik grubu %(group)s alınamadı."
 
 msgid "Unable to retrieve security group list. Please try again later."
 msgstr ""
@@ -10673,9 +9293,6 @@ msgstr "Alan İçeriği ayarlanamıyor."
 msgid "Unable to set bootable flag on volume."
 msgstr "Mantıksal sürücü üzerinde ön yüklenebilir bayrağı ayarlanamıyor."
 
-msgid "Unable to set cluster type"
-msgstr "Küme türü ayarlanamadı"
-
 #, python-format
 msgid "Unable to set flavor access for project %s."
 msgstr "Nitelik erişimi %s projesi için ayarlanamadı."
@@ -10683,14 +9300,8 @@ msgstr "Nitelik erişimi %s projesi için ayarlanamadı."
 msgid "Unable to set gateway."
 msgstr "Geçit ayarlanamadı."
 
-msgid "Unable to set job type"
-msgstr "İş türü ayarlanamadı"
-
 msgid "Unable to set project quotas."
 msgstr "Proje kotaları düzenlenemedi."
-
-msgid "Unable to show guides"
-msgstr "Kılavuzlar gösterilemiyor"
 
 msgid "Unable to sort instance flavors."
 msgstr "Sunucu nitelikleri sıralanamıyor."
@@ -10716,9 +9327,6 @@ msgstr "Nesne güncellenemedi."
 
 msgid "Unable to update role."
 msgstr "Rol güncellenemedi."
-
-msgid "Unable to update row"
-msgstr "Satır güncellenemiyor"
 
 #, python-format
 msgid "Unable to update security group: %s"
@@ -10759,12 +9367,6 @@ msgstr "Mantıksal sürücü türü güncellenemiyor."
 msgid "Unable to update volume."
 msgstr "Mantıksal sürücü güncellenemiyor."
 
-msgid "Unable to upload cluster template file"
-msgstr "Küme şablon dosyası yüklenemiyor"
-
-msgid "Unable to upload job binary"
-msgstr "İş ikiliği yüklenemedi"
-
 msgid "Unable to upload object."
 msgstr "Nesne yüklenemiyor."
 
@@ -10803,22 +9405,9 @@ msgstr "Hacmi Yönetme"
 msgid "Unmanage a Volume"
 msgstr "Mantıksal Sürücüyü Yönetmeyi Durdur"
 
-msgid "Unnecessary tags may be removed by clicking a cross near tag's name."
-msgstr ""
-"Gereksiz etikletler etiket ismi yanındaki çarpı işaretine tıklayarak "
-"silinebilir."
-
 msgctxt "Action log of an instance"
 msgid "Unpause"
 msgstr "Sürdür"
-
-msgid "Unregister Image"
-msgid_plural "Unregister Images"
-msgstr[0] "İmajların Kaydını Sil"
-
-msgid "Unregistered Image"
-msgid_plural "Unregistered Images"
-msgstr[0] "İmaj Kayıtları Silindi"
 
 msgctxt "Task status of an Instance"
 msgid "Unrescuing"
@@ -10958,9 +9547,6 @@ msgstr "Güncelleme saati"
 msgid "Updated subnet \"%s\"."
 msgstr "Alt ağ \"%s\" güncellendi."
 
-msgid "Updated time"
-msgstr "Güncelleme zamanı"
-
 msgctxt "Task status of an Instance"
 msgid "Updating Password"
 msgstr "Parola Güncelleniyor"
@@ -10976,9 +9562,6 @@ msgstr "Mantıksal sürücü anlık görüntüsü \"%s\" güncelleniyor"
 msgid "Upload"
 msgstr "Yükle"
 
-msgid "Upload File"
-msgstr "Dosya Yükle"
-
 msgid "Upload Object"
 msgstr "Nesne Yükle"
 
@@ -10989,23 +9572,14 @@ msgstr "Nesneyi Kaba Yükle: %(container_name)s"
 msgid "Upload Objects"
 msgstr "Nesneleri Yükle"
 
-msgid "Upload Template"
-msgstr "Şablon Yükle"
-
 msgid "Upload Volume to Image"
 msgstr "Mantıksal Sürücüyü İmaja Yükle"
-
-msgid "Upload a new file"
-msgstr "Yeni bir dosya yükleyin"
 
 msgid "Upload to Image"
 msgstr "İmaja Yükle"
 
 msgid "Uploaded image size"
 msgstr "Yüklenen imaj büyüklüğü"
-
-msgid "Url"
-msgstr "Url"
 
 msgid "Usage"
 msgstr "Kullanım"
@@ -11019,20 +9593,11 @@ msgstr "Kullanım Önizleme"
 msgid "Usage Report"
 msgstr "Kullanım Raporu"
 
-msgid "Use HBase Common library"
-msgstr "HBase Yaygın kitaplığını kullan"
-
 msgid "Use Server Default"
 msgstr "Sunucu Varsayılanını Kullan"
 
 msgid "Use a volume as source"
 msgstr "Kaynak olarak bir mantıksal sürücü kullan"
-
-msgid "Use anti-affinity groups for processes"
-msgstr "Süreçler için zıt-ilişki grupları kullan"
-
-msgid "Use anti-affinity groups for: "
-msgstr "Zıt-ilişki grupları kullan: "
 
 msgid "Use image as a source"
 msgstr "Kaynak olarak imaj kullan"
@@ -11100,18 +9665,12 @@ msgstr "Kullanıcı Ayarları"
 msgid "User has been updated successfully."
 msgstr "Kullanıcı başarıyla güncellendi."
 
-msgid "User has to choose a keypair to have access to clusters instances."
-msgstr "Kullanıcı küme sunucularına erişmek için bir anahtar çifti seçmelidir."
-
 #, python-format
 msgid "User name \"%s\" is already used."
 msgstr "\"%s\" kullanıcı adı zaten kullanılıyor."
 
 msgid "User password has been updated successfully."
 msgstr "Kullanıcı parolası başarıyla değiştirildi."
-
-msgid "Username"
-msgstr "Kullanıcı adı"
 
 msgid "Username (required)"
 msgstr "Kullanıcı adı (gerekli)"
@@ -11213,12 +9772,6 @@ msgstr "Değer (Ort)"
 
 msgid "Value:"
 msgstr "Değer:"
-
-msgid "Version"
-msgstr "Sürüm"
-
-msgid "Version:"
-msgstr "Sürüm:"
 
 #, python-format
 msgid ""
@@ -11370,9 +9923,6 @@ msgstr ""
 msgid "Volume is Unencrypted"
 msgstr "Mantıksal Sürücü Şifrelenmemiş"
 
-msgid "Volume local to instance"
-msgstr "Sunucuya yerel mantıksal sürücü"
-
 msgid ""
 "Volume mount point (e.g. 'vda' mounts at '/dev/vda'). Leave this field blank "
 "to let the system choose a device name for you."
@@ -11440,24 +9990,6 @@ msgstr "Mantıksal sürücüler"
 msgid "Volumes Attached"
 msgstr "Bağlı Mantıksal Sürücüler"
 
-msgid "Volumes Availability Zone"
-msgstr "Mantıksal Sürücünün Kullanılabilir Bölgesi"
-
-msgid "Volumes local to instance"
-msgstr "Sunucuya yerel mantıksal sürücüler"
-
-msgid "Volumes per node"
-msgstr "Düğüm başına mantıksal sürücü"
-
-msgid "Volumes size"
-msgstr "Mantıksal sürücülerin boyutu"
-
-msgid "Volumes size (GB)"
-msgstr "Mantıksal sürücülerin boyutu (GB)"
-
-msgid "Volumes type"
-msgstr "Mantıksal sürücü türü"
-
 msgid "Weight"
 msgstr "Ağırlık"
 
@@ -11472,9 +10004,6 @@ msgstr ""
 "  alır. Belirli bir IP adresi isteniyorsa, sağlanabilir ve seçili alt\n"
 "  ağdan bir adres olmak zorundadır."
 
-msgid "Which keypair to use for authentication."
-msgstr "Kimlik doğrulama için hangi anahtar çiftinin kullanılacağı."
-
 msgid ""
 "Within a container you can group your objects into pseudo-folders, which "
 "behave similarly to folders in your desktop operating system, with the "
@@ -11487,9 +10016,6 @@ msgstr ""
 "ortak bir önek ile tanımlanmış sanal koleksiyonlar olmalarıdır. Bölü (/) "
 "karakteri Nesne Deposunda sahte-dizinler için ayraç olarak kullanılır."
 
-msgid "Worker Node Group Template:"
-msgstr "İşçi Düğüm Grup Şablonu:"
-
 msgid "Yes"
 msgstr "Evet"
 
@@ -11498,28 +10024,6 @@ msgstr "Tüm değişken IP'lerinizi zaten kullanıyorsunuz."
 
 msgid "You are already using all of your available volumes."
 msgstr "Kullanılabilir tüm mantıksal sürücülerinizi kullanıyorsunuz."
-
-msgid ""
-"You are now ready to\n"
-"                        launch your cluster.  When you click on the link\n"
-"                        below, you will need to give your cluster a name,\n"
-"                        choose the Cluster Template to use and choose which\n"
-"                        image to use to build your instances.  After you\n"
-"                        click on \"Create\", your instances will begin to\n"
-"                        spawn.  Your cluster should be operational in a few\n"
-"                        minutes."
-msgstr ""
-"Artık kümenizi başlatmaya\n"
-"                               hazırsınız. Aşağıdaki bağlantıya "
-"tıkladığınızda, kümenize\n"
-"                               bir isim vermeniz gerekir, ayrıca "
-"kullanılacak Küme Şablonu\n"
-"                               ve sunucularınızı inşa etmek için hangi "
-"imajın kullanılması gerektiğini\n"
-"                               belirtmelisiniz. \"Oluştur\"a tıkladıktan "
-"sonra, sunucularınız açılmaya\n"
-"                               başlayacak.  Kümeniz bir kaç dakika sonra "
-"işlevsel hale gelecektir."
 
 msgid ""
 "You can connect a specified external network to the router. The external "
@@ -11596,23 +10100,8 @@ msgstr ""
 "          izinlere sahip değilsiniz. Bu iletinin hatalı olduğunu\n"
 "          düşünüyorsanız, proje yöneticinizle iletişime geçin."
 
-msgid "You may also add any custom tag."
-msgstr "Herhangi bir özel etiket de ekleyebilirsiniz."
-
-msgid "You may also enter an optional description for your Data Source."
-msgstr "Veri Kaynağınız için isteğe bağlı bir tanımlama da girebilirsiniz."
-
-msgid "You may also enter an optional description for your job binary."
-msgstr "İş ikiliğiniz için isteğe bağlı bir tanımlama da girebilirsiniz."
-
-msgid "You may also enter an optional description for your job template."
-msgstr "Ayrıca iş şablonunuz için isteğe bağlı bir tanımlama girebilirsiniz."
-
 msgid "You may have mistyped the address or the page may have moved."
 msgstr "Adresi yanlış yazmış olabilirsiniz ya da sayfa taşınmış olabilir."
-
-msgid "You may need to enter the username and password for your Data Source."
-msgstr "Veri Kaynağınız için bir kullanıcı adı ve parola girmeniz gerekebilir."
 
 msgid "You may optionally set a password on the rebuilt instance."
 msgstr ""
@@ -11624,11 +10113,6 @@ msgid ""
 msgstr ""
 "Geçidi daha sonra geçit ayarla eylemiyle sıfırlayabilirsiniz, ama geçit "
 "IP'si değişebilir."
-
-msgid "You may set <b>cluster</b> scoped configurations on corresponding tabs."
-msgstr ""
-"Karşılık gelen sekmelerde <b>küme</b> kapsamlı yapılandırmalar "
-"ayarlayabilirsiniz."
 
 msgid "You may update IKE Policy details here."
 msgstr "Burada IKE İlke detaylarını güncelleyebilirsiniz."
@@ -11691,13 +10175,6 @@ msgstr ""
 
 msgid "You may update the editable properties of your router here."
 msgstr "Routernizi düzenlenebilir özelliklerini buradan güncelleyebilirsiniz."
-
-msgid ""
-"You must choose a flavor to determine the size (VCPUs, memory and storage) "
-"of all launched VMs."
-msgstr ""
-"Başlatılan tüm sanal makinelerin boyutunu (VCPU'lar, hafıza ve depolama) "
-"belirlemek için bir nitelik seçmelisiniz."
 
 msgid "You must select a datastore type and version."
 msgstr "Bir veri deposu türü ve sürümü seçmelisiniz."
@@ -11803,9 +10280,6 @@ msgstr "beklet"
 
 msgid "instance"
 msgstr "sunucu"
-
-msgid "no processes"
-msgstr "süreç yok"
 
 msgid "pseudo-folder"
 msgstr "sahte-dizin"

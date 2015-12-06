@@ -11,64 +11,22 @@
 # Ian Y. Choi <ianyrchoi@gmail.com>, 2015. #zanata
 # OpenStack Infra <zanata@openstack.org>, 2015. #zanata
 # Sungjin Kang <gang.sungjin@gmail.com>, 2015. #zanata
+# jay jeong <jay.gtv@gmail.com>, 2015. #zanata
 msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-12-02 23:42+0000\n"
+"POT-Creation-Date: 2015-12-05 16:12+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2015-10-12 12:58+0000\n"
+"PO-Revision-Date: 2015-12-05 08:20+0000\n"
 "Last-Translator: Ian Y. Choi <ianyrchoi@gmail.com>\n"
 "Language: ko-KR\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 "Generated-By: Babel 2.0\n"
 "X-Generator: Zanata 3.7.3\n"
 "Language-Team: Korean (South Korea)\n"
-
-msgid ""
-"\n"
-"                  In order to run a Data Processing job, you need to make\n"
-"                  the files for your program available to the\n"
-"                  Data Processing system, define where the input and output\n"
-"                  need to go and create a Job Template that describes\n"
-"                  how to run your job.  Each of those steps can be done\n"
-"                  manually or you can follow this guide to help take you\n"
-"                  through the steps to run a job on an existing cluster.\n"
-"            "
-msgstr ""
-"\n"
-"데이터 프로세싱 job을 실행하기 위해, 데이터 프로세싱 \n"
-"시스템에 사용 가능한 프로그램에 대한 파일들을 \n"
-"만들어야 하고, 입력 및 출력이 어디로 가야 하는지를 정의하며, \n"
-"그리고 어떻게 job을 실행하는지를 설명하는 Job 템플릿을 \n"
-"생성할 필요가 있습니다. 해당 과정들 각각은 수동으로 \n"
-"진행 가능하고, 또는 현존하는 클러스터 내 job 실행 단계들을  \n"
-"진행하도록 돕는 이 가이드를 따라서 진행 가능합니다."
-
-msgid ""
-"\n"
-"                 Each of the Data Processing frameworks require a cluster of "
-"machines\n"
-"                 in order to do the work they are assigned.  A cluster is\n"
-"                 formed by creating a set of Node Group Templates, "
-"combining\n"
-"                 those into a Cluster Template and then launching a "
-"Cluster.\n"
-"                 You can do each of those steps manually, or you can follow\n"
-"                 this guide to help take you through the steps of\n"
-"                 Cluster creation.\n"
-"             "
-msgstr ""
-"\n"
-"각 데이터 프로세싱 프레임워크에서는 할당된 작업을 수행하기 위한 \n"
-"머신 클러스터를 필요로 합니다. 클러스터는 \n"
-"노드 그룹 템플릿 집합을 생성하여 클러스터 템플릿으로 \n"
-"조합함으로써 생성되고, 그 다음 해당 클러스터를 실행합니다. \n"
-"해당 과정들 각각은 수동으로 진행 가능하고, 또는 클러스터 \n"
-"생성 과정들을 진행하도록 도와주는 이 가이드를 \n"
-"따라서 진행 가능합니다."
 
 #, python-format
 msgid ""
@@ -391,9 +349,6 @@ msgstr ": 다음 hop"
 msgid " Also failed to delete port %s"
 msgstr "포트 %s 제거 또한 실패하였습니다"
 
-msgid " Done"
-msgstr "완료"
-
 msgid "\"Add Router Route\""
 msgstr "\"라우터 경로 추가\""
 
@@ -436,14 +391,6 @@ msgid ""
 msgstr "\"최소 이미지를 만족하지 못하는 일부 flavor를 비활성되었습니다.\""
 
 #, python-format
-msgid "%(conf_name)s: %(conf_val)s"
-msgstr "%(conf_name)s: %(conf_val)s"
-
-#, python-format
-msgid "%(conf_name)s: %(conf_value)s"
-msgstr "%(conf_name)s: %(conf_value)s"
-
-#, python-format
 msgid "%(field_name)s: Invalid IP address (value=%(ip)s)"
 msgstr "%(field_name)s: 잘못된 IP 주소 (값=%(ip)s)"
 
@@ -452,16 +399,8 @@ msgid "%(field_name)s: Invalid IP address (value=%(network)s)"
 msgstr "%(field_name)s: 잘못된 IP 주소 (값=%(network)s)"
 
 #, python-format
-msgid "%(group)s:"
-msgstr "%(group)s:"
-
-#, python-format
 msgid "%(instance_name)s %(fixed_ip)s"
 msgstr "%(instance_name)s %(fixed_ip)s"
-
-#, python-format
-msgid "%(key)s: %(val)s"
-msgstr "%(key)s: %(val)s"
 
 #, python-format
 msgid "%(name)s - %(size)s GB (%(label)s)"
@@ -533,10 +472,6 @@ msgid "%s instances"
 msgstr "%s 인스턴스"
 
 #, python-format
-msgid "%s processes: "
-msgstr "%s 프로세스:"
-
-#, python-format
 msgid "%sGB"
 msgstr "%sGB"
 
@@ -562,22 +497,8 @@ msgstr "-"
 msgid "--"
 msgstr "--"
 
-msgid "-- not selected --"
-msgstr "-- 선택하지 않음 --"
-
 msgid "3des"
 msgstr "3des"
-
-msgid ""
-"<b>Important</b>:  The name that you give your job binary will be the name "
-"used in your job execution.\n"
-"  If your binary requires a particular name or extension (ie: \".jar\"), be "
-"sure to include it here."
-msgstr ""
-"<b>중요 사항</b>: Job 바이너리에 지정한 이름을 job 실행 이름으로 사용합니"
-"다.\n"
-"바이너리에 특정 이름이나 확장이 필요한 경우 (예: \".jar\"), 여기에 포함해야합"
-"니다."
 
 #, python-format
 msgid "<p>%(used)s of %(quota)s MB Used</p>"
@@ -794,9 +715,6 @@ msgstr ""
 "실제 장치 이름은 하이퍼바이저 설정에 따라 다를 수 있습니다. 지정되지 않은 경"
 "우, 하이퍼바이저는 장치 이름에서 선택합니다."
 
-msgid "Adapt For Oozie"
-msgstr "Oozie에 대한 적응"
-
 msgid "Add"
 msgstr "추가"
 
@@ -857,9 +775,6 @@ msgstr "새로운 Rule 추가"
 msgid "Add New VPN Service"
 msgstr "새로운 VPN 서비스 추가"
 
-msgid "Add Node Group"
-msgstr "노드 그룹 추가"
-
 msgid "Add Policy"
 msgstr "정책 추가"
 
@@ -919,9 +834,6 @@ msgstr ""
 "사용가능한 시큐리티 그룹의 목록에서 이 인스턴스에 시큐리티 그룹을 추가하거나 "
 "삭제합니다."
 
-msgid "Add custom tag"
-msgstr "커스텀 태그 추가"
-
 msgid ""
 "Add hosts to this aggregate or remove hosts from it. Hosts can be in "
 "multiple aggregates."
@@ -936,9 +848,6 @@ msgstr ""
 
 msgid "Add interface"
 msgstr "인터페이스 추가"
-
-msgid "Add libraries to your job template."
-msgstr "Job 템플릿을 라이브러리에 추가합니다."
 
 msgid ""
 "Add member(s) to the selected pool.\n"
@@ -955,9 +864,6 @@ msgstr ""
 "있도록 선택된 멤버의 숫자로된 용량과 포트 번호를 할당합니다. 예. 80.\n"
 "\n"
 "각 인스턴스당 하나의 포트를 연결할 수 있습니다."
-
-msgid "Add plugin tags"
-msgstr "플러그인 태그 추가"
 
 msgid "Add route"
 msgstr "경로 추가"
@@ -1215,9 +1121,6 @@ msgstr ""
 "예상치 못한 오류가 발생하였습니다. 페이지를 새로 고침 하십시오. 여전히 해결되"
 "지 않으면, 로컬 관리자에게 문의하십시오."
 
-msgid "Anti-affinity enabled for"
-msgstr "Anti-affinity 사용"
-
 msgid "Any"
 msgstr "어디든"
 
@@ -1226,9 +1129,6 @@ msgstr "임의의 가용성 존"
 
 msgid "Architecture"
 msgstr "아키텍처"
-
-msgid "Arguments"
-msgstr "인수"
 
 msgid "Associate"
 msgstr "연결"
@@ -1330,12 +1230,6 @@ msgstr "인증 알고리즘"
 msgid "Authorization mode"
 msgstr "인증 모드"
 
-msgid "Auto Security Group"
-msgstr "자동 시큐리티 그룹"
-
-msgid "Auto-configure"
-msgstr "자동 구성"
-
 msgid "Automatic"
 msgstr "자동"
 
@@ -1346,13 +1240,6 @@ msgstr ""
 "자동: 전체 디스크가 하나의 파티션으로되어있고 자동으로 크기조절이 됩니다. 수"
 "동: 빠른 빌드 시간으로 결과를 확인할 수 있으나 수동으로 파티션을 조정해야합니"
 "다."
-
-msgid ""
-"Automatically modify the Hadoop configuration so that job config values are "
-"set and so that Oozie will handle exit codes correctly."
-msgstr ""
-"자동으로 Hadoop 구성을 수정하여 job 구성 값이 설정되도록 하고 Oozie가 올바르"
-"게 코드로부터 빠지도록 핸들링합니다."
 
 msgid "Availability Zone"
 msgstr "가용 구역"
@@ -1456,9 +1343,6 @@ msgstr "백업 개요"
 
 msgid "Backups"
 msgstr "백업"
-
-msgid "Base Image"
-msgstr "기본 이미지"
 
 msgid "Before"
 msgstr "이전"
@@ -1616,9 +1500,6 @@ msgstr[0] "스택 확인됨"
 msgid "Checksum"
 msgstr "Checksum"
 
-msgid "Choose"
-msgstr "선택"
-
 msgid "Choose Your Boot Source Type."
 msgstr "부팅 소스 타입을 고르세요."
 
@@ -1633,32 +1514,17 @@ msgid ""
 "the space provided."
 msgstr "키 페어 이름을 지정하고 제공된 공간에 SSH 공개 키를 등록합니다."
 
-msgid "Choose a main binary"
-msgstr "메인 바이너리 선택"
-
 msgid "Choose a new instance flavor."
 msgstr "새로운 인스턴스 flavor를 선택하세요."
-
-msgid "Choose a shell script"
-msgstr "쉘 스크립트를 선택하세요"
 
 msgid "Choose a snapshot"
 msgstr "스냅샷 선택"
 
-msgid "Choose a storage location"
-msgstr "스토리지 위치 선택"
-
 msgid "Choose a volume"
 msgstr "볼륨 선택"
 
-msgid "Choose additional files"
-msgstr "추가 파일 선택"
-
 msgid "Choose an DHCP Agent to attach to."
 msgstr "연결할 DHCP 에이전트를 선택합니다."
-
-msgid "Choose an existing file"
-msgstr "내보낼 파일 선택"
 
 msgid "Choose an image"
 msgstr "이미지 선택"
@@ -1669,21 +1535,8 @@ msgstr "연결할 QoS 스펙을 선택해주세요."
 msgid "Choose consumer for this QoS Spec."
 msgstr "해당 QoS 스펙에 대한 사용자를 선택하세요."
 
-msgid ""
-"Choose from the list of binaries and click \"choose\" to add the library to "
-"your job template.  This can be repeated for additional libraries."
-msgstr ""
-"바이너리 목록으로부터 선택하고 \"선택\"을 클릭하여 라이브러리를 job 템플릿에 "
-"추가합니다. 추가 라이브러리에 반복하여 가능합니다."
-
 msgid "Choose initial state."
 msgstr "초기 상태를 선택하세요."
-
-msgid "Choose job type"
-msgstr "작업 유형 선택"
-
-msgid "Choose libraries"
-msgstr "라이브러리 선택"
 
 msgid ""
 "Choose network from Available networks to Selected networks by push button "
@@ -1691,22 +1544,6 @@ msgid ""
 msgstr ""
 "푸시 버튼이나 드래그 앤 드롭을 이용하여 사용할 수 있는 네트워크에서 선택한 네"
 "트워크로 네트워크를 선택합니다. 드래그 앤 드롭으로 NIC를 변경할 수 있습니다."
-
-msgid ""
-"Choose or create your main binary.  Additional libraries can be added from "
-"the \"Libs\" tab."
-msgstr ""
-"메인 바이너리를 선택하거나 생성합니다. 추가 라이브러리는 \"Libs\" 탭에서 추가"
-"할 수 있습니다."
-
-msgid "Choose plugin"
-msgstr "플러그인 선택"
-
-msgid "Choose plugin and version"
-msgstr "플러그인 및 버전 선택"
-
-msgid "Choose plugin type and version"
-msgstr "플러그인 형식과 버전을 선택하세요"
 
 msgid ""
 "Choose router(s) from Available Routers to Selected Routers by push button "
@@ -1723,18 +1560,6 @@ msgstr ""
 "사용 가능한 규칙에서 선택한 규칙에 버튼을 누르거나 드래그 앤 드롭하여 규칙을 "
 "선택합니다.\n"
 "드래그 앤 드롭으로 규칙 순서를 변경할 수 있습니다."
-
-msgid "Choose the Input Data Source (n/a for Java and Shell jobs)."
-msgstr "입력 데이터 소스 선택 (Java나 Shell job 은 해당안됨)."
-
-msgid "Choose the Output Data Source (n/a for Java and Shell jobs)."
-msgstr "출력 데이터 소스 선택 (Java나 Shell job은 해당안됨)."
-
-msgid "Choose the binary which should be used in this Job."
-msgstr "Job에 사용될 바이너리를 선택합니다."
-
-msgid "Choose the cluster to use for the job."
-msgstr "Job에 대해 사용할 클러스터를 선택합니다."
 
 msgid "Choose the flavor to launch."
 msgstr "시작시 flavor을 고릅니다."
@@ -1753,9 +1578,6 @@ msgstr ""
 msgid "Choose the rule you want to remove."
 msgstr "제거할 규칙을 선택하세요."
 
-msgid "Chosen Libraries"
-msgstr "라이브러리 선택"
-
 msgid "Cinder"
 msgstr "Cinder"
 
@@ -1765,9 +1587,6 @@ msgid ""
 msgstr ""
 "존재하는 볼륨이 위치하는 Cinder 호스트; 다음 유형을 사용하세요: host@backend-"
 "name#pool"
-
-msgid "Cinder volumes"
-msgstr "Cinder 볼륨"
 
 msgid "Cipher"
 msgstr "암호화 방식"
@@ -1789,64 +1608,11 @@ msgstr "콘솔만 보려면 여기를 클릭하세요."
 msgid "Close"
 msgstr "닫기"
 
-msgid "Cluster"
-msgstr "클러스터"
-
-msgid "Cluster Count"
-msgstr "클러스터 개수"
-
-msgid "Cluster Creation Guide"
-msgstr "클러스터 생성 가이드"
-
-msgid "Cluster Events"
-msgstr "클러스터 이벤트"
-
-msgid "Cluster Guide"
-msgstr "클러스터 가이드"
-
-msgid "Cluster Instances"
-msgstr "클러스터 인스턴스"
-
 msgid "Cluster Name"
 msgstr "클러스터 이름"
 
 msgid "Cluster Size"
 msgstr "클러스터 크기"
-
-msgid "Cluster Template"
-msgstr "클러스터 템플릿"
-
-#, python-format
-msgid "Cluster Template %s updated"
-msgstr "업데이트된 클러스터 템플릿 %s"
-
-msgid "Cluster Template Name"
-msgstr "클러스터 템플릿 이름"
-
-#, python-format
-msgid "Cluster Template copy %s created"
-msgstr "클러스터 템플릿 복사본 %s을 생성했습니다."
-
-msgid "Cluster Templates"
-msgstr "클러스터 템플릿"
-
-msgid "Cluster can be launched using existing Cluster Templates."
-msgstr "클러스터를 기존 클러스터 템플릿을 사용하여 시작할 수 있습니다."
-
-msgid "Cluster configurations are not specified"
-msgstr "클러스터 구성을 지정하지 않았습니다."
-
-msgid "Cluster provision steps"
-msgstr "클러스터 배포 단계"
-
-msgid "Cluster template creation failed"
-msgstr "클러스터 템플릿을 생성하지 못 했습니다."
-
-msgid "Cluster template update failed"
-msgstr "클러스터 템플릿 업데이트 실패"
-
-msgid "Cluster type chosen"
-msgstr "선택된 Cluster 유형"
 
 msgid "Clusters"
 msgstr "클러스터"
@@ -1867,9 +1633,6 @@ msgctxt "Current status of a Database Backup"
 msgid "Completed"
 msgstr "Completed"
 
-msgid "Completed Successfully"
-msgstr "성공적으로 완료"
-
 msgid "Component"
 msgstr "구성 요소"
 
@@ -1885,26 +1648,8 @@ msgstr "Compute 호스트"
 msgid "Compute Services"
 msgstr "Compute 서비스"
 
-msgid "Configuration"
-msgstr "구성"
-
 msgid "Configuration Drive"
 msgstr "드라이브 구성"
-
-msgid "Configuration Value"
-msgstr "구성값"
-
-msgid "Configure"
-msgstr "구성"
-
-msgid "Configure Cluster"
-msgstr "클러스터 구성"
-
-msgid "Configure Cluster Template"
-msgstr "클러스터 템플릿 구성"
-
-msgid "Configure Node Group Template"
-msgstr "노드 그룹 템플릿 구성"
 
 msgid ""
 "Configure OpenStack to write metadata to a special configuration drive that "
@@ -1912,9 +1657,6 @@ msgid ""
 msgstr ""
 "부팅할때 인스턴스에 연결할 특별한 구성 드라이브에 대한 메타데이터를 작성하여 "
 "OpenStack을 구성합니다."
-
-msgid "Configure Template"
-msgstr "구성 템플릿"
 
 msgid "Confirm Admin Password"
 msgstr "관리자 비밀 번호 확인"
@@ -2001,9 +1743,6 @@ msgstr "내용"
 msgid "Control Location"
 msgstr "제어 위치"
 
-msgid "Control access to instances of the node group."
-msgstr "노드 그룹의 인스턴스에대한 접근을 제어합니다."
-
 msgid ""
 "Control access to your instance via key pairs, security groups, and other "
 "mechanisms."
@@ -2028,9 +1767,6 @@ msgstr "\"%(orig)s\"를 \"%(dest)s\"에 \"%(new)s\"로 복사하였습니다."
 msgid "Copy"
 msgstr "복사"
 
-msgid "Copy Cluster Template"
-msgstr "클러스터 탬플릿 복사"
-
 msgid "Copy Data"
 msgstr "데이터 복사"
 
@@ -2041,31 +1777,13 @@ msgstr "오브젝트 복사"
 msgid "Copy Object: %(object_name)s"
 msgstr "오브젝트 복사: %(object_name)s"
 
-msgid "Copy Template"
-msgstr "템플릿 복사"
-
 #, python-format
 msgid "Cores(Available: %(avail)s, Requested: %(req)s)"
 msgstr "코어(사용: %(avail)s, 요청: %(req)s)"
 
-msgid "Could not create"
-msgstr "생성할 수 없음"
-
-msgid "Could not create data source"
-msgstr "데이터 소스를 생성하지 못 했습니다."
-
-msgid "Could not create job template"
-msgstr "Job 템플릿 생성 불가"
-
 #, python-format
 msgid "Could not find default role \"%s\" in Keystone"
 msgstr "Keystone에 기본 역할 \"%s\"를 찾을 수 없습니다"
-
-msgid "Could not launch job"
-msgstr "Job을 실행시키지 못했습니다."
-
-msgid "Could not update data source"
-msgstr "데이터 소스를 업데이트 할 수 없습니다."
 
 #, python-format
 msgid "Couldn't get current security group list for instance %s."
@@ -2073,9 +1791,6 @@ msgstr "%s 인스턴스의 현재 시큐리티 그룹 목록을 가져올 수 �
 
 msgid "Couldn't get security group list."
 msgstr "시큐리티 그룹 목록을 가져올 수 없습니다."
-
-msgid "Count"
-msgstr "개수"
 
 msgctxt "Power state of an Instance"
 msgid "Crashed"
@@ -2094,18 +1809,12 @@ msgstr "이미지 생성"
 msgid "Create Backup"
 msgstr "백업 생성"
 
-msgid "Create Cluster Template"
-msgstr "클러스터 템플릿 생성"
-
 msgctxt "current status of stack"
 msgid "Create Complete"
 msgstr "Create Complete"
 
 msgid "Create Container"
 msgstr "컨테이너 생성"
-
-msgid "Create Data Source"
-msgstr "데이터 소스 생성"
 
 msgid "Create Domain"
 msgstr "도메인 생성"
@@ -2168,12 +1877,6 @@ msgctxt "current status of stack"
 msgid "Create In Progress"
 msgstr "Create In Progress"
 
-msgid "Create Job Binary"
-msgstr "Job 바이너리 생성"
-
-msgid "Create Job Template"
-msgstr "Job 템플릿 생성"
-
 msgid "Create Key Pair"
 msgstr "캐 페어 생성"
 
@@ -2182,9 +1885,6 @@ msgstr "네트워크 생성"
 
 msgid "Create Network (Quota exceeded)"
 msgstr "네트워크 생성 (Quota 초과)"
-
-msgid "Create Node Group Template"
-msgstr "노드 그룹 템플릿 생성"
 
 msgid "Create Port"
 msgstr "포트 생성"
@@ -2228,9 +1928,6 @@ msgstr "서브넷 생성"
 msgid "Create Subnet (Quota exceeded)"
 msgstr "서브넷 생성 (Quota 초과)"
 
-msgid "Create Template"
-msgstr "템플릿 생성"
-
 msgid "Create Transfer"
 msgstr "이전 시작"
 
@@ -2272,15 +1969,6 @@ msgstr "볼륨 유형 암호화 생성"
 msgid "Create Volume Type Extra Spec"
 msgstr "볼륨 타입 추가 사양 생성"
 
-msgid "Create a Cluster Template"
-msgstr "클러스터 템플릿 생성"
-
-msgid "Create a Data Source with a specified name."
-msgstr "이름이 지정된 데이터 소스를 만듭니다."
-
-msgid "Create a Master Node Group Template"
-msgstr "마스터 노드 그룹 템플릿 선택"
-
 msgid "Create a Metadata Namespace"
 msgstr "메타데이터 네임스페이스 생성"
 
@@ -2311,20 +1999,8 @@ msgstr "볼륨 이전 생성"
 msgid "Create a Volume Type"
 msgstr "볼륨 유형 생성"
 
-msgid "Create a Worker Node Group Template"
-msgstr "작업자 노드 그룹 템플릿 생성"
-
-msgid "Create a data source"
-msgstr "데이터 소스 생성"
-
 msgid "Create a firewall with selected routers."
 msgstr "선택된 라우터와 함께 방화벽 생성합니다."
-
-msgid "Create a job template"
-msgstr "Job 템플릿 생성"
-
-msgid "Create a job template with a specified name."
-msgstr "이름을 지정하여 job 템플릿을 생성합니다."
 
 msgid ""
 "Create a monitor template.\n"
@@ -2373,9 +2049,6 @@ msgstr "선택한 규칙에 대한 정책를 생성합니다."
 msgid "Create a project to organize users."
 msgstr "사용자가 구성할 수 있는 프로젝트를 만듭니다."
 
-msgid "Create a script to be uploaded dynamically"
-msgstr "동적으로 업로드하는 스크립트를 생성합니다."
-
 msgid ""
 "Create a subnet associated with the network. Advanced configuration is "
 "available by clicking on the \"Subnet Details\" tab."
@@ -2397,15 +2070,6 @@ msgstr ""
 msgid "Create pseudo-folder in container %(container_name)s"
 msgstr "컨테이너 %(container_name)s에서 가상 폴더 만들기"
 
-msgid "Create security group for this Node Group."
-msgstr "이 노드 그룹에 대한 시큐리티 그룹을 생성합니다."
-
-msgid "Create time"
-msgstr "시간 생성"
-
-msgid "Create volumes in this availability zone."
-msgstr "볼륨을 해당 가용성 존에 생성합니다."
-
 msgid "Created"
 msgstr "생성"
 
@@ -2420,14 +2084,6 @@ msgstr "Created"
 msgctxt "Current status of a VPN Service"
 msgid "Created"
 msgstr "Created"
-
-#, python-format
-msgid "Created Cluster Template %s"
-msgstr "클러스터 템플릿 %s 생성"
-
-#, python-format
-msgid "Created Node Group Template %s"
-msgstr "노드 그룹 템플릿 %s 생성"
 
 #, python-format
 msgid "Created extra spec \"%s\"."
@@ -2460,9 +2116,6 @@ msgstr "생성된 스펙 \"%s\" ."
 #, python-format
 msgid "Created subnet \"%s\"."
 msgstr "서브넷 \"%s\" 생성."
-
-msgid "Created time"
-msgstr "생성된 시각"
 
 msgid "Created volume transfer."
 msgstr "볼륨 이전이 생성되었습니다."
@@ -2533,14 +2186,8 @@ msgstr "현재 크기 (GB)"
 msgid "Current Task"
 msgstr "현재 작업"
 
-msgid "Current choice:"
-msgstr "현재 선택:"
-
 msgid "Current password"
 msgstr "현재 비밀번호"
-
-msgid "Current type:"
-msgstr "현재 유형:"
 
 msgid "Custom ICMP Rule"
 msgstr "사용자 정의 ICMP 규칙"
@@ -2618,60 +2265,6 @@ msgstr "DPD 타임아웃은 DPD Interval보다 커야 합니다."
 msgid "Daily Usage Report"
 msgstr "일일 사용량 보고서"
 
-msgid "Data Processing"
-msgstr "데이터 프로세싱"
-
-msgid "Data Processing Guides"
-msgstr "데이터 프로세싱 가이드"
-
-msgid "Data Processing Plugin Details"
-msgstr "데이터 처리 플러그인 세부 정보"
-
-msgid "Data Processing Plugins"
-msgstr "데이터 프로세싱 플러그인"
-
-msgid "Data Processing internal database"
-msgstr "데이터 프로세싱 내부 데이터베이스"
-
-msgid ""
-"Data Processing provides different storage location options. You may choose "
-"Ephemeral Drive or a Cinder Volume to be attached to instances."
-msgstr ""
-"데이터 프로세싱은 다른 저장 위치를 선택할 수 있도록 제공합니다. Ephemeral 드"
-"라이브 또는 인스턴스에 연결된 Cinder 볼륨 을 선택합니다."
-
-msgid "Data Source"
-msgstr "데이터 원본"
-
-msgid "Data Source Type"
-msgstr "데이터 소스 타입"
-
-msgid "Data Sources"
-msgstr "데이터 소스"
-
-msgid ""
-"Data Sources are what your\n"
-"                            job uses for input and output.  Depending on the "
-"type\n"
-"                            of job you will be running, you may need to "
-"define one\n"
-"                            or more data sources.  You can create multiple "
-"data\n"
-"                            sources by repeating this step.\n"
-"                        "
-msgstr ""
-"데이터 소스는 job이 입력과 \n"
-"출력으로 사용하는 대상입니다. 실행할 job 유형에 \n"
-"의존하여, 하나 또는 여러 개의 데이터 소스를 지정해야 \n"
-"할 필요가 있을지도 모릅니다. 해당 단계를 반복하여 \n"
-"여러 데이터 소스를 생성할 수 있습니다."
-
-msgid "Data source created"
-msgstr "데이터 소스를 생성했습니다."
-
-msgid "Data source updated"
-msgstr "데이터 소스 업데이트 완료"
-
 msgid "Database"
 msgstr "데이터베이스"
 
@@ -2730,30 +2323,11 @@ msgstr "비밀번호 해독"
 msgid "Default Quotas"
 msgstr "기본 Quotas"
 
-msgid "Default Value"
-msgstr "기본값"
-
 msgid "Default quotas updated."
 msgstr "기본 quota가 업데이트되었습니다."
 
 msgid "Defaults"
 msgstr "기본"
-
-msgid ""
-"Define your Job Template.\n"
-"                        This is where you choose the type of job that you\n"
-"                        want to run (Pig, Java Action, Spark, etc) and "
-"choose\n"
-"                        or upload the files necessary to run it.  The "
-"inputs\n"
-"                        and outputs will be defined later.\n"
-"                    "
-msgstr ""
-"Job 템플릿을 정의합니다.\n"
-"실행하고자 하는 Job 유형을 선택하고, \n"
-"(Pig, Java Action, Spark, etc) 실행할 필요가 있는 \n"
-"파일들을 선택 또는 업로드합니다. 입력과 출력은 \n"
-"추후에 정의할 것입니다."
 
 msgid "Delay"
 msgstr "지연"
@@ -2783,10 +2357,6 @@ msgstr[0] "컨테이너 삭제"
 msgid "Delete DHCP Agent"
 msgid_plural "Delete DHCP Agents"
 msgstr[0] "DHCP 에이전트 삭제"
-
-msgid "Delete Data Source"
-msgid_plural "Delete Data Sources"
-msgstr[0] "데이터 원본 제거"
 
 msgid "Delete Database"
 msgid_plural "Delete Databases"
@@ -2851,18 +2421,6 @@ msgstr "Delete In Progress"
 msgid "Delete Interface"
 msgid_plural "Delete Interfaces"
 msgstr[0] "인터페이스 삭제"
-
-msgid "Delete Job"
-msgid_plural "Delete Jobs"
-msgstr[0] "Job 삭제"
-
-msgid "Delete Job Binary"
-msgid_plural "Delete Job Binaries"
-msgstr[0] "Job 바이너리 제거"
-
-msgid "Delete Job Template"
-msgid_plural "Delete Job Templates"
-msgstr[0] "Job 템플릿 제거"
 
 msgid "Delete Key Pair"
 msgid_plural "Delete Key Pairs"
@@ -2940,10 +2498,6 @@ msgid "Delete Subnet"
 msgid_plural "Delete Subnets"
 msgstr[0] "서브넷 삭제"
 
-msgid "Delete Template"
-msgid_plural "Delete Templates"
-msgstr[0] "템플릿 삭제"
-
 msgid "Delete User"
 msgid_plural "Delete Users"
 msgstr[0] "사용자 삭제"
@@ -2986,10 +2540,6 @@ msgid "Deleted Backup"
 msgid_plural "Deleted Backups"
 msgstr[0] "백업 삭제함"
 
-msgid "Deleted Cluster"
-msgid_plural "Deleted Clusters"
-msgstr[0] "클러스터 삭제함"
-
 msgid "Deleted Container"
 msgid_plural "Deleted Containers"
 msgstr[0] "컨테이너 삭제함"
@@ -2997,10 +2547,6 @@ msgstr[0] "컨테이너 삭제함"
 msgid "Deleted DHCP Agent"
 msgid_plural "Deleted DHCP Agents"
 msgstr[0] "DHCP 에이전트 삭제함"
-
-msgid "Deleted Data Source"
-msgid_plural "Deleted Data Sources"
-msgstr[0] "데이터 원본 제거 완료"
 
 msgid "Deleted Database"
 msgid_plural "Deleted Databases"
@@ -3037,18 +2583,6 @@ msgstr[0] "이미지 삭제함"
 msgid "Deleted Interface"
 msgid_plural "Deleted Interfaces"
 msgstr[0] "인터페이스 삭제함"
-
-msgid "Deleted Job"
-msgid_plural "Deleted Jobs"
-msgstr[0] "삭제된 Job"
-
-msgid "Deleted Job Binary"
-msgid_plural "Deleted Job Binaries"
-msgstr[0] "Job 바이너리 제거됨"
-
-msgid "Deleted Job Template"
-msgid_plural "Deleted Jobs Templates"
-msgstr[0] "제거된 Job 템플릿"
 
 msgid "Deleted Key Pair"
 msgid_plural "Deleted Key Pairs"
@@ -3109,10 +2643,6 @@ msgstr[0] "삭제된 정적 경로"
 msgid "Deleted Subnet"
 msgid_plural "Deleted Subnets"
 msgstr[0] "서브넷 삭제함"
-
-msgid "Deleted Template"
-msgid_plural "Deleted Templates"
-msgstr[0] "템플릿 삭제함"
 
 msgid "Deleted User"
 msgid_plural "Deleted Users"
@@ -3400,13 +2930,6 @@ msgstr ""
 msgid "Domains:"
 msgstr "도메인:"
 
-msgid "Done"
-msgstr "완료"
-
-msgctxt "Current status of a Job"
-msgid "Done with Error"
-msgstr "오류와 함께 완료"
-
 msgid "Down"
 msgstr "Down"
 
@@ -3458,24 +2981,15 @@ msgstr "CSV 요약 다운로드"
 msgid "Download EC2 Credentials"
 msgstr "EC2 인증서 다운로드"
 
-msgid "Download Job Binary"
-msgstr "Job 바이너리 다운로드"
-
 msgid "Download Key Pair"
 msgstr "키 페어 다운로드"
 
 msgid "Download OpenStack RC File"
 msgstr "OpenStack RC 파일 저장"
 
-msgid "Download job binary"
-msgstr "Job 바이너리 다운로드"
-
 #, python-format
 msgid "Download key pair &quot;%(keypair_name)s&quot;"
 msgstr "키 페어 &quot;%(keypair_name)s&quot; 다운로드"
-
-msgid "Duration"
-msgstr "지속"
 
 #, python-format
 msgid "Duration of instance type %s (openstack flavor)"
@@ -3493,9 +3007,6 @@ msgstr "EC2 URL"
 msgid "Edit"
 msgstr "편집"
 
-msgid "Edit Cluster Template"
-msgstr "클러스터 템플릿 편집"
-
 msgid "Edit Connection"
 msgstr "연결 편집"
 
@@ -3504,9 +3015,6 @@ msgstr "사용자 수정"
 
 msgid "Edit Consumer of QoS Spec"
 msgstr "QoS 스펙에 대한 사용자 편집"
-
-msgid "Edit Data Source"
-msgstr "데이터 소스 수정"
 
 msgid "Edit Domain"
 msgstr "도메인 편집"
@@ -3542,14 +3050,8 @@ msgstr "IPSec 사이트 접속 편집"
 msgid "Edit Image"
 msgstr "이미지 편집"
 
-msgid "Edit Image Tags"
-msgstr "이미지 태그 수정"
-
 msgid "Edit Instance"
 msgstr "인스턴스 편집"
-
-msgid "Edit Job Binary"
-msgstr "Job 바이너리 수정"
 
 msgid "Edit Member"
 msgstr "멤버 편집"
@@ -3559,9 +3061,6 @@ msgstr "모니터 편집"
 
 msgid "Edit Network"
 msgstr "네트워크 편집"
-
-msgid "Edit Node Group Template"
-msgstr "노드 그룹 템플릿 편집"
 
 msgid "Edit Object"
 msgstr "오브젝트 수정"
@@ -3610,9 +3109,6 @@ msgstr "추가 스펙 값"
 
 msgid "Edit Subnet"
 msgstr "서브넷 편집"
-
-msgid "Edit Tags"
-msgstr "태그 편집"
 
 msgid "Edit Template"
 msgstr "템플릿 편집"
@@ -3677,9 +3173,6 @@ msgid "Enable Service"
 msgid_plural "Enable Services"
 msgstr[0] "서비스 사용"
 
-msgid "Enable Swift Paths"
-msgstr "Swift 경로 활성화"
-
 msgid "Enable User"
 msgid_plural "Enable Users"
 msgstr[0] "사용자 사용"
@@ -3721,9 +3214,6 @@ msgstr "암호화"
 msgid "Encryption algorithm"
 msgstr "암호화 알고리즘"
 
-msgid "Ended"
-msgstr "종료"
-
 msgid "Energy (Kwapi)"
 msgstr "전력 (Kwapi) "
 
@@ -3752,15 +3242,6 @@ msgstr ""
 "정수 1 ~ 65535의 값을 입력합니다. 선택한 모든 멤버는 같은 포트를 사용할 수 있"
 "으며, 나중에 수정 가능합니다."
 
-msgid "Enter any custom configuration required for your job's execution."
-msgstr "Job 실행하는데 있어서 필요한 사용자 정의 구성요소를 입력하십시오."
-
-msgid "Enter the URL for the file"
-msgstr "파일에 대한 URL 입력"
-
-msgid "Enter the username and password required to access that file"
-msgstr "파일에 접근할때 필요한 사용자 이름과 비밀번호 입력"
-
 msgid "Environment Data"
 msgstr "Environment 데이터"
 
@@ -3775,9 +3256,6 @@ msgstr "Ephemeral 디스크"
 
 msgid "Ephemeral Disk (GB)"
 msgstr "Ephemeral 디스크 (GB)"
-
-msgid "Ephemeral drive"
-msgstr "Ephemeral 드라이브"
 
 msgid "Equal to or greater than 60"
 msgstr "60이상"
@@ -3847,9 +3325,6 @@ msgstr "오류"
 msgid "Error Deleting"
 msgstr "삭제중 오류"
 
-msgid "Error Details"
-msgstr "에러 세부 정보"
-
 #, python-format
 msgid "Error Downloading RC File: %s"
 msgstr "RC 파일 다운로드 중 오류: %s"
@@ -3917,9 +3392,6 @@ msgstr "호스트 이주"
 msgid ""
 "Evacuate the servers from the selected down host to an active target host."
 msgstr "선택된 다운 호스트에서 활성화된 대상 호스트로 서버를 이주합니다."
-
-msgid "Event time"
-msgstr "이벤트 시간"
 
 msgid "Events"
 msgstr "이벤트"
@@ -4006,9 +3478,6 @@ msgstr ""
 msgid "Extra Specs"
 msgstr "추가 사양"
 
-msgid "Failed"
-msgstr "실패함"
-
 msgctxt "Current status of a Database Backup"
 msgid "Failed"
 msgstr "Failed"
@@ -4016,10 +3485,6 @@ msgstr "Failed"
 msgctxt "Current status of a Database Instance"
 msgid "Failed"
 msgstr "Failed"
-
-msgctxt "Current status of a Job"
-msgid "Failed"
-msgstr "실패"
 
 msgctxt "Power state of an Instance"
 msgid "Failed"
@@ -4128,12 +3593,6 @@ msgstr "호스트를 이주 하지못했습니다: %s"
 #, python-format
 msgid "Failed to evacuate instances: %s"
 msgstr "인스턴스를 이주하지 못했습니다: %s"
-
-msgid "Failed to fetch internal binary list"
-msgstr "내부 바이너리 목록을 가져올 수 없습니다."
-
-msgid "Failed to get list of internal binaries."
-msgstr "내부 바이너리 목록을 가져오지 못 했습니다."
 
 #, python-format
 msgid "Failed to get network list %s"
@@ -4273,9 +3732,6 @@ msgstr "방화벽 %(name)s 를 업데이트 하지 못하였습니다.: %(reason
 msgid "Failed to update health monitor %s"
 msgstr "상태 모니터 %s 업데이트 실패하였습니다."
 
-msgid "Failed to update image."
-msgstr "이미지 업데이트를 실패했습니다."
-
 #, python-format
 msgid "Failed to update member %s"
 msgstr "멤버 %s 업데이트 실패하였습니다."
@@ -4360,17 +3816,6 @@ msgstr "방화벽 Rule"
 msgid "Firewalls"
 msgstr "방화벽"
 
-msgid ""
-"First, select which type of job that\n"
-"                            you want to run.  This choice will determine "
-"which\n"
-"                            other steps are required\n"
-"                        "
-msgstr ""
-"먼저, 실행하고자 하는 job 유형\n"
-"을 선택합니다. 이 선택을 통해 필요로 하는 다른\n"
-"과정들을 결정할 것입니다."
-
 msgid "Fixed IP"
 msgstr "고정 IP"
 
@@ -4415,9 +3860,6 @@ msgstr "Flavor 정보"
 msgid "Flavor Name"
 msgstr "Flavor 이름"
 
-msgid "Flavor is not specified"
-msgstr "Flavor가 선택되지 않았습니다."
-
 msgid "Flavors"
 msgstr "Flavors"
 
@@ -4430,9 +3872,6 @@ msgstr ""
 
 msgid "Floating IP"
 msgstr "유동 IP"
-
-msgid "Floating IP Pool"
-msgstr "유동 IP Pool"
 
 #, python-format
 msgid "Floating IP will be removed from VIP \"%s\"."
@@ -4450,38 +3889,10 @@ msgstr "유동 IP:"
 msgid "Folder created successfully."
 msgstr "폴더가 성공적으로 생성되었습니다."
 
-msgid ""
-"For Data Processing internal job binaries, you may choose from the following:"
-msgstr "데이터 프로세싱 내부 job 바이너리는 다음을 선택할 수 있습니다:"
-
 #, python-format
 msgid "For GRE networks, valid tunnel IDs are %(min)s through %(max)s."
 msgstr ""
 "GRE 네트워크인 경우, 사용 가능한 터널 ID는 %(min)s에서 %(max)s까지 입니다."
-
-msgid ""
-"For MapReduce or Java Action jobs, \"mains\" are not applicable.  You are "
-"required to add one\n"
-"  or more \"libs\" for these jobs."
-msgstr ""
-"MapReduce 또는 자바 액션 job은 \"mains\"에 적용되지 않습니다. 이런 작업을 하"
-"기위해서는\n"
-"하나 이상의 \"라이브러리\"를 추가해야합니다."
-
-msgid "For Object Store job binaries, you must:"
-msgstr "오브젝트 저장소 job 바이너리의 경우, 다음을 해야합니다:"
-
-msgid ""
-"For Shell Action jobs, any required files beyond the main script may be "
-"added as \"libraries\"."
-msgstr ""
-"Shell 액션 job에서, 메인 스크립트 이외 필수 파일들은 \"라이브러리\"로 추가할 "
-"수 있습니다."
-
-msgid ""
-"For Spark and Shell jobs, only a main is required, \"libs\" are optional."
-msgstr ""
-"Spark와 쉘 job의 경우, \"main\"은 꼭 필요하고 \"libs\"는 선택사항입니다."
 
 msgid ""
 "For TCP and UDP rules you may choose to open either a single port or a range "
@@ -4576,9 +3987,6 @@ msgstr "게이트웨이 IP와 IP 버젼이 일치하지 않습니다."
 msgid "Gateway interface is added"
 msgstr "게이트웨이 인터페이스를 추가하였습니다"
 
-msgid "General Info"
-msgstr "일반 정보"
-
 msgid "Glance"
 msgstr "Glance"
 
@@ -4624,20 +4032,8 @@ msgstr ""
 "그룹은 한번에 여러 사용자에게 역할을 할당하고 접근을 관리하는데 사용합니다. "
 "사용자를 추가할 그룹을 편집합니다."
 
-msgid "Guided Cluster Creation"
-msgstr "가이드 클러스터 생성"
-
-msgid "Guided Job Execution"
-msgstr "가이드 Job 실행"
-
-msgid "Guides"
-msgstr "가이드"
-
 msgid "HA mode"
 msgstr "HA 모드"
-
-msgid "HDFS placement"
-msgstr "HDFS 배치"
 
 msgid "HTTP"
 msgstr "HTTP"
@@ -4676,14 +4072,8 @@ msgstr "상태 모니터 %s를 성공적으로 업데이트하였습니다."
 msgid "Help"
 msgstr "도움말"
 
-msgid "Hide full configuration"
-msgstr "모든 구성 감추기"
-
 msgid "High Availability Mode"
 msgstr "고가용성 모드"
-
-msgid "Hive"
-msgstr "Hive"
 
 msgid "Home"
 msgstr "홈"
@@ -4916,21 +4306,6 @@ msgstr ""
 "어떤 컨테이너 이름을 제공하지 않으면, volumebackups라는 기본 컨테이너 이름으"
 "로 프로비저닝됩니다. 백업은 기존 볼륨과 동일한 크기로 생성됩니다."
 
-msgid ""
-"If selected, instances of a cluster will be automatically configured during "
-"creation. Otherwise you should manually specify configuration values"
-msgstr ""
-"선택하면 생성 동안 클러스터 인스턴스를 자동으로 구성합니다. 그렇지 않으면 수"
-"동으로 구성 값을 지정해야 합니다."
-
-msgid ""
-"If selected, instances of a node group will be automatically configured "
-"during cluster creation. Otherwise you should manually specify configuration "
-"values."
-msgstr ""
-"선택한 경우, 클러스터 생성시 노드 그룹에 대한 인스턴스가 자동으로 구성될 것입"
-"니다. 그렇지 않으면 수동으로 구성 값을 지정해야 합니다."
-
 msgid "Image"
 msgstr "이미지"
 
@@ -4963,19 +4338,6 @@ msgstr "Image Name ="
 msgctxt "Task status of an Instance"
 msgid "Image Pending Upload"
 msgstr "Image Pending Upload"
-
-msgid "Image Registry"
-msgstr "이미지 저장소"
-
-msgid ""
-"Image Registry is used to provide additional information about images for "
-"Data Processing."
-msgstr ""
-"이미지 저장소는 데이터 프로세싱에서 사용된 이미지 추가 정보를 제공하는데 사용"
-"됩니다."
-
-msgid "Image Registry tool:"
-msgstr "이미지 저장소 도구:"
 
 msgctxt "Task status of an Instance"
 msgid "Image Snapshot Pending"
@@ -5027,9 +4389,6 @@ msgid ""
 msgstr ""
 "또한, 외부 네트워크나 공유 네트워크를 해당 확인란을 선택하여 생성할 수 있습니"
 "다."
-
-msgid "In progress"
-msgstr "진행중"
 
 msgctxt "Current status of a Volume"
 msgid "In-use"
@@ -5104,12 +4463,6 @@ msgstr "첨부한 파일 위치 바이트"
 msgid "Injected Files"
 msgstr "첨부한 파일"
 
-msgid "Input"
-msgstr "입력"
-
-msgid "Input Data Source"
-msgstr "입력 데이터 소스"
-
 msgid "Input must be in CIDR format"
 msgstr "입력은 반드시 CIDR 포맷이어야 합니다."
 
@@ -5161,17 +4514,11 @@ msgstr "인스턴스 시큐리티 그룹"
 msgid "Instance Snapshot"
 msgstr "인스턴스 스냅샷"
 
-msgid "Instance and attached volumes will be created on the same physical host"
-msgstr "인스턴스와 연결된 볼륨이 동일한 물리 호스트에 생성됩니다."
-
 msgid "Instance to be associated"
 msgstr "연결된 인스턴스"
 
 msgid "Instances"
 msgstr "인스턴스"
-
-msgid "Instances Count"
-msgstr "인스턴스 개수"
 
 msgid "Instances Per Shard"
 msgstr "Shard 당 인스턴스"
@@ -5194,26 +4541,14 @@ msgstr "불충분한 권한 수준으로 사용자 정보를 볼 수 있습니�
 msgid "Intelligent Platform Management Interface (IPMI)"
 msgstr "지능형 플랫폼 관리 인터페이스 (IPMI)"
 
-msgid "Interface Arguments"
-msgstr "인터페이스 매개변수"
-
 msgid "Interface added"
 msgstr "인터페이스 추가"
 
 msgid "Interfaces"
 msgstr "인터페이스"
 
-msgid "Internal Binary"
-msgstr "내부 바이너리"
-
-msgid "Internal IP"
-msgstr "내부 IP"
-
 msgid "Internal Interface"
 msgstr "내부 인터페이스"
-
-msgid "Internal binary"
-msgstr "내부 바이너리"
 
 msgid "Invalid date format: Using today as default."
 msgstr "올바르지 않은 날짜 포맷: 오늘 날짜를 기본으로 사용합니다."
@@ -5239,66 +4574,6 @@ msgstr "복제본에 속함"
 
 msgid "Items Per Page"
 msgstr "페이지 당 항목"
-
-msgid "Java"
-msgstr "Java"
-
-msgid "Java Action"
-msgstr "Java 실행"
-
-msgid "Java Opts"
-msgstr "Java 옵션"
-
-msgid "Job"
-msgstr "Job"
-
-msgid "Job Binaries"
-msgstr "Job 바이너리"
-
-msgid "Job Configuration"
-msgstr "Job 구성"
-
-msgid "Job Execution Guide"
-msgstr "Job 실행 가이드"
-
-msgid "Job Execution ID"
-msgstr "Job 실행 ID"
-
-msgid "Job Guide"
-msgstr "Job 가이드"
-
-msgid "Job Template"
-msgstr "Job 템플릿"
-
-msgid "Job Templates"
-msgstr "Job 템플릿"
-
-msgid "Job Type"
-msgstr "Job 유형"
-
-msgid "Job args"
-msgstr "Job args"
-
-msgid "Job configs"
-msgstr "Job 구성"
-
-msgid "Job created"
-msgstr "Job 생성됨"
-
-msgid "Job launched"
-msgstr "Job 실행함"
-
-msgid "Job params"
-msgstr "Job 매개 변수"
-
-msgid "Job template:"
-msgstr "Job 템플릿:"
-
-msgid "Job type chosen"
-msgstr "선택된 Job 유형"
-
-msgid "Jobs"
-msgstr "Jobs"
 
 msgid "Kernel"
 msgstr "커널"
@@ -5348,13 +4623,6 @@ msgstr ""
 
 msgid "Key-Value Pairs"
 msgstr "키-값"
-
-msgid "Keypair"
-msgstr "키 페어"
-
-msgctxt "Current status of a Job"
-msgid "Killed"
-msgstr "실패"
 
 msgctxt "Current status of an Image"
 msgid "Killed"
@@ -5415,24 +4683,11 @@ msgstr "인스턴스 구동"
 msgid "Launch Instance (Quota exceeded)"
 msgstr "인스턴스 구동 (Quota 초과)"
 
-msgid "Launch Job"
-msgid_plural "Launch Jobs"
-msgstr[0] "Job 실행"
-
-msgid "Launch On Existing Cluster"
-msgstr "기존 클러스터에서 실행"
-
-msgid "Launch On New Cluster"
-msgstr "새로운 클러스터에서 실행"
-
 msgid "Launch Parameters"
 msgstr "런치 매개 변수"
 
 msgid "Launch Stack"
 msgstr "스택 시작"
-
-msgid "Launch a Cluster"
-msgstr "클러스터 실행"
 
 msgid "Launch as Instance"
 msgstr "인스턴스로 시작"
@@ -5446,45 +4701,9 @@ msgstr "정한 네트워크로 인스턴스 구동"
 msgid "Launch instance with this policy profile"
 msgstr "이 정책 프로필을 사용하여 인스턴스 시작"
 
-msgid "Launch instances in these security groups."
-msgstr "이 시큐리티 그룹에서 인스턴스를 구동합니다."
-
-msgid "Launch instances in this availability zone."
-msgstr "현재 가용성 존에서 인스턴스를 구동합니다."
-
-msgid "Launch job"
-msgstr "Job 실행"
-
-msgid "Launch the given job template on a cluster."
-msgstr "주어진 job 템플릿을 클러스터에서 실행합니다."
-
-msgid ""
-"Launch your job.  When\n"
-"                        launching, you may need to choose your input and\n"
-"                        output data sources.  This is where you would also\n"
-"                        add any special configuration values, parameters,\n"
-"                        or arguments that you need to pass along\n"
-"                        to your job.\n"
-"                        "
-msgstr ""
-"Job을 실행합니다. \n"
-"실행할 때, 입력 및 출력 데이터 소스를 선택할 필요가 \n"
-"있을 수 있습니다. 여기서 job을 따라 같이 전달을 \n"
-"필요로하는 임의의 특별한 구성 값, 파라메터, 또는 \n"
-"아규먼트를 또한 추가할 수 \n"
-"있습니다."
-
 #, python-format
 msgid "Launched %(count)s named \"%(name)s\"."
 msgstr "%(count)s 개의 \"%(name)s\"이 구동됨."
-
-#, python-format
-msgid "Launched Cluster %s"
-msgstr "%s 클러스터 실행 완료"
-
-msgid "Launched Job"
-msgid_plural "Launched Jobs"
-msgstr[0] "실행된 Job"
 
 #, python-format
 msgid "Launched cluster \"%s\""
@@ -5506,9 +4725,6 @@ msgstr "최소 연결"
 
 msgid "Length of Injected File Path"
 msgstr "첨부한 파일 경로 길이"
-
-msgid "Libs"
-msgstr "Libs"
 
 msgid "Lifetime Units"
 msgstr "수명 단위"
@@ -5574,9 +4790,6 @@ msgstr "로컬 저장소 (전체)"
 msgid "Local Storage (used)"
 msgstr "로컬 저장소 (사용됨)"
 
-msgid "Location"
-msgstr "위치"
-
 msgid "Lock Instance"
 msgid_plural "Lock Instances"
 msgstr[0] "인스턴스 잠금"
@@ -5611,12 +4824,6 @@ msgstr "MTU"
 
 msgid "MacVTap"
 msgstr "MacVTap"
-
-msgid "Main Class"
-msgstr "메인 클레스"
-
-msgid "Mains"
-msgstr "Mains"
 
 msgid "Make Private"
 msgstr "비공개 상태로 만들기"
@@ -5684,29 +4891,14 @@ msgstr "볼륨 관리"
 msgid "Management Console"
 msgstr "관리 콘솔"
 
-msgid "Management IP"
-msgstr "관리 IP"
-
 msgid "Manual"
 msgstr "수동"
-
-msgid "MapReduce"
-msgstr "MapReduce"
 
 msgid "Mapped Fixed IP Address"
 msgstr "고정 IP 주소 맵핑함"
 
-msgid "Mapper"
-msgstr "Mapper"
-
-msgid "Mapping Type"
-msgstr "매핑 유형"
-
 msgid "Master Instance Name"
 msgstr "마스터 인스턴스 이름"
-
-msgid "Master Node Group Template:"
-msgstr "마스터 노드 그룹 템플릿:"
 
 msgid "Max Retries"
 msgstr "최대 재시도"
@@ -5716,6 +4908,9 @@ msgstr "최대 재시도 (1~10)"
 
 msgid "Max."
 msgstr "최대"
+
+msgid "Max. Size (MB) ="
+msgstr "최대 크기 (MB) ="
 
 msgid "Maximum Transmission Unit size for the connection"
 msgstr "연결에 대한 최대 전달 단위 크기"
@@ -5826,6 +5021,9 @@ msgstr "최소 RAM"
 msgid "Min."
 msgstr "최소"
 
+msgid "Min. Size (MB) ="
+msgstr "최소 크기 (MB) ="
+
 msgid "Minimum Disk (GB)"
 msgstr "최소 디스크 (GB)"
 
@@ -5881,12 +5079,6 @@ msgstr "사용자의 대시보드 설정을 수정합니다."
 msgid "Modify name and description of a volume."
 msgstr "볼륨의 이름과 설명을 수정합니다."
 
-msgid ""
-"Modify the configuration so that swift URLs can be dereferenced through HDFS "
-"at runtime."
-msgstr ""
-"Swift URL이 런타임에서 HDFS를 통해 역참조할 수 있도록 구성을 수정합니다."
-
 msgid "Modify the name and description of a snapshot."
 msgstr "스냅샷에 대한 이름과 설명을 수정합니다."
 
@@ -5940,13 +5132,6 @@ msgstr "존재하는 볼륨에 대한 이름 또는 기타 구분자"
 #, python-format
 msgid "Name: %(name)s ID: %(uuid)s"
 msgstr "이름: %(name)s ID: %(uuid)s"
-
-#, python-format
-msgid "Name: %(node_group_name)s"
-msgstr "이름: %(node_group_name)s"
-
-msgid "Named Parameter"
-msgstr "이름 매개변수"
 
 msgid "Namespace"
 msgstr "네임스페이스"
@@ -6064,9 +5249,6 @@ msgstr "네트워크"
 msgid "Neutron"
 msgstr "Neutron"
 
-msgid "Neutron Management Network"
-msgstr "Neutron 관리 네트워크"
-
 msgid "Never"
 msgstr "없음"
 
@@ -6128,45 +5310,14 @@ msgstr "다음 홉"
 msgid "Next&nbsp;&raquo;"
 msgstr "다음&nbsp;&raquo;"
 
-msgid ""
-"Next, you need to define the different\n"
-"                        types of machines in your cluster.  This is done by\n"
-"                        defining a Node Group Template for each type of\n"
-"                        machine.  A very common case is where you\n"
-"                        need to have one or more machines running a \"master"
-"\"\n"
-"                        set of processes while another set of machines need\n"
-"                        to be running the \"worker\" processes.  Here,\n"
-"                        you will define the Node Group Template for your\n"
-"                        \"master\" node(s).\n"
-"                     "
-msgstr ""
-"다음으로, 클러스터 내 있는 머신의\n"
-"다른 유형을 정의할 필요가 있습니다. 이는 머신의 \n"
-"각 유형에 대한 노드 그룹 템플릿을 정의함으로써 이루어\n"
-"집니다. 가장 일반적인 유형으로는 다른 머신 집합이 \"작업자\"  \n"
-"프로세스를 실행할 필요가 있는 동안 \"마스터\" 집합의 프로세스를 \n"
-"실행하는 하나 이상의 머신을 필요로 하는 경우입니다. 여기서, \n"
-"\"마스터\" 노드(들)에 대한 노드 그룹 템플릿을 정의할 \n"
-"수 있습니다."
-
 msgid "No"
 msgstr "아니오"
-
-msgid "No Cluster Template Created"
-msgstr "생성된 클러스터 템플릿 없음"
 
 msgid "No Host selected."
 msgstr "선택된 호스트가 없습니다."
 
 msgid "No Hosts found."
 msgstr "검색된 호스트가 없습니다."
-
-msgid "No Images Available"
-msgstr "사용 가능한 이미지 없음"
-
-msgid "No Master Node Group Template Created"
-msgstr "생성된 마스터 노드 그룹 템플릿이 없음"
 
 msgid "No Ports available"
 msgstr "사용 가능한 포트 없음"
@@ -6178,20 +5329,11 @@ msgctxt "Power state of an Instance"
 msgid "No State"
 msgstr "No State"
 
-msgid "No Templates Available"
-msgstr "사용 가능한 템플릿 없음"
-
-msgid "No Worker Node Group Template Created"
-msgstr "생성된 작업자 노드 그룹 템플릿 없음"
-
 msgid "No associations defined."
 msgstr "연관된 정의가 없습니다."
 
 msgid "No attached device"
 msgstr "연결할 디바이스가 없습니다."
-
-msgid "No availability zone specified"
-msgstr "가용성 존이 지정되지 않았습니다."
 
 msgid "No availability zones found"
 msgstr "가용성 존을 찾을 수 없습니다."
@@ -6204,9 +5346,6 @@ msgstr "프로젝트를 사용할 수 없습니다."
 
 msgid "No backups available"
 msgstr "사용가능한 백업 없음"
-
-msgid "No configurations"
-msgstr "구성 없음"
 
 msgid "No flavors available"
 msgstr "Flavor가 존재하지 않습니다"
@@ -6235,26 +5374,14 @@ msgstr "검색된 호스트가 없습니다."
 msgid "No images available"
 msgstr "사용 가능한 이미지가 없습니다."
 
-msgid "No images available."
-msgstr "사용 가능한 이미지가 없습니다."
-
-msgid "No info available"
-msgstr "사용 가능한 정보가 없습니다."
-
 msgid "No input was provided for the namespace content."
 msgstr "네임스페이스 내용에 대한 입력이 없습니다."
 
 msgid "No instances available"
 msgstr "사용 가능한 인스턴스가 없습니다."
 
-msgid "No job template created"
-msgstr "생성된 job 템플릿이 없음"
-
 msgid "No key pairs available"
 msgstr "사용할 수 있는 키 페어가 없습니다"
-
-msgid "No keypair"
-msgstr "키 페어 없음"
 
 msgid "No networks available"
 msgstr "사용 가능한 네트워크가 없습니다"
@@ -6276,9 +5403,6 @@ msgstr "다른 호스트를 사용할 수 없습니다."
 
 msgid "No other volume types available"
 msgstr "사용 가능한 다른 볼륨 유형이 없습니다"
-
-msgid "No plugin chosen"
-msgstr "선택된 플러그인 없음"
 
 msgid "No ports available"
 msgstr "사용 가능한 포트가 없습니다."
@@ -6324,9 +5448,6 @@ msgstr "소스가 없음, 빈 볼륨"
 msgid "No subnets available"
 msgstr "사용 가능한 서브넷이 없습니다"
 
-msgid "No type chosen"
-msgstr "선택된 유형 없음"
-
 msgid "No users found."
 msgstr "사용자를 찾을 수 없습니다."
 
@@ -6344,45 +5465,6 @@ msgstr "볼륨을 연결할 수 없습니다."
 
 msgid "No volumes available"
 msgstr "사용 가능한 볼륨이 없습니다."
-
-msgid "Node Configurations"
-msgstr "노드 구성"
-
-msgid "Node Group"
-msgstr "노드 그룹"
-
-#, python-format
-msgid "Node Group Template %s updated"
-msgstr "업데이트된 노드 그룹 템플릿 %s"
-
-#, python-format
-msgid "Node Group Template copy %s created"
-msgstr "노드 그룹 템플릿 복사본 %s를 생성함"
-
-msgid "Node Group Templates"
-msgstr "노드 그룹 템플릿"
-
-#, python-format
-msgid "Node Group: %(node_group_name)s"
-msgstr "노드 그룹: %(node_group_name)s"
-
-msgid "Node Groups"
-msgstr "노드 그룹"
-
-msgid "Node Processes"
-msgstr "노드 프로세스"
-
-msgid "Node configurations are not specified"
-msgstr "노드 구성을 선택하지 않았습니다."
-
-msgid "Node group cluster"
-msgstr "노드 그룹 클러스터"
-
-msgid "Node processes are not specified"
-msgstr "노드 프로세스를 선택하지 않았습니다."
-
-msgid "Nodes Count"
-msgstr "노드 개수"
 
 msgid "Non-Members"
 msgstr "맴버 아님"
@@ -6425,38 +5507,11 @@ msgstr ""
 msgid "Nova"
 msgstr "Nova"
 
-msgid ""
-"Now you need to set the layout of your\n"
-"                        cluster.  By\n"
-"                        creating a Cluster Template, you will be choosing "
-"the\n"
-"                        number of instances of each Node Group Template "
-"that\n"
-"                        will appear in your cluster.  Additionally,\n"
-"                        you will have a chance to set any cluster-specific\n"
-"                        configuration items in the additional tabs on the\n"
-"                        create Cluster Template form."
-msgstr ""
-"이제 클러스터 레이아웃을 설정할 것입니다.\n"
-"클러스터 \n"
-"템플릿을 생성함으로써, 클러스터에 나타날 개별 노드 \n"
-"그룹 템플릿에 대한 인스턴스의 개수를 선택할 \n"
-"것입니다. 부가적으로, \n"
-"클러스터 템플릿 생성 폼에 있는 추가 탭에 \n"
-"있는 임의의 클러스터-세부 구성 항목을 선택하는 \n"
-"단계가 나타날 것입니다."
-
-msgid "Number"
-msgstr "숫자"
-
 msgid "Number of API requests against swift"
 msgstr "Swift API 요청 갯수"
 
 msgid "Number of Instances"
 msgstr "인스턴스 수"
-
-msgid "Number of Nodes"
-msgstr "노드 수"
 
 msgid "Number of Shards"
 msgstr "Shard 개수"
@@ -6469,9 +5524,6 @@ msgstr "VCPUs 수"
 
 msgid "Number of Volumes"
 msgstr "볼륨 수"
-
-msgid "Number of clusters to launch."
-msgstr "구동할 클러스터 수."
 
 msgid "Number of containers"
 msgstr "컨테이너 갯수"
@@ -6592,17 +5644,11 @@ msgstr "유동 IP가 해제되면, 동일한 IP가 다시 할당된다는 보장
 msgid "Only definitions in raw JSON format are supported."
 msgstr "raw JSON 형식의 정의만 지원합니다."
 
-msgid "Oozie Job ID"
-msgstr "Oozie Job ID"
-
 msgid "Open Port"
 msgstr "열린 포트"
 
 msgid "Open Port/Port Range:"
 msgstr "열린 포트/포트 범위:"
-
-msgid "OpenStack Flavor"
-msgstr "OpenStack Flavor"
 
 msgid "Optional Backup Description"
 msgstr "선택인 백업 설명"
@@ -6647,12 +5693,6 @@ msgstr "다른 프로토콜"
 #, python-format
 msgid "Out of range float values are not JSON compliant: %r"
 msgstr "범위에 벗어난 실수 값이 JSON과 호환되지 않습니다: %r"
-
-msgid "Output"
-msgstr "출력"
-
-msgid "Output Data Source"
-msgstr "출력 데이터 소스"
 
 msgid "Outputs"
 msgstr "출력"
@@ -6826,17 +5866,11 @@ msgstr "기간:"
 msgid "Permit"
 msgstr "허가"
 
-msgid "Persist cluster after job exit"
-msgstr "작업 종료 후 클러스터 지속"
-
 msgid "Physical Network"
 msgstr "물리적인 네트워크"
 
 msgid "Physical Network:"
 msgstr "물리적인 네트워크"
-
-msgid "Pig"
-msgstr "Pig"
 
 msgid "Please choose a HTTP method"
 msgstr "HTTP 방식을 선택하세요"
@@ -6861,21 +5895,6 @@ msgstr "URL을 지정하세요"
 #, python-format
 msgid "Please try again later [Error: %s]."
 msgstr "다음에 다시 시도하십시오 [오류: %s]."
-
-msgid "Plugin"
-msgstr "플러그인"
-
-msgid "Plugin Name"
-msgstr "플러그인 이름"
-
-msgid "Plugin name"
-msgstr "플러그인 이름"
-
-msgid "Plugin:"
-msgstr "플러그인:"
-
-msgid "Plugins"
-msgstr "플러그인"
 
 msgid "Policies"
 msgstr "정책"
@@ -6939,9 +5958,6 @@ msgstr "포트"
 msgid "Position in Policy"
 msgstr "정책 위치"
 
-msgid "Positional Argument"
-msgstr "위치 매개변수"
-
 msgid "Post-Creation"
 msgstr "생성 이후"
 
@@ -7001,9 +6017,6 @@ msgstr "개인 키 파일"
 
 msgid "Profile"
 msgstr "프로필"
-
-msgid "Progress"
-msgstr "진행"
 
 msgid "Project"
 msgstr "프로젝트"
@@ -7098,9 +6111,6 @@ msgstr ""
 "프로바이더로 지정된 네트워크를 생성할 수 있습니다. 새로운 가상 네트워크에 대"
 "한 물리적 네트워크 타입(Flat, VLAN, GRE, VXLAN과 같은)과 segmentation_id 또"
 "는 물리적 네트워크 이름을 지정할 수 있습니다."
-
-msgid "Proxy Gateway"
-msgstr "프록시 게이트웨이"
 
 msgid "Pseudo-folder Name"
 msgstr "가상 폴더 이름"
@@ -7264,18 +6274,8 @@ msgstr "Rebuilding"
 msgid "Rebuilding instance %s."
 msgstr "인스턴스 %s 리빌드 중."
 
-msgid "Reducer"
-msgstr "Reducer"
-
 msgid "Regions:"
 msgstr "지역:"
-
-msgid "Register Image"
-msgstr "이미지 등록"
-
-msgid ""
-"Register tags required for the Plugin with specified Data Processing Version"
-msgstr "지정한 데이터 프로세싱 버전과 플러그인에 대해 필요한 태그 등록"
 
 msgid "Relative part of requests this pool member serves compared to others"
 msgstr ""
@@ -7289,12 +6289,6 @@ msgstr ""
 "Pool 멤버가 제공하는 요청의 다른 부분과 다른 것들을 비교합니다.\n"
 "동일한 weight를 선택한 멤버 모두에게 적용하거나 나중에 수정할 수 있습니다. "
 "Weight의 범위는 1 ~ 256 입니다."
-
-msgid "Relaunch On Existing Cluster"
-msgstr "기존 클러스터에서 재싫행"
-
-msgid "Relaunch On New Cluster"
-msgstr "새로운 클러스터에서 재실행"
 
 msgid "Release Floating IP"
 msgid_plural "Release Floating IPs"
@@ -7332,9 +6326,6 @@ msgstr ""
 msgid "Remote:"
 msgstr "원격:"
 
-msgid "Remove"
-msgstr "삭제"
-
 msgid "Remove Router"
 msgstr "라우터 제거"
 
@@ -7354,15 +6345,6 @@ msgstr[0] "유저 삭제"
 msgid "Removed User"
 msgid_plural "Removed Users"
 msgstr[0] "유저 삭제함"
-
-msgid ""
-"Repeat the Node Group Template\n"
-"                        creation process, but this time you are creating\n"
-"                        your \"worker\" Node Group Template."
-msgstr ""
-"노드 그룹 템플릿 생성 과정을\n"
-"반복하지만, 현재는 \"작업자\" 노드 그룹 템플릿을 \n"
-"생성하는 중입니다."
 
 msgid "Replica Detached"
 msgid_plural "Replicas Detached"
@@ -7390,9 +6372,6 @@ msgstr ""
 "하나의 고유한 소스 IP 주소로부터의 요청들은 지속적으로  \n"
 "같은 인스턴스로 이동합니다."
 
-msgid "Required"
-msgstr "필수"
-
 msgid "Required for APP_COOKIE persistence; Ignored otherwise."
 msgstr "APP_COOKIE 지속성을 위해 요청되었습니다. 다른 경우 무시됩니다."
 
@@ -7403,15 +6382,6 @@ msgstr "Rescue"
 msgctxt "Task status of an Instance"
 msgid "Rescuing"
 msgstr "Rescuing"
-
-msgid "Reset Cluster Creation Guide"
-msgstr "클러스터 생성 가이드 리셋"
-
-msgid "Reset Cluster Guide"
-msgstr "클러스터 가이드 리셋"
-
-msgid "Reset Job Execution Guide"
-msgstr "Job실행 가이드 리셋"
 
 msgid "Reset Root Password"
 msgstr "루트 암호 변경"
@@ -7579,9 +6549,6 @@ msgstr "인스턴스 비밀번호 찾기"
 msgid "Retrieve Password"
 msgstr "비밀번호 찾기"
 
-msgid "Return Code"
-msgstr "반환 코드"
-
 msgid "Revert Resize/Migrate"
 msgstr "크기 변경 / 이전을 되돌리기"
 
@@ -7736,10 +6703,6 @@ msgstr ""
 "규칙은 시큐리티 그룹에 할당된 인스턴스에게 어떤 트래픽이 허용되는지를 정의합"
 "니다. 보안 시큐리티 규칙은 세가지 주요 파트로 구성됩니다: "
 
-msgid "Run HBase EDP Jobs with common HBase library on HDFS"
-msgstr ""
-"HBase EDP 작업을 HDFS 상의 일반적인 HBase 라이브러리와 함께 실행합니다."
-
 msgctxt "Power state of an Instance"
 msgid "Running"
 msgstr "Running"
@@ -7758,12 +6721,6 @@ msgstr "SNAT"
 
 msgid "SSH key pairs can be generated with the ssh-keygen command:"
 msgstr "SSH 키 페어를 ssh-keygen 명령어로 생성할 수 있습니다:"
-
-msgid ""
-"Sahara will use instances of this node group to access other cluster "
-"instances."
-msgstr ""
-"Sahara는 다른 클러스터 인스턴스에 접근하여 노드 그룹의 인스턴스를 사용합니다."
 
 msgid "Save"
 msgstr "저장"
@@ -7786,18 +6743,6 @@ msgstr "Saving"
 msgctxt "Current status of an Image"
 msgid "Saving"
 msgstr "Saving"
-
-msgid "Scale"
-msgstr "스케일"
-
-msgid "Scale Cluster"
-msgstr "스케일 클러스터"
-
-msgid "Scale cluster operation failed"
-msgstr "스케일 클러스터 작업 실패"
-
-msgid "Scaled cluster successfully started."
-msgstr "스케일 클러스터를 성공적으로 시작했습니다."
 
 #, python-format
 msgid "Scheduled backup \"%(name)s\"."
@@ -7873,15 +6818,6 @@ msgstr "스크립트 데이터"
 msgid "Script File"
 msgstr "스크립트 파일"
 
-msgid "Script name"
-msgstr "스크립트 이름"
-
-msgid "Script text"
-msgstr "스크립트 텍스트"
-
-msgid "Security"
-msgstr "보안"
-
 msgid "Security Group"
 msgstr "시큐리티 그룹"
 
@@ -7912,9 +6848,6 @@ msgstr "구분 ID"
 msgid "Segmentation ID:"
 msgstr "구분 ID:"
 
-msgid "Select"
-msgstr "선택"
-
 msgid "Select Flavor"
 msgstr "Flavor 선택"
 
@@ -7932,9 +6865,6 @@ msgstr "인스턴스 스냅샷 선택"
 
 msgid "Select Network"
 msgstr "네트워크 선택"
-
-msgid "Select Node Group Processes"
-msgstr "노드 그룹 프로세스 선택"
 
 msgid "Select Port"
 msgstr "포트 선택"
@@ -7966,9 +6896,6 @@ msgstr "모니터 선택"
 msgid "Select a New Flavor"
 msgstr "새로운 Flavor 선택"
 
-msgid "Select a Node Group Template to add:"
-msgstr "추가할 노드 그룹 템플릿 선택:"
-
 msgid "Select a Policy"
 msgstr "정책 선택합니다."
 
@@ -7983,9 +6910,6 @@ msgstr "라우터 선택"
 
 msgid "Select a Subnet"
 msgstr "서브넷 선택"
-
-msgid "Select a Value Type for your next argument:"
-msgstr "다음 매개변수에 대한 값 유형을 선택합니다:"
 
 msgid "Select a backup to restore"
 msgstr "복원할 백업본 선택"
@@ -8030,15 +6954,6 @@ msgstr "스택을 다시 시작시 새 템플릿을 선택합니다."
 
 msgid "Select a new volume type"
 msgstr "새로운 볼륨 유형 선택"
-
-msgid "Select a plugin and version for a new Cluster template."
-msgstr "새로운 클러스터 템플릿을 위한 플러그인과 버전을 선택하세요."
-
-msgid "Select a plugin and version for a new Cluster."
-msgstr "새로운 클러스터에서 사용할 플러그인과 버전을 선택하세요."
-
-msgid "Select a plugin and version for the new Node Group template."
-msgstr "새로운 노드 그룹 템플릿에 대한 플러그인과 버전을 선택합니다."
 
 msgid "Select a pool"
 msgstr "풀 선택"
@@ -8097,23 +7012,8 @@ msgstr "네트워크 선택"
 msgid "Select networks for your instance."
 msgstr "인스턴스 네트워크 선택"
 
-msgid "Select node processes for the node group"
-msgstr "노드 그룹에 대한 노드 프로세스 선택"
-
 msgid "Select parent backup"
 msgstr "부모 백업 선택"
-
-msgid "Select plugin and hadoop version"
-msgstr "Hadoop 버전과 플러그인 선택"
-
-msgid "Select plugin and hadoop version for cluster"
-msgstr "클러스터의 Hadoop 버전과 플러그인 선택"
-
-msgid "Select plugin and hadoop version for cluster template"
-msgstr "클러스터 템플릿에서 플러그인과 Hadoop 버전을 선택합니다."
-
-msgid "Select property name"
-msgstr "등록 이름 선택"
 
 msgid "Select routers for your firewall."
 msgstr "방화벽에대한 라우터를 선택합니다."
@@ -8144,36 +7044,6 @@ msgid ""
 msgstr ""
 "프로젝트에서 사용될 flavor를 선택합니다. 아무런 프로젝트도 선택하지 않은 경"
 "우, 모든 프로젝트에서 flavor를 사용할 수 있습니다."
-
-msgid "Select the storage type for your job binary."
-msgstr "Job 바이너리의 스토리지 타입을 선택합니다."
-
-msgid "Select the type of your Data Source."
-msgstr "데이터 소스의 타입을 선택하십시오."
-
-msgid "Select the type of your job:"
-msgstr "Job 유형을 선택하십시오:"
-
-msgid "Select type"
-msgstr "유형 선택"
-
-msgid ""
-"Select which plugin and version that you\n"
-"    want to use to create your cluster."
-msgstr ""
-"클러스터를 생성하는데 사용하기를 원하는 \n"
-"플러그인 및 버전을 선택합니다."
-
-msgid ""
-"Select which type of job that you want to run.\n"
-"      This choice will dictate which steps are required to successfully\n"
-"      execute your job.\n"
-"    "
-msgstr ""
-"실행하고자 하는 Job 유형을 선택합니다.\n"
-"      이 선택은 Job을 성공적으로 실행하기 위해 필요로 하는 다음\n"
-"      단계에 영향을 줄 것입니다.\n"
-"    "
 
 msgid "Selected Hosts"
 msgstr "선택된 호스트"
@@ -8213,9 +7083,6 @@ msgstr "서버 오류"
 
 msgid "Service"
 msgstr "서비스"
-
-msgid "Service Configurations"
-msgstr "서비스 구성"
 
 msgid "Service Endpoint"
 msgstr "서비스 Endpoint"
@@ -8259,12 +7126,6 @@ msgstr "공유 스토리지"
 msgid "Shared with Me"
 msgstr "나에게 공유됨"
 
-msgid "Shell"
-msgstr "쉘"
-
-msgid "Shell Action"
-msgstr "쉘 실행"
-
 msgid "Shelve Instance"
 msgid_plural "Shelve Instances"
 msgstr[0] "인스턴스 Shelve"
@@ -8296,9 +7157,6 @@ msgstr "Shelving Image Uploading"
 msgctxt "Task status of an Instance"
 msgid "Shelving Offloading"
 msgstr "Shelving Offloading"
-
-msgid "Show full configuration"
-msgstr "모든 구성 보기"
 
 msgctxt "Power state of an Instance"
 msgid "Shut Down"
@@ -8452,20 +7310,11 @@ msgstr "소스 포트/포트 범위"
 msgid "Source for Initial State"
 msgstr "초기 상태 원본"
 
-msgid "Source password"
-msgstr "소스 비밀 번호"
-
 msgid "Source port (integer in [1, 65535] or range in a:b)"
 msgstr "소스 포트 (정수 [1, 65535] 사이 또는 a:b 범위)"
 
-msgid "Source username"
-msgstr "소스 사용자 이름"
-
 msgid "Source:"
 msgstr "소스:"
-
-msgid "Spark"
-msgstr "Spark"
 
 msgctxt "Task status of an Instance"
 msgid "Spawning"
@@ -8476,13 +7325,6 @@ msgstr "사양"
 
 msgid "Spec: {{ qos_spec_name }}"
 msgstr "스펙: {{ qos_spec_name }}"
-
-msgid ""
-"Specified User Name will be used by Data Processing to apply configs and "
-"manage processes on instances."
-msgstr ""
-"작성한 사용자 이름은 구성한 데이터 프로세싱에서 사용되거나 인스턴스에서 프로"
-"세스를 관리하는데 사용됩니다."
 
 msgid ""
 "Specifies how IPv6 addresses and additional information are configured. We "
@@ -8631,15 +7473,9 @@ msgstr "시작과 끝 주소를 꼭 명시해줘야 합니다. (값=%s)"
 msgid "Start must be earlier than end of period."
 msgstr "시작은 종료 기간 이전이어야 합니다."
 
-msgid "Started"
-msgstr "작동함"
-
 msgid "Started Instance"
 msgid_plural "Started Instances"
 msgstr[0] "인스턴스 시작함"
-
-msgid "Started at"
-msgstr "시작됨"
 
 #, python-format
 msgid "Starting evacuation from %(current)s to %(target)s."
@@ -8673,27 +7509,9 @@ msgstr "Status ="
 msgid "Status Reason"
 msgstr "상태 현황"
 
-msgid "Step Description"
-msgstr "단계 설명"
-
 msgctxt "Action log of an instance"
 msgid "Stop"
 msgstr "Stop"
-
-msgid "Storage location"
-msgstr "스토리지 위치"
-
-msgid "Storage type"
-msgstr "스토리지 유형"
-
-msgid "Storm"
-msgstr "Storm"
-
-msgid "Streaming MapReduce"
-msgstr "스트리밍 MapReduce"
-
-msgid "String"
-msgstr "문자열"
 
 msgid "Subnet"
 msgstr "서브넷"
@@ -8734,10 +7552,6 @@ msgstr "서브넷"
 
 msgid "Subnets Associated"
 msgstr "관련 서브넷"
-
-msgctxt "Current status of a Job"
-msgid "Succeeded"
-msgstr "성공"
 
 #, python-format
 msgid "Successfully accepted volume transfer: \"%s\""
@@ -8834,9 +7648,6 @@ msgstr "비공개로 컨테이너 접근 방식을 업데이트했습니다."
 msgid "Successfully updated container access to public."
 msgstr "공개로 컨테이너 접근 방법을 업데이트했습니다."
 
-msgid "Successfully updated image."
-msgstr "성공적으로 이미지를 업데이트했습니다."
-
 #, python-format
 msgid "Successfully updated security group: %s"
 msgstr "시큐리티 그룹을 성공적으로 업데이트 하였습니다: %s"
@@ -8854,9 +7665,6 @@ msgstr "볼륨 타입을 성공적으로 수정했습니다."
 
 msgid "Sum."
 msgstr "총합"
-
-msgid "Supported Versions"
-msgstr "지원하는 버전"
 
 msgctxt "Action log of an instance"
 msgid "Suspend"
@@ -8947,20 +7755,6 @@ msgstr "시스템 온도 읽는 중"
 msgid "TCP"
 msgstr "TCP"
 
-msgid "Tags"
-msgstr "태그"
-
-msgid ""
-"Tags are used for filtering images suitable for each plugin and each Data "
-"Processing version.\n"
-"        To add required tags, select a plugin and a Data Processing version "
-"and click &quot;Add plugin tags&quot; button."
-msgstr ""
-"태그는 각 플러그인과 각 데이터 프로세싱 버전에서 적합한 이미지를 필터링하는"
-"데 사용됩니다.\n"
-"        태그를 추가하기 위해선, 플러그인과 데이터 프로세싱 버전을 선택하고 "
-"&quot;플러그인 태그 추가&quot; 버튼을 누릅니다."
-
 msgid "Target Host"
 msgstr "대상 호스트"
 
@@ -8976,17 +7770,11 @@ msgstr "템플릿 데이터"
 msgid "Template File"
 msgstr "템플릿 파일"
 
-msgid "Template Name"
-msgstr "템플릿 이름"
-
 msgid "Template Source"
 msgstr "템플릿 소스"
 
 msgid "Template URL"
 msgstr "템플릿 URL"
-
-msgid "Template not specified"
-msgstr "템플릿이 선택되지 않았습니다."
 
 msgid ""
 "The \"Bootable\" flag specifies that this volume can be used to launch an "
@@ -9055,34 +7843,6 @@ msgstr ""
 "승인키는 해당 페이지를 닫은 이후 사용할 수 없기에, 지금 capture해야 합니다. "
 "그렇지 않으면, 전송을 사용할 수 없을 것입니다."
 
-msgid ""
-"The Cluster Template object may specify a list of processes in anti-affinity "
-"group.\n"
-"    That means these processes may not be launched more than once on a "
-"single host."
-msgstr ""
-"클러스터 템플릿 오브젝트는 anti-affinity 그룹의 프로세스 목록에서 지정할 수 "
-"있습니다.\n"
-"    이러한 프로세스는 하나의 호스트에 두번 이상 실행되지 않음을 의미합니다."
-
-msgid ""
-"The Cluster Template object should specify Node Group Templates that will be "
-"used to build a Cluster.\n"
-"    You can add Node Groups using Node Group Templates on a &quot;Node "
-"Groups&quot; tab."
-msgstr ""
-"클러스터 템플릿 객체는 클러스터를 구성에 사용할 노드 그룹 템플릿을 지정해야 "
-"합니다.\n"
-"&quot;Node Groups&quot; 탭에 노드 그룹 템플릿을 이용하여 노드 그룹을 추가할 "
-"수 있습니다."
-
-msgid ""
-"The Cluster object should specify OpenStack Image to boot instances for "
-"Cluster."
-msgstr ""
-"클러스터 객체는 클러스터에 인스턴스로 부팅할 OpenStack 이미지를 지정해야 합니"
-"다."
-
 msgid "The ICMP code is invalid."
 msgstr "ICMP 코드가 올바르지 않습니다."
 
@@ -9119,18 +7879,6 @@ msgstr "JSON 포맷화된 네임스페이스 내용"
 
 msgid "The Key Pair name that was associated with the instance"
 msgstr "인스턴스와 연관된 키 페어 이름"
-
-msgid ""
-"The Node Group Template object specifies the processes\n"
-"        that will be launched on each instance. Check one or more "
-"processes.\n"
-"        When processes are selected, you may set <b>node</b> scoped\n"
-"        configurations on corresponding tabs."
-msgstr ""
-"노드 그룹 템플릿 객체는 각 인스턴스에 시작된 \n"
-"        프로세스를 지정합니다. 하나 이상의 프로세스를 확인합니다.\n"
-"        프로세스를 선택하면, 해당 탭의 <b>노드</b> 범위 구성을 \n"
-"        설정할 수 있습니다."
 
 msgid ""
 "The Transfer ID and the Authorization Key are needed by the recipient in "
@@ -9201,30 +7949,6 @@ msgstr ""
 "생성된 인터페이스의 기본 IP 주소는 선택된 서브넷의 게이트웨이입니다. 인터페이"
 "스의 다른 IP 주소를 지정할 수 있습니다. 위의 목록 속하는 지정된 IP 주소를 서"
 "브넷에서 선택해야 합니다."
-
-msgid ""
-"The first step is to determine which type of\n"
-"                    cluster you want to run.  You may have several choices\n"
-"                    available depending on the configuration of your "
-"system.\n"
-"                    Click on \"choose plugin\" to bring up the list of data\n"
-"                    processing plugins.  There you will be able to choose "
-"the\n"
-"                    data processing plugin along with the version number.\n"
-"                    Choosing this up front will allow the rest of the "
-"cluster\n"
-"                    creation steps to focus only on options that are "
-"pertinent\n"
-"                    to your desired cluster type."
-msgstr ""
-"첫 번째 단계에서는 실행하고자 하는 클러스터 \n"
-"유형을 결정합니다. 시스템 구성에 따라 선택 가능한 몇몇 \n"
-"선택지가 있을 것입니다.\n"
-"\"플러그인 선택\"을 클릭하여 데이터 프로세싱 플러그인 목록을 \n"
-"보이도록 합니다. 여기서 버전 번호와 함께 놓여 있는 \n"
-"데이터 프로세싱 플러그인을 선택할 수 있습니다.\n"
-"이를 위에 두어 남은 클러스터 생성 과정에서는 원하는 클러스터 \n"
-"유형에 적합한 옵션에만 집중할 수 있도록 합니다."
 
 #, python-format
 msgid ""
@@ -9416,15 +8140,6 @@ msgstr "%s의 네임스페이스를 가져오는 중에 문제가 발생했습�
 msgid "There was a problem parsing the %(prefix)s: %(error)s"
 msgstr "%(prefix)s를 파싱하는동안 문제가 발생했습니다: %(error)s"
 
-msgid "This Cluster Template will be created for:"
-msgstr "클러스터 템플릿을 생성됩니다:"
-
-msgid "This Cluster will be started with:"
-msgstr "클러스터를 작동합니다:"
-
-msgid "This Node Group Template will be created for:"
-msgstr "이 노드 그룹의 템플릿이 생성됩니다:"
-
 msgid "This action cannot be undone."
 msgstr "이 작업은 취소할 수 없습니다."
 
@@ -9483,9 +8198,6 @@ msgstr "Timeout"
 
 msgid "Timezone"
 msgstr "시간대"
-
-msgid "Title"
-msgstr "제목"
 
 msgid "To"
 msgstr "종료"
@@ -9770,9 +8482,6 @@ msgstr "호스트 집합 \"%s\"를 생성할 수 없습니다."
 msgid "Unable to create host aggregate."
 msgstr "호스트 집합을 생성할 수 없습니다."
 
-msgid "Unable to create job binary"
-msgstr "Job 바이너리를 생성하지 못 했습니다."
-
 #, python-format
 msgid "Unable to create key pair: %(exc)s"
 msgstr "키 페어를 생성할 수 없습니다: %(exc)s"
@@ -9780,9 +8489,6 @@ msgstr "키 페어를 생성할 수 없습니다: %(exc)s"
 #, python-format
 msgid "Unable to create network \"%s\"."
 msgstr "네트워크 \"%s\"를 생성하지 못하였습니다."
-
-msgid "Unable to create new cluster for job."
-msgstr "Job에대한 새로운 클러스터를 생성할 수 없습니다."
 
 msgid "Unable to create new image"
 msgstr "새 이미지를 생성하지 못했습니다"
@@ -9828,9 +8534,6 @@ msgstr "사양을 생성하지 못 했습니다."
 #, python-format
 msgid "Unable to create subnet \"%s\"."
 msgstr "서브넷  \"%s\"를 생성할 수 없습니다."
-
-msgid "Unable to create the cluster"
-msgstr "클러스터를 생성하지 못 했습니다."
 
 msgid "Unable to create user."
 msgstr "사용자를 생성할 수 없습니다."
@@ -9937,82 +8640,6 @@ msgstr "볼륨을 확장할 수 없습니다."
 msgid "Unable to fetch EC2 credentials."
 msgstr "EC2 인증서를 가져올 수 없습니다."
 
-msgid "Unable to fetch available images."
-msgstr "사용가능한 이미지를 가져오지 못 했습니다."
-
-msgid "Unable to fetch cluster list"
-msgstr "클러스터 목록을 가져오지 못 했습니다."
-
-msgid "Unable to fetch cluster template list"
-msgstr "클러스터 템플릿 목록을 가져올 수 없습니다."
-
-msgid "Unable to fetch cluster template."
-msgstr "클러스터 템플릿을 가져올 수 없습니다."
-
-msgid "Unable to fetch cluster to scale"
-msgstr "스케일 클러스터를 가져오지 못 했습니다."
-
-msgid "Unable to fetch cluster to scale."
-msgstr "스케일 클러스터를 가져오지 못 했습니다."
-
-msgid "Unable to fetch clusters."
-msgstr "클러스터를 가져올 수 없습니다."
-
-msgid "Unable to fetch data sources."
-msgstr "데이터 소스를 가져올 수 없습니다."
-
-msgid "Unable to fetch flavor for template."
-msgstr "템플릿에 대한 flavor를 가져올 수 없습니다."
-
-msgid "Unable to fetch floating ip pools."
-msgstr "유동 IP 풀을 찾지 못 했습니다."
-
-msgid "Unable to fetch image choices."
-msgstr "선택한 이미지를 가져오지 못 했습니다."
-
-msgid "Unable to fetch instance details."
-msgstr "인스턴스 세부 정보를 가져오지 못 했습니다."
-
-msgid "Unable to fetch job binary list."
-msgstr "Job 바이너리 목록을 가져올 수 없습니다."
-
-#, python-format
-msgid "Unable to fetch job binary: %(exc)s"
-msgstr "Job 바이너리를 가져올 수 없습니다: %(exc)s"
-
-msgid "Unable to fetch job executions."
-msgstr "Job 실행을 가져올 수 없습니다."
-
-msgid "Unable to fetch jobs."
-msgstr "Job을 가져올 수 없습니다."
-
-msgid "Unable to fetch keypair choices."
-msgstr "선택한 키 페어를 가져오지 못 했습니다."
-
-msgid "Unable to fetch node group details."
-msgstr "노드 그룹 세부 정보를 가져올 수 없습니다."
-
-msgid "Unable to fetch node group template list."
-msgstr "노드 그룹 템플릿 목록을 가져올 수 없습니다."
-
-msgid "Unable to fetch plugin details."
-msgstr "플러그인에 대한 세부 정보를 가져올 수 없습니다."
-
-msgid "Unable to fetch plugin list."
-msgstr "플러그인 목록을 가져오지 못 했습니다."
-
-msgid "Unable to fetch template object."
-msgstr "템플릿 오브젝트를 가져올 수 없습니다."
-
-msgid "Unable to fetch template to copy."
-msgstr "복사할 템플릿을 가져오지 못 했습니다."
-
-msgid "Unable to fetch template to edit."
-msgstr "편집할 템플릿을 가져올 수 없습니다."
-
-msgid "Unable to fetch the image details"
-msgstr "이미지 세부 정보를 가져올 수 없습니다."
-
 msgid "Unable to find backup!"
 msgstr "백업을 찾을 수 없습니다!"
 
@@ -10021,9 +8648,6 @@ msgstr "기본 역할을 찾을 수 없습니다."
 
 msgid "Unable to find master instance!"
 msgstr "마스터 인스턴스를 찾을 수 없습니다!"
-
-msgid "Unable to generate process choices."
-msgstr "프로세스 선택을 생성할 수 없습니다."
 
 msgid "Unable to get EC2 credentials"
 msgstr "EC2 인정서를 가져올 수 없습니다"
@@ -10087,9 +8711,6 @@ msgstr "네트워크 에이전트 정보를 가져올 수 없습니다."
 msgid "Unable to get network agents list."
 msgstr "네트워크 에이전트 목록을 불러올 수 없습니다."
 
-msgid "Unable to get node group details."
-msgstr "노드 그룹에 대한 세부 정보를 가져올 수 없습니다."
-
 msgid "Unable to get nova services list."
 msgstr "Nova 서비스 목록을 가져올 수 없습니다"
 
@@ -10106,9 +8727,6 @@ msgstr "Quota 정보를 가져올 수 없습니다."
 msgid "Unable to get resources for stack \"%s\"."
 msgstr "스택 \"%s\"에 대한 리소스를 가져오지 못하였습니다."
 
-msgid "Unable to get security group list."
-msgstr "시큐리트 그룹 목록을 가져오지 못 했습니다."
-
 #, python-format
 msgid "Unable to get subnet \"%s\""
 msgstr "서브넷 \"%s\"를 가져올 수 없습니다."
@@ -10123,9 +8741,6 @@ msgstr "사용할 수 있는 호스트를 가져올 수 없습니다."
 msgid "Unable to get user data."
 msgstr "사용자 데이터를 가져욜 수 없습니다."
 
-msgid "Unable to get volume type list."
-msgstr "볼륨 타입 목록을 가져올 수 없습니다."
-
 msgid "Unable to import key pair."
 msgstr "키 페어를 가져오지 못 했습니다."
 
@@ -10139,9 +8754,6 @@ msgstr "%(count)s 개의 \"%(name)s\"을 구동할 수 없습니다."
 #, python-format
 msgid "Unable to launch cluster. %s"
 msgstr "클러스터 \"%s\"를 구동할 수 없음"
-
-msgid "Unable to launch job."
-msgstr "Job을 실행할 수 없습니다."
 
 msgid "Unable to list containers."
 msgstr "컨테이너를 나열 할 수 없습니다."
@@ -10204,12 +8816,6 @@ msgstr "Flavor을 가져올 수 없습니다."
 #, python-format
 msgid "Unable to parse IP address %s."
 msgstr "%s IP 주소 구문을 분석할 수 없습니다."
-
-msgid "Unable to populate anti-affinity processes."
-msgstr "Anti-affinity 프로세스를 채우지 못 했습니다."
-
-msgid "Unable to process plugin tags"
-msgstr "프로세스 플러그인 태그를 사용할 수 없습니다."
 
 msgid "Unable to rebuild instance."
 msgstr "인스턴스를 다시 빌드 할 수 없습니다."
@@ -10349,9 +8955,6 @@ msgstr "Compute 최대 사용량 정보를 찾지 못 했습니다."
 msgid "Unable to retrieve container list."
 msgstr "컨테이너 목록을 찾지 못 했습니다."
 
-msgid "Unable to retrieve data processing plugins."
-msgstr "데이터 프로세싱 플러그인을 찾지 못했습니다."
-
 msgid "Unable to retrieve database clusters."
 msgstr "클러스터 데이터베이스를 찾지 못 했습니다."
 
@@ -10372,18 +8975,6 @@ msgid "Unable to retrieve details for backup: %s"
 msgstr "백업에 대한 세부 정보를 찾지 못했습니다: %s"
 
 #, python-format
-msgid "Unable to retrieve details for cluster \"%s\"."
-msgstr "\"%s\" 클러스터 세부 정보를 가져올 수 없습니다."
-
-#, python-format
-msgid "Unable to retrieve details for cluster template \"%s\"."
-msgstr "클러스터 템플릿 \"%s\" 세부 정보를 가져올 수 없습니다."
-
-#, python-format
-msgid "Unable to retrieve details for data source \"%s\"."
-msgstr "\"%s\" 데이터 소스 세부 정보를 가져올 수 없습니다."
-
-#, python-format
 msgid "Unable to retrieve details for database cluster: %s"
 msgstr "클러스터 데이터베이스에 대한 세부 정보를 찾지 못 했습니다: %s"
 
@@ -10396,28 +8987,12 @@ msgid "Unable to retrieve details for instance \"%s\"."
 msgstr "인스턴스 \"%s\"에 대한 세부 정보를 찾지 못 했습니다."
 
 #, python-format
-msgid "Unable to retrieve details for job \"%s\"."
-msgstr "Job \"%s\"에 대한 세부 정보를 가져올 수 없습니다."
-
-#, python-format
-msgid "Unable to retrieve details for job binary \"%s\"."
-msgstr "Job 바이너리 \"%s\"에 대한 세부 정보를 가져올 수 없습니다."
-
-#, python-format
-msgid "Unable to retrieve details for job template \"%s\"."
-msgstr "Job 템플릿 \"%s\"에 대한 세부 정보를 가져올 수 없습니다."
-
-#, python-format
 msgid "Unable to retrieve details for keypair \"%s\"."
 msgstr "키페어 \"%s\"에 대한 세부 정보를 가져올 수 없습니다."
 
 #, python-format
 msgid "Unable to retrieve details for network \"%s\"."
 msgstr "네트워크 \"%s\"의 세부 정보를 찾지 못했습니다."
-
-#, python-format
-msgid "Unable to retrieve details for node group template \"%s\"."
-msgstr "노드 그룹 템플릿 \"%s\"에 대한 세부 정보를 가져올 수 없습니다."
 
 #, python-format
 msgid "Unable to retrieve details for parent backup: %s"
@@ -10513,9 +9088,6 @@ msgstr "하이퍼바이저 통계를 찾지 못했습니다."
 msgid "Unable to retrieve image details."
 msgstr "이미지 세부 정보를 찾지 못 했습니다."
 
-msgid "Unable to retrieve image list"
-msgstr "이미지 목록을 찾지 못 했습니다."
-
 msgid "Unable to retrieve image list."
 msgstr "이미지 목록을 찾지 못했습니다."
 
@@ -10527,10 +9099,6 @@ msgstr "이미지를 찾지 못했습니다."
 
 msgid "Unable to retrieve images for the current project."
 msgstr "현재 프로젝트의 이미지를 찾지 못 했습니다."
-
-#, python-format
-msgid "Unable to retrieve images with filter %s."
-msgstr "%s 필터에 대한 이미지를 찾지 못 했습니다."
 
 msgid "Unable to retrieve images."
 msgstr "이미지를 찾지 못 했습니다."
@@ -10567,10 +9135,6 @@ msgstr "인스턴스 목록을 찾지 못 했습니다."
 
 msgid "Unable to retrieve instances."
 msgstr "인스턴스를 찾지 못 했습니다."
-
-#, python-format
-msgid "Unable to retrieve job binary \"%s\"."
-msgstr "Job 바이너리 \"%s\"를 거져올 수 없습니다."
 
 msgid "Unable to retrieve key pair list."
 msgstr "키 페어 목록을 찾지 못 했습니다."
@@ -10638,9 +9202,6 @@ msgstr "오브젝트 목록을 찾지 못 했습니다."
 
 msgid "Unable to retrieve object."
 msgstr "오브젝트를 찾지 못 했습니다."
-
-msgid "Unable to retrieve plugin."
-msgstr "플러그인을 찾지 못했습니다."
 
 msgid "Unable to retrieve policies list."
 msgstr "정책 목록을 찾지 못 했습니다."
@@ -10743,10 +9304,6 @@ msgstr "규칙을 찾지 못했습니다 (%(error)s). "
 
 msgid "Unable to retrieve rules list."
 msgstr "Rule 목록을 찾지 못 했습니다."
-
-#, python-format
-msgid "Unable to retrieve security group %(group)s."
-msgstr "시큐리티 그룹 %(group)s를 찾지 못 했습니다."
 
 msgid "Unable to retrieve security group list. Please try again later."
 msgstr "시큐리티 그룹 목록을 찾지 못 했습니다. 잠시 후 다시 시도하세요."
@@ -10914,9 +9471,6 @@ msgstr "도메인 컨텍스트를 설정할 수 없습니다. "
 msgid "Unable to set bootable flag on volume."
 msgstr "부팅가능 플래그를 볼륨에 지정할 수 없습니다."
 
-msgid "Unable to set cluster type"
-msgstr "클러스터 형식을 설정할 수 없습니다"
-
 #, python-format
 msgid "Unable to set flavor access for project %s."
 msgstr "프로젝트 %s에 대한 flavor 접근 권한을 설정할 수 없습니다."
@@ -10924,14 +9478,8 @@ msgstr "프로젝트 %s에 대한 flavor 접근 권한을 설정할 수 없습�
 msgid "Unable to set gateway."
 msgstr "게이트웨이를 설정하지 못 했습니다."
 
-msgid "Unable to set job type"
-msgstr "작업 유형을 설정하지 못했습니다."
-
 msgid "Unable to set project quotas."
 msgstr "프로젝트 quota를 설정하지 못하였습니다."
-
-msgid "Unable to show guides"
-msgstr "가이드를 나타낼 수 없습니다."
 
 msgid "Unable to sort instance flavors."
 msgstr "인스턴스 flavor를 분류할 수 없습니다."
@@ -10952,17 +9500,11 @@ msgstr "그룹을 업데이트 할 수 없습니다."
 msgid "Unable to update image \"%s\"."
 msgstr "이미지 \"%s\"를 업데이트 할 수 없습니다."
 
-msgid "Unable to update job binary"
-msgstr "Job 바이너리를 업데이트 할 수 없습니다."
-
 msgid "Unable to update object."
 msgstr "오브젝트를 업데이트할 수 없습니다."
 
 msgid "Unable to update role."
 msgstr "역할을 업데이트 할 수 없습니다."
-
-msgid "Unable to update row"
-msgstr "행을 업데이트 할 수 없습니다."
 
 #, python-format
 msgid "Unable to update security group: %s"
@@ -11003,12 +9545,6 @@ msgstr "볼륨 타입을 수정할 수 없습니다."
 msgid "Unable to update volume."
 msgstr "볼륨을 업데이트 할 수 업습니다."
 
-msgid "Unable to upload cluster template file"
-msgstr "업로드한 클러스터 템플릿 파일을 사용할 수 없음"
-
-msgid "Unable to upload job binary"
-msgstr "Job 바이너리를 업로드 할 수 없습니다."
-
 msgid "Unable to upload object."
 msgstr "오브젝트를 업로드 할 수 없습니다."
 
@@ -11045,20 +9581,9 @@ msgstr "볼륨 관리 취소"
 msgid "Unmanage a Volume"
 msgstr "볼륨 관리 취소"
 
-msgid "Unnecessary tags may be removed by clicking a cross near tag's name."
-msgstr "불필요한 태그를 태그 이름에 있는 엑스표를 클릭하여 제거합니다."
-
 msgctxt "Action log of an instance"
 msgid "Unpause"
 msgstr "Unpause"
-
-msgid "Unregister Image"
-msgid_plural "Unregister Images"
-msgstr[0] "이미지 등록 취소"
-
-msgid "Unregistered Image"
-msgid_plural "Unregistered Images"
-msgstr[0] "이미지 등록 취소함"
 
 msgctxt "Task status of an Instance"
 msgid "Unrescuing"
@@ -11203,9 +9728,6 @@ msgstr "업데이트"
 msgid "Updated subnet \"%s\"."
 msgstr "서브넷 \"%s\" 업데이트."
 
-msgid "Updated time"
-msgstr "업데이트된 시각"
-
 msgctxt "Task status of an Instance"
 msgid "Updating Password"
 msgstr "Updating Password"
@@ -11221,9 +9743,6 @@ msgstr "볼륩 스냅샷 \"%s\" 업데이트 중"
 msgid "Upload"
 msgstr "올리기"
 
-msgid "Upload File"
-msgstr "파일 업로드"
-
 msgid "Upload Object"
 msgstr "오브젝트 올리기"
 
@@ -11234,23 +9753,14 @@ msgstr "객체를 컨테이너에 업로드: %(container_name)s"
 msgid "Upload Objects"
 msgstr "오브젝트 올리기"
 
-msgid "Upload Template"
-msgstr "템플릿 업로드"
-
 msgid "Upload Volume to Image"
 msgstr "이미지에서 볼륨 업로드"
-
-msgid "Upload a new file"
-msgstr "새로운 파일 업로드"
 
 msgid "Upload to Image"
 msgstr "이미지 업로드"
 
 msgid "Uploaded image size"
 msgstr "업로드한 이미지 크기"
-
-msgid "Url"
-msgstr "Url"
 
 msgid "Usage"
 msgstr "사용"
@@ -11267,23 +9777,11 @@ msgstr "사용량 보고서"
 msgid "Usage Report For Period:"
 msgstr "기간에 대한 사용량 보고서:"
 
-msgid "Use HBase Common library"
-msgstr "HBase 공통 라이브러리 사용"
-
 msgid "Use Server Default"
 msgstr "사용하는 서버 기본"
 
 msgid "Use a volume as source"
 msgstr "소스로 볼륨 사용"
-
-msgid "Use anti-affinity groups for processes"
-msgstr "프로세스에서 anti-affinity 그룹 사용"
-
-msgid "Use anti-affinity groups for: "
-msgstr "사용하는 anti-affinity 그룹:"
-
-msgid "Use auto-configuration"
-msgstr "자동 구성 사용"
 
 msgid "Use image as a source"
 msgstr "소스로 이미지를 사용"
@@ -11349,18 +9847,12 @@ msgstr "사용자 설정"
 msgid "User has been updated successfully."
 msgstr "사용자가 성공적으로 업데이트 되었습니다."
 
-msgid "User has to choose a keypair to have access to clusters instances."
-msgstr "사용자가 클러스터 인스턴스에 접근할 수 있는 키 페어를 선택합니다."
-
 #, python-format
 msgid "User name \"%s\" is already used."
 msgstr "사용자 이름 \"%s\"가 이미 사용중입니다."
 
 msgid "User password has been updated successfully."
 msgstr "사용자 암호를 성공적으로 업데이트 했습니다."
-
-msgid "Username"
-msgstr "사용자명"
 
 msgid "Username (required)"
 msgstr "사용자 이름 (필수)"
@@ -11460,17 +9952,8 @@ msgstr "값"
 msgid "Value (Avg)"
 msgstr "값 (평균)"
 
-msgid "Value Type"
-msgstr "값 유형"
-
 msgid "Value:"
 msgstr "값:"
-
-msgid "Version"
-msgstr "버전"
-
-msgid "Version:"
-msgstr "버전:"
 
 #, python-format
 msgid ""
@@ -11621,9 +10104,6 @@ msgstr ""
 msgid "Volume is Unencrypted"
 msgstr "볼륨이 암호화되지 않은 상태임"
 
-msgid "Volume local to instance"
-msgstr "인스턴스에서 로컬 볼륨"
-
 msgid ""
 "Volume mount point (e.g. 'vda' mounts at '/dev/vda'). Leave this field blank "
 "to let the system choose a device name for you."
@@ -11687,24 +10167,6 @@ msgstr "볼륨"
 msgid "Volumes Attached"
 msgstr "볼륨 연결"
 
-msgid "Volumes Availability Zone"
-msgstr "볼륨 가용성 존"
-
-msgid "Volumes local to instance"
-msgstr "인스턴스에서 로컬 볼륨"
-
-msgid "Volumes per node"
-msgstr "노드당 볼륨"
-
-msgid "Volumes size"
-msgstr "볼륨 크기"
-
-msgid "Volumes size (GB)"
-msgstr "볼륨 크기 (GB)"
-
-msgid "Volumes type"
-msgstr "볼륨 타입"
-
 msgid "Weight"
 msgstr "Weight"
 
@@ -11720,9 +10182,6 @@ msgstr ""
 "  선택된 서브넷내의 주소에서 제공받을 수 있습니다.\n"
 "  "
 
-msgid "Which keypair to use for authentication."
-msgstr "인증에서 사용할 키 페어 선택."
-
 msgid ""
 "Within a container you can group your objects into pseudo-folders, which "
 "behave similarly to folders in your desktop operating system, with the "
@@ -11735,9 +10194,6 @@ msgstr ""
 "사를 부여하여 만든 가상 그룹입니다. 슬래쉬 (/) 문자는 오브젝트 저장소 내의 가"
 "상 폴더를 구분하는 구분자로 사용됩니다. "
 
-msgid "Worker Node Group Template:"
-msgstr "작업자 노드 그룹 템플릿:"
-
 msgid "Yes"
 msgstr "예"
 
@@ -11746,25 +10202,6 @@ msgstr "사용 가능한 유동 IP 전부를 이미 사용 중입니다. "
 
 msgid "You are already using all of your available volumes."
 msgstr "사용 가능한 볼륨 전부를 이미 사용 중입니다."
-
-msgid ""
-"You are now ready to\n"
-"                        launch your cluster.  When you click on the link\n"
-"                        below, you will need to give your cluster a name,\n"
-"                        choose the Cluster Template to use and choose which\n"
-"                        image to use to build your instances.  After you\n"
-"                        click on \"Create\", your instances will begin to\n"
-"                        spawn.  Your cluster should be operational in a few\n"
-"                        minutes."
-msgstr ""
-"이제 클러스터를 실행할 \n"
-"준비가 되었습니다. 아래 링크를 클릭하면,\n"
-"클러스터 이름을 입력할 것입니다. 그리고,\n"
-"사용할 클러스터 템플릿을 선택하여 인스턴스를 \n"
-"생성하는데 사용할 이미지를 선택합니다. 이후 \"생성\"을\n"
-"클릭하면, 인스턴스가 spawn하기 시작할 \n"
-"것입니다. 클러스터는 몇 분 이내에 동작 상태로 될 \n"
-"것입니다."
 
 msgid ""
 "You can connect a specified external network to the router. The external "
@@ -11838,23 +10275,8 @@ msgstr ""
 "권한을 갖고 있지 않습니다. 해당 메시지가 오류라고\n"
 "생각되는 경우, 프로젝트 관리자에게 문의하시기 바랍니다."
 
-msgid "You may also add any custom tag."
-msgstr "사용자 정의 태그를 추가할 수 있습니다."
-
-msgid "You may also enter an optional description for your Data Source."
-msgstr "데이터 소스에 옵션 설명을 입력할 수 있습니다."
-
-msgid "You may also enter an optional description for your job binary."
-msgstr "Job 바이너리에 대한 옵션 설명을 입력할 수 있습니다."
-
-msgid "You may also enter an optional description for your job template."
-msgstr "Job 템플릿에 대해 옵션으로 설명 또한 넣을 수 있습니다."
-
 msgid "You may have mistyped the address or the page may have moved."
 msgstr "주소가 잘못되었거나 페이지가 이동했을 수 있습니다."
-
-msgid "You may need to enter the username and password for your Data Source."
-msgstr "데이터 소스에 사용자 이름과 암호를 입력해야합니다."
 
 msgid "You may optionally set a password on the rebuilt instance."
 msgstr "옵션으로 인스턴스 리빌드시 비밀번호를 설정할 수 있습니다."
@@ -11865,9 +10287,6 @@ msgid ""
 msgstr ""
 "게이트웨이 작업 설정을 사용하여 추후 게이트웨이 리셋할 수 있으나, 게이트웨이 "
 "IP는 바뀔 수 있습니다."
-
-msgid "You may set <b>cluster</b> scoped configurations on corresponding tabs."
-msgstr "구성 범위에 있는 <b>클러스터</b>를 대응하는 탭에 지정할 수 있습니다."
 
 msgid "You may update IKE Policy details here."
 msgstr "IKE 정책의 세부 정보를 수정할 수 있습니다."
@@ -11928,13 +10347,6 @@ msgstr "여기서 포트의 편집 가능한 속성을 업데이트할 수 있�
 
 msgid "You may update the editable properties of your router here."
 msgstr "라우터의 편집 가능한 속성을 업데이트 할 수 있습니다."
-
-msgid ""
-"You must choose a flavor to determine the size (VCPUs, memory and storage) "
-"of all launched VMs."
-msgstr ""
-"동작 중인 모든 VM에 대한 크기(VCPU, 메모리, 스토리지)를 결정하는 flavor를 선"
-"택해야 합니다."
 
 msgid "You must select a datastore type and version."
 msgstr "데이터 저장소 타입과 버전을 선택해야합니다."
@@ -12039,9 +10451,6 @@ msgstr "hold"
 
 msgid "instance"
 msgstr "인스턴스"
-
-msgid "no processes"
-msgstr "프로세스 없음"
 
 msgid "pseudo-folder"
 msgstr "가상 폴더"

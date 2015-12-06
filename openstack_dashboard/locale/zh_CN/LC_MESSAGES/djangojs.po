@@ -5,7 +5,6 @@
 # Translators:
 # Allerson Yao, 2015
 # 刘俊朋 <liujunpeng@inspur.com>, 2015
-# Daisy <guoyingc@cn.ibm.com>, 2015. #zanata
 # OpenStack Infra <zanata@openstack.org>, 2015. #zanata
 # Xu Yang <xuyang@cn.fujitsu.com>, 2015. #zanata
 # Yu Zhiuguo <yuzg@cn.fujitsu.com>, 2015. #zanata
@@ -14,7 +13,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-12-02 23:42+0000\n"
+"POT-Creation-Date: 2015-12-05 16:12+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -151,9 +150,6 @@ msgstr "配置驱动器"
 msgid "Configuration Help"
 msgstr "配置帮助"
 
-msgid "Configuration Value"
-msgstr "配置值"
-
 msgid "Count"
 msgstr "计数"
 
@@ -178,12 +174,6 @@ msgstr ""
 
 msgid "Customization Script"
 msgstr "自定义脚本"
-
-msgid "Data Source"
-msgstr "数据源"
-
-msgid "Default Value"
-msgstr "缺省值"
 
 msgid "Deleted"
 msgstr "删除"
@@ -218,9 +208,6 @@ msgstr "临时磁盘"
 msgid "Ether Type"
 msgstr "以太网类型"
 
-msgid "Event log is not available."
-msgstr "事件日志不可用。"
-
 #, python-format
 msgid "Extension is not enabled: %(extension)s."
 msgstr "扩展没有启用：%(extension)s。"
@@ -241,16 +228,6 @@ msgid ""
 "Flavors manage the sizing for the compute, memory and storage capacity of "
 "the instance."
 msgstr "类型管理实例的计算、内存和存储容量的大小。"
-
-msgid ""
-"For configs and params, type the key name; for args, type the index as an "
-"integer, starting from 0."
-msgstr "对于配置和参数，定义键名类型；对于参数，定义索引类型为从0开始的整数。"
-
-msgid ""
-"For data sources, use a data source UUID or a path (as per data source "
-"creation.)"
-msgstr "对于数据源，使用数据源UUID或者路径(根据数据源创建。)"
 
 msgid "Format"
 msgstr "镜像格式"
@@ -363,14 +340,8 @@ msgstr "启动实例"
 msgid "Load script from a file"
 msgstr "从文件加载脚本"
 
-msgid "Location"
-msgstr "位置"
-
 msgid "Manual"
 msgstr "手动"
-
-msgid "Mapping Type"
-msgstr "映射类型"
 
 msgid "Max Port"
 msgstr "最大端口"
@@ -393,9 +364,6 @@ msgstr "最小内存 (MB)"
 msgid "Name"
 msgstr "名称"
 
-msgid "Named Parameter"
-msgstr "命名参数"
-
 msgid "Network"
 msgstr "网络"
 
@@ -417,9 +385,6 @@ msgstr "否"
 msgid "No available items"
 msgstr "没有可选项"
 
-msgid "Number"
-msgstr "序号"
-
 msgid "OK"
 msgstr "确定"
 
@@ -431,9 +396,6 @@ msgstr "物理网络"
 
 msgid "Policy check failed."
 msgstr "策略检查失败。"
-
-msgid "Positional Argument"
-msgstr "定位参数"
 
 msgid "Private"
 msgstr "私有"
@@ -491,14 +453,8 @@ msgstr "使用拖放重新排序"
 msgid "Remote"
 msgstr "远程"
 
-msgid "Remove"
-msgstr "移除"
-
 msgid "Required"
 msgstr "必须"
-
-msgid "Required?"
-msgstr "必须?"
 
 msgid "Root Disk"
 msgstr "根磁盘"
@@ -533,12 +489,6 @@ msgstr ""
 "安全组定义了IP过滤规则集合，这些规则决定网络流量如何到达和离开实例。为了将来"
 "为实例定义访问可选规则，用户可以往一个已存在的安全组添加额外的规则。创建额外"
 "规则，到<b>计算 | 访问 & 安全</b>视图，然后找到安全组，点击<b>规则管理</b>"
-
-msgid ""
-"See http://docs.openstack.org/developer/sahara/userdoc/edp.html for "
-"definitions."
-msgstr ""
-"定义请参考http://docs.openstack.org/developer/sahara/userdoc/edp.html。"
 
 msgid "Segmentation ID"
 msgstr "段ID"
@@ -584,9 +534,6 @@ msgstr "配置没有启用：%(setting)s"
 msgid "Shared"
 msgstr "共享的"
 
-msgid "Show events"
-msgstr "显示事件"
-
 msgid "Size"
 msgstr "大小"
 
@@ -598,9 +545,6 @@ msgstr "快照"
 
 msgid "Status"
 msgstr "状态"
-
-msgid "String"
-msgstr "字符串"
 
 msgid "Subnets Associated"
 msgstr "子网已连接"
@@ -653,9 +597,6 @@ msgstr ""
 
 msgid "The status indicates whether the network has an active connection."
 msgstr "状态表明网络是否处于活跃连接。"
-
-msgid "The step has completed successfully. No events to display."
-msgstr "本步骤已成功完成。没有可以显示的事件。"
 
 msgid ""
 "The subnet identifies a sub-section of a network. A subnet is specified in "
@@ -916,9 +857,6 @@ msgstr "用户名"
 
 msgid "VCPUS"
 msgstr "虚拟内核"
-
-msgid "Value Type"
-msgstr "值类型"
 
 msgid "Visibility"
 msgstr "可见"

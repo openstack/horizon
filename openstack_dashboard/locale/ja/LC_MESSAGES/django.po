@@ -17,7 +17,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-12-02 23:42+0000\n"
+"POT-Creation-Date: 2015-12-05 16:12+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -28,51 +28,6 @@ msgstr ""
 "Generated-By: Babel 2.0\n"
 "X-Generator: Zanata 3.7.3\n"
 "Language-Team: Japanese\n"
-
-msgid ""
-"\n"
-"                  In order to run a Data Processing job, you need to make\n"
-"                  the files for your program available to the\n"
-"                  Data Processing system, define where the input and output\n"
-"                  need to go and create a Job Template that describes\n"
-"                  how to run your job.  Each of those steps can be done\n"
-"                  manually or you can follow this guide to help take you\n"
-"                  through the steps to run a job on an existing cluster.\n"
-"            "
-msgstr ""
-"\n"
-"データ処理のジョブを実行するには、\n"
-"データ処理システムに対して提供することのできる\n"
-"プログラムのファイルを作成し、\n"
-"入力先/出力先を定義してジョブの実行方法を説明する\n"
-"ジョブテンプレートを作成する必要があります。\n"
-"これらの各ステップは、手動で実行することができます。\n"
-"もしくは、このガイドに従って既存のクラスターで\n"
-"ジョブを実行するステップを段階的に進めることもできます。"
-
-msgid ""
-"\n"
-"                 Each of the Data Processing frameworks require a cluster of "
-"machines\n"
-"                 in order to do the work they are assigned.  A cluster is\n"
-"                 formed by creating a set of Node Group Templates, "
-"combining\n"
-"                 those into a Cluster Template and then launching a "
-"Cluster.\n"
-"                 You can do each of those steps manually, or you can follow\n"
-"                 this guide to help take you through the steps of\n"
-"                 Cluster creation.\n"
-"             "
-msgstr ""
-"\n"
-"各データ処理フレームワークが割り当てられた作業を処理するには、\n"
-"マシンのクラスターが必要です。\n"
-"クラスターを編成するには、ノードグループテンプレートのセットを作成し、\n"
-"それらをクラスターテンプレートに統合してからクラスターを起動します。\n"
-"これらのステップはそれぞれ手動で実行することができます。\n"
-"もしくは、このガイドに従ってクラスターの作成ステップを\n"
-"段階的に進めることもできます。\n"
-"             "
 
 #, python-format
 msgid ""
@@ -414,9 +369,6 @@ msgstr " : ネクストホップ"
 msgid " Also failed to delete port %s"
 msgstr "ポート %s の削除にも失敗しました。"
 
-msgid " Done"
-msgstr " 完了"
-
 msgid "\"Add Router Route\""
 msgstr "ルータールートの追加"
 
@@ -458,14 +410,6 @@ msgid ""
 msgstr "イメージの最小限の要件を満たしていないフレーバーが無効になっています。"
 
 #, python-format
-msgid "%(conf_name)s: %(conf_val)s"
-msgstr "%(conf_name)s: %(conf_val)s"
-
-#, python-format
-msgid "%(conf_name)s: %(conf_value)s"
-msgstr "%(conf_name)s: %(conf_value)s"
-
-#, python-format
 msgid "%(field_name)s: Invalid IP address (value=%(ip)s)"
 msgstr "%(field_name)s: 無効な IP アドレス (値=%(ip)s)"
 
@@ -474,16 +418,8 @@ msgid "%(field_name)s: Invalid IP address (value=%(network)s)"
 msgstr "%(field_name)s: 無効な IP アドレス (値=%(network)s)"
 
 #, python-format
-msgid "%(group)s:"
-msgstr "%(group)s:"
-
-#, python-format
 msgid "%(instance_name)s %(fixed_ip)s"
 msgstr "%(instance_name)s %(fixed_ip)s"
-
-#, python-format
-msgid "%(key)s: %(val)s"
-msgstr "%(key)s: %(val)s"
 
 #, python-format
 msgid "%(name)s - %(size)s GB (%(label)s)"
@@ -556,10 +492,6 @@ msgid "%s instances"
 msgstr "%s インスタンス"
 
 #, python-format
-msgid "%s processes: "
-msgstr "%s プロセス: "
-
-#, python-format
 msgid "%sGB"
 msgstr "%sGB"
 
@@ -585,22 +517,8 @@ msgstr "-"
 msgid "--"
 msgstr "--"
 
-msgid "-- not selected --"
-msgstr "-- 選択されていません --"
-
 msgid "3des"
 msgstr "3des"
-
-msgid ""
-"<b>Important</b>:  The name that you give your job binary will be the name "
-"used in your job execution.\n"
-"  If your binary requires a particular name or extension (ie: \".jar\"), be "
-"sure to include it here."
-msgstr ""
-"<b>重要</b>:  ジョブバイナリーに付けた名前はジョブ実行の名前として使用されま"
-"す。\n"
-"ジョブバイナリーが特定の拡張子 (つまり \".jar\") や名前を必要とする場合は、必"
-"ずその拡張子または名前を付けてください。"
 
 #, python-format
 msgid "<p>%(used)s of %(quota)s MB Used</p>"
@@ -829,9 +747,6 @@ msgstr ""
 "実際のデバイス名は、ハイパーバイザーの設定次第では指定したものと異なる可能性"
 "があります。指定しなかった場合は、ハイパーバイザーがデバイス名を選択します。"
 
-msgid "Adapt For Oozie"
-msgstr "Oozie 向けの調整"
-
 msgid "Add"
 msgstr "追加"
 
@@ -892,9 +807,6 @@ msgstr "ルールの追加"
 msgid "Add New VPN Service"
 msgstr "VPN サービスの追加"
 
-msgid "Add Node Group"
-msgstr "ノードグループの追加"
-
 msgid "Add Policy"
 msgstr "ポリシーの追加"
 
@@ -954,9 +866,6 @@ msgstr ""
 "利用可能なセキュリティーグループのリストからこのインスタンスに、セキュリ"
 "ティーグループを追加したり削除したりできます。"
 
-msgid "Add custom tag"
-msgstr "カスタムタグの追加"
-
 msgid ""
 "Add hosts to this aggregate or remove hosts from it. Hosts can be in "
 "multiple aggregates."
@@ -971,9 +880,6 @@ msgstr ""
 
 msgid "Add interface"
 msgstr "インターフェースの追加"
-
-msgid "Add libraries to your job template."
-msgstr "ジョブテンプレートにライブラリーを追加します。"
 
 msgid ""
 "Add member(s) to the selected pool.\n"
@@ -991,9 +897,6 @@ msgstr ""
 "を指定してください（例: 80）。\n"
 "\n"
 "1 つのインスタンスに関連付けられるポート番号は 1 つだけです。"
-
-msgid "Add plugin tags"
-msgstr "プラグインタグの追加"
 
 msgid "Add route"
 msgstr "ルートの追加"
@@ -1260,9 +1163,6 @@ msgstr ""
 msgid "Another Plugin-based Panel"
 msgstr "他のプラグインによるパネル"
 
-msgid "Anti-affinity enabled for"
-msgstr "anti-affinity の指定"
-
 msgid "Any"
 msgstr "ANY"
 
@@ -1271,9 +1171,6 @@ msgstr "すべてのアベイラビリティーゾーン"
 
 msgid "Architecture"
 msgstr "アーキテクチャー"
-
-msgid "Arguments"
-msgstr "引数"
 
 msgid "Associate"
 msgstr "割り当て"
@@ -1376,12 +1273,6 @@ msgstr "認可アルゴリズム"
 msgid "Authorization mode"
 msgstr "認可モード"
 
-msgid "Auto Security Group"
-msgstr "自動セキュリティーグループ"
-
-msgid "Auto-configure"
-msgstr "自動設定"
-
 msgid "Automatic"
 msgstr "自動"
 
@@ -1391,13 +1282,6 @@ msgid ""
 msgstr ""
 "自動: ディスク全体が 1 つのパーティションになります。自動的にリサイズを行いま"
 "す。手動: 構築時間は早いですが、手動でのパーティション設定が必要です。"
-
-msgid ""
-"Automatically modify the Hadoop configuration so that job config values are "
-"set and so that Oozie will handle exit codes correctly."
-msgstr ""
-"Hadoop の設定を自動的に変更し、ジョブの設定値が設定され、Oozie が終了コードを"
-"正しく処理するようにします。"
 
 msgid "Availability Zone"
 msgstr "アベイラビリティーゾーン"
@@ -1504,9 +1388,6 @@ msgstr "バックアップの概要"
 
 msgid "Backups"
 msgstr "バックアップ"
-
-msgid "Base Image"
-msgstr "ベースイメージ"
 
 msgid "Before"
 msgstr "前に挿入"
@@ -1669,9 +1550,6 @@ msgstr[0] "チェック済みのスタック"
 msgid "Checksum"
 msgstr "チェックサム"
 
-msgid "Choose"
-msgstr "選択"
-
 msgid "Choose Your Boot Source Type."
 msgstr "ブートソース種別を選択してください。"
 
@@ -1687,32 +1565,17 @@ msgid ""
 msgstr ""
 "自分で認識できるキーペア名を付けて、SSH 公開鍵を入力欄に貼り付けてください。"
 
-msgid "Choose a main binary"
-msgstr "メインバイナリーを選択してください"
-
 msgid "Choose a new instance flavor."
 msgstr "新しいインスタンスフレーバーを選択してください。"
-
-msgid "Choose a shell script"
-msgstr "シェルスクリプトを選択してください"
 
 msgid "Choose a snapshot"
 msgstr "スナップショットを選択してください"
 
-msgid "Choose a storage location"
-msgstr "ストレージの場所を選択してください"
-
 msgid "Choose a volume"
 msgstr "ボリュームを選択してください"
 
-msgid "Choose additional files"
-msgstr "追加ファイルの選択"
-
 msgid "Choose an DHCP Agent to attach to."
 msgstr "追加する DHCP エージェントを選択してください。"
-
-msgid "Choose an existing file"
-msgstr "既存のファイルを選択"
 
 msgid "Choose an image"
 msgstr "イメージを選択してください"
@@ -1723,22 +1586,8 @@ msgstr "関連付ける QoS スペックを選択してください"
 msgid "Choose consumer for this QoS Spec."
 msgstr "この QoS スペックの使用者を選択してください"
 
-msgid ""
-"Choose from the list of binaries and click \"choose\" to add the library to "
-"your job template.  This can be repeated for additional libraries."
-msgstr ""
-"ライブラリーをジョブテンプレートに追加するには、バイナリーの一覧から選択し"
-"「選択」をクリックします。追加するライブラリーの分だけ繰り返すことができま"
-"す。"
-
 msgid "Choose initial state."
 msgstr "初期状態を選択してください"
-
-msgid "Choose job type"
-msgstr "ジョブ種別を選択します"
-
-msgid "Choose libraries"
-msgstr "ライブラリーの選択"
 
 msgid ""
 "Choose network from Available networks to Selected networks by push button "
@@ -1747,22 +1596,6 @@ msgstr ""
 "ボタンを押すかドラッグアンドドロップで、「利用可能なネットワーク」から「選択"
 "済みネットワーク」にネットワークを移動します。ドラッグアンドドロップにより "
 "NIC の順番を変更できます。"
-
-msgid ""
-"Choose or create your main binary.  Additional libraries can be added from "
-"the \"Libs\" tab."
-msgstr ""
-"メインバイナリーを選択するか、作成してください。追加のライブラリーは「ライブ"
-"ラリー」タブから追加できます。"
-
-msgid "Choose plugin"
-msgstr "プラグインの選択"
-
-msgid "Choose plugin and version"
-msgstr "プラグインとバージョンを選択してください"
-
-msgid "Choose plugin type and version"
-msgstr "プラグイン種別とバージョンを選択します"
 
 msgid ""
 "Choose router(s) from Available Routers to Selected Routers by push button "
@@ -1779,22 +1612,6 @@ msgstr ""
 "利用可能なルールから選択済みルールに、ボタンを押すかドラッグアンドドロップす"
 "ることでルールを選択します。\n"
 "ドラッグアンドドロップでルールの順番を変更することもできます。"
-
-msgid "Choose the Input Data Source (n/a for Java and Shell jobs)."
-msgstr ""
-"入力データソースを選択してください (Java ジョブとシェルジョブでは利用できませ"
-"ん)"
-
-msgid "Choose the Output Data Source (n/a for Java and Shell jobs)."
-msgstr ""
-"出力データソースを選択してください (Java ジョブとシェルジョブでは利用できませ"
-"ん)"
-
-msgid "Choose the binary which should be used in this Job."
-msgstr "このジョブで使用するバイナリーを選択してください。"
-
-msgid "Choose the cluster to use for the job."
-msgstr "ジョブで使用するクラスターを選択してください。"
 
 msgid "Choose the flavor to launch."
 msgstr "起動するフレーバーを選択してください。"
@@ -1814,9 +1631,6 @@ msgstr ""
 msgid "Choose the rule you want to remove."
 msgstr "削除するルールを選択してください。"
 
-msgid "Chosen Libraries"
-msgstr "選択ライブラリー"
-
 msgid "Cinder"
 msgstr "Cinder"
 
@@ -1825,9 +1639,6 @@ msgid ""
 "host@backend-name#pool"
 msgstr ""
 "既存のボリュームが存在する Cinder ホスト (形式: host@backend-name#pool)"
-
-msgid "Cinder volumes"
-msgstr "Cinder ボリューム"
 
 msgid "Cipher"
 msgstr "暗号"
@@ -1852,64 +1663,11 @@ msgstr "コンソールのみを表示するにはここをクリックします
 msgid "Close"
 msgstr "閉じる"
 
-msgid "Cluster"
-msgstr "クラスター"
-
-msgid "Cluster Count"
-msgstr "クラスター数"
-
-msgid "Cluster Creation Guide"
-msgstr "クラスター作成のガイド"
-
-msgid "Cluster Events"
-msgstr "クラスターのイベント"
-
-msgid "Cluster Guide"
-msgstr "クラスターのガイド"
-
-msgid "Cluster Instances"
-msgstr "クラスターインスタンス"
-
 msgid "Cluster Name"
 msgstr "クラスター名"
 
 msgid "Cluster Size"
 msgstr "クラスターサイズ"
-
-msgid "Cluster Template"
-msgstr "クラスターテンプレート"
-
-#, python-format
-msgid "Cluster Template %s updated"
-msgstr " クラスターテンプレート %s が更新されました。"
-
-msgid "Cluster Template Name"
-msgstr "クラスターテンプレート名"
-
-#, python-format
-msgid "Cluster Template copy %s created"
-msgstr "クラスターテンプレートのコピー %s が作成されました"
-
-msgid "Cluster Templates"
-msgstr "クラスターテンプレート"
-
-msgid "Cluster can be launched using existing Cluster Templates."
-msgstr "既存のクラスターテンプレートを使ってクラスターを起動できます。"
-
-msgid "Cluster configurations are not specified"
-msgstr "クラスター設定は指定されていません"
-
-msgid "Cluster provision steps"
-msgstr "クラスターのプロビジョニング手順"
-
-msgid "Cluster template creation failed"
-msgstr "クラスターテンプレートの作成に失敗しました"
-
-msgid "Cluster template update failed"
-msgstr "クラスターテンプレートの更新に失敗しました。"
-
-msgid "Cluster type chosen"
-msgstr "選択したクラスター種別"
 
 msgid "Clusters"
 msgstr "クラスター"
@@ -1930,9 +1688,6 @@ msgctxt "Current status of a Database Backup"
 msgid "Completed"
 msgstr "完了"
 
-msgid "Completed Successfully"
-msgstr "正常に完了しました。"
-
 msgid "Component"
 msgstr "コンポーネント"
 
@@ -1948,26 +1703,8 @@ msgstr "コンピュートホスト"
 msgid "Compute Services"
 msgstr "コンピュートサービス"
 
-msgid "Configuration"
-msgstr "設定"
-
 msgid "Configuration Drive"
 msgstr "コンフィグドライブ"
-
-msgid "Configuration Value"
-msgstr "設定値"
-
-msgid "Configure"
-msgstr "設定"
-
-msgid "Configure Cluster"
-msgstr "クラスターの設定"
-
-msgid "Configure Cluster Template"
-msgstr "クラスターテンプレートの設定"
-
-msgid "Configure Node Group Template"
-msgstr "ノードグループテンプレートの設定"
 
 msgid ""
 "Configure OpenStack to write metadata to a special configuration drive that "
@@ -1975,9 +1712,6 @@ msgid ""
 msgstr ""
 "起動時にインスタンスに接続される特別なコンフィグドライブにメタデータを書き込"
 "むように OpenStack に指定します。"
-
-msgid "Configure Template"
-msgstr "テンプレートの設定"
 
 msgid "Confirm Admin Password"
 msgstr "管理者パスワード（確認）"
@@ -2064,9 +1798,6 @@ msgstr "内容"
 msgid "Control Location"
 msgstr "制御場所"
 
-msgid "Control access to instances of the node group."
-msgstr "ノードグループのインスタンスへのアクセスを制御します。"
-
 msgid ""
 "Control access to your instance via key pairs, security groups, and other "
 "mechanisms."
@@ -2091,9 +1822,6 @@ msgstr "\"%(orig)s\" を \"%(dest)s\" に \"%(new)s\" としてコピーしま�
 msgid "Copy"
 msgstr "コピー"
 
-msgid "Copy Cluster Template"
-msgstr "クラスターテンプレートのコピー"
-
 msgid "Copy Data"
 msgstr "データのコピー"
 
@@ -2104,31 +1832,13 @@ msgstr "オブジェクトのコピー"
 msgid "Copy Object: %(object_name)s"
 msgstr "オブジェクトのコピー: %(object_name)s"
 
-msgid "Copy Template"
-msgstr "テンプレートのコピー"
-
 #, python-format
 msgid "Cores(Available: %(avail)s, Requested: %(req)s)"
 msgstr "コア (利用可能: %(avail)s, 要求: %(req)s)"
 
-msgid "Could not create"
-msgstr "作成できませんでした"
-
-msgid "Could not create data source"
-msgstr "データソースを作成できませんでした"
-
-msgid "Could not create job template"
-msgstr "ジョブテンプレートを作成できません"
-
 #, python-format
 msgid "Could not find default role \"%s\" in Keystone"
 msgstr "Keystone においてデフォルトのロール \"%s\" を見つけられませんでした。"
-
-msgid "Could not launch job"
-msgstr "ジョブを起動できません"
-
-msgid "Could not update data source"
-msgstr "データソースを更新できませんでした"
 
 #, python-format
 msgid "Couldn't get current security group list for instance %s."
@@ -2136,9 +1846,6 @@ msgstr "インスタンス %s の現在のセキュリティーグループ一�
 
 msgid "Couldn't get security group list."
 msgstr "セキュリティーグループ一覧を取得できません。"
-
-msgid "Count"
-msgstr "数"
 
 msgctxt "Power state of an Instance"
 msgid "Crashed"
@@ -2157,18 +1864,12 @@ msgstr "イメージの作成"
 msgid "Create Backup"
 msgstr "バックアップの作成"
 
-msgid "Create Cluster Template"
-msgstr "クラスターテンプレートの作成"
-
 msgctxt "current status of stack"
 msgid "Create Complete"
 msgstr "作成完了"
 
 msgid "Create Container"
 msgstr "コンテナーの作成"
-
-msgid "Create Data Source"
-msgstr "データソースの作成"
 
 msgid "Create Domain"
 msgstr "ドメインの作成"
@@ -2231,12 +1932,6 @@ msgctxt "current status of stack"
 msgid "Create In Progress"
 msgstr "作成中"
 
-msgid "Create Job Binary"
-msgstr "ジョブバイナリーの作成"
-
-msgid "Create Job Template"
-msgstr "ジョブテンプレートの作成"
-
 msgid "Create Key Pair"
 msgstr "キーペアの作成"
 
@@ -2245,9 +1940,6 @@ msgstr "ネットワークの作成"
 
 msgid "Create Network (Quota exceeded)"
 msgstr "ネットワークの作成 (クォータを超過しました)"
-
-msgid "Create Node Group Template"
-msgstr "ノードグループテンプレートの作成"
 
 msgid "Create Port"
 msgstr "ポートの作成"
@@ -2291,9 +1983,6 @@ msgstr "サブネットの作成"
 msgid "Create Subnet (Quota exceeded)"
 msgstr "サブネットの作成 (クォータを超過しました)"
 
-msgid "Create Template"
-msgstr "テンプレートの作成"
-
 msgid "Create Transfer"
 msgstr "譲渡の作成"
 
@@ -2335,15 +2024,6 @@ msgstr "ボリューム種別の暗号化設定の作成"
 msgid "Create Volume Type Extra Spec"
 msgstr "ボリューム種別の追加スペックの作成"
 
-msgid "Create a Cluster Template"
-msgstr "クラスターテンプレートの作成"
-
-msgid "Create a Data Source with a specified name."
-msgstr "指定した名前でデータソースを作成します。"
-
-msgid "Create a Master Node Group Template"
-msgstr "マスターノードグループテンプレートの作成"
-
 msgid "Create a Metadata Namespace"
 msgstr "メタデータ名前空間の作成"
 
@@ -2373,12 +2053,6 @@ msgstr "ボリュームの譲渡の作成"
 
 msgid "Create a Volume Type"
 msgstr "ボリューム種別の作成"
-
-msgid "Create a Worker Node Group Template"
-msgstr "ワーカーノードグループテンプレートの作成"
-
-msgid "Create a data source"
-msgstr "データソースの作成"
 
 msgid ""
 "Create a firewall based on a policy.\n"
@@ -2453,12 +2127,6 @@ msgstr ""
 msgid "Create a firewall with selected routers."
 msgstr "適用するルーターを指定してファイアウォールを作成します。"
 
-msgid "Create a job template"
-msgstr "ジョブテンプレートの作成"
-
-msgid "Create a job template with a specified name."
-msgstr "指定した名前でジョブテンプレートを作成します。"
-
 msgid ""
 "Create a monitor template.\n"
 "\n"
@@ -2509,9 +2177,6 @@ msgstr "ルールを選択してポリシーを作成します。"
 msgid "Create a project to organize users."
 msgstr "プロジェクトを作成して、ユーザーをまとめることができます。"
 
-msgid "Create a script to be uploaded dynamically"
-msgstr "スクリプトを作成し、その場でアップロードする"
-
 msgid ""
 "Create a subnet associated with the network. Advanced configuration is "
 "available by clicking on the \"Subnet Details\" tab."
@@ -2533,15 +2198,6 @@ msgstr ""
 msgid "Create pseudo-folder in container %(container_name)s"
 msgstr "コンテナー %(container_name)s に疑似フォルダーを作成"
 
-msgid "Create security group for this Node Group."
-msgstr "このノードグループに対してセキュリティーグループを作成します。"
-
-msgid "Create time"
-msgstr "作成日時"
-
-msgid "Create volumes in this availability zone."
-msgstr "このアベイラビリティーゾーンにボリュームを作成します。"
-
 msgid "Created"
 msgstr "作成時刻"
 
@@ -2556,14 +2212,6 @@ msgstr "作成済み"
 msgctxt "Current status of a VPN Service"
 msgid "Created"
 msgstr "作成済み"
-
-#, python-format
-msgid "Created Cluster Template %s"
-msgstr "クラスターテンプレート %s を作成しました"
-
-#, python-format
-msgid "Created Node Group Template %s"
-msgstr "ノードグループテンプレート %s を作成しました"
 
 #, python-format
 msgid "Created extra spec \"%s\"."
@@ -2596,9 +2244,6 @@ msgstr "スペック \"%s\" を作成しました。"
 #, python-format
 msgid "Created subnet \"%s\"."
 msgstr "サブネット \"%s\" を作成しました。"
-
-msgid "Created time"
-msgstr "作成日時"
 
 msgid "Created volume transfer."
 msgstr "ボリュームの譲渡を作成しました。"
@@ -2669,14 +2314,8 @@ msgstr "現在のサイズ (GB)"
 msgid "Current Task"
 msgstr "現在のタスク"
 
-msgid "Current choice:"
-msgstr "現在の選択項目:"
-
 msgid "Current password"
 msgstr "現在のパスワード"
-
-msgid "Current type:"
-msgstr "現在の種別:"
 
 msgid ""
 "Currently only images available via an HTTP/HTTPS URL are supported. The "
@@ -2764,61 +2403,6 @@ msgstr ""
 msgid "Daily Usage Report"
 msgstr "日次使用状況レポート"
 
-msgid "Data Processing"
-msgstr "データ処理"
-
-msgid "Data Processing Guides"
-msgstr "データ処理のガイド"
-
-msgid "Data Processing Plugin Details"
-msgstr "データ処理プラグインの詳細"
-
-msgid "Data Processing Plugins"
-msgstr "データ処理プラグイン"
-
-msgid "Data Processing internal database"
-msgstr "データ処理基盤の内部データベース"
-
-msgid ""
-"Data Processing provides different storage location options. You may choose "
-"Ephemeral Drive or a Cinder Volume to be attached to instances."
-msgstr ""
-"データ処理基盤ではストレージの場所を選択できます。一時ドライブか、インスタン"
-"スに接続する Cinder ボリュームを選択できます。"
-
-msgid "Data Source"
-msgstr "データソース"
-
-msgid "Data Source Type"
-msgstr "データソース種別"
-
-msgid "Data Sources"
-msgstr "データソース"
-
-msgid ""
-"Data Sources are what your\n"
-"                            job uses for input and output.  Depending on the "
-"type\n"
-"                            of job you will be running, you may need to "
-"define one\n"
-"                            or more data sources.  You can create multiple "
-"data\n"
-"                            sources by repeating this step.\n"
-"                        "
-msgstr ""
-"データソースとは、\n"
-"ジョブが出入力に使用するものです。\n"
-"ジョブの種別により、\n"
-"データソースを 1 つ以上定義する必要がある場合があります。\n"
-"このステップを繰り返すことで\n"
-"複数のデータソースを作成できます。"
-
-msgid "Data source created"
-msgstr "データソースが作成されました"
-
-msgid "Data source updated"
-msgstr "データソースが更新されました"
-
 msgid "Database"
 msgstr "データベース"
 
@@ -2877,31 +2461,11 @@ msgstr "パスワードの復号"
 msgid "Default Quotas"
 msgstr "標準のクォータ"
 
-msgid "Default Value"
-msgstr "デフォルト値"
-
 msgid "Default quotas updated."
 msgstr "標準のクォータを更新しました。"
 
 msgid "Defaults"
 msgstr "デフォルト値"
-
-msgid ""
-"Define your Job Template.\n"
-"                        This is where you choose the type of job that you\n"
-"                        want to run (Pig, Java Action, Spark, etc) and "
-"choose\n"
-"                        or upload the files necessary to run it.  The "
-"inputs\n"
-"                        and outputs will be defined later.\n"
-"                    "
-msgstr ""
-"ジョブテンプレートを定義します。\n"
-"実行するジョブ種別 (Pig、Java Action、Spark など) の\n"
-"選択およびそれを実行するのに必要な\n"
-"ファイルの選択とアップロードは\n"
-"ここで行います。\n"
-"出入力は後で定義されます。"
 
 msgid "Delay"
 msgstr "遅延"
@@ -2931,10 +2495,6 @@ msgstr[0] "コンテナーの削除"
 msgid "Delete DHCP Agent"
 msgid_plural "Delete DHCP Agents"
 msgstr[0] "DHCP エージェントの削除"
-
-msgid "Delete Data Source"
-msgid_plural "Delete Data Sources"
-msgstr[0] "データソースの削除"
 
 msgid "Delete Database"
 msgid_plural "Delete Databases"
@@ -3003,18 +2563,6 @@ msgstr[0] "インスタンスの削除"
 msgid "Delete Interface"
 msgid_plural "Delete Interfaces"
 msgstr[0] "インタフェースの削除"
-
-msgid "Delete Job"
-msgid_plural "Delete Jobs"
-msgstr[0] "ジョブの削除"
-
-msgid "Delete Job Binary"
-msgid_plural "Delete Job Binaries"
-msgstr[0] "ジョブバイナリーの削除"
-
-msgid "Delete Job Template"
-msgid_plural "Delete Job Templates"
-msgstr[0] "ジョブテンプレートの削除"
 
 msgid "Delete Key Pair"
 msgid_plural "Delete Key Pairs"
@@ -3092,10 +2640,6 @@ msgid "Delete Subnet"
 msgid_plural "Delete Subnets"
 msgstr[0] "サブネットの削除"
 
-msgid "Delete Template"
-msgid_plural "Delete Templates"
-msgstr[0] "テンプレートの削除"
-
 msgid "Delete User"
 msgid_plural "Delete Users"
 msgstr[0] "ユーザーの削除"
@@ -3145,10 +2689,6 @@ msgid "Deleted Backup"
 msgid_plural "Deleted Backups"
 msgstr[0] "バックアップを削除しました"
 
-msgid "Deleted Cluster"
-msgid_plural "Deleted Clusters"
-msgstr[0] "クラスターを削除しました"
-
 msgid "Deleted Container"
 msgid_plural "Deleted Containers"
 msgstr[0] "コンテナーを削除しました"
@@ -3156,10 +2696,6 @@ msgstr[0] "コンテナーを削除しました"
 msgid "Deleted DHCP Agent"
 msgid_plural "Deleted DHCP Agents"
 msgstr[0] "DHCP エージェントを削除しました"
-
-msgid "Deleted Data Source"
-msgid_plural "Deleted Data Sources"
-msgstr[0] "データソースを削除しました"
 
 msgid "Deleted Database"
 msgid_plural "Deleted Databases"
@@ -3196,18 +2732,6 @@ msgstr[0] "イメージを削除しました"
 msgid "Deleted Interface"
 msgid_plural "Deleted Interfaces"
 msgstr[0] "インターフェースを削除しました"
-
-msgid "Deleted Job"
-msgid_plural "Deleted Jobs"
-msgstr[0] "ジョブを削除しました"
-
-msgid "Deleted Job Binary"
-msgid_plural "Deleted Job Binaries"
-msgstr[0] "ジョブバイナリーを削除しました"
-
-msgid "Deleted Job Template"
-msgid_plural "Deleted Jobs Templates"
-msgstr[0] "ジョブテンプレートを削除しました"
 
 msgid "Deleted Key Pair"
 msgid_plural "Deleted Key Pairs"
@@ -3268,10 +2792,6 @@ msgstr[0] "削除された静的ルート"
 msgid "Deleted Subnet"
 msgid_plural "Deleted Subnets"
 msgstr[0] "サブネットを削除しました"
-
-msgid "Deleted Template"
-msgid_plural "Deleted Templates"
-msgstr[0] "テンプレートを削除しました"
 
 msgid "Deleted User"
 msgid_plural "Deleted Users"
@@ -3565,13 +3085,6 @@ msgstr ""
 msgid "Domains:"
 msgstr "ドメイン:"
 
-msgid "Done"
-msgstr "完了"
-
-msgctxt "Current status of a Job"
-msgid "Done with Error"
-msgstr "エラー終了"
-
 msgid "Down"
 msgstr "停止中"
 
@@ -3623,24 +3136,15 @@ msgstr "サマリー (CSV) のダウンロード"
 msgid "Download EC2 Credentials"
 msgstr "EC2 認証情報のダウンロード"
 
-msgid "Download Job Binary"
-msgstr "ジョブバイナリーのダウンロード"
-
 msgid "Download Key Pair"
 msgstr "キーペアのダウンロード"
 
 msgid "Download OpenStack RC File"
 msgstr "OpenStack RC ファイルのダウンロード"
 
-msgid "Download job binary"
-msgstr "ジョブバイナリーのダウンロード"
-
 #, python-format
 msgid "Download key pair &quot;%(keypair_name)s&quot;"
 msgstr "キーペア &quot;%(keypair_name)s&quot; のダウンロード"
-
-msgid "Duration"
-msgstr "継続時間"
 
 #, python-format
 msgid "Duration of instance type %s (openstack flavor)"
@@ -3658,9 +3162,6 @@ msgstr "EC2 URL"
 msgid "Edit"
 msgstr "編集"
 
-msgid "Edit Cluster Template"
-msgstr "クラスターテンプレートの編集"
-
 msgid "Edit Connection"
 msgstr "接続の編集"
 
@@ -3669,9 +3170,6 @@ msgstr "使用者の編集"
 
 msgid "Edit Consumer of QoS Spec"
 msgstr "QoS スペックの使用者の編集"
-
-msgid "Edit Data Source"
-msgstr "データソースの編集"
 
 msgid "Edit Domain"
 msgstr "ドメインの編集"
@@ -3707,14 +3205,8 @@ msgstr "IPSec サイト間接続の編集"
 msgid "Edit Image"
 msgstr "イメージの編集"
 
-msgid "Edit Image Tags"
-msgstr "イメージタグの編集"
-
 msgid "Edit Instance"
 msgstr "インスタンスの編集"
-
-msgid "Edit Job Binary"
-msgstr "ジョブバイナリーの編集"
 
 msgid "Edit Member"
 msgstr "メンバーの編集"
@@ -3724,9 +3216,6 @@ msgstr "モニターの編集"
 
 msgid "Edit Network"
 msgstr "ネットワークの編集"
-
-msgid "Edit Node Group Template"
-msgstr "ノードグループテンプレートの編集"
 
 msgid "Edit Object"
 msgstr "オブジェクトの編集"
@@ -3775,9 +3264,6 @@ msgstr "スペック値の編集"
 
 msgid "Edit Subnet"
 msgstr "サブネットの編集"
-
-msgid "Edit Tags"
-msgstr "タグの編集"
 
 msgid "Edit Template"
 msgstr "テンプレートの編集"
@@ -3843,9 +3329,6 @@ msgid "Enable Service"
 msgid_plural "Enable Services"
 msgstr[0] "サービスの有効化"
 
-msgid "Enable Swift Paths"
-msgstr "Swift のパス指定を有効にする"
-
 msgid "Enable User"
 msgid_plural "Enable Users"
 msgstr[0] "ユーザーの有効化"
@@ -3887,9 +3370,6 @@ msgstr "暗号化"
 msgid "Encryption algorithm"
 msgstr "暗号化アルゴリズム"
 
-msgid "Ended"
-msgstr "終了時刻"
-
 msgid "Energy (Kwapi)"
 msgstr "エネルギー (Kwapi)"
 
@@ -3919,15 +3399,6 @@ msgstr ""
 "1 から 65535 までの整数値を入力してください。同じポート番号が選択した全メン"
 "バーに使用されますが、後から変更できます。"
 
-msgid "Enter any custom configuration required for your job's execution."
-msgstr "ジョブ実行で必要なカスタム設定をここで入力してください。"
-
-msgid "Enter the URL for the file"
-msgstr "ファイルの URL"
-
-msgid "Enter the username and password required to access that file"
-msgstr "そのファイルにアクセスするのに必要なユーザー名とパスワード"
-
 msgid "Environment Data"
 msgstr "環境設定データ"
 
@@ -3942,9 +3413,6 @@ msgstr "一時ディスク"
 
 msgid "Ephemeral Disk (GB)"
 msgstr "一時ディスク (GB)"
-
-msgid "Ephemeral drive"
-msgstr "一時ドライブ"
 
 msgid "Equal to or greater than 60"
 msgstr "60 以上"
@@ -4011,9 +3479,6 @@ msgstr "エラー"
 
 msgid "Error Deleting"
 msgstr "削除中にエラー"
-
-msgid "Error Details"
-msgstr "エラー詳細"
 
 #, python-format
 msgid "Error Downloading RC File: %s"
@@ -4083,9 +3548,6 @@ msgid ""
 "Evacuate the servers from the selected down host to an active target host."
 msgstr ""
 "サーバーを選択したダウン中のホストから稼働中の移動先ホストに退避します。"
-
-msgid "Event time"
-msgstr "イベント時刻"
 
 msgid "Events"
 msgstr "イベント"
@@ -4173,18 +3635,11 @@ msgstr ""
 msgid "Extra Specs"
 msgstr "追加スペック"
 
-msgid "Failed"
-msgstr "失敗"
-
 msgctxt "Current status of a Database Backup"
 msgid "Failed"
 msgstr "失敗"
 
 msgctxt "Current status of a Database Instance"
-msgid "Failed"
-msgstr "失敗"
-
-msgctxt "Current status of a Job"
 msgid "Failed"
 msgstr "失敗"
 
@@ -4297,12 +3752,6 @@ msgstr "ホスト %s からの退避に失敗しました。"
 #, python-format
 msgid "Failed to evacuate instances: %s"
 msgstr "インスタンスの退避に失敗しました: %s"
-
-msgid "Failed to fetch internal binary list"
-msgstr "内部バイナリーの一覧を取得できません"
-
-msgid "Failed to get list of internal binaries."
-msgstr "内部バイナリーの一覧を取得できません"
 
 #, python-format
 msgid "Failed to get network list %s"
@@ -4447,9 +3896,6 @@ msgstr "ファイアウォール %(name)s の更新に失敗しました: %(reas
 msgid "Failed to update health monitor %s"
 msgstr "ヘルスモニター %s の更新に失敗しました"
 
-msgid "Failed to update image."
-msgstr "イメージのアップロードに失敗しました。"
-
 #, python-format
 msgid "Failed to update member %s"
 msgstr "メンバー %s の更新に失敗しました"
@@ -4537,18 +3983,6 @@ msgstr "ファイアウォールルール"
 msgid "Firewalls"
 msgstr "ファイアウォール"
 
-msgid ""
-"First, select which type of job that\n"
-"                            you want to run.  This choice will determine "
-"which\n"
-"                            other steps are required\n"
-"                        "
-msgstr ""
-"まず最初に、実行するジョブ種別を選択します。\n"
-"この選択により、\n"
-"他の必要なステップが\n"
-"決定されます。"
-
 msgid "Fixed IP"
 msgstr "Fixed IP"
 
@@ -4593,9 +4027,6 @@ msgstr "フレーバー情報"
 msgid "Flavor Name"
 msgstr "フレーバー名"
 
-msgid "Flavor is not specified"
-msgstr "フレーバーは指定されていません"
-
 msgid "Flavors"
 msgstr "フレーバー"
 
@@ -4608,9 +4039,6 @@ msgstr ""
 
 msgid "Floating IP"
 msgstr "Floating IP"
-
-msgid "Floating IP Pool"
-msgstr "Floating IP プール"
 
 #, python-format
 msgid "Floating IP will be removed from VIP \"%s\"."
@@ -4628,41 +4056,10 @@ msgstr "Floating IP:"
 msgid "Folder created successfully."
 msgstr "フォルダーが正常に作成されました。"
 
-msgid ""
-"For Data Processing internal job binaries, you may choose from the following:"
-msgstr ""
-"データ処理基盤の内部データベース用のジョブバイナリーは、以下から選択する必要"
-"があります。"
-
 #, python-format
 msgid "For GRE networks, valid tunnel IDs are %(min)s through %(max)s."
 msgstr ""
 "GRE ネットワークでは、有効なトンネル ID は %(min)s から %(max)s までです。"
-
-msgid ""
-"For MapReduce or Java Action jobs, \"mains\" are not applicable.  You are "
-"required to add one\n"
-"  or more \"libs\" for these jobs."
-msgstr ""
-"MapReduce と Java アクションのジョブでは、「メイン」は利用できません。\n"
-"これらのジョブで使用するライブラリーを 1 つ以上指定する必要があります。"
-
-msgid "For Object Store job binaries, you must:"
-msgstr ""
-"オブジェクトストア用のジョブバイナリーでは、以下を入力する必要があります。"
-
-msgid ""
-"For Shell Action jobs, any required files beyond the main script may be "
-"added as \"libraries\"."
-msgstr ""
-"シェルアクションジョブでは、メインスクリプト以外で必要なファイルは「ライブラ"
-"リー」として追加できます。"
-
-msgid ""
-"For Spark and Shell jobs, only a main is required, \"libs\" are optional."
-msgstr ""
-"Spark ジョブとシェルジョブでは、「メイン」のみが必須で、ライブラリーは省略可"
-"能です。"
 
 msgid ""
 "For TCP and UDP rules you may choose to open either a single port or a range "
@@ -4758,9 +4155,6 @@ msgstr "ゲートウェイの IP アドレスと IP バージョンが一致し�
 msgid "Gateway interface is added"
 msgstr "ゲートウェイインターフェースを追加しました"
 
-msgid "General Info"
-msgstr "一般情報"
-
 msgid "Glance"
 msgstr "Glance"
 
@@ -4807,20 +4201,8 @@ msgstr ""
 "グループを使うと、複数のユーザーに対するアクセス権やロールの割り当てを一度で"
 "行うことができます。グループに追加するユーザーを編集できます。"
 
-msgid "Guided Cluster Creation"
-msgstr "ガイド付きクラスター作成"
-
-msgid "Guided Job Execution"
-msgstr "ガイド付きジョブ実行"
-
-msgid "Guides"
-msgstr "ガイド"
-
 msgid "HA mode"
 msgstr "HA モード"
-
-msgid "HDFS placement"
-msgstr "HDFS 置き場"
 
 msgid "HTTP"
 msgstr "HTTP"
@@ -4859,14 +4241,8 @@ msgstr "ヘルスモニター %s が正常に更新されました。"
 msgid "Help"
 msgstr "ヘルプ"
 
-msgid "Hide full configuration"
-msgstr "詳細設定を表示しない"
-
 msgid "High Availability Mode"
 msgstr "高可用性 (HA) モード"
-
-msgid "Hive"
-msgstr "Hive"
 
 msgid "Home"
 msgstr "ホーム"
@@ -5108,21 +4484,6 @@ msgstr ""
 "きさになります。"
 
 msgid ""
-"If selected, instances of a cluster will be automatically configured during "
-"creation. Otherwise you should manually specify configuration values"
-msgstr ""
-"自動設定を選択すると、クラスターのインスタンスは作成中に自動で設定されます。"
-"選択しなかった場合には、設定値を手動で指定する必要があります。"
-
-msgid ""
-"If selected, instances of a node group will be automatically configured "
-"during cluster creation. Otherwise you should manually specify configuration "
-"values."
-msgstr ""
-"選択すると、ノードグループのインスタンスはクラスター作成時に自動的に設定され"
-"ます。選択しない場合は、設定値を手動で指定する必要があります。"
-
-msgid ""
 "If you select an image via an HTTP/HTTPS URL, the Image Location field MUST "
 "be a valid and direct URL to the image binary; it must also be accessible to "
 "the Image Service. URLs that redirect or serve error pages will result in "
@@ -5169,19 +4530,6 @@ msgstr "イメージ名 ="
 msgctxt "Task status of an Instance"
 msgid "Image Pending Upload"
 msgstr "イメージアップロード待ち"
-
-msgid "Image Registry"
-msgstr "イメージレジストリー"
-
-msgid ""
-"Image Registry is used to provide additional information about images for "
-"Data Processing."
-msgstr ""
-"イメージレジストリーは、データ処理用のイメージに関する追加の情報を提供するの"
-"に使用されます。"
-
-msgid "Image Registry tool:"
-msgstr "イメージレジストリーツール:"
 
 msgctxt "Task status of an Instance"
 msgid "Image Snapshot Pending"
@@ -5241,9 +4589,6 @@ msgid ""
 msgstr ""
 "外部ネットワークや共有ネットワークを作成することもできます。対応するチェック"
 "ボックスをチェックしてください。"
-
-msgid "In progress"
-msgstr "進行中"
 
 msgctxt "Current status of a Volume"
 msgid "In-use"
@@ -5318,12 +4663,6 @@ msgstr "注入ファイル のパス長"
 msgid "Injected Files"
 msgstr "注入ファイル"
 
-msgid "Input"
-msgstr "入力"
-
-msgid "Input Data Source"
-msgstr "入力データソース"
-
 msgid "Input must be in CIDR format"
 msgstr "CIDRフォーマットで入力して下さい。"
 
@@ -5378,17 +4717,11 @@ msgstr "インスタンスのセキュリティーグループ"
 msgid "Instance Snapshot"
 msgstr "インスタンスのスナップショット"
 
-msgid "Instance and attached volumes will be created on the same physical host"
-msgstr "インスタンスと接続されるボリュームが同じ物理ホストに作成されます。"
-
 msgid "Instance to be associated"
 msgstr "IP を割り当てるインスタンス"
 
 msgid "Instances"
 msgstr "インスタンス"
-
-msgid "Instances Count"
-msgstr "インスタンス数"
 
 msgid "Instances Per Shard"
 msgstr "シャード当たりのインスタンス数"
@@ -5411,26 +4744,14 @@ msgstr "ユーザー情報を参照するのに必要な権限がありません
 msgid "Intelligent Platform Management Interface (IPMI)"
 msgstr "IPMI (Intelligent Platform Management Interface)"
 
-msgid "Interface Arguments"
-msgstr "インターフェース引数"
-
 msgid "Interface added"
 msgstr "インターフェースを追加しました"
 
 msgid "Interfaces"
 msgstr "インターフェース"
 
-msgid "Internal Binary"
-msgstr "内部バイナリー"
-
-msgid "Internal IP"
-msgstr "内部用 IP"
-
 msgid "Internal Interface"
 msgstr "内部インタフェース"
-
-msgid "Internal binary"
-msgstr "内部バイナリー"
 
 msgid "Invalid date format: Using today as default."
 msgstr "無効な日付の形式です。デフォルト値として今日の日付を使用します。"
@@ -5453,66 +4774,6 @@ msgstr "インスタンスの複製元"
 
 msgid "Items Per Page"
 msgstr "ページあたりの項目数"
-
-msgid "Java"
-msgstr "Java"
-
-msgid "Java Action"
-msgstr "Java アクション"
-
-msgid "Java Opts"
-msgstr "Java オプション"
-
-msgid "Job"
-msgstr "ジョブ"
-
-msgid "Job Binaries"
-msgstr "ジョブバイナリー"
-
-msgid "Job Configuration"
-msgstr "ジョブ設定"
-
-msgid "Job Execution Guide"
-msgstr "ジョブ実行のガイド"
-
-msgid "Job Execution ID"
-msgstr "ジョブ実行 ID"
-
-msgid "Job Guide"
-msgstr "ジョブのガイド"
-
-msgid "Job Template"
-msgstr "ジョブテンプレート"
-
-msgid "Job Templates"
-msgstr "ジョブテンプレート"
-
-msgid "Job Type"
-msgstr "ジョブ種別"
-
-msgid "Job args"
-msgstr "ジョブ引数"
-
-msgid "Job configs"
-msgstr "ジョブ設定"
-
-msgid "Job created"
-msgstr "ジョブが作成されました"
-
-msgid "Job launched"
-msgstr "ジョブを起動しました"
-
-msgid "Job params"
-msgstr "ジョブパラメーター"
-
-msgid "Job template:"
-msgstr "ジョブテンプレート:"
-
-msgid "Job type chosen"
-msgstr "ジョブ種別を選択しました"
-
-msgid "Jobs"
-msgstr "ジョブ"
 
 msgid "Kernel"
 msgstr "カーネル"
@@ -5566,13 +4827,6 @@ msgstr ""
 
 msgid "Key-Value Pairs"
 msgstr "キーと値のペア"
-
-msgid "Keypair"
-msgstr "キーペア"
-
-msgctxt "Current status of a Job"
-msgid "Killed"
-msgstr "強制終了"
 
 msgctxt "Current status of an Image"
 msgid "Killed"
@@ -5633,24 +4887,11 @@ msgstr "インスタンスの起動"
 msgid "Launch Instance (Quota exceeded)"
 msgstr "インスタンスの起動 (クォータを超過しました)"
 
-msgid "Launch Job"
-msgid_plural "Launch Jobs"
-msgstr[0] "ジョブの起動"
-
-msgid "Launch On Existing Cluster"
-msgstr "既存のクラスターで起動"
-
-msgid "Launch On New Cluster"
-msgstr "新規のクラスターで起動"
-
 msgid "Launch Parameters"
 msgstr "起動パラメーター"
 
 msgid "Launch Stack"
 msgstr "スタックの起動"
-
-msgid "Launch a Cluster"
-msgstr "クラスターの起動"
 
 msgid "Launch as Instance"
 msgstr "インスタンスとして起動"
@@ -5664,46 +4905,9 @@ msgstr "これらのネットワークでインスタンスを起動します。
 msgid "Launch instance with this policy profile"
 msgstr "このポリシープロファイルでインスタンスを起動します。"
 
-msgid "Launch instances in these security groups."
-msgstr "これらのセキュリティーグループでインスタンスを起動します。"
-
-msgid "Launch instances in this availability zone."
-msgstr "指定したアベイラビリティーゾーンでインスタンスを起動します。"
-
-msgid "Launch job"
-msgstr "ジョブの起動"
-
-msgid "Launch the given job template on a cluster."
-msgstr "指定されたジョブテンプレートをクラスターで起動します。"
-
-msgid ""
-"Launch your job.  When\n"
-"                        launching, you may need to choose your input and\n"
-"                        output data sources.  This is where you would also\n"
-"                        add any special configuration values, parameters,\n"
-"                        or arguments that you need to pass along\n"
-"                        to your job.\n"
-"                        "
-msgstr ""
-"ジョブを起動します。\n"
-"起動中には、\n"
-"入力と出力のデータソースを\n"
-"選択する必要がある場合があります。\n"
-"また、ジョブに渡す必要のある\n"
-"特別な設定値、パラメーター、引数も\n"
-"ここで追加します。 "
-
 #, python-format
 msgid "Launched %(count)s named \"%(name)s\"."
 msgstr "名前が \"%(name)s\" の %(count)s を起動しました。"
-
-#, python-format
-msgid "Launched Cluster %s"
-msgstr "クラスター %s を起動しました"
-
-msgid "Launched Job"
-msgid_plural "Launched Jobs"
-msgstr[0] "ジョブを起動しました"
 
 #, python-format
 msgid "Launched cluster \"%s\""
@@ -5725,9 +4929,6 @@ msgstr "最小接続数"
 
 msgid "Length of Injected File Path"
 msgstr "注入ファイルのパス長"
-
-msgid "Libs"
-msgstr "ライブラリー"
 
 msgid "Lifetime Units"
 msgstr "ライフタイムの単位"
@@ -5793,9 +4994,6 @@ msgstr "ローカルストレージ (総量)"
 msgid "Local Storage (used)"
 msgstr "ローカルストレージ (使用中)"
 
-msgid "Location"
-msgstr "場所"
-
 msgid "Lock Instance"
 msgid_plural "Lock Instances"
 msgstr[0] "インスタンスのロック"
@@ -5830,12 +5028,6 @@ msgstr "MTU"
 
 msgid "MacVTap"
 msgstr "MacVTap"
-
-msgid "Main Class"
-msgstr "Main クラス"
-
-msgid "Mains"
-msgstr "メイン"
 
 msgid "Maintenance"
 msgstr "メンテナンス"
@@ -5911,29 +5103,14 @@ msgstr "ボリュームの管理"
 msgid "Management Console"
 msgstr "管理コンソール"
 
-msgid "Management IP"
-msgstr "管理 IP"
-
 msgid "Manual"
 msgstr "手動"
-
-msgid "MapReduce"
-msgstr "MapReduce"
 
 msgid "Mapped Fixed IP Address"
 msgstr "対応する Fixed IP アドレス"
 
-msgid "Mapper"
-msgstr "Mapper"
-
-msgid "Mapping Type"
-msgstr "マッピング種別"
-
 msgid "Master Instance Name"
 msgstr "マスターインスタンス名"
-
-msgid "Master Node Group Template:"
-msgstr "マスターノードグループテンプレート:"
 
 msgid "Max Retries"
 msgstr "最大試行回数"
@@ -6120,11 +5297,6 @@ msgstr "ユーザーのダッシュボード設定を変更できます。"
 msgid "Modify name and description of a volume."
 msgstr "ボリュームの名前と説明を変更します。"
 
-msgid ""
-"Modify the configuration so that swift URLs can be dereferenced through HDFS "
-"at runtime."
-msgstr "設定を変更し、Swift の URL が実行時に HDFS で展開できるようにします。"
-
 msgid "Modify the name and description of a snapshot."
 msgstr "スナップショットの名前と説明を変更します。"
 
@@ -6181,13 +5353,6 @@ msgstr "既存のボリュームの名前またはその他の識別子"
 #, python-format
 msgid "Name: %(name)s ID: %(uuid)s"
 msgstr "名前: %(name)s ID: %(uuid)s"
-
-#, python-format
-msgid "Name: %(node_group_name)s"
-msgstr "名前: %(node_group_name)s"
-
-msgid "Named Parameter"
-msgstr "名前付きパラメーター"
 
 msgid "Namespace"
 msgstr "名前空間"
@@ -6305,9 +5470,6 @@ msgstr "ネットワーク"
 msgid "Neutron"
 msgstr "Neutron"
 
-msgid "Neutron Management Network"
-msgstr "Neutron 管理ネットワーク"
-
 msgid "Never"
 msgstr "なし"
 
@@ -6370,47 +5532,14 @@ msgstr "ネクストホップ"
 msgid "Next&nbsp;&raquo;"
 msgstr "次へ&nbsp;&raquo;"
 
-msgid ""
-"Next, you need to define the different\n"
-"                        types of machines in your cluster.  This is done by\n"
-"                        defining a Node Group Template for each type of\n"
-"                        machine.  A very common case is where you\n"
-"                        need to have one or more machines running a \"master"
-"\"\n"
-"                        set of processes while another set of machines need\n"
-"                        to be running the \"worker\" processes.  Here,\n"
-"                        you will define the Node Group Template for your\n"
-"                        \"master\" node(s).\n"
-"                     "
-msgstr ""
-"次にクラスター内のマシンの種別を定義します。\n"
-"これは、マシン種別ごとにノードグループテンプレートを\n"
-"定義することによって行います。\n"
-"ごく一般的なのは、プロセスの「マスター」セットを\n"
-"実行するマシンが 1 台または複数必要なのに加えて、\n"
-"「ワーカー」プロセスを実行する\n"
-"他のマシンセットも\n"
-"必要とされるケースです。\n"
-"ここでは、「マスター」ノード用に\n"
-"ノードグループテンプレートを定義します。            "
-
 msgid "No"
 msgstr "いいえ"
-
-msgid "No Cluster Template Created"
-msgstr "クラスターテンプレートが作成されていません"
 
 msgid "No Host selected."
 msgstr "ホストが選択されていません。"
 
 msgid "No Hosts found."
 msgstr "ホストが見つかりません。"
-
-msgid "No Images Available"
-msgstr "利用可能なイメージがありません"
-
-msgid "No Master Node Group Template Created"
-msgstr "マスターノードグループテンプレートが作成されていません"
 
 msgid "No Ports available"
 msgstr "利用可能なポートがありません。"
@@ -6422,20 +5551,11 @@ msgctxt "Power state of an Instance"
 msgid "No State"
 msgstr "状態なし"
 
-msgid "No Templates Available"
-msgstr "利用可能なテンプレートがありません"
-
-msgid "No Worker Node Group Template Created"
-msgstr "ワーカーノードグループテンプレートが作成されていません"
-
 msgid "No associations defined."
 msgstr "関連付けは定義されていません。"
 
 msgid "No attached device"
 msgstr "接続中のデバイスはありません"
-
-msgid "No availability zone specified"
-msgstr "アベイラビリティーゾーンの指定なし"
 
 msgid "No availability zones found"
 msgstr "アベイラビリティーゾーンがありません"
@@ -6448,9 +5568,6 @@ msgstr "使用可能なプロジェクトがありません"
 
 msgid "No backups available"
 msgstr "バックアップがありません"
-
-msgid "No configurations"
-msgstr "設定なし"
 
 msgid "No flavors available"
 msgstr "利用可能なフレーバーがありません"
@@ -6479,25 +5596,13 @@ msgstr "ホストが見つかりません。"
 msgid "No images available"
 msgstr "利用可能なイメージがありません。"
 
-msgid "No images available."
-msgstr "利用可能なイメージがありません。"
-
-msgid "No info available"
-msgstr "情報はありません。"
-
 msgid "No input was provided for the namespace content."
 msgstr "名前空間の内容の入力がありません。"
 
 msgid "No instances available"
 msgstr "インスタンスがありません"
 
-msgid "No job template created"
-msgstr "ジョブテンプレートが作成されていません"
-
 msgid "No key pairs available"
-msgstr "キーペアがありません"
-
-msgid "No keypair"
 msgstr "キーペアがありません"
 
 msgid "No networks available"
@@ -6520,9 +5625,6 @@ msgstr "他のホストがありません。"
 
 msgid "No other volume types available"
 msgstr "他に利用可能なボリューム種別はありません。"
-
-msgid "No plugin chosen"
-msgstr "プラグインが選択されていません"
 
 msgid "No ports available"
 msgstr "ポートがありません"
@@ -6569,9 +5671,6 @@ msgstr "ソースの指定なし (空のボリューム)"
 msgid "No subnets available"
 msgstr "サブネットがありません"
 
-msgid "No type chosen"
-msgstr "種別が選択されていません"
-
 msgid "No users found."
 msgstr "ユーザーが見つかりませんでした。"
 
@@ -6589,45 +5688,6 @@ msgstr "ボリュームが接続されていません。"
 
 msgid "No volumes available"
 msgstr "利用可能なボリュームがありません"
-
-msgid "Node Configurations"
-msgstr "ノード設定"
-
-msgid "Node Group"
-msgstr "ノードグループ"
-
-#, python-format
-msgid "Node Group Template %s updated"
-msgstr "ノードグループテンプレート %s が更新されました。"
-
-#, python-format
-msgid "Node Group Template copy %s created"
-msgstr "ノードグループテンプレートのコピー %s を作成しました"
-
-msgid "Node Group Templates"
-msgstr "ノードグループテンプレート"
-
-#, python-format
-msgid "Node Group: %(node_group_name)s"
-msgstr "ノードグループ: %(node_group_name)s"
-
-msgid "Node Groups"
-msgstr "ノードグループ"
-
-msgid "Node Processes"
-msgstr "ノードプロセス"
-
-msgid "Node configurations are not specified"
-msgstr "ノード設定は指定されていません"
-
-msgid "Node group cluster"
-msgstr "ノードグループクラスター"
-
-msgid "Node processes are not specified"
-msgstr "ノードプロセスは指定されていません"
-
-msgid "Nodes Count"
-msgstr "ノード数"
 
 msgid "Non-Members"
 msgstr "未参加メンバー"
@@ -6670,38 +5730,11 @@ msgstr ""
 msgid "Nova"
 msgstr "Nova"
 
-msgid ""
-"Now you need to set the layout of your\n"
-"                        cluster.  By\n"
-"                        creating a Cluster Template, you will be choosing "
-"the\n"
-"                        number of instances of each Node Group Template "
-"that\n"
-"                        will appear in your cluster.  Additionally,\n"
-"                        you will have a chance to set any cluster-specific\n"
-"                        configuration items in the additional tabs on the\n"
-"                        create Cluster Template form."
-msgstr ""
-"次にクラスターのレイアウトを設定する必要があります。\n"
-"クラスターテンプレートを作成して、\n"
-"クラスター内に表示される\n"
-"各ノードグループテンプレートの\n"
-"インスタンス数を選択します。\n"
-"また、クラスターテンプレート作成の\n"
-"フォームの追加のタブで、\n"
-"クラスター固有の設定項目を指定することもできます。"
-
-msgid "Number"
-msgstr "数字"
-
 msgid "Number of API requests against swift"
 msgstr "swift への API 要求数"
 
 msgid "Number of Instances"
 msgstr "インスタンス数"
-
-msgid "Number of Nodes"
-msgstr "ノード数"
 
 msgid "Number of Shards"
 msgstr "シャード数"
@@ -6714,9 +5747,6 @@ msgstr "仮想 CPU 数"
 
 msgid "Number of Volumes"
 msgstr "ボリューム数"
-
-msgid "Number of clusters to launch."
-msgstr "起動するクラスター数。"
 
 msgid "Number of containers"
 msgstr "コンテナー数"
@@ -6838,17 +5868,11 @@ msgstr ""
 msgid "Only definitions in raw JSON format are supported."
 msgstr "RAW の JSON 形式での定義だけがサポートされています。"
 
-msgid "Oozie Job ID"
-msgstr "Oozie ジョブ ID"
-
 msgid "Open Port"
 msgstr "解放するポート"
 
 msgid "Open Port/Port Range:"
 msgstr "開放するポート/ポート範囲:"
-
-msgid "OpenStack Flavor"
-msgstr "OpenStack フレーバー"
 
 msgid "Optional Backup Description"
 msgstr "バックアップの説明（省略可）"
@@ -6894,12 +5918,6 @@ msgstr "その他のプロトコル"
 #, python-format
 msgid "Out of range float values are not JSON compliant: %r"
 msgstr "範囲外の Float 値は JSON に準拠しません: %r"
-
-msgid "Output"
-msgstr "出力"
-
-msgid "Output Data Source"
-msgstr "出力データソース"
 
 msgid "Outputs"
 msgstr "出力"
@@ -7075,17 +6093,11 @@ msgstr "期間:"
 msgid "Permit"
 msgstr "許可"
 
-msgid "Persist cluster after job exit"
-msgstr "ジョブ終了後もクラスターを保持する"
-
 msgid "Physical Network"
 msgstr "物理ネットワーク"
 
 msgid "Physical Network:"
 msgstr "物理ネットワーク:"
-
-msgid "Pig"
-msgstr "Pig"
 
 msgid "Please choose a HTTP method"
 msgstr "HTTP メソッドを選択してください"
@@ -7110,21 +6122,6 @@ msgstr "URL を指定してください"
 #, python-format
 msgid "Please try again later [Error: %s]."
 msgstr "後からもう一度お試しください [エラー: %s]"
-
-msgid "Plugin"
-msgstr "プラグイン"
-
-msgid "Plugin Name"
-msgstr "プラグイン名"
-
-msgid "Plugin name"
-msgstr "プラグイン名"
-
-msgid "Plugin:"
-msgstr "プラグイン:"
-
-msgid "Plugins"
-msgstr "プラグイン"
 
 msgid "Policies"
 msgstr "ポリシー"
@@ -7188,9 +6185,6 @@ msgstr "ポート"
 msgid "Position in Policy"
 msgstr "ポリシー内の位置"
 
-msgid "Positional Argument"
-msgstr "位置指定引数 (Positional Argument)"
-
 msgid "Post-Creation"
 msgstr "作成後"
 
@@ -7250,9 +6244,6 @@ msgstr "秘密鍵ファイル"
 
 msgid "Profile"
 msgstr "プロファイル"
-
-msgid "Progress"
-msgstr "進捗"
 
 msgid "Project"
 msgstr "プロジェクト"
@@ -7347,9 +6338,6 @@ msgstr ""
 "プロバイダーが指定するネットワークを作成することができます。新規の仮想ネット"
 "ワークに対して、物理ネットワーク種別 (フラット、VLAN、GRE、VXLAN など) やセグ"
 "メント ID、物理ネットワーク名を指定できます。"
-
-msgid "Proxy Gateway"
-msgstr "プロキシーゲートウェイ"
 
 msgid "Pseudo-folder Name"
 msgstr "疑似フォルダー名"
@@ -7524,19 +6512,8 @@ msgstr "再作成中"
 msgid "Rebuilding instance %s."
 msgstr "インスタンス %s を再作成中。"
 
-msgid "Reducer"
-msgstr "Reducer"
-
 msgid "Regions:"
 msgstr "リージョン:"
-
-msgid "Register Image"
-msgstr "イメージの登録"
-
-msgid ""
-"Register tags required for the Plugin with specified Data Processing Version"
-msgstr ""
-"必要なプラグインとデータ処理基盤の特定のバージョンのタグを登録してください"
 
 msgid "Relative part of requests this pool member serves compared to others"
 msgstr ""
@@ -7552,12 +6529,6 @@ msgstr ""
 "対値。\n"
 "同じ重みが選択した全メンバーに使用されますが、後から変更できます。重みは 1 か"
 "ら 256 の範囲でなければいけません。"
-
-msgid "Relaunch On Existing Cluster"
-msgstr "既存のクラスターで再起動"
-
-msgid "Relaunch On New Cluster"
-msgstr "新規のクラスターで再起動"
 
 msgid "Release Floating IP"
 msgid_plural "Release Floating IPs"
@@ -7595,9 +6566,6 @@ msgstr ""
 msgid "Remote:"
 msgstr "接続相手:"
 
-msgid "Remove"
-msgstr "削除"
-
 msgid "Remove Router"
 msgstr "ルーターの削除"
 
@@ -7617,15 +6585,6 @@ msgstr[0] "ユーザーの削除"
 msgid "Removed User"
 msgid_plural "Removed Users"
 msgstr[0] "ユーザーを削除しました"
-
-msgid ""
-"Repeat the Node Group Template\n"
-"                        creation process, but this time you are creating\n"
-"                        your \"worker\" Node Group Template."
-msgstr ""
-"ノードグループテンプレート作成のプロセスを再度実行しますが、\n"
-"今回は「ワーカー」ノードグループテンプレートを\n"
-"作成します。"
 
 msgid "Replica Detached"
 msgid_plural "Replicas Detached"
@@ -7658,9 +6617,6 @@ msgstr ""
 "同じ送信元 IP アドレスからのリクエストは\n"
 "同じメンバーに転送されます。"
 
-msgid "Required"
-msgstr "必須"
-
 msgid "Required for APP_COOKIE persistence; Ignored otherwise."
 msgstr ""
 "セッション永続性が APP_COOKIE の場合には必須です。それ以外の場合は無視されま"
@@ -7677,15 +6633,6 @@ msgstr "レスキュー済み"
 msgctxt "Task status of an Instance"
 msgid "Rescuing"
 msgstr "レスキュー中"
-
-msgid "Reset Cluster Creation Guide"
-msgstr "クラスター作成のガイドのリセット"
-
-msgid "Reset Cluster Guide"
-msgstr "クラスターのガイドのリセット"
-
-msgid "Reset Job Execution Guide"
-msgstr "ジョブ実行のガイドのリセット"
 
 msgid "Reset Root Password"
 msgstr "ルートパスワードの再設定"
@@ -7857,9 +6804,6 @@ msgstr "インスタンスのパスワードの取得"
 msgid "Retrieve Password"
 msgstr "パスワードの取得"
 
-msgid "Return Code"
-msgstr "リターンコード"
-
 msgid "Revert Resize/Migrate"
 msgstr "リサイズ/マイグレーションの取り消し中"
 
@@ -8014,10 +6958,6 @@ msgstr ""
 "ルールは、セキュリティーグループに割り当てられたインスタンスに対して許可する"
 "通信を定義します。セキュリティーグループルールは 3 つの部分から構成されます:"
 
-msgid "Run HBase EDP Jobs with common HBase library on HDFS"
-msgstr ""
-"HDFS 上の共通の HBase ライブラリーを使用して HBase EDP ジョブを実行する"
-
 msgctxt "Power state of an Instance"
 msgid "Running"
 msgstr "実行中"
@@ -8036,13 +6976,6 @@ msgstr "SNAT"
 
 msgid "SSH key pairs can be generated with the ssh-keygen command:"
 msgstr "SSH キーペアは ssh-keygen コマンドを使って生成できます。"
-
-msgid ""
-"Sahara will use instances of this node group to access other cluster "
-"instances."
-msgstr ""
-"Sahara は、このノードグループのインスタンスを使用して他のクラスターインスタン"
-"スにアクセスします。"
 
 msgid "Save"
 msgstr "保存"
@@ -8065,18 +6998,6 @@ msgstr "保存中"
 msgctxt "Current status of an Image"
 msgid "Saving"
 msgstr "保存中"
-
-msgid "Scale"
-msgstr "サイズ調整"
-
-msgid "Scale Cluster"
-msgstr "クラスターのサイズ調整"
-
-msgid "Scale cluster operation failed"
-msgstr "クラスターのサイズ調整操作に失敗しました"
-
-msgid "Scaled cluster successfully started."
-msgstr "サイズ調整後のクラスターを正常に開始しました"
 
 #, python-format
 msgid "Scheduled backup \"%(name)s\"."
@@ -8160,15 +7081,6 @@ msgstr "スクリプトデータ"
 msgid "Script File"
 msgstr "スクリプトファイル"
 
-msgid "Script name"
-msgstr "スクリプト名"
-
-msgid "Script text"
-msgstr "スクリプト本文"
-
-msgid "Security"
-msgstr "セキュリティー"
-
 msgid "Security Group"
 msgstr "セキュリティーグループ"
 
@@ -8201,9 +7113,6 @@ msgstr "セグメント ID"
 msgid "Segmentation ID:"
 msgstr "セグメント ID:"
 
-msgid "Select"
-msgstr "選択"
-
 msgid "Select Flavor"
 msgstr "フレーバーを選択してください"
 
@@ -8221,9 +7130,6 @@ msgstr "インスタンスのスナップショットの選択"
 
 msgid "Select Network"
 msgstr "ネットワークを選択してください"
-
-msgid "Select Node Group Processes"
-msgstr "ノードグループプロセスを選択してください"
 
 msgid "Select Port"
 msgstr "ポートを選択してください"
@@ -8255,9 +7161,6 @@ msgstr "モニターを選択してください"
 msgid "Select a New Flavor"
 msgstr "新しいフレーバーを選択してください"
 
-msgid "Select a Node Group Template to add:"
-msgstr "追加するノードグループテンプレートを選択してください:"
-
 msgid "Select a Policy"
 msgstr "ポリシーを選択してください"
 
@@ -8272,9 +7175,6 @@ msgstr "ルーターを選択してください"
 
 msgid "Select a Subnet"
 msgstr "サブネットを選択してください"
-
-msgid "Select a Value Type for your next argument:"
-msgstr "次の引数の値の型を選択してください:"
 
 msgid "Select a backup to restore"
 msgstr "リストアするバックアップを選択してください"
@@ -8319,17 +7219,6 @@ msgstr "スタックの再起動に使うテンプレートを選択してくだ
 
 msgid "Select a new volume type"
 msgstr "新しいボリューム種別を選択してください"
-
-msgid "Select a plugin and version for a new Cluster template."
-msgstr ""
-"作成するクラスターテンプレートで使用するプラグインとバージョンを選択してくだ"
-"さい。"
-
-msgid "Select a plugin and version for a new Cluster."
-msgstr "新しいクラスターで使用するプラグインとバージョンを選択してください。"
-
-msgid "Select a plugin and version for the new Node Group template."
-msgstr "新規ノードグループテンプレートのプラグインとバージョンを選択します。"
 
 msgid "Select a pool"
 msgstr "プールを選択してください"
@@ -8388,24 +7277,8 @@ msgstr "ネットワークの選択"
 msgid "Select networks for your instance."
 msgstr "インスタンスのネットワークを選択します。"
 
-msgid "Select node processes for the node group"
-msgstr "このノードグループのノードプロセスを選択してください"
-
 msgid "Select parent backup"
 msgstr "親バックアップを選択してください"
-
-msgid "Select plugin and hadoop version"
-msgstr "プラグインと Hadoop バージョンを選択してください"
-
-msgid "Select plugin and hadoop version for cluster"
-msgstr "このクラスターのプラグインと Hadoop バージョンを選択してください"
-
-msgid "Select plugin and hadoop version for cluster template"
-msgstr ""
-"クラスターテンプレートのプラグインと Hadoop バージョンを選択してください"
-
-msgid "Select property name"
-msgstr "プロパティー名を選択してください"
 
 msgid "Select routers for your firewall."
 msgstr "ファイアウォールを適用するルーターを選択してください。"
@@ -8436,36 +7309,6 @@ msgid ""
 msgstr ""
 "このフレーバーを使用するプロジェクトを選択してください。どのプロジェクトも選"
 "択されていない場合は、すべてのプロジェクトがこのフレーバーを利用できます。"
-
-msgid "Select the storage type for your job binary."
-msgstr "ジョブバイナリーのストレージ種別を選択してください。"
-
-msgid "Select the type of your Data Source."
-msgstr "データソース種別を選択してください。"
-
-msgid "Select the type of your job:"
-msgstr "ジョブの種別を選択してください。"
-
-msgid "Select type"
-msgstr "種別の選択"
-
-msgid ""
-"Select which plugin and version that you\n"
-"    want to use to create your cluster."
-msgstr ""
-"クラスターの作成に使用するプラグインと\n"
-"バージョンを選択します。"
-
-msgid ""
-"Select which type of job that you want to run.\n"
-"      This choice will dictate which steps are required to successfully\n"
-"      execute your job.\n"
-"    "
-msgstr ""
-"実行するジョブの種別を選択します。\n"
-"この選択により、ジョブを正常に\n"
-"実行するために必要なステップが\n"
-"決定されます。"
 
 msgid "Selected Hosts"
 msgstr "選択されたホスト"
@@ -8509,9 +7352,6 @@ msgstr "サーバー"
 msgid "Service"
 msgstr "サービス"
 
-msgid "Service Configurations"
-msgstr "サービス設定"
-
 msgid "Service Endpoint"
 msgstr "サービスエンドポイント"
 
@@ -8554,12 +7394,6 @@ msgstr "共有ストレージ"
 msgid "Shared with Me"
 msgstr "自分と共有"
 
-msgid "Shell"
-msgstr "シェル"
-
-msgid "Shell Action"
-msgstr "シェルアクション"
-
 msgid "Shelve Instance"
 msgid_plural "Shelve Instances"
 msgstr[0] "インスタンスの退避"
@@ -8591,9 +7425,6 @@ msgstr "退避イメージのアップロード中"
 msgctxt "Task status of an Instance"
 msgid "Shelving Offloading"
 msgstr "退避インスタンスのオフロード中"
-
-msgid "Show full configuration"
-msgstr "詳細設定を表示する"
 
 msgctxt "Power state of an Instance"
 msgid "Shut Down"
@@ -8750,14 +7581,8 @@ msgstr "送信元ポート/ポートの範囲"
 msgid "Source for Initial State"
 msgstr "初期状態の元情報"
 
-msgid "Source password"
-msgstr "データソースのパスワード"
-
 msgid "Source port (integer in [1, 65535] or range in a:b)"
 msgstr "送信元ポート ([1, 65535] の整数か a:b 形式の範囲)"
-
-msgid "Source username"
-msgstr "データソースのユーザー名"
 
 msgid ""
 "Source/Destination Network Address and IP version are inconsistent. Please "
@@ -8769,9 +7594,6 @@ msgstr ""
 msgid "Source:"
 msgstr "送信元:"
 
-msgid "Spark"
-msgstr "Spark"
-
 msgctxt "Task status of an Instance"
 msgid "Spawning"
 msgstr "起動中"
@@ -8781,13 +7603,6 @@ msgstr "スペック"
 
 msgid "Spec: {{ qos_spec_name }}"
 msgstr "スペック: {{ qos_spec_name }}"
-
-msgid ""
-"Specified User Name will be used by Data Processing to apply configs and "
-"manage processes on instances."
-msgstr ""
-"指定されたユーザー名は、設定を適用したり、インスタンス上のプロセスを管理した"
-"りするのに使用されます。"
 
 msgid ""
 "Specifies how IPv6 addresses and additional information are configured. We "
@@ -8940,15 +7755,9 @@ msgstr "開始アドレスと終了アドレスを指定する必要がありま
 msgid "Start must be earlier than end of period."
 msgstr "開始日は終了日より前でなければいけません"
 
-msgid "Started"
-msgstr "開始時刻"
-
 msgid "Started Instance"
 msgid_plural "Started Instances"
 msgstr[0] "インスタンスを開始しました"
-
-msgid "Started at"
-msgstr "開始時刻"
 
 #, python-format
 msgid "Starting evacuation from %(current)s to %(target)s."
@@ -8982,9 +7791,6 @@ msgstr "ステータス ="
 msgid "Status Reason"
 msgstr "ステータスの理由"
 
-msgid "Step Description"
-msgstr "説明"
-
 msgctxt "Action log of an instance"
 msgid "Stop"
 msgstr "停止"
@@ -8992,21 +7798,6 @@ msgstr "停止"
 msgctxt "Current status of an Instance"
 msgid "Stopped"
 msgstr "停止"
-
-msgid "Storage location"
-msgstr "ストレージの場所"
-
-msgid "Storage type"
-msgstr "ストレージ種別"
-
-msgid "Storm"
-msgstr "Storm"
-
-msgid "Streaming MapReduce"
-msgstr "ストリーミング MapReduce"
-
-msgid "String"
-msgstr "文字列"
 
 msgid "Subnet"
 msgstr "サブネット"
@@ -9047,10 +7838,6 @@ msgstr "サブネット"
 
 msgid "Subnets Associated"
 msgstr "割り当てサブネット"
-
-msgctxt "Current status of a Job"
-msgid "Succeeded"
-msgstr "正常終了"
 
 #, python-format
 msgid "Successfully accepted volume transfer: \"%s\""
@@ -9147,9 +7934,6 @@ msgstr "コンテナーアクセスをプライベートに変更しました。
 msgid "Successfully updated container access to public."
 msgstr "コンテナーアクセスをパブリックに変更しました。"
 
-msgid "Successfully updated image."
-msgstr "イメージを正常にアップロードしました。"
-
 #, python-format
 msgid "Successfully updated security group: %s"
 msgstr "セキュリティーグループ %s が正常に更新されました。"
@@ -9167,9 +7951,6 @@ msgstr "ボリューム種別の更新に成功しました。"
 
 msgid "Sum."
 msgstr "合計値"
-
-msgid "Supported Versions"
-msgstr "対応バージョン"
 
 msgctxt "Action log of an instance"
 msgid "Suspend"
@@ -9260,20 +8041,6 @@ msgstr "システムの温度測定値"
 msgid "TCP"
 msgstr "TCP"
 
-msgid "Tags"
-msgstr "タグ"
-
-msgid ""
-"Tags are used for filtering images suitable for each plugin and each Data "
-"Processing version.\n"
-"        To add required tags, select a plugin and a Data Processing version "
-"and click &quot;Add plugin tags&quot; button."
-msgstr ""
-"タグは、各プラグイン、各データ処理基盤のバージョンに適したイメージを絞り込む"
-"のに使用されます。\n"
-"必要なタグを追加するには、プラグインとデータ処理基盤のバージョンを選択して"
-"「プラグインタグの追加」をクリックしてください。"
-
 msgid "Target Host"
 msgstr "移動先ホスト"
 
@@ -9289,17 +8056,11 @@ msgstr "テンプレートデータ"
 msgid "Template File"
 msgstr "テンプレートファイル"
 
-msgid "Template Name"
-msgstr "テンプレート名"
-
 msgid "Template Source"
 msgstr "テンプレートの指定方法"
 
 msgid "Template URL"
 msgstr "テンプレート URL"
-
-msgid "Template not specified"
-msgstr "テンプレートは指定されていません"
 
 msgid ""
 "The \"Bootable\" flag specifies that this volume can be used to launch an "
@@ -9368,35 +8129,6 @@ msgstr ""
 "認証キーはこのページを閉じると参照できなくなるので、必ず今記録してください。"
 "さもないと、作成した譲渡を使えなくなります。"
 
-msgid ""
-"The Cluster Template object may specify a list of processes in anti-affinity "
-"group.\n"
-"    That means these processes may not be launched more than once on a "
-"single host."
-msgstr ""
-"クラスターテンプレートでは anti-affinity グループでプロセスリストを指定できま"
-"す。\n"
-"この設定により、指定したプロセスは、同時に 1 つのホストでは起動されないように"
-"なります。"
-
-msgid ""
-"The Cluster Template object should specify Node Group Templates that will be "
-"used to build a Cluster.\n"
-"    You can add Node Groups using Node Group Templates on a &quot;Node "
-"Groups&quot; tab."
-msgstr ""
-"クラスターテンプレートのオブジェクトでは、クラスターの作成に使用するノードグ"
-"ループテンプレートを指定する必要があります。\n"
-"また、「ノードグループ」タブでノードグループテンプレートを使用してノードグ"
-"ループを追加できます。"
-
-msgid ""
-"The Cluster object should specify OpenStack Image to boot instances for "
-"Cluster."
-msgstr ""
-"クラスターオブジェクトでは、クラスター用のインスタンスを起動するのに使う "
-"OpenStack イメージを指定する必要があります。"
-
 msgid "The ICMP code is invalid."
 msgstr "ICMP コードが無効です。"
 
@@ -9433,19 +8165,6 @@ msgstr "JSON 形式で書かれた名前空間の内容"
 
 msgid "The Key Pair name that was associated with the instance"
 msgstr "このインスタンスに関連付けられたキーペア名"
-
-msgid ""
-"The Node Group Template object specifies the processes\n"
-"        that will be launched on each instance. Check one or more "
-"processes.\n"
-"        When processes are selected, you may set <b>node</b> scoped\n"
-"        configurations on corresponding tabs."
-msgstr ""
-"ノードグループテンプレートオブジェクトは各インスタンスで起動されるプロセスを"
-"指定します。\n"
-"1 つまたは複数のプロセスをチェックしてください。\n"
-"プロセスが選択されたら、\n"
-"対応するタブで<b>ノード</b>を対象とする構成を設定することができます。"
 
 msgid ""
 "The Transfer ID and the Authorization Key are needed by the recipient in "
@@ -9517,31 +8236,6 @@ msgstr ""
 "作成するインタフェースのデフォルトの IP アドレスは選択したサブネットのゲート"
 "ウェイアドレスになります。ここで別の IP アドレスを指定できます。指定した IP "
 "アドレスが所属するサブネットを上にあるリストから選択しなければいけません。"
-
-msgid ""
-"The first step is to determine which type of\n"
-"                    cluster you want to run.  You may have several choices\n"
-"                    available depending on the configuration of your "
-"system.\n"
-"                    Click on \"choose plugin\" to bring up the list of data\n"
-"                    processing plugins.  There you will be able to choose "
-"the\n"
-"                    data processing plugin along with the version number.\n"
-"                    Choosing this up front will allow the rest of the "
-"cluster\n"
-"                    creation steps to focus only on options that are "
-"pertinent\n"
-"                    to your desired cluster type."
-msgstr ""
-"まず最初に、実行するクラスターの種別を決定します。\n"
-"システムの構成に応じて複数の選択肢がある場合があります。\n"
-"「プラグインの選択」をクリックするとデータ処理プラグインの\n"
-"一覧が表示され、データ処理プラグインとバージョン番号を\n"
-"選択することができます。\n"
-"この設定をあらかじめ行っておくと、\n"
-"以降のクラスターの作成ステップでは、\n"
-"希望するクラスター種別に適切なオプションのみに\n"
-"集中することができます。"
 
 #, python-format
 msgid ""
@@ -9740,15 +8434,6 @@ msgstr "名前空間の読み込み中に問題が発生しました。 %s"
 msgid "There was a problem parsing the %(prefix)s: %(error)s"
 msgstr "%(prefix)s の解析中に問題がありました: %(error)s"
 
-msgid "This Cluster Template will be created for:"
-msgstr "以下のプラグイン用のクラスターテンプレートを作成します。"
-
-msgid "This Cluster will be started with:"
-msgstr "このクラスターは以下のプラグインで開始されます。"
-
-msgid "This Node Group Template will be created for:"
-msgstr "以下のプラグイン用のノードグループテンプレートを作成します。"
-
 msgid "This action cannot be undone."
 msgstr "この操作は取り消せません。"
 
@@ -9811,9 +8496,6 @@ msgstr "タイムアウト"
 
 msgid "Timezone"
 msgstr "タイムゾーン"
-
-msgid "Title"
-msgstr "タイトル"
 
 msgid "To"
 msgstr "終了"
@@ -10096,9 +8778,6 @@ msgstr "ホストアグリゲート \"%s\" が作成できません。"
 msgid "Unable to create host aggregate."
 msgstr "ホストアグリゲートを作成することができません。"
 
-msgid "Unable to create job binary"
-msgstr "ジョブバイナリーを作成できません"
-
 #, python-format
 msgid "Unable to create key pair: %(exc)s"
 msgstr "キーペアを作成できません: %(exc)s"
@@ -10106,9 +8785,6 @@ msgstr "キーペアを作成できません: %(exc)s"
 #, python-format
 msgid "Unable to create network \"%s\"."
 msgstr "ネットワーク \"%s\" の作成に失敗しました。"
-
-msgid "Unable to create new cluster for job."
-msgstr "ジョブ用の新しいクラスターを作成できません"
 
 msgid "Unable to create new image"
 msgstr "新しいイメージを作成できません。"
@@ -10155,9 +8831,6 @@ msgstr "スペックを作成できません。"
 #, python-format
 msgid "Unable to create subnet \"%s\"."
 msgstr "サブネット \"%s\" の作成に失敗しました。"
-
-msgid "Unable to create the cluster"
-msgstr "クラスターを作成できません"
 
 msgid "Unable to create user."
 msgstr "ユーザーを作成できません。"
@@ -10264,82 +8937,6 @@ msgstr "ボリュームを拡張できません。"
 msgid "Unable to fetch EC2 credentials."
 msgstr "EC2 認証情報を取得できません"
 
-msgid "Unable to fetch available images."
-msgstr "利用可能なイメージ一覧を取得できません。"
-
-msgid "Unable to fetch cluster list"
-msgstr "クラスターの一覧を取得できません。"
-
-msgid "Unable to fetch cluster template list"
-msgstr "クラスターテンプレートの一覧を取得できません"
-
-msgid "Unable to fetch cluster template."
-msgstr "クラスターテンプレートを取得できません。"
-
-msgid "Unable to fetch cluster to scale"
-msgstr "サイズ調整を行うクラスターを取得できません"
-
-msgid "Unable to fetch cluster to scale."
-msgstr "サイズ調整を行うクラスターを取得できません"
-
-msgid "Unable to fetch clusters."
-msgstr "クラスターの一覧を取得できません"
-
-msgid "Unable to fetch data sources."
-msgstr "データソースの一覧を取得できません"
-
-msgid "Unable to fetch flavor for template."
-msgstr "テンプレート用のフレーバーを取得できません。"
-
-msgid "Unable to fetch floating ip pools."
-msgstr "Floating IP プールを取得できません。"
-
-msgid "Unable to fetch image choices."
-msgstr "イメージの選択肢を取得できません。"
-
-msgid "Unable to fetch instance details."
-msgstr "インスタンスの詳細を取得できません。"
-
-msgid "Unable to fetch job binary list."
-msgstr "ジョブバイナリーの一覧を取得できません"
-
-#, python-format
-msgid "Unable to fetch job binary: %(exc)s"
-msgstr "ジョブバイナリーを取得できません: %(exc)s"
-
-msgid "Unable to fetch job executions."
-msgstr "ジョブ実行の一覧を取得できません。"
-
-msgid "Unable to fetch jobs."
-msgstr "ジョブ一覧を取得できません"
-
-msgid "Unable to fetch keypair choices."
-msgstr "キーペアの選択肢を取得できません"
-
-msgid "Unable to fetch node group details."
-msgstr "ノードグループの詳細を取得できません。"
-
-msgid "Unable to fetch node group template list."
-msgstr "ノードグループテンプレートの一覧を取得できません"
-
-msgid "Unable to fetch plugin details."
-msgstr "プラグインの詳細を取得できません"
-
-msgid "Unable to fetch plugin list."
-msgstr "プラグイン一覧を取得できません"
-
-msgid "Unable to fetch template object."
-msgstr "テンプレートオブジェクトを取得できません"
-
-msgid "Unable to fetch template to copy."
-msgstr "コピーするテンプレートを取得できません"
-
-msgid "Unable to fetch template to edit."
-msgstr "編集するテンプレートを取得できませんでした。"
-
-msgid "Unable to fetch the image details"
-msgstr "イメージ詳細を取得できません"
-
 msgid "Unable to find backup!"
 msgstr "バックアップが見つかりません！"
 
@@ -10348,9 +8945,6 @@ msgstr "デフォルトのロールが見つかりません。"
 
 msgid "Unable to find master instance!"
 msgstr "マスターインスタンスが見つかりません。"
-
-msgid "Unable to generate process choices."
-msgstr "プロセスの選択肢を生成できません"
 
 msgid "Unable to get EC2 credentials"
 msgstr "EC2 認証情報を取得できません"
@@ -10414,9 +9008,6 @@ msgstr "ネットワークエージェント情報を取得できません。"
 msgid "Unable to get network agents list."
 msgstr "ネットワークエージェントの一覧を取得できません。"
 
-msgid "Unable to get node group details."
-msgstr "ノードグループの詳細を取得できません。"
-
 msgid "Unable to get nova services list."
 msgstr "nova サービスの一覧を取得できません。"
 
@@ -10433,9 +9024,6 @@ msgstr "クォータ情報を取得できません。"
 msgid "Unable to get resources for stack \"%s\"."
 msgstr "スタック \"%s\" のリソースを取得できません。"
 
-msgid "Unable to get security group list."
-msgstr "セキュリティーグループの一覧を取得できません。"
-
 #, python-format
 msgid "Unable to get subnet \"%s\""
 msgstr "サブネット \"%s\" を取得できません。"
@@ -10450,9 +9038,6 @@ msgstr "使用可能なホストを取得できません"
 msgid "Unable to get user data."
 msgstr "ユーザーの一覧を取得できません。"
 
-msgid "Unable to get volume type list."
-msgstr "ボリューム種別の一覧を取得できません。"
-
 msgid "Unable to import key pair."
 msgstr "キーペアをインポートできません。"
 
@@ -10466,9 +9051,6 @@ msgstr "名前が \"%(name)s\" の %(count)s が起動できません。"
 #, python-format
 msgid "Unable to launch cluster. %s"
 msgstr "クラスターを起動できません。 %s"
-
-msgid "Unable to launch job."
-msgstr "ジョブを起動できません"
 
 msgid "Unable to list containers."
 msgstr "コンテナーの一覧を表示できません。"
@@ -10532,12 +9114,6 @@ msgstr "フレーバー一覧を取得できません。"
 #, python-format
 msgid "Unable to parse IP address %s."
 msgstr "IPアドレス %s の解析に失敗しました。"
-
-msgid "Unable to populate anti-affinity processes."
-msgstr "anti-affinity グループのプロセスを起動できません。"
-
-msgid "Unable to process plugin tags"
-msgstr "プラグインタグを処理できません"
 
 msgid "Unable to rebuild instance."
 msgstr "インスタンスを再作成できません。"
@@ -10678,9 +9254,6 @@ msgstr "コンピュートのリソース上限情報を取得できません。
 msgid "Unable to retrieve container list."
 msgstr "コンテナーの一覧を取得できません。"
 
-msgid "Unable to retrieve data processing plugins."
-msgstr "データ処理プラグイン一覧を取得できません。"
-
 msgid "Unable to retrieve database clusters."
 msgstr "データベースクラスターの一覧を取得できません。"
 
@@ -10701,18 +9274,6 @@ msgid "Unable to retrieve details for backup: %s"
 msgstr "バックアップの詳細を取得できません: %s"
 
 #, python-format
-msgid "Unable to retrieve details for cluster \"%s\"."
-msgstr "クラスター \"%s\" の詳細を取得できません。"
-
-#, python-format
-msgid "Unable to retrieve details for cluster template \"%s\"."
-msgstr "クラスターテンプレート \"%s\" の詳細を取得できません。"
-
-#, python-format
-msgid "Unable to retrieve details for data source \"%s\"."
-msgstr "データソース \"%s\" の詳細を取得できません。"
-
-#, python-format
 msgid "Unable to retrieve details for database cluster: %s"
 msgstr "データベースクラスターの詳細を取得できません: %s"
 
@@ -10725,28 +9286,12 @@ msgid "Unable to retrieve details for instance \"%s\"."
 msgstr "インスタンス \"%s\" の詳細を取得できません。"
 
 #, python-format
-msgid "Unable to retrieve details for job \"%s\"."
-msgstr "ジョブ \"%s\" の詳細を取得できません。"
-
-#, python-format
-msgid "Unable to retrieve details for job binary \"%s\"."
-msgstr "ジョブバイナリー \"%s\" の詳細を取得できません。"
-
-#, python-format
-msgid "Unable to retrieve details for job template \"%s\"."
-msgstr "ジョブテンプレート \"%s\" の詳細を取得できません。"
-
-#, python-format
 msgid "Unable to retrieve details for keypair \"%s\"."
 msgstr "キーペア \"%s\" の詳細を取得できません。"
 
 #, python-format
 msgid "Unable to retrieve details for network \"%s\"."
 msgstr "ネットワーク \"%s\" の詳細を取得できません。"
-
-#, python-format
-msgid "Unable to retrieve details for node group template \"%s\"."
-msgstr "ノードグループテンプレート \"%s\" の詳細を取得できません。"
 
 #, python-format
 msgid "Unable to retrieve details for parent backup: %s"
@@ -10842,9 +9387,6 @@ msgstr "ハイパーバイザーの統計を取得できません。"
 msgid "Unable to retrieve image details."
 msgstr "イメージの詳細を取得できません。"
 
-msgid "Unable to retrieve image list"
-msgstr "イメージ一覧を取得できません"
-
 msgid "Unable to retrieve image list."
 msgstr "イメージの一覧を取得できません。"
 
@@ -10856,10 +9398,6 @@ msgstr "イメージ一覧を取得できません"
 
 msgid "Unable to retrieve images for the current project."
 msgstr "このプロジェクトのイメージ一覧を取得できません。"
-
-#, python-format
-msgid "Unable to retrieve images with filter %s."
-msgstr "フィルター %s でイメージ一覧を取得できませんでした"
 
 msgid "Unable to retrieve images."
 msgstr "イメージ一覧を取得できません。"
@@ -10896,10 +9434,6 @@ msgstr "インスタンスの一覧を取得できません。"
 
 msgid "Unable to retrieve instances."
 msgstr "インスタンス一覧を取得できません。"
-
-#, python-format
-msgid "Unable to retrieve job binary \"%s\"."
-msgstr "ジョブバイナリー \"%s\" を取得できません。"
 
 msgid "Unable to retrieve key pair list."
 msgstr "キーペアの一覧を取得できません。"
@@ -10970,9 +9504,6 @@ msgstr "オブジェクトの一覧を取得できません。"
 
 msgid "Unable to retrieve object."
 msgstr "オブジェクトを取得できません。"
-
-msgid "Unable to retrieve plugin."
-msgstr "プラグインを取得できません"
 
 msgid "Unable to retrieve policies list."
 msgstr "ポリシー一覧を取得できません。"
@@ -11075,10 +9606,6 @@ msgstr "ルール一覧を取得できません (%(error)s)"
 
 msgid "Unable to retrieve rules list."
 msgstr "ルール一覧を取得できません。"
-
-#, python-format
-msgid "Unable to retrieve security group %(group)s."
-msgstr "セキュリティーグループ %(group)s を取得できません。"
 
 msgid "Unable to retrieve security group list. Please try again later."
 msgstr ""
@@ -11247,9 +9774,6 @@ msgstr "ドメインコンテキストを設定できません。"
 msgid "Unable to set bootable flag on volume."
 msgstr "ボリュームに起動可能フラグをセットできません。"
 
-msgid "Unable to set cluster type"
-msgstr "クラスター種別を設定できません"
-
 #, python-format
 msgid "Unable to set flavor access for project %s."
 msgstr "プロジェクト \"%s\" へのフレーバーアクセス権を設定できません。"
@@ -11257,14 +9781,8 @@ msgstr "プロジェクト \"%s\" へのフレーバーアクセス権を設定�
 msgid "Unable to set gateway."
 msgstr "ゲートウェイを設定できません。"
 
-msgid "Unable to set job type"
-msgstr "ジョブ種別を設定できません"
-
 msgid "Unable to set project quotas."
 msgstr "プロジェクトのクォータを設定できません。"
-
-msgid "Unable to show guides"
-msgstr "ガイドを表示できません"
 
 msgid "Unable to sort instance flavors."
 msgstr "インスタンスのフレーバーの並び替えができません。"
@@ -11285,17 +9803,11 @@ msgstr "グループを更新できません。"
 msgid "Unable to update image \"%s\"."
 msgstr "イメージ \"%s\" を更新できません。"
 
-msgid "Unable to update job binary"
-msgstr "ジョブバイナリーを更新できません。"
-
 msgid "Unable to update object."
 msgstr "オブジェクトを更新できません。"
 
 msgid "Unable to update role."
 msgstr "ロールを更新できません。"
-
-msgid "Unable to update row"
-msgstr "行を更新できません"
 
 #, python-format
 msgid "Unable to update security group: %s"
@@ -11336,12 +9848,6 @@ msgstr "ボリューム種別を更新できません。"
 msgid "Unable to update volume."
 msgstr "ボリュームを更新できません。"
 
-msgid "Unable to upload cluster template file"
-msgstr "クラスターテンプレートファイルをアップロードできませんでした"
-
-msgid "Unable to upload job binary"
-msgstr "ジョブバイナリーをアップロードできません"
-
 msgid "Unable to upload object."
 msgstr "オブジェクトをアップロードできません。"
 
@@ -11378,20 +9884,9 @@ msgstr "ボリュームの管理解除"
 msgid "Unmanage a Volume"
 msgstr "ボリュームの管理解除"
 
-msgid "Unnecessary tags may be removed by clicking a cross near tag's name."
-msgstr "不要なタグは、タグ名の横の ☓ 印をクリックすると削除できます。"
-
 msgctxt "Action log of an instance"
 msgid "Unpause"
 msgstr "一時停止解除"
-
-msgid "Unregister Image"
-msgid_plural "Unregister Images"
-msgstr[0] "イメージの登録削除"
-
-msgid "Unregistered Image"
-msgid_plural "Unregistered Images"
-msgstr[0] "イメージの登録を削除しました"
 
 msgctxt "Task status of an Instance"
 msgid "Unrescuing"
@@ -11537,9 +10032,6 @@ msgstr "最終更新"
 msgid "Updated subnet \"%s\"."
 msgstr "サブネット \"%s\" を更新しました。"
 
-msgid "Updated time"
-msgstr "更新日時"
-
 msgctxt "Task status of an Instance"
 msgid "Updating Password"
 msgstr "パスワード更新中"
@@ -11555,9 +10047,6 @@ msgstr "ボリュームスナップショット \"%s\" を更新中"
 msgid "Upload"
 msgstr "アップロード"
 
-msgid "Upload File"
-msgstr "ファイルのアップロード"
-
 msgid "Upload Object"
 msgstr "オブジェクトのアップロード"
 
@@ -11568,23 +10057,14 @@ msgstr "オブジェクトのコンテナー %(container_name)s へのアップ�
 msgid "Upload Objects"
 msgstr "オブジェクトのアップロード"
 
-msgid "Upload Template"
-msgstr "テンプレートのアップロード"
-
 msgid "Upload Volume to Image"
 msgstr "ボリュームをイメージにアップロード"
-
-msgid "Upload a new file"
-msgstr "新しいファイルをアップロード"
 
 msgid "Upload to Image"
 msgstr "イメージにアップロード"
 
 msgid "Uploaded image size"
 msgstr "アップロードされたイメージサイズ"
-
-msgid "Url"
-msgstr "URL"
 
 msgid "Usage"
 msgstr "使用状況"
@@ -11601,23 +10081,11 @@ msgstr "使用状況レポート"
 msgid "Usage Report For Period:"
 msgstr "期間中の使用状況レポート:"
 
-msgid "Use HBase Common library"
-msgstr "HBase 共通ライブラリーを使用"
-
 msgid "Use Server Default"
 msgstr "デフォルト設定を使用"
 
 msgid "Use a volume as source"
 msgstr "ボリュームをソースとして使用する"
-
-msgid "Use anti-affinity groups for processes"
-msgstr "プロセスに対して anti-affinity グループを使用します"
-
-msgid "Use anti-affinity groups for: "
-msgstr "anti-affinity グループを使用するプロセス:"
-
-msgid "Use auto-configuration"
-msgstr "自動設定を使用"
 
 msgid "Use image as a source"
 msgstr "イメージをソースとして使用する"
@@ -11684,19 +10152,12 @@ msgstr "ユーザー設定"
 msgid "User has been updated successfully."
 msgstr "ユーザーが正常に更新されました。"
 
-msgid "User has to choose a keypair to have access to clusters instances."
-msgstr ""
-"クラスターのインスタンスにアクセスするためのキーペアを選択してください。"
-
 #, python-format
 msgid "User name \"%s\" is already used."
 msgstr "ユーザー名 \"%s\" はすでに使用されています。"
 
 msgid "User password has been updated successfully."
 msgstr "ユーザーのパスワードが正常に更新されました。"
-
-msgid "Username"
-msgstr "ユーザー名"
 
 msgid "Username (required)"
 msgstr "ユーザー名 (必須)"
@@ -11796,17 +10257,8 @@ msgstr "値"
 msgid "Value (Avg)"
 msgstr "値 (平均)"
 
-msgid "Value Type"
-msgstr "値の型"
-
 msgid "Value:"
 msgstr "値:"
-
-msgid "Version"
-msgstr "バージョン"
-
-msgid "Version:"
-msgstr "バージョン:"
 
 #, python-format
 msgid ""
@@ -11959,9 +10411,6 @@ msgstr ""
 msgid "Volume is Unencrypted"
 msgstr "ボリュームは暗号化されていません。"
 
-msgid "Volume local to instance"
-msgstr "ボリュームをインスタンスと同じホストに配置"
-
 msgid ""
 "Volume mount point (e.g. 'vda' mounts at '/dev/vda'). Leave this field blank "
 "to let the system choose a device name for you."
@@ -12027,24 +10476,6 @@ msgstr "ボリューム"
 msgid "Volumes Attached"
 msgstr "接続されているボリューム"
 
-msgid "Volumes Availability Zone"
-msgstr "ボリュームアベイラビリティーゾーン"
-
-msgid "Volumes local to instance"
-msgstr "ボリュームをインスタンスと同じホストに配置"
-
-msgid "Volumes per node"
-msgstr "ノード当たりのボリューム数"
-
-msgid "Volumes size"
-msgstr "ボリュームサイズ"
-
-msgid "Volumes size (GB)"
-msgstr "ボリュームサイズ (GB)"
-
-msgid "Volumes type"
-msgstr "ボリューム種別"
-
 msgid "Weight"
 msgstr "重み"
 
@@ -12060,9 +10491,6 @@ msgstr ""
 "特定の IP アドレスを使用したい場合は、アドレスを指定することもできます。\n"
 "この場合、そのアドレスは選択したサブネットに属していなければいけません。"
 
-msgid "Which keypair to use for authentication."
-msgstr "認証に使用するキーペアを選択してください。"
-
 msgid ""
 "Within a container you can group your objects into pseudo-folders, which "
 "behave similarly to folders in your desktop operating system, with the "
@@ -12076,9 +10504,6 @@ msgstr ""
 "シュ (/) 文字がオブジェクトストアにおいて擬似フォルダーの区切り文字として使用"
 "されます。"
 
-msgid "Worker Node Group Template:"
-msgstr "ワーカーノードグループテンプレート:"
-
 msgid "Yes"
 msgstr "はい"
 
@@ -12087,25 +10512,6 @@ msgstr "すでに利用可能な Floating IP 数を使い切っています。"
 
 msgid "You are already using all of your available volumes."
 msgstr "すでに利用可能なボリューム数を使い切っています。"
-
-msgid ""
-"You are now ready to\n"
-"                        launch your cluster.  When you click on the link\n"
-"                        below, you will need to give your cluster a name,\n"
-"                        choose the Cluster Template to use and choose which\n"
-"                        image to use to build your instances.  After you\n"
-"                        click on \"Create\", your instances will begin to\n"
-"                        spawn.  Your cluster should be operational in a few\n"
-"                        minutes."
-msgstr ""
-"これでクラスターを起動できる準備が整いました。\n"
-"以下のリンクをクリックして、\n"
-"クラスターの名前を指定し、\n"
-"使用するクラスターテンプレートとインスタンスのビルドに\n"
-"使用するイメージを選択する必要があります。\n"
-"「作成」をクリックした後には、\n"
-"インスタンスの起動が開始します。\n"
-"クラスターは数分後には稼働状態となるはずです。"
 
 msgid ""
 "You can connect a specified external network to the router. The external "
@@ -12182,25 +10588,10 @@ msgstr ""
 "このメッセージがエラーで表示されていると思われる場合には、\n"
 "担当のプロジェクトマネージャーにお問い合わせください。"
 
-msgid "You may also add any custom tag."
-msgstr "任意のカスタムタグを追加できます。"
-
-msgid "You may also enter an optional description for your Data Source."
-msgstr "またオプションで、データソースの説明を入力することもできます。"
-
-msgid "You may also enter an optional description for your job binary."
-msgstr "またオプションで、ジョブバイナリーの説明を入力することもできます。"
-
-msgid "You may also enter an optional description for your job template."
-msgstr "またオプションで、ジョブテンプレートの説明を入力することもできます。"
-
 msgid "You may have mistyped the address or the page may have moved."
 msgstr ""
 "入力したアドレスが間違っているか、またはそのページが移動された可能性がありま"
 "す。"
-
-msgid "You may need to enter the username and password for your Data Source."
-msgstr "データソースのユーザー名とパスワードを入力する必要があります。"
 
 msgid "You may optionally set a password on the rebuilt instance."
 msgstr "追加で、再作成するインスタンスのパスワードを設定することができます。"
@@ -12211,9 +10602,6 @@ msgid ""
 msgstr ""
 "「ゲートウェイの設定」で再度ゲートウェイを設定することはできますが、ゲート"
 "ウェイ側の IP アドレスが変更される可能性があります。"
-
-msgid "You may set <b>cluster</b> scoped configurations on corresponding tabs."
-msgstr "対応するタブで<b>クラスター</b>毎の設定を行うことができます。"
 
 msgid "You may update IKE Policy details here."
 msgstr "IKE ポリシーの詳細をここから更新できます。"
@@ -12273,13 +10661,6 @@ msgstr "ポートの編集可能な属性をここから更新できます。"
 
 msgid "You may update the editable properties of your router here."
 msgstr "ルーターの変更可能な属性を更新できます。"
-
-msgid ""
-"You must choose a flavor to determine the size (VCPUs, memory and storage) "
-"of all launched VMs."
-msgstr ""
-"起動する全仮想マシンのサイズ (仮想 CPU、メモリー、ストレージ) を決定するため"
-"のフレーバーを選択する必要があります。"
 
 msgid "You must select a datastore type and version."
 msgstr "データストアの種別とバージョンを選択する必要があります。"
@@ -12387,9 +10768,6 @@ msgstr "hold"
 
 msgid "instance"
 msgstr "インスタンス"
-
-msgid "no processes"
-msgstr "指定されたプロセスはありません"
 
 msgid "pseudo-folder"
 msgstr "擬似フォルダー"
