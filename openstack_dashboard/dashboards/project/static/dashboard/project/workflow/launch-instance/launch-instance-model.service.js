@@ -322,15 +322,6 @@
     function onGetSecurityGroups(data) {
       model.securityGroups.length = 0;
       push.apply(model.securityGroups, data.data.items);
-      // set initial default
-      if (model.newInstanceSpec.security_groups.length === 0 &&
-          model.securityGroups.length > 0) {
-        model.securityGroups.forEach(function (securityGroup) {
-          if (securityGroup.name === 'default') {
-            model.newInstanceSpec.security_groups.push(securityGroup);
-          }
-        });
-      }
     }
 
     function setFinalSpecSecurityGroups(finalSpec) {
