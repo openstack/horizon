@@ -19,10 +19,10 @@ class TestDashboardHelp(helpers.TestCase):
         """Verifies Help link redirects to the right URL."""
 
         self.home_pg.go_to_help_page()
-        self.home_pg.switch_window()
-
         self.home_pg._wait_until(
             lambda _: self.home_pg.is_nth_window_opened(2))
+        self.home_pg.switch_window()
+
         self.assertEqual(self.CONFIG.dashboard.help_url,
                          self.home_pg.get_url_current_page(),
                          "help link did not redirect to the right URL")
