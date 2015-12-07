@@ -1200,8 +1200,7 @@ class VolumeViewTests(test.TestCase):
         res = self.client.get(url)
 
         self.assertContains(res,
-                            "<h1>Volume Encryption Details: "
-                            "%s</h1>" % volume.name,
+                            "Volume Encryption Details: %s" % volume.name,
                             1, 200)
         self.assertContains(res, "<dd>%s</dd>" % volume.volume_type, 1, 200)
         self.assertContains(res, "<dd>%s</dd>" % enc_meta.provider, 1, 200)
@@ -1229,8 +1228,7 @@ class VolumeViewTests(test.TestCase):
         res = self.client.get(url)
 
         self.assertContains(res,
-                            "<h1>Volume Encryption Details: "
-                            "%s</h1>" % volume.name,
+                            "Volume Encryption Details: %s" % volume.name,
                             1, 200)
         self.assertContains(res, "<h3>Volume is Unencrypted</h3>", 1, 200)
 

@@ -1,6 +1,12 @@
 {% extends 'base.html' %}
-{% load i18n %}
+{% load i18n breadcrumb_nav %}
 {% block title %}{% trans "Volume Type Encryption Details" %}{% endblock %}
+
+{% block page_header %}
+  <div class='page-header'>
+    {% breadcrumb_nav %}
+  </div>
+{% endblock %}
 
 {% block main %}
 <div class="row-fluid">

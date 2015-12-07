@@ -17,11 +17,11 @@ Admin views for managing volumes.
 from django.core.urlresolvers import reverse
 from django.core.urlresolvers import reverse_lazy
 from django.utils.translation import ugettext_lazy as _
-from django.views import generic
 
 from horizon import exceptions
 from horizon import forms
 from horizon.utils import memoized
+from horizon import views
 
 from openstack_dashboard import api
 from openstack_dashboard.dashboards.admin.volumes.volume_types \
@@ -39,7 +39,7 @@ class CreateVolumeTypeView(forms.ModalFormView):
     page_title = _("Create a Volume Type")
 
 
-class VolumeTypeEncryptionDetailView(generic.TemplateView):
+class VolumeTypeEncryptionDetailView(views.HorizonTemplateView):
     template_name = ("admin/volumes/volume_types"
                      "/volume_encryption_type_detail.html")
     page_title = _("Volume Type Encryption Details")
