@@ -5,3 +5,14 @@
   float: none;
   margin: 0 auto;
 }
+
+// Used to x-scroll to Pre-formatted text.
+.pre_scrollable {
+  display: table;
+  table-layout: fixed;
+  width: 100%;
+
+  pre {
+    word-wrap: normal;
+  }
+}
