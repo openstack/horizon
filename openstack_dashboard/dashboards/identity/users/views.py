@@ -181,6 +181,7 @@ class DetailView(views.HorizonTemplateView):
             except Exception:
                 exceptions.handle(self.request,
                                   _('Unable to retrieve project domain.'))
+            context["description"] = getattr(user, "description", _("None"))
 
         context["user"] = user
         if tenant:

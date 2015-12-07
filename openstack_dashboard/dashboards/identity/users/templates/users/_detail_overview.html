@@ -12,6 +12,10 @@
     {% endif %}
     <dt>{% trans "User Name" %}</dt>
     <dd>{{ user.name }}</dd>
+    {% if description %}
+      <dt>{% trans "Description" %}</dt>
+      <dd>{{ description }}</dd>
+    {% endif %}
     <dt>{% trans "ID" %}</dt>
     <dd>{{ user.id }}</dd>
     <dt>{% trans "Email" %}</dt>
