@@ -17,6 +17,8 @@
   describe('actions directive', function () {
     var $scope, $compile, $q, $templateCache, basePath;
 
+    var rowItem = {id: 1};
+
     beforeEach(module('templates'));
     beforeEach(module('horizon.framework'));
 
@@ -29,18 +31,12 @@
     }));
 
     it('should have no buttons if there are no actions', function () {
-      var element = angular.element(getTemplate('actions.batch'));
-      $scope.actions = [];
-      $compile(element)($scope);
-      $scope.$apply();
+      var element = batchElementFor([]);
       expect(element.children().length).toBe(0);
     });
 
     it('should allow for specifying action text', function () {
-      var element = angular.element(getTemplate('actions.batch'));
-      $scope.actions = [permittedActionWithText('Create Image', 'image')];
-      $compile(element)($scope);
-      $scope.$apply();
+      var element = batchElementFor([permittedActionWithText('Create Image')]);
 
       expect(element.children().length).toBe(1);
       var actionList = element.find('action-list');
@@ -52,10 +48,7 @@
     });
 
     it('should allow for specifying by template for create', function () {
-      var element = angular.element(getTemplate('actions.batch'));
-      $scope.actions = [permittedActionWithType('create', 'Create Image')];
-      $compile(element)($scope);
-      $scope.$apply();
+      var element = batchElementFor([permittedActionWithType('create', 'Create Image')]);
 
       expect(element.children().length).toBe(1);
       var actionList = element.find('action-list');
@@ -67,10 +60,7 @@
     });
 
     it('should allow for specifying by template for delete-selected', function () {
-      var element = angular.element(getTemplate('actions.batch'));
-      $scope.actions = [permittedActionWithType('delete-selected', 'Delete Images')];
-      $compile(element)($scope);
-      $scope.$apply();
+      var element = batchElementFor([permittedActionWithType('delete-selected', 'Delete Images')]);
 
       expect(element.children().length).toBe(1);
       var actionList = element.find('action-list');
@@ -83,10 +73,12 @@
     });
 
     it('should allow for specifying by template for delete', function () {
-      var element = angular.element(getTemplate('actions.row'));
-      $scope.actions = [permittedActionWithType('delete', 'Delete Image')];
-      $compile(element)($scope);
-      $scope.$apply();
+      $scope.callback = function(item) {
+        expect(item).toEqual(rowItem);
+      };
+      spyOn($scope, 'callback').and.callThrough();
+
+      var element = rowElementFor([permittedActionWithType('delete', 'Delete Image')]);
 
       expect(element.children().length).toBe(1);
       var actionList = element.find('action-list');
@@ -95,15 +87,14 @@
       expect(actionList.find('button').attr('class')).toEqual('text-danger');
       expect(actionList.find('button').attr('ng-click')).toEqual('disabled || callback(item)');
       expect(actionList.text().trim()).toEqual('Delete Image');
+
+      actionList.find('button').click();
+      expect($scope.callback).toHaveBeenCalled();
     });
 
     it('should have one button if there is one action', function () {
       var action = getTemplatePath('action-create', getTemplate());
-
-      var element = angular.element(getTemplate('actions.batch'));
-      $scope.actions = [permittedActionWithUrl(action)];
-      $compile(element)($scope);
-      $scope.$apply();
+      var element = batchElementFor([permittedActionWithUrl(action)]);
 
       expect(element.children().length).toBe(1);
       var actionList = element.find('action-list');
@@ -115,10 +106,7 @@
     });
 
     it('should have no buttons if not permitted', function () {
-      var element = angular.element(getTemplate('actions.batch'));
-      $scope.actions = [notPermittedAction()];
-      $compile(element)($scope);
-      $scope.$apply();
+      var element = batchElementFor([notPermittedAction()]);
 
       expect(element.children().length).toBe(0);
     });
@@ -126,11 +114,10 @@
     it('should have multiple buttons for multiple actions as a list', function () {
       var action1 = getTemplatePath('action-create');
       var action2 = getTemplatePath('action-delete');
-
-      var element = angular.element(getTemplate('actions.batch'));
-      $scope.actions = [permittedActionWithUrl(action1), permittedActionWithUrl(action2)];
-      $compile(element)($scope);
-      $scope.$apply();
+      var element = batchElementFor([
+        permittedActionWithUrl(action1),
+        permittedActionWithUrl(action2)
+      ]);
 
       expect(element.children().length).toBe(2);
       var actionList = element.find('action-list');
@@ -142,11 +129,10 @@
 
     it('should have as many buttons as permitted', function () {
       var actionTemplate1 = getTemplatePath('action-create');
-
-      var element = angular.element(getTemplate('actions.batch'));
-      $scope.actions = [permittedActionWithUrl(actionTemplate1), notPermittedAction()];
-      $compile(element)($scope);
-      $scope.$apply();
+      var element = batchElementFor([
+        permittedActionWithUrl(actionTemplate1),
+        notPermittedAction()
+      ]);
 
       expect(element.children().length).toBe(1);
       var actionList = element.find('action-list');
@@ -159,10 +145,10 @@
       var action1 = getTemplatePath('action-create');
       var action2 = getTemplatePath('action-delete');
 
-      var element = angular.element(getTemplate('actions.row'));
-      $scope.actions = [permittedActionWithUrl(action1), permittedActionWithUrl(action2)];
-      $compile(element)($scope);
-      $scope.$apply();
+      var element = rowElementFor([
+        permittedActionWithUrl(action1),
+        permittedActionWithUrl(action2)
+      ]);
 
       expect(element.children().length).toBe(1);
       var actionList = element.find('action-list');
@@ -173,13 +159,10 @@
     });
 
     it('should have multiple buttons as a dropdown for actions text', function () {
-      var element = angular.element(getTemplate('actions.row'));
-      $scope.actions = [
-        permittedActionWithText('Create Image', 'image'),
-        permittedActionWithText('Delete Image', 'image', 'text-danger')
-      ];
-      $compile(element)($scope);
-      $scope.$apply();
+      var element = rowElementFor([
+        permittedActionWithText('Create Image'),
+        permittedActionWithText('Delete Image', 'text-danger')
+      ]);
 
       expect(element.children().length).toBe(1);
       var actionList = element.find('action-list');
@@ -190,13 +173,10 @@
     });
 
     it('should have one button if only one permitted for dropdown', function () {
-      var element = angular.element(getTemplate('actions.row'));
-      $scope.actions = [
+      var element = rowElementFor([
         permittedActionWithUrl(getTemplatePath('action-create')),
         notPermittedAction()
-      ];
-      $compile(element)($scope);
-      $scope.$apply();
+      ]);
 
       expect(element.children().length).toBe(1);
       var actionList = element.find('action-list');
@@ -213,11 +193,10 @@
       };
     }
 
-    function permittedActionWithText(text, item, actionClasses) {
+    function permittedActionWithText(text, actionClasses) {
       return {
         template: {
           text: text,
-          item: item,
           actionClasses: actionClasses
         },
         permissions: getPermission(true),
@@ -225,12 +204,11 @@
       };
     }
 
-    function permittedActionWithType(templateType, text, item) {
+    function permittedActionWithType(templateType, text) {
       return {
         template: {
           type: templateType,
-          text: text,
-          item: item
+          text: text
         },
         permissions: getPermission(true),
         callback: 'callback'
@@ -259,6 +237,34 @@
       }
 
       return deferred.promise;
+    }
+
+    function batchElementFor(actions) {
+      $scope.actions = function() {
+        return actions;
+      };
+
+      var element = angular.element(getTemplate('actions.batch'));
+
+      $compile(element)($scope);
+      $scope.$apply();
+
+      return element;
+    }
+
+    function rowElementFor(actions) {
+      $scope.rowItem = rowItem;
+      $scope.actions = function(item) {
+        expect(item).toEqual(rowItem);
+        return actions;
+      };
+
+      var element = angular.element(getTemplate('actions.row'));
+
+      $compile(element)($scope);
+      $scope.$apply();
+
+      return element;
     }
 
   });
