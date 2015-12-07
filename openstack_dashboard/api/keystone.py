@@ -354,8 +354,6 @@ def user_update(request, user, **data):
 
     # The v2 API updates user model and default project separately
     if VERSIONS.active < 3:
-        project = data.pop('project')
-
         # Update user details
         try:
             user = manager.update(user, **data)
@@ -364,21 +362,24 @@ def user_update(request, user, **data):
         except Exception:
             error = exceptions.handle(request, ignore=True)
 
-        # Update default tenant
-        try:
-            user_update_tenant(request, user, project)
-            user.tenantId = project
-        except Exception:
-            error = exceptions.handle(request, ignore=True)
+        if "project" in data:
+            project = data.pop('project')
 
-        # Check for existing roles
-        # Show a warning if no role exists for the project
-        user_roles = roles_for_user(request, user, project)
-        if not user_roles:
-            messages.warning(request,
-                             _('User %s has no role defined for '
-                               'that project.')
-                             % data.get('name', None))
+            # Update default tenant
+            try:
+                user_update_tenant(request, user, project)
+                user.tenantId = project
+            except Exception:
+                error = exceptions.handle(request, ignore=True)
+
+            # Check for existing roles
+            # Show a warning if no role exists for the project
+            user_roles = roles_for_user(request, user, project)
+            if not user_roles:
+                messages.warning(request,
+                                 _('User %s has no role defined for '
+                                   'that project.')
+                                 % data.get('name', None))
 
         if error is not None:
             raise error
