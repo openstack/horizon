@@ -1,7 +1,13 @@
 {% extends 'base.html' %}
-{% load i18n sizeformat %}
+{% load i18n sizeformat breadcrumb_nav %}
 
 {% block title %}{% trans "Key Pair Details" %}{% endblock %}
+
+{% block page_header %}
+  <div class='page-header'>
+    {% breadcrumb_nav %}
+  </div>
+{% endblock %}
 
 {% block main %}
 <div class="row-fluid">

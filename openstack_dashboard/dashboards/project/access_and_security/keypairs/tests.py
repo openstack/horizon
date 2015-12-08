@@ -117,7 +117,9 @@ class KeyPairViewTests(test.TestCase):
                       kwargs={'keypair_name': keypair.name})
         res = self.client.get(url, context)
 
-        self.assertContains(res, "<h1>Key Pair Details</h1>", 1, 200)
+        # Note(Itxaka): With breadcrumbs, the title is in a list as active
+        self.assertContains(res, '<li class="active">Key Pair Details</li>',
+                            1, 200)
         self.assertContains(res, "<dd>%s</dd>" % keypair.name, 2, 200)
 
     @test.create_stubs({api.nova: ("keypair_create", "keypair_delete")})
