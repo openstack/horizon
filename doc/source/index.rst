@@ -82,6 +82,7 @@ the following topic guides.
    topics/table_actions
    topics/angularjs
    topics/javascript_testing
+   topics/styling
 
 API Reference
 -------------

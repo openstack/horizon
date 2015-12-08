@@ -404,6 +404,7 @@ This example sorts flavors by vcpus in descending order::
          'reverse': True,
     }
 
+.. _custom_theme_path:
 
 ``CUSTOM_THEME_PATH``
 ---------------------
@@ -1318,6 +1319,8 @@ IP address, that should be added. The setting may contain more than one entry.
     set this with the list of host/domain names that the application can serve.
     For more information see:
     https://docs.djangoproject.com/en/dev/ref/settings/#allowed-hosts
+
+.. _debug_setting:
 
 ``DEBUG`` and ``TEMPLATE_DEBUG``
 --------------------------------
