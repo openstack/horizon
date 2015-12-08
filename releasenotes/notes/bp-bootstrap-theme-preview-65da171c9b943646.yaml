@@ -1,0 +1,8 @@
+---
+features:
+    - Added the Developer dashboard plugin to contrib. This runs when
+      ``DEBUG=True``, and adds tooling to the UI to aid in development.
+    - Added the Bootstrap Theme Preview panel to the Developer dashboard. This
+      panel contains a list of Bootstrap components with source code, so that
+      developers can see examples of how to structure this code and the
+      effects their theme will have upon it.

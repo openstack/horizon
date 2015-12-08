@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% load i18n %}
+
+{% block title %}
+  {% trans "Theme Preview" %}
+{% endblock %}
+
+{% block page_header %}
+  <h1>{{ skin }} <small>{{ skin_desc }}</small></h1>
+{% endblock %}
+
+{% block main %}
+  <themepreview></themepreview>
+{% endblock %}

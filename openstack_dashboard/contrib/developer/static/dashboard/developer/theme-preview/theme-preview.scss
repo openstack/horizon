@@ -1,0 +1,53 @@
+@import "/custom/variables";
+
+themepreview {
+
+  #source-button {
+    font-weight: 700;
+    position: absolute;
+    right: 0;
+    top: 0;
+    z-index: 100;
+  }
+
+  .bs-component {
+    position: relative;
+  }
+
+  .bs-component .modal-dialog {
+    width: 90%;
+  }
+
+  .bs-component .modal {
+    bottom: auto;
+    display: block;
+    left: auto;
+    position: relative;
+    right: auto;
+    top: auto;
+    z-index: 1;
+  }
+
+  .bs-component .popover {
+    display: inline-block;
+    margin: 20px;
+    position: relative;
+    width: 220px;
+  }
+
+  .left .tooltip-inner {
+    float: right;
+  }
+
+  #nav-tabs .nav-tabs {
+    margin-bottom: 15px;
+  }
+
+  .nav-pills.nav-pills-stacked {
+    max-width: 300px;
+  }
+
+  .navbar {
+    margin-bottom: $padding-large-horizontal*2;
+  }
+}
