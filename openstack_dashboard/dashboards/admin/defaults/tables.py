@@ -54,16 +54,26 @@ def get_quota_name(quota):
         'security_group_rules': _('Security Group Rules'),
         'key_pairs': _('Key Pairs'),
         'fixed_ips': _('Fixed IPs'),
-        'volumes_volume_luks': _('LUKS Volumes'),
-        'snapshots_volume_luks': _('LUKS Volume Snapshots'),
-        'gigabytes_volume_luks':
-        _('Total Size of LUKS Volumes and Snapshots (GB)'),
         'dm-crypt': _('dm-crypt'),
         'server_group_members': _('Server Group Members'),
         'server_groups': _('Server Groups'),
         'backup_gigabytes': _('Backup Gigabytes'),
-        'backups': _('Backups')
+        'backups': _('Backups'),
+        'per_volume_gigabytes': _('Per Volume Size (GiB)'),
     }
+
+    QUOTA_DYNAMIC_NAMES = {
+        'volumes': _('Volumes of Type %(type)s'),
+        'snapshots': _('Volume Snapshots of Type %(type)s'),
+        'gigabytes':
+            _('Total Size of Volumes and Snapshots (GiB) of Type %(type)s')
+    }
+
+    # NOTE(Itxaka): This quotas are dynamic and depend on the type of
+    # volume types that are defined by the operator
+    if quota.name.startswith(('volumes_', 'snapshots_', 'gigabytes_')):
+        params = {'type': quota.name.split('_')[1]}
+        return QUOTA_DYNAMIC_NAMES.get(quota.name.split('_')[0]) % params
     return QUOTA_NAMES.get(quota.name, quota.name.replace("_", " ").title())
 
 
