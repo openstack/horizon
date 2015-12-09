@@ -24,8 +24,10 @@ from openstack_dashboard import policy
 
 from openstack_dashboard.dashboards.project.volumes.backups \
     import tables as backups_tables
+from openstack_dashboard.dashboards.project.volumes.cg_snapshots \
+    import tables as cg_snapshots_tables
 from openstack_dashboard.dashboards.project.volumes.cgroups \
-    import tables as vol_cgroup_tables
+    import tables as cgroup_tables
 from openstack_dashboard.dashboards.project.volumes.snapshots \
     import tables as vol_snapshot_tables
 from openstack_dashboard.dashboards.project.volumes.volumes \
@@ -206,9 +208,9 @@ class BackupsTab(PagedTableMixin, tabs.TableTab, VolumeTableMixIn):
         return backups
 
 
-class CGroupsTab(tabs.TableTab, VolumeTableMixIn):
-    table_classes = (vol_cgroup_tables.VolumeCGroupsTable,)
-    name = _("Volume Consistency Groups")
+class CGroupsTab(tabs.TableTab):
+    table_classes = (cgroup_tables.VolumeCGroupsTable,)
+    name = _("Consistency Groups")
     slug = "cgroups_tab"
     template_name = ("horizon/common/_detail_table.html")
     preload = False
@@ -223,8 +225,7 @@ class CGroupsTab(tabs.TableTab, VolumeTableMixIn):
         try:
             cgroups = api.cinder.volume_cgroup_list_with_vol_type_names(
                 self.request)
-            for cgroup in cgroups:
-                setattr(cgroup, '_volume_tab', self.tab_group.tabs[0])
+
         except Exception:
             cgroups = []
             exceptions.handle(self.request, _("Unable to retrieve "
@@ -232,7 +233,32 @@ class CGroupsTab(tabs.TableTab, VolumeTableMixIn):
         return cgroups
 
 
+class CGSnapshotsTab(tabs.TableTab):
+    table_classes = (cg_snapshots_tables.CGSnapshotsTable,)
+    name = _("Consistency Group Snapshots")
+    slug = "cg_snapshots_tab"
+    template_name = ("horizon/common/_detail_table.html")
+    preload = False
+
+    def allowed(self, request):
+        return policy.check(
+            (("volume", "consistencygroup:get_all_cgsnapshots"),),
+            request
+        )
+
+    def get_volume_cg_snapshots_data(self):
+        try:
+            cg_snapshots = api.cinder.volume_cg_snapshot_list(
+                self.request)
+        except Exception:
+            cg_snapshots = []
+            exceptions.handle(self.request, _("Unable to retrieve "
+                                              "volume consistency group "
+                                              "snapshots."))
+        return cg_snapshots
+
+
 class VolumeAndSnapshotTabs(tabs.TabGroup):
     slug = "volumes_and_snapshots"
-    tabs = (VolumeTab, SnapshotTab, BackupsTab, CGroupsTab)
+    tabs = (VolumeTab, SnapshotTab, BackupsTab, CGroupsTab, CGSnapshotsTab)
     sticky = True

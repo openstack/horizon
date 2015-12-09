@@ -1,0 +1,42 @@
+{% extends "project/volumes/_volume_limits.html" %}
+{% load i18n horizon humanize %}
+
+{% block title %}
+  {% trans "From here you can create a snapshot of a volume." %}
+{% endblock %}
+
+{% block head %}
+  {% trans "Snapshot Limits" %}
+{% endblock %}
+
+{% block gigabytes_used %}
+  {{ usages.totalGigabytesUsed|intcomma }}
+{% endblock %}
+
+{% block gigabytes_used_progress %}
+  "{{ usages.totalGigabytesUsed }}"
+{% endblock %}
+
+{% block type_title %}
+  {% trans "Number of Snapshots" %}
+{% endblock %}
+
+{% block used %}
+  {{ usages.snapshotsUsed|intcomma }}
+{% endblock %}
+
+{% block total %}
+  {{ usages.maxTotalSnapshots|intcomma|quota }}
+{% endblock %}
+
+{% block type_id %}
+  "quota_snapshots"
+{% endblock %}
+
+{% block total_progress %}
+  "{{ usages.maxTotalSnapshots }}"
+{% endblock %}
+
+{% block used_progress %}
+  "{{ usages.snapshotsUsed }}"
+{% endblock %}

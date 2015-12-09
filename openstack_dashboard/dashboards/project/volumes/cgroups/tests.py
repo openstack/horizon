@@ -10,7 +10,6 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
-import django
 from django.core.urlresolvers import reverse
 from django import http
 from django.utils.http import urlunquote
@@ -23,34 +22,36 @@ from openstack_dashboard.test import helpers as test
 VOLUME_INDEX_URL = reverse('horizon:project:volumes:index')
 VOLUME_CGROUPS_TAB_URL = urlunquote(reverse(
     'horizon:project:volumes:cgroups_tab'))
+VOLUME_CGROUPS_SNAP_TAB_URL = urlunquote(reverse(
+    'horizon:project:volumes:cg_snapshots_tab'))
 
 
 class ConsistencyGroupTests(test.TestCase):
-    @test.create_stubs({cinder: ('volume_cgroup_create',
-                                 'volume_cgroup_list',
+    @test.create_stubs({cinder: ('extension_supported',
+                                 'availability_zone_list',
                                  'volume_type_list',
                                  'volume_type_list_with_qos_associations',
-                                 'availability_zone_list',
-                                 'extension_supported')})
+                                 'volume_cgroup_list',
+                                 'volume_cgroup_create')})
     def test_create_cgroup(self):
         cgroup = self.cinder_consistencygroups.first()
         volume_types = self.cinder_volume_types.list()
+        volume_type_id = self.cinder_volume_types.first().id
         az = self.cinder_availability_zones.first().zoneName
         formData = {'volume_types': '1',
                     'name': 'test CG',
                     'description': 'test desc',
-                    'availability_zone': az}
+                    'availability_zone': az,
+                    'add_vtypes_to_cgroup_role_member': [volume_type_id]}
 
-        cinder.volume_type_list(IsA(http.HttpRequest)).\
-            AndReturn(volume_types)
-        cinder.volume_type_list_with_qos_associations(IsA(http.HttpRequest)).\
-            AndReturn(volume_types)
-        cinder.availability_zone_list(IsA(http.HttpRequest)).AndReturn(
-            self.cinder_availability_zones.list())
         cinder.extension_supported(IsA(http.HttpRequest), 'AvailabilityZones')\
             .AndReturn(True)
-        cinder.volume_cgroup_list(IsA(
-            http.HttpRequest)).\
+        cinder.availability_zone_list(IsA(http.HttpRequest)).AndReturn(
+            self.cinder_availability_zones.list())
+        cinder.volume_type_list(IsA(http.HttpRequest)).AndReturn(volume_types)
+        cinder.volume_type_list_with_qos_associations(IsA(http.HttpRequest)).\
+            AndReturn(volume_types)
+        cinder.volume_cgroup_list(IsA(http.HttpRequest)).\
             AndReturn(self.cinder_consistencygroups.list())
         cinder.volume_cgroup_create(
             IsA(http.HttpRequest),
@@ -64,31 +65,32 @@ class ConsistencyGroupTests(test.TestCase):
         url = reverse('horizon:project:volumes:cgroups:create')
         res = self.client.post(url, formData)
         self.assertNoFormErrors(res)
+        self.assertRedirectsNoFollow(res, VOLUME_INDEX_URL)
 
-    @test.create_stubs({cinder: ('volume_cgroup_create',
-                                 'volume_cgroup_list',
+    @test.create_stubs({cinder: ('extension_supported',
+                                 'availability_zone_list',
                                  'volume_type_list',
                                  'volume_type_list_with_qos_associations',
-                                 'availability_zone_list',
-                                 'extension_supported')})
+                                 'volume_cgroup_list',
+                                 'volume_cgroup_create')})
     def test_create_cgroup_exception(self):
         volume_types = self.cinder_volume_types.list()
+        volume_type_id = self.cinder_volume_types.first().id
         az = self.cinder_availability_zones.first().zoneName
         formData = {'volume_types': '1',
                     'name': 'test CG',
                     'description': 'test desc',
-                    'availability_zone': az}
+                    'availability_zone': az,
+                    'add_vtypes_to_cgroup_role_member': [volume_type_id]}
 
-        cinder.volume_type_list(IsA(http.HttpRequest)).\
-            AndReturn(volume_types)
-        cinder.volume_type_list_with_qos_associations(IsA(http.HttpRequest)).\
-            AndReturn(volume_types)
-        cinder.availability_zone_list(IsA(http.HttpRequest)).AndReturn(
-            self.cinder_availability_zones.list())
         cinder.extension_supported(IsA(http.HttpRequest), 'AvailabilityZones')\
             .AndReturn(True)
-        cinder.volume_cgroup_list(IsA(
-            http.HttpRequest)).\
+        cinder.availability_zone_list(IsA(http.HttpRequest)).AndReturn(
+            self.cinder_availability_zones.list())
+        cinder.volume_type_list(IsA(http.HttpRequest)).AndReturn(volume_types)
+        cinder.volume_type_list_with_qos_associations(IsA(http.HttpRequest)).\
+            AndReturn(volume_types)
+        cinder.volume_cgroup_list(IsA(http.HttpRequest)).\
             AndReturn(self.cinder_consistencygroups.list())
         cinder.volume_cgroup_create(
             IsA(http.HttpRequest),
@@ -101,29 +103,65 @@ class ConsistencyGroupTests(test.TestCase):
 
         url = reverse('horizon:project:volumes:cgroups:create')
         res = self.client.post(url, formData)
-
+        self.assertNoFormErrors(res)
         self.assertRedirectsNoFollow(res, VOLUME_INDEX_URL)
+        self.assertIn("Unable to create consistency group.",
+                      res.cookies.output())
 
-    @test.create_stubs({cinder: ('volume_cgroup_list_with_vol_type_names',
+    @test.create_stubs({cinder: ('volume_cgroup_get',
                                  'volume_cgroup_delete')})
     def test_delete_cgroup(self):
-        cgroups = self.cinder_consistencygroups.list()
         cgroup = self.cinder_consistencygroups.first()
 
-        cinder.volume_cgroup_list_with_vol_type_names(IsA(http.HttpRequest)).\
-            AndReturn(cgroups)
+        cinder.volume_cgroup_get(IsA(http.HttpRequest), cgroup.id).\
+            AndReturn(cgroup)
         cinder.volume_cgroup_delete(IsA(http.HttpRequest), cgroup.id,
                                     force=False)
-        if django.VERSION < (1, 9):
-            cinder.volume_cgroup_list_with_vol_type_names(
-                IsA(http.HttpRequest)).AndReturn(cgroups)
-
         self.mox.ReplayAll()
 
-        formData = {'action': 'volume_cgroups__deletecg__%s' % cgroup.id}
-        res = self.client.post(VOLUME_CGROUPS_TAB_URL, formData, follow=True)
-        self.assertIn("Scheduled deletion of Consistency Group: cg_1",
-                      [m.message for m in res.context['messages']])
+        url = reverse('horizon:project:volumes:cgroups:delete',
+                      args=[cgroup.id])
+        res = self.client.post(url)
+        self.assertNoFormErrors(res)
+        self.assertRedirectsNoFollow(res, VOLUME_INDEX_URL)
+
+    @test.create_stubs({cinder: ('volume_cgroup_get',
+                                 'volume_cgroup_delete')})
+    def test_delete_cgroup_force_flag(self):
+        cgroup = self.cinder_consistencygroups.first()
+        formData = {'delete_volumes': True}
+
+        cinder.volume_cgroup_get(IsA(http.HttpRequest), cgroup.id).\
+            AndReturn(cgroup)
+        cinder.volume_cgroup_delete(IsA(http.HttpRequest), cgroup.id,
+                                    force=True)
+        self.mox.ReplayAll()
+
+        url = reverse('horizon:project:volumes:cgroups:delete',
+                      args=[cgroup.id])
+        res = self.client.post(url, formData)
+        self.assertNoFormErrors(res)
+        self.assertRedirectsNoFollow(res, VOLUME_INDEX_URL)
+
+    @test.create_stubs({cinder: ('volume_cgroup_get',
+                                 'volume_cgroup_delete')})
+    def test_delete_cgroup_exception(self):
+        cgroup = self.cinder_consistencygroups.first()
+        formData = {'delete_volumes': False}
+
+        cinder.volume_cgroup_get(IsA(http.HttpRequest), cgroup.id).\
+            AndReturn(cgroup)
+        cinder.volume_cgroup_delete(IsA(http.HttpRequest),
+                                    cgroup.id,
+                                    force=False).\
+            AndRaise(self.exceptions.cinder)
+        self.mox.ReplayAll()
+
+        url = reverse('horizon:project:volumes:cgroups:delete',
+                      args=[cgroup.id])
+        res = self.client.post(url, formData)
+        self.assertNoFormErrors(res)
+        self.assertRedirectsNoFollow(res, VOLUME_INDEX_URL)
 
     @test.create_stubs({cinder: ('volume_cgroup_update',
                                  'volume_cgroup_get')})
@@ -149,6 +187,7 @@ class ConsistencyGroupTests(test.TestCase):
                       args=[cgroup.id])
         res = self.client.post(url, formData)
         self.assertNoFormErrors(res)
+        self.assertRedirectsNoFollow(res, VOLUME_INDEX_URL)
 
     @test.create_stubs({cinder: ('volume_cgroup_update',
                                  'volume_cgroup_get')})
@@ -174,6 +213,7 @@ class ConsistencyGroupTests(test.TestCase):
                       args=[cgroup.id])
         res = self.client.post(url, formData)
         self.assertNoFormErrors(res)
+        self.assertRedirectsNoFollow(res, VOLUME_INDEX_URL)
 
     @test.create_stubs({cinder: ('volume_cgroup_update',
                                  'volume_cgroup_get')})
@@ -197,6 +237,7 @@ class ConsistencyGroupTests(test.TestCase):
                       args=[cgroup.id])
         res = self.client.post(url, formData)
         self.assertNoFormErrors(res)
+        self.assertRedirectsNoFollow(res, VOLUME_INDEX_URL)
 
     @test.create_stubs({cinder: ('volume_cgroup_update',
                                  'volume_cgroup_get')})
@@ -219,7 +260,7 @@ class ConsistencyGroupTests(test.TestCase):
         url = reverse('horizon:project:volumes:cgroups:update',
                       args=[cgroup.id])
         res = self.client.post(url, formData)
-
+        self.assertNoFormErrors(res)
         self.assertRedirectsNoFollow(res, VOLUME_INDEX_URL)
 
     @test.create_stubs({cinder: ('volume_cgroup_get',)})
@@ -234,5 +275,48 @@ class ConsistencyGroupTests(test.TestCase):
         url = reverse('horizon:project:volumes:cgroups:detail',
                       args=[cgroup.id])
         res = self.client.get(url)
-
+        self.assertNoFormErrors(res)
         self.assertRedirectsNoFollow(res, VOLUME_INDEX_URL)
+
+    @test.create_stubs({cinder: ('volume_cg_snapshot_create',)})
+    def test_create_snapshot(self):
+        cgroup = self.cinder_consistencygroups.first()
+        cg_snapshot = self.cinder_cg_snapshots.first()
+        formData = {'cgroup_id': cgroup.id,
+                    'name': 'test CG Snapshot',
+                    'description': 'test desc'}
+
+        cinder.volume_cg_snapshot_create(
+            IsA(http.HttpRequest),
+            formData['cgroup_id'],
+            formData['name'],
+            formData['description'])\
+            .AndReturn(cg_snapshot)
+        self.mox.ReplayAll()
+
+        url = reverse('horizon:project:volumes:cgroups:create_snapshot',
+                      args=[cgroup.id])
+        res = self.client.post(url, formData)
+        self.assertNoFormErrors(res)
+        self.assertRedirectsNoFollow(res, VOLUME_CGROUPS_SNAP_TAB_URL)
+
+    @test.create_stubs({cinder: ('volume_cgroup_get',
+                                 'volume_cgroup_create_from_source',)})
+    def test_create_clone(self):
+        cgroup = self.cinder_consistencygroups.first()
+        formData = {'cgroup_id': cgroup.id,
+                    'name': 'test CG Clone',
+                    'description': 'test desc'}
+        cinder.volume_cgroup_create_from_source(
+            IsA(http.HttpRequest),
+            formData['name'],
+            source_cgroup_id=formData['cgroup_id'],
+            description=formData['description'])\
+            .AndReturn(cgroup)
+        self.mox.ReplayAll()
+
+        url = reverse('horizon:project:volumes:cgroups:clone_cgroup',
+                      args=[cgroup.id])
+        res = self.client.post(url, formData)
+        self.assertNoFormErrors(res)
+        self.assertRedirectsNoFollow(res, VOLUME_CGROUPS_TAB_URL)

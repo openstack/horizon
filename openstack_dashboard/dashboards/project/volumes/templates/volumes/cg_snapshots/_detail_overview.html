@@ -1,0 +1,46 @@
+{% load i18n sizeformat parse_date %}
+
+<div class="detail">
+  <dl class="dl-horizontal">
+    <dt>{% trans "Name" %}</dt>
+    <dd>{{ cg_snapshot.name }}</dd>
+    <dt>{% trans "ID" %}</dt>
+    <dd>{{ cg_snapshot.id }}</dd>
+    {% if cg_snapshot.description %}
+    <dt>{% trans "Description" %}</dt>
+    <dd>{{ cg_snapshot.description }}</dd>
+    {% endif %}
+    <dt>{% trans "Status" %}</dt>
+    <dd>{{ cg_snapshot.status|capfirst }}</dd>
+    <dt>{% trans "Consistency Group" %}</dt>
+    <dd>
+      <a href="{% url 'horizon:project:volumes:cgroups:detail' cg_snapshot.consistencygroup_id %}">
+        {% if cg_snapshot.cg_name %}
+          {{ cg_snapshot.cg_name }}
+        {% else %}
+          {{ cg_snapshot.consistencygroup_id }}
+        {% endif %}
+      </a>
+    </dd>
+  </dl>
+
+  <h4>{% trans "Snapshot Volume Types" %}</h4>
+  <hr class="header_rule">
+  <dl class="dl-horizontal">
+  {% for vol_type_names in cg_snapshot.volume_type_names %}
+    <dd>{{ vol_type_names }}</dd>
+  {% endfor %}
+  </dl>
+
+  <h4>{% trans "Snapshot Volumes" %}</h4>
+  <hr class="header_rule">
+  <dl class="dl-horizontal">
+  {% for vol_names in cg_snapshot.volume_names %}
+    <dd>{{ vol_names }}</dd>
+  {% empty %}
+    <dd>
+      <em>{% trans "No assigned volumes" %}</em>
+    </dd>
+  {% endfor %}
+  </dl>
+</div>

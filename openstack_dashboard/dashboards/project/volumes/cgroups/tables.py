@@ -10,10 +10,8 @@
 # License for the specific language governing permissions and limitations
 # under the License.
 
-from django.core.urlresolvers import reverse
 from django.utils.translation import pgettext_lazy
 from django.utils.translation import ugettext_lazy as _
-from django.utils.translation import ungettext_lazy
 
 from horizon import exceptions
 from horizon import tables
@@ -31,36 +29,20 @@ class CreateVolumeCGroup(policy.PolicyTargetMixin, tables.LinkAction):
     policy_rules = (("volume", "consistencygroup:create"),)
 
 
-class DeleteVolumeCGroup(policy.PolicyTargetMixin, tables.DeleteAction):
+class DeleteVolumeCGroup(policy.PolicyTargetMixin, tables.LinkAction):
     name = "deletecg"
+    verbose_name = _("Delete Consistency Group")
+    url = "horizon:project:volumes:cgroups:delete"
+    classes = ("ajax-modal", "btn-danger")
     policy_rules = (("volume", "consistencygroup:delete"), )
 
-    @staticmethod
-    def action_present(count):
-        return ungettext_lazy(
-            u"Delete Consistency Group",
-            u"Delete Consistency Groups",
-            count
-        )
 
-    @staticmethod
-    def action_past(count):
-        return ungettext_lazy(
-            u"Scheduled deletion of Consistency Group",
-            u"Scheduled deletion of Consistency Groups",
-            count
-        )
-
-    def delete(self, request, cgroup_id):
-        try:
-            cinder.volume_cgroup_delete(request,
-                                        cgroup_id,
-                                        force=False)
-        except Exception:
-            redirect = reverse("horizon:project:volumes:index")
-            exceptions.handle(request,
-                              _('Unable to delete consistency group.'),
-                              redirect=redirect)
+class RemoveAllVolumes(policy.PolicyTargetMixin, tables.LinkAction):
+    name = "remove_vols"
+    verbose_name = _("Remove Volumes from Consistency Group")
+    url = "horizon:project:volumes:cgroups:remove_volumes"
+    classes = ("ajax-modal",)
+    policy_rules = (("volume", "consistencygroup:update"), )
 
 
 class EditVolumeCGroup(policy.PolicyTargetMixin, tables.LinkAction):
@@ -78,12 +60,51 @@ class ManageVolumes(policy.PolicyTargetMixin, tables.LinkAction):
     classes = ("ajax-modal",)
     policy_rules = (("volume", "consistencygroup:update"),)
 
+    def allowed(self, request, cgroup=None):
+        if hasattr(cgroup, 'status'):
+            return cgroup.status != 'error'
+        else:
+            return False
+
+
+class CreateSnapshot(policy.PolicyTargetMixin, tables.LinkAction):
+    name = "create_snapshot"
+    verbose_name = _("Create Snapshot")
+    url = "horizon:project:volumes:cgroups:create_snapshot"
+    classes = ("ajax-modal",)
+    policy_rules = (("volume", "consistencygroup:create_cgsnapshot"),)
+
+    def allowed(self, request, cgroup=None):
+        if hasattr(cgroup, 'status'):
+            return cgroup.status != 'error'
+        else:
+            return False
+
+
+class CloneCGroup(policy.PolicyTargetMixin, tables.LinkAction):
+    name = "clone_cgroup"
+    verbose_name = _("Clone Consistency Group")
+    url = "horizon:project:volumes:cgroups:clone_cgroup"
+    classes = ("ajax-modal",)
+    policy_rules = (("volume", "consistencygroup:create"),)
+
+    def allowed(self, request, cgroup=None):
+        if hasattr(cgroup, 'status'):
+            return cgroup.status != 'error'
+        else:
+            return False
+
 
 class UpdateRow(tables.Row):
     ajax = True
 
     def get_data(self, request, cgroup_id):
-        cgroup = cinder.volume_cgroup_get(request, cgroup_id)
+        try:
+            cgroup = cinder.volume_cgroup_get_with_vol_type_names(request,
+                                                                  cgroup_id)
+        except Exception:
+            exceptions.handle(request, _('Unable to display '
+                                         'consistency group.'))
         return cgroup
 
 
@@ -97,7 +118,9 @@ class VolumeCGroupsFilterAction(tables.FilterAction):
 
 
 def get_volume_types(cgroup):
-    vtypes_str = ",".join(cgroup.volume_type_names)
+    vtypes_str = ''
+    if hasattr(cgroup, 'volume_type_names'):
+        vtypes_str = ",".join(cgroup.volume_type_names)
     return vtypes_str
 
 
@@ -143,6 +166,9 @@ class VolumeCGroupsTable(tables.DataTable):
                          VolumeCGroupsFilterAction)
         row_actions = (ManageVolumes,
                        EditVolumeCGroup,
+                       CreateSnapshot,
+                       CloneCGroup,
+                       RemoveAllVolumes,
                        DeleteVolumeCGroup)
         row_class = UpdateRow
         status_columns = ("status",)

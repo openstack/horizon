@@ -13,6 +13,7 @@
 #    under the License.
 
 from cinderclient.v2 import availability_zones
+from cinderclient.v2 import cgsnapshots
 from cinderclient.v2 import consistencygroups
 from cinderclient.v2 import pools
 from cinderclient.v2 import qos_specs
@@ -49,6 +50,7 @@ def data(TEST):
     TEST.cinder_pools = utils.TestDataContainer()
     TEST.cinder_consistencygroups = utils.TestDataContainer()
     TEST.cinder_cgroup_volumes = utils.TestDataContainer()
+    TEST.cinder_cg_snapshots = utils.TestDataContainer()
 
     # Services
     service_1 = services.Service(services.ServiceManager(None), {
@@ -148,7 +150,9 @@ def data(TEST):
                                         {'id': u'1',
                                          'name': u'vol_type_1',
                                          'description': 'type 1 description',
-                                         'extra_specs': {'foo': 'bar'}})
+                                         'extra_specs': {'foo': 'bar',
+                                                         'volume_backend_name':
+                                                         'backend_1'}})
     vol_type2 = volume_types.VolumeType(volume_types.VolumeTypeManager(None),
                                         {'id': u'2',
                                          'name': u'vol_type_2',
@@ -419,3 +423,12 @@ def data(TEST):
          'consistencygroup_id': u'1'})
     TEST.cinder_cgroup_volumes.add(api.cinder.Volume(
         volume_for_consistency_group))
+
+    # volume consistency group snapshots
+    cg_snapshot_1 = cgsnapshots.Cgsnapshot(
+        cgsnapshots.CgsnapshotManager(None),
+        {'id': u'1',
+         'name': u'cg_ss_1',
+         'description': 'cg_ss 1 description',
+         'consistencygroup_id': u'1'})
+    TEST.cinder_cg_snapshots.add(cg_snapshot_1)

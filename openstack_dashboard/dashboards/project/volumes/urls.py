@@ -17,6 +17,8 @@ from django.conf.urls import url
 
 from openstack_dashboard.dashboards.project.volumes.backups \
     import urls as backups_urls
+from openstack_dashboard.dashboards.project.volumes.cg_snapshots \
+    import urls as cg_snapshots_urls
 from openstack_dashboard.dashboards.project.volumes.cgroups \
     import urls as cgroup_urls
 from openstack_dashboard.dashboards.project.volumes.snapshots \
@@ -35,8 +37,21 @@ urlpatterns = [
         views.IndexView.as_view(), name='backups_tab'),
     url(r'^\?tab=volumes_and_snapshots__cgroups_tab$',
         views.IndexView.as_view(), name='cgroups_tab'),
-    url(r'', include(volume_urls, namespace='volumes')),
-    url(r'backups/', include(backups_urls, namespace='backups')),
-    url(r'snapshots/', include(snapshot_urls, namespace='snapshots')),
-    url(r'cgroups/', include(cgroup_urls, namespace='cgroups')),
+    url(r'^\?tab=volumes_and_snapshots__cg_snapshots_tab$',
+        views.IndexView.as_view(), name='cg_snapshots_tab'),
+    url(r'', include(
+        volume_urls,
+        namespace='volumes')),
+    url(r'backups/', include(
+        backups_urls,
+        namespace='backups')),
+    url(r'snapshots/', include(
+        snapshot_urls,
+        namespace='snapshots')),
+    url(r'cgroups/', include(
+        cgroup_urls,
+        namespace='cgroups')),
+    url(r'cg_snapshots/', include(
+        cg_snapshots_urls,
+        namespace='cg_snapshots')),
 ]

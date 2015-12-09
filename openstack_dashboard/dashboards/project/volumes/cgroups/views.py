@@ -22,6 +22,7 @@ from horizon import workflows
 
 from openstack_dashboard import api
 from openstack_dashboard.api import cinder
+from openstack_dashboard.usage import quotas
 
 from openstack_dashboard.dashboards.project.volumes \
     .cgroups import workflows as vol_cgroup_workflows
@@ -50,7 +51,7 @@ class UpdateView(forms.ModalFormView):
     form_class = vol_cgroup_forms.UpdateForm
     success_url = reverse_lazy('horizon:project:volumes:index')
     submit_url = "horizon:project:volumes:cgroups:update"
-    submit_label = modal_header
+    submit_label = _("Submit")
     page_title = modal_header
 
     def get_initial(self):
@@ -61,6 +62,72 @@ class UpdateView(forms.ModalFormView):
 
     def get_context_data(self, **kwargs):
         context = super(UpdateView, self).get_context_data(**kwargs)
+        context['cgroup_id'] = self.kwargs['cgroup_id']
+        args = (self.kwargs['cgroup_id'],)
+        context['submit_url'] = reverse(self.submit_url, args=args)
+        return context
+
+    def get_object(self):
+        cgroup_id = self.kwargs['cgroup_id']
+        try:
+            self._object = cinder.volume_cgroup_get(self.request, cgroup_id)
+        except Exception:
+            exceptions.handle(self.request,
+                              _('Unable to retrieve consistency group '
+                                'details.'),
+                              redirect=reverse(INDEX_URL))
+        return self._object
+
+
+class RemoveVolumesView(forms.ModalFormView):
+    template_name = 'project/volumes/cgroups/remove_vols.html'
+    modal_header = _("Remove Volumes from Consistency Group")
+    form_class = vol_cgroup_forms.RemoveVolsForm
+    success_url = reverse_lazy('horizon:project:volumes:index')
+    submit_url = "horizon:project:volumes:cgroups:remove_volumes"
+    submit_label = _("Submit")
+    page_title = modal_header
+
+    def get_initial(self):
+        cgroup = self.get_object()
+        return {'cgroup_id': self.kwargs["cgroup_id"],
+                'name': cgroup.name}
+
+    def get_context_data(self, **kwargs):
+        context = super(RemoveVolumesView, self).get_context_data(**kwargs)
+        context['cgroup_id'] = self.kwargs['cgroup_id']
+        args = (self.kwargs['cgroup_id'],)
+        context['submit_url'] = reverse(self.submit_url, args=args)
+        return context
+
+    def get_object(self):
+        cgroup_id = self.kwargs['cgroup_id']
+        try:
+            self._object = cinder.volume_cgroup_get(self.request, cgroup_id)
+        except Exception:
+            exceptions.handle(self.request,
+                              _('Unable to retrieve consistency group '
+                                'details.'),
+                              redirect=reverse(INDEX_URL))
+        return self._object
+
+
+class DeleteView(forms.ModalFormView):
+    template_name = 'project/volumes/cgroups/delete.html'
+    modal_header = _("Delete Consistency Group")
+    form_class = vol_cgroup_forms.DeleteForm
+    success_url = reverse_lazy('horizon:project:volumes:index')
+    submit_url = "horizon:project:volumes:cgroups:delete"
+    submit_label = modal_header
+    page_title = modal_header
+
+    def get_initial(self):
+        cgroup = self.get_object()
+        return {'cgroup_id': self.kwargs["cgroup_id"],
+                'name': cgroup.name}
+
+    def get_context_data(self, **kwargs):
+        context = super(DeleteView, self).get_context_data(**kwargs)
         context['cgroup_id'] = self.kwargs['cgroup_id']
         args = (self.kwargs['cgroup_id'],)
         context['submit_url'] = reverse(self.submit_url, args=args)
@@ -103,6 +170,94 @@ class ManageView(workflows.WorkflowView):
                 'name': cgroup.name,
                 'description': cgroup.description,
                 'vtypes': getattr(cgroup, "volume_types")}
+
+
+class CreateSnapshotView(forms.ModalFormView):
+    form_class = vol_cgroup_forms.CreateSnapshotForm
+    modal_header = _("Create Consistency Group Snapshot")
+    template_name = 'project/volumes/cgroups/create_snapshot.html'
+    submit_label = _("Create Snapshot")
+    submit_url = "horizon:project:volumes:cgroups:create_snapshot"
+    success_url = reverse_lazy('horizon:project:volumes:cg_snapshots_tab')
+    page_title = modal_header
+
+    def get_context_data(self, **kwargs):
+        context = super(CreateSnapshotView, self).get_context_data(**kwargs)
+        context['cgroup_id'] = self.kwargs['cgroup_id']
+        args = (self.kwargs['cgroup_id'],)
+        context['submit_url'] = reverse(self.submit_url, args=args)
+        try:
+            # get number of snapshots we will be creating
+            search_opts = {'consistencygroup_id': context['cgroup_id']}
+            volumes = api.cinder.volume_list(self.request,
+                                             search_opts=search_opts)
+            num_volumes = len(volumes)
+            usages = quotas.tenant_limit_usages(self.request)
+
+            if usages['snapshotsUsed'] + num_volumes > \
+                    usages['maxTotalSnapshots']:
+                raise ValueError(_('Unable to create snapshots due to '
+                                   'exceeding snapshot quota limit.'))
+            else:
+                usages['numRequestedItems'] = num_volumes
+                context['usages'] = usages
+
+        except ValueError as e:
+            exceptions.handle(self.request, e.message)
+            return None
+        except Exception:
+            exceptions.handle(self.request,
+                              _('Unable to retrieve consistency '
+                                'group information.'))
+        return context
+
+    def get_initial(self):
+        return {'cgroup_id': self.kwargs["cgroup_id"]}
+
+
+class CloneCGroupView(forms.ModalFormView):
+    form_class = vol_cgroup_forms.CloneCGroupForm
+    modal_header = _("Clone Consistency Group")
+    template_name = 'project/volumes/cgroups/clone_cgroup.html'
+    submit_label = _("Clone Consistency Group")
+    submit_url = "horizon:project:volumes:cgroups:clone_cgroup"
+    success_url = reverse_lazy('horizon:project:volumes:cgroups_tab')
+    page_title = modal_header
+
+    def get_context_data(self, **kwargs):
+        context = super(CloneCGroupView, self).get_context_data(**kwargs)
+        context['cgroup_id'] = self.kwargs['cgroup_id']
+        args = (self.kwargs['cgroup_id'],)
+        context['submit_url'] = reverse(self.submit_url, args=args)
+        try:
+            # get number of volumes we will be creating
+            cgroup_id = context['cgroup_id']
+
+            search_opts = {'consistencygroup_id': cgroup_id}
+            volumes = api.cinder.volume_list(self.request,
+                                             search_opts=search_opts)
+            num_volumes = len(volumes)
+            usages = quotas.tenant_limit_usages(self.request)
+
+            if usages['volumesUsed'] + num_volumes > \
+                    usages['maxTotalVolumes']:
+                raise ValueError(_('Unable to create consistency group due to '
+                                   'exceeding volume quota limit.'))
+            else:
+                usages['numRequestedItems'] = num_volumes
+                context['usages'] = usages
+
+        except ValueError as e:
+            exceptions.handle(self.request, e.message)
+            return None
+        except Exception:
+            exceptions.handle(self.request,
+                              _('Unable to retrieve consistency '
+                                'group information.'))
+        return context
+
+    def get_initial(self):
+        return {'cgroup_id': self.kwargs["cgroup_id"]}
 
 
 class DetailView(tabs.TabView):

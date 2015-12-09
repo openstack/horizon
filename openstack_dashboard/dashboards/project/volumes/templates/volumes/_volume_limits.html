@@ -1,22 +1,10 @@
 {% load i18n horizon humanize bootstrap %}
 
-<h3>{% trans "Description:" %}</h3>
-
-<p>{% blocktrans %}Volumes are block devices that can be attached to instances.{% endblocktrans %}</p>
-
-<div id="id_show_volume_type_desc_div">
-  <h3>{% trans "Volume Type Description:" %}</h3>
-  <h4>
-    <strong id="id_show_volume_type_name"></strong>
-  </h4>
-  <p id="id_show_volume_type_desc"></p>
-</div>
-
 <h3>{% block head %}{% trans "Volume Limits" %}{% endblock %}</h3>
 
 <div class="quota_title">
   <div class="pull-left">
-    <strong">{% trans "Total Gibibytes" %}</strong>
+    <strong>{% trans "Total Gibibytes" %}</strong>
     <span>({% block gigabytes_used %}{{ usages.gigabytesUsed|intcomma }}{% endblock %} {% trans "GiB" %})</span>
   </div>
   <span class="pull-right">{{ usages.maxTotalVolumeGigabytes|intcomma|quota:_("GiB") }}</span>

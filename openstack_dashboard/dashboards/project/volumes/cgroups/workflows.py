@@ -15,7 +15,6 @@ from django.utils.translation import ugettext_lazy as _
 
 from horizon import exceptions
 from horizon import forms
-from horizon import messages
 from horizon import workflows
 
 from openstack_dashboard import api
@@ -100,10 +99,14 @@ class AddCGroupInfoAction(workflows.Action):
         if cgroups is not None and name is not None:
             for cgroup in cgroups:
                 if cgroup.name.lower() == name.lower():
+                    # ensure new name has reasonable length
+                    formatted_name = name
+                    if len(name) > 20:
+                        formatted_name = name[:14] + "..." + name[-3:]
                     raise forms.ValidationError(
                         _('The name "%s" is already used by '
                           'another consistency group.')
-                        % name
+                        % formatted_name
                     )
 
         return cleaned_data
@@ -136,18 +139,24 @@ class AddVolumeTypesToCGroupAction(workflows.MembershipAction):
         except Exception:
             exceptions.handle(request, err_msg)
 
-        vtype_names = []
-        for vtype in vtypes:
-            if vtype.name not in vtype_names:
-                vtype_names.append(vtype.name)
-        vtype_names.sort()
-
-        self.fields[field_name].choices = \
-            [(vtype_name, vtype_name) for vtype_name in vtype_names]
+        vtype_list = [(vtype.id, vtype.name)
+                      for vtype in vtypes]
+        self.fields[field_name].choices = vtype_list
 
     class Meta(object):
         name = _("Manage Volume Types")
         slug = "add_vtypes_to_cgroup"
+
+    def clean(self):
+        cleaned_data = super(AddVolumeTypesToCGroupAction, self).clean()
+        volume_types = cleaned_data.get('add_vtypes_to_cgroup_role_member')
+        if not volume_types:
+            raise forms.ValidationError(
+                _('At least one volume type must be assigned '
+                  'to a consistency group.')
+            )
+
+        return cleaned_data
 
 
 class AddVolTypesToCGroupStep(workflows.UpdateMembersStep):
@@ -198,15 +207,28 @@ class AddVolumesToCGroupAction(workflows.MembershipAction):
             volumes = cinder.volume_list(request)
             for volume in volumes:
                 if volume.volume_type in vtype_names:
+                    cgroup_id = None
+                    vol_is_available = False
                     in_this_cgroup = False
                     if hasattr(volume, 'consistencygroup_id'):
-                        if volume.consistencygroup_id == \
-                                self.initial['cgroup_id']:
-                            in_this_cgroup = True
-                    vol_list.append({'volume_name': volume.name,
-                                     'volume_id': volume.id,
-                                     'in_cgroup': in_this_cgroup,
-                                     'is_duplicate': False})
+                        # this vol already belongs to a CG.
+                        # only include it here if it belongs to this CG
+                        cgroup_id = volume.consistencygroup_id
+
+                    if not cgroup_id:
+                        # put this vol in the available list
+                        vol_is_available = True
+                    elif cgroup_id == self.initial['cgroup_id']:
+                        # put this vol in the assigned to CG list
+                        vol_is_available = True
+                        in_this_cgroup = True
+
+                    if vol_is_available:
+                        vol_list.append({'volume_name': volume.name,
+                                         'volume_id': volume.id,
+                                         'in_cgroup': in_this_cgroup,
+                                         'is_duplicate': False})
+
             sorted_vol_list = sorted(vol_list, key=lambda k: k['volume_name'])
 
             # mark any duplicate volume names
@@ -228,9 +250,9 @@ class AddVolumesToCGroupAction(workflows.MembershipAction):
                         " [" + volume['volume_id'] + "]"
                 else:
                     entry = volume['volume_name']
-                available_vols.append((entry, entry))
+                available_vols.append((volume['volume_id'], entry))
                 if volume['in_cgroup']:
-                    assigned_vols.append(entry)
+                    assigned_vols.append(volume['volume_id'])
 
         except Exception:
             exceptions.handle(request, err_msg)
@@ -291,7 +313,7 @@ class CreateCGroupWorkflow(workflows.Workflow):
         for selected_vol_type in selected_vol_types:
             if not invalid_backend:
                 for vol_type in vol_types:
-                    if selected_vol_type == vol_type.name:
+                    if selected_vol_type == vol_type.id:
                         if hasattr(vol_type, "extra_specs"):
                             vol_type_backend = \
                                 vol_type.extra_specs['volume_backend_name']
@@ -319,7 +341,7 @@ class CreateCGroupWorkflow(workflows.Workflow):
                 cinder.volume_cgroup_create(
                     request,
                     vtypes_str,
-                    name=context['name'],
+                    context['name'],
                     description=context['description'],
                     availability_zone=context['availability_zone'])
         except Exception:
@@ -331,11 +353,11 @@ class CreateCGroupWorkflow(workflows.Workflow):
 
 
 class UpdateCGroupWorkflow(workflows.Workflow):
-    slug = "create_cgroup"
+    slug = "update_cgroup"
     name = _("Add/Remove Consistency Group Volumes")
-    finalize_button_name = _("Edit Consistency Group")
-    success_message = _('Edit consistency group "%s".')
-    failure_message = _('Unable to edit consistency group')
+    finalize_button_name = _("Submit")
+    success_message = _('Updated volumes for consistency group "%s".')
+    failure_message = _('Unable to update volumes for consistency group')
     success_url = INDEX_URL
     default_steps = (AddVolumesToCGroupStep,)
 
@@ -351,23 +373,8 @@ class UpdateCGroupWorkflow(workflows.Workflow):
             for volume in volumes:
                 selected = False
                 for selection in selected_volumes:
-                    if " [" in selection:
-                        # handle duplicate volume names
-                        sel = selection.split(" [")
-                        sel_vol_name = sel[0]
-                        sel_vol_id = sel[1].split("]")[0]
-                    else:
-                        sel_vol_name = selection
-                        sel_vol_id = None
-
-                    if volume.name == sel_vol_name:
-                        if sel_vol_id:
-                            if sel_vol_id == volume.id:
-                                selected = True
-                        else:
-                            selected = True
-
-                    if selected:
+                    if selection == volume.id:
+                        selected = True
                         break
 
                 if selected:
@@ -381,43 +388,24 @@ class UpdateCGroupWorkflow(workflows.Workflow):
                     # ensure this volume is not in our consistency group
                     if hasattr(volume, 'consistencygroup_id'):
                         if volume.consistencygroup_id == cgroup_id:
+                            # remove from this CG
                             remove_vols.append(volume.id)
 
             add_vols_str = ",".join(add_vols)
             remove_vols_str = ",".join(remove_vols)
+
+            if not add_vols_str and not remove_vols_str:
+                # nothing to change
+                return True
+
             cinder.volume_cgroup_update(request,
                                         cgroup_id,
                                         name=context['name'],
                                         add_vols=add_vols_str,
                                         remove_vols=remove_vols_str)
 
-            # before returning, ensure all new volumes are correctly assigned
-            self._verify_changes(request, cgroup_id, add_vols, remove_vols)
-
-            message = _('Updating volume consistency '
-                        'group "%s"') % context['name']
-            messages.info(request, message)
         except Exception:
-            exceptions.handle(request, _('Unable to edit consistency group.'))
+            # error message supplied by form
             return False
 
         return True
-
-    def _verify_changes(self, request, cgroup_id, add_vols, remove_vols):
-        search_opts = {'consistencygroup_id': cgroup_id}
-        done = False
-        while not done:
-            done = True
-            volumes = cinder.volume_list(request,
-                                         search_opts=search_opts)
-            assigned_vols = []
-            for volume in volumes:
-                assigned_vols.append(volume.id)
-
-            for add_vol in add_vols:
-                if add_vol not in assigned_vols:
-                    done = False
-
-            for remove_vol in remove_vols:
-                if remove_vol in assigned_vols:
-                    done = False
