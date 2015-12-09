@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-12-06 06:17+0000\n"
+"POT-Creation-Date: 2015-12-09 06:20+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -16,6 +16,788 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 2.1.1\n"
+
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:2
+msgid ""
+"To view source code, hover over a section, then click the "
+"<a><span></span></a> button in the top right of that section."
+msgstr ""
+
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:27
+msgid "Navbar"
+msgstr ""
+
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:38
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:85
+msgid "Brand"
+msgstr ""
+
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:42
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:89
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/network/network.controller.js:38
+#: static/app/core/images/filters/image-status.filter.js:35
+msgid "Active"
+msgstr ""
+
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:45
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:63
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:92
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:110
+msgid "Dropdown <b></b>"
+msgstr ""
+
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:47
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:65
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:94
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:112
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:165
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:177
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:189
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:201
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:213
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:629
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:663
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:683
+msgid "Action"
+msgstr ""
+
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:48
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:66
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:95
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:113
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:166
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:178
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:190
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:202
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:214
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:631
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:664
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:684
+msgid "Another action"
+msgstr ""
+
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:49
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:67
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:96
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:114
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:167
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:179
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:191
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:203
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:215
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:665
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:685
+msgid "Something else here"
+msgstr ""
+
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:51
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:98
+msgid "Dropdown header"
+msgstr ""
+
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:52
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:69
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:99
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:116
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:169
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:181
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:193
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:205
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:217
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:667
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:687
+msgid "Separated link"
+msgstr ""
+
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:53
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:100
+msgid "One more separated link"
+msgstr ""
+
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:61
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:90
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:108
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:146
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:156
+msgid "Link"
+msgstr ""
+
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:132
+msgid "Buttons"
+msgstr ""
+
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:140
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:150
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:162
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:827
+msgid "Default"
+msgstr ""
+
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:141
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:151
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:174
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:828
+msgid "Primary"
+msgstr ""
+
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:142
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:152
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:186
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:829
+msgid "Success"
+msgstr ""
+
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:143
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:153
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:198
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:832
+msgid "Info"
+msgstr ""
+
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:144
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:154
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:210
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:830
+msgid "Warning"
+msgstr ""
+
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:145
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:155
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:831
+msgid "Danger"
+msgstr ""
+
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:224
+msgid "Large button"
+msgstr ""
+
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:225
+msgid "Default button"
+msgstr ""
+
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:226
+msgid "Small button"
+msgstr ""
+
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:227
+msgid "Mini button"
+msgstr ""
+
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:233
+msgid "Block level button"
+msgstr ""
+
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:238
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:1129
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:1136
+msgid "Left"
+msgstr ""
+
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:239
+msgid "Middle"
+msgstr ""
+
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:240
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:1132
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:1139
+msgid "Right"
+msgstr ""
+
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:247
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:385
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:443
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:522
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:530
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:720
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:730
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:738
+msgid "1"
+msgstr ""
+
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:248
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:391
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:449
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:523
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:531
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:721
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:731
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:739
+msgid "2"
+msgstr ""
+
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:249
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:397
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:524
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:532
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:722
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:732
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:740
+msgid "3"
+msgstr ""
+
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:250
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:403
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:525
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:533
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:723
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:741
+msgid "4"
+msgstr ""
+
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:254
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:409
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:526
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:534
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:724
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:742
+msgid "5"
+msgstr ""
+
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:255
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:415
+msgid "6"
+msgstr ""
+
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:256
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:421
+msgid "7"
+msgstr ""
+
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:260
+msgid "8"
+msgstr ""
+
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:264
+msgid ""
+"Dropdown\n"
+"                <span></span>"
+msgstr ""
+
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:267
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:268
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:269
+msgid "Dropdown link"
+msgstr ""
+
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:278
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:279
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:280
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:281
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:597
+msgid "Button"
+msgstr ""
+
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:293
+msgid "Typography"
+msgstr ""
+
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:303
+msgid "Heading 1"
+msgstr ""
+
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:304
+msgid "Heading 2"
+msgstr ""
+
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:305
+msgid "Heading 3"
+msgstr ""
+
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:306
+msgid "Heading 4"
+msgstr ""
+
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:307
+msgid "Heading 5"
+msgstr ""
+
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:308
+msgid "Heading 6"
+msgstr ""
+
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:314
+msgid "Example body text"
+msgstr ""
+
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:316
+msgid "<small>This line of text is meant to be treated as fine print.</small>"
+msgstr ""
+
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:317
+msgid "The following snippet of text is <strong>rendered as bold text</strong>."
+msgstr ""
+
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:318
+msgid "The following snippet of text is <em>rendered as italicized text</em>."
+msgstr ""
+
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:319
+msgid "An abbreviation of the word attribute is <abbr>attr</abbr>."
+msgstr ""
+
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:325
+msgid "Emphasis classes"
+msgstr ""
+
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:341
+msgid "Blockquotes"
+msgstr ""
+
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:349
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:357
+msgid "Someone famous in <cite>Source Title</cite>"
+msgstr ""
+
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:369
+msgid "Tables"
+msgstr ""
+
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:372
+msgid "Standard Table"
+msgstr ""
+
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:377
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:435
+msgid "#"
+msgstr ""
+
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:378
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:379
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:380
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:436
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:437
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:438
+msgid "Column heading"
+msgstr ""
+
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:386
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:387
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:388
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:392
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:393
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:394
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:398
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:399
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:400
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:404
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:405
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:406
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:410
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:411
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:412
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:416
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:417
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:418
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:422
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:423
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:424
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:444
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:445
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:446
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:450
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:451
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:452
+msgid "Column content"
+msgstr ""
+
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:430
+msgid "Bordered Table"
+msgstr ""
+
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:466
+msgid "Forms"
+msgstr ""
+
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:476
+msgid "Legend"
+msgstr ""
+
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:478
+#: dashboards/identity/static/dashboard/identity/users/table/table.html:33
+#: dashboards/identity/static/dashboard/identity/users/table/table.html:92
+msgid "Email"
+msgstr ""
+
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:484
+msgid "Password"
+msgstr ""
+
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:489
+msgid ""
+"<div>\n"
+"                  \n"
+"                    <input> Checkbox\n"
+"                  </input>\n"
+"                </div>"
+msgstr ""
+
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:495
+msgid "Textarea"
+msgstr ""
+
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:498
+msgid ""
+"A longer block of help text that breaks onto a new line and may extend "
+"beyond one line."
+msgstr ""
+
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:502
+msgid "Radios"
+msgstr ""
+
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:506
+msgid ""
+"<input>\n"
+"                    Option one is this\n"
+"                  </input>"
+msgstr ""
+
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:512
+msgid ""
+"<input>\n"
+"                    Option two can be something else\n"
+"                  </input>"
+msgstr ""
+
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:519
+msgid "Selects"
+msgstr ""
+
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:540
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/keypair/create-keypair.html:26
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/keypair/import-keypair.html:35
+#: static/app/core/metadata/modal/modal.html:14
+msgid "Cancel"
+msgstr ""
+
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:541
+msgid "Submit"
+msgstr ""
+
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:552
+msgid "Focused input"
+msgstr ""
+
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:557
+msgid "Disabled input"
+msgstr ""
+
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:562
+msgid "Input warning"
+msgstr ""
+
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:567
+msgid "Input error"
+msgstr ""
+
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:572
+msgid "Input success"
+msgstr ""
+
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:577
+msgid "Large input"
+msgstr ""
+
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:582
+msgid "Default input"
+msgstr ""
+
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:587
+msgid "Small input"
+msgstr ""
+
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:592
+msgid "Input addons"
+msgstr ""
+
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:611
+msgid "Navs"
+msgstr ""
+
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:618
+msgid "Tabs"
+msgstr ""
+
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:621
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:655
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:675
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:697
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:701
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:706
+msgid "Home"
+msgstr ""
+
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:622
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:656
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:676
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/network/network.html:9
+msgid "Profile"
+msgstr ""
+
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:623
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:657
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:677
+msgid "Disabled"
+msgstr ""
+
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:626
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:660
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:680
+msgid "Dropdown <span></span>"
+msgstr ""
+
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:652
+msgid "Pills"
+msgstr ""
+
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:694
+msgid "Breadcrumbs"
+msgstr ""
+
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:702
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:707
+msgid "Library"
+msgstr ""
+
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:708
+msgid "Data"
+msgstr ""
+
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:716
+msgid "Pagination"
+msgstr ""
+
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:748
+msgid "Pager"
+msgstr ""
+
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:751
+msgid "Previous"
+msgstr ""
+
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:752
+msgid "Next"
+msgstr ""
+
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:756
+msgid "Older"
+msgstr ""
+
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:757
+msgid "Newer"
+msgstr ""
+
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:773
+msgid "Indicators"
+msgstr ""
+
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:780
+msgid "Alerts"
+msgstr ""
+
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:784
+msgid "Warning!"
+msgstr ""
+
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:796
+msgid ""
+"<button></button>\n"
+"          <strong>Oh snap!</strong>\n"
+"          <a>Change a few things up</a>\n"
+"          and try submitting again."
+msgstr ""
+
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:807
+msgid ""
+"<button></button>\n"
+"          <strong>Well done!</strong>\n"
+"          You successfully read\n"
+"          <a>this important alert message</a>."
+msgstr ""
+
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:817
+msgid ""
+"<button></button>\n"
+"          <strong>Heads up!</strong>\n"
+"           This\n"
+"          <a>alert needs your attention</a>,\n"
+"           but it's not super important."
+msgstr ""
+
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:836
+msgid "Badges"
+msgstr ""
+
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:839
+msgid "Home <span>42</span>"
+msgstr ""
+
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:840
+msgid "Profile <span></span>"
+msgstr ""
+
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:841
+msgid "Messages <span>3</span>"
+msgstr ""
+
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:855
+msgid "Progress bars"
+msgstr ""
+
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:858
+msgid "Basic"
+msgstr ""
+
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:865
+msgid "Contextual alternatives"
+msgstr ""
+
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:884
+msgid "Striped"
+msgstr ""
+
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:903
+msgid "Animated"
+msgstr ""
+
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:910
+msgid "Stacked"
+msgstr ""
+
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:929
+msgid "Containers"
+msgstr ""
+
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:933
+msgid "Jumbotron"
+msgstr ""
+
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:934
+msgid ""
+"This is a simple hero unit, a simple jumbotron-style component for "
+"calling extra attention to featured content or information."
+msgstr ""
+
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:935
+msgid "Learn more"
+msgstr ""
+
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:944
+msgid "List groups"
+msgstr ""
+
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:983
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:987
+msgid "List group item heading"
+msgstr ""
+
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:998
+msgid "Panels"
+msgstr ""
+
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:1005
+msgid "Basic panel"
+msgstr ""
+
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:1009
+msgid "Panel heading"
+msgstr ""
+
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:1010
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:1014
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:1025
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:1032
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:1039
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:1049
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:1056
+msgid "Panel content"
+msgstr ""
+
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:1015
+msgid "Panel footer"
+msgstr ""
+
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:1023
+msgid "Panel primary"
+msgstr ""
+
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:1030
+msgid "Panel success"
+msgstr ""
+
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:1037
+msgid "Panel warning"
+msgstr ""
+
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:1047
+msgid "Panel danger"
+msgstr ""
+
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:1054
+msgid "Panel info"
+msgstr ""
+
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:1064
+msgid "Wells"
+msgstr ""
+
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:1070
+msgid "Look, I'm in a well!"
+msgstr ""
+
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:1077
+msgid "Look, I'm in a small well!"
+msgstr ""
+
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:1084
+msgid "Look, I'm in a large well!"
+msgstr ""
+
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:1099
+msgid "Dialogs"
+msgstr ""
+
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:1105
+msgid "Modals"
+msgstr ""
+
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:1112
+msgid "Modal title"
+msgstr ""
+
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:1115
+msgid "One fine body…"
+msgstr ""
+
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:1118
+msgid "Close"
+msgstr ""
+
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:1119
+msgid "Save changes"
+msgstr ""
+
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:1127
+msgid "Popovers"
+msgstr ""
+
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:1130
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:1137
+msgid "Top"
+msgstr ""
+
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:1131
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:1138
+msgid "Bottom"
+msgstr ""
+
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:1134
+msgid "Tooltips"
+msgstr ""
+
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:1150
+msgid "Source Code"
+msgstr ""
 
 #: dashboards/admin/static/dashboard/admin/flavors/table/flavors-table.html:22
 msgid "Flavor Name"
@@ -75,11 +857,6 @@ msgstr ""
 msgid "User Name"
 msgstr ""
 
-#: dashboards/identity/static/dashboard/identity/users/table/table.html:33
-#: dashboards/identity/static/dashboard/identity/users/table/table.html:92
-msgid "Email"
-msgstr ""
-
 #: dashboards/identity/static/dashboard/identity/users/table/table.html:34
 msgid "User ID"
 msgstr ""
@@ -97,23 +874,23 @@ msgstr ""
 msgid "Project ID"
 msgstr ""
 
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/launch-instance-model.service.js:392
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/launch-instance-model.service.js:383
 #: dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:72
 #: static/app/core/images/filters/image-type.filter.js:41
 msgid "Image"
 msgstr ""
 
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/launch-instance-model.service.js:403
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/launch-instance-model.service.js:394
 #: dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:73
 msgid "Instance Snapshot"
 msgstr ""
 
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/launch-instance-model.service.js:411
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/launch-instance-model.service.js:402
 #: dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:74
 msgid "Volume"
 msgstr ""
 
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/launch-instance-model.service.js:415
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/launch-instance-model.service.js:406
 #: dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:75
 msgid "Volume Snapshot"
 msgstr ""
@@ -417,12 +1194,6 @@ msgstr ""
 msgid "Required"
 msgstr ""
 
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/keypair/create-keypair.html:26
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/keypair/import-keypair.html:35
-#: static/app/core/metadata/modal/modal.html:14
-msgid "Cancel"
-msgstr ""
-
 #: dashboards/project/static/dashboard/project/workflow/launch-instance/keypair/import-keypair.controller.js:54
 #, python-format
 msgid "Successfully imported key pair %(name)s."
@@ -502,11 +1273,6 @@ msgstr ""
 
 #: dashboards/project/static/dashboard/project/workflow/launch-instance/keypair/new-keypair.html:29
 msgid "OK"
-msgstr ""
-
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/network/network.controller.js:38
-#: static/app/core/images/filters/image-status.filter.js:35
-msgid "Active"
 msgstr ""
 
 #: dashboards/project/static/dashboard/project/workflow/launch-instance/network/network.controller.js:39
@@ -602,10 +1368,6 @@ msgstr ""
 
 #: dashboards/project/static/dashboard/project/workflow/launch-instance/network/network.html:4
 msgid "Networks provide the communication channels for instances in the cloud."
-msgstr ""
-
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/network/network.html:9
-msgid "Profile"
 msgstr ""
 
 #: dashboards/project/static/dashboard/project/workflow/launch-instance/network/network.html:11

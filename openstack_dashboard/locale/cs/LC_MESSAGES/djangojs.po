@@ -10,17 +10,20 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-12-05 16:12+0000\n"
+"POT-Creation-Date: 2015-12-09 02:55+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2015-12-01 08:21+0000\n"
+"PO-Revision-Date: 2015-12-08 04:12+0000\n"
 "Last-Translator: Zbyněk Schwarz <zbynek.schwarz@gmail.com>\n"
 "Language: cs\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
 "Generated-By: Babel 2.0\n"
 "X-Generator: Zanata 3.7.3\n"
 "Language-Team: Czech\n"
+
+msgid "#"
+msgstr "#"
 
 msgid "(Max: 16Kb)"
 msgstr "(Maximálně 16Kb)"
@@ -31,6 +34,61 @@ msgstr "(Změněno)"
 msgid "(None)"
 msgstr "(Žádný)"
 
+msgid "1"
+msgstr "1"
+
+msgid "2"
+msgstr "2"
+
+msgid "3"
+msgstr "3"
+
+msgid "4"
+msgstr "4"
+
+msgid "5"
+msgstr "5"
+
+msgid "6"
+msgstr "6"
+
+msgid "7"
+msgstr "7"
+
+msgid "8"
+msgstr "8"
+
+msgid ""
+"<div>\n"
+"                  \n"
+"                    <input> Checkbox\n"
+"                  </input>\n"
+"                </div>"
+msgstr ""
+"<div>\n"
+"                  \n"
+"                    <input> Zaškrtávací políčko\n"
+"                  </input>\n"
+"                </div>"
+
+msgid ""
+"<input>\n"
+"                    Option one is this\n"
+"                  </input>"
+msgstr ""
+"<input>\n"
+"                    První volba je toto\n"
+"                  </input>"
+
+msgid ""
+"<input>\n"
+"                    Option two can be something else\n"
+"                  </input>"
+msgstr ""
+"<input>\n"
+"                    Druhá volba může být něco jiného\n"
+"                  </input>"
+
 msgid "<li><b>Image</b>: This option uses an image to boot the instance.</li>"
 msgstr "<li><b>Obraz</b>: Tato volba používá obraz k zavedení instance.</li>"
 
@@ -40,6 +98,9 @@ msgid ""
 msgstr ""
 "<li><b>Snímek instance</b>: Tato volba využije snímek instance pro její "
 "zavedení.</li>"
+
+msgid "<small>This line of text is meant to be treated as fine print.</small>"
+msgstr "<small>Tento text má být vypsán drobným písmem.</small>"
 
 msgid ""
 "A floating IP allows instances to be addressable from an external network.\n"
@@ -70,8 +131,18 @@ msgstr ""
 "      Zde můžete zvolit existující pár klíčů, importovat ho nebo vytvořit "
 "zcela nový."
 
+msgid ""
+"A longer block of help text that breaks onto a new line and may extend "
+"beyond one line."
+msgstr ""
+"Delší blok textu nápovědy, který je zalomen na nový řádek a může být delší "
+"než jeden řádek."
+
 msgid "A name is required for your instance."
 msgstr "Název vaší instance je vyžadován."
+
+msgid "Action"
+msgstr "Činnost"
 
 msgid "Active"
 msgstr "Aktivní"
@@ -112,6 +183,9 @@ msgstr ""
 "    Pro připojení směrovače do těchto dvou sítí můžete využít zobrazení "
 "<b>Topologie sítě</b>."
 
+msgid "An abbreviation of the word attribute is <abbr>attr</abbr>."
+msgstr "Zkratka slova vlastnost je <abbr title=Vlastnost>vlast.</abbr>."
+
 msgid ""
 "An advanced option available when launching an instance is disk "
 "partitioning. There are two disk partition options. Selecting <b>Automatic</"
@@ -130,11 +204,32 @@ msgstr ""
 "Název instance je vyžadován a používá se k jedinečné identifikaci vašich "
 "instancí na nástěnce."
 
+msgid "Another action"
+msgstr "Další činnost"
+
 msgid "Automatic"
 msgstr "Automaticky"
 
 msgid "Availability Zone"
 msgstr "Zóna dostupnosti"
+
+msgid "Block level button"
+msgstr "Tlačítko na úrovni bloku"
+
+msgid "Blockquotes"
+msgstr "Bloková citace"
+
+msgid "Bordered Table"
+msgstr "Ohraničená tabulka"
+
+msgid "Brand"
+msgstr "Označit"
+
+msgid "Button"
+msgstr "Tlačítko"
+
+msgid "Buttons"
+msgstr "Tlačítka"
 
 msgid "Cancel"
 msgstr "Zrušit"
@@ -156,6 +251,12 @@ msgstr ""
 
 msgid "Click to see more details"
 msgstr "Klikněte pro podrobnosti"
+
+msgid "Column content"
+msgstr "Obsah sloupce"
+
+msgid "Column heading"
+msgstr "Nadpis sloupce"
 
 msgid "Configuration"
 msgstr "Konfigurace"
@@ -192,6 +293,18 @@ msgstr ""
 msgid "Customization Script"
 msgstr "Skript přizpůsobení"
 
+msgid "Danger"
+msgstr "Nebezpečí"
+
+msgid "Default"
+msgstr "Výchozí"
+
+msgid "Default button"
+msgstr "Výchozí tlačítko"
+
+msgid "Default input"
+msgstr "Výchozí vstup"
+
 msgid "Deleted"
 msgstr "Smazáno"
 
@@ -207,6 +320,12 @@ msgstr "Název zařízení"
 msgid "Direction"
 msgstr "Směr"
 
+msgid "Disabled"
+msgstr "Zakázáno"
+
+msgid "Disabled input"
+msgstr "Zakázaný vstup"
+
 msgid "Disk Partition"
 msgstr "Oddíl disku"
 
@@ -216,8 +335,30 @@ msgstr "ID domény"
 msgid "Down"
 msgstr "Zavřen"
 
+msgid ""
+"Dropdown\n"
+"                <span></span>"
+msgstr ""
+"Rozbalovací seznam\n"
+"                <span></span>"
+
+msgid "Dropdown <b></b>"
+msgstr "Rozbalovací seznam <b></b>"
+
+msgid "Dropdown <span></span>"
+msgstr "Rozbalovací seznam<span></span>"
+
+msgid "Dropdown header"
+msgstr "Hlavička rozbalovacího seznamu "
+
+msgid "Dropdown link"
+msgstr "Odkaz rozbalovacího seznamu"
+
 msgid "Email"
 msgstr "E-mail"
+
+msgid "Emphasis classes"
+msgstr "Třídy pro zdůraznění"
 
 msgid "Enabled"
 msgstr "Povoleno"
@@ -227,6 +368,9 @@ msgstr "Efemérní disk"
 
 msgid "Ether Type"
 msgstr "Typ ethernetu"
+
+msgid "Example body text"
+msgstr "Vzorový text těla"
 
 #, python-format
 msgid "Extension is not enabled: %(extension)s."
@@ -254,8 +398,14 @@ msgstr ""
 "Konfigurace určují velikost výpočetních, pamětních a úložných možností "
 "instance."
 
+msgid "Focused input"
+msgstr "Zaměřený vstup"
+
 msgid "Format"
 msgstr "Formátovat"
+
+msgid "Forms"
+msgstr "Formuláře"
 
 msgid ""
 "From a Windows system, you can use PuTTYGen to create private/public keys.\n"
@@ -269,6 +419,27 @@ msgstr ""
 "zkopírujte\n"
 " veřejný klíč v červeně vyznačeném rámečku do vašeho souboru \n"
 " <samp>.ssh/authorized_keys</samp>."
+
+msgid "Heading 1"
+msgstr "Nadpis 1"
+
+msgid "Heading 2"
+msgstr "Nadpis 2"
+
+msgid "Heading 3"
+msgstr "Nadpis 3"
+
+msgid "Heading 4"
+msgstr "Nadpis 4"
+
+msgid "Heading 5"
+msgstr "Nadpis 5"
+
+msgid "Heading 6"
+msgstr "Nadpis 6"
+
+msgid "Home"
+msgstr "Domů"
 
 msgid "ID"
 msgstr "ID"
@@ -330,6 +501,21 @@ msgstr "Dopad na vaši kvótu"
 
 msgid "Import Key Pair"
 msgstr "Importovat pár klíče"
+
+msgid "Info"
+msgstr "Informace"
+
+msgid "Input addons"
+msgstr "Doplňky vstupu"
+
+msgid "Input error"
+msgstr "Chyba ve vstupu"
+
+msgid "Input success"
+msgstr "Úspěšný vstup"
+
+msgid "Input warning"
+msgstr "Varování ve vstupu"
 
 msgid "Instance Details"
 msgstr "Podrobnosti instance"
@@ -394,8 +580,23 @@ msgstr ""
 msgid "Killed"
 msgstr "Ukončit"
 
+msgid "Large button"
+msgstr "Velké tlačítko"
+
+msgid "Large input"
+msgstr "Velký vstup"
+
 msgid "Launch Instance"
 msgstr "Spustit instanci"
+
+msgid "Left"
+msgstr "Vlevo"
+
+msgid "Legend"
+msgstr "Legenda"
+
+msgid "Link"
+msgstr "Odkaz"
 
 msgid "Load script from a file"
 msgstr "Načíst skript ze souboru"
@@ -408,6 +609,9 @@ msgstr "Maximální port"
 
 msgid "Metadata"
 msgstr "Popisná data"
+
+msgid "Middle"
+msgstr "Uprostřed"
 
 msgid "Min Disk"
 msgstr "Minimální disk"
@@ -424,8 +628,17 @@ msgstr "Min RAM"
 msgid "Min RAM (MB)"
 msgstr "Min RAM (MB)"
 
+msgid "Mini button"
+msgstr "Miniaturní tlačítko"
+
 msgid "Name"
 msgstr "Název"
+
+msgid "Navbar"
+msgstr "Navigační lišta"
+
+msgid "Navs"
+msgstr "Navigace"
 
 msgid "Network"
 msgstr "Síť"
@@ -451,6 +664,12 @@ msgstr "Žádné dostupné položky"
 msgid "OK"
 msgstr "OK"
 
+msgid "One more separated link"
+msgstr "Ještě jeden oddělený odkaz"
+
+msgid "Password"
+msgstr "Heslo"
+
 msgid "Pending Delete"
 msgstr "Čeká na smazání"
 
@@ -468,6 +687,9 @@ msgstr ""
 
 msgid "Policy check failed."
 msgstr "Kontrola zásady selhala."
+
+msgid "Primary"
+msgstr "Hlavní"
 
 msgid "Private"
 msgstr "Soukromé"
@@ -519,6 +741,9 @@ msgstr "Ve frontě"
 msgid "RAM"
 msgstr "RAM"
 
+msgid "Radios"
+msgstr "Přepínače"
+
 msgid "Re-order items using drag and drop"
 msgstr "ˇ5azení položek změňte přetažením"
 
@@ -527,6 +752,9 @@ msgstr "Vzdálené"
 
 msgid "Required"
 msgstr "Vyžadováno"
+
+msgid "Right"
+msgstr "Vpravo"
 
 msgid "Root Disk"
 msgstr "Kořenový disk"
@@ -601,6 +829,12 @@ msgstr ""
 msgid "Select the security groups."
 msgstr "Vyberte bezpečnostní skupiny"
 
+msgid "Selects"
+msgstr "Výběry"
+
+msgid "Separated link"
+msgstr "Oddělený odkaz"
+
 #, python-format
 msgid "Service type is not enabled: %(desiredType)s"
 msgstr "Typ služby není povolen: %(desiredType)s"
@@ -618,17 +852,38 @@ msgstr "Velikost"
 msgid "Size (GB)"
 msgstr "Velikost (GB)"
 
+msgid "Small button"
+msgstr "Malé tlačítko"
+
+msgid "Small input"
+msgstr "Malý vstup"
+
 msgid "Snapshot"
 msgstr "Snímek"
+
+msgid "Someone famous in <cite>Source Title</cite>"
+msgstr "Někdo známý v <cite>Názvu zdroje</cite> "
+
+msgid "Something else here"
+msgstr "Zde je něco jiného"
 
 msgid "Source"
 msgstr "Zdroj"
 
+msgid "Standard Table"
+msgstr "Standardní tabulka"
+
 msgid "Status"
 msgstr "Stav"
 
+msgid "Submit"
+msgstr "Odeslat"
+
 msgid "Subnets Associated"
 msgstr "Podsítě přidruženy"
+
+msgid "Success"
+msgstr "Úspěch"
 
 #, python-format
 msgid "Successfully created key pair %(name)s."
@@ -640,6 +895,15 @@ msgstr "Úspěšně importován pár klíčů %(name)s."
 
 msgid "Swap Disk"
 msgstr "Odkládací disk"
+
+msgid "Tables"
+msgstr "Tabulky"
+
+msgid "Tabs"
+msgstr "Karty"
+
+msgid "Textarea"
+msgstr "Textová oblast"
 
 msgid ""
 "The flavor you select for an instance determines the amount of compute, "
@@ -658,6 +922,13 @@ msgstr ""
 "podporovat typ vámi vytvářené instance. Konfigurace, které vaší instanci "
 "neposkytují dostatek zdrojů, jsou v tabulce <b>Dostupné</b> uvedeny se "
 "žlutou ikonkou s vykřičníkem."
+
+msgid "The following snippet of text is <em>rendered as italicized text</em>."
+msgstr "Následující kus textu <em>by měl být vypsán kurzívou</em>."
+
+msgid ""
+"The following snippet of text is <strong>rendered as bold text</strong>."
+msgstr "Následující kus textu <strong>by měl být vypsán tučně</strong>."
 
 #, python-format
 msgid ""
@@ -731,6 +1002,14 @@ msgstr ""
 msgid "This is your new key pair. Copy this information and keep it secure."
 msgstr "Toto je váš nový pár klíčů. Tyto údaje si zkopírujte a opatrujte je."
 
+msgid ""
+"To view source code, hover over a section, then click the <a><span></span></"
+"a> button in the top right of that section."
+msgstr ""
+"Pro zobrazení zdrojového kódu najeďte myší na část, kterou chcete zobrazit, "
+"pak klikněte na tlačítko <a><span></span></a> v pravém horním rohu této "
+"části."
+
 msgid "Total Disk"
 msgstr "Celková kapacita"
 
@@ -754,6 +1033,9 @@ msgstr ""
 "Zadejte svůj skript přímo do pole Skriptu přizpůsobení,. Pokud váš "
 "internetový prohlížeč podporuje HTML5 API pro soubory, můžete ho načíst ze "
 "souboru. Velikost vašeho skriptu by neměla překročit 16Kb."
+
+msgid "Typography"
+msgstr "Typografie"
 
 msgid "Unable to create the domain."
 msgstr "Nelze vytvořit doménu."
@@ -989,6 +1271,9 @@ msgid ""
 msgstr ""
 "Svazky lze připojit pouze k 1 aktivní instanci najednou. Buď prosím nastavte "
 "počet svých instancí na 1 nebo zvolte jiný typ zdroje."
+
+msgid "Warning"
+msgstr "Varování"
 
 msgid ""
 "When selecting volume as boot source, please ensure the instance's "

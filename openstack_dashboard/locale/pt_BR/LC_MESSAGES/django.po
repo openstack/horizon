@@ -23,7 +23,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-12-05 16:12+0000\n"
+"POT-Creation-Date: 2015-12-09 02:55+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -4569,14 +4569,6 @@ msgstr "A imagem foi atualizado com sucesso."
 msgid "Images"
 msgstr "Imagens"
 
-msgid ""
-"Images can be provided via an HTTP/HTTPS URL or be uploaded from your local "
-"file system. Compressed image binaries are supported (.zip and .tar.gz.)"
-msgstr ""
-"Imagens podem ser fornecidas através de uma URL HTTP/HTTPS ou serem "
-"carregadas do seu sistema de arquivos local. Binários de imagens comprimidas "
-"são suportados (.zip e .tar.gz.)"
-
 msgid "Implementation"
 msgstr "Implementação"
 
@@ -4852,12 +4844,6 @@ msgstr "Kwapi"
 
 msgid "LB Method"
 msgstr "Método LB"
-
-msgid "LUKS Volume Snapshots"
-msgstr "Snapshots de Volumes LUKS "
-
-msgid "LUKS Volumes"
-msgstr "Volumes LUKS"
 
 msgid "Language"
 msgstr "Idioma"
@@ -8615,9 +8601,6 @@ msgstr "Total de Memoria Utilizada (Horas):"
 
 msgid "Total RAM"
 msgstr "RAM Total"
-
-msgid "Total Size of LUKS Volumes and Snapshots (GB)"
-msgstr "Tamanho total de volumes LUKS e Snapshots (GB)"
 
 msgid "Total Size of Volumes and Snapshots (GB)"
 msgstr "Tamanho total de Volumes e Snapshots (GB)"

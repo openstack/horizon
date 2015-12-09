@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-12-05 16:12+0000\n"
+"POT-Creation-Date: 2015-12-09 02:55+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -3332,12 +3332,6 @@ msgstr "முக்கிய-மதிப்பு ஜோடிகள்"
 msgid "Kwapi"
 msgstr "க்வாபி"
 
-msgid "LUKS Volume Snapshots"
-msgstr "LUKS தொகுதி ஸ்னாப்ஷாட்டுகள்"
-
-msgid "LUKS Volumes"
-msgstr "LUKS தொகுதிகள்"
-
 msgid "Language"
 msgstr "மொழி"
 
@@ -5937,9 +5931,6 @@ msgstr "மொத்த ஜிகாபைட்டுகள்"
 
 msgid "Total RAM"
 msgstr "மொத்த RAM"
-
-msgid "Total Size of LUKS Volumes and Snapshots (GB)"
-msgstr "LUKS தொகுதிகள் மற்றும் ஸ்னாப்ஷாட்களின் மொத்த அளவு (GB)"
 
 msgid "Total Size of Volumes and Snapshots (GB)"
 msgstr "தொகுதிகள் மற்றும் ஸ்னாப்ஷாட்களின் மொத்த அளவு (GB)"

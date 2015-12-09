@@ -17,11 +17,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-12-05 16:12+0000\n"
+"POT-Creation-Date: 2015-12-09 02:55+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2015-12-03 12:51+0000\n"
+"PO-Revision-Date: 2015-12-08 11:57+0000\n"
 "Last-Translator: Shu Muto <shu-mutou@rf.jp.nec.com>\n"
 "Language: ja\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
@@ -1437,6 +1437,9 @@ msgstr "ボリュームスナップショットから起動 (新しいボリュ�
 msgid "Bootable"
 msgstr "起動可能"
 
+msgid "Bootstrap Theme Preview"
+msgstr "Bootstrap テーマのプレビュー"
+
 msgctxt "Current status of a Database Instance"
 msgid "Build"
 msgstr "作成中"
@@ -2319,6 +2322,13 @@ msgstr "現在のパスワード"
 
 msgid ""
 "Currently only images available via an HTTP/HTTPS URL are supported. The "
+"image location must be accessible to the Image Service."
+msgstr ""
+"現在、HTTP/HTTPS URLから取得できるイメージのみがサポートされています。イメー"
+"ジの場所から Image Service へアクセスできるようにしてください。"
+
+msgid ""
+"Currently only images available via an HTTP/HTTPS URL are supported. The "
 "image location must be accessible to the Image Service. Compressed image "
 "binaries are supported (.zip and .tar.gz.)"
 msgstr ""
@@ -2912,6 +2922,9 @@ msgstr[0] "ボリュームを切断中です"
 
 msgid "Details"
 msgstr "詳細"
+
+msgid "Developer"
+msgstr "開発者"
 
 msgid "Device"
 msgstr "デバイス"
@@ -4562,11 +4575,10 @@ msgstr "イメージ"
 
 msgid ""
 "Images can be provided via an HTTP/HTTPS URL or be uploaded from your local "
-"file system. Compressed image binaries are supported (.zip and .tar.gz.)"
+"file system."
 msgstr ""
 "イメージの作成は HTTP/HTTPS URL 経由で指定する方法と、ローカルファイルシステ"
-"ムからアップロードする方法があります。圧縮イメージがサポートされています (."
-"zip および .tar.gz)。"
+"ムからアップロードする方法があります。"
 
 msgid "Implementation"
 msgstr "実装"
@@ -4837,12 +4849,6 @@ msgstr "Kwapi"
 
 msgid "LB Method"
 msgstr "負荷分散方法"
-
-msgid "LUKS Volume Snapshots"
-msgstr "LUKS ボリュームスナップショット"
-
-msgid "LUKS Volumes"
-msgstr "LUKS ボリューム"
 
 msgid "Language"
 msgstr "言語"
@@ -6080,6 +6086,9 @@ msgstr "更新待ち"
 msgctxt "Current status of a VPN Service"
 msgid "Pending Update"
 msgstr "更新待ち"
+
+msgid "Per Volume Size (GiB)"
+msgstr "ボリュームサイズ (GiB) 毎"
 
 msgid "Perfect Forward Secrecy"
 msgstr "Perfect Forward Secrecy"
@@ -8413,6 +8422,9 @@ msgstr "ボリューム容量はスナップショット容量 (%sGB) 未満に�
 msgid "The volume size cannot be less than the source volume size (%sGB)"
 msgstr "ボリュームサイズは元のボリュームサイズ (%sGB) 未満にはできません。"
 
+msgid "Theme Preview"
+msgstr "テーマのプレビュー"
+
 msgid "There are no meters defined yet."
 msgstr "まだ定義されたメーターがありません。"
 
@@ -8567,11 +8579,12 @@ msgstr "合計メモリー使用量 (時間):"
 msgid "Total RAM"
 msgstr "合計メモリー"
 
-msgid "Total Size of LUKS Volumes and Snapshots (GB)"
-msgstr "LUKS ボリュームとスナップショットの合計サイズ (GB)"
-
 msgid "Total Size of Volumes and Snapshots (GB)"
 msgstr "ボリュームとスナップショットの合計サイズ (GB)"
+
+#, python-format
+msgid "Total Size of Volumes and Snapshots (GiB) of Type %(type)s"
+msgstr "%(type)s 種別のボリュームとスナップショットの合計サイズ (GiB)"
 
 msgid "Total VCPU Usage (Hours):"
 msgstr "合計仮想 CPU 使用量 (時間):"
@@ -10356,6 +10369,10 @@ msgstr "ボリュームスナップショットの概要"
 msgid "Volume Snapshots"
 msgstr "ボリュームスナップショット"
 
+#, python-format
+msgid "Volume Snapshots of Type %(type)s"
+msgstr "%(type)s 種別のボリュームスナップショット"
+
 msgid "Volume Source"
 msgstr "ボリュームソース"
 
@@ -10475,6 +10492,10 @@ msgstr "ボリューム"
 
 msgid "Volumes Attached"
 msgstr "接続されているボリューム"
+
+#, python-format
+msgid "Volumes of Type %(type)s"
+msgstr "%(type)s 種別のボリューム"
 
 msgid "Weight"
 msgstr "重み"

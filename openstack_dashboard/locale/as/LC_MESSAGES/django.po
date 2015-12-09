@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-12-05 16:12+0000\n"
+"POT-Creation-Date: 2015-12-09 02:55+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -3314,12 +3314,6 @@ msgstr "মুখ্য-মান যোৰাবোৰ"
 msgid "Kwapi"
 msgstr "Kwapi"
 
-msgid "LUKS Volume Snapshots"
-msgstr "LUKS আয়তন স্নেপশ্বটবোৰ"
-
-msgid "LUKS Volumes"
-msgstr "LUKS আয়তনবোৰ"
-
 msgid "Language"
 msgstr "ভাষা"
 
@@ -5890,9 +5884,6 @@ msgstr "মুঠ জিগাবাইট"
 
 msgid "Total RAM"
 msgstr "মুঠ RAM"
-
-msgid "Total Size of LUKS Volumes and Snapshots (GB)"
-msgstr "LUKS আয়তনবোৰ আৰু স্নেপশ্বটবোৰৰ মুঠ আকাৰ (GB)"
 
 msgid "Total Size of Volumes and Snapshots (GB)"
 msgstr "আয়তন আৰু স্নেপশ্বটবোৰৰ মুঠ আকাৰ (GB)"
