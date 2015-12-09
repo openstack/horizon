@@ -333,6 +333,46 @@ class CinderApiTests(test.APITestCase):
         default_volume_type = api.cinder.volume_type_default(self.request)
         self.assertEqual(default_volume_type, volume_type)
 
+    def test_cgroup_list(self):
+        cgroups = self.cinder_consistencygroups.list()
+        cinderclient = self.stub_cinderclient()
+        cinderclient.consistencygroups = self.mox.CreateMockAnything()
+        cinderclient.consistencygroups.list(search_opts=None).\
+            AndReturn(cgroups)
+        self.mox.ReplayAll()
+        api_cgroups = api.cinder.volume_cgroup_list(self.request)
+        self.assertEqual(len(cgroups), len(api_cgroups))
+
+    def test_cgroup_get(self):
+        cgroup = self.cinder_consistencygroups.first()
+        cinderclient = self.stub_cinderclient()
+        cinderclient.consistencygroups = self.mox.CreateMockAnything()
+        cinderclient.consistencygroups.get(cgroup.id).AndReturn(cgroup)
+        self.mox.ReplayAll()
+        api_cgroup = api.cinder.volume_cgroup_get(self.request, cgroup.id)
+        self.assertEqual(api_cgroup.name, cgroup.name)
+        self.assertEqual(api_cgroup.description, cgroup.description)
+        self.assertEqual(api_cgroup.volume_types, cgroup.volume_types)
+
+    def test_cgroup_list_with_vol_type_names(self):
+        cgroups = self.cinder_consistencygroups.list()
+        cgroup = self.cinder_consistencygroups.first()
+        volume_types_list = self.cinder_volume_types.list()
+        cinderclient = self.stub_cinderclient()
+        cinderclient.consistencygroups = self.mox.CreateMockAnything()
+        cinderclient.consistencygroups.list(search_opts=None).\
+            AndReturn(cgroups)
+        cinderclient.volume_types = self.mox.CreateMockAnything()
+        for volume_types in volume_types_list:
+            cinderclient.volume_types.get(cgroup.id).AndReturn(volume_types)
+        self.mox.ReplayAll()
+        api_cgroups = api.cinder.volume_cgroup_list_with_vol_type_names(
+            self.request)
+        self.assertEqual(len(cgroups), len(api_cgroups))
+        for i in range(len(api_cgroups[0].volume_type_names)):
+            self.assertEqual(volume_types_list[i].name,
+                             api_cgroups[0].volume_type_names[i])
+
 
 class CinderApiVersionTests(test.TestCase):
 

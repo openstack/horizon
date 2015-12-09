@@ -1,0 +1,10 @@
+{% extends "horizon/common/_modal_form.html" %}
+{% load i18n %}
+{% block title %}{{ page_title }}{% endblock %}
+
+{% block modal-body-right %}
+  <p>{% trans "Volume consistency groups can only be deleted after all the volumes they contain are either deleted or unassigned." %}</p>
+  <p>{% trans "The default action for deleting a consistency group is to first disassociate all associated volumes." %}</p>
+  <p>{% trans "Check the &quot;Delete Volumes&quot; box to also delete the volumes associated with this consistency group." %}</p>
+  <p>{% trans "Note that a volume can not be deleted if it is &quot;attached&quot; or has any dependent snapshots." %}</p>
+{% endblock %}

@@ -13,6 +13,7 @@
 #    under the License.
 
 from cinderclient.v2 import availability_zones
+from cinderclient.v2 import consistencygroups
 from cinderclient.v2 import pools
 from cinderclient.v2 import qos_specs
 from cinderclient.v2 import quotas
@@ -46,6 +47,8 @@ def data(TEST):
     TEST.cinder_availability_zones = utils.TestDataContainer()
     TEST.cinder_volume_transfers = utils.TestDataContainer()
     TEST.cinder_pools = utils.TestDataContainer()
+    TEST.cinder_consistencygroups = utils.TestDataContainer()
+    TEST.cinder_cgroup_volumes = utils.TestDataContainer()
 
     # Services
     service_1 = services.Service(services.ServiceManager(None), {
@@ -382,3 +385,37 @@ def data(TEST):
 
     TEST.cinder_pools.add(pool1)
     TEST.cinder_pools.add(pool2)
+
+    # volume consistency groups
+    cgroup_1 = consistencygroups.Consistencygroup(
+        consistencygroups.ConsistencygroupManager(None),
+        {'id': u'1',
+         'name': u'cg_1',
+         'description': 'cg 1 description',
+         'volume_types': u'1',
+         'volume_type_names': []})
+
+    cgroup_2 = consistencygroups.Consistencygroup(
+        consistencygroups.ConsistencygroupManager(None),
+        {'id': u'2',
+         'name': u'cg_2',
+         'description': 'cg 2 description',
+         'volume_types': u'1',
+         'volume_type_names': []})
+
+    TEST.cinder_consistencygroups.add(cgroup_1)
+    TEST.cinder_consistencygroups.add(cgroup_2)
+
+    volume_for_consistency_group = volumes.Volume(
+        volumes.VolumeManager(None),
+        {'id': "11023e92-8008-4c8b-8059-7f2293ff3881",
+         'status': 'available',
+         'size': 40,
+         'display_name': 'Volume name',
+         'display_description': 'Volume description',
+         'created_at': '2014-01-27 10:30:00',
+         'volume_type': None,
+         'attachments': [],
+         'consistencygroup_id': u'1'})
+    TEST.cinder_cgroup_volumes.add(api.cinder.Volume(
+        volume_for_consistency_group))

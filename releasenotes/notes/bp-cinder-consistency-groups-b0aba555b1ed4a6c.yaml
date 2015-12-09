@@ -1,0 +1,12 @@
+---
+features:
+  - >
+    [`blueprint cinder-consistency-groups <https://blueprints.launchpad.net/horizon/+spec/cinder-consistency-groups>`_]
+    This feature adds a new Consistency Groups tab to the Project Volumes panel.
+    Consistency Groups (GG) contain existing volumes, and allow the user to perform
+    actions on the volumes in one step. Actions include: create a CG, manage volumes
+    associated with the CG, update a CG, and delete a CGs. Note that a CG can not be
+    deleted if it contains any volumes.
+security:
+  - Policies associated with Consistency Groups exist in the Cinder policy file, and
+    by default, all actions are disabled.
