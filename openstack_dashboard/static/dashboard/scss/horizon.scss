@@ -1277,27 +1277,6 @@ a:hover.link-popover { text-decoration: none; }
   top: 0;
 }
 
-/**** Details Override ****/
-.page-header > .breadcrumb {
-  font-size: $font-size-h3;
-  margin-bottom: 0;
-
-  .actions_column {
-    padding: 0;
-  }
-}
-
-.detail {
-  ul {
-    padding-left: 0;
-  }
-
-  dt, dd {
-    text-align: left;
-    line-height: $line-height-small;
-  }
-}
-
 input::-ms-clear, input::-ms-reveal {
   display: none;
 }

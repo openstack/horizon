@@ -5,9 +5,9 @@
 @import 'components/tables';
 @import 'components/table_actions';
 @import 'components/pie_charts';
+@import 'components/breadcrumb_header';
 
 .navbar-brand {
-
   // The 114 is a legacy value to push the context-menu over
   padding-right: 114px;
 }
@@ -21,3 +21,14 @@ form label {
   display: inline-block;
 }
 
+/* Details page overrides */
+.detail {
+  ul {
+    padding-left: 0;
+  }
+
+  dt, dd {
+    text-align: left;
+    line-height: $line-height-small;
+  }
+}
