@@ -12,17 +12,20 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-12-05 16:12+0000\n"
+"POT-Creation-Date: 2015-12-09 02:55+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2015-12-03 12:52+0000\n"
+"PO-Revision-Date: 2015-12-08 08:08+0000\n"
 "Last-Translator: Shu Muto <shu-mutou@rf.jp.nec.com>\n"
 "Language: ja\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 "Generated-By: Babel 2.0\n"
 "X-Generator: Zanata 3.7.3\n"
 "Language-Team: Japanese\n"
+
+msgid "#"
+msgstr "#"
 
 msgid "(Max: 16Kb)"
 msgstr "(最大 16 Kb)"
@@ -32,6 +35,96 @@ msgstr "(変更済み)"
 
 msgid "(None)"
 msgstr "(なし)"
+
+msgid "1"
+msgstr "1"
+
+msgid "2"
+msgstr "2"
+
+msgid "3"
+msgstr "3"
+
+msgid "4"
+msgstr "4"
+
+msgid "5"
+msgstr "5"
+
+msgid "6"
+msgstr "6"
+
+msgid "7"
+msgstr "7"
+
+msgid "8"
+msgstr "8"
+
+msgid ""
+"<button></button>\n"
+"          <strong>Heads up!</strong>\n"
+"           This\n"
+"          <a>alert needs your attention</a>,\n"
+"           but it's not super important."
+msgstr ""
+"<button></button>\n"
+"          <strong>注意！</strong>\n"
+"           この\n"
+"          <a>アラートには注意が必要です</a>が、\n"
+"           とても重要というわけではありません。"
+
+msgid ""
+"<button></button>\n"
+"          <strong>Oh snap!</strong>\n"
+"          <a>Change a few things up</a>\n"
+"          and try submitting again."
+msgstr ""
+"<button></button>\n"
+"          <strong>大変！</strong>\n"
+"          <a>いくつか修正して</a>\n"
+"          再送信してみてください。"
+
+msgid ""
+"<button></button>\n"
+"          <strong>Well done!</strong>\n"
+"          You successfully read\n"
+"          <a>this important alert message</a>."
+msgstr ""
+"<button></button>\n"
+"          <strong>あっぱれ！</strong>\n"
+"          <a>この重要なアラートメッセージ</a>\n"
+"          を読むことに成功しました。"
+
+msgid ""
+"<div>\n"
+"                  \n"
+"                    <input> Checkbox\n"
+"                  </input>\n"
+"                </div>"
+msgstr ""
+"<div>\n"
+"                  \n"
+"                    <input> チェックボックス\n"
+"                  </input>\n"
+"                </div>"
+
+msgid ""
+"<input>\n"
+"                    Option one is this\n"
+"                  </input>"
+msgstr ""
+"<input>\n"
+"                    オプション１はこれです\n"
+"                  </input>"
+
+msgid ""
+"<input>\n"
+"                    Option two can be something else\n"
+"                  </input>"
+msgstr ""
+"<input>\n"
+"                    オプション２は何か他のものにできます\n"
+"                  </input>"
 
 msgid ""
 "<li><b>Image (with Create New Volume checked)</b>: This options uses an "
@@ -75,6 +168,10 @@ msgstr ""
 "す。<em>注意: ボリュームを使用する場合、そのボリュームから起動できるインスタ"
 "ンスは 1 つだけです。</em></li>"
 
+msgid "<small>This line of text is meant to be treated as fine print.</small>"
+msgstr ""
+"<small>テキストのこの行は、細字として扱われることを意味します。</small>"
+
 msgid ""
 "A floating IP allows instances to be addressable from an external network.\n"
 "    Floating IPs are not allocated to instances at creation time and may be "
@@ -102,8 +199,18 @@ msgstr ""
 "作成済みのキーペアを選択するか、キーペアをインポートまたは新規作成してくださ"
 "い。"
 
+msgid ""
+"A longer block of help text that breaks onto a new line and may extend "
+"beyond one line."
+msgstr ""
+"ヘルプテキストの長いブロックは、新しい行に分割され、1行を超えることがありま"
+"す。"
+
 msgid "A name is required for your instance."
 msgstr "インスタンス名は必須です。"
+
+msgid "Action"
+msgstr "アクション"
 
 msgid "Active"
 msgstr "稼働中"
@@ -129,6 +236,9 @@ msgstr ""
 "管理者が Floating IP プールを用意し、そのプールから確保した Floating IP をイ"
 "ンスタンスに関連付けることができます。"
 
+msgid "Alerts"
+msgstr "アラート"
+
 msgid ""
 "An <b>External</b> network is set up by an administrator.\n"
 "    If you want an instance to communicate outside of the data center,\n"
@@ -143,6 +253,9 @@ msgstr ""
 "続します。\n"
 "<b>ネットワークトポロジー</b>画面で、ルーターを両方のネットワークに接続するこ"
 "ともできます。"
+
+msgid "An abbreviation of the word attribute is <abbr>attr</abbr>."
+msgstr "単語の属性の略称は <abbr>attr</abbr> です。"
 
 msgid ""
 "An advanced option available when launching an instance is disk "
@@ -163,11 +276,50 @@ msgstr ""
 "インスタンス名は必ず必要で、ダッシュボードでインスタンスを一意に特定するのに"
 "使用します。"
 
+msgid "Animated"
+msgstr "アニメーション"
+
+msgid "Another action"
+msgstr "もうひとつのアクション"
+
 msgid "Automatic"
 msgstr "自動"
 
 msgid "Availability Zone"
 msgstr "アベイラビリティーゾーン"
+
+msgid "Badges"
+msgstr "バッジ"
+
+msgid "Basic"
+msgstr "ベーシック"
+
+msgid "Basic panel"
+msgstr "ベーシックなパネル"
+
+msgid "Block level button"
+msgstr "ブロックレベルボタン"
+
+msgid "Blockquotes"
+msgstr "引用"
+
+msgid "Bordered Table"
+msgstr "縁取りされたテーブル"
+
+msgid "Bottom"
+msgstr "下"
+
+msgid "Brand"
+msgstr "ブランドマーク"
+
+msgid "Breadcrumbs"
+msgstr "パンくず"
+
+msgid "Button"
+msgstr "ボタン"
+
+msgid "Buttons"
+msgstr "ボタン"
 
 msgid "Cancel"
 msgstr "取り消し"
@@ -190,6 +342,15 @@ msgstr ""
 msgid "Click to see more details"
 msgstr "クリックすると詳しい情報が表示されます。"
 
+msgid "Close"
+msgstr "閉じる"
+
+msgid "Column content"
+msgstr "カラムの内容"
+
+msgid "Column heading"
+msgstr "カラムの見出し"
+
 msgid "Configuration"
 msgstr "設定"
 
@@ -198,6 +359,12 @@ msgstr "コンフィグドライブ"
 
 msgid "Configuration Help"
 msgstr "設定 のヘルプ"
+
+msgid "Containers"
+msgstr "コンテナー"
+
+msgid "Contextual alternatives"
+msgstr "文脈依存の代替"
 
 msgid "Count"
 msgstr "数"
@@ -225,6 +392,21 @@ msgstr ""
 msgid "Customization Script"
 msgstr "カスタマイズスクリプト"
 
+msgid "Danger"
+msgstr "危険"
+
+msgid "Data"
+msgstr "データ"
+
+msgid "Default"
+msgstr "初期値"
+
+msgid "Default button"
+msgstr "デフォルトのボタン"
+
+msgid "Default input"
+msgstr "デフォルトの入力項目"
+
 msgid "Delete Volume on Instance Delete"
 msgstr "インスタンス削除時のボリュームを削除します"
 
@@ -240,8 +422,17 @@ msgstr "詳細"
 msgid "Device Name"
 msgstr "デバイス名"
 
+msgid "Dialogs"
+msgstr "ダイアログ"
+
 msgid "Direction"
 msgstr "方向"
+
+msgid "Disabled"
+msgstr "無効"
+
+msgid "Disabled input"
+msgstr "無効化された入力項目"
 
 msgid "Disk Partition"
 msgstr "ディスクパーティション"
@@ -252,8 +443,30 @@ msgstr "ドメイン ID"
 msgid "Down"
 msgstr "停止中"
 
+msgid ""
+"Dropdown\n"
+"                <span></span>"
+msgstr ""
+"ドロップダウン\n"
+"                <span></span>"
+
+msgid "Dropdown <b></b>"
+msgstr "ドロップダウン <b></b>"
+
+msgid "Dropdown <span></span>"
+msgstr "ドロップダウン <span></span>"
+
+msgid "Dropdown header"
+msgstr "ドロップダウンのヘッダー"
+
+msgid "Dropdown link"
+msgstr "ドロップダウンのリンク"
+
 msgid "Email"
 msgstr "メール"
+
+msgid "Emphasis classes"
+msgstr "強調クラス"
 
 msgid "Enabled"
 msgstr "有効"
@@ -263,6 +476,9 @@ msgstr "一時ディスク"
 
 msgid "Ether Type"
 msgstr "Ethernet 種別"
+
+msgid "Example body text"
+msgstr "本文の例"
 
 #, python-format
 msgid "Extension is not enabled: %(extension)s."
@@ -290,8 +506,14 @@ msgstr ""
 "インスタンスのコンピュート、メモリー、ストレージリソースは、フレーバーとして"
 "定義されています。"
 
+msgid "Focused input"
+msgstr "フォーカスされた入力項目"
+
 msgid "Format"
 msgstr "形式"
+
+msgid "Forms"
+msgstr "フォーム"
 
 msgid ""
 "From a Windows system, you can use PuTTYGen to create private/public keys.\n"
@@ -304,6 +526,30 @@ msgstr ""
 "PuTTY 鍵ジェネレーターを使って鍵を作成、保存してから、\n"
 "赤い枠に表示された公開鍵を\n"
 "<samp>.ssh/authorized_keys</samp> ファイルにコピーしてください。"
+
+msgid "Heading 1"
+msgstr "見出し１"
+
+msgid "Heading 2"
+msgstr "見出し２"
+
+msgid "Heading 3"
+msgstr "見出し３"
+
+msgid "Heading 4"
+msgstr "見出し４"
+
+msgid "Heading 5"
+msgstr "見出し５"
+
+msgid "Heading 6"
+msgstr "見出し６"
+
+msgid "Home"
+msgstr "ホーム"
+
+msgid "Home <span>42</span>"
+msgstr "ホーム <span>42</span>"
 
 msgid "ID"
 msgstr "ID"
@@ -367,6 +613,24 @@ msgstr "クォータへの影響"
 msgid "Import Key Pair"
 msgstr "キーペアのインポート"
 
+msgid "Indicators"
+msgstr "インジケーター"
+
+msgid "Info"
+msgstr "情報"
+
+msgid "Input addons"
+msgstr "入力項目のアドオン"
+
+msgid "Input error"
+msgstr "エラーのある入力項目"
+
+msgid "Input success"
+msgstr "成功した入力項目"
+
+msgid "Input warning"
+msgstr "警告のある入力項目"
+
 msgid "Instance Details"
 msgstr "インスタンスの詳細"
 
@@ -401,6 +665,9 @@ msgstr ""
 msgid "Insufficient privilege level to view user information."
 msgstr "ユーザー情報を参照するのに必要な権限がありません。"
 
+msgid "Jumbotron"
+msgstr "ジャンボトロン"
+
 msgid "Key Pair"
 msgstr "キーペア"
 
@@ -431,11 +698,47 @@ msgstr ""
 msgid "Killed"
 msgstr "強制終了"
 
+msgid "Large button"
+msgstr "大きいボタン"
+
+msgid "Large input"
+msgstr "大きな入力項目"
+
 msgid "Launch Instance"
 msgstr "インスタンスの起動"
 
+msgid "Learn more"
+msgstr "もっと詳しく"
+
+msgid "Left"
+msgstr "左端"
+
+msgid "Legend"
+msgstr "凡例"
+
+msgid "Library"
+msgstr "ライブラリ"
+
+msgid "Link"
+msgstr "リンク"
+
+msgid "List group item heading"
+msgstr "グループ一覧のアイテムの見出し"
+
+msgid "List groups"
+msgstr "グループの一覧表示"
+
 msgid "Load script from a file"
 msgstr "ファイルからのスクリプト読み込み"
+
+msgid "Look, I'm in a large well!"
+msgstr "見て、私は大きいウェルの中にいるよ！"
+
+msgid "Look, I'm in a small well!"
+msgstr "見て、私は小さいウェルの中にいるよ！"
+
+msgid "Look, I'm in a well!"
+msgstr "見て、私はウェルの中にいるよ！"
 
 msgid "Manual"
 msgstr "手動"
@@ -443,8 +746,14 @@ msgstr "手動"
 msgid "Max Port"
 msgstr "上限ポート番号"
 
+msgid "Messages <span>3</span>"
+msgstr "メッセージ <span>3</span>"
+
 msgid "Metadata"
 msgstr "メタデータ"
+
+msgid "Middle"
+msgstr "中央"
 
 msgid "Min Disk"
 msgstr "最小ディスク"
@@ -461,8 +770,23 @@ msgstr "最小メモリー"
 msgid "Min RAM (MB)"
 msgstr "最小メモリー (MB)"
 
+msgid "Mini button"
+msgstr "ミニボタン"
+
+msgid "Modal title"
+msgstr "モーダルのタイトル"
+
+msgid "Modals"
+msgstr "モーダル"
+
 msgid "Name"
 msgstr "名前"
+
+msgid "Navbar"
+msgstr "ナビゲーションバー"
+
+msgid "Navs"
+msgstr "ナビゲーション"
 
 msgid "Network"
 msgstr "ネットワーク"
@@ -479,6 +803,12 @@ msgstr "ネットワーク"
 msgid "Networks provide the communication channels for instances in the cloud."
 msgstr "ネットワークはクラウド内のインスタンス用の通信経路を提供します。"
 
+msgid "Newer"
+msgstr "新しい"
+
+msgid "Next"
+msgstr "次へ"
+
 msgid "No"
 msgstr "いいえ"
 
@@ -488,11 +818,59 @@ msgstr "利用できるアイテムがありません。"
 msgid "OK"
 msgstr "OK"
 
+msgid "Older"
+msgstr "古い"
+
+msgid "One fine body…"
+msgstr "一つの本文・・・"
+
+msgid "One more separated link"
+msgstr "もうひとつの分割されたリンク"
+
+msgid "Pager"
+msgstr "ページャー"
+
+msgid "Pagination"
+msgstr "ページネーション"
+
+msgid "Panel content"
+msgstr "パネルの内容"
+
+msgid "Panel danger"
+msgstr "危険のパネル"
+
+msgid "Panel footer"
+msgstr "パネルのフッター"
+
+msgid "Panel heading"
+msgstr "パネルの見出し"
+
+msgid "Panel info"
+msgstr "情報のパネル"
+
+msgid "Panel primary"
+msgstr "主要なパネル"
+
+msgid "Panel success"
+msgstr "成功のパネル"
+
+msgid "Panel warning"
+msgstr "警告のパネル"
+
+msgid "Panels"
+msgstr "パネル"
+
+msgid "Password"
+msgstr "パスワード"
+
 msgid "Pending Delete"
 msgstr "削除待ち"
 
 msgid "Physical Network"
 msgstr "物理ネットワーク"
+
+msgid "Pills"
+msgstr "ピル"
 
 msgid ""
 "Please provide the initial hostname for the instance, the availability zone "
@@ -507,6 +885,15 @@ msgstr ""
 msgid "Policy check failed."
 msgstr "ポリシーチェックに失敗しました。"
 
+msgid "Popovers"
+msgstr "ポップオーバー"
+
+msgid "Previous"
+msgstr "前へ"
+
+msgid "Primary"
+msgstr "主要"
+
 msgid "Private"
 msgstr "プライベート"
 
@@ -515,6 +902,12 @@ msgstr "秘密鍵"
 
 msgid "Profile"
 msgstr "プロファイル"
+
+msgid "Profile <span></span>"
+msgstr "プロファイル <span></span>"
+
+msgid "Progress bars"
+msgstr "プログレスバー"
 
 msgid "Project"
 msgstr "プロジェクト"
@@ -559,6 +952,9 @@ msgstr "処理待ち"
 msgid "RAM"
 msgstr "メモリー"
 
+msgid "Radios"
+msgstr "ラジオボタン"
+
 msgid "Re-order items using drag and drop"
 msgstr "順番を並べ替えるには、アイテムをドラッグ＆ドロップしてください。"
 
@@ -568,11 +964,17 @@ msgstr "接続相手"
 msgid "Required"
 msgstr "必須"
 
+msgid "Right"
+msgstr "右端"
+
 msgid "Root Disk"
 msgstr "ルートディスク"
 
 msgid "Save"
 msgstr "保存"
+
+msgid "Save changes"
+msgstr "変更の保存"
 
 msgid "Saving"
 msgstr "保存中"
@@ -642,6 +1044,12 @@ msgstr ""
 msgid "Select the security groups."
 msgstr "セキュリティーグループを選択してください。"
 
+msgid "Selects"
+msgstr "セレクト"
+
+msgid "Separated link"
+msgstr "分割されたリンク"
+
 #, python-format
 msgid "Service type is not enabled: %(desiredType)s"
 msgstr "サービスタイプ %(desiredType)s が有効になっていません。"
@@ -659,17 +1067,47 @@ msgstr "サイズ"
 msgid "Size (GB)"
 msgstr "サイズ (GB)"
 
+msgid "Small button"
+msgstr "小さいボタン"
+
+msgid "Small input"
+msgstr "小さい入力項目"
+
 msgid "Snapshot"
 msgstr "スナップショット"
+
+msgid "Someone famous in <cite>Source Title</cite>"
+msgstr "<cite>ソースのタイトル</cite> で有名な誰か"
+
+msgid "Something else here"
+msgstr "何か他のものはここへ"
 
 msgid "Source"
 msgstr "送信元"
 
+msgid "Source Code"
+msgstr "ソースコード"
+
+msgid "Stacked"
+msgstr "積み上げ"
+
+msgid "Standard Table"
+msgstr "標準的なテーブル"
+
 msgid "Status"
 msgstr "ステータス"
 
+msgid "Striped"
+msgstr "ストライプ"
+
+msgid "Submit"
+msgstr "送信"
+
 msgid "Subnets Associated"
 msgstr "割り当てサブネット"
+
+msgid "Success"
+msgstr "成功"
 
 #, python-format
 msgid "Successfully created key pair %(name)s."
@@ -681,6 +1119,15 @@ msgstr "キーペア %(name)s を正常に取り込みました"
 
 msgid "Swap Disk"
 msgstr "スワップディスク"
+
+msgid "Tables"
+msgstr "テーブル"
+
+msgid "Tabs"
+msgstr "タブ"
+
+msgid "Textarea"
+msgstr "テキストエリア"
 
 msgid ""
 "The flavor you select for an instance determines the amount of compute, "
@@ -699,6 +1146,17 @@ msgstr ""
 "に十分なリソースがなければいけません。インスタンスに対してリソースが不足して"
 "いるフレーバーには、<b>利用可能</b>フレーバー一覧で黄色の警告アイコンが表示さ"
 "れます。"
+
+msgid "The following snippet of text is <em>rendered as italicized text</em>."
+msgstr ""
+"テキストの次のスニペットは、<em>斜体のテキストとしてレンダリングされます</"
+"em>。"
+
+msgid ""
+"The following snippet of text is <strong>rendered as bold text</strong>."
+msgstr ""
+"テキストの次のスニペットは、<strong>太字のテキストとしてレンダリングされます"
+"</strong>。"
 
 #, python-format
 msgid ""
@@ -773,9 +1231,29 @@ msgstr ""
 "このフレーバーには、クォータで許容されているよりも多くの仮想 CPU が必要です。"
 "より小さいフレーバーを選択するか、インスタンスの数を減らしてください。"
 
+msgid ""
+"This is a simple hero unit, a simple jumbotron-style component for calling "
+"extra attention to featured content or information."
+msgstr ""
+"これは、シンプルな突出したユニットで、注目のコンテンツや情報に特別な注意を喚"
+"起するためのシンプルなジャンボトロンスタイルのコンポーネントです。"
+
 msgid "This is your new key pair. Copy this information and keep it secure."
 msgstr ""
 "以下が新しいキーペアです。この情報をコピーして、安全に保管してください。"
+
+msgid ""
+"To view source code, hover over a section, then click the <a><span></span></"
+"a> button in the top right of that section."
+msgstr ""
+"ソースコードを閲覧するには、セクションの上にカーソルを移動して、セクションの"
+"右上の <a><span></span></a> ボタンをクリックします。"
+
+msgid "Tooltips"
+msgstr "ツールチップ"
+
+msgid "Top"
+msgstr "上"
 
 msgid "Total Disk"
 msgstr "合計ディスク"
@@ -801,6 +1279,9 @@ msgstr ""
 "ラウザーが HTML5 File API をサポートしている場合には、ファイルからスクリプト"
 "の読み込みを選択することができます。スクリプトのサイズは、16 Kb 以下にする必"
 "要があります。"
+
+msgid "Typography"
+msgstr "タイポグラフィ"
 
 msgid "Unable to create the domain."
 msgstr "ドメインを作成できません。"
@@ -834,6 +1315,9 @@ msgstr "ドメインを削除できません。"
 
 msgid "Unable to delete the domains."
 msgstr "ドメインを削除できません。"
+
+msgid "Unable to delete the image with id: "
+msgstr "次の ID のイメージを削除できません: "
 
 msgid "Unable to delete the project."
 msgstr "プロジェクトを削除できません。"
@@ -1042,6 +1526,15 @@ msgid ""
 msgstr ""
 "ボリュームは同時に 1 つのインスタンスにしか接続できません。インスタンス数を "
 "1 にするか、別のブートソースを選択してください。"
+
+msgid "Warning"
+msgstr "警告"
+
+msgid "Warning!"
+msgstr "警告！"
+
+msgid "Wells"
+msgstr "ウェル"
 
 msgid ""
 "When selecting volume as boot source, please ensure the instance's "

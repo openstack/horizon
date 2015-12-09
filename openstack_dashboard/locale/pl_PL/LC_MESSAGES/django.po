@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-12-05 16:12+0000\n"
+"POT-Creation-Date: 2015-12-09 02:55+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -4860,12 +4860,6 @@ msgstr "Kwapi"
 msgid "LB Method"
 msgstr "Metoda równoważenia ruchu"
 
-msgid "LUKS Volume Snapshots"
-msgstr "Migawki wolumenów LUKS"
-
-msgid "LUKS Volumes"
-msgstr "Wolumeny LUKS"
-
 msgid "Language"
 msgstr "Język"
 
@@ -8636,9 +8630,6 @@ msgstr "Łączne wykorzystanie pamięci (godziny):"
 
 msgid "Total RAM"
 msgstr "Łącznie RAM"
-
-msgid "Total Size of LUKS Volumes and Snapshots (GB)"
-msgstr "Całkowity rozmiar wolumenów i migawek LUKS (GB)"
 
 msgid "Total Size of Volumes and Snapshots (GB)"
 msgstr "Całkowity rozmiar wolumenów i migawek (GB)"

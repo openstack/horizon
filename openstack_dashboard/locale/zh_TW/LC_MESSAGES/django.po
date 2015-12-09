@@ -17,7 +17,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-12-05 16:12+0000\n"
+"POT-Creation-Date: 2015-12-09 02:55+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -4559,12 +4559,6 @@ msgstr "Kwapi"
 msgid "LB Method"
 msgstr "負載平衡方法"
 
-msgid "LUKS Volume Snapshots"
-msgstr "LUKS 加密雲硬碟即時存檔"
-
-msgid "LUKS Volumes"
-msgstr "LUKS 加密雲硬碟"
-
 msgid "Language"
 msgstr "語系"
 
@@ -8141,9 +8135,6 @@ msgstr "隨機存取記憶體用量（小時）："
 
 msgid "Total RAM"
 msgstr "隨機存取記憶體總合"
-
-msgid "Total Size of LUKS Volumes and Snapshots (GB)"
-msgstr "LUKS 加密雲硬碟與即時存檔的總容量（GB）"
 
 msgid "Total Size of Volumes and Snapshots (GB)"
 msgstr "雲硬碟與即時存檔的總容量（GB）"

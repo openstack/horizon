@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-12-05 16:12+0000\n"
+"POT-Creation-Date: 2015-12-09 02:55+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -2610,12 +2610,6 @@ msgstr ""
 msgid "Kwapi"
 msgstr "Kwapi"
 
-msgid "LUKS Volume Snapshots"
-msgstr "LUKS volume momentopnamen"
-
-msgid "LUKS Volumes"
-msgstr "LUKS volumen"
-
 msgid "Language"
 msgstr "Taal"
 
@@ -4632,9 +4626,6 @@ msgstr "Totaal Gigabytes"
 
 msgid "Total RAM"
 msgstr "Totaal werkgeheugen"
-
-msgid "Total Size of LUKS Volumes and Snapshots (GB)"
-msgstr "Grootte van de LUKS Volumes en Snapshots (GB)"
 
 msgid "Total Size of Volumes and Snapshots (GB)"
 msgstr "Totale grootte van de volumen en momentopnamen (GB)"

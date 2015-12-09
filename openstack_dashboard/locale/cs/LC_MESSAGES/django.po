@@ -10,11 +10,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-12-05 16:12+0000\n"
+"POT-Creation-Date: 2015-12-09 02:55+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2015-11-24 03:52+0000\n"
+"PO-Revision-Date: 2015-12-08 03:45+0000\n"
 "Last-Translator: Zbyněk Schwarz <zbynek.schwarz@gmail.com>\n"
 "Language: cs\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
@@ -1436,6 +1436,9 @@ msgstr "Zavést ze snímku svazku (vytvoří nový svazek)"
 msgid "Bootable"
 msgstr "Zaveditelné"
 
+msgid "Bootstrap Theme Preview"
+msgstr "Zavést náhled vzhledu"
+
 msgctxt "Current status of a Database Instance"
 msgid "Build"
 msgstr "Sestavit"
@@ -2325,6 +2328,13 @@ msgstr "Současné heslo"
 
 msgid ""
 "Currently only images available via an HTTP/HTTPS URL are supported. The "
+"image location must be accessible to the Image Service."
+msgstr ""
+"V současnosti jsou podporovány pouze obrazy dostupné přes HTTP/HTTPS URL. "
+"Umístění obrazu musí být přístupné pro Službu obrazů."
+
+msgid ""
+"Currently only images available via an HTTP/HTTPS URL are supported. The "
 "image location must be accessible to the Image Service. Compressed image "
 "binaries are supported (.zip and .tar.gz.)"
 msgstr ""
@@ -2593,6 +2603,12 @@ msgctxt "current status of stack"
 msgid "Delete In Progress"
 msgstr "Probíhá mazání"
 
+msgid "Delete Instance"
+msgid_plural "Delete Instances"
+msgstr[0] "Smazat instanci"
+msgstr[1] "Smazat instance"
+msgstr[2] "Smazat instance"
+
 msgid "Delete Interface"
 msgid_plural "Delete Interfaces"
 msgstr[0] "Smazat rozhraní"
@@ -2746,9 +2762,15 @@ msgstr[0] "Smazat typ svazku"
 msgstr[1] "Smazat typy svazku"
 msgstr[2] "Smazat typy svazku"
 
+msgid "Delete Volume on Instance Delete"
+msgstr "Smazání svazku nebo instance"
+
 #, python-format
 msgid "Delete the created network \"%s\" due to subnet creation failure."
 msgstr "Smazat vytvořenou síť \"%s\" kvůli neúspěšnému vytvoření podsítě."
+
+msgid "Delete volume when the instance is deleted"
+msgstr "Smazat svazek když je smazána instance"
 
 msgid "Deleted"
 msgstr "Smazáno"
@@ -2939,8 +2961,14 @@ msgstr[0] "Typ svazku smazán"
 msgstr[1] "Typy svazku smazány"
 msgstr[2] "Typy svazku smazány"
 
+msgid "Deleted cluster is not recoverable."
+msgstr "Smazaný cluster nelze obnovit"
+
 msgid "Deleted images are not recoverable."
 msgstr "Smazané obrazy nelze obnovit."
+
+msgid "Deleted instances are not recoverable."
+msgstr "Smazané instance nelze obnovit."
 
 msgid "Deleting"
 msgstr "Mazání"
@@ -3046,6 +3074,9 @@ msgstr[2] "Odpojování svazků"
 
 msgid "Details"
 msgstr "Podrobnosti"
+
+msgid "Developer"
+msgstr "Vývojář"
 
 msgid "Device"
 msgstr "Zařízení"
@@ -4707,11 +4738,10 @@ msgstr "Obrazy"
 
 msgid ""
 "Images can be provided via an HTTP/HTTPS URL or be uploaded from your local "
-"file system. Compressed image binaries are supported (.zip and .tar.gz.)"
+"file system."
 msgstr ""
 "Obrazy mohou být zadány pomocí HTTP/HTTPS URL, nebo nahrány z místního "
-"souborového systému. Komprimované binární obrazy jsou podporovány (.zip a ."
-"tar.gz)."
+"souborového systému."
 
 msgid "Implementation"
 msgstr "Zavedení"
@@ -4847,6 +4877,9 @@ msgstr "ID instance"
 msgid "Instance Name"
 msgstr "Název instance"
 
+msgid "Instance Name ="
+msgstr "Název instance ="
+
 msgid "Instance Overview"
 msgstr "Přehled instance"
 
@@ -4981,12 +5014,6 @@ msgstr "Kwapi"
 
 msgid "LB Method"
 msgstr "Metoda LB"
-
-msgid "LUKS Volume Snapshots"
-msgstr "Snímky svazku LUKS"
-
-msgid "LUKS Volumes"
-msgstr "Svazky LUKS"
 
 msgid "Language"
 msgstr "Jazyk"
@@ -5267,6 +5294,9 @@ msgstr "Max opakování (1~10)"
 msgid "Max."
 msgstr "Max."
 
+msgid "Max. Size (MB) ="
+msgstr "Max. velikost (MB) ="
+
 msgid "Maximum Transmission Unit size for the connection"
 msgstr "Maximální velikost přenosové jednotky připojení"
 
@@ -5384,6 +5414,9 @@ msgstr "Min RAM"
 msgid "Min."
 msgstr "Min."
 
+msgid "Min. Size (MB) ="
+msgstr "Min. velikost (MB) ="
+
 msgid "Minimum Disk (GB)"
 msgstr "Minimální kapacita (GB)"
 
@@ -5472,6 +5505,9 @@ msgstr "Nedostupné"
 
 msgid "Name"
 msgstr "Jméno"
+
+msgid "Name ="
+msgstr "Název ="
 
 msgid ""
 "Name may only contain letters, numbers, underscores, periods and hyphens."
@@ -7171,6 +7207,12 @@ msgstr "Naplánována záloha \"%(name)s\"."
 msgid "Scheduled deletion of %(data_type)s"
 msgstr "Naplánováné smazání %(data_type)s"
 
+msgid "Scheduled deletion of Cluster"
+msgid_plural "Scheduled deletion of Clusters"
+msgstr[0] "Smazání clusteru naplánováno"
+msgstr[1] "Smazání clusterů naplánováno"
+msgstr[2] "Smazání clusterů naplánováno"
+
 msgid "Scheduled deletion of Firewall"
 msgid_plural "Scheduled deletion of Firewalls"
 msgstr[0] "Smazání brany Firewall naplánováno"
@@ -7194,6 +7236,12 @@ msgid_plural "Scheduled deletion of IPSec Site Connections"
 msgstr[0] "Smazání IPSec připojení k místu naplánováno"
 msgstr[1] "Smazání IPSec připojení k místu naplánováno"
 msgstr[2] "Smazání IPSec připojení k místu naplánováno"
+
+msgid "Scheduled deletion of Instance"
+msgid_plural "Scheduled deletion of Instances"
+msgstr[0] "Smazání instance naplánováno"
+msgstr[1] "Smazání instancí naplánováno"
+msgstr[2] "Smazání instancí naplánováno"
 
 msgid "Scheduled deletion of Member"
 msgid_plural "Scheduled deletion of Members"
@@ -8617,6 +8665,9 @@ msgstr "Velikost svazku nemůže být menší než velikost snímku (%sGB)"
 msgid "The volume size cannot be less than the source volume size (%sGB)"
 msgstr "Velikost svazku nemůže být menší než velikost zdrojového svazku (%sGB)"
 
+msgid "Theme Preview"
+msgstr "Náhled vzhledu"
+
 msgid "There are no meters defined yet."
 msgstr "Zatím nejsou určeny žádné metry."
 
@@ -8767,9 +8818,6 @@ msgstr "Celkové využití paměti (V hodinách):"
 
 msgid "Total RAM"
 msgstr "Celkem RAM"
-
-msgid "Total Size of LUKS Volumes and Snapshots (GB)"
-msgstr "Celková velikost Svazků LUKS a Snímků (GB)"
 
 msgid "Total Size of Volumes and Snapshots (GB)"
 msgstr "Celková velikost Svazků a Snímků (GB)"
