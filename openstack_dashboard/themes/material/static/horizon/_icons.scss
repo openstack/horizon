@@ -55,6 +55,8 @@ $icon-swap: (
   link: 'link-variant',
   exchange: 'swap-horizontal',
   asterisk: 'star',
+  pause: 'pause',
+  play: 'play'
 );
 
 @each $fa-icon, $mdi-icon in $icon-swap {
