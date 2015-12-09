@@ -80,6 +80,9 @@ horizon.modals.init_wizard = function () {
       $group.find('span.help-block.alert').remove();
     });
 
+    // Temporarilly remove "disabled" attribute to get the values serialized
+    var disabled = $form.find('select[disabled="disabled"]').removeAttr("disabled");
+
     // Send the data for validation.
     $.ajax({
       type: 'POST',
@@ -93,6 +96,9 @@ horizon.modals.init_wizard = function () {
       async: false,
       success: function (data) { response = data; }
     });
+
+    // Re-enable the "disabled" attribute on disabled inputs.
+    disabled.attr("disabled", "disabled");
 
     // Handle errors.
     if (response.has_errors) {

@@ -63,16 +63,7 @@ horizon.forms = {
       var $ipVersion = $form.find("select#id_ip_version");
       if ($option.val() == "subnetpool") {
         $ipVersion.attr("disabled", "disabled");
-        // disabled fields do not post, store the value in a hidden input
-        var el = document.createElement("input");
-        el.type='hidden';
-        el.id = "id_hidden_ip_version";
-        el.name = $ipVersion.attr('name');
-        el.value = $ipVersion.attr('value');
-        $form.append(el);
       } else {
-        var $hiddenIpVersion = $form.find("hidden#id_hidden_ip_version");
-        $hiddenIpVersion.remove();
         $ipVersion.removeAttr("disabled");
       }
     });
@@ -177,18 +168,24 @@ horizon.forms = {
   }
 };
 
-horizon.forms.prevent_multiple_submission = function (el) {
-  // Disable multiple submissions when launching a form.
+horizon.forms.handle_submit = function (el) {
   var $form = $(el).find("form");
   $form.submit(function () {
-    var button = $(this).find('[type="submit"]');
+    var $this = $(this);
+    // Disable multiple submissions when launching a form.
+    var button = $this.find('[type="submit"]');
     if (button.hasClass('btn-primary') && !button.hasClass('always-enabled')){
-      $(this).submit(function () {
+      $this.submit(function () {
         return false;
       });
       button.removeClass('primary').addClass('disabled');
       button.attr('disabled', 'disabled');
     }
+    // Remove disabled attribute on select fields before submit to get value
+    // included in POST request.
+    $this.find('select[disabled="disabled"]').each(function (i, field) {
+      $(field).removeAttr("disabled");
+    });
     return true;
   });
 };
@@ -246,8 +243,8 @@ horizon.forms.init_examples = function (el) {
 };
 
 horizon.addInitFunction(horizon.forms.init = function () {
-  horizon.forms.prevent_multiple_submission($('body'));
-  horizon.modals.addModalInitFunction(horizon.forms.prevent_multiple_submission);
+  horizon.forms.handle_submit($('body'));
+  horizon.modals.addModalInitFunction(horizon.forms.handle_submit);
 
   horizon.forms.init_examples($("body"));
   horizon.modals.addModalInitFunction(horizon.forms.init_examples);
