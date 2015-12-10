@@ -275,12 +275,12 @@
       push.apply(
         model.availabilityZones,
         data.data.items.filter(function (zone) {
-                    return zone.zoneState && zone.zoneState.available;
-                  })
-                  .map(function (zone) {
-                    return zone.zoneName;
-                  })
-                );
+          return zone.zoneState && zone.zoneState.available;
+        })
+        .map(function (zone) {
+          return zone.zoneName;
+        })
+      );
 
       if (model.availabilityZones.length > 0) {
         model.newInstanceSpec.availability_zone = model.availabilityZones[0];
@@ -421,7 +421,9 @@
 
       // Can only boot image to volume if the Nova extension is enabled.
       novaExtensions.ifNameEnabled('BlockDeviceMappingV2Boot')
-        .then(function() { model.allowCreateVolumeFromImage = true; });
+        .then(function() {
+          model.allowCreateVolumeFromImage = true;
+        });
 
       return $q.all(volumePromises);
     }

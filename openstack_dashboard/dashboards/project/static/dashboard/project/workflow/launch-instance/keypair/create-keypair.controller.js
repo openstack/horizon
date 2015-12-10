@@ -23,8 +23,10 @@
 
   LaunchInstanceCreateKeyPairController.$inject = [
     '$modalInstance',
+    'existingKeypairs',
     'horizon.app.core.openstack-service-api.nova',
-    'horizon.framework.widgets.toast.service'
+    'horizon.framework.widgets.toast.service',
+    'horizon.app.core.openstack-service-api.keypair-download-service'
   ];
 
   /**
@@ -33,29 +35,72 @@
    * @description
    * Provide a dialog for creation of a new key pair.
    */
-  function LaunchInstanceCreateKeyPairController($modalInstance, novaAPI, toastService) {
+  function LaunchInstanceCreateKeyPairController($modalInstance, existingKeypairs, nova,
+  toastService, keypairDownloadService) {
     var ctrl = this;
 
     ctrl.submit = submit;
     ctrl.cancel = cancel;
-    ctrl.model = { name: '' };
+    ctrl.doesKeypairExist = doesKeypairExist;
 
-    //////////
+    ctrl.keypair = '';
+    ctrl.keypairExistsError = gettext('Keypair already exists or name contains bad characters.');
 
+    /*
+     * @ngdoc function
+     * @name doesKeypairExist
+     * @description
+     * Returns true if the key controller's key pair exists.
+     */
+    function doesKeypairExist() {
+      return exists(ctrl.keypair);
+    }
+
+    /*
+     * @ngdoc function
+     * @name exists
+     * @description
+     * Returns true if the given key pair name exists.
+     * @param {string} keypair The key pair name
+     */
+    function exists(keypair) {
+      return existingKeypairs.indexOf(keypair) !== -1;
+    }
+
+    /*
+     * @ngdoc function
+     * @name submit
+     * @description
+     * Attempts to create and download the key pair based on parameters
+     * on the controller (the name).  If successful, then it captures
+     * the URL needed to regenerate the key pair (so the user can elect to
+     * regenerate it if they want).  If unsuccessful, then the user is
+     * notified of the problem and given the opportunity to try again.
+     */
     function submit() {
-      novaAPI.createKeypair(ctrl.model).success(successCallback);
+      keypairDownloadService.createAndDownloadKeypair(ctrl.keypair).then(
+        function success(createdKeypair) {
+          createdKeypair.regenerateUrl = nova.getRegenerateKeypairUrl(createdKeypair.name);
+          $modalInstance.close(createdKeypair);
+        },
+        function error() {
+          var errorMessage = gettext('Unable to generate') + ' "' + ctrl.keypair + '". ' +
+            gettext('Please try again.');
+          toastService.add('error', errorMessage);
+        }
+      );
     }
 
-    function successCallback(data) {
-      $modalInstance.close(data);
-
-      var successMsg = gettext('Successfully created key pair %(name)s.');
-      toastService.add('success', interpolate(successMsg, { name: data.name }, true));
-    }
-
+    /*
+     * @ngdoc function
+     * @name cancel
+     * @description
+     * Dismisses the modal
+     */
     function cancel() {
       $modalInstance.dismiss();
     }
+
   }
 
 })();
