@@ -39,6 +39,7 @@
       getLimits: getLimits,
       createServer: createServer,
       getServer: getServer,
+      getServers: getServers,
       getExtensions: getExtensions,
       getFlavors: getFlavors,
       getFlavor: getFlavor,
@@ -188,6 +189,21 @@
       return apiService.get('/api/nova/servers/' + id)
         .error(function () {
           toastService.add('error', gettext('Unable to retrieve the server.'));
+        });
+    }
+
+    /**
+     * @name horizon.app.core.openstack-service-api.nova.getServers
+     * @description
+     * Get a list of servers.
+     *
+     * The listing result is an object with property "items". Each item is
+     * a server.
+     */
+    function getServers() {
+      return apiService.get('/api/nova/servers/')
+        .error(function () {
+          toastService.add('error', gettext('Unable to retrieve instances.'));
         });
     }
 

@@ -102,6 +102,12 @@
         ]
       },
       {
+        "func": "getServers",
+        "method": "get",
+        "path": "/api/nova/servers/",
+        "error": "Unable to retrieve instances."
+      },
+      {
         "func": "getExtensions",
         "method": "get",
         "path": "/api/nova/extensions/",
