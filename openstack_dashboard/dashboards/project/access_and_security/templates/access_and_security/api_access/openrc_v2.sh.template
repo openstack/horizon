@@ -7,22 +7,21 @@
 # Storage, and Networking (code-named nova, glance, keystone, swift,
 # cinder, and neutron).
 #
-# *NOTE*: Using the 3 *Identity API* does not necessarily mean any other
-# OpenStack API is version 3. For example, your cloud provider may implement
+# *NOTE*: Using the 2.0 *Identity API* does not necessarily mean any other
+# OpenStack API is version 2.0. For example, your cloud provider may implement
 # Image API v1.1, Block Storage API v2, and Compute API v2.0. OS_AUTH_URL is
 # only for the Identity API served through keystone.
 export OS_AUTH_URL={{ auth_url }}
 
-# With the addition of Keystone we have standardized on the term **project**
+# With the addition of Keystone we have standardized on the term **tenant**
 # as the entity that owns the resources.
-export OS_PROJECT_ID={{ tenant_id }}
-export OS_PROJECT_NAME="{{ tenant_name|shellfilter }}"
-export OS_USER_DOMAIN_NAME="{{ user_domain_name|shellfilter }}"
-if [ -z "$OS_USER_DOMAIN_NAME" ]; then unset OS_USER_DOMAIN_NAME; fi
+export OS_TENANT_ID={{ tenant_id }}
+export OS_TENANT_NAME="{{ tenant_name|shellfilter }}"
 
-# unset v2.0 items in case set
-unset OS_TENANT_ID
-unset OS_TENANT_NAME
+# unsetting v3 items in case set
+unset OS_PROJECT_ID
+unset OS_PROJECT_NAME
+unset OS_USER_DOMAIN_NAME
 
 # In addition to the owning entity (tenant), OpenStack stores the entity
 # performing the action as the **user**.

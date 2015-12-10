@@ -15,6 +15,8 @@
 from django.template.defaultfilters import title  # noqa
 from django.utils.translation import ugettext_lazy as _
 
+from openstack_auth import utils
+
 from horizon import tables
 from openstack_dashboard import api
 
@@ -42,10 +44,21 @@ class DownloadEC2(tables.LinkAction):
 
 class DownloadOpenRC(tables.LinkAction):
     name = "download_openrc"
-    verbose_name = _("Download OpenStack RC File")
-    verbose_name_plural = _("Download OpenStack RC File")
+    verbose_name = _("Download OpenStack RC File v3")
+    verbose_name_plural = _("Download OpenStack RC File v3")
     icon = "download"
     url = "horizon:project:access_and_security:api_access:openrc"
+
+    def allowed(self, request, datum=None):
+        return utils.get_keystone_version() >= 3
+
+
+class DownloadOpenRCv2(tables.LinkAction):
+    name = "download_openrc_v2"
+    verbose_name = _("Download OpenStack RC File v2.0")
+    verbose_name_plural = _("Download OpenStack RC File v2.0")
+    icon = "download"
+    url = "horizon:project:access_and_security:api_access:openrcv2"
 
 
 class ViewCredentials(tables.LinkAction):
@@ -67,4 +80,5 @@ class EndpointsTable(tables.DataTable):
         name = "endpoints"
         verbose_name = _("API Endpoints")
         multi_select = False
-        table_actions = (DownloadOpenRC, DownloadEC2, ViewCredentials)
+        table_actions = (DownloadOpenRCv2, DownloadOpenRC, DownloadEC2,
+                         ViewCredentials)
