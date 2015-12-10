@@ -70,7 +70,9 @@
 
     // Checks to ensure we call the api service with the appropriate
     // parameters.
-    if (angular.isDefined(config.data)) {
+    if (angular.isDefined(config.call_args)) {
+      expect(apiService[config.method].calls.mostRecent().args).toEqual(config.call_args);
+    } else if (angular.isDefined(config.data)) {
       expect(apiService[config.method]).toHaveBeenCalledWith(config.path, config.data);
     } else {
       expect(apiService[config.method]).toHaveBeenCalledWith(config.path);

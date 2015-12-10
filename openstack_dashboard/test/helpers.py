@@ -632,3 +632,14 @@ class update_settings(django_test_utils.override_settings):
                     copied.update(new_value)
                     kwargs[key] = copied
         super(update_settings, self).__init__(**kwargs)
+
+
+def mock_obj_to_dict(r):
+    return mock.Mock(**{'to_dict.return_value': r})
+
+
+def mock_factory(r):
+    """mocks all the attributes as well as the to_dict """
+    mocked = mock_obj_to_dict(r)
+    mocked.configure_mock(**r)
+    return mocked

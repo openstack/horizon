@@ -358,11 +358,19 @@ class SwiftTests(test.TestCase):
                 self.assertNotContains(res, INVALID_CONTAINER_NAME_1)
                 self.assertNotContains(res, INVALID_CONTAINER_NAME_2)
 
-                # Check that the returned Content-Disposition filename is well
-                # surrounded by double quotes and with commas removed
-                content = res.get('Content-Disposition')
-                expected_name = '"%s"' % obj.name.replace(',', '')
+                # Check that the returned Content-Disposition filename is
+                # correct - some have commas which must be removed
+                expected_name = obj.name.replace(',', '')
+
+                # some have a path which must be removed
+                if '/' in expected_name:
+                    expected_name = expected_name.split('/')[-1]
+
+                # There will also be surrounding double quotes
+                expected_name = '"' + expected_name + '"'
+
                 expected = 'attachment; filename=%s' % expected_name
+                content = res.get('Content-Disposition')
 
                 if six.PY3:
                     header = email.header.decode_header(content)
@@ -417,7 +425,7 @@ class SwiftTests(test.TestCase):
     @test.create_stubs({api.swift: ('swift_get_containers',
                                     'swift_copy_object')})
     def test_copy_get(self):
-        original_name = u"test.txt"
+        original_name = u"test folder%\u6346/test.txt"
         copy_name = u"test.copy.txt"
         container = self.containers.first()
         obj = self.objects.get(name=original_name)

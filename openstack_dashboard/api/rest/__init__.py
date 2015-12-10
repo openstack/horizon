@@ -31,3 +31,4 @@ from . import network      # noqa
 from . import neutron      # noqa
 from . import nova         # noqa
 from . import policy       # noqa
+from . import swift        # noqa
