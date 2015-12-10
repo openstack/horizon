@@ -29,6 +29,7 @@
     var successMsg = "I am success.";
     var dangerMsg = "I am danger.";
     var infoMsg = "I am info.";
+    var errorMsg = "I am error.";
 
     beforeEach(module('templates'));
     beforeEach(module('horizon.framework'));
@@ -47,6 +48,11 @@
       service.add('info', infoMsg);
       expect(service.get().length).toBe(3);
       expect(service.get()[2].msg).toBe(infoMsg);
+      service.add('error', errorMsg);
+      expect(service.get().length).toBe(4);
+      expect(service.get()[3].type).toBe('danger');
+      expect(service.get()[3].msg).toBe(errorMsg);
+
     });
 
     it('should dismiss specific toasts after a delay', function() {
@@ -74,7 +80,8 @@
       service.add('danger', dangerMsg);
       service.add('success', successMsg);
       service.add('danger', dangerMsg);
-      expect(service.get().length).toBe(3);
+      service.add('error', errorMsg);
+      expect(service.get().length).toBe(4);
       service.clearErrors();
       expect(service.get().length).toBe(1);
       expect(service.get()[0].type).toBe('success');
@@ -109,6 +116,7 @@
     var successMsg = "I am success.";
     var dangerMsg = "I am danger.";
     var infoMsg = "I am info.";
+    var errorMsg = "I am error.";
 
     function toasts() {
       return $element.find('.alert');
@@ -130,19 +138,22 @@
       service.add('danger', dangerMsg);
       service.add('success', successMsg);
       service.add('info', infoMsg);
+      service.add('error', errorMsg);
       $scope.$apply();
-      expect(toasts().length).toBe(3);
+      expect(toasts().length).toBe(4);
     });
 
     it('should have the proper classes for different toasts types', function() {
       service.add('danger', dangerMsg);
       service.add('success', successMsg);
       service.add('info', infoMsg);
+      service.add('error', errorMsg);
       $scope.$apply();
-      expect(toasts().length).toBe(3);
+      expect(toasts().length).toBe(4);
       expect(toasts().eq(0).hasClass('alert-danger'));
       expect(toasts().eq(1).hasClass('alert-success'));
       expect(toasts().eq(2).hasClass('alert-info'));
+      expect(toasts().eq(3).hasClass('alert-danger'));
     });
 
     it('should be possible to remove a toast by clicking close', function() {
