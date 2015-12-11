@@ -148,6 +148,7 @@ class InstanceViewTest(test.BaseAdminViewTests):
 
     @test.create_stubs({api.nova: ('server_get', 'flavor_get',
                                    'extension_supported', ),
+                        api.network: ('servers_update_addresses',),
                         api.keystone: ('tenant_get',)})
     def test_ajax_loading_instances(self):
         server = self.servers.first()
