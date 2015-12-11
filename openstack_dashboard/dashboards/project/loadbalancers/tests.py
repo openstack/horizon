@@ -14,7 +14,6 @@ from mox3.mox import IgnoreArg  # noqa
 from mox3.mox import IsA  # noqa
 
 from django.core.urlresolvers import reverse
-from django.core.urlresolvers import reverse_lazy
 from django import http
 
 from horizon.workflows import views
@@ -34,7 +33,7 @@ class LoadBalancerTests(test.TestCase):
             self[attr] = value
 
     DASHBOARD = 'project'
-    INDEX_URL = reverse_lazy('horizon:%s:loadbalancers:index' % DASHBOARD)
+    INDEX_URL = reverse('horizon:%s:loadbalancers:index' % DASHBOARD)
 
     ADDPOOL_PATH = 'horizon:%s:loadbalancers:addpool' % DASHBOARD
     ADDVIP_PATH = 'horizon:%s:loadbalancers:addvip' % DASHBOARD
