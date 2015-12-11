@@ -94,18 +94,30 @@ horizon.inline_edit = {
           }
         },
         success: function (data) {
-          var td_element = $(data);
-          self.form_element = self.get_form_element(td_element);
+          var $td_element = $(data);
+          var $tr, $cell_wrapper, td_element_text;
+          self.form_element = self.get_form_element($td_element);
 
           if (self.inline_edit_mod) {
             var cellWidth = self.td_element.outerWidth(true);
-            td_element.width(cellWidth);
-            td_element.addClass("has-form");
+            $td_element.width(cellWidth);
+            $td_element.addClass("has-form");
           }
           // saving old td_element for cancel and loading purposes
           self.cached_presentation_view = self.td_element;
           // replacing old td with the new td element returned from the server
-          self.rewrite_cell(td_element);
+          self.rewrite_cell($td_element);
+          // keeping parent tr's data-display attr up to date
+          $tr = $td_element.closest('tr');
+          if ($td_element.attr('data-cell-name') === $tr.attr('data-display-key')) {
+            $cell_wrapper= $td_element.find('.table_cell_data_wrapper');
+            if ($cell_wrapper.length) {
+              td_element_text = $cell_wrapper.find('a').text();
+              if ($tr.attr('data-display') !== td_element_text) {
+                $tr.attr('data-display', td_element_text);
+              }
+            }
+          }
           // focusing the form element inside the cell
           if (self.inline_edit_mod) {
             self.form_element.focus();
