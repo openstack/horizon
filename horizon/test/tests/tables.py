@@ -20,6 +20,7 @@ from django import forms
 from django import http
 from django import shortcuts
 from django.template import defaultfilters
+from django.utils.translation import ungettext_lazy
 
 from mox3.mox import IsA  # noqa
 import six
@@ -128,28 +129,72 @@ class MyRow(tables.Row):
 
 class MyBatchAction(tables.BatchAction):
     name = "batch"
-    action_present = "Batch"
-    action_past = "Batched"
-    data_type_singular = "Item"
-    data_type_plural = "Items"
 
     def action(self, request, object_ids):
         pass
+
+    @staticmethod
+    def action_present(count):
+        return ungettext_lazy(
+            u"Batch Item",
+            u"Batch Items",
+            count
+        )
+
+    @staticmethod
+    def action_past(count):
+        return ungettext_lazy(
+            u"Batched Item",
+            u"Batched Items",
+            count
+        )
 
 
 class MyBatchActionWithHelpText(MyBatchAction):
     name = "batch_help"
     help_text = "this is help."
-    action_present = "BatchHelp"
-    action_past = "BatchedHelp"
+
+    @staticmethod
+    def action_present(count):
+        # No translation
+        return u"BatchHelp Item"
+
+    @staticmethod
+    def action_past(count):
+        # No translation
+        return u"BatchedHelp Item"
 
 
 class MyToggleAction(tables.BatchAction):
     name = "toggle"
-    action_present = ("Down", "Up")
-    action_past = ("Downed", "Upped")
-    data_type_singular = "Item"
-    data_type_plural = "Items"
+
+    def action_present(self, count):
+        if self.current_present_action:
+            return ungettext_lazy(
+                u"Up Item",
+                u"Up Items",
+                count
+            )
+        else:
+            return ungettext_lazy(
+                u"Down Item",
+                u"Down Items",
+                count
+            )
+
+    def action_past(self, count):
+        if self.current_past_action:
+            return ungettext_lazy(
+                u"Upped Item",
+                u"Upped Items",
+                count
+            )
+        else:
+            return ungettext_lazy(
+                u"Downed Item",
+                u"Downed Items",
+                count
+            )
 
     def allowed(self, request, obj=None):
         if not obj:
