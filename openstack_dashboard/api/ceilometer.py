@@ -11,7 +11,6 @@
 # under the License.
 
 from collections import OrderedDict
-import logging
 import threading
 
 from ceilometerclient import client as ceilometer_client
@@ -24,8 +23,6 @@ from horizon.utils.memoized import memoized  # noqa
 from openstack_dashboard.api import base
 from openstack_dashboard.api import keystone
 from openstack_dashboard.api import nova
-
-LOG = logging.getLogger(__name__)
 
 
 def get_flavor_names(request):

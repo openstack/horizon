@@ -17,7 +17,6 @@
 Forms for managing metadata.
 """
 import json
-import logging
 
 from django.forms import ValidationError  # noqa
 from django.utils.translation import ugettext_lazy as _
@@ -29,8 +28,6 @@ from horizon import messages
 from openstack_dashboard.api import glance
 from openstack_dashboard.dashboards.admin.metadata_defs \
     import constants
-
-LOG = logging.getLogger(__name__)
 
 
 class CreateNamespaceForm(forms.SelfHandlingForm):

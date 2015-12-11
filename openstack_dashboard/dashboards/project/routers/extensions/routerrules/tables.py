@@ -12,8 +12,6 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
-import logging
-
 from django.core.urlresolvers import reverse
 from django.utils.translation import ugettext_lazy as _
 from django.utils.translation import ungettext_lazy
@@ -23,8 +21,6 @@ from openstack_dashboard.dashboards.project.routers.extensions.routerrules\
 from openstack_dashboard import policy
 
 from horizon import tables
-
-LOG = logging.getLogger(__name__)
 
 
 class AddRouterRule(policy.PolicyTargetMixin, tables.LinkAction):

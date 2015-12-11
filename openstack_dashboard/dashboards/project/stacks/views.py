@@ -11,7 +11,6 @@
 # under the License.
 
 import json
-import logging
 from operator import attrgetter
 
 import yaml
@@ -37,9 +36,6 @@ from openstack_dashboard.dashboards.project.stacks \
     import tables as project_tables
 from openstack_dashboard.dashboards.project.stacks \
     import tabs as project_tabs
-
-
-LOG = logging.getLogger(__name__)
 
 
 class IndexView(tables.DataTableView):
