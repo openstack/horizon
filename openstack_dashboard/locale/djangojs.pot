@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-12-09 06:20+0000\n"
+"POT-Creation-Date: 2015-12-12 06:27+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -1747,33 +1747,45 @@ msgstr ""
 msgid "Save"
 msgstr ""
 
-#: static/app/core/openstack-service-api/cinder.service.js:69
+#: static/app/core/openstack-service-api/cinder.service.js:72
 msgid "Unable to retrieve the volumes."
 msgstr ""
 
-#: static/app/core/openstack-service-api/cinder.service.js:85
+#: static/app/core/openstack-service-api/cinder.service.js:88
 msgid "Unable to retrieve the volume."
 msgstr ""
 
-#: static/app/core/openstack-service-api/cinder.service.js:103
+#: static/app/core/openstack-service-api/cinder.service.js:100
+msgid "Unable to create the volume."
+msgstr ""
+
+#: static/app/core/openstack-service-api/cinder.service.js:118
 msgid "Unable to retrieve the volume types."
 msgstr ""
 
-#: static/app/core/openstack-service-api/cinder.service.js:119
+#: static/app/core/openstack-service-api/cinder.service.js:134
 msgid "Unable to retrieve the volume type."
 msgstr ""
 
-#: static/app/core/openstack-service-api/cinder.service.js:132
+#: static/app/core/openstack-service-api/cinder.service.js:147
 msgid "Unable to retrieve the default volume type."
 msgstr ""
 
-#: static/app/core/openstack-service-api/cinder.service.js:159
+#: static/app/core/openstack-service-api/cinder.service.js:174
 msgid "Unable to retrieve the volume snapshots."
 msgstr ""
 
-#: static/app/core/openstack-service-api/cinder.service.js:191
+#: static/app/core/openstack-service-api/cinder.service.js:206
 #: static/app/core/openstack-service-api/nova.service.js:220
 msgid "Unable to retrieve the extensions."
+msgstr ""
+
+#: static/app/core/openstack-service-api/cinder.service.js:227
+msgid "Unable to retrieve the QoS Specs."
+msgstr ""
+
+#: static/app/core/openstack-service-api/cinder.service.js:241
+msgid "Unable to retrieve the Absolute Limits."
 msgstr ""
 
 #: static/app/core/openstack-service-api/extensions.service.js:77

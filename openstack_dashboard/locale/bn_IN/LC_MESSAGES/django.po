@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-12-09 02:55+0000\n"
+"POT-Creation-Date: 2015-12-12 03:12+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -1216,24 +1216,6 @@ msgid "Create Host Aggregate"
 msgstr "হোস্ট সমূহ তৈরি করুন"
 
 msgid ""
-"Create IKE Policy for current project.\n"
-"\n"
-"Assign a name and description for the IKE Policy. "
-msgstr ""
-"বর্তমান প্রোজেক্টের জন্য IKE নীতি তৈরি করুন.\n"
-"\n"
-"IKE নীতির জন্য একটি নাম ও বিবরণ নিয়োগ করুন. "
-
-msgid ""
-"Create IPSec Policy for current project.\n"
-"\n"
-"Assign a name and description for the IPSec Policy. "
-msgstr ""
-"বর্তমান প্রোজেক্টের জন্য  IPSec নীতি তৈরি করুন.\n"
-"\n"
-"IPSec নীতির জন্য একটি নাম ও বিবরণ নিয়োগ করুন. "
-
-msgid ""
 "Create IPSec Site Connection for current project.\n"
 "\n"
 "Assign a name and description for the IPSec Site Connection. All fields in "
@@ -1300,17 +1282,6 @@ msgstr "সাবনেট তৈরি করুন (কোটা পেরি�
 
 msgid "Create User"
 msgstr "ব্যবহর্তা তৈরি করুন"
-
-msgid ""
-"Create VPN Service for current project.\n"
-"\n"
-"Specify a name, description, router, and subnet for the VPN Service. Admin "
-"State is Up (checked) by default."
-msgstr ""
-"বর্তমান প্রোজেক্টের জন্য VPN সেবা তৈরি করুন.\n"
-"\n"
-"VPN সেবার জন্য একটি নাম, বিবরণ, রাউটার এবং সাবনেট নির্দিষ্ট করুন. স্থিতকে অ্যাডমিন "
-"স্থিতি উপরে (চেক করা)."
 
 msgid "Create Volume"
 msgstr "ভলিয়্যুম তৈরি করুন"
@@ -1903,9 +1874,6 @@ msgstr "EC2 ক্রেডেনশিয়াল ডাউনলোড করু
 
 msgid "Download Key Pair"
 msgstr "কী যুগ্ম ডাউনলোড করুন"
-
-msgid "Download OpenStack RC File"
-msgstr "OpenStack RC ফাইল ডাউনলোড করুন"
 
 #, python-format
 msgid "Download key pair &quot;%(keypair_name)s&quot;"
@@ -5462,9 +5430,6 @@ msgstr "অনুরোধ করা উদাহরণ পোর্ট ইত�
 
 msgid "The specified port is invalid."
 msgstr "নির্দিষ্ট পোর্ট অবৈধ."
-
-msgid "The state to start in."
-msgstr "শুরু করতে স্থিতি."
 
 msgid "The state to start the network in."
 msgstr "তে নেটওয়ার্ক শুরু করতে স্থিতি."

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-12-09 02:55+0000\n"
+"POT-Creation-Date: 2015-12-12 03:12+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -1283,24 +1283,6 @@ msgid "Create Host Aggregate"
 msgstr "புரவலர் திரளை உருவாக்கு"
 
 msgid ""
-"Create IKE Policy for current project.\n"
-"\n"
-"Assign a name and description for the IKE Policy. "
-msgstr ""
-"தற்போதைய பிராஜக்டிற்கு IKE கொள்கையை உருவாக்கவும்.\n"
-"\n"
-"IKE கொள்கைக்கு ஒரு பெயர் மற்றும் விளக்கத்தை ஒதுக்கவும்.  "
-
-msgid ""
-"Create IPSec Policy for current project.\n"
-"\n"
-"Assign a name and description for the IPSec Policy. "
-msgstr ""
-"தற்போதைய பிராஜக்டிற்கு IPSec கொள்கையை உருவாக்கவும்.\n"
-"\n"
-"IPSec கொள்கைக்கு ஒரு பெயர் மற்றும் விளக்கத்தை ஒதுக்கவும்.  "
-
-msgid ""
 "Create IPSec Site Connection for current project.\n"
 "\n"
 "Assign a name and description for the IPSec Site Connection. All fields in "
@@ -1367,17 +1349,6 @@ msgstr "உபவலையை உருவாக்கு ((ஒதுக்க�
 
 msgid "Create User"
 msgstr "பயனரை உருவாக்கு"
-
-msgid ""
-"Create VPN Service for current project.\n"
-"\n"
-"Specify a name, description, router, and subnet for the VPN Service. Admin "
-"State is Up (checked) by default."
-msgstr ""
-"தற்போதைய பிராஜக்டிற்கு VPN சேவையை உருவாக்கவும்.\n"
-"\n"
-"VPN சேவைக்கு ஒரு பெயர், விளக்கம், திசைவி, மற்றும் உபவலையை குறிப்பிடவும். நிர்வாக "
-"நிலைமை முன்னிருப்பாக இயக்கத்தில் உள்ளதாக அதாவது UP (குறிக்கப்பட்டிருக்கும்)."
 
 msgid "Create Volume"
 msgstr "கொள்ளளவை உருவாக்கு"
@@ -1975,9 +1946,6 @@ msgstr "EC2 சான்றுகளை தரவிறக்கவும்"
 
 msgid "Download Key Pair"
 msgstr "விசை ஜோடியை பதிவிறக்கவும்"
-
-msgid "Download OpenStack RC File"
-msgstr "OpenStack RC கோப்பை தரவிறக்கவும்"
 
 #, python-format
 msgid "Download key pair &quot;%(keypair_name)s&quot;"
@@ -5799,9 +5767,6 @@ msgstr ""
 
 msgid "The specified port is invalid."
 msgstr "குறிப்பிடப்பட்ட துறை செல்லுபடியாகாதது"
-
-msgid "The state to start in."
-msgstr "தொடங்க வேண்டிய நிலைமை."
 
 msgid "The state to start the network in."
 msgstr "பிணையத்தை தொடங்கி இருக்கவேண்டிய நிலைமை."

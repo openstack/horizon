@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-12-09 02:55+0000\n"
+"POT-Creation-Date: 2015-12-12 03:12+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -1206,24 +1206,6 @@ msgid "Create Host Aggregate"
 msgstr "होस्ट मेठ बनाउनुहोस्"
 
 msgid ""
-"Create IKE Policy for current project.\n"
-"\n"
-"Assign a name and description for the IKE Policy. "
-msgstr ""
-"वर्तमान प्रोजेक्टको लागि IKE सर्त बनाउनुहोस्\n"
-"\n"
-"IKE सर्तका लागि एउटा नाम अनि विवरण निरूपण गर्नुहोस्।"
-
-msgid ""
-"Create IPSec Policy for current project.\n"
-"\n"
-"Assign a name and description for the IPSec Policy. "
-msgstr ""
-"वर्तमान प्रोजेक्टको लागि IPSec सर्त बनाउनुहोस्\n"
-"\n"
-" IPSec सर्तको लागि एउटा नाम अनि विवरण निरूपण गर्नुहोस्"
-
-msgid ""
 "Create IPSec Site Connection for current project.\n"
 "\n"
 "Assign a name and description for the IPSec Site Connection. All fields in "
@@ -1290,17 +1272,6 @@ msgstr "सबनेट बनाउनुहोस्( कोटा बेस�
 
 msgid "Create User"
 msgstr "उपभोक्ता बनाउनुहोस्"
-
-msgid ""
-"Create VPN Service for current project.\n"
-"\n"
-"Specify a name, description, router, and subnet for the VPN Service. Admin "
-"State is Up (checked) by default."
-msgstr ""
-"वर्तमान प्रोजेक्टको लागि VPN  सेवा बनाउनुहोस्\n"
-"\n"
-"VPN सेवाका लागि एउटा नाम, विवरण, रूटर अनि सबनेट तोक्नुहोस्। एडमिन स्टेट डिफल्टद्वारा "
-"माथि(जाँच गरिएको) छ। "
 
 msgid "Create Volume"
 msgstr "भोल्युम बनाउनुहोस्"
@@ -1894,9 +1865,6 @@ msgstr "EC2  प्रमाण पत्र डाउनलोड गर्न�
 
 msgid "Download Key Pair"
 msgstr "चाबी जोडा डाउनलोड गर्नुहोस्"
-
-msgid "Download OpenStack RC File"
-msgstr "ओपन स्टेक RC फाइल डाउनलोड गर्नुहोस्"
 
 #, python-format
 msgid "Download key pair &quot;%(keypair_name)s&quot;"
@@ -5448,9 +5416,6 @@ msgstr "अनुरोध गरिएको इन्सटेन्स पो
 
 msgid "The specified port is invalid."
 msgstr "तोकिएको पोर्ट अवैध छ।"
-
-msgid "The state to start in."
-msgstr "सुरू गर्नपर्ने स्टेट"
 
 msgid "The state to start the network in."
 msgstr "नेटवर्क आरम्भ गर्नुपर्ने राज्य।"

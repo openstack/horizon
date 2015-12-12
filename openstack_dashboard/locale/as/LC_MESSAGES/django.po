@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-12-09 02:55+0000\n"
+"POT-Creation-Date: 2015-12-12 03:12+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -1279,24 +1279,6 @@ msgid "Create Host Aggregate"
 msgstr "হষ্ট গড় তৈয়াৰ কৰক"
 
 msgid ""
-"Create IKE Policy for current project.\n"
-"\n"
-"Assign a name and description for the IKE Policy. "
-msgstr ""
-"চলিত প্ৰকল্পটোৰ বাবে IKE নীতি তৈয়াৰ কৰক.\n"
-"\n"
-"IKE নীতিটোৰ বাবে এটা নাম আৰু বিৱৰণ নিৰ্ধাৰণ কৰক. "
-
-msgid ""
-"Create IPSec Policy for current project.\n"
-"\n"
-"Assign a name and description for the IPSec Policy. "
-msgstr ""
-"চলিত প্ৰকল্পটোৰ বাবে IPSec নীতি তৈয়াৰ কৰক.\n"
-"\n"
-"IPSec নীতিটোৰ বাবে এটা নাম আৰু বিৱৰণ নিৰ্ধাৰণ কৰক. "
-
-msgid ""
 "Create IPSec Site Connection for current project.\n"
 "\n"
 "Assign a name and description for the IPSec Site Connection. All fields in "
@@ -1363,17 +1345,6 @@ msgstr "উপনেট তৈয়াৰ কৰক (কোটা অতিক্�
 
 msgid "Create User"
 msgstr "ব্যৱহাৰকৰ্তাবোৰ তৈয়াৰ কৰক"
-
-msgid ""
-"Create VPN Service for current project.\n"
-"\n"
-"Specify a name, description, router, and subnet for the VPN Service. Admin "
-"State is Up (checked) by default."
-msgstr ""
-"চলিত প্ৰক্ষেপটোৰ বাবে VPN সেৱা তৈয়াৰ কৰক.\n"
-"\n"
-"VPN সেৱাটোৰ বাবে এটা নাম, বিৱৰণ, ৰাউটাৰ আৰু উপনেট নিৰ্দিষ্ট কৰক. ডিফল্ট হিচাপে "
-"কৰ্তৃপক্ষ অৱস্থাটো চলি আছে (পৰীক্ষা কৰা হল)."
 
 msgid "Create Volume"
 msgstr "আয়তন তৈয়াৰ কৰা হল"
@@ -1969,9 +1940,6 @@ msgstr "EC2 পৰিচয়পত্ৰবোৰ ডাউনলোড কৰক
 
 msgid "Download Key Pair"
 msgstr "মুখ্য যোৰা ডাউনলোড কৰক"
-
-msgid "Download OpenStack RC File"
-msgstr "মুক্ত ষ্টেক RC ফাইল ডাউনলোড কৰক"
 
 #, python-format
 msgid "Download key pair &quot;%(keypair_name)s&quot;"
@@ -5754,9 +5722,6 @@ msgstr "দাবী কৰা উদাৰণটো ইতিমধ্যে �
 
 msgid "The specified port is invalid."
 msgstr "নিৰ্ধাৰিত পোৰ্টটো অবৈধ."
-
-msgid "The state to start in."
-msgstr "আৰম্ভ কৰিবলৈ অৱস্থাটো."
 
 msgid "The state to start the network in."
 msgstr "নেটৱৰ্ক আৰম্ভ কৰিবলৈ অৱস্থাটো."

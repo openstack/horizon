@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-12-09 02:55+0000\n"
+"POT-Creation-Date: 2015-12-12 03:12+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -1268,24 +1268,6 @@ msgid "Create Host Aggregate"
 msgstr "होस्ट सरासरी तयार करा"
 
 msgid ""
-"Create IKE Policy for current project.\n"
-"\n"
-"Assign a name and description for the IKE Policy. "
-msgstr ""
-"सध्याच्या प्रकल्पासाठी आयकेई धोरण तयार करा.\n"
-"\n"
-"आयकेई धोरणासाठी नाव द्या व वर्णन करा. "
-
-msgid ""
-"Create IPSec Policy for current project.\n"
-"\n"
-"Assign a name and description for the IPSec Policy. "
-msgstr ""
-"सध्याच्या प्रकल्पासाठी आयपीएसईसी धोरण तयार करा.\n"
-"\n"
-"आयपीएसईसी धोरणाला नाव द्या व वर्णन करा. "
-
-msgid ""
 "Create IPSec Site Connection for current project.\n"
 "\n"
 "Assign a name and description for the IPSec Site Connection. All fields in "
@@ -1351,17 +1333,6 @@ msgstr "उपनेट तयार करा (वाटा समाप्त)
 
 msgid "Create User"
 msgstr "वापरकर्ता तयार करा"
-
-msgid ""
-"Create VPN Service for current project.\n"
-"\n"
-"Specify a name, description, router, and subnet for the VPN Service. Admin "
-"State is Up (checked) by default."
-msgstr ""
-"सध्याच्या प्रकल्पासाठी व्हीपीएन सेवा तयार करा.\n"
-"\n"
-"व्हीपीएन सेवेसाठी एक नाव, वर्णन, राउटर, व एक उपनेट नमूद करा. पूर्वनिर्धारितपणे प्रशासक "
-"स्थिती सुरु (बरोबरची खूण केलेली) आहे."
 
 msgid "Create Volume"
 msgstr "खंड तयार करा"
@@ -1955,9 +1926,6 @@ msgstr "ईसी२ ओळखपत्रे डाउनलोड करा"
 
 msgid "Download Key Pair"
 msgstr "कळ जोडी डाउनलोड करा"
-
-msgid "Download OpenStack RC File"
-msgstr "ओपनस्टेक आरसी धारिका डाउनलोड करा"
 
 #, python-format
 msgid "Download key pair &quot;%(keypair_name)s&quot;"
@@ -5724,9 +5692,6 @@ msgstr "विनंती करण्यात आलेला घटक प�
 
 msgid "The specified port is invalid."
 msgstr "विनिर्दिष्ट पोर्ट अवैध आहे."
-
-msgid "The state to start in."
-msgstr "सुरुवात करण्याची स्थिती."
 
 msgid "The state to start the network in."
 msgstr "च्यामध्ये नेटवर्क सुरु करण्याची स्थिती."

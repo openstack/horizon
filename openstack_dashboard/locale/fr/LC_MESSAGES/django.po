@@ -34,11 +34,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-12-09 02:55+0000\n"
+"POT-Creation-Date: 2015-12-12 03:12+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2015-12-04 09:43+0000\n"
+"PO-Revision-Date: 2015-12-10 12:08+0000\n"
 "Last-Translator: Gael Rehault <gael01@gmail.com>\n"
 "Language: fr\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
@@ -1938,24 +1938,6 @@ msgid "Create Host Aggregate"
 msgstr "Créer un agrégat d'hôtes"
 
 msgid ""
-"Create IKE Policy for current project.\n"
-"\n"
-"Assign a name and description for the IKE Policy. "
-msgstr ""
-"Créer une stratégie IKE pour le projet en cours.\n"
-"\n"
-"Attribuer un nom et une description à la stratégie IKE."
-
-msgid ""
-"Create IPSec Policy for current project.\n"
-"\n"
-"Assign a name and description for the IPSec Policy. "
-msgstr ""
-"Créer une stratégie IPSec pour le projet en cours.\n"
-"\n"
-"Attribuer un nom et une description à la stratégie IPSec."
-
-msgid ""
 "Create IPSec Site Connection for current project.\n"
 "\n"
 "Assign a name and description for the IPSec Site Connection. All fields in "
@@ -2029,17 +2011,6 @@ msgstr "Créer un transfert"
 
 msgid "Create User"
 msgstr "Créer un Utilisateur"
-
-msgid ""
-"Create VPN Service for current project.\n"
-"\n"
-"Specify a name, description, router, and subnet for the VPN Service. Admin "
-"State is Up (checked) by default."
-msgstr ""
-"Créer un service VPN pour le projet en cours.\n"
-"\n"
-"Spécifier le nom, la description, le routeur et le sous-réseau pour le "
-"Service VPN. État Administrateur est Activé (coché) par défaut."
 
 msgid "Create Volume"
 msgstr "Créer le volume"
@@ -2290,15 +2261,6 @@ msgstr "Tâche courante"
 
 msgid "Current password"
 msgstr "Mot de passe actuel"
-
-msgid ""
-"Currently only images available via an HTTP/HTTPS URL are supported. The "
-"image location must be accessible to the Image Service. Compressed image "
-"binaries are supported (.zip and .tar.gz.)"
-msgstr ""
-"Actuellement, seules les images disponibles via une URL HTTP/HTTPS sont "
-"supportées. L'emplacement de l'image doit être accessible par le service "
-"d'images. Les images compressées sont acceptées (format .zip et .tar.gz)"
 
 msgid "Custom ICMP Rule"
 msgstr "Règle ICMP personnalisée"
@@ -2965,6 +2927,9 @@ msgstr[1] "Retrait de Volumes"
 msgid "Details"
 msgstr "Détails"
 
+msgid "Developer"
+msgstr "Développeur"
+
 msgid "Device"
 msgstr "Périphérique"
 
@@ -3195,9 +3160,6 @@ msgstr "Télécharger les informations d'authentification EC2"
 
 msgid "Download Key Pair"
 msgstr "Téléchargement de la paire de clés."
-
-msgid "Download OpenStack RC File"
-msgstr "Télécharger le fichier RC d'OpenStack"
 
 #, python-format
 msgid "Download key pair &quot;%(keypair_name)s&quot;"
@@ -8535,9 +8497,6 @@ msgstr "Le port d'instance demandé est déjà associé à une autre IP flottant
 msgid "The specified port is invalid."
 msgstr "Le port spécifié est invalide."
 
-msgid "The state to start in."
-msgstr "Etat au démarrage."
-
 msgid "The state to start the network in."
 msgstr "Etat du réseau au démarrage."
 
@@ -8569,6 +8528,9 @@ msgid "The volume size cannot be less than the source volume size (%sGB)"
 msgstr ""
 "La taille du volume ne peut pas être inférieure à celle de la source du "
 "volume (%s Go)"
+
+msgid "Theme Preview"
+msgstr "Prévisualisation du thème"
 
 msgid "There are no meters defined yet."
 msgstr "Aucune métrique n'est actuellement définie."
