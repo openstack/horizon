@@ -1,5 +1,6 @@
 # Andreas Jaeger <jaegerandi@gmail.com>, 2015. #zanata
 # Carsten Duch <carsten.duch@posteo.de>, 2015. #zanata
+# Eugen Block <eblock@nde.ag>, 2015. #zanata
 # Frank Kloeker <eumel@arcor.de>, 2015. #zanata
 # OpenStack Infra <zanata@openstack.org>, 2015. #zanata
 # Robert Simai <robert.simai@suse.com>, 2015. #zanata
@@ -7,15 +8,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-11-04 14:35+0000\n"
+"POT-Creation-Date: 2015-12-10 15:15+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2015-09-26 03:25+0000\n"
-"Last-Translator: Andreas Jaeger <jaegerandi@gmail.com>\n"
+"PO-Revision-Date: 2015-12-11 09:36+0000\n"
+"Last-Translator: Eugen Block <eblock@nde.ag>\n"
 "Language: de\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"X-Generator: Zanata 3.7.1\n"
+"X-Generator: Zanata 3.7.3\n"
 "Language-Team: German\n"
 
 msgid ""
@@ -974,7 +975,7 @@ msgid ""
 msgstr ""
 "Mitglieder dem ausgewählten Pool hinzufügen.\n"
 "\n"
-"Eine oder mehrere gelistete Instanze(n) auswählen, die dem Pool als Mitglied "
+"Eine oder mehrere gelistete Instanz(en) auswählen, die dem Pool als Mitglied "
 "hinzugefügt werden soll(en). Eine numerische Gewichtung und eine Portnummer "
 "auswählen, auf denen die Miglieder arbeiten sollen, z.B. 80.\n"
 "\n"
@@ -1336,8 +1337,9 @@ msgstr "Zugewiesen zu"
 msgid "Attached to %(instance)s on %(dev)s"
 msgstr "%(instance)s wurde an %(dev)s zugewiesen"
 
+#, fuzzy
 msgid "Attaching"
-msgstr "Hinzufügung"
+msgstr "Anhängen"
 
 msgctxt "Current status of a Volume"
 msgid "Attaching"
@@ -3448,7 +3450,7 @@ msgid "Destination:"
 msgstr "Ziel:"
 
 msgid "Detach Interface"
-msgstr "Schnittstelle abtrenen"
+msgstr "Schnittstelle abtrennen"
 
 msgid "Detach Replica"
 msgid_plural "Detach Replicas"
@@ -3723,7 +3725,7 @@ msgid "Download Job Binary"
 msgstr "Aufgaben-Binärprogramm herunterladen"
 
 msgid "Download Key Pair"
-msgstr "Schlüssel-Paar herunterladen"
+msgstr "Schlüsselpaar herunterladen"
 
 msgid "Download OpenStack RC File"
 msgstr "OpenStack RC-Datei herunterladen"
@@ -5727,11 +5729,11 @@ msgstr "Schlüsselpaar"
 
 msgctxt "Current status of a Job"
 msgid "Killed"
-msgstr "Getötet"
+msgstr "Beendet"
 
 msgctxt "Current status of an Image"
 msgid "Killed"
-msgstr "Getötet"
+msgstr "Gelöscht"
 
 msgid "Kwapi"
 msgstr "Kwapi"
@@ -8629,7 +8631,7 @@ msgid "Select the image to rebuild your instance."
 msgstr "Wählen Sie ein Abbild, um Ihre Instanz neu zu erstellen."
 
 msgid "Select the network for interface attaching."
-msgstr "Wählen Sie das Netzwerk zur Schnittstellenhinzufügung aus."
+msgstr "Wählen Sie das Netzwerk zum Hinzufügen der Schnittstelle aus."
 
 msgid "Select the port to detach."
 msgstr "Wählen Sie den Port zum Abtrennen aus"
@@ -9808,7 +9810,7 @@ msgstr ""
 "Das Passwort der Instanz, verschlüsselt mit Ihrem öffentlichen Schlüssel."
 
 msgid "The instance(s) will be shut off."
-msgstr "DIe Instanz(en) wird (werden) heruntergefahren."
+msgstr "Die Instanz(en) wird (werden) heruntergefahren."
 
 #, python-format
 msgid ""
