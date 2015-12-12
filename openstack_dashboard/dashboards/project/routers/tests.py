@@ -551,7 +551,8 @@ class RouterActionTests(RouterMixin, test.TestCase):
     def test_router_addinterface_exception(self):
         self._test_router_addinterface(raise_error=True)
 
-    def _test_router_addinterface_ip_addr(self, errors=[]):
+    def _test_router_addinterface_ip_addr(self, errors=None):
+        errors = errors or []
         router = self.routers.first()
         subnet = self.subnets.first()
         port = self.ports.first()
@@ -561,7 +562,8 @@ class RouterActionTests(RouterMixin, test.TestCase):
         self._check_router_addinterface(router, subnet, ip_addr)
 
     def _setup_mock_addinterface_ip_addr(self, router, subnet, port,
-                                         ip_addr, errors=[]):
+                                         ip_addr, errors=None):
+        errors = errors or []
         subnet_get = api.neutron.subnet_get(IsA(http.HttpRequest), subnet.id)
         if 'subnet_get' in errors:
             subnet_get.AndRaise(self.exceptions.neutron)

@@ -268,7 +268,7 @@ class Column(html.HTMLElement):
     )
 
     def __init__(self, transform, verbose_name=None, sortable=True,
-                 link=None, allowed_data_types=[], hidden=False, attrs=None,
+                 link=None, allowed_data_types=None, hidden=False, attrs=None,
                  status=False, status_choices=None, display_choices=None,
                  empty_value=None, filters=None, classes=None, summation=None,
                  auto=None, truncate=None, link_classes=None, wrap_list=False,
@@ -276,6 +276,7 @@ class Column(html.HTMLElement):
                  update_action=None, link_attrs=None,
                  cell_attributes_getter=None, help_text=None):
 
+        allowed_data_types = allowed_data_types or []
         self.classes = list(classes or getattr(self, "classes", []))
         super(Column, self).__init__()
         self.attrs.update(attrs or {})
