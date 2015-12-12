@@ -39,6 +39,10 @@ IMAGE_BACKEND_SETTINGS = getattr(settings, 'OPENSTACK_IMAGE_BACKEND', {})
 IMAGE_FORMAT_CHOICES = IMAGE_BACKEND_SETTINGS.get('image_formats', [])
 
 
+class ImageURLField(forms.URLField):
+    default_validators = [validators.URLValidator(schemes=["http", "https"])]
+
+
 def create_image_metadata(data):
     """Use the given dict of image form data to generate the metadata used for
     creating the image in glance.
@@ -94,19 +98,17 @@ class CreateImageForm(forms.SelfHandlingForm):
         widget=forms.Select(attrs={
             'class': 'switchable',
             'data-slug': 'source'}))
-    image_url = forms.URLField(label=_("Image Location"),
-                               help_text=_("An external (HTTP/HTTPS) URL to "
-                                           "load the image from."),
-                               widget=forms.TextInput(attrs={
-                                   'class': 'switched',
-                                   'data-switch-on': 'source',
-                                   'data-source-url': _('Image Location'),
-                                   'ng-model': 'copyFrom',
-                                   'ng-change':
-                                   'ctrl.selectImageFormat(copyFrom)'}),
-                               validators=[validators.URLValidator(
-                                   schemes=["http", "https"])],
-                               required=False)
+    image_url = ImageURLField(label=_("Image Location"),
+                              help_text=_("An external (HTTP/HTTPS) URL to "
+                                          "load the image from."),
+                              widget=forms.TextInput(attrs={
+                                  'class': 'switched',
+                                  'data-switch-on': 'source',
+                                  'data-source-url': _('Image Location'),
+                                  'ng-model': 'copyFrom',
+                                  'ng-change':
+                                  'ctrl.selectImageFormat(copyFrom)'}),
+                              required=False)
     image_file = forms.FileField(label=_("Image File"),
                                  help_text=_("A local image to upload."),
                                  widget=forms.FileInput(attrs={
