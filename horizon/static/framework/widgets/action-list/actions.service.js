@@ -24,10 +24,11 @@
     '$http',
     '$q',
     '$templateCache',
-    'horizon.framework.widgets.basePath'
+    'horizon.framework.widgets.basePath',
+    'horizon.framework.util.q.extensions'
   ];
 
-  function actionsService($compile, $http, $q, $templateCache, basePath) {
+  function actionsService($compile, $http, $q, $templateCache, basePath, $qExtensions) {
     return function(spec) {
       return createService(spec.scope, spec.element, spec.listType);
     };
@@ -42,50 +43,23 @@
       return service;
 
       function renderActions(allowedActions) {
-        getPermittedActions(allowedActions).then(renderPermittedActions);
-      }
+        allowedActions.forEach(function(allowedAction) {
+          allowedAction.promise = allowedAction.permissions;
+          allowedAction.context = allowedAction;
+        });
 
-      /**
-       * Get the permitted actions from the list of allowed actions
-       * by resolving the promises in the permissions object.
-       */
-      function getPermittedActions(allowedActions) {
-        var deferred = $q.defer();
-        var permittedActions = [];
-        var promises = allowedActions.map(actionPermitted);
-
-        $q.all(promises).then(onResolved);
-
-        return deferred.promise;
-
-        function actionPermitted(action) {
-          var deferredInner = $q.defer();
-          action.permissions.then(onSuccess, onError);
-          return deferredInner.promise;
-
-          function onSuccess() {
-            permittedActions.push(action);
-            deferredInner.resolve();
-          }
-
-          function onError() {
-            deferredInner.resolve();
-          }
-        }
-
-        function onResolved() {
-          deferred.resolve(permittedActions);
-        }
+        $qExtensions.allSettled(allowedActions).then(renderPermittedActions);
       }
 
       /**
        * Render permitted actions as per the list type
        */
       function renderPermittedActions(permittedActions) {
-        if (permittedActions.length > 0) {
-          var templateFetch = $q.all(permittedActions.map(getTemplate));
 
-          if (listType === 'batch' || permittedActions.length === 1) {
+        if (permittedActions.pass.length > 0) {
+          var templateFetch = $q.all(permittedActions.pass.map(getTemplate));
+
+          if (listType === 'batch' || permittedActions.pass.length === 1) {
             element.addClass('btn-addon');
             templateFetch.then(addButtons);
           } else {
@@ -183,8 +157,9 @@
       /**
        * Fetch the HTML Template for the Action
        */
-      function getTemplate(action) {
+      function getTemplate(permittedActionResponse) {
         var defered = $q.defer();
+        var action = permittedActionResponse.context;
         $http.get(getTemplateUrl(action), {cache: $templateCache}).then(onTemplateGet);
         return defered.promise;
 
