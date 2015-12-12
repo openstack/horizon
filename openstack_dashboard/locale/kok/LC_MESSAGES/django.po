@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-12-09 02:55+0000\n"
+"POT-Creation-Date: 2015-12-12 03:12+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -1265,24 +1265,6 @@ msgid "Create Host Aggregate"
 msgstr "येजमान एग्रिगेट तयार करात"
 
 msgid ""
-"Create IKE Policy for current project.\n"
-"\n"
-"Assign a name and description for the IKE Policy. "
-msgstr ""
-"सद्याच्या प्रकल्पाखातीर IKE धोरण तयार करात.\n"
-"\n"
-" IKE धोरणाखातीर नाव आनी विवरण दियात. "
-
-msgid ""
-"Create IPSec Policy for current project.\n"
-"\n"
-"Assign a name and description for the IPSec Policy. "
-msgstr ""
-"सद्याच्या प्रकल्पाखातीर IPSec धोरण तयार करात.\n"
-"\n"
-"IPSec धोरणाखातीर नाव आनी विवरण दियात. "
-
-msgid ""
 "Create IPSec Site Connection for current project.\n"
 "\n"
 "Assign a name and description for the IPSec Site Connection. All fields in "
@@ -1348,17 +1330,6 @@ msgstr "उपनेट तयार करात (कोटा वाडला)
 
 msgid "Create User"
 msgstr "वापरपी तयार करात"
-
-msgid ""
-"Create VPN Service for current project.\n"
-"\n"
-"Specify a name, description, router, and subnet for the VPN Service. Admin "
-"State is Up (checked) by default."
-msgstr ""
-"सद्याच्या प्रकल्पाखातीर VPN सेवा तयार करात.\n"
-"\n"
-"VPN सेवेखातीर नाव, विवरण, राऊटर आनी उपनेट दियात. मुळाव्यान एडमिन स्थिती वयर (खूण "
-"केल्या) आसा."
 
 msgid "Create Volume"
 msgstr "आकार निर्माण करात"
@@ -1949,9 +1920,6 @@ msgstr "EC2 क्रेडेऩ्शियल डावनलोड करा
 
 msgid "Download Key Pair"
 msgstr "की जोडी डोवनलोड करात"
-
-msgid "Download OpenStack RC File"
-msgstr "ओपनस्टॅक RC फायल डावनलोड करात"
 
 #, python-format
 msgid "Download key pair &quot;%(keypair_name)s&quot;"
@@ -5698,9 +5666,6 @@ msgstr "विनंती केल्लो इंस्टंस पोर्
 
 msgid "The specified port is invalid."
 msgstr "स्पश्ट केल्लो पोर्ट अमान्य."
-
-msgid "The state to start in."
-msgstr "सुरवात करपाची स्थिती"
 
 msgid "The state to start the network in."
 msgstr "ज्या स्थितीन नेटवर्क सुरू करपाची ती."

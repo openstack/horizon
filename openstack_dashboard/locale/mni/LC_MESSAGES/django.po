@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-12-09 02:55+0000\n"
+"POT-Creation-Date: 2015-12-12 03:12+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -1223,24 +1223,6 @@ msgid "Create Host Aggregate"
 msgstr "হোষ্ট এগ্রিগেত শেম্মু"
 
 msgid ""
-"Create IKE Policy for current project.\n"
-"\n"
-"Assign a name and description for the IKE Policy. "
-msgstr ""
-"হৌজিক্কী প্রোজেক্ত অসিগী IKE পোলিসি শেম্মু।\n"
-"\n"
-"IKE পোলিসি অদুগী মমীং অমসুং দিস্ক্রিপসন অমা এসাইন তৌ।"
-
-msgid ""
-"Create IPSec Policy for current project.\n"
-"\n"
-"Assign a name and description for the IPSec Policy. "
-msgstr ""
-"হৌজিক্কী প্রোজেক্ত অসিগী IPSec পোলিসি শেম্মু।\n"
-"\n"
-"IPSec পোলিসি অদুগী মমীং অমসুং দিস্ক্রিপসন অমা এসাইন তৌ।"
-
-msgid ""
 "Create IPSec Site Connection for current project.\n"
 "\n"
 "Assign a name and description for the IPSec Site Connection. All fields in "
@@ -1307,17 +1289,6 @@ msgstr "সবনেত শেম্মু (ক্যুওতা হেল্�
 
 msgid "Create User"
 msgstr "য়ুজর শেম্মু"
-
-msgid ""
-"Create VPN Service for current project.\n"
-"\n"
-"Specify a name, description, router, and subnet for the VPN Service. Admin "
-"State is Up (checked) by default."
-msgstr ""
-"হৌজিক্কী প্রোজেক্ত অসিগী VPN সর্ভিস শেম্মু।\n"
-"\n"
-"VPN সর্ভিস অদুগী মমীং, দিস্ক্রিপসন, রাউতর, অমসুং সবনেত অমা তাকউ। এদমিন ষ্টেত অসিগী "
-"দিফোল্ট অসি Up (চেক তৌরবা) ওই।"
 
 msgid "Create Volume"
 msgstr "ভোল্যুম শেম্মু"
@@ -1911,9 +1882,6 @@ msgstr "EC2 ক্রিদেন্সিএলশীং দাউনলোদ 
 
 msgid "Download Key Pair"
 msgstr "কী পেয়র দাউনলোদ তৌ"
-
-msgid "Download OpenStack RC File"
-msgstr "ওপনষ্টেক RC ফাইল দাউনলোদ তৌ"
 
 #, python-format
 msgid "Download key pair &quot;%(keypair_name)s&quot;"
@@ -5505,9 +5473,6 @@ msgstr ""
 
 msgid "The specified port is invalid."
 msgstr "তাক্লিবা পোর্ত অদু চৎনবা য়াদে।"
-
-msgid "The state to start in."
-msgstr "ষ্টার্ত তৌনবা ষ্টেত।"
 
 msgid "The state to start the network in."
 msgstr "নেতৱার্ক অদু হৌনবা ষ্টেত।"

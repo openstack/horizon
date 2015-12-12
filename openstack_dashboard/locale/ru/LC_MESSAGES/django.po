@@ -23,7 +23,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-12-09 02:55+0000\n"
+"POT-Creation-Date: 2015-12-12 03:12+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -1901,24 +1901,6 @@ msgid "Create Host Aggregate"
 msgstr "Создать агрегатор узлов"
 
 msgid ""
-"Create IKE Policy for current project.\n"
-"\n"
-"Assign a name and description for the IKE Policy. "
-msgstr ""
-"Создание политики IKE для текущего проекта.\n"
-"\n"
-"Укажите имя и описание политики IKE."
-
-msgid ""
-"Create IPSec Policy for current project.\n"
-"\n"
-"Assign a name and description for the IPSec Policy. "
-msgstr ""
-"Создание политики IPSec для текущего проекта.\n"
-"\n"
-"Укажите имя и описание политики IPSec."
-
-msgid ""
 "Create IPSec Site Connection for current project.\n"
 "\n"
 "Assign a name and description for the IPSec Site Connection. All fields in "
@@ -1992,17 +1974,6 @@ msgstr "Создать передачу"
 
 msgid "Create User"
 msgstr "Создать пользователя"
-
-msgid ""
-"Create VPN Service for current project.\n"
-"\n"
-"Specify a name, description, router, and subnet for the VPN Service. Admin "
-"State is Up (checked) by default."
-msgstr ""
-"Создать VPN сервис для текущего проекта.\n"
-"\n"
-"Указать имя, описание, маршрутизатор и подсеть для VPN сервиса. "
-"Административное состояние по умолчанию - UP (включено)."
 
 msgid "Create Volume"
 msgstr "Создать диск"
@@ -3274,9 +3245,6 @@ msgstr "Загрузить ключи EC2"
 
 msgid "Download Key Pair"
 msgstr "Скачать ключевую пару"
-
-msgid "Download OpenStack RC File"
-msgstr "Загрузить RC файл OpenStack"
 
 #, python-format
 msgid "Download key pair &quot;%(keypair_name)s&quot;"
@@ -8564,9 +8532,6 @@ msgstr "Выбранный порт инстансы уже связан с др
 
 msgid "The specified port is invalid."
 msgstr "Указан неверный порт."
-
-msgid "The state to start in."
-msgstr "Состояние для начала "
 
 msgid "The state to start the network in."
 msgstr "Состояние для начала в сети."

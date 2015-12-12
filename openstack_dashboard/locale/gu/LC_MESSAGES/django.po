@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-12-09 02:55+0000\n"
+"POT-Creation-Date: 2015-12-12 03:12+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -1265,24 +1265,6 @@ msgid "Create Host Aggregate"
 msgstr "યજમાન સમૂહ બનાવો"
 
 msgid ""
-"Create IKE Policy for current project.\n"
-"\n"
-"Assign a name and description for the IKE Policy. "
-msgstr ""
-"હાલનાં પ્રોજેક્ટ માટે IKE પોલિસી બનાવો.\n"
-"\n"
-"IKE પોલિસી માટે નામ અને વર્ણન સોંપો."
-
-msgid ""
-"Create IPSec Policy for current project.\n"
-"\n"
-"Assign a name and description for the IPSec Policy. "
-msgstr ""
-"હાલનાં પ્રોજેક્ટ માટે IPSec પોલિસી બનાવો.\n"
-"\n"
-"IPSec પોલિસી માટે નામ અને વર્ણન સોંપો."
-
-msgid ""
 "Create IPSec Site Connection for current project.\n"
 "\n"
 "Assign a name and description for the IPSec Site Connection. All fields in "
@@ -1348,17 +1330,6 @@ msgstr "સબનેટ બનાવો ( વટાવેલ ક્વોટા)
 
 msgid "Create User"
 msgstr "વપરાશકર્તા બનાવો"
-
-msgid ""
-"Create VPN Service for current project.\n"
-"\n"
-"Specify a name, description, router, and subnet for the VPN Service. Admin "
-"State is Up (checked) by default."
-msgstr ""
-"હાલનાં પ્રોજેક્ટ માટે VPN સેવા બનાવો.\n"
-"\n"
-"VPN સેવા માટે નામ, વર્ણન, રૂટર, અને સબનેટ સ્પષ્ટ કરો.મૂળભૂત રીતે સંચાલન સ્ટેટ ઉપર છે "
-"(ચકાસાયેલ)."
 
 msgid "Create Volume"
 msgstr "વોલ્યુમ બનાવો"
@@ -1949,9 +1920,6 @@ msgstr "ડાઉનલોડ EC2 ઓળખપત્ર"
 
 msgid "Download Key Pair"
 msgstr "કી પેર(જોડ) ડાઉનલોડ કરો"
-
-msgid "Download OpenStack RC File"
-msgstr "OpenStack RC ફાઈલ ડાઉનલોડ કરો"
 
 #, python-format
 msgid "Download key pair &quot;%(keypair_name)s&quot;"
@@ -5710,9 +5678,6 @@ msgstr "વિનંતી કરેલ ઉદાહરણ પોર્ટ પ�
 
 msgid "The specified port is invalid."
 msgstr "સ્પષ્ટ કરેલ પોર્ટ અમાન્ય છે."
-
-msgid "The state to start in."
-msgstr "મા સ્ટેટ શરૂ કરવા માટે."
 
 msgid "The state to start the network in."
 msgstr "રાજ્યમાં નેટવર્ક શરૂ કરવા માટે."

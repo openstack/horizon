@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-12-09 02:55+0000\n"
+"POT-Creation-Date: 2015-12-12 03:12+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -1295,24 +1295,6 @@ msgid "Create Host Aggregate"
 msgstr "ಆತಿಥೇಯ ಒಟ್ಟುಗೂಡಿಕೆಯನ್ನು ರಚಿಸು"
 
 msgid ""
-"Create IKE Policy for current project.\n"
-"\n"
-"Assign a name and description for the IKE Policy. "
-msgstr ""
-"ಪ್ರಸಕ್ತ ಪರಿಯೋಜನೆಗಾಗಿ IKE ಪಾಲಿಸಿಯನ್ನು ರಚಿಸಿ.\n"
-"\n"
-"IKE ಪಾಲಿಸಿಗಾಗಿ ಒಂದು ಹೆಸರು ಮತ್ತು ವಿವರಣೆಯನ್ನು ನಿಯೋಜಿಸಿ."
-
-msgid ""
-"Create IPSec Policy for current project.\n"
-"\n"
-"Assign a name and description for the IPSec Policy. "
-msgstr ""
-"ಪ್ರಸಕ್ತ ಪರಿಯೋಜನೆಗಾಗಿ IPSec ಪಾಲಿಸಿಯನ್ನು ರಚಿಸಿ.\n"
-"\n"
-"IKE ಪಾಲಿಸಿಗಾಗಿ ಒಂದು ಹೆಸರು ಮತ್ತು ವಿವರಣೆಯನ್ನು ನಿಯೋಜಿಸಿ. "
-
-msgid ""
 "Create IPSec Site Connection for current project.\n"
 "\n"
 "Assign a name and description for the IPSec Site Connection. All fields in "
@@ -1379,17 +1361,6 @@ msgstr "ಸಬ್‌ನೆಟ್‌ ಅನ್ನು ರಚಿಸಿ (ಕೋಟ�
 
 msgid "Create User"
 msgstr "ಬಳಕೆದಾರನನ್ನು ರಚಿಸಿ"
-
-msgid ""
-"Create VPN Service for current project.\n"
-"\n"
-"Specify a name, description, router, and subnet for the VPN Service. Admin "
-"State is Up (checked) by default."
-msgstr ""
-"ಪ್ರಸಕ್ತ ಪರಿಯೋಜನೆಗಾಗಿ VPNಯ ಸೇವೆಯನ್ನು ರಚಿಸಿ.\n"
-"\n"
-"VPN ಸೇವೆಗಾಗಿ ಒಂದು ಹೆಸರು, ವಿವರಣೆ, ರೌಟರ್, ಮತ್ತು ಸಬ್‌ನೆಟ್ ಅನ್ನು ಸೂಚಿಸಿ. "
-"ಪೂರ್ವನಿಯೋಜಿತವಾಗಿ ವ್ಯವಸ್ಥಾಪಕ ಸ್ಥಿತಿಯು UP (ಗುರುತುಹಾಕಿರುವ) ಆಗಿರುತ್ತದೆ."
 
 msgid "Create Volume"
 msgstr "ಪರಿಮಾಣಯನ್ನು ರಚಿಸಿ"
@@ -1996,9 +1967,6 @@ msgstr "EC2 ಕ್ರೆಡೆಂಶಿಯಲ್‌ಗಳನ್ನು ಇಳಿ�
 
 msgid "Download Key Pair"
 msgstr "ಡೌನ್‌ಲೋಡ್ ಕೀಲಿ ಜೋಡಿ"
-
-msgid "Download OpenStack RC File"
-msgstr "OpenStack RC ಕಡತವನ್ನು ಡೌನ್‌ಲೋಡ್ ಮಾಡು"
 
 #, python-format
 msgid "Download key pair &quot;%(keypair_name)s&quot;"
@@ -5840,9 +5808,6 @@ msgstr "ಮನವಿ ಮಾಡಲಾದ ಇನ್‌ಸ್ಟನ್ಸ್‌ ಪ
 
 msgid "The specified port is invalid."
 msgstr "ಸೂಚಿಸಲಾದ ಪೋರ್ಟ್ ಅಮಾನ್ಯವಾಗಿದೆ."
-
-msgid "The state to start in."
-msgstr "ಆರಂಭಿಸಬೇಕಿರುವ ಸ್ಥಿತಿ."
 
 msgid "The state to start the network in."
 msgstr "ಜಾಲಬಂಧವನ್ನು ಆರಂಭಿಸಬೇಕಿರುವ ಸ್ಥಿತಿ."

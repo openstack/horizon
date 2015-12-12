@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-12-09 02:55+0000\n"
+"POT-Creation-Date: 2015-12-12 03:12+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -1923,24 +1923,6 @@ msgid "Create Host Aggregate"
 msgstr "Crea aggregato host"
 
 msgid ""
-"Create IKE Policy for current project.\n"
-"\n"
-"Assign a name and description for the IKE Policy. "
-msgstr ""
-"Creare la  politica IKE per il progetto corrente. \n"
-"\n"
-"Assegnare un nome e una descrizione alla politica IKE."
-
-msgid ""
-"Create IPSec Policy for current project.\n"
-"\n"
-"Assign a name and description for the IPSec Policy. "
-msgstr ""
-"Creare la  politica IPSec per il progetto corrente. \n"
-"\n"
-"Assegnare un nome e una descrizione alla politica IPSec."
-
-msgid ""
 "Create IPSec Site Connection for current project.\n"
 "\n"
 "Assign a name and description for the IPSec Site Connection. All fields in "
@@ -2014,17 +1996,6 @@ msgstr "Crea trasferimento"
 
 msgid "Create User"
 msgstr "Crea utente"
-
-msgid ""
-"Create VPN Service for current project.\n"
-"\n"
-"Specify a name, description, router, and subnet for the VPN Service. Admin "
-"State is Up (checked) by default."
-msgstr ""
-"Creare un servizio VPN per il progetto corrente. \n"
-"\n"
-"Specificare un nome, una descrizione e una sottorete per il servizio VPN. Lo "
-"stato Admin è Attivo (selezionato) per impostazione predefinita."
 
 msgid "Create Volume"
 msgstr "Crea volume"
@@ -3150,9 +3121,6 @@ msgstr "Scarica credenziali EC2"
 
 msgid "Download Key Pair"
 msgstr "Scarica coppia di chiavi"
-
-msgid "Download OpenStack RC File"
-msgstr "Scarica file OpenStack RC"
 
 #, python-format
 msgid "Download key pair &quot;%(keypair_name)s&quot;"
@@ -8409,9 +8377,6 @@ msgstr "La porta dell'istanza richiesta è già associata ad un altro IP mobile.
 
 msgid "The specified port is invalid."
 msgstr "La porta specificata non è valida."
-
-msgid "The state to start in."
-msgstr "Lo stato in cui avviare."
 
 msgid "The state to start the network in."
 msgstr "Lo stato in cui avviare la rete."
