@@ -65,6 +65,35 @@ class CinderRestTestCase(test.TestCase):
         self.assertEqual(response.json, {"id": "one"})
         cc.volume_get.assert_called_once_with(request, '1')
 
+    @mock.patch.object(cinder.api, 'cinder')
+    def test_volume_create(self, cc):
+        mock_body = '''{
+            "size": "",
+            "name": "",
+            "description": "",
+            "volume_type": "",
+            "snapshot_id": "",
+            "metadata": "",
+            "image_id": "",
+            "availability_zone": "",
+            "source_volid": ""
+        }'''
+
+        mock_volume_create_response = {
+            "size": ""
+        }
+
+        mock_post_response = '{"size": ""}'
+
+        request = self.mock_rest_request(POST={}, body=mock_body)
+        cc.volume_create.return_value = \
+            mock.Mock(**{'to_dict.return_value': mock_volume_create_response})
+
+        response = cinder.Volumes().post(request)
+
+        self.assertStatusCode(response, 201)
+        self.assertEqual(response.content.decode("utf-8"), mock_post_response)
+
     #
     # Volume Types
     #
@@ -154,3 +183,26 @@ class CinderRestTestCase(test.TestCase):
         self.assertEqual(response.content,
                          '{"items": [{"name": "foo"}, {"name": "bar"}]}')
         cc.list_extensions.assert_called_once_with(request)
+
+    @mock.patch.object(cinder.api, 'cinder')
+    def test_qos_specs_get(self, cc):
+        request = self.mock_rest_request(GET={})
+        cc.qos_specs_list.return_value = [
+            mock.Mock(**{'to_dict.return_value': {'id': 'one'}}),
+            mock.Mock(**{'to_dict.return_value': {'id': 'two'}}),
+        ]
+        response = cinder.QoSSpecs().get(request)
+        self.assertStatusCode(response, 200)
+        self.assertEqual(response.content.decode("utf-8"),
+                         '{"items": [{"id": "one"}, {"id": "two"}]}')
+        cc.qos_specs_list.assert_called_once_with(request)
+
+    @mock.patch.object(cinder.api, 'cinder')
+    def test_tenant_absolute_limits_get(self, cc):
+        request = self.mock_rest_request(GET={})
+        cc.tenant_absolute_limits.return_value = \
+            {'id': 'one'}
+        response = cinder.TenantAbsoluteLimits().get(request)
+        self.assertStatusCode(response, 200)
+        self.assertEqual(response.content.decode("utf-8"), '{"id": "one"}')
+        cc.tenant_absolute_limits.assert_called_once_with(request)
