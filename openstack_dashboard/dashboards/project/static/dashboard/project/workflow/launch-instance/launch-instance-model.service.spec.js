@@ -86,7 +86,11 @@
 
       var neutronApi = {
         getNetworks: function() {
-          var networks = [ { id: 'net-1' }, { id: 'net-2' } ];
+          var networks = [
+            { id: 'net-1', subnets: [ { id: 'subnet1' } ] },
+            { id: 'net-2', subnets: [ { id: 'subnet2' } ] },
+            { id: 'net-3', subnets: []}
+          ];
 
           var deferred = $q.defer();
           deferred.resolve({ data: { items: networks } });
@@ -102,7 +106,8 @@
             'net-2': [
               { name: 'port-3', device_owner: 'owner', fixed_ips: [], admin_state: 'DOWN' },
               { name: 'port-4', device_owner: '', fixed_ips: [], admin_state: 'DOWN' }
-            ]
+            ],
+            'net-3': []
           };
 
           var deferred = $q.defer();
@@ -471,7 +476,7 @@
         );
 
         it('should set a network by default if only one network is available', function () {
-          var networks = [ { id: 'net-1' } ];
+          var networks = [ { id: 'net-1', subnets: [ { id: 'subnet1' } ] } ];
           spyOn(neutronApi, 'getNetworks').and.callFake(function () {
             var deferred = $q.defer();
             deferred.resolve({ data: { items: networks } });
