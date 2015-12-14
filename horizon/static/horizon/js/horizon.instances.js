@@ -212,16 +212,18 @@ horizon.addInitFunction(horizon.instances.init = function () {
    Update the device size value to reflect minimum allowed
    for selected image and flavor
    */
-  function update_device_size() {
+  function update_device_size(source_type) {
     var volume_size = horizon.Quota.getSelectedFlavor().disk;
-    var image = horizon.Quota.getSelectedImage();
     var size_field = $("#id_volume_size");
 
-    if (image !== undefined && image.min_disk > volume_size) {
-      volume_size = image.min_disk;
-    }
-    if (image !== undefined && image.size > volume_size) {
-      volume_size = image.size;
+    if (source_type === 'image') {
+      var image = horizon.Quota.getSelectedImageOrSnapshot(source_type);
+      if (image !== undefined && image.min_disk > volume_size) {
+        volume_size = image.min_disk;
+      }
+      if (image !== undefined && image.size > volume_size) {
+        volume_size = image.size;
+      }
     }
 
     // If the user has manually changed the volume size, do not override
@@ -246,7 +248,7 @@ horizon.addInitFunction(horizon.instances.init = function () {
   });
 
   $document.on('change', '.workflow #id_image_id', function () {
-    update_device_size();
+    update_device_size('image');
   });
 
   $document.on('input', '.workflow #id_volume_size', function () {

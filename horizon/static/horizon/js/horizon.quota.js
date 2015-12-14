@@ -134,25 +134,25 @@ horizon.Quota = {
   },
 
   /*
-   Return an image Object based on which image ID is selected
+   Return an image/snapshot Object based on which image/snapshot ID is selected
    */
-  getSelectedImage: function() {
-    var selected = $('#id_image_id option:selected').val();
+  getSelectedImageOrSnapshot: function(source_type) {
+    var selected = $('#id_' + source_type + '_id option:selected').val();
     return horizon.Quota.findImageById(selected);
   },
 
   /*
-   Disable any flavors for a given image that do not meet
+   Disable any flavors for a given image/snapshot that do not meet
    its minimum RAM or disk requirements.
    */
-  disableFlavorsForImage: function(image) {
-    image = horizon.Quota.getSelectedImage();
+  disableFlavorsForImage: function(source_type) {
+    var source = horizon.Quota.getSelectedImageOrSnapshot(source_type);
     var to_disable = []; // an array of flavor names to disable
 
     horizon.Quota.resetFlavors(); // clear any previous messages
 
     $.each(horizon.Quota.flavors, function(i, flavor) {
-      if (!horizon.Quota.imageFitsFlavor(image, flavor)) {
+      if (!horizon.Quota.imageFitsFlavor(source, flavor)) {
         to_disable.push(flavor.name);
       }
     });
@@ -192,7 +192,7 @@ horizon.Quota = {
     this.disabledFlavorMessage = disabledMessage;
     this.allFlavorsDisabledMessage = allDisabledMessage;
     // Check if the image is pre-selected
-    horizon.Quota.disableFlavorsForImage();
+    horizon.Quota.disableFlavorsForImage('image');
   },
 
   /*
@@ -397,12 +397,17 @@ horizon.Quota = {
       };
 
       var imageChangeCallback = function() {
-        scope.disableFlavorsForImage();
+        scope.disableFlavorsForImage('image');
+      };
+
+      var snapshotChangeCallback = function() {
+        scope.disableFlavorsForImage('instance_snapshot');
       };
 
       $('#id_flavor').on('keyup change', eventCallback);
       $('#id_count').on('input', eventCallback);
       $('#id_image_id').on('change', imageChangeCallback);
+      $('#id_instance_snapshot_id').on('change', snapshotChangeCallback);
     }
 
     $(this.user_value_form_inputs).each(function(index, element) {
