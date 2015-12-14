@@ -88,6 +88,9 @@ For a complete list of the images that can be overridden this way, see:
 Customizing the Logo
 --------------------
 
+Simple
+~~~~~~
+
 If you wish to customize the logo that is used on the splash screen or in the
 top navigation bar, then you need to create an ``img`` directory under your
 theme's static root directory and place your custom ``logo.png`` or
@@ -104,6 +107,22 @@ vertically in the available space.
 Prior to the Kilo release the images files inside of Horizon needed to be
 replaced by your images files or the Horizon stylesheets needed to be altered
 to point to the location of your image.
+
+Advanced
+~~~~~~~~
+
+If you need to do more to customize the logo than simply replacing the existing
+PNG, then you can also override the _brand.html through a custom theme.  To use
+this technique, simply add a ``templates/header/_brand.html`` to the root of
+your custom theme, and add markup directly to the file.  For an example of how
+to do this, see
+``openstack_dashboard/themes/material/templates/header/_brand.html``.
+
+The splash / login panel can also be customized by adding
+``templates/auth/_splash.html``.  See
+``openstack_dashboard/themes/material/templates/auth/_splash.html`` for an
+example.
+
 
 Branding Horizon
 ================
