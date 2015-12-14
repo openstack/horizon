@@ -31,6 +31,7 @@ from openstack_dashboard.dashboards.project.networks.ports \
 
 STATE_DICT = dict(project_tables.DISPLAY_CHOICES)
 STATUS_DICT = dict(project_tables.STATUS_DISPLAY_CHOICES)
+VNIC_TYPES = dict(project_forms.VNIC_TYPES)
 
 
 class DetailView(tabs.TabView):
@@ -48,6 +49,9 @@ class DetailView(tabs.TabView):
                                                     port.admin_state)
             port.status_label = STATUS_DICT.get(port.status,
                                                 port.status)
+            if port.get('binding__vnic_type'):
+                port.binding__vnic_type = VNIC_TYPES.get(
+                    port.binding__vnic_type, port.binding__vnic_type)
         except Exception:
             port = []
             redirect = self.get_redirect_url()
