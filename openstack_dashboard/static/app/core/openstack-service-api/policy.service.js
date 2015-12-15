@@ -108,8 +108,12 @@
       return deferred.promise;
 
       function success(response) {
-        if (response.data.allowed) { deferred.resolve(); }
-        else { deferred.reject(); }
+        if (response.data.allowed) {
+          deferred.resolve();
+        }
+        else {
+          deferred.reject();
+        }
       }
     }
   }

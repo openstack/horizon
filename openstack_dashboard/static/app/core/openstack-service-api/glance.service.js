@@ -275,7 +275,7 @@
      * filters. For example "name" : "fedora" would filter on the fedora name.
      */
     function getImages(params) {
-      var config = (params) ? { 'params' : params} : {};
+      var config = params ? { 'params' : params} : {};
       return apiService.get('/api/glance/images/', config)
         .error(function () {
           toastService.add('error', gettext('Unable to retrieve the images.'));
@@ -340,7 +340,7 @@
      * enabled.
      */
     function getNamespaces(params, suppressError) {
-      var config = (params) ? {'params' : params} : {};
+      var config = params ? {'params' : params} : {};
       config.cache = true;
 
       var promise = apiService.get('/api/glance/metadefs/namespaces/', config);

@@ -48,7 +48,7 @@
   transferTable.$inject = [ 'horizon.framework.widgets.basePath' ];
 
   function transferTable(path) {
-    var directive = {
+    return {
       controller: 'transferTableController',
       controllerAs: 'trCtrl',
       restrict: ' E',
@@ -57,8 +57,6 @@
       templateUrl: path + 'transfer-table/transfer-table.html',
       link: link
     };
-
-    return directive;
 
     //////////////////////
 
@@ -80,8 +78,7 @@
         transclude(availableScope, function(clone) {
           available.append(clone.filter('table'));
         });
-      }
-      else {
+      } else {
         transclude(scope, function(clone) {
           allocated.append(clone.filter('allocated'));
           available.append(clone.filter('available'));

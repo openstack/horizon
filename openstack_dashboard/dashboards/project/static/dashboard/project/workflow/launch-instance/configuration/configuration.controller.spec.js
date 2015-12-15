@@ -30,7 +30,9 @@
       it('has correct disk configuration options', function() {
         expect(ctrl.diskConfigOptions).toBeDefined();
         expect(ctrl.diskConfigOptions.length).toBe(2);
-        var vals = ctrl.diskConfigOptions.map(function(x) { return x.value; });
+        var vals = ctrl.diskConfigOptions.map(function(x) {
+          return x.value;
+        });
         expect(vals).toContain('AUTO');
         expect(vals).toContain('MANUAL');
       });

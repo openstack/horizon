@@ -27,7 +27,9 @@
     beforeEach(module(function($provide) {
       // we will mock scope and timeout in this test
       // because we aren't concern with rendering results
-      var timeout = function(fn) { fn(); };
+      var timeout = function(fn) {
+        fn();
+      };
 
       // we will mock parse and attrs
       // because we want to control the parameters

@@ -191,7 +191,11 @@
     });
 
     it("checks steps' readiness", function() {
-      var checkedStep = {checkReadiness: function() { return true; }};
+      var checkedStep = {
+        checkReadiness: function() {
+          return true;
+        }
+      };
       $scope.workflow = {
         steps: [{}, checkedStep, {}]
       };

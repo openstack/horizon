@@ -62,8 +62,7 @@
             if (item.parent) {
               item.parent.addedCount -= 1;
             }
-          }
-          else if (!item.custom) {
+          } else if (!item.custom) {
             ctrl.hide = false;
           }
         }

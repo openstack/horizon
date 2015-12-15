@@ -72,7 +72,10 @@
         spyOn(modal, 'open').and
           .returnValue({
             result: {
-              then: function(x, y) { successFunc = x; errFunc = y; }
+              then: function(x, y) {
+                successFunc = x;
+                errFunc = y;
+              }
             }
           });
         func(launchContext);
@@ -88,7 +91,10 @@
         spyOn(modal, 'open').and
           .returnValue({
             result: {
-              then: function(x, y) { successFunc = x; errFunc = y; }
+              then: function(x, y) {
+                successFunc = x;
+                errFunc = y;
+              }
             }
           });
         func(launchContext);

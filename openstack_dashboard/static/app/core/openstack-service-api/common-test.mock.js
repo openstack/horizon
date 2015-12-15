@@ -63,7 +63,9 @@
   function testCall(apiService, service, toastService, config) {
     // 'promise' simulates a promise, including a self-referential success
     // handler.
-    var promise = {error: angular.noop, success: function() { return this; }};
+    var promise = {error: angular.noop, success: function() {
+      return this;
+    }};
     spyOn(apiService, config.method).and.returnValue(promise);
     spyOn(promise, 'error');
     service[config.func].apply(null, config.testInput);

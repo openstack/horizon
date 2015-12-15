@@ -233,7 +233,7 @@
     return items.filter(function filterItems(item) {
       return item._ext && item._ext.position === position;
     }).sort(function sortItems(a, b) {
-      return (a._ext.priority - b._ext.priority) || 1;
+      return a._ext.priority - b._ext.priority || 1;
     });
   }
 

@@ -21,9 +21,15 @@
     beforeEach(module('horizon.app.core.openstack-service-api'));
 
     beforeEach(module(function($provide) {
-      cinderAPI = {getExtensions: function() {return {then: angular.noop}; }};
-      q = {defer: function() { return {resolve: angular.noop}; }};
-      $provide.value('$cacheFactory', function() {return "cache"; });
+      cinderAPI = {getExtensions: function() {
+        return {then: angular.noop};
+      }};
+      q = {defer: function() {
+        return {resolve: angular.noop};
+      }};
+      $provide.value('$cacheFactory', function() {
+        return "cache";
+      });
       $provide.value('$q', q);
       $provide.value('horizon.app.core.openstack-service-api.cinder', cinderAPI);
     }));

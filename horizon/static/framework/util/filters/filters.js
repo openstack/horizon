@@ -41,7 +41,7 @@
   yesNoFilter.$inject = ['horizon.framework.util.i18n.gettext'];
   function yesNoFilter(gettext) {
     return function (input) {
-      return (input ? gettext("Yes") : gettext("No"));
+      return input ? gettext("Yes") : gettext("No");
     };
   }
 

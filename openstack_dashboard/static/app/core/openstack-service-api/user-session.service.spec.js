@@ -24,7 +24,9 @@
     beforeEach(module(function($provide) {
       keystoneAPI = {getCurrentUserSession: angular.noop};
       $provide.value('horizon.app.core.openstack-service-api.keystone', keystoneAPI);
-      $provide.value('$cacheFactory', function() { return 'cache'; });
+      $provide.value('$cacheFactory', function() {
+        return 'cache';
+      });
     }));
 
     beforeEach(inject(['horizon.app.core.openstack-service-api.userSession', function(userSession) {

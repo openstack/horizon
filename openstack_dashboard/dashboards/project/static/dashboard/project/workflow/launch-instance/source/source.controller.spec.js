@@ -78,7 +78,9 @@
       it('defines the correct boot source options', function() {
         expect(ctrl.bootSourcesOptions).toBeDefined();
         var types = ['image', 'snapshot', 'volume', 'volume_snapshot'];
-        var opts = ctrl.bootSourcesOptions.map(function(x) { return x.type; });
+        var opts = ctrl.bootSourcesOptions.map(function(x) {
+          return x.type;
+        });
         types.forEach(function(key) {
           expect(opts).toContain(key);
         });
