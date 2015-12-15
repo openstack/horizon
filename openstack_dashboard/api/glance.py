@@ -316,8 +316,9 @@ def metadefs_namespace_list(request,
     return namespaces, has_more_data, has_prev_data
 
 
-def metadefs_namespace_full_list(request, resource_type, filters={},
+def metadefs_namespace_full_list(request, resource_type, filters=None,
                                  *args, **kwargs):
+    filters = filters or {}
     filters['resource_types'] = [resource_type]
     namespaces, has_more_data, has_prev_data = metadefs_namespace_list(
         request, filters, *args, **kwargs

@@ -147,7 +147,7 @@ def ajax(authenticated=True, data_required=False,
     return decorator
 
 
-def parse_filters_kwargs(request, client_keywords={}):
+def parse_filters_kwargs(request, client_keywords=None):
     """Extract REST filter parameters from the request GET args.
 
     Client processes some keywords separately from filters and takes
@@ -156,6 +156,7 @@ def parse_filters_kwargs(request, client_keywords={}):
     """
     filters = {}
     kwargs = {}
+    client_keywords = client_keywords or {}
     for param in request.GET:
         if param in client_keywords:
             kwargs[param] = request.GET[param]
