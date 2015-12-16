@@ -12,6 +12,7 @@
 
 import datetime
 import os
+import socket
 import sys
 import time
 import traceback
@@ -64,6 +65,11 @@ class BaseTestCase(testtools.TestCase):
                 # disables X access control
                 self.vdisplay.xvfb_cmd.append("-ac")
                 self.vdisplay.start()
+            # Increase the default Python socket timeout from nothing
+            # to something that will cope with slow webdriver startup times.
+            # This *just* affects the communication between this test process
+            # and the webdriver.
+            socket.setdefaulttimeout(60)
             # Start the Selenium webdriver and setup configuration.
             self.driver = webdriver.WebDriverWrapper(
                 logging_prefs={'browser': 'ALL'})
