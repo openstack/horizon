@@ -14,8 +14,10 @@
 #    under the License.
 
 from openstack_dashboard.test.integration_tests import helpers
+from openstack_dashboard.test.integration_tests.tests import decorators
 
 
+@decorators.skip_because(bugs=["1526791"])
 class TestKeypair(helpers.TestCase):
     """Checks that the user is able to create/delete keypair."""
     KEYPAIR_NAME = helpers.gen_random_resource_name("keypair")
