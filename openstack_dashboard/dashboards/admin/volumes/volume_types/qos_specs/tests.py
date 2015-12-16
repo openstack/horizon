@@ -100,9 +100,7 @@ class QosSpecsTests(test.BaseAdminViewTests):
         key = 'minIOPS'
         edit_url = reverse('horizon:admin:volumes:volume_types:qos_specs:edit',
                            args=[qos_spec.id, key])
-        index_url = reverse(
-            'horizon:admin:volumes:volume_types:qos_specs:index',
-            args=[qos_spec.id])
+        index_url = reverse('horizon:admin:volumes:volume_types_tab')
 
         data = {'value': '9999'}
         qos_spec.specs[key] = data['value']

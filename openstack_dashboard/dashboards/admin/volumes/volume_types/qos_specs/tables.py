@@ -42,6 +42,10 @@ class SpecDeleteKeyValuePair(tables.DeleteAction):
                                        qos_spec_id,
                                        [obj_ids])
 
+    # redirect to non-modal page
+    def get_success_url(self, request=None):
+        return reverse('horizon:admin:volumes:volume_types_tab')
+
 
 class SpecEditKeyValuePair(tables.LinkAction):
     name = "edit"
