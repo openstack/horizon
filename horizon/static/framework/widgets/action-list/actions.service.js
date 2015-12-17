@@ -30,12 +30,12 @@
 
   function actionsService($compile, $http, $q, $templateCache, basePath, $qExtensions) {
     return function(spec) {
-      return createService(spec.scope, spec.element, spec.listType);
+      return createService(spec.scope, spec.element, spec.listType, spec.item);
     };
 
     ///////////////
 
-    function createService(scope, element, listType) {
+    function createService(scope, element, listType, item) {
       var service = {
         renderActions: renderActions
       };
@@ -157,9 +157,9 @@
       /**
        * Fetch the HTML Template for the Action
        */
-      function getTemplate(permittedActionResponse) {
+      function getTemplate(permittedAction) {
         var defered = $q.defer();
-        var action = permittedActionResponse.context;
+        var action = permittedAction.context;
         $http.get(getTemplateUrl(action), {cache: $templateCache}).then(onTemplateGet);
         return defered.promise;
 
@@ -167,7 +167,7 @@
           var template = response.data
                 .replace('$action-classes$', action.template.actionClasses || '')
                 .replace('$text$', action.template.text)
-                .replace('$item$', action.template.item);
+                .replace('$item$', item);
           defered.resolve({template: template, callback: action.callback});
         }
       }
