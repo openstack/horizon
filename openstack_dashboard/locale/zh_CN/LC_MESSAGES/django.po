@@ -26,7 +26,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-12-12 03:12+0000\n"
+"POT-Creation-Date: 2015-12-17 05:35+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -575,12 +575,6 @@ msgstr "在云主机创建后执行的一段脚本或者一组命令(最大16KB)
 msgid ""
 "A snapshot is an image which preserves the disk state of a running instance."
 msgstr "快照是保存运行中实例的磁盘状态的一个镜像。"
-
-#, python-format
-msgid ""
-"A volume of %(req)iGB cannot be created as you only have %(avail)iGB of your "
-"quota available."
-msgstr "申请容量%(req)iGB的云硬盘无法创建，因为您只剩%(avail)iGB的容量配额。"
 
 msgid "AKI - Amazon Kernel Image"
 msgstr "AKI - 亚马逊内核镜像"
@@ -1307,9 +1301,6 @@ msgstr "备份文件"
 
 msgid "Backup File Location"
 msgstr "备份文件地址"
-
-msgid "Backup Gigabytes"
-msgstr "备份大小GB"
 
 msgid "Backup Name"
 msgstr "备份名称"
@@ -7086,9 +7077,6 @@ msgstr "退出"
 msgid "Size"
 msgstr "配置"
 
-msgid "Size (GB)"
-msgstr "大小(GB)"
-
 msgid "Size of ephemeral disk"
 msgstr "临时磁盘大小"
 
@@ -7970,20 +7958,8 @@ msgid "The time delta must be a number representing the time span in days"
 msgstr "时间增量必须以天数间隔表示"
 
 #, python-format
-msgid "The volume size cannot be less than the image minimum disk size (%sGB)"
-msgstr "云硬盘大小不能小于镜像最小磁盘要求(%sGB)"
-
-#, python-format
 msgid "The volume size cannot be less than the image size (%s)"
 msgstr "云硬盘大小不得小于镜像大小 (%s)"
-
-#, python-format
-msgid "The volume size cannot be less than the snapshot size (%sGB)"
-msgstr "云硬盘大小不能小于快照(%sGB)"
-
-#, python-format
-msgid "The volume size cannot be less than the source volume size (%sGB)"
-msgstr "云硬盘大小不得小于原始云硬盘大小 (%sGB)"
 
 msgid "There are no meters defined yet."
 msgstr "没有定义任何计量。"
@@ -8121,9 +8097,6 @@ msgstr "磁盘总大小(GB)："
 
 msgid "Total Disk Usage (Hours):"
 msgstr "磁盘总用量(小时)："
-
-msgid "Total Gigabytes"
-msgstr "总大小(GB)"
 
 msgid "Total Memory Usage (Hours):"
 msgstr "内存总用量(小时)："
@@ -9938,12 +9911,6 @@ msgstr "云硬盘类型：%(volume_type_name)s"
 msgid "Volume Types"
 msgstr "云硬盘类型"
 
-#, python-format
-msgid ""
-"Volume cannot be extended to %(req)iGB as you only have %(avail)iGB of your "
-"quota available."
-msgstr "云硬盘不能扩展到%(req)iGB，因为你的可用配置只有%(avail)iGB。"
-
 msgid "Volume is Unencrypted"
 msgstr "卷没有加密"
 
@@ -9973,23 +9940,8 @@ msgid "Volume size in gigabytes (integer value)."
 msgstr "云硬盘大小 (GB, 整数)。"
 
 #, python-format
-msgid ""
-"Volume size must be equal to or greater than the image minimum disk size "
-"(%sGB)"
-msgstr "云硬盘大小必须大于等于快照大小(%sGB)"
-
-#, python-format
 msgid "Volume size must be equal to or greater than the image size (%s)"
 msgstr "云硬盘大小必须等于或大于镜像大小(%s)"
-
-#, python-format
-msgid ""
-"Volume size must be equal to or greater than the origin volume size (%s)"
-msgstr "云硬盘大小必须大于等于原始大小(%s)"
-
-#, python-format
-msgid "Volume size must be equal to or greater than the snapshot size (%sGB)"
-msgstr "云硬盘大小必须大于等于快照大小(%sGB)"
 
 msgid "Volume size must be greater than 0"
 msgstr "卷大小必须大于0"

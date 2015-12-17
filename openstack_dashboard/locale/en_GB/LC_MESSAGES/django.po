@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-12-12 03:12+0000\n"
+"POT-Creation-Date: 2015-12-17 05:35+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -617,14 +617,6 @@ msgid ""
 "A snapshot is an image which preserves the disk state of a running instance."
 msgstr ""
 "A snapshot is an image which preserves the disk state of a running instance."
-
-#, python-format
-msgid ""
-"A volume of %(req)iGB cannot be created as you only have %(avail)iGB of your "
-"quota available."
-msgstr ""
-"A volume of %(req)iGB cannot be created as you only have %(avail)iGB of your "
-"quota available."
 
 msgid "AKI - Amazon Kernel Image"
 msgstr "AKI - Amazon Kernel Image"
@@ -1370,9 +1362,6 @@ msgstr "Backup File"
 
 msgid "Backup File Location"
 msgstr "Backup File Location"
-
-msgid "Backup Gigabytes"
-msgstr "Backup Gigabytes"
 
 msgid "Backup Name"
 msgstr "Backup Name"
@@ -7338,9 +7327,6 @@ msgstr "Sign Out"
 msgid "Size"
 msgstr "Size"
 
-msgid "Size (GB)"
-msgstr "Size (GB)"
-
 msgid "Size of ephemeral disk"
 msgstr "Size of ephemeral disk"
 
@@ -8273,20 +8259,8 @@ msgid "The time delta must be a number representing the time span in days"
 msgstr "The time delta must be a number representing the time span in days"
 
 #, python-format
-msgid "The volume size cannot be less than the image minimum disk size (%sGB)"
-msgstr "The volume size cannot be less than the image minimum disk size (%sGB)"
-
-#, python-format
 msgid "The volume size cannot be less than the image size (%s)"
 msgstr "The volume size cannot be less than the image size (%s)"
-
-#, python-format
-msgid "The volume size cannot be less than the snapshot size (%sGB)"
-msgstr "The volume size cannot be less than the snapshot size (%sGB)"
-
-#, python-format
-msgid "The volume size cannot be less than the source volume size (%sGB)"
-msgstr "The volume size cannot be less than the source volume size (%sGB)"
 
 msgid "There are no meters defined yet."
 msgstr "There are no meters defined yet."
@@ -8428,9 +8402,6 @@ msgstr "Total Disk Size (GB):"
 
 msgid "Total Disk Usage (Hours):"
 msgstr "Total Disk Usage (Hours):"
-
-msgid "Total Gigabytes"
-msgstr "Total Gigabytes"
 
 msgid "Total Memory Usage (Hours):"
 msgstr "Total Memory Usage (Hours):"
@@ -10262,14 +10233,6 @@ msgstr "Volume Type: %(volume_type_name)s "
 msgid "Volume Types"
 msgstr "Volume Types"
 
-#, python-format
-msgid ""
-"Volume cannot be extended to %(req)iGB as you only have %(avail)iGB of your "
-"quota available."
-msgstr ""
-"Volume cannot be extended to %(req)iGB as you only have %(avail)iGB of your "
-"quota available."
-
 msgid "Volume is Unencrypted"
 msgstr "Volume is Unencrypted"
 
@@ -10299,26 +10262,8 @@ msgid "Volume size in gigabytes (integer value)."
 msgstr "Volume size in gigabytes (integer value)."
 
 #, python-format
-msgid ""
-"Volume size must be equal to or greater than the image minimum disk size "
-"(%sGB)"
-msgstr ""
-"Volume size must be equal to or greater than the image minimum disk size "
-"(%sGB)"
-
-#, python-format
 msgid "Volume size must be equal to or greater than the image size (%s)"
 msgstr "Volume size must be equal to or greater than the image size (%s)"
-
-#, python-format
-msgid ""
-"Volume size must be equal to or greater than the origin volume size (%s)"
-msgstr ""
-"Volume size must be equal to or greater than the origin volume size (%s)"
-
-#, python-format
-msgid "Volume size must be equal to or greater than the snapshot size (%sGB)"
-msgstr "Volume size must be equal to or greater than the snapshot size (%sGB)"
 
 msgid "Volume size must be greater than 0"
 msgstr "Volume size must be greater than 0"

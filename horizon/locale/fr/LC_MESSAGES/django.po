@@ -17,7 +17,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-11-18 04:22+0000\n"
+"POT-Creation-Date: 2015-12-17 05:35+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -26,7 +26,7 @@ msgstr ""
 "Language: fr\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 "Generated-By: Babel 2.0\n"
-"X-Generator: Zanata 3.7.1\n"
+"X-Generator: Zanata 3.7.3\n"
 "Language-Team: French\n"
 
 #, python-format
@@ -40,22 +40,6 @@ msgstr ""
 "                Connectez-vous avec un autre nom d'utilisateur ou revenez à "
 "<a href=\"%(home_url)s\">home page</a>\n"
 "              "
-
-#, python-format
-msgid ""
-"\n"
-"        Used <span> %(used)s </span>(No Limit)"
-msgstr ""
-"\n"
-"<span> %(used)s </span>Utilisé(es) (Pas de limite)"
-
-#, python-format
-msgid ""
-"\n"
-"        Used <span> %(used)s </span>of<span> %(available)s </span>"
-msgstr ""
-"\n"
-"<span> %(used)s </span>sur<span> %(available)s </span>utilisé(es)"
 
 #, python-format
 msgid ""

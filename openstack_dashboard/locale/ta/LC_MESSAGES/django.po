@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-12-12 03:12+0000\n"
+"POT-Creation-Date: 2015-12-17 05:35+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -321,14 +321,6 @@ msgid ""
 msgstr ""
 "நிகழ்வு கட்டப்பட்ட (அதிகபட்சம் 16kb) பின்னர் செயல்படுத்தவேண்டிய கட்டளைகளை தொகுப்பே  ஒரு "
 "ஸ்கிரிப்ட்."
-
-#, python-format
-msgid ""
-"A volume of %(req)iGB cannot be created as you only have %(avail)iGB of your "
-"quota available."
-msgstr ""
-"%(req)iGB அளவில் தொகுதியை உருவாக்கமுடியாது ஏனெனில் உங்கள் ஒதுக்கீட்டளவில் %(avail)iGB "
-"மட்டுமே கிடைக்கிறது."
 
 msgid "AKI - Amazon Kernel Image"
 msgstr "AKI - அமேசான் கெர்னல் இமேஜ்"
@@ -5127,9 +5119,6 @@ msgstr "வெளிநடக்கவும்"
 msgid "Size"
 msgstr "அளவு"
 
-msgid "Size (GB)"
-msgstr "அளவு (GB)"
-
 msgid "Size of image to launch."
 msgstr "துவக்கவேண்டிய படிமத்தின் அளவு."
 
@@ -5776,21 +5765,8 @@ msgid "The subnet in the Network Address is too small (/%s)."
 msgstr "பிணைய முகவரி உள்ள உபவலை மிகவும் சிறியதாக உள்ளது (/%s)."
 
 #, python-format
-msgid "The volume size cannot be less than the image minimum disk size (%sGB)"
-msgstr ""
-"தொகுதி அளவு படிமத்தை குறைந்தபட்ச வட்டு அளவை (%sGB) விட குறைவாக இருக்க முடியாது"
-
-#, python-format
 msgid "The volume size cannot be less than the image size (%s)"
 msgstr "தொகுதி அளவு படிம அளவை (%s) விட குறைவாக இருக்க முடியாது "
-
-#, python-format
-msgid "The volume size cannot be less than the snapshot size (%sGB)"
-msgstr "தொகுதி அளவு ஸ்னாப்ஷாட் அளவை (%sGB) விட குறைவாக இருக்க முடியாது "
-
-#, python-format
-msgid "The volume size cannot be less than the source volume size (%sGB)"
-msgstr "தொகுதி அளவு மூல தொகுதி அளவை (%sGB) விட குறைவாக இருக்க முடியாது"
 
 msgid "There are no meters defined yet."
 msgstr "இன்னும் எந்த மீட்டர்களும் வரையறுக்கப்படவில்லை."
@@ -5890,9 +5866,6 @@ msgstr "இடவியல்"
 
 msgid "Total Disk"
 msgstr "மொத்த வட்டு"
-
-msgid "Total Gigabytes"
-msgstr "மொத்த ஜிகாபைட்டுகள்"
 
 msgid "Total RAM"
 msgstr "மொத்த RAM"
@@ -7340,14 +7313,6 @@ msgstr "தொகுதி வகை: %(volume_type_name)s "
 msgid "Volume Types"
 msgstr "தொகுதி வகைகள்"
 
-#, python-format
-msgid ""
-"Volume cannot be extended to %(req)iGB as you only have %(avail)iGB of your "
-"quota available."
-msgstr ""
-"%(req)iGB அளவிர்கு தொகுதியை நீட்டிக்கமுடியாது ஏனெனில் உங்கள் ஒதுக்கீட்டளவில் "
-"%(avail)iGB மட்டுமே கிடைக்கிறது."
-
 msgid ""
 "Volume mount point (e.g. 'vda' mounts at '/dev/vda'). Leave this field blank "
 "to let the system choose a device name for you."
@@ -7359,25 +7324,8 @@ msgid "Volume size in gigabytes (integer value)."
 msgstr "ஜிகாபைட்டில் தொகுதி அளவு (முழு எண் மதிப்பு)."
 
 #, python-format
-msgid ""
-"Volume size must be equal to or greater than the image minimum disk size "
-"(%sGB)"
-msgstr ""
-"தொகுதி அளவு படிம குறைந்தபட்ச வட்டு அளவிற்கு (%sGB) சமமாக அல்லது அதிகமாக இருக்க "
-"வேண்டும் "
-
-#, python-format
 msgid "Volume size must be equal to or greater than the image size (%s)"
 msgstr "தொகுதி அளவு படிமத்திற்கு அளவிற்கு (%s) சமமாக அல்லது அதிகமாக இருக்க வேண்டும் "
-
-#, python-format
-msgid ""
-"Volume size must be equal to or greater than the origin volume size (%s)"
-msgstr "தொகுதி அளவு அசல் தொகுதி அளவிற்கு (%s) சமமாக அல்லது அதிகமாக இருக்க வேண்டும் "
-
-#, python-format
-msgid "Volume size must be equal to or greater than the snapshot size (%sGB)"
-msgstr "தொகுதி அளவு ஸ்னாப்ஷாட் அளவிற்கு சமமாக அல்லது அதிகமாக இருக்க வேண்டும்  (%sGB)"
 
 msgid "Volume size must be greater than 0"
 msgstr "தொகுதி அளவு 0 -வை விட அதிகமாக இருக்க வேண்டும்"

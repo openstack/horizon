@@ -21,11 +21,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-12-12 03:12+0000\n"
+"POT-Creation-Date: 2015-12-17 05:35+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2015-12-11 09:13+0000\n"
+"PO-Revision-Date: 2015-12-14 04:04+0000\n"
 "Last-Translator: Robert Simai <robert.simai@suse.com>\n"
 "Language: de\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
@@ -615,14 +615,6 @@ msgid ""
 msgstr ""
 "Eine Schattenkopie ist ein Abbild, welches den Zustand der Festplatte einer "
 "laufenden Instanz erhält."
-
-#, python-format
-msgid ""
-"A volume of %(req)iGB cannot be created as you only have %(avail)iGB of your "
-"quota available."
-msgstr ""
-"Ein Datenträger von %(req)i GB kann nicht erzeugt werden, da Sie nur "
-"%(avail)i GB als Kontingent zur Verfügung haben."
 
 msgid "AKI - Amazon Kernel Image"
 msgstr "AKI - Amazon-Kernelabbild"
@@ -1387,9 +1379,6 @@ msgstr "Sicherungsdatei"
 
 msgid "Backup File Location"
 msgstr "Speicherort der Sicherungskopie"
-
-msgid "Backup Gigabytes"
-msgstr "Datensicherung Gigabytes"
 
 msgid "Backup Name"
 msgstr "Name der Sicherung"
@@ -2316,6 +2305,14 @@ msgstr "Aktuelle Aufgabe"
 
 msgid "Current password"
 msgstr "Aktuelles Passwort"
+
+msgid ""
+"Currently only images available via an HTTP/HTTPS URL are supported. The "
+"image location must be accessible to the Image Service."
+msgstr ""
+"Zur Zeit werden nur über eine HTTP/HTTPS URL verfügbare Abbilder "
+"unterstützt. Die Abbild-Speicherort muss vom Abbilddienst aus erreichbar "
+"sein."
 
 msgid "Custom ICMP Rule"
 msgstr "Angepasste ICMP-Regel"
@@ -4657,6 +4654,13 @@ msgstr "Abbild wurde erfolgreich aktualisiert."
 msgid "Images"
 msgstr "Abbilder"
 
+msgid ""
+"Images can be provided via an HTTP/HTTPS URL or be uploaded from your local "
+"file system."
+msgstr ""
+"Abbilder können als HTTP/HTTPS URL oder durch hochladen aus dem lokalen "
+"Dateisystem bereitgestellt werden."
+
 msgid "Implementation"
 msgstr "Implementierung"
 
@@ -6184,6 +6188,9 @@ msgctxt "Current status of a VPN Service"
 msgid "Pending Update"
 msgstr "Geplante Aktualisierung"
 
+msgid "Per Volume Size (GiB)"
+msgstr "Größe pro Datenträger (GiB)"
+
 msgid "Perfect Forward Secrecy"
 msgstr "Perfect Forward Secrecy: perfekte vorwärts gerichtete Geheimhaltung"
 
@@ -7600,9 +7607,6 @@ msgstr "Abmelden"
 msgid "Size"
 msgstr "Größe"
 
-msgid "Size (GB)"
-msgstr "Größe (GB)"
-
 msgid "Size of ephemeral disk"
 msgstr "Größe der flüchtigen Festplatte"
 
@@ -8491,6 +8495,11 @@ msgstr ""
 "Der physikalische Mechanismus, durch den das virtuelle Netzwerk "
 "implementiert wurde."
 
+msgid "The pre-defined key string between the two peers of the VPN connection"
+msgstr ""
+"Die vordefinierte Schlüssel-Zeichenkette zwischen den beiden Gegenstellen "
+"der VPN Verbindung"
+
 msgid ""
 "The private key will be only used in your browser and will not be sent to "
 "the server"
@@ -8566,26 +8575,8 @@ msgid "The time delta must be a number representing the time span in days"
 msgstr "Die Zeitdifferenz ist eine Nummer, die die Zeitspanne in Tagen angibt"
 
 #, python-format
-msgid "The volume size cannot be less than the image minimum disk size (%sGB)"
-msgstr ""
-"Die Datenträgergröße kann nicht kleiner als die minimale Festplattengröße "
-"für das Abbild sein (%s GB)"
-
-#, python-format
 msgid "The volume size cannot be less than the image size (%s)"
 msgstr "Die Datenträger Größe kann nicht kleiner sein als die Abbildgröße (%s)"
-
-#, python-format
-msgid "The volume size cannot be less than the snapshot size (%sGB)"
-msgstr ""
-"Die Datenträgergröße kann nicht kleiner sein als die der Schattenkopie (%s "
-"GB)"
-
-#, python-format
-msgid "The volume size cannot be less than the source volume size (%sGB)"
-msgstr ""
-"Die Datenträgergröße darf nicht kleiner sein als die Quelldatenträgergröße "
-"(%sGB)"
 
 msgid "There are no meters defined yet."
 msgstr "Es sind noch keine Zähler definiert worden."
@@ -8736,9 +8727,6 @@ msgstr "Festplatte gesamt:"
 msgid "Total Disk Usage (Hours):"
 msgstr "Gesamte Festplattenverwendung (Stunden):"
 
-msgid "Total Gigabytes"
-msgstr "Gesamt Gigabytes"
-
 msgid "Total Memory Usage (Hours):"
 msgstr "Gesamte Speicherverwendung (Stunden):"
 
@@ -8747,6 +8735,10 @@ msgstr "RAM gesamt"
 
 msgid "Total Size of Volumes and Snapshots (GB)"
 msgstr "Gesamtgröße von Datenträgern und Schattenkopien (GB)"
+
+#, python-format
+msgid "Total Size of Volumes and Snapshots (GiB) of Type %(type)s"
+msgstr "Gesamtgröße der Datenträger und Schattenkopien (GiB) des Typs %(type)s"
 
 msgid "Total VCPU Usage (Hours):"
 msgstr "Gesamte VCPU-Auslastung (Stunden):"
@@ -10572,6 +10564,10 @@ msgstr "Schattenkopieübersicht"
 msgid "Volume Snapshots"
 msgstr "Schattenkopien"
 
+#, python-format
+msgid "Volume Snapshots of Type %(type)s"
+msgstr "Datenträger-Schattenkopien des Types %(type)s"
+
 msgid "Volume Source"
 msgstr "Datenträger Quelle"
 
@@ -10616,14 +10612,6 @@ msgstr "Volumentyp: %(volume_type_name)s "
 msgid "Volume Types"
 msgstr "Datenträgertypen"
 
-#, python-format
-msgid ""
-"Volume cannot be extended to %(req)iGB as you only have %(avail)iGB of your "
-"quota available."
-msgstr ""
-"Der Datenträger kann nicht auf %(req)iGB erweitert werden, da nur noch "
-"%(avail)iGB ihres Kontingents verfügbar sind."
-
 msgid "Volume is Unencrypted"
 msgstr "Datenträger ist unverschlüsselt"
 
@@ -10653,29 +10641,8 @@ msgid "Volume size in gigabytes (integer value)."
 msgstr "Datenträgergröße in Gigabytes (ganze Zahl)"
 
 #, python-format
-msgid ""
-"Volume size must be equal to or greater than the image minimum disk size "
-"(%sGB)"
-msgstr ""
-"Datenträgergröße muss gleich oder größer als die minimale Festplattengröße "
-"sein (%s GB)"
-
-#, python-format
 msgid "Volume size must be equal to or greater than the image size (%s)"
 msgstr "Datenträgergröße muss gleich oder größer der des Abbilds sein (%s)"
-
-#, python-format
-msgid ""
-"Volume size must be equal to or greater than the origin volume size (%s)"
-msgstr ""
-"Datenträgergröße muss gleich oder größer als die Original-Datenträgergröße "
-"sein (%s)"
-
-#, python-format
-msgid "Volume size must be equal to or greater than the snapshot size (%sGB)"
-msgstr ""
-"Datenträgergröße muss gleich oder größer als die Größe der Schattenkopie "
-"sein (%s GB)"
 
 msgid "Volume size must be greater than 0"
 msgstr "Datenträgergröße muß größer als 0 sein"
@@ -10695,6 +10662,10 @@ msgstr "Datenträger"
 
 msgid "Volumes Attached"
 msgstr "Zugewiesene Datenträger"
+
+#, python-format
+msgid "Volumes of Type %(type)s"
+msgstr "Datenträger des Typs %(type)s"
 
 msgid "Weight"
 msgstr "Gewicht"

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-12-12 03:12+0000\n"
+"POT-Creation-Date: 2015-12-17 05:35+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -314,13 +314,6 @@ msgid ""
 "A script or set of commands to be executed after the instance has been built "
 "(max 16kb)."
 msgstr "इंस्टेंस क बनबा क बाद निष्पादित हए बला  स्क्रिप्ट अथवा कमांड क सेट (अधिकतम 16kb)"
-
-#, python-format
-msgid ""
-"A volume of %(req)iGB cannot be created as you only have %(avail)iGB of your "
-"quota available."
-msgstr ""
-"अहाँ केवल  %(avail)iGB मोजुद अपन कोटे क रूपेँ क %(req)iGB मात्रा नहि बनैलक जाए सकैत."
 
 msgid "AKI - Amazon Kernel Image"
 msgstr "AKI - अमेजन कर्नेल बिंब"
@@ -5066,9 +5059,6 @@ msgstr "साइन आउट"
 msgid "Size"
 msgstr "आकार"
 
-msgid "Size (GB)"
-msgstr " आकार (जीबी)"
-
 msgid "Size of image to launch."
 msgstr "लान्च करबाक लेल बिंब क आकार."
 
@@ -5700,20 +5690,8 @@ msgid "The subnet in the Network Address is too small (/%s)."
 msgstr "सँजाल पता मे सबनेट (/% s) बहुत छोट अछि."
 
 #, python-format
-msgid "The volume size cannot be less than the image minimum disk size (%sGB)"
-msgstr "वाल्यूम आकार छवि न्यूनतम डिस्क आकार (%sGB केर) सँ कम नहि भ' सकैत"
-
-#, python-format
 msgid "The volume size cannot be less than the image size (%s)"
 msgstr "वाल्यूम आकार छवि आकार (%s) सँ कम नहि भ' सकैत"
-
-#, python-format
-msgid "The volume size cannot be less than the snapshot size (%sGB)"
-msgstr "वाल्यूम आकार स्नैपशाट आकार (%sGB) सँ कम नहि भ' सकैत"
-
-#, python-format
-msgid "The volume size cannot be less than the source volume size (%sGB)"
-msgstr "वाल्यूम आकार स्रोत वाल्यूम आकार (%sGB) सँ कम नहि भ' सकैत"
 
 msgid "There are no meters defined yet."
 msgstr "अखन तक परिभाषित मीटर नहि अछि."
@@ -5808,9 +5786,6 @@ msgstr "टोपोलॉजी"
 
 msgid "Total Disk"
 msgstr "कुल डिस्क"
-
-msgid "Total Gigabytes"
-msgstr "कुल गीगाबाइट"
 
 msgid "Total RAM"
 msgstr "कुल रैम"
@@ -7255,14 +7230,6 @@ msgstr "वाल्यूम प्रकार: %(volume_type_name)s "
 msgid "Volume Types"
 msgstr "वाल्यूम प्रकार"
 
-#, python-format
-msgid ""
-"Volume cannot be extended to %(req)iGB as you only have %(avail)iGB of your "
-"quota available."
-msgstr ""
-"वाल्यूम केँ %(req)iGB तक बढ़ाएल  नहि जाए सकैत अछि किएक अहाँक पास अपन केवल "
-"%(avail)iGB क कोटा मोजुद अछि."
-
 msgid ""
 "Volume mount point (e.g. 'vda' mounts at '/dev/vda'). Leave this field blank "
 "to let the system choose a device name for you."
@@ -7274,23 +7241,8 @@ msgid "Volume size in gigabytes (integer value)."
 msgstr "गीगाबाइट मे वाल्यूम आकार (पूर्णांक मान)."
 
 #, python-format
-msgid ""
-"Volume size must be equal to or greater than the image minimum disk size "
-"(%sGB)"
-msgstr "वाल्यूम आकार (%sGB केर) क बराबर अथवा छवि न्यूनतम डिस्क आकार सँ बेसी होनाइ चाही"
-
-#, python-format
 msgid "Volume size must be equal to or greater than the image size (%s)"
 msgstr "वाल्यूम आकार (%s) क बराबर अथवा छवि आकार सँ बेसी होनाइ चाही"
-
-#, python-format
-msgid ""
-"Volume size must be equal to or greater than the origin volume size (%s)"
-msgstr "वाल्यूम आकार क बराबर अथवा मूल वाल्यूम आकार सँ बेसी होनाइ चाही (%s)"
-
-#, python-format
-msgid "Volume size must be equal to or greater than the snapshot size (%sGB)"
-msgstr "वाल्यूम आकार (%sGB) क बराबर अथवा स्नैपशाट आकार सँ बेसी होनाइ चाही"
 
 msgid "Volume size must be greater than 0"
 msgstr "वाल्यूम आकार 0 सँ पैघ होनाइ चाही"

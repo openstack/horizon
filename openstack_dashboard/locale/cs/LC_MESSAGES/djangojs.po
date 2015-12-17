@@ -10,11 +10,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-12-09 02:55+0000\n"
+"POT-Creation-Date: 2015-12-17 05:35+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2015-12-08 04:12+0000\n"
+"PO-Revision-Date: 2015-12-16 02:58+0000\n"
 "Last-Translator: Zbyněk Schwarz <zbynek.schwarz@gmail.com>\n"
 "Language: cs\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
@@ -59,6 +59,41 @@ msgid "8"
 msgstr "8"
 
 msgid ""
+"<button></button>\n"
+"          <strong>Heads up!</strong>\n"
+"           This\n"
+"          <a>alert needs your attention</a>,\n"
+"           but it's not super important."
+msgstr ""
+"<button></button>\n"
+"          <strong>Pozor!</strong>\n"
+"           Tato\n"
+"          <a>výstraha si žádá vaši pozornost</a>,\n"
+"           ale není zas tak důležitá."
+
+msgid ""
+"<button></button>\n"
+"          <strong>Oh snap!</strong>\n"
+"          <a>Change a few things up</a>\n"
+"          and try submitting again."
+msgstr ""
+"<button></button>\n"
+"          <strong>Jejda!</strong>\n"
+"          <a>Zkuste pár věcí změnit</a>\n"
+"          a formulář znovu odeslat."
+
+msgid ""
+"<button></button>\n"
+"          <strong>Well done!</strong>\n"
+"          You successfully read\n"
+"          <a>this important alert message</a>."
+msgstr ""
+"<button></button>\n"
+"          <strong>Výborně!</strong>\n"
+"          Úspěšně jste přečetli\n"
+"          <a>tuto důležitou výstrahu</a>."
+
+msgid ""
 "<div>\n"
 "                  \n"
 "                    <input> Checkbox\n"
@@ -89,6 +124,17 @@ msgstr ""
 "                    Druhá volba může být něco jiného\n"
 "                  </input>"
 
+msgid ""
+"<li><b>Image (with Create New Volume checked)</b>: This options uses an "
+"image to boot the instance, and creates a new volume to persist instance "
+"data. You can specify volume size and whether to delete the volume on "
+"deletion of the instance.</li>"
+msgstr ""
+"<li><b>Obraz (se zaškrtnutou volbou Vytvořit nový svazek)</b>: Tato volba "
+"využívá obraz k zavedení instance a vytváří nový svazek pro uchování jejích "
+"dat. Můžete zadat velikost svazku a zdali svazek smazat při mazání instance."
+"</li>"
+
 msgid "<li><b>Image</b>: This option uses an image to boot the instance.</li>"
 msgstr "<li><b>Obraz</b>: Tato volba používá obraz k zavedení instance.</li>"
 
@@ -98,6 +144,26 @@ msgid ""
 msgstr ""
 "<li><b>Snímek instance</b>: Tato volba využije snímek instance pro její "
 "zavedení.</li>"
+
+msgid ""
+"<li><b>Volume Snapshot</b>: This option uses a volume snapshot to boot the "
+"instance, and creates a new volume to persist instance data. You can choose "
+"to delete the volume on deletion of the instance.</li>"
+msgstr ""
+"<li><b>Snímek svazku</b>: Tato volba využívá snímek svazku k zavedení "
+"instance a vytváří nový svazek pro uchování jejích dat. Můžete zadat zdali "
+"svazek smazat při mazání instance.</li>"
+
+msgid ""
+"<li><b>Volume</b>: This option uses a volume that already exists. It does "
+"not create a new volume. You can choose to delete the volume on deletion of "
+"the instance. <em>Note: when selecting Volume, you can only launch one "
+"instance.</em></li>"
+msgstr ""
+"<li><b>Svazek</b>: Tato volba využívá svazek, který již existuje. Nevytváří "
+"nový svazek. Můžete zadat zdali svazek smazat při mazání instance. "
+"<em>Poznámka: při zvolení svazku můžete spustit pouze jednu instanci.</em></"
+"li>"
 
 msgid "<small>This line of text is meant to be treated as fine print.</small>"
 msgstr "<small>Tento text má být vypsán drobným písmem.</small>"
@@ -168,6 +234,9 @@ msgstr ""
 "Správci vytvářejí zásobu plovoucích adres IP, které je možno připojit k "
 "instancím."
 
+msgid "Alerts"
+msgstr "Výstrahy"
+
 msgid ""
 "An <b>External</b> network is set up by an administrator.\n"
 "    If you want an instance to communicate outside of the data center,\n"
@@ -204,6 +273,9 @@ msgstr ""
 "Název instance je vyžadován a používá se k jedinečné identifikaci vašich "
 "instancí na nástěnce."
 
+msgid "Animated"
+msgstr "Animovaný"
+
 msgid "Another action"
 msgstr "Další činnost"
 
@@ -212,6 +284,15 @@ msgstr "Automaticky"
 
 msgid "Availability Zone"
 msgstr "Zóna dostupnosti"
+
+msgid "Badges"
+msgstr "Odznaky"
+
+msgid "Basic"
+msgstr "Základní"
+
+msgid "Basic panel"
+msgstr "Základní panel"
 
 msgid "Block level button"
 msgstr "Tlačítko na úrovni bloku"
@@ -222,8 +303,14 @@ msgstr "Bloková citace"
 msgid "Bordered Table"
 msgstr "Ohraničená tabulka"
 
+msgid "Bottom"
+msgstr "Pod"
+
 msgid "Brand"
 msgstr "Označit"
+
+msgid "Breadcrumbs"
+msgstr "Drobečková navigace"
 
 msgid "Button"
 msgstr "Tlačítko"
@@ -252,6 +339,9 @@ msgstr ""
 msgid "Click to see more details"
 msgstr "Klikněte pro podrobnosti"
 
+msgid "Close"
+msgstr "Zavřít"
+
 msgid "Column content"
 msgstr "Obsah sloupce"
 
@@ -266,6 +356,12 @@ msgstr "Konfigurační jednotka"
 
 msgid "Configuration Help"
 msgstr "Nápověda pro nastavení"
+
+msgid "Containers"
+msgstr "Kontejner"
+
+msgid "Contextual alternatives"
+msgstr "Kontextové alternativy"
 
 msgid "Count"
 msgstr "Počet"
@@ -296,6 +392,9 @@ msgstr "Skript přizpůsobení"
 msgid "Danger"
 msgstr "Nebezpečí"
 
+msgid "Data"
+msgstr "Data"
+
 msgid "Default"
 msgstr "Výchozí"
 
@@ -304,6 +403,9 @@ msgstr "Výchozí tlačítko"
 
 msgid "Default input"
 msgstr "Výchozí vstup"
+
+msgid "Delete Volume on Instance Delete"
+msgstr "Smazat svazek při mazání instance"
 
 msgid "Deleted"
 msgstr "Smazáno"
@@ -316,6 +418,9 @@ msgstr "Podrobnosti"
 
 msgid "Device Name"
 msgstr "Název zařízení"
+
+msgid "Dialogs"
+msgstr "Dialogová okna"
 
 msgid "Direction"
 msgstr "Směr"
@@ -441,6 +546,9 @@ msgstr "Nadpis 6"
 msgid "Home"
 msgstr "Domů"
 
+msgid "Home <span>42</span>"
+msgstr "Domů <span>42</span>"
+
 msgid "ID"
 msgstr "ID"
 
@@ -502,6 +610,9 @@ msgstr "Dopad na vaši kvótu"
 msgid "Import Key Pair"
 msgstr "Importovat pár klíče"
 
+msgid "Indicators"
+msgstr "Indikátory"
+
 msgid "Info"
 msgstr "Informace"
 
@@ -550,6 +661,9 @@ msgstr ""
 msgid "Insufficient privilege level to view user information."
 msgstr "Nedostatečná úroveň oprávnění pro zobrazení informací o uživateli."
 
+msgid "Jumbotron"
+msgstr "Přes celou obrazovku"
+
 msgid "Key Pair"
 msgstr "Pár klíčů"
 
@@ -589,23 +703,47 @@ msgstr "Velký vstup"
 msgid "Launch Instance"
 msgstr "Spustit instanci"
 
+msgid "Learn more"
+msgstr "Další informace"
+
 msgid "Left"
 msgstr "Vlevo"
 
 msgid "Legend"
 msgstr "Legenda"
 
+msgid "Library"
+msgstr "Knihovna"
+
 msgid "Link"
 msgstr "Odkaz"
 
+msgid "List group item heading"
+msgstr "Hlavička položky výpisu skupin"
+
+msgid "List groups"
+msgstr "Výpis skupin"
+
 msgid "Load script from a file"
 msgstr "Načíst skript ze souboru"
+
+msgid "Look, I'm in a large well!"
+msgstr "Podívejte, jsem ve velkém ďolíku!"
+
+msgid "Look, I'm in a small well!"
+msgstr "Podívejte, jsem v malém ďolíku!"
+
+msgid "Look, I'm in a well!"
+msgstr "Podívejte, jsem v ďolíku!"
 
 msgid "Manual"
 msgstr "Ručně"
 
 msgid "Max Port"
 msgstr "Maximální port"
+
+msgid "Messages <span>3</span>"
+msgstr "Zprávy <span>3</span>"
 
 msgid "Metadata"
 msgstr "Popisná data"
@@ -631,6 +769,12 @@ msgstr "Min RAM (MB)"
 msgid "Mini button"
 msgstr "Miniaturní tlačítko"
 
+msgid "Modal title"
+msgstr "Název modálového okna"
+
+msgid "Modals"
+msgstr "Modálová okna"
+
 msgid "Name"
 msgstr "Název"
 
@@ -655,6 +799,12 @@ msgstr "Sítě"
 msgid "Networks provide the communication channels for instances in the cloud."
 msgstr "Sítě poskytují komunikační kanály pro instance v cloudu."
 
+msgid "Newer"
+msgstr "Novější"
+
+msgid "Next"
+msgstr "Další"
+
 msgid "No"
 msgstr "Ne"
 
@@ -664,8 +814,47 @@ msgstr "Žádné dostupné položky"
 msgid "OK"
 msgstr "OK"
 
+msgid "Older"
+msgstr "Starší"
+
+msgid "One fine body…"
+msgstr "Takové hezké tělo..."
+
 msgid "One more separated link"
 msgstr "Ještě jeden oddělený odkaz"
+
+msgid "Pager"
+msgstr "Stránkovač"
+
+msgid "Pagination"
+msgstr "Stránkování"
+
+msgid "Panel content"
+msgstr "Obsah panelu"
+
+msgid "Panel danger"
+msgstr "Panel s nebezpečím"
+
+msgid "Panel footer"
+msgstr "Zápatí panelu"
+
+msgid "Panel heading"
+msgstr "Hlavička panelu"
+
+msgid "Panel info"
+msgstr "Panel s informacemi"
+
+msgid "Panel primary"
+msgstr "Základní panel"
+
+msgid "Panel success"
+msgstr "Panel při úspěchu"
+
+msgid "Panel warning"
+msgstr "Panel s varováním"
+
+msgid "Panels"
+msgstr "Panely"
 
 msgid "Password"
 msgstr "Heslo"
@@ -675,6 +864,9 @@ msgstr "Čeká na smazání"
 
 msgid "Physical Network"
 msgstr "Fyzická síť"
+
+msgid "Pills"
+msgstr "Zaoblená tlačítka"
 
 msgid ""
 "Please provide the initial hostname for the instance, the availability zone "
@@ -688,6 +880,12 @@ msgstr ""
 msgid "Policy check failed."
 msgstr "Kontrola zásady selhala."
 
+msgid "Popovers"
+msgstr "Vyskakovací překryvy"
+
+msgid "Previous"
+msgstr "Předchozí"
+
 msgid "Primary"
 msgstr "Hlavní"
 
@@ -699,6 +897,12 @@ msgstr "Soukromý klíč"
 
 msgid "Profile"
 msgstr "Profil"
+
+msgid "Profile <span></span>"
+msgstr "Profil <span></span>"
+
+msgid "Progress bars"
+msgstr "Ukazatele průběhu"
 
 msgid "Project"
 msgstr "Projekt"
@@ -761,6 +965,9 @@ msgstr "Kořenový disk"
 
 msgid "Save"
 msgstr "Uložit"
+
+msgid "Save changes"
+msgstr "Uložit změny"
 
 msgid "Saving"
 msgstr "Ukládání"
@@ -870,11 +1077,20 @@ msgstr "Zde je něco jiného"
 msgid "Source"
 msgstr "Zdroj"
 
+msgid "Source Code"
+msgstr "Zdrojový kód"
+
+msgid "Stacked"
+msgstr "Skládaný"
+
 msgid "Standard Table"
 msgstr "Standardní tabulka"
 
 msgid "Status"
 msgstr "Stav"
+
+msgid "Striped"
+msgstr "Pruhovaný"
 
 msgid "Submit"
 msgstr "Odeslat"
@@ -999,6 +1215,13 @@ msgstr ""
 "Tato konfigurace vyžaduje více VCPU než vaše kvóta umožňuje. Prosím zvolte "
 "menší konfiguraci, nebo snižte počet instancí."
 
+msgid ""
+"This is a simple hero unit, a simple jumbotron-style component for calling "
+"extra attention to featured content or information."
+msgstr ""
+"Toto je jednoduchá komponenta přes celou obrazovku, pokud chcete zvláště "
+"upozornit na určitý obsah nebo informace."
+
 msgid "This is your new key pair. Copy this information and keep it secure."
 msgstr "Toto je váš nový pár klíčů. Tyto údaje si zkopírujte a opatrujte je."
 
@@ -1009,6 +1232,12 @@ msgstr ""
 "Pro zobrazení zdrojového kódu najeďte myší na část, kterou chcete zobrazit, "
 "pak klikněte na tlačítko <a><span></span></a> v pravém horním rohu této "
 "části."
+
+msgid "Tooltips"
+msgstr "Popisky"
+
+msgid "Top"
+msgstr "Nad"
 
 msgid "Total Disk"
 msgstr "Celková kapacita"
@@ -1040,6 +1269,9 @@ msgstr "Typografie"
 msgid "Unable to create the domain."
 msgstr "Nelze vytvořit doménu."
 
+msgid "Unable to create the image."
+msgstr "Nelze vytvořit obraz."
+
 msgid "Unable to create the keypair."
 msgstr "Nelze vytvořit pár klíčů."
 
@@ -1061,11 +1293,17 @@ msgstr "Nelze vytvořit podsíť."
 msgid "Unable to create the user."
 msgstr "Nelze vytvořit uživatele."
 
+msgid "Unable to create the volume."
+msgstr "Nelze vytvořit svazek."
+
 msgid "Unable to delete the domain."
 msgstr "Nelze smazat doménu."
 
 msgid "Unable to delete the domains."
 msgstr "Nelze smazat domény."
+
+msgid "Unable to delete the image with id: "
+msgstr "Nelze smazat obraz s id:"
 
 msgid "Unable to delete the project."
 msgstr "Nelze smazat projekt."
@@ -1123,6 +1361,12 @@ msgstr "Nelze importovat pár klíčů."
 
 msgid "Unable to retrieve settings."
 msgstr "Nelze získat nastavení."
+
+msgid "Unable to retrieve the Absolute Limits."
+msgstr "Nelze získat absolutní limity."
+
+msgid "Unable to retrieve the QoS Specs."
+msgstr "Nelze získat specifikace QoS."
 
 msgid "Unable to retrieve the aggregate extra specs."
 msgstr "Nelze získat dodatečné specifikace agregátu."
@@ -1220,6 +1464,9 @@ msgstr "Nelze získat svazek."
 msgid "Unable to retrieve the volumes."
 msgstr "Nelze získat svazky."
 
+msgid "Unable to update the image."
+msgstr "Nelze aktualizovat obraz."
+
 msgid "Unable to validate the template."
 msgstr "Nelze ověřit šablonu."
 
@@ -1274,6 +1521,12 @@ msgstr ""
 
 msgid "Warning"
 msgstr "Varování"
+
+msgid "Warning!"
+msgstr "Varování!"
+
+msgid "Wells"
+msgstr "Ďolíky"
 
 msgid ""
 "When selecting volume as boot source, please ensure the instance's "
