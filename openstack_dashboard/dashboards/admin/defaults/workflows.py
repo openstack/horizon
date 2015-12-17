@@ -19,12 +19,15 @@ from horizon import exceptions
 from horizon import forms
 from horizon import workflows
 
+import logging
+
 from openstack_dashboard.api import base
 from openstack_dashboard.api import cinder
 from openstack_dashboard.api import nova
 from openstack_dashboard.usage import quotas
 
 ALL_NOVA_QUOTA_FIELDS = quotas.NOVA_QUOTA_FIELDS + quotas.MISSING_QUOTA_FIELDS
+LOG = logging.getLogger(__name__)
 
 
 class UpdateDefaultQuotasAction(workflows.Action):
@@ -89,13 +92,43 @@ class UpdateDefaultQuotas(workflows.Workflow):
         # `fixed_ips` update for quota class is not supported by novaclient
         nova_data = dict([(key, data[key]) for key in ALL_NOVA_QUOTA_FIELDS
                          if key != 'fixed_ips'])
+        is_error_nova = False
+        is_error_cinder = False
+        is_volume_service_enabled = base.is_service_enabled(request, 'volume')
+
+        # Update the default quotas for nova.
         try:
             nova.default_quota_update(request, **nova_data)
+        except Exception:
+            is_error_nova = True
 
-            if base.is_service_enabled(request, 'volume'):
+        # Update the default quotas for cinder.
+        try:
+            if is_volume_service_enabled:
                 cinder_data = dict([(key, data[key]) for key in
                                     quotas.CINDER_QUOTA_FIELDS])
                 cinder.default_quota_update(request, **cinder_data)
+            else:
+                LOG.debug('Unable to update Cinder default quotas'
+                          ' because the Cinder volume service is disabled.')
         except Exception:
-            exceptions.handle(request, _('Unable to update default quotas.'))
+            is_error_cinder = True
+
+        # Analyze errors (if any) to determine what success and error messages
+        # to display to the user.
+        if is_error_nova and not is_error_cinder:
+            if is_volume_service_enabled:
+                self.success_message = _('Default quotas updated for Cinder.')
+                exceptions.handle(request,
+                                  _('Unable to update default quotas'
+                                    ' for Nova.'))
+            else:
+                return False
+        elif is_error_cinder and not is_error_nova:
+            self.success_message = _('Default quotas updated for Nova.')
+            exceptions.handle(request,
+                              _('Unable to update default quotas for Cinder.'))
+        elif is_error_nova and is_error_cinder:
+            return False
+
         return True
