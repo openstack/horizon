@@ -41,6 +41,12 @@
 
     var tests = [
       {
+        "func": "getServices",
+        "method": "get",
+        "path": "/api/nova/services/",
+        "error": "Unable to retrieve the nova services."
+      },
+      {
         "func": "getKeypairs",
         "method": "get",
         "path": "/api/nova/keypairs/",

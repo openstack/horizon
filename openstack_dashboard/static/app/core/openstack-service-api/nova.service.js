@@ -45,12 +45,29 @@
       getFlavorExtraSpecs: getFlavorExtraSpecs,
       editFlavorExtraSpecs: editFlavorExtraSpecs,
       getAggregateExtraSpecs: getAggregateExtraSpecs,
-      editAggregateExtraSpecs: editAggregateExtraSpecs
+      editAggregateExtraSpecs: editAggregateExtraSpecs,
+      getServices: getServices
     };
 
     return service;
 
     ///////////
+
+    // Nova Services
+
+    /**
+     * @name horizon.openstack-service-api.nova.getServices
+     * @description Get the list of Nova services.
+     *
+     * @returns The listing result is an object with property "services." Each item is
+     * a service.
+     */
+    function getServices() {
+      return apiService.get('/api/nova/services/')
+        .error(function () {
+          toastService.add('error', gettext('Unable to retrieve the nova services.'));
+        });
+    }
 
     // Keypairs
 

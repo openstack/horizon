@@ -15,6 +15,7 @@ import mock
 
 from django.conf import settings
 
+from openstack_dashboard import api
 from openstack_dashboard.api.rest import nova
 from openstack_dashboard.test import helpers as test
 
@@ -312,3 +313,36 @@ class NovaRestTestCase(test.TestCase):
         nc.aggregate_set_metadata.assert_called_once_with(
             request, '1', {'a': '1', 'b': '2', 'c': None, 'd': None}
         )
+
+    #
+    # Services
+    #
+
+    @test.create_stubs({api.base: ('is_service_enabled',)})
+    @mock.patch.object(nova.api, 'nova')
+    def test_services_get(self, nc):
+        request = self.mock_rest_request(GET={})
+        nc.service_list.return_value = [
+            mock.Mock(**{'to_dict.return_value': {'id': '1'}}),
+            mock.Mock(**{'to_dict.return_value': {'id': '2'}})
+        ]
+        api.base.is_service_enabled(request, 'compute').AndReturn(True)
+
+        self.mox.ReplayAll()
+
+        response = nova.Services().get(request)
+        self.assertStatusCode(response, 200)
+        self.assertEqual(response.content.decode('utf-8'),
+                         '{"items": [{"id": "1"}, {"id": "2"}]}')
+        nc.service_list.assert_called_once_with(request)
+
+    @test.create_stubs({api.base: ('is_service_enabled',)})
+    def test_services_get_disabled(self):
+        request = self.mock_rest_request(GET={})
+
+        api.base.is_service_enabled(request, 'compute').AndReturn(False)
+
+        self.mox.ReplayAll()
+
+        response = nova.Services().get(request)
+        self.assertStatusCode(response, 501)

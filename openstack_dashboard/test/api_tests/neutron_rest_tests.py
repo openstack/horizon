@@ -15,11 +15,11 @@
 
 import mock
 
+from openstack_dashboard import api
 from openstack_dashboard.api.rest import neutron
 from openstack_dashboard.test import helpers as test
 from openstack_dashboard.test.test_data import neutron_data
 from openstack_dashboard.test.test_data.utils import TestData  # noqa
-
 
 TEST = TestData(neutron_data.data)
 
@@ -65,6 +65,45 @@ class NeutronNetworksTestCase(test.TestCase):
                          '/api/neutron/networks/'
                          + str(TEST.api_networks.first().get("id")))
         self.assertEqual(response.json, TEST.api_networks.first())
+
+    #
+    # Services
+    #
+
+    @test.create_stubs({api.base: ('is_service_enabled',)})
+    @test.create_stubs({api.neutron: ('is_extension_supported',)})
+    @mock.patch.object(neutron.api, 'neutron')
+    def test_services_get(self, client):
+        request = self.mock_rest_request(
+            GET={"network_id": "the_network"})
+
+        api.base.is_service_enabled(request, 'network').AndReturn(True)
+        api.neutron.is_extension_supported(request, 'agent').AndReturn(True)
+
+        client.agent_list.return_value = [
+            mock.Mock(**{'to_dict.return_value': {'id': '1'}}),
+            mock.Mock(**{'to_dict.return_value': {'id': '2'}})
+        ]
+        self.mox.ReplayAll()
+
+        response = neutron.Services().get(request)
+        self.assertStatusCode(response, 200)
+        client.agent_list.assert_called_once_with(
+            request, network_id='the_network')
+        self.assertEqual(response.content.decode('utf-8'),
+                         '{"items": [{"id": "1"}, {"id": "2"}]}')
+
+    @test.create_stubs({api.base: ('is_service_enabled',)})
+    def test_services_get_disabled(self):
+        request = self.mock_rest_request(
+            GET={"network_id": self._networks[0].id})
+
+        api.base.is_service_enabled(request, 'network').AndReturn(False)
+
+        self.mox.ReplayAll()
+
+        response = neutron.Services().get(request)
+        self.assertStatusCode(response, 501)
 
 
 class NeutronSubnetsTestCase(test.TestCase):

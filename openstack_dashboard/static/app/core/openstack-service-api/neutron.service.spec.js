@@ -86,8 +86,13 @@
         "testInput": [
           42
         ]
+      },
+      {
+        "func": "getAgents",
+        "method": "get",
+        "path": "/api/neutron/agents/",
+        "error": "Unable to retrieve the agents."
       }
-
     ];
 
     // Iterate through the defined tests and apply as Jasmine specs.

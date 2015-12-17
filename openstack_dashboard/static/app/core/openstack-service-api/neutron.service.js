@@ -36,12 +36,29 @@
       createNetwork: createNetwork,
       getSubnets: getSubnets,
       createSubnet: createSubnet,
-      getPorts: getPorts
+      getPorts: getPorts,
+      getAgents: getAgents
     };
 
     return service;
 
     /////////////
+
+    // Neutron Services
+
+    /**
+     * @name horizon.openstack-service-api.neutron.getAgents
+     * @description Get the list of Neutron agents.
+     *
+     * @returns The listing result is an object with property "items." Each item is
+     * an agent.
+     */
+    function getAgents() {
+      return apiService.get('/api/neutron/agents/')
+        .error(function () {
+          toastService.add('error', gettext('Unable to retrieve the agents.'));
+        });
+    }
 
     // Networks
 

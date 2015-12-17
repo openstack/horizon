@@ -670,3 +670,24 @@ class KeystoneRestTestCase(test.TestCase):
         content = jsonutils.loads(response.content)
         self.assertEqual(content['services_region'], 'some region')
         self.assertNotIn('super_secret_thing', content)
+
+    #
+    # Services
+    #
+
+    @mock.patch.object(keystone.api, 'keystone')
+    def test_services_get(self, kc):
+        request = self.mock_rest_request()
+        mock_service = {
+            "name": "srv_name",
+            "type": "srv_type",
+            "host": "srv_host"
+        }
+        request.user = mock.Mock(
+            service_catalog=[mock_service],
+            services_region='some region'
+        )
+
+        response = keystone.Services().get(request)
+        self.assertStatusCode(response, 200)
+        kc.Service.assert_called_once_with(mock_service, "some region")

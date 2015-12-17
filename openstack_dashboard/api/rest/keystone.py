@@ -565,3 +565,23 @@ class UserSession(generic.View):
         """Get the current user session.
         """
         return {k: getattr(request.user, k, None) for k in self.allowed_fields}
+
+
+@urls.register
+class Services(generic.View):
+    """API for keystone services.
+    """
+    url_regex = r'keystone/services/$'
+
+    @rest_utils.ajax()
+    def get(self, request):
+        """Get a list of keystone services.
+        """
+        region = request.user.services_region
+        services = []
+        for i, service in enumerate(request.user.service_catalog):
+            services.append(
+                dict(api.keystone.Service(service, region).to_dict(), id=i)
+            )
+
+        return {'items': services}

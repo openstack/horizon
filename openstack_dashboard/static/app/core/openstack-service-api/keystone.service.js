@@ -54,7 +54,8 @@
       editProject: editProject,
       deleteProject: deleteProject,
       grantRole: grantRole,
-      serviceCatalog: serviceCatalog
+      serviceCatalog: serviceCatalog,
+      getServices: getServices
     };
 
     return service;
@@ -89,6 +90,13 @@
       return apiService.delete('/api/keystone/users/', userIds)
         .error(function () {
           toastService.add('error', gettext('Unable to delete the users.'));
+        });
+    }
+
+    function getServices() {
+      return apiService.get('/api/keystone/services/')
+        .error(function () {
+          toastService.add('error', gettext('Unable to fetch the services.'));
         });
     }
 
