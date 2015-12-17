@@ -55,7 +55,11 @@
 
         $provide.value('horizon.app.core.openstack-service-api.nova', {
           createServer: function(finalSpec) {
-            return finalSpec;
+            return {
+              then: function () {
+                return finalSpec;
+              }
+            };
           },
           getAvailabilityZones: function() {
             var zones = [
@@ -172,6 +176,10 @@
         });
 
         $provide.value('horizon.app.core.openstack-service-api.keystone', {});
+
+        $provide.value('horizon.framework.widgets.toast.service', {
+          add: function() {}
+        });
       }));
 
       beforeEach(inject(function(launchInstanceModel, $rootScope, _$q_) {
