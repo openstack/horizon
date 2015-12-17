@@ -55,7 +55,7 @@ class ProjectQuotaAction(workflows.Action):
     volumes = forms.IntegerField(min_value=-1, label=_("Volumes"))
     snapshots = forms.IntegerField(min_value=-1, label=_("Volume Snapshots"))
     gigabytes = forms.IntegerField(
-        min_value=-1, label=_("Total Size of Volumes and Snapshots (GB)"))
+        min_value=-1, label=_("Total Size of Volumes and Snapshots (GiB)"))
     ram = forms.IntegerField(min_value=-1, label=_("RAM (MB)"))
     floating_ips = forms.IntegerField(min_value=-1, label=_("Floating IPs"))
     fixed_ips = forms.IntegerField(min_value=-1, label=_("Fixed IPs"))

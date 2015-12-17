@@ -1,0 +1,12 @@
+---
+prelude: >
+    Cinder defines storage size in gibibytes (GiB), which is inconsistent with Horizon panels that
+    show/request storage size in gigabytes (GB).
+features:
+  - All Volume related panels in Horizon that previously used the term "GB" and "gigabyte" have been
+    replaced with 'GiB' and 'gibibyte'.
+issues:
+  - There are also some Nova related panels (e.g. "Instances") that reference storage size in "GB".
+    These panels will be addressed in subsequent patches.
+fixes:
+  - blueprint gb-to-gib-conversion <https://blueprints.launchpad.net/horizon/+spec/gb-to-gib-conversion/>

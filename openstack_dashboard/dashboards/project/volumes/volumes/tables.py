@@ -303,7 +303,7 @@ class UpdateRow(tables.Row):
 
 
 def get_size(volume):
-    return _("%sGB") % volume.size
+    return _("%sGiB") % volume.size
 
 
 def get_attachment_name(request, attachment):

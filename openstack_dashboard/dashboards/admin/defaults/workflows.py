@@ -49,7 +49,7 @@ class UpdateDefaultQuotasAction(workflows.Action):
                                          label=_("Security Groups"))
     gigabytes = forms.IntegerField(
         min_value=-1,
-        label=_("Total Size of Volumes and Snapshots (GB)"))
+        label=_("Total Size of Volumes and Snapshots (GiB)"))
     snapshots = forms.IntegerField(min_value=-1, label=_("Volume Snapshots"))
     volumes = forms.IntegerField(min_value=-1, label=_("Volumes"))
 
