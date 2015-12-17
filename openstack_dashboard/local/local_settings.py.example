@@ -50,6 +50,7 @@ WEBROOT = '/'
 #    "data-processing": 1.1,
 #    "identity": 3,
 #    "volume": 2,
+#    "compute": 2
 #}
 
 # Set this to True if running on multi-domain model. When this is enabled, it

@@ -517,7 +517,8 @@ Default::
     {
         "data-processing": 1.1,
         "identity": 2.0,
-        "volume": 2
+        "volume": 2,
+        "compute": 2
     }
 
 Overrides for OpenStack API versions. Use this setting to force the
@@ -533,7 +534,8 @@ OpenStack dashboard to use a specific API version for a given service API.
         OPENSTACK_API_VERSIONS = {
             "data-processing": 1.1,
             "identity": 3,
-            "volume": 2
+            "volume": 2,
+            "compute": 2
         }
 
 ``OPENSTACK_ENABLE_PASSWORD_RETRIEVE``
