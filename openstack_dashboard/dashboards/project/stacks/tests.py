@@ -33,6 +33,7 @@ from openstack_dashboard.dashboards.project.stacks import tables
 
 
 INDEX_URL = reverse('horizon:project:stacks:index')
+DETAIL_URL = 'horizon:project:stacks:detail'
 
 
 class MockResource(object):
@@ -796,6 +797,84 @@ class StackTests(test.TestCase):
         self.assertTemplateUsed(res, 'project/stacks/preview_details.html')
         self.assertEqual(res.context['stack_preview']['stack_name'],
                          stack.stack_name)
+
+    @test.create_stubs({api.heat: ('stack_get', 'template_get')})
+    def test_detail_stack_topology(self):
+        stack = self.stacks.first()
+        template = self.stack_templates.first()
+        api.heat.stack_get(IsA(http.HttpRequest), stack.id) \
+            .MultipleTimes().AndReturn(stack)
+        api.heat.template_get(IsA(http.HttpRequest), stack.id) \
+            .AndReturn(json.loads(template.validate))
+        self.mox.ReplayAll()
+
+        url = '?'.join([reverse(DETAIL_URL, args=[stack.id]),
+                        '='.join(['tab', 'stack_details__stack_topology'])])
+        res = self.client.get(url)
+        tab = res.context['tab_group'].get_tab('topology')
+        d3_data = tab.data['d3_data']
+        self.assertEqual(tab.template_name,
+                         'project/stacks/_detail_topology.html')
+        # status is CREATE_COMPLETE, so we expect the topology to display it
+        self.assertIn('info_box', d3_data)
+        self.assertIn('stack-green.svg', d3_data)
+        self.assertIn('Create Complete', d3_data)
+
+    @test.create_stubs({api.heat: ('stack_get', 'template_get')})
+    def test_detail_stack_overview(self):
+        stack = self.stacks.first()
+        template = self.stack_templates.first()
+        api.heat.stack_get(IsA(http.HttpRequest), stack.id) \
+            .MultipleTimes().AndReturn(stack)
+        api.heat.template_get(IsA(http.HttpRequest), stack.id) \
+            .AndReturn(json.loads(template.validate))
+        self.mox.ReplayAll()
+
+        url = '?'.join([reverse(DETAIL_URL, args=[stack.id]),
+                        '='.join(['tab', 'stack_details__stack_overview'])])
+        res = self.client.get(url)
+        tab = res.context['tab_group'].get_tab('overview')
+        overview_data = tab.data['stack']
+        self.assertEqual(tab.template_name,
+                         'project/stacks/_detail_overview.html')
+        self.assertEqual(stack.stack_name, overview_data.stack_name)
+
+    @test.create_stubs({api.heat: ('stack_get', 'template_get')})
+    def test_detail_stack_resources(self):
+        stack = self.stacks.first()
+        template = self.stack_templates.first()
+        api.heat.stack_get(IsA(http.HttpRequest), stack.id) \
+            .MultipleTimes().AndReturn(stack)
+        api.heat.template_get(IsA(http.HttpRequest), stack.id) \
+            .AndReturn(json.loads(template.validate))
+        self.mox.ReplayAll()
+
+        url = '?'.join([reverse(DETAIL_URL, args=[stack.id]),
+                        '='.join(['tab', 'stack_details__resource_overview'])])
+        res = self.client.get(url)
+        tab = res.context['tab_group'].get_tab('resources')
+        self.assertEqual(tab.template_name,
+                         'project/stacks/_detail_resources.html')
+
+    @test.create_stubs({api.heat: ('stack_get', 'template_get')})
+    def test_detail_stack_template(self):
+        stack = self.stacks.first()
+        template = self.stack_templates.first()
+        api.heat.stack_get(IsA(http.HttpRequest), stack.id) \
+            .AndReturn(stack)
+        api.heat.template_get(IsA(http.HttpRequest), stack.id) \
+            .AndReturn(json.loads(template.validate))
+        self.mox.ReplayAll()
+
+        url = '?'.join([reverse(DETAIL_URL, args=[stack.id]),
+                        '='.join(['tab', 'stack_details__stack_template'])])
+        res = self.client.get(url)
+        tab = res.context['tab_group'].get_tab('stack_template')
+        template_data = tab.data['stack_template']
+        self.assertEqual(tab.template_name,
+                         'project/stacks/_stack_template.html')
+        self.assertIn(json.loads(template.validate)['Description'],
+                      template_data)
 
 
 class TemplateFormTests(test.TestCase):
