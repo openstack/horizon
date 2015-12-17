@@ -31,7 +31,7 @@ def data(TEST):
     container_dict_1 = {"name": u"container one%\u6346",
                         "container_object_count": 2,
                         "container_bytes_used": 256,
-                        "timestamp": timeutils.isotime(),
+                        "timestamp": timeutils.utcnow().isoformat(),
                         "is_public": False,
                         "public_url": ""}
     container_1 = swift.Container(container_dict_1)
@@ -39,7 +39,7 @@ def data(TEST):
     container_dict_2 = {"name": container_2_name,
                         "container_object_count": 4,
                         "container_bytes_used": 1024,
-                        "timestamp": timeutils.isotime(),
+                        "timestamp": timeutils.utcnow().isoformat(),
                         "is_public": True,
                         "public_url":
                             "http://public.swift.example.com:8080/" +
@@ -49,7 +49,7 @@ def data(TEST):
     container_dict_3 = {"name": u"container,three%\u6346",
                         "container_object_count": 2,
                         "container_bytes_used": 256,
-                        "timestamp": timeutils.isotime(),
+                        "timestamp": timeutils.utcnow().isoformat(),
                         "is_public": False,
                         "public_url": ""}
     container_3 = swift.Container(container_dict_3)
@@ -58,25 +58,25 @@ def data(TEST):
     object_dict = {"name": u"test object%\u6346",
                    "content_type": u"text/plain",
                    "bytes": 128,
-                   "timestamp": timeutils.isotime(),
+                   "timestamp": timeutils.utcnow().isoformat(),
                    "last_modified": None,
                    "hash": u"object_hash"}
     object_dict_2 = {"name": u"test_object_two\u6346",
                      "content_type": u"text/plain",
                      "bytes": 128,
-                     "timestamp": timeutils.isotime(),
+                     "timestamp": timeutils.utcnow().isoformat(),
                      "last_modified": None,
                      "hash": u"object_hash_2"}
     object_dict_3 = {"name": u"test,object_three%\u6346",
                      "content_type": u"text/plain",
                      "bytes": 128,
-                     "timestamp": timeutils.isotime(),
+                     "timestamp": timeutils.utcnow().isoformat(),
                      "last_modified": None,
                      "hash": u"object_hash"}
     object_dict_4 = {"name": u"test.txt",
                      "content_type": u"text/plain",
                      "bytes": 128,
-                     "timestamp": timeutils.isotime(),
+                     "timestamp": timeutils.utcnow().isoformat(),
                      "last_modified": None,
                      "hash": u"object_hash"}
     obj_dicts = [object_dict, object_dict_2, object_dict_3, object_dict_4]
@@ -91,7 +91,7 @@ def data(TEST):
     folder_dict = {"name": u"test folder%\u6346",
                    "content_type": u"text/plain",
                    "bytes": 128,
-                   "timestamp": timeutils.isotime(),
+                   "timestamp": timeutils.utcnow().isoformat(),
                    "_table_data_type": u"subfolders",
                    "last_modified": None,
                    "hash": u"object_hash"}
