@@ -2,10 +2,14 @@
 {% load i18n %}
 {% block title %}{% trans "Containers" %}{% endblock %}
 
+{% block ng_route_base %}
+  <base href="{{ WEBROOT }}">
+{% endblock %}
+
 {% block page_header %}
   {% include "horizon/common/_page_header.html" with title=_("Containers") %}
 {% endblock page_header %}
 
 {% block main %}
-  [This content to be replaced in follow-on patch with actual interface.]
+  <ng-include src="'{{ STATIC_URL }}dashboard/project/containers/containers.html'"></ng-include>
 {% endblock %}

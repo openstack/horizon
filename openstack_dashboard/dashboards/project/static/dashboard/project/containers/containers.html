@@ -1,0 +1,30 @@
+<div id="containers_wrapper" ng-controller="horizon.dashboard.project.containers.ContainersController as cc">
+  <div class="col-md-3">
+    <accordion class="hz-container-accordion">
+      <accordion-group ng-repeat="container in cc.model.containers track by container.name"
+                       ng-class="{'panel-primary': container.name === cc.selectedContainer}"
+                       ng-click="cc.selectContainer(container.name)">
+        <accordion-heading>
+          <span class="hz-container-title truncate" title="{$ container.name $}">
+            {$ container.name $}
+          </span>
+        </accordion-heading>
+
+        <ul>
+          <li><translate>Object Count</translate>: {$container.container_object_count$}</li>
+          <li><translate>Size</translate>: {$container.container_bytes_used | bytes$}</li>
+          <li>
+            <translate>Access</translate>:
+            <span ng-if="container.is_public"><translate>Public</translate></span>
+            <span ng-if="!container.is_public"><translate>Private</translate></span>
+          </li>
+          <li><translate>Timestamp</translate>: {$container.timestamp$}</li>
+        </ul>
+      </accordion-group>
+    </accordion>
+  </div>
+
+  <div class="col-md-9">
+    <div ng-view class="objects_wrapper"></div>
+  </div>
+</div>

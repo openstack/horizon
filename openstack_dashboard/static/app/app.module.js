@@ -96,7 +96,8 @@
     'horizon.framework.util.tech-debt.helper-functions',
     '$cookieStore',
     '$http',
-    '$cookies'
+    '$cookies',
+    '$route'
   ];
 
   function updateHorizon(
@@ -105,7 +106,8 @@
     hzUtils,
     $cookieStore,
     $http,
-    $cookies
+    $cookies,
+    $route
   ) {
 
     $http.defaults.headers.post['X-CSRFToken'] = $cookies.csrftoken;
@@ -123,6 +125,11 @@
     // rewire the angular-gettext catalog to use django catalog
     gettextCatalog.setCurrentLanguage(horizon.languageCode);
     gettextCatalog.setStrings(horizon.languageCode, django.catalog);
+
+    // because of angular startup, and our use of ng-include with
+    // embedded ng-view, we need to re-kick ngRoute after everything's
+    // resolved
+    $route.reload();
 
     /*
      * cookies are updated at the end of current $eval, so for the horizon

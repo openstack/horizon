@@ -1,0 +1,51 @@
+.hz-container-accordion {
+  cursor: pointer;
+
+  .accordion-toggle:hover {
+    text-decoration: none;
+  }
+
+  .panel-body {
+    padding: 5px;
+
+    ul {
+      padding: 0;
+    }
+  }
+
+  // have the toggle <a> fill the whole heading to make it clickable
+  .panel-heading {
+    padding: 0;
+
+    & > h4 > a {
+      padding: $panel-heading-padding;
+      display: inline-block;
+      width: 100%;
+    }
+  }
+}
+
+.hz-container-title,
+.hz-container-toggle {
+  &, &:hover {
+    cursor: pointer;
+  }
+}
+
+.hz-objects {
+  .page_title > th {
+    padding-top: 0;
+  }
+}
+
+.hz-object-path {
+  margin-bottom: 0;
+  padding-left: 0;
+  padding-top: 0;
+
+  & > li {
+    &:nth-child(2):before {
+      content: ":";
+    }
+  }
+}

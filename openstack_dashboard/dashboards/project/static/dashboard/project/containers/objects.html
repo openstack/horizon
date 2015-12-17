@@ -1,0 +1,50 @@
+<table class="table hz-objects table-hover table-striped"
+       ng-controller="horizon.dashboard.project.containers.ObjectsController as oc"
+       st-table="displayContents" st-safe-src="oc.model.objects"
+       hz-table default-sort="name">
+  <thead>
+    <tr class="page_title table_caption">
+      <th colspan="4">
+        <ol class="breadcrumb hz-object-path">
+          <li class="h4">
+            <a ng-href="{$ oc.containerURL $}">{$ oc.model.containerName $}</a>
+          </li>
+          <li ng-repeat="pf in oc.model.pseudo_folder_hierarchy track by $index" ng-class="{'active':$last}">
+            <span>
+              <a ng-href="{$ oc.containerURL + oc.model.pseudo_folder_hierarchy.slice(0, $index + 1).join(oc.model.DELIMETER) $}"
+                 ng-if="!$last">{$ pf $}</a>
+              <span ng-if="$last">{$ pf $}</span>
+            </span>
+          </li>
+        </ol>
+      </th>
+    </tr>
+
+    <tr class="table_caption">
+      <th colspan="4" class="search-header">
+        <hz-search-bar group-classes="input-group-sm"
+                       icon-classes="fa-search" input-classes="form-control" placeholder="Filter">
+        </hz-search-bar>
+      </th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr ng-repeat="file in displayContents track by $index">
+      <td>
+        <a ng-if="file.is_subdir" ng-href="{$ oc.currentURL + file.name $}">{$ file.name $}</a>
+        <span ng-if="file.is_object">{$ file.name $}</span>
+      </td>
+      <td>
+        <span ng-if="file.is_object">{$file.bytes | bytes$}</span>
+        <span ng-if="file.is_subdir"><translate>folder</translate></span>
+      </td>
+      <td>
+      </td>
+    </tr>
+    <tr hz-no-items items="displayContents">
+    </tr>
+  </tbody>
+
+  <tfoot hz-table-footer items="displayContents"></tfoot>
+</table>
