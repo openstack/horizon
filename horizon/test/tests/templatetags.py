@@ -43,8 +43,9 @@ class TemplateTagTests(test.TestCase):
         tag_call = "{%% %s %%}" % tag_name
         return self.render_template(tag_call, tag_require)
 
-    def render_template(self, template_text, tag_require='', context={}):
+    def render_template(self, template_text, tag_require='', context=None):
         """Render a Custom Template to string."""
+        context = context or {}
         template = Template("{%% load %s %%} %s"
                             % (tag_require, template_text))
         return template.render(Context(context))
