@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-12-12 03:12+0000\n"
+"POT-Creation-Date: 2015-12-17 05:35+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -307,14 +307,6 @@ msgid ""
 msgstr ""
 "উদাহরণ তৈরি হওয়ার পরে একটি স্ক্রিপ্ট বা আদেশের সেট সম্পাদিত করতে হবে (সর্বাধিক "
 "16kb)."
-
-#, python-format
-msgid ""
-"A volume of %(req)iGB cannot be created as you only have %(avail)iGB of your "
-"quota available."
-msgstr ""
-"যেহেতু আপনার লভ্য কোটার কেবলমাত্র %(avail)iGB আছে %(req)iGB এর ভলিয়্যুম তৈরি করতে "
-"পারেন না."
 
 msgid "AKI - Amazon Kernel Image"
 msgstr "AKI - আমাজন কার্নেল ইমেজ"
@@ -4826,9 +4818,6 @@ msgstr "সাইন আউট"
 msgid "Size"
 msgstr "আয়তন"
 
-msgid "Size (GB)"
-msgstr "আয়তন (GB)"
-
 msgid "Size of image to launch."
 msgstr "চালু করতে ইমেজের আয়তন."
 
@@ -5439,20 +5428,8 @@ msgid "The subnet in the Network Address is too small (/%s)."
 msgstr "নেটওয়ার্ক ঠিকানায় সাবনেট খুবই ছোট (/%s)."
 
 #, python-format
-msgid "The volume size cannot be less than the image minimum disk size (%sGB)"
-msgstr "ভলিয়্যুম আয়তন ইমেজ ন্যূনতম ডিস্ক আয়তনের চেয়ে কম হতে পারে না (%sGB)"
-
-#, python-format
 msgid "The volume size cannot be less than the image size (%s)"
 msgstr "ভলিয়্যুম আয়তন ইমেজ আয়তনের চেয়ে কম হতে পারে না (%s)"
-
-#, python-format
-msgid "The volume size cannot be less than the snapshot size (%sGB)"
-msgstr "ভলিয়্যুম আয়তন স্ন্যাপশট আয়তনের চেয়ে কম হতে পারে না (%sGB)"
-
-#, python-format
-msgid "The volume size cannot be less than the source volume size (%sGB)"
-msgstr "ভলিয়্যুম আয়তন উৎস ভলিয়্যুম আয়তনের চেয়ে কম হতে পারে না (%sGB)"
 
 msgid "There are no meters defined yet."
 msgstr "এখনো কোনো মিটার নির্ধারিত নয়."
@@ -5548,9 +5525,6 @@ msgstr "টোপোলজি"
 
 msgid "Total Disk"
 msgstr "মোট ডিস্ক"
-
-msgid "Total Gigabytes"
-msgstr "মোট গিগাবাইট"
 
 msgid "Total RAM"
 msgstr "মোট RAM"
@@ -6981,14 +6955,6 @@ msgstr "ভলিয়্যুম প্রকার: %(volume_type_name)s "
 msgid "Volume Types"
 msgstr "ভলিয়্যুম প্রকার"
 
-#, python-format
-msgid ""
-"Volume cannot be extended to %(req)iGB as you only have %(avail)iGB of your "
-"quota available."
-msgstr ""
-"যেহেতু আপনার লভ্য কোটার কেবলমাত্র %(avail)iGB আছে %(req)iGB এর ভলিয়্যুম বিস্তারিত "
-"করতে পারেন না."
-
 msgid ""
 "Volume mount point (e.g. 'vda' mounts at '/dev/vda'). Leave this field blank "
 "to let the system choose a device name for you."
@@ -7000,23 +6966,8 @@ msgid "Volume size in gigabytes (integer value)."
 msgstr "গিগাবাইটে ভলিয়্যুম আয়তন (পূর্ণাঙ্ক মান)."
 
 #, python-format
-msgid ""
-"Volume size must be equal to or greater than the image minimum disk size "
-"(%sGB)"
-msgstr "ভলিয়্যুম আয়তন ইমেজ ন্যূনতম ডিস্ক আয়তনের (%sGB) সমান বা চেয়ে বড় হওয়া চাই"
-
-#, python-format
 msgid "Volume size must be equal to or greater than the image size (%s)"
 msgstr "ভলিয়্যুম আয়তন ইমেজ আয়তন সমান বা বড় হওয়া চাই  (%s)"
-
-#, python-format
-msgid ""
-"Volume size must be equal to or greater than the origin volume size (%s)"
-msgstr "ভলিয়্যুম আয়তন মূল ভলিয়্যুম আয়তনের (%s) সমান বা চেয়ে বড়"
-
-#, python-format
-msgid "Volume size must be equal to or greater than the snapshot size (%sGB)"
-msgstr "ভলিয়্যুম আয়তন স্ন্যাপশট আয়তনের (%sGB) সমান বা চেয়ে বড় হওয়া চাই"
 
 msgid "Volume size must be greater than 0"
 msgstr "ভলিয়্যুম আয়তন 0 এর চেয়ে বড় হওয়া চাই"

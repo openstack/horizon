@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-12-12 03:12+0000\n"
+"POT-Creation-Date: 2015-12-17 05:35+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -165,14 +165,6 @@ msgid ""
 msgstr ""
 "Een script of set commando's dat uitgevoerd wordt nadat het exemplaar is "
 "gebouwd (maximaal 16kb)."
-
-#, python-format
-msgid ""
-"A volume of %(req)iGB cannot be created as you only have %(avail)iGB of your "
-"quota available."
-msgstr ""
-"Een volume van %(req)iGB kan niet worden gecreerd aangezien u over nog "
-"slechts %(avail)iGB van uw quotum beschikt."
 
 msgid "AKI - Amazon Kernel Image"
 msgstr "AKI - Amazon Kernel Afbeelding"
@@ -4065,9 +4057,6 @@ msgstr "Afmelden"
 msgid "Size"
 msgstr "Omvang"
 
-msgid "Size (GB)"
-msgstr "Grootte (GB)"
-
 msgid "Size of image to launch."
 msgstr "Grootte van te starten afbeelding."
 
@@ -4492,22 +4481,8 @@ msgid "The subnet in the Network Address is too small (/%s)."
 msgstr "Het subnet in het netwerkadres is te klein (/%s)."
 
 #, python-format
-msgid "The volume size cannot be less than the image minimum disk size (%sGB)"
-msgstr ""
-"De volumegrootte mag niet minder zijn dan de minimale schijfgrootte (%sGB)"
-
-#, python-format
 msgid "The volume size cannot be less than the image size (%s)"
 msgstr "Het volume kan niet kleiner zijn dan de afbeelding (%s)"
-
-#, python-format
-msgid "The volume size cannot be less than the snapshot size (%sGB)"
-msgstr "Het volume mag niet kleiner zijn dan de momentopname (%sGB)"
-
-#, python-format
-msgid "The volume size cannot be less than the source volume size (%sGB)"
-msgstr ""
-"Het volume mag niet kleiner zijn dan de grootte van het bronvolume (%sGB)"
 
 msgid "There are no meters defined yet."
 msgstr "Er zijn nog geen meters gedefinieerd."
@@ -4599,9 +4574,6 @@ msgstr "Topologie"
 
 msgid "Total Disk"
 msgstr "Schijftotaal"
-
-msgid "Total Gigabytes"
-msgstr "Totaal Gigabytes"
 
 msgid "Total RAM"
 msgstr "Totaal werkgeheugen"
@@ -5755,29 +5727,9 @@ msgid "Volume size in gigabytes (integer value)."
 msgstr "Volumegrootte in Gigabytes (geheel getal)"
 
 #, python-format
-msgid ""
-"Volume size must be equal to or greater than the image minimum disk size "
-"(%sGB)"
-msgstr ""
-"De volumegrootte moet ten minste gelijk zijn aan de minimale schijfgrootte "
-"voor de afbeelding (%sGB)"
-
-#, python-format
 msgid "Volume size must be equal to or greater than the image size (%s)"
 msgstr ""
 "Volumegrootte moet gelijk of groter zijn dan de grootte van de afbeelding "
-"(%sGB)"
-
-#, python-format
-msgid ""
-"Volume size must be equal to or greater than the origin volume size (%s)"
-msgstr ""
-"Volumegrootte moet gelijk of groter zijn dan de bron volumegrootte (%s)"
-
-#, python-format
-msgid "Volume size must be equal to or greater than the snapshot size (%sGB)"
-msgstr ""
-"Volumegrootte moet gelijk of groter zijn dan de grootte van de momentopname "
 "(%sGB)"
 
 msgid "Volumes"

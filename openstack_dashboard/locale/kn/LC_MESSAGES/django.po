@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-12-12 03:12+0000\n"
+"POT-Creation-Date: 2015-12-17 05:35+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -325,14 +325,6 @@ msgid ""
 "(max 16kb)."
 msgstr ""
 "ಇನ್‌ಸ್ಟನ್ಸ್ ಅನ್ನು ನಿರ್ಮಿಸಿದ ನಂತರ ಚಲಾಯಿಸಬೇಕಿರುವ ಸ್ಕ್ರಿಪ್ಟ್‌ ಅಥವ ಆದೇಶಗಳ ಗುಚ್ಛ (ಗರಿಷ್ಟ 16kb)."
-
-#, python-format
-msgid ""
-"A volume of %(req)iGB cannot be created as you only have %(avail)iGB of your "
-"quota available."
-msgstr ""
-"ನಿಮ್ಮ ಕೋಟಾದಲ್ಲಿ ಕೇವಲ %(avail)iGB ಮಾತ್ರ ಇರುವುದರಿಂದ %(req)iGB ಪರಿಮಾಣವನ್ನು ರಚಿಸಲು "
-"ಸಾಧ್ಯವಿಲ್ಲ."
 
 msgid "AKI - Amazon Kernel Image"
 msgstr "AKI - ಅಮೆಜಾನ್ ಕರ್ನಲ್ ಇಮೇಜ್"
@@ -5162,9 +5154,6 @@ msgstr "ಸೈನ್ ಔಟ್"
 msgid "Size"
 msgstr "ಗಾತ್ರ"
 
-msgid "Size (GB)"
-msgstr "ಗಾತ್ರ (GB)"
-
 msgid "Size of ephemeral disk"
 msgstr "ಎಪಿಫ್ರೆಮಲ್  ಡಿಸ್ಕ್ ಅಳತೆ "
 
@@ -5820,20 +5809,8 @@ msgid "The time delta must be a number representing the time span in days"
 msgstr "ಸಮಯವು ದಿನಗಳ ಅಳತೆಯಲ್ಲಿರಬೇಕು "
 
 #, python-format
-msgid "The volume size cannot be less than the image minimum disk size (%sGB)"
-msgstr "ಪರಿಮಾಣದ ಗಾತ್ರವು ಚಿತ್ರಿಕೆಯ ಕನಿಷ್ಟ ಡಿಸ್ಕ್ ಗಾತ್ರಕ್ಕಿಂತ ಚಿಕ್ಕದಾಗಿರುವಂತಿಲ್ಲ (%sGB)"
-
-#, python-format
 msgid "The volume size cannot be less than the image size (%s)"
 msgstr "ಚಿತ್ರಿಕೆಯ ಗಾತ್ರವು ಸ್ನ್ಯಾಪ್‌ಶಾಟ್ ಗಾತ್ರಕ್ಕಿಂತ ಚಿಕ್ಕದಾಗಿರುವಂತಿಲ್ಲ (%s)"
-
-#, python-format
-msgid "The volume size cannot be less than the snapshot size (%sGB)"
-msgstr "ಪರಿಮಾಣದ ಗಾತ್ರವು ಸ್ನ್ಯಾಪ್‌ಶಾಟ್ ಗಾತ್ರಕ್ಕಿಂತ ಚಿಕ್ಕದಾಗಿರುವಂತಿಲ್ಲ (%sGB)"
-
-#, python-format
-msgid "The volume size cannot be less than the source volume size (%sGB)"
-msgstr "ಪರಿಮಾಣದ ಗಾತ್ರವು ಆಕರ ಪರಿಮಾಣದ ಗಾತ್ರಕ್ಕಿಂತ ಚಿಕ್ಕದಾಗಿರುವಂತಿಲ್ಲ (%sGB)"
 
 msgid "There are no meters defined yet."
 msgstr "ಇನ್ನೂ ಸಹ ಯಾವುದೆ ಮೀಟರ್‌ಗಳನ್ನು ಸೂಚಿಸಲಾಗಿಲ್ಲ."
@@ -5933,9 +5910,6 @@ msgstr "ಟೊಪೊಲಜಿ"
 
 msgid "Total Disk"
 msgstr "ಒಟ್ಟು ಡಿಸ್ಕ್‌"
-
-msgid "Total Gigabytes"
-msgstr "ಒಟ್ಟು ಗಿಗಾಬೈಟುಗಳು"
 
 msgid "Total RAM"
 msgstr "ಒಟ್ಟು RAM"
@@ -7393,14 +7367,6 @@ msgstr "ಪರಿಮಾಣದ ಬಗೆ: %(volume_type_name)s "
 msgid "Volume Types"
 msgstr "ಪರಿಮಾಣದ ಬಗೆಗಳು"
 
-#, python-format
-msgid ""
-"Volume cannot be extended to %(req)iGB as you only have %(avail)iGB of your "
-"quota available."
-msgstr ""
-"ನಿಮ್ಮ ಕೋಟಾದಲ್ಲಿ ಕೇವಲ %(avail)iGB ಇರುವುದರಿಂದ ಪರಿಮಾಣವನ್ನು %(req)iGB ಗೆ ವಿಸ್ತರಿಸಲು "
-"ಸಾಧ್ಯವಿಲ್ಲ."
-
 msgid ""
 "Volume mount point (e.g. 'vda' mounts at '/dev/vda'). Leave this field blank "
 "to let the system choose a device name for you."
@@ -7418,25 +7384,8 @@ msgid "Volume size in gigabytes (integer value)."
 msgstr "ಗಿಗಾಬೈಟ್‌ಗಳಲ್ಲಿನ ಪರಿಮಾಣದ ಗಾತ್ರ (ಪೂರ್ಣಾಂಕ ಮೌಲ್ಯ)."
 
 #, python-format
-msgid ""
-"Volume size must be equal to or greater than the image minimum disk size "
-"(%sGB)"
-msgstr ""
-"ಪರಿಮಾಣದ ಗಾತ್ರವು ಚಿತ್ರಿಕೆಯ ಕನಿಷ್ಟ ಡಿಸ್ಕ್ ಗಾತ್ರಕ್ಕೆ ಸಮನಾಗಿರಬೇಕು ಅಥವ ದೊಡ್ಡದಾಗಿರಬೇಕು "
-"(%sGB)"
-
-#, python-format
 msgid "Volume size must be equal to or greater than the image size (%s)"
 msgstr "ಪರಿಮಾಣದ ಗಾತ್ರವು ಚಿತ್ರಿಕೆ ಗಾತ್ರಕ್ಕೆ ಸಮನಾಗಿರಬೇಕು ಅಥವ ದೊಡ್ಡದಾಗಿರಬೇಕು (%s)"
-
-#, python-format
-msgid ""
-"Volume size must be equal to or greater than the origin volume size (%s)"
-msgstr "ಪರಿಮಾಣದ ಗಾತ್ರವು ಮೂಲ ಪರಿಮಾಣ ಗಾತ್ರಕ್ಕೆ ಸಮನಾಗಿರಬೇಕು ಅಥವ ದೊಡ್ಡದಾಗಿರಬೇಕು (%s)"
-
-#, python-format
-msgid "Volume size must be equal to or greater than the snapshot size (%sGB)"
-msgstr "ಪರಿಮಾಣದ ಗಾತ್ರವು ಸ್ನ್ಯಾಪ್‌ಶಾಟ್ ಗಾತ್ರಕ್ಕೆ ಸಮನಾಗಿರಬೇಕು ಅಥವ ದೊಡ್ಡದಾಗಿರಬೇಕು (%sGB)"
 
 msgid "Volume size must be greater than 0"
 msgstr "ಪರಿಮಾಣದ ಗಾತ್ರವು 0 ದೊಡ್ಡದಾಗಿರಬೇಕು"

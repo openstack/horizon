@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-12-12 03:12+0000\n"
+"POT-Creation-Date: 2015-12-17 05:35+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -304,13 +304,6 @@ msgid ""
 "(max 16kb)."
 msgstr ""
 "इन्सटेन्स बनाइसकिएपछि सम्पादन गर्नका लागि एउटा स्क्रिप्ट वा कमान्डहरूको सेट(अधिक16kb)"
-
-#, python-format
-msgid ""
-"A volume of %(req)iGB cannot be created as you only have %(avail)iGB of your "
-"quota available."
-msgstr ""
-"%(req)iGB को भोल्युम बनाइन सकिएन कारण तपाईँको %(avail)iGB मात्र कोटा उपलब्ध छन्"
 
 msgid "AKI - Amazon Kernel Image"
 msgstr "AKI - अमेज़न कर्नेल छवि"
@@ -4814,9 +4807,6 @@ msgstr "साइन आउट"
 msgid "Size"
 msgstr "आकार"
 
-msgid "Size (GB)"
-msgstr "आकार (GB)"
-
 msgid "Size of image to launch."
 msgstr "आरम्भ गर्नका लागि चित्रको आकार।"
 
@@ -5425,20 +5415,8 @@ msgid "The subnet in the Network Address is too small (/%s)."
 msgstr "नेटवर्कमा भएको सबनेट अति नै सानो छ (/%s)"
 
 #, python-format
-msgid "The volume size cannot be less than the image minimum disk size (%sGB)"
-msgstr "चित्र न्युनतम डिस्क आकार (%sGB) भन्दा भोल्युम आकार सानो हुनुहुन्न"
-
-#, python-format
 msgid "The volume size cannot be less than the image size (%s)"
 msgstr "चित्र  आकार (%s) भन्दा भोल्युम आकार सानो हुनुहुन्न"
-
-#, python-format
-msgid "The volume size cannot be less than the snapshot size (%sGB)"
-msgstr "स्नेपसट आकार (%sGB) भन्दा भोल्युम आकार सानो हुनुहुन्न"
-
-#, python-format
-msgid "The volume size cannot be less than the source volume size (%sGB)"
-msgstr "भोल्युम आकार स्रोत भोल्युम आकार (%sGB) भन्दा सानो हुनुहुन्न।"
 
 msgid "There are no meters defined yet."
 msgstr "अझसम्म कुनै पनि मिटर परिभाषित गरिएको छैन"
@@ -5533,9 +5511,6 @@ msgstr "टोपोलोजी"
 
 msgid "Total Disk"
 msgstr "जम्मा डिस्क"
-
-msgid "Total Gigabytes"
-msgstr "जम्मा जिगाबाइटहरू"
 
 msgid "Total RAM"
 msgstr "जम्मा  RAM"
@@ -6969,14 +6944,6 @@ msgstr "भोल्युम प्रकार : %(volume_type_name)s "
 msgid "Volume Types"
 msgstr "भोल्युम प्रकारहरू"
 
-#, python-format
-msgid ""
-"Volume cannot be extended to %(req)iGB as you only have %(avail)iGB of your "
-"quota available."
-msgstr ""
-"भोल्युम  %(req)iGBमा विस्तार गर्न सकिएन कारण तपाईँको %(avail)iGB मात्र डाटा उपलब्ध "
-"छ।"
-
 msgid ""
 "Volume mount point (e.g. 'vda' mounts at '/dev/vda'). Leave this field blank "
 "to let the system choose a device name for you."
@@ -6988,23 +6955,8 @@ msgid "Volume size in gigabytes (integer value)."
 msgstr "जिगाबाइटमा भोल्युम आकार(पूर्णाङ्क मूल्य)"
 
 #, python-format
-msgid ""
-"Volume size must be equal to or greater than the image minimum disk size "
-"(%sGB)"
-msgstr "भोल्युमको आकार चित्र न्युनतम डिस्क आकार (%sGB) को बराबर वा योभन्दा ठुलो हुनुपर्छ"
-
-#, python-format
 msgid "Volume size must be equal to or greater than the image size (%s)"
 msgstr "भोल्युमको आकार चित्र आकार (%s) को बराबर वा योभन्दा ठुलो हुनुपर्छ"
-
-#, python-format
-msgid ""
-"Volume size must be equal to or greater than the origin volume size (%s)"
-msgstr "भोल्युम आकार सकली भोल्यु आकार  (%s) भन्दा ठुलो वा बराबर हुन आवस्यक हुन्छ"
-
-#, python-format
-msgid "Volume size must be equal to or greater than the snapshot size (%sGB)"
-msgstr "भोल्युमको आकार स्नेपसूट आकार (%sGB) को बराबर वा योभन्दा ठुलो हुनुपर्छ"
 
 msgid "Volume size must be greater than 0"
 msgstr "भोल्युम आकार आवश्यक रूपमा 0 भन्दा ठुलो हुनुपर्छ"

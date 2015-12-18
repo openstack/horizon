@@ -16,7 +16,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-12-12 03:12+0000\n"
+"POT-Creation-Date: 2015-12-17 05:35+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -581,14 +581,6 @@ msgid ""
 "A snapshot is an image which preserves the disk state of a running instance."
 msgstr ""
 "스냅샷은 실행 중인 인스턴스에 대한 디스크 상태를 보존하는 이미지입니다."
-
-#, python-format
-msgid ""
-"A volume of %(req)iGB cannot be created as you only have %(avail)iGB of your "
-"quota available."
-msgstr ""
-"사용 가능한 quota가 %(avail)iGB이기에 %(req)iGB 사이즈의 볼륨을 생성할 수 없"
-"습니다."
 
 msgid "AKI - Amazon Kernel Image"
 msgstr "AKI - Amazon Kernel Image"
@@ -1331,9 +1323,6 @@ msgstr "백업 파일"
 
 msgid "Backup File Location"
 msgstr "백업 파일 위치"
-
-msgid "Backup Gigabytes"
-msgstr "백업 기가바이트"
 
 msgid "Backup Name"
 msgstr "백업 이름"
@@ -7152,9 +7141,6 @@ msgstr "로그 아웃"
 msgid "Size"
 msgstr "크기"
 
-msgid "Size (GB)"
-msgstr "크기 (GB)"
-
 msgid "Size of ephemeral disk"
 msgstr "Ephemeral 디스크 크기"
 
@@ -8063,20 +8049,8 @@ msgid "The time delta must be a number representing the time span in days"
 msgstr "시간 델타값은 일자 단위로 시간 범위를 나타내는 숫자여야 합니다."
 
 #, python-format
-msgid "The volume size cannot be less than the image minimum disk size (%sGB)"
-msgstr "볼륨 크기는 이미지 최소 디스크 크기(%sGB)보다 작을 수 없습니다."
-
-#, python-format
 msgid "The volume size cannot be less than the image size (%s)"
 msgstr "볼륨 크기는 이미지 크기 (%s)보다 작을 수 없습니다."
-
-#, python-format
-msgid "The volume size cannot be less than the snapshot size (%sGB)"
-msgstr "볼륨 크기는 스냅샷 크기 (%sGB)보다 작을 수 없습니다."
-
-#, python-format
-msgid "The volume size cannot be less than the source volume size (%sGB)"
-msgstr "볼륨 크기가 소스 볼륨 크기 (%sGB) 보다 작을 수 없습니다."
 
 msgid "There are no meters defined yet."
 msgstr "아직 정의된 측정이 없습니다."
@@ -8220,9 +8194,6 @@ msgstr "총 디스크 크기 (GB):"
 
 msgid "Total Disk Usage (Hours):"
 msgstr "총 디스크 사용량 (시간):"
-
-msgid "Total Gigabytes"
-msgstr "전체 기가 바이트"
 
 msgid "Total Memory Usage (Hours):"
 msgstr "총 메모리 사용량 (시간):"
@@ -10050,13 +10021,6 @@ msgstr "볼륨 타입: %(volume_type_name)s"
 msgid "Volume Types"
 msgstr "볼륨 타입"
 
-#, python-format
-msgid ""
-"Volume cannot be extended to %(req)iGB as you only have %(avail)iGB of your "
-"quota available."
-msgstr ""
-"사용가능한 quota의 %(avail)iGB에서 %(req)iGB로 볼륨을 확장하지 못 했습니다."
-
 msgid "Volume is Unencrypted"
 msgstr "볼륨이 암호화되지 않은 상태임"
 
@@ -10086,23 +10050,8 @@ msgid "Volume size in gigabytes (integer value)."
 msgstr "볼륨 크기 기가 바이트 (정수 값)."
 
 #, python-format
-msgid ""
-"Volume size must be equal to or greater than the image minimum disk size "
-"(%sGB)"
-msgstr "볼륨 크기는 이미지의 최소 디스크 크기(%sGB) 이상이어야 합니다."
-
-#, python-format
 msgid "Volume size must be equal to or greater than the image size (%s)"
 msgstr "볼륨 크기가 이미지 크기 (%s)보다 크거나 같아야 합니다."
-
-#, python-format
-msgid ""
-"Volume size must be equal to or greater than the origin volume size (%s)"
-msgstr "볼륨크기는 원본 볼륨 크기 (%s) 보다 크거나 같아야 합니다."
-
-#, python-format
-msgid "Volume size must be equal to or greater than the snapshot size (%sGB)"
-msgstr "볼륨 크기가 같거나 스냅샷 크기 (%sGB)보다 커야 합니다."
 
 msgid "Volume size must be greater than 0"
 msgstr "볼륨 크기는 0 이상이어야 합니다."

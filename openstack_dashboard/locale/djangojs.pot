@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-12-12 06:27+0000\n"
+"POT-Creation-Date: 2015-12-17 06:21+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -1747,44 +1747,48 @@ msgstr ""
 msgid "Save"
 msgstr ""
 
-#: static/app/core/openstack-service-api/cinder.service.js:72
+#: static/app/core/openstack-service-api/cinder.service.js:73
 msgid "Unable to retrieve the volumes."
 msgstr ""
 
-#: static/app/core/openstack-service-api/cinder.service.js:88
+#: static/app/core/openstack-service-api/cinder.service.js:89
 msgid "Unable to retrieve the volume."
 msgstr ""
 
-#: static/app/core/openstack-service-api/cinder.service.js:100
+#: static/app/core/openstack-service-api/cinder.service.js:101
 msgid "Unable to create the volume."
 msgstr ""
 
-#: static/app/core/openstack-service-api/cinder.service.js:118
+#: static/app/core/openstack-service-api/cinder.service.js:119
 msgid "Unable to retrieve the volume types."
 msgstr ""
 
-#: static/app/core/openstack-service-api/cinder.service.js:134
+#: static/app/core/openstack-service-api/cinder.service.js:135
 msgid "Unable to retrieve the volume type."
 msgstr ""
 
-#: static/app/core/openstack-service-api/cinder.service.js:147
+#: static/app/core/openstack-service-api/cinder.service.js:148
 msgid "Unable to retrieve the default volume type."
 msgstr ""
 
-#: static/app/core/openstack-service-api/cinder.service.js:174
+#: static/app/core/openstack-service-api/cinder.service.js:175
 msgid "Unable to retrieve the volume snapshots."
 msgstr ""
 
-#: static/app/core/openstack-service-api/cinder.service.js:206
-#: static/app/core/openstack-service-api/nova.service.js:220
+#: static/app/core/openstack-service-api/cinder.service.js:207
+#: static/app/core/openstack-service-api/nova.service.js:237
 msgid "Unable to retrieve the extensions."
 msgstr ""
 
-#: static/app/core/openstack-service-api/cinder.service.js:227
+#: static/app/core/openstack-service-api/cinder.service.js:223
+msgid "Unable to retrieve the cinder services."
+msgstr ""
+
+#: static/app/core/openstack-service-api/cinder.service.js:244
 msgid "Unable to retrieve the QoS Specs."
 msgstr ""
 
-#: static/app/core/openstack-service-api/cinder.service.js:241
+#: static/app/core/openstack-service-api/cinder.service.js:258
 msgid "Unable to retrieve the Absolute Limits."
 msgstr ""
 
@@ -1833,191 +1837,207 @@ msgstr ""
 msgid "Unable to retrieve the namespaces."
 msgstr ""
 
-#: static/app/core/openstack-service-api/heat.service.js:55
+#: static/app/core/openstack-service-api/heat.service.js:58
 msgid "Unable to validate the template."
 msgstr ""
 
-#: static/app/core/openstack-service-api/keystone.service.js:68
+#: static/app/core/openstack-service-api/heat.service.js:72
+msgid "Unable to retrieve the heat services."
+msgstr ""
+
+#: static/app/core/openstack-service-api/keystone.service.js:69
 msgid "Unable to get the Keystone service version."
 msgstr ""
 
-#: static/app/core/openstack-service-api/keystone.service.js:77
+#: static/app/core/openstack-service-api/keystone.service.js:78
 msgid "Unable to retrieve the users."
 msgstr ""
 
-#: static/app/core/openstack-service-api/keystone.service.js:84
+#: static/app/core/openstack-service-api/keystone.service.js:85
 msgid "Unable to create the user."
 msgstr ""
 
-#: static/app/core/openstack-service-api/keystone.service.js:91
+#: static/app/core/openstack-service-api/keystone.service.js:92
 msgid "Unable to delete the users."
 msgstr ""
 
-#: static/app/core/openstack-service-api/keystone.service.js:126
+#: static/app/core/openstack-service-api/keystone.service.js:99
+msgid "Unable to fetch the services."
+msgstr ""
+
+#: static/app/core/openstack-service-api/keystone.service.js:134
 msgid "Unable to retrieve the current user session."
 msgstr ""
 
-#: static/app/core/openstack-service-api/keystone.service.js:133
+#: static/app/core/openstack-service-api/keystone.service.js:141
 msgid "Unable to retrieve the user."
 msgstr ""
 
-#: static/app/core/openstack-service-api/keystone.service.js:141
+#: static/app/core/openstack-service-api/keystone.service.js:149
 msgid "Unable to edit the user."
 msgstr ""
 
-#: static/app/core/openstack-service-api/keystone.service.js:148
+#: static/app/core/openstack-service-api/keystone.service.js:156
 msgid "Unable to delete the user."
 msgstr ""
 
-#: static/app/core/openstack-service-api/keystone.service.js:156
+#: static/app/core/openstack-service-api/keystone.service.js:164
 msgid "Unable to retrieve the roles."
 msgstr ""
 
-#: static/app/core/openstack-service-api/keystone.service.js:163
+#: static/app/core/openstack-service-api/keystone.service.js:171
 msgid "Unable to create the role."
 msgstr ""
 
-#: static/app/core/openstack-service-api/keystone.service.js:170
+#: static/app/core/openstack-service-api/keystone.service.js:178
 msgid "Unable to delete the roles."
 msgstr ""
 
-#: static/app/core/openstack-service-api/keystone.service.js:177
+#: static/app/core/openstack-service-api/keystone.service.js:185
 msgid "Unable to retrieve the role."
 msgstr ""
 
-#: static/app/core/openstack-service-api/keystone.service.js:185
+#: static/app/core/openstack-service-api/keystone.service.js:193
 msgid "Unable to edit the role."
 msgstr ""
 
-#: static/app/core/openstack-service-api/keystone.service.js:192
+#: static/app/core/openstack-service-api/keystone.service.js:200
 msgid "Unable to delete the role."
 msgstr ""
 
-#: static/app/core/openstack-service-api/keystone.service.js:200
+#: static/app/core/openstack-service-api/keystone.service.js:208
 msgid "Unable to retrieve the domains."
 msgstr ""
 
-#: static/app/core/openstack-service-api/keystone.service.js:207
+#: static/app/core/openstack-service-api/keystone.service.js:215
 msgid "Unable to create the domain."
 msgstr ""
 
-#: static/app/core/openstack-service-api/keystone.service.js:214
+#: static/app/core/openstack-service-api/keystone.service.js:222
 msgid "Unable to delete the domains."
 msgstr ""
 
-#: static/app/core/openstack-service-api/keystone.service.js:221
+#: static/app/core/openstack-service-api/keystone.service.js:229
 msgid "Unable to retrieve the domain."
 msgstr ""
 
-#: static/app/core/openstack-service-api/keystone.service.js:229
+#: static/app/core/openstack-service-api/keystone.service.js:237
 msgid "Unable to edit the domain."
 msgstr ""
 
-#: static/app/core/openstack-service-api/keystone.service.js:236
+#: static/app/core/openstack-service-api/keystone.service.js:244
 msgid "Unable to delete the domain."
 msgstr ""
 
-#: static/app/core/openstack-service-api/keystone.service.js:245
+#: static/app/core/openstack-service-api/keystone.service.js:253
 msgid "Unable to retrieve the projects."
 msgstr ""
 
-#: static/app/core/openstack-service-api/keystone.service.js:252
+#: static/app/core/openstack-service-api/keystone.service.js:260
 msgid "Unable to create the project."
 msgstr ""
 
-#: static/app/core/openstack-service-api/keystone.service.js:259
+#: static/app/core/openstack-service-api/keystone.service.js:267
 msgid "Unable to delete the projects."
 msgstr ""
 
-#: static/app/core/openstack-service-api/keystone.service.js:266
+#: static/app/core/openstack-service-api/keystone.service.js:274
 msgid "Unable to retrieve the project."
 msgstr ""
 
-#: static/app/core/openstack-service-api/keystone.service.js:274
+#: static/app/core/openstack-service-api/keystone.service.js:282
 msgid "Unable to edit the project."
 msgstr ""
 
-#: static/app/core/openstack-service-api/keystone.service.js:281
+#: static/app/core/openstack-service-api/keystone.service.js:289
 msgid "Unable to delete the project."
 msgstr ""
 
-#: static/app/core/openstack-service-api/keystone.service.js:289
+#: static/app/core/openstack-service-api/keystone.service.js:297
 msgid "Unable to grant the role."
 msgstr ""
 
-#: static/app/core/openstack-service-api/keystone.service.js:303
+#: static/app/core/openstack-service-api/keystone.service.js:311
 msgid "Unable to fetch the service catalog."
 msgstr ""
 
 #: static/app/core/openstack-service-api/neutron.service.js:59
+msgid "Unable to retrieve the agents."
+msgstr ""
+
+#: static/app/core/openstack-service-api/neutron.service.js:76
 msgid "Unable to retrieve the networks."
 msgstr ""
 
-#: static/app/core/openstack-service-api/neutron.service.js:108
+#: static/app/core/openstack-service-api/neutron.service.js:125
 msgid "Unable to create the network."
 msgstr ""
 
-#: static/app/core/openstack-service-api/neutron.service.js:128
+#: static/app/core/openstack-service-api/neutron.service.js:145
 msgid "Unable to retrieve the subnets."
 msgstr ""
 
-#: static/app/core/openstack-service-api/neutron.service.js:192
+#: static/app/core/openstack-service-api/neutron.service.js:209
 msgid "Unable to create the subnet."
 msgstr ""
 
-#: static/app/core/openstack-service-api/neutron.service.js:212
+#: static/app/core/openstack-service-api/neutron.service.js:229
 msgid "Unable to retrieve the ports."
 msgstr ""
 
 #: static/app/core/openstack-service-api/nova.service.js:68
+msgid "Unable to retrieve the nova services."
+msgstr ""
+
+#: static/app/core/openstack-service-api/nova.service.js:85
 msgid "Unable to retrieve the keypairs."
 msgstr ""
 
-#: static/app/core/openstack-service-api/nova.service.js:90
+#: static/app/core/openstack-service-api/nova.service.js:107
 msgid "Unable to import the keypair."
 msgstr ""
 
-#: static/app/core/openstack-service-api/nova.service.js:92
+#: static/app/core/openstack-service-api/nova.service.js:109
 msgid "Unable to create the keypair."
 msgstr ""
 
-#: static/app/core/openstack-service-api/nova.service.js:111
+#: static/app/core/openstack-service-api/nova.service.js:128
 msgid "Unable to retrieve the availability zones."
 msgstr ""
 
-#: static/app/core/openstack-service-api/nova.service.js:149
+#: static/app/core/openstack-service-api/nova.service.js:166
 msgid "Unable to retrieve the limits."
 msgstr ""
 
-#: static/app/core/openstack-service-api/nova.service.js:176
+#: static/app/core/openstack-service-api/nova.service.js:193
 msgid "Unable to create the server."
 msgstr ""
 
-#: static/app/core/openstack-service-api/nova.service.js:190
+#: static/app/core/openstack-service-api/nova.service.js:207
 msgid "Unable to retrieve the server."
 msgstr ""
 
-#: static/app/core/openstack-service-api/nova.service.js:265
+#: static/app/core/openstack-service-api/nova.service.js:282
 msgid "Unable to retrieve the flavors."
 msgstr ""
 
-#: static/app/core/openstack-service-api/nova.service.js:283
+#: static/app/core/openstack-service-api/nova.service.js:300
 msgid "Unable to retrieve the flavor."
 msgstr ""
 
-#: static/app/core/openstack-service-api/nova.service.js:297
+#: static/app/core/openstack-service-api/nova.service.js:314
 msgid "Unable to retrieve the flavor extra specs."
 msgstr ""
 
-#: static/app/core/openstack-service-api/nova.service.js:317
+#: static/app/core/openstack-service-api/nova.service.js:334
 msgid "Unable to edit the flavor extra specs."
 msgstr ""
 
-#: static/app/core/openstack-service-api/nova.service.js:331
+#: static/app/core/openstack-service-api/nova.service.js:348
 msgid "Unable to retrieve the aggregate extra specs."
 msgstr ""
 
-#: static/app/core/openstack-service-api/nova.service.js:351
+#: static/app/core/openstack-service-api/nova.service.js:368
 msgid "Unable to edit the aggregate extra specs."
 msgstr ""
 

@@ -17,7 +17,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-12-12 23:05+0000\n"
+"POT-Creation-Date: 2015-12-17 05:35+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -609,14 +609,6 @@ msgid ""
 msgstr ""
 "スナップショットは、実行中のインスタンスのディスク状態を保存したイメージで"
 "す。"
-
-#, python-format
-msgid ""
-"A volume of %(req)iGB cannot be created as you only have %(avail)iGB of your "
-"quota available."
-msgstr ""
-"利用可能なクォータは %(avail)iGB しかないため、 %(req)iGB のボリュームは作成"
-"できません。"
 
 msgid "AKI - Amazon Kernel Image"
 msgstr "AKI - Amazon カーネルイメージ"
@@ -1376,9 +1368,6 @@ msgstr "バックアップファイル"
 
 msgid "Backup File Location"
 msgstr "バックアップファイルの場所"
-
-msgid "Backup Gigabytes"
-msgstr "バックアップギガバイト"
 
 msgid "Backup Name"
 msgstr "バックアップ名"
@@ -7432,9 +7421,6 @@ msgstr "ログアウト"
 msgid "Size"
 msgstr "サイズ"
 
-msgid "Size (GB)"
-msgstr "容量 (GB)"
-
 msgid "Size of ephemeral disk"
 msgstr "一時ディスクのサイズ"
 
@@ -8385,21 +8371,8 @@ msgid "The time delta must be a number representing the time span in days"
 msgstr "時間差は、期間を日数で表した数字である必要があります。"
 
 #, python-format
-msgid "The volume size cannot be less than the image minimum disk size (%sGB)"
-msgstr ""
-"ボリュームサイズはイメージの最小ディスクサイズ (%sGB) 未満にはできません。"
-
-#, python-format
 msgid "The volume size cannot be less than the image size (%s)"
 msgstr "ボリュームサイズはイメージサイズ (%s) 未満にはできません。"
-
-#, python-format
-msgid "The volume size cannot be less than the snapshot size (%sGB)"
-msgstr "ボリューム容量はスナップショット容量 (%sGB) 未満にはできません。"
-
-#, python-format
-msgid "The volume size cannot be less than the source volume size (%sGB)"
-msgstr "ボリュームサイズは元のボリュームサイズ (%sGB) 未満にはできません。"
 
 msgid "Theme Preview"
 msgstr "テーマのプレビュー"
@@ -8548,9 +8521,6 @@ msgstr "合計ディスクサイズ (GB):"
 
 msgid "Total Disk Usage (Hours):"
 msgstr "合計ディスク使用量 (時間):"
-
-msgid "Total Gigabytes"
-msgstr "合計ギガバイト"
 
 msgid "Total Memory Usage (Hours):"
 msgstr "合計メモリー使用量 (時間):"
@@ -10396,14 +10366,6 @@ msgstr "ボリューム種別: %(volume_type_name)s"
 msgid "Volume Types"
 msgstr "ボリューム種別"
 
-#, python-format
-msgid ""
-"Volume cannot be extended to %(req)iGB as you only have %(avail)iGB of your "
-"quota available."
-msgstr ""
-"ボリュームを %(req)iGB に拡張することができません。利用できるクォータは "
-"%(avail)iGB しかありません。"
-
 msgid "Volume is Unencrypted"
 msgstr "ボリュームは暗号化されていません。"
 
@@ -10433,25 +10395,8 @@ msgid "Volume size in gigabytes (integer value)."
 msgstr "ギガバイト単位のボリュームサイズ (整数値)"
 
 #, python-format
-msgid ""
-"Volume size must be equal to or greater than the image minimum disk size "
-"(%sGB)"
-msgstr ""
-"ボリュームサイズはイメージの最小ディスクサイズ (%sGB) 以上でなければいけませ"
-"ん。"
-
-#, python-format
 msgid "Volume size must be equal to or greater than the image size (%s)"
 msgstr "ボリュームサイズはイメージサイズ (%s) 以上でなければなりません。"
-
-#, python-format
-msgid ""
-"Volume size must be equal to or greater than the origin volume size (%s)"
-msgstr "ボリュームサイズは元のボリュームサイズ (%s) 以上でなければなりません。"
-
-#, python-format
-msgid "Volume size must be equal to or greater than the snapshot size (%sGB)"
-msgstr "ボリューム容量はスナップショット容量 (%sGB) 以上でなければいけません。"
 
 msgid "Volume size must be greater than 0"
 msgstr "ボリュームサイズは 0 より大きい値でなければなりません。"

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-11-18 06:35+0000\n"
+"POT-Creation-Date: 2015-12-17 06:20+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -132,25 +132,25 @@ msgstr ""
 msgid "Updated"
 msgstr ""
 
-#: tables/base.py:305
+#: tables/base.py:306
 msgid "-"
 msgstr ""
 
-#: tables/base.py:996
+#: tables/base.py:997
 msgid "No items to display."
 msgstr ""
 
-#: tables/base.py:1108
-#: templates/horizon/common/_data_table_table_actions.html:47
+#: tables/base.py:1109
+#: templates/horizon/common/_data_table_table_actions.html:56
 msgid "Actions"
 msgstr ""
 
-#: tables/base.py:1343
+#: tables/base.py:1344
 #, python-format
 msgid "No match returned for the id \"%s\"."
 msgstr ""
 
-#: tables/base.py:1501
+#: tables/base.py:1502
 msgid "Please select a row before taking that action."
 msgstr ""
 
@@ -226,7 +226,7 @@ msgstr ""
 msgid "Next&nbsp;&raquo;"
 msgstr ""
 
-#: templates/horizon/common/_data_table_table_actions.html:45
+#: templates/horizon/common/_data_table_table_actions.html:54
 msgid "More Actions"
 msgstr ""
 
@@ -244,22 +244,25 @@ msgstr ""
 msgid "%(name)s: %(error)s"
 msgstr ""
 
-#: templates/horizon/common/_limit_summary.html:4
+#: templates/horizon/common/_limit_summary.html:5
 msgid "Limit Summary"
 msgstr ""
 
-#: templates/horizon/common/_limit_summary.html:11
+#: templates/horizon/common/_limit_summary.html:20
 #, python-format
 msgid ""
 "\n"
-"        Used <span> %(used)s </span>of<span> %(available)s </span>"
+"                Used <span> %(used)s </span>of<span> %(available)s "
+"</span>\n"
+"              "
 msgstr ""
 
-#: templates/horizon/common/_limit_summary.html:14
+#: templates/horizon/common/_limit_summary.html:24
 #, python-format
 msgid ""
 "\n"
-"        Used <span> %(used)s </span>(No Limit)"
+"                Used <span> %(used)s </span>(No Limit)\n"
+"              "
 msgstr ""
 
 #: templates/horizon/common/_resource_browser.html:10
@@ -334,11 +337,11 @@ msgstr ""
 msgid "Horizon"
 msgstr ""
 
-#: templatetags/horizon.py:137
+#: templatetags/horizon.py:147
 msgid "(No Limit)"
 msgstr ""
 
-#: templatetags/horizon.py:140 templatetags/horizon.py:142
+#: templatetags/horizon.py:150 templatetags/horizon.py:152
 msgid "Available"
 msgstr ""
 

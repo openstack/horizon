@@ -10,11 +10,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-12-12 23:05+0000\n"
+"POT-Creation-Date: 2015-12-17 05:35+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2015-12-12 07:19+0000\n"
+"PO-Revision-Date: 2015-12-16 02:56+0000\n"
 "Last-Translator: Zbyněk Schwarz <zbynek.schwarz@gmail.com>\n"
 "Language: cs\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
@@ -311,10 +311,10 @@ msgid ""
 "  "
 msgstr ""
 "\n"
-"  Zásobě zvolte název a popis. Zvolte jednu podsíť, na které všichni\n"
-"  členové \n"
-"této zásoby musí být. Zvolte protokol a metodu vyrovnání zátěže. Stav \n"
-"  správce je standardně Zapnut (zaškrtnut).\n"
+"Zásobě zvolte název a popis. Zvolte jednu podsíť, na které všichni\n"
+"členové této zásoby musí být. Zvolte protokol a metodu vyrovnání zátěže. "
+"Stav \n"
+"správce je standardně Otevřen (zaškrtnut).\n"
 "  "
 
 msgid ""
@@ -341,7 +341,8 @@ msgstr ""
 " Vytvoření VIP pro tuto zásobu. Zadejte název, popis, IP adresu, port a \n"
 " maximum povolených připojení pro VIP. Zvolte jeho protokol a metodu "
 "přetrvávání sezení.\n"
-" Stav správce je standardně Zapnut (zaškrtnut)."
+" Stav správce je standardně Otevřen (zaškrtnut).\n"
+" "
 
 msgid ""
 "\n"
@@ -352,7 +353,7 @@ msgid ""
 "  "
 msgstr ""
 "\n"
-"Velikost plátna můžete změnit posunutím nahoeu/dolů myší po topologii.\n"
+"Velikost plátna můžete změnit posunutím nahoru/dolů myší po topologii.\n"
 "Kliknutím a následným táhnutím plátna se můžete posunovat doleva/doprava.\n"
 "  "
 
@@ -607,14 +608,6 @@ msgstr ""
 msgid ""
 "A snapshot is an image which preserves the disk state of a running instance."
 msgstr "Snímek je obraz zachovávající stav disku běžící instance"
-
-#, python-format
-msgid ""
-"A volume of %(req)iGB cannot be created as you only have %(avail)iGB of your "
-"quota available."
-msgstr ""
-"Svazek o velikosti %(req)iGB nemůže být vytvořen, protože máte dostupných "
-"pouze %(avail)iGB z vaší kvóty."
 
 msgid "AKI - Amazon Kernel Image"
 msgstr "AKI - Obraz kernelu Amazon"
@@ -1376,9 +1369,6 @@ msgstr "Zálohovat soubor"
 msgid "Backup File Location"
 msgstr "Umístění souboru zálohy"
 
-msgid "Backup Gigabytes"
-msgstr "Záloha v Gigabajtech"
-
 msgid "Backup Name"
 msgstr "Název zálohy"
 
@@ -1907,6 +1897,63 @@ msgid "Create Host Aggregate"
 msgstr "Vytvořit agregát hostitele"
 
 msgid ""
+"Create IKE Policy for current project.\n"
+"\n"
+"An IKE policy is an association of the following attributes:\n"
+"\n"
+"<li>Authorization algorithm: Auth algorithm limited to SHA1 only.</"
+"li><li>Encryption algorithm: The type of algorithm (3des, aes-128, aes-192, "
+"aes-256) used in the IKE Policy.</li><li>IKE version: The type of version "
+"(v1/v2) that needs to be filtered.</li><li>Lifetime: Life time consists of "
+"units and value. Units in 'seconds' and the default value is 3600.</"
+"li><li>Perfect Forward Secrecy: PFS limited to using Diffie-Hellman groups "
+"2, 5(default) and 14.</li><li>IKE Phase 1 negotiation mode: Limited to "
+"'main' mode only.</li>\n"
+"All fields are optional."
+msgstr ""
+"Vytvořit zásadu IKE pro současný projekt.\n"
+"\n"
+"Zásada IKE je přidružení následujících vlastností:\n"
+"\n"
+"<li>Algoritmus ověření: Algoritmus podporuje pouze SHA1.</li><li>Algoritmus "
+"šifrování: Typ algoritmu (3des, aes-128, aes-192, aes-256) použitý v zásadě "
+"IKE.</li><li>Verze IKE: Typ verze (v1/v2), jenž je třeba filtrovat.</"
+"li><li>Životnost: Životnost se skládá z jednotek a hodnot. Jednotka ve "
+"'vteřinách' a výchozí hodnota je 3600.</li><li>Perfect Forward Secrecy: PFS "
+"může používat pouze skupiny Diffie-Hellman 2, 5 (výchozí) a 14.</"
+"li><li>Režim vyjednávání 1 fáze IKE: Omezen pouze na režim 'main'.</li>\n"
+"Všechny pole jsou nepovinná."
+
+msgid ""
+"Create IPSec Policy for current project.\n"
+"\n"
+"An IPSec policy is an association of the following attributes:\n"
+"\n"
+"<li>Authorization algorithm: Auth_algorithm limited to SHA1 only.</"
+"li><li>Encapsulation mode: The type of IPsec tunnel (tunnel/transport) to be "
+"used.</li><li>Encryption algorithm: The type of algorithm (3des, aes-128, "
+"aes-192, aes-256) used in the IPSec Policy.</li><li>Lifetime: Life time "
+"consists of units and value. Units in 'seconds' and the default value is "
+"3600.</li><li>Perfect Forward Secrecy: PFS limited to using Diffie-Hellman "
+"groups 2, 5(default) and 14.</li><li>Transform Protocol: The type of "
+"protocol (esp, ah, ah-esp) used in IPSec Policy.</li>\n"
+"All fields are optional."
+msgstr ""
+"Vytvořit zásadu IPSec pro současný projekt.\n"
+"\n"
+"Zásada IPSec je přidružení následujících vlastností:\n"
+"\n"
+"<li>Algoritmus ověření: Algoritmus podporuje pouze SHA1.</li><li>Režim "
+"zapouzdření: Použitý typ tunelu IPsec (tunel/přenos).</li><li>Algoritmus "
+"šifrování: Typ algoritmu (3des, aes-128, aes-192, aes-256) použitý v zásadě "
+"IPSec.</li><li>Životnost: Životnost se skládá z jednotek a hodnot. Jednotka "
+"ve 'vteřinách' a výchozí hodnota je 3600.</li><li>Perfect Forward Secrecy: "
+"PFS může používat pouze skupiny Diffie-Hellman 2, 5 (výchozí) a 14.</"
+"li><li>Protokol transformace: Typ protokolu (esp, ah, ah-esp) použitý v "
+"zásadě IPSec.</li>\n"
+"Všechny pole jsou nepovinná."
+
+msgid ""
 "Create IPSec Site Connection for current project.\n"
 "\n"
 "Assign a name and description for the IPSec Site Connection. All fields in "
@@ -1979,6 +2026,26 @@ msgstr "Vytvořit přenos"
 
 msgid "Create User"
 msgstr "Vytvořit uživatele"
+
+msgid ""
+"Create VPN Service for current project.\n"
+"\n"
+"The VPN service is attached to a router and references to a single subnet to "
+"push to a remote site.\n"
+"Specify a name, description, router, and subnet for the VPN Service. Admin "
+"State is UP (True) by default.\n"
+"\n"
+"The router, subnet and admin state fields are required, all others are "
+"optional."
+msgstr ""
+"Vytvořte službu VPN pro současný projekt.\n"
+"\n"
+"Služba VPN je připojena ke směrovači a odkazuje na jednu podsíť, která bude "
+"odeslána vzdálenému místu.\n"
+"Zvolte název, popis, směrovač a podsíť pro službu VPN. Stav správce je "
+"standardně Zapnut (zaškrtnut).\n"
+"\n"
+"Pole směrovač, podsíť a stav správce jsou vyžadována, ostatní nejsou povinná."
 
 msgid "Create Volume"
 msgstr "Vytvořit svazek"
@@ -2352,27 +2419,27 @@ msgid "DNS name server"
 msgstr "DNS server"
 
 msgid "DOWN"
-msgstr "DOLŮ"
+msgstr "ZAVŘEN"
 
 msgctxt "Admin state of a Firewall"
 msgid "DOWN"
-msgstr "DOLŮ"
+msgstr "ZAVŘEN"
 
 msgctxt "Admin state of a Load balancer"
 msgid "DOWN"
-msgstr "DOLŮ"
+msgstr "ZAVŘEN"
 
 msgctxt "Admin state of a Network"
 msgid "DOWN"
-msgstr "DOLŮ"
+msgstr "ZAVŘEN"
 
 msgctxt "Admin state of a Port"
 msgid "DOWN"
-msgstr "DOLŮ"
+msgstr "ZAVŘEN"
 
 msgctxt "Admin state of a Router"
 msgid "DOWN"
-msgstr "DOLŮ"
+msgstr "ZAVŘEN"
 
 msgid "DPD Timeout must be greater than DPD Interval"
 msgstr "Časový limit DPD musí být větší než interval DPD"
@@ -2725,7 +2792,7 @@ msgstr[1] "Smazat typy svazku"
 msgstr[2] "Smazat typy svazku"
 
 msgid "Delete Volume on Instance Delete"
-msgstr "Smazání svazku nebo instance"
+msgstr "Smazat svazek při mazání instance"
 
 #, python-format
 msgid "Delete the created network \"%s\" due to subnet creation failure."
@@ -3274,6 +3341,12 @@ msgstr "Stáhnout přihlašovací údaje pro EC2"
 
 msgid "Download Key Pair"
 msgstr "Stáhnout pár klíče"
+
+msgid "Download OpenStack RC File v2.0"
+msgstr "Stáhnout RC soubor OpenStack v2.0"
+
+msgid "Download OpenStack RC File v3"
+msgstr "Stáhnout RC soubor OpenStack v3"
 
 #, python-format
 msgid "Download key pair &quot;%(keypair_name)s&quot;"
@@ -6218,6 +6291,9 @@ msgctxt "Current status of a VPN Service"
 msgid "Pending Update"
 msgstr "Čeká na aktualizaci"
 
+msgid "Per Volume Size (GiB)"
+msgstr "Podle velikosti svazku (GiB)"
+
 msgid "Perfect Forward Secrecy"
 msgstr "Dokonalé utajení předávání"
 
@@ -7655,9 +7731,6 @@ msgstr "Odhlásit"
 msgid "Size"
 msgstr "Velikost"
 
-msgid "Size (GB)"
-msgstr "Velikost (GB)"
-
 msgid "Size of ephemeral disk"
 msgstr "Velikost efemérního disku"
 
@@ -8531,6 +8604,9 @@ msgstr "Stránka, kterou hledáte, neexistuje"
 msgid "The physical mechanism by which the virtual network is implemented."
 msgstr "Fyzický mechanismus podle kterého je virtuální síť zavedena."
 
+msgid "The pre-defined key string between the two peers of the VPN connection"
+msgstr "Předem určený řetězec klíče mezi dvěma klienty připojení VPN"
+
 msgid ""
 "The private key will be only used in your browser and will not be sent to "
 "the server"
@@ -8595,6 +8671,20 @@ msgstr "Port požadované instance již je přidružen k jiné plovoucí IP adre
 msgid "The specified port is invalid."
 msgstr "Zadaný port je neplatný."
 
+msgid ""
+"The state of IPSec site connection to start in. If DOWN (False), IPSec site "
+"connection does not forward packets."
+msgstr ""
+"Stav IPSec připojení k místu. Pokud je Zavřen (Nepravda), nebude IPSec "
+"připojení k místu přeposílat pakety."
+
+msgid ""
+"The state of VPN service to start in. If DOWN (False) VPN service does not "
+"forward packets."
+msgstr ""
+"Stav služby VPN při spuštění. Pokud je Zavřen (Nepravda), nebude služba VPN "
+"přeposílat pakety."
+
 msgid "The state to start the network in."
 msgstr "Stav v kterém sít spustit."
 
@@ -8606,20 +8696,8 @@ msgid "The time delta must be a number representing the time span in days"
 msgstr "Časová delta musí být číslo odpovídající časovému období ve dnech"
 
 #, python-format
-msgid "The volume size cannot be less than the image minimum disk size (%sGB)"
-msgstr "Velikost svazku nemůže být menší než minimální velikost obrazu (%sGB)"
-
-#, python-format
 msgid "The volume size cannot be less than the image size (%s)"
 msgstr "Velikost svazku nemůže být menší než velikost obrazu (%s)"
-
-#, python-format
-msgid "The volume size cannot be less than the snapshot size (%sGB)"
-msgstr "Velikost svazku nemůže být menší než velikost snímku (%sGB)"
-
-#, python-format
-msgid "The volume size cannot be less than the source volume size (%sGB)"
-msgstr "Velikost svazku nemůže být menší než velikost zdrojového svazku (%sGB)"
 
 msgid "Theme Preview"
 msgstr "Náhled vzhledu"
@@ -8766,9 +8844,6 @@ msgstr "Celková kapacita disku (V GB)"
 msgid "Total Disk Usage (Hours):"
 msgstr "Celkové využití disku (V hodinách):"
 
-msgid "Total Gigabytes"
-msgstr "Celkem gigabajtů"
-
 msgid "Total Memory Usage (Hours):"
 msgstr "Celkové využití paměti (V hodinách):"
 
@@ -8777,6 +8852,10 @@ msgstr "Celkem RAM"
 
 msgid "Total Size of Volumes and Snapshots (GB)"
 msgstr "Celková velikost Svazků a Snímků (GB)"
+
+#, python-format
+msgid "Total Size of Volumes and Snapshots (GiB) of Type %(type)s"
+msgstr "Celková velikost svazků a snímků (GiB) typu %(type)s"
 
 msgid "Total VCPU Usage (Hours):"
 msgstr "Celkové využití VCPU (V hodinách):"
@@ -8822,27 +8901,27 @@ msgid "UDP"
 msgstr "UDP"
 
 msgid "UP"
-msgstr "NAHORU"
+msgstr "OTEVŘEN"
 
 msgctxt "Admin state of a Firewall"
 msgid "UP"
-msgstr "NAHORU"
+msgstr "OTEVŘEN"
 
 msgctxt "Admin state of a Load balancer"
 msgid "UP"
-msgstr "NAHORU"
+msgstr "OTEVŘEN"
 
 msgctxt "Admin state of a Network"
 msgid "UP"
-msgstr "NAHORU"
+msgstr "OTEVŘEN"
 
 msgctxt "Admin state of a Port"
 msgid "UP"
-msgstr "NAHORU"
+msgstr "OTEVŘEN"
 
 msgctxt "Admin state of a Router"
 msgid "UP"
-msgstr "NAHORU"
+msgstr "OTEVŘEN"
 
 msgid "URL"
 msgstr "URL"
@@ -10563,6 +10642,10 @@ msgstr "Přehled snímku svazku"
 msgid "Volume Snapshots"
 msgstr "Snímky svazku"
 
+#, python-format
+msgid "Volume Snapshots of Type %(type)s"
+msgstr "Snímky svazku typu %(type)s"
+
 msgid "Volume Source"
 msgstr "Zdroj svazku"
 
@@ -10607,14 +10690,6 @@ msgstr "Typ svazku: %(volume_type_name)s "
 msgid "Volume Types"
 msgstr "Typy svazku"
 
-#, python-format
-msgid ""
-"Volume cannot be extended to %(req)iGB as you only have %(avail)iGB of your "
-"quota available."
-msgstr ""
-"Svazek nemůže být rozšířen na %(req)iGB, protože máte dostupných pouze "
-"%(avail)iGB z vaší kvóty."
-
 msgid "Volume is Unencrypted"
 msgstr "Svazek není zašifrován"
 
@@ -10644,25 +10719,8 @@ msgid "Volume size in gigabytes (integer value)."
 msgstr "Velikost svazku v gigabajtech (celočíselná hodnota)."
 
 #, python-format
-msgid ""
-"Volume size must be equal to or greater than the image minimum disk size "
-"(%sGB)"
-msgstr ""
-"Velikost svazku musí být větší nebo rovna minimální velikosti obrazu (%sGB)"
-
-#, python-format
 msgid "Volume size must be equal to or greater than the image size (%s)"
 msgstr "Velikost svazku musí být větší nebo rovna velikosti obrazu (%s)"
-
-#, python-format
-msgid ""
-"Volume size must be equal to or greater than the origin volume size (%s)"
-msgstr ""
-"Velikost svazku musí být větší nebo rovna velikosti původního svazku (%s)"
-
-#, python-format
-msgid "Volume size must be equal to or greater than the snapshot size (%sGB)"
-msgstr "Velikost svazku musí být stejná nebo větší než velikost snímku (%sGB)"
 
 msgid "Volume size must be greater than 0"
 msgstr "Velikost svazku musí být větší než 0"
@@ -10682,6 +10740,10 @@ msgstr "Svazky"
 
 msgid "Volumes Attached"
 msgstr "Připojené svazky"
+
+#, python-format
+msgid "Volumes of Type %(type)s"
+msgstr "Svazek typu %(type)s"
 
 msgid "Weight"
 msgstr "Váha"
@@ -10750,7 +10812,7 @@ msgid ""
 "<strong>However,</strong> not all databases support incremental backups in "
 "which case this operation will result in an error."
 msgstr ""
-"Přírůstkovou zálohu můžete provést zadáním nadřazené zálohy. \n"
+"Přírůstkovou zálohu můžete provést zadáním nadřazené zálohy. "
 "<strong>Nezapomeňte ale,</strong> že ne všechny databáze podporují "
 "přírůstkové zálohy a v takových případech operace selže s chybou."
 

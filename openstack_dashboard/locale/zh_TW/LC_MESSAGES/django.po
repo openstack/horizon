@@ -17,7 +17,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-12-12 03:12+0000\n"
+"POT-Creation-Date: 2015-12-17 05:35+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -585,12 +585,6 @@ msgstr "會在建立雲實例後執行的腳本或一組指令（最大 16kb）�
 msgid ""
 "A snapshot is an image which preserves the disk state of a running instance."
 msgstr "即時存檔是將執行中的雲實例所有硬碟狀態儲存下來的映像檔。"
-
-#, python-format
-msgid ""
-"A volume of %(req)iGB cannot be created as you only have %(avail)iGB of your "
-"quota available."
-msgstr "您只擁有 %(avail)iGB 配額可用以致於您不能新增 %(req)iGB 的雲硬碟。"
 
 msgid "AKI - Amazon Kernel Image"
 msgstr "AKI - Amazon 核心映像檔"
@@ -1319,9 +1313,6 @@ msgstr "備份檔案"
 
 msgid "Backup File Location"
 msgstr "備份檔案位置"
-
-msgid "Backup Gigabytes"
-msgstr "備份 Gigabytes"
 
 msgid "Backup Name"
 msgstr "備份名稱"
@@ -7058,9 +7049,6 @@ msgstr "登出"
 msgid "Size"
 msgstr "容量"
 
-msgid "Size (GB)"
-msgstr "容量（GB）"
-
 msgid "Size of ephemeral disk"
 msgstr "暫時性硬碟容量"
 
@@ -7940,20 +7928,8 @@ msgid "The time delta must be a number representing the time span in days"
 msgstr "時間變化量必須是個可以表示多個日子內時間差值的數字"
 
 #, python-format
-msgid "The volume size cannot be less than the image minimum disk size (%sGB)"
-msgstr "雲硬碟容量不能小於映像檔最小硬碟容量（%sGB）"
-
-#, python-format
 msgid "The volume size cannot be less than the image size (%s)"
 msgstr "雲硬碟容量不能小於映像檔容量（%s）"
-
-#, python-format
-msgid "The volume size cannot be less than the snapshot size (%sGB)"
-msgstr "雲硬碟容量不能小於即時存檔容量（%sGB）"
-
-#, python-format
-msgid "The volume size cannot be less than the source volume size (%sGB)"
-msgstr "雲硬碟容量不能小於來源的雲硬碟容量（%sGB）"
 
 msgid "There are no meters defined yet."
 msgstr "尚未定義量測器。"
@@ -8091,9 +8067,6 @@ msgstr "硬碟總容量（GB）："
 
 msgid "Total Disk Usage (Hours):"
 msgstr "硬碟總用量（小時）："
-
-msgid "Total Gigabytes"
-msgstr "Gigabytes 總合"
 
 msgid "Total Memory Usage (Hours):"
 msgstr "隨機存取記憶體用量（小時）："
@@ -9893,12 +9866,6 @@ msgstr "雲硬碟類型：%(volume_type_name)s "
 msgid "Volume Types"
 msgstr "雲硬碟類型"
 
-#, python-format
-msgid ""
-"Volume cannot be extended to %(req)iGB as you only have %(avail)iGB of your "
-"quota available."
-msgstr "您只擁有 %(avail)iGB 配額可用以致於您不能擴充雲硬碟到 %(req)iGB。"
-
 msgid "Volume is Unencrypted"
 msgstr "雲硬碟未加密"
 
@@ -9928,23 +9895,8 @@ msgid "Volume size in gigabytes (integer value)."
 msgstr "雲硬碟的 GB 容量（整數值）。"
 
 #, python-format
-msgid ""
-"Volume size must be equal to or greater than the image minimum disk size "
-"(%sGB)"
-msgstr "雲硬碟容量必須大於等於映像檔最小硬碟容量（%sGB）"
-
-#, python-format
 msgid "Volume size must be equal to or greater than the image size (%s)"
 msgstr "雲硬碟容量必須大於等於映像檔容量（%s）"
-
-#, python-format
-msgid ""
-"Volume size must be equal to or greater than the origin volume size (%s)"
-msgstr "雲硬碟容量必須大於等於原始的雲硬碟容量（%s）"
-
-#, python-format
-msgid "Volume size must be equal to or greater than the snapshot size (%sGB)"
-msgstr "雲硬碟容量必須大於等於即時存檔容量（%sGB）"
 
 msgid "Volume size must be greater than 0"
 msgstr "雲硬碟容量必須大於 0。"
