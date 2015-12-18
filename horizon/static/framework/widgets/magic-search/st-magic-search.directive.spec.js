@@ -89,9 +89,9 @@
         }
       ];
 
-      /* eslint-disable angular/ng_window_service */
+      /* eslint-disable angular/window-service */
       var msTemplate = window.STATIC_URL + 'framework/widgets/magic-search/magic-search.html';
-      /* eslint-enable angular/ng_window_service */
+      /* eslint-enable angular/window-service */
       var stMagicSearch =
         '<st-magic-search>' +
         '  <magic-search ' +

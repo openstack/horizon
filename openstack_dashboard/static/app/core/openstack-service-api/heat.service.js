@@ -18,7 +18,7 @@
 
   angular
     .module('horizon.app.core.openstack-service-api')
-    .service('horizon.app.core.openstack-service-api.heat', heatAPI);
+    .factory('horizon.app.core.openstack-service-api.heat', heatAPI);
 
   heatAPI.$inject = [
     'horizon.framework.util.http.service',

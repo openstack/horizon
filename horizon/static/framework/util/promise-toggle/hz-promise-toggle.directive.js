@@ -96,7 +96,7 @@
       terminal: true,
       restrict: 'A',
       compile: compile,
-      $$tlb: true
+      $$tlb: true //eslint-disable-line angular/no-private-call
     };
 
     return directive;

@@ -17,7 +17,7 @@
 
   angular
     .module('horizon.app.core.openstack-service-api')
-    .service('horizon.app.core.openstack-service-api.policy', PolicyService);
+    .factory('horizon.app.core.openstack-service-api.policy', PolicyService);
 
   PolicyService.$inject = [
     '$q',

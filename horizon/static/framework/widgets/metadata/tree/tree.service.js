@@ -299,7 +299,7 @@
      * @returns {Item[]}
      */
     Item.prototype.path = function (path) {
-      path = typeof path !== 'undefined' ? path : [];
+      path = angular.isDefined(path) ? path : [];
       if (this.parent) {
         this.parent.path(path);
       }
@@ -387,7 +387,7 @@
      * @returns {Item[]}
      */
     Tree.prototype.flatten = function (branch, items) {
-      items = typeof items !== 'undefined' ? items : [];
+      items = angular.isDefined(items) ? items : [];
 
       angular.forEach(branch, function (item) {
         items.push(item);
@@ -415,7 +415,7 @@
 
       angular.forEach(existing, function (value, key) {
         var item = itemsMapping[key];
-        if (typeof item === 'undefined') {
+        if (angular.isUndefined(item)) {
           item = new Item().customProperty(key);
           this.flatTree.push(item);
         }
