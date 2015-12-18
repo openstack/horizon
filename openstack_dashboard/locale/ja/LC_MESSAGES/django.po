@@ -17,12 +17,12 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-12-17 05:35+0000\n"
+"POT-Creation-Date: 2015-12-18 05:06+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2015-12-12 06:54+0000\n"
-"Last-Translator: Akihiro Motoki <amotoki@gmail.com>\n"
+"PO-Revision-Date: 2015-12-18 01:05+0000\n"
+"Last-Translator: Shu Muto <shu-mutou@rf.jp.nec.com>\n"
 "Language: ja\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 "Generated-By: Babel 2.0\n"
@@ -496,6 +496,10 @@ msgid "%sGB"
 msgstr "%sGB"
 
 #, python-format
+msgid "%sGiB"
+msgstr "%sGiB"
+
+#, python-format
 msgid "%sMB"
 msgstr "%sMB"
 
@@ -609,6 +613,14 @@ msgid ""
 msgstr ""
 "スナップショットは、実行中のインスタンスのディスク状態を保存したイメージで"
 "す。"
+
+#, python-format
+msgid ""
+"A volume of %(req)iGiB cannot be created as you only have %(avail)iGiB of "
+"your quota available."
+msgstr ""
+"利用可能なクォータは %(avail)iGiB しかないため、 %(req)iGiB のボリュームは作"
+"成できません。"
 
 msgid "AKI - Amazon Kernel Image"
 msgstr "AKI - Amazon カーネルイメージ"
@@ -1374,6 +1386,9 @@ msgstr "バックアップ名"
 
 msgid "Backup Overview"
 msgstr "バックアップの概要"
+
+msgid "Backup Size (GiB)"
+msgstr "バックアップサイズ (GiB)"
 
 msgid "Backups"
 msgstr "バックアップ"
@@ -2274,6 +2289,9 @@ msgstr "現在のホスト"
 msgid "Current Size (GB)"
 msgstr "現在のサイズ (GB)"
 
+msgid "Current Size (GiB)"
+msgstr "現在のサイズ (GiB)"
+
 msgid "Current Task"
 msgstr "現在のタスク"
 
@@ -2421,6 +2439,12 @@ msgstr "パスワードの復号"
 
 msgid "Default Quotas"
 msgstr "標準のクォータ"
+
+msgid "Default quotas updated for Cinder."
+msgstr "Cinder の標準のクォータを更新しました。"
+
+msgid "Default quotas updated for Nova."
+msgstr "Nova の標準のクォータを更新しました。"
 
 msgid "Default quotas updated."
 msgstr "標準のクォータを更新しました。"
@@ -4122,6 +4146,9 @@ msgstr "ゲートウェイの IP アドレスと IP バージョンが一致し�
 msgid "Gateway interface is added"
 msgstr "ゲートウェイインターフェースを追加しました"
 
+msgid "GiB"
+msgstr "GiB"
+
 msgid "Glance"
 msgstr "Glance"
 
@@ -5454,6 +5481,9 @@ msgstr "新しいパスワード"
 
 msgid "New Size (GB)"
 msgstr "新しいサイズ (GB)"
+
+msgid "New Size (GiB)"
+msgstr "新しいサイズ (GiB)"
 
 msgid "New name cannot be empty."
 msgstr "新しい名前を空にすることはできません。"
@@ -7421,6 +7451,9 @@ msgstr "ログアウト"
 msgid "Size"
 msgstr "サイズ"
 
+msgid "Size (GiB)"
+msgstr "サイズ (GiB)"
+
 msgid "Size of ephemeral disk"
 msgstr "一時ディスクのサイズ"
 
@@ -8371,8 +8404,21 @@ msgid "The time delta must be a number representing the time span in days"
 msgstr "時間差は、期間を日数で表した数字である必要があります。"
 
 #, python-format
+msgid "The volume size cannot be less than the image minimum disk size (%sGiB)"
+msgstr ""
+"ボリュームサイズはイメージの最小ディスクサイズ (%sGiB) 未満にはできません。"
+
+#, python-format
 msgid "The volume size cannot be less than the image size (%s)"
 msgstr "ボリュームサイズはイメージサイズ (%s) 未満にはできません。"
+
+#, python-format
+msgid "The volume size cannot be less than the snapshot size (%sGiB)"
+msgstr "ボリューム容量はスナップショット容量 (%sGiB) 未満にはできません。"
+
+#, python-format
+msgid "The volume size cannot be less than the source volume size (%sGiB)"
+msgstr "ボリュームサイズは元のボリュームサイズ (%sGiB) 未満にはできません。"
 
 msgid "Theme Preview"
 msgstr "テーマのプレビュー"
@@ -8522,6 +8568,9 @@ msgstr "合計ディスクサイズ (GB):"
 msgid "Total Disk Usage (Hours):"
 msgstr "合計ディスク使用量 (時間):"
 
+msgid "Total Gibibytes"
+msgstr "合計ギビバイト"
+
 msgid "Total Memory Usage (Hours):"
 msgstr "合計メモリー使用量 (時間):"
 
@@ -8530,6 +8579,9 @@ msgstr "合計メモリー"
 
 msgid "Total Size of Volumes and Snapshots (GB)"
 msgstr "ボリュームとスナップショットの合計サイズ (GB)"
+
+msgid "Total Size of Volumes and Snapshots (GiB)"
+msgstr "ボリュームとスナップショットの合計サイズ (GiB)"
 
 #, python-format
 msgid "Total Size of Volumes and Snapshots (GiB) of Type %(type)s"
@@ -9755,6 +9807,12 @@ msgstr "ボリュームの管理を解除できません。"
 msgid "Unable to update container access."
 msgstr "コンテナーアクセスの更新に失敗しました。"
 
+msgid "Unable to update default quotas for Cinder."
+msgstr "Cinder の標準のクォータを更新できません。"
+
+msgid "Unable to update default quotas for Nova."
+msgstr "Nova の標準のクォータを更新できません。"
+
 msgid "Unable to update default quotas."
 msgstr "標準のクォータを更新できません。"
 
@@ -10366,6 +10424,14 @@ msgstr "ボリューム種別: %(volume_type_name)s"
 msgid "Volume Types"
 msgstr "ボリューム種別"
 
+#, python-format
+msgid ""
+"Volume cannot be extended to %(req)iGiB as you only have %(avail)iGiB of "
+"your quota available."
+msgstr ""
+"ボリュームを %(req)iGiB に拡張することができません。利用できるクォータは "
+"%(avail)iGiB しかありません。"
+
 msgid "Volume is Unencrypted"
 msgstr "ボリュームは暗号化されていません。"
 
@@ -10395,8 +10461,27 @@ msgid "Volume size in gigabytes (integer value)."
 msgstr "ギガバイト単位のボリュームサイズ (整数値)"
 
 #, python-format
+msgid ""
+"Volume size must be equal to or greater than the image minimum disk size "
+"(%sGiB)"
+msgstr ""
+"ボリュームサイズはイメージの最小ディスクサイズ (%sGiB) 以上でなければいけませ"
+"ん。"
+
+#, python-format
 msgid "Volume size must be equal to or greater than the image size (%s)"
 msgstr "ボリュームサイズはイメージサイズ (%s) 以上でなければなりません。"
+
+#, python-format
+msgid ""
+"Volume size must be equal to or greater than the origin volume size (%sGiB)"
+msgstr ""
+"ボリュームサイズは元のボリュームサイズ (%sGiB) 以上でなければなりません。"
+
+#, python-format
+msgid "Volume size must be equal to or greater than the snapshot size (%sGiB)"
+msgstr ""
+"ボリューム容量はスナップショット容量 (%sGiB) 以上でなければいけません。"
 
 msgid "Volume size must be greater than 0"
 msgstr "ボリュームサイズは 0 より大きい値でなければなりません。"

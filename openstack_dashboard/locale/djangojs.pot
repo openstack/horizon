@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-12-17 06:21+0000\n"
+"POT-Creation-Date: 2015-12-18 06:19+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -874,23 +874,30 @@ msgstr ""
 msgid "Project ID"
 msgstr ""
 
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/launch-instance-model.service.js:383
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/launch-instance-model.service.js:255
+#, python-format
+msgid "Instance launched."
+msgid_plural "%s instances launched."
+msgstr[0] ""
+msgstr[1] ""
+
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/launch-instance-model.service.js:391
 #: dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:72
 #: static/app/core/images/filters/image-type.filter.js:41
 msgid "Image"
 msgstr ""
 
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/launch-instance-model.service.js:394
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/launch-instance-model.service.js:402
 #: dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:73
 msgid "Instance Snapshot"
 msgstr ""
 
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/launch-instance-model.service.js:402
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/launch-instance-model.service.js:410
 #: dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:74
 msgid "Volume"
 msgstr ""
 
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/launch-instance-model.service.js:406
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/launch-instance-model.service.js:414
 #: dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:75
 msgid "Volume Snapshot"
 msgstr ""

@@ -12,11 +12,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-12-17 05:35+0000\n"
+"POT-Creation-Date: 2015-12-18 05:06+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2015-12-14 05:20+0000\n"
+"PO-Revision-Date: 2015-12-18 12:58+0000\n"
 "Last-Translator: Shu Muto <shu-mutou@rf.jp.nec.com>\n"
 "Language: ja\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
@@ -1364,6 +1364,9 @@ msgstr "ユーザーを編集できません。"
 msgid "Unable to fetch the service catalog."
 msgstr "サービスカタログを取得できません。"
 
+msgid "Unable to fetch the services."
+msgstr "サービスの一覧を取得できません"
+
 msgid "Unable to get the Glance service version."
 msgstr "Glance のサービスバージョンを取得できません。"
 
@@ -1385,11 +1388,17 @@ msgstr "絶対上限を取得できません。"
 msgid "Unable to retrieve the QoS Specs."
 msgstr "QoS スペック一覧を取得できません。"
 
+msgid "Unable to retrieve the agents."
+msgstr "エージェントを取得できません。"
+
 msgid "Unable to retrieve the aggregate extra specs."
 msgstr "アグリゲートの追加スペックを取得できません。"
 
 msgid "Unable to retrieve the availability zones."
 msgstr "アベイラビリティーゾーンを取得できません。"
+
+msgid "Unable to retrieve the cinder services."
+msgstr "Cinder のサービスを取得できません。"
 
 msgid "Unable to retrieve the current user session."
 msgstr "現在のユーザーセッションを取得できません。"
@@ -1415,6 +1424,9 @@ msgstr "フレーバーを取得できません。"
 msgid "Unable to retrieve the flavors."
 msgstr "フレーバーの一覧を取得できません。"
 
+msgid "Unable to retrieve the heat services."
+msgstr "Heat のサービスを取得できません。"
+
 msgid "Unable to retrieve the image custom properties."
 msgstr "イメージのカスタム属性を取得できません。"
 
@@ -1435,6 +1447,9 @@ msgstr "名前空間一覧を取得できません。"
 
 msgid "Unable to retrieve the networks."
 msgstr "ネットワーク一覧を取得できません。"
+
+msgid "Unable to retrieve the nova services."
+msgstr "Nova のサービスを取得できません。"
 
 msgid "Unable to retrieve the ports."
 msgstr "ポートを取得できません。"
