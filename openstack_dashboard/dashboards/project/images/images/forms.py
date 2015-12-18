@@ -75,7 +75,7 @@ def create_image_metadata(data):
             'name': data['name'],
             'properties': {}}
 
-    if data['description']:
+    if 'description' in data:
         meta['properties']['description'] = data['description']
     if data.get('kernel'):
         meta['properties']['kernel_id'] = data['kernel']
