@@ -33,6 +33,7 @@ from openstack_dashboard.api import cinder
 from openstack_dashboard.api import keystone
 from openstack_dashboard.api import nova
 from openstack_dashboard.usage import quotas
+from openstack_dashboard.utils.identity import IdentityMixIn
 
 INDEX_URL = "horizon:identity:projects:index"
 ADD_USER_URL = "horizon:identity:projects:create_user"
@@ -572,7 +573,7 @@ class UpdateProjectInfo(workflows.Step):
                    "enabled")
 
 
-class UpdateProject(CommonQuotaWorkflow):
+class UpdateProject(CommonQuotaWorkflow, IdentityMixIn):
     slug = "update_project"
     name = _("Edit Project")
     finalize_button_name = _("Save")
@@ -662,8 +663,9 @@ class UpdateProject(CommonQuotaWorkflow):
                                      available_roles, current_role_ids):
         is_current_user = user_id == request.user.id
         is_current_project = project_id == request.user.tenant_id
+        _admin_roles = self.get_admin_roles()
         available_admin_role_ids = [role.id for role in available_roles
-                                    if role.name.lower() == 'admin']
+                                    if role.name.lower() in _admin_roles]
         admin_roles = [role for role in current_role_ids
                        if role in available_admin_role_ids]
         if len(admin_roles):

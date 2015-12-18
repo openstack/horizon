@@ -1778,3 +1778,8 @@ class SeleniumTests(test.SeleniumAdminTestCase):
 
         for user in users:
             self.assertIn(user.name, members.text)
+
+    def test_get_admin_roles(self):
+        mix_in = workflows.IdentityMixIn()
+        admin_roles = mix_in.get_admin_roles()
+        self.assertEqual(['foo', 'bar', 'admin'], admin_roles)
