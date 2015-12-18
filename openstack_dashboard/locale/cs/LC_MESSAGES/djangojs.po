@@ -10,11 +10,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-12-17 05:35+0000\n"
+"POT-Creation-Date: 2015-12-18 05:06+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2015-12-16 02:58+0000\n"
+"PO-Revision-Date: 2015-12-17 11:00+0000\n"
 "Last-Translator: Zbyněk Schwarz <zbynek.schwarz@gmail.com>\n"
 "Language: cs\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
@@ -1347,6 +1347,9 @@ msgstr "Nelze upravit uživatele."
 msgid "Unable to fetch the service catalog."
 msgstr "Nelze získat katalog služeb."
 
+msgid "Unable to fetch the services."
+msgstr "Nelze získat služby."
+
 msgid "Unable to get the Glance service version."
 msgstr "Nelze získat verzi služby Glance."
 
@@ -1368,11 +1371,17 @@ msgstr "Nelze získat absolutní limity."
 msgid "Unable to retrieve the QoS Specs."
 msgstr "Nelze získat specifikace QoS."
 
+msgid "Unable to retrieve the agents."
+msgstr "Nelze získat agenty."
+
 msgid "Unable to retrieve the aggregate extra specs."
 msgstr "Nelze získat dodatečné specifikace agregátu."
 
 msgid "Unable to retrieve the availability zones."
 msgstr "Nelze získat zóny dostupnosti."
+
+msgid "Unable to retrieve the cinder services."
+msgstr "Nelze získat služby cinder."
 
 msgid "Unable to retrieve the current user session."
 msgstr "Nelze získat současné sezení uživatele."
@@ -1398,6 +1407,9 @@ msgstr "Nelze získat konfiguraci."
 msgid "Unable to retrieve the flavors."
 msgstr "Nelze získat konfigurace."
 
+msgid "Unable to retrieve the heat services."
+msgstr "Nelze získat služby heat."
+
 msgid "Unable to retrieve the image custom properties."
 msgstr "Nelze získat přizpůsobené vlastnosti obrazu."
 
@@ -1418,6 +1430,9 @@ msgstr "Nelze získat jmenné prostory."
 
 msgid "Unable to retrieve the networks."
 msgstr "Nelze získat sítě."
+
+msgid "Unable to retrieve the nova services."
+msgstr "Nelze získat služby nova."
 
 msgid "Unable to retrieve the ports."
 msgstr "Nelze získat porty."
