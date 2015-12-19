@@ -25,7 +25,9 @@ horizon.alert = function (type, message, extra_tags) {
       "message": message,
       "safe": safe
     };
-  return $(template.render(params)).hide().prependTo("#main_content .messages").fadeIn(100);
+  var this_alert = $(template.render(params)).hide().prependTo("#main_content .messages").fadeIn(100);
+  horizon.autoDismissAlert(this_alert);
+  return this_alert;
 };
 
 horizon.clearErrorMessages = function() {
@@ -41,22 +43,21 @@ horizon.clearAllMessages = function() {
   horizon.clearSuccessMessages();
 };
 
-horizon.autoDismissAlerts = function() {
-  var $alerts = $('#main_content .messages .alert');
+horizon.autoDismissAlert = function ($alert) {
+  // If autofade isn't configured, don't do anything
+  if (typeof(horizon.conf.auto_fade_alerts) === "undefined")
+      return;
 
-  $alerts.each(function() {
-    var $alert = $(this),
-      types = $alert.attr('class').split(' '),
-      intersection = $.grep(types, function (value) {
-        return $.inArray(value, horizon.conf.auto_fade_alerts.types) !== -1;
-      });
-    // Check if alert should auto-fade
-    if (intersection.length > 0) {
-      setTimeout(function() {
-        $alert.fadeOut(horizon.conf.auto_fade_alerts.fade_duration);
-      }, horizon.conf.auto_fade_alerts.delay);
-    }
-  });
+  var types = $alert.attr('class').split(' '),
+    intersection = $.grep(types, function (value) {
+      return $.inArray(value, horizon.conf.auto_fade_alerts.types) !== -1;
+    });
+  // Check if alert should auto-fade
+  if (intersection.length > 0) {
+    setTimeout(function() {
+      $alert.fadeOut(horizon.conf.auto_fade_alerts.fade_duration);
+    }, horizon.conf.auto_fade_alerts.delay);
+  }
 };
 
 horizon.addInitFunction(function () {
@@ -76,6 +77,7 @@ horizon.addInitFunction(function () {
   // Bind dismiss(x) handlers for alert messages.
   $(".alert").alert();
 
-  // Hide alerts automatically if attribute data-dismiss-auto is set to true.
-  horizon.autoDismissAlerts();
+  $('#main_content .messages .alert').each(function() {
+    horizon.autoDismissAlert($(this));
+  });
 });
