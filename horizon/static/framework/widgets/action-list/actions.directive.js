@@ -68,8 +68,9 @@
    *      This uses a known action button type.
    *      Currently supported values are
    *      1. 'delete' - Delete a single row. Only for 'row' type.
-   *      2. 'delete-selected' - Delete multiple rows. Only for 'batch' type.
-   *      3. 'create' - Create a new entity. Only for 'batch' type.
+   *      2. 'danger' - For marking an Action as dangerous. Only for 'row' type.
+   *      3. 'delete-selected' - Delete multiple rows. Only for 'batch' type.
+   *      4. 'create' - Create a new entity. Only for 'batch' type.
    *
    *      The styling and binding of the callback is done by the template.
    *

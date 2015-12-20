@@ -84,9 +84,31 @@
       var actionList = element.find('action-list');
       expect(actionList.length).toBe(1);
       expect(actionList.attr('class').indexOf('btn-addon')).toBeGreaterThan(-1);
-      expect(actionList.find('button').attr('class')).toEqual('text-danger');
+      expect(actionList.find('button').attr('class'))
+        .toEqual('btn btn-sm pull-right btn-danger');
       expect(actionList.find('button').attr('ng-click')).toEqual('disabled || callback(item)');
       expect(actionList.text().trim()).toEqual('Delete Image');
+
+      actionList.find('button').click();
+      expect($scope.callback).toHaveBeenCalled();
+    });
+
+    it('should allow for specifying by template for danger', function () {
+      $scope.callback = function(item) {
+        expect(item).toEqual(rowItem);
+      };
+      spyOn($scope, 'callback').and.callThrough();
+
+      var element = rowElementFor([permittedActionWithType('danger', 'Shutdown Instance')]);
+
+      expect(element.children().length).toBe(1);
+      var actionList = element.find('action-list');
+      expect(actionList.length).toBe(1);
+      expect(actionList.attr('class').indexOf('btn-addon')).toBeGreaterThan(-1);
+      expect(actionList.find('button').attr('class'))
+        .toEqual('btn btn-sm pull-right btn-danger');
+      expect(actionList.find('button').attr('ng-click')).toEqual('disabled || callback(item)');
+      expect(actionList.text().trim()).toEqual('Shutdown Instance');
 
       actionList.find('button').click();
       expect($scope.callback).toHaveBeenCalled();
@@ -141,21 +163,34 @@
       expect(actionList.find('button.btn-default').text().trim()).toEqual('Create Image');
     });
 
-    it('should have multiple buttons as a dropdown', function () {
-      var action1 = getTemplatePath('action-create');
-      var action2 = getTemplatePath('action-delete');
-
+    it('should have multiple buttons as a dropdown with correct styling', function () {
       var element = rowElementFor([
-        permittedActionWithUrl(action1),
-        permittedActionWithUrl(action2)
+        permittedActionWithText('Edit Instance', 'btn-custom'),
+        permittedActionWithType('danger', 'Shutdown Instance')
       ]);
 
       expect(element.children().length).toBe(1);
       var actionList = element.find('action-list');
       expect(actionList.length).toBe(1);
       expect(actionList.attr('class').indexOf('btn-addon')).toEqual(-1);
-      expect(actionList.find('button .fa-user-plus').text().trim()).toEqual('Create Image');
-      expect(actionList.find('li a.text-danger').text().trim()).toEqual('Delete Image');
+      expect(actionList.find('button.split-button.btn-custom').text().trim())
+        .toEqual('Edit Instance');
+      expect(actionList.find('li a.text-danger').text().trim()).toEqual('Shutdown Instance');
+    });
+
+    it('should style danger type button as button in a dropdown', function () {
+      var element = rowElementFor([
+        permittedActionWithType('danger', 'Shutdown Instance'),
+        permittedActionWithText('Edit Instance', 'btn-custom')
+      ]);
+
+      expect(element.children().length).toBe(1);
+      var actionList = element.find('action-list');
+      expect(actionList.length).toBe(1);
+      expect(actionList.attr('class').indexOf('btn-addon')).toEqual(-1);
+      expect(actionList.find('button.split-button.btn-danger').text().trim())
+        .toEqual('Shutdown Instance');
+      expect(actionList.find('li a.btn-custom').text().trim()).toEqual('Edit Instance');
     });
 
     it('should have multiple buttons as a dropdown for actions text', function () {
@@ -174,7 +209,7 @@
 
     it('should have one button if only one permitted for dropdown', function () {
       var element = rowElementFor([
-        permittedActionWithUrl(getTemplatePath('action-create')),
+        permittedActionWithText('Single Action', 'btn-custom'),
         notPermittedAction()
       ]);
 
@@ -182,7 +217,9 @@
       var actionList = element.find('action-list');
       expect(actionList.length).toBe(1);
       expect(actionList.attr('class').indexOf('btn-addon')).toBeGreaterThan(-1);
-      expect(actionList.find('button .fa-user-plus').text().trim()).toEqual('Create Image');
+      expect(actionList.find('button.btn-custom').text().trim()).toEqual('Single Action');
+      expect(actionList.find('button').attr('class'))
+        .toEqual('btn btn-sm pull-right btn-default btn-custom');
     });
 
     function permittedActionWithUrl(templateUrl) {
