@@ -9,10 +9,12 @@
 #    WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
 #    License for the specific language governing permissions and limitations
 #    under the License.
+import six
 
 from django.conf import settings
 from django.test.utils import override_settings  # noqa
 
+from horizon import exceptions
 from openstack_dashboard import api
 from openstack_dashboard.test import helpers as test
 
@@ -211,3 +213,84 @@ class HeatApiTests(test.APITestCase):
                                                **form_data)
         from heatclient.v1 import stacks
         self.assertIsInstance(returned_stack, stacks.Stack)
+
+    def test_get_template_files_with_template_data(self):
+        tmpl = '''
+    heat_template_version: 2013-05-23
+    resources:
+      server1:
+        type: OS::Nova::Server
+        properties:
+            flavor: m1.medium
+            image: cirros
+    '''
+        expected_files = {}
+        files = api.heat.get_template_files(template_data=tmpl)[0]
+        self.assertEqual(files, expected_files)
+
+    def test_get_template_files(self):
+        tmpl = '''
+    heat_template_version: 2013-05-23
+    resources:
+      server1:
+        type: OS::Nova::Server
+        properties:
+            flavor: m1.medium
+            image: cirros
+            user_data_format: RAW
+            user_data:
+              get_file: http://test.example/example
+    '''
+        expected_files = {u'http://test.example/example': b'echo "test"'}
+        url = 'http://test.example/example'
+        data = b'echo "test"'
+        self.mox.StubOutWithMock(six.moves.urllib.request, 'urlopen')
+        six.moves.urllib.request.urlopen(url).AndReturn(
+            six.BytesIO(data))
+        self.mox.ReplayAll()
+        files = api.heat.get_template_files(template_data=tmpl)[0]
+        self.assertEqual(files, expected_files)
+
+    def test_get_template_files_with_template_url(self):
+        url = 'https://test.example/example.yaml'
+        data = b'''
+    heat_template_version: 2013-05-23
+    resources:
+      server1:
+        type: OS::Nova::Server
+        properties:
+            flavor: m1.medium
+            image: cirros
+            user_data_format: RAW
+            user_data:
+              get_file: http://test.example/example
+    '''
+        url2 = 'http://test.example/example'
+        data2 = b'echo "test"'
+        expected_files = {'http://test.example/example': b'echo "test"'}
+        self.mox.StubOutWithMock(six.moves.urllib.request, 'urlopen')
+        six.moves.urllib.request.urlopen(url).AndReturn(
+            six.BytesIO(data))
+        six.moves.urllib.request.urlopen(url2).AndReturn(
+            six.BytesIO(data2))
+        self.mox.ReplayAll()
+        files = api.heat.get_template_files(template_url=url)[0]
+        self.assertEqual(files, expected_files)
+
+    def test_get_template_files_invalid(self):
+        tmpl = '''
+    heat_template_version: 2013-05-23
+    resources:
+      server1:
+        type: OS::Nova::Server
+        properties:
+            flavor: m1.medium
+            image: cirros
+            user_data_format: RAW
+            user_data:
+              get_file: file:///example
+    '''
+        try:
+            api.heat.get_template_files(template_data=tmpl)[0]
+        except exceptions.GetFileError:
+            self.assertRaises(exceptions.GetFileError)

@@ -10,9 +10,18 @@
 # License for the specific language governing permissions and limitations
 # under the License.
 
-from django.conf import settings
-from heatclient import client as heat_client
+import contextlib
+import six
+from six.moves.urllib import request
 
+from django.conf import settings
+from oslo_serialization import jsonutils
+
+from heatclient import client as heat_client
+from heatclient.common import template_format
+from heatclient.common import template_utils
+from heatclient.common import utils as heat_utils
+from horizon import exceptions
 from horizon.utils import functions as utils
 from horizon.utils.memoized import memoized  # noqa
 from openstack_dashboard.api import base
@@ -80,6 +89,57 @@ def stacks_list(request, marker=None, sort_dir='desc', sort_key='created_at',
         elif marker is not None:
             has_prev_data = True
     return (stacks, has_more_data, has_prev_data)
+
+
+def _ignore_if(key, value):
+    if key != 'get_file' and key != 'type':
+        return True
+    if not isinstance(value, six.string_types):
+        return True
+    if (key == 'type' and
+            not value.endswith(('.yaml', '.template'))):
+        return True
+    return False
+
+
+def get_template_files(template_data=None, template_url=None):
+    if template_data:
+        tpl = template_data
+    elif template_url:
+        with contextlib.closing(request.urlopen(template_url)) as u:
+            tpl = u.read()
+    else:
+        return {}, None
+    if not tpl:
+        return {}, None
+    if isinstance(tpl, six.binary_type):
+        tpl = tpl.decode('utf-8')
+    template = template_format.parse(tpl)
+    files = {}
+    _get_file_contents(template, files)
+    return files, template
+
+
+def _get_file_contents(from_data, files):
+    if not isinstance(from_data, (dict, list)):
+        return
+    if isinstance(from_data, dict):
+        recurse_data = six.itervalues(from_data)
+        for key, value in six.iteritems(from_data):
+            if _ignore_if(key, value):
+                continue
+            if not value.startswith(('http://', 'https://')):
+                raise exceptions.GetFileError(value, 'get_file')
+            if value not in files:
+                file_content = heat_utils.read_url_content(value)
+                if template_utils.is_template(file_content):
+                    template = get_template_files(template_url=value)[1]
+                    file_content = jsonutils.dumps(template)
+                files[value] = file_content
+    else:
+        recurse_data = from_data
+    for value in recurse_data:
+        _get_file_contents(value, files)
 
 
 def stack_delete(request, stack_id):
