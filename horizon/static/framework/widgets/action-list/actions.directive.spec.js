@@ -17,7 +17,8 @@
   describe('actions directive', function () {
     var $scope, $compile, $q, $templateCache, basePath;
 
-    var rowItem = {id: 1};
+    var rowItem = {id: 'row'};
+    var customItem = {id: 'custom'};
     var callback = jasmine.createSpy('callback');
 
     beforeEach(module('templates'));
@@ -34,6 +35,44 @@
     it('should have no buttons if there are no actions', function () {
       var element = batchElementFor([]);
       expect(element.children().length).toBe(0);
+    });
+
+    it('should allow for specifying by url for batch', function () {
+      $scope.customItem = customItem;
+      var element = batchElementFor([permittedActionWithUrl('custom')]);
+
+      expect(element.children().length).toBe(1);
+      var actionList = element.find('action-list');
+      expect(actionList.length).toBe(1);
+      expect(actionList.attr('class').indexOf('btn-addon')).toBeGreaterThan(-1);
+      expect(actionList.find('button').attr('class')).toEqual('btn-custom');
+      expect(actionList.find('button').attr('ng-click')).toEqual('disabled || callback(item)');
+      expect(actionList.text().trim()).toEqual('Custom Button');
+
+      actionList.find('button').click();
+      expect(callback).toHaveBeenCalledWith(customItem);
+    });
+
+    it('should allow for specifying by url for row', function () {
+      $scope.customItem = customItem;
+      var element = rowElementFor([
+        permittedActionWithUrl('custom2'),
+        permittedActionWithUrl('custom')
+      ]);
+
+      expect(element.children().length).toBe(1);
+      var actionList = element.find('action-list');
+      expect(actionList.length).toBe(1);
+      expect(actionList.attr('class').indexOf('btn-addon')).toEqual(-1);
+      expect(actionList.find('button.btn-custom-2.split-button').text().trim())
+        .toEqual('Custom Button 2');
+      expect(actionList.find('li .btn-custom').text().trim()).toEqual('Custom Button');
+
+      actionList.find('button.btn-custom-2.split-button').click();
+      expect(callback).toHaveBeenCalledWith(undefined);
+
+      actionList.find('li .btn-custom').click();
+      expect(callback).toHaveBeenCalledWith(customItem);
     });
 
     it('should allow for specifying action text', function () {
@@ -109,14 +148,16 @@
     });
 
     it('should have one button if there is one action', function () {
-      var action = getTemplatePath('action-create', getTemplate());
-      var element = batchElementFor([permittedActionWithUrl(action)]);
+      var element = batchElementFor([
+        permittedActionWithType('create', 'Create Image')
+      ]);
 
       expect(element.children().length).toBe(1);
       var actionList = element.find('action-list');
       expect(actionList.length).toBe(1);
       expect(actionList.attr('class').indexOf('btn-addon')).toBeGreaterThan(-1);
-      expect(actionList.find('button').attr('class')).toEqual('btn btn-default btn-sm btn-create');
+      expect(actionList.find('button').attr('class'))
+        .toEqual('btn btn-default btn-sm pull-right');
       expect(actionList.find('button').attr('ng-click')).toEqual('disabled || callback(item)');
       expect(actionList.text().trim()).toEqual('Create Image');
     });
@@ -128,19 +169,18 @@
     });
 
     it('should have multiple buttons for multiple actions as a list', function () {
-      var action1 = getTemplatePath('action-create');
-      var action2 = getTemplatePath('action-delete');
       var element = batchElementFor([
-        permittedActionWithUrl(action1),
-        permittedActionWithUrl(action2)
+        permittedActionWithType('create', 'Create Image'),
+        permittedActionWithType('delete-selected', 'Delete Images')
       ]);
 
       expect(element.children().length).toBe(2);
       var actionList = element.find('action-list');
       expect(actionList.length).toBe(2);
       expect(actionList.attr('class').indexOf('btn-addon')).toBeGreaterThan(-1);
-      expect(actionList.find('button.btn-create').text().trim()).toEqual('Create Image');
-      expect(actionList.find('button.text-danger').text().trim()).toEqual('Delete Image');
+      expect(actionList.find('button.btn-default .fa-user-plus').text().trim())
+        .toEqual('Create Image');
+      expect(actionList.find('button.btn-danger').text().trim()).toEqual('Delete Images');
     });
 
     it('should bind multiple callbacks for multiple buttons in a batch', function () {
@@ -163,9 +203,8 @@
     });
 
     it('should have as many buttons as permitted', function () {
-      var actionTemplate1 = getTemplatePath('action-create');
       var element = batchElementFor([
-        permittedActionWithUrl(actionTemplate1),
+        permittedActionWithType('create', 'Create Image'),
         notPermittedAction()
       ]);
 
@@ -254,9 +293,11 @@
         .toEqual('btn btn-sm pull-right btn-default btn-custom');
     });
 
-    function permittedActionWithUrl(templateUrl) {
+    function permittedActionWithUrl(templateName) {
       return {
-        template: {url: templateUrl},
+        template: {
+          url: getTemplatePath("actions." + templateName)
+        },
         service: getService(getPermission(true), callback)
       };
     }
@@ -302,14 +343,6 @@
       };
     }
 
-    function getTemplate(templateName) {
-      return $templateCache.get(getTemplatePath(templateName));
-    }
-
-    function getTemplatePath(templateName) {
-      return basePath + 'action-list/' + templateName + '.mock.html';
-    }
-
     function getPermission(allowed) {
       var deferred = $q.defer();
 
@@ -347,6 +380,14 @@
       $scope.$apply();
 
       return element;
+    }
+
+    function getTemplate(templateName) {
+      return $templateCache.get(getTemplatePath(templateName));
+    }
+
+    function getTemplatePath(templateName) {
+      return basePath + 'action-list/' + templateName + '.mock.html';
     }
 
   });
