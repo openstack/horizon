@@ -39,6 +39,11 @@
   z-index: 4;
 }
 
+// Border radius is unattractive here
+.navbar {
+  border-radius: 0;
+}
+
 .navbar-brand {
   svg {
     fill: $navbar-inverse-link-active-color;
