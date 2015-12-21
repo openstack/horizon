@@ -195,7 +195,7 @@ class RouterTests(RouterMixin, test.TestCase):
 
         res = self.client.get(self.INDEX_URL)
 
-        formData = {'action': 'Routers__delete__' + router.id}
+        formData = {'action': 'routers__delete__' + router.id}
         res = self.client.post(self.INDEX_URL, formData, follow=True)
         self.assertNoFormErrors(res)
         self.assertMessageCount(response=res, success=1)
@@ -239,7 +239,7 @@ class RouterTests(RouterMixin, test.TestCase):
 
         res = self.client.get(self.INDEX_URL)
 
-        formData = {'action': 'Routers__delete__' + router.id}
+        formData = {'action': 'routers__delete__' + router.id}
         res = self.client.post(self.INDEX_URL, formData, follow=True)
         self.assertNoFormErrors(res)
         self.assertMessageCount(response=res, success=1)
@@ -938,10 +938,10 @@ class RouterViewTests(RouterMixin, test.TestCase):
         res = self.client.get(self.INDEX_URL)
         self.assertTemplateUsed(res, 'project/routers/index.html')
 
-        routers = res.context['Routers_table'].data
+        routers = res.context['routers_table'].data
         self.assertItemsEqual(routers, self.routers.list())
 
-        create_action = self.getAndAssertTableAction(res, 'Routers', 'create')
+        create_action = self.getAndAssertTableAction(res, 'routers', 'create')
         self.assertTrue('disabled' in create_action.classes,
                         'Create button is not disabled')
         self.assertEqual('Create Router (Quota exceeded)',
@@ -966,10 +966,10 @@ class RouterViewTests(RouterMixin, test.TestCase):
         res = self.client.get(self.INDEX_URL)
         self.assertTemplateUsed(res, 'project/routers/index.html')
 
-        routers = res.context['Routers_table'].data
+        routers = res.context['routers_table'].data
         self.assertItemsEqual(routers, self.routers.list())
 
-        create_action = self.getAndAssertTableAction(res, 'Routers', 'create')
+        create_action = self.getAndAssertTableAction(res, 'routers', 'create')
         self.assertFalse('disabled' in create_action.classes,
                          'Create button should not be disabled')
         self.assertEqual('Create Router',
@@ -994,10 +994,10 @@ class RouterViewTests(RouterMixin, test.TestCase):
         res = self.client.get(self.INDEX_URL)
         self.assertTemplateUsed(res, 'project/routers/index.html')
 
-        routers = res.context['Routers_table'].data
+        routers = res.context['routers_table'].data
         self.assertItemsEqual(routers, self.routers.list())
 
-        create_action = self.getAndAssertTableAction(res, 'Routers', 'create')
+        create_action = self.getAndAssertTableAction(res, 'routers', 'create')
         self.assertEqual(set(['ajax-modal']), set(create_action.classes))
         self.assertEqual('Create Router',
                          six.text_type(create_action.verbose_name))

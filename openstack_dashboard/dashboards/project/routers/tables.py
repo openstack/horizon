@@ -243,7 +243,7 @@ class RoutersTable(tables.DataTable):
         return obj.name
 
     class Meta(object):
-        name = "Routers"
+        name = "routers"
         verbose_name = _("Routers")
         status_columns = ["status"]
         row_class = UpdateRow
