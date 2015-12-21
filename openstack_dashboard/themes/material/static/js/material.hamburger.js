@@ -19,11 +19,10 @@ $(document).ready(function () {
   var $sidenav = $('#sidebar');
   var $mask = $(document.createElement('div'))
     .prop('id', 'md-hamburger-mask')
-    .appendTo($('#container'));
+    .appendTo($('#content_body'));
 
   // Hamburger Happiness !!!
   $(document).on('click', '.md-hamburger', function () {
-    var $foo = $(this).find('.md-hamburger-layer');
     $(this).find('.md-hamburger-layer')
       .toggleClass('md-hamburger-arrow')
       .toggleClass('md-hamburger-menu');

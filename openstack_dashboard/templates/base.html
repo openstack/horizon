@@ -24,16 +24,16 @@
       </div>
     </noscript>
     {% block content %}
-      <div id="container">
-        <div class='topbar'>
-          {% include "header/_header.html" %}
-        </div>
-        <div id='main_content'>
-          {% include "horizon/_messages.html" %}
-          {% block sidebar %}
-            {% include 'horizon/common/_sidebar.html' %}
-          {% endblock %}
-          <div id='content_body'>
+      <div class='topbar'>
+        {% include "header/_header.html" %}
+      </div>
+      <div id='main_content'>
+        {% include "horizon/_messages.html" %}
+        {% block sidebar %}
+          {% include 'horizon/common/_sidebar.html' %}
+        {% endblock %}
+        <div id='content_body'>
+          <div class='container-fluid'>
             <div class="row">
               <div class="col-xs-12">
                 {% block page_header %}
