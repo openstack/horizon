@@ -27,6 +27,7 @@ from django.utils.translation import ugettext_lazy as _
 from horizon.base import Horizon  # noqa
 from horizon import conf
 
+
 register = template.Library()
 
 
@@ -214,9 +215,7 @@ def datepicker_locale():
 def minifyspace(parser, token):
     """Removes whitespace including tab and newline characters. Do not use this
     if you are using a <pre> tag
-
     Example usage::
-
         {% minifyspace %}
             <p>
                 <a title="foo"
@@ -225,9 +224,7 @@ def minifyspace(parser, token):
                 </a>
             </p>
         {% endminifyspace %}
-
     This example would return this HTML::
-
         <p><a title="foo" href="foo/">Foo</a></p>
     """
     nodelist = parser.parse(('endminifyspace',))

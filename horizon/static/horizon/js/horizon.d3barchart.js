@@ -13,7 +13,7 @@
         data-tooltip-used='Used'
         data-tooltip-free='Free'
         data-tooltip-average='Average'
-        data-settings='{"orientation": "horizontal", "color_scale_range": ["#000060", "#99FFFF"]}'
+        data-settings='{"orientation": "horizontal"}'
         data-used="20"
         data-average="30">
       </div>
@@ -41,9 +41,9 @@
       data-settings="JSON"
         Json with variety of settings described below.
 
-        used-label-placement='string' OPTIONAL
-          String determining where the floating label stating number of percent
-          will be placed. So far only left is supported.
+          used-label-placement='string' OPTIONAL
+            String determining where the floating label stating number of percent
+            will be placed. So far only left is supported.
 
           width="integer" OPTIONAL
             Integer in pixels. Determines the total width of the bar. Handy when
@@ -55,20 +55,7 @@
 
           auto-scale-selector OPTIONAL
             Jquery selector of bar elements that have Integer
-            used attribute. It then takes maximum of these
-            values as 100% of the linear scale of the colors.
-            So the array representing linear scale interval is set
-            automatically.This then maps to color-scale-range.
-            (arrays must have the same structure)
-
-          color-scale-range OPTIONAL
-            Array representing linear scale interval that is set manually.
-            E.g "[0,10]". This then maps to color-scale-range.
-            (arrays must have the same structure)
-
-          color-scale-range OPTIONAL
-            Array representing linear scale of colors.
-            E.g '["#000060", "#99FFFF"]'
+            used attribute.
 
           orientation OPTIONAL
             String representing orientation of the bar.Can be "horizontal"
@@ -148,8 +135,7 @@ horizon.d3_bar_chart = {
 
           }
         }
-      }
-      else {
+      } else {
         if (!isNaN(self.max_value) && !isNaN(self.data.used)) {
           self.data.percentage_used = Math.round((self.data.used / self.max_value) * 100);
         } else { // If NaN self.data.percentage_used is 0
@@ -180,14 +166,8 @@ horizon.d3_bar_chart = {
 
       self.data.settings = {};
 
-      // Placement of the used label
-      self.data.settings.used_label_placement = undefined;
       // Orientation of the Bar chart
       self.data.settings.orientation = 'horizontal';
-
-      // Color scales
-      self.data.settings.color_scale_domain = [0,100];
-      self.data.settings.color_scale_range = ['#000000', '#0000FF'];
 
       // Width and height of bar
       self.data.settings.width = self.jquery_element.data('width');
@@ -216,7 +196,6 @@ horizon.d3_bar_chart = {
     self.apply_settings = function(settings){
       var self = this;
       var allowed_settings = ['orientation', 'used_label_placement',
-                              'color_scale_domain', 'color_scale_range',
                               'width', 'height'];
 
       $.each(allowed_settings, function(index, setting_name) {
@@ -254,13 +233,8 @@ horizon.d3_bar_chart = {
       // Initialize wrapper
       var wrapper = new self.chart_module.Wrapper(self.chart_module, self.html_element, self.data);
 
-      // Initialize Tool-tips
-      var tooltip_average = (new self.chart_module.TooltipComponent(wrapper)).render(self.data.tooltip_average);
-      var tooltip_free = (new self.chart_module.TooltipComponent(wrapper)).render(self.data.tooltip_free);
-      var tooltip_used = (new self.chart_module.TooltipComponent(wrapper)).render(self.data.tooltip_used);
-
       // Append Unused resources Bar
-      (new self.chart_module.UnusedComponent(wrapper)).render(tooltip_free);
+      (new self.chart_module.UnusedComponent(wrapper)).render(self.data.tooltip_free);
 
       if (wrapper.used_multi()){
         // If UsedComponent is shown as multiple values in one chart
@@ -268,13 +242,8 @@ horizon.d3_bar_chart = {
           // FIXME write proper iterator
           wrapper.used_multi_iterator = i;
 
-          /* Use general tool-tip, content of tool-tip will be changed by inner
-             used components on their hover. HTML content is taken from JSON sent
-             from the server. */
-          tooltip_used = (new self.chart_module.TooltipComponent(wrapper)).render('');
-
           // Append used so it will be shown as multiple values in one chart
-          (new self.chart_module.UsedComponent(wrapper)).render(tooltip_used);
+          (new self.chart_module.UsedComponent(wrapper)).render(self.data.tooltip_used);
 
           // Compute total value as a start point for next Used bar
           wrapper.total_used_perc += wrapper.percentage_used_value();
@@ -283,9 +252,9 @@ horizon.d3_bar_chart = {
 
       } else {
         // Used is show as one value it the chart
-        (new self.chart_module.UsedComponent(wrapper)).render(tooltip_used);
+        (new self.chart_module.UsedComponent(wrapper)).render(self.data.tooltip_used);
         // Append average value to Bar
-        (new self.chart_module.AverageComponent(wrapper)).render(tooltip_average);
+        (new self.chart_module.AverageComponent(wrapper)).render(self.data.tooltip_average);
       }
     };
   },
@@ -305,8 +274,7 @@ horizon.d3_bar_chart = {
     self.bar_html = d3.select(html_element);
     // Bar layout for bar chart
     self.bar = self.bar_html.append('svg:svg')
-      .attr('class', 'chart')
-      .style('background-color', 'white');
+      .attr('class', 'legacy-bar-chart');
 
     // Get correct size of chart and the wrapper.
     chart_module.get_size(self.html_element);
@@ -342,11 +310,8 @@ horizon.d3_bar_chart = {
     }
     self.chart_wrapper_h = self.h;
 
-    // Basic settigns of the chart
+    // Basic settings of the chart
     self.lvl_curve = 3;
-    self.bkgrnd = '#F2F2F2';
-    self.frgrnd = 'grey';
-    self.color_scale_max = 25;
 
     // Percentage used
     self.percentage_used = data.percentage_used;
@@ -359,11 +324,6 @@ horizon.d3_bar_chart = {
     // Percentage average
     self.percentage_average = data.percentage_average;
     self.tooltip_used_contents = data.tooltip_used_contents;
-
-    // Set scales for multi bar chart
-    self.usage_color = d3.scale.linear()
-      .domain(data.settings.color_scale_domain)
-      .range(data.settings.color_scale_range);
 
     // Border of the chart
     self.border_width = 1;
@@ -431,36 +391,22 @@ horizon.d3_bar_chart = {
     }
 
     self.render = function(tooltip){
-      self.wrapper.bar.append('rect')
-        .attr('class', 'used_component')
+      var elem = self.wrapper.bar.append('rect')
+        .attr('class', 'used_component legacy-bar-chart-section')
         .attr('y', self.y)
         .attr('x', self.x)
         .attr('width', self.width)
         .attr('height', self.height)
-        .style('fill', self.wrapper.usage_color(self.wrapper.percentage_used_value()))
-        .style('stroke', '#bebebe')
-        .style('stroke-width', 0)
         .attr('d', self.wrapper.percentage_used_value())
-        .attr('tooltip-used', self.wrapper.tooltip_used_value())
-        .on('mouseover', function(){
-          if ($(this).attr('tooltip-used')){
-            tooltip.html($(this).attr('tooltip-used'));
-          }
-          tooltip.style('visibility', 'visible');
-        })
-        .on('mousemove', function(){
-          var eventX = event.offsetX || event.layerX;
-          var eventY = event.offsetY || event.layerY;
-          tooltip
-            .style('top', (eventY - 10) + 'px')
-            .style('left',(eventX + 10) + 'px');
-        })
-        .on('mouseout', function(){
-          tooltip.style('visibility', 'hidden');
-        })
         .transition()
           .duration(500)
           .attr(self.trasition_attr, self.trasition_value);
+
+      $(elem).tooltip({
+        placement: self.wrapper.data.settings.orientation === 'horizontal' ? 'bottom' : 'left',
+        container: 'body',
+        title: $.isArray(self.wrapper.data.percentage_used) ? self.wrapper.tooltip_used_value() : tooltip
+      });
 
       if (self.wrapper.used_label_placement === 'left') {
         // Now it works only for vertical bar chart placed left form the chart
@@ -480,7 +426,6 @@ horizon.d3_bar_chart = {
           .attr('y', label_placement_y)
           .attr('x', 0)
           .attr('dominant-baseline', 'middle')
-          .attr('font-size', 12)
           .transition()
             .duration(500)
             .attr('x', function() {
@@ -508,12 +453,12 @@ horizon.d3_bar_chart = {
           .data([poly])
           .enter()
           .append('polygon')
+          .attr('class', 'used_component_label_arrow')
           .attr('points',function(d) {
             return d.map(function(d) {
               return [d.x,d.y].join(',');
             }).join(' ');
           })
-          .attr('stroke','black')
           .attr('stroke-width', 2);
       }
     };
@@ -549,47 +494,20 @@ horizon.d3_bar_chart = {
     self.render = function(tooltip){
       if (self.wrapper.percentage_average > 0) {
         // Only show average when it is bigger than 0
-        // A dashed line, so it's pretty
-        self.wrapper.bar.append('line')
-          .attr('class', 'average_component')
-          .attr('y1', self.y)
-          .attr('x1', self.x)
-          .attr('class', 'average')
-          .attr('y2', self.y + self.height)
-          .attr('x2', self.x + self.width)
-          .style('stroke', 'black')
-          .style('stroke-width', 3)
-          .style('stroke-dasharray', ('6, 2'))
-          .on('mouseover', function(){tooltip.style('visibility', 'visible');})
-          .on('mousemove', function(){
-            var eventX = event.offsetX || event.layerX;
-            var eventY = event.offsetY || event.layerY;
-            tooltip
-              .style('top',(eventY - 10) + 'px')
-              .style('left',(eventX + 10) + 'px');
-          })
-          .on('mouseout', function(){tooltip.style('visibility', 'hidden');});
+        // A dashed line
 
-        // A normal line, so it shows popup even in spaces, it's also bigger so
-        // it's easier to show popup
-        self.wrapper.bar.append('line')
+        var elem = self.wrapper.bar.append('line')
           .attr('class', 'average_component')
           .attr('y1', self.y)
           .attr('x1', self.x)
-          .attr('class', 'average')
           .attr('y2', self.y + self.height)
-          .attr('x2', self.x + self.width)
-          .style('stroke', 'transparent')
-          .style('stroke-width', 5)
-          .on('mouseover', function(){tooltip.style('visibility', 'visible');})
-          .on('mousemove', function(){
-            var eventX = event.offsetX || event.layerX;
-            var eventY = event.offsetY || event.layerY;
-            tooltip
-              .style('top',(eventY - 10) + 'px')
-              .style('left',(eventX + 10) + 'px');
-          })
-          .on('mouseout', function(){tooltip.style('visibility', 'hidden');});
+          .attr('x2', self.x + self.width);
+
+        $(elem).tooltip({
+          placement: self.wrapper.data.settings.orientation === 'horizontal' ? 'top' : 'right',
+          container: 'body',
+          title: tooltip
+        });
       }
     };
   },
@@ -603,65 +521,21 @@ horizon.d3_bar_chart = {
     var self = this;
     self.wrapper = wrapper;
 
-    self.render = function(tooltip_free){
-      self.wrapper.bar.append('rect')
-        .attr('class', 'unused_component')
+    self.render = function(tooltip){
+      var elem = self.wrapper.bar.append('rect')
+        .attr('class', 'unused_component legacy-bar-chart-section')
         .attr('y', 0)
         .attr('x', self.wrapper.chart_start_x)
         .attr('width', self.wrapper.w)
         .attr('height', self.wrapper.h)
         .attr('rx', self.wrapper.lvl_curve)
-        .attr('ry', self.wrapper.lvl_curve)
-        .style('fill', self.wrapper.bkgrnd)
+        .attr('ry', self.wrapper.lvl_curve);
 
-        .on('mouseover', function(){
-          tooltip_free.style('visibility', 'visible');
-        })
-        .on('mousemove', function(){
-          var eventX = event.offsetX || event.layerX;
-          var eventY = event.offsetY || event.layerY;
-          tooltip_free
-            .style('top',(eventY - 10) + 'px')
-            .style('left',(eventX + 10) + 'px');
-        })
-        .on('mouseout', function(){tooltip_free.style('visibility', 'hidden');});
-
-      self.wrapper.bar.append('rect')
-        .attr('class', 'unused_component_border')
-        .attr('x', self.wrapper.chart_start_x)
-        .attr('y', 0)
-        .attr('height', self.wrapper.h)
-        .attr('width', self.wrapper.w - self.wrapper.border_width) // a space for right border line
-        .style('stroke', '#bebebe')
-        .style('fill', 'none')
-        .style('stroke-width', 1);
-    };
-  },
-  /**
-   * Component rendering tool-tip HTML code.
-   * the chart data.
-   * @param wrapper Wrapper object
-   * @return HTML code of tool-tip
-   */
-  TooltipComponent: function(wrapper){
-    var self = this;
-    self.wrapper = wrapper;
-    self.tooltip_html = self.wrapper.bar_html.append('div');
-
-    self.render = function(html_content){
-      var display = 'none';
-      if (html_content){
-        // Display only when there is some HTML content
-        display = 'block';
-      }
-
-      return self.tooltip_html
-        .attr('class', 'tooltip_detail')
-        .style('position', 'absolute')
-        .style('z-index', '10')
-        .style('visibility', 'hidden')
-        .style('display', display)
-        .html(html_content);
+      $(elem).tooltip({
+        placement: self.wrapper.data.settings.orientation === 'horizontal' ? 'bottom' : 'left',
+        container: 'body',
+        title: tooltip
+      });
     };
   },
   /**

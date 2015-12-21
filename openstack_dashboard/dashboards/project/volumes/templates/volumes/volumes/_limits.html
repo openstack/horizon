@@ -1,35 +1,56 @@
-{% load i18n horizon humanize %}
+{% load i18n horizon humanize bootstrap %}
 
 <h3>{% trans "Description:" %}</h3>
 
-<p>{% blocktrans %}
-   Volumes are block devices that can be attached to instances.
-   {% endblocktrans %}
-</p>
+<p>{% blocktrans %}Volumes are block devices that can be attached to instances.{% endblocktrans %}</p>
 
 <div id="id_show_volume_type_desc_div">
-    <h3>{% trans "Volume Type Description:" %}</h3>
-    <h4><b><span id="id_show_volume_type_name"></span></b></h4>
-    <p id="id_show_volume_type_desc"></p>
+  <h3>{% trans "Volume Type Description:" %}</h3>
+  <h4>
+    <strong id="id_show_volume_type_name"></strong>
+  </h4>
+  <p id="id_show_volume_type_desc"></p>
 </div>
 
 <h3>{% block head %}{% trans "Volume Limits" %}{% endblock %}</h3>
 
-<div class="quota_title clearfix">
-    <strong>{% trans "Total Gibibytes" %} <span>({% block gigabytes_used %}{{ usages.gigabytesUsed|intcomma }}{% endblock %} {% trans "GiB" %})</span></strong>
-  <p>{{ usages.maxTotalVolumeGigabytes|intcomma|quota:_("GiB") }}</p>
+<div class="quota_title">
+  <div class="pull-left">
+    <strong">{% trans "Total Gibibytes" %}</strong>
+    <span>({% block gigabytes_used %}{{ usages.gigabytesUsed|intcomma }}{% endblock %} {% trans "GiB" %})</span>
+  </div>
+  <span class="pull-right">{{ usages.maxTotalVolumeGigabytes|intcomma|quota:_("GiB") }}</span>
 </div>
 
-<div id="quota_size" data-progress-indicator-for="id_size" data-quota-limit="{{ usages.maxTotalVolumeGigabytes }}" data-quota-used={% block gigabytes_used_progress %}"{{ usages.gigabytesUsed }}"{% endblock %} class="quota_bar">
+{{ minifyspace }}
+<div id="quota_size"
+     data-progress-indicator-for="id_size"
+     data-quota-limit="{{ usages.maxTotalVolumeGigabytes }}"
+     data-quota-used={% block gigabytes_used_progress %}"{{ usages.gigabytesUsed }}"{% endblock %}
+     class="quota_bar">
+  {% widthratio usages.gigabytesUsed usages.maxTotalVolumeGigabytes 100 as gigabytes_percent %}
+  {% bs_progress_bar gigabytes_percent 0 %}
+</div>
+{{ endminifyspace }}
+
+<div class="quota_title">
+  <div class="pull-left">
+    <strong>{% block type_title %}{% trans "Number of Volumes" %}{% endblock %}</strong>
+    <span>({% block used %}{{ usages.volumesUsed|intcomma }}{% endblock %})</span>
+  </div>
+  <span class="pull-right">{% block total %}{{ usages.maxTotalVolumes|intcomma|quota }}{% endblock %}</span>
 </div>
 
-<div class="quota_title clearfix">
-    <strong>{% block type_title %}{% trans "Number of Volumes" %}{% endblock %} <span>({% block used %}{{ usages.volumesUsed|intcomma }}{% endblock %})</span></strong>
-  <p>{% block total %}{{ usages.maxTotalVolumes|intcomma|quota }}{% endblock %}</p>
+{{ minifyspace }}
+<div id={% block type_id %}"quota_volumes"{% endblock %}
+     data-quota-limit={% block total_progress %}"{{ usages.maxTotalVolumes }}"{% endblock %}
+     data-quota-used={% block used_progress %}"{{ usages.volumesUsed }}"{% endblock %}
+     class="quota_bar">
+  {% widthratio usages.volumesUsed usages.maxTotalVolumes 100 as volumes_percent %}
+  {% widthratio 100 usages.maxTotalVolumes 1 as single_step %}
+  {% bs_progress_bar volumes_percent single_step %}
 </div>
-
-<div id={% block type_id %}"quota_volumes"{% endblock %} data-progress-indicator-step-by="1" data-quota-limit={% block total_progress %}"{{ usages.maxTotalVolumes }}"{% endblock %} data-quota-used={% block used_progress %}"{{ usages.volumesUsed }}"{% endblock %} class="quota_bar">
-</div>
+{{ endminifyspace }}
 
 <script type="text/javascript" charset="utf-8">
   if(typeof horizon.Quota !== 'undefined') {
@@ -40,8 +61,8 @@
     });
   }
 
-  if(typeof horizon.Volumes !== 'undefined'){
-      horizon.Volumes.initWithTypes({{ volume_types|safe|default:"{}" }});
+  if(typeof horizon.Volumes !== 'undefined') {
+    horizon.Volumes.initWithTypes({{ volume_types|safe|default:"{}" }});
   } else {
     addHorizonLoadEvent(function() {
       horizon.Volumes.initWithTypes({{ volume_types|safe|default:"{}" }});
