@@ -10,9 +10,10 @@
   <div class="quota_title">
     <div class="pull-left">
       <strong>{% trans "Floating IP" %}</strong>
-      <span>({{ usages.floating_ips.used }})</span>
     </div>
-    <span class="pull-right">{{ usages.floating_ips.available|quota }}</span>
+    <span class="pull-right">
+        {% blocktrans with used=usages.floating_ips.used quota=usages.floating_ips.available|quotainf %}{{ used }} of {{ quota }} Used{% endblocktrans %}
+    </span>
   </div>
   <div id="floating_ip_progress"
        class="quota_bar"

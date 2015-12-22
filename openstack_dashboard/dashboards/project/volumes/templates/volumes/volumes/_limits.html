@@ -17,9 +17,10 @@
 <div class="quota_title">
   <div class="pull-left">
     <strong>{% trans "Total Gibibytes" %}</strong>
-    <span>({% block gigabytes_used %}{{ usages.gigabytesUsed|intcomma }}{% endblock %} {% trans "GiB" %})</span>
   </div>
-  <span class="pull-right">{{ usages.maxTotalVolumeGigabytes|intcomma|quota:_("GiB") }}</span>
+  <span class="pull-right">
+    {% blocktrans with used=usages.gigabytesUsed|intcomma quota=usages.maxTotalVolumeGigabytes|intcomma|quotainf %}{{ used }} of {{ quota }} GiB Used{% endblocktrans %}
+  </span>
 </div>
 
 {{ minifyspace }}
@@ -36,9 +37,10 @@
 <div class="quota_title">
   <div class="pull-left">
     <strong>{% block type_title %}{% trans "Number of Volumes" %}{% endblock %}</strong>
-    <span>({% block used %}{{ usages.volumesUsed|intcomma }}{% endblock %})</span>
   </div>
-  <span class="pull-right">{% block total %}{{ usages.maxTotalVolumes|intcomma|quota }}{% endblock %}</span>
+  <span class="pull-right">
+      {% blocktrans with used=usages.volumesUsed|intcomma quota=usages.maxTotalVolumes|intcomma|quotainf %}{{ used }} of {{ quota }} Used{% endblocktrans %}
+  </span>
 </div>
 
 {{ minifyspace }}

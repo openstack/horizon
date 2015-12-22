@@ -9,9 +9,10 @@
 <div class="quota_title">
   <div class="pull-left">
     <strong>{% trans "Total Gibibytes" %}</strong>
-    <span>({{ usages.gigabytesUsed|intcomma }} {% trans "GiB" %})</span>
   </div>
-  <span class="pull-right">{{ usages.maxTotalVolumeGigabytes|intcomma|quota:_("GiB") }}</span>
+  <span class="pull-right">
+      {% blocktrans with used=usages.gigabytesUsed|intcomma quota=usages.maxTotalVolumeGigabytes|intcomma|quotainf %}{{ used }} of {{ quota }} GiB Used{% endblocktrans %}
+  </span>
 </div>
 
 <div id="quota_size"
