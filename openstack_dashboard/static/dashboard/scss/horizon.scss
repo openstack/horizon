@@ -172,15 +172,3 @@ label.log-length {
 a.link-popover { cursor: default; }
 
 a:hover.link-popover { text-decoration: none; }
-
-/**** Form Horizontal Override ****/
-.form-horizontal {
-  .form-group {
-    margin-right: 0px !important;
-  }
-
-  .form-control-feedback {
-    right: 0px !important;
-  }
-}
-
