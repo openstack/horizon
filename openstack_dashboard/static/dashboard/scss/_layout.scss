@@ -31,9 +31,7 @@ $navbar-true-height: $navbar-height + $navbar-border-size !default;
 }
 
 .page-header {
-  margin: 0 0 5px 0;
-  padding: 10px 0 5px 0;
-  border-bottom: 0;
+  margin-top: $padding-base-horizontal;
   height: auto;
   width: 100%;
   h1 {
