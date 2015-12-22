@@ -38,7 +38,7 @@ class Volumes(generic.View):
 
         The following get parameters may be passed in the GET
 
-        :param search_opts includes options such as name, status, bootable
+        :param search_opts: include options such as name, status, bootable
 
         The listing result is an object with property "items".
         """
@@ -87,7 +87,7 @@ class Volume(generic.View):
 
         The following get parameters may be passed in the GET
 
-        :param volume_id the id of the volume
+        :param volume_id: the id of the volume
 
         The result is a volume object.
         """
@@ -122,7 +122,7 @@ class VolumeType(generic.View):
 
         The following get parameters may be passed in the GET
 
-        :param volumetype_id the id of the volume type
+        :param volumetype_id: the id of the volume type
 
         If 'default' is passed as the volumetype_id then
         it returns the default volumetype
