@@ -1,0 +1,5 @@
+.messages {
+  .alert {
+    @include box-shadow($alert-shadow);
+  }
+}
