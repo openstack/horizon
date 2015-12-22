@@ -15,6 +15,7 @@ $navbar-true-height: $navbar-height + $navbar-border-size !default;
   height: 100%; /* fallback if needed --> its scrolls, but it works */
   height: calc(100% - #{$navbar-true-height});
   display: table;
+  min-width: $main-content-min-width;
 }
 
 #content_body,
@@ -28,3 +29,15 @@ $navbar-true-height: $navbar-height + $navbar-border-size !default;
   padding-left: $content-body-padding;
   padding-right: $content-body-padding;
 }
+
+.page-header {
+  margin: 0 0 5px 0;
+  padding: 10px 0 5px 0;
+  border-bottom: 0;
+  height: auto;
+  width: 100%;
+  h1 {
+    margin: 0;
+  }
+}
+
