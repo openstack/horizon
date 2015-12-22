@@ -10,28 +10,24 @@
 {% endblock %}
 
 {% block main %}
-<div class="row-fluid">
-  <div class="info detail col-sm-12">
-    <h4>{% trans "Information" %}</h4>
-    <hr class="header_rule">
-    <dl class="dl-horizontal">
-      <dt>{% trans "Name" %}</dt>
-      <dd>{{ keypair.name|default:_("None") }}</dd>
-      <dt>{% trans "ID" %}</dt>
-      <dd>{{ keypair.id|default:_("None") }}</dd>
-      <dt>{% trans "Fingerprint" %}</dt>
-      <dd>{{ keypair.fingerprint|default:_("None") }}</dd>
-      <dt>{% trans "Created" %}</dt>
-      <dd>{{ keypair.created_at|parse_isotime}}</dd>
-      {% if keypair.updated_at %}
-        <dt>{% trans "Updated" %}
-        <dd>{{ keypair.updated_at|parse_isotime}}</dd>
-      {% endif %}
-      <dt>{% trans "User ID" %}</dt>
-      <dd>{{ keypair.user_id|default:_("None") }}</dd>
-      <dt>{% trans "Public Key" %}</dt>
-      <dd><textarea class="key_text">{{ keypair.public_key|default:_("None") }}</textarea></dd>
-    </dl>
-  </div>
-</div>
+  <dl class="dl-horizontal">
+    <dt>{% trans "Name" %}</dt>
+    <dd>{{ keypair.name|default:_("None") }}</dd>
+    <dt>{% trans "ID" %}</dt>
+    <dd>{{ keypair.id|default:_("None") }}</dd>
+    <dt>{% trans "Fingerprint" %}</dt>
+    <dd>{{ keypair.fingerprint|default:_("None") }}</dd>
+    <dt>{% trans "Created" %}</dt>
+    <dd>{{ keypair.created_at|parse_isotime}}</dd>
+    {% if keypair.updated_at %}
+      <dt>{% trans "Updated" %}
+      <dd>{{ keypair.updated_at|parse_isotime}}</dd>
+    {% endif %}
+    <dt>{% trans "User ID" %}</dt>
+    <dd>{{ keypair.user_id|default:_("None") }}</dd>
+    <dt>{% trans "Public Key" %}</dt>
+    <dd>
+      <div class="key-text word-wrap">{{ keypair.public_key|default:_("None") }}</div>
+    </dd>
+  </dl>
 {% endblock %}
