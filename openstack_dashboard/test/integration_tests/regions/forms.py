@@ -352,8 +352,8 @@ class TabbedFormRegion(FormRegion):
             self.switch_to_tab(self.tab_index)
             fields = self.get_fields()
             if isinstance(fields, dict):
-                return dict([(key, field) for (key, field)
-                             in fields.iteritems() if field.is_displayed()])
+                return {key: field for (key, field)
+                        in six.iteritems(fields) if field.is_displayed()}
             else:
                 return [field for field in fields if field.is_displayed()]
 
