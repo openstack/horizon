@@ -1,0 +1,150 @@
+/* Styles that are around for legacy purposes.
+   If you are using any of these style, please reconsider.
+   If you need to add styles to this file, please add
+   comments explaining the legacy nature of the style */
+
+/* Main Nav is not used any longer by Horizon, but may still
+   be used by others to obtain a horizontal nav experience. */
+
+/* Note (hurgleburgler): We should remove this when we have
+   implemented a global nav experience that has been reviewed
+   and accepted by UX.  We should only support a single nav. */
+.main_nav {
+  list-style: none;
+  width: 222px;
+  margin: 10px 0 20px 0;
+
+  a {
+    color: #999;
+    width: 185px;
+    padding: 10px;
+    display: block;
+    margin-left: 20px;
+
+    &.active {
+      background: #fff;
+      border: 2px solid #d8d8d8;
+      border-right: 0;
+      border-bottom-color: #ccc;
+    }
+  }
+}
+
+#create_keypair_modal .clearfix {
+  margin-bottom: 115px;
+}
+
+#actions {
+  width: 90px;
+
+  .btn {
+    margin-bottom: 5px;
+  }
+  a.btn {
+    width: 70px;
+  }
+
+  input.btn {
+    text-align: left;
+  }
+}
+#images #actions {
+  width: 100px;
+}
+
+// Note (hurgleburgler) I can't find this anywhere, but it might be dynamic.  More searching required.
+.progress-success.bar {
+  background-color: #5eb95e;
+  background-image: -moz-linear-gradient(top, #62c462, #57a957);
+  background-image: -ms-linear-gradient(top, #62c462, #57a957);
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#62c462), to(#57a957));
+  background-image: -webkit-linear-gradient(top, #62c462, #57a957);
+  background-image: -o-linear-gradient(top, #62c462, #57a957);
+  background-image: linear-gradient(top, #62c462, #57a957);
+  background-repeat: repeat-x;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#62c462', endColorstr='#57a957', GradientType=0);
+}
+
+.progress_bar_fill.progress-warning.bar {
+  background-color: #898989;
+  background-image: -moz-linear-gradient(top, #999999, #333333);
+  background-image: -ms-linear-gradient(top, #999999, #333333);
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#999999), to(#333333));
+  background-image: -webkit-linear-gradient(top, #999999, #333333);
+  background-image: -o-linear-gradient(top, #999999, #333333);
+  background-image: linear-gradient(top, #999999, #333333);
+  background-repeat: repeat-x;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#999999', endColorstr='#333333', GradientType=0);
+}
+
+.progress_bar_over.bar {
+  background-color: #dd514c;
+  background-image: -moz-linear-gradient(top, #ee5f5b, #c43c35);
+  background-image: -ms-linear-gradient(top, #ee5f5b, #c43c35);
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#ee5f5b), to(#c43c35));
+  background-image: -webkit-linear-gradient(top, #ee5f5b, #c43c35);
+  background-image: -o-linear-gradient(top, #ee5f5b, #c43c35);
+  background-image: linear-gradient(top, #ee5f5b, #c43c35);
+  background-repeat: repeat-x;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ee5f5b', endColorstr='#c43c35', GradientType=0);
+}
+
+.warning {
+  background-color: $body-bg;
+  border-bottom: 1px solid $brand-danger;
+  padding: 5px 10px;
+  .warning-text {
+    text-align: center;
+    h3, a {
+      display: inline-block;
+    }
+    h3 {
+      vertical-align: bottom;
+    }
+  }
+}
+
+#add_member {
+  clear: both;
+}
+
+.add_member {
+  float: right;
+  margin-top: 10px;
+  margin-right: 15px;
+}
+
+// See admin/metadata_defs --> Update Associations
+// Note (hurgleburgler) Was this ever working?  resource-types and membership are in the same class name
+.resource-types  {
+  .membership {
+    li .scope {
+      background: none;
+      margin-top: 10px;
+      margin-bottom: 10px;
+    }
+
+    li .select_resource {
+      margin-left: 5px;
+      margin-top: 15px;
+    }
+
+    li .display_name {
+      width: 130px;
+      margin-left: 10px;
+      margin-top: 15px;
+      margin-bottom: 15px;
+    }
+  }
+}
+
+/* Fixes overflow on dropdowns in modal */
+.dropdown_fix {
+  overflow: visible;
+}
+
+/* Does something with CPU hungry spin.js with animated gif */
+.loading_gif {
+  margin-right: 0.5em;
+  float: left;
+}
