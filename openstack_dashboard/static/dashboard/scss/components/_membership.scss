@@ -1,0 +1,154 @@
+/* Membership widget UI */
+.membership {
+  min-height: 200px;
+
+  /* Header */
+  .help_text {
+    margin-bottom: 15px;
+  }
+
+  .fake_table_header {
+    padding: 8px;
+    border: 1px solid $table-border-color;
+    border-bottom: none;
+    overflow: hidden;
+  }
+
+  .members_title {
+    color: $gray;
+    font-weight: bold;
+    float: left;
+    padding: 6px 0;
+  }
+
+  input.filter {
+    width: 120px;
+    float: right;
+    &[type="text"]:disabled {
+      background-color: $gray-lighter;
+      & + span.search-icon {
+        color: $gray-light;
+      }
+    }
+  }
+
+  .form-control-feedback { top: 0; }
+  .no_results {
+    border: 1px solid $table-border-color;
+    padding: 9px 10px 8px 10px;
+    opacity: 0.5;
+  }
+
+  li.scope input{
+    background: none;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    width: 120px;
+    margin-left: 10px;
+  }
+
+  li.select_resource {
+    margin-left: 5px;
+    margin-top: 15px;
+  }
+
+  li.display_name {
+    width: 130px;
+    margin: 15px 7px 15px 10px;
+  }
+
+  /* Member lists */
+  .update_members_filterable {
+    overflow-y: auto;
+    height: 500px;
+  }
+
+  .members, .available_members {
+    padding: 0;
+
+    .btn-primary {
+      @include button-variant($btn-primary-color, $btn-primary-bg, $btn-primary-border);
+    }
+
+    // reset nav-pills display to block
+    ul.nav-pills {
+      display: block;
+
+      & > li > a {
+        border-radius: $border-radius-base;
+      }
+    }
+    ul.btn-group {
+      margin-left:0;
+      padding: $members-list-padding;
+      margin-bottom: 0;
+      border: $members-list-border;
+      border-bottom: none;
+      &.last_stripe {
+        border-bottom: 1px solid $table-border-color;
+      }
+      &.light_stripe {
+        background-color: $table-bg;
+      }
+      &.dark_stripe {
+        background-color: $table-bg-accent;
+      }
+      &:hover {
+        background-color: $border-color;
+      }
+      li.active {
+        float: right;
+        a:hover {
+          background-color: $link-hover-color;
+        }
+      }
+      .member,
+      .role_options .roles_display {
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+      .member {
+        padding: $nav-link-padding;
+        padding-right: 0;
+        padding-left: $padding-base-vertical;
+        max-width: $members-list-item-width;
+      }
+      .role_options {
+        margin-left: 0;
+        & > a {
+          padding: nth($nav-link-padding, 1) $padding-small-horizontal;
+          .roles_display {
+            display: inline-block;
+            max-width: $members-list-roles-width;
+            line-height: 1;
+            padding-right: $padding-base-vertical;
+          }
+        }
+        .role_dropdown > li {
+          word-break: break-all;
+        }
+      }
+    }
+  }
+
+
+  /* Role dropdown menus */
+  .role_dropdown {
+    right: 0;
+    left: auto;
+
+    & > li {
+      .fa-check {
+        visibility: hidden;
+      }
+
+      &.selected .fa-check {
+        visibility: visible;
+      }
+    }
+  }
+
+  .nav .role_options {
+    float: right;
+  }
+}
