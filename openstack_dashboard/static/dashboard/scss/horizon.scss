@@ -18,29 +18,30 @@
 @import "layout";
 
 // Dashboard Components
-@import "components/login";
-@import "components/resource_browser";
-@import "components/sidebar";
-@import "components/navbar";
-@import "components/inline_edit";
+@import "components/bar_charts";
 @import "components/charts";
-@import "components/workflow";
-@import "components/network_topology";
 @import "components/context_selection";
+@import "components/datepicker";
+@import "components/forms";
+@import "components/inline_edit";
+@import "components/login";
+@import "components/membership";
+@import "components/messages";
+@import "components/modals";
+@import "components/navbar";
+@import "components/network_topology";
 @import "components/pending_bar";
 @import "components/pie_charts";
-@import "components/bar_charts";
 @import "components/quota";
-@import "components/table_actions";
-@import "/framework/framework";
-@import "components/tables";
-@import "components/forms";
-@import "components/messages";
-@import "components/table_actions";
-@import "components/datepicker";
-@import "components/membership";
-@import "components/modals";
+@import "components/resource_browser";
 @import "components/resource_topology";
+@import "components/sidebar";
+@import "components/table_actions";
+@import "components/tables";
+@import "components/workflow";
+
+// Framework
+@import "/framework/framework";
 
 // Contrib stuff
 @import "contrib";
@@ -50,4 +51,3 @@
 
 // Debt
 @import "debt";
-

@@ -1,11 +1,11 @@
 // Override the web font path ... we want to set this ourselves
-$web-font-path: '-';
-$roboto-font-path: $static_url + '/horizon/lib/roboto_fontface/fonts';
+$web-font-path: "-";
+$roboto-font-path: $static_url + "/horizon/lib/roboto_fontface/fonts";
 
-@import 'variable_customizations';
+@import "variable_customizations";
 
 // Bootswatch Paper
 // Variables
 // --------------------------------------------------
-@import '/horizon/lib/bootswatch/paper/variables';
+@import "/horizon/lib/bootswatch/paper/variables";
 
