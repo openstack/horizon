@@ -347,11 +347,11 @@ msgstr "警告："
 
 #, python-format
 msgid "You are not allowed to %(action)s: %(objs)s"
-msgstr "您被禁止执行 %(action)s: %(objs)s"
+msgstr "您被禁止执行%(action)s：%(objs)s"
 
 #, python-format
 msgid "You are not authorized to access %s"
-msgstr "您无权访问 %s"
+msgstr "您无权访问%s"
 
 msgid "You do not have permission to access the resource:"
 msgstr "你没有被授权访问这些资源："
