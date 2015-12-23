@@ -17,10 +17,10 @@ from openstack_dashboard.test.integration_tests.regions import tables
 
 
 class OverviewPage(basepage.BaseNavigationPage):
-    _usage_table_locator = (by.By.ID, 'project_usage')
     _date_form_locator = (by.By.ID, 'date_form')
 
     USAGE_TABLE_ACTIONS = ("csv_summary",)
+    USAGE_TABLE_NAME = 'project_usage'
 
     def __init__(self, driver, conf):
         super(OverviewPage, self).__init__(driver, conf)
@@ -28,8 +28,8 @@ class OverviewPage(basepage.BaseNavigationPage):
 
     @property
     def usage_table(self):
-        src_elem = self._get_element(*self._usage_table_locator)
-        return tables.ActionsTableRegion(self.driver, self.conf, src_elem,
+        return tables.ActionsTableRegion(self.driver, self.conf,
+                                         self.USAGE_TABLE_NAME,
                                          self.USAGE_TABLE_ACTIONS)
 
     @property

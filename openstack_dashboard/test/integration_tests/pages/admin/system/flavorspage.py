@@ -10,8 +10,6 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
-from selenium.webdriver.common import by
-
 from openstack_dashboard.test.integration_tests.pages import basepage
 from openstack_dashboard.test.integration_tests.regions import forms
 from openstack_dashboard.test.integration_tests.regions import tables
@@ -20,8 +18,6 @@ from openstack_dashboard.test.integration_tests.regions import tables
 class FlavorsPage(basepage.BaseNavigationPage):
     DEFAULT_ID = "auto"
     FLAVORS_TABLE_NAME_COLUMN_INDEX = 0
-
-    _flavors_table_locator = (by.By.ID, 'flavors')
 
     FLAVORS_TABLE_NAME = "flavors"
     FLAVORS_TABLE_ACTIONS = ("create", "delete")
@@ -45,9 +41,7 @@ class FlavorsPage(basepage.BaseNavigationPage):
 
     @property
     def flavors_table(self):
-        src_elem = self._get_element(*self._flavors_table_locator)
-        return tables.ComplexActionTableRegion(self.driver,
-                                               self.conf, src_elem,
+        return tables.ComplexActionTableRegion(self.driver, self.conf,
                                                self.FLAVORS_TABLE_NAME,
                                                self.FLAVORS_TABLE_ACTIONS,
                                                self.FLAVORS_TABLE_ROW_ACTIONS)

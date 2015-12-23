@@ -10,7 +10,6 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 from selenium.common import exceptions
-from selenium.webdriver.common import by
 
 from openstack_dashboard.test.integration_tests.pages import basepage
 from openstack_dashboard.test.integration_tests.regions import forms
@@ -27,8 +26,6 @@ class InstancesPage(basepage.BaseNavigationPage):
     DEFAULT_VOLUME_SNAPSHOT_NAME = None
     DEFAULT_VOL_DELETE_ON_INSTANCE_DELETE = False
     DEFAULT_SECURITY_GROUP = True
-
-    _instances_table_locator = (by.By.CSS_SELECTOR, 'table#instances')
 
     INSTANCES_TABLE_NAME = "instances"
     INSTANCES_TABLE_ACTIONS = ("launch_ng", "launch", "delete",
@@ -64,9 +61,7 @@ class InstancesPage(basepage.BaseNavigationPage):
 
     @property
     def instances_table(self):
-        src_elem = self._get_element(*self._instances_table_locator)
-        return tables.ComplexActionTableRegion(self.driver,
-                                               self.conf, src_elem,
+        return tables.ComplexActionTableRegion(self.driver, self.conf,
                                                self.INSTANCES_TABLE_NAME,
                                                self.INSTANCES_TABLE_ACTIONS,
                                                self.INSTANCES_TABLE_ROW_ACTIONS

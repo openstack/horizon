@@ -19,8 +19,6 @@ from openstack_dashboard.test.integration_tests.regions import tables
 
 class ProjectsPage(basepage.BaseNavigationPage):
 
-    _projects_table_locator = (by.By.CSS_SELECTOR, 'table#tenants')
-
     _create_project_cancel_button_locator = (
         by.By.CSS_SELECTOR,
         'a.btn.btn-default.secondary.cancel.close')
@@ -56,13 +54,10 @@ class ProjectsPage(basepage.BaseNavigationPage):
 
     @property
     def projects_table(self):
-        src_elem = self._get_element(*self._projects_table_locator)
-        return tables.ComplexActionTableRegion(self.driver,
-                                               self.conf, src_elem,
+        return tables.ComplexActionTableRegion(self.driver, self.conf,
                                                self.PROJECTS_TABLE_NAME,
                                                self.PROJECTS_TABLE_ACTIONS,
-                                               self.PROJECTS_TABLE_ROW_ACTIONS
-                                               )
+                                               self.PROJECTS_TABLE_ROW_ACTIONS)
 
     @property
     def create_project_form(self):
