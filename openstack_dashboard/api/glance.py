@@ -153,7 +153,7 @@ def image_create(request, **kwargs):
     asynchronously.
 
     In the case of 'data' the process of uploading the data may take
-    some time and is handed off to a seperate thread.
+    some time and is handed off to a separate thread.
     """
     data = kwargs.pop('data', None)
 
