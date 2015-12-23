@@ -22,8 +22,9 @@ class ProjectsTable(tables.TableRegion):
     @tables.bind_table_action('create')
     def create_project(self, create_button):
         create_button.click()
-        return forms.TabbedFormRegion(self.driver, self.conf, None,
-                                      self.CREATE_PROJECT_FORM_FIELDS)
+        return forms.TabbedFormRegion(
+            self.driver, self.conf,
+            form_field_names=self.CREATE_PROJECT_FORM_FIELDS)
 
     @tables.bind_table_action('delete')
     def delete_project(self, delete_button):

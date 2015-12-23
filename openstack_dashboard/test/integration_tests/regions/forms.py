@@ -15,7 +15,6 @@ from selenium.webdriver.common import by
 import selenium.webdriver.support.ui as Support
 
 from openstack_dashboard.test.integration_tests.regions import baseregion
-from openstack_dashboard.test.integration_tests.regions import exceptions
 from openstack_dashboard.test.integration_tests.regions import menus
 
 
@@ -23,12 +22,19 @@ class FieldFactory(baseregion.BaseRegion):
     """Factory for creating form field objects."""
 
     FORM_FIELDS_TYPES = set()
+    _element_locator_str_prefix = 'div.form-group'
 
-    def make_form_field(self):
-        for form_type in self.FORM_FIELDS_TYPES:
-            if self._is_element_present(*form_type._element_locator):
-                return form_type(self.driver, self.conf, self.src_elem)
-        raise exceptions.UnknownFormFieldTypeException()
+    def __init__(self, driver, conf, src_elem=None):
+        super(FieldFactory, self).__init__(driver, conf, src_elem)
+
+    def fields(self):
+        for field_cls in self.FORM_FIELDS_TYPES:
+            locator = (by.By.CSS_SELECTOR,
+                       '%s %s' % (self._element_locator_str_prefix,
+                                  field_cls._element_locator_str_suffix))
+            elements = super(FieldFactory, self)._get_elements(*locator)
+            for element in elements:
+                yield field_cls(self.driver, self.conf, element)
 
     @classmethod
     def register_field_cls(cls, field_class, base_classes=None):
@@ -62,7 +68,7 @@ class BaseFormFieldRegion(baseregion.BaseRegion):
 
     @property
     def element(self):
-        return self._get_element(*self._element_locator)
+        return self.src_elem
 
     @property
     def name(self):
@@ -92,21 +98,19 @@ class CheckBoxMixin(object):
 class CheckBoxFormFieldRegion(BaseFormFieldRegion, CheckBoxMixin):
     """Checkbox field."""
 
-    _element_locator = (by.By.CSS_SELECTOR,
-                        'label > input[type=checkbox]')
+    _element_locator_str_suffix = 'label > input[type=checkbox]'
 
 
 class ProjectPageCheckBoxFormFieldRegion(BaseFormFieldRegion, CheckBoxMixin):
     """Checkbox field for Project-page."""
 
-    _element_locator = (by.By.CSS_SELECTOR,
-                        'div > input[type=checkbox]')
+    _element_locator_str_suffix = 'div > input[type=checkbox]'
 
 
 class ChooseFileFormFieldRegion(BaseFormFieldRegion):
     """Choose file field."""
 
-    _element_locator = (by.By.CSS_SELECTOR, 'div > input[type=file]')
+    _element_locator_str_suffix = 'div > input[type=file]'
 
     def choose(self, path):
         self.element.send_keys(path)
@@ -128,14 +132,14 @@ class BaseTextFormFieldRegion(BaseFormFieldRegion):
 class TextInputFormFieldRegion(BaseTextFormFieldRegion):
     """Text input box."""
 
-    _element_locator = (by.By.CSS_SELECTOR, 'div > input[type=text],'
-                                            'div > input[type=None]')
+    _element_locator_str_suffix = \
+        'div > input[type=text], div > input[type=None]'
 
 
 class FileInputFormFieldRegion(BaseFormFieldRegion):
     """Text input box."""
 
-    _element_locator = (by.By.CSS_SELECTOR, 'div > input[type=file]')
+    _element_locator_str_suffix = 'div > input[type=file]'
 
     @property
     def path(self):
@@ -151,25 +155,25 @@ class FileInputFormFieldRegion(BaseFormFieldRegion):
 class PasswordInputFormFieldRegion(BaseTextFormFieldRegion):
     """Password text input box."""
 
-    _element_locator = (by.By.CSS_SELECTOR, 'div > input[type=password]')
+    _element_locator_str_suffix = 'div > input[type=password]'
 
 
 class EmailInputFormFieldRegion(BaseTextFormFieldRegion):
     """Email text input box."""
 
-    _element_locator = (by.By.ID, 'id_email')
+    _element_locator_str_suffix = 'div > input[type=email]'
 
 
 class TextAreaFormFieldRegion(BaseTextFormFieldRegion):
     """Multi-line text input box."""
 
-    _element_locator = (by.By.CSS_SELECTOR, 'div > textarea')
+    _element_locator_str_suffix = 'div > textarea'
 
 
 class IntegerFormFieldRegion(BaseFormFieldRegion):
     """Integer input box."""
 
-    _element_locator = (by.By.CSS_SELECTOR, 'div > input[type=number]')
+    _element_locator_str_suffix = 'div > input[type=number]'
 
     @property
     def value(self):
@@ -183,15 +187,14 @@ class IntegerFormFieldRegion(BaseFormFieldRegion):
 class SelectFormFieldRegion(BaseFormFieldRegion):
     """Select box field."""
 
-    _element_locator = (by.By.CSS_SELECTOR, 'div > select')
+    _element_locator_str_suffix = 'div > select'
 
     def is_displayed(self):
         return self.element._el.is_displayed()
 
     @property
     def element(self):
-        select = self._get_element(*self._element_locator)
-        return Support.Select(select)
+        return Support.Select(self.src_elem)
 
     @property
     def values(self):
@@ -259,31 +262,27 @@ class FormRegion(BaseFormRegion):
 
     _header_locator = (by.By.CSS_SELECTOR, 'div.modal-header > h3')
     _side_info_locator = (by.By.CSS_SELECTOR, 'div.right')
-    _fields_locator = (by.By.CSS_SELECTOR, 'fieldset > div.form-group')
+    _fields_locator = (by.By.CSS_SELECTOR, 'fieldset')
 
     # private methods
-    def __init__(self, driver, conf, src_elem, form_field_names):
+    def __init__(self, driver, conf, src_elem=None, form_field_names=None):
         super(FormRegion, self).__init__(driver, conf, src_elem)
         self.form_field_names = form_field_names
+        self.wait_till_spinner_disappears()
         self._init_form_fields()
 
     # protected methods
     def _init_form_fields(self):
-        self._init_dynamic_properties(self.form_field_names,
-                                      self._get_form_fields)
+        self.fields_src_elem = self._get_element(*self._fields_locator)
+        self._dynamic_properties.update(self._get_form_fields())
 
     def _get_form_fields(self):
-        fields_els = self._get_elements(*self._fields_locator)
-        form_fields = {}
+        factory = FieldFactory(self.driver, self.conf, self.fields_src_elem)
         try:
             self._turn_off_implicit_wait()
-            for elem in fields_els:
-                field_factory = FieldFactory(self.driver, self.conf, elem)
-                field = field_factory.make_form_field()
-                form_fields[field.name] = field
+            return {field.name: field for field in factory.fields()}
         finally:
             self._turn_on_implicit_wait()
-        return form_fields
 
     def set_field_values(self, data):
         """Set fields values
@@ -346,33 +345,23 @@ class TabbedFormRegion(FormRegion):
 
     _submit_locator = (by.By.CSS_SELECTOR, '*.btn.btn-primary[type=submit]')
     _side_info_locator = (by.By.CSS_SELECTOR, "td.help_text")
-    _fields_locator = (by.By.CSS_SELECTOR, "div.form-group")
 
-    class GetFieldsMethod(object):
+    def __init__(self, driver, conf, form_field_names=None, default_tab=0):
+        self.current_tab = default_tab
+        super(TabbedFormRegion, self).__init__(
+            driver, conf, form_field_names=form_field_names)
 
-        def __init__(self, get_fields_method, tab_index, switch_tab_method):
-            self.get_fields = get_fields_method
-            self.tab_index = tab_index
-            self.switch_to_tab = switch_tab_method
+    def _init_form_fields(self):
+        self._init_tab_fields(self.current_tab)
 
-        def __call__(self, *args, **kwargs):
-            self.switch_to_tab(self.tab_index)
-            fields = self.get_fields()
-            if isinstance(fields, dict):
-                return {key: field for (key, field)
-                        in six.iteritems(fields) if field.is_displayed()}
-            else:
-                return [field for field in fields if field.is_displayed()]
+    def _init_tab_fields(self, tab_index):
+        fieldsets = self._get_elements(*self._fields_locator)
+        self.fields_src_elem = fieldsets[tab_index]
+        self._dynamic_properties.update(self._get_form_fields())
 
     @property
     def tabs(self):
         return menus.TabbedMenuRegion(self.driver, self.conf)
-
-    def _init_form_fields(self):
-        for index, tab_names in enumerate(self.form_field_names):
-            get_fields = self.GetFieldsMethod(self._get_form_fields, index,
-                                              self.tabs.switch_to)
-            self._init_dynamic_properties(tab_names, get_fields)
 
 
 class DateFormRegion(BaseFormRegion):
@@ -394,7 +383,7 @@ class DateFormRegion(BaseFormRegion):
     def query(self, start, end):
         self._set_from_field(start)
         self._set_to_field(end)
-        self.submit.click()
+        self.submit()
 
     def _set_from_field(self, value):
         self._fill_field_element(value, self.from_date)

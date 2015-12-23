@@ -31,8 +31,9 @@ class InstancesTable(tables.TableRegion):
     @tables.bind_table_action('launch')
     def launch_instance(self, launch_button):
         launch_button.click()
-        return forms.TabbedFormRegion(self.driver, self.conf, None,
-                                      self.CREATE_INSTANCE_FORM_FIELDS)
+        return forms.TabbedFormRegion(
+            self.driver, self.conf,
+            form_field_names=self.CREATE_INSTANCE_FORM_FIELDS)
 
     @tables.bind_table_action('delete')
     def delete_instance(self, delete_button):

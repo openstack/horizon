@@ -25,8 +25,9 @@ class KeypairsTable(tables.TableRegion):
     @tables.bind_table_action('create')
     def create_keypair(self, create_button):
         create_button.click()
-        return forms.FormRegion(self.driver, self.conf, None,
-                                self.CREATE_KEY_PAIR_FORM_FIELDS)
+        return forms.FormRegion(
+            self.driver, self.conf,
+            form_field_names=self.CREATE_KEY_PAIR_FORM_FIELDS)
 
     @tables.bind_row_action('delete', primary=True)
     def delete_keypair(self, delete_button, row):
