@@ -13,8 +13,8 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
+from openstack_dashboard.test.integration_tests import decorators
 from openstack_dashboard.test.integration_tests import helpers
-from openstack_dashboard.test.integration_tests.tests import decorators
 
 
 @decorators.skip_because(bugs=["1526791"])
