@@ -313,6 +313,56 @@
       expect(data).toEqual({items: [{'os-flavor-access:is_public': true, is_public: true}]});
 
     });
+
+  });
+
+  //// This is separated due to differences in what is being tested.
+  describe('Keypair functions', function() {
+
+    var service, $window;
+
+    beforeEach(module('horizon.app.core.openstack-service-api'));
+
+    beforeEach(module(function ($provide) {
+      $provide.value('horizon.framework.util.http.service', {});
+      $provide.value('horizon.framework.widgets.toast.service', {});
+    }));
+
+    beforeEach(inject(function (_$injector_, _$rootScope_, _$timeout_, _$window_) {
+      service = _$injector_.get(
+        'horizon.app.core.openstack-service-api.nova'
+      );
+      $window = _$window_;
+      $window.WEBROOT = '/';
+    }));
+
+    afterEach(inject(function (_$window_) {
+      $window = _$window_;
+      $window.WEBROOT = '/';
+    }));
+
+    it('returns a link to download the private key for an existing keypair', function() {
+      var link = service.getCreateKeypairUrl("keypairName");
+      expect(link).toEqual('/api/nova/keypairs/keypairName/');
+    });
+
+    it('returns a WEBROOT link to download the private key for an existing keypair', function() {
+      $window.WEBROOT = '/myroot/';
+      var link = service.getCreateKeypairUrl("keypairName");
+      expect(link).toEqual('/myroot/api/nova/keypairs/keypairName/');
+    });
+
+    it('returns a link to redownload the private key for an existing keypair', function() {
+      var link = service.getRegenerateKeypairUrl("keypairName");
+      expect(link).toEqual('/api/nova/keypairs/keypairName/?regenerate=true');
+    });
+
+    it('returns a WEBROOT link to redownload the private key for an existing keypair', function() {
+      $window.WEBROOT = '/myroot/';
+      var link = service.getRegenerateKeypairUrl("keypairName");
+      expect(link).toEqual('/myroot/api/nova/keypairs/keypairName/?regenerate=true');
+    });
+
   });
 
 })();
