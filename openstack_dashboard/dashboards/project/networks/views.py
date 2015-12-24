@@ -48,15 +48,8 @@ class IndexView(tables.DataTableView):
     def get_data(self):
         try:
             tenant_id = self.request.user.tenant_id
-            networks = api.neutron.network_list_for_tenant(self.request,
-                                                           tenant_id)
-            # List Public networks
-            for network in api.neutron.network_list(
-                    self.request, **{'router:external': True}
-            ):
-                if network not in networks:
-                    networks.append(network)
-
+            networks = api.neutron.network_list_for_tenant(
+                self.request, tenant_id, include_external=True)
         except Exception:
             networks = []
             msg = _('Network list can not be retrieved.')
