@@ -269,7 +269,7 @@ class FloatingIpViewTests(test.TestCase):
         self.assertEqual(set(['ajax-modal']), set(allocate_action.classes))
         self.assertEqual('Allocate IP To Project',
                          six.text_type(allocate_action.verbose_name))
-        self.assertEqual(None, allocate_action.policy_rules)
+        self.assertIsNone(allocate_action.policy_rules)
 
         url = 'horizon:project:access_and_security:floating_ips:allocate'
         self.assertEqual(url, allocate_action.url)
