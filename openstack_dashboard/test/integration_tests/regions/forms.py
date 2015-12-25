@@ -239,12 +239,18 @@ class BaseFormRegion(baseregion.BaseRegion):
         super(BaseFormRegion, self).__init__(driver, conf, src_elem)
 
     @property
-    def submit(self):
+    def _submit_element(self):
         return self._get_element(*self._submit_locator)
 
+    def submit(self):
+        self._submit_element.click()
+
     @property
-    def cancel(self):
+    def _cancel_element(self):
         return self._get_element(*self._cancel_locator)
+
+    def cancel(self):
+        self._cancel_element.click()
 
 
 class FormRegion(BaseFormRegion):

@@ -17,6 +17,27 @@ from openstack_dashboard.test.integration_tests.regions import forms
 from openstack_dashboard.test.integration_tests.regions import tables
 
 
+class ImagesTable(tables.TableRegion):
+    name = "images"
+    CREATE_IMAGE_FORM_FIELDS = (
+        "name", "description", "source_type", "image_url",
+        "image_file", "kernel", "ramdisk",
+        "disk_format", "architecture", "minimum_disk",
+        "minimum_ram", "is_public", "protected"
+    )
+
+    @tables.bind_table_action('create')
+    def create_image(self, create_button):
+        create_button.click()
+        return forms.FormRegion(self.driver, self.conf, None,
+                                self.CREATE_IMAGE_FORM_FIELDS)
+
+    @tables.bind_table_action('delete')
+    def delete_image(self, delete_button):
+        delete_button.click()
+        return forms.BaseFormRegion(self.driver, self.conf)
+
+
 class ImagesPage(basepage.BaseNavigationPage):
 
     DEFAULT_IMAGE_SOURCE = 'url'
@@ -25,20 +46,6 @@ class ImagesPage(basepage.BaseNavigationPage):
     DEFAULT_PROTECTION = False
     IMAGES_TABLE_NAME_COLUMN = 'name'
     IMAGES_TABLE_STATUS_COLUMN = 'status'
-
-    IMAGES_TABLE_NAME = "images"
-    IMAGES_TABLE_ACTIONS = ("create", "delete")
-    IMAGES_TABLE_ROW_ACTIONS = {
-        tables.ComplexActionRowRegion.PRIMARY_ACTION: "launch",
-        tables.ComplexActionRowRegion.SECONDARY_ACTIONS: ("create_volume",)
-    }
-
-    CREATE_IMAGE_FORM_FIELDS = (
-        "name", "description", "source_type", "image_url",
-        "image_file", "kernel", "ramdisk",
-        "disk_format", "architecture", "minimum_disk",
-        "minimum_ram", "is_public", "protected"
-    )
 
     def __init__(self, driver, conf):
         super(ImagesPage, self).__init__(driver, conf)
@@ -49,19 +56,7 @@ class ImagesPage(basepage.BaseNavigationPage):
 
     @property
     def images_table(self):
-        return tables.ComplexActionTableRegion(self.driver, self.conf,
-                                               self.IMAGES_TABLE_NAME,
-                                               self.IMAGES_TABLE_ACTIONS,
-                                               self.IMAGES_TABLE_ROW_ACTIONS)
-
-    @property
-    def create_image_form(self):
-        return forms.FormRegion(self.driver, self.conf, None,
-                                self.CREATE_IMAGE_FORM_FIELDS)
-
-    @property
-    def confirm_delete_images_form(self):
-        return forms.BaseFormRegion(self.driver, self.conf, None)
+        return ImagesTable(self.driver, self.conf)
 
     def create_image(self, name, description=None,
                      image_source_type=DEFAULT_IMAGE_SOURCE,
@@ -69,32 +64,32 @@ class ImagesPage(basepage.BaseNavigationPage):
                      image_format=DEFAULT_IMAGE_FORMAT,
                      is_public=DEFAULT_ACCESSIBILITY,
                      is_protected=DEFAULT_PROTECTION):
-        self.images_table.create.click()
-        self.create_image_form.name.text = name
+        create_image_form = self.images_table.create_image()
+        create_image_form.name.text = name
         if description is not None:
-            self.create_image_form.description.text = description
-        self.create_image_form.source_type.value = image_source_type
+            create_image_form.description.text = description
+        create_image_form.source_type.value = image_source_type
         if image_source_type == 'url':
             if location is None:
-                self.create_image_form.image_url.text = \
+                create_image_form.image_url.text = \
                     self.conf.image.http_image
             else:
-                self.create_image_form.image_url.text = location
+                create_image_form.image_url.text = location
         else:
-            self.create_image_form.image_file.choose(image_file)
-        self.create_image_form.disk_format.value = image_format
+            create_image_form.image_file.choose(image_file)
+        create_image_form.disk_format.value = image_format
         if is_public:
-            self.create_image_form.is_public.mark()
+            create_image_form.is_public.mark()
         if is_protected:
-            self.create_image_form.protected.mark()
-        self.create_image_form.submit.click()
+            create_image_form.protected.mark()
+        create_image_form.submit()
         self.wait_till_popups_disappear()
 
     def delete_image(self, name):
         row = self._get_row_with_image_name(name)
         row.mark()
-        self.images_table.delete.click()
-        self.confirm_delete_images_form.submit.click()
+        confirm_delete_images_form = self.images_table.delete_image()
+        confirm_delete_images_form.submit()
         self.wait_till_popups_disappear()
 
     def is_image_present(self, name):
