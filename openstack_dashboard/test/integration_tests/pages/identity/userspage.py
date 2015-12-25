@@ -17,7 +17,7 @@ from openstack_dashboard.test.integration_tests.regions import tables
 
 class UsersPage(basepage.BaseNavigationPage):
 
-    USERS_TABLE_NAME_COLUMN_INDEX = 0
+    USERS_TABLE_NAME_COLUMN = 'name'
 
     USERS_TABLE_NAME = "users"
     USERS_TABLE_ACTIONS = ("create", "delete")
@@ -36,8 +36,7 @@ class UsersPage(basepage.BaseNavigationPage):
         self._page_title = "Users"
 
     def _get_row_with_user_name(self, name):
-        return self.users_table.get_row(
-            self.USERS_TABLE_NAME_COLUMN_INDEX, name)
+        return self.users_table.get_row(self.USERS_TABLE_NAME_COLUMN, name)
 
     @property
     def users_table(self):

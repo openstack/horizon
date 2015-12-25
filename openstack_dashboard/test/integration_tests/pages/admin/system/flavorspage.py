@@ -17,7 +17,7 @@ from openstack_dashboard.test.integration_tests.regions import tables
 
 class FlavorsPage(basepage.BaseNavigationPage):
     DEFAULT_ID = "auto"
-    FLAVORS_TABLE_NAME_COLUMN_INDEX = 0
+    FLAVORS_TABLE_NAME_COLUMN = 'name'
 
     FLAVORS_TABLE_NAME = "flavors"
     FLAVORS_TABLE_ACTIONS = ("create", "delete")
@@ -36,8 +36,7 @@ class FlavorsPage(basepage.BaseNavigationPage):
         self._page_title = "Flavors"
 
     def _get_row_with_flavor_name(self, name):
-        return self.flavors_table.get_row(
-            self.FLAVORS_TABLE_NAME_COLUMN_INDEX, name)
+        return self.flavors_table.get_row(self.FLAVORS_TABLE_NAME_COLUMN, name)
 
     @property
     def flavors_table(self):

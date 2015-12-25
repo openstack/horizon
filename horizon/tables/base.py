@@ -434,6 +434,11 @@ class Column(html.HTMLElement):
         except urlresolvers.NoReverseMatch:
             return self.link
 
+    def get_default_attrs(self):
+        attrs = super(Column, self).get_default_attrs()
+        attrs.update({'data-selenium': self.name})
+        return attrs
+
     def get_summation(self):
         """Returns the summary value for the data in this column if a
         valid summation method is specified for it. Otherwise returns ``None``.

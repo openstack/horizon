@@ -17,7 +17,7 @@ from openstack_dashboard.test.integration_tests.regions import tables
 
 class SecuritygroupsPage(basepage.BaseNavigationPage):
 
-    SECURITYGROUPS_TABLE_NAME_COLUMN_INDEX = 0
+    SECURITYGROUPS_TABLE_NAME_COLUMN = 'name'
 
     SECURITYGROUPS_TABLE_NAME = "security_groups"
     SECURITYGROUPS_TABLE_ACTIONS = ("create", "delete")
@@ -35,7 +35,7 @@ class SecuritygroupsPage(basepage.BaseNavigationPage):
 
     def _get_row_with_securitygroup_name(self, name):
         return self.securitygroups_table.get_row(
-            self.SECURITYGROUPS_TABLE_NAME_COLUMN_INDEX, name)
+            self.SECURITYGROUPS_TABLE_NAME_COLUMN, name)
 
     @property
     def securitygroups_table(self):

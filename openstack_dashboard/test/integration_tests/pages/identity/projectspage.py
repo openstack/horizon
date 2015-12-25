@@ -32,7 +32,7 @@ class ProjectsPage(basepage.BaseNavigationPage):
         'div.modal-backdrop')
 
     DEFAULT_ENABLED = True
-    PROJECTS_TABLE_NAME_COLUMN_INDEX = 0
+    PROJECTS_TABLE_NAME_COLUMN = 'name'
     PROJECTS_TABLE_NAME = "tenants"
     PROJECTS_TABLE_ACTIONS = ("create", "delete")
     PROJECTS_TABLE_ROW_ACTIONS = {
@@ -75,8 +75,8 @@ class ProjectsPage(basepage.BaseNavigationPage):
             *self._delete_project_submit_button_locator)
 
     def _get_row_with_project_name(self, name):
-        return self.projects_table.get_row(
-            self.PROJECTS_TABLE_NAME_COLUMN_INDEX, name)
+        return self.projects_table.get_row(self.PROJECTS_TABLE_NAME_COLUMN,
+                                           name)
 
     def _cancel_popup(self):
         self.create_project_cancel_button.click()
