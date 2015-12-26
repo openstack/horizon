@@ -5,8 +5,8 @@ Horizon Policy Enforcement (RBAC: Role Based Access Control)
 Introduction
 ============
 
-Horizon's policy enforcement builds on the oslo-incubator policy engine.
-The basis of which is ``openstack_dashboard/openstack/common/policy.py``.
+Horizon's policy enforcement builds on the oslo_policy engine.
+The basis of which is ``openstack_auth/policy.py``.
 Services in OpenStack use the oslo policy engine to define policy rules
 to limit access to APIs based primarily on role grants and resource
 ownership.
@@ -125,6 +125,25 @@ utilizes.  Examples look like::
     Any time multiple rules are specified in a single `policy.check` method
     call, the result is the logical `and` of each rule check. So, if any
     rule fails verification, the result is `False`.
+
+The third way to add a role based check is in javascript files. Use the method
+'ifAllowed()' in file 'openstack_dashboard.static.app.core.policy.service.js'.
+The method takes a list of actions, similar format with the
+:attr:`~horizon.tables.Action.policy_rules` attribute detailed above.
+An Example looks like::
+
+    angular
+    .module('horizon.dashboard.identity.users')
+    .controller('identityUsersTableController', identityUsersTableController);
+
+    identityUsersTableController.$inject = [
+      'horizon.app.core.openstack-service-api.policy',
+    ];
+
+    function identityUsersTableController(toast, gettext, policy, keystone) {
+      var rules = [['identity', 'identity:list_users']];
+      policy.ifAllowed({ rules: rules }).then(policySuccess, policyFailed);
+    }
 
 .. _rule_targets:
 
