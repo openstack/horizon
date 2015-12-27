@@ -57,14 +57,12 @@ class ProjectsPage(basepage.BaseNavigationPage):
         if not is_enabled:
             create_project_form.enabled.unmark()
         create_project_form.submit()
-        self.wait_till_popups_disappear()
 
     def delete_project(self, project_name):
         row = self._get_row_with_project_name(project_name)
         row.mark()
         modal_confirmation_form = self.projects_table.delete_project()
         modal_confirmation_form.submit()
-        self.wait_till_popups_disappear()
 
     def is_project_present(self, project_name):
         return bool(self._get_row_with_project_name(project_name))

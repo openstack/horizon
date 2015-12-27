@@ -83,14 +83,12 @@ class ImagesPage(basepage.BaseNavigationPage):
         if is_protected:
             create_image_form.protected.mark()
         create_image_form.submit()
-        self.wait_till_popups_disappear()
 
     def delete_image(self, name):
         row = self._get_row_with_image_name(name)
         row.mark()
         confirm_delete_images_form = self.images_table.delete_image()
         confirm_delete_images_form.submit()
-        self.wait_till_popups_disappear()
 
     def is_image_present(self, name):
         return bool(self._get_row_with_image_name(name))

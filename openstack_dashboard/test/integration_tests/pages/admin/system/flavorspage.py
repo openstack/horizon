@@ -61,14 +61,12 @@ class FlavorsPage(basepage.BaseNavigationPage):
         create_flavor_form.eph_gb.value = ephemeral_disk
         create_flavor_form.swap_mb.value = swap_disk
         create_flavor_form.submit()
-        self.wait_till_popups_disappear()
 
     def delete_flavor(self, name):
         row = self._get_flavor_row(name)
         row.mark()
         confirm_delete_flavors_form = self.flavors_table.delete_flavor()
         confirm_delete_flavors_form.submit()
-        self.wait_till_popups_disappear()
 
     def is_flavor_present(self, name):
         return bool(self._get_flavor_row(name))
