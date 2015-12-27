@@ -11,6 +11,7 @@
 #    under the License.
 
 from openstack_dashboard.test.integration_tests import helpers
+from openstack_dashboard.test.integration_tests.regions import messages
 
 
 class TestSecuritygroup(helpers.TestCase):
@@ -29,9 +30,17 @@ class TestSecuritygroup(helpers.TestCase):
             self.home_pg.go_to_compute_accessandsecurity_securitygroupspage()
 
         securitygroups_page.create_securitygroup(self.SECURITYGROUP_NAME)
+        self.assertTrue(
+            securitygroups_page.find_message_and_dismiss(messages.SUCCESS))
+        self.assertFalse(
+            securitygroups_page.find_message_and_dismiss(messages.ERROR))
         self.assertTrue(securitygroups_page.is_securitygroup_present(
             self.SECURITYGROUP_NAME))
 
         securitygroups_page.delete_securitygroup(self.SECURITYGROUP_NAME)
+        self.assertTrue(
+            securitygroups_page.find_message_and_dismiss(messages.SUCCESS))
+        self.assertFalse(
+            securitygroups_page.find_message_and_dismiss(messages.ERROR))
         self.assertFalse(securitygroups_page.is_securitygroup_present(
             self.SECURITYGROUP_NAME))
