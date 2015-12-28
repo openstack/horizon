@@ -175,8 +175,6 @@
           }
         });
 
-        $provide.value('horizon.app.core.openstack-service-api.keystone', {});
-
         $provide.value('horizon.framework.widgets.toast.service', {
           add: function() {}
         });
