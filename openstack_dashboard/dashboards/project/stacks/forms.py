@@ -353,6 +353,7 @@ class CreateStackForm(forms.SelfHandlingForm):
             # (see https://bugs.launchpad.net/heat/+bug/1361448)
             # so for better compatibility both are checked here
             elif param_type in ('Boolean', 'boolean'):
+                field_args['required'] = False
                 field = forms.BooleanField(**field_args)
 
             if field:
