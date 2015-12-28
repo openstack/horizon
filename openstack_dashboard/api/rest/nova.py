@@ -241,7 +241,7 @@ class Flavors(generic.View):
         """Get a list of flavors.
 
         The listing result is an object with property "items". Each item is
-        an flavor. By default this will return the flavors for the user's
+        a flavor. By default this will return the flavors for the user's
         current project. If the user is admin, public flavors will also be
         returned.
 
