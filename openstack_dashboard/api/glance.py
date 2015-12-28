@@ -242,7 +242,7 @@ def metadefs_namespace_get(request, namespace, resource_type=None, wrap=False):
 
 
 def metadefs_namespace_list(request,
-                            filters={},
+                            filters=None,
                             sort_dir='asc',
                             sort_key='namespace',
                             marker=None,
@@ -275,6 +275,8 @@ def metadefs_namespace_list(request,
     if get_version() < 2:
         return [], False, False
 
+    if filters is None:
+        filters = {}
     limit = getattr(settings, 'API_RESULT_LIMIT', 1000)
     page_size = utils.get_page_size(request)
 

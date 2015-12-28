@@ -58,7 +58,7 @@ from openstack_dashboard.test.test_data import utils as test_utils
 wsgi.WSGIRequest.__repr__ = lambda self: "<class 'django.http.HttpRequest'>"
 
 
-def create_stubs(stubs_to_create={}):
+def create_stubs(stubs_to_create=None):
     """decorator to simplify setting up multiple stubs at once via mox
 
     :param stubs_to_create: methods to stub in one or more modules
@@ -89,7 +89,8 @@ def create_stubs(stubs_to_create={}):
         }
 
     """
-
+    if stubs_to_create is None:
+        stubs_to_create = {}
     if not isinstance(stubs_to_create, dict):
         raise TypeError("create_stub must be passed a dict, but a %s was "
                         "given." % type(stubs_to_create).__name__)
