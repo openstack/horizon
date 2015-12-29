@@ -22,20 +22,34 @@
   actionsService.$inject = [
     '$compile',
     '$http',
+    '$parse',
     '$q',
     '$templateCache',
     'horizon.framework.widgets.basePath',
     'horizon.framework.util.q.extensions'
   ];
 
-  function actionsService($compile, $http, $q, $templateCache, basePath, $qExtensions) {
+  function actionsService(
+    $compile,
+    $http,
+    $parse,
+    $q,
+    $templateCache,
+    basePath,
+    $qExtensions
+  ) {
     return function(spec) {
-      return createService(spec.scope, spec.element, spec.listType, spec.item);
+      return createService(
+        spec.scope,
+        spec.element,
+        spec.ctrl,
+        spec.listType,
+        spec.item);
     };
 
     ///////////////
 
-    function createService(scope, element, listType, item) {
+    function createService(scope, element, ctrl, listType, item) {
       var service = {
         renderActions: renderActions
       };
@@ -44,11 +58,20 @@
 
       function renderActions(allowedActions) {
         allowedActions.forEach(function(allowedAction) {
-          allowedAction.promise = allowedAction.permissions;
+          allowedAction.promise = getPermissions(allowedAction);
           allowedAction.context = allowedAction;
         });
 
         $qExtensions.allSettled(allowedActions).then(renderPermittedActions);
+
+        function getPermissions(allowedAction) {
+          if (listType === 'batch') {
+            return allowedAction.service.allowed();
+          } else {
+            var itemVal = $parse(item)(scope);
+            return allowedAction.service.allowed(itemVal);
+          }
+        }
       }
 
       /**
@@ -165,13 +188,17 @@
         return defered.promise;
 
         function onTemplateGet(response) {
+          var callback = ctrl.generateDynamicCallback(action.service, index);
           var template = response.data
                 .replace(
                   '$action-classes$', getActionClasses(action, index, permittedActions.length)
                 )
                 .replace('$text$', action.template.text)
                 .replace('$item$', item);
-          defered.resolve({template: template, callback: action.callback});
+          defered.resolve({
+            template: template,
+            callback: callback
+          });
         }
       }
 

@@ -18,6 +18,7 @@
     var $scope, $compile, $q, $templateCache, basePath;
 
     var rowItem = {id: 1};
+    var callback = jasmine.createSpy('callback');
 
     beforeEach(module('templates'));
     beforeEach(module('horizon.framework'));
@@ -45,6 +46,9 @@
       expect(actionList.find('button').attr('class')).toEqual('btn btn-default btn-sm');
       expect(actionList.find('button').attr('ng-click')).toEqual('disabled || callback(item)');
       expect(actionList.text().trim()).toEqual('Create Image');
+
+      actionList.find('button').click();
+      expect(callback).toHaveBeenCalled();
     });
 
     it('should allow for specifying by template for create', function () {
@@ -73,11 +77,6 @@
     });
 
     it('should allow for specifying by template for delete', function () {
-      $scope.callback = function(item) {
-        expect(item).toEqual(rowItem);
-      };
-      spyOn($scope, 'callback').and.callThrough();
-
       var element = rowElementFor([permittedActionWithType('delete', 'Delete Image')]);
 
       expect(element.children().length).toBe(1);
@@ -90,15 +89,10 @@
       expect(actionList.text().trim()).toEqual('Delete Image');
 
       actionList.find('button').click();
-      expect($scope.callback).toHaveBeenCalled();
+      expect(callback).toHaveBeenCalledWith(rowItem);
     });
 
     it('should allow for specifying by template for danger', function () {
-      $scope.callback = function(item) {
-        expect(item).toEqual(rowItem);
-      };
-      spyOn($scope, 'callback').and.callThrough();
-
       var element = rowElementFor([permittedActionWithType('danger', 'Shutdown Instance')]);
 
       expect(element.children().length).toBe(1);
@@ -111,7 +105,7 @@
       expect(actionList.text().trim()).toEqual('Shutdown Instance');
 
       actionList.find('button').click();
-      expect($scope.callback).toHaveBeenCalled();
+      expect(callback).toHaveBeenCalledWith(rowItem);
     });
 
     it('should have one button if there is one action', function () {
@@ -147,6 +141,25 @@
       expect(actionList.attr('class').indexOf('btn-addon')).toBeGreaterThan(-1);
       expect(actionList.find('button.btn-create').text().trim()).toEqual('Create Image');
       expect(actionList.find('button.text-danger').text().trim()).toEqual('Delete Image');
+    });
+
+    it('should bind multiple callbacks for multiple buttons in a batch', function () {
+      var callback1 = jasmine.createSpy('callback1');
+      var callback2 = jasmine.createSpy('callback2');
+      var element = batchElementFor([
+        permittedActionWithText('Action 1', 'btn-1', callback1),
+        permittedActionWithText('Action 2', 'btn-2', callback2)
+      ]);
+
+      expect(element.children().length).toBe(2);
+      var actionList = element.find('action-list');
+      expect(actionList.length).toBe(2);
+
+      actionList.find('button.btn-1').click();
+      expect(callback1).toHaveBeenCalled();
+
+      actionList.find('button.btn-2').click();
+      expect(callback2).toHaveBeenCalled();
     });
 
     it('should have as many buttons as permitted', function () {
@@ -207,6 +220,25 @@
       expect(actionList.find('li a.text-danger').text().trim()).toEqual('Delete Image');
     });
 
+    it('should bind callbacks per button for dropdowns', function () {
+      var callback1 = jasmine.createSpy('callback1');
+      var callback2 = jasmine.createSpy('callback2');
+      var element = rowElementFor([
+        permittedActionWithText('Action 1', 'btn-1', callback1),
+        permittedActionWithText('Action 2', 'btn-2', callback2)
+      ]);
+
+      expect(element.children().length).toBe(1);
+      var actionList = element.find('action-list');
+      expect(actionList.length).toBe(1);
+
+      actionList.find('button .fa').click();
+      expect(callback1).toHaveBeenCalledWith(rowItem);
+
+      actionList.find('li .btn-2').click();
+      expect(callback2).toHaveBeenCalledWith(rowItem);
+    });
+
     it('should have one button if only one permitted for dropdown', function () {
       var element = rowElementFor([
         permittedActionWithText('Single Action', 'btn-custom'),
@@ -225,35 +257,49 @@
     function permittedActionWithUrl(templateUrl) {
       return {
         template: {url: templateUrl},
-        permissions: getPermission(true),
-        callback: 'callback'
+        service: getService(getPermission(true), callback)
       };
     }
 
-    function permittedActionWithText(text, actionClasses) {
+    function permittedActionWithText(text, actionClasses, actionCallback) {
       return {
         template: {
           text: text,
           actionClasses: actionClasses
         },
-        permissions: getPermission(true),
-        callback: 'callback'
+        service: getService(getPermission(true), actionCallback || callback)
       };
     }
 
-    function permittedActionWithType(templateType, text) {
+    function permittedActionWithType(templateType, text, actioncCallback) {
       return {
         template: {
           type: templateType,
           text: text
         },
-        permissions: getPermission(true),
-        callback: 'callback'
+        service: getService(getPermission(true), actioncCallback || callback)
       };
     }
 
     function notPermittedAction() {
-      return {template: 'dummy', permissions: getPermission(false), callback: 'callback'};
+      return {
+        template: 'dummy',
+        service: getService(getPermission(false), callback)
+      };
+    }
+
+    function getService(permissions, callback) {
+      return {
+        allowed: function(args) {
+          if (args) {
+            expect(args).toEqual(rowItem);
+          }
+          return permissions;
+        },
+        perform: function(args) {
+          callback(args);
+        }
+      };
     }
 
     function getTemplate(templateName) {
@@ -291,8 +337,7 @@
 
     function rowElementFor(actions) {
       $scope.rowItem = rowItem;
-      $scope.actions = function(item) {
-        expect(item).toEqual(rowItem);
+      $scope.actions = function() {
         return actions;
       };
 

@@ -42,20 +42,15 @@
    * 'row' actions are used per item.
    *
    * @param {string=} item
-   * The item to pass to the callback when using 'row' type.
-   * The variable is evaluated and passed as an argument when evaluating 'allowed'.
-   * 'item' is not used when row type is 'batch'.
+   * The item to pass to the 'service' when using 'row' type.
    *
    * @param {function} allowed
    * Returns an array of actions that can be performed on the item(s).
-   * When using 'row' type, the current 'item' will be passed to the function.
-   * When using 'batch' type, no arguments are provided.
    *
    * This is an array that should contain objects with the following properties:
    * {
    *   template: <template object - described below>,
-   *   permissions: <a promise to determine if action is allowed>,
-   *   callback: 'callback for the action'
+   *   service: <service to use - described below>
    * }
    *
    *   template: is an object that can be any of
@@ -78,14 +73,16 @@
    *      This creates a button with the given text.
    *      For custom styling of the button, `actionClasses` can be optionally included.
    *
-   *   permissions: is expected to be a promise that resolves
-   *   if the action is permitted and is rejected if not. If there are multiple promises that
-   *   need to be resolved, you can $q.all to combine multiple promises into a single promise.
-   *
-   *   callback: is the method to call when the button is clicked.
-   *   When using 'row' type, the current 'item' is evaluated and passed to the function.
-   *   When using 'batch' type, 'item' is not passed.
-   *   When using 'delete-selected' for 'batch' type, all selected rows are passed.
+   *   service: is the service expected to have two functions
+   *   1. allowed: is expected to return a promise that resolves
+   *      if the action is permitted and is rejected if not. If there are multiple promises that
+   *      need to be resolved, you can $q.all to combine multiple promises into a single promise.
+   *      When using 'row' type, the current 'item' will be passed to the function.
+   *      When using 'batch' type, no arguments are provided.
+   *   2. perform: is what gets called when the button is clicked.
+   *      When using 'row' type, the current 'item' is evaluated and passed to the function.
+   *      When using 'batch' type, 'item' is not passed.
+   *      When using 'delete-selected' for 'batch' type, all selected rows are passed.
    *
    * @restrict E
    * @scope
@@ -93,23 +90,50 @@
    *
    * batch:
    *
+   * Create the services that will implement the actions.
+   * Each service must have an allowed function and a perform function.
+   *
+   * var batchDeleteService = {
+   *   allowed: function() {
+   *     return policy.ifAllowed({ rules: [['image', 'delete_image']] });
+   *   },
+   *   perform: function(images) {
+   *     images.forEach(function(image){
+   *       glanceAPI.deleteImage(image.id);
+   *     });
+   *   }
+   * };
+   *
+   * var createService = {
+   *   allowed: function() {
+   *     return policy.ifAllowed({ rules: [['image', 'add_image']] });
+   *   },
+   *   perform: function() {
+   *     //open the modal to create
+   *   }
+   * };
+   *
+   * Then create the Service to use in the HTML which lists
+   * all allowed actions with the templates to use.
+   *
    * function actions() {
    *   return [{
-   *     callback: 'table.batchActions.delete.open',
    *     template: {
    *       type: 'delete-selected',
    *       text: gettext('Delete Images')
    *     },
-   *     permissions: policy.ifAllowed({ rules: [['image', 'delete_image']] })
+   *     service: batchDeleteService
    *     }, {
-   *     callback: 'table.batchActions.create.open',
    *     template: {
    *       type: 'create',
    *       text: gettext('Create Image')
    *     },
-   *     permissions: policy.ifAllowed({ rules: [['image', 'add_image']] })
+   *     service: createService
    *   }];
    * }
+   *
+   * Finally, in your HTML, reference the "actions" function and pass
+   * in the list of actions that will be allowed.
    *
    * ```
    * <actions allowed="actions" type="batch">
@@ -118,22 +142,52 @@
    *
    * row:
    *
+   * Create the services that will implement the actions.
+   * Each service must have an allowed function and a perform function.
+   *
+   * var deleteService = {
+   *   allowed: function(image) {
+   *     return $q.all([
+   *       notProtected(image),
+   *       policy.ifAllowed({ rules: [['image', 'delete_image']] }),
+   *       ownedByUser(image),
+   *       notDeleted(image)
+   *     ]);
+   *   },
+   *   perform: function(image) {
+   *     glanceAPI.deleteImage(image.id);
+   *   }
+   * };
+   *
+   * var createVolumeService = {
+   *   allowed: function(image) {
+   *     return createVolumeFromImagePermitted(image);
+   *   },
+   *   perform: function(image) {
+   *     //open the modal to create volume
+   *   }
+   * };
+   *
+   * Then create the Service to use in the HTML which lists
+   * all allowed actions with the templates to use.
+   *
    * function actions(image) {
    *   return [{
-   *     callback: 'table.rowActions.deleteImage.open',
    *     template: {
    *       text: gettext('Delete Image'),
    *       type: 'delete'
    *     },
-   *     permissions: imageDeletePermitted(image)
+   *     service: deleteService
    *   }, {
-   *     callback: 'table.rowActions.createVolume.open',
    *     template: {
    *       text: gettext('Create Volume')
    *     },
-   *     permissions: createVolumeFromImagePermitted(image)
+   *     service: createVolumeService
    *   }];
    * }
+   *
+   * Finally, in your HTML, reference the "actions" function and pass
+   * in the list of actions that will be allowed.
    *
    * ```
    * <actions allowed="actions" type="row" item="image">
@@ -149,27 +203,26 @@
     var directive = {
       link: link,
       restrict: 'E',
-      template: ''
+      scope: true,
+      controller: 'horizon.framework.widgets.action-list.ActionsController as actionsCtrl'
     };
 
     return directive;
 
-    function link(scope, element, attrs) {
+    function link(scope, element, attrs, actionsController) {
       var listType = attrs.type;
       var item = attrs.item;
+      var allowedActions = $parse(attrs.allowed)(scope)();
+
       var service = actionsService({
         scope: scope,
         element: element,
+        ctrl: actionsController,
         listType: listType,
         item: item
       });
-      var allowedActions = $parse(attrs.allowed)(scope);
-      if (listType === 'row') {
-        var itemVal = $parse(item)(scope);
-        service.renderActions(allowedActions(itemVal));
-      } else {
-        service.renderActions(allowedActions());
-      }
+
+      service.renderActions(allowedActions);
     }
   }
 })();
