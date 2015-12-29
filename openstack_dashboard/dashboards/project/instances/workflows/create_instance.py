@@ -21,6 +21,7 @@ import logging
 import operator
 
 from oslo_utils import units
+import six
 
 from django.template.defaultfilters import filesizeformat  # noqa
 from django.utils.text import normalize_newlines  # noqa
@@ -688,7 +689,8 @@ class CustomizeAction(workflows.Action):
                     except Exception as e:
                         msg = _('There was a problem parsing the'
                                 ' %(prefix)s: %(error)s')
-                        msg = msg % {'prefix': prefix, 'error': e}
+                        msg = msg % {'prefix': prefix,
+                                     'error': six.text_type(e)}
                         raise forms.ValidationError(msg)
                 return script
         else:
