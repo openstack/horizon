@@ -136,7 +136,7 @@ def image_update(request, image_id, **kwargs):
                 msg = (('Failed to remove temporary image file '
                         '%(file)s (%(e)s)') %
                        dict(file=filename, e=str(e)))
-                LOG.warn(msg)
+                LOG.warning(msg)
 
 
 def image_create(request, **kwargs):
