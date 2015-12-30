@@ -71,7 +71,7 @@ class FloatingIpManager(object):
         """Allocates a floating IP to the tenant.
 
         You must provide a pool name or id for which you would like to
-        allocate an floating IP.
+        allocate a floating IP.
         """
         pass
 

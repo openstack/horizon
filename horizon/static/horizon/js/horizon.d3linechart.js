@@ -337,7 +337,7 @@ horizon.d3_line_chart = {
       svg.hide();
 
       /*
-        Width an height of the chart will be taken from chart wrapper,
+        Width and height of the chart will be taken from chart wrapper,
         that can be styled by css.
       */
       self.width = jquery_element.width();

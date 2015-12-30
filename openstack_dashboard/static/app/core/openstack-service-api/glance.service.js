@@ -290,7 +290,7 @@
      * http://docs.openstack.org/developer/glance/metadefs-concepts.html
      *
      * The listing result is an object with property "items". Each item is
-     * an namespace.
+     * a namespace.
      *
      * @description
      * Get a list of namespaces.
