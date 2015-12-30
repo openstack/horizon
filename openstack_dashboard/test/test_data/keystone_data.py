@@ -127,15 +127,7 @@ SERVICE_CATALOG = [
          {"region": "RegionOne",
           "adminURL": "http://admin.heat.example.com:8004/v1",
           "publicURL": "http://public.heat.example.com:8004/v1",
-          "internalURL": "http://int.heat.example.com:8004/v1"}]},
-    {"type": "database",
-     "name": "Trove",
-     "endpoints_links": [],
-     "endpoints": [
-         {"region": "RegionOne",
-          "adminURL": "http://admin.trove.example.com:8779/v1.0",
-          "publicURL": "http://public.trove.example.com:8779/v1.0",
-          "internalURL": "http://int.trove.example.com:8779/v1.0"}]}
+          "internalURL": "http://int.heat.example.com:8004/v1"}]}
 ]
 
 

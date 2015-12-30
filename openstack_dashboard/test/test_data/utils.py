@@ -23,7 +23,6 @@ def load_test_data(load_onto=None):
     from openstack_dashboard.test.test_data import neutron_data
     from openstack_dashboard.test.test_data import nova_data
     from openstack_dashboard.test.test_data import swift_data
-    from openstack_dashboard.test.test_data import trove_data
 
     # The order of these loaders matters, some depend on others.
     loaders = (
@@ -36,7 +35,6 @@ def load_test_data(load_onto=None):
         swift_data.data,
         heat_data.data,
         ceilometer_data.data,
-        trove_data.data,
     )
     if load_onto:
         for data_func in loaders:
