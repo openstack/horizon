@@ -14,6 +14,7 @@
 
 from django.utils.translation import ugettext_lazy as _
 
+from horizon import exceptions
 from horizon import tables
 
 from openstack_dashboard import api
@@ -63,6 +64,15 @@ class UpdateRow(tables.Row):
 
     def get_data(self, request, image_id):
         image = api.glance.image_get(request, image_id)
+        try:
+            tenant_id = getattr(image, "owner")
+            tenant = api.keystone.tenant_get(request, tenant_id)
+            image.tenant_name = getattr(tenant, "name")
+        except Exception:
+            msg = _('Unable to retrieve the project '
+                    'information of the image.')
+            exceptions.handle(request, msg)
+
         return image
 
 
@@ -79,7 +89,8 @@ class AdminImagesTable(project_tables.ImagesTable):
     name = tables.Column("name",
                          link="horizon:admin:images:detail",
                          verbose_name=_("Image Name"))
-    tenant = tables.Column("tenant_name", verbose_name=_("Project"))
+    tenant = tables.Column(lambda obj: getattr(obj, 'tenant_name', obj.owner),
+                           verbose_name=_("Project"))
 
     class Meta(object):
         name = "images"
