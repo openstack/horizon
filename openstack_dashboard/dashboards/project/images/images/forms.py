@@ -88,8 +88,11 @@ def create_image_metadata(data):
 
 class CreateImageForm(forms.SelfHandlingForm):
     name = forms.CharField(max_length=255, label=_("Name"))
-    description = forms.CharField(max_length=255, label=_("Description"),
-                                  required=False)
+    description = forms.CharField(
+        max_length=255,
+        widget=forms.Textarea(attrs={'rows': 4}),
+        label=_("Description"),
+        required=False)
     source_type = forms.ChoiceField(
         label=_('Image Source'),
         required=False,
@@ -285,8 +288,11 @@ class CreateImageForm(forms.SelfHandlingForm):
 class UpdateImageForm(forms.SelfHandlingForm):
     image_id = forms.CharField(widget=forms.HiddenInput())
     name = forms.CharField(max_length=255, label=_("Name"))
-    description = forms.CharField(max_length=255, label=_("Description"),
-                                  required=False)
+    description = forms.CharField(
+        max_length=255,
+        widget=forms.Textarea(attrs={'rows': 4}),
+        label=_("Description"),
+        required=False)
     kernel = forms.CharField(
         max_length=36,
         label=_("Kernel ID"),
