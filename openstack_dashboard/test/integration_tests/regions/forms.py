@@ -265,16 +265,28 @@ class FormRegion(BaseFormRegion):
     _fields_locator = (by.By.CSS_SELECTOR, 'fieldset')
 
     # private methods
-    def __init__(self, driver, conf, src_elem=None, form_field_names=None):
+    def __init__(self, driver, conf, src_elem=None, field_mappings=None):
         super(FormRegion, self).__init__(driver, conf, src_elem)
-        self.form_field_names = form_field_names
+        self.field_mappings = self._prepare_mappings(field_mappings)
         self.wait_till_spinner_disappears()
         self._init_form_fields()
+
+    def _prepare_mappings(self, field_mappings):
+        if isinstance(field_mappings, tuple):
+            return {item: item for item in field_mappings}
+        else:
+            return field_mappings
 
     # protected methods
     def _init_form_fields(self):
         self.fields_src_elem = self._get_element(*self._fields_locator)
-        self._dynamic_properties.update(self._get_form_fields())
+        fields = self._get_form_fields()
+        for accessor_name, accessor_expr in self.field_mappings.items():
+            if isinstance(accessor_expr, six.string_types):
+                self._dynamic_properties[accessor_name] = fields[accessor_expr]
+            else:  # it is a class
+                self._dynamic_properties[accessor_name] = accessor_expr(
+                    self.driver, self.conf)
 
     def _get_form_fields(self):
         factory = FieldFactory(self.driver, self.conf, self.fields_src_elem)
@@ -346,18 +358,33 @@ class TabbedFormRegion(FormRegion):
     _submit_locator = (by.By.CSS_SELECTOR, '*.btn.btn-primary[type=submit]')
     _side_info_locator = (by.By.CSS_SELECTOR, "td.help_text")
 
-    def __init__(self, driver, conf, form_field_names=None, default_tab=0):
+    def __init__(self, driver, conf, field_mappings=None, default_tab=0):
         self.current_tab = default_tab
         super(TabbedFormRegion, self).__init__(
-            driver, conf, form_field_names=form_field_names)
+            driver, conf, field_mappings=field_mappings)
+
+    def _prepare_mappings(self, field_mappings):
+        return [super(TabbedFormRegion, self)._prepare_mappings(tab_mappings)
+                for tab_mappings in field_mappings]
 
     def _init_form_fields(self):
-        self._init_tab_fields(self.current_tab)
+        self.switch_to(self.current_tab)
 
     def _init_tab_fields(self, tab_index):
         fieldsets = self._get_elements(*self._fields_locator)
         self.fields_src_elem = fieldsets[tab_index]
-        self._dynamic_properties.update(self._get_form_fields())
+        fields = self._get_form_fields()
+        current_tab_mappings = self.field_mappings[tab_index]
+        for accessor_name, accessor_expr in current_tab_mappings.items():
+            if isinstance(accessor_expr, six.string_types):
+                self._dynamic_properties[accessor_name] = fields[accessor_expr]
+            else:  # it is a class
+                self._dynamic_properties[accessor_name] = accessor_expr(
+                    self.driver, self.conf)
+
+    def switch_to(self, tab_index=0):
+        self.tabs.switch_to(index=tab_index)
+        self._init_tab_fields(tab_index)
 
     @property
     def tabs(self):

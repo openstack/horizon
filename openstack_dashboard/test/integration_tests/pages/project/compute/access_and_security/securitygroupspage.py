@@ -24,7 +24,7 @@ class SecurityGroupsTable(tables.TableRegion):
         create_button.click()
         return forms.FormRegion(
             self.driver, self.conf,
-            form_field_names=self.CREATE_SECURITYGROUP_FORM_FIELDS)
+            field_mappings=self.CREATE_SECURITYGROUP_FORM_FIELDS)
 
     @tables.bind_table_action('delete')
     def delete_group(self, delete_button):

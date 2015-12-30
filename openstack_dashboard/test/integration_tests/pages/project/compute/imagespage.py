@@ -30,7 +30,7 @@ class ImagesTable(tables.TableRegion):
     def create_image(self, create_button):
         create_button.click()
         return forms.FormRegion(self.driver, self.conf,
-                                form_field_names=self.CREATE_IMAGE_FORM_FIELDS)
+                                field_mappings=self.CREATE_IMAGE_FORM_FIELDS)
 
     @tables.bind_table_action('delete')
     def delete_image(self, delete_button):

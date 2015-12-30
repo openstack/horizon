@@ -26,8 +26,9 @@ class ChangepasswordPage(basepage.BaseNavigationPage):
         @property
         def password_form(self):
             src_elem = self._get_element(*self._password_form_locator)
-            return forms.FormRegion(self.driver, self.conf, src_elem,
-                                    self.CHANGE_PASSWORD_FORM_FIELDS)
+            return forms.FormRegion(
+                self.driver, self.conf, src_elem=src_elem,
+                field_mappings=self.CHANGE_PASSWORD_FORM_FIELDS)
 
         def change_password(self, current, new):
             self.password_form.current_password.text = current

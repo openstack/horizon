@@ -27,7 +27,7 @@ class FlavorsTable(tables.TableRegion):
         create_button.click()
         return forms.TabbedFormRegion(
             self.driver, self.conf,
-            form_field_names=self.CREATE_FLAVOR_FORM_FIELDS)
+            field_mappings=self.CREATE_FLAVOR_FORM_FIELDS)
 
     @tables.bind_table_action('delete')
     def delete_flavor(self, delete_button):
