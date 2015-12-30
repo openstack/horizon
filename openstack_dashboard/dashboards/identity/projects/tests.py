@@ -1566,7 +1566,7 @@ class UsageViewTests(test.BaseAdminViewTests):
         res = self.client.get(csv_url)
         self.assertTemplateUsed(res, 'project/overview/usage.csv')
 
-        self.assertTrue(isinstance(res.context['usage'], usage.ProjectUsage))
+        self.assertIsInstance(res.context['usage'], usage.ProjectUsage)
         hdr = ('Instance Name,VCPUs,RAM (MB),Disk (GB),Usage (Hours),'
                'Time since created (Seconds),State')
         self.assertContains(res, '%s\r\n' % hdr)

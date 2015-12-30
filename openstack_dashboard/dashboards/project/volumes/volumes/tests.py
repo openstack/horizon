@@ -943,8 +943,8 @@ class VolumeViewTests(test.TestCase):
         self.assertEqual(len(form.fields['instance']._choices),
                          1)
         self.assertEqual(res.status_code, 200)
-        self.assertTrue(isinstance(form.fields['device'].widget,
-                                   widgets.TextInput))
+        self.assertIsInstance(form.fields['device'].widget,
+                              widgets.TextInput)
         self.assertFalse(form.fields['device'].required)
 
     @test.create_stubs({cinder: ('volume_get',), api.nova: ('server_list',)})
@@ -969,8 +969,8 @@ class VolumeViewTests(test.TestCase):
                       args=[volume.id])
         res = self.client.get(url)
         form = res.context['form']
-        self.assertTrue(isinstance(form.fields['device'].widget,
-                                   widgets.TextInput))
+        self.assertIsInstance(form.fields['device'].widget,
+                              widgets.TextInput)
         self.assertFalse(form.fields['device'].required)
 
     @test.create_stubs({cinder: ('volume_get',), api.nova: ('server_list',)})
@@ -989,8 +989,8 @@ class VolumeViewTests(test.TestCase):
         res = self.client.get(url)
         # Assert the device field is hidden.
         form = res.context['form']
-        self.assertTrue(isinstance(form.fields['device'].widget,
-                                   widgets.HiddenInput))
+        self.assertIsInstance(form.fields['device'].widget,
+                              widgets.HiddenInput)
 
     @test.create_stubs({cinder: ('volume_get',),
                         api.nova: ('server_list',)})
