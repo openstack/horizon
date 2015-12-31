@@ -13,7 +13,6 @@
 import datetime
 import os
 import socket
-import sys
 import time
 import traceback
 import uuid
@@ -25,10 +24,7 @@ from openstack_dashboard.test.integration_tests import config
 from openstack_dashboard.test.integration_tests.pages import loginpage
 from openstack_dashboard.test.integration_tests import webdriver
 
-ROOT_PATH = os.path.dirname(os.path.abspath(__file__))
-
-if ROOT_PATH not in sys.path:
-    sys.path.append(ROOT_PATH)
+ROOT_PATH = os.path.dirname(os.path.abspath(config.__file__))
 
 
 def gen_random_resource_name(resource="", timestamp=True):
