@@ -11,8 +11,10 @@
 #    under the License.
 
 import importlib
+import json
 import types
 
+from openstack_dashboard.test.integration_tests import config
 import six
 
 
@@ -45,10 +47,18 @@ class Navigation(object):
     MAX_SUB_LEVEL = 4
     MIN_SUB_LEVEL = 2
     SIDE_MENU_MAX_LEVEL = 3
-    PAGES_IMPORT_PATH = "openstack_dashboard.test.integration_tests.pages.%s"
-    ITEMS = "__items__"
 
-    PAGE_STRUCTURE = \
+    CONFIG = config.get_config()
+    PAGES_IMPORT_PATH = [
+        "openstack_dashboard.test.integration_tests.pages.%s"
+    ]
+    if CONFIG.plugin.is_plugin and CONFIG.plugin.plugin_page_path:
+        for path in CONFIG.plugin.plugin_page_path:
+            PAGES_IMPORT_PATH.append(path + ".%s")
+
+    ITEMS = "_"
+
+    CORE_PAGE_STRUCTURE = \
         {
             "Project":
                 {
@@ -251,9 +261,18 @@ class Navigation(object):
 
         page_cls_name = page_cls_name or self._get_page_cls_name(final_module)
 
+        module = None
         # return imported class
-        module = importlib.import_module(self.PAGES_IMPORT_PATH %
-                                         page_cls_path)
+        for path in self.PAGES_IMPORT_PATH:
+            try:
+                module = importlib.import_module(path %
+                                                 page_cls_path)
+                break
+            except ImportError:
+                pass
+        if module is None:
+            raise ImportError("Failed to import module: " +
+                              (path % page_cls_path))
         return getattr(module, page_cls_name)
 
     class GoToMethodFactory(object):
@@ -308,7 +327,11 @@ class Navigation(object):
                 for path in paths:
                     cls._create_go_to_method(path)
 
-        rec(cls.PAGE_STRUCTURE, ())
+        rec(cls.CORE_PAGE_STRUCTURE, ())
+        plugin_page_structure_strings = cls.CONFIG.plugin.plugin_page_structure
+        for plugin_ps_string in plugin_page_structure_strings:
+            plugin_page_structure = json.loads(plugin_ps_string)
+            rec(plugin_page_structure, ())
 
     @classmethod
     def _create_go_to_method(cls, path, class_name=None):
