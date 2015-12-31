@@ -37,6 +37,8 @@
 @import "components/messages";
 @import "components/table_actions";
 
+// Contrib stuff
+@import "contrib";
 
 /* new clearfix */
 .clearfix:after {
@@ -77,13 +79,6 @@ ul {
 // Disc-styled list. This list should be used to build bullet-items lists.
 .list-bullet {
   list-style: disc;
-}
-
-/* Used to build compact node groups and tags tables */
-.small-padding {
-  padding-left: 0;
-  padding-right: 5px;
-  padding-bottom: 5px;
 }
 
 dt {
