@@ -6,6 +6,7 @@
 # Alexander Vasiliev <avasiliev@asdco.ru>, 2015
 # Ilya Alekseyev <ilyaalekseyev@acm.org>, 2015
 # Nikita Burtsev, 2015
+# Antonio Kless <antoniok.spb@gmail.com>, 2015. #zanata
 # Daisy <guoyingc@cn.ibm.com>, 2015. #zanata
 # Ilya Alekseyev <ilyaalekseyev@acm.org>, 2015. #zanata
 # OpenStack Infra <zanata@openstack.org>, 2015. #zanata
@@ -13,17 +14,17 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-11-04 14:35+0000\n"
+"POT-Creation-Date: 2015-12-23 00:47+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2015-09-10 01:38+0000\n"
-"Last-Translator: Ilya Alekseyev <ilyaalekseyev@acm.org>\n"
+"PO-Revision-Date: 2015-12-30 06:55+0000\n"
+"Last-Translator: Antonio Kless <antoniok.spb@gmail.com>\n"
 "Language: ru\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
 "%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 "Generated-By: Babel 2.0\n"
-"X-Generator: Zanata 3.7.1\n"
+"X-Generator: Zanata 3.7.3\n"
 "Language-Team: Russian\n"
 
 #, python-format
@@ -130,7 +131,7 @@ msgid "&laquo;&nbsp;Prev"
 msgstr "&laquo;&nbsp;Предыдущее"
 
 msgid "(No Limit)"
-msgstr "(нет ограничений)"
+msgstr "(без ограничений)"
 
 msgid "-"
 msgstr "-"
@@ -146,7 +147,7 @@ msgid "Actions"
 msgstr "Действия"
 
 msgid "Active Instances:"
-msgstr "Активные машины:"
+msgstr "Активные инстансы:"
 
 msgid "Active RAM:"
 msgstr "Используемая RAM:"
@@ -200,7 +201,7 @@ msgid "Error: "
 msgstr "Ошибка:"
 
 msgid "Fake"
-msgstr "Fake"
+msgstr "Поддельный"
 
 msgid "Filter"
 msgstr "Фильтр"
@@ -238,8 +239,8 @@ msgstr "Имя пользователя"
 msgid ""
 "Login as different user or go back to <a href=\"%(home_url)s\"> home page</a>"
 msgstr ""
-"Войдите под другим пользователем или вернитесь на<a href=\"%(home_url)s\"> "
-"домашнюю страницу</a>"
+"Войдите под другим пользователем или вернитесь на <a href=\"%(home_url)s"
+"\">домашнюю страницу</a>"
 
 msgid "Members"
 msgstr "Участники"
@@ -307,7 +308,7 @@ msgstr "Сохранить"
 
 #, python-format
 msgid "Select a %s to browse."
-msgstr "Выберите %s для просмотра"
+msgstr "Выберите %s для просмотра."
 
 msgid "Select a period of time to query its usage:"
 msgstr "Выберите временной интервал для запроса использования:"
@@ -344,7 +345,7 @@ msgid "The attribute %(attr)s doesn't exist on %(obj)s."
 msgstr "Атрибут %(attr)s не существует для %(obj)s."
 
 msgid "The date should be in YYYY-mm-dd format."
-msgstr "Дата должна иметь формат YYYY-mm-dd."
+msgstr "Дата должна иметь формат ГГГГ-ММ-ДД."
 
 msgid "The string may only contain ASCII printable characters."
 msgstr "Строка может содержать только печатные ASCII символы."
@@ -379,7 +380,7 @@ msgid "Updated"
 msgstr "Обновлено"
 
 msgid "Usage Summary"
-msgstr "Сводка использования"
+msgstr "Сводка по использованию"
 
 msgid "Warning: "
 msgstr "Внимание:"

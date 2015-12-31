@@ -13,6 +13,7 @@
 # Kyrylo Romanenko <kromanenko@mirantis.com>, 2015
 # Nikita Burtsev, 2015
 # Nikita Burtsev, 2015
+# Antonio Kless <antoniok.spb@gmail.com>, 2015. #zanata
 # Daisy <guoyingc@cn.ibm.com>, 2015. #zanata
 # Fedor Tarasenko <feodor.tarasenko@gmail.com>, 2015. #zanata
 # Ilya Alekseyev <ilyaalekseyev@acm.org>, 2015. #zanata
@@ -22,17 +23,17 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-11-04 14:35+0000\n"
+"POT-Creation-Date: 2015-12-23 00:47+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2015-10-06 03:15+0000\n"
-"Last-Translator: Ilya Alekseyev <ilyaalekseyev@acm.org>\n"
+"PO-Revision-Date: 2015-12-18 02:12+0000\n"
+"Last-Translator: Antonio Kless <antoniok.spb@gmail.com>\n"
 "Language: ru\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
 "%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 "Generated-By: Babel 2.0\n"
-"X-Generator: Zanata 3.7.1\n"
+"X-Generator: Zanata 3.7.3\n"
 "Language-Team: Russian\n"
 
 msgid ""
@@ -1839,7 +1840,7 @@ msgid "Cipher"
 msgstr "Шифр"
 
 msgid "Classless Inter-Domain Routing (e.g. 192.168.0.0/24)"
-msgstr "CIDR (т.е. 192.168.0.0/24)"
+msgstr "CIDR (напр. 192.168.0.0/24)"
 
 msgid "Clear Domain Context"
 msgstr "Очистить контекст домена"
@@ -2711,7 +2712,7 @@ msgid ""
 "DHCPv6 stateless: Address discovered from OpenStack Router and additional "
 "information from OpenStack DHCP"
 msgstr ""
-"DHCPv6 stateless: Адрес полученный с маршуризатора OpenStack и "
+"DHCPv6 stateless: Адрес полученный с маршрутизатора OpenStack и "
 "дополнительная информация из OpenStack DHCP"
 
 msgid "DNS Name Servers"
@@ -10038,7 +10039,7 @@ msgstr "Диапазон времени должен быть представл
 #, python-format
 msgid "The volume size cannot be less than the image minimum disk size (%sGB)"
 msgstr ""
-"Размер диска не может быть меньше минимабльного размера диска образа (%sГБ)"
+"Размер диска не может быть меньше минимального размера диска образа (%sГБ)"
 
 #, python-format
 msgid "The volume size cannot be less than the image size (%s)"
@@ -10603,7 +10604,7 @@ msgid "Unable to fetch cluster template list"
 msgstr "Не удалось получить список шаблонов кластера"
 
 msgid "Unable to fetch cluster template."
-msgstr "Не удалось получить шаблон кластера"
+msgstr "Не удалось получить шаблон кластера."
 
 msgid "Unable to fetch cluster to scale"
 msgstr "Не удалось получить кластер для масштабирования"
@@ -10646,7 +10647,7 @@ msgid "Unable to fetch keypair choices."
 msgstr "Не удалось получить доступные пары ключей"
 
 msgid "Unable to fetch node group details."
-msgstr "Не удалось получить данные узла группы"
+msgstr "Не удалось получить данные узла группы."
 
 msgid "Unable to fetch node group template list."
 msgstr "Не удалось получить список шаблонов группы узлов."
@@ -11036,7 +11037,7 @@ msgstr "Не удалось получить детали кластера \"%s\
 
 #, python-format
 msgid "Unable to retrieve details for cluster template \"%s\"."
-msgstr "Не удалось получить детали шаблона кластера \"%s\""
+msgstr "Не удалось получить детали шаблона кластера \"%s\"."
 
 #, python-format
 msgid "Unable to retrieve details for data source \"%s\"."
@@ -12134,10 +12135,10 @@ msgid "Valid integer greater than the DPD interval"
 msgstr "Допустимое целое число большее интервала DPD"
 
 msgid "Valid integer lesser than DPD timeout"
-msgstr "Допустимое целое число меньшее таймаута DPD"
+msgstr "Допустимое целое число, меньшее таймаута DPD"
 
 msgid "Valid integer lesser than the DPD timeout"
-msgstr "Допустимое целое число большее таймаута DPD"
+msgstr "Допустимое целое число, большее таймаута DPD"
 
 msgid "Value"
 msgstr "Значение"
@@ -12764,7 +12765,7 @@ msgid "instance"
 msgstr "инстанс"
 
 msgid "no processes"
-msgstr "Никаких процессов"
+msgstr "никаких процессов"
 
 msgid "pseudo-folder"
 msgstr "псевдо-папка"
