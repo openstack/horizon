@@ -218,6 +218,18 @@ class ValidatorsTests(test.TestCase):
                               validators.validate_ip_protocol,
                               proto)
 
+    def test_icmp_code_type(self):
+        VALID_VALUE = (0, 255)
+        INVALID_VALUE = (-1, 256)
+
+        for value in VALID_VALUE:
+            self.assertIsNone(validators.validate_icmp(value))
+
+        for value in INVALID_VALUE:
+            self.assertRaises(ValidationError,
+                              validators.validate_icmp,
+                              value)
+
     def test_port_range_validator(self):
         VALID_RANGE = ('1:65535',
                        '1:1')
