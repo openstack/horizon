@@ -50,4 +50,12 @@ themepreview {
   .navbar {
     margin-bottom: $padding-large-horizontal*2;
   }
+
+  .bs-container {
+    margin-bottom: 15px;
+
+    .bs-component {
+      margin: 0;
+    }
+  }
 }
