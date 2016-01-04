@@ -62,7 +62,7 @@ class CreateNetworkInfoAction(workflows.Action):
                                                           'action,'
                                                           'create_network__'
                                                           'createsubnetdetail'
-                                                          'action,',
+                                                          'action',
                                          'data-hide-on-checked': 'false'
                                      }),
                                      initial=True,
@@ -174,7 +174,7 @@ class CreateSubnetInfoAction(workflows.Action):
         label=_("Gateway IP"),
         widget=forms.TextInput(attrs={
             'class': 'switched',
-            'data-switch-on': 'source gateway_ip',
+            'data-switch-on': 'gateway_ip',
             'data-source-manual': _("Gateway IP")
         }),
         required=False,
