@@ -301,7 +301,16 @@ which also contains instructions on how to run the tests. To make integration
 tests more understandable and maintainable, the Page Object pattern is used
 throughout them.
 
+Horizon repository also provides two shell `scripts`_, which are executed in
+pre_test_hook and post_test_hook respectively. Pre hook is generally used for
+modifying test environment, while post hook is used for running actual
+integration tests with tox and collecting test artifacts. Thanks to the
+incorporating all modifications to tests into Horizon repository, one can alter
+both tests and test environment and see the immediate results in Jenkins job
+output.
+
 .. _here: https://github.com/openstack/horizon/tree/master/openstack_dashboard/test/integration_tests
+.. _scripts: https://github.com/openstack/horizon/tree/master/tools/gate/integration
 
 Page Object pattern
 -------------------
