@@ -1091,7 +1091,7 @@ def servers_update_addresses(request, servers, all_tenants=False):
                 ports_floating_ips,
                 network_names)
         except Exception as e:
-            LOG.error(e)
+            LOG.error(six.text_type(e))
         else:
             server.addresses = addresses
 

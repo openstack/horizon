@@ -191,7 +191,7 @@ class TemplateForm(forms.SelfHandlingForm):
                 except Exception as e:
                     msg = _('There was a problem parsing the'
                             ' %(prefix)s: %(error)s')
-                    msg = msg % {'prefix': prefix, 'error': e}
+                    msg = msg % {'prefix': prefix, 'error': six.text_type(e)}
                     raise forms.ValidationError(msg)
             cleaned[data_str] = tpl
 
