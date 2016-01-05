@@ -277,6 +277,14 @@ The logo also acts as a hyperlink. The default behavior is to redirect to
 the desired url target e.g., ``http://sample-company.com`` in
 ``local_settings.py``, the target of the hyperlink can be changed.
 
+Customizing the Footer
+======================
+
+It is possible to customize the global and login footers using a theme's
+template override.  Simply add ``_footer.html`` for a global footer
+override or ``_login_footer.html`` for the login page's footer to your
+theme's template directory.
+
 Modifying Existing Dashboards and Panels
 ========================================
 

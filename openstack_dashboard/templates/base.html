@@ -47,7 +47,9 @@
       </div>
     {% endblock %}
     <div id="footer">
-      {% block footer %}{% endblock %}
+      {% block footer %}
+        {% include "_footer.html" %}
+      {% endblock %}
     </div>
     {% block js %}
       {% include "horizon/_scripts.html" %}
