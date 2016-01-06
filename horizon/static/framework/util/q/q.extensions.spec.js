@@ -15,54 +15,89 @@
   'use strict';
 
   describe('horizon.framework.util.q.extensions', function () {
-    var service, $q, $scope;
 
-    var failedPromise = function() {
-      var deferred2 = $q.defer();
-      deferred2.reject('failed');
-      return deferred2.promise;
-    };
+    describe('allSettled', function() {
+      var service, $q, $scope;
 
-    var passedPromise = function() {
-      var deferred1 = $q.defer();
-      deferred1.resolve('passed');
-      return deferred1.promise;
-    };
+      var failedPromise = function() {
+        var deferred2 = $q.defer();
+        deferred2.reject('failed');
+        return deferred2.promise;
+      };
 
-    beforeEach(module('horizon.framework.util.q'));
-    beforeEach(inject(function($injector, _$rootScope_) {
-      service = $injector.get('horizon.framework.util.q.extensions');
-      $q = $injector.get('$q');
-      $scope = _$rootScope_.$new();
-    }));
+      var passedPromise = function() {
+        var deferred1 = $q.defer();
+        deferred1.resolve('passed');
+        return deferred1.promise;
+      };
 
-    it('should define allSettled', function () {
-      expect(service.allSettled).toBeDefined();
+      beforeEach(module('horizon.framework.util.q'));
+      beforeEach(inject(function($injector, _$rootScope_) {
+        service = $injector.get('horizon.framework.util.q.extensions');
+        $q = $injector.get('$q');
+        $scope = _$rootScope_.$new();
+      }));
+
+      it('should define allSettled', function () {
+        expect(service.allSettled).toBeDefined();
+      });
+
+      it('should resolve all given promises', function() {
+        service.allSettled([{
+          promise: failedPromise(),
+          context: '1'
+        }, {
+          promise: passedPromise(),
+          context: '2'
+        }]).then(onAllSettled, failTest);
+
+        $scope.$apply();
+
+        function onAllSettled(resolvedPromises) {
+          expect(resolvedPromises.fail.length).toEqual(1);
+          expect(resolvedPromises.fail[0]).toEqual({data: 'failed', context: '1'});
+          expect(resolvedPromises.pass.length).toEqual(1);
+          expect(resolvedPromises.pass[0]).toEqual({data: 'passed', context: '2'});
+        }
+      });
     });
 
-    it('should resolve all given promises', function() {
-      service.allSettled([{
-        promise: failedPromise(),
-        context: '1'
-      }, {
-        promise: passedPromise(),
-        context: '2'
-      }]).then(onAllSettled, failTest);
+    describe('booleanAsPromise', function() {
+      var service, $scope;
 
-      $scope.$apply();
+      beforeEach(module('horizon.framework.util.q'));
+      beforeEach(inject(function($injector, _$rootScope_) {
+        service = $injector.get('horizon.framework.util.q.extensions');
+        $scope = _$rootScope_.$new();
+      }));
 
-      function onAllSettled(resolvedPromises) {
-        expect(resolvedPromises.fail.length).toEqual(1);
-        expect(resolvedPromises.fail[0]).toEqual({data: 'failed', context: '1'});
-        expect(resolvedPromises.pass.length).toEqual(1);
-        expect(resolvedPromises.pass[0]).toEqual({data: 'passed', context: '2'});
-      }
+      it('should define booleanAsPromise', function () {
+        expect(service.booleanAsPromise).toBeDefined();
+      });
+
+      it('should reject the promise if condition does not evaluates to true', function() {
+        service.booleanAsPromise(false).then(failTest, angular.noop);
+        $scope.$apply();
+        service.booleanAsPromise(null).then(failTest, angular.noop);
+        $scope.$apply();
+        service.booleanAsPromise({}).then(failTest, angular.noop);
+        $scope.$apply();
+        service.booleanAsPromise('A').then(failTest, angular.noop);
+        $scope.$apply();
+        service.booleanAsPromise(7).then(failTest, angular.noop);
+        $scope.$apply();
+      });
+
+      it('should resolve the promise only if condition to true', function() {
+        service.booleanAsPromise(true).then(angular.noop, failTest);
+        $scope.$apply();
+      });
+
     });
 
     function failTest() {
       expect(false).toBeTruthy();
     }
-
   });
 
 })();

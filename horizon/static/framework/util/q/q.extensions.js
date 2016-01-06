@@ -32,7 +32,8 @@
    */
   function qExtensions($q) {
     var service = {
-      allSettled: allSettled
+      allSettled: allSettled,
+      booleanAsPromise: booleanAsPromise
     };
 
     return service;
@@ -64,10 +65,10 @@
      * The order of the resolve or rejection reasons is non-deterministic
      * and should not be relied upon for correlation to input promises.
      *
-     * @param promiseList
+     * @param {array} promiseList
      * The list of promises to resolve
      *
-     * @return
+     * @return {object}
      * An object with 2 lists, one for promises that got resolved
      * and one for promises that got rejected.
      *
@@ -126,5 +127,27 @@
         deferred.resolve({pass: passList, fail: failList});
       }
     }
+
+    /**
+     * Create a promise that resolves if true, otherwise is rejected.
+     *
+     * @param {expression} value
+     * the boolean value to test
+     *
+     * @return {promise}
+     * the promise object
+     */
+    function booleanAsPromise(value) {
+      var deferred = $q.defer();
+
+      if (value === true) {
+        deferred.resolve();
+      } else {
+        deferred.reject();
+      }
+
+      return deferred.promise;
+    }
+
   }
 })();
