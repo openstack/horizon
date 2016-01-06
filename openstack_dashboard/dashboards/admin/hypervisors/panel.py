@@ -20,4 +20,4 @@ import horizon
 class Hypervisors(horizon.Panel):
     name = _("Hypervisors")
     slug = 'hypervisors'
-    permissions = ('openstack.roles.admin', 'openstack.services.compute')
+    permissions = ('openstack.services.compute',)
