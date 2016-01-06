@@ -197,7 +197,7 @@ Required
 **Reliable**
 
 * The code has to work on the stable and latest versions of Firefox, Chrome,
-  Safari, and Opera web browsers, and on Microsoft Internet Explorer 9 and
+  Safari, and Opera web browsers, and on Microsoft Internet Explorer 11 and
   later.
 
 * If you turned compression off during development via ``COMPRESS_ENABLED =
