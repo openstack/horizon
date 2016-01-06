@@ -22,4 +22,32 @@
     });
   });
 
+  describe('$locationProvider', function() {
+    var $locationProvider;
+
+    beforeEach(function() {
+      angular.module('horizon.auth', []);
+      angular.module('locationProviderConfig', [])
+        .config(function(_$locationProvider_) {
+          $locationProvider = _$locationProvider_;
+          spyOn($locationProvider, 'html5Mode').and.callThrough();
+          spyOn($locationProvider, 'hashPrefix').and.callThrough();
+        });
+
+      module('locationProviderConfig');
+      module('horizon.app');
+
+      inject();
+    });
+
+    it('should set html5 mode', function() {
+      expect($locationProvider.html5Mode).toHaveBeenCalledWith(true);
+    });
+
+    it('should set hashPrefix', function() {
+      expect($locationProvider.hashPrefix).toHaveBeenCalledWith('!');
+    });
+
+  });
+
 })();
