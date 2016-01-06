@@ -1,15 +1,9 @@
 {% load i18n sizeformat %}
 
-<h3>{% trans "Resource Overview" %}</h3>
-
-<div class="info row detail">
-  <h4>{% trans "Information" %}</h4>
-  <hr class="header_rule">
+<div class="detail">
   <dl class="dl-horizontal">
     <dt>{% trans "Stack Resource ID" %}</dt>
     <dd>{{ resource.resource_name }}</dd>
-  </dl>
-  <dl class="dl-horizontal">
     <dt>{% trans "Resource ID" %}</dt>
     <dd>
       {% if resource_url %}
@@ -20,18 +14,12 @@
       {{ resource.physical_resource_id }}
       {% endif %}
     </dd>
-  </dl>
-  <dl class="dl-horizontal">
     <dt>{% trans "Stack Resource Type" %}</dt>
     <dd>{{ resource.resource_type }}</dd>
-  </dl>
-  <dl class="dl-horizontal">
     <dt>{% trans "Description" %}</dt>
     <dd>{{ resource.description }}</dd>
   </dl>
-</div>
 
-<div class="status row detail">
   <h4>{% trans "Status" %}</h4>
   <hr class="header_rule">
   <dl class="dl-horizontal">
@@ -42,9 +30,7 @@
       {% blocktrans with resource_status=resource.resource_status|title|replace_underscores resource_status_reason=resource.resource_status_reason %}{{ resource_status }}: {{ resource_status_reason }}{% endblocktrans %}
     </dd>
   </dl>
-</div>
 
-<div class="status row detail">
   <h4>{% trans "Resource Metadata" %}</h4>
   <hr class="header_rule">
   <pre>{{ metadata }}
