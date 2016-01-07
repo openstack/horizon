@@ -17,6 +17,7 @@ from django.conf import settings
 from django.core import urlresolvers
 from django.core.urlresolvers import reverse
 from django.utils.importlib import import_module  # noqa
+from six import moves
 
 from horizon import base
 
@@ -30,7 +31,7 @@ class ThemePreviewTests(test.TestCase):
     def setUp(self):
         super(ThemePreviewTests, self).setUp()
         urlresolvers.clear_url_caches()
-        reload(import_module(settings.ROOT_URLCONF))
+        moves.reload_module(import_module(settings.ROOT_URLCONF))
         base.Horizon.register(Developer)
         base.Horizon._urls()
 
