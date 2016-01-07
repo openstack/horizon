@@ -506,14 +506,14 @@ class DataTableTests(test.TestCase):
         self.assertEqual("Id", six.text_type(id_col))
         self.assertEqual("Verbose Name", six.text_type(name_col))
         # sortable
-        self.assertEqual(False, id_col.sortable)
+        self.assertFalse(id_col.sortable)
         self.assertNotIn("sortable", id_col.get_final_attrs().get('class', ""))
-        self.assertEqual(True, name_col.sortable)
+        self.assertTrue(name_col.sortable)
         self.assertIn("sortable", name_col.get_final_attrs().get('class', ""))
         # hidden
-        self.assertEqual(True, id_col.hidden)
+        self.assertTrue(id_col.hidden)
         self.assertIn("hide", id_col.get_final_attrs().get('class', ""))
-        self.assertEqual(False, name_col.hidden)
+        self.assertFalse(name_col.hidden)
         self.assertNotIn("hide", name_col.get_final_attrs().get('class', ""))
         # link, link_classes, link_attrs, and get_link_url
         self.assertIn('href="http://example.com/"', row.cells['value'].value)
@@ -528,14 +528,14 @@ class DataTableTests(test.TestCase):
                          value_col.get_final_attrs().get('class', ""))
         # status
         cell_status = row.cells['status'].status
-        self.assertEqual(True, cell_status)
+        self.assertTrue(cell_status)
         self.assertEqual('status_up',
                          row.cells['status'].get_status_class(cell_status))
         # status_choices
         id_col.status = True
         id_col.status_choices = (('1', False), ('2', True), ('3', None))
         cell_status = row.cells['id'].status
-        self.assertEqual(False, cell_status)
+        self.assertFalse(cell_status)
         self.assertEqual('status_down',
                          row.cells['id'].get_status_class(cell_status))
         cell_status = row3.cells['id'].status
@@ -555,11 +555,11 @@ class DataTableTests(test.TestCase):
         self.assertEqual(TEST_DATA[0], row.datum)
         self.assertEqual('my_table__row__1', row.id)
         # Verify row status works even if status isn't set on the column
-        self.assertEqual(True, row.status)
+        self.assertTrue(row.status)
         self.assertEqual('status_up', row.status_class)
         # Check the cells as well
         cell_status = row.cells['status'].status
-        self.assertEqual(True, cell_status)
+        self.assertTrue(cell_status)
         self.assertEqual('status_up',
                          row.cells['status'].get_status_class(cell_status))
 
@@ -656,10 +656,8 @@ class DataTableTests(test.TestCase):
 
         # Check if in-line edit is available in the cell,
         # but is not in inline_edit_mod.
-        self.assertEqual(True,
-                         name_cell.inline_edit_available)
-        self.assertEqual(False,
-                         name_cell.inline_edit_mod)
+        self.assertTrue(name_cell.inline_edit_available)
+        self.assertFalse(name_cell.inline_edit_mod)
 
         # Check if is cell is rendered correctly.
         name_cell_rendered = name_cell.render()
@@ -684,10 +682,8 @@ class DataTableTests(test.TestCase):
 
         # Check if in-line edit is available in the cell,
         # but is not in inline_edit_mod.
-        self.assertEqual(True,
-                         name_cell.inline_edit_available)
-        self.assertEqual(False,
-                         name_cell.inline_edit_mod)
+        self.assertTrue(name_cell.inline_edit_available)
+        self.assertFalse(name_cell.inline_edit_mod)
 
         # Check if is cell is rendered correctly.
         name_cell_rendered = name_cell.render()
@@ -716,10 +712,8 @@ class DataTableTests(test.TestCase):
         # Check if in-line edit is available in the cell,
         # and is in inline_edit_mod, also column auto must be
         # set as form_field.
-        self.assertEqual(True,
-                         name_cell.inline_edit_available)
-        self.assertEqual(True,
-                         name_cell.inline_edit_mod)
+        self.assertTrue(name_cell.inline_edit_available)
+        self.assertTrue(name_cell.inline_edit_mod)
         self.assertEqual('form_field',
                          name_col.auto)
 
@@ -1288,9 +1282,9 @@ class DataTableTests(test.TestCase):
         self.assertEqual("Verbose Name", six.text_type(name_col))
         self.assertIn("sortable", name_col.get_final_attrs().get('class', ""))
         # hidden
-        self.assertEqual(True, id_col.hidden)
+        self.assertTrue(id_col.hidden)
         self.assertIn("hide", id_col.get_final_attrs().get('class', ""))
-        self.assertEqual(False, name_col.hidden)
+        self.assertFalse(name_col.hidden)
         self.assertNotIn("hide", name_col.get_final_attrs().get('class', ""))
         # link, link_classes, link_attrs and get_link_url
         self.assertIn('href="http://example.com/"', row.cells['value'].value)
@@ -1343,7 +1337,7 @@ class DataTableTests(test.TestCase):
         id_col.status = True
         id_col.status_choices = (('1', False), ('2', True))
         cell_status = row.cells['id'].status
-        self.assertEqual(False, cell_status)
+        self.assertFalse(cell_status)
         self.assertEqual('status_down',
                          row.cells['id'].get_status_class(cell_status))
         # Ensure data is not cached on the column across table instances

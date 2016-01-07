@@ -61,7 +61,7 @@ class CreateImageFormTests(test.TestCase):
             'is_public': 1}
         files = {}
         form = forms.CreateImageForm(post, files)
-        self.assertEqual(form.is_valid(), False)
+        self.assertFalse(form.is_valid())
 
     @override_settings(HORIZON_IMAGES_ALLOW_UPLOAD=False)
     @test.create_stubs({api.glance: ('image_list_detailed',)})
