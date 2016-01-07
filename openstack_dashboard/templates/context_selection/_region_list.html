@@ -5,7 +5,7 @@
   <li class="dropdown-header">{% trans "Regions:" %}</li>
   {% for region in regions %}
   <li>
-    <a href="{% url 'switch_services_region' region %}?next={{ panel_url }}">
+    <a href="{% url 'switch_services_region' region %}?next={{ panel_url }}" target="_self">
       {{ region }}
       {% if region == region_name %}
       <span class="fa fa-check"></span>
