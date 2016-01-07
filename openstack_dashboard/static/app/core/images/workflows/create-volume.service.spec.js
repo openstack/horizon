@@ -16,7 +16,7 @@
 (function() {
   'use strict';
 
-  describe('horizon.app.core.images.actions.createVolumeWorkflow', function() {
+  describe('horizon.app.core.images.workflows.create-volume.service', function() {
 
     var mockWorkflow = function(params) {
       return params;
@@ -38,7 +38,7 @@
     }));
 
     beforeEach(inject(function($injector) {
-      service = $injector.get('horizon.app.core.images.actions.createVolumeWorkflow');
+      service = $injector.get('horizon.app.core.images.workflows.create-volume.service');
     }));
 
     it('create the workflow for creating a volume', function() {

@@ -17,10 +17,10 @@
 
   angular
     .module('horizon.app.core.images')
-    .factory('horizon.app.core.images.batch-actions.service', tableBatchActions);
+    .factory('horizon.app.core.images.table.batch-actions.service', batchActionsService);
 
-  tableBatchActions.$inject = [
-    'horizon.app.core.images.actions.batchDeleteService',
+  batchActionsService.$inject = [
+    'horizon.app.core.images.actions.batch-delete.service',
     'horizon.framework.util.i18n.gettext'
   ];
 
@@ -29,7 +29,7 @@
    * @name horizon.app.core.images.table.batch-actions.service
    * @description A list of table batch actions.
    */
-  function tableBatchActions(
+  function batchActionsService(
     deleteService,
     gettext
   ) {

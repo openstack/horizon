@@ -16,7 +16,7 @@
 (function() {
   'use strict';
 
-  describe('horizon.app.core.images.actions.createVolumeService', function() {
+  describe('horizon.app.core.images.actions.create-volume.service', function() {
 
     var service, $scope, toast, events, workflow;
     var wizardModalService = {
@@ -67,10 +67,10 @@
 
     beforeEach(inject(function($injector, _$rootScope_) {
       $scope = _$rootScope_.$new();
-      service = $injector.get('horizon.app.core.images.actions.createVolumeService');
+      service = $injector.get('horizon.app.core.images.actions.create-volume.service');
       toast = $injector.get('horizon.framework.widgets.toast.service');
       events = $injector.get('horizon.app.core.images.events');
-      workflow = $injector.get('horizon.app.core.images.actions.createVolumeWorkflow');
+      workflow = $injector.get('horizon.app.core.images.workflows.create-volume.service');
     }));
 
     describe('perform', function() {

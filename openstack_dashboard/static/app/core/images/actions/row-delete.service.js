@@ -17,42 +17,38 @@
 
   angular
     .module('horizon.app.core.images')
-    .factory('horizon.app.core.images.actions.batchDeleteService', batchDeleteService);
+    .factory('horizon.app.core.images.actions.row-delete.service', deleteService);
 
-  batchDeleteService.$inject = [
-    'horizon.app.core.images.actions.deleteImageService',
-    'horizon.app.core.openstack-service-api.policy',
+  deleteService.$inject = [
+    'horizon.app.core.images.actions.delete-image.service',
     'horizon.framework.util.i18n.gettext'
   ];
 
   /**
    * @ngDoc factory
-   * @name horizon.app.core.images.actions.batchDeleteService
+   * @name horizon.app.core.images.actions.row-delete.service
    *
    * @Description
-   * Brings up the delete images confirmation modal dialog.
-   * On submit, delete selected images.
+   * Brings up the delete image confirmation modal dialog.
+   * On submit, delete selected image.
    * On cancel, do nothing.
    */
-  function batchDeleteService(
-    deleteImageService,
-    policy,
-    gettext
-  ) {
+  function deleteService(deleteImageService, gettext) {
+
     var context = {
-      title: gettext('Confirm Delete Images'),
+      title: gettext('Confirm Delete Image'),
       /* eslint-disable max-len */
       message: gettext('You have selected "%s". Please confirm your selection. Deleted images are not recoverable.'),
       /* eslint-enable max-len */
-      submit: gettext('Delete Images'),
-      success: gettext('Deleted Images: %s.'),
-      error: gettext('Unable to delete Images: %s.')
+      submit: gettext('Delete Image'),
+      success: gettext('Deleted Image: %s.'),
+      error: gettext('Unable to delete Image: %s.')
     };
 
     var service = {
       initScope: initScope,
       perform: perform,
-      allowed: allowed
+      allowed: deleteImageService.allowed
     };
 
     return service;
@@ -65,26 +61,10 @@
       deleteImageService.initScope(newScope, context);
     }
 
-    // delete selected image objects
-    function perform(selected) {
-      deleteImageService.perform(getSelectedImages(selected));
+    // delete selected image
+    function perform(image) {
+      deleteImageService.perform([image]);
     }
 
-    function allowed() {
-      return policy.ifAllowed({ rules: [['image', 'delete_image']] });
-    }
-
-    function getSelectedImages(selected) {
-      return Object.keys(selected).filter(isChecked).map(getImage);
-
-      function isChecked(value) {
-        return selected[value].checked;
-      }
-
-      function getImage(value) {
-        return selected[value].item;
-      }
-    }
-
-  } // end of batchDeleteService
+  } // end of deleteService
 })(); // end of IIFE

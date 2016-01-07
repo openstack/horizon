@@ -15,38 +15,32 @@
 (function() {
   'use strict';
 
-  describe('horizon.app.core.images.actions.batchDeleteService', function() {
+  describe('horizon.app.core.images.actions.row-delete.service', function() {
 
     var deleteImageService = {
       initScope: function() {},
       perform: function () {}
     };
 
-    var policyAPI = {
-      ifAllowed: function() {
-        return {
-          success: function(callback) {
-            callback({allowed: true});
-          }
-        };
-      }
-    };
-
     var service, $scope;
 
     ///////////////////////
 
-    beforeEach(module('horizon.framework'));
+    beforeEach(module('horizon.framework.util'));
+    beforeEach(module('horizon.framework.util.http'));
+
+    beforeEach(module('horizon.framework.widgets'));
+    beforeEach(module('horizon.framework.widgets.toast'));
+
     beforeEach(module('horizon.app.core'));
-    beforeEach(module('horizon.app.core.openstack-service-api', function($provide) {
-      $provide.value('horizon.app.core.openstack-service-api.policy', policyAPI);
-    }));
+
     beforeEach(module('horizon.app.core.images', function($provide) {
-      $provide.value('horizon.app.core.images.actions.deleteImageService', deleteImageService);
+      $provide.value('horizon.app.core.images.actions.delete-image.service', deleteImageService);
     }));
+
     beforeEach(inject(function($injector, _$rootScope_) {
       $scope = _$rootScope_.$new();
-      service = $injector.get('horizon.app.core.images.actions.batchDeleteService');
+      service = $injector.get('horizon.app.core.images.actions.row-delete.service');
     }));
 
     it('should init the deleteImageService', function() {
@@ -57,26 +51,12 @@
       expect(deleteImageService.initScope).toHaveBeenCalled();
     });
 
-    it('should check the policy if the user is allowed to delete images', function() {
-      spyOn(policyAPI, 'ifAllowed').and.callThrough();
-      var allowed = service.allowed();
-      expect(allowed).toBeTruthy();
-      expect(policyAPI.ifAllowed).toHaveBeenCalledWith({ rules: [['image', 'delete_image']] });
-    });
-
     it('pass the image to the deleteImageService', function() {
       spyOn(deleteImageService, 'perform').and.callThrough();
+      var image = {id: '1', name: 'name', extra: 'extra'};
+      service.perform(image);
 
-      var selected = {
-        image1: {checked: true, item: {name: 'image1', id: '1'}},
-        image2: {checked: true, item: {name: 'image2', id: '2'}}
-      };
-
-      service.perform(selected);
-
-      expect(deleteImageService.perform).toHaveBeenCalledWith(
-        [{id: '1', name: 'image1'}, {id: '2', name: 'image2'}]
-      );
+      expect(deleteImageService.perform).toHaveBeenCalledWith([image]);
     });
 
   });

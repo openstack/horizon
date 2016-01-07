@@ -18,14 +18,14 @@
 
   angular
     .module('horizon.app.core.images')
-    .factory('horizon.app.core.images.actions.createVolumeService', createVolumeService);
+    .factory('horizon.app.core.images.actions.create-volume.service', createVolumeService);
 
   createVolumeService.$inject = [
     '$q',
     'horizon.app.core.openstack-service-api.cinder',
     'horizon.app.core.openstack-service-api.policy',
     'horizon.app.core.openstack-service-api.serviceCatalog',
-    'horizon.app.core.images.actions.createVolumeWorkflow',
+    'horizon.app.core.images.workflows.create-volume.service',
     'horizon.app.core.images.events',
     'horizon.framework.util.q.extensions',
     'horizon.framework.widgets.modal.wizard-modal.service',
@@ -34,7 +34,7 @@
 
   /**
    * @ngDoc factory
-   * @name horizon.app.core.images.actions.createVolumeService
+   * @name horizon.app.core.images.actions.create-volume.service
    *
    * @Description
    * Brings up the Create Volume modal.
@@ -44,7 +44,7 @@
     cinder,
     policy,
     serviceCatalog,
-    createVolumeWorkflow,
+    createVolumeWorkflowService,
     events,
     $qExtensions,
     wizardModalService,
@@ -93,7 +93,7 @@
       scope.image = image;
       wizardModalService.modal({
         scope: scope,
-        workflow: createVolumeWorkflow,
+        workflow: createVolumeWorkflowService,
         submit: submit
       });
     }

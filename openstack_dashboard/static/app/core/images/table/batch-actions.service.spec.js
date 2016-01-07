@@ -15,7 +15,7 @@
 (function() {
   'use strict';
 
-  describe('horizon.app.core.images.batch-actions.service', function() {
+  describe('horizon.app.core.images.table.batch-actions.service', function() {
     var service;
 
     var batchDeleteService = {
@@ -27,11 +27,11 @@
     beforeEach(module('horizon.framework'));
 
     beforeEach(module('horizon.app.core.images', function($provide) {
-      $provide.value('horizon.app.core.images.actions.batchDeleteService', batchDeleteService);
+      $provide.value('horizon.app.core.images.actions.batch-delete.service', batchDeleteService);
     }));
 
     beforeEach(inject(function ($injector) {
-      service = $injector.get('horizon.app.core.images.batch-actions.service');
+      service = $injector.get('horizon.app.core.images.table.batch-actions.service');
     }));
 
     it('should call initScope on batchDeleteService', function() {

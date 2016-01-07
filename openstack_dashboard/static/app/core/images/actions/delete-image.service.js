@@ -17,7 +17,7 @@
 
   angular
     .module('horizon.app.core.images')
-    .factory('horizon.app.core.images.actions.deleteImageService', deleteImageService);
+    .factory('horizon.app.core.images.actions.delete-image.service', deleteImageService);
 
   deleteImageService.$inject = [
     '$q',
@@ -33,7 +33,7 @@
 
   /**
    * @ngDoc factory
-   * @name horizon.app.core.images.actions.deleteImageService
+   * @name horizon.app.core.images.actions.delete-image.service
    *
    * @Description
    * Brings up the delete images confirmation modal dialog.
