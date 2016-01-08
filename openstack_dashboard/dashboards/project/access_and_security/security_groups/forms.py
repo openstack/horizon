@@ -186,7 +186,7 @@ class AddRule(forms.SelfHandlingForm):
                                        'data-switch-on': 'rule_menu',
                                        'data-rule_menu-icmp': _('Type')}),
                                    validators=[
-                                       utils_validators.validate_icmp])
+                                       utils_validators.validate_port_range])
 
     icmp_code = forms.IntegerField(label=_("Code"),
                                    required=False,
@@ -197,7 +197,7 @@ class AddRule(forms.SelfHandlingForm):
                                        'data-switch-on': 'rule_menu',
                                        'data-rule_menu-icmp': _('Code')}),
                                    validators=[
-                                       utils_validators.validate_icmp])
+                                       utils_validators.validate_port_range])
 
     remote = forms.ChoiceField(label=_('Remote'),
                                choices=[('cidr', _('CIDR')),
