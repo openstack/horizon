@@ -500,7 +500,7 @@ class SecurityGroupsViewTests(test.TestCase):
                     'remote': 'cidr'}
         res = self.client.post(self.edit_url, formData)
         self.assertNoMessages()
-        self.assertContains(res, "Not a valid ICMP code or type")
+        self.assertContains(res, "The ICMP type not in range (-1, 255)")
 
         formData = {'method': 'AddRule',
                     'id': sec_group.id,
@@ -512,7 +512,7 @@ class SecurityGroupsViewTests(test.TestCase):
                     'remote': 'cidr'}
         res = self.client.post(self.edit_url, formData)
         self.assertNoMessages()
-        self.assertContains(res, "Not a valid ICMP code or type")
+        self.assertContains(res, "The ICMP code not in range (-1, 255)")
 
         formData = {'method': 'AddRule',
                     'id': sec_group.id,
