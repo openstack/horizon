@@ -154,6 +154,35 @@ class NovaRestTestCase(test.TestCase):
         nc.server_get.assert_called_once_with(request, "1")
 
     #
+    # Server Metadata
+    #
+    @mock.patch.object(nova.api, 'nova')
+    def test_server_get_metadata(self, nc):
+        request = self.mock_rest_request()
+        meta = {'foo': 'bar'}
+        nc.server_get.return_value.to_dict.return_value.get.return_value = meta
+
+        response = nova.ServerMetadata().get(request, "1")
+        self.assertStatusCode(response, 200)
+        nc.server_get.assert_called_once_with(request, "1")
+
+    @mock.patch.object(nova.api, 'nova')
+    def test_server_edit_metadata(self, nc):
+        request = self.mock_rest_request(
+            body='{"updated": {"a": "1", "b": "2"}, "removed": ["c", "d"]}'
+        )
+
+        response = nova.ServerMetadata().patch(request, '1')
+        self.assertStatusCode(response, 204)
+        self.assertEqual(response.content, b'')
+        nc.server_metadata_update.assert_called_once_with(
+            request, '1', {'a': '1', 'b': '2'}
+        )
+        nc.server_metadata_delete.assert_called_once_with(
+            request, '1', ['c', 'd']
+        )
+
+    #
     # Extensions
     #
     @mock.patch.object(nova.api, 'nova')

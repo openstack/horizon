@@ -46,7 +46,9 @@
       editFlavorExtraSpecs: editFlavorExtraSpecs,
       getAggregateExtraSpecs: getAggregateExtraSpecs,
       editAggregateExtraSpecs: editAggregateExtraSpecs,
-      getServices: getServices
+      getServices: getServices,
+      getInstanceMetadata: getInstanceMetadata,
+      editInstanceMetadata: editInstanceMetadata
     };
 
     return service;
@@ -366,6 +368,40 @@
         }
       ).error(function () {
         toastService.add('error', gettext('Unable to edit the aggregate extra specs.'));
+      });
+    }
+
+    /**
+     * @name horizon.app.core.openstack-service-api.nova.getInstanceMetadata
+     * @description
+     * Get a single instance's metadata by ID.
+     * @param {string} id
+     * Specifies the id of the instance to request the metadata.
+     */
+    function getInstanceMetadata(id) {
+      return apiService.get('/api/nova/servers/' + id + '/metadata')
+        .error(function () {
+          toastService.add('error', gettext('Unable to retrieve instance metadata.'));
+        });
+    }
+
+    /**
+     * @name horizon.openstack-service-api.nova.editInstanceMetadata
+     * @description
+     * Update a single instance's metadata by ID.
+     * @param {string} id
+     * @param {object} updated New metadata.
+     * @param {[]} removed Names of removed metadata items.
+     */
+    function editInstanceMetadata(id, updated, removed) {
+      return apiService.patch(
+        '/api/nova/servers/' + id + '/metadata',
+        {
+          updated: updated,
+          removed: removed
+        }
+      ).error(function () {
+        toastService.add('error', gettext('Unable to edit instance metadata.'));
       });
     }
   }

@@ -199,7 +199,7 @@ class Servers(generic.View):
 class Server(generic.View):
     """API for retrieving a single server
     """
-    url_regex = r'nova/servers/(?P<server_id>.+|default)$'
+    url_regex = r'nova/servers/(?P<server_id>[^/]+|default)$'
 
     @rest_utils.ajax()
     def get(self, request, server_id):
@@ -208,6 +208,35 @@ class Server(generic.View):
         http://localhost/api/nova/servers/1
         """
         return api.nova.server_get(request, server_id).to_dict()
+
+
+@urls.register
+class ServerMetadata(generic.View):
+    """API for server metadata.
+    """
+    url_regex = r'nova/servers/(?P<server_id>[^/]+|default)/metadata$'
+
+    @rest_utils.ajax()
+    def get(self, request, server_id):
+        """Get a specific server's metadata
+
+        http://localhost/api/nova/servers/1/metadata
+        """
+        return api.nova.server_get(request,
+                                   server_id).to_dict().get('metadata')
+
+    @rest_utils.ajax()
+    def patch(self, request, server_id):
+        """Update metadata items for a server
+
+        http://localhost/api/nova/servers/1/metadata
+        """
+        updated = request.DATA['updated']
+        removed = request.DATA['removed']
+        if updated:
+            api.nova.server_metadata_update(request, server_id, updated)
+        if removed:
+            api.nova.server_metadata_delete(request, server_id, removed)
 
 
 @urls.register

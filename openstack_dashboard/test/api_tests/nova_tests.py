@@ -212,6 +212,34 @@ class ComputeApiTests(test.APITestCase):
         ret_val = api.nova.server_get(self.request, server.id)
         self.assertIsInstance(ret_val, api.nova.Server)
 
+    def test_server_metadata_update(self):
+        server = self.servers.first()
+        metadata = {'foo': 'bar'}
+
+        novaclient = self.stub_novaclient()
+        novaclient.servers = self.mox.CreateMockAnything()
+        novaclient.servers.set_meta(server.id, metadata)
+        self.mox.ReplayAll()
+
+        ret_val = api.nova.server_metadata_update(self.request,
+                                                  server.id,
+                                                  metadata)
+        self.assertIsNone(ret_val)
+
+    def test_server_metadata_delete(self):
+        server = self.servers.first()
+        keys = ['a', 'b']
+
+        novaclient = self.stub_novaclient()
+        novaclient.servers = self.mox.CreateMockAnything()
+        novaclient.servers.delete_meta(server.id, keys)
+        self.mox.ReplayAll()
+
+        ret_val = api.nova.server_metadata_delete(self.request,
+                                                  server.id,
+                                                  keys)
+        self.assertIsNone(ret_val)
+
     def _test_absolute_limits(self, values, expected_results):
         limits = self.mox.CreateMockAnything()
         limits.absolute = []
