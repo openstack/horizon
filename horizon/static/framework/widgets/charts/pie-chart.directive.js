@@ -169,7 +169,7 @@
         // set labels depending on whether this is a max or total chart
         if (!showChart) {
           scope.model.total = null;
-          scope.model.totalLabel = gettext('no quota');
+          scope.model.totalLabel = gettext('No Limit');
         } else if (angular.isDefined(scope.chartData.maxLimit)) {
           scope.model.total = scope.chartData.maxLimit;
           scope.model.totalLabel = gettext('Max');

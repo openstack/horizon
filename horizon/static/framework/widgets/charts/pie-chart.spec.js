@@ -190,9 +190,9 @@
       expect(title).toBe('Total Instances (8 Total)');
     });
 
-    it('Unlimited Quota chart should have title "Total Instances (no quota)"', function () {
+    it('Unlimited Quota chart should have title "Total Instances (No Limit)"', function () {
       var title = $elementNoQuota.find('.pie-chart-title').text().trim();
-      expect(title).toBe('Total Instances (no quota)');
+      expect(title).toBe('Total Instances (No Limit)');
     });
 
     it('Max chart should have a legend', function () {
