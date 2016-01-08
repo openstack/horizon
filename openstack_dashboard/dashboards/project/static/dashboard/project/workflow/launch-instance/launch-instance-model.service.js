@@ -250,7 +250,7 @@
 
     function successMessage() {
       var numberInstances = model.newInstanceSpec.instance_count;
-      var message = ngettext('Instance launched.', '%s instances launched.', numberInstances);
+      var message = ngettext('%s instance launched.', '%s instances launched.', numberInstances);
       toast.add('success', interpolate(message, [numberInstances]));
     }
 
