@@ -244,5 +244,23 @@
       );
     });
 
+    describe('toISO8610DateFormat', function() {
+      var toIsoDateFilter;
+
+      beforeEach(inject(function(_toIsoDateFilter_) {
+        toIsoDateFilter = _toIsoDateFilter_;
+      }));
+
+      it('should convert to ISO-8610 from a date string', function() {
+        var actual = toIsoDateFilter('2015-09-22T11:00:00.000');
+        expect(actual).toBe('2015-09-22T11:00:00.000Z');
+      });
+
+      it('should convert to ISO-8610 from milliseconds', function() {
+        var actual = toIsoDateFilter(1442919600000);
+        expect(actual).toBe('2015-09-22T11:00:00.000Z');
+      });
+    });
+
   }); // end of horizon.framework.util.filters
 })(); // end of IIFE
