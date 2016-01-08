@@ -145,6 +145,20 @@ class NovaRestTestCase(test.TestCase):
         )
 
     @mock.patch.object(nova.api, 'nova')
+    def test_server_list(self, nc):
+        request = self.mock_rest_request()
+        nc.server_list.return_value = ([
+            mock.Mock(**{'to_dict.return_value': {'id': 'one'}}),
+            mock.Mock(**{'to_dict.return_value': {'id': 'two'}}),
+        ], False)
+
+        response = nova.Servers().get(request)
+        self.assertStatusCode(response, 200)
+        self.assertEqual(response.json,
+                         {'items': [{'id': 'one'}, {'id': 'two'}]})
+        nc.server_list.assert_called_once_with(request)
+
+    @mock.patch.object(nova.api, 'nova')
     def test_server_get_single(self, nc):
         request = self.mock_rest_request()
         nc.server_get.return_value.to_dict.return_value = {'name': '1'}

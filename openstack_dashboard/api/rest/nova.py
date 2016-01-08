@@ -144,6 +144,19 @@ class Servers(generic.View):
         'config_drive'
     ]
 
+    @rest_utils.ajax()
+    def get(self, request):
+        """Get a list of servers.
+
+        The listing result is an object with property "items". Each item is
+        a server.
+
+        Example GET:
+        http://localhost/api/nova/servers
+        """
+        servers = api.nova.server_list(request)[0]
+        return {'items': [s.to_dict() for s in servers]}
+
     @rest_utils.ajax(data_required=True)
     def post(self, request):
         """Create a server.
