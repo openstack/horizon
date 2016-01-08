@@ -57,7 +57,7 @@
       {
         "func": "deleteImage",
         "method": "delete",
-        "path": "/api/glance/images/42",
+        "path": "/api/glance/images/42/",
         "error": "Unable to delete the image with id: 42",
         "testInput": [
           42

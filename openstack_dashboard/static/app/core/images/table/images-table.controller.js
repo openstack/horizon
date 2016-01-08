@@ -30,30 +30,72 @@
     .controller('imagesTableController', ImagesTableController);
 
   ImagesTableController.$inject = [
-    'horizon.app.core.images.basePath',
+    '$scope',
+    'horizon.app.core.images.batch-actions.service',
+    'horizon.app.core.images.row-actions.service',
+    'horizon.app.core.images.events',
     'horizon.app.core.openstack-service-api.glance'
   ];
 
-  function ImagesTableController(basepath, glance) {
-
+  function ImagesTableController(
+    $scope,
+    batchActions,
+    rowActions,
+    events,
+    glance
+  ) {
     var ctrl = this;
+
+    ctrl.checked = {};
+
     ctrl.images = [];
     ctrl.imagesSrc = [];
-    ctrl.checked = {};
-    ctrl.path = basepath + 'table/';
+
+    ctrl.batchActions = batchActions;
+    ctrl.batchActions.initScope($scope);
+
+    ctrl.rowActions = rowActions;
+    ctrl.rowActions.initScope($scope);
+
+    var deleteWatcher = $scope.$on(events.DELETE_SUCCESS, onDeleteSuccess);
+
+    $scope.$on('$destroy', destroy);
 
     init();
 
     ////////////////////////////////
 
     function init() {
-      // if user has permission
-      // fetch table data and populate it
       glance.getImages().success(onGetImages);
     }
 
     function onGetImages(response) {
       ctrl.imagesSrc = response.items;
+    }
+
+    function onDeleteSuccess(e, removedImageIds) {
+      ctrl.imagesSrc = difference(ctrl.imagesSrc, removedImageIds, 'id');
+
+      /* eslint-disable angular/ng_controller_as */
+      $scope.selected = {};
+      $scope.numSelected = 0;
+      /* eslint-enable angular/ng_controller_as */
+
+      e.stopPropagation();
+    }
+
+    function difference(currentList, otherList, key) {
+      return currentList.filter(filter);
+
+      function filter(elem) {
+        return otherList.filter(function filterDeletedItem(deletedItem) {
+          return deletedItem === elem[key];
+        }).length === 0;
+      }
+    }
+
+    function destroy() {
+      deleteWatcher();
     }
 
   }

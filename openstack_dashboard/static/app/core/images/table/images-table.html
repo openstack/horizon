@@ -16,6 +16,8 @@
       -->
       <th colspan="100" class="search-header">
         <hz-search-bar group-classes="input-group-sm" icon-classes="fa-search">
+          <actions allowed="table.batchActions.actions" type="batch">
+          </actions>
         </hz-search-bar>
       </th>
     </tr>
@@ -53,8 +55,7 @@
       Include action-col if you want to perform actions.
       rsp-p1 rsp-p2 are responsive priority as user resizes window.
     -->
-    <tr ng-repeat-start="image in table.images track by image.id"
-        ng-class="{'st-selected': checked[image.id]}">
+    <tr ng-repeat-start="image in table.images track by image.id">
 
       <td class="select-col">
         <input type="checkbox"
@@ -74,6 +75,15 @@
       <td class="rsp-p2">{$ image.protected | yesno $}</td>
       <td class="rsp-p2">{$ image.disk_format | noValue | uppercase $}</td>
       <td class="rsp-p2">{$ image.size | bytes $}</td>
+
+      <td class="action-col">
+        <!--
+        Table-row-action-column:
+        Actions taken here applies to a single item/row.
+        -->
+        <actions allowed="table.rowActions.actions" type="row" item="image">
+        </actions>
+      </td>
     </tr>
 
     <tr ng-repeat-end class="detail-row">

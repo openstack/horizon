@@ -27,12 +27,24 @@
    */
   angular
     .module('horizon.app.core.images', [])
+    .constant('horizon.app.core.images.events', events())
     .config(config);
 
   config.$inject = [
     '$provide',
     '$windowProvider'
   ];
+
+  /**
+   * @ngdoc value
+   * @name horizon.app.core.images.events
+   * @description a list of events for images
+   */
+  function events() {
+    return {
+      DELETE_SUCCESS: 'horizon.app.core.images.DELETE_SUCCESS'
+    };
+  }
 
   /**
    * @name horizon.app.core.images.basePath
