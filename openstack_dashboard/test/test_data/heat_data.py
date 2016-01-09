@@ -11,6 +11,7 @@
 #    under the License.
 
 from heatclient.v1 import resource_types
+from heatclient.v1 import resources
 from heatclient.v1 import services
 from heatclient.v1 import stacks
 
@@ -337,6 +338,7 @@ def data(TEST):
     TEST.stack_templates = utils.TestDataContainer()
     TEST.stack_environments = utils.TestDataContainer()
     TEST.resource_types = utils.TestDataContainer()
+    TEST.heat_resources = utils.TestDataContainer()
     TEST.heat_services = utils.TestDataContainer()
 
     # Services
@@ -380,8 +382,8 @@ def data(TEST):
             "links": [{
                 "href": "http://192.168.1.70:8004/v1/"
                         "051c727ee67040d6a7b7812708485a97/"
-                        "stacks/stack-1211-38/"
-                        "05b4f39f-ea96-4d91-910c-e758c078a089",
+                        "stacks/stack-test{0}/"
+                        "05b4f39f-ea96-4d91-910c-e758c078a089{0}".format(i),
                 "rel": "self"
             }],
             "parameters": {
@@ -461,3 +463,33 @@ def data(TEST):
             resource_types.ResourceTypeManager(None), rt['resource_type'])
         TEST.resource_types.add(r_type)
         TEST.api_resource_types.add(rt)
+
+    # Resources
+    resource_1 = resources.Resource(resources.ResourceManager(None), {
+        "logical_resource_id": "my_resource",
+        "physical_resource_id": "7b5e29b1-c94d-402d-b69c-df9ac6dfc0ce",
+        "resource_name": "my_resource",
+        "links": [
+            {
+                "href": "http://192.168.1.70:8004/v1/"
+                        "051c727ee67040d6a7b7812708485a97/"
+                        "stacks/%s/%s/resources/my_resource" %
+                        (TEST.stacks.first().stack_name,
+                         TEST.stacks.first().id),
+                "rel": "self"
+            },
+            {
+                "href": "http://192.168.1.70:8004/v1/"
+                        "051c727ee67040d6a7b7812708485a97/"
+                        "stacks/%s/%s" %
+                        (TEST.stacks.first().stack_name,
+                         TEST.stacks.first().id),
+                "rel": "stack"
+            }
+        ],
+        "attributes": {
+            "metadata": {}
+        }
+    })
+
+    TEST.heat_resources.add(resource_1)
