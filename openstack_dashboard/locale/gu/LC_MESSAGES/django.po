@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-12-17 05:35+0000\n"
+"POT-Creation-Date: 2016-01-09 00:51+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -115,19 +115,6 @@ msgstr ""
 "  <tt> સિન્ડર સ્નેપશોટ-રીસેટ-રાજ્ય</tt> આદેશ.\n"
 "    "
 
-msgid ""
-"\n"
-"  Move networks from 'Available Networks' to 'Selected Networks' by\n"
-"  clicking the button, or dragging and dropping. You can change the\n"
-"  NIC order by dragging and dropping as well.\n"
-"  "
-msgstr ""
-"\n"
-"  'ઉપલબ્ધ નેટવર્ક્સ' માંથી 'પસંદ કરેલ નેટવર્ક્સ' ને બટન ક્લિક કરી\n"
-"  નેટવર્ક્સ ખસેડો, અથવા ડ્રેગ અને ડ્રોપ કરો. તમે ડ્રેગ અને ડ્રોપ દ્વારા\n"
-"  પણ NIC ક્રમમાં ફેરફાર કરી શકો છો.\n"
-"  "
-
 msgid " - End"
 msgstr "- અંત"
 
@@ -153,10 +140,6 @@ msgstr "%(instance_name)s %(fixed_ip)s"
 #, python-format
 msgid "%(name)s - %(size)s GB (%(label)s)"
 msgstr "%(name)s - %(size)s GB (%(label)s)"
-
-#, python-format
-msgid "%(name)s | %(RAM)s RAM"
-msgstr "%(name)s | %(RAM)s RAM"
 
 #, python-format
 msgid "%(offset)s: %(label)s"
@@ -240,30 +223,6 @@ msgstr "--"
 
 msgid "3des"
 msgstr "3des"
-
-#, python-format
-msgid "<p>%(used)s of %(quota)s MB Used</p>"
-msgstr "<p>%(used)s ના %(quota)s વપરાયેલ MB</p>"
-
-#, python-format
-msgid "<p>%(used)s of %(quota)s Used</p>"
-msgstr "<p>%(used)s ના %(quota)s ઉપયોગમા લેવાયેલ</p>"
-
-msgid ""
-"<strong>Please note:</strong> The new value must be greater than the "
-"existing volume size."
-msgstr ""
-"<strong>કૃપા કરીને નોંધ લો: </strong> નવા મૂલ્ય હાલના વોલ્યુમ માપ કરતાં મોટા હોવા જ "
-"જોઈએ."
-
-msgid ""
-"<strong>Please note:</strong> The value specified in the Volume Size field "
-"should be greater than 0, however, some configurations do not support "
-"specifying volume size. If specifying the volume size results in an error "
-"stating volume support is not enabled, enter 0."
-msgstr ""
-"<strong>કૃપા કરીને નોંધ લો:</strong> વોલ્યુમ માપ ક્ષેત્રમાં સ્પષ્ટ કરેલ મુલ્ય 0 કરતાં મોટા "
-"હોવા જોઈએ, જો કે, કેટલાક રૂપરેખાંકનો સ્પષ્ટ કરેલ વોલ્યુમ માપને આધાર આપતા નથી."
 
 msgid ""
 "A container is a storage compartment for your data and provides a way for "
@@ -360,10 +319,6 @@ msgstr "ફાયરવોલ નિયમ માટે પગલાં"
 
 msgid "Action:"
 msgstr "ક્રિયા:"
-
-msgctxt "Current status of a Database Instance"
-msgid "Active"
-msgstr "સક્રિય"
 
 msgctxt "Current status of a Firewall"
 msgid "Active"
@@ -673,22 +628,6 @@ msgstr "ફાળવવામાં આવેલ ફ્લોટિંગ IP %(i
 msgid "Allocation Pools"
 msgstr "ફાળવણી પુલ"
 
-msgid ""
-"Allow the user to connect from this host\n"
-"    only. If not provided this user will be allowed to connect from "
-"anywhere.\n"
-"    "
-msgstr ""
-"વપરાશકર્તાને આ માત્ર યજમાનથી જોડાવા માટે પરવાનગી આપે છે\n"
-"  પૂરું પાડવામાં નહિં આવે તો આ વપરાશકર્તાને ગમે ત્યાં જોડાવા માટે પરવાનગી આપવામાં આવશે.\n"
-"    "
-
-msgid "Allowed Host"
-msgstr "યજમાનને મંજૂરી આપવામાં આવી"
-
-msgid "Allowed Host (optional)"
-msgstr "મંજૂરી આપવામાં આવેલ યજમાન (વૈકલ્પિક)"
-
 msgid "Amount of energy"
 msgstr "ઊર્જાની માત્રા"
 
@@ -853,33 +792,8 @@ msgstr "સરેરાશ CPU (સીપીયુ) નો ઉપયોગ"
 msgid "Avg."
 msgstr "સરેરાશ."
 
-msgid "Backup"
-msgstr "બેકઅપ"
-
-msgctxt "Current status of a Database Instance"
-msgid "Backup"
-msgstr "બેકઅપ"
-
-msgid "Backup Database"
-msgstr "બેકઅપ ડેટાબેઝ"
-
-msgid "Backup Details"
-msgstr "બેકઅપની વિગતો"
-
-msgid "Backup Duration"
-msgstr "બેકઅપ અવધિ"
-
-msgid "Backup File"
-msgstr "બૅકઅપ ફાઇલ"
-
-msgid "Backup File Location"
-msgstr "બૅકઅપ ફાઇલ લોકેશન"
-
 msgid "Backup Name"
 msgstr "બેકઅપ નામ"
-
-msgid "Backup Overview"
-msgstr "બેકઅપના અવલોકન"
 
 msgid "Backups"
 msgstr "બેકઅપો"
@@ -896,10 +810,6 @@ msgstr "બ્લોક સ્થળાંતર"
 
 msgid "Block Storage Services"
 msgstr "બ્લોક સંગ્રહ સેવાઓ"
-
-msgctxt "Current status of a Database Instance"
-msgid "Blocked"
-msgstr "અવરોધિત"
 
 msgctxt "Power state of an Instance"
 msgid "Blocked"
@@ -923,10 +833,6 @@ msgstr "વોલ્યુમ સ્નેપશોટ માંથી બુટ
 msgid "Bootable"
 msgstr "બુટ કરી શકાય તેવું"
 
-msgctxt "Current status of a Database Instance"
-msgid "Build"
-msgstr "બિલ્ડ"
-
 msgctxt "Current status of a Network"
 msgid "Build"
 msgstr "બિલ્ડ"
@@ -942,10 +848,6 @@ msgstr "બિલ્ડ"
 msgctxt "status of a network port"
 msgid "Build"
 msgstr "બિલ્ડ"
-
-msgctxt "Current status of a Database Backup"
-msgid "Building"
-msgstr "બિલ્ડીંગ"
 
 msgctxt "Power state of an Instance"
 msgid "Building"
@@ -1064,17 +966,8 @@ msgstr "માત્ર કન્સોલ બતાવવા માટે અ�
 msgid "Close"
 msgstr "બંધ કરો"
 
-msgid "Cluster Name"
-msgstr "ક્લસ્ટર નામ"
-
-msgid "Clusters"
-msgstr "કલસ્ટર્સ"
-
 msgid "Code"
 msgstr "કોડ"
-
-msgid "Comma separated list of databases to create"
-msgstr "અલ્પવિરામ ડેટાબેઝ યાદી બનાવવા માટે અલગ પાડે છે"
 
 msgid "Compute"
 msgstr "કમ્પ્યુટ"
@@ -1123,12 +1016,6 @@ msgstr "માપ બદલો અથવા સ્થળાંતરની ખ�
 
 msgid "Conflicting Rule"
 msgstr "વિરોધાભાસી નિયમ"
-
-msgid "Connection Examples"
-msgstr "જોડાણના ઉદાહરણો"
-
-msgid "Connection Info"
-msgstr "જોડાણ માહિતી"
 
 msgid "Connection Limit"
 msgstr "જોડાણ મર્યાદા"
@@ -1418,13 +1305,6 @@ msgstr ""
 msgid "Create an Encrypted Volume Type"
 msgstr "એનક્રિપ્ટ થયેલ વોલ્યુમ પ્રકાર બનાવો"
 
-msgid ""
-"Create an optional initial user.\n"
-"   This user will have access to all databases you create."
-msgstr ""
-"વૈકલ્પિક પ્રારંભિક વપરાશકર્તા બનાવો.\n"
-"આ વપરાશકર્તાને તમે બનાવો છો તે તમામ ડેટાબેઝોમા ઍક્સેસ હશે."
-
 msgid "Created"
 msgstr "બનાવેલ"
 
@@ -1525,9 +1405,6 @@ msgstr "આ સબનેટ માટે બનાવટ અરજીઓ"
 msgid "Current Host"
 msgstr "હાલનો યજમાન"
 
-msgid "Current Size (GB)"
-msgstr "હાલનાં માપ (GB)"
-
 msgid "Current password"
 msgstr "વર્તમાન પાસવર્ડ"
 
@@ -1545,9 +1422,6 @@ msgstr "કસ્ટમ UDP નિયમ"
 
 msgid "Customization Script Source"
 msgstr "કસ્ટમાઇઝેશન સ્ક્રિપ્ટ સ્રોત"
-
-msgid "DATABASE"
-msgstr "ડેટાબેઝ"
 
 msgid "DENY"
 msgstr "ના પાડવી"
@@ -1570,33 +1444,6 @@ msgstr "DNS નામ સર્વર"
 
 msgid "Daily Usage Report"
 msgstr "દૈનિક વપરાશના અહેવાલ"
-
-msgid "Database"
-msgstr "ડેટાબેઝ"
-
-msgid "Database Backups"
-msgstr "ડેટાબેઝ બેકઅપ"
-
-msgid "Database Info"
-msgstr "ડેટાબેઝની માહિતી"
-
-msgid "Database Instance"
-msgstr "ડેટાબેઝ ઉદાહરણ"
-
-msgid "Database Name"
-msgstr "ડેટાબેઝનું નામ"
-
-msgid "Database Port"
-msgstr "ડેટાબેઝ પોર્ટ"
-
-msgid "Databases"
-msgstr "ડેટાબેઝો"
-
-msgid "Datastore"
-msgstr "માહિતીસંગ્રહ"
-
-msgid "Datastore Version"
-msgstr "માહિતીસંગ્રહ આવૃત્તિ"
 
 msgid "Date Updated"
 msgstr "સુધારાયેલ તારીખ"
@@ -1901,9 +1748,6 @@ msgstr "ડાઉન"
 msgid "Download"
 msgstr "ડાઉનલોડ કરો"
 
-msgid "Download Backup"
-msgstr "બેકઅપ ડાઉનલોડ કરો"
-
 msgid "Download CSV Summary"
 msgstr "CSV સારાંશ ડાઉનલોડ કરો"
 
@@ -2138,10 +1982,6 @@ msgstr ""
 msgid "Error"
 msgstr "ભૂલ"
 
-msgctxt "Current status of a Database Instance"
-msgid "Error"
-msgstr "ભૂલ"
-
 msgctxt "Current status of a Firewall"
 msgid "Error"
 msgstr "ભૂલ"
@@ -2196,20 +2036,8 @@ msgstr "RC ફાઇલ ડાઉનલોડ કરવામાં ભૂલ: %
 msgid "Error adding Hosts to the aggregate."
 msgstr "સમુહમાં યજમાનો ઉમેરવમાં ભૂલ."
 
-msgid "Error creating database backup."
-msgstr "ડેટાબેઝ બેકઅપ બનાવવામાં ભૂલ."
-
-msgid "Error deleting database on instance."
-msgstr "ઉદાહરણ પરના ડેટાબેઝ કાઢવામા ભૂલ."
-
-msgid "Error deleting database user."
-msgstr "ડેટાબેઝ વપરાશકર્તા કાઢી નાંખવા ભૂલ."
-
 msgid "Error editing QoS Spec consumer."
 msgstr "QoS સ્પેક ઉપભોક્તા સંપાદન કરવામાં ભૂલ ."
-
-msgid "Error getting database backup list."
-msgstr "ડેટાબેઝ બેકઅપ યાદીમાં ભૂલ મળી ."
 
 msgid "Error updating QoS Spec association."
 msgstr "QoS સ્પેક એસોસિયેશનને અદ્યતન કરવામાં ભૂલ."
@@ -2272,14 +2100,6 @@ msgstr ""
 
 msgid "Extra Specs"
 msgstr "વધારાના સ્પેક્સ"
-
-msgctxt "Current status of a Database Backup"
-msgid "Failed"
-msgstr "નિષ્ફળ થયેલ"
-
-msgctxt "Current status of a Database Instance"
-msgid "Failed"
-msgstr "નિષ્ફળ થયેલ"
 
 msgctxt "Power state of an Instance"
 msgid "Failed"
@@ -2812,9 +2632,6 @@ msgstr ""
 "યજમાનોને જૂથબદ્ધ કરીને યજમાન સમૂહો ઉપલબ્ધિ ઝોનને તાર્કિક એકમોમાં વહેંચે છે. તેમાં સમાયેલ "
 "યજમાનો પસંદ કરવા માટે યજમાન સમૂહ સંપાદિત કરો."
 
-msgid "Host or IP that the user is allowed to connect through."
-msgstr "યજમાન અથવા IP કે જે વપરાશકર્તાને મારફતે જોડાવા માટે પરવાનગી છે."
-
 msgid "Hostname"
 msgstr "યજમાન નામ"
 
@@ -3053,12 +2870,6 @@ msgid ""
 msgstr ""
 "વધુમાં, તમે બાહ્ય નેટવર્ક અથવા સંબંધિત ચકાસણીબોક્સ ચકાસીને વહેંચાયેલ નેટવર્ક બનાવી શકો છો."
 
-msgid "Incremental"
-msgstr "વધતા જતા"
-
-msgid "Incremental Backup"
-msgstr "વધતા જતા બેકઅપ"
-
 msgid "Info"
 msgstr "માહિતી"
 
@@ -3067,21 +2878,6 @@ msgstr "જાણકારી"
 
 msgid "Ingress"
 msgstr "પ્રવેશ"
-
-msgid "Initial Admin User"
-msgstr "પ્રારંભિક સંચાલક વપરાશકર્તા"
-
-msgid "Initial Databases"
-msgstr "પ્રારંભિક ડેટાબેઝો"
-
-msgid "Initial Volume Size"
-msgstr "પ્રારંભિક વોલ્યુમ માપ"
-
-msgid "Initial admin user to add"
-msgstr "પ્રારંભિક સંચાલક વપરાશકર્તા ઉમેરવા માટે"
-
-msgid "Initialize Databases"
-msgstr "ડેટાબેઝો પ્રારંભ કરો"
 
 msgid "Initiator state"
 msgstr "પ્રારંભકર્તા સ્ટેટ"
@@ -3268,12 +3064,6 @@ msgstr "છેલ્લું વર્ષ"
 
 msgid "Launch"
 msgstr "લૉંચ કરો"
-
-msgid "Launch Cluster"
-msgstr "ક્લસ્ટર આરંભ કરો"
-
-msgid "Launch Database"
-msgstr "લોન્ચ કરેલ ડેટાબેઝ"
 
 msgid "Launch Instance"
 msgstr "ઉદાહરણને લોંચ કરો"
@@ -3468,12 +3258,6 @@ msgstr "સભ્ય IP સરનામા સ્પષ્ટ કરેલ હ�
 
 msgid "Member Source"
 msgstr "સભ્ય સ્રોત"
-
-msgid "Member address"
-msgstr "સભ્ય સરનામા"
-
-msgid "Member(s)"
-msgstr "સભ્ય(ઓ)"
 
 msgid "Members"
 msgstr "સભ્યો"
@@ -3707,14 +3491,8 @@ msgstr "નવા ફ્લેવર"
 msgid "New Host"
 msgstr "નવો યજમાન"
 
-msgid "New Size (GB)"
-msgstr "નવા માપ (GB)"
-
 msgid "New password"
 msgstr "નવા પાસવર્ડ"
-
-msgid "New size for volume must be greater than current size."
-msgstr "વોલ્યુમ માટે હાલનાં માપ કરતા નવા માપ વધારે હોવા જ જોઈએ."
 
 msgid "New size must be greater than current size."
 msgstr "નવા માપ હાલનાં માપ કરતા વધારે હોવા જ જોઈએ ."
@@ -3752,9 +3530,6 @@ msgstr "કોઈ ઉપલબ્ધ કન્સોલ મળ્યાં ન�
 
 msgid "No available projects"
 msgstr "કોઈ પ્રોજેક્ટો ઉપલબ્ધ નથી"
-
-msgid "No backups available"
-msgstr "કોઈ બેકઅપ ઉપલબ્ધ નથી"
 
 msgid "No flavors available"
 msgstr "ફ્લેવરો ઉપલબ્ધ નથી"
@@ -3874,12 +3649,6 @@ msgstr "કંઈ નહિં"
 msgid "Normal"
 msgstr "સામાન્ય"
 
-msgid "Not Assigned"
-msgstr "સોંપાયેલા નથી"
-
-msgid "Not Found"
-msgstr "મળ્યા નહી"
-
 msgid "Not attached"
 msgstr "જોડાયેલા નથી"
 
@@ -3997,20 +3766,11 @@ msgstr "ઓપન પોર્ટ"
 msgid "Open Port/Port Range:"
 msgstr "પોર્ટ / પોર્ટ રેન્જ ખોલો:"
 
-msgid "Optional Backup Description"
-msgstr "વૈકલ્પિક બેકઅપ વર્ણન"
-
 msgid "Optional Parameters"
 msgstr "વૈકલ્પિક પરિમાણો"
 
-msgid "Optional parent backup"
-msgstr "વૈકલ્પિક પેરેન્ટ બેકઅપ"
-
 msgid "Optional: Next Hop Addresses (comma delimited)"
 msgstr "વૈકલ્પિક: આગામી હોપ સરનામાઓ (અલ્પવિરામથી સીમાંકિત)"
-
-msgid "Optionally provide a comma separated list of databases to create:"
-msgstr "વૈકલ્પિક રીતે પુરા પાડવામાં આવેલ અલ્પવિરામ ડેટાબેઝની યાદી બનાવવા માટે અલગ પાડે છે "
 
 msgid "Optionally, you may choose to create a new volume."
 msgstr "વૈકલ્પિક રીતે, તમે નવા વોલ્યુમ બનાવવા માટે પસંદ કરી શકો છો."
@@ -4030,9 +3790,6 @@ msgstr "અવલોકન"
 msgid "Owner"
 msgstr "માલિક"
 
-msgid "PASSWORD"
-msgstr "પાસવર્ડ"
-
 msgid "PFS"
 msgstr "PFS (પીએફએસ)"
 
@@ -4045,18 +3802,12 @@ msgstr "પૃષ્ઠ મળ્યુ નથી"
 msgid "Parameters"
 msgstr "પરિમાણો"
 
-msgid "Parent Backup"
-msgstr "પેરેન્ટ બેકઅપ"
-
 msgid "Password"
 msgstr "પાસવર્ડ"
 
 msgctxt "Current status of an Instance"
 msgid "Password"
 msgstr "પાસવર્ડ"
-
-msgid "Password (required)"
-msgstr "પાસવર્ડ (જરૂરી)"
 
 msgid "Password changed. Please log in again to continue."
 msgstr "પાસવર્ડ બદલ્યો છે. કૃપા કરીને ચાલુ રાખવા માટે ફરીથી લૉગ ઇન કરો."
@@ -4401,10 +4152,6 @@ msgctxt "Action log of an instance"
 msgid "Reboot"
 msgstr "રીબુટ"
 
-msgctxt "Current status of a Database Instance"
-msgid "Reboot"
-msgstr "રીબુટ"
-
 msgctxt "Current status of an Instance"
 msgid "Reboot"
 msgstr "રીબુટ"
@@ -4514,18 +4261,8 @@ msgctxt "Action log of an instance"
 msgid "Resize"
 msgstr "માપ બદલો"
 
-msgctxt "Current status of a Database Instance"
-msgid "Resize"
-msgstr "માપ બદલો"
-
-msgid "Resize Database Volume"
-msgstr "ડેટાબેઝ વોલ્યુમ માપ બદલો"
-
 msgid "Resize Instance"
 msgstr "ઇન્સ્ટેન્સના માપ બદલો"
-
-msgid "Resize Volume"
-msgstr "વોલ્યુમ માપ બદલો"
 
 msgctxt "Current status of an Instance"
 msgid "Resize/Migrate"
@@ -4539,10 +4276,6 @@ msgctxt "Task status of an Instance"
 msgid "Resizing or Migrating"
 msgstr "માપ બદલી અથવા સ્થળાંતર કરી રહ્યા છે"
 
-#, python-format
-msgid "Resizing volume \"%s\""
-msgstr "વોલ્યુમ માપ બદલી રહ્યા છે \"%s\""
-
 msgid "Resource"
 msgstr "સંસાધન"
 
@@ -4551,9 +4284,6 @@ msgstr "સંસાધન ID"
 
 msgid "Resource Metadata"
 msgstr "સંસાધન મેટાડેટા"
-
-msgid "Resource Overview"
-msgstr "સંસાધનનું અવલોકન"
 
 msgid "Resource Usage"
 msgstr "સ્ત્રોતનો ઉપયોગ"
@@ -4739,10 +4469,6 @@ msgid "Saved spec \"%s\"."
 msgstr "સાચવેલા સ્પેક \"% s\"."
 
 #, python-format
-msgid "Scheduled backup \"%(name)s\"."
-msgstr "સુનિશ્ચિત કરેલ બેકઅપ \"%(name)s\"."
-
-#, python-format
 msgid "Scheduled deletion of %(data_type)s"
 msgstr "%(data_type)s  શેડ્યુલ કરેલ કાઢી નાંખવામા આવ્યુ"
 
@@ -4844,9 +4570,6 @@ msgstr "રૂટર પસંદ કરો"
 msgid "Select a Subnet"
 msgstr "સબનેટ પસંદ કરો"
 
-msgid "Select a backup to restore"
-msgstr "પુનઃસ્થાપિત કરવા માટે બેકઅપ પસંદ કરો"
-
 #, python-format
 msgid "Select a health monitor of %s"
 msgstr "%s ના આરોગ્ય મોનીટર પસંદ કરો"
@@ -4900,12 +4623,6 @@ msgstr "ઇન્સ્ટન્સને પસંદ કરો"
 msgid "Select an instance to attach to."
 msgstr "સાથે જોડવા માટે ઇન્સ્ટન્સ પસંદ કરો."
 
-msgid "Select backup"
-msgstr "બેકઅપ પસંદ કરો"
-
-msgid "Select datastore type and version"
-msgstr "ડેટાસ્ટોરના પ્રકાર અને આવૃત્તિ પસંદ કરો"
-
 msgid "Select format"
 msgstr "પસંદ કરેલ બંધારણ"
 
@@ -4920,9 +4637,6 @@ msgstr "નેટવર્ક પસંદ કરો"
 
 msgid "Select networks for your instance."
 msgstr "તમારા ઉદાહરણ માટે નેટવર્ક્સ પસંદ કરો ."
-
-msgid "Select parent backup"
-msgstr "પેરેન્ટ બેકઅપ પસંદ કરો"
 
 msgid "Select rules for your policy."
 msgstr "તમારી પૉલિસી માટે નિયમો પસંદ કરો ."
@@ -5048,9 +4762,6 @@ msgstr "સાઇઝ"
 msgid "Size of image to launch."
 msgstr "ઇમેજ માપ લોન્ચ કરવા માટે."
 
-msgid "Size of the volume in GB."
-msgstr "GB માં વોલ્યુમના માપ."
-
 msgid "Size of volume"
 msgstr "વોલ્યુમના કદ"
 
@@ -5173,12 +4884,6 @@ msgstr "સભ્ય IP સરનામા સ્પષ્ટ કરો"
 
 msgid "Specify the details for launching an instance."
 msgstr "ઉદાહરણ લોન્ચ કરવા માટેની વિગતો સ્પષ્ટ કરો."
-
-msgid "Specify the details for the database backup."
-msgstr "ડેટાબેઝ બેકઅપ માટે વિગતો સ્પષ્ટ કરો."
-
-msgid "Specify the new volume size for the database instance."
-msgstr "ડેટાબેઝ ઉદાહરણ માટે નવા વોલ્યુમ માપ સ્પષ્ટ કરો."
 
 msgid "Specs"
 msgstr "સ્પેક્સ"
@@ -5711,9 +5416,6 @@ msgstr "આ કામગીરી સ્ટેકના જીવનચક્ર
 msgid "This name is already taken."
 msgstr "આ નામ પહેલેથી લેવામાં આવેલ છે."
 
-msgid "This pane needs javascript support."
-msgstr "આ પેનમા જાવાસ્ક્રિપ્ટનો આધાર જરૂરી છે."
-
 msgid ""
 "This volume is currently attached to an instance. In some cases, creating a "
 "snapshot from an attached volume can result in a corrupted snapshot."
@@ -5791,9 +5493,6 @@ msgstr "પ્રોટોકોલ પરિવર્તન"
 msgid "Type"
 msgstr "પ્રકાર"
 
-msgid "Type and version of datastore."
-msgstr "ડેટાસ્ટોરના પ્રકાર અને આવૃત્તિ."
-
 #, python-format
 msgid "Type: %(persistence_type)s"
 msgstr "પ્રકાર: %(persistence_type)s"
@@ -5806,9 +5505,6 @@ msgstr "URL"
 
 msgid "URL Path"
 msgstr "URL Path"
-
-msgid "USERNAME"
-msgstr "વપરાશકર્તાનામ"
 
 msgid "UTC"
 msgstr "UTC (યુટીસી)"
@@ -6039,9 +5735,6 @@ msgstr "વોલ્યુમ વિસ્તારવા માટે અસમ
 msgid "Unable to fetch EC2 credentials."
 msgstr "EC2 ઓળખાણપત્ર મેળવવામાં અસમર્થ."
 
-msgid "Unable to find backup!"
-msgstr "બેકઅપ શોધવામાં અસમર્થ!"
-
 msgid "Unable to find default role."
 msgstr "મૂળભૂત ભૂમિકા શોધવામાં અસમર્થ."
 
@@ -6062,12 +5755,6 @@ msgstr "\"%s\" ઉદાહરણ માટે VNC કન્સોલ મેળ�
 
 msgid "Unable to get cinder services list."
 msgstr "સિન્ડર સેવાઓ યાદી મેળવવામાં અસમર્થ."
-
-msgid "Unable to get database backup data."
-msgstr "ડેટાબેઝ બેકઅપ માહિતી મેળવવામા અસમર્થ."
-
-msgid "Unable to get databases data."
-msgstr "ડેટાબેઝોની માહિતી મેળવવામા અસમર્થ."
 
 #, python-format
 msgid "Unable to get events for stack \"%s\"."
@@ -6109,9 +5796,6 @@ msgstr "\"%s\" સબનેટ મેળવવામાં અક્ષમ"
 msgid "Unable to get the available hosts"
 msgstr "ઉપલબ્ધ યજમાનો મેળવવામાં સમર્થ"
 
-msgid "Unable to get user data."
-msgstr "વપરાશકર્તા માહિતી મેળવવામા અસમર્થ."
-
 msgid "Unable to import key pair."
 msgstr "કી જોડ આયાત કરવામાં અસમર્થ."
 
@@ -6121,12 +5805,6 @@ msgstr "\"%(name)s\" નામ %(count)s લોન્ચ કરવામા અ�
 
 msgid "Unable to list containers."
 msgstr "કન્ટેનર સૂચિબદ્ધ કરવામા અસમર્થ."
-
-msgid "Unable to list database backups for parent."
-msgstr "પેરેન્ટ માટે ડેટાબેઝ બેકઅપની યાદી કરવામા અસમર્થ."
-
-msgid "Unable to list database instances to backup."
-msgstr "બેકઅપ માટે ડેટાબેઝ ઉદાહરણોની યાદી કરવામા અસમર્થ."
 
 msgid "Unable to list dhcp agents hosting network."
 msgstr "નેટવર્ક યજમાનિત dhcp એજન્ટોને સૂચિબદ્ધ કરવામા અસમર્થ."
@@ -6165,9 +5843,6 @@ msgstr "\"%s\" ઇન્સ્ટન્સ સંશોધિત કરવામ
 msgid "Unable to modify project \"%s\"."
 msgstr "પ્રોજેક્ટમાં \"% s\" ફેરફાર કરવામા અસમર્થ."
 
-msgid "Unable to obtain flavors."
-msgstr "ફ્લેવરો મેળવવા માટે અસમર્થ."
-
 #, python-format
 msgid "Unable to parse IP address %s."
 msgstr "IP સરનામા% s ના વિશ્લેષણ કરવામાં અસમર્થ."
@@ -6178,10 +5853,6 @@ msgstr "ઉદાહરણ રીબીલ્ડ કરવામા અસમર
 #, python-format
 msgid "Unable to resize instance \"%s\"."
 msgstr "\"% s\" ઇન્સ્ટન્સના માપ બદલવામા અસમર્થ."
-
-#, python-format
-msgid "Unable to resize volume. %s"
-msgstr "વોલ્યુમ માપ બદલવામા અસમર્થ.  %s"
 
 msgid "Unable to restore backup."
 msgstr "બેકઅપ પુનઃસ્થાપિત કરવામા અસમર્થ."
@@ -6296,25 +5967,11 @@ msgstr "કમ્પ્યુટ મર્યાદા જાણકારી પ
 msgid "Unable to retrieve container list."
 msgstr "કન્ટેનરની યાદી પુનઃપ્રાપ્ત કરવામા અસમર્થ."
 
-msgid "Unable to retrieve database instances."
-msgstr "ડેટાબેઝ ઉદાહરણો પ્રાપ્ત કરવામા અસમર્થ."
-
-msgid "Unable to retrieve database size information."
-msgstr "ડેટાબેઝ માપ જાણકારી પ્રાપ્ત કરવામા અસમર્થ."
-
 msgid "Unable to retrieve default Neutron quota values."
 msgstr "મૂળભૂત ન્યૂટ્રોન ક્વોટા મૂલ્યો પુનઃપ્રાપ્ત કરવામાં અક્ષમ છે."
 
 msgid "Unable to retrieve default quota values."
 msgstr "મૂળભૂત ક્વોટાની કિંમતો પુનઃપ્રાપ્ત કરવામાં અસમર્થ છે."
-
-#, python-format
-msgid "Unable to retrieve details for backup: %s"
-msgstr "બેકઅપ માટે વિગતો પુનઃપ્રાપ્ત કરવામાં અક્ષમ: %s"
-
-#, python-format
-msgid "Unable to retrieve details for database instance: %s"
-msgstr "ડેટાબેઝ ઉદાહરણ માટે વિગતો પુનઃપ્રાપ્ત કરવામા અસમર્થ: %s"
 
 #, python-format
 msgid "Unable to retrieve details for instance \"%s\"."
@@ -6323,10 +5980,6 @@ msgstr "\"%s\" ઉદાહરણ માટે વિગતો પુનઃપ�
 #, python-format
 msgid "Unable to retrieve details for network \"%s\"."
 msgstr "નેટવર્ક \"% s \" માટે વિગતો પુનઃપ્રાપ્ત કરવામાં અસમર્થ."
-
-#, python-format
-msgid "Unable to retrieve details for parent backup: %s"
-msgstr "પેરેન્ટ બેકઅપ માટે વિગતો પુનઃપ્રાપ્ત કરવામાં અસમર્થ: %s"
 
 #, python-format
 msgid "Unable to retrieve details for router \"%s\"."
@@ -6508,9 +6161,6 @@ msgstr "નેટવર્ક પુનઃપ્રાપ્ત કરવા મ
 
 msgid "Unable to retrieve networks list."
 msgstr "નેટવર્કોની યાદી પુનઃપ્રાપ્ત કરવામા અસમર્થ."
-
-msgid "Unable to retrieve networks."
-msgstr "નેટવર્ક પુનઃપ્રાપ્ત કરવામા અસમર્થ."
 
 msgid "Unable to retrieve object list."
 msgstr "ઑબ્જેક્ટ યાદી પુનઃપ્રાપ્ત કરવામા અસમર્થ."
@@ -7033,9 +6683,6 @@ msgstr "વપરાશકર્તાને સફળતાપૂર્વક �
 msgid "User name \"%s\" is already used."
 msgstr "વપરાશકર્તા નામ \"% s\" પહેલાથી વપરાયેલ છે."
 
-msgid "Username (required)"
-msgstr "વપરાશકર્તાનામ (જરૂરી)"
-
 msgid "Users"
 msgstr "વપરાશકર્તાઓ"
 
@@ -7177,9 +6824,6 @@ msgstr "વોલ્યુમની મર્યાદાઓ"
 msgid "Volume Name"
 msgstr "વોલ્યુમનું નામ"
 
-msgid "Volume Size"
-msgstr "વોલ્યુમ માપ"
-
 msgid "Volume Snapshot"
 msgstr "વોલ્યુમ સ્નેપશોટ"
 
@@ -7291,15 +6935,6 @@ msgstr ""
 "શકો છો."
 
 msgid ""
-"You can perform an incremental backup by specifying a parent backup. "
-"<strong>However,</strong> not all databases support incremental backups in "
-"which case this operation will result in an error."
-msgstr ""
-"તમે પેરેન્ટ બેકઅપ સ્પષ્ટ કરીને વધતા જતા બેકઅપ પરફોર્મ કરી શકો છો. <strong> જો કે, </"
-"strong> બધા ડેટાબેઝો વધતા જતા બેકઅપને આધાર આપતા નથી કે જે કિસ્સામાં આ ઓપરેશન ભૂલમા "
-"પરિણમશે."
-
-msgid ""
 "You can specify the desired rule template or use custom rules, the options "
 "are Custom TCP Rule, Custom UDP Rule, or Custom ICMP Rule."
 msgstr ""
@@ -7392,9 +7027,6 @@ msgstr "તમે અહીં તમારા પોર્ટના સંપ�
 msgid "You may update the editable properties of your router here."
 msgstr "તમે અહીં તમારા રાઉટરના સંપાદન યોગ્ય ગુણધર્મોને સુધારી શકો છો."
 
-msgid "You must select a datastore type and version."
-msgstr "તમને ડેટાસ્ટોરના પ્રકાર અને આવૃત્તિ પસંદ કરવી જ પડશે."
-
 msgid "You must select a snapshot."
 msgstr "તમને સ્નેપશોટ પસંદ કરવો જ જોઈએ."
 
@@ -7407,14 +7039,8 @@ msgstr "તમારે ઈમેજ પસંદ કરવી જ પડશે.
 msgid "You must set volume size"
 msgstr "તમારે વોલ્યુમ માપ સુયોજિત કરવા જ જોઈએ"
 
-msgid "You must specify a password if you create a user."
-msgstr "જો તમે વપરાશકર્તા બનાવો તો તમને પાસવર્ડ સ્પષ્ટ કરવો જ પડશે."
-
 msgid "You must specify a template via one of the available sources."
 msgstr "તમને ઉપલબ્ધ સ્ત્રોતો પૈકી એક મારફતે ટેમ્પલેટ સ્પષ્ટ કરવુ જ પડશે."
-
-msgid "You must specify at least one database if you create a user."
-msgstr "જો તમે વપરાશકર્તા બનાવો તો તમે ઓછામાં ઓછો એક ડેટાબેઝ સ્પષ્ટ કરવો જ પડશે."
 
 msgid ""
 "You must specify the source of the traffic to be allowed via this rule. You "

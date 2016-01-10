@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-12-17 05:35+0000\n"
+"POT-Creation-Date: 2016-01-09 00:51+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -118,20 +118,6 @@ msgstr ""
 "    <tt>cinder snapshot-reset-state</tt> নিৰ্দেশৰ সমতুল্য.\n"
 "    "
 
-msgid ""
-"\n"
-"  Move networks from 'Available Networks' to 'Selected Networks' by\n"
-"  clicking the button, or dragging and dropping. You can change the\n"
-"  NIC order by dragging and dropping as well.\n"
-"  "
-msgstr ""
-"\n"
-"  বাটনটোত ক্লিক কৰি, বা ড্ৰেগ কৰি আৰু ড্ৰপ কৰি 'উপলব্ধ নেটৱৰ্কবোৰ' ৰ পৰা 'নিৰ্বাচিত "
-"নেটৱৰ্কবোৰ' লৈ নেটৱৰ্কবোৰ আতঁৰ কৰক.\n"
-"  একেদৰে ড্ৰেগ কৰা আৰু ড্ৰপ কৰাৰ দ্বাৰা\n"
-"  আপুনি NIC ক্ৰমটো সলনি কৰিব পাৰে.\n"
-"  "
-
 msgid " - End"
 msgstr " - সমাপ্ত"
 
@@ -157,10 +143,6 @@ msgstr "%(instance_name)s %(fixed_ip)s"
 #, python-format
 msgid "%(name)s - %(size)s GB (%(label)s)"
 msgstr "%(name)s - %(size)s GB (%(label)s)"
-
-#, python-format
-msgid "%(name)s | %(RAM)s RAM"
-msgstr "%(name)s | %(RAM)s RAM"
 
 #, python-format
 msgid "%(offset)s: %(label)s"
@@ -245,32 +227,6 @@ msgstr "--"
 
 msgid "3des"
 msgstr "3des"
-
-#, python-format
-msgid "<p>%(used)s of %(quota)s MB Used</p>"
-msgstr "<p>%(quota)s MB ৰ %(used)s ব্যৱহাৰ কৰা হল</p>"
-
-#, python-format
-msgid "<p>%(used)s of %(quota)s Used</p>"
-msgstr "<p>%(quota)s ৰ %(used)s ব্যৱহাৰ কৰা হল</p>"
-
-msgid ""
-"<strong>Please note:</strong> The new value must be greater than the "
-"existing volume size."
-msgstr ""
-"<strong>অনুগ্ৰহ কৰি মন কৰক:</strong> নতুন মানটো বৰ্তি থকা আয়নত আকাৰটোতকৈ ডাঙৰ "
-"হোৱাটো অপৰিহাৰ্য."
-
-msgid ""
-"<strong>Please note:</strong> The value specified in the Volume Size field "
-"should be greater than 0, however, some configurations do not support "
-"specifying volume size. If specifying the volume size results in an error "
-"stating volume support is not enabled, enter 0."
-msgstr ""
-"<strong>Please note:</strong> আয়তন আকাৰ ক্ষেত্ৰখনত নিৰ্ধাৰিত মানটো 0 তকৈ ডাঙৰ "
-"হোৱা উচিত, তথাপিও, কিছুমান ৰূপৰেখাই আয়তন আকাৰ নিৰ্দিষ্ট কৰাটো সমৰ্থন নকৰে. যদি "
-"আয়তন আকাৰ নিৰ্দিষ্ট কৰাটোৱে ভুল এটা হিচাপে ফলাফল দেখুৱায়, তেন্তে উল্লেখিত আয়তন "
-"সমৰ্থনটো সক্ষম নকৰে, 0 ভৰাওক."
 
 msgid ""
 "A container is a storage compartment for your data and provides a way for "
@@ -368,10 +324,6 @@ msgstr "ফায়াৰৱাল নিয়মটোৰ বাবে কাৰ্
 
 msgid "Action:"
 msgstr "কাৰ্য:"
-
-msgctxt "Current status of a Database Instance"
-msgid "Active"
-msgstr "সক্ৰিয়"
 
 msgctxt "Current status of a Firewall"
 msgid "Active"
@@ -683,23 +635,6 @@ msgstr "নিৰ্ধাৰিত ফ্লটিং  IP %(ip)s."
 msgid "Allocation Pools"
 msgstr "নিৰ্ধাৰিত পুলবোৰ"
 
-msgid ""
-"Allow the user to connect from this host\n"
-"    only. If not provided this user will be allowed to connect from "
-"anywhere.\n"
-"    "
-msgstr ""
-"কেৱল এইটো হষ্টৰ পৰা ব্যৱহাৰকৰ্তাক অনুমতি দিবলৈ সংযোগ কৰক.\n"
-"    যদি আগনবঢ়োৱা নহয় তেন্তে এই ব্যৱহাৰকৰ্তাজনক যিকোনো ঠাইৰ পৰা সংযোগ কৰিবলৈ "
-"অনুমতি দিয়া হব.\n"
-"    "
-
-msgid "Allowed Host"
-msgstr "হষ্টক অনুমতি দিয়া হল"
-
-msgid "Allowed Host (optional)"
-msgstr "হষ্ট অনুমোদন কৰা হল (বৈকল্পিক)"
-
 msgid "Amount of energy"
 msgstr "শক্তিৰ পৰিমাণ"
 
@@ -865,33 +800,8 @@ msgstr "গড় CPU ব্যৱহাৰ"
 msgid "Avg."
 msgstr "গড়"
 
-msgid "Backup"
-msgstr "বেকআপ"
-
-msgctxt "Current status of a Database Instance"
-msgid "Backup"
-msgstr "বেকআপ"
-
-msgid "Backup Database"
-msgstr "বেকআপ ডাটাবেছ"
-
-msgid "Backup Details"
-msgstr "বেকআপ বিৱৰণবোৰ"
-
-msgid "Backup Duration"
-msgstr "বেকআপ সময়সীমা"
-
-msgid "Backup File"
-msgstr "বেকআপ ফাইল"
-
-msgid "Backup File Location"
-msgstr "বেকআপ ফাইলৰ স্থান"
-
 msgid "Backup Name"
 msgstr "বেকআপ নাম"
-
-msgid "Backup Overview"
-msgstr "বেকআপ অৱলোকন"
 
 msgid "Backups"
 msgstr "বেকআপবোৰ"
@@ -908,10 +818,6 @@ msgstr "প্ৰব্ৰজন বন্ধ কৰক"
 
 msgid "Block Storage Services"
 msgstr "ভঁৰাল সেৱাবোৰ আৱদ্ধ কৰক"
-
-msgctxt "Current status of a Database Instance"
-msgid "Blocked"
-msgstr "আৱদ্ধ কৰা হল"
 
 msgctxt "Power state of an Instance"
 msgid "Blocked"
@@ -935,10 +841,6 @@ msgstr "আয়তন স্নেপশ্বটৰ পৰা বুট কৰ�
 msgid "Bootable"
 msgstr "বুট কৰিব পৰা"
 
-msgctxt "Current status of a Database Instance"
-msgid "Build"
-msgstr "নিৰ্মাণ কৰক"
-
 msgctxt "Current status of a Network"
 msgid "Build"
 msgstr "নিৰ্মাণ কৰক"
@@ -954,10 +856,6 @@ msgstr "নিৰ্মাণ কৰক"
 msgctxt "status of a network port"
 msgid "Build"
 msgstr "নিৰ্মাণ কৰক"
-
-msgctxt "Current status of a Database Backup"
-msgid "Building"
-msgstr "নিৰ্মাণ কৰিছে"
 
 msgctxt "Power state of an Instance"
 msgid "Building"
@@ -1077,17 +975,8 @@ msgstr "কেৱল কনছোল চাবলৈ ইয়াত ক্লি�
 msgid "Close"
 msgstr "বন্ধ কৰক"
 
-msgid "Cluster Name"
-msgstr "ক্লাষ্টাৰ নাম"
-
-msgid "Clusters"
-msgstr "ক্লাষ্টাৰবোৰ"
-
 msgid "Code"
 msgstr "কোড"
-
-msgid "Comma separated list of databases to create"
-msgstr "তৈয়াৰ কৰিবলৈ ডাটাবেছবোৰৰ ক'মাৰ দ্বাৰা পৃথকীকৃত তালিকা"
 
 msgid "Compute"
 msgstr "গণনা কৰক"
@@ -1136,12 +1025,6 @@ msgstr "পুনৰ আকাৰ বা প্ৰব্ৰজন নিশ্�
 
 msgid "Conflicting Rule"
 msgstr "পৰস্পৰবিৰোধী নিয়ম"
-
-msgid "Connection Examples"
-msgstr "সংযোগ উদাহৰণবোৰ"
-
-msgid "Connection Info"
-msgstr "সংযোগ তথ্য"
 
 msgid "Connection Limit"
 msgstr "সংযোগৰ সীমা"
@@ -1436,13 +1319,6 @@ msgstr ""
 msgid "Create an Encrypted Volume Type"
 msgstr "এটা এনক্ৰিপ্ট কৰা আয়নত প্ৰকাৰ তৈয়াৰ কৰক"
 
-msgid ""
-"Create an optional initial user.\n"
-"   This user will have access to all databases you create."
-msgstr ""
-"এটা বৈকল্পিক প্ৰাৰম্ভিক ব্যৱহাৰকৰ্তা তৈয়াৰ কৰক.\n"
-"   এই ব্যৱহাৰকৰ্তাজনে আপুনি তৈয়াৰ কৰা সকলোবোৰ ডাটাবেছ প্ৰৱেশ কৰিব."
-
 msgid "Created"
 msgstr "তৈয়াৰ কৰা হল"
 
@@ -1543,9 +1419,6 @@ msgstr "এই উপনেটটোৰ বাবে অনুৰোধবোৰ
 msgid "Current Host"
 msgstr "চলিত হষ্ট"
 
-msgid "Current Size (GB)"
-msgstr "চলিত আকাৰ (GB)"
-
 msgid "Current password"
 msgstr "চলিত পাছৱৰ্ড"
 
@@ -1563,9 +1436,6 @@ msgstr "UDP নিয়ম ব্যৱস্থা কৰক"
 
 msgid "Customization Script Source"
 msgstr "ব্যৱস্থা কৰা স্ক্ৰিপ্ট উত্স"
-
-msgid "DATABASE"
-msgstr "ডাটাবেছ"
 
 msgid "DENY"
 msgstr "DENY"
@@ -1588,33 +1458,6 @@ msgstr "DNS নাম ছাৰ্ভাৰ"
 
 msgid "Daily Usage Report"
 msgstr "দৈনিক ব্যৱহাৰৰ ৰিপোৰ্ট"
-
-msgid "Database"
-msgstr "ডাটাবেছ"
-
-msgid "Database Backups"
-msgstr "ডাটাবেছ বেকআপবোৰ"
-
-msgid "Database Info"
-msgstr "ডাটাবেছ তথ্য"
-
-msgid "Database Instance"
-msgstr "ডাটাবেছ উদাহৰণ"
-
-msgid "Database Name"
-msgstr "ডাটাবেছ নাম"
-
-msgid "Database Port"
-msgstr "ডাটাবেছ পোৰ্ট"
-
-msgid "Databases"
-msgstr "ডাটাবেছবোৰ"
-
-msgid "Datastore"
-msgstr "ডাটা জমা কৰক"
-
-msgid "Datastore Version"
-msgstr "ডাটা জমা কৰা সংস্কৰণ"
 
 msgid "Date Updated"
 msgstr "তাৰিখ আপডেট কৰা হল"
@@ -1921,9 +1764,6 @@ msgstr "তললৈ"
 msgid "Download"
 msgstr "ডাউনলোড কৰক"
 
-msgid "Download Backup"
-msgstr "বেকআপ ডাউনলোড কৰক"
-
 msgid "Download CSV Summary"
 msgstr "CSV সাৰাংশ ডাউনলোড কৰক"
 
@@ -2159,10 +1999,6 @@ msgstr ""
 msgid "Error"
 msgstr "ভুল"
 
-msgctxt "Current status of a Database Instance"
-msgid "Error"
-msgstr "ভুল"
-
 msgctxt "Current status of a Firewall"
 msgid "Error"
 msgstr "ভুল"
@@ -2217,20 +2053,8 @@ msgstr "ভুল ডাউনলোড কৰা RC ফাইল: %s"
 msgid "Error adding Hosts to the aggregate."
 msgstr "গড়টোলৈ হষ্টবোৰ যোগ কৰোতে ভুল হৈছে."
 
-msgid "Error creating database backup."
-msgstr "ডাটাবেছ বেকআপ তৈয়াৰ কৰোতে ভুল হৈছে."
-
-msgid "Error deleting database on instance."
-msgstr "উদাহৰণত ডাটাবেছ ডিলিট কৰোতে ভুল হৈছে."
-
-msgid "Error deleting database user."
-msgstr "ডাটাৱেছ ব্যৱহাৰকৰ্তা ডিলিট কৰোতে ভুল হৈছে."
-
 msgid "Error editing QoS Spec consumer."
 msgstr "QoS স্পেক উপভোক্তা সম্পাদনা কৰোতে ভুল হৈছে."
-
-msgid "Error getting database backup list."
-msgstr "ডাটাবেছ বেকআপ তালিকা আহৰণ কৰোতে ভুল হৈছ."
 
 msgid "Error updating QoS Spec association."
 msgstr "QoS স্পেক সংস্থা আপডেট কৰোতে ভুল হৈছে."
@@ -2294,14 +2118,6 @@ msgstr ""
 
 msgid "Extra Specs"
 msgstr "অতিৰিক্ত স্পেকবোৰ"
-
-msgctxt "Current status of a Database Backup"
-msgid "Failed"
-msgstr "ব্যৰ্থ হল"
-
-msgctxt "Current status of a Database Instance"
-msgid "Failed"
-msgstr "ব্যৰ্থ হল"
 
 msgctxt "Power state of an Instance"
 msgid "Failed"
@@ -2842,9 +2658,6 @@ msgstr ""
 "হষ্টবোৰক একগোট কৰাৰ দ্বাৰা হষ্ট গড়বোৰে উপলব্ধ মণ্ডল এটাক যুক্তিযুক্ত ইউনিটবোৰত ভাগ "
 "কৰে. ইয়াত থকা হষ্টবোৰ নিৰ্বাচন কৰিবলৈ হষ্ট গড় এটা সম্পাদনা কৰক."
 
-msgid "Host or IP that the user is allowed to connect through."
-msgstr "ব্যৱহাৰকৰ্তাক সংযোগৰ অনুমতি দিয়া হষ্ট বা IP টো."
-
 msgid "Hostname"
 msgstr "হষ্টনাম"
 
@@ -3085,12 +2898,6 @@ msgstr ""
 "লগতে আপুনি অনুৰূপ পৰীক্ষাবাকচটো পৰীক্ষা কৰাৰ দ্বৰা এটা বাহ্যিক নেটৱৰ্ক বা এটা বিনিময় "
 "কৰা নেটৱৰ্ক তৈয়াৰ কৰিব পাৰে."
 
-msgid "Incremental"
-msgstr "বৃদ্ধিশীল"
-
-msgid "Incremental Backup"
-msgstr "বৃদ্ধিশীল বেকআপ"
-
 msgid "Info"
 msgstr "তথ্য"
 
@@ -3099,21 +2906,6 @@ msgstr "তথ্য"
 
 msgid "Ingress"
 msgstr "প্ৰৱেশ কৰক"
-
-msgid "Initial Admin User"
-msgstr "প্ৰাৰম্ভিক কৰ্তৃপক্ষ ব্যৱহাৰকৰ্তা"
-
-msgid "Initial Databases"
-msgstr "প্ৰাৰম্ভিক ডাটাবেছবোৰ"
-
-msgid "Initial Volume Size"
-msgstr "প্ৰাৰম্ভিক আয়তনৰ আকাৰ"
-
-msgid "Initial admin user to add"
-msgstr "যোগ কৰিবলৈ প্ৰাৰম্ভিক কৰ্তৃপক্ষ ব্যৱহাৰকৰ্তা"
-
-msgid "Initialize Databases"
-msgstr "ডাটাবেছবোৰ নিৰ্ধাৰণ কৰক"
 
 msgid "Initiator state"
 msgstr "সূচকৰ অৱস্থা"
@@ -3304,12 +3096,6 @@ msgstr "যোৱা বছৰ"
 
 msgid "Launch"
 msgstr "আৰম্ভ কৰক"
-
-msgid "Launch Cluster"
-msgstr "ক্লাষ্টাৰ আৰম্ভ কৰক"
-
-msgid "Launch Database"
-msgstr "ডাটাবেছ আৰম্ভ কৰক"
 
 msgid "Launch Instance"
 msgstr "উদাহৰণ আৰম্ভ কৰক"
@@ -3506,12 +3292,6 @@ msgstr "সদস্যৰ IP ঠিকনা নিৰ্ধাৰণ কৰা
 
 msgid "Member Source"
 msgstr "সদস্যৰ উত্স"
-
-msgid "Member address"
-msgstr "সদস্য ঠিকনা"
-
-msgid "Member(s)"
-msgstr "সদস্য(বোৰ)"
 
 msgid "Members"
 msgstr "সদস্যবোৰ"
@@ -3746,14 +3526,8 @@ msgstr "নতুন ফ্লেভাৰ"
 msgid "New Host"
 msgstr "নতুন হষ্ট"
 
-msgid "New Size (GB)"
-msgstr "নতুন আকাৰ (GB)"
-
 msgid "New password"
 msgstr "নতুন পাছৱৰ্ড"
-
-msgid "New size for volume must be greater than current size."
-msgstr "আয়তনৰ নতুন আকাৰটো চলিত আকাৰটোতকৈ ডাঙৰ হোৱাটো অপৰিহাৰ্য."
 
 msgid "New size must be greater than current size."
 msgstr "নতুন আকাৰটো চলিত আকাৰতকৈ ডাঙৰ হোৱাটো প্ৰয়োজনীয়."
@@ -3791,9 +3565,6 @@ msgstr "কোনো উপলব্ধ কনছোল বিচাৰি প�
 
 msgid "No available projects"
 msgstr "কোনো উপলব্ধ প্ৰক্ষেপ নাই"
-
-msgid "No backups available"
-msgstr "কোনো বেকআপ উপলব্ধ নাই"
 
 msgid "No flavors available"
 msgstr "কোনো ফ্লেভাৰ উপলব্ধ নাই"
@@ -3915,12 +3686,6 @@ msgstr "একো নাই"
 msgid "Normal"
 msgstr "সাধাৰণ"
 
-msgid "Not Assigned"
-msgstr "নিৰ্ধাৰিত কৰা নহল"
-
-msgid "Not Found"
-msgstr "বিচাৰি পোৱা নগল"
-
 msgid "Not attached"
 msgstr "সংলগ্ন কৰা নহল"
 
@@ -4039,20 +3804,11 @@ msgstr "মুক্ত পোৰ্ট"
 msgid "Open Port/Port Range:"
 msgstr "পোৰ্ট/পোৰ্ট পৰিসৰ খোলক:"
 
-msgid "Optional Backup Description"
-msgstr "বৈকল্পিক বেকআপ বিৱৰণ"
-
 msgid "Optional Parameters"
 msgstr "বিকল্প উপকৰণবোৰ"
 
-msgid "Optional parent backup"
-msgstr "বৈকল্পিক মুখ্য বেকআপ"
-
 msgid "Optional: Next Hop Addresses (comma delimited)"
 msgstr "বৈকল্পিক: পৰৱৰ্তী হপ ঠিকনাবোৰ (কমাৰ দ্বাৰা আবদ্ধ)"
-
-msgid "Optionally provide a comma separated list of databases to create:"
-msgstr "তৈয়াৰ কৰিবলৈ ডাটাবেছবোৰৰ ক'মা পৃথকীকৃত তালিকা এখন বৈকল্পিকভাৱে আগবঢ়াওক:"
 
 msgid "Optionally, you may choose to create a new volume."
 msgstr "বৈকল্পিকভাৱে, নতুন আয়তন এটা তৈয়াৰ কৰিবলৈ আপুনি পছন্দ কৰিব পাৰে."
@@ -4072,9 +3828,6 @@ msgstr "অৱলোকন কৰক"
 msgid "Owner"
 msgstr "গৰাকী"
 
-msgid "PASSWORD"
-msgstr "পাছৱৰ্ড"
-
 msgid "PFS"
 msgstr "PFS"
 
@@ -4087,18 +3840,12 @@ msgstr "পৃষ্ঠা বিচাৰি পোৱা নগল"
 msgid "Parameters"
 msgstr "উপকৰণবোৰ"
 
-msgid "Parent Backup"
-msgstr "মুখ্য বেকআপ"
-
 msgid "Password"
 msgstr "পাছৱৰ্ড"
 
 msgctxt "Current status of an Instance"
 msgid "Password"
 msgstr "পাছৱৰ্ড"
-
-msgid "Password (required)"
-msgstr "পাছৱৰ্ড (দাবী কৰা)"
 
 msgid "Password changed. Please log in again to continue."
 msgstr "পাছৱৰ্ড সলনি কৰা হল. অনুগ্ৰহ কৰি অব্যাহত ৰাখিবলৈ পুনৰ ল'গ ইন কৰক."
@@ -4443,10 +4190,6 @@ msgctxt "Action log of an instance"
 msgid "Reboot"
 msgstr "ৰিবুট"
 
-msgctxt "Current status of a Database Instance"
-msgid "Reboot"
-msgstr "ৰিবুট"
-
 msgctxt "Current status of an Instance"
 msgid "Reboot"
 msgstr "ৰিবুট"
@@ -4556,18 +4299,8 @@ msgctxt "Action log of an instance"
 msgid "Resize"
 msgstr "পুনৰ আকাৰ কৰক"
 
-msgctxt "Current status of a Database Instance"
-msgid "Resize"
-msgstr "পুনৰ আকাৰ কৰক"
-
-msgid "Resize Database Volume"
-msgstr "ডাটাবেছ আয়তন পুনৰ আকাৰ কৰা হল"
-
 msgid "Resize Instance"
 msgstr "উদাহৰণ পুনৰ আকাৰ কৰক"
-
-msgid "Resize Volume"
-msgstr "আয়তন পুনৰ আকাৰ কৰক"
 
 msgctxt "Current status of an Instance"
 msgid "Resize/Migrate"
@@ -4581,10 +4314,6 @@ msgctxt "Task status of an Instance"
 msgid "Resizing or Migrating"
 msgstr "পুনৰ আকাৰ বা প্ৰব্ৰজন কৰিছে"
 
-#, python-format
-msgid "Resizing volume \"%s\""
-msgstr "\"%s\" আয়তনটো পুনৰ আকাৰ কৰিছে"
-
 msgid "Resource"
 msgstr "সম্পদ"
 
@@ -4593,9 +4322,6 @@ msgstr "সম্পদ ID"
 
 msgid "Resource Metadata"
 msgstr "সম্পদ মেটাডাটা"
-
-msgid "Resource Overview"
-msgstr "সম্পদ অৱলোকন"
 
 msgid "Resource Usage"
 msgstr "সম্পদ ব্যৱহাৰ"
@@ -4781,10 +4507,6 @@ msgid "Saved spec \"%s\"."
 msgstr "স্পেক \"%s\" ছেভ কৰা হল."
 
 #, python-format
-msgid "Scheduled backup \"%(name)s\"."
-msgstr "নিৰ্ধাৰিত বেকআপ \"%(name)s\"."
-
-#, python-format
 msgid "Scheduled deletion of %(data_type)s"
 msgstr "%(data_type)s ৰ নিৰ্ধাৰিত ডিলিটকৰণ"
 
@@ -4886,9 +4608,6 @@ msgstr "ৰাউটাৰ এটা নিৰ্বাচন কৰক"
 msgid "Select a Subnet"
 msgstr "উপনেট এটা নিৰ্বাচন কৰক"
 
-msgid "Select a backup to restore"
-msgstr "জমা কৰিবলৈ বেকআপ এটা নিৰ্বাচন কৰক"
-
 #, python-format
 msgid "Select a health monitor of %s"
 msgstr "%s ৰ স্বাস্থ্য নিৰীক্ষণকৰ্তা এটা নিৰ্বাচন কৰক"
@@ -4942,12 +4661,6 @@ msgstr "উদাহৰণ এটা নিৰ্বাচন কৰক"
 msgid "Select an instance to attach to."
 msgstr "...লৈ সংলগ্ন কৰিবলৈ উদাহৰণ এটা নিৰ্বাচন কৰক."
 
-msgid "Select backup"
-msgstr "বেকআপ নিৰ্বাচন কৰক"
-
-msgid "Select datastore type and version"
-msgstr "ডাটা সঞ্চয়ৰ প্ৰকাৰ আৰু সংস্কৰণ নিৰ্বাচন কৰক"
-
 msgid "Select format"
 msgstr "ফৰমেট নিৰ্বাচন কৰক"
 
@@ -4962,9 +4675,6 @@ msgstr "নেটৱৰ্ক নিৰ্বাচন কৰক"
 
 msgid "Select networks for your instance."
 msgstr "আপোনাৰ উদাহৰণৰ বাবে নেটৱৰ্কবোৰ নিৰ্বাচন কৰক."
-
-msgid "Select parent backup"
-msgstr "মুখ্য বেকআপ নিৰ্বাচন কৰক"
 
 msgid "Select rules for your policy."
 msgstr "আপোনাৰ নীতিৰ বাবে নিয়মবোৰ নিৰ্বাচন কৰক."
@@ -5090,9 +4800,6 @@ msgstr "আকাৰ"
 msgid "Size of image to launch."
 msgstr "আৰম্ভ কৰিবলৈ ছবিৰ আকাৰ."
 
-msgid "Size of the volume in GB."
-msgstr "GB ত আয়তনটোৰ আকাৰ."
-
 msgid "Size of volume"
 msgstr "আয়তনৰ আকাৰ"
 
@@ -5217,12 +4924,6 @@ msgstr "সদস্য IP ঠিকনা নিৰ্ধাৰণ কৰক"
 
 msgid "Specify the details for launching an instance."
 msgstr "উদাহৰণ এটা আৰম্ভ কৰিবৰ বাবে পূংখানুপূংখবোৰ নিৰ্দিষ্ট কৰক."
-
-msgid "Specify the details for the database backup."
-msgstr "ডাটাবেছ বেকআপটোৰ বাবে বিৱৰণবোৰ নিৰ্দিষ্ট কৰক."
-
-msgid "Specify the new volume size for the database instance."
-msgstr "ডাটাবেছ উদাহৰণটোৰ বাবে নতুন আয়তন আকাৰ এটা নিৰ্দিষ্ট কৰক."
 
 msgid "Specs"
 msgstr "স্পেকবোৰ"
@@ -5757,9 +5458,6 @@ msgstr ""
 msgid "This name is already taken."
 msgstr "এই নামটো ইতিমধ্যে লোৱা হৈছে."
 
-msgid "This pane needs javascript support."
-msgstr "এই পেনটোৱে জাভাস্ক্ৰিপ্ট সমৰ্থন দাবী কৰে."
-
 msgid ""
 "This volume is currently attached to an instance. In some cases, creating a "
 "snapshot from an attached volume can result in a corrupted snapshot."
@@ -5839,9 +5537,6 @@ msgstr "পৰিৱৰ্তন কৰা প্ৰটকল"
 msgid "Type"
 msgstr "প্ৰকাৰ"
 
-msgid "Type and version of datastore."
-msgstr "ডাটা জমা কৰাটোৰ প্ৰকাৰ আৰু সংস্কৰণ."
-
 #, python-format
 msgid "Type: %(persistence_type)s"
 msgstr "প্ৰকাৰ: %(persistence_type)s"
@@ -5854,9 +5549,6 @@ msgstr "URL"
 
 msgid "URL Path"
 msgstr "URL পাথ"
-
-msgid "USERNAME"
-msgstr "ব্যৱহাৰকৰ্তাৰ নাম"
 
 msgid "UTC"
 msgstr "UTC"
@@ -6087,9 +5779,6 @@ msgstr "আয়তন প্ৰসাৰ কৰিবলৈ অক্ষম."
 msgid "Unable to fetch EC2 credentials."
 msgstr "EC2 পৰিচয়পত্ৰবোৰ পাবলৈ অক্ষম."
 
-msgid "Unable to find backup!"
-msgstr "বেকআপ বিচাৰি উলিয়াবলৈ অক্ষম!"
-
 msgid "Unable to find default role."
 msgstr "ডিফল্ট ৰোল বিচাৰি উলিয়াবলৈ অক্ষম."
 
@@ -6110,12 +5799,6 @@ msgstr "\"%s\" উদাহৰণটোৰ বাবে VNC কনছোল প�
 
 msgid "Unable to get cinder services list."
 msgstr "ছাইণ্ডাৰ সেৱাবোৰৰ তালিকা পাবলৈ অক্ষম."
-
-msgid "Unable to get database backup data."
-msgstr "ডাটাবেছ বেকআপ ডাটা লাভ কৰিবলৈ অক্ষম."
-
-msgid "Unable to get databases data."
-msgstr "ডাটাবেছ ডাটা লাভ কৰিবলৈ অক্ষম."
 
 #, python-format
 msgid "Unable to get events for stack \"%s\"."
@@ -6157,9 +5840,6 @@ msgstr "\"%s\" উপনেট পাবলৈ অক্ষম"
 msgid "Unable to get the available hosts"
 msgstr "উপলব্ধ হষ্টবোৰ লাভ কৰিবলৈ অক্ষম"
 
-msgid "Unable to get user data."
-msgstr "ব্যৱহাৰকৰ্তাৰ ডাটা লাভ কৰিবলৈ অক্ষম."
-
 msgid "Unable to import key pair."
 msgstr "মুখ্য যোৰা আমদানি কৰিবলৈ অক্ষম."
 
@@ -6169,12 +5849,6 @@ msgstr "\"%(name)s\" নামৰ %(count)s আৰম্ভ কৰিবলৈ �
 
 msgid "Unable to list containers."
 msgstr "ধাৰকবোৰ তালিকা কৰিবলৈ অক্ষম."
-
-msgid "Unable to list database backups for parent."
-msgstr "মুখ্যৰ বাবে ডাটাবেছ বেকআপবোৰ তালিকা কৰিবলৈ অক্ষম."
-
-msgid "Unable to list database instances to backup."
-msgstr "বেকআপ দিবলৈ ডাটাবেছ উদাহৰণবোৰৰ তালিকা কৰিবলৈ অক্ষম."
 
 msgid "Unable to list dhcp agents hosting network."
 msgstr "এজেন্টবোৰ হষ্ট কৰা নেটৱৰ্ক তালিকা কৰিবলৈ অক্ষম."
@@ -6213,9 +5887,6 @@ msgstr "\"%s\" উদাহৰণ পৰিৱৰ্তন কৰিবলৈ �
 msgid "Unable to modify project \"%s\"."
 msgstr "\"%s\" প্ৰক্ষেপ পৰিৱৰ্তন কৰিবলৈ অক্ষম."
 
-msgid "Unable to obtain flavors."
-msgstr "ফ্লেভাৰবোৰ আহৰণ কৰিবলৈ অক্ষম."
-
 #, python-format
 msgid "Unable to parse IP address %s."
 msgstr "IP ঠিকনা %s পাৰ্জ কৰিবলৈ অক্ষম."
@@ -6226,10 +5897,6 @@ msgstr "উদাহৰণ পুনৰ নিৰ্মাণ কৰিবলৈ
 #, python-format
 msgid "Unable to resize instance \"%s\"."
 msgstr "\"%s\" উদাহৰণ পুনৰ আকাৰ কৰিবলৈ অক্ষম."
-
-#, python-format
-msgid "Unable to resize volume. %s"
-msgstr "আয়তন পুনৰ আকাৰ কৰিবলৈ অক্ষম. %s"
 
 msgid "Unable to restore backup."
 msgstr "বেকআপ পুনৰ জমা কৰিবলৈ অক্ষম."
@@ -6344,25 +6011,11 @@ msgstr "গণনা সীমাৰ তথ্য উদ্ধাৰ কৰি�
 msgid "Unable to retrieve container list."
 msgstr "ধাৰক তালিকা উদ্ধাৰ কৰিবলৈ অক্ষম."
 
-msgid "Unable to retrieve database instances."
-msgstr "ডাটাবেছ উদাহৰণবোৰ উদ্ধাৰ কৰিবলৈ অক্ষম."
-
-msgid "Unable to retrieve database size information."
-msgstr "ডাটাবেছ আকাৰ তথ্য উদ্ধাৰ কৰিবলৈ অক্ষম."
-
 msgid "Unable to retrieve default Neutron quota values."
 msgstr "ডিফল্ট নিউট্ৰন কোটা মানবোৰ উদ্ধাৰ কৰিবলৈ অক্ষম."
 
 msgid "Unable to retrieve default quota values."
 msgstr "ডিফল্ট কোটা মানবোৰ উদ্ধাৰ কৰিবলৈ অক্ষম."
-
-#, python-format
-msgid "Unable to retrieve details for backup: %s"
-msgstr "বেকআপৰ বাবে পূংখানুপূংখ বিৱৰণ উদ্ধাৰ কৰিবলৈ অক্ষম: %s"
-
-#, python-format
-msgid "Unable to retrieve details for database instance: %s"
-msgstr "ডাটাবেছ উদাহৰণৰ বাবে পূংখানুপূংখ বিৱৰণ উদ্ধাৰ কৰিবলৈ অক্ষম: %s"
 
 #, python-format
 msgid "Unable to retrieve details for instance \"%s\"."
@@ -6371,10 +6024,6 @@ msgstr "\"%s\" উদাহৰণটোৰ বাবে পূংখানুপ
 #, python-format
 msgid "Unable to retrieve details for network \"%s\"."
 msgstr "\"%s\" নেটৱৰ্কৰ বাবে বিৱৰণ উদ্ধাৰ কৰিবলৈ অক্ষম."
-
-#, python-format
-msgid "Unable to retrieve details for parent backup: %s"
-msgstr "মুখ্য বেকআপৰ বাবে পূংখানুপূংখ বিৱৰণ উদ্ধাৰ কৰিবলৈ অক্ষম: %s"
 
 #, python-format
 msgid "Unable to retrieve details for router \"%s\"."
@@ -6555,9 +6204,6 @@ msgstr "নেটৱৰ্ক উদ্ধাৰ কৰিবলৈ অক্ষ
 
 msgid "Unable to retrieve networks list."
 msgstr "নেটৱৰ্কবোৰৰ তালিকা উদ্ধাৰ কৰিবলৈ অক্ষম."
-
-msgid "Unable to retrieve networks."
-msgstr "নেটৱৰ্কবোৰ উদ্ধাৰ কৰিবলৈ সক্ষম."
 
 msgid "Unable to retrieve object list."
 msgstr "বস্তু তালিকা উদ্ধাৰ কৰিবলৈ অক্ষম."
@@ -7081,9 +6727,6 @@ msgstr "ব্যৱহাৰকৰ্তা সফলতাৰে আপডে�
 msgid "User name \"%s\" is already used."
 msgstr "\"%s\" ব্যৱহাৰকৰ্তাৰ নাম ইতিমধ্যে ব্যৱহাৰ কৰা হৈছে."
 
-msgid "Username (required)"
-msgstr "ব্যৱহাৰকৰ্তাৰ নাম (দাবী কৰা)"
-
 msgid "Users"
 msgstr "ব্যৱহাৰকৰ্তাবোৰ"
 
@@ -7225,9 +6868,6 @@ msgstr "আয়তন সীমাবোৰ"
 msgid "Volume Name"
 msgstr "আয়তনৰ নাম"
 
-msgid "Volume Size"
-msgstr "আয়তনৰ আকাৰ"
-
 msgid "Volume Snapshot"
 msgstr "আয়তন স্নেপশ্বট"
 
@@ -7342,15 +6982,6 @@ msgstr ""
 "ব্যৱস্থা কৰিব পাৰে."
 
 msgid ""
-"You can perform an incremental backup by specifying a parent backup. "
-"<strong>However,</strong> not all databases support incremental backups in "
-"which case this operation will result in an error."
-msgstr ""
-"মুখ্য বেকআপ এটা নিৰ্দিষ্ট কৰাৰ দ্বাৰা আপুনি বৰ্ধিত বেকআপ এটা সম্পাদন কৰিব পাৰে. "
-"<strong>However,</strong> সকলোবোৰ ডাটাবেছে বৰ্ধিত বেকআপবোৰ সমৰ্থন নকৰে যিটো "
-"ক্ষেত্ৰত এই কাৰ্যটোৱে ভুল এটা হিচাপে ফলাফল দিব."
-
-msgid ""
 "You can specify the desired rule template or use custom rules, the options "
 "are Custom TCP Rule, Custom UDP Rule, or Custom ICMP Rule."
 msgstr ""
@@ -7445,9 +7076,6 @@ msgstr "আপুনি ইয়াত আপোনাৰ পোৰ্টৰ স�
 msgid "You may update the editable properties of your router here."
 msgstr "আপুনি ইয়াত আপোনাৰ ৰাউটাৰৰ সম্পাদনযোগ্য সম্পত্তিবোৰ আপডেট কৰিব পাৰে."
 
-msgid "You must select a datastore type and version."
-msgstr "আপুনি এটা ডাটা সঞ্চয়ৰ প্ৰকাৰ আৰু সংস্কৰণ নিৰ্বাচন কৰাটো অপৰিহাৰ্য."
-
 msgid "You must select a snapshot."
 msgstr "আপুনি স্নেপশ্বট এটা নিৰ্বাচন কৰাটো অপৰিহাৰ্য."
 
@@ -7460,16 +7088,8 @@ msgstr "আপুনি ছবি এটা নিৰ্বাচন কৰা�
 msgid "You must set volume size"
 msgstr "আপুনি আয়তন প্ৰকাৰ ছেট কৰাটো অপৰিহাৰ্য"
 
-msgid "You must specify a password if you create a user."
-msgstr "আপুনি পাছৱৰ্ড এটা নিৰ্দিষ্ট যদি আপুনি ব্যৱহাৰকৰ্তা এজন তৈয়াৰ কৰে."
-
 msgid "You must specify a template via one of the available sources."
 msgstr "উপলব্ধ উত্সবোৰৰ এটাৰ যোগেদি আপুনি নমুনা এটা নিৰ্দিষ্ট কৰাটো অপৰিহাৰ্য."
-
-msgid "You must specify at least one database if you create a user."
-msgstr ""
-"আপুনি অতিকমেও এটা ডাটাবেছ তৈয়াৰ কৰাটো অপৰিহাৰ্য যদি আপুনি ব্যৱহাৰকৰ্তা এটা তৈয়াৰ "
-"কৰে."
 
 msgid ""
 "You must specify the source of the traffic to be allowed via this rule. You "

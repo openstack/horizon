@@ -13,22 +13,24 @@
 # Kyrylo Romanenko <kromanenko@mirantis.com>, 2015
 # Nikita Burtsev, 2015
 # Nikita Burtsev, 2015
+# Antonio Kless <antoniok.spb@gmail.com>, 2015. #zanata
 # Daisy <guoyingc@cn.ibm.com>, 2015. #zanata
 # Fedor Tarasenko <feodor.tarasenko@gmail.com>, 2015. #zanata
 # Ilya Alekseyev <ilyaalekseyev@acm.org>, 2015. #zanata
 # Nikita Burtsev <nikita.burtsev@gmail.com>, 2015. #zanata
 # OpenStack Infra <zanata@openstack.org>, 2015. #zanata
 # Steve Kowalik <steven@wedontsleep.org>, 2015. #zanata
+# Fedor Tarasenko <feodor.tarasenko@gmail.com>, 2016. #zanata
 msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-12-17 05:35+0000\n"
+"POT-Creation-Date: 2016-01-09 00:51+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2015-10-06 03:36+0000\n"
-"Last-Translator: Ilya Alekseyev <ilyaalekseyev@acm.org>\n"
+"PO-Revision-Date: 2016-01-08 10:53+0000\n"
+"Last-Translator: Fedor Tarasenko <feodor.tarasenko@gmail.com>\n"
 "Language: ru\n"
 "Plural-Forms: nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
 "%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || (n"
@@ -183,15 +185,14 @@ msgid ""
 "     "
 msgstr ""
 "\n"
-"Тип диска это тип или метка, которая может быть выбрана при создании диска\n"
-"в OpenStack. Обычно он соответствует набора возможностей \n"
-"драйвера системы хранения. Например: \"Производительное\", \"SSD\", "
-"\"Архивное\" и т.д.\n"
-"Это эквивалентно команде <tt>cinder type-create</tt>. После создания типа "
-"диска\n"
-"нажмите на кнопку \"Просмотр доп. параметров\" для того чтобы задать "
-"дополнительные\n"
-"пары ключ-значение параметров для этого типа дисков.()"
+"Тип диска это тип или метка, которая может быть выбрана\n"
+"при создании диска в OpenStack. Обычно он соответствует набору\n"
+"возможностей драйвера системы хранения. Например:\n"
+"\"Производительное\", \"SSD\", \"Архивное\" и т.д.\n"
+"Это эквивалентно команде <tt>cinder type-create</tt>. После создания\n"
+"типа диска нажмите на кнопку \"Просмотр доп. параметров\", чтобы\n"
+"задать дополнительные пары ключ-значение параметров для этого\n"
+"типа дисков."
 
 msgid ""
 "\n"
@@ -294,15 +295,6 @@ msgstr ""
 
 msgid ""
 "\n"
-"   Volumes are block devices that can be attached to instances.\n"
-"   "
-msgstr ""
-"\n"
-"   Тома и блочные устройства могут быть подключены к инстансам.\n"
-"   "
-
-msgid ""
-"\n"
 "  Assign a name and description for the pool. Choose one subnet where all\n"
 "  members of this pool must be on. Select the protocol and load balancing\n"
 "  method for this pool. Admin State is UP (checked) by default.\n"
@@ -315,18 +307,6 @@ msgstr ""
 "  для данного пула. Административное состояние по умолчанию - UP "
 "(включено).\n"
 "  "
-
-msgid ""
-"\n"
-"  Move networks from 'Available Networks' to 'Selected Networks' by\n"
-"  clicking the button, or dragging and dropping. You can change the\n"
-"  NIC order by dragging and dropping as well.\n"
-"  "
-msgstr ""
-"\n"
-"Перемещайте сети из \"Доступных сетей\" в \"Выбранные сети\",\n"
-"нажав клавишу или перетащив мышью. Вы также можете изменить\n"
-"NIC порядок с помощью мыши. "
 
 msgid ""
 "\n"
@@ -372,9 +352,6 @@ msgstr "Так же не удалось удалить порт %s"
 msgid "\"Add Router Route\""
 msgstr "\"Добавить маршрут для маршрутизатора\""
 
-msgid "\"Clusters\""
-msgstr "\"Кластера\""
-
 msgid ""
 "\"Customization Script\" is analogous to \"User Data\" in other systems."
 msgstr ""
@@ -382,9 +359,6 @@ msgstr ""
 
 msgid "\"Edit Volume Type\""
 msgstr "\"Редактировать тип диска\""
-
-msgid "\"Launch Cluster\""
-msgstr "\"Запустить кластер\""
 
 msgid "\"N/A\""
 msgstr "\"Н/Д\""
@@ -428,14 +402,6 @@ msgstr "%(instance_name)s %(fixed_ip)s"
 #, python-format
 msgid "%(name)s - %(size)s GB (%(label)s)"
 msgstr "%(name)s - %(size)s ГБ (%(label)s)"
-
-#, python-format
-msgid "%(name)s | %(RAM)s RAM"
-msgstr "%(name)s | %(RAM)s RAM"
-
-#, python-format
-msgid "%(name)s | %(RAM)s RAM | %(instances)s instances"
-msgstr "%(name)s | %(RAM)s ОЗУ | Инстансов - %(instances)s "
 
 #, python-format
 msgid "%(offset)s: %(label)s"
@@ -525,35 +491,6 @@ msgstr "--"
 msgid "3des"
 msgstr "3des"
 
-#, python-format
-msgid "<p>%(used)s of %(quota)s MB Used</p>"
-msgstr "<p>%(used)s из %(quota)s МБ использовано</p>"
-
-#, python-format
-msgid "<p>%(used)s of %(quota)s Used</p>"
-msgstr "<p>%(used)s из %(quota)s использовано</p>"
-
-msgid ""
-"<strong>Please note:</strong> The new value must be greater than the "
-"existing volume size."
-msgstr ""
-"<strong>Пожалуйста, обратите внимание:</strong> Новая величина должна быть "
-"больше существующего размера диска. "
-
-msgid ""
-"<strong>Please note:</strong> The value specified in the Volume Size field "
-"should be greater than 0, however, some configurations do not support "
-"specifying volume size. If specifying the volume size results in an error "
-"stating volume support is not enabled, enter 0."
-msgstr ""
-"<strong>Обратите внимание:</strong> Значение указываемое в поле Размер диска "
-"должно быть больше 0, однако некоторые конфигурации не поддерживают указание "
-"размера диска. Если при указание размера диска возникает ошибка говорящая о "
-"том что поддержка дисков не включена укажите 0."
-
-msgid "A backup must be selected!"
-msgstr "Не выбрана резервная копия!"
-
 msgid ""
 "A container is a storage compartment for your data and provides a way for "
 "you to organize your data. You can think of a container as a folder in "
@@ -586,9 +523,6 @@ msgstr "Локальный файл с определением метаданн
 msgid "A local template to upload."
 msgstr "Локальный шаблон для загрузки."
 
-msgid "A master instance must be selected!"
-msgstr "Должна быть выбрана основная инстанс!"
-
 msgid ""
 "A more specific rule affects a portion of this traffic so a rule cannot be "
 "automatically generated to control the behavior of the entire source/"
@@ -614,7 +548,7 @@ msgstr ""
 "Снимок это образ который сохраняет состояние диска запущенной инстансы."
 
 msgid "AKI - Amazon Kernel Image"
-msgstr "AKI - Amazon Kernel Image"
+msgstr "AKI - образ Amazon Kernel"
 
 msgid "ALLOW"
 msgstr "ALLOW"
@@ -636,7 +570,7 @@ msgid "ALLOW %(from)s:%(to)s/%(ip_protocol)s from %(group)s"
 msgstr "РАЗРЕШИТЬ %(from)s:%(to)s/%(ip_protocol)s из%(group)s"
 
 msgid "AMI - Amazon Machine Image"
-msgstr "AMI - Amazon Machine Image"
+msgstr "AMI - образ Amazon Machine"
 
 msgid "ANY"
 msgstr "ANY"
@@ -648,7 +582,7 @@ msgid "API Endpoints"
 msgstr "Точка доступа к API"
 
 msgid "ARI - Amazon Ramdisk Image"
-msgstr "ARI - Amazon Ramdisk Image"
+msgstr "ARI - образ Amazon Ramdisk"
 
 msgid "AWS compatible"
 msgstr "Совместим с AWS"
@@ -679,10 +613,6 @@ msgstr "Действие для правила межсетевого экран
 
 msgid "Action:"
 msgstr "Действие:"
-
-msgctxt "Current status of a Database Instance"
-msgid "Active"
-msgstr "Активный"
 
 msgctxt "Current status of a Firewall"
 msgid "Active"
@@ -822,9 +752,6 @@ msgstr "Добавить машрутизаторы"
 msgid "Add Rule"
 msgstr "Добавить правило"
 
-msgid "Add Shard"
-msgstr "Добавить шард"
-
 msgid "Add Static Route"
 msgstr "Добавить статический маршрут"
 
@@ -960,10 +887,6 @@ msgstr "Добавленный монитор"
 msgid "Added pool \"%s\"."
 msgstr "Добавлен пул \"%s\"."
 
-#, python-format
-msgid "Added shard to \"%s\""
-msgstr "Добавлен шард в \"%s\""
-
 msgid "Additional routes"
 msgstr "Дополнительные маршруты"
 
@@ -1022,9 +945,6 @@ msgstr "Принятие завершилось неуспешно"
 msgctxt "current status of stack"
 msgid "Adopt In Progress"
 msgstr "Выполняется принятие"
-
-msgid "Advanced"
-msgstr "Дополнительно"
 
 msgid "Advanced Options"
 msgstr "Расширенные настройки"
@@ -1105,26 +1025,14 @@ msgstr ""
 msgid "Allocation Pools"
 msgstr "Выделение пулов"
 
-msgid ""
-"Allow the user to connect from this host\n"
-"    only. If not provided this user will be allowed to connect from "
-"anywhere.\n"
-"    "
-msgstr ""
-"Разрешить доступ пользователь только с данного узла.\n"
-"Пустое поле разрешает пользователю доступ с любого узла."
-
-msgid "Allowed Host"
-msgstr "Разрешенный узел"
-
-msgid "Allowed Host (optional)"
-msgstr "Разрешенный узел (необязательно)"
-
 msgid "Amount of energy"
 msgstr "Количество энергии"
 
 msgid "An external (HTTP) URL to load the template from."
 msgstr "Внешний (HTTP) URL для скачивания шаблона."
+
+msgid "An external (HTTP/HTTPS) URL to load the image from."
+msgstr "Внешняя ссылка (HTTP/HTTPS) для загрузки изображения."
 
 msgid ""
 "An instance can be launched with varying types of attached storage. You may "
@@ -1282,6 +1190,9 @@ msgstr "Название зоны доступности"
 msgid "Availability Zones"
 msgstr "Зоны доступности"
 
+msgid "Availability zone"
+msgstr "Зона доступности"
+
 msgid "Available"
 msgstr "Доступно"
 
@@ -1342,36 +1253,11 @@ msgctxt "Current status of a Volume"
 msgid "Backing Up"
 msgstr "Создание резервной копии"
 
-msgid "Backup"
-msgstr "Резервная копия"
-
-msgctxt "Current status of a Database Instance"
-msgid "Backup"
-msgstr "Резервная копия"
-
-msgid "Backup Database"
-msgstr "Резервная копия БД"
-
-msgid "Backup Details"
-msgstr "Сведения о резервной копии"
-
-msgid "Backup Details: {{ backup.name }}"
-msgstr "Детали резервной копии: {{ backup.name }}"
-
-msgid "Backup Duration"
-msgstr "Время существование резервной копии"
-
-msgid "Backup File"
-msgstr "Файл резервной копии"
-
-msgid "Backup File Location"
-msgstr "Путь к файлу резервной копии"
-
 msgid "Backup Name"
 msgstr "Название резервной копии"
 
-msgid "Backup Overview"
-msgstr "Обзор резервной копии"
+msgid "Backup Size (GiB)"
+msgstr "Размер резервных копий (ГБ)"
 
 msgid "Backups"
 msgstr "Бэкапы"
@@ -1398,10 +1284,6 @@ msgstr "Блочная миграция"
 msgid "Block Storage Services"
 msgstr "Службы блочного хранилища"
 
-msgctxt "Current status of a Database Instance"
-msgid "Blocked"
-msgstr "Заблокирован"
-
 msgctxt "Power state of an Instance"
 msgid "Blocked"
 msgstr "Заблокирован"
@@ -1424,10 +1306,6 @@ msgstr "Загружать со снимка носителя (создаёт н
 msgid "Bootable"
 msgstr "Загрузочный"
 
-msgctxt "Current status of a Database Instance"
-msgid "Build"
-msgstr "Создать"
-
 msgctxt "Current status of a Network"
 msgid "Build"
 msgstr "Создать"
@@ -1443,10 +1321,6 @@ msgstr "Создать"
 msgctxt "status of a network port"
 msgid "Build"
 msgstr "Создать"
-
-msgctxt "Current status of a Database Backup"
-msgid "Building"
-msgstr "Создание"
 
 msgctxt "Power state of an Instance"
 msgid "Building"
@@ -1556,9 +1430,6 @@ msgstr ""
 "Выбрав имя пары ключей вы узнаете и вставите SSH закрытый ключ в "
 "предоставленном месте."
 
-msgid "Choose a new instance flavor."
-msgstr "Выберите новый тип для инстанса."
-
 msgid "Choose a snapshot"
 msgstr "Выбрать снимок"
 
@@ -1577,9 +1448,6 @@ msgstr "Выберите связанную спецификацию QoS."
 msgid "Choose consumer for this QoS Spec."
 msgstr "Выберите потребителя для этой спецификации QoS."
 
-msgid "Choose initial state."
-msgstr "Выберите первоначальное наполнение"
-
 msgid ""
 "Choose network from Available networks to Selected networks by push button "
 "or drag and drop, you may change NIC order by drag and drop as well. "
@@ -1591,16 +1459,16 @@ msgid ""
 "Choose router(s) from Available Routers to Selected Routers by push button "
 "or drag and drop. "
 msgstr ""
-"Перенесите маршрутизатор(ы) из списка \"Доступные машрутизаторы\" в "
-"\"Выбранные машрутизаторы\" нажатием на кнопку или перетаскиванием мышью."
+"Перенесите маршрутизатор(ы) из списка \"Доступные маршрутизаторы\" в "
+"\"Выбранные маршрутизаторы\" нажатием на кнопку или перетаскиванием мышью."
 
 msgid ""
 "Choose rule(s) from Available Rules to Selected Rule by push button or drag "
 "and drop,\n"
 "you may change their order by drag and drop as well. "
 msgstr ""
-"Переместите правила из Доступных в Выбранные нажав на кнопку или перетащив "
-"мышью\n"
+"Переместите правила из Доступных в Выбранные, нажав на кнопку или перетащив "
+"мышью,\n"
 "вы также можете изменить порядок с помощью мыши. "
 
 msgid "Choose the flavor to launch."
@@ -1633,6 +1501,9 @@ msgstr ""
 msgid "Cipher"
 msgstr "Шифр"
 
+msgid "Classless Inter-Domain Routing (e.g. 192.168.0.0/24, or 2001:db8::/128)"
+msgstr "CIDR (напр. 192.168.0.0/24 или 2001:db8::/128)"
+
 msgid "Clear Domain Context"
 msgstr "Очистить контекст домена"
 
@@ -1656,30 +1527,14 @@ msgstr "Нажмите сюда для показа только консоли"
 msgid "Close"
 msgstr "Закрыть"
 
-msgid "Cluster Name"
-msgstr "Название кластера"
-
-msgid "Cluster Size"
-msgstr "Размер кластера"
-
-msgid "Clusters"
-msgstr "Кластеры"
-
 msgid "Code"
 msgstr "Код"
 
 msgid "Cold Migrate"
 msgstr "Холодная миграция"
 
-msgid "Comma separated list of databases to create"
-msgstr "Список баз данных для создания разделенный запятыми"
-
 msgid "Comma-separated key=value pairs"
 msgstr "Разделенные запятой пары ключ=значение"
-
-msgctxt "Current status of a Database Backup"
-msgid "Completed"
-msgstr "Завершено"
 
 msgid "Component"
 msgstr "Компонент"
@@ -1738,15 +1593,6 @@ msgstr "Подтверждение изменения типа или мигра
 
 msgid "Conflicting Rule"
 msgstr "Противоречивые правила"
-
-msgid "Connection Examples"
-msgstr "Примеры соединений"
-
-msgid "Connection Info"
-msgstr "Информация о соединении"
-
-msgid "Connection Information"
-msgstr "Параметры соединения"
 
 msgid "Connection Limit"
 msgstr "Лимит соединений"
@@ -2018,6 +1864,52 @@ msgstr "Создать перенос диска"
 msgid "Create a Volume Type"
 msgstr "Создать Тип Дисков"
 
+msgid ""
+"Create a firewall based on a policy.\n"
+"\n"
+"A firewall represents a logical firewall resource that a tenant can "
+"instantiate and manage. A firewall must be associated with one policy, all "
+"other fields are optional."
+msgstr ""
+"Создание межсетевого экрана на основе политики.\n"
+"\n"
+"Межсетевой экран - логический ресурс, экземпляры которого создаются и "
+"управляются проектом. Межсетевой экран обязательно связывается с одной "
+"политикой, остальные поля опциональны."
+
+msgid ""
+"Create a firewall policy with an ordered list of firewall rules.\n"
+"\n"
+"A firewall policy is an ordered collection of firewall rules. So if the "
+"traffic matches the first rule, the other rules are not executed. If the "
+"traffic does not match the current rule, then the next rule is executed. A "
+"firewall policy has the following attributes:\n"
+"\n"
+"<li>Shared: A firewall policy can be shared across tenants. Thus it can also "
+"be made part of an audit workflow wherein the firewall policy can be audited "
+"by the relevant entity that is authorized.</li><li>Audited: When audited is "
+"set to True, it indicates that the firewall policy has been audited. Each "
+"time the firewall policy or the associated firewall rules are changed, this "
+"attribute will be set to False and will have to be explicitly set to True "
+"through an update operation.</li>\n"
+"The name field is required, all others are optional."
+msgstr ""
+"Создайте политику межсетевого экрана с упорядоченной цепочкой правил.\n"
+"\n"
+"Политика межсетевого экрана - упорядоченная цепочка правил. Если трафик "
+"соответствует критериям первого правила, к нему не применяются остальные. "
+"Если трафик не соотвтествует критериям текущего правила, идёт проверка на "
+"соответствие критериям следующего правила до конца цепочки. Политика "
+"межсетевого экрана имеет следующие атрибуты:\n"
+"\n"
+"<li>Shared: Политика может быть общей между проектами. Предоставление общего "
+"доступа может частью процесса аудита, когда к политикам предоставляется "
+"авторизованный общий доступ.</li><li>Audited: При включении данной опции, "
+"при каждом изменении политики/правил атрибут Audited сбрасывается в "
+"состояние False и должен быть явно возвращён в состоянии True обновлением "
+"политики.</li> \n"
+"Имя является обязательным, остальные поля опциональны."
+
 msgid "Create a firewall with selected routers."
 msgstr "Создание межсетевого экрана с выбранными маршрутизаторами."
 
@@ -2080,14 +1972,6 @@ msgstr ""
 
 msgid "Create an Encrypted Volume Type"
 msgstr "Создать шифруемый Тип Дисков"
-
-msgid ""
-"Create an optional initial user.\n"
-"   This user will have access to all databases you create."
-msgstr ""
-"Создание опционального начального пользователя.\n"
-"Это пользователь будет иметь доступ ко всем базам данных которые вы "
-"создадите."
 
 #, python-format
 msgid "Create pseudo-folder in container %(container_name)s"
@@ -2203,14 +2087,18 @@ msgstr "Запросы на создание для этой подсети"
 msgid "Current Host"
 msgstr "Текущий узел"
 
-msgid "Current Size (GB)"
-msgstr "Текущий размер (ГБ)"
-
-msgid "Current Task"
-msgstr "Текущая задача"
+msgid "Current Size (GiB)"
+msgstr "Текущий размер (ГиБ)"
 
 msgid "Current password"
 msgstr "Текущий пароль"
+
+msgid ""
+"Currently only images available via an HTTP/HTTPS URL are supported. The "
+"image location must be accessible to the Image Service."
+msgstr ""
+"Поддерживаются только образы, доступные через HTTP/HTTPS. Путь к образу "
+"должен быть доступен для службы образов."
 
 msgid "Custom ICMP Rule"
 msgstr "Настраиваемое правило ICMP"
@@ -2226,9 +2114,6 @@ msgstr "Настраиваемое правило UDP"
 
 msgid "Customization Script Source"
 msgstr "Настройка источника скрипта"
-
-msgid "DATABASE"
-msgstr "База данных"
 
 msgid "DENY"
 msgstr "DENY"
@@ -2288,33 +2173,6 @@ msgstr "Таймаут DPD должен быть больше, чем интер
 msgid "Daily Usage Report"
 msgstr "Дневной отчет об использовании"
 
-msgid "Database"
-msgstr "База данных"
-
-msgid "Database Backups"
-msgstr "Резервные копии БД"
-
-msgid "Database Info"
-msgstr "Информация БД"
-
-msgid "Database Instance"
-msgstr "Машина БД"
-
-msgid "Database Name"
-msgstr "Название базы данных"
-
-msgid "Database Port"
-msgstr "Порт базы данных"
-
-msgid "Databases"
-msgstr "Базы данных"
-
-msgid "Datastore"
-msgstr "Хранилище данных"
-
-msgid "Datastore Version"
-msgstr "Версия хранилища данных"
-
 msgid "Date Updated"
 msgstr "Дата обновления"
 
@@ -2323,6 +2181,10 @@ msgstr "Невозможно распознать даты."
 
 msgid "Day"
 msgstr "День"
+
+msgctxt "Current status of an Image"
+msgid "Deactivated"
+msgstr "Отключено"
 
 msgid "Dead peer detection action"
 msgstr "Действие при обнаружение недоступного пира"
@@ -2342,6 +2204,12 @@ msgstr "Расшифровать пароль"
 msgid "Default Quotas"
 msgstr "Квоты по умолчанию"
 
+msgid "Default quotas updated for Cinder."
+msgstr "Для дискового хранилища (Cinder) обновлены квоты по умолчанию."
+
+msgid "Default quotas updated for Nova."
+msgstr "Для вычислительных ресурсов (Nova) обновлены квоты по умолчанию."
+
 msgid "Default quotas updated."
 msgstr "Квоты по умолчанию обновлены"
 
@@ -2356,20 +2224,6 @@ msgstr "Задержка должна быть больше или равна В
 
 msgid "Delay must be greater than or equal to timeout"
 msgstr "Задержка должна быть больше или равна Времени ожидания"
-
-msgid "Delete Backup"
-msgid_plural "Delete Backups"
-msgstr[0] "Удалить резервную копию"
-msgstr[1] "Удалить резервные копии"
-msgstr[2] "Удалить резервные копии"
-msgstr[3] "Удалить резервные копии"
-
-msgid "Delete Cluster"
-msgid_plural "Delete Clusters"
-msgstr[0] "Удалить кластер"
-msgstr[1] "Удалить кластеры"
-msgstr[2] "Удалить кластеры"
-msgstr[3] "Удалить кластеры"
 
 msgctxt "current status of stack"
 msgid "Delete Complete"
@@ -2388,13 +2242,6 @@ msgstr[0] "Удалить DHCP агент"
 msgstr[1] "Удалить DHCP агенты"
 msgstr[2] "Удалить DHCP агенты"
 msgstr[3] "Удалить DHCP агенты"
-
-msgid "Delete Database"
-msgid_plural "Delete Databases"
-msgstr[0] "Удалить базу данных"
-msgstr[1] "Удалить базы данных"
-msgstr[2] "Удалить базы данных"
-msgstr[3] "Удалить базы данных"
 
 msgid "Delete Domain"
 msgid_plural "Delete Domains"
@@ -2416,10 +2263,6 @@ msgstr[0] "Удалить доп. параметр"
 msgstr[1] "Удалить доп. параметры"
 msgstr[2] "Удалить доп. параметры"
 msgstr[3] "Удалить доп. параметры"
-
-msgctxt "Current status of a Database Backup"
-msgid "Delete Failed"
-msgstr "Удаление не выполнилось"
 
 msgctxt "current status of stack"
 msgid "Delete Failed"
@@ -2678,13 +2521,6 @@ msgctxt "Current status of an Instance"
 msgid "Deleted"
 msgstr "Удалено"
 
-msgid "Deleted Backup"
-msgid_plural "Deleted Backups"
-msgstr[0] "Резервная копия удалена"
-msgstr[1] "Резервные копии удалены"
-msgstr[2] "Резервные копии удалены"
-msgstr[3] "Резервные копии удалены"
-
 msgid "Deleted Container"
 msgid_plural "Deleted Containers"
 msgstr[0] "Удаленный контейнер"
@@ -2698,13 +2534,6 @@ msgstr[0] "DHCP агент удален"
 msgstr[1] "DHCP агенты удалены"
 msgstr[2] "DHCP агенты удалены"
 msgstr[3] "DHCP агенты удалены"
-
-msgid "Deleted Database"
-msgid_plural "Deleted Databases"
-msgstr[0] "База данных удалена"
-msgstr[1] "Базы данных удалены"
-msgstr[2] "Базы данных удалены"
-msgstr[3] "Базы данных удалены"
 
 msgid "Deleted Domain"
 msgid_plural "Deleted Domains"
@@ -2888,6 +2717,9 @@ msgstr[3] "Типы дисков удалены"
 msgid "Deleted images are not recoverable."
 msgstr "Удаленные образы не восстановимы."
 
+msgid "Deleted instances are not recoverable."
+msgstr "Удаленные инстансы нельзя восстановить."
+
 msgid "Deleting"
 msgstr "Удаление"
 
@@ -2958,13 +2790,6 @@ msgstr "Назначение:"
 msgid "Detach Interface"
 msgstr "Отсоединить интерфейс"
 
-msgid "Detach Replica"
-msgid_plural "Detach Replicas"
-msgstr[0] "Отключить реплику"
-msgstr[1] "Отключить реплики"
-msgstr[2] "Отключить реплики"
-msgstr[3] "Отключить реплики"
-
 msgid "Detach Volume"
 msgid_plural "Detach Volumes"
 msgstr[0] "Отсоединить диск"
@@ -2995,6 +2820,9 @@ msgstr[3] "Отсоединение дисков"
 
 msgid "Details"
 msgstr "Подробности"
+
+msgid "Developer"
+msgstr "Разработчик"
 
 msgid "Device"
 msgstr "Устройство"
@@ -3031,7 +2859,7 @@ msgid_plural "Disable Domains"
 msgstr[0] "Запретить домен"
 msgstr[1] "Запретить домены"
 msgstr[2] "Запретить домены"
-msgstr[3] ""
+msgstr[3] "Запретить домены"
 
 msgid "Disable Domains"
 msgstr "Отключить домены"
@@ -3067,7 +2895,7 @@ msgid_plural "Disabled Domains"
 msgstr[0] "Запрещенный домен"
 msgstr[1] "Запрещенные домены"
 msgstr[2] "Запрещенные домены"
-msgstr[3] ""
+msgstr[3] "Запрещенные домены"
 
 msgid "Disabled User"
 msgid_plural "Disabled Users"
@@ -3223,9 +3051,6 @@ msgstr "Остановлено"
 msgid "Download"
 msgstr "Скачать"
 
-msgid "Download Backup"
-msgstr "Скачать резервную копию"
-
 msgid "Download CSV Summary"
 msgstr "Загрузить сводку в CSV"
 
@@ -3234,6 +3059,12 @@ msgstr "Загрузить ключи EC2"
 
 msgid "Download Key Pair"
 msgstr "Скачать ключевую пару"
+
+msgid "Download OpenStack RC File v2.0"
+msgstr "Скачать OpenStack RC-файл версии 2.0"
+
+msgid "Download OpenStack RC File v3"
+msgstr "Скачать OpenStack RC-файл версии 3"
 
 #, python-format
 msgid "Download key pair &quot;%(keypair_name)s&quot;"
@@ -3413,7 +3244,7 @@ msgid_plural "Enable Domains"
 msgstr[0] "Разрешить домен"
 msgstr[1] "Разрешить домены"
 msgstr[2] "Разрешить домены"
-msgstr[3] ""
+msgstr[3] "Разрешить домены"
 
 msgid "Enable Domains"
 msgstr "Включить домены"
@@ -3450,7 +3281,7 @@ msgid_plural "Enabled Domains"
 msgstr[0] "Разрешенный домен"
 msgstr[1] "Разрешенные домены"
 msgstr[2] "Разрешенные домены"
-msgstr[3] ""
+msgstr[3] "Разрешенные домены"
 
 msgid "Enabled Service"
 msgid_plural "Enabled Services"
@@ -3538,10 +3369,6 @@ msgstr ""
 msgid "Error"
 msgstr "Ошибка"
 
-msgctxt "Current status of a Database Instance"
-msgid "Error"
-msgstr "Ошибка"
-
 msgctxt "Current status of a Firewall"
 msgid "Error"
 msgstr "Ошибка"
@@ -3586,6 +3413,10 @@ msgctxt "current status of router"
 msgid "Error"
 msgstr "Ошибка"
 
+msgctxt "status of a network port"
+msgid "Error"
+msgstr "Ошибка"
+
 msgid "Error Deleting"
 msgstr "Ошибка удаления"
 
@@ -3608,24 +3439,12 @@ msgstr "Ошибка восстановления"
 msgid "Error adding Hosts to the aggregate."
 msgstr "Ошибка добавления узлов в агрегатор."
 
-msgid "Error creating database backup."
-msgstr "Ошибка создания резервной копии БД."
-
 msgctxt "Current status of a Volume"
 msgid "Error deleting"
 msgstr "Ошибка удаления"
 
-msgid "Error deleting database on instance."
-msgstr "Ошибка удаления БД на машине."
-
-msgid "Error deleting database user."
-msgstr "Ошибка удаления пользователя БД."
-
 msgid "Error editing QoS Spec consumer."
 msgstr "Ошибка при изменении потребителя спецификации QoS."
-
-msgid "Error getting database backup list."
-msgstr "Ошибка получения списка резервных копий БД."
 
 msgid "Error getting metadata definitions."
 msgstr "Ошибка при получении определений метаданных."
@@ -3722,6 +3541,9 @@ msgstr "Расширение"
 msgid "Extending volume: \"%s\""
 msgstr "Расширить диск: \"%s\""
 
+msgid "External"
+msgstr "Внешний "
+
 msgid "External Fixed IPs"
 msgstr "Внешние фиксированные IP-адресы"
 
@@ -3741,14 +3563,6 @@ msgstr ""
 
 msgid "Extra Specs"
 msgstr "Доп. параметры"
-
-msgctxt "Current status of a Database Backup"
-msgid "Failed"
-msgstr "Не удалось"
-
-msgctxt "Current status of a Database Instance"
-msgid "Failed"
-msgstr "Не удалось"
 
 msgctxt "Power state of an Instance"
 msgid "Failed"
@@ -4070,6 +3884,9 @@ msgctxt "Task status of an Instance"
 msgid "Finishing Resize or Migrate"
 msgstr "Завершение изменения типа или миграции"
 
+msgid "Firewall"
+msgstr "Межсетевой экран"
+
 #, python-format
 msgid "Firewall %s was successfully updated."
 msgstr "Межсетевой экран  %s был успешно обновлен."
@@ -4249,6 +4066,9 @@ msgstr "IP шлюза и версия IP протокола несовмести
 msgid "Gateway interface is added"
 msgstr "Интерфейс шлюза добавлен"
 
+msgid "GiB"
+msgstr "ГиБ"
+
 msgid "Glance"
 msgstr "Glance"
 
@@ -4388,9 +4208,6 @@ msgstr ""
 "узлы. Создайте агрегатор узлов, а затем выберите узлы, которые будут в нем "
 "содержаться."
 
-msgid "Host or IP that the user is allowed to connect through."
-msgstr "Узел или IP через который пользователю разрешено подключиться."
-
 msgid "Hostname"
 msgstr "Название узла"
 
@@ -4454,6 +4271,9 @@ msgstr "IP протокол"
 
 msgid "IP Version"
 msgstr "Версия IP"
+
+msgid "IP Version for Firewall Rule"
+msgstr "Версия протокола IP для правила межсетевого экрана"
 
 msgid "IP address"
 msgstr "IP адрес"
@@ -4542,7 +4362,7 @@ msgid "IPv6:"
 msgstr "IPv6:"
 
 msgid "ISO - Optical Disk Image"
-msgstr "ISO - Optical Disk Image"
+msgstr "ISO - образ оптического диска"
 
 msgid "Identifier"
 msgstr "Идентификатор"
@@ -4580,6 +4400,18 @@ msgstr ""
 "volumebackups будет подготовлен для вас. Резервные копии будут такого же "
 "размера, что и в оригинальном диске."
 
+msgid ""
+"If you select an image via an HTTP/HTTPS URL, the Image Location field MUST "
+"be a valid and direct URL to the image binary; it must also be accessible to "
+"the Image Service. URLs that redirect or serve error pages will result in "
+"unusable images."
+msgstr ""
+"Если вы выбираете образ через  HTTP/HTTPS URL, то в поле Местонахождение "
+"должена находится валидная прямая ссылка на двоичный образ; он также должен "
+"быть доступен для скачивания из Сервиса образов (Glance). Использование "
+"ошибочных ссылок или ссылок с редиректами приведёт к созданию нерабочего "
+"образа."
+
 msgid "Image"
 msgstr "Образ"
 
@@ -4596,6 +4428,9 @@ msgstr "Резервная копия образа"
 
 msgid "Image File"
 msgstr "Файл Образа"
+
+msgid "Image ID"
+msgstr "ID образа"
 
 msgid "Image ID ="
 msgstr "ID образа ="
@@ -4642,6 +4477,13 @@ msgstr "Образ успешно обновлён."
 msgid "Images"
 msgstr "Образы"
 
+msgid ""
+"Images can be provided via an HTTP/HTTPS URL or be uploaded from your local "
+"file system."
+msgstr ""
+"Образы могут быть предоставлены через HTTP/HTTPS URL или могут быть "
+"загружены c локальной файловой системы."
+
 msgid "Implementation"
 msgstr "Реализация"
 
@@ -4680,12 +4522,6 @@ msgctxt "Current status of a VPN Service"
 msgid "Inactive"
 msgstr "Неактивно"
 
-msgid "Incremental"
-msgstr "Дополнительный"
-
-msgid "Incremental Backup"
-msgstr "Инкрементное резервное копирование"
-
 msgid "Info"
 msgstr "Информация"
 
@@ -4706,21 +4542,6 @@ msgstr "Инициализация завершилась неуспешно"
 msgctxt "current status of stack"
 msgid "Init In Progress"
 msgstr "Выполняется инициализация"
-
-msgid "Initial Admin User"
-msgstr "Начальный администратор"
-
-msgid "Initial Databases"
-msgstr "Начальная база данных"
-
-msgid "Initial Volume Size"
-msgstr "Изначальный размер диска"
-
-msgid "Initial admin user to add"
-msgstr "Начальный администратор для добавления"
-
-msgid "Initialize Databases"
-msgstr "Инициализировать базы данных"
 
 msgid "Initiator state"
 msgstr "Состояние инициатора"
@@ -4794,9 +4615,6 @@ msgstr "Машина для назначения"
 msgid "Instances"
 msgstr "Инстансы"
 
-msgid "Instances Per Shard"
-msgstr "Количество инстансов в шарде"
-
 msgid "Insufficient privilege level to view domain information."
 msgstr "Недостаточный уровень полномочий для просмотра информации о домене"
 
@@ -4842,9 +4660,6 @@ msgid ""
 msgstr ""
 "Неверный временной период. Вы запрашиваете данные из будущего, которые не "
 "существуют."
-
-msgid "Is a Replica Of"
-msgstr "Является репликой"
 
 msgid "Items Per Page"
 msgstr "Элементов на странице"
@@ -4942,12 +4757,6 @@ msgstr "Последний год"
 msgid "Launch"
 msgstr "Запустить"
 
-msgid "Launch Cluster"
-msgstr "Запустить кластер"
-
-msgid "Launch Database"
-msgstr "Запустить БД"
-
 msgid "Launch Instance"
 msgstr "Запустить машину"
 
@@ -4975,10 +4784,6 @@ msgstr "Запустить инстанс с этим профилем поли�
 #, python-format
 msgid "Launched %(count)s named \"%(name)s\"."
 msgstr "Запущено %(count)s названных \"%(name)s\"."
-
-#, python-format
-msgid "Launched cluster \"%s\""
-msgstr "Запущен кластер %s"
 
 msgid ""
 "Launching multiple instances is only supported for images and instance "
@@ -5102,6 +4907,9 @@ msgstr "MTU"
 msgid "MacVTap"
 msgstr "MacVTap"
 
+msgid "Maintenance"
+msgstr "Техническое обслуживание"
+
 msgid "Make Private"
 msgstr "Сделать частным"
 
@@ -5166,17 +4974,11 @@ msgstr "Управление подключением дисков"
 msgid "Manage a Volume"
 msgstr "Управление диском"
 
-msgid "Management Console"
-msgstr "Консоль управления"
-
 msgid "Manual"
 msgstr "Вручную"
 
 msgid "Mapped Fixed IP Address"
 msgstr "Сопоставлен фиксированный IP-адрес"
-
-msgid "Master Instance Name"
-msgstr "Название основной инстансы"
 
 msgid "Max Retries"
 msgstr "Максимальное количество повторных попыток"
@@ -5186,6 +4988,9 @@ msgstr "Количество попыток (1~10)"
 
 msgid "Max."
 msgstr "Max."
+
+msgid "Max. Size (MB) ="
+msgstr "Макс. размер (МБ) ="
 
 msgid "Maximum Transmission Unit size for the connection"
 msgstr "Размер MTU для подключения"
@@ -5209,12 +5014,6 @@ msgstr "Должен быть указан IP-адрес участника"
 
 msgid "Member Source"
 msgstr "Источник участника"
-
-msgid "Member address"
-msgstr "Адрес участника"
-
-msgid "Member(s)"
-msgstr "Участник(и)"
 
 msgid "Members"
 msgstr "Участники"
@@ -5307,6 +5106,9 @@ msgstr "Минимально RAM"
 msgid "Min."
 msgstr "Мин."
 
+msgid "Min. Size (MB) ="
+msgstr "Мин. размер (МБ) ="
+
 msgid "Minimum Disk (GB)"
 msgstr "Минимальный размер диска (GB)"
 
@@ -5394,6 +5196,9 @@ msgstr "Н/Д"
 
 msgid "Name"
 msgstr "Название"
+
+msgid "Name ="
+msgstr "Имя = "
 
 msgid ""
 "Name may only contain letters, numbers, underscores, periods and hyphens."
@@ -5515,9 +5320,6 @@ msgstr "Сеть в формате CIDR (например 192.168.0.0/24)"
 msgid "Network address in CIDR format (e.g. 192.168.0.0/24, 2001:DB8::/48)"
 msgstr "Адрес сети в CIDR формате (например 192.168.0.0/24, 2001:DB8::/48)"
 
-msgid "Network attached to instance."
-msgstr "Сеть подключенная к инстансу."
-
 msgid "Network list can not be retrieved."
 msgstr "Не удалось получить список сетей."
 
@@ -5540,10 +5342,6 @@ msgstr "Никогда"
 msgid "Never updated"
 msgstr "Никогда не обновлялось"
 
-msgctxt "Current status of a Database Backup"
-msgid "New"
-msgstr "Новый"
-
 msgid "New DHCP Agent"
 msgstr "Новый DHCP агент"
 
@@ -5553,11 +5351,8 @@ msgstr "Новый тип инстанса"
 msgid "New Host"
 msgstr "Новый узел"
 
-msgid "New Password"
-msgstr "Новый пароль"
-
-msgid "New Size (GB)"
-msgstr "Новый размер (Гб)"
+msgid "New Size (GiB)"
+msgstr "Новый размер (ГиБ)"
 
 msgid "New name cannot be empty."
 msgstr "Новое имя не должно быть пустым."
@@ -5567,12 +5362,6 @@ msgstr "Новое имя конфликтует с другим типом ди
 
 msgid "New password"
 msgstr "Новый пароль"
-
-msgid "New password for cluster access."
-msgstr "Новый пароль для доступа к кластеру."
-
-msgid "New size for volume must be greater than current size."
-msgstr "Новый размер диска должен быть больше текущего размера."
 
 msgid "New size must be greater than current size."
 msgstr "Новый размер должен быть больше текущего размера."
@@ -5629,9 +5418,6 @@ msgstr "Доступные консоли не найдены"
 
 msgid "No available projects"
 msgstr "Нет доступных проектов"
-
-msgid "No backups available"
-msgstr "Нет доступных резервных копий"
 
 msgid "No flavors available"
 msgstr "Нет доступных типов инстанса"
@@ -5767,12 +5553,6 @@ msgstr "Ничего (удалите спецификацию)"
 msgid "Normal"
 msgstr "Нормальный"
 
-msgid "Not Assigned"
-msgstr "Не назначено"
-
-msgid "Not Found"
-msgstr "Не найдено"
-
 msgid "Not attached"
 msgstr "Не подключен"
 
@@ -5797,9 +5577,6 @@ msgstr "Количество обращений к API Swift"
 
 msgid "Number of Instances"
 msgstr "Количество машин"
-
-msgid "Number of Shards"
-msgstr "Количество шардов"
 
 msgid "Number of Snapshots"
 msgstr "Количество снимков"
@@ -5830,12 +5607,6 @@ msgstr "Объем входящего трафика на сетевом инт�
 
 msgid "Number of incoming packets for a VM interface"
 msgstr "Количество входящих пакетов на интерфейсе ВМ"
-
-msgid "Number of instances in the cluster. (Read only)"
-msgstr "Количество инстансов в кластере. (Только чтение)"
-
-msgid "Number of instances per shard. (Read only)"
-msgstr "Количество инстансов в шарде. (Только чтение)"
 
 msgid "Number of instances to launch."
 msgstr "Число инстансов для запуска."
@@ -5870,9 +5641,6 @@ msgstr ""
 
 msgid "Number of read requests"
 msgstr "Количество запросов на чтение"
-
-msgid "Number of shards. (Read only)"
-msgstr "Количество шардов. (Только чтение)"
 
 msgid "Number of write requests"
 msgstr "Количество запросов на запись"
@@ -5926,7 +5694,7 @@ msgid ""
 "Once a floating IP is released, there is no guarantee the same IP can be "
 "allocated again."
 msgstr ""
-"Нет гарантий что освобожденный плавающий IP может быть выделен еще раз."
+"Нет гарантий, что освобожденный плавающий IP может быть выделен еще раз."
 
 msgid "Only definitions in raw JSON format are supported."
 msgstr "Поддерживаются только определения в формате raw JSON."
@@ -5937,28 +5705,11 @@ msgstr "Открыть порт"
 msgid "Open Port/Port Range:"
 msgstr "Открываемый Порт/Диапазон портов:"
 
-msgid "Optional Backup Description"
-msgstr "Опциональное описание резервной копии"
-
 msgid "Optional Parameters"
 msgstr "Дополнительные параметры"
 
-msgid "Optional parent backup"
-msgstr "Необязательная материнская резервная копия"
-
 msgid "Optional: Next Hop Addresses (comma delimited)"
 msgstr "Опционально: Адреса следующих переходов (разделенные запятой)"
-
-msgid ""
-"Optionally choose to create this database using a previous backup, or as a "
-"replica of another database instance."
-msgstr ""
-"Дополнительно можно выбрать создание этой базы данных из резервной копии или "
-"в качестве реплики другого экземпляра БД."
-
-msgid "Optionally provide a comma separated list of databases to create:"
-msgstr ""
-"Опционально введите список баз данных для создания, разделенный запятыми: "
 
 msgid "Optionally, you may choose to create a new volume."
 msgstr "При необходимости, вы можете выбрать создание нового диска."
@@ -6012,9 +5763,6 @@ msgstr ""
 "диска проектом-донором она может быть \"принята\" проектом принимающим диск. "
 "Это эквивалентно команде <tt>cinder transfer-create</tt>"
 
-msgid "PASSWORD"
-msgstr "PASSWORD"
-
 msgid "PFS"
 msgstr "PFS"
 
@@ -6027,9 +5775,6 @@ msgstr "Страница не найдена"
 msgid "Parameters"
 msgstr "Параметры"
 
-msgid "Parent Backup"
-msgstr "Материнская резервная копия"
-
 msgid "Password"
 msgstr "Пароль"
 
@@ -6037,20 +5782,11 @@ msgctxt "Current status of an Instance"
 msgid "Password"
 msgstr "Пароль"
 
-msgid "Password (required)"
-msgstr "Пароль (обязательно)"
-
 msgid "Password changed. Please log in again to continue."
 msgstr "Пароль изменен. Снова войдите в систему. "
 
 msgid "Password changed. Please log in to continue."
 msgstr "Пароль изменен. Пожалуйста войдите в систему для продолжения."
-
-msgid "Password for root user must be specified."
-msgstr "Должен быть указан пароль для пользователя root."
-
-msgid "Password for root user."
-msgstr "Пароль пользователя root"
 
 #, python-format
 msgid "Password for user \"%s\""
@@ -6426,7 +6162,7 @@ msgid "Public URL"
 msgstr "Публичный URL"
 
 msgid "QCOW2 - QEMU Emulator"
-msgstr "QCOW2 - QEMU Emulator"
+msgstr "QCOW2 - образ QEMU"
 
 msgid "QoS Spec Consumer"
 msgstr "Потребитель спецификации QoS"
@@ -6434,6 +6170,10 @@ msgstr "Потребитель спецификации QoS"
 msgid ""
 "QoS Spec consumer value must be different than the current consumer value."
 msgstr "Новый потребитель спецификации должен отличаться от текущего."
+
+#, python-format
+msgid "QoS Spec name \"%s\" already exists."
+msgstr "Спецификация QoS \"%s\" уже существует."
 
 msgid "QoS Spec to be associated"
 msgstr "Привязываемая спецификация QoS"
@@ -6484,6 +6224,13 @@ msgstr "RAM (использовано)"
 msgid "RAM(Available: %(avail)s, Requested: %(req)s)"
 msgstr "RAM(Доступные: %(avail)s, Запрашиваемые: %(req)s)"
 
+msgid "REJECT"
+msgstr "REJECT"
+
+msgctxt "Action Name of a Firewall Rule"
+msgid "REJECT"
+msgstr "REJECT"
+
 msgid "Ramdisk"
 msgstr "Ramdisk"
 
@@ -6505,10 +6252,6 @@ msgid "Reason: %(disabled_reason)s"
 msgstr "Причина: %(disabled_reason)s"
 
 msgctxt "Action log of an instance"
-msgid "Reboot"
-msgstr "Перезагрузка"
-
-msgctxt "Current status of a Database Instance"
 msgid "Reboot"
 msgstr "Перезагрузка"
 
@@ -6656,21 +6399,8 @@ msgstr[1] "Пользователи удалены"
 msgstr[2] "Пользователи удалены"
 msgstr[3] "Пользователи удалены"
 
-msgid "Replica Detached"
-msgid_plural "Replicas Detached"
-msgstr[0] "Реплика отключена"
-msgstr[1] "Реплики отключены"
-msgstr[2] "Реплики отключены"
-msgstr[3] "Реплики отключены"
-
-msgid "Replicas"
-msgstr "Реплики"
-
-msgid "Replicate from Instance"
-msgstr "Реплицировать с инстансы"
-
-msgid "Replication"
-msgstr "Репликация"
+msgid "Report Bug"
+msgstr "Сообщить об ошибке"
 
 msgid "Request ID"
 msgstr "ID запроса"
@@ -6696,9 +6426,6 @@ msgctxt "Task status of an Instance"
 msgid "Rescuing"
 msgstr "В безопасном режиме"
 
-msgid "Reset Root Password"
-msgstr "Сбросить пароль для root"
-
 msgid "Reset to Default"
 msgstr "Сброс к настройкам по умолчанию"
 
@@ -6709,21 +6436,8 @@ msgctxt "Action log of an instance"
 msgid "Resize"
 msgstr "Замена схемы"
 
-msgctxt "Current status of a Database Instance"
-msgid "Resize"
-msgstr "Замена схемы"
-
-msgid "Resize Database Instance"
-msgstr "Изменить размер инстансы БД"
-
-msgid "Resize Database Volume"
-msgstr "Изменить размер диска базы данных"
-
 msgid "Resize Instance"
 msgstr "Изменить размер инстансы"
-
-msgid "Resize Volume"
-msgstr "Изменить размер диска"
 
 msgctxt "Current status of an Instance"
 msgid "Resize/Migrate"
@@ -6733,17 +6447,9 @@ msgctxt "Task status of an Instance"
 msgid "Resized or Migrated"
 msgstr "Изменен тип или проведена миграция"
 
-#, python-format
-msgid "Resizing instance \"%s\""
-msgstr "Изменяется размер инстансы \"%s\""
-
 msgctxt "Task status of an Instance"
 msgid "Resizing or Migrating"
 msgstr "Изменение типа или миграция"
-
-#, python-format
-msgid "Resizing volume \"%s\""
-msgstr "Изменяем размер диска \"%s\" "
 
 msgid "Resource"
 msgstr "Ресурс"
@@ -6753,9 +6459,6 @@ msgstr "ID ресурса"
 
 msgid "Resource Metadata"
 msgstr "Метаданные ресурса"
-
-msgid "Resource Overview"
-msgstr "Обзор ресурса"
 
 msgid "Resource Types"
 msgstr "Типы ресурсов"
@@ -6772,24 +6475,6 @@ msgstr "Ресурсы"
 
 msgid "Resources Usage Overview"
 msgstr "Обзор использования ресурсов"
-
-msgid "Restart Instance"
-msgid_plural "Restart Instances"
-msgstr[0] "Перезапустить инстанс"
-msgstr[1] "Перезапустить инстансы"
-msgstr[2] "Перезапустить инстансы"
-msgstr[3] "Перезапустить инстансы"
-
-msgctxt "Current status of a Database Instance"
-msgid "Restart Required"
-msgstr "Требуется перезагрузка"
-
-msgid "Restarted Instance"
-msgid_plural "Restarted Instances"
-msgstr[0] "Перезапущен инстанс"
-msgstr[1] "Перезапущены инстансы"
-msgstr[2] "Перезапущены инстансы"
-msgstr[3] "Перезапущены инстансы"
 
 msgid "Restarted instances will lose any data not saved in persistent storage."
 msgstr ""
@@ -6810,9 +6495,6 @@ msgstr "Восстановить резервную копию диска"
 
 msgid "Restore a Volume Backup"
 msgstr "Восстановить резервную копию диска"
-
-msgid "Restore from Backup"
-msgstr "Восстановить из резервной копии"
 
 msgctxt "Current status of a Volume Backup"
 msgid "Restoring"
@@ -6932,13 +6614,6 @@ msgstr "Корневой диск"
 
 msgid "Root Disk (GB)"
 msgstr "Корневой диск (ГБ)"
-
-msgid "Root Password"
-msgstr "Пароль root"
-
-#, python-format
-msgid "Root password updated for cluster \"%s\""
-msgstr "Пароль root обновлён для кластера \"%s\""
 
 msgid "Rotates requests evenly between multiple instances."
 msgstr "Равномерно распределяет запросы между инстансами"
@@ -7069,17 +6744,9 @@ msgstr "Сохранен доп. параметр «%s»."
 msgid "Saved spec \"%s\"."
 msgstr "Сохраненный параметр \"%s\"."
 
-msgctxt "Current status of a Database Backup"
-msgid "Saving"
-msgstr "Сохранение"
-
 msgctxt "Current status of an Image"
 msgid "Saving"
 msgstr "Сохранение"
-
-#, python-format
-msgid "Scheduled backup \"%(name)s\"."
-msgstr "Запланированная резервная копия \"%(name)s\"."
 
 #, python-format
 msgid "Scheduled deletion of %(data_type)s"
@@ -7285,18 +6952,12 @@ msgstr "Выберите Маршрутизатор"
 msgid "Select a Subnet"
 msgstr "Выбор подсети"
 
-msgid "Select a backup to restore"
-msgstr "Выбрать резервную копию для восстановления"
-
 #, python-format
 msgid "Select a health monitor of %s"
 msgstr "Выберите монитор работоспособности %s"
 
 msgid "Select a key pair"
 msgstr "Выберите связку ключей"
-
-msgid "Select a master instance"
-msgstr "Выберите основную машину"
 
 #, python-format
 msgid "Select a monitor template for %s"
@@ -7310,9 +6971,6 @@ msgstr "Выберите новую спецификацию QoS"
 
 msgid "Select a new agent"
 msgstr "Выберите новый агент"
-
-msgid "Select a new flavor"
-msgstr "Выберите новый тип инстанса"
 
 msgid "Select a new host"
 msgstr "Выберите новый узел"
@@ -7362,20 +7020,11 @@ msgstr "Выбрать машину"
 msgid "Select an instance to attach to."
 msgstr "Выбрать инстанс для подключения."
 
-msgid "Select backup"
-msgstr "Выбрать резервную копию"
-
-msgid "Select datastore type and version"
-msgstr "Выбрать тип и версию хранилища данных."
-
 msgid "Select format"
 msgstr "Выберите формат"
 
 msgid "Select from active instances"
 msgstr "Выбрать из активных инстансов"
-
-msgid "Select instance"
-msgstr "Выберите машину"
 
 msgid "Select members for this pool "
 msgstr "Выберите участников для этого пула"
@@ -7385,9 +7034,6 @@ msgstr "Выберите сеть"
 
 msgid "Select networks for your instance."
 msgstr "выберите сети для вашего инстанса."
-
-msgid "Select parent backup"
-msgstr "Выбрать материнскую резервную копию"
 
 msgid "Select routers for your firewall."
 msgstr "Выберите машрутизаторы для вашего межсетевого экрана"
@@ -7426,7 +7072,7 @@ msgid "Selected Projects"
 msgstr "Выбранные проекты"
 
 msgid "Selected Routers"
-msgstr "Выбранные машрутизаторы"
+msgstr "Выбранные маршрутизаторы"
 
 msgid "Selected Rules"
 msgstr "Выбранные правила"
@@ -7454,6 +7100,9 @@ msgstr "Группа серверов"
 
 msgid "Server error"
 msgstr "Ошибка сервера"
+
+msgid "Servers"
+msgstr "Серверы"
 
 msgid "Service"
 msgstr "Служба"
@@ -7505,7 +7154,7 @@ msgid_plural "Shelve Instances"
 msgstr[0] "Архивировать инстанс"
 msgstr[1] "Архивировать инстансы"
 msgstr[2] "Архивировать инстансы"
-msgstr[3] ""
+msgstr[3] "Архивировать инстансы"
 
 msgctxt "Current status of an Instance"
 msgid "Shelved"
@@ -7562,10 +7211,6 @@ msgstr[1] "Выключенные инстансы"
 msgstr[2] "Выключенные инстансы"
 msgstr[3] "Машины отключены"
 
-msgctxt "Current status of a Database Instance"
-msgid "Shutdown"
-msgstr "Выключение"
-
 msgctxt "Current status of an Instance"
 msgid "Shutoff"
 msgstr "Отключение"
@@ -7576,20 +7221,17 @@ msgstr "Выход"
 msgid "Size"
 msgstr "Размер"
 
+msgid "Size (GiB)"
+msgstr "Размер (ГиБ)"
+
 msgid "Size of ephemeral disk"
 msgstr "Размер временного диска"
 
 msgid "Size of image to launch."
 msgstr "Размер образа для запуска"
 
-msgid "Size of instance to launch."
-msgstr "Размер инстанса для запуска."
-
 msgid "Size of root disk"
 msgstr "Объем корневого диска"
-
-msgid "Size of the volume in GB."
-msgstr "Размер диска в ГБ"
 
 msgid "Size of volume"
 msgstr "Размер диска"
@@ -7697,12 +7339,16 @@ msgstr "Порт отправления"
 msgid "Source Port/Port Range"
 msgstr "Порт/диапазон портов отправления"
 
-msgid "Source for Initial State"
-msgstr "Источник для первоначального наполнения"
-
 msgid "Source port (integer in [1, 65535] or range in a:b)"
 msgstr ""
 "Порт отправления (целое число из диапазона [1-65535] или диапазон a:b) "
+
+msgid ""
+"Source/Destination Network Address and IP version are inconsistent. Please "
+"make them consistent."
+msgstr ""
+"Адрес источника/получателя и версия протокола несовместимы. Пожалуйста "
+"исправьте."
 
 msgid "Source:"
 msgstr "Источник:"
@@ -7753,9 +7399,6 @@ msgstr "Укажите VIP"
 msgid "Specify a metadata definition namespace to import."
 msgstr "Укажите импортируемое пространство имен для определения метаданных."
 
-msgid "Specify a new flavor for the database instance."
-msgstr "Укажите новый тип инстанса для экземпляра БД."
-
 msgid "Specify additional attributes for the subnet."
 msgstr "Указать дополнительные атрибуты для подсети."
 
@@ -7772,20 +7415,8 @@ msgstr "Укажите образ для загрузки в службу обр
 msgid "Specify member IP address"
 msgstr "Указать IP-адрес участника"
 
-msgid "Specify the details for adding additional shards."
-msgstr "Укажите подробности для добавления шардов."
-
 msgid "Specify the details for launching an instance."
 msgstr "Задайте детали запуска инстансы."
-
-msgid "Specify the details for the database backup."
-msgstr "Указать данные для резервной копии базы данных."
-
-msgid "Specify the new root password for vertica cluster."
-msgstr "Укажите новый root пароль для кластера vertica."
-
-msgid "Specify the new volume size for the database instance."
-msgstr "Указать новый размер диска для инстансы БД."
 
 msgid ""
 "Specify this option to copy image data to the image service. If unspecified, "
@@ -8275,7 +7906,7 @@ msgid ""
 "The ID of the host where the port is allocated. In some cases, different "
 "implementations can run on different hosts."
 msgstr ""
-"ID узла на котором выделен порт. В некоторых случаях различные реализации "
+"ID узла, на котором выделен порт. В некоторых случаях различные реализации "
 "могут быть запущены на разных узлах."
 
 msgid ""
@@ -8372,9 +8003,6 @@ msgstr ""
 "Минимальные требования: %(min_ram)s МБ RAM и  %(min_disk)s ГБ корневого "
 "диска."
 
-msgid "The flavor must be specified."
-msgstr "Должен быть указан тип инстанса."
-
 #, python-format
 msgid "The instance is preparing the live migration to host \"%s\"."
 msgstr "Инстанс готовится к живой миграции на узел «%s»."
@@ -8442,9 +8070,6 @@ msgid ""
 msgstr ""
 "Адреса следующих переходов могут использоваться для подмены маршрутизатора "
 "используемого клиентом."
-
-msgid "The number of shards must be greater than 1."
-msgstr "Количество шардов должно быть больше 1."
 
 msgid "The page you were looking for doesn't exist"
 msgstr "Страница, которую вы ищите, не существует"
@@ -8533,6 +8158,9 @@ msgstr "Диапазон времени должен быть представл
 msgid "The volume size cannot be less than the image size (%s)"
 msgstr "Размер диска не может быть меньше размера образа (%s)"
 
+msgid "Theme Preview"
+msgstr "Предпросмортр темы"
+
 msgid "There are no meters defined yet."
 msgstr "Метрик пока нет."
 
@@ -8583,9 +8211,6 @@ msgstr "Это необходимо для выполнения операций
 
 msgid "This name is already taken."
 msgstr "Это имя уже занято."
-
-msgid "This pane needs javascript support."
-msgstr "Эта панель требует поддержки javascript."
 
 msgid ""
 "This volume is currently attached to an instance. In some cases, creating a "
@@ -8675,6 +8300,9 @@ msgstr "Суммарный объём диска (GB):"
 msgid "Total Disk Usage (Hours):"
 msgstr "Суммарное использование диска (Часы):"
 
+msgid "Total Gibibytes"
+msgstr "Итого ГиБ"
+
 msgid "Total Memory Usage (Hours):"
 msgstr "Суммарное использование памяти (Часы):"
 
@@ -8683,6 +8311,13 @@ msgstr "Всего RAM"
 
 msgid "Total Size of Volumes and Snapshots (GB)"
 msgstr "Общий размер дисков и снимков (ГБ)"
+
+msgid "Total Size of Volumes and Snapshots (GiB)"
+msgstr "Общий размер дисков и снимков (ГБ)"
+
+#, python-format
+msgid "Total Size of Volumes and Snapshots (GiB) of Type %(type)s"
+msgstr "Общий размер дисков и снепшотов типа %(type)s (ГБ)"
 
 msgid "Total VCPU Usage (Hours):"
 msgstr "Суммарное использование VCPU (Часы):"
@@ -8712,9 +8347,6 @@ msgstr "Протокол трансформации"
 
 msgid "Type"
 msgstr "Тип"
-
-msgid "Type and version of datastore."
-msgstr "Тип и версия хранилища данных."
 
 msgid "Type of backend device identifier provided"
 msgstr "Тип устройства предоставляемый идентфикатором"
@@ -8754,9 +8386,6 @@ msgstr "URL"
 
 msgid "URL Path"
 msgstr "Путь URL"
-
-msgid "USERNAME"
-msgstr "Имя пользователя"
 
 msgid "UTC"
 msgstr "UTC"
@@ -8815,10 +8444,6 @@ msgstr "Не удалось добавить пул \"%s\"."
 
 msgid "Unable to add rule to security group."
 msgstr "Не удалось добавить правило в группу безопасности"
-
-#, python-format
-msgid "Unable to add shard. %s"
-msgstr "Невозможно добавить шард. %s"
 
 msgid "Unable to add user to primary project."
 msgstr "Не удалось добавить пользователя в основной проект."
@@ -8967,6 +8592,10 @@ msgstr "Не удалось создать диск."
 msgid "Unable to delete VIP. %s"
 msgstr "Не удалось удалить VIP. %s"
 
+#, python-format
+msgid "Unable to delete VPN Service. %s"
+msgstr "Невозможно удалить сервис VPN. %s"
+
 msgid "Unable to delete container."
 msgstr "Не удалось удалить контейнер"
 
@@ -9031,14 +8660,8 @@ msgstr "Не удалось расширить диск."
 msgid "Unable to fetch EC2 credentials."
 msgstr "Не удалось получить учетные данные EC2"
 
-msgid "Unable to find backup!"
-msgstr "Не удалось найти резервную копию!"
-
 msgid "Unable to find default role."
 msgstr "Не удалось найти роль по умолчанию"
-
-msgid "Unable to find master instance!"
-msgstr "Не удалось найти основную машину!"
 
 msgid "Unable to get EC2 credentials"
 msgstr "Не удалось получить учетные данные EC2"
@@ -9065,12 +8688,6 @@ msgstr "Не удалось получить VNC консоль для инст�
 msgid "Unable to get cinder services list."
 msgstr "Не удалось получить список служб cinder"
 
-msgid "Unable to get database backup data."
-msgstr "Не удалось получить данные резервной копии базы данных"
-
-msgid "Unable to get databases data."
-msgstr "Не удалось получить информацию о базе данных"
-
 #, python-format
 msgid "Unable to get events for stack \"%s\"."
 msgstr "Не удалось получить события для стека \"%s\"."
@@ -9085,9 +8702,6 @@ msgstr ""
 
 msgid "Unable to get host aggregate list"
 msgstr "Не удалось получить список агрегаторов узлов."
-
-msgid "Unable to get instances data."
-msgstr "Невозможно получить данные инстансов."
 
 #, python-format
 msgid "Unable to get log for instance \"%s\"."
@@ -9130,9 +8744,6 @@ msgstr "Невозможно получить подсеть из пула %(poo
 msgid "Unable to get the available hosts"
 msgstr "Не удалось получить доступные узлы"
 
-msgid "Unable to get user data."
-msgstr "Не удалось получить данные пользователя"
-
 msgid "Unable to import key pair."
 msgstr "Не удалось импортировать пару ключей."
 
@@ -9143,19 +8754,8 @@ msgstr "Невозможно инициализировать пулы подс�
 msgid "Unable to launch %(count)s named \"%(name)s\"."
 msgstr "Не удалось запустить %(count)s названных \"%(name)s\"."
 
-#, python-format
-msgid "Unable to launch cluster. %s"
-msgstr "Не удалось запустить кластер. %s"
-
 msgid "Unable to list containers."
 msgstr "Не удалось перечислить контейнеры."
-
-msgid "Unable to list database backups for parent."
-msgstr "Не удалось перечислить резервные копии базы для родителя."
-
-msgid "Unable to list database instances to backup."
-msgstr ""
-"Не удалось получить список экземпляров баз данных для резервного копирования."
 
 msgid "Unable to list dhcp agents hosting network."
 msgstr "Не удалось перечислить dhcp агенты на которых размещена сеть."
@@ -9197,15 +8797,6 @@ msgstr "Не удалось изменить инстанс \"%s\"."
 msgid "Unable to modify project \"%s\"."
 msgstr "Не удалось изменить проект «%s»."
 
-msgid "Unable to obtain datastore versions."
-msgstr "Невозможно получить версии хранилищ данных."
-
-msgid "Unable to obtain datastores."
-msgstr "Невозможно получить список хранилищ данных."
-
-msgid "Unable to obtain flavors."
-msgstr "Не удалось получить типы инстанса."
-
 #, python-format
 msgid "Unable to parse IP address %s."
 msgstr "Не удалось распознать IP адрес %s."
@@ -9214,20 +8805,8 @@ msgid "Unable to rebuild instance."
 msgstr "Не удалось перестроить инстанс."
 
 #, python-format
-msgid "Unable to reset password. %s"
-msgstr "Не удаётся сбросить пароль. %s"
-
-#, python-format
 msgid "Unable to resize instance \"%s\"."
 msgstr "Не удалось изменить размер инстанса \"%s\"."
-
-#, python-format
-msgid "Unable to resize instance. %s"
-msgstr "Не удалось изменить размер инстанса. %s"
-
-#, python-format
-msgid "Unable to resize volume. %s"
-msgstr "Не удалось изменить размер диска. %s"
 
 msgid "Unable to restore backup."
 msgstr "Не удалось восстановить резервную копию"
@@ -9337,9 +8916,6 @@ msgstr "Не удалось получить зоны доступности."
 msgid "Unable to retrieve backup details."
 msgstr "Не удалось получить подробную информацию о резервной копии."
 
-msgid "Unable to retrieve cluster details."
-msgstr "Невозможно получить сведения для кластера."
-
 msgid "Unable to retrieve compute host information."
 msgstr "Не удалось получить информацию о вычислительном узле"
 
@@ -9349,32 +8925,11 @@ msgstr "Не удалось получить информацию о лимит�
 msgid "Unable to retrieve container list."
 msgstr "Не удалось получить список контейнеров"
 
-msgid "Unable to retrieve database clusters."
-msgstr "Невозможно получить кластеры БД."
-
-msgid "Unable to retrieve database instances."
-msgstr "Не удалось получить инстансы БД."
-
-msgid "Unable to retrieve database size information."
-msgstr "Не удалось получить информацию о размере БД."
-
 msgid "Unable to retrieve default Neutron quota values."
 msgstr "Не удалось получить значения стандартных квот Neutron."
 
 msgid "Unable to retrieve default quota values."
 msgstr "Не удалось получить значение стандартных квот."
-
-#, python-format
-msgid "Unable to retrieve details for backup: %s"
-msgstr "Не удалось получить подробную информацию по резервной копии: %s"
-
-#, python-format
-msgid "Unable to retrieve details for database cluster: %s"
-msgstr "Невозможно получить сведения для кластера БД: %s"
-
-#, python-format
-msgid "Unable to retrieve details for database instance: %s"
-msgstr "Не удалось получить детальную информацию для экземпляра БД: %s"
 
 #, python-format
 msgid "Unable to retrieve details for instance \"%s\"."
@@ -9387,10 +8942,6 @@ msgstr "Не удалось получить подробную информац
 #, python-format
 msgid "Unable to retrieve details for network \"%s\"."
 msgstr "Не удалось получить детальную информацию о сети «%s»."
-
-#, python-format
-msgid "Unable to retrieve details for parent backup: %s"
-msgstr "Не удалось получить данные о материнской резервной копии: %s"
 
 #, python-format
 msgid "Unable to retrieve details for router \"%s\"."
@@ -9538,6 +9089,9 @@ msgstr "Не удалось получить пары ключей"
 msgid "Unable to retrieve limit information."
 msgstr "Не удалось получить информацию о лимитах."
 
+msgid "Unable to retrieve list of routers."
+msgstr "Не удалось получить список маршрутизаторов."
+
 msgid "Unable to retrieve list of security groups"
 msgstr "Не удалось получить список групп безопасности"
 
@@ -9586,9 +9140,6 @@ msgstr "Не удалось получить сеть."
 
 msgid "Unable to retrieve networks list."
 msgstr "Не удалось получить список сетей."
-
-msgid "Unable to retrieve networks."
-msgstr "Не удалось получить сети."
 
 msgid "Unable to retrieve object list."
 msgstr "Не удалось получить список объектов."
@@ -9747,6 +9298,9 @@ msgstr "Не удалось получить ограничения проект
 msgid "Unable to retrieve the aggregate to be updated"
 msgstr "Не удалось получить агрегатор для обновления"
 
+msgid "Unable to retrieve the project information of the image."
+msgstr "Для образа не удалось получить информацию о проекте."
+
 msgid "Unable to retrieve the specified pool."
 msgstr "Не удалось получить указанный пул."
 
@@ -9883,6 +9437,14 @@ msgstr "Не удалось отключить управление диском
 
 msgid "Unable to update container access."
 msgstr "Не удалось обновить доступ к контейнеру."
+
+msgid "Unable to update default quotas for Cinder."
+msgstr ""
+"Для дискового хранилища (Cinder) невозможно обновить квоты по умолчанию."
+
+msgid "Unable to update default quotas for Nova."
+msgstr ""
+"Для вычислительных ресурсов (Nova) невозможно обновить квоты по умолчанию."
 
 msgid "Unable to update default quotas."
 msgstr "Не удалось обновить квоты по умолчанию."
@@ -10263,9 +9825,6 @@ msgstr "Пользователь с именем \"%s\" уже существу�
 msgid "User password has been updated successfully."
 msgstr "Пароль пользователя успешно изменен."
 
-msgid "Username (required)"
-msgstr "Имя пользователя (обязательно)"
-
 msgid "Users"
 msgstr "Пользователи"
 
@@ -10445,9 +10004,6 @@ msgstr "Ограничения диска"
 msgid "Volume Name"
 msgstr "Название диска"
 
-msgid "Volume Size"
-msgstr "Размер диска"
-
 msgid "Volume Snapshot"
 msgstr "Снимок диска"
 
@@ -10456,6 +10012,10 @@ msgstr "Обзор снимка диска"
 
 msgid "Volume Snapshots"
 msgstr "Снимки дисков"
+
+#, python-format
+msgid "Volume Snapshots of Type %(type)s"
+msgstr "Количество снепшотов типа %(type)s"
 
 msgid "Volume Source"
 msgstr "Источник диска"
@@ -10552,6 +10112,10 @@ msgstr "Диски"
 msgid "Volumes Attached"
 msgstr "Подключенные диски"
 
+#, python-format
+msgid "Volumes of Type %(type)s"
+msgstr "Количество дисков типа %(type)s"
+
 msgid "Weight"
 msgstr "Вес"
 
@@ -10614,15 +10178,6 @@ msgid ""
 msgstr ""
 "Вы можете настроить свой инстанс после его запуска, используя параметры "
 "доступные здесь"
-
-msgid ""
-"You can perform an incremental backup by specifying a parent backup. "
-"<strong>However,</strong> not all databases support incremental backups in "
-"which case this operation will result in an error."
-msgstr ""
-"Вы можете выполнить инкрементное резервное копирование, указав материнскую "
-"резервную копию. <strong>Однако, </strong> не все базы данных поддерживают "
-"инкрементное резервное копирование, в этом случае операция приведёт к ошибке."
 
 msgid ""
 "You can specify the desired rule template or use custom rules, the options "
@@ -10739,9 +10294,6 @@ msgstr "Здесь вы можете обновить изменяемые св�
 msgid "You may update the editable properties of your router here."
 msgstr "Здесь вы можете обновить изменяемые свойства маршрутизатора"
 
-msgid "You must select a datastore type and version."
-msgstr "Вы должны выбрать тип и версию хранилища данных."
-
 msgid "You must select a snapshot."
 msgstr "Вы должны выбрать снимок."
 
@@ -10754,14 +10306,8 @@ msgstr "Необходимо выбрать образ"
 msgid "You must set volume size"
 msgstr "Вы должны указать размер диска"
 
-msgid "You must specify a password if you create a user."
-msgstr "Вы должны задать пароль если хотите создать пользователя."
-
 msgid "You must specify a template via one of the available sources."
 msgstr "Вы должны задать шаблон используя один из доступны способов."
-
-msgid "You must specify at least one database if you create a user."
-msgstr "Вы должны создать по крайней мере одну БД если создаете пользователя."
 
 msgid ""
 "You must specify the source of the traffic to be allowed via this rule. You "

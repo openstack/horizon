@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-12-17 05:35+0000\n"
+"POT-Creation-Date: 2016-01-09 00:51+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -124,20 +124,6 @@ msgstr ""
 "     کے برابر ہے<tt>cinder snapshot-reset-state</tt> حکم ہے. \n"
 "    "
 
-msgid ""
-"\n"
-"  Move networks from 'Available Networks' to 'Selected Networks' by\n"
-"  clicking the button, or dragging and dropping. You can change the\n"
-"  NIC order by dragging and dropping as well.\n"
-"  "
-msgstr ""
-"\n"
-"   کے بٹن پر کلک کر کے یا ڈریگ اور ڈراپ کرنے نیٹ ورکس کو 'دستیاب نیٹ ورک' "
-"سے \n"
-"   'منتخب شدہ نیٹ ورک' میں منتقل کریں. آپ ڈریگ اور ڈراپ کرکے \n"
-"   NIC آرڈر کو بھی تبدیل کر سکتے ہیں. \n"
-"  "
-
 msgid " - End"
 msgstr " - ختم كریں "
 
@@ -163,10 +149,6 @@ msgstr "%(instance_name)s %(fixed_ip)s"
 #, python-format
 msgid "%(name)s - %(size)s GB (%(label)s)"
 msgstr "%(name)s - %(size)s GB (%(label)s)"
-
-#, python-format
-msgid "%(name)s | %(RAM)s RAM"
-msgstr "%(name)s | %(RAM)s RAM"
 
 #, python-format
 msgid "%(offset)s: %(label)s"
@@ -245,31 +227,6 @@ msgstr "--"
 
 msgid "3des"
 msgstr "3des"
-
-#, python-format
-msgid "<p>%(used)s of %(quota)s MB Used</p>"
-msgstr "<p>%(used)s of %(quota)s MB Used</p>"
-
-#, python-format
-msgid "<p>%(used)s of %(quota)s Used</p>"
-msgstr "<p>%(used)s of %(quota)s Used</p>"
-
-msgid ""
-"<strong>Please note:</strong> The new value must be greater than the "
-"existing volume size."
-msgstr ""
-"<strong> براہ مہربانی نوٹ کریں: </strong>  نئی قدرموجودہ ولیوم سائز کے "
-"مقابلے میں بڑا ہونا چاہئے."
-
-msgid ""
-"<strong>Please note:</strong> The value specified in the Volume Size field "
-"should be greater than 0, however, some configurations do not support "
-"specifying volume size. If specifying the volume size results in an error "
-"stating volume support is not enabled, enter 0."
-msgstr ""
-"<strong>Please note:</strong> ولیوم سائز فیلڈ واضح كی گئی ویلیو 0 سے زیادہ "
-"ہونی چاہیے، تاہم ، كچؤ ولیوم سائز واضح كرنے میں مدد نہیں كرتے۔ ولیوم سائز "
-"واضح كرن میں خامی دكھائی دی تو ولیوم كی مدد سے معاون نہیں كیا 0 داخل كریں۔"
 
 msgid ""
 "A container is a storage compartment for your data and provides a way for "
@@ -368,10 +325,6 @@ msgstr "فائروال اصول کے لئے کارروائی"
 
 msgid "Action:"
 msgstr "عمل :"
-
-msgctxt "Current status of a Database Instance"
-msgid "Active"
-msgstr "فعال كریں"
 
 msgctxt "Current status of a Firewall"
 msgid "Active"
@@ -681,23 +634,6 @@ msgstr "مختص عارضی IP %(ip)s.."
 msgid "Allocation Pools"
 msgstr "الاٹمنٹ پولس"
 
-msgid ""
-"Allow the user to connect from this host\n"
-"    only. If not provided this user will be allowed to connect from "
-"anywhere.\n"
-"    "
-msgstr ""
-"صارف اس ہوسٹ سے رابطہ قائم کرنے کی اجازت دیں \n"
-"     صرف. اگر نہیں دیا اس صارف سے مربوط کرنے کے لئے اجازت دی جائے گی کہیں "
-"بھی. \n"
-"    "
-
-msgid "Allowed Host"
-msgstr "ہوسٹ كی اجازت دیں"
-
-msgid "Allowed Host (optional)"
-msgstr "اجازت دی ہوسٹ (آپشنل) "
-
 msgid "Amount of energy"
 msgstr "ਊਰਜਾ ਦੀ ਮਾਤਰਾ"
 
@@ -878,33 +814,8 @@ msgstr "ਲਿਖਤਾਂ ਦੀ ਔਸਤ ਦਰ"
 msgid "Avg."
 msgstr "اوسط"
 
-msgid "Backup"
-msgstr "بیك اپ "
-
-msgctxt "Current status of a Database Instance"
-msgid "Backup"
-msgstr "بیك اپ "
-
-msgid "Backup Database"
-msgstr "بیك اپ ڈیٹا بیس"
-
-msgid "Backup Details"
-msgstr "بیك اپ تفصیلات"
-
-msgid "Backup Duration"
-msgstr "بیك اپ مدت"
-
-msgid "Backup File"
-msgstr "بیك اپ فائل"
-
-msgid "Backup File Location"
-msgstr "بیك اپ فائل كا مقام"
-
 msgid "Backup Name"
 msgstr "بیك اپ نام "
-
-msgid "Backup Overview"
-msgstr "بیك اپ كا خلاصہ"
 
 msgid "Backups"
 msgstr "بیك اپس"
@@ -1052,17 +963,8 @@ msgstr "صرف کنسول دکھانے کے لئے یہاں کلک کریں"
 msgid "Close"
 msgstr "بند كریں"
 
-msgid "Cluster Name"
-msgstr "كلسٹر نام"
-
-msgid "Clusters"
-msgstr "كلسٹرز"
-
 msgid "Code"
 msgstr "كوڈ"
-
-msgid "Comma separated list of databases to create"
-msgstr "کوما كے ذریعہ تخلیق کے لئے ڈیٹا بیس کی فہرست سے الگ کیا"
 
 msgid "Compute"
 msgstr "ਮੁਲ-ਆਂਕਣ"
@@ -1103,12 +1005,6 @@ msgstr "نئے پاس ورڈ کی توثیق کریں"
 
 msgid "Conflicting Rule"
 msgstr " تنازعہ كے رول"
-
-msgid "Connection Examples"
-msgstr "کنکشن كی مثالیں"
-
-msgid "Connection Info"
-msgstr "کنکشن کی معلومات"
 
 msgid "Connection Limit"
 msgstr "كنیكشن حد"
@@ -1403,13 +1299,6 @@ msgstr ""
 msgid "Create an Encrypted Volume Type"
 msgstr "ایک اینكرپٹیڈ حجم قسم مرتب کریں"
 
-msgid ""
-"Create an optional initial user.\n"
-"   This user will have access to all databases you create."
-msgstr ""
-"اختیاری ابتدائی صارف كی تخلیق كریں۔ \n"
-"   اس صارف آپ تخلیق كیے گئے تمام ڈیٹا بیس کے لئے استعمال ہوگا."
-
 msgid "Created"
 msgstr "تخلیق كیا"
 
@@ -1510,9 +1399,6 @@ msgstr "ਇਸ ਉਪ-ਨੈੱਟ (ਸਬ-ਨੈੱਟ) ਲਈ ਬਣਾਉਣ 
 msgid "Current Host"
 msgstr "موجودہ ہوسٹ"
 
-msgid "Current Size (GB)"
-msgstr "موجودہ سائز(GB)"
-
 msgid "Current password"
 msgstr "حالیہ پاس ورڈ"
 
@@ -1530,9 +1416,6 @@ msgstr "كسٹم UDP رول"
 
 msgid "Customization Script Source"
 msgstr "كسٹمائزیشن اسكرپٹ ماخذ"
-
-msgid "DATABASE"
-msgstr "DATABASE"
 
 msgid "DENY"
 msgstr "DENY"
@@ -1555,33 +1438,6 @@ msgstr "DNS نام سرور"
 
 msgid "Daily Usage Report"
 msgstr "روزانہ استعمال کی رپورٹ"
-
-msgid "Database"
-msgstr "ਡਾਟਾਬੇਸ"
-
-msgid "Database Backups"
-msgstr "ڈیٹا بیس بیك اپس"
-
-msgid "Database Info"
-msgstr "ڈاٹا بیس معلومات"
-
-msgid "Database Instance"
-msgstr "ڈیٹا بیس انسٹانس"
-
-msgid "Database Name"
-msgstr "ڈیٹا بیس كا نام"
-
-msgid "Database Port"
-msgstr "ڈاٹا بیس پورٹ"
-
-msgid "Databases"
-msgstr "ڈیٹا بیس"
-
-msgid "Datastore"
-msgstr "ڈیٹا اسٹور"
-
-msgid "Datastore Version"
-msgstr "ڈیٹا اسٹور ورژن"
 
 msgid "Date Updated"
 msgstr "تاریخ اپ ڈیٹ كریں"
@@ -1890,9 +1746,6 @@ msgstr "نیچے"
 msgid "Download"
 msgstr "ڈاؤن لوڈ"
 
-msgid "Download Backup"
-msgstr "بیك اپ ڈاؤن لوڈ كریں"
-
 msgid "Download CSV Summary"
 msgstr "CSV خلاصہ ڈاؤن لوڈ کریں"
 
@@ -2129,10 +1982,6 @@ msgstr ""
 msgid "Error"
 msgstr "ਗਲਤੀ"
 
-msgctxt "Current status of a Database Instance"
-msgid "Error"
-msgstr "ਗਲਤੀ"
-
 msgctxt "Current status of a Firewall"
 msgid "Error"
 msgstr "ਗਲਤੀ"
@@ -2187,20 +2036,8 @@ msgstr "RC فائل ڈاؤن لوڈ کرنے میں غلطی : %s"
 msgid "Error adding Hosts to the aggregate."
 msgstr "مجموعی میں میزبان شامل کرنے میں غلطی"
 
-msgid "Error creating database backup."
-msgstr "ڈیٹا بیس بیک اپ تخلیق میں خامی۔"
-
-msgid "Error deleting database on instance."
-msgstr "انسٹانس پر ڈیٹا بیس خارج كرنے میں خامی."
-
-msgid "Error deleting database user."
-msgstr "ڈیٹا بیس صارف خارج كرنے میں خامی۔"
-
 msgid "Error editing QoS Spec consumer."
 msgstr "QoS تصریح صارفین کو ترمیم کرنے میں خامی۔ "
-
-msgid "Error getting database backup list."
-msgstr "ڈیٹا بیس بیک اپ فہرست میں ہو رہی ہے خامی."
 
 msgid "Error updating QoS Spec association."
 msgstr "QoS تصریح کی وابستگی طرف کرنے میں خامی ۔ "
@@ -2817,9 +2654,6 @@ msgstr ""
 "ہوسٹ مجموعات ایک کامیابی علاقے کو ہوسٹس گروپ کی طرف سے منطقی یونٹس میں تقسیم "
 "کرتا ہے. اس میں موجود ہوسٹس منتخب کرنے کے لئے مجموعات میزبان ترمیم کریں."
 
-msgid "Host or IP that the user is allowed to connect through."
-msgstr "صارف کے ذریعے سے رابطہ قائم کرنے کے لئے جازت دی ہے کہ میزبان یا  IP."
-
 msgid "Hostname"
 msgstr "ہوسٹ نام"
 
@@ -3047,12 +2881,6 @@ msgstr ""
 "اس کے علاوہ، آپ متعلقہ چیک باکس کو منتخب کرتے ہوئے ایک بیرونی نیٹ ورک یا ایک "
 "مشترکہ نیٹ ورک بنا سکتے ہیں."
 
-msgid "Incremental"
-msgstr "اِضافی "
-
-msgid "Incremental Backup"
-msgstr "اضافی بیك اپ "
-
 msgid "Info"
 msgstr "معلومات"
 
@@ -3061,21 +2889,6 @@ msgstr "معلومات"
 
 msgid "Ingress"
 msgstr "داخلہ"
-
-msgid "Initial Admin User"
-msgstr "ابتدائی ایڈمین صارف"
-
-msgid "Initial Databases"
-msgstr "ابتدائی ڈاٹا بیس"
-
-msgid "Initial Volume Size"
-msgstr "ابتدائی ولیوم سائز"
-
-msgid "Initial admin user to add"
-msgstr "شامل کرنے کے لئے ابتدائی منتظم صارف"
-
-msgid "Initialize Databases"
-msgstr "ڈیٹا بیس کی ابتدا"
 
 msgid "Initiator state"
 msgstr "اِبتدائی حالت"
@@ -3268,12 +3081,6 @@ msgstr "گزشتہ سال"
 
 msgid "Launch"
 msgstr "لانچ"
-
-msgid "Launch Cluster"
-msgstr "كلسٹر لانچ كریں"
-
-msgid "Launch Database"
-msgstr "ڈاٹا بیس لانچ كریں"
 
 msgid "Launch Instance"
 msgstr "لانچ انسٹانس"
@@ -3474,12 +3281,6 @@ msgstr "رکن کا IP پتہ متعین ہونا چاہئے"
 
 msgid "Member Source"
 msgstr "ممبر ماخذ"
-
-msgid "Member address"
-msgstr "ممبر ایڈریس"
-
-msgid "Member(s)"
-msgstr "ممبرز"
 
 msgid "Members"
 msgstr "ਜੀਅ"
@@ -3715,14 +3516,8 @@ msgstr "نیا فلور"
 msgid "New Host"
 msgstr "نیا میزبان"
 
-msgid "New Size (GB)"
-msgstr "نیا سائز (GB)"
-
 msgid "New password"
 msgstr "نیا پاس ورڈ"
-
-msgid "New size for volume must be greater than current size."
-msgstr "ولیوم کے لئے نیا سائز موجودہ سائز کے مقابلے میں بڑا ہونا چاہئے."
 
 msgid "New size must be greater than current size."
 msgstr "نئے سائز حالیہ سائز سے بڑا ہونا چاہیے۔"
@@ -3759,9 +3554,6 @@ msgstr "کوئی دستیاب کنسول نہیں ملا."
 
 msgid "No available projects"
 msgstr "کوئی دستیاب پروجیكٹس نہیں"
-
-msgid "No backups available"
-msgstr "بیك اپس دستیاب نہیں "
 
 msgid "No flavors available"
 msgstr "فلورزدسیتاب نہیں"
@@ -3881,12 +3673,6 @@ msgstr "ਕੋਈ ਨਹੀਂ"
 
 msgid "Normal"
 msgstr "عام"
-
-msgid "Not Assigned"
-msgstr "تفویض نہیں"
-
-msgid "Not Found"
-msgstr "نہیں ملا"
 
 msgid "Not attached"
 msgstr "كچھ منسلك نہیں كیا "
@@ -4018,20 +3804,11 @@ msgstr "پورٹ كھولیں"
 msgid "Open Port/Port Range:"
 msgstr "پورٹ/پورٹ رینج كھولو :"
 
-msgid "Optional Backup Description"
-msgstr "آپشنل بیك اپ وضاحت"
-
 msgid "Optional Parameters"
 msgstr "آپشنل پیرامیٹرز"
 
-msgid "Optional parent backup"
-msgstr "آپشنل پرینٹ بیك اپ "
-
 msgid "Optional: Next Hop Addresses (comma delimited)"
 msgstr "آپشنل : اگلا ہوپ ایڈریس (کوما سے ختم ہونے والی)"
-
-msgid "Optionally provide a comma separated list of databases to create:"
-msgstr "متبادل طور پر تخلیق کے لئے ڈیٹا بیس کی کاما سے الگ فہرست فراہم :"
 
 msgid "Optionally, you may choose to create a new volume."
 msgstr "متبادل طور پر، آپ کو ایک نئے ولیوم كی تخلیق کا انتخاب کر سکتے ہیں."
@@ -4051,9 +3828,6 @@ msgstr "اوور ویو"
 msgid "Owner"
 msgstr "مالك"
 
-msgid "PASSWORD"
-msgstr "PASSWORD"
-
 msgid "PFS"
 msgstr "PFS"
 
@@ -4066,18 +3840,12 @@ msgstr "صفحہ نہیں ملے"
 msgid "Parameters"
 msgstr "پیرامیٹرز"
 
-msgid "Parent Backup"
-msgstr "پرینٹ بیك اپ "
-
 msgid "Password"
 msgstr "ਪਛਾਣ-ਸ਼ਬਦ"
 
 msgctxt "Current status of an Instance"
 msgid "Password"
 msgstr "ਪਛਾਣ-ਸ਼ਬਦ"
-
-msgid "Password (required)"
-msgstr "پاس ورڈ (ضرورت)"
 
 msgid "Password changed. Please log in again to continue."
 msgstr "پاس ورڈ تبدیل کر دیا. جاری رکھنے کے لئے پھر سے لاگ ان کریں."
@@ -4468,22 +4236,8 @@ msgctxt "Action log of an instance"
 msgid "Resize"
 msgstr "سائز تبدیل كریں"
 
-msgctxt "Current status of a Database Instance"
-msgid "Resize"
-msgstr "سائز تبدیل كریں"
-
-msgid "Resize Database Volume"
-msgstr "ڈیٹا بیس ولیوم کا سائز تبدیل کریں"
-
 msgid "Resize Instance"
 msgstr "انسٹانس كو دوبارہ تبدیل كریں"
-
-msgid "Resize Volume"
-msgstr "ولیوم كو دوبارہ سائز تبدیل كریں"
-
-#, python-format
-msgid "Resizing volume \"%s\""
-msgstr "حجم  \"%s\" کا سائز تبدیل کیا جا رہا ہے"
 
 msgid "Resource"
 msgstr "ماخذ"
@@ -4493,9 +4247,6 @@ msgstr "وسائل کی ID"
 
 msgid "Resource Metadata"
 msgstr "وسائل میٹا ڈاٹا"
-
-msgid "Resource Overview"
-msgstr "وسائل کا مجموعی جائزہ"
 
 msgid "Resource Usage"
 msgstr "وسائل استعمال"
@@ -4661,10 +4412,6 @@ msgid "Saved spec \"%s\"."
 msgstr "تصریح \"%s\" محفوظ كیا ۔"
 
 #, python-format
-msgid "Scheduled backup \"%(name)s\"."
-msgstr "شیڈول بیک اپ  \"%(name)s\"۔"
-
-#, python-format
 msgid "Scheduled deletion of %(data_type)s"
 msgstr "%(data_type)s کے شیڈول کی منسوخی"
 
@@ -4764,9 +4511,6 @@ msgstr "روٹركو منتخب كریں"
 msgid "Select a Subnet"
 msgstr "سب نیٹ منتخب كریں"
 
-msgid "Select a backup to restore"
-msgstr "بحال کرنے کے لئے ایک بیک اپ کو منتخب کریں"
-
 #, python-format
 msgid "Select a health monitor of %s"
 msgstr "%s کی صحت کی نگرانی کا انتخاب کریں"
@@ -4820,12 +4564,6 @@ msgstr "ایک مثال کے طور منتخب کریں"
 msgid "Select an instance to attach to."
 msgstr "منسلك كرنے كے لیے ایك انسٹانس كو منتخب كریں۔"
 
-msgid "Select backup"
-msgstr "بیك اپ منتخب كریں"
-
-msgid "Select datastore type and version"
-msgstr "ڈیٹا بیس ٹائپ اور ورژن كو منتخب كریں"
-
 msgid "Select format"
 msgstr "ਬਣਾਵਟ ਚੁਣੋ"
 
@@ -4840,9 +4578,6 @@ msgstr "نیٹ ورك منتخب كریں"
 
 msgid "Select networks for your instance."
 msgstr "اپنے انسٹانس کے لئے نیٹ ورک کو منتخب کریں."
-
-msgid "Select parent backup"
-msgstr "پرینٹ بیك اپ منتخب كریں"
 
 msgid "Select rules for your policy."
 msgstr "آپ كی پالیسی كے لیے رولس منتخب كریں۔"
@@ -4940,9 +4675,6 @@ msgstr "امیج كے سائز كو لانچ كریں۔"
 
 msgid "Size of root disk"
 msgstr "ਰੂਟ ਡਿਸਕ ਦਾ ਅਕਾਰ"
-
-msgid "Size of the volume in GB."
-msgstr "GB میں ولیوم كا سائز ۔"
 
 msgid "Size of volume"
 msgstr "ਆਇਤਨ ਦਾ ਅਕਾਰ"
@@ -5061,12 +4793,6 @@ msgstr "رکن IP ایڈریس کی وضاحت كریں"
 
 msgid "Specify the details for launching an instance."
 msgstr "انسٹانس شروع کرنے کے لئے تفصیلات کی وضاحت کریں."
-
-msgid "Specify the details for the database backup."
-msgstr "ڈیٹا بیس بیک اپ کے لئے تفصیل کی وضاحت کریں."
-
-msgid "Specify the new volume size for the database instance."
-msgstr "ڈیٹا بیس انسٹانس کے لئے نیا ولیوم سائز کی وضاحت کریں."
 
 msgid "Specs"
 msgstr "اسپیس"
@@ -5609,9 +5335,6 @@ msgstr ""
 msgid "This name is already taken."
 msgstr "یہ نام پہلے ہی لے لیا گیا ہے."
 
-msgid "This pane needs javascript support."
-msgstr "یہ صفحہ JavaScript حمایت کی ضرورت ہے."
-
 msgid ""
 "This volume is currently attached to an instance. In some cases, creating a "
 "snapshot from an attached volume can result in a corrupted snapshot."
@@ -5690,9 +5413,6 @@ msgstr "ٹرانسفارم پروٹوكول"
 msgid "Type"
 msgstr "قسم"
 
-msgid "Type and version of datastore."
-msgstr "ڈیٹا اسٹور كے ٹائپ اور ورژن۔"
-
 #, python-format
 msgid "Type: %(persistence_type)s"
 msgstr "ٹائپ: %(persistence_type)s"
@@ -5728,9 +5448,6 @@ msgstr "URL"
 
 msgid "URL Path"
 msgstr "URL پاتھ"
-
-msgid "USERNAME"
-msgstr "USERNAME"
 
 msgid "UTC"
 msgstr "UTC"
@@ -5962,9 +5679,6 @@ msgstr "ولیوم میں توسیع کرنے میں ناقابل۔"
 msgid "Unable to fetch EC2 credentials."
 msgstr "EC2 شناخت لانے کے قابل نہیں."
 
-msgid "Unable to find backup!"
-msgstr "بیک اپ حاصل کرنے کے قابل نہیں!"
-
 msgid "Unable to find default role."
 msgstr "طے شدہ کردار تلاش کرنے کے قابل نہیں."
 
@@ -5985,12 +5699,6 @@ msgstr "\"%s\" انسٹانس کے لئے VNC کنسول حاصل کرنے می�
 
 msgid "Unable to get cinder services list."
 msgstr "سنڈر خدمات کی فہرست حاصل کرنے کے قابل نہیں."
-
-msgid "Unable to get database backup data."
-msgstr "ڈیٹا بیس کا ڈیٹا حاصل کرنے میں ناقابل۔"
-
-msgid "Unable to get databases data."
-msgstr "ڈیٹا بیس کا ڈیٹا حاصل کرنے میں ناقابل۔"
 
 #, python-format
 msgid "Unable to get events for stack \"%s\"."
@@ -6032,9 +5740,6 @@ msgstr "ذیلی نیٹ \"%s\" حاصل کرنے میں ناقابل"
 msgid "Unable to get the available hosts"
 msgstr "دستیاب ہوسٹ پانے کے قابل نہیں"
 
-msgid "Unable to get user data."
-msgstr "صارف ڈیٹا حاصل کرنے میں ناقابل ۔"
-
 msgid "Unable to import key pair."
 msgstr "مطلوبہ جوڑی درآمد کرنے کے قابل نہیں."
 
@@ -6044,12 +5749,6 @@ msgstr "%(count)s named \"%(name)s\" نامزد شروع کرنے میں غیر 
 
 msgid "Unable to list containers."
 msgstr "کنٹینرز کی فہرست کرنے کے قابل نہیں."
-
-msgid "Unable to list database backups for parent."
-msgstr "پرینٹ کے لئے ڈیٹا بیس بیك اپ کی فہرست کرنے میں ناقابل ۔"
-
-msgid "Unable to list database instances to backup."
-msgstr "ڈیٹا بیس انسٹانس کو بیک اپ میں درج کرنے میں ناقابل "
 
 msgid "Unable to list dhcp agents hosting network."
 msgstr "dhcp نمائندے نیٹ ورک دوبارہ حاصل کرنے کے قابل نہیں."
@@ -6088,9 +5787,6 @@ msgstr "انسٹانس ثانی کرنے کے قابل نہیں \"%s\"."
 msgid "Unable to modify project \"%s\"."
 msgstr "\"%s\" پروجیكٹ پر نظر ثانی کرنے کے قابل نہیں."
 
-msgid "Unable to obtain flavors."
-msgstr "فلور حاصل کرنے میں ناقابل ۔"
-
 #, python-format
 msgid "Unable to parse IP address %s."
 msgstr " IP پتہ%s کے تجزیہ کے قابل نہیں"
@@ -6101,10 +5797,6 @@ msgstr "انسٹانس کی تعمیر نو کرنے میں ناابل."
 #, python-format
 msgid "Unable to resize instance \"%s\"."
 msgstr "\"%s\" انسٹانس سائز تبدیل کرنے میں ناقابل"
-
-#, python-format
-msgid "Unable to resize volume. %s"
-msgstr "ولیوم کا سائز تبدیل کرنے کے قابل نہیں. %s"
 
 msgid "Unable to restore backup."
 msgstr "بیك اپ بحال كرنے میں ناقابل"
@@ -6223,25 +5915,11 @@ msgstr "كمپیوٹ حد میں معلومات کو حاصل کرنے میں غ
 msgid "Unable to retrieve container list."
 msgstr "کنٹینر فہرست کو حاصل کرنے کے قابل نہیں."
 
-msgid "Unable to retrieve database instances."
-msgstr "ڈیٹا بیس انسٹانس کو دوبارہ حاصل کرنے میں ناقابل۔"
-
-msgid "Unable to retrieve database size information."
-msgstr "ڈیٹا بیس سائز انفارمیشن پانے میں ناقابل۔"
-
 msgid "Unable to retrieve default Neutron quota values."
 msgstr "بنیادی ویلیو نیوٹران کوٹہ حاصل کرنے کے قابل نہیں."
 
 msgid "Unable to retrieve default quota values."
 msgstr "ڈیفالٹ کوٹہ ویلیو حاصل کرنے کے قابل نہیں."
-
-#, python-format
-msgid "Unable to retrieve details for backup: %s"
-msgstr "بیک اپ کے لئے معلومات حاصل کرنے میں ناقابل : %s"
-
-#, python-format
-msgid "Unable to retrieve details for database instance: %s"
-msgstr "ڈیٹا بیس انسٹانس کے لئے معلومات حاصل کرنے میں ناقابل : %s"
 
 #, python-format
 msgid "Unable to retrieve details for instance \"%s\"."
@@ -6250,10 +5928,6 @@ msgstr "انسٹانس کے لئے معلومات حاصل کرنے میں نا�
 #, python-format
 msgid "Unable to retrieve details for network \"%s\"."
 msgstr "نیٹ ورک \"%s\" کے لئے معلومات حاصل کرنے کے قابل نہیں."
-
-#, python-format
-msgid "Unable to retrieve details for parent backup: %s"
-msgstr "پیرینٹ بیک اپ کے لئے تفصیل بازیافت کرنے کے قابل نہیں:%s"
 
 #, python-format
 msgid "Unable to retrieve details for router \"%s\"."
@@ -6435,9 +6109,6 @@ msgstr "نیٹ ورک دوبارہ حاصل کرنے کے قابل نہیں."
 
 msgid "Unable to retrieve networks list."
 msgstr "نیٹ ورک فہرست کو حاصل کرنے میں ناقابل."
-
-msgid "Unable to retrieve networks."
-msgstr "ਨੈੱਟਵਰਕਾਂ ਦੀ ਮੁੜ ਪ੍ਰਾਪਤੀ ਤੋਂ ਅਸਮਰੱਥ।"
 
 msgid "Unable to retrieve object list."
 msgstr "شے فہرست کو حاصل کرنے کے قابل نہیں."
@@ -6955,9 +6626,6 @@ msgstr "صارف کا کامیابی سے اپ ڈیٹ کیا گیا ہے."
 msgid "User name \"%s\" is already used."
 msgstr "اسم رکنیت \"%s\"  پہلے سے استعمال کیا جا رہا ہے."
 
-msgid "Username (required)"
-msgstr "صارف نام (ضرورت)"
-
 msgid "Users"
 msgstr "صارفین"
 
@@ -7108,9 +6776,6 @@ msgstr "ولیوم كی حدیں"
 msgid "Volume Name"
 msgstr "ولیوم نام"
 
-msgid "Volume Size"
-msgstr "ولیوم سائز"
-
 msgid "Volume Snapshot"
 msgstr "ولیوم اسناپ شاٹ"
 
@@ -7236,15 +6901,6 @@ msgstr ""
 "بعد اسے كسٹم کے مطابق کر سکتے ہیں."
 
 msgid ""
-"You can perform an incremental backup by specifying a parent backup. "
-"<strong>However,</strong> not all databases support incremental backups in "
-"which case this operation will result in an error."
-msgstr ""
-"آپ ایک پیرینٹ بیک اپ کی وضاحت کر کے ایک اضافہ متعلق بیک اپ تكمیل کر سکتے "
-"ہیں. <strong> تاہم، </strong> تمام ڈیٹا بیس اضافہ متعلق بیک اپ کی حمایت نہیں "
-"کرتے ہیں جس حالت میں اس کارروائی کا نتیجہ ایک خامی۰ ہوگی."
-
-msgid ""
 "You can specify the desired rule template or use custom rules, the options "
 "are Custom TCP Rule, Custom UDP Rule, or Custom ICMP Rule."
 msgstr ""
@@ -7338,9 +6994,6 @@ msgstr "آپ یہاں اپنے پورٹ کے ترمیم اہل خصوصیات ک
 msgid "You may update the editable properties of your router here."
 msgstr "آپ یہاں اپنے روٹر کے ترمیم اہل خصوصیات کو اپ ڈیٹ کر سکتے ہیں."
 
-msgid "You must select a datastore type and version."
-msgstr "آپ کو ڈیٹا بیس کی ٹائپ اور ورژن کو منتخب کرنا ہوگا."
-
 msgid "You must select a snapshot."
 msgstr "آپ اسنیپ شاٹ کا انتخاب کرنا چاہیے."
 
@@ -7353,16 +7006,8 @@ msgstr "آپ ایک امیج کا انتخاب کرنا چاہیے."
 msgid "You must set volume size"
 msgstr "ولیوم سائز سیٹ كرنا چاہیے"
 
-msgid "You must specify a password if you create a user."
-msgstr "آپ ایک صارف تشکیل دیتے ہیں، تو آپ کو ایک پاس ورڈ کی وضاحت کرنا ہوگا."
-
 msgid "You must specify a template via one of the available sources."
 msgstr "آپ کو دستیاب ذرائع میں سے ایک کے ذریعے ایک ٹیمپلیٹ کی وضاحت لازمی ہے."
-
-msgid "You must specify at least one database if you create a user."
-msgstr ""
-"آپ ایک صارف تشکیل دیتے ہیں، تو آپ کو کم سے کم ایک ڈیٹا بیس کی وضاحت کرنا "
-"ہوگا."
 
 msgid ""
 "You must specify the source of the traffic to be allowed via this rule. You "

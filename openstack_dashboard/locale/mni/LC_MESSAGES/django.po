@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-12-17 05:35+0000\n"
+"POT-Creation-Date: 2016-01-09 00:51+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -117,19 +117,6 @@ msgstr ""
 "<tt>cinder snapshot-reset-state</tt> কমান্দ অদুগা মান্নৈ।\n"
 "    "
 
-msgid ""
-"\n"
-"  Move networks from 'Available Networks' to 'Selected Networks' by\n"
-"  clicking the button, or dragging and dropping. You can change the\n"
-"  NIC order by dragging and dropping as well.\n"
-"  "
-msgstr ""
-"\n"
-"নেতৱার্কশীং 'অফংবা নেতৱার্কশীং'দগী 'খল্লবা নেতৱার্ক'তা\n"
-"বতন অদু ক্লিক তৌদুনা, নত্ত্রগা দ্রেগিং অমসুং দ্রোপিং তৌদুনা লৈফম হোংদোকউ। নহাক্না\n"
-"NICগী মথং-মনাউ অদুসু দ্রেগিং অমসুং দ্রোপিং তৌদুনা হোংদোক-হোংজিন তৌবা য়াই।\n"
-"  "
-
 msgid " - End"
 msgstr " - এন্দ"
 
@@ -156,10 +143,6 @@ msgstr "%(instance_name)s %(fixed_ip)s"
 #, python-format
 msgid "%(name)s - %(size)s GB (%(label)s)"
 msgstr "%(name)s - %(size)s GB (%(label)s)"
-
-#, python-format
-msgid "%(name)s | %(RAM)s RAM"
-msgstr "%(name)s | %(RAM)s RAM"
 
 #, python-format
 msgid "%(offset)s: %(label)s"
@@ -238,32 +221,6 @@ msgstr "--"
 
 msgid "3des"
 msgstr "3des"
-
-#, python-format
-msgid "<p>%(used)s of %(quota)s MB Used</p>"
-msgstr "<p>%(used)s of %(quota)s MB শীজিন্নরে</p>"
-
-#, python-format
-msgid "<p>%(used)s of %(quota)s Used</p>"
-msgstr "<p>%(used)s of %(quota)s শীজিন্নরে</p>"
-
-msgid ""
-"<strong>Please note:</strong> The new value must be greater than the "
-"existing volume size."
-msgstr ""
-"<strong>চানবীদুনা খংজিনবীয়ু:</strong> অনৌবা ভেল্যু অদুনা হৌজিক লৈরিবা ভোল্যুম সাইজ "
-"অদুদগী হেন্না চাউগদবনি।"
-
-msgid ""
-"<strong>Please note:</strong> The value specified in the Volume Size field "
-"should be greater than 0, however, some configurations do not support "
-"specifying volume size. If specifying the volume size results in an error "
-"stating volume support is not enabled, enter 0."
-msgstr ""
-"<strong>চানবীদুনা খংজিনবীয়ু:</strong> ভোল্যুম সাইজ ফিল্ডদা তাক্লিবা ভেল্যু অদু 0দগী "
-"হেন্না চাউগদবনি, অদুম ওইনমক, কনফিগুরেসন খরনদি তাক্লিবা ভোল্যুম সাইজ অদু সপোর্ত তৌদে। "
-"করিগুম্বা ভোল্যুম সাইজ তাকপদা, ভোল্যুম সপোর্ত এনেবল তৌদে হায়না অশোয়বা অমা "
-"তাক্লক্লবদি, 0 এন্তর তৌ।"
 
 msgid ""
 "A container is a storage compartment for your data and provides a way for "
@@ -363,10 +320,6 @@ msgstr "ফায়রৱাল রুলগী এক্সন"
 
 msgid "Action:"
 msgstr "এক্সন:"
-
-msgctxt "Current status of a Database Instance"
-msgid "Active"
-msgstr "এক্তিভ"
 
 msgctxt "Current status of a Firewall"
 msgid "Active"
@@ -679,23 +632,6 @@ msgstr "এলোকেত তৌরবা ফ্লোতিং %(ip)s"
 msgid "Allocation Pools"
 msgstr "এলোকেসন পুলশীং"
 
-msgid ""
-"Allow the user to connect from this host\n"
-"    only. If not provided this user will be allowed to connect from "
-"anywhere.\n"
-"    "
-msgstr ""
-"য়ুজর অদু হোষ্ট\n"
-"   অসিখক্তদগী কনেক্ত তৌবা য়াহল্লু। করিগুম্বা য়াহন্দ্রবদি য়ুজর অসিনা মফম অমহেক্তদগী "
-"কনেক্ত তৌবা য়াহনগনি।\n"
-"    "
-
-msgid "Allowed Host"
-msgstr "অয়াবা পীরবা হোষ্ট"
-
-msgid "Allowed Host (optional)"
-msgstr "য়াহল্লবা হোষ্ট (ওপস্নেল ওই)"
-
 msgid "Amount of energy"
 msgstr "ইনর্জিগী এমাউন্ত"
 
@@ -860,33 +796,8 @@ msgstr "CPU শিজিন্নবগী চাংচৎ"
 msgid "Avg."
 msgstr "এভরেজ"
 
-msgid "Backup"
-msgstr "বেকঅপ"
-
-msgctxt "Current status of a Database Instance"
-msgid "Backup"
-msgstr "বেকঅপ"
-
-msgid "Backup Database"
-msgstr "দেতাবেজ বেকঅপ তৌ"
-
-msgid "Backup Details"
-msgstr "অকুপ্পা মরোলশীং বেকঅপ তৌ"
-
-msgid "Backup Duration"
-msgstr "দ্যুরেসন বেকঅপ তৌ"
-
-msgid "Backup File"
-msgstr "বেকঅপ ফাইল"
-
-msgid "Backup File Location"
-msgstr "ফাইল লোকেসন বেকঅপ তৌ"
-
 msgid "Backup Name"
 msgstr "বেকঅপ মমীং"
-
-msgid "Backup Overview"
-msgstr "ওভরভ্যু বেকঅপ তৌ"
 
 msgid "Backups"
 msgstr "বেকঅপশীং"
@@ -1033,17 +944,8 @@ msgstr "কন্সোলখক্তা উৎনবা মফমসিদা 
 msgid "Close"
 msgstr "ক্লোজ তৌ"
 
-msgid "Cluster Name"
-msgstr "ক্লষ্টর মমীং"
-
-msgid "Clusters"
-msgstr "ক্লষ্টরশীং"
-
 msgid "Code"
 msgstr "কোদ"
-
-msgid "Comma separated list of databases to create"
-msgstr "শেম্নবা কোমানা খনবা দেতাবেজগী লিষ্ট"
 
 msgid "Compute"
 msgstr "কম্প্যুত"
@@ -1084,12 +986,6 @@ msgstr "অনৌবা পাসৱার্দ কনফার্ম তৌ"
 
 msgid "Conflicting Rule"
 msgstr "কনফ্লিক্ত ওইবা রুল"
-
-msgid "Connection Examples"
-msgstr "কনেক্সনগী খুদমশীং"
-
-msgid "Connection Info"
-msgstr "কনেকসন ইনফো"
 
 msgid "Connection Limit"
 msgstr "কনেকসন লিমিত"
@@ -1379,13 +1275,6 @@ msgstr ""
 msgid "Create an Encrypted Volume Type"
 msgstr "এনক্রিপ্ত তৌরবা ভোল্যুম তাইপ অমা শেম্মু"
 
-msgid ""
-"Create an optional initial user.\n"
-"   This user will have access to all databases you create."
-msgstr ""
-"ওপস্নেল ইনিসিএল য়ুজর অমা শেম্মু।\n"
-"   য়ুজর অসিনা নহাক্না শেম্লিবা দেতাবেজ পুম্নমক্কী এক্সেস লৈগনি।"
-
 msgid "Created"
 msgstr "শেম্লে"
 
@@ -1486,9 +1375,6 @@ msgstr "সবনেত অসিগী শেম্নবগী রিক্ব
 msgid "Current Host"
 msgstr "হৌজিক্কী হোষ্ট"
 
-msgid "Current Size (GB)"
-msgstr "হৌজিক্কী ওইবা সাইজ (GB)"
-
 msgid "Current password"
 msgstr "হৌজিক্কী পাসৱার্দ"
 
@@ -1506,9 +1392,6 @@ msgstr "কষ্টম UDP রুল"
 
 msgid "Customization Script Source"
 msgstr "কষ্টমাইজেসন স্ক্রিপ্ত সোর্স"
-
-msgid "DATABASE"
-msgstr "দেতাবেজ"
 
 msgid "DENY"
 msgstr "য়াগনু"
@@ -1531,33 +1414,6 @@ msgstr "DNS নেম সর্ভর"
 
 msgid "Daily Usage Report"
 msgstr "নোংমগী ওইবা য়ুসেজ রিপোর্ত"
-
-msgid "Database"
-msgstr "দেতাবেজ"
-
-msgid "Database Backups"
-msgstr "দেতাবেজ বেকঅপশীং"
-
-msgid "Database Info"
-msgstr "দেতাবেজ ইনফো"
-
-msgid "Database Instance"
-msgstr "দেতাবেজ ইন্সতেন্স"
-
-msgid "Database Name"
-msgstr "দেতাবেজ মমীং"
-
-msgid "Database Port"
-msgstr "দেতাবেজ পোর্ত"
-
-msgid "Databases"
-msgstr "দেতাবেজশীং"
-
-msgid "Datastore"
-msgstr "দেতাষ্টোর"
-
-msgid "Datastore Version"
-msgstr "দেতাষ্টোর ভর্সন"
 
 msgid "Date Updated"
 msgstr "তারিখ অপদেত তৌরে"
@@ -1863,9 +1719,6 @@ msgstr "দাউন"
 msgid "Download"
 msgstr "দাউনলোদ"
 
-msgid "Download Backup"
-msgstr "বেকঅপ দাউনলোদ তৌ"
-
 msgid "Download CSV Summary"
 msgstr "CSV সম্মরি দাউনলোদ তৌ"
 
@@ -2103,10 +1956,6 @@ msgstr ""
 msgid "Error"
 msgstr "অশোয়বা"
 
-msgctxt "Current status of a Database Instance"
-msgid "Error"
-msgstr "অশোয়বা"
-
 msgctxt "Current status of a Firewall"
 msgid "Error"
 msgstr "অশোয়বা"
@@ -2161,20 +2010,8 @@ msgstr "RC ফাইল দাউনলোদ তৌবদা শোয়রে: %
 msgid "Error adding Hosts to the aggregate."
 msgstr "এগ্রিগেত অদুদা হোষ্টশীং হাপচিনবদা শোয়রে।"
 
-msgid "Error creating database backup."
-msgstr "দেতাবেজ বেকঅপ শেম্বদা শোয়রে।"
-
-msgid "Error deleting database on instance."
-msgstr "ইন্সতেন্সতা দেতাবেজ দিলিত তৌবদা শোয়রে।"
-
-msgid "Error deleting database user."
-msgstr "দেতাবেজ য়ুজর দিলিত তৌবদা শোয়রে।"
-
 msgid "Error editing QoS Spec consumer."
 msgstr "QoS স্পেক কঞ্জ্যুমর এদিত তৌবদা শোয়রে।"
-
-msgid "Error getting database backup list."
-msgstr "দেতাবেজ বেকঅপ লিষ্ট লৌবদা শোয়রে।"
 
 msgid "Error updating QoS Spec association."
 msgstr "QoS স্পেক এসোসিএসন অদু অপদেত তৌবদা শোয়রে।"
@@ -2763,9 +2600,6 @@ msgstr ""
 "হোষ্টশীংগী গ্রুপ শেমদুনা হোষ্ট এগ্রিগেতশীংনা এভেলএবিলিতি জোন অমা লোজিকেল য়ুনিতশীংদা "
 "খায়দোকই। এগ্রিগেত হোষ্ট অদু মদুদা য়াউরিবা হোষ্টশীংদু খন্নবা এদিত তৌ।"
 
-msgid "Host or IP that the user is allowed to connect through."
-msgstr "য়ুজর অদুবু কনেক্ত তৌবা য়াহল্লিবা হোষ্ট নত্ত্রগা IP"
-
 msgid "Hostname"
 msgstr "হোষ্ট মমীং"
 
@@ -2990,12 +2824,6 @@ msgstr ""
 "মসিগী মথক্তা, মরি লৈনবা চেকবোক্স অদু চেক তৌদুনা নহাক্না মপানগী নেতৱার্ক অমা নত্ত্রগা "
 "শেয়র তৌরবা নেতৱার্ক অমা শেম্বা য়াই। "
 
-msgid "Incremental"
-msgstr "ইনক্রিমেন্তেল"
-
-msgid "Incremental Backup"
-msgstr "ইনক্রিমেন্তেল বেকঅপ"
-
 msgid "Info"
 msgstr "ইনফো"
 
@@ -3004,21 +2832,6 @@ msgstr "ইনফোর্মেসন"
 
 msgid "Ingress"
 msgstr "ইনগ্রেস"
-
-msgid "Initial Admin User"
-msgstr "ইনিসিএল এদমিন য়ুজর"
-
-msgid "Initial Databases"
-msgstr "ইনিসিএল দেতাবেজশীং"
-
-msgid "Initial Volume Size"
-msgstr "ইনিসিএল ভোল্যুম সাইজ"
-
-msgid "Initial admin user to add"
-msgstr "হাপচিন্নবা ইনিসিএল এদমিন য়ুজর"
-
-msgid "Initialize Databases"
-msgstr "দেতাবেজশীং ইনিসিএলাইজ তৌ"
 
 msgid "Initiator state"
 msgstr "ইনিসিএতর ষ্টেত"
@@ -3209,12 +3022,6 @@ msgstr "মমাংগী চহি"
 
 msgid "Launch"
 msgstr "শেমগৎলু"
-
-msgid "Launch Cluster"
-msgstr "ক্লষ্টর শেম্মু"
-
-msgid "Launch Database"
-msgstr "দেতাবেজ শেমগৎলু"
 
 msgid "Launch Instance"
 msgstr "ইন্সতেন্স শেমগৎলু"
@@ -3411,12 +3218,6 @@ msgstr "মেম্বর IP এদ্রেস শেংনা তাক্ক
 
 msgid "Member Source"
 msgstr "মেম্বর সোর্স"
-
-msgid "Member address"
-msgstr "মেম্বরগী এদ্রেস"
-
-msgid "Member(s)"
-msgstr "মেম্বর(শীং)"
 
 msgid "Members"
 msgstr "মেম্বরশীং"
@@ -3655,14 +3456,8 @@ msgstr "অনৌবা ফ্লেভর"
 msgid "New Host"
 msgstr "অনৌবা হোষ্ট"
 
-msgid "New Size (GB)"
-msgstr "অনৌবা সাইজ (GB)"
-
 msgid "New password"
 msgstr "অনৌবা পাসৱার্দ"
-
-msgid "New size for volume must be greater than current size."
-msgstr "ভোল্যুমগী অনৌবা সাইজ অদুনা হৌজিক্কী ওইবা সাইজ অদুদগী হেন্না চাউগদবনি।"
 
 msgid "New size must be greater than current size."
 msgstr "অনৌবা সাইজ অদুনা হৌজিক্কী সাইজ অসিদগী হেন্না চাউগদবনি।"
@@ -3696,9 +3491,6 @@ msgstr "অফংবা কন্সোল অমত্তা লৈতে।"
 
 msgid "No available projects"
 msgstr "অফংবা প্রোজেক্ত অমত্তা লৈতে"
-
-msgid "No backups available"
-msgstr "বেকঅপ অমত্তা ফংদে"
 
 msgid "No flavors available"
 msgstr "ফ্লেভর অমত্তা ফংদে"
@@ -3819,12 +3611,6 @@ msgstr "অমত্তা নত্তে"
 msgid "Normal"
 msgstr "নোর্মেল"
 
-msgid "Not Assigned"
-msgstr "এসাইন তৌদে"
-
-msgid "Not Found"
-msgstr "ফংদে"
-
 msgid "Not attached"
 msgstr "এতেচ তৌদে"
 
@@ -3942,20 +3728,11 @@ msgstr "পোর্ত হাংউ"
 msgid "Open Port/Port Range:"
 msgstr "পোর্ত/পোর্ত রেঞ্জ হাংউ:"
 
-msgid "Optional Backup Description"
-msgstr "ওপস্নেল বেকঅপ দিস্ক্রিপসন"
-
 msgid "Optional Parameters"
 msgstr "ওপস্নেল পেরামিতরশীং"
 
-msgid "Optional parent backup"
-msgstr "ওপস্নেল পেরেন্ত বেকঅপ"
-
 msgid "Optional: Next Hop Addresses (comma delimited)"
 msgstr "ওপস্নেল: নেক্স হোপ এদ্রেসশীং (কোমা দিলিমিত তৌরে)"
-
-msgid "Optionally provide a comma separated list of databases to create:"
-msgstr "শেম্নবা কোমানা খল্লবা দেতাবেজগী লিষ্ট অমা ওপস্নেল ওইনা পীয়ু:"
 
 msgid "Optionally, you may choose to create a new volume."
 msgstr "ওপস্নেল ওইনা, নহাক্না অনৌবা ভোল্যুম অমা শেম্নবা খনবা য়াই।"
@@ -3975,9 +3752,6 @@ msgstr "ওভরভ্যু"
 msgid "Owner"
 msgstr "ওনর"
 
-msgid "PASSWORD"
-msgstr "পাসৱার্দ"
-
 msgid "PFS"
 msgstr "PFS"
 
@@ -3990,18 +3764,12 @@ msgstr "পেজ ফংদে"
 msgid "Parameters"
 msgstr "পেরামিতরশীং"
 
-msgid "Parent Backup"
-msgstr "পেরেন্ত বেকঅপ"
-
 msgid "Password"
 msgstr "পাসৱার্দ"
 
 msgctxt "Current status of an Instance"
 msgid "Password"
 msgstr "পাসৱার্দ"
-
-msgid "Password (required)"
-msgstr "পাসৱার্দ (মথৌ তাই)"
 
 msgid "Password changed. Please log in again to continue."
 msgstr "পাসৱার্দ হোংখ্রে। চানবীদুনা মখা চত্থনবা অমুক হন্না লোগ তৌবীয়ু।"
@@ -4391,26 +4159,12 @@ msgctxt "Action log of an instance"
 msgid "Resize"
 msgstr "রিসাইজ তৌ"
 
-msgctxt "Current status of a Database Instance"
-msgid "Resize"
-msgstr "রিসাইজ তৌ"
-
-msgid "Resize Database Volume"
-msgstr "দেতাবেজ ভোল্যুম রিসাইজ তৌ"
-
 msgid "Resize Instance"
 msgstr "ইন্সতেন্স রিসাইজ তৌ"
-
-msgid "Resize Volume"
-msgstr "ভোল্যুম রিসাইজ তৌ"
 
 msgctxt "Task status of an Instance"
 msgid "Resizing or Migrating"
 msgstr "রিসাইজ তৌরি নত্ত্রগা মাইগ্রেত তৌরি"
-
-#, python-format
-msgid "Resizing volume \"%s\""
-msgstr "ভোল্যুম \"%s\" রিসাইজ তৌরি"
 
 msgid "Resource"
 msgstr "রিসোর্স"
@@ -4420,9 +4174,6 @@ msgstr "রিসোর্স ID"
 
 msgid "Resource Metadata"
 msgstr "রিসোর্স মেতাদেতা"
-
-msgid "Resource Overview"
-msgstr "রিসোর্স ওভরভ্যু"
 
 msgid "Resource Usage"
 msgstr "রিসোর্স য়ুসেজ"
@@ -4589,10 +4340,6 @@ msgid "Saved spec \"%s\"."
 msgstr "স্পেক \"%s\" সেভ তৌরে।"
 
 #, python-format
-msgid "Scheduled backup \"%(name)s\"."
-msgstr "সেদ্যুল শেম্লবা বেকঅপ \"%(name)s\"."
-
-#, python-format
 msgid "Scheduled deletion of %(data_type)s"
 msgstr "সেদ্যুল শেম্লবা %(data_type)sগী দিলিসন"
 
@@ -4691,9 +4438,6 @@ msgstr "রাউতর অমা খল্লু"
 msgid "Select a Subnet"
 msgstr "সবনেত অমা খল্লু"
 
-msgid "Select a backup to restore"
-msgstr "রেষ্টোর তৌনবা বেকঅপ অমা খল্লু"
-
 #, python-format
 msgid "Select a health monitor of %s"
 msgstr "%sগী হেল্থ মোনিতর অমা খল্লু"
@@ -4747,12 +4491,6 @@ msgstr "ইন্সতেন্স অমা খল্লু"
 msgid "Select an instance to attach to."
 msgstr "এতেচ তৌনবা ইন্সতেন্স অমা খল্লু।"
 
-msgid "Select backup"
-msgstr "বেকঅপ খল্লু"
-
-msgid "Select datastore type and version"
-msgstr "দেতাষ্টোর তাইপ অমসুং ভর্সন খল্লু"
-
 msgid "Select format"
 msgstr "ফোর্মেত খল্লু"
 
@@ -4767,9 +4505,6 @@ msgstr "নেতৱার্ক খল্লু"
 
 msgid "Select networks for your instance."
 msgstr "নহাক্কী ইন্সতেন্সকী নেতৱার্কশীং খল্লু।"
-
-msgid "Select parent backup"
-msgstr "পেরেন্ত বেকঅপ খল্লু"
 
 msgid "Select rules for your policy."
 msgstr "নহাক্কী পোলিসি অদুগী রুলশীং খল্লু।"
@@ -4858,9 +4593,6 @@ msgstr "সাইজ"
 
 msgid "Size of image to launch."
 msgstr "শেমগৎনবা ইমেজগী সাইজ"
-
-msgid "Size of the volume in GB."
-msgstr "GBদা ওইবা ভোল্যুমগী সাইজ।"
 
 msgid "Size of volume"
 msgstr "ভোল্যুমগী সাইজ"
@@ -4968,12 +4700,6 @@ msgstr "মেম্বর IP এদ্রেস শেংনা তাকউ"
 
 msgid "Specify the details for launching an instance."
 msgstr "ইন্সতেন্স অমা শেমগৎনবগী অকুপ্পা মরোলশীং তাকউ।"
-
-msgid "Specify the details for the database backup."
-msgstr "দেতাবেজ বেকঅপ অদুগী অকুপ্পা মরোলশীং অদু তাকউ।"
-
-msgid "Specify the new volume size for the database instance."
-msgstr "দেতাবেজ ইন্সতেন্স অদুগী অনৌবা ভোল্যুম সাইজ অদু তাকউ।"
 
 msgid "Specs"
 msgstr "স্পেকশীং"
@@ -5508,9 +5234,6 @@ msgstr "ষ্টেক অদুগী লাইফসাইকল মনুং
 msgid "This name is already taken."
 msgstr "মমীং অসি হান্ননা লৌরে।"
 
-msgid "This pane needs javascript support."
-msgstr "পেইন অসিনা জভাস্ক্রিপ্ত সপোর্ত মথৌ তাই।"
-
 msgid ""
 "This volume is currently attached to an instance. In some cases, creating a "
 "snapshot from an attached volume can result in a corrupted snapshot."
@@ -5589,9 +5312,6 @@ msgstr "প্রোতোকোল ত্রান্সফোর্ম তৌ"
 msgid "Type"
 msgstr "মখল "
 
-msgid "Type and version of datastore."
-msgstr "দেতাষ্টোরগী তাইপ অমসুং ভর্সন"
-
 #, python-format
 msgid "Type: %(persistence_type)s"
 msgstr "তাইপ: %(persistence_type)s"
@@ -5604,9 +5324,6 @@ msgstr "URL"
 
 msgid "URL Path"
 msgstr "URL পাথ"
-
-msgid "USERNAME"
-msgstr "য়ুজরনেম"
 
 msgid "UTC"
 msgstr "UTC"
@@ -5837,9 +5554,6 @@ msgstr "ভোল্যুম এক্সতেন্দ তৌবা ঙমদ
 msgid "Unable to fetch EC2 credentials."
 msgstr "EC2 ক্রিদেন্সিএলশীং ফংবা ঙমদে।"
 
-msgid "Unable to find backup!"
-msgstr "বেকঅপ ফংবা ঙমদে!"
-
 msgid "Unable to find default role."
 msgstr "দিফোল্ট রোল ফংবা ঙমদে।"
 
@@ -5860,12 +5574,6 @@ msgstr "ইন্সতেন্স \"%s\"গী VNC কন্সোল ফং�
 
 msgid "Unable to get cinder services list."
 msgstr "সিন্দর সর্ভিসশীংগী লিষ্ট ফংবা ঙমদে।"
-
-msgid "Unable to get database backup data."
-msgstr "দেতাবেজ বেকঅপ দেতা ফংবা ঙমদ্রে।"
-
-msgid "Unable to get databases data."
-msgstr "দেতাবেজশীংগী দেতা ফংবা ঙমদ্রে।"
 
 #, python-format
 msgid "Unable to get events for stack \"%s\"."
@@ -5907,9 +5615,6 @@ msgstr "সবনেত \"%s\" ফংবা ঙমদে"
 msgid "Unable to get the available hosts"
 msgstr "অফংবা হোষ্টশীং অদু ফংবা ঙমদে"
 
-msgid "Unable to get user data."
-msgstr "য়ুজর দেতা ফংবা ঙমদ্রে।"
-
 msgid "Unable to import key pair."
 msgstr "কী পেয়র ইম্পোর্ত তৌবা ঙমদে।"
 
@@ -5919,12 +5624,6 @@ msgstr "\"%(name)s\" হায়না মমীং থোল্লবা %(count)
 
 msgid "Unable to list containers."
 msgstr "কন্তেনরশীং লিষ্ট তৌবা ঙমদে।"
-
-msgid "Unable to list database backups for parent."
-msgstr "পেরেন্তকী দেতাবেজ বেকঅপশীংগী লিষ্ট তৌবা ঙমদ্রে।"
-
-msgid "Unable to list database instances to backup."
-msgstr "দেতাবেজ ইন্সতেন্সশীং বেকঅপ্তা লিষ্ট তৌবা ঙমদ্রে।"
 
 msgid "Unable to list dhcp agents hosting network."
 msgstr "নেতৱার্ক হোষ্ট তৌরিবা dhcp এজেন্তশীংগী লিষ্ট শেম্বা ঙমদে।"
@@ -5963,9 +5662,6 @@ msgstr "ইন্সতেন্স \"%s\" শেমদোক-শেমজিন
 msgid "Unable to modify project \"%s\"."
 msgstr "প্রোজেক্ত \"%s\" শেমদোক-শেমজিন তৌবা ঙমদে।"
 
-msgid "Unable to obtain flavors."
-msgstr "ফ্লেভরশীং ফংবা ঙমদ্রে।"
-
 #, python-format
 msgid "Unable to parse IP address %s."
 msgstr " IP এদ্রেস %s পার্স তৌবা ঙমদে।"
@@ -5976,10 +5672,6 @@ msgstr "ইন্সতেন্স রিবিল্ড তৌবা ঙমদ
 #, python-format
 msgid "Unable to resize instance \"%s\"."
 msgstr "ইন্সতেন্স \"%s\" রিসাইজ তৌবা ঙমদে।"
-
-#, python-format
-msgid "Unable to resize volume. %s"
-msgstr "ভোল্যুম %s রিসাইজ তৌবা ঙমদ্রে। "
 
 msgid "Unable to restore backup."
 msgstr "বেকঅপ রেষ্টোর তৌবা ঙমদে।"
@@ -6094,25 +5786,11 @@ msgstr "কম্প্যুত লিমিত ইনফোর্মেসন 
 msgid "Unable to retrieve container list."
 msgstr "কন্তেনর লিষ্ট রিত্রিভ তৌবা ঙমদে।"
 
-msgid "Unable to retrieve database instances."
-msgstr "দেতাবেজ ইন্সতেন্সশীং রিত্রিভ তৌবা ঙমদ্রে।"
-
-msgid "Unable to retrieve database size information."
-msgstr "দেতাবেজ সাইজ ইনফোর্মেসন রিত্রিভ তৌবা ঙমদ্রে।"
-
 msgid "Unable to retrieve default Neutron quota values."
 msgstr "দিফোল্ট ন্যুত্রোন ক্যুওতা ভেল্যুশীং রিত্রিভ তৌবা ঙমদে।"
 
 msgid "Unable to retrieve default quota values."
 msgstr "দিফোল্ট ক্যুওতা ভেল্যুশীং রিত্রিভ তৌবা ঙমদে।"
-
-#, python-format
-msgid "Unable to retrieve details for backup: %s"
-msgstr "বেকঅপ: %sগী অকুপ্পা মরোলশীং রিত্রিভ তৌবা ঙমদে"
-
-#, python-format
-msgid "Unable to retrieve details for database instance: %s"
-msgstr "দেতাবেজ ইন্সতেন্স: %sগী অকুপ্পা মরোলশীং রিত্রিভ তৌবা ঙমদে"
 
 #, python-format
 msgid "Unable to retrieve details for instance \"%s\"."
@@ -6121,10 +5799,6 @@ msgstr "ইন্সতেন্স \"%s\"গী অকুপ্পা মরো
 #, python-format
 msgid "Unable to retrieve details for network \"%s\"."
 msgstr "নেতৱার্ক \"%s\"গী অকুপ্পা মরোলশীং রিত্রিভ তৌবা ঙমদে।"
-
-#, python-format
-msgid "Unable to retrieve details for parent backup: %s"
-msgstr "পেরেন্ত বেকঅপ: %sগী অকুপ্পা মরোলশীং রিত্রিভ তৌবা ঙমদে"
 
 #, python-format
 msgid "Unable to retrieve details for router \"%s\"."
@@ -6305,9 +5979,6 @@ msgstr "নেতৱার্ক রিত্রিভ তৌবা ঙমদে
 
 msgid "Unable to retrieve networks list."
 msgstr "নেতৱার্কশীংগী লিষ্ট রিত্রিভ তৌবা ঙমদে।"
-
-msgid "Unable to retrieve networks."
-msgstr "নেতৱার্কশীং রিত্রিভ তৌবা ঙমদ্রে।"
 
 msgid "Unable to retrieve object list."
 msgstr "ওবজেক্ত লিষ্ট রিত্রিভ তৌবা ঙমদে।"
@@ -6819,9 +6490,6 @@ msgstr "য়ুজর মায় পাক্না অপদেত তৌরে�
 msgid "User name \"%s\" is already used."
 msgstr "য়ুজর মমীং \"%s\" অসি হান্ননা শীজিন্নরে।"
 
-msgid "Username (required)"
-msgstr "য়ুজরনেম (মথৌ তাই)"
-
 msgid "Users"
 msgstr "য়ুজরশীং"
 
@@ -6963,9 +6631,6 @@ msgstr "ভোল্যুম লিমিতশীং"
 msgid "Volume Name"
 msgstr "ভোল্যুম মমীং"
 
-msgid "Volume Size"
-msgstr "ভোল্যুমগী সাইজ"
-
 msgid "Volume Snapshot"
 msgstr "ভোল্যুম স্নেপশোত"
 
@@ -7079,15 +6744,6 @@ msgstr ""
 "কষ্টমাইজ তৌবা য়াই।"
 
 msgid ""
-"You can perform an incremental backup by specifying a parent backup. "
-"<strong>However,</strong> not all databases support incremental backups in "
-"which case this operation will result in an error."
-msgstr ""
-"পেরেন্ত বেকঅপ অমা তাক্তুনা নহাক্না ইনক্রিমেন্তেল বেকঅপ অমা পাংথোকপা য়াই। "
-"<strong>অদুম ওইনমক,</strong> দেতাবেজ পুম্নমক্না ইনক্রিমেন্তেল বেকঅপশীং সপোর্ত তৌদে "
-"মতাং অদুদদি ওপরেসন অসি অশোয়বা অমা ওইনা ফংগনি। "
-
-msgid ""
 "You can specify the desired rule template or use custom rules, the options "
 "are Custom TCP Rule, Custom UDP Rule, or Custom ICMP Rule."
 msgstr ""
@@ -7189,9 +6845,6 @@ msgid "You may update the editable properties of your router here."
 msgstr ""
 "নহাক্কী রাউতরগী এদিত তৌবা য়াবা প্রোপর্টিশীং অদু নহাক্না মফমশিদা অপদেত তৌবা য়াই।"
 
-msgid "You must select a datastore type and version."
-msgstr "নহাক্না দেতাষ্টোর মখল অমসুং ভর্সন অমা খনগদবনি।"
-
 msgid "You must select a snapshot."
 msgstr "নহাক্না স্নেপশোত অমা খনগদবনি।"
 
@@ -7204,14 +6857,8 @@ msgstr "নহাক্না ইমেজ অমা খনগদবনি।"
 msgid "You must set volume size"
 msgstr "নহাক্না ভোল্যুম সাইজ সেত তৌগদবনি"
 
-msgid "You must specify a password if you create a user."
-msgstr "করিগুম্বা নহাক্না য়ুজর অমা শেম্লবদি নহাক্না পাসৱার্দ অমা তাক্কদবনি।"
-
 msgid "You must specify a template via one of the available sources."
 msgstr "নহাক্না অফংবা সোর্সশীংদগী অমগী মতেংনা তেমপ্লেত অমা তাক্কদবনি।"
-
-msgid "You must specify at least one database if you create a user."
-msgstr "করিগুম্বা নহাক্না য়ুজর অমা শেম্লবদি নহাক্না য়ামদ্রবদা দেতাবেজ অমা তাক্কদবনি।"
 
 msgid ""
 "You must specify the source of the traffic to be allowed via this rule. You "

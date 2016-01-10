@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-12-17 05:35+0000\n"
+"POT-Creation-Date: 2016-01-09 00:51+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -117,19 +117,6 @@ msgstr ""
 "    <tt>सिन्डार snapshot-reset-state</tt> बिथोनजों समान।\n"
 "    "
 
-msgid ""
-"\n"
-"  Move networks from 'Available Networks' to 'Selected Networks' by\n"
-"  clicking the button, or dragging and dropping. You can change the\n"
-"  NIC order by dragging and dropping as well.\n"
-"  "
-msgstr ""
-"\n"
-"      बुथामखौ क्लिक खालामनानै, एबा बोबोनानै आरो दोननानै नेटवार्कखौ\n"
-"     'मोननो हाथाव नेटवार्क' निफ्राय 'सायखखानाय नेटवार्क' सिम लां। बोबोनानै\n"
-"       आरो दोननानै नोंथाङा NIC अर्डारखौ सोलायनो हायो। \n"
-"  "
-
 msgid " - End"
 msgstr " - जोबनाय"
 
@@ -155,10 +142,6 @@ msgstr "%(instance_name)s %(fixed_ip)s"
 #, python-format
 msgid "%(name)s - %(size)s GB (%(label)s)"
 msgstr "%(name)s - %(size)s GB (%(label)s)"
-
-#, python-format
-msgid "%(name)s | %(RAM)s RAM"
-msgstr "%(name)s | %(RAM)s RAM"
 
 #, python-format
 msgid "%(offset)s: %(label)s"
@@ -243,31 +226,6 @@ msgstr "--"
 
 msgid "3des"
 msgstr "3des"
-
-#, python-format
-msgid "<p>%(used)s of %(quota)s MB Used</p>"
-msgstr "<p>%(quota)s नि %(used)s MB बाहायबाय</p>"
-
-#, python-format
-msgid "<p>%(used)s of %(quota)s Used</p>"
-msgstr "<p>%(quota)s नि %(used)s बाहायबाय</p>"
-
-msgid ""
-"<strong>Please note:</strong> The new value must be greater than the "
-"existing volume size."
-msgstr ""
-"<strong>नायनो गोनां:</strong> गोदान बेसेनआ थाखानाय भलिउम महरनि गेदेरसिन "
-"जाथारनांगोन।"
-
-msgid ""
-"<strong>Please note:</strong> The value specified in the Volume Size field "
-"should be greater than 0, however, some configurations do not support "
-"specifying volume size. If specifying the volume size results in an error "
-"stating volume support is not enabled, enter 0."
-msgstr ""
-"<strong>नायनो गोनां:</strong> भलिउम महर फोथाराव थि खालामखानाय बेसेनआ 0 निख्रुइ "
-"गेदेरसिन जानांगोन, अदेबानि, माखासे बाइजोमहरआ भलिउम महर थि खालामनायखौ हेफाजाब होआ। "
-"भलिउम महरखौ भलिउम हेफाजाब दिन्थिनाय गोरोन्थियाव थिक खालामाब्ला 0 खौ हाबहो।"
 
 msgid ""
 "A container is a storage compartment for your data and provides a way for "
@@ -366,10 +324,6 @@ msgstr "फायारवाल नियमनि थाखाय हाबा
 
 msgid "Action:"
 msgstr "हाबा:"
-
-msgctxt "Current status of a Database Instance"
-msgid "Active"
-msgstr "मावथि"
 
 msgctxt "Current status of a Firewall"
 msgid "Active"
@@ -681,23 +635,6 @@ msgstr "रानना होखानाय फ्ल'टिं IP %(ip)s"
 msgid "Allocation Pools"
 msgstr "रानना होनाय पुल"
 
-msgid ""
-"Allow the user to connect from this host\n"
-"    only. If not provided this user will be allowed to connect from "
-"anywhere.\n"
-"    "
-msgstr ""
-"बे हस्ट निफ्रायल' फोनांजाब खालामनो बाहायग्राखौ गनायथि हो।\n"
-"    जगायना होयाखैब्ला बे बाहायग्राखौ जेराव निफ्रायबो फोनांजाब खालामनो गनायथि "
-"होगोन।\n"
-"    "
-
-msgid "Allowed Host"
-msgstr "गनायथि होखानाय हस्ट"
-
-msgid "Allowed Host (optional)"
-msgstr "गनायथिहोजानाय हस्ट (उफ्रायारि)"
-
 msgid "Amount of energy"
 msgstr "गोहोनि बिबां"
 
@@ -860,33 +797,8 @@ msgstr "गड़ CPU इउटिलाइजेसन"
 msgid "Avg."
 msgstr "गड़"
 
-msgid "Backup"
-msgstr "बेकआप"
-
-msgctxt "Current status of a Database Instance"
-msgid "Backup"
-msgstr "बेकआप"
-
-msgid "Backup Database"
-msgstr "बेकआप डाटाबेस"
-
-msgid "Backup Details"
-msgstr "बेकआप गुवारै"
-
-msgid "Backup Duration"
-msgstr "बेकआप समसिमा"
-
-msgid "Backup File"
-msgstr "बेकआप फाइल"
-
-msgid "Backup File Location"
-msgstr "बेकआप फाइल जायगा"
-
 msgid "Backup Name"
 msgstr "बेकआप मुं"
-
-msgid "Backup Overview"
-msgstr "बेकआप अभारभिउ"
 
 msgid "Backups"
 msgstr "बेकआप"
@@ -903,10 +815,6 @@ msgstr "ब्लक माइग्रेसन"
 
 msgid "Block Storage Services"
 msgstr "दोनथुमनाय सिबिथायखौ ब्लक खालाम"
-
-msgctxt "Current status of a Database Instance"
-msgid "Blocked"
-msgstr "ब्लक खालामबाय"
 
 msgctxt "Power state of an Instance"
 msgid "Blocked"
@@ -930,10 +838,6 @@ msgstr "भलिउम स्नेपसट निफ्राय बुट �
 msgid "Bootable"
 msgstr "बुट खालामजाथाव"
 
-msgctxt "Current status of a Database Instance"
-msgid "Build"
-msgstr "बानाय"
-
 msgctxt "Current status of a Network"
 msgid "Build"
 msgstr "बानाय"
@@ -949,10 +853,6 @@ msgstr "बानाय"
 msgctxt "status of a network port"
 msgid "Build"
 msgstr "बानाय"
-
-msgctxt "Current status of a Database Backup"
-msgid "Building"
-msgstr "बानायगासिनो दं"
 
 msgctxt "Power state of an Instance"
 msgid "Building"
@@ -1071,17 +971,8 @@ msgstr "खालि कनस'लखौल' दिन्थिनो बेय�
 msgid "Close"
 msgstr "बन्द खालाम"
 
-msgid "Cluster Name"
-msgstr "क्लास्टार मुं"
-
-msgid "Clusters"
-msgstr "क्लास्टारफोर"
-
 msgid "Code"
 msgstr "क'ड"
-
-msgid "Comma separated list of databases to create"
-msgstr "सोरजिनो थाखाय डाटाबेसनि कमाजों आलादा खालामनाय लिस्ट"
 
 msgid "Compute"
 msgstr "कम्पिउट"
@@ -1130,12 +1021,6 @@ msgstr "फिन महर एबा माइग्रेटखौ रोख�
 
 msgid "Conflicting Rule"
 msgstr "नियमआ बेरेखा जागासिनो दं"
-
-msgid "Connection Examples"
-msgstr "फोनांजाब बिदिन्थि"
-
-msgid "Connection Info"
-msgstr "फोनांजाब फोरमायथिहोग्रा"
 
 msgid "Connection Limit"
 msgstr "फोनांजाब सिमा"
@@ -1429,13 +1314,6 @@ msgstr ""
 msgid "Create an Encrypted Volume Type"
 msgstr "मोनसे एक्रिप्ट खालामखानाय भलिउम रोखोमखौ सोरजि"
 
-msgid ""
-"Create an optional initial user.\n"
-"   This user will have access to all databases you create."
-msgstr ""
-"उफ्रायारि गुदि बाहायग्रा सोरजि।\n"
-"   बे बाहायग्राया नोंथाङा सोरजिनाय गासै डाटाबेसआव हाबगोन।"
-
 msgid "Created"
 msgstr "सोरजिबाय"
 
@@ -1536,9 +1414,6 @@ msgstr "बे साबनेटनि थाखाय सोरजिनाय
 msgid "Current Host"
 msgstr "दानि हस्ट"
 
-msgid "Current Size (GB)"
-msgstr "दानि महर (GB)"
-
 msgid "Current password"
 msgstr "दानि पासवार्ड"
 
@@ -1556,9 +1431,6 @@ msgstr "कास्टम UDP नियम"
 
 msgid "Customization Script Source"
 msgstr "गावनि गोसोबादि खालामनाय स्क्रिप्ट फुंखा"
-
-msgid "DATABASE"
-msgstr "डाटाबेस"
 
 msgid "DENY"
 msgstr "नेवसि"
@@ -1581,33 +1453,6 @@ msgstr "DNS मुं सार्भार"
 
 msgid "Daily Usage Report"
 msgstr "सानफ्रोमबो बाहायथि रिपर्ट"
-
-msgid "Database"
-msgstr "डाटाबेस"
-
-msgid "Database Backups"
-msgstr "डाटाबेस बेकआप"
-
-msgid "Database Info"
-msgstr "डाटाबेस फोरमायथिहोग्रा"
-
-msgid "Database Instance"
-msgstr "डाटाबेस बिदिन्थि"
-
-msgid "Database Name"
-msgstr "डाटाबेस मुं"
-
-msgid "Database Port"
-msgstr "डाटाबेस पर्ट"
-
-msgid "Databases"
-msgstr "डाटाबेस"
-
-msgid "Datastore"
-msgstr "डाटास्टर"
-
-msgid "Datastore Version"
-msgstr "डाटास्टर बिसान"
 
 msgid "Date Updated"
 msgstr "आपडेट खालामनाय अक्ट'"
@@ -1910,9 +1755,6 @@ msgstr "गाहाय"
 msgid "Download"
 msgstr "डाउनल'ड खालाम"
 
-msgid "Download Backup"
-msgstr "बेकआपखौ डाउनल'ड खालाम"
-
 msgid "Download CSV Summary"
 msgstr "CSV सारबाहागोखौ डाउनल'ड खालाम"
 
@@ -2149,10 +1991,6 @@ msgstr ""
 msgid "Error"
 msgstr "गोरोन्थि"
 
-msgctxt "Current status of a Database Instance"
-msgid "Error"
-msgstr "गोरोन्थि"
-
 msgctxt "Current status of a Firewall"
 msgid "Error"
 msgstr "गोरोन्थि"
@@ -2207,20 +2045,8 @@ msgstr "RC फाइलखौ डाउनल'ड खालामनायाव
 msgid "Error adding Hosts to the aggregate."
 msgstr "हस्टखौ एग्रिगेटजों दाजाबदेरनायाव जानाय गोरोन्थि।"
 
-msgid "Error creating database backup."
-msgstr "डाटाबेस बेकआप सोरजिनायाव जानाय गोरोन्थि"
-
-msgid "Error deleting database on instance."
-msgstr "डाटाबेसखौ बिदिन्थिआव खोमोरनायाव जानाय गोरोन्थि"
-
-msgid "Error deleting database user."
-msgstr "डाटाबेस बाहायग्रा खोमोरनायाव जानाय गोरोन्थि"
-
 msgid "Error editing QoS Spec consumer."
 msgstr "QoS Spec ग्राहकखौ सुजुनाय समाव जानाय गोरोन्थि"
-
-msgid "Error getting database backup list."
-msgstr "डाटाबेस बेकआप लिस्टखौ मोननायाव जानाय गोरोन्थि।"
 
 msgid "Error updating QoS Spec association."
 msgstr "QoS Spec गौथुमखौ आपडेट खालामनायाव जानाय गोरोन्थि।"
@@ -2284,14 +2110,6 @@ msgstr ""
 
 msgid "Extra Specs"
 msgstr "बांद्राय Specs"
-
-msgctxt "Current status of a Database Backup"
-msgid "Failed"
-msgstr "फेलें जाबाय"
-
-msgctxt "Current status of a Database Instance"
-msgid "Failed"
-msgstr "फेलें जाबाय"
 
 msgctxt "Power state of an Instance"
 msgid "Failed"
@@ -2830,9 +2648,6 @@ msgstr ""
 "हस्ट एग्रिगेटआ मोननो हाथाव ओनसोलखौ खौसे हस्टखौ ज' खालामनानै जुक्टिगोनां सानगुदिआव "
 "बोखावो। हस्टखौ सायखनो एग्रिगेट हस्टखौ सुजु।"
 
-msgid "Host or IP that the user is allowed to connect through."
-msgstr "हस्ट एबा IP जायजों फोनांजाब खालामनो थाखाय बाहायग्राखौ गनायथि होनाय जायो।"
-
 msgid "Hostname"
 msgstr "हस्टमुं"
 
@@ -3070,12 +2885,6 @@ msgstr ""
 "बेनि बादैबो, एखे आनजाद-बाक्सुखौ आनजाद खालामनानै बाइजोनि नेटवार्क एबा शेयार खालामखानाय "
 "नेटवार्कखौ सोरजिनो हायो।"
 
-msgid "Incremental"
-msgstr "बांनाय"
-
-msgid "Incremental Backup"
-msgstr "बांनाय बेकआप"
-
 msgid "Info"
 msgstr "फोरमायथिहोग्रा"
 
@@ -3084,21 +2893,6 @@ msgstr "फोरमायथिहोग्रा"
 
 msgid "Ingress"
 msgstr "इनग्रेस"
-
-msgid "Initial Admin User"
-msgstr "गुदि एडमिन बाहायग्रा"
-
-msgid "Initial Databases"
-msgstr "गुदि डाटाबेस"
-
-msgid "Initial Volume Size"
-msgstr "गुदि भलिउम महर"
-
-msgid "Initial admin user to add"
-msgstr "दाजाबदेरनो थाखाय गुदि एडमिन बाहायग्रा"
-
-msgid "Initialize Databases"
-msgstr "डाटाबेसखौ जागाय"
 
 msgid "Initiator state"
 msgstr "जागायग्रा राइजो"
@@ -3288,12 +3082,6 @@ msgstr "जोबथा बोसोन"
 
 msgid "Launch"
 msgstr "जागाय"
-
-msgid "Launch Cluster"
-msgstr "क्लास्टारखौ जागाय"
-
-msgid "Launch Database"
-msgstr "डाटाबेसखौ जागाय"
 
 msgid "Launch Instance"
 msgstr "बिदिन्थिखौ जागाय"
@@ -3490,12 +3278,6 @@ msgstr "सोद्रोमा IP थंखौ थिक खालामथा
 
 msgid "Member Source"
 msgstr "सोद्रोमा फुंख"
-
-msgid "Member address"
-msgstr "सोद्रोमा थं"
-
-msgid "Member(s)"
-msgstr "सोद्रोमा(फोर)"
 
 msgid "Members"
 msgstr "सोद्रोमाफोर"
@@ -3729,14 +3511,8 @@ msgstr "गोदान फ्लेभार"
 msgid "New Host"
 msgstr "गोदान हस्ट"
 
-msgid "New Size (GB)"
-msgstr "गोदान महर (GB)"
-
 msgid "New password"
 msgstr "गोदान पासवार्ड"
-
-msgid "New size for volume must be greater than current size."
-msgstr "भलिउमनि थाखाय गोदान महरआ दानि महर निख्रुइ गेदेरसिन जाथारनांगोन।"
 
 msgid "New size must be greater than current size."
 msgstr "गोदान महरआ दानि महर निख्रुइ गेदेरसिन जाथारनांगोन।"
@@ -3774,9 +3550,6 @@ msgstr "जेबो कनस'ल मोननो हाथाव नङा"
 
 msgid "No available projects"
 msgstr "जेबो प्रजेक्ट गैया"
-
-msgid "No backups available"
-msgstr "जेबो बेकआप गैया"
 
 msgid "No flavors available"
 msgstr "जेबो फ्लेभार मोननो हाथाव नङा"
@@ -3897,12 +3670,6 @@ msgstr "मोनसेबो नङा"
 msgid "Normal"
 msgstr "सरासनस्रा"
 
-msgid "Not Assigned"
-msgstr "रानना होआखै"
-
-msgid "Not Found"
-msgstr "मोनाखै"
-
 msgid "Not attached"
 msgstr "नांजाब होआखै"
 
@@ -4020,20 +3787,11 @@ msgstr "पर्टखौ खेव"
 msgid "Open Port/Port Range:"
 msgstr "पर्ट/पर्ट सिमासारिखौ खेव:"
 
-msgid "Optional Backup Description"
-msgstr "उफ्रायारि बेकआप बेखेवथि"
-
 msgid "Optional Parameters"
 msgstr "उफ्रायारि पेरामिटार"
 
-msgid "Optional parent backup"
-msgstr "उफ्रायारि पेरेन्ट बेकआप"
-
 msgid "Optional: Next Hop Addresses (comma delimited)"
 msgstr "उफ्रायारि: उननि हप थं (कमाजों सिमा खालामबाय)"
-
-msgid "Optionally provide a comma separated list of databases to create:"
-msgstr "सोरजिनो थाखाय डाटाबेसनि कमाजों आलादा खालामनाय लिस्टखौ गावनि गोसोजों हो:"
 
 msgid "Optionally, you may choose to create a new volume."
 msgstr "गावनि गोसो बादियै, नोंथाङा गोदान भलिउम सोरजिनो बासिखनो हागौ।"
@@ -4053,9 +3811,6 @@ msgstr "अभारभिउ"
 msgid "Owner"
 msgstr "बिगोमा"
 
-msgid "PASSWORD"
-msgstr "पासवार्ड"
-
 msgid "PFS"
 msgstr "PFS"
 
@@ -4068,18 +3823,12 @@ msgstr "बिलाइखौ मोनाखै"
 msgid "Parameters"
 msgstr "पेरामिटार"
 
-msgid "Parent Backup"
-msgstr "पेरेन्ट बेकआप"
-
 msgid "Password"
 msgstr "पासवार्ड"
 
 msgctxt "Current status of an Instance"
 msgid "Password"
 msgstr "पासवार्ड"
-
-msgid "Password (required)"
-msgstr "पासवार्ड (गोनां जाबाय)"
 
 msgid "Password changed. Please log in again to continue."
 msgstr "पासवार्डआ सोलायबाय। सालाय लांबाय थानो आरोबाव लग-इन खालाम।"
@@ -4426,10 +4175,6 @@ msgctxt "Action log of an instance"
 msgid "Reboot"
 msgstr "फिन बुट खालाम"
 
-msgctxt "Current status of a Database Instance"
-msgid "Reboot"
-msgstr "फिन बुट खालाम"
-
 msgctxt "Current status of an Instance"
 msgid "Reboot"
 msgstr "फिन बुट खालाम"
@@ -4540,18 +4285,8 @@ msgctxt "Action log of an instance"
 msgid "Resize"
 msgstr "फिन महर हो"
 
-msgctxt "Current status of a Database Instance"
-msgid "Resize"
-msgstr "फिन महर हो"
-
-msgid "Resize Database Volume"
-msgstr "डाटाबेस भलिउमखौ फिन महर हो"
-
 msgid "Resize Instance"
 msgstr "बिदिन्थिखौ फिन महर हो"
-
-msgid "Resize Volume"
-msgstr "भलिउमखौ फिन महर हो"
 
 msgctxt "Current status of an Instance"
 msgid "Resize/Migrate"
@@ -4565,10 +4300,6 @@ msgctxt "Task status of an Instance"
 msgid "Resizing or Migrating"
 msgstr "फिन महर एबा माइग्रेट खालामगासिनो दं"
 
-#, python-format
-msgid "Resizing volume \"%s\""
-msgstr "भलिउम \"%s\" खौ फिन महर होगासिनो दं"
-
 msgid "Resource"
 msgstr "सम्पद"
 
@@ -4577,9 +4308,6 @@ msgstr "सम्पद ID"
 
 msgid "Resource Metadata"
 msgstr "सम्पद मेटाडाटा"
-
-msgid "Resource Overview"
-msgstr "सम्पद अभारभिउ"
 
 msgid "Resource Usage"
 msgstr "सम्पद बाहायथि"
@@ -4765,10 +4493,6 @@ msgid "Saved spec \"%s\"."
 msgstr "spec \"%s\" खौ थिना दोनबाय।"
 
 #, python-format
-msgid "Scheduled backup \"%(name)s\"."
-msgstr "थि बेकआप \"%(name)s\"।"
-
-#, python-format
 msgid "Scheduled deletion of %(data_type)s"
 msgstr "%(data_type)s नि थि खोमोरनाय"
 
@@ -4871,9 +4595,6 @@ msgstr "रुटारखौ सायख"
 msgid "Select a Subnet"
 msgstr "मोनसे साबनेटखौ सायख"
 
-msgid "Select a backup to restore"
-msgstr "बोखांफिननो बेकआपखौ सायख"
-
 #, python-format
 msgid "Select a health monitor of %s"
 msgstr "%s नि सावस्रि मनिटरखौ सायख"
@@ -4927,12 +4648,6 @@ msgstr "बिदिन्थिखौ सायख"
 msgid "Select an instance to attach to."
 msgstr "नांजाब होनो बिदिन्थिखौ सायख।"
 
-msgid "Select backup"
-msgstr "बेकआपखौ सायख"
-
-msgid "Select datastore type and version"
-msgstr "डाटास्टर रोखोम आरो बिसानखौ सायख"
-
 msgid "Select format"
 msgstr "फरमेट सायख"
 
@@ -4947,9 +4662,6 @@ msgstr "नेटवार्कखौ सायख"
 
 msgid "Select networks for your instance."
 msgstr "नोंथांनि बिदिन्थिनि थाखाय नेटवार्कखौ सायख।"
-
-msgid "Select parent backup"
-msgstr "पेरेन्ट बेकआपखौ सायख"
 
 msgid "Select rules for your policy."
 msgstr "नोंथांनि पलिसिनि थाखाय नियमखौ सायख।"
@@ -5075,9 +4787,6 @@ msgstr "महर"
 msgid "Size of image to launch."
 msgstr "जागायनो थाखाय मुसुखानि महर"
 
-msgid "Size of the volume in GB."
-msgstr "GB आव भलिउमनि महर"
-
 msgid "Size of volume"
 msgstr "भलिउमनि महर"
 
@@ -5200,12 +4909,6 @@ msgstr "सोद्रोमा IP थंखौ थिक खालाम"
 
 msgid "Specify the details for launching an instance."
 msgstr "बिदिन्थि जागायनायनि थाखाय गुवारैखौ थि खालाम।"
-
-msgid "Specify the details for the database backup."
-msgstr "डाटाबेस बेकआपनि थाखाय गुवारैखौ थि खालाम।"
-
-msgid "Specify the new volume size for the database instance."
-msgstr "डाटाबेस बिदिन्थिनि थाखाय गोदान भलिउम महरखौ थि खालाम।"
 
 msgid "Specs"
 msgstr "स्पेस"
@@ -5732,9 +5435,6 @@ msgstr "स्टेकनि जीउ-जारिमिननि गेजे
 msgid "This name is already taken."
 msgstr "बे मुंखौ सिगाङावनो लाबाय"
 
-msgid "This pane needs javascript support."
-msgstr "बे पेननो जाभास्क्रिप्ट हेफाजाब नांगौ।"
-
 msgid ""
 "This volume is currently attached to an instance. In some cases, creating a "
 "snapshot from an attached volume can result in a corrupted snapshot."
@@ -5814,9 +5514,6 @@ msgstr "प्र'ट'कलखौ सोलाय"
 msgid "Type"
 msgstr "रोखोम"
 
-msgid "Type and version of datastore."
-msgstr "डाटास्टरनि रोखोम आरो बिसान"
-
 #, python-format
 msgid "Type: %(persistence_type)s"
 msgstr "रोखोम: %(persistence_type)s"
@@ -5829,9 +5526,6 @@ msgstr "URL"
 
 msgid "URL Path"
 msgstr "URL लामा"
-
-msgid "USERNAME"
-msgstr "बाहायग्रामुं"
 
 msgid "UTC"
 msgstr "UTC"
@@ -6062,9 +5756,6 @@ msgstr "भलिउमखौ फेहेरनो हायाखै।"
 msgid "Unable to fetch EC2 credentials."
 msgstr "EC2 फोथायथावखौ लाबोनो हायाखै।"
 
-msgid "Unable to find backup!"
-msgstr "बेकआपखौ नागिरना दिहुननो हायाखै!"
-
 msgid "Unable to find default role."
 msgstr "डिफल्ट बिफावखौ नागिरना दिहुननो हायाखै।"
 
@@ -6085,12 +5776,6 @@ msgstr "बिदिन्थि \"%s\" नि थाखाय VNC कनस'ल
 
 msgid "Unable to get cinder services list."
 msgstr "सिन्डार सिबिथाय लिस्टखौ मोननो हायाखै।"
-
-msgid "Unable to get database backup data."
-msgstr "डाटाबेस बेकआप डाटा मोनफिननो हायाखै"
-
-msgid "Unable to get databases data."
-msgstr "डाटाबेस डाटा मोननो हायाखै"
 
 #, python-format
 msgid "Unable to get events for stack \"%s\"."
@@ -6132,9 +5817,6 @@ msgstr "साबनेट \"%s\" खौ मोननो हायाखै"
 msgid "Unable to get the available hosts"
 msgstr "मोननो हाथाव हस्टखौ मोननो हायाखै"
 
-msgid "Unable to get user data."
-msgstr "बाहायग्रा डाटा मोननो हायाखै"
-
 msgid "Unable to import key pair."
 msgstr "साबि जराखौ लाबोनो हायाखै।"
 
@@ -6144,12 +5826,6 @@ msgstr "\"%(name)s\" मुंनि %(count)s खौ जागायनो ह�
 
 msgid "Unable to list containers."
 msgstr "लिस्ट कन्टेनारखौ मोनफिननो हायाखै।"
-
-msgid "Unable to list database backups for parent."
-msgstr "पेरेन्टनि थाखाय डाटाबेस बेकआपखौ लिस्ट खालामनो हायाखै।"
-
-msgid "Unable to list database instances to backup."
-msgstr "डाटाबेस बिदिन्थिखौ बेकआपआव लिस्ट खालामनो हायाखै।"
 
 msgid "Unable to list dhcp agents hosting network."
 msgstr "dhcp थान्दै हस्टिं नेटवार्कखौ लिस्ट खालामनो हायाखै।"
@@ -6188,9 +5864,6 @@ msgstr "बिदिन्थि \"%s\" खौ सुद्रायनो ह�
 msgid "Unable to modify project \"%s\"."
 msgstr "प्रजेक्ट \"%s\" खौ सुद्रायनो हाया।"
 
-msgid "Unable to obtain flavors."
-msgstr "फ्लेभार मोननो हायाखै।"
-
 #, python-format
 msgid "Unable to parse IP address %s."
 msgstr "IP थं %s खौ पार्स खालामनो हायाखै।"
@@ -6201,10 +5874,6 @@ msgstr "बिदिन्थिखौ बानायफिन हायाख�
 #, python-format
 msgid "Unable to resize instance \"%s\"."
 msgstr "बिदिन्थि \"%s\" खौ फिन महर होनो हायाखै।"
-
-#, python-format
-msgid "Unable to resize volume. %s"
-msgstr "भलिउमखौ फिन महर होनो हायाखै। %s"
 
 msgid "Unable to restore backup."
 msgstr "बेकआपखौ मोनफिननो हायाखै।"
@@ -6319,25 +5988,11 @@ msgstr "कम्पिउट सिमा फोरमायथिहोग्�
 msgid "Unable to retrieve container list."
 msgstr "कन्टेनार लिस्टखौ मोनफिननो हायाखै।"
 
-msgid "Unable to retrieve database instances."
-msgstr "डाटाबेस बिदिन्थि मोनफिननो हायाखै"
-
-msgid "Unable to retrieve database size information."
-msgstr "डाटाबेस महर फोरमायथिहोग्रा मोनफिननो हायाखै"
-
 msgid "Unable to retrieve default Neutron quota values."
 msgstr "डिफल्ट निउट्रन क'टा बेसेनखौ मोनफिननो हायाखै।"
 
 msgid "Unable to retrieve default quota values."
 msgstr "डिफल्ट क'टा बेसेन मोनफिननो हायाखै।"
-
-#, python-format
-msgid "Unable to retrieve details for backup: %s"
-msgstr "बेकआपनि थाखाय गुवारैखौ मोनफिननो हायाखै: %s"
-
-#, python-format
-msgid "Unable to retrieve details for database instance: %s"
-msgstr "डाटाबेस बिदिन्थिनि थाखाय गुवारैखौ मोनफिननो हायाखै: %s"
 
 #, python-format
 msgid "Unable to retrieve details for instance \"%s\"."
@@ -6346,10 +6001,6 @@ msgstr "बिदिन्थि \"%s\" नि थाखाय गुवार�
 #, python-format
 msgid "Unable to retrieve details for network \"%s\"."
 msgstr "\"%s\" नेटवार्कनि थाखाय गुवारैखौ मोनफिननो हायाखै।"
-
-#, python-format
-msgid "Unable to retrieve details for parent backup: %s"
-msgstr "पेरेन्ट बेकआपनि थाखाय गुवारैखौ मोनफिननो हायाखै: %s"
 
 #, python-format
 msgid "Unable to retrieve details for router \"%s\"."
@@ -6531,9 +6182,6 @@ msgstr "नेटवार्क मोनफिननो हायाखै"
 
 msgid "Unable to retrieve networks list."
 msgstr "नेटवार्क लिस्टखौ मोनफिननो हायाखै।"
-
-msgid "Unable to retrieve networks."
-msgstr "नेटवार्कखौ मोनफिननो हायाखै।"
 
 msgid "Unable to retrieve object list."
 msgstr "बेसाद लिस्टखौ मोनफिननो हायाखै।"
@@ -7057,9 +6705,6 @@ msgstr "बाहायग्राखौ जाफुंसारै आपड�
 msgid "User name \"%s\" is already used."
 msgstr "बाहायग्रा मुं \"%s\" खौ सिगाङावनो बाहायबाय।"
 
-msgid "Username (required)"
-msgstr "बाहायग्रामुं (गोनां जाबाय)"
-
 msgid "Users"
 msgstr "बाहायग्राफोर"
 
@@ -7201,9 +6846,6 @@ msgstr "भलिउमनि सिम"
 msgid "Volume Name"
 msgstr "भलिउम मुं"
 
-msgid "Volume Size"
-msgstr "भलिउम महर"
-
 msgid "Volume Snapshot"
 msgstr "भलिउम स्नेपसट"
 
@@ -7316,15 +6958,6 @@ msgstr ""
 "गोसोबादि खालामनो हायो।"
 
 msgid ""
-"You can perform an incremental backup by specifying a parent backup. "
-"<strong>However,</strong> not all databases support incremental backups in "
-"which case this operation will result in an error."
-msgstr ""
-"नोंथाङा पेरेन्ट बेकआपखौ थिक खालामनानै मोनसे बांनाय बेकआपखौ मावफुंनो होयो।<strong>अदेबानि,"
-"</strong> गासै डाटाबेसआ बांनाय बेकआपखौ हेफाजाब होआ जाय बुब्लिआव बे अपारेसनाआगोरोन्थि "
-"जागोन।"
-
-msgid ""
 "You can specify the desired rule template or use custom rules, the options "
 "are Custom TCP Rule, Custom UDP Rule, or Custom ICMP Rule."
 msgstr ""
@@ -7419,9 +7052,6 @@ msgstr "बेयाव नोंथाङा नोंथांनि पर्
 msgid "You may update the editable properties of your router here."
 msgstr "बेयाव नोंथाङा नोंथांनि रुटारनि सुजुजाथाव आखुथायखौ आपडेट खालामनो लुबैनो हागौ।"
 
-msgid "You must select a datastore type and version."
-msgstr "नोंथाङा डाटास्टर रोखोम आरो बिसानखौ सायखथारनांगोन।"
-
 msgid "You must select a snapshot."
 msgstr "नोंथाङा मोनसे स्नेपसटखौ सायखथारनांगोन"
 
@@ -7434,14 +7064,8 @@ msgstr "नोंथाङा मोनसे मुसुखाखौ साय
 msgid "You must set volume size"
 msgstr "नोंथाङा भलिउम महरखौ सायखथारनांगोन"
 
-msgid "You must specify a password if you create a user."
-msgstr "नोंथाङा बाहायग्रा सोरजिनोब्ला मोनसे पासवार्ड थि खालामथारनांगोन।"
-
 msgid "You must specify a template via one of the available sources."
 msgstr "मोनसे मोननो फुंखानि गेजेरजों नोंथाङा मोनसे टेमप्लेटखौ थिक खालामथारनांगोन।"
-
-msgid "You must specify at least one database if you create a user."
-msgstr "नोंथाङा बाहायग्रा सोरजिनोब्ला खमैबो मोनसे डाटाबेस थि खालामथारनांगोन।"
 
 msgid ""
 "You must specify the source of the traffic to be allowed via this rule. You "

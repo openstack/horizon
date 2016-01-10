@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-12-17 05:35+0000\n"
+"POT-Creation-Date: 2016-01-09 00:51+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -39,10 +39,6 @@ msgstr "%(field_name)s: Invalide IP adres (waarde=%(network)s)"
 #, python-format
 msgid "%(name)s - %(size)s GB (%(label)s)"
 msgstr "%(name)s - %(size)s GB (%(label)s)"
-
-#, python-format
-msgid "%(name)s | %(RAM)s RAM"
-msgstr "%(name)s | %(RAM)s Werkgeheugen"
 
 #, python-format
 msgid "%(type)s (%(backend)s backend)"
@@ -94,26 +90,6 @@ msgstr "--"
 
 msgid "3des"
 msgstr "3des"
-
-#, python-format
-msgid "<p>%(used)s of %(quota)s MB Used</p>"
-msgstr "<p>%(used)s van %(quota)s MB gebruikt</p>"
-
-#, python-format
-msgid "<p>%(used)s of %(quota)s Used</p>"
-msgstr "<p>%(used)s van %(quota)s gebruikt</p>"
-
-msgid ""
-"<strong>Please note:</strong> The value specified in the Volume Size field "
-"should be greater than 0, however, some configurations do not support "
-"specifying volume size. If specifying the volume size results in an error "
-"stating volume support is not enabled, enter 0."
-msgstr ""
-"<strong>Let op:</strong> De in het Volumegrootte veld opgegeven waarde zou "
-"groter dan 0 moeten zijn. Sommige configuraties ondersteunen echter het "
-"specificeren van volumegroottes niet. Als het specificeren van een volume "
-"resulteert in de foutmelding dat volumeondersteuning niet is geactiveerd, "
-"voer dan een 0 in."
 
 msgid ""
 "A container is a storage compartment for your data and provides a way for "
@@ -209,10 +185,6 @@ msgstr "Actie"
 
 msgid "Action for the firewall rule"
 msgstr "Actie voor de firewall regel"
-
-msgctxt "Current status of a Database Instance"
-msgid "Active"
-msgstr "Actief"
 
 msgctxt "Current status of a Firewall"
 msgid "Active"
@@ -470,23 +442,6 @@ msgstr "Vlottend IP %(ip)s toegewezen."
 msgid "Allocation Pools"
 msgstr "Allocatiepoules"
 
-msgid ""
-"Allow the user to connect from this host\n"
-"    only. If not provided this user will be allowed to connect from "
-"anywhere.\n"
-"    "
-msgstr ""
-"Gebruiker toestaan om alleen te verbinden vanuit deze gastheer\n"
-"Indien niet voorzien zal deze gebruiker worden toegestaan om overal vandaan "
-"te verbinden.\n"
-"    "
-
-msgid "Allowed Host"
-msgstr "Toegestane Host"
-
-msgid "Allowed Host (optional)"
-msgstr "Toegestane Host (optioneel)"
-
 msgid "Amount of energy"
 msgstr "Hoeveelheid energie"
 
@@ -632,31 +587,6 @@ msgstr "Gemiddelde CPU benutting"
 msgid "Avg."
 msgstr "Gem."
 
-msgid "Backup"
-msgstr "Archief"
-
-msgctxt "Current status of a Database Instance"
-msgid "Backup"
-msgstr "Archief"
-
-msgid "Backup Database"
-msgstr "Database archiveren"
-
-msgid "Backup Details"
-msgstr "Archiefdetails"
-
-msgid "Backup Duration"
-msgstr "Archiveringsduur"
-
-msgid "Backup File"
-msgstr "Archiefbestand"
-
-msgid "Backup File Location"
-msgstr "Archiefbestandslocatie"
-
-msgid "Backup Overview"
-msgstr "Archiefoverzicht"
-
 msgid "Backups"
 msgstr "Archieven"
 
@@ -773,17 +703,8 @@ msgstr "Klik hier om alleen het beheervenster weer te geven"
 msgid "Close"
 msgstr "Sluiten"
 
-msgid "Cluster Name"
-msgstr "Cluster Naam"
-
-msgid "Clusters"
-msgstr "Clusters"
-
 msgid "Code"
 msgstr "Code"
-
-msgid "Comma separated list of databases to create"
-msgstr "Kommagescheiden lijst van te creëeren databases"
 
 msgid "Compute"
 msgstr "Rekenen"
@@ -819,12 +740,6 @@ msgstr "Herdimensionering of verplaatsing aan het bevestigen"
 
 msgid "Conflicting Rule"
 msgstr "Conflicterende regel"
-
-msgid "Connection Examples"
-msgstr "Verbindingsvoorbeelden"
-
-msgid "Connection Info"
-msgstr "Verbindingsinformatie"
 
 msgid "Connection Limit"
 msgstr "Connectielimiet"
@@ -1027,13 +942,6 @@ msgstr "Creeer een nieuwe stapel met de ingevoerde waarden."
 msgid "Create a policy with selected rules."
 msgstr "Creëer een beleid met de geselecteerde regels."
 
-msgid ""
-"Create an optional initial user.\n"
-"   This user will have access to all databases you create."
-msgstr ""
-"Creëer een optionele initiele gebruiker.\n"
-"Deze gebruiker zal toegang hebben tot alle databases die u creëert."
-
 msgid "Created"
 msgstr "Gecreëerd"
 
@@ -1117,9 +1025,6 @@ msgstr "Creatieverzoeken voor dit subnet"
 msgid "Current Host"
 msgstr "Huidige Host"
 
-msgid "Current Size (GB)"
-msgstr "Huidige Grootte (GB)"
-
 msgid "Current password"
 msgstr "Huidig wachtwoord"
 
@@ -1134,9 +1039,6 @@ msgstr "Maatwerk TCP regel"
 
 msgid "Custom UDP Rule"
 msgstr "Maatwerk UDP regel"
-
-msgid "DATABASE"
-msgstr "DATABASE"
 
 msgid "DENY"
 msgstr "VERBIEDEN"
@@ -1183,27 +1085,6 @@ msgstr "OMLAAG"
 msgid "Daily Usage Report"
 msgstr "Dagelijks Gebruiksrapport"
 
-msgid "Database"
-msgstr "Database"
-
-msgid "Database Backups"
-msgstr "Databasearchieven"
-
-msgid "Database Info"
-msgstr "Database informatie"
-
-msgid "Database Instance"
-msgstr "Database exemplaar"
-
-msgid "Database Name"
-msgstr "Databasenaam"
-
-msgid "Database Port"
-msgstr "Databasepoort"
-
-msgid "Databases"
-msgstr "Databases"
-
 msgid "Date Updated"
 msgstr "Datum bijgewerkt"
 
@@ -1245,10 +1126,6 @@ msgid "Delete DHCP Agent"
 msgid_plural "Delete DHCP Agents"
 msgstr[0] "DHCP Agent Verwijderen"
 msgstr[1] "DHCP Agenten Verwijderen"
-
-msgctxt "Current status of a Database Backup"
-msgid "Delete Failed"
-msgstr "Verwijdering mislukt"
 
 msgctxt "current status of stack"
 msgid "Delete Failed"
@@ -1519,9 +1396,6 @@ msgstr "Omlaag"
 msgid "Download"
 msgstr "Download"
 
-msgid "Download Backup"
-msgstr "Backup ophalen"
-
 msgid "Download CSV Summary"
 msgstr "CSV samenvatting ophalen"
 
@@ -1697,10 +1571,6 @@ msgstr "Eigen schijf"
 msgid "Error"
 msgstr "Fout"
 
-msgctxt "Current status of a Database Instance"
-msgid "Error"
-msgstr "Fout"
-
 msgctxt "Current status of a Firewall"
 msgid "Error"
 msgstr "Fout"
@@ -1755,18 +1625,6 @@ msgstr "Fout bij het ophalen van RC bestand: %s"
 msgid "Error adding Hosts to the aggregate."
 msgstr "Fout tijdens het toevoegen van gastheren aan het aggregaat."
 
-msgid "Error creating database backup."
-msgstr "Fout bij het creeeren van database archief."
-
-msgid "Error deleting database on instance."
-msgstr "Fout bij het verwijderen van de database op exemplaar."
-
-msgid "Error deleting database user."
-msgstr "Fout bij het verwijderen van database gebruiker."
-
-msgid "Error getting database backup list."
-msgstr "Fout bij het ophalen van de database archieflijst."
-
 msgid "Error when adding or removing hosts."
 msgstr "Fout bij het toevoegen of verwijderen van gastheren."
 
@@ -1813,14 +1671,6 @@ msgstr "Extern netwerk"
 
 msgid "Extra Specs"
 msgstr "Extra Specificaties"
-
-msgctxt "Current status of a Database Backup"
-msgid "Failed"
-msgstr "Mislukt"
-
-msgctxt "Current status of a Database Instance"
-msgid "Failed"
-msgstr "Mislukt"
 
 msgctxt "Power state of an Instance"
 msgid "Failed"
@@ -2234,9 +2084,6 @@ msgstr ""
 "Gastheerroutes formaat fout: Doel CIDR en nexthop moeten gespecificeerd zijn "
 "(waarde=%s)"
 
-msgid "Host or IP that the user is allowed to connect through."
-msgstr "Gastheer of IP via welke de gebruiker mag verbinden."
-
 msgid "Hostname"
 msgstr "Gastheer naam"
 
@@ -2428,12 +2275,6 @@ msgctxt "Current status of a VPN Service"
 msgid "Inactive"
 msgstr "Inactief"
 
-msgid "Incremental"
-msgstr "Stapsgewijs"
-
-msgid "Incremental Backup"
-msgstr "Stapsgewijs Archief"
-
 msgid "Info"
 msgstr "Informatie"
 
@@ -2442,18 +2283,6 @@ msgstr "Informatie"
 
 msgid "Ingress"
 msgstr "Inkomend"
-
-msgid "Initial Admin User"
-msgstr "Initiele beheerder"
-
-msgid "Initial Volume Size"
-msgstr "Initiele volumegrootte"
-
-msgid "Initial admin user to add"
-msgstr "Toe te voegen initiele beheerder"
-
-msgid "Initialize Databases"
-msgstr "Databases initialiseren"
 
 msgid "Initiator state"
 msgstr "Initiator staat"
@@ -2612,12 +2441,6 @@ msgstr "Afgelopen jaar"
 msgid "Launch"
 msgstr "Starten"
 
-msgid "Launch Cluster"
-msgstr "Cluster Starten"
-
-msgid "Launch Database"
-msgstr "Start database"
-
 msgid "Launch Instance"
 msgstr "Start exemplaar"
 
@@ -2762,9 +2585,6 @@ msgstr "Lid %s is succesvol bijgewerkt."
 
 msgid "Member Details"
 msgstr "Liddetails"
-
-msgid "Member(s)"
-msgstr "Lid/leden"
 
 msgid "Members"
 msgstr "Leden"
@@ -2987,9 +2807,6 @@ msgstr "Nieuwe smaak"
 msgid "New Host"
 msgstr "Nieuwe Host"
 
-msgid "New Size (GB)"
-msgstr "Nieuwe Grootte (GB)"
-
 msgid "New password"
 msgstr "Nieuw wachtwoord"
 
@@ -3019,9 +2836,6 @@ msgstr "Geen beschikbaarheidszones gevonden"
 
 msgid "No available projects"
 msgstr "Geen projecten beschikbaar"
-
-msgid "No backups available"
-msgstr "Geen Archief Beschikbaar"
 
 msgid "No flavors available"
 msgstr "Geen smaken beschikbaar"
@@ -3138,12 +2952,6 @@ msgstr "Geen"
 msgid "Normal"
 msgstr "Normaal"
 
-msgid "Not Assigned"
-msgstr "Niet toegewezen"
-
-msgid "Not Found"
-msgstr "Niet gevonden"
-
 msgid "Not attached"
 msgstr "Niet aangekoppeld"
 
@@ -3254,18 +3062,11 @@ msgstr "Oude smaak"
 msgid "Open Port"
 msgstr "Open poort"
 
-msgid "Optional Backup Description"
-msgstr "Optionele archiefomschrijving"
-
 msgid "Optional Parameters"
 msgstr "Optionele parameters"
 
 msgid "Optional: Next Hop Addresses (comma delimited)"
 msgstr "Optioneel: volgende sprong adressen (kommagescheiden)"
-
-msgid "Optionally provide a comma separated list of databases to create:"
-msgstr ""
-"U kunt optioneel een kommagescheiden lijst van te creëren databases opgeven:"
 
 msgid "Other"
 msgstr "Overig"
@@ -3282,9 +3083,6 @@ msgstr "Overzicht"
 msgid "Owner"
 msgstr "Eigenaar"
 
-msgid "PASSWORD"
-msgstr "WACHTWOORD"
-
 msgid "PFS"
 msgstr "PFS"
 
@@ -3300,9 +3098,6 @@ msgstr "Wachtwoord"
 msgctxt "Current status of an Instance"
 msgid "Password"
 msgstr "Wachtwoord"
-
-msgid "Password (required)"
-msgstr "Wachtwoord (vereist)"
 
 msgid "Password changed. Please log in again to continue."
 msgstr "Wachtwoord gewijzigd. Meldt u zich opnieuw aan om door te gaan."
@@ -3604,10 +3399,6 @@ msgctxt "Action log of an instance"
 msgid "Reboot"
 msgstr "Herstarten"
 
-msgctxt "Current status of a Database Instance"
-msgid "Reboot"
-msgstr "Herstarten"
-
 msgctxt "Current status of an Instance"
 msgid "Reboot"
 msgstr "Herstarten"
@@ -3672,10 +3463,6 @@ msgctxt "Action log of an instance"
 msgid "Resize"
 msgstr "Herdimensioneren"
 
-msgctxt "Current status of a Database Instance"
-msgid "Resize"
-msgstr "Herdimensioneren"
-
 msgid "Resize Instance"
 msgstr "Herdimensioneer exemplaar"
 
@@ -3699,9 +3486,6 @@ msgstr "Middel ID"
 
 msgid "Resource Metadata"
 msgstr "Middel metadata"
-
-msgid "Resource Overview"
-msgstr "Middeloverzicht"
 
 msgid "Resource Usage"
 msgstr "Middelenverbruik"
@@ -3857,10 +3641,6 @@ msgid "Saved extra spec \"%s\"."
 msgstr "Extra specificatie \"%s\" opgeslagen."
 
 #, python-format
-msgid "Scheduled backup \"%(name)s\"."
-msgstr "Gepland archief \"%(name)s\"."
-
-#, python-format
 msgid "Scheduled deletion of %(data_type)s"
 msgstr "Geplande verwijdering van %(data_type)s"
 
@@ -3972,9 +3752,6 @@ msgstr "Selecteer een exemplaar"
 msgid "Select an instance to attach to."
 msgstr "Selecteer een exemplaar om aan te koppelen."
 
-msgid "Select backup"
-msgstr "Selecteer archief"
-
 msgid "Select format"
 msgstr "Selecteer formaat"
 
@@ -4059,9 +3836,6 @@ msgstr "Omvang"
 
 msgid "Size of image to launch."
 msgstr "Grootte van te starten afbeelding."
-
-msgid "Size of the volume in GB."
-msgstr "Grootte van het volume in GB."
 
 msgid "Size of volume"
 msgstr "Volumegrootte"
@@ -4522,9 +4296,6 @@ msgstr ""
 msgid "This name is already taken."
 msgstr "Deze naam is al in gebruik."
 
-msgid "This pane needs javascript support."
-msgstr "Dit paneel vereist Javascript ondersteuning."
-
 msgid ""
 "This volume is currently attached to an instance. In some cases, creating a "
 "snapshot from an attached volume can result in a corrupted snapshot."
@@ -4621,9 +4392,6 @@ msgstr "URL"
 
 msgid "URL Path"
 msgstr "URL pad"
-
-msgid "USERNAME"
-msgstr "GEBRUIKERSNAAM"
 
 msgid "UTC"
 msgstr "UTC"
@@ -4819,9 +4587,6 @@ msgstr "Kon het volume niet uitbreiden."
 msgid "Unable to fetch EC2 credentials."
 msgstr "Niet in staat om de EC2 identiteitsgegevens op te halen."
 
-msgid "Unable to find backup!"
-msgstr "Niet in staat om het archief te vinden!"
-
 #, python-format
 msgid "Unable to get RDP console for instance \"%s\"."
 msgstr "Kon het RDP beheervenster voor exemplaar \"%s\" niet openen."
@@ -4835,12 +4600,6 @@ msgstr ""
 msgid "Unable to get VNC console for instance \"%s\"."
 msgstr ""
 "Niet in staat om het VNC beheervenster te verkrijgen voor exemplaar \"%s\"."
-
-msgid "Unable to get database backup data."
-msgstr "Niet in staat om database archief data te ontvangen."
-
-msgid "Unable to get databases data."
-msgstr "Niet in staat om database data te ontvangen."
 
 #, python-format
 msgid "Unable to get events for stack \"%s\"."
@@ -4875,9 +4634,6 @@ msgstr "Niet in staat om het subnet \"%s\" te verkrijgen"
 
 msgid "Unable to get the available hosts"
 msgstr "Kon de beschikbare gastheren niet ophalen."
-
-msgid "Unable to get user data."
-msgstr "Niet in staat om gebruikersdata te ontvangen."
 
 msgid "Unable to import key pair."
 msgstr "Niet in staat om het sleutelpaar te importeren."
@@ -5004,25 +4760,11 @@ msgstr "Niet in staat om de rekendienst limietinformatie op te halen."
 msgid "Unable to retrieve container list."
 msgstr "Niet in staat om de houderlijst op te halen."
 
-msgid "Unable to retrieve database instances."
-msgstr "Niet in staat om de database exemplaren op te halen."
-
-msgid "Unable to retrieve database size information."
-msgstr "Niet in staat om de database afmetingsinformatie op te halen."
-
 msgid "Unable to retrieve default Neutron quota values."
 msgstr "Niet in staat om de standaard Neutron quotumwaarden op te halen."
 
 msgid "Unable to retrieve default quota values."
 msgstr "Niet in staat om de standaard quotawaarden op te halen."
-
-#, python-format
-msgid "Unable to retrieve details for backup: %s"
-msgstr "Niet in staat om de archiefdetails op te halen voor: %s"
-
-#, python-format
-msgid "Unable to retrieve details for database instance: %s"
-msgstr "Niet in staat om de details op te halen voor database exemplaar: %s"
 
 #, python-format
 msgid "Unable to retrieve details for instance \"%s\"."
@@ -5197,9 +4939,6 @@ msgstr "Niet in staat om het netwerk op te halen."
 
 msgid "Unable to retrieve networks list."
 msgstr "Niet in staat om de lijst met netwerken op te halen."
-
-msgid "Unable to retrieve networks."
-msgstr "Niet in staat om de netwerken op te halen."
 
 msgid "Unable to retrieve object list."
 msgstr "Niet in staat om de objectenlijst op te halen."
@@ -5583,9 +5322,6 @@ msgstr "Gebruikersinstellingen"
 msgid "User has been updated successfully."
 msgstr "Gebruiker is succesvol bijgewerkt."
 
-msgid "Username (required)"
-msgstr "Gebruikersnaam (vereist)"
-
 msgid "Users"
 msgstr "Gebruikers"
 
@@ -5692,9 +5428,6 @@ msgstr "Volumelimieten"
 
 msgid "Volume Name"
 msgstr "Volumenaam"
-
-msgid "Volume Size"
-msgstr "Volumegrootte"
 
 msgid "Volume Snapshot"
 msgstr "Volume momentopname"
@@ -5874,15 +5607,9 @@ msgstr "U moet een afbeelding selecteren."
 msgid "You must set volume size"
 msgstr "U moet een volumegrootte instellen"
 
-msgid "You must specify a password if you create a user."
-msgstr "U moet een wachtwoord opgeven als u een gebruiker creëert."
-
 msgid "You must specify a template via one of the available sources."
 msgstr ""
 "Specificeert u alstublieft een sjabloon via een van de beschikbare bronnen."
-
-msgid "You must specify at least one database if you create a user."
-msgstr "U moet ten minste één database opgeven als u een gebruiker creëert."
 
 msgid ""
 "You must specify the source of the traffic to be allowed via this rule. You "

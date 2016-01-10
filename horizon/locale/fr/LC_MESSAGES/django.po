@@ -10,19 +10,19 @@
 # Frédéric <frosmont@free.fr>, 2014
 # JF Taltavull <jftalta@gmail.com>, 2015
 # Maxime COQUEREL <max.coquerel@gmail.com>, 2015
-# Corinne Verheyde <cverheyd@gmail.com>, 2015. #zanata
 # Gael Rehault <gael01@gmail.com>, 2015. #zanata
 # Kevin Tibi <kodokuu@gmail.com>, 2015. #zanata
+# JF Taltavull <jftalta@gmail.com>, 2016. #zanata
 msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-12-17 05:35+0000\n"
+"POT-Creation-Date: 2016-01-09 00:51+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2015-11-17 11:11+0000\n"
-"Last-Translator: Gael Rehault <gael01@gmail.com>\n"
+"PO-Revision-Date: 2016-01-01 10:52+0000\n"
+"Last-Translator: JF Taltavull <jftalta@gmail.com>\n"
 "Language: fr\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 "Generated-By: Babel 2.0\n"
@@ -64,7 +64,7 @@ msgid ""
 "    "
 msgstr ""
 "\n"
-"      Si vous n'êtes pas sûr de la méthode d'identification à utiliser, "
+"      Si vous n'êtes pas sûr de la méthode d'authentification à utiliser, "
 "veuillez contacter votre administrateur.\n"
 "    "
 
@@ -165,7 +165,7 @@ msgid "Cancel"
 msgstr "Annuler"
 
 msgid "Connect"
-msgstr "Connection"
+msgstr "Connecter"
 
 msgid "Delete"
 msgstr "Supprimer"
@@ -233,7 +233,7 @@ msgid "Members"
 msgstr "Membres"
 
 msgid "More Actions"
-msgstr "Plus d'Actions"
+msgstr "Plus d'actions"
 
 msgid "Navigation Item"
 msgstr "Elément de navigation"

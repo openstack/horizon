@@ -9,6 +9,7 @@
 # Fedor Tarasenko <feodor.tarasenko@gmail.com>, 2015
 # Ilya Alekseyev <ilyaalekseyev@acm.org>, 2015
 # Yury Sakarinen, 2014
+# Antonio Kless <antoniok.spb@gmail.com>, 2015. #zanata
 # Daisy <guoyingc@cn.ibm.com>, 2015. #zanata
 # Ilya Alekseyev <ilyaalekseyev@acm.org>, 2015. #zanata
 # OpenStack Infra <zanata@openstack.org>, 2015. #zanata
@@ -16,12 +17,12 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-12-02 23:42+0000\n"
+"POT-Creation-Date: 2016-01-09 00:51+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2015-09-23 08:11+0000\n"
-"Last-Translator: Ilya Alekseyev <ilyaalekseyev@acm.org>\n"
+"PO-Revision-Date: 2015-12-30 06:52+0000\n"
+"Last-Translator: Antonio Kless <antoniok.spb@gmail.com>\n"
 "Language: ru\n"
 "Plural-Forms: nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
 "%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || (n"
@@ -52,6 +53,12 @@ msgstr "%s байт"
 
 msgid "-"
 msgstr "-"
+
+msgid "0 GB"
+msgstr "0 ГБ"
+
+msgid "0 MB"
+msgstr "0 МБ"
 
 msgid "Active"
 msgstr "Активный"
@@ -135,6 +142,12 @@ msgstr "Требуется десятичное число"
 msgid "Delete"
 msgstr "Удалить"
 
+msgid "Delete Image"
+msgstr "Удалить образ"
+
+msgid "Delete Instance"
+msgstr "Удалить инстанс"
+
 msgid "Delete Interface"
 msgstr "Удалить интерфейс"
 
@@ -146,6 +159,10 @@ msgstr "Удалить маршрутизатор"
 
 msgid "Delete Subnet"
 msgstr "Удалить подсеть"
+
+#, python-format
+msgid "Deleted : %s."
+msgstr "Удалено: %s."
 
 msgid "Detail Information"
 msgstr "Подробная информация"
@@ -346,6 +363,10 @@ msgstr "При отправке формы произошла ошибка. По
 
 msgid "Total"
 msgstr "Всего"
+
+#, python-format
+msgid "Unable to delete: %s."
+msgstr "Невозможно удалить: %s."
 
 msgid "View Details"
 msgstr "Просмотреть детали"

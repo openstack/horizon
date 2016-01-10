@@ -7,15 +7,16 @@
 # Ettore Atalan <atalanttore@googlemail.com>, 2015
 # Carsten Duch <carsten.duch@posteo.de>, 2015. #zanata
 # Robert Simai <robert.simai@suse.com>, 2015. #zanata
+# Robert Simai <robert.simai@suse.com>, 2016. #zanata
 msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-12-17 05:35+0000\n"
+"POT-Creation-Date: 2016-01-09 00:51+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2015-11-20 10:41+0000\n"
+"PO-Revision-Date: 2016-01-07 01:46+0000\n"
 "Last-Translator: Robert Simai <robert.simai@suse.com>\n"
 "Language: de\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
@@ -33,6 +34,27 @@ msgstr ""
 "\n"
 "                Login as different user or go back to <a href=\"%(home_url)s"
 "\">home page</a>\n"
+"              "
+
+#, python-format
+msgid ""
+"\n"
+"                Used <span> %(used)s </span>(No Limit)\n"
+"              "
+msgstr ""
+"\n"
+"                Verwendet <span> %(used)s </span>(keine Begrenzung)\n"
+"              "
+
+#, python-format
+msgid ""
+"\n"
+"                Used <span> %(used)s </span>of<span> %(available)s </span>\n"
+"              "
+msgstr ""
+"\n"
+"                Verwendet <span> %(used)s </span>von<span> %(available)s </"
+"span>\n"
 "              "
 
 #, python-format
@@ -315,6 +337,16 @@ msgstr "Das Datum sollte im YYYY-mm-dd Format sein."
 
 msgid "The string may only contain ASCII printable characters."
 msgstr "Die Zeichenkette darf nur druckbare ASCII-Zeichen enthalten."
+
+#, python-format
+msgid ""
+"The value of %(resource)s is %(name)s inside the template. When launching a "
+"stack from this interface, the value must start with \"http://\" or "
+"\"https://\""
+msgstr ""
+"Der Wert von %(resource)s innerhalb der Vorlage ist %(name)s. Der Wert muss "
+"mit \"http://\" or \"https://\" beginnen, wenn ein Stapel von diesem "
+"Interface gestartet wird."
 
 msgid "This Period's GB-Hours:"
 msgstr "GB-Stunden in diesem Zeitraum:"

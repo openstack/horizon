@@ -8,15 +8,16 @@
 # Akihiro Motoki <amotoki@gmail.com>, 2015. #zanata
 # Shu Muto <shu-mutou@rf.jp.nec.com>, 2015. #zanata
 # Yuko Katabami <yukokatabami@gmail.com>, 2015. #zanata
+# Shu Muto <shu-mutou@rf.jp.nec.com>, 2016. #zanata
 msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-12-18 05:06+0000\n"
+"POT-Creation-Date: 2016-01-09 00:51+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2015-12-18 12:58+0000\n"
+"PO-Revision-Date: 2016-01-07 12:18+0000\n"
 "Last-Translator: Shu Muto <shu-mutou@rf.jp.nec.com>\n"
 "Language: ja\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
@@ -345,6 +346,9 @@ msgstr "クリックすると詳しい情報が表示されます。"
 msgid "Close"
 msgstr "閉じる"
 
+msgid "Color"
+msgstr "色"
+
 msgid "Column content"
 msgstr "カラムの内容"
 
@@ -397,6 +401,12 @@ msgstr "危険"
 
 msgid "Data"
 msgstr "データ"
+
+msgid "Date"
+msgstr "日"
+
+msgid "Datetime"
+msgstr "日時"
 
 msgid "Default"
 msgstr "初期値"
@@ -619,6 +629,12 @@ msgstr "インジケーター"
 msgid "Info"
 msgstr "情報"
 
+msgid "Input Sizes"
+msgstr "入力項目のサイズ"
+
+msgid "Input States"
+msgstr "入力項目の状態"
+
 msgid "Input addons"
 msgstr "入力項目のアドオン"
 
@@ -779,6 +795,9 @@ msgstr "モーダルのタイトル"
 msgid "Modals"
 msgstr "モーダル"
 
+msgid "Month"
+msgstr "月"
+
 msgid "Name"
 msgstr "名前"
 
@@ -815,6 +834,9 @@ msgstr "いいえ"
 msgid "No available items"
 msgstr "利用できるアイテムがありません。"
 
+msgid "Number"
+msgstr "数字"
+
 msgid "OK"
 msgstr "OK"
 
@@ -826,6 +848,9 @@ msgstr "一つの本文・・・"
 
 msgid "One more separated link"
 msgstr "もうひとつの分割されたリンク"
+
+msgid "Other Input Types"
+msgstr "他の入力項目"
 
 msgid "Pager"
 msgstr "ページャー"
@@ -982,6 +1007,9 @@ msgstr "保存中"
 msgid "Script size"
 msgstr "スクリプトサイズ"
 
+msgid "Search"
+msgstr "検索"
+
 msgid "Security Groups"
 msgstr "セキュリティーグループ"
 
@@ -1126,6 +1154,9 @@ msgstr "テーブル"
 msgid "Tabs"
 msgstr "タブ"
 
+msgid "Tel"
+msgstr "電話"
+
 msgid "Textarea"
 msgstr "テキストエリア"
 
@@ -1241,6 +1272,9 @@ msgstr ""
 msgid "This is your new key pair. Copy this information and keep it secure."
 msgstr ""
 "以下が新しいキーペアです。この情報をコピーして、安全に保管してください。"
+
+msgid "Time"
+msgstr "時刻"
 
 msgid ""
 "To view source code, hover over a section, then click the <a><span></span></"
@@ -1517,6 +1551,9 @@ msgstr "イメージメタデータの更新"
 msgid "Updated"
 msgstr "更新時刻"
 
+msgid "Url"
+msgstr "URL"
+
 msgid "User ID"
 msgstr "ユーザー ID"
 
@@ -1556,6 +1593,9 @@ msgstr "警告"
 
 msgid "Warning!"
 msgstr "警告！"
+
+msgid "Week"
+msgstr "週"
 
 msgid "Wells"
 msgstr "ウェル"

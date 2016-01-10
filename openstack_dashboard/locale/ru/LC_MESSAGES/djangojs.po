@@ -6,6 +6,7 @@
 # Ilya Alekseyev <ilyaalekseyev@acm.org>, 2015
 # Ilya Shakhat <shakhat@gmail.com>, 2015
 # kogamatranslator49 <r.podarov@yandex.ru>, 2015
+# Antonio Kless <antoniok.spb@gmail.com>, 2015. #zanata
 # Fedor Tarasenko <feodor.tarasenko@gmail.com>, 2015. #zanata
 # Ilya Alekseyev <ilyaalekseyev@acm.org>, 2015. #zanata
 # OpenStack Infra <zanata@openstack.org>, 2015. #zanata
@@ -13,12 +14,12 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-12-05 16:12+0000\n"
+"POT-Creation-Date: 2016-01-09 00:51+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2015-10-06 02:06+0000\n"
-"Last-Translator: Fedor Tarasenko <feodor.tarasenko@gmail.com>\n"
+"PO-Revision-Date: 2015-12-30 06:40+0000\n"
+"Last-Translator: Antonio Kless <antoniok.spb@gmail.com>\n"
 "Language: ru\n"
 "Plural-Forms: nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
 "%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || (n"
@@ -26,6 +27,9 @@ msgstr ""
 "Generated-By: Babel 2.0\n"
 "X-Generator: Zanata 3.7.3\n"
 "Language-Team: Russian\n"
+
+msgid "#"
+msgstr "#"
 
 msgid "(Max: 16Kb)"
 msgstr "(Максимум: 16Кб)"
@@ -35,6 +39,30 @@ msgstr "(Изменено)"
 
 msgid "(None)"
 msgstr "(нет)"
+
+msgid "1"
+msgstr "1"
+
+msgid "2"
+msgstr "2"
+
+msgid "3"
+msgstr "3"
+
+msgid "4"
+msgstr "4"
+
+msgid "5"
+msgstr "5"
+
+msgid "6"
+msgstr "6"
+
+msgid "7"
+msgstr "7"
+
+msgid "8"
+msgstr "8"
 
 msgid "<li><b>Image</b>: This option uses an image to boot the instance.</li>"
 msgstr ""
@@ -79,6 +107,9 @@ msgstr ""
 
 msgid "A name is required for your instance."
 msgstr "Требуется указать имя инстанса."
+
+msgid "Action"
+msgstr "Действие"
 
 msgid "Active"
 msgstr "Активный"
@@ -148,6 +179,9 @@ msgstr "Отмена"
 msgid "Cannot get service catalog from keystone."
 msgstr "Не удалось получить каталог служб из Keystone."
 
+msgid "Cannot get the extension list."
+msgstr "Невозможно получить список расширений."
+
 msgid ""
 "Check the <b>Configuration Drive</b> box if you want to write metadata to a "
 "special configuration drive. When the instance boots, it attaches to the "
@@ -160,6 +194,9 @@ msgstr ""
 
 msgid "Click to see more details"
 msgstr "Нажмите для подробностей"
+
+msgid "Close"
+msgstr "Закрыть"
 
 msgid "Configuration"
 msgstr "Конфигурация"
@@ -197,11 +234,23 @@ msgstr ""
 msgid "Customization Script"
 msgstr "Настройки скрипта"
 
+msgid "Danger"
+msgstr "Опасность"
+
+msgid "Data"
+msgstr "Данные"
+
+msgid "Delete Volume on Instance Delete"
+msgstr "Удалить диск при удалении инстанса"
+
 msgid "Deleted"
 msgstr "Удалено"
 
 msgid "Description"
 msgstr "Описание"
+
+msgid "Details"
+msgstr "Подробности"
 
 msgid "Device Name"
 msgstr "Имя устройства"
@@ -217,6 +266,16 @@ msgstr "ID домена"
 
 msgid "Down"
 msgstr "Выключен"
+
+msgid ""
+"Dropdown\n"
+"                <span></span>"
+msgstr ""
+"Выпадающий список\n"
+"                <span></span>"
+
+msgid "Dropdown <b></b>"
+msgstr "Выпадающий список <b></b>"
 
 msgid "Email"
 msgstr "E-mail"
@@ -270,6 +329,9 @@ msgstr ""
 "authorized_keys</samp>\n"
 "  файл."
 
+msgid "Home"
+msgstr "Домой"
+
 msgid "ID"
 msgstr "ID"
 
@@ -312,11 +374,17 @@ msgstr "Образ"
 msgid "Image Name"
 msgstr "Имя образа"
 
+msgid "Images"
+msgstr "Образы"
+
 msgid "Impact on your quota"
 msgstr "Влияние на квоту"
 
 msgid "Import Key Pair"
 msgstr "Импортировать пару ключей"
+
+msgid "Info"
+msgstr "Информация"
 
 msgid "Instance Details"
 msgstr "Детали инстанса"
@@ -329,6 +397,9 @@ msgstr "Снимок инстанса"
 
 msgid "Instance Source"
 msgstr "Источник инстанса"
+
+msgid "Instance Source Help"
+msgstr "Помощь - Источник инстанса"
 
 msgid "Instance count is required and must be an integer of at least 1"
 msgstr "Требуется указать количество инстансов (не менее 1)."
@@ -370,6 +441,9 @@ msgstr "Убито"
 msgid "Launch Instance"
 msgstr "Запустить инстанс"
 
+msgid "Link"
+msgstr "Ссылка"
+
 msgid "Load script from a file"
 msgstr "Загрузить скрипт из файла"
 
@@ -378,6 +452,9 @@ msgstr "Вручную"
 
 msgid "Max Port"
 msgstr "По порт"
+
+msgid "Metadata"
+msgstr "Метаданные"
 
 msgid "Min Disk"
 msgstr "Мин. диск"
@@ -389,10 +466,10 @@ msgid "Min Port"
 msgstr "От порта"
 
 msgid "Min RAM"
-msgstr "Минимально RAM"
+msgstr "Мин. RAM"
 
 msgid "Min RAM (MB)"
-msgstr "Мин ОЗУ (МБ)"
+msgstr "Мин. размер ОЗУ (МБ)"
 
 msgid "Name"
 msgstr "Название"
@@ -418,8 +495,17 @@ msgstr "Нет"
 msgid "No available items"
 msgstr "Нет доступных элементов"
 
+msgid "Number"
+msgstr "Число"
+
 msgid "OK"
 msgstr "ОК"
+
+msgid "Pagination"
+msgstr "Пагинация"
+
+msgid "Password"
+msgstr "Пароль"
 
 msgid "Pending Delete"
 msgstr "Ожидает удаления"
@@ -494,6 +580,9 @@ msgstr "Основной диск"
 
 msgid "Save"
 msgstr "Сохранить"
+
+msgid "Save changes"
+msgstr "Сохранить изменения"
 
 msgid "Saving"
 msgstr "Сохранение"
@@ -580,11 +669,23 @@ msgstr "Размер (Гб)"
 msgid "Snapshot"
 msgstr "Снимок"
 
+msgid "Source"
+msgstr "Источник"
+
+msgid "Source Code"
+msgstr "Исходный код"
+
 msgid "Status"
 msgstr "Статус"
 
+msgid "Submit"
+msgstr "Отправить"
+
 msgid "Subnets Associated"
 msgstr "Связанные подсети"
+
+msgid "Success"
+msgstr "Успешно"
 
 #, python-format
 msgid "Successfully created key pair %(name)s."
@@ -593,6 +694,12 @@ msgstr "Успешно создана связка ключей %(name)s."
 #, python-format
 msgid "Successfully imported key pair %(name)s."
 msgstr "Успешно импортирована связка ключей %(name)s."
+
+msgid "Swap Disk"
+msgstr "Диск подкачки"
+
+msgid "Textarea"
+msgstr "Поле ввода"
 
 msgid ""
 "The flavor you select for an instance determines the amount of compute, "
@@ -638,7 +745,7 @@ msgstr ""
 "образа."
 
 msgid "The status indicates whether the network has an active connection."
-msgstr "Статус показывает, имеются ли активные подключения в данной сети."
+msgstr "Статус показывает, есть ли активные подключения в данной сети."
 
 msgid ""
 "The subnet identifies a sub-section of a network. A subnet is specified in "
@@ -712,6 +819,9 @@ msgstr ""
 msgid "Unable to create the domain."
 msgstr "Не удалось создать домен."
 
+msgid "Unable to create the image."
+msgstr "Не удалось создать образ."
+
 msgid "Unable to create the keypair."
 msgstr "Не удалось создать пару ключей."
 
@@ -733,11 +843,17 @@ msgstr "Не удалось создать подсеть."
 msgid "Unable to create the user."
 msgstr "Не удалось создать пользователя."
 
+msgid "Unable to create the volume."
+msgstr "Не удалось создать диск."
+
 msgid "Unable to delete the domain."
 msgstr "Не удалось удалить домен."
 
 msgid "Unable to delete the domains."
 msgstr "Не удалось удалить домены."
+
+msgid "Unable to delete the image with id: "
+msgstr "Не удалось удалить образ с id:"
 
 msgid "Unable to delete the project."
 msgstr "Не удалось удалить проект."
@@ -764,7 +880,7 @@ msgid "Unable to edit the domain."
 msgstr "Не удалось изменить домен."
 
 msgid "Unable to edit the flavor extra specs."
-msgstr "Невозможно редактировать расширенные параметры для типа инстанса"
+msgstr "Невозможно редактировать расширенные параметры для типа инстанса."
 
 msgid "Unable to edit the image custom properties."
 msgstr "Невозможно редактировать расширенные свойства образа."
@@ -781,6 +897,12 @@ msgstr "Не удалось изменить пользователя."
 msgid "Unable to fetch the service catalog."
 msgstr "Не удалось получить каталог служб."
 
+msgid "Unable to fetch the services."
+msgstr "Не удалось получить сервисы."
+
+msgid "Unable to get the Glance service version."
+msgstr "Не удалось получить версию сервисов Glance."
+
 msgid "Unable to get the Keystone service version."
 msgstr "Не удалось получить версию службы Keystone."
 
@@ -793,14 +915,29 @@ msgstr "Не удалось импортировать пару ключей."
 msgid "Unable to retrieve settings."
 msgstr "Не удалось получить настройки."
 
+msgid "Unable to retrieve the Absolute Limits."
+msgstr "Не удалось получить Абсолютные Лимиты."
+
+msgid "Unable to retrieve the QoS Specs."
+msgstr "Не удалось получить характеристики QoS."
+
+msgid "Unable to retrieve the agents."
+msgstr "Не удалось получить агентов."
+
 msgid "Unable to retrieve the aggregate extra specs."
 msgstr "Невозможно получить расширенные параметры для агрегатора."
 
 msgid "Unable to retrieve the availability zones."
 msgstr "Не удалось получить зоны доступности."
 
+msgid "Unable to retrieve the cinder services."
+msgstr "Не удалось получить сервисы cinder."
+
 msgid "Unable to retrieve the current user session."
 msgstr "Не удалось получить текущую сессию пользователя."
+
+msgid "Unable to retrieve the default volume type."
+msgstr "Не удалось получить тип диска по умолчанию."
 
 msgid "Unable to retrieve the domain."
 msgstr "Не удалось получить домен."
@@ -819,6 +956,9 @@ msgstr "Невозможно получить тип инстанса."
 
 msgid "Unable to retrieve the flavors."
 msgstr "Невозможно получить типы инстансов."
+
+msgid "Unable to retrieve the heat services."
+msgstr "Не удалось получить сервисы heat."
 
 msgid "Unable to retrieve the image custom properties."
 msgstr "Не удалось получить расширенные свойства образа."
@@ -841,11 +981,14 @@ msgstr "Не удалось получить пространства имён."
 msgid "Unable to retrieve the networks."
 msgstr "Не удалось получить сети."
 
+msgid "Unable to retrieve the nova services."
+msgstr "Не удалось получить сервисы nova."
+
 msgid "Unable to retrieve the ports."
 msgstr "Не удалось получить порты."
 
 msgid "Unable to retrieve the project."
-msgstr "Не удалось получить проекты"
+msgstr "Не удалось получить проекты."
 
 msgid "Unable to retrieve the projects."
 msgstr "Не удалось получить проекты"
@@ -874,8 +1017,20 @@ msgstr "Не удалось получить список пользовател
 msgid "Unable to retrieve the volume snapshots."
 msgstr "Не удалось получить снимки диска."
 
+msgid "Unable to retrieve the volume type."
+msgstr "Не удалось получить тип диска."
+
+msgid "Unable to retrieve the volume types."
+msgstr "Не удалось получить типы дисков."
+
+msgid "Unable to retrieve the volume."
+msgstr "Не удалось получит диск."
+
 msgid "Unable to retrieve the volumes."
 msgstr "Не удалось получить диски."
+
+msgid "Unable to update the image."
+msgstr "Не удалось обновить образ."
 
 msgid "Unable to validate the template."
 msgstr "Невозможно проверить шаблон."
@@ -884,7 +1039,7 @@ msgid "Up"
 msgstr "Включен"
 
 msgid "Update Aggregate Metadata"
-msgstr " Обновить метаданные агрегатора"
+msgstr "Обновить метаданные агрегатора"
 
 msgid "Update Flavor Metadata"
 msgstr "Обновить метаданные типа инстанса"
@@ -901,8 +1056,14 @@ msgstr "ID пользователя"
 msgid "User Name"
 msgstr "Имя пользователя"
 
+msgid "Users"
+msgstr "Пользователи"
+
 msgid "VCPUS"
-msgstr "VCPUS"
+msgstr "VCPU"
+
+msgid "VCPUs"
+msgstr "VCPU"
 
 msgid "Visibility"
 msgstr "Видимость"
@@ -923,6 +1084,12 @@ msgstr ""
 "Диск может быть подключен только к одному активному инстансу. Пожалуйста, "
 "уменьште количество инстансов до 1 или выберите другой тип источника."
 
+msgid "Warning"
+msgstr "Предупреждение"
+
+msgid "Warning!"
+msgstr "Предупреждение!"
+
 msgid ""
 "When selecting volume as boot source, please ensure the instance's "
 "availability zone is compatible with your volume's availability zone."
@@ -936,7 +1103,7 @@ msgid ""
 "b> to <b>Down</b>\n"
 "    if you are not ready for other users to access the network."
 msgstr ""
-"Когда <b>Состояние</b> сети выставлено в b>Включено</b>,\n"
+"Когда <b>Состояние</b> сети выставлено в <b>Включено</b>,\n"
 "    то сеть доступна для использования. Вы можете выставить <b>Состояние</b> "
 "в <b>Выключено</b>\n"
 "    если вы не хотите, чтобы другие пользователи имели к ней доступ."

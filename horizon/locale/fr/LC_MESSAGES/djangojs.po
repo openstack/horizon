@@ -22,16 +22,17 @@
 # Olivier Buisson <olivier@openkumo.fr>, 2015. #zanata
 # OpenStack Infra <zanata@openstack.org>, 2015. #zanata
 # Romain Chantereau <rchanter@redhat.com>, 2015. #zanata
+# JF Taltavull <jftalta@gmail.com>, 2016. #zanata
 msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-12-05 16:12+0000\n"
+"POT-Creation-Date: 2016-01-09 00:51+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2015-12-04 09:34+0000\n"
-"Last-Translator: Gael Rehault <gael01@gmail.com>\n"
+"PO-Revision-Date: 2016-01-01 10:23+0000\n"
+"Last-Translator: JF Taltavull <jftalta@gmail.com>\n"
 "Language: fr\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 "Generated-By: Babel 2.0\n"
@@ -65,7 +66,7 @@ msgid "0 GB"
 msgstr "0 Go"
 
 msgid "0 MB"
-msgstr "0 MB"
+msgstr "0 Mo"
 
 msgid "Active"
 msgstr "Active"
@@ -101,7 +102,7 @@ msgid "Click here for filters."
 msgstr "Cliquer pour filtrer."
 
 msgid "Click here to expand the row and view the errors."
-msgstr "Cliquer ici pour développer cette ligne et consulter l'erreur."
+msgstr "Cliquer ici pour développer cette ligne et consulter les erreurs."
 
 msgid "Click to see more details"
 msgstr "Cliquer pour une vue plus détaillée"
@@ -153,7 +154,7 @@ msgid "Delete"
 msgstr "Supprimer"
 
 msgid "Delete Image"
-msgstr "Supprimer une image"
+msgstr "Supprimer l'image"
 
 msgid "Delete Instance"
 msgstr "Supprimer l'instance "
@@ -362,7 +363,7 @@ msgid ""
 "missing information."
 msgstr ""
 "Cette action ne peut pas être effectuée. Le contenu de cette ligne contient "
-"des erreurs ou des informations manquantes."
+"des erreurs ou manque d'informations."
 
 msgid "There was a problem communicating with the server, please try again."
 msgstr "Problème de communication avec le serveur, veuillez réessayer."

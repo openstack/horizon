@@ -15,7 +15,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-12-17 05:35+0000\n"
+"POT-Creation-Date: 2016-01-09 00:51+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -310,15 +310,6 @@ msgstr ""
 
 msgid ""
 "\n"
-"   Volumes are block devices that can be attached to instances.\n"
-"   "
-msgstr ""
-"\n"
-"    Mantıksal sürücüler sunuculara eklenebilen blok aygıtlardır.\n"
-"   "
-
-msgid ""
-"\n"
 "  Assign a name and description for the pool. Choose one subnet where all\n"
 "  members of this pool must be on. Select the protocol and load balancing\n"
 "  method for this pool. Admin State is UP (checked) by default.\n"
@@ -329,20 +320,6 @@ msgstr ""
 "bulunması\n"
 "  gereken bir alt ağ seçin. Bu havuz için iletişim kuralı ve yük dengeleme\n"
 "  yöntemi seçin. Varsayılan olarak Yönetici Durumu Açık (işaretli).\n"
-"  "
-
-msgid ""
-"\n"
-"  Move networks from 'Available Networks' to 'Selected Networks' by\n"
-"  clicking the button, or dragging and dropping. You can change the\n"
-"  NIC order by dragging and dropping as well.\n"
-"  "
-msgstr ""
-"\n"
-"  Düğmeye tıklayarak ya da sürükle bırak ile ağları 'Kullanılabilir "
-"Ağlar'dan\n"
-"  'Seçili Ağlar'a taşı. NIC sırasını da sürükleyip bırakarak "
-"değiştirebilirsiniz.\n"
 "  "
 
 msgid ""
@@ -423,10 +400,6 @@ msgstr "%(instance_name)s %(fixed_ip)s"
 #, python-format
 msgid "%(name)s - %(size)s GB (%(label)s)"
 msgstr "%(name)s - %(size)s GB (%(label)s)"
-
-#, python-format
-msgid "%(name)s | %(RAM)s RAM"
-msgstr "%(name)s | %(RAM)s RAM"
 
 #, python-format
 msgid "%(offset)s: %(label)s"
@@ -515,35 +488,6 @@ msgstr "--"
 msgid "3des"
 msgstr "3des"
 
-#, python-format
-msgid "<p>%(used)s of %(quota)s MB Used</p>"
-msgstr "<p>%(used)s / %(quota)s MB Kullanıldı</p>"
-
-#, python-format
-msgid "<p>%(used)s of %(quota)s Used</p>"
-msgstr "<p>%(used)s / %(quota)s Kullanıldı</p>"
-
-msgid ""
-"<strong>Please note:</strong> The new value must be greater than the "
-"existing volume size."
-msgstr ""
-"<strong>Lütfen dikkat:</strong>Yeni değer mevcut mantıksal sürücü boyutundan "
-"büyük olmalıdır."
-
-msgid ""
-"<strong>Please note:</strong> The value specified in the Volume Size field "
-"should be greater than 0, however, some configurations do not support "
-"specifying volume size. If specifying the volume size results in an error "
-"stating volume support is not enabled, enter 0."
-msgstr ""
-"<strong>Lütfen dikkat.</strong> Mantıksal Sürücü Boyutu alanındaki değer "
-"0'dan büyük olmalıdır, ancak, bazı yapılandırmalar mantıksal sürücü boyutu "
-"tanımlamayı desteklemez. Eğer mantıksal sürücü boyutunu belirtmek mantıksal "
-"sürücü desteğinin olmadığını söyleyen bir hata oluşturursa, 0 girin."
-
-msgid "A backup must be selected!"
-msgstr "Bir yedek mutlaka seçilmelidir!"
-
 msgid ""
 "A container is a storage compartment for your data and provides a way for "
 "you to organize your data. You can think of a container as a folder in "
@@ -574,9 +518,6 @@ msgstr "Yüklenecek bir yerel üst veri tanımlama dosyası."
 
 msgid "A local template to upload."
 msgstr "Yüklenecek yerel bir şablon."
-
-msgid "A master instance must be selected!"
-msgstr "Bir ana sunucu mutlaka seçilmelidir!"
 
 msgid ""
 "A more specific rule affects a portion of this traffic so a rule cannot be "
@@ -668,10 +609,6 @@ msgstr "Güvenlik duvarı için eylem"
 
 msgid "Action:"
 msgstr "Eylem:"
-
-msgctxt "Current status of a Database Instance"
-msgid "Active"
-msgstr "Etkin"
 
 msgctxt "Current status of a Firewall"
 msgid "Active"
@@ -985,9 +922,6 @@ msgctxt "current status of stack"
 msgid "Adopt In Progress"
 msgstr "Uyum Sağlama Sürüyor"
 
-msgid "Advanced"
-msgstr "Gelişmiş"
-
 msgid "Advanced Options"
 msgstr "Gelişmiş Seçenekler"
 
@@ -1061,22 +995,6 @@ msgstr "İstekleri en az etkin bağlantısı olan sunucuya aktarır."
 
 msgid "Allocation Pools"
 msgstr "Ayırma Havuzları"
-
-msgid ""
-"Allow the user to connect from this host\n"
-"    only. If not provided this user will be allowed to connect from "
-"anywhere.\n"
-"    "
-msgstr ""
-"Kullanıcının yalnızca bu istemciden bağlanmasına\n"
-"    izin ver. Belirtilmezse kullanıcı her yerden bağlanabilecek.\n"
-"    "
-
-msgid "Allowed Host"
-msgstr "İzinli İstemci"
-
-msgid "Allowed Host (optional)"
-msgstr "İzin Verilen İstemci (isteğe bağlı)"
 
 msgid "Amount of energy"
 msgstr "Enerji Miktarı"
@@ -1298,36 +1216,8 @@ msgctxt "Current status of a Volume"
 msgid "Backing Up"
 msgstr "Yedekleniyor"
 
-msgid "Backup"
-msgstr "Yedek"
-
-msgctxt "Current status of a Database Instance"
-msgid "Backup"
-msgstr "Yedek"
-
-msgid "Backup Database"
-msgstr "Veritabanı Yedekle"
-
-msgid "Backup Details"
-msgstr "Yedek Detayları"
-
-msgid "Backup Details: {{ backup.name }}"
-msgstr "Yedekleme Ayrıntıları: {{ backup.name }}"
-
-msgid "Backup Duration"
-msgstr "Yedek Süresi"
-
-msgid "Backup File"
-msgstr "Yedek Dosyası"
-
-msgid "Backup File Location"
-msgstr "Yedek Dosya Konumu"
-
 msgid "Backup Name"
 msgstr "Yedek İsmi"
-
-msgid "Backup Overview"
-msgstr "Yedek Genel Görünüm"
 
 msgid "Backups"
 msgstr "Yedekler"
@@ -1354,10 +1244,6 @@ msgstr "Blok Göç"
 msgid "Block Storage Services"
 msgstr "Blok Depolama Servisleri"
 
-msgctxt "Current status of a Database Instance"
-msgid "Blocked"
-msgstr "Bloklanmış"
-
 msgctxt "Power state of an Instance"
 msgid "Blocked"
 msgstr "Bloklanmış"
@@ -1382,10 +1268,6 @@ msgstr ""
 msgid "Bootable"
 msgstr "Başlatılabilir"
 
-msgctxt "Current status of a Database Instance"
-msgid "Build"
-msgstr "İnşa Et"
-
 msgctxt "Current status of a Network"
 msgid "Build"
 msgstr "İnşa Et"
@@ -1401,10 +1283,6 @@ msgstr "İnşa Et"
 msgctxt "status of a network port"
 msgid "Build"
 msgstr "İnşa Et"
-
-msgctxt "Current status of a Database Backup"
-msgid "Building"
-msgstr "İnşa Ediliyor"
 
 msgctxt "Power state of an Instance"
 msgid "Building"
@@ -1506,9 +1384,6 @@ msgstr ""
 "Hatırlayacağınız bir anahtar çifti adı seçin ve verilen boşluğa SSH genel "
 "anahtarınızı yapıştırın."
 
-msgid "Choose a new instance flavor."
-msgstr "Yeni bir sunucu şablon seçin."
-
 msgid "Choose a snapshot"
 msgstr "Anlık görüntü seçin"
 
@@ -1526,9 +1401,6 @@ msgstr "İlişkilendirilmiş QoS Özelliği seçin."
 
 msgid "Choose consumer for this QoS Spec."
 msgstr "Bu QoS Özelliği için tüketici seç."
-
-msgid "Choose initial state."
-msgstr "Başlangıç durumu seçin."
 
 msgid ""
 "Choose network from Available networks to Selected networks by push button "
@@ -1601,27 +1473,14 @@ msgstr "Yalnızca konsolu göstermek için buraya tıklayın"
 msgid "Close"
 msgstr "Kapat"
 
-msgid "Cluster Name"
-msgstr "Küme İsmi"
-
-msgid "Clusters"
-msgstr "Kümeler"
-
 msgid "Code"
 msgstr "Kod"
 
 msgid "Cold Migrate"
 msgstr "Soğuk Göç"
 
-msgid "Comma separated list of databases to create"
-msgstr "Oluşturulacak veri tabanlarının virgülle ayrılmış listesi"
-
 msgid "Comma-separated key=value pairs"
 msgstr "Virgülle ayrılmış anahtar=değer çiftleri"
-
-msgctxt "Current status of a Database Backup"
-msgid "Completed"
-msgstr "Tamamlandı"
 
 msgid "Component"
 msgstr "Bileşen"
@@ -1680,12 +1539,6 @@ msgstr "Yeniden Boyutlama veya Göç Doğrulanıyor"
 
 msgid "Conflicting Rule"
 msgstr "Çatışan Kural"
-
-msgid "Connection Examples"
-msgstr "Bağlantı Örnekleri"
-
-msgid "Connection Info"
-msgstr "Bağlantı Bilgisi"
 
 msgid "Connection Limit"
 msgstr "Bağlantı Sınırı"
@@ -2025,13 +1878,6 @@ msgstr ""
 msgid "Create an Encrypted Volume Type"
 msgstr "Şifreli bir Mantıksal Sürücü Türü Oluştur"
 
-msgid ""
-"Create an optional initial user.\n"
-"   This user will have access to all databases you create."
-msgstr ""
-"İsteğe bağlı bir başlangıç kullanıcısı oluştur.\n"
-"   Bu kullanıcının oluşturduğunuz tüm veri tabanlarına erişimi olacak."
-
 #, python-format
 msgid "Create pseudo-folder in container %(container_name)s"
 msgstr "%(container_name)s kabı içinde sahte-dizin oluştur"
@@ -2147,9 +1993,6 @@ msgstr "Bu subnet için oluşturma talepleri"
 msgid "Current Host"
 msgstr "Mevcut İstemci"
 
-msgid "Current Size (GB)"
-msgstr "Mevcut Boyut (GB)"
-
 msgid "Current password"
 msgstr "Mevcut parola"
 
@@ -2167,9 +2010,6 @@ msgstr "Özel UDP Kuralı"
 
 msgid "Customization Script Source"
 msgstr "Özelleştirme Betiği Kaynağı"
-
-msgid "DATABASE"
-msgstr "VERİTABANI"
 
 msgid "DENY"
 msgstr "REDDET"
@@ -2229,33 +2069,6 @@ msgstr "DPD Zaman aşımı DPD Aralığından büyük olmalıdır"
 msgid "Daily Usage Report"
 msgstr "Günlük Kullanım Raporu"
 
-msgid "Database"
-msgstr "Veritabanı"
-
-msgid "Database Backups"
-msgstr "Veritabanı Yedekleri"
-
-msgid "Database Info"
-msgstr "Veritabanı Bilgisi"
-
-msgid "Database Instance"
-msgstr "Veritabanı Sunucusu"
-
-msgid "Database Name"
-msgstr "Veritabanı İsmi"
-
-msgid "Database Port"
-msgstr "Veritabanı Bağlantı Noktası"
-
-msgid "Databases"
-msgstr "Veri tabanları"
-
-msgid "Datastore"
-msgstr "Veri depolama"
-
-msgid "Datastore Version"
-msgstr "Veri depolama Sürümü"
-
 msgid "Date Updated"
 msgstr "Tarih Güncellendi"
 
@@ -2298,14 +2111,6 @@ msgstr "Gecikme Zaman Aşımına eşit veya daha fazla olmalı"
 msgid "Delay must be greater than or equal to timeout"
 msgstr "Gecikme zaman aşımına eşit ya da ondan büyük olmalıdır"
 
-msgid "Delete Backup"
-msgid_plural "Delete Backups"
-msgstr[0] "Yedekleri Sil"
-
-msgid "Delete Cluster"
-msgid_plural "Delete Clusters"
-msgstr[0] "Kümeleri Sil"
-
 msgctxt "current status of stack"
 msgid "Delete Complete"
 msgstr "Silme Tamamlandı"
@@ -2318,10 +2123,6 @@ msgid "Delete DHCP Agent"
 msgid_plural "Delete DHCP Agents"
 msgstr[0] "DHCP Ajanlarını Sil"
 
-msgid "Delete Database"
-msgid_plural "Delete Databases"
-msgstr[0] "Veritabanlarını Sil"
-
 msgid "Delete Domain"
 msgid_plural "Delete Domains"
 msgstr[0] "Alanları Sil"
@@ -2333,10 +2134,6 @@ msgstr[0] "Şifrelemeleri Sil"
 msgid "Delete Extra Spec"
 msgid_plural "Delete Extra Specs"
 msgstr[0] "Ek Özellikleri Sil"
-
-msgctxt "Current status of a Database Backup"
-msgid "Delete Failed"
-msgstr "Silme Başarısız"
 
 msgctxt "current status of stack"
 msgid "Delete Failed"
@@ -2496,10 +2293,6 @@ msgctxt "Current status of an Instance"
 msgid "Deleted"
 msgstr "Silinmiş"
 
-msgid "Deleted Backup"
-msgid_plural "Deleted Backups"
-msgstr[0] "Yedekler Silindi"
-
 msgid "Deleted Container"
 msgid_plural "Deleted Containers"
 msgstr[0] "Kaplar Silindi"
@@ -2507,10 +2300,6 @@ msgstr[0] "Kaplar Silindi"
 msgid "Deleted DHCP Agent"
 msgid_plural "Deleted DHCP Agents"
 msgstr[0] "DHCP Ajanları Silindi"
-
-msgid "Deleted Database"
-msgid_plural "Deleted Databases"
-msgstr[0] "Veritabanları Silindi"
 
 msgid "Deleted Domain"
 msgid_plural "Deleted Domains"
@@ -2688,10 +2477,6 @@ msgstr "Hedef:"
 
 msgid "Detach Interface"
 msgstr "Arayüzü Ayır"
-
-msgid "Detach Replica"
-msgid_plural "Detach Replicas"
-msgstr[0] "Kopyaları Ayır"
 
 msgid "Detach Volume"
 msgid_plural "Detach Volumes"
@@ -2921,9 +2706,6 @@ msgstr "Alt"
 
 msgid "Download"
 msgstr "İndir"
-
-msgid "Download Backup"
-msgstr "Yedeği İndir"
 
 msgid "Download CSV Summary"
 msgstr "CSV Özetini İndir"
@@ -3204,10 +2986,6 @@ msgstr ""
 msgid "Error"
 msgstr "Hata"
 
-msgctxt "Current status of a Database Instance"
-msgid "Error"
-msgstr "Hata"
-
 msgctxt "Current status of a Firewall"
 msgid "Error"
 msgstr "Hata"
@@ -3274,24 +3052,12 @@ msgstr "Geri yüklemede Hata"
 msgid "Error adding Hosts to the aggregate."
 msgstr "Takıma İstemciler eklemede hata."
 
-msgid "Error creating database backup."
-msgstr "Veritabanı yedeği oluşturulamadı."
-
 msgctxt "Current status of a Volume"
 msgid "Error deleting"
 msgstr "Silmede hata"
 
-msgid "Error deleting database on instance."
-msgstr "Sunucu üzerinde veri tabanı silmede hata."
-
-msgid "Error deleting database user."
-msgstr "Veritabanı kullanıcısı silmede hata."
-
 msgid "Error editing QoS Spec consumer."
 msgstr "QoS Özelliği tüketicisini düzenlerken hata."
-
-msgid "Error getting database backup list."
-msgstr "Veri tabanı yedek listesi alırken hata."
 
 msgid "Error getting metadata definitions."
 msgstr "Üst veri tanımlamaları getirilirken hata."
@@ -3404,14 +3170,6 @@ msgstr ""
 
 msgid "Extra Specs"
 msgstr "Ekstra Özellikler"
-
-msgctxt "Current status of a Database Backup"
-msgid "Failed"
-msgstr "Başarısız"
-
-msgctxt "Current status of a Database Instance"
-msgid "Failed"
-msgstr "Başarısız"
 
 msgctxt "Power state of an Instance"
 msgid "Failed"
@@ -4042,9 +3800,6 @@ msgstr ""
 "mantıksal birimlere böler. İstemci takımını düzenleyerek içereceği "
 "istemcileri seçin."
 
-msgid "Host or IP that the user is allowed to connect through."
-msgstr "Kullanıcının bağlanmasına izin verilecek istemci ya da IP."
-
 msgid "Hostname"
 msgstr "Makine adı"
 
@@ -4332,12 +4087,6 @@ msgctxt "Current status of a VPN Service"
 msgid "Inactive"
 msgstr "Etkin değil"
 
-msgid "Incremental"
-msgstr "Artan"
-
-msgid "Incremental Backup"
-msgstr "Aşamalı Yedek"
-
 msgid "Info"
 msgstr "Bilgi"
 
@@ -4358,21 +4107,6 @@ msgstr "Init Başarısız"
 msgctxt "current status of stack"
 msgid "Init In Progress"
 msgstr "Init Sürüyor"
-
-msgid "Initial Admin User"
-msgstr "Başlangıç Yönetici Kullanıcısı"
-
-msgid "Initial Databases"
-msgstr "Başlangıç Veritabanları"
-
-msgid "Initial Volume Size"
-msgstr "İlk Mantıksal Sürücü Boyutu"
-
-msgid "Initial admin user to add"
-msgstr "İlk eklenecek yönetici kullanıcı"
-
-msgid "Initialize Databases"
-msgstr "Veritabanlarını İlklendir"
 
 msgid "Initiator state"
 msgstr "Başlatıcı durumu"
@@ -4492,9 +4226,6 @@ msgid ""
 msgstr ""
 "Geçersiz zaman aralığı. İleri tarihten veri istiyorsunuz, bu var olmayabilir."
 
-msgid "Is a Replica Of"
-msgstr "Çoğaltılmışıdır"
-
 msgid "Items Per Page"
 msgstr "Sayfa Başına Öğe"
 
@@ -4590,12 +4321,6 @@ msgstr "Bu yıl"
 
 msgid "Launch"
 msgstr "Başlat"
-
-msgid "Launch Cluster"
-msgstr "Küme Başlat"
-
-msgid "Launch Database"
-msgstr "Veritabanı Başlat"
 
 msgid "Launch Instance"
 msgstr "Sunucu Başlat"
@@ -4808,9 +4533,6 @@ msgstr "Elle"
 msgid "Mapped Fixed IP Address"
 msgstr "Sabit IP Adresi Haritalandı"
 
-msgid "Master Instance Name"
-msgstr "Ana Sunucu Adı"
-
 msgid "Max Retries"
 msgstr "Azami Yeniden Deneme"
 
@@ -4840,12 +4562,6 @@ msgstr "Üye IP adresi belirtilmelidir"
 
 msgid "Member Source"
 msgstr "Üye Kaynağı"
-
-msgid "Member address"
-msgstr "Üye adresi"
-
-msgid "Member(s)"
-msgstr "Üye(ler)"
 
 msgid "Members"
 msgstr "Üyeler"
@@ -5151,10 +4867,6 @@ msgstr "Asla"
 msgid "Never updated"
 msgstr "Hiç güncellenmedi"
 
-msgctxt "Current status of a Database Backup"
-msgid "New"
-msgstr "Yen"
-
 msgid "New DHCP Agent"
 msgstr "Yeni DHCP Ajanı"
 
@@ -5164,9 +4876,6 @@ msgstr "Yeni Şablon"
 msgid "New Host"
 msgstr "Yeni İstemci"
 
-msgid "New Size (GB)"
-msgstr "Yeni Boyut (GB)"
-
 msgid "New name cannot be empty."
 msgstr "Yeni isim boş olamaz."
 
@@ -5175,9 +4884,6 @@ msgstr "Yeni isim başka bir mantıksal sürücü türüyle çatışıyor."
 
 msgid "New password"
 msgstr "Yeni parola"
-
-msgid "New size for volume must be greater than current size."
-msgstr "Mantıksal sürücünün yeni boyutu mevcut boyuttan büyük olmalı."
 
 msgid "New size must be greater than current size."
 msgstr "Yeni boyut mevcut boyuttan büyük olmalıdır."
@@ -5234,9 +4940,6 @@ msgstr "Kullanılabilir konsol bulunamadı."
 
 msgid "No available projects"
 msgstr "Uygun proje yok"
-
-msgid "No backups available"
-msgstr "Kullanılabilir yedek yok"
 
 msgid "No flavors available"
 msgstr "Kullanılabilir nitelik yok"
@@ -5371,12 +5074,6 @@ msgstr "Hiçbiri (özelliği siler)"
 
 msgid "Normal"
 msgstr "Normal"
-
-msgid "Not Assigned"
-msgstr "Atanmamış"
-
-msgid "Not Found"
-msgstr "Bulunamadı"
 
 msgid "Not attached"
 msgstr "Ekli değil"
@@ -5532,29 +5229,11 @@ msgstr "Bağlantı Noktasını Aç"
 msgid "Open Port/Port Range:"
 msgstr "Açık Bağlantı Noktası / Bağlantı Noktası Aralığı:"
 
-msgid "Optional Backup Description"
-msgstr "İsteğe Bağlı Yedek Tanımı"
-
 msgid "Optional Parameters"
 msgstr "İsteğe Bağlı Parametreler"
 
-msgid "Optional parent backup"
-msgstr "İsteğe bağlı üst yedek"
-
 msgid "Optional: Next Hop Addresses (comma delimited)"
 msgstr "İsteğe bağlı: Sonraki Nokta Adresi (virgülle ayrılmış)"
-
-msgid ""
-"Optionally choose to create this database using a previous backup, or as a "
-"replica of another database instance."
-msgstr ""
-"İsteğe bağlı olarak bu veri tabanını önceden alınmış bir yedekten, ya da "
-"başka bir veri tabanı sunucusunun kopyası olarak oluşturmayı seçin."
-
-msgid "Optionally provide a comma separated list of databases to create:"
-msgstr ""
-"İsteğe bağlı olarak oluşturulacak veri tabanlarının virgülle ayrılmış "
-"listesini sağlayın:"
 
 msgid "Optionally, you may choose to create a new volume."
 msgstr ""
@@ -5605,9 +5284,6 @@ msgstr ""
 "projede \"kabul edilebilir\". Bu, <tt>cinder transfer-create</tt> komutuna "
 "denktir."
 
-msgid "PASSWORD"
-msgstr "PAROLA"
-
 msgid "PFS"
 msgstr "PFS"
 
@@ -5620,18 +5296,12 @@ msgstr "Sayfa Bulunamadı"
 msgid "Parameters"
 msgstr "Parametreler"
 
-msgid "Parent Backup"
-msgstr "Üst Yedek"
-
 msgid "Password"
 msgstr "Şifre"
 
 msgctxt "Current status of an Instance"
 msgid "Password"
 msgstr "Şifre"
-
-msgid "Password (required)"
-msgstr "Parola (gerekli)"
 
 msgid "Password changed. Please log in again to continue."
 msgstr "Şifre değiştirildi. Devam etmek için lütfen giriş yapın."
@@ -6087,10 +5757,6 @@ msgctxt "Action log of an instance"
 msgid "Reboot"
 msgstr "Yeniden Başlat"
 
-msgctxt "Current status of a Database Instance"
-msgid "Reboot"
-msgstr "Yeniden Başlat"
-
 msgctxt "Current status of an Instance"
 msgid "Reboot"
 msgstr "Yeniden Başlat"
@@ -6220,19 +5886,6 @@ msgid "Removed User"
 msgid_plural "Removed Users"
 msgstr[0] "Kullanıcılar Kaldırıldı"
 
-msgid "Replica Detached"
-msgid_plural "Replicas Detached"
-msgstr[0] "Kopyalar Ayrıldı"
-
-msgid "Replicas"
-msgstr "Kopyalar"
-
-msgid "Replicate from Instance"
-msgstr "Sunucudan Çoğalt"
-
-msgid "Replication"
-msgstr "Çoğaltma"
-
 msgid "Request ID"
 msgstr "İstek ID'si"
 
@@ -6266,21 +5919,8 @@ msgctxt "Action log of an instance"
 msgid "Resize"
 msgstr "Yeniden boyutlandır"
 
-msgctxt "Current status of a Database Instance"
-msgid "Resize"
-msgstr "Yeniden boyutlandır"
-
-msgid "Resize Database Instance"
-msgstr "Veritabanı Sunucusunu Yeniden Boyutlandır"
-
-msgid "Resize Database Volume"
-msgstr "Veritabanı Mantıksal Sürücüsünü Yeniden Boyutlandır"
-
 msgid "Resize Instance"
 msgstr "Sunucuyu Yeniden Boyutlandır"
-
-msgid "Resize Volume"
-msgstr "Mantıksal Sürücüyü Yeniden Boyutlandır"
 
 msgctxt "Current status of an Instance"
 msgid "Resize/Migrate"
@@ -6290,17 +5930,9 @@ msgctxt "Task status of an Instance"
 msgid "Resized or Migrated"
 msgstr "Yeniden Boyutlandı ya da Göç Edildi"
 
-#, python-format
-msgid "Resizing instance \"%s\""
-msgstr "\"%s\" sunucusu yeniden boyutlanıyor"
-
 msgctxt "Task status of an Instance"
 msgid "Resizing or Migrating"
 msgstr "Yeniden Boyutlanıyor veya Göç Ediliyor"
-
-#, python-format
-msgid "Resizing volume \"%s\""
-msgstr "Mantıksal sürücü \"%s\" yeniden boyutlanıyor"
 
 msgid "Resource"
 msgstr "Kaynak"
@@ -6310,9 +5942,6 @@ msgstr "Kaynak ID'si"
 
 msgid "Resource Metadata"
 msgstr "Kaynak Metadata'sı"
-
-msgid "Resource Overview"
-msgstr "Kaynak Genel Görünüm"
 
 msgid "Resource Types"
 msgstr "Kaynak Türleri"
@@ -6329,18 +5958,6 @@ msgstr "Kaynaklar"
 
 msgid "Resources Usage Overview"
 msgstr "Kaynak Kullanım Önizleme"
-
-msgid "Restart Instance"
-msgid_plural "Restart Instances"
-msgstr[0] "Sunucuları Yeniden Başlat"
-
-msgctxt "Current status of a Database Instance"
-msgid "Restart Required"
-msgstr "Yeniden Başlatma Gerekiyor"
-
-msgid "Restarted Instance"
-msgid_plural "Restarted Instances"
-msgstr[0] "Sunucular Yeniden Başlatıldı"
 
 msgid "Restarted instances will lose any data not saved in persistent storage."
 msgstr ""
@@ -6361,9 +5978,6 @@ msgstr "Mantıksal Sürücü Yedeğini Geri Yükle"
 
 msgid "Restore a Volume Backup"
 msgstr "Mantıksal Sürücü Yedeğini Geri Yükle"
-
-msgid "Restore from Backup"
-msgstr "Yedekten Geri Yükle"
 
 msgctxt "Current status of a Volume Backup"
 msgid "Restoring"
@@ -6599,17 +6213,9 @@ msgstr "Ekstra özellik \"%s\" kaydedildi."
 msgid "Saved spec \"%s\"."
 msgstr "\"%s\" özelliği kaydedildi."
 
-msgctxt "Current status of a Database Backup"
-msgid "Saving"
-msgstr "Kaydediliyor"
-
 msgctxt "Current status of an Image"
 msgid "Saving"
 msgstr "Kaydediliyor"
-
-#, python-format
-msgid "Scheduled backup \"%(name)s\"."
-msgstr "\"%(name)s\" yedeği zamanlandı."
 
 #, python-format
 msgid "Scheduled deletion of %(data_type)s"
@@ -6776,18 +6382,12 @@ msgstr "Bir Router Seçin"
 msgid "Select a Subnet"
 msgstr "Bir alt ağ seçin"
 
-msgid "Select a backup to restore"
-msgstr "Geri yüklenecek bir yedek seçin"
-
 #, python-format
 msgid "Select a health monitor of %s"
 msgstr "%s sağlık izleyici seçin"
 
 msgid "Select a key pair"
 msgstr "Bir anahtar çifti seç"
-
-msgid "Select a master instance"
-msgstr "Bir ana sunucu seçin"
 
 #, python-format
 msgid "Select a monitor template for %s"
@@ -6801,9 +6401,6 @@ msgstr "Yeni bir QoS özelliği seçin"
 
 msgid "Select a new agent"
 msgstr "Yeni bir ajan seçin"
-
-msgid "Select a new flavor"
-msgstr "Yeni bir nitelik seçin"
 
 msgid "Select a new host"
 msgstr "Yeni bir istemci seçin"
@@ -6850,20 +6447,11 @@ msgstr "Bir sunucu seçin"
 msgid "Select an instance to attach to."
 msgstr "Eklenilecek bir sunucu seçin."
 
-msgid "Select backup"
-msgstr "Yedek seçin"
-
-msgid "Select datastore type and version"
-msgstr "Veri deposu türü ve sürümü seçin"
-
 msgid "Select format"
 msgstr "Format seçiniz"
 
 msgid "Select from active instances"
 msgstr "Etkin sunuculardan seç"
-
-msgid "Select instance"
-msgstr "Sunucu seçin"
 
 msgid "Select members for this pool "
 msgstr "Bu havuz için üye seçin "
@@ -6873,9 +6461,6 @@ msgstr "Ağ seçin"
 
 msgid "Select networks for your instance."
 msgstr "Sunucunuz için ağlar seçin."
-
-msgid "Select parent backup"
-msgstr "Üst yedeği seçin"
 
 msgid "Select routers for your firewall."
 msgstr "Güvenlik duvarınız için yönlendiricileri seçin."
@@ -7032,10 +6617,6 @@ msgid "Shut Off Instance"
 msgid_plural "Shut Off Instances"
 msgstr[0] "Sunucular Kapatıldı"
 
-msgctxt "Current status of a Database Instance"
-msgid "Shutdown"
-msgstr "Kapat"
-
 msgctxt "Current status of an Instance"
 msgid "Shutoff"
 msgstr "Kapalı"
@@ -7054,9 +6635,6 @@ msgstr "Başlatılacak imaj boyutu."
 
 msgid "Size of root disk"
 msgstr "Root diskin boyutu"
-
-msgid "Size of the volume in GB."
-msgstr "Mantıksal sürücünün GB olarak boyutu."
 
 msgid "Size of volume"
 msgstr "Mantıksal sürücü boyutu"
@@ -7159,9 +6737,6 @@ msgstr "Kaynak Bağlantı Noktası"
 msgid "Source Port/Port Range"
 msgstr "Kaynak Bağlantı Noktası Aralığı"
 
-msgid "Source for Initial State"
-msgstr "Başlangıç Durumu için Kaynak"
-
 msgid "Source port (integer in [1, 65535] or range in a:b)"
 msgstr "Kaynak bağlantı noktası ([1, 65535] veya a:b aralığında tam sayı)"
 
@@ -7210,9 +6785,6 @@ msgstr "VIP Belirtin"
 msgid "Specify a metadata definition namespace to import."
 msgstr "İçe aktarılacak isim uzayı üst veri tanımlaması belirtin."
 
-msgid "Specify a new flavor for the database instance."
-msgstr "Veri tabanı sunucusu için yeni bir nitelik belirtin."
-
 msgid "Specify additional attributes for the subnet."
 msgstr "Alt ağ için ek öznitelikler belirtin."
 
@@ -7230,12 +6802,6 @@ msgstr "Üye IP adresi belirt"
 
 msgid "Specify the details for launching an instance."
 msgstr "Sunucu açmak için gerekli detayları belirtin."
-
-msgid "Specify the details for the database backup."
-msgstr "Veri tabanı yedeği için detayları belirtin."
-
-msgid "Specify the new volume size for the database instance."
-msgstr "Veritabanı sunucusu için yeni mantıksal sürücü boyutunu belirtin."
 
 msgid ""
 "Specify this option to copy image data to the image service. If unspecified, "
@@ -7990,9 +7556,6 @@ msgstr "Yığının ömrü sürecinde yürütülecek işlemler için gereklidir"
 msgid "This name is already taken."
 msgstr "Bu ad zaten alınmış."
 
-msgid "This pane needs javascript support."
-msgstr "Bu panelin javascript desteğine ihtiyacı var."
-
 msgid ""
 "This volume is currently attached to an instance. In some cases, creating a "
 "snapshot from an attached volume can result in a corrupted snapshot."
@@ -8105,9 +7668,6 @@ msgstr "Dönüştürme İletişim Kuralı"
 msgid "Type"
 msgstr "Tür"
 
-msgid "Type and version of datastore."
-msgstr "Veri deposunun türü ve sürümü."
-
 msgid "Type of backend device identifier provided"
 msgstr "Sağlanan arka uç aygıt tanımlayıcı türü"
 
@@ -8146,9 +7706,6 @@ msgstr "URL"
 
 msgid "URL Path"
 msgstr "URL Yolu"
-
-msgid "USERNAME"
-msgstr "KULLANICIADI"
 
 msgid "UTC"
 msgstr "UTC"
@@ -8418,14 +7975,8 @@ msgstr "Mantıksal sürücü büyütülemiyor."
 msgid "Unable to fetch EC2 credentials."
 msgstr "EC2 Kimlikleri getirilemedi."
 
-msgid "Unable to find backup!"
-msgstr "Yedek bulunamadı!"
-
 msgid "Unable to find default role."
 msgstr "Varsayılan rol bulunamadı."
-
-msgid "Unable to find master instance!"
-msgstr "Ana sunucu bulunamadı!"
 
 msgid "Unable to get EC2 credentials"
 msgstr "EC2 Kimlikleri getirilemedi."
@@ -8451,12 +8002,6 @@ msgstr "\"%s\" sunucusu için VNC konsolu alınamıyor."
 
 msgid "Unable to get cinder services list."
 msgstr "Cinder servis listesi alınamadı."
-
-msgid "Unable to get database backup data."
-msgstr "Veritabanı yedek verisi alınamadı."
-
-msgid "Unable to get databases data."
-msgstr "Veritabanı verisi alınamadı."
 
 #, python-format
 msgid "Unable to get events for stack \"%s\"."
@@ -8513,9 +8058,6 @@ msgstr "%(pool)s havuzu için alt ağ alınamadı."
 msgid "Unable to get the available hosts"
 msgstr "Kullanılabilir istemciler alınamadı"
 
-msgid "Unable to get user data."
-msgstr "Kullanıcı verisi alınamadı."
-
 msgid "Unable to import key pair."
 msgstr "Anahtar çifti içe aktarılamıyor."
 
@@ -8525,12 +8067,6 @@ msgstr "\"%(name)s\" isimli %(count)s çalıştırılamadı."
 
 msgid "Unable to list containers."
 msgstr "Kaplar listelenemedi."
-
-msgid "Unable to list database backups for parent."
-msgstr "Veri tabanı yedekleri bir üst için listelenemiyor."
-
-msgid "Unable to list database instances to backup."
-msgstr "Yedeği alınacak veritabanı sunucuları listelenemiyor."
 
 msgid "Unable to list dhcp agents hosting network."
 msgstr "Ağa sunan dhcp ajanları listelenemiyor."
@@ -8572,9 +8108,6 @@ msgstr "\"%s\" sunucusu değiştirilemedi."
 msgid "Unable to modify project \"%s\"."
 msgstr "\"%s\" projesi düzenlenemedi."
 
-msgid "Unable to obtain flavors."
-msgstr "Nitelikler elde edilemedi."
-
 #, python-format
 msgid "Unable to parse IP address %s."
 msgstr "IP adres ayrıştırılamıyor %s."
@@ -8585,14 +8118,6 @@ msgstr "Sunucu yeniden inşa edilemedi."
 #, python-format
 msgid "Unable to resize instance \"%s\"."
 msgstr "Sunucu \"%s\" yeniden boyutlanamıyor."
-
-#, python-format
-msgid "Unable to resize instance. %s"
-msgstr "Sunucu yeniden boyutlandırılamadı. %s"
-
-#, python-format
-msgid "Unable to resize volume. %s"
-msgstr "Mantıksal sürücü yeniden boyutlandırılamıyor. %s"
 
 msgid "Unable to restore backup."
 msgstr "Yedekten geri yükleme başarısız."
@@ -8711,25 +8236,11 @@ msgstr "Hesaplama limit bilgisi alınamıyor."
 msgid "Unable to retrieve container list."
 msgstr "Kap listesi alınamadı."
 
-msgid "Unable to retrieve database instances."
-msgstr "Veritabanı sunucuları alınamadı."
-
-msgid "Unable to retrieve database size information."
-msgstr "Veritabanı boyut bilgisi alınamadı."
-
 msgid "Unable to retrieve default Neutron quota values."
 msgstr "Varsayılan Neutron kota değerleri alınamıyor."
 
 msgid "Unable to retrieve default quota values."
 msgstr "Varsayılan kota değerleri alınamıyor."
-
-#, python-format
-msgid "Unable to retrieve details for backup: %s"
-msgstr "Yedek için detaylar alınamadı: %s"
-
-#, python-format
-msgid "Unable to retrieve details for database instance: %s"
-msgstr "Veritabanı sunucusu için detaylar alınamadı: %s"
 
 #, python-format
 msgid "Unable to retrieve details for instance \"%s\"."
@@ -8742,10 +8253,6 @@ msgstr "\"%s\" anahtar çifti için ayrıntılar alınamadı."
 #, python-format
 msgid "Unable to retrieve details for network \"%s\"."
 msgstr "\"%s\" ağı için detaylar alınamadı."
-
-#, python-format
-msgid "Unable to retrieve details for parent backup: %s"
-msgstr "Üst yedek için detaylar alınamadı: %s"
 
 #, python-format
 msgid "Unable to retrieve details for router \"%s\"."
@@ -8941,9 +8448,6 @@ msgstr "Network bilgisi alınamadı."
 
 msgid "Unable to retrieve networks list."
 msgstr "Ağ listesi alınamadı."
-
-msgid "Unable to retrieve networks."
-msgstr "Ağlar getirilemiyor."
 
 msgid "Unable to retrieve object list."
 msgstr "Nesne listesi alınamadı."
@@ -9597,9 +9101,6 @@ msgstr "\"%s\" kullanıcı adı zaten kullanılıyor."
 msgid "User password has been updated successfully."
 msgstr "Kullanıcı parolası başarıyla değiştirildi."
 
-msgid "Username (required)"
-msgstr "Kullanıcı adı (gerekli)"
-
 msgid "Users"
 msgstr "Kullanıcılar"
 
@@ -9781,9 +9282,6 @@ msgstr "Mantıksal Sürücü Sınırları"
 msgid "Volume Name"
 msgstr "Mantıksal Sürücü Adı"
 
-msgid "Volume Size"
-msgstr "Mantıksal Sürücü Boyutu"
-
 msgid "Volume Snapshot"
 msgstr "Mantıksal Sürücü Anlık Görüntüsü"
 
@@ -9948,15 +9446,6 @@ msgstr ""
 "özelleştirebilirsiniz."
 
 msgid ""
-"You can perform an incremental backup by specifying a parent backup. "
-"<strong>However,</strong> not all databases support incremental backups in "
-"which case this operation will result in an error."
-msgstr ""
-"Bir üst yedek belirterek artışlı yedek alabilirsiniz. <strong>Ancak,</"
-"strong> tüm veri tabanları artışlı yedeklemeyi desteklemediğinden, bu "
-"durumlarda bu işlem hatayla sonuçlanır."
-
-msgid ""
 "You can specify the desired rule template or use custom rules, the options "
 "are Custom TCP Rule, Custom UDP Rule, or Custom ICMP Rule."
 msgstr ""
@@ -10072,9 +9561,6 @@ msgstr ""
 msgid "You may update the editable properties of your router here."
 msgstr "Routernizi düzenlenebilir özelliklerini buradan güncelleyebilirsiniz."
 
-msgid "You must select a datastore type and version."
-msgstr "Bir veri deposu türü ve sürümü seçmelisiniz."
-
 msgid "You must select a snapshot."
 msgstr "Bir anlık görüntü seçmelisiniz."
 
@@ -10087,15 +9573,9 @@ msgstr "Bir imaj seçmelisiniz."
 msgid "You must set volume size"
 msgstr "Mantıksal sürücü boyutu ayarlamalısınız"
 
-msgid "You must specify a password if you create a user."
-msgstr "Kullanıcı oluşturursanız parola belirtmelisiniz."
-
 msgid "You must specify a template via one of the available sources."
 msgstr ""
 "Kullanılabilir kaynaklardan biri aracılığıyla bir şablon belirtmelisiniz"
-
-msgid "You must specify at least one database if you create a user."
-msgstr "Kullanıcı oluşturursanız en az bir veritabanı belirtmelisiniz."
 
 msgid ""
 "You must specify the source of the traffic to be allowed via this rule. You "

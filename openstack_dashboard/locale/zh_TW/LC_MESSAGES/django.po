@@ -17,7 +17,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-12-17 05:35+0000\n"
+"POT-Creation-Date: 2016-01-09 00:51+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -291,15 +291,6 @@ msgstr ""
 
 msgid ""
 "\n"
-"   Volumes are block devices that can be attached to instances.\n"
-"   "
-msgstr ""
-"\n"
-"   雲硬碟是可以被附加到雲實例的區塊裝置。\n"
-"   "
-
-msgid ""
-"\n"
 "  Assign a name and description for the pool. Choose one subnet where all\n"
 "  members of this pool must be on. Select the protocol and load balancing\n"
 "  method for this pool. Admin State is UP (checked) by default.\n"
@@ -309,19 +300,6 @@ msgstr ""
 "  為倉庫取名及編寫描述。選擇一個讓所有此倉庫\n"
 "  成員都應該使用的子網路。選擇此倉庫的協定及\n"
 "  負載平衡。預設管理員狀態為上線（已勾選）。\n"
-"  "
-
-msgid ""
-"\n"
-"  Move networks from 'Available Networks' to 'Selected Networks' by\n"
-"  clicking the button, or dragging and dropping. You can change the\n"
-"  NIC order by dragging and dropping as well.\n"
-"  "
-msgstr ""
-"\n"
-"  可以用點擊按鈕或拖拉的方式從「可用的網路」\n"
-"  移動網路到「已選擇的網路」。\n"
-"  您可以自行以拖拉的方式更換網路卡的順序。\n"
 "  "
 
 msgid ""
@@ -364,18 +342,12 @@ msgstr "並且刪除接口 %s 時失敗"
 msgid "\"Add Router Route\""
 msgstr "「加入路由器路由」"
 
-msgid "\"Clusters\""
-msgstr "「叢集」"
-
 msgid ""
 "\"Customization Script\" is analogous to \"User Data\" in other systems."
 msgstr "「客製化腳本」類比於其他系統的「用戶資料」。"
 
 msgid "\"Edit Volume Type\""
 msgstr "「編輯雲硬碟類型」"
-
-msgid "\"Launch Cluster\""
-msgstr "「發動叢集」"
 
 msgid "\"N/A\""
 msgstr "「N/A」"
@@ -415,14 +387,6 @@ msgstr "%(instance_name)s %(fixed_ip)s"
 #, python-format
 msgid "%(name)s - %(size)s GB (%(label)s)"
 msgstr "%(name)s - %(size)s GB（%(label)s）"
-
-#, python-format
-msgid "%(name)s | %(RAM)s RAM"
-msgstr "%(name)s | %(RAM)s 隨機存取記憶體"
-
-#, python-format
-msgid "%(name)s | %(RAM)s RAM | %(instances)s instances"
-msgstr "%(name)s | %(RAM)s 隨機存取記憶體 | %(instances)s 雲實例"
 
 #, python-format
 msgid "%(offset)s: %(label)s"
@@ -510,32 +474,6 @@ msgstr "--"
 msgid "3des"
 msgstr "3des"
 
-#, python-format
-msgid "<p>%(used)s of %(quota)s MB Used</p>"
-msgstr "<p>已使用 %(quota)s 中的 %(used)s MB</p>"
-
-#, python-format
-msgid "<p>%(used)s of %(quota)s Used</p>"
-msgstr "<p>已使用 %(quota)s 中的 %(used)s</p>"
-
-msgid ""
-"<strong>Please note:</strong> The new value must be greater than the "
-"existing volume size."
-msgstr "<strong>請留意：</strong>新值必須大於已存在的雲硬碟容量。"
-
-msgid ""
-"<strong>Please note:</strong> The value specified in the Volume Size field "
-"should be greater than 0, however, some configurations do not support "
-"specifying volume size. If specifying the volume size results in an error "
-"stating volume support is not enabled, enter 0."
-msgstr ""
-"<strong>請留意：</strong>指定於雲硬碟的容量值應該要大於 0，無論無何，有些設置"
-"不支援指定雲硬碟容量。假如指定雲硬碟容量導致一個說明為未啟用雲硬碟支援的錯"
-"誤，輸入 0。"
-
-msgid "A backup must be selected!"
-msgstr "必須選擇備份！"
-
 msgid ""
 "A container is a storage compartment for your data and provides a way for "
 "you to organize your data. You can think of a container as a folder in "
@@ -564,9 +502,6 @@ msgstr "上傳本地的詮釋資料定義檔。"
 
 msgid "A local template to upload."
 msgstr "上傳本地的範本。"
-
-msgid "A master instance must be selected!"
-msgstr "必須選擇主管雲實例！"
 
 msgid ""
 "A more specific rule affects a portion of this traffic so a rule cannot be "
@@ -652,10 +587,6 @@ msgstr "為防火牆規則設定的行為"
 
 msgid "Action:"
 msgstr "行為："
-
-msgctxt "Current status of a Database Instance"
-msgid "Active"
-msgstr "使用中"
 
 msgctxt "Current status of a Firewall"
 msgid "Active"
@@ -795,9 +726,6 @@ msgstr "加入路由器"
 msgid "Add Rule"
 msgstr "加入規則"
 
-msgid "Add Shard"
-msgstr "加入碎片"
-
 msgid "Add Static Route"
 msgstr "加入靜態路由"
 
@@ -919,10 +847,6 @@ msgstr "已加入監視器"
 msgid "Added pool \"%s\"."
 msgstr "加入了倉庫「%s」。"
 
-#, python-format
-msgid "Added shard to \"%s\""
-msgstr "已加入碎片到「%s」"
-
 msgid "Additional routes"
 msgstr "額外的路由"
 
@@ -978,9 +902,6 @@ msgstr "選用參數失敗"
 msgctxt "current status of stack"
 msgid "Adopt In Progress"
 msgstr "正在選用參數"
-
-msgid "Advanced"
-msgstr "進階"
 
 msgid "Advanced Options"
 msgstr "進階選項"
@@ -1060,22 +981,6 @@ msgstr ""
 
 msgid "Allocation Pools"
 msgstr "分配倉庫"
-
-msgid ""
-"Allow the user to connect from this host\n"
-"    only. If not provided this user will be allowed to connect from "
-"anywhere.\n"
-"    "
-msgstr ""
-"允許用戶只能從這臺主機連接。\n"
-"    假如沒有提供，這個用戶將允許從任何地方連接。\n"
-"    "
-
-msgid "Allowed Host"
-msgstr "允許的主機"
-
-msgid "Allowed Host (optional)"
-msgstr "允許的主機（選填）"
 
 msgid "Amount of energy"
 msgstr "能量"
@@ -1289,36 +1194,8 @@ msgctxt "Current status of a Volume"
 msgid "Backing Up"
 msgstr "正在備份"
 
-msgid "Backup"
-msgstr "備份"
-
-msgctxt "Current status of a Database Instance"
-msgid "Backup"
-msgstr "備份"
-
-msgid "Backup Database"
-msgstr "備份資料庫"
-
-msgid "Backup Details"
-msgstr "備份的詳細資訊"
-
-msgid "Backup Details: {{ backup.name }}"
-msgstr "備份詳細資訊：{{ backup.name }}"
-
-msgid "Backup Duration"
-msgstr "備份持續時間"
-
-msgid "Backup File"
-msgstr "備份檔案"
-
-msgid "Backup File Location"
-msgstr "備份檔案位置"
-
 msgid "Backup Name"
 msgstr "備份名稱"
-
-msgid "Backup Overview"
-msgstr "備份概觀"
 
 msgid "Backups"
 msgstr "備份"
@@ -1345,10 +1222,6 @@ msgstr "區塊轉移"
 msgid "Block Storage Services"
 msgstr "區塊類型儲存伺服器"
 
-msgctxt "Current status of a Database Instance"
-msgid "Blocked"
-msgstr "已故障"
-
 msgctxt "Power state of an Instance"
 msgid "Blocked"
 msgstr "已故障"
@@ -1371,10 +1244,6 @@ msgstr "從雲硬碟的即時存檔開機（新增新的雲硬碟）"
 msgid "Bootable"
 msgstr "可用於開機"
 
-msgctxt "Current status of a Database Instance"
-msgid "Build"
-msgstr "建立中"
-
 msgctxt "Current status of a Network"
 msgid "Build"
 msgstr "建立中"
@@ -1390,10 +1259,6 @@ msgstr "建立中"
 msgctxt "status of a network port"
 msgid "Build"
 msgstr "建立中"
-
-msgctxt "Current status of a Database Backup"
-msgid "Building"
-msgstr "正在建立"
 
 msgctxt "Power state of an Instance"
 msgid "Building"
@@ -1492,9 +1357,6 @@ msgid ""
 "the space provided."
 msgstr "選擇您可以辨識的密鑰對名稱並在空白處貼上您的 SSH 公鑰。"
 
-msgid "Choose a new instance flavor."
-msgstr "選擇新的雲實例虛擬硬體樣板。"
-
 msgid "Choose a snapshot"
 msgstr "選擇即時存檔"
 
@@ -1512,9 +1374,6 @@ msgstr "選擇已聯結的 QoS 規格。"
 
 msgid "Choose consumer for this QoS Spec."
 msgstr "為此 QoS 規格選擇規範用戶。"
-
-msgid "Choose initial state."
-msgstr "選擇初始狀態。"
 
 msgid ""
 "Choose network from Available networks to Selected networks by push button "
@@ -1581,30 +1440,14 @@ msgstr "點擊這裡以顯示單獨的主控臺"
 msgid "Close"
 msgstr "關閉"
 
-msgid "Cluster Name"
-msgstr "叢集名稱"
-
-msgid "Cluster Size"
-msgstr "叢集規模"
-
-msgid "Clusters"
-msgstr "叢集"
-
 msgid "Code"
 msgstr "代碼"
 
 msgid "Cold Migrate"
 msgstr "關機轉移"
 
-msgid "Comma separated list of databases to create"
-msgstr "要新增的以逗號分隔的資料庫列表"
-
 msgid "Comma-separated key=value pairs"
 msgstr "以逗號分隔的 鍵=值 對"
-
-msgctxt "Current status of a Database Backup"
-msgid "Completed"
-msgstr "已完成"
 
 msgid "Component"
 msgstr "元件"
@@ -1661,15 +1504,6 @@ msgstr "正在確認調整容量或轉移"
 
 msgid "Conflicting Rule"
 msgstr "相衝的規則"
-
-msgid "Connection Examples"
-msgstr "連線範例"
-
-msgid "Connection Info"
-msgstr "連線資訊"
-
-msgid "Connection Information"
-msgstr "連線資訊"
 
 msgid "Connection Limit"
 msgstr "連線數限制"
@@ -1993,13 +1827,6 @@ msgstr "新增子網路與此網路聯結。點擊「子網路詳細資訊」標
 msgid "Create an Encrypted Volume Type"
 msgstr "新增已加密的雲硬碟類型"
 
-msgid ""
-"Create an optional initial user.\n"
-"   This user will have access to all databases you create."
-msgstr ""
-"新增選用的初始用戶。\n"
-"   這個用戶將會擁有所有您所新增的資料庫權限。"
-
 #, python-format
 msgid "Create pseudo-folder in container %(container_name)s"
 msgstr "在容器 %(container_name)s 裡新增虛擬資料夾"
@@ -2113,12 +1940,6 @@ msgstr "此子網路的建立請求數"
 msgid "Current Host"
 msgstr "目前的主機"
 
-msgid "Current Size (GB)"
-msgstr "目前容量（GB）"
-
-msgid "Current Task"
-msgstr "目前任務"
-
 msgid "Current password"
 msgstr "目前密碼"
 
@@ -2136,9 +1957,6 @@ msgstr "自訂 UDP 規則"
 
 msgid "Customization Script Source"
 msgstr "客製化腳本來源"
-
-msgid "DATABASE"
-msgstr "資料庫"
 
 msgid "DENY"
 msgstr "拒絕"
@@ -2196,33 +2014,6 @@ msgstr "死亡節點偵測逾期必須大於死亡節點偵測間隔"
 msgid "Daily Usage Report"
 msgstr "日使用量報告"
 
-msgid "Database"
-msgstr "資料庫"
-
-msgid "Database Backups"
-msgstr "資料庫備份"
-
-msgid "Database Info"
-msgstr "資料庫資訊"
-
-msgid "Database Instance"
-msgstr "資料庫實例"
-
-msgid "Database Name"
-msgstr "資料庫名稱"
-
-msgid "Database Port"
-msgstr "資料庫埠口"
-
-msgid "Databases"
-msgstr "資料庫"
-
-msgid "Datastore"
-msgstr "資料倉庫"
-
-msgid "Datastore Version"
-msgstr "資料倉庫版本"
-
 msgid "Date Updated"
 msgstr "更新日期"
 
@@ -2265,14 +2056,6 @@ msgstr "延遲必須大於等於逾期"
 msgid "Delay must be greater than or equal to timeout"
 msgstr "延遲必須大於等於逾時"
 
-msgid "Delete Backup"
-msgid_plural "Delete Backups"
-msgstr[0] "刪除備份"
-
-msgid "Delete Cluster"
-msgid_plural "Delete Clusters"
-msgstr[0] "刪除叢集"
-
 msgctxt "current status of stack"
 msgid "Delete Complete"
 msgstr "刪除完成"
@@ -2285,10 +2068,6 @@ msgid "Delete DHCP Agent"
 msgid_plural "Delete DHCP Agents"
 msgstr[0] "刪除 DHCP 媒介"
 
-msgid "Delete Database"
-msgid_plural "Delete Databases"
-msgstr[0] "刪除資料庫"
-
 msgid "Delete Domain"
 msgid_plural "Delete Domains"
 msgstr[0] "刪除地域"
@@ -2300,10 +2079,6 @@ msgstr[0] "刪除加密"
 msgid "Delete Extra Spec"
 msgid_plural "Delete Extra Specs"
 msgstr[0] "刪除額外規格"
-
-msgctxt "Current status of a Database Backup"
-msgid "Delete Failed"
-msgstr "刪除失敗"
 
 msgctxt "current status of stack"
 msgid "Delete Failed"
@@ -2463,10 +2238,6 @@ msgctxt "Current status of an Instance"
 msgid "Deleted"
 msgstr "已刪除"
 
-msgid "Deleted Backup"
-msgid_plural "Deleted Backups"
-msgstr[0] "已刪除備份"
-
 msgid "Deleted Container"
 msgid_plural "Deleted Containers"
 msgstr[0] "已刪除容器"
@@ -2474,10 +2245,6 @@ msgstr[0] "已刪除容器"
 msgid "Deleted DHCP Agent"
 msgid_plural "Deleted DHCP Agents"
 msgstr[0] "已刪除 DHCP 媒介"
-
-msgid "Deleted Database"
-msgid_plural "Deleted Databases"
-msgstr[0] "已刪除資料庫"
 
 msgid "Deleted Domain"
 msgid_plural "Deleted Domains"
@@ -2655,10 +2422,6 @@ msgstr "目標："
 
 msgid "Detach Interface"
 msgstr "卸除網路卡"
-
-msgid "Detach Replica"
-msgid_plural "Detach Replicas"
-msgstr[0] "卸除共用資料"
 
 msgid "Detach Volume"
 msgid_plural "Detach Volumes"
@@ -2895,9 +2658,6 @@ msgstr "離線"
 
 msgid "Download"
 msgstr "下載"
-
-msgid "Download Backup"
-msgstr "下載備份"
 
 msgid "Download CSV Summary"
 msgstr "下載 CSV 摘要"
@@ -3190,10 +2950,6 @@ msgstr ""
 msgid "Error"
 msgstr "錯誤"
 
-msgctxt "Current status of a Database Instance"
-msgid "Error"
-msgstr "錯誤"
-
 msgctxt "Current status of a Firewall"
 msgid "Error"
 msgstr "錯誤"
@@ -3264,24 +3020,12 @@ msgstr "還原出錯"
 msgid "Error adding Hosts to the aggregate."
 msgstr "加入主機到聚合出錯。"
 
-msgid "Error creating database backup."
-msgstr "新增資料庫備份出錯。"
-
 msgctxt "Current status of a Volume"
 msgid "Error deleting"
 msgstr "刪除時出錯"
 
-msgid "Error deleting database on instance."
-msgstr "刪除雲實例上的資料庫出錯。"
-
-msgid "Error deleting database user."
-msgstr "刪除資料庫用戶出錯。"
-
 msgid "Error editing QoS Spec consumer."
 msgstr "編輯 QoS 規格規範用戶時出錯。"
-
-msgid "Error getting database backup list."
-msgstr "獲得資料庫備份列表出錯。"
 
 msgid "Error getting metadata definitions."
 msgstr "獲得詮釋資料定義時出錯。"
@@ -3395,14 +3139,6 @@ msgstr "預計但是不能為路由器「%(router_id)s」找到對外網路「%(
 
 msgid "Extra Specs"
 msgstr "額外規格"
-
-msgctxt "Current status of a Database Backup"
-msgid "Failed"
-msgstr "已失敗"
-
-msgctxt "Current status of a Database Instance"
-msgid "Failed"
-msgstr "已失敗"
 
 msgctxt "Power state of an Instance"
 msgid "Failed"
@@ -4008,9 +3744,6 @@ msgstr ""
 "主機聚合以分組主機的方式劃分可用區域至邏輯單位。編輯主機聚合來選擇要歸入的主"
 "機。"
 
-msgid "Host or IP that the user is allowed to connect through."
-msgstr "允許連接的主機或 IP。"
-
 msgid "Hostname"
 msgstr "主機名稱"
 
@@ -4293,12 +4026,6 @@ msgctxt "Current status of a VPN Service"
 msgid "Inactive"
 msgstr "未使用"
 
-msgid "Incremental"
-msgstr "增量"
-
-msgid "Incremental Backup"
-msgstr "增量備份"
-
 msgid "Info"
 msgstr "資訊"
 
@@ -4319,21 +4046,6 @@ msgstr "初始化失敗"
 msgctxt "current status of stack"
 msgid "Init In Progress"
 msgstr "正在初始化"
-
-msgid "Initial Admin User"
-msgstr "初始管理員用戶"
-
-msgid "Initial Databases"
-msgstr "初始資料庫"
-
-msgid "Initial Volume Size"
-msgstr "初始雲硬碟容量"
-
-msgid "Initial admin user to add"
-msgstr "要加入的初始管理員用戶"
-
-msgid "Initialize Databases"
-msgstr "初始化資料庫"
 
 msgid "Initiator state"
 msgstr "起始者狀態"
@@ -4407,9 +4119,6 @@ msgstr "欲聯結的雲實例"
 msgid "Instances"
 msgstr "雲實例"
 
-msgid "Instances Per Shard"
-msgstr "每個碎片的雲實例"
-
 msgid "Insufficient privilege level to view domain information."
 msgstr "權限的等級不足以檢視地域資訊。"
 
@@ -4452,9 +4161,6 @@ msgid ""
 "Invalid time period. You are requesting data from the future which may not "
 "exist."
 msgstr "無效的時段。您從未來要求的資料還不存在。"
-
-msgid "Is a Replica Of"
-msgstr "共用資料屬於"
 
 msgid "Items Per Page"
 msgstr "每頁的項目"
@@ -4549,12 +4255,6 @@ msgstr "最近一年"
 msgid "Launch"
 msgstr "發動"
 
-msgid "Launch Cluster"
-msgstr "發動叢集"
-
-msgid "Launch Database"
-msgstr "發動資料庫"
-
 msgid "Launch Instance"
 msgstr "發動雲實例"
 
@@ -4582,10 +4282,6 @@ msgstr "以這個政策基本資料發動雲實例"
 #, python-format
 msgid "Launched %(count)s named \"%(name)s\"."
 msgstr "已發動名為「%(name)s」%(count)s 個。"
-
-#, python-format
-msgid "Launched cluster \"%s\""
-msgstr "發動叢集「%s」"
 
 msgid ""
 "Launching multiple instances is only supported for images and instance "
@@ -4770,17 +4466,11 @@ msgstr "管理雲硬碟附件"
 msgid "Manage a Volume"
 msgstr "管理雲硬碟"
 
-msgid "Management Console"
-msgstr "管理主控臺"
-
 msgid "Manual"
 msgstr "手動"
 
 msgid "Mapped Fixed IP Address"
 msgstr "已映射的固字 IP 位址"
-
-msgid "Master Instance Name"
-msgstr "主管雲實例名稱"
 
 msgid "Max Retries"
 msgstr "最大重試數"
@@ -4811,12 +4501,6 @@ msgstr "必須指定成員的 IP 位址"
 
 msgid "Member Source"
 msgstr "成員來源"
-
-msgid "Member address"
-msgstr "成員位址"
-
-msgid "Member(s)"
-msgstr "成員"
 
 msgid "Members"
 msgstr "成員"
@@ -5101,9 +4785,6 @@ msgstr "用 CIDR 格式的網路位址（如 192.168.0.0/24）"
 msgid "Network address in CIDR format (e.g. 192.168.0.0/24, 2001:DB8::/48)"
 msgstr "用 CIDR 格式的網路位址（如 192.168.0.0/24、2001:DB8::/48）"
 
-msgid "Network attached to instance."
-msgstr "已附加網路到雲實例。"
-
 msgid "Network list can not be retrieved."
 msgstr "不能獲得網路列表。"
 
@@ -5126,10 +4807,6 @@ msgstr "永不"
 msgid "Never updated"
 msgstr "永不更新"
 
-msgctxt "Current status of a Database Backup"
-msgid "New"
-msgstr "最新"
-
 msgid "New DHCP Agent"
 msgstr "新 DHCP 媒介"
 
@@ -5139,12 +4816,6 @@ msgstr "新虛擬硬體樣板"
 msgid "New Host"
 msgstr "新的主機"
 
-msgid "New Password"
-msgstr "新的密碼"
-
-msgid "New Size (GB)"
-msgstr "新容量（GB）"
-
 msgid "New name cannot be empty."
 msgstr "新名稱不能是空的。"
 
@@ -5153,12 +4824,6 @@ msgstr "新名稱與另一個雲硬碟類型衝突。"
 
 msgid "New password"
 msgstr "新的密碼"
-
-msgid "New password for cluster access."
-msgstr "給存取叢集專用的新密碼。"
-
-msgid "New size for volume must be greater than current size."
-msgstr "雲硬碟的新容量必須大於目前的容量。"
 
 msgid "New size must be greater than current size."
 msgstr "新容量必須大於目前的容量。"
@@ -5213,9 +4878,6 @@ msgstr "找不到可用的主控臺。"
 
 msgid "No available projects"
 msgstr "無可用的專案"
-
-msgid "No backups available"
-msgstr "無可用的備份"
 
 msgid "No flavors available"
 msgstr "無可用的虛擬硬體樣板"
@@ -5349,12 +5011,6 @@ msgstr "無（移除規格）"
 msgid "Normal"
 msgstr "適中"
 
-msgid "Not Assigned"
-msgstr "未指派"
-
-msgid "Not Found"
-msgstr "找不到"
-
 msgid "Not attached"
 msgstr "未附加"
 
@@ -5378,9 +5034,6 @@ msgstr "針對 Swift 的 API 請求數量"
 
 msgid "Number of Instances"
 msgstr "雲實例數量"
-
-msgid "Number of Shards"
-msgstr "碎片數量"
 
 msgid "Number of Snapshots"
 msgstr "即時存檔數量"
@@ -5412,12 +5065,6 @@ msgstr "虛擬機器網路卡在網路上的流入位元組流量"
 msgid "Number of incoming packets for a VM interface"
 msgstr "虛擬機器網路卡在網路上的流入封包數量"
 
-msgid "Number of instances in the cluster. (Read only)"
-msgstr "叢集中的雲實例數。（唯讀）"
-
-msgid "Number of instances per shard. (Read only)"
-msgstr "每個碎片的雲實例數。（唯讀）"
-
 msgid "Number of instances to launch."
 msgstr "要發動的雲實例數量。"
 
@@ -5448,9 +5095,6 @@ msgstr "在變更成員的狀態為不活躍的可允許失敗數。"
 
 msgid "Number of read requests"
 msgstr "讀取請求數量"
-
-msgid "Number of shards. (Read only)"
-msgstr "碎片數量。（唯讀）"
 
 msgid "Number of write requests"
 msgstr "寫入請求數量"
@@ -5514,26 +5158,11 @@ msgstr "開放埠口"
 msgid "Open Port/Port Range:"
 msgstr "開放埠口/埠口範圍："
 
-msgid "Optional Backup Description"
-msgstr "選填的備份描述"
-
 msgid "Optional Parameters"
 msgstr "選填的參數"
 
-msgid "Optional parent backup"
-msgstr "選填的母體備份"
-
 msgid "Optional: Next Hop Addresses (comma delimited)"
 msgstr "選填：下一跳點位址（以逗號分隔）"
-
-msgid ""
-"Optionally choose to create this database using a previous backup, or as a "
-"replica of another database instance."
-msgstr ""
-"還擇性地利用先前的備份來新增這個資料庫，或者使用其他資料庫實例的共用資料。"
-
-msgid "Optionally provide a comma separated list of databases to create:"
-msgstr "選擇性地提供要新增的一組以逗號分隔的資料庫列表："
 
 msgid "Optionally, you may choose to create a new volume."
 msgstr "另外，您也可以選擇新增新的雲硬碟。"
@@ -5585,9 +5214,6 @@ msgstr ""
 "案裡，接下來可以用承辦者專案來「允許」。這相當於 <tt>cinder transfer-create</"
 "tt> 指令。"
 
-msgid "PASSWORD"
-msgstr "密碼"
-
 msgid "PFS"
 msgstr "PFS"
 
@@ -5600,9 +5226,6 @@ msgstr "找不到"
 msgid "Parameters"
 msgstr "參數"
 
-msgid "Parent Backup"
-msgstr "母體備份"
-
 msgid "Password"
 msgstr "密碼"
 
@@ -5610,20 +5233,11 @@ msgctxt "Current status of an Instance"
 msgid "Password"
 msgstr "產生密碼"
 
-msgid "Password (required)"
-msgstr "密碼（必填）"
-
 msgid "Password changed. Please log in again to continue."
 msgstr "密碼已更換。請再登入一次以繼續。"
 
 msgid "Password changed. Please log in to continue."
 msgstr "密碼已更換。請再登入一次以繼續。"
-
-msgid "Password for root user must be specified."
-msgstr "必須指定給超級用戶的密碼。"
-
-msgid "Password for root user."
-msgstr "給超級用戶的密碼。"
 
 #, python-format
 msgid "Password for user \"%s\""
@@ -6073,10 +5687,6 @@ msgctxt "Action log of an instance"
 msgid "Reboot"
 msgstr "重開機中"
 
-msgctxt "Current status of a Database Instance"
-msgid "Reboot"
-msgstr "重開機中"
-
 msgctxt "Current status of an Instance"
 msgid "Reboot"
 msgstr "重開機中"
@@ -6205,19 +5815,6 @@ msgid "Removed User"
 msgid_plural "Removed Users"
 msgstr[0] "已移除用戶"
 
-msgid "Replica Detached"
-msgid_plural "Replicas Detached"
-msgstr[0] "已卸除共用資料"
-
-msgid "Replicas"
-msgstr "共用資料"
-
-msgid "Replicate from Instance"
-msgstr "來自雲實例的共用資料"
-
-msgid "Replication"
-msgstr "共用資料"
-
 msgid "Report Bug"
 msgstr "回報錯誤"
 
@@ -6245,9 +5842,6 @@ msgctxt "Task status of an Instance"
 msgid "Rescuing"
 msgstr "正在救援"
 
-msgid "Reset Root Password"
-msgstr "重設超級用戶密碼"
-
 msgid "Reset to Default"
 msgstr "重設為預設值"
 
@@ -6258,21 +5852,8 @@ msgctxt "Action log of an instance"
 msgid "Resize"
 msgstr "調整容量"
 
-msgctxt "Current status of a Database Instance"
-msgid "Resize"
-msgstr "調整容量"
-
-msgid "Resize Database Instance"
-msgstr "調整資料庫實例容量"
-
-msgid "Resize Database Volume"
-msgstr "調整資料庫雲硬碟容量"
-
 msgid "Resize Instance"
 msgstr "調整雲實例容量"
-
-msgid "Resize Volume"
-msgstr "調整雲硬碟容量"
 
 msgctxt "Current status of an Instance"
 msgid "Resize/Migrate"
@@ -6282,17 +5863,9 @@ msgctxt "Task status of an Instance"
 msgid "Resized or Migrated"
 msgstr "已調整容量或轉移"
 
-#, python-format
-msgid "Resizing instance \"%s\""
-msgstr "正在調整雲實例「%s」容量"
-
 msgctxt "Task status of an Instance"
 msgid "Resizing or Migrating"
 msgstr "正在調整容量或轉移"
-
-#, python-format
-msgid "Resizing volume \"%s\""
-msgstr "正在調整雲硬碟「%s」容量"
 
 msgid "Resource"
 msgstr "資源"
@@ -6302,9 +5875,6 @@ msgstr "資源識別號"
 
 msgid "Resource Metadata"
 msgstr "資源詮釋資料"
-
-msgid "Resource Overview"
-msgstr "資源概觀"
 
 msgid "Resource Types"
 msgstr "資源類型"
@@ -6321,18 +5891,6 @@ msgstr "資源"
 
 msgid "Resources Usage Overview"
 msgstr "資源使用量概觀"
-
-msgid "Restart Instance"
-msgid_plural "Restart Instances"
-msgstr[0] "重開雲實例"
-
-msgctxt "Current status of a Database Instance"
-msgid "Restart Required"
-msgstr "需要重新開始"
-
-msgid "Restarted Instance"
-msgid_plural "Restarted Instances"
-msgstr[0] "已重開雲實例"
 
 msgid "Restarted instances will lose any data not saved in persistent storage."
 msgstr "重開雲實例將遺失任何未儲存在硬碟的資料。"
@@ -6351,9 +5909,6 @@ msgstr "還原雲硬碟備份"
 
 msgid "Restore a Volume Backup"
 msgstr "還原雲硬碟備份"
-
-msgid "Restore from Backup"
-msgstr "從備份還原"
 
 msgctxt "Current status of a Volume Backup"
 msgid "Restoring"
@@ -6461,13 +6016,6 @@ msgstr "根硬碟"
 
 msgid "Root Disk (GB)"
 msgstr "根硬碟（GB）"
-
-msgid "Root Password"
-msgstr "超級用戶密碼"
-
-#, python-format
-msgid "Root password updated for cluster \"%s\""
-msgstr "已為叢集「%s」更新超級用戶密碼"
 
 msgid "Rotates requests evenly between multiple instances."
 msgstr "在多個雲實例中平衡地循環分散請求。"
@@ -6596,17 +6144,9 @@ msgstr "已儲存了額外的規格「%s」。"
 msgid "Saved spec \"%s\"."
 msgstr "已儲存了規格「%s」。"
 
-msgctxt "Current status of a Database Backup"
-msgid "Saving"
-msgstr "正在儲存"
-
 msgctxt "Current status of an Image"
 msgid "Saving"
 msgstr "正在儲存"
-
-#, python-format
-msgid "Scheduled backup \"%(name)s\"."
-msgstr "已排程備份「%(name)s」。"
 
 #, python-format
 msgid "Scheduled deletion of %(data_type)s"
@@ -6771,18 +6311,12 @@ msgstr "選擇路由器"
 msgid "Select a Subnet"
 msgstr "選擇子網路"
 
-msgid "Select a backup to restore"
-msgstr "選擇備份來還原"
-
 #, python-format
 msgid "Select a health monitor of %s"
 msgstr "選擇 %s 的健康監視器"
 
 msgid "Select a key pair"
 msgstr "選擇密鑰對"
-
-msgid "Select a master instance"
-msgstr "選擇主管雲實例"
 
 #, python-format
 msgid "Select a monitor template for %s"
@@ -6796,9 +6330,6 @@ msgstr "選擇新的 QoS 規格"
 
 msgid "Select a new agent"
 msgstr "選擇新的媒介"
-
-msgid "Select a new flavor"
-msgstr "選擇新的虛擬硬體樣板"
 
 msgid "Select a new host"
 msgstr "選擇新的主機"
@@ -6848,20 +6379,11 @@ msgstr "選擇雲實例"
 msgid "Select an instance to attach to."
 msgstr "選擇雲實例來附加。"
 
-msgid "Select backup"
-msgstr "選擇備份"
-
-msgid "Select datastore type and version"
-msgstr "選擇資料倉庫類型及版本"
-
 msgid "Select format"
 msgstr "選擇格式"
 
 msgid "Select from active instances"
 msgstr "從使用中的雲實例裡選擇"
-
-msgid "Select instance"
-msgstr "選擇雲實例"
 
 msgid "Select members for this pool "
 msgstr "為此倉庫選擇成員"
@@ -6871,9 +6393,6 @@ msgstr "選擇網路"
 
 msgid "Select networks for your instance."
 msgstr "為您的雲實例選擇網路。"
-
-msgid "Select parent backup"
-msgstr "選擇母體備份"
 
 msgid "Select routers for your firewall."
 msgstr "為您的防火牆選擇路由器。"
@@ -7035,10 +6554,6 @@ msgid "Shut Off Instance"
 msgid_plural "Shut Off Instances"
 msgstr[0] "已關機雲實例"
 
-msgctxt "Current status of a Database Instance"
-msgid "Shutdown"
-msgstr "關機中"
-
 msgctxt "Current status of an Instance"
 msgid "Shutoff"
 msgstr "關機"
@@ -7055,14 +6570,8 @@ msgstr "暫時性硬碟容量"
 msgid "Size of image to launch."
 msgstr "要發動的映像檔容量。"
 
-msgid "Size of instance to launch."
-msgstr "要發動的雲實例容量。"
-
 msgid "Size of root disk"
 msgstr "根硬碟容量"
-
-msgid "Size of the volume in GB."
-msgstr "雲硬碟 GB 容量。"
 
 msgid "Size of volume"
 msgstr "雲硬碟容量"
@@ -7163,9 +6672,6 @@ msgstr "來源埠口"
 msgid "Source Port/Port Range"
 msgstr "來源埠口/埠口範圍"
 
-msgid "Source for Initial State"
-msgstr "初始狀態時的來源"
-
 msgid "Source port (integer in [1, 65535] or range in a:b)"
 msgstr "來源埠口（[1, 65535] 的整數或範圍 a:b）"
 
@@ -7215,9 +6721,6 @@ msgstr "指定虛擬 IP"
 msgid "Specify a metadata definition namespace to import."
 msgstr "指定要匯入來定義命名空間的詮釋資料。"
 
-msgid "Specify a new flavor for the database instance."
-msgstr "為資料庫實例指定新的虛擬硬體樣板。"
-
 msgid "Specify additional attributes for the subnet."
 msgstr "為子網路指定額外的屬性。"
 
@@ -7233,20 +6736,8 @@ msgstr "指定映像檔以供上傳到映像檔伺服器。"
 msgid "Specify member IP address"
 msgstr "指定成員的 IP 位址"
 
-msgid "Specify the details for adding additional shards."
-msgstr "為額外的碎片指定詳細資料。"
-
 msgid "Specify the details for launching an instance."
 msgstr "為發動雲實例指定詳細資料。"
-
-msgid "Specify the details for the database backup."
-msgstr "為資料庫備份指定詳細資料。"
-
-msgid "Specify the new root password for vertica cluster."
-msgstr "為 Vertica 叢集指定新的超級用戶密碼。"
-
-msgid "Specify the new volume size for the database instance."
-msgstr "為資料庫實例指定新的雲硬碟容量。"
 
 msgid ""
 "Specify this option to copy image data to the image service. If unspecified, "
@@ -7793,9 +7284,6 @@ msgstr ""
 "虛擬硬體樣板「%(flavor)s」對所要求的映像檔太小。\n"
 "最低需求：%(min_ram)s MB 記憶體及 %(min_disk)s GB 根硬碟。"
 
-msgid "The flavor must be specified."
-msgstr "必須指定虛擬硬體樣板。"
-
 #, python-format
 msgid "The instance is preparing the live migration to host \"%s\"."
 msgstr "雲實例已準備要即時轉移到主機「%s」。"
@@ -7856,9 +7344,6 @@ msgstr "已實作的虛擬網路所用的實體網路名稱。"
 msgid ""
 "The next hop addresses can be used to override the router used by the client."
 msgstr "可以在客戶端使用下一跳點位址來覆蓋路由器。"
-
-msgid "The number of shards must be greater than 1."
-msgstr "每個碎片的雲實例數要大於 1。"
 
 msgid "The page you were looking for doesn't exist"
 msgstr "您所查看的頁面並不存在"
@@ -7979,9 +7464,6 @@ msgstr "這是機櫃終生履行作業所需要的"
 
 msgid "This name is already taken."
 msgstr "此名稱已被取走。"
-
-msgid "This pane needs javascript support."
-msgstr "此頁面需要 JavaScript 支援。"
 
 msgid ""
 "This volume is currently attached to an instance. In some cases, creating a "
@@ -8105,9 +7587,6 @@ msgstr "傳輸協定"
 msgid "Type"
 msgstr "類型"
 
-msgid "Type and version of datastore."
-msgstr "資料倉庫的類型和版本。"
-
 msgid "Type of backend device identifier provided"
 msgstr "提供的後端裝置認證者的類型"
 
@@ -8146,9 +7625,6 @@ msgstr "網址"
 
 msgid "URL Path"
 msgstr "網址路徑"
-
-msgid "USERNAME"
-msgstr "用戶名稱"
 
 msgid "UTC"
 msgstr "UTC"
@@ -8207,10 +7683,6 @@ msgstr "無法加入倉庫「%s」。"
 
 msgid "Unable to add rule to security group."
 msgstr "無法加入規則到安全性群組。"
-
-#, python-format
-msgid "Unable to add shard. %s"
-msgstr "無法加入碎片。%s"
 
 msgid "Unable to add user to primary project."
 msgstr "無法將用戶加入主要的專案。"
@@ -8423,14 +7895,8 @@ msgstr "無法擴充雲硬碟。"
 msgid "Unable to fetch EC2 credentials."
 msgstr "無法獲得 EC2 格式的憑證"
 
-msgid "Unable to find backup!"
-msgstr "找不到備份！"
-
 msgid "Unable to find default role."
 msgstr "找不到預設的角色。"
-
-msgid "Unable to find master instance!"
-msgstr "找不到主管雲實例！"
 
 msgid "Unable to get EC2 credentials"
 msgstr "無法獲得 EC2 格式的憑證"
@@ -8457,12 +7923,6 @@ msgstr "無法獲得雲實例「%s」的 VNC 主控臺。"
 msgid "Unable to get cinder services list."
 msgstr "無法獲得 Cinder 伺服器列表。"
 
-msgid "Unable to get database backup data."
-msgstr "無法獲得資料庫備份資料。"
-
-msgid "Unable to get databases data."
-msgstr "無法獲得資料庫資料。"
-
 #, python-format
 msgid "Unable to get events for stack \"%s\"."
 msgstr "無法獲得機櫃「%s」的事件。"
@@ -8476,9 +7936,6 @@ msgstr "無法為倉庫 %(pool)s 獲得健康監視器 %(monitor_id)s。"
 
 msgid "Unable to get host aggregate list"
 msgstr "無法獲得主機聚合列表"
-
-msgid "Unable to get instances data."
-msgstr "無法獲得雲實例資料。"
 
 #, python-format
 msgid "Unable to get log for instance \"%s\"."
@@ -8521,9 +7978,6 @@ msgstr "無法為倉庫 %(pool)s 獲得子網路。"
 msgid "Unable to get the available hosts"
 msgstr "無法獲得可用的主機"
 
-msgid "Unable to get user data."
-msgstr "無法獲得用戶資料。"
-
 msgid "Unable to import key pair."
 msgstr "無法匯入密鑰對。"
 
@@ -8534,18 +7988,8 @@ msgstr "無法初始化子網路倉庫"
 msgid "Unable to launch %(count)s named \"%(name)s\"."
 msgstr "無法發動名為「%(name)s」%(count)s 個。"
 
-#, python-format
-msgid "Unable to launch cluster. %s"
-msgstr "無法發動叢集。%s"
-
 msgid "Unable to list containers."
 msgstr "無法列出容器。"
-
-msgid "Unable to list database backups for parent."
-msgstr "無法為母體列出資料庫備份。"
-
-msgid "Unable to list database instances to backup."
-msgstr "無法列出資料庫實例來備份。"
 
 msgid "Unable to list dhcp agents hosting network."
 msgstr "無法列出 DHCP 媒介所服務的網路。"
@@ -8587,15 +8031,6 @@ msgstr "無法更改雲實例「%s」。"
 msgid "Unable to modify project \"%s\"."
 msgstr "無法更改專案「%s」。"
 
-msgid "Unable to obtain datastore versions."
-msgstr "無法獲得資料倉庫版本。"
-
-msgid "Unable to obtain datastores."
-msgstr "無法獲得資料倉庫。"
-
-msgid "Unable to obtain flavors."
-msgstr "無法獲得虛擬硬體樣板。"
-
 #, python-format
 msgid "Unable to parse IP address %s."
 msgstr "無法分析 IP 位址 %s。"
@@ -8604,20 +8039,8 @@ msgid "Unable to rebuild instance."
 msgstr "無法重建雲實例。"
 
 #, python-format
-msgid "Unable to reset password. %s"
-msgstr "無法重設密碼。%s"
-
-#, python-format
 msgid "Unable to resize instance \"%s\"."
 msgstr "無法調整雲實例「%s」的容量。"
-
-#, python-format
-msgid "Unable to resize instance. %s"
-msgstr "無法調整雲實例容量。%s"
-
-#, python-format
-msgid "Unable to resize volume. %s"
-msgstr "無法調整雲硬碟容量。%s"
 
 msgid "Unable to restore backup."
 msgstr "無法還原備份。"
@@ -8725,9 +8148,6 @@ msgstr "無法獲得可用區域。"
 msgid "Unable to retrieve backup details."
 msgstr "無法獲得備份詳細資訊。"
 
-msgid "Unable to retrieve cluster details."
-msgstr "無法獲得叢集詳細資訊。"
-
 msgid "Unable to retrieve compute host information."
 msgstr "無法獲得運算主機資訊。"
 
@@ -8737,32 +8157,11 @@ msgstr "無法獲得運算限制資訊。"
 msgid "Unable to retrieve container list."
 msgstr "無法獲得容器列表。"
 
-msgid "Unable to retrieve database clusters."
-msgstr "無法獲得資料庫叢集。"
-
-msgid "Unable to retrieve database instances."
-msgstr "無法獲得資料庫實例。"
-
-msgid "Unable to retrieve database size information."
-msgstr "無法獲得資料庫容量資訊。"
-
 msgid "Unable to retrieve default Neutron quota values."
 msgstr "無法獲得預設的 Neutron 配額值。"
 
 msgid "Unable to retrieve default quota values."
 msgstr "無法獲得預設的配額數值。"
-
-#, python-format
-msgid "Unable to retrieve details for backup: %s"
-msgstr "無法獲得備份的詳細資訊：%s"
-
-#, python-format
-msgid "Unable to retrieve details for database cluster: %s"
-msgstr "無法為資料庫叢集獲得詳細資訊：%s"
-
-#, python-format
-msgid "Unable to retrieve details for database instance: %s"
-msgstr "無法獲得資料庫實例的詳細資訊：%s"
 
 #, python-format
 msgid "Unable to retrieve details for instance \"%s\"."
@@ -8775,10 +8174,6 @@ msgstr "無法獲得密鑰對「%s」的詳細資訊。"
 #, python-format
 msgid "Unable to retrieve details for network \"%s\"."
 msgstr "無法獲得網路「%s」的詳細資訊。"
-
-#, python-format
-msgid "Unable to retrieve details for parent backup: %s"
-msgstr "無法獲得母體備份的詳細資訊：%s"
 
 #, python-format
 msgid "Unable to retrieve details for router \"%s\"."
@@ -8974,9 +8369,6 @@ msgstr "無法獲得網路。"
 
 msgid "Unable to retrieve networks list."
 msgstr "無法獲得網路列表。"
-
-msgid "Unable to retrieve networks."
-msgstr "無法獲得網路。"
 
 msgid "Unable to retrieve object list."
 msgstr "無法獲得物件列表。"
@@ -9626,9 +9018,6 @@ msgstr "已經有其他人用了用戶名稱「%s」。"
 msgid "User password has been updated successfully."
 msgstr "已成功更新用戶密碼。"
 
-msgid "Username (required)"
-msgstr "用戶名稱（必填）"
-
 msgid "Users"
 msgstr "用戶"
 
@@ -9810,9 +9199,6 @@ msgstr "雲硬碟限制"
 msgid "Volume Name"
 msgstr "雲硬碟名稱"
 
-msgid "Volume Size"
-msgstr "雲硬碟容量"
-
 msgid "Volume Snapshot"
 msgstr "雲硬碟即時存檔"
 
@@ -9976,14 +9362,6 @@ msgid ""
 msgstr "您可以用在此出現的選項來客製化您之後會發動的雲實例。"
 
 msgid ""
-"You can perform an incremental backup by specifying a parent backup. "
-"<strong>However,</strong> not all databases support incremental backups in "
-"which case this operation will result in an error."
-msgstr ""
-"您可以指定母體備份來履行增量備份。<strong>無論如何，</strong>並不是所有的資料"
-"庫都支援增量備份，此功能可能會導致錯誤。"
-
-msgid ""
 "You can specify the desired rule template or use custom rules, the options "
 "are Custom TCP Rule, Custom UDP Rule, or Custom ICMP Rule."
 msgstr ""
@@ -10088,9 +9466,6 @@ msgstr "您將在這更新您的接口上可供編輯的屬性。"
 msgid "You may update the editable properties of your router here."
 msgstr "您將在這更新您的路由器上可供編輯的屬性。"
 
-msgid "You must select a datastore type and version."
-msgstr "您必須選擇資料倉庫類型及版本。"
-
 msgid "You must select a snapshot."
 msgstr "您必須選擇即時存檔。"
 
@@ -10103,14 +9478,8 @@ msgstr "您必須選擇映像檔。"
 msgid "You must set volume size"
 msgstr "您必須設定雲硬碟容量"
 
-msgid "You must specify a password if you create a user."
-msgstr "您必須在新增用戶時指定密碼。"
-
 msgid "You must specify a template via one of the available sources."
 msgstr "您必須經由一個可用的來源來指定範本。"
-
-msgid "You must specify at least one database if you create a user."
-msgstr "您必須在新增用戶時指定最少一個資料庫。"
 
 msgid ""
 "You must specify the source of the traffic to be allowed via this rule. You "

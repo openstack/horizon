@@ -1,21 +1,21 @@
 # Translations template for PROJECT.
-# Copyright (C) 2015 ORGANIZATION
+# Copyright (C) 2016 ORGANIZATION
 # This file is distributed under the same license as the PROJECT project.
-# FIRST AUTHOR <EMAIL@ADDRESS>, 2015.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2016.
 #
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-12-18 06:19+0000\n"
+"POT-Creation-Date: 2016-01-10 06:22+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Generated-By: Babel 2.1.1\n"
+"Generated-By: Babel 2.2.0\n"
 
 #: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:2
 msgid ""
@@ -55,9 +55,12 @@ msgstr ""
 #: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:189
 #: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:201
 #: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:213
-#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:629
-#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:663
-#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:683
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:229
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:240
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:251
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:730
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:764
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:784
 msgid "Action"
 msgstr ""
 
@@ -70,9 +73,12 @@ msgstr ""
 #: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:190
 #: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:202
 #: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:214
-#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:631
-#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:664
-#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:684
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:230
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:241
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:252
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:732
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:765
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:785
 msgid "Another action"
 msgstr ""
 
@@ -85,8 +91,11 @@ msgstr ""
 #: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:191
 #: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:203
 #: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:215
-#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:665
-#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:685
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:231
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:242
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:253
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:766
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:786
 msgid "Something else here"
 msgstr ""
 
@@ -104,8 +113,11 @@ msgstr ""
 #: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:193
 #: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:205
 #: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:217
-#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:667
-#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:687
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:233
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:244
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:255
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:768
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:788
 msgid "Separated link"
 msgstr ""
 
@@ -129,300 +141,302 @@ msgstr ""
 #: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:140
 #: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:150
 #: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:162
-#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:827
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:226
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:237
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:248
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:928
 msgid "Default"
 msgstr ""
 
 #: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:141
 #: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:151
 #: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:174
-#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:828
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:929
 msgid "Primary"
 msgstr ""
 
 #: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:142
 #: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:152
 #: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:186
-#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:829
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:930
 msgid "Success"
 msgstr ""
 
 #: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:143
 #: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:153
 #: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:198
-#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:832
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:933
 msgid "Info"
 msgstr ""
 
 #: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:144
 #: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:154
 #: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:210
-#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:830
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:931
 msgid "Warning"
 msgstr ""
 
 #: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:145
 #: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:155
-#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:831
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:932
 msgid "Danger"
 msgstr ""
 
-#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:224
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:262
 msgid "Large button"
 msgstr ""
 
-#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:225
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:263
 msgid "Default button"
 msgstr ""
 
-#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:226
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:264
 msgid "Small button"
 msgstr ""
 
-#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:227
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:265
 msgid "Mini button"
 msgstr ""
 
-#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:233
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:271
 msgid "Block level button"
 msgstr ""
 
-#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:238
-#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:1129
-#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:1136
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:276
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:1230
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:1237
 msgid "Left"
 msgstr ""
 
-#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:239
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:277
 msgid "Middle"
 msgstr ""
 
-#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:240
-#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:1132
-#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:1139
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:278
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:1233
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:1240
 msgid "Right"
 msgstr ""
 
-#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:247
-#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:385
-#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:443
-#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:522
-#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:530
-#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:720
-#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:730
-#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:738
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:285
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:423
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:481
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:560
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:568
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:821
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:831
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:839
 msgid "1"
 msgstr ""
 
-#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:248
-#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:391
-#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:449
-#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:523
-#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:531
-#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:721
-#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:731
-#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:739
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:286
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:429
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:487
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:561
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:569
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:822
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:832
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:840
 msgid "2"
 msgstr ""
 
-#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:249
-#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:397
-#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:524
-#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:532
-#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:722
-#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:732
-#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:740
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:287
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:435
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:562
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:570
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:823
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:833
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:841
 msgid "3"
 msgstr ""
 
-#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:250
-#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:403
-#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:525
-#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:533
-#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:723
-#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:741
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:288
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:441
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:563
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:824
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:842
 msgid "4"
 msgstr ""
 
-#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:254
-#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:409
-#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:526
-#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:534
-#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:724
-#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:742
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:292
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:447
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:564
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:825
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:843
 msgid "5"
 msgstr ""
 
-#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:255
-#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:415
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:293
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:453
 msgid "6"
 msgstr ""
 
-#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:256
-#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:421
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:294
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:459
 msgid "7"
 msgstr ""
 
-#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:260
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:298
 msgid "8"
 msgstr ""
 
-#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:264
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:302
 msgid ""
 "Dropdown\n"
 "                <span></span>"
 msgstr ""
 
-#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:267
-#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:268
-#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:269
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:305
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:306
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:307
 msgid "Dropdown link"
 msgstr ""
 
-#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:278
-#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:279
-#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:280
-#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:281
-#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:597
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:316
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:317
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:318
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:319
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:698
 msgid "Button"
 msgstr ""
 
-#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:293
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:331
 msgid "Typography"
 msgstr ""
 
-#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:303
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:341
 msgid "Heading 1"
 msgstr ""
 
-#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:304
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:342
 msgid "Heading 2"
 msgstr ""
 
-#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:305
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:343
 msgid "Heading 3"
 msgstr ""
 
-#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:306
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:344
 msgid "Heading 4"
 msgstr ""
 
-#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:307
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:345
 msgid "Heading 5"
 msgstr ""
 
-#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:308
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:346
 msgid "Heading 6"
 msgstr ""
 
-#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:314
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:352
 msgid "Example body text"
 msgstr ""
 
-#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:316
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:354
 msgid "<small>This line of text is meant to be treated as fine print.</small>"
 msgstr ""
 
-#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:317
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:355
 msgid "The following snippet of text is <strong>rendered as bold text</strong>."
 msgstr ""
 
-#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:318
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:356
 msgid "The following snippet of text is <em>rendered as italicized text</em>."
 msgstr ""
 
-#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:319
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:357
 msgid "An abbreviation of the word attribute is <abbr>attr</abbr>."
 msgstr ""
 
-#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:325
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:363
 msgid "Emphasis classes"
 msgstr ""
 
-#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:341
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:379
 msgid "Blockquotes"
 msgstr ""
 
-#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:349
-#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:357
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:387
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:395
 msgid "Someone famous in <cite>Source Title</cite>"
 msgstr ""
 
-#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:369
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:407
 msgid "Tables"
 msgstr ""
 
-#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:372
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:410
 msgid "Standard Table"
 msgstr ""
 
-#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:377
-#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:435
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:415
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:473
 msgid "#"
 msgstr ""
 
-#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:378
-#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:379
-#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:380
-#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:436
-#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:437
-#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:438
-msgid "Column heading"
-msgstr ""
-
-#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:386
-#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:387
-#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:388
-#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:392
-#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:393
-#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:394
-#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:398
-#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:399
-#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:400
-#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:404
-#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:405
-#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:406
-#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:410
-#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:411
-#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:412
 #: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:416
 #: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:417
 #: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:418
-#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:422
-#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:423
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:474
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:475
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:476
+msgid "Column heading"
+msgstr ""
+
 #: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:424
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:425
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:426
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:430
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:431
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:432
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:436
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:437
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:438
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:442
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:443
 #: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:444
-#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:445
-#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:446
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:448
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:449
 #: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:450
-#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:451
-#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:452
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:454
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:455
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:456
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:460
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:461
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:462
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:482
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:483
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:484
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:488
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:489
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:490
 msgid "Column content"
 msgstr ""
 
-#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:430
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:468
 msgid "Bordered Table"
 msgstr ""
 
-#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:466
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:504
 msgid "Forms"
 msgstr ""
 
-#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:476
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:514
 msgid "Legend"
 msgstr ""
 
-#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:478
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:516
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:618
 #: dashboards/identity/static/dashboard/identity/users/table/table.html:33
 #: dashboards/identity/static/dashboard/identity/users/table/table.html:92
 msgid "Email"
 msgstr ""
 
-#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:484
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:522
 msgid "Password"
 msgstr ""
 
-#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:489
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:527
 msgid ""
 "<div>\n"
 "                  \n"
@@ -431,175 +445,227 @@ msgid ""
 "                </div>"
 msgstr ""
 
-#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:495
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:533
 msgid "Textarea"
 msgstr ""
 
-#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:498
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:536
 msgid ""
 "A longer block of help text that breaks onto a new line and may extend "
 "beyond one line."
 msgstr ""
 
-#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:502
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:540
 msgid "Radios"
 msgstr ""
 
-#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:506
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:544
 msgid ""
 "<input>\n"
 "                    Option one is this\n"
 "                  </input>"
 msgstr ""
 
-#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:512
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:550
 msgid ""
 "<input>\n"
 "                    Option two can be something else\n"
 "                  </input>"
 msgstr ""
 
-#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:519
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:557
 msgid "Selects"
 msgstr ""
 
-#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:540
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:576
 #: dashboards/project/static/dashboard/project/workflow/launch-instance/keypair/create-keypair.html:26
 #: dashboards/project/static/dashboard/project/workflow/launch-instance/keypair/import-keypair.html:35
-#: static/app/core/metadata/modal/modal.html:14
+#: static/app/core/metadata/modal/modal.html:15
 msgid "Cancel"
 msgstr ""
 
-#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:541
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:577
 msgid "Submit"
 msgstr ""
 
-#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:552
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:586
+msgid "Other Input Types"
+msgstr ""
+
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:588
+msgid "Datetime"
+msgstr ""
+
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:594
+msgid "Date"
+msgstr ""
+
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:598
+msgid "Month"
+msgstr ""
+
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:604
+msgid "Time"
+msgstr ""
+
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:608
+msgid "Week"
+msgstr ""
+
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:614
+msgid "Number"
+msgstr ""
+
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:624
+msgid "Url"
+msgstr ""
+
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:628
+msgid "Search"
+msgstr ""
+
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:634
+msgid "Tel"
+msgstr ""
+
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:638
+msgid "Color"
+msgstr ""
+
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:650
+msgid "Input States"
+msgstr ""
+
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:652
 msgid "Focused input"
 msgstr ""
 
-#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:557
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:657
 msgid "Disabled input"
 msgstr ""
 
-#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:562
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:662
 msgid "Input warning"
 msgstr ""
 
-#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:567
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:667
 msgid "Input error"
 msgstr ""
 
-#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:572
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:672
 msgid "Input success"
 msgstr ""
 
-#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:577
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:676
+msgid "Input Sizes"
+msgstr ""
+
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:678
 msgid "Large input"
 msgstr ""
 
-#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:582
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:683
 msgid "Default input"
 msgstr ""
 
-#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:587
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:688
 msgid "Small input"
 msgstr ""
 
-#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:592
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:693
 msgid "Input addons"
 msgstr ""
 
-#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:611
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:712
 msgid "Navs"
 msgstr ""
 
-#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:618
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:719
 msgid "Tabs"
 msgstr ""
 
-#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:621
-#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:655
-#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:675
-#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:697
-#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:701
-#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:706
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:722
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:756
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:776
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:798
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:802
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:807
 msgid "Home"
 msgstr ""
 
-#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:622
-#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:656
-#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:676
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:723
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:757
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:777
 #: dashboards/project/static/dashboard/project/workflow/launch-instance/network/network.html:9
 msgid "Profile"
 msgstr ""
 
-#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:623
-#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:657
-#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:677
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:724
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:758
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:778
 msgid "Disabled"
 msgstr ""
 
-#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:626
-#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:660
-#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:680
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:727
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:761
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:781
 msgid "Dropdown <span></span>"
 msgstr ""
 
-#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:652
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:753
 msgid "Pills"
 msgstr ""
 
-#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:694
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:795
 msgid "Breadcrumbs"
 msgstr ""
 
-#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:702
-#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:707
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:803
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:808
 msgid "Library"
 msgstr ""
 
-#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:708
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:809
 msgid "Data"
 msgstr ""
 
-#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:716
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:817
 msgid "Pagination"
 msgstr ""
 
-#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:748
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:849
 msgid "Pager"
 msgstr ""
 
-#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:751
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:852
 msgid "Previous"
 msgstr ""
 
-#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:752
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:853
 msgid "Next"
 msgstr ""
 
-#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:756
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:857
 msgid "Older"
 msgstr ""
 
-#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:757
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:858
 msgid "Newer"
 msgstr ""
 
-#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:773
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:874
 msgid "Indicators"
 msgstr ""
 
-#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:780
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:881
 msgid "Alerts"
 msgstr ""
 
-#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:784
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:885
 msgid "Warning!"
 msgstr ""
 
-#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:796
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:897
 msgid ""
 "<button></button>\n"
 "          <strong>Oh snap!</strong>\n"
@@ -607,7 +673,7 @@ msgid ""
 "          and try submitting again."
 msgstr ""
 
-#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:807
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:908
 msgid ""
 "<button></button>\n"
 "          <strong>Well done!</strong>\n"
@@ -615,7 +681,7 @@ msgid ""
 "          <a>this important alert message</a>."
 msgstr ""
 
-#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:817
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:918
 msgid ""
 "<button></button>\n"
 "          <strong>Heads up!</strong>\n"
@@ -624,178 +690,178 @@ msgid ""
 "           but it's not super important."
 msgstr ""
 
-#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:836
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:937
 msgid "Badges"
 msgstr ""
 
-#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:839
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:940
 msgid "Home <span>42</span>"
 msgstr ""
 
-#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:840
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:941
 msgid "Profile <span></span>"
 msgstr ""
 
-#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:841
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:942
 msgid "Messages <span>3</span>"
 msgstr ""
 
-#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:855
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:956
 msgid "Progress bars"
 msgstr ""
 
-#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:858
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:959
 msgid "Basic"
 msgstr ""
 
-#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:865
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:966
 msgid "Contextual alternatives"
 msgstr ""
 
-#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:884
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:985
 msgid "Striped"
 msgstr ""
 
-#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:903
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:1004
 msgid "Animated"
 msgstr ""
 
-#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:910
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:1011
 msgid "Stacked"
 msgstr ""
 
-#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:929
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:1030
 msgid "Containers"
 msgstr ""
 
-#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:933
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:1034
 msgid "Jumbotron"
 msgstr ""
 
-#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:934
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:1035
 msgid ""
 "This is a simple hero unit, a simple jumbotron-style component for "
 "calling extra attention to featured content or information."
 msgstr ""
 
-#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:935
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:1036
 msgid "Learn more"
 msgstr ""
 
-#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:944
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:1045
 msgid "List groups"
 msgstr ""
 
-#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:983
-#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:987
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:1084
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:1088
 msgid "List group item heading"
 msgstr ""
 
-#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:998
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:1099
 msgid "Panels"
 msgstr ""
 
-#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:1005
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:1106
 msgid "Basic panel"
 msgstr ""
 
-#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:1009
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:1110
 msgid "Panel heading"
 msgstr ""
 
-#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:1010
-#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:1014
-#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:1025
-#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:1032
-#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:1039
-#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:1049
-#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:1056
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:1111
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:1115
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:1126
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:1133
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:1140
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:1150
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:1157
 msgid "Panel content"
 msgstr ""
 
-#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:1015
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:1116
 msgid "Panel footer"
 msgstr ""
 
-#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:1023
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:1124
 msgid "Panel primary"
 msgstr ""
 
-#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:1030
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:1131
 msgid "Panel success"
 msgstr ""
 
-#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:1037
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:1138
 msgid "Panel warning"
 msgstr ""
 
-#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:1047
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:1148
 msgid "Panel danger"
 msgstr ""
 
-#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:1054
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:1155
 msgid "Panel info"
 msgstr ""
 
-#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:1064
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:1165
 msgid "Wells"
 msgstr ""
 
-#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:1070
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:1171
 msgid "Look, I'm in a well!"
 msgstr ""
 
-#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:1077
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:1178
 msgid "Look, I'm in a small well!"
 msgstr ""
 
-#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:1084
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:1185
 msgid "Look, I'm in a large well!"
 msgstr ""
 
-#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:1099
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:1200
 msgid "Dialogs"
 msgstr ""
 
-#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:1105
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:1206
 msgid "Modals"
 msgstr ""
 
-#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:1112
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:1213
 msgid "Modal title"
 msgstr ""
 
-#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:1115
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:1216
 msgid "One fine body…"
 msgstr ""
 
-#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:1118
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:1219
 msgid "Close"
 msgstr ""
 
-#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:1119
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:1220
 msgid "Save changes"
 msgstr ""
 
-#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:1127
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:1228
 msgid "Popovers"
 msgstr ""
 
-#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:1130
-#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:1137
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:1231
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:1238
 msgid "Top"
 msgstr ""
 
-#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:1131
-#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:1138
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:1232
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:1239
 msgid "Bottom"
 msgstr ""
 
-#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:1134
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:1235
 msgid "Tooltips"
 msgstr ""
 
-#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:1150
+#: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:1251
 msgid "Source Code"
 msgstr ""
 
@@ -836,8 +902,8 @@ msgstr ""
 #: dashboards/admin/static/dashboard/admin/flavors/table/flavors-table.html:29
 #: dashboards/project/static/dashboard/project/workflow/launch-instance/flavor/select-flavor-table.html:35
 #: dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:151
-#: static/app/core/images/table/images-table.html:40
-#: static/app/core/images/table/images-table.html:95
+#: static/app/core/images/table/images-table.html:42
+#: static/app/core/images/table/images-table.html:105
 msgid "Public"
 msgstr ""
 
@@ -874,30 +940,30 @@ msgstr ""
 msgid "Project ID"
 msgstr ""
 
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/launch-instance-model.service.js:255
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/launch-instance-model.service.js:253
 #, python-format
-msgid "Instance launched."
+msgid "%s instance launched."
 msgid_plural "%s instances launched."
 msgstr[0] ""
 msgstr[1] ""
 
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/launch-instance-model.service.js:391
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/launch-instance-model.service.js:389
 #: dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:72
 #: static/app/core/images/filters/image-type.filter.js:41
 msgid "Image"
 msgstr ""
 
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/launch-instance-model.service.js:402
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/launch-instance-model.service.js:400
 #: dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:73
 msgid "Instance Snapshot"
 msgstr ""
 
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/launch-instance-model.service.js:410
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/launch-instance-model.service.js:408
 #: dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:74
 msgid "Volume"
 msgstr ""
 
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/launch-instance-model.service.js:414
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/launch-instance-model.service.js:412
 #: dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:75
 msgid "Volume Snapshot"
 msgstr ""
@@ -1404,7 +1470,7 @@ msgstr ""
 #: dashboards/project/static/dashboard/project/workflow/launch-instance/network/network.html:27
 #: dashboards/project/static/dashboard/project/workflow/launch-instance/network/network.html:114
 #: dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:146
-#: static/app/core/images/table/images-table.html:39
+#: static/app/core/images/table/images-table.html:41
 msgid "Status"
 msgstr ""
 
@@ -1441,7 +1507,7 @@ msgstr ""
 #: dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:124
 #: dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:131
 #: dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:138
-#: static/app/core/images/table/images-table.html:38
+#: static/app/core/images/table/images-table.html:40
 msgid "Type"
 msgstr ""
 
@@ -1567,8 +1633,8 @@ msgstr ""
 #: dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:130
 #: dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:137
 #: dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:144
-#: static/app/core/images/table/images-table.html:43
-#: static/app/core/images/table/images-table.html:107
+#: static/app/core/images/table/images-table.html:45
+#: static/app/core/images/table/images-table.html:117
 msgid "Size"
 msgstr ""
 
@@ -1688,6 +1754,77 @@ msgstr ""
 msgid "Delete Volume on Instance Delete"
 msgstr ""
 
+#: static/app/core/images/actions/batch-delete.action.service.js:43
+#: static/app/core/images/actions/delete-image.service.spec.js:21
+msgid "Confirm Delete Images"
+msgstr ""
+
+#: static/app/core/images/actions/batch-delete.action.service.js:45
+#: static/app/core/images/actions/delete.action.service.js:41
+#, python-format
+msgid ""
+"You have selected \"%s\". Please confirm your selection. Deleted images "
+"are not recoverable."
+msgstr ""
+
+#: static/app/core/images/actions/batch-delete.action.service.js:47
+#: static/app/core/images/table/batch-actions.service.js:58
+msgid "Delete Images"
+msgstr ""
+
+#: static/app/core/images/actions/batch-delete.action.service.js:48
+#, python-format
+msgid "Deleted Images: %s."
+msgstr ""
+
+#: static/app/core/images/actions/batch-delete.action.service.js:49
+#, python-format
+msgid "Unable to delete Images: %s."
+msgstr ""
+
+#: static/app/core/images/actions/delete-image.service.js:56
+#, python-format
+msgid "You are not allowed to delete images: %s"
+msgstr ""
+
+#: static/app/core/images/actions/delete-image.service.spec.js:22
+#, python-format
+msgid "selected \"%s\""
+msgstr ""
+
+#: static/app/core/images/actions/delete-image.service.spec.js:23
+msgid "Delete"
+msgstr ""
+
+#: static/app/core/images/actions/delete-image.service.spec.js:24
+#, python-format
+msgid "Deleted : %s."
+msgstr ""
+
+#: static/app/core/images/actions/delete-image.service.spec.js:25
+#, python-format
+msgid "Unable to delete: %s."
+msgstr ""
+
+#: static/app/core/images/actions/delete.action.service.js:39
+msgid "Confirm Delete Image"
+msgstr ""
+
+#: static/app/core/images/actions/delete.action.service.js:43
+#: static/app/core/images/table/row-actions.service.js:57
+msgid "Delete Image"
+msgstr ""
+
+#: static/app/core/images/actions/delete.action.service.js:44
+#, python-format
+msgid "Deleted Image: %s."
+msgstr ""
+
+#: static/app/core/images/actions/delete.action.service.js:45
+#, python-format
+msgid "Unable to delete Image: %s."
+msgstr ""
+
 #: static/app/core/images/filters/image-status.filter.js:36
 msgid "Saving"
 msgstr ""
@@ -1716,25 +1853,25 @@ msgstr ""
 msgid "Images"
 msgstr ""
 
-#: static/app/core/images/table/images-table.html:37
+#: static/app/core/images/table/images-table.html:39
 msgid "Image Name"
 msgstr ""
 
-#: static/app/core/images/table/images-table.html:41
-#: static/app/core/images/table/images-table.html:99
+#: static/app/core/images/table/images-table.html:43
+#: static/app/core/images/table/images-table.html:109
 msgid "Protected"
 msgstr ""
 
-#: static/app/core/images/table/images-table.html:42
-#: static/app/core/images/table/images-table.html:103
+#: static/app/core/images/table/images-table.html:44
+#: static/app/core/images/table/images-table.html:113
 msgid "Format"
 msgstr ""
 
-#: static/app/core/images/table/images-table.html:115
+#: static/app/core/images/table/images-table.html:125
 msgid "Min Disk (GB)"
 msgstr ""
 
-#: static/app/core/images/table/images-table.html:119
+#: static/app/core/images/table/images-table.html:129
 msgid "Min RAM (MB)"
 msgstr ""
 
@@ -1750,7 +1887,11 @@ msgstr ""
 msgid "Update Image Metadata"
 msgstr ""
 
-#: static/app/core/metadata/modal/modal.html:20
+#: static/app/core/metadata/modal/modal.html:6
+msgid "Update Instance Metadata"
+msgstr ""
+
+#: static/app/core/metadata/modal/modal.html:21
 msgid "Save"
 msgstr ""
 
@@ -1783,7 +1924,7 @@ msgid "Unable to retrieve the volume snapshots."
 msgstr ""
 
 #: static/app/core/openstack-service-api/cinder.service.js:207
-#: static/app/core/openstack-service-api/nova.service.js:237
+#: static/app/core/openstack-service-api/nova.service.js:255
 msgid "Unable to retrieve the extensions."
 msgstr ""
 
@@ -1992,60 +2133,72 @@ msgstr ""
 msgid "Unable to retrieve the ports."
 msgstr ""
 
-#: static/app/core/openstack-service-api/nova.service.js:68
+#: static/app/core/openstack-service-api/nova.service.js:71
 msgid "Unable to retrieve the nova services."
 msgstr ""
 
-#: static/app/core/openstack-service-api/nova.service.js:85
+#: static/app/core/openstack-service-api/nova.service.js:88
 msgid "Unable to retrieve the keypairs."
 msgstr ""
 
-#: static/app/core/openstack-service-api/nova.service.js:107
+#: static/app/core/openstack-service-api/nova.service.js:110
 msgid "Unable to import the keypair."
 msgstr ""
 
-#: static/app/core/openstack-service-api/nova.service.js:109
+#: static/app/core/openstack-service-api/nova.service.js:112
 msgid "Unable to create the keypair."
 msgstr ""
 
-#: static/app/core/openstack-service-api/nova.service.js:128
+#: static/app/core/openstack-service-api/nova.service.js:131
 msgid "Unable to retrieve the availability zones."
 msgstr ""
 
-#: static/app/core/openstack-service-api/nova.service.js:166
+#: static/app/core/openstack-service-api/nova.service.js:169
 msgid "Unable to retrieve the limits."
 msgstr ""
 
-#: static/app/core/openstack-service-api/nova.service.js:193
+#: static/app/core/openstack-service-api/nova.service.js:196
 msgid "Unable to create the server."
 msgstr ""
 
-#: static/app/core/openstack-service-api/nova.service.js:207
+#: static/app/core/openstack-service-api/nova.service.js:210
 msgid "Unable to retrieve the server."
 msgstr ""
 
-#: static/app/core/openstack-service-api/nova.service.js:282
-msgid "Unable to retrieve the flavors."
+#: static/app/core/openstack-service-api/nova.service.js:225
+msgid "Unable to retrieve instances."
 msgstr ""
 
 #: static/app/core/openstack-service-api/nova.service.js:300
+msgid "Unable to retrieve the flavors."
+msgstr ""
+
+#: static/app/core/openstack-service-api/nova.service.js:318
 msgid "Unable to retrieve the flavor."
 msgstr ""
 
-#: static/app/core/openstack-service-api/nova.service.js:314
+#: static/app/core/openstack-service-api/nova.service.js:332
 msgid "Unable to retrieve the flavor extra specs."
 msgstr ""
 
-#: static/app/core/openstack-service-api/nova.service.js:334
+#: static/app/core/openstack-service-api/nova.service.js:352
 msgid "Unable to edit the flavor extra specs."
 msgstr ""
 
-#: static/app/core/openstack-service-api/nova.service.js:348
+#: static/app/core/openstack-service-api/nova.service.js:366
 msgid "Unable to retrieve the aggregate extra specs."
 msgstr ""
 
-#: static/app/core/openstack-service-api/nova.service.js:368
+#: static/app/core/openstack-service-api/nova.service.js:386
 msgid "Unable to edit the aggregate extra specs."
+msgstr ""
+
+#: static/app/core/openstack-service-api/nova.service.js:400
+msgid "Unable to retrieve instance metadata."
+msgstr ""
+
+#: static/app/core/openstack-service-api/nova.service.js:420
+msgid "Unable to edit instance metadata."
 msgstr ""
 
 #: static/app/core/openstack-service-api/policy.service.js:85

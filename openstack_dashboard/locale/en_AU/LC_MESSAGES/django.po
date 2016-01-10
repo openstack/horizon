@@ -4,14 +4,13 @@
 #
 # Translators:
 # Tom Fifield <tom@openstack.org>, 2015
-# Daisy <guoyingc@cn.ibm.com>, 2015. #zanata
 # OpenStack Infra <zanata@openstack.org>, 2015. #zanata
 # Tom Fifield <tom@openstack.org>, 2015. #zanata
 msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-12-17 05:35+0000\n"
+"POT-Creation-Date: 2016-01-09 00:51+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -305,15 +304,6 @@ msgstr ""
 
 msgid ""
 "\n"
-"   Volumes are block devices that can be attached to instances.\n"
-"   "
-msgstr ""
-"\n"
-"   Volumes are block devices that can be attached to instances.\n"
-"   "
-
-msgid ""
-"\n"
 "  Assign a name and description for the pool. Choose one subnet where all\n"
 "  members of this pool must be on. Select the protocol and load balancing\n"
 "  method for this pool. Admin State is UP (checked) by default.\n"
@@ -323,19 +313,6 @@ msgstr ""
 "  Assign a name and description for the pool. Choose one subnet where all\n"
 "  members of this pool must be on. Select the protocol and load balancing\n"
 "  method for this pool. Admin State is UP (checked) by default.\n"
-"  "
-
-msgid ""
-"\n"
-"  Move networks from 'Available Networks' to 'Selected Networks' by\n"
-"  clicking the button, or dragging and dropping. You can change the\n"
-"  NIC order by dragging and dropping as well.\n"
-"  "
-msgstr ""
-"\n"
-"  Move networks from 'Available Networks' to 'Selected Networks' by\n"
-"  clicking the button, or dragging and dropping. You can change the\n"
-"  NIC order by dragging and dropping as well.\n"
 "  "
 
 msgid ""
@@ -381,9 +358,6 @@ msgstr " Also failed to delete port %s"
 msgid "\"Add Router Route\""
 msgstr "\"Add Router Route\""
 
-msgid "\"Clusters\""
-msgstr "\"Clusters\""
-
 msgid ""
 "\"Customization Script\" is analogous to \"User Data\" in other systems."
 msgstr ""
@@ -391,9 +365,6 @@ msgstr ""
 
 msgid "\"Edit Volume Type\""
 msgstr "\"Edit Volume Type\""
-
-msgid "\"Launch Cluster\""
-msgstr "\"Launch Cluster\""
 
 msgid "\"N/A\""
 msgstr "\"N/A\""
@@ -434,14 +405,6 @@ msgstr "%(instance_name)s %(fixed_ip)s"
 #, python-format
 msgid "%(name)s - %(size)s GB (%(label)s)"
 msgstr "%(name)s - %(size)s GB (%(label)s)"
-
-#, python-format
-msgid "%(name)s | %(RAM)s RAM"
-msgstr "%(name)s | %(RAM)s RAM"
-
-#, python-format
-msgid "%(name)s | %(RAM)s RAM | %(instances)s instances"
-msgstr "%(name)s | %(RAM)s RAM | %(instances)s instances"
 
 #, python-format
 msgid "%(offset)s: %(label)s"
@@ -529,35 +492,6 @@ msgstr "--"
 msgid "3des"
 msgstr "3des"
 
-#, python-format
-msgid "<p>%(used)s of %(quota)s MB Used</p>"
-msgstr "<p>%(used)s of %(quota)s MB Used</p>"
-
-#, python-format
-msgid "<p>%(used)s of %(quota)s Used</p>"
-msgstr "<p>%(used)s of %(quota)s Used</p>"
-
-msgid ""
-"<strong>Please note:</strong> The new value must be greater than the "
-"existing volume size."
-msgstr ""
-"<strong>Please note:</strong> The new value must be greater than the "
-"existing volume size."
-
-msgid ""
-"<strong>Please note:</strong> The value specified in the Volume Size field "
-"should be greater than 0, however, some configurations do not support "
-"specifying volume size. If specifying the volume size results in an error "
-"stating volume support is not enabled, enter 0."
-msgstr ""
-"<strong>Please note:</strong> The value specified in the Volume Size field "
-"should be greater than 0, however, some configurations do not support "
-"specifying volume size. If specifying the volume size results in an error "
-"stating volume support is not enabled, enter 0."
-
-msgid "A backup must be selected!"
-msgstr "A backup must be selected!"
-
 msgid ""
 "A container is a storage compartment for your data and provides a way for "
 "you to organize your data. You can think of a container as a folder in "
@@ -589,9 +523,6 @@ msgstr "A local metadata definition file to upload."
 
 msgid "A local template to upload."
 msgstr "A local template to upload."
-
-msgid "A master instance must be selected!"
-msgstr "A master instance must be selected!"
 
 msgid ""
 "A more specific rule affects a portion of this traffic so a rule cannot be "
@@ -683,10 +614,6 @@ msgstr "Action for the firewall rule"
 
 msgid "Action:"
 msgstr "Action:"
-
-msgctxt "Current status of a Database Instance"
-msgid "Active"
-msgstr "Active"
 
 msgctxt "Current status of a Firewall"
 msgid "Active"
@@ -826,9 +753,6 @@ msgstr "Add Routers"
 msgid "Add Rule"
 msgstr "Add Rule"
 
-msgid "Add Shard"
-msgstr "Add Shard"
-
 msgid "Add Static Route"
 msgstr "Add Static Route"
 
@@ -957,10 +881,6 @@ msgstr "Added monitor"
 msgid "Added pool \"%s\"."
 msgstr "Added pool \"%s\"."
 
-#, python-format
-msgid "Added shard to \"%s\""
-msgstr "Added shard to \"%s\""
-
 msgid "Additional routes"
 msgstr "Additional routes"
 
@@ -1019,9 +939,6 @@ msgstr "Adopt Failed"
 msgctxt "current status of stack"
 msgid "Adopt In Progress"
 msgstr "Adopt In Progress"
-
-msgid "Advanced"
-msgstr "Advanced"
 
 msgid "Advanced Options"
 msgstr "Advanced Options"
@@ -1101,23 +1018,6 @@ msgstr ""
 
 msgid "Allocation Pools"
 msgstr "Allocation Pools"
-
-msgid ""
-"Allow the user to connect from this host\n"
-"    only. If not provided this user will be allowed to connect from "
-"anywhere.\n"
-"    "
-msgstr ""
-"Allow the user to connect from this host\n"
-"    only. If not provided this user will be allowed to connect from "
-"anywhere.\n"
-"    "
-
-msgid "Allowed Host"
-msgstr "Allowed Host"
-
-msgid "Allowed Host (optional)"
-msgstr "Allowed Host (optional)"
 
 msgid "Amount of energy"
 msgstr "Amount of energy"
@@ -1337,36 +1237,8 @@ msgctxt "Current status of a Volume"
 msgid "Backing Up"
 msgstr "Backing Up"
 
-msgid "Backup"
-msgstr "Backup"
-
-msgctxt "Current status of a Database Instance"
-msgid "Backup"
-msgstr "Backup"
-
-msgid "Backup Database"
-msgstr "Backup Database"
-
-msgid "Backup Details"
-msgstr "Backup Details"
-
-msgid "Backup Details: {{ backup.name }}"
-msgstr "Backup Details: {{ backup.name }}"
-
-msgid "Backup Duration"
-msgstr "Backup Duration"
-
-msgid "Backup File"
-msgstr "Backup File"
-
-msgid "Backup File Location"
-msgstr "Backup File Location"
-
 msgid "Backup Name"
 msgstr "Backup Name"
-
-msgid "Backup Overview"
-msgstr "Backup Overview"
 
 msgid "Backups"
 msgstr "Backups"
@@ -1393,10 +1265,6 @@ msgstr "Block Migration"
 msgid "Block Storage Services"
 msgstr "Block Storage Services"
 
-msgctxt "Current status of a Database Instance"
-msgid "Blocked"
-msgstr "Blocked"
-
 msgctxt "Power state of an Instance"
 msgid "Blocked"
 msgstr "Blocked"
@@ -1419,10 +1287,6 @@ msgstr "Boot from volume snapshot (creates a new volume)"
 msgid "Bootable"
 msgstr "Bootable"
 
-msgctxt "Current status of a Database Instance"
-msgid "Build"
-msgstr "Build"
-
 msgctxt "Current status of a Network"
 msgid "Build"
 msgstr "Build"
@@ -1438,10 +1302,6 @@ msgstr "Build"
 msgctxt "status of a network port"
 msgid "Build"
 msgstr "Build"
-
-msgctxt "Current status of a Database Backup"
-msgid "Building"
-msgstr "Building"
 
 msgctxt "Power state of an Instance"
 msgid "Building"
@@ -1544,9 +1404,6 @@ msgstr ""
 "Choose a key pair name you will recognise and paste your SSH public key into "
 "the space provided."
 
-msgid "Choose a new instance flavor."
-msgstr "Choose a new instance flavor."
-
 msgid "Choose a snapshot"
 msgstr "Choose a snapshot"
 
@@ -1564,9 +1421,6 @@ msgstr "Choose associated QoS Spec."
 
 msgid "Choose consumer for this QoS Spec."
 msgstr "Choose consumer for this QoS Spec."
-
-msgid "Choose initial state."
-msgstr "Choose initial state."
 
 msgid ""
 "Choose network from Available networks to Selected networks by push button "
@@ -1641,30 +1495,14 @@ msgstr "Click here to show only console"
 msgid "Close"
 msgstr "Close"
 
-msgid "Cluster Name"
-msgstr "Cluster Name"
-
-msgid "Cluster Size"
-msgstr "Cluster Size"
-
-msgid "Clusters"
-msgstr "Clusters"
-
 msgid "Code"
 msgstr "Code"
 
 msgid "Cold Migrate"
 msgstr "Cold Migrate"
 
-msgid "Comma separated list of databases to create"
-msgstr "Comma separated list of databases to create"
-
 msgid "Comma-separated key=value pairs"
 msgstr "Comma-separated key=value pairs"
-
-msgctxt "Current status of a Database Backup"
-msgid "Completed"
-msgstr "Completed"
 
 msgid "Component"
 msgstr "Component"
@@ -1723,15 +1561,6 @@ msgstr "Confirming Resize or Migrate"
 
 msgid "Conflicting Rule"
 msgstr "Conflicting Rule"
-
-msgid "Connection Examples"
-msgstr "Connection Examples"
-
-msgid "Connection Info"
-msgstr "Connection Info"
-
-msgid "Connection Information"
-msgstr "Connection Information"
 
 msgid "Connection Limit"
 msgstr "Connection Limit"
@@ -2066,13 +1895,6 @@ msgstr ""
 msgid "Create an Encrypted Volume Type"
 msgstr "Create an Encrypted Volume Type"
 
-msgid ""
-"Create an optional initial user.\n"
-"   This user will have access to all databases you create."
-msgstr ""
-"Create an optional initial user.\n"
-"   This user will have access to all databases you create."
-
 #, python-format
 msgid "Create pseudo-folder in container %(container_name)s"
 msgstr "Create pseudo-folder in container %(container_name)s"
@@ -2187,12 +2009,6 @@ msgstr "Creation requests for this subnet"
 msgid "Current Host"
 msgstr "Current Host"
 
-msgid "Current Size (GB)"
-msgstr "Current Size (GB)"
-
-msgid "Current Task"
-msgstr "Current Task"
-
 msgid "Current password"
 msgstr "Current password"
 
@@ -2210,9 +2026,6 @@ msgstr "Custom UDP Rule"
 
 msgid "Customization Script Source"
 msgstr "Customization Script Source"
-
-msgid "DATABASE"
-msgstr "DATABASE"
 
 msgid "DENY"
 msgstr "DENY"
@@ -2272,33 +2085,6 @@ msgstr "DPD Timeout must be greater than DPD Interval"
 msgid "Daily Usage Report"
 msgstr "Daily Usage Report"
 
-msgid "Database"
-msgstr "Database"
-
-msgid "Database Backups"
-msgstr "Database Backups"
-
-msgid "Database Info"
-msgstr "Database Info"
-
-msgid "Database Instance"
-msgstr "Database Instance"
-
-msgid "Database Name"
-msgstr "Database Name"
-
-msgid "Database Port"
-msgstr "Database Port"
-
-msgid "Databases"
-msgstr "Databases"
-
-msgid "Datastore"
-msgstr "Datastore"
-
-msgid "Datastore Version"
-msgstr "Datastore Version"
-
 msgid "Date Updated"
 msgstr "Date Updated"
 
@@ -2341,16 +2127,6 @@ msgstr "Delay must be greater than or equal to Timeout"
 msgid "Delay must be greater than or equal to timeout"
 msgstr "Delay must be greater than or equal to timeout"
 
-msgid "Delete Backup"
-msgid_plural "Delete Backups"
-msgstr[0] "Delete Backup"
-msgstr[1] "Delete Backups"
-
-msgid "Delete Cluster"
-msgid_plural "Delete Clusters"
-msgstr[0] "Delete Cluster"
-msgstr[1] "Delete Clusters"
-
 msgctxt "current status of stack"
 msgid "Delete Complete"
 msgstr "Delete Complete"
@@ -2364,11 +2140,6 @@ msgid "Delete DHCP Agent"
 msgid_plural "Delete DHCP Agents"
 msgstr[0] "Delete DHCP Agent"
 msgstr[1] "Delete DHCP Agents"
-
-msgid "Delete Database"
-msgid_plural "Delete Databases"
-msgstr[0] "Delete Database"
-msgstr[1] "Delete Databases"
 
 msgid "Delete Domain"
 msgid_plural "Delete Domains"
@@ -2384,10 +2155,6 @@ msgid "Delete Extra Spec"
 msgid_plural "Delete Extra Specs"
 msgstr[0] "Delete Extra Spec"
 msgstr[1] "Delete Extra Specs"
-
-msgctxt "Current status of a Database Backup"
-msgid "Delete Failed"
-msgstr "Delete Failed"
 
 msgctxt "current status of stack"
 msgid "Delete Failed"
@@ -2580,11 +2347,6 @@ msgctxt "Current status of an Instance"
 msgid "Deleted"
 msgstr "Deleted"
 
-msgid "Deleted Backup"
-msgid_plural "Deleted Backups"
-msgstr[0] "Deleted Backup"
-msgstr[1] "Deleted Backups"
-
 msgid "Deleted Container"
 msgid_plural "Deleted Containers"
 msgstr[0] "Deleted Container"
@@ -2594,11 +2356,6 @@ msgid "Deleted DHCP Agent"
 msgid_plural "Deleted DHCP Agents"
 msgstr[0] "Deleted DHCP Agent"
 msgstr[1] "Deleted DHCP Agents"
-
-msgid "Deleted Database"
-msgid_plural "Deleted Databases"
-msgstr[0] "Deleted Database"
-msgstr[1] "Deleted Databases"
 
 msgid "Deleted Domain"
 msgid_plural "Deleted Domains"
@@ -2801,11 +2558,6 @@ msgstr "Destination:"
 
 msgid "Detach Interface"
 msgstr "Detach Interface"
-
-msgid "Detach Replica"
-msgid_plural "Detach Replicas"
-msgstr[0] "Detach Replica"
-msgstr[1] "Detach Replicas"
 
 msgid "Detach Volume"
 msgid_plural "Detach Volumes"
@@ -3052,9 +2804,6 @@ msgstr "Down"
 
 msgid "Download"
 msgstr "Download"
-
-msgid "Download Backup"
-msgstr "Download Backup"
 
 msgid "Download CSV Summary"
 msgstr "Download CSV Summary"
@@ -3355,10 +3104,6 @@ msgstr ""
 msgid "Error"
 msgstr "Error"
 
-msgctxt "Current status of a Database Instance"
-msgid "Error"
-msgstr "Error"
-
 msgctxt "Current status of a Firewall"
 msgid "Error"
 msgstr "Error"
@@ -3425,24 +3170,12 @@ msgstr "Error Restoring"
 msgid "Error adding Hosts to the aggregate."
 msgstr "Error adding Hosts to the aggregate."
 
-msgid "Error creating database backup."
-msgstr "Error creating database backup."
-
 msgctxt "Current status of a Volume"
 msgid "Error deleting"
 msgstr "Error deleting"
 
-msgid "Error deleting database on instance."
-msgstr "Error deleting database on instance."
-
-msgid "Error deleting database user."
-msgstr "Error deleting database user."
-
 msgid "Error editing QoS Spec consumer."
 msgstr "Error editing QoS Spec consumer."
-
-msgid "Error getting database backup list."
-msgstr "Error getting database backup list."
 
 msgid "Error getting metadata definitions."
 msgstr "Error getting metadata definitions."
@@ -3557,14 +3290,6 @@ msgstr ""
 
 msgid "Extra Specs"
 msgstr "Extra Specs"
-
-msgctxt "Current status of a Database Backup"
-msgid "Failed"
-msgstr "Failed"
-
-msgctxt "Current status of a Database Instance"
-msgid "Failed"
-msgstr "Failed"
 
 msgctxt "Power state of an Instance"
 msgid "Failed"
@@ -4190,9 +3915,6 @@ msgstr ""
 "Host aggregates divide an availability zone into logical units by grouping "
 "together hosts. Edit the aggregate host to select hosts contained in it."
 
-msgid "Host or IP that the user is allowed to connect through."
-msgstr "Host or IP that the user is allowed to connect through."
-
 msgid "Hostname"
 msgstr "Hostname"
 
@@ -4484,12 +4206,6 @@ msgctxt "Current status of a VPN Service"
 msgid "Inactive"
 msgstr "Inactive"
 
-msgid "Incremental"
-msgstr "Incremental"
-
-msgid "Incremental Backup"
-msgstr "Incremental Backup"
-
 msgid "Info"
 msgstr "Info"
 
@@ -4510,21 +4226,6 @@ msgstr "Init Failed"
 msgctxt "current status of stack"
 msgid "Init In Progress"
 msgstr "Init In Progress"
-
-msgid "Initial Admin User"
-msgstr "Initial Admin User"
-
-msgid "Initial Databases"
-msgstr "Initial Databases"
-
-msgid "Initial Volume Size"
-msgstr "Initial Volume Size"
-
-msgid "Initial admin user to add"
-msgstr "Initial admin user to add"
-
-msgid "Initialize Databases"
-msgstr "Initialise Databases"
 
 msgid "Initiator state"
 msgstr "Initiator state"
@@ -4598,9 +4299,6 @@ msgstr "Instance to be associated"
 msgid "Instances"
 msgstr "Instances"
 
-msgid "Instances Per Shard"
-msgstr "Instances Per Shard"
-
 msgid "Insufficient privilege level to view domain information."
 msgstr "Insufficient privilege level to view domain information."
 
@@ -4646,9 +4344,6 @@ msgid ""
 msgstr ""
 "Invalid time period. You are requesting data from the future which may not "
 "exist."
-
-msgid "Is a Replica Of"
-msgstr "Is a Replica Of"
 
 msgid "Items Per Page"
 msgstr "Items Per Page"
@@ -4746,12 +4441,6 @@ msgstr "Last year"
 msgid "Launch"
 msgstr "Launch"
 
-msgid "Launch Cluster"
-msgstr "Launch Cluster"
-
-msgid "Launch Database"
-msgstr "Launch Database"
-
 msgid "Launch Instance"
 msgstr "Launch Instance"
 
@@ -4779,10 +4468,6 @@ msgstr "Launch instance with this policy profile"
 #, python-format
 msgid "Launched %(count)s named \"%(name)s\"."
 msgstr "Launched %(count)s named \"%(name)s\"."
-
-#, python-format
-msgid "Launched cluster \"%s\""
-msgstr "Launched cluster \"%s\""
 
 msgid ""
 "Launching multiple instances is only supported for images and instance "
@@ -4966,17 +4651,11 @@ msgstr "Manage Volume Attachments"
 msgid "Manage a Volume"
 msgstr "Manage a Volume"
 
-msgid "Management Console"
-msgstr "Management Console"
-
 msgid "Manual"
 msgstr "Manual"
 
 msgid "Mapped Fixed IP Address"
 msgstr "Mapped Fixed IP Address"
-
-msgid "Master Instance Name"
-msgstr "Master Instance Name"
 
 msgid "Max Retries"
 msgstr "Max Retries"
@@ -5009,12 +4688,6 @@ msgstr "Member IP address must be specified"
 
 msgid "Member Source"
 msgstr "Member Source"
-
-msgid "Member address"
-msgstr "Member address"
-
-msgid "Member(s)"
-msgstr "Member(s)"
 
 msgid "Members"
 msgstr "Members"
@@ -5309,9 +4982,6 @@ msgstr "Network address in CIDR format (e.g. 192.168.0.0/24)"
 msgid "Network address in CIDR format (e.g. 192.168.0.0/24, 2001:DB8::/48)"
 msgstr "Network address in CIDR format (e.g. 192.168.0.0/24, 2001:DB8::/48)"
 
-msgid "Network attached to instance."
-msgstr "Network attached to instance."
-
 msgid "Network list can not be retrieved."
 msgstr "Network list can not be retrieved."
 
@@ -5334,10 +5004,6 @@ msgstr "Never"
 msgid "Never updated"
 msgstr "Never updated"
 
-msgctxt "Current status of a Database Backup"
-msgid "New"
-msgstr "New"
-
 msgid "New DHCP Agent"
 msgstr "New DHCP Agent"
 
@@ -5347,12 +5013,6 @@ msgstr "New Flavor"
 msgid "New Host"
 msgstr "New Host"
 
-msgid "New Password"
-msgstr "New Password"
-
-msgid "New Size (GB)"
-msgstr "New Size (GB)"
-
 msgid "New name cannot be empty."
 msgstr "New name cannot be empty."
 
@@ -5361,12 +5021,6 @@ msgstr "New name conflicts with another volume type."
 
 msgid "New password"
 msgstr "New password"
-
-msgid "New password for cluster access."
-msgstr "New password for cluster access."
-
-msgid "New size for volume must be greater than current size."
-msgstr "New size for volume must be greater than current size."
 
 msgid "New size must be greater than current size."
 msgstr "New size must be greater than current size."
@@ -5423,9 +5077,6 @@ msgstr "No available console found."
 
 msgid "No available projects"
 msgstr "No available projects"
-
-msgid "No backups available"
-msgstr "No backups available"
 
 msgid "No flavors available"
 msgstr "No flavours available"
@@ -5561,12 +5212,6 @@ msgstr "None (removes spec)"
 msgid "Normal"
 msgstr "Normal"
 
-msgid "Not Assigned"
-msgstr "Not Assigned"
-
-msgid "Not Found"
-msgstr "Not Found"
-
 msgid "Not attached"
 msgstr "Not attached"
 
@@ -5591,9 +5236,6 @@ msgstr "Number of API requests against swift"
 
 msgid "Number of Instances"
 msgstr "Number of Instances"
-
-msgid "Number of Shards"
-msgstr "Number of Shards"
 
 msgid "Number of Snapshots"
 msgstr "Number of Snapshots"
@@ -5624,12 +5266,6 @@ msgstr "Number of incoming bytes on the network for a VM interface"
 
 msgid "Number of incoming packets for a VM interface"
 msgstr "Number of incoming packets for a VM interface"
-
-msgid "Number of instances in the cluster. (Read only)"
-msgstr "Number of instances in the cluster. (Read only)"
-
-msgid "Number of instances per shard. (Read only)"
-msgstr "Number of instances per shard. (Read only)"
 
 msgid "Number of instances to launch."
 msgstr "Number of instances to launch."
@@ -5665,9 +5301,6 @@ msgstr ""
 
 msgid "Number of read requests"
 msgstr "Number of read requests"
-
-msgid "Number of shards. (Read only)"
-msgstr "Number of shards. (Read only)"
 
 msgid "Number of write requests"
 msgstr "Number of write requests"
@@ -5733,27 +5366,11 @@ msgstr "Open Port"
 msgid "Open Port/Port Range:"
 msgstr "Open Port/Port Range:"
 
-msgid "Optional Backup Description"
-msgstr "Optional Backup Description"
-
 msgid "Optional Parameters"
 msgstr "Optional Parameters"
 
-msgid "Optional parent backup"
-msgstr "Optional parent backup"
-
 msgid "Optional: Next Hop Addresses (comma delimited)"
 msgstr "Optional: Next Hop Addresses (comma delimited)"
-
-msgid ""
-"Optionally choose to create this database using a previous backup, or as a "
-"replica of another database instance."
-msgstr ""
-"Optionally choose to create this database using a previous backup, or as a "
-"replica of another database instance."
-
-msgid "Optionally provide a comma separated list of databases to create:"
-msgstr "Optionally provide a comma separated list of databases to create:"
 
 msgid "Optionally, you may choose to create a new volume."
 msgstr "Optionally, you may choose to create a new volume."
@@ -5808,9 +5425,6 @@ msgstr ""
 "by a recipient project. This is equivalent to the <tt>cinder transfer-"
 "create</tt> command."
 
-msgid "PASSWORD"
-msgstr "PASSWORD"
-
 msgid "PFS"
 msgstr "PFS"
 
@@ -5823,9 +5437,6 @@ msgstr "Page Not Found"
 msgid "Parameters"
 msgstr "Parameters"
 
-msgid "Parent Backup"
-msgstr "Parent Backup"
-
 msgid "Password"
 msgstr "Password"
 
@@ -5833,20 +5444,11 @@ msgctxt "Current status of an Instance"
 msgid "Password"
 msgstr "Password"
 
-msgid "Password (required)"
-msgstr "Password (required)"
-
 msgid "Password changed. Please log in again to continue."
 msgstr "Password changed. Please log in again to continue."
 
 msgid "Password changed. Please log in to continue."
 msgstr "Password changed. Please log in to continue."
-
-msgid "Password for root user must be specified."
-msgstr "Password for root user must be specified."
-
-msgid "Password for root user."
-msgstr "Password for root user."
 
 #, python-format
 msgid "Password for user \"%s\""
@@ -6300,10 +5902,6 @@ msgctxt "Action log of an instance"
 msgid "Reboot"
 msgstr "Reboot"
 
-msgctxt "Current status of a Database Instance"
-msgid "Reboot"
-msgstr "Reboot"
-
 msgctxt "Current status of an Instance"
 msgid "Reboot"
 msgstr "Reboot"
@@ -6437,20 +6035,6 @@ msgid_plural "Removed Users"
 msgstr[0] "Removed User"
 msgstr[1] "Removed Users"
 
-msgid "Replica Detached"
-msgid_plural "Replicas Detached"
-msgstr[0] "Replica Detached"
-msgstr[1] "Replicas Detached"
-
-msgid "Replicas"
-msgstr "Replicas"
-
-msgid "Replicate from Instance"
-msgstr "Replicate from Instance"
-
-msgid "Replication"
-msgstr "Replication"
-
 msgid "Request ID"
 msgstr "Request ID"
 
@@ -6475,9 +6059,6 @@ msgctxt "Task status of an Instance"
 msgid "Rescuing"
 msgstr "Rescuing"
 
-msgid "Reset Root Password"
-msgstr "Reset Root Password"
-
 msgid "Reset to Default"
 msgstr "Reset to Default"
 
@@ -6488,21 +6069,8 @@ msgctxt "Action log of an instance"
 msgid "Resize"
 msgstr "Resize"
 
-msgctxt "Current status of a Database Instance"
-msgid "Resize"
-msgstr "Resize"
-
-msgid "Resize Database Instance"
-msgstr "Resize Database Instance"
-
-msgid "Resize Database Volume"
-msgstr "Resize Database Volume"
-
 msgid "Resize Instance"
 msgstr "Resize Instance"
-
-msgid "Resize Volume"
-msgstr "Resize Volume"
 
 msgctxt "Current status of an Instance"
 msgid "Resize/Migrate"
@@ -6512,17 +6080,9 @@ msgctxt "Task status of an Instance"
 msgid "Resized or Migrated"
 msgstr "Resized or Migrated"
 
-#, python-format
-msgid "Resizing instance \"%s\""
-msgstr "Resizing instance \"%s\""
-
 msgctxt "Task status of an Instance"
 msgid "Resizing or Migrating"
 msgstr "Resizing or Migrating"
-
-#, python-format
-msgid "Resizing volume \"%s\""
-msgstr "Resizing volume \"%s\""
 
 msgid "Resource"
 msgstr "Resource"
@@ -6532,9 +6092,6 @@ msgstr "Resource ID"
 
 msgid "Resource Metadata"
 msgstr "Resource Metadata"
-
-msgid "Resource Overview"
-msgstr "Resource Overview"
 
 msgid "Resource Types"
 msgstr "Resource Types"
@@ -6551,20 +6108,6 @@ msgstr "Resources"
 
 msgid "Resources Usage Overview"
 msgstr "Resources Usage Overview"
-
-msgid "Restart Instance"
-msgid_plural "Restart Instances"
-msgstr[0] "Restart Instance"
-msgstr[1] "Restart Instances"
-
-msgctxt "Current status of a Database Instance"
-msgid "Restart Required"
-msgstr "Restart Required"
-
-msgid "Restarted Instance"
-msgid_plural "Restarted Instances"
-msgstr[0] "Restarted Instance"
-msgstr[1] "Restarted Instances"
 
 msgid "Restarted instances will lose any data not saved in persistent storage."
 msgstr ""
@@ -6584,9 +6127,6 @@ msgstr "Restore Volume Backup"
 
 msgid "Restore a Volume Backup"
 msgstr "Restore a Volume Backup"
-
-msgid "Restore from Backup"
-msgstr "Restore from Backup"
 
 msgctxt "Current status of a Volume Backup"
 msgid "Restoring"
@@ -6698,13 +6238,6 @@ msgstr "Root Disk"
 
 msgid "Root Disk (GB)"
 msgstr "Root Disk (GB)"
-
-msgid "Root Password"
-msgstr "Root Password"
-
-#, python-format
-msgid "Root password updated for cluster \"%s\""
-msgstr "Root password updated for cluster \"%s\""
 
 msgid "Rotates requests evenly between multiple instances."
 msgstr "Rotates requests evenly between multiple instances."
@@ -6833,17 +6366,9 @@ msgstr "Saved extra spec \"%s\"."
 msgid "Saved spec \"%s\"."
 msgstr "Saved spec \"%s\"."
 
-msgctxt "Current status of a Database Backup"
-msgid "Saving"
-msgstr "Saving"
-
 msgctxt "Current status of an Image"
 msgid "Saving"
 msgstr "Saving"
-
-#, python-format
-msgid "Scheduled backup \"%(name)s\"."
-msgstr "Scheduled backup \"%(name)s\"."
 
 #, python-format
 msgid "Scheduled deletion of %(data_type)s"
@@ -7022,18 +6547,12 @@ msgstr "Select a Router"
 msgid "Select a Subnet"
 msgstr "Select a Subnet"
 
-msgid "Select a backup to restore"
-msgstr "Select a backup to restore"
-
 #, python-format
 msgid "Select a health monitor of %s"
 msgstr "Select a health monitor of %s"
 
 msgid "Select a key pair"
 msgstr "Select a key pair"
-
-msgid "Select a master instance"
-msgstr "Select a master instance"
 
 #, python-format
 msgid "Select a monitor template for %s"
@@ -7047,9 +6566,6 @@ msgstr "Select a new QoS spec"
 
 msgid "Select a new agent"
 msgstr "Select a new agent"
-
-msgid "Select a new flavor"
-msgstr "Select a new flavor"
 
 msgid "Select a new host"
 msgstr "Select a new host"
@@ -7099,20 +6615,11 @@ msgstr "Select an instance"
 msgid "Select an instance to attach to."
 msgstr "Select an instance to attach to."
 
-msgid "Select backup"
-msgstr "Select backup"
-
-msgid "Select datastore type and version"
-msgstr "Select datastore type and version"
-
 msgid "Select format"
 msgstr "Select format"
 
 msgid "Select from active instances"
 msgstr "Select from active instances"
-
-msgid "Select instance"
-msgstr "Select instance"
 
 msgid "Select members for this pool "
 msgstr "Select members for this pool "
@@ -7122,9 +6629,6 @@ msgstr "Select network"
 
 msgid "Select networks for your instance."
 msgstr "Select networks for your instance."
-
-msgid "Select parent backup"
-msgstr "Select parent backup"
 
 msgid "Select routers for your firewall."
 msgstr "Select routers for your firewall."
@@ -7293,10 +6797,6 @@ msgid_plural "Shut Off Instances"
 msgstr[0] "Shut Off Instance"
 msgstr[1] "Shut Off Instances"
 
-msgctxt "Current status of a Database Instance"
-msgid "Shutdown"
-msgstr "Shutdown"
-
 msgctxt "Current status of an Instance"
 msgid "Shutoff"
 msgstr "Shutoff"
@@ -7313,14 +6813,8 @@ msgstr "Size of ephemeral disk"
 msgid "Size of image to launch."
 msgstr "Size of image to launch."
 
-msgid "Size of instance to launch."
-msgstr "Size of instance to launch."
-
 msgid "Size of root disk"
 msgstr "Size of root disk"
-
-msgid "Size of the volume in GB."
-msgstr "Size of the volume in GB."
 
 msgid "Size of volume"
 msgstr "Size of volume"
@@ -7424,9 +6918,6 @@ msgstr "Source Port"
 msgid "Source Port/Port Range"
 msgstr "Source Port/Port Range"
 
-msgid "Source for Initial State"
-msgstr "Source for Initial State"
-
 msgid "Source port (integer in [1, 65535] or range in a:b)"
 msgstr "Source port (integer in [1, 65535] or range in a:b)"
 
@@ -7479,9 +6970,6 @@ msgstr "Specify VIP"
 msgid "Specify a metadata definition namespace to import."
 msgstr "Specify a metadata definition namespace to import."
 
-msgid "Specify a new flavor for the database instance."
-msgstr "Specify a new flavor for the database instance."
-
 msgid "Specify additional attributes for the subnet."
 msgstr "Specify additional attributes for the subnet."
 
@@ -7497,20 +6985,8 @@ msgstr "Specify an image to upload to the Image Service."
 msgid "Specify member IP address"
 msgstr "Specify member IP address"
 
-msgid "Specify the details for adding additional shards."
-msgstr "Specify the details for adding additional shards."
-
 msgid "Specify the details for launching an instance."
 msgstr "Specify the details for launching an instance."
-
-msgid "Specify the details for the database backup."
-msgstr "Specify the details for the database backup."
-
-msgid "Specify the new root password for vertica cluster."
-msgstr "Specify the new root password for vertica cluster."
-
-msgid "Specify the new volume size for the database instance."
-msgstr "Specify the new volume size for the database instance."
 
 msgid ""
 "Specify this option to copy image data to the image service. If unspecified, "
@@ -8085,9 +7561,6 @@ msgstr ""
 "The flavor '%(flavor)s' is too small for requested image.\n"
 "Minimum requirements: %(min_ram)s MB of RAM and %(min_disk)s GB of Root Disk."
 
-msgid "The flavor must be specified."
-msgstr "The flavour must be specified."
-
 #, python-format
 msgid "The instance is preparing the live migration to host \"%s\"."
 msgstr "The instance is preparing the live migration to host \"%s\"."
@@ -8156,9 +7629,6 @@ msgid ""
 "The next hop addresses can be used to override the router used by the client."
 msgstr ""
 "The next hop addresses can be used to override the router used by the client."
-
-msgid "The number of shards must be greater than 1."
-msgstr "The number of shards must be greater than 1."
 
 msgid "The page you were looking for doesn't exist"
 msgstr "The page you were looking for doesn't exist"
@@ -8294,9 +7764,6 @@ msgstr ""
 msgid "This name is already taken."
 msgstr "This name is already taken."
 
-msgid "This pane needs javascript support."
-msgstr "This pane needs javascript support."
-
 msgid ""
 "This volume is currently attached to an instance. In some cases, creating a "
 "snapshot from an attached volume can result in a corrupted snapshot."
@@ -8421,9 +7888,6 @@ msgstr "Transform Protocol"
 msgid "Type"
 msgstr "Type"
 
-msgid "Type and version of datastore."
-msgstr "Type and version of datastore."
-
 msgid "Type of backend device identifier provided"
 msgstr "Type of backend device identifier provided"
 
@@ -8462,9 +7926,6 @@ msgstr "URL"
 
 msgid "URL Path"
 msgstr "URL Path"
-
-msgid "USERNAME"
-msgstr "USERNAME"
 
 msgid "UTC"
 msgstr "UTC"
@@ -8523,10 +7984,6 @@ msgstr "Unable to add pool \"%s\"."
 
 msgid "Unable to add rule to security group."
 msgstr "Unable to add rule to security group."
-
-#, python-format
-msgid "Unable to add shard. %s"
-msgstr "Unable to add shard. %s"
 
 msgid "Unable to add user to primary project."
 msgstr "Unable to add user to primary project."
@@ -8739,14 +8196,8 @@ msgstr "Unable to extend volume."
 msgid "Unable to fetch EC2 credentials."
 msgstr "Unable to fetch EC2 credentials."
 
-msgid "Unable to find backup!"
-msgstr "Unable to find backup!"
-
 msgid "Unable to find default role."
 msgstr "Unable to find default role."
-
-msgid "Unable to find master instance!"
-msgstr "Unable to find master instance!"
 
 msgid "Unable to get EC2 credentials"
 msgstr "Unable to get EC2 credentials"
@@ -8773,12 +8224,6 @@ msgstr "Unable to get VNC console for instance \"%s\"."
 msgid "Unable to get cinder services list."
 msgstr "Unable to get cinder services list."
 
-msgid "Unable to get database backup data."
-msgstr "Unable to get database backup data."
-
-msgid "Unable to get databases data."
-msgstr "Unable to get databases data."
-
 #, python-format
 msgid "Unable to get events for stack \"%s\"."
 msgstr "Unable to get events for stack \"%s\"."
@@ -8792,9 +8237,6 @@ msgstr "Unable to get health monitor %(monitor_id)s for pool %(pool)s."
 
 msgid "Unable to get host aggregate list"
 msgstr "Unable to get host aggregate list"
-
-msgid "Unable to get instances data."
-msgstr "Unable to get instances data."
 
 #, python-format
 msgid "Unable to get log for instance \"%s\"."
@@ -8837,9 +8279,6 @@ msgstr "Unable to get subnet for pool %(pool)s."
 msgid "Unable to get the available hosts"
 msgstr "Unable to get the available hosts"
 
-msgid "Unable to get user data."
-msgstr "Unable to get user data."
-
 msgid "Unable to import key pair."
 msgstr "Unable to import key pair."
 
@@ -8850,18 +8289,8 @@ msgstr "Unable to initialize subnetpools"
 msgid "Unable to launch %(count)s named \"%(name)s\"."
 msgstr "Unable to launch %(count)s named \"%(name)s\"."
 
-#, python-format
-msgid "Unable to launch cluster. %s"
-msgstr "Unable to launch cluster. %s"
-
 msgid "Unable to list containers."
 msgstr "Unable to list containers."
-
-msgid "Unable to list database backups for parent."
-msgstr "Unable to list database backups for parent."
-
-msgid "Unable to list database instances to backup."
-msgstr "Unable to list database instances to backup."
 
 msgid "Unable to list dhcp agents hosting network."
 msgstr "Unable to list dhcp agents hosting network."
@@ -8903,15 +8332,6 @@ msgstr "Unable to modify instance \"%s\"."
 msgid "Unable to modify project \"%s\"."
 msgstr "Unable to modify project \"%s\"."
 
-msgid "Unable to obtain datastore versions."
-msgstr "Unable to obtain datastore versions."
-
-msgid "Unable to obtain datastores."
-msgstr "Unable to obtain datastores."
-
-msgid "Unable to obtain flavors."
-msgstr "Unable to obtain flavours."
-
 #, python-format
 msgid "Unable to parse IP address %s."
 msgstr "Unable to parse IP address %s."
@@ -8920,20 +8340,8 @@ msgid "Unable to rebuild instance."
 msgstr "Unable to rebuild instance."
 
 #, python-format
-msgid "Unable to reset password. %s"
-msgstr "Unable to reset password. %s"
-
-#, python-format
 msgid "Unable to resize instance \"%s\"."
 msgstr "Unable to resize instance \"%s\"."
-
-#, python-format
-msgid "Unable to resize instance. %s"
-msgstr "Unable to resize instance. %s"
-
-#, python-format
-msgid "Unable to resize volume. %s"
-msgstr "Unable to resize volume. %s"
 
 msgid "Unable to restore backup."
 msgstr "Unable to restore backup."
@@ -9043,9 +8451,6 @@ msgstr "Unable to retrieve availability zones."
 msgid "Unable to retrieve backup details."
 msgstr "Unable to retrieve backup details."
 
-msgid "Unable to retrieve cluster details."
-msgstr "Unable to retrieve cluster details."
-
 msgid "Unable to retrieve compute host information."
 msgstr "Unable to retrieve compute host information."
 
@@ -9055,32 +8460,11 @@ msgstr "Unable to retrieve compute limit information."
 msgid "Unable to retrieve container list."
 msgstr "Unable to retrieve container list."
 
-msgid "Unable to retrieve database clusters."
-msgstr "Unable to retrieve database clusters."
-
-msgid "Unable to retrieve database instances."
-msgstr "Unable to retrieve database instances."
-
-msgid "Unable to retrieve database size information."
-msgstr "Unable to retrieve database size information."
-
 msgid "Unable to retrieve default Neutron quota values."
 msgstr "Unable to retrieve default Neutron quota values."
 
 msgid "Unable to retrieve default quota values."
 msgstr "Unable to retrieve default quota values."
-
-#, python-format
-msgid "Unable to retrieve details for backup: %s"
-msgstr "Unable to retrieve details for backup: %s"
-
-#, python-format
-msgid "Unable to retrieve details for database cluster: %s"
-msgstr "Unable to retrieve details for database cluster: %s"
-
-#, python-format
-msgid "Unable to retrieve details for database instance: %s"
-msgstr "Unable to retrieve details for database instance: %s"
 
 #, python-format
 msgid "Unable to retrieve details for instance \"%s\"."
@@ -9093,10 +8477,6 @@ msgstr "Unable to retrieve details for keypair \"%s\"."
 #, python-format
 msgid "Unable to retrieve details for network \"%s\"."
 msgstr "Unable to retrieve details for network \"%s\"."
-
-#, python-format
-msgid "Unable to retrieve details for parent backup: %s"
-msgstr "Unable to retrieve details for parent backup: %s"
 
 #, python-format
 msgid "Unable to retrieve details for router \"%s\"."
@@ -9293,9 +8673,6 @@ msgstr "Unable to retrieve network."
 
 msgid "Unable to retrieve networks list."
 msgstr "Unable to retrieve networks list."
-
-msgid "Unable to retrieve networks."
-msgstr "Unable to retrieve networks."
 
 msgid "Unable to retrieve object list."
 msgstr "Unable to retrieve object list."
@@ -9957,9 +9334,6 @@ msgstr "User name \"%s\" is already used."
 msgid "User password has been updated successfully."
 msgstr "User password has been updated successfully."
 
-msgid "Username (required)"
-msgstr "Username (required)"
-
 msgid "Users"
 msgstr "Users"
 
@@ -10141,9 +9515,6 @@ msgstr "Volume Limits"
 msgid "Volume Name"
 msgstr "Volume Name"
 
-msgid "Volume Size"
-msgstr "Volume Size"
-
 msgid "Volume Snapshot"
 msgstr "Volume Snapshot"
 
@@ -10313,15 +9684,6 @@ msgstr ""
 "available here."
 
 msgid ""
-"You can perform an incremental backup by specifying a parent backup. "
-"<strong>However,</strong> not all databases support incremental backups in "
-"which case this operation will result in an error."
-msgstr ""
-"You can perform an incremental backup by specifying a parent backup. "
-"<strong>However,</strong> not all databases support incremental backups in "
-"which case this operation will result in an error."
-
-msgid ""
 "You can specify the desired rule template or use custom rules, the options "
 "are Custom TCP Rule, Custom UDP Rule, or Custom ICMP Rule."
 msgstr ""
@@ -10434,9 +9796,6 @@ msgstr "You may update the editable properties of your port here."
 msgid "You may update the editable properties of your router here."
 msgstr "You may update the editable properties of your router here."
 
-msgid "You must select a datastore type and version."
-msgstr "You must select a datastore type and version."
-
 msgid "You must select a snapshot."
 msgstr "You must select a snapshot."
 
@@ -10449,14 +9808,8 @@ msgstr "You must select an image."
 msgid "You must set volume size"
 msgstr "You must set volume size"
 
-msgid "You must specify a password if you create a user."
-msgstr "You must specify a password if you create a user."
-
 msgid "You must specify a template via one of the available sources."
 msgstr "You must specify a template via one of the available sources."
-
-msgid "You must specify at least one database if you create a user."
-msgstr "You must specify at least one database if you create a user."
 
 msgid ""
 "You must specify the source of the traffic to be allowed via this rule. You "

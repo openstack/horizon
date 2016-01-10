@@ -22,7 +22,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-12-17 05:35+0000\n"
+"POT-Creation-Date: 2016-01-09 00:51+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -299,16 +299,6 @@ msgstr ""
 
 msgid ""
 "\n"
-"   Volumes are block devices that can be attached to instances.\n"
-"   "
-msgstr ""
-"\n"
-"Los volúmenes son dispositivos en bloque que pueden ser asociados a "
-"instancias. \n"
-" "
-
-msgid ""
-"\n"
 "  Assign a name and description for the pool. Choose one subnet where all\n"
 "  members of this pool must be on. Select the protocol and load balancing\n"
 "  method for this pool. Admin State is UP (checked) by default.\n"
@@ -322,19 +312,6 @@ msgstr ""
 "  para este pool. El estado del administrador es ACTIVO (marcado) por "
 "defecto.\n"
 "  "
-
-msgid ""
-"\n"
-"  Move networks from 'Available Networks' to 'Selected Networks' by\n"
-"  clicking the button, or dragging and dropping. You can change the\n"
-"  NIC order by dragging and dropping as well.\n"
-"  "
-msgstr ""
-"\n"
-"\n"
-"Mover redes de \"Redes disponibles\" a \"Redes seleccionadas\" haciendo clic "
-"en el botón o arrastrando y soltando. También puede cambiar el orden de la "
-"NIC arrastrando y soltando."
 
 msgid ""
 "\n"
@@ -381,9 +358,6 @@ msgstr "También falló eliminar el puerto %s"
 msgid "\"Add Router Route\""
 msgstr "\"Añadir ruta al Router\""
 
-msgid "\"Clusters\""
-msgstr "\"Clústeres\""
-
 msgid ""
 "\"Customization Script\" is analogous to \"User Data\" in other systems."
 msgstr ""
@@ -392,9 +366,6 @@ msgstr ""
 
 msgid "\"Edit Volume Type\""
 msgstr "\"Editar Tipo de Volumen\""
-
-msgid "\"Launch Cluster\""
-msgstr "\"Lanzar clúster\""
 
 msgid "\"N/A\""
 msgstr "\"N/A\""
@@ -439,14 +410,6 @@ msgstr "%(instance_name)s %(fixed_ip)s"
 #, python-format
 msgid "%(name)s - %(size)s GB (%(label)s)"
 msgstr "%(name)s - %(size)s GB (%(label)s)"
-
-#, python-format
-msgid "%(name)s | %(RAM)s RAM"
-msgstr "%(name)s | %(RAM)s RAM"
-
-#, python-format
-msgid "%(name)s | %(RAM)s RAM | %(instances)s instances"
-msgstr "%(name)s | %(RAM)s RAM | %(instances)s instancias"
 
 #, python-format
 msgid "%(offset)s: %(label)s"
@@ -536,36 +499,6 @@ msgstr "--"
 msgid "3des"
 msgstr "3des"
 
-#, python-format
-msgid "<p>%(used)s of %(quota)s MB Used</p>"
-msgstr "<p>%(used)s de %(quota)s MB Usados</p>"
-
-#, python-format
-msgid "<p>%(used)s of %(quota)s Used</p>"
-msgstr "<p>%(used)s de %(quota)s Usados</p>"
-
-msgid ""
-"<strong>Please note:</strong> The new value must be greater than the "
-"existing volume size."
-msgstr ""
-"<strong>Nota:</strong> El nuevo valor debe ser mayor que el tamaño de "
-"volumen actual."
-
-msgid ""
-"<strong>Please note:</strong> The value specified in the Volume Size field "
-"should be greater than 0, however, some configurations do not support "
-"specifying volume size. If specifying the volume size results in an error "
-"stating volume support is not enabled, enter 0."
-msgstr ""
-"<strong>Nota:</strong> El valor especificado en el campo del tamaño del "
-"Volumen debe ser más grande que 0, sin embargo, algunas configuraciones no "
-"soportan la especificación del tamaño del volumen. Si especificando el "
-"volumen se produce un error, el soporte para definir el volumen no esta "
-"habilitado, introduzca 0."
-
-msgid "A backup must be selected!"
-msgstr "¡Debe seleccionar un respaldo!"
-
 msgid ""
 "A container is a storage compartment for your data and provides a way for "
 "you to organize your data. You can think of a container as a folder in "
@@ -598,9 +531,6 @@ msgstr "Definición de un archivo de metadatos local para cargar."
 
 msgid "A local template to upload."
 msgstr "Plantilla local a cargar."
-
-msgid "A master instance must be selected!"
-msgstr "¡Una instancia maestra debe ser seleccionada!"
 
 msgid ""
 "A more specific rule affects a portion of this traffic so a rule cannot be "
@@ -693,10 +623,6 @@ msgstr "Acción para la regla del cortafuegos"
 
 msgid "Action:"
 msgstr "Acción:"
-
-msgctxt "Current status of a Database Instance"
-msgid "Active"
-msgstr "Activo"
 
 msgctxt "Current status of a Firewall"
 msgid "Active"
@@ -837,9 +763,6 @@ msgstr "Añadir Routers"
 msgid "Add Rule"
 msgstr "Agregar regla"
 
-msgid "Add Shard"
-msgstr "Añadir partición"
-
 msgid "Add Static Route"
 msgstr "Añadir rutas estáticas"
 
@@ -972,10 +895,6 @@ msgstr "Monitor agregado"
 msgid "Added pool \"%s\"."
 msgstr "Pool \"%s\" añadido."
 
-#, python-format
-msgid "Added shard to \"%s\""
-msgstr "Partición añadida a \"%s\""
-
 msgid "Additional routes"
 msgstr "Rutas adicionales"
 
@@ -1035,9 +954,6 @@ msgstr "Adoptar Fallado"
 msgctxt "current status of stack"
 msgid "Adopt In Progress"
 msgstr "Adoptar En Progreso"
-
-msgid "Advanced"
-msgstr "Avanzado"
 
 msgid "Advanced Options"
 msgstr "Opciones avanzadas"
@@ -1117,21 +1033,6 @@ msgstr ""
 
 msgid "Allocation Pools"
 msgstr "Pools de asignación"
-
-msgid ""
-"Allow the user to connect from this host\n"
-"    only. If not provided this user will be allowed to connect from "
-"anywhere.\n"
-"    "
-msgstr ""
-"Permitir al usuario conectarse únicamente desde este host.\n"
-"Si no se permite, este usuario podrá conectarse desde cualquier sitio."
-
-msgid "Allowed Host"
-msgstr "Anfitrión permitido"
-
-msgid "Allowed Host (optional)"
-msgstr "Anfitrión permitido (opcional)"
 
 msgid "Amount of energy"
 msgstr "Cantidad de energía"
@@ -1356,36 +1257,8 @@ msgctxt "Current status of a Volume"
 msgid "Backing Up"
 msgstr "Creando copia de seguridad"
 
-msgid "Backup"
-msgstr "Copia de seguridad"
-
-msgctxt "Current status of a Database Instance"
-msgid "Backup"
-msgstr "Copia de seguridad"
-
-msgid "Backup Database"
-msgstr "Base de datos de copias de seguridad"
-
-msgid "Backup Details"
-msgstr "Detalles de la copia de seguridad"
-
-msgid "Backup Details: {{ backup.name }}"
-msgstr "Detalles de la copia de seguridad: {{ backup.name }}"
-
-msgid "Backup Duration"
-msgstr "Duración de la copia de seguridad"
-
-msgid "Backup File"
-msgstr "Fichero de copia de seguridad"
-
-msgid "Backup File Location"
-msgstr "Ubicación del fichero de la copia de seguridad"
-
 msgid "Backup Name"
 msgstr "Nombre de la copia"
-
-msgid "Backup Overview"
-msgstr "Vista general de la copia de seguridad"
 
 msgid "Backups"
 msgstr "Copias de seguridad"
@@ -1412,10 +1285,6 @@ msgstr "Migración de bloques"
 msgid "Block Storage Services"
 msgstr "Servicios de almacenamiento de bloques"
 
-msgctxt "Current status of a Database Instance"
-msgid "Blocked"
-msgstr "Bloqueado"
-
 msgctxt "Power state of an Instance"
 msgid "Blocked"
 msgstr "Bloqueado"
@@ -1438,10 +1307,6 @@ msgstr "Arrancar desde una instantánea de volumen (crea un nuevo volumen)"
 msgid "Bootable"
 msgstr "Arrancable"
 
-msgctxt "Current status of a Database Instance"
-msgid "Build"
-msgstr "Construir"
-
 msgctxt "Current status of a Network"
 msgid "Build"
 msgstr "Construir"
@@ -1457,10 +1322,6 @@ msgstr "Construir"
 msgctxt "status of a network port"
 msgid "Build"
 msgstr "Construir"
-
-msgctxt "Current status of a Database Backup"
-msgid "Building"
-msgstr "Construyendo"
 
 msgctxt "Power state of an Instance"
 msgid "Building"
@@ -1567,9 +1428,6 @@ msgstr ""
 "Elija un nombre para el par de claves que pueda identificar posteriormente y "
 "copie la clave pública ssh en el espacio proporcionado."
 
-msgid "Choose a new instance flavor."
-msgstr "Seleccione un nuevo sabor de instancia."
-
 msgid "Choose a snapshot"
 msgstr "Seleccione una instantánea"
 
@@ -1587,9 +1445,6 @@ msgstr "Selecciona una especificación QoS asociada."
 
 msgid "Choose consumer for this QoS Spec."
 msgstr "Seleccionar Consumidor para esta especificación QoS."
-
-msgid "Choose initial state."
-msgstr "Seleccione estado inicial."
 
 msgid ""
 "Choose network from Available networks to Selected networks by push button "
@@ -1665,30 +1520,14 @@ msgstr "Haga click aquí para mostrar solo la consola"
 msgid "Close"
 msgstr "Cerrar"
 
-msgid "Cluster Name"
-msgstr "Nombre del cluster"
-
-msgid "Cluster Size"
-msgstr "Tamaño de clúster"
-
-msgid "Clusters"
-msgstr "Clusters"
-
 msgid "Code"
 msgstr "Código"
 
 msgid "Cold Migrate"
 msgstr "Migración en frío"
 
-msgid "Comma separated list of databases to create"
-msgstr "Lista de bases de datos separadas por comas a crear"
-
 msgid "Comma-separated key=value pairs"
 msgstr "Pares clave=valor separados por coma"
-
-msgctxt "Current status of a Database Backup"
-msgid "Completed"
-msgstr "Finalizada"
 
 msgid "Component"
 msgstr "Componente"
@@ -1747,15 +1586,6 @@ msgstr "Confirmando redimensionar o migrar"
 
 msgid "Conflicting Rule"
 msgstr "Regla incompatible"
-
-msgid "Connection Examples"
-msgstr "Ejemplos de conexión"
-
-msgid "Connection Info"
-msgstr "Información de la conexión"
-
-msgid "Connection Information"
-msgstr "Información de la conexión"
 
 msgid "Connection Limit"
 msgstr "Límite de conexiones"
@@ -2096,13 +1926,6 @@ msgstr ""
 msgid "Create an Encrypted Volume Type"
 msgstr "Crear un  volumen del tipo encriptado"
 
-msgid ""
-"Create an optional initial user.\n"
-"   This user will have access to all databases you create."
-msgstr ""
-"Crear un usuario inicial opcional.\n"
-"Este usuario tendrá acceso a todas las bases de datos que cree."
-
 #, python-format
 msgid "Create pseudo-folder in container %(container_name)s"
 msgstr "Crear pseudo-carpeta en el contenedor %(container_name)s"
@@ -2218,12 +2041,6 @@ msgstr "Solicitudes de creación para esta subred"
 msgid "Current Host"
 msgstr "Host actual"
 
-msgid "Current Size (GB)"
-msgstr "Tamaño actual (GB)"
-
-msgid "Current Task"
-msgstr "Tarea actual"
-
 msgid "Current password"
 msgstr "Contraseña actual"
 
@@ -2241,9 +2058,6 @@ msgstr "Regla UDP a medida"
 
 msgid "Customization Script Source"
 msgstr "Contenidos del guión de personalización"
-
-msgid "DATABASE"
-msgstr "BASE DE DATOS"
 
 msgid "DENY"
 msgstr "DENEGAR"
@@ -2305,33 +2119,6 @@ msgstr ""
 msgid "Daily Usage Report"
 msgstr "Informe de uso diario"
 
-msgid "Database"
-msgstr "Base de datos"
-
-msgid "Database Backups"
-msgstr "Copias de seguridad de la base de datos"
-
-msgid "Database Info"
-msgstr "Información sobre la base de datos"
-
-msgid "Database Instance"
-msgstr "Instancia de la base de datos"
-
-msgid "Database Name"
-msgstr "Nombre de la base de datos"
-
-msgid "Database Port"
-msgstr "Puerto de la base de datos"
-
-msgid "Databases"
-msgstr "Bases de datos"
-
-msgid "Datastore"
-msgstr "Almacén de datos"
-
-msgid "Datastore Version"
-msgstr "Versión de almacén de datos"
-
 msgid "Date Updated"
 msgstr "Fecha actualizada"
 
@@ -2374,16 +2161,6 @@ msgstr "El retraso debe ser mayor o igual al Timeout"
 msgid "Delay must be greater than or equal to timeout"
 msgstr "La demora debe ser mayor o igual al tiempo de desconexión"
 
-msgid "Delete Backup"
-msgid_plural "Delete Backups"
-msgstr[0] "Eliminar Respaldo"
-msgstr[1] "Eliminar Respaldos"
-
-msgid "Delete Cluster"
-msgid_plural "Delete Clusters"
-msgstr[0] "Eliminar clúster"
-msgstr[1] "Eliminar clústeres"
-
 msgctxt "current status of stack"
 msgid "Delete Complete"
 msgstr "Eliminar Completo"
@@ -2397,11 +2174,6 @@ msgid "Delete DHCP Agent"
 msgid_plural "Delete DHCP Agents"
 msgstr[0] "Borrar Agente DHCP"
 msgstr[1] "Borrar Agentes DHCP"
-
-msgid "Delete Database"
-msgid_plural "Delete Databases"
-msgstr[0] "Eliminar Base de Datos"
-msgstr[1] "Eliminar Bases de Datos"
 
 msgid "Delete Domain"
 msgid_plural "Delete Domains"
@@ -2417,10 +2189,6 @@ msgid "Delete Extra Spec"
 msgid_plural "Delete Extra Specs"
 msgstr[0] "Eliminar Spec Extra"
 msgstr[1] "Eliminar Specs Extra"
-
-msgctxt "Current status of a Database Backup"
-msgid "Delete Failed"
-msgstr "Ha fallado la supresión"
 
 msgctxt "current status of stack"
 msgid "Delete Failed"
@@ -2614,11 +2382,6 @@ msgctxt "Current status of an Instance"
 msgid "Deleted"
 msgstr "Eliminado"
 
-msgid "Deleted Backup"
-msgid_plural "Deleted Backups"
-msgstr[0] "Respaldo Eliminado"
-msgstr[1] "Respaldos Eliminados"
-
 msgid "Deleted Container"
 msgid_plural "Deleted Containers"
 msgstr[0] "Contenedor Eliminado"
@@ -2628,11 +2391,6 @@ msgid "Deleted DHCP Agent"
 msgid_plural "Deleted DHCP Agents"
 msgstr[0] "Agente DHCP Borrado"
 msgstr[1] "Agentes DHCP Borrados"
-
-msgid "Deleted Database"
-msgid_plural "Deleted Databases"
-msgstr[0] "Base de Datos Eliminada"
-msgstr[1] "Base de Datos Eliminadas"
 
 msgid "Deleted Domain"
 msgid_plural "Deleted Domains"
@@ -2835,11 +2593,6 @@ msgstr "Destino:"
 
 msgid "Detach Interface"
 msgstr "Desconectar interfaz"
-
-msgid "Detach Replica"
-msgid_plural "Detach Replicas"
-msgstr[0] "Desacoplar réplica"
-msgstr[1] "Desacoplar réplicas"
 
 msgid "Detach Volume"
 msgid_plural "Detach Volumes"
@@ -3086,9 +2839,6 @@ msgstr "Abajo"
 
 msgid "Download"
 msgstr "Descargar"
-
-msgid "Download Backup"
-msgstr "Descargar copia de seguridad"
 
 msgid "Download CSV Summary"
 msgstr "Descargar resumen en CSV"
@@ -3389,10 +3139,6 @@ msgstr ""
 msgid "Error"
 msgstr "Error"
 
-msgctxt "Current status of a Database Instance"
-msgid "Error"
-msgstr "Error"
-
 msgctxt "Current status of a Firewall"
 msgid "Error"
 msgstr "Error"
@@ -3459,24 +3205,12 @@ msgstr "Error al restaurar."
 msgid "Error adding Hosts to the aggregate."
 msgstr "Error al añadir Hosts al agregado."
 
-msgid "Error creating database backup."
-msgstr "Error al crear la copia de seguridad de la base de datos."
-
 msgctxt "Current status of a Volume"
 msgid "Error deleting"
 msgstr "Error al eliminar"
 
-msgid "Error deleting database on instance."
-msgstr "Error al borrar la base de datos en la instancia."
-
-msgid "Error deleting database user."
-msgstr "Error al borrar el usuario de la base de datos."
-
 msgid "Error editing QoS Spec consumer."
 msgstr "Error al editar la especificación QoS Consumidor."
-
-msgid "Error getting database backup list."
-msgstr "Error al obtener la lista de copias de seguridad de la base de datos."
 
 msgid "Error getting metadata definitions."
 msgstr "Error al obtener las definiciones de metadatos."
@@ -3592,14 +3326,6 @@ msgstr ""
 
 msgid "Extra Specs"
 msgstr "Especif. adicionales"
-
-msgctxt "Current status of a Database Backup"
-msgid "Failed"
-msgstr "Erróneo"
-
-msgctxt "Current status of a Database Instance"
-msgid "Failed"
-msgstr "Erróneo"
 
 msgctxt "Power state of an Instance"
 msgid "Failed"
@@ -4249,9 +3975,6 @@ msgstr ""
 "mediante la agrupación de los hosts. Edita la agregacion de hosts para "
 "seleccionar los que va a contener."
 
-msgid "Host or IP that the user is allowed to connect through."
-msgstr "Host o IP con el que el usuario tiene permiso para conectarse."
-
 msgid "Hostname"
 msgstr "Nombre del host"
 
@@ -4545,12 +4268,6 @@ msgctxt "Current status of a VPN Service"
 msgid "Inactive"
 msgstr "Inactivo"
 
-msgid "Incremental"
-msgstr "Incremental"
-
-msgid "Incremental Backup"
-msgstr "Copia incremental"
-
 msgid "Info"
 msgstr "Info"
 
@@ -4571,21 +4288,6 @@ msgstr "Inicio Fallado"
 msgctxt "current status of stack"
 msgid "Init In Progress"
 msgstr "Inicio En Progreso"
-
-msgid "Initial Admin User"
-msgstr "Usuario Administrador inicial"
-
-msgid "Initial Databases"
-msgstr "Bases de datos iniciales."
-
-msgid "Initial Volume Size"
-msgstr "Tamaño del volumen inicial"
-
-msgid "Initial admin user to add"
-msgstr "Usuario Administrador inicial a agregar"
-
-msgid "Initialize Databases"
-msgstr "Inicializar las bases de datos"
 
 msgid "Initiator state"
 msgstr "Estado del iniciador"
@@ -4659,9 +4361,6 @@ msgstr "Instancia a asociar"
 msgid "Instances"
 msgstr "Instancias"
 
-msgid "Instances Per Shard"
-msgstr "Instancias por particiones"
-
 msgid "Insufficient privilege level to view domain information."
 msgstr "Privilegios insuficientes para consultar la información del dominio."
 
@@ -4708,9 +4407,6 @@ msgid ""
 msgstr ""
 "Período de tiempo no válido. Está solicitando datos futuros que pueden no "
 "existir. "
-
-msgid "Is a Replica Of"
-msgstr "Es una réplica de"
 
 msgid "Items Per Page"
 msgstr "Ítems por página"
@@ -4810,12 +4506,6 @@ msgstr "Último año"
 msgid "Launch"
 msgstr "Lanzar"
 
-msgid "Launch Cluster"
-msgstr "Ejecutar Clúster"
-
-msgid "Launch Database"
-msgstr "Lanzar base de datos"
-
 msgid "Launch Instance"
 msgstr "Lanzar instancia"
 
@@ -4843,10 +4533,6 @@ msgstr "Lanzar instancia con este perfil de política"
 #, python-format
 msgid "Launched %(count)s named \"%(name)s\"."
 msgstr "Lanzadas %(count)s de nombre \"%(name)s\"."
-
-#, python-format
-msgid "Launched cluster \"%s\""
-msgstr "Clúster lanzado \"%s\""
 
 msgid ""
 "Launching multiple instances is only supported for images and instance "
@@ -5030,17 +4716,11 @@ msgstr "Administrar asociaciones de volumen"
 msgid "Manage a Volume"
 msgstr "Administrar un Volumen"
 
-msgid "Management Console"
-msgstr "Consola de gestión"
-
 msgid "Manual"
 msgstr "Manual"
 
 msgid "Mapped Fixed IP Address"
 msgstr "Dirección de IP fija asignada"
-
-msgid "Master Instance Name"
-msgstr "Nombre de la instancia maestra"
 
 msgid "Max Retries"
 msgstr "Reintentos máximos"
@@ -5073,12 +4753,6 @@ msgstr "Debe especificar la dirección IP del miembro"
 
 msgid "Member Source"
 msgstr "Miembros Fuente"
-
-msgid "Member address"
-msgstr "Dirección del miembro"
-
-msgid "Member(s)"
-msgstr "Miembro(s)"
 
 msgid "Members"
 msgstr "Miembros"
@@ -5378,9 +5052,6 @@ msgid "Network address in CIDR format (e.g. 192.168.0.0/24, 2001:DB8::/48)"
 msgstr ""
 "La dirección de la red en formato CIDR (p. ej. 192.168.0.0/24, 2001:DB8::/48)"
 
-msgid "Network attached to instance."
-msgstr "Red asociada a la instancia."
-
 msgid "Network list can not be retrieved."
 msgstr "No ha sido posible obtener la lista de redes."
 
@@ -5403,10 +5074,6 @@ msgstr "Nunca"
 msgid "Never updated"
 msgstr "Nunca actualizada"
 
-msgctxt "Current status of a Database Backup"
-msgid "New"
-msgstr "Nueva"
-
 msgid "New DHCP Agent"
 msgstr "Nuevo agente DHCP"
 
@@ -5416,12 +5083,6 @@ msgstr "Sabor nuevo"
 msgid "New Host"
 msgstr "Nuevo host"
 
-msgid "New Password"
-msgstr "Contraseña nueva"
-
-msgid "New Size (GB)"
-msgstr "Nuevo tamaño (GB)"
-
 msgid "New name cannot be empty."
 msgstr "Nuevo nombre no puede estar  vacío."
 
@@ -5430,12 +5091,6 @@ msgstr "Nuevo nombre entra en conflicto con otro tipo de volumen."
 
 msgid "New password"
 msgstr "Contraseña nueva"
-
-msgid "New password for cluster access."
-msgstr "Nueva contraseña para el acceso al clúster."
-
-msgid "New size for volume must be greater than current size."
-msgstr "El nuevo tamaño para el volumen debe ser mayor que el actual."
 
 msgid "New size must be greater than current size."
 msgstr "Nuevo tamaño debe ser mayor al actual."
@@ -5492,9 +5147,6 @@ msgstr "No se ha encontrado ninguna consola disponble."
 
 msgid "No available projects"
 msgstr "No hay proyectos disponibles"
-
-msgid "No backups available"
-msgstr "No hay copias de seguridad disponibles"
 
 msgid "No flavors available"
 msgstr "No hay sabores disponibles"
@@ -5631,12 +5283,6 @@ msgstr "Nada (remueve especificación)"
 msgid "Normal"
 msgstr "Normal"
 
-msgid "Not Assigned"
-msgstr "No asignada"
-
-msgid "Not Found"
-msgstr "No encontrado"
-
 msgid "Not attached"
 msgstr "No asociado"
 
@@ -5661,9 +5307,6 @@ msgstr "Número de solicitudes de API contra Swift"
 
 msgid "Number of Instances"
 msgstr "Número de instancias"
-
-msgid "Number of Shards"
-msgstr "Número de particiones"
 
 msgid "Number of Snapshots"
 msgstr "Número de instantáneas"
@@ -5694,12 +5337,6 @@ msgstr "Número de bytes entrantes en la red para una interfaz de la MV"
 
 msgid "Number of incoming packets for a VM interface"
 msgstr "Número de paquetes entrantes para una interfaz de la MV"
-
-msgid "Number of instances in the cluster. (Read only)"
-msgstr "Número de instancia en el clúster (solo lectura)."
-
-msgid "Number of instances per shard. (Read only)"
-msgstr "Número de instancias por particiones (solo lectura)."
 
 msgid "Number of instances to launch."
 msgstr "Número de instancias a lanzar."
@@ -5734,9 +5371,6 @@ msgstr ""
 
 msgid "Number of read requests"
 msgstr "Número de solicitudes de lectura"
-
-msgid "Number of shards. (Read only)"
-msgstr "Número de particiones (solo lectura),"
 
 msgid "Number of write requests"
 msgstr "Número de solicitudes de escritura"
@@ -5802,29 +5436,11 @@ msgstr "Puerto abierto"
 msgid "Open Port/Port Range:"
 msgstr "Puerto abierto/Rango de puertos"
 
-msgid "Optional Backup Description"
-msgstr "Descripción de la copia de seguridad opcional"
-
 msgid "Optional Parameters"
 msgstr "Parámetros opcionales"
 
-msgid "Optional parent backup"
-msgstr "Copia de seguridad primaria opcional"
-
 msgid "Optional: Next Hop Addresses (comma delimited)"
 msgstr "Opcional: Direcciones de los próximos saltos (separados por coma)"
-
-msgid ""
-"Optionally choose to create this database using a previous backup, or as a "
-"replica of another database instance."
-msgstr ""
-"Opcionalmente seleccione crear esta base de datos de una copia de seguridad "
-"previa o como una réplica de otra instancia de base de datos."
-
-msgid "Optionally provide a comma separated list of databases to create:"
-msgstr ""
-"Opcionalmente indique una lista de bases de datos separadas por comas para "
-"crear:"
 
 msgid "Optionally, you may choose to create a new volume."
 msgstr "Opcionalmente, puede seleccionar crear un nuevo volumen."
@@ -5879,9 +5495,6 @@ msgstr ""
 "Clave de Autorización del antigüo propietario.  Esto equivale al comando "
 "<tt>cinder transfer-accept</tt> ."
 
-msgid "PASSWORD"
-msgstr "CONTRASEÑA"
-
 msgid "PFS"
 msgstr "PFS"
 
@@ -5894,9 +5507,6 @@ msgstr "Página no encontrada"
 msgid "Parameters"
 msgstr "Parámetros"
 
-msgid "Parent Backup"
-msgstr "Copia de seguridad primaria"
-
 msgid "Password"
 msgstr "Contraseña"
 
@@ -5904,20 +5514,11 @@ msgctxt "Current status of an Instance"
 msgid "Password"
 msgstr "Contraseña"
 
-msgid "Password (required)"
-msgstr "Contraseña (obligatoria)"
-
 msgid "Password changed. Please log in again to continue."
 msgstr "Se ha cambiado la contraseña. Inicie sesión de nuevo para continuar."
 
 msgid "Password changed. Please log in to continue."
 msgstr "Contraseña modificada. Por favor, acceda de nuevo para continuar."
-
-msgid "Password for root user must be specified."
-msgstr "Se debe especificar la contraseña de usuario root."
-
-msgid "Password for root user."
-msgstr "Contraseña para usuario root"
 
 #, python-format
 msgid "Password for user \"%s\""
@@ -6376,10 +5977,6 @@ msgctxt "Action log of an instance"
 msgid "Reboot"
 msgstr "Reinicio"
 
-msgctxt "Current status of a Database Instance"
-msgid "Reboot"
-msgstr "Reinicio"
-
 msgctxt "Current status of an Instance"
 msgid "Reboot"
 msgstr "Reinicio"
@@ -6516,20 +6113,6 @@ msgid_plural "Removed Users"
 msgstr[0] "Usuario Eliminado"
 msgstr[1] "Usuarios Eliminados"
 
-msgid "Replica Detached"
-msgid_plural "Replicas Detached"
-msgstr[0] "Réplica Desacoplada"
-msgstr[1] "Réplicas Desacopladas"
-
-msgid "Replicas"
-msgstr "Réplicas"
-
-msgid "Replicate from Instance"
-msgstr "Replicar desde instancia"
-
-msgid "Replication"
-msgstr "Replicación"
-
 msgid "Request ID"
 msgstr "ID de la petición"
 
@@ -6554,9 +6137,6 @@ msgctxt "Task status of an Instance"
 msgid "Rescuing"
 msgstr "Rescatando"
 
-msgid "Reset Root Password"
-msgstr "Restablecer la contraseña root"
-
 msgid "Reset to Default"
 msgstr "Restablecer el valor por defecto"
 
@@ -6567,21 +6147,8 @@ msgctxt "Action log of an instance"
 msgid "Resize"
 msgstr "Redimensionar"
 
-msgctxt "Current status of a Database Instance"
-msgid "Resize"
-msgstr "Redimensionar"
-
-msgid "Resize Database Instance"
-msgstr "Redimensionar instancia de base de datos"
-
-msgid "Resize Database Volume"
-msgstr "Redimensionar el volumen de la base de datos"
-
 msgid "Resize Instance"
 msgstr "Redimensionar instancia"
-
-msgid "Resize Volume"
-msgstr "Redimensionar Volumen"
 
 msgctxt "Current status of an Instance"
 msgid "Resize/Migrate"
@@ -6591,17 +6158,9 @@ msgctxt "Task status of an Instance"
 msgid "Resized or Migrated"
 msgstr "Redimensionada o migrada"
 
-#, python-format
-msgid "Resizing instance \"%s\""
-msgstr "Redimensionando instancia \"%s\""
-
 msgctxt "Task status of an Instance"
 msgid "Resizing or Migrating"
 msgstr "Redimensionando o migrando"
-
-#, python-format
-msgid "Resizing volume \"%s\""
-msgstr "Redimensionando volumen \"%s\""
 
 msgid "Resource"
 msgstr "Recurso"
@@ -6611,9 +6170,6 @@ msgstr "ID de recurso"
 
 msgid "Resource Metadata"
 msgstr "Metadatos de los recursos"
-
-msgid "Resource Overview"
-msgstr "Vista general de los recursos"
 
 msgid "Resource Types"
 msgstr "Tipos de recurso"
@@ -6630,20 +6186,6 @@ msgstr "Recursos"
 
 msgid "Resources Usage Overview"
 msgstr "Visión general sobre el uso de los recursos"
-
-msgid "Restart Instance"
-msgid_plural "Restart Instances"
-msgstr[0] "Reiniciar instancia"
-msgstr[1] "Reiniciar instancias"
-
-msgctxt "Current status of a Database Instance"
-msgid "Restart Required"
-msgstr "Reinicio Requerido"
-
-msgid "Restarted Instance"
-msgid_plural "Restarted Instances"
-msgstr[0] "Instancia reiniciada"
-msgstr[1] "Instancias reiniciadas"
 
 msgid "Restarted instances will lose any data not saved in persistent storage."
 msgstr ""
@@ -6664,9 +6206,6 @@ msgstr "Restaurar copia de seguridad del volumen"
 
 msgid "Restore a Volume Backup"
 msgstr "Restaurar una copia de seguridad de volumen"
-
-msgid "Restore from Backup"
-msgstr "Restaurar desde copia de seguridad"
 
 msgctxt "Current status of a Volume Backup"
 msgid "Restoring"
@@ -6778,13 +6317,6 @@ msgstr "Disco raíz"
 
 msgid "Root Disk (GB)"
 msgstr "Disco raíz (GB)"
-
-msgid "Root Password"
-msgstr "Contraseña de root"
-
-#, python-format
-msgid "Root password updated for cluster \"%s\""
-msgstr "Contraseña de root actualizada para clúster \"%s\""
 
 msgid "Rotates requests evenly between multiple instances."
 msgstr "Rotación de solicitudes, aún entre múltiples instancias."
@@ -6922,17 +6454,9 @@ msgstr "Se han guardado las especif. adicionales \"%s\"."
 msgid "Saved spec \"%s\"."
 msgstr "Especificación \"%s\" creada"
 
-msgctxt "Current status of a Database Backup"
-msgid "Saving"
-msgstr "Guardando"
-
 msgctxt "Current status of an Image"
 msgid "Saving"
 msgstr "Guardando"
-
-#, python-format
-msgid "Scheduled backup \"%(name)s\"."
-msgstr "Programada copia de seguridad \"%(name)s\"."
 
 #, python-format
 msgid "Scheduled deletion of %(data_type)s"
@@ -7112,18 +6636,12 @@ msgstr "Seleccionar un router"
 msgid "Select a Subnet"
 msgstr "Seleccionar una subred"
 
-msgid "Select a backup to restore"
-msgstr "Seleccione una copia de seguridad para restaurar"
-
 #, python-format
 msgid "Select a health monitor of %s"
 msgstr "Seleccionar un monitor de salud de %s"
 
 msgid "Select a key pair"
 msgstr "Seleccione un par de claves"
-
-msgid "Select a master instance"
-msgstr "Seleccione una instancia maestra"
 
 #, python-format
 msgid "Select a monitor template for %s"
@@ -7137,9 +6655,6 @@ msgstr "Seleccionar una nueva especificación QoS"
 
 msgid "Select a new agent"
 msgstr "Seleccionar nuevo agente"
-
-msgid "Select a new flavor"
-msgstr "Seleccionar un nuevo sabor"
 
 msgid "Select a new host"
 msgstr "Seleccione un nuevo host"
@@ -7189,20 +6704,11 @@ msgstr "Seleccione una instancia"
 msgid "Select an instance to attach to."
 msgstr "Seleccionar una instancia a la que asociar."
 
-msgid "Select backup"
-msgstr "Seleccionar copia de seguridad"
-
-msgid "Select datastore type and version"
-msgstr "Seleccionar un tipo y una versión de almacén de datos"
-
 msgid "Select format"
 msgstr "Seleccionar formato"
 
 msgid "Select from active instances"
 msgstr "Seleccionar desde instancias activas"
-
-msgid "Select instance"
-msgstr "Seleccione una instancia"
 
 msgid "Select members for this pool "
 msgstr "Seleccione los miembros de este pool"
@@ -7212,9 +6718,6 @@ msgstr "Seleccionar red"
 
 msgid "Select networks for your instance."
 msgstr "Seleccione las redes para su instancia."
-
-msgid "Select parent backup"
-msgstr "Seleccionar copia de seguridad primaria"
 
 msgid "Select routers for your firewall."
 msgstr "Seleccionar routers para su cortafuegos."
@@ -7384,10 +6887,6 @@ msgid_plural "Shut Off Instances"
 msgstr[0] "Apagar Instancia"
 msgstr[1] "Apagar Instancias"
 
-msgctxt "Current status of a Database Instance"
-msgid "Shutdown"
-msgstr "Apagar"
-
 msgctxt "Current status of an Instance"
 msgid "Shutoff"
 msgstr "Apagada"
@@ -7404,14 +6903,8 @@ msgstr "Tamaño del disco efímero"
 msgid "Size of image to launch."
 msgstr "Tamaño de la imagen a lanzar."
 
-msgid "Size of instance to launch."
-msgstr "Tamaño de la instancia a lanzar."
-
 msgid "Size of root disk"
 msgstr "Tamaño del disco raíz"
-
-msgid "Size of the volume in GB."
-msgstr "Tamaño del volumen en GB."
 
 msgid "Size of volume"
 msgstr "Tamaño del volumen"
@@ -7517,9 +7010,6 @@ msgstr "Puerto origen"
 msgid "Source Port/Port Range"
 msgstr "Puerto origen/Rango de puerto"
 
-msgid "Source for Initial State"
-msgstr "Origen del estado inicial"
-
 msgid "Source port (integer in [1, 65535] or range in a:b)"
 msgstr "Puerto origen (entero en [1, 65535] o rango en a:b)"
 
@@ -7577,9 +7067,6 @@ msgid "Specify a metadata definition namespace to import."
 msgstr ""
 "Especifica un espacio de nombre de definición de metadatos para importar "
 
-msgid "Specify a new flavor for the database instance."
-msgstr "Especifique un nuevo sabor para la instancia de base de datos."
-
 msgid "Specify additional attributes for the subnet."
 msgstr "Especificar atributos adicionales para la subred."
 
@@ -7596,22 +7083,8 @@ msgstr "Especifique una imagen para subir al Servicio de imágenes."
 msgid "Specify member IP address"
 msgstr "Especificar la dirección IP del miembro"
 
-msgid "Specify the details for adding additional shards."
-msgstr "Especifique los detalles para añadir particiones adicionales."
-
 msgid "Specify the details for launching an instance."
 msgstr "Especifique los detalles de la instancia a lanzar."
-
-msgid "Specify the details for the database backup."
-msgstr ""
-"Especificar los detalles para la copia de seguridad de la base de datos."
-
-msgid "Specify the new root password for vertica cluster."
-msgstr "Especifique la nueva contraseña root para el clúster Vertica"
-
-msgid "Specify the new volume size for the database instance."
-msgstr ""
-"Especificar el nuevo tamaño del volumen para la instacia de la base de datos."
 
 msgid ""
 "Specify this option to copy image data to the image service. If unspecified, "
@@ -8194,9 +7667,6 @@ msgstr ""
 "El sabor '%(flavor)s' es demasiado pequeño para la imagen solicitada.\n"
 "Requisitos mínimos:  %(min_ram)s MB de RAM y %(min_disk)s GB de disco raiz."
 
-msgid "The flavor must be specified."
-msgstr "Se debe especificar el sabor."
-
 #, python-format
 msgid "The instance is preparing the live migration to host \"%s\"."
 msgstr ""
@@ -8265,9 +7735,6 @@ msgid ""
 msgstr ""
 "Las direcciones del siguiente salto se pueden utilizar para ignorar el "
 "router usado por el cliente."
-
-msgid "The number of shards must be greater than 1."
-msgstr "El número de particiones debe ser mayor que 1."
 
 msgid "The page you were looking for doesn't exist"
 msgstr "La página que está buscando no existe"
@@ -8405,9 +7872,6 @@ msgstr ""
 msgid "This name is already taken."
 msgstr "Este nombre ya está en uso."
 
-msgid "This pane needs javascript support."
-msgstr "Este panel necesita soporte javascript."
-
 msgid ""
 "This volume is currently attached to an instance. In some cases, creating a "
 "snapshot from an attached volume can result in a corrupted snapshot."
@@ -8538,9 +8002,6 @@ msgstr "Protocolo de transformación"
 msgid "Type"
 msgstr "Tipo"
 
-msgid "Type and version of datastore."
-msgstr "Tipo y versión de almacén de datos."
-
 msgid "Type of backend device identifier provided"
 msgstr "Tipo de indentificador dispositivo posterior previsto. "
 
@@ -8579,9 +8040,6 @@ msgstr "URL"
 
 msgid "URL Path"
 msgstr "Ruta URL"
-
-msgid "USERNAME"
-msgstr "USUARIO"
 
 msgid "UTC"
 msgstr "UTC"
@@ -8640,10 +8098,6 @@ msgstr "No ha sido posible agregar el pool \"%s. "
 
 msgid "Unable to add rule to security group."
 msgstr "No ha sido posible agregar la regla al grupo de seguridad."
-
-#, python-format
-msgid "Unable to add shard. %s"
-msgstr "No ha sido posible añadir la partición. %s"
 
 msgid "Unable to add user to primary project."
 msgstr "No ha sido posible añadir el usuario al proyecto principal."
@@ -8868,14 +8322,8 @@ msgstr "No ha sido posible extender el volumen."
 msgid "Unable to fetch EC2 credentials."
 msgstr "No ha sido posible obtener las credenciales EC2."
 
-msgid "Unable to find backup!"
-msgstr "¡No se ha podido encontrar la copia de seguridad!"
-
 msgid "Unable to find default role."
 msgstr "No ha sido posible encontrar el rol predeterminado."
-
-msgid "Unable to find master instance!"
-msgstr "¡No es posible encontrar la instancia maestra!"
 
 msgid "Unable to get EC2 credentials"
 msgstr "No ha sido posible obtener las credenciales EC2"
@@ -8902,12 +8350,6 @@ msgstr "No ha sido posible obtener la consola VNC de la instancia \"%s\"."
 msgid "Unable to get cinder services list."
 msgstr "No ha sido posible obtener la lista de servicios de cinder"
 
-msgid "Unable to get database backup data."
-msgstr "No ha sido posible obtener los datos de la copia de seguridad."
-
-msgid "Unable to get databases data."
-msgstr "No ha sido posible obtener los datos de las bases de datos."
-
 #, python-format
 msgid "Unable to get events for stack \"%s\"."
 msgstr "No ha sido posible obtener eventos para la pila \"%s\"."
@@ -8923,9 +8365,6 @@ msgstr ""
 
 msgid "Unable to get host aggregate list"
 msgstr "No ha sido posible obtener la lista de agregados de host"
-
-msgid "Unable to get instances data."
-msgstr "No ha sido posible obtener los datos de la instancia."
 
 #, python-format
 msgid "Unable to get log for instance \"%s\"."
@@ -8968,9 +8407,6 @@ msgstr "No ha sido posible obtener la subred para pool %(pool)s."
 msgid "Unable to get the available hosts"
 msgstr "No ha sido posible obtener los agregados de hosts."
 
-msgid "Unable to get user data."
-msgstr "No ha sido posible obtener los datos del usuario."
-
 msgid "Unable to import key pair."
 msgstr "No ha sido posible importar el par de claves."
 
@@ -8981,21 +8417,8 @@ msgstr "Incapaz de inicializar pools de subnet"
 msgid "Unable to launch %(count)s named \"%(name)s\"."
 msgstr "No ha sido posible lanzar %(count)s de nombre \"%(name)s\"."
 
-#, python-format
-msgid "Unable to launch cluster. %s"
-msgstr "No ha sido posible lanzar el clúster. %s"
-
 msgid "Unable to list containers."
 msgstr "No ha sido posible listar los contenedores."
-
-msgid "Unable to list database backups for parent."
-msgstr ""
-"No es posible enumerar las copias de seguridad de bases de datos para los "
-"padres."
-
-msgid "Unable to list database instances to backup."
-msgstr ""
-"No ha sido obtener la lista de instancias de la base de datos para backup."
 
 msgid "Unable to list dhcp agents hosting network."
 msgstr "No ha sido posible enumerar los agentes dhcp del segmento de red."
@@ -9039,15 +8462,6 @@ msgstr "No ha sido posible modificar la instancia \"%s\"."
 msgid "Unable to modify project \"%s\"."
 msgstr "No ha sido posible modificar el proyecto \"%s\"."
 
-msgid "Unable to obtain datastore versions."
-msgstr "No ha sido posible obtener las versiones del almacén de datos."
-
-msgid "Unable to obtain datastores."
-msgstr "No ha sido posible obtener el almacén de datos."
-
-msgid "Unable to obtain flavors."
-msgstr "No ha sido posible obtener los sabores."
-
 #, python-format
 msgid "Unable to parse IP address %s."
 msgstr "No ha sido posible analizar dirección IP %s."
@@ -9056,20 +8470,8 @@ msgid "Unable to rebuild instance."
 msgstr "No ha sido posible reconstruir la instancia."
 
 #, python-format
-msgid "Unable to reset password. %s"
-msgstr "No ha sido posible restablecer la contraseña. %s"
-
-#, python-format
 msgid "Unable to resize instance \"%s\"."
 msgstr "No ha sido posible redimensionar la instancia \"%s\"."
-
-#, python-format
-msgid "Unable to resize instance. %s"
-msgstr "No ha sido posible redimensionar la instancia \"%s\""
-
-#, python-format
-msgid "Unable to resize volume. %s"
-msgstr "No ha sido posible redimensionar el volumen. %s"
 
 msgid "Unable to restore backup."
 msgstr "No ha sido posible restaurar el respaldo."
@@ -9182,9 +8584,6 @@ msgstr "No ha sido posible obtener las zonas de disponibilidad."
 msgid "Unable to retrieve backup details."
 msgstr "No pude obtener los detalles del respaldo."
 
-msgid "Unable to retrieve cluster details."
-msgstr "No ha sido posible obtener los detalles del clúster."
-
 msgid "Unable to retrieve compute host information."
 msgstr "No ha sido posible obtener la información del anfitrión de cómputo."
 
@@ -9194,37 +8593,12 @@ msgstr "No ha sido posible obtener la información del límite de computación."
 msgid "Unable to retrieve container list."
 msgstr "No ha sido posible obtener la lista de contenedores."
 
-msgid "Unable to retrieve database clusters."
-msgstr "No ha sido posible obtener los clústeres de la base de datos."
-
-msgid "Unable to retrieve database instances."
-msgstr "No ha sido posible obtener las instancias de la base de datos."
-
-msgid "Unable to retrieve database size information."
-msgstr ""
-"No ha sido posible obtener la información del tamaño de la base de datos."
-
 msgid "Unable to retrieve default Neutron quota values."
 msgstr ""
 "No ha sido posible obtener los valores predeterminados de cuota de Neutron."
 
 msgid "Unable to retrieve default quota values."
 msgstr "No ha sido posible obtener los valores predeterminados de la cuota."
-
-#, python-format
-msgid "Unable to retrieve details for backup: %s"
-msgstr "No ha sido posible obtener los detalles de la copia de seguridad «%s»"
-
-#, python-format
-msgid "Unable to retrieve details for database cluster: %s"
-msgstr ""
-"No ha sido posible obtener los detalles de los clústeres de la base datos: %s"
-
-#, python-format
-msgid "Unable to retrieve details for database instance: %s"
-msgstr ""
-"No ha sido posible obtener los detalles de la instancia de la base de datos: "
-"\"%s\"."
 
 #, python-format
 msgid "Unable to retrieve details for instance \"%s\"."
@@ -9237,10 +8611,6 @@ msgstr "No ha sido posible obtener los pares de claves \"%s\"."
 #, python-format
 msgid "Unable to retrieve details for network \"%s\"."
 msgstr "No ha sido posible obtener los detalles de la red \"%s\"."
-
-#, python-format
-msgid "Unable to retrieve details for parent backup: %s"
-msgstr "No se pueden recuperar detalles de la copia de seguridad maestra: %s"
 
 #, python-format
 msgid "Unable to retrieve details for router \"%s\"."
@@ -9444,9 +8814,6 @@ msgstr "No ha sido posible obtener la red."
 
 msgid "Unable to retrieve networks list."
 msgstr "No ha sido posible obtener la lista de redes."
-
-msgid "Unable to retrieve networks."
-msgstr "No ha sido posible obtener las redes."
 
 msgid "Unable to retrieve object list."
 msgstr "No ha sido posible obtener la lista de objetos."
@@ -10127,9 +9494,6 @@ msgstr "El nombre de usuario \"%s\" ya está en uso."
 msgid "User password has been updated successfully."
 msgstr "La contraseña de usuario se ha actualizado correctamente."
 
-msgid "Username (required)"
-msgstr "Usuario (obligatorio)"
-
 msgid "Users"
 msgstr "Usuarios"
 
@@ -10312,9 +9676,6 @@ msgstr "Límites del volumen"
 msgid "Volume Name"
 msgstr "Nombre del volumen"
 
-msgid "Volume Size"
-msgstr "Tamaño del volumen"
-
 msgid "Volume Snapshot"
 msgstr "Instantánea de volumen"
 
@@ -10486,15 +9847,6 @@ msgstr ""
 "disponibles."
 
 msgid ""
-"You can perform an incremental backup by specifying a parent backup. "
-"<strong>However,</strong> not all databases support incremental backups in "
-"which case this operation will result in an error."
-msgstr ""
-"Puede realizar una copia incremental especificando la copia original. "
-"<strong>No obstante,</strong> no todas las bases de datos permiten las "
-"copias incrementales, en cuyo caso, esta operación fallará."
-
-msgid ""
 "You can specify the desired rule template or use custom rules, the options "
 "are Custom TCP Rule, Custom UDP Rule, or Custom ICMP Rule."
 msgstr ""
@@ -10613,9 +9965,6 @@ msgstr "Aquí puede actualizar las propiedades editables de su puerto."
 msgid "You may update the editable properties of your router here."
 msgstr "Puede actualizar las propiedades editables de su enrutador aquí."
 
-msgid "You must select a datastore type and version."
-msgstr "Debe seleccionar un tipo y una versión de almacén de datos."
-
 msgid "You must select a snapshot."
 msgstr "Debe seleccionar una instantánea. "
 
@@ -10628,15 +9977,9 @@ msgstr "Debe seleccionar una imagen. "
 msgid "You must set volume size"
 msgstr "Debe establecer el tamaño del volumen"
 
-msgid "You must specify a password if you create a user."
-msgstr "Debe especificar una contraseña si crea un usuario."
-
 msgid "You must specify a template via one of the available sources."
 msgstr ""
 "Debe especificar una plantilla mediante una de los orígenes disponibles."
-
-msgid "You must specify at least one database if you create a user."
-msgstr "Debe especificar al menos una base de datos si crea un usuario."
 
 msgid ""
 "You must specify the source of the traffic to be allowed via this rule. You "

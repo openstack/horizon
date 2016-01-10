@@ -16,7 +16,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-12-17 05:35+0000\n"
+"POT-Creation-Date: 2016-01-09 00:51+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -279,15 +279,6 @@ msgstr ""
 
 msgid ""
 "\n"
-"   Volumes are block devices that can be attached to instances.\n"
-"   "
-msgstr ""
-"\n"
-"    볼륨은 인스턴스에 연결할 수 있는 블록 디바이스입니다.\n"
-"    "
-
-msgid ""
-"\n"
 "  Assign a name and description for the pool. Choose one subnet where all\n"
 "  members of this pool must be on. Select the protocol and load balancing\n"
 "  method for this pool. Admin State is UP (checked) by default.\n"
@@ -298,18 +289,6 @@ msgstr ""
 "는 \n"
 "서브넷 하나를 선택합니다. 해당 Pool에 대한 프로토콜 및 로드 밸런싱 \n"
 "방식을 선택합니다. 관리 상태는 디폴트로 UP (선택됨)입니다."
-
-msgid ""
-"\n"
-"  Move networks from 'Available Networks' to 'Selected Networks' by\n"
-"  clicking the button, or dragging and dropping. You can change the\n"
-"  NIC order by dragging and dropping as well.\n"
-"  "
-msgstr ""
-"\n"
-"버튼을 클릭하거나 드래그 앤 드롭하여 '사용 가능한 네트워크'에서 \n"
-"'선택한 네트워크'로 네트워크를 이동합니다. \n"
-"드래그엔 드롭으로 NIC의 순서를 변경할 수 있습니다."
 
 msgid ""
 "\n"
@@ -352,9 +331,6 @@ msgstr "포트 %s 제거 또한 실패하였습니다"
 msgid "\"Add Router Route\""
 msgstr "\"라우터 경로 추가\""
 
-msgid "\"Clusters\""
-msgstr "\"클러스터\""
-
 msgid ""
 "\"Customization Script\" is analogous to \"User Data\" in other systems."
 msgstr ""
@@ -362,9 +338,6 @@ msgstr ""
 
 msgid "\"Edit Volume Type\""
 msgstr "\"볼륨 타입 수정\""
-
-msgid "\"Launch Cluster\""
-msgstr "\"클러스터 실행\""
 
 msgid "\"N/A\""
 msgstr "\"N/A\""
@@ -405,14 +378,6 @@ msgstr "%(instance_name)s %(fixed_ip)s"
 #, python-format
 msgid "%(name)s - %(size)s GB (%(label)s)"
 msgstr "%(name)s - %(size)s GB (%(label)s)"
-
-#, python-format
-msgid "%(name)s | %(RAM)s RAM"
-msgstr "%(name)s | %(RAM)s RAM"
-
-#, python-format
-msgid "%(name)s | %(RAM)s RAM | %(instances)s instances"
-msgstr "%(name)s | %(RAM)s RAM | %(instances)s 인스턴스"
 
 #, python-format
 msgid "%(offset)s: %(label)s"
@@ -500,32 +465,6 @@ msgstr "--"
 msgid "3des"
 msgstr "3des"
 
-#, python-format
-msgid "<p>%(used)s of %(quota)s MB Used</p>"
-msgstr "<p>%(quota)s MB에서 %(used)s 사용</p>"
-
-#, python-format
-msgid "<p>%(used)s of %(quota)s Used</p>"
-msgstr "<p>%(quota)s에서 %(used)s 사용</p>"
-
-msgid ""
-"<strong>Please note:</strong> The new value must be greater than the "
-"existing volume size."
-msgstr "<strong>노트:</strong> 새로운 값은 기존 볼륨 사이즈보다 더 커야합니다."
-
-msgid ""
-"<strong>Please note:</strong> The value specified in the Volume Size field "
-"should be greater than 0, however, some configurations do not support "
-"specifying volume size. If specifying the volume size results in an error "
-"stating volume support is not enabled, enter 0."
-msgstr ""
-"<strong>주의:</strong> 볼륨 크기 항목에 값을 0보다 큰 값을 작성해야 합니다. "
-"그러나 어떤 구성은 볼륨 크기를 명시할 수 없는 경우도 있습니다. 오류 부팅 볼"
-"륨 지원을 사용하지 않음으로 되어 있다면, 볼륨 값을 0으로 입력합니다."
-
-msgid "A backup must be selected!"
-msgstr "백업이 반드시 선택되어야 합니다!"
-
 msgid ""
 "A container is a storage compartment for your data and provides a way for "
 "you to organize your data. You can think of a container as a folder in "
@@ -556,9 +495,6 @@ msgstr "로컬 메타데이터 정의 파일을 업로드 합니다."
 
 msgid "A local template to upload."
 msgstr "업로드할 로컬 템플릿."
-
-msgid "A master instance must be selected!"
-msgstr "마스터 인스턴스가 반드시 선택되어야 합니다!"
 
 msgid ""
 "A more specific rule affects a portion of this traffic so a rule cannot be "
@@ -648,10 +584,6 @@ msgstr "방화벽 rule에 대한 작업"
 
 msgid "Action:"
 msgstr "동작:"
-
-msgctxt "Current status of a Database Instance"
-msgid "Active"
-msgstr "Active"
 
 msgctxt "Current status of a Firewall"
 msgid "Active"
@@ -791,9 +723,6 @@ msgstr "라우터 추가"
 msgid "Add Rule"
 msgstr "규칙 추가"
 
-msgid "Add Shard"
-msgstr "Shard 추가"
-
 msgid "Add Static Route"
 msgstr "정적 경로 추가"
 
@@ -921,10 +850,6 @@ msgstr "모니터를 추가하였습니다."
 msgid "Added pool \"%s\"."
 msgstr "Pool \"%s\" 추가하였습니다."
 
-#, python-format
-msgid "Added shard to \"%s\""
-msgstr "Shard를 \"%s\"에 추가함"
-
 msgid "Additional routes"
 msgstr "추가 경로"
 
@@ -983,9 +908,6 @@ msgstr "Adopt Failed"
 msgctxt "current status of stack"
 msgid "Adopt In Progress"
 msgstr "Adopt In Progress"
-
-msgid "Advanced"
-msgstr "고급"
 
 msgid "Advanced Options"
 msgstr "고급 옵션"
@@ -1065,21 +987,6 @@ msgstr ""
 
 msgid "Allocation Pools"
 msgstr "Pools 할당"
-
-msgid ""
-"Allow the user to connect from this host\n"
-"    only. If not provided this user will be allowed to connect from "
-"anywhere.\n"
-"    "
-msgstr ""
-"이 호스트에만 사용자 접근을 허용합니다.\n"
-"만약 지정되지 않은 경우, 사용자는 어디서던지 접근이 가능합니다."
-
-msgid "Allowed Host"
-msgstr "허용한 호스트"
-
-msgid "Allowed Host (optional)"
-msgstr "허용한 호스트 (선택적)"
 
 msgid "Amount of energy"
 msgstr "전력 합계"
@@ -1299,36 +1206,8 @@ msgctxt "Current status of a Volume"
 msgid "Backing Up"
 msgstr "백업"
 
-msgid "Backup"
-msgstr "백업"
-
-msgctxt "Current status of a Database Instance"
-msgid "Backup"
-msgstr "Backup"
-
-msgid "Backup Database"
-msgstr "백업 데이터베이스"
-
-msgid "Backup Details"
-msgstr "백업에 대한 세부 정보"
-
-msgid "Backup Details: {{ backup.name }}"
-msgstr "백업 세부 정보: {{ backup.name }}"
-
-msgid "Backup Duration"
-msgstr "백업 사용 시간"
-
-msgid "Backup File"
-msgstr "백업 파일"
-
-msgid "Backup File Location"
-msgstr "백업 파일 위치"
-
 msgid "Backup Name"
 msgstr "백업 이름"
-
-msgid "Backup Overview"
-msgstr "백업 개요"
 
 msgid "Backups"
 msgstr "백업"
@@ -1355,10 +1234,6 @@ msgstr "블록 마이그레이션"
 msgid "Block Storage Services"
 msgstr "블록 스토리지 서비스"
 
-msgctxt "Current status of a Database Instance"
-msgid "Blocked"
-msgstr "Blocked"
-
 msgctxt "Power state of an Instance"
 msgid "Blocked"
 msgstr "Blocked"
@@ -1381,10 +1256,6 @@ msgstr "볼륨 스냅샷으로 부팅 (새로운 볼륨 생성)"
 msgid "Bootable"
 msgstr "부팅가능"
 
-msgctxt "Current status of a Database Instance"
-msgid "Build"
-msgstr "Build"
-
 msgctxt "Current status of a Network"
 msgid "Build"
 msgstr "Build"
@@ -1400,10 +1271,6 @@ msgstr "Build"
 msgctxt "status of a network port"
 msgid "Build"
 msgstr "Build"
-
-msgctxt "Current status of a Database Backup"
-msgid "Building"
-msgstr "Building"
 
 msgctxt "Power state of an Instance"
 msgid "Building"
@@ -1503,9 +1370,6 @@ msgid ""
 "the space provided."
 msgstr "키 페어 이름을 지정하고 제공된 공간에 SSH 공개 키를 등록합니다."
 
-msgid "Choose a new instance flavor."
-msgstr "새로운 인스턴스 flavor를 선택하세요."
-
 msgid "Choose a snapshot"
 msgstr "스냅샷 선택"
 
@@ -1523,9 +1387,6 @@ msgstr "연결할 QoS 스펙을 선택해주세요."
 
 msgid "Choose consumer for this QoS Spec."
 msgstr "해당 QoS 스펙에 대한 사용자를 선택하세요."
-
-msgid "Choose initial state."
-msgstr "초기 상태를 선택하세요."
 
 msgid ""
 "Choose network from Available networks to Selected networks by push button "
@@ -1597,30 +1458,14 @@ msgstr "콘솔만 보려면 여기를 클릭하세요."
 msgid "Close"
 msgstr "닫기"
 
-msgid "Cluster Name"
-msgstr "클러스터 이름"
-
-msgid "Cluster Size"
-msgstr "클러스터 크기"
-
-msgid "Clusters"
-msgstr "클러스터"
-
 msgid "Code"
 msgstr "코드"
 
 msgid "Cold Migrate"
 msgstr "Cold Migrate"
 
-msgid "Comma separated list of databases to create"
-msgstr "쉼표로 구분한 생성할 데이터베이스의 목록"
-
 msgid "Comma-separated key=value pairs"
 msgstr "콤마로 구분된 key=value 페어"
-
-msgctxt "Current status of a Database Backup"
-msgid "Completed"
-msgstr "Completed"
 
 msgid "Component"
 msgstr "구성 요소"
@@ -1679,15 +1524,6 @@ msgstr "Confirming Resize or Migrate"
 
 msgid "Conflicting Rule"
 msgstr "규칙 충돌"
-
-msgid "Connection Examples"
-msgstr "연결 예제"
-
-msgid "Connection Info"
-msgstr "연결 정보"
-
-msgid "Connection Information"
-msgstr "연결 정보"
 
 msgid "Connection Limit"
 msgstr "연결 제한"
@@ -2019,13 +1855,6 @@ msgstr ""
 msgid "Create an Encrypted Volume Type"
 msgstr "암호화된 볼륨 유형 생성"
 
-msgid ""
-"Create an optional initial user.\n"
-"   This user will have access to all databases you create."
-msgstr ""
-"임의의 초기 사용자를 만듭니다.\n"
-"이 사용자는 당신이 만든 모든 데이터베이스에 접근할 수 있습니다."
-
 #, python-format
 msgid "Create pseudo-folder in container %(container_name)s"
 msgstr "컨테이너 %(container_name)s에서 가상 폴더 만들기"
@@ -2140,12 +1969,6 @@ msgstr "서브넷 생성 요청"
 msgid "Current Host"
 msgstr "현재 호스트"
 
-msgid "Current Size (GB)"
-msgstr "현재 크기 (GB)"
-
-msgid "Current Task"
-msgstr "현재 작업"
-
 msgid "Current password"
 msgstr "현재 비밀번호"
 
@@ -2163,9 +1986,6 @@ msgstr "사용자 정의 UDP 규칙"
 
 msgid "Customization Script Source"
 msgstr "사용자 정의 스크립트 소스"
-
-msgid "DATABASE"
-msgstr "데이터베이스"
 
 msgid "DENY"
 msgstr "DENY"
@@ -2225,33 +2045,6 @@ msgstr "DPD 타임아웃은 DPD Interval보다 커야 합니다."
 msgid "Daily Usage Report"
 msgstr "일일 사용량 보고서"
 
-msgid "Database"
-msgstr "데이터베이스"
-
-msgid "Database Backups"
-msgstr "데이터베이스 백업"
-
-msgid "Database Info"
-msgstr "데이터베이스 정보"
-
-msgid "Database Instance"
-msgstr "데이터베이스 인스턴스"
-
-msgid "Database Name"
-msgstr " 데이트베이스 이름"
-
-msgid "Database Port"
-msgstr "데이터베이스 포트"
-
-msgid "Databases"
-msgstr "데이터베이스"
-
-msgid "Datastore"
-msgstr "데이터 저장소"
-
-msgid "Datastore Version"
-msgstr "데이터 저장소 버전"
-
 msgid "Date Updated"
 msgstr "업데이트한 날짜"
 
@@ -2298,14 +2091,6 @@ msgstr "지연값은 Timeout 값 이상이어야 합니다."
 msgid "Delay must be greater than or equal to timeout"
 msgstr "지연값은 timeout 값 이상이어야 합니다."
 
-msgid "Delete Backup"
-msgid_plural "Delete Backups"
-msgstr[0] "백업 삭제"
-
-msgid "Delete Cluster"
-msgid_plural "Delete Clusters"
-msgstr[0] "클러스터 삭제"
-
 msgctxt "current status of stack"
 msgid "Delete Complete"
 msgstr "Delete Complete"
@@ -2318,10 +2103,6 @@ msgid "Delete DHCP Agent"
 msgid_plural "Delete DHCP Agents"
 msgstr[0] "DHCP 에이전트 삭제"
 
-msgid "Delete Database"
-msgid_plural "Delete Databases"
-msgstr[0] "데이터베이스 삭제"
-
 msgid "Delete Domain"
 msgid_plural "Delete Domains"
 msgstr[0] "도메인 삭제"
@@ -2333,10 +2114,6 @@ msgstr[0] "암호화 삭제"
 msgid "Delete Extra Spec"
 msgid_plural "Delete Extra Specs"
 msgstr[0] "추가 스펙 삭제"
-
-msgctxt "Current status of a Database Backup"
-msgid "Delete Failed"
-msgstr "Delete Failed"
 
 msgctxt "current status of stack"
 msgid "Delete Failed"
@@ -2496,10 +2273,6 @@ msgctxt "Current status of an Instance"
 msgid "Deleted"
 msgstr "Deleted"
 
-msgid "Deleted Backup"
-msgid_plural "Deleted Backups"
-msgstr[0] "백업 삭제함"
-
 msgid "Deleted Container"
 msgid_plural "Deleted Containers"
 msgstr[0] "컨테이너 삭제함"
@@ -2507,10 +2280,6 @@ msgstr[0] "컨테이너 삭제함"
 msgid "Deleted DHCP Agent"
 msgid_plural "Deleted DHCP Agents"
 msgstr[0] "DHCP 에이전트 삭제함"
-
-msgid "Deleted Database"
-msgid_plural "Deleted Databases"
-msgstr[0] "데이터베이스 삭제함"
 
 msgid "Deleted Domain"
 msgid_plural "Deleted Domains"
@@ -2688,10 +2457,6 @@ msgstr "대상:"
 
 msgid "Detach Interface"
 msgstr "인터페이스 해제"
-
-msgid "Detach Replica"
-msgid_plural "Detach Replicas"
-msgstr[0] "복제본으로부터 해제"
 
 msgid "Detach Volume"
 msgid_plural "Detach Volumes"
@@ -2931,9 +2696,6 @@ msgstr "Down"
 
 msgid "Download"
 msgstr "내려받기"
-
-msgid "Download Backup"
-msgstr "백업 다운로드"
 
 msgid "Download CSV Summary"
 msgstr "CSV 요약 다운로드"
@@ -3227,10 +2989,6 @@ msgstr ""
 msgid "Error"
 msgstr "에러"
 
-msgctxt "Current status of a Database Instance"
-msgid "Error"
-msgstr "Error"
-
 msgctxt "Current status of a Firewall"
 msgid "Error"
 msgstr "Error"
@@ -3301,24 +3059,12 @@ msgstr "복구 에러"
 msgid "Error adding Hosts to the aggregate."
 msgstr "호스트 집합에 호스트를 추가하는 중에 오류가 발생하였습니다."
 
-msgid "Error creating database backup."
-msgstr "데이터베이스 백업을 생성하던 중 오류가 발생하였습니다."
-
 msgctxt "Current status of a Volume"
 msgid "Error deleting"
 msgstr "삭제 에러"
 
-msgid "Error deleting database on instance."
-msgstr "인스턴스에서 데이터베이스를 삭제하는 동안 오류가 발생하였습니다."
-
-msgid "Error deleting database user."
-msgstr "데이터베이스 사용자를 삭제하는 동안 오류가 발생하였습니다."
-
 msgid "Error editing QoS Spec consumer."
 msgstr "QoS 스펙 사용자를 수정하는데 오류가 발생했습니다."
-
-msgid "Error getting database backup list."
-msgstr "데이터베이스 백업 목록을 가져오던 중 오류가 발생하였습니다."
 
 msgid "Error getting metadata definitions."
 msgstr "메타데이터 정의를 받는 중에 오류가 발생했습니다."
@@ -3434,14 +3180,6 @@ msgstr ""
 
 msgid "Extra Specs"
 msgstr "추가 사양"
-
-msgctxt "Current status of a Database Backup"
-msgid "Failed"
-msgstr "Failed"
-
-msgctxt "Current status of a Database Instance"
-msgid "Failed"
-msgstr "Failed"
 
 msgctxt "Power state of an Instance"
 msgid "Failed"
@@ -4072,9 +3810,6 @@ msgstr ""
 "호스트 집합은 가용성 존을 호스트를 묶어서 논리적인 부분으로 나눕니다. 포함할 "
 "호스트를 선택하려면 호스트 집합을 편집하십시오."
 
-msgid "Host or IP that the user is allowed to connect through."
-msgstr "사용자가 연결을 허용한 호스트 또는 IP."
-
 msgid "Hostname"
 msgstr "호스트 이름"
 
@@ -4363,12 +4098,6 @@ msgctxt "Current status of a VPN Service"
 msgid "Inactive"
 msgstr "Inactive"
 
-msgid "Incremental"
-msgstr "증분"
-
-msgid "Incremental Backup"
-msgstr "증분 백업"
-
 msgid "Info"
 msgstr "정보"
 
@@ -4389,21 +4118,6 @@ msgstr "Init Failed"
 msgctxt "current status of stack"
 msgid "Init In Progress"
 msgstr "Init In Progress"
-
-msgid "Initial Admin User"
-msgstr "초기 관리자"
-
-msgid "Initial Databases"
-msgstr "내부 데이터베이스"
-
-msgid "Initial Volume Size"
-msgstr "초기 볼륨 크기"
-
-msgid "Initial admin user to add"
-msgstr "초기 관리자 추가"
-
-msgid "Initialize Databases"
-msgstr "데이터베이스 초기화"
 
 msgid "Initiator state"
 msgstr "Initiator 상태"
@@ -4477,9 +4191,6 @@ msgstr "연결된 인스턴스"
 msgid "Instances"
 msgstr "인스턴스"
 
-msgid "Instances Per Shard"
-msgstr "Shard 당 인스턴스"
-
 msgid "Insufficient privilege level to view domain information."
 msgstr "불충분한 권한 수준은 도메인 정보를 확인할 수 있습니다."
 
@@ -4525,9 +4236,6 @@ msgid ""
 msgstr ""
 "올바르지 않은 시간 주기입니다. 존재하지 않는 미래 시점에서 데이터를 요청하고 "
 "있습니다."
-
-msgid "Is a Replica Of"
-msgstr "복제본에 속함"
 
 msgid "Items Per Page"
 msgstr "페이지 당 항목"
@@ -4622,12 +4330,6 @@ msgstr "최근 1년"
 msgid "Launch"
 msgstr "실행"
 
-msgid "Launch Cluster"
-msgstr "클러스터 실행"
-
-msgid "Launch Database"
-msgstr "데이터베이스 시작"
-
 msgid "Launch Instance"
 msgstr "인스턴스 구동"
 
@@ -4655,10 +4357,6 @@ msgstr "이 정책 프로필을 사용하여 인스턴스 시작"
 #, python-format
 msgid "Launched %(count)s named \"%(name)s\"."
 msgstr "%(count)s 개의 \"%(name)s\"이 구동됨."
-
-#, python-format
-msgid "Launched cluster \"%s\""
-msgstr "클러스터 \"%s\" 구동됨"
 
 msgid ""
 "Launching multiple instances is only supported for images and instance "
@@ -4839,17 +4537,11 @@ msgstr "볼륨 연결 관리"
 msgid "Manage a Volume"
 msgstr "볼륨 관리"
 
-msgid "Management Console"
-msgstr "관리 콘솔"
-
 msgid "Manual"
 msgstr "수동"
 
 msgid "Mapped Fixed IP Address"
 msgstr "고정 IP 주소 맵핑함"
-
-msgid "Master Instance Name"
-msgstr "마스터 인스턴스 이름"
 
 msgid "Max Retries"
 msgstr "최대 재시도"
@@ -4883,12 +4575,6 @@ msgstr "멤버 IP 주소를 지정해야합니다."
 
 msgid "Member Source"
 msgstr "멤버 소스"
-
-msgid "Member address"
-msgstr "맴버 주소"
-
-msgid "Member(s)"
-msgstr "멤버"
 
 msgid "Members"
 msgstr "멤버"
@@ -5181,9 +4867,6 @@ msgstr "CIDR 포멧의 네트워크 주소 (예, 192.168.0.0/24)"
 msgid "Network address in CIDR format (e.g. 192.168.0.0/24, 2001:DB8::/48)"
 msgstr "CIDR 형식의 네트워크 주소 (예. 192.168.0.0/24, 2001:DB8::/48)"
 
-msgid "Network attached to instance."
-msgstr "인스턴스에 네트워크 연결하였습니다."
-
 msgid "Network list can not be retrieved."
 msgstr "네트워크 목록을 찾을 수 없습니다."
 
@@ -5206,10 +4889,6 @@ msgstr "없음"
 msgid "Never updated"
 msgstr "한번도 업데이트 하지 않음"
 
-msgctxt "Current status of a Database Backup"
-msgid "New"
-msgstr "New"
-
 msgid "New DHCP Agent"
 msgstr "새로운 DHCP 에이전트"
 
@@ -5219,12 +4898,6 @@ msgstr "새로운 Flavor"
 msgid "New Host"
 msgstr "새로운 호스트"
 
-msgid "New Password"
-msgstr "새로운 암호"
-
-msgid "New Size (GB)"
-msgstr "새로운 크기 (GB)"
-
 msgid "New name cannot be empty."
 msgstr "새로운 이름을 입력하여 주십시오."
 
@@ -5233,12 +4906,6 @@ msgstr "다른 볼륨 형식의 이름과 동일합니다."
 
 msgid "New password"
 msgstr "새로운 비밀번호"
-
-msgid "New password for cluster access."
-msgstr "클러스터 접속을 위한 새로운 암호."
-
-msgid "New size for volume must be greater than current size."
-msgstr "볼륨의 새로운 크기는 현재 크기보다 커야합니다."
 
 msgid "New size must be greater than current size."
 msgstr "새로 정하는 크기는 현재 크기보다 커야합니다."
@@ -5294,9 +4961,6 @@ msgstr "사용 가능한 콘솔을 찾을 수 없습니다."
 
 msgid "No available projects"
 msgstr "프로젝트를 사용할 수 없습니다."
-
-msgid "No backups available"
-msgstr "사용가능한 백업 없음"
 
 msgid "No flavors available"
 msgstr "Flavor가 존재하지 않습니다"
@@ -5433,12 +5097,6 @@ msgstr "없음 (스펙 제거)"
 msgid "Normal"
 msgstr "기본"
 
-msgid "Not Assigned"
-msgstr "할당되지 않았습니다."
-
-msgid "Not Found"
-msgstr "찾을 수 없음"
-
 msgid "Not attached"
 msgstr "연결 안됨"
 
@@ -5463,9 +5121,6 @@ msgstr "Swift API 요청 갯수"
 
 msgid "Number of Instances"
 msgstr "인스턴스 수"
-
-msgid "Number of Shards"
-msgstr "Shard 개수"
 
 msgid "Number of Snapshots"
 msgstr "스냅샷 수"
@@ -5496,12 +5151,6 @@ msgstr "VM 인터페이스로 네트워크를 통해 들어오는 바이트 수"
 
 msgid "Number of incoming packets for a VM interface"
 msgstr "VM 인터페이스로 들어오는 패킷 수"
-
-msgid "Number of instances in the cluster. (Read only)"
-msgstr "클러스터에 존재하는 인스턴스 수. (읽기 전용)"
-
-msgid "Number of instances per shard. (Read only)"
-msgstr "Shared 당 인스턴스 개수 (읽기 전용)"
 
 msgid "Number of instances to launch."
 msgstr "구동시 인스턴스 수"
@@ -5535,9 +5184,6 @@ msgstr "멤버 상태를 비활성상태로 변경하기 전 실패 횟수"
 
 msgid "Number of read requests"
 msgstr "읽기 요청량"
-
-msgid "Number of shards. (Read only)"
-msgstr "Shard 개수 (읽기 전용)"
 
 msgid "Number of write requests"
 msgstr "쓰기 요청량"
@@ -5601,27 +5247,11 @@ msgstr "열린 포트"
 msgid "Open Port/Port Range:"
 msgstr "열린 포트/포트 범위:"
 
-msgid "Optional Backup Description"
-msgstr "선택인 백업 설명"
-
 msgid "Optional Parameters"
 msgstr "옵션 변수"
 
-msgid "Optional parent backup"
-msgstr "선택적 부모 백업"
-
 msgid "Optional: Next Hop Addresses (comma delimited)"
 msgstr "선택적: 다음 Hop 주소들 (콤마로 구분)"
-
-msgid ""
-"Optionally choose to create this database using a previous backup, or as a "
-"replica of another database instance."
-msgstr ""
-"옵션으로 해당 데이터베이스를 이전 백업을 사용해 생성할지, 또는 다른 데이터베"
-"이스 인스턴스 복제본으로 생성할 것인지 선택하세요."
-
-msgid "Optionally provide a comma separated list of databases to create:"
-msgstr "임의의 생성할 데이터베이스 목록을 쉼표로 지정할 수 있습니다. :"
 
 msgid "Optionally, you may choose to create a new volume."
 msgstr "선택적으로 새로운 볼륨을 생성할 수 있습니다."
@@ -5674,9 +5304,6 @@ msgstr ""
 "볼륨을 보내는 프로젝트에서 생성되면, 이전 받는 프로젝트에서 \"볼륨 이전 받기"
 "\" 가능합니다. 이는 <tt>cinder transfer-create</tt> 명령어와 동일합니다."
 
-msgid "PASSWORD"
-msgstr "PASSWORD"
-
 msgid "PFS"
 msgstr "PFS"
 
@@ -5689,9 +5316,6 @@ msgstr "페이지를 찾을 수 없습니다"
 msgid "Parameters"
 msgstr "매개 변수"
 
-msgid "Parent Backup"
-msgstr "부모 백업"
-
 msgid "Password"
 msgstr "암호"
 
@@ -5699,20 +5323,11 @@ msgctxt "Current status of an Instance"
 msgid "Password"
 msgstr "Password"
 
-msgid "Password (required)"
-msgstr "비밀 번호 (필수)"
-
 msgid "Password changed. Please log in again to continue."
 msgstr "비밀번호를 변경하였습니다. 다시 로그인 해주십시오."
 
 msgid "Password changed. Please log in to continue."
 msgstr "비밀번호 변경하였습니다. 다시 로그인 해주십시오."
-
-msgid "Password for root user must be specified."
-msgstr "root 사용자에 대한 암호가 지정되어야 합니다."
-
-msgid "Password for root user."
-msgstr "사용자 암호입니다."
 
 #, python-format
 msgid "Password for user \"%s\""
@@ -6163,10 +5778,6 @@ msgctxt "Action log of an instance"
 msgid "Reboot"
 msgstr "Reboot"
 
-msgctxt "Current status of a Database Instance"
-msgid "Reboot"
-msgstr "Reboot"
-
 msgctxt "Current status of an Instance"
 msgid "Reboot"
 msgstr "Reboot"
@@ -6297,19 +5908,6 @@ msgid "Removed User"
 msgid_plural "Removed Users"
 msgstr[0] "유저 삭제함"
 
-msgid "Replica Detached"
-msgid_plural "Replicas Detached"
-msgstr[0] "복제본으로부터 해제됨"
-
-msgid "Replicas"
-msgstr "복제본"
-
-msgid "Replicate from Instance"
-msgstr "인스턴스로 부터 복제"
-
-msgid "Replication"
-msgstr "복제(Replication)"
-
 msgid "Request ID"
 msgstr "요청 ID"
 
@@ -6334,9 +5932,6 @@ msgctxt "Task status of an Instance"
 msgid "Rescuing"
 msgstr "Rescuing"
 
-msgid "Reset Root Password"
-msgstr "루트 암호 변경"
-
 msgid "Reset to Default"
 msgstr "기본으로 되돌리기"
 
@@ -6347,21 +5942,8 @@ msgctxt "Action log of an instance"
 msgid "Resize"
 msgstr "Resize"
 
-msgctxt "Current status of a Database Instance"
-msgid "Resize"
-msgstr "Resize"
-
-msgid "Resize Database Instance"
-msgstr "데이터베이스 인스턴스 크기 재조정"
-
-msgid "Resize Database Volume"
-msgstr "데이터베이스 볼륨 크기 조정"
-
 msgid "Resize Instance"
 msgstr "인스턴스 크기 변경"
-
-msgid "Resize Volume"
-msgstr "볼륨 크기 조정"
 
 msgctxt "Current status of an Instance"
 msgid "Resize/Migrate"
@@ -6371,17 +5953,9 @@ msgctxt "Task status of an Instance"
 msgid "Resized or Migrated"
 msgstr "Resized or Migrated"
 
-#, python-format
-msgid "Resizing instance \"%s\""
-msgstr "인스턴스 \"%s\" 크기 재조정"
-
 msgctxt "Task status of an Instance"
 msgid "Resizing or Migrating"
 msgstr "Resizing or Migrating"
-
-#, python-format
-msgid "Resizing volume \"%s\""
-msgstr "볼륨 \"%s\" 크기 조정"
 
 msgid "Resource"
 msgstr "리소스"
@@ -6391,9 +5965,6 @@ msgstr "리소스 ID"
 
 msgid "Resource Metadata"
 msgstr "리소스 메타데이터"
-
-msgid "Resource Overview"
-msgstr "리소스 개요"
 
 msgid "Resource Types"
 msgstr "자원 유형"
@@ -6410,18 +5981,6 @@ msgstr "리소스"
 
 msgid "Resources Usage Overview"
 msgstr "리소스 사용 개요"
-
-msgid "Restart Instance"
-msgid_plural "Restart Instances"
-msgstr[0] "인스턴스 재시작"
-
-msgctxt "Current status of a Database Instance"
-msgid "Restart Required"
-msgstr "Restart Required"
-
-msgid "Restarted Instance"
-msgid_plural "Restarted Instances"
-msgstr[0] "인스턴스 재시작함"
 
 msgid "Restarted instances will lose any data not saved in persistent storage."
 msgstr ""
@@ -6442,9 +6001,6 @@ msgstr "볼륨 백업 복구"
 
 msgid "Restore a Volume Backup"
 msgstr "볼륨 백업 복구"
-
-msgid "Restore from Backup"
-msgstr "백업으로부터 복원"
 
 msgctxt "Current status of a Volume Backup"
 msgid "Restoring"
@@ -6552,13 +6108,6 @@ msgstr "Root 디스크"
 
 msgid "Root Disk (GB)"
 msgstr "Root 디스크 (GB)"
-
-msgid "Root Password"
-msgstr "루트 암호 설정"
-
-#, python-format
-msgid "Root password updated for cluster \"%s\""
-msgstr "클러스터 \"%s\"에 대한 루트 암호 업데이트"
 
 msgid "Rotates requests evenly between multiple instances."
 msgstr "여러 인스턴스들 사이에서 짝수로 요청을 순환합니다."
@@ -6687,17 +6236,9 @@ msgstr "추가 사양 \"%s\" 저장함."
 msgid "Saved spec \"%s\"."
 msgstr "사양  \"%s\"를 저장했습니다."
 
-msgctxt "Current status of a Database Backup"
-msgid "Saving"
-msgstr "Saving"
-
 msgctxt "Current status of an Image"
 msgid "Saving"
 msgstr "Saving"
-
-#, python-format
-msgid "Scheduled backup \"%(name)s\"."
-msgstr "\"%(name)s\" 백업할 예정입니다."
 
 #, python-format
 msgid "Scheduled deletion of %(data_type)s"
@@ -6862,18 +6403,12 @@ msgstr "라우터 선택"
 msgid "Select a Subnet"
 msgstr "서브넷 선택"
 
-msgid "Select a backup to restore"
-msgstr "복원할 백업본 선택"
-
 #, python-format
 msgid "Select a health monitor of %s"
 msgstr "상태 모니터 %s 선택"
 
 msgid "Select a key pair"
 msgstr "키 페어 선택"
-
-msgid "Select a master instance"
-msgstr "마스터 인스턴스 선택"
 
 #, python-format
 msgid "Select a monitor template for %s"
@@ -6887,9 +6422,6 @@ msgstr "새로운 QoS 스펙 선택"
 
 msgid "Select a new agent"
 msgstr "새로운 에이전트 선택"
-
-msgid "Select a new flavor"
-msgstr "새로운 flavor 선택"
 
 msgid "Select a new host"
 msgstr "새로운 호스트 선택"
@@ -6939,20 +6471,11 @@ msgstr "인스턴스 선택"
 msgid "Select an instance to attach to."
 msgstr "연결할 인스턴스 선택"
 
-msgid "Select backup"
-msgstr "백업 선택"
-
-msgid "Select datastore type and version"
-msgstr "데이터 저장소 타입과 버전 선택"
-
 msgid "Select format"
 msgstr "포맷 선택"
 
 msgid "Select from active instances"
 msgstr "작동중인 인스턴스 선택"
-
-msgid "Select instance"
-msgstr "인스턴스 선택"
 
 msgid "Select members for this pool "
 msgstr "이 pool에서 멤버 선택"
@@ -6962,9 +6485,6 @@ msgstr "네트워크 선택"
 
 msgid "Select networks for your instance."
 msgstr "인스턴스 네트워크 선택"
-
-msgid "Select parent backup"
-msgstr "부모 백업 선택"
 
 msgid "Select routers for your firewall."
 msgstr "방화벽에대한 라우터를 선택합니다."
@@ -7127,10 +6647,6 @@ msgid "Shut Off Instance"
 msgid_plural "Shut Off Instances"
 msgstr[0] "인스턴스 전원 끔"
 
-msgctxt "Current status of a Database Instance"
-msgid "Shutdown"
-msgstr "Shutdown"
-
 msgctxt "Current status of an Instance"
 msgid "Shutoff"
 msgstr "Shutoff"
@@ -7147,14 +6663,8 @@ msgstr "Ephemeral 디스크 크기"
 msgid "Size of image to launch."
 msgstr "시작시 이미지 크기"
 
-msgid "Size of instance to launch."
-msgstr "동작중인 인스턴스 크기"
-
 msgid "Size of root disk"
 msgstr "Root 디스크 크기"
-
-msgid "Size of the volume in GB."
-msgstr "GB 볼륨 크기."
 
 msgid "Size of volume"
 msgstr "볼륨 크기"
@@ -7255,9 +6765,6 @@ msgstr "소스 포트"
 msgid "Source Port/Port Range"
 msgstr "소스 포트/포트 범위"
 
-msgid "Source for Initial State"
-msgstr "초기 상태 원본"
-
 msgid "Source port (integer in [1, 65535] or range in a:b)"
 msgstr "소스 포트 (정수 [1, 65535] 사이 또는 a:b 범위)"
 
@@ -7311,9 +6818,6 @@ msgstr "VIP 지정"
 msgid "Specify a metadata definition namespace to import."
 msgstr "가져올 메타 데이터 정의 네임스페이스를 지정합니다."
 
-msgid "Specify a new flavor for the database instance."
-msgstr "데이터베이스 인스턴스에 대한 새 flavor를 지정하세요."
-
 msgid "Specify additional attributes for the subnet."
 msgstr "서브넷에 대한 추가 속성을 명시하세요."
 
@@ -7329,20 +6833,8 @@ msgstr "이미지 서비스에 업로드할 이미지를 지정합니다."
 msgid "Specify member IP address"
 msgstr "지정된 멤버 IP 주소"
 
-msgid "Specify the details for adding additional shards."
-msgstr "추가적인 Shard에 덧붙일 상세 정보를 지정합니다."
-
 msgid "Specify the details for launching an instance."
 msgstr "인스턴스를 구동하기 위하여 세부 사양을 지정하십시오. "
-
-msgid "Specify the details for the database backup."
-msgstr "데이터베이스 백업에 대한 세부 사항을 지정합니다."
-
-msgid "Specify the new root password for vertica cluster."
-msgstr "vertica 클러스터에 대한 새로운 root 암호를 지정합니다."
-
-msgid "Specify the new volume size for the database instance."
-msgstr "데이터베이스 인스터스에 사용할 새로운 볼륨 크기를 지정합니다."
 
 msgid ""
 "Specify this option to copy image data to the image service. If unspecified, "
@@ -7906,9 +7398,6 @@ msgstr ""
 "요청한 이미지의 flavor '%(flavor)s'가 적습니다.\n"
 "최소 사항: 램 %(min_ram)s MB와 root 디스크 %(min_disk)s GB."
 
-msgid "The flavor must be specified."
-msgstr "Flabor가 지정되어야 합니다."
-
 #, python-format
 msgid "The instance is preparing the live migration to host \"%s\"."
 msgstr "인스턴스가 호스트 \"%s\"에서 라이브 마이그레이션을 준비하고 있습니다."
@@ -7972,9 +7461,6 @@ msgstr "가상 네트워크를 구현되는 물리적 네트워크 이름을 가
 msgid ""
 "The next hop addresses can be used to override the router used by the client."
 msgstr "다음 홉 주소는 클라이언트에서 사용하는 라우터를 재정의 할 수 있습니다."
-
-msgid "The number of shards must be greater than 1."
-msgstr "Shared 개수는 1보다 커야 합니다."
 
 msgid "The page you were looking for doesn't exist"
 msgstr "찾고 있는 페이지가 존재하지 않습니다"
@@ -8100,9 +7586,6 @@ msgstr "스택의 라이프 사이클 동안 실행하는 작동에 필요로 �
 
 msgid "This name is already taken."
 msgstr "이 이름은 현재 사용중입니다."
-
-msgid "This pane needs javascript support."
-msgstr "이 부분은 자바스크립트 지원이 필요합니다."
 
 msgid ""
 "This volume is currently attached to an instance. In some cases, creating a "
@@ -8232,9 +7715,6 @@ msgstr "변환 프로토콜"
 msgid "Type"
 msgstr "유형"
 
-msgid "Type and version of datastore."
-msgstr "데이터 저장소의 타입과 버전"
-
 msgid "Type of backend device identifier provided"
 msgstr "제공된 백엔드 장치 구분자 유형"
 
@@ -8273,9 +7753,6 @@ msgstr "URL"
 
 msgid "URL Path"
 msgstr "URL 경로"
-
-msgid "USERNAME"
-msgstr "USERNAME"
 
 msgid "UTC"
 msgstr "UTC"
@@ -8334,10 +7811,6 @@ msgstr "Pool \"%s\"를 추가할 수 없습니다"
 
 msgid "Unable to add rule to security group."
 msgstr "시큐리티 그룹에 Rele을 추가할 수 없습니다."
-
-#, python-format
-msgid "Unable to add shard. %s"
-msgstr "Shard를 %s에 추가할 수 없음"
 
 msgid "Unable to add user to primary project."
 msgstr "기본 프로젝트에 사용자를 추가할 수 없습니다."
@@ -8567,14 +8040,8 @@ msgstr "볼륨을 확장할 수 없습니다."
 msgid "Unable to fetch EC2 credentials."
 msgstr "EC2 인증서를 가져올 수 없습니다."
 
-msgid "Unable to find backup!"
-msgstr "백업을 찾을 수 없습니다!"
-
 msgid "Unable to find default role."
 msgstr "기본 역할을 찾을 수 없습니다."
-
-msgid "Unable to find master instance!"
-msgstr "마스터 인스턴스를 찾을 수 없습니다!"
 
 msgid "Unable to get EC2 credentials"
 msgstr "EC2 인정서를 가져올 수 없습니다"
@@ -8601,12 +8068,6 @@ msgstr "인스턴스 \"%s\"의 VNC 콘솔을 사용할 수 없습니다."
 msgid "Unable to get cinder services list."
 msgstr "Cinder 서비스 목록을 가져올 수 없습니다."
 
-msgid "Unable to get database backup data."
-msgstr "데이터베이스 백업 데이터를 가져올 수 없습니다."
-
-msgid "Unable to get databases data."
-msgstr "데이터베이스 데이터를 가져올 수 없습니다."
-
 #, python-format
 msgid "Unable to get events for stack \"%s\"."
 msgstr "스택 \"%s\"에 대한 이벤트를 가져올 수 없습니다."
@@ -8620,9 +8081,6 @@ msgstr "%(pool)s pool에서 상태 모니터 %(monitor_id)s를 가져올 수 없
 
 msgid "Unable to get host aggregate list"
 msgstr "호스트 집합 목록을 가져올 수 없습니다."
-
-msgid "Unable to get instances data."
-msgstr "인스턴스 데이터를 가져올 수 없습니다."
 
 #, python-format
 msgid "Unable to get log for instance \"%s\"."
@@ -8665,9 +8123,6 @@ msgstr "%(pool)s pool에서 서브넷을 가져오지 못했습니다."
 msgid "Unable to get the available hosts"
 msgstr "사용할 수 있는 호스트를 가져올 수 없습니다."
 
-msgid "Unable to get user data."
-msgstr "사용자 데이터를 가져욜 수 없습니다."
-
 msgid "Unable to import key pair."
 msgstr "키 페어를 가져오지 못 했습니다."
 
@@ -8678,18 +8133,8 @@ msgstr "서브넷 풀을 초기화할 수 없습니다."
 msgid "Unable to launch %(count)s named \"%(name)s\"."
 msgstr "%(count)s 개의 \"%(name)s\"을 구동할 수 없습니다."
 
-#, python-format
-msgid "Unable to launch cluster. %s"
-msgstr "클러스터 \"%s\"를 구동할 수 없음"
-
 msgid "Unable to list containers."
 msgstr "컨테이너를 나열 할 수 없습니다."
-
-msgid "Unable to list database backups for parent."
-msgstr "부모 데이터베이스 백업을 나열할 수 없습니다."
-
-msgid "Unable to list database instances to backup."
-msgstr "백업 데이터베이스 인스턴스를 나열할 수 없습니다."
 
 msgid "Unable to list dhcp agents hosting network."
 msgstr "Dhcp 에이전트 호스팅 네트워크를 나열할 수 없습니다."
@@ -8731,15 +8176,6 @@ msgstr "인스턴스 \"%s\"를 수정할 수 없습니다."
 msgid "Unable to modify project \"%s\"."
 msgstr "프로젝트 \"%s\"를 수정할 수 없습니다."
 
-msgid "Unable to obtain datastore versions."
-msgstr "데이터스토어 버전을 가져올 수 없습니다."
-
-msgid "Unable to obtain datastores."
-msgstr "데이터스토어를 가져올 수 없습니다."
-
-msgid "Unable to obtain flavors."
-msgstr "Flavor을 가져올 수 없습니다."
-
 #, python-format
 msgid "Unable to parse IP address %s."
 msgstr "%s IP 주소 구문을 분석할 수 없습니다."
@@ -8748,20 +8184,8 @@ msgid "Unable to rebuild instance."
 msgstr "인스턴스를 다시 빌드 할 수 없습니다."
 
 #, python-format
-msgid "Unable to reset password. %s"
-msgstr "암호를 재설정 할 수 없습니다. %s"
-
-#, python-format
 msgid "Unable to resize instance \"%s\"."
 msgstr "인스턴스 \"%s\"의 크기 변경을 할 수 없습니다."
-
-#, python-format
-msgid "Unable to resize instance. %s"
-msgstr "인스턴스 크기 재조정 실패. %s"
-
-#, python-format
-msgid "Unable to resize volume. %s"
-msgstr "볼륨 크기를 변경할 수 없습니다. %s"
 
 msgid "Unable to restore backup."
 msgstr "백업을 복구할 수 없습니다."
@@ -8870,9 +8294,6 @@ msgstr "가용성 존에 대한 정보를 찾지 못 했습니다."
 msgid "Unable to retrieve backup details."
 msgstr "백업에 대한 상세 정보를 찾지 못 했습니다."
 
-msgid "Unable to retrieve cluster details."
-msgstr "클러스터 세부 정보를 찾지 못 했습니다."
-
 msgid "Unable to retrieve compute host information."
 msgstr "Computer 호스트 정보를 찾지 못했습니다."
 
@@ -8882,32 +8303,11 @@ msgstr "Compute 최대 사용량 정보를 찾지 못 했습니다."
 msgid "Unable to retrieve container list."
 msgstr "컨테이너 목록을 찾지 못 했습니다."
 
-msgid "Unable to retrieve database clusters."
-msgstr "클러스터 데이터베이스를 찾지 못 했습니다."
-
-msgid "Unable to retrieve database instances."
-msgstr "인스턴스 데이터베이스를 찾지 못 했습니다."
-
-msgid "Unable to retrieve database size information."
-msgstr "데이터베이스 크기 정보를 찾지 못 했습니다."
-
 msgid "Unable to retrieve default Neutron quota values."
 msgstr "기본 Neutron quota 값을 찾지 못 했습니다."
 
 msgid "Unable to retrieve default quota values."
 msgstr "기본 quota 값을 찾지 못했습니다."
-
-#, python-format
-msgid "Unable to retrieve details for backup: %s"
-msgstr "백업에 대한 세부 정보를 찾지 못했습니다: %s"
-
-#, python-format
-msgid "Unable to retrieve details for database cluster: %s"
-msgstr "클러스터 데이터베이스에 대한 세부 정보를 찾지 못 했습니다: %s"
-
-#, python-format
-msgid "Unable to retrieve details for database instance: %s"
-msgstr "인스턴스 데이터베이스에 대한 세부 정보를 찾지 못했습니다: %s"
 
 #, python-format
 msgid "Unable to retrieve details for instance \"%s\"."
@@ -8920,10 +8320,6 @@ msgstr "키페어 \"%s\"에 대한 세부 정보를 가져올 수 없습니다."
 #, python-format
 msgid "Unable to retrieve details for network \"%s\"."
 msgstr "네트워크 \"%s\"의 세부 정보를 찾지 못했습니다."
-
-#, python-format
-msgid "Unable to retrieve details for parent backup: %s"
-msgstr "원본 백업에 대한 세부 정보를 찾지 못했습니다: %s"
 
 #, python-format
 msgid "Unable to retrieve details for router \"%s\"."
@@ -9120,9 +8516,6 @@ msgstr "네트워크를 찾지 못했습니다."
 
 msgid "Unable to retrieve networks list."
 msgstr "네트워크 목록을 찾지 못 했습니다."
-
-msgid "Unable to retrieve networks."
-msgstr "네트워크를 찾지 못 했습니다."
 
 msgid "Unable to retrieve object list."
 msgstr "오브젝트 목록을 찾지 못 했습니다."
@@ -9781,9 +9174,6 @@ msgstr "사용자 이름 \"%s\"가 이미 사용중입니다."
 msgid "User password has been updated successfully."
 msgstr "사용자 암호를 성공적으로 업데이트 했습니다."
 
-msgid "Username (required)"
-msgstr "사용자 이름 (필수)"
-
 msgid "Users"
 msgstr "사용자"
 
@@ -9965,9 +9355,6 @@ msgstr "볼륨 제한"
 msgid "Volume Name"
 msgstr "볼륨 이름"
 
-msgid "Volume Size"
-msgstr "볼륨 크기"
-
 msgid "Volume Snapshot"
 msgstr "볼륨 스냅샷"
 
@@ -10132,15 +9519,6 @@ msgid ""
 msgstr "여기서 인스턴스를 시작한후 사용할 옵션을 커스텀마이즈 할수 있습니다."
 
 msgid ""
-"You can perform an incremental backup by specifying a parent backup. "
-"<strong>However,</strong> not all databases support incremental backups in "
-"which case this operation will result in an error."
-msgstr ""
-"부모 백업을 지정하여 증분 백업으로 작업을 진행할 수 있습니다. <strong>그러나"
-"</strong>, 모든 데이터베이스에서 오류가 발생되는 경우에는 증분 백업을 지원하"
-"지 않습니다."
-
-msgid ""
 "You can specify the desired rule template or use custom rules, the options "
 "are Custom TCP Rule, Custom UDP Rule, or Custom ICMP Rule."
 msgstr ""
@@ -10253,9 +9631,6 @@ msgstr "여기서 포트의 편집 가능한 속성을 업데이트할 수 있�
 msgid "You may update the editable properties of your router here."
 msgstr "라우터의 편집 가능한 속성을 업데이트 할 수 있습니다."
 
-msgid "You must select a datastore type and version."
-msgstr "데이터 저장소 타입과 버전을 선택해야합니다."
-
 msgid "You must select a snapshot."
 msgstr "스냅샷을 선택해야 합니다."
 
@@ -10268,14 +9643,8 @@ msgstr "이미지를 선택해야 합니다."
 msgid "You must set volume size"
 msgstr "볼륨 크기를 설정해야 합니다."
 
-msgid "You must specify a password if you create a user."
-msgstr "사용자를 생성하려면 비밀번호를 입력해야 합니다."
-
 msgid "You must specify a template via one of the available sources."
 msgstr "사용 가능한 소스중 하나를 선택하여 템필릿을 지정해야 합니다."
-
-msgid "You must specify at least one database if you create a user."
-msgstr "사용자를 생성하려면 적어도 하나의 데이터베이스를 정해야합니다."
 
 msgid ""
 "You must specify the source of the traffic to be allowed via this rule. You "

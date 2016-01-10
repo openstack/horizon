@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-12-17 05:35+0000\n"
+"POT-Creation-Date: 2016-01-09 00:51+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -39,10 +39,6 @@ msgstr "%(field_name)s: Pogrešna IP adresa (vrednost=%(network)s)"
 #, python-format
 msgid "%(name)s - %(size)s GB (%(label)s)"
 msgstr "%(name)s - %(size)s GB (%(label)s)"
-
-#, python-format
-msgid "%(name)s | %(RAM)s RAM"
-msgstr "%(name)s | %(RAM)s RAM"
 
 #, python-format
 msgid "%(type)s (%(backend)s backend)"
@@ -94,25 +90,6 @@ msgstr "--"
 
 msgid "3des"
 msgstr "3des"
-
-#, python-format
-msgid "<p>%(used)s of %(quota)s MB Used</p>"
-msgstr "<p>%(used)s of %(quota)s MB upotrebnljeno</p>"
-
-#, python-format
-msgid "<p>%(used)s of %(quota)s Used</p>"
-msgstr "<p>%(used)s od %(quota)s upotrebljeno</p>"
-
-msgid ""
-"<strong>Please note:</strong> The value specified in the Volume Size field "
-"should be greater than 0, however, some configurations do not support "
-"specifying volume size. If specifying the volume size results in an error "
-"stating volume support is not enabled, enter 0."
-msgstr ""
-"<strong>Pažnja:</strong> Vrednost navedena u polju veličina Volume treba da "
-"bude veća od 0, ipak, neke konfiguracije ne podržavaju specificiranje "
-"veličine Volume-a. Ukoliko pokušaj sa navođenjem vrednosti da grešku, "
-"navodeći da podrška volume-u nije omogućena, unesite 0."
 
 msgid ""
 "A container is a storage compartment for your data and provides a way for "
@@ -425,16 +402,6 @@ msgstr "Dodeljena slobodna IP %(ip)s."
 msgid "Allocation Pools"
 msgstr "Određivanje grupa"
 
-msgid ""
-"Allow the user to connect from this host\n"
-"    only. If not provided this user will be allowed to connect from "
-"anywhere.\n"
-"    "
-msgstr ""
-"Dozvoli korisniku konekciju samo sa ovog hosta.\n"
-"    Ukoliko se ne navede, biće dozvoljenje konekcije sa bilo kog hosta.\n"
-"    "
-
 msgid "Amount of energy"
 msgstr "Količina energije"
 
@@ -601,28 +568,6 @@ msgstr "Količina pisanja "
 msgid "Avg."
 msgstr "Avg."
 
-msgid "Backup"
-msgstr "Sigurnosna kopija - backup"
-
-msgctxt "Current status of a Database Instance"
-msgid "Backup"
-msgstr "Sigurnosna kopija - backup"
-
-msgid "Backup Database"
-msgstr "Baza podataka sigurnosnih kopija"
-
-msgid "Backup Duration"
-msgstr "Trajanje pravljenja sigurnosnih kopija"
-
-msgid "Backup File"
-msgstr "Sigurnosna kopija - backup file"
-
-msgid "Backup File Location"
-msgstr "Lokacija sigurnosne kopije"
-
-msgid "Backup Overview"
-msgstr "Pregled sigurnosnih kopija"
-
 msgid "Backups"
 msgstr "Sigurnosne kopije - backup-i"
 
@@ -741,9 +686,6 @@ msgstr "Zatvori"
 msgid "Code"
 msgstr "Kod"
 
-msgid "Comma separated list of databases to create"
-msgstr "Zarezom odvojena lista baza podataka koje se kreiraju"
-
 msgid "Compute"
 msgstr "Compute"
 
@@ -778,12 +720,6 @@ msgstr "Potvrdite promenu veličine ili seobu"
 
 msgid "Conflicting Rule"
 msgstr "Pravilo u konfliktu"
-
-msgid "Connection Examples"
-msgstr "Primeri veze"
-
-msgid "Connection Info"
-msgstr "Informacije o vezi"
 
 msgid "Connection Limit"
 msgstr "Ograničenje veze"
@@ -984,13 +920,6 @@ msgstr "Kreirajte novi stack sa datim vrednostima."
 msgid "Create a policy with selected rules."
 msgstr "Kreirajte politiku sa odabranim pravilima."
 
-msgid ""
-"Create an optional initial user.\n"
-"   This user will have access to all databases you create."
-msgstr ""
-"Imate mogućnost da kreirate prvog korisnika.\n"
-"Ovom korisniku biće dostupne sve baze podataka koje kreirate."
-
 msgid "Created"
 msgstr "Kreirano"
 
@@ -1104,27 +1033,6 @@ msgstr "Serveri za DNS imena"
 
 msgid "DNS name server"
 msgstr "DNS server"
-
-msgid "Database"
-msgstr "Baza podataka"
-
-msgid "Database Backups"
-msgstr "Sigurnosne kopije baze podataka"
-
-msgid "Database Info"
-msgstr "Informacije o bazi podataka"
-
-msgid "Database Instance"
-msgstr "Jedinica baze podataka"
-
-msgid "Database Name"
-msgstr "Ime baze podataka"
-
-msgid "Database Port"
-msgstr "Port baze podataka"
-
-msgid "Databases"
-msgstr "Baze podataka"
 
 msgid "Date Updated"
 msgstr "Datum izmene"
@@ -1396,9 +1304,6 @@ msgstr "Dole"
 msgid "Download"
 msgstr "Preuzimanje"
 
-msgid "Download Backup"
-msgstr "Preuzimanje sigurnosne kopije"
-
 msgid "Download CSV Summary"
 msgstr "Preuzmite CSV rezime"
 
@@ -1569,10 +1474,6 @@ msgstr "Ephemeral Disk (GB)"
 msgid "Error"
 msgstr "Greška"
 
-msgctxt "Current status of a Database Instance"
-msgid "Error"
-msgstr "Greška"
-
 msgctxt "Current status of a Firewall"
 msgid "Error"
 msgstr "Greška"
@@ -1626,18 +1527,6 @@ msgstr "Greška u preuzimanju RC file-a: %s"
 
 msgid "Error adding Hosts to the aggregate."
 msgstr "Greška pri dodavanju hosta u skup."
-
-msgid "Error creating database backup."
-msgstr "Nemoguće je kreiranje sigurnosne kopije baze podataka."
-
-msgid "Error deleting database on instance."
-msgstr "Greška u brisanju baze podataka na računarskoj jedinici."
-
-msgid "Error deleting database user."
-msgstr "Greška u brisanju korisnika baze podataka."
-
-msgid "Error getting database backup list."
-msgstr "Nemoguće je dobiti listu sigurnosnih kopija baze podataka."
 
 msgid "Error when adding or removing hosts."
 msgstr "Greška pri dodavanju ili uklanjanju hostova."
@@ -2133,10 +2022,6 @@ msgstr ""
 "Greška u formatu ruta Host-a: Odredišni CIDR i nexthop moraju biti određeni "
 "(vrednost=%s)"
 
-msgid "Host or IP that the user is allowed to connect through."
-msgstr ""
-"Host-ovi ili IP adrese preko kojih je korisniku dozvoljeno da se povezuje."
-
 msgid "Hostname"
 msgstr "Hostname"
 
@@ -2323,18 +2208,6 @@ msgstr "Informacije"
 msgid "Ingress"
 msgstr "Ingress"
 
-msgid "Initial Admin User"
-msgstr "Početni administrator"
-
-msgid "Initial Volume Size"
-msgstr "Početna veličina Volume-a"
-
-msgid "Initial admin user to add"
-msgstr "Dodatni početni administratori"
-
-msgid "Initialize Databases"
-msgstr "Pokrenite baze podataka"
-
 msgid "Initiator state"
 msgstr "Stanje inicijatora"
 
@@ -2491,9 +2364,6 @@ msgstr "Zadnjih godinu dana"
 msgid "Launch"
 msgstr "Pokrenite"
 
-msgid "Launch Database"
-msgstr "Pokrenite bazu podataka"
-
 msgid "Launch Instance"
 msgstr "Kreiranje instance"
 
@@ -2644,9 +2514,6 @@ msgstr "Član %s je uspešno izmenjen."
 
 msgid "Member Details"
 msgstr "Detalji člana"
-
-msgid "Member(s)"
-msgstr "Član(ovi)"
 
 msgid "Members"
 msgstr "Članovi"
@@ -2980,12 +2847,6 @@ msgstr "Ništa"
 msgid "Normal"
 msgstr "Regularan"
 
-msgid "Not Assigned"
-msgstr "Nije dodeljeno"
-
-msgid "Not Found"
-msgstr "Nije nađeno"
-
 msgid "Not attached"
 msgstr "Nije povezano"
 
@@ -3103,19 +2964,11 @@ msgstr "Stare arome"
 msgid "Open Port"
 msgstr "Otvorite port"
 
-msgid "Optional Backup Description"
-msgstr "Opis baze podataka, neobavezno"
-
 msgid "Optional Parameters"
 msgstr "Neobavezni parametri"
 
 msgid "Optional: Next Hop Addresses (comma delimited)"
 msgstr "Neobavezno: Sledeće adrese hop-a (odvojeno zarezom)"
-
-msgid "Optionally provide a comma separated list of databases to create:"
-msgstr ""
-"Priložite listu baza podataka koje želite da kreirate, odvajajte zarezom - "
-"nije obavezno:"
 
 msgid "Other"
 msgstr "Drugi"
@@ -3144,9 +2997,6 @@ msgstr "Lozinka"
 msgctxt "Current status of an Instance"
 msgid "Password"
 msgstr "Lozinka"
-
-msgid "Password (required)"
-msgstr "Lozinka (obavezno)"
 
 msgid "Password changed. Please log in again to continue."
 msgstr "Lozinka je promenjena. Molimo Vas, pristupite ponovo za nastavak."
@@ -3429,10 +3279,6 @@ msgctxt "Action log of an instance"
 msgid "Reboot"
 msgstr "Ponovno pokretanje - restart"
 
-msgctxt "Current status of a Database Instance"
-msgid "Reboot"
-msgstr "Ponovno pokretanje - restart"
-
 msgctxt "Current status of an Instance"
 msgid "Reboot"
 msgstr "Ponovno pokretanje - restart"
@@ -3492,10 +3338,6 @@ msgctxt "Action log of an instance"
 msgid "Resize"
 msgstr "Izmena veličine"
 
-msgctxt "Current status of a Database Instance"
-msgid "Resize"
-msgstr "Izmena veličine"
-
 msgid "Resize Instance"
 msgstr "Prekrajanje instance"
 
@@ -3519,9 +3361,6 @@ msgstr "ID resursa"
 
 msgid "Resource Metadata"
 msgstr "Meta podaci resursa"
-
-msgid "Resource Overview"
-msgstr "Pregled resursa"
 
 msgid "Resource Usage"
 msgstr "Upotreba resursa"
@@ -3668,10 +3507,6 @@ msgstr "Sačuvaj izmene"
 #, python-format
 msgid "Saved extra spec \"%s\"."
 msgstr "Sačuvana dodatna specifikacija ta \"%s\"."
-
-#, python-format
-msgid "Scheduled backup \"%(name)s\"."
-msgstr "Zakazano je pravljenje sigurnosnih kopija \"%(name)s\"."
 
 #, python-format
 msgid "Scheduled deletion of %(data_type)s"
@@ -3889,9 +3724,6 @@ msgstr "Veličina image-a za pokretanje."
 
 msgid "Size of root disk"
 msgstr "Velicina root diska"
-
-msgid "Size of the volume in GB."
-msgstr "Veličina Volume-a u GB."
 
 msgid "Size of volume"
 msgstr "Veličina volume-a"
@@ -4358,9 +4190,6 @@ msgstr "Ovo je potrebno radi funkcionalnosti da se učini tokom života stack-a"
 msgid "This name is already taken."
 msgstr "Ovo ime je već upotrebljeno."
 
-msgid "This pane needs javascript support."
-msgstr "Ovom panelu treba podrška javascript-a."
-
 msgid ""
 "This volume is currently attached to an instance. In some cases, creating a "
 "snapshot from an attached volume can result in a corrupted snapshot."
@@ -4617,9 +4446,6 @@ msgstr "Nemoguće je proširiti volume."
 msgid "Unable to fetch EC2 credentials."
 msgstr "Nemoguće je preuzeti EC2 akreditive."
 
-msgid "Unable to find backup!"
-msgstr "Nemoguće je naći sigurnosnu kopiju - backup!"
-
 #, python-format
 msgid "Unable to get RDP console for instance \"%s\"."
 msgstr "Nemoguće dobiti RDP konzolu za instancu \"%s\"."
@@ -4821,25 +4647,11 @@ msgstr "Nemoguće je dobiti podatke o ograničenjima compute-ova."
 msgid "Unable to retrieve container list."
 msgstr "Nemoguće je dobiti listu kontejnera."
 
-msgid "Unable to retrieve database instances."
-msgstr "Nemoguće je povratiti računarsku jedinicu baze podataka."
-
-msgid "Unable to retrieve database size information."
-msgstr "Nemoguće je dobiti podatke o veličini baze podataka."
-
 msgid "Unable to retrieve default Neutron quota values."
 msgstr "Nemožete dobiti podrazumevane vrednosti Neutron kvote."
 
 msgid "Unable to retrieve default quota values."
 msgstr "Nemoguće je dobiti podrazumevane vrednosti kvote."
-
-#, python-format
-msgid "Unable to retrieve details for backup: %s"
-msgstr "Nemoguće je dobiti detalje sigurnosne kopije: %s"
-
-#, python-format
-msgid "Unable to retrieve details for database instance: %s"
-msgstr "Nemoguće je dobiti detaljeza računarsku jedinicu baze podataka: %s"
 
 #, python-format
 msgid "Unable to retrieve details for instance \"%s\"."
@@ -5014,9 +4826,6 @@ msgstr "Nije moguće izvući mrežu."
 
 msgid "Unable to retrieve networks list."
 msgstr "Nemougće je dobiti listu mreža."
-
-msgid "Unable to retrieve networks."
-msgstr "Nemoguće je dopreti do mreža."
 
 msgid "Unable to retrieve object list."
 msgstr "Nemoguće je dobiti listu objekata."
@@ -5412,9 +5221,6 @@ msgstr "Korisnička podešavanja"
 msgid "User has been updated successfully."
 msgstr "Podaci korisnika su uspešno izmenjeni."
 
-msgid "Username (required)"
-msgstr "Korisničko ime (obavezno)"
-
 msgid "Users"
 msgstr "Korisnici"
 
@@ -5524,9 +5330,6 @@ msgstr "Ograničenja volume-a"
 
 msgid "Volume Name"
 msgstr "Ime volume-a"
-
-msgid "Volume Size"
-msgstr "Veličina Volume-a"
 
 msgid "Volume Snapshot"
 msgstr "Snapshot volume-a"
@@ -5699,14 +5502,8 @@ msgstr "Morate odabrati image."
 msgid "You must set volume size"
 msgstr "Morate podesiti veličinu volume-a"
 
-msgid "You must specify a password if you create a user."
-msgstr "Morate dodeliti lozinku ako kreirate korisnika."
-
 msgid "You must specify a template via one of the available sources."
 msgstr "Morate odrediti šablon preko jednog od dostupnih izvora."
-
-msgid "You must specify at least one database if you create a user."
-msgstr "Morate dodeliti bar jednu bazu podataka ako kreirate korisnika."
 
 msgid ""
 "You must specify the source of the traffic to be allowed via this rule. You "

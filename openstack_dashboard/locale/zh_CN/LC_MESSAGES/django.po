@@ -15,7 +15,6 @@
 # Ying Chun Guo <daisy.ycguo@gmail.com>, 2015
 # 刘俊朋 <liujunpeng@inspur.com>, 2015
 # 颜海峰 <yanheven@gmail.com>, 2015
-# Andreas Jaeger <jaegerandi@gmail.com>, 2015. #zanata
 # Daisy <guoyingc@cn.ibm.com>, 2015. #zanata
 # OpenStack Infra <zanata@openstack.org>, 2015. #zanata
 # Xu Yang <xuyang@cn.fujitsu.com>, 2015. #zanata
@@ -26,7 +25,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-12-17 05:35+0000\n"
+"POT-Creation-Date: 2016-01-09 00:51+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -282,15 +281,6 @@ msgstr ""
 
 msgid ""
 "\n"
-"   Volumes are block devices that can be attached to instances.\n"
-"   "
-msgstr ""
-"\n"
-"卷是可以被附属连接到实例的块设备。\n"
-"  "
-
-msgid ""
-"\n"
 "  Assign a name and description for the pool. Choose one subnet where all\n"
 "  members of this pool must be on. Select the protocol and load balancing\n"
 "  method for this pool. Admin State is UP (checked) by default.\n"
@@ -300,18 +290,6 @@ msgstr ""
 "为负载均衡池定义名称和描述.选择负载均衡池的子网.\n"
 "选择负载均衡池的网络协议和均衡方法.管理员状态默\n"
 "认是启用(已确定)的."
-
-msgid ""
-"\n"
-"  Move networks from 'Available Networks' to 'Selected Networks' by\n"
-"  clicking the button, or dragging and dropping. You can change the\n"
-"  NIC order by dragging and dropping as well.\n"
-"  "
-msgstr ""
-"\n"
-"通过点击按钮来把网络从“可用网络”移动到“选中网络”\n"
-"或者你可以通过拖放的方式。当然你也可以\n"
-"通过拖放来改变网卡顺序。"
 
 msgid ""
 "\n"
@@ -353,18 +331,12 @@ msgstr "删除端口%s 同样失败"
 msgid "\"Add Router Route\""
 msgstr "\"添加路由器的路由表\""
 
-msgid "\"Clusters\""
-msgstr "\"集群\""
-
 msgid ""
 "\"Customization Script\" is analogous to \"User Data\" in other systems."
 msgstr "\"定制脚本\"与其它系统中的\"用户数据\"类似."
 
 msgid "\"Edit Volume Type\""
 msgstr "编辑卷"
-
-msgid "\"Launch Cluster\""
-msgstr "\"启动集群\""
 
 msgid "\"N/A\""
 msgstr "\"N/A\""
@@ -403,14 +375,6 @@ msgstr "%(instance_name)s %(fixed_ip)s"
 #, python-format
 msgid "%(name)s - %(size)s GB (%(label)s)"
 msgstr "%(name)s - %(size)s GB (%(label)s)"
-
-#, python-format
-msgid "%(name)s | %(RAM)s RAM"
-msgstr "%(name)s | %(RAM)s 内存"
-
-#, python-format
-msgid "%(name)s | %(RAM)s RAM | %(instances)s instances"
-msgstr "%(name)s | %(RAM)s 内存 | %(instances)s 实例"
 
 #, python-format
 msgid "%(offset)s: %(label)s"
@@ -498,32 +462,6 @@ msgstr "--"
 msgid "3des"
 msgstr "3des"
 
-#, python-format
-msgid "<p>%(used)s of %(quota)s MB Used</p>"
-msgstr "<p>%(quota)s 中的 %(used)s MB已使用</p>"
-
-#, python-format
-msgid "<p>%(used)s of %(quota)s Used</p>"
-msgstr "<p>%(quota)s 中的 %(used)s 已使用</p>"
-
-msgid ""
-"<strong>Please note:</strong> The new value must be greater than the "
-"existing volume size."
-msgstr "<strong>请记住</strong>：新卷容量必须大于现在的卷容量。"
-
-msgid ""
-"<strong>Please note:</strong> The value specified in the Volume Size field "
-"should be greater than 0, however, some configurations do not support "
-"specifying volume size. If specifying the volume size results in an error "
-"stating volume support is not enabled, enter 0."
-msgstr ""
-"<strong>请注意：</strong> 云硬盘大小字段中指定的数字必须大于零，但是，有一些"
-"配置不支持指定云硬盘大小。如果指定云硬盘大小会导致不支持云硬盘的错误，则输入"
-"0。"
-
-msgid "A backup must be selected!"
-msgstr "必须选择一个备份！"
-
 msgid ""
 "A container is a storage compartment for your data and provides a way for "
 "you to organize your data. You can think of a container as a folder in "
@@ -552,9 +490,6 @@ msgstr "上传本地元数据定义文件。"
 
 msgid "A local template to upload."
 msgstr "一个待上传的本地模板"
-
-msgid "A master instance must be selected!"
-msgstr "必须选择一个主实例！"
 
 msgid ""
 "A more specific rule affects a portion of this traffic so a rule cannot be "
@@ -642,10 +577,6 @@ msgstr "防火墙规则的动作"
 
 msgid "Action:"
 msgstr "动作"
-
-msgctxt "Current status of a Database Instance"
-msgid "Active"
-msgstr "运行中"
 
 msgctxt "Current status of a Firewall"
 msgid "Active"
@@ -785,9 +716,6 @@ msgstr "添加路由"
 msgid "Add Rule"
 msgstr "添加规则"
 
-msgid "Add Shard"
-msgstr "追加shard"
-
 msgid "Add Static Route"
 msgstr "添加路由表"
 
@@ -909,10 +837,6 @@ msgstr "监控已添加"
 msgid "Added pool \"%s\"."
 msgstr "资源池 \"%s\" 已添加。"
 
-#, python-format
-msgid "Added shard to \"%s\""
-msgstr "已追加shard到\"%s\""
-
 msgid "Additional routes"
 msgstr "附加路由"
 
@@ -968,9 +892,6 @@ msgstr "配置失败"
 msgctxt "current status of stack"
 msgid "Adopt In Progress"
 msgstr "正在启用配置"
-
-msgid "Advanced"
-msgstr "高级"
 
 msgid "Advanced Options"
 msgstr "高级选项"
@@ -1048,22 +969,6 @@ msgstr "分发请求给最小活跃连接的实例"
 
 msgid "Allocation Pools"
 msgstr "分配地址池"
-
-msgid ""
-"Allow the user to connect from this host\n"
-"    only. If not provided this user will be allowed to connect from "
-"anywhere.\n"
-"    "
-msgstr ""
-"只允许这一用户从这一主机进行连接。\n"
-"如果不提供这一信息，这一用户将被允许从任何位置进行连接。\n"
-"    "
-
-msgid "Allowed Host"
-msgstr "允许的主机"
-
-msgid "Allowed Host (optional)"
-msgstr "允许主机(可选)"
 
 msgid "Amount of energy"
 msgstr "能源数量"
@@ -1277,36 +1182,8 @@ msgctxt "Current status of a Volume"
 msgid "Backing Up"
 msgstr "备份中..."
 
-msgid "Backup"
-msgstr "备份"
-
-msgctxt "Current status of a Database Instance"
-msgid "Backup"
-msgstr "备份"
-
-msgid "Backup Database"
-msgstr "备份数据库"
-
-msgid "Backup Details"
-msgstr "备份详细信息"
-
-msgid "Backup Details: {{ backup.name }}"
-msgstr "备份详情： {{ backup.name }}"
-
-msgid "Backup Duration"
-msgstr "备份存在时间"
-
-msgid "Backup File"
-msgstr "备份文件"
-
-msgid "Backup File Location"
-msgstr "备份文件地址"
-
 msgid "Backup Name"
 msgstr "备份名称"
-
-msgid "Backup Overview"
-msgstr "备份概况"
 
 msgid "Backups"
 msgstr "备份"
@@ -1333,10 +1210,6 @@ msgstr "块迁移"
 msgid "Block Storage Services"
 msgstr "块存储服务"
 
-msgctxt "Current status of a Database Instance"
-msgid "Blocked"
-msgstr "不通"
-
 msgctxt "Power state of an Instance"
 msgid "Blocked"
 msgstr "不通"
@@ -1359,10 +1232,6 @@ msgstr "从云硬盘快照启动(创建一个新卷)"
 msgid "Bootable"
 msgstr "可启动"
 
-msgctxt "Current status of a Database Instance"
-msgid "Build"
-msgstr "创建"
-
 msgctxt "Current status of a Network"
 msgid "Build"
 msgstr "创建"
@@ -1378,10 +1247,6 @@ msgstr "创建"
 msgctxt "status of a network port"
 msgid "Build"
 msgstr "创建"
-
-msgctxt "Current status of a Database Backup"
-msgid "Building"
-msgstr "建立中"
 
 msgctxt "Power state of an Instance"
 msgid "Building"
@@ -1480,9 +1345,6 @@ msgid ""
 "the space provided."
 msgstr "为密钥对起一个你容易记住的名字，然后在提供的空白处粘贴你的SSH公钥。"
 
-msgid "Choose a new instance flavor."
-msgstr "选择一新的实例类型。"
-
 msgid "Choose a snapshot"
 msgstr "选择快照"
 
@@ -1500,9 +1362,6 @@ msgstr "选择关联的QoS规格。"
 
 msgid "Choose consumer for this QoS Spec."
 msgstr "为此QoS规格选择消费者。"
-
-msgid "Choose initial state."
-msgstr "选择初始化状态。"
 
 msgid ""
 "Choose network from Available networks to Selected networks by push button "
@@ -1573,30 +1432,14 @@ msgstr "点击此处只显示控制台"
 msgid "Close"
 msgstr "关闭"
 
-msgid "Cluster Name"
-msgstr "集群名称"
-
-msgid "Cluster Size"
-msgstr "集群大小"
-
-msgid "Clusters"
-msgstr "集群"
-
 msgid "Code"
 msgstr "编码"
 
 msgid "Cold Migrate"
 msgstr "冷迁移"
 
-msgid "Comma separated list of databases to create"
-msgstr "逗号分隔的列表来创建数据库"
-
 msgid "Comma-separated key=value pairs"
 msgstr "用逗号分开 key=value 键值对"
-
-msgctxt "Current status of a Database Backup"
-msgid "Completed"
-msgstr "完成"
 
 msgid "Component"
 msgstr "组件"
@@ -1654,15 +1497,6 @@ msgstr "正在确认 重建/迁移"
 
 msgid "Conflicting Rule"
 msgstr "冲突规则"
-
-msgid "Connection Examples"
-msgstr "连接举例"
-
-msgid "Connection Info"
-msgstr "连接信息"
-
-msgid "Connection Information"
-msgstr "连接信息"
 
 msgid "Connection Limit"
 msgstr "连接限制"
@@ -2008,13 +1842,6 @@ msgstr "创建网络关联的子网。点击\"子网详情\"标签可以进行�
 msgid "Create an Encrypted Volume Type"
 msgstr "创建一加密的卷类型"
 
-msgid ""
-"Create an optional initial user.\n"
-"   This user will have access to all databases you create."
-msgstr ""
-"创建可选的初始用户。\n"
-"这个用户将可以访问你创建的所有数据库。"
-
 #, python-format
 msgid "Create pseudo-folder in container %(container_name)s"
 msgstr "在容器 %(container_name)s 里面创建虚拟文件夹"
@@ -2128,12 +1955,6 @@ msgstr "该子网的创建请求"
 msgid "Current Host"
 msgstr "当前主机"
 
-msgid "Current Size (GB)"
-msgstr "当前大小(GB)"
-
-msgid "Current Task"
-msgstr "当前任务"
-
 msgid "Current password"
 msgstr "当前密码"
 
@@ -2151,9 +1972,6 @@ msgstr "定制UDP规则"
 
 msgid "Customization Script Source"
 msgstr "定制脚本源"
-
-msgid "DATABASE"
-msgstr "数据库"
 
 msgid "DENY"
 msgstr "拒绝"
@@ -2211,33 +2029,6 @@ msgstr "DPD超时大小必须大于DPD间隔"
 msgid "Daily Usage Report"
 msgstr "每日使用报告"
 
-msgid "Database"
-msgstr "数据库"
-
-msgid "Database Backups"
-msgstr "数据库备份"
-
-msgid "Database Info"
-msgstr "数据库信息"
-
-msgid "Database Instance"
-msgstr "数据库实例"
-
-msgid "Database Name"
-msgstr "数据库名称"
-
-msgid "Database Port"
-msgstr "数据库端口"
-
-msgid "Databases"
-msgstr "数据库"
-
-msgid "Datastore"
-msgstr "数据存储"
-
-msgid "Datastore Version"
-msgstr "数据存储版本"
-
 msgid "Date Updated"
 msgstr "日期已更新"
 
@@ -2284,14 +2075,6 @@ msgstr "延迟必须大于或者等于超时"
 msgid "Delay must be greater than or equal to timeout"
 msgstr "延迟必须大于或者等于超时"
 
-msgid "Delete Backup"
-msgid_plural "Delete Backups"
-msgstr[0] "删除备份"
-
-msgid "Delete Cluster"
-msgid_plural "Delete Clusters"
-msgstr[0] "删除集群"
-
 msgctxt "current status of stack"
 msgid "Delete Complete"
 msgstr "删除完成"
@@ -2304,10 +2087,6 @@ msgid "Delete DHCP Agent"
 msgid_plural "Delete DHCP Agents"
 msgstr[0] "删除DHCP Agent"
 
-msgid "Delete Database"
-msgid_plural "Delete Databases"
-msgstr[0] "删除数据库"
-
 msgid "Delete Domain"
 msgid_plural "Delete Domains"
 msgstr[0] "删除域"
@@ -2319,10 +2098,6 @@ msgstr[0] "删除加密"
 msgid "Delete Extra Spec"
 msgid_plural "Delete Extra Specs"
 msgstr[0] "删除额外规格"
-
-msgctxt "Current status of a Database Backup"
-msgid "Delete Failed"
-msgstr "删除失败"
 
 msgctxt "current status of stack"
 msgid "Delete Failed"
@@ -2482,10 +2257,6 @@ msgctxt "Current status of an Instance"
 msgid "Deleted"
 msgstr "删除"
 
-msgid "Deleted Backup"
-msgid_plural "Deleted Backups"
-msgstr[0] "已删除的备份"
-
 msgid "Deleted Container"
 msgid_plural "Deleted Containers"
 msgstr[0] "已删除的容器"
@@ -2493,10 +2264,6 @@ msgstr[0] "已删除的容器"
 msgid "Deleted DHCP Agent"
 msgid_plural "Deleted DHCP Agents"
 msgstr[0] "已删除的DHCP Agent"
-
-msgid "Deleted Database"
-msgid_plural "Deleted Databases"
-msgstr[0] "已删除的数据库"
 
 msgid "Deleted Domain"
 msgid_plural "Deleted Domains"
@@ -2674,10 +2441,6 @@ msgstr "目的地"
 
 msgid "Detach Interface"
 msgstr "解绑接口"
-
-msgid "Detach Replica"
-msgid_plural "Detach Replicas"
-msgstr[0] "分离镜像"
 
 msgid "Detach Volume"
 msgid_plural "Detach Volumes"
@@ -2914,9 +2677,6 @@ msgstr "停止"
 
 msgid "Download"
 msgstr "下载"
-
-msgid "Download Backup"
-msgstr "下载备份"
 
 msgid "Download CSV Summary"
 msgstr "下载 CSV 摘要"
@@ -3208,10 +2968,6 @@ msgstr ""
 msgid "Error"
 msgstr "错误"
 
-msgctxt "Current status of a Database Instance"
-msgid "Error"
-msgstr "错误"
-
 msgctxt "Current status of a Firewall"
 msgid "Error"
 msgstr "错误"
@@ -3282,24 +3038,12 @@ msgstr "错误修复中..."
 msgid "Error adding Hosts to the aggregate."
 msgstr "向集合中添加主机出现错误."
 
-msgid "Error creating database backup."
-msgstr "创建数据库备份错误"
-
 msgctxt "Current status of a Volume"
 msgid "Error deleting"
 msgstr "错误删除中..."
 
-msgid "Error deleting database on instance."
-msgstr "删除数据库实例错误"
-
-msgid "Error deleting database user."
-msgstr "删除数据库用户错误"
-
 msgid "Error editing QoS Spec consumer."
 msgstr "编辑QoS规格消费者时出错。"
-
-msgid "Error getting database backup list."
-msgstr "获取数据库备份列表错误"
 
 msgid "Error getting metadata definitions."
 msgstr "获取元数据定义错误。"
@@ -3413,14 +3157,6 @@ msgstr "路由器\"%(router_id)s\"的外部网络\"%(ext_net_id)s\"没有找到�
 
 msgid "Extra Specs"
 msgstr "特别设定"
-
-msgctxt "Current status of a Database Backup"
-msgid "Failed"
-msgstr "失败"
-
-msgctxt "Current status of a Database Instance"
-msgid "Failed"
-msgstr "失败"
 
 msgctxt "Power state of an Instance"
 msgid "Failed"
@@ -4029,9 +3765,6 @@ msgstr ""
 "主机聚合通过将主机组合来把可用区域划分成逻辑单元。编辑主机聚合，选择它里面的"
 "主机。"
 
-msgid "Host or IP that the user is allowed to connect through."
-msgstr "允许连接的主机或者IP"
-
 msgid "Hostname"
 msgstr "主机名字"
 
@@ -4320,12 +4053,6 @@ msgctxt "Current status of a VPN Service"
 msgid "Inactive"
 msgstr "非激活"
 
-msgid "Incremental"
-msgstr "增量"
-
-msgid "Incremental Backup"
-msgstr "增量备份"
-
 msgid "Info"
 msgstr "信息"
 
@@ -4346,21 +4073,6 @@ msgstr "初始化失败"
 msgctxt "current status of stack"
 msgid "Init In Progress"
 msgstr "正在初始化"
-
-msgid "Initial Admin User"
-msgstr "初始管理员"
-
-msgid "Initial Databases"
-msgstr "初始数据库"
-
-msgid "Initial Volume Size"
-msgstr "初始云硬盘大小"
-
-msgid "Initial admin user to add"
-msgstr "增加初始管理员"
-
-msgid "Initialize Databases"
-msgstr "初始化数据库"
 
 msgid "Initiator state"
 msgstr "发起人状态"
@@ -4434,9 +4146,6 @@ msgstr "待连接的云主机"
 msgid "Instances"
 msgstr "实例"
 
-msgid "Instances Per Shard"
-msgstr "一个Shard的实例"
-
 msgid "Insufficient privilege level to view domain information."
 msgstr "查看域信息权限不足。"
 
@@ -4479,9 +4188,6 @@ msgid ""
 "Invalid time period. You are requesting data from the future which may not "
 "exist."
 msgstr "无效的时间范围。你正在查询未来的、尚不存在的数据。"
-
-msgid "Is a Replica Of"
-msgstr "镜像于"
 
 msgid "Items Per Page"
 msgstr "每页条目数"
@@ -4576,12 +4282,6 @@ msgstr "最近一年"
 msgid "Launch"
 msgstr "运行"
 
-msgid "Launch Cluster"
-msgstr "启动集群"
-
-msgid "Launch Database"
-msgstr "启动数据库"
-
 msgid "Launch Instance"
 msgstr "启动云主机"
 
@@ -4609,10 +4309,6 @@ msgstr "使用这个策略概要来启动云主机"
 #, python-format
 msgid "Launched %(count)s named \"%(name)s\"."
 msgstr "启动了%(count)s 名称\"%(name)s\"."
-
-#, python-format
-msgid "Launched cluster \"%s\""
-msgstr "启动集群\"%s\""
 
 msgid ""
 "Launching multiple instances is only supported for images and instance "
@@ -4792,17 +4488,11 @@ msgstr "管理已连接云硬盘"
 msgid "Manage a Volume"
 msgstr "管理一个卷"
 
-msgid "Management Console"
-msgstr "管理控制台"
-
 msgid "Manual"
 msgstr "手动"
 
 msgid "Mapped Fixed IP Address"
 msgstr "已映射固定IP地址"
-
-msgid "Master Instance Name"
-msgstr "主实例名称"
 
 msgid "Max Retries"
 msgstr "最大尝试次数"
@@ -4833,12 +4523,6 @@ msgstr "成员IP地址必须被指定"
 
 msgid "Member Source"
 msgstr "成员来源"
-
-msgid "Member address"
-msgstr "成员地址"
-
-msgid "Member(s)"
-msgstr "成员"
 
 msgid "Members"
 msgstr "成员"
@@ -5124,9 +4808,6 @@ msgstr "CIDR网络地址类型(例如.192.168.0.0/24)"
 msgid "Network address in CIDR format (e.g. 192.168.0.0/24, 2001:DB8::/48)"
 msgstr "CIDR格式的网络地址 (例如 192.168.0.0/24, 2001:DB8::/48)"
 
-msgid "Network attached to instance."
-msgstr "附加到实例的网络。"
-
 msgid "Network list can not be retrieved."
 msgstr "无法获取网络列表"
 
@@ -5149,10 +4830,6 @@ msgstr "从不"
 msgid "Never updated"
 msgstr "从未更新"
 
-msgctxt "Current status of a Database Backup"
-msgid "New"
-msgstr "新建"
-
 msgid "New DHCP Agent"
 msgstr "新建DHCP Agent"
 
@@ -5162,12 +4839,6 @@ msgstr "新的云主机类型"
 msgid "New Host"
 msgstr "新主机"
 
-msgid "New Password"
-msgstr "新密码"
-
-msgid "New Size (GB)"
-msgstr "新大小(GB)"
-
 msgid "New name cannot be empty."
 msgstr "name不能为空"
 
@@ -5176,12 +4847,6 @@ msgstr "新的名字与另一个卷类型冲突"
 
 msgid "New password"
 msgstr "新密码"
-
-msgid "New password for cluster access."
-msgstr "访问集群的新密码。"
-
-msgid "New size for volume must be greater than current size."
-msgstr "卷的新容量必须大于现在的容量"
 
 msgid "New size must be greater than current size."
 msgstr "新大小必须大于当前设置"
@@ -5236,9 +4901,6 @@ msgstr "没有可用的控制台"
 
 msgid "No available projects"
 msgstr "没有可用项目"
-
-msgid "No backups available"
-msgstr "没有可用的备份"
 
 msgid "No flavors available"
 msgstr "没有可用的云主机类型。"
@@ -5372,12 +5034,6 @@ msgstr "空(移除规格)"
 msgid "Normal"
 msgstr "正常"
 
-msgid "Not Assigned"
-msgstr "没有分配"
-
-msgid "Not Found"
-msgstr "找不到 "
-
 msgid "Not attached"
 msgstr "未连接"
 
@@ -5400,9 +5056,6 @@ msgstr "Swift API请求数目"
 
 msgid "Number of Instances"
 msgstr "云主机数量"
-
-msgid "Number of Shards"
-msgstr "Shard数"
 
 msgid "Number of Snapshots"
 msgstr "快照数量"
@@ -5434,12 +5087,6 @@ msgstr "流入虚拟机网络接口的字节数目"
 msgid "Number of incoming packets for a VM interface"
 msgstr "流入虚拟机网络接口的包数目"
 
-msgid "Number of instances in the cluster. (Read only)"
-msgstr "集群中的实例数。(只读)"
-
-msgid "Number of instances per shard. (Read only)"
-msgstr "一个shard的实例数。(只读)"
-
 msgid "Number of instances to launch."
 msgstr "启动云主机的个数"
 
@@ -5470,9 +5117,6 @@ msgstr "在将用户状态修改为非活跃之前的最大允许失败次数。
 
 msgid "Number of read requests"
 msgstr "读请求的数目"
-
-msgid "Number of shards. (Read only)"
-msgstr "shard数。(只读)"
 
 msgid "Number of write requests"
 msgstr "写请求的数目"
@@ -5536,25 +5180,11 @@ msgstr "打开端口"
 msgid "Open Port/Port Range:"
 msgstr "打开端口/端口范围："
 
-msgid "Optional Backup Description"
-msgstr "可选备份描述"
-
 msgid "Optional Parameters"
 msgstr "可选参数"
 
-msgid "Optional parent backup"
-msgstr "可选的父备份"
-
 msgid "Optional: Next Hop Addresses (comma delimited)"
 msgstr "可选项：下一跳地址(多个用逗号分开)"
-
-msgid ""
-"Optionally choose to create this database using a previous backup, or as a "
-"replica of another database instance."
-msgstr "可选择使用之前的备份来创建数据库，或使用另一个数据库实例的复制。"
-
-msgid "Optionally provide a comma separated list of databases to create:"
-msgstr "也可以提供用逗号分隔的列表来创建数据库："
 
 msgid "Optionally, you may choose to create a new volume."
 msgstr "可供选择的，你可以选择创建一个新的卷。"
@@ -5605,9 +5235,6 @@ msgstr ""
 "卷的所有权能够从一个项目转移到另一个项目。一旦卷转移在提供方项目中创建，它就"
 "能在接受者项目中被\"接受\"。这个等价于 <tt>cinder transfer-create</tt> 命令。"
 
-msgid "PASSWORD"
-msgstr "密码"
-
 msgid "PFS"
 msgstr "PFS"
 
@@ -5620,9 +5247,6 @@ msgstr "页面未找到"
 msgid "Parameters"
 msgstr "参数"
 
-msgid "Parent Backup"
-msgstr "父备份"
-
 msgid "Password"
 msgstr "密码"
 
@@ -5630,20 +5254,11 @@ msgctxt "Current status of an Instance"
 msgid "Password"
 msgstr "密码"
 
-msgid "Password (required)"
-msgstr "密码(必填)"
-
 msgid "Password changed. Please log in again to continue."
 msgstr "密码已更改。请重新登录。"
 
 msgid "Password changed. Please log in to continue."
 msgstr "密码已修改，请登录以继续。"
-
-msgid "Password for root user must be specified."
-msgstr "必须指定root用户密码。"
-
-msgid "Password for root user."
-msgstr "root用户密码。"
 
 #, python-format
 msgid "Password for user \"%s\""
@@ -6102,10 +5717,6 @@ msgctxt "Action log of an instance"
 msgid "Reboot"
 msgstr "重启"
 
-msgctxt "Current status of a Database Instance"
-msgid "Reboot"
-msgstr "重启"
-
 msgctxt "Current status of an Instance"
 msgid "Reboot"
 msgstr "重启"
@@ -6234,19 +5845,6 @@ msgid "Removed User"
 msgid_plural "Removed Users"
 msgstr[0] "已删除的用户"
 
-msgid "Replica Detached"
-msgid_plural "Replicas Detached"
-msgstr[0] "镜像已经分离"
-
-msgid "Replicas"
-msgstr "所有镜像"
-
-msgid "Replicate from Instance"
-msgstr "从实例复制"
-
-msgid "Replication"
-msgstr "重复"
-
 msgid "Request ID"
 msgstr "请求ID"
 
@@ -6269,9 +5867,6 @@ msgctxt "Task status of an Instance"
 msgid "Rescuing"
 msgstr "正在进行拯救"
 
-msgid "Reset Root Password"
-msgstr "重置root密码"
-
 msgid "Reset to Default"
 msgstr "设置为默认"
 
@@ -6282,21 +5877,8 @@ msgctxt "Action log of an instance"
 msgid "Resize"
 msgstr "调整大小"
 
-msgctxt "Current status of a Database Instance"
-msgid "Resize"
-msgstr "调整大小"
-
-msgid "Resize Database Instance"
-msgstr "调整数据库实例大小"
-
-msgid "Resize Database Volume"
-msgstr "调整数据库卷大小"
-
 msgid "Resize Instance"
 msgstr "调整云主机大小"
-
-msgid "Resize Volume"
-msgstr "调整卷大小"
 
 msgctxt "Current status of an Instance"
 msgid "Resize/Migrate"
@@ -6306,17 +5888,9 @@ msgctxt "Task status of an Instance"
 msgid "Resized or Migrated"
 msgstr "已经重建或者迁移"
 
-#, python-format
-msgid "Resizing instance \"%s\""
-msgstr "调整实例 \"%s\" 的大小"
-
 msgctxt "Task status of an Instance"
 msgid "Resizing or Migrating"
 msgstr "正在重建或者迁移中"
-
-#, python-format
-msgid "Resizing volume \"%s\""
-msgstr "正在调整卷 \"%s\" 的大小"
 
 msgid "Resource"
 msgstr "资源"
@@ -6326,9 +5900,6 @@ msgstr "资源ID"
 
 msgid "Resource Metadata"
 msgstr "资源元数据"
-
-msgid "Resource Overview"
-msgstr "资源概况"
 
 msgid "Resource Types"
 msgstr "资源类型"
@@ -6345,18 +5916,6 @@ msgstr "资源"
 
 msgid "Resources Usage Overview"
 msgstr "资源使用概况"
-
-msgid "Restart Instance"
-msgid_plural "Restart Instances"
-msgstr[0] "重启实例"
-
-msgctxt "Current status of a Database Instance"
-msgid "Restart Required"
-msgstr "需要重启"
-
-msgid "Restarted Instance"
-msgid_plural "Restarted Instances"
-msgstr[0] "已重启的实例"
 
 msgid "Restarted instances will lose any data not saved in persistent storage."
 msgstr "重启实例会丢失所以没有存放在永久存储设备上的数据。"
@@ -6375,9 +5934,6 @@ msgstr "恢复卷备份"
 
 msgid "Restore a Volume Backup"
 msgstr "还原一个卷备份"
-
-msgid "Restore from Backup"
-msgstr "从备份中恢复"
 
 msgctxt "Current status of a Volume Backup"
 msgid "Restoring"
@@ -6485,13 +6041,6 @@ msgstr "根磁盘"
 
 msgid "Root Disk (GB)"
 msgstr "根磁盘(GB)"
-
-msgid "Root Password"
-msgstr "root密码"
-
-#, python-format
-msgid "Root password updated for cluster \"%s\""
-msgstr "为集群\"%s\"更新的root密码"
 
 msgid "Rotates requests evenly between multiple instances."
 msgstr "在多个实例之间均匀地分发请求"
@@ -6620,17 +6169,9 @@ msgstr "保存特别设定\"%s\"."
 msgid "Saved spec \"%s\"."
 msgstr "已保存规格\"%s\"."
 
-msgctxt "Current status of a Database Backup"
-msgid "Saving"
-msgstr "保存中"
-
 msgctxt "Current status of an Image"
 msgid "Saving"
 msgstr "保存中"
-
-#, python-format
-msgid "Scheduled backup \"%(name)s\"."
-msgstr "已为备份\"%(name)s\"排期."
 
 #, python-format
 msgid "Scheduled deletion of %(data_type)s"
@@ -6795,18 +6336,12 @@ msgstr "选择一个路由器"
 msgid "Select a Subnet"
 msgstr "选择子网"
 
-msgid "Select a backup to restore"
-msgstr "选择一个备份来恢复"
-
 #, python-format
 msgid "Select a health monitor of %s"
 msgstr "选择 %s 的健康监控"
 
 msgid "Select a key pair"
 msgstr "选择一个密钥对"
-
-msgid "Select a master instance"
-msgstr "选择一主实例"
 
 #, python-format
 msgid "Select a monitor template for %s"
@@ -6820,9 +6355,6 @@ msgstr "选择新的QoS规格"
 
 msgid "Select a new agent"
 msgstr "选择一个新的agent"
-
-msgid "Select a new flavor"
-msgstr "选择一个新的云主机类型"
 
 msgid "Select a new host"
 msgstr "选择一个新的主机"
@@ -6872,20 +6404,11 @@ msgstr "请选择一个云主机"
 msgid "Select an instance to attach to."
 msgstr "选择要连接到的云主机。"
 
-msgid "Select backup"
-msgstr "选择备份"
-
-msgid "Select datastore type and version"
-msgstr "选择数据存储类型和版本"
-
 msgid "Select format"
 msgstr "选择镜像格式"
 
 msgid "Select from active instances"
 msgstr "从可用实例选择"
-
-msgid "Select instance"
-msgstr "选择实例"
 
 msgid "Select members for this pool "
 msgstr "从资源池选择成员"
@@ -6895,9 +6418,6 @@ msgstr "选择网络"
 
 msgid "Select networks for your instance."
 msgstr "选择网络"
-
-msgid "Select parent backup"
-msgstr "选择父备份"
 
 msgid "Select routers for your firewall."
 msgstr "为您的防火墙选择路由。"
@@ -7063,10 +6583,6 @@ msgid "Shut Off Instance"
 msgid_plural "Shut Off Instances"
 msgstr[0] "已关闭的实例"
 
-msgctxt "Current status of a Database Instance"
-msgid "Shutdown"
-msgstr "关闭"
-
 msgctxt "Current status of an Instance"
 msgid "Shutoff"
 msgstr "关机"
@@ -7083,14 +6599,8 @@ msgstr "临时磁盘大小"
 msgid "Size of image to launch."
 msgstr "要启动的镜像大小"
 
-msgid "Size of instance to launch."
-msgstr "启动实例的大小"
-
 msgid "Size of root disk"
 msgstr "根磁盘大小"
-
-msgid "Size of the volume in GB."
-msgstr "以GB计云硬盘大小"
 
 msgid "Size of volume"
 msgstr "云硬盘大小"
@@ -7191,9 +6701,6 @@ msgstr "源端口"
 msgid "Source Port/Port Range"
 msgstr "源端口/端口范围"
 
-msgid "Source for Initial State"
-msgstr "初始状态来源"
-
 msgid "Source port (integer in [1, 65535] or range in a:b)"
 msgstr "源端口([1, 65535]区间内的整数或者以a:b形式表示的范围)"
 
@@ -7248,9 +6755,6 @@ msgstr "指定VIP"
 msgid "Specify a metadata definition namespace to import."
 msgstr "指定一元数据定义命名空间来导入。"
 
-msgid "Specify a new flavor for the database instance."
-msgstr "指定数据库实例新的类型。"
-
 msgid "Specify additional attributes for the subnet."
 msgstr "为子网指定扩展属性"
 
@@ -7266,20 +6770,8 @@ msgstr "指定镜像上传到镜像服务"
 msgid "Specify member IP address"
 msgstr "指定成员的IP地址"
 
-msgid "Specify the details for adding additional shards."
-msgstr "为追加额外的shard指定详细信息。"
-
 msgid "Specify the details for launching an instance."
 msgstr "指定创建云主机的详细信息"
-
-msgid "Specify the details for the database backup."
-msgstr "指定数据库备份详情。"
-
-msgid "Specify the new root password for vertica cluster."
-msgstr "为vertica数据库集群指定新的root密码。"
-
-msgid "Specify the new volume size for the database instance."
-msgstr "指定数据库实例新的卷大小。"
 
 msgid ""
 "Specify this option to copy image data to the image service. If unspecified, "
@@ -7826,9 +7318,6 @@ msgstr ""
 "对请求的镜像来说，该类型 '%(flavor)s'太小了。\n"
 "最小需求：内存 %(min_ram)s MB，根硬盘 %(min_disk)s GB。"
 
-msgid "The flavor must be specified."
-msgstr "必须指定类型模板。"
-
 #, python-format
 msgid "The instance is preparing the live migration to host \"%s\"."
 msgstr "此实例正在准备热迁移到主机\"%s\"。"
@@ -7887,9 +7376,6 @@ msgstr "物理网络上的虚拟网络的实现的名称。"
 msgid ""
 "The next hop addresses can be used to override the router used by the client."
 msgstr "用户可以在客户端修改下一跳地址"
-
-msgid "The number of shards must be greater than 1."
-msgstr "shard数必须大于1。"
 
 msgid "The page you were looking for doesn't exist"
 msgstr "你要找的页面不存在"
@@ -8009,9 +7495,6 @@ msgstr "为在栈的生命周期中执行操作，这是必须的。"
 
 msgid "This name is already taken."
 msgstr "这个名字已经被使用"
-
-msgid "This pane needs javascript support."
-msgstr "该页需要javascript支持"
 
 msgid ""
 "This volume is currently attached to an instance. In some cases, creating a "
@@ -8135,9 +7618,6 @@ msgstr "转换协议"
 msgid "Type"
 msgstr "类型"
 
-msgid "Type and version of datastore."
-msgstr "数据存储的类型和版本"
-
 msgid "Type of backend device identifier provided"
 msgstr "已提供后端设备标识类型"
 
@@ -8176,9 +7656,6 @@ msgstr "URL"
 
 msgid "URL Path"
 msgstr "URL路径"
-
-msgid "USERNAME"
-msgstr "用户名"
 
 msgid "UTC"
 msgstr "UTC"
@@ -8237,10 +7714,6 @@ msgstr "无法添加资源池 \"%s\"。"
 
 msgid "Unable to add rule to security group."
 msgstr "无法为安全组添加规则。"
-
-#, python-format
-msgid "Unable to add shard. %s"
-msgstr "无法追加shard。%s"
 
 msgid "Unable to add user to primary project."
 msgstr "无法向首要项目添加用户。"
@@ -8469,14 +7942,8 @@ msgstr "无法扩展云硬盘"
 msgid "Unable to fetch EC2 credentials."
 msgstr "无法获得EC2凭证。"
 
-msgid "Unable to find backup!"
-msgstr "无法找到备份！"
-
 msgid "Unable to find default role."
 msgstr "无法获取默认角色"
-
-msgid "Unable to find master instance!"
-msgstr "无法找到主实例！"
 
 msgid "Unable to get EC2 credentials"
 msgstr "无法获取EC2凭证"
@@ -8503,12 +7970,6 @@ msgstr "无法获得云主机 \"%s\" 的VNC控制台"
 msgid "Unable to get cinder services list."
 msgstr "无法获取Cinder服务列表"
 
-msgid "Unable to get database backup data."
-msgstr "无法获取数据库备份数据。"
-
-msgid "Unable to get databases data."
-msgstr "无法获取数据库数据。"
-
 #, python-format
 msgid "Unable to get events for stack \"%s\"."
 msgstr "无法获取栈 \"%s\" 的事件。"
@@ -8522,9 +7983,6 @@ msgstr "无法获得资源池 %(pool)s 的健康监控%(monitor_id)s."
 
 msgid "Unable to get host aggregate list"
 msgstr "无法获取主机集合列表"
-
-msgid "Unable to get instances data."
-msgstr "无法获取实例数据。"
 
 #, python-format
 msgid "Unable to get log for instance \"%s\"."
@@ -8567,9 +8025,6 @@ msgstr "无法获取资源池 %(pool)s 的子网 。"
 msgid "Unable to get the available hosts"
 msgstr "无法获取可用的主机"
 
-msgid "Unable to get user data."
-msgstr "无法获取用户数据。"
-
 msgid "Unable to import key pair."
 msgstr "无法导入密钥对。"
 
@@ -8580,18 +8035,8 @@ msgstr "无法初始化子网资源池"
 msgid "Unable to launch %(count)s named \"%(name)s\"."
 msgstr "无法启动%(count)s 名字 \"%(name)s\"."
 
-#, python-format
-msgid "Unable to launch cluster. %s"
-msgstr "无法启动集群。%s"
-
 msgid "Unable to list containers."
 msgstr "找不到容器列表。"
-
-msgid "Unable to list database backups for parent."
-msgstr "无法获取用来做母版的数据库备份列表"
-
-msgid "Unable to list database instances to backup."
-msgstr "无法获取数据库实例来备份"
 
 msgid "Unable to list dhcp agents hosting network."
 msgstr "无法列出DHCP代理主机的网络"
@@ -8633,15 +8078,6 @@ msgstr "无法修改云主机\"%s\""
 msgid "Unable to modify project \"%s\"."
 msgstr "无法修改项目\"%s\""
 
-msgid "Unable to obtain datastore versions."
-msgstr "无法获取数据存储版本。"
-
-msgid "Unable to obtain datastores."
-msgstr "无法获取数据存储。"
-
-msgid "Unable to obtain flavors."
-msgstr "无法获取的实例类型。"
-
 #, python-format
 msgid "Unable to parse IP address %s."
 msgstr "无法解析IP地址 %s."
@@ -8650,20 +8086,8 @@ msgid "Unable to rebuild instance."
 msgstr "无法重建云主机。"
 
 #, python-format
-msgid "Unable to reset password. %s"
-msgstr "无法重置密码。%s"
-
-#, python-format
 msgid "Unable to resize instance \"%s\"."
 msgstr "无法为云主机 \"%s\" 调整大小。"
-
-#, python-format
-msgid "Unable to resize instance. %s"
-msgstr "无法调整实例 %s 的大小"
-
-#, python-format
-msgid "Unable to resize volume. %s"
-msgstr "无法调整卷  %s 的大小"
 
 msgid "Unable to restore backup."
 msgstr "无法恢复备份。"
@@ -8771,9 +8195,6 @@ msgstr "无法获取可用域。"
 msgid "Unable to retrieve backup details."
 msgstr "无法获取卷备份详细信息。"
 
-msgid "Unable to retrieve cluster details."
-msgstr "无法获取集群详细信息。"
-
 msgid "Unable to retrieve compute host information."
 msgstr "无法获取计算节点信息。"
 
@@ -8783,32 +8204,11 @@ msgstr "无法获取计算限制信息。"
 msgid "Unable to retrieve container list."
 msgstr "无法检索容器列表。"
 
-msgid "Unable to retrieve database clusters."
-msgstr "无法获取数据库集群。"
-
-msgid "Unable to retrieve database instances."
-msgstr "无法获取数据库实例。"
-
-msgid "Unable to retrieve database size information."
-msgstr "无法获取数据库大小信息。"
-
 msgid "Unable to retrieve default Neutron quota values."
 msgstr "无法获取缺省Neutron配额。"
 
 msgid "Unable to retrieve default quota values."
 msgstr "无法获取默认配额."
-
-#, python-format
-msgid "Unable to retrieve details for backup: %s"
-msgstr "无法获取备份%s的详细信息"
-
-#, python-format
-msgid "Unable to retrieve details for database cluster: %s"
-msgstr "无法获取数据库集群的详细信息：%s"
-
-#, python-format
-msgid "Unable to retrieve details for database instance: %s"
-msgstr "无法获取数据库实例%s的详细信息。"
 
 #, python-format
 msgid "Unable to retrieve details for instance \"%s\"."
@@ -8821,10 +8221,6 @@ msgstr "无法获取密钥对 \"%s\" 详情。"
 #, python-format
 msgid "Unable to retrieve details for network \"%s\"."
 msgstr "无法获取网络\"%s\"的详情."
-
-#, python-format
-msgid "Unable to retrieve details for parent backup: %s"
-msgstr "无法获取父备份 %s 的详细信息"
 
 #, python-format
 msgid "Unable to retrieve details for router \"%s\"."
@@ -9023,9 +8419,6 @@ msgstr "无法获取网络"
 
 msgid "Unable to retrieve networks list."
 msgstr "无法获取网络列表"
-
-msgid "Unable to retrieve networks."
-msgstr "无法获取网络"
 
 msgid "Unable to retrieve object list."
 msgstr "找不到对象列表。"
@@ -9675,9 +9068,6 @@ msgstr "用户名\"%s\"已经被使用。"
 msgid "User password has been updated successfully."
 msgstr "用户密码已经更新成功。"
 
-msgid "Username (required)"
-msgstr "用户名(必填)"
-
 msgid "Users"
 msgstr "用户"
 
@@ -9855,9 +9245,6 @@ msgstr "云硬盘限度"
 msgid "Volume Name"
 msgstr "云硬盘名称"
 
-msgid "Volume Size"
-msgstr "云硬盘大小"
-
 msgid "Volume Snapshot"
 msgstr "云硬盘快照"
 
@@ -10019,14 +9406,6 @@ msgid ""
 msgstr "当你的实例使用下面选项启动后，你可以定制它。"
 
 msgid ""
-"You can perform an incremental backup by specifying a parent backup. "
-"<strong>However,</strong> not all databases support incremental backups in "
-"which case this operation will result in an error."
-msgstr ""
-"你可以通过指定一个母版来进行增量备份。<strong>然而</strong>，不是所有的数据库"
-"都支持增量备份，有些会导致备份出错。"
-
-msgid ""
 "You can specify the desired rule template or use custom rules, the options "
 "are Custom TCP Rule, Custom UDP Rule, or Custom ICMP Rule."
 msgstr ""
@@ -10129,9 +9508,6 @@ msgstr "更新您的端口名称"
 msgid "You may update the editable properties of your router here."
 msgstr "你可以在这里更新路由的属性"
 
-msgid "You must select a datastore type and version."
-msgstr "必须选择数据存储类型和版本"
-
 msgid "You must select a snapshot."
 msgstr "你必须选择一个快照"
 
@@ -10144,14 +9520,8 @@ msgstr "你必须选择一个镜像。"
 msgid "You must set volume size"
 msgstr "你必须设置云硬盘的大小"
 
-msgid "You must specify a password if you create a user."
-msgstr "创建用户时你必须指定一个密码"
-
 msgid "You must specify a template via one of the available sources."
 msgstr "你必须通过可用源中的一个来指定模板。"
-
-msgid "You must specify at least one database if you create a user."
-msgstr "创建用户时你必须指定至少一个数据库"
 
 msgid ""
 "You must specify the source of the traffic to be allowed via this rule. You "
