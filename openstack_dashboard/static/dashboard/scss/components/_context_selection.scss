@@ -3,6 +3,7 @@
     padding: 0;
 
     & > li {
+      white-space: nowrap;
 
       &.dropdown-header,
       & > a {
