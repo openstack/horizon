@@ -71,8 +71,8 @@
      * @param {function} context.deleteEntity
      * The function that should be called to delete each entity.
      * The first argument is the id of the Entity to delete.
-     * Note: This callback might need to supressErrors on the alert
-     * service.
+     * Note: This callback might need to suppress errors on the
+     * alert service.
      *
      * @param {string} context.successEvent
      * The name of the event to emit for the entities that have been deleted successfully.
@@ -139,5 +139,5 @@
       return entity.id;
     }
 
-  } // end of batchDeleteService
+  } // end of deleteModalService
 })(); // end of IIFE
