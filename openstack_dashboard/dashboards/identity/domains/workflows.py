@@ -316,31 +316,28 @@ class UpdateDomain(workflows.Workflow):
         try:
             # Get our role options
             available_roles = api.keystone.role_list(request)
-            # Get the users currently associated with this project so we
+            # Get the users currently associated with this domain so we
             # can diff against it.
-            domain_members = api.keystone.user_list(request,
-                                                    domain=domain_id)
-            users_to_modify = len(domain_members)
+            users_roles = api.keystone.get_domain_users_roles(request,
+                                                              domain=domain_id)
+            users_to_modify = len(users_roles)
 
-            for user in domain_members:
+            for user_id in users_roles.keys():
                 # Check if there have been any changes in the roles of
-                # Existing project members.
-                current_roles = api.keystone.roles_for_user(self.request,
-                                                            user.id,
-                                                            domain=domain_id)
-                current_role_ids = [role.id for role in current_roles]
+                # Existing domain members.
+                current_role_ids = list(users_roles[user_id])
 
                 for role in available_roles:
                     field_name = member_step.get_member_field_name(role.id)
                     # Check if the user is in the list of users with this role.
-                    if user.id in data[field_name]:
+                    if user_id in data[field_name]:
                         # Add it if necessary
                         if role.id not in current_role_ids:
                             # user role has changed
                             api.keystone.add_domain_user_role(
                                 request,
                                 domain=domain_id,
-                                user=user.id,
+                                user=user_id,
                                 role=role.id)
                         else:
                             # User role is unchanged, so remove it from the
@@ -349,17 +346,19 @@ class UpdateDomain(workflows.Workflow):
                             current_role_ids.pop(index)
 
                 # Prevent admins from doing stupid things to themselves.
-                is_current_user = user.id == request.user.id
+                is_current_user = user_id == request.user.id
                 # TODO(lcheng) When Horizon moves to Domain scoped token for
                 # invoking identity operation, replace this with:
                 # domain_id == request.user.domain_id
                 is_current_domain = True
 
-                admin_roles = [role for role in current_roles
-                               if role.name.lower() == 'admin']
-                if len(admin_roles):
-                    removing_admin = any([role.id in current_role_ids
-                                          for role in admin_roles])
+                available_admin_role_ids = [role.id for role in available_roles
+                                            if role.name.lower() == 'admin']
+                admin_role_ids = [role for role in current_role_ids
+                                  if role in available_admin_role_ids]
+                if len(admin_role_ids):
+                    removing_admin = any([role in current_role_ids
+                                          for role in admin_role_ids])
                 else:
                     removing_admin = False
                 if is_current_user and is_current_domain and removing_admin:
@@ -377,11 +376,11 @@ class UpdateDomain(workflows.Workflow):
                         api.keystone.remove_domain_user_role(
                             request,
                             domain=domain_id,
-                            user=user.id,
+                            user=user_id,
                             role=id_to_delete)
                 users_to_modify -= 1
 
-            # Grant new roles on the project.
+            # Grant new roles on the domain.
             for role in available_roles:
                 field_name = member_step.get_member_field_name(role.id)
                 # Count how many users may be added for exception handling.
@@ -390,9 +389,9 @@ class UpdateDomain(workflows.Workflow):
                 users_added = 0
                 field_name = member_step.get_member_field_name(role.id)
                 for user_id in data[field_name]:
-                    if not filter(lambda x: user_id == x.id, domain_members):
-                        api.keystone.add_tenant_user_role(request,
-                                                          project=domain_id,
+                    if user_id not in users_roles:
+                        api.keystone.add_domain_user_role(request,
+                                                          domain=domain_id,
                                                           user=user_id,
                                                           role=role.id)
                     users_added += 1
