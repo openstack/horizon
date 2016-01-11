@@ -160,4 +160,12 @@ def update_dashboards(modules, horizon_config, installed_apps):
     horizon_config.setdefault('js_files', []).extend(js_files)
     horizon_config.setdefault('js_spec_files', []).extend(js_spec_files)
     horizon_config.setdefault('scss_files', []).extend(scss_files)
+
+    # apps contains reference to applications declared in the enabled folder
+    # basically a list of applications that are internal and external plugins
+    # installed_apps contains reference to applications declared in settings
+    # such as django.contribe.*, django_pyscss, compressor, horizon, etc...
+    # for translation, we are only interested in the list of external plugins
+    # so we save the reference to it before we append to installed_apps
+    horizon_config.setdefault('plugins', []).extend(apps)
     installed_apps[0:0] = apps
