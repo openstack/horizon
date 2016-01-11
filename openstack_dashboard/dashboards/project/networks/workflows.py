@@ -93,9 +93,9 @@ class CreateNetworkInfoAction(workflows.Action):
 
     class Meta(object):
         name = _("Network")
-        help_text = _("Create a new network. "
-                      "In addition, a subnet associated with the network "
-                      "can be created in the next panel.")
+        help_text = _('Create a new network. '
+                      'In addition, a subnet associated with the network '
+                      'can be created in the following steps of this wizard.')
 
 
 class CreateNetworkInfo(workflows.Step):
