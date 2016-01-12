@@ -145,7 +145,7 @@ Defaults: ``{'delay': [3000], 'fade_duration': [1500], 'types': []}``
 
 If provided, will auto-fade the alert types specified. Valid alert types
 include: ['alert-default', 'alert-success', 'alert-info', 'alert-warning',
-'alert-error']  Can also define the delay before the alert fades and the fade
+'alert-danger']  Can also define the delay before the alert fades and the fade
 out duration.
 
 ``bug_url``
