@@ -41,7 +41,7 @@ class NavigationAccordionRegion(baseregion.BaseRegion):
         "//li[contains(concat('', @class, ''), 'nav-header') "
         "and contains(., '%s')]/a")
     _third_level_item_xpath_template = (
-        "//li[contains(concat('', @class, ''), 'openstack-panel') and "
+        ".//li[contains(concat('', @class, ''), 'openstack-panel') and "
         "contains(., '%s')]/a")
 
     _parent_item_locator = (by.By.XPATH, '..')
@@ -91,7 +91,8 @@ class NavigationAccordionRegion(baseregion.BaseRegion):
             return status and self._transitioning_menu_class not in classes
         self._wait_until(predicate)
 
-    def _click_menu_item(self, text, loc_craft_func, get_selected_func=None):
+    def _click_menu_item(self, text, loc_craft_func, get_selected_func=None,
+                         src_elem=None):
         """Click on menu item if not selected.
 
         Menu animation that visualize transition from one selection to
@@ -103,15 +104,23 @@ class NavigationAccordionRegion(baseregion.BaseRegion):
         not need to collapse other 3rd-level menu item prior to clicking them
         (because 3rd-level menus are atomic). Second, clicking them doesn't
         initiate an animated transition, hence no need to wait until it
-        finishes.
+        finishes. Also an ambiguity is possible when matching third-level menu
+        items, because different dashboards have panels with the same name (for
+        example Volumes/Images/Instances both at Project and Admin dashboards).
+        To avoid this ambiguity, an argument `src_elem` is used. Whenever
+        dashboard or a panel group is clicked, its wrapper is returned to be
+        used as `src_elem` in a subsequent call for clicking third-level item.
+        This way the set of panel labels being matched is restricted to the
+        descendants of that particular dashboard or panel group.
         """
         is_already_within_required_item = False
+        selected_item = None
         if get_selected_func is not None:
             selected_item = get_selected_func()
             if selected_item:
                 if text != selected_item.text:
-                    # In case different item was chosen previously scroll it,
-                    # because otherwise selenium will complain with
+                    # In case different item was chosen previously, collapse
+                    # it. Otherwise selenium will complain with
                     # MoveTargetOutOfBoundsException
                     selected_item.click()
                     self._wait_until_transition_ends(selected_item)
@@ -119,16 +128,19 @@ class NavigationAccordionRegion(baseregion.BaseRegion):
                     is_already_within_required_item = True
 
         if not is_already_within_required_item:
-            item = self._get_item(text, loc_craft_func)
+            item = self._get_item(text, loc_craft_func, src_elem)
             item.click()
             if get_selected_func is not None:
                 self._wait_until_transition_ends(
                     self._get_menu_list_next_to_menu_title(item),
                     to_be_expanded=True)
+            return item
+        return selected_item
 
-    def _get_item(self, text, loc_craft_func):
+    def _get_item(self, text, loc_craft_func, src_elem=None):
         item_locator = loc_craft_func(text)
-        return self._get_element(*item_locator)
+        src_elem = src_elem or self.src_elem
+        return src_elem.find_element(*item_locator)
 
     def _get_menu_list_next_to_menu_title(self, title_item):
         parent_item = title_item.find_element(*self._parent_item_locator)
@@ -137,18 +149,30 @@ class NavigationAccordionRegion(baseregion.BaseRegion):
     def click_on_menu_items(self, first_level=None,
                             second_level=None,
                             third_level=None):
+        src_elem = None
         if first_level:
-            self._click_menu_item(first_level,
-                                  self._get_first_level_item_locator,
-                                  self.get_first_level_selected_item)
+            src_elem = self._click_menu_item(
+                first_level,
+                self._get_first_level_item_locator,
+                self.get_first_level_selected_item)
         if second_level:
-            self._click_menu_item(second_level,
-                                  self._get_second_level_item_locator,
-                                  self.get_second_level_selected_item)
+            src_elem = self._click_menu_item(
+                second_level,
+                self._get_second_level_item_locator,
+                self.get_second_level_selected_item)
 
         if third_level:
+            # NOTE(tsufiev): possible dashboard/panel group label passed as
+            # `src_elem` is a sibling of <ul> with all the panels it contains.
+            # So to get the panel within specified dashboard/panel group, we
+            # need to traverse upwards first. When `src_elem` is not specified
+            # (true for Settings pseudo-dashboard), we cannot and should not
+            # go upward.
+            if src_elem:
+                src_elem = src_elem.find_element(*self._parent_item_locator)
             self._click_menu_item(third_level,
-                                  self._get_third_level_item_locator)
+                                  self._get_third_level_item_locator,
+                                  src_elem=src_elem)
 
 
 class DropDownMenuRegion(baseregion.BaseRegion):
