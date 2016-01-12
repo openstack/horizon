@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2016-01-10 06:22+0000\n"
+"POT-Creation-Date: 2016-01-12 06:19+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -380,6 +380,10 @@ msgstr ""
 msgid "Unknown instance"
 msgstr ""
 
+#: api/cinder.py:503
+msgid "This volume type is used by one or more volumes."
+msgstr ""
+
 #: api/keystone.py:99
 #, python-format
 msgid "%(type)s (%(backend)s backend)"
@@ -584,8 +588,8 @@ msgstr ""
 #: dashboards/admin/volumes/volume_types/forms.py:62
 #: dashboards/admin/volumes/volume_types/forms.py:88
 #: dashboards/admin/volumes/volume_types/forms.py:236
-#: dashboards/admin/volumes/volume_types/tables.py:204
-#: dashboards/admin/volumes/volume_types/tables.py:299
+#: dashboards/admin/volumes/volume_types/tables.py:209
+#: dashboards/admin/volumes/volume_types/tables.py:304
 #: dashboards/admin/volumes/volumes/forms.py:89
 #: dashboards/admin/volumes/volumes/tables.py:91
 #: dashboards/identity/domains/tables.py:279
@@ -597,7 +601,7 @@ msgstr ""
 #: dashboards/identity/projects/workflows.py:145
 #: dashboards/project/access_and_security/security_groups/forms.py:52
 #: dashboards/project/access_and_security/security_groups/tables.py:142
-#: dashboards/project/access_and_security/templates/access_and_security/keypairs/detail.html:18
+#: dashboards/project/access_and_security/templates/access_and_security/keypairs/detail.html:14
 #: dashboards/project/containers/templates/containers/_object_detail.html:9
 #: dashboards/project/firewalls/forms.py:34
 #: dashboards/project/firewalls/forms.py:104
@@ -1369,7 +1373,7 @@ msgstr ""
 #: dashboards/admin/volumes/volumes/forms.py:149
 #: dashboards/identity/roles/forms.py:37 dashboards/identity/users/forms.py:194
 #: dashboards/identity/users/templates/users/_detail_overview.html:19
-#: dashboards/project/access_and_security/templates/access_and_security/keypairs/detail.html:20
+#: dashboards/project/access_and_security/templates/access_and_security/keypairs/detail.html:16
 #: dashboards/project/firewalls/templates/firewalls/_firewall_details.html:11
 #: dashboards/project/firewalls/templates/firewalls/_policy_details.html:11
 #: dashboards/project/firewalls/templates/firewalls/_rule_details.html:11
@@ -2438,7 +2442,7 @@ msgstr ""
 #: dashboards/admin/volumes/templates/volumes/snapshots/_detail_overview.html:14
 #: dashboards/admin/volumes/volume_types/forms.py:29
 #: dashboards/admin/volumes/volume_types/forms.py:239
-#: dashboards/admin/volumes/volume_types/tables.py:209
+#: dashboards/admin/volumes/volume_types/tables.py:214
 #: dashboards/admin/volumes/volumes/forms.py:68
 #: dashboards/identity/domains/tables.py:281
 #: dashboards/identity/domains/workflows.py:37
@@ -2582,11 +2586,11 @@ msgstr ""
 #: dashboards/identity/projects/templates/projects/_detail_overview.html:12
 #: dashboards/identity/users/views.py:184
 #: dashboards/identity/users/templates/users/_detail_overview.html:22
+#: dashboards/project/access_and_security/templates/access_and_security/keypairs/detail.html:15
+#: dashboards/project/access_and_security/templates/access_and_security/keypairs/detail.html:17
 #: dashboards/project/access_and_security/templates/access_and_security/keypairs/detail.html:19
-#: dashboards/project/access_and_security/templates/access_and_security/keypairs/detail.html:21
-#: dashboards/project/access_and_security/templates/access_and_security/keypairs/detail.html:23
-#: dashboards/project/access_and_security/templates/access_and_security/keypairs/detail.html:31
-#: dashboards/project/access_and_security/templates/access_and_security/keypairs/detail.html:33
+#: dashboards/project/access_and_security/templates/access_and_security/keypairs/detail.html:27
+#: dashboards/project/access_and_security/templates/access_and_security/keypairs/detail.html:30
 #: dashboards/project/images/templates/images/images/_detail_overview.html:6
 #: dashboards/project/images/templates/images/images/_detail_overview.html:12
 #: dashboards/project/images/templates/images/images/_detail_overview.html:47
@@ -2642,7 +2646,7 @@ msgstr ""
 
 #: dashboards/admin/metadata_defs/templates/metadata_defs/_detail_overview.html:17
 #: dashboards/admin/volumes/templates/volumes/snapshots/_detail_overview.html:34
-#: dashboards/project/access_and_security/templates/access_and_security/keypairs/detail.html:24
+#: dashboards/project/access_and_security/templates/access_and_security/keypairs/detail.html:20
 #: dashboards/project/images/templates/images/images/_detail_overview.html:23
 #: dashboards/project/instances/templates/instances/_detail_overview.html:13
 #: dashboards/project/instances/templates/instances/_detail_overview.html:33
@@ -2673,7 +2677,7 @@ msgid "Unknown"
 msgstr ""
 
 #: dashboards/admin/metadata_defs/templates/metadata_defs/_detail_overview.html:19
-#: dashboards/project/access_and_security/templates/access_and_security/keypairs/detail.html:27
+#: dashboards/project/access_and_security/templates/access_and_security/keypairs/detail.html:23
 #: dashboards/project/images/templates/images/images/_detail_overview.html:29
 #: dashboards/project/stacks/tables.py:270
 msgid "Updated"
@@ -3844,7 +3848,7 @@ msgid "Unable to retrieve volume project information."
 msgstr ""
 
 #: dashboards/admin/volumes/tabs.py:68
-#: dashboards/admin/volumes/volume_types/tables.py:231
+#: dashboards/admin/volumes/volume_types/tables.py:236
 msgid "Volume Types"
 msgstr ""
 
@@ -3934,7 +3938,6 @@ msgid "Volume Snapshot Overview"
 msgstr ""
 
 #: dashboards/admin/volumes/templates/volumes/snapshots/_detail_overview.html:6
-#: dashboards/project/access_and_security/templates/access_and_security/keypairs/detail.html:15
 #: dashboards/project/instances/workflows/update_instance.py:119
 msgid "Information"
 msgstr ""
@@ -3951,7 +3954,7 @@ msgstr ""
 
 #: dashboards/admin/volumes/templates/volumes/snapshots/_detail_overview.html:29
 #: dashboards/admin/volumes/templates/volumes/volume_types/qos_specs/_index.html:6
-#: dashboards/admin/volumes/volume_types/tables.py:302
+#: dashboards/admin/volumes/volume_types/tables.py:307
 #: dashboards/admin/volumes/volume_types/qos_specs/tables.py:36
 #: dashboards/project/images/templates/images/images/_detail_overview.html:37
 #: dashboards/project/instances/templates/instances/_detail_overview.html:38
@@ -4084,7 +4087,7 @@ msgstr ""
 
 #: dashboards/admin/volumes/templates/volumes/volume_types/_update_volume_type.html:8
 #: dashboards/admin/volumes/templates/volumes/volume_types/update_volume_type.html:3
-#: dashboards/admin/volumes/volume_types/tables.py:36
+#: dashboards/admin/volumes/volume_types/tables.py:37
 msgid "Edit Volume Type"
 msgstr ""
 
@@ -4137,13 +4140,13 @@ msgid "Associate QoS Spec"
 msgstr ""
 
 #: dashboards/admin/volumes/templates/volumes/volume_types/create_qos_spec.html:3
-#: dashboards/admin/volumes/volume_types/tables.py:260
+#: dashboards/admin/volumes/volume_types/tables.py:265
 #: dashboards/admin/volumes/volume_types/views.py:152
 msgid "Create QoS Spec"
 msgstr ""
 
 #: dashboards/admin/volumes/templates/volumes/volume_types/create_volume_type.html:3
-#: dashboards/admin/volumes/volume_types/tables.py:27
+#: dashboards/admin/volumes/volume_types/tables.py:28
 #: dashboards/admin/volumes/volume_types/views.py:33
 #: dashboards/admin/volumes/volume_types/views.py:36
 msgid "Create Volume Type"
@@ -4325,7 +4328,7 @@ msgid "Unable to create volume type."
 msgstr ""
 
 #: dashboards/admin/volumes/volume_types/forms.py:63
-#: dashboards/admin/volumes/volume_types/tables.py:300
+#: dashboards/admin/volumes/volume_types/tables.py:305
 msgid "Consumer"
 msgstr ""
 
@@ -4409,7 +4412,7 @@ msgid "Successfully updated volume type."
 msgstr ""
 
 #: dashboards/admin/volumes/volume_types/forms.py:263
-#: dashboards/admin/volumes/volume_types/tables.py:193
+#: dashboards/admin/volumes/volume_types/tables.py:198
 msgid "New name conflicts with another volume type."
 msgstr ""
 
@@ -4417,83 +4420,83 @@ msgstr ""
 msgid "Unable to update volume type."
 msgstr ""
 
-#: dashboards/admin/volumes/volume_types/tables.py:45
+#: dashboards/admin/volumes/volume_types/tables.py:46
 msgid "View Extra Specs"
 msgstr ""
 
-#: dashboards/admin/volumes/volume_types/tables.py:54
+#: dashboards/admin/volumes/volume_types/tables.py:55
 msgid "Manage QoS Spec Association"
 msgstr ""
 
-#: dashboards/admin/volumes/volume_types/tables.py:64
+#: dashboards/admin/volumes/volume_types/tables.py:65
 msgid "Delete Volume Type"
 msgid_plural "Delete Volume Types"
 msgstr[0] ""
 msgstr[1] ""
 
-#: dashboards/admin/volumes/volume_types/tables.py:72
+#: dashboards/admin/volumes/volume_types/tables.py:73
 msgid "Deleted Volume Type"
 msgid_plural "Deleted Volume Types"
 msgstr[0] ""
 msgstr[1] ""
 
-#: dashboards/admin/volumes/volume_types/tables.py:85
+#: dashboards/admin/volumes/volume_types/tables.py:90
 msgid "Create Encryption"
 msgstr ""
 
-#: dashboards/admin/volumes/volume_types/tables.py:105
+#: dashboards/admin/volumes/volume_types/tables.py:110
 msgid "Delete Encryption"
 msgid_plural "Delete Encryptions"
 msgstr[0] ""
 msgstr[1] ""
 
-#: dashboards/admin/volumes/volume_types/tables.py:113
+#: dashboards/admin/volumes/volume_types/tables.py:118
 msgid "Deleted Encryption"
 msgid_plural "Deleted Encryptions"
 msgstr[0] ""
 msgstr[1] ""
 
-#: dashboards/admin/volumes/volume_types/tables.py:134
+#: dashboards/admin/volumes/volume_types/tables.py:139
 msgid "Unable to determine if volume type encryption is supported."
 msgstr ""
 
-#: dashboards/admin/volumes/volume_types/tables.py:167
+#: dashboards/admin/volumes/volume_types/tables.py:172
 msgid "Unable to retrieve volume type qos."
 msgstr ""
 
-#: dashboards/admin/volumes/volume_types/tables.py:196
+#: dashboards/admin/volumes/volume_types/tables.py:201
 msgid "Unable to update the volume type."
 msgstr ""
 
-#: dashboards/admin/volumes/volume_types/tables.py:216
+#: dashboards/admin/volumes/volume_types/tables.py:221
 msgid "Associated QoS Spec"
 msgstr ""
 
-#: dashboards/admin/volumes/volume_types/tables.py:218
+#: dashboards/admin/volumes/volume_types/tables.py:223
 msgid "Encryption"
 msgstr ""
 
-#: dashboards/admin/volumes/volume_types/tables.py:246
+#: dashboards/admin/volumes/volume_types/tables.py:251
 msgid "Manage Specs"
 msgstr ""
 
-#: dashboards/admin/volumes/volume_types/tables.py:270
+#: dashboards/admin/volumes/volume_types/tables.py:275
 msgid "Delete QoS Spec"
 msgid_plural "Delete QoS Specs"
 msgstr[0] ""
 msgstr[1] ""
 
-#: dashboards/admin/volumes/volume_types/tables.py:278
+#: dashboards/admin/volumes/volume_types/tables.py:283
 msgid "Deleted QoS Spec"
 msgid_plural "Deleted QoS Specs"
 msgstr[0] ""
 msgstr[1] ""
 
-#: dashboards/admin/volumes/volume_types/tables.py:291
+#: dashboards/admin/volumes/volume_types/tables.py:296
 msgid "Edit Consumer"
 msgstr ""
 
-#: dashboards/admin/volumes/volume_types/tables.py:315
+#: dashboards/admin/volumes/volume_types/tables.py:320
 msgid "QoS Specs"
 msgstr ""
 
@@ -5087,7 +5090,7 @@ msgstr ""
 msgid "Unable to modify domain \"%s\"."
 msgstr ""
 
-#: dashboards/identity/domains/workflows.py:367
+#: dashboards/identity/domains/workflows.py:366
 msgid ""
 "You cannot revoke your administrative privileges from the domain you are "
 "currently logged into. Please switch to another domain with "
@@ -5095,12 +5098,12 @@ msgid ""
 "the CLI."
 msgstr ""
 
-#: dashboards/identity/domains/workflows.py:403
+#: dashboards/identity/domains/workflows.py:402
 #, python-format
 msgid "Failed to modify %s project members and update domain groups."
 msgstr ""
 
-#: dashboards/identity/domains/workflows.py:475
+#: dashboards/identity/domains/workflows.py:474
 #, python-format
 msgid "Failed to modify %s domain groups."
 msgstr ""
@@ -5192,7 +5195,7 @@ msgstr ""
 
 #: dashboards/identity/groups/tables.py:194
 #: dashboards/identity/users/tables.py:250
-#: dashboards/project/access_and_security/templates/access_and_security/keypairs/detail.html:30
+#: dashboards/project/access_and_security/templates/access_and_security/keypairs/detail.html:26
 #: dashboards/project/instances/audit_tables.py:45
 msgid "User ID"
 msgstr ""
@@ -6041,7 +6044,7 @@ msgid "The name is already in use."
 msgstr ""
 
 #: dashboards/project/access_and_security/keypairs/forms.py:66
-#: dashboards/project/access_and_security/templates/access_and_security/keypairs/detail.html:32
+#: dashboards/project/access_and_security/templates/access_and_security/keypairs/detail.html:28
 msgid "Public Key"
 msgstr ""
 
@@ -6084,7 +6087,7 @@ msgid "Create Key Pair"
 msgstr ""
 
 #: dashboards/project/access_and_security/keypairs/tables.py:95
-#: dashboards/project/access_and_security/templates/access_and_security/keypairs/detail.html:22
+#: dashboards/project/access_and_security/templates/access_and_security/keypairs/detail.html:18
 msgid "Fingerprint"
 msgstr ""
 
@@ -14466,7 +14469,7 @@ msgstr ""
 msgid "Sign Out"
 msgstr ""
 
-#: templates/base.html:23
+#: templates/base.html:22
 msgid "This application requires JavaScript to be enabled in your web browser."
 msgstr ""
 

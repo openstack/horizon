@@ -8,16 +8,17 @@
 # Akihiro Motoki <amotoki@gmail.com>, 2015. #zanata
 # Shu Muto <shu-mutou@rf.jp.nec.com>, 2015. #zanata
 # Yuko Katabami <yukokatabami@gmail.com>, 2015. #zanata
+# Akihiro Motoki <amotoki@gmail.com>, 2016. #zanata
 # Shu Muto <shu-mutou@rf.jp.nec.com>, 2016. #zanata
 msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2016-01-09 00:51+0000\n"
+"POT-Creation-Date: 2016-01-12 03:53+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2016-01-07 12:18+0000\n"
+"PO-Revision-Date: 2016-01-12 01:08+0000\n"
 "Last-Translator: Shu Muto <shu-mutou@rf.jp.nec.com>\n"
 "Language: ja\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
@@ -27,6 +28,11 @@ msgstr ""
 
 msgid "#"
 msgstr "#"
+
+#, python-format
+msgid "%s instance launched."
+msgid_plural "%s instances launched."
+msgstr[0] "インスタンスを %s 個起動しました。"
 
 msgid "(Max: 16Kb)"
 msgstr "(最大 16 Kb)"
@@ -364,6 +370,12 @@ msgstr "コンフィグドライブ"
 msgid "Configuration Help"
 msgstr "設定 のヘルプ"
 
+msgid "Confirm Delete Image"
+msgstr "イメージの削除の確認"
+
+msgid "Confirm Delete Images"
+msgstr "イメージの削除の確認"
+
 msgid "Containers"
 msgstr "コンテナー"
 
@@ -417,11 +429,32 @@ msgstr "デフォルトのボタン"
 msgid "Default input"
 msgstr "デフォルトの入力項目"
 
+msgid "Delete"
+msgstr "削除"
+
+msgid "Delete Image"
+msgstr "イメージの削除"
+
+msgid "Delete Images"
+msgstr "イメージの削除"
+
 msgid "Delete Volume on Instance Delete"
 msgstr "インスタンス削除時のボリュームを削除します"
 
 msgid "Deleted"
 msgstr "削除"
+
+#, python-format
+msgid "Deleted : %s."
+msgstr "%s を削除しました"
+
+#, python-format
+msgid "Deleted Image: %s."
+msgstr "イメージ %s を削除しました。"
+
+#, python-format
+msgid "Deleted Images: %s."
+msgstr "イメージ %s を削除しました。"
 
 msgid "Description"
 msgstr "説明"
@@ -1347,6 +1380,14 @@ msgstr "ユーザーを作成できません。"
 msgid "Unable to create the volume."
 msgstr "ボリュームを作成できません。"
 
+#, python-format
+msgid "Unable to delete Image: %s."
+msgstr "イメージを削除できません: %s"
+
+#, python-format
+msgid "Unable to delete Images: %s."
+msgstr "イメージを削除できません: %s"
+
 msgid "Unable to delete the domain."
 msgstr "ドメインを削除できません。"
 
@@ -1373,6 +1414,13 @@ msgstr "ユーザーを削除できません。"
 
 msgid "Unable to delete the users."
 msgstr "ユーザーを削除できません。"
+
+#, python-format
+msgid "Unable to delete: %s."
+msgstr "削除できません: %s"
+
+msgid "Unable to edit instance metadata."
+msgstr "インスタンスのメタデータを編集できません。"
 
 msgid "Unable to edit the aggregate extra specs."
 msgstr "アグリゲートの追加スペックを編集できません。"
@@ -1412,6 +1460,12 @@ msgstr "ロールを許可できません。"
 
 msgid "Unable to import the keypair."
 msgstr "キーペアをインポートできません。"
+
+msgid "Unable to retrieve instance metadata."
+msgstr "インスタンスのメタデータを取得できません。"
+
+msgid "Unable to retrieve instances."
+msgstr "インスタンス一覧を取得できません。"
 
 msgid "Unable to retrieve settings."
 msgstr "設定を取得できません。"
@@ -1548,6 +1602,9 @@ msgstr "フレーバーのメタデータの更新"
 msgid "Update Image Metadata"
 msgstr "イメージメタデータの更新"
 
+msgid "Update Instance Metadata"
+msgstr "インスタンスのメタデータの更新"
+
 msgid "Updated"
 msgstr "更新時刻"
 
@@ -1621,8 +1678,24 @@ msgstr ""
 msgid "Yes"
 msgstr "はい"
 
+#, python-format
+msgid "You are not allowed to delete images: %s"
+msgstr "イメージの削除は許可されていません: %s"
+
+#, python-format
+msgid ""
+"You have selected \"%s\". Please confirm your selection. Deleted images are "
+"not recoverable."
+msgstr ""
+"\"%s\" を選択しました。選択内容を確認してください。削除されたイメージは元に戻"
+"せません。"
+
 msgid "bytes"
 msgstr "バイト"
+
+#, python-format
+msgid "selected \"%s\""
+msgstr "\"%s\" を選択しました。"
 
 msgid "{$ row['provider:network_type'] $}"
 msgstr "{$ row['provider:network_type'] $}"
