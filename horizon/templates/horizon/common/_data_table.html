@@ -74,10 +74,10 @@
             <span class="spacer">|</span>
           {% endif %}
           {% if table.has_prev_data %}
-            <a href="?{{ table.get_prev_pagination_string }}">{% trans "&laquo;&nbsp;Prev" %}</a>
+            <a href="{{ table.get_full_url }}?{{ table.get_prev_pagination_string }}">{% trans "&laquo;&nbsp;Prev" %}</a>
           {% endif %}
           {% if table.has_more_data %}
-            <a href="?{{ table.get_pagination_string }}">{% trans "Next&nbsp;&raquo;" %}</a>
+            <a href="{{ table.get_full_url }}?{{ table.get_pagination_string }}">{% trans "Next&nbsp;&raquo;" %}</a>
           {% endif %}
         </td>
       </tr>

@@ -6,7 +6,7 @@
   <ul id="{{ tab_group.get_id }}" {{ tab_group.attr_string|safe }}>
     {% for tab in tabs %}
     <li {{ tab.attr_string|safe }}>
-      <a href="?{{ tab_group.param_name }}={{ tab.get_id }}" data-toggle="tab" data-target="#{{ tab.get_id }}" data-loaded='{{ tab.load|yesno:"true,false" }}'>{{ tab.name }}</a>
+      <a href="{{ tab_group.request.path }}?{{ tab_group.param_name }}={{ tab.get_id }}" data-toggle="tab" data-target="#{{ tab.get_id }}" data-loaded='{{ tab.load|yesno:"true,false" }}'>{{ tab.name }}</a>
     </li>
     {% endfor %}
   </ul>
