@@ -881,14 +881,6 @@ input::-ms-clear, input::-ms-reveal {
   display: none;
 }
 
-/* public key text area */
-textarea.key_text {
-  width: 55em;
-  height: 11em;
-  resize: none;
-  border: none;
-}
-
 /**** Form Horizontal Override ****/
 .form-horizontal {
   .form-group {

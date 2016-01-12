@@ -16,3 +16,9 @@
     word-wrap: normal;
   }
 }
+
+// Set on an element that you would like to word wrap to container size
+.word-wrap {
+  width: 100%;
+  word-wrap: break-word;
+}

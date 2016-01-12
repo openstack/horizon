@@ -34,3 +34,12 @@ form label {
     line-height: $line-height-small;
   }
 }
+
+// Note (hurgleburgler) : the combination of display: table-cell, width: 100%
+// and max-width has strange consequences in CSS.  This is required to make sure
+// that the width does not stretch beyond 100%.  Please see the answer to
+// this question for specifics:
+//   http://stackoverflow.com/questions/26292408/why-does-this-behave-the-way-it-does-with-max-width-0
+#content_body {
+  max-width: 0;
+}
