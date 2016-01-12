@@ -5,7 +5,7 @@
   <li class="dropdown-header">{% trans "Projects:" %}</li>
   {% for project in projects %}
   <li>
-    <a href="{% url 'switch_tenants' project.id %}?next={{ dashboard_url }}">
+    <a href="{% url 'switch_tenants' project.id %}?next={{ dashboard_url }}" target="_self">
       {{ project.name }}
       {% if project.enabled and project.id == project_id %}
       <span class="fa fa-check"></span>

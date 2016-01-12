@@ -20,7 +20,7 @@
             <script src='{{ STATIC_URL }}custom/js/material.hamburger.js'></script>
           {% endcompress %}
       </div>
-      <a class="navbar-brand" href="{% site_branding_link %}">
+      <a class="navbar-brand" href="{% site_branding_link %}" target="_self">
         <img class="openstack-logo" src="{{ STATIC_URL }}dashboard/img/logo.png" alt="{% site_branding %}">
       </a>
     </div>
@@ -70,7 +70,7 @@
           </a>
           <ul id="editor_list" class="dropdown-menu">
             <li>
-              <a href="{% url 'horizon:settings:user:index' %}">
+              <a href="{% url 'horizon:settings:user:index' %}" target="_self">
                 <span class="fa fa-cog"></span>
                 {% trans "Settings" %}
               </a>
@@ -93,7 +93,7 @@
             {% endif %}
             <li class="divider"></li>
             <li>
-              <a href="{% url 'logout' %}">
+              <a href="{% url 'logout' %}" target="_self">
                 <span class="fa fa-sign-out"></span>
                 {% trans "Sign Out" %}
               </a>
