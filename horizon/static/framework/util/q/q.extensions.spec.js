@@ -49,7 +49,7 @@
         }, {
           promise: passedPromise(),
           context: '2'
-        }]).then(onAllSettled, failTest);
+        }]).then(onAllSettled);
 
         $scope.$apply();
 
@@ -76,28 +76,26 @@
       });
 
       it('should reject the promise if condition does not evaluates to true', function() {
-        service.booleanAsPromise(false).then(failTest, angular.noop);
-        $scope.$apply();
-        service.booleanAsPromise(null).then(failTest, angular.noop);
-        $scope.$apply();
-        service.booleanAsPromise({}).then(failTest, angular.noop);
-        $scope.$apply();
-        service.booleanAsPromise('A').then(failTest, angular.noop);
-        $scope.$apply();
-        service.booleanAsPromise(7).then(failTest, angular.noop);
-        $scope.$apply();
+        var testValues = [ false, null, {}, 'A', 7 ];
+        var rejectCount = 0;
+        testValues.map(function doTest(testValue) {
+          service.booleanAsPromise(testValue).then(angular.noop, function failTest() {
+            rejectCount++;
+          });
+          $scope.$apply();
+        });
+        expect(rejectCount).toEqual(testValues.length);
       });
 
       it('should resolve the promise only if condition to true', function() {
-        service.booleanAsPromise(true).then(angular.noop, failTest);
+        var passCount = 0;
+        service.booleanAsPromise(true).then(function passTest() {
+          passCount++;
+        });
         $scope.$apply();
+        expect(passCount).toEqual(1);
       });
-
     });
-
-    function failTest() {
-      expect(false).toBeTruthy();
-    }
   });
 
 })();
