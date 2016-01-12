@@ -35,7 +35,7 @@ class SecurityGroups(generic.View):
         """Get a list of security groups.
 
         The listing result is an object with property "items". Each item is
-        an image.
+        a security group.
 
         Example GET:
         http://localhost/api/network/securitygroups
