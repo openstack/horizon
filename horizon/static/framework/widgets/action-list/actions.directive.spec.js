@@ -82,7 +82,6 @@
       var actionList = element.find('action-list');
       expect(actionList.length).toBe(1);
       expect(actionList.attr('class').indexOf('btn-addon')).toBeGreaterThan(-1);
-      expect(actionList.find('button').attr('class')).toEqual('btn btn-default btn-sm');
       expect(actionList.find('button').attr('ng-click')).toEqual('disabled || callback(item)');
       expect(actionList.text().trim()).toEqual('Create Image');
 
@@ -97,7 +96,6 @@
       var actionList = element.find('action-list');
       expect(actionList.length).toBe(1);
       expect(actionList.attr('class').indexOf('btn-addon')).toBeGreaterThan(-1);
-      expect(actionList.find('button').attr('class')).toEqual('btn btn-default btn-sm pull-right');
       expect(actionList.find('button').attr('ng-click')).toEqual('disabled || callback(item)');
       expect(actionList.text().trim()).toEqual('Create Image');
     });
@@ -109,8 +107,6 @@
       var actionList = element.find('action-list');
       expect(actionList.length).toBe(1);
       expect(actionList.attr('class').indexOf('btn-addon')).toBeGreaterThan(-1);
-      expect(actionList.find('button').attr('class'))
-        .toEqual('btn btn-default btn-sm btn-danger pull-right');
       expect(actionList.find('button').attr('ng-click')).toEqual('disabled || callback(item)');
       expect(actionList.text().trim()).toEqual('Delete Images');
     });
@@ -122,8 +118,6 @@
       var actionList = element.find('action-list');
       expect(actionList.length).toBe(1);
       expect(actionList.attr('class').indexOf('btn-addon')).toBeGreaterThan(-1);
-      expect(actionList.find('button').attr('class'))
-        .toEqual('btn btn-sm pull-right btn-danger');
       expect(actionList.find('button').attr('ng-click')).toEqual('disabled || callback(item)');
       expect(actionList.text().trim()).toEqual('Delete Image');
 
@@ -138,8 +132,6 @@
       var actionList = element.find('action-list');
       expect(actionList.length).toBe(1);
       expect(actionList.attr('class').indexOf('btn-addon')).toBeGreaterThan(-1);
-      expect(actionList.find('button').attr('class'))
-        .toEqual('btn btn-sm pull-right btn-danger');
       expect(actionList.find('button').attr('ng-click')).toEqual('disabled || callback(item)');
       expect(actionList.text().trim()).toEqual('Shutdown Instance');
 
@@ -156,8 +148,6 @@
       var actionList = element.find('action-list');
       expect(actionList.length).toBe(1);
       expect(actionList.attr('class').indexOf('btn-addon')).toBeGreaterThan(-1);
-      expect(actionList.find('button').attr('class'))
-        .toEqual('btn btn-default btn-sm pull-right');
       expect(actionList.find('button').attr('ng-click')).toEqual('disabled || callback(item)');
       expect(actionList.text().trim()).toEqual('Create Image');
     });
@@ -178,8 +168,7 @@
       var actionList = element.find('action-list');
       expect(actionList.length).toBe(2);
       expect(actionList.attr('class').indexOf('btn-addon')).toBeGreaterThan(-1);
-      expect(actionList.find('button.btn-default .fa-user-plus').text().trim())
-        .toEqual('Create Image');
+      expect(actionList.find('button.btn-default').text().trim()).toEqual('Create Image');
       expect(actionList.find('button.btn-danger').text().trim()).toEqual('Delete Images');
     });
 
@@ -255,7 +244,7 @@
       var actionList = element.find('action-list');
       expect(actionList.length).toBe(1);
       expect(actionList.attr('class').indexOf('btn-addon')).toEqual(-1);
-      expect(actionList.find('button .fa').text().trim()).toEqual('Create Image');
+      expect(actionList.find('button').first().text().trim()).toEqual('Create Image');
       expect(actionList.find('li a.text-danger').text().trim()).toEqual('Delete Image');
     });
 
@@ -271,7 +260,7 @@
       var actionList = element.find('action-list');
       expect(actionList.length).toBe(1);
 
-      actionList.find('button .fa').click();
+      actionList.find('.btn-1').click();
       expect(callback1).toHaveBeenCalledWith(rowItem);
 
       actionList.find('li .btn-2').click();
@@ -289,8 +278,6 @@
       expect(actionList.length).toBe(1);
       expect(actionList.attr('class').indexOf('btn-addon')).toBeGreaterThan(-1);
       expect(actionList.find('button.btn-custom').text().trim()).toEqual('Single Action');
-      expect(actionList.find('button').attr('class'))
-        .toEqual('btn btn-sm pull-right btn-default btn-custom');
     });
 
     function permittedActionWithUrl(templateName) {
@@ -312,13 +299,13 @@
       };
     }
 
-    function permittedActionWithType(templateType, text, actioncCallback) {
+    function permittedActionWithType(templateType, text, actionCallback) {
       return {
         template: {
           type: templateType,
           text: text
         },
-        service: getService(getPermission(true), actioncCallback || callback)
+        service: getService(getPermission(true), actionCallback || callback)
       };
     }
 
