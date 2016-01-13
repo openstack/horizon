@@ -18,17 +18,18 @@
 # Frank Kloeker <eumel@arcor.de>, 2015. #zanata
 # OpenStack Infra <zanata@openstack.org>, 2015. #zanata
 # Robert Simai <robert.simai@suse.com>, 2015. #zanata
+# Eugen Block <eblock@nde.ag>, 2016. #zanata
 # Robert Simai <robert.simai@suse.com>, 2016. #zanata
 msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2016-01-09 00:51+0000\n"
+"POT-Creation-Date: 2016-01-13 03:52+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2016-01-07 01:52+0000\n"
-"Last-Translator: Robert Simai <robert.simai@suse.com>\n"
+"PO-Revision-Date: 2016-01-12 03:14+0000\n"
+"Last-Translator: Eugen Block <eblock@nde.ag>\n"
 "Language: de\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "Generated-By: Babel 2.0\n"
@@ -184,14 +185,18 @@ msgid ""
 "     "
 msgstr ""
 "\n"
-"Der Datenträgertyp ist ein Typ oder eine Markierung, die bei der Erstellung "
-"des Datenträgers in OpenStack ausgewählt werden kann. Sie bezieht sich "
-"üblicherweise auf eine Reihe von Fähigkeiten des Storage Backend Treibers, "
-"der für den Datenträger verwendet wird. Beispiele: \"Performance\", \"SSD\", "
-"\"Backup\", etc. Dies ist gleichbedeutend mit dem <tt>cinder type-create</"
-"tt> Kommando. Klicken Sie nach der Erzeugung des Datenträgertyps auf "
-"\"Zusätzliche Spezifikationen anzeigen\", um auf die zusätzlichen Schlüssel-"
-"Wert Paare für den Volumentyp zuzugreifen."
+"Der Datenträgertyp ist ein Typ oder eine Bezeichnung, \n"
+"die bei der Erstellung des Datenträgers in OpenStack ausgewählt werden "
+"kann.\n"
+"Sie bezieht sich üblicherweise auf eine Reihe von Fähigkeiten des Storage "
+"Backend Treibers, \n"
+"der für den Datenträger verwendet wird.\n"
+"Beispiele: \"Performance\", \"SSD\", \"Backup\", etc. \n"
+"Dies ist gleichbedeutend mit dem Kommando <tt>cinder type-create</tt>.\n"
+"Klicken Sie nach der Erzeugung des Datenträgertyps auf \"Zusätzliche "
+"Spezifikationen anzeigen\", \n"
+"um auf die zusätzlichen Schlüssel-Wert-Paare für den Datenträgertyp "
+"zuzugreifen."
 
 msgid ""
 "\n"
@@ -218,10 +223,10 @@ msgid ""
 "    "
 msgstr ""
 "\n"
-"Jedes Objekt der QoS Spezifikation enthält einen \"Verbraucher\" Wert, der "
-"anzeigt, wo der Administrator die QoS Richtlinie erzwingen möchte. Dieser "
-"Wert kann \"front-end\" (Nova Compute), \"back-end\" (Cinder Back-End) oder "
-"beides  sein."
+"Jedes Objekt der QoS Spezifikation enthält einen Wert \"Verbraucher\", \n"
+"der anzeigt, wo der Administrator die QoS Richtlinie erzwingen möchte. \n"
+"Dieser Wert kann \"front-end\" (Nova Compute),\n"
+"\"back-end\" (Cinder Back-End) oder beides  sein."
 
 msgid ""
 "\n"
@@ -255,7 +260,7 @@ msgstr ""
 "Unter gewissen Umständen kann es notwendig sein, \n"
 "dass ein Administrator explizit den Statuswert aktualisieren muss. Das ist "
 "gleichbedeutend mit \n"
-"dem <tt>cinder reset-state</tt> Kommando."
+"dem Kommando <tt>cinder reset-state</tt>."
 
 msgid ""
 "\n"
@@ -353,7 +358,7 @@ msgstr ""
 "\"Anpassungsskript\" entspricht \"Benutzer Daten\" in anderen Systemen."
 
 msgid "\"Edit Volume Type\""
-msgstr "\"Editiere Datentraeger-Typ\""
+msgstr "\"Editiere Datenträgertyp\""
 
 msgid "\"N/A\""
 msgstr "\"N/V\""
@@ -1095,7 +1100,7 @@ msgid "Associate Monitor"
 msgstr "Monitor zuweisen"
 
 msgid "Associate QoS Spec"
-msgstr "Zuweisen von QOS Spezifikationen"
+msgstr "Zuweisen von QoS-Spezifikationen"
 
 msgid "Associate QoS Spec with Volume Type"
 msgstr "QoS Spezifikation mit Datenträgertyp verbinden"
@@ -1465,7 +1470,7 @@ msgid "Choose associated QoS Spec."
 msgstr "Verbundene QoS Spezifikation auswählen"
 
 msgid "Choose consumer for this QoS Spec."
-msgstr "Verbraucher für diese QOS Spezifikation auswählen."
+msgstr "Verbraucher für diese QoS Spezifikation auswählen."
 
 msgid ""
 "Choose network from Available networks to Selected networks by push button "
@@ -1735,7 +1740,7 @@ msgid "Create Domain"
 msgstr "Domäne erstellen"
 
 msgid "Create Encrypted Volume Type"
-msgstr "Verschlüsselten Volumentyp erstellen"
+msgstr "Verschlüsselten Datenträgertyp erstellen"
 
 msgid "Create Encryption"
 msgstr "Verschlüsselung erstellen"
@@ -1793,7 +1798,7 @@ msgid "Create Pseudo-folder"
 msgstr "Pseudo-Ordner erzeugen"
 
 msgid "Create QoS Spec"
-msgstr "QoS Spezifikation erstellen"
+msgstr "QoS-Spezifikation erstellen"
 
 msgid "Create Role"
 msgstr "Rolle erstellen"
@@ -1850,7 +1855,7 @@ msgid "Create Volume Type"
 msgstr "Datenträgertyp erstellen"
 
 msgid "Create Volume Type Encryption"
-msgstr "Volumentyp-Verschlüsselung erstellen"
+msgstr "Datenträgertyp-Verschlüsselung erstellen"
 
 msgid "Create Volume Type Extra Spec"
 msgstr "Extra Spezifikation für Datenträgertyp erzeugen"
@@ -1973,12 +1978,12 @@ msgstr ""
 "Erfolg an."
 
 msgid "Create a new \"extra spec\" key-value pair for a volume type."
-msgstr "Neues \"extra spec\" Schlüssel-Wert Paar für Datenträgertyp erzeugen."
+msgstr "Neues \"extra spec\" Schlüssel-Wert-Paar für Datenträgertyp erzeugen."
 
 #, python-format
 msgid "Create a new \"spec\" key-value pair for QoS Spec \"%(qos_spec_name)s\""
 msgstr ""
-"Neues \"Spezifikation\" Schlüssel-Wert Paar für QOS Spezifikation "
+"Neues Schlüssel-Wert-Paar \"Spezifikation\" für QoS Spezifikation "
 "\"%(qos_spec_name)s\" erzeugen"
 
 msgid "Create a new network for any project as you need."
@@ -2009,7 +2014,7 @@ msgid "Create a policy with selected rules."
 msgstr "Richtlinie mit ausgewählten Regeln erstellen."
 
 msgid "Create a project to organize users."
-msgstr "Erzeugen sie ein Projekt um Benutzer zu ordnen."
+msgstr "Erzeugen sie ein Projekt um Benutzer zu verwalten."
 
 msgid ""
 "Create a subnet associated with the network. Advanced configuration is "
@@ -2019,7 +2024,7 @@ msgstr ""
 "Konfiguration ist mit Klick auf den \"Subnetz Detail\" Reiter verfügbar."
 
 msgid "Create an Encrypted Volume Type"
-msgstr "Einen verschlüsselten Volumentyp erstellen"
+msgstr "Einen verschlüsselten Datenträgertyp erstellen"
 
 #, python-format
 msgid "Create pseudo-folder in container %(container_name)s"
@@ -3013,10 +3018,10 @@ msgid "Edit Connection"
 msgstr "Verbindung bearbeiten"
 
 msgid "Edit Consumer"
-msgstr "Bearbeite Benutzer"
+msgstr "Benutzer bearbeiten"
 
 msgid "Edit Consumer of QoS Spec"
-msgstr "Verbraucher der QOS Spezifikation bearbeiten"
+msgstr "Verbraucher der QoS Spezifikation bearbeiten"
 
 msgid "Edit Domain"
 msgstr "Domäne bearbeiten"
@@ -3083,7 +3088,7 @@ msgid "Edit Project"
 msgstr "Projekt bearbeiten"
 
 msgid "Edit QoS Spec Consumer"
-msgstr "Spezifikation für QOS Verbraucher bearbeiten"
+msgstr "Spezifikation für QoS-Verbraucher bearbeiten"
 
 msgid "Edit Router"
 msgstr "Router Bearbeiten"
@@ -3125,7 +3130,7 @@ msgid "Edit Volume"
 msgstr "Bearbeite Volume"
 
 msgid "Edit Volume Type"
-msgstr "Editieren Datenträger-Typ"
+msgstr "Datenträgertyp bearbeiten"
 
 msgid "Edit Volume Type Extra Spec"
 msgstr "Extra Spezifikation für Datenträgertyp bearbeiten"
@@ -3357,7 +3362,7 @@ msgid "Error deleting"
 msgstr "Fehler beim Löschen"
 
 msgid "Error editing QoS Spec consumer."
-msgstr "Fehler bei der Bearbeitung des Verbrauchers der QOS Spezifikation."
+msgstr "Fehler bei der Bearbeitung des Verbrauchers der QoS Spezifikation."
 
 msgid "Error getting metadata definitions."
 msgstr "Fehler beim Abruf der Metadaten-Definitionen."
@@ -4298,7 +4303,7 @@ msgid "Identity"
 msgstr "Identität "
 
 msgid "Identity service does not allow editing user data."
-msgstr "Der Identitäts-Service erlaubt das Editieren von Benutzerdaten nicht."
+msgstr "Der Identitätsdienst erlaubt das Ändern von Benutzerdaten nicht."
 
 msgid "Identity service does not allow editing user password."
 msgstr "Der Identitätsdienst erlaubt nicht das Ändern des Benutzerpasswortes."
@@ -4878,7 +4883,7 @@ msgid "Manage Members"
 msgstr "Mitglieder verwalten"
 
 msgid "Manage QoS Spec Association"
-msgstr "Zuweisung der QOS Spezifikation verwalten"
+msgstr "Zuweisung der QoS Spezifikation verwalten"
 
 msgid "Manage Rules"
 msgstr "Regeln verwalten"
@@ -5082,7 +5087,7 @@ msgid "Modify Access"
 msgstr "Zugriff bearbeiten"
 
 msgid "Modify Consumer"
-msgstr "Bearbeite Benutzer"
+msgstr "Benutzer bearbeiten"
 
 msgid "Modify Groups"
 msgstr "Gruppen bearbeiten"
@@ -5094,7 +5099,7 @@ msgid "Modify Usage Report Parameters"
 msgstr "Anpassen Verwendungsbericht Parameter"
 
 msgid "Modify dashboard settings for your user."
-msgstr "Verändern Sie Dashboard Einstellungen für Ihren Benutzer."
+msgstr "Verändern Sie Dashboard-Einstellungen für Ihren Benutzer."
 
 msgid "Modify name and description of a volume."
 msgstr "Namen und Beschreibung eines Datenträgers ändern."
@@ -5103,7 +5108,7 @@ msgid "Modify the name and description of a snapshot."
 msgstr "Name und Beschreibung einer Schattenkopie ändern."
 
 msgid "Modify volume type name and description."
-msgstr "Modifiziere Datenträger-Typ, Name und Beschreibung."
+msgstr "Modifiziere Name und Beschreibung des Datenträgertyps."
 
 msgid "Monitor"
 msgstr "Monitor"
@@ -5293,7 +5298,7 @@ msgid "New name cannot be empty."
 msgstr "Neuer Name darf nicht leer sein."
 
 msgid "New name conflicts with another volume type."
-msgstr "Neuer Name kollidiert mit einem anderen Datenträger-Typ."
+msgstr "Neuer Name kollidiert mit einem anderen Datenträgertypen."
 
 msgid "New password"
 msgstr "Neues Passwort"
@@ -6108,12 +6113,12 @@ msgid "QCOW2 - QEMU Emulator"
 msgstr "QCOW2 - QEMU Emulator"
 
 msgid "QoS Spec Consumer"
-msgstr "Verbraucher der QOS Spezifikation"
+msgstr "Verbraucher der QoS Spezifikation"
 
 msgid ""
 "QoS Spec consumer value must be different than the current consumer value."
 msgstr ""
-"Der Wert für den Verbraucher der QOS Spezifikation muss ein anderer als der "
+"Der Wert für den Verbraucher der QoS Spezifikation muss ein anderer als der "
 "derzeitige sein."
 
 #, python-format
@@ -7509,11 +7514,11 @@ msgstr "Floating IP %s erfolgreich zugewiesen"
 
 #, python-format
 msgid "Successfully created QoS Spec: %s"
-msgstr "Erfolgreich erzeugte QOS Spezifikation: %s"
+msgstr "Erfolgreich erzeugte QoS Spezifikation: %s"
 
 #, python-format
 msgid "Successfully created encryption for volume type: %s"
-msgstr "Verschlüsselung erfolgreich erstellt für Volumentyp: %s"
+msgstr "Verschlüsselung erfolgreich erstellt für Datenträgertyp: %s"
 
 #, python-format
 msgid "Successfully created security group: %s"
@@ -7543,7 +7548,7 @@ msgid "Successfully imported public key: %s"
 msgstr "Erfolgreich importierter öffentlicher Schlüssel: %s"
 
 msgid "Successfully modified QoS Spec consumer."
-msgstr "Verbraucher der QOS Spezifikation erfolgreich geändert."
+msgstr "Verbraucher der QoS Spezifikation erfolgreich geändert."
 
 #, python-format
 msgid ""
@@ -7606,7 +7611,7 @@ msgid "Successfully updated volume status to \"%s\"."
 msgstr "Datenträgerstatus erfolgreich zu \"%s\" aktualisiert."
 
 msgid "Successfully updated volume type."
-msgstr "Erfolgreich Datenträger-Typ aktualisiert."
+msgstr "Datenträgertyp erfolgreich aktualisiert."
 
 msgid "Sum."
 msgstr "Sum."
@@ -7759,23 +7764,23 @@ msgid ""
 msgstr ""
 "Die <strong>Chiffre</strong> ist der zu verwendende "
 "Verschlüsselungsalgorithmus (z.B. aes-xts-plain64). Wenn das Feld leer "
-"bleibt, wird die Grundeinstellung des Anbieters verwendet."
+"bleibt, wird die Standardeinstellung des Anbieters verwendet."
 
 msgid ""
 "The <strong>Control Location</strong> is the notional service where "
 "encryption is performed (e.g., front-end=Nova). The default value is 'front-"
 "end.'"
 msgstr ""
-"Der <strong>Steuerungsort</strong> ist ein fiktiver Dienst, vom die "
-"Verschlüsselung durchgeführt wird (z.B. front-end=Nova). Die "
-"Grundeinstellung ist "
+"Der <strong>Steuerungsort</strong> ist ein fiktiver Dienst, der die "
+"Verschlüsselung durchführt (z.B. front-end=Nova). Die Standardwert ist "
+"\"front-end\"."
 
 msgid ""
 "The <strong>Key Size</strong> is the size of the encryption key, in bits (e."
 "g., 128, 256). If the field is left empty, the provider default will be used."
 msgstr ""
 "Die <strong>Schlüssellänge</strong> ist die Länge des Schlüssels in Bit (z."
-"B. 128, 256). Wenn das Feld leer bleibt, wird die Grundeinstellung des "
+"B. 128, 256). Wenn das Feld leer bleibt, wird die Standardeinstellung des "
 "Anbieters verwendet."
 
 msgid ""
@@ -8161,6 +8166,10 @@ msgstr ""
 "einer Schattenkopie von einem zugewiesenen Datenträger kann zu einer "
 "beschädigten Schattenkopie führen."
 
+msgid "This volume type is used by one or more volumes."
+msgstr ""
+"Dieser Datenträgertyp wird von einem oder mehreren Datenträgern verwendet."
+
 msgid "Time"
 msgstr "Zeit"
 
@@ -8433,7 +8442,7 @@ msgid "Unable to copy object."
 msgstr "Objekt konnte nicht kopiert werden. "
 
 msgid "Unable to create QoS Spec."
-msgstr "QOS Spezifikationen können nicht erzeugt werden."
+msgstr "QoS Spezifikationen können nicht erzeugt werden."
 
 msgid "Unable to create container."
 msgstr "Container konnte nicht erstellt werden. "
@@ -8443,7 +8452,7 @@ msgid "Unable to create domain \"%s\"."
 msgstr "Domäne \"%s\" kann nicht erstellt werden."
 
 msgid "Unable to create encrypted volume type."
-msgstr "Verschlüsselter Datenträger-Typ kann nicht erstellt werden."
+msgstr "Verschlüsselter Datenträgertyp kann nicht erstellt werden."
 
 #, python-format
 msgid "Unable to create flavor \"%s\"."
@@ -8608,8 +8617,8 @@ msgstr ""
 
 msgid "Unable to determine if volume type encryption is supported."
 msgstr ""
-"Es kann nicht festgestellt werden, ob der für die Verschlüsselung nötige "
-"Datenträger-Typ unterstützt wird."
+"Es kann nicht festgestellt werden, ob die Verschlüsselung von "
+"Datenträgertypen unterstützt wird."
 
 msgid "Unable to disassociate floating IP."
 msgstr "Floating IP kann nicht getrennt werden."
@@ -9368,11 +9377,11 @@ msgstr "Details zum Datenträgertyp können nicht abgerufen werden."
 
 msgid "Unable to retrieve volume type encryption details."
 msgstr ""
-"Details zum verschlüsselten Datenträger-Typ können nicht abgerufen werden."
+"Details zum verschlüsselten Datenträgertyp können nicht abgerufen werden."
 
 msgid "Unable to retrieve volume type encryption information."
 msgstr ""
-"Details zum verschlüsselten Datenträger-Typ können nicht abgerufen werden."
+"Details zur Datenträgertyp-Verschlüsselung können nicht abgerufen werden."
 
 msgid "Unable to retrieve volume type extra spec details."
 msgstr ""
@@ -9380,16 +9389,16 @@ msgstr ""
 
 #, python-format
 msgid "Unable to retrieve volume type for: \"%s\""
-msgstr "Konnte Datenträger-Typ für \"%s\" nicht abrufen."
+msgstr "Konnte Datenträgertyp für \"%s\" nicht abrufen."
 
 msgid "Unable to retrieve volume type list."
 msgstr "Konnte Datenträger-Typ-Liste nicht abrufen."
 
 msgid "Unable to retrieve volume type name."
-msgstr "Name des Datenträger-Typs kann nicht abgerufen werden."
+msgstr "Name des Datenträgertyps kann nicht abgerufen werden."
 
 msgid "Unable to retrieve volume type qos."
-msgstr "Konnte Datenträger-Typ QoS nicht abrufen."
+msgstr "Konnte Datenträgertyp QoS nicht abrufen."
 
 msgid "Unable to retrieve volume types"
 msgstr "Datenträgertypen können nicht abgerufen werden"
@@ -9472,7 +9481,7 @@ msgid "Unable to update the user."
 msgstr "Benutzer kann nicht aktualisiert werden."
 
 msgid "Unable to update the volume type."
-msgstr "Konnte Datenträger-Typ nicht aktualisieren."
+msgstr "Konnte Datenträgertyp nicht aktualisieren."
 
 msgid "Unable to update volume snapshot status."
 msgstr "Status der Datenträger-Schattenkopie kann nicht aktualisiert werden."
@@ -9485,7 +9494,7 @@ msgid "Unable to update volume status to \"%s\"."
 msgstr "Aktualisierung des Datenträgerstatus' zu \"%s\" nicht möglich."
 
 msgid "Unable to update volume type."
-msgstr "Konnte Datenträger-Typ nicht aktualisieren."
+msgstr "Datenträgertyp konnte nicht aktualisiert werden."
 
 msgid "Unable to update volume."
 msgstr "Datenträger konnte nicht aktualisiert werden."
@@ -9639,7 +9648,7 @@ msgid ""
 msgstr ""
 "Stack mit den angegebenen Werten aktualisieren. Bitte beachten Sie, dass "
 "sämtliche verschlüsselten Parameter, wie z.B. Passwörter, auf ihre "
-"Standardwerte zurückgesetzt werden, wenn sie sie hier nicht ändern."
+"Standardwerte zurückgesetzt werden, wenn Sie sie hier nicht ändern."
 
 msgid ""
 "Update a subnet associated with the network. Advanced configuration are "
@@ -9796,7 +9805,7 @@ msgid "User Name"
 msgstr "Benutzername"
 
 msgid "User Settings"
-msgstr "Benutzer Einstellungen"
+msgstr "Benutzereinstellungen"
 
 msgid "User has been updated successfully."
 msgstr "Benutzer wurde erfolgreich aktualisiert."
@@ -9972,7 +9981,7 @@ msgstr ""
 "durchzuführen."
 
 msgid "Volume Encryption Details"
-msgstr "Datenträger Verschlüsselungsdetails"
+msgstr "Details Datenträger-Verschlüsselung"
 
 #, python-format
 msgid "Volume Encryption Details: %(volume_name)s"
@@ -9982,7 +9991,7 @@ msgid "Volume Encryption Details: {{ volume.name }}"
 msgstr "Datenträger Verschlüsselungsdetails: {{ volume.name }}"
 
 msgid "Volume Encryption Overview"
-msgstr "Datenträger Verschlüsselung Übersicht"
+msgstr "Übersicht Datenträger-Verschlüsselung"
 
 msgid "Volume Limits"
 msgstr "Datenträger-Begrenzungen"
@@ -10022,10 +10031,10 @@ msgid "Volume Type Description:"
 msgstr "Datenträger-Typ Beschreibung:"
 
 msgid "Volume Type Encryption Details"
-msgstr "Volumentyp-Verschlüsselungsdetails"
+msgstr "Verschlüsselungsdetails des Datenträgertyps"
 
 msgid "Volume Type Encryption Overview"
-msgstr "Volumentyp-Verschlüsselungsübersicht"
+msgstr "Verschlüsselungsübersicht des Datenträgertyps"
 
 msgid "Volume Type Extra Specs"
 msgstr "Extra Spezifikationen für Datenträgertyp "
@@ -10034,15 +10043,15 @@ msgid "Volume Type Name"
 msgstr "Datenträger Typenname"
 
 msgid "Volume Type is Unencrypted."
-msgstr "Volumentyp ist nicht verschlüsselt."
+msgstr "Datenträgertyp ist nicht verschlüsselt."
 
 #, python-format
 msgid "Volume Type: %(volume_type_name)s"
-msgstr "Volumentyp: %(volume_type_name)s"
+msgstr "Datenträgertyp: %(volume_type_name)s"
 
 #, python-format
 msgid "Volume Type: %(volume_type_name)s "
-msgstr "Volumentyp: %(volume_type_name)s "
+msgstr "Datenträgertyp: %(volume_type_name)s "
 
 msgid "Volume Types"
 msgstr "Datenträgertypen"
@@ -10119,7 +10128,7 @@ msgid "Volume type name \"%s\" already exists."
 msgstr "Name des Datenträger-Typs \"%s\" existiert schon."
 
 msgid "Volume type name can not be empty."
-msgstr "Datenträgertypname darf nicht leer sein."
+msgstr "Name des Datenträgertyps darf nicht leer sein."
 
 msgid "Volumes"
 msgstr "Datenträger"
