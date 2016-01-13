@@ -129,3 +129,8 @@
 .nowrap-col {
   white-space: nowrap;
 }
+
+// Specialness for table pending bars
+.status_unknown .horizon-pending-bar-icon {
+  color: $text-color;
+}

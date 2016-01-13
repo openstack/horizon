@@ -44,3 +44,8 @@
   opacity: .25;
   right: $padding-small-vertical;
 }
+
+// Specialness for table pending bars
+.status_unknown .horizon-pending-bar-icon {
+  color: $body-bg;
+}

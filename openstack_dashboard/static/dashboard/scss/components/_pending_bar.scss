@@ -1,0 +1,14 @@
+.horizon-pending-bar {
+  position: relative;
+
+  .progress {
+    margin-bottom: $padding-small-vertical;
+  }
+
+  .horizon-pending-bar-icon {
+    position: absolute;
+    z-index: 1;
+    left: calc(50% - .5em);
+    bottom: calc(50% - .5em);
+  }
+}

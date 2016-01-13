@@ -65,16 +65,26 @@ horizon.datatables = {
             var $new_row = $(data);
 
             if ($new_row.hasClass('status_unknown')) {
-              var spinner_elm = $new_row.find("td.status_unknown:last");
-              var imagePath = $new_row.find('.btn-action-required').length > 0 ?
-                "dashboard/img/action_required.png":
-                "dashboard/img/loading.gif";
+              var $container = $(document.createElement('div'))
+                .addClass('horizon-pending-bar');
 
-              imagePath = window.STATIC_URL + imagePath;
-              spinner_elm.prepend(
-                $("<div>")
-                  .addClass("loading_gif")
-                  .append($("<img>").attr("src", imagePath)));
+              var $progress = $(document.createElement('div'))
+                .addClass('progress progress-striped active')
+                .appendTo($container);
+
+              $(document.createElement('div'))
+                .addClass('progress-bar')
+                .css("width", "100%")
+                .appendTo($progress);
+
+              // if action/confirm is required, show progress-bar with "?"
+              // icon to indicate user action is required
+              if ($new_row.find('.btn-action-required').length > 0) {
+                $(document.createElement('span'))
+                  .addClass('fa fa-question-circle horizon-pending-bar-icon')
+                  .appendTo($container);
+              }
+              $new_row.find("td.status_unknown:last").prepend($container);
             }
 
             // Only replace row if the html content has changed
