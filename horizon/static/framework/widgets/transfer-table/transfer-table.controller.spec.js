@@ -23,12 +23,10 @@
     beforeEach(module('smart-table'));
     beforeEach(module('horizon.framework'));
 
-    var log, params;
+    var log, params, scope;
     beforeEach(module(function($provide) {
-
       // we will mock scope and timeout in this test
       // because we aren't concern with rendering results
-      var scope = { $apply: angular.noop };
       var timeout = function(fn) { fn(); };
 
       // we will mock parse and attrs
@@ -41,16 +39,16 @@
         };
       };
 
-      $provide.value('$scope', scope);
       $provide.value('$timeout', timeout);
       $provide.value('$parse', parse);
       $provide.value('$attrs', attrs);
       $provide.value('$log', log);
     }));
 
-    beforeEach(inject(function($injector) {
+    beforeEach(inject(function($injector, _$rootScope_) {
+      scope = _$rootScope_.$new();
       params = {
-        '$scope': $injector.get('$scope'),
+        '$scope': scope,
         '$timeout': $injector.get('$timeout'),
         '$parse': $injector.get('$parse'),
         '$attrs': $injector.get('$attrs'),
@@ -118,6 +116,7 @@
       it('should swap out allocated item if allocation limit is one', testLimitOne);
       it('should deallocate by moving item from allocated to available list', testDeallocate);
       it('should update allocated on reorder', testUpdateAllocated);
+      it('should update allocatedIds if allocated change', testAllocatedIds);
       it('should toggle the views correctly on request', testToggleView);
 
       //////////
@@ -184,6 +183,15 @@
         expect(trCtrl.allocated.sourceItems.indexOf(item)).toEqual(-1);
         expect(trCtrl.numAllocated()).toEqual(0);
         expect(trCtrl.numAvailable()).toEqual(1);
+      }
+
+      function testAllocatedIds() {
+        expect(trCtrl.allocatedIds).toEqual({});
+
+        trCtrl.allocated.sourceItems = [{id: 1}, {id: 2}];
+        scope.$apply();
+
+        expect(trCtrl.allocatedIds).toEqual({1: true, 2: true});
       }
 
       function testUpdateAllocated() {
