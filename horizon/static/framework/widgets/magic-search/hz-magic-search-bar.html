@@ -1,14 +1,19 @@
 <div class="form-group has-feedback magic-search-bar">
-  <div class="input-group input-group-sm">
+  <div class="input-group">
     <span class="input-group-addon">
       <span class="fa fa-search"></span>
     </span>
-    <st-magic-search>
+    <st-magic-search class="form-control">
       <magic-search
         template="/static/framework/widgets/magic-search/magic-search.html"
         strings="filterStrings"
         facets="{{ filterFacets }}">
       </magic-search>
     </st-magic-search>
+    <span ng-if="showSettings" class="input-group-btn" ng-click="searchSettingsCallback()">
+      <button class="btn btn-default" type="button">
+        <span class="fa fa-cog fa-lg"></span>
+      </button>
+    </span>
   </div>
 </div>
