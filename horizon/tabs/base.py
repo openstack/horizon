@@ -193,7 +193,7 @@ class TabGroup(html.HTMLElement):
         return None
 
     def get_loaded_tabs(self):
-        return filter(lambda t: self.get_tab(t.slug), self._tabs.values())
+        return [tab for tab in self._tabs.values() if self.get_tab(tab.slug)]
 
     def get_selected_tab(self):
         """Returns the tab specific by the GET request parameter.
