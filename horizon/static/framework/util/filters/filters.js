@@ -26,7 +26,8 @@
     .filter('noValue', noValueFilter)
     .filter('decode', decodeFilter)
     .filter('bytes', bytesFilter)
-    .filter('itemCount', itemCountFilter);
+    .filter('itemCount', itemCountFilter)
+    .filter('toIsoDate', toIsoDateFilter);
 
   /**
    * @ngdoc filter
@@ -209,4 +210,18 @@
       }
     };
   }
+
+  /**
+   * @ngdoc filter
+   * @name toISO8610DateFormat
+   * @description
+   * Converts the string date into ISO-8610 format, which adds proper UTC
+   * timezone identifier.
+   */
+  function toIsoDateFilter() {
+    return function(input) {
+      return new Date(input).toISOString();
+    };
+  }
+
 })();
