@@ -113,7 +113,8 @@
       metadataDefs: {
         flavor: null,
         image: null,
-        volume: null
+        volume: null,
+        instance: null
       },
       networks: [],
       neutronEnabled: false,
@@ -123,6 +124,7 @@
       volumeBootable: false,
       volumes: [],
       volumeSnapshots: [],
+      metadataTree: null,
 
       /**
        * api methods for UI controllers
@@ -244,6 +246,7 @@
       setFinalSpecNetworks(finalSpec);
       setFinalSpecKeyPairs(finalSpec);
       setFinalSpecSecurityGroups(finalSpec);
+      setFinalSpecMetadata(finalSpec);
 
       return novaAPI.createServer(finalSpec).then(successMessage);
     }
@@ -513,13 +516,25 @@
       angular.extend(model.novaLimits, data.data);
     }
 
+    // Instance metadata
+
+    function setFinalSpecMetadata(finalSpec) {
+      if (model.metadataTree) {
+        var meta = model.metadataTree.getExisting();
+        if (!angular.equals({}, meta)) {
+          angular.forEach(meta, function(value, key) {
+            meta[key] = value + '';
+          });
+          finalSpec.meta = meta;
+        }
+      }
+    }
+
     // Metadata Definitions
 
     /**
-     * Metadata definitions provide supplemental information in detail
-     * rows and should not slow down any of the other load processes.
-     * All code should be written to treat metadata definitions as
-     * optional, because they are never guaranteed to exist.
+     * Metadata definitions provide supplemental information in source image detail
+     * rows and are used on the metadata tab for adding metadata to the instance.
      */
     function getMetadataDefinitions() {
       // Metadata definitions often apply to multiple
@@ -528,7 +543,8 @@
       var resourceTypes = {
         flavor: 'OS::Nova::Flavor',
         image: 'OS::Glance::Image',
-        volume: 'OS::Cinder::Volumes'
+        volume: 'OS::Cinder::Volumes',
+        instance: 'OS::Nova::Instance'
       };
 
       angular.forEach(resourceTypes, applyForResourceType);

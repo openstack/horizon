@@ -1,0 +1,5 @@
+---
+features:
+  - Added the Metadata tab to the new Launch Instance workflow to allow adding
+    key-value metadata to an instance at launch. This includes any properties
+    from the OS::Nova::Instance namespace of the glance metadata definitions.
