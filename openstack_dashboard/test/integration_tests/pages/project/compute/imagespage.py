@@ -78,6 +78,7 @@ class ImagesPage(basepage.BaseNavigationPage):
     DEFAULT_PROTECTION = False
     IMAGES_TABLE_NAME_COLUMN = 'name'
     IMAGES_TABLE_STATUS_COLUMN = 'status'
+    IMAGES_TABLE_FORMAT_COLUMN = 'disk_format'
 
     def __init__(self, driver, conf):
         super(ImagesPage, self).__init__(driver, conf)
@@ -132,6 +133,10 @@ class ImagesPage(basepage.BaseNavigationPage):
 
     def wait_until_image_active(self, name):
         self._wait_until(lambda x: self.is_image_active(name))
+
+    def get_image_format(self, name):
+        row = self._get_row_with_image_name(name)
+        return row.cells[self.IMAGES_TABLE_FORMAT_COLUMN].text
 
     def create_volume_from_image(self, name, volume_name=None,
                                  description=None,
