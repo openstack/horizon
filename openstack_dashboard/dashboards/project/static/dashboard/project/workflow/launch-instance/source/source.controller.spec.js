@@ -20,6 +20,7 @@
     var noop = angular.noop;
 
     beforeEach(module('horizon.dashboard.project'));
+    beforeEach(module('horizon.framework'));
 
     describe('LaunchInstanceSourceController', function() {
       var scope, ctrl, $browser, deferred;
@@ -202,11 +203,11 @@
       describe('Scope Functions', function() {
 
         describe('watchers', function () {
-          it('establishes three watches', function() {
-            expect(scope.$watch.calls.count()).toBe(4);
+          it('establishes five watches', function() {
+            expect(scope.$watch.calls.count()).toBe(5);
           });
 
-          it("establishes one watch collections", function () {
+          it("establishes two watch collections", function () {
             expect(scope.$watchCollection.calls.count()).toBe(2);
           });
         });
@@ -228,6 +229,18 @@
             expect(Object.keys(ctrl.tableData)).toEqual(tableKeys);
             expect(ctrl.tableHeadCells.length).toBeGreaterThan(0);
             expect(ctrl.tableBodyCells.length).toBeGreaterThan(0);
+          });
+
+          it('should broadcast event when boot source changes', function() {
+            spyOn(scope, '$broadcast');
+            scope.$apply();
+
+            var selSource = 'volume';
+            ctrl.updateBootSourceSelection(selSource);
+            expect(ctrl.currentBootSource).toEqual('volume');
+
+            scope.$apply();
+            expect(scope.$broadcast).toHaveBeenCalled();
           });
         });
 

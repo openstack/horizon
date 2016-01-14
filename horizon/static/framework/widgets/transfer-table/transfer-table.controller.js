@@ -28,6 +28,7 @@
     '$parse',
     '$attrs',
     '$log',
+    'horizon.framework.widgets.transfer-table.events',
     'horizon.framework.widgets.transfer-table.helpText',
     'horizon.framework.widgets.transfer-table.limits'
   ];
@@ -58,8 +59,16 @@
     * ```
     * For usage example, see the transfer-table.example.html file.
     */
-  function TransferTableController($scope, $timeout, $parse, $attrs, $log, helpText, limits) {
-
+  function TransferTableController(
+    $scope,
+    $timeout,
+    $parse,
+    $attrs,
+    $log,
+    events,
+    helpText,
+    limits
+  ) {
     var trModel = $parse($attrs.trModel)($scope);
     var trHelpText = $parse($attrs.helpText)($scope);
     var trLimits = $parse($attrs.limits)($scope);
@@ -75,6 +84,14 @@
     ctrl.limits = angular.extend({}, limits, trLimits);
     ctrl.numAvailable = numAvailable;
     ctrl.views = { allocated: true, available: true };
+
+    // if available transfer table is updated dynamically (e.g. based on a dropdown
+    // selection like in Launch Instance Boot Source), we need to update our data accordingly
+    var availableChangedWatcher = $scope.$on(events.AVAIL_CHANGED, onAvailChanged);
+
+    $scope.$on('$destroy', function () {
+      availableChangedWatcher();
+    });
 
     init(trModel);
 
@@ -139,7 +156,7 @@
       }
     }
 
-    // move item from from allocated to available
+    // move item from allocated to available
     function deallocate(item) {
       var index = ctrl.allocated.sourceItems.indexOf(item);
       if (index >= 0) {
@@ -152,6 +169,21 @@
     function updateAllocated(event, item, orderedItems) {
       ctrl.allocated.sourceItems.splice(0, ctrl.allocated.sourceItems.length);
       Array.prototype.push.apply(ctrl.allocated.sourceItems, orderedItems);
+    }
+
+    function onAvailChanged(e, args) {
+      ctrl.available = {
+        sourceItems: args.data.available,
+        displayedItems: args.data.displayedAvailable ? args.data.displayedAvailable : []
+      };
+
+      for (var i = 0; i < ctrl.available.sourceItems.length; i++) {
+        var item = ctrl.available.sourceItems[i];
+        if (item.id in ctrl.allocatedIds) {
+          ctrl.allocated.sourceItems.splice(i, 1);
+          delete ctrl.allocatedIds[item.id];
+        }
+      }
     }
 
     /////////////

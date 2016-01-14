@@ -38,7 +38,8 @@
     'decodeFilter',
     'diskFormatFilter',
     'gbFilter',
-    'horizon.dashboard.project.workflow.launch-instance.basePath'
+    'horizon.dashboard.project.workflow.launch-instance.basePath',
+    'horizon.framework.widgets.transfer-table.events'
   ];
 
   function LaunchInstanceSourceController($scope,
@@ -48,7 +49,8 @@
     decodeFilter,
     diskFormatFilter,
     gbFilter,
-    basePath
+    basePath,
+    events
   ) {
 
     var ctrl = this;
@@ -313,11 +315,28 @@
       }
     );
 
+    // Since available transfer table for Launch Instance Source step is
+    // dynamically selected based on Boot Source, we need to update the
+    // model here accordingly. Otherwise it will only calculate the items
+    // available based on the original selection Boot Source: Image.
+    var bootSourceWatcher = $scope.$watch(
+      function getBootSource() {
+        return ctrl.currentBootSource;
+      },
+      function onBootSourceChange(newValue, oldValue) {
+        if (newValue !== oldValue) {
+          $scope.$broadcast(events.AVAIL_CHANGED, {
+            'data': bootSources[newValue]
+          });
+        }
+      }
+    );
+
     var imagesWatcher = $scope.$watchCollection(
-      function () {
+      function getImages() {
         return $scope.model.images;
       },
-      function () {
+      function onImagesChange() {
         $scope.initPromise.then(function () {
           $scope.$applyAsync(function () {
             if ($scope.launchContext.imageId) {
@@ -347,6 +366,7 @@
     $scope.$on('$destroy', function() {
       newSpecWatcher();
       allocatedWatcher();
+      bootSourceWatcher();
       imagesWatcher();
       volumeWatcher();
     });

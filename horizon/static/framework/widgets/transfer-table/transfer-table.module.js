@@ -72,6 +72,18 @@
      */
     .constant('horizon.framework.widgets.transfer-table.limits', {
       maxAllocation: 1
-    });
+    })
+    .constant('horizon.framework.widgets.transfer-table.events', events());
+
+    /**
+     * @ngdoc value
+     * @name horizon.framework.widgets.transfer-table.events
+     * @description a list of events for transfer tables
+     */
+  function events() {
+    return {
+      AVAIL_CHANGED: 'horizon.framework.widgets.transfer-table.AVAIL_CHANGED'
+    };
+  }
 
 })();
