@@ -29,7 +29,7 @@ horizon.tabs.load_tab = function () {
       horizon.tabs.initTabLoad(tab_pane);
     });
   } else {
-    tab_pane.load(window.location + "?tab=" + tab_id.replace('#', ''), function() {
+    tab_pane.load("?tab=" + tab_id.replace('#', ''), function() {
       horizon.tabs.initTabLoad(tab_pane);
     });
   }
