@@ -70,6 +70,7 @@ HORIZON_CONFIG = {
     'js_files': [],
     'js_spec_files': [],
     'external_templates': [],
+    'plugins': []
 }
 
 # Set to True to allow users to upload images to glance via Horizon server.
