@@ -2,6 +2,10 @@
 {% load i18n %}
 {% block title %}{% trans "Users" %}{% endblock %}
 
+{% block ng_route_base %}
+  <base href="{{ WEBROOT }}">
+{% endblock %}%}
+
 {% block main %}
   <ng-include src="'{{ STATIC_URL }}dashboard/identity/users/table/table.html'"></ng-include>
 {% endblock %}
