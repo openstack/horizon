@@ -53,25 +53,36 @@
    *   service: <service to use - described below>
    * }
    *
-   *   template: is an object that can be any of
+   *   template: the Template used for the Action Button.
+   *   It is an object that can be any of
    *   1. url: <full_path_to_template.html>
-   *      This specifies the location of the template for the action button.
-   *      Use this for complete extensibility and control over what is rendered.
-   *      The template will be responsible for binding the callback and styling the button.
+   *      This allows for specification of the template for the action button.
+   *      Use this option for complete extensibility and control over what is rendered.
+   *      The directive will be responsible for binding the callback but not for styling the button.
+   *      The template should include the 'item' attribute for the 'action' button,
+   *      if the action needs an item to act upon even for 'row' type. Specifying an 'item' other
+   *      than the current row 'item' is supported'.
+   *
+   *      The 'scope' in use for the 'actions' directive can be used in the custom template.
+   *
+   *      Refer to tests that exercise this functionality with some sample templates at
+   *      - 'actions.custom.mock.html' and 'actions.custom.mock2.html'.
    *
    *   2. type: '<action_button_type>'
-   *      This uses a known action button type.
+   *      This creates an action button based off a 'known' button type.
    *      Currently supported values are
    *      1. 'delete' - Delete a single row. Only for 'row' type.
    *      2. 'danger' - For marking an Action as dangerous. Only for 'row' type.
    *      3. 'delete-selected' - Delete multiple rows. Only for 'batch' type.
    *      4. 'create' - Create a new entity. Only for 'batch' type.
    *
-   *      The styling and binding of the callback is done by the template.
+   *      The styling of the action button is done based on the 'listType'.
+   *      The directive will be responsible for binding the correct callback.
    *
    *   3. text: 'text', actionClasses: 'custom-classes'
-   *      This creates a button with the given text.
+   *      This creates an unstyled button with the given text.
    *      For custom styling of the button, `actionClasses` can be optionally included.
+   *      The directive will be responsible for binding the correct callback.
    *
    *   service: is the service expected to have two functions
    *   1. allowed: is expected to return a promise that resolves
