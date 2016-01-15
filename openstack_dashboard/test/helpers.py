@@ -22,8 +22,6 @@ from functools import wraps  # noqa
 import os
 import unittest
 
-from ceilometerclient.v2 import client as ceilometer_client
-from cinderclient import client as cinder_client
 import django
 from django.conf import settings
 from django.contrib.messages.storage import default_storage  # noqa
@@ -31,10 +29,13 @@ from django.core.handlers import wsgi
 from django.core import urlresolvers
 from django.test.client import RequestFactory  # noqa
 from django.test import utils as django_test_utils
-from django.utils.importlib import import_module  # noqa
+
+from ceilometerclient.v2 import client as ceilometer_client
+from cinderclient import client as cinder_client
 import glanceclient
 from heatclient import client as heat_client
 import httplib2
+from importlib import import_module
 from keystoneclient.v2_0 import client as keystone_client
 import mock
 from mox3 import mox

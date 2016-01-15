@@ -16,7 +16,7 @@
 from django.conf import settings
 from django.core import urlresolvers
 from django.core.urlresolvers import reverse
-from django.utils.importlib import import_module  # noqa
+from importlib import import_module
 from six import moves
 
 from horizon import base
