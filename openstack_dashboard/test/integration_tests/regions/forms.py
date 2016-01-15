@@ -136,22 +136,6 @@ class TextInputFormFieldRegion(BaseTextFormFieldRegion):
         'div > input[type=text], div > input[type=None]'
 
 
-class FileInputFormFieldRegion(BaseFormFieldRegion):
-    """Text input box."""
-
-    _element_locator_str_suffix = 'div > input[type=file]'
-
-    @property
-    def path(self):
-        return self.element.text
-
-    @path.setter
-    def path(self, path):
-        # clear does not work on this kind of element
-        # because it is not user editable
-        self.element.send_keys(path)
-
-
 class PasswordInputFormFieldRegion(BaseTextFormFieldRegion):
     """Password text input box."""
 

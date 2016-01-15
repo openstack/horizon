@@ -49,9 +49,12 @@ class BaseWebObject(unittest.TestCase):
         except Exception:
             return False
 
-    def _is_text_visible(self, element, text):
+    def _is_text_visible(self, element, text, strict=True):
         try:
-            return element.text == text
+            if strict:
+                return element.text == text
+            else:
+                return text in element.text
         except Exception:
             return False
 

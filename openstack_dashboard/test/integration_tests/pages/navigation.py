@@ -169,7 +169,10 @@ class Navigation(object):
                                     "Flavors",
                                     "Images",
                                     "Networks",
-                                    "Routers"
+                                    "Routers",
+                                    "Defaults",
+                                    "Metadata Definitions",
+                                    "System Information"
                                 )
                         },
                 },
