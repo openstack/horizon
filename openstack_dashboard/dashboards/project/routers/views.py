@@ -155,9 +155,9 @@ class DetailView(tabs.TabbedTableView):
             self.request, "dvr", "get")
         context['ha_supported'] = api.neutron.get_feature_permission(
             self.request, "l3-ha", "get")
-        choices = table.STATUS_DISPLAY_CHOICES
+        choices = rtables.STATUS_DISPLAY_CHOICES
         router.status_label = filters.get_display_label(choices, router.status)
-        choices = table.ADMIN_STATE_DISPLAY_CHOICES
+        choices = rtables.ADMIN_STATE_DISPLAY_CHOICES
         router.admin_state_label = (
             filters.get_display_label(choices, router.admin_state))
         return context

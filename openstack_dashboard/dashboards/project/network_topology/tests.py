@@ -20,6 +20,8 @@ from mox3.mox import IsA  # noqa
 from oslo_serialization import jsonutils
 
 from openstack_dashboard import api
+from openstack_dashboard.dashboards.project.network_topology.views import \
+    TranslationHelper
 from openstack_dashboard.test import helpers as test
 from openstack_dashboard.usage import quotas
 
@@ -28,6 +30,7 @@ INDEX_URL = reverse('horizon:project:network_topology:index')
 
 
 class NetworkTopologyTests(test.TestCase):
+    trans = TranslationHelper()
 
     @test.create_stubs({api.nova: ('server_list',),
                         api.neutron: ('network_list_for_tenant',
@@ -83,7 +86,8 @@ class NetworkTopologyTests(test.TestCase):
         expect_server_urls = [
             {'id': server.id,
              'name': server.name,
-             'status': server.status,
+             'status': self.trans.instance[server.status],
+             'original_status': server.status,
              'task': None,
              'url': '/project/instances/%s/' % server.id}
             for server in self.servers.list()]
@@ -98,7 +102,8 @@ class NetworkTopologyTests(test.TestCase):
                  'external_gateway_info':
                  router.external_gateway_info,
                  'name': router.name,
-                 'status': router.status,
+                 'status': self.trans.router[router.status],
+                 'original_status': router.status,
                  'url': '/project/routers/%s/' % router.id}
                 for router in routers]
             self.assertEqual(expect_router_urls, data['routers'])
@@ -112,14 +117,16 @@ class NetworkTopologyTests(test.TestCase):
                                  'url': '/project/networks/%s/detail' % net.id,
                                  'name': net.name,
                                  'router:external': net.router__external,
-                                 'status': net.status,
+                                 'status': self.trans.network[net.status],
+                                 'original_status': net.status,
                                  'subnets': []}
                                 for net in external_networks]
         expect_net_urls += [{'id': net.id,
                              'url': '/project/networks/%s/detail' % net.id,
                              'name': net.name,
                              'router:external': net.router__external,
-                             'status': net.status,
+                             'status': self.trans.network[net.status],
+                             'original_status': net.status,
                              'subnets': [{'cidr': subnet.cidr,
                                           'id': subnet.id,
                                           'url':
@@ -139,7 +146,8 @@ class NetworkTopologyTests(test.TestCase):
              'device_owner': port.device_owner,
              'fixed_ips': port.fixed_ips,
              'network_id': port.network_id,
-             'status': port.status,
+             'status': self.trans.port[port.status],
+             'original_status': port.status,
              'url': '/project/networks/ports/%s/detail' % port.id}
             for port in self.ports.list()]
         if router_enable:
