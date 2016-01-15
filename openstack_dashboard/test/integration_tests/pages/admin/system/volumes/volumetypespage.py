@@ -18,6 +18,7 @@ from openstack_dashboard.test.integration_tests.regions import tables
 class QosSpecsTable(tables.TableRegion):
     name = 'qos_specs'
     CREATE_QOS_SPEC_FORM_FIELDS = ("name", "consumer")
+    EDIT_CONSUMER_FORM_FIELDS = ("consumer_choice", )
 
     @tables.bind_table_action('create')
     def create_qos_spec(self, create_button):
@@ -30,6 +31,13 @@ class QosSpecsTable(tables.TableRegion):
     def delete_qos_specs(self, delete_button):
         delete_button.click()
         return forms.BaseFormRegion(self.driver, self.conf)
+
+    @tables.bind_row_action('edit_consumer')
+    def edit_consumer(self, edit_consumer_button, row):
+        edit_consumer_button.click()
+        return forms.FormRegion(
+            self.driver, self.conf,
+            field_mappings=self.EDIT_CONSUMER_FORM_FIELDS)
 
 
 class VolumeTypesTable(tables.TableRegion):
@@ -54,6 +62,7 @@ class VolumeTypesTable(tables.TableRegion):
 class VolumetypesPage(basepage.BaseNavigationPage):
     QOS_SPECS_TABLE_NAME_COLUMN = 'name'
     VOLUME_TYPES_TABLE_NAME_COLUMN = 'name'
+    QOS_SPECS_TABLE_CONSUMER_COLUMN = 'consumer'
     CINDER_CONSUMER = 'back-end'
 
     def __init__(self, driver, conf):
@@ -101,6 +110,12 @@ class VolumetypesPage(basepage.BaseNavigationPage):
             self.volume_types_table.delete_volume_type()
         confirm_delete_volume_types_form.submit()
 
+    def edit_consumer(self, name, consumer_choice):
+        row = self._get_row_with_qos_spec_name(name)
+        edit_consumer_form = self.qos_specs_table.edit_consumer(row)
+        edit_consumer_form.consumer_choice.value = consumer_choice
+        edit_consumer_form.submit()
+
     def is_qos_spec_present(self, name):
         return bool(self._get_row_with_qos_spec_name(name))
 
@@ -114,3 +129,7 @@ class VolumetypesPage(basepage.BaseNavigationPage):
     def is_volume_type_deleted(self, name):
         return self.volume_types_table.is_row_deleted(
             lambda: self._get_row_with_volume_type_name(name))
+
+    def get_consumer(self, name):
+        row = self._get_row_with_qos_spec_name(name)
+        return row.cells[self.QOS_SPECS_TABLE_CONSUMER_COLUMN].text
