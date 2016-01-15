@@ -14,6 +14,7 @@
 import platform
 import shutil
 import subprocess
+import tempfile
 
 from selenium.common import exceptions as selenium_exceptions
 from selenium.webdriver.common import desired_capabilities as dc
@@ -59,10 +60,15 @@ class FirefoxBinary(firefox.firefox_binary.FirefoxBinary):
 
 class WebDriver(firefox.webdriver.WebDriver):
     """Workarounds selenium firefox issues."""
+    TEMPDIR = tempfile.mkdtemp(dir="/tmp")
+
     def __init__(self, firefox_profile=None, firefox_binary=None, timeout=30,
                  desired_capabilities=dc.DesiredCapabilities.FIREFOX,
                  proxy=None):
         try:
+            if firefox_profile is None:
+                firefox_profile = firefox.webdriver.FirefoxProfile()
+            self.setup_profile(firefox_profile)
             super(WebDriver, self).__init__(
                 firefox_profile, FirefoxBinary(), timeout,
                 desired_capabilities, proxy)
@@ -72,3 +78,11 @@ class WebDriver(firefox.webdriver.WebDriver):
             if self.profile.tempfolder is not None:
                 shutil.rmtree(self.profile.tempfolder)
             raise
+
+    def setup_profile(self, fp):
+        fp.set_preference("browser.download.folderList", 2)
+        fp.set_preference("browser.download.manager.showWhenStarting",
+                          False)
+        fp.set_preference("browser.download.dir", self.TEMPDIR)
+        fp.set_preference("browser.helperApps.neverAsk.saveToDisk",
+                          "application/binary,text/plain")
