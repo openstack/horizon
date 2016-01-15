@@ -99,6 +99,7 @@ STATUS_DISPLAY_CHOICES = (
     ("BUILD", pgettext_lazy("current status of port", u"Build")),
     ("DOWN", pgettext_lazy("current status of port", u"Down")),
     ("ERROR", pgettext_lazy("current status of port", u"Error")),
+    ("N/A", pgettext_lazy("current status of port", u"N/A")),
 )
 
 
