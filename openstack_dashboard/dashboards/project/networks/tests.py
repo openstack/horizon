@@ -642,9 +642,9 @@ class NetworkTests(test.TestCase, NetworkStubMixin):
         url = reverse('horizon:project:networks:create')
         res = self.client.post(url, form_data)
 
-        self.assertContains(res, escape('Specify "Network Address", '
-                                        '"Address pool" or '
-                                        'clear "Create Subnet" checkbox.'))
+        self.assertContains(res, escape('Specify "Network Address" or '
+                                        'clear "Create Subnet" checkbox'
+                                        ' in previous step.'))
 
     @test.update_settings(
         OPENSTACK_NEUTRON_NETWORK={'profile_support': 'cisco'})
