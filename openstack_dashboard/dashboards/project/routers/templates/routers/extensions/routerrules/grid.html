@@ -74,13 +74,13 @@
            {% endif %}
            {% if dest.reachable == 'none' %}
               <div class="center-block">
-              <i class="fa fa-ban"></i>
-              <button type="submit" class="btn btn-default btn-xs" href="#"><i class="fa fa-random"></i></button></div>
+              <span class="fa fa-ban"></span>
+              <button type="submit" class="btn btn-default btn-xs" href="#"><span class="fa fa-random"></span></button></div>
            {% elif dest.reachable == 'full' %}
            <div class="center-block">
-              <i class="fa fa-check"></i>
+              <span class="fa fa-check"></span>
               {% if not dest.cidr == row.source.cidr %}
-                   <button type="submit" class="btn btn-default btn-xs" href="#"><i class="fa fa-random"></i></button>
+                   <button type="submit" class="btn btn-default btn-xs" href="#"><span class="fa fa-random"></span></button>
               {% else %}
                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
               {% endif %}
@@ -121,7 +121,7 @@
   </table>
   <h3>{% trans "Description" %}</h3>
   <p>{% blocktrans %}The color and icon of an intersection indicates whether or not traffic is permitted from the source (row) to the destination (column).
-     Clicking the <i class="fa fa-random"></i> button in the intersection will install a rule to switch the traffic behavior.<br/>
+     Clicking the <span class="fa fa-random"></span> button in the intersection will install a rule to switch the traffic behavior.<br/>
 
      <b>Note:</b> Rules only affect one direction of traffic. The opposite direction is outlined when hovering over an intersection.
  {% endblocktrans %} </p>

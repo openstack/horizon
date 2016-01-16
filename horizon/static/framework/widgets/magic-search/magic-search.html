@@ -1,20 +1,20 @@
 <!--! Magic Searchbar -->
 <div class="magic-search" magic-overrides>
   <div class="search-bar">
-    <i class="fi-filter fa fa-search go"></i>
+    <span class="fi-filter fa fa-search go"></span>
     <span class="search-main-area">
       <span class="item-list">
         <span class="radius secondary item"
               ng-repeat="facet in currentSearch" ng-cloak="cloak" ng-class="{'server-side-item': facet.isServer}">
-          <i data-toggle="tooltip" title="{$ ::strings.serverFacet $}"
-             ng-class="{'fa fa-server': facet.isServer}"></i>
-          <i data-toggle="tooltip" title="{$ ::strings.clientFacet $}"
-             ng-class="{'fa fa-desktop': !facet.isServer}"></i>
+          <span data-toggle="tooltip" title="{$ ::strings.serverFacet $}"
+             ng-class="{'fa fa-server': facet.isServer}"></span>
+          <span data-toggle="tooltip" title="{$ ::strings.clientFacet $}"
+             ng-class="{'fa fa-desktop': !facet.isServer}"></span>
           <span>
             {$ ::facet.label[0] $}: <b>{$ ::facet.label[1] $}</b>
           </span>
           <a class="remove" ng-click="removeFacet($index, $event)" title="{$ ::strings.remove $}">
-            <i class="fi-x fa fa-times"></i>
+            <span class="fi-x fa fa-times"></span>
           </a>
         </span>
       </span>
@@ -48,7 +48,7 @@
       </span>
     </span>
     <a class="magic-search-clear" ng-click="clearSearch()" ng-show="currentSearch.length &gt; 0" title="{$ ::strings.cancel $}">
-      <i class="fi-x fa fa-times cancel"></i>
+      <span class="fi-x fa fa-times cancel"></span>
     </a>
   </div>
 </div>
