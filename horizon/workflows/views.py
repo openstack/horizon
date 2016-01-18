@@ -90,7 +90,7 @@ class WorkflowView(hz_views.ModalBackdropMixin, generic.TemplateView):
         context = super(WorkflowView, self).get_context_data(**kwargs)
         workflow = self.get_workflow()
         context[self.context_object_name] = workflow
-        next = self.request.REQUEST.get(workflow.redirect_param_name, None)
+        next = self.request.GET.get(workflow.redirect_param_name)
         context['REDIRECT_URL'] = next
         context['layout'] = self.get_layout()
         # For consistency with Workflow class
@@ -210,5 +210,5 @@ class WorkflowView(hz_views.ModalBackdropMixin, generic.TemplateView):
                 response.content = json.dumps(data)
                 response["X-Horizon-Add-To-Field"] = field_id
             return response
-        next_url = self.request.REQUEST.get(workflow.redirect_param_name, None)
+        next_url = self.request.GET.get(workflow.redirect_param_name)
         return shortcuts.redirect(next_url or workflow.get_success_url())
