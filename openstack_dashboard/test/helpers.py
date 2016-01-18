@@ -20,7 +20,7 @@ import collections
 import copy
 from functools import wraps  # noqa
 import os
-
+import unittest
 
 from ceilometerclient.v2 import client as ceilometer_client
 from cinderclient import client as cinder_client
@@ -31,7 +31,6 @@ from django.core import urlresolvers
 from django.test.client import RequestFactory  # noqa
 from django.test import utils as django_test_utils
 from django.utils.importlib import import_module  # noqa
-from django.utils import unittest
 import glanceclient
 from heatclient import client as heat_client
 import httplib2
