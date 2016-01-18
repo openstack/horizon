@@ -10,11 +10,15 @@
 # License for the specific language governing permissions and limitations
 # under the License.
 
-from django.template import base
+import django
+from django import template
 from django.template import defaultfilters
 from django.utils import safestring
 
-register = base.Library()
+if django.VERSION >= (1, 9):
+    register = template.Library()
+else:
+    register = template.base.Library()
 
 
 @register.filter(is_safe=True)
