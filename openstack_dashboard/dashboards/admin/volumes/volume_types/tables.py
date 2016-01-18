@@ -250,6 +250,7 @@ class ManageQosSpec(tables.LinkAction):
     name = "qos_spec"
     verbose_name = _("Manage Specs")
     url = "horizon:admin:volumes:volume_types:qos_specs:index"
+    classes = ("ajax-modal",)
     icon = "pencil"
     policy_rules = (("volume", "volume_extension:types_manage"),)
 
