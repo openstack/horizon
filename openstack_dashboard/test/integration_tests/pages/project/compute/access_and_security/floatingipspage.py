@@ -25,8 +25,6 @@ from openstack_dashboard.test.integration_tests.regions import tables
 class FloatingipsPage(basepage.BaseNavigationPage):
     FLOATING_IPS_TABLE_NAME_COLUMN_INDEX = 0
 
-    _floating_ips_table_locator = (by.By.ID, 'floating_ips')
-
     _floatingips_fadein_popup_locator = (
         by.By.CSS_SELECTOR, '.alert.alert-success.alert-dismissable.fade.in>p')
 
@@ -48,9 +46,8 @@ class FloatingipsPage(basepage.BaseNavigationPage):
 
     @property
     def floatingips_table(self):
-        src_elem = self._get_element(*self._floating_ips_table_locator)
         return tables.ComplexActionTableRegion(
-            self.driver, self.conf, src_elem,
+            self.driver, self.conf,
             self.FLOATING_IPS_TABLE_NAME,
             self.FLOATING_IPS_TABLE_ACTIONS,
             self.FLOATING_IPS_TABLE_ROW_ACTION)

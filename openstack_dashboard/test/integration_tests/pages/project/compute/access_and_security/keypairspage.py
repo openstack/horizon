@@ -13,16 +13,12 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
-from selenium.webdriver.common import by
-
 from openstack_dashboard.test.integration_tests.pages import basepage
 from openstack_dashboard.test.integration_tests.regions import forms
 from openstack_dashboard.test.integration_tests.regions import tables
 
 
 class KeypairsPage(basepage.BaseNavigationPage):
-
-    _key_pairs_table_locator = (by.By.ID, 'keypairs')
 
     KEY_PAIRS_TABLE_NAME = "keypairs"
     KEY_PAIRS_TABLE_ACTIONS = ("create", "import", "delete")
@@ -41,9 +37,7 @@ class KeypairsPage(basepage.BaseNavigationPage):
 
     @property
     def keypairs_table(self):
-        src_elem = self._get_element(*self._key_pairs_table_locator)
         return tables.SimpleActionsTableRegion(self.driver, self.conf,
-                                               src_elem,
                                                self.KEY_PAIRS_TABLE_NAME,
                                                self.KEY_PAIRS_TABLE_ACTIONS,
                                                self.KEY_PAIRS_TABLE_ROW_ACTION)

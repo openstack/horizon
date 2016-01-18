@@ -125,6 +125,13 @@ class BasicTableRegion(baseregion.BaseRegion):
     _search_button_locator = (by.By.CSS_SELECTOR,
                               'div.table_search.client > button')
 
+    def _table_locator(self, table_name):
+        return by.By.CSS_SELECTOR, 'table#%s' % table_name
+
+    def __init__(self, driver, conf, table_name):
+        self._default_src_locator = self._table_locator(table_name)
+        super(BasicTableRegion, self).__init__(driver, conf)
+
     @property
     def heading(self):
         return self._get_element(*self._heading_locator)
@@ -174,10 +181,12 @@ class BasicTableRegion(baseregion.BaseRegion):
         btn = self._get_element(*self._search_button_locator)
         btn.click()
 
-    def _get_rows(self):
-        rows = []
-        for elem in self._get_elements(*self._rows_locator):
-            rows.append(RowRegion(self.driver, self.conf, elem))
+    def _make_row(self, elem):
+        return RowRegion(self.driver, self.conf, elem)
+
+    def _get_rows(self, *args):
+        elements = self._get_elements(*self._rows_locator)
+        return [self._make_row(elem) for elem in elements]
 
 
 class ActionsTableRegion(BasicTableRegion):
@@ -189,8 +198,8 @@ class ActionsTableRegion(BasicTableRegion):
                                             ' div.table_actions > a')
 
     # private methods
-    def __init__(self, driver, conf, src_elm, table_name, action_names):
-        super(ActionsTableRegion, self).__init__(driver, conf, src_elm)
+    def __init__(self, driver, conf, table_name, action_names):
+        super(ActionsTableRegion, self).__init__(driver, conf, table_name)
         self._action_id_pattern = "%s__action_%%s" % table_name
         self.action_names = action_names
         self._init_actions()
@@ -215,32 +224,26 @@ class ActionsTableRegion(BasicTableRegion):
 class SimpleActionsTableRegion(ActionsTableRegion):
     """Table which rows has buttons in action column."""
 
-    def __init__(self, driver, conf, src_elm, table_name, action_names,
+    def __init__(self, driver, conf, table_name, action_names,
                  row_action_name):
         super(SimpleActionsTableRegion, self).__init__(
-            driver, conf, src_elm, table_name, action_names)
+            driver, conf, table_name, action_names)
         self.row_action_name = row_action_name
 
-    def _get_rows(self):
-        rows = []
-        for elem in self._get_elements(*self._rows_locator):
-            rows.append(BtnActionRowRegion(self.driver, self.conf, elem,
-                                           self.row_action_name))
-        return rows
+    def _make_row(self, elem):
+        return BtnActionRowRegion(self.driver, self.conf, elem,
+                                  self.row_action_name)
 
 
 class ComplexActionTableRegion(ActionsTableRegion):
     """Table which has button and selectbox in the action column."""
 
-    def __init__(self, driver, conf, src_elm, table_name,
+    def __init__(self, driver, conf, table_name,
                  action_names, row_action_names):
         super(ComplexActionTableRegion, self).__init__(
-            driver, conf, src_elm, table_name, action_names)
+            driver, conf, table_name, action_names)
         self.row_action_names = row_action_names
 
-    def _get_rows(self):
-        rows = []
-        for elem in self._get_elements(*self._rows_locator):
-            rows.append(ComplexActionRowRegion(self.driver, self.conf, elem,
-                                               self.row_action_names))
-        return rows
+    def _make_row(self, elem):
+        return ComplexActionRowRegion(self.driver, self.conf, elem,
+                                      self.row_action_names)

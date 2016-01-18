@@ -10,8 +10,6 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
-from selenium.webdriver.common import by
-
 from openstack_dashboard.test.integration_tests.pages import basepage
 from openstack_dashboard.test.integration_tests.regions import forms
 from openstack_dashboard.test.integration_tests.regions import tables
@@ -20,8 +18,6 @@ from openstack_dashboard.test.integration_tests.regions import tables
 class SecuritygroupsPage(basepage.BaseNavigationPage):
 
     SECURITYGROUPS_TABLE_NAME_COLUMN_INDEX = 0
-
-    _securitygroups_table_locator = (by.By.ID, 'security_groups')
 
     SECURITYGROUPS_TABLE_NAME = "security_groups"
     SECURITYGROUPS_TABLE_ACTIONS = ("create", "delete")
@@ -43,9 +39,8 @@ class SecuritygroupsPage(basepage.BaseNavigationPage):
 
     @property
     def securitygroups_table(self):
-        src_elem = self._get_element(*self._securitygroups_table_locator)
         return tables.ComplexActionTableRegion(
-            self.driver, self.conf, src_elem,
+            self.driver, self.conf,
             self.SECURITYGROUPS_TABLE_NAME,
             self.SECURITYGROUPS_TABLE_ACTIONS,
             self.SECURITYGROUPS_TABLE_ROW_ACTIONS)

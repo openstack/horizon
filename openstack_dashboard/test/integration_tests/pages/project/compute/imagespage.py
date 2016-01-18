@@ -11,7 +11,6 @@
 #    under the License.
 
 from selenium.common import exceptions
-from selenium.webdriver.common import by
 
 from openstack_dashboard.test.integration_tests.pages import basepage
 from openstack_dashboard.test.integration_tests.regions import forms
@@ -26,8 +25,6 @@ class ImagesPage(basepage.BaseNavigationPage):
     DEFAULT_PROTECTION = False
     IMAGES_TABLE_NAME_COLUMN_INDEX = 0
     IMAGES_TABLE_STATUS_COLUMN_INDEX = 2
-
-    _images_table_locator = (by.By.ID, 'images')
 
     IMAGES_TABLE_NAME = "images"
     IMAGES_TABLE_ACTIONS = ("create", "delete")
@@ -53,13 +50,10 @@ class ImagesPage(basepage.BaseNavigationPage):
 
     @property
     def images_table(self):
-        src_elem = self._get_element(*self._images_table_locator)
-        return tables.ComplexActionTableRegion(self.driver,
-                                               self.conf, src_elem,
+        return tables.ComplexActionTableRegion(self.driver, self.conf,
                                                self.IMAGES_TABLE_NAME,
                                                self.IMAGES_TABLE_ACTIONS,
-                                               self.IMAGES_TABLE_ROW_ACTIONS
-                                               )
+                                               self.IMAGES_TABLE_ROW_ACTIONS)
 
     @property
     def create_image_form(self):
