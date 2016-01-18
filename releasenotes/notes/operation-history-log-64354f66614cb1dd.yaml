@@ -1,0 +1,5 @@
+---
+features:
+  - >
+    [`blueprint operation-history-log <https://blueprints.launchpad.net/horizon/+spec/operation-history-log>`_]
+    Added a feature to log operation history of users.

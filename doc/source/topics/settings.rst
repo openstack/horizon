@@ -1520,6 +1520,66 @@ Can be used to selectively disable certain costly extensions for performance
 reasons.
 
 
+``OPERATION_LOG_ENABLED``
+-------------------------
+
+.. versionadded:: 10.0.0(Newton)
+
+Default: ``False``
+
+This setting can be used to log operations of all of users on Horizon.
+In this log, it can include date and time of an operation, an operation URL,
+user information such as domain, project and user, and so on.
+And this log format is configurable. In detail, you can see OPERATION_LOG_OPTIONS.
+
+.. note::
+
+  If you use this feature, you need to configure the logger setting like
+  a outputting path for operation log in ``local_settings.py``.
+
+
+``OPERATION_LOG_OPTIONS``
+------------------------
+
+.. versionadded:: 10.0.0(Newton)
+
+Default::
+
+        {
+         'mask_fields': ['password'],
+         'target_methods': ['POST'],
+         'format': ("[%(domain_name)s] [%(domain_id)s] [%(project_name)s]"
+             " [%(project_id)s] [%(user_name)s] [%(user_id)s] [%(request_scheme)s]"
+             " [%(referer_url)s] [%(request_url)s] [%(message)s] [%(method)s]"
+             " [%(http_status)s] [%(param)s]"),
+        }
+
+This setting controls the behavior of the operation log.
+
+* ``mask_fields`` is a list of keys of post data which should be masked from the
+  point of view of security. Fields like ``password`` should be included.
+  The fields specified in ``mask_fields`` are logged as ``********``.
+* ``target_methods`` is a request method which is logged to a operation log.
+  The valid methods are ``POST``, ``GET``, ``PUT``, ``DELETE``.
+* ``format`` defines the operation log format.
+  Currently you can use the following keywords.
+  The default value contains all keywords.
+
+  * %(domain_name)s
+  * %(domain_id)s
+  * %(project_name)s
+  * %(project_id)s
+  * %(user_name)s
+  * %(user_id)s
+  * %(request_scheme)s
+  * %(referer_url)s
+  * %(request_url)s
+  * %(message)s
+  * %(method)s
+  * %(http_status)s
+  * %(param)s
+
+
 Django Settings (Partial)
 =========================
 
