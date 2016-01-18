@@ -14,7 +14,10 @@
 
 from django.utils.translation import ugettext_lazy as _
 
+from openstack_auth import utils
+
 import horizon
+
 from openstack_dashboard import settings
 
 
@@ -31,7 +34,6 @@ class Admin(horizon.Dashboard):
                         ('orchestration', 'context_is_admin'),
                         ('telemetry', 'context_is_admin'),)
     else:
-        permissions = ('openstack.roles.admin',)
-
+        permissions = (tuple(utils.get_admin_permissions()),)
 
 horizon.register(Admin)
