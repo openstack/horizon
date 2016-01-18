@@ -18,19 +18,10 @@
 
 import os
 import socket
-import sys
 
-import django
-from django.utils import html_parser
 from openstack_dashboard.static_settings import get_staticfiles_dirs  # noqa
 
-from horizon.test import patches
-
 STATICFILES_DIRS = get_staticfiles_dirs()
-
-# Patch django.utils.html_parser.HTMLParser as a workaround for bug 1273943
-if django.get_version() == '1.4' and sys.version_info[:3] > (2, 7, 3):
-    html_parser.HTMLParser.parse_starttag = patches.parse_starttag_patched
 
 socket.setdefaulttimeout(1)
 
@@ -77,13 +68,7 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
-)
-if django.VERSION >= (1, 8, 0):
-    MIDDLEWARE_CLASSES += (
-        'django.contrib.auth.middleware.SessionAuthenticationMiddleware',)
-else:
-    MIDDLEWARE_CLASSES += ('django.middleware.doc.XViewMiddleware',)
-MIDDLEWARE_CLASSES += (
+    'django.contrib.auth.middleware.SessionAuthenticationMiddleware',
     'horizon.middleware.HorizonMiddleware',
     'django.middleware.locale.LocaleMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',

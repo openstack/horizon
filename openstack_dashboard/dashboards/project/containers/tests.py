@@ -19,8 +19,8 @@
 import copy
 import tempfile
 
-import django
 from django.core.files.uploadedfile import InMemoryUploadedFile  # noqa
+from django.core.urlresolvers import reverse
 from django import http
 from django.utils import http as utils_http
 
@@ -33,9 +33,6 @@ from openstack_dashboard.dashboards.project.containers import tables
 from openstack_dashboard.dashboards.project.containers import utils
 from openstack_dashboard.dashboards.project.containers import views
 from openstack_dashboard.test import helpers as test
-
-from horizon.utils.urlresolvers import reverse  # noqa
-
 
 CONTAINER_NAME_1 = u"container one%\u6346"
 CONTAINER_NAME_2 = u"container_two\u6346"
@@ -356,14 +353,9 @@ class SwiftTests(test.TestCase):
                 res = self.client.get(download_url)
 
                 self.assertTrue(res.has_header('Content-Disposition'))
-                if django.VERSION >= (1, 5):
-                    self.assertEqual(b''.join(res.streaming_content), _data)
-                    self.assertNotContains(res, INVALID_CONTAINER_NAME_1)
-                    self.assertNotContains(res, INVALID_CONTAINER_NAME_2)
-                else:
-                    self.assertEqual(res.content, _data)
-                    self.assertNotContains(res, INVALID_CONTAINER_NAME_1)
-                    self.assertNotContains(res, INVALID_CONTAINER_NAME_2)
+                self.assertEqual(b''.join(res.streaming_content), _data)
+                self.assertNotContains(res, INVALID_CONTAINER_NAME_1)
+                self.assertNotContains(res, INVALID_CONTAINER_NAME_2)
 
                 # Check that the returned Content-Disposition filename is well
                 # surrounded by double quotes and with commas removed

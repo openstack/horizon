@@ -19,7 +19,6 @@
 import collections
 import logging
 
-import django
 from django.conf import settings
 from django.forms import ValidationError  # noqa
 from django import http
@@ -118,13 +117,8 @@ class CreateUserForm(PasswordMixin, BaseUserForm):
                     "description", "email", "password",
                     "confirm_password", "project", "role_id",
                     "enabled"]
-        # Starting from 1.7 Django uses OrderedDict for fields and keyOrder
-        # no longer works for it
-        if django.VERSION >= (1, 7):
-            self.fields = collections.OrderedDict(
-                (key, self.fields[key]) for key in ordering)
-        else:
-            self.fields.keyOrder = ordering
+        self.fields = collections.OrderedDict(
+            (key, self.fields[key]) for key in ordering)
         role_choices = [(role.id, role.name) for role in roles]
         self.fields['role_id'].choices = role_choices
 

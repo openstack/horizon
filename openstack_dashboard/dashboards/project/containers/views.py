@@ -22,6 +22,7 @@ Views for managing Swift containers.
 
 import os
 
+from django.core.urlresolvers import reverse
 from django import http
 from django.utils.functional import cached_property  # noqa
 from django.utils.translation import ugettext_lazy as _
@@ -32,7 +33,6 @@ from horizon import browsers
 from horizon import exceptions
 from horizon import forms
 from horizon.utils import memoized
-from horizon.utils.urlresolvers import reverse  # noqa
 
 from openstack_dashboard import api
 from openstack_dashboard.api import swift

@@ -13,7 +13,6 @@
 import json
 import re
 
-import django
 from django.conf import settings
 from django.core import exceptions
 from django.core.urlresolvers import reverse
@@ -565,18 +564,11 @@ class StackTests(test.TestCase):
                             'id="id___param_param1" '
                             'name="__param_param1" '
                             'type="text" />', html=True)
-        if django.VERSION >= (1, 6):
-            self.assertContains(res,
-                                '<input class="form-control" '
-                                'id="id___param_param2" '
-                                'name="__param_param2" '
-                                'type="number" />', html=True)
-        else:
-            self.assertContains(res,
-                                '<input class="form-control" '
-                                'id="id___param_param2" '
-                                'name="__param_param2" '
-                                'type="text" />', html=True)
+        self.assertContains(res,
+                            '<input class="form-control" '
+                            'id="id___param_param2" '
+                            'name="__param_param2" '
+                            'type="number" />', html=True)
         self.assertContains(res,
                             '<input class="form-control" '
                             'id="id___param_param3" '

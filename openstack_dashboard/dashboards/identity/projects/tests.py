@@ -18,7 +18,6 @@ import logging
 import os
 import unittest
 
-import django
 from django.core.urlresolvers import reverse
 from django import http
 from django.test.utils import override_settings
@@ -266,18 +265,11 @@ class CreateProjectWorkflowTests(test.BaseAdminViewTests):
         res = self.client.get(reverse('horizon:identity:projects:create'))
 
         self.assertTemplateUsed(res, views.WorkflowView.template_name)
-        if django.VERSION >= (1, 6):
-            self.assertContains(res, '''
-                                <input class="form-control"
-                                id="id_subnet" min="-1"
-                                name="subnet" type="number" value="10" />
-                                ''', html=True)
-        else:
-            self.assertContains(res, '''
-                                <input class="form-control"
-                                name="subnet" id="id_subnet"
-                                value="10" type="text" />
-                                ''', html=True)
+        self.assertContains(res, '''
+                            <input class="form-control"
+                            id="id_subnet" min="-1"
+                            name="subnet" type="number" value="10" />
+                            ''', html=True)
 
         workflow = res.context['workflow']
         self.assertEqual(res.context['workflow'].name,
@@ -1463,11 +1455,6 @@ class UpdateProjectWorkflowTests(test.BaseAdminViewTests):
         self.assertMessageCount(error=2, warning=1)
         self.assertRedirectsNoFollow(res, INDEX_URL)
 
-        # django 1.7 and later does not handle the thrown keystoneclient
-        # exception well enough.
-        # TODO(mrunge): re-check when django-1.8 is stable
-        @unittest.skipIf(django.VERSION >= (1, 7, 0),
-                         'Currently skipped with Django >= 1.7')
         @test.create_stubs({api.keystone: ('get_default_role',
                                            'tenant_get',
                                            'domain_get'),

@@ -15,7 +15,7 @@
 #    WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
 #    License for the specific language governing permissions and limitations
 #    under the License.
-import django
+
 from django.core.urlresolvers import reverse
 from django.forms import widgets
 from django import http
@@ -672,14 +672,8 @@ class VolumeViewTests(test.TestCase):
                                formData, follow=True)
         self.assertEqual(res.redirect_chain, [])
 
-        # in django 1.6 filesizeformat replaces all spaces with
-        # non-breaking space characters
-        if django.VERSION >= (1, 6):
-            msg = (u"The volume size cannot be less than the "
-                   u"image size (20.0\xa0GB)")
-        else:
-            msg = (u"The volume size cannot be less than the "
-                   u"image size (20.0 GB)")
+        msg = (u"The volume size cannot be less than the "
+               u"image size (20.0\xa0GB)")
 
         self.assertFormError(res, 'form', None, msg)
 
