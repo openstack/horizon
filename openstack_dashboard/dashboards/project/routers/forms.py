@@ -91,17 +91,11 @@ class CreateForm(forms.SelfHandlingForm):
             params = {'name': data['name']}
             if 'admin_state_up' in data and data['admin_state_up']:
                 params['admin_state_up'] = data['admin_state_up']
-            if 'external_network' in data and data['external_network']:
-                params['external_gateway_info'] = {'network_id':
-                                                   data['external_network']}
             if (self.dvr_allowed and data['mode'] != 'server_default'):
                 params['distributed'] = (data['mode'] == 'distributed')
             if (self.ha_allowed and data['ha'] != 'server_default'):
                 params['ha'] = (data['ha'] == 'enabled')
             router = api.neutron.router_create(request, **params)
-            message = _('Router %s was successfully created.') % data['name']
-            messages.success(request, message)
-            return router
         except Exception as exc:
             if exc.status_code == 409:
                 msg = _('Quota exceeded for resource router.')
@@ -111,6 +105,39 @@ class CreateForm(forms.SelfHandlingForm):
             redirect = reverse(self.failure_url)
             exceptions.handle(request, msg, redirect=redirect)
             return False
+
+        # workaround for neutron bug #1535707
+        try:
+            if ('external_network' in data and
+                    data['external_network']):
+                api.neutron.router_add_gateway(request,
+                                               router['id'],
+                                               data['external_network'])
+            message = _('Router %s was successfully created.') % data['name']
+            messages.success(request, message)
+            return router
+        except Exception:
+            try:
+                api.neutron.router_delete(request, router['id'])
+                message = _('Router %s was created but connecting to'
+                            ' an external network failed. The created'
+                            ' router has been deleted, as the overall'
+                            ' operation failed.') % data['name']
+                LOG.info(message)
+                redirect = reverse(self.failure_url)
+                exceptions.handle(request, message, redirect=redirect)
+                return False
+            except Exception:
+                message = _('Router %(name)s was created but connecting to'
+                            ' an external network failed. Attempts to'
+                            ' delete the new router also failed.'
+                            ' Router %(name)s still exists but is not connect'
+                            ' to the desired external network.') % {
+                    'name': data['name']}
+                LOG.info(message)
+                redirect = reverse(self.failure_url)
+                exceptions.handle(request, message, redirect=redirect)
+                return False
 
 
 class UpdateForm(forms.SelfHandlingForm):
