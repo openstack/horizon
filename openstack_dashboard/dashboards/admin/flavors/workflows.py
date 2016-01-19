@@ -76,9 +76,9 @@ class CreateFlavorInfoAction(workflows.Action):
             msg = _('Unable to get flavor list')
             exceptions.check_message(["Connection", "refused"], msg)
             raise
-        if flavors is not None:
+        if flavors is not None and name is not None:
             for flavor in flavors:
-                if flavor.name == name:
+                if flavor.name.lower() == name.lower():
                     raise forms.ValidationError(
                         _('The name "%s" is already used by another flavor.')
                         % name
@@ -246,9 +246,10 @@ class UpdateFlavorInfoAction(CreateFlavorInfoAction):
             exceptions.check_message(["Connection", "refused"], msg)
             raise
         # Check if there is no flavor with the same name
-        if flavors is not None:
+        if flavors is not None and name is not None:
             for flavor in flavors:
-                if flavor.name == name and flavor.id != flavor_id:
+                if (flavor.name.lower() == name.lower() and
+                        flavor.id != flavor_id):
                     raise forms.ValidationError(
                         _('The name "%s" is already used by another '
                           'flavor.') % name)
