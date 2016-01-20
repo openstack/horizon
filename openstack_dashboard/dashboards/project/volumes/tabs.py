@@ -14,7 +14,11 @@
 
 from django.utils.translation import ugettext_lazy as _
 
+from horizon import exceptions
 from horizon import tabs
+
+from openstack_dashboard.api import cinder
+from openstack_dashboard.dashboards.project.snapshots import tables
 
 
 class OverviewTab(tabs.Tab):
@@ -26,6 +30,31 @@ class OverviewTab(tabs.Tab):
         return {"volume": self.tab_group.kwargs['volume']}
 
 
-class VolumeDetailTabs(tabs.TabGroup):
+class SnapshotTab(tabs.TableTab):
+    table_classes = (tables.VolumeDetailsSnapshotsTable,)
+    name = _("Snapshots")
+    slug = "snapshots_tab"
+    template_name = "horizon/common/_detail_table.html"
+    preload = False
+
+    def get_volume_snapshots_data(self):
+        volume_id = self.tab_group.kwargs['volume_id']
+        try:
+            snapshots = cinder.volume_snapshot_list(
+                self.request, search_opts={'volume_id': volume_id})
+            volume = cinder.volume_get(self.request, volume_id)
+        except Exception:
+            snapshots = []
+            exceptions.handle(self.request,
+                              _("Unable to retrieve volume snapshots for "
+                                "volume %s.") % volume_id)
+
+        for snapshot in snapshots:
+            snapshot._volume = volume
+
+        return snapshots
+
+
+class VolumeDetailTabs(tabs.DetailTabsGroup):
     slug = "volume_details"
-    tabs = (OverviewTab,)
+    tabs = (OverviewTab, SnapshotTab)

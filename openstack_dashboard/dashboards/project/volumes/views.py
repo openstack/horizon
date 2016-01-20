@@ -140,7 +140,7 @@ class VolumesView(tables.PagedTableMixin, VolumeTableMixIn,
         return volumes
 
 
-class DetailView(tabs.TabView):
+class DetailView(tabs.TabbedTableView):
     tab_group_class = project_tabs.VolumeDetailTabs
     template_name = 'horizon/common/_detail.html'
     page_title = "{{ volume.name|default:volume.id }}"
