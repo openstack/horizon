@@ -30,19 +30,25 @@
     .controller('imagesTableController', ImagesTableController);
 
   ImagesTableController.$inject = [
+    '$q',
     '$scope',
     'horizon.app.core.images.batch-actions.service',
     'horizon.app.core.images.row-actions.service',
     'horizon.app.core.images.events',
-    'horizon.app.core.openstack-service-api.glance'
+    'horizon.app.core.openstack-service-api.glance',
+    'horizon.app.core.openstack-service-api.userSession',
+    'imageVisibilityFilter'
   ];
 
   function ImagesTableController(
+    $q,
     $scope,
     batchActions,
     rowActions,
     events,
-    glance
+    glance,
+    userSession,
+    imageVisibilityFilter
   ) {
     var ctrl = this;
 
@@ -66,11 +72,21 @@
     ////////////////////////////////
 
     function init() {
-      glance.getImages().success(onGetImages);
+      $q.all(
+        {
+          images: glance.getImages(),
+          session: userSession.get()
+        }
+      ).then(onInitialized);
     }
 
-    function onGetImages(response) {
-      ctrl.imagesSrc = response.items;
+    function onInitialized(d) {
+      ctrl.imagesSrc.length = 0;
+      angular.forEach(d.images.data.items, function itemFilter (image) {
+        //This sets up data expected by the table for display or sorting.
+        image.filtered_visibility = imageVisibilityFilter(image, d.session.project_id);
+        ctrl.imagesSrc.push(image);
+      });
     }
 
     function onDeleteSuccess(e, removedImageIds) {

@@ -39,7 +39,7 @@
       <th class="rsp-p1" st-sort="name" st-sort-default="name" translate>Image Name</th>
       <th class="rsp-p1" st-sort="type" translate>Type</th>
       <th class="rsp-p1" st-sort="status" translate>Status</th>
-      <th class="rsp-p2" st-sort="is_public" translate>Public</th>
+      <th class="rsp-p2" st-sort="filtered_visibility" translate>Visibility</th>
       <th class="rsp-p2" st-sort="protected" translate>Protected</th>
       <th class="rsp-p2" st-sort="disk_format" translate>Format</th>
       <th class="rsp-p2" st-sort="size" translate>Size</th>
@@ -71,7 +71,7 @@
       <td class="rsp-p1">{$ image.name $}</td>
       <td class="rsp-p1">{$ image | imageType $}</td>
       <td class="rsp-p1">{$ image.status | imageStatus $}</td>
-      <td class="rsp-p2">{$ image.is_public | yesno $}</td>
+      <td class="rsp-p2">{$ image.filtered_visibility $}</td>
       <td class="rsp-p2">{$ image.protected | yesno $}</td>
       <td class="rsp-p2">{$ image.disk_format | noValue | uppercase $}</td>
       <td class="rsp-p2">{$ image.size | bytes $}</td>
@@ -102,8 +102,8 @@
         <div class="row">
           <span class="rsp-alt-p2">
             <dl class="col-sm-2">
-              <dt translate>Public</dt>
-              <dd>{$ image.is_public | yesno $}</dd>
+              <dt translate>Visibility</dt>
+              <dd>{$ image.filtered_visibility $}</dd>
             </dl>
             <dl class="col-sm-2">
               <dt translate>Protected</dt>
