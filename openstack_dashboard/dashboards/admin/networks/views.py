@@ -106,7 +106,7 @@ class DetailView(tables.MultiTableView):
                      ports_tables.PortsTable,
                      agents_tables.DHCPAgentsTable)
     template_name = 'project/networks/detail.html'
-    page_title = _("Network Details: {{ network.name }}")
+    page_title = '{{ network.name | default:network.id }}'
 
     def get_subnets_data(self):
         try:
