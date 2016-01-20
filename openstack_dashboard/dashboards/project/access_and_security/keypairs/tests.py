@@ -120,7 +120,7 @@ class KeyPairViewTests(test.TestCase):
         # Note(Itxaka): With breadcrumbs, the title is in a list as active
         self.assertContains(res, '<li class="active">Key Pair Details</li>',
                             1, 200)
-        self.assertContains(res, "<dd>%s</dd>" % keypair.name, 2, 200)
+        self.assertContains(res, "<dd>%s</dd>" % keypair.name, 1, 200)
 
     @test.create_stubs({api.nova: ("keypair_create", "keypair_delete")})
     def test_regenerate_keypair_get(self):
