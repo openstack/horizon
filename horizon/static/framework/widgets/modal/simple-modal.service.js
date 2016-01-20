@@ -44,7 +44,7 @@
    *      cancel: 'No'
    *    };
    *
-   *    simpleModalService(options).result.then(function() {
+   *    simpleModalService.modal(options).result.then(function() {
    *      // user clicked on submit button
    *      // do something useful here
    *    });
