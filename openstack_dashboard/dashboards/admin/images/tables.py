@@ -88,6 +88,7 @@ class AdminImageFilterAction(tables.FilterAction):
 class AdminImagesTable(project_tables.ImagesTable):
     name = tables.Column("name",
                          link="horizon:admin:images:detail",
+                         truncate=40,
                          verbose_name=_("Image Name"))
     tenant = tables.Column(lambda obj: getattr(obj, 'tenant_name', obj.owner),
                            verbose_name=_("Project"))
