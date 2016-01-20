@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2016-01-10 06:22+0000\n"
+"POT-Creation-Date: 2016-01-20 06:32+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -908,6 +908,8 @@ msgid "Public"
 msgstr ""
 
 #: dashboards/admin/static/dashboard/admin/flavors/table/flavors-table.html:30
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/launch-instance-workflow.service.js:84
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/metadata/metadata.html:2
 msgid "Metadata"
 msgstr ""
 
@@ -940,36 +942,36 @@ msgstr ""
 msgid "Project ID"
 msgstr ""
 
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/launch-instance-model.service.js:253
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/launch-instance-model.service.js:256
 #, python-format
 msgid "%s instance launched."
 msgid_plural "%s instances launched."
 msgstr[0] ""
 msgstr[1] ""
 
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/launch-instance-model.service.js:389
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/launch-instance-model.service.js:392
 #: dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:72
 #: static/app/core/images/filters/image-type.filter.js:41
 msgid "Image"
 msgstr ""
 
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/launch-instance-model.service.js:400
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/launch-instance-model.service.js:403
 #: dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:73
 msgid "Instance Snapshot"
 msgstr ""
 
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/launch-instance-model.service.js:408
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/launch-instance-model.service.js:411
 #: dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:74
 msgid "Volume"
 msgstr ""
 
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/launch-instance-model.service.js:412
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/launch-instance-model.service.js:415
 #: dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:75
 msgid "Volume Snapshot"
 msgstr ""
 
 #: dashboards/project/static/dashboard/project/workflow/launch-instance/launch-instance-workflow.service.js:30
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/launch-instance-workflow.service.js:86
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/launch-instance-workflow.service.js:92
 #: dashboards/project/static/dashboard/project/workflow/launch-instance/keypair/create-keypair.html:2
 #: dashboards/project/static/dashboard/project/workflow/launch-instance/keypair/import-keypair.html:2
 #: dashboards/project/static/dashboard/project/workflow/launch-instance/keypair/new-keypair.html:2
@@ -1346,6 +1348,32 @@ msgstr ""
 
 #: dashboards/project/static/dashboard/project/workflow/launch-instance/keypair/new-keypair.html:29
 msgid "OK"
+msgstr ""
+
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/metadata/metadata.help.html:2
+msgid "Metadata Help"
+msgstr ""
+
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/metadata/metadata.help.html:3
+msgid ""
+"You can add arbitrary metadata to your instance so that you can more "
+"easily identify it among other running instances. Metadata is a "
+"collection of key-value pairs associated with an instance. The maximum "
+"length for each metadata key and value is 255 characters."
+msgstr ""
+
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/metadata/metadata.help.html:7
+msgid ""
+"The maximum number of key-value pairs that can be supplied per instance "
+"is determined by the compute provider."
+msgstr ""
+
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/metadata/metadata.help.html:10
+msgid "This limit is currently set to {$ model.novaLimits.maxServerMeta $}."
+msgstr ""
+
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/metadata/metadata.help.html:13
+msgid "This limit is currently not set."
 msgstr ""
 
 #: dashboards/project/static/dashboard/project/workflow/launch-instance/network/network.controller.js:39

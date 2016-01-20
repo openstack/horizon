@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2016-01-09 00:51+0000\n"
+"POT-Creation-Date: 2016-01-20 01:04+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -5672,13 +5672,6 @@ msgstr "Počet příchozích paketů pro rozhraní VM"
 msgid "Number of instances to launch."
 msgstr "Počet instancí ke spuštění."
 
-msgid ""
-"Number of items to show per page (applies to the pages that have API "
-"supported pagination)"
-msgstr ""
-"Počet položek zobrazených na stránce (týká se stránek, které podporují "
-"stránkování pomocí API)"
-
 msgid "Number of log lines to be shown per instance"
 msgstr "Počet řádků záznamu zobrazených na instanci"
 
@@ -7430,16 +7423,6 @@ msgstr "Udává, že svazek může být použit ke spuštění instance"
 msgid "Specify \"Network Address\""
 msgstr "Zadejte \"Síťovou adresu\""
 
-msgid ""
-"Specify \"Network Address\", \"Address pool\" or clear \"Create Subnet\" "
-"checkbox."
-msgstr ""
-"Zadejte \"Síťová adresa\", \"Zásoba adres\" nebo odškrtněte políčko "
-"\"Vytvořit podsíť\"."
-
-msgid "Specify IP address of gateway or check \"Disable Gateway\"."
-msgstr "Zadejte IP adresu brány nebo zaškrtněte \"Zakázat bránu\"."
-
 msgid "Specify VIP"
 msgstr "Zadejte VIP"
 
@@ -7501,9 +7484,6 @@ msgstr "Typ zdroje zásobníku"
 
 msgid "Stack Resources"
 msgstr "Zdroje zásobníku"
-
-msgid "Stack Template"
-msgstr "Šablona zásobníku"
 
 msgid "Stack creation started."
 msgstr "Zahájeno vytváření zásobníku."

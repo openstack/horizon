@@ -15,7 +15,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2016-01-09 00:51+0000\n"
+"POT-Creation-Date: 2016-01-20 01:04+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -5133,13 +5133,6 @@ msgstr "VM adaptörü için networkten gelen paket sayısı"
 msgid "Number of instances to launch."
 msgstr "Başlatılacak sunucu sayısı."
 
-msgid ""
-"Number of items to show per page (applies to the pages that have API "
-"supported pagination)"
-msgstr ""
-"Sayfa başına gösterilecek öğe sayısı (API destekli sayfalamaya sahip "
-"sayfalara uygulanır)"
-
 msgid "Number of log lines to be shown per instance"
 msgstr "Sunucu başına gösterilecek kayıt satırları sayısı"
 
@@ -6776,9 +6769,6 @@ msgstr "Mantıksal sürücünün bir sunucu açmak için kullanılabileceğini b
 msgid "Specify \"Network Address\""
 msgstr "\"Ağ Adresi\"ni Belirtin"
 
-msgid "Specify IP address of gateway or check \"Disable Gateway\"."
-msgstr "Geçit IP adresini belirtin ya da \"Geçidi Kapat\" işaretleyin."
-
 msgid "Specify VIP"
 msgstr "VIP Belirtin"
 
@@ -6839,9 +6829,6 @@ msgstr "Yığın Kaynak Türü"
 
 msgid "Stack Resources"
 msgstr "Yığın Kaynakları"
-
-msgid "Stack Template"
-msgstr "Yığın Şablonu"
 
 msgid "Stack creation started."
 msgstr "Yığın oluşturma başladı."

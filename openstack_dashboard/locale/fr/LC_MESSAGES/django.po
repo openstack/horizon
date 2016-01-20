@@ -34,7 +34,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2016-01-09 00:51+0000\n"
+"POT-Creation-Date: 2016-01-20 01:04+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -5451,13 +5451,6 @@ msgstr "Nombre de paquets entrant pour une interface de machine virtuelle"
 msgid "Number of instances to launch."
 msgstr "Nombre d'instances de l'image à lancer."
 
-msgid ""
-"Number of items to show per page (applies to the pages that have API "
-"supported pagination)"
-msgstr ""
-"Nombre d'éléments à afficher sur chaque page (s'applique si la pagination "
-"est supportée par l'API)"
-
 msgid "Number of log lines to be shown per instance"
 msgstr "Le nombre de lignes de journalisation affichées par instance"
 
@@ -7184,18 +7177,6 @@ msgstr "Indique que le volume peut être utilisé pour démarrer une instance"
 msgid "Specify \"Network Address\""
 msgstr "Spécifier \"Adresse réseau\""
 
-msgid ""
-"Specify \"Network Address\", \"Address pool\" or clear \"Create Subnet\" "
-"checkbox."
-msgstr ""
-"Spécifier une \"Adresse Réseau\", un \"Pool d'Adresses\" ou décocher la case "
-"\"Créer un Sous-Réseau\". "
-
-msgid "Specify IP address of gateway or check \"Disable Gateway\"."
-msgstr ""
-"Spécifier l'adresse IP de la passerelle ou cocher \"Désactiver la passerelle"
-"\"."
-
 msgid "Specify VIP"
 msgstr "Préciser la VIP"
 
@@ -7258,9 +7239,6 @@ msgstr "Type de ressource de stack"
 
 msgid "Stack Resources"
 msgstr "Ressources de la Stack"
-
-msgid "Stack Template"
-msgstr "Modèle de Stack"
 
 msgid "Stack creation started."
 msgstr "Création de Stack commencée"

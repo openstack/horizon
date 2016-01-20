@@ -17,7 +17,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2016-01-09 00:51+0000\n"
+"POT-Creation-Date: 2016-01-20 01:04+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -5068,11 +5068,6 @@ msgstr "虛擬機器網路卡在網路上的流入封包數量"
 msgid "Number of instances to launch."
 msgstr "要發動的雲實例數量。"
 
-msgid ""
-"Number of items to show per page (applies to the pages that have API "
-"supported pagination)"
-msgstr "每一頁要顯示的項目數（套用到有支援分頁功能 API 的頁面）"
-
 msgid "Number of log lines to be shown per instance"
 msgstr "要為每個雲實例顯示多少行數的記錄"
 
@@ -6707,14 +6702,6 @@ msgstr "指定可用於發動雲實例的雲硬碟。"
 msgid "Specify \"Network Address\""
 msgstr "指定「網路位址」"
 
-msgid ""
-"Specify \"Network Address\", \"Address pool\" or clear \"Create Subnet\" "
-"checkbox."
-msgstr "指定「網路位址」、「位址倉庫」或清空「新增子網路」空格。"
-
-msgid "Specify IP address of gateway or check \"Disable Gateway\"."
-msgstr "指定閘道的 IP 位址或勾選「關閉閘道」。"
-
 msgid "Specify VIP"
 msgstr "指定虛擬 IP"
 
@@ -6775,9 +6762,6 @@ msgstr "機櫃資源類型"
 
 msgid "Stack Resources"
 msgstr "機櫃資源"
-
-msgid "Stack Template"
-msgstr "機櫃範本"
 
 msgid "Stack creation started."
 msgstr "已開始建立機櫃。"

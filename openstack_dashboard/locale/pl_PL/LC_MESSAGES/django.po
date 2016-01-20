@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2016-01-09 00:51+0000\n"
+"POT-Creation-Date: 2016-01-20 01:04+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -5376,13 +5376,6 @@ msgstr "Ilość przychodzących pakietów na interfejsie VM"
 msgid "Number of instances to launch."
 msgstr "Ilość instancji do uruchomienia."
 
-msgid ""
-"Number of items to show per page (applies to the pages that have API "
-"supported pagination)"
-msgstr ""
-"Liczba pozycji wyświetlonych na stronę (dotyczy stron, których API wspiera "
-"paginację)"
-
 msgid "Number of log lines to be shown per instance"
 msgstr "Ilość linii logów wyświetlana per instancja"
 
@@ -7105,16 +7098,6 @@ msgstr ""
 msgid "Specify \"Network Address\""
 msgstr "Nalezy podać „adres sieci”"
 
-msgid ""
-"Specify \"Network Address\", \"Address pool\" or clear \"Create Subnet\" "
-"checkbox."
-msgstr ""
-"Należy podać „adres sieci”, „pulę adresową” lub wyczyścić pole wyboru "
-"„Utwórz podsieć”."
-
-msgid "Specify IP address of gateway or check \"Disable Gateway\"."
-msgstr "Należy podać adres IP bramy lub zaznaczyć „Wyłącz bramę”."
-
 msgid "Specify VIP"
 msgstr "Podaj VIP"
 
@@ -7175,9 +7158,6 @@ msgstr "Typ zasobu stosu"
 
 msgid "Stack Resources"
 msgstr "Zasoby stosu"
-
-msgid "Stack Template"
-msgstr "Szablon stosu"
 
 msgid "Stack creation started."
 msgstr "Tworzenie stosu."

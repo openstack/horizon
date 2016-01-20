@@ -10,16 +10,17 @@
 # Daisy <guoyingc@cn.ibm.com>, 2015. #zanata
 # Ilya Alekseyev <ilyaalekseyev@acm.org>, 2015. #zanata
 # OpenStack Infra <zanata@openstack.org>, 2015. #zanata
+# Filatov Sergey <filatecs@gmail.com>, 2016. #zanata
 msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2016-01-09 00:51+0000\n"
+"POT-Creation-Date: 2016-01-20 01:04+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2015-12-30 06:53+0000\n"
-"Last-Translator: Antonio Kless <antoniok.spb@gmail.com>\n"
+"PO-Revision-Date: 2016-01-16 07:02+0000\n"
+"Last-Translator: Filatov Sergey <filatecs@gmail.com>\n"
 "Language: ru\n"
 "Plural-Forms: nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
 "%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || (n"
@@ -353,6 +354,15 @@ msgstr "Дата должна иметь формат YYYY-mm-dd."
 
 msgid "The string may only contain ASCII printable characters."
 msgstr "Строка может содержать только печатные ASCII символы."
+
+#, python-format
+msgid ""
+"The value of %(resource)s is %(name)s inside the template. When launching a "
+"stack from this interface, the value must start with \"http://\" or "
+"\"https://\""
+msgstr ""
+"Значение %(resource)s является %(name)s в шаблоне. Для формирования стека из "
+"этого интерфейса значение должно начинаться с \"http://\" или \"https://\""
 
 msgid "This Period's GB-Hours:"
 msgstr "ГБ-часов за период:"
