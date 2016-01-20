@@ -39,13 +39,17 @@ Horizon Plugin Registry
 +-----------------------+-----------------------------------------------------+--------------------------------------------+
 |Neutron LBaaS Dashboard|https://github.com/openstack/neutron-lbaas-dashboard |http://launchpad.net/neutron                |
 +-----------------------+-----------------------------------------------------+--------------------------------------------+
-|Tacker UI              |https://github.com/openstack/tacker-horizon          |https://launchpad.net/tacker                |
+|Sahara Dashboard       |https://github.com/openstack/sahara-dashboard        |https://launchpad.net/sahara                |
 +-----------------------+-----------------------------------------------------+--------------------------------------------+
 |Senlin Dashboard       |https://github.com/openstack/senlin-dashboard        |http://launchpad.net/senlin-dashboard       |
 +-----------------------+-----------------------------------------------------+--------------------------------------------+
 |Solum Dashboard        |https://github.com/openstack/solum-dashboard         |https://launchpad.net/solum                 |
 +-----------------------+-----------------------------------------------------+--------------------------------------------+
 |Sticks Dashboard       |https://github.com/openstack/sticks-dashboard        |https://wiki.openstack.org/wiki/Sticks      |
++-----------------------+-----------------------------------------------------+--------------------------------------------+
+|Tacker UI              |https://github.com/openstack/tacker-horizon          |https://launchpad.net/tacker                |
++-----------------------+-----------------------------------------------------+--------------------------------------------+
+|Trove Dashboard        |https://github.com/openstack/trove-dashboard         |https://launchpad.net/trove                 |
 +-----------------------+-----------------------------------------------------+--------------------------------------------+
 |Tuskar UI              |http://github.com/openstack/tuskar-ui                |https://launchpad.net/tuskar-ui             |
 +-----------------------+-----------------------------------------------------+--------------------------------------------+
