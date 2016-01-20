@@ -1,4 +1,5 @@
 <div ng-controller="LaunchInstanceSourceController as ctrl">
+  <div ng-show="model.allowedBootSources.length > 0">
   <p class="step-description" translate>
     Instance source is the template used to create an instance. You can use a snapshot of an existing instance, an image, or a volume (if enabled).
     You can also choose to use persistent storage by creating a new volume.
@@ -9,7 +10,7 @@
       <div class="form-group" ng-class="{ 'has-error': launchInstanceSourceForm.boot-source-type.$invalid }">
         <label for="boot-source-type" class="control-label" translate>Select Boot Source</label>
         <select name="boot-source-type" class="form-control" id="boot-source-type"
-                ng-options="src.label for src in ctrl.bootSourcesOptions track by src.type"
+                ng-options="src.label for src in model.allowedBootSources| orderBy:'label' track by src.type"
                 ng-change="ctrl.updateBootSourceSelection(model.newInstanceSpec.source_type.type)"
                 ng-model="model.newInstanceSpec.source_type">
         </select>
@@ -284,5 +285,10 @@
       </hz-magic-search-context>
     </available>
   </transfer-table>
-
+  </div>
+  <div ng-if="model.allowedBootSources.length === 0">
+    <div translate class="subtitle text-danger">There are no allowed boot sources.
+      If you think this is wrong please contact your administrator.
+    </div>
+  </div>
 </div>

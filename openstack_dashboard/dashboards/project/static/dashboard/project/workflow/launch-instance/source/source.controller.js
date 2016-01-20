@@ -71,25 +71,22 @@
     /*
      * Boot Sources
      */
-    ctrl.bootSourcesOptions = [
-      { type: bootSourceTypes.IMAGE, label: gettext('Image') },
-      { type: bootSourceTypes.INSTANCE_SNAPSHOT, label: gettext('Instance Snapshot') },
-      { type: bootSourceTypes.VOLUME, label: gettext('Volume') },
-      { type: bootSourceTypes.VOLUME_SNAPSHOT, label: gettext('Volume Snapshot') }
-    ];
-
     ctrl.updateBootSourceSelection = updateBootSourceSelection;
+    var selection = ctrl.selection = $scope.model.newInstanceSpec.source;
 
     /*
      * Transfer table
      */
     ctrl.tableHeadCells = [];
     ctrl.tableBodyCells = [];
-    ctrl.tableData = {};
+    ctrl.tableData = {
+      available: [],
+      allocated: selection,
+      displayedAvailable: [],
+      displayedAllocated: []
+    };
     ctrl.helpText = {};
     ctrl.sourceDetails = basePath + 'source/source-details.html';
-
-    var selection = ctrl.selection = $scope.model.newInstanceSpec.source;
 
     var bootSources = {
       image: {
@@ -373,8 +370,25 @@
       }
     );
 
-    // Explicitly remove watchers on desruction of this controller
+    // When the allowedboot list changes, change the source_type
+    // and update the table for the new source selection. Only done
+    // with the first item for the list
+    var allowedBootSourcesWatcher = $scope.$watchCollection(
+      function getAllowedBootSources() {
+        return $scope.model.allowedBootSources;
+      },
+      function changeBootSource(newValue) {
+        if (angular.isArray(newValue) && newValue.length > 0 &&
+          !$scope.model.newInstanceSpec.source_type) {
+          updateBootSourceSelection(newValue[0].type);
+          $scope.model.newInstanceSpec.source_type = newValue[0];
+        }
+      }
+    );
+
+    // Explicitly remove watchers on destruction of this controller
     $scope.$on('$destroy', function() {
+      allowedBootSourcesWatcher();
       newSpecWatcher();
       allocatedWatcher();
       bootSourceWatcher();
@@ -382,14 +396,6 @@
       volumeWatcher();
       snapshotWatcher();
     });
-
-    // Initialize
-    changeBootSource(ctrl.bootSourcesOptions[0].type);
-
-    if (!$scope.model.newInstanceSpec.source_type) {
-      $scope.model.newInstanceSpec.source_type = ctrl.bootSourcesOptions[0];
-      ctrl.currentBootSource = ctrl.bootSourcesOptions[0].type;
-    }
 
     ////////////////////
 
@@ -505,8 +511,11 @@
       var pre = findSourceById($scope.model.images, id);
       if (pre) {
         changeBootSource(bootSourceTypes.IMAGE, [pre]);
-        $scope.model.newInstanceSpec.source_type = ctrl.bootSourcesOptions[0];
-        ctrl.currentBootSource = ctrl.bootSourcesOptions[0].type;
+        $scope.model.newInstanceSpec.source_type = {
+          type: bootSourceTypes.IMAGE,
+          label: gettext('Image')
+        };
+        ctrl.currentBootSource = bootSourceTypes.IMAGE;
       }
     }
 
@@ -514,8 +523,11 @@
       var pre = findSourceById($scope.model.volumes, id);
       if (pre) {
         changeBootSource(bootSourceTypes.VOLUME, [pre]);
-        $scope.model.newInstanceSpec.source_type = ctrl.bootSourcesOptions[2];
-        ctrl.currentBootSource = ctrl.bootSourcesOptions[2].type;
+        $scope.model.newInstanceSpec.source_type = {
+          type: bootSourceTypes.VOLUME,
+          label: gettext('Volume')
+        };
+        ctrl.currentBootSource = bootSourceTypes.VOLUME;
       }
     }
 
@@ -523,8 +535,11 @@
       var pre = findSourceById($scope.model.volumeSnapshots, id);
       if (pre) {
         changeBootSource(bootSourceTypes.VOLUME_SNAPSHOT, [pre]);
-        $scope.model.newInstanceSpec.source_type = ctrl.bootSourcesOptions[3];
-        ctrl.currentBootSource = ctrl.bootSourcesOptions[3].type;
+        $scope.model.newInstanceSpec.source_type = {
+          type: bootSourceTypes.VOLUME_SNAPSHOT,
+          label: gettext('Snapshot')
+        };
+        ctrl.currentBootSource = bootSourceTypes.VOLUME_SNAPSHOT;
       }
     }
   }

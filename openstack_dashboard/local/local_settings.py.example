@@ -241,6 +241,10 @@ OPENSTACK_KEYSTONE_BACKEND = {
 #LAUNCH_INSTANCE_DEFAULTS = {
 #    'config_drive': False,
 #    'enable_scheduler_hints': True
+#    'disable_image': False,
+#    'disable_instance_snapshot': False,
+#    'disable_volume': False,
+#    'disable_volume_snapshot': False,
 #}
 
 # The Xen Hypervisor has the ability to set the mount point for volumes
