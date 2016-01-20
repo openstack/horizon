@@ -601,7 +601,7 @@ the right side panel will display an ``Instances Tab`` which has an
 
 If you don't see any instance data, you haven't created any instances yet.  Go to
 dashboard ``Project`` -> ``Images``, select a small image, for example,
-``crioos-0.3.1-x86_64-uec`` , click ``Launch`` and enter an ``Instance Name``,
+``cirros-0.3.1-x86_64-uec`` , click ``Launch`` and enter an ``Instance Name``,
 click the button ``Launch``. It should create an instance if the OpenStack or
 devstack is correctly set up. Once the creation of an instance is successful, go
 to ``My Dashboard`` again to check the data.
