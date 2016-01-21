@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2016-01-09 00:51+0000\n"
+"POT-Creation-Date: 2016-01-20 01:04+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -4640,9 +4640,6 @@ msgstr ""
 msgid "Specify \"Network Address\""
 msgstr "\"Network Address\" নির্দিষ্ট করুন"
 
-msgid "Specify IP address of gateway or check \"Disable Gateway\"."
-msgstr "গেটওয়ের IP ঠিকানা নির্দিষ্ট করুন বা \"Disable Gateway\" যাচাই করুন."
-
 msgid "Specify VIP"
 msgstr "VIP নির্দিষ্ট করুন"
 
@@ -4691,9 +4688,6 @@ msgstr "স্ট্যাক উত্স প্রকার"
 
 msgid "Stack Resources"
 msgstr "স্ট্যাক উত্স"
-
-msgid "Stack Template"
-msgstr "স্ট্যাক টেমপ্লেট"
 
 msgid "Stack creation started."
 msgstr "স্টেক সৃষ্টি তৈরি হয়েছে."

@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2016-01-09 00:51+0000\n"
+"POT-Creation-Date: 2016-01-20 01:04+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -4878,9 +4878,6 @@ msgstr ""
 msgid "Specify \"Network Address\""
 msgstr "नमूद करा\"नेटवर्क पत्ता\""
 
-msgid "Specify IP address of gateway or check \"Disable Gateway\"."
-msgstr "गेटवेचा आयपी पत्ता नमूद करा किंवा \"गेटवे असमर्थ करा\" वर बरोबरची खूण करा."
-
 msgid "Specify VIP"
 msgstr "व्हीआयपी नमूद करा"
 
@@ -4928,9 +4925,6 @@ msgstr "मर्यादित डाटा रचना संसाधन �
 
 msgid "Stack Resources"
 msgstr "मर्यादित डाटा रचना संसाधने"
-
-msgid "Stack Template"
-msgstr "मर्यादित डाटा रचना साचा"
 
 msgid "Stack creation started."
 msgstr "मर्यादित डाटा रचना निर्मिती सुरु."

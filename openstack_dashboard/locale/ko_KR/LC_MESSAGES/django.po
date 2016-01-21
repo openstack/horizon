@@ -16,7 +16,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2016-01-09 00:51+0000\n"
+"POT-Creation-Date: 2016-01-20 01:04+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -5155,13 +5155,6 @@ msgstr "VM 인터페이스로 들어오는 패킷 수"
 msgid "Number of instances to launch."
 msgstr "구동시 인스턴스 수"
 
-msgid ""
-"Number of items to show per page (applies to the pages that have API "
-"supported pagination)"
-msgstr ""
-"페이지 당 보이는 항목 개수 (페이지화를 지원하는 API를 가진 페이지에 적용됩니"
-"다)"
-
 msgid "Number of log lines to be shown per instance"
 msgstr "인스턴스 별 보여지는 로그 라인 수"
 
@@ -6801,17 +6794,6 @@ msgstr "인스턴스를 구동하기 위해 사용 가능한 볼륨을 지정합
 msgid "Specify \"Network Address\""
 msgstr "\"네트워크 주소\"를 지정합니다."
 
-msgid ""
-"Specify \"Network Address\", \"Address pool\" or clear \"Create Subnet\" "
-"checkbox."
-msgstr ""
-"\"네트워크 주소\", \"주소 풀\"을 지정하거나 \"서브넷 생성\" 체크박스를 초기화"
-"합니다."
-
-msgid "Specify IP address of gateway or check \"Disable Gateway\"."
-msgstr ""
-"게이트웨이 IP 주소를 작성하거나 \"개이트웨이 사용안함\"을 체크하십시오."
-
 msgid "Specify VIP"
 msgstr "VIP 지정"
 
@@ -6872,9 +6854,6 @@ msgstr "스택 리소스 타입"
 
 msgid "Stack Resources"
 msgstr "스택 리소스"
-
-msgid "Stack Template"
-msgstr "스택 템플릿"
 
 msgid "Stack creation started."
 msgstr "스택 생성 중입니다."

@@ -1,72 +1,72 @@
 # Translations template for PROJECT.
-# Copyright (C) 2015 ORGANIZATION
+# Copyright (C) 2016 ORGANIZATION
 # This file is distributed under the same license as the PROJECT project.
-# FIRST AUTHOR <EMAIL@ADDRESS>, 2015.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2016.
 #
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-12-03 06:18+0000\n"
+"POT-Creation-Date: 2016-01-20 06:32+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Generated-By: Babel 2.1.1\n"
+"Generated-By: Babel 2.2.0\n"
 
-#: static/framework/util/filters/filters.js:41
+#: static/framework/util/filters/filters.js:42
 msgid "Yes"
 msgstr ""
 
-#: static/framework/util/filters/filters.js:41
+#: static/framework/util/filters/filters.js:42
 msgid "No"
 msgstr ""
 
-#: static/framework/util/filters/filters.js:59
-#: static/framework/util/filters/filters.js:171
+#: static/framework/util/filters/filters.js:60
+#: static/framework/util/filters/filters.js:172
 #, python-format
 msgid "%s TB"
 msgstr ""
 
-#: static/framework/util/filters/filters.js:61
+#: static/framework/util/filters/filters.js:62
 msgid "0 GB"
 msgstr ""
 
-#: static/framework/util/filters/filters.js:63
-#: static/framework/util/filters/filters.js:82
-#: static/framework/util/filters/filters.js:173
+#: static/framework/util/filters/filters.js:64
+#: static/framework/util/filters/filters.js:83
+#: static/framework/util/filters/filters.js:174
 #, python-format
 msgid "%s GB"
 msgstr ""
 
-#: static/framework/util/filters/filters.js:84
+#: static/framework/util/filters/filters.js:85
 msgid "0 MB"
 msgstr ""
 
-#: static/framework/util/filters/filters.js:86
-#: static/framework/util/filters/filters.js:175
+#: static/framework/util/filters/filters.js:87
+#: static/framework/util/filters/filters.js:176
 #, python-format
 msgid "%s MB"
 msgstr ""
 
-#: static/framework/util/filters/filters.js:133
+#: static/framework/util/filters/filters.js:134
 msgid "-"
 msgstr ""
 
-#: static/framework/util/filters/filters.js:177
+#: static/framework/util/filters/filters.js:178
 #, python-format
 msgid "%s KB"
 msgstr ""
 
-#: static/framework/util/filters/filters.js:179
+#: static/framework/util/filters/filters.js:180
 #, python-format
 msgid "%s bytes"
 msgstr ""
 
-#: static/framework/util/filters/filters.js:203
+#: static/framework/util/filters/filters.js:204
 #: static/horizon/js/horizon.tables.js:405
 #, python-format
 msgid "Displaying %s item"
@@ -74,13 +74,9 @@ msgid_plural "Displaying %s items"
 msgstr[0] ""
 msgstr[1] ""
 
-#: static/framework/util/filters/filters.js:207
+#: static/framework/util/filters/filters.js:208
 #, python-format
 msgid "Displaying %(count)s of %(total)s items"
-msgstr ""
-
-#: static/framework/widgets/action-list/action-delete.mock.html:2
-msgid "Delete Image"
 msgstr ""
 
 #: static/framework/widgets/action-list/action-list.module.js:49
@@ -259,7 +255,7 @@ msgstr ""
 
 #: static/framework/widgets/metadata/tree/tree.module.js:56
 #: static/framework/widgets/table/table.module.js:50
-#: static/horizon/js/horizon.forms.js:245
+#: static/horizon/js/horizon.forms.js:242
 msgid "Filter"
 msgstr ""
 
@@ -293,7 +289,7 @@ msgid "selected \"%s\""
 msgstr ""
 
 #: static/framework/widgets/modal/delete-modal.service.spec.js:22
-#: static/horizon/js/horizon.networktopology.js:964
+#: static/horizon/js/horizon.networktopology.js:963
 msgid "Delete"
 msgstr ""
 
@@ -390,7 +386,7 @@ msgid "No data available."
 msgstr ""
 
 #: static/horizon/js/horizon.d3linechart.js:411
-#: static/horizon/js/horizon.modals.js:342
+#: static/horizon/js/horizon.modals.js:348
 #: static/horizon/js/horizon.tables_inline_edit.js:92
 #: static/horizon/js/horizon.tables_inline_edit.js:155
 msgid "An error occurred. Please try again later."
@@ -401,7 +397,7 @@ msgstr ""
 msgid "There was a problem communicating with the server, please try again."
 msgstr ""
 
-#: static/horizon/js/horizon.forms.js:107
+#: static/horizon/js/horizon.forms.js:98
 msgid "pool default"
 msgstr ""
 
@@ -442,87 +438,87 @@ msgstr ""
 msgid "Error: "
 msgstr ""
 
-#: static/horizon/js/horizon.modals.js:232
+#: static/horizon/js/horizon.modals.js:238
 #: static/horizon/js/horizon.tables.js:252
 msgid "Working"
 msgstr ""
 
-#: static/horizon/js/horizon.modals.js:269
+#: static/horizon/js/horizon.modals.js:275
 msgid "There was an error submitting the form. Please try again."
 msgstr ""
 
-#: static/horizon/js/horizon.modals.js:323
-#: static/horizon/js/horizon.modals.js:406 static/horizon/js/horizon.tabs.js:21
+#: static/horizon/js/horizon.modals.js:329
+#: static/horizon/js/horizon.modals.js:412 static/horizon/js/horizon.tabs.js:21
 msgid "Loading"
 msgstr ""
 
-#: static/horizon/js/horizon.networktopology.js:929
-#: static/horizon/js/horizon.networktopology.js:935
-#: static/horizon/js/horizon.networktopology.js:941
+#: static/horizon/js/horizon.networktopology.js:928
+#: static/horizon/js/horizon.networktopology.js:934
+#: static/horizon/js/horizon.networktopology.js:940
 msgid "None"
 msgstr ""
 
-#: static/horizon/js/horizon.networktopology.js:967
+#: static/horizon/js/horizon.networktopology.js:966
 msgid "STATUS"
 msgstr ""
 
-#: static/horizon/js/horizon.networktopology.js:968
+#: static/horizon/js/horizon.networktopology.js:967
 msgid "ID"
 msgstr ""
 
-#: static/horizon/js/horizon.networktopology.js:969
+#: static/horizon/js/horizon.networktopology.js:968
 msgid "Interfaces"
 msgstr ""
 
-#: static/horizon/js/horizon.networktopology.js:970
+#: static/horizon/js/horizon.networktopology.js:969
 msgid "Subnets"
 msgstr ""
 
-#: static/horizon/js/horizon.networktopology.js:971
+#: static/horizon/js/horizon.networktopology.js:970
 msgid "Delete Interface"
 msgstr ""
 
-#: static/horizon/js/horizon.networktopology.js:972
+#: static/horizon/js/horizon.networktopology.js:971
 msgid "Delete Subnet"
 msgstr ""
 
-#: static/horizon/js/horizon.networktopology.js:973
+#: static/horizon/js/horizon.networktopology.js:972
 msgid "Open Console"
 msgstr ""
 
-#: static/horizon/js/horizon.networktopology.js:974
+#: static/horizon/js/horizon.networktopology.js:973
 msgid "View Details"
 msgstr ""
 
-#: static/horizon/js/horizon.networktopology.js:975
+#: static/horizon/js/horizon.networktopology.js:974
 msgid "IP Addresses"
 msgstr ""
 
-#: static/horizon/js/horizon.networktopology.js:979
+#: static/horizon/js/horizon.networktopology.js:978
 msgid "Delete Router"
 msgstr ""
 
-#: static/horizon/js/horizon.networktopology.js:980
+#: static/horizon/js/horizon.networktopology.js:979
 msgid "View Router Details"
 msgstr ""
 
-#: static/horizon/js/horizon.networktopology.js:983
+#: static/horizon/js/horizon.networktopology.js:982
 msgid "Add Interface"
 msgstr ""
 
-#: static/horizon/js/horizon.networktopology.js:989
+#: static/horizon/js/horizon.networktopology.js:988
 msgid "Delete Instance"
 msgstr ""
 
-#: static/horizon/js/horizon.networktopology.js:990
+#: static/horizon/js/horizon.networktopology.js:989
 msgid "View Instance Details"
 msgstr ""
 
-#: static/horizon/js/horizon.networktopology.js:1004
+#: static/horizon/js/horizon.networktopology.js:1003
 msgid "Delete Network"
 msgstr ""
 
-#: static/horizon/js/horizon.networktopology.js:1007
+#: static/horizon/js/horizon.networktopology.js:1006
 msgid "Create Subnet"
 msgstr ""
 

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2016-01-09 00:51+0000\n"
+"POT-Creation-Date: 2016-01-20 01:04+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -4935,11 +4935,6 @@ msgstr ""
 msgid "Specify \"Network Address\""
 msgstr "\"பிணைய முகவரி\" குறிப்பிடவும் "
 
-msgid "Specify IP address of gateway or check \"Disable Gateway\"."
-msgstr ""
-"நுழைவாயில் IP முகவரியை குறிப்பிடவும் அல்லது \" நுழைவாயிலை முடக்கு\" என்பதை "
-"குறிக்கவும்."
-
 msgid "Specify VIP"
 msgstr "VIP-ஐ குறிப்பிடவும்"
 
@@ -4988,9 +4983,6 @@ msgstr "ஸ்டேக் வள வகை"
 
 msgid "Stack Resources"
 msgstr "ஸ்டேக் வளங்கள்"
-
-msgid "Stack Template"
-msgstr "ஸ்டேக் வார்ப்புரு"
 
 msgid "Stack creation started."
 msgstr "ஸ்டேக் உருவாக்கம் தொடங்கியது."
