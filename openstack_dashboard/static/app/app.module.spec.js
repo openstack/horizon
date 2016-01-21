@@ -22,4 +22,41 @@
     });
   });
 
+  describe('$locationProvider', function() {
+    var $locationProvider, $routeProvider;
+
+    beforeEach(function() {
+      module('ngRoute');
+      angular.module('horizon.auth', []);
+      angular.module('locationProviderConfig', [])
+        .config(function(_$locationProvider_, _$routeProvider_) {
+          $routeProvider = _$routeProvider_;
+          spyOn($routeProvider, 'otherwise').and.callThrough();
+
+          $locationProvider = _$locationProvider_;
+          spyOn($locationProvider, 'html5Mode').and.callThrough();
+          spyOn($locationProvider, 'hashPrefix').and.callThrough();
+        });
+
+      module('locationProviderConfig');
+      module('horizon.app');
+
+      inject();
+    });
+
+    it('should set html5 mode', function() {
+      expect($locationProvider.html5Mode).toHaveBeenCalledWith(true);
+    });
+
+    it('should set hashPrefix', function() {
+      expect($locationProvider.hashPrefix).toHaveBeenCalledWith('!');
+    });
+
+    it('should set table and detail path', function() {
+      expect($routeProvider.otherwise.calls.count()).toEqual(1);
+      var otherwiseCallArgs = $routeProvider.otherwise.calls.argsFor(0);
+      expect(otherwiseCallArgs[0].controller).toEqual('RedirectController');
+    });
+  });
+
 })();
