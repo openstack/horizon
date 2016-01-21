@@ -2,13 +2,13 @@
 <button type="button" tabindex="0"
   class="split-button {$ disabled ? 'disabled' : '' $}"
   ng-class="actionClasses"
-  ng-click="disabled || callback(item)">
+  ng-click="disabled || callback(item); $event.stopPropagation()">
   <ng-transclude></ng-transclude>
 </button><!--
 Dropdown caret button
 --><button class="split-caret dropdown-toggle" dropdown-toggle
   ng-class="actionClasses"
-  aria-expanded="false">
+  aria-expanded="false" ng-click="$event.stopPropagation()">
   <span class="fa fa-caret-down"></span>
   <span class="sr-only" translate>Toggle Dropdown</span>
 </button>

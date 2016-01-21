@@ -46,18 +46,25 @@
    */
   function ContainersModel(swiftAPI, $q) {
     var model = {
-      info: {},
-      containers: [],
-      container: null,
-      objects: [],
-      folder: '',
+      info: {},           // swift installation information
+      containers: [],     // all containers for this account
+      container: null,    // current active container
+      objects: [],        // current objects list (active container)
+      folder: '',         // current folder path
       pseudo_folder_hierarchy: [],
       DELIMETER: '/',    // TODO where is this configured in the current panel
 
       initialize: initialize,
       selectContainer: selectContainer,
-      fetchContainerDetail: fetchContainerDetail
+      fullPath: fullPath,
+      fetchContainerDetail: fetchContainerDetail,
+      deleteObject: deleteObject,
+      updateContainer: updateContainer
     };
+
+    // keep a handle on this promise so that controllers can resolve on the
+    // initialisation completing (i.e. containers listing loaded)
+    model.intialiseDeferred = $q.defer();
 
     return model;
 
@@ -70,7 +77,7 @@
      * Send request to get data to initialize the model.
      */
     function initialize() {
-      return $q.all(
+      $q.all([
         swiftAPI.getContainers().then(function onContainers(data) {
           model.containers.length = 0;
           push.apply(model.containers, data.data.items);
@@ -78,7 +85,9 @@
         swiftAPI.getInfo().then(function onInfo(data) {
           model.swift_info = data.info;
         })
-      );
+      ]).then(function resolve() {
+        model.intialiseDeferred.resolve();
+      });
     }
 
     /**
@@ -111,10 +120,43 @@
 
       return swiftAPI.getObjects(name, spec).then(function onObjects(response) {
         push.apply(model.objects, response.data.items);
+        // generate the download URL for each file
+        angular.forEach(model.objects, function setId(object) {
+          object.url = swiftAPI.getObjectURL(name, model.fullPath(object.name));
+        });
         if (folder) {
           push.apply(model.pseudo_folder_hierarchy, folder.split(model.DELIMETER) || [folder]);
         }
       });
+    }
+
+    /**
+     * @ngdoc method
+     * @name ContainersModel.fullPath
+     * @returns string
+     *
+     * @description
+     * Determine the full path name for a given file name, by prepending the
+     * current folder, if any.
+     */
+    function fullPath(name) {
+      if (model.folder) {
+        return model.folder + model.DELIMETER + name;
+      }
+      return name;
+    }
+
+    /**
+     * @ngdoc method
+     * @name ContainersModel.updateContainer
+     * @returns {promise}
+     *
+     * @description
+     * Update the active container using fetchContainerDetail (forced).
+     *
+     */
+    function updateContainer() {
+      return model.fetchContainerDetail(model.container, true);
     }
 
     /**
@@ -131,12 +173,18 @@
     function fetchContainerDetail(container, force) {
       // only fetch if we haven't already
       if (container.is_fetched && !force) {
-        return;
+        var deferred = $q.defer();
+        deferred.resolve();
+        return deferred.promise;
       }
-      swiftAPI.getContainer(container.name).then(
+      return swiftAPI.getContainer(container.name).then(
         function success(response) {
           // copy the additional detail into the container
           angular.extend(container, response.data);
+
+          // copy over the swift-renamed attributes
+          container.bytes = parseInt(container.container_bytes_used, 10);
+          container.count = parseInt(container.container_object_count, 10);
 
           container.is_fetched = true;
 
@@ -147,6 +195,29 @@
           }
         }
       );
+    }
+
+    /**
+     * @ngdoc method
+     * @name ContainersModel.deleteObject
+     * @returns {promise}
+     *
+     * @description
+     * Delete an object in the currently selected container.
+     */
+    function deleteObject(object) {
+      var path = model.fullPath(object.name);
+      if (object.is_subdir) {
+        path += model.DELIMETER;
+      }
+      return swiftAPI.deleteObject(model.container.name, path).then(
+        function success() {
+          for (var i = model.objects.length - 1; i >= 0; i--) {
+            if (model.objects[i].name === object.name) {
+              model.objects.splice(i, 1);
+            }
+          }
+        });
     }
   }
 })();

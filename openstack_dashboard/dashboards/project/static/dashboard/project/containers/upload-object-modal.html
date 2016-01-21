@@ -1,0 +1,53 @@
+<div class="modal-header">
+  <a href="" class="close" ng-click="$dismiss()">
+    <span class="fa fa-times"></span>
+  </a>
+  <div class="h3 modal-title" translate>
+    Upload File To: {$ ctrl.model.container.name $}
+    <span ng-if="ctrl.model.folder">: {$ ctrl.model.folder $}</span>
+  </div>
+</div>
+
+<div ng-form="uploadForm">
+  <div class="modal-body">
+    <div class="row">
+      <div class="col-sm-6">
+        <fieldset>
+          <div class="form-group ">
+            <label class="control-label required" for="id_object_file" translate>File</label>
+            <div>
+              <input id="id_object_file" type="file" name="file" required
+                     ng-model="ctrl.model.view_file" on-file-change="ctrl.changeFile">
+            </div>
+          </div>
+          <div class="form-group required">
+            <label class="control-label required" for="id_name" translate>File Name</label>
+            <span class="help-icon" data-toggle="tooltip" data-placement="top">
+              <span class="fa fa-question-circle"></span>
+            </span>
+            <div>
+              <input class="form-control" type="text" id="id_name" maxlength="255"
+                     ng-model="ctrl.model.name" required>
+            </div>
+          </div>
+        </fieldset>
+      </div>
+
+      <div class="col-sm-6">
+        <p translate>
+          Note: Delimiters ('{$ ctrl.model.DELIMETER $}') are allowed in the
+          file name to place the new file into a folder that will be created
+          when the file is uploaded (to any depth of folders).
+        </p>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="modal-footer">
+    <input class="btn btn-primary pull-right" type="button"
+           ng-disabled="uploadForm.$invalid"
+           value="{$'Upload File'|translate$}" ng-click="$close(ctrl.model)">
+    <a href="" ng-click="$dismiss()" class="btn btn-default secondary close" translate>Cancel</a>
+  </div>
+</div>

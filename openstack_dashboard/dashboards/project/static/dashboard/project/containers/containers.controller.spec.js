@@ -82,7 +82,7 @@
       var ctrl = createController();
       ctrl.selectContainer({name: 'and spam'});
       expect($location.path).toHaveBeenCalledWith('eggs and spam');
-      expect(ctrl.selectedContainer).toEqual('and spam');
+      expect(ctrl.model.container.name).toEqual('and spam');
       expect(fakeModel.fetchContainerDetail).toHaveBeenCalledWith({name: 'and spam'});
     });
 
@@ -150,7 +150,7 @@
       spyOn($location, 'path');
 
       var ctrl = createController();
-      ctrl.selectedContainer = 'one';
+      ctrl.model.container = {name: 'one'};
       createController().deleteContainerAction(fakeModel.containers[1]);
 
       deferred.resolve();
@@ -170,7 +170,7 @@
       spyOn($location, 'path');
 
       var ctrl = createController();
-      ctrl.selectedContainer = 'two';
+      ctrl.model.container = {name: 'two'};
       ctrl.deleteContainerAction(fakeModel.containers[1]);
 
       deferred.resolve();

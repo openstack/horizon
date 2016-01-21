@@ -153,7 +153,11 @@
        */
       function getSplitButton(actionTemplate) {
         var actionElement = angular.element(actionTemplate.template);
-        actionElement.attr('button-type', 'split-button');
+        var type = actionTemplate.type;
+        if (type !== 'link') {
+          type = 'button';
+        }
+        actionElement.attr('button-type', 'split-' + type);
         actionElement.attr('action-classes', actionElement.attr('action-classes'));
         actionElement.attr('callback', actionTemplate.callback);
         return actionElement;
@@ -184,8 +188,8 @@
       function getTemplate(permittedAction, index, permittedActions) {
         var defered = $q.defer();
         var action = permittedAction.context;
-        $http.get(getTemplateUrl(action, permittedActions.length), {cache: $templateCache})
-          .then(onTemplateGet);
+        var url = getTemplateUrl(action, permittedActions.length);
+        $http.get(url, {cache: $templateCache}).then(onTemplateGet);
         return defered.promise;
 
         function onTemplateGet(response) {
@@ -198,6 +202,7 @@
                 .replace('$item$', item);
           defered.resolve({
             template: template,
+            type: action.template.type || 'button',
             callback: callback
           });
         }

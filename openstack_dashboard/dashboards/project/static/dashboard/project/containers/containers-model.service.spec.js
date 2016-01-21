@@ -144,5 +144,45 @@
 
       expect(container.info).toEqual('yes!');
     });
+
+    it('should update containers', function test() {
+      spyOn(service, 'fetchContainerDetail');
+      service.container = {name: 'one'};
+      service.updateContainer();
+      expect(service.fetchContainerDetail).toHaveBeenCalledWith(service.container, true);
+    });
+
+    it('should delete objects', function test() {
+      service.container = {name: 'spam'};
+      service.objects = [{name: 'one'}, {name: 'two'}];
+      var deferred = $q.defer();
+      spyOn(swiftAPI, 'deleteObject').and.returnValue(deferred.promise);
+
+      service.deleteObject(service.objects[0]);
+
+      expect(swiftAPI.deleteObject).toHaveBeenCalledWith('spam', 'one');
+
+      deferred.resolve();
+      $rootScope.$apply();
+
+      expect(service.objects).toEqual([{name: 'two'}]);
+    });
+
+    it('should delete folders', function test() {
+      service.container = {name: 'spam'};
+      service.objects = [{name: 'one', is_subdir: true}, {name: 'two'}];
+      var deferred = $q.defer();
+      spyOn(swiftAPI, 'deleteObject').and.returnValue(deferred.promise);
+
+      service.deleteObject(service.objects[0]);
+
+      // note trailing slash to indicate we're deleting the "folder"
+      expect(swiftAPI.deleteObject).toHaveBeenCalledWith('spam', 'one/');
+
+      deferred.resolve();
+      $rootScope.$apply();
+
+      expect(service.objects).toEqual([{name: 'two'}]);
+    });
   });
 })();

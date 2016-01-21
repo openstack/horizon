@@ -1,8 +1,9 @@
 <!-- Dropdown menu item -->
+<!-- note that we stop all potential handling of the click outside of this tag WITH EXTREME PREJUDICE -->
 <li role="presentation" ng-class="{ disabled: disabled }">
   <a role="menuitem" href="#"
     ng-class="actionClasses"
-    ng-click="disabled || callback(item)">
+    ng-click="disabled || callback(item); $event.stopPropagation(); $event.preventDefault()">
     <ng-transclude></ng-transclude>
   </a>
 </li>

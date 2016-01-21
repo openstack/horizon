@@ -1,0 +1,47 @@
+<div class="modal-header">
+  <a href="" class="close" ng-click="$dismiss()">
+    <span class="fa fa-times"></span>
+  </a>
+  <div class="h3 modal-title" translate>
+    Create Folder In: {$ ctrl.model.container.name $}
+    <span ng-if="ctrl.model.folder">: {$ ctrl.model.folder $}</span>
+  </div>
+</div>
+
+<div ng-form="uploadForm"
+  <div class="modal-body">
+    <div class="row">
+      <div class="col-sm-6">
+        <fieldset>
+          <div class="form-group required">
+            <label class="control-label required" for="id_name" translate>Folder Name</label>
+            <span class="help-icon" data-toggle="tooltip" data-placement="top"
+                  title=".">
+              <span class="fa fa-question-circle"></span>
+            </span>
+            <div>
+              <input class="form-control" id="id_name" maxlength="255" autofocus required
+                     name="name" ng-model="ctrl.model.name" type="text">
+            </div>
+          </div>
+        </fieldset>
+      </div>
+
+      <div class="col-sm-6">
+        <p translate>
+          Note: Delimiters ('{$ ctrl.model.DELIMETER $}') are allowed in the
+          folder name to create deep folders.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal-footer">
+    <input class="btn btn-primary pull-right" type="button"
+           ng-disabled="uploadForm.$invalid || uploadForm.$pristine"
+           value="{$'Create Folder'|translate$}" ng-click="$close(ctrl.model.name)">
+    <a href="" ng-click="$dismiss()" class="btn btn-default secondary close" translate>
+      Cancel
+    </a>
+  </div>
+</div>
