@@ -45,23 +45,6 @@
 // Debt
 @import "debt";
 
-/* new clearfix */
-.clearfix:after {
-  visibility: hidden;
-  display: block;
-  font-size: 0;
-  content: " ";
-  clear: both;
-  height: 0;
-}
-* html .clearfix {
-  zoom: 1;
-} // IE6
-*:first-child+html .clearfix {
-  zoom: 1;
-} // IE7
-
-
 small {
   font-size: 11px;
 }
@@ -160,14 +143,6 @@ a.current_item:hover h4 {
   margin-bottom: 0;
 }
 
-.clear {
-  clear: both;
-  width: 0;
-  height: 0;
-  padding: 0;
-  margin: 0;
-}
-
 .modal-footer {
   input {
     width: auto;
@@ -247,10 +222,6 @@ div .flavor_table {
   text-align: left;
   padding: 7px 12px 7px 7px;
   width: 160px;
-}
-
-.header_rule {
-  margin: 0 0 8px;
 }
 
 .item_detail .detail_section {
@@ -731,10 +702,6 @@ label.log-length {
 a.link-popover { cursor: default; }
 
 a:hover.link-popover { text-decoration: none; }
-
-input::-ms-clear, input::-ms-reveal {
-  display: none;
-}
 
 /**** Form Horizontal Override ****/
 .form-horizontal {
