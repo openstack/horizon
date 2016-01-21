@@ -30,10 +30,10 @@
   function TableController($scope) {
     var ctrl = this;
 
-    /*eslint-disable angular/ng_controller_as */
+    /*eslint-disable angular/controller-as */
     $scope.selected = {};
     $scope.numSelected = 0;
-    /*eslint-enable angular/ng_controller_as */
+    /*eslint-enable angular/controller-as */
 
     ctrl.isSelected = isSelected;
     ctrl.select = select;

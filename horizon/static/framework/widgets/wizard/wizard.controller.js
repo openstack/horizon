@@ -40,7 +40,7 @@
     var viewModel = $scope.viewModel = {};
     var initTask = $q.defer();
 
-    /*eslint-disable angular/ng_controller_as */
+    /*eslint-disable angular/controller-as */
     $scope.initPromise = initTask.promise;
     $scope.currentIndex = -1;
     $scope.workflow = $scope.workflow || {};
@@ -52,7 +52,7 @@
 
     $scope.switchTo = switchTo;
     $scope.showError = showError;
-    /*eslint-enable angular/ng_controller_as */
+    /*eslint-enable angular/controller-as */
 
     viewModel.btnText = extend({}, wizardLabels, $scope.workflow.btnText);
     viewModel.btnIcon = $scope.workflow.btnIcon || {};
@@ -78,10 +78,10 @@
         from: $scope.currentIndex,
         to: index
       });
-      /*eslint-disable angular/ng_controller_as */
+      /*eslint-disable angular/controller-as */
       $scope.currentIndex = index;
       $scope.openHelp = false;
-      /*eslint-enable angular/ng_controller_as*/
+      /*eslint-enable angular/controller-as*/
     }
 
     function showError(errorMessage) {
@@ -97,9 +97,9 @@
 
     function afterSubmit(args) {
       $scope.$broadcast(wizardEvents.AFTER_SUBMIT);
-      /*eslint-disable angular/ng_controller_as */
+      /*eslint-disable angular/controller-as */
       $scope.close(args);
-      /*eslint-enable angular/ng_controller_as */
+      /*eslint-enable angular/controller-as */
     }
 
     function onClickFinishBtn() {
@@ -184,12 +184,12 @@
 
     function switchToFirstReadyStep() {
       forEach(steps, function (step, index) {
-        /*eslint-disable angular/ng_controller_as */
+        /*eslint-disable angular/controller-as */
         if ($scope.currentIndex < 0 && step.ready) {
           $scope.currentIndex = index;
           return;
         }
-        /*eslint-enable angular/ng_controller_as */
+        /*eslint-enable angular/controller-as */
       });
     }
 

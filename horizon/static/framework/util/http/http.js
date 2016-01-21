@@ -17,18 +17,20 @@ limitations under the License.
 (function () {
   'use strict';
 
+  /* eslint-disable angular/no-service-method */
   angular
     .module('horizon.framework.util.http', [])
     .service('horizon.framework.util.http.service', ApiService);
+  /* eslint-enable angular/no-service-method */
 
   ApiService.$inject = ['$http', '$window'];
 
   function ApiService($http, $window) {
 
     var httpCall = function (method, url, data, config) {
-      /* eslint-disable angular/ng_window_service */
+      /* eslint-disable angular/window-service */
       url = $window.WEBROOT + url;
-      /* eslint-enable angular/ng_window_service */
+      /* eslint-enable angular/window-service */
 
       url = url.replace(/\/+/g, '/');
 
@@ -46,7 +48,7 @@ limitations under the License.
     };
 
     this.get = function(url, config) {
-      return httpCall('GET', url, undefined, config);
+      return httpCall('GET', url, null, config);
     };
 
     this.post = function(url, data, config) {

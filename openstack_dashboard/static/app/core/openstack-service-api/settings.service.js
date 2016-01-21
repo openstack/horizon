@@ -132,11 +132,10 @@
         // does not have the requested child object.
         settingAtRequestedPath = pathElements.reduce(
           function (setting, nextPathElement) {
-            return setting ? setting[nextPathElement] : undefined;
+            return setting ? setting[nextPathElement] : undefined;//eslint-disable-line no-undefined
           }, settings);
 
-        if (typeof settingAtRequestedPath === "undefined" &&
-          (typeof defaultSetting !== "undefined")) {
+        if (angular.isUndefined(settingAtRequestedPath) && angular.isDefined(defaultSetting)) {
           settingAtRequestedPath = defaultSetting;
         }
 
@@ -243,7 +242,7 @@
 
       // If expected is not defined, we default to expecting the setting
       // to be 'true' in order for it to be considered enabled.
-      expected = (typeof expected === "undefined") ? true : expected;
+      expected = angular.isUndefined(expected) ? true : expected;
 
       function onSettingLoaded(setting) {
         if (angular.equals(expected, setting)) {

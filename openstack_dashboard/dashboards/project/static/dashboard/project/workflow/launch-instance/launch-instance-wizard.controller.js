@@ -29,10 +29,10 @@
   function LaunchInstanceWizardController($scope, launchInstanceModel, launchInstanceWorkflow) {
     // Note: we set these attributes on the $scope so that the scope inheritance used all
     // through the launch instance wizard continues to work.
-    $scope.workflow = launchInstanceWorkflow;     // eslint-disable-line angular/ng_controller_as
-    $scope.model = launchInstanceModel;           // eslint-disable-line angular/ng_controller_as
+    $scope.workflow = launchInstanceWorkflow;     // eslint-disable-line angular/controller-as
+    $scope.model = launchInstanceModel;           // eslint-disable-line angular/controller-as
     $scope.model.initialize(true);
-    $scope.submit = $scope.model.createInstance;  // eslint-disable-line angular/ng_controller_as
+    $scope.submit = $scope.model.createInstance;  // eslint-disable-line angular/controller-as
   }
 
 })();

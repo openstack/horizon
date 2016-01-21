@@ -76,10 +76,10 @@
     function onDeleteSuccess(e, removedImageIds) {
       ctrl.imagesSrc = difference(ctrl.imagesSrc, removedImageIds, 'id');
 
-      /* eslint-disable angular/ng_controller_as */
+      /* eslint-disable angular/controller-as */
       $scope.selected = {};
       $scope.numSelected = 0;
-      /* eslint-enable angular/ng_controller_as */
+      /* eslint-enable angular/controller-as */
 
       e.stopPropagation();
     }

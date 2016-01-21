@@ -8,7 +8,7 @@
   "devDependencies": {
     "eslint": "1.2.1",
     "eslint-config-openstack": "1.2.3",
-    "eslint-plugin-angular": "0.4.0",
+    "eslint-plugin-angular": "0.15.0",
     "jasmine-core": "2.2.0",
     "karma": "0.12.31",
     "karma-chrome-launcher": "0.1.8",

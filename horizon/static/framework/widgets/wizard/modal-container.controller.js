@@ -32,7 +32,7 @@
   function ModalContainerController($scope, $modalInstance, launchContext) {
     // $scope is used because the methods are shared between
     // wizard and modal-container controller
-    /*eslint-disable angular/ng_controller_as */
+    /*eslint-disable angular/controller-as */
     $scope.launchContext = launchContext;
     $scope.close = function(args) {
       $modalInstance.close(args);
@@ -40,6 +40,6 @@
     $scope.cancel = function() {
       $modalInstance.dismiss();
     };
-    /*eslint-enable angular/ng_controller_as */
+    /*eslint-enable angular/controller-as */
   }
 })();
