@@ -13,10 +13,10 @@
 from openstack_dashboard.test.integration_tests import helpers
 from openstack_dashboard.test.integration_tests.regions import messages
 
-IMAGE_NAME = helpers.gen_random_resource_name("image")
-
 
 class TestImagesBasic(helpers.TestCase):
+    """Login as demo user"""
+    IMAGE_NAME = helpers.gen_random_resource_name("image")
 
     @property
     def images_page(self):
@@ -25,23 +25,23 @@ class TestImagesBasic(helpers.TestCase):
     def image_create(self, local_file=None):
         images_page = self.images_page
         if local_file:
-            images_page.create_image(IMAGE_NAME,
+            images_page.create_image(self.IMAGE_NAME,
                                      image_source_type='file',
                                      image_file=local_file)
         else:
-            images_page.create_image(IMAGE_NAME)
+            images_page.create_image(self.IMAGE_NAME)
         self.assertTrue(images_page.find_message_and_dismiss(messages.INFO))
         self.assertFalse(images_page.find_message_and_dismiss(messages.ERROR))
-        self.assertTrue(images_page.is_image_present(IMAGE_NAME))
-        self.assertTrue(images_page.is_image_active(IMAGE_NAME))
+        self.assertTrue(images_page.is_image_present(self.IMAGE_NAME))
+        self.assertTrue(images_page.is_image_active(self.IMAGE_NAME))
         return images_page
 
     def image_delete(self):
         images_page = self.images_page
-        images_page.delete_image(IMAGE_NAME)
+        images_page.delete_image(self.IMAGE_NAME)
         self.assertTrue(images_page.find_message_and_dismiss(messages.SUCCESS))
         self.assertFalse(images_page.find_message_and_dismiss(messages.ERROR))
-        self.assertFalse(images_page.is_image_present(IMAGE_NAME))
+        self.assertFalse(images_page.is_image_present(self.IMAGE_NAME))
 
     def test_image_create_delete(self):
         """tests the image creation and deletion functionalities:
@@ -120,6 +120,7 @@ class TestImagesBasic(helpers.TestCase):
 
 class TestImagesAdvanced(helpers.TestCase):
     """Login as demo user"""
+    IMAGE_NAME = helpers.gen_random_resource_name("image")
 
     @property
     def images_page(self):
@@ -190,3 +191,29 @@ class TestImagesAdmin(helpers.AdminTestCase, TestImagesBasic):
     @property
     def images_page(self):
         return self.home_pg.go_to_system_imagespage()
+
+    def test_filter_images(self):
+        """This test checks filtering of images
+            Steps:
+            1) Login to Horizon dashboard as admin user
+            2) Go to Admin -> System -> Images
+            3) Use filter by Image Name
+            4) Check that filtered table has one image only (which name is
+            equal to filter value)
+            5) Check that no other images in the table
+            6) Clear filter and set nonexistent image name. Check that 0 rows
+            are displayed
+        """
+        images_list = self.CONFIG.image.images_list
+        images_page = self.images_page
+
+        images_page.images_table.filter(images_list[0])
+        self.assertTrue(images_page.is_image_present(images_list[0]))
+        for image in images_list[1:]:
+            self.assertFalse(images_page.is_image_present(image))
+
+        nonexistent_image_name = "{0}_test".format(self.IMAGE_NAME)
+        images_page.images_table.filter(nonexistent_image_name)
+        self.assertEqual(images_page.images_table.rows, [])
+
+        images_page.images_table.filter('')
