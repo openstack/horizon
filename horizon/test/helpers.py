@@ -20,6 +20,7 @@ import logging
 import os
 import socket
 import time
+import unittest
 
 from django.contrib.auth.middleware import AuthenticationMiddleware  # noqa
 from django.contrib.auth.models import Permission  # noqa
@@ -32,7 +33,6 @@ from django import http
 from django import test as django_test
 from django.test.client import RequestFactory  # noqa
 from django.utils.encoding import force_text
-from django.utils import unittest
 import six
 
 from django.contrib.staticfiles.testing \

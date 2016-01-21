@@ -10,8 +10,8 @@
 # License for the specific language governing permissions and limitations
 # under the License.
 
-from django.utils import unittest
 from horizon.utils import file_discovery as fd
+import unittest
 
 base_path = 'some_root/fake_static_files/'
 

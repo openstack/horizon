@@ -16,13 +16,13 @@ import copy
 import datetime
 import logging
 import os
+import unittest
 
 import django
 from django.core.urlresolvers import reverse
 from django import http
 from django.test.utils import override_settings
 from django.utils import timezone
-from django.utils import unittest
 
 from mox3.mox import IgnoreArg  # noqa
 from mox3.mox import IsA  # noqa
