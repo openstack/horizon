@@ -23,8 +23,8 @@ class ImagesPage(basepage.BaseNavigationPage):
     DEFAULT_IMAGE_FORMAT = 'qcow2'
     DEFAULT_ACCESSIBILITY = False
     DEFAULT_PROTECTION = False
-    IMAGES_TABLE_NAME_COLUMN_INDEX = 0
-    IMAGES_TABLE_STATUS_COLUMN_INDEX = 2
+    IMAGES_TABLE_NAME_COLUMN = 'name'
+    IMAGES_TABLE_STATUS_COLUMN = 'status'
 
     IMAGES_TABLE_NAME = "images"
     IMAGES_TABLE_ACTIONS = ("create", "delete")
@@ -45,8 +45,7 @@ class ImagesPage(basepage.BaseNavigationPage):
         self._page_title = "Images"
 
     def _get_row_with_image_name(self, name):
-        return self.images_table.get_row(
-            self.IMAGES_TABLE_NAME_COLUMN_INDEX, name)
+        return self.images_table.get_row(self.IMAGES_TABLE_NAME_COLUMN, name)
 
     @property
     def images_table(self):
@@ -108,7 +107,7 @@ class ImagesPage(basepage.BaseNavigationPage):
         # to avoid problems with cell being replaced with totally different
         # element by Javascript
         def cell_getter():
-            return row.cells[self.IMAGES_TABLE_STATUS_COLUMN_INDEX]
+            return row.cells[self.IMAGES_TABLE_STATUS_COLUMN]
         try:
             self._wait_till_text_present_in_element(cell_getter, 'Active')
         except exceptions.TimeoutException:

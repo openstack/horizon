@@ -23,7 +23,7 @@ from openstack_dashboard.test.integration_tests.regions import tables
 
 
 class FloatingipsPage(basepage.BaseNavigationPage):
-    FLOATING_IPS_TABLE_NAME_COLUMN_INDEX = 0
+    FLOATING_IPS_TABLE_IP_COLUMN = 'ip'
 
     _floatingips_fadein_popup_locator = (
         by.By.CSS_SELECTOR, '.alert.alert-success.alert-dismissable.fade.in>p')
@@ -42,7 +42,7 @@ class FloatingipsPage(basepage.BaseNavigationPage):
 
     def _get_row_with_floatingip(self, floatingip):
         return self.floatingips_table.get_row(
-            self.FLOATING_IPS_TABLE_NAME_COLUMN_INDEX, floatingip)
+            self.FLOATING_IPS_TABLE_IP_COLUMN, floatingip)
 
     @property
     def floatingips_table(self):
