@@ -1,0 +1,11 @@
+{% if not_list %}
+  <div class="dropdown">
+{% else %}
+  <li class="dropdown">
+{% endif %}
+  {% include "horizon/common/_region_selector.html" %}
+{% if not_list %}
+  </div>
+{% else %}
+  </li>
+{% endif %}

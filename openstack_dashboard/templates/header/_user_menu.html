@@ -1,0 +1,49 @@
+{% load i18n %}
+
+{% if not_list %}
+  <div class="dropdown">
+{% else %}
+  <li class="dropdown">
+{% endif %}
+    <a data-toggle="dropdown" href="#" class="dropdown-toggle" role="button" aria-expanded="false">
+      <span class="fa fa-user"></span>
+      {{ request.user.username }}
+      <span class="fa fa-caret-down"></span>
+    </a>
+    <ul id="editor_list" class="dropdown-menu dropdown-menu-right">
+      <li>
+        <a href="{% url 'horizon:settings:user:index' %}" target="_self">
+          <span class="fa fa-cog"></span>
+          {% trans "Settings" %}
+        </a>
+      </li>
+      {% if HORIZON_CONFIG.bug_url %}
+        <li>
+          <a href="{{ HORIZON_CONFIG.bug_url }}" target="_blank">
+            <span class="fa fa-bug"></span>
+            {% trans "Report Bug" %}
+          </a>
+        </li>
+      {% endif %}
+      {% if HORIZON_CONFIG.help_url %}
+        <li>
+          <a href="{{ HORIZON_CONFIG.help_url }}" target="_blank">
+            <span class="fa fa-question-circle"></span>
+            {% trans "Help" %}
+          </a>
+        </li>
+      {% endif %}
+      <li class="divider"></li>
+      <li>
+        <a href="{% url 'logout' %}" target="_self">
+          <span class="fa fa-sign-out"></span>
+          {% trans "Sign Out" %}
+        </a>
+      </li>
+    </ul>
+{% if not_list %}
+  </div>
+{% else %}
+  </li>
+{% endif %}
+
