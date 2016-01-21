@@ -79,13 +79,15 @@
    *
    */
   function configHorizon($locationProvider, $routeProvider) {
-    $locationProvider.html5Mode(true).hashPrefix('!');
+    if (angular.element('base').length === 1) {
+      $locationProvider.html5Mode(true).hashPrefix('!');
 
-    $routeProvider
-      .otherwise({
-        template: '',
-        controller: 'RedirectController'
-      });
+      $routeProvider
+        .otherwise({
+          template: '',
+          controller: 'RedirectController'
+        });
+    }
   }
 
   updateHorizon.$inject = [
