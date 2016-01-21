@@ -155,3 +155,33 @@ def flavor_field_data(request, include_empty_option=False):
     if include_empty_option:
         return [("", _("No flavors available")), ]
     return []
+
+
+def port_field_data(request):
+    """Returns a list of tuples of all ports available for the tenant.
+
+    Generates a list of ports that have no device_owner based on the networks
+    available to the tenant doing the request.
+
+    :param request: django http request object
+    :return: list of (id, name) tuples
+    """
+
+    def add_more_info_port_name(port):
+        # add more info to the port for the display
+        return "{} ({})".format(port.name_or_id,
+                                ",".join([ip['ip_address']
+                                          for ip in port['fixed_ips']]))
+
+    ports = []
+    if api.base.is_service_enabled(request, 'network'):
+        network_list = api.neutron.network_list_for_tenant(
+            request, request.user.tenant_id)
+        for network in network_list:
+            ports.extend(
+                [(port.id, add_more_info_port_name(port))
+                 for port in api.neutron.port_list(request,
+                                                   network_id=network.id)
+                 if port.device_owner == ''])
+    ports.sort(key=lambda obj: obj[1])
+    return ports
