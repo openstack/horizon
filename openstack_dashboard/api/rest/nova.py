@@ -14,9 +14,12 @@
 # limitations under the License.
 """API over the nova service.
 """
-
+from django.http import HttpResponse
+from django.template.defaultfilters import slugify
 from django.utils import http as utils_http
 from django.views import generic
+
+from novaclient import exceptions
 
 from openstack_dashboard import api
 from openstack_dashboard.api.rest import json_encoder
@@ -61,6 +64,47 @@ class Keypairs(generic.View):
             '/api/nova/keypairs/%s' % utils_http.urlquote(new.name),
             new.to_dict()
         )
+
+
+@urls.register
+class Keypair(generic.View):
+    url_regex = r'nova/keypairs/(?P<keypair_name>.+)/$'
+
+    def get(self, request, keypair_name):
+        """Creates a new keypair and associates it to the current project.
+
+        * Since the response for this endpoint creates a new keypair and
+          is not idempotent, it normally would be represented by a POST HTTP
+          request. However, this solution was adopted as it
+          would support automatic file download across browsers.
+
+        :param keypair_name: the name to associate the keypair to
+        :param regenerate: (optional) if set to the string 'true',
+            replaces the existing keypair with a new keypair
+
+        This returns the new keypair object on success.
+        """
+        try:
+            regenerate = request.GET.get('regenerate') == 'true'
+            if regenerate:
+                api.nova.keypair_delete(request, keypair_name)
+
+            keypair = api.nova.keypair_create(request, keypair_name)
+
+        except exceptions.Conflict:
+            return HttpResponse(status=409)
+
+        except Exception:
+            return HttpResponse(status=500)
+
+        else:
+            response = HttpResponse(content_type='application/binary')
+            response['Content-Disposition'] = ('attachment; filename=%s.pem'
+                                               % slugify(keypair_name))
+            response.write(keypair.private_key)
+            response['Content-Length'] = str(len(response.content))
+
+            return response
 
 
 @urls.register
