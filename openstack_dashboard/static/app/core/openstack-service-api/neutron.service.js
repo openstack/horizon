@@ -220,11 +220,42 @@
      * The listing result is an object with property "items". Each item is
      * a port.
      *
-     * @param {string} networkId
-     * The network id to retrieve ports for. Required.
+     * @param {string} params.status
+     * The port status. Value is ACTIVE or DOWN.
+     *
+     * @param {string} params.display_name
+     * The port name.
+     *
+     * @param {boolean} params.admin_state
+     * The administrative state of the router, which is up (true) or down (false).
+     *
+     * @param {string} params.network_id
+     * The UUID of the attached network.
+     *
+     * @param {string} params.tenant_id
+     * The UUID of the tenant who owns the network.
+     * Only administrative users can specify a tenant UUID other than their own.
+     * You cannot change this value through authorization policies.
+     *
+     * @param {string} params.device_owner
+     * The UUID of the entity that uses this port. For example, a DHCP agent.
+     *
+     * @param {string} params.mac_address
+     * The MAC address of the port.
+     *
+     * @param {string} params.port_id
+     * The UUID of the port.
+     *
+     * @param {Array} params.security_groups
+     * The UUIDs of any attached security groups.
+     *
+     * @param {string} params.device_id
+     * The UUID of the device that uses this port. For example, a virtual server.
+     *
      */
-    function getPorts(networkId) {
-      return apiService.get('/api/neutron/ports/', networkId)
+    function getPorts(params) {
+      var config = (params) ? { 'params' : params} : {};
+      return apiService.get('/api/neutron/ports/', config)
         .error(function () {
           toastService.add('error', gettext('Unable to retrieve the ports.'));
         });
