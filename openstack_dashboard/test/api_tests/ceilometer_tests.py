@@ -34,6 +34,7 @@ class CeilometerApiTests(test.APITestCase):
         ret_list = api.ceilometer.sample_list(self.request,
                                               meter_name,
                                               query=[])
+        self.assertEqual(len(samples), len(ret_list))
         for c in ret_list:
             self.assertIsInstance(c, api.ceilometer.Sample)
 
@@ -45,7 +46,7 @@ class CeilometerApiTests(test.APITestCase):
         self.mox.ReplayAll()
 
         ret_list = api.ceilometer.alarm_list(self.request, query=[])
-        self.assertIsNotNone(ret_list)
+        self.assertEqual(len(alarms), len(ret_list))
         for c in ret_list:
             self.assertIsInstance(c, api.ceilometer.Alarm)
 
@@ -94,6 +95,7 @@ class CeilometerApiTests(test.APITestCase):
         self.mox.ReplayAll()
 
         ret_list = api.ceilometer.meter_list(self.request, [])
+        self.assertEqual(len(meters), len(ret_list))
         for m in ret_list:
             self.assertIsInstance(m, api.ceilometer.Meter)
 
@@ -105,6 +107,7 @@ class CeilometerApiTests(test.APITestCase):
         self.mox.ReplayAll()
 
         ret_list = api.ceilometer.resource_list(self.request, query=[])
+        self.assertEqual(len(resources), len(ret_list))
         for r in ret_list:
             self.assertIsInstance(r, api.ceilometer.Resource)
 
@@ -122,6 +125,7 @@ class CeilometerApiTests(test.APITestCase):
                                                  meter_name,
                                                  period=None,
                                                  query=[])
+        self.assertEqual(len(statistics), len(ret_list))
         for s in ret_list:
             self.assertIsInstance(s, api.ceilometer.Statistic)
 
