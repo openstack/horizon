@@ -11,13 +11,13 @@
 </div>
 <div class="modal-footer">
   <button class="btn btn-default" ng-click="modal.cancel()">
-    <i class="fa fa-close"></i>
+    <span class="fa fa-close"></span>
     <span translate>Cancel</span>
   </button>
   <button class="btn btn-primary"
           ng-click="modal.save()"
           ng-disabled="form.$invalid">
-    <i class="fa" ng-class="modal.saving ? 'fa-spinner fa-spin' : 'fa-save'"></i>
+    <span class="fa" ng-class="modal.saving ? 'fa-spinner fa-spin' : 'fa-save'"></span>
     <span translate>Save</span>
   </button>
 </div>
