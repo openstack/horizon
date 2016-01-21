@@ -237,9 +237,6 @@ horizon.forms.init_examples = function (el) {
 
   // Update/create image form.
   $el.find("#create_image_form input#id_copy_from").attr("placeholder", "http://example.com/image.iso");
-
-  // Table search box.
-  $el.find(".table_search input").attr("placeholder", gettext("Filter"));
 };
 
 horizon.addInitFunction(horizon.forms.init = function () {
