@@ -1,12 +1,23 @@
 .hz-container-accordion {
   cursor: pointer;
 
-  .accordion-toggle:hover {
-    text-decoration: none;
+  .accordion-toggle {
+    display: inline-block;
+    width: calc(100% - 1em);
+    padding: $panel-heading-padding;
+    position: relative;
+
+    &:hover {
+      text-decoration: none;
+    }
+  }
+
+  .panel-heading {
+    padding: 0;
   }
 
   .panel-body {
-    padding: 5px;
+    padding: $panel-body-padding;
 
     ul {
       padding: 0;
@@ -18,10 +29,25 @@
     padding: 0;
 
     & > h4 > a {
-      padding: $panel-heading-padding;
+      padding: 0;
       display: inline-block;
       width: 100%;
+      & > div {
+        padding: $panel-heading-padding;
+      }
     }
+  }
+}
+
+.hz-container-delete-icon {
+  font-size: 1em;
+  right: 0;
+  top: 0;
+  position: absolute;
+  padding: $panel-heading-padding;
+
+  &:hover {
+    color: $brand-danger;
   }
 }
 
@@ -32,20 +58,45 @@
   }
 }
 
-.hz-objects {
-  .page_title > th {
-    padding-top: 0;
-  }
+.hz-container-title {
+  padding-right: .5em;
+}
+
+.hz-container-action {
+  padding-bottom: $padding-base-horizontal;
+}
+
+// specificity required
+.hz-objects.table > thead > tr > .table_header {
+  padding-top: 0;
+  border: none;
 }
 
 .hz-object-path {
   margin-bottom: 0;
   padding-left: 0;
   padding-top: 0;
+  background-color: inherit;
 
   & > li {
     &:nth-child(2):before {
       content: ":";
+    }
+  }
+}
+
+.hz-object-detail {
+  .hz-object-label {
+    font-weight: bold;
+
+    &:after {
+      content: ':';
+    }
+  }
+
+  @media(min-width: $screen-lg) {
+    .hz-object-val {
+      padding-left: 0;
     }
   }
 }

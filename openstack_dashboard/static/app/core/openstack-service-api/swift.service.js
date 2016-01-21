@@ -132,8 +132,12 @@
         data.is_public = true;
       }
       return apiService.post(service.getContainerURL(container) + '/metadata/', data)
-        .error(function () {
-          toastService.add('error', gettext('Unable to create the container.'));
+        .error(function (response, status) {
+          if (status === 409) {
+            toastService.add('error', response);
+          } else {
+            toastService.add('error', gettext('Unable to create the container.'));
+          }
         });
     }
 

@@ -40,13 +40,13 @@
 
     ctrl.model = containersModel;
 
-    ctrl.containerURL = containerRoute + $routeParams.containerName + '/';
+    ctrl.containerURL = containerRoute + $routeParams.container + '/';
     if (angular.isDefined($routeParams.folder)) {
       ctrl.currentURL = ctrl.containerURL + $routeParams.folder + '/';
     } else {
       ctrl.currentURL = ctrl.containerURL;
     }
 
-    ctrl.model.selectContainer($routeParams.containerName, $routeParams.folder);
+    ctrl.model.selectContainer($routeParams.container, $routeParams.folder);
   }
 })();

@@ -1,0 +1,70 @@
+<div ng-form="containerForm">
+  <div class="modal-header ui-draggable-handle">
+    <a href="#" class="close" ng-click="$dismiss()">
+      <span class="fa fa-times"></span>
+    </a>
+    <div class="h3 modal-title" translate>Create Container</div>
+  </div>
+
+  <div class="modal-body">
+    <div class="row">
+      <div class="col-sm-6">
+        <fieldset>
+          <div class="form-group required"
+               ng-class="{'has-error': containerForm.name.$invalid && containerForm.name.$dirty}">
+            <label class="control-label required" for="id_name" translate>Container Name</label>
+            <span class="hz-icon-required fa fa-asterisk"></span>
+            <div>
+              <input class="form-control" id="id_name" ng-model="ctrl.model.name" maxlength="255"
+                     name="name" type="text" ng-required="true" pattern="[^/]+"
+                     placeholder="{$ 'Required' | translate $}">
+            </div>
+            <span class="help-block" ng-show="containerForm.name.$error.pattern" translate>
+              Container name must not contain "/".
+            </span>
+          </div>
+          <div class="form-group">
+            <label class="control-label" translate>Container Access</label>
+            <div>
+              <label for="id_public" translate>
+                <input type="checkbox" ng-model="ctrl.model.public"
+                        name="public" checked id="id_public">
+                <span translate>Public</span>
+              </label>
+            </div>
+          </div>
+        </fieldset>
+      </div>
+
+      <div class="col-sm-6">
+        <p translate>
+          A container is a storage compartment for your data and provides a way
+          for you to organize your data. You can think of a container as a
+          folder in Windows&reg; or a directory in UNIX&reg;. The primary difference
+          between a container and these other file system concepts is that
+          containers cannot be nested. You can, however, create an unlimited
+          number of containers within your account. Data must be stored in a
+          container so you must have at least one container defined in your
+          account prior to uploading data.
+        </p>
+        <p translate>
+          Note: A Public Container will allow anyone with the Public URL to
+          gain access to your objects in the container.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal-footer">
+    <button class="btn btn-default secondary" ng-click="$dismiss()">
+      <span class="fa fa-close"></span>
+      <translate>Cancel</translate>
+    </button>
+    <button class="btn btn-primary"
+            ng-click="$close(ctrl.model)"
+            ng-disabled="containerForm.$invalid">
+      <span class="fa fa-plus"></span>
+      <translate>Create</translate>
+    </button>
+  </div>
+</div>

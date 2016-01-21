@@ -53,13 +53,14 @@
       expect(service.containers).toEqual(['two', 'items']);
     });
 
-    it('should load container contents', function test() {
+    it('should select containers and load contents', function test() {
       var deferred = $q.defer();
       spyOn(swiftAPI, 'getObjects').and.returnValue(deferred.promise);
+      service.containers = [{name: 'spam'}, {name: 'not spam'}];
 
       service.selectContainer('spam');
 
-      expect(service.containerName).toEqual('spam');
+      expect(service.container.name).toEqual('spam');
       expect(swiftAPI.getObjects).toHaveBeenCalledWith('spam', {delimiter: '/'});
 
       deferred.resolve({data: {items: ['two', 'items']}});
@@ -72,10 +73,11 @@
     it('should load subfolder contents', function test() {
       var deferred = $q.defer();
       spyOn(swiftAPI, 'getObjects').and.returnValue(deferred.promise);
+      service.containers = [{name: 'spam'}];
 
       service.selectContainer('spam', 'ham');
 
-      expect(service.containerName).toEqual('spam');
+      expect(service.container.name).toEqual('spam');
       expect(service.folder).toEqual('ham');
       expect(swiftAPI.getObjects).toHaveBeenCalledWith('spam', {path: 'ham/', delimiter: '/'});
 
@@ -83,6 +85,64 @@
       $rootScope.$apply();
       expect(service.objects).toEqual(['two', 'items']);
       expect(service.pseudo_folder_hierarchy).toEqual(['ham']);
+    });
+
+    it('should fetch container detail', function test() {
+      var deferred = $q.defer();
+      spyOn(swiftAPI, 'getContainer').and.returnValue(deferred.promise);
+
+      var container = {name: 'spam'};
+      service.fetchContainerDetail(container);
+
+      expect(swiftAPI.getContainer).toHaveBeenCalledWith('spam');
+
+      deferred.resolve({data: { info: 'yes!', timestamp: '2016-02-03T16:38:42.0Z' }});
+      $rootScope.$apply();
+
+      expect(container.info).toEqual('yes!');
+      expect(container.timestamp).toBeDefined();
+      expect(container.timestamp).toEqual(new Date(Date.UTC(2016, 1, 3, 16, 38, 42, 0)));
+    });
+
+    it('should handle bad timestamp data', function test() {
+      var deferred = $q.defer();
+      spyOn(swiftAPI, 'getContainer').and.returnValue(deferred.promise);
+
+      var container = {name: 'spam'};
+      service.fetchContainerDetail(container);
+
+      expect(swiftAPI.getContainer).toHaveBeenCalledWith('spam');
+
+      deferred.resolve({data: { info: 'yes!', timestamp: 'b0rken' }});
+      $rootScope.$apply();
+
+      expect(container.info).toEqual('yes!');
+      expect(container.timestamp).toBeDefined();
+      expect(container.timestamp).toEqual('b0rken');
+    });
+
+    it('should not re-fetch container detail', function test() {
+      spyOn(swiftAPI, 'getContainer');
+      var container = {name: 'spam', is_fetched: true};
+      service.fetchContainerDetail(container);
+
+      expect(swiftAPI.getContainer).not.toHaveBeenCalled();
+      expect(container.info).toBeUndefined();
+    });
+
+    it('should not re-fetch container detail unless forced', function test() {
+      var deferred = $q.defer();
+      spyOn(swiftAPI, 'getContainer').and.returnValue(deferred.promise);
+
+      var container = {name: 'spam', is_fetched: true};
+      service.fetchContainerDetail(container, true);
+
+      expect(swiftAPI.getContainer).toHaveBeenCalledWith('spam');
+
+      deferred.resolve({data: { info: 'yes!', timestamp: 'b0rken' }});
+      $rootScope.$apply();
+
+      expect(container.info).toEqual('yes!');
     });
   });
 })();

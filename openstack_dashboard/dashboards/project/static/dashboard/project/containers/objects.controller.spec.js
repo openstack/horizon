@@ -41,7 +41,7 @@
 
     it('should load contents', function test () {
       spyOn(model, 'selectContainer');
-      $routeParams.containerName = 'spam';
+      $routeParams.container = 'spam';
       var ctrl = createController();
 
       expect(ctrl.containerURL).toEqual('eggs/spam/');
@@ -52,7 +52,7 @@
 
     it('should handle subfolders', function test () {
       spyOn(model, 'selectContainer');
-      $routeParams.containerName = 'spam';
+      $routeParams.container = 'spam';
       $routeParams.folder = 'ham';
       var ctrl = createController();
 
