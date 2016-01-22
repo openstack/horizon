@@ -59,15 +59,15 @@ class ImagesAndSnapshotsTests(test.TestCase):
         images_table = res.context['images_table']
         images = images_table.data
 
-        self.assertTrue(len(images), 3)
+        self.assertEqual(len(images), 9)
         row_actions = images_table.get_row_actions(images[0])
-        self.assertTrue(len(row_actions), 3)
+        self.assertEqual(len(row_actions), 5)
         row_actions = images_table.get_row_actions(images[1])
-        self.assertTrue(len(row_actions), 2)
+        self.assertEqual(len(row_actions), 3)
         self.assertTrue('delete_image' not in
                         [a.name for a in row_actions])
         row_actions = images_table.get_row_actions(images[2])
-        self.assertTrue(len(row_actions), 3)
+        self.assertEqual(len(row_actions), 4)
 
     @test.create_stubs({api.glance: ('image_list_detailed',)})
     def test_index_no_images(self):
@@ -79,6 +79,7 @@ class ImagesAndSnapshotsTests(test.TestCase):
 
         res = self.client.get(INDEX_URL)
         self.assertTemplateUsed(res, 'project/images/index.html')
+        self.assertContains(res, 'No items to display')
 
     @test.create_stubs({api.glance: ('image_list_detailed',)})
     def test_index_error(self):
