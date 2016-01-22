@@ -303,6 +303,8 @@ class StacksTable(tables.DataTable):
 
 
 def get_resource_url(obj):
+    if obj.physical_resource_id == obj.stack_id:
+        return None
     return urlresolvers.reverse('horizon:project:stacks:resource',
                                 args=(obj.stack_id, obj.resource_name))
 
