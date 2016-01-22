@@ -153,6 +153,32 @@
       });
     });
 
+    describe('noName', function () {
+      var noNameFilter;
+      beforeEach(inject(function (_noNameFilter_) {
+        noNameFilter = _noNameFilter_;
+      }));
+
+      it('returns value if there is a value', function () {
+        expect(noNameFilter('foo')).toBe('foo');
+        expect(noNameFilter('   foo   ')).toBe('   foo   ');
+        expect(noNameFilter('     ')).toBe('     ');
+      });
+
+      it('replaces undefined, null, blank with None', function () {
+        expect(noNameFilter(true)).toBe('None');
+        expect(noNameFilter(false)).toBe('None');
+        expect(noNameFilter(1)).toBe('None');
+        var object = {};
+        expect(noNameFilter(object)).toBe('None');
+        var array = [];
+        expect(noNameFilter(array)).toBe('None');
+        expect(noNameFilter(null)).toBe('None');
+        expect(noNameFilter()).toBe('None');
+        expect(noNameFilter('')).toBe('None');
+      });
+    });
+
     describe("decode", function () {
       var decodeFilter;
       beforeEach(inject(function (_decodeFilter_) {
