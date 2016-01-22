@@ -228,6 +228,12 @@ OPENSTACK_KEYSTONE_BACKEND = {
 #LAUNCH_INSTANCE_LEGACY_ENABLED = True
 #LAUNCH_INSTANCE_NG_ENABLED = False
 
+# A dictionary of settings which can be used to provide the default values for
+# properties found in the Launch Instance modal.
+#LAUNCH_INSTANCE_DEFAULTS = {
+#    'config_drive': False
+#}
+
 # The Xen Hypervisor has the ability to set the mount point for volumes
 # attached to instances (other Hypervisors currently do not). Setting
 # can_set_mount_point to True will add the option to set the mount point
@@ -687,7 +693,8 @@ SECURITY_GROUP_RULES = {
 # the enabled panel configuration.
 # You should not add settings to this list for out of tree extensions.
 # See: https://wiki.openstack.org/wiki/Horizon/RESTAPI
-REST_API_REQUIRED_SETTINGS = ['OPENSTACK_HYPERVISOR_FEATURES']
+REST_API_REQUIRED_SETTINGS = ['OPENSTACK_HYPERVISOR_FEATURES',
+                              'LAUNCH_INSTANCE_DEFAULTS']
 
 # Additional settings can be made available to the client side for
 # extensibility by specifying them in REST_API_ADDITIONAL_SETTINGS

@@ -26,6 +26,7 @@
     'horizon.app.core.openstack-service-api.novaExtensions',
     'horizon.app.core.openstack-service-api.security-group',
     'horizon.app.core.openstack-service-api.serviceCatalog',
+    'horizon.app.core.openstack-service-api.settings',
     'horizon.framework.widgets.toast.service'
   ];
 
@@ -51,6 +52,7 @@
     novaExtensions,
     securityGroup,
     serviceCatalog,
+    settings,
     toast
   ) {
 
@@ -204,7 +206,8 @@
           novaAPI.getLimits().then(onGetNovaLimits, noop),
           securityGroup.query().then(onGetSecurityGroups, noop),
           serviceCatalog.ifTypeEnabled('network').then(getNetworks, noop),
-          serviceCatalog.ifTypeEnabled('volume').then(getVolumes, noop)
+          serviceCatalog.ifTypeEnabled('volume').then(getVolumes, noop),
+          settings.getSetting('LAUNCH_INSTANCE_DEFAULTS').then(setDefaultValues, noop)
         ]);
 
         promise.then(onInitSuccess, onInitFail);
@@ -225,6 +228,13 @@
     function onInitFail() {
       model.initializing = false;
       model.initialized = false;
+    }
+
+    function setDefaultValues(defaults) {
+      if (!defaults) { return; }
+      if ('config_drive' in defaults) {
+        model.newInstanceSpec.config_drive = defaults.config_drive;
+      }
     }
 
     /**
