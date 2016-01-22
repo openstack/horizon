@@ -9,7 +9,6 @@
 #    WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
 #    License for the specific language governing permissions and limitations
 #    under the License.
-
 from openstack_dashboard.test.integration_tests.pages import basepage
 from openstack_dashboard.test.integration_tests.regions import forms
 from openstack_dashboard.test.integration_tests.regions import tables
@@ -18,6 +17,15 @@ from openstack_dashboard.test.integration_tests.pages.project.compute.\
     instancespage import InstancesPage
 from openstack_dashboard.test.integration_tests.pages.project.compute.\
     volumes.volumespage import VolumesPage
+
+
+DEFAULT_IMAGE_SOURCE = 'url'
+DEFAULT_IMAGE_FORMAT = 'qcow2'
+DEFAULT_ACCESSIBILITY = False
+DEFAULT_PROTECTION = False
+IMAGES_TABLE_NAME_COLUMN = 'name'
+IMAGES_TABLE_STATUS_COLUMN = 'status'
+IMAGES_TABLE_FORMAT_COLUMN = 'disk_format'
 
 
 class ImagesTable(tables.TableRegion):
@@ -69,23 +77,25 @@ class ImagesTable(tables.TableRegion):
             self.driver, self.conf,
             field_mappings=self.LAUNCH_INSTANCE_FROM_FIELDS)
 
+    @tables.bind_row_action('update_metadata')
+    def update_metadata(self, metadata_button, row):
+        metadata_button.click()
+        return forms.MetadataFormRegion(self.driver, self.conf)
+
+    @tables.bind_row_anchor_column(IMAGES_TABLE_NAME_COLUMN)
+    def go_to_image_description_page(self, row_link, row):
+        row_link.click()
+        return forms.ItemTextDescription(self.driver, self.conf)
+
 
 class ImagesPage(basepage.BaseNavigationPage):
-
-    DEFAULT_IMAGE_SOURCE = 'url'
-    DEFAULT_IMAGE_FORMAT = 'qcow2'
-    DEFAULT_ACCESSIBILITY = False
-    DEFAULT_PROTECTION = False
-    IMAGES_TABLE_NAME_COLUMN = 'name'
-    IMAGES_TABLE_STATUS_COLUMN = 'status'
-    IMAGES_TABLE_FORMAT_COLUMN = 'disk_format'
 
     def __init__(self, driver, conf):
         super(ImagesPage, self).__init__(driver, conf)
         self._page_title = "Images"
 
     def _get_row_with_image_name(self, name):
-        return self.images_table.get_row(self.IMAGES_TABLE_NAME_COLUMN, name)
+        return self.images_table.get_row(IMAGES_TABLE_NAME_COLUMN, name)
 
     @property
     def images_table(self):
@@ -123,20 +133,39 @@ class ImagesPage(basepage.BaseNavigationPage):
         confirm_delete_images_form = self.images_table.delete_image()
         confirm_delete_images_form.submit()
 
+    def add_custom_metadata(self, name, metadata):
+        row = self._get_row_with_image_name(name)
+        update_metadata_form = self.images_table.update_metadata(row)
+        for field_name, value in metadata.iteritems():
+            update_metadata_form.add_custom_field(field_name, value)
+        update_metadata_form.submit()
+
+    def check_image_details(self, name, dict_with_details):
+        row = self._get_row_with_image_name(name)
+        matches = []
+        description_page = self.images_table.go_to_image_description_page(row)
+        content = description_page.get_content()
+
+        for name, value in content.iteritems():
+            if name in dict_with_details:
+                if dict_with_details[name] in value:
+                    matches.append(True)
+        return matches
+
     def is_image_present(self, name):
         return bool(self._get_row_with_image_name(name))
 
     def is_image_active(self, name):
         row = self._get_row_with_image_name(name)
         return self.images_table.is_cell_status(
-            lambda: row.cells[self.IMAGES_TABLE_STATUS_COLUMN], 'Active')
+            lambda: row.cells[IMAGES_TABLE_STATUS_COLUMN], 'Active')
 
     def wait_until_image_active(self, name):
         self._wait_until(lambda x: self.is_image_active(name))
 
     def get_image_format(self, name):
         row = self._get_row_with_image_name(name)
-        return row.cells[self.IMAGES_TABLE_FORMAT_COLUMN].text
+        return row.cells[IMAGES_TABLE_FORMAT_COLUMN].text
 
     def create_volume_from_image(self, name, volume_name=None,
                                  description=None,
