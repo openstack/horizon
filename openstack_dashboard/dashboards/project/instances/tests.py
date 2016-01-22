@@ -50,7 +50,7 @@ INDEX_URL = reverse('horizon:project:instances:index')
 SEC_GROUP_ROLE_PREFIX = \
     workflows.update_instance.INSTANCE_SEC_GROUP_SLUG + "_role_"
 AVAILABLE = api.cinder.VOLUME_STATE_AVAILABLE
-VOLUME_SEARCH_OPTS = dict(status=AVAILABLE, bootable=1)
+VOLUME_SEARCH_OPTS = dict(status=AVAILABLE, bootable=True)
 SNAPSHOT_SEARCH_OPTS = dict(status=AVAILABLE)
 
 
