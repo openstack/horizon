@@ -19,7 +19,10 @@ import os
 
 import django
 from django.conf import settings
-from django.template.base import TemplateDoesNotExist  # noqa
+if django.VERSION >= (1, 9):
+    from django.template.exceptions import TemplateDoesNotExist
+else:
+    from django.template.base import TemplateDoesNotExist  # noqa
 
 if django.get_version() >= '1.8':
     from django.template.engine import Engine
