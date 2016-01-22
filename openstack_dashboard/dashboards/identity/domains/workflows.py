@@ -26,6 +26,7 @@ from horizon import workflows
 from openstack_dashboard import api
 
 from openstack_dashboard.dashboards.identity.domains import constants
+from openstack_dashboard.utils.identity import IdentityMixIn
 
 LOG = logging.getLogger(__name__)
 
@@ -294,7 +295,7 @@ class UpdateDomainInfo(workflows.Step):
                    "enabled")
 
 
-class UpdateDomain(workflows.Workflow):
+class UpdateDomain(workflows.Workflow, IdentityMixIn):
     slug = "update_domain"
     name = _("Edit Domain")
     finalize_button_name = _("Save")
@@ -352,8 +353,11 @@ class UpdateDomain(workflows.Workflow):
                 # domain_id == request.user.domain_id
                 is_current_domain = True
 
-                available_admin_role_ids = [role.id for role in available_roles
-                                            if role.name.lower() == 'admin']
+                _admin_roles = self.get_admin_roles()
+                available_admin_role_ids = [role.id for role in
+                                            available_roles
+                                            if role.name.lower() in
+                                            _admin_roles]
                 admin_role_ids = [role for role in current_role_ids
                                   if role in available_admin_role_ids]
                 if len(admin_role_ids):
