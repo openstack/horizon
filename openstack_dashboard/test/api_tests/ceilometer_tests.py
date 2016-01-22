@@ -37,6 +37,55 @@ class CeilometerApiTests(test.APITestCase):
         for c in ret_list:
             self.assertIsInstance(c, api.ceilometer.Sample)
 
+    def test_alarm_list(self):
+        alarms = self.alarms.list()
+        ceilometerclient = self.stub_ceilometerclient()
+        ceilometerclient.alarms = self.mox.CreateMockAnything()
+        ceilometerclient.alarms.list(q=[]).AndReturn(alarms)
+        self.mox.ReplayAll()
+
+        ret_list = api.ceilometer.alarm_list(self.request, query=[])
+        self.assertIsNotNone(ret_list)
+        for c in ret_list:
+            self.assertIsInstance(c, api.ceilometer.Alarm)
+
+    def test_alarm_get(self):
+        alarm = self.alarms.first()
+        ceilometerclient = self.stub_ceilometerclient()
+        ceilometerclient.alarms = self.mox.CreateMockAnything()
+        ceilometerclient.alarms.get(alarm.id).AndReturn(alarm)
+        self.mox.ReplayAll()
+
+        ret_alarm = api.ceilometer.alarm_get(self.request,
+                                             alarm_id='fake_alarm_id')
+        self.assertEqual(alarm.alarm_id, ret_alarm.alarm_id)
+
+    def test_alarm_create(self):
+        alarm = self.alarms.first()
+        new_alarm = {'alarm': alarm}
+        ceilometerclient = self.stub_ceilometerclient()
+        ceilometerclient.alarms = self.mox.CreateMockAnything()
+        ceilometerclient.alarms.create(**new_alarm).AndReturn(alarm)
+        self.mox.ReplayAll()
+        test_alarm = api.ceilometer.alarm_create(self.request,
+                                                 **new_alarm)
+        self.assertEqual(alarm.alarm_id, test_alarm.alarm_id)
+
+    def test_alarm_update(self):
+        """test update parameters"""
+        alarm1 = self.alarms.first()
+        alarm2 = self.alarms.list()[1]
+        ceilometerclient = self.stub_ceilometerclient()
+        ceilometerclient.alarms = self.mox.CreateMockAnything()
+        # Return the mock object that has "New" as description
+        ceilometerclient.alarms.update(alarm1.id,
+                                       description='New').AndReturn(alarm2)
+        self.mox.ReplayAll()
+        test_alarm = api.ceilometer.alarm_update(self.request,
+                                                 alarm1.id,
+                                                 description='New')
+        self.assertEqual(alarm2.description, test_alarm.description)
+
     def test_meter_list(self):
         meters = self.meters.list()
         ceilometerclient = self.stub_ceilometerclient()
