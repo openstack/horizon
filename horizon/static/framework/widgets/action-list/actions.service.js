@@ -216,7 +216,7 @@
         var actionClassesParam = action.template.actionClasses || "";
         if (listType === 'row') {
           if (numPermittedActions === 1 || index === 0) {
-            var actionClasses = "btn btn-sm pull-right ";
+            var actionClasses = "btn ";
             if (action.template.type === "delete" || action.template.type === 'danger') {
               actionClasses += "btn-danger ";
             } else {
@@ -230,7 +230,6 @@
               return actionClassesParam;
             }
           }
-          return "text-danger";
         } else {
           return actionClassesParam;
         }
