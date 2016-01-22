@@ -28,6 +28,7 @@ from novaclient import exceptions as nova_exceptions
 from novaclient.v2 import servers
 import six
 
+from horizon import exceptions as horizon_exceptions
 from openstack_dashboard import api
 from openstack_dashboard.test import helpers as test
 
@@ -47,6 +48,17 @@ class ServerWrapperTests(test.TestCase):
 
         server = api.nova.Server(self.servers.first(), self.request)
         self.assertEqual(image.name, server.image_name)
+
+    def test_image_name_no_glance_service(self):
+        server = self.servers.first()
+        self.mox.StubOutWithMock(api.glance, 'image_get')
+        api.glance.image_get(IsA(http.HttpRequest),
+                             server.image['id']).AndRaise(
+            horizon_exceptions.ServiceCatalogException('image'))
+        self.mox.ReplayAll()
+
+        server = api.nova.Server(server, self.request)
+        self.assertEqual('-', server.image_name)
 
 
 class ComputeApiTests(test.APITestCase):
