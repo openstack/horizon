@@ -10,6 +10,7 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 from openstack_dashboard.test.integration_tests import helpers
+from openstack_dashboard.test.integration_tests.regions import messages
 
 INSTANCES_NAME = helpers.gen_random_resource_name('instance',
                                                   timestamp=False)
@@ -23,6 +24,15 @@ class TestInstances(helpers.AdminTestCase):
     def test_create_delete_instance(self):
         instances_page = self.home_pg.go_to_compute_instancespage()
         instances_page.create_instance(INSTANCES_NAME)
+        self.assertTrue(
+            instances_page.find_message_and_dismiss(messages.SUCCESS))
+        self.assertFalse(
+            instances_page.find_message_and_dismiss(messages.ERROR))
         self.assertTrue(instances_page.is_instance_active(INSTANCES_NAME))
+
         instances_page.delete_instance(INSTANCES_NAME)
+        self.assertTrue(
+            instances_page.find_message_and_dismiss(messages.SUCCESS))
+        self.assertFalse(
+            instances_page.find_message_and_dismiss(messages.ERROR))
         self.assertTrue(instances_page.is_instance_deleted(INSTANCES_NAME))

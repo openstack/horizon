@@ -14,6 +14,7 @@
 #    under the License.
 
 from openstack_dashboard.test.integration_tests import helpers
+from openstack_dashboard.test.integration_tests.regions import messages
 
 
 class TestFloatingip(helpers.TestCase):
@@ -23,7 +24,15 @@ class TestFloatingip(helpers.TestCase):
         floatingip_page = \
             self.home_pg.go_to_compute_accessandsecurity_floatingipspage()
         floating_ip = floatingip_page.allocate_floatingip()
+        self.assertTrue(
+            floatingip_page.find_message_and_dismiss(messages.SUCCESS))
+        self.assertFalse(
+            floatingip_page.find_message_and_dismiss(messages.ERROR))
         self.assertTrue(floatingip_page.is_floatingip_present(floating_ip))
 
         floatingip_page.release_floatingip(floating_ip)
+        self.assertTrue(
+            floatingip_page.find_message_and_dismiss(messages.SUCCESS))
+        self.assertFalse(
+            floatingip_page.find_message_and_dismiss(messages.ERROR))
         self.assertFalse(floatingip_page.is_floatingip_present(floating_ip))

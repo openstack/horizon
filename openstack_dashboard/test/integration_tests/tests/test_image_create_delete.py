@@ -11,6 +11,7 @@
 #    under the License.
 
 from openstack_dashboard.test.integration_tests import helpers
+from openstack_dashboard.test.integration_tests.regions import messages
 
 
 class TestImage(helpers.TestCase):
@@ -27,8 +28,12 @@ class TestImage(helpers.TestCase):
         images_page = self.home_pg.go_to_compute_imagespage()
 
         images_page.create_image(self.IMAGE_NAME)
+        self.assertTrue(images_page.find_message_and_dismiss(messages.SUCCESS))
+        self.assertFalse(images_page.find_message_and_dismiss(messages.ERROR))
         self.assertTrue(images_page.is_image_present(self.IMAGE_NAME))
         self.assertTrue(images_page.is_image_active(self.IMAGE_NAME))
 
         images_page.delete_image(self.IMAGE_NAME)
+        self.assertTrue(images_page.find_message_and_dismiss(messages.SUCCESS))
+        self.assertFalse(images_page.find_message_and_dismiss(messages.ERROR))
         self.assertFalse(images_page.is_image_present(self.IMAGE_NAME))

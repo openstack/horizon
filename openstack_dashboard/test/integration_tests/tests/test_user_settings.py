@@ -11,15 +11,16 @@
 #    under the License.
 
 from openstack_dashboard.test.integration_tests import helpers
+from openstack_dashboard.test.integration_tests.regions import messages
 
 
 class TestUserSettings(helpers.TestCase):
 
-    def verify_user_settings_change(self, changed_settings):
-        language = self.settings_page.settings_form.language.value
-        timezone = self.settings_page.settings_form.timezone.value
-        pagesize = self.settings_page.settings_form.pagesize.value
-        loglines = self.settings_page.settings_form.instance_log_length.value
+    def verify_user_settings_change(self, settings_page, changed_settings):
+        language = settings_page.settings_form.language.value
+        timezone = settings_page.settings_form.timezone.value
+        pagesize = settings_page.settings_form.pagesize.value
+        loglines = settings_page.settings_form.instance_log_length.value
 
         user_settings = (("Language", changed_settings["language"], language),
                          ("Timezone", changed_settings["timezone"], timezone),
@@ -39,16 +40,36 @@ class TestUserSettings(helpers.TestCase):
         * changes the number of log lines to be shown per instance
         * verifies all changes were successfully executed
         """
-        self.settings_page = self.home_pg.go_to_settings_usersettingspage()
+        settings_page = self.home_pg.go_to_settings_usersettingspage()
 
-        self.settings_page.change_language("es")
-        self.settings_page.change_timezone("Asia/Jerusalem")
-        self.settings_page.change_pagesize("30")
-        self.settings_page.change_loglines("50")
+        settings_page.change_language("es")
+        self.assertTrue(
+            settings_page.find_message_and_dismiss(messages.SUCCESS))
+        self.assertFalse(
+            settings_page.find_message_and_dismiss(messages.ERROR))
+
+        settings_page.change_timezone("Asia/Jerusalem")
+        self.assertTrue(
+            settings_page.find_message_and_dismiss(messages.SUCCESS))
+        self.assertFalse(
+            settings_page.find_message_and_dismiss(messages.ERROR))
+
+        settings_page.change_pagesize("30")
+        self.assertTrue(
+            settings_page.find_message_and_dismiss(messages.SUCCESS))
+        self.assertFalse(
+            settings_page.find_message_and_dismiss(messages.ERROR))
+
+        settings_page.change_loglines("50")
+        self.assertTrue(
+            settings_page.find_message_and_dismiss(messages.SUCCESS))
+        self.assertFalse(
+            settings_page.find_message_and_dismiss(messages.ERROR))
 
         changed_settings = {"language": "es", "timezone": "Asia/Jerusalem",
                             "pagesize": "30", "loglines": "50"}
-        self.verify_user_settings_change(changed_settings)
+        self.verify_user_settings_change(settings_page, changed_settings)
 
-        self.settings_page.return_to_default_settings()
-        self.verify_user_settings_change(self.settings_page.DEFAULT_SETTINGS)
+        settings_page.return_to_default_settings()
+        self.verify_user_settings_change(settings_page,
+                                         settings_page.DEFAULT_SETTINGS)
