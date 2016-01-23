@@ -19,7 +19,7 @@ from selenium.webdriver.support import wait
 
 class BaseWebObject(unittest.TestCase):
     """Base class for all web objects."""
-    _spinner_locator = (by.By.CSS_SELECTOR, 'div.modal-backdrop')
+    _spinner_locator = (by.By.CSS_SELECTOR, '.modal-body > .spinner')
 
     def __init__(self, driver, conf):
         self.driver = driver

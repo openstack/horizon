@@ -23,8 +23,8 @@ class UsersTable(tables.TableRegion):
     @tables.bind_table_action('create')
     def create_user(self, create_button):
         create_button.click()
-        return forms.FormRegion(self.driver, self.conf, None,
-                                self.CREATE_USER_FORM_FIELDS)
+        return forms.FormRegion(self.driver, self.conf,
+                                form_field_names=self.CREATE_USER_FORM_FIELDS)
 
     @tables.bind_table_action('delete')
     def delete_user(self, delete_button):
