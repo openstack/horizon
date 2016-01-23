@@ -44,8 +44,9 @@ class UsersettingsPage(basepage.BaseNavigationPage):
     @property
     def settings_form(self):
         src_elem = self._get_element(*self._settings_form_locator)
-        return forms.FormRegion(self.driver, self.conf, src_elem,
-                                self.SETTINGS_FORM_FIELDS)
+        return forms.FormRegion(
+            self.driver, self.conf, src_elem=src_elem,
+            field_mappings=self.SETTINGS_FORM_FIELDS)
 
     @property
     def changepassword(self):
