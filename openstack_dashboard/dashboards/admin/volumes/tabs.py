@@ -61,6 +61,12 @@ class VolumeTab(tabs.TableTab, volumes_tabs.VolumeTableMixIn):
 
         return volumes
 
+    def has_prev_data(self, table):
+        return self._has_prev_data
+
+    def has_more_data(self, table):
+        return self._has_more_data
+
 
 class VolumeTypesTab(tabs.TableTab, volumes_tabs.VolumeTableMixIn):
     table_classes = (volume_types_tables.VolumeTypesTable,

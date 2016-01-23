@@ -30,6 +30,7 @@ from cinderclient import exceptions as cinder_exception
 from cinderclient.v2.contrib import list_extensions as cinder_list_extensions
 
 from horizon import exceptions
+from horizon.utils import functions as utils
 from horizon.utils.memoized import memoized  # noqa
 
 from openstack_dashboard.api import base
@@ -194,25 +195,59 @@ def version_get():
     return api_version['version']
 
 
-def volume_list(request, search_opts=None):
+def volume_list(request, search_opts=None, marker=None, sort_dir="desc"):
+    volumes, _, __ = volume_list_paged(
+        request, search_opts=search_opts, marker=marker, paginate=False,
+        sort_dir=sort_dir)
+    return volumes
+
+
+def volume_list_paged(request, search_opts=None, marker=None, paginate=False,
+                      sort_dir="desc"):
     """To see all volumes in the cloud as an admin you can pass in a special
     search option: {'all_tenants': 1}
     """
+    has_more_data = False
+    has_prev_data = False
+    volumes = []
 
     c_client = cinderclient(request)
     if c_client is None:
-        return []
+        return volumes, has_more_data, has_prev_data
 
     # build a dictionary of volume_id -> transfer
     transfers = {t.volume_id: t
                  for t in transfer_list(request, search_opts=search_opts)}
 
-    volumes = []
-    for v in c_client.volumes.list(search_opts=search_opts):
-        v.transfer = transfers.get(v.id)
-        volumes.append(Volume(v))
+    if VERSIONS.active > 1 and paginate:
+        page_size = utils.get_page_size(request)
+        # sort_key and sort_dir deprecated in kilo, use sort
+        # if pagination is true, we use a single sort parameter
+        # by default, it is "created_at"
+        sort = 'created_at:' + sort_dir
+        for v in c_client.volumes.list(search_opts=search_opts,
+                                       limit=page_size + 1,
+                                       marker=marker,
+                                       sort=sort):
+            v.transfer = transfers.get(v.id)
+            volumes.append(Volume(v))
+        if len(volumes) > page_size:
+            has_more_data = True
+            volumes.pop()
+            if marker is not None:
+                has_prev_data = True
+        # first page condition when reached via prev back
+        elif sort_dir == 'asc' and marker is not None:
+            has_more_data = True
+        # last page condition
+        elif marker is not None:
+            has_prev_data = True
+    else:
+        for v in c_client.volumes.list(search_opts=search_opts):
+            v.transfer = transfers.get(v.id)
+            volumes.append(Volume(v))
 
-    return volumes
+    return volumes, has_more_data, has_prev_data
 
 
 def volume_get(request, volume_id):

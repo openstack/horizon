@@ -12,24 +12,34 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
+from django.conf import settings
 from django.core.urlresolvers import reverse
 from django import http
+from django.test.utils import override_settings
 from mox3.mox import IsA  # noqa
 
 from openstack_dashboard import api
 from openstack_dashboard.api import cinder
 from openstack_dashboard.api import keystone
+from openstack_dashboard.dashboards.project.volumes.volumes \
+    import tables as volume_tables
 from openstack_dashboard.test import helpers as test
 
 
+INDEX_URL = reverse('horizon:admin:volumes:index')
+
+
 class VolumeTests(test.BaseAdminViewTests):
+
     @test.create_stubs({api.nova: ('server_list',),
-                        cinder: ('volume_list',
+                        cinder: ('volume_list_paged',
                                  'volume_snapshot_list'),
                         keystone: ('tenant_list',)})
     def test_index(self):
-        cinder.volume_list(IsA(http.HttpRequest), search_opts={
-            'all_tenants': True}).AndReturn(self.cinder_volumes.list())
+        cinder.volume_list_paged(IsA(http.HttpRequest), sort_dir="desc",
+                                 marker=None, paginate=True,
+                                 search_opts={'all_tenants': True})\
+            .AndReturn([self.cinder_volumes.list(), False, False])
         cinder.volume_snapshot_list(IsA(http.HttpRequest), search_opts={
             'all_tenants': True}).AndReturn([])
         api.nova.server_list(IsA(http.HttpRequest), search_opts={
@@ -39,11 +49,99 @@ class VolumeTests(test.BaseAdminViewTests):
             .AndReturn([self.tenants.list(), False])
 
         self.mox.ReplayAll()
-        res = self.client.get(reverse('horizon:admin:volumes:index'))
+        res = self.client.get(INDEX_URL)
 
         self.assertTemplateUsed(res, 'admin/volumes/index.html')
         volumes = res.context['volumes_table'].data
         self.assertItemsEqual(volumes, self.cinder_volumes.list())
+
+    @test.create_stubs({api.nova: ('server_list',),
+                        cinder: ('volume_list_paged',),
+                        keystone: ('tenant_list',)})
+    def _test_index_paginated(self, marker, sort_dir, volumes, url,
+                              has_more, has_prev):
+        cinder.volume_list_paged(IsA(http.HttpRequest), sort_dir=sort_dir,
+                                 marker=marker, paginate=True,
+                                 search_opts={'all_tenants': True}) \
+            .AndReturn([volumes, has_more, has_prev])
+        api.nova.server_list(IsA(http.HttpRequest), search_opts={
+                             'all_tenants': True}) \
+            .AndReturn([self.servers.list(), False])
+        keystone.tenant_list(IsA(http.HttpRequest)) \
+            .AndReturn([self.tenants.list(), False])
+
+        self.mox.ReplayAll()
+
+        res = self.client.get(url)
+
+        self.assertTemplateUsed(res, 'admin/volumes/index.html')
+        self.assertEqual(res.status_code, 200)
+
+        self.mox.UnsetStubs()
+        return res
+
+    @override_settings(API_RESULT_PAGE_SIZE=2)
+    def test_index_paginated(self):
+        size = settings.API_RESULT_PAGE_SIZE
+        mox_volumes = self.cinder_volumes.list()
+
+        # get first page
+        expected_volumes = mox_volumes[:size]
+        url = INDEX_URL
+        res = self._test_index_paginated(marker=None, sort_dir="desc",
+                                         volumes=expected_volumes, url=url,
+                                         has_more=True, has_prev=False)
+        volumes = res.context['volumes_table'].data
+        self.assertItemsEqual(volumes, expected_volumes)
+
+        # get second page
+        expected_volumes = mox_volumes[size:2 * size]
+        marker = expected_volumes[0].id
+        next = volume_tables.VolumesTable._meta.pagination_param
+        url = "?".join([INDEX_URL, "=".join([next, marker])])
+        res = self._test_index_paginated(marker=marker, sort_dir="desc",
+                                         volumes=expected_volumes, url=url,
+                                         has_more=True, has_prev=True)
+        volumes = res.context['volumes_table'].data
+        self.assertItemsEqual(volumes, expected_volumes)
+
+        # get last page
+        expected_volumes = mox_volumes[-size:]
+        marker = expected_volumes[0].id
+        next = volume_tables.VolumesTable._meta.pagination_param
+        url = "?".join([INDEX_URL, "=".join([next, marker])])
+        res = self._test_index_paginated(marker=marker, sort_dir="desc",
+                                         volumes=expected_volumes, url=url,
+                                         has_more=False, has_prev=True)
+        volumes = res.context['volumes_table'].data
+        self.assertItemsEqual(volumes, expected_volumes)
+
+    @override_settings(API_RESULT_PAGE_SIZE=2)
+    def test_index_paginated_prev(self):
+        size = settings.API_RESULT_PAGE_SIZE
+        mox_volumes = self.cinder_volumes.list()
+
+        # prev from some page
+        expected_volumes = mox_volumes[size:2 * size]
+        marker = mox_volumes[0].id
+        prev = volume_tables.VolumesTable._meta.prev_pagination_param
+        url = "?".join([INDEX_URL, "=".join([prev, marker])])
+        res = self._test_index_paginated(marker=marker, sort_dir="asc",
+                                         volumes=expected_volumes, url=url,
+                                         has_more=False, has_prev=True)
+        volumes = res.context['volumes_table'].data
+        self.assertItemsEqual(volumes, expected_volumes)
+
+        # back to first page
+        expected_volumes = mox_volumes[:size]
+        marker = mox_volumes[0].id
+        prev = volume_tables.VolumesTable._meta.prev_pagination_param
+        url = "?".join([INDEX_URL, "=".join([prev, marker])])
+        res = self._test_index_paginated(marker=marker, sort_dir="asc",
+                                         volumes=expected_volumes, url=url,
+                                         has_more=True, has_prev=False)
+        volumes = res.context['volumes_table'].data
+        self.assertItemsEqual(volumes, expected_volumes)
 
     @test.create_stubs({cinder: ('volume_type_list_with_qos_associations',
                                  'qos_spec_list',

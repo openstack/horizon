@@ -42,6 +42,7 @@ class VolumeViewTests(test.TestCase):
                                  'volume_type_list',
                                  'volume_type_default',
                                  'volume_list',
+                                 'volume_list_paged',
                                  'availability_zone_list',
                                  'extension_supported'),
                         api.glance: ('image_list_detailed',),
@@ -853,7 +854,7 @@ class VolumeViewTests(test.TestCase):
         self.assertEqual(res.context['form'].errors['__all__'], expected_error)
 
     @test.create_stubs({cinder: ('tenant_absolute_limits',
-                                 'volume_list',
+                                 'volume_list_paged',
                                  'volume_snapshot_list',
                                  'volume_backup_supported',
                                  'volume_delete',),
@@ -866,16 +867,18 @@ class VolumeViewTests(test.TestCase):
 
         cinder.volume_backup_supported(IsA(http.HttpRequest)). \
             MultipleTimes().AndReturn(True)
-        cinder.volume_list(IsA(http.HttpRequest), search_opts=None).\
-            AndReturn(volumes)
+        cinder.volume_list_paged(
+            IsA(http.HttpRequest), marker=None, paginate=True, sort_dir='desc',
+            search_opts=None).AndReturn([volumes, False, False])
         cinder.volume_snapshot_list(IsA(http.HttpRequest),
                                     search_opts=None).\
             AndReturn([])
         cinder.volume_delete(IsA(http.HttpRequest), volume.id)
         api.nova.server_list(IsA(http.HttpRequest), search_opts=None).\
             AndReturn([self.servers.list(), False])
-        cinder.volume_list(IsA(http.HttpRequest), search_opts=None).\
-            AndReturn(volumes)
+        cinder.volume_list_paged(
+            IsA(http.HttpRequest), marker=None, paginate=True, sort_dir='desc',
+            search_opts=None).AndReturn([volumes, False, False])
         cinder.volume_snapshot_list(IsA(http.HttpRequest),
                                     search_opts=None).\
             AndReturn([])
@@ -1086,7 +1089,7 @@ class VolumeViewTests(test.TestCase):
                         'The create snapshot button should be disabled')
 
     @test.create_stubs({cinder: ('tenant_absolute_limits',
-                                 'volume_list',
+                                 'volume_list_paged',
                                  'volume_snapshot_list',
                                  'volume_backup_supported',),
                         api.nova: ('server_list',)})
@@ -1098,8 +1101,9 @@ class VolumeViewTests(test.TestCase):
 
         api.cinder.volume_backup_supported(IsA(http.HttpRequest)). \
             MultipleTimes().AndReturn(True)
-        cinder.volume_list(IsA(http.HttpRequest), search_opts=None)\
-            .AndReturn(volumes)
+        cinder.volume_list_paged(IsA(http.HttpRequest), sort_dir='desc',
+                                 marker=None, paginate=True, search_opts=None)\
+            .AndReturn([volumes, False, False])
         cinder.volume_snapshot_list(IsA(http.HttpRequest),
                                     search_opts=None).\
             AndReturn([])
@@ -1127,7 +1131,7 @@ class VolumeViewTests(test.TestCase):
                          create_action.policy_rules)
 
     @test.create_stubs({cinder: ('tenant_absolute_limits',
-                                 'volume_list',
+                                 'volume_list_paged',
                                  'volume_snapshot_list',
                                  'volume_backup_supported',),
                         api.nova: ('server_list',)})
@@ -1138,8 +1142,9 @@ class VolumeViewTests(test.TestCase):
 
         api.cinder.volume_backup_supported(IsA(http.HttpRequest)). \
             MultipleTimes().AndReturn(True)
-        cinder.volume_list(IsA(http.HttpRequest), search_opts=None)\
-            .AndReturn(volumes)
+        cinder.volume_list_paged(
+            IsA(http.HttpRequest), marker=None, paginate=True, sort_dir='desc',
+            search_opts=None).AndReturn([volumes, False, False])
         cinder.volume_snapshot_list(IsA(http.HttpRequest),
                                     search_opts=None).\
             AndReturn([])
@@ -1515,7 +1520,7 @@ class VolumeViewTests(test.TestCase):
     def test_encryption_true(self):
         self._test_encryption(True)
 
-    @test.create_stubs({cinder: ('volume_list',
+    @test.create_stubs({cinder: ('volume_list_paged',
                                  'volume_snapshot_list',
                                  'volume_backup_supported',
                                  'tenant_absolute_limits'),
@@ -1528,8 +1533,11 @@ class VolumeViewTests(test.TestCase):
 
         cinder.volume_backup_supported(IsA(http.HttpRequest))\
             .MultipleTimes('backup_supported').AndReturn(False)
-        cinder.volume_list(IsA(http.HttpRequest), search_opts=None)\
-            .AndReturn(self.volumes.list())
+
+        cinder.volume_list_paged(
+            IsA(http.HttpRequest), marker=None, sort_dir='desc',
+            search_opts=None, paginate=True)\
+            .AndReturn([self.volumes.list(), False, False])
         cinder.volume_snapshot_list(IsA(http.HttpRequest),
                                     search_opts=None).\
             AndReturn(self.cinder_volume_snapshots.list())
@@ -1580,7 +1588,7 @@ class VolumeViewTests(test.TestCase):
                              "only have 80GiB of your quota available.")
 
     @test.create_stubs({cinder: ('volume_backup_supported',
-                                 'volume_list',
+                                 'volume_list_paged',
                                  'volume_snapshot_list',
                                  'tenant_absolute_limits'),
                         api.nova: ('server_list',)})
@@ -1589,8 +1597,10 @@ class VolumeViewTests(test.TestCase):
 
         cinder.volume_backup_supported(IsA(http.HttpRequest))\
             .MultipleTimes().AndReturn(False)
-        cinder.volume_list(IsA(http.HttpRequest), search_opts=None)\
-            .AndReturn(self.volumes.list())
+        cinder.volume_list_paged(
+            IsA(http.HttpRequest), marker=None, sort_dir='desc',
+            search_opts=None, paginate=True)\
+            .AndReturn([self.volumes.list(), False, False])
         cinder.volume_snapshot_list(IsA(http.HttpRequest),
                                     search_opts=None).\
             AndReturn([])
@@ -1632,7 +1642,7 @@ class VolumeViewTests(test.TestCase):
         self.assertNoFormErrors(res)
 
     @test.create_stubs({cinder: ('volume_backup_supported',
-                                 'volume_list',
+                                 'volume_list_paged',
                                  'volume_snapshot_list',
                                  'transfer_delete',
                                  'tenant_absolute_limits'),
@@ -1652,8 +1662,10 @@ class VolumeViewTests(test.TestCase):
 
         cinder.volume_backup_supported(IsA(http.HttpRequest))\
             .MultipleTimes().AndReturn(False)
-        cinder.volume_list(IsA(http.HttpRequest), search_opts=None)\
-            .AndReturn(volumes)
+        cinder.volume_list_paged(
+            IsA(http.HttpRequest), marker=None, search_opts=None,
+            sort_dir='desc', paginate=True)\
+            .AndReturn([volumes, False, False])
         cinder.volume_snapshot_list(IsA(http.HttpRequest),
                                     search_opts=None).\
             AndReturn([])

@@ -62,6 +62,21 @@
      * @param {Object} params
      * Query parameters. Optional.
      *
+     * @param {boolean} params.paginate
+     * True to paginate automatically.
+     *
+     * @param {string} params.marker
+     * Specifies the image of the last-seen image.
+     *
+     * The typical pattern of limit and marker is to make an
+     * initial limited request and then to use the last
+     * image from the response as the marker parameter
+     * in a subsequent limited request. With paginate, limit
+     * is automatically set.
+     *
+     * @param {string} params.sort_dir
+     * The sort direction ('asc' or 'desc').
+     *
      * @param {string} param.search_opts
      * Filters to pass through the API.
      * For example, "status": "available" will show all available volumes.
