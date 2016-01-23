@@ -15,65 +15,60 @@ from openstack_dashboard.test.integration_tests.regions import forms
 from openstack_dashboard.test.integration_tests.regions import tables
 
 
-class FlavorsPage(basepage.BaseNavigationPage):
-    DEFAULT_ID = "auto"
-    FLAVORS_TABLE_NAME_COLUMN = 'name'
-
-    FLAVORS_TABLE_NAME = "flavors"
-    FLAVORS_TABLE_ACTIONS = ("create", "delete")
-    FLAVORS_TABLE_ROW_ACTIONS = {
-        tables.ComplexActionRowRegion.PRIMARY_ACTION: "edit_flavor",
-        tables.ComplexActionRowRegion.SECONDARY_ACTIONS: (
-            "modify_access", "update_metadata", "delete_flavor")
-    }
+class FlavorsTable(tables.TableRegion):
+    name = "flavors"
 
     CREATE_FLAVOR_FORM_FIELDS = (("name", "flavor_id", "vcpus", "memory_mb",
                                   "disk_gb", "eph_gb", "swap_mb"),
                                  ("all_projects", "selected_projects"))
 
+    @tables.bind_table_action('create')
+    def create_flavor(self, create_button):
+        create_button.click()
+        return forms.TabbedFormRegion(self.driver, self.conf, None,
+                                      self.CREATE_FLAVOR_FORM_FIELDS)
+
+    @tables.bind_table_action('delete')
+    def delete_flavor(self, delete_button):
+        delete_button.click()
+        return forms.BaseFormRegion(self.driver, self.conf, None)
+
+
+class FlavorsPage(basepage.BaseNavigationPage):
+    DEFAULT_ID = "auto"
+    FLAVORS_TABLE_NAME_COLUMN = 'name'
+
     def __init__(self, driver, conf):
         super(FlavorsPage, self).__init__(driver, conf)
         self._page_title = "Flavors"
 
-    def _get_row_with_flavor_name(self, name):
-        return self.flavors_table.get_row(self.FLAVORS_TABLE_NAME_COLUMN, name)
-
     @property
     def flavors_table(self):
-        return tables.ComplexActionTableRegion(self.driver, self.conf,
-                                               self.FLAVORS_TABLE_NAME,
-                                               self.FLAVORS_TABLE_ACTIONS,
-                                               self.FLAVORS_TABLE_ROW_ACTIONS)
+        return FlavorsTable(self.driver, self.conf)
 
-    @property
-    def create_flavor_form(self):
-        return forms.TabbedFormRegion(self.driver, self.conf, None,
-                                      self.CREATE_FLAVOR_FORM_FIELDS)
-
-    @property
-    def confirm_delete_flavors_form(self):
-        return forms.BaseFormRegion(self.driver, self.conf, None)
+    def _get_flavor_row(self, name):
+        return self.flavors_table.get_row(self.FLAVORS_TABLE_NAME_COLUMN, name)
 
     def create_flavor(self, name, id_=DEFAULT_ID, vcpus=None, ram=None,
                       root_disk=None, ephemeral_disk=None, swap_disk=None):
-        self.flavors_table.create.click()
-        self.create_flavor_form.name.text = name
+        create_flavor_form = self.flavors_table.create_flavor()
+        create_flavor_form.name.text = name
         if id_ is not None:
-            self.create_flavor_form.flavor_id.text = id_
-        self.create_flavor_form.vcpus.value = vcpus
-        self.create_flavor_form.memory_mb.value = ram
-        self.create_flavor_form.disk_gb.value = root_disk
-        self.create_flavor_form.eph_gb.value = ephemeral_disk
-        self.create_flavor_form.swap_mb.value = swap_disk
-        self.create_flavor_form.submit.click()
+            create_flavor_form.flavor_id.text = id_
+        create_flavor_form.vcpus.value = vcpus
+        create_flavor_form.memory_mb.value = ram
+        create_flavor_form.disk_gb.value = root_disk
+        create_flavor_form.eph_gb.value = ephemeral_disk
+        create_flavor_form.swap_mb.value = swap_disk
+        create_flavor_form.submit()
         self.wait_till_popups_disappear()
 
     def delete_flavor(self, name):
-        row = self._get_row_with_flavor_name(name)
+        row = self._get_flavor_row(name)
         row.mark()
-        self.flavors_table.delete.click()
-        self.confirm_delete_flavors_form.submit.click()
+        confirm_delete_flavors_form = self.flavors_table.delete_flavor()
+        confirm_delete_flavors_form.submit()
         self.wait_till_popups_disappear()
 
     def is_flavor_present(self, name):
-        return bool(self._get_row_with_flavor_name(name))
+        return bool(self._get_flavor_row(name))

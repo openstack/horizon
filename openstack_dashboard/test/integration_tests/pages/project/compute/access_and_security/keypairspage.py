@@ -18,14 +18,27 @@ from openstack_dashboard.test.integration_tests.regions import forms
 from openstack_dashboard.test.integration_tests.regions import tables
 
 
+class KeypairsTable(tables.TableRegion):
+    name = "keypairs"
+    CREATE_KEY_PAIR_FORM_FIELDS = ('name',)
+
+    @tables.bind_table_action('create')
+    def create_keypair(self, create_button):
+        create_button.click()
+        return forms.FormRegion(self.driver, self.conf, None,
+                                self.CREATE_KEY_PAIR_FORM_FIELDS)
+
+    @tables.bind_row_action('delete', primary=True)
+    def delete_keypair(self, delete_button, row):
+        delete_button.click()
+        return forms.BaseFormRegion(self.driver, self.conf)
+
+
 class KeypairsPage(basepage.BaseNavigationPage):
 
-    KEY_PAIRS_TABLE_NAME = "keypairs"
     KEY_PAIRS_TABLE_ACTIONS = ("create", "import", "delete")
     KEY_PAIRS_TABLE_ROW_ACTION = "delete"
     KEY_PAIRS_TABLE_NAME_COLUMN = 'name'
-
-    CREATE_KEY_PAIR_FORM_FIELDS = ('name',)
 
     def __init__(self, driver, conf):
         super(KeypairsPage, self).__init__(driver, conf)
@@ -37,15 +50,7 @@ class KeypairsPage(basepage.BaseNavigationPage):
 
     @property
     def keypairs_table(self):
-        return tables.SimpleActionsTableRegion(self.driver, self.conf,
-                                               self.KEY_PAIRS_TABLE_NAME,
-                                               self.KEY_PAIRS_TABLE_ACTIONS,
-                                               self.KEY_PAIRS_TABLE_ROW_ACTION)
-
-    @property
-    def create_keypair_form(self):
-        return forms.FormRegion(self.driver, self.conf, None,
-                                self.CREATE_KEY_PAIR_FORM_FIELDS)
+        return KeypairsTable(self.driver, self.conf)
 
     @property
     def delete_keypair_form(self):
@@ -55,12 +60,13 @@ class KeypairsPage(basepage.BaseNavigationPage):
         return bool(self._get_row_with_keypair_name(name))
 
     def create_keypair(self, keypair_name):
-        self.keypairs_table.create.click()
-        self.create_keypair_form.name.text = keypair_name
-        self.create_keypair_form.submit.click()
+        create_keypair_form = self.keypairs_table.create_keypair()
+        create_keypair_form.name.text = keypair_name
+        create_keypair_form.submit()
         self.wait_till_popups_disappear()
 
     def delete_keypair(self, name):
-        self._get_row_with_keypair_name(name).delete.click()
-        self.delete_keypair_form.submit.click()
+        row = self._get_row_with_keypair_name(name)
+        delete_keypair_form = self.keypairs_table.delete_keypair(row)
+        delete_keypair_form.submit()
         self.wait_till_popups_disappear()

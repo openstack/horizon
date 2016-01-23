@@ -15,21 +15,26 @@ from openstack_dashboard.test.integration_tests.regions import forms
 from openstack_dashboard.test.integration_tests.regions import tables
 
 
+class UsersTable(tables.TableRegion):
+    name = 'users'
+    CREATE_USER_FORM_FIELDS = ("name", "email", "password",
+                               "confirm_password", "project", "role_id")
+
+    @tables.bind_table_action('create')
+    def create_user(self, create_button):
+        create_button.click()
+        return forms.FormRegion(self.driver, self.conf, None,
+                                self.CREATE_USER_FORM_FIELDS)
+
+    @tables.bind_table_action('delete')
+    def delete_user(self, delete_button):
+        delete_button.click()
+        return forms.BaseFormRegion(self.driver, self.conf)
+
+
 class UsersPage(basepage.BaseNavigationPage):
 
     USERS_TABLE_NAME_COLUMN = 'name'
-
-    USERS_TABLE_NAME = "users"
-    USERS_TABLE_ACTIONS = ("create", "delete")
-
-    USERS_TABLE_ROW_ACTIONS = {
-        tables.ComplexActionRowRegion.PRIMARY_ACTION: "edit_user",
-        tables.ComplexActionRowRegion.SECONDARY_ACTIONS: ("disable_user",
-                                                          "delete_user")
-    }
-
-    CREATE_USER_FORM_FIELDS = ("name", "email", "password",
-                               "confirm_password", "project", "role_id")
 
     def __init__(self, driver, conf):
         super(UsersPage, self).__init__(driver, conf)
@@ -40,38 +45,26 @@ class UsersPage(basepage.BaseNavigationPage):
 
     @property
     def users_table(self):
-        return tables.ComplexActionTableRegion(self.driver, self.conf,
-                                               self.USERS_TABLE_NAME,
-                                               self.USERS_TABLE_ACTIONS,
-                                               self.USERS_TABLE_ROW_ACTIONS)
-
-    @property
-    def create_user_form(self):
-        return forms.FormRegion(self.driver, self.conf, None,
-                                self.CREATE_USER_FORM_FIELDS)
-
-    @property
-    def confirm_delete_users_form(self):
-        return forms.BaseFormRegion(self.driver, self.conf, None)
+        return UsersTable(self.driver, self.conf)
 
     def create_user(self, name, password,
                     project, role, email=None):
-        self.users_table.create.click()
-        self.create_user_form.name.text = name
+        create_user_form = self.users_table.create_user()
+        create_user_form.name.text = name
         if email is not None:
-            self.create_user_form.email.text = email
-        self.create_user_form.password.text = password
-        self.create_user_form.confirm_password.text = password
-        self.create_user_form.project.text = project
-        self.create_user_form.role_id.text = role
-        self.create_user_form.submit.click()
+            create_user_form.email.text = email
+        create_user_form.password.text = password
+        create_user_form.confirm_password.text = password
+        create_user_form.project.text = project
+        create_user_form.role_id.text = role
+        create_user_form.submit()
         self.wait_till_popups_disappear()
 
     def delete_user(self, name):
         row = self._get_row_with_user_name(name)
         row.mark()
-        self.users_table.delete.click()
-        self.confirm_delete_users_form.submit.click()
+        confirm_delete_users_form = self.users_table.delete_user()
+        confirm_delete_users_form.submit()
         self.wait_till_popups_disappear()
 
     def is_user_present(self, name):

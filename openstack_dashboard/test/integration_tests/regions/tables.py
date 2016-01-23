@@ -10,12 +10,12 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
+import functools
 
 from selenium.common import exceptions
 from selenium.webdriver.common import by
 
 from openstack_dashboard.test.integration_tests.regions import baseregion
-from openstack_dashboard.test.integration_tests.regions import menus
 
 NORMAL_COLUMN_CLASS = 'normal_column'
 
@@ -24,6 +24,7 @@ class RowRegion(baseregion.BaseRegion):
     """Classic table row."""
 
     _cell_locator = (by.By.CSS_SELECTOR, 'td.%s' % NORMAL_COLUMN_CLASS)
+    _row_checkbox_locator = (by.By.CSS_SELECTOR, 'td > input')
 
     def __init__(self, driver, conf, src_elem, column_names):
         self.column_names = column_names
@@ -35,95 +36,12 @@ class RowRegion(baseregion.BaseRegion):
         return {column_name: elements[i]
                 for i, column_name in enumerate(self.column_names)}
 
-
-class BaseActionRowRegion(RowRegion):
-    """Base class for creating ActionRow class derivative."""
-
-    _row_checkbox_locator = (by.By.CSS_SELECTOR, 'td > input')
-
     def mark(self):
         chck_box = self._get_element(*self._row_checkbox_locator)
         chck_box.click()
 
 
-class BtnActionRowRegion(BaseActionRowRegion):
-    """Row with buttons in action column."""
-
-    _action_locator = (by.By.CSS_SELECTOR, 'td.actions_column > button')
-
-    def __init__(self, driver, conf, src_elem, column_names, action_name):
-        super(BtnActionRowRegion, self).__init__(driver, conf, src_elem,
-                                                 column_names)
-        self.action_name = action_name
-        self._action_id_pattern = ("%s__action_%%s" %
-                                   src_elem.get_attribute('id'))
-        self._init_action()
-
-    def _init_action(self):
-        self._init_dynamic_property(self.action_name, self._get_action,
-                                    self._action_id_pattern)
-
-    def _get_action(self):
-        return self._get_element(*self._action_locator)
-
-    @property
-    def action(self):
-        return self._get_action()
-
-
-class ComplexActionRowRegion(BaseActionRowRegion):
-    """Row with button and select box in action column."""
-
-    _primary_action_locator = (by.By.CSS_SELECTOR,
-                               'td.actions_column > div.btn-group > *.btn')
-    _secondary_actions_dropdown_locator = (by.By.CSS_SELECTOR,
-                                           'div.btn-group')
-
-    PRIMARY_ACTION = "primary_action"
-    SECONDARY_ACTIONS = "secondary_actions"
-
-    ACTIONS_ERROR_MSG = ("Actions must be supplied in dictionary:"
-                         " {%s: 'action_name', '%s': ('action_name',...)}"
-                         % (PRIMARY_ACTION, SECONDARY_ACTIONS))
-
-    def __init__(self, driver, conf, src_elem, column_names, action_names):
-        super(ComplexActionRowRegion, self).__init__(driver, conf, src_elem,
-                                                     column_names)
-        try:
-            self.primary_action_name = action_names[self.PRIMARY_ACTION]
-            self.secondary_action_names = action_names[self.SECONDARY_ACTIONS]
-            self._action_id_pattern = ("%s__action_%%s" %
-                                       src_elem.get_attribute('id'))
-            self._init_actions()
-        except (TypeError, KeyError):
-            raise AttributeError(self.ACTIONS_ERROR_MSG)
-
-    def _init_actions(self):
-        self._init_dynamic_property(self.primary_action_name,
-                                    self._get_primary_action,
-                                    self._action_id_pattern)
-        self._init_dynamic_properties(self.secondary_action_names,
-                                      self._get_secondary_actions,
-                                      self._action_id_pattern)
-
-    def _get_primary_action(self):
-        return self._get_element(*self._primary_action_locator)
-
-    def _get_secondary_actions(self):
-        src_elem = self._get_element(*self._secondary_actions_dropdown_locator)
-        dropdown = menus.DropDownMenuRegion(self.driver, self.conf, src_elem)
-        return dropdown.menu_items
-
-    @property
-    def primary_action(self):
-        return self._get_primary_action()
-
-    @property
-    def secondary_actions(self):
-        return self._get_secondary_actions()
-
-
-class BasicTableRegion(baseregion.BaseRegion):
+class TableRegion(baseregion.BaseRegion):
     """Basic class representing table object."""
 
     _heading_locator = (by.By.CSS_SELECTOR, 'h3.table_title')
@@ -139,9 +57,9 @@ class BasicTableRegion(baseregion.BaseRegion):
     def _table_locator(self, table_name):
         return by.By.CSS_SELECTOR, 'table#%s' % table_name
 
-    def __init__(self, driver, conf, table_name):
-        self._default_src_locator = self._table_locator(table_name)
-        super(BasicTableRegion, self).__init__(driver, conf)
+    def __init__(self, driver, conf):
+        self._default_src_locator = self._table_locator(self.__class__.name)
+        super(TableRegion, self).__init__(driver, conf)
 
     @property
     def heading(self):
@@ -202,69 +120,104 @@ class BasicTableRegion(baseregion.BaseRegion):
         btn = self._get_element(*self._search_button_locator)
         btn.click()
 
-    def _make_row(self, elem):
-        return RowRegion(self.driver, self.conf, elem, self.column_names)
-
     def _get_rows(self, *args):
-        elements = self._get_elements(*self._rows_locator)
-        return [self._make_row(elem) for elem in elements]
+        return [RowRegion(self.driver, self.conf, elem, self.column_names)
+                for elem in self._get_elements(*self._rows_locator)]
 
 
-class ActionsTableRegion(BasicTableRegion):
-    """Base class for creating derivative of BasicTableRegion that
-    has some actions.
+def bind_table_action(action_name):
+    """A decorator to bind table region method to an actual table action
+    button.
+
+    Many table actions when started (by clicking a corresponding button
+    in UI) lead to some form showing up. To further interact with this form,
+    a Python/ Selenium wrapper needs to be created for it. It is very
+    convenient to return this newly created wrapper in the same method that
+    initiates clicking an actual table action button. Binding the method to a
+    button is performed behind the scenes in this decorator.
+
+    .. param:: action_name
+
+        Part of the action button id which is specific to action itself. It
+        is safe to use action `name` attribute from the dashboard tables.py
+        code.
     """
-
     _actions_locator = (by.By.CSS_SELECTOR, 'div.table_actions > button,'
                                             ' div.table_actions > a')
 
-    # private methods
-    def __init__(self, driver, conf, table_name, action_names):
-        super(ActionsTableRegion, self).__init__(driver, conf, table_name)
-        self._action_id_pattern = "%s__action_%%s" % table_name
-        self.action_names = action_names
-        self._init_actions()
-
-    # protected methods
-    def _init_actions(self):
-        """Create new methods that corresponds to picking table's
-        action buttons.
-        """
-        self._init_dynamic_properties(self.action_names, self._get_actions,
-                                      self._action_id_pattern)
-
-    def _get_actions(self):
-        return self._get_elements(*self._actions_locator)
-
-    # properties
-    @property
-    def actions(self):
-        return self._get_actions()
+    def decorator(method):
+        @functools.wraps(method)
+        def wrapper(table):
+            actions = table._get_elements(*_actions_locator)
+            action_element = None
+            for action in actions:
+                target_action_id = '%s__action_%s' % (table.name, action_name)
+                if action.get_attribute('id') == target_action_id:
+                    action_element = action
+                    break
+            if action_element is None:
+                msg = "Could not bind method '%s' to action control '%s'" % (
+                    method.__name__, action_name)
+                raise ValueError(msg)
+            return method(table, action_element)
+        return wrapper
+    return decorator
 
 
-class SimpleActionsTableRegion(ActionsTableRegion):
-    """Table which rows has buttons in action column."""
+def bind_row_action(action_name, primary=False):
+    """A decorator to bind table region method to an actual row action button.
 
-    def __init__(self, driver, conf, table_name, action_names,
-                 row_action_name):
-        super(SimpleActionsTableRegion, self).__init__(
-            driver, conf, table_name, action_names)
-        self.row_action_name = row_action_name
+    Many table actions when started (by clicking a corresponding button
+    in UI) lead to some form showing up. To further interact with this form,
+    a Python/ Selenium wrapper needs to be created for it. It is very
+    convenient to return this newly created wrapper in the same method that
+    initiates clicking an actual action button. Row action could be
+    either primary (if its name is written right away on row action
+    button) or secondary (if its name is inside of a button drop-down). Binding
+    the method to a button and toggling the button drop-down open (in case
+    a row action is secondary) is performed behind the scenes in this
+    decorator.
 
-    def _make_row(self, elem):
-        return BtnActionRowRegion(self.driver, self.conf, elem,
-                                  self.column_names, self.row_action_name)
+    .. param:: action_name
 
+        Part of the action button id which is specific to action itself. It
+        is safe to use action `name` attribute from the dashboard tables.py
+        code.
 
-class ComplexActionTableRegion(ActionsTableRegion):
-    """Table which has button and selectbox in the action column."""
+    .. param:: primary
 
-    def __init__(self, driver, conf, table_name,
-                 action_names, row_action_names):
-        super(ComplexActionTableRegion, self).__init__(
-            driver, conf, table_name, action_names)
-        self.row_action_names = row_action_names
+        Whether an action being bound is primary or secondary. In latter case
+        a button drop-down needs to be clicked prior to clicking a button.
+        Defaults to `False`.
+    """
+    primary_action_locator = (
+        by.By.CSS_SELECTOR,
+        'td.actions_column > .btn-group > a.btn:nth-child(1)')
+    secondary_actions_opener_locator = (
+        by.By.CSS_SELECTOR,
+        'td.actions_column > .btn-group > a.btn:nth-child(2)')
+    secondary_actions_locator = (
+        by.By.CSS_SELECTOR,
+        'td.actions_column > .btn-group > ul.row_actions > li > a')
 
-    def _make_row(self, elem):
-        return ComplexActionRowRegion(self.driver, self.conf, elem,
-                                      self.column_names, self.row_action_names)
+    def decorator(method):
+        @functools.wraps(method)
+        def wrapper(table, row):
+            action_element = None
+            if primary:
+                action_element = row._get_element(*primary_action_locator)
+            else:
+                row._get_element(*secondary_actions_opener_locator).click()
+                for action in row._get_elements(*secondary_actions_locator):
+                    pattern = "__action_%s" % action_name
+                    if action.get_attribute('id').endswith(pattern):
+                        action_element = action
+                        break
+
+            if action_element is None:
+                msg = "Could not bind method '%s' to action control '%s'" % (
+                    method.__name__, action_name)
+                raise ValueError(msg)
+            return method(table, action_element, row)
+        return wrapper
+    return decorator
