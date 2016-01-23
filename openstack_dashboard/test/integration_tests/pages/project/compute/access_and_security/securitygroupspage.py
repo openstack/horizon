@@ -53,14 +53,12 @@ class SecuritygroupsPage(basepage.BaseNavigationPage):
         if description is not None:
             create_securitygroups_form.description.text = description
         create_securitygroups_form.submit()
-        self.wait_till_popups_disappear()
 
     def delete_securitygroup(self, name):
         row = self._get_row_with_securitygroup_name(name)
         row.mark()
         modal_confirmation_form = self.securitygroups_table.delete_group()
         modal_confirmation_form.submit()
-        self.wait_till_popups_disappear()
 
     def is_securitygroup_present(self, name):
         return bool(self._get_row_with_securitygroup_name(name))

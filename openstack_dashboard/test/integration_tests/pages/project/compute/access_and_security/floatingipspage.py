@@ -63,7 +63,6 @@ class FloatingipsPage(basepage.BaseNavigationPage):
         match = ip.search((self._get_element(
             *self._floatingips_fadein_popup_locator)).text)
         floatingip = str(match.group())
-        self.wait_till_popups_disappear()
         return floatingip
 
     def release_floatingip(self, floatingip):
@@ -71,7 +70,6 @@ class FloatingipsPage(basepage.BaseNavigationPage):
         row.mark()
         modal_confirmation_form = self.floatingips_table.release_ip()
         modal_confirmation_form.submit()
-        self.wait_till_popups_disappear()
 
     def is_floatingip_present(self, floatingip):
         return bool(self._get_row_with_floatingip(floatingip))

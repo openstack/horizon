@@ -244,6 +244,7 @@ class BaseFormRegion(baseregion.BaseRegion):
 
     def submit(self):
         self._submit_element.click()
+        self.wait_till_spinner_disappears()
 
     @property
     def _cancel_element(self):

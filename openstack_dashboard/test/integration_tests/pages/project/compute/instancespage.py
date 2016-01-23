@@ -97,19 +97,17 @@ class InstancesPage(basepage.BaseNavigationPage):
         if vol_delete_on_instance_delete:
             instance_form.vol_delete_on_instance_delete.mark()
         instance_form.submit()
-        self.wait_till_popups_disappear()
 
     def delete_instance(self, name):
         row = self._get_row_with_instance_name(name)
         row.mark()
         confirm_delete_instances_form = self.instances_table.delete_instance()
         confirm_delete_instances_form.submit()
-        self.wait_till_popups_disappear()
 
     def is_instance_deleted(self, name):
         try:
-            row = self._get_row_with_instance_name(name)
-            self._wait_till_element_disappears(row)
+            getter = lambda: self._get_row_with_instance_name(name)
+            self.wait_till_element_disappears(getter)
         except exceptions.TimeoutException:
             return False
         return True

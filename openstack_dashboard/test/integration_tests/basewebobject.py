@@ -9,14 +9,18 @@
 #    WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
 #    License for the specific language governing permissions and limitations
 #    under the License.
+import unittest
+
 import selenium.common.exceptions as Exceptions
+from selenium.webdriver.common import by
 import selenium.webdriver.support.ui as Support
 from selenium.webdriver.support import wait
-import unittest
 
 
 class BaseWebObject(unittest.TestCase):
     """Base class for all web objects."""
+    _spinner_locator = (by.By.CSS_SELECTOR, 'div.modal-backdrop')
+
     def __init__(self, driver, conf):
         self.driver = driver
         self.conf = conf
@@ -105,3 +109,19 @@ class BaseWebObject(unittest.TestCase):
     def _wait_till_element_disappears(self, element, timeout=None):
         self._wait_until(lambda x: not self._is_element_displayed(element),
                          timeout)
+
+    def wait_till_element_disappears(self, element_getter):
+        try:
+            self._turn_off_implicit_wait()
+            self._wait_till_element_disappears(element_getter())
+        except Exceptions.NoSuchElementException:
+            # NOTE(mpavlase): This is valid state. When request completes
+            # even before Selenium get a chance to get the spinner element,
+            # it will raise the NoSuchElementException exception.
+            pass
+        finally:
+            self._turn_on_implicit_wait()
+
+    def wait_till_spinner_disappears(self):
+        getter = lambda: self.driver.find_element(*self._spinner_locator)
+        self.wait_till_element_disappears(getter)

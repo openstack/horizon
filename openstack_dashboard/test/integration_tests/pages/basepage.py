@@ -10,7 +10,6 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
-from selenium.common.exceptions import NoSuchElementException
 from selenium.webdriver.common import by
 
 from openstack_dashboard.test.integration_tests.pages import navigation
@@ -24,7 +23,6 @@ class BasePage(pageobject.PageObject):
     """Base class for all dashboard page objects."""
 
     _heading_locator = (by.By.CSS_SELECTOR, 'div.page-header > h2')
-    _spinner_locator = (by.By.CSS_SELECTOR, 'div.modal-backdrop')
 
     @property
     def heading(self):
@@ -55,30 +53,11 @@ class BasePage(pageobject.PageObject):
     def go_to_help_page(self):
         self.topbar.user_dropdown_menu.click_on_help()
 
-    def wait_till_element_disappears(self, element_getter):
-        try:
-            self._turn_off_implicit_wait()
-            self._wait_till_element_disappears(element_getter())
-        except NoSuchElementException:
-            # NOTE(mpavlase): This is valid state. When request completes
-            # even before Selenium get a chance to get the spinner element,
-            # it will raise the NoSuchElementException exception.
-            pass
-        finally:
-            self._turn_on_implicit_wait()
-
-    def wait_till_spinner_disappears(self):
-        getter = lambda: self._get_element(*self._spinner_locator)
-        self.wait_till_element_disappears(getter)
-
     def find_message_and_dismiss(self, message_level=messages.SUCCESS):
         message = messages.MessageRegion(self.driver, self.conf, message_level)
         if message.exists():
             message.close()
         return message.exists()
-
-    def wait_till_popups_disappear(self):
-        self.wait_till_spinner_disappears()
 
     def change_project(self, name):
         self.topbar.user_dropdown_project.click_on_project(name)
