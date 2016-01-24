@@ -224,15 +224,17 @@ def bind_row_action(action_name, primary=False):
         a button drop-down needs to be clicked prior to clicking a button.
         Defaults to `False`.
     """
+    # NOTE(tsufiev): button tag could be either <a> or <button> - target
+    # both with *. Also primary action could be single as well, do not use
+    # .btn-group because of that
     primary_action_locator = (
-        by.By.CSS_SELECTOR,
-        'td.actions_column > .btn-group > a.btn:nth-child(1)')
+        by.By.CSS_SELECTOR, 'td.actions_column *.btn:nth-child(1)')
     secondary_actions_opener_locator = (
         by.By.CSS_SELECTOR,
-        'td.actions_column > .btn-group > a.btn:nth-child(2)')
+        'td.actions_column > .btn-group > *.btn:nth-child(2)')
     secondary_actions_locator = (
         by.By.CSS_SELECTOR,
-        'td.actions_column > .btn-group > ul.row_actions > li > a')
+        'td.actions_column > .btn-group > ul.row_actions > li > a, button')
 
     def decorator(method):
         @functools.wraps(method)
