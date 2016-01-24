@@ -10,6 +10,8 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
+import logging
+
 from heatclient.v1 import resource_types
 from heatclient.v1 import resources
 from heatclient.v1 import services
@@ -17,6 +19,9 @@ from heatclient.v1 import stacks
 
 from openstack_dashboard.test.test_data import utils
 
+# suppress warnings about our use of object comparisons in heatclient
+logging.getLogger('heatclient.openstack.common.apiclient.base') \
+    .setLevel('ERROR')
 
 # A slightly hacked up copy of a sample cloudformation template for testing.
 TEMPLATE = """
