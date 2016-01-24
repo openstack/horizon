@@ -1,12 +1,12 @@
 {% load i18n %}
 
 {% with panel_url=request.horizon.panel.get_absolute_url %}
-<ul>
+<ul class="dropdown-menu">
   <li class="dropdown-header">{% trans "Regions:" %}</li>
   {% for region in regions %}
   <li>
     <a href="{% url 'switch_services_region' region %}?next={{ panel_url }}" target="_self">
-      <span class="region-name">{{ region }}</span>
+      <span class="region-name dropdown-title">{{ region }}</span>
       {% if region == region_name %}
       <span class="fa fa-check"></span>
       {% endif %}

@@ -1,0 +1,16 @@
+.selection-menu {
+  .dropdown-menu > li > a {
+    padding-left: $mdi-icon-size*2;
+  }
+
+  .dropdown-selected {
+    .dropdown-selected-icon {
+      left: $mdi-icon-size/4;
+
+      @media (min-width: $screen-sm) {
+        color: $brand-primary;
+        left: $mdi-icon-size/2;
+      }
+    }
+  }
+}

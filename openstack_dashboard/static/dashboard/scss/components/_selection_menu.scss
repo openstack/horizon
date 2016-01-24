@@ -1,0 +1,52 @@
+// FYI Note (hurgleburgler)
+// The Selection Menu is not a normal drop down element
+//   This menu can contain other dropdown menus, and will
+//   treat them as a selection group element.
+//   The context menu shows this functionality.
+//   This drop down is composed of other <ul> drop down lists.
+//   Because of this fact, it is necessary to inherit
+//   class="dropdown" for the children elements to obtain
+//   their necessary styles, but we must remove the default
+//   styles for .dropdown on the inner <ul> itself.
+
+.selection-menu {
+
+  // Pass along the style of a disabled anchor
+  .disabled {
+    cursor: not-allowed;
+    color: $dropdown-link-disabled-color;
+  }
+
+  // Remove all styles from an inside dropdown
+  .dropdown-menu {
+    border: medium none;
+    box-shadow: none;
+    display: block;
+    position: relative;
+    float: none;
+
+    // Remove any possible arrows on the dropdown box
+    &:before,
+    &:after {
+      border: none;
+      position: relative;
+    }
+
+    // Pad the icon with 2 * icon size
+    & > li > a {
+      padding-left: 2em;
+    }
+  }
+
+  // Hide the icon by default if its not selected
+  .dropdown-selected-icon {
+    display: none;
+  }
+
+  .dropdown-selected .dropdown-selected-icon {
+    display: inline;
+    position: absolute;
+    left: .5em;
+    line-height: $line-height-computed;
+  }
+}

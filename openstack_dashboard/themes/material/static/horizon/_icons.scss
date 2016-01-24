@@ -8,7 +8,7 @@ $mdi-font-path: $static_url + "/horizon/lib/mdi/fonts";
 
 .fa {
   @extend .mdi;
-  font-size: 1.3em;
+  font-size: $mdi-icon-size;
 }
 
 $icon-swap: (

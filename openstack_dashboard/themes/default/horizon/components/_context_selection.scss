@@ -1,44 +1,36 @@
 //Keep the native bootstrap experience for smaller screens
 @media(min-width: $screen-sm) {
 
-  .context-selection {
-    width: auto;
+  // Specificity required
+  .context-selection.dropdown-menu {
     padding: 0;
 
     & > li {
       display: table-cell;
+      vertical-align: top;
       padding: $padding-xs-horizontal 0;
-
-      & > ul > li {
-
-        &.dropdown-header,
-        & > a {
-          padding: $dropdown-item-padding-vertical $dropdown-item-padding-horizontal*2 $dropdown-item-padding-vertical $dropdown-item-padding-horizontal;
-        }
-
-        &.dropdown-header {
-          color: $dropdown-header-color;
-        }
-
-        & > a  {
-          display: inline-block;
-          width: 100%;
-
-          & > .fa.fa-check {
-            left: auto;
-            float: auto;
-            padding-left: $dropdown-item-padding-horizontal/2;
-          }
-        }
-      }
 
       &:not(:last-child) {
         border-right: 1px solid $gray-light;
       }
     }
+
+    .dropdown-menu > li > a {
+      padding-left: $dropdown-item-padding-horizontal;
+      display: flex;
+    }
+
+    .dropdown-title {
+     order: 1;
+    }
+
+    .dropdown-selected-icon {
+      position: relative;
+      order: 2;
+    }
   }
 
-  .open .context-selection {
+  .open .dropdown-selection {
     display: table;
 
     // display: table pushes down our little arrow a single pixel
