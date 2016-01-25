@@ -1,12 +1,12 @@
 <span class="fa fa-list-alt"></span>
 <span class="context-overview">
   {% if domain_supported %}
-  <span> {{ domain_name }} </span>
-  <strong>&middot;</strong>
+  <span class="context-domain"> {{ domain_name }} </span>
+  <span class="fa fa-circle context-delimiter"></span>
   {% endif %}
-  <span> {{ project_name }} </span>
+  <span class="context-project"> {{ project_name }} </span>
   {% if multi_region %}
-  <strong>&middot;</strong>
-  <span> {{ region_name }} </span>
+  <span class="fa fa-circle context-delimiter"></span>
+  <span class="context-region"> {{ region_name }} </span>
   {% endif %}
 </span>
