@@ -147,7 +147,7 @@ def _get_quota_data(request, method_name, disabled_quotas=None,
     if 'volumes' not in disabled_quotas:
         try:
             quotasets.append(getattr(cinder, method_name)(request, tenant_id))
-        except cinder.ClientException:
+        except cinder.cinder_exception.ClientException:
             disabled_quotas.extend(CINDER_QUOTA_FIELDS)
             msg = _("Unable to retrieve volume limit information.")
             exceptions.handle(request, msg)
@@ -349,7 +349,7 @@ def _get_tenant_volume_usages(request, usages, disabled_quotas, tenant_id):
             usages.tally('gigabytes', sum([int(v.size) for v in volumes]))
             usages.tally('volumes', len(volumes))
             usages.tally('snapshots', len(snapshots))
-        except cinder.ClientException:
+        except cinder.cinder_exception.ClientException:
             msg = _("Unable to retrieve volume limit information.")
             exceptions.handle(request, msg)
 
@@ -403,7 +403,7 @@ def tenant_limit_usages(request):
             limits['gigabytesUsed'] = vol_size + snap_size
             limits['volumesUsed'] = len(volumes)
             limits['snapshotsUsed'] = len(snapshots)
-        except cinder.ClientException:
+        except cinder.cinder_exception.ClientException:
             msg = _("Unable to retrieve volume limit information.")
             exceptions.handle(request, msg)
 
