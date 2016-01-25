@@ -10,16 +10,17 @@
 # Marian Tort <marian.tort@gmail.com>, 2015. #zanata
 # OpenStack Infra <zanata@openstack.org>, 2015. #zanata
 # Veruska <reaching.out@gmail.com>, 2015. #zanata
+# Alberto Molina Coballes <alb.molina@gmail.com>, 2016. #zanata
 msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2016-01-09 00:51+0000\n"
+"POT-Creation-Date: 2016-01-25 00:39+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2015-10-06 02:06+0000\n"
-"Last-Translator: Marian Tort <marian.tort@gmail.com>\n"
+"PO-Revision-Date: 2016-01-20 08:22+0000\n"
+"Last-Translator: Alberto Molina Coballes <alb.molina@gmail.com>\n"
 "Language: es\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "Generated-By: Babel 2.0\n"
@@ -143,6 +144,9 @@ msgstr "Automático"
 
 msgid "Availability Zone"
 msgstr "Zona de Disponibilidad"
+
+msgid "Buttons"
+msgstr "Botones"
 
 msgid "Cancel"
 msgstr "Cancelar"
@@ -318,6 +322,9 @@ msgstr "Impacto en tu capacidad"
 msgid "Import Key Pair"
 msgstr "Importar Par de Claves"
 
+msgid "Info"
+msgstr "Info"
+
 msgid "Instance Details"
 msgstr "Detalles de la Instancia"
 
@@ -370,6 +377,9 @@ msgstr "Terminado forzosamente"
 
 msgid "Launch Instance"
 msgstr "Ejecutar Instancia"
+
+msgid "Link"
+msgstr "Enlace"
 
 msgid "Load script from a file"
 msgstr "Cargar script desde un archivo"
@@ -767,6 +777,9 @@ msgstr "No ha sido posible borrar el usuario."
 msgid "Unable to delete the users."
 msgstr "No ha sido posible borrar los usuarios."
 
+msgid "Unable to edit instance metadata."
+msgstr "No ha sido posible editar los metadatos de la instancia."
+
 msgid "Unable to edit the aggregate extra specs."
 msgstr ""
 "No ha sido posible editar las especificaciones adicionales del agregado."
@@ -792,6 +805,9 @@ msgstr "No ha sido posible editar el usuario."
 msgid "Unable to fetch the service catalog."
 msgstr "No ha sido posible obtener el catálogo de servicio."
 
+msgid "Unable to fetch the services."
+msgstr "No ha sido posible traer los servicios."
+
 msgid "Unable to get the Keystone service version."
 msgstr "No es posible obtener la versión de servicio base."
 
@@ -801,8 +817,17 @@ msgstr "No ha sido posible asignar el rol."
 msgid "Unable to import the keypair."
 msgstr "No ha sido posible importar el par de claves."
 
+msgid "Unable to retrieve instance metadata."
+msgstr "No ha sido posible obtener los metadatos de la instancia."
+
+msgid "Unable to retrieve instances."
+msgstr "No ha sido posible obtener las instancias."
+
 msgid "Unable to retrieve settings."
 msgstr "No ha sido posible obtener los ajustes."
+
+msgid "Unable to retrieve the agents."
+msgstr "No ha sido posible obtener los agentes."
 
 msgid "Unable to retrieve the aggregate extra specs."
 msgstr ""
@@ -832,6 +857,9 @@ msgstr "No ha sido posible obtener el sabor."
 msgid "Unable to retrieve the flavors."
 msgstr "No ha sido posible obtener los sabores."
 
+msgid "Unable to retrieve the heat services."
+msgstr "No ha sido posible obtener los servicios de heat."
+
 msgid "Unable to retrieve the image custom properties."
 msgstr "No ha sido posible obtener las propiedades de la imagen."
 
@@ -852,6 +880,9 @@ msgstr "No ha sido posible obtener los espacios de nombres."
 
 msgid "Unable to retrieve the networks."
 msgstr "No ha sido posible recuperar las redes."
+
+msgid "Unable to retrieve the nova services."
+msgstr "No ha sido posible obtener los servicios de nova."
 
 msgid "Unable to retrieve the ports."
 msgstr "No ha sido posible obtener los puertos."

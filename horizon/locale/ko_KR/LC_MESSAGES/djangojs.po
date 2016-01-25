@@ -8,16 +8,17 @@
 # Sungjin Kang <potopro@gmail.com>, 2015
 # Ian Y. Choi <ianyrchoi@gmail.com>, 2015. #zanata
 # Sungjin Kang <gang.sungjin@gmail.com>, 2015. #zanata
+# Sungjin Kang <gang.sungjin@gmail.com>, 2016. #zanata
 msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-12-05 16:12+0000\n"
+"POT-Creation-Date: 2016-01-25 00:39+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2015-12-05 08:10+0000\n"
-"Last-Translator: Ian Y. Choi <ianyrchoi@gmail.com>\n"
+"PO-Revision-Date: 2016-01-23 01:49+0000\n"
+"Last-Translator: Sungjin Kang <gang.sungjin@gmail.com>\n"
 "Language: ko-KR\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 "Generated-By: Babel 2.0\n"
@@ -49,6 +50,9 @@ msgstr "-"
 
 msgid "0 GB"
 msgstr "0 GB"
+
+msgid "0 MB"
+msgstr "0 MB"
 
 msgid "Active"
 msgstr "Active"
@@ -102,6 +106,9 @@ msgstr "닫는중"
 msgid "Confirm %s"
 msgstr "%s를 확인하세요."
 
+msgid "Confirm Delete Foobars"
+msgstr "풋바 삭제 검증"
+
 msgid "Connecting"
 msgstr "연결중"
 
@@ -132,6 +139,9 @@ msgstr "실수 필요"
 msgid "Delete"
 msgstr "삭제"
 
+msgid "Delete Instance"
+msgstr "인스턴스 삭제"
+
 msgid "Delete Interface"
 msgstr "인터페이스 삭제"
 
@@ -143,6 +153,10 @@ msgstr "라우터 삭제"
 
 msgid "Delete Subnet"
 msgstr "서브넷 삭제"
+
+#, python-format
+msgid "Deleted : %s."
+msgstr "삭제 :  %s."
 
 msgid "Detail Information"
 msgstr "상세 정보"
@@ -337,8 +351,15 @@ msgstr "서버와의 통신에 문제가 발생하였으니, 다시 시도하세
 msgid "There was an error submitting the form. Please try again."
 msgstr "양식을 제출하는 동안 오류가 발생하였습니다. 다시 시도하세요."
 
+msgid "Toggle Dropdown"
+msgstr "토글 드롭다운"
+
 msgid "Total"
 msgstr "총합"
+
+#, python-format
+msgid "Unable to delete: %s."
+msgstr "삭제할 수 없습니다: %s."
 
 msgid "View Details"
 msgstr "세부 정보 보기"
@@ -379,3 +400,7 @@ msgstr "quota 없음"
 
 msgid "pool default"
 msgstr "Pool 기본"
+
+#, python-format
+msgid "selected \"%s\""
+msgstr "\"%s\" 선택됨"
