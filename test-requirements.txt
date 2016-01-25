@@ -9,20 +9,20 @@
 # Hacking should appear first in case something else depends on pep8
 hacking<0.11,>=0.10.0
 #
-coverage>=3.6
-django-nose>=1.2
-mock>=1.2
-mox3>=0.7.0
-nodeenv>=0.9.4 # BSD License
-nose
-nose-exclude
-nosehtmloutput>=0.0.3
-nosexcover
-openstack.nose-plugin>=0.7
+coverage>=3.6 # Apache-2.0
+django-nose>=1.2 # BSD
+mock>=1.2 # BSD
+mox3>=0.7.0 # Apache-2.0
+nodeenv>=0.9.4 # BSD License  # BSD
+nose # LGPL
+nose-exclude # LGPL
+nosehtmloutput>=0.0.3 # Apache-2.0
+nosexcover # BSD
+openstack.nose-plugin>=0.7 # Apache-2.0
 oslosphinx!=3.4.0,>=2.5.0 # Apache-2.0
 reno>=0.1.1 # Apache2
-selenium
-sphinx!=1.2.0,!=1.3b1,<1.3,>=1.1.2
-testtools>=1.4.0
+selenium # Apache-2.0
+sphinx!=1.2.0,!=1.3b1,<1.3,>=1.1.2 # BSD
+testtools>=1.4.0 # MIT
 # This also needs xvfb library installed on your OS
 xvfbwrapper>=0.1.3 #license: MIT
