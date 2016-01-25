@@ -28,8 +28,11 @@
     }
   }
 
-  tr.terminated {
-    color: $gray-light;
+  tr {
+    &.deleted,
+    &.terminated {
+      color: $gray-light;
+    }
   }
 
   th.multi_select_column, td.multi_select_column {
