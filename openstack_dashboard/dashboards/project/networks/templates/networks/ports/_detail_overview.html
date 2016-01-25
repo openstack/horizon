@@ -8,58 +8,105 @@
     <dd>{{ port.id|default:_("None") }}</dd>
     <dt>{% trans "Network Name" %}</dt>
     <dd>{{ port.network_name|default:_("None") }}</dd>
-    {% url 'horizon:project:networks:detail' port.network_id as network_url %}
     <dt>{% trans "Network ID" %}</dt>
-    <dd><a href="{{ network_url }}">{{ port.network_id|default:_("None") }}</a></dd>
-    <dt>{% trans "Project ID" %}</dt>
-    <dd>{{ port.tenant_id|default:_("-") }}</dd>
+    <dd><a href="{{ port.network_url }}">{{ port.network_id|default:_("None") }}</a></dd>
+    {% if port.tenant_id %}
+      <dt>{% trans "Project ID" %}</dt>
+      <dd>{{ port.tenant_id}}</dd>
+    {% endif %}
     <dt>{% trans "MAC Address" %}</dt>
     <dd>{{ port.mac_address|default:_("None") }}</dd>
     <dt>{% trans "Status" %}</dt>
     <dd>{{ port.status_label|default:_("None") }}</dd>
     <dt>{% trans "Admin State" %}</dt>
     <dd>{{ port.admin_state_label|default:_("None") }}</dd>
+    {% if port.port_security_enabled %}
+      <dt>{% trans "Port Security Enabled" %}</dt>
+      <dd>{{ port.port_security_enabled }}</dd>
+    {% endif %}
+    <dt>{% trans "DNS Name" %}</dt>
+    <dd>{{ port.dns_name|default:_("None") }}</dd>
     {% if port.mac_state %}
       <dt>{% trans "MAC Learning State" %}</dt>
       <dd>{{ port.mac_state }}</dd>
     {% endif %}
-  </dl>
-
-  <dl class="dl-horizontal">
-    <h4>{% trans "Fixed IP" %}</h4>
-    <hr class="header_rule">
-    {% if port.fixed_ips.items|length > 1 %}
-      {% for ip in port.fixed_ips %}
-      <dt>{% trans "IP Address" %}</dt>
-      <dd>{{ ip.ip_address }}</dd>
-      {% url 'horizon:project:networks:subnets:detail' ip.subnet_id as subnet_url %}
-      <dt>{% trans "Subnet ID" %}</dt>
-      <dd><a href="{{ subnet_url }}">{{ ip.subnet_id }}</a></dd>
-      {% endfor %}
-    {% else %}
-      <dd>{% trans "None" %}</dd>
+    {% if port.qos_policy_id %}
+      <dt>{% trans "QOS Policy ID" %}</dt>
+      <dd>{{ port.qos_policy_id }}</dd>
     {% endif %}
   </dl>
 
-  <dl class="dl-horizontal">
-    <h4>{% trans "Attached Device" %}</h4>
-    <hr class="header_rule">
-    {% if port.device_id|length > 1 or port.device_owner %}
+  <h4>{% trans "DNS Assignment" %}</h4>
+  <hr class="header_rule">
+  {% for host in port.dns_assignment %}
+    <dl class="dl-horizontal">
+      <dt>{% trans "Hostname" %}</dt>
+      <dd>{{ host.hostname }}</dd>
+      <dt>{% trans "IP Address" %}</dt>
+      <dd>{{ host.ip_address }}</dd>
+      <dt>{% trans "FQDN" %}</dt>
+      <dd>{{ host.fqdn }}</dd>
+    </dl>
+  {% empty %}
+    <dl class="dl-horizontal">
+      <dd>{% trans "None" %}</dd>
+    </dl>
+  {% endfor %}
+
+  <h4>{% trans "Fixed IPs" %}</h4>
+  <hr class="header_rule">
+  {% for ip in port.fixed_ips %}
+    <dl class="dl-horizontal">
+      <dt>{% trans "IP Address" %}</dt>
+      <dd>{{ ip.ip_address }}</dd>
+      <dt>{% trans "Subnet ID" %}</dt>
+      <dd><a href="{{ ip.subnet_url }}">{{ ip.subnet_id }}</a></dd>
+    </dl>
+  {% empty %}
+    <dl class="dl-horizontal">
+      <dd>{% trans "None" %}</dd>
+    </dl>
+  {% endfor %}
+
+  <h4>{% trans "Attached Device" %}</h4>
+  <hr class="header_rule">
+  {% if port.device_id|length > 1 or port.device_owner %}
+    <dl class="dl-horizontal">
       <dt>{% trans "Device Owner" %}</dt>
       <dd>{{ port.device_owner|default:_("None") }}</dd>
       <dt>{% trans "Device ID" %}</dt>
       <dd>{{ port.device_id|default:_("None") }}</dd>
-    {% else %}
+    </dl>
+  {% else %}
+    <dl class="dl-horizontal">
       <dd>{% trans "No attached device" %}</dd>
-    {% endif %}
-  </dl>
+    </dl>
+  {% endif %}
 
+  <h4>{% trans "Binding" %}</h4>
+  <hr class="header_rule">
   <dl class="dl-horizontal">
-    <h4>{% trans "Binding" %}</h4>
-    <hr class="header_rule">
-    {% if port.binding__vnic_type %}
-      <dt>{% trans "VNIC Type" %}</dt>
-      <dd>{{ port.binding__vnic_type }}</dd>
+    <dt>{% trans "VNIC Type" %}</dt>
+    <dd>{{ port.binding__vnic_type }}</dd>
+    {% if port.binding__host_id %}
+      <dt>{% trans "Host" %}</dt>
+      <dd>{{ port.binding__host_id|default:_("None") }}</dd>
+      <dt>{% trans "Profile" %}</dt>
+      <dd>{{ port.binding__profile|default:_("None") }}</dd>
+      <dt>{% trans "VIF Type" %}</dt>
+      <dd>{{ port.binding__vif_type|replace_underscores }}</dd>
+      <dt>{% trans "VIF Details" %}</dt>
+      {% if port.binding__vif_details.items %}
+        <dd>
+          <ul>
+            {% for key,value in port.binding__vif_details.items %}
+              <li><b>{{ key }}</b> {{ value }}</li>
+            {% endfor %}
+          </ul>
+        </dd>
+      {% else %}
+        <dd>{% trans "None" %}</dd>
+      {% endif %}
     {% endif %}
   </dl>
 </div>
