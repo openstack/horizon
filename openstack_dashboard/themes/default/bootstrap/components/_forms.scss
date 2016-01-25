@@ -1,0 +1,10 @@
+/**** Form Horizontal Override ****/
+div.form-horizontal {
+  .form-group {
+    margin-right: 0;
+  }
+
+  .form-control-feedback {
+    right: 0;
+  }
+}
