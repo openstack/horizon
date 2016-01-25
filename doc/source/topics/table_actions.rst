@@ -6,7 +6,7 @@ This tutorial covers how to add a more complex action to a table, one that requi
 an action and form definitions, as well as changes to the view, urls, and table.
 
 This tutorial assumes you have already completed :doc:`Building a Dashboard using
-Horizon  </topics/tutorial>`. If not, please do so now as we will be modifying the
+Horizon  </tutorials/dashboard>`. If not, please do so now as we will be modifying the
 files created there.
 
 This action will create a snapshot of the instance. When the action is taken,

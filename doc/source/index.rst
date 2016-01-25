@@ -61,10 +61,20 @@ Brief guides to areas of interest and importance when developing Horizon.
 
    intro
    quickstart
-   topics/tutorial
    contributing
    testing
-   plugins
+   plugin_registry
+
+Tutorials
+---------
+
+Detailed tutorials to help you get started.
+
+.. toctree::
+   :maxdepth: 1
+
+   tutorials/plugin
+   tutorials/dashboard
 
 Topic Guides
 ------------
