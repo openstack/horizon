@@ -7,7 +7,7 @@
 {% endif %}
     <a data-toggle="dropdown" href="#" class="dropdown-toggle" role="button" aria-expanded="false">
       <span class="fa fa-user"></span>
-      {{ request.user.username }}
+      <span class="user-name">{{ request.user.username }}</span>
       <span class="fa fa-caret-down"></span>
     </a>
     <ul id="editor_list" class="dropdown-menu dropdown-menu-right">

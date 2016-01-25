@@ -17,4 +17,18 @@
   .navbar {
     margin-bottom: 1px;
   }
+
+  .dropdown-toggle > .fa {
+    padding-left: $padding-small-vertical;
+    padding-right: $padding-small-vertical;
+
+    &:first-child {
+      padding-left: 0;
+    }
+
+    &:last-child {
+      padding-right: 0;
+    }
+  }
 }
+
