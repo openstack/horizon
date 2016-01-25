@@ -734,7 +734,8 @@ class UpdateMetadata(policy.PolicyTargetMixin, tables.LinkAction):
     def get_link_url(self, datum):
         instance_id = self.table.get_object_id(datum)
         self.attrs['ng-click'] = (
-            "modal.openMetadataModal('instance', '%s', true)" % instance_id)
+            "modal.openMetadataModal('instance', '%s', true, 'metadata')"
+            % instance_id)
         return "javascript:void(0);"
 
     def allowed(self, request, instance=None):

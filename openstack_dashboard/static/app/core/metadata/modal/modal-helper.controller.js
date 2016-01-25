@@ -44,9 +44,11 @@
      * @param {string} resource Metadata resource type
      * @param {string} id Object identifier to retrieve metadata from
      * @param {boolean=} requireReload Whether to reload page when metadata successfully updated
+     * @param {string} propertiesTarget The properties target, if the resource type has more than
+     * one type of property.
      */
-    function openMetadataModal(resource, id, requireReload) {
-      metadataModalService.open(resource, id)
+    function openMetadataModal(resource, id, requireReload, propertiesTarget) {
+      metadataModalService.open(resource, id, propertiesTarget)
         .result
         .then(onOpened);
 

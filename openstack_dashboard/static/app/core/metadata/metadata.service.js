@@ -77,16 +77,22 @@
      * Get available metadata namespaces for specified resource.
      *
      * @param {string} resource Resource type.
+     * @param {string} propertiesTarget The properties target, if the resource type has more than
+     * one type of property.
      */
-    function getNamespaces(resource) {
-      return glance.getNamespaces({
+    function getNamespaces(resource, propertiesTarget) {
+      var params = {
         resource_type: {
           aggregate: 'OS::Nova::Aggregate',
           flavor: 'OS::Nova::Flavor',
           image: 'OS::Glance::Image',
           instance: 'OS::Nova::Instance'
         }[resource]
-      }, false);
+      };
+      if (propertiesTarget) {
+        params.properties_target = propertiesTarget;
+      }
+      return glance.getNamespaces(params, false);
     }
   }
 })();
