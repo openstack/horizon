@@ -11,11 +11,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2016-01-13 03:52+0000\n"
+"POT-Creation-Date: 2016-01-25 00:39+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2016-01-12 05:19+0000\n"
+"PO-Revision-Date: 2016-01-23 02:11+0000\n"
 "Last-Translator: Sungjin Kang <gang.sungjin@gmail.com>\n"
 "Language: ko-KR\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
@@ -72,6 +72,9 @@ msgstr ""
 msgid "A name is required for your instance."
 msgstr "인스턴스 이름이 필요합니다."
 
+msgid "Action"
+msgstr "동작"
+
 msgid "Active"
 msgstr "Active"
 
@@ -126,11 +129,20 @@ msgstr ""
 "인스턴스 이름은 필수이며 대시보드에서 인스턴스를 식별 및 구별 가능하기 위해 "
 "사용됩니다."
 
+msgid "Another action"
+msgstr "다른 동작"
+
 msgid "Automatic"
 msgstr "자동"
 
 msgid "Availability Zone"
 msgstr "가용 구역"
+
+msgid "Brand"
+msgstr "Brand"
+
+msgid "Buttons"
+msgstr "버튼"
 
 msgid "Cancel"
 msgstr "취소"
@@ -183,6 +195,9 @@ msgstr ""
 
 msgid "Customization Script"
 msgstr "사용자 스크립트"
+
+msgid "Default"
+msgstr "기본"
 
 msgid "Deleted"
 msgstr "삭제 완료"
@@ -302,6 +317,9 @@ msgstr "설정된 quota를 넘을 수 없습니다"
 msgid "Import Key Pair"
 msgstr "키 페어 등록"
 
+msgid "Info"
+msgstr "Info"
+
 msgid "Instance Details"
 msgstr "인스턴스 세부정보"
 
@@ -352,6 +370,9 @@ msgstr "Killed"
 msgid "Launch Instance"
 msgstr "인스턴스 시작"
 
+msgid "Link"
+msgstr "링크"
+
 msgid "Load script from a file"
 msgstr "파일에서 스크립트 불러오기"
 
@@ -378,6 +399,9 @@ msgstr "최소 RAM (MB)"
 
 msgid "Name"
 msgstr "이름"
+
+msgid "Navbar"
+msgstr "Navbar"
 
 msgid "Network"
 msgstr "네트워크"
@@ -946,6 +970,9 @@ msgid ""
 msgstr ""
 "볼륨은 활성화된 인스턴스 하나에만 부착할 수 있습니다. 인스턴스 개수를 1로 설"
 "정하거나 다른 소스 타입을 선택하세요."
+
+msgid "Warning"
+msgstr "Warning"
 
 msgid ""
 "When selecting volume as boot source, please ensure the instance's "

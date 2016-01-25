@@ -18,16 +18,17 @@
 # Gladys Guerrero <gguerrer@redhat.com>, 2015. #zanata
 # Marian Tort <marian.tort@gmail.com>, 2015. #zanata
 # OpenStack Infra <zanata@openstack.org>, 2015. #zanata
+# Alberto Molina Coballes <alb.molina@gmail.com>, 2016. #zanata
 msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2016-01-20 01:04+0000\n"
+"POT-Creation-Date: 2016-01-25 00:39+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2015-10-02 04:01+0000\n"
-"Last-Translator: Gladys Guerrero <gguerrer@redhat.com>\n"
+"PO-Revision-Date: 2016-01-20 08:50+0000\n"
+"Last-Translator: Alberto Molina Coballes <alb.molina@gmail.com>\n"
 "Language: es\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "Generated-By: Babel 2.0\n"
@@ -75,6 +76,26 @@ msgstr ""
 "\n"
 "      <a href=\"%(instance_url)s\">%(instance_name)s</a> en %(device)s\n"
 "      "
+
+#, python-format
+msgid ""
+"\n"
+"      <span class=\"pull-right\">%(used)s of %(quota)s MB Used</span>\n"
+"    "
+msgstr ""
+"\n"
+"  <span class=\"pull-right\">%(used)s de %(quota)s MB Usados</span>\n"
+" "
+
+#, python-format
+msgid ""
+"\n"
+"      <span class=\"pull-right\">%(used)s of %(quota)s Used</span>\n"
+"    "
+msgstr ""
+"\n"
+"  <span class=\"pull-right\">%(used)s de %(quota)s Usada</span>\n"
+" "
 
 msgid ""
 "\n"
@@ -475,6 +496,10 @@ msgid "%sGB"
 msgstr "%sGB"
 
 #, python-format
+msgid "%sGiB"
+msgstr "%sGiB"
+
+#, python-format
 msgid "%sMB"
 msgstr "%sMB"
 
@@ -556,6 +581,14 @@ msgid ""
 msgstr ""
 "Una instantánea es una imagen que conserva el estado del disco de una "
 "instancia en ejecución."
+
+#, python-format
+msgid ""
+"A volume of %(req)iGiB cannot be created as you only have %(avail)iGiB of "
+"your quota available."
+msgstr ""
+"No se puede crear un volumen de %(req)iGB porque solo quedan %(avail)iGiB de "
+"su cuota."
 
 msgid "AKI - Amazon Kernel Image"
 msgstr "AKI - Amazon Kernel Image"
@@ -755,7 +788,7 @@ msgid "Add Router Rule"
 msgstr "Añadir regla de router"
 
 msgid "Add Router to Firewall"
-msgstr "Añadir Router al Cortafuegos"
+msgstr "Añadir router al Cortafuegos"
 
 msgid "Add Routers"
 msgstr "Añadir Routers"
@@ -1040,6 +1073,9 @@ msgstr "Cantidad de energía"
 msgid "An external (HTTP) URL to load the template from."
 msgstr "Una URL externa (HTTP) a cargar desde la plantilla."
 
+msgid "An external (HTTP/HTTPS) URL to load the image from."
+msgstr "Una URL externa (HTTP/HTTPS) desde la que cargar la imagen."
+
 msgid ""
 "An instance can be launched with varying types of attached storage. You may "
 "select from those options here."
@@ -1196,6 +1232,9 @@ msgstr "Nombre de la zona de disponibilidad"
 msgid "Availability Zones"
 msgstr "Zonas de Disponibilidad"
 
+msgid "Availability zone"
+msgstr "Zona de disponibilidad"
+
 msgid "Available"
 msgstr "Disponible"
 
@@ -1260,6 +1299,9 @@ msgstr "Creando copia de seguridad"
 msgid "Backup Name"
 msgstr "Nombre de la copia"
 
+msgid "Backup Size (GiB)"
+msgstr "Tamaño de copias de seguridad (GiB)"
+
 msgid "Backups"
 msgstr "Copias de seguridad"
 
@@ -1322,6 +1364,10 @@ msgstr "Construir"
 msgctxt "status of a network port"
 msgid "Build"
 msgstr "Construir"
+
+msgctxt "Current status of an Instance"
+msgid "Building"
+msgstr "Generando"
 
 msgctxt "Power state of an Instance"
 msgid "Building"
@@ -1500,6 +1546,10 @@ msgstr ""
 
 msgid "Cipher"
 msgstr "Cifrado"
+
+msgid "Classless Inter-Domain Routing (e.g. 192.168.0.0/24, or 2001:db8::/128)"
+msgstr ""
+"Classless Inter-Domain Routing (e.g. 192.168.0.0/24, or 2001:db8::/128)"
 
 msgid "Clear Domain Context"
 msgstr "Vaciar dominio de contexto"
@@ -1806,6 +1856,27 @@ msgstr "Crear Transferencia"
 msgid "Create User"
 msgstr "Crear usuario"
 
+msgid ""
+"Create VPN Service for current project.\n"
+"\n"
+"The VPN service is attached to a router and references to a single subnet to "
+"push to a remote site.\n"
+"Specify a name, description, router, and subnet for the VPN Service. Admin "
+"State is UP (True) by default.\n"
+"\n"
+"The router, subnet and admin state fields are required, all others are "
+"optional."
+msgstr ""
+"Crear un servicio VPN en el proyecto actual.\n"
+"\n"
+"El servicio VPN se asocia a un router y tomará como referencia una subred "
+"para enviar al sitio remoto.\n"
+"Especifique un nombre, descripción, router y subred para el servicio VPN. El "
+"estado de administración es ACTIVADO (Verdadero) por defecto.\n"
+"\n"
+"Son obligatorios los campos router, subred y estado de administración, el "
+"resto son opcionales."
+
 msgid "Create Volume"
 msgstr "Crear volumen"
 
@@ -1889,13 +1960,6 @@ msgstr ""
 
 msgid "Create a new network for any project as you need."
 msgstr "Crear una nueva red para cada proyecto según lo necesites."
-
-msgid ""
-"Create a new network. In addition, a subnet associated with the network can "
-"be created in the next panel."
-msgstr ""
-"Crear una nueva red. Además, puede ser creada una subred asociada a la red "
-"en el siguiente panel."
 
 msgid "Create a new role."
 msgstr "Crear un nuevo rol."
@@ -1987,6 +2051,20 @@ msgstr "Transferencia de volumen creada: \"%s\"."
 msgid "Creates a router with specified parameters."
 msgstr "Crea un enrutador con parámetros especificados."
 
+msgid ""
+"Creates a subnet associated with the network. You need to enter a valid "
+"\"Network Address\" and \"Gateway IP\". If you did not enter the \"Gateway IP"
+"\", the first value of a network will be assigned by default. If you do not "
+"want gateway please check the \"Disable Gateway\" checkbox. Advanced "
+"configuration is available by clicking on the \"Subnet Details\" tab."
+msgstr ""
+"Crea una subred asociada a la red. Es necesario añadir una \"dirección de red"
+"\" y una \"IP de la puerta de enlace\" válidos. Si no añade una \"IP de la "
+"puerta de enlace\", el primer valor de la red se asignará por defecto. Si no "
+"quiere puerta de enlace, seleccione \"Deshabilitar puerta de enlace\". La "
+"configuración avanzada está disponible haciendo click en la pestaña "
+"\"Detalles de subred\"."
+
 msgid "Creating"
 msgstr "Creando"
 
@@ -2041,8 +2119,18 @@ msgstr "Solicitudes de creación para esta subred"
 msgid "Current Host"
 msgstr "Host actual"
 
+msgid "Current Size (GiB)"
+msgstr "Tamaño actual (GiB)"
+
 msgid "Current password"
 msgstr "Contraseña actual"
+
+msgid ""
+"Currently only images available via an HTTP/HTTPS URL are supported. The "
+"image location must be accessible to the Image Service."
+msgstr ""
+"Actualmente sólo es posible obtener imágenes a través de URLs HTTP/HTTPS. La "
+"ubicación de la imagen debe ser accesible para el Servicio de Imágenes."
 
 msgid "Custom ICMP Rule"
 msgstr "Regla ICMP a medida"
@@ -2128,6 +2216,10 @@ msgstr "No se reconocen los datos."
 msgid "Day"
 msgstr "Día"
 
+msgctxt "Current status of an Image"
+msgid "Deactivated"
+msgstr "Desactivada"
+
 msgid "Dead peer detection action"
 msgstr "Acción Dead Peer Detection"
 
@@ -2145,6 +2237,12 @@ msgstr "Descifrar contraseña"
 
 msgid "Default Quotas"
 msgstr "Cuotas predeterminadas"
+
+msgid "Default quotas updated for Cinder."
+msgstr "Cuotas por defecto de Cinder actualizadas."
+
+msgid "Default quotas updated for Nova."
+msgstr "Cuotas por defecto de Nova actualizadas."
 
 msgid "Default quotas updated."
 msgstr "Cuotas por defecto actualizadas."
@@ -2237,6 +2335,11 @@ msgstr[1] "Eliminar Imágenes"
 msgctxt "current status of stack"
 msgid "Delete In Progress"
 msgstr "Eliminación en Progreso"
+
+msgid "Delete Instance"
+msgid_plural "Delete Instances"
+msgstr[0] "Eliminar instancia"
+msgstr[1] "Eliminar instancias"
 
 msgid "Delete Interface"
 msgid_plural "Delete Interfaces"
@@ -2366,10 +2469,16 @@ msgid_plural "Delete Volume Types"
 msgstr[0] "Eliminar tipo de volumen"
 msgstr[1] "Eliminar tipos de volumen"
 
+msgid "Delete Volume on Instance Delete"
+msgstr "Eliminar volumen al eliminar la instancia"
+
 #, python-format
 msgid "Delete the created network \"%s\" due to subnet creation failure."
 msgstr ""
 "Eliminar la red \"%s\" creada debido al fallo en la creación de la subred."
+
+msgid "Delete volume when the instance is deleted"
+msgstr "Eliminar el volumen cuando se elimine la instancia"
 
 msgid "Deleted"
 msgstr "Eliminado"
@@ -2524,6 +2633,9 @@ msgstr[1] "Tipos de volumen eliminados"
 msgid "Deleted images are not recoverable."
 msgstr "Imagenes eliminadas no son recuperables."
 
+msgid "Deleted instances are not recoverable."
+msgstr "Las instancias borradas no son recuperables."
+
 msgid "Deleting"
 msgstr "Borrando"
 
@@ -2620,6 +2732,9 @@ msgstr[1] "Desasociando volúmenes"
 
 msgid "Details"
 msgstr "Detalles"
+
+msgid "Developer"
+msgstr "Desarrollador"
 
 msgid "Device"
 msgstr "Dispositivo"
@@ -2848,6 +2963,12 @@ msgstr "Descargar credenciales EC2"
 
 msgid "Download Key Pair"
 msgstr "Descargar par de claves"
+
+msgid "Download OpenStack RC File v2.0"
+msgstr "Descargar fichero OpenStack RC v2.0"
+
+msgid "Download OpenStack RC File v3"
+msgstr "Descargar fichero RC de OpenStack v3"
 
 #, python-format
 msgid "Download key pair &quot;%(keypair_name)s&quot;"
@@ -3183,6 +3304,10 @@ msgctxt "current status of router"
 msgid "Error"
 msgstr "Error"
 
+msgctxt "status of a network port"
+msgid "Error"
+msgstr "Error"
+
 msgid "Error Deleting"
 msgstr "Error borrando"
 
@@ -3306,6 +3431,9 @@ msgstr "Extendiendo"
 #, python-format
 msgid "Extending volume: \"%s\""
 msgstr "Extendiendo volumen: \"%s\""
+
+msgid "External"
+msgstr "Externa"
 
 msgid "External Fixed IPs"
 msgstr "IPs Externas Fijas"
@@ -3660,6 +3788,9 @@ msgctxt "Task status of an Instance"
 msgid "Finishing Resize or Migrate"
 msgstr "Terminando redimensionar o migrar"
 
+msgid "Firewall"
+msgstr "Cortafuegos"
+
 #, python-format
 msgid "Firewall %s was successfully updated."
 msgstr "Se ha actualizado correctamente el cortafuegos %s."
@@ -3730,6 +3861,10 @@ msgstr ""
 
 msgid "Floating IP"
 msgstr "IP flotante"
+
+#, python-format
+msgid "Floating IP will be removed from VIP \"%s\"."
+msgstr "Se eliminará la IP flotante de la VIP \"%s\"."
 
 msgid "Floating IP:"
 msgstr "IP Flotador:"
@@ -3840,6 +3975,9 @@ msgstr "La dirección IP de la puerta de enlace y la versión IP no concuerdan."
 
 msgid "Gateway interface is added"
 msgstr "Se ha añadido la interfaz de la puerta de enlace"
+
+msgid "GiB"
+msgstr "GiB"
 
 msgid "Glance"
 msgstr "Glance"
@@ -4039,6 +4177,9 @@ msgstr "Protocolo IP"
 msgid "IP Version"
 msgstr "Versión de IP"
 
+msgid "IP Version for Firewall Rule"
+msgstr "Versión IP para regla de cortafuegos"
+
 msgid "IP address"
 msgstr "Dirección IP"
 
@@ -4185,6 +4326,9 @@ msgstr "Copia de seguridad de la imagen"
 msgid "Image File"
 msgstr "Fichero de imagen"
 
+msgid "Image ID"
+msgstr "ID de imagen"
+
 msgid "Image ID ="
 msgstr "ID de imagen ="
 
@@ -4229,6 +4373,13 @@ msgstr "La imagen se actualizó correctamente."
 
 msgid "Images"
 msgstr "Imágenes "
+
+msgid ""
+"Images can be provided via an HTTP/HTTPS URL or be uploaded from your local "
+"file system."
+msgstr ""
+"Las imágenes se puede proporcionar mediante una URL HTTP/HTTPS o subir desde "
+"un fichero local del sistema."
 
 msgid "Implementation"
 msgstr "Implementación"
@@ -4311,10 +4462,10 @@ msgid "Insert Rule"
 msgstr "Insertar regla"
 
 msgid "Insert Rule into Policy"
-msgstr "Insertar Regla a la Política"
+msgstr "Insertar Regla en la Política"
 
 msgid "Insert Rule to Policy"
-msgstr "Añada regla a la política"
+msgstr "Añada regla en la política"
 
 msgid "Instance"
 msgstr "Instancia"
@@ -4342,6 +4493,9 @@ msgstr "ID de la instancia"
 
 msgid "Instance Name"
 msgstr "Nombre de la instancia"
+
+msgid "Instance Name ="
+msgstr "Nombre de instancia = "
 
 msgid "Instance Overview"
 msgstr "Vista general de instancias"
@@ -4652,6 +4806,13 @@ msgstr "MTU"
 msgid "MacVTap"
 msgstr "MacVTap"
 
+msgid "Maintenance"
+msgstr "Mantenimiento"
+
+msgctxt "Current status of a Volume"
+msgid "Maintenance"
+msgstr "Mantenimiento"
+
 msgid "Make Private"
 msgstr "Hacer privado"
 
@@ -4731,6 +4892,9 @@ msgstr "Reintentos máximos (1~10)"
 msgid "Max."
 msgstr "Máximo"
 
+msgid "Max. Size (MB) ="
+msgstr "Tamaño máx. (MB)"
+
 msgid "Maximum Transmission Unit size for the connection"
 msgstr "Unidad máxima de transmisión para la conexión"
 
@@ -4745,11 +4909,17 @@ msgstr ""
 msgid "Member %s was successfully updated."
 msgstr "El miembro %s fue actualizado correctamente."
 
+msgid "Member Address"
+msgstr "Dirección del miembro"
+
 msgid "Member Details"
 msgstr "Detalle de los miembros"
 
 msgid "Member IP address must be specified"
 msgstr "Debe especificar la dirección IP del miembro"
+
+msgid "Member Instance(s)"
+msgstr "Instancia(s) miembro"
 
 msgid "Member Source"
 msgstr "Miembros Fuente"
@@ -4839,6 +5009,9 @@ msgstr "RAM mínima"
 
 msgid "Min."
 msgstr "Mínimo"
+
+msgid "Min. Size (MB) ="
+msgstr "Tamaño mín. (MB) ="
 
 msgid "Minimum Disk (GB)"
 msgstr "Disco mínimo (GB)"
@@ -4930,6 +5103,9 @@ msgstr "N/A"
 
 msgid "Name"
 msgstr "Nombre"
+
+msgid "Name ="
+msgstr "Nombre ="
 
 msgid ""
 "Name may only contain letters, numbers, underscores, periods and hyphens."
@@ -5082,6 +5258,9 @@ msgstr "Sabor nuevo"
 
 msgid "New Host"
 msgstr "Nuevo host"
+
+msgid "New Size (GiB)"
+msgstr "Nuevo tamaño (GiB)"
 
 msgid "New name cannot be empty."
 msgstr "Nuevo nombre no puede estar  vacío."
@@ -5608,6 +5787,9 @@ msgctxt "Current status of a VPN Service"
 msgid "Pending Update"
 msgstr "Actualización Pendiente"
 
+msgid "Per Volume Size (GiB)"
+msgstr "Tamaño por volumen (GiB)"
+
 msgid "Perfect Forward Secrecy"
 msgstr "Perfect Forward Secrecy"
 
@@ -5946,6 +6128,13 @@ msgstr "RAM (usada)"
 msgid "RAM(Available: %(avail)s, Requested: %(req)s)"
 msgstr "RAM(Disponible: %(avail)s, Solicitada: %(req)s)"
 
+msgid "REJECT"
+msgstr "RECHAZAR"
+
+msgctxt "Action Name of a Firewall Rule"
+msgid "REJECT"
+msgstr "RECHAZAR"
+
 msgid "Ramdisk"
 msgstr "Ramdisk"
 
@@ -6088,7 +6277,7 @@ msgid "Remove Router"
 msgstr "Quitar Router"
 
 msgid "Remove Router from Firewall"
-msgstr "Eliminar Enrutador del cortafuegos"
+msgstr "Eliminar router del cortafuegos"
 
 msgid "Remove Rule"
 msgstr "Eliminar regla"
@@ -6126,6 +6315,10 @@ msgctxt "Current status of an Instance"
 msgid "Rescue"
 msgstr "Rescate"
 
+msgctxt "Current status of an Instance"
+msgid "Rescued"
+msgstr "Rescatada"
+
 msgctxt "Task status of an Instance"
 msgid "Rescuing"
 msgstr "Rescatando"
@@ -6146,6 +6339,10 @@ msgstr "Redimensionar instancia"
 msgctxt "Current status of an Instance"
 msgid "Resize/Migrate"
 msgstr "Redimensionar/Migrar"
+
+msgctxt "Current status of an Instance"
+msgid "Resized"
+msgstr "Redimensionada"
 
 msgctxt "Task status of an Instance"
 msgid "Resized or Migrated"
@@ -6475,6 +6672,11 @@ msgid_plural "Scheduled deletion of IPSec Site Connections"
 msgstr[0] "Borrado programado para Conexion de Sitio de IPSec"
 msgstr[1] "Borrado programado para Conexiones de Sitio de IPSec"
 
+msgid "Scheduled deletion of Instance"
+msgid_plural "Scheduled deletion of Instances"
+msgstr[0] "Se ha planificado la eliminación de la instancia"
+msgstr[1] "Se ha planificado la eliminación de las instancias"
+
 msgid "Scheduled deletion of Member"
 msgid_plural "Scheduled deletion of Members"
 msgstr[0] "Eliminacion Programado de Miembros"
@@ -6781,6 +6983,9 @@ msgstr "Grupo de servidores"
 msgid "Server error"
 msgstr "Error del servidor"
 
+msgid "Servers"
+msgstr "Servidores"
+
 msgid "Service"
 msgstr "Servicio"
 
@@ -6889,6 +7094,9 @@ msgstr "Salir"
 
 msgid "Size"
 msgstr "Tamaño"
+
+msgid "Size (GiB)"
+msgstr "Tamaño (GiB)"
 
 msgid "Size of ephemeral disk"
 msgstr "Tamaño del disco efímero"
@@ -7006,6 +7214,14 @@ msgstr "Puerto origen/Rango de puerto"
 msgid "Source port (integer in [1, 65535] or range in a:b)"
 msgstr "Puerto origen (entero en [1, 65535] o rango en a:b)"
 
+#, fuzzy
+msgid ""
+"Source/Destination Network Address and IP version are inconsistent. Please "
+"make them consistent."
+msgstr ""
+"Las direcciones de red origen/destino son inconsistentes. Por favor, "
+"modifíquelas apropiadamente."
+
 msgid "Source:"
 msgstr "Fuente:"
 
@@ -7040,6 +7256,18 @@ msgstr ""
 
 msgid "Specify \"Network Address\""
 msgstr "Especifique \"Dirección de red\""
+
+msgid ""
+"Specify \"Network Address\" or clear \"Create Subnet\" checkbox in previous "
+"step."
+msgstr ""
+"Especifique una \"Dirección de red\" o deshabilite \"Crear subred\" en el "
+"paso anterior."
+
+msgid "Specify IP address of gateway or check \"Disable Gateway\" checkbox."
+msgstr ""
+"Especifique una \"IP de la puerta de enlace\" o seleccione \"Deshabilitar "
+"puerta de enlace\"."
 
 msgid "Specify VIP"
 msgstr "Especificar VIP"
@@ -7182,6 +7410,10 @@ msgstr "Razón del estado"
 msgctxt "Action log of an instance"
 msgid "Stop"
 msgstr "Detener"
+
+msgctxt "Current status of an Instance"
+msgid "Stopped"
+msgstr "Parada"
 
 msgid "Subnet"
 msgstr "Subred"
@@ -7594,25 +7826,6 @@ msgstr ""
 "La siguiente tabla muestra los recursos utilizados por este proyecto en "
 "relación a sus cuotas."
 
-msgid ""
-"The color and icon of an intersection indicates whether or not traffic is "
-"permitted from the source (row) to the destination (column).\n"
-"     Clicking the <i class=\"fa fa-random\"></i> button in the intersection "
-"will install a rule to switch the traffic behavior.<br/>\n"
-"\n"
-"     <b>Note:</b> Rules only affect one direction of traffic. The opposite "
-"direction is outlined when hovering over an intersection.\n"
-" "
-msgstr ""
-"El color e icono de una intersección indica si el tráfico se permite o no "
-"desde un origen (fila) a un destino (columna).\n"
-"Haciendo click en el botón <i class=\"fa fa-random\"></i>  de la "
-"intersección se instalará una regla para cambiar el comportamiento del "
-"tráfico.<br/>\n"
-"\n"
-"<b>Nota:</b> Las reglas solo afectan a una dirección del tráfico. La "
-"dirección contraria se muestra al situarse encima de una intersección."
-
 msgid "The container cannot be deleted since it is not empty."
 msgstr "No se puede eliminar el contenedor porque no está vacío."
 
@@ -7624,7 +7837,7 @@ msgstr ""
 "si les adjunta este volumen."
 
 msgid "The dates haven't been recognized"
-msgstr "Las Fechas no han sido reconocidas"
+msgstr "No se reconocen las fechas"
 
 msgid ""
 "The default IP address of the interface created is a gateway of the selected "
@@ -7789,12 +8002,30 @@ msgstr "La subred es demasiado pequeña (/%s)."
 
 msgid "The time delta must be a number representing the time span in days"
 msgstr ""
-"El tiempo delta debe ser un numero que represente el lapso de tiempo en días "
+"El tiempo delta debe ser un número que represente el lapso de tiempo en días "
+
+#, python-format
+msgid "The volume size cannot be less than the image minimum disk size (%sGiB)"
+msgstr ""
+"El tamaño del volumen no puede ser menor que el tamaño mínimo de disco de la "
+"imagen (%sGiB)"
 
 #, python-format
 msgid "The volume size cannot be less than the image size (%s)"
 msgstr ""
 "El tamaño del volumen no puede ser inferior al tamaño de la imagen (%s)"
+
+#, python-format
+msgid "The volume size cannot be less than the snapshot size (%sGiB)"
+msgstr ""
+"El tamaño del volumen no puede ser inferior al tamaño de la instantánea (%s "
+"GiB)"
+
+#, python-format
+msgid "The volume size cannot be less than the source volume size (%sGiB)"
+msgstr ""
+"El tamaño del volumen no puede ser menor que el tamaño del volumen original "
+"(%sGiB)"
 
 msgid "There are no meters defined yet."
 msgstr "No hay medidores definidos todavía."
@@ -7850,6 +8081,9 @@ msgstr ""
 msgid "This name is already taken."
 msgstr "Este nombre ya está en uso."
 
+msgid "This panel needs JavaScript support."
+msgstr "Este panel necesita soporte javascript."
+
 msgid ""
 "This volume is currently attached to an instance. In some cases, creating a "
 "snapshot from an attached volume can result in a corrupted snapshot."
@@ -7857,6 +8091,9 @@ msgstr ""
 "Este volumen está actualmente asociado a una instancia. En algunos casos, "
 "hacer una instantánea de un volumen asociado puede provocar la corrupción de "
 "la  instantánea."
+
+msgid "This volume type is used by one or more volumes."
+msgstr "El tipo de volumen es utilizado por uno o más volúmenes."
 
 msgid "Time"
 msgstr "Tiempo"
@@ -7886,7 +8123,7 @@ msgid "To Port"
 msgstr "Hasta puerto"
 
 msgid "To date to must be greater than From date."
-msgstr "La fecha de finalización debe ser mayor a la de inicio."
+msgstr "La fecha debe ser mayor a la de inicio."
 
 msgid ""
 "To decrypt your password you will need the private key of your key pair for "
@@ -7941,6 +8178,9 @@ msgstr "Tamaño Total Disco (GB):"
 msgid "Total Disk Usage (Hours):"
 msgstr "Uso Total Disco (Horas):"
 
+msgid "Total Gibibytes"
+msgstr "Gibibytes total"
+
 msgid "Total Memory Usage (Hours):"
 msgstr "Uso Total Memoria (Horas):"
 
@@ -7948,7 +8188,14 @@ msgid "Total RAM"
 msgstr "Total RAM"
 
 msgid "Total Size of Volumes and Snapshots (GB)"
-msgstr "Tamaño total de volúmenes y snapshots (GB)"
+msgstr "Tamaño total de volúmenes e instantáneas (GB)"
+
+msgid "Total Size of Volumes and Snapshots (GiB)"
+msgstr "Tamaño total de volúmenes e instantáneas (GiB)"
+
+#, python-format
+msgid "Total Size of Volumes and Snapshots (GiB) of Type %(type)s"
+msgstr "Tamaño total de volúmenes e instantáneas (GiB) de tipo %(type)s"
 
 msgid "Total VCPU Usage (Hours):"
 msgstr "Uso Total VCPU (Horas):"
@@ -8229,8 +8476,24 @@ msgid "Unable to create volume."
 msgstr "No ha sido posible crear el volumen."
 
 #, python-format
+msgid "Unable to delete IKE Policy. %s"
+msgstr "No ha sido posible eliminar la política IKE. %s"
+
+#, python-format
+msgid "Unable to delete IPSec Policy. %s"
+msgstr "No ha sido posible eliminar la política IPSec. %s"
+
+#, python-format
+msgid "Unable to delete IPSec Site Connection. %s"
+msgstr "No ha sido posible eliminar la conexión sitio a sitio IPSec. %s"
+
+#, python-format
 msgid "Unable to delete VIP. %s"
 msgstr "No ha sido posible eliminar VIP. %s"
+
+#, python-format
+msgid "Unable to delete VPN Service. %s"
+msgstr "No ha sido posible eliminar el servicio VPN. %s"
 
 msgid "Unable to delete container."
 msgstr "No ha sido posible eliminar el contenedor."
@@ -8744,6 +9007,9 @@ msgstr "No ha sido posible obtener los pares de claves."
 msgid "Unable to retrieve limit information."
 msgstr "No ha sido posible obtener la información del límite."
 
+msgid "Unable to retrieve list of routers."
+msgstr "No ha sido posible obtener la lista de routers."
+
 msgid "Unable to retrieve list of security groups"
 msgstr "No ha sido posible obtener la lista de grupos de seguridad"
 
@@ -8886,7 +9152,7 @@ msgstr "No ha sido posible obtener el router."
 
 #, python-format
 msgid "Unable to retrieve routers (%(error)s)."
-msgstr "No ha sido posible obtener los enrutadores (%(error)s)."
+msgstr "No ha sido posible obtener los routers (%(error)s)."
 
 msgid "Unable to retrieve routers list."
 msgstr "No ha sido posible obtener la lista de routers."
@@ -8950,6 +9216,9 @@ msgstr "No se pueden recuperar los límites de los tenants."
 
 msgid "Unable to retrieve the aggregate to be updated"
 msgstr "No ha sido posible obtener el agregado a actualizar"
+
+msgid "Unable to retrieve the project information of the image."
+msgstr "No ha sido posible obtener la información del proyecto de la imagen."
 
 msgid "Unable to retrieve the specified pool."
 msgstr "No ha sido posible obtener el repositorio especificado."
@@ -9100,6 +9369,12 @@ msgstr "Incapaz de dejar de manejar el volumen."
 
 msgid "Unable to update container access."
 msgstr "No se ha podido modificar el acceso del contenedor."
+
+msgid "Unable to update default quotas for Cinder."
+msgstr "No ha sido posible actualizar las cuotas por defecto de Cinder."
+
+msgid "Unable to update default quotas for Nova."
+msgstr "No ha sido posible actualizar las cuotas por defecto de Nova."
 
 msgid "Unable to update default quotas."
 msgstr "No ha sido posible actualizar las cuotas predeterminadas."
@@ -9663,6 +9938,10 @@ msgstr "Vista general de la snapshot de volumen"
 msgid "Volume Snapshots"
 msgstr "Snapshots de volumen"
 
+#, python-format
+msgid "Volume Snapshots of Type %(type)s"
+msgstr "Tipos de instantáneas de volumen %(type)s"
+
 msgid "Volume Source"
 msgstr "Origen del volumen"
 
@@ -9707,6 +9986,14 @@ msgstr "Tipo de Volumen: %(volume_type_name)s"
 msgid "Volume Types"
 msgstr "Tipos de volúmenes"
 
+#, python-format
+msgid ""
+"Volume cannot be extended to %(req)iGiB as you only have %(avail)iGiB of "
+"your quota available."
+msgstr ""
+"El volumen no se puede extender a %(req)iGB ya que solo dispone de "
+"%(avail)iGB de cuota."
+
 msgid "Volume is Unencrypted"
 msgstr "Volumen sin Cifrar"
 
@@ -9737,8 +10024,28 @@ msgid "Volume size in gigabytes (integer value)."
 msgstr "Tamaño del volumen en gigabytes (valor entero)."
 
 #, python-format
+msgid ""
+"Volume size must be equal to or greater than the image minimum disk size "
+"(%sGiB)"
+msgstr ""
+"El tamaño del volumen debe ser igual o mayor que el tamaño de disco mínimo "
+"de la imagen (%sGiB)"
+
+#, python-format
 msgid "Volume size must be equal to or greater than the image size (%s)"
 msgstr "El tamaño del volumen debe ser igual o mayor que el de la imagen (%s)"
+
+#, python-format
+msgid ""
+"Volume size must be equal to or greater than the origin volume size (%sGiB)"
+msgstr ""
+"El tamaño del volumen debe ser igual o mayor que el tamaño original (%sGiB)"
+
+#, python-format
+msgid "Volume size must be equal to or greater than the snapshot size (%sGiB)"
+msgstr ""
+"El tamaño del volumen debe ser igual o mayor que el de la instantánea (%s "
+"GiB)"
 
 msgid "Volume size must be greater than 0"
 msgstr "El tamaño del volumen debe ser mayor que 0"
@@ -9758,6 +10065,14 @@ msgstr "Volúmenes"
 
 msgid "Volumes Attached"
 msgstr "Volúmenes asociados"
+
+msgid "Volumes are block devices that can be attached to instances."
+msgstr ""
+"Los volúmenes son dispositivos de bloques que se pueden asociar a instancias."
+
+#, python-format
+msgid "Volumes of Type %(type)s"
+msgstr "Tipos de volúmenes %(type)s"
 
 msgid "Weight"
 msgstr "Peso"
@@ -10079,3 +10394,6 @@ msgstr "v1"
 
 msgid "v2"
 msgstr "v2"
+
+msgid "yes,no,-"
+msgstr "sí, no,-"

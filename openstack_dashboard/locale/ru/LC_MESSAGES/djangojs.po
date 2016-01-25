@@ -10,16 +10,17 @@
 # Fedor Tarasenko <feodor.tarasenko@gmail.com>, 2015. #zanata
 # Ilya Alekseyev <ilyaalekseyev@acm.org>, 2015. #zanata
 # OpenStack Infra <zanata@openstack.org>, 2015. #zanata
+# Denis Gubanov <v12aml@gmail.com>, 2016. #zanata
 msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2016-01-09 00:51+0000\n"
+"POT-Creation-Date: 2016-01-25 00:39+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2015-12-30 06:40+0000\n"
-"Last-Translator: Antonio Kless <antoniok.spb@gmail.com>\n"
+"PO-Revision-Date: 2016-01-22 07:21+0000\n"
+"Last-Translator: Denis Gubanov <v12aml@gmail.com>\n"
 "Language: ru\n"
 "Plural-Forms: nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
 "%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || (n"
@@ -791,6 +792,13 @@ msgstr ""
 
 msgid "This is your new key pair. Copy this information and keep it secure."
 msgstr "Это новая связка ключей. Скопируйте эту информацию в безопасное место."
+
+msgid ""
+"To view source code, hover over a section, then click the <a><span></span></"
+"a> button in the top right of that section."
+msgstr ""
+"Для просмотра исходного кода наведите курсор на блок и нажмите <a><span></"
+"span></a> кнопку в правом верхнем углу секции."
 
 msgid "Total Disk"
 msgstr "Объем диска"

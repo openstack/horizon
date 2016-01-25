@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2016-01-20 06:32+0000\n"
+"POT-Creation-Date: 2016-01-25 06:31+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -1782,6 +1782,10 @@ msgstr ""
 msgid "Delete Volume on Instance Delete"
 msgstr ""
 
+#: static/app/redirect.controller.js:46
+msgid "Loading"
+msgstr ""
+
 #: static/app/core/images/actions/batch-delete.action.service.js:43
 #: static/app/core/images/actions/delete-image.service.spec.js:21
 msgid "Confirm Delete Images"
@@ -1923,48 +1927,48 @@ msgstr ""
 msgid "Save"
 msgstr ""
 
-#: static/app/core/openstack-service-api/cinder.service.js:73
+#: static/app/core/openstack-service-api/cinder.service.js:88
 msgid "Unable to retrieve the volumes."
 msgstr ""
 
-#: static/app/core/openstack-service-api/cinder.service.js:89
+#: static/app/core/openstack-service-api/cinder.service.js:104
 msgid "Unable to retrieve the volume."
 msgstr ""
 
-#: static/app/core/openstack-service-api/cinder.service.js:101
+#: static/app/core/openstack-service-api/cinder.service.js:116
 msgid "Unable to create the volume."
 msgstr ""
 
-#: static/app/core/openstack-service-api/cinder.service.js:119
+#: static/app/core/openstack-service-api/cinder.service.js:134
 msgid "Unable to retrieve the volume types."
 msgstr ""
 
-#: static/app/core/openstack-service-api/cinder.service.js:135
+#: static/app/core/openstack-service-api/cinder.service.js:150
 msgid "Unable to retrieve the volume type."
 msgstr ""
 
-#: static/app/core/openstack-service-api/cinder.service.js:148
+#: static/app/core/openstack-service-api/cinder.service.js:163
 msgid "Unable to retrieve the default volume type."
 msgstr ""
 
-#: static/app/core/openstack-service-api/cinder.service.js:175
+#: static/app/core/openstack-service-api/cinder.service.js:190
 msgid "Unable to retrieve the volume snapshots."
 msgstr ""
 
-#: static/app/core/openstack-service-api/cinder.service.js:207
+#: static/app/core/openstack-service-api/cinder.service.js:222
 #: static/app/core/openstack-service-api/nova.service.js:255
 msgid "Unable to retrieve the extensions."
 msgstr ""
 
-#: static/app/core/openstack-service-api/cinder.service.js:223
+#: static/app/core/openstack-service-api/cinder.service.js:238
 msgid "Unable to retrieve the cinder services."
 msgstr ""
 
-#: static/app/core/openstack-service-api/cinder.service.js:244
+#: static/app/core/openstack-service-api/cinder.service.js:259
 msgid "Unable to retrieve the QoS Specs."
 msgstr ""
 
-#: static/app/core/openstack-service-api/cinder.service.js:258
+#: static/app/core/openstack-service-api/cinder.service.js:273
 msgid "Unable to retrieve the Absolute Limits."
 msgstr ""
 
@@ -2251,7 +2255,7 @@ msgstr ""
 msgid "Unable to retrieve settings."
 msgstr ""
 
-#: static/app/core/openstack-service-api/settings.service.js:253
+#: static/app/core/openstack-service-api/settings.service.js:252
 #, python-format
 msgid "Setting is not enabled: %(setting)s"
 msgstr ""
