@@ -878,9 +878,11 @@ class LockInstance(policy.PolicyTargetMixin, tables.BatchAction):
             count
         )
 
-    # TODO(akrivoka): When the lock status is added to nova, revisit this
     # to only allow unlocked instances to be locked
     def allowed(self, request, instance):
+        # if not locked, lock should be available
+        if getattr(instance, 'locked', False):
+            return False
         if not api.nova.extension_supported('AdminActions', request):
             return False
         return True
@@ -909,9 +911,10 @@ class UnlockInstance(policy.PolicyTargetMixin, tables.BatchAction):
             count
         )
 
-    # TODO(akrivoka): When the lock status is added to nova, revisit this
     # to only allow locked instances to be unlocked
     def allowed(self, request, instance):
+        if not getattr(instance, 'locked', True):
+            return False
         if not api.nova.extension_supported('AdminActions', request):
             return False
         return True
