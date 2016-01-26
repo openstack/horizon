@@ -1,7 +1,7 @@
 // Make the sidebar span the entire page, instead of just the Viewport
 // Display Table is not ideal, but it will allow dynamic resizing of
 // the sidebar while growing its container to fill the entire window
-html, body, #container {
+html, body:not(#splash), #container {
   height: 100%;
 }
 
