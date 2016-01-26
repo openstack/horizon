@@ -23,6 +23,7 @@ from keystoneclient.v2_0 import ec2
 from keystoneclient.v2_0 import roles
 from keystoneclient.v2_0 import tenants
 from keystoneclient.v2_0 import users
+from keystoneclient.v3.contrib.federation import identity_providers
 from keystoneclient.v3 import domains
 from keystoneclient.v3 import groups
 from keystoneclient.v3 import role_assignments
@@ -143,6 +144,8 @@ def data(TEST):
     TEST.role_assignments = utils.TestDataContainer()
     TEST.roles = utils.TestDataContainer()
     TEST.ec2 = utils.TestDataContainer()
+
+    TEST.identity_providers = utils.TestDataContainer()
 
     admin_role_dict = {'id': '1',
                        'name': 'admin'}
@@ -368,3 +371,19 @@ def data(TEST):
                                                      "secret": "secret",
                                                      "tenant_id": tenant.id})
     TEST.ec2.add(access_secret)
+
+    idp_dict_1 = {'id': 'idp_1',
+                  'description': 'identiy provider 1',
+                  'enabled': True,
+                  'remote_ids': ['rid_1', 'rid_2']}
+    idp_1 = identity_providers.IdentityProvider(
+        identity_providers.IdentityProviderManager,
+        idp_dict_1)
+    idp_dict_2 = {'id': 'idp_2',
+                  'description': 'identiy provider 2',
+                  'enabled': True,
+                  'remote_ids': ['rid_3', 'rid_4']}
+    idp_2 = identity_providers.IdentityProvider(
+        identity_providers.IdentityProviderManager,
+        idp_dict_2)
+    TEST.identity_providers.add(idp_1, idp_2)

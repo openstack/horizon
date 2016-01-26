@@ -745,6 +745,19 @@ are using HTTPS, running your Keystone server on a nonstandard port, or using
 a nonstandard URL scheme you shouldn't need to touch this setting.
 
 
+``OPENSTACK_KEYSTONE_FEDERATION_MANAGEMENT``
+--------------------------------------------
+
+.. versionadded:: 9.0.0(Mitaka)
+
+Default: ``False``
+
+Set this to True to enable panels that provide the ability for users to manage
+Identity Providers (IdPs) and establish a set of rules to map federation protocol
+attributes to Identity API attributes. This extension requires v3.0+ of the
+Identity API.
+
+
 ``WEBSSO_ENABLED``
 ------------------
 
