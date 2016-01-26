@@ -280,3 +280,12 @@ class GlanceApiTests(test.APITestCase):
         self.assertItemsEqual(defs, [])
         self.assertFalse(more)
         self.assertFalse(prev)
+
+    def test_metadefs_resource_types_list_v1(self):
+        api.glance.get_version = self.mox.CreateMockAnything()
+        api.glance.get_version().AndReturn(1)
+
+        self.mox.ReplayAll()
+
+        res_types = api.glance.metadefs_resource_types_list(self.request)
+        self.assertItemsEqual(res_types, [])

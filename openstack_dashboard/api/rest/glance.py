@@ -253,6 +253,33 @@ class MetadefsNamespaces(generic.View):
             request, filters=filters, **kwargs
         )))
 
+
+@urls.register
+class MetadefsResourceTypesList(generic.View):
+    """API for getting Metadata Definitions Resource Types List.
+
+       http://docs.openstack.org/developer/glance/metadefs-concepts.html
+    """
+    url_regex = r'glance/metadefs/resourcetypes/$'
+
+    @rest_utils.ajax()
+    def get(self, request):
+        """Get Metadata definitions resource types list.
+
+        The listing result is an object with property "items". Each item is
+        a resource type.
+
+        Example GET:
+        http://localhost/api/glance/resourcetypes/
+
+        Any request parameters will be passed through the API as filters.
+        """
+        return {
+            'items': [resource_type for resource_type in
+                      api.glance.metadefs_resource_types_list(request)]
+        }
+
+
 def create_image_metadata(data):
     try:
         """Use the given dict of image form data to generate the metadata used for
@@ -309,4 +336,3 @@ def handle_visibility(visibility, meta):
         meta['is_public'] = mapping_to_v1[visibility]
     except KeyError as e:
         raise rest_utils.AjaxError(400, "invalid visibility option: %s" % e.args[0])
-

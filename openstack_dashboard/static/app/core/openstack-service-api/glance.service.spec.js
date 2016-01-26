@@ -154,6 +154,15 @@
           "cache": true
         },
         "error": "Unable to retrieve the namespaces."
+      },
+      {
+        "func": "getResourceTypes",
+        "method": "get",
+        "path": "/api/glance/metadefs/resourcetypes/",
+        "data": {
+          "cache": true
+        },
+        "error": "Unable to retrieve the resource types."
       }
     ];
 
