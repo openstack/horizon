@@ -524,7 +524,7 @@ horizon.datatables.set_table_query_filter = function (parent) {
           horizon.datatables.fix_row_striping(table);
         },
         prepareQuery: function (val) {
-          return new RegExp(val, "i");
+          return new RegExp(horizon.string.escapeRegex(val), "i");
         },
         testQuery: function (query, txt, _row) {
           return query.test($(_row).find('td:not(.hidden):not(.actions_column)').text());

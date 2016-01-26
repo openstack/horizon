@@ -419,7 +419,7 @@ horizon.membership = {
           horizon.membership.fix_stripes(step_slug);
         },
         'prepareQuery': function (val) {
-          return new RegExp(val, "i");
+          return new RegExp(horizon.string.escapeRegex(val), "i");
         },
         'testQuery': function (query, txt, span) {
           if ($(input).attr('id') === filter) {
