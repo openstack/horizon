@@ -1,0 +1,12 @@
+<div ng-controller="LaunchInstanceSchedulerHintsController as ctrl">
+  <p translate>
+    This step allows you to add scheduler hints to your instance.
+  </p>
+  <metadata-tree
+    ng-if="model.metadataDefs.hints"
+    available="::model.metadataDefs.hints"
+    existing="{}"
+    text="::ctrl.text"
+    model="::model.hintsTree">
+  </metadata-tree>
+</div>

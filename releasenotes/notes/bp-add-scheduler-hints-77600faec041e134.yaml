@@ -1,0 +1,10 @@
+---
+features:
+  - Added the Scheduler Hints tab to the new Launch Instance workflow to allow
+    adding scheduler hints to an instance at launch. In addition to adding
+    custom key-value pairs, the user can also choose from properties in the
+    glance metadata definitions catalog that have the OS::Nova::Server resource
+    type and scheduler_hints properties target.
+  - Added settings support to the angular workflow service so each step in a
+    workflow can specify a boolean setting that must pass in order for the step
+    to be displayed.

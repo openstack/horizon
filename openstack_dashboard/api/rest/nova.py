@@ -184,7 +184,7 @@ class Servers(generic.View):
     _optional_create = [
         'block_device_mapping', 'block_device_mapping_v2', 'nics', 'meta',
         'availability_zone', 'instance_count', 'admin_pass', 'disk_config',
-        'config_drive'
+        'config_drive', 'scheduler_hints'
     ]
 
     @rest_utils.ajax()

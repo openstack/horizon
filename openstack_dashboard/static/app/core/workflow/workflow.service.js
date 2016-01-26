@@ -49,13 +49,17 @@
    *     templateUrl: basePath + 'steps/create-volume/step3.html',
    *     helpUrl: basePath + 'steps/create-volume/step3.help.html',
    *     formName: 'step3Form',
-   *     policy: { rules: [['compute', 'os_compute_api:os-scheduler-hints:discoverable']] }
+   *     policy: { rules: [['compute', 'os_compute_api:os-scheduler-hints:discoverable']] },
+   *     setting: 'LAUNCH_INSTANCE_DEFAULTS.enable_scheduler_hints'
    *   }]
    * });
    * ```
-   * For each step, the requiredServiceTypes property specifies the service types that must
-   * be available in the service catalog for the step to be displayed. The policy property
-   * specifies the policy check that must pass in order for the step to be displayed.
+   * For each step, the `requiredServiceTypes` property specifies the service types that must
+   * be available in the service catalog for the step to be displayed. The `policy` property
+   * specifies the policy check that must pass in order for the step to be displayed. The
+   * `setting` property specifies the settings key to check (must be a boolean value) for
+   * determining if the step should be displayed. If the key is not found then this will resolve
+   * to `true`.
    *
    * @param {Object} The input workflow specification object
    * @returns {Object} The decorated workflow specification object, the same

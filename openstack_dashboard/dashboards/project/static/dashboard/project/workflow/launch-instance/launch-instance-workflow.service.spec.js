@@ -17,28 +17,19 @@
   'use strict';
 
   describe('horizon.dashboard.project.workflow.launch-instance.workflow tests', function () {
-    var launchInstanceWorkflow;
+    var launchInstanceWorkflow, stepPolicy;
 
     beforeEach(module('horizon.app.core'));
+    beforeEach(module('horizon.framework.util'));
+    beforeEach(module('horizon.framework.conf'));
+    beforeEach(module('horizon.framework.widgets.toast'));
     beforeEach(module('horizon.dashboard.project'));
-    beforeEach(module(function($provide) {
-      // Need to mock horizon.framework.workflow from 'horizon'
-      var workflow = function(spec, decorators) {
-        angular.forEach(decorators, function(decorator) {
-          decorator(spec);
-        });
-        return spec;
-      };
-      $provide.value('horizon.app.core.openstack-service-api.serviceCatalog', {
-        ifTypeEnabled: angular.noop
-      });
-      $provide.value('horizon.framework.util.workflow.service', workflow);
-    }));
 
     beforeEach(inject(function ($injector) {
       launchInstanceWorkflow = $injector.get(
         'horizon.dashboard.project.workflow.launch-instance.workflow'
       );
+      stepPolicy = $injector.get('horizon.dashboard.project.workflow.launch-instance.step-policy');
     }));
 
     it('should be defined', function () {
@@ -49,9 +40,9 @@
       expect(launchInstanceWorkflow.title).toBeDefined();
     });
 
-    it('should have the nine steps defined', function () {
+    it('should have 10 steps defined', function () {
       expect(launchInstanceWorkflow.steps).toBeDefined();
-      expect(launchInstanceWorkflow.steps.length).toBe(9);
+      expect(launchInstanceWorkflow.steps.length).toBe(10);
 
       var forms = [
         'launchInstanceDetailsForm',
@@ -62,6 +53,7 @@
         'launchInstanceAccessAndSecurityForm',
         'launchInstanceKeypairForm',
         'launchInstanceConfigurationForm',
+        'launchInstanceSchedulerHintsForm',
         'launchInstanceMetadataForm'
       ];
 
@@ -76,6 +68,10 @@
 
     it('specifies that the network port step requires the network service type', function() {
       expect(launchInstanceWorkflow.steps[4].requiredServiceTypes).toEqual(['network']);
+    });
+
+    it('has a policy rule for the scheduler hints step', function() {
+      expect(launchInstanceWorkflow.steps[8].policy).toEqual(stepPolicy.schedulerHints);
     });
   });
 

@@ -621,7 +621,8 @@ edited.
 Default::
 
     {
-        "config_drive": False
+        "config_drive": False,
+        "enable_scheduler_hints": True
     }
 
 A dictionary of settings which can be used to provide the default values for
@@ -630,6 +631,8 @@ properties found in the Launch Instance modal.
 The ``config_drive`` setting specifies the default value for the Configuration
 Drive property.
 
+The ``enable_scheduler_hints`` setting specifies whether or not Scheduler Hints
+can be provided when launching an instance.
 
 ``LAUNCH_INSTANCE_NG_ENABLED``
 ------------------------------

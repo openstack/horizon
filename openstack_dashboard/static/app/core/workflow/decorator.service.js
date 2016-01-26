@@ -27,16 +27,17 @@
    * @kind function
    * @description
    *
-   * A workflow decorator function that looks for the requiredServiceTypes or policy
-   * properties on each step in the workflow. If either of these properties exist then
-   * the checkReadiness method is added to the step. The checkReadiness method will
-   * make sure the necessary OpenStack services are enabled and the policy check passes
-   * in order for the step to be displayed.
+   * A workflow decorator function that looks for the `requiredServiceTypes`, `policy`, or
+   * `setting` properties on each step in the workflow. If any of these properties exist
+   * then the `checkReadiness` method is added to the step. The `checkReadiness` method will
+   * make sure the necessary OpenStack services are enabled, policy check passes, and the
+   * setting evaluates to `true` in order for the step to be displayed.
    *
    * Injected dependencies:
    * - $q
    * - serviceCatalog horizon.app.core.openstack-service-api.serviceCatalog
    * - policy horizon.app.core.openstack-service-api.policy
+   * - settings horizon.app.core.openstack-service-api.settings
    *
    * @param {Object} spec The input workflow specification object.
    * @returns {Object} The decorated workflow specification object, the same
@@ -50,12 +51,13 @@
   dashboardWorkflowDecorator.$inject = [
     '$q',
     'horizon.app.core.openstack-service-api.serviceCatalog',
-    'horizon.app.core.openstack-service-api.policy'
+    'horizon.app.core.openstack-service-api.policy',
+    'horizon.app.core.openstack-service-api.settings'
   ];
 
   /////////////
 
-  function dashboardWorkflowDecorator($q, serviceCatalog, policy) {
+  function dashboardWorkflowDecorator($q, serviceCatalog, policy, settings) {
     return decorator;
 
     function decorator(spec) {
@@ -77,6 +79,9 @@
       }
       if (step.policy) {
         promises.push(policy.ifAllowed(step.policy));
+      }
+      if (step.setting) {
+        promises.push(settings.ifEnabled(step.setting, true, true));
       }
       if (promises.length > 0) {
         step.checkReadiness = function () {

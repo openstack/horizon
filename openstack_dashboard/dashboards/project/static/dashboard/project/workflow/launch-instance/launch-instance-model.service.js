@@ -29,7 +29,9 @@
     'horizon.app.core.openstack-service-api.settings',
     'horizon.dashboard.project.workflow.launch-instance.boot-source-types',
     'horizon.dashboard.project.workflow.launch-instance.non_bootable_image_types',
-    'horizon.framework.widgets.toast.service'
+    'horizon.framework.widgets.toast.service',
+    'horizon.app.core.openstack-service-api.policy',
+    'horizon.dashboard.project.workflow.launch-instance.step-policy'
   ];
 
   /**
@@ -69,7 +71,9 @@
     settings,
     bootSourceTypes,
     nonBootableImageTypes,
-    toast
+    toast,
+    policy,
+    stepPolicy
   ) {
 
     var initPromise;
@@ -125,7 +129,8 @@
         flavor: null,
         image: null,
         volume: null,
-        instance: null
+        instance: null,
+        hints: null
       },
       networks: [],
       ports: [],
@@ -137,6 +142,7 @@
       volumes: [],
       volumeSnapshots: [],
       metadataTree: null,
+      hintsTree: null,
 
       /**
        * api methods for UI controllers
@@ -270,6 +276,7 @@
       setFinalSpecPorts(finalSpec);
       setFinalSpecKeyPairs(finalSpec);
       setFinalSpecSecurityGroups(finalSpec);
+      setFinalSpecSchedulerHints(finalSpec);
       setFinalSpecMetadata(finalSpec);
 
       return novaAPI.createServer(finalSpec).then(successMessage);
@@ -592,6 +599,20 @@
       angular.extend(model.novaLimits, data.data);
     }
 
+    // Scheduler hints
+
+    function setFinalSpecSchedulerHints(finalSpec) {
+      if (model.hintsTree) {
+        var hints = model.hintsTree.getExisting();
+        if (!angular.equals({}, hints)) {
+          angular.forEach(hints, function(value, key) {
+            hints[key] = value + '';
+          });
+          finalSpec.scheduler_hints = hints;
+        }
+      }
+    }
+
     // Instance metadata
 
     function setFinalSpecMetadata(finalSpec) {
@@ -608,10 +629,10 @@
 
     // Metadata Definitions
 
-    /*
-     * Metadata definitions provide supplemental information in source image
-     * detail rows and are used on the metadata tab for adding metadata to the
-     * instance.
+    /**
+     * Metadata definitions provide supplemental information in source image detail
+     * rows and are used on the metadata tab for adding metadata to the instance and
+     * on the scheduler hints tab.
      */
     function getMetadataDefinitions() {
       // Metadata definitions often apply to multiple resource types. It is optimal to make a
@@ -625,6 +646,14 @@
       };
 
       angular.forEach(resourceTypes, applyForResourceType);
+
+      // Need to check setting and policy for scheduler hints
+      $q.all([
+        settings.ifEnabled('LAUNCH_INSTANCE_DEFAULTS.enable_scheduler_hints', true, true),
+        policy.ifAllowed(stepPolicy.schedulerHints)
+      ]).then(function getSchedulerHints() {
+        applyForResourceType(['OS::Nova::Server', 'scheduler_hints'], 'hints');
+      });
     }
 
     function applyForResourceType(resourceType, key) {

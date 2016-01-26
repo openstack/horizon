@@ -17,11 +17,12 @@
   'use strict';
 
   describe('Workflow Decorator', function () {
-    var decoratorService, catalogService, policyService, $scope, deferred;
+    var decoratorService, catalogService, policyService, settingsService, $scope, deferred;
     var steps = [
       { id: '1' },
       { id: '2', requiredServiceTypes: ['foo-service'] },
-      { id: '3', policy: 'foo-policy' }
+      { id: '3', policy: 'foo-policy' },
+      { id: '4', setting: 'STEPS.step_4_enabled' }
     ];
     var spec = { steps: steps };
 
@@ -36,15 +37,17 @@
       decoratorService = $injector.get('horizon.app.core.workflow.decorator');
       catalogService = $injector.get('horizon.app.core.openstack-service-api.serviceCatalog');
       policyService = $injector.get('horizon.app.core.openstack-service-api.policy');
+      settingsService = $injector.get('horizon.app.core.openstack-service-api.settings');
       spyOn(catalogService, 'ifTypeEnabled').and.returnValue(deferred.promise);
       spyOn(policyService, 'ifAllowed').and.returnValue(deferred.promise);
+      spyOn(settingsService, 'ifEnabled').and.returnValue(deferred.promise);
     }));
 
     it('is a function', function() {
       expect(angular.isFunction(decoratorService)).toBe(true);
     });
 
-    it('checks each step for required services and policies', function() {
+    it('checks each step for required services, policies, and settings', function() {
       decoratorService(spec);
       expect(steps[0].checkReadiness).toBeUndefined();
       expect(steps[1].checkReadiness).toBeDefined();
@@ -53,6 +56,8 @@
       expect(catalogService.ifTypeEnabled).toHaveBeenCalledWith('foo-service');
       expect(policyService.ifAllowed.calls.count()).toBe(1);
       expect(policyService.ifAllowed).toHaveBeenCalledWith('foo-policy');
+      expect(settingsService.ifEnabled.calls.count()).toBe(1);
+      expect(settingsService.ifEnabled).toHaveBeenCalledWith('STEPS.step_4_enabled', true, true);
     });
 
     it('step checkReadiness function returns correct results', function() {
