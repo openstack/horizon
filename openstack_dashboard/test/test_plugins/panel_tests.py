@@ -55,9 +55,9 @@ class PanelPluginTests(test.PluginTestCase):
                       [p.__class__ for p in panel_group])
         # Ensure that static resources are properly injected
         pc = panel_config._10_admin_add_panel
-        self.assertEquals(pc.ADD_JS_FILES, HORIZON_CONFIG['js_files'])
-        self.assertEquals(pc.ADD_JS_SPEC_FILES, HORIZON_CONFIG['js_spec_files'])
-        self.assertEquals(pc.ADD_SCSS_FILES, HORIZON_CONFIG['scss_files'])
+        self.assertEqual(pc.ADD_JS_FILES, HORIZON_CONFIG['js_files'])
+        self.assertEqual(pc.ADD_JS_SPEC_FILES, HORIZON_CONFIG['js_spec_files'])
+        self.assertEqual(pc.ADD_SCSS_FILES, HORIZON_CONFIG['scss_files'])
 
     def test_remove_panel(self):
         dashboard = horizon.get_dashboard("admin")
