@@ -129,10 +129,18 @@ class TableRegion(baseregion.BaseRegion):
                 for elem in self._get_elements(*self._rows_locator)]
 
     def is_next_link_available(self):
-        return self._is_element_visible(*self._next_locator)
+        try:
+            self._turn_off_implicit_wait()
+            return self._is_element_visible(*self._next_locator)
+        finally:
+            self._turn_on_implicit_wait()
 
     def is_prev_link_available(self):
-        return self._is_element_visible(*self._prev_locator)
+        try:
+            self._turn_off_implicit_wait()
+            return self._is_element_visible(*self._prev_locator)
+        finally:
+            self._turn_on_implicit_wait()
 
     def turn_next_page(self):
         if self.is_next_link_available():
