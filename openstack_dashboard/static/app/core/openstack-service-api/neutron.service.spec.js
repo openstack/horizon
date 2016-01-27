@@ -81,10 +81,16 @@
         "func": "getPorts",
         "method": "get",
         "path": "/api/neutron/ports/",
-        "data": 42,
+        "data": {
+          params: {
+            network_id: 42
+          }
+        },
         "error": "Unable to retrieve the ports.",
         "testInput": [
-          42
+          {
+            network_id: 42
+          }
         ]
       },
       {
