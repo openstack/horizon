@@ -117,7 +117,7 @@ class GroupManageMixin(object):
                                            domain=domain_id)
         group_members = self._get_group_members()
         group_member_ids = [user.id for user in group_members]
-        return filter(lambda u: u.id not in group_member_ids, all_users)
+        return [u for u in all_users if u.id not in group_member_ids]
 
 
 class ManageMembersView(GroupManageMixin, tables.DataTableView):
