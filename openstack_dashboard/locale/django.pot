@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2016-01-25 06:31+0000\n"
+"POT-Creation-Date: 2016-01-27 06:55+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -934,6 +934,8 @@ msgstr ""
 #: dashboards/admin/volumes/templates/volumes/volumes/_update_status.html:5
 #: dashboards/identity/groups/templates/groups/_create.html:5
 #: dashboards/identity/groups/templates/groups/_update.html:5
+#: dashboards/identity/identity_providers/templates/identity_providers/_register.html:5
+#: dashboards/identity/identity_providers/templates/identity_providers/_update.html:5
 #: dashboards/identity/roles/templates/roles/_create.html:5
 #: dashboards/identity/roles/templates/roles/_update.html:5
 #: dashboards/identity/users/templates/users/_change_password.html:5
@@ -2064,6 +2066,9 @@ msgstr ""
 #: dashboards/identity/domains/tables.py:283
 #: dashboards/identity/domains/workflows.py:40
 #: dashboards/identity/groups/tables.py:195
+#: dashboards/identity/identity_providers/forms.py:40
+#: dashboards/identity/identity_providers/forms.py:87
+#: dashboards/identity/identity_providers/tables.py:76
 #: dashboards/identity/projects/tables.py:234
 #: dashboards/identity/projects/tables.py:237
 #: dashboards/identity/projects/workflows.py:152
@@ -2449,6 +2454,9 @@ msgstr ""
 #: dashboards/identity/groups/forms.py:33
 #: dashboards/identity/groups/forms.py:59
 #: dashboards/identity/groups/tables.py:117
+#: dashboards/identity/identity_providers/forms.py:36
+#: dashboards/identity/identity_providers/forms.py:83
+#: dashboards/identity/identity_providers/tables.py:75
 #: dashboards/identity/projects/tables.py:228
 #: dashboards/identity/projects/workflows.py:150
 #: dashboards/identity/projects/templates/projects/_detail_overview.html:11
@@ -4524,6 +4532,7 @@ msgstr ""
 #: dashboards/admin/volumes/volume_types/extras/tables.py:59
 #: dashboards/admin/volumes/volume_types/qos_specs/tables.py:52
 #: dashboards/identity/domains/tables.py:81
+#: dashboards/identity/identity_providers/tables.py:35
 #: dashboards/identity/roles/tables.py:37
 #: dashboards/identity/users/tables.py:47
 #: dashboards/project/containers/tables.py:299
@@ -5276,6 +5285,132 @@ msgstr ""
 
 #: dashboards/identity/groups/templates/groups/manage.html:3
 msgid "Group Management"
+msgstr ""
+
+#: dashboards/identity/identity_providers/forms.py:26
+#: dashboards/identity/identity_providers/forms.py:73
+#: dashboards/identity/identity_providers/tables.py:73
+msgid "Identity Provider ID"
+msgstr ""
+
+#: dashboards/identity/identity_providers/forms.py:28
+#: dashboards/identity/identity_providers/forms.py:75
+msgid "User-defined unique id to identify the identity provider."
+msgstr ""
+
+#: dashboards/identity/identity_providers/forms.py:31
+#: dashboards/identity/identity_providers/forms.py:78
+#: dashboards/identity/identity_providers/tables.py:80
+msgid "Remote IDs"
+msgstr ""
+
+#: dashboards/identity/identity_providers/forms.py:33
+#: dashboards/identity/identity_providers/forms.py:80
+msgid "Comma-delimited list of valid remote IDs from the identity provider."
+msgstr ""
+
+#: dashboards/identity/identity_providers/forms.py:42
+#: dashboards/identity/identity_providers/forms.py:89
+msgid ""
+"Indicates whether this identity provider should accept federated "
+"authentication requests."
+msgstr ""
+
+#: dashboards/identity/identity_providers/forms.py:58
+msgid "Identity provider registered successfully."
+msgstr ""
+
+#: dashboards/identity/identity_providers/forms.py:61
+msgid ""
+"Unable to register identity provider. Please check that the Identity "
+"Provider ID and Remote IDs provided are not already in use."
+msgstr ""
+
+#: dashboards/identity/identity_providers/forms.py:67
+msgid "Unable to register identity provider."
+msgstr ""
+
+#: dashboards/identity/identity_providers/forms.py:105
+msgid "Identity provider updated successfully."
+msgstr ""
+
+#: dashboards/identity/identity_providers/forms.py:108
+msgid ""
+"Unable to update identity provider. Please check that the Remote IDs "
+"provided are not already in use."
+msgstr ""
+
+#: dashboards/identity/identity_providers/forms.py:113
+#: dashboards/identity/identity_providers/views.py:75
+msgid "Unable to update identity provider."
+msgstr ""
+
+#: dashboards/identity/identity_providers/panel.py:23
+#: dashboards/identity/identity_providers/tables.py:86
+#: dashboards/identity/identity_providers/views.py:37
+#: dashboards/identity/identity_providers/templates/identity_providers/index.html:3
+msgid "Identity Providers"
+msgstr ""
+
+#: dashboards/identity/identity_providers/tables.py:26
+#: dashboards/identity/identity_providers/views.py:95
+#: dashboards/identity/identity_providers/views.py:98
+#: dashboards/identity/identity_providers/views.py:101
+#: dashboards/identity/identity_providers/templates/identity_providers/register.html:3
+msgid "Register Identity Provider"
+msgstr ""
+
+#: dashboards/identity/identity_providers/tables.py:45
+msgid "Unregister Identity Provider"
+msgid_plural "Unregister Identity Providers"
+msgstr[0] ""
+msgstr[1] ""
+
+#: dashboards/identity/identity_providers/tables.py:53
+msgid "Unregistered Identity Provider"
+msgid_plural "Unregistered Identity Providers"
+msgstr[0] ""
+msgstr[1] ""
+
+#: dashboards/identity/identity_providers/views.py:48
+msgid "Unable to retrieve identity provider list."
+msgstr ""
+
+#: dashboards/identity/identity_providers/views.py:50
+msgid "Insufficient privilege level to view identity provider information."
+msgstr ""
+
+#: dashboards/identity/identity_providers/views.py:58
+#: dashboards/identity/identity_providers/views.py:61
+#: dashboards/identity/identity_providers/views.py:64
+#: dashboards/identity/identity_providers/templates/identity_providers/update.html:3
+msgid "Update Identity Provider"
+msgstr ""
+
+#: dashboards/identity/identity_providers/templates/identity_providers/_register.html:6
+msgid ""
+"Register a identity provider that is trusted by the Identity API to "
+"authenticate identities."
+msgstr ""
+
+#: dashboards/identity/identity_providers/templates/identity_providers/_register.html:7
+#: dashboards/identity/identity_providers/templates/identity_providers/_update.html:7
+msgid ""
+"Remote IDs are associated with the identity provider and are globally "
+"unique. This indicates the header attributes to use for mapping "
+"federation protocol attributes to Identity API objects. If no value is "
+"provided, the list will be set to empty."
+msgstr ""
+
+#: dashboards/identity/identity_providers/templates/identity_providers/_register.html:8
+msgid ""
+"Example: For <tt>mod_shib</tt> this would be <tt>Shib-Identity-"
+"Provider</tt>, for <tt>mod_auth_openidc</tt>, this could be "
+"<tt>HTTP_OIDC_ISS</tt>."
+msgstr ""
+
+#: dashboards/identity/identity_providers/templates/identity_providers/_update.html:6
+msgid "Edit the identity provider's details."
 msgstr ""
 
 #: dashboards/identity/ngusers/panel.py:23
@@ -14411,6 +14546,10 @@ msgstr ""
 
 #: enabled/_2010_admin_system_panel_group.py:6
 msgid "System"
+msgstr ""
+
+#: enabled/_3060_federation_panel_group.py:6
+msgid "Federation"
 msgstr ""
 
 #: templates/403.html:4 templates/403.html:9

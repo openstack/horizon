@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2016-01-25 06:31+0000\n"
+"POT-Creation-Date: 2016-01-27 06:55+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -1981,40 +1981,44 @@ msgstr ""
 msgid "Cannot get the extension list."
 msgstr ""
 
-#: static/app/core/openstack-service-api/glance.service.js:60
+#: static/app/core/openstack-service-api/glance.service.js:61
 msgid "Unable to get the Glance service version."
 msgstr ""
 
-#: static/app/core/openstack-service-api/glance.service.js:78
+#: static/app/core/openstack-service-api/glance.service.js:79
 msgid "Unable to retrieve the image."
 msgstr ""
 
-#: static/app/core/openstack-service-api/glance.service.js:133
+#: static/app/core/openstack-service-api/glance.service.js:134
 msgid "Unable to create the image."
 msgstr ""
 
-#: static/app/core/openstack-service-api/glance.service.js:183
+#: static/app/core/openstack-service-api/glance.service.js:184
 msgid "Unable to update the image."
 msgstr ""
 
-#: static/app/core/openstack-service-api/glance.service.js:203
+#: static/app/core/openstack-service-api/glance.service.js:204
 msgid "Unable to delete the image with id: "
 msgstr ""
 
-#: static/app/core/openstack-service-api/glance.service.js:216
+#: static/app/core/openstack-service-api/glance.service.js:217
 msgid "Unable to retrieve the image custom properties."
 msgstr ""
 
-#: static/app/core/openstack-service-api/glance.service.js:237
+#: static/app/core/openstack-service-api/glance.service.js:238
 msgid "Unable to edit the image custom properties."
 msgstr ""
 
-#: static/app/core/openstack-service-api/glance.service.js:279
+#: static/app/core/openstack-service-api/glance.service.js:280
 msgid "Unable to retrieve the images."
 msgstr ""
 
-#: static/app/core/openstack-service-api/glance.service.js:342
+#: static/app/core/openstack-service-api/glance.service.js:343
 msgid "Unable to retrieve the namespaces."
+msgstr ""
+
+#: static/app/core/openstack-service-api/glance.service.js:368
+msgid "Unable to retrieve the resource types."
 msgstr ""
 
 #: static/app/core/openstack-service-api/heat.service.js:58
