@@ -38,7 +38,7 @@ horizon.datatables = {
                 row_count = horizon.datatables.update_footer_count($table, -1);
 
                 if(row_count === 0) {
-                  colspan = $table.find('th[colspan]').attr('colspan');
+                  colspan = $table.find('.table_column_header th').length;
                   template = horizon.templates.compiled_templates["#empty_row_template"];
                   params = {
                       "colspan": colspan,
@@ -412,8 +412,12 @@ horizon.datatables.update_footer_count = function (el, modifier) {
     $footer = $el.find('tfoot span.table_count');
   }
   row_count = $el.find('tbody tr:visible').length + modifier - $el.find('.empty').length;
-  footer_text_template = ngettext("Displaying %s item", "Displaying %s items", row_count);
-  footer_text = interpolate(footer_text_template, [row_count]);
+  if (row_count) {
+    footer_text_template = ngettext("Displaying %s item", "Displaying %s items", row_count);
+    footer_text = interpolate(footer_text_template, [row_count]);
+  } else {
+    footer_text = '';
+  }
   $footer.text(footer_text);
   return row_count;
 };
@@ -422,7 +426,7 @@ horizon.datatables.add_no_results_row = function (table) {
   // Add a "no results" row if there are no results.
   var template = horizon.templates.compiled_templates["#empty_row_template"];
   if (!table.find("tbody tr:visible").length && typeof(template) !== "undefined") {
-    var colspan = table.find("th[colspan]").attr('colspan');
+    var colspan = $table.find('.table_column_header th').length;
     var params = {
         "colspan": colspan,
         no_items_label: gettext("No items to display.")

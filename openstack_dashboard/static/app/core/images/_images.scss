@@ -4,10 +4,6 @@ table[ng-controller="horizon.app.core.images.table.ImagesController as table"] {
     background: none;
     padding-left: 2em;
   }
-
-  &.table-rsp .action-col {
-    min-width: $table-action-col-width;
-  }
 }
 
 .textarea-fixed-width {

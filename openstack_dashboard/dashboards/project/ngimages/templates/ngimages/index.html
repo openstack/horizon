@@ -1,7 +1,10 @@
 {% extends 'base.html' %}
 {% load i18n %}
 {% block title %}{% trans "Images" %}{% endblock %}
-{% block page_header %}{% endblock %}
+
+{% block page_header %}
+  <hz-page-header header="{$ 'Images' | translate $}"></hz-page-header>
+{% endblock %}
 
 {% block ng_route_base %}
   <base href="{{ WEBROOT }}">

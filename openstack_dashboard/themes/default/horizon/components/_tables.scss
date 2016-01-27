@@ -1,15 +1,4 @@
 .table {
-  & > thead {
-    border-left: none;
-    border-right: none;
-    border-top: none;
-
-    // Specificity Override
-    & > tr > .table_header {
-      border-bottom: 1px solid $table-border-color;
-    }
-  }
-
   tr td {
     @include transition(background 0.2s);
 
@@ -18,18 +7,6 @@
       @include transition(none);
     }
   }
-
-  .table_caption {
-    background-color: $body-bg;
-
-    th {
-      border-left: none;
-    }
-  }
-}
-
-.table_column_header {
-  border-right: 1px solid $table-border-color;
 }
 
 // Table sort indicator

@@ -67,3 +67,7 @@
     padding-right: $input-height-base;
   }
 }
+
+td.actions_column {
+  width: 1px; // Slight hack to make sure the column shrinks to the button width
+}
