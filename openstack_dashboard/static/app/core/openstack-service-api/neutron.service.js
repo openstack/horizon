@@ -37,7 +37,8 @@
       getSubnets: getSubnets,
       createSubnet: createSubnet,
       getPorts: getPorts,
-      getAgents: getAgents
+      getAgents: getAgents,
+      getExtensions: getExtensions
     };
 
     return service;
@@ -261,5 +262,36 @@
         });
     }
 
+    // Extensions
+
+    /**
+     * @name horizon.app.core.openstack-services-api.neutron.getExtensions
+     * @description
+     * Returns a list of enabled extensions.
+     *
+     * The listing result is an object with property "items". Each item is
+     * an extension.
+     * @example
+     * The following is an example of response:
+     *
+     *  {
+     *    "items": [
+     *      {
+     *        "updated": "2012-07-29T10:00:00-00:00",
+     *        "name": "Quota management support",
+     *        "links": [],
+     *        "alias": "quotas",
+     *        "description": "Expose functions for quotas management per tenant"
+     *      }
+     *    ]
+     *  }
+     */
+    function getExtensions() {
+      return apiService.get('/api/neutron/extensions/')
+        .error(function() {
+          toastService.add('error', gettext('Unable to retrieve the extensions.'));
+        });
+    }
   }
+
 }());

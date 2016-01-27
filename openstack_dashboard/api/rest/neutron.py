@@ -154,3 +154,23 @@ class Services(generic.View):
             return {'items': [n.to_dict() for n in result]}
         else:
             raise rest_utils.AjaxError(501, '')
+
+
+@urls.register
+class Extensions(generic.View):
+    """API for neutron extensions.
+    """
+    url_regex = r'neutron/extensions/$'
+
+    @rest_utils.ajax()
+    def get(self, request):
+        """Get a list of extensions.
+
+        The listing result is an object with property "items". Each item is
+        an extension.
+
+        Example:
+        http://localhost/api/neutron/extensions
+        """
+        result = api.neutron.list_extensions(request)
+        return {'items': [e for e in result]}

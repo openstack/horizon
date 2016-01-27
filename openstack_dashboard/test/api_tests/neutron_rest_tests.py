@@ -158,6 +158,22 @@ class NeutronPortsTestCase(test.TestCase):
             request, network_id=TEST.api_networks.first().get("id"))
 
 
+class NeutronExtensionsTestCase(test.TestCase):
+    def setUp(self):
+        super(NeutronExtensionsTestCase, self).setUp()
+
+        self._extensions = [n for n in TEST.api_extensions.list()]
+
+    @mock.patch.object(neutron.api, 'neutron')
+    def test_list_extensions(self, nc):
+        request = self.mock_rest_request(**{'GET': {}})
+        nc.list_extensions.return_value = self._extensions
+        response = neutron.Extensions().get(request)
+        self.assertStatusCode(response, 200)
+        self.assertItemsCollectionEqual(response, TEST.api_extensions.list())
+        nc.list_extensions.assert_called_once_with(request)
+
+
 def mock_obj_to_dict(r):
     return mock.Mock(**{'to_dict.return_value': r})
 
