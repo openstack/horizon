@@ -17,3 +17,13 @@
     @content;
   }
 }
+
+@mixin horizontal-center {
+  float: none;
+  margin: 0 auto;
+}
+
+@mixin vertical-center {
+  display: inline-block;
+  vertical-align: middle;
+}

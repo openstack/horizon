@@ -2,8 +2,11 @@
 
 .row .horizontal-center,
 .horizontal-center {
-  float: none;
-  margin: 0 auto;
+  @include horizontal-center();
+}
+
+.vertical-center {
+  @include vertical-center();
 }
 
 /* new clearfix */
