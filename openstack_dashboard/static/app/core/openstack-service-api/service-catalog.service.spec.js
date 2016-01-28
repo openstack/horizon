@@ -28,8 +28,8 @@
       userSession = {get: angular.noop};
       $provide.value('horizon.app.core.openstack-service-api.userSession', userSession);
       deferred = {promise: angular.noop, reject: angular.noop, resolve: angular.noop};
-      q = {all: function() {return {then: angular.noop};},
-           defer: function() { return deferred;}};
+      q = {all: function() {return {then: angular.noop}; },
+           defer: function() { return deferred; }};
       $provide.value('$q', q);
       $provide.value('$cacheFactory', function() { return 'cache'; });
     }));
