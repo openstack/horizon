@@ -546,7 +546,7 @@ class AddMonitorAction(workflows.Action):
         delay = cleaned_data.get('delay')
         timeout = cleaned_data.get('timeout')
 
-        if not delay >= timeout:
+        if (delay is None) or (delay < timeout):
             msg = _('Delay must be greater than or equal to Timeout')
             self._errors['delay'] = self.error_class([msg])
 
