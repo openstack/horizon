@@ -24,6 +24,7 @@
     .filter('title', titleFilter)
     .filter('noUnderscore', noUnderscoreFilter)
     .filter('noValue', noValueFilter)
+    .filter('noName', noNameFilter)
     .filter('decode', decodeFilter)
     .filter('bytes', bytesFilter)
     .filter('itemCount', itemCountFilter)
@@ -135,6 +136,18 @@
       } else {
         return input;
       }
+    };
+  }
+
+  /**
+   * @ngdoc filter
+   * @name noName
+   * @description
+   * Replaces null / undefined / empty string with translated 'None'.
+   */
+  function noNameFilter() {
+    return function (input) {
+      return input && angular.isString(input) ? input : gettext('None');
     };
   }
 
