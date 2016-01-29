@@ -35,6 +35,7 @@
     var ctrl = this;
 
     ctrl.availableFilter = availableFilter;
+    ctrl.quickFilter = quickFilter;
     ctrl.text = angular.extend({}, defaults.text, ctrl.text);
     if (!ctrl.tree) {
       ctrl.tree = new metadataTreeService.Tree(ctrl.available, ctrl.existing);
@@ -46,8 +47,29 @@
     };
 
     function availableFilter(item) {
-      return !item.added && (
-        ctrl.filterText.available.length === 0 ? item.visible : true);
+      return !item.added && item.visible;
+    }
+
+    /**
+     * @ngdoc method
+     * @name MetadataTreeController.quickFilter
+     * @description
+     * Method used for filtering the list of available metadata items based on a user entered
+     * string value. The list of items is filtered such that any leaf with a display value or
+     * property name matching the provided string will be displayed. Parent items of any matching
+     * leaf are also displayed so context and the tree structure are preserved.
+     * @param {object} item The metadata tree item to filter.
+     * @return {boolean} true if item matches, false otherwise
+     */
+    function quickFilter(item) {
+      var text = ctrl.filterText.available;
+      if (!text) {
+        return true;
+      }
+      if (item.children.length > 0) {
+        return item.children.filter(quickFilter).length > 0;
+      }
+      return item.label.indexOf(text) > -1 || item.leaf.name.indexOf(text) > -1;
     }
   }
 

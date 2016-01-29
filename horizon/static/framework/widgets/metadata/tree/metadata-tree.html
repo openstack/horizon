@@ -47,7 +47,7 @@
             </div>
           </li>
 
-          <li ng-repeat="item in availableList = (ctrl.tree.flatTree | filter: {$: ctrl.filterText.available} | filter: ctrl.availableFilter)"
+          <li ng-repeat="item in availableList = (ctrl.tree.flatTree | filter: ctrl.availableFilter | filter: ctrl.quickFilter)"
               ng-class="'level-' + item.level + (ctrl.tree.selected===item?' active':'')"
               ng-class-odd="'dark-stripe'"
               ng-class-even="'light-stripe'"
