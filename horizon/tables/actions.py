@@ -587,7 +587,7 @@ class BatchAction(Action):
        forms of the name properly pluralised (depending on the integer) and
        translated in a string or tuple/list.
 
-    .. attribute:: action_present (PendingDeprecation)
+    .. attribute:: action_present (Deprecated)
 
        String or tuple/list. The display forms of the name.
        Should be a transitive verb, capitalized and translated. ("Delete",
@@ -612,7 +612,7 @@ class BatchAction(Action):
        forms of the name properly pluralised (depending on the integer) and
        translated in a string or tuple/list.
 
-    .. attribute:: action_past (PendingDeprecation)
+    .. attribute:: action_past (Deprecated)
 
        String or tuple/list. The past tense of action_present. ("Deleted",
        "Rotated", etc.) If tuple or list - then
@@ -623,12 +623,12 @@ class BatchAction(Action):
        avoided. Please use the action_past method instead.
        This form is kept for legacy.
 
-    .. attribute:: data_type_singular
+    .. attribute:: data_type_singular (Deprecated)
 
        Optional display name (if the data_type method is not defined) for the
        type of data that receives the action. ("Key Pair", "Floating IP", etc.)
 
-    .. attribute:: data_type_plural
+    .. attribute:: data_type_plural (Deprecated)
 
        Optional plural word (if the data_type method is not defined) for the
        type of data being acted on. Defaults to appending 's'. Relying on the
@@ -637,8 +637,9 @@ class BatchAction(Action):
        legacy code.
 
        NOTE: data_type_singular and data_type_plural attributes are bad for
-       translations and should be avoided. Please use the action_present and
-       action_past methods. This form is kept for legacy.
+       translations and should not be used. Please use the action_present and
+       action_past methods. This form is kept temporarily for legacy code but
+       will be removed.
 
     .. attribute:: success_url
 
@@ -661,7 +662,7 @@ class BatchAction(Action):
             if callable(self.action_present):
                 action_present_method = True
             else:
-                warnings.warn(PendingDeprecationWarning(
+                warnings.warn(DeprecationWarning(
                     'The %s BatchAction class must have an action_present '
                     'method instead of attribute.' % self.__class__.__name__
                 ))
@@ -671,7 +672,7 @@ class BatchAction(Action):
             if callable(self.action_past):
                 action_past_method = True
             else:
-                warnings.warn(PendingDeprecationWarning(
+                warnings.warn(DeprecationWarning(
                     'The %s BatchAction class must have an action_past '
                     'method instead of attribute.' % self.__class__.__name__
                 ))
@@ -874,7 +875,7 @@ class DeleteAction(BatchAction):
         forms of the name properly pluralised (depending on the integer) and
         translated in a string or tuple/list.
 
-    .. attribute:: action_present (PendingDeprecation)
+    .. attribute:: action_present (Deprecated)
 
         A string containing the transitive verb describing the delete action.
         Defaults to 'Delete'
@@ -889,7 +890,7 @@ class DeleteAction(BatchAction):
         forms of the name properly pluralised (depending on the integer) and
         translated in a string or tuple/list.
 
-    .. attribute:: action_past (PendingDeprecation)
+    .. attribute:: action_past (Deprecated)
 
         A string set to the past tense of action_present.
         Defaults to 'Deleted'
@@ -898,11 +899,11 @@ class DeleteAction(BatchAction):
         avoided. Please use the action_past method instead.
         This form is kept for legacy.
 
-    .. attribute:: data_type_singular (PendingDeprecation)
+    .. attribute:: data_type_singular (Deprecated)
 
         A string used to name the data to be deleted.
 
-    .. attribute:: data_type_plural (PendingDeprecation)
+    .. attribute:: data_type_plural (Deprecated)
 
         Optional. Plural of ``data_type_singular``.
         Defaults to ``data_type_singular`` appended with an 's'.  Relying on
@@ -911,8 +912,9 @@ class DeleteAction(BatchAction):
         optional for legacy code.
 
         NOTE: data_type_singular and data_type_plural attributes are bad for
-        translations and should be avoided. Please use the action_present and
-        action_past methods. This form is kept for legacy.
+        translations and should not be used. Please use the action_present and
+        action_past methods. This form is kept temporarily for legacy code but
+        will be removed.
     """
 
     name = "delete"
