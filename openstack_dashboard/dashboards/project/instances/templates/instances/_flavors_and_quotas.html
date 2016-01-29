@@ -4,9 +4,9 @@
 {% endblock %}
 
 <h4>{% trans "Flavor Details" %}</h4>
-<table class="flavor_table table table-striped">
+<table class="flavor_table table table-striped table-fixed">
   <tbody>
-    <tr><td class="flavor_name">{% trans "Name" %}</td><td><span id="flavor_name"></span></td></tr>
+    <tr><td class="flavor_name">{% trans "Name" %}</td><td><span id="flavor_name" class="truncate"></span></td></tr>
     <tr><td class="flavor_name">{% trans "VCPUs" %}</td><td><span id="flavor_vcpus"></span></td></tr>
     <tr><td class="flavor_name">{% trans "Root Disk" %}</td><td><span id="flavor_disk"></span> {% trans "GB" %}</td></tr>
     <tr><td class="flavor_name">{% trans "Ephemeral Disk" %}</td><td><span id="flavor_ephemeral"></span> {% trans "GB" %}</td></tr>

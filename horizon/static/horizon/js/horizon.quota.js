@@ -239,7 +239,6 @@ horizon.Quota = {
     this.getSelectedFlavor();
 
     if (this.selected_flavor) {
-      var name = horizon.Quota.truncate(this.selected_flavor.name, 14, true);
       var vcpus = horizon.Quota.humanizeNumbers(this.selected_flavor.vcpus);
       var disk = horizon.Quota.humanizeNumbers(this.selected_flavor.disk);
       var ephemeral = horizon.Quota.humanizeNumbers(this.selected_flavor["OS-FLV-EXT-DATA:ephemeral"]);
@@ -247,7 +246,7 @@ horizon.Quota = {
       var disk_total_display = horizon.Quota.humanizeNumbers(disk_total);
       var ram = horizon.Quota.humanizeNumbers(this.selected_flavor.ram);
 
-      $("#flavor_name").html(name);
+      $("#flavor_name").text(this.selected_flavor.name);
       $("#flavor_vcpus").text(vcpus);
       $("#flavor_disk").text(disk);
       $("#flavor_ephemeral").text(ephemeral);
@@ -262,27 +261,6 @@ horizon.Quota = {
       $("#flavor_disk_total").text('');
       $("#flavor_ram").text('');
     }
-  },
-
-  /*
-   * Truncate a string at the desired length. Optionally append an ellipsis
-   * to the end of the string.
-   *
-   *  Example:
-   *  horizon.Quota.truncate("String that is too long.", 18, true); ->
-   *  "String that is too&hellip;"
-   *
-   */
-  truncate: function (string, size, includeEllipsis) {
-    if (string.length > size) {
-      if (includeEllipsis) {
-        return string.substring(0, (size - 3)) + '&hellip;';
-      }
-
-      return string.substring(0, size);
-    }
-
-    return string;
   },
 
   /*
