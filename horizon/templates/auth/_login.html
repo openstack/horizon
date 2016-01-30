@@ -1,8 +1,9 @@
 {% extends "horizon/common/_modal_form.html" %}
 {% load i18n %}
 {% load url from future %}
-
-{% block modal-header %}{% trans "Log In" %}{% endblock %}
+{% block modal-header %}
+   <img id="loginAvatar" src="/static/dashboard/img/login_user.png">  
+{% endblock %}
 {% block modal_class %}login {% if hide %}modal{% endif %}{% endblock %}
 
 {% block form_action %}{% url 'login' %}{% endblock %}
@@ -35,13 +36,22 @@
     </div>
     {% endif %}
     {% if next %}<input type="hidden" name="{{ redirect_field_name }}" value="{{ next }}" />{% endif %}
-    {% include "horizon/common/_form_fields.html" %}
+    {% include 'horizon/common/_form_errors.html' with form=form %}
+    <div class="login-item">
+      <div class="trans-bg"></div>
+      <input class="loginInput  username" type="text" id="id_username" name="username" placeholder="用户名" />
+    </div>
+    <div>
+      <div class="trans-bg"></div>
+      <input class="loginInput passwd" type="password" id="id_password" name="password"  placeholder="密码"/>
+    </div>
+
   </fieldset>
 {% endblock %}
 
 {% block modal-footer %}
-  <button id="loginBtn" type="submit" class="btn btn-primary pull-right">
-    <span ng-show="auth_type==='credentials'">{% trans "Sign In" %}</span>
-    <span ng-hide="auth_type==='credentials'" ng-cloak>{% trans "Connect" %}</span>
+  <button type="submit">
+    <div class="trans-bg trans-bg-full"></div>
+    <span class="loginInput submitHint">确认</span>
   </button>
 {% endblock %}
