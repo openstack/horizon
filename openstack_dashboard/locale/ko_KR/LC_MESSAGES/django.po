@@ -1,19 +1,20 @@
 # Ian Y. Choi <ianyrchoi@gmail.com>, 2015. #zanata
 # OpenStack Infra <zanata@openstack.org>, 2015. #zanata
 # Sungjin Kang <gang.sungjin@gmail.com>, 2015. #zanata
+# Sungjin Kang <gang.sungjin@gmail.com>, 2016. #zanata
 msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-11-04 14:35+0000\n"
+"POT-Creation-Date: 2016-01-28 00:24+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2015-10-05 04:26+0000\n"
-"Last-Translator: Ian Y. Choi <ianyrchoi@gmail.com>\n"
+"PO-Revision-Date: 2016-01-12 05:38+0000\n"
+"Last-Translator: Sungjin Kang <gang.sungjin@gmail.com>\n"
 "Language: ko-KR\n"
 "Plural-Forms: nplurals=1; plural=0\n"
-"X-Generator: Zanata 3.7.1\n"
+"X-Generator: Zanata 3.7.3\n"
 "Language-Team: Korean (South Korea)\n"
 
 msgid ""
@@ -4316,26 +4317,26 @@ msgstr "Rule을 %(name)s 정책에서 제거하지 못하였습니다.: %(reason
 
 #, python-format
 msgid "Failed to retrieve available routers: %(reason)s"
-msgstr "사용가능한 라우터를 찾지 못 했습니다: %(reason)s"
+msgstr "사용가능한 라우터를 찾지 못하였습니다: %(reason)s"
 
 #, python-format
 msgid "Failed to retrieve available rules: %s"
-msgstr "사용가능한 rule을 검색하지 못하였습니다.: %s"
+msgstr "사용가능한 규칙을 찾지 못 했습니다: %s"
 
 #, python-format
 msgid "Failed to retrieve current routers in firewall %(name)s: %(reason)s"
-msgstr "방화벽 %(name)s 에 있는 현재 라우터를 찾지 못 하였습니다: %(reason)s"
+msgstr "방화벽 %(name)s 에 있는 현재 라우터를 찾지 못하였습니다: %(reason)s"
 
 #, python-format
 msgid "Failed to retrieve current rules in policy %(name)s: %(reason)s"
-msgstr "%(name)s 정책에서 현재 rule을 찾지 못하였습니다.: %(reason)s"
+msgstr "%(name)s 정책에서 현재 rule을 찾지 못하였습니다: %(reason)s"
 
 msgid "Failed to retrieve health monitors."
-msgstr "상태 모니터를 찾을 수 없습니다"
+msgstr "상태 모니터를 찾는데 실패했습니다."
 
 #, python-format
 msgid "Failed to retrieve network %s for a subnet"
-msgstr "서브넷 네트워크 %s를 찾지 못하였습니다."
+msgstr "서브넷 네트워크 %s를 찾지 못했습니다."
 
 #, python-format
 msgid "Failed to set gateway %s"
@@ -10477,44 +10478,44 @@ msgid "Unable to retrieve Ceilometer meter list."
 msgstr "Ceilometer 측정 목록을 찾지 못했습니다."
 
 msgid "Unable to retrieve IKE Policies list."
-msgstr "IKE 정책 목록을 찾지 못 했습니다."
+msgstr "IKE 정책 목록을 찾지 못했습니다."
 
 msgid "Unable to retrieve IKE Policy details."
-msgstr "IKE 정책 세부 정보를 찾지 못 했습니다."
+msgstr "IKE 정책 세부 정보를 찾지 못했습니다."
 
 #, python-format
 msgid "Unable to retrieve IKE Policy details. %s"
-msgstr "IKE 정책 세부 정보를 찾지 못 했습니다. %s"
+msgstr "IKE 정책 세부 정보를 찾지 못했습니다. %s"
 
 #, python-format
 msgid ""
 "Unable to retrieve IP addresses from Neutron for instance \"%(name)s"
 "\" (%(id)s)."
 msgstr ""
-"인스턴스  \"%(name)s\" (%(id)s) 에 대한 Neutron IP 주소를 가져올 수 없습니다."
+"인스턴스  \"%(name)s\" (%(id)s) 에 대한 Neutron IP 주소를 찾지 못했습니다."
 
 msgid "Unable to retrieve IP addresses from Neutron."
 msgstr "Neutron에서 IP 주소를 찾지 못했습니다."
 
 msgid "Unable to retrieve IPSec Policies list."
-msgstr "IPSec 정책 목록을 찾지 못 했습니다."
+msgstr "IPSec 정책 목록을 찾지 못했습니다."
 
 msgid "Unable to retrieve IPSec Policy details."
-msgstr "IPSec 정책 세부 정보를 찾지 못 했습니다."
+msgstr "IPSec 정책 세부 정보를 찾지 못했습니다."
 
 #, python-format
 msgid "Unable to retrieve IPSec Policy details. %s"
-msgstr "IPSec 정책의 세부 정보를 찾지 못 했습니다. %s"
+msgstr "IPSec 정책의 세부 정보를 찾지 못했습니다. %s"
 
 msgid "Unable to retrieve IPSec Site Connection details."
-msgstr "IPSec 사이트 연결 세부 정보를 찾지 못 했습니다."
+msgstr "IPSec 사이트 연결 세부 정보를 찾지 못했습니다."
 
 #, python-format
 msgid "Unable to retrieve IPSec Site Connection details. %s"
-msgstr "IPSec 사이트 접속 세부 정보를 찾지 못 했습니다. %s"
+msgstr "IPSec 사이트 접속 세부 정보를 찾지 못했습니다. %s"
 
 msgid "Unable to retrieve IPSec Site Connections list."
-msgstr "IPSec 사이트 연결 목록을 찾지 못 했습니다."
+msgstr "IPSec 사이트 연결 목록을 찾지 못했습니다."
 
 msgid "Unable to retrieve Nova availability zones."
 msgstr "nova에서 가용성 존을 찾을 수 없습니다."
@@ -10538,53 +10539,53 @@ msgid "Unable to retrieve QoS specs"
 msgstr "QOS 사양을 검색할 수 없습니다."
 
 msgid "Unable to retrieve VIP details."
-msgstr "VIP 세부 정보를 찾지 못 했습니다."
+msgstr "VIP 세부 정보를 찾지 못했습니다."
 
 #, python-format
 msgid "Unable to retrieve VIP details. %s"
-msgstr "VIP 세부 정보를 찾지 못 했습니다. %s"
+msgstr "VIP 세부 정보를 찾지 못했습니다. %s"
 
 msgid "Unable to retrieve VPN Service details."
-msgstr "VPN 서비스 세부 정보를 찾지 못 했습니다."
+msgstr "VPN 서비스 세부 정보를 찾지 못했습니다."
 
 #, python-format
 msgid "Unable to retrieve VPN Service details. %s"
-msgstr "VPN 서비스 세부 정보를 찾지 못 했습니다. %s"
+msgstr "VPN 서비스 세부 정보를 찾지 못했습니다. %s"
 
 msgid "Unable to retrieve VPN Services list."
-msgstr "VPN 서비스 목록을 찾지 못 했습니다."
+msgstr "VPN 서비스 목록을 찾지 못했습니다."
 
 #, python-format
 msgid "Unable to retrieve a list of external networks \"%s\"."
-msgstr "외부 네트워크 \"%s\" 목록을 찾지 못 했습니다."
+msgstr "외부 네트워크 \"%s\" 목록을 찾지 못했습니다."
 
 msgid "Unable to retrieve agent list."
 msgstr "에이전트 목록을 찾지 못했습니다."
 
 #, python-format
 msgid "Unable to retrieve an external network \"%s\"."
-msgstr "외부 네트워크 \"%s\"를 찾지 못 했습니다."
+msgstr "외부 네트워크 \"%s\"를 찾지 못했습니다."
 
 msgid "Unable to retrieve attachment information."
-msgstr "연결 설정 정보를 찾지 못 했습니다."
+msgstr "연결 설정 정보를 찾지 못했습니다."
 
 msgid "Unable to retrieve availability zone list."
 msgstr "가용성 존 목록을 찾지 못했습니다."
 
 msgid "Unable to retrieve availability zones."
-msgstr "가용성 존에 대한 정보를 찾지 못 했습니다."
+msgstr "가용성 존에 대한 정보를 찾지 못했습니다."
 
 msgid "Unable to retrieve backup details."
-msgstr "백업에 대한 상세 정보를 찾지 못 했습니다."
+msgstr "백업에 대한 상세 정보를 찾지 못했습니다."
 
 msgid "Unable to retrieve cluster details."
-msgstr "클러스터 세부 정보를 찾지 못 했습니다."
+msgstr "클러스터 세부 정보를 찾지 못했습니다."
 
 msgid "Unable to retrieve compute host information."
 msgstr "Computer 호스트 정보를 찾지 못했습니다."
 
 msgid "Unable to retrieve compute limit information."
-msgstr "Compute 최대 사용량 정보를 찾지 못 했습니다."
+msgstr "Compute 최대 사용량 정보를 찾지 못했습니다."
 
 msgid "Unable to retrieve container list."
 msgstr "컨테이너 목록을 찾지 못 했습니다."
@@ -10593,16 +10594,16 @@ msgid "Unable to retrieve data processing plugins."
 msgstr "데이터 프로세싱 플러그인을 찾지 못했습니다."
 
 msgid "Unable to retrieve database clusters."
-msgstr "클러스터 데이터베이스를 찾지 못 했습니다."
+msgstr "클러스터 데이터베이스를 찾지 못했습니다."
 
 msgid "Unable to retrieve database instances."
-msgstr "인스턴스 데이터베이스를 찾지 못 했습니다."
+msgstr "인스턴스 데이터베이스를 찾지 못했습니다."
 
 msgid "Unable to retrieve database size information."
-msgstr "데이터베이스 크기 정보를 찾지 못 했습니다."
+msgstr "데이터베이스 크기 정보를 찾지 못했습니다."
 
 msgid "Unable to retrieve default Neutron quota values."
-msgstr "기본 Neutron quota 값을 찾지 못 했습니다."
+msgstr "기본 Neutron quota 값을 찾지 못했습니다."
 
 msgid "Unable to retrieve default quota values."
 msgstr "기본 quota 값을 찾지 못했습니다."
@@ -10613,19 +10614,19 @@ msgstr "백업에 대한 세부 정보를 찾지 못했습니다: %s"
 
 #, python-format
 msgid "Unable to retrieve details for cluster \"%s\"."
-msgstr "\"%s\" 클러스터 세부 정보를 가져올 수 없습니다."
+msgstr "\"%s\" 클러스터 세부 정보를 찾지 못했습니다."
 
 #, python-format
 msgid "Unable to retrieve details for cluster template \"%s\"."
-msgstr "클러스터 템플릿 \"%s\" 세부 정보를 가져올 수 없습니다."
+msgstr "클러스터 템플릿 \"%s\" 세부 정보를 찾지 못했습니다."
 
 #, python-format
 msgid "Unable to retrieve details for data source \"%s\"."
-msgstr "\"%s\" 데이터 소스 세부 정보를 가져올 수 없습니다."
+msgstr "\"%s\" 데이터 소스 세부 정보를 찾지 못했습니다."
 
 #, python-format
 msgid "Unable to retrieve details for database cluster: %s"
-msgstr "클러스터 데이터베이스에 대한 세부 정보를 찾지 못 했습니다: %s"
+msgstr "클러스터 데이터베이스에 대한 세부 정보를 찾지 못했습니다: %s"
 
 #, python-format
 msgid "Unable to retrieve details for database instance: %s"
@@ -10633,23 +10634,23 @@ msgstr "인스턴스 데이터베이스에 대한 세부 정보를 찾지 못했
 
 #, python-format
 msgid "Unable to retrieve details for instance \"%s\"."
-msgstr "인스턴스 \"%s\"에 대한 세부 정보를 찾지 못 했습니다."
+msgstr "인스턴스 \"%s\"에 대한 세부 정보를 찾지 못했습니다."
 
 #, python-format
 msgid "Unable to retrieve details for job \"%s\"."
-msgstr "Job \"%s\"에 대한 세부 정보를 가져올 수 없습니다."
+msgstr "Job \"%s\"에 대한 세부 정보를 찾지 못했습니다."
 
 #, python-format
 msgid "Unable to retrieve details for job binary \"%s\"."
-msgstr "Job 바이너리 \"%s\"에 대한 세부 정보를 가져올 수 없습니다."
+msgstr "Job 바이너리 \"%s\"에 대한 세부 정보를 찾지 못했습니다."
 
 #, python-format
 msgid "Unable to retrieve details for job template \"%s\"."
-msgstr "Job 템플릿 \"%s\"에 대한 세부 정보를 가져올 수 없습니다."
+msgstr "Job 템플릿 \"%s\"에 대한 세부 정보를 찾지 못했습니다."
 
 #, python-format
 msgid "Unable to retrieve details for keypair \"%s\"."
-msgstr "키페어 \"%s\"에 대한 세부 정보를 가져올 수 없습니다."
+msgstr "키페어 \"%s\"에 대한 세부 정보를 찾지 못 했습니다."
 
 #, python-format
 msgid "Unable to retrieve details for network \"%s\"."
@@ -10657,7 +10658,7 @@ msgstr "네트워크 \"%s\"의 세부 정보를 찾지 못했습니다."
 
 #, python-format
 msgid "Unable to retrieve details for node group template \"%s\"."
-msgstr "노드 그룹 템플릿 \"%s\"에 대한 세부 정보를 가져올 수 없습니다."
+msgstr "노드 그룹 템플릿 \"%s\"에 대한 세부 정보를 찾지 못했습니다."
 
 #, python-format
 msgid "Unable to retrieve details for parent backup: %s"
@@ -10665,34 +10666,34 @@ msgstr "원본 백업에 대한 세부 정보를 찾지 못했습니다: %s"
 
 #, python-format
 msgid "Unable to retrieve details for router \"%s\"."
-msgstr "라우터 \"%s\"의 세부 정보를 찾지 못 했습니다."
+msgstr "라우터 \"%s\"의 세부 정보를 찾지 못했습니다."
 
 msgid "Unable to retrieve details."
 msgstr "세부 정보를 찾지 못 했습니다."
 
 msgid "Unable to retrieve domain details."
-msgstr "도메인 세부 정보를 찾지 못 했습니다."
+msgstr "도메인 세부 정보를 찾지 못했습니다."
 
 msgid "Unable to retrieve domain information."
-msgstr "도메인 정보를 찾지 못 했습니다."
+msgstr "도메인 정보를 찾지 못했습니다."
 
 msgid "Unable to retrieve domain list."
-msgstr "도메인 목록을 찾지 못 했습니다."
+msgstr "도메인 목록을 찾지 못했습니다."
 
 msgid "Unable to retrieve extensions information"
 msgstr "확장 정보를 찾지 못했습니다"
 
 msgid "Unable to retrieve extensions information."
-msgstr "확장 정보를 찾지 못 했습니다."
+msgstr "확장 정보를 찾지 못했습니다."
 
 msgid "Unable to retrieve extra spec list."
 msgstr "추가 사양 목록을 찾지 못 했습니다."
 
 msgid "Unable to retrieve firewall details."
-msgstr "방화벽 세부 정보를 찾지 못 했습니다."
+msgstr "방화벽 세부 정보를 찾지 못했습니다."
 
 msgid "Unable to retrieve firewall list."
-msgstr "방화벽 목록을 찾지 못 했습니다."
+msgstr "방화벽 목록을 찾지 못했습니다."
 
 msgid "Unable to retrieve flavor access list. Please try again later."
 msgstr "Flavor 접근 권한 목록을 찾지 못했습니다. 잠시 후 다시 시도해 주세요."
@@ -10703,8 +10704,7 @@ msgstr "Flavor 세부 정보를 찾지 못했습니다."
 #, python-format
 msgid ""
 "Unable to retrieve flavor information for instance \"%(name)s\" (%(id)s)."
-msgstr ""
-"인스턴스  \"%(name)s\" (%(id)s) 에 대한 flavor 정보를 가져올 수 없습니다."
+msgstr "인스턴스  \"%(name)s\" (%(id)s) 에 대한 flavor 정보를 찾지 못했습니다."
 
 #, python-format
 msgid "Unable to retrieve flavor information for instance \"%s\"."
@@ -10723,17 +10723,17 @@ msgid "Unable to retrieve floating IP pools."
 msgstr "유동 IP pool을 찾지 못 했습니다."
 
 msgid "Unable to retrieve group list."
-msgstr "그룹 목록을 찾지 못 했습니다."
+msgstr "그룹 목록을 찾지 못했습니다."
 
 msgid "Unable to retrieve group list. Please try again later."
-msgstr "그룹 목록을 찾지 못 했습니다. 잠시 후 다시 시도하세요."
+msgstr "그룹 목록을 찾지 못했습니다. 잠시 후 다시 시도하세요."
 
 msgid "Unable to retrieve group users."
-msgstr "그룹 사용자를 찾지 못 했습니다."
+msgstr "그룹 사용자를 찾지 못했습니다."
 
 #, python-format
 msgid "Unable to retrieve health monitor details. %s"
-msgstr "상태 모니터 세부 정보를 찾지 못 했습니다. %s"
+msgstr "상태 모니터 세부 정보를 찾지 못했습니다. %s"
 
 msgid "Unable to retrieve host aggregates list."
 msgstr "호스트 집합 목록을 찾지 못했습니다."
@@ -10751,47 +10751,47 @@ msgid "Unable to retrieve hypervisor statistics."
 msgstr "하이퍼바이저 통계를 찾지 못했습니다."
 
 msgid "Unable to retrieve image details."
-msgstr "이미지 세부 정보를 찾지 못 했습니다."
+msgstr "이미지 세부 정보를 찾지 못했습니다."
 
 msgid "Unable to retrieve image list"
-msgstr "이미지 목록을 찾지 못 했습니다."
+msgstr "이미지 목록을 찾지 못했습니다."
 
 msgid "Unable to retrieve image list."
 msgstr "이미지 목록을 찾지 못했습니다."
 
 msgid "Unable to retrieve image."
-msgstr "이미지를 찾지 못 했습니다."
+msgstr "이미지를 찾지 못했습니다."
 
 msgid "Unable to retrieve images"
 msgstr "이미지를 찾지 못했습니다."
 
 msgid "Unable to retrieve images for the current project."
-msgstr "현재 프로젝트의 이미지를 찾지 못 했습니다."
+msgstr "현재 프로젝트의 이미지를 찾지 못했습니다."
 
 #, python-format
 msgid "Unable to retrieve images with filter %s."
-msgstr "%s 필터에 대한 이미지를 찾지 못 했습니다."
+msgstr "%s 필터에 대한 이미지를 찾지 못했습니다."
 
 msgid "Unable to retrieve images."
-msgstr "이미지를 찾지 못 했습니다."
+msgstr "이미지를 찾지 못했습니다."
 
 msgid "Unable to retrieve information about the networks' projects."
 msgstr "네트워크 프로젝트에 대한 정보를 찾지 못했습니다."
 
 msgid "Unable to retrieve instance action list."
-msgstr "인스턴스 작업 목록을 찾지 못 했습니다."
+msgstr "인스턴스 작업 목록을 찾지 못했습니다."
 
 msgid "Unable to retrieve instance details."
 msgstr "인스턴스 세부 정보를 찾지 못했습니다."
 
 msgid "Unable to retrieve instance flavors."
-msgstr "인스턴스 flavors를 찾지 못 했습니다."
+msgstr "인스턴스 flavors를 찾지 못했습니다."
 
 msgid "Unable to retrieve instance list."
 msgstr "인스턴스 목록을 찾지 못했습니다."
 
 msgid "Unable to retrieve instance password."
-msgstr "인스턴스 비밀번호를 찾지 못 했습니다."
+msgstr "인스턴스 비밀번호를 찾지 못했습니다."
 
 msgid "Unable to retrieve instance project information."
 msgstr "인스턴스 프로젝트 정보를 찾지 못했습니다."
@@ -10800,57 +10800,57 @@ msgid "Unable to retrieve instance size information."
 msgstr "인스턴스 크기 정보를 찾지 못했습니다."
 
 msgid "Unable to retrieve instance."
-msgstr "인스턴스를 찾지 못 했습니다."
+msgstr "인스턴스를 찾지 못했습니다."
 
 msgid "Unable to retrieve instances list."
-msgstr "인스턴스 목록을 찾지 못 했습니다."
+msgstr "인스턴스 목록을 찾지 못했습니다."
 
 msgid "Unable to retrieve instances."
-msgstr "인스턴스를 찾지 못 했습니다."
+msgstr "인스턴스를 찾지 못했습니다."
 
 #, python-format
 msgid "Unable to retrieve job binary \"%s\"."
-msgstr "Job 바이너리 \"%s\"를 거져올 수 없습니다."
+msgstr "Job 바이너리 \"%s\"를 찾지 못했습니다."
 
 msgid "Unable to retrieve key pair list."
 msgstr "키 페어 목록을 찾지 못 했습니다."
 
 msgid "Unable to retrieve key pairs."
-msgstr "키 페어를 찾지 못 했습니다."
+msgstr "키 페어를 찾지 못했습니다."
 
 msgid "Unable to retrieve limit information."
-msgstr "최대 사용량 정보를 찾지 못 했습니다."
+msgstr "최대 사용량 정보를 찾지 못했습니다."
 
 msgid "Unable to retrieve list of security groups"
-msgstr "시큐리티 그룹 목록을 찾지 못 했습니다."
+msgstr "시큐리티 그룹 목록을 찾지 못했습니다."
 
 msgid "Unable to retrieve list of volume snapshots."
-msgstr "볼륨 스냅샷 목록을 찾지 못 했습니다."
+msgstr "볼륨 스냅샷 목록을 찾지 못했습니다."
 
 msgid "Unable to retrieve list of volumes."
-msgstr "볼륨 목록을 찾지 못 했습니다."
+msgstr "볼륨 목록을 찾지 못했습니다."
 
 msgid "Unable to retrieve member details."
-msgstr "멤버 세부 정보를 찾지 못 했습니다."
+msgstr "멤버 세부 정보를 찾지 못했습니다."
 
 #, python-format
 msgid "Unable to retrieve member details. %s"
-msgstr "멤버 세부 정보를 찾지 못 했습니다. %s"
+msgstr "멤버 세부 정보를 찾지 못했습니다. %s"
 
 msgid "Unable to retrieve member list."
-msgstr "멤버 목록을 찾지 못 했습니다."
+msgstr "멤버 목록을 찾지 못했습니다."
 
 msgid "Unable to retrieve metadata."
-msgstr "메타 데이터를 찾지 못 했습니다."
+msgstr "메타 데이터를 찾지 못했습니다."
 
 msgid "Unable to retrieve monitor details."
-msgstr "모니터 세부 정보를 찾지 못 했습니다."
+msgstr "모니터 세부 정보를 찾지 못했습니다."
 
 msgid "Unable to retrieve monitor list."
-msgstr "모니터 목록을 찾지 못 했습니다."
+msgstr "모니터 목록을 찾지 못했습니다."
 
 msgid "Unable to retrieve monitors list."
-msgstr "모니터 목록을 찾지 못 했습니다."
+msgstr "모니터 목록을 찾지 못했습니다."
 
 msgid "Unable to retrieve namespace contents."
 msgstr "네임스페이스의 내용을 찾지 못했습니다."
@@ -10859,19 +10859,19 @@ msgid "Unable to retrieve namespace details."
 msgstr "네임스페이스의 세부 정보를 찾지 못했습니다."
 
 msgid "Unable to retrieve network details."
-msgstr "네트워크 세부 정보를 찾지 못 했습니다."
+msgstr "네트워크 세부 정보를 찾지 못했습니다."
 
 msgid "Unable to retrieve network quota information."
-msgstr "네트워크 quota 정보를 찾지 못 했습니다."
+msgstr "네트워크 quota 정보를 찾지 못했습니다."
 
 msgid "Unable to retrieve network."
 msgstr "네트워크를 찾지 못했습니다."
 
 msgid "Unable to retrieve networks list."
-msgstr "네트워크 목록을 찾지 못 했습니다."
+msgstr "네트워크 목록을 찾지 못했습니다."
 
 msgid "Unable to retrieve networks."
-msgstr "네트워크를 찾지 못 했습니다."
+msgstr "네트워크를 찾지 못했습니다."
 
 msgid "Unable to retrieve object list."
 msgstr "오브젝트 목록을 찾지 못 했습니다."
@@ -10883,113 +10883,113 @@ msgid "Unable to retrieve plugin."
 msgstr "플러그인을 찾지 못했습니다."
 
 msgid "Unable to retrieve policies list."
-msgstr "정책 목록을 찾지 못 했습니다."
+msgstr "정책 목록을 찾지 못했습니다."
 
 msgid "Unable to retrieve policy details."
 msgstr "정책 세부 정보를 찾지 못 했습니다."
 
 #, python-format
 msgid "Unable to retrieve policy list (%(error)s)."
-msgstr "정책 목록 (%(error)s)를 찾지 못 했습니다."
+msgstr "정책 목록 (%(error)s)를 찾지 못했습니다."
 
 msgid "Unable to retrieve policy list."
 msgstr "정책 목록을 찾지 못 했습니다."
 
 msgid "Unable to retrieve pool details."
-msgstr "Pool 세부 정보를 찾지 못 했습니다."
+msgstr "Pool 세부 정보를 찾지 못했습니다."
 
 #, python-format
 msgid "Unable to retrieve pool details. %s"
-msgstr "Pool 세부 정보를 찾지 못 했습니다. %s"
+msgstr "Pool 세부 정보를 찾지 못했습니다. %s"
 
 #, python-format
 msgid "Unable to retrieve pool subnet. %s"
-msgstr "Pool 서브넷을 찾지 못 했습니다. %s"
+msgstr "Pool 서브넷을 찾지 못했습니다. %s"
 
 #, python-format
 msgid "Unable to retrieve pool. %s"
-msgstr "Pool을 찾지 못 했습니다. %s"
+msgstr "Pool을 찾지 못했습니다. %s"
 
 msgid "Unable to retrieve pools information."
-msgstr "풀 정보를 가져올 수 없습니다."
+msgstr "Pool 정보를 찾지 못했습니다."
 
 msgid "Unable to retrieve pools list."
-msgstr "Pool 목록을 찾지 못 했습니다."
+msgstr "Pool 목록을 찾지 못했습니다."
 
 msgid "Unable to retrieve port details"
-msgstr "포트 세부 정보를 찾지 못 했습니다."
+msgstr "포트 세부 정보를 찾지 못했습니다."
 
 msgid "Unable to retrieve port details."
-msgstr "포트에 대한 세부 정보를 찾지 못 했습니다."
+msgstr "포트에 대한 세부 정보를 찾지 못했습니다."
 
 msgid "Unable to retrieve ports information."
-msgstr "포트 정보를 가져올 수 없습니다."
+msgstr "포트 정보를 찾지 못했습니다."
 
 msgid "Unable to retrieve project details."
-msgstr "프로젝트 세부 정보를 찾지 못 했습니다."
+msgstr "프로젝트 세부 정보를 찾지 못했습니다."
 
 msgid "Unable to retrieve project domain."
-msgstr "프로젝트 도메인을 찾지 못 했습니다."
+msgstr "프로젝트 도메인을 찾지 못했습니다."
 
 msgid "Unable to retrieve project information."
-msgstr "프로젝트 정보를 찾지 못 했습니다."
+msgstr "프로젝트 정보를 찾지 못했습니다."
 
 msgid "Unable to retrieve project list."
 msgstr "프로젝트 리스트를 찾지 못했습니다."
 
 msgid "Unable to retrieve providers list."
-msgstr "공급자 목록을 찾지 못 했습니다."
+msgstr "공급자 목록을 찾지 못했습니다."
 
 msgid "Unable to retrieve public images."
-msgstr "공용 이미지를 찾지 못 했습니다."
+msgstr "공용 이미지를 찾지 못했습니다."
 
 msgid "Unable to retrieve quota information."
-msgstr "Quota 정보를 찾지 못 했습니다."
+msgstr "Quota 정보를 찾지 못했습니다."
 
 msgid "Unable to retrieve resource type details."
-msgstr "자원 유형 세부 정보를 가져올 수 없습니다."
+msgstr "자원 유형 세부 정보를 찾지 못했습니다."
 
 msgid "Unable to retrieve resource."
-msgstr "리소스를 찾지 못 했습니다."
+msgstr "리소스를 찾지 못했습니다."
 
 msgid "Unable to retrieve role list."
-msgstr "역할 목록을 찾지 못 했습니다."
+msgstr "역할 목록을 찾지 못했습니다."
 
 msgid "Unable to retrieve roles list."
-msgstr "역할 목록을 찾지 못 했습니다."
+msgstr "역할 목록을 찾지 못했습니다."
 
 msgid "Unable to retrieve router details."
-msgstr "라우터 세부 정보를 찾지 못 했습니다."
+msgstr "라우터 세부 정보를 찾지 못했습니다."
 
 msgid "Unable to retrieve router list."
-msgstr "라우터 목록을 찾지 못 했습니다."
+msgstr "라우터 목록을 찾지 못했습니다."
 
 msgid "Unable to retrieve router."
-msgstr "라우터를 찾지 못 했습니다."
+msgstr "라우터를 찾지 못했습니다."
 
 #, python-format
 msgid "Unable to retrieve routers (%(error)s)."
-msgstr "라우터를 찾지 못 했습니다 (%(error)s)."
+msgstr "라우터를 찾지 못했습니다 (%(error)s)."
 
 msgid "Unable to retrieve routers list."
-msgstr "라우터 목록을 찾지 못 했습니다."
+msgstr "라우터 목록을 찾지 못했습니다."
 
 msgid "Unable to retrieve rule details."
-msgstr "Rule 세부 정보를 찾지 못 했습니다."
+msgstr "규칙 세부 정보를 찾지 못했습니다."
 
 #, python-format
 msgid "Unable to retrieve rules (%(error)s)."
 msgstr "규칙을 찾지 못했습니다 (%(error)s). "
 
 msgid "Unable to retrieve rules list."
-msgstr "Rule 목록을 찾지 못 했습니다."
+msgstr "규칙 목록을 찾지 못했습니다."
 
 #, python-format
 msgid "Unable to retrieve security group %(group)s."
-msgstr "시큐리티 그룹 %(group)s를 찾지 못 했습니다."
+msgstr "시큐리티 그룹 %(group)s를 찾지 못했습니다."
 
 msgid "Unable to retrieve security group list. Please try again later."
-msgstr "시큐리티 그룹 목록을 찾지 못 했습니다. 잠시 후 다시 시도하세요."
+msgstr "시큐리티 그룹 목록을 찾지 못했습니다. 잠시 후 다시 시도하세요."
 
 msgid "Unable to retrieve security group."
 msgstr "시큐리티 그룹을 찾지 못 했습니다."
@@ -10997,7 +10997,7 @@ msgstr "시큐리티 그룹을 찾지 못 했습니다."
 #, python-format
 msgid "Unable to retrieve security groups for instance \"%(name)s\" (%(id)s)."
 msgstr ""
-"인스턴스  \"%(name)s\" (%(id)s) 에 대한 시큐리티 그룹을 가져올 수 없습니다."
+"인스턴스  \"%(name)s\" (%(id)s) 에 대한 시큐리티 그룹을 찾지 못했습니다."
 
 msgid "Unable to retrieve security groups."
 msgstr "시큐리티 그룹을 찾지 못했습니다."
@@ -11006,101 +11006,100 @@ msgid "Unable to retrieve snapshot data."
 msgstr "스냅샷 데이터를 가져올 수 없습니다."
 
 msgid "Unable to retrieve snapshot details."
-msgstr "스냅샷 세부 정보를 찾지 못 했습니다."
+msgstr "스냅샷 세부 정보를 찾지 못했습니다."
 
 msgid "Unable to retrieve snapshot list."
-msgstr "스냅샷 리스트를 가져올 수 없습니다."
+msgstr "스냅샷 리스트를 찾지 못했습니다."
 
 msgid "Unable to retrieve stack list."
-msgstr "스택 목록을 찾지 못 했습니다."
+msgstr "스택 목록을 찾지 못했습니다."
 
 msgid "Unable to retrieve stack resource types."
-msgstr "스택 자원 유형을 가져올 수 없습니다."
+msgstr "스택 자원 유형을 찾지 못했습니다."
 
 msgid "Unable to retrieve stack template."
-msgstr "스택 템플릿을 가져올 수 없습니다."
+msgstr "스택 템플릿을 찾지 못했습니다."
 
 msgid "Unable to retrieve stack."
-msgstr "스택을 찾지 못 했습니다."
+msgstr "Stack을 찾지 못했습니다."
 
 msgid "Unable to retrieve subnet details"
-msgstr "서브넷 세부 정보를 찾지 못 했습니다."
+msgstr "서브넷 세부 정보를 찾지 못했습니다."
 
 msgid "Unable to retrieve subnet details."
 msgstr "서브넷 세부 정보를 찾지 못했습니다."
 
 msgid "Unable to retrieve tenant limits."
-msgstr "Tenant 제한을 찾지 못 했습니다."
+msgstr "Tenant 제한을 찾지 못했습니다."
 
 msgid "Unable to retrieve the aggregate to be updated"
 msgstr "업데이트된 집합을 찾지 못했습니다."
 
 msgid "Unable to retrieve the specified pool."
-msgstr "지정된 Pool을 찾지 못 했습니다."
+msgstr "지정된 Pool을 찾지 못했습니다."
 
 #, python-format
 msgid "Unable to retrieve the specified pool. Unable to add VIP \"%s\"."
-msgstr "지정된 pool을 찾지 못 했습니다. VIP \"%s\"를 추가할 수 없습니다."
+msgstr "지정된 pool을 찾지 못했습니다. VIP \"%s\"를 추가할 수 없습니다."
 
 msgid "Unable to retrieve the volume type list."
-msgstr "볼륨 타입 목록을 찾지 못 했습니다."
+msgstr "볼륨 타입 목록을 찾지 못했습니다."
 
 msgid "Unable to retrieve usage information."
-msgstr "사용한 정보를 찾지 못 했습니다."
+msgstr "사용한 정보를 찾지 못했습니다."
 
 msgid "Unable to retrieve user details."
-msgstr "사용자 세부 정보를 가져올 수 없습니다."
+msgstr "사용자 세부 정보를 찾지 못했습니다."
 
 msgid "Unable to retrieve user domain role assignments."
-msgstr "사용자 도메인 역할 할당을 찾지 못 했습니다."
+msgstr "사용자 도메인 역할 할당을 찾지 못했습니다."
 
 msgid "Unable to retrieve user information."
-msgstr "사용자 정보를 찾지 못 했습니다."
+msgstr "사용자 정보를 찾지 못했습니다."
 
 msgid "Unable to retrieve user list."
-msgstr "사용자 목록을 찾지 못 했습니다."
+msgstr "사용자 목록을 찾지 못했습니다."
 
 msgid "Unable to retrieve user list. Please try again later."
-msgstr "사용자 목록을 찾지 못 했습니다. 잠시 후 다시 시도하세요."
+msgstr "사용자 목록을 찾지 못했습니다. 잠시 후 다시 시도하세요."
 
 msgid "Unable to retrieve user roles."
-msgstr "사용자 역할을 찾지 못 했습니다."
+msgstr "사용자 역할을 찾지 못했습니다."
 
 msgid "Unable to retrieve users."
-msgstr "사용자를 찾지 못 했습니다."
+msgstr "사용자를 찾지 못했습니다."
 
 msgid "Unable to retrieve version information."
 msgstr "버전 정보를 찾지 못했습니다."
 
 msgid "Unable to retrieve volume backups."
-msgstr "볼륨 백업들을 찾지 못 했습니다."
+msgstr "볼륨 백업들을 찾지 못했습니다."
 
 msgid "Unable to retrieve volume details."
-msgstr "볼륨 세부 정보를 찾지 못 했습니다."
+msgstr "볼륨 세부 정보를 찾지 못했습니다."
 
 msgid "Unable to retrieve volume encryption details."
-msgstr "볼륨 암호화 세부 정보를 가져올 수 없습니다."
+msgstr "볼륨 암호화 세부 정보를 찾지 못했습니다."
 
 #, python-format
 msgid "Unable to retrieve volume information for volume: \"%s\""
 msgstr "선택한 볼륨에 대한 정보를 찾지 못했습니다: \"%s\""
 
 msgid "Unable to retrieve volume information."
-msgstr "볼륨 정보를 찾지 못 했습니다."
+msgstr "볼륨 정보를 찾지 못했습니다."
 
 msgid "Unable to retrieve volume limit information."
-msgstr "볼륨 최대 사용량 정보를 찾지 못 했습니다."
+msgstr "볼륨 최대 사용량 정보를 찾지 못했습니다."
 
 #, python-format
 msgid "Unable to retrieve volume list for instance \"%(name)s\" (%(id)s)."
-msgstr ""
-"인스턴스  \"%(name)s\" (%(id)s) 에 대한 볼륨 리스트를 가져올 수 없습니다."
+msgstr "인스턴스  \"%(name)s\" (%(id)s) 에 대한 볼륨 리스트를 찾지 못했습니다."
 
 msgid "Unable to retrieve volume list."
-msgstr "볼륨 목록을 찾지 못 했습니다."
+msgstr "볼륨 목록을 찾지 못했습니다."
 
 msgid "Unable to retrieve volume project information."
-msgstr "볼륨 프로젝트 정보를 찾지 못 했습니다."
+msgstr "볼륨 프로젝트 정보를 찾지 못했습니다."
 
 msgid "Unable to retrieve volume snapshot."
 msgstr "볼륨 스냅샷을 찾지 못했습니다."
@@ -11109,13 +11108,13 @@ msgid "Unable to retrieve volume snapshots."
 msgstr "볼륨 스냅샷을 찾지 못했습니다."
 
 msgid "Unable to retrieve volume transfer."
-msgstr "볼륨 이전 내용을 가져올 수 없습니다."
+msgstr "볼륨 이전 내용을 찾지 못했습니다."
 
 msgid "Unable to retrieve volume type details."
 msgstr "볼륨 유형에 대한 세부 정보를 찾지 못했습니다."
 
 msgid "Unable to retrieve volume type encryption details."
-msgstr "볼륨 유형 암호화 세부 내역을 가져올 수 없습니다."
+msgstr "볼륨 유형 암호화 세부 내역을 찾지 못했습니다."
 
 msgid "Unable to retrieve volume type encryption information."
 msgstr "볼륨 타입의 암호화 정보를 찾지 못했습니다."
@@ -11125,28 +11124,28 @@ msgstr "볼륨 타입 추가 사양에 대한 세부 정보를 찾지 못 했습
 
 #, python-format
 msgid "Unable to retrieve volume type for: \"%s\""
-msgstr "볼륨을 가져올 수 없습니다 : \"%s\""
+msgstr "볼륨을 찾지 못했습니다 : \"%s\""
 
 msgid "Unable to retrieve volume type list."
-msgstr "볼륨 타입 목록을 가져오지 못했습니다."
+msgstr "볼륨 타입 목록을 찾지 못했습니다."
 
 msgid "Unable to retrieve volume type name."
-msgstr "볼륨 유형 이름을 가져올 수 없습니다."
+msgstr "볼륨 유형 이름을 찾지 못했습니다."
 
 msgid "Unable to retrieve volume type qos."
-msgstr "볼륨 타입 qos를 가져올 수 없습니다."
+msgstr "볼륨 타입 qos를 찾지 못했습니다."
 
 msgid "Unable to retrieve volume types"
 msgstr "볼륨 타입을 찾지 못했습니다."
 
 msgid "Unable to retrieve volume."
-msgstr "볼륨을 찾지 못 했습니다."
+msgstr "볼륨을 찾지 못했습니다."
 
 msgid "Unable to retrieve volume/instance attachment information"
-msgstr "볼륨/인스턴스 연결 정보를 찾을 수 없습니다."
+msgstr "볼륨/인스턴스 연결 정보를 찾지 못했습니다."
 
 msgid "Unable to retrieve volumes availability zones."
-msgstr "볼륨 가용성 존을 가져올 수 없습니다."
+msgstr "볼륨 가용성 존을 찾지 못했습니다."
 
 msgid "Unable to set Domain Context."
 msgstr "도메인 컨텍스트를 설정할 수 없습니다. "

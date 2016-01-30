@@ -1,17 +1,18 @@
 # Sungjin Kang <gang.sungjin@gmail.com>, 2015. #zanata
+# Sungjin Kang <gang.sungjin@gmail.com>, 2016. #zanata
 msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-11-04 14:35+0000\n"
+"POT-Creation-Date: 2016-01-28 00:24+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2015-10-01 01:17+0000\n"
+"PO-Revision-Date: 2016-01-12 05:22+0000\n"
 "Last-Translator: Sungjin Kang <gang.sungjin@gmail.com>\n"
 "Language: ko-KR\n"
 "Plural-Forms: nplurals=1; plural=0\n"
-"X-Generator: Zanata 3.7.1\n"
+"X-Generator: Zanata 3.7.3\n"
 "Language-Team: Korean (South Korea)\n"
 
 msgid "(Max: 16Kb)"
@@ -898,91 +899,91 @@ msgid "Unable to import the keypair."
 msgstr "키 페어를 가져오지 못했습니다."
 
 msgid "Unable to retrieve settings."
-msgstr "설정을 가져오지 못했습니다."
+msgstr "설정을 찾지 못했습니다."
 
 msgid "Unable to retrieve the aggregate extra specs."
-msgstr "집합에 대한 추가 사양을 가져올 수 없습니다."
+msgstr "집합에 대한 추가 사양을 찾지 못했습니다."
 
 msgid "Unable to retrieve the availability zones."
-msgstr "가용 구역을 가져오지 못했습니다."
+msgstr "가용 구역을 찾지 못했습니다."
 
 msgid "Unable to retrieve the current user session."
-msgstr "현재 사용자 세션을 가져오지 못했습니다."
+msgstr "현재 사용자 세션을 찾지 못했습니다."
 
 msgid "Unable to retrieve the domain."
-msgstr "도메인을 가져오지 못했습니다."
+msgstr "도메인을 찾지 못했습니다."
 
 msgid "Unable to retrieve the domains."
-msgstr "도메인을 가져오지 못했습니다."
+msgstr "도메인들을 찾지 못했습니다."
 
 msgid "Unable to retrieve the extensions."
-msgstr "확장을 가져오지 못했습니다."
+msgstr "확장을 찾지 못했습니다."
 
 msgid "Unable to retrieve the flavor extra specs."
-msgstr "Flavor 추가 사양을 가져오지 못했습니다."
+msgstr "Flavor 추가 사양을 찾지 못했습니다."
 
 msgid "Unable to retrieve the flavor."
-msgstr "Flavor를 가져오지 못했습니다."
+msgstr "Flavor를 찾지 못했습니다."
 
 msgid "Unable to retrieve the flavors."
-msgstr "Flavor를 가져오지 못했습니다."
+msgstr "Flavor들을 찾지 못했습니다."
 
 msgid "Unable to retrieve the image custom properties."
-msgstr "이미지 사용자 정의 속성을 찾지 못했습니다."
+msgstr "이미지 사용자 정의 속성들을 찾지 못했습니다."
 
 msgid "Unable to retrieve the image."
-msgstr "이미지를 가져오지 못했습니다."
+msgstr "이미지를 찾지 못했습니다."
 
 msgid "Unable to retrieve the images."
-msgstr "이미지를 가져오지 못했습니다."
+msgstr "이미지들을 찾지 못했습니다."
 
 msgid "Unable to retrieve the keypairs."
-msgstr "키 페어를 가져오지 못했습니다."
+msgstr "키 페어를 찾지 못했습니다."
 
 msgid "Unable to retrieve the limits."
-msgstr "제한 값을 가져오지 못했습니다."
+msgstr "제한 값을 찾지 못했습니다."
 
 msgid "Unable to retrieve the namespaces."
-msgstr "네임스페이스를 가져오지 못했습니다."
+msgstr "네임스페이스들을 찾지 못했습니다."
 
 msgid "Unable to retrieve the networks."
-msgstr "네트워크를 가져오지 못했습니다."
+msgstr "네트워크들을 찾지 못했습니다."
 
 msgid "Unable to retrieve the ports."
-msgstr "포트 번호를 가져오지 못했습니다."
+msgstr "포트들을 찾지 못했습니다."
 
 msgid "Unable to retrieve the project."
-msgstr "프로젝트를 가져하지 못했습니다."
+msgstr "프로젝트를 찾지 못했습니다."
 
 msgid "Unable to retrieve the projects."
-msgstr "프로젝트를 가져오지 못했습니다."
+msgstr "프로젝트들을 찾지 못했습니다."
 
 msgid "Unable to retrieve the role."
-msgstr "역할을 가져오지 못했습니다."
+msgstr "역할을 찾지 못했습니다."
 
 msgid "Unable to retrieve the roles."
-msgstr "역할을 가져오지 못했습니다."
+msgstr "역할들을 찾지 못했습니다."
 
 msgid "Unable to retrieve the security groups."
-msgstr "시큐리티 그룹을 가져오지 못했습니다."
+msgstr "시큐리티 그룹을 찾지 못했습니다."
 
 msgid "Unable to retrieve the server."
-msgstr "서버를 가져오지 못했습니다."
+msgstr "서버를 찾지 못했습니다."
 
 msgid "Unable to retrieve the subnets."
-msgstr "서브넷을 가져오지 못했습니다."
+msgstr "서브넷들을 찾지 못했습니다."
 
 msgid "Unable to retrieve the user."
-msgstr "사용자를 가져오지 못했습니다."
+msgstr "사용자를 찾지 못했습니다."
 
 msgid "Unable to retrieve the users."
-msgstr "사용자를 가져오지 못했습니다."
+msgstr "사용자들을 찾지 못했습니다."
 
 msgid "Unable to retrieve the volume snapshots."
-msgstr "볼륨 스냅샷을 찾지 못했습니다."
+msgstr "볼륨 스냅샷들을 찾지 못했습니다."
 
 msgid "Unable to retrieve the volumes."
-msgstr "볼륨을 가져오지 못했습니다."
+msgstr "볼륨들을 찾지 못했습니다."
 
 msgid "Unable to validate the template."
 msgstr "템플릿 유효성을 확인할 수 없습니다."

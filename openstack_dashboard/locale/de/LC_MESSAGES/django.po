@@ -4,15 +4,16 @@
 # Frank Kloeker <eumel@arcor.de>, 2015. #zanata
 # OpenStack Infra <zanata@openstack.org>, 2015. #zanata
 # Robert Simai <robert.simai@suse.com>, 2015. #zanata
+# Robert Simai <robert.simai@suse.com>, 2016. #zanata
 msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-12-23 00:47+0000\n"
+"POT-Creation-Date: 2016-01-28 00:24+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2015-12-18 12:56+0000\n"
+"PO-Revision-Date: 2016-01-25 04:16+0000\n"
 "Last-Translator: Robert Simai <robert.simai@suse.com>\n"
 "Language: de\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
@@ -2721,27 +2722,27 @@ msgid "DNS name server"
 msgstr "DNS Nameserver"
 
 msgid "DOWN"
-msgstr "RUNTER"
+msgstr "GESTOPPT"
 
 msgctxt "Admin state of a Firewall"
 msgid "DOWN"
-msgstr "RUNTER"
+msgstr "GESTOPPT"
 
 msgctxt "Admin state of a Load balancer"
 msgid "DOWN"
-msgstr "RUNTER"
+msgstr "GESTOPPT"
 
 msgctxt "Admin state of a Network"
 msgid "DOWN"
-msgstr "RUNTER"
+msgstr "GESTOPPT"
 
 msgctxt "Admin state of a Port"
 msgid "DOWN"
-msgstr "RUNTER"
+msgstr "GESTOPPT"
 
 msgctxt "Admin state of a Router"
 msgid "DOWN"
-msgstr "RUNTER"
+msgstr "GESTOPPT"
 
 msgid "DPD Timeout must be greater than DPD Interval"
 msgstr "DPD-Zeitüberschreitung muss größer als das DPD-Intervall sein"
@@ -3670,43 +3671,43 @@ msgid "Done with Error"
 msgstr "Mit Fehler erledigt"
 
 msgid "Down"
-msgstr "Runter"
+msgstr "Gestoppt"
 
 msgctxt "Current state of a Hypervisor"
 msgid "Down"
-msgstr "Runter"
+msgstr "Gestoppt"
 
 msgctxt "Current status of a Firewall"
 msgid "Down"
-msgstr "Runter"
+msgstr "Gestoppt"
 
 msgctxt "Current status of a Floating IP"
 msgid "Down"
-msgstr "Runter"
+msgstr "Gestoppt"
 
 msgctxt "Current status of a Network"
 msgid "Down"
-msgstr "Runter"
+msgstr "Gestoppt"
 
 msgctxt "Current status of a Pool"
 msgid "Down"
-msgstr "Runter"
+msgstr "Gestoppt"
 
 msgctxt "Current status of a VPN Service"
 msgid "Down"
-msgstr "Runter"
+msgstr "Gestoppt"
 
 msgctxt "Current status of an IPSec Site Connection"
 msgid "Down"
-msgstr "Runter"
+msgstr "Gestoppt"
 
 msgctxt "current status of port"
 msgid "Down"
-msgstr "Runter"
+msgstr "Gestoppt"
 
 msgctxt "status of a network port"
 msgid "Down"
-msgstr "Runter"
+msgstr "Gestoppt"
 
 msgid "Download"
 msgstr "Herunterladen"
@@ -8799,7 +8800,7 @@ msgstr "Zeige gesamte Konfiguration"
 
 msgctxt "Power state of an Instance"
 msgid "Shut Down"
-msgstr "Stillgelegt"
+msgstr "Heruntergefahren"
 
 msgctxt "Power state of an Instance"
 msgid "Shut Off"
