@@ -212,13 +212,14 @@
     }
 
     return function (input, totalInput) {
+      var format;
       var count = ensureNonNegative(input);
       if (angular.isUndefined(totalInput)) {
-        var format = ngettext('Displaying %s item', 'Displaying %s items', count);
+        format = ngettext('Displaying %s item', 'Displaying %s items', count);
         return interpolate(format, [count]);
       } else {
         var total = ensureNonNegative(totalInput);
-        var format = gettext('Displaying %(count)s of %(total)s items');
+        format = gettext('Displaying %(count)s of %(total)s items');
         return interpolate(format, {count: count, total: total}, true);
       }
     };

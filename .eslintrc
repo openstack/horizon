@@ -32,7 +32,6 @@ rules:
   callback-return: 1
   guard-for-in: 1
   block-scoped-var: 1
-  no-redeclare: 1
   no-new: 1
 
   #############################################################################
