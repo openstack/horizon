@@ -21,11 +21,13 @@ import os
 import sys
 import warnings
 
+from django.utils.translation import pgettext_lazy
 from django.utils.translation import ugettext_lazy as _
 
 from openstack_dashboard import exceptions
 from openstack_dashboard.static_settings import find_static_files  # noqa
 from openstack_dashboard.static_settings import get_staticfiles_dirs  # noqa
+from openstack_dashboard import theme_settings
 
 
 warnings.formatwarning = lambda message, category, *args, **kwargs: \
@@ -105,6 +107,7 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.contrib.auth.middleware.SessionAuthenticationMiddleware',
     'horizon.middleware.HorizonMiddleware',
+    'horizon.themes.ThemeMiddleware',
     'django.middleware.locale.LocaleMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 )
@@ -121,6 +124,7 @@ TEMPLATE_CONTEXT_PROCESSORS = (
 )
 
 TEMPLATE_LOADERS = (
+    'horizon.themes.ThemeTemplateLoader',
     ('django.template.loaders.cached.Loader', (
         'django.template.loaders.filesystem.Loader',
         'django.template.loaders.app_directories.Loader',
@@ -257,10 +261,31 @@ SECURITY_GROUP_RULES = {
 
 ADD_INSTALLED_APPS = []
 
-# directory for custom theme, set as default.
-# It can be overridden in local_settings.py
-DEFAULT_THEME_PATH = 'themes/default'
-CUSTOM_THEME_PATH = DEFAULT_THEME_PATH
+# Deprecated Theme Settings
+CUSTOM_THEME_PATH = None
+DEFAULT_THEME_PATH = None
+
+# 'key', 'label', 'path'
+AVAILABLE_THEMES = [
+    (
+        'default',
+        pgettext_lazy('Default style theme', 'Default'),
+        'themes/default'
+    ), (
+        'material',
+        pgettext_lazy("Google's Material Design style theme", "Material"),
+        'themes/material'
+    ),
+]
+
+# The default theme if no cookie is present
+DEFAULT_THEME = 'default'
+
+# Theme Static Directory
+THEME_COLLECTION_DIR = 'themes'
+
+# Theme Cookie Name
+THEME_COOKIE_NAME = 'theme'
 
 try:
     from local.local_settings import *  # noqa
@@ -298,39 +323,26 @@ if STATIC_ROOT is None:
 if STATIC_URL is None:
     STATIC_URL = WEBROOT + 'static/'
 
-STATICFILES_DIRS = get_staticfiles_dirs(STATIC_URL)
-
-CUSTOM_THEME = os.path.join(ROOT_PATH, CUSTOM_THEME_PATH)
-
-# If a custom template directory exists within our custom theme, then prepend
-# it to our first-come, first-serve TEMPLATE_DIRS
-if os.path.exists(os.path.join(CUSTOM_THEME, 'templates')):
-    TEMPLATE_DIRS = \
-        (os.path.join(CUSTOM_THEME, 'templates'),) + TEMPLATE_DIRS
-
-# Only expose the subdirectory 'static' if it exists from a custom theme,
-# allowing other logic to live with a theme that we might not want to expose
-# statically
-if os.path.exists(os.path.join(CUSTOM_THEME, 'static')):
-    CUSTOM_THEME = os.path.join(CUSTOM_THEME, 'static')
-
-# Only collect and expose the default theme if the user chose to set a
-# different theme
-if DEFAULT_THEME_PATH != CUSTOM_THEME_PATH:
-    STATICFILES_DIRS.append(
-        ('themes/default', os.path.join(ROOT_PATH, DEFAULT_THEME_PATH)),
-    )
-
-STATICFILES_DIRS.append(
-    ('custom', CUSTOM_THEME),
+AVAILABLE_THEMES, DEFAULT_THEME = theme_settings.get_available_themes(
+    AVAILABLE_THEMES,
+    CUSTOM_THEME_PATH,
+    DEFAULT_THEME_PATH,
+    DEFAULT_THEME
 )
 
-# Load the subdirectory 'img' of a custom theme if it exists, thereby allowing
-# very granular theme overrides of all dashboard img files using the first-come
-# first-serve filesystem loader.
-if os.path.exists(os.path.join(CUSTOM_THEME, 'img')):
-    STATICFILES_DIRS.insert(0, ('dashboard/img',
-                            os.path.join(CUSTOM_THEME, 'img')))
+STATICFILES_DIRS = get_staticfiles_dirs(STATIC_URL) + \
+    theme_settings.get_theme_static_dirs(
+        AVAILABLE_THEMES,
+        THEME_COLLECTION_DIR,
+        ROOT_PATH)
+
+if CUSTOM_THEME_PATH is not None:
+    logging.warning("CUSTOM_THEME_PATH has been deprecated.  Please convert "
+                    "your settings to make use of AVAILABLE_THEMES.")
+
+if DEFAULT_THEME_PATH is not None:
+    logging.warning("DEFAULT_THEME_PATH has been deprecated.  Please convert "
+                    "your settings to make use of AVAILABLE_THEMES.")
 
 # populate HORIZON_CONFIG with auto-discovered JavaScript sources, mock files,
 # specs files and external templates.
@@ -367,12 +379,15 @@ INSTALLED_APPS[0:0] = ADD_INSTALLED_APPS
 from openstack_auth import policy
 POLICY_CHECK_FUNCTION = policy.check
 
-# Add HORIZON_CONFIG to the context information for offline compression
-COMPRESS_OFFLINE_CONTEXT = {
+# This base context objects gets added to the offline context generator
+# for each theme configured.
+HORIZON_COMPRESS_OFFLINE_CONTEXT_BASE = {
     'WEBROOT': WEBROOT,
     'STATIC_URL': STATIC_URL,
-    'HORIZON_CONFIG': HORIZON_CONFIG,
+    'HORIZON_CONFIG': HORIZON_CONFIG
 }
+
+COMPRESS_OFFLINE_CONTEXT = 'horizon.themes.offline_context'
 
 if DEBUG:
     logging.basicConfig(level=logging.DEBUG)

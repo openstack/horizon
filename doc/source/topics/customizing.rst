@@ -11,11 +11,42 @@ through the use of a theme. A theme is a directory containing a
 and a ``_styles.scss`` file with additional styles to load after dashboard
 styles have loaded.
 
-To use a custom theme, set ``CUSTOM_THEME_PATH`` in ``local_settings.py`` to
-the directory location for the theme (e.g., ``"themes/material"``). The
-path can either be relative to the ``openstack_dashboard`` directory or an
-absolute path to an accessible location on the file system. The default
-``CUSTOM_THEME_PATH`` is ``themes/default``.
+As of the Mitaka release, Horizon can be configured to run with multiple
+themes available at run time.  It uses a browser cookie to allow users to
+toggle between the configured themes.  By default, Horizon is configured
+with the two standard themes available: 'default' and 'material'.
+
+To configure or alter the available themes, set ``AVAILABLE_THEMES`` in
+``local_settings.py`` to a list of tuples, such that ``('name', 'label', 'path')``
+
+``name``
+  The key by which the theme value is stored within the cookie
+
+``label``
+  The label shown in the theme toggle under the User Menu
+
+``path``
+  The directory location for the theme. The path must be relative to the
+  ``openstack_dashboard`` directory or an absolute path to an accessible
+  location on the file system
+
+To use a custom theme, set ``AVAILABLE_THEMES`` in ``local_settings.py`` to
+a list of themes.  If you wish to run in a mode similar to legacy Horizon,
+set ``AVAILABLE_THEMES`` with a single tuple, and the theme toggle will not
+be available at all through the application to allow user configuration themes.
+
+For example, a configuration with multiple themes::
+
+  AVAILABLE_THEMES = [
+      ('default', 'Default', 'themes/default'),
+      ('material', 'Material', 'themes/material'),
+  ]
+
+A configuration with a single theme::
+
+  AVAILABLE_THEMES = [
+      ('default', 'Default', 'themes/default'),
+  ]
 
 Both the Dashboard custom variables and Bootstrap variables can be overridden.
 For a full list of the Dashboard SCSS variables that can be changed, see the
@@ -39,40 +70,31 @@ theme's ``_variables.scss``::
 Once you have made your changes you must re-generate the static files with
  ``./run_tests.py -m collectstatic``.
 
-The Default Theme
-~~~~~~~~~~~~~~~~~
+By default, all of the themes configured by ``AVAILABLE_THEMES`` setting are
+collected by horizon during the `collectstatic` process. By default, the themes
+are collected into the dynamic `static/themes` directory, but this location can
+be customized via the ``local_settings.py`` variable: ``THEME_COLLECTION_DIR``
 
-By default, only the themes configured by the settings: `DEFAULT_THEME_PATH`
-and `CUSTOM_THEME_PATH` are collected during the `collectstatic` process into
-the dynamic `static` directory into the following directories::
+Once collected, any theme configured via ``AVAILABLE_THEMES`` is available to
+inherit from by importing its variables and styles from its collection
+directory.  The following is an example of inheriting from the material theme::
 
-  CUSTOM_THEME_PATH: /custom
-  DEFAULT_THEME_PATH: /themes/default
+  @import "/themes/material/variables";
+  @import "/themes/material/styles";
 
+Bootswatch
+~~~~~~~~~~
 
-.. NOTE::
-
-    However, if `DEFAULT_THEME_PATH` and `CUSTOM_THEME_PATH` are equal, then the
-    only directory that will be collected into `static` is `/custom`.
-
-By default, `DEFAULT_THEME_PATH` is set to the 'default' theme path, therefore
-if you wish to inherit from another theme (i.e. `material`) that will need to
-be collected from the Horizon code base, then you just update
-`DEFAULT_THEME_PATH` to ensure that the theme you wish to inherit from is
-available in the `static` directory.
-
-If you need to inherit from a Bootswatch theme, no further changes to settings
-are necessary.  This is due to the fact that Bootswatch is loaded as a 3rd
-party static asset, and therefore is automatically collected into the `static`
-directory in `/horizon/lib/`.  Just add @imports to your theme's scss files::
+Horizon packages the Bootswatch SCSS files for use with its ``material`` theme.
+Because of this, it is simple to use an existing Bootswatch theme as a base.
+This is due to the fact that Bootswatch is loaded as a 3rd party static asset,
+and therefore is automatically collected into the `static` directory in
+`/horizon/lib/`.  The following is an example of how to inherit from Bootswatch's
+``darkly`` theme::
 
   @import "/horizon/lib/bootswatch/darkly/variables";
   @import "/horizon/lib/bootswatch/darkly/bootswatch";
 
-.. NOTE::
-
-    The above only shows how to import the 'darkly' theme as an example, but any
-    of the Bootswatch theme can be imported this way.
 
 Organizing Your Theme Directory
 -------------------------------
@@ -108,17 +130,18 @@ directory structure that the extending template expects.
 For example, if you wish to customize the sidebar, Horizon expects the template
 to live at ``horizon/_sidebar.html``.  You would need to duplicate that
 directory structure under your templates directory, such that your override
-would live at ``{CUSTOM_THEME_PATH}/templates/horizon/_sidebar.html``.
+would live at ``{ theme_path }/templates/horizon/_sidebar.html``.
 
 The ``img`` Folder
 ~~~~~~~~~~~~~~~~~~
 
 If the static root of the theme folder contains an ``img`` directory,
-then all images contained within ``dashboard/img`` can be overridden by
-providing a file with the same name.
+then all images that make use of the {% themable_asset %} templatetag
+can be overridden.
 
-For a complete list of the images that can be overridden this way, see:
-``openstack_dashboard/static/dashboard/img``
+These assets include logo.png, splash-logo.png and favicon.ico, however
+overriding the SVG/GIF assets used by Heat within the `dashboard/img` folder
+is not currently supported.
 
 Customizing the Logo
 --------------------

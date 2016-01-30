@@ -1,7 +1,3 @@
-/* This import is required for using the current theme variables as value
-to our variables */
-@import "/custom/variables";
-
 /* When used with Horizon via Django, this value is set automatically from
    settings.py and is added dynamically to the namespace through
    horizon/utils/scss_filter.py */

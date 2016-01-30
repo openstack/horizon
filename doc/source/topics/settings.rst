@@ -422,12 +422,93 @@ This example sorts flavors by vcpus in descending order::
          'reverse': True,
     }
 
+.. _available_themes:
+
+``AVAILABLE_THEMES``
+--------------------
+
+.. versionadded:: 9.0.0(Mitaka)
+
+Default: ``AVAILABLE_THEMES = [
+    ('default', 'Default', 'themes/default'),
+    ('material', 'Material', 'themes/material'),
+]``
+
+This setting tells Horizon which themes to use.
+
+A list of tuples which define multiple themes. The tuple format is
+``('{{ theme_name }}', '{{ theme_label }}', '{{ theme_path }}')``.
+
+The ``theme_name`` is the name used to define the directory which
+the theme is collected into, under ``/{{ THEME_COLLECTION_DIR }}``.
+It also specifies the key by which the selected theme is stored in
+the browser's cookie.
+
+The ``theme_label`` is the user-facing label that is shown in the
+theme picker.  The theme picker is only visible if more than one
+theme is configured, and shows under the topnav's user menu.
+
+By default, the ``theme path`` is the directory that will serve as
+the static root of the theme and the entire contents of the directory
+is served up at ``/{{ THEME_COLLECTION_DIR }}/{{ theme_name }}``.
+If you wish to include content other than static files in a theme
+directory, but do not wish that content to be served up, then you
+can create a sub directory named ``static``. If the theme folder
+contains a sub-directory with the name ``static``, then
+``static/custom/static``` will be used as the root for the content
+served at ``/static/custom``.
+
+The static root of the theme folder must always contain a _variables.scss
+file and a _styles.scss file.  These must contain or import all the
+bootstrap and horizon specific variables and styles which are used to style
+the GUI. For example themes, see: /horizon/openstack_dashboard/themes/
+
+Horizon ships with two themes configured. 'default' is the default theme,
+and 'material' is based on Google's Material Design.
+
+``DEFAULT_THEME``
+-----------------
+
+.. versionadded:: 9.0.0(Mitaka)
+
+Default: ``"default"``
+
+This setting tells Horizon which theme to use if the user has not
+yet selected a theme through the theme picker and therefore set the
+cookie value. This value represents the ``theme_name`` key that is
+used from ``AVAILABLE_THEMES``.  To use this setting, the theme must
+also be configured inside of ``AVAILABLE_THEMES``.
+
+``THEME_COLLECTION_DIR``
+------------------------
+
+.. versionadded:: 9.0.0(Mitaka)
+
+Default: ``"themes"``
+
+This setting tells Horizon which static directory to collect the
+available themes into, and therefore which URL points to the theme
+colleciton root.  For example, the default theme would be accessible
+via ``/{{ STATIC_URL }}/themes/default``.
+
+``THEME_COOKIE_NAME``
+---------------------
+
+.. versionadded:: 9.0.0(Mitaka)
+
+Default: ``"theme"``
+
+This setting tells Horizon in which cookie key to store the currently
+set theme.  The cookie expiration is currently set to a year.
+
 .. _custom_theme_path:
 
 ``CUSTOM_THEME_PATH``
 ---------------------
 
 .. versionadded:: 2015.1(Kilo)
+
+(Deprecated)
 
 Default: ``"themes/default"``
 
@@ -450,11 +531,16 @@ the GUI. For example themes, see: /horizon/openstack_dashboard/themes/
 Horizon ships with one alternate theme based on Google's Material Design.  To
 use the alternate theme, set your CUSTOM_THEME_PATH to ``themes/material``.
 
+This option is now marked as "deprecated" and will be removed in Newton or
+a later release. Themes are now controlled by AVAILABLE_THEMES. We suggest
+changing your custom theme settings to use this option instead.
 
 ``DEFAULT_THEME_PATH``
 ----------------------
 
 .. versionadded:: 8.0.0(Liberty)
+
+(Deprecated)
 
 Default: ``"themes/default"``
 
@@ -465,6 +551,8 @@ if CUSTOM_THEME_PATH inherits from another theme (like 'default').
 If DEFAULT_THEME_PATH is the same as CUSTOM_THEME_PATH, then collection
 is skipped and /static/themes will not exist.
 
+This option is now marked as "deprecated" and will be removed in Newton or
+a later release. Themes are now controlled by AVAILABLE_THEMES.
 
 ``DROPDOWN_MAX_ITEMS``
 ----------------------

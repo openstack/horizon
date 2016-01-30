@@ -120,5 +120,4 @@ A second theme is provided by default at
 ``openstack_dashboard/themes/material/``. When adding new SCSS to horizon, you
 should check that it does not interfere with the Material theme. Images of how
 the Material theme should look can be found at https://bootswatch.com/paper/.
-To set up this theme, see the :ref:`custom_theme_path` entry in our settings
-documentation.
+This theme is now configured to run as the alternate theme within Horizon.

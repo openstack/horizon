@@ -1,12 +1,19 @@
 {% extends 'base.html' %}
 {% load i18n %}
+{% load themes %}
 
 {% block title %}
   {% trans "Theme Preview" %}
 {% endblock %}
 
 {% block page_header %}
-  <h1>{{ skin }} <small>{{ skin_desc }}</small></h1>
+  {% current_theme as current_theme %}
+  {% themes as available_themes %}
+  {% for theme in available_themes %}
+    {% if current_theme == theme.0 %}
+      <h1>{{ theme.1 }} <small>{{ theme.2 }}</small></h1>
+    {% endif %}
+  {% endfor %}
 {% endblock %}
 
 {% block main %}
