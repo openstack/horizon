@@ -1,0 +1,172 @@
+html {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    box-sizing: border-box;
+}
+
+body{
+    overflow-y: hidden;
+    margin: 0 0;
+    font-family: "Microsoft Yahei", Avenir, "Hiragino Sans GB", "Noto Sans S Chinese", "Microsoft Sans Serif", "WenQuanYi Micro Hei", sans-serif;
+}
+
+input{
+    font-family: "Microsoft Yahei", Avenir, "Hiragino Sans GB", "Noto Sans S Chinese", "Microsoft Sans Serif", "WenQuanYi Micro Hei", sans-serif;   
+}
+p a {
+    text-decoration none;
+}
+
+.footer {
+    width: 100%;
+    text-align: center;
+    position: fixed;
+    display: none;
+    bottom: 0;
+}
+
+#auth {
+    text-align: center;
+    color: #FFF;
+}
+
+.logoCenter {
+    padding-top: 20px;
+    padding-bottom: 20px;
+    width: 100%;
+    position: fixed;
+    background: #000;
+    filter: alpha(opacity=50);
+    -moz-opacity: 0.5;
+    opacity: 0.5;
+    top: 30%;
+    -webkit-transition: top .5s ease-in-out;
+    -moz-transition: top .5s ease-in-out;
+    transition: top .5s ease-in-out, margin .5s ease-in-out;
+}
+
+.logo {
+    width: 324px;
+    height: 184px;
+}
+
+.logoAnim {
+    -webkit-transition: height .5s ease-in-out, width .5s ease-in-out, margin .5s ease-in-out;
+    -moz-transition: height .5s ease-in-out, width .5s ease-in-out, margin .5s ease-in-out;
+    transition: height .5s ease-in-out, width .5s ease-in-out, margin .5s ease-in-out;
+}
+
+.logoCenterMove {
+    top: 0%;
+}
+
+.logoMove {
+    width: 162px;
+    height: 92px;
+}
+
+.bottomItem {
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+    margin-bottom: 20px;
+}
+
+.clickToLogin {
+    margin: 0 auto;
+}
+
+#loginHint {
+    text-align: center;
+    margin: 0 auto;
+    font-size: 20px;
+    color: #FFF;
+}
+
+.arrowDown {
+    margin: 0 auto;
+    width: 0;
+    height: 0;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-top: 10px solid #FFF;
+}
+
+.login {
+    width: 100%;
+    text-align: center;
+    position: fixed;
+    margin-top: 200px;
+    display: none;
+}
+
+#loginAvatar {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.loginInput {
+    position: fixed;
+    margin-left: -120px;
+    margin-top: -52px;
+    width: 240px;
+    height: 50px;
+    text-align: left;
+    background: transparent;
+    border: 0px transparent;
+    outline:none;
+    font-size: 18px;
+    color: #FFF;
+}
+
+.trans-bg{
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 25px;
+    width: 300px;
+    height: 50px;
+    border: 2px #FFF solid;
+    border-radius: 30px;
+    background: transparent;
+    filter: alpha(opacity=50);
+    -moz-opacity: 0.5;
+    opacity: 0.5;
+}
+
+.trans-bg-full{
+    background: #FFF;
+}
+
+.submitHint{
+    text-align: center;
+    padding-top: 10px;
+    font-size: 20px;
+    color: #FFF;
+}
+
+input::-webkit-input-placeholder, textarea::-webkit-input-placeholder { 
+    color: #FFF;
+}
+input:-moz-placeholder, textarea:-moz-placeholder { 
+    color: #FFF;
+}
+input::-moz-placeholder, textarea::-moz-placeholder { 
+    color: #FFF;
+}
+input:-ms-input-placeholder, textarea:-ms-input-placeholder { 
+    color: #FFF;
+}
+
+@media(max-height: 560px) {
+    #loginAvatar {
+        display: none;
+    }
+    .login {
+        margin-top: 100px;
+    }
+    .loginInput {
+        width: 250px;
+    }
+    .loginSubmit {
+        width: 250px;
+    }
+}

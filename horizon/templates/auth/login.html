@@ -5,6 +5,34 @@
 
 {% block body_id %}splash{% endblock %}
 
+{% block css %}
+  <link href="/static/dashboard/css/vanec_index.css" rel="stylesheet">
+{% endblock %}
+
 {% block content %}
+  <div class="logoCenter">
+    <img class="logo" src="/static/dashboard/img/logo.png"></div>
+  <div class="bottomItem">
+    <div class="clickToLogin">
+        <p id="loginHint">点击登入</p>
+        <div class="arrowDown"></div>
+    </div>
+  </div>
   {% include 'auth/_login.html' %}
+  <div class="footer ">
+  <p id="auth"> 氢氧信息科技（上海）有限公司|Powered by HO Info Tech (Shanghai) Limited Co.</p>
+  </div>
+  <div id="mainbackground">
+      <img src="/static/dashboard/img/login_bg.jpg" height="100%" width="100%" />
+  </div>
+{% endblock %}
+
+{% block footer %}
+{% endblock %}
+
+{% block js %}
+  <script src="/static/dashboard/js/jquery.js"></script>
+  <!-- <script src="js/bootstrap.min.js"></script> -->
+  <script src="/static/dashboard/js/jquery.easing.min.js"></script>
+  <script src="/static/dashboard/js/vanec_index.js"></script>
 {% endblock %}
