@@ -167,6 +167,11 @@ class WorkflowValidationError(HorizonException):
     pass
 
 
+class MessageFailure(HorizonException):
+    """Exception raised during message notification."""
+    pass
+
+
 class HandledException(HorizonException):
     """Used internally to track exceptions that have gone through
     :func:`horizon.exceptions.handle` more than once.
