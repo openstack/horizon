@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2016-01-25 00:39+0000\n"
+"POT-Creation-Date: 2016-01-31 01:15+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -6481,10 +6481,6 @@ msgctxt "Current status of an Image"
 msgid "Saving"
 msgstr "Zapisywanie"
 
-#, python-format
-msgid "Scheduled deletion of %(data_type)s"
-msgstr "Dodano do kolejki usunięcie %(data_type)s"
-
 msgid "Scheduled deletion of Firewall"
 msgid_plural "Scheduled deletion of Firewalls"
 msgstr[0] "Zaplanowano usunięcie zapory ogniowej"
@@ -9606,9 +9602,6 @@ msgstr "Wolumen %(volume_name)s w instancji %(instance_name)s"
 
 msgid "Volume (Cinder)"
 msgstr "Wolumeny (Cinder)"
-
-msgid "Volume Backup"
-msgstr "Kopia zapasowa wolumenu"
 
 msgid "Volume Backup:"
 msgstr "Kopia zapasowa wolumenu:"

@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2016-01-20 01:04+0000\n"
+"POT-Creation-Date: 2016-01-31 01:15+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -4139,10 +4139,6 @@ msgstr " \"%s\" अतिरिक्त विनिर्देश सहे�
 msgid "Saved spec \"%s\"."
 msgstr "स्पेक \"%s\" सहेजा."
 
-#, python-format
-msgid "Scheduled deletion of %(data_type)s"
-msgstr "%(data_type)s के अनुसूचित विलोपन"
-
 msgid "Scheduled deletion of Volume Snapshot"
 msgid_plural "Scheduled deletion of Volume Snapshots"
 msgstr[0] "वॉल्यूम स्नैपशॉट का नियोजित विलोपन"
@@ -6083,9 +6079,6 @@ msgstr "आयतन"
 
 msgid "Volume (Cinder)"
 msgstr "वॉल्यूम (सिंडर)"
-
-msgid "Volume Backup"
-msgstr "वॉल्यूम बैकअप"
 
 msgid "Volume Backups"
 msgstr "वॉल्यूम बैकअप"

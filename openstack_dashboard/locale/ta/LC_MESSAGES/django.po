@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2016-01-25 00:39+0000\n"
+"POT-Creation-Date: 2016-01-31 01:15+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -4539,10 +4539,6 @@ msgid "Saved spec \"%s\"."
 msgstr "விவரக்குறிப்பு \"%s\" சேமிக்கப்பட்டது."
 
 #, python-format
-msgid "Scheduled deletion of %(data_type)s"
-msgstr "%(data_type)s -இன் அட்டவணையிடப்பட்ட நீக்கல்"
-
-#, python-format
 msgid "Scheduled resize of instance \"%s\"."
 msgstr "நிகழ்வு \"%s\" -இன் அட்டவணையிடப்பட்ட அளவை மாற்றுதல்"
 
@@ -6869,9 +6865,6 @@ msgstr "நிகழ்வு %(instance_name)s மீதுள்ள தொக�
 
 msgid "Volume (Cinder)"
 msgstr "தொகுதி (சிந்தர்)"
-
-msgid "Volume Backup"
-msgstr "தொகுதி காப்பு"
 
 msgid "Volume Backup:"
 msgstr "தொகுதி காப்பு:"

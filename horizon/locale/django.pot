@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2016-01-10 06:22+0000\n"
+"POT-Creation-Date: 2016-01-31 06:28+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -30,12 +30,12 @@ msgstr ""
 msgid "You are not authorized to access %s"
 msgstr ""
 
-#: exceptions.py:164
+#: exceptions.py:119
 #, python-format
 msgid "A %(resource)s with the name \"%(name)s\" already exists."
 msgstr ""
 
-#: exceptions.py:180
+#: exceptions.py:135
 #, python-format
 msgid ""
 "The value of %(resource)s is %(name)s inside the template. When launching"
@@ -43,12 +43,12 @@ msgid ""
 "\"https://\""
 msgstr ""
 
-#: exceptions.py:255
+#: exceptions.py:211
 #, python-format
 msgid "Unauthorized: %s"
 msgstr ""
 
-#: exceptions.py:258 middleware.py:125
+#: exceptions.py:214 middleware.py:125
 msgid "Unauthorized. Please try logging in again."
 msgstr ""
 
@@ -93,72 +93,76 @@ msgstr ""
 msgid "Filter"
 msgstr ""
 
-#: tables/actions.py:654
+#: tables/actions.py:655
 msgid "This action cannot be undone."
 msgstr ""
 
-#: tables/actions.py:776
+#: tables/actions.py:777
 #, python-format
 msgctxt "past"
 msgid "%(action)s %(data_type)s"
 msgstr ""
 
-#: tables/actions.py:778
+#: tables/actions.py:779
 #, python-format
 msgctxt "present"
 msgid "%(action)s %(data_type)s"
 msgstr ""
 
-#: tables/actions.py:841
+#: tables/actions.py:842
 #, python-format
 msgid "You are not allowed to %(action)s: %(objs)s"
 msgstr ""
 
-#: tables/actions.py:848
+#: tables/actions.py:849
 #, python-format
 msgid "Unable to %(action)s: %(objs)s"
 msgstr ""
 
-#: tables/actions.py:854
+#: tables/actions.py:855
 #, python-format
 msgid "%(action)s: %(objs)s"
 msgstr ""
 
-#: tables/actions.py:924
+#: tables/actions.py:926
 msgid "Delete"
 msgstr ""
 
-#: tables/actions.py:926
+#: tables/actions.py:928
 msgid "Deleted"
 msgstr ""
 
-#: tables/actions.py:957
-msgid "Update"
-msgstr ""
+#: tables/actions.py:965
+msgid "Update Item"
+msgid_plural "Update Items"
+msgstr[0] ""
+msgstr[1] ""
 
-#: tables/actions.py:958
-msgid "Updated"
-msgstr ""
+#: tables/actions.py:973
+msgid "Updated Item"
+msgid_plural "Updated Items"
+msgstr[0] ""
+msgstr[1] ""
 
 #: tables/base.py:306
 msgid "-"
 msgstr ""
 
-#: tables/base.py:997
+#: tables/base.py:1002
 msgid "No items to display."
 msgstr ""
 
-#: tables/base.py:1109
+#: tables/base.py:1114
 #: templates/horizon/common/_data_table_table_actions.html:56
 msgid "Actions"
 msgstr ""
 
-#: tables/base.py:1344
+#: tables/base.py:1349
 #, python-format
 msgid "No match returned for the id \"%s\"."
 msgstr ""
 
-#: tables/base.py:1502
+#: tables/base.py:1507
 msgid "Please select a row before taking that action."
 msgstr ""
 
@@ -398,6 +402,42 @@ msgstr[1] ""
 #: test/test_dashboards/dogs/puppies/tables.py:38
 msgid "Sold Puppy"
 msgid_plural "Sold Puppies"
+msgstr[0] ""
+msgstr[1] ""
+
+#: test/tests/tables.py:138
+msgid "Batch Item"
+msgid_plural "Batch Items"
+msgstr[0] ""
+msgstr[1] ""
+
+#: test/tests/tables.py:146
+msgid "Batched Item"
+msgid_plural "Batched Items"
+msgstr[0] ""
+msgstr[1] ""
+
+#: test/tests/tables.py:173
+msgid "Up Item"
+msgid_plural "Up Items"
+msgstr[0] ""
+msgstr[1] ""
+
+#: test/tests/tables.py:179
+msgid "Down Item"
+msgid_plural "Down Items"
+msgstr[0] ""
+msgstr[1] ""
+
+#: test/tests/tables.py:187
+msgid "Upped Item"
+msgid_plural "Upped Items"
+msgstr[0] ""
+msgstr[1] ""
+
+#: test/tests/tables.py:193
+msgid "Downed Item"
+msgid_plural "Downed Items"
 msgstr[0] ""
 msgstr[1] ""
 

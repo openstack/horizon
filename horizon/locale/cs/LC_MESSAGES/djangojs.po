@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2016-01-20 01:04+0000\n"
+"POT-Creation-Date: 2016-01-31 01:15+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -403,9 +403,6 @@ msgstr "m1.small"
 
 msgid "m1.tiny"
 msgstr "m1.tiny"
-
-msgid "no quota"
-msgstr "žádná kvóta"
 
 msgid "pool default"
 msgstr "výchozí zásoby"
