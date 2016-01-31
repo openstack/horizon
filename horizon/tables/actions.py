@@ -956,12 +956,25 @@ class DeleteAction(BatchAction):
 class UpdateAction(object):
     """A table action for cell updates by inline editing."""
     name = "update"
-    action_present = _("Update")
-    action_past = _("Updated")
-    data_type_singular = "update"
 
     def action(self, request, datum, obj_id, cell_name, new_cell_value):
         self.update_cell(request, datum, obj_id, cell_name, new_cell_value)
+
+    @staticmethod
+    def action_present(count):
+        return ungettext_lazy(
+            u"Update Item",
+            u"Update Items",
+            count
+        )
+
+    @staticmethod
+    def action_past(count):
+        return ungettext_lazy(
+            u"Updated Item",
+            u"Updated Items",
+            count
+        )
 
     def update_cell(self, request, datum, obj_id, cell_name, new_cell_value):
         """Method for saving data of the cell.
