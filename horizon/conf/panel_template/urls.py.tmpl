@@ -10,14 +10,11 @@
 # License for the specific language governing permissions and limitations
 # under the License.
 
-from django.conf.urls import patterns
 from django.conf.urls import url
 
-from {{ dash_path }}.{{ panel_name }}.views \
-    import IndexView
+from {{ dash_path }}.{{ panel_name }} import views
 
 
-urlpatterns = patterns(
-    '',
-    url(r'^$', IndexView.as_view(), name='index'),
-)
+urlpatterns = [
+    url(r'^$', views.IndexView.as_view(), name='index'),
+]
