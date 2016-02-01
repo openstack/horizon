@@ -330,9 +330,13 @@
      * Broadcast event when facet options are returned via AJAX.
      * Should magic_search.js absorb this?
      */
-    var facetsChangedWatcher = $scope.$on('facetsChanged', function () {
+    var facetsChangedWatcher = $scope.$on('facetsChanged', function (event, data) {
       $timeout(function () {
-        initSearch([]);
+        if (data && data.magicSearchQuery) {
+          initSearch(data.magicSearchQuery.split('&'));
+        } else {
+          initSearch(ctrl.currentSearch.map(function(x) { return x.name; }));
+        }
       });
     });
 
@@ -347,7 +351,6 @@
       }
       ctrl.currentSearch = service.getFacetsFromSearchTerms(searchTerms,
         ctrl.textSearch, $scope.strings.text, tmpFacetChoices);
-
       ctrl.filteredObj = ctrl.unusedFacetChoices =
         service.getUnusedFacetChoices(tmpFacetChoices, searchTerms);
 

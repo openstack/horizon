@@ -93,6 +93,47 @@
       expect(searchBar.length).toBe(1);
     });
 
+    it('sets the clientFullTextSearch to false', function () {
+      var markup = '<table st-table="rows">' +
+            '<thead>' +
+            ' <tr>' +
+            '   <th>' +
+            '     <hz-magic-search-bar ' +
+            '       client-full-text-search="false"' +
+            '       filter-facets="filterFacets">' +
+            '     </hz-magic-search-bar>' +
+            '   </th>' +
+            ' </tr>' +
+            '</thead>' +
+            '<tbody></tbody>' +
+            '</table>';
+
+      var $element = $compile(angular.element(markup))($scope);
+      $scope.$apply();
+
+      expect($element.find('magic-search').scope().clientFullTextSearch).toEqual(false);
+    });
+
+    it('sets the clientFullTextSearch to true', function () {
+      var markup = '<table st-table="rows">' +
+            '<thead>' +
+            ' <tr>' +
+            '   <th>' +
+            '     <hz-magic-search-bar ' +
+            '       filter-facets="filterFacets">' +
+            '     </hz-magic-search-bar>' +
+            '   </th>' +
+            ' </tr>' +
+            '</thead>' +
+            '<tbody></tbody>' +
+            '</table>';
+
+      var $element = $compile(angular.element(markup))($scope);
+      $scope.$apply();
+
+      expect($element.find('magic-search').scope().clientFullTextSearch).toEqual(true);
+    });
+
     it('use filterStrings defaults if not provided as attribute', function () {
       var markup = '<table st-table="rows">' +
                    '<thead>' +
