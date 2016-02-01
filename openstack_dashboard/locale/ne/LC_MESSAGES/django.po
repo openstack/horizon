@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2016-01-25 00:39+0000\n"
+"POT-Creation-Date: 2016-01-31 01:15+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -4293,10 +4293,6 @@ msgid "Saved spec \"%s\"."
 msgstr "सेभ गरिएको स्पेक \"%s\"."
 
 #, python-format
-msgid "Scheduled deletion of %(data_type)s"
-msgstr "%(data_type)sको अनुसूचित मेटाइ"
-
-#, python-format
 msgid "Scheduled resize of instance \"%s\"."
 msgstr "इन्सटेन्स \"%s\" को अनुसूचित  रिसाइज"
 
@@ -6524,9 +6520,6 @@ msgstr "इन्सटेन्स %(instance_name)sमा भोल्यु�
 
 msgid "Volume (Cinder)"
 msgstr "आकार(सिन्डर)"
-
-msgid "Volume Backup"
-msgstr "भोल्युम बेकअप"
 
 msgid "Volume Backup:"
 msgstr "भोल्युम बेकअपः"

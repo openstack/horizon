@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2016-01-27 06:55+0000\n"
+"POT-Creation-Date: 2016-01-31 06:28+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -641,7 +641,7 @@ msgstr ""
 #: dashboards/project/routers/ports/tables.py:107
 #: dashboards/project/routers/templates/routers/_detail_overview.html:5
 #: dashboards/project/stacks/templates/stacks/_detail_overview.html:5
-#: dashboards/project/volumes/backups/tables.py:121
+#: dashboards/project/volumes/backups/tables.py:135
 #: dashboards/project/volumes/snapshots/tables.py:147
 #: dashboards/project/volumes/templates/volumes/backups/_detail_overview.html:5
 #: dashboards/project/volumes/templates/volumes/snapshots/_detail_overview.html:5
@@ -1333,7 +1333,7 @@ msgstr ""
 
 #: dashboards/admin/flavors/tables.py:128
 #: dashboards/admin/flavors/tables.py:132
-#: dashboards/project/volumes/backups/tables.py:96
+#: dashboards/project/volumes/backups/tables.py:110
 #, python-format
 msgid "%sGB"
 msgstr ""
@@ -1856,7 +1856,7 @@ msgstr ""
 #: dashboards/project/stacks/templates/stacks/_detail_overview.html:20
 #: dashboards/project/stacks/templates/stacks/_resource_overview.html:23
 #: dashboards/project/stacks/templates/stacks/_resource_overview.html:28
-#: dashboards/project/volumes/backups/tables.py:130
+#: dashboards/project/volumes/backups/tables.py:144
 #: dashboards/project/volumes/templates/volumes/backups/_detail_overview.html:13
 #: dashboards/project/volumes/templates/volumes/snapshots/_detail_overview.html:13
 #: dashboards/project/volumes/templates/volumes/volumes/_detail_overview.html:13
@@ -2282,7 +2282,7 @@ msgstr ""
 #: dashboards/project/images/templates/images/images/_detail_overview.html:40
 #: dashboards/project/instances/tables.py:1161
 #: dashboards/project/instances/templates/instances/_instance_flavor.html:7
-#: dashboards/project/volumes/backups/tables.py:127
+#: dashboards/project/volumes/backups/tables.py:141
 #: dashboards/project/volumes/templates/volumes/backups/_detail_overview.html:28
 #: dashboards/project/volumes/templates/volumes/snapshots/_detail_overview.html:30
 #: dashboards/project/volumes/templates/volumes/volumes/_detail_overview.html:20
@@ -2491,7 +2491,7 @@ msgstr ""
 #: dashboards/project/stacks/templates/stacks/_detail_overview.html:9
 #: dashboards/project/stacks/templates/stacks/_resource_overview.html:19
 #: dashboards/project/volumes/backups/forms.py:35
-#: dashboards/project/volumes/backups/tables.py:124
+#: dashboards/project/volumes/backups/tables.py:138
 #: dashboards/project/volumes/snapshots/forms.py:28
 #: dashboards/project/volumes/templates/volumes/backups/_detail_overview.html:10
 #: dashboards/project/volumes/templates/volumes/snapshots/_detail_overview.html:10
@@ -2678,7 +2678,7 @@ msgstr ""
 #: dashboards/project/routers/templates/routers/_detail_overview.html:14
 #: dashboards/project/routers/templates/routers/_detail_overview.html:32
 #: dashboards/project/routers/templates/routers/_detail_overview.html:38
-#: dashboards/project/volumes/backups/tables.py:37
+#: dashboards/project/volumes/backups/tables.py:38
 #: dashboards/project/volumes/snapshots/tables.py:126
 msgid "Unknown"
 msgstr ""
@@ -3871,7 +3871,7 @@ msgstr ""
 msgid "Unable to retrieve QoS specs"
 msgstr ""
 
-#: dashboards/admin/volumes/tabs.py:139 dashboards/project/volumes/tabs.py:143
+#: dashboards/admin/volumes/tabs.py:139 dashboards/project/volumes/tabs.py:142
 #: dashboards/project/volumes/volumes/forms.py:229
 msgid "Unable to retrieve volume snapshots."
 msgstr ""
@@ -3919,7 +3919,7 @@ msgstr ""
 #: dashboards/admin/volumes/volumes/forms.py:63
 #: dashboards/admin/volumes/volumes/forms.py:141
 #: dashboards/admin/volumes/volumes/forms.py:169
-#: dashboards/project/volumes/backups/tables.py:135
+#: dashboards/project/volumes/backups/tables.py:149
 #: dashboards/project/volumes/snapshots/tables.py:151
 #: dashboards/project/volumes/volumes/forms.py:78
 #: dashboards/project/volumes/volumes/forms.py:604
@@ -3962,7 +3962,6 @@ msgstr ""
 #: dashboards/admin/volumes/templates/volumes/snapshots/_detail_overview.html:29
 #: dashboards/admin/volumes/templates/volumes/volume_types/qos_specs/_index.html:6
 #: dashboards/admin/volumes/volume_types/tables.py:308
-#: dashboards/admin/volumes/volume_types/qos_specs/tables.py:36
 #: dashboards/project/images/templates/images/images/_detail_overview.html:37
 #: dashboards/project/instances/templates/instances/_detail_overview.html:38
 #: dashboards/project/volumes/templates/volumes/backups/_detail_overview.html:25
@@ -4530,7 +4529,7 @@ msgstr ""
 
 #: dashboards/admin/volumes/volume_types/views.py:119
 #: dashboards/admin/volumes/volume_types/extras/tables.py:59
-#: dashboards/admin/volumes/volume_types/qos_specs/tables.py:52
+#: dashboards/admin/volumes/volume_types/qos_specs/tables.py:66
 #: dashboards/identity/domains/tables.py:81
 #: dashboards/identity/identity_providers/tables.py:35
 #: dashboards/identity/roles/tables.py:37
@@ -4551,7 +4550,7 @@ msgstr ""
 #: dashboards/admin/volumes/volume_types/views.py:157
 #: dashboards/admin/volumes/volume_types/extras/tables.py:48
 #: dashboards/admin/volumes/volume_types/extras/views.py:65
-#: dashboards/admin/volumes/volume_types/qos_specs/tables.py:24
+#: dashboards/admin/volumes/volume_types/qos_specs/tables.py:25
 #: dashboards/admin/volumes/volume_types/qos_specs/views.py:76
 #: dashboards/project/containers/templates/containers/_create_pseudo_folder.html:24
 #: dashboards/project/networks/workflows.py:460
@@ -4599,7 +4598,7 @@ msgstr ""
 #: dashboards/admin/volumes/volume_types/extras/forms.py:24
 #: dashboards/admin/volumes/volume_types/extras/tables.py:69
 #: dashboards/admin/volumes/volume_types/qos_specs/forms.py:25
-#: dashboards/admin/volumes/volume_types/qos_specs/tables.py:62
+#: dashboards/admin/volumes/volume_types/qos_specs/tables.py:76
 msgid "Key"
 msgstr ""
 
@@ -4608,7 +4607,7 @@ msgstr ""
 #: dashboards/admin/volumes/volume_types/extras/tables.py:70
 #: dashboards/admin/volumes/volume_types/qos_specs/forms.py:26
 #: dashboards/admin/volumes/volume_types/qos_specs/forms.py:49
-#: dashboards/admin/volumes/volume_types/qos_specs/tables.py:63
+#: dashboards/admin/volumes/volume_types/qos_specs/tables.py:77
 msgid "Value"
 msgstr ""
 
@@ -4677,11 +4676,19 @@ msgstr ""
 msgid "Unable to edit spec."
 msgstr ""
 
-#: dashboards/admin/volumes/volume_types/qos_specs/tables.py:35
-msgid "Spec"
-msgstr ""
+#: dashboards/admin/volumes/volume_types/qos_specs/tables.py:38
+msgid "Delete Spec"
+msgid_plural "Delete Specs"
+msgstr[0] ""
+msgstr[1] ""
 
-#: dashboards/admin/volumes/volume_types/qos_specs/tables.py:67
+#: dashboards/admin/volumes/volume_types/qos_specs/tables.py:46
+msgid "Deleted Spec"
+msgid_plural "Deleted Specs"
+msgstr[0] ""
+msgstr[1] ""
+
+#: dashboards/admin/volumes/volume_types/qos_specs/tables.py:81
 msgid "Key-Value Pairs"
 msgstr ""
 
@@ -12652,13 +12659,12 @@ msgstr ""
 msgid "Unable to retrieve snapshot list."
 msgstr ""
 
-#: dashboards/project/volumes/tabs.py:157
-#: dashboards/project/volumes/backups/tables.py:49
-#: dashboards/project/volumes/backups/tables.py:141
+#: dashboards/project/volumes/tabs.py:154
+#: dashboards/project/volumes/backups/tables.py:155
 msgid "Volume Backups"
 msgstr ""
 
-#: dashboards/project/volumes/tabs.py:174
+#: dashboards/project/volumes/tabs.py:171
 msgid "Unable to retrieve volume backups."
 msgstr ""
 
@@ -12698,45 +12704,48 @@ msgstr ""
 msgid "Unable to restore backup."
 msgstr ""
 
-#: dashboards/project/volumes/backups/tables.py:48
-msgid "Volume Backup"
-msgstr ""
+#: dashboards/project/volumes/backups/tables.py:53
+msgid "Delete Volume Backup"
+msgid_plural "Delete Volume Backups"
+msgstr[0] ""
+msgstr[1] ""
 
-#: dashboards/project/volumes/backups/tables.py:50
-#, python-format
-msgid "Scheduled deletion of %(data_type)s"
-msgstr ""
+#: dashboards/project/volumes/backups/tables.py:61
+msgid "Scheduled deletion of Volume Backup"
+msgid_plural "Scheduled deletion of Volume Backups"
+msgstr[0] ""
+msgstr[1] ""
 
-#: dashboards/project/volumes/backups/tables.py:64
+#: dashboards/project/volumes/backups/tables.py:78
 msgid "Restore Backup"
 msgstr ""
 
-#: dashboards/project/volumes/backups/tables.py:107
+#: dashboards/project/volumes/backups/tables.py:121
 msgctxt "Current status of a Volume Backup"
 msgid "Available"
 msgstr ""
 
-#: dashboards/project/volumes/backups/tables.py:109
+#: dashboards/project/volumes/backups/tables.py:123
 msgctxt "Current status of a Volume Backup"
 msgid "Error"
 msgstr ""
 
-#: dashboards/project/volumes/backups/tables.py:111
+#: dashboards/project/volumes/backups/tables.py:125
 msgctxt "Current status of a Volume Backup"
 msgid "Creating"
 msgstr ""
 
-#: dashboards/project/volumes/backups/tables.py:113
+#: dashboards/project/volumes/backups/tables.py:127
 msgctxt "Current status of a Volume Backup"
 msgid "Restoring"
 msgstr ""
 
-#: dashboards/project/volumes/backups/tables.py:115
+#: dashboards/project/volumes/backups/tables.py:129
 msgctxt "Current status of a Volume Backup"
 msgid "Deleting"
 msgstr ""
 
-#: dashboards/project/volumes/backups/tables.py:117
+#: dashboards/project/volumes/backups/tables.py:131
 msgctxt "Current status of a Volume Backup"
 msgid "Error Restoring"
 msgstr ""
@@ -14631,17 +14640,18 @@ msgstr ""
 msgid "Another Plugin-based Panel"
 msgstr ""
 
+#: test/tests/quotas.py:275 test/tests/quotas.py:294 test/tests/quotas.py:310
+#: usage/base.py:186 usage/quotas.py:152 usage/quotas.py:353
+#: usage/quotas.py:407
+msgid "Unable to retrieve volume limit information."
+msgstr ""
+
 #: usage/base.py:74
 msgid "Invalid date format: Using today as default."
 msgstr ""
 
 #: usage/base.py:171
 msgid "Unable to retrieve network quota information."
-msgstr ""
-
-#: usage/base.py:186 usage/quotas.py:152 usage/quotas.py:353
-#: usage/quotas.py:407
-msgid "Unable to retrieve volume limit information."
 msgstr ""
 
 #: usage/base.py:196

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2016-01-25 00:39+0000\n"
+"POT-Creation-Date: 2016-01-31 01:15+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -4341,10 +4341,6 @@ msgid "Saved spec \"%s\"."
 msgstr "تصریح \"%s\" محفوظ كیا ۔"
 
 #, python-format
-msgid "Scheduled deletion of %(data_type)s"
-msgstr "%(data_type)s کے شیڈول کی منسوخی"
-
-#, python-format
 msgid "Scheduled resize of instance \"%s\"."
 msgstr "انسٹانس \"%s\" کے شیڈول سائز تبدیل كریں."
 
@@ -6604,9 +6600,6 @@ msgstr "ولیوم %(volume_name)s پر انسٹانس %(instance_name)s"
 
 msgid "Volume (Cinder)"
 msgstr "حجم (سڈر)"
-
-msgid "Volume Backup"
-msgstr "ولیوم بیك اپ"
 
 msgid "Volume Backup:"
 msgstr "ولیوم بیك اپ :"

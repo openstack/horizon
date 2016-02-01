@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2016-01-20 06:32+0000\n"
+"POT-Creation-Date: 2016-01-31 06:28+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,64 +17,71 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 2.2.0\n"
 
-#: static/framework/util/filters/filters.js:42
+#: static/framework/util/filters/filters.js:43
 msgid "Yes"
 msgstr ""
 
-#: static/framework/util/filters/filters.js:42
+#: static/framework/util/filters/filters.js:43
 msgid "No"
 msgstr ""
 
-#: static/framework/util/filters/filters.js:60
-#: static/framework/util/filters/filters.js:172
+#: static/framework/util/filters/filters.js:61
+#: static/framework/util/filters/filters.js:185
 #, python-format
 msgid "%s TB"
 msgstr ""
 
-#: static/framework/util/filters/filters.js:62
+#: static/framework/util/filters/filters.js:63
 msgid "0 GB"
 msgstr ""
 
-#: static/framework/util/filters/filters.js:64
-#: static/framework/util/filters/filters.js:83
-#: static/framework/util/filters/filters.js:174
+#: static/framework/util/filters/filters.js:65
+#: static/framework/util/filters/filters.js:84
+#: static/framework/util/filters/filters.js:187
 #, python-format
 msgid "%s GB"
 msgstr ""
 
-#: static/framework/util/filters/filters.js:85
+#: static/framework/util/filters/filters.js:86
 msgid "0 MB"
 msgstr ""
 
-#: static/framework/util/filters/filters.js:87
-#: static/framework/util/filters/filters.js:176
+#: static/framework/util/filters/filters.js:88
+#: static/framework/util/filters/filters.js:189
 #, python-format
 msgid "%s MB"
 msgstr ""
 
-#: static/framework/util/filters/filters.js:134
+#: static/framework/util/filters/filters.js:135
 msgid "-"
 msgstr ""
 
-#: static/framework/util/filters/filters.js:178
+#: static/framework/util/filters/filters.js:150
+#: static/horizon/js/horizon.networktopology.js:928
+#: static/horizon/js/horizon.networktopology.js:934
+#: static/horizon/js/horizon.networktopology.js:940
+msgid "None"
+msgstr ""
+
+#: static/framework/util/filters/filters.js:191
 #, python-format
 msgid "%s KB"
 msgstr ""
 
-#: static/framework/util/filters/filters.js:180
+#: static/framework/util/filters/filters.js:193
 #, python-format
 msgid "%s bytes"
 msgstr ""
 
-#: static/framework/util/filters/filters.js:204
-#: static/horizon/js/horizon.tables.js:405
+#: static/framework/util/filters/filters.js:218
+#: static/horizon/js/horizon.tables.js:415
 #, python-format
 msgid "Displaying %s item"
 msgid_plural "Displaying %s items"
 msgstr[0] ""
 msgstr[1] ""
 
-#: static/framework/util/filters/filters.js:208
+#: static/framework/util/filters/filters.js:222
 #, python-format
 msgid "Displaying %(count)s of %(total)s items"
 msgstr ""
@@ -106,7 +113,7 @@ msgid "Remaining"
 msgstr ""
 
 #: static/framework/widgets/charts/pie-chart.directive.js:172
-msgid "no quota"
+msgid "No Limit"
 msgstr ""
 
 #: static/framework/widgets/charts/pie-chart.directive.js:175
@@ -255,7 +262,6 @@ msgstr ""
 
 #: static/framework/widgets/metadata/tree/tree.module.js:56
 #: static/framework/widgets/table/table.module.js:50
-#: static/horizon/js/horizon.forms.js:242
 msgid "Filter"
 msgstr ""
 
@@ -305,6 +311,10 @@ msgstr ""
 
 #: static/framework/widgets/modal/simple-modal.service.js:81
 msgid "Submit"
+msgstr ""
+
+#: static/framework/widgets/table/hz-no-items.html:5
+msgid "{$ message || 'No items to display.' $}"
 msgstr ""
 
 #: static/framework/widgets/toast/toast.service.js:58
@@ -439,7 +449,7 @@ msgid "Error: "
 msgstr ""
 
 #: static/horizon/js/horizon.modals.js:238
-#: static/horizon/js/horizon.tables.js:252
+#: static/horizon/js/horizon.tables.js:262
 msgid "Working"
 msgstr ""
 
@@ -450,12 +460,6 @@ msgstr ""
 #: static/horizon/js/horizon.modals.js:329
 #: static/horizon/js/horizon.modals.js:412 static/horizon/js/horizon.tabs.js:21
 msgid "Loading"
-msgstr ""
-
-#: static/horizon/js/horizon.networktopology.js:928
-#: static/horizon/js/horizon.networktopology.js:934
-#: static/horizon/js/horizon.networktopology.js:940
-msgid "None"
 msgstr ""
 
 #: static/horizon/js/horizon.networktopology.js:966
@@ -523,26 +527,26 @@ msgid "Create Subnet"
 msgstr ""
 
 #: static/horizon/js/horizon.tables.js:45
-#: static/horizon/js/horizon.tables.js:418
+#: static/horizon/js/horizon.tables.js:428
 msgid "No items to display."
 msgstr ""
 
 #: static/horizon/js/horizon.tables.js:58
-#: static/horizon/js/horizon.tables.js:130
+#: static/horizon/js/horizon.tables.js:140
 msgid "An error occurred while updating."
 msgstr ""
 
-#: static/horizon/js/horizon.tables.js:231
+#: static/horizon/js/horizon.tables.js:241
 #, python-format
 msgid "You have selected %s. "
 msgstr ""
 
-#: static/horizon/js/horizon.tables.js:233
+#: static/horizon/js/horizon.tables.js:243
 #, python-format
 msgid "Confirm %s"
 msgstr ""
 
-#: static/horizon/js/horizon.tables.js:234
+#: static/horizon/js/horizon.tables.js:244
 msgid "Please confirm your selection. "
 msgstr ""
 

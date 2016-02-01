@@ -19,7 +19,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2016-01-27 04:41+0000\n"
+"POT-Creation-Date: 2016-01-31 01:15+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -6659,10 +6659,6 @@ msgctxt "Current status of an Image"
 msgid "Saving"
 msgstr "保存中"
 
-#, python-format
-msgid "Scheduled deletion of %(data_type)s"
-msgstr "%(data_type)s の削除を予約しました。"
-
 msgid "Scheduled deletion of Firewall"
 msgid_plural "Scheduled deletion of Firewalls"
 msgstr[0] "ファイアウォールの削除を予約しました"
@@ -9841,9 +9837,6 @@ msgstr "インスタンス %(instance_name)s のボリューム %(volume_name)s"
 
 msgid "Volume (Cinder)"
 msgstr "ボリューム (Cinder)"
-
-msgid "Volume Backup"
-msgstr "ボリュームバックアップ"
 
 msgid "Volume Backup:"
 msgstr "ボリュームバックアップ:"

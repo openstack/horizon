@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2016-01-25 00:39+0000\n"
+"POT-Creation-Date: 2016-01-31 01:15+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -4340,10 +4340,6 @@ msgid "Saved spec \"%s\"."
 msgstr "স্পেক \"%s\" সেভ তৌরে।"
 
 #, python-format
-msgid "Scheduled deletion of %(data_type)s"
-msgstr "সেদ্যুল শেম্লবা %(data_type)sগী দিলিসন"
-
-#, python-format
 msgid "Scheduled resize of instance \"%s\"."
 msgstr "সেদ্যুল শেম্লবা ইন্সতেন্স \"%s\"গী রিসাইজ তৌবা"
 
@@ -6583,9 +6579,6 @@ msgstr "ইন্সতেন্স %(instance_name)sদা ভোল্যু�
 
 msgid "Volume (Cinder)"
 msgstr "ভোল্যুম (সিন্দর)"
-
-msgid "Volume Backup"
-msgstr "ভোল্যুম বেকঅপ"
 
 msgid "Volume Backup:"
 msgstr "ভোল্যুম বেকঅপ:"
