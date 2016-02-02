@@ -1685,9 +1685,7 @@ class DataTable(object):
         By default, this returns a ``name`` attribute from the given object,
         but this can be overridden to return other values.
         """
-        if hasattr(datum, 'name'):
-            return datum.name
-        return None
+        return getattr(datum, 'name', None)
 
     def has_prev_data(self):
         """Returns a boolean value indicating whether there is previous data
