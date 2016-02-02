@@ -114,7 +114,7 @@ class RouterTests(test.BaseAdminViewTests, r_test.RouterTests):
 
         res = self.client.get(self.INDEX_URL)
 
-        formData = {'action': 'Routers__delete__' + router.id}
+        formData = {'action': 'routers__delete__' + router.id}
         res = self.client.post(self.INDEX_URL, formData, follow=True)
         self.assertNoFormErrors(res)
         self.assertMessageCount(response=res, success=1)
@@ -158,7 +158,7 @@ class RouterTests(test.BaseAdminViewTests, r_test.RouterTests):
 
         res = self.client.get(self.INDEX_URL)
 
-        formData = {'action': 'Routers__delete__' + router.id}
+        formData = {'action': 'routers__delete__' + router.id}
         res = self.client.post(self.INDEX_URL, formData, follow=True)
         self.assertNoFormErrors(res)
         self.assertMessageCount(response=res, success=1)
