@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-12-17 05:35+0000\n"
+"POT-Creation-Date: 2016-01-31 10:08+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -320,12 +320,6 @@ msgstr "ਅਣਅਧਿਕਾਰਤ। ਕਿਰਪਾ ਕਰ ਕੇ ਦੁਬ�
 #, python-format
 msgid "Unauthorized: %s"
 msgstr "ਅਣ-ਅਧਿਕਾਰਤ ਕੀਤਾ: %s"
-
-msgid "Update"
-msgstr "ਅਪਡੇਟ ਕਰੋ"
-
-msgid "Updated"
-msgstr "ਅਪਡੇਟ ਹੋਇਆ"
 
 msgid "Usage Summary"
 msgstr "ਵਰਤੋਂ ਸਾਰ"

@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2016-01-31 01:15+0000\n"
+"POT-Creation-Date: 2016-01-31 10:08+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -4436,9 +4436,6 @@ msgstr "स्रोत पोर्ट / पोर्ट सीमा"
 
 msgid "Source port (integer in [1, 65535] or range in a:b)"
 msgstr "स्रोत पोर्ट ([1, 65,535] में पूर्णांक या एक में रेंज: ख)"
-
-msgid "Spec"
-msgstr "Spec"
 
 msgid "Specify VIP"
 msgstr "VIP निर्दिष्ट करें"

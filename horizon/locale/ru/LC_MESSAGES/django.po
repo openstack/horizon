@@ -15,7 +15,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2016-01-20 01:04+0000\n"
+"POT-Creation-Date: 2016-01-31 10:08+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -386,12 +386,6 @@ msgstr "Вы не авторизованы. Попробуйте войти в �
 #, python-format
 msgid "Unauthorized: %s"
 msgstr "Не авторизован: %s"
-
-msgid "Update"
-msgstr "Обновить"
-
-msgid "Updated"
-msgstr "Обновлено"
 
 msgid "Usage Summary"
 msgstr "Сводка использования"

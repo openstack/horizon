@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-11-18 04:22+0000\n"
+"POT-Creation-Date: 2016-01-31 10:08+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Language: hu\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "Generated-By: Babel 2.0\n"
-"X-Generator: Zanata 3.7.1\n"
+"X-Generator: Zanata 3.7.3\n"
 "Language-Team: Hungarian\n"
 
 #, python-format
@@ -181,12 +181,6 @@ msgstr "Nem hajtható végre: %(action)s: %(objs)s"
 
 msgid "Unauthorized. Please try logging in again."
 msgstr "Jogosulatlan hozzáférés. Próbáljon meg belépni újra."
-
-msgid "Update"
-msgstr "Frissítés"
-
-msgid "Updated"
-msgstr "Frissítve"
 
 msgid "Usage Summary"
 msgstr "Használati összegzés"

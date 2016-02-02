@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2016-01-09 00:51+0000\n"
+"POT-Creation-Date: 2016-01-31 10:08+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -370,12 +370,6 @@ msgstr "Nicht autorisiert. Bitte melden Sie sich erneut an."
 #, python-format
 msgid "Unauthorized: %s"
 msgstr "Nicht berechtigt: %s"
-
-msgid "Update"
-msgstr "Aktualisieren"
-
-msgid "Updated"
-msgstr "Aktualisiert"
 
 msgid "Usage Summary"
 msgstr "Nutzungsübersicht"

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2016-01-31 01:15+0000\n"
+"POT-Creation-Date: 2016-01-31 10:08+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -4655,9 +4655,6 @@ msgstr "সোর্স পোর্ত ([1, 65535]দা লৈবা ইন্
 
 msgid "Source:"
 msgstr "সোর্স:"
-
-msgid "Spec"
-msgstr "স্পেক"
 
 msgid ""
 "Specifies how IPv6 addresses and additional information are configured. We "

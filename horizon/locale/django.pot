@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2016-01-31 06:28+0000\n"
+"POT-Creation-Date: 2016-02-02 06:18+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -43,13 +43,23 @@ msgid ""
 "\"https://\""
 msgstr ""
 
-#: exceptions.py:211
+#: exceptions.py:216
 #, python-format
 msgid "Unauthorized: %s"
 msgstr ""
 
-#: exceptions.py:214 middleware.py:125
+#: exceptions.py:219 middleware.py:125
 msgid "Unauthorized. Please try logging in again."
+msgstr ""
+
+#: notifications.py:69
+#, python-format
+msgid "Message json file '%(path)s' is malformed. %(exception)s"
+msgstr ""
+
+#: notifications.py:92
+#, python-format
+msgid "Error processing message json file '%(path)s': %(exception)s"
 msgstr ""
 
 #: browsers/base.py:88

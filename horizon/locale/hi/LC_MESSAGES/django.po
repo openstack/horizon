@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-11-18 04:22+0000\n"
+"POT-Creation-Date: 2016-01-31 10:08+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -19,7 +19,7 @@ msgstr ""
 "Language: hi\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "Generated-By: Babel 2.0\n"
-"X-Generator: Zanata 3.7.1\n"
+"X-Generator: Zanata 3.7.3\n"
 "Language-Team: Hindi\n"
 
 #, python-format
@@ -298,12 +298,6 @@ msgstr "अनधिकृत. फिर लॉग इन करने का �
 #, python-format
 msgid "Unauthorized: %s"
 msgstr "अनधिकृत: %s"
-
-msgid "Update"
-msgstr "अद्यतन"
-
-msgid "Updated"
-msgstr "अद्यतित"
 
 msgid "Usage Summary"
 msgstr "प्रयोग सार"

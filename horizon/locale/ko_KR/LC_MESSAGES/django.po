@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2016-01-25 00:39+0000\n"
+"POT-Creation-Date: 2016-01-31 10:08+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -352,12 +352,6 @@ msgstr "권한이 없습니다. 다시 로그인 해주십시오."
 #, python-format
 msgid "Unauthorized: %s"
 msgstr "권한이 없습니다: %s"
-
-msgid "Update"
-msgstr "업데이트"
-
-msgid "Updated"
-msgstr "업데이트 완료"
 
 msgid "Usage Summary"
 msgstr "사용량 요약"
