@@ -17,6 +17,7 @@
 #    under the License.
 
 import copy
+import email.header
 import tempfile
 
 from django.core.files.uploadedfile import InMemoryUploadedFile  # noqa
@@ -359,13 +360,18 @@ class SwiftTests(test.TestCase):
 
                 # Check that the returned Content-Disposition filename is well
                 # surrounded by double quotes and with commas removed
+                content = res.get('Content-Disposition')
                 expected_name = '"%s"' % obj.name.replace(',', '')
-                if six.PY2:
-                    expected_name = expected_name.encode('utf-8')
-                self.assertEqual(
-                    res.get('Content-Disposition'),
-                    'attachment; filename=%s' % expected_name
-                )
+                expected = 'attachment; filename=%s' % expected_name
+
+                if six.PY3:
+                    header = email.header.decode_header(content)
+                    content = header[0][0]
+                    if isinstance(content, str):
+                        content = content.encode('utf-8')
+                expected = expected.encode('utf-8')
+
+                self.assertEqual(content, expected)
 
     @test.create_stubs({api.swift: ('swift_get_containers',)})
     def test_copy_index(self):
