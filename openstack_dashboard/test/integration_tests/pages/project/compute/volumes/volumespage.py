@@ -10,6 +10,8 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
+from selenium.webdriver.common.by import By
+
 from openstack_dashboard.test.integration_tests.pages import basepage
 from openstack_dashboard.test.integration_tests.pages.project.compute \
     import instancespage
@@ -79,6 +81,11 @@ class VolumesTable(tables.TableRegion):
         upload_button.click()
         return forms.FormRegion(self.driver, self.conf,
                                 field_mappings=self.UPLOAD_VOLUME_FORM_FIELDS)
+
+    @tables.bind_row_action('attachments')
+    def manage_attachments(self, manage_attachments, row):
+        manage_attachments.click()
+        return VolumeAttachForm(self.driver, self.conf)
 
 
 class VolumesPage(basepage.BaseNavigationPage):
@@ -200,3 +207,49 @@ class VolumesPage(basepage.BaseNavigationPage):
         row = self._get_row_with_volume_name(name)
         attach_instance = row.cells[self.VOLUMES_TABLE_ATTACHED_COLUMN].text
         return attach_instance
+
+    def attach_volume_to_instance(self, volume, instance):
+        row = self._get_row_with_volume_name(volume)
+        attach_form = self.volumes_table.manage_attachments(row)
+        attach_form.attach_instance(instance)
+
+    def is_volume_attached_to_instance(self, volume, instance):
+        row = self._get_row_with_volume_name(volume)
+        return row.cells[
+            self.VOLUMES_TABLE_ATTACHED_COLUMN].text.startswith(
+            "Attached to {0}".format(instance))
+
+    def detach_volume_from_instance(self, volume, instance):
+        row = self._get_row_with_volume_name(volume)
+        attachment_form = self.volumes_table.manage_attachments(row)
+        detach_form = attachment_form.detach(volume, instance)
+        detach_form.submit()
+
+
+class VolumeAttachForm(forms.BaseFormRegion):
+    _attach_to_instance_selector = (By.CSS_SELECTOR, 'select[name="instance"]')
+    _attachments_table_selector = (By.CSS_SELECTOR, 'table[id="attachments"]')
+    _detach_template = 'tr[data-display="Volume {0} on instance {1}"] button'
+
+    @property
+    def attachments_table(self):
+        return self._get_element(*self._attachments_table_selector)
+
+    @property
+    def instance_selector(self):
+        src_elem = self._get_element(*self._attach_to_instance_selector)
+        return forms.SelectFormFieldRegion(self.driver, self.conf, src_elem)
+
+    def detach(self, volume, instance):
+        detach_button = self.attachments_table.find_element(
+            By.CSS_SELECTOR, self._detach_template.format(volume, instance))
+        detach_button.click()
+        return forms.BaseFormRegion(self.driver, self.conf)
+
+    def attach_instance(self, instance_name):
+        instance = filter(lambda x: x.startswith(instance_name),
+                          self.instance_selector.options.values())
+        if not instance:
+            raise AttributeError("Unable to select {0}".format(instance_name))
+        self.instance_selector.text = instance[0]
+        self.submit()

@@ -82,6 +82,10 @@ class BaseWebObject(unittest.TestCase):
         select = Support.Select(element)
         select.select_by_value(value)
 
+    def _get_dropdown_options(self, element):
+        select = Support.Select(element)
+        return select.options
+
     def _turn_off_implicit_wait(self):
         self.driver.implicitly_wait(0)
 
