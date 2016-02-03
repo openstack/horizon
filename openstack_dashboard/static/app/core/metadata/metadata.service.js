@@ -86,7 +86,7 @@
           aggregate: 'OS::Nova::Aggregate',
           flavor: 'OS::Nova::Flavor',
           image: 'OS::Glance::Image',
-          instance: 'OS::Nova::Instance'
+          instance: 'OS::Nova::Server'
         }[resource]
       };
       if (propertiesTarget) {
