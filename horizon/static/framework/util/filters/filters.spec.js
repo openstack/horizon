@@ -288,5 +288,33 @@
       });
     });
 
+    describe('limit', function() {
+      var limitFilter;
+
+      beforeEach(inject(function(_limitFilter_) {
+        limitFilter = _limitFilter_;
+      }));
+
+      it('should return valid number as is', function() {
+        var limit = limitFilter(0);
+        expect(limit).toBe(0);
+      });
+
+      it('should return non-numeric value as "Unlimited"', function() {
+        var limit = limitFilter('foo');
+        expect(limit).toBe('Unlimited');
+      });
+
+      it('should return negative number as "Unlimited"', function() {
+        var limit = limitFilter(-1);
+        expect(limit).toBe('Unlimited');
+      });
+
+      it('should return negative number as custom value', function() {
+        var limit = limitFilter(-1, 'foo');
+        expect(limit).toBe('foo');
+      });
+    });
+
   }); // end of horizon.framework.util.filters
 })(); // end of IIFE
