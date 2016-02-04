@@ -20,13 +20,37 @@
   describe('horizon.app.core.images table controller', function() {
 
     var glanceAPI = {
-      getImages: function() {
+      getImages: function () {
         return {
-          success: function(callback) {
-            callback({items : [{id: '1'},{id: '2'}]});
+          data: {
+            items: [
+              {id: '1', visibility: 'public'},
+              {id: '2', is_public: false, owner: 'not_me'}
+            ]
           }
         };
       }
+    };
+
+    var userSession = {
+      get: function () {
+        return {project_id: '123'};
+      }
+    };
+
+    var mockQ = {
+      all: function (input) {
+        return {
+          then: function (callback) {
+            callback(input);
+          }
+        };
+      }
+    };
+
+    var expectedImages = {
+      1: {id: '1', visibility: 'public', filtered_visibility: 'Public'},
+      2: {id: '2', is_public: false, owner: 'not_me', filtered_visibility: 'Shared with Me'}
     };
 
     var $scope, controller, events;
@@ -39,43 +63,54 @@
     beforeEach(module('horizon.framework.widgets.toast'));
     beforeEach(module('horizon.app.core.openstack-service-api', function($provide) {
       $provide.value('horizon.app.core.openstack-service-api.glance', glanceAPI);
+      $provide.value('horizon.app.core.openstack-service-api.userSession', userSession);
     }));
 
-    beforeEach(module('horizon.app.core'));
     beforeEach(module('horizon.app.core.images'));
 
     beforeEach(inject(function ($injector, _$rootScope_) {
       $scope = _$rootScope_.$new();
-
       events = $injector.get('horizon.app.core.images.events');
       controller = $injector.get('$controller');
 
       spyOn(glanceAPI, 'getImages').and.callThrough();
+      spyOn(userSession, 'get').and.callThrough();
+      spyOn(mockQ, 'all').and.callThrough();
     }));
 
     function createController() {
       return controller('imagesTableController', {
         glanceAPI: glanceAPI,
+        userSession: userSession,
+        $q: mockQ,
         $scope: $scope
       });
     }
 
-    it('should invoke glance apis', function() {
+    it('should invoke initialization apis', function() {
       var ctrl = createController();
-
+      expect(userSession.get).toHaveBeenCalled();
       expect(glanceAPI.getImages).toHaveBeenCalled();
-      expect(ctrl.imagesSrc).toEqual([{id: '1'}, {id: '2'}]);
+      expect(ctrl.imagesSrc).toEqual([
+        expectedImages['1'],
+        expectedImages['2']
+      ]);
     });
 
     it('should refresh images after delete', function() {
       var ctrl = createController();
-      expect(ctrl.imagesSrc).toEqual([{id: '1'}, {id: '2'}]);
+      expect(ctrl.imagesSrc).toEqual([
+        expectedImages['1'],
+        expectedImages['2']
+      ]);
 
       $scope.$emit(events.DELETE_SUCCESS, ['1']);
 
       expect($scope.selected).toEqual({});
       expect($scope.numSelected).toEqual(0);
-      expect(ctrl.imagesSrc).toEqual([{id: '2'}]);
+      expect(ctrl.imagesSrc).toEqual([
+        expectedImages['2']
+      ]);
     });
 
     it('should destroy the event watchers', function() {
@@ -84,7 +119,10 @@
       $scope.$emit('$destroy');
       $scope.$emit(events.DELETE_SUCCESS, ['1']);
 
-      expect(ctrl.imagesSrc).toEqual([{id: '1'}, {id: '2'}]);
+      expect(ctrl.imagesSrc).toEqual([
+        expectedImages['1'],
+        expectedImages['2']
+      ]);
     });
 
   });
