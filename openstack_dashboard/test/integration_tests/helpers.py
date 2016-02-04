@@ -17,6 +17,9 @@ import time
 import traceback
 import uuid
 
+from selenium.webdriver.common import action_chains
+from selenium.webdriver.common import by
+from selenium.webdriver.common import keys
 import testtools
 import xvfbwrapper
 
@@ -54,7 +57,7 @@ class BaseTestCase(testtools.TestCase):
         if os.environ.get('INTEGRATION_TESTS', False):
             # Start a virtual display server for running the tests headless.
             if os.environ.get('SELENIUM_HEADLESS', False):
-                self.vdisplay = xvfbwrapper.Xvfb(width=1280, height=720)
+                self.vdisplay = xvfbwrapper.Xvfb(width=1920, height=1080)
                 args = []
 
                 # workaround for memory leak in Xvfb taken from:
@@ -127,6 +130,17 @@ class BaseTestCase(testtools.TestCase):
         finally:
             self.addDetail("PageHTMLSource.html", content)
 
+    def zoom_out(self, times=3):
+        """Zooming out prevents different elements being driven out of xvfb
+        viewport (which in Selenium>=2.50.1 prevents interaction with them.
+        """
+        html = self.driver.find_element(by.By.TAG_NAME, 'html')
+        html.send_keys(keys.Keys.NULL)
+        zoom_out_keys = (keys.Keys.SUBTRACT,) * times
+        action_chains.ActionChains(self.driver).key_down(
+            keys.Keys.CONTROL).send_keys(*zoom_out_keys).key_up(
+            keys.Keys.CONTROL).perform()
+
     def _save_screenshot(self, exc_info):
         screenshot_dir = os.path.join(
             ROOT_PATH,
@@ -169,6 +183,7 @@ class TestCase(BaseTestCase):
         super(TestCase, self).setUp()
         self.login_pg = loginpage.LoginPage(self.driver, self.CONFIG)
         self.login_pg.go_to_login_page()
+        self.zoom_out()
         self.home_pg = self.login_pg.login(self.TEST_USER_NAME,
                                            self.TEST_PASSWORD)
 
