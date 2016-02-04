@@ -100,9 +100,6 @@ module.exports = function (config) {
        */
       '!(horizon)/**/!(*.spec|*.mock).js',
 
-      // Magic search requires late ordering due to overriding.
-      xstaticPath + 'magic_search/data/magic_search.js',
-
       /**
        * Then, list files for mocks with `mock.js` extension. The order
        * among them should not be significant.

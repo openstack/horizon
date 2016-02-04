@@ -23,7 +23,7 @@
     beforeEach(module('templates'));
     beforeEach(module('smart-table'));
     beforeEach(module('horizon.framework.widgets'));
-    beforeEach(module('MagicSearch'));
+    beforeEach(module('horizon.framework.widgets.magic-search'));
     beforeEach(module(function ($provide) {
       $provide.value('$window', {
         location: {
