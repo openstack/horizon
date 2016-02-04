@@ -56,23 +56,20 @@ class IndexView(tables.DataTableView):
             project_tables.AdminImagesTable._meta.prev_pagination_param, None)
 
         if prev_marker is not None:
-            sort_dir = 'asc'
             marker = prev_marker
         else:
-            sort_dir = 'desc'
             marker = self.request.GET.get(
                 project_tables.AdminImagesTable._meta.pagination_param, None)
+        reversed_order = prev_marker is not None
         try:
             images, self._more, self._prev = api.glance.image_list_detailed(
                 self.request,
                 marker=marker,
                 paginate=True,
                 filters=filters,
-                sort_dir=sort_dir)
-
-            if prev_marker is not None:
-                images = sorted(images, key=lambda image:
-                                getattr(image, 'created_at'), reverse=True)
+                sort_dir='asc',
+                sort_key='name',
+                reversed_order=reversed_order)
 
         except Exception:
             self._prev = False

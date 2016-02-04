@@ -51,7 +51,9 @@ class ImagesViewTest(test.BaseAdminViewTests):
                                        marker=None,
                                        paginate=True,
                                        filters=filters,
-                                       sort_dir='desc') \
+                                       sort_dir='asc',
+                                       sort_key='name',
+                                       reversed_order=False) \
             .AndReturn([self.images.list(),
                         False, False])
         # Test tenant list
@@ -72,29 +74,24 @@ class ImagesViewTest(test.BaseAdminViewTests):
     def test_images_list_get_pagination(self):
         images = self.images.list()[:5]
         filters = {'is_public': None}
+        kwargs = {'paginate': True, 'filters': filters,
+                  'sort_dir': 'asc', 'sort_key': 'name',
+                  'reversed_order': False}
         api.glance.image_list_detailed(IsA(http.HttpRequest),
                                        marker=None,
-                                       paginate=True,
-                                       filters=filters,
-                                       sort_dir='desc') \
+                                       **kwargs) \
             .AndReturn([images, True, True])
         api.glance.image_list_detailed(IsA(http.HttpRequest),
                                        marker=None,
-                                       paginate=True,
-                                       filters=filters,
-                                       sort_dir='desc') \
+                                       **kwargs) \
             .AndReturn([images[:2], True, True])
         api.glance.image_list_detailed(IsA(http.HttpRequest),
                                        marker=images[2].id,
-                                       paginate=True,
-                                       filters=filters,
-                                       sort_dir='desc') \
+                                       **kwargs) \
             .AndReturn([images[2:4], True, True])
         api.glance.image_list_detailed(IsA(http.HttpRequest),
                                        marker=images[4].id,
-                                       paginate=True,
-                                       filters=filters,
-                                       sort_dir='desc') \
+                                       **kwargs) \
             .AndReturn([images[4:], True, True])
         # Test tenant list
         api.keystone.tenant_list(IsA(http.HttpRequest)).MultipleTimes().\
@@ -138,29 +135,27 @@ class ImagesViewTest(test.BaseAdminViewTests):
     def test_images_list_get_prev_pagination(self):
         images = self.images.list()[:3]
         filters = {'is_public': None}
+        kwargs = {'paginate': True, 'filters': filters,
+                  'sort_dir': 'asc', 'sort_key': 'name'}
         api.glance.image_list_detailed(IsA(http.HttpRequest),
                                        marker=None,
-                                       paginate=True,
-                                       filters=filters,
-                                       sort_dir='desc') \
+                                       reversed_order=False,
+                                       **kwargs) \
             .AndReturn([images, True, False])
         api.glance.image_list_detailed(IsA(http.HttpRequest),
                                        marker=None,
-                                       paginate=True,
-                                       filters=filters,
-                                       sort_dir='desc') \
+                                       reversed_order=False,
+                                       **kwargs) \
             .AndReturn([images[:2], True, True])
         api.glance.image_list_detailed(IsA(http.HttpRequest),
                                        marker=images[2].id,
-                                       paginate=True,
-                                       filters=filters,
-                                       sort_dir='desc') \
+                                       reversed_order=False,
+                                       **kwargs) \
             .AndReturn([images[2:], True, True])
         api.glance.image_list_detailed(IsA(http.HttpRequest),
                                        marker=images[2].id,
-                                       paginate=True,
-                                       filters=filters,
-                                       sort_dir='asc') \
+                                       reversed_order=True,
+                                       **kwargs) \
             .AndReturn([images[:2], True, True])
         # Test tenant list
         api.keystone.tenant_list(IsA(http.HttpRequest)).MultipleTimes().\

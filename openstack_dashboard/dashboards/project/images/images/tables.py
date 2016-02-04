@@ -222,13 +222,13 @@ class OwnerFilter(tables.FixedFilterAction):
 
 def get_image_categories(im, user_tenant_id):
     categories = []
-    if im.is_public:
+    if api.glance.is_image_public(im):
         categories.append('public')
     if im.owner == user_tenant_id:
         categories.append('project')
     elif im.owner in filter_tenant_ids():
         categories.append(im.owner)
-    elif not im.is_public:
+    elif not api.glance.is_image_public(im):
         categories.append('shared')
     return categories
 
@@ -339,4 +339,3 @@ class ImagesTable(tables.DataTable):
         row_actions = launch_actions + (CreateVolumeFromImage,
                                         EditImage, UpdateMetadata,
                                         DeleteImage,)
-        pagination_param = "image_marker"
