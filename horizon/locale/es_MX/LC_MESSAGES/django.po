@@ -1,18 +1,35 @@
 # OpenStack Infra <zanata@openstack.org>, 2015. #zanata
+# Heleno Jimenez de la Cruz <heleno.jimenez@gmail.com>, 2016. #zanata
 msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-11-04 14:35+0000\n"
+"POT-Creation-Date: 2016-01-28 00:24+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: \n"
-"Last-Translator: \n"
+"PO-Revision-Date: 2016-01-29 04:48+0000\n"
+"Last-Translator: Heleno Jimenez de la Cruz <heleno.jimenez@gmail.com>\n"
 "Language: es-MX\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"X-Generator: Zanata 3.7.1\n"
+"X-Generator: Zanata 3.7.3\n"
 "Language-Team: Spanish (Mexico)\n"
+
+#, python-format
+msgid ""
+"\n"
+"        Used <span> %(used)s </span>(No Limit)"
+msgstr ""
+"\n"
+"        Usado <span> %(used)s </span>(Sin Límite)"
+
+#, python-format
+msgid ""
+"\n"
+"        Used <span> %(used)s </span>of<span> %(available)s </span>"
+msgstr ""
+"\n"
+"        Usado <span> %(used)s </span>de<span> %(available)s </span>"
 
 #, python-format
 msgid ""
@@ -167,6 +184,9 @@ msgstr[1] "Mostrando %(nav_items)s elementos"
 msgid "Error: "
 msgstr "Error: "
 
+msgid "Fake"
+msgstr "Falso"
+
 msgid "Filter"
 msgstr "Filtro"
 
@@ -178,6 +198,9 @@ msgstr "Formato de dirección IP incorrecto"
 
 msgid "Info: "
 msgstr "Info:"
+
+msgid "Invalid metadata entry. Use comma-separated key=value pairs"
+msgstr "Entrada de metadatos inválida. Usar comma-separated clave=value pairs"
 
 msgid "Invalid subnet mask"
 msgstr "Máscara de red no válida"
@@ -271,11 +294,21 @@ msgstr "Seleccione una %s para navegar."
 msgid "Select a period of time to query its usage:"
 msgstr "Seleccione un periodo de tiempo para consultar su uso:"
 
+msgid "Sell Puppy"
+msgid_plural "Sell Puppies"
+msgstr[0] "Sell Puppy"
+msgstr[1] "Sell Puppies"
+
 msgid "Session timed out."
 msgstr "Sesión ha expirado."
 
 msgid "Sign In"
 msgstr "Darse de alta"
+
+msgid "Sold Puppy"
+msgid_plural "Sold Puppies"
+msgstr[0] "Sold Puppy"
+msgstr[1] "Sold Puppies"
 
 msgid "Submit"
 msgstr "Enviar"
@@ -301,6 +334,9 @@ msgstr "GB-Horas de este Periodo:"
 
 msgid "This Period's RAM-Hours:"
 msgstr "RAM-Horas de este Periodo:"
+
+msgid "This Period's VCPU-Hours:"
+msgstr "VCPU-Horas de este Periodo:"
 
 msgid "This action cannot be undone."
 msgstr "Esta acción no puede ser deshecha."
