@@ -81,6 +81,9 @@ class IdentityProvidersTable(tables.DataTable):
         wrap_list=True,
         filters=(filters.unordered_list,))
 
+    def get_object_display(self, datum):
+        return datum.id
+
     class Meta(object):
         name = "identity_providers"
         verbose_name = _("Identity Providers")
