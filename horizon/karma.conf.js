@@ -150,7 +150,7 @@ module.exports = function (config) {
       statements: 91, // target 100
       branches: 81, // target 100
       functions: 90, // target 100
-      lines: 91 // target 100
+      lines: 92 // target 100
     }
   });
 };
