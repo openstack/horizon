@@ -4,4 +4,6 @@ features:
    [`blueprint keystone-federation-idp <https://blueprints.launchpad.net/horizon/+spec/keystone-federation-idp>`_]
    Add support for managing keystone identity provider. To enable the panel,
    set ``OPENSTACK_KEYSTONE_FEDERATION_MANAGEMENT`` in the local_settting.py to True.
-
+  - >
+   [`blueprint keystone-federation-mapping <https://blueprints.launchpad.net/horizon/+spec/keystone-federation-mapping>`_]
+   Add basic support for managing keystone federation mapping.
