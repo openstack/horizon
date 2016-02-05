@@ -32,6 +32,10 @@ IdentityGroup = [
                default='secretadmin',
                help="API key to use when authenticating.",
                secret=True),
+    cfg.StrOpt('home_project',
+               default='demo',
+               help="Project to keep all objects belonging to a regular user."
+               ),
     cfg.StrOpt('admin_username',
                default='admin',
                help="Administrative Username to use for admin API "
@@ -40,6 +44,9 @@ IdentityGroup = [
                default='secretadmin',
                help="API key to use when authenticating as admin.",
                secret=True),
+    cfg.StrOpt('admin_home_project',
+               default='admin',
+               help="Project to keep all objects belonging to an admin user."),
 ]
 
 ImageGroup = [

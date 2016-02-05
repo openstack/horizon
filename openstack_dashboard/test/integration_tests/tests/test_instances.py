@@ -9,7 +9,6 @@
 #    WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
 #    License for the specific language governing permissions and limitations
 #    under the License.
-from openstack_dashboard.test.integration_tests import decorators
 from openstack_dashboard.test.integration_tests import helpers
 from openstack_dashboard.test.integration_tests.regions import messages
 
@@ -17,7 +16,6 @@ INSTANCES_NAME = helpers.gen_random_resource_name('instance',
                                                   timestamp=False)
 
 
-@decorators.skip_because(bugs=["1542211"])
 class TestInstances(helpers.AdminTestCase):
     """This is a basic scenario to test:
     * Create Instance and Delete Instance

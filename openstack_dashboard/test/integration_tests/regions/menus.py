@@ -248,8 +248,8 @@ class TabbedMenuRegion(baseregion.BaseRegion):
 class ProjectDropDownRegion(DropDownMenuRegion):
 
     _menu_first_child_locator = (by.By.CSS_SELECTOR, '*')
-    _menu_items_locator = (by.By.CSS_SELECTOR,
-                           'div.context-lists a')
+    _menu_items_locator = (
+        by.By.CSS_SELECTOR, 'ul.context-selection li > a')
 
     def click_on_project(self, name):
         for item in self.menu_items:

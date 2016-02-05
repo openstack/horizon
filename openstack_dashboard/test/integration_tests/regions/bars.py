@@ -21,8 +21,9 @@ class TopBarRegion(baseregion.BaseRegion):
                                    '.nav.navbar-nav.navbar-right li.dropdown')
     _openstack_brand_locator = (by.By.CSS_SELECTOR, 'a[href*="/home/"]')
 
-    _user_dropdown_project_locator = (by.By.CSS_SELECTOR,
-                                      'li.dropdown.context-selection')
+    _user_dropdown_project_locator = (
+        by.By.CSS_SELECTOR,
+        '.navbar-collapse > ul.navbar-nav:first-child li.dropdown')
 
     @property
     def user(self):
