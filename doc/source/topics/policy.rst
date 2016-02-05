@@ -145,6 +145,18 @@ An Example looks like::
       policy.ifAllowed({ rules: rules }).then(policySuccess, policyFailed);
     }
 
+The fourth way to add a role based check is in html files. Use angular directive 'hz-if-policies'
+in file 'openstack_dashboard.static.app.core.cloud-services.hz-if-policies-directive.js'.
+Assume you have the following policy defined in your angular controller::
+
+    ctrl.policy = { rules: [["identity", "identity:update_user"]] }
+
+Then in your HTML, use it like so::
+
+    <div hz-if-policies='ctrl.policy'>
+      <span>I am visible if the policy is allowed!</span>
+    </div>
+
 .. _rule_targets:
 
 Rule Targets
