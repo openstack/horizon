@@ -13,12 +13,10 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
-from openstack_dashboard.test.integration_tests import decorators
 from openstack_dashboard.test.integration_tests import helpers
 from openstack_dashboard.test.integration_tests.regions import messages
 
 
-@decorators.skip_because(bugs=["1526791"])
 class TestKeypair(helpers.TestCase):
     """Checks that the user is able to create/delete keypair."""
     KEYPAIR_NAME = helpers.gen_random_resource_name("keypair")
@@ -27,8 +25,6 @@ class TestKeypair(helpers.TestCase):
         keypair_page = self.home_pg.\
             go_to_compute_accessandsecurity_keypairspage()
         keypair_page.create_keypair(self.KEYPAIR_NAME)
-        self.assertTrue(
-            keypair_page.find_message_and_dismiss(messages.SUCCESS))
         self.assertFalse(keypair_page.find_message_and_dismiss(messages.ERROR))
 
         keypair_page = self.home_pg.\
