@@ -294,6 +294,25 @@ class Namespace(BaseGlanceMetadefAPIResourceWrapper):
             return False
 
 
+def filter_properties_target(namespaces_iter,
+                             resource_types,
+                             properties_target):
+    """Filter metadata namespaces based on the given resource types and
+    properties target.
+
+    :param namespaces_iter: Metadata namespaces iterable.
+    :param resource_types: List of resource type names.
+    :param properties_target: Name of the properties target.
+    """
+    def filter_namespace(namespace):
+        for asn in namespace.get('resource_type_associations'):
+            if (asn.get('name') in resource_types and
+                    asn.get('properties_target') == properties_target):
+                return True
+        return False
+    return filter(filter_namespace, namespaces_iter)
+
+
 @memoized
 def metadefs_namespace_get(request, namespace, resource_type=None, wrap=False):
     namespace = glanceclient(request, '2').\
@@ -359,6 +378,15 @@ def metadefs_namespace_list(request,
 
     namespaces_iter = glanceclient(request, '2').metadefs_namespace.list(
         page_size=request_size, limit=limit, **kwargs)
+
+    # Filter the namespaces based on the provided properties_target since this
+    # is not supported by the metadata namespaces API.
+    resource_types = filters.get('resource_types')
+    properties_target = filters.get('properties_target')
+    if resource_types and properties_target:
+        namespaces_iter = filter_properties_target(namespaces_iter,
+                                                   resource_types,
+                                                   properties_target)
 
     has_prev_data = False
     has_more_data = False

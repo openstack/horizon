@@ -305,6 +305,11 @@
      * @param {string} params.resource_type
      * Namespace resource type.
      *
+     * @param {string} params.properties_target
+     * The properties target, if the resource type has more than one type
+     * of property. For example, the OS::Nova::Instance resource type has
+     * "metadata" and "scheduler_hints" properties targets.
+     *
      * @param {boolean} params.paginate
      * True to paginate automatically.
      *

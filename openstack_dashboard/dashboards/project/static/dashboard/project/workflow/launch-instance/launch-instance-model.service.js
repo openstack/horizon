@@ -537,14 +537,14 @@
      * rows and are used on the metadata tab for adding metadata to the instance.
      */
     function getMetadataDefinitions() {
-      // Metadata definitions often apply to multiple
-      // resource types. It is optimal to make a single
-      // request for all desired resource types.
+      // Metadata definitions often apply to multiple resource types. It is optimal to make a
+      // single request for all desired resource types.
+      //   <key>: [<resource_type>, <properties_target>]
       var resourceTypes = {
-        flavor: 'OS::Nova::Flavor',
-        image: 'OS::Glance::Image',
-        volume: 'OS::Cinder::Volumes',
-        instance: 'OS::Nova::Instance'
+        flavor: ['OS::Nova::Flavor', ''],
+        image: ['OS::Glance::Image', ''],
+        volume: ['OS::Cinder::Volumes', ''],
+        instance: ['OS::Nova::Instance', 'metadata']
       };
 
       angular.forEach(resourceTypes, applyForResourceType);
@@ -552,16 +552,15 @@
 
     function applyForResourceType(resourceType, key) {
       glanceAPI
-        .getNamespaces({'resource_type': resourceType}, true)
+        .getNamespaces({ resource_type: resourceType[0],
+                         properties_target: resourceType[1] }, true)
         .then(function(data) {
           var namespaces = data.data.items;
           // This will ensure that the metaDefs model object remains
           // unchanged until metadefs are fully loaded. Otherwise,
           // partial results are loaded and can result in some odd
           // display behavior.
-          if (namespaces.length) {
-            model.metadataDefs[key] = namespaces;
-          }
+          model.metadataDefs[key] = namespaces;
         });
     }
 

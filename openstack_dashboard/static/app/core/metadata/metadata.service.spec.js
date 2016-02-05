@@ -119,9 +119,10 @@
 
     it('should get instance namespace', function() {
       spyOn(glance, 'getNamespaces');
-      metadataService.getNamespaces('instance');
+      metadataService.getNamespaces('instance', 'metadata');
       expect(glance.getNamespaces)
-      .toHaveBeenCalledWith({ resource_type: 'OS::Nova::Instance' }, false);
+      .toHaveBeenCalledWith({ resource_type: 'OS::Nova::Instance',
+                              properties_target: 'metadata' }, false);
     });
 
   });
