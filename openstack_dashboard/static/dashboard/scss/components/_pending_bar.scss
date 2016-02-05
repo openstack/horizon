@@ -11,4 +11,8 @@
     left: calc(50% - .5em);
     bottom: calc(50% - .5em);
   }
+
+  &.container-pending-bar .progress {
+    margin-bottom: 0;
+  }
 }

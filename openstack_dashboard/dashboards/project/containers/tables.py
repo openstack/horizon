@@ -13,13 +13,11 @@
 #    under the License.
 import logging
 
-from django.conf import settings
 from django.core.urlresolvers import reverse
 from django import shortcuts
 from django import template
 from django.template import defaultfilters as filters
 from django.utils import http
-from django.utils import safestring
 from django.utils.translation import ugettext_lazy as _
 from django.utils.translation import ungettext_lazy
 
@@ -32,8 +30,6 @@ from openstack_dashboard.api import swift
 from openstack_dashboard.dashboards.project.containers import utils
 
 LOG = logging.getLogger(__name__)
-static_url = getattr(settings, 'STATIC_URL', '/static/')
-LOADING_IMAGE = '<img src="%s/dashboard/img/loading.gif" />' % static_url
 
 
 class ViewContainer(tables.LinkAction):
@@ -240,7 +236,9 @@ class ContainerAjaxUpdateRow(tables.Row):
 def get_metadata(container):
     # If the metadata has not been loading, display a loading image
     if not hasattr(container, 'is_public'):
-        return safestring.mark_safe(LOADING_IMAGE)
+        return template.loader.render_to_string(
+            'project/containers/_container_loader.html'
+        )
     template_name = 'project/containers/_container_metadata.html'
     context = {"container": container}
     return template.loader.render_to_string(template_name, context)
