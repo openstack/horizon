@@ -779,6 +779,39 @@ class SetNetwork(workflows.Step):
         return context
 
 
+class SetNetworkPortsAction(workflows.Action):
+    ports = forms.MultipleChoiceField(label=_("Ports"),
+                                      widget=forms.CheckboxSelectMultiple(),
+                                      required=False,
+                                      help_text=_("Launch instance with"
+                                                  " these ports"))
+
+    class Meta(object):
+        name = _("Network Ports")
+        permissions = ('openstack.services.network',)
+        help_text_template = ("project/instances/"
+                              "_launch_network_ports_help.html")
+
+    def populate_ports_choices(self, request, context):
+        ports = instance_utils.port_field_data(request)
+        if not ports:
+            self.fields['ports'].label = _("No ports available")
+            self.fields['ports'].help_text = _("No ports available")
+        return ports
+
+
+class SetNetworkPorts(workflows.Step):
+    action_class = SetNetworkPortsAction
+    contributes = ("ports",)
+
+    def contribute(self, data, context):
+        if data:
+            ports = self.workflow.request.POST.getlist("ports")
+            if ports:
+                context['ports'] = ports
+        return context
+
+
 class SetAdvancedAction(workflows.Action):
     disk_config = forms.ChoiceField(
         label=_("Disk Partition"), required=False,
@@ -844,6 +877,7 @@ class LaunchInstance(workflows.Workflow):
                      SetInstanceDetails,
                      SetAccessControls,
                      SetNetwork,
+                     SetNetworkPorts,
                      PostCreationStep,
                      SetAdvanced)
 
@@ -931,6 +965,12 @@ class LaunchInstance(workflows.Workflow):
             nics = self.set_network_port_profiles(request,
                                                   context['network_id'],
                                                   context['profile_id'])
+
+        ports = context.get('ports')
+        if ports:
+            if nics is None:
+                nics = []
+            nics.extend([{'port-id': port} for port in ports])
 
         try:
             api.nova.server_create(request,
