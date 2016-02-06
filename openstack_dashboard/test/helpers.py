@@ -70,7 +70,7 @@ def create_stubs(stubs_to_create=None):
 
         api.nova
 
-    The values are either a tuple of list of methods to mock in the module
+    The values are either a tuple or list of methods to mock in the module
     indicated by the key.
 
     For example::

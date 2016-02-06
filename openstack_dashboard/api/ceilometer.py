@@ -22,18 +22,6 @@ from horizon.utils.memoized import memoized  # noqa
 
 from openstack_dashboard.api import base
 from openstack_dashboard.api import keystone
-from openstack_dashboard.api import nova
-
-
-def get_flavor_names(request):
-    # TODO(lsmola) The flavors can be set per project,
-    # so it should show only valid ones.
-    try:
-        flavors = nova.flavor_list(request, None)
-        return [f.name for f in flavors]
-    except Exception:
-        return ['m1.tiny', 'm1.small', 'm1.medium',
-                'm1.large', 'm1.xlarge']
 
 
 def is_iterable(var):
@@ -1097,16 +1085,6 @@ class Meters(object):
                                  "packets on a VM network interface"),
             }),
         ])
-        # Adding flavor based meters into meters_info dict
-        # TODO(lsmola) this kind of meter will be probably deprecated
-        # https://bugs.launchpad.net/ceilometer/+bug/1208365 . Delete it then.
-        for flavor in get_flavor_names(self._request):
-            name = 'instance:%s' % flavor
-            meters_info[name] = dict(meters_info["instance:<type>"])
-
-            meters_info[name]['description'] = (
-                _('Duration of instance type %s (openstack flavor)') %
-                flavor)
 
         # TODO(lsmola) allow to set specific in local_settings. For all meters
         # because users can have their own agents and meters.
