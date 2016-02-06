@@ -19,6 +19,7 @@ from openstack_dashboard.test.integration_tests.regions import tables
 
 class ImagesTable(tables.TableRegion):
     name = "images"
+
     CREATE_IMAGE_FORM_FIELDS = (
         "name", "description", "source_type", "image_url",
         "image_file", "kernel", "ramdisk",

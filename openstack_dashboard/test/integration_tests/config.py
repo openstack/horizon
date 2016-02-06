@@ -47,6 +47,11 @@ ImageGroup = [
                default='http://download.cirros-cloud.net/0.3.1/'
                        'cirros-0.3.1-x86_64-uec.tar.gz',
                help='http accessible image'),
+    cfg.ListOpt('images_list',
+                default=['cirros-0.3.4-x86_64-uec',
+                         'cirros-0.3.4-x86_64-uec-kernel',
+                         'cirros-0.3.4-x86_64-uec-ramdisk'],
+                help='default list of images')
 ]
 
 SeleniumGroup = [

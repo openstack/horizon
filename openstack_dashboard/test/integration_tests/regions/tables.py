@@ -53,6 +53,10 @@ class TableRegion(baseregion.BaseRegion):
                              'div.table_search.client > input')
     _search_button_locator = (by.By.CSS_SELECTOR,
                               'div.table_search.client > button')
+    _next_locator = (by.By.CSS_SELECTOR,
+                     'tfoot > tr > td > a[href^="?marker"]')
+    _prev_locator = (by.By.CSS_SELECTOR,
+                     'tfoot > tr > td > a[href*="prev_marker"]')
 
     def _table_locator(self, table_name):
         return by.By.CSS_SELECTOR, 'table#%s' % table_name
@@ -123,6 +127,36 @@ class TableRegion(baseregion.BaseRegion):
     def _get_rows(self, *args):
         return [RowRegion(self.driver, self.conf, elem, self.column_names)
                 for elem in self._get_elements(*self._rows_locator)]
+
+    def is_next_link_available(self):
+        return self._is_element_visible(*self._next_locator)
+
+    def is_prev_link_available(self):
+        return self._is_element_visible(*self._prev_locator)
+
+    def turn_next_page(self):
+        if self.is_next_link_available():
+            lnk = self._get_element(*self._next_locator)
+            lnk.click()
+
+    def turn_prev_page(self):
+        if self.is_prev_link_available():
+            lnk = self._get_element(*self._prev_locator)
+            lnk.click()
+
+    def assert_definition(self, expected_table_definition):
+        """Checks that actual image table is expected one.
+        Items to compare: 'next' and 'prev' links, count of rows and names of
+        images in list
+        :param expected_table_definition: expected values (dictionary)
+        :return:
+        """
+        names = [row.cells['name'].text for row in self.rows]
+        actual_table = {'Next': self.is_next_link_available(),
+                        'Prev': self.is_prev_link_available(),
+                        'Count': len(self.rows),
+                        'Names': names}
+        self.assertDictEqual(actual_table, expected_table_definition)
 
 
 def bind_table_action(action_name):
