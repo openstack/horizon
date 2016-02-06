@@ -20,6 +20,7 @@
     .factory('horizon.app.core.images.row-actions.service', rowActions);
 
   rowActions.$inject = [
+    'horizon.app.core.images.actions.createVolumeService',
     'horizon.app.core.images.actions.deleteService',
     'horizon.framework.util.i18n.gettext'
   ];
@@ -30,6 +31,7 @@
    * @description A list of row actions.
    */
   function rowActions(
+    createVolumeService,
     deleteService,
     gettext
   ) {
@@ -43,7 +45,7 @@
     ///////////////
 
     function initScope(scope) {
-      angular.forEach([deleteService], setActionScope);
+      angular.forEach([deleteService, createVolumeService], setActionScope);
 
       function setActionScope(action) {
         action.initScope(scope.$new());
@@ -52,6 +54,11 @@
 
     function actions() {
       return [{
+        service: createVolumeService,
+        template: {
+          text: gettext('Create Volume')
+        }
+      }, {
         service: deleteService,
         template: {
           text: gettext('Delete Image'),
@@ -59,6 +66,7 @@
         }
       }];
     }
+
   }
 
 })();

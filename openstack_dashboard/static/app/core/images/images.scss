@@ -6,6 +6,21 @@ table[ng-controller="imagesTableController as table"] {
   }
 
   &.table-rsp .action-col {
-    min-width: 12em;
+    min-width: $table-action-col-width;
+  }
+}
+
+.textarea-fixed-width {
+  resize: vertical;
+  min-height: 13em;
+  max-height: 30em;
+}
+
+.workflow-step-radiator {
+  margin-left: 10px;
+  .radiator-title {
+    color: #555;
+    font-weight: 600;
+    font-size: 0.9em;
   }
 }

@@ -42,7 +42,8 @@
    */
   function events() {
     return {
-      DELETE_SUCCESS: 'horizon.app.core.images.DELETE_SUCCESS'
+      DELETE_SUCCESS: 'horizon.app.core.images.DELETE_SUCCESS',
+      VOLUME_CHANGED: 'horizon.app.core.images.VOLUME_CHANGED'
     };
   }
 

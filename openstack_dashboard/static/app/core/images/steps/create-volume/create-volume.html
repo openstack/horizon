@@ -1,0 +1,79 @@
+<div ng-controller="horizon.app.core.images.steps.CreateVolumeController as createVolumeCtrl">
+  <h1 translate>Volume Details</h1>
+
+  <!--content-->
+  <div class="content">
+    <div class="subtitle" translate>Volumes are block devices that can be attached to instances.</div>
+
+    <fieldset ng-disabled="createVolumeCtrl.volumeQuota.overMax">
+      <div class="col-md-11 col-lg-11">
+        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+          <div class="form-group">
+            <div class="form-field required">
+              <label class="control-label" translate>Name</label>
+              <input class="form-control" type="text" ng-required="true" ng-model="createVolumeCtrl.volume.name">
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="control-label" translate>Description</label>
+            <input class="form-control" type="text" ng-model="createVolumeCtrl.volume.description">
+          </div>
+          <div class="form-group">
+            <label class="control-label" translate>Use image as a source</label>
+            <input class="form-control" type="text" ng-model="createVolumeCtrl.sourceImage"  disabled>
+          </div>
+          <div class="row">
+            <div class="col-md-6 col-lg-6">
+              <div class="form-group">
+                <label class="control-label" translate>Type</label>
+                <select class="form-control"
+                        ng-model="createVolumeCtrl.volumeType"
+                        ng-options="volumeType as volumeType.name for volumeType in createVolumeCtrl.volumeTypes">
+                </select>
+              </div>
+            </div>
+            <div class="col-md-6 col-lg-6">
+              <div class="form-group">
+                <div class="form-field required">
+                  <label class="control-label required" translate>Size (GB)</label>
+                  <input name="volume-size" class="form-control" type="number" min="1" ng-required="true" ng-model="createVolumeCtrl.volume.size">
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="form-field required">
+              <label class="control-label" translate>Availability Zone</label>
+              <select class="form-control" ng-model="createVolumeCtrl.volume.availability_zone" ng-required="true">
+                <option value="" selected="selected" translate>Select a zone</option>
+                <option ng-repeat="availabilityZone in createVolumeCtrl.availabilityZones"
+                        ng-value="availabilityZone.zoneName">
+                    {$ availabilityZone.zoneName $}
+                </option>
+              </select>
+            </div>
+          </div>
+        </div>
+        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+          <div class="form-group">
+            <div class="chart">
+              <pie-chart chart-data="createVolumeCtrl.storageQuota"></pie-chart>
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="chart">
+              <pie-chart chart-data="createVolumeCtrl.volumeQuota"></pie-chart>
+            </div>
+          </div>
+          <div class="form-group workflow-step-radiator">
+            <p class="radiator-title" translate>Volume Type Description:</p>
+            <dl class>
+              <dt>{$ createVolumeCtrl.volumeType.name $}</dt>
+              <dd>{$ createVolumeCtrl.volumeType.description $}</dd>
+            </dl>
+          </div>
+        </div>
+      </div>
+    </fieldset>
+  </div>
+</div>

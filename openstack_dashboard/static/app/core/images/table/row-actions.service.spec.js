@@ -20,6 +20,9 @@
     var deleteService = {
       initScope: angular.noop
     };
+    var createVolumeService = {
+      initScope: angular.noop
+    };
 
     ///////////////////////
 
@@ -27,25 +30,36 @@
 
     beforeEach(module('horizon.app.core.images', function($provide) {
       $provide.value('horizon.app.core.images.actions.deleteService', deleteService);
+      $provide.value('horizon.app.core.images.actions.createVolumeService', createVolumeService);
     }));
 
     beforeEach(inject(function ($injector) {
       service = $injector.get('horizon.app.core.images.row-actions.service');
     }));
 
-    it('should call initScope on deleteService', function() {
+    it('should call initScope on services', function() {
       spyOn(deleteService, 'initScope');
+      spyOn(createVolumeService, 'initScope');
+
       var scope = {$new: function() { return 'custom_scope'; }};
       service.initScope(scope);
 
       expect(deleteService.initScope).toHaveBeenCalledWith('custom_scope');
+      expect(createVolumeService.initScope).toHaveBeenCalledWith('custom_scope');
     });
 
     it('should return delete action', function() {
       var actions = service.actions();
 
-      expect(actions.length).toEqual(1);
+      expect(actions.length).toEqual(2);
       expect(actions[0].service).toEqual(deleteService);
+    });
+
+    it('should return create volumne action', function() {
+      var actions = service.actions();
+
+      expect(actions.length).toEqual(2);
+      expect(actions[1].service).toEqual(createVolumeService);
     });
 
   });
