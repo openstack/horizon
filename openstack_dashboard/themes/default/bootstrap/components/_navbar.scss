@@ -11,6 +11,13 @@
   // Pushes the menu slightly down from the navbar
   li > .dropdown-menu {
     margin-top: 2px;
+
+    @media (max-width: $screen-sm) {
+      &:after,
+      &:before {
+        border: none;
+      }
+    }
   }
 }
 
