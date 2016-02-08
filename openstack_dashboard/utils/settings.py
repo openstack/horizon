@@ -11,11 +11,10 @@
 #    under the License.
 
 import collections
+from importlib import import_module
 import logging
 import os
 import pkgutil
-
-from django.utils import importlib
 import six
 
 from horizon.utils import file_discovery as fd
@@ -27,7 +26,7 @@ def import_submodules(module):
     for loader, name, ispkg in pkgutil.iter_modules(module.__path__,
                                                     module.__name__ + '.'):
         try:
-            submodule = importlib.import_module(name)
+            submodule = import_module(name)
         except ImportError as e:
             # FIXME: Make the errors non-fatal (do we want that?).
             logging.warning("Error importing %s" % name)
@@ -120,7 +119,7 @@ def update_dashboards(modules, horizon_config, installed_apps):
 
         if config.get('AUTO_DISCOVER_STATIC_FILES', False):
             for _app in _apps:
-                module = importlib.import_module(_app)
+                module = import_module(_app)
                 base_path = os.path.join(module.__path__[0], 'static/')
                 fd.populate_horizon_config(horizon_config, base_path)
 
