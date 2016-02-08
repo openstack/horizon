@@ -24,7 +24,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2016-01-31 10:08+0000\n"
+"POT-Creation-Date: 2016-02-07 23:20+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -3034,10 +3034,6 @@ msgstr "OpenStack RC Datei v3 herunterladen"
 #, python-format
 msgid "Download key pair &quot;%(keypair_name)s&quot;"
 msgstr "Schlüsselpaar &quot;%(keypair_name)s&quot; herunterladen"
-
-#, python-format
-msgid "Duration of instance type %s (openstack flavor)"
-msgstr "Dauer der Instanz Typ %s (OpenStack Variante)"
 
 msgid "EC2 Access Key"
 msgstr "EC2-Zugriffsschlüssel"

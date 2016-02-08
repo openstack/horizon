@@ -15,7 +15,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2016-01-25 00:39+0000\n"
+"POT-Creation-Date: 2016-02-07 23:20+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -26,12 +26,6 @@ msgstr ""
 "Generated-By: Babel 2.0\n"
 "X-Generator: Zanata 3.7.3\n"
 "Language-Team: Spanish\n"
-
-msgid "(Max: 16Kb)"
-msgstr "(Máximo: 16Kb)"
-
-msgid "(Modified)"
-msgstr "(Modificado)"
 
 msgid "(None)"
 msgstr "(Ninguno)"
@@ -198,9 +192,6 @@ msgstr ""
 "instalar <samp>cloud-init</samp> en un sistema operativo invitado, puede "
 "utilizar un script personalizado para obtener una clave pública y añadirla a "
 "la cuenta de usuario."
-
-msgid "Customization Script"
-msgstr "Script de Personalización"
 
 msgid "Deleted"
 msgstr "Eliminado"
@@ -381,9 +372,6 @@ msgstr "Ejecutar Instancia"
 msgid "Link"
 msgstr "Enlace"
 
-msgid "Load script from a file"
-msgstr "Cargar script desde un archivo"
-
 msgid "Manual"
 msgstr "Manual"
 
@@ -512,9 +500,6 @@ msgstr "Guardar"
 
 msgid "Saving"
 msgstr "Guardando"
-
-msgid "Script size"
-msgstr "Tamaño del script"
 
 msgid "Security Groups"
 msgstr "Grupos de Seguridad"
@@ -989,9 +974,6 @@ msgstr ""
 
 msgid "Yes"
 msgstr "Sí"
-
-msgid "bytes"
-msgstr "bytes"
 
 msgid "{$ row['provider:network_type'] $}"
 msgstr "{$ row['provider:network_type'] $}"

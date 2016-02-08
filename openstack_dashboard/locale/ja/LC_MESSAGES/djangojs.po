@@ -14,7 +14,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2016-01-31 10:08+0000\n"
+"POT-Creation-Date: 2016-02-07 23:20+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -33,12 +33,6 @@ msgstr "#"
 msgid "%s instance launched."
 msgid_plural "%s instances launched."
 msgstr[0] "インスタンスを %s 個起動しました。"
-
-msgid "(Max: 16Kb)"
-msgstr "(最大 16 Kb)"
-
-msgid "(Modified)"
-msgstr "(変更済み)"
 
 msgid "(None)"
 msgstr "(なし)"
@@ -404,9 +398,6 @@ msgstr ""
 "に、インスタンスにアタッチします。例えば、ゲストオペレーティングシステム内"
 "で  <samp>cloud-init</samp> をインストールできない場合には、カスタムスクリプ"
 "トを使用して公開鍵を取得し、ユーザーアカウントに追加することができます。"
-
-msgid "Customization Script"
-msgstr "カスタマイズスクリプト"
 
 msgid "Danger"
 msgstr "危険"
@@ -777,9 +768,6 @@ msgstr "グループ一覧のアイテムの見出し"
 msgid "List groups"
 msgstr "グループの一覧表示"
 
-msgid "Load script from a file"
-msgstr "ファイルからのスクリプト読み込み"
-
 msgid "Loading"
 msgstr "読み込み中"
 
@@ -1042,9 +1030,6 @@ msgstr "変更の保存"
 
 msgid "Saving"
 msgstr "保存中"
-
-msgid "Script size"
-msgstr "スクリプトサイズ"
 
 msgid "Search"
 msgstr "検索"
@@ -1709,9 +1694,6 @@ msgid ""
 msgstr ""
 "\"%s\" を選択しました。選択内容を確認してください。削除されたイメージは元に戻"
 "せません。"
-
-msgid "bytes"
-msgstr "バイト"
 
 #, python-format
 msgid "selected \"%s\""

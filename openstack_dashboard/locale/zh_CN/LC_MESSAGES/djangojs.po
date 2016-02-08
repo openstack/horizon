@@ -6,14 +6,14 @@
 # Allerson Yao, 2015
 # 刘俊朋 <liujunpeng@inspur.com>, 2015
 # OpenStack Infra <zanata@openstack.org>, 2015. #zanata
-# Xu Yang <xuyang@cn.fujitsu.com>, 2015. #zanata
+# Xu Yang <yizhongchuanqi@163.com>, 2015. #zanata
 # Yu Zhiuguo <yuzg@cn.fujitsu.com>, 2015. #zanata
 # zhangjingwen <zhangjingwen@cn.fujitsu.com>, 2015. #zanata
 msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2016-01-09 00:51+0000\n"
+"POT-Creation-Date: 2016-02-07 23:20+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -24,12 +24,6 @@ msgstr ""
 "Generated-By: Babel 2.0\n"
 "X-Generator: Zanata 3.7.3\n"
 "Language-Team: Chinese (China)\n"
-
-msgid "(Max: 16Kb)"
-msgstr "(最大:16Kb)"
-
-msgid "(Modified)"
-msgstr "(已修改)"
 
 msgid "(None)"
 msgstr "(无)"
@@ -171,9 +165,6 @@ msgstr ""
 "当实例启动时，自定义脚本被绑定到实例执行特定的动作。比如，如果你无法在客户机"
 "操作系统内安装<samp>cloud-init</samp>，你可以使用自定义脚本获取一个公钥并把它"
 "添加到用户账户中。"
-
-msgid "Customization Script"
-msgstr "自定义脚本"
 
 msgid "Deleted"
 msgstr "删除"
@@ -337,9 +328,6 @@ msgstr "终止"
 msgid "Launch Instance"
 msgstr "启动实例"
 
-msgid "Load script from a file"
-msgstr "从文件加载脚本"
-
 msgid "Manual"
 msgstr "手动"
 
@@ -467,9 +455,6 @@ msgstr "保存"
 
 msgid "Saving"
 msgstr "保存中"
-
-msgid "Script size"
-msgstr "脚本大小"
 
 msgid "Security Groups"
 msgstr "安全组"
@@ -897,9 +882,6 @@ msgstr ""
 
 msgid "Yes"
 msgstr "是"
-
-msgid "bytes"
-msgstr "字节数"
 
 msgid "{$ row['provider:network_type'] $}"
 msgstr "{$ row['provider:network_type'] $}"

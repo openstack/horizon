@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2016-01-31 01:15+0000\n"
+"POT-Creation-Date: 2016-02-07 23:20+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -30,12 +30,6 @@ msgstr "#"
 msgid "%s instance launched."
 msgid_plural "%s instances launched."
 msgstr[0] "%s 인스턴스 작동되었습니다."
-
-msgid "(Max: 16Kb)"
-msgstr "(최대: 16Kb)"
-
-msgid "(Modified)"
-msgstr "(수정됨)"
 
 msgid "(None)"
 msgstr "(None)"
@@ -360,9 +354,6 @@ msgstr ""
 "사용자 스크립트는 인스턴스 구동 시 연결되어 특정 작업을 진행합니다. 예를 들"
 "어, 게스트 OS에 <samp>cloud-init</samp>를 설치하지 않았을 경우, 사용자 스크립"
 "트를 이용하여 공개키를 가져오고, 새로운 사용자를 등록할 수 있습니다."
-
-msgid "Customization Script"
-msgstr "사용자 스크립트"
 
 msgid "Danger"
 msgstr "Danger"
@@ -707,9 +698,6 @@ msgstr "List group item heading"
 msgid "List groups"
 msgstr "List groups"
 
-msgid "Load script from a file"
-msgstr "파일에서 스크립트 불러오기"
-
 msgid "Look, I'm in a large well!"
 msgstr "Look, I'm in a large well!"
 
@@ -954,9 +942,6 @@ msgstr "Save changes"
 
 msgid "Saving"
 msgstr "Saving"
-
-msgid "Script size"
-msgstr "스크립트 크기"
 
 msgid "Search"
 msgstr "Search"
@@ -1584,9 +1569,6 @@ msgstr ""
 
 msgid "Yes"
 msgstr "예"
-
-msgid "bytes"
-msgstr "bytes"
 
 #, python-format
 msgid "selected \"%s\""

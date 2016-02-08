@@ -14,11 +14,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2016-01-31 10:08+0000\n"
+"POT-Creation-Date: 2016-02-07 23:20+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2016-02-01 12:51+0000\n"
+"PO-Revision-Date: 2016-02-08 12:38+0000\n"
 "Last-Translator: Shu Muto <shu-mutou@rf.jp.nec.com>\n"
 "Language: ja\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
@@ -45,6 +45,12 @@ msgstr "%s TB"
 #, python-format
 msgid "%s bytes"
 msgstr "%s バイト"
+
+msgid "(Max: 16Kb)"
+msgstr "(最大 16 Kb)"
+
+msgid "(Modified)"
+msgstr "(変更済み)"
 
 msgid "-"
 msgstr "-"
@@ -127,6 +133,9 @@ msgstr "現在の使用状況"
 
 msgid "Custom"
 msgstr "カスタム"
+
+msgid "Customization Script"
+msgstr "カスタマイズスクリプト"
 
 msgid "Danger"
 msgstr "危険"
@@ -215,6 +224,9 @@ msgstr "整数を指定する必要があります。"
 
 msgid "Interfaces"
 msgstr "インターフェース"
+
+msgid "Load script from a file"
+msgstr "ファイルからのスクリプト読み込み"
 
 msgid "Loading"
 msgstr "読み込み中"
@@ -309,6 +321,9 @@ msgstr "ロール"
 msgid "STATUS"
 msgstr "ステータス"
 
+msgid "Script size"
+msgstr "スクリプトサイズ"
+
 msgid "Select an item from Available items below"
 msgstr "以下の利用可能なアイテムから 1 つ選択してください。"
 
@@ -400,6 +415,9 @@ msgstr ""
 #, python-format
 msgid "You have selected %s. "
 msgstr "%s を選択しました。"
+
+msgid "bytes"
+msgstr "バイト"
 
 msgid "description"
 msgstr "説明"

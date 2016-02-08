@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2016-01-31 06:28+0000\n"
+"POT-Creation-Date: 2016-02-08 06:46+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -125,9 +125,32 @@ msgstr ""
 msgid "Total"
 msgstr ""
 
+#: static/framework/widgets/load-edit/load-edit.html:3
+msgid "Customization Script"
+msgstr ""
+
+#: static/framework/widgets/load-edit/load-edit.html:4
+msgid "(Modified)"
+msgstr ""
+
+#: static/framework/widgets/load-edit/load-edit.html:17
+msgid "Script size"
+msgstr ""
+
+#: static/framework/widgets/load-edit/load-edit.html:19
+msgid "bytes"
+msgstr ""
+
+#: static/framework/widgets/load-edit/load-edit.html:20
+msgid "(Max: 16Kb)"
+msgstr ""
+
+#: static/framework/widgets/load-edit/load-edit.html:32
+msgid "Load script from a file"
+msgstr ""
+
 #: static/framework/widgets/magic-search/hz-magic-search-bar.directive.js:95
 #: static/framework/widgets/magic-search/hz-magic-search-bar.spec.js:35
-#: static/framework/widgets/magic-search/magic-overrides.directive.spec.js:50
 #: static/framework/widgets/magic-search/st-magic-search.directive.spec.js:54
 #: static/framework/widgets/modal/simple-modal.service.js:82
 #: static/framework/widgets/wizard/wizard.module.js:47
@@ -141,7 +164,6 @@ msgstr ""
 
 #: static/framework/widgets/magic-search/hz-magic-search-bar.directive.js:97
 #: static/framework/widgets/magic-search/hz-magic-search-bar.spec.js:37
-#: static/framework/widgets/magic-search/magic-overrides.directive.spec.js:52
 #: static/framework/widgets/magic-search/st-magic-search.directive.spec.js:56
 msgid "Remove"
 msgstr ""
@@ -151,63 +173,53 @@ msgid "In current results"
 msgstr ""
 
 #: static/framework/widgets/magic-search/hz-magic-search-bar.spec.js:36
-#: static/framework/widgets/magic-search/magic-overrides.directive.spec.js:51
 #: static/framework/widgets/magic-search/st-magic-search.directive.spec.js:55
 msgid "Prompt"
 msgstr ""
 
 #: static/framework/widgets/magic-search/hz-magic-search-bar.spec.js:38
-#: static/framework/widgets/magic-search/magic-overrides.directive.spec.js:53
 #: static/framework/widgets/magic-search/st-magic-search.directive.spec.js:57
 msgid "Text"
 msgstr ""
 
 #: static/framework/widgets/magic-search/hz-magic-search-bar.spec.js:44
-#: static/framework/widgets/magic-search/magic-overrides.directive.spec.js:59
 #: static/framework/widgets/magic-search/st-magic-search.directive.spec.js:63
 #: static/framework/widgets/transfer-table/transfer-table.example.html:14
 msgid "Name"
 msgstr ""
 
 #: static/framework/widgets/magic-search/hz-magic-search-bar.spec.js:49
-#: static/framework/widgets/magic-search/magic-overrides.directive.spec.js:64
 #: static/framework/widgets/magic-search/st-magic-search.directive.spec.js:74
 msgid "Status"
 msgstr ""
 
 #: static/framework/widgets/magic-search/hz-magic-search-bar.spec.js:51
-#: static/framework/widgets/magic-search/magic-overrides.directive.spec.js:66
 #: static/framework/widgets/magic-search/st-magic-search.directive.spec.js:76
 msgid "Active"
 msgstr ""
 
 #: static/framework/widgets/magic-search/hz-magic-search-bar.spec.js:52
-#: static/framework/widgets/magic-search/magic-overrides.directive.spec.js:67
 #: static/framework/widgets/magic-search/st-magic-search.directive.spec.js:77
 msgid "Shutdown"
 msgstr ""
 
 #: static/framework/widgets/magic-search/hz-magic-search-bar.spec.js:53
-#: static/framework/widgets/magic-search/magic-overrides.directive.spec.js:68
 #: static/framework/widgets/magic-search/st-magic-search.directive.spec.js:78
 #: static/framework/widgets/toast/toast.service.js:62
 msgid "Error"
 msgstr ""
 
 #: static/framework/widgets/magic-search/hz-magic-search-bar.spec.js:58
-#: static/framework/widgets/magic-search/magic-overrides.directive.spec.js:73
 #: static/framework/widgets/magic-search/st-magic-search.directive.spec.js:83
 msgid "Flavor"
 msgstr ""
 
 #: static/framework/widgets/magic-search/hz-magic-search-bar.spec.js:61
-#: static/framework/widgets/magic-search/magic-overrides.directive.spec.js:76
 #: static/framework/widgets/magic-search/st-magic-search.directive.spec.js:86
 msgid "m1.tiny"
 msgstr ""
 
 #: static/framework/widgets/magic-search/hz-magic-search-bar.spec.js:62
-#: static/framework/widgets/magic-search/magic-overrides.directive.spec.js:77
 #: static/framework/widgets/magic-search/st-magic-search.directive.spec.js:87
 msgid "m1.small"
 msgstr ""
