@@ -1,0 +1,9 @@
+{% extends "horizon/common/_modal_form.html" %}
+{% load i18n %}
+
+{% block modal-body-right %}
+  <h3>{% trans "Description:" %}</h3>
+  <p>
+    {% trans "Add an allowed address pair for this port. This will allow multiple MAC/IP address (range) pairs to pass through this port."%}
+  </p>
+{% endblock %}

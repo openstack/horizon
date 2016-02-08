@@ -16,6 +16,9 @@ from django.utils.translation import ugettext_lazy as _
 
 from horizon import tabs
 
+from openstack_dashboard.dashboards.project.networks.ports.extensions. \
+    allowed_address_pairs import tabs as addr_pairs_tabs
+
 
 class OverviewTab(tabs.Tab):
     name = _("Overview")
@@ -29,4 +32,5 @@ class OverviewTab(tabs.Tab):
 
 class PortDetailTabs(tabs.TabGroup):
     slug = "port_details"
-    tabs = (OverviewTab,)
+    tabs = (OverviewTab, addr_pairs_tabs.AllowedAddressPairsTab)
+    sticky = True

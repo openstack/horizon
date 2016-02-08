@@ -13,6 +13,8 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
+import copy
+
 from django.core.urlresolvers import reverse
 from django import http
 
@@ -48,12 +50,12 @@ class NetworkPortTests(test.TestCase):
             .AndReturn(self.ports.first())
         api.neutron.is_extension_supported(IsA(http.HttpRequest),
                                            'mac-learning')\
-            .AndReturn(mac_learning)
+            .MultipleTimes().AndReturn(mac_learning)
         api.neutron.network_get(IsA(http.HttpRequest), network_id)\
             .AndReturn(self.networks.first())
         api.neutron.is_extension_supported(IsA(http.HttpRequest),
-                                           'mac-learning')\
-            .AndReturn(mac_learning)
+                                           'allowed-address-pairs')\
+            .MultipleTimes().AndReturn(False)
         self.mox.ReplayAll()
 
         res = self.client.get(reverse(DETAIL_URL, args=[port.id]))
@@ -201,3 +203,123 @@ class NetworkPortTests(test.TestCase):
 
         redir_url = reverse(NETWORKS_DETAIL_URL, args=[port.network_id])
         self.assertRedirectsNoFollow(res, redir_url)
+
+    @test.create_stubs({api.neutron: ('port_get', 'network_get',
+                                      'is_extension_supported',)})
+    def test_allowed_address_pair_detail(self):
+        port = self.ports.first()
+        network = self.networks.first()
+        api.neutron.port_get(IsA(http.HttpRequest), port.id) \
+            .AndReturn(self.ports.first())
+        api.neutron.is_extension_supported(IsA(http.HttpRequest),
+                                           'allowed-address-pairs') \
+            .MultipleTimes().AndReturn(True)
+        api.neutron.is_extension_supported(IsA(http.HttpRequest),
+                                           'mac-learning') \
+            .MultipleTimes().AndReturn(False)
+        api.neutron.network_get(IsA(http.HttpRequest), network.id)\
+            .AndReturn(network)
+        self.mox.ReplayAll()
+
+        res = self.client.get(reverse('horizon:project:networks:ports:detail',
+                                      args=[port.id]))
+
+        self.assertTemplateUsed(res, 'horizon/common/_detail.html')
+        self.assertEqual(res.context['port'].id, port.id)
+        address_pairs = res.context['allowed_address_pairs_table'].data
+        self.assertItemsEqual(port.allowed_address_pairs, address_pairs)
+
+    @test.create_stubs({api.neutron: ('port_get', 'port_update')})
+    def test_port_add_allowed_address_pair(self):
+        detail_path = 'horizon:project:networks:ports:detail'
+
+        pre_port = self.ports.first()
+        post_port = copy.deepcopy(pre_port)
+        pair = {'ip_address': '179.0.0.201',
+                'mac_address': 'fa:16:4e:7a:7b:18'}
+        post_port['allowed_address_pairs'].insert(
+            1, api.neutron.PortAllowedAddressPair(pair))
+
+        api.neutron.port_get(IsA(http.HttpRequest), pre_port.id) \
+            .MultipleTimes().AndReturn(pre_port)
+
+        update_pairs = post_port['allowed_address_pairs']
+        update_pairs = [p.to_dict() for p in update_pairs]
+        params = {'allowed_address_pairs': update_pairs}
+        port_update = api.neutron.port_update(IsA(http.HttpRequest),
+                                              pre_port.id, **params)
+        port_update.AndReturn({'port': post_port})
+        self.mox.ReplayAll()
+
+        form_data = {'ip': pair['ip_address'], 'mac': pair['mac_address'],
+                     'port_id': pre_port.id}
+        url = reverse('horizon:project:networks:ports:addallowedaddresspairs',
+                      args=[pre_port.id])
+        res = self.client.post(url, form_data)
+        self.assertNoFormErrors(res)
+        detail_url = reverse(detail_path, args=[pre_port.id])
+        self.assertRedirectsNoFollow(res, detail_url)
+        self.assertMessageCount(success=1)
+
+    def test_port_add_allowed_address_pair_incorrect_mac(self):
+        pre_port = self.ports.first()
+        pair = {'ip_address': '179.0.0.201',
+                'mac_address': 'incorrect'}
+        form_data = {'ip': pair['ip_address'], 'mac': pair['mac_address'],
+                     'port_id': pre_port.id}
+        url = reverse('horizon:project:networks:ports:addallowedaddresspairs',
+                      args=[pre_port.id])
+        res = self.client.post(url, form_data)
+        self.assertFormErrors(res, 1)
+        self.assertContains(res, "Invalid MAC Address format")
+
+    def test_port_add_allowed_address_pair_incorrect_ip(self):
+        pre_port = self.ports.first()
+        pair = {'ip_address': 'incorrect',
+                'mac_address': 'fa:16:4e:7a:7b:18'}
+        form_data = {'ip': pair['ip_address'], 'mac': pair['mac_address'],
+                     'port_id': pre_port.id}
+        url = reverse('horizon:project:networks:ports:addallowedaddresspairs',
+                      args=[pre_port.id])
+        res = self.client.post(url, form_data)
+        self.assertFormErrors(res, 1)
+        self.assertContains(res, "Incorrect format for IP address")
+
+    @test.create_stubs({api.neutron: ('port_get', 'port_update',
+                                      'is_extension_supported',)})
+    def test_port_remove_allowed_address_pair(self):
+        detail_path = 'horizon:project:networks:ports:detail'
+
+        pre_port = self.ports.first()
+        post_port = copy.deepcopy(pre_port)
+        pair = post_port['allowed_address_pairs'].pop()
+
+        # Update will do get and update
+        api.neutron.port_get(IsA(http.HttpRequest), pre_port.id) \
+            .AndReturn(pre_port)
+
+        params = {'allowed_address_pairs': post_port['allowed_address_pairs']}
+        api.neutron.port_update(IsA(http.HttpRequest),
+                                pre_port.id, **params) \
+            .AndReturn({'port': post_port})
+
+        # After update the detail page is loaded
+        api.neutron.is_extension_supported(IsA(http.HttpRequest),
+                                           'mac-learning') \
+            .MultipleTimes().AndReturn(False)
+        api.neutron.is_extension_supported(IsA(http.HttpRequest),
+                                           'allowed-address-pairs') \
+            .MultipleTimes().AndReturn(True)
+        api.neutron.port_get(IsA(http.HttpRequest), pre_port.id) \
+            .AndReturn(post_port)
+
+        self.mox.ReplayAll()
+
+        pair_ip = pair['ip_address']
+        form_data = {'action': 'allowed_address_pairs__delete__%s' % pair_ip}
+        url = reverse(detail_path, args=[pre_port.id])
+
+        res = self.client.post(url, form_data)
+        self.assertNoFormErrors(res)
+        self.assertRedirectsNoFollow(res, url)
+        self.assertMessageCount(success=1)

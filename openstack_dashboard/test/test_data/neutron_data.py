@@ -169,7 +169,10 @@ def data(TEST):
                  'status': 'ACTIVE',
                  'tenant_id': network_dict['tenant_id'],
                  'binding:vnic_type': 'normal',
-                 'binding:host_id': 'host'}
+                 'binding:host_id': 'host',
+                 'allowed_address_pairs': [{'ip_address': '174.0.0.201',
+                                           'mac_address': 'fa:16:3e:7a:7b:18'}]
+                 }
 
     TEST.api_ports.add(port_dict)
     TEST.ports.add(neutron.Port(port_dict))
