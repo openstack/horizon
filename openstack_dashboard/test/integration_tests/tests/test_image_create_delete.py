@@ -14,8 +14,7 @@ from openstack_dashboard.test.integration_tests import helpers
 from openstack_dashboard.test.integration_tests.regions import messages
 
 
-class TestImage(helpers.TestCase):
-    IMAGE_NAME = helpers.gen_random_resource_name("image")
+class ImagesTestMixin(object):
 
     def test_image_create_delete(self):
         """tests the image creation and deletion functionalities:
@@ -24,7 +23,6 @@ class TestImage(helpers.TestCase):
         * deletes the newly created image
         * verifies the image does not appear in the table after deletion
         """
-
         images_page = self.home_pg.go_to_compute_imagespage()
 
         images_page.create_image(self.IMAGE_NAME)
@@ -37,6 +35,11 @@ class TestImage(helpers.TestCase):
         self.assertTrue(images_page.find_message_and_dismiss(messages.SUCCESS))
         self.assertFalse(images_page.find_message_and_dismiss(messages.ERROR))
         self.assertFalse(images_page.is_image_present(self.IMAGE_NAME))
+
+
+class TestImage(helpers.TestCase, ImagesTestMixin):
+    """Login as demo user"""
+    IMAGE_NAME = helpers.gen_random_resource_name("image")
 
     def test_images_pagination(self):
         """This test checks images pagination
@@ -91,29 +94,9 @@ class TestImage(helpers.TestCase):
         settings_page.find_message_and_dismiss(messages.SUCCESS)
 
 
-class TestImageAdmin(helpers.AdminTestCase):
+class TestImageAdmin(helpers.AdminTestCase, ImagesTestMixin):
+    """Login as admin user"""
     IMAGE_NAME = helpers.gen_random_resource_name("image")
-
-    def test_image_create_delete_under_admin(self):
-        """tests the image creation and deletion functionalities under Admin:
-        * creates a new image from horizon.conf http_image
-        * verifies the image appears in the images table as active
-        * deletes the newly created image
-        * verifies the image does not appear in the table after deletion
-        """
-
-        images_page = self.home_pg.go_to_system_imagespage()
-
-        images_page.create_image(self.IMAGE_NAME)
-        self.assertTrue(images_page.find_message_and_dismiss(messages.SUCCESS))
-        self.assertFalse(images_page.find_message_and_dismiss(messages.ERROR))
-        self.assertTrue(images_page.is_image_present(self.IMAGE_NAME))
-        self.assertTrue(images_page.is_image_active(self.IMAGE_NAME))
-
-        images_page.delete_image(self.IMAGE_NAME)
-        self.assertTrue(images_page.find_message_and_dismiss(messages.SUCCESS))
-        self.assertFalse(images_page.find_message_and_dismiss(messages.ERROR))
-        self.assertFalse(images_page.is_image_present(self.IMAGE_NAME))
 
     def test_images_pagination_under_admin(self):
         """This test checks images pagination under admin user
