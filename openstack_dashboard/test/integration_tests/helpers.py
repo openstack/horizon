@@ -23,9 +23,9 @@ from selenium.webdriver.common import keys
 import testtools
 import xvfbwrapper
 
+from horizon.test import webdriver
 from openstack_dashboard.test.integration_tests import config
 from openstack_dashboard.test.integration_tests.pages import loginpage
-from openstack_dashboard.test.integration_tests import webdriver
 
 ROOT_PATH = os.path.dirname(os.path.abspath(config.__file__))
 
@@ -79,8 +79,11 @@ class BaseTestCase(testtools.TestCase):
             # and the webdriver.
             socket.setdefaulttimeout(60)
             # Start the Selenium webdriver and setup configuration.
+            desired_capabilities = dict(webdriver.desired_capabilities)
+            desired_capabilities['loggingPrefs'] = {'browser': 'ALL'}
             self.driver = webdriver.WebDriverWrapper(
-                logging_prefs={'browser': 'ALL'})
+                desired_capabilities=desired_capabilities
+            )
             self.driver.maximize_window()
             self.driver.implicitly_wait(self.CONFIG.selenium.implicit_wait)
             self.driver.set_page_load_timeout(
