@@ -54,6 +54,17 @@ ImageGroup = [
                 help='default list of images')
 ]
 
+NetworkGroup = [
+    cfg.StrOpt('network_cidr',
+               default='10.100.0.0/16',
+               help='The cidr block to allocate tenant ipv4 subnets from'),
+]
+
+AvailableServiceGroup = [
+    cfg.BoolOpt('neutron',
+                default=True),
+]
+
 SeleniumGroup = [
     cfg.IntOpt('implicit_wait',
                default=10,
@@ -119,6 +130,8 @@ def get_config():
 
     cfg.CONF.register_opts(DashboardGroup, group="dashboard")
     cfg.CONF.register_opts(IdentityGroup, group="identity")
+    cfg.CONF.register_opts(NetworkGroup, group="network")
+    cfg.CONF.register_opts(AvailableServiceGroup, group="service_available")
     cfg.CONF.register_opts(SeleniumGroup, group="selenium")
     cfg.CONF.register_opts(ImageGroup, group="image")
     cfg.CONF.register_opts(ScenarioGroup, group="scenario")
