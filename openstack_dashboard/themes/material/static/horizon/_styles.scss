@@ -19,11 +19,7 @@
   padding-top: $navbar-height;
   transition: padding-left $sidebar-animation;
   display: block;
-  padding-left: $sidebar-width + $content-body-padding;
-
-  @media (max-width: $screen-lg) {
-    padding-left: $content-body-padding;
-  }
+  padding-left: $sidebar-width;
 }
 
 #main_content {
