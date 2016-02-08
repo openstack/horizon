@@ -24,6 +24,8 @@ from openstack_dashboard.test.integration_tests.regions import tables
 
 class FloatingIPTable(tables.TableRegion):
     name = 'floating_ips'
+    FLOATING_IP_ASSOCIATIONS = (
+        ("ip_id", "instance_id"))
 
     @tables.bind_table_action('allocate')
     def allocate_ip(self, allocate_button):
@@ -35,9 +37,21 @@ class FloatingIPTable(tables.TableRegion):
         release_button.click()
         return forms.BaseFormRegion(self.driver, self.conf)
 
+    @tables.bind_row_action('associate', primary=True)
+    def associate_ip(self, associate_button, row):
+        associate_button.click()
+        return forms.FormRegion(self.driver, self.conf,
+                                field_mappings=self.FLOATING_IP_ASSOCIATIONS)
+
+    @tables.bind_row_action('disassociate', primary=True)
+    def disassociate_ip(self, disassociate_button, row):
+        disassociate_button.click()
+        return forms.BaseFormRegion(self.driver, self.conf)
+
 
 class FloatingipsPage(basepage.BaseNavigationPage):
     FLOATING_IPS_TABLE_IP_COLUMN = 'ip'
+    FLOATING_IPS_TABLE_FIXED_IP_COLUMN = 'fixed_ip'
 
     _floatingips_fadein_popup_locator = (
         by.By.CSS_SELECTOR, '.alert.alert-success.alert-dismissable.fade.in>p')
@@ -73,3 +87,20 @@ class FloatingipsPage(basepage.BaseNavigationPage):
 
     def is_floatingip_present(self, floatingip):
         return bool(self._get_row_with_floatingip(floatingip))
+
+    def associate_floatingip(self, floatingip, instance_name=None,
+                             instance_ip=None):
+        row = self._get_row_with_floatingip(floatingip)
+        floatingip_form = self.floatingips_table.associate_ip(row)
+        floatingip_form.instance_id.text = "{}: {}".format(instance_name,
+                                                           instance_ip)
+        floatingip_form.submit()
+
+    def disassociate_floatingip(self, floatingip):
+        row = self._get_row_with_floatingip(floatingip)
+        floatingip_form = self.floatingips_table.disassociate_ip(row)
+        floatingip_form.submit()
+
+    def get_fixed_ip(self, floatingip):
+        row = self._get_row_with_floatingip(floatingip)
+        return row.cells[self.FLOATING_IPS_TABLE_FIXED_IP_COLUMN].text

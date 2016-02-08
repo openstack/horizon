@@ -36,3 +36,61 @@ class TestFloatingip(helpers.TestCase):
         self.assertFalse(
             floatingip_page.find_message_and_dismiss(messages.ERROR))
         self.assertFalse(floatingip_page.is_floatingip_present(floating_ip))
+
+
+class TestFloatingipAssociateDisassociate(helpers.TestCase):
+    """Checks that the user is able to Associate/Disassociate floatingip."""
+
+    def test_floatingip_associate_disassociate(self):
+        instance_name = helpers.gen_random_resource_name('instance',
+                                                         timestamp=False)
+        instances_page = self.home_pg.go_to_compute_instancespage()
+        instances_page.create_instance(instance_name)
+        self.assertTrue(
+            instances_page.find_message_and_dismiss(messages.SUCCESS))
+        self.assertFalse(
+            instances_page.find_message_and_dismiss(messages.ERROR))
+        self.assertTrue(instances_page.is_instance_active(instance_name))
+        instance_ipv4 = instances_page.get_fixed_ipv4(instance_name)
+        instance_info = "{} {}".format(instance_name, instance_ipv4)
+
+        floatingip_page = \
+            self.home_pg.go_to_compute_accessandsecurity_floatingipspage()
+        floating_ip = floatingip_page.allocate_floatingip()
+        self.assertTrue(
+            floatingip_page.find_message_and_dismiss(messages.SUCCESS))
+        self.assertFalse(
+            floatingip_page.find_message_and_dismiss(messages.ERROR))
+        self.assertTrue(floatingip_page.is_floatingip_present(floating_ip))
+
+        self.assertEqual(floatingip_page.get_fixed_ip(floating_ip), '-')
+        floatingip_page.associate_floatingip(floating_ip, instance_name,
+                                             instance_ipv4)
+        self.assertTrue(
+            floatingip_page.find_message_and_dismiss(messages.SUCCESS))
+        self.assertFalse(
+            floatingip_page.find_message_and_dismiss(messages.ERROR))
+        self.assertEqual(floatingip_page.get_fixed_ip(floating_ip),
+                         instance_info)
+
+        floatingip_page.disassociate_floatingip(floating_ip)
+        self.assertTrue(
+            floatingip_page.find_message_and_dismiss(messages.SUCCESS))
+        self.assertFalse(
+            floatingip_page.find_message_and_dismiss(messages.ERROR))
+        self.assertEqual(floatingip_page.get_fixed_ip(floating_ip), '-')
+
+        floatingip_page.release_floatingip(floating_ip)
+        self.assertTrue(
+            floatingip_page.find_message_and_dismiss(messages.SUCCESS))
+        self.assertFalse(
+            floatingip_page.find_message_and_dismiss(messages.ERROR))
+        self.assertFalse(floatingip_page.is_floatingip_present(floating_ip))
+
+        instances_page = self.home_pg.go_to_compute_instancespage()
+        instances_page.delete_instance(instance_name)
+        self.assertTrue(
+            instances_page.find_message_and_dismiss(messages.SUCCESS))
+        self.assertFalse(
+            instances_page.find_message_and_dismiss(messages.ERROR))
+        self.assertTrue(instances_page.is_instance_deleted(instance_name))
