@@ -105,21 +105,6 @@ class Navigation(object):
                                     "Containers",
                                 )
                         },
-                    "Data Processing":
-                        {
-                            ITEMS:
-                                (
-                                    "Clusters",
-                                    "Cluster Templates",
-                                    "Node Group Templates",
-                                    "Job Executions",
-                                    "Jobs",
-                                    "Job Binaries",
-                                    "Data Sources",
-                                    "Image Registry",
-                                    "Plugins"
-                                ),
-                        },
                     "Orchestration":
                         {
                             ITEMS:
@@ -321,7 +306,7 @@ class Navigation(object):
             if isinstance(items, dict):
                 for sub_menu, sub_item in six.iteritems(items):
                     rec(sub_item, sub_menus + (sub_menu,))
-            elif isinstance(items, tuple):
+            elif isinstance(items, (list, tuple)):
                 # exclude ITEMS element from sub_menus
                 paths = (sub_menus[:-1] + (menu_item,) for menu_item in items)
                 for path in paths:
