@@ -156,7 +156,8 @@
         { key: 'name', classList: ['hi-light'] },
         { key: 'updated_at', filter: dateFilter, filterArg: 'short' },
         { key: 'size', filter: bytesFilter, classList: ['number'] },
-        { key: 'disk_format', style: { 'text-transform': 'uppercase' } },
+        { key: 'disk_format', style: { 'text-transform': 'uppercase' },
+          filter: diskFormatFilter, filterRawData: true },
         { key: 'is_public', filter: decodeFilter, filterArg: _visibilitymap,
           style: { 'text-transform': 'capitalize' } }
       ],
@@ -164,7 +165,8 @@
         { key: 'name', classList: ['hi-light'] },
         { key: 'updated_at', filter: dateFilter, filterArg: 'short' },
         { key: 'size', filter: bytesFilter, classList: ['number'] },
-        { key: 'disk_format', style: { 'text-transform': 'uppercase' } },
+        { key: 'disk_format', style: { 'text-transform': 'uppercase' },
+          filter: diskFormatFilter, filterRawData: true },
         { key: 'is_public', filter: decodeFilter, filterArg: _visibilitymap,
           style: { 'text-transform': 'capitalize' } }
       ],
