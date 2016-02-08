@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2016-01-09 00:51+0000\n"
+"POT-Creation-Date: 2016-02-07 23:20+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -19,12 +19,6 @@ msgstr ""
 "Generated-By: Babel 2.0\n"
 "X-Generator: Zanata 3.7.3\n"
 "Language-Team: Chinese (Taiwan)\n"
-
-msgid "(Max: 16Kb)"
-msgstr "(最大：16 Kb)"
-
-msgid "(Modified)"
-msgstr "（已更改）"
 
 msgid "(None)"
 msgstr "（無）"
@@ -164,9 +158,6 @@ msgstr ""
 "啟動執行個體時，添加的自定義腳本會執行特定的操作。例如，如果您無法在客戶作業"
 "系統中安裝 <samp>cloud-init</samp> 時，可以使用自定義腳本來獲得公鑰並將其添加"
 "到使用者帳戶。"
-
-msgid "Customization Script"
-msgstr "客製化腳本"
 
 msgid "Deleted"
 msgstr "已刪除"
@@ -333,9 +324,6 @@ msgstr "已中斷"
 msgid "Launch Instance"
 msgstr "發動雲實例"
 
-msgid "Load script from a file"
-msgstr "從檔案載入腳本"
-
 msgid "Manual"
 msgstr "手動"
 
@@ -466,9 +454,6 @@ msgstr "儲存"
 
 msgid "Saving"
 msgstr "正在儲存"
-
-msgid "Script size"
-msgstr "腳本大小"
 
 msgid "Security Groups"
 msgstr "安全性群組"
@@ -903,9 +888,6 @@ msgstr ""
 
 msgid "Yes"
 msgstr "是"
-
-msgid "bytes"
-msgstr "位元組"
 
 msgid "{$ row['provider:network_type'] $}"
 msgstr "{$ row['provider:network_type'] $}"

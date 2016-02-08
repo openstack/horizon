@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2016-01-27 06:55+0000\n"
+"POT-Creation-Date: 2016-02-08 06:46+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -902,8 +902,7 @@ msgstr ""
 #: dashboards/admin/static/dashboard/admin/flavors/table/flavors-table.html:29
 #: dashboards/project/static/dashboard/project/workflow/launch-instance/flavor/select-flavor-table.html:35
 #: dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:151
-#: static/app/core/images/table/images-table.html:42
-#: static/app/core/images/table/images-table.html:105
+#: static/app/core/images/filters/image-visibility.filter.js:59
 msgid "Public"
 msgstr ""
 
@@ -1062,30 +1061,6 @@ msgstr ""
 msgid "Configuration Drive"
 msgstr ""
 
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/configuration/load-edit.html:3
-msgid "Customization Script"
-msgstr ""
-
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/configuration/load-edit.html:4
-msgid "(Modified)"
-msgstr ""
-
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/configuration/load-edit.html:17
-msgid "Script size"
-msgstr ""
-
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/configuration/load-edit.html:19
-msgid "bytes"
-msgstr ""
-
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/configuration/load-edit.html:20
-msgid "(Max: 16Kb)"
-msgstr ""
-
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/configuration/load-edit.html:32
-msgid "Load script from a file"
-msgstr ""
-
 #: dashboards/project/static/dashboard/project/workflow/launch-instance/details/details.controller.js:46
 msgid "A name is required for your instance."
 msgstr ""
@@ -1142,6 +1117,7 @@ msgstr ""
 
 #: dashboards/project/static/dashboard/project/workflow/launch-instance/details/details.html:30
 #: dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:139
+#: static/app/core/images/steps/create-volume/create-volume.html:46
 msgid "Availability Zone"
 msgstr ""
 
@@ -1225,6 +1201,7 @@ msgstr ""
 #: dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:128
 #: dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:135
 #: dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:142
+#: static/app/core/images/steps/create-volume/create-volume.html:13
 msgid "Name"
 msgstr ""
 
@@ -1535,6 +1512,7 @@ msgstr ""
 #: dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:124
 #: dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:131
 #: dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:138
+#: static/app/core/images/steps/create-volume/create-volume.html:28
 #: static/app/core/images/table/images-table.html:40
 msgid "Type"
 msgstr ""
@@ -1623,6 +1601,7 @@ msgstr ""
 #: dashboards/project/static/dashboard/project/workflow/launch-instance/security-groups/security-groups.html:73
 #: dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:136
 #: dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:143
+#: static/app/core/images/steps/create-volume/create-volume.html:18
 msgid "Description"
 msgstr ""
 
@@ -1668,6 +1647,8 @@ msgstr ""
 
 #: dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:125
 #: dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:132
+#: static/app/core/images/table/images-table.html:42
+#: static/app/core/images/table/images-table.html:105
 msgid "Visibility"
 msgstr ""
 
@@ -1676,6 +1657,7 @@ msgid "Created"
 msgstr ""
 
 #: dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:151
+#: static/app/core/images/filters/image-visibility.filter.js:60
 msgid "Private"
 msgstr ""
 
@@ -1774,6 +1756,7 @@ msgid "Device Name"
 msgstr ""
 
 #: dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.html:63
+#: static/app/core/images/steps/create-volume/create-volume.html:38
 msgid "Size (GB)"
 msgstr ""
 
@@ -1814,6 +1797,22 @@ msgstr ""
 msgid "Unable to delete Images: %s."
 msgstr ""
 
+#: static/app/core/images/actions/create-volume.service.js:61
+#, python-format
+msgid "Volume %s was successfully created."
+msgstr ""
+
+#: static/app/core/images/actions/create-volume.workflow.service.js:36
+#: static/app/core/images/actions/create-volume.workflow.service.js:37
+#: static/app/core/images/table/row-actions.service.js:59
+msgid "Create Volume"
+msgstr ""
+
+#: static/app/core/images/actions/create-volume.workflow.service.js:40
+#: static/app/core/images/steps/create-volume/create-volume.html:2
+msgid "Volume Details"
+msgstr ""
+
 #: static/app/core/images/actions/delete-image.service.js:56
 #, python-format
 msgid "You are not allowed to delete images: %s"
@@ -1843,7 +1842,7 @@ msgid "Confirm Delete Image"
 msgstr ""
 
 #: static/app/core/images/actions/delete.action.service.js:43
-#: static/app/core/images/table/row-actions.service.js:57
+#: static/app/core/images/table/row-actions.service.js:64
 msgid "Delete Image"
 msgstr ""
 
@@ -1879,6 +1878,50 @@ msgstr ""
 
 #: static/app/core/images/filters/image-type.filter.js:39
 msgid "Snapshot"
+msgstr ""
+
+#: static/app/core/images/filters/image-visibility.filter.js:61
+msgid "Shared with Me"
+msgstr ""
+
+#: static/app/core/images/filters/image-visibility.filter.js:62
+msgid "Unknown"
+msgstr ""
+
+#: static/app/core/images/steps/create-volume/create-volume.controller.js:66
+msgid "Volume and Snapshot Quota (GB)"
+msgstr ""
+
+#: static/app/core/images/steps/create-volume/create-volume.controller.js:89
+msgid "Volume Quota"
+msgstr ""
+
+#: static/app/core/images/steps/create-volume/create-volume.help.html:2
+msgid "Description:"
+msgstr ""
+
+#: static/app/core/images/steps/create-volume/create-volume.help.html:3
+#: static/app/core/images/steps/create-volume/create-volume.html:6
+msgid "Volumes are block devices that can be attached to instances."
+msgstr ""
+
+#: static/app/core/images/steps/create-volume/create-volume.help.html:7
+#: static/app/core/images/steps/create-volume/create-volume.html:69
+msgid "Volume Type Description:"
+msgstr ""
+
+#: static/app/core/images/steps/create-volume/create-volume.help.html:8
+msgid ""
+"If \"No volume type\" is selected, the volume will be created without a "
+"volume type."
+msgstr ""
+
+#: static/app/core/images/steps/create-volume/create-volume.html:22
+msgid "Use image as a source"
+msgstr ""
+
+#: static/app/core/images/steps/create-volume/create-volume.html:48
+msgid "Select a zone"
 msgstr ""
 
 #: static/app/core/images/table/images-table.html:1
@@ -2013,11 +2056,11 @@ msgstr ""
 msgid "Unable to retrieve the images."
 msgstr ""
 
-#: static/app/core/openstack-service-api/glance.service.js:343
+#: static/app/core/openstack-service-api/glance.service.js:348
 msgid "Unable to retrieve the namespaces."
 msgstr ""
 
-#: static/app/core/openstack-service-api/glance.service.js:368
+#: static/app/core/openstack-service-api/glance.service.js:373
 msgid "Unable to retrieve the resource types."
 msgstr ""
 
@@ -2165,7 +2208,7 @@ msgstr ""
 msgid "Unable to create the subnet."
 msgstr ""
 
-#: static/app/core/openstack-service-api/neutron.service.js:229
+#: static/app/core/openstack-service-api/neutron.service.js:260
 msgid "Unable to retrieve the ports."
 msgstr ""
 

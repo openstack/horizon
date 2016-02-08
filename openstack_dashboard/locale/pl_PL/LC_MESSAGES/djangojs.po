@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2016-01-09 00:51+0000\n"
+"POT-Creation-Date: 2016-02-07 23:20+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -22,12 +22,6 @@ msgstr ""
 "Generated-By: Babel 2.0\n"
 "X-Generator: Zanata 3.7.3\n"
 "Language-Team: Polish (Poland)\n"
-
-msgid "(Max: 16Kb)"
-msgstr "(Max: 16Kb)"
-
-msgid "(Modified)"
-msgstr "(Zmodyfikowano)"
 
 msgid "(None)"
 msgstr "(brak)"
@@ -187,9 +181,6 @@ msgstr ""
 "<samp>cloud-init</samp> wewnątrz systemu operacyjnego gościa, można "
 "wykorzystać własny skrypt w celu pobrania klucza publicznego i dodania go do "
 "konta użytkownika."
-
-msgid "Customization Script"
-msgstr "Skrypt modyfikujący"
 
 msgid "Deleted"
 msgstr "Usunięto"
@@ -365,9 +356,6 @@ msgstr "Ubito"
 msgid "Launch Instance"
 msgstr "Uruchom instancję"
 
-msgid "Load script from a file"
-msgstr "Wczytaj skrypt z pliku"
-
 msgid "Manual"
 msgstr "Ręczne"
 
@@ -495,9 +483,6 @@ msgstr "Zapisz"
 
 msgid "Saving"
 msgstr "Zapisywanie"
-
-msgid "Script size"
-msgstr "Rozmiar skryptu"
 
 msgid "Security Groups"
 msgstr "Grupy zabezpieczeń"
@@ -946,9 +931,6 @@ msgstr ""
 
 msgid "Yes"
 msgstr "Tak"
-
-msgid "bytes"
-msgstr "bajtów"
 
 msgid "{$ row['provider:network_type'] $}"
 msgstr "{$ row['provider:network_type'] $}"

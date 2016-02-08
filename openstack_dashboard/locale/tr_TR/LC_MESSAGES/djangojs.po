@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2016-01-09 00:51+0000\n"
+"POT-Creation-Date: 2016-02-07 23:20+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -21,12 +21,6 @@ msgstr ""
 "Generated-By: Babel 2.0\n"
 "X-Generator: Zanata 3.7.3\n"
 "Language-Team: Turkish (Turkey)\n"
-
-msgid "(Max: 16Kb)"
-msgstr "(Mak: 16Kb)"
-
-msgid "(Modified)"
-msgstr "(Düzenlendi)"
 
 msgid "(None)"
 msgstr "(Hiçbiri)"
@@ -184,9 +178,6 @@ msgstr ""
 "gerçekleştirmeleri için eklenirler. Örneğin, misafir işletim sistemi içine "
 "<samp>cloud-init</samp> kuramıyorsanız özel bir betik ile bir açık anahtar "
 "alabilir ve onu kullanıcı hesabına ekletebilirsiniz."
-
-msgid "Customization Script"
-msgstr "Özelleştirme Betiği"
 
 msgid "Deleted"
 msgstr "Silindi"
@@ -361,9 +352,6 @@ msgstr "Öldürüldü"
 msgid "Launch Instance"
 msgstr "Instance Başlat"
 
-msgid "Load script from a file"
-msgstr "Betiği dosyadan yükle"
-
 msgid "Manual"
 msgstr "Elle"
 
@@ -491,9 +479,6 @@ msgstr "Kaydet"
 
 msgid "Saving"
 msgstr "Kaydediliyor"
-
-msgid "Script size"
-msgstr "Betik boyutu"
 
 msgid "Security Groups"
 msgstr "Güvenlik Grupları"
@@ -935,9 +920,6 @@ msgstr ""
 
 msgid "Yes"
 msgstr "Evet"
-
-msgid "bytes"
-msgstr "byte"
 
 msgid "{$ row['provider:network_type'] $}"
 msgstr "{$ row['provider:network_type'] $}"

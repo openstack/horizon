@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2016-01-09 00:51+0000\n"
+"POT-Creation-Date: 2016-02-07 23:20+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -21,12 +21,6 @@ msgstr ""
 "Generated-By: Babel 2.0\n"
 "X-Generator: Zanata 3.7.3\n"
 "Language-Team: English (United Kingdom)\n"
-
-msgid "(Max: 16Kb)"
-msgstr "(Max: 16Kb)"
-
-msgid "(Modified)"
-msgstr "(Modified)"
 
 msgid "(None)"
 msgstr "(None)"
@@ -184,9 +178,6 @@ msgstr ""
 "the instance is launched. For example, if you are unable to install "
 "<samp>cloud-init</samp> inside a guest operating system, you can use a "
 "custom script to get a public key and add it to the user account."
-
-msgid "Customization Script"
-msgstr "Customisation Script"
 
 msgid "Deleted"
 msgstr "Deleted"
@@ -361,9 +352,6 @@ msgstr "Killed"
 msgid "Launch Instance"
 msgstr "Launch Instance"
 
-msgid "Load script from a file"
-msgstr "Load script from a file"
-
 msgid "Manual"
 msgstr "Manual"
 
@@ -492,9 +480,6 @@ msgstr "Save"
 
 msgid "Saving"
 msgstr "Saving"
-
-msgid "Script size"
-msgstr "Script size"
 
 msgid "Security Groups"
 msgstr "Security Groups"
@@ -938,9 +923,6 @@ msgstr ""
 
 msgid "Yes"
 msgstr "Yes"
-
-msgid "bytes"
-msgstr "bytes"
 
 msgid "{$ row['provider:network_type'] $}"
 msgstr "{$ row['provider:network_type'] $}"
