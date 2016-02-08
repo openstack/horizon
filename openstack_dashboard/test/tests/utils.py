@@ -14,6 +14,7 @@
 #    under the License.
 
 import datetime
+from django.test.utils import override_settings
 import uuid
 
 from openstack_dashboard.test import helpers as test
@@ -67,6 +68,7 @@ class UtilsMeteringTests(test.TestCase):
 
 
 class IdentityTests(test.BaseAdminViewTests):
+    @override_settings(OPENSTACK_KEYSTONE_ADMIN_ROLES=['foO', 'BAR', 'admin'])
     def test_get_admin_roles(self):
         mix_in = identity.IdentityMixIn()
         admin_roles = mix_in.get_admin_roles()

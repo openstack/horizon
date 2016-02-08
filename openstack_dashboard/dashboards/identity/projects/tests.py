@@ -1766,6 +1766,7 @@ class SeleniumTests(test.SeleniumAdminTestCase):
         for user in users:
             self.assertIn(user.name, members.text)
 
+    @override_settings(OPENSTACK_KEYSTONE_ADMIN_ROLES=['foO', 'BAR', 'admin'])
     def test_get_admin_roles(self):
         mix_in = workflows.IdentityMixIn()
         admin_roles = mix_in.get_admin_roles()

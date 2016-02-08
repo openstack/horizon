@@ -353,11 +353,10 @@ class UpdateDomain(workflows.Workflow, IdentityMixIn):
                 # domain_id == request.user.domain_id
                 is_current_domain = True
 
-                _admin_roles = self.get_admin_roles()
-                available_admin_role_ids = [role.id for role in
-                                            available_roles
-                                            if role.name.lower() in
-                                            _admin_roles]
+                available_admin_role_ids = [
+                    role.id for role in available_roles
+                    if role.name.lower() in self.get_admin_roles()
+                ]
                 admin_role_ids = [role for role in current_role_ids
                                   if role in available_admin_role_ids]
                 if len(admin_role_ids):
