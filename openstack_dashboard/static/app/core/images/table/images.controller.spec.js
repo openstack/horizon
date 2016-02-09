@@ -29,6 +29,13 @@
             ]
           }
         };
+      },
+      getNamespaces: function () {
+        return {
+          then: function (callback) {
+            callback({data: {items: []}});
+          }
+        };
       }
     };
 
@@ -73,8 +80,10 @@
       controller = $injector.get('$controller');
 
       spyOn(glanceAPI, 'getImages').and.callThrough();
+      spyOn(glanceAPI, 'getNamespaces').and.callThrough();
       spyOn(userSession, 'get').and.callThrough();
       spyOn(mockQ, 'all').and.callThrough();
+
     }));
 
     function createController() {
@@ -95,6 +104,7 @@
         expectedImages['1'],
         expectedImages['2']
       ]);
+      expect(glanceAPI.getNamespaces).toHaveBeenCalled();
     });
 
     it('should refresh images after delete', function() {

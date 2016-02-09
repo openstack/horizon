@@ -131,7 +131,15 @@
           </dl>
         </div>
 
-        <!-- TODO Add in metadata defs from launch instance image details -->
+        <div class="row" ng-if="table.metadataDefs && image.properties">
+          <div class="col-sm-12">
+            <metadata-display
+                available="::table.metadataDefs"
+                existing="::image.properties">
+            </metadata-display>
+          </div>
+        </div>
+
       </td>
     </tr>
 
