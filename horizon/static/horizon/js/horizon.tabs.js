@@ -20,32 +20,34 @@ horizon.tabs.addTabLoadFunction = function (f) {
   horizon.tabs._init_load_functions.push(f);
 };
 
-horizon.tabs.initTabLoad = function (tab) {
+horizon.tabs.initTabLoad = function ($tab) {
+  $tab.removeClass('tab-loading');
   $(horizon.tabs._init_load_functions).each(function (index, f) {
-    f(tab);
+    f($tab);
   });
-  recompileAngularContent($(tab));
+  recompileAngularContent($tab);
 };
 
 horizon.tabs.load_tab = function () {
   var $this = $(this),
     tab_id = $this.attr('data-target'),
-    tab_pane = $(tab_id);
+    $tab_pane = $(tab_id);
 
-  // FIXME(gabriel): This style mucking shouldn't be in the javascript.
-  tab_pane.append("<span style='margin-left: 30px;'>" + gettext("Loading") + "&hellip;</span>");
-  tab_pane.spin(horizon.conf.spinner_options.inline);
-  $(tab_pane.data().spinner.el).css('top', '9px');
-  $(tab_pane.data().spinner.el).css('left', '15px');
+  // Set up the client side template to append
+  var $template = horizon.loader.inline(gettext('Loading'));
+
+  $tab_pane
+    .append($template)
+    .addClass('tab-loading');
 
   // If query params exist, append tab id.
   if(window.location.search.length > 0) {
-    tab_pane.load(window.location.search + "&tab=" + tab_id.replace('#', ''), function() {
-      horizon.tabs.initTabLoad(tab_pane);
+    $tab_pane.load(window.location.search + "&tab=" + tab_id.replace('#', ''), function() {
+      horizon.tabs.initTabLoad($tab_pane);
     });
   } else {
-    tab_pane.load("?tab=" + tab_id.replace('#', ''), function() {
-      horizon.tabs.initTabLoad(tab_pane);
+    $tab_pane.load("?tab=" + tab_id.replace('#', ''), function() {
+      horizon.tabs.initTabLoad($tab_pane);
     });
   }
   $this.attr("data-loaded", "true");

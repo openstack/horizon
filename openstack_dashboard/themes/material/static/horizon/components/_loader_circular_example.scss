@@ -1,0 +1,70 @@
+// Adapted with <3 from http://codepen.io/kazuyu/pen/gHjoC/
+
+.material-loader {
+  position: absolute;
+  top: 20%;
+  left: 50%;
+  width: 50px;
+  height: 50px;
+  @include animation(material-loader-rotate 2s linear infinite);
+
+  .path {
+    stroke-dasharray: 1,200;
+    stroke-dashoffset: 0;
+    stroke-linecap: round;
+    stroke: #db652d;
+    @include animation(material-loader-dash 1.5s ease-in-out infinite, material-loader-color 6s ease-in-out infinite);
+  }
+}
+
+@include keyframes(material-loader-rotate) {
+  from {
+    @include rotate(0deg);
+  }
+  to {
+    @include rotate(360deg);
+  }
+}
+
+@include keyframes(material-loader-dash) {
+  0% {
+    stroke-dasharray: 1,200;
+    stroke-dashoffset: 0;
+  }
+  50% {
+    stroke-dasharray: 89,200;
+    stroke-dashoffset: -35;
+  }
+  100% {
+    stroke-dasharray: 89,200;
+    stroke-dashoffset: -124;
+  }
+}
+
+@include keyframes(material-loader-color) {
+  0%   {
+    stroke: $brand-info;
+  }
+  20%  {
+    stroke: $brand-info;
+  }
+  25%  {
+    stroke: $brand-danger;
+  }
+  45%  {
+    stroke: $brand-danger;
+  }
+  50%  {
+    stroke: $brand-warning;
+  }
+  70%  {
+    stroke: $brand-warning;
+  }
+  75%  {
+    stroke: $brand-success;
+  }
+  95%  {
+    stroke: $brand-success;
+  }
+}
+

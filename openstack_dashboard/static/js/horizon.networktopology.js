@@ -97,7 +97,9 @@ horizon.network_topology = {
 
   init:function() {
     var self = this;
-    angular.element(self.svg_container).spin(horizon.conf.spinner_options.modal);
+
+    self.$loading_template = horizon.networktopologyloader.setup_loader($(self.svg_container));
+
     if (angular.element('#networktopology').length === 0) {
       return;
     }
@@ -155,9 +157,10 @@ horizon.network_topology = {
       horizon.cookies.put('are_networks_collapsed', !current);
     });
 
-    angular.element('#topologyCanvasContainer').spin(horizon.conf.spinner_options.modal);
+    // set up loader first thing
+    self.$loading_template.show();
+
     self.create_vis();
-    self.loading();
     self.force_direction(0.05,70,-700);
     if(horizon.networktopologyloader.model !== null) {
       self.retrieve_network_info(true);
@@ -232,7 +235,7 @@ horizon.network_topology = {
   // Setup the main visualisation
   create_vis: function() {
     var self = this;
-    angular.element('#topologyCanvasContainer').html('');
+    angular.element('#topologyCanvasContainer').find('svg').remove();
 
     // Main svg
     self.outer_group = d3.select('#topologyCanvasContainer').append('svg')
@@ -262,34 +265,6 @@ horizon.network_topology = {
 
     // svg wrapper for nodes to sit on
     self.vis = self.outer_group.append('g');
-  },
-
-  loading: function() {
-    var self = this;
-    var load_text = self.vis.append('text')
-        .style('fill', 'black')
-        .style('font-size', '40')
-        .attr('x', '50%')
-        .attr('y', '50%')
-        .text('');
-    var counter = 0;
-    var timer = setInterval(function() {
-      var i;
-      var str = '';
-      for (i = 0; i <= counter; i++) {
-        str += '.';
-      }
-      load_text.text(str);
-      if (counter >= 9) {
-        counter = 0;
-      } else {
-        counter++;
-      }
-      if (self.data_loaded) {
-        clearInterval(timer);
-        load_text.remove();
-      }
-    }, 100);
   },
 
   // Calculate the hulls that surround networks
@@ -785,6 +760,7 @@ horizon.network_topology = {
         self.force.start();
     }
     self.load_config();
+    self.$loading_template.hide();
   },
 
   removeNode: function(obj) {

@@ -1,0 +1,65 @@
+// Adapter with <3 from http://codepen.io/max-scopp/pen/FArlb
+
+// keyframes
+@mixin animate-loader($duration) {
+  @include animation(material-loader-stretch 2.8s ease $duration infinite)
+}
+
+.material-line-loader {
+  width: 100%;
+  height: 4px;
+  position: relative;
+  overflow: hidden;
+
+  & > .loader-section {
+    position: absolute;
+    height: 100%;
+    left: 50%;
+
+    &:first-child {
+      background: $brand-success;
+      @include animate-loader(0s);
+    }
+
+    &:nth-child(2) {
+      background: $brand-danger;
+      @include animate-loader(.4s);
+    }
+
+    &:nth-child(3) {
+      background: $brand-info;
+      @include animate-loader(.8s);
+    }
+
+    &:nth-child(4) {
+      background: $brand-warning;
+      @include animate-loader(1.2s);
+    }
+  }
+}
+
+@include keyframes(material-loader-stretch) {
+  0% {
+    padding: 0 0 0 0;
+    left: 50%;
+    z-index: 4;
+  }
+  25% {
+    z-index: 3;
+  }
+  50% {
+    padding: 0 50% 0 50%;
+    left: 0;
+    z-index: 2;
+  }
+  100% {
+    padding: 0 50% 0 50%;
+    left: 0;
+    z-index: 1;
+  }
+}
+
+// Move it up over the tab line, it looks cleaner
+.tab-loading .material-line-loader {
+  top: -2px;
+}

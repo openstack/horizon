@@ -1,14 +1,15 @@
 {% extends "horizon/client_side/template.html" %}
 {% load i18n horizon %}
 
-{% block id %}spinner-modal{% endblock %}
+{% block id %}loader-modal{% endblock %}
 
 {% block template %}{% spaceless %}{% jstemplate %}
 <div class="modal loading">
   <div class="modal-dialog modal-xs">
     <div class="modal-content">
       <div class="modal-body">
-        <p class="text-center">[[text]]&hellip;</p>
+        <span class="loader fa fa-spinner fa-spin fa-5x text-center"></span>
+        <div class="loader-caption h4 text-center">[[text]]&hellip;</div>
       </div>
     </div>
   </div>

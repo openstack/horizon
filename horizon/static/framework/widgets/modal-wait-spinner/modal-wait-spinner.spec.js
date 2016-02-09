@@ -18,12 +18,33 @@
 
   describe('Wait Spinner Tests', function() {
 
-    var service;
+    var service, $scope, $element, markup;
+
+    var expectedTemplateResult =
+      '<!-- Maintain parity with _loading_modal.html -->\n' +
+      '<div class="modal-body">\n  <span class="loader fa fa-spinner ' +
+      'fa-spin fa-5x text-center"></span>\n  <div class="loader-caption h4 text-center">' +
+      'wait&hellip;</div>\n</div>\n';
+
     beforeEach(module('ui.bootstrap'));
+    beforeEach(module('templates'));
     beforeEach(module('horizon.framework'));
 
-    beforeEach(inject(function($injector) {
+    beforeEach(inject(function ($injector) {
+      var $compile = $injector.get('$compile');
+      var $templateCache = $injector.get('$templateCache');
+      var basePath = $injector.get('horizon.framework.widgets.basePath');
+
+      $scope = $injector.get('$rootScope').$new();
       service = $injector.get('horizon.framework.widgets.modal-wait-spinner.service');
+
+      markup = $templateCache
+          .get(basePath + 'modal-wait-spinner/modal-wait-spinner.template.html');
+
+      $element = angular.element(markup);
+      $compile($element)($scope);
+
+      $scope.$apply();
     }));
 
     it('returns the service', function() {
@@ -37,17 +58,16 @@
       });
 
       it('opens modal with the correct object', inject(function($uibModal) {
-        var wanted = { backdrop: 'static',
-                       template: '<div wait-spinner class="modal-body" text="my text"></div>',
-                       windowClass: 'modal-wait-spinner modal_wrapper loading'
-                     };
-        spyOn($uibModal, 'open');
-        service.showModalSpinner('my text');
-        expect($uibModal.open).toHaveBeenCalled();
-        expect($uibModal.open.calls.count()).toBe(1);
-        expect($uibModal.open.calls.argsFor(0)).toEqual([wanted]);
-      }));
+        spyOn($uibModal, 'open').and.callThrough();
+        service.showModalSpinner('wait');
+        $scope.$apply();
 
+        expect($uibModal.open).toHaveBeenCalled();
+        expect($uibModal.open.calls.count()).toEqual(1);
+        expect($uibModal.open.calls.argsFor(0)[0].backdrop).toEqual('static');
+        expect($uibModal.open.calls.argsFor(0)[0].template).toEqual(expectedTemplateResult);
+        expect($uibModal.open.calls.argsFor(0)[0].windowClass).toEqual('modal-wait-spinner');
+      }));
     });
 
     describe('hideModalSpinner', function() {
@@ -60,19 +80,20 @@
         var modal = {dismiss: function() {}};
         spyOn($uibModal, 'open').and.returnValue(modal);
         service.showModalSpinner('asdf');
+
         spyOn(modal, 'dismiss');
         service.hideModalSpinner();
+
         expect(modal.dismiss).toHaveBeenCalled();
       }));
-
     });
-
   });
 
   describe('Wait Spinner Directive', function() {
     var $scope, $element;
 
     beforeEach(module('ui.bootstrap'));
+    beforeEach(module('templates'));
     beforeEach(module('horizon.framework'));
 
     beforeEach(inject(function($injector) {
@@ -82,14 +103,17 @@
       var markup = '<div wait-spinner text="hello!"></div>';
       $element = angular.element(markup);
       $compile($element)($scope);
-
       $scope.$apply();
     }));
 
-    it("creates a p element", function() {
-      var elems = $element.find('p');
+    it("creates a div element with correct text", function() {
+      var elems = $element.find('div div');
       expect(elems.length).toBe(1);
+      //The spinner is a nested div with the "text" set according to the attribute
+      //indexOf is used because the spinner puts &hellip;  after the text, however
+      //jasmine does not convert &hellip; to the three dots and thinks they don't match
+      //when compared with toEqual
+      expect(elems[0].innerText.indexOf('hello!')).toBe(0);
     });
-
   });
 })();

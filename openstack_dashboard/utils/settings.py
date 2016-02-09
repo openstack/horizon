@@ -195,7 +195,6 @@ BASE_XSTATIC_MODULES = [
     ('xstatic.pkg.d3', ['d3.js']),
     ('xstatic.pkg.jquery_quicksearch', ['jquery.quicksearch.js']),
     ('xstatic.pkg.jquery_tablesorter', ['jquery.tablesorter.js']),
-    ('xstatic.pkg.spin', ['spin.js', 'spin.jquery.js']),
     ('xstatic.pkg.jquery_ui', ['jquery-ui.js']),
     ('xstatic.pkg.bootstrap_scss', ['js/bootstrap.js']),
     ('xstatic.pkg.bootstrap_datepicker', ['bootstrap-datepicker.js']),
