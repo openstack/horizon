@@ -17,11 +17,11 @@
 
   angular
     .module('horizon.app.core.images')
-    .factory('horizon.app.core.images.row-actions.service', rowActions);
+    .factory('horizon.app.core.images.table.row-actions.service', rowActionsService);
 
-  rowActions.$inject = [
-    'horizon.app.core.images.actions.createVolumeService',
-    'horizon.app.core.images.actions.deleteService',
+  rowActionsService.$inject = [
+    'horizon.app.core.images.actions.create-volume.service',
+    'horizon.app.core.images.actions.row-delete.service',
     'horizon.framework.util.i18n.gettext'
   ];
 
@@ -30,7 +30,7 @@
    * @name horizon.app.core.images.table.row-actions.service
    * @description A list of row actions.
    */
-  function rowActions(
+  function rowActionsService(
     createVolumeService,
     deleteService,
     gettext

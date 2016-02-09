@@ -15,7 +15,7 @@
 (function() {
   'use strict';
 
-  describe('horizon.app.core.images.actions.deleteImageService', function() {
+  describe('horizon.app.core.images.actions.delete-image.service', function() {
 
     var context = {
       title: gettext('Confirm Delete Images'),
@@ -79,7 +79,7 @@
 
     beforeEach(inject(function($injector, _$rootScope_) {
       $scope = _$rootScope_.$new();
-      service = $injector.get('horizon.app.core.images.actions.deleteImageService');
+      service = $injector.get('horizon.app.core.images.actions.delete-image.service');
     }));
 
     it('should open the delete modal with correct messages', function() {

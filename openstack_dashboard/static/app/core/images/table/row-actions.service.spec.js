@@ -15,7 +15,7 @@
 (function() {
   'use strict';
 
-  describe('horizon.app.core.images.row-actions.service', function() {
+  describe('horizon.app.core.images.table.row-actions.service', function() {
     var service;
     var deleteService = {
       initScope: angular.noop
@@ -29,12 +29,12 @@
     beforeEach(module('horizon.framework'));
 
     beforeEach(module('horizon.app.core.images', function($provide) {
-      $provide.value('horizon.app.core.images.actions.deleteService', deleteService);
-      $provide.value('horizon.app.core.images.actions.createVolumeService', createVolumeService);
+      $provide.value('horizon.app.core.images.actions.create-volume.service', createVolumeService);
+      $provide.value('horizon.app.core.images.actions.row-delete.service', deleteService);
     }));
 
     beforeEach(inject(function ($injector) {
-      service = $injector.get('horizon.app.core.images.row-actions.service');
+      service = $injector.get('horizon.app.core.images.table.row-actions.service');
     }));
 
     it('should call initScope on services', function() {

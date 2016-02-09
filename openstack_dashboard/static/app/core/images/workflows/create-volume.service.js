@@ -18,9 +18,9 @@
 
   angular
     .module('horizon.app.core.images')
-    .factory('horizon.app.core.images.actions.createVolumeWorkflow', createVolumeWorkflow);
+    .factory('horizon.app.core.images.workflows.create-volume.service', createVolumeService);
 
-  createVolumeWorkflow.$inject = [
+  createVolumeService.$inject = [
     'horizon.app.core.images.basePath',
     'horizon.app.core.workflow.factory',
     'horizon.framework.util.i18n.gettext'
@@ -28,10 +28,10 @@
 
   /**
    * @ngdoc factory
-   * @name horizon.app.core.images.createVolumeWorkflow
+   * @name horizon.app.core.images.workflows.create-volume.service
    * @description A workflow for the create volume action.
    */
-  function createVolumeWorkflow(basePath, workflowService, gettext) {
+  function createVolumeService(basePath, workflowService, gettext) {
     var workflow = workflowService({
       title: gettext('Create Volume'),
       btnText: { finish: gettext('Create Volume') },

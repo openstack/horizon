@@ -58,9 +58,8 @@
     beforeEach(module('ui.bootstrap'));
     beforeEach(module('horizon.framework'));
 
-    beforeEach(module('horizon.framework.conf'));
-    beforeEach(module('horizon.framework.util.http'));
-    beforeEach(module('horizon.framework.widgets.toast'));
+    beforeEach(module('horizon.framework'));
+    beforeEach(module('horizon.app.core'));
     beforeEach(module('horizon.app.core.openstack-service-api', function($provide) {
       $provide.value('horizon.app.core.openstack-service-api.glance', glanceAPI);
       $provide.value('horizon.app.core.openstack-service-api.userSession', userSession);
@@ -79,7 +78,7 @@
     }));
 
     function createController() {
-      return controller('imagesTableController', {
+      return controller('horizon.app.core.images.table.ImagesController', {
         glanceAPI: glanceAPI,
         userSession: userSession,
         $q: mockQ,

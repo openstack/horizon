@@ -17,34 +17,34 @@
 (function() {
   'use strict';
 
-  /**
-   * @ngdoc controller
-   * @name ImagesTableController
-   *
-   * @description
-   * Controller for the images table.
-   * Serves as the focal point for table actions.
-   */
   angular
     .module('horizon.app.core.images')
-    .controller('imagesTableController', ImagesTableController);
+    .controller('horizon.app.core.images.table.ImagesController', ImagesTableController);
 
   ImagesTableController.$inject = [
     '$q',
     '$scope',
-    'horizon.app.core.images.batch-actions.service',
-    'horizon.app.core.images.row-actions.service',
+    'horizon.app.core.images.table.batch-actions.service',
+    'horizon.app.core.images.table.row-actions.service',
     'horizon.app.core.images.events',
     'horizon.app.core.openstack-service-api.glance',
     'horizon.app.core.openstack-service-api.userSession',
     'imageVisibilityFilter'
   ];
 
+  /**
+   * @ngdoc controller
+   * @name horizon.app.core.images.table.ImagesTableController
+   *
+   * @description
+   * Controller for the images table.
+   * Serves as the focal point for table actions.
+   */
   function ImagesTableController(
     $q,
     $scope,
-    batchActions,
-    rowActions,
+    batchActionsService,
+    rowActionsService,
     events,
     glance,
     userSession,
@@ -57,10 +57,10 @@
     ctrl.images = [];
     ctrl.imagesSrc = [];
 
-    ctrl.batchActions = batchActions;
+    ctrl.batchActions = batchActionsService;
     ctrl.batchActions.initScope($scope);
 
-    ctrl.rowActions = rowActions;
+    ctrl.rowActions = rowActionsService;
     ctrl.rowActions.initScope($scope);
 
     var deleteWatcher = $scope.$on(events.DELETE_SUCCESS, onDeleteSuccess);

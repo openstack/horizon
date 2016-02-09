@@ -1,4 +1,4 @@
-table[ng-controller="imagesTableController as table"] {
+table[ng-controller="horizon.app.core.images.table.ImagesController as table"] {
 
   .detail-expanded .row {
     background: none;
