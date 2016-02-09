@@ -101,27 +101,29 @@ class CreateImageForm(forms.SelfHandlingForm):
         widget=forms.Select(attrs={
             'class': 'switchable',
             'data-slug': 'source'}))
+    image_url_attrs = {
+        'class': 'switched',
+        'data-switch-on': 'source',
+        'data-source-url': _('Image Location'),
+        'ng-model': 'ctrl.copyFrom',
+        'ng-change': 'ctrl.selectImageFormat(ctrl.copyFrom)'
+    }
     image_url = ImageURLField(label=_("Image Location"),
                               help_text=_("An external (HTTP/HTTPS) URL to "
                                           "load the image from."),
-                              widget=forms.TextInput(attrs={
-                                  'class': 'switched',
-                                  'data-switch-on': 'source',
-                                  'data-source-url': _('Image Location'),
-                                  'ng-model': 'copyFrom',
-                                  'ng-change':
-                                  'ctrl.selectImageFormat(copyFrom)'}),
+                              widget=forms.TextInput(attrs=image_url_attrs),
                               required=False)
+    image_attrs = {
+        'class': 'switched',
+        'data-switch-on': 'source',
+        'data-source-file': _('Image File'),
+        'ng-model': 'ctrl.imageFile',
+        'ng-change': 'ctrl.selectImageFormat(ctrl.imageFile.name)',
+        'image-file-on-change': None
+    }
     image_file = forms.FileField(label=_("Image File"),
                                  help_text=_("A local image to upload."),
-                                 widget=forms.FileInput(attrs={
-                                     'class': 'switched',
-                                     'data-switch-on': 'source',
-                                     'data-source-file': _('Image File'),
-                                     'ng-model': 'imageFile',
-                                     'ng-change':
-                                     'ctrl.selectImageFormat(imageFile.name)',
-                                     'image-file-on-change': None}),
+                                 widget=forms.FileInput(attrs=image_attrs),
                                  required=False)
     kernel = forms.ChoiceField(
         label=_('Kernel'),
