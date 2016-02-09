@@ -1,0 +1,30 @@
+//
+// Custom Material Radio Buttons
+// --------------------------------------------------
+
+.themable-radio {
+
+  input[type=radio] {
+
+    // Radio button - Unchecked
+    & + label {
+      @extend .mdi-radiobox-blank;
+
+      &:before {
+        @extend .mdi;
+        font-size: $font-size-h5;
+        line-height: $font-size-h5;
+        vertical-align: middle;
+      }
+    }
+
+    // Radio button - Checked
+    &:checked + label {
+      @extend .mdi-radiobox-marked;
+
+      &:before {
+        color: $brand-primary;
+      }
+    }
+  }
+}
