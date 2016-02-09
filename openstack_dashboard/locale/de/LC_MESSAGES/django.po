@@ -24,12 +24,12 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2016-02-07 23:20+0000\n"
+"POT-Creation-Date: 2016-02-08 17:14+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2016-01-25 04:21+0000\n"
-"Last-Translator: Robert Simai <robert.simai@suse.com>\n"
+"PO-Revision-Date: 2016-02-08 10:20+0000\n"
+"Last-Translator: Eugen Block <eblock@nde.ag>\n"
 "Language: de\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "Generated-By: Babel 2.0\n"
@@ -562,6 +562,13 @@ msgstr ""
 msgid "A new uploaded file will replace the content of the current object"
 msgstr ""
 "Eine neu hochgeladene Datei wird den Inhalt des aktuellen Objektes ersetzen"
+
+msgid ""
+"A port is a connection point for attaching a single device, such as the NIC "
+"of a virtual server, to a virtual network."
+msgstr ""
+"Ein Port ist ein Verbindungspunkt zwischen einem einzelnen Gerät und einem "
+"virtuellen Netzwerk, z.B. die Netzwerkkarte eines virtuellen Servers."
 
 msgid ""
 "A script or set of commands to be executed after the instance has been built "
@@ -1805,6 +1812,9 @@ msgstr "Erzeugung im Gang"
 msgid "Create Key Pair"
 msgstr "Schlüsselpaar erzeugen"
 
+msgid "Create Mapping"
+msgstr "Zuordnung erstellen"
+
 msgid "Create Network"
 msgstr "Netzwerk erstellen"
 
@@ -1985,6 +1995,9 @@ msgstr ""
 
 msgid "Create a firewall with selected routers."
 msgstr "Erstellen einer Firewall mit den ausgewählten Routern."
+
+msgid "Create a mapping."
+msgstr "Zuordnung erstellen."
 
 msgid ""
 "Create a monitor template.\n"
@@ -2409,6 +2422,11 @@ msgid_plural "Delete Key Pairs"
 msgstr[0] "Schlüsselpaar löschen"
 msgstr[1] "Schlüsselpaare löschen"
 
+msgid "Delete Mapping"
+msgid_plural "Delete Mappings"
+msgstr[0] "Zuordnung löschen"
+msgstr[1] "Zuordnungen löschen"
+
 msgid "Delete Member"
 msgid_plural "Delete Members"
 msgstr[0] "Mitglied löschen"
@@ -2484,6 +2502,11 @@ msgid_plural "Delete Security Groups"
 msgstr[0] "Sicherheitsgruppe löschen"
 msgstr[1] "Sicherheitsgruppen löschen"
 
+msgid "Delete Spec"
+msgid_plural "Delete Specs"
+msgstr[0] "Spezifikation löschen"
+msgstr[1] "Spezifikationen löschen"
+
 msgid "Delete Stack"
 msgid_plural "Delete Stacks"
 msgstr[0] "Stack löschen"
@@ -2516,6 +2539,11 @@ msgid "Delete Volume"
 msgid_plural "Delete Volumes"
 msgstr[0] "Datenträger löschen"
 msgstr[1] "Datenträger löschen"
+
+msgid "Delete Volume Backup"
+msgid_plural "Delete Volume Backups"
+msgstr[0] "Datenträgersicherung löschen"
+msgstr[1] "Datenträgersicherungen löschen"
 
 msgid "Delete Volume Snapshot"
 msgid_plural "Delete Volume Snapshots"
@@ -2604,6 +2632,11 @@ msgid_plural "Deleted Key Pairs"
 msgstr[0] "Gelöschtes Schlüsselpaar"
 msgstr[1] "Gelöschte Schlüsselpaare"
 
+msgid "Deleted Mapping"
+msgid_plural "Deleted Mappings"
+msgstr[0] "Gelöschte Zuordnung"
+msgstr[1] "Gelöschte Zuordnungen"
+
 msgid "Deleted Namespace"
 msgid_plural "Deleted Namespaces"
 msgstr[0] "Gelöschter Namensraum"
@@ -2658,6 +2691,11 @@ msgid "Deleted Security Group"
 msgid_plural "Deleted Security Groups"
 msgstr[0] "Gelöschte Sicherheitsgruppe"
 msgstr[1] "Gelöschte Sicherheitsgruppen"
+
+msgid "Deleted Spec"
+msgid_plural "Deleted Specs"
+msgstr[0] "Gelöschte Spezifikation"
+msgstr[1] "Gelöschte Spezifikationen"
 
 msgid "Deleted Stack"
 msgid_plural "Deleted Stacks"
@@ -3181,6 +3219,9 @@ msgstr "Abbild-Details bearbeiten."
 
 msgid "Edit the instance details."
 msgstr "Bearbeiten der Instanzdetails."
+
+msgid "Edit the mapping's details."
+msgstr "Zuordnungsdetails ändern."
 
 msgid "Edit the project details."
 msgstr "Bearbeiten der Projektdetails."
@@ -4749,6 +4790,9 @@ msgstr "Starte Instanz in diesen Sicherheitsgruppen."
 msgid "Launch instance with these networks"
 msgstr "Instanz mit diesen Netzwerken starten"
 
+msgid "Launch instance with these ports"
+msgstr "Starte Instanzen mit diesen Ports"
+
 msgid "Launch instance with this policy profile"
 msgstr "Instanz mit diesen Datenschutz Profilen starten"
 
@@ -4950,6 +4994,15 @@ msgstr "Manuell"
 
 msgid "Mapped Fixed IP Address"
 msgstr "Zugewiesene feste IP-Adresse"
+
+msgid "Mapping created successfully."
+msgstr "Zuordnung erfolgreich erstellt."
+
+msgid "Mapping updated successfully."
+msgstr "Zuordnung erfolgreich aktulisiert."
+
+msgid "Mappings"
+msgstr "Zuordnungen"
 
 msgid "Max Retries"
 msgstr "Maximale Versuche"
@@ -5276,6 +5329,9 @@ msgstr "Netzwerkname"
 
 msgid "Network Overview"
 msgstr "Netzwerkübersicht"
+
+msgid "Network Ports"
+msgstr "Netzwerk-Ports"
 
 msgid "Network Profile"
 msgstr "Netzwerkprofile"
@@ -6788,6 +6844,11 @@ msgid_plural "Scheduled deletion of Volumes"
 msgstr[0] "Geplante Löschung eines Datenträgers"
 msgstr[1] "Geplante Löschung von Datenträgern"
 
+msgid "Scheduled deletion of Volume Backup"
+msgid_plural "Scheduled deletion of Volume Backups"
+msgstr[0] "Geplante Löschung der Datenträgersicherung"
+msgstr[1] "Geplante Löschung der Datenträgersicherungen"
+
 msgid "Scheduled deletion of Volume Snapshot"
 msgid_plural "Scheduled deletion of Volume Snapshots"
 msgstr[0] "Geplante Löschung von Datenträger-Schattenkopie"
@@ -8028,6 +8089,13 @@ msgstr ""
 "Der physikalische Mechanismus, durch den das virtuelle Netzwerk "
 "implementiert wurde."
 
+msgid ""
+"The port also describes the associated network configuration, such as the "
+"MAC and IP addresses to be used on that port."
+msgstr ""
+"Der Port beschreibt außerdem die zugeordnete Netzwerkkonfiguration, wie etwa "
+"die zu nutzenden MAC- und IP-Adressen auf diesem Port."
+
 msgid "The pre-defined key string between the two peers of the VPN connection"
 msgstr ""
 "Die vordefinierte Schlüssel-Zeichenkette zwischen den beiden Gegenstellen "
@@ -8506,6 +8574,9 @@ msgstr "Hostaggregat kann nicht erstellt werden."
 #, python-format
 msgid "Unable to create key pair: %(exc)s"
 msgstr "Schlüsselpaar kann nicht erzeugt werden: %(exc)s"
+
+msgid "Unable to create mapping."
+msgstr "Zuordnung kann nicht erstellt werden."
 
 #, python-format
 msgid "Unable to create network \"%s\"."
@@ -9486,6 +9557,9 @@ msgstr "Gruppe kann nicht aktualisiert werden."
 msgid "Unable to update image \"%s\"."
 msgstr "Abbild \"%s\" konnte nicht aktualisiert werden."
 
+msgid "Unable to update mapping."
+msgstr "Zuordnung kann nicht aktulisiert werden."
+
 msgid "Unable to update object."
 msgstr "Objekt kann nicht aktualisiert werden."
 
@@ -9636,6 +9710,9 @@ msgstr "Abbild aktualisieren"
 msgctxt "current status of stack"
 msgid "Update In Progress"
 msgstr "Aktualisierung im Gang"
+
+msgid "Update Mapping"
+msgstr "Zuordnung aktualisieren"
 
 msgid "Update Metadata"
 msgstr "Aktualisiere Metadaten"

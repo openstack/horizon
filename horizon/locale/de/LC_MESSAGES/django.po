@@ -7,17 +7,18 @@
 # Ettore Atalan <atalanttore@googlemail.com>, 2015
 # Carsten Duch <carsten.duch@posteo.de>, 2015. #zanata
 # Robert Simai <robert.simai@suse.com>, 2015. #zanata
+# Eugen Block <eblock@nde.ag>, 2016. #zanata
 # Robert Simai <robert.simai@suse.com>, 2016. #zanata
 msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2016-01-31 10:08+0000\n"
+"POT-Creation-Date: 2016-02-08 17:14+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2016-01-07 01:46+0000\n"
-"Last-Translator: Robert Simai <robert.simai@suse.com>\n"
+"PO-Revision-Date: 2016-02-08 10:24+0000\n"
+"Last-Translator: Eugen Block <eblock@nde.ag>\n"
 "Language: de\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "Generated-By: Babel 2.0\n"
@@ -370,6 +371,16 @@ msgstr "Nicht autorisiert. Bitte melden Sie sich erneut an."
 #, python-format
 msgid "Unauthorized: %s"
 msgstr "Nicht berechtigt: %s"
+
+msgid "Update Item"
+msgid_plural "Update Items"
+msgstr[0] "Eintrag aktualisieren"
+msgstr[1] "Einträge aktualisieren"
+
+msgid "Updated Item"
+msgid_plural "Updated Items"
+msgstr[0] "Aktualisierter Eintrag"
+msgstr[1] "Aktualisierter Einträge"
 
 msgid "Usage Summary"
 msgstr "Nutzungsübersicht"
