@@ -544,7 +544,7 @@
         flavor: ['OS::Nova::Flavor', ''],
         image: ['OS::Glance::Image', ''],
         volume: ['OS::Cinder::Volumes', ''],
-        instance: ['OS::Nova::Instance', 'metadata']
+        instance: ['OS::Nova::Server', 'metadata']
       };
 
       angular.forEach(resourceTypes, applyForResourceType);

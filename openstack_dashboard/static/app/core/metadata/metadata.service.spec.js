@@ -121,7 +121,7 @@
       spyOn(glance, 'getNamespaces');
       metadataService.getNamespaces('instance', 'metadata');
       expect(glance.getNamespaces)
-      .toHaveBeenCalledWith({ resource_type: 'OS::Nova::Instance',
+      .toHaveBeenCalledWith({ resource_type: 'OS::Nova::Server',
                               properties_target: 'metadata' }, false);
     });
 
