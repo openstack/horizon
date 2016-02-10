@@ -19,16 +19,17 @@
 # Marian Tort <marian.tort@gmail.com>, 2015. #zanata
 # OpenStack Infra <zanata@openstack.org>, 2015. #zanata
 # Alberto Molina Coballes <alb.molina@gmail.com>, 2016. #zanata
+# Eduardo Gonzalez Gutierrez <dabarren@gmail.com>, 2016. #zanata
 msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2016-02-07 23:20+0000\n"
+"POT-Creation-Date: 2016-02-10 06:48+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2016-01-20 08:50+0000\n"
-"Last-Translator: Alberto Molina Coballes <alb.molina@gmail.com>\n"
+"PO-Revision-Date: 2016-02-09 11:15+0000\n"
+"Last-Translator: Eduardo Gonzalez Gutierrez <dabarren@gmail.com>\n"
 "Language: es\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "Generated-By: Babel 2.0\n"
@@ -4277,6 +4278,18 @@ msgstr "Tipo de identificador"
 msgid "Identity"
 msgstr "Identity"
 
+msgid "Identity Provider ID"
+msgstr "ID del proveedor de identidad"
+
+msgid "Identity Providers"
+msgstr "Proveedores de identidad"
+
+msgid "Identity provider registered successfully."
+msgstr "Proveedor de identidad registrado correctamente"
+
+msgid "Identity provider updated successfully."
+msgstr "Proveedor de identidad actualizado correctamente."
+
 msgid "Identity service does not allow editing user data."
 msgstr "El servicio de identidad no permite editar datos de usuario."
 
@@ -4516,6 +4529,11 @@ msgstr "Privilegios insuficientes para consultar la información del dominio."
 
 msgid "Insufficient privilege level to view group information."
 msgstr "Privilegios insuficientes para consultar la información del grupo."
+
+msgid "Insufficient privilege level to view identity provider information."
+msgstr ""
+"Privilegios insuficientes para consultar la información de los proveedores "
+"de identidad."
 
 msgid "Insufficient privilege level to view project information."
 msgstr "Privilegios insuficientes para consultar la información del proyecto."
@@ -6216,6 +6234,9 @@ msgstr "Reconstruir Instancia %s."
 msgid "Regions:"
 msgstr "Regiones:"
 
+msgid "Register Identity Provider"
+msgstr "Registrar Proveedor de Identidad"
+
 msgid "Relative part of requests this pool member serves compared to others"
 msgstr ""
 "Partes relativas de solicitudes que este miembro del pool sirve en "
@@ -6246,6 +6267,9 @@ msgstr "Recargar"
 
 msgid "Remote"
 msgstr "Remoto"
+
+msgid "Remote IDs"
+msgstr "IDs remotos"
 
 msgid "Remote IP Prefix"
 msgstr "Prefijo de IP Remota"
@@ -8699,6 +8723,16 @@ msgstr "No ha sido posible analizar dirección IP %s."
 msgid "Unable to rebuild instance."
 msgstr "No ha sido posible reconstruir la instancia."
 
+msgid "Unable to register identity provider."
+msgstr "Incapaz de registrar proveedor de identidad."
+
+msgid ""
+"Unable to register identity provider. Please check that the Identity "
+"Provider ID and Remote IDs provided are not already in use."
+msgstr ""
+"Incapaz de registrar proveedor de identidad. Por favor, compruebe que el ID "
+"del Proveedor de Identidad y los IDs Remotos no están en uso."
+
 #, python-format
 msgid "Unable to resize instance \"%s\"."
 msgstr "No ha sido posible redimensionar la instancia \"%s\"."
@@ -8933,6 +8967,9 @@ msgstr "No ha sido posible obtener la lista de instancias por hipervisor"
 
 msgid "Unable to retrieve hypervisor statistics."
 msgstr "No ha sido posible obtener las estadísticas del hipervisor."
+
+msgid "Unable to retrieve identity provider list."
+msgstr "No ha sido posible obtener la lista de proveedores de identidad."
 
 msgid "Unable to retrieve image details."
 msgstr "No ha sido posible obtener los detalles de la imagen."
@@ -9371,6 +9408,16 @@ msgstr "No ha sido posible actualizar las cuotas predeterminadas."
 msgid "Unable to update group."
 msgstr "No ha sido posible actualizar el grupo."
 
+msgid "Unable to update identity provider."
+msgstr "Incapaz de actualizar el proveedor de identidad."
+
+msgid ""
+"Unable to update identity provider. Please check that the Remote IDs "
+"provided are not already in use."
+msgstr ""
+"Incapaz de actualizar el proveedor de identidad. Por favor, comprueba que "
+"los IDs Remotos no están en uso."
+
 #, python-format
 msgid "Unable to update image \"%s\"."
 msgstr "No ha sido posible subir la imagen \"%s\"."
@@ -9516,6 +9563,9 @@ msgstr "Actualizar Fallado"
 
 msgid "Update Group"
 msgstr "Actualizar grupo"
+
+msgid "Update Identity Provider"
+msgstr "Actualizar Proveedor de identidad"
 
 msgid "Update Image"
 msgstr "Actualizar imagen"

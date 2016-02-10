@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2016-02-08 06:46+0000\n"
+"POT-Creation-Date: 2016-02-10 07:12+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -388,12 +388,12 @@ msgstr ""
 msgid "Identity service does not allow editing user data."
 msgstr ""
 
-#: api/keystone.py:379
+#: api/keystone.py:380
 #, python-format
 msgid "User %s has no role defined for that project."
 msgstr ""
 
-#: api/keystone.py:406
+#: api/keystone.py:407
 msgid "Identity service does not allow editing user password."
 msgstr ""
 
@@ -611,7 +611,7 @@ msgstr ""
 #: dashboards/project/firewalls/templates/firewalls/_policy_details.html:5
 #: dashboards/project/firewalls/templates/firewalls/_rule_details.html:5
 #: dashboards/project/images/images/forms.py:90
-#: dashboards/project/images/images/forms.py:290
+#: dashboards/project/images/images/forms.py:292
 #: dashboards/project/images/templates/images/images/_detail_overview.html:5
 #: dashboards/project/instances/templates/instances/_detail_overview.html:5
 #: dashboards/project/instances/templates/instances/_flavors_and_quotas.html:9
@@ -633,7 +633,7 @@ msgstr ""
 #: dashboards/project/networks/templates/networks/subnets/_detail_overview.html:5
 #: dashboards/project/routers/forms.py:117
 #: dashboards/project/routers/tables.py:212
-#: dashboards/project/routers/ports/tables.py:107
+#: dashboards/project/routers/ports/tables.py:108
 #: dashboards/project/routers/templates/routers/_detail_overview.html:5
 #: dashboards/project/stacks/templates/stacks/_detail_overview.html:5
 #: dashboards/project/volumes/backups/tables.py:135
@@ -1184,7 +1184,7 @@ msgstr ""
 #: dashboards/admin/defaults/tables.py:56
 #: dashboards/identity/projects/workflows.py:62
 #: dashboards/project/networks/ports/tables.py:71
-#: dashboards/project/routers/ports/tables.py:110 usage/quotas.py:70
+#: dashboards/project/routers/ports/tables.py:111 usage/quotas.py:70
 msgid "Fixed IPs"
 msgstr ""
 
@@ -1290,7 +1290,6 @@ msgstr ""
 #: dashboards/admin/flavors/templates/flavors/index.html:3
 #: dashboards/admin/ngflavors/panel.py:22
 #: dashboards/admin/ngflavors/templates/ngflavors/index.html:3
-#: dashboards/admin/ngflavors/templates/ngflavors/index.html:6
 msgid "Flavors"
 msgstr ""
 
@@ -1415,8 +1414,8 @@ msgstr ""
 #: dashboards/project/containers/forms.py:47
 #: dashboards/project/containers/templates/containers/_container_detail.html:13
 #: dashboards/project/containers/templates/containers/_container_metadata.html:7
-#: dashboards/project/images/images/forms.py:166
-#: dashboards/project/images/images/forms.py:332
+#: dashboards/project/images/images/forms.py:168
+#: dashboards/project/images/images/forms.py:334
 #: dashboards/project/images/images/tables.py:210
 #: dashboards/project/images/images/tables.py:315
 #: dashboards/project/images/templates/images/images/_detail_overview.html:17
@@ -1569,7 +1568,7 @@ msgstr ""
 #: dashboards/project/images/images/tables.py:307
 #: dashboards/project/loadbalancers/workflows.py:473
 #: dashboards/project/loadbalancers/templates/loadbalancers/_monitor_details.html:11
-#: dashboards/project/routers/ports/tables.py:115
+#: dashboards/project/routers/ports/tables.py:116
 #: dashboards/project/stacks/resource_types/tables.py:31
 #: dashboards/project/volumes/templates/volumes/volumes/_detail_overview.html:23
 #: dashboards/project/volumes/volumes/forms.py:110
@@ -1844,7 +1843,7 @@ msgstr ""
 #: dashboards/project/networks/templates/networks/_detail_overview.html:13
 #: dashboards/project/networks/templates/networks/ports/_detail_overview.html:18
 #: dashboards/project/routers/tables.py:215
-#: dashboards/project/routers/ports/tables.py:112
+#: dashboards/project/routers/ports/tables.py:113
 #: dashboards/project/routers/templates/routers/_detail_overview.html:11
 #: dashboards/project/stacks/tables.py:279
 #: dashboards/project/stacks/tables.py:325
@@ -1933,7 +1932,7 @@ msgid ""
 "migrate' on each instance of migrated host."
 msgstr ""
 
-#: dashboards/admin/images/panel.py:25 dashboards/admin/images/tables.py:99
+#: dashboards/admin/images/panel.py:25 dashboards/admin/images/tables.py:100
 #: dashboards/admin/images/views.py:44
 #: dashboards/admin/images/templates/images/index.html:3
 #: dashboards/project/images/panel.py:22 dashboards/project/images/views.py:38
@@ -1970,7 +1969,7 @@ msgstr ""
 msgid "Max. Size (MB) ="
 msgstr ""
 
-#: dashboards/admin/images/tables.py:91
+#: dashboards/admin/images/tables.py:92
 #: dashboards/admin/instances/tables.py:140
 #: dashboards/project/images/images/tables.py:305
 #: dashboards/project/instances/tables.py:1158
@@ -1980,7 +1979,7 @@ msgstr ""
 msgid "Image Name"
 msgstr ""
 
-#: dashboards/admin/images/tables.py:93
+#: dashboards/admin/images/tables.py:94
 #: dashboards/admin/instances/tables.py:127
 #: dashboards/admin/metering/tables.py:42
 #: dashboards/admin/metering/templates/metering/stats.html:93
@@ -1995,8 +1994,8 @@ msgid "Project"
 msgstr ""
 
 #: dashboards/admin/images/views.py:77
-#: dashboards/project/images/images/forms.py:187
-#: dashboards/project/images/images/forms.py:203
+#: dashboards/project/images/images/forms.py:189
+#: dashboards/project/images/images/forms.py:205
 msgid "Unable to retrieve image list."
 msgstr ""
 
@@ -2367,8 +2366,8 @@ msgstr ""
 #: dashboards/admin/metadata_defs/forms.py:59
 #: dashboards/admin/metadata_defs/tables.py:149
 #: dashboards/admin/metadata_defs/templates/metadata_defs/_detail_overview.html:15
-#: dashboards/project/images/images/forms.py:167
-#: dashboards/project/images/images/forms.py:333
+#: dashboards/project/images/images/forms.py:169
+#: dashboards/project/images/images/forms.py:335
 #: dashboards/project/images/images/tables.py:319
 #: dashboards/project/images/templates/images/images/_detail_overview.html:19
 msgid "Protected"
@@ -2475,7 +2474,7 @@ msgstr ""
 #: dashboards/project/firewalls/templates/firewalls/_policy_details.html:8
 #: dashboards/project/firewalls/templates/firewalls/_rule_details.html:8
 #: dashboards/project/images/images/forms.py:94
-#: dashboards/project/images/images/forms.py:294
+#: dashboards/project/images/images/forms.py:296
 #: dashboards/project/images/templates/images/images/_detail_overview.html:8
 #: dashboards/project/loadbalancers/forms.py:36
 #: dashboards/project/loadbalancers/forms.py:78
@@ -3119,7 +3118,7 @@ msgstr ""
 #: dashboards/project/routers/forms.py:36
 #: dashboards/project/routers/forms.py:120
 #: dashboards/project/routers/tables.py:228
-#: dashboards/project/routers/ports/tables.py:117
+#: dashboards/project/routers/ports/tables.py:118
 #: dashboards/project/routers/templates/routers/_detail_overview.html:13
 #: dashboards/project/vpn/forms.py:39 dashboards/project/vpn/forms.py:283
 #: dashboards/project/vpn/workflows.py:33
@@ -3227,7 +3226,7 @@ msgstr ""
 #: dashboards/project/networks/panel.py:21
 #: dashboards/project/networks/tables.py:188
 #: dashboards/project/networks/views.py:46
-#: dashboards/project/networks/ports/views.py:84
+#: dashboards/project/networks/ports/views.py:88
 #: dashboards/project/networks/subnets/views.py:152
 #: dashboards/project/networks/templates/networks/index.html:3
 #: usage/quotas.py:78
@@ -3535,7 +3534,7 @@ msgstr ""
 #: dashboards/identity/projects/workflows.py:75
 #: dashboards/project/instances/workflows/create_instance.py:783
 #: dashboards/project/networks/ports/tables.py:87
-#: dashboards/project/networks/ports/views.py:87 usage/quotas.py:80
+#: dashboards/project/networks/ports/views.py:91 usage/quotas.py:80
 msgid "Ports"
 msgstr ""
 
@@ -3731,7 +3730,7 @@ msgid "You may update the editable properties of your port here."
 msgstr ""
 
 #: dashboards/admin/networks/templates/networks/ports/update.html:3
-#: dashboards/project/networks/ports/views.py:112
+#: dashboards/project/networks/ports/views.py:116
 #: dashboards/project/networks/templates/networks/ports/update.html:3
 msgid "Update Port"
 msgstr ""
@@ -3837,7 +3836,7 @@ msgstr ""
 #: dashboards/admin/routers/ports/tables.py:29
 #: dashboards/project/network_topology/ports/tables.py:28
 #: dashboards/project/routers/tabs.py:37
-#: dashboards/project/routers/ports/tables.py:125
+#: dashboards/project/routers/ports/tables.py:126
 msgid "Interfaces"
 msgstr ""
 
@@ -5104,7 +5103,7 @@ msgstr ""
 msgid "Unable to modify domain \"%s\"."
 msgstr ""
 
-#: dashboards/identity/domains/workflows.py:370
+#: dashboards/identity/domains/workflows.py:369
 msgid ""
 "You cannot revoke your administrative privileges from the domain you are "
 "currently logged into. Please switch to another domain with "
@@ -5112,12 +5111,12 @@ msgid ""
 "the CLI."
 msgstr ""
 
-#: dashboards/identity/domains/workflows.py:406
+#: dashboards/identity/domains/workflows.py:405
 #, python-format
 msgid "Failed to modify %s project members and update domain groups."
 msgstr ""
 
-#: dashboards/identity/domains/workflows.py:478
+#: dashboards/identity/domains/workflows.py:477
 #, python-format
 msgid "Failed to modify %s domain groups."
 msgstr ""
@@ -7742,7 +7741,7 @@ msgstr ""
 #: dashboards/project/loadbalancers/views.py:328
 #: dashboards/project/loadbalancers/views.py:364
 #: dashboards/project/networks/views.py:77
-#: dashboards/project/networks/ports/views.py:109
+#: dashboards/project/networks/ports/views.py:113
 #: dashboards/project/routers/views.py:190
 #: dashboards/project/volumes/snapshots/views.py:37
 #: dashboards/project/vpn/views.py:209 dashboards/project/vpn/views.py:245
@@ -8031,129 +8030,129 @@ msgid "Image Source"
 msgstr ""
 
 #: dashboards/project/images/images/forms.py:99
-#: dashboards/project/images/images/forms.py:104
-#: dashboards/project/images/images/forms.py:110
-#: dashboards/project/images/images/forms.py:164
+#: dashboards/project/images/images/forms.py:107
+#: dashboards/project/images/images/forms.py:111
+#: dashboards/project/images/images/forms.py:166
 msgid "Image Location"
 msgstr ""
 
 #: dashboards/project/images/images/forms.py:100
-#: dashboards/project/images/images/forms.py:115
-#: dashboards/project/images/images/forms.py:120
+#: dashboards/project/images/images/forms.py:119
+#: dashboards/project/images/images/forms.py:124
 msgid "Image File"
 msgstr ""
 
-#: dashboards/project/images/images/forms.py:105
+#: dashboards/project/images/images/forms.py:112
 msgid "An external (HTTP/HTTPS) URL to load the image from."
 msgstr ""
 
-#: dashboards/project/images/images/forms.py:116
+#: dashboards/project/images/images/forms.py:125
 msgid "A local image to upload."
 msgstr ""
 
-#: dashboards/project/images/images/forms.py:127
+#: dashboards/project/images/images/forms.py:129
 msgid "Kernel"
 msgstr ""
 
-#: dashboards/project/images/images/forms.py:133
+#: dashboards/project/images/images/forms.py:135
 msgid "Ramdisk"
 msgstr ""
 
-#: dashboards/project/images/images/forms.py:138
-#: dashboards/project/images/images/forms.py:314
+#: dashboards/project/images/images/forms.py:140
+#: dashboards/project/images/images/forms.py:316
 #: dashboards/project/images/images/tables.py:322
 msgid "Format"
 msgstr ""
 
-#: dashboards/project/images/images/forms.py:143
-#: dashboards/project/images/images/forms.py:309
+#: dashboards/project/images/images/forms.py:145
+#: dashboards/project/images/images/forms.py:311
 msgid "Architecture"
-msgstr ""
-
-#: dashboards/project/images/images/forms.py:146
-#: dashboards/project/images/images/forms.py:316
-msgid "Minimum Disk (GB)"
 msgstr ""
 
 #: dashboards/project/images/images/forms.py:148
 #: dashboards/project/images/images/forms.py:318
+msgid "Minimum Disk (GB)"
+msgstr ""
+
+#: dashboards/project/images/images/forms.py:150
+#: dashboards/project/images/images/forms.py:320
 msgid ""
 "The minimum disk size required to boot the image. If unspecified, this "
 "value defaults to 0 (no minimum)."
 msgstr ""
 
-#: dashboards/project/images/images/forms.py:152
-#: dashboards/project/images/images/forms.py:324
+#: dashboards/project/images/images/forms.py:154
+#: dashboards/project/images/images/forms.py:326
 msgid "Minimum RAM (MB)"
 msgstr ""
 
-#: dashboards/project/images/images/forms.py:154
-#: dashboards/project/images/images/forms.py:326
+#: dashboards/project/images/images/forms.py:156
+#: dashboards/project/images/images/forms.py:328
 msgid ""
 "The minimum memory size required to boot the image. If unspecified, this "
 "value defaults to 0 (no minimum)."
 msgstr ""
 
-#: dashboards/project/images/images/forms.py:158
+#: dashboards/project/images/images/forms.py:160
 msgid "Copy Data"
 msgstr ""
 
-#: dashboards/project/images/images/forms.py:159
+#: dashboards/project/images/images/forms.py:161
 msgid ""
 "Specify this option to copy image data to the image service. If "
 "unspecified, image data will be used in its current location."
 msgstr ""
 
-#: dashboards/project/images/images/forms.py:191
-#: dashboards/project/images/images/forms.py:207
+#: dashboards/project/images/images/forms.py:193
+#: dashboards/project/images/images/forms.py:209
 #: dashboards/project/volumes/volumes/forms.py:235
 msgid "Choose an image"
 msgstr ""
 
-#: dashboards/project/images/images/forms.py:244
+#: dashboards/project/images/images/forms.py:246
 msgid "A image or external image location must be specified."
 msgstr ""
 
-#: dashboards/project/images/images/forms.py:247
+#: dashboards/project/images/images/forms.py:249
 msgid "Can not specify both image and external image location."
 msgstr ""
 
-#: dashboards/project/images/images/forms.py:267
+#: dashboards/project/images/images/forms.py:269
 #, python-format
 msgid "Your image %s has been queued for creation."
 msgstr ""
 
-#: dashboards/project/images/images/forms.py:271
+#: dashboards/project/images/images/forms.py:273
 msgid "Unable to create new image"
 msgstr ""
 
-#: dashboards/project/images/images/forms.py:275
+#: dashboards/project/images/images/forms.py:277
 #, python-format
 msgid "Unable to create new image: Invalid disk format %s for image."
 msgstr ""
 
-#: dashboards/project/images/images/forms.py:278
+#: dashboards/project/images/images/forms.py:280
 msgid "Unable to create new image: Image name too long."
 msgstr ""
 
-#: dashboards/project/images/images/forms.py:280
+#: dashboards/project/images/images/forms.py:282
 msgid "Unable to create new image: URL scheme not supported."
 msgstr ""
 
-#: dashboards/project/images/images/forms.py:298
+#: dashboards/project/images/images/forms.py:300
 msgid "Kernel ID"
 msgstr ""
 
-#: dashboards/project/images/images/forms.py:304
+#: dashboards/project/images/images/forms.py:306
 msgid "Ramdisk ID"
 msgstr ""
 
-#: dashboards/project/images/images/forms.py:346
+#: dashboards/project/images/images/forms.py:348
 #, python-format
 msgid "Unable to update image \"%s\"."
 msgstr ""
 
-#: dashboards/project/images/images/forms.py:354
+#: dashboards/project/images/images/forms.py:356
 msgid "Image was successfully updated."
 msgstr ""
 
@@ -11141,7 +11140,7 @@ msgid "Error"
 msgstr ""
 
 #: dashboards/project/networks/views.py:97
-#: dashboards/project/networks/ports/views.py:69
+#: dashboards/project/networks/ports/views.py:73
 #: dashboards/project/networks/subnets/views.py:137
 msgid "Unable to retrieve network details."
 msgstr ""
@@ -11385,7 +11384,7 @@ msgid "Detached"
 msgstr ""
 
 #: dashboards/project/networks/ports/tables.py:43
-#: dashboards/project/networks/ports/views.py:106
+#: dashboards/project/networks/ports/views.py:110
 msgid "Edit Port"
 msgstr ""
 
@@ -11421,13 +11420,13 @@ msgctxt "status of a network port"
 msgid "Build"
 msgstr ""
 
-#: dashboards/project/networks/ports/views.py:54
+#: dashboards/project/networks/ports/views.py:58
 #: dashboards/project/routers/views.py:142
 #: dashboards/project/routers/ports/tabs.py:35
 msgid "Unable to retrieve port details."
 msgstr ""
 
-#: dashboards/project/networks/ports/views.py:125
+#: dashboards/project/networks/ports/views.py:129
 msgid "Unable to retrieve port details"
 msgstr ""
 
@@ -12028,6 +12027,11 @@ msgstr ""
 #: dashboards/project/routers/ports/tables.py:101
 msgctxt "current status of port"
 msgid "Error"
+msgstr ""
+
+#: dashboards/project/routers/ports/tables.py:102
+msgctxt "current status of port"
+msgid "N/A"
 msgstr ""
 
 #: dashboards/project/routers/ports/views.py:81
