@@ -1,15 +1,17 @@
 {% load i18n %}
 
 {% with dashboard_url=request.horizon.dashboard.get_absolute_url %}
-<ul>
+<ul class="dropdown-menu">
   <li class="dropdown-header">{% trans "Projects:" %}</li>
   {% for project in projects %}
   <li>
-    <a href="{% url 'switch_tenants' project.id %}?next={{ dashboard_url }}" target="_self">
-      {{ project.name }}
-      {% if project.enabled and project.id == project_id %}
-      <span class="fa fa-check"></span>
-      {% endif %}
+    <a class="{% if project.enabled and project.id == project_id %} dropdown-selected{% endif %}"
+       href="{% url 'switch_tenants' project.id %}?next={{ dashboard_url }}"
+       target="_self">
+      <span class="fa fa-check dropdown-selected-icon"></span>
+      <span class="dropdown-title">
+        {{ project.name }}
+      </span>
     </a>
   </li>
   {% endfor %}
