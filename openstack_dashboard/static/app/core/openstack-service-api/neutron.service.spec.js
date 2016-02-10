@@ -1,4 +1,4 @@
-/*
+/**
  *    (c) Copyright 2015 Hewlett-Packard Development Company, L.P.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -98,6 +98,12 @@
         "method": "get",
         "path": "/api/neutron/agents/",
         "error": "Unable to retrieve the agents."
+      },
+      {
+        "func": "getExtensions",
+        "method": "get",
+        "path": "/api/neutron/extensions/",
+        "error": "Unable to retrieve the extensions."
       }
     ];
 
