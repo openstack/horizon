@@ -422,6 +422,6 @@ def data(TEST):
         ]
     }
     idp_mapping = mappings.Mapping(
-        mappings.MappingManager,
+        mappings.MappingManager(None),
         idp_mapping_dict)
     TEST.idp_mappings.add(idp_mapping)
