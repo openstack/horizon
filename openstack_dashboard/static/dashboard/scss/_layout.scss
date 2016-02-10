@@ -13,10 +13,10 @@ $navbar-border-size: 1px !default;
 $navbar-true-height: $navbar-height + $navbar-border-size !default;
 
 #main_content {
-  height: 100%; /* fallback if needed --> its scrolls, but it works */
-  height: calc(100% - #{$navbar-true-height});
+  height: 100%;
   display: table;
   min-width: $main-content-min-width;
+  padding-top: $navbar-true-height;
 }
 
 #content_body,

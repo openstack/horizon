@@ -16,7 +16,6 @@
 }
 
 #content_body {
-  padding-top: $navbar-height;
   transition: padding-left $sidebar-animation;
   display: block;
   padding-left: $sidebar-width + $content-body-padding;
@@ -32,13 +31,6 @@
   width: 100%;
 }
 
-
-// The top nav is fixed, even when the page scrolls
-.topbar {
-  width: 100%;
-  position: fixed;
-  z-index: 4;
-}
 
 // Border radius is unattractive here
 .navbar {
