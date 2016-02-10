@@ -10,6 +10,7 @@
 # License for the specific language governing permissions and limitations
 # under the License.
 
+import contextlib
 import datetime
 import os
 import socket
@@ -96,6 +97,17 @@ class BaseTestCase(testtools.TestCase):
             raise self.skipException(msg)
         super(BaseTestCase, self).setUp()
 
+    @contextlib.contextmanager
+    def exceptions_captured(self, label):
+        content = None
+        try:
+            yield content
+        except Exception:
+            exc_traceback = traceback.format_exc()
+            content = testtools.content.text_content(exc_traceback)
+        finally:
+            self.addDetail(label, content)
+
     @staticmethod
     def _unwrap_browser_log(_log):
         def rec(log):
@@ -108,30 +120,18 @@ class BaseTestCase(testtools.TestCase):
         return rec(_log)
 
     def _dump_browser_log(self, exc_info):
-        content = None
-        try:
+        with self.exceptions_captured("BrowserLog.text") as content:
             log = self.driver.get_log('browser')
-            content = testtools.content.Content(
+            content = testtools.content.Content(  # noqa
                 testtools.content_type.UTF8_TEXT,
                 lambda: self._unwrap_browser_log(log))
-        except Exception:
-            exc_traceback = traceback.format_exc()
-            content = testtools.content.text_content(exc_traceback)
-        finally:
-            self.addDetail("BrowserLog.text", content)
 
     def _dump_page_html_source(self, exc_info):
-        content = None
-        try:
+        with self.exceptions_captured("PageHTMLSource.html") as content:
             pg_source = self._get_page_html_source()
-            content = testtools.content.Content(
+            content = testtools.content.Content(  # noqa
                 testtools.content_type.ContentType('text', 'html'),
                 lambda: pg_source)
-        except Exception:
-            exc_traceback = traceback.format_exc()
-            content = testtools.content.text_content(exc_traceback)
-        finally:
-            self.addDetail("PageHTMLSource.html", content)
 
     def zoom_out(self, times=3):
         """Zooming out prevents different elements being driven out of xvfb
@@ -145,6 +145,12 @@ class BaseTestCase(testtools.TestCase):
             keys.Keys.CONTROL).perform()
 
     def _save_screenshot(self, exc_info):
+        with self.exceptions_captured("Screenshot") as content:
+            filename = self._get_screenshot_filename()
+            self.driver.get_screenshot_as_file(filename)
+            content = testtools.content.text_content(filename)  # noqa
+
+    def _get_screenshot_filename(self):
         screenshot_dir = os.path.join(
             ROOT_PATH,
             self.CONFIG.selenium.screenshots_directory)
@@ -154,10 +160,7 @@ class BaseTestCase(testtools.TestCase):
             '%Y.%m.%d-%H%M%S')
         test_name = self._testMethodName
         name = '%s_%s.png' % (test_name, date_string)
-        filename = os.path.join(screenshot_dir, name)
-        self.driver.get_screenshot_as_file(filename)
-        content = testtools.content.text_content(filename)
-        self.addDetail("Screenshot", content)
+        return os.path.join(screenshot_dir, name)
 
     def _get_page_html_source(self):
         """Gets html page source.
@@ -165,7 +168,6 @@ class BaseTestCase(testtools.TestCase):
         self.driver.page_source is not used on purpose because it does not
         display html code generated/changed by javascript.
         """
-
         html_elem = self.driver.find_element_by_tag_name("html")
         return html_elem.get_attribute("innerHTML").encode("UTF-8")
 
