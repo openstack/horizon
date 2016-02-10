@@ -115,6 +115,38 @@
       }
 
       scope.chartSettings = donutChartSettings;
+
+      /**
+       * Filtering - client-side MagicSearch
+       */
+
+      // All facets for flavor step
+      scope.flavorFacets = [
+        {
+          label: gettext('Name'),
+          name: 'name',
+          singleton: true
+        },
+        {
+          label: gettext('VCPUs'),
+          name: 'vcpus',
+          singleton: true
+        },
+        {
+          label: gettext('RAM'),
+          name: 'ram',
+          singleton: true
+        },
+        {
+          label: gettext('Public'),
+          name: 'isPublic',
+          singleton: true,
+          options: [
+            { label: gettext('No'), key: false },
+            { label: gettext('Yes'), key: true }
+          ]
+        }
+      ];
     } // end of link
   } // end of function
 

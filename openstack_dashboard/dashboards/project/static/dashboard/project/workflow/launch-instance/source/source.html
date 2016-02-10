@@ -220,12 +220,11 @@
 
           <!-- transfer table, available table head -->
           <thead>
-          <tr>
-            <th class="search-header"
-                colspan="{$ ctrl.tableHeadCells.length + 2 $}">
-              <hz-search-bar group-classes="input-group-sm"
-                          icon-classes="fa-search">
-              </hz-search-bar>
+            <tr>
+              <th class="search-header"
+                  colspan="{$ ctrl.tableHeadCells.length + 2 $}">
+                <hz-magic-search-bar filter-facets="ctrl.sourceFacets">
+                </hz-magic-search-bar>
               </th>
             </tr>
             <tr>
