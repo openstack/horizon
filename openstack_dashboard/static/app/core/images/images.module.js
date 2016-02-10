@@ -26,16 +26,73 @@
    * to support and display images related content.
    */
   angular
-    .module('horizon.app.core.images', ['ngRoute'])
+    .module('horizon.app.core.images', ['ngRoute', 'horizon.framework.conf', 'horizon.app.core'])
     .constant('horizon.app.core.images.events', events())
     .constant('horizon.app.core.images.non_bootable_image_types', ['aki', 'ari'])
+    .constant('horizon.app.core.images.resourceType', 'OS::Glance::Image')
+    .run(registerImageActions)
     .config(config);
 
-  config.$inject = [
-    '$provide',
-    '$windowProvider',
-    '$routeProvider'
+  registerImageActions.$inject = [
+    'horizon.framework.conf.resource-type-registry.service',
+    'horizon.app.core.images.actions.batch-delete.service',
+    'horizon.app.core.images.actions.row-delete.service',
+    'horizon.app.core.images.actions.create-volume.service',
+    'horizon.app.core.images.actions.launch-instance.service',
+    'horizon.app.core.images.actions.update-metadata.service',
+    'horizon.app.core.images.resourceType'
   ];
+
+  function registerImageActions(
+    registry,
+    batchDeleteService,
+    rowDeleteService,
+    createVolumeService,
+    launchInstanceService,
+    updateMetadataService,
+    imageResourceType)
+  {
+    registry.getRowActions(imageResourceType)
+      .append({
+        id: 'rowLaunchInstanceService',
+        service: launchInstanceService,
+        template: {
+          text: gettext('Launch')
+        }
+      })
+      .append({
+        id: 'rowCreateVolumeAction',
+        service: createVolumeService,
+        template: {
+          text: gettext('Create Volume')
+        }
+      })
+      .append({
+        id: 'rowUpdateMetadataService',
+        service: updateMetadataService,
+        template: {
+          text: gettext('Update Metadata')
+        }
+      })
+      .append({
+        id: 'rowDeleteImageAction',
+        service: rowDeleteService,
+        template: {
+          text: gettext('Delete Image'),
+          type: 'delete'
+        }
+      });
+
+    registry.getBatchActions(imageResourceType)
+      .append({
+        id: 'batchDeleteImageAction',
+        service: batchDeleteService,
+        template: {
+          type: 'delete-selected',
+          text: gettext('Delete Images')
+        }
+      });
+  }
 
   /**
    * @ngdoc value
@@ -49,6 +106,12 @@
       UPDATE_METADATA_SUCCESS: 'horizon.app.core.images.UPDATE_METADATA_SUCCESS'
     };
   }
+
+  config.$inject = [
+    '$provide',
+    '$windowProvider',
+    '$routeProvider'
+  ];
 
   /**
    * @name horizon.app.core.images.tableRoute

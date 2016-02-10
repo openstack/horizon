@@ -80,6 +80,7 @@
     beforeEach(inject(function($injector, _$rootScope_) {
       $scope = _$rootScope_.$new();
       service = $injector.get('horizon.app.core.images.actions.delete-image.service');
+      service.initScope($scope, context);
     }));
 
     it('should open the delete modal with correct messages', function() {
@@ -89,7 +90,6 @@
 
       spyOn(deleteModalService, 'open');
 
-      service.initScope($scope, context);
       service.perform(images);
       $scope.$apply();
 
@@ -112,7 +112,6 @@
 
       spyOn(deleteModalService, 'open');
 
-      service.initScope($scope, context);
       service.perform(images);
       $scope.$apply();
 
@@ -132,7 +131,6 @@
 
       spyOn(deleteModalService, 'open');
 
-      service.initScope($scope, context);
       service.perform(images);
       $scope.$apply();
 
@@ -158,7 +156,6 @@
 
       spyOn(deleteModalService, 'open');
 
-      service.initScope($scope, context);
       service.perform(images);
       $scope.$apply();
 
@@ -182,7 +179,6 @@
 
       spyOn(deleteModalService, 'open');
 
-      service.initScope($scope, context);
       service.perform(images);
       $scope.$apply();
 
@@ -195,7 +191,6 @@
       spyOn(deleteModalService, 'open');
       spyOn(glanceAPI, 'deleteImage');
 
-      service.initScope($scope, context);
       service.perform([image]);
       $scope.$apply();
 
