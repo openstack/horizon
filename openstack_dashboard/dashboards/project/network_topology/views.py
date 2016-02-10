@@ -77,6 +77,12 @@ from openstack_dashboard.dashboards.project.routers.tables import \
 from openstack_dashboard.dashboards.project.routers import\
     views as r_views
 
+# List of known server statuses that wont connect to the console
+console_invalid_status = {
+    'shutoff', 'suspended', 'resize', 'verify_resize',
+    'revert_resize', 'migrating', 'build', 'shelved',
+    'shelved_offloaded'}
+
 
 class TranslationHelper(object):
     """Helper class to provide the translations of instances, networks,
@@ -251,19 +257,21 @@ class JSONView(View):
         console_type = getattr(settings, 'CONSOLE_TYPE', 'AUTO')
         # lowercase of the keys will be used at the end of the console URL.
         for server in servers:
-            try:
-                console = i_console.get_console(
-                    request, console_type, server)[0].lower()
-            except exceptions.NotAvailable:
-                console = None
-
             server_data = {'name': server.name,
                            'status': self.trans.instance[server.status],
                            'original_status': server.status,
                            'task': getattr(server, 'OS-EXT-STS:task_state'),
                            'id': server.id}
-            if console:
-                server_data['console'] = console
+            # Avoid doing extra calls for console if the server is in
+            # a invalid status for console connection
+            if server.status.lower() not in console_invalid_status:
+                try:
+                    console = i_console.get_console(
+                        request, console_type, server)[0].lower()
+                    server_data['console'] = console
+                except exceptions.NotAvailable:
+                    pass
+
             data.append(server_data)
         self.add_resource_url('horizon:project:instances:detail', data)
         return data
