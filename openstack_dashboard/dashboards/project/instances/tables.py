@@ -779,6 +779,13 @@ class UpdateRow(tables.Row):
                               _('Unable to retrieve flavor information '
                                 'for instance "%s".') % instance_id,
                               ignore=True)
+        try:
+            api.network.servers_update_addresses(request, [instance])
+        except Exception:
+            exceptions.handle(request,
+                              _('Unable to retrieve Network information '
+                                'for instance "%s".') % instance_id,
+                              ignore=True)
         error = get_instance_error(instance)
         if error:
             messages.error(request, error)
