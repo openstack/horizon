@@ -8,15 +8,16 @@
 # Andi Chandler <andi@gowling.com>, 2015. #zanata
 # OpenStack Infra <zanata@openstack.org>, 2015. #zanata
 # Rob Cresswell <robert.cresswell@outlook.com>, 2015. #zanata
+# Rob Cresswell <robert.cresswell@outlook.com>, 2016. #zanata
 msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2016-01-31 01:15+0000\n"
+"POT-Creation-Date: 2016-02-11 05:31+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2015-11-24 04:15+0000\n"
+"PO-Revision-Date: 2016-02-10 12:11+0000\n"
 "Last-Translator: Rob Cresswell <robert.cresswell@outlook.com>\n"
 "Language: en-GB\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
@@ -43,6 +44,12 @@ msgstr "%s TB"
 #, python-format
 msgid "%s bytes"
 msgstr "%s bytes"
+
+msgid "(Max: 16Kb)"
+msgstr "(Max: 16Kb)"
+
+msgid "(Modified)"
+msgstr "(Modified)"
 
 msgid "-"
 msgstr "-"
@@ -105,6 +112,9 @@ msgstr "Closing"
 msgid "Confirm %s"
 msgstr "Confirm %s"
 
+msgid "Confirm Delete Foobars"
+msgstr "Confirm Delete Foobars"
+
 msgid "Connecting"
 msgstr "Connecting"
 
@@ -123,6 +133,9 @@ msgstr "Current Usage"
 msgid "Custom"
 msgstr "Custom"
 
+msgid "Customization Script"
+msgstr "Customisation Script"
+
 msgid "Danger"
 msgstr "Danger"
 
@@ -135,6 +148,9 @@ msgstr "Decimal required"
 msgid "Delete"
 msgstr "Delete"
 
+msgid "Delete Instance"
+msgstr "Delete Instance"
+
 msgid "Delete Interface"
 msgstr "Delete Interface"
 
@@ -146,6 +162,10 @@ msgstr "Delete Router"
 
 msgid "Delete Subnet"
 msgstr "Delete Subnet"
+
+#, python-format
+msgid "Deleted : %s."
+msgstr "Deleted : %s."
 
 msgid "Detail Information"
 msgstr "Detail Information"
@@ -205,6 +225,9 @@ msgstr "Integer required"
 msgid "Interfaces"
 msgstr "Interfaces"
 
+msgid "Load script from a file"
+msgstr "Load script from a file"
+
 msgid "Loading"
 msgstr "Loading"
 
@@ -228,6 +251,9 @@ msgstr "Next"
 
 msgid "No"
 msgstr "No"
+
+msgid "No Limit"
+msgstr "No Limit"
 
 msgid "No available items"
 msgstr "No available items"
@@ -295,6 +321,9 @@ msgstr "Roles"
 msgid "STATUS"
 msgstr "STATUS"
 
+msgid "Script size"
+msgstr "Script size"
+
 msgid "Select an item from Available items below"
 msgstr "Select an item from Available items below"
 
@@ -348,6 +377,10 @@ msgstr "Toggle Dropdown"
 msgid "Total"
 msgstr "Total"
 
+#, python-format
+msgid "Unable to delete: %s."
+msgstr "Unable to delete: %s."
+
 msgid "View Details"
 msgstr "View Details"
 
@@ -369,9 +402,23 @@ msgstr "Working"
 msgid "Yes"
 msgstr "Yes"
 
+msgid ""
+"You can specify resource metadata by moving items from the left column to "
+"the right column. In the left column there are metadata definitions from the "
+"Glance Metadata Catalog. Use the \"Custom\" option to add metadata with "
+"the key of your choice."
+msgstr ""
+"You can specify resource metadata by moving items from the left column to "
+"the right column. In the left column there are metadata definitions from the "
+"Glance Metadata Catalog. Use the \"Custom\" option to add metadata with "
+"the key of your choice."
+
 #, python-format
 msgid "You have selected %s. "
 msgstr "You have selected %s. "
+
+msgid "bytes"
+msgstr "bytes"
 
 msgid "description"
 msgstr "description"
@@ -384,3 +431,10 @@ msgstr "m1.tiny"
 
 msgid "pool default"
 msgstr "pool default"
+
+#, python-format
+msgid "selected \"%s\""
+msgstr "selected \"%s\""
+
+msgid "{$ message || 'No items to display.' $}"
+msgstr "{$ message || 'No items to display.' $}"

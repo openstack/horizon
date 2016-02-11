@@ -7,21 +7,54 @@
 # Rob Cresswell <robert.cresswell@outlook.com>, 2015
 # Andi Chandler <andi@gowling.com>, 2015. #zanata
 # OpenStack Infra <zanata@openstack.org>, 2015. #zanata
+# Rob Cresswell <robert.cresswell@outlook.com>, 2016. #zanata
 msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2016-01-31 10:08+0000\n"
+"POT-Creation-Date: 2016-02-11 05:31+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2015-09-16 03:08+0000\n"
-"Last-Translator: Andi Chandler <andi@gowling.com>\n"
+"PO-Revision-Date: 2016-02-10 12:12+0000\n"
+"Last-Translator: Rob Cresswell <robert.cresswell@outlook.com>\n"
 "Language: en-GB\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "Generated-By: Babel 2.0\n"
 "X-Generator: Zanata 3.7.3\n"
 "Language-Team: English (United Kingdom)\n"
+
+#, python-format
+msgid ""
+"\n"
+"                Login as different user or go back to <a href=\"%(home_url)s"
+"\">home page</a>\n"
+"              "
+msgstr ""
+"\n"
+"                Login as different user or go back to <a href=\"%(home_url)s"
+"\">home page</a>\n"
+"              "
+
+#, python-format
+msgid ""
+"\n"
+"                Used <span> %(used)s </span>(No Limit)\n"
+"              "
+msgstr ""
+"\n"
+"                Used <span> %(used)s </span>(No Limit)\n"
+"              "
+
+#, python-format
+msgid ""
+"\n"
+"                Used <span> %(used)s </span>of<span> %(available)s </span>\n"
+"              "
+msgstr ""
+"\n"
+"                Used <span> %(used)s </span>of<span> %(available)s </span>\n"
+"              "
 
 #, python-format
 msgid ""
@@ -143,6 +176,16 @@ msgstr "Available"
 msgid "Back"
 msgstr "Back"
 
+msgid "Batch Item"
+msgid_plural "Batch Items"
+msgstr[0] "Batch Item"
+msgstr[1] "Batch Items"
+
+msgid "Batched Item"
+msgid_plural "Batched Items"
+msgstr[0] "Batched Item"
+msgstr[1] "Batched Items"
+
 msgid "Cancel"
 msgstr "Cancel"
 
@@ -172,6 +215,20 @@ msgid "Displaying %(nav_items)s item"
 msgid_plural "Displaying %(nav_items)s items"
 msgstr[0] "Displaying %(nav_items)s item"
 msgstr[1] "Displaying %(nav_items)s items"
+
+msgid "Down Item"
+msgid_plural "Down Items"
+msgstr[0] "Down Item"
+msgstr[1] "Down Items"
+
+msgid "Downed Item"
+msgid_plural "Downed Items"
+msgstr[0] "Downed Item"
+msgstr[1] "Downed Items"
+
+#, python-format
+msgid "Error processing message json file '%(path)s': %(exception)s"
+msgstr "Error processing message json file '%(path)s': %(exception)s"
 
 msgid "Error: "
 msgstr "Error: "
@@ -203,11 +260,18 @@ msgstr "Invalid version for IP address"
 msgid "Limit Summary"
 msgstr "Limit Summary"
 
+msgid "Log in"
+msgstr "Log in"
+
 msgid "Login"
 msgstr "Login"
 
 msgid "Members"
 msgstr "Members"
+
+#, python-format
+msgid "Message json file '%(path)s' is malformed. %(exception)s"
+msgstr "Message json file '%(path)s' is malformed. %(exception)s"
 
 msgid "More Actions"
 msgstr "More Actions"
@@ -299,6 +363,16 @@ msgstr "The date should be in YYYY-mm-dd format."
 msgid "The string may only contain ASCII printable characters."
 msgstr "The string may only contain ASCII printable characters."
 
+#, python-format
+msgid ""
+"The value of %(resource)s is %(name)s inside the template. When launching a "
+"stack from this interface, the value must start with \"http://\" or "
+"\"https://\""
+msgstr ""
+"The value of %(resource)s is %(name)s inside the template. When launching a "
+"stack from this interface, the value must start with \"http://\" or "
+"\"https://\""
+
 msgid "This Period's GB-Hours:"
 msgstr "This Period's GB-Hours:"
 
@@ -321,6 +395,26 @@ msgstr "Unauthorised. Please try logging in again."
 #, python-format
 msgid "Unauthorized: %s"
 msgstr "Unauthorised: %s"
+
+msgid "Up Item"
+msgid_plural "Up Items"
+msgstr[0] "Up Item"
+msgstr[1] "Up Items"
+
+msgid "Update Item"
+msgid_plural "Update Items"
+msgstr[0] "Update Item"
+msgstr[1] "Update Items"
+
+msgid "Updated Item"
+msgid_plural "Updated Items"
+msgstr[0] "Updated Item"
+msgstr[1] "Updated Items"
+
+msgid "Upped Item"
+msgid_plural "Upped Items"
+msgstr[0] "Upped Item"
+msgstr[1] "Upped Items"
 
 msgid "Usage Summary"
 msgstr "Usage Summary"

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2016-02-10 07:12+0000\n"
+"POT-Creation-Date: 2016-02-11 07:31+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -35,6 +35,7 @@ msgstr ""
 #: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:42
 #: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:89
 #: dashboards/project/static/dashboard/project/workflow/launch-instance/network/network.controller.js:38
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/network/network.controller.js:99
 #: static/app/core/images/filters/image-status.filter.js:35
 msgid "Active"
 msgstr ""
@@ -478,7 +479,7 @@ msgid "Selects"
 msgstr ""
 
 #: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:576
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/keypair/create-keypair.html:26
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/keypair/create-keypair.html:42
 #: dashboards/project/static/dashboard/project/workflow/launch-instance/keypair/import-keypair.html:35
 #: static/app/core/metadata/modal/modal.html:15
 msgid "Cancel"
@@ -866,26 +867,31 @@ msgid "Source Code"
 msgstr ""
 
 #: dashboards/admin/static/dashboard/admin/flavors/table/flavors-table.controller.js:60
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/flavor/select-flavor-table.directive.js:126
 #: dashboards/project/static/dashboard/project/workflow/launch-instance/flavor/select-flavor-table.html:27
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/keypair/keypair.html:36
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/keypair/keypair.html:90
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/keypair/keypair.html:51
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/keypair/keypair.html:105
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/network/network.controller.js:72
 #: dashboards/project/static/dashboard/project/workflow/launch-instance/security-groups/security-groups.html:19
 #: dashboards/project/static/dashboard/project/workflow/launch-instance/security-groups/security-groups.html:72
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:121
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:128
 #: dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:135
 #: dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:142
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:149
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:156
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:231
 #: static/app/core/images/steps/create-volume/create-volume.html:13
 msgid "Name"
 msgstr ""
 
 #: dashboards/admin/static/dashboard/admin/flavors/table/flavors-table.controller.js:65
 #: dashboards/admin/static/dashboard/admin/flavors/table/flavors-table.html:23
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/flavor/select-flavor-table.directive.js:131
 msgid "VCPUs"
 msgstr ""
 
 #: dashboards/admin/static/dashboard/admin/flavors/table/flavors-table.controller.js:70
 #: dashboards/admin/static/dashboard/admin/flavors/table/flavors-table.html:24
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/flavor/select-flavor-table.directive.js:136
 #: dashboards/project/static/dashboard/project/workflow/launch-instance/flavor/select-flavor-table.html:30
 #: dashboards/project/static/dashboard/project/workflow/launch-instance/flavor/select-flavor-table.html:31
 msgid "RAM"
@@ -893,19 +899,27 @@ msgstr ""
 
 #: dashboards/admin/static/dashboard/admin/flavors/table/flavors-table.controller.js:75
 #: dashboards/admin/static/dashboard/admin/flavors/table/flavors-table.html:29
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/flavor/select-flavor-table.directive.js:141
 #: dashboards/project/static/dashboard/project/workflow/launch-instance/flavor/select-flavor-table.html:35
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:151
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:165
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:268
 #: static/app/core/images/filters/image-visibility.filter.js:59
 msgid "Public"
 msgstr ""
 
 #: dashboards/admin/static/dashboard/admin/flavors/table/flavors-table.controller.js:79
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/flavor/select-flavor-table.directive.js:146
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/network/network.controller.js:82
 #: dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:64
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:226
 msgid "Yes"
 msgstr ""
 
 #: dashboards/admin/static/dashboard/admin/flavors/table/flavors-table.controller.js:80
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/flavor/select-flavor-table.directive.js:145
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/network/network.controller.js:81
 #: dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:65
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:227
 msgid "No"
 msgstr ""
 
@@ -998,9 +1012,9 @@ msgstr ""
 
 #: dashboards/project/static/dashboard/project/workflow/launch-instance/launch-instance-workflow.service.js:30
 #: dashboards/project/static/dashboard/project/workflow/launch-instance/launch-instance-workflow.service.js:92
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/keypair/create-keypair.html:2
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/keypair/create-keypair.html:3
 #: dashboards/project/static/dashboard/project/workflow/launch-instance/keypair/import-keypair.html:2
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/keypair/new-keypair.html:2
+#: static/app/core/images/table/row-actions.service.js:68
 msgid "Launch Instance"
 msgstr ""
 
@@ -1143,7 +1157,7 @@ msgid "Instance Name"
 msgstr ""
 
 #: dashboards/project/static/dashboard/project/workflow/launch-instance/details/details.html:30
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:139
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:153
 #: static/app/core/images/steps/create-volume/create-volume.html:46
 msgid "Availability Zone"
 msgstr ""
@@ -1231,33 +1245,43 @@ msgstr ""
 msgid "Impact on your quota"
 msgstr ""
 
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/keypair/create-keypair.controller.js:52
-#, python-format
-msgid "Successfully created key pair %(name)s."
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/keypair/create-keypair.controller.js:47
+msgid "Keypair already exists or name contains bad characters."
 msgstr ""
 
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/keypair/create-keypair.html:5
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/keypair/create-keypair.html:33
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/keypair/keypair.html:15
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/keypair/create-keypair.controller.js:87
+msgid "Unable to generate"
+msgstr ""
+
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/keypair/create-keypair.controller.js:88
+msgid "Please try again."
+msgstr ""
+
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/keypair/create-keypair.html:6
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/keypair/keypair.html:30
 msgid "Create Key Pair"
 msgstr ""
 
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/keypair/create-keypair.html:7
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/keypair/create-keypair.html:9
 msgid ""
 "Key Pairs are how you login to your instance after it is launched.\n"
-"        Choose a key pair name you will recognize."
+"        Choose a key pair name you will recognize.\n"
+"        Names may only include alphanumeric characters, spaces, or dashes."
 msgstr ""
 
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/keypair/create-keypair.html:13
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/keypair/create-keypair.html:17
 #: dashboards/project/static/dashboard/project/workflow/launch-instance/keypair/import-keypair.html:15
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/keypair/new-keypair.html:12
 msgid "Key Pair Name"
 msgstr ""
 
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/keypair/create-keypair.html:14
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/keypair/create-keypair.html:27
 #: dashboards/project/static/dashboard/project/workflow/launch-instance/keypair/import-keypair.html:16
 #: dashboards/project/static/dashboard/project/workflow/launch-instance/keypair/import-keypair.html:22
 msgid "Required"
+msgstr ""
+
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/keypair/create-keypair.html:48
+msgid "Create Keypair"
 msgstr ""
 
 #: dashboards/project/static/dashboard/project/workflow/launch-instance/keypair/import-keypair.controller.js:54
@@ -1267,7 +1291,7 @@ msgstr ""
 
 #: dashboards/project/static/dashboard/project/workflow/launch-instance/keypair/import-keypair.html:5
 #: dashboards/project/static/dashboard/project/workflow/launch-instance/keypair/import-keypair.html:42
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/keypair/keypair.html:20
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/keypair/keypair.html:35
 msgid "Import Key Pair"
 msgstr ""
 
@@ -1281,8 +1305,11 @@ msgstr ""
 
 #: dashboards/project/static/dashboard/project/workflow/launch-instance/keypair/import-keypair.html:21
 #: dashboards/project/static/dashboard/project/workflow/launch-instance/keypair/keypair-details.html:2
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/keypair/new-keypair.html:16
 msgid "Public Key"
+msgstr ""
+
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/keypair/keypair.controller.js:105
+msgid "Created keypair: "
 msgstr ""
 
 #: dashboards/project/static/dashboard/project/workflow/launch-instance/keypair/keypair.help.html:1
@@ -1311,34 +1338,39 @@ msgid ""
 "  file."
 msgstr ""
 
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/keypair/keypair.html:5
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/keypair/keypair.html:6
 msgid ""
 "A key pair allows you to SSH into your newly created instance.\n"
 "      You may select an existing key pair, import a key pair, or generate"
 " a new key pair."
 msgstr ""
 
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/keypair/keypair.html:37
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/keypair/keypair.html:91
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/keypair/new-keypair.html:14
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/keypair/keypair.html:12
+msgid ""
+"A key pair named '{$ctrl.createdKeypair.name$}' was successfully created."
+" This key pair should automatically download."
+msgstr ""
+
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/keypair/keypair.html:16
+msgid ""
+"If not, you can manually dowload this keypair at the following link:\n"
+"        <a>\n"
+"          <span></span>\n"
+"          {$ctrl.createdKeypair.name$}\n"
+"        </a>"
+msgstr ""
+
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/keypair/keypair.html:20
+msgid "Note: you will not be able to download this later."
+msgstr ""
+
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/keypair/keypair.html:52
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/keypair/keypair.html:106
 msgid "Fingerprint"
 msgstr ""
 
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/keypair/keypair.html:44
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/keypair/keypair.html:59
 msgid "Select a key pair from the available key pairs below."
-msgstr ""
-
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/keypair/new-keypair.html:5
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/keypair/new-keypair.html:18
-msgid "Private Key"
-msgstr ""
-
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/keypair/new-keypair.html:7
-msgid "This is your new key pair. Copy this information and keep it secure."
-msgstr ""
-
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/keypair/new-keypair.html:29
-msgid "OK"
 msgstr ""
 
 #: dashboards/project/static/dashboard/project/workflow/launch-instance/metadata/metadata.help.html:2
@@ -1369,10 +1401,13 @@ msgstr ""
 
 #: dashboards/project/static/dashboard/project/workflow/launch-instance/network/network.controller.js:39
 #: dashboards/project/static/dashboard/project/workflow/launch-instance/network/network.controller.js:44
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/network/network.controller.js:91
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/network/network.controller.js:100
 msgid "Down"
 msgstr ""
 
 #: dashboards/project/static/dashboard/project/workflow/launch-instance/network/network.controller.js:43
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/network/network.controller.js:90
 msgid "Up"
 msgstr ""
 
@@ -1382,6 +1417,27 @@ msgstr ""
 
 #: dashboards/project/static/dashboard/project/workflow/launch-instance/network/network.controller.js:60
 msgid "Select at least one network"
+msgstr ""
+
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/network/network.controller.js:77
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/network/network.html:25
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/network/network.html:112
+msgid "Shared"
+msgstr ""
+
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/network/network.controller.js:86
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/network/network.html:26
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/network/network.html:113
+msgid "Admin State"
+msgstr ""
+
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/network/network.controller.js:95
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/network/network.html:27
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/network/network.html:114
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:160
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:241
+#: static/app/core/images/table/images-table.html:41
+msgid "Status"
 msgstr ""
 
 #: dashboards/project/static/dashboard/project/workflow/launch-instance/network/network.help.html:2
@@ -1476,23 +1532,6 @@ msgstr ""
 msgid "Subnets Associated"
 msgstr ""
 
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/network/network.html:25
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/network/network.html:112
-msgid "Shared"
-msgstr ""
-
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/network/network.html:26
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/network/network.html:113
-msgid "Admin State"
-msgstr ""
-
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/network/network.html:27
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/network/network.html:114
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:146
-#: static/app/core/images/table/images-table.html:41
-msgid "Status"
-msgstr ""
-
 #: dashboards/project/static/dashboard/project/workflow/launch-instance/network/network.html:34
 msgid "Select an item from Available items below"
 msgstr ""
@@ -1523,9 +1562,11 @@ msgstr ""
 
 #: dashboards/project/static/dashboard/project/workflow/launch-instance/network/network.html:80
 #: dashboards/project/static/dashboard/project/workflow/launch-instance/network/network.html:167
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:124
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:131
 #: dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:138
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:145
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:152
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:253
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:273
 #: static/app/core/images/steps/create-volume/create-volume.html:28
 #: static/app/core/images/table/images-table.html:40
 msgid "Type"
@@ -1613,8 +1654,9 @@ msgstr ""
 
 #: dashboards/project/static/dashboard/project/workflow/launch-instance/security-groups/security-groups.html:20
 #: dashboards/project/static/dashboard/project/workflow/launch-instance/security-groups/security-groups.html:73
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:136
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:143
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:150
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:157
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:217
 #: static/app/core/images/steps/create-volume/create-volume.html:18
 msgid "Description"
 msgstr ""
@@ -1637,51 +1679,124 @@ msgstr ""
 msgid "Volume size is required and must be an integer"
 msgstr ""
 
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:119
+msgid "AKI"
+msgstr ""
+
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:120
+msgid "AMI"
+msgstr ""
+
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:121
+msgid "ARI"
+msgstr ""
+
 #: dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:122
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:129
-msgid "Updated"
+msgid "Docker"
 msgstr ""
 
 #: dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:123
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:130
+msgid "ISO"
+msgstr ""
+
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:124
+msgid "OVA"
+msgstr ""
+
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:125
+msgid "QCOW2"
+msgstr ""
+
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:126
+msgid "RAW"
+msgstr ""
+
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:127
+msgid "VDI"
+msgstr ""
+
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:128
+msgid "VHD"
+msgstr ""
+
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:129
+msgid "VMDK"
+msgstr ""
+
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:136
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:143
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:259
+msgid "Updated"
+msgstr ""
+
 #: dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:137
 #: dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:144
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:151
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:158
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:236
 #: static/app/core/images/table/images-table.html:45
 #: static/app/core/images/table/images-table.html:117
 msgid "Size"
 msgstr ""
 
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:125
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:132
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:139
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:146
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:264
 #: static/app/core/images/table/images-table.html:42
 #: static/app/core/images/table/images-table.html:105
 msgid "Visibility"
 msgstr ""
 
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:145
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:159
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:212
 msgid "Created"
 msgstr ""
 
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:151
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:165
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:269
 #: static/app/core/images/filters/image-visibility.filter.js:60
 msgid "Private"
 msgstr ""
 
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:268
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:222
+msgid "Encrypted"
+msgstr ""
+
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:245
+msgid "Available"
+msgstr ""
+
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:246
+msgid "Creating"
+msgstr ""
+
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:247
+msgid "Deleting"
+msgstr ""
+
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:248
+msgid "Error"
+msgstr ""
+
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:249
+msgid "Error Deleting"
+msgstr ""
+
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:375
 msgid "Select a source from those listed below."
 msgstr ""
 
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:269
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:376
 msgid "Select one"
 msgstr ""
 
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:271
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:378
 msgid ""
 "When selecting volume as boot source, please ensure the instance's "
 "availability zone is compatible with your volume's availability zone."
 msgstr ""
 
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:305
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:417
 #, python-format
 msgid "The volume size must be at least %(minVolumeSize)s GB"
 msgstr ""
@@ -1837,7 +1952,7 @@ msgid "Confirm Delete Image"
 msgstr ""
 
 #: static/app/core/images/actions/row-delete.service.js:43
-#: static/app/core/images/table/row-actions.service.js:64
+#: static/app/core/images/table/row-actions.service.js:83
 msgid "Delete Image"
 msgstr ""
 
@@ -1950,10 +2065,18 @@ msgstr ""
 msgid "Min RAM (MB)"
 msgstr ""
 
-#: static/app/core/images/table/row-actions.service.js:59
+#: static/app/core/images/table/row-actions.service.js:63
+msgid "Launch"
+msgstr ""
+
+#: static/app/core/images/table/row-actions.service.js:73
 #: static/app/core/images/workflows/create-volume.service.js:36
 #: static/app/core/images/workflows/create-volume.service.js:37
 msgid "Create Volume"
+msgstr ""
+
+#: static/app/core/images/table/row-actions.service.js:78
+msgid "Update Metadata"
 msgstr ""
 
 #: static/app/core/metadata/modal/modal.html:3
@@ -2005,6 +2128,7 @@ msgid "Unable to retrieve the volume snapshots."
 msgstr ""
 
 #: static/app/core/openstack-service-api/cinder.service.js:222
+#: static/app/core/openstack-service-api/neutron.service.js:292
 #: static/app/core/openstack-service-api/nova.service.js:259
 msgid "Unable to retrieve the extensions."
 msgstr ""
@@ -2194,27 +2318,27 @@ msgstr ""
 msgid "Unable to fetch the service catalog."
 msgstr ""
 
-#: static/app/core/openstack-service-api/neutron.service.js:59
+#: static/app/core/openstack-service-api/neutron.service.js:60
 msgid "Unable to retrieve the agents."
 msgstr ""
 
-#: static/app/core/openstack-service-api/neutron.service.js:76
+#: static/app/core/openstack-service-api/neutron.service.js:77
 msgid "Unable to retrieve the networks."
 msgstr ""
 
-#: static/app/core/openstack-service-api/neutron.service.js:125
+#: static/app/core/openstack-service-api/neutron.service.js:126
 msgid "Unable to create the network."
 msgstr ""
 
-#: static/app/core/openstack-service-api/neutron.service.js:145
+#: static/app/core/openstack-service-api/neutron.service.js:146
 msgid "Unable to retrieve the subnets."
 msgstr ""
 
-#: static/app/core/openstack-service-api/neutron.service.js:209
+#: static/app/core/openstack-service-api/neutron.service.js:210
 msgid "Unable to create the subnet."
 msgstr ""
 
-#: static/app/core/openstack-service-api/neutron.service.js:260
+#: static/app/core/openstack-service-api/neutron.service.js:261
 msgid "Unable to retrieve the ports."
 msgstr ""
 
