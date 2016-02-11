@@ -4815,7 +4815,8 @@ class InstanceAjaxTests(helpers.TestCase):
     @helpers.create_stubs({api.nova: ("server_get",
                                       "flavor_get",
                                       "extension_supported"),
-                           api.neutron: ("is_extension_supported",)})
+                           api.neutron: ("is_extension_supported",
+                                         "servers_update_addresses",)})
     def test_row_update_flavor_not_found(self):
         server = self.servers.first()
         instance_id = server.id
