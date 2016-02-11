@@ -28,6 +28,7 @@
   angular
     .module('horizon.app.core.images', [])
     .constant('horizon.app.core.images.events', events())
+    .constant('horizon.app.core.images.non_bootable_image_types', ['aki', 'ari'])
     .config(config);
 
   config.$inject = [
@@ -43,7 +44,8 @@
   function events() {
     return {
       DELETE_SUCCESS: 'horizon.app.core.images.DELETE_SUCCESS',
-      VOLUME_CHANGED: 'horizon.app.core.images.VOLUME_CHANGED'
+      VOLUME_CHANGED: 'horizon.app.core.images.VOLUME_CHANGED',
+      UPDATE_METADATA_SUCCESS: 'horizon.app.core.images.UPDATE_METADATA_SUCCESS'
     };
   }
 
