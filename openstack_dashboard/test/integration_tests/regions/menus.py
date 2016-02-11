@@ -211,6 +211,10 @@ class UserDropDownMenuRegion(DropDownMenuRegion):
     _logout_link_locator = (by.By.CSS_SELECTOR,
                             'a[href*="/auth/logout/"]')
 
+    def _theme_picker_locator(self, theme_name):
+        return (by.By.CSS_SELECTOR,
+                '.theme-picker-item[data-theme="%s"]' % theme_name)
+
     @property
     def settings_link(self):
         return self._get_element(*self._settings_link_locator)
@@ -223,6 +227,9 @@ class UserDropDownMenuRegion(DropDownMenuRegion):
     def logout_link(self):
         return self._get_element(*self._logout_link_locator)
 
+    def theme_picker_link(self, theme_name):
+        return self._get_element(*self._theme_picker_locator(theme_name))
+
     def click_on_settings(self):
         self.open()
         self.settings_link.click()
@@ -230,6 +237,10 @@ class UserDropDownMenuRegion(DropDownMenuRegion):
     def click_on_help(self):
         self.open()
         self.help_link.click()
+
+    def choose_theme(self, theme_name):
+        self.open()
+        self.theme_picker_link(theme_name).click()
 
     def click_on_logout(self):
         self.open()

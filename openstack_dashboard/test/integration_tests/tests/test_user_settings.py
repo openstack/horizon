@@ -31,6 +31,18 @@ class TestDashboardHelp(helpers.TestCase):
         self.home_pg.switch_window()
 
 
+class TestThemePicker(helpers.TestCase):
+    DEFAULT_THEME = 'default'
+    MATERIAL_THEME = 'material'
+
+    def test_switch_to_material_theme(self):
+        """Verifies that material theme is available and switchable to."""
+        self.home_pg.choose_theme(self.MATERIAL_THEME)
+        self.assertTrue(self.home_pg.topbar.is_material_theme_enabled)
+        self.home_pg.choose_theme(self.DEFAULT_THEME)
+        self.assertFalse(self.home_pg.topbar.is_material_theme_enabled)
+
+
 class TestPasswordChange(helpers.TestCase):
     NEW_PASSWORD = "123"
 
