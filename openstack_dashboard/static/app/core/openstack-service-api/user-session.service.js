@@ -22,6 +22,7 @@
 
   userSession.$inject = [
     '$cacheFactory',
+    '$q',
     'horizon.app.core.openstack-service-api.keystone'
   ];
 
@@ -46,14 +47,15 @@
    * and used transparently where needed without making every single use of it
    * pass it through as an argument.
    */
-  function userSession($cacheFactory, keystoneAPI) {
+  function userSession($cacheFactory, $q, keystoneAPI) {
 
     var service = {
       cache: $cacheFactory(
         'horizon.app.core.openstack-service-api.userSession',
         {capacity: 1}
       ),
-      get: get
+      get: get,
+      isCurrentProject: isCurrentProject
     };
 
     return service;
@@ -66,6 +68,36 @@
 
     function onGetUserSession(response) {
       return response.data;
+    }
+
+    /*
+     * @ngdoc function
+     * @name isCurrentProject
+     * @description
+     * Given a project ID, returns a promise that either resolves or rejects
+     * based on whether the user's current project ID matches or doesn't.
+     * @example
+     * If you have a project ID for a given item and want to execute code if it
+     * matches the user's current project and get the result as a promise
+     * (so it can be evaluated asynchronously):
+     ```js
+     userSessionService.isCurrentProject(item.projectId).then(loadId, ignore);
+     ```
+     */
+    function isCurrentProject(projectId) {
+      var deferred = $q.defer();
+
+      get().then(onUserSessionGet);
+
+      return deferred.promise;
+
+      function onUserSessionGet(userSession) {
+        if (userSession.project_id === projectId) {
+          deferred.resolve();
+        } else {
+          deferred.reject();
+        }
+      }
     }
   }
 
