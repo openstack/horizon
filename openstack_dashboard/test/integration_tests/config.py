@@ -85,6 +85,9 @@ SeleniumGroup = [
     cfg.StrOpt('screenshots_directory',
                default="integration_tests_screenshots",
                help="Output screenshot directory"),
+    cfg.BoolOpt('maximize_browser',
+                default=True,
+                help="Is the browser size maximized for each test?"),
 ]
 
 ScenarioGroup = [
@@ -129,7 +132,12 @@ def _get_config_files():
         'integration_tests')
     conf_file = os.environ.get('HORIZON_INTEGRATION_TESTS_CONFIG_FILE',
                                "%s/horizon.conf" % conf_dir)
-    return [conf_file]
+    config_files = [conf_file]
+    local_config = os.environ.get('HORIZON_INTEGRATION_TESTS_LOCAL_CONFIG',
+                                  "%s/local-horizon.conf" % conf_dir)
+    if os.path.isfile(local_config):
+        config_files.append(local_config)
+    return config_files
 
 
 def get_config():

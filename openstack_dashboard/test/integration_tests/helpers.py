@@ -86,7 +86,8 @@ class BaseTestCase(testtools.TestCase):
             self.driver = webdriver.WebDriverWrapper(
                 desired_capabilities=desired_capabilities
             )
-            self.driver.maximize_window()
+            if self.CONFIG.selenium.maximize_browser:
+                self.driver.maximize_window()
             self.driver.implicitly_wait(self.CONFIG.selenium.implicit_wait)
             self.driver.set_page_load_timeout(
                 self.CONFIG.selenium.page_timeout)
