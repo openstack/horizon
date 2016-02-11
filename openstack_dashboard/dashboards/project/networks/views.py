@@ -109,7 +109,7 @@ class UpdateView(forms.ModalFormView):
 class DetailView(tables.MultiTableView):
     table_classes = (subnet_tables.SubnetsTable, port_tables.PortsTable)
     template_name = 'project/networks/detail.html'
-    page_title = _("Network Details: {{ network.name }}")
+    page_title = '{{ network.name | default:network.id }}'
 
     def get_subnets_data(self):
         try:
