@@ -56,6 +56,7 @@
 
     ctrl.images = [];
     ctrl.imagesSrc = [];
+    ctrl.metadataDefs = null;
 
     ctrl.batchActions = batchActionsService;
     ctrl.batchActions.initScope($scope);
@@ -87,6 +88,10 @@
         image.filtered_visibility = imageVisibilityFilter(image, d.session.project_id);
         ctrl.imagesSrc.push(image);
       });
+
+      // MetadataDefinitions are only used in expandable rows and are non-critical.
+      // Defer loading them until critical data is loaded.
+      applyMetadataDefinitions();
     }
 
     function onDeleteSuccess(e, removedImageIds) {
@@ -112,6 +117,13 @@
 
     function destroy() {
       deleteWatcher();
+    }
+
+    function applyMetadataDefinitions() {
+      glance.getNamespaces({resource_type: 'OS::Glance::Image'}, true)
+        .then(function setMetadefs(data) {
+          ctrl.metadataDefs = data.data.items;
+        });
     }
 
   }
