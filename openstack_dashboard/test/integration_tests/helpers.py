@@ -27,6 +27,7 @@ import xvfbwrapper
 from horizon.test import webdriver
 from openstack_dashboard.test.integration_tests import config
 from openstack_dashboard.test.integration_tests.pages import loginpage
+from openstack_dashboard.test.integration_tests.regions import messages
 
 ROOT_PATH = os.path.dirname(os.path.abspath(config.__file__))
 
@@ -183,6 +184,7 @@ class TestCase(BaseTestCase):
 
     TEST_USER_NAME = BaseTestCase.CONFIG.identity.username
     TEST_PASSWORD = BaseTestCase.CONFIG.identity.password
+    HOME_PROJECT = BaseTestCase.CONFIG.identity.home_project
 
     def setUp(self):
         super(TestCase, self).setUp()
@@ -191,6 +193,11 @@ class TestCase(BaseTestCase):
         self.zoom_out()
         self.home_pg = self.login_pg.login(self.TEST_USER_NAME,
                                            self.TEST_PASSWORD)
+        self.home_pg.change_project(self.HOME_PROJECT)
+        self.assertTrue(
+            self.home_pg.find_message_and_dismiss(messages.SUCCESS))
+        self.assertFalse(
+            self.home_pg.find_message_and_dismiss(messages.ERROR))
 
     def tearDown(self):
         try:
@@ -205,3 +212,4 @@ class AdminTestCase(TestCase):
 
     TEST_USER_NAME = TestCase.CONFIG.identity.admin_username
     TEST_PASSWORD = TestCase.CONFIG.identity.admin_password
+    HOME_PROJECT = BaseTestCase.CONFIG.identity.admin_home_project
