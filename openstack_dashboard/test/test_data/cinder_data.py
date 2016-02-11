@@ -200,6 +200,15 @@ def data(TEST):
          'size': 80,
          'status': 'available',
          'volume_id': '31023e92-8008-4c8b-8059-7f2293ff1234'})
+    snapshot4 = vol_snaps.Snapshot(
+        vol_snaps.SnapshotManager(None),
+        {'id': 'cd6be1eb-82ca-4587-8036-13c37c00c2b1',
+         'name': '',
+         'description': 'v2 volume snapshot with metadata description',
+         'size': 80,
+         'status': 'available',
+         'volume_id': '31023e92-8008-4c8b-8059-7f2293ff1234',
+         'metadata': {'snapshot_meta_key': 'snapshot_meta_value'}})
 
     snapshot.bootable = 'true'
     snapshot2.bootable = 'true'
@@ -207,6 +216,7 @@ def data(TEST):
     TEST.cinder_volume_snapshots.add(api.cinder.VolumeSnapshot(snapshot))
     TEST.cinder_volume_snapshots.add(api.cinder.VolumeSnapshot(snapshot2))
     TEST.cinder_volume_snapshots.add(api.cinder.VolumeSnapshot(snapshot3))
+    TEST.cinder_volume_snapshots.add(api.cinder.VolumeSnapshot(snapshot4))
     TEST.cinder_volume_snapshots.first()._volume = volume
 
     # Volume Type Encryption
