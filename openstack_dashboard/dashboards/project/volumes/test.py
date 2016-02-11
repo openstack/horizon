@@ -18,6 +18,7 @@ from django.conf import settings
 from django.core.urlresolvers import reverse
 from django import http
 from django.test.utils import override_settings
+from django.utils.http import urlunquote
 
 from mox3.mox import IsA  # noqa
 
@@ -32,8 +33,10 @@ from openstack_dashboard.test import helpers as test
 
 
 INDEX_URL = reverse('horizon:project:volumes:index')
-VOLUME_SNAPSHOTS_TAB_URL = reverse('horizon:project:volumes:snapshots_tab')
-VOLUME_BACKUPS_TAB_URL = reverse('horizon:project:volumes:backups_tab')
+VOLUME_SNAPSHOTS_TAB_URL = urlunquote(reverse(
+    'horizon:project:volumes:snapshots_tab'))
+VOLUME_BACKUPS_TAB_URL = urlunquote(reverse(
+    'horizon:project:volumes:backups_tab'))
 
 
 class VolumeAndSnapshotsAndBackupsTests(test.TestCase):
@@ -126,7 +129,7 @@ class VolumeAndSnapshotsAndBackupsTests(test.TestCase):
             AndReturn(self.cinder_limits['absolute'])
         self.mox.ReplayAll()
 
-        res = self.client.get(url)
+        res = self.client.get(urlunquote(url))
         self.assertEqual(res.status_code, 200)
         self.assertTemplateUsed(res, 'project/volumes/index.html')
 
@@ -223,7 +226,7 @@ class VolumeAndSnapshotsAndBackupsTests(test.TestCase):
             self.cinder_volumes.list())
         self.mox.ReplayAll()
 
-        res = self.client.get(url)
+        res = self.client.get(urlunquote(url))
         self.assertEqual(res.status_code, 200)
         self.assertTemplateUsed(res, 'project/volumes/index.html')
 
@@ -312,7 +315,7 @@ class VolumeAndSnapshotsAndBackupsTests(test.TestCase):
             self.cinder_volumes.list())
         self.mox.ReplayAll()
 
-        res = self.client.get(url)
+        res = self.client.get(urlunquote(url))
         self.assertEqual(res.status_code, 200)
         self.assertTemplateUsed(res, 'project/volumes/index.html')
 

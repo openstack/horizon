@@ -16,10 +16,12 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
+import django
 from django.core.urlresolvers import reverse
 from django.forms import widgets
 from django import http
 from django.test.utils import override_settings
+from django.utils.http import urlunquote
 
 from mox3.mox import IsA  # noqa
 import six
@@ -32,7 +34,8 @@ from openstack_dashboard.usage import quotas
 
 
 VOLUME_INDEX_URL = reverse('horizon:project:volumes:index')
-VOLUME_VOLUMES_TAB_URL = reverse('horizon:project:volumes:volumes_tab')
+VOLUME_VOLUMES_TAB_URL = urlunquote(reverse(
+    'horizon:project:volumes:volumes_tab'))
 SEARCH_OPTS = dict(status=api.cinder.VOLUME_STATE_AVAILABLE)
 
 
@@ -472,8 +475,9 @@ class VolumeViewTests(test.TestCase):
 
         cinder.volume_type_list(IsA(http.HttpRequest)).\
             AndReturn(self.volume_types.list())
-        cinder.volume_type_list(IsA(http.HttpRequest)).\
-            AndReturn(self.volume_types.list())
+        if django.VERSION >= (1, 9):
+            cinder.volume_type_list(IsA(http.HttpRequest)).\
+                AndReturn(self.volume_types.list())
         cinder.volume_type_default(IsA(http.HttpRequest)).\
             AndReturn(self.volume_types.first())
         quotas.tenant_limit_usages(IsA(http.HttpRequest)).\
@@ -482,9 +486,13 @@ class VolumeViewTests(test.TestCase):
                                    str(snapshot.id)).AndReturn(snapshot)
         cinder.volume_get(IsA(http.HttpRequest), snapshot.volume_id).\
             AndReturn(self.cinder_volumes.first())
-
-        quotas.tenant_limit_usages(IsA(http.HttpRequest)).\
-            AndReturn(usage_limit)
+        if django.VERSION >= (1, 9):
+            cinder.volume_type_default(IsA(http.HttpRequest)). \
+                AndReturn(self.volume_types.first())
+            cinder.volume_snapshot_get(IsA(http.HttpRequest),
+                                       str(snapshot.id)).AndReturn(snapshot)
+            cinder.volume_get(IsA(http.HttpRequest), snapshot.volume_id). \
+                AndReturn(self.cinder_volumes.first())
 
         self.mox.ReplayAll()
 
@@ -649,8 +657,9 @@ class VolumeViewTests(test.TestCase):
 
         cinder.volume_type_list(IsA(http.HttpRequest)).\
             AndReturn(self.volume_types.list())
-        cinder.volume_type_list(IsA(http.HttpRequest)).\
-            AndReturn(self.volume_types.list())
+        if django.VERSION >= (1, 9):
+            cinder.volume_type_list(IsA(http.HttpRequest)).\
+                AndReturn(self.volume_types.list())
         cinder.volume_type_default(IsA(http.HttpRequest)).\
             AndReturn(self.volume_types.first())
         quotas.tenant_limit_usages(IsA(http.HttpRequest)).\
@@ -661,8 +670,15 @@ class VolumeViewTests(test.TestCase):
             .AndReturn(True)
         cinder.availability_zone_list(IsA(http.HttpRequest)).AndReturn(
             self.cinder_availability_zones.list())
-        quotas.tenant_limit_usages(IsA(http.HttpRequest)).\
-            AndReturn(usage_limit)
+        if django.VERSION >= (1, 9):
+            cinder.volume_type_default(IsA(http.HttpRequest)). \
+                AndReturn(self.volume_types.first())
+            api.glance.image_get(IsA(http.HttpRequest),
+                                 str(image.id)).AndReturn(image)
+            cinder.extension_supported(IsA(http.HttpRequest),
+                                       'AvailabilityZones').AndReturn(True)
+            cinder.availability_zone_list(IsA(http.HttpRequest)).AndReturn(
+                self.cinder_availability_zones.list())
 
         self.mox.ReplayAll()
 
@@ -696,8 +712,9 @@ class VolumeViewTests(test.TestCase):
 
         cinder.volume_type_list(IsA(http.HttpRequest)).\
             AndReturn(self.volume_types.list())
-        cinder.volume_type_list(IsA(http.HttpRequest)).\
-            AndReturn(self.volume_types.list())
+        if django.VERSION >= (1, 9):
+            cinder.volume_type_list(IsA(http.HttpRequest)).\
+                AndReturn(self.volume_types.list())
         cinder.volume_type_default(IsA(http.HttpRequest)).\
             AndReturn(self.volume_types.first())
         quotas.tenant_limit_usages(IsA(http.HttpRequest)).\
@@ -708,8 +725,15 @@ class VolumeViewTests(test.TestCase):
             .AndReturn(True)
         cinder.availability_zone_list(IsA(http.HttpRequest)).AndReturn(
             self.cinder_availability_zones.list())
-        quotas.tenant_limit_usages(IsA(http.HttpRequest)).\
-            AndReturn(usage_limit)
+        if django.VERSION >= (1, 9):
+            cinder.volume_type_default(IsA(http.HttpRequest)).\
+                AndReturn(self.volume_types.first())
+            api.glance.image_get(IsA(http.HttpRequest),
+                                 str(image.id)).AndReturn(image)
+            cinder.extension_supported(IsA(http.HttpRequest),
+                                       'AvailabilityZones').AndReturn(True)
+            cinder.availability_zone_list(IsA(http.HttpRequest)).AndReturn(
+                self.cinder_availability_zones.list())
 
         self.mox.ReplayAll()
 
@@ -753,8 +777,9 @@ class VolumeViewTests(test.TestCase):
 
         cinder.volume_type_list(IsA(http.HttpRequest)).\
             AndReturn(self.volume_types.list())
-        cinder.volume_type_list(IsA(http.HttpRequest)).\
-            AndReturn(self.volume_types.list())
+        if django.VERSION >= (1, 9):
+            cinder.volume_type_list(IsA(http.HttpRequest)).\
+                AndReturn(self.volume_types.list())
         cinder.volume_type_default(IsA(http.HttpRequest)).\
             AndReturn(self.volume_types.first())
         quotas.tenant_limit_usages(IsA(http.HttpRequest)).\
@@ -778,8 +803,29 @@ class VolumeViewTests(test.TestCase):
             .AndReturn(True)
         cinder.availability_zone_list(IsA(http.HttpRequest)).AndReturn(
             self.cinder_availability_zones.list())
-        quotas.tenant_limit_usages(IsA(http.HttpRequest)).\
-            AndReturn(usage_limit)
+        if django.VERSION >= (1, 9):
+            cinder.volume_type_default(IsA(http.HttpRequest)).\
+                AndReturn(self.volume_types.first())
+            cinder.volume_snapshot_list(IsA(http.HttpRequest),
+                                        search_opts=SEARCH_OPTS). \
+                AndReturn(self.cinder_volume_snapshots.list())
+            api.glance.image_list_detailed(
+                IsA(http.HttpRequest),
+                filters={'is_public': True, 'status': 'active'}) \
+                .AndReturn([self.images.list(), False, False])
+            api.glance.image_list_detailed(
+                IsA(http.HttpRequest),
+                filters={'property-owner_id': self.tenant.id,
+                         'status': 'active'}) \
+                .AndReturn([[], False, False])
+            cinder.volume_list(IsA(
+                http.HttpRequest),
+                search_opts=SEARCH_OPTS).AndReturn(self.cinder_volumes.list())
+            cinder.extension_supported(IsA(http.HttpRequest),
+                                       'AvailabilityZones') \
+                .AndReturn(True)
+            cinder.availability_zone_list(IsA(http.HttpRequest)).AndReturn(
+                self.cinder_availability_zones.list())
 
         self.mox.ReplayAll()
 
@@ -810,8 +856,9 @@ class VolumeViewTests(test.TestCase):
 
         cinder.volume_type_list(IsA(http.HttpRequest)).\
             AndReturn(self.volume_types.list())
-        cinder.volume_type_list(IsA(http.HttpRequest)).\
-            AndReturn(self.volume_types.list())
+        if django.VERSION >= (1, 9):
+            cinder.volume_type_list(IsA(http.HttpRequest)).\
+                AndReturn(self.volume_types.list())
         cinder.volume_type_default(IsA(http.HttpRequest)).\
             AndReturn(self.volume_types.first())
         quotas.tenant_limit_usages(IsA(http.HttpRequest)).\
@@ -835,8 +882,29 @@ class VolumeViewTests(test.TestCase):
             .AndReturn(True)
         cinder.availability_zone_list(IsA(http.HttpRequest)).AndReturn(
             self.cinder_availability_zones.list())
-        quotas.tenant_limit_usages(IsA(http.HttpRequest)).\
-            AndReturn(usage_limit)
+        if django.VERSION >= (1, 9):
+            cinder.volume_type_default(IsA(http.HttpRequest)). \
+                AndReturn(self.volume_types.first())
+            cinder.volume_snapshot_list(IsA(http.HttpRequest),
+                                        search_opts=SEARCH_OPTS). \
+                AndReturn(self.cinder_volume_snapshots.list())
+            api.glance.image_list_detailed(
+                IsA(http.HttpRequest),
+                filters={'is_public': True, 'status': 'active'}) \
+                .AndReturn([self.images.list(), False, False])
+            api.glance.image_list_detailed(
+                IsA(http.HttpRequest),
+                filters={'property-owner_id': self.tenant.id,
+                         'status': 'active'}) \
+                .AndReturn([[], False, False])
+            cinder.volume_list(IsA(
+                http.HttpRequest),
+                search_opts=SEARCH_OPTS).AndReturn(self.cinder_volumes.list())
+            cinder.extension_supported(IsA(http.HttpRequest),
+                                       'AvailabilityZones') \
+                .AndReturn(True)
+            cinder.availability_zone_list(IsA(http.HttpRequest)).AndReturn(
+                self.cinder_availability_zones.list())
 
         self.mox.ReplayAll()
 
@@ -1434,18 +1502,12 @@ class VolumeViewTests(test.TestCase):
                         quotas: ('tenant_limit_usages',)})
     def test_extend_volume_with_wrong_size(self):
         volume = self.cinder_volumes.first()
-        usage_limit = {'maxTotalVolumeGigabytes': 100,
-                       'gigabytesUsed': 20,
-                       'volumesUsed': len(self.cinder_volumes.list()),
-                       'maxTotalVolumes': 6}
         formData = {'name': u'A Volume I Am Making',
                     'orig_size': volume.size,
                     'new_size': 10}
 
         cinder.volume_get(IsA(http.HttpRequest), volume.id).\
             AndReturn(self.cinder_volumes.first())
-        quotas.tenant_limit_usages(IsA(http.HttpRequest)).\
-            AndReturn(usage_limit)
 
         self.mox.ReplayAll()
 
@@ -1574,8 +1636,6 @@ class VolumeViewTests(test.TestCase):
             AndReturn(usage_limit)
         cinder.volume_get(IsA(http.HttpRequest), volume.id).\
             AndReturn(self.volumes.first())
-        quotas.tenant_limit_usages(IsA(http.HttpRequest)).\
-            AndReturn(usage_limit)
 
         self.mox.ReplayAll()
 

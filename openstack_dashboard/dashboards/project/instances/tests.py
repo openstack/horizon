@@ -4511,7 +4511,8 @@ class InstanceTests(helpers.TestCase):
                                           confirm_password=pass2,
                                           disk_config='MANUAL')
 
-        self.assertContains(res, "Passwords do not match.")
+        self.assertEqual(res.context['form'].errors['__all__'],
+                         ["Passwords do not match."])
 
     @helpers.create_stubs(instance_rebuild_post_stubs)
     def test_rebuild_instance_post_with_empty_string(self):

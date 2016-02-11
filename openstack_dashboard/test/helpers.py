@@ -29,6 +29,7 @@ from django.core.handlers import wsgi
 from django.core import urlresolvers
 from django.test.client import RequestFactory  # noqa
 from django.test import utils as django_test_utils
+from django.utils import http
 
 from ceilometerclient.v2 import client as ceilometer_client
 from cinderclient import client as cinder_client
@@ -232,8 +233,10 @@ class TestCase(horizon_helpers.TestCase):
         processing the view which is redirected to.
         """
         if django.VERSION >= (1, 9):
-            self.assertEqual(response._headers.get('location', None),
-                             ('Location', expected_url))
+            loc = six.text_type(response._headers.get('location', None)[1])
+            loc = http.urlunquote(loc)
+            expected_url = http.urlunquote(expected_url)
+            self.assertEqual(loc, expected_url)
         else:
             self.assertEqual(response._headers.get('location', None),
                              ('Location', settings.TESTSERVER + expected_url))

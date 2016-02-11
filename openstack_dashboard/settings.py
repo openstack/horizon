@@ -303,7 +303,7 @@ if os.path.exists(LOCAL_SETTINGS_DIR_PATH):
                     execfile(os.path.join(dirpath, filename))
                 except Exception as e:
                     logging.exception(
-                        "Can not exec settings snippet %s" % (filename))
+                        "Can not exec settings snippet %s" % filename)
 
 
 if not WEBROOT.endswith('/'):
@@ -377,8 +377,14 @@ settings.update_dashboards(
 )
 INSTALLED_APPS[0:0] = ADD_INSTALLED_APPS
 
-from openstack_auth import policy
-POLICY_CHECK_FUNCTION = policy.check
+
+def check(actions, request, target=None):
+    # Note(Itxaka): This is to prevent circular dependencies and apps not ready
+    # If you do django imports in your settings, you are gonna have a bad time
+    from openstack_auth import policy
+    return policy.check(actions, request, target=None)
+
+POLICY_CHECK_FUNCTION = check
 
 # This base context objects gets added to the offline context generator
 # for each theme configured.
@@ -392,12 +398,5 @@ COMPRESS_OFFLINE_CONTEXT = 'horizon.themes.offline_context'
 
 if DEBUG:
     logging.basicConfig(level=logging.DEBUG)
-
-# during django reloads and an active user is logged in, the monkey
-# patch below will not otherwise be applied in time - resulting in developers
-# appearing to be logged out.  In typical production deployments this section
-# below may be omitted, though it should not be harmful
-from openstack_auth import utils as auth_utils
-auth_utils.patch_middleware_get_user()
 
 CSRF_COOKIE_AGE = None

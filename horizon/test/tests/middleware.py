@@ -13,8 +13,8 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
+import django
 from django.conf import settings
-
 from django.http import HttpResponseRedirect  # noqa
 from django.utils import timezone
 
@@ -41,7 +41,10 @@ class MiddlewareTests(test.TestCase):
         resp = mw.process_exception(request, exceptions.NotAuthorized())
         resp.client = self.client
 
-        self.assertRedirects(resp, url)
+        if django.VERSION >= (1, 9):
+            self.assertRedirects(resp, settings.TESTSERVER + url)
+        else:
+            self.assertRedirects(resp, url)
 
     def test_process_response_redirect_on_ajax_request(self):
         url = settings.LOGIN_URL

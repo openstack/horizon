@@ -18,6 +18,7 @@ from django.conf import settings
 from django.core.urlresolvers import reverse
 from django import http
 from django.test.utils import override_settings
+from django.utils.http import urlunquote
 from mox3.mox import IsA  # noqa
 
 from openstack_dashboard import api
@@ -92,7 +93,7 @@ class VolumeTests(test.BaseAdminViewTests):
 
         self.mox.ReplayAll()
 
-        res = self.client.get(url)
+        res = self.client.get(urlunquote(url))
 
         self.assertTemplateUsed(res, 'admin/volumes/index.html')
         self.assertEqual(res.status_code, 200)
@@ -190,8 +191,8 @@ class VolumeTests(test.BaseAdminViewTests):
             .AndReturn(True)
 
         self.mox.ReplayAll()
-        res = self.client.get(reverse(
-            'horizon:admin:volumes:volume_types_tab'))
+        url = reverse('horizon:admin:volumes:volume_types_tab')
+        res = self.client.get(urlunquote(url))
 
         self.assertEqual(res.status_code, 200)
         self.assertTemplateUsed(
@@ -216,10 +217,11 @@ class VolumeTests(test.BaseAdminViewTests):
             AndReturn([self.tenants.list(), False])
 
         self.mox.ReplayAll()
-        res = self.client.get(reverse('horizon:admin:volumes:snapshots_tab'))
+        url = reverse('horizon:admin:volumes:snapshots_tab')
+        res = self.client.get(urlunquote(url))
 
         self.assertEqual(res.status_code, 200)
-        self.assertTemplateUsed(res, 'horizon/common/_detail_table.html')
+        self.assertTemplateUsed(res, 'admin/volumes/index.html')
         snapshots = res.context['volume_snapshots_table'].data
         self.assertItemsEqual(snapshots, self.cinder_volume_snapshots.list())
 
@@ -240,7 +242,7 @@ class VolumeTests(test.BaseAdminViewTests):
 
         self.mox.ReplayAll()
 
-        res = self.client.get(url)
+        res = self.client.get(urlunquote(url))
 
         self.assertTemplateUsed(res, 'admin/volumes/index.html')
         self.assertEqual(res.status_code, 200)

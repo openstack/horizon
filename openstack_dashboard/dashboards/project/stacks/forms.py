@@ -13,6 +13,7 @@
 import json
 import logging
 
+import django
 from django.conf import settings
 from django.utils import html
 from django.utils.translation import ugettext_lazy as _
@@ -124,6 +125,13 @@ class TemplateForm(forms.SelfHandlingForm):
         help_text=_('The raw contents of the environment file.'),
         widget=forms.widgets.Textarea(attrs=attributes),
         required=False)
+
+    if django.VERSION >= (1, 9):
+        # Note(Itxaka): On django>=1.9 Charfield has an strip option that
+        # we need to set to False as to not hit
+        # https://bugs.launchpad.net/python-heatclient/+bug/1546166
+        environment_data.strip = False
+        template_data.strip = False
 
     def __init__(self, *args, **kwargs):
         self.next_view = kwargs.pop('next_view')
@@ -252,6 +260,12 @@ class CreateStackForm(forms.SelfHandlingForm):
     environment_data = forms.CharField(
         widget=forms.widgets.HiddenInput,
         required=False)
+    if django.VERSION >= (1, 9):
+        # Note(Itxaka): On django>=1.9 Charfield has an strip option that
+        # we need to set to False as to not hit
+        # https://bugs.launchpad.net/python-heatclient/+bug/1546166
+        environment_data.strip = False
+
     parameters = forms.CharField(
         widget=forms.widgets.HiddenInput)
     stack_name = forms.RegexField(

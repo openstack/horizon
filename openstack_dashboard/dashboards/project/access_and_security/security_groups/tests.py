@@ -18,6 +18,7 @@
 
 import cgi
 
+import django
 from django.conf import settings
 from django.core.urlresolvers import reverse
 from django import http
@@ -410,6 +411,12 @@ class SecurityGroupsViewTests(test.TestCase):
             IsA(http.HttpRequest)).AndReturn(self.secgroup_backend)
         api.network.security_group_list(
             IsA(http.HttpRequest)).AndReturn(sec_group_list)
+        if django.VERSION >= (1, 9):
+            api.network.security_group_backend(
+                IsA(http.HttpRequest)).AndReturn(self.secgroup_backend)
+            api.network.security_group_list(
+                IsA(http.HttpRequest)).AndReturn(sec_group_list)
+
         self.mox.ReplayAll()
 
         formData = {'method': 'AddRule',
@@ -435,6 +442,13 @@ class SecurityGroupsViewTests(test.TestCase):
                 IsA(http.HttpRequest)).AndReturn(self.secgroup_backend)
             api.network.security_group_list(
                 IsA(http.HttpRequest)).AndReturn(sec_group_list)
+        if django.VERSION >= (1, 9):
+            for i in range(3):
+                api.network.security_group_backend(
+                    IsA(http.HttpRequest)).AndReturn(self.secgroup_backend)
+                api.network.security_group_list(
+                    IsA(http.HttpRequest)).AndReturn(sec_group_list)
+
         self.mox.ReplayAll()
 
         formData = {'method': 'AddRule',
@@ -489,6 +503,13 @@ class SecurityGroupsViewTests(test.TestCase):
                 IsA(http.HttpRequest)).AndReturn(self.secgroup_backend)
             api.network.security_group_list(
                 IsA(http.HttpRequest)).AndReturn(sec_group_list)
+
+        if django.VERSION >= (1, 9):
+            for i in range(4):
+                api.network.security_group_backend(
+                    IsA(http.HttpRequest)).AndReturn(self.secgroup_backend)
+                api.network.security_group_list(
+                    IsA(http.HttpRequest)).AndReturn(sec_group_list)
 
         self.mox.ReplayAll()
 

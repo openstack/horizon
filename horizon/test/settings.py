@@ -59,7 +59,8 @@ INSTALLED_APPS = (
     'horizon',
     'horizon.test',
     'horizon.test.test_dashboards.cats',
-    'horizon.test.test_dashboards.dogs'
+    'horizon.test.test_dashboards.dogs',
+    'openstack_auth'
 )
 
 MIDDLEWARE_CLASSES = (

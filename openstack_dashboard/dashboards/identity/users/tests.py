@@ -18,6 +18,7 @@
 
 from socket import timeout as socket_timeout  # noqa
 
+import django
 from django.core.urlresolvers import reverse
 from django import http
 from django.test.utils import override_settings
@@ -228,6 +229,19 @@ class UsersViewTests(test.BaseAdminViewTests):
         api.keystone.role_list(IgnoreArg()).AndReturn(self.roles.list())
         api.keystone.get_default_role(IgnoreArg()) \
                     .AndReturn(self.roles.first())
+        if django.VERSION >= (1, 9):
+            if api.keystone.VERSIONS.active >= 3:
+                api.keystone.tenant_list(
+                    IgnoreArg(), domain=domain_id).AndReturn(
+                    [self.tenants.list(), False])
+            else:
+                api.keystone.tenant_list(
+                    IgnoreArg(), user=None).AndReturn(
+                    [self.tenants.list(), False])
+
+            api.keystone.role_list(IgnoreArg()).AndReturn(self.roles.list())
+            api.keystone.get_default_role(IgnoreArg()) \
+                .AndReturn(self.roles.first())
 
         self.mox.ReplayAll()
 
@@ -268,6 +282,19 @@ class UsersViewTests(test.BaseAdminViewTests):
         api.keystone.role_list(IgnoreArg()).AndReturn(self.roles.list())
         api.keystone.get_default_role(IgnoreArg()) \
                     .AndReturn(self.roles.first())
+        if django.VERSION >= (1, 9):
+            if api.keystone.VERSIONS.active >= 3:
+                api.keystone.tenant_list(
+                    IgnoreArg(), domain=domain_id).AndReturn(
+                    [self.tenants.list(), False])
+            else:
+                api.keystone.tenant_list(
+                    IgnoreArg(), user=None).AndReturn(
+                    [self.tenants.list(), False])
+
+            api.keystone.role_list(IgnoreArg()).AndReturn(self.roles.list())
+            api.keystone.get_default_role(IgnoreArg()) \
+                .AndReturn(self.roles.first())
 
         self.mox.ReplayAll()
 
@@ -311,6 +338,19 @@ class UsersViewTests(test.BaseAdminViewTests):
         api.keystone.role_list(IgnoreArg()).AndReturn(self.roles.list())
         api.keystone.get_default_role(IgnoreArg()) \
                     .AndReturn(self.roles.first())
+        if django.VERSION >= (1, 9):
+            if api.keystone.VERSIONS.active >= 3:
+                api.keystone.tenant_list(
+                    IgnoreArg(), domain=domain_id).AndReturn(
+                    [self.tenants.list(), False])
+            else:
+                api.keystone.tenant_list(
+                    IgnoreArg(), user=None).AndReturn(
+                    [self.tenants.list(), False])
+
+            api.keystone.role_list(IgnoreArg()).AndReturn(self.roles.list())
+            api.keystone.get_default_role(IgnoreArg()) \
+                .AndReturn(self.roles.first())
 
         self.mox.ReplayAll()
 

@@ -70,21 +70,17 @@ class VolumeBackupsViewTests(test.TestCase):
             AndReturn(volumes)
         api.cinder.volume_backup_delete(IsA(http.HttpRequest), backup.id)
 
-        api.cinder.volume_backup_list_paged(
-            IsA(http.HttpRequest), marker=None, sort_dir='desc',
-            paginate=True).AndReturn([vol_backups, False, False])
-        api.cinder.volume_list(IsA(http.HttpRequest)). \
-            AndReturn(volumes)
         self.mox.ReplayAll()
 
         formData = {'action':
                     'volume_backups__delete__%s' % backup.id}
         res = self.client.post(INDEX_URL +
                                "?tab=volumes_and_snapshots__backups_tab",
-                               formData, follow=True)
+                               formData)
 
-        self.assertIn("Scheduled deletion of Volume Backup: backup1",
-                      [m.message for m in res.context['messages']])
+        self.assertRedirectsNoFollow(res, INDEX_URL +
+                                     "?tab=volumes_and_snapshots__backups_tab")
+        self.assertMessageCount(success=1)
 
     @test.create_stubs({api.cinder: ('volume_backup_get', 'volume_get')})
     def test_volume_backup_detail_get(self):
