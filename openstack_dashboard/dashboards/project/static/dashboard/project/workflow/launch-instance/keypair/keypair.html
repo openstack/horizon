@@ -2,9 +2,24 @@
   <h1 translate>Key Pair</h1>
 
   <div class="content">
+
     <div class="subtitle" translate>
       A key pair allows you to SSH into your newly created instance.
       You may select an existing key pair, import a key pair, or generate a new key pair.
+    </div>
+    
+    <div ng-if="ctrl.isKeypairCreated" class="alert alert-info">
+      <div translate>A key pair named '{$ctrl.createdKeypair.name$}' was successfully created. This key pair should automatically download.</div>
+      <div>
+        <translate>If not, you can manually dowload this keypair at the following link:<translate>
+        <a href="{$ ctrl.createdKeypair.regenerateUrl $}">
+          <span class="fa fa-download"></span>
+          {$ctrl.createdKeypair.name$}
+        </a>
+      </div>
+      <div translate>
+        Note: you will not be able to download this later.
+      </div>
     </div>
 
     <div class="row form-group">

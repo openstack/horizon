@@ -22,9 +22,10 @@
     .controller('LaunchInstanceKeypairController', LaunchInstanceKeypairController);
 
   LaunchInstanceKeypairController.$inject = [
+    'horizon.dashboard.project.workflow.launch-instance.basePath',
     'launchInstanceModel',
     '$modal',
-    'horizon.dashboard.project.workflow.launch-instance.basePath'
+    'horizon.framework.widgets.toast.service'
   ];
 
   /**
@@ -33,8 +34,14 @@
    * @description
    * Allows selection of key pairs.
    */
-  function LaunchInstanceKeypairController(launchInstanceModel, $modal, basePath) {
+  function LaunchInstanceKeypairController(basePath, launchInstanceModel, $modal, toastService) {
     var ctrl = this;
+
+    ctrl.isKeypairCreated = false;
+    ctrl.createdKeypair = {
+      name: "",
+      regenerateUrl: ""
+    };
 
     ctrl.allocateNewKeyPair = allocateNewKeyPair;
     ctrl.createKeyPair = createKeyPair;
@@ -55,9 +62,13 @@
 
     //////////
 
-    /*
-     * Allocate the new key pair (after import or create)
-     * if nothing is already allocated
+    /**
+     * @ngdoc function
+     * @name allocateNewKeyPair
+     * @description
+     * Allocate the new key pair (after import or create) if nothing is
+     * already allocated.
+     * @param {Object} newKeyPair The new key pair object to add
      */
     function allocateNewKeyPair(newKeyPair) {
       if (ctrl.tableData.allocated.length === 0) {
@@ -65,49 +76,67 @@
       }
     }
 
+    /**
+     * @ngdoc function
+     * @name createKeyPair
+     * @description
+     * Launches the modal to create a key pair.
+     */
     function createKeyPair() {
       $modal.open({
         templateUrl: basePath + 'keypair/create-keypair.html',
         controller: 'LaunchInstanceCreateKeyPairController as ctrl',
-        windowClass: 'modal-dialog-wizard'
-      }).result.then(createKeyPairCallback);
+        windowClass: 'modal-dialog-wizard',
+        resolve: {
+          existingKeypairs: getKeypairs
+        }
+      }).result.then(notifyUserAndAssign);
     }
 
+    /**
+     * @ngdoc function
+     * @name notifyUserAndAssign
+     * @description
+     * Informs the user about the created key pair and sets controller
+     * values accordingly.
+     * @param {Object} newKeyPair The new key pair object
+     */
+    function notifyUserAndAssign(newKeypair) {
+      toastService.add('success', gettext('Created keypair: ' + newKeypair.name));
+      assignKeypair(newKeypair);
+      ctrl.createdKeypair = newKeypair;
+      ctrl.isKeypairCreated = true;
+    }
+
+    /**
+     * @ngdoc function
+     * @name importKeyPair
+     * @description
+     * Launches the modal to import a key pair.
+     */
     function importKeyPair() {
       $modal.open({
         templateUrl: basePath + 'keypair/import-keypair.html',
         controller: 'LaunchInstanceImportKeyPairController as ctrl',
         windowClass: 'modal-dialog-wizard'
-      }).result.then(importKeyPairCallback);
+      }).result.then(assignKeypair);
     }
 
-    function createKeyPairCallback(result) {
+    function assignKeypair(keypair) {
       // Nova doesn't set the id in the response so we will use
       // the name as the id. Name is the key used in URLs, etc.
-      result.id = result.name;
+      keypair.id = keypair.name;
 
-      $modal.open({
-        templateUrl: basePath + 'keypair/new-keypair.html',
-        controller: 'LaunchInstanceNewKeyPairController as ctrl',
-        windowClass: 'modal-dialog-wizard',
-        resolve: {
-          keypair: function () {
-            return result;
-          }
-        }
-      });
-
-      launchInstanceModel.keypairs.push(result);
-      ctrl.allocateNewKeyPair(result);
+      launchInstanceModel.keypairs.push(keypair);
+      ctrl.allocateNewKeyPair(keypair);
     }
 
-    function importKeyPairCallback(result) {
-      // Nova doesn't set the id in the response so we will use
-      // the name as the id. Name is the key used in URLs, etc.
-      result.id = result.name;
+    function getKeypairs() {
+      return launchInstanceModel.keypairs.map(getName);
+    }
 
-      launchInstanceModel.keypairs.push(result);
-      ctrl.allocateNewKeyPair(result);
+    function getName(item) {
+      return item.name;
     }
   }
 
