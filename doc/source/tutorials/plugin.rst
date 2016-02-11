@@ -256,7 +256,7 @@ setup.py
         pbr=True)
 
 setup.cfg
---------
+---------
 ::
 
     [metadata]

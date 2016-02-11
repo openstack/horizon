@@ -508,6 +508,22 @@ This setting can be used in the case where a separate panel is used for
 managing a custom property or if a certain custom property should never be
 edited.
 
+``LAUNCH_INSTANCE_DEFAULTS``
+----------------------------
+
+.. versionadded:: 9.0.0(Mitaka)
+
+Default::
+
+    {
+        "config_drive": False
+    }
+
+A dictionary of settings which can be used to provide the default values for
+properties found in the Launch Instance modal.
+
+The ``config_drive`` setting specifies the default value for the Configuration
+Drive property.
 
 ``MESSAGES_PATH``
 -----------------
@@ -528,7 +544,6 @@ data and must have a .json file extension. For example::
     }
 
 Possible values for level are: success, info, warning and error.
-
 
 ``OPENSTACK_API_VERSIONS``
 --------------------------

@@ -1478,6 +1478,7 @@ class InstanceTests(helpers.TestCase):
                                  only_one_network=False,
                                  disk_config=True,
                                  config_drive=True,
+                                 config_drive_default=False,
                                  test_with_profile=False):
         image = self.images.first()
 
@@ -1634,6 +1635,10 @@ class InstanceTests(helpers.TestCase):
         else:
             self.assertNotContains(res, config_drive_field_label)
 
+        step = workflow.get_step("setadvancedaction")
+        self.assertEqual(step.action.initial['config_drive'],
+                         config_drive_default)
+
     @django.test.utils.override_settings(
         OPENSTACK_HYPERVISOR_FEATURES={'can_set_password': False})
     def test_launch_instance_get_without_password(self):
@@ -1648,6 +1653,11 @@ class InstanceTests(helpers.TestCase):
         image.min_disk = flavor.disk
         self._test_launch_form_instance_requirement_error(image, flavor,
                                                           keypair_require=True)
+
+    @django.test.utils.override_settings(
+        LAUNCH_INSTANCE_DEFAULTS={'config_drive': True})
+    def test_launch_instance_get_with_config_drive_default(self):
+        self.test_launch_instance_get(config_drive_default=True)
 
     def test_launch_instance_get_no_block_device_mapping_v2_supported(self):
         self.test_launch_instance_get(block_device_mapping_v2=False)

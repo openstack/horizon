@@ -22,6 +22,7 @@ Views for managing instances.
 from collections import OrderedDict
 import logging
 
+from django.conf import settings
 from django.core.urlresolvers import reverse
 from django.core.urlresolvers import reverse_lazy
 from django import http
@@ -147,6 +148,8 @@ class LaunchInstanceView(workflows.WorkflowView):
         initial = super(LaunchInstanceView, self).get_initial()
         initial['project_id'] = self.request.user.tenant_id
         initial['user_id'] = self.request.user.id
+        defaults = getattr(settings, 'LAUNCH_INSTANCE_DEFAULTS', {})
+        initial['config_drive'] = defaults.get('config_drive', False)
         return initial
 
 

@@ -19,7 +19,7 @@
   describe('Launch Instance Model', function() {
 
     describe('launchInstanceModel Factory', function() {
-      var model, scope, $q;
+      var model, scope, settings, $q;
       var cinderEnabled = false;
       var neutronEnabled = false;
       var novaExtensionsEnabled = false;
@@ -51,6 +51,14 @@
 
             return deferred.promise;
           }
+        });
+
+        beforeEach(function() {
+          settings = {
+            LAUNCH_INSTANCE_DEFAULTS: {
+              config_drive: false
+            }
+          };
         });
 
         $provide.value('horizon.app.core.openstack-service-api.nova', {
@@ -170,6 +178,16 @@
             } else {
               deferred.reject();
             }
+
+            return deferred.promise;
+          }
+        });
+
+        $provide.value('horizon.app.core.openstack-service-api.settings', {
+          getSetting: function(setting) {
+            var deferred = $q.defer();
+
+            deferred.resolve(settings[setting]);
 
             return deferred.promise;
           }
@@ -309,6 +327,29 @@
           scope.$apply();
 
           expect(model.allowCreateVolumeFromImage).toBe(false);
+        });
+
+        it('should default config_drive to false', function() {
+          model.initialize(true);
+          scope.$apply();
+
+          expect(model.newInstanceSpec.config_drive).toBe(false);
+        });
+
+        it('should default config_drive to false if setting not provided', function() {
+          delete settings.LAUNCH_INSTANCE_DEFAULTS;
+          model.initialize(true);
+          scope.$apply();
+
+          expect(model.newInstanceSpec.config_drive).toBe(false);
+        });
+
+        it('should default config_drive to true based on setting', function() {
+          settings.LAUNCH_INSTANCE_DEFAULTS.config_drive = true;
+          model.initialize(true);
+          scope.$apply();
+
+          expect(model.newInstanceSpec.config_drive).toBe(true);
         });
       });
 

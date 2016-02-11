@@ -19,20 +19,12 @@
   describe('Launch Instance Configuration Step', function() {
 
     describe('LaunchInstanceConfigurationController', function() {
-      var scope, ctrl;
+      var ctrl;
 
       beforeEach(module('horizon.dashboard.project.workflow.launch-instance'));
 
       beforeEach(inject(function($controller) {
-        scope = {
-          model: {
-            newInstanceSpec: {}
-          }
-        };
-
-        ctrl = $controller('LaunchInstanceConfigurationController', {
-          $scope: scope
-        });
+        ctrl = $controller('LaunchInstanceConfigurationController');
       }));
 
       it('has correct disk configuration options', function() {
@@ -43,16 +35,8 @@
         expect(vals).toContain('MANUAL');
       });
 
-      it('defaults the disk configuration to "AUTO"', function() {
-        expect(scope.model.newInstanceSpec.disk_config).toBe('AUTO');
-      });
-
-      it('defaults the config_drive configuration to false', function() {
-        expect(scope.model.newInstanceSpec.config_drive).toBe(false);
-      });
-
-      it('defaults the user_data configuration to ""', function() {
-        expect(scope.model.newInstanceSpec.user_data).toBe('');
+      it('sets the user data max script size', function() {
+        expect(ctrl.MAX_SCRIPT_SIZE).toBe(16 * 1024);
       });
 
     });
