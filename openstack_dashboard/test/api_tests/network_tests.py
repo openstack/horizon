@@ -266,7 +266,7 @@ class NetworkApiNeutronTests(NetworkApiNeutronTestBase):
     def _test_servers_update_addresses(self, router_enabled=True):
         tenant_id = self.request.user.tenant_id
 
-        servers = copy.deepcopy(self.servers.list())
+        servers = self.servers.list()
         server_ids = [server.id for server in servers]
         server_ports = [p for p in self.api_ports.list()
                         if p['device_id'] in server_ids]

@@ -15,7 +15,6 @@
 from mox3.mox import IsA  # noqa
 
 from django.core.urlresolvers import reverse
-from django.core.urlresolvers import reverse_lazy
 from django import http
 
 from openstack_dashboard import api
@@ -32,7 +31,7 @@ class FirewallTests(test.TestCase):
             self[attr] = value
 
     DASHBOARD = 'project'
-    INDEX_URL = reverse_lazy('horizon:%s:firewalls:index' % DASHBOARD)
+    INDEX_URL = reverse('horizon:%s:firewalls:index' % DASHBOARD)
 
     ADDRULE_PATH = 'horizon:%s:firewalls:addrule' % DASHBOARD
     ADDPOLICY_PATH = 'horizon:%s:firewalls:addpolicy' % DASHBOARD

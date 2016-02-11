@@ -199,7 +199,8 @@ class RouterTests(RouterMixin, test.TestCase):
         res = self.client.post(self.INDEX_URL, formData, follow=True)
         self.assertNoFormErrors(res)
         self.assertMessageCount(response=res, success=1)
-        self.assertIn('Deleted Router: ' + router.name, res.content)
+        self.assertIn('Deleted Router: ' + router.name,
+                      res.content.decode('utf-8'))
 
     @test.create_stubs({api.neutron: ('router_list', 'network_list',
                                       'port_list', 'router_remove_interface',
@@ -242,7 +243,8 @@ class RouterTests(RouterMixin, test.TestCase):
         res = self.client.post(self.INDEX_URL, formData, follow=True)
         self.assertNoFormErrors(res)
         self.assertMessageCount(response=res, success=1)
-        self.assertIn('Deleted Router: ' + router.name, res.content)
+        self.assertIn('Deleted Router: ' + router.name,
+                      res.content.decode('utf-8'))
 
 
 class RouterActionTests(RouterMixin, test.TestCase):
