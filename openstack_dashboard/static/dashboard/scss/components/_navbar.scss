@@ -3,14 +3,18 @@
   margin: 0;
   display: block;
 
-  // These allow the vertical centering to work properly
-  line-height: $navbar-height;
-  font-size: 0;
-
   img {
     max-height: $navbar-height;
     vertical-align: middle;
   }
+}
+
+//Specifity Required
+.navbar-header .navbar-brand {
+
+  // These allow the vertical centering to work properly
+  line-height: $navbar-height;
+  font-size: 0;
 }
 
 .topbar {
