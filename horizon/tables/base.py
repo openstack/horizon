@@ -109,7 +109,7 @@ class Column(html.HTMLElement):
 
             status_choices = (
                     ('enabled', True),
-                    ('true', True)
+                    ('true', True),
                     ('up', True),
                     ('active', True),
                     ('yes', True),
@@ -166,7 +166,7 @@ class Column(html.HTMLElement):
        column 'format')::
 
             helpText = {
-              'ARI':'Amazon Ramdisk Image'
+              'ARI':'Amazon Ramdisk Image',
               'QCOW2':'QEMU' Emulator'
               }
 
