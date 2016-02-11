@@ -390,6 +390,8 @@ class AddRule(forms.SelfHandlingForm):
         return cleaned_data
 
     def handle(self, request, data):
+        redirect = reverse("horizon:project:access_and_security:"
+                           "security_groups:detail", args=[data['id']])
         try:
             rule = api.network.security_group_rule_create(
                 request,
@@ -405,9 +407,9 @@ class AddRule(forms.SelfHandlingForm):
                              _('Successfully added rule: %s')
                              % six.text_type(rule))
             return rule
+        except exceptions.Conflict as error:
+            exceptions.handle(request, error, redirect=redirect)
         except Exception:
-            redirect = reverse("horizon:project:access_and_security:"
-                               "security_groups:detail", args=[data['id']])
             exceptions.handle(request,
                               _('Unable to add rule to security group.'),
                               redirect=redirect)

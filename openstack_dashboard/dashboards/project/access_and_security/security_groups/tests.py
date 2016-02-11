@@ -24,6 +24,8 @@ from django import http
 
 from mox3.mox import IsA  # noqa
 
+from horizon import exceptions
+
 from openstack_dashboard import api
 from openstack_dashboard.test import helpers as test
 
@@ -568,6 +570,39 @@ class SecurityGroupsViewTests(test.TestCase):
                     'cidr': rule.ip_range['cidr'],
                     'remote': 'cidr'}
         res = self.client.post(self.edit_url, formData)
+        self.assertRedirectsNoFollow(res, self.detail_url)
+
+    @test.create_stubs({api.network: ('security_group_rule_create',
+                                      'security_group_list',
+                                      'security_group_backend')})
+    def test_detail_add_rule_duplicated(self):
+        sec_group = self.security_groups.first()
+        sec_group_list = self.security_groups.list()
+        rule = self.security_group_rules.first()
+
+        api.network.security_group_backend(
+            IsA(http.HttpRequest)).AndReturn(self.secgroup_backend)
+        api.network.security_group_rule_create(
+            IsA(http.HttpRequest),
+            sec_group.id, 'ingress', 'IPv4',
+            rule.ip_protocol,
+            int(rule.from_port),
+            int(rule.to_port),
+            rule.ip_range['cidr'],
+            None).AndRaise(exceptions.Conflict)
+        api.network.security_group_list(
+            IsA(http.HttpRequest)).AndReturn(sec_group_list)
+        self.mox.ReplayAll()
+
+        formData = {'method': 'AddRule',
+                    'id': sec_group.id,
+                    'port_or_range': 'port',
+                    'port': rule.from_port,
+                    'rule_menu': rule.ip_protocol,
+                    'cidr': rule.ip_range['cidr'],
+                    'remote': 'cidr'}
+        res = self.client.post(self.edit_url, formData)
+        self.assertNoFormErrors(res)
         self.assertRedirectsNoFollow(res, self.detail_url)
 
     @test.create_stubs({api.network: ('security_group_rule_delete',)})
