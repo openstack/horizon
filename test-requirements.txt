@@ -21,7 +21,7 @@ nosexcover # BSD
 openstack.nose-plugin>=0.7 # Apache-2.0
 oslosphinx!=3.4.0,>=2.5.0 # Apache-2.0
 reno>=0.1.1 # Apache2
-selenium!=2.49,!=2.50 # Apache-2.0
+selenium>=2.50.1 # Apache-2.0
 sphinx!=1.2.0,!=1.3b1,<1.3,>=1.1.2 # BSD
 testtools>=1.4.0 # MIT
 # This also needs xvfb library installed on your OS
