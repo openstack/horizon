@@ -44,7 +44,7 @@
     userSessionService,
     $qExtensions
   ) {
-    var userSessionPromise, scope;
+    var scope;
 
     var service = {
       initScope: initScope,
@@ -58,7 +58,6 @@
 
     function initScope(newScope) {
       scope = newScope;
-      userSessionPromise = userSessionService.get();
     }
 
     function perform(image) {
@@ -72,27 +71,12 @@
     }
 
     function allowed(image) {
-      return $q.all([ownedByUser(image), isActive(image)]);
+      return $q.all([userSessionService.isCurrentProject(image.owner), isActive(image)]);
     }
 
     function isActive(image) {
       return $qExtensions.booleanAsPromise(image.status === 'active');
     }
 
-    function ownedByUser(image) {
-      var deferred = $q.defer();
-
-      userSessionPromise.then(onUserSessionGet);
-
-      return deferred.promise;
-
-      function onUserSessionGet(userSession) {
-        if (userSession.project_id === image.owner) {
-          deferred.resolve();
-        } else {
-          deferred.reject();
-        }
-      }
-    }
   } // end of updateMetadataService
 })(); // end of IIFE
