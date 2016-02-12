@@ -81,6 +81,7 @@
      * @param {Number} priority The optional priority for placement at the end of the container.
      * Lower priority (higher number) items will be placed at the end but before higher priority
      * (lower number) items.
+     * @returns {Object} The container, to allow for chaining.
      */
     container.append = function(item, priority) {
       if (!angular.isNumber(priority)) {
@@ -96,6 +97,7 @@
       }
       item._ext = {position: 'last', priority: priority};
       items.splice(index, 0, item);
+      return container;
     };
 
     /**
@@ -105,6 +107,7 @@
      * @param {Number} priority The optional priority for placement at the front of the container.
      * Lower priority (higher number) items will be placed at the front but after higher priority
      * (lower number) items.
+     * @returns {Object} The container, to allow for chaining.
      */
     container.prepend = function(item, priority) {
       if (!angular.isNumber(priority)) {
@@ -120,6 +123,7 @@
       }
       item._ext = {position: 'first', priority: priority};
       items.splice(index, 0, item);
+      return container;
     };
 
     /**
@@ -131,6 +135,7 @@
      * @param {Number} priority The optional priority for placement in the container at this
      * position. Higher priority (lower number) items will be placed more closely after the
      * given item id, followed by lower priority (higher number) items.
+     * @returns {Object} The container, to allow for chaining.
      */
     container.after = function(id, item, priority) {
       if (!angular.isNumber(priority)) {
@@ -146,6 +151,7 @@
       }
       item._ext = {position: 'after-' + id, priority: priority};
       items.splice(index, 0, item);
+      return container;
     };
 
     /**
@@ -155,13 +161,12 @@
      * the addController function.
      *
      * @param {String} id The id of the item to remove.
-     *
-     * @returns {Number} The index of the item being removed.
+     * @returns {Object} The container, to allow for chaining.
      */
     container.remove = function(id) {
       var index = getItemIndex(items, id);
       items.splice(index, 1);
-      return index;
+      return container;
     };
 
     /**
@@ -171,10 +176,13 @@
      * @param {String} id The id of an existing item in the container. The item with this id will
      * be removed and the new item will be inserted in its place.
      * @param {Object} item The item to insert.
+     * @returns {Object} The container, to allow for chaining.
      */
     container.replace = function(id, item) {
-      var index = container.remove(id);
+      var index = getItemIndex(items, id);
+      container.remove(id);
       items.splice(index, 0, item);
+      return container;
     };
 
     /**
@@ -201,9 +209,11 @@
      * custom validation to an existing item or react to certain container events.
      *
      * @param {String} ctrl The controller to add, e.g. 'MyFeatureController'.
+     * @returns {Object} The container, to allow for chaining.
      */
     container.addController = function(ctrl) {
       container.controllers.push(ctrl);
+      return container;
     };
   }
 
