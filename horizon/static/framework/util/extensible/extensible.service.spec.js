@@ -148,11 +148,9 @@
 
     it('can remove items', function () {
       expect(items.length).toBe(3);
-
-      expect(container.remove('2')).toBe(1);
+      container.remove('2');
       expect(items.length).toBe(2);
-
-      expect(container.remove('1')).toBe(0);
+      container.remove('1');
       expect(items.length).toBe(1);
 
       var remove = function() {
@@ -186,6 +184,19 @@
       expect(container.controllers.length).toBe(0);
       container.addController('MyController');
       expect(container.controllers.length).toBe(1);
+    });
+
+    it('can chain method calls', function () {
+      container
+        .append({ id: '4' })
+        .prepend({ id: '5' })
+        .after('1', { id: '6' })
+        .remove('3')
+        .replace('2', { id: '7' })
+        .addController('foo');
+      expect(items.map(function getId(item) {
+        return item.id;
+      })).toEqual(['5', '1', '6', '7', '4']);
     });
   });
 
