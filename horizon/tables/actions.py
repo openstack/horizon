@@ -368,8 +368,8 @@ class LinkAction(BaseAction):
         return "%s?%s" % (table_url, params)
 
     def render(self):
-        return render_to_string("horizon/common/_data_table_table_action.html",
-                                {"action": self})
+        return render_to_string("horizon/common/_data_table_action.html",
+                                {"action": self, "is_single": True})
 
     def associate_with_table(self, table):
         super(LinkAction, self).associate_with_table(table)
