@@ -22,23 +22,76 @@
     });
   });
 
-  describe('horizon.app.core.images.basePath constant', function () {
-    var imagesBasePath, staticUrl;
+  describe('horizon.app.core.images.tableRoute constant', function () {
+    var tableRoute, webRoot;
 
     beforeEach(module('horizon.app.core'));
     beforeEach(module('horizon.app.core.images'));
     beforeEach(inject(function ($injector) {
-      imagesBasePath = $injector.get('horizon.app.core.images.basePath');
-      staticUrl = $injector.get('$window').STATIC_URL;
+      tableRoute = $injector.get('horizon.app.core.images.tableRoute');
+      webRoot = $injector.get('$window').WEBROOT;
     }));
 
     it('should be defined', function () {
-      expect(imagesBasePath).toBeDefined();
+      expect(tableRoute).toBeDefined();
     });
 
-    it('should equal to "/static/app/core/images/"', function () {
-      expect(imagesBasePath).toEqual(staticUrl + 'app/core/images/');
+    it('should equal to "/project/ngimages/"', function () {
+      expect(tableRoute).toEqual(webRoot + 'project/ngimages/');
     });
+  });
+
+  describe('horizon.app.core.images.detailsRoute constant', function () {
+    var detailsRoute, webRoot;
+
+    beforeEach(module('horizon.app.core'));
+    beforeEach(module('horizon.app.core.images'));
+    beforeEach(inject(function ($injector) {
+      detailsRoute = $injector.get('horizon.app.core.images.detailsRoute');
+      webRoot = $injector.get('$window').WEBROOT;
+    }));
+
+    it('should be defined', function () {
+      expect(detailsRoute).toBeDefined();
+    });
+
+    it('should equal to "/project/ngimages/details/"', function () {
+      expect(detailsRoute).toEqual(webRoot + 'project/ngimages/details/');
+    });
+  });
+
+  describe('$routeProvider should be configured for images', function() {
+    var staticUrl, $routeProvider;
+
+    beforeEach(function() {
+      module('ngRoute');
+      angular.module('routeProviderConfig', [])
+        .config(function(_$routeProvider_) {
+          $routeProvider = _$routeProvider_;
+          spyOn($routeProvider, 'when').and.callThrough();
+        });
+
+      module('routeProviderConfig');
+      module('horizon.app.core');
+
+      inject(function ($injector) {
+        staticUrl = $injector.get('$window').STATIC_URL;
+      });
+    });
+
+    it('should set table and detail path', function() {
+      expect($routeProvider.when.calls.count()).toEqual(2);
+      var imagesRouteCallArgs = $routeProvider.when.calls.argsFor(0);
+      expect(imagesRouteCallArgs).toEqual([
+        '/project/ngimages/', {templateUrl: staticUrl + 'app/core/images/table/images-table.html'}
+      ]);
+      var imagesDetailsCallArgs = $routeProvider.when.calls.argsFor(1);
+      expect(imagesDetailsCallArgs).toEqual([
+        '/project/ngimages/details/:imageId',
+        { templateUrl: staticUrl + 'app/core/images/detail/image-detail.html'}
+      ]);
+    });
+
   });
 
 })();

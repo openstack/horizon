@@ -26,14 +26,15 @@
    * to support and display images related content.
    */
   angular
-    .module('horizon.app.core.images', [])
+    .module('horizon.app.core.images', ['ngRoute'])
     .constant('horizon.app.core.images.events', events())
     .constant('horizon.app.core.images.non_bootable_image_types', ['aki', 'ari'])
     .config(config);
 
   config.$inject = [
     '$provide',
-    '$windowProvider'
+    '$windowProvider',
+    '$routeProvider'
   ];
 
   /**
@@ -50,12 +51,31 @@
   }
 
   /**
-   * @name horizon.app.core.images.basePath
-   * @description Base path for the images code
+   * @name horizon.app.core.images.tableRoute
+   * @name horizon.app.core.images.detailsRoute
+   * @description Routes used by this module.
    */
-  function config($provide, $windowProvider) {
+  function config($provide, $windowProvider, $routeProvider) {
     var path = $windowProvider.$get().STATIC_URL + 'app/core/images/';
     $provide.constant('horizon.app.core.images.basePath', path);
+    var webroot = $windowProvider.$get().WEBROOT;
+    var tableUrl = path + "table/";
+    var projectTableRoute = webroot + 'project/ngimages/';
+    var detailsUrl = path + "detail/";
+    var projectDetailsRoute = webroot + 'project/ngimages/details/';
+
+    // Share the routes as constants so that views within the images module
+    // can create links to each other.
+    $provide.constant('horizon.app.core.images.tableRoute', projectTableRoute);
+    $provide.constant('horizon.app.core.images.detailsRoute', projectDetailsRoute);
+
+    $routeProvider
+      .when(projectTableRoute, {
+        templateUrl: tableUrl + 'images-table.html'
+      })
+      .when(projectDetailsRoute + ':imageId', {
+        templateUrl: detailsUrl + 'image-detail.html'
+      });
   }
 
 })();

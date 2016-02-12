@@ -7,7 +7,6 @@
        default-sort="name"
        default-sort-reverse="false"
        class="table-striped table-rsp table-detail modern">
-
   <thead>
     <tr>
       <!--
@@ -68,7 +67,7 @@
            duration="200">
         </span>
       </td>
-      <td class="rsp-p1">{$ image.name $}</td>
+      <td class="rsp-p1"><a ng-href="{$ table.detailsRoute + image.id $}">{$ image.name $}</a></td>
       <td class="rsp-p1">{$ image | imageType $}</td>
       <td class="rsp-p1">{$ image.status | imageStatus $}</td>
       <td class="rsp-p2">{$ image.filtered_visibility $}</td>
@@ -111,7 +110,7 @@
             </dl>
             <dl class="col-sm-2">
               <dt translate>Format</dt>
-              <dd>{$ image.disk_format | noValue $}</dd>
+              <dd>{$ image.disk_format | noValue | uppercase $}</dd>
             </dl>
             <dl class="col-sm-2">
               <dt translate>Size</dt>

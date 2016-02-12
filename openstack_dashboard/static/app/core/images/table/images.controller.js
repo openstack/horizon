@@ -24,6 +24,7 @@
   ImagesTableController.$inject = [
     '$q',
     '$scope',
+    'horizon.app.core.images.detailsRoute',
     'horizon.app.core.images.table.batch-actions.service',
     'horizon.app.core.images.table.row-actions.service',
     'horizon.app.core.images.events',
@@ -43,6 +44,7 @@
   function ImagesTableController(
     $q,
     $scope,
+    detailsRoute,
     batchActionsService,
     rowActionsService,
     events,
@@ -51,6 +53,8 @@
     imageVisibilityFilter
   ) {
     var ctrl = this;
+
+    ctrl.detailsRoute = detailsRoute;
 
     ctrl.checked = {};
 
