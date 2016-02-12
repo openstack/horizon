@@ -261,3 +261,39 @@ class VolumeTypeTests(test.BaseAdminViewTests):
         redirect = reverse('horizon:admin:volumes:volume_types_tab')
         self.assertNoFormErrors(res)
         self.assertRedirectsNoFollow(res, redirect)
+
+    @test.create_stubs({cinder: ('volume_encryption_type_update',
+                                 'volume_encryption_type_get',
+                                 'volume_type_list')})
+    def test_update_volume_type_encryption(self):
+        volume_type = self.volume_types.first()
+        volume_type.id = u'1'
+        volume_type_list = [volume_type]
+        formData = {'name': u'An Encrypted Volume Type',
+                    'provider': u'a-provider',
+                    'control_location': u'front-end',
+                    'cipher': u'a-cipher',
+                    'key_size': 256,
+                    'volume_type_id': volume_type.id}
+        vol_enc_type = self.cinder_volume_encryption_types.list()[0]
+
+        cinder.volume_encryption_type_get(IsA(http.HttpRequest),
+                                          volume_type.id)\
+            .AndReturn(vol_enc_type)
+        cinder.volume_type_list(IsA(http.HttpRequest))\
+            .AndReturn(volume_type_list)
+        cinder.volume_encryption_type_update(IsA(http.HttpRequest),
+                                             formData['volume_type_id'],
+                                             formData)
+
+        self.mox.ReplayAll()
+
+        url = reverse('horizon:admin:volumes:'
+                      'volume_types:update_type_encryption',
+                      args=[volume_type.id])
+        res = self.client.post(url, formData)
+
+        self.assertNoFormErrors(res)
+        self.assertTemplateUsed(
+            res,
+            'admin/volumes/volume_types/update_volume_type_encryption.html')

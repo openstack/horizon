@@ -104,7 +104,7 @@ class CreateVolumeTypeEncryption(forms.SelfHandlingForm):
     def handle(self, request, data):
         try:
             # Set Cipher to None if empty
-            if data['cipher'] is u'':
+            if data['cipher'] == u'':
                 data['cipher'] = None
 
             # Create encryption for the volume type
@@ -120,6 +120,34 @@ class CreateVolumeTypeEncryption(forms.SelfHandlingForm):
             exceptions.handle(request,
                               _('Unable to create encrypted volume type.'),
                               redirect=redirect)
+
+
+class UpdateVolumeTypeEncryption(CreateVolumeTypeEncryption):
+
+    def handle(self, request, data):
+        try:
+            # Set Cipher to None if empty
+            if data['cipher'] == u'':
+                data['cipher'] = None
+
+            # Update encryption for the volume type
+            volume_type = cinder.\
+                volume_encryption_type_update(request,
+                                              data['volume_type_id'],
+                                              data)
+            messages.success(request, _('Successfully updated encryption for '
+                                        'volume type: %s') % data['name'])
+            return volume_type
+        except NotImplementedError:
+            messages.error(request, _('Updating encryption is not '
+                                      'implemented.  Unable to update '
+                                      ' encrypted volume type.'))
+        except Exception:
+            redirect = reverse("horizon:admin:volumes:index")
+            exceptions.handle(request,
+                              _('Unable to update encrypted volume type.'),
+                              redirect=redirect)
+        return False
 
 
 class ManageQosSpecAssociation(forms.SelfHandlingForm):

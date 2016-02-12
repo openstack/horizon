@@ -1,0 +1,21 @@
+{% extends "horizon/common/_modal_form.html" %}
+{% load i18n %}
+
+{% block modal-body-right %}
+  <h3>{% trans "Description:" %}</h3>
+  <p>
+    {% trans "Encryption information cannot be updated for a volume type if volumes are currently in use with the volume type." %}
+  </p>
+  <p>
+    {% blocktrans %}The <strong>Provider</strong> is the class providing encryption support (e.g., LuksEncryptor).{% endblocktrans %}
+  </p>
+  <p>
+    {% blocktrans %}The <strong>Control Location</strong> is the notional service where encryption is performed (e.g., front-end=Nova). The default value is 'front-end.'{% endblocktrans %}
+  </p>
+  <p>
+    {% blocktrans %}The <strong>Cipher</strong> is the encryption algorithm/mode to use (e.g., aes-xts-plain64). If the field is left empty, the provider default will be used.{% endblocktrans %}
+  </p>
+  <p>
+    {% blocktrans %}The <strong>Key Size</strong> is the size of the encryption key, in bits (e.g., 128, 256). If the field is left empty, the provider default will be used.{% endblocktrans %}
+  </p>
+{% endblock %}

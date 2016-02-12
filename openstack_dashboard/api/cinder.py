@@ -562,6 +562,11 @@ def volume_encryption_type_list(request):
     return cinderclient(request).volume_encryption_types.list()
 
 
+def volume_encryption_type_update(request, volume_type_id, data):
+    return cinderclient(request).volume_encryption_types.update(volume_type_id,
+                                                                specs=data)
+
+
 def volume_type_extra_get(request, type_id, raw=False):
     vol_type = volume_type_get(request, type_id)
     extras = vol_type.get_keys()
