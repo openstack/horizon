@@ -39,6 +39,8 @@
 
       beforeEach(inject(function($controller, $rootScope, _$browser_, $q) {
         scope = $rootScope.$new();
+        spyOn(scope, '$watch').and.callThrough();
+        spyOn(scope, '$watchCollection').and.callThrough();
         $browser = _$browser_;
         deferred = $q.defer();
         scope.initPromise = deferred.promise;
@@ -185,6 +187,16 @@
       });
 
       describe('Scope Functions', function() {
+
+        describe('watchers', function () {
+          it('establishes three watches', function() {
+            expect(scope.$watch.calls.count()).toBe(3);
+          });
+
+          it("establishes one watch collections", function () {
+            expect(scope.$watchCollection.calls.count()).toBe(1);
+          });
+        });
 
         describe('updateBootSourceSelection', function() {
           var tableKeys = ['available', 'allocated',

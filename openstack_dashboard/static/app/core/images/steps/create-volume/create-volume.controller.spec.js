@@ -325,5 +325,55 @@
       expect(emittedEventArgs[1]).toEqual(expectedVolume);
     });
 
+    it('should emit changed volume events even if the volume name is empty', function() {
+      var ctrl = createController();
+
+      $scope.$apply();
+      ctrl.volumeType.name = '';
+      $scope.$emit.calls.reset();
+
+      ctrl.volume.name = '';
+      $scope.$apply();
+
+      expect($scope.$emit.calls.count()).toEqual(2);
+    });
+
+    it('should not update the graph if wrong values are given for volume size', function () {
+      getAbsoluteLimitsSpy.and.returnValue({
+        success: function(callback) {
+          return callback({
+            maxTotalVolumeGigabytes: 2,
+            totalVolumesUsed: 1,
+            maxTotalVolumes: 5,
+            totalGigabytesUsed: 1
+          });
+        }
+      });
+
+      var ctrl = createController();
+      expect(ctrl.volume.size).toBe(1);
+
+      var graph = ctrl.storageQuota;
+      var current = graph.data[0];
+      var added = graph.data[1];
+      var remaining = graph.data[2];
+
+      expect(current.value).toEqual(1);
+      expect(added.value).toEqual(1);
+      expect(remaining.value).toEqual(0);
+      expect(graph.label).toEqual('100%');
+      expect(graph.maxLimit).toEqual(2);
+      expect(graph.overMax).toBeFalsy();
+
+      ctrl.volume.size = -5;
+      $scope.$apply();
+
+      expect(current.value).toEqual(1);
+      expect(added.value).toEqual(1);
+      expect(remaining.value).toEqual(0);
+      expect(graph.label).toEqual('100%');
+      expect(graph.maxLimit).toEqual(2);
+      expect(graph.overMax).toBeFalsy();
+    });
   });
 })();
