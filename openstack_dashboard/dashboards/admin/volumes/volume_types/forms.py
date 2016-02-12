@@ -218,8 +218,12 @@ class ManageQosSpecAssociation(forms.SelfHandlingForm):
 
 
 class EditQosSpecConsumer(forms.SelfHandlingForm):
+    current_consumer = forms.CharField(label=_("Current consumer"),
+                                       widget=forms.TextInput(
+                                       attrs={'readonly': 'readonly'}),
+                                       required=False)
     consumer_choice = forms.ChoiceField(
-        label=_("QoS Spec Consumer"),
+        label=_("New QoS Spec Consumer"),
         choices=cinder.CONSUMER_CHOICES,
         help_text=_("Choose consumer for this QoS Spec."))
 
@@ -227,19 +231,11 @@ class EditQosSpecConsumer(forms.SelfHandlingForm):
         super(EditQosSpecConsumer, self).__init__(request, *args, **kwargs)
         consumer_field = self.fields['consumer_choice']
         qos_spec = self.initial["qos_spec"]
-        consumer_field.initial = qos_spec.consumer
-
-    def clean_consumer_choice(self):
-        # ensure that new consumer isn't the same as current consumer
-        qos_spec = self.initial['qos_spec']
-        cleaned_new_consumer = self.cleaned_data.get('consumer_choice')
-        old_consumer = qos_spec.consumer
-
-        if cleaned_new_consumer == old_consumer:
-            raise forms.ValidationError(
-                _('QoS Spec consumer value must be different than '
-                  'the current consumer value.'))
-        return cleaned_new_consumer
+        self.fields['current_consumer'].initial = qos_spec.consumer
+        choices = [choice for choice in cinder.CONSUMER_CHOICES
+                   if choice[0] != qos_spec.consumer]
+        choices.insert(0, ("", _("Select a new consumer")))
+        consumer_field.choices = choices
 
     def handle(self, request, data):
         qos_spec_id = self.initial['qos_spec_id']
