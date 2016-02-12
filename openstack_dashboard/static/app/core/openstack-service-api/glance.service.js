@@ -201,7 +201,8 @@
       var promise = apiService.delete('/api/glance/images/' + imageId + '/');
 
       return suppressError ? promise : promise.error(function() {
-        toastService.add('error', gettext('Unable to delete the image with id: ') + imageId);
+        var msg = gettext('Unable to delete the image with id: %(id)s');
+        toastService.add('error', interpolate(msg, { id: imageId }, true));
       });
     }
 
