@@ -1299,12 +1299,8 @@ This value is also available in the scss namespace with the variable name
 $static_url.  Make sure you run ``python manage.py collectstatic`` and
 ``python manage.py compress`` after any changes to this value in settings.py.
 
-For your convenience, a custom theme for only setting the static url has been
-provided see: ``"/horizon/openstack_dashboard/themes/webroot"``
-
 For more information see:
 https://docs.djangoproject.com/en/1.7/ref/settings/#static-url
-
 
 ``DISALLOW_IFRAME_EMBED``
 -------------------------
