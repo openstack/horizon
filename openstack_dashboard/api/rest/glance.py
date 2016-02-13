@@ -14,15 +14,15 @@
 """API for the glance service.
 """
 
+from django.views import generic
 from six.moves import zip as izip
 
-from django.views import generic
-
 from openstack_dashboard import api
-from openstack_dashboard.api.rest import utils as rest_utils
 from openstack_dashboard.api.rest import urls
+from openstack_dashboard.api.rest import utils as rest_utils
 
-CLIENT_KEYWORDS = {'resource_type', 'marker', 'sort_dir', 'sort_key', 'paginate'}
+CLIENT_KEYWORDS = {'resource_type', 'marker',
+                   'sort_dir', 'sort_key', 'paginate'}
 
 
 @urls.register
@@ -65,7 +65,8 @@ class Image(generic.View):
         :param kernel: (optional) kernel to use for the image
         :param ramdisk: (optional) Ramdisk to use for the image
         :param architecture: (optional) the Architecture of the image
-        :param min_disk: (optional) the minimum disk size for the image to boot with
+        :param min_disk: (optional) the minimum disk size
+             for the image to boot with
         :param min_ram: (optional) the minimum ram for the image to boot with
         :param visibility: (required) takes 'public', 'shared', and 'private'
         :param protected: (required) true if the image is protected
@@ -85,7 +86,7 @@ class Image(generic.View):
     def delete(self, request, image_id):
         """Delete a specific image
 
-        DELETE http://localhost/api/glance/images/cc758c90-3d98-4ea1-af44-aab405c9c915
+        DELETE http://localhost/api/glance/images/cc758c90-3d98-4ea1-af44-aab405c9c915  # noqa
         """
         api.glance.image_delete(request, image_id)
 
@@ -128,7 +129,7 @@ class Images(generic.View):
         an image.
 
         Example GET:
-        http://localhost/api/glance/images?sort_dir=desc&sort_key=name&name=cirros-0.3.2-x86_64-uec  #flake8: noqa
+        http://localhost/api/glance/images?sort_dir=desc&sort_key=name&name=cirros-0.3.2-x86_64-uec  # noqa
 
         The following get parameters may be passed in the GET
         request:
@@ -170,18 +171,20 @@ class Images(generic.View):
 
         :param name: the name to give the image
         :param description: (optional) description of the image
-        :param source_type: (required) source type. current only 'url' is supported
+        :param source_type: (required) source type.
+             current only 'url' is supported
         :param image_url: (required) URL to get the image
         :param disk_format: (required) format of the image
         :param kernel: (optional) kernel to use for the image
         :param ramdisk: (optional) Ramdisk to use for the image
         :param architecture: (optional) the Architecture of the image
-        :param min_disk: (optional) the minimum disk size for the image to boot with
+        :param min_disk: (optional) the minimum disk size
+             for the image to boot with
         :param min_ram: (optional) the minimum ram for the image to boot with
         :param visibility: (required) takes 'public', 'private', and 'shared'
         :param protected: (required) true if the image is protected
-        :param import_data: (optional) true to copy the image data to the image service
-        or use it from the current location
+        :param import_data: (optional) true to copy the image data
+            to the image service or use it from the current location
 
         Any parameters not listed above will be assigned as custom properties
         for the image.
@@ -218,7 +221,7 @@ class MetadefsNamespaces(generic.View):
         a namespace.
 
         Example GET:
-        http://localhost/api/glance/metadefs/namespaces?resource_types=OS::Nova::Flavor&sort_dir=desc&marker=OS::Compute::Watchdog&paginate=False&sort_key=namespace  #flake8: noqa
+        http://localhost/api/glance/metadefs/namespaces?resource_types=OS::Nova::Flavor&sort_dir=desc&marker=OS::Compute::Watchdog&paginate=False&sort_key=namespace  # noqa
 
         The following get parameters may be passed in the GET
         request:
@@ -306,10 +309,10 @@ def create_image_metadata(data):
         handle_visibility(data.get('visibility'), meta)
 
     except KeyError as e:
-        raise rest_utils.AjaxError(400, 'missing required parameter '
-                                       "'%s'" % e.args[0])
-
+        raise rest_utils.AjaxError(400,
+                                   'missing required parameter %s' % e.args[0])
     return meta
+
 
 def handle_unknown_properties(data, meta):
     # The Glance API takes in both known and unknown fields. Unknown fields
@@ -317,12 +320,12 @@ def handle_unknown_properties(data, meta):
     # existing horizon api wrapper, we need this function.  This way, the
     # client REST mirrors the Glance API.
     known_props = ['visibility', 'protected', 'disk_format',
-                  'container_format', 'min_disk', 'min_ram', 'name',
-                  'properties', 'kernel', 'ramdisk',
-                  'tags', 'import_data', 'source',
-                  'image_url', 'source_type']
-    other_props = {k: v for (k, v) in data.items() if not k in known_props}
+                   'container_format', 'min_disk', 'min_ram',
+                   'name', 'properties', 'kernel', 'ramdisk',
+                   'tags', 'import_data', 'source', 'image_url', 'source_type']
+    other_props = {k: v for (k, v) in data.items() if k not in known_props}
     meta['properties'].update(other_props)
+
 
 def handle_visibility(visibility, meta):
     # The following expects a 'visibility' parameter to be passed via
@@ -335,4 +338,5 @@ def handle_visibility(visibility, meta):
     try:
         meta['is_public'] = mapping_to_v1[visibility]
     except KeyError as e:
-        raise rest_utils.AjaxError(400, "invalid visibility option: %s" % e.args[0])
+        raise rest_utils.AjaxError(400,
+                                   'invalid visibility option: %s' % e.args[0])

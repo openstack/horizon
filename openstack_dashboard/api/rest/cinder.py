@@ -17,9 +17,8 @@
 from django.views import generic
 
 from openstack_dashboard import api
-from openstack_dashboard.api.rest import utils as rest_utils
-
 from openstack_dashboard.api.rest import urls
+from openstack_dashboard.api.rest import utils as rest_utils
 
 
 CLIENT_KEYWORDS = {'marker', 'sort_dir', 'paginate'}
@@ -37,7 +36,7 @@ class Volumes(generic.View):
         project.
 
         Example GET:
-        http://localhost/api/cinder/volumes?paginate=true&sort_dir=asc  #flake8: noqa
+        http://localhost/api/cinder/volumes?paginate=true&sort_dir=asc
 
         If invoked as an admin, you may set the GET parameter "all_projects"
         to 'true' to return details for all projects.
@@ -63,7 +62,8 @@ class Volumes(generic.View):
                 {'all_tenants': 1}
             )
         else:
-            search_opts, kwargs = rest_utils.parse_filters_kwargs(request, CLIENT_KEYWORDS)
+            search_opts, kwargs = rest_utils.parse_filters_kwargs(
+                request, CLIENT_KEYWORDS)
             result, has_more, has_prev = api.cinder.volume_list_paged(
                 request,
                 search_opts=search_opts, **kwargs
