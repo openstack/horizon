@@ -263,6 +263,7 @@ def data(TEST):
                                'disk': 0,
                                'ram': 512,
                                'swap': 0,
+                               'rxtx_factor': 1,
                                'extra_specs': {},
                                'os-flavor-access:is_public': True,
                                'OS-FLV-EXT-DATA:ephemeral': 0})
@@ -273,6 +274,7 @@ def data(TEST):
                                'disk': 1024,
                                'ram': 10000,
                                'swap': 0,
+                               'rxtx_factor': 1,
                                'extra_specs': {'Trusted': True, 'foo': 'bar'},
                                'os-flavor-access:is_public': True,
                                'OS-FLV-EXT-DATA:ephemeral': 2048})
@@ -283,6 +285,7 @@ def data(TEST):
                                'disk': 1024,
                                'ram': 10000,
                                'swap': 0,
+                               'rxtx_factor': 1,
                                'extra_specs': {},
                                'os-flavor-access:is_public': False,
                                'OS-FLV-EXT-DATA:ephemeral': 2048})
@@ -293,6 +296,7 @@ def data(TEST):
                                'disk': 1024,
                                'ram': 10000,
                                'swap': 0,
+                               'rxtx_factor': 1,
                                'extra_specs': FlavorExtraSpecs(
                                    {'key': 'key_mock',
                                     'value': 'value_mock'}),

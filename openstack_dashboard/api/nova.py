@@ -489,11 +489,13 @@ def server_serial_console(request, instance_id, console_type='serial'):
 
 
 def flavor_create(request, name, memory, vcpu, disk, flavorid='auto',
-                  ephemeral=0, swap=0, metadata=None, is_public=True):
+                  ephemeral=0, swap=0, metadata=None, is_public=True,
+                  rxtx_factor=1):
     flavor = novaclient(request).flavors.create(name, memory, vcpu, disk,
                                                 flavorid=flavorid,
                                                 ephemeral=ephemeral,
-                                                swap=swap, is_public=is_public)
+                                                swap=swap, is_public=is_public,
+                                                rxtx_factor=rxtx_factor)
     if (metadata):
         flavor_extra_set(request, flavor.id, metadata)
     return flavor

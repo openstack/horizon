@@ -45,6 +45,7 @@ class BaseFlavorWorkflowTests(test.BaseAdminViewTests):
                        "memory": flavor.ram,
                        "disk": flavor.disk,
                        "swap": flavor.swap,
+                       "rxtx_factor": flavor.rxtx_factor,
                        "ephemeral": eph,
                        "is_public": flavor.is_public}
         if id:
@@ -58,6 +59,7 @@ class BaseFlavorWorkflowTests(test.BaseAdminViewTests):
                        "memory_mb": flavor.ram,
                        "disk_gb": flavor.disk,
                        "swap_mb": flavor.swap,
+                       "rxtx_factor": flavor.rxtx_factor,
                        "eph_gb": eph}
         if access:
             access_field_name = 'update_flavor_access_role_member'
@@ -325,6 +327,8 @@ class UpdateFlavorWorkflowTests(BaseFlavorWorkflowTests):
         self.assertEqual(step.action.initial['memory_mb'], flavor.ram)
         self.assertEqual(step.action.initial['disk_gb'], flavor.disk)
         self.assertEqual(step.action.initial['swap_mb'], flavor.swap)
+        self.assertEqual(step.action.initial['rxtx_factor'],
+                         flavor.rxtx_factor)
         self.assertEqual(step.action.initial['eph_gb'], eph)
 
         step = workflow.get_step("update_flavor_access")
@@ -365,6 +369,7 @@ class UpdateFlavorWorkflowTests(BaseFlavorWorkflowTests):
                                      'vcpus': flavor.vcpus + 1,
                                      'disk': flavor.disk,
                                      'ram': flavor.ram,
+                                     'rxtx_factor': flavor.rxtx_factor,
                                      'swap': 0,
                                      'OS-FLV-EXT-DATA:ephemeral': eph,
                                      'extra_specs': extra_specs})
@@ -388,6 +393,7 @@ class UpdateFlavorWorkflowTests(BaseFlavorWorkflowTests):
                                new_flavor.vcpus,
                                new_flavor.disk,
                                swap=new_flavor.swap,
+                               rxtx_factor=new_flavor.rxtx_factor,
                                ephemeral=eph,
                                is_public=True).AndReturn(new_flavor)
 
@@ -407,6 +413,7 @@ class UpdateFlavorWorkflowTests(BaseFlavorWorkflowTests):
                          'memory_mb': new_flavor.ram,
                          'disk_gb': new_flavor.disk,
                          'swap_mb': new_flavor.swap,
+                         'rxtx_factor': flavor.rxtx_factor,
                          'eph_gb': eph,
                          'is_public': True}
         resp = self.client.post(url, workflow_data)
@@ -436,6 +443,7 @@ class UpdateFlavorWorkflowTests(BaseFlavorWorkflowTests):
                                      'disk': flavor.disk,
                                      'ram': flavor.ram,
                                      'swap': flavor.swap,
+                                     'rxtx_factor': flavor.rxtx_factor,
                                      'OS-FLV-EXT-DATA:ephemeral': eph,
                                      'extra_specs': extra_specs})
 
@@ -458,6 +466,7 @@ class UpdateFlavorWorkflowTests(BaseFlavorWorkflowTests):
                                new_flavor.vcpus,
                                new_flavor.disk,
                                swap=new_flavor.swap,
+                               rxtx_factor=new_flavor.rxtx_factor,
                                ephemeral=eph,
                                is_public=True).AndReturn(new_flavor)
         api.nova.flavor_extra_set(IsA(http.HttpRequest),
@@ -478,6 +487,7 @@ class UpdateFlavorWorkflowTests(BaseFlavorWorkflowTests):
                          'memory_mb': new_flavor.ram,
                          'disk_gb': new_flavor.disk,
                          'swap_mb': new_flavor.swap,
+                         'rxtx_factor': flavor.rxtx_factor,
                          'eph_gb': eph,
                          'is_public': True}
         resp = self.client.post(url, workflow_data)
@@ -505,6 +515,7 @@ class UpdateFlavorWorkflowTests(BaseFlavorWorkflowTests):
                                      'vcpus': flavor.vcpus + 1,
                                      'disk': flavor.disk,
                                      'ram': flavor.ram,
+                                     'rxtx_factor': flavor.rxtx_factor,
                                      'swap': 0,
                                      'OS-FLV-EXT-DATA:ephemeral': eph,
                                      'extra_specs': extra_specs})
@@ -530,6 +541,7 @@ class UpdateFlavorWorkflowTests(BaseFlavorWorkflowTests):
                                new_flavor.vcpus,
                                new_flavor.disk,
                                swap=new_flavor.swap,
+                               rxtx_factor=new_flavor.rxtx_factor,
                                ephemeral=eph,
                                is_public=True)\
             .AndRaise(self.exceptions.nova)
@@ -550,6 +562,7 @@ class UpdateFlavorWorkflowTests(BaseFlavorWorkflowTests):
                          'memory_mb': new_flavor.ram,
                          'disk_gb': new_flavor.disk,
                          'swap_mb': new_flavor.swap,
+                         'rxtx_factor': flavor.rxtx_factor,
                          'eph_gb': eph,
                          'is_public': True}
         resp = self.client.post(url, workflow_data)
@@ -582,6 +595,7 @@ class UpdateFlavorWorkflowTests(BaseFlavorWorkflowTests):
                                      'disk': flavor.disk,
                                      'ram': flavor.ram,
                                      'swap': 0,
+                                     'rxtx_factor': flavor.rxtx_factor,
                                      'OS-FLV-EXT-DATA:ephemeral': eph,
                                      'os-flavor-access:is_public': False,
                                      'extra_specs': extra_specs})
@@ -606,6 +620,7 @@ class UpdateFlavorWorkflowTests(BaseFlavorWorkflowTests):
                                new_flavor.vcpus,
                                new_flavor.disk,
                                swap=new_flavor.swap,
+                               rxtx_factor=new_flavor.rxtx_factor,
                                ephemeral=eph,
                                is_public=new_flavor.is_public) \
             .AndReturn(new_flavor)
@@ -667,6 +682,7 @@ class UpdateFlavorWorkflowTests(BaseFlavorWorkflowTests):
                          'memory_mb': flavor.ram,
                          'disk_gb': flavor.disk,
                          'swap_mb': flavor.swap,
+                         'rxtx_factor': flavor.rxtx_factor,
                          'eph_gb': eph,
                          'is_public': True}
         resp = self.client.post(url, workflow_data)
@@ -689,6 +705,7 @@ class UpdateFlavorWorkflowTests(BaseFlavorWorkflowTests):
                                      'disk': flavor_a.disk,
                                      'ram': flavor_a.ram,
                                      'swap': flavor_a.swap,
+                                     'rxtx_factor': flavor_a.rxtx_factor,
                                      'OS-FLV-EXT-DATA:ephemeral': eph,
                                      'extra_specs': extra_specs})
 
@@ -716,6 +733,7 @@ class UpdateFlavorWorkflowTests(BaseFlavorWorkflowTests):
                 'memory_mb': new_flavor.ram,
                 'disk_gb': new_flavor.disk,
                 'swap_mb': new_flavor.swap,
+                'rxtx_factor': new_flavor.rxtx_factor,
                 'eph_gb': eph,
                 'is_public': True}
         resp = self.client.post(url, data)
@@ -753,6 +771,7 @@ class UpdateFlavorWorkflowTests(BaseFlavorWorkflowTests):
                          'memory_mb': flavor.ram,
                          'disk_gb': flavor.disk,
                          'swap_mb': flavor.swap,
+                         'rxtx_factor': flavor.rxtx_factor,
                          'eph_gb': eph,
                          'is_public': True}
         workflow_data.update(override_data)
@@ -786,5 +805,11 @@ class UpdateFlavorWorkflowTests(BaseFlavorWorkflowTests):
     def test_update_flavor_invalid_eph_gb_fails(self):
         error = 'Ensure this value is greater than or equal to 0.'
         data = {'eph_gb': -1}
+        self.generic_update_flavor_invalid_data_form_fails(override_data=data,
+                                                           error_msg=error)
+
+    def test_update_flavor_invalid_rxtx_factor_fails(self):
+        error = 'Ensure this value is greater than or equal to 1.'
+        data = {'rxtx_factor': 0}
         self.generic_update_flavor_invalid_data_form_fails(override_data=data,
                                                            error_msg=error)

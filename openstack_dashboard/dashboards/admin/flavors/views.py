@@ -80,4 +80,5 @@ class UpdateView(workflows.WorkflowView):
                 'memory_mb': flavor.ram,
                 'disk_gb': flavor.disk,
                 'swap_mb': flavor.swap or 0,
+                'rxtx_factor': flavor.rxtx_factor or 1,
                 'eph_gb': getattr(flavor, 'OS-FLV-EXT-DATA:ephemeral', None)}
