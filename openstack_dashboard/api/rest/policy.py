@@ -13,10 +13,9 @@
 
 from django.views import generic
 
-from openstack_dashboard import policy
-
 from openstack_dashboard.api.rest import urls
 from openstack_dashboard.api.rest import utils as rest_utils
+from openstack_dashboard import policy
 
 
 @urls.register
