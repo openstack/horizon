@@ -17,7 +17,7 @@
   'use strict';
 
   describe("userSession", function() {
-    var factory, keystoneAPI;
+    var factory, keystoneAPI, $q, $timeout;
 
     beforeEach(module('horizon.app.core.openstack-service-api'));
 
@@ -30,6 +30,11 @@
     beforeEach(inject(['horizon.app.core.openstack-service-api.userSession', function(userSession) {
       factory = userSession;
     }]));
+
+    beforeEach(inject(function(_$q_, _$timeout_) {
+      $q = _$q_;
+      $timeout = _$timeout_;
+    }));
 
     it('defines the factory', function() {
       expect(factory).toBeDefined();
@@ -60,6 +65,33 @@
         var func = postAction.then.calls.argsFor(0)[0];
         expect(func({data: 'thing'})).toBe("thing");
       });
+    });
+
+    describe('isCurrentProject features', function() {
+      beforeEach(function() {
+        var deferred = $q.defer();
+        deferred.resolve({data: {project_id: 'abc'}});
+        spyOn(keystoneAPI, 'getCurrentUserSession').and.returnValue(deferred.promise);
+      });
+
+      it("resolves the promise when project matches", function() {
+        factory.isCurrentProject('abc').then(pass, fail);
+        $timeout.flush();
+      });
+
+      it("rejects the promise when project doesn't match", function() {
+        factory.isCurrentProject('abcdef').then(fail, pass);
+        $timeout.flush();
+      });
+
+      function pass() {
+        expect(true).toBe(true);
+      }
+
+      function fail() {
+        expect(true).toBe(false);
+      }
+
     });
 
   });
