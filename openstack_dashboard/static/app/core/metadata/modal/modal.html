@@ -1,4 +1,7 @@
 <div class="modal-header">
+  <a href="#" class="close" ng-click="modal.cancel()">
+    <span class="fa fa-times"></span>
+  </a>
   <h3 class="modal-title">
     <span translate ng-if="modal.resourceType==='aggregate'">Update Aggregate Metadata</span>
     <span translate ng-if="modal.resourceType==='flavor'">Update Flavor Metadata</span>
