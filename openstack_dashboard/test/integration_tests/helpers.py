@@ -101,14 +101,14 @@ class BaseTestCase(testtools.TestCase):
 
     @contextlib.contextmanager
     def exceptions_captured(self, label):
-        content = None
+        contents = []
         try:
-            yield content
+            yield contents
         except Exception:
             exc_traceback = traceback.format_exc()
-            content = testtools.content.text_content(exc_traceback)
+            contents.append(testtools.content.text_content(exc_traceback))
         finally:
-            self.addDetail(label, content)
+            self.addDetail(label, contents[0])
 
     @staticmethod
     def _unwrap_browser_log(_log):
@@ -122,18 +122,18 @@ class BaseTestCase(testtools.TestCase):
         return rec(_log)
 
     def _dump_browser_log(self, exc_info):
-        with self.exceptions_captured("BrowserLog.text") as content:
+        with self.exceptions_captured("BrowserLog.text") as contents:
             log = self.driver.get_log('browser')
-            content = testtools.content.Content(  # noqa
+            contents.append(testtools.content.Content(
                 testtools.content_type.UTF8_TEXT,
-                lambda: self._unwrap_browser_log(log))
+                lambda: self._unwrap_browser_log(log)))
 
     def _dump_page_html_source(self, exc_info):
-        with self.exceptions_captured("PageHTMLSource.html") as content:
+        with self.exceptions_captured("PageHTMLSource.html") as contents:
             pg_source = self._get_page_html_source()
-            content = testtools.content.Content(  # noqa
+            contents.append(testtools.content.Content(
                 testtools.content_type.ContentType('text', 'html'),
-                lambda: pg_source)
+                lambda: pg_source))
 
     def zoom_out(self, times=3):
         """Zooming out prevents different elements being driven out of xvfb
@@ -147,10 +147,10 @@ class BaseTestCase(testtools.TestCase):
             keys.Keys.CONTROL).perform()
 
     def _save_screenshot(self, exc_info):
-        with self.exceptions_captured("Screenshot") as content:
+        with self.exceptions_captured("Screenshot") as contents:
             filename = self._get_screenshot_filename()
             self.driver.get_screenshot_as_file(filename)
-            content = testtools.content.text_content(filename)  # noqa
+            contents.append(testtools.content.text_content(filename))
 
     def _get_screenshot_filename(self):
         screenshot_dir = os.path.join(
