@@ -10,16 +10,12 @@
 # License for the specific language governing permissions and limitations
 # under the License.
 
-from django.conf.urls import patterns
 from django.conf.urls import url
 
 from openstack_dashboard.dashboards.admin.volumes.volumes \
     import views
 
-VIEWS_MOD = ('openstack_dashboard.dashboards.admin.volumes.volumes.views')
-
-urlpatterns = patterns(
-    VIEWS_MOD,
+urlpatterns = [
     url(r'^manage/$',
         views.ManageVolumeView.as_view(),
         name='manage'),
@@ -35,4 +31,4 @@ urlpatterns = patterns(
     url(r'^(?P<volume_id>[^/]+)/migrate$',
         views.MigrateVolumeView.as_view(),
         name='migrate'),
-)
+]

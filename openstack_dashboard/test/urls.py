@@ -19,23 +19,24 @@ URL patterns for the OpenStack Dashboard.
 
 from django.conf import settings
 from django.conf.urls import include
-from django.conf.urls import patterns
 from django.conf.urls.static import static  # noqa
 from django.conf.urls import url
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns  # noqa
+from django.views import defaults
 
+from openstack_dashboard.api import rest
 from openstack_dashboard.test.jasmine import jasmine
+from openstack_dashboard import views
 
 import horizon
 
-urlpatterns = patterns(
-    '',
-    url(r'^$', 'openstack_dashboard.views.splash', name='splash'),
+urlpatterns = [
+    url(r'^$', views.splash, name='splash'),
     url(r'^auth/', include('openstack_auth.urls')),
-    url(r'^api/', include('openstack_dashboard.api.rest.urls')),
+    url(r'^api/', include(rest.urls)),
     url(r'^jasmine/(.*?)$', jasmine.dispatcher),
     url(r'', include(horizon.urls)),
-)
+]
 
 # Development static app and project media serving using the staticfiles app.
 urlpatterns += staticfiles_urlpatterns()
@@ -46,7 +47,4 @@ urlpatterns += staticfiles_urlpatterns()
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 if settings.DEBUG:
-    urlpatterns += patterns(
-        '',
-        url(r'^500/$', 'django.views.defaults.server_error')
-    )
+    urlpatterns.append(url(r'^500/$', defaults.server_error))

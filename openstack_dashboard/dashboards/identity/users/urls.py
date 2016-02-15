@@ -16,17 +16,12 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
-from django.conf.urls import patterns
 from django.conf.urls import url
 
 from openstack_dashboard.dashboards.identity.users import views
 
 
-VIEWS_MOD = 'openstack_dashboard.dashboards.identity.users.views'
-
-
-urlpatterns = patterns(
-    VIEWS_MOD,
+urlpatterns = [
     url(r'^$', views.IndexView.as_view(), name='index'),
     url(r'^(?P<user_id>[^/]+)/update/$',
         views.UpdateView.as_view(), name='update'),
@@ -34,4 +29,5 @@ urlpatterns = patterns(
     url(r'^(?P<user_id>[^/]+)/detail/$',
         views.DetailView.as_view(), name='detail'),
     url(r'^(?P<user_id>[^/]+)/change_password/$',
-        views.ChangePasswordView.as_view(), name='change_password'))
+        views.ChangePasswordView.as_view(), name='change_password'),
+]

@@ -17,13 +17,9 @@
 #    under the License.
 
 from django.conf import settings
-from django.conf.urls import patterns
 from django.conf.urls import url
 
 from openstack_dashboard.dashboards.project.containers import views
-
-
-VIEW_MOD = 'openstack_dashboard.dashboards.project.containers.views'
 
 if settings.HORIZON_CONFIG['swift_panel'] == 'angular':
     # New angular containers and objects
@@ -36,8 +32,7 @@ if settings.HORIZON_CONFIG['swift_panel'] == 'angular':
     ]
 else:
     # Legacy swift containers and objects
-    urlpatterns = patterns(
-        VIEW_MOD,
+    urlpatterns = [
         url(r'^((?P<container_name>.+?)/)?(?P<subfolder_path>(.+/)+)?$',
             views.ContainerView.as_view(), name='index'),
 
@@ -75,6 +70,6 @@ else:
             name='object_copy'),
 
         url(r'^(?P<container_name>[^/]+)/(?P<object_path>.+)/download$',
-            'object_download',
+            views.object_download,
             name='object_download'),
-    )
+    ]

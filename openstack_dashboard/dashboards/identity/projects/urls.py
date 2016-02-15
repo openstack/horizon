@@ -16,14 +16,12 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
-from django.conf.urls import patterns
 from django.conf.urls import url
 
 from openstack_dashboard.dashboards.identity.projects import views
 
 
-urlpatterns = patterns(
-    '',
+urlpatterns = [
     url(r'^$', views.IndexView.as_view(), name='index'),
     url(r'^create$', views.CreateProjectView.as_view(), name='create'),
     url(r'^(?P<tenant_id>[^/]+)/update/$',
@@ -32,4 +30,4 @@ urlpatterns = patterns(
         views.ProjectUsageView.as_view(), name='usage'),
     url(r'^(?P<project_id>[^/]+)/detail/$',
         views.DetailProjectView.as_view(), name='detail'),
-)
+]

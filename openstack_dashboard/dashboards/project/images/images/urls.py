@@ -16,19 +16,14 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
-from django.conf.urls import patterns
 from django.conf.urls import url
 
 from openstack_dashboard.dashboards.project.images.images import views
 
 
-VIEWS_MOD = 'openstack_dashboard.dashboards.project.images.images.views'
-
-
-urlpatterns = patterns(
-    VIEWS_MOD,
+urlpatterns = [
     url(r'^create/$', views.CreateView.as_view(), name='create'),
     url(r'^(?P<image_id>[^/]+)/update/$',
         views.UpdateView.as_view(), name='update'),
     url(r'^(?P<image_id>[^/]+)/$', views.DetailView.as_view(), name='detail'),
-)
+]

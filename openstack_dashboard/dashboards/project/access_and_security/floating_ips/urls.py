@@ -16,15 +16,13 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
-from django.conf.urls import patterns
 from django.conf.urls import url
 
 from openstack_dashboard.dashboards.project.access_and_security.\
     floating_ips import views
 
 
-urlpatterns = patterns(
-    '',
+urlpatterns = [
     url(r'^associate/$', views.AssociateView.as_view(), name='associate'),
-    url(r'^allocate/$', views.AllocateView.as_view(), name='allocate')
-)
+    url(r'^allocate/$', views.AllocateView.as_view(), name='allocate'),
+]

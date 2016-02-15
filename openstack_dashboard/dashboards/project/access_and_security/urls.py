@@ -17,7 +17,6 @@
 #    under the License.
 
 from django.conf.urls import include
-from django.conf.urls import patterns
 from django.conf.urls import url
 
 from openstack_dashboard.dashboards.project.access_and_security.\
@@ -31,12 +30,11 @@ from openstack_dashboard.dashboards.project.access_and_security.\
 from openstack_dashboard.dashboards.project.access_and_security import views
 
 
-urlpatterns = patterns(
-    '',
+urlpatterns = [
     url(r'^$', views.IndexView.as_view(), name='index'),
     url(r'api_access/', include(api_access_urls, namespace='api_access')),
     url(r'keypairs/', include(keypair_urls, namespace='keypairs')),
     url(r'floating_ips/', include(fip_urls, namespace='floating_ips')),
     url(r'security_groups/',
         include(sec_group_urls, namespace='security_groups')),
-)
+]

@@ -10,14 +10,13 @@
 # License for the specific language governing permissions and limitations
 # under the License.
 
-from django.conf.urls import patterns
 from django.conf.urls import url
 
 from openstack_dashboard.dashboards.admin.metering import views
 
-urlpatterns = patterns(
-    'openstack_dashboard.dashboards.admin.metering.views',
+urlpatterns = [
     url(r'^$', views.IndexView.as_view(), name='index'),
     url(r'^create/$', views.CreateUsageReport.as_view(), name='create'),
     url(r'^samples$', views.SamplesView.as_view(), name='samples'),
-    url(r'^report/csv$', views.CsvReportView.as_view(), name='csvreport'))
+    url(r'^report/csv$', views.CsvReportView.as_view(), name='csvreport'),
+]

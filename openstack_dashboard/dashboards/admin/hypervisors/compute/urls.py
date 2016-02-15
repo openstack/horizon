@@ -10,14 +10,12 @@
 # License for the specific language governing permissions and limitations
 # under the License.
 
-from django.conf.urls import patterns
 from django.conf.urls import url
 
 from openstack_dashboard.dashboards.admin.hypervisors.compute import views
 
 
-urlpatterns = patterns(
-    'openstack_dashboard.dashboards.admin.hypervisors.compute.views',
+urlpatterns = [
     url(r'^(?P<compute_host>[^/]+)/evacuate_host$',
         views.EvacuateHostView.as_view(),
         name='evacuate_host'),
@@ -27,4 +25,4 @@ urlpatterns = patterns(
     url(r'^(?P<compute_host>[^/]+)/migrate_host$',
         views.MigrateHostView.as_view(),
         name='migrate_host'),
-)
+]

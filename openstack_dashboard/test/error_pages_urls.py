@@ -1,8 +1,6 @@
-from django.conf.urls import patterns
+from django.conf.urls import url
+from django.views import defaults
 
 from openstack_dashboard.urls import urlpatterns  # noqa
 
-urlpatterns += patterns(
-    '',
-    (r'^500/$', 'django.views.defaults.server_error')
-)
+urlpatterns.append(url(r'^500/$', defaults.server_error))

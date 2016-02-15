@@ -12,8 +12,6 @@
 # License for the specific language governing permissions and limitations
 # under the License.
 
-
-from django.conf.urls import patterns
 from django.conf.urls import url
 
 from openstack_dashboard.dashboards.identity.identity_providers.protocols \
@@ -21,7 +19,6 @@ from openstack_dashboard.dashboards.identity.identity_providers.protocols \
 
 PORTS = r'^(?P<protocol_id>[^/]+)/%s$'
 
-urlpatterns = patterns(
-    'horizon.dashboards.identity.identity_providers.protocols.views',
+urlpatterns = [
     url(r'^create/$', views.AddProtocolView.as_view(), name='create'),
-)
+]

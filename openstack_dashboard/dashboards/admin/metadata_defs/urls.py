@@ -12,7 +12,6 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
-from django.conf.urls import patterns  # noqa
 from django.conf.urls import url  # noqa
 
 from openstack_dashboard.dashboards.admin.metadata_defs import views
@@ -21,11 +20,10 @@ from openstack_dashboard.dashboards.admin.metadata_defs import views
 NAMESPACES = r'^(?P<namespace_id>[^/]+)/%s$'
 
 
-urlpatterns = patterns(
-    'openstack_dashboard.dashboards.admin.metadata_defs.views',
+urlpatterns = [
     url(r'^$', views.AdminIndexView.as_view(), name='index'),
     url(r'^create/$', views.CreateView.as_view(), name='create'),
     url(NAMESPACES % 'detail', views.DetailView.as_view(), name='detail'),
     url(r'^(?P<id>[^/]+)/resource_types/$',
         views.ManageResourceTypes.as_view(), name='resource_types'),
-)
+]

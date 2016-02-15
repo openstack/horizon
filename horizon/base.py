@@ -28,7 +28,6 @@ import os
 
 from django.conf import settings
 from django.conf.urls import include
-from django.conf.urls import patterns
 from django.conf.urls import url
 from django.core.exceptions import ImproperlyConfigured  # noqa
 from django.core.urlresolvers import reverse
@@ -113,7 +112,7 @@ class HorizonComponent(object):
                 urls_mod = import_module('.urls', package_string)
                 urlpatterns = urls_mod.urlpatterns
             else:
-                urlpatterns = patterns('')
+                urlpatterns = []
         return urlpatterns
 
     # FIXME(lhcheng): Removed the access_cached decorator for now until
@@ -529,16 +528,13 @@ class Dashboard(Registry, HorizonComponent):
                 default_panel = panel
                 continue
             url_slug = panel.slug.replace('.', '/')
-            urlpatterns += patterns('',
-                                    url(r'^%s/' % url_slug,
-                                        include(panel._decorated_urls)))
+            urlpatterns.append(url(r'^%s/' % url_slug,
+                                   include(panel._decorated_urls)))
         # Now the default view, which should come last
         if not default_panel:
             raise NotRegistered('The default panel "%s" is not registered.'
                                 % self.default_panel)
-        urlpatterns += patterns('',
-                                url(r'',
-                                    include(default_panel._decorated_urls)))
+        urlpatterns.append(url(r'', include(default_panel._decorated_urls)))
 
         # Require login if not public.
         if not self.public:
@@ -855,9 +851,8 @@ class Site(Registry, HorizonComponent):
 
         # Compile the dynamic urlconf.
         for dash in self._registry.values():
-            urlpatterns += patterns('',
-                                    url(r'^%s/' % dash.slug,
-                                        include(dash._decorated_urls)))
+            urlpatterns.append(url(r'^%s/' % dash.slug,
+                                   include(dash._decorated_urls)))
 
         # Return the three arguments to django.conf.urls.include
         return urlpatterns, self.namespace, self.slug

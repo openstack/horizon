@@ -11,14 +11,12 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-from django.conf.urls import patterns
 from django.conf.urls import url
 
 from openstack_dashboard.dashboards.project.stacks.resource_types import views
 
-urlpatterns = patterns(
-    '',
+urlpatterns = [
     url(r'^$', views.ResourceTypesView.as_view(), name='index'),
     url(r'^(?P<resource_type>[^/]+)/$',
         views.DetailView.as_view(), name='details'),
-)
+]

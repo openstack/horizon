@@ -12,13 +12,11 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
-from django.conf.urls import patterns
 from django.conf.urls import url
 
 from openstack_dashboard.dashboards.project.vpn import views
 
-urlpatterns = patterns(
-    'openstack_dashboard.dashboards.project.vpn.views',
+urlpatterns = [
     url(r'^$', views.IndexView.as_view(), name='index'),
     url(r'^addikepolicy$',
         views.AddIKEPolicyView.as_view(), name='addikepolicy'),
@@ -46,4 +44,5 @@ urlpatterns = patterns(
         views.VPNServiceDetailsView.as_view(), name='vpnservicedetails'),
     url(r'^ipsecsiteconnection/(?P<ipsecsiteconnection_id>[^/]+)/$',
         views.IPSecSiteConnectionDetailsView.as_view(),
-        name='ipsecsiteconnectiondetails'))
+        name='ipsecsiteconnectiondetails'),
+]

@@ -16,15 +16,13 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
-from django.conf.urls import patterns
 from django.conf.urls import url
 
 from openstack_dashboard.dashboards.project.access_and_security.\
     api_access import views
 
 
-urlpatterns = patterns(
-    '',
+urlpatterns = [
     url(r'^ec2/$', views.download_ec2_bundle, name='ec2'),
     url(r'^openrc/$', views.download_rc_file, name='openrc'),
     url(r'^openrcv2/$', views.download_rc_file_v2, name='openrcv2'),
@@ -32,4 +30,4 @@ urlpatterns = patterns(
         name='view_credentials'),
     url(r'^recreate_ec2_credentials/$',
         views.RecreateCredentialsView.as_view(), name='recreate_credentials'),
-)
+]
