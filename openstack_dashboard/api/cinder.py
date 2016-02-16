@@ -687,8 +687,12 @@ def transfer_list(request, detailed=True, search_opts=None):
     search option: {'all_tenants': 1}
     """
     c_client = cinderclient(request)
-    return [VolumeTransfer(v) for v in c_client.transfers.list(
-        detailed=detailed, search_opts=search_opts)]
+    try:
+        return [VolumeTransfer(v) for v in c_client.transfers.list(
+            detailed=detailed, search_opts=search_opts)]
+    except cinder_exception.Forbidden as error:
+        LOG.error(error)
+        return []
 
 
 def transfer_get(request, transfer_id):
