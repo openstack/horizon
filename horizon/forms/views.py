@@ -55,7 +55,7 @@ class ModalBackdropMixin(object):
         return context
 
 
-class ModalFormMixin(object):
+class ModalFormMixin(ModalBackdropMixin):
     def get_template_names(self):
         if self.request.is_ajax():
             if not hasattr(self, "ajax_template_name"):
@@ -77,7 +77,7 @@ class ModalFormMixin(object):
         return context
 
 
-class ModalFormView(ModalBackdropMixin, ModalFormMixin, views.HorizonFormView):
+class ModalFormView(ModalFormMixin, views.HorizonFormView):
     """The main view class from which all views which handle forms in Horizon
     should inherit. It takes care of all details with processing
     :class:`~horizon.forms.base.SelfHandlingForm` classes, and modal concerns
