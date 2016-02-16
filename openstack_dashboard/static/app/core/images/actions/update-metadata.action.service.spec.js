@@ -20,8 +20,8 @@
     var deferred, service, $scope;
 
     var userSession = {
-      get: function() {
-        deferred.resolve({project_id: 'project'});
+      isCurrentProject: function() {
+        deferred.resolve();
         return deferred.promise;
       }
     };
@@ -79,8 +79,9 @@
         $scope.$apply();
       });
 
-      it('should not allow Update Metadata if image is not owned by user', function() {
-        var image = {owner: 'another_project', status: 'active'};
+      it('should not allow Update Metadata if service call is rejected', function() {
+        var image = {owner: 'doesnt_matter', status: 'active'};
+        deferred.reject();
         service.initScope($scope);
         permissionShouldFail(service.allowed(image));
         $scope.$apply();
