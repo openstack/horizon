@@ -145,9 +145,13 @@ class VolumesPage(basepage.BaseNavigationPage):
         if volume_source_type == VOLUME_SOURCE_TYPE:
             return volume_form.volume_id, volume_source
 
-    def create_volume_snapshot(self, row, snapshot_name, description='test'):
+    def create_volume_snapshot(self, volume, snapshot, description='test'):
+        from openstack_dashboard.test.integration_tests.pages.project.compute.\
+            volumes.volumesnapshotspage import VolumesnapshotsPage
+        row = self._get_row_with_volume_name(volume)
         snapshot_form = self.volumes_table.create_snapshot(row)
-        snapshot_form.name.text = snapshot_name
+        snapshot_form.name.text = snapshot
         if description is not None:
             snapshot_form.description.text = description
         snapshot_form.submit()
+        return VolumesnapshotsPage(self.driver, self.conf)

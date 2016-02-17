@@ -22,6 +22,8 @@ from openstack_dashboard.test.integration_tests.regions import tables
 
 class VolumesnapshotsTable(tables.TableRegion):
     name = 'volume_snapshots'
+    marker_name = 'snapshot_marker'
+    prev_marker_name = 'prev_snapshot_marker'
 
     EDIT_SNAPSHOT_FORM_FIELDS = ("name", "description")
 
