@@ -153,6 +153,8 @@ class BackupsTable(tables.DataTable):
     class Meta(object):
         name = "volume_backups"
         verbose_name = _("Volume Backups")
+        pagination_param = 'backup_marker'
+        prev_pagination_param = 'prev_backup_marker'
         status_columns = ("status",)
         row_class = UpdateRow
         table_actions = (DeleteBackup,)

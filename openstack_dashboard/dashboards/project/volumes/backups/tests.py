@@ -54,7 +54,7 @@ class VolumeBackupsViewTests(test.TestCase):
 
     @test.create_stubs({api.cinder: ('volume_list',
                                      'volume_backup_supported',
-                                     'volume_backup_list',
+                                     'volume_backup_list_paged',
                                      'volume_backup_delete')})
     def test_delete_volume_backup(self):
         vol_backups = self.cinder_volume_backups.list()
@@ -63,14 +63,16 @@ class VolumeBackupsViewTests(test.TestCase):
 
         api.cinder.volume_backup_supported(IsA(http.HttpRequest)). \
             MultipleTimes().AndReturn(True)
-        api.cinder.volume_backup_list(IsA(http.HttpRequest)). \
-            AndReturn(vol_backups)
+        api.cinder.volume_backup_list_paged(
+            IsA(http.HttpRequest), marker=None, sort_dir='desc',
+            paginate=True).AndReturn([vol_backups, False, False])
         api.cinder.volume_list(IsA(http.HttpRequest)). \
             AndReturn(volumes)
         api.cinder.volume_backup_delete(IsA(http.HttpRequest), backup.id)
 
-        api.cinder.volume_backup_list(IsA(http.HttpRequest)). \
-            AndReturn(vol_backups)
+        api.cinder.volume_backup_list_paged(
+            IsA(http.HttpRequest), marker=None, sort_dir='desc',
+            paginate=True).AndReturn([vol_backups, False, False])
         api.cinder.volume_list(IsA(http.HttpRequest)). \
             AndReturn(volumes)
         self.mox.ReplayAll()

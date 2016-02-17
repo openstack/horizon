@@ -202,6 +202,23 @@ def volume_list(request, search_opts=None, marker=None, sort_dir="desc"):
     return volumes
 
 
+def update_pagination(entities, page_size, marker, sort_dir):
+    has_more_data, has_prev_data = False, False
+    if len(entities) > page_size:
+        has_more_data = True
+        entities.pop()
+        if marker is not None:
+            has_prev_data = True
+    # first page condition when reached via prev back
+    elif sort_dir == 'asc' and marker is not None:
+        has_more_data = True
+    # last page condition
+    elif marker is not None:
+        has_prev_data = True
+
+    return entities, has_more_data, has_prev_data
+
+
 def volume_list_paged(request, search_opts=None, marker=None, paginate=False,
                       sort_dir="desc"):
     """To see all volumes in the cloud as an admin you can pass in a special
@@ -231,17 +248,8 @@ def volume_list_paged(request, search_opts=None, marker=None, paginate=False,
                                        sort=sort):
             v.transfer = transfers.get(v.id)
             volumes.append(Volume(v))
-        if len(volumes) > page_size:
-            has_more_data = True
-            volumes.pop()
-            if marker is not None:
-                has_prev_data = True
-        # first page condition when reached via prev back
-        elif sort_dir == 'asc' and marker is not None:
-            has_more_data = True
-        # last page condition
-        elif marker is not None:
-            has_prev_data = True
+        volumes, has_more_data, has_prev_data = update_pagination(
+            volumes, page_size, marker, sort_dir)
     else:
         for v in c_client.volumes.list(search_opts=search_opts):
             v.transfer = transfers.get(v.id)
@@ -348,11 +356,40 @@ def volume_snapshot_get(request, snapshot_id):
 
 
 def volume_snapshot_list(request, search_opts=None):
+    snapshots, _, __ = volume_snapshot_list_paged(request,
+                                                  search_opts=search_opts,
+                                                  paginate=False)
+    return snapshots
+
+
+def volume_snapshot_list_paged(request, search_opts=None, marker=None,
+                               paginate=False, sort_dir="desc"):
+    has_more_data = False
+    has_prev_data = False
+    snapshots = []
     c_client = cinderclient(request)
     if c_client is None:
-        return []
-    return [VolumeSnapshot(s) for s in c_client.volume_snapshots.list(
-        search_opts=search_opts)]
+        return snapshots, has_more_data, has_more_data
+
+    if VERSIONS.active > 1 and paginate:
+        page_size = utils.get_page_size(request)
+        # sort_key and sort_dir deprecated in kilo, use sort
+        # if pagination is true, we use a single sort parameter
+        # by default, it is "created_at"
+        sort = 'created_at:' + sort_dir
+        for s in c_client.volume_snapshots.list(search_opts=search_opts,
+                                                limit=page_size + 1,
+                                                marker=marker,
+                                                sort=sort):
+            snapshots.append(VolumeSnapshot(s))
+
+        snapshots, has_more_data, has_prev_data = update_pagination(
+            snapshots, page_size, marker, sort_dir)
+    else:
+        for s in c_client.volume_snapshots.list(search_opts=search_opts):
+            snapshots.append(VolumeSnapshot(s))
+
+    return snapshots, has_more_data, has_prev_data
 
 
 def volume_snapshot_create(request, volume_id, name,
@@ -401,10 +438,38 @@ def volume_backup_get(request, backup_id):
 
 
 def volume_backup_list(request):
+    backups, _, __ = volume_backup_list_paged(request, paginate=False)
+    return backups
+
+
+def volume_backup_list_paged(request, marker=None, paginate=False,
+                             sort_dir="desc"):
+    has_more_data = False
+    has_prev_data = False
+    backups = []
+
     c_client = cinderclient(request)
     if c_client is None:
-        return []
-    return [VolumeBackup(b) for b in c_client.backups.list()]
+        return backups, has_more_data, has_prev_data
+
+    if VERSIONS.active > 1 and paginate:
+        page_size = utils.get_page_size(request)
+        # sort_key and sort_dir deprecated in kilo, use sort
+        # if pagination is true, we use a single sort parameter
+        # by default, it is "created_at"
+        sort = 'created_at:' + sort_dir
+        for b in c_client.backups.list(limit=page_size + 1,
+                                       marker=marker,
+                                       sort=sort):
+            backups.append(VolumeBackup(b))
+
+        backups, has_more_data, has_prev_data = update_pagination(
+            backups, page_size, marker, sort_dir)
+    else:
+        for b in c_client.backups.list():
+            backups.append(VolumeBackup(b))
+
+    return backups, has_more_data, has_prev_data
 
 
 def volume_backup_create(request,
