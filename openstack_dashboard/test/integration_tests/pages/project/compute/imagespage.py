@@ -52,6 +52,11 @@ class ImagesTable(tables.TableRegion):
         ("disk_config", "config_drive")
     )
 
+    EDIT_IMAGE_FORM_FIELDS = (
+        "name", "description", "disk_format", "minimum_disk",
+        "minimum_ram", "public", "protected"
+    )
+
     @tables.bind_table_action('create')
     def create_image(self, create_button):
         create_button.click()
@@ -81,6 +86,17 @@ class ImagesTable(tables.TableRegion):
     def update_metadata(self, metadata_button, row):
         metadata_button.click()
         return forms.MetadataFormRegion(self.driver, self.conf)
+
+    @tables.bind_row_action('delete')
+    def delete_image_via_row_action(self, delete_button, row):
+        delete_button.click()
+        return forms.BaseFormRegion(self.driver, self.conf)
+
+    @tables.bind_row_action('edit')
+    def edit_image(self, edit_button, row):
+        edit_button.click()
+        return forms.FormRegion(self.driver, self.conf,
+                                field_mappings=self.EDIT_IMAGE_FORM_FIELDS)
 
     @tables.bind_row_anchor_column(IMAGES_TABLE_NAME_COLUMN)
     def go_to_image_description_page(self, row_link, row):
@@ -151,6 +167,41 @@ class ImagesPage(basepage.BaseNavigationPage):
                 if dict_with_details[name] in value:
                     matches.append(True)
         return matches
+
+    def edit_image(self, name, new_name=None, description=None,
+                   minimum_disk=None, minimum_ram=None,
+                   public=None, protected=None):
+        row = self._get_row_with_image_name(name)
+        confirm_edit_images_form = self.images_table.edit_image(row)
+
+        if new_name is not None:
+            confirm_edit_images_form.name.text = new_name
+
+        if description is not None:
+            confirm_edit_images_form.description.text = description
+
+        if minimum_disk is not None:
+            confirm_edit_images_form.minimum_disk.value = minimum_disk
+
+        if minimum_ram is not None:
+            confirm_edit_images_form.minimum_ram.value = minimum_ram
+
+        if public is True:
+            confirm_edit_images_form.public.mark()
+        elif public is False:
+            confirm_edit_images_form.public.unmark()
+
+        if protected is True:
+            confirm_edit_images_form.protected.mark()
+        elif protected is False:
+            confirm_edit_images_form.protected.unmark()
+
+        confirm_edit_images_form.submit()
+
+    def delete_image_via_row_action(self, name):
+        row = self._get_row_with_image_name(name)
+        delete_image_form = self.images_table.delete_image_via_row_action(row)
+        delete_image_form.submit()
 
     def is_image_present(self, name):
         return bool(self._get_row_with_image_name(name))
