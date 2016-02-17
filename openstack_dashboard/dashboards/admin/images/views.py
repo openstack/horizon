@@ -130,7 +130,7 @@ class UpdateView(views.UpdateView):
     form_class = project_forms.AdminUpdateImageForm
     submit_url = "horizon:admin:images:update"
     success_url = reverse_lazy('horizon:admin:images:index')
-    page_title = _("Update Image")
+    page_title = _("Edit Image")
 
 
 class DetailView(views.DetailView):

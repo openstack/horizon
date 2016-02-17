@@ -71,12 +71,12 @@ class CreateView(forms.ModalFormView):
 class UpdateView(forms.ModalFormView):
     form_class = project_forms.UpdateImageForm
     form_id = "update_image_form"
-    modal_header = _("Update Image")
-    submit_label = _("Update Image")
+    modal_header = _("Edit Image")
+    submit_label = _("Edit Image")
     submit_url = "horizon:project:images:images:update"
     template_name = 'project/images/images/update.html'
     success_url = reverse_lazy("horizon:project:images:index")
-    page_title = _("Update Image")
+    page_title = _("Edit Image")
 
     @memoized.memoized_method
     def get_object(self):
