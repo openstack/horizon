@@ -25,6 +25,7 @@
       <th class="rsp-p2" st-sort="disk" translate>Root Disk</th>
       <th class="rsp-p2" st-sort="ephermal" translate>Ephemeral Disk</th>
       <th class="rsp-p2" st-sort="swap" translate>Swap Disk</th>
+      <th class="rsp-p2" st-sort="rxtx_factor" translate>RX/TX factor</th>
       <th class="rsp-p2" st-sort="id" translate>ID</th>
       <th class="rsp-p2" st-sort="is_public" translate>Public</th>
       <th class="rsp-p2" st-sort="metadata" translate>Metadata</th>
@@ -46,6 +47,7 @@
       <td class="rsp-p2">{$ flavor.disk | gb $}</td>
       <td class="rsp-p2">{$ flavor.ephemeral | gb $}</td>
       <td class="rsp-p2">{$ flavor.swap | mb $}</td>
+      <td class="rsp-p2">{$ flavor.rxtx_factor $}</td>
       <td class="rsp-p2">{$ flavor.id $}</td>
       <td class="rsp-p2">{$ flavor.is_public | yesno $}</td>
       <td class="rsp-p2">{$ flavor.extras | hasExtras | yesno $}</td>
