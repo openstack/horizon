@@ -24,19 +24,26 @@
   /**
    * @ngdoc controller
    * @name horizon.framework.widgets.table.controller:TableController
-   * @description
-   * Controller used by `hzTable`
+   * @description Controller used by `hzTable`
+   * Note that clearSelected is private and event driven.
+   * To clear all of the selected checkboxes after an action, such as
+   * delete, emit the event `hzTable:clearSelected` from your table
+   * controller.
    */
   function TableController($scope) {
+
     var ctrl = this;
-
-    /*eslint-disable angular/controller-as */
-    $scope.selected = {};
-    $scope.numSelected = 0;
-    /*eslint-enable angular/controller-as */
-
     ctrl.isSelected = isSelected;
     ctrl.select = select;
+
+    clearSelected();
+
+    ////////////////////
+
+    var clearWatcher = $scope.$on('hzTable:clearSelected', clearSelected);
+    $scope.$on('$destroy', function() {
+      clearWatcher();
+    });
 
     ////////////////////
 
@@ -46,6 +53,13 @@
     function isSelected(row) {
       var rowState = $scope.selected[row.id];
       return angular.isDefined(rowState) && rowState.checked;
+    }
+
+    function clearSelected() {
+      /*eslint-disable angular/controller-as */
+      $scope.selected = {};
+      $scope.numSelected = 0;
+      /*eslint-enable angular/controller-as */
     }
 
     /*

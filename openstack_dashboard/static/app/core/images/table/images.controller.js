@@ -100,13 +100,11 @@
 
     function onDeleteSuccess(e, removedImageIds) {
       ctrl.imagesSrc = difference(ctrl.imagesSrc, removedImageIds, 'id');
-
-      /* eslint-disable angular/controller-as */
-      $scope.selected = {};
-      $scope.numSelected = 0;
-      /* eslint-enable angular/controller-as */
-
       e.stopPropagation();
+
+      // after deleting the items
+      // we need to clear selected items from table controller
+      $scope.$emit('hzTable:clearSelected');
     }
 
     function difference(currentList, otherList, key) {

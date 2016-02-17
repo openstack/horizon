@@ -57,6 +57,10 @@
    * </tbody>
    * ```
    *
+   * To clear all of the selected checkboxes after an action, such as
+   * delete, emit the event `hzTable:clearSelected` from your table
+   * controller.
+   *
    */
   function hzSelectAll() {
     var directive = {
