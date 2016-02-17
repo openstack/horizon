@@ -30,7 +30,82 @@
     .constant('horizon.app.core.images.events', events())
     .constant('horizon.app.core.images.non_bootable_image_types', ['aki', 'ari'])
     .constant('horizon.app.core.images.resourceType', 'OS::Glance::Image')
+    .run(registerImageType)
     .config(config);
+
+  registerImageType.$inject = [
+    'horizon.framework.conf.resource-type-registry.service',
+    'horizon.app.core.images.resourceType'
+  ];
+
+  function registerImageType(registry, imageResourceType) {
+    registry.getResourceType(imageResourceType, {
+      names: [gettext('Image'), gettext('Images')]
+    })
+      .setProperty('checksum', {
+        label: gettext('Checksum')
+      })
+      .setProperty('container_format', {
+        label: gettext('Container Format')
+      })
+      .setProperty('created_at', {
+        label: gettext('Created At')
+      })
+      .setProperty('disk_format', {
+        label: gettext('Disk Format')
+      })
+      .setProperty('id', {
+        label: gettext('ID')
+      })
+      .setProperty('members', {
+        label: gettext('Members')
+      })
+      .setProperty('min_disk', {
+        label: gettext('Min. Disk')
+      })
+      .setProperty('min_ram', {
+        label: gettext('Min. RAM')
+      })
+      .setProperty('name', {
+        label: gettext('Name')
+      })
+      .setProperty('owner', {
+        label: gettext('Owner')
+      })
+      .setProperty('protected', {
+        label: gettext('Protected')
+      })
+      .setProperty('size', {
+        label: gettext('Size')
+      })
+      .setProperty('status', {
+        label: gettext('Status')
+      })
+      .setProperty('tags', {
+        label: gettext('Tags')
+      })
+      .setProperty('updated_at', {
+        label: gettext('Updated At')
+      })
+      .setProperty('virtual_size', {
+        label: gettext('Virtual Size')
+      })
+      .setProperty('visibility', {
+        label: gettext('Visibility')
+      })
+      .setProperty('description', {
+        label: gettext('Description')
+      })
+      .setProperty('architecture', {
+        label: gettext('Architecture')
+      })
+      .setProperty('kernel_id', {
+        label: gettext('Kernel ID')
+      })
+      .setProperty('ramdisk_id', {
+        label: gettext('Ramdisk ID')
+      });
+  }
 
   /**
    * @ngdoc value

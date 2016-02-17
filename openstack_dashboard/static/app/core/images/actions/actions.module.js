@@ -42,30 +42,31 @@
     deleteImageService,
     launchInstanceService,
     updateMetadataService,
-    imageResourceType)
+    imageResourceTypeCode)
   {
-    registry.getItemActions(imageResourceType)
+    var imageResourceType = registry.getResourceType(imageResourceTypeCode);
+    imageResourceType.itemActions
       .append({
         id: 'launchInstanceService',
         service: launchInstanceService,
         template: {
           text: gettext('Launch')
         }
-      }, 500)
+      })
       .append({
         id: 'createVolumeAction',
         service: createVolumeService,
         template: {
           text: gettext('Create Volume')
         }
-      }, 200)
+      })
       .append({
         id: 'updateMetadataService',
         service: updateMetadataService,
         template: {
           text: gettext('Update Metadata')
         }
-      }, 100)
+      })
       .append({
         id: 'deleteImageAction',
         service: deleteImageService,
@@ -73,9 +74,9 @@
           text: gettext('Delete Image'),
           type: 'delete'
         }
-      }, -100);
+      });
 
-    registry.getBatchActions(imageResourceType)
+    imageResourceType.batchActions
       .append({
         id: 'batchDeleteImageAction',
         service: deleteImageService,
@@ -83,7 +84,7 @@
           type: 'delete-selected',
           text: gettext('Delete Images')
         }
-      }, 100);
+      });
   }
 
 })();

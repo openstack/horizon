@@ -223,7 +223,13 @@
     function link(scope, element, attrs, actionsController) {
       var listType = attrs.type;
       var item = attrs.item;
-      var allowedActions = $parse(attrs.allowed)(scope)();
+      var allowedActions;
+      var actionsParam = $parse(attrs.allowed)(scope);
+      if (angular.isFunction(actionsParam)) {
+        allowedActions = actionsParam();
+      } else {
+        allowedActions = actionsParam;
+      }
 
       var service = actionsService({
         scope: scope,

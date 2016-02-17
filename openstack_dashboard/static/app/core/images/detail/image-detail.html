@@ -71,8 +71,8 @@
           <hr>
           <dl class="dl-horizontal">
             <div ng-repeat="prop in ctrl.image.properties">
-              <dt data-toggle="tooltip" title="{$ prop.name $}">{$ prop.name $}</dt>
-              <dd>{$ prop.value $}</dd>
+              <dt data-toggle="tooltip" title="{$ prop.name $}">{$ ctrl.resourceType.label(prop.name) $}</dt>
+              <dd>{$ ctrl.resourceType.format(prop.name, prop.value) $}</dd>
             </div>
           </dl>
         </div>
