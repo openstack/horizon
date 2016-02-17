@@ -824,3 +824,31 @@ def mapping_delete(request, mapping_id):
 def mapping_list(request):
     manager = keystoneclient(request, admin=True).federation.mappings
     return manager.list()
+
+
+def protocol_create(request, protocol_id, identity_provider, mapping):
+    manager = keystoneclient(request).federation.protocols
+    try:
+        return manager.create(protocol_id, identity_provider, mapping)
+    except keystone_exceptions.Conflict:
+        raise exceptions.Conflict()
+
+
+def protocol_get(request, identity_provider, protocol):
+    manager = keystoneclient(request).federation.protocols
+    return manager.get(identity_provider, protocol)
+
+
+def protocol_update(request, identity_provider, protocol, mapping):
+    manager = keystoneclient(request).federation.protocols
+    return manager.update(identity_provider, protocol, mapping)
+
+
+def protocol_delete(request, identity_provider, protocol):
+    manager = keystoneclient(request).federation.protocols
+    return manager.delete(identity_provider, protocol)
+
+
+def protocol_list(request, identity_provider):
+    manager = keystoneclient(request).federation.protocols
+    return manager.list(identity_provider)

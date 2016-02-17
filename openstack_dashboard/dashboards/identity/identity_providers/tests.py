@@ -26,6 +26,8 @@ IDPS_INDEX_URL = reverse('horizon:identity:identity_providers:index')
 IDPS_REGISTER_URL = reverse('horizon:identity:identity_providers:register')
 IDPS_UPDATE_URL = reverse('horizon:identity:identity_providers:update',
                           args=['idp_1'])
+IDPS_DETAIL_URL = reverse('horizon:identity:identity_providers:detail',
+                          args=['idp_1'])
 
 
 class IdPsViewTests(test.BaseAdminViewTests):
@@ -109,3 +111,41 @@ class IdPsViewTests(test.BaseAdminViewTests):
         res = self.client.post(IDPS_INDEX_URL, formData)
 
         self.assertNoFormErrors(res)
+
+    @test.create_stubs({api.keystone: ('identity_provider_get',
+                                       'protocol_list')})
+    def test_detail(self):
+        idp = self.identity_providers.first()
+
+        api.keystone.identity_provider_get(IsA(http.HttpRequest), idp.id). \
+            AndReturn(idp)
+        api.keystone.protocol_list(IsA(http.HttpRequest), idp.id). \
+            AndReturn(self.idp_protocols.list())
+
+        self.mox.ReplayAll()
+
+        res = self.client.get(IDPS_DETAIL_URL)
+
+        self.assertTemplateUsed(
+            res, 'identity/identity_providers/_detail_overview.html')
+        self.assertTemplateUsed(res, 'horizon/common/_detail_table.html')
+
+    @test.create_stubs({api.keystone: ('identity_provider_get',
+                                       'protocol_list')})
+    def test_detail_protocols(self):
+        idp = self.identity_providers.first()
+
+        api.keystone.identity_provider_get(IsA(http.HttpRequest), idp.id). \
+            AndReturn(idp)
+        api.keystone.protocol_list(IsA(http.HttpRequest), idp.id). \
+            AndReturn(self.idp_protocols.list())
+
+        self.mox.ReplayAll()
+
+        res = self.client.get(IDPS_DETAIL_URL + '?tab=idp_details__protocols')
+
+        self.assertTemplateUsed(
+            res, 'identity/identity_providers/_detail_overview.html')
+        self.assertTemplateUsed(res, 'horizon/common/_detail_table.html')
+        self.assertItemsEqual(res.context['idp_protocols_table'].data,
+                              self.idp_protocols.list())
