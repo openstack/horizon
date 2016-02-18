@@ -11,10 +11,10 @@ that Horizon supports in DevStack when `stack.sh` is run.
 
     [[local|localrc]]
 
-    ADMIN_PASSWORD=pass
-    MYSQL_PASSWORD=pass
-    RABBIT_PASSWORD=pass
-    SERVICE_PASSWORD=pass
+    ADMIN_PASSWORD=secretadmin
+    MYSQL_PASSWORD=secretadmin
+    RABBIT_PASSWORD=secretadmin
+    SERVICE_PASSWORD=secretadmin
     SERVICE_TOKEN=a682f596-76f3-11e3-b3b2-e716f9080d50
 
     # Recloning will insure that your stack is up to date. The downside
