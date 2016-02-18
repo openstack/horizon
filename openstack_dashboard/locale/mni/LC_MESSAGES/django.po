@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2016-02-07 23:20+0000\n"
+"POT-Creation-Date: 2016-02-18 02:36+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -4021,13 +4021,6 @@ msgstr "পব্লিক URL"
 msgid "QCOW2 - QEMU Emulator"
 msgstr "QCOW2 - QEMU এম্যুলেতর"
 
-msgid "QoS Spec Consumer"
-msgstr "QoS স্পেক কঞ্জ্যুমর"
-
-msgid ""
-"QoS Spec consumer value must be different than the current consumer value."
-msgstr "QoS স্পেক কঞ্জ্যুমর ভেল্যু অদুনা হৌজিক্কী কঞ্জ্যুমর ভেল্যুদগী তোঙানবা ওইগদবনি।"
-
 msgid "QoS Spec to be associated"
 msgstr "এসোসিএত তৌগদবা QoS"
 
@@ -6264,9 +6257,6 @@ msgstr "দিফোল্টশীং অপদেত তৌ"
 
 msgid "Update Group"
 msgstr "গ্রুপ অপদেত তৌ"
-
-msgid "Update Image"
-msgstr "ইমেজ অপদেত তৌ"
 
 msgid "Update Metadata"
 msgstr "মেতাদেতা অপদেত তৌ"

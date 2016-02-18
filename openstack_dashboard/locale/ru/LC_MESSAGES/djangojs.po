@@ -15,7 +15,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2016-02-07 23:20+0000\n"
+"POT-Creation-Date: 2016-02-18 02:36+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -420,13 +420,6 @@ msgstr ""
 "вставьте ваш \n"
 "        публичный SSH ключ в поле ниже."
 
-msgid ""
-"Key Pairs are how you login to your instance after it is launched.\n"
-"        Choose a key pair name you will recognize."
-msgstr ""
-"Связки ключей позволяют подключаться к инстансу после его запуска.\n"
-"        Выберите имя для связки ключей, которое вы сможете запомнить."
-
 msgid "Killed"
 msgstr "Убито"
 
@@ -487,9 +480,6 @@ msgstr "Нет доступных элементов"
 msgid "Number"
 msgstr "Число"
 
-msgid "OK"
-msgstr "ОК"
-
 msgid "Pagination"
 msgstr "Пагинация"
 
@@ -507,9 +497,6 @@ msgstr "Проверка политики не удалась."
 
 msgid "Private"
 msgstr "Частный"
-
-msgid "Private Key"
-msgstr "Закрытый ключ"
 
 msgid "Profile"
 msgstr "Профиль"
@@ -674,10 +661,6 @@ msgid "Success"
 msgstr "Успешно"
 
 #, python-format
-msgid "Successfully created key pair %(name)s."
-msgstr "Успешно создана связка ключей %(name)s."
-
-#, python-format
 msgid "Successfully imported key pair %(name)s."
 msgstr "Успешно импортирована связка ключей %(name)s."
 
@@ -710,25 +693,6 @@ msgid ""
 "The instance count must not exceed your quota available of "
 "%(maxInstanceCount)s instances"
 msgstr "Количество инстансов не должно превышать %(maxInstanceCount)s "
-
-#, python-format
-msgid ""
-"The selected image source requires a flavor with at least %(minDisk)s GB of "
-"root disk. Select a flavor with a larger root disk or use a different image "
-"source."
-msgstr ""
-"Выбранный образ требует тип инстанса минимум с корневым диском размером не "
-"менее %(minDisk)s GB. Выберите тип инстанса с большим размером корневого "
-"диска или используйте другой источник для образа."
-
-#, python-format
-msgid ""
-"The selected image source requires a flavor with at least %(minRam)s MB of "
-"RAM. Select a flavor with more RAM or use a different image source."
-msgstr ""
-"Выбранный образ требует тип инстанса минимум с %(minRam)s MB ОЗУ. Выберите "
-"тип инстанса с большим размером ОЗУ или используйте другой источник для "
-"образа."
 
 msgid "The status indicates whether the network has an active connection."
 msgstr "Статус показывает, есть ли активные подключения в данной сети."
@@ -774,9 +738,6 @@ msgstr ""
 "Данный тип инстанса требует больше vCPU, чем позволяет ваша квота. "
 "Пожалуйста, выберите тип инстанса с меньшим количеством vCPU или уменьшите "
 "количество инстансов."
-
-msgid "This is your new key pair. Copy this information and keep it secure."
-msgstr "Это новая связка ключей. Скопируйте эту информацию в безопасное место."
 
 msgid ""
 "To view source code, hover over a section, then click the <a><span></span></"
@@ -844,9 +805,6 @@ msgstr "Не удалось удалить домен."
 
 msgid "Unable to delete the domains."
 msgstr "Не удалось удалить домены."
-
-msgid "Unable to delete the image with id: "
-msgstr "Не удалось удалить образ с id:"
 
 msgid "Unable to delete the project."
 msgstr "Не удалось удалить проект."

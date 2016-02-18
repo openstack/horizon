@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2016-02-11 07:31+0000\n"
+"POT-Creation-Date: 2016-02-18 06:15+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -944,6 +944,7 @@ msgstr ""
 #: dashboards/admin/static/dashboard/admin/flavors/table/flavors-table.html:28
 #: dashboards/project/static/dashboard/project/workflow/launch-instance/network/network.html:70
 #: dashboards/project/static/dashboard/project/workflow/launch-instance/network/network.html:157
+#: static/app/core/images/detail/image-detail.html:86
 msgid "ID"
 msgstr ""
 
@@ -982,30 +983,31 @@ msgstr ""
 msgid "Project ID"
 msgstr ""
 
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/launch-instance-model.service.js:256
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/launch-instance-model.service.js:266
 #, python-format
 msgid "%s instance launched."
 msgid_plural "%s instances launched."
 msgstr[0] ""
 msgstr[1] ""
 
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/launch-instance-model.service.js:392
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/launch-instance-model.service.js:402
 #: dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:72
+#: static/app/core/images/detail/image-detail.html:28
 #: static/app/core/images/filters/image-type.filter.js:41
 msgid "Image"
 msgstr ""
 
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/launch-instance-model.service.js:403
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/launch-instance-model.service.js:413
 #: dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:73
 msgid "Instance Snapshot"
 msgstr ""
 
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/launch-instance-model.service.js:411
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/launch-instance-model.service.js:421
 #: dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:74
 msgid "Volume"
 msgstr ""
 
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/launch-instance-model.service.js:415
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/launch-instance-model.service.js:425
 #: dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:75
 msgid "Volume Snapshot"
 msgstr ""
@@ -1051,11 +1053,11 @@ msgstr ""
 msgid "Configuration"
 msgstr ""
 
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/configuration/configuration.controller.js:54
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/configuration/configuration.controller.js:41
 msgid "Automatic"
 msgstr ""
 
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/configuration/configuration.controller.js:55
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/configuration/configuration.controller.js:42
 msgid "Manual"
 msgstr ""
 
@@ -1174,31 +1176,40 @@ msgstr ""
 msgid "Total RAM"
 msgstr ""
 
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/flavor/flavor.controller.js:279
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/flavor/flavor.controller.js:46
+msgid "image"
+msgstr ""
+
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/flavor/flavor.controller.js:47
+msgid "snapshot"
+msgstr ""
+
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/flavor/flavor.controller.js:285
 msgid ""
 "This flavor requires more RAM than your quota allows. Please select a "
 "smaller flavor or decrease the instance count."
 msgstr ""
 
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/flavor/flavor.controller.js:292
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/flavor/flavor.controller.js:298
 msgid ""
 "This flavor requires more VCPUs than your quota allows. Please select a "
 "smaller flavor or decrease the instance count."
 msgstr ""
 
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/flavor/flavor.controller.js:301
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/flavor/flavor.controller.js:308
 #, python-format
 msgid ""
-"The selected image source requires a flavor with at least %(minDisk)s GB "
-"of root disk. Select a flavor with a larger root disk or use a different "
-"image source."
+"The selected %(sourceType)s source requires a flavor with at least "
+"%(minDisk)s GB of root disk. Select a flavor with a larger root disk or "
+"use a different %(sourceType)s source."
 msgstr ""
 
-#: dashboards/project/static/dashboard/project/workflow/launch-instance/flavor/flavor.controller.js:311
+#: dashboards/project/static/dashboard/project/workflow/launch-instance/flavor/flavor.controller.js:321
 #, python-format
 msgid ""
-"The selected image source requires a flavor with at least %(minRam)s MB "
-"of RAM. Select a flavor with more RAM or use a different image source."
+"The selected %(sourceType)s source requires a flavor with at least "
+"%(minRam)s MB of RAM. Select a flavor with more RAM or use a different "
+"%(sourceType)s source."
 msgstr ""
 
 #: dashboards/project/static/dashboard/project/workflow/launch-instance/flavor/flavor.help.html:2
@@ -1436,7 +1447,8 @@ msgstr ""
 #: dashboards/project/static/dashboard/project/workflow/launch-instance/network/network.html:114
 #: dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:160
 #: dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:241
-#: static/app/core/images/table/images-table.html:41
+#: static/app/core/images/detail/image-detail.html:10
+#: static/app/core/images/table/images-table.html:40
 msgid "Status"
 msgstr ""
 
@@ -1567,8 +1579,9 @@ msgstr ""
 #: dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:152
 #: dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:253
 #: dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:273
+#: static/app/core/images/detail/image-detail.html:18
 #: static/app/core/images/steps/create-volume/create-volume.html:28
-#: static/app/core/images/table/images-table.html:40
+#: static/app/core/images/table/images-table.html:39
 msgid "Type"
 msgstr ""
 
@@ -1726,6 +1739,7 @@ msgstr ""
 #: dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:136
 #: dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:143
 #: dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:259
+#: static/app/core/images/detail/image-detail.html:82
 msgid "Updated"
 msgstr ""
 
@@ -1734,21 +1748,24 @@ msgstr ""
 #: dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:151
 #: dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:158
 #: dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:236
-#: static/app/core/images/table/images-table.html:45
-#: static/app/core/images/table/images-table.html:117
+#: static/app/core/images/detail/image-detail.html:32
+#: static/app/core/images/table/images-table.html:44
+#: static/app/core/images/table/images-table.html:116
 msgid "Size"
 msgstr ""
 
 #: dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:139
 #: dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:146
 #: dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:264
-#: static/app/core/images/table/images-table.html:42
-#: static/app/core/images/table/images-table.html:105
+#: static/app/core/images/detail/image-detail.html:58
+#: static/app/core/images/table/images-table.html:41
+#: static/app/core/images/table/images-table.html:104
 msgid "Visibility"
 msgstr ""
 
 #: dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:159
 #: dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:212
+#: static/app/core/images/detail/image-detail.html:78
 msgid "Created"
 msgstr ""
 
@@ -1966,6 +1983,57 @@ msgstr ""
 msgid "Unable to delete Image: %s."
 msgstr ""
 
+#: static/app/core/images/detail/image-detail.html:4
+#: static/app/core/images/table/images-table.html:1
+msgid "Images"
+msgstr ""
+
+#: static/app/core/images/detail/image-detail.html:14
+msgid "Filename"
+msgstr ""
+
+#: static/app/core/images/detail/image-detail.html:25
+msgid "Overview"
+msgstr ""
+
+#: static/app/core/images/detail/image-detail.html:36
+msgid "Min. Disk"
+msgstr ""
+
+#: static/app/core/images/detail/image-detail.html:40
+msgid "Min. RAM"
+msgstr ""
+
+#: static/app/core/images/detail/image-detail.html:44
+msgid "Disk Format"
+msgstr ""
+
+#: static/app/core/images/detail/image-detail.html:48
+msgid "Container Format"
+msgstr ""
+
+#: static/app/core/images/detail/image-detail.html:54
+msgid "Security"
+msgstr ""
+
+#: static/app/core/images/detail/image-detail.html:62
+#: static/app/core/images/table/images-table.html:42
+#: static/app/core/images/table/images-table.html:108
+msgid "Protected"
+msgstr ""
+
+#: static/app/core/images/detail/image-detail.html:66
+msgid "Checksum"
+msgstr ""
+
+#: static/app/core/images/detail/image-detail.html:74
+msgid "Record Properties"
+msgstr ""
+
+#: static/app/core/images/detail/image-detail.html:92
+msgid "Custom Properties"
+msgstr ""
+
 #: static/app/core/images/filters/image-status.filter.js:36
 msgid "Saving"
 msgstr ""
@@ -2039,29 +2107,20 @@ msgstr ""
 msgid "Select a zone"
 msgstr ""
 
-#: static/app/core/images/table/images-table.html:1
-msgid "Images"
-msgstr ""
-
-#: static/app/core/images/table/images-table.html:39
+#: static/app/core/images/table/images-table.html:38
 msgid "Image Name"
 msgstr ""
 
 #: static/app/core/images/table/images-table.html:43
-#: static/app/core/images/table/images-table.html:109
-msgid "Protected"
-msgstr ""
-
-#: static/app/core/images/table/images-table.html:44
-#: static/app/core/images/table/images-table.html:113
+#: static/app/core/images/table/images-table.html:112
 msgid "Format"
 msgstr ""
 
-#: static/app/core/images/table/images-table.html:125
+#: static/app/core/images/table/images-table.html:124
 msgid "Min Disk (GB)"
 msgstr ""
 
-#: static/app/core/images/table/images-table.html:129
+#: static/app/core/images/table/images-table.html:128
 msgid "Min RAM (MB)"
 msgstr ""
 
@@ -2171,26 +2230,27 @@ msgid "Unable to update the image."
 msgstr ""
 
 #: static/app/core/openstack-service-api/glance.service.js:204
-msgid "Unable to delete the image with id: "
+#, python-format
+msgid "Unable to delete the image with id: %(id)s"
 msgstr ""
 
-#: static/app/core/openstack-service-api/glance.service.js:217
+#: static/app/core/openstack-service-api/glance.service.js:218
 msgid "Unable to retrieve the image custom properties."
 msgstr ""
 
-#: static/app/core/openstack-service-api/glance.service.js:238
+#: static/app/core/openstack-service-api/glance.service.js:239
 msgid "Unable to edit the image custom properties."
 msgstr ""
 
-#: static/app/core/openstack-service-api/glance.service.js:280
+#: static/app/core/openstack-service-api/glance.service.js:281
 msgid "Unable to retrieve the images."
 msgstr ""
 
-#: static/app/core/openstack-service-api/glance.service.js:348
+#: static/app/core/openstack-service-api/glance.service.js:349
 msgid "Unable to retrieve the namespaces."
 msgstr ""
 
-#: static/app/core/openstack-service-api/glance.service.js:373
+#: static/app/core/openstack-service-api/glance.service.js:374
 msgid "Unable to retrieve the resource types."
 msgstr ""
 

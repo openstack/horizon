@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2016-02-07 23:20+0000\n"
+"POT-Creation-Date: 2016-02-18 02:36+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -4079,13 +4079,6 @@ msgstr "જાહેર URL"
 msgid "QCOW2 - QEMU Emulator"
 msgstr "QCOW2 - QEMU ઇમ્યુલેટર"
 
-msgid "QoS Spec Consumer"
-msgstr "QoS સ્પેક ઉપભોક્તા"
-
-msgid ""
-"QoS Spec consumer value must be different than the current consumer value."
-msgstr "QoS સ્પેક ઉપભોક્તા મૂલ્ય વર્તમાન ઉપભોક્તા મૂલ્ય કરતાં અલગ હોવા જ જોઈએ."
-
 msgid "QoS Spec to be associated"
 msgstr "QoS સ્પેક સંકળાયેલ હોઈ"
 
@@ -6454,9 +6447,6 @@ msgstr "મૂળભૂતોને સુધારો"
 
 msgid "Update Group"
 msgstr "જૂથ અદ્યતન કરો"
-
-msgid "Update Image"
-msgstr "ઈમેજ સુધારો"
 
 msgid "Update Metadata"
 msgstr "મેટાડેટા સુધારો"

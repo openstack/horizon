@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2016-02-07 23:20+0000\n"
+"POT-Creation-Date: 2016-02-18 02:36+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -675,13 +675,6 @@ msgstr ""
 "klíč SSH do\n"
 "        vyhrazeného prostoru."
 
-msgid ""
-"Key Pairs are how you login to your instance after it is launched.\n"
-"        Choose a key pair name you will recognize."
-msgstr ""
-"Pár klíčů je způsob jak se přihlásit do instance po jejím spuštění. \n"
-"        Zvolte název páru klíčů, který si zapamatujete."
-
 msgid "Killed"
 msgstr "Ukončit"
 
@@ -802,9 +795,6 @@ msgstr "Žádné dostupné položky"
 msgid "Number"
 msgstr "Číslo"
 
-msgid "OK"
-msgstr "OK"
-
 msgid "Older"
 msgstr "Starší"
 
@@ -882,9 +872,6 @@ msgstr "Hlavní"
 
 msgid "Private"
 msgstr "Soukromé"
-
-msgid "Private Key"
-msgstr "Soukromý klíč"
 
 msgid "Profile"
 msgstr "Profil"
@@ -1090,10 +1077,6 @@ msgid "Success"
 msgstr "Úspěch"
 
 #, python-format
-msgid "Successfully created key pair %(name)s."
-msgstr "Úspěšně vytvořen pár klíčů %(name)s."
-
-#, python-format
 msgid "Successfully imported key pair %(name)s."
 msgstr "Úspěšně importován pár klíčů %(name)s."
 
@@ -1141,24 +1124,6 @@ msgid ""
 msgstr ""
 "Počet instancí nesmí překročit vaši dostupnou kvótu %(maxInstanceCount)s "
 "instancí"
-
-#, python-format
-msgid ""
-"The selected image source requires a flavor with at least %(minDisk)s GB of "
-"root disk. Select a flavor with a larger root disk or use a different image "
-"source."
-msgstr ""
-"Zvolený zdroj obrazu vyžaduje konfiguraci mající minimálně %(minDisk)s GB na "
-"kořenovém disku. Vyberte konfiguraci s větším kořenovým diskem, nebo "
-"použijte jiný zdroj obrazu."
-
-#, python-format
-msgid ""
-"The selected image source requires a flavor with at least %(minRam)s MB of "
-"RAM. Select a flavor with more RAM or use a different image source."
-msgstr ""
-"Zvolený zdroj obrazu vyžaduje konfiguraci mající minimálně %(minRam)s MB "
-"RAM. Vyberte konfiguraci s větší pamětí RAM, nebo použijte jiný zdroj obrazu."
 
 msgid "The status indicates whether the network has an active connection."
 msgstr "Stav udává, zda síť má aktivní připojení."
@@ -1209,9 +1174,6 @@ msgid ""
 msgstr ""
 "Toto je jednoduchá komponenta přes celou obrazovku, pokud chcete zvláště "
 "upozornit na určitý obsah nebo informace."
-
-msgid "This is your new key pair. Copy this information and keep it secure."
-msgstr "Toto je váš nový pár klíčů. Tyto údaje si zkopírujte a opatrujte je."
 
 msgid ""
 "To view source code, hover over a section, then click the <a><span></span></"
@@ -1289,9 +1251,6 @@ msgstr "Nelze smazat doménu."
 
 msgid "Unable to delete the domains."
 msgstr "Nelze smazat domény."
-
-msgid "Unable to delete the image with id: "
-msgstr "Nelze smazat obraz s id:"
 
 msgid "Unable to delete the project."
 msgstr "Nelze smazat projekt."

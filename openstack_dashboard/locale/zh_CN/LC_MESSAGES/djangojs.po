@@ -13,7 +13,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2016-02-07 23:20+0000\n"
+"POT-Creation-Date: 2016-02-18 02:36+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -315,13 +315,6 @@ msgstr ""
 "选择一个您易于识别的密钥对名字，并把您的SSH公钥粘贴到\n"
 "空白处。"
 
-msgid ""
-"Key Pairs are how you login to your instance after it is launched.\n"
-"        Choose a key pair name you will recognize."
-msgstr ""
-"密钥对是您在实例启动后登陆进去的一种方式。\n"
-"选择一个您易于识别的密钥对名字。"
-
 msgid "Killed"
 msgstr "终止"
 
@@ -376,9 +369,6 @@ msgstr "没有可选项"
 msgid "Number"
 msgstr "序号"
 
-msgid "OK"
-msgstr "确定"
-
 msgid "Pending Delete"
 msgstr "等待删除完成"
 
@@ -390,9 +380,6 @@ msgstr "策略检查失败。"
 
 msgid "Private"
 msgstr "私有"
-
-msgid "Private Key"
-msgstr "私钥"
 
 msgid "Profile"
 msgstr "概要"
@@ -538,10 +525,6 @@ msgid "Subnets Associated"
 msgstr "子网已连接"
 
 #, python-format
-msgid "Successfully created key pair %(name)s."
-msgstr "成功创建密钥对%(name)s"
-
-#, python-format
 msgid "Successfully imported key pair %(name)s."
 msgstr "成功导入密钥对%(name)s"
 
@@ -565,23 +548,6 @@ msgid ""
 "The instance count must not exceed your quota available of "
 "%(maxInstanceCount)s instances"
 msgstr "实例数不能超过您的最大可用%(maxInstanceCount)s 实例数"
-
-#, python-format
-msgid ""
-"The selected image source requires a flavor with at least %(minDisk)s GB of "
-"root disk. Select a flavor with a larger root disk or use a different image "
-"source."
-msgstr ""
-"选择的源镜像需要一个至少%(minDisk)s GB根磁盘的类型。请选择一个更大根磁盘的类"
-"型或使用一个不同源镜像。"
-
-#, python-format
-msgid ""
-"The selected image source requires a flavor with at least %(minRam)s MB of "
-"RAM. Select a flavor with more RAM or use a different image source."
-msgstr ""
-"选择的源镜像需要一个至少%(minRam)s MB内存的类型。请选择一个更大内存的类型或使"
-"用一个不同源镜像。"
 
 msgid "The status indicates whether the network has an active connection."
 msgstr "状态表明网络是否处于活跃连接。"
@@ -624,9 +590,6 @@ msgid ""
 msgstr ""
 "这个类型需要比您的配额允许的更多的虚拟处理器核数。请选择一个小的类型或减少实"
 "例数。"
-
-msgid "This is your new key pair. Copy this information and keep it secure."
-msgstr "这是您新的密钥对。复制这些信息并安全保存。"
 
 msgid "Total Disk"
 msgstr "磁盘总计"

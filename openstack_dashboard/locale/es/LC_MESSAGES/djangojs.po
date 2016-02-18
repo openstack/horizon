@@ -15,7 +15,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2016-02-07 23:20+0000\n"
+"POT-Creation-Date: 2016-02-18 02:36+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -356,13 +356,6 @@ msgstr ""
 "pública SSH en el \n"
 "campo proporcionado."
 
-msgid ""
-"Key Pairs are how you login to your instance after it is launched.\n"
-"        Choose a key pair name you will recognize."
-msgstr ""
-"Puede iniciar sesión a su instancia con pares de clave después de lanzarla.\n"
-"        Escoja un nombre de par de clave que pueda reconocer."
-
 msgid "Killed"
 msgstr "Terminado forzosamente"
 
@@ -421,9 +414,6 @@ msgstr "No hay ítems disponibles"
 msgid "Number"
 msgstr "Número"
 
-msgid "OK"
-msgstr "OK"
-
 msgid "Pending Delete"
 msgstr "Pendiente a Eliminar"
 
@@ -435,9 +425,6 @@ msgstr "Comprobación de política fallada."
 
 msgid "Private"
 msgstr "Privado"
-
-msgid "Private Key"
-msgstr "Clave privada"
 
 msgid "Profile"
 msgstr "Perfil"
@@ -590,10 +577,6 @@ msgid "Subnets Associated"
 msgstr "Subredes Asociadas"
 
 #, python-format
-msgid "Successfully created key pair %(name)s."
-msgstr "Se creado correctamente el par de claves %(name)s."
-
-#, python-format
 msgid "Successfully imported key pair %(name)s."
 msgstr "Se ha importado correctamente el par de claves %(name)s."
 
@@ -622,25 +605,6 @@ msgid ""
 msgstr ""
 "El número de instancias no debe exceder su quota disponible de "
 "%(maxInstanceCount)s instancias."
-
-#, python-format
-msgid ""
-"The selected image source requires a flavor with at least %(minDisk)s GB of "
-"root disk. Select a flavor with a larger root disk or use a different image "
-"source."
-msgstr ""
-"El origen de imagen seleccionado necesita de un sabor con al menos "
-"%(minDisk)s GB de disco raíz. Escoja un sabor con un disco raíz mayor o "
-"utilice otro origen de imagen."
-
-#, python-format
-msgid ""
-"The selected image source requires a flavor with at least %(minRam)s MB of "
-"RAM. Select a flavor with more RAM or use a different image source."
-msgstr ""
-"El origen de imagen seleccionado necesita de un sabor con al menos "
-"%(minRam)s MB de RAM. Escoja un sabor con más RAM o utilice otro origen de "
-"imagen."
 
 msgid "The status indicates whether the network has an active connection."
 msgstr "El estado indica si la red tiene una conexión activa"
@@ -685,10 +649,6 @@ msgid ""
 msgstr ""
 "Este sabor necesita más CPU's virtuales que las que su quota permite. Por "
 "favor, escoja un sabor más pequeño o reduzca el número de instancias."
-
-msgid "This is your new key pair. Copy this information and keep it secure."
-msgstr ""
-"Esta es su nueva par de claves. Copie esta información y manténgala segura."
 
 msgid "Total Disk"
 msgstr "Total de Disco"
