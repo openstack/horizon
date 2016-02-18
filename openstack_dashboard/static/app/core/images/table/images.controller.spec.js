@@ -123,13 +123,14 @@
         expectedImages['2']
       ]);
 
+      spyOn($scope, '$emit').and.callThrough();
       $scope.$emit(events.DELETE_SUCCESS, ['1']);
 
-      expect($scope.selected).toEqual({});
-      expect($scope.numSelected).toEqual(0);
       expect(ctrl.imagesSrc).toEqual([
         expectedImages['2']
       ]);
+
+      expect($scope.$emit).toHaveBeenCalledWith('hzTable:clearSelected');
     });
 
     it('should destroy the event watchers', function() {
