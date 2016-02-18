@@ -37,7 +37,7 @@
     <tr ng-repeat="flavor in table.iflavors track by flavor.id">
       <td class="select-col">
         <input type="checkbox"
-               ng-model="selected[flavor.id].checked"
+               ng-model="tCtrl.selections[flavor.id].checked"
                hz-select="flavor">
       </td>
       <td class="rsp-p1">{$ flavor.name $}</td>
