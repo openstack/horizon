@@ -47,17 +47,14 @@
       }
     };
 
-    var keyStoneAPI = {
-      getCurrentUserSession: function() {
-        return {
-          success: function(callback) {
-            callback({project_id: 'project'});
-          }
-        };
+    var userSession = {
+      isCurrentProject: function() {
+        deferred.resolve();
+        return deferred.promise;
       }
     };
 
-    var service, $scope;
+    var deferred, service, $scope;
 
     ///////////////////////
 
@@ -73,14 +70,15 @@
       $provide.value('horizon.app.core.openstack-service-api.glance', glanceAPI);
       spyOn(policyAPI, 'ifAllowed').and.callThrough();
       $provide.value('horizon.app.core.openstack-service-api.policy', policyAPI);
-      spyOn(keyStoneAPI, 'getCurrentUserSession').and.callThrough();
-      $provide.value('horizon.app.core.openstack-service-api.keystone', keyStoneAPI);
+      spyOn(userSession, 'isCurrentProject').and.callThrough();
+      $provide.value('horizon.app.core.openstack-service-api.userSession', userSession);
     }));
 
-    beforeEach(inject(function($injector, _$rootScope_) {
+    beforeEach(inject(function($injector, _$rootScope_, $q) {
       $scope = _$rootScope_.$new();
       service = $injector.get('horizon.app.core.images.actions.delete-image.service');
       service.initScope($scope, context);
+      deferred = $q.defer();
     }));
 
     it('should open the delete modal with correct messages', function() {
@@ -179,6 +177,8 @@
 
       spyOn(deleteModalService, 'open');
 
+      deferred.reject();
+      service.initScope($scope, context);
       service.perform(images);
       $scope.$apply();
 
@@ -216,6 +216,7 @@
 
     it('should not allow delete if image is not owned by user', function() {
       var image = {protected: false, owner: 'another_project', status: 'active'};
+      deferred.reject();
       permissionShouldFail(service.allowed(image));
       $scope.$apply();
     });
