@@ -17,7 +17,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2016-02-07 23:20+0000\n"
+"POT-Creation-Date: 2016-02-18 02:36+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -4743,9 +4743,6 @@ msgstr "網路媒介"
 msgid "Network Details"
 msgstr "網路詳細資訊"
 
-msgid "Network Details: {{ network.name }}"
-msgstr "網路詳細資訊：{{ network.name }}"
-
 msgid "Network ID"
 msgstr "網路識別號"
 
@@ -5593,13 +5590,6 @@ msgstr "公開網址"
 
 msgid "QCOW2 - QEMU Emulator"
 msgstr "QCOW2 - QEMU 模擬器"
-
-msgid "QoS Spec Consumer"
-msgstr "QoS 規格規範用戶"
-
-msgid ""
-"QoS Spec consumer value must be different than the current consumer value."
-msgstr "QoS 規格規範用戶值必須與目前的規範用戶值不同。"
 
 msgid "QoS Spec to be associated"
 msgstr "欲聯結的 QoS 規格"
@@ -8757,9 +8747,6 @@ msgstr "更新失敗"
 
 msgid "Update Group"
 msgstr "更新群組"
-
-msgid "Update Image"
-msgstr "更新映像檔"
 
 msgctxt "current status of stack"
 msgid "Update In Progress"

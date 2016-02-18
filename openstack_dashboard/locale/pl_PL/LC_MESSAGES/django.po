@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2016-02-07 23:20+0000\n"
+"POT-Creation-Date: 2016-02-18 02:36+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -5044,9 +5044,6 @@ msgstr "Agenci sieciowi"
 msgid "Network Details"
 msgstr "Szczegóły sieci"
 
-msgid "Network Details: {{ network.name }}"
-msgstr "Szczegóły sieci: {{ network.name }}"
-
 msgid "Network ID"
 msgstr "ID sieci"
 
@@ -5913,15 +5910,6 @@ msgstr "Publiczny adres URL"
 
 msgid "QCOW2 - QEMU Emulator"
 msgstr "QCOW2 - QEMU Emulator"
-
-msgid "QoS Spec Consumer"
-msgstr "Konsument specyfikacji QoS"
-
-msgid ""
-"QoS Spec consumer value must be different than the current consumer value."
-msgstr ""
-"Wartość konsumenta specyfikacji QoS musi być różna od obecnej wartości "
-"konsumenta."
 
 msgid "QoS Spec to be associated"
 msgstr "Specyfikacja QoS do powiązania"
@@ -9230,9 +9218,6 @@ msgstr "Aktualizacja nieudana"
 
 msgid "Update Group"
 msgstr "Aktualizuj grupę"
-
-msgid "Update Image"
-msgstr "Aktualizuj obraz"
 
 msgctxt "current status of stack"
 msgid "Update In Progress"

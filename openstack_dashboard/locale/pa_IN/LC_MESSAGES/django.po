@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2016-02-07 23:20+0000\n"
+"POT-Creation-Date: 2016-02-18 02:36+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -4097,14 +4097,6 @@ msgstr "پبلك URL"
 msgid "QCOW2 - QEMU Emulator"
 msgstr "QCOW2 - QEMU ਇਮੂਲੇਟਰ"
 
-msgid "QoS Spec Consumer"
-msgstr "QoS كی تصریح کنزیومر"
-
-msgid ""
-"QoS Spec consumer value must be different than the current consumer value."
-msgstr ""
-"QoS تصریح صارفین کی قیمت موجودہ صارفین قیمت کے مقابلے میں مختلف ہونا چاہئے."
-
 msgid "QoS Spec to be associated"
 msgstr "شامل جانے والے QoS تصریح"
 
@@ -6400,9 +6392,6 @@ msgstr "ڈیفالٹس اپ ڈیٹ کریں"
 
 msgid "Update Group"
 msgstr "گروپ كو اپ ڈیٹ كریں"
-
-msgid "Update Image"
-msgstr "امیج اپ ڈیٹ کریں"
 
 msgid "Update Metadata"
 msgstr "میٹا ڈیٹا کو اپ ڈیٹ کریں"

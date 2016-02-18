@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2016-02-07 23:20+0000\n"
+"POT-Creation-Date: 2016-02-18 02:36+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -658,13 +658,6 @@ msgstr ""
 "        인식시킬 키 페이를 선택하고, SSH 공개 키를 제공된 공간에\n"
 "        붙여넣습니다."
 
-msgid ""
-"Key Pairs are how you login to your instance after it is launched.\n"
-"        Choose a key pair name you will recognize."
-msgstr ""
-"키 페어는 인스턴스가 구동된 후 누군가 로그인하는 방법입니다.\n"
-"        인식시킬 키 페어를 선택합니다."
-
 msgid "Killed"
 msgstr "Killed"
 
@@ -788,9 +781,6 @@ msgstr "사용 가능한 항목 없음"
 msgid "Number"
 msgstr "Number"
 
-msgid "OK"
-msgstr "OK"
-
 msgid "Older"
 msgstr "Older"
 
@@ -862,9 +852,6 @@ msgstr "Primary"
 
 msgid "Private"
 msgstr "사설"
-
-msgid "Private Key"
-msgstr "개인 키"
 
 msgid "Profile"
 msgstr "Profile"
@@ -1070,10 +1057,6 @@ msgid "Success"
 msgstr "Success"
 
 #, python-format
-msgid "Successfully created key pair %(name)s."
-msgstr "%(name)s 키 페어를 성공적으로 생성하였습니다."
-
-#, python-format
 msgid "Successfully imported key pair %(name)s."
 msgstr "%(name)s 키 페어를 성공적으로 가져왔습니다."
 
@@ -1125,23 +1108,6 @@ msgstr ""
 "인스턴스 개수는 %(maxInstanceCount)s 인스턴스 중 사용 가능한 quota 량을 초과"
 "하지 않아야 합니다"
 
-#, python-format
-msgid ""
-"The selected image source requires a flavor with at least %(minDisk)s GB of "
-"root disk. Select a flavor with a larger root disk or use a different image "
-"source."
-msgstr ""
-"선택한 이미지 소스는 root 디스크가 최소 %(minDisk)s GB인 flavor가 필요합니"
-"다. Root 디스크가 더 큰 flavor를 선택하거나 다른 이미지 소스를 사용하십시오."
-
-#, python-format
-msgid ""
-"The selected image source requires a flavor with at least %(minRam)s MB of "
-"RAM. Select a flavor with more RAM or use a different image source."
-msgstr ""
-"선택한 이미지 소스는 최소 %(minRam)s MB 만큼의 RAM을 필요로 하는 flavor입니"
-"다. 보다 많은 RAM을 가진 flavor를 선택하거나 다른 이미지 소스를 사용하세요."
-
 msgid "The status indicates whether the network has an active connection."
 msgstr "해당 상태는 네트워크가 활성화된 연결을 이루고 있는지를 가리킵니다."
 
@@ -1192,9 +1158,6 @@ msgid ""
 msgstr ""
 "This is a simple hero unit, a simple jumbotron-style component for calling "
 "extra attention to featured content or information."
-
-msgid "This is your new key pair. Copy this information and keep it secure."
-msgstr "당신의 새로운 키 페어입니다. 이 정보를 복사하여 보안을 유지하십시오."
 
 msgid "This limit is currently not set."
 msgstr "제한 값이 현재 설정되지 않았습니다."

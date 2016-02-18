@@ -13,7 +13,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2016-02-11 05:31+0000\n"
+"POT-Creation-Date: 2016-02-18 02:36+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -5399,9 +5399,6 @@ msgstr "Network Agents"
 msgid "Network Details"
 msgstr "Network Details"
 
-msgid "Network Details: {{ network.name }}"
-msgstr "Network Details: {{ network.name }}"
-
 msgid "Network ID"
 msgstr "Network ID"
 
@@ -6288,14 +6285,6 @@ msgstr "Public URL"
 
 msgid "QCOW2 - QEMU Emulator"
 msgstr "QCOW2 - QEMU Emulator"
-
-msgid "QoS Spec Consumer"
-msgstr "QoS Spec Consumer"
-
-msgid ""
-"QoS Spec consumer value must be different than the current consumer value."
-msgstr ""
-"QoS Spec consumer value must be different than the current consumer value."
 
 #, python-format
 msgid "QoS Spec name \"%s\" already exists."
@@ -9789,9 +9778,6 @@ msgstr "Update Group"
 
 msgid "Update Identity Provider"
 msgstr "Update Identity Provider"
-
-msgid "Update Image"
-msgstr "Update Image"
 
 msgctxt "current status of stack"
 msgid "Update In Progress"
