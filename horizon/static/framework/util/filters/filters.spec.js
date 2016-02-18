@@ -151,6 +151,15 @@
         expect(noValueFilter('')).toBe('-');
         expect(noValueFilter('     ')).toBe('-');
       });
+
+      it('replaces undefined, null, blank with provided value', function () {
+        expect(noValueFilter(null, 'default')).toBe('default');
+        expect(noValueFilter(undefined, 'default')).toBe('default');
+        expect(noValueFilter('', 'default')).toBe('default');
+        expect(noValueFilter('     ', 'default')).toBe('default');
+        expect(noValueFilter('value', 'default')).toBe('value');
+        expect(noValueFilter(false, 'default')).toBe(false);
+      });
     });
 
     describe('noName', function () {
