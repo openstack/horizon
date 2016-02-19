@@ -43,9 +43,9 @@
               var pass = actual.css('display') !== 'none';
               var result = {
                 pass: pass,
-                message: pass ?
-                  'Expected element to be visible' :
-                  'Expected element to be visible, but it is hidden'
+                message: pass
+                  ? 'Expected element to be visible'
+                  : 'Expected element to be visible, but it is hidden'
               };
               return result;
             }

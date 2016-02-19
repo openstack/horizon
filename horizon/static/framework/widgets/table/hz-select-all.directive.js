@@ -86,8 +86,8 @@
        * on sort, filter and pagination
        */
       var unWatchTableState = scope.$watch(function() {
-          return stTableCtrl.tableState();
-        },
+        return stTableCtrl.tableState();
+      },
         updateSelectAll,
         true
       );
