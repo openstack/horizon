@@ -1159,15 +1159,20 @@ class VolumeViewTests(test.TestCase):
                         'The create button should be disabled')
 
     @test.create_stubs({cinder: ('tenant_absolute_limits',
-                                 'volume_get',),
+                                 'volume_get',
+                                 'volume_snapshot_list'),
                         api.nova: ('server_get',)})
     def test_detail_view(self):
         volume = self.cinder_volumes.first()
         server = self.servers.first()
+        snapshots = self.cinder_volume_snapshots.list()
 
         volume.attachments = [{"server_id": server.id}]
 
         cinder.volume_get(IsA(http.HttpRequest), volume.id).AndReturn(volume)
+        cinder.volume_snapshot_list(IsA(http.HttpRequest),
+                                    search_opts={'volume_id': volume.id})\
+            .AndReturn(snapshots)
         api.nova.server_get(IsA(http.HttpRequest), server.id).AndReturn(server)
         cinder.tenant_absolute_limits(IsA(http.HttpRequest))\
             .AndReturn(self.cinder_limits['absolute'])
