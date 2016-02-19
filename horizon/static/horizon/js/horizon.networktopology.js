@@ -53,7 +53,6 @@ function Server(data) {
 }
 
 horizon.network_topology = {
-  model: null,
   fa_globe_glyph: '\uf0ac',
   fa_globe_glyph_width: 15,
   svg:'#topology_canvas',
@@ -63,7 +62,6 @@ horizon.network_topology = {
   zoom: d3.behavior.zoom(),
   data_loaded: false,
   svg_container:'#topologyCanvasContainer',
-  post_messages:'#topologyMessages',
   balloonTmpl : null,
   balloon_deviceTmpl : null,
   balloon_portTmpl : null,
@@ -71,10 +69,7 @@ horizon.network_topology = {
   balloon_instanceTmpl : null,
   network_index: {},
   balloonID:null,
-  reload_duration: 10000,
   network_height : 0,
-  previous_message : null,
-  deleting_device : null,
 
   init:function() {
     var self = this;
@@ -136,53 +131,49 @@ horizon.network_topology = {
       horizon.cookies.put('are_networks_collapsed', !current);
     });
 
-    angular.element(window).on('message', function(e) {
-        var message = angular.element.parseJSON(e.originalEvent.data);
-        if (self.previous_message !== message.message) {
-          horizon.alert(message.type, message.message);
-          self.previous_message = message.message;
-          self.delete_post_message(message.iframe_id);
-          if (message.type == 'success' && self.deleting_device) {
-            self.remove_node_on_delete();
-          }
-          self.retrieve_network_info();
-          setTimeout(function() {
-            self.previous_message = null;
-          },10000);
-        }
-      });
-
     angular.element('#topologyCanvasContainer').spin(horizon.conf.spinner_options.modal);
     self.create_vis();
     self.loading();
     self.force_direction(0.05,70,-700);
-    self.retrieve_network_info(true);
+    if(horizon.networktopologyloader.model !== null) {
+      self.retrieve_network_info(true);
+    }
+
+    d3.select(window).on('resize', function() {
+      var width = angular.element('#topologyCanvasContainer').width();
+      var height = angular.element('#topologyCanvasContainer').height();
+      self.force.size([width, height]).resume();
+    });
+
+    angular.element('#networktopology').on('change', function() {
+      self.retrieve_network_info(true);
+    });
+
+    // register for message notifications
+    horizon.networktopologymessager.addMessageHandler(this.handleMessage, this);
+  },
+
+  handleMessage:function(message) {
+    var self = this;
+    var deleteData = horizon.networktopologymessager.delete_data;
+    if (message.type == 'success') {
+      self.remove_node_on_delete(deleteData);
+    }
   },
 
   // Get the json data about the current deployment
   retrieve_network_info: function(force_start) {
     var self = this;
-    if (angular.element('#networktopology').length === 0) {
-      return;
-    }
-    angular.element.getJSON(
-      angular.element('#networktopology').data('networktopology') + '?' + angular.element.now(),
-      function(data) {
-        self.data_loaded = true;
-        self.load_topology(data);
-        if (force_start) {
-          var i = 0;
-          self.force.start();
-          while (i <= 100) {
-            self.force.tick();
-            i++;
-          }
-        }
-        setTimeout(function() {
-          self.retrieve_network_info();
-        }, self.reload_duration);
+    self.data_loaded = true;
+    self.load_topology(horizon.networktopologyloader.model);
+    if (force_start) {
+      var i = 0;
+      self.force.start();
+      while (i <= 100) {
+        self.force.tick();
+        i++;
       }
-    );
+    }
   },
 
   // Load config from cookie
@@ -222,7 +213,7 @@ horizon.network_topology = {
     // Main svg
     self.outer_group = d3.select('#topologyCanvasContainer').append('svg')
       .attr('width', '100%')
-      .attr('height', angular.element(document).height() - 200 + "px")
+      .attr('height', angular.element(document).height() - 270 + "px")
       .attr('pointer-events', 'all')
       .append('g')
       .call(self.zoom
@@ -837,17 +828,14 @@ horizon.network_topology = {
   },
 
   delete_device: function(type, deviceId) {
-    var self = this;
     var message = {id:deviceId};
-    self.post_message(deviceId,type,message);
-    self.deleting_device = {type: type, deviceId: deviceId};
+    horizon.networktopologymessager.post_message(deviceId,type,message,type,'delete',data={});
   },
 
-  remove_node_on_delete: function () {
+  remove_node_on_delete: function(deleteData) {
     var self = this;
-    var type = self.deleting_device.type;
-    var deviceId = self.deleting_device.deviceId;
-    switch (type) {
+    var deviceId = deleteData.device_id;
+    switch (deleteData.device_type) {
       case 'router':
         self.removeNode(self.data.routers[deviceId]);
         break;
@@ -858,15 +846,18 @@ horizon.network_topology = {
       case 'network':
         self.removeNode(self.data.networks[deviceId]);
         break;
+      case 'port':
+        self.removePort(deviceId, deleteData.device_data);
+        break;
     }
     self.delete_balloon();
   },
 
-  delete_port: function(routerId, portId, networkId) {
+  removePort: function(portId, deviceData) {
     var self = this;
-    var message = {id:portId};
+    var routerId = deviceData.router_id;
+    var networkId = deviceData.network_id;
     if (routerId) {
-      self.post_message(portId, 'router/' + routerId + '/', message);
       for (var l in self.links) {
         var data = null;
         if(self.links[l].source.data.id == routerId && self.links[l].target.data.id == networkId) {
@@ -874,7 +865,6 @@ horizon.network_topology = {
         } else if (self.links[l].target.data.id == routerId && self.links[l].source.data.id == networkId) {
           data = self.links[l].target.data;
         }
-
         if (data) {
           for (var p in data.ports) {
             if ((data.ports[p].id == portId) && (data.ports[p].network_id == networkId)) {
@@ -888,8 +878,16 @@ horizon.network_topology = {
           }
         }
       }
+    }
+  },
+
+  delete_port: function(routerId, portId, networkId) {
+    var message = {id:portId};
+    var data = {network_id:networkId,routerId:routerId};
+    if (routerId) {
+      horizon.networktopologymessager.post_message(portId, 'router/' + routerId + '/', message, 'port', 'delete', data);
     } else {
-      self.post_message(portId, 'network/' + networkId + '/', message);
+      horizon.networktopologymessager.post_message(portId, 'network/' + networkId + '/', message, 'port', 'delete', data);
     }
   },
 
@@ -1062,21 +1060,5 @@ horizon.network_topology = {
       default:
         return '';
     }
-  },
-
-  post_message: function(id,url,message) {
-    var self = this;
-    var iframeID = 'ifr_' + id;
-    var iframe = angular.element('<iframe width="500" height="300" />')
-      .attr('id',iframeID)
-      .attr('src',url)
-      .appendTo(self.post_messages);
-    iframe.on('load',function() {
-      angular.element(this).get(0).contentWindow.postMessage(
-        JSON.stringify(message, null, 2), '*');
-    });
-  },
-  delete_post_message: function(id) {
-    angular.element('#' + id).remove();
   }
 };

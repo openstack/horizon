@@ -56,6 +56,12 @@ horizon.addInitFunction(horizon.tabs.init = function () {
     $content.find("table.datatable").each(function () {
       horizon.datatables.update_footer_count($(this));
     });
+    // d3 renders incorrectly in a hidden tab, this forces a rerender when the
+    // container size is not 0 from display:none
+    if($content.find(".d3-container").length) {
+      window.dispatchEvent(new Event('resize'));
+    }
+
     data[$tab.closest(".nav-tabs").attr("id")] = $tab.attr('data-target');
     horizon.cookies.put("tabs", data);
   });

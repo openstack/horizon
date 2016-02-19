@@ -209,7 +209,7 @@ class NetworkTopologyCreateTests(test.TestCase):
     @test.create_stubs({quotas: ('tenant_quota_usages',)})
     def test_create_network_button_disabled_when_quota_exceeded(self):
         url = reverse('horizon:project:network_topology:createnetwork')
-        classes = 'btn btn-default btn-sm ajax-modal'
+        classes = 'btn btn-default ajax-modal'
         link_name = "Create Network (Quota exceeded)"
         expected_string = "<a href='%s' class='%s disabled' "\
             "id='networks__action_create'>" \
@@ -222,7 +222,7 @@ class NetworkTopologyCreateTests(test.TestCase):
     @test.create_stubs({quotas: ('tenant_quota_usages',)})
     def test_create_router_button_disabled_when_quota_exceeded(self):
         url = reverse('horizon:project:network_topology:createrouter')
-        classes = 'btn btn-default btn-sm ajax-modal'
+        classes = 'btn btn-default ajax-modal'
         link_name = "Create Router (Quota exceeded)"
         expected_string = "<a href='%s' class='%s disabled' "\
             "id='Routers__action_create'>" \
@@ -236,7 +236,7 @@ class NetworkTopologyCreateTests(test.TestCase):
     @test.create_stubs({quotas: ('tenant_quota_usages',)})
     def test_launch_instance_button_disabled_when_quota_exceeded(self):
         url = reverse('horizon:project:network_topology:launchinstance')
-        classes = 'btn btn-default btn-sm btn-launch ajax-modal'
+        classes = 'btn btn-default btn-launch ajax-modal'
         link_name = "Launch Instance (Quota exceeded)"
         expected_string = "<a href='%s' class='%s disabled' "\
             "id='instances__action_launch'>" \
