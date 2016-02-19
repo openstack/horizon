@@ -76,3 +76,6 @@ $members-list-roles-width: 125px !default;
 // https://github.com/twbs/bootstrap/issues/13443
 $dropdown-item-padding-vertical:   3px;
 $dropdown-item-padding-horizontal: 20px;
+
+// This defines the max-width for a breadcrumb item before it will be truncated
+$breadcrumb-item-width: 15em !default;

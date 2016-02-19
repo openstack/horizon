@@ -1,0 +1,16 @@
+<div class='page-header'>
+  <div class="row">
+    <div class="col-xs-12 col-sm-9 text-left">
+      <span class="h1">{{ page_title }}</span>
+    </div>
+
+    <div class="col-xs-12 col-sm-3 text-right">
+      {% if actions %}
+      <div class='actions_column' action='{{ url }}' method="POST">
+        {% csrf_token %}
+        {{ actions }}
+      </div>
+      {% endif %}
+    </div>
+  </div>
+</div>

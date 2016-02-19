@@ -1,13 +1,10 @@
 {% extends 'base.html' %}
 {% load i18n %}
-{% load breadcrumb_nav %}
 
 {% block title %}{% trans "Project Details" %}{% endblock %}
 
 {% block page_header %}
-  <div class='page-header'>
-    {% breadcrumb_nav %}
-  </div>
+  {% include "horizon/common/_detail_header.html" %}
 {% endblock %}
 
 {% block main %}

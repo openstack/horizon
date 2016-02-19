@@ -1,0 +1,10 @@
+---
+features:
+  - >
+    [`blueprint navigation-improvements <https://blueprints.launchpad.net/horizon/+spec/navigation-improvements>`_] Breadcrumb navigation has been added across Horizon.
+
+upgrade:
+  - The breadcrumb navigation inside the details pages now applies across
+    Horizon. A small change in the logic means that ``custom_breadcrumb``
+    items in the context no longer need to specify the panel name and link.
+    See [`blueprint navigation-improvements <https://blueprints.launchpad.net/horizon/+spec/navigation-improvements>`_]

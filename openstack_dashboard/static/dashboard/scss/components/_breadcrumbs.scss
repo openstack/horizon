@@ -1,0 +1,9 @@
+.breadcrumb {
+  margin-top: $line-height-computed;
+
+  .breadcrumb-item-truncate {
+    @include text-overflow();
+    vertical-align: middle;
+    max-width: $breadcrumb-item-width;
+  }
+}
