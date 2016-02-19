@@ -76,7 +76,8 @@ class AddInterface(forms.SelfHandlingForm):
                          '%s%s (%s)' % (net_name, subnet.cidr,
                                         subnet.name or subnet.id))
                         for subnet in n['subnets']
-                        if subnet.id not in router_subnet_ids]
+                        if subnet.id not in router_subnet_ids
+                        and subnet.gateway_ip]
         if choices:
             choices.insert(0, ("", _("Select Subnet")))
         else:
