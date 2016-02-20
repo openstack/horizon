@@ -162,7 +162,7 @@
     }
 
     function updateStorageGraph() {
-      if (ctrl.volume.size > 0) {
+      if (ctrl.volume.size >= 0) {
         var totalGigabytesAllocated = ctrl.volume.size + ctrl.totalGigabytesUsed;
         ctrl.storageQuota.data[0].value = ctrl.totalGigabytesUsed;
         ctrl.storageQuota.data[1].value = ctrl.volume.size;
