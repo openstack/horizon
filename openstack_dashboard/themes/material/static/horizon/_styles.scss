@@ -33,21 +33,58 @@
 // Border radius is unattractive here
 .navbar {
   border-radius: 0;
+
+  // Must adhere to the bootstrap standards, so navbar elements must
+  // inherit from respective navbar-link color.
+  &-default {
+    .navbar-brand {
+      svg {
+        fill: $navbar-default-link-active-color;
+      }
+    }
+
+    .md-hamburger-layer {
+      background: $navbar-default-link-color;
+
+      &:hover {
+        background: $navbar-default-link-hover-color;
+      }
+    }
+  }
+
+  &-inverse {
+    .navbar-brand {
+      svg {
+        fill: $navbar-inverse-link-active-color;
+      }
+    }
+
+    .md-hamburger-layer {
+      background: $navbar-inverse-link-color;
+
+      &:hover {
+        background: $navbar-inverse-link-hover-color;
+      }
+    }
+
+    .dropdown-header {
+      color: $navbar-inverse-link-color;
+    }
+  }
 }
 
 .navbar-brand {
   svg {
-    fill: $navbar-inverse-link-active-color;
     height: $navbar-height - $padding-small-horizontal*2;
     margin-top: $padding-small-horizontal;
     display: inline-block;
   }
 }
 
-
 // Hamburger menu only shows on smaller screen sizes
 .navbar-header .md-hamburger {
   display: none;
+
   @media (max-width: $screen-lg) {
     display: inline-block;
     float: left;
@@ -58,7 +95,6 @@
     }
   }
 }
-
 
 // The mask that the hamburger menu uses to apply an opacity
 // to the entire page when in smaller screen
