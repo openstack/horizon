@@ -81,20 +81,20 @@
         /*eslint-disable angular/ng_controller_name */
         var hzTableCtrl = $element.controller('hzTable');
         var firstRow = $scope.safeFakeData[0];
-        hzTableCtrl.select(firstRow, true);
+        hzTableCtrl.toggleSelect(firstRow, true);
         /*eslint-enable angular/ng_controller_name */
 
-        var hzTableScope = $element.scope();
-        expect(hzTableScope.selected[firstRow.id]).toBeDefined();
-        expect(hzTableScope.numSelected).toBe(1);
+        expect(hzTableCtrl.selections[firstRow.id]).toBeDefined();
+        expect(hzTableCtrl.numSelected).toBe(1);
       });
     });
 
     describe('hzSelect directive', function() {
-      var checkboxes;
+      var checkboxes, hzTableCtrl;
 
       beforeEach(function() {
         checkboxes = $element.find('input[hz-select]');
+        hzTableCtrl = $element.controller('hzTable');
       });
 
       it('should have numSelected === 1 when first checkbox is clicked', function() {
@@ -102,7 +102,7 @@
         checkbox[0].checked = true;
         checkbox.triggerHandler('click');
 
-        expect($element.scope().numSelected).toBe(1);
+        expect(hzTableCtrl.numSelected).toBe(1);
       });
 
       it('should have numSelected === 0 when first checkbox is clicked, then unclicked',
@@ -111,12 +111,12 @@
           checkbox[0].checked = true;
           checkbox.triggerHandler('click');
 
-          expect($element.scope().numSelected).toBe(1);
+          expect(hzTableCtrl.numSelected).toBe(1);
 
           checkbox[0].checked = false;
           checkbox.triggerHandler('click');
 
-          expect($element.scope().numSelected).toBe(0);
+          expect(hzTableCtrl.numSelected).toBe(0);
         }
       );
 
@@ -126,7 +126,7 @@
           angular.element(checkbox).triggerHandler('click');
         });
 
-        expect($element.scope().numSelected).toBe(3);
+        expect(hzTableCtrl.numSelected).toBe(3);
         expect($element.find('input[hz-select-all]')[0].checked).toBe(true);
       });
 
@@ -138,7 +138,7 @@
           });
 
           // all checkboxes selected so check-all should be checked
-          expect($element.scope().numSelected).toBe(3);
+          expect(hzTableCtrl.numSelected).toBe(3);
           expect($element.find('input[hz-select-all]')[0].checked).toBe(true);
 
           // deselect one checkbox
@@ -147,13 +147,18 @@
           firstCheckbox.triggerHandler('click');
 
           // check-all should be unchecked
-          expect($element.scope().numSelected).toBe(2);
+          expect(hzTableCtrl.numSelected).toBe(2);
           expect($element.find('input[hz-select-all]')[0].checked).toBe(false);
         }
       );
     });
 
     describe('hzSelectAll directive', function() {
+
+      var hzTableCtrl;
+      beforeEach(function() {
+        hzTableCtrl = $element.controller('hzTable');
+      });
 
       it('should not be selected if there are no rows in the table', function() {
         var selectAll = $element.find('input[hz-select-all]').first();
@@ -170,7 +175,7 @@
         selectAll[0].checked = true;
         selectAll.triggerHandler('click');
 
-        expect($element.scope().numSelected).toBe(3);
+        expect(hzTableCtrl.numSelected).toBe(3);
         var checkboxes = $element.find('tbody input[hz-select]');
         angular.forEach(checkboxes, function(checkbox) {
           expect(checkbox.checked).toBe(true);
@@ -184,7 +189,7 @@
 
         var checkboxes = $element.find('tbody input[hz-select]');
 
-        expect($element.scope().numSelected).toBe(3);
+        expect(hzTableCtrl.numSelected).toBe(3);
         angular.forEach(checkboxes, function(checkbox) {
           expect(checkbox.checked).toBe(true);
         });
@@ -192,7 +197,7 @@
         selectAll[0].checked = false;
         selectAll.triggerHandler('click');
 
-        expect($element.scope().numSelected).toBe(0);
+        expect(hzTableCtrl.numSelected).toBe(0);
         angular.forEach(checkboxes, function(checkbox) {
           expect(checkbox.checked).toBe(false);
         });
@@ -209,7 +214,7 @@
         selectAll[0].checked = true;
         selectAll.triggerHandler('click');
 
-        expect($element.scope().numSelected).toBe(3);
+        expect(hzTableCtrl.numSelected).toBe(3);
         var checkboxes = $element.find('tbody input[hz-select]');
         angular.forEach(checkboxes, function(checkbox) {
           expect(checkbox.checked).toBe(true);

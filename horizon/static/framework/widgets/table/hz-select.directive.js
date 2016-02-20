@@ -62,7 +62,7 @@
         scope.$apply(function() {
           scope.$evalAsync(function() {
             var checkedState = element.prop('checked');
-            hzTableCtrl.select(scope.row, checkedState, true);
+            hzTableCtrl.toggleSelect(scope.row, checkedState, true);
           });
         });
       }

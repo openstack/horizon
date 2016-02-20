@@ -53,7 +53,7 @@
    *    <tr ng-repeat="row in displayedCollection">
    *      <td>
    *        <input type='checkbox' hz-select='row'
-   *          ng-model='selected[row.id].checked'/>
+   *          ng-model='tCtrl.selections[row.id].checked'/>
    *      </td>
    *      <td>Foo</td>
    *    </tr>

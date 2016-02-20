@@ -49,7 +49,7 @@
         ng-class="{'st-selected': checked[user.id]}">
 
       <td class="select-col">
-        <input type="checkbox" ng-model="selected[user.id].checked" hz-select="user">
+        <input type="checkbox" ng-model="tCtrl.selections[user.id].checked" hz-select="user">
       </td>
       <td class="expander">
         <span class="fa fa-chevron-right" hz-expand-detail duration="200"></span>
