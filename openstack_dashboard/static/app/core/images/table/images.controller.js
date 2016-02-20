@@ -25,11 +25,11 @@
     '$q',
     '$scope',
     'horizon.app.core.images.detailsRoute',
-    'horizon.app.core.images.table.batch-actions.service',
-    'horizon.app.core.images.table.row-actions.service',
     'horizon.app.core.images.events',
+    'horizon.app.core.images.resourceType',
     'horizon.app.core.openstack-service-api.glance',
     'horizon.app.core.openstack-service-api.userSession',
+    'horizon.framework.conf.resource-type-registry.service',
     'imageVisibilityFilter'
   ];
 
@@ -45,11 +45,11 @@
     $q,
     $scope,
     detailsRoute,
-    batchActionsService,
-    rowActionsService,
     events,
+    imageResourceType,
     glance,
     userSession,
+    typeRegistry,
     imageVisibilityFilter
   ) {
     var ctrl = this;
@@ -62,11 +62,8 @@
     ctrl.imagesSrc = [];
     ctrl.metadataDefs = null;
 
-    ctrl.batchActions = batchActionsService;
-    ctrl.batchActions.initScope($scope);
-
-    ctrl.rowActions = rowActionsService;
-    ctrl.rowActions.initScope($scope);
+    ctrl.getRowActions = typeRegistry.getRowActionsFunction(imageResourceType);
+    ctrl.getBatchActions = typeRegistry.getBatchActionsFunction(imageResourceType);
 
     var deleteWatcher = $scope.$on(events.DELETE_SUCCESS, onDeleteSuccess);
 
@@ -77,6 +74,7 @@
     ////////////////////////////////
 
     function init() {
+      typeRegistry.initActions(imageResourceType, $scope);
       $q.all(
         {
           images: glance.getImages(),
@@ -122,7 +120,7 @@
     }
 
     function applyMetadataDefinitions() {
-      glance.getNamespaces({resource_type: 'OS::Glance::Image'}, true)
+      glance.getNamespaces({resource_type: imageResourceType}, true)
         .then(function setMetadefs(data) {
           ctrl.metadataDefs = data.data.items;
         });

@@ -52,10 +52,8 @@
     toast,
     events
   ) {
-    var scope, context;
+    var scope, context, deleteImagePromise, userSessionPromise;
     var notAllowedMessage = gettext("You are not allowed to delete images: %s");
-    var deleteImagePromise = policy.ifAllowed({rules: [['image', 'delete_image']]});
-    var userSessionPromise = createUserSessionPromise();
 
     var service = {
       initScope: initScope,
@@ -73,6 +71,8 @@
         labels: actionContext,
         successEvent: events.DELETE_SUCCESS
       };
+      deleteImagePromise = policy.ifAllowed({rules: [['image', 'delete_image']]});
+      userSessionPromise = createUserSessionPromise();
     }
 
     function perform(images) {

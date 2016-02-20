@@ -50,11 +50,9 @@
     wizardModalService,
     toast
   ) {
-    var createVolumePromise = policy.ifAllowed({rules: [['volume', 'volume:create']]});
-    var volumeServiceEnabledPromise = serviceCatalog.ifTypeEnabled('volume');
+    var scope, createVolumePromise, volumeServiceEnabledPromise;
     var NON_BOOTABLE_IMAGE_TYPES = ['aki', 'ari'];
 
-    var scope;
     var volume = {};
 
     var message = {
@@ -74,6 +72,8 @@
 
       var watchVolumeChange = scope.$on(events.VOLUME_CHANGED, onChangedVolume);
       scope.$on('$destroy', destroy);
+      createVolumePromise = policy.ifAllowed({rules: [['volume', 'volume:create']]});
+      volumeServiceEnabledPromise = serviceCatalog.ifTypeEnabled('volume');
 
       function destroy() {
         watchVolumeChange();

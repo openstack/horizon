@@ -32,7 +32,11 @@
       'horizon.app.core.images',
       'horizon.app.core.metadata',
       'horizon.app.core.openstack-service-api',
-      'horizon.app.core.workflow'
+      'horizon.app.core.workflow',
+      'horizon.framework.conf',
+      'horizon.framework.util',
+      'horizon.framework.widgets',
+      'horizon.dashboard.project.workflow'
     ], config);
 
   config.$inject = ['$provide', '$windowProvider'];
