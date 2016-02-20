@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2016-02-18 06:15+0000\n"
+"POT-Creation-Date: 2016-02-20 06:15+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -481,7 +481,7 @@ msgstr ""
 #: contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:576
 #: dashboards/project/static/dashboard/project/workflow/launch-instance/keypair/create-keypair.html:42
 #: dashboards/project/static/dashboard/project/workflow/launch-instance/keypair/import-keypair.html:35
-#: static/app/core/metadata/modal/modal.html:15
+#: static/app/core/metadata/modal/modal.html:18
 msgid "Cancel"
 msgstr ""
 
@@ -1016,7 +1016,6 @@ msgstr ""
 #: dashboards/project/static/dashboard/project/workflow/launch-instance/launch-instance-workflow.service.js:92
 #: dashboards/project/static/dashboard/project/workflow/launch-instance/keypair/create-keypair.html:3
 #: dashboards/project/static/dashboard/project/workflow/launch-instance/keypair/import-keypair.html:2
-#: static/app/core/images/table/row-actions.service.js:68
 msgid "Launch Instance"
 msgstr ""
 
@@ -1907,6 +1906,30 @@ msgstr ""
 msgid "Loading"
 msgstr ""
 
+#: static/app/core/images/images.module.js:60
+msgid "Launch"
+msgstr ""
+
+#: static/app/core/images/images.module.js:67
+#: static/app/core/images/workflows/create-volume.service.js:36
+#: static/app/core/images/workflows/create-volume.service.js:37
+msgid "Create Volume"
+msgstr ""
+
+#: static/app/core/images/images.module.js:74
+msgid "Update Metadata"
+msgstr ""
+
+#: static/app/core/images/images.module.js:81
+#: static/app/core/images/actions/row-delete.service.js:43
+msgid "Delete Image"
+msgstr ""
+
+#: static/app/core/images/images.module.js:92
+#: static/app/core/images/actions/batch-delete.service.js:47
+msgid "Delete Images"
+msgstr ""
+
 #: static/app/core/images/actions/batch-delete.service.js:43
 #: static/app/core/images/actions/delete-image.service.spec.js:21
 msgid "Confirm Delete Images"
@@ -1920,11 +1943,6 @@ msgid ""
 "are not recoverable."
 msgstr ""
 
-#: static/app/core/images/actions/batch-delete.service.js:47
-#: static/app/core/images/table/batch-actions.service.js:58
-msgid "Delete Images"
-msgstr ""
-
 #: static/app/core/images/actions/batch-delete.service.js:48
 #, python-format
 msgid "Deleted Images: %s."
@@ -1935,7 +1953,7 @@ msgstr ""
 msgid "Unable to delete Images: %s."
 msgstr ""
 
-#: static/app/core/images/actions/create-volume.service.js:61
+#: static/app/core/images/actions/create-volume.service.js:59
 #, python-format
 msgid "Volume %s was successfully created."
 msgstr ""
@@ -1966,11 +1984,6 @@ msgstr ""
 
 #: static/app/core/images/actions/row-delete.service.js:39
 msgid "Confirm Delete Image"
-msgstr ""
-
-#: static/app/core/images/actions/row-delete.service.js:43
-#: static/app/core/images/table/row-actions.service.js:83
-msgid "Delete Image"
 msgstr ""
 
 #: static/app/core/images/actions/row-delete.service.js:44
@@ -2124,37 +2137,23 @@ msgstr ""
 msgid "Min RAM (MB)"
 msgstr ""
 
-#: static/app/core/images/table/row-actions.service.js:63
-msgid "Launch"
-msgstr ""
-
-#: static/app/core/images/table/row-actions.service.js:73
-#: static/app/core/images/workflows/create-volume.service.js:36
-#: static/app/core/images/workflows/create-volume.service.js:37
-msgid "Create Volume"
-msgstr ""
-
-#: static/app/core/images/table/row-actions.service.js:78
-msgid "Update Metadata"
-msgstr ""
-
-#: static/app/core/metadata/modal/modal.html:3
+#: static/app/core/metadata/modal/modal.html:6
 msgid "Update Aggregate Metadata"
 msgstr ""
 
-#: static/app/core/metadata/modal/modal.html:4
+#: static/app/core/metadata/modal/modal.html:7
 msgid "Update Flavor Metadata"
 msgstr ""
 
-#: static/app/core/metadata/modal/modal.html:5
+#: static/app/core/metadata/modal/modal.html:8
 msgid "Update Image Metadata"
 msgstr ""
 
-#: static/app/core/metadata/modal/modal.html:6
+#: static/app/core/metadata/modal/modal.html:9
 msgid "Update Instance Metadata"
 msgstr ""
 
-#: static/app/core/metadata/modal/modal.html:21
+#: static/app/core/metadata/modal/modal.html:24
 msgid "Save"
 msgstr ""
 
@@ -2376,6 +2375,26 @@ msgstr ""
 
 #: static/app/core/openstack-service-api/keystone.service.js:311
 msgid "Unable to fetch the service catalog."
+msgstr ""
+
+#: static/app/core/openstack-service-api/network.service.js:60
+msgid "Unable to retrieve floating IPs."
+msgstr ""
+
+#: static/app/core/openstack-service-api/network.service.js:75
+msgid "Unable to retrieve floating IP pools."
+msgstr ""
+
+#: static/app/core/openstack-service-api/network.service.js:92
+msgid "Unable to allocate new floating IP address."
+msgstr ""
+
+#: static/app/core/openstack-service-api/network.service.js:111
+msgid "Unable to associate floating IP address."
+msgstr ""
+
+#: static/app/core/openstack-service-api/network.service.js:126
+msgid "Unable to disassociate floating IP address."
 msgstr ""
 
 #: static/app/core/openstack-service-api/neutron.service.js:60

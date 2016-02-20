@@ -11,16 +11,17 @@
 # Andreas Jaeger <jaegerandi@gmail.com>, 2015. #zanata
 # OpenStack Infra <zanata@openstack.org>, 2015. #zanata
 # zhangjingwen <zhangjingwen@cn.fujitsu.com>, 2015. #zanata
+# froms <froms2008@gmail.com>, 2016. #zanata
 msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2016-01-31 10:08+0000\n"
+"POT-Creation-Date: 2016-02-20 05:28+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2015-11-26 06:21+0000\n"
-"Last-Translator: zhangjingwen <zhangjingwen@cn.fujitsu.com>\n"
+"PO-Revision-Date: 2016-02-19 07:08+0000\n"
+"Last-Translator: froms <froms2008@gmail.com>\n"
 "Language: zh-CN\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 "Generated-By: Babel 2.0\n"
@@ -36,6 +37,27 @@ msgid ""
 msgstr ""
 "\n"
 "                使用其他用户登录或返回<a href=\"%(home_url)s\">首页</a>\n"
+"              "
+
+#, python-format
+msgid ""
+"\n"
+"                Used <span> %(used)s </span>(No Limit)\n"
+"              "
+msgstr ""
+"\n"
+"                已用 <span> %(used)s </span>(无限制)\n"
+"              "
+
+#, python-format
+msgid ""
+"\n"
+"                Used <span> %(used)s </span>of<span> %(available)s </span>\n"
+"              "
+msgstr ""
+"\n"
+"                已用 <span> %(used)s </span>, 可用 <span> %(available)s </"
+"span>\n"
 "              "
 
 #, python-format
@@ -183,6 +205,10 @@ msgid "Displaying %(nav_items)s item"
 msgid_plural "Displaying %(nav_items)s items"
 msgstr[0] "正在显示 %(nav_items)s 项"
 
+#, python-format
+msgid "Error processing message json file '%(path)s': %(exception)s"
+msgstr "处理消息json文件 '%(path)s' 出错: %(exception)s"
+
 msgid "Error: "
 msgstr "错误："
 
@@ -221,6 +247,10 @@ msgstr "登录"
 
 msgid "Members"
 msgstr "成员"
+
+#, python-format
+msgid "Message json file '%(path)s' is malformed. %(exception)s"
+msgstr "消息 json 文件 '%(path)s' 内容格式不对: %(exception)s"
 
 msgid "More Actions"
 msgstr "更多操作"
@@ -332,6 +362,14 @@ msgstr "未授权。请尝试重新登录。"
 #, python-format
 msgid "Unauthorized: %s"
 msgstr "无权: %s"
+
+msgid "Update Item"
+msgid_plural "Update Items"
+msgstr[0] "更新条目"
+
+msgid "Updated Item"
+msgid_plural "Updated Items"
+msgstr[0] "条目已更新"
 
 msgid "Usage Summary"
 msgstr "使用情况摘要"

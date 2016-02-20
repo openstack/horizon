@@ -13,11 +13,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2016-01-31 01:15+0000\n"
+"POT-Creation-Date: 2016-02-20 05:28+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2016-01-23 01:49+0000\n"
+"PO-Revision-Date: 2016-02-19 02:03+0000\n"
 "Last-Translator: Sungjin Kang <gang.sungjin@gmail.com>\n"
 "Language: ko-KR\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
@@ -44,6 +44,12 @@ msgstr "%s TB"
 #, python-format
 msgid "%s bytes"
 msgstr "%s 바이트"
+
+msgid "(Max: 16Kb)"
+msgstr "(최대: 16Kb)"
+
+msgid "(Modified)"
+msgstr "(수정됨)"
 
 msgid "-"
 msgstr "-"
@@ -126,6 +132,9 @@ msgstr "현재 사용량"
 
 msgid "Custom"
 msgstr "사용자 지정"
+
+msgid "Customization Script"
+msgstr "사용자 정의 스크립트"
 
 msgid "Danger"
 msgstr "위험"
@@ -215,6 +224,9 @@ msgstr "정수 필요"
 msgid "Interfaces"
 msgstr "인터페이스"
 
+msgid "Load script from a file"
+msgstr "파일에서 스크립트 읽어오기"
+
 msgid "Loading"
 msgstr "불러오는 중"
 
@@ -238,6 +250,9 @@ msgstr "다음"
 
 msgid "No"
 msgstr "아니오"
+
+msgid "No Limit"
+msgstr "제한 없음"
 
 msgid "No available items"
 msgstr "사용 가능한 항목 없음"
@@ -304,6 +319,9 @@ msgstr "역할"
 
 msgid "STATUS"
 msgstr "STATUS"
+
+msgid "Script size"
+msgstr "스크립트 크기"
 
 msgid "Select an item from Available items below"
 msgstr "아래에 사용 가능한 항목에서 선택"
@@ -382,9 +400,22 @@ msgstr "작업 중"
 msgid "Yes"
 msgstr "예"
 
+msgid ""
+"You can specify resource metadata by moving items from the left column to "
+"the right column. In the left column there are metadata definitions from the "
+"Glance Metadata Catalog. Use the \"Custom\" option to add metadata with "
+"the key of your choice."
+msgstr ""
+"오른쪽 열에서 왼쪽 열로 이동하여 리소스 메타 데이터를 지정할 수 있습니다. 왼"
+"쪽 열에는 Glance 메타 데이터 카탈로그로부터 메타 데이터 정의가 존재합니다. "
+"\"사용자 정의\" 옵션을 사용하여 선택한 키에 메타 데이터를 추가할 수 있습니다."
+
 #, python-format
 msgid "You have selected %s. "
 msgstr "%s를 선택하였습니다. "
+
+msgid "bytes"
+msgstr "바이트"
 
 msgid "description"
 msgstr "설명"
@@ -401,3 +432,6 @@ msgstr "Pool 기본"
 #, python-format
 msgid "selected \"%s\""
 msgstr "\"%s\" 선택됨"
+
+msgid "{$ message || 'No items to display.' $}"
+msgstr "{$ message || '표시할 항목이 없습니다.' $}"

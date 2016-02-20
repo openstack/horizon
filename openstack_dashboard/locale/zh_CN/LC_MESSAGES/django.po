@@ -21,16 +21,17 @@
 # Yang Hongyang <hongyang.yang@easystack.cn>, 2015. #zanata
 # yan haifeng <yanheven@qq.com>, 2015. #zanata
 # zhangjingwen <zhangjingwen@cn.fujitsu.com>, 2015. #zanata
+# froms <froms2008@gmail.com>, 2016. #zanata
 msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2016-02-18 02:36+0000\n"
+"POT-Creation-Date: 2016-02-20 05:28+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2015-11-26 07:07+0000\n"
-"Last-Translator: zhangjingwen <zhangjingwen@cn.fujitsu.com>\n"
+"PO-Revision-Date: 2016-02-19 08:18+0000\n"
+"Last-Translator: froms <froms2008@gmail.com>\n"
 "Language: zh-CN\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 "Generated-By: Babel 2.0\n"
@@ -77,6 +78,26 @@ msgid ""
 msgstr ""
 "\n"
 "<a href=\"%(instance_url)s\">%(instance_name)s</a> 位于 %(device)s之上"
+
+#, python-format
+msgid ""
+"\n"
+"      <span class=\"pull-right\">%(used)s of %(quota)s MB Used</span>\n"
+"    "
+msgstr ""
+"\n"
+"      <span class=\"pull-right\">使用了 %(used)s / %(quota)s MB</span>\n"
+"    "
+
+#, python-format
+msgid ""
+"\n"
+"      <span class=\"pull-right\">%(used)s of %(quota)s Used</span>\n"
+"    "
+msgstr ""
+"\n"
+"      <span class=\"pull-right\">使用了 %(used)s / %(quota)s</span>\n"
+"    "
 
 msgid ""
 "\n"
@@ -511,6 +532,12 @@ msgid ""
 "A snapshot is an image which preserves the disk state of a running instance."
 msgstr "快照是保存运行中实例的磁盘状态的一个镜像。"
 
+#, python-format
+msgid ""
+"A volume of %(req)iGiB cannot be created as you only have %(avail)iGiB of "
+"your quota available."
+msgstr "不能创建%(req)iGiB的云硬盘，因为你的可用配置只有%(avail)iGiB。"
+
 msgid "AKI - Amazon Kernel Image"
 msgstr "AKI - 亚马逊内核镜像"
 
@@ -697,6 +724,9 @@ msgstr "增加策略"
 
 msgid "Add Pool"
 msgstr "新增资源池"
+
+msgid "Add Protocol"
+msgstr "添加协议"
 
 msgid "Add Router"
 msgstr "添加路由"
@@ -1185,6 +1215,9 @@ msgstr "备份中..."
 msgid "Backup Name"
 msgstr "备份名称"
 
+msgid "Backup Size (GiB)"
+msgstr "备份大小 (GiB)"
+
 msgid "Backups"
 msgstr "备份"
 
@@ -1232,6 +1265,9 @@ msgstr "从云硬盘快照启动(创建一个新卷)"
 msgid "Bootable"
 msgstr "可启动"
 
+msgid "Bootstrap Theme Preview"
+msgstr "Bootstrap主题预览"
+
 msgctxt "Current status of a Network"
 msgid "Build"
 msgstr "创建"
@@ -1247,6 +1283,10 @@ msgstr "创建"
 msgctxt "status of a network port"
 msgid "Build"
 msgstr "创建"
+
+msgctxt "Current status of an Instance"
+msgid "Building"
+msgstr "建立中"
 
 msgctxt "Power state of an Instance"
 msgid "Building"
@@ -1413,7 +1453,7 @@ msgid "Cipher"
 msgstr "Cipher"
 
 msgid "Classless Inter-Domain Routing (e.g. 192.168.0.0/24, or 2001:db8::/128)"
-msgstr "无类别域间路由(e.g. 192.168.0.0/24，或者2001:db8::/128)"
+msgstr "无类别域间路由标记(CIDR, 例如 192.168.0.0/24，或者2001:db8::/128)"
 
 msgid "Clear Domain Context"
 msgstr "清除域上下文。"
@@ -1668,6 +1708,9 @@ msgstr "创建端口"
 
 msgid "Create Project"
 msgstr "创建项目"
+
+msgid "Create Protocol"
+msgstr "创建协议"
 
 msgid "Create Pseudo-folder"
 msgstr "创建虚拟目录"
@@ -1950,8 +1993,19 @@ msgstr "该子网的创建请求"
 msgid "Current Host"
 msgstr "当前主机"
 
+msgid "Current Size (GiB)"
+msgstr "当前大小(GiB)"
+
+msgid "Current consumer"
+msgstr "当前消费者"
+
 msgid "Current password"
 msgstr "当前密码"
+
+msgid ""
+"Currently only images available via an HTTP/HTTPS URL are supported. The "
+"image location must be accessible to the Image Service."
+msgstr "目前镜像URL只支持HTTP/HTTPS。镜像服务必须能够访问到镜像地址。"
 
 msgid "Custom ICMP Rule"
 msgstr "定制ICMP规则"
@@ -2054,6 +2108,12 @@ msgstr "解密密码"
 
 msgid "Default Quotas"
 msgstr "默认配额"
+
+msgid "Default quotas updated for Cinder."
+msgstr "Cinder 的默认配额已更新."
+
+msgid "Default quotas updated for Nova."
+msgstr "Nova 的默认配额已更新."
 
 msgid "Default quotas updated."
 msgstr "默认配额已更新."
@@ -2178,6 +2238,10 @@ msgid "Delete Project"
 msgid_plural "Delete Projects"
 msgstr[0] "删除项目"
 
+msgid "Delete Protocol"
+msgid_plural "Delete Protocols"
+msgstr[0] "删除协议"
+
 msgid "Delete QoS Spec"
 msgid_plural "Delete QoS Specs"
 msgstr[0] "删除QoS规格"
@@ -2201,6 +2265,10 @@ msgstr[0] "删除规则"
 msgid "Delete Security Group"
 msgid_plural "Delete Security Groups"
 msgstr[0] "删除安全组"
+
+msgid "Delete Spec"
+msgid_plural "Delete Specs"
+msgstr[0] "删除规格(Spec)"
 
 msgid "Delete Stack"
 msgid_plural "Delete Stacks"
@@ -2229,6 +2297,10 @@ msgid "Delete Volume"
 msgid_plural "Delete Volumes"
 msgstr[0] "删除卷"
 
+msgid "Delete Volume Backup"
+msgid_plural "Delete Volume Backups"
+msgstr[0] "删除云硬盘备份"
+
 msgid "Delete Volume Snapshot"
 msgid_plural "Delete Volume Snapshots"
 msgstr[0] "删除卷快照"
@@ -2237,9 +2309,15 @@ msgid "Delete Volume Type"
 msgid_plural "Delete Volume Types"
 msgstr[0] "删除云硬盘类型"
 
+msgid "Delete Volume on Instance Delete"
+msgstr "删除云主机时删除云硬盘"
+
 #, python-format
 msgid "Delete the created network \"%s\" due to subnet creation failure."
 msgstr "创建子网时删除网络\"%s\"失败"
+
+msgid "Delete volume when the instance is deleted"
+msgstr "云主机被删除后删除云硬盘"
 
 msgid "Deleted"
 msgstr "删除"
@@ -2316,6 +2394,10 @@ msgid "Deleted Project"
 msgid_plural "Deleted Projects"
 msgstr[0] "已删除的项目"
 
+msgid "Deleted Protocol"
+msgid_plural "Deleted Protocols"
+msgstr[0] "协议已删除"
+
 msgid "Deleted QoS Spec"
 msgid_plural "Deleted QoS Specs"
 msgstr[0] "已删除的QoS规格"
@@ -2339,6 +2421,10 @@ msgstr[0] "已删除的规则"
 msgid "Deleted Security Group"
 msgid_plural "Deleted Security Groups"
 msgstr[0] "已删除的安全组"
+
+msgid "Deleted Spec"
+msgid_plural "Deleted Specs"
+msgstr[0] "规格(Spec)已删除"
 
 msgid "Deleted Stack"
 msgid_plural "Deleted Stacks"
@@ -2461,6 +2547,9 @@ msgstr[0] "正在卸载云硬盘"
 
 msgid "Details"
 msgstr "详情"
+
+msgid "Developer"
+msgstr "开发者"
 
 msgid "Device"
 msgstr "设备"
@@ -2904,6 +2993,11 @@ msgstr "jiami"
 
 msgid "Encryption algorithm"
 msgstr "加密算法"
+
+msgid ""
+"Encryption information cannot be updated for a volume type if volumes are "
+"currently in use with the volume type."
+msgstr "云硬盘类型正在被云硬盘使用, 无法更新其加密信息."
 
 msgid "Energy (Kwapi)"
 msgstr "能源(Kwapi)"
@@ -3632,6 +3726,9 @@ msgstr "网关IP和IP版本是可变的"
 msgid "Gateway interface is added"
 msgstr "已新增网关接口"
 
+msgid "GiB"
+msgstr "GiB"
+
 msgid "Glance"
 msgstr "Glance"
 
@@ -3919,6 +4016,9 @@ msgstr "标识符类型"
 msgid "Identity"
 msgstr "身份管理"
 
+msgid "Identity Provider ID"
+msgstr "身份提供者（identity provider）ID"
+
 msgid "Identity service does not allow editing user data."
 msgstr "认证服务不允许编辑用户数据。"
 
@@ -4119,6 +4219,9 @@ msgstr "云主机ID"
 msgid "Instance Name"
 msgstr "云主机名称"
 
+msgid "Instance Name ="
+msgstr "实例名字 ="
+
 msgid "Instance Overview"
 msgstr "云主机概况"
 
@@ -4294,6 +4397,9 @@ msgstr "在这些安全组中启动云主机。"
 msgid "Launch instance with these networks"
 msgstr "使用这些网络启动云主机"
 
+msgid "Launch instance with these ports"
+msgstr "使用这些网络端口启动云主机"
+
 msgid "Launch instance with this policy profile"
 msgstr "使用这个策略概要来启动云主机"
 
@@ -4418,6 +4524,10 @@ msgstr "MacVTap"
 msgid "Maintenance"
 msgstr "维护"
 
+msgctxt "Current status of a Volume"
+msgid "Maintenance"
+msgstr "维护"
+
 msgid "Make Private"
 msgstr "私有化"
 
@@ -4493,6 +4603,9 @@ msgstr "最大重试次数(1~10)"
 
 msgid "Max."
 msgstr "最大"
+
+msgid "Max. Size (MB) ="
+msgstr "容量最大值 (MB) ="
 
 msgid "Maximum Transmission Unit size for the connection"
 msgstr "这个连接的最大传输单元大小"
@@ -4596,6 +4709,9 @@ msgstr "最小内存"
 msgid "Min."
 msgstr "最小"
 
+msgid "Min. Size (MB) ="
+msgstr "容量最小值 (MB) ="
+
 msgid "Minimum Disk (GB)"
 msgstr "最小磁盘（GB）"
 
@@ -4682,6 +4798,9 @@ msgstr "无"
 
 msgid "Name"
 msgstr "名称"
+
+msgid "Name ="
+msgstr "名称 ="
 
 msgid ""
 "Name may only contain letters, numbers, underscores, periods and hyphens."
@@ -4778,6 +4897,9 @@ msgstr "网络名称"
 msgid "Network Overview"
 msgstr "网络概况"
 
+msgid "Network Ports"
+msgstr "网络端口"
+
 msgid "Network Profile"
 msgstr "网络配置概要"
 
@@ -4826,6 +4948,12 @@ msgstr "新的云主机类型"
 
 msgid "New Host"
 msgstr "新主机"
+
+msgid "New QoS Spec Consumer"
+msgstr "新建QoS规格消费者"
+
+msgid "New Size (GiB)"
+msgstr "新大小(GiB)"
 
 msgid "New name cannot be empty."
 msgstr "name不能为空"
@@ -5331,6 +5459,10 @@ msgstr "等待更新成功"
 msgctxt "Current status of a VPN Service"
 msgid "Pending Update"
 msgstr "等待更新成功"
+
+#, fuzzy
+msgid "Per Volume Size (GiB)"
+msgstr "每个云硬盘的大小 (GiB)"
 
 msgid "Perfect Forward Secrecy"
 msgstr "完美前传保密"
@@ -5860,6 +5992,10 @@ msgctxt "Current status of an Instance"
 msgid "Resize/Migrate"
 msgstr "重建/迁移"
 
+msgctxt "Current status of an Instance"
+msgid "Resized"
+msgstr "已调整大小"
+
 msgctxt "Task status of an Instance"
 msgid "Resized or Migrated"
 msgstr "已经重建或者迁移"
@@ -6224,6 +6360,9 @@ msgstr "安全组规则"
 msgid "Security Groups"
 msgstr "安全组"
 
+msgid "Security group rule already exists."
+msgstr "安全组规则已存在."
+
 msgid ""
 "Security groups are sets of IP filter rules that are applied to the network "
 "settings for the VM. After the security group is created, you can add rules "
@@ -6327,6 +6466,9 @@ msgstr "选择新的QoS规格"
 
 msgid "Select a new agent"
 msgstr "选择一个新的agent"
+
+msgid "Select a new consumer"
+msgstr "选择新消费者"
 
 msgid "Select a new host"
 msgstr "选择一个新的主机"
@@ -6847,6 +6989,10 @@ msgctxt "Action log of an instance"
 msgid "Stop"
 msgstr "关机"
 
+msgctxt "Current status of an Instance"
+msgid "Stopped"
+msgstr "已停止"
+
 msgid "Subnet"
 msgstr "子网"
 
@@ -6977,6 +7123,10 @@ msgstr "成功更新容器为私有访问类型"
 
 msgid "Successfully updated container access to public."
 msgstr "成功更新容器为公开访问类型"
+
+#, python-format
+msgid "Successfully updated encryption for volume type: %s"
+msgstr "成功为卷类型: %s 更新了加密"
 
 #, python-format
 msgid "Successfully updated security group: %s"
@@ -7153,10 +7303,16 @@ msgstr ""
 "<strong>Key Size</strong>是加密密钥的大小，单位为比特(例如, 128, 256). 如果该"
 "字段为空，将会使用缺省值。"
 
+#, fuzzy
 msgid ""
 "The <strong>Provider</strong> is the class providing encryption support (e."
 "g. LuksEncryptor)."
 msgstr "<strong>提供者</strong>是所支持的加密类(例如：Luks加密)。"
+
+msgid ""
+"The <strong>Provider</strong> is the class providing encryption support (e."
+"g., LuksEncryptor)."
+msgstr "<strong>提供者</strong>是提供加密功能的方式(例如：LuksEncryptor)。"
 
 msgid "The Aggregate was updated."
 msgstr "集合已更新."
@@ -7229,6 +7385,25 @@ msgid ""
 "project's quotas."
 msgstr ""
 "详细说明启动云主机的情况,下面的图表显示此项目所使用的资源和关联的项目配额。"
+
+#, fuzzy
+msgid ""
+"The color and icon of an intersection indicates whether or not traffic is "
+"permitted from the source (row) to the destination (column).\n"
+"     Clicking the <span class=\"fa fa-random\"></span> button in the "
+"intersection will install a rule to switch the traffic behavior.<br/>\n"
+"\n"
+"     <b>Note:</b> Rules only affect one direction of traffic. The opposite "
+"direction is outlined when hovering over an intersection.\n"
+" "
+msgstr ""
+"来源(行)和目的(列)交点处的颜色及图标代表着是否允许流量通过.\n"
+"     点击交点处的 <span class=\"fa fa-random\"></span> 按钮可以添加规则来调整"
+"流量的行为.<br/>\n"
+"\n"
+"     <b>注意:</b> 规则只对单个方向的流量有效. The opposite direction is "
+"outlined when hovering over an intersection.\n"
+" "
 
 msgid "The container cannot be deleted since it is not empty."
 msgstr "由于此容器非空，因此不能被删除。"
@@ -7384,8 +7559,23 @@ msgid "The time delta must be a number representing the time span in days"
 msgstr "时间增量必须以天数间隔表示"
 
 #, python-format
+msgid "The volume size cannot be less than the image minimum disk size (%sGiB)"
+msgstr "云硬盘大小不能小于镜像最小磁盘要求(%sGiB)"
+
+#, python-format
 msgid "The volume size cannot be less than the image size (%s)"
 msgstr "云硬盘大小不得小于镜像大小 (%s)"
+
+#, python-format
+msgid "The volume size cannot be less than the snapshot size (%sGiB)"
+msgstr "云硬盘大小不能小于快照(%sGiB)"
+
+#, python-format
+msgid "The volume size cannot be less than the source volume size (%sGiB)"
+msgstr "云硬盘大小不得小于原始云硬盘大小 (%sGiB)"
+
+msgid "Theme Preview"
+msgstr "主题预览"
 
 msgid "There are no meters defined yet."
 msgstr "没有定义任何计量。"
@@ -7442,6 +7632,9 @@ msgid ""
 msgstr ""
 "这个卷已经被挂载到一个实例了。从某种程度上来说，从一个已挂载的卷上创建快照可"
 "能会导致快照失败"
+
+msgid "This volume type is used by one or more volumes."
+msgstr "该云硬盘类型还有云硬盘在使用."
 
 msgid "Time"
 msgstr "时间"
@@ -7529,6 +7722,13 @@ msgstr "内存总计"
 
 msgid "Total Size of Volumes and Snapshots (GB)"
 msgstr "云硬盘和快照的总大小(GB)"
+
+msgid "Total Size of Volumes and Snapshots (GiB)"
+msgstr "云硬盘及快照总大小 (GiB)"
+
+#, python-format
+msgid "Total Size of Volumes and Snapshots (GiB) of Type %(type)s"
+msgstr "%(type)s 类型的云硬盘和快照总大小 (GiB)"
 
 msgid "Total VCPU Usage (Hours):"
 msgstr "VCPU总用量(小时):"
@@ -8025,6 +8225,9 @@ msgstr "无法解析IP地址 %s."
 msgid "Unable to rebuild instance."
 msgstr "无法重建云主机。"
 
+msgid "Unable to register identity provider."
+msgstr "无法注册身份提供者（identity provider）"
+
 #, python-format
 msgid "Unable to resize instance \"%s\"."
 msgstr "无法为云主机 \"%s\" 调整大小。"
@@ -8177,6 +8380,9 @@ msgstr "无法获取域信息。"
 
 msgid "Unable to retrieve domain list."
 msgstr "无法获取域列表。"
+
+msgid "Unable to retrieve encryption type."
+msgstr "无法获取加密类型。"
 
 msgid "Unable to retrieve extensions information"
 msgstr "无法获取扩展信息"
@@ -8514,6 +8720,9 @@ msgstr "无法获取租户范围"
 msgid "Unable to retrieve the aggregate to be updated"
 msgstr "无法获取要更新的集合"
 
+msgid "Unable to retrieve the project information of the image."
+msgstr "无法获取镜像的项目信息。"
+
 msgid "Unable to retrieve the specified pool."
 msgstr "无法检索指定池。"
 
@@ -8596,7 +8805,7 @@ msgid "Unable to retrieve volume type encryption details."
 msgstr "无法获取加密卷类型详情。"
 
 msgid "Unable to retrieve volume type encryption information."
-msgstr "无法获取卷类型加密信息。"
+msgstr "无法获取卷类型的加密信息。"
 
 msgid "Unable to retrieve volume type extra spec details."
 msgstr "无法获取云硬盘类型扩展规格的详细信息。"
@@ -8651,8 +8860,17 @@ msgstr "无法不管理卷。"
 msgid "Unable to update container access."
 msgstr "无法更新容器访问类型"
 
+msgid "Unable to update default quotas for Cinder."
+msgstr "无法更新 Cinder 的默认配额."
+
+msgid "Unable to update default quotas for Nova."
+msgstr "无法更新 Nova 的默认配额."
+
 msgid "Unable to update default quotas."
 msgstr "无法更新默认配额。"
+
+msgid "Unable to update encrypted volume type."
+msgstr "无法更新加密的卷类型"
 
 msgid "Unable to update group."
 msgstr "无法更新组。"
@@ -8791,6 +9009,12 @@ msgstr "更新默认配额"
 msgid "Update Defaults"
 msgstr "更新默认值"
 
+msgid "Update Encrypted Volume Type"
+msgstr "更新加密的卷类型"
+
+msgid "Update Encryption"
+msgstr "更新加密"
+
 msgctxt "current status of stack"
 msgid "Update Failed"
 msgstr "更新失败"
@@ -8887,6 +9111,11 @@ msgstr "已更新子网\"%s\"."
 msgctxt "Task status of an Instance"
 msgid "Updating Password"
 msgstr "密码更新中"
+
+msgid ""
+"Updating encryption is not implemented.  Unable to update  encrypted volume "
+"type."
+msgstr "无法更新加密的卷类型: 还未实现此功能."
 
 #, python-format
 msgid "Updating volume \"%s\""
@@ -9188,6 +9417,10 @@ msgstr "云硬盘快照概览"
 msgid "Volume Snapshots"
 msgstr "云硬盘快照"
 
+#, python-format
+msgid "Volume Snapshots of Type %(type)s"
+msgstr "云硬盘快照的类型 %(type)s"
+
 msgid "Volume Source"
 msgstr "云硬盘源自"
 
@@ -9231,6 +9464,12 @@ msgstr "云硬盘类型：%(volume_type_name)s"
 
 msgid "Volume Types"
 msgstr "云硬盘类型"
+
+#, python-format
+msgid ""
+"Volume cannot be extended to %(req)iGiB as you only have %(avail)iGiB of "
+"your quota available."
+msgstr "云硬盘不能扩展到%(req)iGiB，因为你的可用配置只有%(avail)iGiB。"
 
 msgid "Volume is Unencrypted"
 msgstr "卷没有加密"
@@ -9282,6 +9521,10 @@ msgstr "云硬盘"
 
 msgid "Volumes Attached"
 msgstr "云硬盘已连接"
+
+#, python-format
+msgid "Volumes of Type %(type)s"
+msgstr " 云硬盘的类型 %(type)s"
 
 msgid "Weight"
 msgstr "重量"
