@@ -15,16 +15,17 @@
 # Yu Zhiuguo <yuzg@cn.fujitsu.com>, 2015. #zanata
 # yan haifeng <yanheven@qq.com>, 2015. #zanata
 # zhangjingwen <zhangjingwen@cn.fujitsu.com>, 2015. #zanata
+# froms <froms2008@gmail.com>, 2016. #zanata
 msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2016-01-31 01:15+0000\n"
+"POT-Creation-Date: 2016-02-20 05:28+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2015-11-26 06:27+0000\n"
-"Last-Translator: zhangjingwen <zhangjingwen@cn.fujitsu.com>\n"
+"PO-Revision-Date: 2016-02-19 07:13+0000\n"
+"Last-Translator: froms <froms2008@gmail.com>\n"
 "Language: zh-CN\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 "Generated-By: Babel 2.0\n"
@@ -50,6 +51,12 @@ msgstr "%s TB"
 #, python-format
 msgid "%s bytes"
 msgstr "%s 字节"
+
+msgid "(Max: 16Kb)"
+msgstr "(最大16Kb)"
+
+msgid "(Modified)"
+msgstr "(已修改)"
 
 msgid "-"
 msgstr "-"
@@ -133,6 +140,9 @@ msgstr "当前使用量"
 msgid "Custom"
 msgstr "定制"
 
+msgid "Customization Script"
+msgstr "自定义脚本"
+
 msgid "Danger"
 msgstr "危险"
 
@@ -144,6 +154,9 @@ msgstr "必须是小数"
 
 msgid "Delete"
 msgstr "删除"
+
+msgid "Delete Instance"
+msgstr "删除实例"
 
 msgid "Delete Interface"
 msgstr "删除接口"
@@ -218,6 +231,9 @@ msgstr "必须是整数"
 msgid "Interfaces"
 msgstr "接口"
 
+msgid "Load script from a file"
+msgstr "从文件载入脚本"
+
 msgid "Loading"
 msgstr "加载中"
 
@@ -241,6 +257,9 @@ msgstr "下一步"
 
 msgid "No"
 msgstr "不"
+
+msgid "No Limit"
+msgstr "无限制"
 
 msgid "No available items"
 msgstr "没有可选项"
@@ -307,6 +326,9 @@ msgstr "角色"
 
 msgid "STATUS"
 msgstr "状态"
+
+msgid "Script size"
+msgstr "脚本大小"
 
 msgid "Select an item from Available items below"
 msgstr "从以下可选项中选择一项"
@@ -397,6 +419,9 @@ msgstr ""
 msgid "You have selected %s. "
 msgstr "你已经选择了 %s 。 "
 
+msgid "bytes"
+msgstr "字节"
+
 msgid "description"
 msgstr "描述"
 
@@ -412,3 +437,6 @@ msgstr "默认资源池"
 #, python-format
 msgid "selected \"%s\""
 msgstr "选择 \"%s\""
+
+msgid "{$ message || 'No items to display.' $}"
+msgstr "{$ message || '没有可显示的条目.' $}"

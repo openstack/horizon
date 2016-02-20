@@ -17,12 +17,12 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2016-01-31 10:08+0000\n"
+"POT-Creation-Date: 2016-02-20 05:28+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2016-01-20 08:54+0000\n"
-"Last-Translator: Alberto Molina Coballes <alb.molina@gmail.com>\n"
+"PO-Revision-Date: 2016-02-19 12:25+0000\n"
+"Last-Translator: Pablo Iranzo Gómez <Pablo.Iranzo@gmail.com>\n"
 "Language: es\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "Generated-By: Babel 2.0\n"
@@ -212,6 +212,10 @@ msgid_plural "Displaying %(nav_items)s items"
 msgstr[0] "Mostrando %(nav_items)s articulo"
 msgstr[1] "Mostrando %(nav_items)s articulos"
 
+#, python-format
+msgid "Error processing message json file '%(path)s': %(exception)s"
+msgstr "Error procesando el fichero json de mensajes '%(path)s': %(exception)s"
+
 msgid "Error: "
 msgstr "Error: "
 
@@ -250,6 +254,10 @@ msgstr "Usuario"
 
 msgid "Members"
 msgstr "Miembros"
+
+#, python-format
+msgid "Message json file '%(path)s' is malformed. %(exception)s"
+msgstr "El fichero json de mensajes '%(path)s' es incorrecto. %(exception)s"
 
 msgid "More Actions"
 msgstr "Más acciones"
@@ -373,6 +381,16 @@ msgstr "No autorizado. Inicie sesión de nuevo."
 #, python-format
 msgid "Unauthorized: %s"
 msgstr "No autorizado: %s"
+
+msgid "Update Item"
+msgid_plural "Update Items"
+msgstr[0] "Actualizar elemento"
+msgstr[1] "Actualizar elementos"
+
+msgid "Updated Item"
+msgid_plural "Updated Items"
+msgstr[0] "Elemento actualizado"
+msgstr[1] "Elementos actualizados"
 
 msgid "Usage Summary"
 msgstr "Resumen del uso"
