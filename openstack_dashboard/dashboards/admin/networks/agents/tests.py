@@ -109,6 +109,7 @@ class NetworkAgentTests(test.BaseAdminViewTests):
     @test.create_stubs({api.neutron: ('subnet_list',
                                       'port_list',
                                       'list_dhcp_agent_hosting_networks',
+                                      'show_network_ip_availability',
                                       'is_extension_supported',
                                       'remove_network_from_dhcp_agent',)})
     def test_agent_delete(self):
@@ -123,9 +124,15 @@ class NetworkAgentTests(test.BaseAdminViewTests):
             .AndReturn([self.ports.first()])
         api.neutron.remove_network_from_dhcp_agent(IsA(http.HttpRequest),
                                                    agent_id, network_id)
+        api.neutron.is_extension_supported(
+            IsA(http.HttpRequest),
+            'network-ip-availability').AndReturn(True)
         api.neutron.is_extension_supported(IsA(http.HttpRequest),
                                            'mac-learning')\
             .AndReturn(False)
+        api.neutron.is_extension_supported(IsA(http.HttpRequest),
+                                           'network-ip-availability')\
+            .AndReturn(True)
         api.neutron.is_extension_supported(IsA(http.HttpRequest),
                                            'dhcp_agent_scheduler')\
             .AndReturn(True)
@@ -140,6 +147,7 @@ class NetworkAgentTests(test.BaseAdminViewTests):
     @test.create_stubs({api.neutron: ('subnet_list',
                                       'port_list',
                                       'list_dhcp_agent_hosting_networks',
+                                      'show_network_ip_availability',
                                       'is_extension_supported',
                                       'remove_network_from_dhcp_agent',)})
     def test_agent_delete_exception(self):
@@ -155,9 +163,15 @@ class NetworkAgentTests(test.BaseAdminViewTests):
         api.neutron.remove_network_from_dhcp_agent(IsA(http.HttpRequest),
                                                    agent_id, network_id)\
             .AndRaise(self.exceptions.neutron)
+        api.neutron.is_extension_supported(
+            IsA(http.HttpRequest),
+            'network-ip-availability').AndReturn(True)
         api.neutron.is_extension_supported(IsA(http.HttpRequest),
                                            'mac-learning')\
             .AndReturn(False)
+        api.neutron.is_extension_supported(IsA(http.HttpRequest),
+                                           'network-ip-availability')\
+            .AndReturn(True)
         api.neutron.is_extension_supported(IsA(http.HttpRequest),
                                            'dhcp_agent_scheduler')\
             .AndReturn(True)

@@ -59,6 +59,7 @@ class IndexView(tables.DataTableView):
     def _get_agents_data(self, network):
         agents = []
         data = _("Unknown")
+
         try:
             if api.neutron.is_extension_supported(self.request,
                                                   'dhcp_agent_scheduler'):
@@ -69,7 +70,8 @@ class IndexView(tables.DataTableView):
                     self.request, network)
                 data = len(agents)
         except Exception:
-            self.exception = True
+            msg = _('Unable to list dhcp agents hosting network.')
+            exceptions.handle(self.request, msg)
         return data
 
     def get_data(self):
@@ -87,10 +89,6 @@ class IndexView(tables.DataTableView):
                 tenant = tenant_dict.get(n.tenant_id, None)
                 n.tenant_name = getattr(tenant, 'name', None)
                 n.num_agents = self._get_agents_data(n.id)
-
-            if self.exception:
-                msg = _('Unable to list dhcp agents hosting network.')
-                exceptions.handle(self.request, msg)
         return networks
 
 
@@ -108,11 +106,47 @@ class DetailView(tables.MultiTableView):
     template_name = 'project/networks/detail.html'
     page_title = '{{ network.name | default:network.id }}'
 
+    def _get_subnet_availability(self, network_id):
+        subnet_availabilities_list = {}
+        try:
+            availability = api.neutron.\
+                show_network_ip_availability(self.request, network_id)
+            availabilities = availability.get("network_ip_availability",
+                                              {})
+            subnet_availabilities_list = availabilities.\
+                get("subnet_ip_availability", [])
+        except Exception:
+            msg = _("Unable to retrieve IP availability.")
+            exceptions.handle(self.request, msg)
+        return subnet_availabilities_list
+
+    def _add_subnet_availability(self, subnet_usage_list, subnets_dict):
+        try:
+            for subnet_usage in subnet_usage_list:
+                subnet_id = subnet_usage.get("subnet_id")
+                subnet_used_ips = subnet_usage.get("used_ips")
+                subnet_total_ips = subnet_usage.get("total_ips")
+                subnet_free_ips = subnet_total_ips - subnet_used_ips
+                for item in subnets_dict:
+                    id = item.get("id")
+                    if id == subnet_id:
+                        item._apidict.update({"used_ips": subnet_used_ips})
+                        item._apidict.update({"free_ips": subnet_free_ips})
+        except Exception:
+            msg = _("Unable to update subnets with availability.")
+            exceptions.handle(self.request, msg)
+        return subnets_dict
+
     def get_subnets_data(self):
         try:
             network_id = self.kwargs['network_id']
             subnets = api.neutron.subnet_list(self.request,
                                               network_id=network_id)
+            if api.neutron.is_extension_supported(self.request,
+                                                  'network-ip-availability'):
+                subnets_list = self._get_subnet_availability(network_id)
+                subnets = self._add_subnet_availability(subnets_list, subnets)
+
         except Exception:
             subnets = []
             msg = _('Subnet list can not be retrieved.')

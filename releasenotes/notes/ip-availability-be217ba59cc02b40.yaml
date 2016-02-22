@@ -1,0 +1,8 @@
+---
+features:
+    - Horizon support for network IP availability feature.
+      Enable Horizon admin network dashboard to be able to
+      display IP availability. Enables 2 columns in the
+      admin network subnets table to display the allocated
+      IPs in a given subnet and  unallocated free IPs for
+      each subnet in the network.
