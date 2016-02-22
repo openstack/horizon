@@ -60,6 +60,51 @@
           expect(resolvedPromises.pass[0]).toEqual({data: 'passed', context: '2'});
         }
       });
+
+      it('should maintain order of promises regardless of resolve/reject order', function() {
+        var defs = [$q.defer(), $q.defer(), $q.defer(), $q.defer(), $q.defer(), $q.defer()];
+        service.allSettled([{
+          promise: defs[0].promise,
+          context: '1'
+        },{
+          promise: defs[1].promise,
+          context: '2'
+        },{
+          promise: defs[2].promise,
+          context: '3'
+        },{
+          promise: defs[3].promise,
+          context: '4'
+        },{
+          promise: defs[4].promise,
+          context: '5'
+        },{
+          promise: defs[5].promise,
+          context: '6'
+        }]).then(onAllSettled);
+
+        defs[1].reject();
+        defs[2].resolve();
+        defs[0].resolve();
+        defs[5].reject();
+        defs[3].reject();
+        defs[4].resolve();
+
+        $scope.$apply();
+
+        function onAllSettled(resolvedPromises) {
+          var pass = resolvedPromises.pass;
+          var fail = resolvedPromises.fail;
+          expect(pass.length).toBe(3);
+          expect(fail.length).toBe(3);
+          expect(pass[0].context).toBe('1');
+          expect(pass[1].context).toBe('3');
+          expect(pass[2].context).toBe('5');
+          expect(fail[0].context).toBe('2');
+          expect(fail[1].context).toBe('4');
+          expect(fail[2].context).toBe('6');
+        }
+      });
     });
 
     describe('booleanAsPromise', function() {

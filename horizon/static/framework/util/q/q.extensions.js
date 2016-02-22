@@ -62,8 +62,8 @@
      * promises if any promise is rejected, this will wait for all promises
      * to settle.
      *
-     * The order of the resolve or rejection reasons is non-deterministic
-     * and should not be relied upon for correlation to input promises.
+     * The order of the resolve or rejection reasons correlates directly to
+     * the order of the promises in the list.
      *
      * @param {array} promiseList
      * The list of promises to resolve
@@ -100,18 +100,18 @@
       $q.all(promises).then(onComplete);
       return deferred.promise;
 
-      function resolveSingle(singlePromise) {
+      function resolveSingle(singlePromise, index) {
         var deferredInner = $q.defer();
         singlePromise.promise.then(onResolve, onReject);
         return deferredInner.promise;
 
         function onResolve(response) {
-          passList.push(formatResponse(response, singlePromise.context));
+          passList[index] = formatResponse(response, singlePromise.context);
           deferredInner.resolve();
         }
 
         function onReject(response) {
-          failList.push(formatResponse(response, singlePromise.context));
+          failList[index] = formatResponse(response, singlePromise.context);
           deferredInner.resolve();
         }
 
@@ -124,7 +124,13 @@
       }
 
       function onComplete() {
-        deferred.resolve({pass: passList, fail: failList});
+        deferred.resolve({pass: condense(passList), fail: condense(failList)});
+      }
+
+      function condense(promiseList) {
+        return promiseList.filter(function removeEmpty(promise) {
+          return !!promise;
+        });
       }
     }
 
