@@ -326,6 +326,17 @@ parameters:
   KeyName: heat_key
 """
 
+SNAPSHOT_CREATE = """
+{
+    "status": "IN_PROGRESS",
+    "name": "None",
+    "data": "None",
+    "creation_time": "2016-02-19T07:25:23.494152",
+    "status_reason": "None",
+    "id": "8af90c07-b788-44ee-a8ab-5990197f5e32"
+}
+"""
+
 
 class Environment(object):
     def __init__(self, data):
@@ -338,10 +349,17 @@ class Template(object):
         self.validate = validate
 
 
+class Snapshot(object):
+    def __init__(self, data):
+        self.data = data
+
+
 def data(TEST):
     TEST.stacks = utils.TestDataContainer()
     TEST.stack_templates = utils.TestDataContainer()
     TEST.stack_environments = utils.TestDataContainer()
+    TEST.stack_snapshot_create = utils.TestDataContainer()
+    TEST.stack_snapshot = utils.TestDataContainer()
     TEST.resource_types = utils.TestDataContainer()
     TEST.heat_resources = utils.TestDataContainer()
     TEST.heat_services = utils.TestDataContainer()
@@ -412,8 +430,78 @@ def data(TEST):
         stack = stacks.Stack(stacks.StackManager(None), stack_data)
         TEST.stacks.add(stack)
 
+    for i in range(10):
+        snapshot_data = {
+            "status": "COMPLETE",
+            "name": 'null',
+            "data": {
+                "files": {},
+                "status": "COMPLETE",
+                "name": "zhao3",
+                "tags": ["a", " 123", " b", " 456"],
+                "stack_user_project_id": "3cba4460875444049a2a7cc5420ccddb",
+                "environment": {
+                    "encrypted_param_names": [],
+                    "parameter_defaults": {},
+                    "event_sinks": [],
+                    "parameters": {},
+                    "resource_registry": {
+                        "resources": {}
+                    }
+                },
+                "template": {
+                    "heat_template_version": "2013-05-23",
+                    "description":
+                        "HOT template for Test.",
+                    "resources": {
+                        "private_subnet": {
+                            "type": "OS::Neutron::Subnet",
+                            "properties": {
+                                "network_id": {"get_resource": "private_net"},
+                                "cidr": "172.16.2.0/24",
+                                "gateway_ip": "172.16.2.1"
+                            }
+                        },
+                        "private_net": {
+                            "type": "OS::Neutron::Net",
+                            "properties": {"name": "private-net"}
+                        }
+                    }
+                },
+                "action": "SNAPSHOT",
+                "project_id": "1acd0026829f4d28bb2eff912d7aad0d",
+                "id": "70650725-bdbd-419f-b53f-5707767bfe0e",
+                "resources": {
+                    "private_subnet": {
+                        "status": "COMPLETE",
+                        "name": "private_subnet",
+                        "resource_data": {},
+                        "resource_id": "9c7211b3-31c7-41f6-b92a-442ad3f71ef0",
+                        "action": "SNAPSHOT",
+                        "type": "OS::Neutron::Subnet",
+                        "metadata": {}
+                    },
+                    "private_net": {
+                        "status": "COMPLETE",
+                        "name": "private_net",
+                        "resource_data": {},
+                        "resource_id": "ff4fd287-31b2-4d00-bc96-c409bc1db027",
+                        "action": "SNAPSHOT",
+                        "type": "OS::Neutron::Net",
+                        "metadata": {}
+                    }
+                }
+            },
+
+            "creation_time": "2016-02-21T04:02:54",
+            "status_reason": "Stack SNAPSHOT completed successfully",
+            "id": "01558a3b-ba05-4427-bbb4-1e4ab71cfcad"
+        }
+        TEST.stack_snapshot.add(snapshot_data)
+
     TEST.stack_templates.add(Template(TEMPLATE, VALIDATE))
     TEST.stack_environments.add(Environment(ENVIRONMENT))
+    TEST.stack_snapshot_create.add(Snapshot(SNAPSHOT_CREATE))
 
     # Resource types list
     r_type_1 = {
