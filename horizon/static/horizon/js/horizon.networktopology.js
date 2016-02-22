@@ -942,7 +942,7 @@ horizon.network_topology = {
         object.ip_address = ipAddress;
         object.device_owner = deviceOwner;
         object.network_id = networkId;
-        object.is_interface = (deviceOwner === 'router_interface');
+        object.is_interface = (deviceOwner === 'router_interface' || deviceOwner === 'router_gateway');
         ports.push(object);
       });
     } else if (d.hasOwnProperty('subnets')) {
