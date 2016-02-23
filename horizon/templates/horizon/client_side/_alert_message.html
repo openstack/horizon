@@ -5,7 +5,9 @@
 
 {% block template %}{% spaceless %}{% jstemplate %}
 <div class="alert alert-dismissable fade in alert-[[type]]">
-  <a class="close" data-dismiss="alert" href="#">&times;</a>
+  <a class="close" data-dismiss="alert" href="#">
+    <span class="fa fa-times"></span>
+  </a>
   <p>
     <strong>[[type_display]]</strong>
     [[#safe]]

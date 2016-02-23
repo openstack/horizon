@@ -5,7 +5,11 @@
     <div class="{% if hide %}modal-content{% endif %}">
     {% block header %}
       <div class="modal-header">
-        {% if hide %}<a href="#" class="close" data-dismiss="modal">&times;</a>{% endif %}
+        {% if hide %}
+          <a href="#" class="close" data-dismiss="modal">
+            <span class="fa fa-times"></span>
+          </a>
+        {% endif %}
         <h3 class="modal-title">{% block modal-header %}{{ modal_header }}{% endblock %}</h3>
       </div>
     {% endblock %}
