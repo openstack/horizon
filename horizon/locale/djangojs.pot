@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2016-02-08 06:46+0000\n"
+"POT-Creation-Date: 2016-02-23 06:16+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,63 +17,63 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 2.2.0\n"
 
-#: static/framework/util/filters/filters.js:43
+#: static/framework/util/filters/filters.js:44
 msgid "Yes"
 msgstr ""
 
-#: static/framework/util/filters/filters.js:43
+#: static/framework/util/filters/filters.js:44
 msgid "No"
 msgstr ""
 
-#: static/framework/util/filters/filters.js:61
-#: static/framework/util/filters/filters.js:185
+#: static/framework/util/filters/filters.js:62
+#: static/framework/util/filters/filters.js:186
 #, python-format
 msgid "%s TB"
 msgstr ""
 
-#: static/framework/util/filters/filters.js:63
+#: static/framework/util/filters/filters.js:64
 msgid "0 GB"
 msgstr ""
 
-#: static/framework/util/filters/filters.js:65
-#: static/framework/util/filters/filters.js:84
-#: static/framework/util/filters/filters.js:187
+#: static/framework/util/filters/filters.js:66
+#: static/framework/util/filters/filters.js:85
+#: static/framework/util/filters/filters.js:188
 #, python-format
 msgid "%s GB"
 msgstr ""
 
-#: static/framework/util/filters/filters.js:86
+#: static/framework/util/filters/filters.js:87
 msgid "0 MB"
 msgstr ""
 
-#: static/framework/util/filters/filters.js:88
-#: static/framework/util/filters/filters.js:189
+#: static/framework/util/filters/filters.js:89
+#: static/framework/util/filters/filters.js:190
 #, python-format
 msgid "%s MB"
 msgstr ""
 
-#: static/framework/util/filters/filters.js:135
+#: static/framework/util/filters/filters.js:136
 msgid "-"
 msgstr ""
 
-#: static/framework/util/filters/filters.js:150
+#: static/framework/util/filters/filters.js:151
 #: static/horizon/js/horizon.networktopology.js:928
 #: static/horizon/js/horizon.networktopology.js:934
 #: static/horizon/js/horizon.networktopology.js:940
 msgid "None"
 msgstr ""
 
-#: static/framework/util/filters/filters.js:191
+#: static/framework/util/filters/filters.js:192
 #, python-format
 msgid "%s KB"
 msgstr ""
 
-#: static/framework/util/filters/filters.js:193
+#: static/framework/util/filters/filters.js:194
 #, python-format
 msgid "%s bytes"
 msgstr ""
 
-#: static/framework/util/filters/filters.js:218
+#: static/framework/util/filters/filters.js:219
 #: static/horizon/js/horizon.tables.js:415
 #, python-format
 msgid "Displaying %s item"
@@ -81,9 +81,13 @@ msgid_plural "Displaying %s items"
 msgstr[0] ""
 msgstr[1] ""
 
-#: static/framework/util/filters/filters.js:222
+#: static/framework/util/filters/filters.js:223
 #, python-format
 msgid "Displaying %(count)s of %(total)s items"
+msgstr ""
+
+#: static/framework/util/filters/filters.js:254
+msgid "Unlimited"
 msgstr ""
 
 #: static/framework/widgets/action-list/action-list.module.js:49

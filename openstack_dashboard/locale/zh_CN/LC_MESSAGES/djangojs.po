@@ -9,16 +9,17 @@
 # Xu Yang <yizhongchuanqi@163.com>, 2015. #zanata
 # Yu Zhiuguo <yuzg@cn.fujitsu.com>, 2015. #zanata
 # zhangjingwen <zhangjingwen@cn.fujitsu.com>, 2015. #zanata
+# will zhou <zzxwill@gmail.com>, 2016. #zanata
 msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2016-02-18 02:36+0000\n"
+"POT-Creation-Date: 2016-02-22 18:18+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2015-09-25 06:19+0000\n"
-"Last-Translator: zhangjingwen <zhangjingwen@cn.fujitsu.com>\n"
+"PO-Revision-Date: 2016-02-23 02:27+0000\n"
+"Last-Translator: will zhou <zzxwill@gmail.com>\n"
 "Language: zh-CN\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 "Generated-By: Babel 2.0\n"
@@ -166,6 +167,12 @@ msgstr ""
 "操作系统内安装<samp>cloud-init</samp>，你可以使用自定义脚本获取一个公钥并把它"
 "添加到用户账户中。"
 
+msgid "Danger"
+msgstr "危险"
+
+msgid "Default button"
+msgstr "默认按钮"
+
 msgid "Deleted"
 msgstr "删除"
 
@@ -278,6 +285,9 @@ msgstr "影响您的配额"
 msgid "Import Key Pair"
 msgstr "导入秘钥对"
 
+msgid "Info"
+msgstr "信息"
+
 msgid "Instance Details"
 msgstr "实例详情"
 
@@ -318,14 +328,23 @@ msgstr ""
 msgid "Killed"
 msgstr "终止"
 
+msgid "Large button"
+msgstr "大按钮"
+
 msgid "Launch Instance"
 msgstr "启动实例"
+
+msgid "Left"
+msgstr "左"
 
 msgid "Manual"
 msgstr "手动"
 
 msgid "Max Port"
 msgstr "最大端口"
+
+msgid "Middle"
+msgstr "中"
 
 msgid "Min Disk"
 msgstr "最小磁盘"
@@ -342,8 +361,14 @@ msgstr "最小内存"
 msgid "Min RAM (MB)"
 msgstr "最小内存 (MB)"
 
+msgid "Mini button"
+msgstr "迷你按钮"
+
 msgid "Name"
 msgstr "名称"
+
+msgid "Navbar"
+msgstr "导航条"
 
 msgid "Network"
 msgstr "网络"
@@ -515,6 +540,9 @@ msgstr "大小"
 msgid "Size (GB)"
 msgstr "大小(GB)"
 
+msgid "Small button"
+msgstr "小按钮"
+
 msgid "Snapshot"
 msgstr "快照"
 
@@ -523,6 +551,9 @@ msgstr "状态"
 
 msgid "Subnets Associated"
 msgstr "子网已连接"
+
+msgid "Success"
+msgstr "成功"
 
 #, python-format
 msgid "Successfully imported key pair %(name)s."
@@ -827,6 +858,9 @@ msgid ""
 msgstr ""
 "同一时刻，卷只能绑定到一个活跃的实例。请设置您的实例数为1或者选择一个不同的源"
 "类型。"
+
+msgid "Warning"
+msgstr "警告"
 
 msgid ""
 "When selecting volume as boot source, please ensure the instance's "

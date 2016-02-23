@@ -7,16 +7,17 @@
 # Sungjin Kang <potopro@gmail.com>, 2015
 # Sungjin Kang <gang.sungjin@gmail.com>, 2015. #zanata
 # Sungjin Kang <gang.sungjin@gmail.com>, 2016. #zanata
+# Sunhong Kim <intensify7@naver.com>, 2016. #zanata
 msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2016-02-20 05:28+0000\n"
+"POT-Creation-Date: 2016-02-22 18:18+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2016-02-19 03:03+0000\n"
-"Last-Translator: Sungjin Kang <gang.sungjin@gmail.com>\n"
+"PO-Revision-Date: 2016-02-23 06:08+0000\n"
+"Last-Translator: Sunhong Kim <intensify7@naver.com>\n"
 "Language: ko-KR\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 "Generated-By: Babel 2.0\n"
@@ -124,6 +125,18 @@ msgstr ""
 "                    Option two can be something else\n"
 "                  </input>"
 
+#, fuzzy
+msgid ""
+"<li><b>Image (with Create New Volume checked)</b>: This options uses an "
+"image to boot the instance, and creates a new volume to persist instance "
+"data. You can specify volume size and whether to delete the volume on "
+"deletion of the instance.</li>"
+msgstr ""
+"<li><b>이미지 (새 볼륨 생성 체크 포함)</b>: 이 옵션을 인스턴스를 부팅하는데 "
+"이미지를 사용하고, 인스턴스 데이터를 영구보존하기 위한 새로운 볼륨을 생성합니"
+"다. 볼륨 크기와 인스턴스 삭제시 해당 볼륨을 삭제할 것인지를 선택할 수 있습니"
+"다.</li>"
+
 msgid "<li><b>Image</b>: This option uses an image to boot the instance.</li>"
 msgstr ""
 "<li><b>이미지</b>: 해당 옵션은 인스턴스를 부팅하기 위한 이미지를 사용합니다."
@@ -135,6 +148,27 @@ msgid ""
 msgstr ""
 "<li><b>인스턴스 스냅샷</b>:이 옵션은 인스턴스를 부팅하기 위해 인스턴스 스냅샷"
 "을 사용합니다.</li>"
+
+#, fuzzy
+msgid ""
+"<li><b>Volume Snapshot</b>: This option uses a volume snapshot to boot the "
+"instance, and creates a new volume to persist instance data. You can choose "
+"to delete the volume on deletion of the instance.</li>"
+msgstr ""
+"<li><b>볼륨 스냅샷</b>: 이 옵션은 인스턴스를 부팅하는데 볼륨 스냅샷을 사용하"
+"고, 인스턴스 데이터를 영구보존하기 위한 새로운 볼륨을 생성합니다. 인스턴스 삭"
+"제시 해당 볼륨을 삭제하도록 선택할 수 있습니다.</li>"
+
+#, fuzzy
+msgid ""
+"<li><b>Volume</b>: This option uses a volume that already exists. It does "
+"not create a new volume. You can choose to delete the volume on deletion of "
+"the instance. <em>Note: when selecting Volume, you can only launch one "
+"instance.</em></li>"
+msgstr ""
+"<li><b>볼륨</b>: 이 옵션은 이미 존재하는 볼륨을 사용합니다. 새로운 볼륨을 생"
+"성하지 않습니다. 인스턴스 삭제시 해당 볼륨을 삭제하도록 선택할 수 있습니다. "
+"<em>노트: 볼륨 선택시, 인스턴스 하나에서만 구동할 수 있습니다.</em></li>"
 
 msgid "<small>This line of text is meant to be treated as fine print.</small>"
 msgstr "<small>This line of text is meant to be treated as fine print.</small>"
@@ -319,6 +353,10 @@ msgstr ""
 "크박스를 선택합니다. 인스턴스가 부팅될 때, 선택된 해당  <b>드라이브 구성</b>"
 "에 붙어 메타데이터를 액세스합니다."
 
+#, fuzzy
+msgid "Checksum"
+msgstr "Checksum"
+
 msgid "Click to see more details"
 msgstr "클릭하여 세부 사항 보기"
 
@@ -346,6 +384,14 @@ msgstr "구성 도움말"
 msgid "Confirm Delete Image"
 msgstr "삭제 이미지 확인"
 
+#, fuzzy
+msgid "Confirm Delete Images"
+msgstr "삭제 이미지 확인"
+
+#, fuzzy
+msgid "Container Format"
+msgstr "컨테이너 포멧"
+
 msgid "Containers"
 msgstr "Containers"
 
@@ -364,6 +410,10 @@ msgstr "키 페어 생성"
 msgid "Create New Volume"
 msgstr "새로운 볼륨 생성"
 
+#, fuzzy
+msgid "Create Volume"
+msgstr "볼륨 생성"
+
 msgid "Created"
 msgstr "생성 완료"
 
@@ -372,6 +422,10 @@ msgstr "키 페어 생성:"
 
 msgid "Creating"
 msgstr "생성 중"
+
+#, fuzzy
+msgid "Custom Properties"
+msgstr "사용자 속성"
 
 msgid ""
 "Custom scripts are attached to instances to perform specific actions when "
@@ -413,6 +467,10 @@ msgstr "이미지 삭제"
 msgid "Delete Images"
 msgstr "이미지 삭제"
 
+#, fuzzy
+msgid "Delete Volume on Instance Delete"
+msgstr "인스턴스 삭제시 볼륨 삭제"
+
 msgid "Deleted"
 msgstr "삭제 완료"
 
@@ -434,6 +492,10 @@ msgstr "삭제 중"
 msgid "Description"
 msgstr "설명"
 
+#, fuzzy
+msgid "Description:"
+msgstr "설명:"
+
 msgid "Details"
 msgstr "세부 정보"
 
@@ -451,6 +513,10 @@ msgstr "Disabled"
 
 msgid "Disabled input"
 msgstr "Disabled input"
+
+#, fuzzy
+msgid "Disk Format"
+msgstr "디스크 포멧"
 
 msgid "Disk Partition"
 msgstr "디스크 파티션"
@@ -516,6 +582,10 @@ msgstr "확장을 활성화하지 못했습니다: %(extension)s"
 
 msgid "External Network"
 msgstr "외부 네트워크"
+
+#, fuzzy
+msgid "Filename"
+msgstr "파일 이름"
 
 msgid "Fingerprint"
 msgstr "Fingerprint"
@@ -586,6 +656,13 @@ msgstr "ID"
 
 msgid "ISO"
 msgstr "ISO"
+
+#, fuzzy
+msgid ""
+"If \"No volume type\" is selected, the volume will be created without a "
+"volume type."
+msgstr ""
+"\"볼륨 타입 없음\"을 선택하면, 볼륨은 볼륨 타입이 없는 상태로 생성됩니다."
 
 msgid ""
 "If a network is shared, then all users in the project can access the network."
@@ -702,6 +779,16 @@ msgstr "인스턴스 소스 도움말"
 msgid "Instance count is required and must be an integer of at least 1"
 msgstr "인스턴스 개수는 필수이며 적어도 1 이상의 정수값이어야 합니다"
 
+#, fuzzy
+msgid ""
+"Instance source is the template used to create an instance. You can use a "
+"snapshot of an existing instance, an image, or a volume (if enabled).\n"
+"      You can also choose to use persistent storage by creating a new volume."
+msgstr ""
+"인스턴스 소스는 인스턴스를 생성할 때 사용되는 템플릿입니다. 기존 인스턴스에 "
+"대한 스냅샷, 이미지, 또는 볼륨 (활성화된 경우)을 사용 가능합니다. 또한 새 볼"
+"륨을 생성할 때 영구적인 스토리지를 사용하도록 선택할 수 있습니다.\n"
+
 msgid "Insufficient privilege level to view user information."
 msgstr "사용자 정보를 볼 수 있는 권한이 없습니다."
 
@@ -748,6 +835,10 @@ msgstr "Large button"
 msgid "Large input"
 msgstr "Large input"
 
+#, fuzzy
+msgid "Launch"
+msgstr "실행"
+
 msgid "Launch Instance"
 msgstr "인스턴스 시작"
 
@@ -771,6 +862,10 @@ msgstr "List group item heading"
 
 msgid "List groups"
 msgstr "List groups"
+
+#, fuzzy
+msgid "Loading"
+msgstr "불러 오는 중"
 
 msgid "Look, I'm in a large well!"
 msgstr "Look, I'm in a large well!"
@@ -813,6 +908,14 @@ msgstr "최소 RAM"
 
 msgid "Min RAM (MB)"
 msgstr "최소 RAM (MB)"
+
+#, fuzzy
+msgid "Min. Disk"
+msgstr "최소 디스크"
+
+#, fuzzy
+msgid "Min. RAM"
+msgstr "최소 RAM"
 
 msgid "Mini button"
 msgstr "Mini button"
@@ -882,6 +985,10 @@ msgstr "One more separated link"
 
 msgid "Other Input Types"
 msgstr "Other Input Types"
+
+#, fuzzy
+msgid "Overview"
+msgstr "개요"
 
 msgid "Pager"
 msgstr "Pager"
@@ -1017,6 +1124,10 @@ msgstr "Radios"
 msgid "Re-order items using drag and drop"
 msgstr "다시 주문할 아이템은 드래그 앤 드롭으로 가져옵니다."
 
+#, fuzzy
+msgid "Record Properties"
+msgstr "레코드 속성"
+
 msgid "Remote"
 msgstr "원격"
 
@@ -1040,6 +1151,10 @@ msgstr "Saving"
 
 msgid "Search"
 msgstr "Search"
+
+#, fuzzy
+msgid "Security"
+msgstr "보안"
 
 msgid "Security Groups"
 msgstr "시큐리티 그룹"
@@ -1078,6 +1193,10 @@ msgstr "아래에서 사용 가능한 키 페어 중 하나를 선택합니다."
 msgid "Select a source from those listed below."
 msgstr "아래 목록에서 소스를 선택합니다."
 
+#, fuzzy
+msgid "Select a zone"
+msgstr "영역 선택"
+
 msgid "Select an item from Available items below"
 msgstr "아래에서 사용 가능한 항목에서 선택"
 
@@ -1115,6 +1234,10 @@ msgstr "설정을 활성하지 못했습니다: %(setting)s"
 
 msgid "Shared"
 msgstr "공유"
+
+#, fuzzy
+msgid "Shared with Me"
+msgstr "나에게 공유됨"
 
 msgid "Size"
 msgstr "크기"
@@ -1344,6 +1467,14 @@ msgstr ""
 msgid "Typography"
 msgstr "Typography"
 
+#, fuzzy
+msgid "Unable to allocate new floating IP address."
+msgstr "새로운 유동 IP 주소를 할당할 수 없습니다."
+
+#, fuzzy
+msgid "Unable to associate floating IP address."
+msgstr "유동 IP 주소를 연결 할 수 없습니다."
+
 msgid "Unable to create the domain."
 msgstr "도메인을 생성하지 못했습니다."
 
@@ -1388,6 +1519,10 @@ msgstr "도메인을 삭제하지 못했습니다."
 msgid "Unable to delete the domains."
 msgstr "도메인을 삭제하지 못했습니다."
 
+#, fuzzy, python-format
+msgid "Unable to delete the image with id: %(id)s"
+msgstr "ID가 %(id)s인 이미지를 삭제 할 수 없습니다."
+
 msgid "Unable to delete the project."
 msgstr "프로젝트를 삭제하지 못했습니다."
 
@@ -1409,6 +1544,10 @@ msgstr "사용자를 삭제하지 못했습니다."
 #, python-format
 msgid "Unable to delete: %s."
 msgstr "삭제하지 못함: %s"
+
+#, fuzzy
+msgid "Unable to disassociate floating IP address."
+msgstr "유동 IP 주소 연결을 끊을 수 없습니다."
 
 msgid "Unable to edit instance metadata."
 msgstr "인스턴스 메타데이터를 수정할 수 없습니다."
@@ -1454,6 +1593,14 @@ msgstr "역할을 부여하지 못했습니다."
 
 msgid "Unable to import the keypair."
 msgstr "키 페어를 가져오지 못했습니다."
+
+#, fuzzy
+msgid "Unable to retrieve floating IP pools."
+msgstr "유동 IP pool을 찾지 못했습니다."
+
+#, fuzzy
+msgid "Unable to retrieve floating IPs."
+msgstr "유동 IP를 찾지 못했습니다."
 
 msgid "Unable to retrieve instance metadata."
 msgstr "인스턴스 메타데이터를 찾지 못했습니다."
@@ -1542,6 +1689,10 @@ msgstr "프로젝트를 찾지 못했습니다."
 msgid "Unable to retrieve the projects."
 msgstr "프로젝트들을 찾지 못했습니다."
 
+#, fuzzy
+msgid "Unable to retrieve the resource types."
+msgstr "해당 자원 유형을 찾지 못했습니다."
+
 msgid "Unable to retrieve the role."
 msgstr "역할을 찾지 못했습니다."
 
@@ -1584,6 +1735,10 @@ msgstr "이미지를 업데이트하지 못했습니다."
 msgid "Unable to validate the template."
 msgstr "템플릿 유효성을 확인할 수 없습니다."
 
+#, fuzzy
+msgid "Unknown"
+msgstr "알 수 없음"
+
 msgid "Up"
 msgstr "Up"
 
@@ -1599,11 +1754,19 @@ msgstr "이미지 메타데이터 업데이트"
 msgid "Update Instance Metadata"
 msgstr "인스턴스 메타데이터 업데이트"
 
+#, fuzzy
+msgid "Update Metadata"
+msgstr "메타데이터 업데이트"
+
 msgid "Updated"
 msgstr "업데이트 완료"
 
 msgid "Url"
 msgstr "Url"
+
+#, fuzzy
+msgid "Use image as a source"
+msgstr "소스로 이미지를 사용"
 
 msgid "User ID"
 msgstr "사용자 ID"
@@ -1635,11 +1798,34 @@ msgstr "가시성"
 msgid "Volume"
 msgstr "볼륨"
 
+#, fuzzy, python-format
+msgid "Volume %s was successfully created."
+msgstr "볼륨 %s를 성공적으로 생성하였습니다."
+
+#, fuzzy
+msgid "Volume Details"
+msgstr "볼륨 세부 정보"
+
+#, fuzzy
+msgid "Volume Quota"
+msgstr "볼륨 할당량"
+
 msgid "Volume Snapshot"
 msgstr "볼륨 스냅샷"
 
+#, fuzzy
+msgid "Volume Type Description:"
+msgstr "볼륨 유형 설명:"
+
+msgid "Volume and Snapshot Quota (GB)"
+msgstr "볼륨과 스냅샷 할당량 (GB)"
+
 msgid "Volume size is required and must be an integer"
 msgstr "볼륨 크기가 필요하고 정수값이어야 합니다"
+
+#, fuzzy
+msgid "Volumes are block devices that can be attached to instances."
+msgstr "볼륨은 인스턴스에 연결 할 수 있는 블록 디바이스입니다."
 
 msgid ""
 "Volumes can only be attached to 1 active instance at a time. Please either "
@@ -1680,6 +1866,10 @@ msgstr ""
 msgid "Yes"
 msgstr "예"
 
+#, fuzzy, python-format
+msgid "You are not allowed to delete images: %s"
+msgstr "이미지를 삭제할 수 없습니다: %s"
+
 msgid ""
 "You can add arbitrary metadata to your instance so that you can more easily "
 "identify it among other running instances. Metadata is a collection of key-"
@@ -1689,6 +1879,14 @@ msgstr ""
 "좀 더 쉽게 실행중인 다른 인스턴트간 식별할 수 있도록 하기위해 임의의 메타데이"
 "터를 추가할 수 있습니다. 메타 데이터는 인스턴스에 접근 가능한 키값 쌍의 컬렉"
 "션입니다. 각 메타데이터 키와 값의 최대 길이는 255자입니다."
+
+#, fuzzy, python-format
+msgid ""
+"You have selected \"%s\". Please confirm your selection. Deleted images are "
+"not recoverable."
+msgstr ""
+"%s를 선택하였습니다. 선택사항을 확인하십시오. 삭제된 이미지는 복구 불가능합니"
+"다."
 
 msgid "image"
 msgstr "image"
