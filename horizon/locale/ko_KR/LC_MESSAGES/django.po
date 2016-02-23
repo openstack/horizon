@@ -7,17 +7,18 @@
 # jaekwon.park <jaekwon.park@rockplace.co.kr>, 2014
 # Sungjin Kang <potopro@gmail.com>, 2015
 # Sungjin Kang <gang.sungjin@gmail.com>, 2015. #zanata
+# Ian Y. Choi <ianyrchoi@gmail.com>, 2016. #zanata
 # Sungjin Kang <gang.sungjin@gmail.com>, 2016. #zanata
 msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2016-01-31 10:08+0000\n"
+"POT-Creation-Date: 2016-02-22 18:18+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2016-01-23 01:48+0000\n"
-"Last-Translator: Sungjin Kang <gang.sungjin@gmail.com>\n"
+"PO-Revision-Date: 2016-02-23 03:51+0000\n"
+"Last-Translator: Ian Y. Choi <ianyrchoi@gmail.com>\n"
 "Language: ko-KR\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 "Generated-By: Babel 2.0\n"
@@ -175,6 +176,14 @@ msgstr "사용 가능"
 msgid "Back"
 msgstr "뒤로"
 
+msgid "Batch Item"
+msgid_plural "Batch Items"
+msgstr[0] "일괄 항목"
+
+msgid "Batched Item"
+msgid_plural "Batched Items"
+msgstr[0] "일괄로 둔 항목"
+
 msgid "Cancel"
 msgstr "취소"
 
@@ -201,6 +210,18 @@ msgstr[0] "%(counter)s 항목 표시"
 msgid "Displaying %(nav_items)s item"
 msgid_plural "Displaying %(nav_items)s items"
 msgstr[0] "%(nav_items)s 항목 표시"
+
+msgid "Down Item"
+msgid_plural "Down Items"
+msgstr[0] "아래 항목"
+
+msgid "Downed Item"
+msgid_plural "Downed Items"
+msgstr[0] "아래로 둔 항목"
+
+#, python-format
+msgid "Error processing message json file '%(path)s': %(exception)s"
+msgstr "메시지 json 파일 '%(path)s' 처리 오류: %(exception)s"
 
 msgid "Error: "
 msgstr "오류:"
@@ -241,6 +262,10 @@ msgstr "로그인"
 
 msgid "Members"
 msgstr "구성원"
+
+#, python-format
+msgid "Message json file '%(path)s' is malformed. %(exception)s"
+msgstr "메시지 json 파일 '%(path)s' 이 손상되었습니다. %(exception)s"
 
 msgid "More Actions"
 msgstr "기타 작업"
@@ -330,6 +355,15 @@ msgstr "날짜는 YYYY-mm-dd 형식이어야 합니다."
 msgid "The string may only contain ASCII printable characters."
 msgstr "문자열은 ASCII 인쇄 문자를 포함할 수 있습니다."
 
+#, python-format
+msgid ""
+"The value of %(resource)s is %(name)s inside the template. When launching a "
+"stack from this interface, the value must start with \"http://\" or "
+"\"https://\""
+msgstr ""
+"%(resource)s 값은 템플릿 내 %(name)s 입니다. 해당 인터페이스로부터 stack을 구"
+"동하는 경우, 해당 값은 \"http://\" 또는 \"https://\" 로 시작해야 합니다"
+
 msgid "This Period's GB-Hours:"
 msgstr "선택 기간 동안에 사용 시간당 GB:"
 
@@ -352,6 +386,22 @@ msgstr "권한이 없습니다. 다시 로그인 해주십시오."
 #, python-format
 msgid "Unauthorized: %s"
 msgstr "권한이 없습니다: %s"
+
+msgid "Up Item"
+msgid_plural "Up Items"
+msgstr[0] "위 항목"
+
+msgid "Update Item"
+msgid_plural "Update Items"
+msgstr[0] "갱신 항목"
+
+msgid "Updated Item"
+msgid_plural "Updated Items"
+msgstr[0] "갱신된 항목"
+
+msgid "Upped Item"
+msgid_plural "Upped Items"
+msgstr[0] "위로 둔 항목"
 
 msgid "Usage Summary"
 msgstr "사용량 요약"
