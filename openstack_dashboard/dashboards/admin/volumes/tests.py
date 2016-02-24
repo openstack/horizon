@@ -58,14 +58,18 @@ class VolumeTests(test.BaseAdminViewTests):
         self.assertItemsEqual(volumes, self.cinder_volumes.list())
 
     @test.create_stubs({api.nova: ('server_list',),
-                        cinder: ('volume_list_paged',),
+                        cinder: ('volume_list_paged',
+                                 'volume_snapshot_list'),
                         keystone: ('tenant_list',)})
     def _test_index_paginated(self, marker, sort_dir, volumes, url,
                               has_more, has_prev):
+        vol_snaps = self.cinder_volume_snapshots.list()
         cinder.volume_list_paged(IsA(http.HttpRequest), sort_dir=sort_dir,
                                  marker=marker, paginate=True,
                                  search_opts={'all_tenants': True}) \
             .AndReturn([volumes, has_more, has_prev])
+        api.cinder.volume_snapshot_list(
+            IsA(http.HttpRequest), search_opts=None).AndReturn(vol_snaps)
         api.nova.server_list(IsA(http.HttpRequest), search_opts={
                              'all_tenants': True}) \
             .AndReturn([self.servers.list(), False])
