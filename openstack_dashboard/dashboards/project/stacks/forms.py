@@ -339,7 +339,8 @@ class CreateStackForm(forms.SelfHandlingForm):
                 if 'MaxLength' in param:
                     field_args['max_length'] = int(param['MaxLength'])
                 if hidden:
-                    field_args['widget'] = forms.PasswordInput()
+                    field_args['widget'] = forms.PasswordInput(
+                        render_value=True)
                 field = forms.CharField(**field_args)
 
             elif param_type == 'Number':
