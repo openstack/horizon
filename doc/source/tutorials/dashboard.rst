@@ -462,42 +462,14 @@ URLs
 ----
 The auto-generated ``urls.py`` file is like::
 
-    from django.conf.urls import patterns
-    from django.conf.urls import url
-
-    from openstack_dashboard.dashboards.mydashboard.mypanel.views \
-        import IndexView
-
-
-    urlpatterns = patterns(
-        '',
-        url(r'^$', IndexView.as_view(), name='index'),
-    )
-
-
-Adjust the import of ``IndexView`` to make the code readable::
-
-    from openstack_dashboard.dashboards.mydashboard.mypanel import views
-
-
-Replace the existing ``url`` pattern with the following line::
-
-    url(r'^$',
-        views.IndexView.as_view(), name='index'),
-
-
-The completed ``urls.py`` file should look like the following::
-
-    from django.conf.urls import patterns
     from django.conf.urls import url
 
     from openstack_dashboard.dashboards.mydashboard.mypanel import views
 
 
-    urlpatterns = patterns('',
-        url(r'^$',
-            views.IndexView.as_view(), name='index'),
-    )
+    urlpatterns = [
+        url(r'^$', views.IndexView.as_view(), name='index'),
+    ]
 
 
 The template
