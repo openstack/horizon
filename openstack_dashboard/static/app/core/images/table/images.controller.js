@@ -62,7 +62,7 @@
     ctrl.imagesSrc = [];
     ctrl.metadataDefs = null;
 
-    ctrl.getRowActions = typeRegistry.getRowActionsFunction(imageResourceType);
+    ctrl.getItemActions = typeRegistry.getItemActionsFunction(imageResourceType);
     ctrl.getBatchActions = typeRegistry.getBatchActionsFunction(imageResourceType);
 
     var deleteWatcher = $scope.$on(events.DELETE_SUCCESS, onDeleteSuccess);

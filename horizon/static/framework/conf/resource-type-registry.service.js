@@ -31,7 +31,7 @@
    * @description
    * This service provides a registry which allows for registration of
    * configurations for resource types.  These configurations include
-   * batch and row actions, which are associated with the resource type
+   * batch and item actions, which are associated with the resource type
    * via a key.  The key follows the format: OS::Glance::Image.
    * The functions that are exposed both assist with registration and also
    * provide utilities relevant for their consumption.
@@ -54,7 +54,7 @@
      * @ngdoc function
      * @name getMember
      * @description
-     * Given a resource type name and the member type (e.g. 'rowActions')
+     * Given a resource type name and the member type (e.g. 'itemActions')
      * This returns the extensible container for those inputs.  If either
      * requested item hasn't been initialized yet, they are created.
      */
@@ -84,8 +84,8 @@
 
     var resourceTypes = {};
     var registry = {
-      getRowActions: getRowActions,
-      getRowActionsFunction: getRowActionsFunction,
+      getItemActions: getItemActions,
+      getItemActionsFunction: getItemActionsFunction,
       initActions: initActions,
       getBatchActions: getBatchActions,
       getBatchActionsFunction: getBatchActionsFunction
@@ -93,22 +93,22 @@
 
     /*
      * @ngdoc function
-     * @name getRowActions
+     * @name getItemActions
      * @description
-     * Retrieves the type's row actions.
+     * Retrieves the type's item actions.
      */
-    function getRowActions(type) {
-      return getMember(type, 'rowActions');
+    function getItemActions(type) {
+      return getMember(type, 'itemActions');
     }
 
     /*
      * @ngdoc function
-     * @name getRowActionsFunction
+     * @name getItemActionsFunction
      * @description
-     * Retrieves a function returning the type's row actions.
+     * Retrieves a function returning the type's item actions.
      */
-    function getRowActionsFunction(type) {
-      return getMemberFunction(type, 'rowActions');
+    function getItemActionsFunction(type) {
+      return getMemberFunction(type, 'itemActions');
     }
 
     /*
@@ -120,7 +120,7 @@
      * If an action does not have an initScope() function, it is ignored.
      */
     function initActions(type, scope) {
-      angular.forEach(resourceTypes[type].rowActions, setActionScope);
+      angular.forEach(resourceTypes[type].itemActions, setActionScope);
       angular.forEach(resourceTypes[type].batchActions, setActionScope);
 
       function setActionScope(action) {

@@ -34,16 +34,16 @@
       expect(service).toBeDefined();
     });
 
-    describe('getRowActions', function() {
+    describe('getItemActions', function() {
 
       it('adds a member when called and no member present', function() {
-        expect(service.getRowActions('newthing')).toBeDefined();
+        expect(service.getItemActions('newthing')).toBeDefined();
       });
 
-      it('sets rowAction when getRowAction is called', function() {
-        service.getRowActions('newthing').push(1);
-        service.getRowActions('newthing').push(2);
-        expect(service.getRowActions('newthing')).toEqual([1, 2]);
+      it('sets itemAction when getItemAction is called', function() {
+        service.getItemActions('newthing').push(1);
+        service.getItemActions('newthing').push(2);
+        expect(service.getItemActions('newthing')).toEqual([1, 2]);
       });
 
     });
@@ -61,9 +61,9 @@
       });
     });
 
-    it('returns a function that returns row actions', function() {
-      service.getRowActions('newthing').push(1);
-      expect(service.getRowActionsFunction('newthing')()).toEqual([1]);
+    it('returns a function that returns item actions', function() {
+      service.getItemActions('newthing').push(1);
+      expect(service.getItemActionsFunction('newthing')()).toEqual([1]);
     });
 
     it('returns a function that returns batch actions', function() {
@@ -71,7 +71,7 @@
       expect(service.getBatchActionsFunction('newthing')()).toEqual([1]);
     });
 
-    it('init calls initScope on row and batch actions', function() {
+    it('init calls initScope on item and batch actions', function() {
       var action = { service: { initScope: angular.noop } };
       spyOn(action.service, 'initScope');
       service.getBatchActions('newthing').push(action);
