@@ -65,18 +65,15 @@
     });
 
     it('pass the image to the deleteImageService', function() {
-      spyOn(deleteImageService, 'perform').and.callThrough();
 
-      var selected = {
-        image1: {checked: true, item: {name: 'image1', id: '1'}},
-        image2: {checked: true, item: {name: 'image2', id: '2'}}
-      };
+      spyOn(deleteImageService, 'perform').and.callThrough();
+      var selected = [
+        {id: '1', name: 'image1'},
+        {id: '2', name: 'image2'}
+      ];
 
       service.perform(selected);
-
-      expect(deleteImageService.perform).toHaveBeenCalledWith(
-        [{id: '1', name: 'image1'}, {id: '2', name: 'image2'}]
-      );
+      expect(deleteImageService.perform).toHaveBeenCalledWith(selected);
     });
 
   });

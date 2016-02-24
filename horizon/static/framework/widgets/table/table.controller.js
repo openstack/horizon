@@ -61,25 +61,22 @@
     }
 
     function clearSelected() {
+      ctrl.selected = [];
       ctrl.selections = {};
-      ctrl.numSelected = 0;
+    }
+
+    function getSelected(map) {
+      return Object.keys(map)
+        .filter(function isChecked(k) { return map[k].checked; })
+        .map(function getItem(k) { return map[k].item; });
     }
 
     /*
      * Toggle the row selection state
      */
     function toggleSelect(row, checkedState, broadcast) {
-      ctrl.selections[row.id] = {
-        checked: checkedState,
-        item: row
-      };
-
-      if (checkedState) {
-        ctrl.numSelected++;
-      } else {
-        ctrl.numSelected--;
-      }
-
+      ctrl.selections[row.id] = { checked: checkedState, item: row };
+      ctrl.selected = getSelected(ctrl.selections);
       if (broadcast) {
         /*
          * should only walk down scope tree that has

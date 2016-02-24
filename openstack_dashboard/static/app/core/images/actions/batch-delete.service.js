@@ -67,23 +67,11 @@
 
     // delete selected image objects
     function perform(selected) {
-      deleteImageService.perform(getSelectedImages(selected));
+      deleteImageService.perform(selected);
     }
 
     function allowed() {
       return policy.ifAllowed({ rules: [['image', 'delete_image']] });
-    }
-
-    function getSelectedImages(selected) {
-      return Object.keys(selected).filter(isChecked).map(getImage);
-
-      function isChecked(value) {
-        return selected[value].checked;
-      }
-
-      function getImage(value) {
-        return selected[value].item;
-      }
     }
 
   } // end of batchDeleteService
