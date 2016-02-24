@@ -9,24 +9,52 @@
 # Robert Simai, 2015
 # Carsten Duch <carsten.duch@posteo.de>, 2015. #zanata
 # Robert Simai <robert.simai@suse.com>, 2015. #zanata
+# Andreas Jaeger <jaegerandi@gmail.com>, 2016. #zanata
 msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2016-02-18 02:36+0000\n"
+"POT-Creation-Date: 2016-02-24 03:44+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2015-12-18 12:50+0000\n"
-"Last-Translator: Robert Simai <robert.simai@suse.com>\n"
+"PO-Revision-Date: 2016-02-23 10:21+0000\n"
+"Last-Translator: Andreas Jaeger <jaegerandi@gmail.com>\n"
 "Language: de\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "Generated-By: Babel 2.0\n"
 "X-Generator: Zanata 3.7.3\n"
 "Language-Team: German\n"
 
+msgid "#"
+msgstr "#"
+
 msgid "(None)"
 msgstr "(Kein)"
+
+msgid "1"
+msgstr "1"
+
+msgid "2"
+msgstr "2"
+
+msgid "3"
+msgstr "3"
+
+msgid "4"
+msgstr "4"
+
+msgid "5"
+msgstr "5"
+
+msgid "6"
+msgstr "6"
+
+msgid "7"
+msgstr "7"
+
+msgid "8"
+msgstr "8"
 
 msgid ""
 "<li><b>Image (with Create New Volume checked)</b>: This options uses an "
@@ -35,10 +63,10 @@ msgid ""
 "deletion of the instance.</li>"
 msgstr ""
 "<li><b>Abbild (und Erstelle Neuen Datenträger ausgewählt)</b>: diese Option "
-"verwendet ein abbild zum booten der Instanz und erstellt einen neuen "
+"verwendet ein Abbild zum Booten der Instanz und erstellt einen neuen "
 "Datenträger zum Erhalt der Instanzdaten. Sie können sowohl die "
 "Datenträgergröße angeben, als auch ob der Datenträger beim Löschen der "
-"Instanz entfernt werden soll."
+"Instanz entfernt werden soll.</li>"
 
 msgid "<li><b>Image</b>: This option uses an image to boot the instance.</li>"
 msgstr ""
@@ -105,6 +133,18 @@ msgstr ""
 msgid "A name is required for your instance."
 msgstr "Ein Name wird für die Instanz benötigt."
 
+msgid "AKI"
+msgstr "AKI"
+
+msgid "AMI"
+msgstr "AMI"
+
+msgid "ARI"
+msgstr "ARI"
+
+msgid "Action"
+msgstr "Aktion"
+
 msgid "Active"
 msgstr "Aktiv"
 
@@ -165,6 +205,9 @@ msgstr ""
 "Ein Instanzname ist erforderlich, um Ihre Instanz im Dashboard eindeutig zu "
 "identifizieren."
 
+msgid "Another action"
+msgstr "Weitere Aktion"
+
 msgid "Automatic"
 msgstr "Automatisch"
 
@@ -190,8 +233,14 @@ msgstr ""
 "bootet, wird das <b>Konfigurationslaufwerk</b> hinzugefügt und erlaubt den "
 "Zugriff auf die Metadaten."
 
+msgid "Checksum"
+msgstr "Prüfsumme"
+
 msgid "Click to see more details"
 msgstr "Klicken um mehr Details zu sehen"
+
+msgid "Color"
+msgstr "Farbe"
 
 msgid "Configuration"
 msgstr "Konfiguration"
@@ -202,17 +251,26 @@ msgstr "Konfigurationslaufwerk"
 msgid "Configuration Help"
 msgstr "Konfigurationshilfe"
 
+msgid "Container Format"
+msgstr "Containerformat"
+
 msgid "Count"
 msgstr "Anzahl"
 
 msgid "Create Key Pair"
 msgstr "Schlüsselpaar erstellen"
 
+msgid "Create Keypair"
+msgstr "Erstelle Schlüsselpaar"
+
 msgid "Create New Volume"
 msgstr "Neuen Datenträger erstellen"
 
 msgid "Created"
 msgstr "Erstellt"
+
+msgid "Created keypair: "
+msgstr "Erstelltes Schlüsselpaar:"
 
 msgid ""
 "Custom scripts are attached to instances to perform specific actions when "
@@ -229,14 +287,28 @@ msgstr ""
 msgid "Danger"
 msgstr "Gefahr"
 
+msgid "Default"
+msgstr "Standard"
+
 msgid "Delete Volume on Instance Delete"
 msgstr "Lösche Datenträger beim Löschen der Instanz"
 
 msgid "Deleted"
 msgstr "Gelöscht"
 
+#, python-format
+msgid "Deleted Image: %s."
+msgstr "Gelöschtes Abbild: %s."
+
+#, python-format
+msgid "Deleted Images: %s."
+msgstr "Gelöschte Abbilder: %s."
+
 msgid "Description"
 msgstr "Beschreibung"
+
+msgid "Description:"
+msgstr "Beschreibung:"
 
 msgid "Details"
 msgstr "Details"
@@ -247,8 +319,14 @@ msgstr "Gerätename"
 msgid "Direction"
 msgstr "Richtung"
 
+msgid "Disk Format"
+msgstr "Festplattenformat"
+
 msgid "Disk Partition"
 msgstr "Festplattenpartition"
+
+msgid "Docker"
+msgstr "Docker"
 
 msgid "Domain ID"
 msgstr "Domänen-ID"
@@ -256,11 +334,21 @@ msgstr "Domänen-ID"
 msgid "Down"
 msgstr "Down"
 
+msgid ""
+"Dropdown\n"
+"                <span></span>"
+msgstr ""
+"Dropdown\n"
+"                <span></span>"
+
 msgid "Email"
 msgstr "E-Mail"
 
 msgid "Enabled"
 msgstr "Aktiviert"
+
+msgid "Encrypted"
+msgstr "Verschlüsselt"
 
 msgid "Ephemeral Disk"
 msgstr "Flüchtige Festplatte"
@@ -274,6 +362,9 @@ msgstr "Erweiterung ist nicht aktiviert: %(extension)s."
 
 msgid "External Network"
 msgstr "Externes Netzwerk"
+
+msgid "Filename"
+msgstr "Dateiname"
 
 msgid "Fingerprint"
 msgstr "Fingerabdruck"
@@ -314,6 +405,9 @@ msgstr ""
 
 msgid "ID"
 msgstr "Kennung"
+
+msgid "ISO"
+msgstr "ISO"
 
 msgid ""
 "If a network is shared, then all users in the project can access the network."
@@ -372,6 +466,9 @@ msgstr "Auswirkung auf Ihr Kontingent"
 
 msgid "Import Key Pair"
 msgstr "Schlüsselpaar importieren"
+
+msgid "Info"
+msgstr "Info"
 
 msgid "Instance Details"
 msgstr "Instanzdetails"
@@ -440,6 +537,12 @@ msgstr "Instanz starten"
 msgid "Left"
 msgstr "Links"
 
+msgid "Legend"
+msgstr "Legende"
+
+msgid "Link"
+msgstr "Link"
+
 msgid "Manual"
 msgstr "Manuell"
 
@@ -448,6 +551,9 @@ msgstr "Max Port"
 
 msgid "Metadata"
 msgstr "Metadaten"
+
+msgid "Metadata Help"
+msgstr "Metadaten Hilfe"
 
 msgid "Middle"
 msgstr "Mitte"
@@ -466,6 +572,9 @@ msgstr "Min RAM"
 
 msgid "Min RAM (MB)"
 msgstr "Min RAM (MB)"
+
+msgid "Month"
+msgstr "Monat"
 
 msgid "Name"
 msgstr "Name"
@@ -495,6 +604,15 @@ msgstr "Keine verfügbaren Positionen"
 
 msgid "Number"
 msgstr "Zahl"
+
+msgid "OVA"
+msgstr "OVA"
+
+msgid "Overview"
+msgstr "Übersicht"
+
+msgid "Password"
+msgstr "Passwort"
 
 msgid "Pending Delete"
 msgstr "Geplante Löschung"
@@ -557,11 +675,17 @@ msgstr "Öffentlich"
 msgid "Public Key"
 msgstr "Öffentlicher Schlüssel"
 
+msgid "QCOW2"
+msgstr "QCOW2"
+
 msgid "Queued"
 msgstr "In Warteschlange"
 
 msgid "RAM"
 msgstr "RAM"
+
+msgid "RAW"
+msgstr "RAW"
 
 msgid "Re-order items using drag and drop"
 msgstr "Umsortieren der Positionen durch ziehen und ablegen"
@@ -580,6 +704,12 @@ msgstr "Speichern"
 
 msgid "Saving"
 msgstr "Speichern"
+
+msgid "Search"
+msgstr "Suche"
+
+msgid "Security"
+msgstr "Sicherheit"
 
 msgid "Security Groups"
 msgstr "Sicherheitsgruppen"
@@ -667,11 +797,20 @@ msgstr "Snapshot"
 msgid "Source"
 msgstr "Quelle"
 
+msgid "Source Code"
+msgstr "Source Code"
+
 msgid "Status"
 msgstr "Status"
 
+msgid "Submit"
+msgstr "Submit"
+
 msgid "Subnets Associated"
 msgstr "Subnetze zugewiesen"
+
+msgid "Success"
+msgstr "Erfolg"
 
 #, python-format
 msgid "Successfully imported key pair %(name)s."
@@ -679,6 +818,9 @@ msgstr "Importieren des Schlüsselpaares %(name)s erfolgreich."
 
 msgid "Swap Disk"
 msgstr "Auslagerungsplatte"
+
+msgid "Tel"
+msgstr "Tel"
 
 msgid ""
 "The flavor you select for an instance determines the amount of compute, "
@@ -750,6 +892,9 @@ msgid ""
 msgstr ""
 "Diese Variante benötigt mehr VCPU als Ihr Kontingent erlaubt. Bitte wählen "
 "Sie eine kleinere Variante oder verringern Sie die Anzahl der Instanzen."
+
+msgid "Time"
+msgstr "Zeit"
 
 msgid "Total Disk"
 msgstr "Festplatte gesamt"
@@ -967,6 +1112,9 @@ msgstr "Abbild kann nicht aktualisiert werden."
 msgid "Unable to validate the template."
 msgstr "Vorlage kann nicht validiert werden."
 
+msgid "Unknown"
+msgstr "Unbekannt"
+
 msgid "Up"
 msgstr "Up"
 
@@ -981,6 +1129,9 @@ msgstr "Abbild-Metadaten erneuern"
 
 msgid "Updated"
 msgstr "Aktualisiert"
+
+msgid "Url"
+msgstr "URL"
 
 msgid "User ID"
 msgstr "Benutzerkennung"
@@ -997,11 +1148,23 @@ msgstr "VCPUS"
 msgid "VCPUs"
 msgstr "VCPUs"
 
+msgid "VDI"
+msgstr "VDI"
+
+msgid "VHD"
+msgstr "VHD"
+
+msgid "VMDK"
+msgstr "VMDK"
+
 msgid "Visibility"
 msgstr "Sichtbarkeit"
 
 msgid "Volume"
 msgstr "Datenträger"
+
+msgid "Volume Details"
+msgstr "Datenträgerdetails"
 
 msgid "Volume Snapshot"
 msgstr "Datenträger Snapshot"
@@ -1019,6 +1182,9 @@ msgstr ""
 
 msgid "Warning"
 msgstr "Warnung"
+
+msgid "Week"
+msgstr "Woche"
 
 msgid ""
 "When selecting volume as boot source, please ensure the instance's "
@@ -1041,6 +1207,12 @@ msgstr ""
 
 msgid "Yes"
 msgstr "Ja"
+
+msgid "image"
+msgstr "Abbild"
+
+msgid "snapshot"
+msgstr "Momentaufnahme"
 
 msgid "{$ row['provider:network_type'] $}"
 msgstr "{$ row['provider:network_type'] $}"
