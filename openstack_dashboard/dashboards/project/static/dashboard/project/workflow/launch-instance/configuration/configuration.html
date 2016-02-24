@@ -1,36 +1,35 @@
 <div ng-controller="LaunchInstanceConfigurationController as config">
-  <h1 translate>Configuration</h1>
+  <p translate>
+    You can customize your instance after it has launched using the options available here.
+    "Customization Script" is analogous to "User Data" in other systems.
+  </p>
 
-  <div class="content">
-    <div class="subtitle"></div>
+  <load-edit config="config"
+             user-input="model.newInstanceSpec"
+             key="user_data">
+  </load-edit>
 
-    <load-edit config="config"
-               user-input="model.newInstanceSpec"
-               key="user_data">
-    </load-edit>
-
-    <div hz-if-nova-extensions='["DiskConfig"]'>
-      <div class="form-group disk-partition">
-        <label for="launch-instance-disk-partition" translate>
-          Disk Partition
-        </label>
-        <select class="form-control"
-                id="launch-instance-disk-partition"
-                ng-model="model.newInstanceSpec.disk_config"
-                ng-options="option.value as option.text for option in config.diskConfigOptions">
-        </select>
-      </div>
+  <div hz-if-nova-extensions='["DiskConfig"]'>
+    <div class="form-group">
+      <label for="disk-partition" translate>
+        Disk Partition
+      </label>
+      <select class="form-control"
+              id="disk-partition"
+              ng-model="model.newInstanceSpec.disk_config"
+              ng-options="option.value as option.text for option in config.diskConfigOptions">
+      </select>
     </div>
+  </div>
 
-    <div hz-if-nova-extensions='["ConfigDrive"]'>
-      <div class="checkbox customization-script-source">
-        <label>
-          <input type="checkbox"
-                 ng-model="model.newInstanceSpec.config_drive">
-          <span translate>Configuration Drive</span>
-        </label>
-      </div>
+  <div hz-if-nova-extensions='["ConfigDrive"]'>
+    <div class="checkbox">
+      <label for="config-drive" translate>
+        <input type="checkbox"
+               id="config-drive"
+               ng-model="model.newInstanceSpec.config_drive">
+        Configuration Drive
+      </label>
     </div>
-
   </div>
 </div>

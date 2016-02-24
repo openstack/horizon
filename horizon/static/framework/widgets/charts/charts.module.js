@@ -59,7 +59,7 @@
    */
   .constant('horizon.framework.widgets.charts.donutChartSettings', {
     innerRadius: 24,
-    outerRadius: 30,
+    outerRadius: 36,
     titleClass: 'pie-chart-title-medium',
     showTitle: true,
     showLabel: true,

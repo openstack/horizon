@@ -93,7 +93,7 @@
       },
 
       btnIcon: {
-        finish: 'fa fa-cloud-download'
+        finish: 'fa fa-cloud-upload'
       }
     });
   }

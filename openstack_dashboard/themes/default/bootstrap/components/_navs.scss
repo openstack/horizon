@@ -2,27 +2,6 @@
   a {
     color: $gray;
   }
-
-  & > li {
-    & > a {
-      border-top: 1px solid $gray-light;
-      border-bottom: 1px solid $gray-light;
-      border-radius: 0;
-      font-weight: bold;
-    }
-  }
-
-  & > li + li {
-    margin-top: 0;
-
-    & > a {
-      border-top: none;
-    }
-  }
-
-  & > li > .in {
-    border-bottom: 1px solid $gray-light;
-  }
 }
 
 .nav-tabs {

@@ -1,14 +1,13 @@
-<div>
-  <h1 translate>Metadata</h1>
-  <div class="content">
-    <metadata-tree
-      ng-if="model.metadataDefs.instance && model.novaLimits"
-      available="::model.metadataDefs.instance"
-      existing="{}"
-      max-key-length="255"
-      max-value-length="255"
-      max-item-count="::model.novaLimits.maxServerMeta"
-      model="::model.metadataTree">
-    </metadata-tree>
-  </div>
-</div>
+<p translate>
+  This step allows you to add Metadata items to your instance.
+</p>
+
+<metadata-tree
+  ng-if="model.metadataDefs.instance && model.novaLimits"
+  available="::model.metadataDefs.instance"
+  existing="{}"
+  max-key-length="255"
+  max-value-length="255"
+  max-item-count="::model.novaLimits.maxServerMeta"
+  model="::model.metadataTree">
+</metadata-tree>

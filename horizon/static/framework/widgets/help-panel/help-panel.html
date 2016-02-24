@@ -1,5 +1,9 @@
-<div class="help-panel" ng-class="{'open': openHelp}">
-  <button class="open" ng-click="openHelp=true"><span class="fa fa-question-circle"></span></button>
-  <button class="close" ng-click="openHelp=false"><span class="fa fa-times-circle"></span></button>
-  <div class="content" ng-transclude></div>
+<button class="btn btn-default help-toggle collapsed" data-target="#help-panel"
+        data-toggle="collapse" role="button" aria-expanded="false" 
+        aria-controls="help-panel">
+  <span class="fa"></span>
+</button>
+
+<div id="help-panel" class="collapse width" ng-class="{'in': openHelp}">
+  <div class="well" ng-transclude></div>
 </div>

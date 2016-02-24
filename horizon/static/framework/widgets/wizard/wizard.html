@@ -1,67 +1,89 @@
 <div class="ng-wizard" ng-form="wizardForm">
-  <div class="title" ng-bind="::workflow.title"></div>
+  <div class="modal-header">
+    <button type="button" class="close" ng-click="cancel()" aria-hidden="true" aria-label="Close">
+      <span aria-hidden="true" class="fa fa-close"></span>
+    </button>
+    <span class="h4 modal-title" ng-bind="::workflow.title"></span>
+  </div>
 
-  <div class="nav">
-    <button class="btn nav-item"
-      ng-class="{'current': currentIndex===$index}"
-      ng-click="switchTo($index)"
-      ng-repeat="step in steps"
-      ng-show="viewModel.ready">
-      <span ng-bind="::step.title"></span>
-      <span class="status-indicator fa fa-lg fa-warning"
-        ng-show="wizardForm[steps[$index].formName].$invalid"></span>
+  <div class="modal-body">
+    <div class="row">
+      <div class="col-xs-12 col-sm-3">
+        <button type="button" data-toggle="collapse"
+                data-target="#wizard-side-nav" aria-expanded="false"
+                class="navbar-toggle btn btn-default collapsed wizard-nav-toggle">
+          <span translate class="sr-only">Toggle navigation</span>
+          <span class="fa fa-bars"></span>
+          <span>Toggle navigation</span>
+        </button>
+
+        <div class="collapse navbar-collapse wizard-nav" id="wizard-side-nav">
+          <ul class="nav nav-pills nav-stacked">
+            <li role="presentation"
+                class="nav-item"
+                ng-class="{'active': currentIndex===$index}"
+                ng-click="switchTo($index)"
+                ng-repeat="step in steps"
+                ng-show="viewModel.ready">
+              <a href="#">
+                <span ng-bind="::step.title"></span>
+                <span class="hz-icon-required fa fa-asterisk"
+                    ng-show="wizardForm[steps[$index].formName].$invalid"
+                    aria-hidden="true"></span>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="col-xs-12 col-sm-9">
+        <div class="step"
+          ng-repeat="step in steps"
+          ng-show="currentIndex===$index">
+          <ng-include
+            ng-form="{$ step.formName $}"
+            src="step.templateUrl">
+          </ng-include>
+        </div>
+      </div>
+
+      <help-panel>
+        <ng-include src="step.helpUrl"
+                    ng-repeat="step in steps"
+                    ng-show="currentIndex===$index"></ng-include>
+      </help-panel>
+
+    </div>
+  </div>
+
+  <div class="modal-footer">
+    <button type="button" class="btn btn-default pull-left"
+      ng-click="cancel()">
+      <span ng-class="::viewModel.btnIcon.cancel||'fa fa-close'"></span>
+      <span ng-bind="::viewModel.btnText.cancel"></span>
+    </button>
+
+    <button type="button" class="btn btn-default back"
+      ng-click="switchTo(currentIndex - 1)"
+      ng-disabled="currentIndex===0">
+      <span ng-class="::viewModel.btnIcon.back||'fa fa-angle-left'"></span>
+      <span ng-bind="::viewModel.btnText.back"></span>
+    </button>
+
+    <button type="button" class="btn btn-default next"
+      ng-click="switchTo(currentIndex + 1)"
+      ng-disabled="currentIndex===steps.length - 1">
+      <span ng-bind="::viewModel.btnText.next"></span>
+      <span ng-class="::viewModel.btnIcon.next||'fa fa-angle-right'"></span>
+    </button>
+
+    <button type="button" class="btn btn-primary finish"
+      ng-click="viewModel.onClickFinishBtn()"
+      ng-disabled="wizardForm.$invalid||viewModel.isSubmitting">
+      <span ng-class="::viewModel.btnIcon.finish||'fa fa-check'"></span>
+      <span ng-bind="::viewModel.btnText.finish"></span>
     </button>
   </div>
 
-  <div class="step"
-    ng-repeat="step in steps"
-    ng-show="currentIndex===$index">
-    <ng-include
-      ng-form="{$ step.formName $}"
-      src="step.templateUrl">
-    </ng-include>
-  </div>
-
-  <div class="toolbar">
-    <div class="secondary-btn-grp">
-      <button class="cancel btn btn-sm btn-default"
-        ng-click="cancel()">
-        <span ng-class="::viewModel.btnIcon.cancel||'fa fa-close'"></span>
-        <span ng-bind="::viewModel.btnText.cancel"></span>
-      </button>
-    </div>
-
-    <div class="primary-btn-grp">
-      <button class="back btn btn-sm btn-default"
-        ng-click="switchTo(currentIndex - 1)"
-        ng-hide="currentIndex===0">
-        <span ng-class="::viewModel.btnIcon.back||'fa fa-chevron-left'"></span>
-        <span ng-bind="::viewModel.btnText.back"></span>
-      </button>
-
-      <button class="next btn btn-sm btn-primary"
-        ng-click="switchTo(currentIndex + 1)"
-        ng-hide="currentIndex===steps.length - 1">
-        <span ng-bind="::viewModel.btnText.next"></span>
-        <span ng-class="::viewModel.btnIcon.next||'fa fa-chevron-right'"></span>
-      </button>
-
-      <span class="separator"></span>
-
-      <button class="finish btn btn-sm btn-success"
-        ng-click="viewModel.onClickFinishBtn()"
-        ng-disabled="wizardForm.$invalid||viewModel.isSubmitting">
-        <span ng-class="::viewModel.btnIcon.finish||'fa fa-check'"></span>
-        <span ng-bind="::viewModel.btnText.finish"></span>
-      </button>
-    </div>
-  </div>
-
   <div class="error-message" ng-show="viewModel.hasError" ng-bind="viewModel.errorMessage"></div>
-
-  <help-panel>
-    <ng-include src="step.helpUrl"
-      ng-repeat="step in steps"
-      ng-show="currentIndex===$index"></ng-include>
-  </help-panel>
 </div>

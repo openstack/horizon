@@ -1,52 +1,45 @@
-<div class="ng-wizard no-navigation" ng-form="wizardForm">
-  <div class="download-iframes" style="display: none;"></div>
-  <div class="title" translate>Launch Instance</div>
+<div class="ng-wizard" ng-form="wizardForm">
 
-  <div class="step">
-    <h1 translate>Create Key Pair</h1>
+  <div class="modal-header">
+    <button type="button" class="close" ng-click="ctrl.cancel()" aria-hidden="true" aria-label="Close">
+      <span aria-hidden="true" class="fa fa-close"></span>
+    </button>
+    <span class="h4 modal-title">Create Key Pair</span>
+  </div>
 
-    <div class="content">
-      <div class="subtitle" translate>
-        Key Pairs are how you login to your instance after it is launched.
-        Choose a key pair name you will recognize.
-        Names may only include alphanumeric characters, spaces, or dashes.
-      </div>
-      <div class="form-group">
-        <div class="row">
-          <div class="col-md-4 required">
-            <label translate>Key Pair Name</label>
-            <span class="fa fa-exclamation-triangle invalid"
-                  ng-show="ctrl.doesKeypairExist(ctrl.keypair) || wizardForm.$invalid"
-                  popover="{$ ctrl.keypairExistsError $}"
-                  popover-placement="top" popover-append-to-body="true"
-                  popover-trigger="hover"></span>
-            </div>
-        </div>
-        <div class="form-field required row">
-          <div class="col-md-4" ng-class="{'has-error': ctrl.doesKeypairExist()}">
-            <input class="form-control" name="name"
-                   ng-model="ctrl.keypair"
-                   ng-required="true" 
-                   ng-pattern="/^[A-Za-z0-9 -]+$/"
-                   placeholder="{$ 'Required' | translate $}">
-          </div>
-        </div>
-      </div>
+  <div class="modal-body">
+    <p translate>
+      Key Pairs are how you login to your instance after it is launched.
+      Choose a key pair name you will recognize.
+      Names may only include alphanumeric characters, spaces, or dashes.
+    </p>
+
+    <div class="form-group" ng-class="{'has-error': (ctrl.doesKeypairExist() || wizardForm.$invalid) && wizardForm.$dirty }">
+      <label class="control-label" for="keypair-name" translate>
+        Key Pair Name
+        <span class="hz-icon-required fa fa-asterisk"></span>
+      </label>
+      <input class="form-control" name="name"
+             id="keypair-name"
+             ng-model="ctrl.keypair"
+             ng-required="true"
+             ng-pattern="/^[A-Za-z0-9 -]+$/">
+      <span class="help-block"
+            ng-show="(ctrl.doesKeypairExist() || wizardForm.$invalid) && wizardForm.$dirty">
+        {$ ctrl.keypairExistsError $}
+      </span>
     </div>
   </div>
 
-  <div class="toolbar">
-    <div class="secondary-btn-grp">
-      <button class="cancel btn btn-sm btn-default" ng-click="ctrl.cancel()">
-        <span class="fa fa-close"></span>
-        <translate>Cancel</translate>
-      </button>
-    </div>
-    <div class="primary-btn-grp">
-      <button class="finish btn btn-sm btn-success"
-              ng-click="ctrl.submit()" ng-disabled="wizardForm.$invalid || ctrl.doesKeypairExist()">
-        <translate>Create Keypair</translate>
-      </button>
-    </div>
+  <div class="modal-footer">
+    <button class="btn btn-default pull-left" ng-click="ctrl.cancel()">
+      <span class="fa fa-close"></span>
+      <translate>Cancel</translate>
+    </button>
+
+    <button class="btn btn-primary"
+            ng-click="ctrl.submit()" ng-disabled="wizardForm.$invalid || ctrl.doesKeypairExist()">
+      <translate>Create Keypair</translate>
+    </button>
   </div>
 </div>

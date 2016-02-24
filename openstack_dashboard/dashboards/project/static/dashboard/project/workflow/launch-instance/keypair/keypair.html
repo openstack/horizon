@@ -1,147 +1,134 @@
 <div ng-controller="LaunchInstanceKeypairController as ctrl">
-  <h1 translate>Key Pair</h1>
+  <p translate>
+    A key pair allows you to SSH into your newly created instance.
+    You may select an existing key pair, import a key pair, or generate a new key pair.
+  </p>
 
-  <div class="content">
+  <div ng-if="ctrl.isKeypairCreated" class="alert alert-info" role="alert">
+    <p translate>A key pair named '{$ctrl.createdKeypair.name$}' was successfully created. This key pair should automatically download.</p>
+    <p translate>If not, you can manually dowload this keypair at the following link:</p>
+    <a class="btn btn-default" role="button" href="{$ ctrl.createdKeypair.regenerateUrl $}">
+      <span class="fa fa-download"></span>
+      {$ctrl.createdKeypair.name$}
+    </a>
+    <p translate>
+      Note: you will not be able to download this later.
+    </p>
+  </div>
 
-    <div class="subtitle" translate>
-      A key pair allows you to SSH into your newly created instance.
-      You may select an existing key pair, import a key pair, or generate a new key pair.
-    </div>
-    
-    <div ng-if="ctrl.isKeypairCreated" class="alert alert-info">
-      <div translate>A key pair named '{$ctrl.createdKeypair.name$}' was successfully created. This key pair should automatically download.</div>
-      <div>
-        <translate>If not, you can manually dowload this keypair at the following link:<translate>
-        <a href="{$ ctrl.createdKeypair.regenerateUrl $}">
-          <span class="fa fa-download"></span>
-          {$ctrl.createdKeypair.name$}
-        </a>
-      </div>
-      <div translate>
-        Note: you will not be able to download this later.
-      </div>
-    </div>
+  <button type="button" class="btn btn-default"
+          ng-click="ctrl.createKeyPair()">
+    <span class="fa fa-plus"></span>
+    <translate>Create Key Pair</translate>
+  </button>
+  <button type="button" class="btn btn-default"
+          ng-click="ctrl.importKeyPair()">
+    <span class="fa fa-upload"></span>
+    <translate>Import Key Pair</translate>
+  </button>
 
-    <div class="row form-group">
-      <div class="col-sm-12 form-inline">
-        <button type="button" class="btn btn-sm btn-primary pull-right"
-                ng-click="ctrl.createKeyPair()">
-          <span class="fa fa-fw fa-plus"></span>
-          <translate>Create Key Pair</translate>
-        </button>
-        <button type="button" class="btn btn-sm btn-primary pull-right"
-                ng-click="ctrl.importKeyPair()">
-          <span class="fa fa-fw fa-upload"></span>
-          <translate>Import Key Pair</translate>
-        </button>
-      </div>
-    </div>
+  <transfer-table tr-model="ctrl.tableData"
+                  limits="ctrl.tableLimits">
 
-    <transfer-table tr-model="ctrl.tableData"
-                    limits="ctrl.tableLimits">
+    <!-- Key Pairs Allocated-->
+    <allocated>
+      <table st-table="ctrl.tableData.displayedAllocated"
+             st-safe-src="ctrl.tableData.allocated" hz-table
+             class="table table-striped table-rsp table-detail">
+        <thead>
+          <tr>
+            <th class="expander"></th>
+            <th class="rsp-p1" translate>Name</th>
+            <th class="rsp-p2" translate>Fingerprint</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+        <tr ng-if="ctrl.tableData.allocated.length === 0">
+          <td colspan="8">
+            <div class="no-rows-help" translate>
+              Select a key pair from the available key pairs below.
+            </div>
+          </td>
+        </tr>
+        <tr ng-repeat-start="row in ctrl.tableData.displayedAllocated track by row.id">
+          <td class="expander">
+            <span class="fa fa-chevron-right" hz-expand-detail
+                  title="{$ ::trCtrl.helpText.expandDetailsText $}"></span>
+          </td>
+          <td class="rsp-p1">{$ row.name $}</td>
+          <td class="rsp-p2">{$ row.fingerprint $}</td>
+          <td class="action-col">
+            <action-list>
+              <action action-classes="'btn btn-sm btn-default'"
+                      callback="trCtrl.deallocate" item="row">
+                <span class="fa fa-minus"></span>
+              </action>
+            </action-list>
+          </td>
+        </tr>
+        <tr ng-repeat-end class="detail-row">
+          <td></td>
+          <td class="detail" colspan="3">
+            <dl class="dl-horizontal" ng-include="ctrl.tableDetails">
+            </dl>
+          </td>
+        </tr>
+        </tbody>
+      </table>
+    </allocated>
 
-      <!-- Key Pairs Allocated-->
-      <allocated>
-        <table st-table="ctrl.tableData.displayedAllocated"
-               st-safe-src="ctrl.tableData.allocated" hz-table
-               class="table table-striped table-rsp table-detail">
-          <thead>
-            <tr>
-              <th class="expander"></th>
-              <th class="rsp-p1" translate>Name</th>
-              <th class="rsp-p2" translate>Fingerprint</th>
-              <th></th>
-            </tr>
-          </thead>
-          <tbody>
-          <tr ng-if="ctrl.tableData.allocated.length === 0">
+    <!-- Key Pairs Available -->
+    <available>
+      <table st-table="ctrl.tableData.displayedAvailable"
+             st-safe-src="ctrl.tableData.available"
+             hz-table class="table table-striped table-rsp table-detail">
+        <thead>
+          <tr>
+            <th class="search-header" colspan="7">
+              <hz-search-bar icon-classes="fa-search"></hz-search-bar>
+            </th>
+          </tr>
+          <tr>
+            <th class="expander"></th>
+            <th st-sort="name" st-sort-default class="rsp-p1" translate>Name</th>
+            <th st-sort="fingerprint" class="rsp-p1" translate>Fingerprint</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr ng-if="trCtrl.numAvailable() === 0">
             <td colspan="8">
-              <div class="no-rows-help" translate>
-                Select a key pair from the available key pairs below.
+              <div class="no-rows-help">
+                {$ ::trCtrl.helpText.noneAvailText $}
               </div>
             </td>
           </tr>
-          <tr ng-repeat-start="row in ctrl.tableData.displayedAllocated track by row.id">
+          <tr ng-repeat-start="row in ctrl.tableData.displayedAvailable track by row.id"
+              ng-if="!trCtrl.allocatedIds[row.id]">
             <td class="expander">
               <span class="fa fa-chevron-right" hz-expand-detail
                     title="{$ ::trCtrl.helpText.expandDetailsText $}"></span>
             </td>
-            <td class="rsp-p1">{$ row.name $}</td>
-            <td class="rsp-p2">{$ row.fingerprint $}</td>
+            <td class="rsp-p1">{$ row.name$}</td>
+            <td class="rsp-p1">{$ row.fingerprint $}</td>
             <td class="action-col">
               <action-list>
                 <action action-classes="'btn btn-sm btn-default'"
-                        callback="trCtrl.deallocate" item="row">
-                  <span class="fa fa-minus"></span>
+                        callback="trCtrl.allocate" item="row">
+                  <span class="fa fa-plus"></span>
                 </action>
               </action-list>
             </td>
           </tr>
-          <tr ng-repeat-end class="detail-row">
+          <tr ng-repeat-end class="detail-row" ng-if="!trCtrl.allocatedIds[row.id]">
             <td></td>
-            <td class="detail" colspan="3">
-              <dl class="dl-horizontal" ng-include="ctrl.tableDetails">
-              </dl>
+            <td class="detail" colspan="3" ng-include="ctrl.tableDetails">
             </td>
           </tr>
-          </tbody>
-        </table>
-      </allocated>
+        </tbody>
+      </table>
+    </available>
 
-      <!-- Key Pairs Available -->
-      <available>
-        <table st-table="ctrl.tableData.displayedAvailable"
-               st-safe-src="ctrl.tableData.available"
-               hz-table class="table table-striped table-rsp table-detail">
-          <thead>
-            <tr>
-              <th class="search-header" colspan="7">
-                <hz-search-bar group-classes="input-group-sm" icon-classes="fa-search">
-                </hz-search-bar>
-              </th>
-            </tr>
-            <tr>
-              <th class="expander"></th>
-              <th st-sort="name" st-sort-default class="rsp-p1" translate>Name</th>
-              <th st-sort="fingerprint" class="rsp-p1" translate>Fingerprint</th>
-              <th></th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr ng-if="trCtrl.numAvailable() === 0">
-              <td colspan="8">
-                <div class="no-rows-help">
-                  {$ ::trCtrl.helpText.noneAvailText $}
-                </div>
-              </td>
-            </tr>
-            <tr ng-repeat-start="row in ctrl.tableData.displayedAvailable track by row.id"
-                ng-if="!trCtrl.allocatedIds[row.id]">
-              <td class="expander">
-                <span class="fa fa-chevron-right" hz-expand-detail
-                      title="{$ ::trCtrl.helpText.expandDetailsText $}"></span>
-              </td>
-              <td class="rsp-p1">{$ row.name$}</td>
-              <td class="rsp-p1">{$ row.fingerprint $}</td>
-              <td class="action-col">
-                <action-list>
-                  <action action-classes="'btn btn-sm btn-default'"
-                          callback="trCtrl.allocate" item="row">
-                    <span class="fa fa-plus"></span>
-                  </action>
-                </action-list>
-              </td>
-            </tr>
-            <tr ng-repeat-end class="detail-row" ng-if="!trCtrl.allocatedIds[row.id]">
-              <td></td>
-              <td class="detail" colspan="3" ng-include="ctrl.tableDetails">
-              </td>
-            </tr>
-          </tbody>
-        </table>
-      </available>
-
-    </transfer-table> <!-- End Key Pairs Table -->
-
-  </div> <!-- End Content -->
+  </transfer-table> <!-- End Key Pairs Table -->
 </div> <!-- End Controller -->

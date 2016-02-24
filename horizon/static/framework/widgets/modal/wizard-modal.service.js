@@ -62,6 +62,7 @@
     function modal(params) {
       if (params && params.scope && params.workflow && params.submit) {
         var options = {
+          size: 'lg',
           controller: 'WizardModalController as modalCtrl',
           scope: params.scope,
           template: '<wizard></wizard>',

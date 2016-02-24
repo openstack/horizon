@@ -1,4 +1,5 @@
 /* Some utility classes useful everywhere */
+@import "/bootstrap/scss/bootstrap/mixins/vendor-prefixes";
 
 .row .horizontal-center,
 .horizontal-center {
@@ -57,4 +58,11 @@ input::-ms-clear, input::-ms-reveal {
   overflow: hidden;
   text-overflow: ellipsis;
   display: block;
+}
+
+// Add functionality for a horizontal Bootstrap toggle element
+.collapsing.width {
+  @include transition-property(width, visibility);
+  width: 0;
+  height: auto;
 }

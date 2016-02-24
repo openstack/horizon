@@ -1,0 +1,40 @@
+$help-panel-width: 400px;
+
+.help-toggle,
+.wizard-help,
+#help-panel {
+  position: absolute;
+  top: $padding-xs-horizontal;
+  right: 0;
+  z-index: 2; // TODO(robcresswell) untangle the need for this sorcery
+}
+
+#help-panel > div {
+  width: $help-panel-width;
+}
+
+// Controls the size of the "?" icon on the right of the wizards
+.help-toggle {
+  @extend .btn-xs;
+  font-size: $font-size-h3;
+
+  .fa {
+    @extend .fa-question-circle;
+  }
+
+  &:not(.collapsed) {
+    z-index: 3;
+
+    &,
+    &:hover,
+    &:active,
+    &:focus {
+      @extend .close;
+      margin: $padding-xs-horizontal;
+    }
+
+    .fa {
+      @extend .fa-times;
+    }
+  }
+}

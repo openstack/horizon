@@ -28,7 +28,7 @@
         var $compile = $injector.get('$compile');
         var $templateCache = $injector.get('$templateCache');
         var basePath = $injector.get('horizon.dashboard.project.workflow.launch-instance.basePath');
-        var markup = $templateCache.get(basePath + 'metadata/metadata.html');
+        var markup = '<div>' + $templateCache.get(basePath + 'metadata/metadata.html') + '</div>';
         model = {
           metadataDefs: { instance: false },
           novaLimits: false

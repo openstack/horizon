@@ -1,71 +1,50 @@
 <div ng-controller="LaunchInstanceDetailsController as ctrl">
-  <h1 translate>Instance Details</h1>
+  <p translate>Please provide the initial hostname for the instance, the availability zone where it will be deployed, and the instance count.
+    Increase the Count to create multiple instances with the same settings.</p>
 
-  <!--content-->
-  <div class="content">
-    <div translate class="subtitle">Please provide the initial hostname for the instance, the availability zone where it will be deployed, and the instance count.
-      Increase the Count to create multiple instances with the same settings.</div>
+  <div class="row">
+    <div class="col-xs-12 col-sm-8">
+      <div class="form-group required"
+         ng-class="{ 'has-error': launchInstanceDetailsForm.name.$invalid && launchInstanceDetailsForm.name.$dirty }">
+        <label translate for="name" class="control-label">
+          Instance Name
+          <span class="hz-icon-required fa fa-asterisk"></span>
+        </label>
+        <input id="name" name="name" type="text" class="form-control"
+               ng-model="model.newInstanceSpec.name" ng-required="true">
 
-    <!--selected-source form-->
-    <div class="selected-source clearfix">
-      <div class="row">
-        <div class="col-xs-12 col-sm-8">
-          <div class="row form-group">
-            <div class="col-sm-12 col-md-5">
-              <div class="form-field required instance-name"
-                ng-class="{ 'has-error': launchInstanceDetailsForm['instance-name'].$invalid && launchInstanceDetailsForm['instance-name'].$dirty }">
-                <label translate class="on-top">Instance Name</label>
-                <span class="fa fa-exclamation-triangle invalid"
-                    ng-show="launchInstanceDetailsForm['instance-name'].$invalid && launchInstanceDetailsForm.$dirty"
-                    popover="{$ ctrl.instanceNameError $}"
-                    popover-placement="top" popover-append-to-body="true"
-                    popover-trigger="hover"></span>
-                <input name="instance-name" type="text" class="form-control input-sm"
-                       ng-model="model.newInstanceSpec.name" ng-required="true">
-              </div>
-            </div>
+          <span class="help-block"
+                ng-show="launchInstanceDetailsForm.name.$invalid && launchInstanceDetailsForm.name.$dirty">
+            {$ ctrl.instanceNameError $}
+          </span>
+      </div>
 
-            <div class="col-sm-12 col-md-5">
-              <div class="form-field availability-zone">
-                <label translate class="on-top">Availability Zone</label>
-                <select class="form-control input-sm"
-                        ng-options="zone for zone in model.availabilityZones"
-                        ng-model="model.newInstanceSpec.availability_zone">
-                </select>
-              </div>
-            </div>
+      <div class="form-group">
+        <label class="control-label" translate for="availability-zone">Availability Zone</label>
+        <select class="form-control" id="availability-zone"
+                ng-options="zone for zone in model.availabilityZones"
+                ng-model="model.newInstanceSpec.availability_zone">
+        </select>
+      </div>
 
-            <div class="col-sm-6 col-md-2">
-              <div class="form-field instance_count"
-                ng-class="{ 'has-error': launchInstanceDetailsForm['instance-count'].$invalid }">
-                <label translate class="on-top">Count</label>
-                <span class="fa fa-exclamation-triangle invalid"
-                    ng-show="launchInstanceDetailsForm['instance-count'].$invalid"
-                    popover="{$ launchInstanceDetailsForm['instance-count'].$error.validateNumberMax ? ctrl.instanceCountMaxError : ctrl.instanceCountError $}"
-                    popover-placement="top" popover-append-to-body="true"
-                    popover-trigger="hover"></span>
-                <input name="instance-count" type="number" class="form-control input-sm"
-                       ng-model="model.newInstanceSpec.instance_count"
-                       ng-required="true" ng-pattern="/^[0-9]+$/"
-                       validate-number-min="1"
-                       validate-number-max="{$ ctrl.maxInstanceCount $}">
-              </div>
-            </div>
-          </div>
-
-        </div>
-
-        <!--instance chart-->
-        <div class="col-xs-12 col-sm-4">
-          <div class="chart">
-            <pie-chart chart-data="ctrl.instanceStats"
-                       chart-settings="ctrl.chartSettings"></pie-chart>
-          </div>
-        </div>
-        <!--end instance chart-->
+      <div class="form-group" ng-class="{ 'has-error': launchInstanceDetailsForm.count.$invalid }">
+        <label class="control-label" for="instance-count" translate>
+          Count
+          <span class="hz-icon-required fa fa-asterisk"></span>
+        </label>
+        <input id="count" name="count" type="number" class="form-control" min="1"
+               ng-model="model.newInstanceSpec.instance_count"
+               ng-required="true" ng-pattern="/^[0-9]+$/"
+               validate-number-min="1"
+               validate-number-max="{$ ctrl.maxInstanceCount $}">
+        <span class="help-block" ng-show="launchInstanceDetailsForm.count.$invalid">
+          {$ launchInstanceDetailsForm['instance-count'].$error.validateNumberMax ? ctrl.instanceCountMaxError : ctrl.instanceCountError $}
+        </span>
       </div>
     </div>
-    <!--end selected-source form-->
+
+    <div class="col-xs-12 col-sm-4">
+      <pie-chart chart-data="ctrl.instanceStats" chart-settings="ctrl.chartSettings"></pie-chart>
+    </div>
   </div>
-  <!-- end content -->
 </div>

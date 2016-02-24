@@ -9,12 +9,14 @@
       <th st-sort="remote_ip_prefix" translate>Remote</th>
     </tr>
   </thead>
-  <tr ng-repeat="d in row.security_group_rules">
-    <td>{$ d.direction | noValue $}</td>
-    <td>{$ d.ethertype | noValue $}</td>
-    <td>{$ d.protocol | noValue $}</td>
-    <td>{$ d.port_range_min | noValue $}</td>
-    <td>{$ d.port_range_max | noValue $}</td>
-    <td>{$ d.remote_ip_prefix | noValue $}</td>
-  </tr>
+  <tbody>
+    <tr ng-repeat="d in row.security_group_rules">
+      <td>{$ d.direction | noValue $}</td>
+      <td>{$ d.ethertype | noValue $}</td>
+      <td>{$ d.protocol | noValue $}</td>
+      <td>{$ d.port_range_min | noValue $}</td>
+      <td>{$ d.port_range_max | noValue $}</td>
+      <td>{$ d.remote_ip_prefix | noValue $}</td>
+    </tr>
+  </tbody>
 </table>

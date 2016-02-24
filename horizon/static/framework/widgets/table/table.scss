@@ -64,11 +64,11 @@ $em-per-priority: floor($table-col-avg-width / $font-size-base) * 3;
 
   tbody tr {
     &.lr-drop-target-before td {
-      border-top: $reorder-border !important;
+      border-top: $reorder-border;
     }
 
     &.lr-drop-target-after td {
-      border-bottom: $reorder-border !important;
+      border-bottom: $reorder-border;
     }
 
   }
@@ -81,10 +81,9 @@ $em-per-priority: floor($table-col-avg-width / $font-size-base) * 3;
     cursor: pointer;
 
     &:after {
-      color: #d4d4d4;
-      content: '\f0dc';
+      content: $fa-var-sort;
       font-family: 'FontAwesome';
-      margin-left: 0.5em;
+      margin-left: $padding-small-vertical;
       opacity: 0;
     }
 
@@ -94,20 +93,15 @@ $em-per-priority: floor($table-col-avg-width / $font-size-base) * 3;
   }
 
   .st-sort-ascent:after {
-    color: #000000;
-    content: '\f0dd';
-    font-family: 'FontAwesome';
-    margin-left: 0.5em;
+    content: $fa-var-sort-asc;
     opacity: 1;
   }
 
   .st-sort-descent:after {
-    color: #000000;
-    content: '\f0de';
-    font-family: 'FontAwesome';
-    margin-left: 0.5em;
+    content: $fa-var-sort-desc;
     opacity: 1;
   }
+
 
   &.table-detail {
     border-spacing: 0;

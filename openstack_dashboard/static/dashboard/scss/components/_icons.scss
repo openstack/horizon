@@ -1,0 +1,10 @@
+.hz-icon-required {
+  font-size: 50%;
+  vertical-align: top;
+  color: $brand-primary;
+}
+
+// Make sure the color is correct on selected workflow steps
+.active > a > .hz-icon-required {
+  color: $component-active-color;
+}

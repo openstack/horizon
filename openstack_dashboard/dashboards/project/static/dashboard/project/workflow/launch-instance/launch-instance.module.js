@@ -21,9 +21,9 @@
     .config(config)
     .constant('horizon.dashboard.project.workflow.launch-instance.modal-spec', {
       backdrop: 'static',
+      size: 'lg',
       controller: 'ModalContainerController',
-      template: '<wizard ng-controller="LaunchInstanceWizardController"></wizard>',
-      windowClass: 'modal-dialog-wizard'
+      template: '<wizard class="wizard" ng-controller="LaunchInstanceWizardController"></wizard>'
     })
 
     /**

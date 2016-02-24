@@ -1,35 +1,31 @@
-<div class="form-group customization-script">
-  <label>
+<div class="form-group" ng-class="{ 'has-error': scriptLength >= config.MAX_SCRIPT_SIZE }">
+  <label for="customization-script" class="control-label">
     <span translate>Customization Script</span>
-    <span class="script-modified"
-          ng-show="scriptModified"
+    <span ng-show="scriptModified"
           translate>
       (Modified)</span>
   </label>
-  <span class="size-indicator pull-right clearfix"
-        ng-class="{warning: scriptLength >= config.MAX_SCRIPT_SIZE}">
-    <span class="invalid fa fa-exclamation-triangle"
-          popover="{$ ::config.label.scriptSizeHoverWarningMsg $}"
-          popover-placement="top"
-          popover-append-to-body="true"
-          popover-trigger="hover">
-    </span>
-    <span translate>Script size</span>
-    {$ (scriptLength || 0) | number $}
-    <span translate>bytes</span>
-    <span translate>(Max: 16Kb)</span>
+  <span class="pull-right" ng-class="{ 'text-danger': scriptLength >= config.MAX_SCRIPT_SIZE }">
+    <span translate>Script size:</span>
+    {$ (scriptLength || 0) | bytes $}
+    <span translate>of</span>
+    {$ config.MAX_SCRIPT_SIZE | bytes $}
   </span>
   <textarea class="form-control"
+            rows="8"
+            id="customization-script"
             name="customization-script"
             ng-maxlength="config.MAX_SCRIPT_SIZE"
             ng-model="textContent">
   </textarea>
+  <span class="help-block"
+        ng-show="scriptLength >= config.MAX_SCRIPT_SIZE"
+        translate>
+    The script is larger than the maximum size
+  </span>
 </div>
 
-<div class="form-group script-file" ng-show="config.fileApiSupported">
-  <span class="file-input btn btn-primary btn-file">
-    <span class="fa fa-upload"></span>
-    <span translate>Load script from a file</span>
-    <input type="file">
-  </span>
+<div class="form-group" ng-show="config.fileApiSupported">
+    <label for="load-script" translate>Load script from a file</label>
+    <input id="load-script" type="file">
 </div>

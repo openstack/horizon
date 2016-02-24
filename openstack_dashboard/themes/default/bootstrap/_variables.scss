@@ -405,8 +405,8 @@ $navbar-inverse-toggle-border-color:        #333 !default;
 //##
 
 //=== Shared nav styles
-$nav-link-padding:                          0.5em 1.2em !default;
-$nav-link-hover-bg:                         #dbdcdf !default;
+$nav-link-padding:                          0.8em 1.2em !default;
+$nav-link-hover-bg:                         $gray-lighter !default;
 
 $nav-disabled-link-color:                   $gray-light !default;
 $nav-disabled-link-hover-color:             $gray-light !default;
@@ -426,9 +426,9 @@ $nav-tabs-justified-link-border-color:            #ddd !default;
 $nav-tabs-justified-active-link-border-color:     $body-bg !default;
 
 //== Pills
-$nav-pills-border-radius:                   0 !default;
-$nav-pills-active-link-hover-bg:            #e3e4e6 !default;
-$nav-pills-active-link-hover-color:         $gray !default;
+$nav-pills-border-radius:                   $border-radius-base !default;
+$nav-pills-active-link-hover-bg:            $component-active-bg !default;
+$nav-pills-active-link-hover-color:         $component-active-color !default;
 
 
 //== Pagination
@@ -598,7 +598,7 @@ $modal-header-border-color:   #e5e5e5 !default;
 //** Modal footer border color
 $modal-footer-border-color:   $modal-header-border-color !default;
 
-$modal-lg:                    900px !default;
+$modal-lg:                    960px !default;
 $modal-md:                    732px !default;
 $modal-sm:                    300px !default;
 

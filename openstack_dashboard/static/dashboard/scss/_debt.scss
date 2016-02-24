@@ -46,11 +46,6 @@ dt {
   top: 0 !important;
 }
 
-// Note (hurgleburgler) Whatever is using these styles should be using alerts
-.has-error .help-block, .dynamic-error {
-  padding: 10px;
-}
-
 .dynamic-error {
   background: $body-bg;
   border: 1px solid $border-color;

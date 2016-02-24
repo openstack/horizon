@@ -1,124 +1,105 @@
 <div ng-controller="LaunchInstanceSourceController as ctrl">
-  <!--content-->
-  <h1 translate>Instance Source</h1>
-  <div class="content">
-    <div translate class="subtitle">Instance source is the template used to create an instance. You can use a snapshot of an existing instance, an image, or a volume (if enabled).
-      You can also choose to use persistent storage by creating a new volume.</div>
+    <p translate>
+      Instance source is the template used to create an instance. You can use a snapshot of an existing instance, an image, or a volume (if enabled).
+      You can also choose to use persistent storage by creating a new volume.
+    </p>
 
-    <!--instance-source form-->
-    <div class="instance-source clearfix">
-      <div class="form-horizontal">
-        <div class="row">
-          <div class="col-xs-12 col-sm-3">
-            <div class="form-field image"
-              ng-class="{ 'has-error': launchInstanceSourceForm['boot-source-type'].$invalid }">
-              <label translate class="on-top">Select Boot Source</label>
-              <span class="fa fa-exclamation-triangle invalid"
-                    ng-show="launchInstanceSourceForm['boot-source-type'].$invalid"
-                    popover="{$ ctrl.bootSourceTypeError $}"
-                    popover-placement="top" popover-append-to-body="true"
-                    popover-trigger="hover"></span>
-              <select name="boot-source-type" class="form-control input-sm"
-                      ng-options="src.label for src in ctrl.bootSourcesOptions track by src.type"
-                      ng-change="ctrl.updateBootSourceSelection(model.newInstanceSpec.source_type.type)"
-                      ng-model="model.newInstanceSpec.source_type">
-              </select>
+    <div class="row">
+      <div class="col-xs-6">
+        <div class="form-group" ng-class="{ 'has-error': launchInstanceSourceForm.boot-source-type.$invalid }">
+          <label for="boot-source-type" class="control-label" translate>Select Boot Source</label>
+          <select name="boot-source-type" class="form-control" id="boot-source-type"
+                  ng-options="src.label for src in ctrl.bootSourcesOptions track by src.type"
+                  ng-change="ctrl.updateBootSourceSelection(model.newInstanceSpec.source_type.type)"
+                  ng-model="model.newInstanceSpec.source_type">
+          </select>
+          <span class="help-block" ng-show="launchInstanceSourceForm.boot-source-type.$invalid">
+            {$ ctrl.bootSourceTypeError $}
+          </span>
+        </div>
+      </div>
+
+      <div ng-if="model.newInstanceSpec.source_type.type === 'image' &&
+                  model.allowCreateVolumeFromImage">
+        <div class="col-xs-6">
+          <div class="form-group">
+            <label for="vol-create" translate>Create New Volume</label><br/>
+            <div class="btn-group">
+              <label class="btn btn-default" id="vol-create"
+                     ng-repeat="option in ctrl.toggleButtonOptions"
+                     ng-model="model.newInstanceSpec.vol_create"
+                     btn-radio="option.value">{$ ::option.label $}</label>
             </div>
           </div>
+        </div>
+      </div>
 
-          <!-- start image select options -->
-          <div class="col-xs-12 col-sm-9"
-               ng-if="model.newInstanceSpec.source_type.type === 'image' &&
-                      model.allowCreateVolumeFromImage">
-
-            <div class="col-xs-12 col-sm-3">
-              <div class="form-group create-volume">
-                <label translate class="on-top">Create New Volume</label>
-                <div class="form-field">
-                  <div class="btn-group">
-                    <label class="btn btn-toggle"
-                      ng-repeat="option in ctrl.toggleButtonOptions"
-                      ng-model="model.newInstanceSpec.vol_create"
-                      btn-radio="option.value">{$ ::option.label $}</label>
-                  </div>
-                </div>
-              </div>
+      <div ng-if="model.newInstanceSpec.source_type.type == 'volume' || model.newInstanceSpec.source_type.type == 'volume_snapshot'">
+        <div class="col-xs-6">
+          <div class="form-group">
+            <label translate>Delete Volume on Instance Delete</label><br/>
+            <div class="btn-group">
+              <label class="btn btn-default"
+                     ng-repeat="option in ctrl.toggleButtonOptions"
+                     ng-model="model.newInstanceSpec.vol_delete_on_instance_delete"
+                     btn-radio="option.value">{$ ::option.label $}</label>
             </div>
-
-            <div hz-if-settings='["OPENSTACK_HYPERVISOR_FEATURES.can_set_mount_point"]'
-              ng-if="model.newInstanceSpec.vol_create === true">
-              <div class="col-xs-12 col-sm-3">
-                <div class="form-field">
-                  <label translate>Device Name</label>
-                  <input class="form-control input-sm"
-                         ng-model="model.newInstanceSpec.vol_device_name"
-                         type="text">
-                </div>
-              </div>
-            </div>
-
-            <div class="col-xs-12 col-sm-2 volume-size-wrapper" ng-if="model.newInstanceSpec.vol_create == true">
-              <div class="form-field volume-size"
-                ng-class="{ 'has-error': launchInstanceSourceForm['volume-size'].$invalid }">
-                <label translate class="on-top">Size (GB)</label>
-                <span class="fa fa-exclamation-triangle invalid"
-                    ng-show="launchInstanceSourceForm['volume-size'].$invalid"
-                    popover="{$ launchInstanceSourceForm['volume-size'].$error.validateNumberMin ? ctrl.minVolumeSizeError :
-                    ctrl.volumeSizeError $}"
-                    popover-placement="top" popover-append-to-body="true"
-                    popover-trigger="hover"></span>
-                <input name="volume-size" type="number"
-                       class="form-control input-sm volume-size"
-                       ng-model="model.newInstanceSpec.vol_size"
-                       ng-pattern="/^[0-9]+$/" ng-required="true"
-                       validate-number-min="{$ ctrl.minVolumeSize $}">
-              </div>
-            </div>
-
-            <div class="col-xs-12 col-sm-4" ng-if="model.newInstanceSpec.vol_create == true">
-              <div class="form-group delete-volume">
-                <label translate class="on-top">Delete Volume on Instance Delete</label>
-                <div class="form-field">
-                  <div class="btn-group">
-                    <label class="btn btn-toggle"
-                      ng-repeat="option in ctrl.toggleButtonOptions"
-                      ng-model="model.newInstanceSpec.vol_delete_on_instance_delete"
-                      btn-radio="option.value">{$ ::option.label $}</label>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div><!-- end image select options -->
-
-          <!-- start volume select options -->
-          <div class="col-xs-12 col-sm-9"
-               ng-if="model.newInstanceSpec.source_type.type == 'volume' || model.newInstanceSpec.source_type.type == 'volume_snapshot'">
-            <div class="col-xs-12 col-sm-6">
-
-              <div class="form-group delete-volume">
-                <label translate class="on-top">Delete Volume on Instance Delete</label>
-                <div class="form-field">
-                  <div class="btn-group">
-                    <label class="btn btn-toggle"
-                      ng-repeat="option in ctrl.toggleButtonOptions"
-                      ng-model="model.newInstanceSpec.vol_delete_on_instance_delete"
-                      btn-radio="option.value">{$ ::option.label $}</label>
-                  </div>
-                </div>
-              </div>
-
-            </div>
-          </div><!-- end volume select options -->
-
+          </div>
         </div>
       </div>
     </div>
-    <!--end instance-source form-->
+
+    <div class="row">
+      <div class="col-xs-6">
+        <div ng-if="model.newInstanceSpec.vol_create == true">
+          <div class="form-group" ng-class="{ 'has-error': launchInstanceSourceForm['volume-size'].$invalid }">
+            <label for="volume-size" class="control-label" translate>
+              Volume Size (GB)
+              <span class="hz-icon-required fa fa-asterisk"></span>
+            </label>
+            <input name="volume-size"
+                   min="0"
+                   id="volume-size"
+                   type="number"
+                   class="form-control"
+                   ng-model="model.newInstanceSpec.vol_size"
+                   ng-pattern="/^[0-9]+$/"
+                   ng-required="true"
+                   validate-number-min="{$ ctrl.minVolumeSize $}">
+              <span class="help-block" ng-show="launchInstanceSourceForm['volume-size'].$invalid">
+                {$ launchInstanceSourceForm['volume-size'].$error.validateNumberMin ? ctrl.minVolumeSizeError : ctrl.volumeSizeError $}
+              </span>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-xs-6">
+        <div ng-if="model.newInstanceSpec.vol_create == true">
+          <div class="form-group">
+            <label translate class="control-label">Delete Volume on Instance Delete</label><br/>
+            <div class="btn-group">
+              <label class="btn btn-default"
+                     ng-repeat="option in ctrl.toggleButtonOptions"
+                     ng-model="model.newInstanceSpec.vol_delete_on_instance_delete"
+                     btn-radio="option.value">{$ ::option.label $}</label>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div hz-if-settings='["OPENSTACK_HYPERVISOR_FEATURES.can_set_mount_point"]'
+      ng-if="model.newInstanceSpec.vol_create === true">
+          <label translate>Device Name</label>
+          <input class="form-control"
+                 ng-model="model.newInstanceSpec.vol_device_name"
+                 type="text">
+    </div>
 
     <transfer-table help-text="ctrl.helpText"
                     tr-model="ctrl.tableData">
       <allocated validate-number-min="1" ng-model="ctrl.tableData.allocated.length">
-        <table class="table table-striped table-rsp table-detail"
+        <table class="table table-striped table-rsp table-detail modern"
                hz-table
                st-safe-src="ctrl.tableData.allocated"
                st-table="ctrl.tableData.displayAllocated">
@@ -216,7 +197,7 @@
         <table st-table="ctrl.tableData.displayedAvailable"
                st-safe-src="ctrl.tableData.available"
                hz-table
-               class="table table-striped table-rsp table-detail">
+               class="table table-striped table-rsp table-detail modern">
 
           <!-- transfer table, available table head -->
           <thead>
@@ -327,5 +308,3 @@
     </transfer-table>
 
   </div>
-  <!-- end content -->
-</div>

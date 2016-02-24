@@ -1,0 +1,18 @@
+.transfer-table {
+  .fa[title] {
+    cursor: pointer;
+  }
+
+  .transfer-heading{
+    @extend h5;
+    font-size: $font-size-h5;
+  }
+
+  .transfer-section {
+    margin-top: $padding-large-vertical;
+  }
+
+  .magic-search-bar, .basic-search-bar {
+    margin: $padding-small-vertical 0;
+  }
+}

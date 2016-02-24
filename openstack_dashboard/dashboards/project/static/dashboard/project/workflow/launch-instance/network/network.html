@@ -1,9 +1,7 @@
 <div ng-controller="LaunchInstanceNetworkController as ctrl">
-  <h1 translate>Networks</h1>
-  <div class="content">
-    <div class="subtitle" translate>
-      Networks provide the communication channels for instances in the cloud.
-    </div>
+  <p translate>
+    Networks provide the communication channels for instances in the cloud.
+  </p>
 
   <div class="form-group" ng-if="model.arePortProfilesSupported">
     <label class="control-label required" for="profile" translate>Profile</label>
@@ -105,7 +103,6 @@
             </th>
           </tr>
           <tr>
-            <th class="reorder"></th>
             <th class="expander"></th>
             <th st-sort="name" st-sort-default class="rsp-p1" translate>Network</th>
             <th class="rsp-p2" translate>Subnets Associated</th>
@@ -117,14 +114,13 @@
         </thead>
         <tbody>
           <tr ng-if="trCtrl.numAvailable() === 0">
-            <td colspan="8">
+            <td colspan="7">
               <div class="no-rows-help" translate>
                 No available items
               </div>
             </td>
           </tr>
           <tr ng-repeat-start="row in ctrl.tableDataMulti.displayedAvailable track by row.id" ng-if="!trCtrl.allocatedIds[row.id]">
-            <td class="reorder"></td>
             <td class="expander">
               <span class="fa fa-chevron-right" hz-expand-detail
                 title="{$ 'Click to see more details'|translate $}"></span>
@@ -151,7 +147,7 @@
             </td>
           </tr>
           <tr ng-repeat-end class="detail-row" ng-if="!trCtrl.allocatedIds[row.id]">
-            <td colspan="2"></td>
+            <td></td>
             <td colspan="7" class="detail">
               <dl class="dl-horizontal">
                 <dt translate>ID</dt>
@@ -182,6 +178,4 @@
       </table>
     </available>
   </transfer-table>
-
-  </div>
 </div>
