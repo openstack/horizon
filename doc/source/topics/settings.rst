@@ -1370,12 +1370,18 @@ library.
 
 .. versionadded:: 8.0.0(Liberty)
 
+(Deprecated)
+
 Default: ``True``
 
 Hashing tokens from Keystone keeps the Horizon session data smaller, but it
 doesn't work in some cases when using PKI tokens.  Uncomment this value and
 set it to False if using PKI tokens and there are 401 errors due to token
 hashing.
+
+This option is now marked as "deprecated" and will be removed in Ocata or a
+later release. PKI tokens currently work with hashing, and Keystone will soon
+deprecate usage of PKI tokens.
 
 
 ``POLICY_FILES``
