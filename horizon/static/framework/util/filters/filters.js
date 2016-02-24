@@ -127,13 +127,14 @@
    * @ngdoc filter
    * @name noValue
    * @description
-   * Replaces null / undefined / empty string with translated '-'.
+   * Replaces null / undefined / empty string with translated '-' or the optional
+   * default value provided.
    */
   function noValueFilter() {
-    return function (input) {
+    return function (input, def) {
       if (input === null || angular.isUndefined(input) ||
         (angular.isString(input) && '' === input.trim())) {
-        return gettext('-');
+        return def || gettext('-');
       } else {
         return input;
       }
