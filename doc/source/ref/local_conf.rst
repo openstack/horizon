@@ -45,19 +45,24 @@ that Horizon supports in DevStack when `stack.sh` is run.
     # Enable Neutron (Networking)
     # to use nova net rather than neutron, comment out the following group
     disable_service n-net
+    enable_plugin neutron https://git.openstack.org/openstack/neutron
     enable_service q-svc
     enable_service q-agt
     enable_service q-dhcp
     enable_service q-l3
     enable_service q-meta
     enable_service q-metering
-    enable_service neutron
-    enable_service q-fwaas
-    enable_service q-vpn
+    enable_service q-qos
     # end group
 
-    # enable lbaas plugin to neutron
-    enable_plugin neutron-lbaas git://git.openstack.org/openstack/neutron-lbaas
+    # Enable VPN plugin for neutron
+    enable_plugin neutron-vpnaas https://git.openstack.org/openstack/neutron-vpnaas
+
+    # Enable Firewall plugin for neutron
+    enable_plugin neutron-fwaas https://git.openstack.org/openstack/neutron-fwaas
+
+    # Enable Load Balancer plugin for neutron
+    enable_plugin neutron-lbaas https://git.openstack.org/openstack/neutron-lbaas
 
     # Enable Ceilometer (Metering)
     enable_service ceilometer-acompute ceilometer-acentral ceilometer-anotification ceilometer-collector ceilometer-api
