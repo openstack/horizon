@@ -31,6 +31,17 @@
     beforeEach(module('smart-table'));
     beforeEach(module('horizon.framework'));
 
+    beforeEach(function() {
+      horizon.cookies = {
+        get: function() {
+          return;
+        }
+      };
+
+      spyOn(horizon.cookies, 'get').and.callThrough();
+
+    });
+
     beforeEach(inject(function ($injector) {
       $compile = $injector.get('$compile');
       $scope = $injector.get('$rootScope').$new();
