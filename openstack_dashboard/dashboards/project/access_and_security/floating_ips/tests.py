@@ -134,12 +134,12 @@ class FloatingIpViewTests(test.TestCase):
                                           floating_ip.id,
                                           server.id)
         self.mox.ReplayAll()
-
+        next = reverse("horizon:project:instances:index")
         form_data = {'instance_id': server.id,
+                     'next': next,
                      'ip_id': floating_ip.id}
         url = reverse('%s:associate' % NAMESPACE)
-        next = reverse("horizon:project:instances:index")
-        res = self.client.post("%s?next=%s" % (url, next), form_data)
+        res = self.client.post(url, form_data)
         self.assertRedirectsNoFollow(res, next)
 
     @test.create_stubs({api.network: ('floating_ip_associate',
