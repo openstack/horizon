@@ -17,7 +17,7 @@
 (function () {
   "use strict";
 
-  describe('MagiSearchController', function () {
+  describe('MagicSearchController', function () {
     var ctrl, scope, searchInput, $timeout, service;
 
     function expectResetState() {
@@ -358,12 +358,12 @@
       });
 
       it("opens menu when searchVal is a space", function() {
+        evt.which = 32;
         spyOn(searchInput, 'val').and.returnValue(' ');
-        evt.which = 13; // not alter search
-        ctrl.isMenuOpen = false;
+        spyOn(scope, '$emit');
+        scope.filter_keys = [1,2,3];
         keyPressHandler(evt);
-        $timeout.flush();
-        ctrl.isMenuOpen = true;
+        expect(scope.$emit).toHaveBeenCalledWith('textSearch', '  ', [1,2,3]);
       });
 
       it("opens menu when searchVal is an empty string", function() {

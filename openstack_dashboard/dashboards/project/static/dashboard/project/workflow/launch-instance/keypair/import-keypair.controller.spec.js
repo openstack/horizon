@@ -13,65 +13,70 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
 (function() {
   'use strict';
 
-  describe('Launch Instance Keypair Step', function() {
+  describe('Launch Instance Import Key Pair Controller', function() {
 
-    describe('Import Key Pair Controller', function() {
-      var ctrl;
-      var nova = { createKeypair: angular.noop };
-      var $modalInstance = {close: angular.noop, dismiss: angular.noop};
+    var novaAPI, ctrl, toastService, $q, $rootScope;
+    var model = { name: 'newKeypair', public_key: '' };
+    var modalInstanceMock = {
+      close: angular.noop,
+      dismiss: angular.noop
+    };
 
-      beforeEach(module(function ($provide) {
-        $provide.value('$modalInstance', $modalInstance);
-        $provide.value('horizon.app.core.openstack-service-api.nova', nova);
-        $provide.value('horizon.framework.widgets.toast.service', {add: angular.noop});
-      }));
+    beforeEach(module('horizon.app.core.openstack-service-api'));
+    beforeEach(module('horizon.dashboard.project'));
+    beforeEach(module('horizon.framework'));
 
-      beforeEach(module('horizon.dashboard.project'));
-
-      beforeEach(inject(function($controller) {
-        ctrl = $controller('LaunchInstanceImportKeyPairController');
-      }));
-
-      it('defines a model with a empty name and public key', function() {
-        expect(ctrl.model).toBeDefined();
-        expect(ctrl.model.name).toBe('');
-        expect(ctrl.model.public_key).toBe('');
+    beforeEach(inject(function($injector, $controller, _$q_, _$rootScope_) {
+      novaAPI = $injector.get('horizon.app.core.openstack-service-api.nova');
+      ctrl = $controller('LaunchInstanceImportKeyPairController', {
+        $modalInstance: modalInstanceMock
       });
+      toastService = $injector.get('horizon.framework.widgets.toast.service');
+      $q = _$q_;
+      $rootScope = _$rootScope_;
+    }));
 
-      it('defines a submit function', function() {
-        expect(ctrl.submit).toBeDefined();
-      });
-
-      it('submit calls nova with the proper arguments', function() {
-        spyOn(nova, 'createKeypair').and.returnValue({success: angular.noop});
-        ctrl.submit();
-        expect(nova.createKeypair).toHaveBeenCalledWith(ctrl.model);
-      });
-
-      it('successful submit calls the successCallback', function() {
-        var successFunc = {success: angular.noop};
-        spyOn(nova, 'createKeypair').and.returnValue(successFunc);
-        spyOn(successFunc, 'success');
-        ctrl.submit();
-        var successCallback = successFunc.success.calls.argsFor(0)[0];
-        var data = {};
-        successCallback(data);
-      });
-
-      it('defines a cancel function', function() {
-        expect(ctrl.cancel).toBeDefined();
-      });
-
-      it('cancel dimisses the modal', function() {
-        spyOn(nova, 'createKeypair').and.returnValue({success: angular.noop});
-        spyOn($modalInstance, 'dismiss');
-        ctrl.cancel();
-        expect($modalInstance.dismiss).toHaveBeenCalledWith();
-      });
+    it('defines a model with an empty name and public key', function() {
+      expect(ctrl.model).toBeDefined();
+      expect(ctrl.model.name).toBe('');
+      expect(ctrl.model.public_key).toBe('');
     });
-  });
 
+    it('defines a submit function', function() {
+      expect(ctrl.submit).toBeDefined();
+    });
+
+    it('submit successfully imports keypair and closes modal', function() {
+      var deferredSuccess = $q.defer();
+      spyOn(novaAPI, 'createKeypair').and.returnValue(deferredSuccess.promise);
+      spyOn(modalInstanceMock, 'close');
+      spyOn(toastService, 'add').and.callThrough();
+
+      ctrl.submit();
+
+      deferredSuccess.resolve(model);
+      $rootScope.$apply();
+
+      expect(novaAPI.createKeypair).toHaveBeenCalled();
+      expect(modalInstanceMock.close).toHaveBeenCalled();
+      expect(toastService.add).toHaveBeenCalledWith(
+        'success',
+        'Successfully imported key pair newKeypair.');
+    });
+
+    it('defines a cancel function', function() {
+      expect(ctrl.cancel).toBeDefined();
+    });
+
+    it('cancel dismisses the modal', function() {
+      spyOn(modalInstanceMock, 'dismiss').and.callThrough();
+      ctrl.cancel();
+      expect(modalInstanceMock.dismiss).toHaveBeenCalled();
+    });
+
+  });
 })();
