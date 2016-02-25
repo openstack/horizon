@@ -22,7 +22,7 @@
   deleteImageService.$inject = [
     '$q',
     'horizon.app.core.openstack-service-api.glance',
-    'horizon.app.core.openstack-service-api.keystone',
+    'horizon.app.core.openstack-service-api.userSession',
     'horizon.app.core.openstack-service-api.policy',
     'horizon.framework.util.i18n.gettext',
     'horizon.framework.util.q.extensions',
@@ -44,7 +44,7 @@
   function deleteImageService(
     $q,
     glance,
-    keystone,
+    userSessionService,
     policy,
     gettext,
     $qExtensions,
@@ -52,7 +52,7 @@
     toast,
     events
   ) {
-    var scope, context, deleteImagePromise, userSessionPromise;
+    var scope, context, deleteImagePromise;
     var notAllowedMessage = gettext("You are not allowed to delete images: %s");
 
     var service = {
@@ -72,7 +72,6 @@
         successEvent: events.DELETE_SUCCESS
       };
       deleteImagePromise = policy.ifAllowed({rules: [['image', 'delete_image']]});
-      userSessionPromise = createUserSessionPromise();
     }
 
     function perform(images) {
@@ -84,7 +83,7 @@
       return $q.all([
         notProtected(image),
         deleteImagePromise,
-        ownedByUser(image),
+        userSessionService.isCurrentProject(image.owner),
         notDeleted(image)
       ]);
     }
@@ -99,32 +98,6 @@
       }
       if (result.pass.length > 0) {
         deleteModal.open(scope, result.pass.map(getEntity), context);
-      }
-    }
-
-    function createUserSessionPromise() {
-      var deferred = $q.defer();
-      keystone.getCurrentUserSession().success(onUserSessionGet);
-      return deferred.promise;
-
-      function onUserSessionGet(userSession) {
-        deferred.resolve(userSession);
-      }
-    }
-
-    function ownedByUser(image) {
-      var deferred = $q.defer();
-
-      userSessionPromise.then(onUserSessionGet);
-
-      return deferred.promise;
-
-      function onUserSessionGet(userSession) {
-        if (userSession.project_id === image.owner) {
-          deferred.resolve();
-        } else {
-          deferred.reject();
-        }
       }
     }
 
