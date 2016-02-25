@@ -288,6 +288,24 @@
       expect($element.find('span').text()).toBe('Displaying 3 items');
     });
 
+    it('displays the correct custom message string', function() {
+      $scope.message = "<span>{$ items.length $} items</span>";
+
+      var markup =
+        '<table st-table="fakeTableData" st-safe-src="safeTableData" hz-table>' +
+          '<tfoot hz-table-footer items="safeTableData" message="{$ message $}">' +
+          '</tfoot>' +
+        '</table>';
+
+      $element = angular.element(markup);
+      $compile($element)($scope);
+      $scope.$apply();
+
+      expect($element).toBeDefined();
+      expect($element.find('span').length).toBe(1);
+      expect($element.find('span').text()).toBe('3 items');
+    });
+
     it('includes pagination', function() {
       expect($element.find('div').attr('st-items-by-page')).toEqual('20');
     });
