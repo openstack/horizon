@@ -53,7 +53,10 @@
       getInstanceMetadata: getInstanceMetadata,
       editInstanceMetadata: editInstanceMetadata,
       getCreateKeypairUrl: getCreateKeypairUrl,
-      getRegenerateKeypairUrl: getRegenerateKeypairUrl
+      getRegenerateKeypairUrl: getRegenerateKeypairUrl,
+      createFlavor: createFlavor,
+      updateFlavor: updateFlavor,
+      deleteFlavor: deleteFlavor
     };
 
     return service;
@@ -314,13 +317,64 @@
      * @param {boolean} getExtras (optional)
      * Also retrieve the extra specs for the flavor.
      */
-    function getFlavor(id, getExtras) {
+    function getFlavor(id, getExtras, getAccessList) {
       var config = {'params': {}};
       if (getExtras) { config.params.get_extras = 'true'; }
-      return apiService.get('/api/nova/flavors/' + id, config)
+      if (getAccessList) { config.params.get_access_list = 'true'; }
+      return apiService.get('/api/nova/flavors/' + id + '/' , config)
         .error(function () {
           toastService.add('error', gettext('Unable to retrieve the flavor.'));
         });
+    }
+
+    /**
+     * @name horizon.app.core.openstack-service-api.nova.createFlavor
+     * @description
+     * Create a single flavor.
+     * @param {flavor} flavor
+     * Flavor to create
+     */
+    function createFlavor(flavor) {
+      return apiService.post('/api/nova/flavors/', flavor)
+        .error(function () {
+          toastService.add('error', gettext('Unable to create the flavor.'));
+        });
+    }
+
+    /**
+     * @name horizon.app.core.openstack-service-api.nova.updateFlavor
+     * @description
+     * Update a single flavor.
+     * @param {flavor} flavor
+     * Flavor to update
+     */
+    function updateFlavor(flavor) {
+      return apiService.patch('/api/nova/flavors/' + flavor.id + '/', flavor)
+        .error(function () {
+          toastService.add('error', gettext('Unable to update the flavor.'));
+        });
+    }
+
+    /**
+     * @name horizon.app.core.openstack-service-api.nova.deleteFlavor
+     * @description
+     * Delete a single flavor by ID.
+     *
+     * @param {String} flavorId
+     * Flavor to delete
+     *
+     * @param {boolean} suppressError
+     * If passed in, this will not show the default error handling
+     * (horizon alert). The glance API may not have metadata definitions
+     * enabled.
+     */
+    function deleteFlavor(flavorId, suppressError) {
+      var promise = apiService.delete('/api/nova/flavors/' + flavorId + '/');
+
+      return suppressError ? promise : promise.error(function() {
+        toastService.add('error', gettext('Unable to delete the flavor with id: ') + flavorId);
+      });
+
     }
 
     /**

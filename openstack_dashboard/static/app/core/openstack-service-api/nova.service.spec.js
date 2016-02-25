@@ -185,7 +185,7 @@
       {
         "func": "getFlavor",
         "method": "get",
-        "path": "/api/nova/flavors/42",
+        "path": "/api/nova/flavors/42/",
         "data": {
           "params": {
             "get_extras": "true"
@@ -200,7 +200,24 @@
       {
         "func": "getFlavor",
         "method": "get",
-        "path": "/api/nova/flavors/42",
+        "path": "/api/nova/flavors/42/",
+        "data": {
+          "params": {
+            "get_extras": "true",
+            "get_access_list": "true"
+          }
+        },
+        "error": "Unable to retrieve the flavor.",
+        "testInput": [
+          42,
+          true,
+          true
+        ]
+      },
+      {
+        "func": "getFlavor",
+        "method": "get",
+        "path": "/api/nova/flavors/42/",
         "data": {
           "params": {}
         },
@@ -275,6 +292,37 @@
         "testInput": [
           42, {a: '1', b: '2'}, ['c', 'd']
         ]
+      },
+      {
+        "func": "createFlavor",
+        "method": "post",
+        "path": "/api/nova/flavors/",
+        "data": 42,
+        "error": "Unable to create the flavor.",
+        "testInput": [
+          42
+        ]
+      },
+      {
+        "func": "updateFlavor",
+        "method": "patch",
+        "path": "/api/nova/flavors/42/",
+        "data": {
+          id: 42
+        },
+        "error": "Unable to update the flavor.",
+        "testInput": [
+          {
+            id: 42
+          }
+        ]
+      },
+      {
+        "func": "deleteFlavor",
+        "method": "delete",
+        "path": "/api/nova/flavors/42/",
+        "error": "Unable to delete the flavor with id: 42",
+        "testInput": [42]
       }
     ];
 
