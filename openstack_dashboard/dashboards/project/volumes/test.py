@@ -96,11 +96,12 @@ class VolumeAndSnapshotsAndBackupsTests(test.TestCase):
     @test.create_stubs({api.cinder: ('tenant_absolute_limits',
                                      'volume_list_paged',
                                      'volume_backup_supported',
-                                     ),
+                                     'volume_snapshot_list'),
                         api.nova: ('server_list',)})
     def _test_index_paginated(self, marker, sort_dir, volumes, url,
                               has_more, has_prev):
         backup_supported = True
+        vol_snaps = self.cinder_volume_snapshots.list()
 
         api.cinder.volume_backup_supported(IsA(http.HttpRequest)).\
             MultipleTimes().AndReturn(backup_supported)
@@ -108,6 +109,8 @@ class VolumeAndSnapshotsAndBackupsTests(test.TestCase):
                                      sort_dir=sort_dir, search_opts=None,
                                      paginate=True).\
             AndReturn([volumes, has_more, has_prev])
+        api.cinder.volume_snapshot_list(
+            IsA(http.HttpRequest), search_opts=None).AndReturn(vol_snaps)
         api.nova.server_list(IsA(http.HttpRequest), search_opts=None).\
             AndReturn([self.servers.list(), False])
         api.cinder.tenant_absolute_limits(IsA(http.HttpRequest)).MultipleTimes().\
