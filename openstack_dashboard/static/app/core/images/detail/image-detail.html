@@ -28,44 +28,28 @@
           <h3 translate>Image</h3>
           <hr>
           <dl class="dl-horizontal">
-            <div>
-              <dt translate>Size</dt>
-              <dd>{$ ctrl.image.size | bytes $}</dd>
-            </div>
-            <div>
-              <dt translate>Min. Disk</dt>
-              <dd>{$ ctrl.image.min_disk | gb $}</dd>
-            </div>
-            <div>
-              <dt translate>Min. RAM</dt>
-              <dd>{$ ctrl.image.min_ram | mb $}</dd>
-            </div>
-            <div>
-              <dt translate>Disk Format</dt>
-              <dd>{$ ctrl.image.disk_format | uppercase $}</dd>
-            </div>
-            <div>
-              <dt translate>Container Format</dt>
-              <dd>{$ ctrl.image.container_format | uppercase $}</dd>
-            </div>
+            <dt translate>Size</dt>
+            <dd>{$ ctrl.image.size | bytes $}</dd>
+            <dt translate>Min. Disk</dt>
+            <dd>{$ ctrl.image.min_disk | gb $}</dd>
+            <dt translate>Min. RAM</dt>
+            <dd>{$ ctrl.image.min_ram | mb $}</dd>
+            <dt translate>Disk Format</dt>
+            <dd>{$ ctrl.image.disk_format | uppercase $}</dd>
+            <dt translate>Container Format</dt>
+            <dd>{$ ctrl.image.container_format | uppercase $}</dd>
           </dl>
         </div>
         <div class="col-md-6 detail">
           <h3>{$ 'Security' | translate $}</h3>
           <hr>
           <dl class="dl-horizontal">
-            <div>
-              <dt translate>Visibility</dt>
-              <dd>{$ ctrl.image | imageVisibility $}</dd>
-            </div>
-            <div>
-              <dt translate>Protected</dt>
-              <dd>{$ ::ctrl.image.protected | yesno $}</dd>
-            </div>
-            <div>
-              <dt translate>Checksum</dt>
-              <dd>{$ ::ctrl.image.checksum $}</dd>
-            </div>
+            <dt translate>Visibility</dt>
+            <dd>{$ ctrl.image | imageVisibility $}</dd>
+            <dt translate>Protected</dt>
+            <dd>{$ ::ctrl.image.protected | yesno $}</dd>
+            <dt translate>Checksum</dt>
+            <dd>{$ ::ctrl.image.checksum $}</dd>
           </dl>
         </div>
       </div>
@@ -74,18 +58,12 @@
           <h3 translate>Record Properties</h3>
           <hr>
           <dl class="dl-horizontal">
-            <div>
-              <dt translate>Created</dt>
-              <dd>{$ ctrl.image.created_at | date:'short' $}</dd>
-            </div>
-            <div>
-              <dt translate>Updated</dt>
-              <dd>{$ ctrl.image.updated_at | date:'short' $}</dd>
-            </div>
-            <div>
-              <dt translate>ID</dt>
-              <dd>{$ ctrl.image.id $}</dd>
-            </div>
+            <dt translate>Created</dt>
+            <dd>{$ ctrl.image.created_at | date:'short' $}</dd>
+            <dt translate>Updated</dt>
+            <dd>{$ ctrl.image.updated_at | date:'short' $}</dd>
+            <dt translate>ID</dt>
+            <dd>{$ ctrl.image.id $}</dd>
           </dl>
         </div>
         <div class="col-md-6 detail">
@@ -93,10 +71,8 @@
           <hr>
           <dl class="dl-horizontal">
             <div ng-repeat="prop in ctrl.image.properties">
-              <div>
-                <dt data-toggle="tooltip" title="{$ prop.name $}">{$ prop.name $}</dt>
-                <dd>{$ prop.value $}</dd>
-              </div>
+              <dt data-toggle="tooltip" title="{$ prop.name $}">{$ prop.name $}</dt>
+              <dd>{$ prop.value $}</dd>
             </div>
           </dl>
         </div>
