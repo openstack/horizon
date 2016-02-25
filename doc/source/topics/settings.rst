@@ -292,6 +292,23 @@ Most of the following settings are defined in
  ``openstack_dashboard/local/local_settings.py``, which should be copied from
  ``openstack_dashboard/local/local_settings.py.example``.
 
+Since Mitaka, there is also a way to drop file snippets into
+``openstack_dashboard/local/local_settings.d/``. These snippets must end with
+``.py`` and must contain valid Python code. The snippets are loaded after
+``local_settings.py`` is evaluated so you are able to override settings from
+``local_settings.py`` without the need to change this file.
+Snippets are evaluated in alphabetical order by file name.
+It's good style to name the files in ``local_settings.d/`` like
+``_ZZ_another_setting.py`` where ``ZZ`` is a number. The file must start with
+an underscore (``_``) because Python can not load files starting with a number.
+So given that you have 3 files, ``local_settings.py``,
+``local_settings.d/_10_setting_one.py`` and ``local_settings.d/_20_settings_two.py``,
+the settings from ``local_settings.py`` are evaluated first. Settings from
+``local_settings.d/_10_settings_one.py`` override settings from ``local_settings.py``
+and settings from ``local_settings.d/_20_settings_two.py`` override all other settings
+because that's the file which is evaluated last.
+
+
 ``AUTHENTICATION_URLS``
 -----------------------
 

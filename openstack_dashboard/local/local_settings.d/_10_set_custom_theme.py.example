@@ -1,0 +1,2 @@
+# override the CUSTOM_THEME_PATH variable with this settings snippet
+# CUSTOM_THEME_PATH="themes/material"
