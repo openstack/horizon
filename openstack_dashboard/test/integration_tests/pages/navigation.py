@@ -14,8 +14,10 @@ import importlib
 import json
 import types
 
-from openstack_dashboard.test.integration_tests import config
+from selenium.webdriver.common import by
 import six
+
+from openstack_dashboard.test.integration_tests import config
 
 
 class Navigation(object):
@@ -181,6 +183,7 @@ class Navigation(object):
                         )
                 }
         }
+    _main_content_locator = (by.By.ID, 'content_body')
 
     # protected methods
     def _go_to_page(self, path, page_class=None):
@@ -215,7 +218,8 @@ class Navigation(object):
         return self._get_page_class(path, page_class)(self.driver, self.conf)
 
     def _go_to_tab_menu_page(self, item_text):
-        self.driver.find_element_by_link_text(item_text).click()
+        content_body = self.driver.find_element(*self._main_content_locator)
+        content_body.find_element_by_link_text(item_text).click()
 
     def _go_to_settings_page(self, item_text):
         """Go to page that is located under the settings tab."""
