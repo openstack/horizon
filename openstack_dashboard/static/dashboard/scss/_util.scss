@@ -64,3 +64,7 @@ input::-ms-clear, input::-ms-reveal {
   width: 0;
   height: auto;
 }
+
+[ng-click] {
+  cursor: pointer;
+}

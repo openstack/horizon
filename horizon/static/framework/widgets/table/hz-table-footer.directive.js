@@ -57,6 +57,7 @@
     */
   function hzTableFooter(basePath, $compile) {
     var directive = {
+      controller: 'HzTableFooterController as ctrl',
       restrict: 'A',
       scope: {
         items: '='

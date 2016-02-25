@@ -1,12 +1,11 @@
 <!--
   Table-footer:
   Ensure colspan is greater or equal to number of column-headers.
-  TODO: get items per page from the user settings
 -->
 <tr>
   <td colspan="100">
-    <span class="display">{$ items.length|itemCount $}</span>
-    <div st-pagination="" st-items-by-page="20" st-displayed-pages="20"></div>
+    <span>{$ items.length|itemCount $}</span>
+    <st-pagination st-items-by-page="ctrl.pageSize"></st-pagination>
     <ng-transclude></ng-transclude>
   </td>
 </tr>

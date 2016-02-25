@@ -260,11 +260,26 @@
   });
 
   describe('hzTableFooter directive', function () {
-    var $scope, $compile, $element;
+    var $scope, $compile, $element, controllerProvider, horizonCookiesSpy;
 
     beforeEach(module('templates'));
     beforeEach(module('smart-table'));
     beforeEach(module('horizon.framework'));
+
+    beforeEach(inject(function ($controller) {
+      controllerProvider = $controller;
+    }));
+
+    beforeEach(function() {
+      horizon.cookies = {
+        get: function() {
+          return;
+        }
+      };
+
+      horizonCookiesSpy = spyOn(horizon.cookies, 'get');
+
+    });
 
     beforeEach(inject(function ($injector) {
       $compile = $injector.get('$compile');
@@ -310,11 +325,25 @@
 
       expect($element).toBeDefined();
       expect($element.find('span').length).toBe(1);
-      expect($element.find('span').text()).toBe('3 items');
+      expect($element.find('span').text()).toBe('Displaying 3 items');
     });
 
     it('includes pagination', function() {
-      expect($element.find('div').attr('st-items-by-page')).toEqual('20');
+      expect($element.find('st-pagination').attr('st-items-by-page')).toEqual('ctrl.pageSize');
+    });
+
+    it('gets pagination from cookies', function() {
+      horizonCookiesSpy.and.returnValue(10);
+
+      var ctrl = controllerProvider('HzTableFooterController');
+      expect(ctrl.pageSize).toBe(10);
+    });
+
+    it('gets pagination from config service', function() {
+      horizonCookiesSpy.and.callThrough();
+
+      var ctrl = controllerProvider('HzTableFooterController');
+      expect(ctrl.pageSize).toBe(20);
     });
 
   });
