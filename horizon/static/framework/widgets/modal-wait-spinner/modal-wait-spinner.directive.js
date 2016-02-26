@@ -20,7 +20,7 @@
    *
    *    MyController.$inject = [
    *      '$scope',
-   *      'horizon.framework.widgets.modal.modal-wait-spinner.service'
+   *      'horizon.framework.widgets.modal-wait-spinner.service'
    *    ];
    *
    *    function MyController($scope, modalWaitSpinnerService) {
