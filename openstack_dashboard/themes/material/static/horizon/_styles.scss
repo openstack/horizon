@@ -20,7 +20,10 @@
 #content_body {
   transition: padding-left $sidebar-animation;
   display: block;
-  padding-left: $sidebar-width;
+
+  @media (min-width: $screen-lg) {
+    padding-left: $sidebar-width;
+  }
 }
 
 #main_content {
