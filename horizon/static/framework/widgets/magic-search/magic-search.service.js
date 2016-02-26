@@ -214,7 +214,12 @@
       var buff = [];
       searchTerms.map(getSearchTermObject).forEach(getFacetFromObj);
       if (angular.isDefined(textSearch)) {
-        buff.push(getTextFacet(textSearch, textSearchLabel));
+        var currentTextSearch = searchTerms.filter(function(searchField) {
+          return searchField.indexOf(textSearch) === 0;
+        });
+        if (currentTextSearch.length === 0) {
+          buff.push(getTextFacet(textSearch, textSearchLabel));
+        }
       }
       return buff;
 

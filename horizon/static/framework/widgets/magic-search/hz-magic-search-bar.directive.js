@@ -26,6 +26,7 @@
    * @element
    * @param {object} filterFacets Facets allowed for searching
    * @param {object=} filterStrings Help content shown in search bar
+   * @param {object=} clientFullTextSearch if full text search is to be done on the client
    * @description
    * The `magicSearchBar` directive provides a template for a
    * client side faceted search that utilizes Smart-Table's
@@ -71,6 +72,13 @@
    * <hz-magic-search-bar
    *   filter-facets="filterFacets">
    * </hz-magic-search-bar>
+   *
+   * or
+   *
+   * <hz-magic-search-bar
+   *   client-full-text-search="false"
+   *   filter-strings="filterStrings">
+   * </hz-magic-search-bar>
    * ```
    */
   function hzMagicSearchBar(basePath) {
@@ -80,7 +88,9 @@
       restrict: 'E',
       scope: {
         filterStrings: '=?',
-        filterFacets: '='
+        filterFacets: '=',
+        clientFullTextSearch: '=?',
+        searchSettingsCallback: '=?'
       },
       templateUrl: basePath + 'magic-search/hz-magic-search-bar.html'
     };
@@ -90,22 +100,33 @@
     //////////
 
     function link(scope) {
+      scope.clientFullTextSearch = angular.isDefined(scope.clientFullTextSearch)
+        ? scope.clientFullTextSearch
+        : true;
       // if filterStrings is not defined, set defaults
       var defaultFilterStrings = {
         cancel: gettext('Cancel'),
         prompt: gettext('Click here for filters.'),
         remove: gettext('Remove'),
-        text: gettext('In current results')
+        text: (scope.clientFullTextSearch ?
+          gettext('Search in current results') :
+          gettext('Full Text Search'))
       };
-      scope.filterStrings = scope.filterStrings ? scope.filterStrings : defaultFilterStrings;
+      scope.filterStrings = scope.filterStrings || defaultFilterStrings;
+
+      if (angular.isDefined(scope.searchSettingsCallback)) {
+        scope.showSettings = true;
+      } else {
+        scope.showSettings = false;
+      }
     }
 
     function compile(element) {
       /**
-        * Need to set template here since MagicSearch template
-        * attribute is not interpolated. Can't hardcode the
-        * template location and need to use basePath.
-        */
+       * Need to set template here since MagicSearch template
+       * attribute is not interpolated. Can't hardcode the
+       * template location and need to use basePath.
+       */
       var templateUrl = basePath + 'magic-search/magic-search.html';
       element.find('magic-search').attr('template', templateUrl);
       element.addClass('hz-magic-search-bar');

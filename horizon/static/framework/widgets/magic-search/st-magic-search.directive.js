@@ -18,7 +18,7 @@
     .module('horizon.framework.widgets.magic-search')
     .directive('stMagicSearch', stMagicSearch);
 
-  stMagicSearch.$inject = ['$timeout', '$window'];
+  stMagicSearch.$inject = ['$timeout'];
 
   /**
    * @ngdoc directive
@@ -45,7 +45,7 @@
    * </st-magic-search>
    * ```
    */
-  function stMagicSearch($timeout, $window) {
+  function stMagicSearch($timeout) {
     var directive = {
       link: link,
       require: '^stTable',
@@ -55,6 +55,12 @@
     return directive;
 
     function link(scope, element, attr, tableCtrl) {
+      var clientFullTextSearch = (angular.isDefined(scope.clientFullTextSearch)
+                                  ? scope.clientFullTextSearch
+                                  : true);
+
+      scope.currentServerSearchParams = {};
+
       // Generate predicate object from dot notation string
       function setPredObj(predicates, predObj, input) {
         var lastPred = predicates.pop();
@@ -66,26 +72,52 @@
         predObj[lastPred] = input;
       }
 
+      function setServerFacetSearch(scope, query) {
+        var currentServerSearchParams = angular.copy(scope.currentServerSearchParams);
+        currentServerSearchParams.magicSearchQuery = query;
+        checkAndEmit(scope, currentServerSearchParams);
+      }
+
+      function setServerTextSearch(scope, text) {
+        var currentServerSearchParams = angular.copy(scope.currentServerSearchParams);
+        currentServerSearchParams.queryString = text;
+        checkAndEmit(scope, currentServerSearchParams);
+      }
+
+      function checkAndEmit(scope, serverSearchParams) {
+        if (serverSearchParams !== scope.currentServerSearchParams) {
+          serverSearchParams.magicSearchQueryChanged =
+            !angular.equals(scope.currentServerSearchParams.magicSearchQuery,
+                            serverSearchParams.magicSearchQuery);
+
+          serverSearchParams.queryStringChanged =
+            !angular.equals(scope.currentServerSearchParams.queryString,
+                            serverSearchParams.queryString);
+
+          scope.currentServerSearchParams = serverSearchParams;
+
+          if (serverSearchParams.queryStringChanged || serverSearchParams.magicSearchQueryChanged) {
+            scope.$emit('serverSearchUpdated', angular.copy(scope.currentServerSearchParams));
+          }
+        }
+      }
+
       // When user types a character, search the table
       var textSearchWatcher = scope.$on('textSearch', function(event, text) {
         // Timeout needed to prevent
         // $apply already in progress error
         $timeout(function() {
-          tableCtrl.search(text);
+          if (clientFullTextSearch) {
+            tableCtrl.search(text);
+          } else {
+            setServerTextSearch(scope, text);
+          }
         });
       });
 
       // When user changes a facet, use API filter
       var searchUpdatedWatcher = scope.$on('searchUpdated', function(event, query) {
-        // update url
-        var url = $window.location.href;
-        if (url.indexOf('?') > -1) {
-          url = url.split('?')[0];
-        }
-        if (query.length > 0) {
-          url = url + '?' + query;
-        }
-        $window.history.pushState(query, '', url);
+        setServerFacetSearch(scope, query);
 
         // clear each time since Smart-Table
         // search is cumulative
