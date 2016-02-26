@@ -65,27 +65,33 @@
 
     //////////////
 
-    function initScope(newScope, actionContext) {
+    function initScope(newScope) {
       scope = newScope;
-      context = {
-        labels: actionContext,
-        successEvent: events.DELETE_SUCCESS
-      };
+      context = { successEvent: events.DELETE_SUCCESS };
       deleteImagePromise = policy.ifAllowed({rules: [['image', 'delete_image']]});
     }
 
-    function perform(images) {
+    function perform(items) {
+      var images = angular.isArray(items) ? items : [items];
+      context.labels = labelize(images.length);
       context.deleteEntity = deleteImage;
       $qExtensions.allSettled(images.map(checkPermission)).then(afterCheck);
     }
 
     function allowed(image) {
-      return $q.all([
-        notProtected(image),
-        deleteImagePromise,
-        userSessionService.isCurrentProject(image.owner),
-        notDeleted(image)
-      ]);
+      // only row actions pass in image
+      // otherwise, assume it is a batch action
+      if (image) {
+        return $q.all([
+          notProtected(image),
+          deleteImagePromise,
+          userSessionService.isCurrentProject(image.owner),
+          notDeleted(image)
+        ]);
+      }
+      else {
+        return policy.ifAllowed({ rules: [['image', 'delete_image']] });
+      }
     }
 
     function checkPermission(image) {
@@ -99,6 +105,31 @@
       if (result.pass.length > 0) {
         deleteModal.open(scope, result.pass.map(getEntity), context);
       }
+    }
+
+    function labelize(count) {
+      return {
+
+        title: ngettext(
+          'Confirm Delete Image',
+          'Confirm Delete Images', count),
+
+        message: ngettext(
+          'You have selected "%s". Deleted image is not recoverable.',
+          'You have selected "%s". Deleted images are not recoverable.', count),
+
+        submit: ngettext(
+          'Delete Image',
+          'Delete Images', count),
+
+        success: ngettext(
+          'Deleted Image: %s.',
+          'Deleted Images: %s.', count),
+
+        error: ngettext(
+          'Unable to delete Image: %s.',
+          'Unable to delete Images: %s.', count)
+      };
     }
 
     function notDeleted(image) {

@@ -29,9 +29,8 @@
 
   registerImageActions.$inject = [
     'horizon.framework.conf.resource-type-registry.service',
-    'horizon.app.core.images.actions.batch-delete.service',
-    'horizon.app.core.images.actions.row-delete.service',
     'horizon.app.core.images.actions.create-volume.service',
+    'horizon.app.core.images.actions.delete-image.service',
     'horizon.app.core.images.actions.launch-instance.service',
     'horizon.app.core.images.actions.update-metadata.service',
     'horizon.app.core.images.resourceType'
@@ -39,9 +38,8 @@
 
   function registerImageActions(
     registry,
-    batchDeleteService,
-    rowDeleteService,
     createVolumeService,
+    deleteImageService,
     launchInstanceService,
     updateMetadataService,
     imageResourceType)
@@ -70,7 +68,7 @@
       }, 100)
       .append({
         id: 'deleteImageAction',
-        service: rowDeleteService,
+        service: deleteImageService,
         template: {
           text: gettext('Delete Image'),
           type: 'delete'
@@ -80,7 +78,7 @@
     registry.getBatchActions(imageResourceType)
       .append({
         id: 'batchDeleteImageAction',
-        service: batchDeleteService,
+        service: deleteImageService,
         template: {
           type: 'delete-selected',
           text: gettext('Delete Images')

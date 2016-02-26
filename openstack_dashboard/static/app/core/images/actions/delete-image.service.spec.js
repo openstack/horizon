@@ -17,14 +17,6 @@
 
   describe('horizon.app.core.images.actions.delete-image.service', function() {
 
-    var context = {
-      title: gettext('Confirm Delete Images'),
-      message: gettext('selected "%s"'),
-      submit: gettext('Delete'),
-      success: gettext('Deleted : %s.'),
-      error: gettext('Unable to delete: %s.')
-    };
-
     var deleteModalService = {
       open: function () {
         return;
@@ -68,185 +60,230 @@
 
     beforeEach(module('horizon.app.core.openstack-service-api', function($provide) {
       $provide.value('horizon.app.core.openstack-service-api.glance', glanceAPI);
-      spyOn(policyAPI, 'ifAllowed').and.callThrough();
       $provide.value('horizon.app.core.openstack-service-api.policy', policyAPI);
-      spyOn(userSession, 'isCurrentProject').and.callThrough();
       $provide.value('horizon.app.core.openstack-service-api.userSession', userSession);
+      spyOn(policyAPI, 'ifAllowed').and.callThrough();
+      spyOn(userSession, 'isCurrentProject').and.callThrough();
     }));
 
     beforeEach(inject(function($injector, _$rootScope_, $q) {
       $scope = _$rootScope_.$new();
       service = $injector.get('horizon.app.core.images.actions.delete-image.service');
-      service.initScope($scope, context);
       deferred = $q.defer();
     }));
 
-    it('should open the delete modal with correct messages', function() {
-      var images = [
-        {protected: false, owner: 'project', status: 'active', name: 'image1', id: '1'}
-      ];
+    function generateImage(imageCount) {
 
-      spyOn(deleteModalService, 'open');
+      var images = [];
+      var data = {
+        protected: false,
+        owner: 'project',
+        status: 'active',
+        name: 'image1',
+        id: '1'
+      };
 
-      service.perform(images);
-      $scope.$apply();
-
-      expect(deleteModalService.open).toHaveBeenCalled();
-
-      var args = deleteModalService.open.calls.argsFor(0);
-      var labels = args[2].labels;
-
-      expect(labels.title).toEqual('Confirm Delete Images');
-      expect(labels.message).toEqual('selected "%s"');
-      expect(labels.submit).toEqual('Delete');
-      expect(labels.success).toEqual('Deleted : %s.');
-      expect(labels.error).toEqual('Unable to delete: %s.');
-    });
-
-    it('should pass in the success and error events to be thrown', function() {
-      var images = [
-        {protected: false, owner: 'project', status: 'active', name: 'image1', id: '1'}
-      ];
-
-      spyOn(deleteModalService, 'open');
-
-      service.perform(images);
-      $scope.$apply();
-
-      expect(deleteModalService.open).toHaveBeenCalled();
-
-      var args = deleteModalService.open.calls.argsFor(0);
-      var contextArg = args[2];
-
-      expect(contextArg.successEvent).toEqual('horizon.app.core.images.DELETE_SUCCESS');
-    });
-
-    it('should open the delete modal with correct entities', function() {
-      var images = [
-        {protected: false, owner: 'project', status: 'active', name: 'image1', id: '1'},
-        {protected: false, owner: 'project', status: 'active', name: 'image2', id: '2'}
-      ];
-
-      spyOn(deleteModalService, 'open');
-
-      service.perform(images);
-      $scope.$apply();
-
-      expect(deleteModalService.open).toHaveBeenCalled();
-
-      var args = deleteModalService.open.calls.argsFor(0);
-      var entities = args[1];
-
-      expect(entities[0].id).toEqual('1');
-      expect(entities[0].name).toEqual('image1');
-      expect(entities[1].id).toEqual('2');
-      expect(entities[1].name).toEqual('image2');
-    });
-
-    it('should only attempt to delete images that are allowed to be deleted', function() {
-      var images = [
-        {protected: false, owner: 'project', status: 'active', name: 'image1', id: '1'},
-        {protected: false, owner: 'project', status: 'active', name: 'image2', id: '2'},
-        {protected: false, owner: 'project', status: 'deleted', name: 'image3', id: '3'},
-        {protected: false, owner: 'project1', status: 'active', name: 'image4', id: '4'},
-        {protected: true, owner: 'project', status: 'active', name: 'image5', id: '5'}
-      ];
-
-      spyOn(deleteModalService, 'open');
-
-      service.perform(images);
-      $scope.$apply();
-
-      expect(deleteModalService.open).toHaveBeenCalled();
-
-      var args = deleteModalService.open.calls.argsFor(0);
-      var entities = args[1];
-
-      expect(entities[0].id).toEqual('1');
-      expect(entities[0].name).toEqual('image1');
-      expect(entities[1].id).toEqual('2');
-      expect(entities[1].name).toEqual('image2');
-    });
-
-    it('should not open modal if no images can be deleted', function() {
-      var images = [
-        {protected: false, owner: 'project', status: 'deleted', name: 'image3', id: '3'},
-        {protected: false, owner: 'project1', status: 'active', name: 'image4', id: '4'},
-        {protected: true, owner: 'project', status: 'active', name: 'image5', id: '5'}
-      ];
-
-      spyOn(deleteModalService, 'open');
-
-      deferred.reject();
-      service.initScope($scope, context);
-      service.perform(images);
-      $scope.$apply();
-
-      expect(deleteModalService.open).not.toHaveBeenCalled();
-    });
-
-    it('should pass in a function that deletes an image', function() {
-      var image = {protected: false, owner: 'project', status: 'active', name: 'image1', id: '1'};
-
-      spyOn(deleteModalService, 'open');
-      spyOn(glanceAPI, 'deleteImage');
-
-      service.perform([image]);
-      $scope.$apply();
-
-      var contextArg = deleteModalService.open.calls.argsFor(0)[2];
-      var deleteFunction = contextArg.deleteEntity;
-
-      deleteFunction(image.id);
-
-      expect(glanceAPI.deleteImage).toHaveBeenCalledWith(image.id, true);
-    });
-
-    it('should allow delete if image can be deleted', function() {
-      var image = {protected: false, owner: 'project', status: 'active'};
-      permissionShouldPass(service.allowed(image));
-      $scope.$apply();
-    });
-
-    it('should not allow delete if image is protected', function() {
-      var image = {protected: true, owner: 'project', status: 'active'};
-      permissionShouldFail(service.allowed(image));
-      $scope.$apply();
-    });
-
-    it('should not allow delete if image is not owned by user', function() {
-      var image = {protected: false, owner: 'another_project', status: 'active'};
-      deferred.reject();
-      permissionShouldFail(service.allowed(image));
-      $scope.$apply();
-    });
-
-    it('should not allow delete if image status is deleted', function() {
-      var image = {protected: false, owner: 'project', status: 'deleted'};
-      permissionShouldFail(service.allowed(image));
-      $scope.$apply();
-    });
-
-    function permissionShouldPass(permissions) {
-      permissions.then(
-        function() {
-          expect(true).toBe(true);
-        },
-        function() {
-          expect(false).toBe(true);
-        });
+      for (var index = 0; index < imageCount; index++) {
+        var image = angular.copy(data);
+        image.id = (index + 1);
+        image.name = 'image' + (index + 1);
+        images.push(image);
+      }
+      return images;
     }
 
-    function permissionShouldFail(permissions) {
-      permissions.then(
-        function() {
-          expect(false).toBe(true);
-        },
-        function() {
-          expect(true).toBe(true);
-        });
-    }
+    describe('perform method', function() {
 
-  });
+      beforeEach(function() {
+        spyOn(deleteModalService, 'open');
+        service.initScope($scope, labelize);
+      });
+
+      function labelize(count) {
+        return {
+          title: ngettext('title', 'titles', count),
+          message: ngettext('message', 'messages', count),
+          submit: ngettext('submit', 'submits', count),
+          success: ngettext('success', 'successs', count),
+          error: ngettext('error', 'errors', count)
+        };
+      }
+
+      ////////////
+
+      it('should open the delete modal and show correct labels', testSingleLabels);
+      it('should open the delete modal and show correct labels', testpluralLabels);
+      it('should open the delete modal with correct entities', testEntities);
+      it('should pass the success and error events to be thrown', testEvents);
+      it('should only delete images that are valid', testValids);
+      it('should fail if this project is not owner', testOwner);
+      it('should fail if images is protected', testProtected);
+      it('should fail if status is deleted', testStatus);
+      it('should pass in a function that deletes an image', testGlance);
+
+      ////////////
+
+      function testSingleLabels() {
+        var images = generateImage(1);
+        service.perform(images);
+        $scope.$apply();
+
+        var labels = deleteModalService.open.calls.argsFor(0)[2].labels;
+        expect(deleteModalService.open).toHaveBeenCalled();
+        for (var k in labels) { expect(labels[k].toLowerCase()).toContain('image'); }
+      }
+
+      function testpluralLabels() {
+        var images = generateImage(2);
+        service.perform(images);
+        $scope.$apply();
+
+        var labels = deleteModalService.open.calls.argsFor(0)[2].labels;
+        expect(deleteModalService.open).toHaveBeenCalled();
+        for (var k in labels) { expect(labels[k].toLowerCase()).toContain('images'); }
+      }
+
+      function testEntities() {
+        var imageCount = 3;
+        var images = generateImage(imageCount);
+        service.perform(images);
+        $scope.$apply();
+
+        var entities = deleteModalService.open.calls.argsFor(0)[1];
+        expect(deleteModalService.open).toHaveBeenCalled();
+        expect(entities.length).toEqual(imageCount);
+      }
+
+      function testEvents() {
+        var images = generateImage(1);
+        service.perform(images);
+        $scope.$apply();
+
+        var context = deleteModalService.open.calls.argsFor(0)[2];
+        expect(deleteModalService.open).toHaveBeenCalled();
+        expect(context.successEvent).toEqual('horizon.app.core.images.DELETE_SUCCESS');
+      }
+
+      function testValids() {
+        var imageCount = 2;
+        var images = generateImage(imageCount);
+        service.perform(images);
+        $scope.$apply();
+
+        var entities = deleteModalService.open.calls.argsFor(0)[1];
+        expect(deleteModalService.open).toHaveBeenCalled();
+        expect(entities.length).toBe(imageCount);
+        expect(entities[0].name).toEqual('image1');
+        expect(entities[1].name).toEqual('image2');
+      }
+
+      function testOwner() {
+        var images = generateImage(1);
+        deferred.reject();
+        service.perform(images);
+        $scope.$apply();
+
+        expect(deleteModalService.open).not.toHaveBeenCalled();
+      }
+
+      function testProtected() {
+        var images = generateImage(1);
+        images[0].protected = true;
+        service.perform(images);
+        $scope.$apply();
+
+        expect(deleteModalService.open).not.toHaveBeenCalled();
+      }
+
+      function testStatus() {
+        var images = generateImage(1);
+        images[0].status = 'deleted';
+        service.perform(images);
+        $scope.$apply();
+
+        expect(deleteModalService.open).not.toHaveBeenCalled();
+      }
+
+      function testGlance() {
+        spyOn(glanceAPI, 'deleteImage');
+        var imageCount = 1;
+        var images = generateImage(imageCount);
+        var image = images[0];
+        service.perform(images);
+        $scope.$apply();
+
+        var contextArg = deleteModalService.open.calls.argsFor(0)[2];
+        var deleteFunction = contextArg.deleteEntity;
+        deleteFunction(image.id);
+        expect(glanceAPI.deleteImage).toHaveBeenCalledWith(image.id, true);
+      }
+
+    }); // end of delete modal
+
+    describe('allow method', function() {
+
+      var resolver = {
+        success: function() {},
+        error: function() {}
+      };
+
+      beforeEach(function() {
+        spyOn(resolver, 'success');
+        spyOn(resolver, 'error');
+        service.initScope($scope);
+      });
+
+      ////////////
+
+      it('should use default policy if batch action', testBatch);
+      it('allows delete if image can be deleted', testValid);
+      it('disallows delete if image is protected', testProtected);
+      it('disallows delete if image is not owned by user', testOwner);
+      it('disallows delete if image status is deleted', testStatus);
+
+      ////////////
+
+      function testBatch() {
+        service.allowed();
+        $scope.$apply();
+        expect(policyAPI.ifAllowed).toHaveBeenCalled();
+        expect(resolver.success).not.toHaveBeenCalled();
+        expect(resolver.error).not.toHaveBeenCalled();
+      }
+
+      function testValid() {
+        var image = generateImage(1)[0];
+        service.allowed(image).then(resolver.success, resolver.error);
+        $scope.$apply();
+        expect(resolver.success).toHaveBeenCalled();
+      }
+
+      function testProtected() {
+        var image = generateImage(1)[0];
+        image.protected = true;
+        service.allowed(image).then(resolver.success, resolver.error);
+        $scope.$apply();
+        expect(resolver.error).toHaveBeenCalled();
+      }
+
+      function testOwner() {
+        var image = generateImage(1)[0];
+        deferred.reject();
+        service.allowed(image).then(resolver.success, resolver.error);
+        $scope.$apply();
+        expect(resolver.error).toHaveBeenCalled();
+      }
+
+      function testStatus() {
+        var image = generateImage(1)[0];
+        image.status = 'deleted';
+        service.allowed(image).then(resolver.success, resolver.error);
+        $scope.$apply();
+        expect(resolver.error).toHaveBeenCalled();
+      }
+
+    }); // end of allowed
+
+  }); // end of delete-image
 
 })();
