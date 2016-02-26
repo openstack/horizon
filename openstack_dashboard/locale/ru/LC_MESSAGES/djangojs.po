@@ -11,16 +11,17 @@
 # Ilya Alekseyev <ilyaalekseyev@acm.org>, 2015. #zanata
 # OpenStack Infra <zanata@openstack.org>, 2015. #zanata
 # Denis Gubanov <v12aml@gmail.com>, 2016. #zanata
+# Fedor Tarasenko <feodor.tarasenko@gmail.com>, 2016. #zanata
 msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2016-02-18 02:36+0000\n"
+"POT-Creation-Date: 2016-02-26 02:04+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2016-01-22 07:21+0000\n"
-"Last-Translator: Denis Gubanov <v12aml@gmail.com>\n"
+"PO-Revision-Date: 2016-02-25 10:04+0000\n"
+"Last-Translator: Antonio Kless <antoniok.spb@gmail.com>\n"
 "Language: ru\n"
 "Plural-Forms: nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
 "%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || (n"
@@ -162,11 +163,23 @@ msgstr ""
 "Обязательно указание имя инстанса, которое используется для идентификации "
 "его на дашборде."
 
+msgid "Another action"
+msgstr "Другое действие"
+
 msgid "Automatic"
 msgstr "Автоматически"
 
 msgid "Availability Zone"
 msgstr "Зона доступности"
+
+msgid "Brand"
+msgstr "Бренд"
+
+msgid "Button"
+msgstr "Кнопка"
+
+msgid "Buttons"
+msgstr "Кнопки"
 
 msgid "Cancel"
 msgstr "Отмена"
@@ -232,6 +245,12 @@ msgstr "Опасность"
 msgid "Data"
 msgstr "Данные"
 
+msgid "Default"
+msgstr "Значение по умолчанию"
+
+msgid "Default button"
+msgstr "Кнопка по умолчанию"
+
 msgid "Delete Volume on Instance Delete"
 msgstr "Удалить диск при удалении инстанса"
 
@@ -269,6 +288,12 @@ msgstr ""
 msgid "Dropdown <b></b>"
 msgstr "Выпадающий список <b></b>"
 
+msgid "Dropdown header"
+msgstr "Выпадающий заголовок"
+
+msgid "Dropdown link"
+msgstr "Выпадающая ссылка"
+
 msgid "Email"
 msgstr "E-mail"
 
@@ -280,6 +305,9 @@ msgstr "Временный диск"
 
 msgid "Ether Type"
 msgstr "Тип сети"
+
+msgid "Example body text"
+msgstr "Пример основного текста"
 
 #, python-format
 msgid "Extension is not enabled: %(extension)s."
@@ -320,6 +348,24 @@ msgstr ""
 "  публичный ключ из подсвеченного красным окошка в ваш <samp>.ssh/"
 "authorized_keys</samp>\n"
 "  файл."
+
+msgid "Heading 1"
+msgstr "Заголовок 1"
+
+msgid "Heading 2"
+msgstr "Заголовок 2"
+
+msgid "Heading 3"
+msgstr "Заголовок 3"
+
+msgid "Heading 4"
+msgstr "Заголовок 4"
+
+msgid "Heading 5"
+msgstr "Заголовок 5"
+
+msgid "Heading 6"
+msgstr "Заголовок 6"
 
 msgid "Home"
 msgstr "Домой"
@@ -423,8 +469,14 @@ msgstr ""
 msgid "Killed"
 msgstr "Убито"
 
+msgid "Large button"
+msgstr "Большая кнопка"
+
 msgid "Launch Instance"
 msgstr "Запустить инстанс"
+
+msgid "Left"
+msgstr "Слева"
 
 msgid "Link"
 msgstr "Ссылка"
@@ -437,6 +489,9 @@ msgstr "По порт"
 
 msgid "Metadata"
 msgstr "Метаданные"
+
+msgid "Middle"
+msgstr "Посередине"
 
 msgid "Min Disk"
 msgstr "Мин. диск"
@@ -453,8 +508,14 @@ msgstr "Мин. RAM"
 msgid "Min RAM (MB)"
 msgstr "Мин. размер ОЗУ (МБ)"
 
+msgid "Mini button"
+msgstr "Микроскопическая кнопка"
+
 msgid "Name"
 msgstr "Название"
+
+msgid "Navbar"
+msgstr "Панель навигации"
 
 msgid "Network"
 msgstr "Сеть"
@@ -480,6 +541,9 @@ msgstr "Нет доступных элементов"
 msgid "Number"
 msgstr "Число"
 
+msgid "One more separated link"
+msgstr "Ещё одна отдельная ссылка"
+
 msgid "Pagination"
 msgstr "Пагинация"
 
@@ -494,6 +558,9 @@ msgstr "Физическая сеть"
 
 msgid "Policy check failed."
 msgstr "Проверка политики не удалась."
+
+msgid "Primary"
+msgstr "Основной"
 
 msgid "Private"
 msgstr "Частный"
@@ -550,6 +617,9 @@ msgstr "Удаленный адрес"
 
 msgid "Required"
 msgstr "Требуется"
+
+msgid "Right"
+msgstr "Справа"
 
 msgid "Root Disk"
 msgstr "Основной диск"
@@ -622,6 +692,9 @@ msgstr "Выберите одну или более групп безопасн�
 msgid "Select the security groups."
 msgstr "Выберите группы безопасности."
 
+msgid "Separated link"
+msgstr "Отдельная ссылка"
+
 #, python-format
 msgid "Service type is not enabled: %(desiredType)s"
 msgstr "Тип службы не включен: %(desiredType)s"
@@ -638,6 +711,9 @@ msgstr "Размер"
 
 msgid "Size (GB)"
 msgstr "Размер (Гб)"
+
+msgid "Small button"
+msgstr "Маленька кнопка"
 
 msgid "Snapshot"
 msgstr "Снимок"
@@ -769,6 +845,9 @@ msgstr ""
 "Введите ваш скрипт напрямую в поле Пользовательский Скрипт. Если ваш браузер "
 "поддерживает файловое HTML5 API, вы можете выбрать загрузку скрипта из "
 "файла. Размер скрипта не должен превышать 16 Kb."
+
+msgid "Typography"
+msgstr "Типография"
 
 msgid "Unable to create the domain."
 msgstr "Не удалось создать домен."
