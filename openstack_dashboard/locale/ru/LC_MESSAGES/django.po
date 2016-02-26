@@ -25,11 +25,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2016-02-18 02:36+0000\n"
+"POT-Creation-Date: 2016-02-26 02:04+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2016-01-08 10:53+0000\n"
+"PO-Revision-Date: 2016-02-25 09:58+0000\n"
 "Last-Translator: Fedor Tarasenko <feodor.tarasenko@gmail.com>\n"
 "Language: ru\n"
 "Plural-Forms: nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
@@ -734,6 +734,9 @@ msgstr "Добавить политику"
 msgid "Add Pool"
 msgstr "Добавить пул"
 
+msgid "Add Protocol"
+msgstr "Добавить протокол"
+
 msgid "Add Router"
 msgstr "Добавить маршрутизатор"
 
@@ -1306,6 +1309,9 @@ msgstr "Загружать со снимка носителя (создаёт н
 msgid "Bootable"
 msgstr "Загрузочный"
 
+msgid "Bootstrap Theme Preview"
+msgstr "Предпросмотр темы оформления (Bootstrap Theme)"
+
 msgctxt "Current status of a Network"
 msgid "Build"
 msgstr "Создать"
@@ -1321,6 +1327,10 @@ msgstr "Создать"
 msgctxt "status of a network port"
 msgid "Build"
 msgstr "Создать"
+
+msgctxt "Current status of an Instance"
+msgid "Building"
+msgstr "Создание"
 
 msgctxt "Power state of an Instance"
 msgid "Building"
@@ -1532,6 +1542,11 @@ msgstr "Код"
 
 msgid "Cold Migrate"
 msgstr "Холодная миграция"
+
+msgid "Comma-delimited list of valid remote IDs from the identity provider."
+msgstr ""
+"Список корректных удалённых идентификаторов от провайдера идентификации, "
+"разделённый запятыми."
 
 msgid "Comma-separated key=value pairs"
 msgstr "Разделенные запятой пары ключ=значение"
@@ -1768,6 +1783,9 @@ msgstr "Создать порт"
 msgid "Create Project"
 msgstr "Создать проект"
 
+msgid "Create Protocol"
+msgstr "Создать протокол"
+
 msgid "Create Pseudo-folder"
 msgstr "Создать псевдо-папку"
 
@@ -1912,6 +1930,9 @@ msgstr ""
 
 msgid "Create a firewall with selected routers."
 msgstr "Создание межсетевого экрана с выбранными маршрутизаторами."
+
+msgid "Create a identity provider protocol."
+msgstr "Создание протокола провайдера идентификации."
 
 msgid ""
 "Create a monitor template.\n"
@@ -2082,6 +2103,9 @@ msgstr "Текущий узел"
 
 msgid "Current Size (GiB)"
 msgstr "Текущий размер (ГиБ)"
+
+msgid "Current consumer"
+msgstr "Текущий потребитель"
 
 msgid "Current password"
 msgstr "Текущий пароль"
@@ -2499,9 +2523,15 @@ msgstr[1] "Удалить типы дисков"
 msgstr[2] "Удалить типы дисков"
 msgstr[3] "Удалить типы дисков"
 
+msgid "Delete Volume on Instance Delete"
+msgstr "Удалить диск при удалении инстанса"
+
 #, python-format
 msgid "Delete the created network \"%s\" due to subnet creation failure."
 msgstr "Удалите созданную сеть \"%s\" в связи со сбоем создания подсети."
+
+msgid "Delete volume when the instance is deleted"
+msgstr "Удалить диск в случае удалении инстанса"
 
 msgid "Deleted"
 msgstr "Удалено"
@@ -3204,6 +3234,9 @@ msgstr ""
 "диска, количества ядер и другие ресурсы. Тип инстанса выбирается когда "
 "пользователи запускают инстансы."
 
+msgid "Edit the identity provider's details."
+msgstr "Редактирование свойств провайдера идентификации."
+
 msgid "Edit the image details."
 msgstr "Изменить данные образа"
 
@@ -3300,6 +3333,13 @@ msgstr "Шифрование"
 
 msgid "Encryption algorithm"
 msgstr "Алгоритм шифрования"
+
+msgid ""
+"Encryption information cannot be updated for a volume type if volumes are "
+"currently in use with the volume type."
+msgstr ""
+"Шифрование информации не может быть изменено для типа диска, если существуют "
+"подключенные диски данного типа. "
 
 msgid "Energy (Kwapi)"
 msgstr "Энергия (Kwapi)"
@@ -3847,6 +3887,9 @@ msgstr "Вентилятор Об/мин"
 msgid "Fault"
 msgstr "Ошибка"
 
+msgid "Federation"
+msgstr "Федерация"
+
 msgid ""
 "Fields in this tab are optional. You can configure the detail of IPSec site "
 "connection created."
@@ -4362,6 +4405,18 @@ msgstr "Тип Идентификатора"
 msgid "Identity"
 msgstr "Identity"
 
+msgid "Identity Provider ID"
+msgstr "Идентификатор провайдера идентификации"
+
+msgid "Identity Providers"
+msgstr "Провайдеры идентификации."
+
+msgid "Identity provider registered successfully."
+msgstr "Провайдер идентификации зарегистрирован успешно."
+
+msgid "Identity provider updated successfully."
+msgstr "Провайдер идентификации обновлён успешно."
+
 msgid "Identity service does not allow editing user data."
 msgstr "Служба идентификации запретила редактирование данных пользователя."
 
@@ -4511,6 +4566,13 @@ msgctxt "Current status of a VPN Service"
 msgid "Inactive"
 msgstr "Неактивно"
 
+msgid ""
+"Indicates whether this identity provider should accept federated "
+"authentication requests."
+msgstr ""
+"Указывает, должен ли провайдер идентификации принимать федеративные запросы "
+"на аутентификацию."
+
 msgid "Info"
 msgstr "Информация"
 
@@ -4586,6 +4648,9 @@ msgstr "ID инстанса"
 msgid "Instance Name"
 msgstr "Название инстанса"
 
+msgid "Instance Name ="
+msgstr "Имя инстанса = "
+
 msgid "Instance Overview"
 msgstr "Обзор инстансы"
 
@@ -4609,6 +4674,11 @@ msgstr "Недостаточный уровень полномочий для п
 
 msgid "Insufficient privilege level to view group information."
 msgstr "Недостаточный уровень полномочий для просмотра информации и группе"
+
+msgid "Insufficient privilege level to view identity provider information."
+msgstr ""
+"Недостаточный уровень полномочий для просмотра списка провайдеров "
+"идентификации."
 
 msgid "Insufficient privilege level to view project information."
 msgstr "Недостаточный уровень полномочий для просмотра информации о проекте"
@@ -4934,6 +5004,9 @@ msgstr "Управление узлами в агрегаторе"
 
 msgid "Manage Members"
 msgstr "Управление членами"
+
+msgid "Manage Protocols"
+msgstr "Управление протоколами"
 
 msgid "Manage QoS Spec Association"
 msgstr "Управление связями спецификации QoS"
@@ -5336,6 +5409,9 @@ msgstr "Новый тип инстанса"
 
 msgid "New Host"
 msgstr "Новый узел"
+
+msgid "New QoS Spec Consumer"
+msgstr "Новый потребитель QoS спецификаций"
 
 msgid "New Size (GiB)"
 msgstr "Новый размер (ГиБ)"
@@ -5864,6 +5940,9 @@ msgctxt "Current status of a VPN Service"
 msgid "Pending Update"
 msgstr "Ожидает обновления"
 
+msgid "Per Volume Size (GiB)"
+msgstr "Размер каждого диска (GiB)"
+
 msgid "Perfect Forward Secrecy"
 msgstr "Совершенная прямая секретность"
 
@@ -6095,11 +6174,21 @@ msgstr "Защищенный"
 msgid "Protocol"
 msgstr "Протокол"
 
+msgid "Protocol ID"
+msgstr "Идентификатор протокола"
+
+#, python-format
+msgid "Protocol ID \"%s\" is already used."
+msgstr "Протокол с идентификатором \"%s\" уже используется."
+
 msgid "Protocol Port"
 msgstr "Порт протокола"
 
 msgid "Protocol for the firewall rule"
 msgstr "Протокол для правила межсетевого экрана."
+
+msgid "Protocols"
+msgstr "Протоколы"
 
 msgid "Provider"
 msgstr "Провайдер"
@@ -6203,6 +6292,12 @@ msgctxt "Action Name of a Firewall Rule"
 msgid "REJECT"
 msgstr "REJECT"
 
+msgid "RX/TX Factor"
+msgstr "RX/TX Фактор"
+
+msgid "RX/TX factor"
+msgstr "RX/TX фактор"
+
 msgid "Ramdisk"
 msgstr "Ramdisk"
 
@@ -6288,6 +6383,9 @@ msgstr "Перестроение инстанса %s."
 msgid "Regions:"
 msgstr "Регионы:"
 
+msgid "Register Identity Provider"
+msgstr "Зарегистрировать провайдера идентификации."
+
 msgid "Relative part of requests this pool member serves compared to others"
 msgstr ""
 "Часть запросов это участника пула передается в сравнении с другими "
@@ -6322,6 +6420,9 @@ msgstr "Загрузить снова"
 
 msgid "Remote"
 msgstr "Удаленный адрес"
+
+msgid "Remote IDs"
+msgstr "Удалённые идентификаторы"
 
 msgid "Remote IP Prefix"
 msgstr "Префикс удаленного IP"
@@ -6394,6 +6495,10 @@ msgctxt "Current status of an Instance"
 msgid "Rescue"
 msgstr "Безопасный режим"
 
+msgctxt "Current status of an Instance"
+msgid "Rescued"
+msgstr "Восстановлено"
+
 msgctxt "Task status of an Instance"
 msgid "Rescuing"
 msgstr "В безопасном режиме"
@@ -6414,6 +6519,10 @@ msgstr "Изменить размер инстансы"
 msgctxt "Current status of an Instance"
 msgid "Resize/Migrate"
 msgstr "Изменение типа/Миграция"
+
+msgctxt "Current status of an Instance"
+msgid "Resized"
+msgstr "Изменён размер"
 
 msgctxt "Task status of an Instance"
 msgid "Resized or Migrated"
@@ -6834,6 +6943,9 @@ msgstr "Правила группы безопасности"
 msgid "Security Groups"
 msgstr "Группы безопасности"
 
+msgid "Security group rule already exists."
+msgstr "Это правило группы безопасности уже существует."
+
 msgid ""
 "Security groups are sets of IP filter rules that are applied to the network "
 "settings for the VM. After the security group is created, you can add rules "
@@ -6939,6 +7051,9 @@ msgstr "Выберите новую спецификацию QoS"
 
 msgid "Select a new agent"
 msgstr "Выберите новый агент"
+
+msgid "Select a new consumer"
+msgstr "Выберите нового потребителя"
 
 msgid "Select a new host"
 msgstr "Выберите новый узел"
@@ -7494,6 +7609,10 @@ msgctxt "Action log of an instance"
 msgid "Stop"
 msgstr "Остановить"
 
+msgctxt "Current status of an Instance"
+msgid "Stopped"
+msgstr "Остановлено"
+
 msgid "Subnet"
 msgstr "Подсеть"
 
@@ -7628,6 +7747,10 @@ msgstr "Доступ к контейнеру сделан частным."
 
 msgid "Successfully updated container access to public."
 msgstr "Доступ к контейнеру сделан публичным."
+
+#, python-format
+msgid "Successfully updated encryption for volume type: %s"
+msgstr "Успешно изменено шифрование для типа дисков: %s"
 
 #, python-format
 msgid "Successfully updated security group: %s"
@@ -7828,6 +7951,13 @@ msgstr ""
 "<strong>Провайдер</strong> это класс обеспечивающий поддержку шифрования "
 "(пример: LuksEncryptor)"
 
+msgid ""
+"The <strong>Provider</strong> is the class providing encryption support (e."
+"g., LuksEncryptor)."
+msgstr ""
+"<strong>Провайдер</strong> - это класс обеспечивающий поддержку шифрования "
+"(пример: LuksEncryptor)"
+
 msgid "The Aggregate was updated."
 msgstr "Агрегатор был обновлён."
 
@@ -8010,6 +8140,9 @@ msgstr "Страница, которую вы ищите, не существу�
 msgid "The physical mechanism by which the virtual network is implemented."
 msgstr "Физический механизм, с помощью которого реализуется виртуальная сеть."
 
+msgid "The pre-defined key string between the two peers of the VPN connection"
+msgstr "Предопределённый ключ PSK между двумя точками VPN соединения "
+
 msgid ""
 "The private key will be only used in your browser and will not be sent to "
 "the server"
@@ -8076,6 +8209,13 @@ msgstr "Выбранный порт инстансы уже связан с др
 
 msgid "The specified port is invalid."
 msgstr "Указан неверный порт."
+
+msgid ""
+"The state of IPSec site connection to start in. If DOWN (False), IPSec site "
+"connection does not forward packets."
+msgstr ""
+"Состояние начала подключения сайта по протоколу IPSec. Если Выключено "
+"(Неактивно), подключение не передаёт пакеты."
 
 msgid "The state to start the network in."
 msgstr "Состояние для начала в сети."
@@ -8151,6 +8291,9 @@ msgid ""
 msgstr ""
 "Этот диск сейчас подключен к инстансу. В некоторых случаях, создание снимка "
 "с подключенного диска может привести к испорченному снимку. "
+
+msgid "This volume type is used by one or more volumes."
+msgstr "Данный тип диска используется одним или несколькими дисками. "
 
 msgid "Time"
 msgstr "Время"
@@ -8447,6 +8590,9 @@ msgstr "Не удалось создать агрегатор узлов «%s».
 msgid "Unable to create host aggregate."
 msgstr "Не удалось создать агрегатор узлов."
 
+msgid "Unable to create identity provider protocol."
+msgstr "Невозможно создать протокол провайдера идентификации."
+
 #, python-format
 msgid "Unable to create key pair: %(exc)s"
 msgstr "Не удалось создать пару ключей: %(exc)s"
@@ -8737,6 +8883,16 @@ msgstr "Не удалось распознать IP адрес %s."
 msgid "Unable to rebuild instance."
 msgstr "Не удалось перестроить инстанс."
 
+msgid "Unable to register identity provider."
+msgstr "Невозможно зарегистировать провайдера идентификации."
+
+msgid ""
+"Unable to register identity provider. Please check that the Identity "
+"Provider ID and Remote IDs provided are not already in use."
+msgstr ""
+"Невозможно зарегистировать провайдера идентификации. Проверьте, что "
+"идентифактор провайдера и удалённые идентификаторы уже не используются."
+
 #, python-format
 msgid "Unable to resize instance \"%s\"."
 msgstr "Не удалось изменить размер инстанса \"%s\"."
@@ -8787,6 +8943,10 @@ msgstr "Не удалось получить данные подключения
 
 msgid "Unable to retrieve IPSec Site Connections list."
 msgstr "Не удалось получить список IPSec подключений."
+
+#, python-format
+msgid "Unable to retrieve Network information for instance \"%s\"."
+msgstr "Невозможно получить информацию Сети для инстанса \"%s\"."
 
 msgid "Unable to retrieve Nova availability zones."
 msgstr "Не удалось получить зоны доступности Nova."
@@ -8892,6 +9052,9 @@ msgstr "Не удалось получить информацию о домен�
 msgid "Unable to retrieve domain list."
 msgstr "Не удалось получить список доменов."
 
+msgid "Unable to retrieve encryption type."
+msgstr "Не удалось получить тип шифрования."
+
 msgid "Unable to retrieve extensions information"
 msgstr "Не удалось получить информацию о расширениях."
 
@@ -8961,6 +9124,14 @@ msgstr "Не удалось получить список инстансов г�
 
 msgid "Unable to retrieve hypervisor statistics."
 msgstr "Не удалось получить статистику гипервизора."
+
+msgid "Unable to retrieve identity provider information."
+msgstr ""
+"Недостаточный уровень полномочий для получения информации о провайдере "
+"идентификации."
+
+msgid "Unable to retrieve identity provider list."
+msgstr "Невозможно получить список провайдеров идентификации."
 
 msgid "Unable to retrieve image details."
 msgstr "Не удалось получить подробную информацию образа."
@@ -9134,6 +9305,9 @@ msgstr "Не удалось получить информацию о проек�
 
 msgid "Unable to retrieve project list."
 msgstr "Не удалось получить список проектов."
+
+msgid "Unable to retrieve protocol list."
+msgstr "Невозможно получить список протоколов."
 
 msgid "Unable to retrieve providers list."
 msgstr "Не удалось получить список провайдеров."
@@ -9382,8 +9556,21 @@ msgstr ""
 msgid "Unable to update default quotas."
 msgstr "Не удалось обновить квоты по умолчанию."
 
+msgid "Unable to update encrypted volume type."
+msgstr "Невозможно изменить шифрования для данного типа диска."
+
 msgid "Unable to update group."
 msgstr "Не удалось изменить группу."
+
+msgid "Unable to update identity provider."
+msgstr "Невозможно обновить провайдера идентификации."
+
+msgid ""
+"Unable to update identity provider. Please check that the Remote IDs "
+"provided are not already in use."
+msgstr ""
+"Невозможно обновить провайдера идентификации. Проверьте, что удалённые "
+"идентификаторы уже не используются."
 
 #, python-format
 msgid "Unable to update image \"%s\"."
@@ -9532,12 +9719,21 @@ msgstr "Обновить квоты по умолчанию"
 msgid "Update Defaults"
 msgstr "Обновить параметры по умолчанию"
 
+msgid "Update Encrypted Volume Type"
+msgstr "Изменить шифруемый тип дисков"
+
+msgid "Update Encryption"
+msgstr "Изменение шифрования"
+
 msgctxt "current status of stack"
 msgid "Update Failed"
 msgstr "Изменение завершилось неуспешно"
 
 msgid "Update Group"
 msgstr "Обновить группу"
+
+msgid "Update Identity Provider"
+msgstr "Настроить провайдера идентификации."
 
 msgctxt "current status of stack"
 msgid "Update In Progress"
@@ -9579,6 +9775,9 @@ msgstr "Обновить статус снимка диска"
 msgid "Update Volume Status"
 msgstr "Обновить статус диска"
 
+msgid "Update Volume Type Encryption"
+msgstr "Изменить тип шифрование для Типа Дисков"
+
 msgid ""
 "Update a stack with the provided values. Please note that any encrypted "
 "parameters, such as passwords, will be reset to default if you do not change "
@@ -9594,6 +9793,9 @@ msgid ""
 msgstr ""
 "Изменение подсети связанной с сетью. Дополнительная конфигурация доступна на "
 "закладке \"Детали подсети\"."
+
+msgid "Update an Encrypted Volume Type"
+msgstr "Изменить шифруемый тип дисков"
 
 msgid "Update requests for this floating ip"
 msgstr "Запросы на обновление этого плавающего IP"
@@ -9631,6 +9833,13 @@ msgstr "Обновленная подсеть \"%s\"."
 msgctxt "Task status of an Instance"
 msgid "Updating Password"
 msgstr "Обновление пароля"
+
+msgid ""
+"Updating encryption is not implemented.  Unable to update  encrypted volume "
+"type."
+msgstr ""
+"Изменение шифрования не предусмотрено. Невозможно изменить шифрование для "
+"данного типа диска."
 
 #, python-format
 msgid "Updating volume \"%s\""
@@ -9754,6 +9963,11 @@ msgstr "Пользователь с именем \"%s\" уже существу�
 
 msgid "User password has been updated successfully."
 msgstr "Пароль пользователя успешно изменен."
+
+msgid "User-defined unique id to identify the identity provider."
+msgstr ""
+"Определяемый пользователем уникальный идентификатор, идентифицирующий "
+"провайдера идентификации."
 
 msgid "Users"
 msgstr "Пользователи"

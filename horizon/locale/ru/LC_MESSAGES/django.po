@@ -10,17 +10,18 @@
 # Daisy <guoyingc@cn.ibm.com>, 2015. #zanata
 # Ilya Alekseyev <ilyaalekseyev@acm.org>, 2015. #zanata
 # OpenStack Infra <zanata@openstack.org>, 2015. #zanata
+# Fedor Tarasenko <feodor.tarasenko@gmail.com>, 2016. #zanata
 # Filatov Sergey <filatecs@gmail.com>, 2016. #zanata
 msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2016-01-31 10:08+0000\n"
+"POT-Creation-Date: 2016-02-26 02:04+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2016-01-16 07:02+0000\n"
-"Last-Translator: Filatov Sergey <filatecs@gmail.com>\n"
+"PO-Revision-Date: 2016-02-25 09:22+0000\n"
+"Last-Translator: Fedor Tarasenko <feodor.tarasenko@gmail.com>\n"
 "Language: ru\n"
 "Plural-Forms: nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
 "%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || (n"
@@ -220,6 +221,10 @@ msgstr[1] "Отображено %(nav_items)s элементов"
 msgstr[2] "Отображено %(nav_items)s элементов"
 msgstr[3] "Отображено %(nav_items)s элементов"
 
+#, python-format
+msgid "Error processing message json file '%(path)s': %(exception)s"
+msgstr "Ошибка обработки JSON файла сообщений  '%(path)s': %(exception)s"
+
 msgid "Error: "
 msgstr "Ошибка:"
 
@@ -260,6 +265,10 @@ msgstr "Имя пользователя"
 
 msgid "Members"
 msgstr "Участники"
+
+#, python-format
+msgid "Message json file '%(path)s' is malformed. %(exception)s"
+msgstr "JSON файл сообщений '%(path)s' сформирован некорректно. %(exception)s"
 
 msgid "More Actions"
 msgstr "Еще действия"
