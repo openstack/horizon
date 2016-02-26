@@ -12,7 +12,6 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-from django.conf import settings
 from django.utils.translation import ugettext_lazy as _
 
 from horizon import views
@@ -21,10 +20,3 @@ from horizon import views
 class IndexView(views.HorizonTemplateView):
     template_name = 'developer/theme_preview/index.html'
     page_title = _("Bootstrap Theme Preview")
-
-    def get_context_data(self, **kwargs):
-        theme_path = settings.CUSTOM_THEME_PATH
-        context = super(IndexView, self).get_context_data(**kwargs)
-        context['skin'] = theme_path.split('/')[-1]
-        context['skin_desc'] = theme_path
-        return context

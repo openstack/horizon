@@ -1,16 +1,17 @@
 {% load i18n %}
+{% load themes %}
 
 {% if not_list %}
-  <div class="dropdown">
+  <div class="dropdown user-menu">
 {% else %}
-  <li class="dropdown">
+  <li class="dropdown user-menu">
 {% endif %}
     <a data-toggle="dropdown" href="#" class="dropdown-toggle" role="button" aria-expanded="false">
       <span class="fa fa-user"></span>
       <span class="user-name">{{ request.user.username }}</span>
       <span class="fa fa-caret-down"></span>
     </a>
-    <ul id="editor_list" class="dropdown-menu dropdown-menu-right">
+    <ul id="editor_list" class="dropdown-menu dropdown-menu-right selection-menu">
       <li>
         <a href="{% url 'horizon:settings:user:index' %}" target="_self">
           <span class="fa fa-cog"></span>
@@ -31,6 +32,13 @@
             <span class="fa fa-question-circle"></span>
             {% trans "Help" %}
           </a>
+        </li>
+      {% endif %}
+      {% themes as available_themes %}
+      {% if available_themes and available_themes|length > 1 %}
+        <li class="divider"></li>
+        <li>
+          {% include 'header/_theme_list.html' %}
         </li>
       {% endif %}
       <li class="divider"></li>

@@ -1,25 +1,29 @@
+{% load compress %}
+{% load themes %}
+
+{% compress css %}
+<link href='{{ STATIC_URL }}horizon/lib/bootstrap_datepicker/datepicker3.css' type='text/css' media='screen' rel='stylesheet' />
+<link href='{{ STATIC_URL }}horizon/lib/rickshaw.css' type='text/css' media='screen' rel='stylesheet' />
+{% endcompress %}
+
+
+{% current_theme as current_theme %}
+{% theme_dir as theme_dir %}
+
 {% comment %}
-We want to have separate compressed css files for horizon.scss and dashboard.scss.
-The reason for it is based on the fact that IE9 has a limit on the number of css rules
-that can be parsed in a single css file.  The limit is 4095 = (4k - 1). This causes some
-css rules getting cut off if one css file to get more than 4k rules inside.
+  The following 'include' is used to allow all scss files to share the same variable namespace
+  and also have access to ALL styles so that we can allow @extend functionality to persist.
+
+  If you wish to add new scss files, it is recommended that you add them from within the
+  themes/themes.scss template file.
 {% endcomment %}
 
-{% load compress %}
-
+{% with THEME=current_theme THEME_DIR=theme_dir %}
 {% compress css %}
-<link href='{{ STATIC_URL }}horizon/lib/bootstrap_datepicker/datepicker3.css' type='text/scss' media='screen' rel='stylesheet' />
-<link href='{{ STATIC_URL }}horizon/lib/rickshaw.css' type='text/scss' media='screen' rel='stylesheet' />
-<link href='{{ STATIC_URL }}dashboard/scss/horizon.scss' type='text/scss' media='screen' rel='stylesheet' />
+  <style type="text/scss">
+    {% include 'themes/themes.scss' %}
+  </style>
 {% endcompress %}
+{% endwith %}
 
-{% compress css %}
-<link href='{{ STATIC_URL }}app/app.scss' type='text/scss' media='screen' rel='stylesheet' />
-
-{% for file in HORIZON_CONFIG.scss_files %}
-    <link href='{{ STATIC_URL }}{{ file }}' type='text/scss' media='screen' rel='stylesheet'/>
-{% endfor %}
-
-{% endcompress %}
-
-<link rel="shortcut icon" href="{{ STATIC_URL }}dashboard/img/favicon.ico"/>
+<link rel="shortcut icon" href="{% themable_asset 'img/favicon.ico' %}"/>

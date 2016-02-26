@@ -1,3 +1,5 @@
+{% load themes %}
+
 <div class="text-center">
-  <img class="splash-logo" src="{{ STATIC_URL }}dashboard/img/logo-splash.png">
+  <img class="splash-logo" src={% themable_asset "img/logo-splash.png" %}>
 </div>

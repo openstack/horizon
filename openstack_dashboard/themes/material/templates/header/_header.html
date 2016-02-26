@@ -1,8 +1,8 @@
 {% load branding i18n %}
 {% load context_selection %}
-{% load compress %}
+{% load themes %}
 
-<nav class="navbar-inverse navbar-fixed-top">
+<nav class="navbar-inverse material-header navbar-fixed-top">
   <div class="container-fluid">
     <!-- Brand and toggle get grouped for better mobile display -->
     <div class="navbar-header">
@@ -16,9 +16,8 @@
         <button class="md-hamburger-trigger">
           <span class="md-hamburger-layer md-hamburger-menu"></span>
         </button>
-          {% compress js inline %}
-            <script src='{{ STATIC_URL }}custom/js/material.hamburger.js'></script>
-          {% endcompress %}
+        {% theme_dir as theme_dir %}
+        <script src='{{ STATIC_URL }}{{ theme_dir }}/material/js/material.hamburger.js'></script>
       </div>
       {% include "header/_brand.html" %}
     </div>
