@@ -356,3 +356,7 @@ def swift_get_object(request, container_name, object_name, with_data=True,
                          container_name,
                          orig_name=orig_name,
                          data=data)
+
+
+def swift_get_capabilities(request):
+    return swift_api(request).get_capabilities()

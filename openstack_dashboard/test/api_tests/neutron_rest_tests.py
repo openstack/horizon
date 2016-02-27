@@ -27,7 +27,7 @@ TEST = TestData(neutron_data.data)
 class NeutronNetworksTestCase(test.TestCase):
     def setUp(self):
         super(NeutronNetworksTestCase, self).setUp()
-        self._networks = [mock_factory(n)
+        self._networks = [test.mock_factory(n)
                           for n in TEST.api_networks.list()]
 
     @mock.patch.object(neutron.api, 'neutron')
@@ -109,9 +109,9 @@ class NeutronNetworksTestCase(test.TestCase):
 class NeutronSubnetsTestCase(test.TestCase):
     def setUp(self):
         super(NeutronSubnetsTestCase, self).setUp()
-        self._networks = [mock_factory(n)
+        self._networks = [test.mock_factory(n)
                           for n in TEST.api_networks.list()]
-        self._subnets = [mock_factory(n)
+        self._subnets = [test.mock_factory(n)
                          for n in TEST.api_subnets.list()]
 
     @mock.patch.object(neutron.api, 'neutron')
@@ -142,9 +142,9 @@ class NeutronSubnetsTestCase(test.TestCase):
 class NeutronPortsTestCase(test.TestCase):
     def setUp(self):
         super(NeutronPortsTestCase, self).setUp()
-        self._networks = [mock_factory(n)
+        self._networks = [test.mock_factory(n)
                           for n in TEST.api_networks.list()]
-        self._ports = [mock_factory(n)
+        self._ports = [test.mock_factory(n)
                        for n in TEST.api_ports.list()]
 
     @mock.patch.object(neutron.api, 'neutron')
