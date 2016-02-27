@@ -22,7 +22,6 @@ from django.utils.translation import ungettext_lazy
 from horizon import tables
 
 from openstack_dashboard import api
-from openstack_dashboard.api import base
 from openstack_dashboard.api import cinder
 from openstack_dashboard import policy
 
@@ -102,7 +101,7 @@ class CreateVolumeFromSnapshot(tables.LinkAction):
         return "?".join([base_url, params])
 
     def allowed(self, request, volume=None):
-        if volume and base.is_service_enabled(request, 'volume'):
+        if volume and cinder.is_volume_service_enabled(request):
             return volume.status == "available"
         return False
 
@@ -161,4 +160,6 @@ class VolumeSnapshotsTable(volume_tables.VolumesTableBase):
                        EditVolumeSnapshot, DeleteVolumeSnapshot)
         row_class = UpdateRow
         status_columns = ("status",)
-        permissions = ['openstack.services.volume']
+        permissions = [(
+            ('openstack.services.volume', 'openstack.services.volumev2'),
+        )]

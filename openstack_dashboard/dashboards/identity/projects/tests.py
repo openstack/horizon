@@ -167,6 +167,7 @@ class CreateProjectWorkflowTests(test.BaseAdminViewTests):
                                        'group_list',
                                        'role_list'),
                         api.base: ('is_service_enabled',),
+                        api.cinder: ('is_volume_service_enabled',),
                         api.neutron: ('is_extension_supported',),
                         quotas: ('get_default_quota_data',)})
     def test_add_project_get(self):
@@ -181,7 +182,7 @@ class CreateProjectWorkflowTests(test.BaseAdminViewTests):
         # init
         api.base.is_service_enabled(IsA(http.HttpRequest), 'network') \
             .MultipleTimes().AndReturn(True)
-        api.base.is_service_enabled(IsA(http.HttpRequest), 'volume') \
+        api.cinder.is_volume_service_enabled(IsA(http.HttpRequest)) \
             .MultipleTimes().AndReturn(True)
         api.keystone.get_default_domain(IsA(http.HttpRequest)) \
             .AndReturn(default_domain)
@@ -1730,6 +1731,7 @@ class SeleniumTests(test.SeleniumAdminTestCase):
                                        'group_list',
                                        'role_list'),
                         api.base: ('is_service_enabled',),
+                        api.cinder: ('is_volume_service_enabled',),
                         quotas: ('get_default_quota_data',)})
     def test_membership_list_loads_correctly(self):
         member_css_class = ".available_members"
@@ -1737,7 +1739,7 @@ class SeleniumTests(test.SeleniumAdminTestCase):
 
         api.base.is_service_enabled(IsA(http.HttpRequest), 'network') \
             .MultipleTimes().AndReturn(False)
-        api.base.is_service_enabled(IsA(http.HttpRequest), 'volume') \
+        api.cinder.is_volume_service_enabled(IsA(http.HttpRequest)) \
             .MultipleTimes().AndReturn(False)
         api.keystone.get_default_domain(IsA(http.HttpRequest)) \
             .AndReturn(self.domain)

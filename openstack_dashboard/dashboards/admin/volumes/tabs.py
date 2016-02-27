@@ -16,7 +16,6 @@ from django.utils.translation import ugettext_lazy as _
 from horizon import exceptions
 from horizon import tabs
 
-from openstack_dashboard import api
 from openstack_dashboard.api import cinder
 from openstack_dashboard.api import keystone
 
@@ -119,7 +118,7 @@ class SnapshotTab(volumes_tabs.PagedTableMixin, tabs.TableTab):
     preload = False
 
     def get_volume_snapshots_data(self):
-        if api.base.is_service_enabled(self.request, 'volume'):
+        if cinder.is_volume_service_enabled(self.request):
             try:
                 marker, sort_dir = self._get_marker()
                 snapshots, self._has_more_data, self._has_prev_data = \

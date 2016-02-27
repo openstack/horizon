@@ -21,7 +21,6 @@ from horizon import workflows
 
 import logging
 
-from openstack_dashboard.api import base
 from openstack_dashboard.api import cinder
 from openstack_dashboard.api import nova
 from openstack_dashboard.usage import quotas
@@ -94,7 +93,7 @@ class UpdateDefaultQuotas(workflows.Workflow):
                          if key != 'fixed_ips'])
         is_error_nova = False
         is_error_cinder = False
-        is_volume_service_enabled = base.is_service_enabled(request, 'volume')
+        is_volume_service_enabled = cinder.is_volume_service_enabled(request)
 
         # Update the default quotas for nova.
         try:

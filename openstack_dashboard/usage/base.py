@@ -178,7 +178,7 @@ class BaseUsage(object):
 
     def get_cinder_limits(self):
         """Get volume limits if cinder is enabled."""
-        if not api.base.is_service_enabled(self.request, 'volume'):
+        if not api.cinder.is_volume_service_enabled(self.request):
             return
         try:
             self.limits.update(api.cinder.tenant_absolute_limits(self.request))

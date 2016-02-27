@@ -355,13 +355,14 @@ class FloatingIpNeutronViewTests(FloatingIpViewTests):
                                       'network_list',
                                       'router_list',
                                       'subnet_list'),
-                        api.base: ('is_service_enabled',)})
+                        api.base: ('is_service_enabled',),
+                        api.cinder: ('is_volume_service_enabled',)})
     @test.update_settings(OPENSTACK_NEUTRON_NETWORK={'enable_quotas': True})
     def test_correct_quotas_displayed(self):
         servers = [s for s in self.servers.list()
                    if s.tenant_id == self.request.user.tenant_id]
 
-        api.base.is_service_enabled(IsA(http.HttpRequest), 'volume') \
+        api.cinder.is_volume_service_enabled(IsA(http.HttpRequest)) \
             .AndReturn(False)
         api.base.is_service_enabled(IsA(http.HttpRequest), 'network') \
             .MultipleTimes().AndReturn(True)
@@ -413,13 +414,14 @@ class FloatingIpNeutronViewTests(FloatingIpViewTests):
                                       'network_list',
                                       'router_list',
                                       'subnet_list'),
-                        api.base: ('is_service_enabled',)})
+                        api.base: ('is_service_enabled',),
+                        api.cinder: ('is_volume_service_enabled',)})
     @test.update_settings(OPENSTACK_NEUTRON_NETWORK={'enable_quotas': True})
     def test_correct_quotas_displayed_shared_networks(self):
         servers = [s for s in self.servers.list()
                    if s.tenant_id == self.request.user.tenant_id]
 
-        api.base.is_service_enabled(IsA(http.HttpRequest), 'volume') \
+        api.cinder.is_volume_service_enabled(IsA(http.HttpRequest)) \
             .AndReturn(False)
         api.base.is_service_enabled(IsA(http.HttpRequest), 'network') \
             .MultipleTimes().AndReturn(True)
