@@ -14,16 +14,17 @@
 # OpenStack Infra <zanata@openstack.org>, 2015. #zanata
 # Romain Chantereau <rchanter@redhat.com>, 2015. #zanata
 # andrew melim <nokostya.translation@gmail.com>, 2015. #zanata
+# Marcellin Fom Tchassem <mf6510@att.com>, 2016. #zanata
 msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2016-02-18 02:36+0000\n"
+"POT-Creation-Date: 2016-02-27 17:50+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2015-12-04 09:32+0000\n"
-"Last-Translator: Gael Rehault <gael01@gmail.com>\n"
+"PO-Revision-Date: 2016-02-26 08:44+0000\n"
+"Last-Translator: Marcellin Fom Tchassem <mf6510@att.com>\n"
 "Language: fr\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 "Generated-By: Babel 2.0\n"
@@ -32,6 +33,30 @@ msgstr ""
 
 msgid "(None)"
 msgstr "(Aucun)"
+
+msgid "1"
+msgstr "1"
+
+msgid "2"
+msgstr "2"
+
+msgid "3"
+msgstr "3"
+
+msgid "4"
+msgstr "4"
+
+msgid "5"
+msgstr "5"
+
+msgid "6"
+msgstr "6"
+
+msgid "7"
+msgstr "7"
+
+msgid "8"
+msgstr "8"
 
 msgid ""
 "<li><b>Image (with Create New Volume checked)</b>: This options uses an "
@@ -111,8 +136,11 @@ msgstr ""
 msgid "A name is required for your instance."
 msgstr "Vous avez besoin d'un nom pour votre instance."
 
+msgid "Action"
+msgstr "Action"
+
 msgid "Active"
-msgstr "Active"
+msgstr "Actif"
 
 msgid "Admin State"
 msgstr "Admin State"
@@ -149,6 +177,9 @@ msgstr ""
 " Vous pouvez utiliser l'affichage de <b>topologie de réseau</b> pour "
 "connecter le router aux deux réseaux."
 
+msgid "An abbreviation of the word attribute is <abbr>attr</abbr>."
+msgstr "Une abbreviation du mot attribut est <abbr>attr</abbr>"
+
 msgid ""
 "An advanced option available when launching an instance is disk "
 "partitioning. There are two disk partition options. Selecting <b>Automatic</"
@@ -167,11 +198,26 @@ msgstr ""
 "Il faut un nom d'instance qui sera utilisé pour identifier votre instance de "
 "façon unique dans le tableau de bord."
 
+msgid "Another action"
+msgstr "Autre action"
+
 msgid "Automatic"
 msgstr "Automatique"
 
 msgid "Availability Zone"
 msgstr "Zone de disponibilité"
+
+msgid "Block level button"
+msgstr "Bouton block-level"
+
+msgid "Brand"
+msgstr "Marque"
+
+msgid "Button"
+msgstr "Bouton"
+
+msgid "Buttons"
+msgstr "Boutons"
 
 msgid "Cancel"
 msgstr "Annuler"
@@ -228,6 +274,15 @@ msgstr ""
 "d'exploitation invité, vous pouvez utiliser un script personnalisé pour "
 "récupérer une clé publique et l'ajouter au compte utilisateur."
 
+msgid "Danger"
+msgstr "Danger"
+
+msgid "Default"
+msgstr "Défaut"
+
+msgid "Default button"
+msgstr "Bouton par défaut"
+
 msgid "Delete Volume on Instance Delete"
 msgstr "Supprimer le volume après terminaison de l'instance"
 
@@ -255,6 +310,22 @@ msgstr "ID Domaine"
 msgid "Down"
 msgstr "Bas"
 
+msgid ""
+"Dropdown\n"
+"                <span></span>"
+msgstr ""
+"Déroulant\n"
+"                         <span></span>"
+
+msgid "Dropdown <b></b>"
+msgstr "Déroulant <b></b>"
+
+msgid "Dropdown header"
+msgstr "En-tête déroulant"
+
+msgid "Dropdown link"
+msgstr "Lien Déroulant"
+
 msgid "Email"
 msgstr "E-mail"
 
@@ -266,6 +337,9 @@ msgstr "Disque Éphémère"
 
 msgid "Ether Type"
 msgstr "Type de protocole"
+
+msgid "Example body text"
+msgstr "Exemple de corps de texte"
 
 #, python-format
 msgid "Extension is not enabled: %(extension)s."
@@ -309,6 +383,24 @@ msgstr ""
 "clés, puis copiez\n"
 "  la clé publique dans la boite surlignée en rouge dans votre fichier\n"
 "  <samp>.ssh/authorized_keys</samp>."
+
+msgid "Heading 1"
+msgstr "Titre 1"
+
+msgid "Heading 2"
+msgstr "Titre 2"
+
+msgid "Heading 3"
+msgstr "Titre 3"
+
+msgid "Heading 4"
+msgstr "Titre 4"
+
+msgid "Heading 5"
+msgstr "Titre 5"
+
+msgid "Heading 6"
+msgstr "Titre 6"
 
 msgid "ID"
 msgstr "ID"
@@ -374,6 +466,9 @@ msgstr "Impact sur votre quota"
 msgid "Import Key Pair"
 msgstr "Importer une Paire Clés"
 
+msgid "Info"
+msgstr "Information"
+
 msgid "Instance Details"
 msgstr "Détails de l'instance"
 
@@ -437,8 +532,17 @@ msgstr ""
 msgid "Killed"
 msgstr "Supprimé par force"
 
+msgid "Large button"
+msgstr "Large bouton"
+
 msgid "Launch Instance"
 msgstr "Lancer Instance"
+
+msgid "Left"
+msgstr "Gauche"
+
+msgid "Link"
+msgstr "Lien"
 
 msgid "Manual"
 msgstr "Manuelle"
@@ -448,6 +552,9 @@ msgstr "Port Max"
 
 msgid "Metadata"
 msgstr "Métadonnées"
+
+msgid "Middle"
+msgstr "Milieu"
 
 msgid "Min Disk"
 msgstr "Disque Min"
@@ -464,8 +571,14 @@ msgstr "RAM Min"
 msgid "Min RAM (MB)"
 msgstr "Ram Mon (Mo)"
 
+msgid "Mini button"
+msgstr "Mini bouton"
+
 msgid "Name"
 msgstr "Nom"
+
+msgid "Navbar"
+msgstr "Navbar"
 
 msgid "Network"
 msgstr "Réseau"
@@ -493,6 +606,9 @@ msgstr "Pas d'élément disponible"
 msgid "Number"
 msgstr "Nombre"
 
+msgid "One more separated link"
+msgstr "Un autre Lien séparé"
+
 msgid "Pending Delete"
 msgstr "Suppression de Mise en attente"
 
@@ -511,6 +627,9 @@ msgstr ""
 
 msgid "Policy check failed."
 msgstr "La vérification de la stratégie a échoué."
+
+msgid "Primary"
+msgstr "Primaire"
 
 msgid "Private"
 msgstr "Privé"
@@ -569,6 +688,9 @@ msgstr "Distant"
 
 msgid "Required"
 msgstr "Obligatoire"
+
+msgid "Right"
+msgstr "Droite"
 
 msgid "Root Disk"
 msgstr "Disque Racine"
@@ -642,6 +764,9 @@ msgstr ""
 msgid "Select the security groups."
 msgstr "Sélectionner les groupes de sécurité."
 
+msgid "Separated link"
+msgstr "Lien séparé"
+
 #, python-format
 msgid "Service type is not enabled: %(desiredType)s"
 msgstr "Type de service non activé: %(desiredType)s"
@@ -659,8 +784,14 @@ msgstr "Taille"
 msgid "Size (GB)"
 msgstr "Taille (Go)"
 
+msgid "Small button"
+msgstr "Petit bouton"
+
 msgid "Snapshot"
 msgstr "Instantané"
+
+msgid "Something else here"
+msgstr "Autre chose ici"
 
 msgid "Source"
 msgstr "Source"
@@ -670,6 +801,9 @@ msgstr "Statut"
 
 msgid "Subnets Associated"
 msgstr "Sous-réseaux associés"
+
+msgid "Success"
+msgstr "Succès "
 
 #, python-format
 msgid "Successfully imported key pair %(name)s."
@@ -695,6 +829,13 @@ msgstr ""
 "soutenir le type d'instance que vous devez créer. Les gabarits que ne sont "
 "pas suffisants pour créer des instances sont identifiés sur le tableau "
 "<b>disponible</b> et l'icône d'avertissement jaune."
+
+msgid "The following snippet of text is <em>rendered as italicized text</em>."
+msgstr "La portion de texte suivante est <em>transformée en italique</em>"
+
+msgid ""
+"The following snippet of text is <strong>rendered as bold text</strong>."
+msgstr "La portion de texte suivante est <strong>transformée en gras</strong>"
 
 #, python-format
 msgid ""
@@ -750,6 +891,14 @@ msgstr ""
 "votre quota. Veuillez sélectionner un plus petit gabarit ou diminuez le "
 "nombre d'instances."
 
+msgid ""
+"To view source code, hover over a section, then click the <a><span></span></"
+"a> button in the top right of that section."
+msgstr ""
+"Pour voir le code source, flotter au dessus d'une section, puis cliquer sur "
+"le <a><span></span></a> bouton dans la partie droite en haut de cette "
+"section."
+
 msgid "Total Disk"
 msgstr "Total Disque"
 
@@ -774,6 +923,9 @@ msgstr ""
 "votre navigateur prend en charge l'API de fichier HTML5, vous pouvez choisir "
 "de charger votre script à partir d'un fichier. La taille de votre script ne "
 "doit pas dépasser 16 Ko."
+
+msgid "Typography"
+msgstr "Typographie"
 
 msgid "Unable to create the domain."
 msgstr "Impossible de créer le domaine."
@@ -1020,6 +1172,9 @@ msgstr ""
 "Les volumes ne peuvent être attachés qu'à 1 instance active à la fois. "
 "Veuillez soit définir votre compteur d'instances à 1, soit sélectionner un "
 "type de source différent."
+
+msgid "Warning"
+msgstr "Avertissement"
 
 msgid ""
 "When selecting volume as boot source, please ensure the instance's "

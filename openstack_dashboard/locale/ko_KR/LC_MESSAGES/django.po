@@ -14,17 +14,18 @@
 # jay jeong <jay.gtv@gmail.com>, 2015. #zanata
 # Ian Y. Choi <ianyrchoi@gmail.com>, 2016. #zanata
 # Jaesang Lee <hyangii@gmail.com>, 2016. #zanata
+# Sungjin Kang <gang.sungjin@gmail.com>, 2016. #zanata
 # Sunhong Kim <intensify7@naver.com>, 2016. #zanata
 msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2016-02-24 03:44+0000\n"
+"POT-Creation-Date: 2016-02-27 17:50+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2016-02-24 02:01+0000\n"
-"Last-Translator: Sunhong Kim <intensify7@naver.com>\n"
+"PO-Revision-Date: 2016-02-27 12:55+0000\n"
+"Last-Translator: Sungjin Kang <gang.sungjin@gmail.com>\n"
 "Language: ko-KR\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 "Generated-By: Babel 2.0\n"
@@ -1157,7 +1158,6 @@ msgstr "%(dev)s의 인스턴스 %(inst)s에 볼륨 %(vol)s를 연결합니다."
 msgid "Attachments"
 msgstr "첨부물"
 
-#, fuzzy
 msgid "Attribute Mappings"
 msgstr "맵핑 속성"
 
@@ -1757,7 +1757,6 @@ msgstr "Create In Progress"
 msgid "Create Key Pair"
 msgstr "캐 페어 생성"
 
-#, fuzzy
 msgid "Create Mapping"
 msgstr "맵핑 생성"
 
@@ -2050,20 +2049,22 @@ msgstr "현재 호스트"
 msgid "Current Size (GiB)"
 msgstr "현재 크기 (GiB)"
 
-#, fuzzy
 msgid "Current consumer"
-msgstr "현재 사용자"
+msgstr "현재 고객"
 
 msgid "Current password"
 msgstr "현재 비밀번호"
 
-#, fuzzy
 msgid ""
 "Currently only images available via an HTTP/HTTPS URL are supported. The "
 "image location must be accessible to the Image Service."
 msgstr ""
-"현재 HTTP/HTTPS URL을 통해서만 사용 이미지가 지원됩니다. 이미지의 위치는 반드"
-"시 이미지 서비스에 엑세스 할 수 있어야합니다."
+"현재는 HTTP/HTTPS URL을 이용해서만 이미지를 지원합니다. 이미지 저장 할 곳에서"
+"는 반드시 이미지 서비스에 접근할 수 있어야합니다."
+
+msgctxt "Custom style theme"
+msgid "Custom"
+msgstr "사용자 정의"
 
 msgid "Custom ICMP Rule"
 msgstr "사용자 정의 ICMP 규칙"
@@ -2166,16 +2167,18 @@ msgstr "죽은 피어 감지 타임아웃"
 msgid "Decrypt Password"
 msgstr "비밀번호 해독"
 
+msgctxt "Default style theme"
+msgid "Default"
+msgstr "기본"
+
 msgid "Default Quotas"
 msgstr "기본 Quotas"
 
-#, fuzzy
 msgid "Default quotas updated for Cinder."
-msgstr "Cinder를 위한 기본 quotas가 업데이트 되었습니다."
+msgstr "Cinder 기본 quotas가 업데이트 되었습니다."
 
-#, fuzzy
 msgid "Default quotas updated for Nova."
-msgstr "Nova를 위한 기본 quotas가 업데이트 되었습니다."
+msgstr "Nova 기본 quotas가 업데이트 되었습니다."
 
 msgid "Default quotas updated."
 msgstr "기본 quota가 업데이트되었습니다."
@@ -2269,7 +2272,6 @@ msgid "Delete Key Pair"
 msgid_plural "Delete Key Pairs"
 msgstr[0] "키 페어 삭제"
 
-#, fuzzy
 msgid "Delete Mapping"
 msgid_plural "Delete Mappings"
 msgstr[0] "맵핑 삭제"
@@ -2338,7 +2340,6 @@ msgid "Delete Security Group"
 msgid_plural "Delete Security Groups"
 msgstr[0] "시큐리티 그룹 삭제"
 
-#, fuzzy
 msgid "Delete Spec"
 msgid_plural "Delete Specs"
 msgstr[0] "스펙 삭제"
@@ -2448,10 +2449,9 @@ msgid "Deleted Key Pair"
 msgid_plural "Deleted Key Pairs"
 msgstr[0] "키 페어 삭제함"
 
-#, fuzzy
 msgid "Deleted Mapping"
 msgid_plural "Deleted Mappings"
-msgstr[0] "맵핑 삭제"
+msgstr[0] "맵핑 삭제됨"
 
 msgid "Deleted Namespace"
 msgid_plural "Deleted Namespaces"
@@ -2501,10 +2501,9 @@ msgid "Deleted Security Group"
 msgid_plural "Deleted Security Groups"
 msgstr[0] "시큐리티 그룹 삭제함"
 
-#, fuzzy
 msgid "Deleted Spec"
 msgid_plural "Deleted Specs"
-msgstr[0] "스펙 삭제"
+msgstr[0] "스펙 삭제됨"
 
 msgid "Deleted Stack"
 msgid_plural "Deleted Stacks"
@@ -3097,13 +3096,12 @@ msgstr "암호화"
 msgid "Encryption algorithm"
 msgstr "암호화 알고리즘"
 
-#, fuzzy
 msgid ""
 "Encryption information cannot be updated for a volume type if volumes are "
 "currently in use with the volume type."
 msgstr ""
-"해당볼륨 타입에서 현재 사용 중인 볼륨이 있으면 볼륨 타입에 암호화 정보를 업데"
-"이트 할 수 없습니다."
+"볼륨 중 현재 볼륨 타입을 사용하고 있는 경우, 볼륨 타입에 암호화 점보를 업데이"
+"트 할 수 없습니다."
 
 msgid "Energy (Kwapi)"
 msgstr "전력 (Kwapi) "
@@ -4718,7 +4716,6 @@ msgstr "MTU"
 msgid "MacVTap"
 msgstr "MacVTap"
 
-#, fuzzy
 msgid "Maintenance"
 msgstr "유지보수"
 
@@ -4804,7 +4801,7 @@ msgstr "고정 IP 주소 맵핑함"
 msgid "Mapping ID"
 msgstr "매핑 ID"
 
-#, fuzzy, python-format
+#, python-format
 msgid "Mapping ID \"%s\" is already used."
 msgstr "맵핑 ID \"%s\"는 이미 사용 중입니다."
 
@@ -4812,13 +4809,15 @@ msgstr "맵핑 ID \"%s\"는 이미 사용 중입니다."
 msgid "Mapping created successfully."
 msgstr "맵핑을 성공적으로 생성하였습니다."
 
-#, fuzzy
 msgid "Mapping updated successfully."
 msgstr "맵핑을 성공적으로 업데이트 하였습니다."
 
-#, fuzzy
 msgid "Mappings"
 msgstr "맵핑"
+
+msgctxt "Google's Material Design style theme"
+msgid "Material"
+msgstr "Material"
 
 msgid "Max Retries"
 msgstr "최대 재시도"
@@ -5190,9 +5189,8 @@ msgstr "새로운 Flavor"
 msgid "New Host"
 msgstr "새로운 호스트"
 
-#, fuzzy
 msgid "New QoS Spec Consumer"
-msgstr "새로운 QoS 스펙 사용자"
+msgstr "새로운 QoS 스펙 고객"
 
 msgid "New Size (GiB)"
 msgstr "새로운 크기 (GiB)"
@@ -5724,9 +5722,8 @@ msgctxt "Current status of a VPN Service"
 msgid "Pending Update"
 msgstr "Pending Update"
 
-#, fuzzy
 msgid "Per Volume Size (GiB)"
-msgstr "볼륨 크기(GiB)당"
+msgstr "당 볼륨 크기 (GiB)"
 
 msgid "Perfect Forward Secrecy"
 msgstr "완벽한 Forward 보안"
@@ -6017,9 +6014,9 @@ msgstr "공개 URL"
 msgid "QCOW2 - QEMU Emulator"
 msgstr "QCOW2 - QEMU Emulator"
 
-#, fuzzy, python-format
+#, python-format
 msgid "QoS Spec name \"%s\" already exists."
-msgstr "이름이 \"%s\"인 QoS 스펙이 이미 존재합니다."
+msgstr "이름 \"%s\"인 QoS 스펙이 이미 존재합니다."
 
 msgid "QoS Spec to be associated"
 msgstr "연결할 QoS 스펙"
@@ -6676,9 +6673,8 @@ msgstr "시큐리티 그룹 규칙"
 msgid "Security Groups"
 msgstr "시큐리티 그룹"
 
-#, fuzzy
 msgid "Security group rule already exists."
-msgstr "보안 그룹 규칙은 이미 존재합니다."
+msgstr "시큐리티 그룹 규칙이 이미 존재합니다."
 
 msgid ""
 "Security groups are sets of IP filter rules that are applied to the network "
@@ -6788,9 +6784,8 @@ msgstr "새로운 QoS 스펙 선택"
 msgid "Select a new agent"
 msgstr "새로운 에이전트 선택"
 
-#, fuzzy
 msgid "Select a new consumer"
-msgstr "새로운 사용자 선택"
+msgstr "새로운 고객 선택"
 
 msgid "Select a new host"
 msgstr "새로운 호스트 선택"
@@ -7472,7 +7467,7 @@ msgstr "비공개로 컨테이너 접근 방식을 업데이트했습니다."
 msgid "Successfully updated container access to public."
 msgstr "공개로 컨테이너 접근 방법을 업데이트했습니다."
 
-#, fuzzy, python-format
+#, python-format
 msgid "Successfully updated encryption for volume type: %s"
 msgstr "볼륨 타입에 대한 암호화 업데이트 완료: %s"
 
@@ -7661,12 +7656,11 @@ msgstr ""
 "<strong>프로바이더</strong>는 지원하는 암호화 제공자 유형입니다 (예, "
 "LuksEncryptor)."
 
-#, fuzzy
 msgid ""
 "The <strong>Provider</strong> is the class providing encryption support (e."
 "g., LuksEncryptor)."
 msgstr ""
-"<strong>프로바이더</strong>는 지원하는 암호화 제공자 유형입니다 (예, "
+"<strong>Provider</strong>는 지원하는 암호화 제공자 타입입니다 (예, "
 "LuksEncryptor)."
 
 msgid "The Aggregate was updated."
@@ -8009,7 +8003,6 @@ msgstr ""
 "이 볼륨은 지금 인스턴스에 연결되어 있습니다. 때때로, 연결된 볼륨에서 스냅샷"
 "을 만들게되면 스냅샷이 손상될 수 있습니다."
 
-#, fuzzy
 msgid "This volume type is used by one or more volumes."
 msgstr "이 볼륨 타입은 하나 혹은 그 이상의 볼륨에서 사용됩니다."
 
@@ -8110,13 +8103,12 @@ msgstr "모든 RAM"
 msgid "Total Size of Volumes and Snapshots (GB)"
 msgstr "볼륨 및 스냅샷 총량 (GB)"
 
-#, fuzzy
 msgid "Total Size of Volumes and Snapshots (GiB)"
-msgstr "볼륨과 스냅샷(GiB)의 총 크기."
+msgstr "볼륨과 스냅샷의 총 크기 (GiB)"
 
-#, fuzzy, python-format
+#, python-format
 msgid "Total Size of Volumes and Snapshots (GiB) of Type %(type)s"
-msgstr "%(type)s 유형의 볼륨과 스냅샷(GiB)의 총 크기"
+msgstr "타입 %(type)s 볼륨과 스냅샷 총 크기 (GiB)"
 
 msgid "Total VCPU Usage (Hours):"
 msgstr "총 VCPU 사용량 (시간):"
@@ -8321,11 +8313,9 @@ msgstr "ID 생성자 프로토콜을 생성할 수 없습니다."
 msgid "Unable to create key pair: %(exc)s"
 msgstr "키 페어를 생성할 수 없습니다: %(exc)s"
 
-#, fuzzy
 msgid "Unable to create mapping."
 msgstr "맵핑을 생성 할 수 없습니다."
 
-#, fuzzy
 msgid "Unable to create mapping. Rules has malformed JSON data."
 msgstr "맵핑을 생성 할 수 없습니다. 잘못된 형식의 JSON 데이터입니다."
 
@@ -8796,9 +8786,8 @@ msgstr "도메인 정보를 찾지 못 했습니다."
 msgid "Unable to retrieve domain list."
 msgstr "도메인 목록을 찾지 못 했습니다."
 
-#, fuzzy
 msgid "Unable to retrieve encryption type."
-msgstr "암호화 유형을 찾지 못했습니다."
+msgstr "암호화 타입을 찾지 못했습니다."
 
 msgid "Unable to retrieve extensions information"
 msgstr "확장 정보를 찾지 못했습니다"
@@ -8952,7 +8941,6 @@ msgstr "볼륨 스냅샷 목록을 찾지 못 했습니다."
 msgid "Unable to retrieve list of volumes."
 msgstr "볼륨 목록을 찾지 못 했습니다."
 
-#, fuzzy
 msgid "Unable to retrieve mapping list."
 msgstr "맵핑 목록을 찾지 못했습니다."
 
@@ -9155,9 +9143,8 @@ msgstr "Tenant 제한을 찾지 못 했습니다."
 msgid "Unable to retrieve the aggregate to be updated"
 msgstr "업데이트된 집합을 찾지 못했습니다."
 
-#, fuzzy
 msgid "Unable to retrieve the project information of the image."
-msgstr "이미지의 프로젝트 정보를 찾지 못했습니다."
+msgstr "이미지 프로젝트 정보를 찾지 못했습니다."
 
 msgid "Unable to retrieve the specified pool."
 msgstr "지정된 Pool을 찾지 못 했습니다."
@@ -9297,13 +9284,11 @@ msgstr "볼륨 관리를 취소하지 못했습니다."
 msgid "Unable to update container access."
 msgstr "컨테이너 접근을 업데이트 할 수 없습니다."
 
-#, fuzzy
 msgid "Unable to update default quotas for Cinder."
-msgstr "Cinder를 위한 기본 quotas를 업데이트 할 수 없습니다."
+msgstr "Cinder 기본 quotas를 업데이트 할 수 없습니다."
 
-#, fuzzy
 msgid "Unable to update default quotas for Nova."
-msgstr "Nova를 위한 기본 quotas를 업데이트 할 수 없습니다."
+msgstr "Nova 기본 quotas를 업데이트 할 수 없습니다."
 
 msgid "Unable to update default quotas."
 msgstr "기본 quotas를 업데이트할 수 없습니다."
@@ -9330,11 +9315,9 @@ msgstr ""
 msgid "Unable to update image \"%s\"."
 msgstr "이미지 \"%s\"를 업데이트 할 수 없습니다."
 
-#, fuzzy
 msgid "Unable to update mapping."
 msgstr "맵핑을 업데이트 할 수 없습니다."
 
-#, fuzzy
 msgid "Unable to update mapping. Rules has malformed JSON data."
 msgstr "맵핑을 업데이트 할 수 없습니다. 잘못된 형식의 JSON 데이터입니다."
 
@@ -9479,11 +9462,9 @@ msgstr "기본 Quotas 업데이트"
 msgid "Update Defaults"
 msgstr "업데이트 기본"
 
-#, fuzzy
 msgid "Update Encrypted Volume Type"
 msgstr "암호화된 볼륨 타입 업데이트"
 
-#, fuzzy
 msgid "Update Encryption"
 msgstr "암호화 업데이트"
 
@@ -9542,9 +9523,8 @@ msgstr "볼륨 스냅샷 상태 업데이트"
 msgid "Update Volume Status"
 msgstr "볼륨 스냅샷 업데이트"
 
-#, fuzzy
 msgid "Update Volume Type Encryption"
-msgstr "볼륨 유형 암호화 업데이트"
+msgstr "볼륨 타입 암호화 업데이트"
 
 msgid ""
 "Update a stack with the provided values. Please note that any encrypted "
@@ -9561,9 +9541,8 @@ msgstr ""
 "네트워크와 연결된 서브넷을 업데이트합니다. \"서브넷 세부 정보\" 탭을 클릭하"
 "여 상세 구성이 가능합니다."
 
-#, fuzzy
 msgid "Update an Encrypted Volume Type"
-msgstr "암호화된 볼륨 유형 업데이트"
+msgstr "암호화된 볼륨 타입 업데이트"
 
 msgid "Update requests for this floating ip"
 msgstr "유동 IP 업데이트 요청"
@@ -9602,7 +9581,6 @@ msgctxt "Task status of an Instance"
 msgid "Updating Password"
 msgstr "Updating Password"
 
-#, fuzzy
 msgid ""
 "Updating encryption is not implemented.  Unable to update  encrypted volume "
 "type."
@@ -9919,9 +9897,9 @@ msgstr "볼륨 스냅샷 개요"
 msgid "Volume Snapshots"
 msgstr "볼륨 스냅샷"
 
-#, fuzzy, python-format
+#, python-format
 msgid "Volume Snapshots of Type %(type)s"
-msgstr "%(type)s 유형의 볼륨 스냅샷"
+msgstr "타입 %(type)s 볼륨 스냅샷"
 
 msgid "Volume Source"
 msgstr "볼륨 소스"
@@ -10044,9 +10022,9 @@ msgstr "볼륨 연결"
 msgid "Volumes are block devices that can be attached to instances."
 msgstr "볼륨은 인스턴스에 연결할 수 있는 블록 디바이스입니다."
 
-#, fuzzy, python-format
+#, python-format
 msgid "Volumes of Type %(type)s"
-msgstr "%(type)s 유형의 볼륨"
+msgstr "타입 %(type)s 볼륨"
 
 msgid "Weight"
 msgstr "Weight"

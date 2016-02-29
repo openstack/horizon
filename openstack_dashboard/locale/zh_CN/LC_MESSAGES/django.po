@@ -21,18 +21,18 @@
 # Yang Hongyang <hongyang.yang@easystack.cn>, 2015. #zanata
 # yan haifeng <yanheven@qq.com>, 2015. #zanata
 # zhangjingwen <zhangjingwen@cn.fujitsu.com>, 2015. #zanata
-# froms <froms2008@gmail.com>, 2016. #zanata
-# will zhou <zzxwill@gmail.com>, 2016. #zanata
+# Will Zhou <zzxwill@gmail.com>, 2016. #zanata
+# vuuv <froms2008@gmail.com>, 2016. #zanata
 msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2016-02-22 18:18+0000\n"
+"POT-Creation-Date: 2016-02-27 17:50+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2016-02-23 02:22+0000\n"
-"Last-Translator: will zhou <zzxwill@gmail.com>\n"
+"PO-Revision-Date: 2016-02-27 11:43+0000\n"
+"Last-Translator: vuuv <froms2008@gmail.com>\n"
 "Language: zh-CN\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 "Generated-By: Babel 2.0\n"
@@ -2008,6 +2008,10 @@ msgid ""
 "image location must be accessible to the Image Service."
 msgstr "目前镜像URL只支持HTTP/HTTPS。镜像服务必须能够访问到镜像地址。"
 
+msgctxt "Custom style theme"
+msgid "Custom"
+msgstr "自定义"
+
 msgid "Custom ICMP Rule"
 msgstr "定制ICMP规则"
 
@@ -2106,6 +2110,10 @@ msgstr "已失效伙伴探测超时"
 
 msgid "Decrypt Password"
 msgstr "解密密码"
+
+msgctxt "Default style theme"
+msgid "Default"
+msgstr "默认"
 
 msgid "Default Quotas"
 msgstr "默认配额"
@@ -4596,6 +4604,10 @@ msgstr "手动"
 msgid "Mapped Fixed IP Address"
 msgstr "已映射固定IP地址"
 
+msgctxt "Google's Material Design style theme"
+msgid "Material"
+msgstr "Material"
+
 msgid "Max Retries"
 msgstr "最大尝试次数"
 
@@ -5804,6 +5816,10 @@ msgstr "拒绝"
 msgctxt "Action Name of a Firewall Rule"
 msgid "REJECT"
 msgstr "拒绝"
+
+#, fuzzy
+msgid "RX/TX Factor"
+msgstr "接收/发送 倍数"
 
 msgid "Ramdisk"
 msgstr "内存盘"
