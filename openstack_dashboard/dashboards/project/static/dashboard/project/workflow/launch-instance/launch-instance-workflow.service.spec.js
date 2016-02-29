@@ -29,7 +29,9 @@
         });
         return spec;
       };
-      $provide.value('horizon.app.core.openstack-service-api.serviceCatalog', {});
+      $provide.value('horizon.app.core.openstack-service-api.serviceCatalog', {
+        ifTypeEnabled: angular.noop
+      });
       $provide.value('horizon.framework.util.workflow.service', workflow);
     }));
 
