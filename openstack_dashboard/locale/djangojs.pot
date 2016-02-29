@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2016-02-26 06:17+0000\n"
+"POT-Creation-Date: 2016-02-29 06:15+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -1906,51 +1906,29 @@ msgstr ""
 msgid "Loading"
 msgstr ""
 
-#: openstack_dashboard/static/app/core/images/actions/actions.module.js:54
+#: openstack_dashboard/static/app/core/images/actions/actions.module.js:52
 msgid "Launch"
 msgstr ""
 
-#: openstack_dashboard/static/app/core/images/actions/actions.module.js:61
+#: openstack_dashboard/static/app/core/images/actions/actions.module.js:59
 #: openstack_dashboard/static/app/core/images/workflows/create-volume.service.js:36
 #: openstack_dashboard/static/app/core/images/workflows/create-volume.service.js:37
 msgid "Create Volume"
 msgstr ""
 
-#: openstack_dashboard/static/app/core/images/actions/actions.module.js:68
+#: openstack_dashboard/static/app/core/images/actions/actions.module.js:66
 msgid "Update Metadata"
 msgstr ""
 
-#: openstack_dashboard/static/app/core/images/actions/actions.module.js:75
-#: openstack_dashboard/static/app/core/images/actions/row-delete.service.js:43
+#: openstack_dashboard/static/app/core/images/actions/actions.module.js:73
+#: openstack_dashboard/static/app/core/images/actions/delete-image.service.js:121
 msgid "Delete Image"
-msgstr ""
+msgid_plural "Delete Images"
+msgstr[0] ""
+msgstr[1] ""
 
-#: openstack_dashboard/static/app/core/images/actions/actions.module.js:86
-#: openstack_dashboard/static/app/core/images/actions/batch-delete.service.js:47
+#: openstack_dashboard/static/app/core/images/actions/actions.module.js:84
 msgid "Delete Images"
-msgstr ""
-
-#: openstack_dashboard/static/app/core/images/actions/batch-delete.service.js:43
-#: openstack_dashboard/static/app/core/images/actions/delete-image.service.spec.js:21
-msgid "Confirm Delete Images"
-msgstr ""
-
-#: openstack_dashboard/static/app/core/images/actions/batch-delete.service.js:45
-#: openstack_dashboard/static/app/core/images/actions/row-delete.service.js:41
-#, python-format
-msgid ""
-"You have selected \"%s\". Please confirm your selection. Deleted images "
-"are not recoverable."
-msgstr ""
-
-#: openstack_dashboard/static/app/core/images/actions/batch-delete.service.js:48
-#, python-format
-msgid "Deleted Images: %s."
-msgstr ""
-
-#: openstack_dashboard/static/app/core/images/actions/batch-delete.service.js:49
-#, python-format
-msgid "Unable to delete Images: %s."
 msgstr ""
 
 #: openstack_dashboard/static/app/core/images/actions/create-volume.service.js:59
@@ -1963,38 +1941,62 @@ msgstr ""
 msgid "You are not allowed to delete images: %s"
 msgstr ""
 
-#: openstack_dashboard/static/app/core/images/actions/delete-image.service.spec.js:22
-#, python-format
-msgid "selected \"%s\""
-msgstr ""
-
-#: openstack_dashboard/static/app/core/images/actions/delete-image.service.spec.js:23
-msgid "Delete"
-msgstr ""
-
-#: openstack_dashboard/static/app/core/images/actions/delete-image.service.spec.js:24
-#, python-format
-msgid "Deleted : %s."
-msgstr ""
-
-#: openstack_dashboard/static/app/core/images/actions/delete-image.service.spec.js:25
-#, python-format
-msgid "Unable to delete: %s."
-msgstr ""
-
-#: openstack_dashboard/static/app/core/images/actions/row-delete.service.js:39
+#: openstack_dashboard/static/app/core/images/actions/delete-image.service.js:113
 msgid "Confirm Delete Image"
-msgstr ""
+msgid_plural "Confirm Delete Images"
+msgstr[0] ""
+msgstr[1] ""
 
-#: openstack_dashboard/static/app/core/images/actions/row-delete.service.js:44
+#: openstack_dashboard/static/app/core/images/actions/delete-image.service.js:117
+#, python-format
+msgid "You have selected \"%s\". Deleted image is not recoverable."
+msgid_plural "You have selected \"%s\". Deleted images are not recoverable."
+msgstr[0] ""
+msgstr[1] ""
+
+#: openstack_dashboard/static/app/core/images/actions/delete-image.service.js:125
 #, python-format
 msgid "Deleted Image: %s."
-msgstr ""
+msgid_plural "Deleted Images: %s."
+msgstr[0] ""
+msgstr[1] ""
 
-#: openstack_dashboard/static/app/core/images/actions/row-delete.service.js:45
+#: openstack_dashboard/static/app/core/images/actions/delete-image.service.js:129
 #, python-format
 msgid "Unable to delete Image: %s."
-msgstr ""
+msgid_plural "Unable to delete Images: %s."
+msgstr[0] ""
+msgstr[1] ""
+
+#: openstack_dashboard/static/app/core/images/actions/delete-image.service.spec.js:104
+msgid "title"
+msgid_plural "titles"
+msgstr[0] ""
+msgstr[1] ""
+
+#: openstack_dashboard/static/app/core/images/actions/delete-image.service.spec.js:105
+msgid "message"
+msgid_plural "messages"
+msgstr[0] ""
+msgstr[1] ""
+
+#: openstack_dashboard/static/app/core/images/actions/delete-image.service.spec.js:106
+msgid "submit"
+msgid_plural "submits"
+msgstr[0] ""
+msgstr[1] ""
+
+#: openstack_dashboard/static/app/core/images/actions/delete-image.service.spec.js:107
+msgid "success"
+msgid_plural "successs"
+msgstr[0] ""
+msgstr[1] ""
+
+#: openstack_dashboard/static/app/core/images/actions/delete-image.service.spec.js:108
+msgid "error"
+msgid_plural "errors"
+msgstr[0] ""
+msgstr[1] ""
 
 #: openstack_dashboard/static/app/core/images/detail/image-detail.html:4
 #: openstack_dashboard/static/app/core/images/table/images-table.html:1
@@ -2526,5 +2528,57 @@ msgstr ""
 #: openstack_dashboard/static/app/core/openstack-service-api/settings.service.js:252
 #, python-format
 msgid "Setting is not enabled: %(setting)s"
+msgstr ""
+
+#: openstack_dashboard/static/app/core/openstack-service-api/swift.service.js:88
+msgid "Unable to get the Swift service info."
+msgstr ""
+
+#: openstack_dashboard/static/app/core/openstack-service-api/swift.service.js:103
+msgid "Unable to get the Swift container listing."
+msgstr ""
+
+#: openstack_dashboard/static/app/core/openstack-service-api/swift.service.js:118
+msgid "Unable to get the container details."
+msgstr ""
+
+#: openstack_dashboard/static/app/core/openstack-service-api/swift.service.js:136
+msgid "Unable to create the container."
+msgstr ""
+
+#: openstack_dashboard/static/app/core/openstack-service-api/swift.service.js:149
+msgid "Unable to delete the container."
+msgstr ""
+
+#: openstack_dashboard/static/app/core/openstack-service-api/swift.service.js:164
+msgid "Unable to change the container access."
+msgstr ""
+
+#: openstack_dashboard/static/app/core/openstack-service-api/swift.service.js:187
+msgid "Unable to get the objects in container."
+msgstr ""
+
+#: openstack_dashboard/static/app/core/openstack-service-api/swift.service.js:211
+msgid "Unable to upload the object."
+msgstr ""
+
+#: openstack_dashboard/static/app/core/openstack-service-api/swift.service.js:227
+msgid "Unable to delete the folder because it is not empty."
+msgstr ""
+
+#: openstack_dashboard/static/app/core/openstack-service-api/swift.service.js:231
+msgid "Unable to delete the object."
+msgstr ""
+
+#: openstack_dashboard/static/app/core/openstack-service-api/swift.service.js:247
+msgid "Unable to get details of the object."
+msgstr ""
+
+#: openstack_dashboard/static/app/core/openstack-service-api/swift.service.js:263
+msgid "Unable to create the folder."
+msgstr ""
+
+#: openstack_dashboard/static/app/core/openstack-service-api/swift.service.js:279
+msgid "Unable to copy the object."
 msgstr ""
 

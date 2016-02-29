@@ -14,12 +14,12 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2016-02-24 03:44+0000\n"
+"POT-Creation-Date: 2016-02-27 17:50+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2016-02-24 12:19+0000\n"
-"Last-Translator: Shu Muto <shu-mutou@rf.jp.nec.com>\n"
+"PO-Revision-Date: 2016-02-26 10:58+0000\n"
+"Last-Translator: Akihiro Motoki <amotoki@gmail.com>\n"
 "Language: ja\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 "Generated-By: Babel 2.0\n"
@@ -380,11 +380,10 @@ msgstr "コンフィグドライブ"
 msgid "Configuration Help"
 msgstr "設定 のヘルプ"
 
+#, fuzzy
 msgid "Confirm Delete Image"
-msgstr "イメージの削除の確認"
-
-msgid "Confirm Delete Images"
-msgstr "イメージの削除の確認"
+msgid_plural "Confirm Delete Images"
+msgstr[0] "イメージの削除の確認"
 
 msgid "Containers"
 msgstr "コンテナー"
@@ -442,11 +441,10 @@ msgstr "デフォルトのボタン"
 msgid "Default input"
 msgstr "デフォルトの入力項目"
 
-msgid "Delete"
-msgstr "削除"
-
+#, fuzzy
 msgid "Delete Image"
-msgstr "イメージの削除"
+msgid_plural "Delete Images"
+msgstr[0] "イメージの削除"
 
 msgid "Delete Images"
 msgstr "イメージの削除"
@@ -457,17 +455,10 @@ msgstr "インスタンス削除時のボリュームを削除します"
 msgid "Deleted"
 msgstr "削除"
 
-#, python-format
-msgid "Deleted : %s."
-msgstr "%s を削除しました"
-
-#, python-format
+#, fuzzy, python-format
 msgid "Deleted Image: %s."
-msgstr "イメージ %s を削除しました。"
-
-#, python-format
-msgid "Deleted Images: %s."
-msgstr "イメージ %s を削除しました。"
+msgid_plural "Deleted Images: %s."
+msgstr[0] "イメージ %s を削除しました。"
 
 msgid "Description"
 msgstr "説明"
@@ -1422,13 +1413,10 @@ msgstr "ユーザーを作成できません。"
 msgid "Unable to create the volume."
 msgstr "ボリュームを作成できません。"
 
-#, python-format
+#, fuzzy, python-format
 msgid "Unable to delete Image: %s."
-msgstr "イメージを削除できません: %s"
-
-#, python-format
-msgid "Unable to delete Images: %s."
-msgstr "イメージを削除できません: %s"
+msgid_plural "Unable to delete Images: %s."
+msgstr[0] "イメージを削除できません: %s"
 
 msgid "Unable to delete the domain."
 msgstr "ドメインを削除できません。"
@@ -1453,10 +1441,6 @@ msgstr "ユーザーを削除できません。"
 
 msgid "Unable to delete the users."
 msgstr "ユーザーを削除できません。"
-
-#, python-format
-msgid "Unable to delete: %s."
-msgstr "削除できません: %s"
 
 msgid "Unable to edit instance metadata."
 msgstr "インスタンスのメタデータを編集できません。"
@@ -1741,20 +1725,8 @@ msgstr ""
 "リューのペアのコレクションです。メタデータのキーとバリューの最大長は、それぞ"
 "れ 255 文字です。"
 
-#, python-format
-msgid ""
-"You have selected \"%s\". Please confirm your selection. Deleted images are "
-"not recoverable."
-msgstr ""
-"\"%s\" を選択しました。選択内容を確認してください。削除されたイメージは元に戻"
-"せません。"
-
 msgid "image"
 msgstr "イメージ"
-
-#, python-format
-msgid "selected \"%s\""
-msgstr "\"%s\" を選択しました。"
 
 msgid "snapshot"
 msgstr "スナップショット"
