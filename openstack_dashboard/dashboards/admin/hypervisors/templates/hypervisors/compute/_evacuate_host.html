@@ -17,8 +17,3 @@
     <p>{% trans "Evacuate the servers from the selected down host to an active target host." %}</p>
 </div>
 {% endblock %}
-
-{% block modal-footer %}
-  <input class="btn btn-primary pull-right" type="submit" value="{% trans "Evacuate Host" %}" />
-  <a href="{% url 'horizon:admin:hypervisors:index' %}" class="btn btn-default secondary cancel close">{% trans "Cancel" %}</a>
-{% endblock %}

@@ -13,8 +13,8 @@
 {% endblock %}
 
 {% block modal-footer %}
-    {% if show_attach %}
-        <input class="btn btn-primary pull-right" type="submit" value="{% trans "Attach Volume" %}" />
-    {% endif %}
-    <a href="{% url 'horizon:project:volumes:index' %}" class="btn btn-default secondary cancel close">{% trans "Cancel" %}</a>
+    <a href="{% url 'horizon:project:volumes:index' %}" class="btn btn-default cancel">{% trans "Cancel" %}</a>
+  {% if show_attach %}
+    <input class="btn btn-primary" type="submit" value="{% trans "Attach Volume" %}" />
+  {% endif %}
 {% endblock %}

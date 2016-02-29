@@ -28,6 +28,7 @@ class EvacuateHostView(forms.ModalFormView):
     context_object_name = 'compute_host'
     success_url = reverse_lazy("horizon:admin:hypervisors:index")
     page_title = _("Evacuate Host")
+    submit_label = page_title
 
     def get_context_data(self, **kwargs):
         context = super(EvacuateHostView, self).get_context_data(**kwargs)
@@ -60,6 +61,7 @@ class DisableServiceView(forms.ModalFormView):
     context_object_name = 'compute_host'
     success_url = reverse_lazy("horizon:admin:hypervisors:index")
     page_title = _("Disable Service")
+    submit_label = page_title
 
     def get_context_data(self, **kwargs):
         context = super(DisableServiceView, self).get_context_data(**kwargs)
@@ -78,6 +80,7 @@ class MigrateHostView(forms.ModalFormView):
         context_object_name = 'compute_host'
         success_url = reverse_lazy("horizon:admin:hypervisors:index")
         page_title = _("Migrate Host")
+        submit_label = page_title
 
         def get_context_data(self, **kwargs):
             context = super(MigrateHostView, self).get_context_data(**kwargs)

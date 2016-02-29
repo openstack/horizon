@@ -54,8 +54,8 @@
             </div>
           </div>
           {% else %}
-            <input class="btn btn-primary pull-right" type="submit" value="{{ workflow.finalize_button_name }}" />
-            {% if modal %}<a class="btn btn-default secondary cancel close">{% trans "Cancel" %}</a>{% endif %}
+            {% if modal %}<a class="btn btn-default cancel">{% trans "Cancel" %}</a>{% endif %}
+            <input class="btn btn-primary" type="submit" value="{{ workflow.finalize_button_name }}" />
           {% endif %}
         {% endblock %}
         </div>

@@ -19,11 +19,6 @@
 </div>
 {% endblock %}
 
-{% block modal-footer %}
-  <input class="btn btn-primary pull-right" type="submit" value="{% trans "View Usage Report" %}" />
-  <a href="{% url 'horizon:admin:metering:index' %}" class="btn btn-default secondary cancel close">{% trans "Cancel" %}</a>
-{% endblock %}
-
 {% block modal-js %}
 <script type="text/javascript">
   if (typeof horizon.metering !== 'undefined') {

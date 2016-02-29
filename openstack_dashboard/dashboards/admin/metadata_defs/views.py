@@ -84,6 +84,7 @@ class CreateView(forms.ModalFormView):
     context_object_name = 'namespace'
     success_url = reverse_lazy(constants.METADATA_INDEX_URL)
     page_title = _("Create a Metadata Namespace")
+    submit_label = _("Import Namespace")
 
 
 class DetailView(tabs.TabView):

@@ -263,6 +263,7 @@ class RebuildView(forms.ModalFormView):
     template_name = 'project/instances/rebuild.html'
     success_url = reverse_lazy('horizon:project:instances:index')
     page_title = _("Rebuild Instance")
+    submit_label = page_title
 
     def get_context_data(self, **kwargs):
         context = super(RebuildView, self).get_context_data(**kwargs)

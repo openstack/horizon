@@ -155,6 +155,7 @@ class LiveMigrateView(forms.ModalFormView):
     context_object_name = 'instance'
     success_url = reverse_lazy("horizon:admin:instances:index")
     page_title = _("Live Migrate")
+    success_label = page_title
 
     def get_context_data(self, **kwargs):
         context = super(LiveMigrateView, self).get_context_data(**kwargs)

@@ -18,8 +18,3 @@
   <p>{% trans "Host aggregates divide an availability zone into logical units by grouping together hosts. Edit the aggregate host to select hosts contained in it." %}</p>
 </div>
 {% endblock %}
-
-{% block modal-footer %}
-  <input class="btn btn-primary pull-right" type="submit" value="{% trans "Save" %}" />
-  <a href="{% url 'horizon:admin:aggregates:index' %}" class="btn btn-default secondary cancel close">{% trans "Cancel" %}</a>
-{% endblock %}
