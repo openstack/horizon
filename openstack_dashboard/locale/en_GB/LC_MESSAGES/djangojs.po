@@ -6,15 +6,16 @@
 # Rob Cresswell <robert.cresswell@outlook.com>, 2015
 # OpenStack Infra <zanata@openstack.org>, 2015. #zanata
 # Rob Cresswell <robert.cresswell@outlook.com>, 2015. #zanata
+# Rob Cresswell <robert.cresswell@outlook.com>, 2016. #zanata
 msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2016-02-18 02:36+0000\n"
+"POT-Creation-Date: 2016-02-29 14:52+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2015-11-24 04:17+0000\n"
+"PO-Revision-Date: 2016-02-29 09:47+0000\n"
 "Last-Translator: Rob Cresswell <robert.cresswell@outlook.com>\n"
 "Language: en-GB\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
@@ -65,6 +66,9 @@ msgstr ""
 
 msgid "A name is required for your instance."
 msgstr "A name is required for your instance."
+
+msgid "Action"
+msgstr "Action"
 
 msgid "Active"
 msgstr "Active"
@@ -123,11 +127,20 @@ msgstr ""
 "An instance name is required and used to help you uniquely identify your "
 "instance in the dashboard."
 
+msgid "Another action"
+msgstr "Another action"
+
 msgid "Automatic"
 msgstr "Automatic"
 
 msgid "Availability Zone"
 msgstr "Availability Zone"
+
+msgid "Brand"
+msgstr "Brand"
+
+msgid "Buttons"
+msgstr "Buttons"
 
 msgid "Cancel"
 msgstr "Cancel"
@@ -179,6 +192,12 @@ msgstr ""
 "<samp>cloud-init</samp> inside a guest operating system, you can use a "
 "custom script to get a public key and add it to the user account."
 
+msgid "Danger"
+msgstr "Danger "
+
+msgid "Default"
+msgstr "Default"
+
 msgid "Deleted"
 msgstr "Deleted"
 
@@ -199,6 +218,12 @@ msgstr "Domain ID"
 
 msgid "Down"
 msgstr "Down"
+
+msgid "Dropdown <b></b>"
+msgstr "Dropdown <b></b>"
+
+msgid "Dropdown header"
+msgstr "Dropdown header"
 
 msgid "Email"
 msgstr "Email"
@@ -301,6 +326,9 @@ msgstr "Impact on your quota"
 msgid "Import Key Pair"
 msgstr "Import Key Pair"
 
+msgid "Info"
+msgstr "Info"
+
 msgid "Instance Details"
 msgstr "Instance Details"
 
@@ -342,8 +370,14 @@ msgstr ""
 msgid "Killed"
 msgstr "Killed"
 
+msgid "Large button"
+msgstr "Large button"
+
 msgid "Launch Instance"
 msgstr "Launch Instance"
+
+msgid "Link"
+msgstr "Link"
 
 msgid "Manual"
 msgstr "Manual"
@@ -368,6 +402,9 @@ msgstr "Min RAM (MB)"
 
 msgid "Name"
 msgstr "Name"
+
+msgid "Navbar"
+msgstr "Navbar"
 
 msgid "Network"
 msgstr "Network"
@@ -394,6 +431,9 @@ msgstr "No available items"
 msgid "Number"
 msgstr "Number"
 
+msgid "One more separated link"
+msgstr "One more separated link"
+
 msgid "Pending Delete"
 msgstr "Pending Delete"
 
@@ -402,6 +442,9 @@ msgstr "Physical Network"
 
 msgid "Policy check failed."
 msgstr "Policy check failed."
+
+msgid "Primary"
+msgstr "Primary"
 
 msgid "Private"
 msgstr "Private"
@@ -527,6 +570,9 @@ msgstr "Select one or more security groups from the available groups below."
 msgid "Select the security groups."
 msgstr "Select the security groups."
 
+msgid "Separated link"
+msgstr "Separated link"
+
 #, python-format
 msgid "Service type is not enabled: %(desiredType)s"
 msgstr "Service type is not enabled: %(desiredType)s"
@@ -547,11 +593,17 @@ msgstr "Size (GB)"
 msgid "Snapshot"
 msgstr "Snapshot"
 
+msgid "Something else here"
+msgstr "Something else here"
+
 msgid "Status"
 msgstr "Status"
 
 msgid "Subnets Associated"
 msgstr "Subnets Associated"
+
+msgid "Success"
+msgstr "Success"
 
 #, python-format
 msgid "Successfully imported key pair %(name)s."
@@ -582,6 +634,26 @@ msgid ""
 msgstr ""
 "The instance count must not exceed your quota available of "
 "%(maxInstanceCount)s instances"
+
+#, python-format
+msgid ""
+"The selected %(sourceType)s source requires a flavor with at least "
+"%(minDisk)s GB of root disk. Select a flavor with a larger root disk or use "
+"a different %(sourceType)s source."
+msgstr ""
+"The selected %(sourceType)s source requires a flavour with at least "
+"%(minDisk)s GB of root disk. Select a flavour with a larger root disk or use "
+"a different %(sourceType)s source."
+
+#, python-format
+msgid ""
+"The selected %(sourceType)s source requires a flavor with at least "
+"%(minRam)s MB of RAM. Select a flavor with more RAM or use a different "
+"%(sourceType)s source."
+msgstr ""
+"The selected %(sourceType)s source requires a flavour with at least "
+"%(minRam)s MB of RAM. Select a flavour with more RAM or use a different "
+"%(sourceType)s source."
 
 msgid "The status indicates whether the network has an active connection."
 msgstr "The status indicates whether the network has an active connection."
@@ -627,6 +699,13 @@ msgstr ""
 "This flavour requires more VCPUs than your quota allows. Please select a "
 "smaller flavour or decrease the instance count."
 
+msgid ""
+"To view source code, hover over a section, then click the <a><span></span></"
+"a> button in the top right of that section."
+msgstr ""
+"To view source code, hover over a section, then click the <a><span></span></"
+"a> button in the top right of that section."
+
 msgid "Total Disk"
 msgstr "Total Disk"
 
@@ -651,8 +730,23 @@ msgstr ""
 "browser supports the HTML5 File API, you may choose to load your script from "
 "a file. The size of your script should not exceed 16 Kb."
 
+msgid "Unable to change the container access."
+msgstr "Unable to change the container access."
+
+msgid "Unable to copy the object."
+msgstr "Unable to copy the object."
+
+msgid "Unable to create the container."
+msgstr "Unable to create the container."
+
 msgid "Unable to create the domain."
 msgstr "Unable to create the domain."
+
+msgid "Unable to create the flavor."
+msgstr "Unable to create the flavour."
+
+msgid "Unable to create the folder."
+msgstr "Unable to create the folder."
 
 msgid "Unable to create the keypair."
 msgstr "Unable to create the keypair."
@@ -675,11 +769,23 @@ msgstr "Unable to create the subnet."
 msgid "Unable to create the user."
 msgstr "Unable to create the user."
 
+msgid "Unable to delete the container."
+msgstr "Unable to delete the container."
+
 msgid "Unable to delete the domain."
 msgstr "Unable to delete the domain."
 
 msgid "Unable to delete the domains."
 msgstr "Unable to delete the domains."
+
+msgid "Unable to delete the flavor with id: "
+msgstr "Unable to delete the flavour with id: "
+
+msgid "Unable to delete the folder because it is not empty."
+msgstr "Unable to delete the folder because it is not empty."
+
+msgid "Unable to delete the object."
+msgstr "Unable to delete the object."
 
 msgid "Unable to delete the project."
 msgstr "Unable to delete the project."
@@ -723,8 +829,17 @@ msgstr "Unable to edit the user."
 msgid "Unable to fetch the service catalog."
 msgstr "Unable to fetch the service catalog."
 
+msgid "Unable to get details of the object."
+msgstr "Unable to get details of the object."
+
 msgid "Unable to get the Keystone service version."
 msgstr "Unable to get the Keystone service version."
+
+msgid "Unable to get the container details."
+msgstr "Unable to get the container details."
+
+msgid "Unable to get the objects in container."
+msgstr "Unable to get the objects in container."
 
 msgid "Unable to grant the role."
 msgstr "Unable to grant the role."
@@ -819,6 +934,12 @@ msgstr "Unable to retrieve the volume snapshots."
 msgid "Unable to retrieve the volumes."
 msgstr "Unable to retrieve the volumes."
 
+msgid "Unable to update the flavor."
+msgstr "Unable to update the flavour."
+
+msgid "Unable to upload the object."
+msgstr "Unable to upload the object."
+
 msgid "Unable to validate the template."
 msgstr "Unable to validate the template."
 
@@ -864,6 +985,9 @@ msgid ""
 msgstr ""
 "Volumes can only be attached to 1 active instance at a time. Please either "
 "set your instance count to 1 or select a different source type."
+
+msgid "Warning"
+msgstr "Warning"
 
 msgid ""
 "When selecting volume as boot source, please ensure the instance's "

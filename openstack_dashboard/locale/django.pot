@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2016-02-29 06:15+0000\n"
+"POT-Creation-Date: 2016-03-01 06:41+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -2750,8 +2750,6 @@ msgstr ""
 #: openstack_dashboard/dashboards/project/stacks/templates/stacks/_detail_overview.html:16
 #: openstack_dashboard/dashboards/project/volumes/templates/volumes/backups/_detail_overview.html:30
 #: openstack_dashboard/dashboards/project/volumes/templates/volumes/snapshots/_detail_overview.html:32
-#: openstack_dashboard/dashboards/project/volumes/templates/volumes/volumes/_detail_overview.html:34
-#: openstack_dashboard/dashboards/project/volumes/templates/volumes/volumes/_detail_overview.html:92
 msgid "Created"
 msgstr ""
 
@@ -13349,6 +13347,12 @@ msgstr ""
 
 #: openstack_dashboard/dashboards/project/volumes/templates/volumes/volumes/_detail_overview.html:33
 msgid "yes,no,-"
+msgstr ""
+
+#: openstack_dashboard/dashboards/project/volumes/templates/volumes/volumes/_detail_overview.html:34
+#: openstack_dashboard/dashboards/project/volumes/templates/volumes/volumes/_detail_overview.html:92
+msgctxt "Created time"
+msgid "Created"
 msgstr ""
 
 #: openstack_dashboard/dashboards/project/volumes/templates/volumes/volumes/_detail_overview.html:38

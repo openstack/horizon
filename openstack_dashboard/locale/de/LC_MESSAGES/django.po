@@ -24,12 +24,12 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2016-02-18 02:36+0000\n"
+"POT-Creation-Date: 2016-02-29 14:52+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2016-02-08 10:20+0000\n"
-"Last-Translator: Eugen Block <eblock@nde.ag>\n"
+"PO-Revision-Date: 2016-02-29 11:33+0000\n"
+"Last-Translator: Andreas Jaeger <jaegerandi@gmail.com>\n"
 "Language: de\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "Generated-By: Babel 2.0\n"
@@ -2204,6 +2204,10 @@ msgstr ""
 "Zur Zeit werden nur über eine HTTP/HTTPS URL verfügbare Abbilder "
 "unterstützt. Die Abbild-Speicherort muss vom Abbilddienst aus erreichbar "
 "sein."
+
+msgctxt "Custom style theme"
+msgid "Custom"
+msgstr "Angepasst"
 
 msgid "Custom ICMP Rule"
 msgstr "Angepasste ICMP-Regel"
@@ -5004,6 +5008,10 @@ msgstr "Zuordnung erfolgreich aktulisiert."
 msgid "Mappings"
 msgstr "Zuordnungen"
 
+msgctxt "Google's Material Design style theme"
+msgid "Material"
+msgstr "Material"
+
 msgid "Max Retries"
 msgstr "Maximale Versuche"
 
@@ -6262,6 +6270,12 @@ msgctxt "Action Name of a Firewall Rule"
 msgid "REJECT"
 msgstr "REJECT"
 
+msgid "RX/TX Factor"
+msgstr "RX/TX Faktor"
+
+msgid "RX/TX factor"
+msgstr "RX/TX Faktor"
+
 msgid "Ramdisk"
 msgstr "Ramdisk"
 
@@ -6869,6 +6883,9 @@ msgstr "Sicherheitsgruppenregeln"
 
 msgid "Security Groups"
 msgstr "Sicherheitsgruppen"
+
+msgid "Security group rule already exists."
+msgstr "Sicherheitsgruppenregel existiert bereits."
 
 msgid ""
 "Security groups are sets of IP filter rules that are applied to the network "
@@ -9030,6 +9047,9 @@ msgstr "Domäneninformationen können nicht abgerufen werden."
 
 msgid "Unable to retrieve domain list."
 msgstr "Domänen-Liste kann nicht abgerufen werden."
+
+msgid "Unable to retrieve encryption type."
+msgstr "Verschlüsselungstyp kann nicht abgerufen werden."
 
 msgid "Unable to retrieve extensions information"
 msgstr "Informationen zur Erweiterung konnten nicht abgerufen werden."
