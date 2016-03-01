@@ -13,6 +13,7 @@
 #    under the License.
 
 from datetime import datetime  # noqa
+from datetime import timedelta  # noqa
 import string
 
 import babel
@@ -30,8 +31,7 @@ from horizon import messages
 
 def _one_year():
     now = datetime.utcnow()
-    return datetime(now.year + 1, now.month, now.day, now.hour,
-                    now.minute, now.second, now.microsecond, now.tzinfo)
+    return now + timedelta(days=365)
 
 
 class UserSettingsForm(forms.SelfHandlingForm):
