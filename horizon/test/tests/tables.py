@@ -652,7 +652,7 @@ class DataTableTests(test.TestCase):
         # Whole table
         resp = http.HttpResponse(self.table.render())
         self.assertContains(resp, '<table id="my_table"', 1)
-        self.assertContains(resp, '<th ', 8)
+        self.assertContains(resp, '<th ', 7)
         self.assertContains(resp, 'id="my_table__row__1"', 1)
         self.assertContains(resp, 'id="my_table__row__2"', 1)
         self.assertContains(resp, 'id="my_table__row__3"', 1)
@@ -666,7 +666,7 @@ class DataTableTests(test.TestCase):
         # Hidden Title = False shows the table title
         self.table._meta.hidden_title = False
         resp = http.HttpResponse(self.table.render())
-        self.assertContains(resp, "<h3 class='table_title'", 1)
+        self.assertContains(resp, "<span class='table-title'>", 1)
 
         # Filter = False hides the search box
         self.table._meta.filter = False

@@ -24,7 +24,3 @@ ADD_ANGULAR_MODULES = [
 ]
 
 AUTO_DISCOVER_STATIC_FILES = True
-
-ADD_SCSS_FILES = [
-    'dashboard/identity/identity.scss'
-]

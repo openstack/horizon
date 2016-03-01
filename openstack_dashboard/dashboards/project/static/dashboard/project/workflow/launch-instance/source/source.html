@@ -118,7 +118,7 @@
     <transfer-table help-text="ctrl.helpText"
                     tr-model="ctrl.tableData">
       <allocated validate-number-min="1" ng-model="ctrl.tableData.allocated.length">
-        <table class="table-striped table-rsp table-detail modern"
+        <table class="table table-striped table-rsp table-detail"
                hz-table
                st-safe-src="ctrl.tableData.allocated"
                st-table="ctrl.tableData.displayAllocated">
@@ -216,7 +216,7 @@
         <table st-table="ctrl.tableData.displayedAvailable"
                st-safe-src="ctrl.tableData.available"
                hz-table
-               class="table-striped table-rsp table-detail modern">
+               class="table table-striped table-rsp table-detail">
 
           <!-- transfer table, available table head -->
           <thead>

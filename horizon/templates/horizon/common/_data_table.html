@@ -5,21 +5,19 @@
   {% with columns=table.get_columns rows=table.get_rows %}
 {% block table %}
    <table id="{{ table.slugify_name }}" class="{% block table_css_classes %}table table-striped datatable {{ table.css_classes }}{% endblock %}">
+    {% block table_caption %}
+      <caption>
+        {% if not hidden_title %}
+          <span class='table-title'>{{ table }}</span>
+        {% endif %}
+        {{ table.render_table_actions }}
+      </caption>
+    {% endblock table_caption %}
    <thead>
-  {% block table_caption %}
-      <tr class='table_caption'>
-        <th class='table_header' colspan='{{ columns|length }}'>
-          {% if not hidden_title %}
-            <h3 class='table_title'>{{ table }}</h3>
-          {% endif %}
-          {{ table.render_table_actions }}
-        </th>
-      </tr>
-  {% endblock table_caption %}
   {% block table_breadcrumb %}
       {% if table.breadcrumb %}
         <tr>
-          <td class="breadcrumb_td" colspan="{{ table.get_columns|length }}">
+          <td class="breadcrumb_td" colspan="{{ columns|length }}">
             {{ table.breadcrumb.render }}
           </td>
         </tr>
@@ -48,13 +46,13 @@
       {{ row.render }}
     {% empty %}
     <tr class="{% cycle 'odd' 'even' %} empty">
-      <td colspan="{{ table.get_columns|length }}">{{ table.get_empty_message }}</td>
+      <td colspan="{{ columns|length }}">{{ table.get_empty_message }}</td>
     </tr>
     {% endfor %}
     </tbody>
   {% endblock table_body %}
   {% block table_footer %}
-    {% if table.footer %}
+    {% if table.footer and rows %}
     <tfoot>
       {% if table.needs_summary_row %}
       <tr class="summation">
@@ -68,7 +66,7 @@
       </tr>
       {% endif %}
       <tr>
-        <td colspan="{{ table.get_columns|length }}">
+        <td colspan="{{ columns|length }}">
           <span class="table_count">{% blocktrans count counter=rows|length %}Displaying {{ counter }} item{% plural %}Displaying {{ counter }} items{% endblocktrans %}</span>
           {% if table.has_prev_data or table.has_more_data %}
             <span class="spacer">|</span>

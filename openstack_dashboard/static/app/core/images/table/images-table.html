@@ -1,12 +1,10 @@
-<hz-page-header header="{$ 'Images' | translate $}"></hz-page-header>
-
 <table ng-controller="horizon.app.core.images.table.ImagesController as table"
        hz-table ng-cloak
        st-table="table.images"
        st-safe-src="table.imagesSrc"
        default-sort="name"
        default-sort-reverse="false"
-       class="table-striped table-rsp table-detail modern">
+       class="table table-striped table-rsp table-detail">
   <thead>
     <tr>
       <!--
@@ -14,9 +12,8 @@
         This is where batch actions like searching, creating, and deleting.
       -->
       <th colspan="100" class="search-header">
-        <hz-search-bar group-classes="input-group-sm" icon-classes="fa-search">
-          <actions allowed="table.getBatchActions" type="batch">
-          </actions>
+        <hz-search-bar group-classes="input-group" icon-classes="fa-search">
+          <actions allowed="table.getBatchActions" type="batch"></actions>
         </hz-search-bar>
       </th>
     </tr>
@@ -29,7 +26,7 @@
         Include expander if you want to inline details.
         Include action-col if you want to perform actions.
       -->
-      <th class="select-col">
+      <th class="multi_select_column">
         <input type="checkbox" hz-select-all="table.images">
       </th>
 
@@ -42,6 +39,7 @@
       <th class="rsp-p2" st-sort="protected" translate>Protected</th>
       <th class="rsp-p2" st-sort="disk_format" translate>Format</th>
       <th class="rsp-p2" st-sort="size" translate>Size</th>
+      <th class="actions_column" translate>Actions</th>
     </tr>
   </thead>
 
@@ -56,7 +54,7 @@
     -->
     <tr ng-repeat-start="image in table.images track by image.id">
 
-      <td class="select-col">
+      <td class="multi_select_column">
         <input type="checkbox"
                ng-model="tCtrl.selections[image.id].checked"
                hz-select="image">
@@ -75,7 +73,7 @@
       <td class="rsp-p2">{$ image.disk_format | noValue | uppercase $}</td>
       <td class="rsp-p2">{$ image.size | bytes $}</td>
 
-      <td class="action-col">
+      <td class="actions_column">
         <!--
         Table-row-action-column:
         Actions taken here applies to a single item/row.

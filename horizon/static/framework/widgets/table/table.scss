@@ -1,6 +1,11 @@
 $em-per-priority: floor($table-col-avg-width / $font-size-base) * 3;
 
+.table > thead > tr > th {
+  border-top: 0; // Remove once search bar is outside table HTML
+}
+
 [hz-table] {
+
   td.action-col {
     .popover {
       min-width: 15em;
@@ -24,12 +29,11 @@ $em-per-priority: floor($table-col-avg-width / $font-size-base) * 3;
   }
 
   .invalid {
-    color: $invalid-color;
+    color: $brand-warning;
   }
 
   .no-rows-help {
     font-style: italic;
-    font-weight: normal;
     text-align: center;
   }
 
@@ -41,62 +45,24 @@ $em-per-priority: floor($table-col-avg-width / $font-size-base) * 3;
 
   .search-header {
     padding: 0;
+    border-bottom: 0; // Remove once search bar is outside table HTML
 
     .btn-addon {
       display: table-cell;
       padding-left: 0.3em;
-      vertical-align: top;
       width: 1%;
     }
 
     .basic-search-bar {
-      margin-bottom: 0.2em;
       width: 100%;
-
-      .input-group-sm .form-control:not(:first-child):not(:last-child) {
-        border-top-right-radius: 3px;
-        border-bottom-right-radius: 3px;
-      }
-
-      input[type="text"] {
-       @include input-placeholder {
-         font-weight: normal;
-         color: $placeholder-text-color;
-       }
-      }
-    }
-
-    .search-help {
-      color: $transfer-help-text-color;
-      font-size: 0.9em;
-      font-style: italic;
-      font-weight: 400;
-      margin: 0.2em 0.3em 0;
-      visibility: hidden;
-
-      &.searching {
-        visibility: visible;
-      }
     }
   }
 }
 
 .table-rsp {
-  border-collapse: separate;
-  border-spacing: 0 $table-gap-height;
   width: 100%;
 
-  thead tr th, tfoot tr td {
-    background: none;
-    border: none;
-    padding: $table-padding;
-  }
-
   tbody tr {
-    &[lr-drag-src] td:not(.expander) {
-      cursor: move;
-    }
-
     &.lr-drop-target-before td {
       border-top: $reorder-border !important;
     }
@@ -105,36 +71,6 @@ $em-per-priority: floor($table-col-avg-width / $font-size-base) * 3;
       border-bottom: $reorder-border !important;
     }
 
-    td {
-      background-color: #ffffff;
-      border-top: $table-border;
-      border-bottom: $table-border;
-      padding: $table-padding;
-      position: relative;
-      white-space: nowrap;
-
-      &:first-child, &.action-col {
-        border-left: $table-border;
-      }
-
-      &:last-child, &.select-col {
-        border-right: $table-border;
-      }
-    }
-  }
-
-  .select-col {
-    max-width: $select-col-width;
-    text-align: center;
-    width: $select-col-width;
-  }
-
-  .action-col {
-    position: relative;
-    text-align: right;
-    vertical-align: top;
-    min-width: $batch-action-width;
-    width: $batch-action-width;
   }
 
   .numeric {
@@ -171,21 +107,6 @@ $em-per-priority: floor($table-col-avg-width / $font-size-base) * 3;
     font-family: 'FontAwesome';
     margin-left: 0.5em;
     opacity: 1;
-  }
-
-  &.modern {
-    border-spacing: 0;
-
-    tbody tr {
-      td {
-        border: none;
-        border-top: $table-border;
-      }
-
-      &:last-child td {
-        border-bottom: $table-border;
-      }
-    }
   }
 
   &.table-detail {
@@ -257,7 +178,7 @@ $em-per-priority: floor($table-col-avg-width / $font-size-base) * 3;
       tbody {
         tr {
           &:nth-child(2n+1) > td, &:nth-child(2n+1) + .detail-row > td {
-            background-color: $table-stripe-bgcolor;
+            background-color: $table-bg-accent;
           }
 
           &.spacer-row > td, &.spacer-row:nth-child(6n+3) + tr + tr.detail-row td,
@@ -265,18 +186,6 @@ $em-per-priority: floor($table-col-avg-width / $font-size-base) * 3;
           &.detail-row:nth-child(4n+2) + tr:not(.spacer-row) + tr.detail-row td {
             background-color: transparent;
           }
-        }
-      }
-    }
-
-    &.modern {
-      .expanded + tr td {
-        border-top: $table-border;
-      }
-
-      .expanded {
-        td:not(.action-col), td.action-col:not([rowspan='2']) {
-          border-bottom: none;
         }
       }
     }
