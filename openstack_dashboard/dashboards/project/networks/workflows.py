@@ -27,6 +27,7 @@ from horizon import workflows
 
 from openstack_dashboard import api
 from openstack_dashboard.dashboards.project.networks.subnets import utils
+from openstack_dashboard import policy
 
 
 LOG = logging.getLogger(__name__)
@@ -73,6 +74,12 @@ class CreateNetworkInfoAction(workflows.Action):
         if api.neutron.is_port_profiles_supported():
             self.fields['net_profile_id'].choices = (
                 self.get_network_profile_choices(request))
+
+        if not policy.check((("network", "create_network:shared"),), request):
+            self.fields['shared'].widget = forms.CheckboxInput(
+                attrs={'disabled': True})
+            self.fields['shared'].help_text = _(
+                'Non admin users are not allowed to set shared option.')
 
     def get_network_profile_choices(self, request):
         profile_choices = [('', _("Select a profile"))]
