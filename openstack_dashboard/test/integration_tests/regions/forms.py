@@ -388,7 +388,8 @@ class TabbedFormRegion(FormRegion):
 
     @property
     def tabs(self):
-        return menus.TabbedMenuRegion(self.driver, self.conf)
+        return menus.TabbedMenuRegion(self.driver, self.conf,
+                                      src_elem=self.src_elem)
 
 
 class DateFormRegion(BaseFormRegion):
