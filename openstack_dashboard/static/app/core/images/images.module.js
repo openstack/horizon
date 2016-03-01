@@ -59,11 +59,10 @@
   function config($provide, $windowProvider, $routeProvider) {
     var path = $windowProvider.$get().STATIC_URL + 'app/core/images/';
     $provide.constant('horizon.app.core.images.basePath', path);
-    var webroot = $windowProvider.$get().WEBROOT;
     var tableUrl = path + "table/";
-    var projectTableRoute = webroot + 'project/ngimages/';
+    var projectTableRoute = 'project/ngimages/';
     var detailsUrl = path + "detail/";
-    var projectDetailsRoute = webroot + 'project/ngimages/details/';
+    var projectDetailsRoute = 'project/ngimages/details/';
 
     // Share the routes as constants so that views within the images module
     // can create links to each other.
@@ -71,10 +70,10 @@
     $provide.constant('horizon.app.core.images.detailsRoute', projectDetailsRoute);
 
     $routeProvider
-      .when(projectTableRoute, {
+      .when('/' + projectTableRoute, {
         templateUrl: tableUrl + 'images-table.html'
       })
-      .when(projectDetailsRoute + ':imageId', {
+      .when('/' + projectDetailsRoute + ':imageId', {
         templateUrl: detailsUrl + 'image-detail.html'
       });
   }

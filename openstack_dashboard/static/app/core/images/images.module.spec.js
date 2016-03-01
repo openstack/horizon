@@ -23,40 +23,38 @@
   });
 
   describe('horizon.app.core.images.tableRoute constant', function () {
-    var tableRoute, webRoot;
+    var tableRoute;
 
     beforeEach(module('horizon.app.core'));
     beforeEach(module('horizon.app.core.images'));
     beforeEach(inject(function ($injector) {
       tableRoute = $injector.get('horizon.app.core.images.tableRoute');
-      webRoot = $injector.get('$window').WEBROOT;
     }));
 
     it('should be defined', function () {
       expect(tableRoute).toBeDefined();
     });
 
-    it('should equal to "/project/ngimages/"', function () {
-      expect(tableRoute).toEqual(webRoot + 'project/ngimages/');
+    it('should equal to "project/ngimages/"', function () {
+      expect(tableRoute).toEqual('project/ngimages/');
     });
   });
 
   describe('horizon.app.core.images.detailsRoute constant', function () {
-    var detailsRoute, webRoot;
+    var detailsRoute;
 
     beforeEach(module('horizon.app.core'));
     beforeEach(module('horizon.app.core.images'));
     beforeEach(inject(function ($injector) {
       detailsRoute = $injector.get('horizon.app.core.images.detailsRoute');
-      webRoot = $injector.get('$window').WEBROOT;
     }));
 
     it('should be defined', function () {
       expect(detailsRoute).toBeDefined();
     });
 
-    it('should equal to "/project/ngimages/details/"', function () {
-      expect(detailsRoute).toEqual(webRoot + 'project/ngimages/details/');
+    it('should equal to "project/ngimages/details/"', function () {
+      expect(detailsRoute).toEqual('project/ngimages/details/');
     });
   });
 
