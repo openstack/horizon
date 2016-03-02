@@ -17,11 +17,14 @@ from openstack_dashboard.test.integration_tests.regions import messages
 class TestVolumes(helpers.TestCase):
     VOLUME_NAME = helpers.gen_random_resource_name("volume")
 
+    @property
+    def volumes_page(self):
+        return self.home_pg.go_to_compute_volumes_volumespage()
+
     def test_volume_create_edit_delete(self):
-        """This test case checks create, edit, delete volume functionality
-            executed by non-admin user::
+        """This test case checks create, edit, delete volume functionality:
             Steps:
-            1. Login to Horizon Dashboard as horizon user
+            1. Login to Horizon Dashboard
             2. Navigate to Project -> Compute -> Volumes page
             3. Create new volume
             4. Check that the volume is in the list
@@ -29,12 +32,11 @@ class TestVolumes(helpers.TestCase):
             6. Edit the volume
             7. Check that the volume is still in the list
             8. Check that no Error messages present
-            9. Delete the volume
+            9. Delete the volume via proper page (depends on user)
             10. Check that the volume is absent in the list
             11. Check that no Error messages present
         """
         volumes_page = self.home_pg.go_to_compute_volumes_volumespage()
-
         volumes_page.create_volume(self.VOLUME_NAME)
         self.assertTrue(
             volumes_page.find_message_and_dismiss(messages.INFO))
@@ -55,6 +57,7 @@ class TestVolumes(helpers.TestCase):
         self.assertTrue(volumes_page.is_volume_status(self.VOLUME_NAME,
                                                       'Available'))
 
+        volumes_page = self.volumes_page
         volumes_page.delete_volume(self.VOLUME_NAME)
         self.assertTrue(
             volumes_page.find_message_and_dismiss(messages.SUCCESS))
@@ -62,54 +65,79 @@ class TestVolumes(helpers.TestCase):
             volumes_page.find_message_and_dismiss(messages.ERROR))
         self.assertTrue(volumes_page.is_volume_deleted(self.VOLUME_NAME))
 
-
-class TestAdminVolumes(helpers.AdminTestCase):
-    VOLUME_NAME = helpers.gen_random_resource_name("volume")
-
-    def test_volume_create_edit_delete_through_admin(self):
-        """This test case checks create, edit, delete volume functionality
-            executed by admin user:
+    def test_volumes_pagination(self):
+        """This test checks volumes pagination
             Steps:
-            1. Login to Horizon Dashboard as admin user
-            2. Navigate to Project -> Compute -> Volumes page
-            3. Create new volume
-            4. Check that the volume is in the list
-            5. Check that no Error messages present
-            6. Edit the volume
-            7. Check that the volume is still in the list
-            8. Check that no Error messages present
-            9. Go to Admin/System/Volumes page
-            10. Delete the volume
-            11. Check that the volume is absent in the list
-            12. Check that no Error messages present
+            1) Login to Horizon Dashboard
+            2) Go to Project -> Compute -> Volumes -> Volumes tab and create
+            three volumes
+            3) Navigate to user settings page
+            4) Change 'Items Per Page' value to 1
+            5) Go to Project -> Compute -> Volumes -> Volumes tab or
+            Admin -> System -> Volumes -> Volumes tab (depends on user)
+            6) Check that only 'Next' link is available, only one volume is
+            available (and it has correct name)
+            7) Click 'Next' and check that both 'Prev' and 'Next' links are
+            available, only one volume is available (and it has correct name)
+            8) Click 'Next' and check that only 'Prev' link is available,
+            only one volume is visible (and it has correct name)
+            9) Click 'Prev' and check result (should be the same as for step7)
+            10) Click 'Prev' and check result (should be the same as for step6)
+            11) Go to user settings page and restore 'Items Per Page'
+            12) Delete created volumes
         """
         volumes_page = self.home_pg.go_to_compute_volumes_volumespage()
+        count = 3
+        items_per_page = 1
+        volumes_names = ["{0}_{1}".format(self.VOLUME_NAME, i) for i in
+                         xrange(count)]
+        for volume_name in volumes_names:
+            volumes_page.create_volume(volume_name)
+            volumes_page.find_message_and_dismiss(messages.INFO)
+            self.assertTrue(volumes_page.is_volume_present(volume_name))
 
-        volumes_page.create_volume(self.VOLUME_NAME)
-        self.assertTrue(
-            volumes_page.find_message_and_dismiss(messages.INFO))
-        self.assertFalse(
-            volumes_page.find_message_and_dismiss(messages.ERROR))
-        self.assertTrue(volumes_page.is_volume_present(self.VOLUME_NAME))
-        self.assertTrue(volumes_page.is_volume_status(self.VOLUME_NAME,
-                                                      'Available'))
+        first_page_definition = {'Next': True, 'Prev': False,
+                                 'Count': items_per_page,
+                                 'Names': [volumes_names[2]]}
+        second_page_definition = {'Next': True, 'Prev': True,
+                                  'Count': items_per_page,
+                                  'Names': [volumes_names[1]]}
+        third_page_definition = {'Next': False, 'Prev': True,
+                                 'Count': items_per_page,
+                                 'Names': [volumes_names[0]]}
+        settings_page = self.home_pg.go_to_settings_usersettingspage()
+        settings_page.change_pagesize(items_per_page)
+        settings_page.find_message_and_dismiss(messages.SUCCESS)
 
-        new_name = "edited_" + self.VOLUME_NAME
-        volumes_page.edit_volume(self.VOLUME_NAME, new_name, "description")
-        self.VOLUME_NAME = new_name
-        self.assertTrue(
-            volumes_page.find_message_and_dismiss(messages.INFO))
-        self.assertFalse(
-            volumes_page.find_message_and_dismiss(messages.ERROR))
-        self.assertTrue(volumes_page.is_volume_present(self.VOLUME_NAME))
-        self.assertTrue(volumes_page.is_volume_status(self.VOLUME_NAME,
-                                                      'Available'))
+        volumes_page = self.volumes_page
+        volumes_page.volumes_table.assert_definition(first_page_definition)
 
-        volumes_admin_page = self.home_pg.go_to_system_volumes_volumespage()
+        volumes_page.volumes_table.turn_next_page()
+        volumes_page.volumes_table.assert_definition(second_page_definition)
 
-        volumes_admin_page.delete_volume(self.VOLUME_NAME)
-        self.assertTrue(
-            volumes_admin_page.find_message_and_dismiss(messages.SUCCESS))
-        self.assertFalse(
-            volumes_admin_page.find_message_and_dismiss(messages.ERROR))
-        self.assertTrue(volumes_admin_page.is_volume_deleted(self.VOLUME_NAME))
+        volumes_page.volumes_table.turn_next_page()
+        volumes_page.volumes_table.assert_definition(third_page_definition)
+
+        volumes_page.volumes_table.turn_prev_page()
+        volumes_page.volumes_table.assert_definition(second_page_definition)
+
+        volumes_page.volumes_table.turn_prev_page()
+        volumes_page.volumes_table.assert_definition(first_page_definition)
+
+        settings_page = self.home_pg.go_to_settings_usersettingspage()
+        settings_page.change_pagesize()
+        settings_page.find_message_and_dismiss(messages.SUCCESS)
+
+        volumes_page = self.volumes_page
+        for volume_name in volumes_names:
+            volumes_page.delete_volume(volume_name)
+            volumes_page.find_message_and_dismiss(messages.SUCCESS)
+            self.assertTrue(volumes_page.is_volume_deleted(volume_name))
+
+
+class TestAdminVolumes(helpers.AdminTestCase, TestVolumes):
+    VOLUME_NAME = helpers.gen_random_resource_name("volume")
+
+    @property
+    def volumes_page(self):
+        return self.home_pg.go_to_system_volumes_volumespage()
