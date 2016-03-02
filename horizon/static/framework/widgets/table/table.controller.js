@@ -40,6 +40,7 @@
     var ctrl = this;
     ctrl.isSelected = isSelected;
     ctrl.toggleSelect = toggleSelect;
+    ctrl.broadcastExpansion = broadcastExpansion;
 
     clearSelected();
 
@@ -85,6 +86,13 @@
         var rowObj = { row: row, checkedState: checkedState };
         $scope.$broadcast('hzTable:rowSelected', rowObj);
       }
+    }
+
+    /*
+     * Broadcast row expansion
+     */
+    function broadcastExpansion(item) {
+      $scope.$broadcast('hzTable:rowExpanded', item);
     }
   }
 })();
