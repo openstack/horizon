@@ -1700,6 +1700,34 @@ This setting controls the behavior of the operation log.
   * %(param)s
 
 
+``PROJECT_TABLE_EXTRA_INFO``
+----------------------
+
+.. versionadded:: 10.0.0(Newton)
+
+Default: ``{}``
+
+Add additional information for project as an extra attribute.
+Project and user can have any attributes by keystone mechanism.
+This setting can treat these attributes on Horizon when only
+using Keystone v3.
+For example::
+
+    PROJECT_TABLE_EXTRA_INFO = {
+        'phone_num': _('Phone Number'),
+    }
+
+
+``USER_TABLE_EXTRA_INFO``
+-------------------
+
+.. versionadded:: 10.0.0(Newton)
+
+Default: ``{}``
+
+Same as ``PROJECT_TABLE_EXTRA_INFO``, add additional information for user.
+
+
 Django Settings (Partial)
 =========================
 

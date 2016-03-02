@@ -796,3 +796,19 @@ REST_API_REQUIRED_SETTINGS = ['OPENSTACK_HYPERVISOR_FEATURES',
 #    'ipv6': ['fc00::/7']
 #}
 ALLOWED_PRIVATE_SUBNET_CIDR = {'ipv4': [], 'ipv6': []}
+
+# Project and user can have any attributes by keystone v3 mechanism.
+# This settings can treat these attributes on Horizon.
+# It means, when you show Create/Update modal, attribute below is
+# shown and you can specify any value.
+# If you'd like to display these extra data in project or user index table,
+# Keystone v3 allows you to add extra properties to Project and Users.
+# Horizon's customization (http://docs.openstack.org/developer/horizon/topics/customizing.html#horizon-customization-module-overrides)
+# allows you to display this extra information in the Create/Update modal and
+# the corresponding tables.
+#PROJECT_TABLE_EXTRA_INFO = {
+#   'phone_num': _('Phone Number'),
+#}
+#USER_TABLE_EXTRA_INFO = {
+#   'phone_num': _('Phone Number'),
+#}

@@ -1,0 +1,7 @@
+---
+features:
+  - >
+    [`blueprint Supports extra properties in project and user <https://blueprints.launchpad.net/horizon/+spec/support-extra-prop-for-project-and-user>`_]
+    Support an ability to treat additional information for
+    project and user as an extra attribute.
+

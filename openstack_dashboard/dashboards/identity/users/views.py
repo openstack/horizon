@@ -19,6 +19,7 @@
 import logging
 import operator
 
+from django.conf import settings
 from django.core.urlresolvers import reverse
 from django.core.urlresolvers import reverse_lazy
 from django.utils.decorators import method_decorator  # noqa
@@ -129,13 +130,18 @@ class UpdateView(forms.ModalFormView):
             except Exception:
                 exceptions.handle(self.request,
                                   _('Unable to retrieve project domain.'))
-        return {'domain_id': domain_id,
+
+        data = {'domain_id': domain_id,
                 'domain_name': domain_name,
                 'id': user.id,
                 'name': user.name,
                 'project': user.project_id,
                 'email': getattr(user, 'email', None),
                 'description': getattr(user, 'description', None)}
+        if api.keystone.VERSIONS.active >= 3:
+            for key in getattr(settings, 'USER_TABLE_EXTRA_INFO', {}):
+                data[key] = getattr(user, key, None)
+        return data
 
 
 class CreateView(forms.ModalFormView):
@@ -200,7 +206,10 @@ class DetailView(views.HorizonTemplateView):
                 exceptions.handle(self.request,
                                   _('Unable to retrieve project domain.'))
             context["description"] = getattr(user, "description", _("None"))
-
+            extra_info = getattr(settings, 'USER_TABLE_EXTRA_INFO', {})
+            context['extras'] = dict(
+                (display_key, getattr(user, key, ''))
+                for key, display_key in extra_info.items())
         context["user"] = user
         if tenant:
             context["tenant_name"] = tenant.name
