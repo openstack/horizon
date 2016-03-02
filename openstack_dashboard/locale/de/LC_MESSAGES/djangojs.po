@@ -10,16 +10,17 @@
 # Carsten Duch <carsten.duch@posteo.de>, 2015. #zanata
 # Robert Simai <robert.simai@suse.com>, 2015. #zanata
 # Andreas Jaeger <jaegerandi@gmail.com>, 2016. #zanata
+# Monika Wolf <vcomas3@de.ibm.com>, 2016. #zanata
 msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2016-02-27 17:50+0000\n"
+"POT-Creation-Date: 2016-03-02 06:17+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2016-02-26 10:58+0000\n"
-"Last-Translator: Andreas Jaeger <jaegerandi@gmail.com>\n"
+"PO-Revision-Date: 2016-03-01 02:19+0000\n"
+"Last-Translator: Monika Wolf <vcomas3@de.ibm.com>\n"
 "Language: de\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "Generated-By: Babel 2.0\n"
@@ -28,6 +29,12 @@ msgstr ""
 
 msgid "#"
 msgstr "#"
+
+#, python-format
+msgid "%s instance launched."
+msgid_plural "%s instances launched."
+msgstr[0] "%s Instanz gestartet."
+msgstr[1] "%s Instanzen gestartet."
 
 msgid "(None)"
 msgstr "(Kein)"
@@ -55,6 +62,72 @@ msgstr "7"
 
 msgid "8"
 msgstr "8"
+
+msgid ""
+"<button></button>\n"
+"          <strong>Heads up!</strong>\n"
+"           This\n"
+"          <a>alert needs your attention</a>,\n"
+"           but it's not super important."
+msgstr ""
+"<button></button>\n"
+"          <strong>Achtung!</strong>\n"
+"           Diese\n"
+"          <a>Warnmeldung erfordert zwar Ihre Aufmerksamkeit</a>,\n"
+"           ist jedoch nicht besonders wichtig."
+
+msgid ""
+"<button></button>\n"
+"          <strong>Oh snap!</strong>\n"
+"          <a>Change a few things up</a>\n"
+"          and try submitting again."
+msgstr ""
+"<button></button>\n"
+"          <strong>Aufgepasst!</strong>\n"
+"          <a>Ändern Sie einige Teile</a>\n"
+"          und wiederholen Sie die Übergabeoperation."
+
+msgid ""
+"<button></button>\n"
+"          <strong>Well done!</strong>\n"
+"          You successfully read\n"
+"          <a>this important alert message</a>."
+msgstr ""
+"<button></button>\n"
+"          <strong>Glückwunsch!</strong>\n"
+"          Sie haben \n"
+"       <a>diese wichtige Warnmeldung</a> erfolgreich gelesen."
+
+msgid ""
+"<div>\n"
+"                  \n"
+"                    <input> Checkbox\n"
+"                  </input>\n"
+"                </div>"
+msgstr ""
+"<div>\n"
+"                  \n"
+"                    <input> Kontrollkästchen\n"
+"                  </input>\n"
+"                </div>"
+
+msgid ""
+"<input>\n"
+"                    Option one is this\n"
+"                  </input>"
+msgstr ""
+"<input>\n"
+"                    Dies ist Option 1.\n"
+"                  </input>"
+
+msgid ""
+"<input>\n"
+"                    Option two can be something else\n"
+"                  </input>"
+msgstr ""
+"<input>\n"
+"                    Option 2 ist etwas anderes.\n"
+"                  </input>"
 
 msgid ""
 "<li><b>Image (with Create New Volume checked)</b>: This options uses an "
@@ -101,6 +174,9 @@ msgstr ""
 "bei der Löschung der Instanz zu entfernen. <em>Hinweis: wenn Sie Datenträger "
 "auswählen können Sie nur eine Instanz starten.</em></li>"
 
+msgid "<small>This line of text is meant to be treated as fine print.</small>"
+msgstr "<small>Diese Textzeile soll wie Kleindruck behandelt werden.</small>"
+
 msgid ""
 "A floating IP allows instances to be addressable from an external network.\n"
 "    Floating IPs are not allocated to instances at creation time and may be "
@@ -129,6 +205,14 @@ msgstr ""
 "Ein Schlüsselpaar erlaubt Ihnen den SSH Zugang zur neu erstellten Instanz. \n"
 "Sie können ein vorhandenes Schlüsselpaar verwenden, eines importieren oder "
 "neu erzeugen."
+
+msgid ""
+"A key pair named '{$ctrl.createdKeypair.name$}' was successfully created. "
+"This key pair should automatically download."
+msgstr ""
+"Ein Schlüsselpaar mit dem Namen '{$ctrl.createdKeypair.name$}' wurde "
+"erfolgreich erstellt. Dieses Schlüsselpaar sollte automatisch "
+"heruntergeladen werden."
 
 msgid "A name is required for your instance."
 msgstr "Ein Name wird für die Instanz benötigt."
@@ -170,6 +254,9 @@ msgstr ""
 "Administratoren richten den Pool der Floating IPs für die Zuweisung zu "
 "Instanzen ein."
 
+msgid "Alerts"
+msgstr "Alarme"
+
 msgid ""
 "An <b>External</b> network is set up by an administrator.\n"
 "    If you want an instance to communicate outside of the data center,\n"
@@ -184,6 +271,9 @@ msgstr ""
 "dem <b>Extern</b> Netzwerk ein.\n"
 "     Sie können die <b>Netzwerk-Topologie</b> Ansicht verwenden, um den "
 "Router mit zwei Netzwerken zu verbinden."
+
+msgid "An abbreviation of the word attribute is <abbr>attr</abbr>."
+msgstr "Eine Abkürzung für das Wort Attribut ist <abbr>attr</abbr>."
 
 msgid ""
 "An advanced option available when launching an instance is disk "
@@ -214,6 +304,33 @@ msgstr "Automatisch"
 msgid "Availability Zone"
 msgstr "Verfügbarkeitszone"
 
+msgid "Basic panel"
+msgstr "Basisanzeige"
+
+msgid "Block level button"
+msgstr "Schaltfläche Blockebene"
+
+msgid "Blockquotes"
+msgstr "Blockquotes"
+
+msgid "Bordered Table"
+msgstr "Tabelle mit Rahmen"
+
+msgid "Bottom"
+msgstr "Unten"
+
+msgid "Brand"
+msgstr "Marke"
+
+msgid "Breadcrumbs"
+msgstr "Breadcrumbs"
+
+msgid "Button"
+msgstr "Schaltfläche"
+
+msgid "Buttons"
+msgstr "Schaltflächen"
+
 msgid "Cancel"
 msgstr "Abbrechen"
 
@@ -239,8 +356,17 @@ msgstr "Prüfsumme"
 msgid "Click to see more details"
 msgstr "Klicken um mehr Details zu sehen"
 
+msgid "Close"
+msgstr "Schließen"
+
 msgid "Color"
 msgstr "Farbe"
+
+msgid "Column content"
+msgstr "Spalteninhalt"
+
+msgid "Column heading"
+msgstr "Spaltenüberschrift"
 
 msgid "Configuration"
 msgstr "Konfiguration"
@@ -253,6 +379,9 @@ msgstr "Konfigurationshilfe"
 
 msgid "Container Format"
 msgstr "Containerformat"
+
+msgid "Containers"
+msgstr "Container"
 
 msgid "Count"
 msgstr "Anzahl"
@@ -287,8 +416,23 @@ msgstr ""
 msgid "Danger"
 msgstr "Gefahr"
 
+msgid "Data"
+msgstr "Daten"
+
+msgid "Date"
+msgstr "Datum"
+
+msgid "Datetime"
+msgstr "Datum/Uhrzeit"
+
 msgid "Default"
 msgstr "Standard"
+
+msgid "Default button"
+msgstr "Standardschaltfläche"
+
+msgid "Default input"
+msgstr "Standardeingabe"
 
 msgid "Delete Volume on Instance Delete"
 msgstr "Lösche Datenträger beim Löschen der Instanz"
@@ -296,11 +440,11 @@ msgstr "Lösche Datenträger beim Löschen der Instanz"
 msgid "Deleted"
 msgstr "Gelöscht"
 
-#, fuzzy, python-format
+#, python-format
 msgid "Deleted Image: %s."
 msgid_plural "Deleted Images: %s."
 msgstr[0] "Gelöschtes Abbild: %s."
-msgstr[1] ""
+msgstr[1] "Gelöschte Abbilder: %s."
 
 msgid "Description"
 msgstr "Beschreibung"
@@ -314,8 +458,17 @@ msgstr "Details"
 msgid "Device Name"
 msgstr "Gerätename"
 
+msgid "Dialogs"
+msgstr "Dialogfelder"
+
 msgid "Direction"
 msgstr "Richtung"
+
+msgid "Disabled"
+msgstr "Inaktiviert"
+
+msgid "Disabled input"
+msgstr "Inaktivierte Eingabe"
 
 msgid "Disk Format"
 msgstr "Festplattenformat"
@@ -339,6 +492,18 @@ msgstr ""
 "Dropdown\n"
 "                <span></span>"
 
+msgid "Dropdown <b></b>"
+msgstr "Dropdown <b></b>"
+
+msgid "Dropdown <span></span>"
+msgstr "Dropdown <span></span>"
+
+msgid "Dropdown header"
+msgstr "Dropdown-Header"
+
+msgid "Dropdown link"
+msgstr "Dropdown-Link"
+
 msgid "Email"
 msgstr "E-Mail"
 
@@ -353,6 +518,9 @@ msgstr "Flüchtige Festplatte"
 
 msgid "Ether Type"
 msgstr "Netzwerktyp"
+
+msgid "Example body text"
+msgstr "Beispieltext für Hauptteil"
 
 #, python-format
 msgid "Extension is not enabled: %(extension)s."
@@ -383,6 +551,9 @@ msgstr ""
 "Varianten beinhalten die Größen der Compute-, Speicher- und Storage-"
 "Kapazität einer Instanz."
 
+msgid "Focused input"
+msgstr "Gezielte Eingabe"
+
 msgid "Format"
 msgstr "Abbildformat"
 
@@ -400,6 +571,24 @@ msgstr ""
 " dann den öffentlichen Schlüssel in der rot hervorgehobenen Box in ihre "
 "Datei\n"
 " <samp>.ssh/authorized_keys</samp>"
+
+msgid "Heading 1"
+msgstr "Überschrift 1"
+
+msgid "Heading 2"
+msgstr "Überschrift 2"
+
+msgid "Heading 3"
+msgstr "Überschrift 3"
+
+msgid "Heading 4"
+msgstr "Überschrift 4"
+
+msgid "Heading 5"
+msgstr "Überschrift 5"
+
+msgid "Heading 6"
+msgstr "Überschrift 6"
 
 msgid "ID"
 msgstr "Kennung"
@@ -421,6 +610,20 @@ msgstr ""
 "Wenn eine Sicherheitsgruppe einer Instanz nicht vor deren Start zugewiesen "
 "wird, haben Sie nur einen sehr beschränkten Zugang. Sie können auf die "
 "Instanz dann nur mit Hilfe der VNC Konsole zugreifen."
+
+msgid ""
+"If not, you can manually dowload this keypair at the following link:\n"
+"        <a>\n"
+"          <span></span>\n"
+"          {$ctrl.createdKeypair.name$}\n"
+"        </a>"
+msgstr ""
+"Andernfalls können Sie dieses Schlüsselpaar manuell über den folgenden Link "
+"herunterladen:\n"
+"        <a>\n"
+"          <span></span>\n"
+"          {$ctrl.createdKeypair.name$}\n"
+"        </a>"
 
 msgid ""
 "If you select an availability zone and plan to use the 'boot from volume' "
@@ -465,8 +668,26 @@ msgstr "Auswirkung auf Ihr Kontingent"
 msgid "Import Key Pair"
 msgstr "Schlüsselpaar importieren"
 
+msgid "Indicators"
+msgstr "Indikator"
+
 msgid "Info"
 msgstr "Info"
+
+msgid "Input Sizes"
+msgstr "Eingabegrößen"
+
+msgid "Input States"
+msgstr "Eingabezustände"
+
+msgid "Input error"
+msgstr "Eingabefehler"
+
+msgid "Input success"
+msgstr "Erfolgreiche Eingabe"
+
+msgid "Input warning"
+msgstr "Eingabewarnung"
 
 msgid "Instance Details"
 msgstr "Instanzdetails"
@@ -526,11 +747,22 @@ msgstr ""
 "öffentlichen SSH\n"
 " Schlüssel im angebotenen Feld ein."
 
+msgid "Keypair already exists or name contains bad characters."
+msgstr ""
+"Das Schlüsselpaar ist bereits vorhanden oder der Name enthält ungültige "
+"Zeichen."
+
 msgid "Killed"
 msgstr "Getötet"
 
+msgid "Large button"
+msgstr "Große Schaltfläche"
+
 msgid "Launch Instance"
 msgstr "Instanz starten"
+
+msgid "Learn more"
+msgstr "Lernen Sie mehr"
 
 msgid "Left"
 msgstr "Links"
@@ -538,14 +770,23 @@ msgstr "Links"
 msgid "Legend"
 msgstr "Legende"
 
+msgid "Library"
+msgstr "Bibliothek"
+
 msgid "Link"
 msgstr "Link"
+
+msgid "List groups"
+msgstr "Gruppen auflisten"
 
 msgid "Manual"
 msgstr "Manuell"
 
 msgid "Max Port"
 msgstr "Max Port"
+
+msgid "Messages <span>3</span>"
+msgstr "Nachrichten <span>3</span>"
 
 msgid "Metadata"
 msgstr "Metadaten"
@@ -571,11 +812,17 @@ msgstr "Min RAM"
 msgid "Min RAM (MB)"
 msgstr "Min RAM (MB)"
 
+msgid "Mini button"
+msgstr "Minischaltfläche"
+
 msgid "Month"
 msgstr "Monat"
 
 msgid "Name"
 msgstr "Name"
+
+msgid "Navbar"
+msgstr "Navigationsleiste"
 
 msgid "Network"
 msgstr "Netzwerk"
@@ -594,11 +841,22 @@ msgstr ""
 "Netzwerke stellen die Kommunikationskanäle für die Instanzen in der Cloud "
 "zur Verfügung."
 
+msgid "Newer"
+msgstr "Neuer"
+
+msgid "Next"
+msgstr "Weiter"
+
 msgid "No"
 msgstr "Nein"
 
 msgid "No available items"
 msgstr "Keine verfügbaren Positionen"
+
+msgid "Note: you will not be able to download this later."
+msgstr ""
+"Hinweis: Sie können diesen Schritt nicht zu einem späteren Zeitpunkt "
+"ausführen."
 
 msgid "Number"
 msgstr "Zahl"
@@ -606,8 +864,44 @@ msgstr "Zahl"
 msgid "OVA"
 msgstr "OVA"
 
+msgid "Older"
+msgstr "Älter"
+
+msgid "One more separated link"
+msgstr "Weiterer getrennter Link"
+
+msgid "Other Input Types"
+msgstr "Andere Eingabetypen"
+
 msgid "Overview"
 msgstr "Übersicht"
+
+msgid "Pagination"
+msgstr "Paginierung"
+
+msgid "Panel content"
+msgstr "Anzeigeninhalt"
+
+msgid "Panel danger"
+msgstr "Gefahrenanzeige"
+
+msgid "Panel footer"
+msgstr "Fußzeile der Anzeige"
+
+msgid "Panel heading"
+msgstr "Anzeigenüberschrift"
+
+msgid "Panel info"
+msgstr "Informationsanzeige"
+
+msgid "Panel success"
+msgstr "Erfolgsanzeige"
+
+msgid "Panel warning"
+msgstr "Warnungsanzeige"
+
+msgid "Panels"
+msgstr "Fenster"
 
 msgid "Password"
 msgstr "Passwort"
@@ -628,14 +922,29 @@ msgstr ""
 "Erhöhen Sie die Anzahl, um eine Vielzahl von Instanzen mit den gleichen "
 "Einstellungen zu erzeugen."
 
+msgid "Please try again."
+msgstr "Versuchen Sie es erneut."
+
 msgid "Policy check failed."
 msgstr "Richtlinienüberprüfung fehlgeschlagen."
+
+msgid "Previous"
+msgstr "Zurück"
+
+msgid "Primary"
+msgstr "Primär"
 
 msgid "Private"
 msgstr "Privat"
 
 msgid "Profile"
 msgstr "Profil"
+
+msgid "Profile <span></span>"
+msgstr "Profil <span></span>"
+
+msgid "Progress bars"
+msgstr "Fortschrittsleiste"
 
 msgid "Project"
 msgstr "Projekt"
@@ -685,6 +994,9 @@ msgstr "RAM"
 msgid "RAW"
 msgstr "RAW"
 
+msgid "Radios"
+msgstr "Optionsfelder"
+
 msgid "Re-order items using drag and drop"
 msgstr "Umsortieren der Positionen durch ziehen und ablegen"
 
@@ -694,11 +1006,17 @@ msgstr "Entfernt"
 msgid "Required"
 msgstr "Erforderlich"
 
+msgid "Right"
+msgstr "Rechts"
+
 msgid "Root Disk"
 msgstr "Root-Festplatte"
 
 msgid "Save"
 msgstr "Speichern"
+
+msgid "Save changes"
+msgstr "Änderungen speichern"
 
 msgid "Saving"
 msgstr "Speichern"
@@ -772,6 +1090,9 @@ msgstr ""
 msgid "Select the security groups."
 msgstr "Wählen Sie die Sicherheitsgruppen aus."
 
+msgid "Separated link"
+msgstr "Getrennter Link"
+
 #, python-format
 msgid "Service type is not enabled: %(desiredType)s"
 msgstr "Diensttyp ist nicht aktiviert: %(desiredType)s"
@@ -789,6 +1110,9 @@ msgstr "Größe"
 msgid "Size (GB)"
 msgstr "Größe (GB)"
 
+msgid "Small button"
+msgstr "Kleine Schaltfläche"
+
 msgid "Snapshot"
 msgstr "Snapshot"
 
@@ -797,6 +1121,9 @@ msgstr "Quelle"
 
 msgid "Source Code"
 msgstr "Source Code"
+
+msgid "Standard Table"
+msgstr "Standardtabelle"
 
 msgid "Status"
 msgstr "Status"
@@ -817,8 +1144,17 @@ msgstr "Importieren des Schlüsselpaares %(name)s erfolgreich."
 msgid "Swap Disk"
 msgstr "Auslagerungsplatte"
 
+msgid "Tables"
+msgstr "Tabellen"
+
+msgid "Tabs"
+msgstr "Reiter"
+
 msgid "Tel"
 msgstr "Tel"
+
+msgid "Textarea"
+msgstr "Textbereich"
 
 msgid ""
 "The flavor you select for an instance determines the amount of compute, "
@@ -837,6 +1173,13 @@ msgstr ""
 "Instanz zur Verfügung haben. Varianten, die nicht genug Resourcen zur "
 "Verfügung stellen können, sind in der <b>Verfügbarkeit</b>-Tabelle mit einem "
 "gelben Warn-Icon markiert."
+
+msgid "The following snippet of text is <em>rendered as italicized text</em>."
+msgstr "Das folgende Textsnippet wird <em>in Kursivdruck angezeigt</em>."
+
+msgid ""
+"The following snippet of text is <strong>rendered as bold text</strong>."
+msgstr "Das folgende Textsnippet wird <strong>in Fettdruck angezeigt</strong>."
 
 #, python-format
 msgid ""
@@ -894,6 +1237,20 @@ msgstr ""
 msgid "Time"
 msgstr "Zeit"
 
+msgid ""
+"To view source code, hover over a section, then click the <a><span></span></"
+"a> button in the top right of that section."
+msgstr ""
+"Bewegen Sie zum Anzeigen von Quellcode den Mauszeiger über einen Abschnitt "
+"und klicken Sie anschließend oben rechts in dem Abschnitt auf die "
+"Schaltfläche  <a><span></span></a>. "
+
+msgid "Tooltips"
+msgstr "QuickInfo"
+
+msgid "Top"
+msgstr "Oben"
+
 msgid "Total Disk"
 msgstr "Festplatte gesamt"
 
@@ -917,6 +1274,9 @@ msgstr ""
 "Geben Sie ihr Skript direkt in das Angepasste Skript Feld ein. Sofern Ihr "
 "Browser die HTML 5 API unterstützt, können Sie das Skript aus einer Datei "
 "laden. Die Größe Ihres Skriptes sollte 16 Kb nicht überschreiten."
+
+msgid "Typography"
+msgstr "Typografie"
 
 msgid "Unable to create the domain."
 msgstr "Die Domäne kann nicht erstellt werden."
@@ -992,6 +1352,9 @@ msgstr "Der Benutzer kann nicht bearbeitet werden."
 
 msgid "Unable to fetch the service catalog."
 msgstr "Der Dienstkatalog kann nicht abgerufen werden."
+
+msgid "Unable to generate"
+msgstr "Generieren nicht möglich"
 
 msgid "Unable to get the Glance service version."
 msgstr "Glance Dienst-Version kann nicht abgerufen werden."
@@ -1137,9 +1500,6 @@ msgstr "Benutzerkennung"
 msgid "User Name"
 msgstr "Benutzername"
 
-msgid "Users"
-msgstr "Benutzer"
-
 msgid "VCPUS"
 msgstr "VCPUS"
 
@@ -1181,8 +1541,14 @@ msgstr ""
 msgid "Warning"
 msgstr "Warnung"
 
+msgid "Warning!"
+msgstr "Warnung!"
+
 msgid "Week"
 msgstr "Woche"
+
+msgid "Wells"
+msgstr "Container"
 
 msgid ""
 "When selecting volume as boot source, please ensure the instance's "
