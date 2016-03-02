@@ -21,15 +21,19 @@
 
   ImageDetailController.$inject = [
     'horizon.app.core.images.tableRoute',
+    'horizon.app.core.images.resourceType',
     'horizon.app.core.openstack-service-api.glance',
     'horizon.app.core.openstack-service-api.keystone',
+    'horizon.framework.conf.resource-type-registry.service',
     '$routeParams'
   ];
 
   function ImageDetailController(
     tableRoute,
+    imageResourceTypeCode,
     glanceAPI,
     keystoneAPI,
+    registry,
     $routeParams)
   {
     var ctrl = this;
@@ -38,6 +42,7 @@
     ctrl.project = {};
     ctrl.hasCustomProperties = false;
     ctrl.tableRoute = tableRoute;
+    ctrl.resourceType = registry.getResourceType(imageResourceTypeCode);
 
     var imageId = $routeParams.imageId;
 
