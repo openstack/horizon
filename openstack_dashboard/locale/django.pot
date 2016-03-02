@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2016-03-01 06:41+0000\n"
+"POT-Creation-Date: 2016-03-02 06:40+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -649,7 +649,7 @@ msgstr ""
 #: openstack_dashboard/dashboards/project/loadbalancers/workflows.py:150
 #: openstack_dashboard/dashboards/project/loadbalancers/templates/loadbalancers/_pool_details.html:8
 #: openstack_dashboard/dashboards/project/loadbalancers/templates/loadbalancers/_vip_details.html:8
-#: openstack_dashboard/dashboards/project/networks/forms.py:35
+#: openstack_dashboard/dashboards/project/networks/forms.py:36
 #: openstack_dashboard/dashboards/project/networks/tables.py:172
 #: openstack_dashboard/dashboards/project/networks/ports/forms.py:39
 #: openstack_dashboard/dashboards/project/networks/ports/tables.py:69
@@ -1439,7 +1439,7 @@ msgstr ""
 #: openstack_dashboard/dashboards/project/loadbalancers/templates/loadbalancers/_monitor_details.html:5
 #: openstack_dashboard/dashboards/project/loadbalancers/templates/loadbalancers/_pool_details.html:5
 #: openstack_dashboard/dashboards/project/loadbalancers/templates/loadbalancers/_vip_details.html:5
-#: openstack_dashboard/dashboards/project/networks/forms.py:37
+#: openstack_dashboard/dashboards/project/networks/forms.py:38
 #: openstack_dashboard/dashboards/project/networks/ports/forms.py:35
 #: openstack_dashboard/dashboards/project/networks/templates/networks/_detail_overview.html:9
 #: openstack_dashboard/dashboards/project/networks/templates/networks/ports/_detail_overview.html:7
@@ -3119,7 +3119,7 @@ msgid "VXLAN"
 msgstr ""
 
 #: openstack_dashboard/dashboards/admin/networks/forms.py:45
-#: openstack_dashboard/dashboards/project/networks/workflows.py:43
+#: openstack_dashboard/dashboards/project/networks/workflows.py:44
 msgid "Network Profile"
 msgstr ""
 
@@ -3163,8 +3163,8 @@ msgstr ""
 #: openstack_dashboard/dashboards/project/loadbalancers/workflows.py:187
 #: openstack_dashboard/dashboards/project/loadbalancers/workflows.py:333
 #: openstack_dashboard/dashboards/project/loadbalancers/workflows.py:536
-#: openstack_dashboard/dashboards/project/networks/forms.py:40
-#: openstack_dashboard/dashboards/project/networks/workflows.py:47
+#: openstack_dashboard/dashboards/project/networks/forms.py:41
+#: openstack_dashboard/dashboards/project/networks/workflows.py:48
 #: openstack_dashboard/dashboards/project/networks/ports/forms.py:41
 #: openstack_dashboard/dashboards/project/routers/forms.py:37
 #: openstack_dashboard/dashboards/project/routers/forms.py:145
@@ -3188,8 +3188,8 @@ msgstr ""
 #: openstack_dashboard/dashboards/project/loadbalancers/workflows.py:188
 #: openstack_dashboard/dashboards/project/loadbalancers/workflows.py:334
 #: openstack_dashboard/dashboards/project/loadbalancers/workflows.py:537
-#: openstack_dashboard/dashboards/project/networks/forms.py:41
-#: openstack_dashboard/dashboards/project/networks/workflows.py:48
+#: openstack_dashboard/dashboards/project/networks/forms.py:42
+#: openstack_dashboard/dashboards/project/networks/workflows.py:49
 #: openstack_dashboard/dashboards/project/networks/ports/forms.py:42
 #: openstack_dashboard/dashboards/project/routers/forms.py:38
 #: openstack_dashboard/dashboards/project/routers/forms.py:146
@@ -3220,9 +3220,9 @@ msgstr ""
 #: openstack_dashboard/dashboards/project/loadbalancers/workflows.py:189
 #: openstack_dashboard/dashboards/project/loadbalancers/workflows.py:335
 #: openstack_dashboard/dashboards/project/loadbalancers/workflows.py:538
-#: openstack_dashboard/dashboards/project/networks/forms.py:43
+#: openstack_dashboard/dashboards/project/networks/forms.py:44
 #: openstack_dashboard/dashboards/project/networks/tables.py:183
-#: openstack_dashboard/dashboards/project/networks/workflows.py:49
+#: openstack_dashboard/dashboards/project/networks/workflows.py:50
 #: openstack_dashboard/dashboards/project/networks/ports/forms.py:43
 #: openstack_dashboard/dashboards/project/networks/ports/tables.py:77
 #: openstack_dashboard/dashboards/project/networks/templates/networks/_detail_overview.html:15
@@ -3252,9 +3252,9 @@ msgstr ""
 #: openstack_dashboard/dashboards/project/firewalls/workflows.py:256
 #: openstack_dashboard/dashboards/project/firewalls/templates/firewalls/_policy_details.html:29
 #: openstack_dashboard/dashboards/project/firewalls/templates/firewalls/_rule_details.html:48
-#: openstack_dashboard/dashboards/project/networks/forms.py:44
+#: openstack_dashboard/dashboards/project/networks/forms.py:45
 #: openstack_dashboard/dashboards/project/networks/tables.py:176
-#: openstack_dashboard/dashboards/project/networks/workflows.py:53
+#: openstack_dashboard/dashboards/project/networks/workflows.py:54
 #: openstack_dashboard/dashboards/project/networks/templates/networks/_detail_overview.html:17
 msgid "Shared"
 msgstr ""
@@ -3285,13 +3285,13 @@ msgstr ""
 
 #: openstack_dashboard/dashboards/admin/networks/forms.py:145
 #: openstack_dashboard/dashboards/project/instances/workflows/create_instance.py:740
-#: openstack_dashboard/dashboards/project/networks/workflows.py:78
+#: openstack_dashboard/dashboards/project/networks/workflows.py:85
 msgid "Select a profile"
 msgstr ""
 
 #: openstack_dashboard/dashboards/admin/networks/forms.py:155
 #: openstack_dashboard/dashboards/project/instances/workflows/create_instance.py:750
-#: openstack_dashboard/dashboards/project/networks/workflows.py:88
+#: openstack_dashboard/dashboards/project/networks/workflows.py:95
 msgid "Network Profiles could not be retrieved."
 msgstr ""
 
@@ -3321,13 +3321,13 @@ msgid "For VXLAN networks, valid tunnel IDs are %(min)s through %(max)s."
 msgstr ""
 
 #: openstack_dashboard/dashboards/admin/networks/forms.py:255
-#: openstack_dashboard/dashboards/project/networks/forms.py:55
+#: openstack_dashboard/dashboards/project/networks/forms.py:65
 #, python-format
 msgid "Network %s was successfully updated."
 msgstr ""
 
 #: openstack_dashboard/dashboards/admin/networks/forms.py:260
-#: openstack_dashboard/dashboards/project/networks/forms.py:60
+#: openstack_dashboard/dashboards/project/networks/forms.py:70
 #, python-format
 msgid "Failed to update network %s"
 msgstr ""
@@ -3377,7 +3377,7 @@ msgstr ""
 #: openstack_dashboard/dashboards/project/network_topology/templates/network_topology/index.html:40
 #: openstack_dashboard/dashboards/project/networks/tables.py:87
 #: openstack_dashboard/dashboards/project/networks/tables.py:102
-#: openstack_dashboard/dashboards/project/networks/workflows.py:459
+#: openstack_dashboard/dashboards/project/networks/workflows.py:466
 #: openstack_dashboard/dashboards/project/networks/templates/networks/_create.html:7
 #: openstack_dashboard/dashboards/project/networks/templates/networks/_create.html:22
 msgid "Create Network"
@@ -3404,7 +3404,7 @@ msgstr ""
 #: openstack_dashboard/dashboards/admin/networks/tables.py:94
 #: openstack_dashboard/dashboards/admin/networks/agents/forms.py:27
 #: openstack_dashboard/dashboards/admin/networks/ports/forms.py:36
-#: openstack_dashboard/dashboards/project/networks/workflows.py:37
+#: openstack_dashboard/dashboards/project/networks/workflows.py:38
 #: openstack_dashboard/dashboards/project/networks/templates/networks/ports/_detail_overview.html:9
 #: openstack_dashboard/dashboards/project/networks/templates/networks/subnets/_detail_overview.html:9
 #: openstack_dashboard/dashboards/project/routers/templates/routers/_detail_overview.html:29
@@ -3672,7 +3672,7 @@ msgid "Failed to delete subnet %s"
 msgstr ""
 
 #: openstack_dashboard/dashboards/admin/networks/subnets/tables.py:67
-#: openstack_dashboard/dashboards/project/networks/workflows.py:55
+#: openstack_dashboard/dashboards/project/networks/workflows.py:56
 #: openstack_dashboard/dashboards/project/networks/subnets/tables.py:91
 #: openstack_dashboard/dashboards/project/networks/subnets/tables.py:108
 #: openstack_dashboard/dashboards/project/networks/subnets/workflows.py:59
@@ -3696,15 +3696,15 @@ msgstr ""
 #: openstack_dashboard/dashboards/admin/networks/subnets/tables.py:95
 #: openstack_dashboard/dashboards/project/firewalls/forms.py:72
 #: openstack_dashboard/dashboards/project/firewalls/workflows.py:67
-#: openstack_dashboard/dashboards/project/networks/workflows.py:164
+#: openstack_dashboard/dashboards/project/networks/workflows.py:171
 #: openstack_dashboard/dashboards/project/networks/subnets/tables.py:132
 #: openstack_dashboard/dashboards/project/networks/subnets/workflows.py:109
 msgid "IP Version"
 msgstr ""
 
 #: openstack_dashboard/dashboards/admin/networks/subnets/tables.py:96
-#: openstack_dashboard/dashboards/project/networks/workflows.py:167
-#: openstack_dashboard/dashboards/project/networks/workflows.py:171
+#: openstack_dashboard/dashboards/project/networks/workflows.py:174
+#: openstack_dashboard/dashboards/project/networks/workflows.py:178
 #: openstack_dashboard/dashboards/project/networks/subnets/tables.py:133
 #: openstack_dashboard/dashboards/project/networks/templates/networks/subnets/_detail_overview.html:31
 msgid "Gateway IP"
@@ -4728,7 +4728,7 @@ msgstr ""
 #: openstack_dashboard/dashboards/admin/volumes/volume_types/qos_specs/tables.py:25
 #: openstack_dashboard/dashboards/admin/volumes/volume_types/qos_specs/views.py:76
 #: openstack_dashboard/dashboards/project/containers/templates/containers/_create_pseudo_folder.html:24
-#: openstack_dashboard/dashboards/project/networks/workflows.py:460
+#: openstack_dashboard/dashboards/project/networks/workflows.py:467
 #: openstack_dashboard/dashboards/project/networks/subnets/workflows.py:60
 msgid "Create"
 msgstr ""
@@ -7244,8 +7244,8 @@ msgstr ""
 
 #: openstack_dashboard/dashboards/project/containers/panel.py:25
 #: openstack_dashboard/dashboards/project/containers/tables.py:270
+#: openstack_dashboard/dashboards/project/containers/views.py:49
 #: openstack_dashboard/dashboards/project/containers/templates/containers/index.html:4
-#: openstack_dashboard/dashboards/project/containers/templates/containers/index.html:8
 msgid "Containers"
 msgstr ""
 
@@ -7292,7 +7292,7 @@ msgid "Unable to delete container."
 msgstr ""
 
 #: openstack_dashboard/dashboards/project/containers/tables.py:141
-#: openstack_dashboard/dashboards/project/containers/views.py:130
+#: openstack_dashboard/dashboards/project/containers/views.py:131
 #: openstack_dashboard/dashboards/project/containers/templates/containers/_create.html:7
 #: openstack_dashboard/dashboards/project/containers/templates/containers/_create.html:23
 #: openstack_dashboard/dashboards/project/containers/templates/containers/create.html:3
@@ -7304,7 +7304,7 @@ msgid "View Container"
 msgstr ""
 
 #: openstack_dashboard/dashboards/project/containers/tables.py:161
-#: openstack_dashboard/dashboards/project/containers/views.py:154
+#: openstack_dashboard/dashboards/project/containers/views.py:155
 #: openstack_dashboard/dashboards/project/containers/templates/containers/create_pseudo_folder.html:3
 msgid "Create Pseudo-folder"
 msgstr ""
@@ -7316,7 +7316,7 @@ msgid "Upload Object"
 msgstr ""
 
 #: openstack_dashboard/dashboards/project/containers/tables.py:261
-#: openstack_dashboard/dashboards/project/containers/views.py:270
+#: openstack_dashboard/dashboards/project/containers/views.py:271
 #: openstack_dashboard/dashboards/project/containers/templates/containers/_container_detail.html:4
 #: openstack_dashboard/dashboards/project/containers/templates/containers/container_detail.html:3
 msgid "Container Details"
@@ -7350,44 +7350,44 @@ msgstr ""
 msgid "Objects"
 msgstr ""
 
-#: openstack_dashboard/dashboards/project/containers/views.py:58
+#: openstack_dashboard/dashboards/project/containers/views.py:59
 msgid "Unable to retrieve container list."
 msgstr ""
 
-#: openstack_dashboard/dashboards/project/containers/views.py:87
+#: openstack_dashboard/dashboards/project/containers/views.py:88
 msgid "Unable to retrieve object list."
 msgstr ""
 
-#: openstack_dashboard/dashboards/project/containers/views.py:177
+#: openstack_dashboard/dashboards/project/containers/views.py:178
 msgid "Upload Objects"
 msgstr ""
 
-#: openstack_dashboard/dashboards/project/containers/views.py:202
+#: openstack_dashboard/dashboards/project/containers/views.py:203
 msgid "Unable to retrieve object."
 msgstr ""
 
-#: openstack_dashboard/dashboards/project/containers/views.py:224
+#: openstack_dashboard/dashboards/project/containers/views.py:225
 #: openstack_dashboard/dashboards/project/containers/templates/containers/_copy.html:22
 #: openstack_dashboard/dashboards/project/containers/templates/containers/copy.html:3
 msgid "Copy Object"
 msgstr ""
 
-#: openstack_dashboard/dashboards/project/containers/views.py:240
+#: openstack_dashboard/dashboards/project/containers/views.py:241
 msgid "Unable to list containers."
 msgstr ""
 
-#: openstack_dashboard/dashboards/project/containers/views.py:282
-#: openstack_dashboard/dashboards/project/containers/views.py:306
+#: openstack_dashboard/dashboards/project/containers/views.py:283
+#: openstack_dashboard/dashboards/project/containers/views.py:307
 msgid "Unable to retrieve details."
 msgstr ""
 
-#: openstack_dashboard/dashboards/project/containers/views.py:293
+#: openstack_dashboard/dashboards/project/containers/views.py:294
 #: openstack_dashboard/dashboards/project/containers/templates/containers/_object_detail.html:4
 #: openstack_dashboard/dashboards/project/containers/templates/containers/object_detail.html:3
 msgid "Object Details"
 msgstr ""
 
-#: openstack_dashboard/dashboards/project/containers/views.py:319
+#: openstack_dashboard/dashboards/project/containers/views.py:320
 #: openstack_dashboard/dashboards/project/containers/templates/containers/_update.html:26
 #: openstack_dashboard/dashboards/project/containers/templates/containers/update.html:3
 msgid "Update Object"
@@ -8786,7 +8786,7 @@ msgid "Unable to retrieve instance password."
 msgstr ""
 
 #: openstack_dashboard/dashboards/project/instances/forms.py:173
-#: openstack_dashboard/dashboards/project/networks/workflows.py:95
+#: openstack_dashboard/dashboards/project/networks/workflows.py:102
 #: openstack_dashboard/enabled/_1410_network_panel_group.py:6
 msgid "Network"
 msgstr ""
@@ -10753,7 +10753,7 @@ msgstr ""
 #: openstack_dashboard/dashboards/project/loadbalancers/workflows.py:43
 #: openstack_dashboard/dashboards/project/loadbalancers/templates/loadbalancers/_pool_details.html:28
 #: openstack_dashboard/dashboards/project/loadbalancers/templates/loadbalancers/_vip_details.html:17
-#: openstack_dashboard/dashboards/project/networks/workflows.py:195
+#: openstack_dashboard/dashboards/project/networks/workflows.py:202
 #: openstack_dashboard/dashboards/project/networks/subnets/workflows.py:41
 #: openstack_dashboard/dashboards/project/networks/subnets/workflows.py:112
 #: openstack_dashboard/dashboards/project/routers/ports/forms.py:29
@@ -11397,6 +11397,11 @@ msgstr ""
 msgid "There are no networks, routers, or connected instances to display."
 msgstr ""
 
+#: openstack_dashboard/dashboards/project/networks/forms.py:54
+#: openstack_dashboard/dashboards/project/networks/workflows.py:81
+msgid "Non admin users are not allowed to set shared option."
+msgstr ""
+
 #: openstack_dashboard/dashboards/project/networks/tables.py:121
 #: openstack_dashboard/dashboards/project/networks/tables.py:137
 msgid "Add Subnet"
@@ -11432,54 +11437,54 @@ msgstr ""
 msgid "Unable to retrieve network details."
 msgstr ""
 
-#: openstack_dashboard/dashboards/project/networks/workflows.py:51
+#: openstack_dashboard/dashboards/project/networks/workflows.py:52
 msgid "The state to start the network in."
 msgstr ""
 
-#: openstack_dashboard/dashboards/project/networks/workflows.py:96
+#: openstack_dashboard/dashboards/project/networks/workflows.py:103
 msgid ""
 "Create a new network. In addition, a subnet associated with the network "
 "can be created in the following steps of this wizard."
 msgstr ""
 
-#: openstack_dashboard/dashboards/project/networks/workflows.py:111
+#: openstack_dashboard/dashboards/project/networks/workflows.py:118
 msgid "Subnet Name"
 msgstr ""
 
-#: openstack_dashboard/dashboards/project/networks/workflows.py:116
+#: openstack_dashboard/dashboards/project/networks/workflows.py:123
 msgid "Network Address Source"
 msgstr ""
 
-#: openstack_dashboard/dashboards/project/networks/workflows.py:117
+#: openstack_dashboard/dashboards/project/networks/workflows.py:124
 msgid "Enter Network Address manually"
 msgstr ""
 
-#: openstack_dashboard/dashboards/project/networks/workflows.py:118
+#: openstack_dashboard/dashboards/project/networks/workflows.py:125
 msgid "Allocate Network Address from a pool"
 msgstr ""
 
-#: openstack_dashboard/dashboards/project/networks/workflows.py:125
-#: openstack_dashboard/dashboards/project/networks/workflows.py:130
+#: openstack_dashboard/dashboards/project/networks/workflows.py:132
+#: openstack_dashboard/dashboards/project/networks/workflows.py:137
 msgid "Address pool"
 msgstr ""
 
-#: openstack_dashboard/dashboards/project/networks/workflows.py:144
-#: openstack_dashboard/dashboards/project/networks/workflows.py:246
+#: openstack_dashboard/dashboards/project/networks/workflows.py:151
+#: openstack_dashboard/dashboards/project/networks/workflows.py:253
 msgid "Network Mask"
 msgstr ""
 
-#: openstack_dashboard/dashboards/project/networks/workflows.py:147
-#: openstack_dashboard/dashboards/project/networks/workflows.py:153
+#: openstack_dashboard/dashboards/project/networks/workflows.py:154
+#: openstack_dashboard/dashboards/project/networks/workflows.py:160
 #: openstack_dashboard/dashboards/project/networks/subnets/tables.py:131
 #: openstack_dashboard/dashboards/project/networks/subnets/workflows.py:90
 msgid "Network Address"
 msgstr ""
 
-#: openstack_dashboard/dashboards/project/networks/workflows.py:155
+#: openstack_dashboard/dashboards/project/networks/workflows.py:162
 msgid "Network address in CIDR format (e.g. 192.168.0.0/24, 2001:DB8::/48)"
 msgstr ""
 
-#: openstack_dashboard/dashboards/project/networks/workflows.py:175
+#: openstack_dashboard/dashboards/project/networks/workflows.py:182
 msgid ""
 "IP address of Gateway (e.g. 192.168.0.254) The default value is the first"
 " IP of the network address (e.g. 192.168.0.1 for 192.168.0.0/24, "
@@ -11487,11 +11492,11 @@ msgid ""
 "you do not want to use a gateway, check 'Disable Gateway' below."
 msgstr ""
 
-#: openstack_dashboard/dashboards/project/networks/workflows.py:185
+#: openstack_dashboard/dashboards/project/networks/workflows.py:192
 msgid "Disable Gateway"
 msgstr ""
 
-#: openstack_dashboard/dashboards/project/networks/workflows.py:196
+#: openstack_dashboard/dashboards/project/networks/workflows.py:203
 msgid ""
 "Creates a subnet associated with the network. You need to enter a valid "
 "\"Network Address\" and \"Gateway IP\". If you did not enter the "
@@ -11501,48 +11506,48 @@ msgid ""
 " Details\" tab."
 msgstr ""
 
-#: openstack_dashboard/dashboards/project/networks/workflows.py:229
+#: openstack_dashboard/dashboards/project/networks/workflows.py:236
 msgid "Unable to initialize subnetpools"
 msgstr ""
 
-#: openstack_dashboard/dashboards/project/networks/workflows.py:251
+#: openstack_dashboard/dashboards/project/networks/workflows.py:258
 msgid "Select a pool"
 msgstr ""
 
-#: openstack_dashboard/dashboards/project/networks/workflows.py:293
+#: openstack_dashboard/dashboards/project/networks/workflows.py:300
 msgid ""
 "Specify \"Network Address\" or clear \"Create Subnet\" checkbox in "
 "previous step."
 msgstr ""
 
-#: openstack_dashboard/dashboards/project/networks/workflows.py:299
+#: openstack_dashboard/dashboards/project/networks/workflows.py:306
 msgid "Network Address and IP version are inconsistent."
 msgstr ""
 
-#: openstack_dashboard/dashboards/project/networks/workflows.py:303
+#: openstack_dashboard/dashboards/project/networks/workflows.py:310
 #, python-format
 msgid "The subnet in the Network Address is too small (/%s)."
 msgstr ""
 
-#: openstack_dashboard/dashboards/project/networks/workflows.py:308
+#: openstack_dashboard/dashboards/project/networks/workflows.py:315
 msgid "Gateway IP and IP version are inconsistent."
 msgstr ""
 
-#: openstack_dashboard/dashboards/project/networks/workflows.py:311
+#: openstack_dashboard/dashboards/project/networks/workflows.py:318
 msgid "Specify IP address of gateway or check \"Disable Gateway\" checkbox."
 msgstr ""
 
-#: openstack_dashboard/dashboards/project/networks/workflows.py:332
+#: openstack_dashboard/dashboards/project/networks/workflows.py:339
 msgid "Enable DHCP"
 msgstr ""
 
-#: openstack_dashboard/dashboards/project/networks/workflows.py:335
-#: openstack_dashboard/dashboards/project/networks/workflows.py:339
+#: openstack_dashboard/dashboards/project/networks/workflows.py:342
+#: openstack_dashboard/dashboards/project/networks/workflows.py:346
 #: openstack_dashboard/dashboards/project/networks/templates/networks/subnets/_detail_overview.html:36
 msgid "IPv6 Address Configuration Mode"
 msgstr ""
 
-#: openstack_dashboard/dashboards/project/networks/workflows.py:343
+#: openstack_dashboard/dashboards/project/networks/workflows.py:350
 msgid ""
 "Specifies how IPv6 addresses and additional information are configured. "
 "We can specify SLAAC/DHCPv6 stateful/DHCPv6 stateless provided by "
@@ -11550,114 +11555,114 @@ msgid ""
 "are configured manually or configured by a non-OpenStack system."
 msgstr ""
 
-#: openstack_dashboard/dashboards/project/networks/workflows.py:351
+#: openstack_dashboard/dashboards/project/networks/workflows.py:358
 msgid "Allocation Pools"
 msgstr ""
 
-#: openstack_dashboard/dashboards/project/networks/workflows.py:352
+#: openstack_dashboard/dashboards/project/networks/workflows.py:359
 msgid ""
 "IP address allocation pools. Each entry is: "
 "start_ip_address,end_ip_address (e.g., 192.168.1.100,192.168.1.120) and "
 "one entry per line."
 msgstr ""
 
-#: openstack_dashboard/dashboards/project/networks/workflows.py:359
+#: openstack_dashboard/dashboards/project/networks/workflows.py:366
 msgid "DNS Name Servers"
 msgstr ""
 
-#: openstack_dashboard/dashboards/project/networks/workflows.py:360
+#: openstack_dashboard/dashboards/project/networks/workflows.py:367
 msgid "IP address list of DNS name servers for this subnet. One entry per line."
 msgstr ""
 
-#: openstack_dashboard/dashboards/project/networks/workflows.py:365
+#: openstack_dashboard/dashboards/project/networks/workflows.py:372
 msgid "Host Routes"
 msgstr ""
 
-#: openstack_dashboard/dashboards/project/networks/workflows.py:366
+#: openstack_dashboard/dashboards/project/networks/workflows.py:373
 msgid ""
 "Additional routes announced to the hosts. Each entry is: "
 "destination_cidr,nexthop (e.g., 192.168.200.0/24,10.56.1.254) and one "
 "entry per line."
 msgstr ""
 
-#: openstack_dashboard/dashboards/project/networks/workflows.py:373
+#: openstack_dashboard/dashboards/project/networks/workflows.py:380
 #: openstack_dashboard/dashboards/project/networks/subnets/workflows.py:144
 msgid "Subnet Details"
 msgstr ""
 
-#: openstack_dashboard/dashboards/project/networks/workflows.py:374
+#: openstack_dashboard/dashboards/project/networks/workflows.py:381
 #: openstack_dashboard/dashboards/project/networks/subnets/workflows.py:145
 msgid "Specify additional attributes for the subnet."
 msgstr ""
 
-#: openstack_dashboard/dashboards/project/networks/workflows.py:384
+#: openstack_dashboard/dashboards/project/networks/workflows.py:391
 #, python-format
 msgid "%s (Default)"
 msgstr ""
 
-#: openstack_dashboard/dashboards/project/networks/workflows.py:393
+#: openstack_dashboard/dashboards/project/networks/workflows.py:400
 #, python-format
 msgid "%(field_name)s: Invalid IP address (value=%(ip)s)"
 msgstr ""
 
-#: openstack_dashboard/dashboards/project/networks/workflows.py:401
+#: openstack_dashboard/dashboards/project/networks/workflows.py:408
 #, python-format
 msgid "%(field_name)s: Invalid IP address (value=%(network)s)"
 msgstr ""
 
-#: openstack_dashboard/dashboards/project/networks/workflows.py:412
+#: openstack_dashboard/dashboards/project/networks/workflows.py:419
 #, python-format
 msgid "Start and end addresses must be specified (value=%s)"
 msgstr ""
 
-#: openstack_dashboard/dashboards/project/networks/workflows.py:418
+#: openstack_dashboard/dashboards/project/networks/workflows.py:425
 #, python-format
 msgid "Start address is larger than end address (value=%s)"
 msgstr ""
 
-#: openstack_dashboard/dashboards/project/networks/workflows.py:436
+#: openstack_dashboard/dashboards/project/networks/workflows.py:443
 #, python-format
 msgid ""
 "Host Routes format error: Destination CIDR and nexthop must be specified "
 "(value=%s)"
 msgstr ""
 
-#: openstack_dashboard/dashboards/project/networks/workflows.py:461
+#: openstack_dashboard/dashboards/project/networks/workflows.py:468
 #, python-format
 msgid "Created network \"%s\"."
 msgstr ""
 
-#: openstack_dashboard/dashboards/project/networks/workflows.py:462
+#: openstack_dashboard/dashboards/project/networks/workflows.py:469
 #, python-format
 msgid "Unable to create network \"%s\"."
 msgstr ""
 
-#: openstack_dashboard/dashboards/project/networks/workflows.py:487
+#: openstack_dashboard/dashboards/project/networks/workflows.py:494
 #, python-format
 msgid "Network \"%s\" was successfully created."
 msgstr ""
 
-#: openstack_dashboard/dashboards/project/networks/workflows.py:492
+#: openstack_dashboard/dashboards/project/networks/workflows.py:499
 #, python-format
 msgid "Failed to create network \"%(network)s\": %(reason)s"
 msgstr ""
 
-#: openstack_dashboard/dashboards/project/networks/workflows.py:561
+#: openstack_dashboard/dashboards/project/networks/workflows.py:568
 #, python-format
 msgid "Subnet \"%s\" was successfully created."
 msgstr ""
 
-#: openstack_dashboard/dashboards/project/networks/workflows.py:565
+#: openstack_dashboard/dashboards/project/networks/workflows.py:572
 #, python-format
 msgid "Failed to create subnet \"%(sub)s\" for network \"%(net)s\":  %(reason)s"
 msgstr ""
 
-#: openstack_dashboard/dashboards/project/networks/workflows.py:581
+#: openstack_dashboard/dashboards/project/networks/workflows.py:588
 #, python-format
 msgid "Delete the created network \"%s\" due to subnet creation failure."
 msgstr ""
 
-#: openstack_dashboard/dashboards/project/networks/workflows.py:588
+#: openstack_dashboard/dashboards/project/networks/workflows.py:595
 #, python-format
 msgid "Failed to delete network \"%s\""
 msgstr ""

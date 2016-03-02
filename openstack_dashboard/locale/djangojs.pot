@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2016-02-29 06:15+0000\n"
+"POT-Creation-Date: 2016-03-02 06:40+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -428,8 +428,8 @@ msgstr ""
 
 #: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:516
 #: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:618
-#: openstack_dashboard/dashboards/identity/static/dashboard/identity/users/table/table.html:33
-#: openstack_dashboard/dashboards/identity/static/dashboard/identity/users/table/table.html:92
+#: openstack_dashboard/dashboards/identity/static/dashboard/identity/users/table/table.html:31
+#: openstack_dashboard/dashboards/identity/static/dashboard/identity/users/table/table.html:90
 msgid "Email"
 msgstr ""
 
@@ -944,7 +944,7 @@ msgstr ""
 #: openstack_dashboard/dashboards/admin/static/dashboard/admin/flavors/table/flavors-table.html:28
 #: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/network/network.html:70
 #: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/network/network.html:157
-#: openstack_dashboard/static/app/core/images/detail/image-detail.html:86
+#: openstack_dashboard/static/app/core/images/detail/image-detail.html:65
 msgid "ID"
 msgstr ""
 
@@ -958,28 +958,24 @@ msgstr ""
 msgid "Insufficient privilege level to view user information."
 msgstr ""
 
-#: openstack_dashboard/dashboards/identity/static/dashboard/identity/users/table/table.html:1
-msgid "Users"
-msgstr ""
-
-#: openstack_dashboard/dashboards/identity/static/dashboard/identity/users/table/table.html:32
+#: openstack_dashboard/dashboards/identity/static/dashboard/identity/users/table/table.html:30
 msgid "User Name"
 msgstr ""
 
-#: openstack_dashboard/dashboards/identity/static/dashboard/identity/users/table/table.html:34
+#: openstack_dashboard/dashboards/identity/static/dashboard/identity/users/table/table.html:32
 msgid "User ID"
 msgstr ""
 
-#: openstack_dashboard/dashboards/identity/static/dashboard/identity/users/table/table.html:35
-#: openstack_dashboard/dashboards/identity/static/dashboard/identity/users/table/table.html:96
+#: openstack_dashboard/dashboards/identity/static/dashboard/identity/users/table/table.html:33
+#: openstack_dashboard/dashboards/identity/static/dashboard/identity/users/table/table.html:94
 msgid "Enabled"
 msgstr ""
 
-#: openstack_dashboard/dashboards/identity/static/dashboard/identity/users/table/table.html:82
+#: openstack_dashboard/dashboards/identity/static/dashboard/identity/users/table/table.html:80
 msgid "Domain ID"
 msgstr ""
 
-#: openstack_dashboard/dashboards/identity/static/dashboard/identity/users/table/table.html:86
+#: openstack_dashboard/dashboards/identity/static/dashboard/identity/users/table/table.html:84
 msgid "Project ID"
 msgstr ""
 
@@ -1447,7 +1443,7 @@ msgstr ""
 #: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:160
 #: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:241
 #: openstack_dashboard/static/app/core/images/detail/image-detail.html:10
-#: openstack_dashboard/static/app/core/images/table/images-table.html:40
+#: openstack_dashboard/static/app/core/images/table/images-table.html:37
 msgid "Status"
 msgstr ""
 
@@ -1580,7 +1576,7 @@ msgstr ""
 #: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:273
 #: openstack_dashboard/static/app/core/images/detail/image-detail.html:18
 #: openstack_dashboard/static/app/core/images/steps/create-volume/create-volume.html:28
-#: openstack_dashboard/static/app/core/images/table/images-table.html:39
+#: openstack_dashboard/static/app/core/images/table/images-table.html:36
 msgid "Type"
 msgstr ""
 
@@ -1738,7 +1734,7 @@ msgstr ""
 #: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:136
 #: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:143
 #: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:259
-#: openstack_dashboard/static/app/core/images/detail/image-detail.html:82
+#: openstack_dashboard/static/app/core/images/detail/image-detail.html:63
 msgid "Updated"
 msgstr ""
 
@@ -1747,24 +1743,24 @@ msgstr ""
 #: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:151
 #: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:158
 #: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:236
-#: openstack_dashboard/static/app/core/images/detail/image-detail.html:32
-#: openstack_dashboard/static/app/core/images/table/images-table.html:44
-#: openstack_dashboard/static/app/core/images/table/images-table.html:116
+#: openstack_dashboard/static/app/core/images/detail/image-detail.html:31
+#: openstack_dashboard/static/app/core/images/table/images-table.html:41
+#: openstack_dashboard/static/app/core/images/table/images-table.html:114
 msgid "Size"
 msgstr ""
 
 #: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:139
 #: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:146
 #: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:264
-#: openstack_dashboard/static/app/core/images/detail/image-detail.html:58
-#: openstack_dashboard/static/app/core/images/table/images-table.html:41
-#: openstack_dashboard/static/app/core/images/table/images-table.html:104
+#: openstack_dashboard/static/app/core/images/detail/image-detail.html:47
+#: openstack_dashboard/static/app/core/images/table/images-table.html:38
+#: openstack_dashboard/static/app/core/images/table/images-table.html:102
 msgid "Visibility"
 msgstr ""
 
 #: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:159
 #: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:212
-#: openstack_dashboard/static/app/core/images/detail/image-detail.html:78
+#: openstack_dashboard/static/app/core/images/detail/image-detail.html:61
 msgid "Created"
 msgstr ""
 
@@ -1999,7 +1995,6 @@ msgstr[0] ""
 msgstr[1] ""
 
 #: openstack_dashboard/static/app/core/images/detail/image-detail.html:4
-#: openstack_dashboard/static/app/core/images/table/images-table.html:1
 msgid "Images"
 msgstr ""
 
@@ -2011,41 +2006,41 @@ msgstr ""
 msgid "Overview"
 msgstr ""
 
-#: openstack_dashboard/static/app/core/images/detail/image-detail.html:36
+#: openstack_dashboard/static/app/core/images/detail/image-detail.html:33
 msgid "Min. Disk"
 msgstr ""
 
-#: openstack_dashboard/static/app/core/images/detail/image-detail.html:40
+#: openstack_dashboard/static/app/core/images/detail/image-detail.html:35
 msgid "Min. RAM"
 msgstr ""
 
-#: openstack_dashboard/static/app/core/images/detail/image-detail.html:44
+#: openstack_dashboard/static/app/core/images/detail/image-detail.html:37
 msgid "Disk Format"
 msgstr ""
 
-#: openstack_dashboard/static/app/core/images/detail/image-detail.html:48
+#: openstack_dashboard/static/app/core/images/detail/image-detail.html:39
 msgid "Container Format"
 msgstr ""
 
-#: openstack_dashboard/static/app/core/images/detail/image-detail.html:54
+#: openstack_dashboard/static/app/core/images/detail/image-detail.html:44
 msgid "Security"
 msgstr ""
 
-#: openstack_dashboard/static/app/core/images/detail/image-detail.html:62
-#: openstack_dashboard/static/app/core/images/table/images-table.html:42
-#: openstack_dashboard/static/app/core/images/table/images-table.html:108
+#: openstack_dashboard/static/app/core/images/detail/image-detail.html:49
+#: openstack_dashboard/static/app/core/images/table/images-table.html:39
+#: openstack_dashboard/static/app/core/images/table/images-table.html:106
 msgid "Protected"
 msgstr ""
 
-#: openstack_dashboard/static/app/core/images/detail/image-detail.html:66
+#: openstack_dashboard/static/app/core/images/detail/image-detail.html:51
 msgid "Checksum"
 msgstr ""
 
-#: openstack_dashboard/static/app/core/images/detail/image-detail.html:74
+#: openstack_dashboard/static/app/core/images/detail/image-detail.html:58
 msgid "Record Properties"
 msgstr ""
 
-#: openstack_dashboard/static/app/core/images/detail/image-detail.html:92
+#: openstack_dashboard/static/app/core/images/detail/image-detail.html:70
 msgid "Custom Properties"
 msgstr ""
 
@@ -2122,20 +2117,24 @@ msgstr ""
 msgid "Select a zone"
 msgstr ""
 
-#: openstack_dashboard/static/app/core/images/table/images-table.html:38
+#: openstack_dashboard/static/app/core/images/table/images-table.html:35
 msgid "Image Name"
 msgstr ""
 
-#: openstack_dashboard/static/app/core/images/table/images-table.html:43
-#: openstack_dashboard/static/app/core/images/table/images-table.html:112
+#: openstack_dashboard/static/app/core/images/table/images-table.html:40
+#: openstack_dashboard/static/app/core/images/table/images-table.html:110
 msgid "Format"
 msgstr ""
 
-#: openstack_dashboard/static/app/core/images/table/images-table.html:124
+#: openstack_dashboard/static/app/core/images/table/images-table.html:42
+msgid "Actions"
+msgstr ""
+
+#: openstack_dashboard/static/app/core/images/table/images-table.html:122
 msgid "Min Disk (GB)"
 msgstr ""
 
-#: openstack_dashboard/static/app/core/images/table/images-table.html:128
+#: openstack_dashboard/static/app/core/images/table/images-table.html:126
 msgid "Min RAM (MB)"
 msgstr ""
 
