@@ -551,12 +551,13 @@ class SetAccessControlsAction(workflows.Action):
         label=_("Confirm Admin Password"),
         required=False,
         widget=forms.PasswordInput(render_value=False))
-    groups = forms.MultipleChoiceField(label=_("Security Groups"),
-                                       required=False,
-                                       initial=["default"],
-                                       widget=forms.CheckboxSelectMultiple(),
-                                       help_text=_("Launch instance in these "
-                                                   "security groups."))
+    groups = forms.MultipleChoiceField(
+        label=_("Security Groups"),
+        required=False,
+        initial=["default"],
+        widget=forms.ThemableCheckboxSelectMultiple(),
+        help_text=_("Launch instance in these "
+                    "security groups."))
 
     class Meta(object):
         name = _("Access & Security")
@@ -701,14 +702,15 @@ class PostCreationStep(workflows.Step):
 
 
 class SetNetworkAction(workflows.Action):
-    network = forms.MultipleChoiceField(label=_("Networks"),
-                                        widget=forms.CheckboxSelectMultiple(),
-                                        error_messages={
-                                            'required': _(
-                                                "At least one network must"
-                                                " be specified.")},
-                                        help_text=_("Launch instance with"
-                                                    " these networks"))
+    network = forms.MultipleChoiceField(
+        label=_("Networks"),
+        widget=forms.ThemableCheckboxSelectMultiple(),
+        error_messages={
+            'required': _(
+                "At least one network must"
+                " be specified.")},
+        help_text=_("Launch instance with"
+                    " these networks"))
     if api.neutron.is_port_profiles_supported():
         widget = None
     else:

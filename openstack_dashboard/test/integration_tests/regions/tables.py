@@ -24,7 +24,10 @@ class RowRegion(baseregion.BaseRegion):
     """Classic table row."""
 
     _cell_locator = (by.By.CSS_SELECTOR, 'td.%s' % NORMAL_COLUMN_CLASS)
-    _row_checkbox_locator = (by.By.CSS_SELECTOR, 'td > input')
+    _row_checkbox_locator = (
+        by.By.CSS_SELECTOR,
+        'td .themable-checkbox [type="checkbox"] + label'
+    )
 
     def __init__(self, driver, conf, src_elem, column_names):
         self.column_names = column_names

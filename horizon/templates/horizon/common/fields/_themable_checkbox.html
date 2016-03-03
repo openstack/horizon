@@ -1,0 +1,24 @@
+<div class="themable-checkbox">
+  {% if field.auto_id %}
+    {{ field }}
+    <label
+     {% if field.field.required and form.required_css_class %}
+       class="{{ form.required_css_class }}"
+     {% endif %}
+       for="{{ field.auto_id }}">
+     {% if not is_vertical %}
+       <span>{{ field.label }}</span>
+     {% endif %}
+     {% if field.field.required %}{% include "horizon/common/_form_field_required.html" %}{% endif %}
+     {% if field.help_text %}
+       <span class="help-icon" data-toggle="tooltip"
+             data-placement="top" title="{{ field.help_text|safe }}">
+           <span class="fa fa-question-circle"></span>
+         </span>
+     {% endif %}
+    </label>
+  {% endif %}
+  {% for error in field.errors %}
+    <span class="help-block {{ form.error_css_class }}">{{ error }}</span>
+  {% endfor %}
+</div>

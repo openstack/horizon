@@ -164,7 +164,7 @@ class SelectRulesAction(workflows.Action):
     rule = forms.MultipleChoiceField(
         label=_("Rules"),
         required=False,
-        widget=forms.CheckboxSelectMultiple(),
+        widget=forms.ThemableCheckboxSelectMultiple(),
         help_text=_("Create a policy with selected rules."))
 
     class Meta(object):
@@ -206,7 +206,7 @@ class SelectRoutersAction(workflows.Action):
     router = forms.MultipleChoiceField(
         label=_("Routers"),
         required=False,
-        widget=forms.CheckboxSelectMultiple(),
+        widget=forms.ThemableCheckboxSelectMultiple(),
         help_text=_("Create a firewall with selected routers."))
 
     class Meta(object):

@@ -37,6 +37,7 @@ import six
 
 from horizon import conf
 from horizon import exceptions
+from horizon.forms import ThemableCheckboxInput
 from horizon import messages
 from horizon.tables.actions import FilterAction  # noqa
 from horizon.tables.actions import LinkAction  # noqa
@@ -672,7 +673,7 @@ class Cell(html.HTMLElement):
         if column.auto == "multi_select":
             data = ""
             if row.can_be_selected(datum):
-                widget = forms.CheckboxInput(check_test=lambda value: False)
+                widget = ThemableCheckboxInput(check_test=lambda value: False)
                 # Convert value to string to avoid accidental type conversion
                 data = widget.render('object_ids',
                                      six.text_type(table.get_object_id(datum)),

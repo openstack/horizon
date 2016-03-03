@@ -3,7 +3,13 @@
 <div class="form-group{% if field.errors %} has-error{% endif %} {{ field.css_classes }}">
   <label class="control-label col-sm-3 {% if field.field.required %}{{ form.required_css_class }}{% endif %}" for="{{ field.id_for_label }}">{{ field.label }}</label>
   <div class="col-sm-9 {{ classes.value }} {{ field|wrapper_classes }}">
-    {{ field|add_bootstrap_class }}
+    {% if field|is_checkbox %}
+      {% with is_vertical=1 %}
+      {% include 'horizon/common/fields/_themable_checkbox.html' %}
+      {% endwith %}
+    {% else %}
+      {{ field|add_bootstrap_class }}
+    {% endif %}
     {% for error in field.errors %}
       <span class="help-block alert alert-danger {{ form.error_css_class }}">{{ error }}</span>
     {% empty %}

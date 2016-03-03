@@ -1,0 +1,29 @@
+//
+// Custom Material Checkboxes
+// --------------------------------------------------
+
+@import "/horizon/lib/mdi/scss/icons";
+.themable-checkbox {
+
+  input[type=checkbox] {
+
+    // The checkbox - Unchecked
+    & + label {
+      @extend .mdi-checkbox-blank-outline;
+
+      &:before {
+        @extend .mdi;
+        font-size: $font-size-h5;
+      }
+    }
+
+    // The checkbox - Checked
+    &:checked + label {
+      @extend .mdi-checkbox-marked;
+
+      &:before {
+        color: $brand-primary;
+      }
+    }
+  }
+}

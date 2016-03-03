@@ -3,27 +3,7 @@
 <div class="form-group{% if field.errors %} has-error{% endif %} {{ field.css_classes }}">
   {% if field|is_checkbox %}
     <div class="{{ classes.single_value }}">
-      <div class="checkbox">
-        {% if field.auto_id %}
-          <label
-            {% if field.field.required and form.required_css_class %}
-            class="{{ form.required_css_class }}"
-            {% endif %}>
-            {{ field }}
-            <span>{{ field.label }}</span>
-            {% if field.field.required %}{% include "horizon/common/_form_field_required.html" %}{% endif %}
-            {% if field.help_text %}
-            <span class="help-icon" data-toggle="tooltip"
-              data-placement="top" title="{{ field.help_text|safe }}">
-              <span class="fa fa-question-circle"></span>
-            </span>
-          {% endif %}
-          </label>
-        {% endif %}
-        {% for error in field.errors %}
-          <span class="help-block {{ form.error_css_class }}">{{ error }}</span>
-        {% endfor %}
-      </div>
+    {% include 'horizon/common/fields/_themable_checkbox.html' %}
     </div>
   {% elif field|is_radio %}
     {% if field.auto_id %}
