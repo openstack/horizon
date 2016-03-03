@@ -20,12 +20,12 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2016-02-27 17:50+0000\n"
+"POT-Creation-Date: 2016-03-02 17:22+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2016-02-27 12:55+0000\n"
-"Last-Translator: Sungjin Kang <gang.sungjin@gmail.com>\n"
+"PO-Revision-Date: 2016-03-02 01:22+0000\n"
+"Last-Translator: Ian Y. Choi <ianyrchoi@gmail.com>\n"
 "Language: ko-KR\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 "Generated-By: Babel 2.0\n"
@@ -1534,6 +1534,9 @@ msgstr "코드"
 msgid "Cold Migrate"
 msgstr "Cold Migrate"
 
+msgid "Comma-delimited list of valid remote IDs from the identity provider."
+msgstr "Identity 제공자로부터의 유효한 원격 ID에 대해 콤마로 구분한 목록"
+
 msgid "Comma-separated key=value pairs"
 msgstr "콤마로 구분된 key=value 페어"
 
@@ -1874,9 +1877,8 @@ msgstr "볼륨 유형 생성"
 msgid "Create a firewall with selected routers."
 msgstr "선택된 라우터와 함께 방화벽 생성합니다."
 
-#, fuzzy
 msgid "Create a identity provider protocol."
-msgstr "ID 제공자 프로토콜 생성"
+msgstr "Identity 제공자 프로토콜을 생성합니다."
 
 #, fuzzy
 msgid "Create a mapping."
@@ -3009,9 +3011,8 @@ msgstr ""
 "Flavor 세부 사양을 편집하십시오. Flavor는 RAM, 디스크, CPU 코어 수 및 기타 리"
 "소스의 크기를 규정해 두고 인스턴스 배포 시에 선택할 수 있도록 합니다."
 
-#, fuzzy
 msgid "Edit the identity provider's details."
-msgstr "ID 제공자의 세부 정보 편집"
+msgstr "Identity 제공자에 대한 세부 정보 편집"
 
 msgid "Edit the image details."
 msgstr "이미지 세부 정보를 수정합니다."
@@ -3268,6 +3269,14 @@ msgstr "선택된 다운 호스트에서 활성화된 대상 호스트로 서버
 
 msgid "Events"
 msgstr "이벤트"
+
+msgid ""
+"Example: For <tt>mod_shib</tt> this would be <tt>Shib-Identity-Provider</"
+"tt>, for <tt>mod_auth_openidc</tt>, this could be <tt>HTTP_OIDC_ISS</tt>."
+msgstr ""
+"예시: <tt>mod_shib</tt> 에 대해서는 <tt>Shib-Identity-Provider</tt> 가 될 것"
+"이며, <tt>mod_auth_openidc</tt> 에 대해서는,  <tt>HTTP_OIDC_ISS</tt> 가 될 것"
+"입니다."
 
 msgid ""
 "Example: The prefix 'hw:' is added to OS::Nova::Flavor for the Virtual CPU "
@@ -4160,21 +4169,20 @@ msgstr "구분자 유형"
 msgid "Identity"
 msgstr "인증"
 
-#, fuzzy
+msgid "Identity Provider ID"
+msgstr "Identity 제공자 ID"
+
 msgid "Identity Providers"
-msgstr "ID 제공자"
+msgstr "Identity 제공자"
 
-#, fuzzy
 msgid "Identity provider protocol created successfully."
-msgstr "ID 제공자 프로토콜을 성공적으로 생성하였습니다."
+msgstr "Identity 제공자 프로토콜을 성공적으로 생성하였습니다."
 
-#, fuzzy
 msgid "Identity provider registered successfully."
-msgstr "ID 제공자가 성공적으로 등록되었습니다."
+msgstr "Identity 제공자를 성공적으로 등록하였습니다."
 
-#, fuzzy
 msgid "Identity provider updated successfully."
-msgstr "ID 제공자를 성공적으로 업데이트 했습니다."
+msgstr "Identity 제공자를 성공적으로 수정하였습니다."
 
 msgid "Identity service does not allow editing user data."
 msgstr "Identity 서비스는 사용자 데이터를 편집할 수 없습니다."
@@ -4325,6 +4333,12 @@ msgctxt "Current status of a VPN Service"
 msgid "Inactive"
 msgstr "Inactive"
 
+msgid ""
+"Indicates whether this identity provider should accept federated "
+"authentication requests."
+msgstr ""
+"Identity 제공자가 페더레이션관 인증 요청을 허용해야 하는지 여부를 가리킵니다."
+
 msgid "Info"
 msgstr "정보"
 
@@ -4427,9 +4441,8 @@ msgstr "불충분한 권한 수준은 도메인 정보를 확인할 수 있습�
 msgid "Insufficient privilege level to view group information."
 msgstr "불충분한 권한 수준으로 그룹 정보를 볼 수 있습니다."
 
-#, fuzzy
 msgid "Insufficient privilege level to view identity provider information."
-msgstr "ID 제공자 정보를 볼 수 있는 권한이 없습니다."
+msgstr "Identity 제공자 정보를 볼 수 있는 권한이 없습니다."
 
 #, fuzzy
 msgid "Insufficient privilege level to view mapping information."
@@ -5295,9 +5308,8 @@ msgstr "사용 가능한 인스턴스가 없습니다."
 msgid "No key pairs available"
 msgstr "사용할 수 있는 키 페어가 없습니다"
 
-#, fuzzy
 msgid "No mappings available"
-msgstr "사용 가능한 맵핑이 없음"
+msgstr "사용 가능한 맵핑이 없습니다"
 
 msgid "No networks available"
 msgstr "사용 가능한 네트워크가 없습니다"
@@ -6075,7 +6087,6 @@ msgctxt "Action Name of a Firewall Rule"
 msgid "REJECT"
 msgstr "거절"
 
-#, fuzzy
 msgid "RX/TX Factor"
 msgstr "RX/TX 요인"
 
@@ -6115,24 +6126,12 @@ msgid "Reboot Pending"
 msgstr "Reboot Pending"
 
 msgctxt "Task status of an Instance"
-msgid "Reboot Pending Hard"
-msgstr "Reboot Pending Hard"
-
-msgctxt "Task status of an Instance"
 msgid "Reboot Started"
 msgstr "Reboot Started"
 
 msgctxt "Task status of an Instance"
-msgid "Reboot Started Hard"
-msgstr "Reboot Started Hard"
-
-msgctxt "Task status of an Instance"
 msgid "Rebooting"
 msgstr "Rebooting"
-
-msgctxt "Task status of an Instance"
-msgid "Rebooting Hard"
-msgstr "Rebooting Hard"
 
 msgctxt "Action log of an instance"
 msgid "Rebuild"
@@ -6167,9 +6166,15 @@ msgstr "인스턴스 %s 리빌드 중."
 msgid "Regions:"
 msgstr "지역:"
 
-#, fuzzy
 msgid "Register Identity Provider"
-msgstr "ID 제공자 등록"
+msgstr "Identity 제공자 등록"
+
+msgid ""
+"Register a identity provider that is trusted by the Identity API to "
+"authenticate identities."
+msgstr ""
+"Identity에 인증하기 위해 Identity API로부터 신뢰 받은 identity 제공자를 등록"
+"합니다."
 
 msgid "Relative part of requests this pool member serves compared to others"
 msgstr ""
@@ -6198,9 +6203,19 @@ msgstr "새로 고침"
 msgid "Remote"
 msgstr "원격"
 
-#, fuzzy
 msgid "Remote IDs"
 msgstr "원격 ID"
+
+msgid ""
+"Remote IDs are associated with the identity provider and are globally "
+"unique. This indicates the header attributes to use for mapping federation "
+"protocol attributes to Identity API objects. If no value is provided, the "
+"list will be set to empty."
+msgstr ""
+"원격 ID는 Identity 제공자와 연관되어 있으며 전체적으로 유일합니다. 이는 페더"
+"레이션 프로토콜 속성과 Identity API 개체와의 매핑을 위해 사용하는 헤더 속성"
+"을 가리킵니다. 만약 제공되는 값이 없는 경우, 해당 목록은 빈 상태로 설정될 것"
+"입니다."
 
 msgid "Remote IP Prefix"
 msgstr "​원격 IP 접두사"
@@ -8305,9 +8320,8 @@ msgstr "호스트 집합 \"%s\"를 생성할 수 없습니다."
 msgid "Unable to create host aggregate."
 msgstr "호스트 집합을 생성할 수 없습니다."
 
-#, fuzzy
 msgid "Unable to create identity provider protocol."
-msgstr "ID 생성자 프로토콜을 생성할 수 없습니다."
+msgstr "Identity 제공자 프로토콜을 생성할 수 없습니다."
 
 #, python-format
 msgid "Unable to create key pair: %(exc)s"
@@ -8620,13 +8634,12 @@ msgstr "인스턴스를 다시 빌드 할 수 없습니다."
 msgid "Unable to register identity provider."
 msgstr "ID 제공자를 등록할 수 없습니다."
 
-#, fuzzy
 msgid ""
 "Unable to register identity provider. Please check that the Identity "
 "Provider ID and Remote IDs provided are not already in use."
 msgstr ""
-"ID 제공자를 등록할 수 없습니다. 제공된 원격 ID가 이미 사용되지 않는지 확인해 "
-"보세요."
+"Identity 제공자를 등록할 수 없습니다. 입력한 Identity 제공자 ID와 원격 ID를 "
+"이미 사용하고 있지는 않은지 확인합니다."
 
 #, python-format
 msgid "Unable to resize instance \"%s\"."
@@ -8860,13 +8873,11 @@ msgstr "하이퍼바이저 인스턴스 목록을 찾지 못했습니다."
 msgid "Unable to retrieve hypervisor statistics."
 msgstr "하이퍼바이저 통계를 찾지 못했습니다."
 
-#, fuzzy
 msgid "Unable to retrieve identity provider information."
-msgstr "ID 제공자 정보를 찾지 못했습니다."
+msgstr "Identity 제공자 정보를 가져올 수 없습니다."
 
-#, fuzzy
 msgid "Unable to retrieve identity provider list."
-msgstr "ID 제공자 목록을 찾지 못했습니다."
+msgstr "Identity 제공자 목록을 가져올 수 없습니다."
 
 msgid "Unable to retrieve image details."
 msgstr "이미지 세부 정보를 찾지 못 했습니다."
@@ -9299,17 +9310,15 @@ msgstr "암호화된 볼륨 타입을 수정 할 수 없습니다."
 msgid "Unable to update group."
 msgstr "그룹을 업데이트 할 수 없습니다."
 
-#, fuzzy
 msgid "Unable to update identity provider."
-msgstr "ID 제공자를 업데이트 할 수 있습니다."
+msgstr "Identity 제공자를 업데이트 할 수 없습니다."
 
-#, fuzzy
 msgid ""
 "Unable to update identity provider. Please check that the Remote IDs "
 "provided are not already in use."
 msgstr ""
-"ID 제공자를 업데이트 할 수 없습니다. 제공된 원격 ID가 이미 사용되고 있지 않는"
-"지 확인해 보세요. "
+"Identity 제공자를 수정할 수 없습니다. 제공된 원격 ID가 이미 사용되고 있지는 "
+"않은지 확인합니다."
 
 #, python-format
 msgid "Unable to update image \"%s\"."
@@ -9407,15 +9416,13 @@ msgctxt "Action log of an instance"
 msgid "Unpause"
 msgstr "Unpause"
 
-#, fuzzy
 msgid "Unregister Identity Provider"
 msgid_plural "Unregister Identity Providers"
-msgstr[0] "ID 제공자 등록 취소"
+msgstr[0] "Identity 제공자 등록 취소"
 
-#, fuzzy
 msgid "Unregistered Identity Provider"
 msgid_plural "Unregistered Identity Providers"
-msgstr[0] "등록 취소된 ID 제공자"
+msgstr[0] "등록 취소된 Identity 제공자"
 
 msgctxt "Task status of an Instance"
 msgid "Unrescuing"
@@ -9475,9 +9482,8 @@ msgstr "Update Failed"
 msgid "Update Group"
 msgstr "그룹 업데이트"
 
-#, fuzzy
 msgid "Update Identity Provider"
-msgstr "ID 제공자 업데이트"
+msgstr "Identity 제공자 갱신"
 
 msgctxt "current status of stack"
 msgid "Update In Progress"
@@ -9709,6 +9715,9 @@ msgstr "사용자 이름 \"%s\"가 이미 사용중입니다."
 
 msgid "User password has been updated successfully."
 msgstr "사용자 암호를 성공적으로 업데이트 했습니다."
+
+msgid "User-defined unique id to identify the identity provider."
+msgstr "Identity 제공자에 인증하기 위한 사용자 정의 고유 id"
 
 msgid "Users"
 msgstr "사용자"

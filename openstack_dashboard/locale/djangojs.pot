@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2016-03-02 06:40+0000\n"
+"POT-Creation-Date: 2016-03-03 06:16+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -879,6 +879,7 @@ msgstr ""
 #: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:149
 #: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:156
 #: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:231
+#: openstack_dashboard/static/app/core/images/images.module.js:70
 #: openstack_dashboard/static/app/core/images/steps/create-volume/create-volume.html:13
 msgid "Name"
 msgstr ""
@@ -944,6 +945,7 @@ msgstr ""
 #: openstack_dashboard/dashboards/admin/static/dashboard/admin/flavors/table/flavors-table.html:28
 #: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/network/network.html:70
 #: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/network/network.html:157
+#: openstack_dashboard/static/app/core/images/images.module.js:58
 #: openstack_dashboard/static/app/core/images/detail/image-detail.html:65
 msgid "ID"
 msgstr ""
@@ -988,6 +990,7 @@ msgstr[1] ""
 
 #: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/launch-instance-model.service.js:402
 #: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:72
+#: openstack_dashboard/static/app/core/images/images.module.js:43
 #: openstack_dashboard/static/app/core/images/detail/image-detail.html:28
 #: openstack_dashboard/static/app/core/images/filters/image-type.filter.js:41
 msgid "Image"
@@ -1000,11 +1003,13 @@ msgstr ""
 
 #: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/launch-instance-model.service.js:421
 #: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:74
+#: openstack_dashboard/static/app/core/core.module.js:83
 msgid "Volume"
 msgstr ""
 
 #: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/launch-instance-model.service.js:425
 #: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:75
+#: openstack_dashboard/static/app/core/core.module.js:80
 msgid "Volume Snapshot"
 msgstr ""
 
@@ -1025,11 +1030,14 @@ msgstr ""
 
 #: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/launch-instance-workflow.service.js:49
 #: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/flavor/flavor.html:16
+#: openstack_dashboard/static/app/core/core.module.js:65
+#: openstack_dashboard/static/app/core/core.module.js:86
 msgid "Flavor"
 msgstr ""
 
 #: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/launch-instance-workflow.service.js:56
 #: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/network/network.html:2
+#: openstack_dashboard/static/app/core/core.module.js:101
 msgid "Networks"
 msgstr ""
 
@@ -1040,6 +1048,7 @@ msgstr ""
 
 #: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/launch-instance-workflow.service.js:71
 #: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/keypair/keypair.html:2
+#: openstack_dashboard/static/app/core/core.module.js:68
 msgid "Key Pair"
 msgstr ""
 
@@ -1442,6 +1451,7 @@ msgstr ""
 #: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/network/network.html:114
 #: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:160
 #: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:241
+#: openstack_dashboard/static/app/core/images/images.module.js:82
 #: openstack_dashboard/static/app/core/images/detail/image-detail.html:10
 #: openstack_dashboard/static/app/core/images/table/images-table.html:37
 msgid "Status"
@@ -1531,6 +1541,7 @@ msgstr ""
 
 #: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/network/network.html:23
 #: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/network/network.html:110
+#: openstack_dashboard/static/app/core/core.module.js:101
 msgid "Network"
 msgstr ""
 
@@ -1665,6 +1676,7 @@ msgstr ""
 #: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:150
 #: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:157
 #: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:217
+#: openstack_dashboard/static/app/core/images/images.module.js:97
 #: openstack_dashboard/static/app/core/images/steps/create-volume/create-volume.html:18
 msgid "Description"
 msgstr ""
@@ -1743,6 +1755,7 @@ msgstr ""
 #: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:151
 #: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:158
 #: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:236
+#: openstack_dashboard/static/app/core/images/images.module.js:79
 #: openstack_dashboard/static/app/core/images/detail/image-detail.html:31
 #: openstack_dashboard/static/app/core/images/table/images-table.html:41
 #: openstack_dashboard/static/app/core/images/table/images-table.html:114
@@ -1752,6 +1765,7 @@ msgstr ""
 #: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:139
 #: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:146
 #: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:264
+#: openstack_dashboard/static/app/core/images/images.module.js:94
 #: openstack_dashboard/static/app/core/images/detail/image-detail.html:47
 #: openstack_dashboard/static/app/core/images/table/images-table.html:38
 #: openstack_dashboard/static/app/core/images/table/images-table.html:102
@@ -1902,28 +1916,230 @@ msgstr ""
 msgid "Loading"
 msgstr ""
 
-#: openstack_dashboard/static/app/core/images/actions/actions.module.js:52
+#: openstack_dashboard/static/app/core/core.module.js:59
+msgid "Metadata Definition"
+msgstr ""
+
+#: openstack_dashboard/static/app/core/core.module.js:59
+msgid "Metadata Definitions"
+msgstr ""
+
+#: openstack_dashboard/static/app/core/core.module.js:62
+msgid "Server"
+msgstr ""
+
+#: openstack_dashboard/static/app/core/core.module.js:62
+msgid "Servers"
+msgstr ""
+
+#: openstack_dashboard/static/app/core/core.module.js:65
+#: openstack_dashboard/static/app/core/core.module.js:86
+msgid "Flavors"
+msgstr ""
+
+#: openstack_dashboard/static/app/core/core.module.js:68
+msgid "Key Pairs"
+msgstr ""
+
+#: openstack_dashboard/static/app/core/core.module.js:71
+msgid "DNS Domain"
+msgstr ""
+
+#: openstack_dashboard/static/app/core/core.module.js:71
+msgid "DNS Domains"
+msgstr ""
+
+#: openstack_dashboard/static/app/core/core.module.js:74
+msgid "DNS Record"
+msgstr ""
+
+#: openstack_dashboard/static/app/core/core.module.js:74
+msgid "DNS Records"
+msgstr ""
+
+#: openstack_dashboard/static/app/core/core.module.js:77
+msgid "Volume Backup"
+msgstr ""
+
+#: openstack_dashboard/static/app/core/core.module.js:77
+msgid "Volume Backups"
+msgstr ""
+
+#: openstack_dashboard/static/app/core/core.module.js:80
+msgid "Volume Snapshots"
+msgstr ""
+
+#: openstack_dashboard/static/app/core/core.module.js:83
+msgid "Volumes"
+msgstr ""
+
+#: openstack_dashboard/static/app/core/core.module.js:89
+msgid "Object Account"
+msgstr ""
+
+#: openstack_dashboard/static/app/core/core.module.js:89
+msgid "Object Accounts"
+msgstr ""
+
+#: openstack_dashboard/static/app/core/core.module.js:92
+msgid "Object Container"
+msgstr ""
+
+#: openstack_dashboard/static/app/core/core.module.js:92
+msgid "Object Containers"
+msgstr ""
+
+#: openstack_dashboard/static/app/core/core.module.js:95
+msgid "Object"
+msgstr ""
+
+#: openstack_dashboard/static/app/core/core.module.js:95
+msgid "Objects"
+msgstr ""
+
+#: openstack_dashboard/static/app/core/core.module.js:98
+msgid "Network Health Monitor"
+msgstr ""
+
+#: openstack_dashboard/static/app/core/core.module.js:98
+msgid "Network Health Monitors"
+msgstr ""
+
+#: openstack_dashboard/static/app/core/core.module.js:104
+msgid "Load Balancer Pool"
+msgstr ""
+
+#: openstack_dashboard/static/app/core/core.module.js:104
+msgid "Load Balancer Pools"
+msgstr ""
+
+#: openstack_dashboard/static/app/core/core.module.js:107
+msgid "Load Balancer Pool Member"
+msgstr ""
+
+#: openstack_dashboard/static/app/core/core.module.js:107
+msgid "Load Balancer Pool Members"
+msgstr ""
+
+#: openstack_dashboard/static/app/core/core.module.js:110
+msgid "Network Port"
+msgstr ""
+
+#: openstack_dashboard/static/app/core/core.module.js:110
+msgid "Network Ports"
+msgstr ""
+
+#: openstack_dashboard/static/app/core/core.module.js:113
+msgid "Network Router"
+msgstr ""
+
+#: openstack_dashboard/static/app/core/core.module.js:113
+msgid "Network Routers"
+msgstr ""
+
+#: openstack_dashboard/static/app/core/core.module.js:116
+msgid "Network Subnet"
+msgstr ""
+
+#: openstack_dashboard/static/app/core/core.module.js:116
+msgid "Network Subnets"
+msgstr ""
+
+#: openstack_dashboard/static/app/core/images/images.module.js:43
+#: openstack_dashboard/static/app/core/images/detail/image-detail.html:4
+msgid "Images"
+msgstr ""
+
+#: openstack_dashboard/static/app/core/images/images.module.js:46
+#: openstack_dashboard/static/app/core/images/detail/image-detail.html:51
+msgid "Checksum"
+msgstr ""
+
+#: openstack_dashboard/static/app/core/images/images.module.js:49
+#: openstack_dashboard/static/app/core/images/detail/image-detail.html:39
+msgid "Container Format"
+msgstr ""
+
+#: openstack_dashboard/static/app/core/images/images.module.js:52
+msgid "Created At"
+msgstr ""
+
+#: openstack_dashboard/static/app/core/images/images.module.js:55
+#: openstack_dashboard/static/app/core/images/detail/image-detail.html:37
+msgid "Disk Format"
+msgstr ""
+
+#: openstack_dashboard/static/app/core/images/images.module.js:61
+msgid "Members"
+msgstr ""
+
+#: openstack_dashboard/static/app/core/images/images.module.js:64
+#: openstack_dashboard/static/app/core/images/detail/image-detail.html:33
+msgid "Min. Disk"
+msgstr ""
+
+#: openstack_dashboard/static/app/core/images/images.module.js:67
+#: openstack_dashboard/static/app/core/images/detail/image-detail.html:35
+msgid "Min. RAM"
+msgstr ""
+
+#: openstack_dashboard/static/app/core/images/images.module.js:73
+msgid "Owner"
+msgstr ""
+
+#: openstack_dashboard/static/app/core/images/images.module.js:76
+#: openstack_dashboard/static/app/core/images/detail/image-detail.html:49
+#: openstack_dashboard/static/app/core/images/table/images-table.html:39
+#: openstack_dashboard/static/app/core/images/table/images-table.html:106
+msgid "Protected"
+msgstr ""
+
+#: openstack_dashboard/static/app/core/images/images.module.js:85
+msgid "Tags"
+msgstr ""
+
+#: openstack_dashboard/static/app/core/images/images.module.js:88
+msgid "Updated At"
+msgstr ""
+
+#: openstack_dashboard/static/app/core/images/images.module.js:91
+msgid "Virtual Size"
+msgstr ""
+
+#: openstack_dashboard/static/app/core/images/images.module.js:100
+msgid "Architecture"
+msgstr ""
+
+#: openstack_dashboard/static/app/core/images/images.module.js:103
+msgid "Kernel ID"
+msgstr ""
+
+#: openstack_dashboard/static/app/core/images/images.module.js:106
+msgid "Ramdisk ID"
+msgstr ""
+
+#: openstack_dashboard/static/app/core/images/actions/actions.module.js:53
 msgid "Launch"
 msgstr ""
 
-#: openstack_dashboard/static/app/core/images/actions/actions.module.js:59
+#: openstack_dashboard/static/app/core/images/actions/actions.module.js:60
 #: openstack_dashboard/static/app/core/images/workflows/create-volume.service.js:36
 #: openstack_dashboard/static/app/core/images/workflows/create-volume.service.js:37
 msgid "Create Volume"
 msgstr ""
 
-#: openstack_dashboard/static/app/core/images/actions/actions.module.js:66
+#: openstack_dashboard/static/app/core/images/actions/actions.module.js:67
 msgid "Update Metadata"
 msgstr ""
 
-#: openstack_dashboard/static/app/core/images/actions/actions.module.js:73
+#: openstack_dashboard/static/app/core/images/actions/actions.module.js:74
 #: openstack_dashboard/static/app/core/images/actions/delete-image.service.js:121
 msgid "Delete Image"
 msgid_plural "Delete Images"
 msgstr[0] ""
 msgstr[1] ""
 
-#: openstack_dashboard/static/app/core/images/actions/actions.module.js:84
+#: openstack_dashboard/static/app/core/images/actions/actions.module.js:85
 msgid "Delete Images"
 msgstr ""
 
@@ -1994,10 +2210,6 @@ msgid_plural "errors"
 msgstr[0] ""
 msgstr[1] ""
 
-#: openstack_dashboard/static/app/core/images/detail/image-detail.html:4
-msgid "Images"
-msgstr ""
-
 #: openstack_dashboard/static/app/core/images/detail/image-detail.html:14
 msgid "Filename"
 msgstr ""
@@ -2006,34 +2218,8 @@ msgstr ""
 msgid "Overview"
 msgstr ""
 
-#: openstack_dashboard/static/app/core/images/detail/image-detail.html:33
-msgid "Min. Disk"
-msgstr ""
-
-#: openstack_dashboard/static/app/core/images/detail/image-detail.html:35
-msgid "Min. RAM"
-msgstr ""
-
-#: openstack_dashboard/static/app/core/images/detail/image-detail.html:37
-msgid "Disk Format"
-msgstr ""
-
-#: openstack_dashboard/static/app/core/images/detail/image-detail.html:39
-msgid "Container Format"
-msgstr ""
-
 #: openstack_dashboard/static/app/core/images/detail/image-detail.html:44
 msgid "Security"
-msgstr ""
-
-#: openstack_dashboard/static/app/core/images/detail/image-detail.html:49
-#: openstack_dashboard/static/app/core/images/table/images-table.html:39
-#: openstack_dashboard/static/app/core/images/table/images-table.html:106
-msgid "Protected"
-msgstr ""
-
-#: openstack_dashboard/static/app/core/images/detail/image-detail.html:51
-msgid "Checksum"
 msgstr ""
 
 #: openstack_dashboard/static/app/core/images/detail/image-detail.html:58
