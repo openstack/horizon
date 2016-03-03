@@ -80,7 +80,6 @@ class Users(generic.View):
 
         This action returns the new user object on success.
         """
-        # not sure why email is forced to None, but other code does it
         domain = api.keystone.get_default_domain(request)
         new_user = api.keystone.user_create(
             request,
