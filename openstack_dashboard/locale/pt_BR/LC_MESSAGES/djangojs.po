@@ -10,16 +10,17 @@
 # André Campos <andrecbezerra@gmail.com>, 2015. #zanata
 # Marcelo Dieder <marcelodieder@gmail.com>, 2015. #zanata
 # OpenStack Infra <zanata@openstack.org>, 2015. #zanata
+# Carlos Marques <marquesc@br.ibm.com>, 2016. #zanata
 msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2016-02-18 02:36+0000\n"
+"POT-Creation-Date: 2016-03-02 17:22+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2015-11-06 06:27+0000\n"
-"Last-Translator: André Campos <andrecbezerra@gmail.com>\n"
+"PO-Revision-Date: 2016-03-02 01:57+0000\n"
+"Last-Translator: Carlos Marques <marquesc@br.ibm.com>\n"
 "Language: pt-BR\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 "Generated-By: Babel 2.0\n"
@@ -72,6 +73,9 @@ msgstr ""
 
 msgid "A name is required for your instance."
 msgstr "É preciso um nome para sua instância."
+
+msgid "Action"
+msgstr "Ação"
 
 msgid "Active"
 msgstr "Ativo"
@@ -131,11 +135,20 @@ msgstr ""
 "Um nome de instância é necessário e usado para ajudar a identificar o seu "
 "exemplo, no painel de instrumentos."
 
+msgid "Another action"
+msgstr "Outra ação"
+
 msgid "Automatic"
 msgstr "Automático"
 
 msgid "Availability Zone"
 msgstr "Zona de Disponibilidade"
+
+msgid "Brand"
+msgstr "Brand"
+
+msgid "Buttons"
+msgstr "Botões"
 
 msgid "Cancel"
 msgstr "Cancelar"
@@ -191,6 +204,12 @@ msgstr ""
 "convidado, você pode usar um script personalizado para obter uma chave "
 "pública e adicioná-lo à conta de usuário."
 
+msgid "Danger"
+msgstr "Perigo"
+
+msgid "Default"
+msgstr "Padrão"
+
 msgid "Deleted"
 msgstr "Excluído"
 
@@ -211,6 +230,12 @@ msgstr "ID do Domínio"
 
 msgid "Down"
 msgstr "Inativo"
+
+msgid "Dropdown <b></b>"
+msgstr "Dropdown <b></b>"
+
+msgid "Dropdown header"
+msgstr "Cabeçalho dropdown"
 
 msgid "Email"
 msgstr "Email"
@@ -316,6 +341,9 @@ msgstr "Impacto na sua cota"
 msgid "Import Key Pair"
 msgstr "Importar par de chaves"
 
+msgid "Info"
+msgstr "Info"
+
 msgid "Instance Details"
 msgstr "Detalhes da Instância"
 
@@ -362,6 +390,9 @@ msgstr "Morto"
 msgid "Launch Instance"
 msgstr "Disparar Instância"
 
+msgid "Link"
+msgstr "Link"
+
 msgid "Manual"
 msgstr "Manual"
 
@@ -388,6 +419,9 @@ msgstr "Mín. RAM (MB)"
 
 msgid "Name"
 msgstr "Nome"
+
+msgid "Navbar"
+msgstr "Barra de navegação"
 
 msgid "Network"
 msgstr "Rede"
@@ -421,6 +455,9 @@ msgstr "Rede Física"
 
 msgid "Policy check failed."
 msgstr "Verificação de política falhou."
+
+msgid "Primary"
+msgstr "Primário"
 
 msgid "Private"
 msgstr "Privado"
@@ -574,6 +611,9 @@ msgstr "Status"
 msgid "Subnets Associated"
 msgstr "Sub-redes Associadas"
 
+msgid "Success"
+msgstr "Sucesso"
+
 #, python-format
 msgid "Successfully imported key pair %(name)s."
 msgstr "Par de chaves %(name)s importados com sucesso."
@@ -652,6 +692,13 @@ msgid ""
 msgstr ""
 "Esse flavor requer mais vCPUs do que sua cota permite. Pot favor, selecione "
 "um flavor menor ou diminua a quantidade de instâncias."
+
+msgid ""
+"To view source code, hover over a section, then click the <a><span></span></"
+"a> button in the top right of that section."
+msgstr ""
+"Para visualizar o código-fonte, passe o mouse sobre uma seção e em seguida "
+"clique no botão <a><span></span></a> na parte superior direita dessa seção"
 
 msgid "Total Disk"
 msgstr "Total de Disco"
@@ -897,6 +944,9 @@ msgstr ""
 "Volumes só pode ser ligado a uma instância ativa de cada vez. Por favor, "
 "defina a contagem de instância até 1 ou selecionar um tipo de fonte "
 "diferente."
+
+msgid "Warning"
+msgstr "Aviso"
 
 msgid ""
 "When selecting volume as boot source, please ensure the instance's "

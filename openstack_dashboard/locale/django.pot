@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2016-03-02 06:40+0000\n"
+"POT-Creation-Date: 2016-03-03 06:16+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -7246,6 +7246,7 @@ msgstr ""
 #: openstack_dashboard/dashboards/project/containers/tables.py:270
 #: openstack_dashboard/dashboards/project/containers/views.py:49
 #: openstack_dashboard/dashboards/project/containers/templates/containers/index.html:4
+#: openstack_dashboard/dashboards/project/ngcontainers/templates/ngcontainers/index.html:3
 msgid "Containers"
 msgstr ""
 
@@ -9328,17 +9329,17 @@ msgstr ""
 
 #: openstack_dashboard/dashboards/project/instances/tables.py:1084
 msgctxt "Task status of an Instance"
-msgid "Rebooting Hard"
+msgid "Hard Rebooting"
 msgstr ""
 
 #: openstack_dashboard/dashboards/project/instances/tables.py:1086
 msgctxt "Task status of an Instance"
-msgid "Reboot Pending Hard"
+msgid "Hard Reboot Pending"
 msgstr ""
 
 #: openstack_dashboard/dashboards/project/instances/tables.py:1088
 msgctxt "Task status of an Instance"
-msgid "Reboot Started Hard"
+msgid "Hard Reboot Started"
 msgstr ""
 
 #: openstack_dashboard/dashboards/project/instances/tables.py:1090
@@ -11891,6 +11892,14 @@ msgstr ""
 
 #: openstack_dashboard/dashboards/project/networks/templates/networks/subnets/_detail_overview.html:54
 msgid "DNS name server"
+msgstr ""
+
+#: openstack_dashboard/dashboards/project/ngcontainers/panel.py:21
+msgid "NGContainers"
+msgstr ""
+
+#: openstack_dashboard/dashboards/project/ngcontainers/templates/ngcontainers/index.html:6
+msgid "\"Containers\""
 msgstr ""
 
 #: openstack_dashboard/dashboards/project/overview/views.py:39

@@ -24,7 +24,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2016-02-29 14:52+0000\n"
+"POT-Creation-Date: 2016-03-02 17:22+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -6309,24 +6309,12 @@ msgid "Reboot Pending"
 msgstr "Neustart geplant"
 
 msgctxt "Task status of an Instance"
-msgid "Reboot Pending Hard"
-msgstr "Wartet auf harten Neustart"
-
-msgctxt "Task status of an Instance"
 msgid "Reboot Started"
 msgstr "Neustart durchgeführt"
 
 msgctxt "Task status of an Instance"
-msgid "Reboot Started Hard"
-msgstr "Harter Neustart gestartet"
-
-msgctxt "Task status of an Instance"
 msgid "Rebooting"
 msgstr "Neustartend"
-
-msgctxt "Task status of an Instance"
-msgid "Rebooting Hard"
-msgstr "Neustartend Hart"
 
 msgctxt "Action log of an instance"
 msgid "Rebuild"

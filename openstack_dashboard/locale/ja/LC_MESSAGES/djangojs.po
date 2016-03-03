@@ -14,11 +14,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2016-03-02 06:17+0000\n"
+"POT-Creation-Date: 2016-03-02 17:22+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2016-02-26 10:58+0000\n"
+"PO-Revision-Date: 2016-03-02 02:07+0000\n"
 "Last-Translator: Akihiro Motoki <amotoki@gmail.com>\n"
 "Language: ja\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
@@ -229,6 +229,9 @@ msgstr "ARI"
 msgid "Action"
 msgstr "アクション"
 
+msgid "Actions"
+msgstr "アクション"
+
 msgid "Active"
 msgstr "稼働中"
 
@@ -305,6 +308,9 @@ msgstr "自動"
 msgid "Availability Zone"
 msgstr "アベイラビリティーゾーン"
 
+msgid "Available"
+msgstr "利用可能"
+
 msgid "Badges"
 msgstr "バッジ"
 
@@ -356,6 +362,9 @@ msgstr ""
 "のボックスにチェックを付けます。この設定により、インスタンスは起動時に<b>コン"
 "フィグドライブ</b>に接続して、メタデータにアクセスします。"
 
+msgid "Checksum"
+msgstr "チェックサム"
+
 msgid "Click to see more details"
 msgstr "クリックすると詳しい情報が表示されます。"
 
@@ -406,8 +415,14 @@ msgstr "新規ボリュームの作成"
 msgid "Created"
 msgstr "作成時刻"
 
+msgid "Created At"
+msgstr "作成時刻"
+
 msgid "Created keypair: "
 msgstr "作成されたキーペア:"
+
+msgid "Creating"
+msgstr "作成中"
 
 msgid ""
 "Custom scripts are attached to instances to perform specific actions when "
@@ -419,6 +434,18 @@ msgstr ""
 "に、インスタンスにアタッチします。例えば、ゲストオペレーティングシステム内"
 "で  <samp>cloud-init</samp> をインストールできない場合には、カスタムスクリプ"
 "トを使用して公開鍵を取得し、ユーザーアカウントに追加することができます。"
+
+msgid "DNS Domain"
+msgstr "DNS ドメイン"
+
+msgid "DNS Domains"
+msgstr "DNS ドメイン"
+
+msgid "DNS Record"
+msgstr "DNS レコード"
+
+msgid "DNS Records"
+msgstr "DNS レコード"
 
 msgid "Danger"
 msgstr "危険"
@@ -460,8 +487,14 @@ msgid "Deleted Image: %s."
 msgid_plural "Deleted Images: %s."
 msgstr[0] "イメージ %s を削除しました。"
 
+msgid "Deleting"
+msgstr "削除中"
+
 msgid "Description"
 msgstr "説明"
+
+msgid "Description:"
+msgstr "説明:"
 
 msgid "Details"
 msgstr "詳細"
@@ -480,6 +513,9 @@ msgstr "無効"
 
 msgid "Disabled input"
 msgstr "無効化された入力項目"
+
+msgid "Disk Format"
+msgstr "ディスク形式"
 
 msgid "Disk Partition"
 msgstr "ディスクパーティション"
@@ -521,8 +557,17 @@ msgstr "強調クラス"
 msgid "Enabled"
 msgstr "有効"
 
+msgid "Encrypted"
+msgstr "暗号化"
+
 msgid "Ephemeral Disk"
 msgstr "一時ディスク"
+
+msgid "Error"
+msgstr "エラー"
+
+msgid "Error Deleting"
+msgstr "削除中にエラー"
 
 msgid "Ether Type"
 msgstr "Ethernet 種別"
@@ -548,6 +593,9 @@ msgstr "フレーバーのヘルプ"
 
 msgid "Flavor Name"
 msgstr "フレーバー名"
+
+msgid "Flavors"
+msgstr "フレーバー"
 
 msgid ""
 "Flavors manage the sizing for the compute, memory and storage capacity of "
@@ -606,6 +654,13 @@ msgstr "ID"
 
 msgid "ISO"
 msgstr "ISO"
+
+msgid ""
+"If \"No volume type\" is selected, the volume will be created without a "
+"volume type."
+msgstr ""
+"「ボリューム種別の指定なし」を選択した場合、ボリュームはボリューム種別の指定"
+"なしで作成されます。"
 
 msgid ""
 "If a network is shared, then all users in the project can access the network."
@@ -749,6 +804,9 @@ msgstr "キーペアのヘルプ"
 msgid "Key Pair Name"
 msgstr "キーペア名"
 
+msgid "Key Pairs"
+msgstr "キーペア"
+
 msgid ""
 "Key Pairs are how you login to your instance after it is launched.\n"
 "        Choose a key pair name you will recognize and paste your SSH public "
@@ -826,11 +884,20 @@ msgstr "手動"
 msgid "Max Port"
 msgstr "上限ポート番号"
 
+msgid "Members"
+msgstr "メンバー"
+
 msgid "Messages <span>3</span>"
 msgstr "メッセージ <span>3</span>"
 
 msgid "Metadata"
 msgstr "メタデータ"
+
+msgid "Metadata Definition"
+msgstr "メタデータ定義"
+
+msgid "Metadata Definitions"
+msgstr "メタデータ定義"
 
 msgid "Metadata Help"
 msgstr "メタデータのヘルプ"
@@ -852,6 +919,12 @@ msgstr "最小メモリー"
 
 msgid "Min RAM (MB)"
 msgstr "最小メモリー (MB)"
+
+msgid "Min. Disk"
+msgstr "最小ディスク"
+
+msgid "Min. RAM"
+msgstr "最小メモリー"
 
 msgid "Mini button"
 msgstr "ミニボタン"
@@ -909,6 +982,12 @@ msgstr "数字"
 
 msgid "OVA"
 msgstr "OVA"
+
+msgid "Object"
+msgstr "オブジェクト"
+
+msgid "Objects"
+msgstr "オブジェクト"
 
 msgid "Older"
 msgstr "古い"
@@ -1150,6 +1229,12 @@ msgstr "セレクト"
 
 msgid "Separated link"
 msgstr "分割されたリンク"
+
+msgid "Server"
+msgstr "サーバー"
+
+msgid "Servers"
+msgstr "サーバー"
 
 #, python-format
 msgid "Service type is not enabled: %(desiredType)s"
@@ -1640,6 +1725,9 @@ msgstr "更新時刻"
 msgid "Url"
 msgstr "URL"
 
+msgid "Use image as a source"
+msgstr "イメージをソースとして使用する"
+
 msgid "User ID"
 msgstr "ユーザー ID"
 
@@ -1661,11 +1749,32 @@ msgstr "公開範囲"
 msgid "Volume"
 msgstr "ボリューム"
 
+msgid "Volume Backup"
+msgstr "ボリュームバックアップ"
+
+msgid "Volume Backups"
+msgstr "ボリュームバックアップ"
+
+msgid "Volume Details"
+msgstr "ボリュームの詳細"
+
 msgid "Volume Snapshot"
 msgstr "ボリュームスナップショット"
 
+msgid "Volume Snapshots"
+msgstr "ボリュームスナップショット"
+
+msgid "Volume Type Description:"
+msgstr "ボリューム種別の説明:"
+
 msgid "Volume size is required and must be an integer"
 msgstr "ボリュームサイズは必須で、整数でなければなりません。"
+
+msgid "Volumes"
+msgstr "ボリューム"
+
+msgid "Volumes are block devices that can be attached to instances."
+msgstr "ボリュームは、インスタンスに接続できるブロックデバイスです。"
 
 msgid ""
 "Volumes can only be attached to 1 active instance at a time. Please either "

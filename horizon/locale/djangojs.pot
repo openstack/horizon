@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2016-02-26 06:16+0000\n"
+"POT-Creation-Date: 2016-03-03 06:16+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -16,6 +16,10 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 2.2.0\n"
+
+#: horizon/static/framework/conf/resource-type-registry.service.spec.js:86
+msgid "Example"
+msgstr ""
 
 #: horizon/static/framework/util/filters/filters.js:44
 msgid "Yes"
@@ -74,7 +78,7 @@ msgid "%s bytes"
 msgstr ""
 
 #: horizon/static/framework/util/filters/filters.js:220
-#: horizon/static/horizon/js/horizon.tables.js:415
+#: horizon/static/horizon/js/horizon.tables.js:416
 #, python-format
 msgid "Displaying %s item"
 msgid_plural "Displaying %s items"
@@ -548,7 +552,7 @@ msgid "Create Subnet"
 msgstr ""
 
 #: horizon/static/horizon/js/horizon.tables.js:45
-#: horizon/static/horizon/js/horizon.tables.js:428
+#: horizon/static/horizon/js/horizon.tables.js:432
 msgid "No items to display."
 msgstr ""
 
