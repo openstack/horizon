@@ -243,13 +243,15 @@ class HeatApiTests(test.APITestCase):
 
     def test_get_template_files_with_template_data(self):
         tmpl = '''
+    # comment
+
     heat_template_version: 2013-05-23
     resources:
       server1:
         type: OS::Nova::Server
         properties:
-            flavor: m1.medium
-            image: cirros
+          flavor: m1.medium
+          image: cirros
     '''
         expected_files = {}
         files = api.heat.get_template_files(template_data=tmpl)[0]
@@ -257,6 +259,8 @@ class HeatApiTests(test.APITestCase):
 
     def test_get_template_files(self):
         tmpl = '''
+    # comment
+
     heat_template_version: 2013-05-23
     resources:
       server1:
@@ -281,6 +285,8 @@ class HeatApiTests(test.APITestCase):
     def test_get_template_files_with_template_url(self):
         url = 'https://test.example/example.yaml'
         data = b'''
+    # comment
+
     heat_template_version: 2013-05-23
     resources:
       server1:
@@ -306,6 +312,8 @@ class HeatApiTests(test.APITestCase):
 
     def test_get_template_files_invalid(self):
         tmpl = '''
+    # comment
+
     heat_template_version: 2013-05-23
     resources:
       server1:

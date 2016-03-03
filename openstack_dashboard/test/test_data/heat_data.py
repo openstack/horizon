@@ -206,8 +206,8 @@ TEMPLATE = """
 "Fn::Join": [
 "",
 [
-"#!/bin/bash -v\n",
-"/opt/aws/bin/cfn-init\n"
+"#!/bin/bash -v\\n",
+"/opt/aws/bin/cfn-init\\n"
 ]
 ]
 }
