@@ -210,6 +210,7 @@ class NetworkTopologyCreateTests(test.TestCase):
         self._test_new_button_disabled_when_quota_exceeded(
             expected_string, routers_quota=0)
 
+    @test.update_settings(LAUNCH_INSTANCE_LEGACY_ENABLED=True)
     @test.create_stubs({quotas: ('tenant_quota_usages',)})
     def test_launch_instance_button_disabled_when_quota_exceeded(self):
         url = reverse('horizon:project:network_topology:launchinstance')

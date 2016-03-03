@@ -630,6 +630,45 @@ properties found in the Launch Instance modal.
 The ``config_drive`` setting specifies the default value for the Configuration
 Drive property.
 
+
+``LAUNCH_INSTANCE_NG_ENABLED``
+------------------------------
+
+.. versionadded:: 8.0.0(Liberty)
+
+Default: ``True``
+
+This setting enables the AngularJS Launch Instance workflow.
+
+.. note::
+
+    The default value for this has been changed to ``True`` in 9.0.0 (Mitaka)
+
+.. note::
+
+    It is possible to run both the AngularJS and Python workflows simultaneously,
+    so the other may be need to be toggled with ``LAUNCH_INSTANCE_LEGACY_ENABLED``
+
+
+``LAUNCH_INSTANCE_LEGACY_ENABLED``
+----------------------------------
+
+.. versionadded:: 8.0.0(Liberty)
+
+Default: ``False``
+
+This setting enables the Python Launch Instance workflow.
+
+.. note::
+
+    The default value for this has been changed to ``False`` in 9.0.0 (Mitaka)
+
+.. note::
+
+    It is possible to run both the AngularJS and Python workflows simultaneously,
+    so the other may be need to be toggled with ``LAUNCH_INSTANCE_NG_ENABLED``
+
+
 ``MESSAGES_PATH``
 -----------------
 

@@ -64,7 +64,7 @@ class ImagesTable(tables.TableRegion):
             self.driver, self.conf,
             field_mappings=self.CREATE_VOLUME_FROM_IMAGE_FORM_FIELDS)
 
-    @tables.bind_row_action('launch_image', primary=True)
+    @tables.bind_row_action('launch_image')
     def launch_instance(self, launch_instance, row):
         launch_instance.click()
         return forms.TabbedFormRegion(

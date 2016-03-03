@@ -20,6 +20,9 @@ reports
 openstack_dashboard/local/*
 !openstack_dashboard/local/local_settings.py.example
 !openstack_dashboard/local/enabled/_50__settings.py.example
+!openstack_dashboard/local/local_settings.d
+openstack_dashboard/local/local_settings.d/*
+!openstack_dashboard/local/local_settings.d/*.example
 openstack_dashboard/test/.secret_key_store
 openstack_dashboard/test/integration_tests/local-horizon.conf
 openstack_dashboard/wsgi/horizon.wsgi
