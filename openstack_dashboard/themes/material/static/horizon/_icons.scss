@@ -8,7 +8,6 @@ $mdi-font-path: $static_url + "/horizon/lib/mdi/fonts";
 
 .fa {
   @extend .mdi;
-  font-size: $mdi-icon-size;
 }
 
 $icon-swap: (
@@ -68,14 +67,5 @@ $icon-swap: (
 @each $fa-icon, $mdi-icon in $icon-swap {
   .fa-#{$fa-icon} {
     @extend .mdi-#{$mdi-icon};
-  }
-}
-
-.dropdown-toggle > {
-  &.btn-lg .fa-caret-down {
-    font-size: 1.2em;
-  }
-  .fa-caret-down {
-    @include vertical-center();
   }
 }

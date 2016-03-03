@@ -30,6 +30,7 @@ $help-panel-width: 400px;
     &:active,
     &:focus {
       @extend .close;
+      box-shadow: none;
       margin: $padding-xs-horizontal;
     }
 
