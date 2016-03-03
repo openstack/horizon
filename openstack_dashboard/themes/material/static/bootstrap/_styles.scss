@@ -4,3 +4,24 @@
 @import "/bootstrap/scss/bootstrap/mixins/vendor-prefixes";
 @import "/horizon/lib/bootswatch/paper/bootswatch";
 @import "/horizon/lib/roboto_fontface/css/roboto-fontface.scss";
+
+
+
+// Patch to Paper
+// Inside alerts, the text color of buttons aren't properly ignored
+// https://github.com/thomaspark/bootswatch/issues/552
+.alert a:not(.close).btn-primary {
+  color: $btn-primary-color;
+}
+.alert a:not(.close).btn-default {
+  color: $btn-default-color;
+}
+.alert a:not(.close).btn-info {
+  color: $btn-info-color;
+}
+.alert a:not(.close).btn-warning {
+  color: $btn-warning-color;
+}
+.alert a:not(.close).btn-danger {
+  color: $btn-danger-color;
+}

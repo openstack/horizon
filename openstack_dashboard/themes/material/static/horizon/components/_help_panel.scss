@@ -1,0 +1,41 @@
+// Controls the size of the "?" icon on the right of the wizards
+
+
+// Position the toggle above the content a bit so it doesn't
+// cover up the words
+$material-toggle-offset: -$font-size-h3;
+
+.help-toggle {
+  z-index: 3;
+
+  &:not(.collapsed) {
+    &,
+    &:hover,
+    &:active,
+    &:focus {
+      margin-top: $material-toggle-offset;
+      margin-right: -$padding-xs-horizontal/2;
+    }
+  }
+
+  &,
+  &:active:hover,
+  &:hover,
+  &:active,
+  &:focus {
+    margin-top: $material-toggle-offset;
+    margin-right: -$padding-xs-horizontal/2;
+    background: none;
+    box-shadow: none;
+    color: $brand-primary;
+  }
+}
+
+#help-panel {
+  margin-top: $material-toggle-offset;
+
+  // Material is all about depth, lets add some
+  & > .well {
+    @extend .panel;
+  }
+}
