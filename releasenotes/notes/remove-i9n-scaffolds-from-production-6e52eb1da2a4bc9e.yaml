@@ -1,0 +1,8 @@
+---
+features:
+  - Added new setting INTEGRATION_TESTS_SUPPORT, default value
+    is `False`. This value is used when running `manage.py compress`
+    command, so by default all static assets and html classes used
+    by integration tests are removed from Horizon production build.
+    Integration tests gate job sets this variable to `True` and
+    recompresses static assets.

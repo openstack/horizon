@@ -38,7 +38,9 @@
 <script type="text/javascript">
   horizon.modals.MODAL_BACKDROP = "{% firstof HORIZON_CONFIG.modal_backdrop 'static' %}";
 </script>
+{% if HORIZON_CONFIG.integration_tests_support %}
 <script src='{{ STATIC_URL }}horizon/js/horizon.selenium.js'></script>
+{% endif %}
 <script src='{{ STATIC_URL }}horizon/js/horizon.quota.js'></script>
 <script src='{{ STATIC_URL }}horizon/js/horizon.tables.js'></script>
 <script src='{{ STATIC_URL }}horizon/js/horizon.tables_inline_edit.js'></script>

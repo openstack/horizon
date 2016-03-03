@@ -301,6 +301,11 @@ which also contains instructions on how to run the tests. To make integration
 tests more understandable and maintainable, the Page Object pattern is used
 throughout them.
 
+.. warning:: To enable integration tests support before running them, please
+   copy openstack_dashboard/local/local_settings.d/_20_integration_tests_scaffolds.py.example
+   to openstack_dashboard/local/local_settings.d/_20_integration_tests_scaffolds.py
+   and then run ./manage.py collectstatic --clear && ./manage.py compress.
+
 Horizon repository also provides two shell `scripts`_, which are executed in
 pre_test_hook and post_test_hook respectively. Pre hook is generally used for
 modifying test environment, while post hook is used for running actual
@@ -662,6 +667,10 @@ Customizing tests to a specific gate environment
     in `devstack-vm-gate-wrap.sh`_ script will be already cloned by the moment
     pre hook is executed. So the natural use for it is to customize some Horizon
     settings before they are used in operations like compressing statics etc.
+    That is how it is actually used now: it sets settings variable
+    `INTEGRATION_TESTS_SUPPORT` to `True`, so all the support code for integration
+    tests is included into Horizon static assets. If this variable was set to
+    `False`, we would not be able to run integration tests.
 
   * Post hook is executed after Devstack is deployed, so integration tests
     themselves are run inside that hook, as well as various test artifacts
@@ -676,7 +685,9 @@ Customizing tests to a specific gate environment
 Writing integration tests for Horizon plugins
 ---------------------------------------------
 
-There are 2 possible setups when running integration tests for Horizon plugins.
+First, for more details on writing a Horizon plugin please refer to
+:doc:`../tutorials/plugin`. Second, there are 2 possible setups when running
+integration tests for Horizon plugins.
 
 The first setup, which is suggested to be used in gate of \*-dashboard plugins
 is to get horizon as a dependency of a plugin and then run integration tests

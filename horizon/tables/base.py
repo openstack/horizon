@@ -19,6 +19,7 @@ import logging
 from operator import attrgetter
 import sys
 
+from django.conf import settings
 from django.core import exceptions as core_exceptions
 from django.core import urlresolvers
 from django import forms
@@ -433,10 +434,11 @@ class Column(html.HTMLElement):
         except urlresolvers.NoReverseMatch:
             return self.link
 
-    def get_default_attrs(self):
-        attrs = super(Column, self).get_default_attrs()
-        attrs.update({'data-selenium': self.name})
-        return attrs
+    if getattr(settings, 'INTEGRATION_TESTS_SUPPORT', False):
+        def get_default_attrs(self):
+            attrs = super(Column, self).get_default_attrs()
+            attrs.update({'data-selenium': self.name})
+            return attrs
 
     def get_summation(self):
         """Returns the summary value for the data in this column if a
@@ -665,7 +667,8 @@ class Cell(html.HTMLElement):
             if len(data) > column.truncate:
                 self.attrs['data-toggle'] = 'tooltip'
                 self.attrs['title'] = data
-                self.attrs['data-selenium'] = data
+                if getattr(settings, 'INTEGRATION_TESTS_SUPPORT', False):
+                    self.attrs['data-selenium'] = data
         self.data = self.get_data(datum, column, row)
 
     def get_data(self, datum, column, row):
