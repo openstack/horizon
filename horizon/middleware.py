@@ -29,6 +29,7 @@ from django.contrib import messages as django_messages
 from django import http
 from django import shortcuts
 from django.utils.encoding import iri_to_uri  # noqa
+from django.utils import timezone
 from django.utils.translation import ugettext_lazy as _
 
 from openstack_auth import views as auth_views
@@ -105,6 +106,10 @@ class HorizonMiddleware(object):
                             'max_cookie_size': max_cookie_size,
                         }
                     )
+
+        tz = request.session.get('django_timezone')
+        if tz:
+            timezone.activate(tz)
 
     def process_exception(self, request, exception):
         """Catches internal Horizon exception classes such as NotAuthorized,
