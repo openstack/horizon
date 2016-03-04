@@ -23,9 +23,15 @@
     beforeEach(module('horizon.app.core.openstack-service-api'));
 
     beforeEach(module(function($provide) {
-      novaAPI = {getExtensions: function() {return {then: angular.noop}; }};
-      q = {defer: function() { return {resolve: angular.noop}; }};
-      $provide.value('$cacheFactory', function() {return "cache"; });
+      novaAPI = {getExtensions: function() {
+        return {then: angular.noop};
+      }};
+      q = {defer: function() {
+        return {resolve: angular.noop};
+      }};
+      $provide.value('$cacheFactory', function() {
+        return "cache";
+      });
       $provide.value('$q', q);
       $provide.value('horizon.app.core.openstack-service-api.nova', novaAPI);
     }));

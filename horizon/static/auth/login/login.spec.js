@@ -40,7 +40,7 @@
         toBeVisible: function() {
           return {
             compare: function(actual) {
-              var pass = (actual.css('display') !== 'none');
+              var pass = actual.css('display') !== 'none';
               var result = {
                 pass: pass,
                 message: pass ?

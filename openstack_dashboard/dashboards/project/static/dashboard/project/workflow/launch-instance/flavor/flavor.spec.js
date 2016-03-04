@@ -401,7 +401,9 @@
         describe('defaultIfUndefined', function () {
 
           it('returns the given default if value is undefined', function () {
+            /*eslint-disable no-undefined */
             expect(ctrl.defaultIfUndefined(undefined, 'defValue')).toBe('defValue');
+            /*eslint-enable no-undefined */
           });
 
           it('returns the value if defined', function () {

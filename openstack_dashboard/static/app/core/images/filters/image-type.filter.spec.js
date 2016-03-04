@@ -39,7 +39,7 @@
       });
 
       it('returns Image for undefined', function () {
-        expect(imageTypeFilter(undefined)).toBe('Image');
+        expect(imageTypeFilter()).toBe('Image');
       });
 
     });

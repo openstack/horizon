@@ -205,7 +205,7 @@
           $scope = $injector.get('$rootScope').$new();
 
           var serviceName = 'horizon.framework.widgets.metadata.tree.service';
-          item = new ($injector.get(serviceName).Item)();
+          item = new ($injector.get(serviceName)).Item();
           $scope.item = item.fromProperty('test', namespaces[0].properties['test:A:6']);
 
           var markup = '<metadata-tree-item' +

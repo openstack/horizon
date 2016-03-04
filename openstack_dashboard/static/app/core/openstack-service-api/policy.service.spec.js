@@ -70,13 +70,17 @@
     };
 
     var deferred = {
-      then: function(callback) { callback(response); },
+      then: function(callback) {
+        callback(response);
+      },
       reject: angular.noop,
       resolve: angular.noop
     };
 
     var service;
-    var q = { defer: function() { return deferred; }};
+    var q = { defer: function() {
+      return deferred;
+    }};
 
     ////////////////
 

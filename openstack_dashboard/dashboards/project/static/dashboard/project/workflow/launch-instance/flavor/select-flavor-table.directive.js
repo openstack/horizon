@@ -108,7 +108,9 @@
         // This table used in "allocated" portion of transfer table
         scope.showSearchBar = false;
         // Always show items
-        scope.showItemFunc = function () { return true; };
+        scope.showItemFunc = function () {
+          return true;
+        };
         scope.itemClickAction = transferTableController.deallocate;
         scope.noneAvailableText = transferTableHelpText.noneAllocText;
         scope.itemButtonClasses = "fa fa-minus";

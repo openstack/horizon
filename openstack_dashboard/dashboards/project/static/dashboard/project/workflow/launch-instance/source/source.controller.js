@@ -407,7 +407,7 @@
      * size for validating vol_size field
      */
     function checkVolumeForImage() {
-      var source = selection ? selection[0] : undefined;
+      var source = selection[0];
 
       if (source && ctrl.currentBootSource === bootSourceTypes.IMAGE) {
         var imageGb = source.size * 1e-9;
@@ -418,7 +418,9 @@
         var volumeSizeObj = { minVolumeSize: ctrl.minVolumeSize };
         ctrl.minVolumeSizeError = interpolate(volumeSizeText, volumeSizeObj, true);
       } else {
+        /*eslint-disable no-undefined */
         ctrl.minVolumeSize = undefined;
+        /*eslint-enable no-undefined */
       }
     }
 

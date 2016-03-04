@@ -72,7 +72,7 @@
 
     // Users
     function getUsers(params) {
-      var config = (params) ? {'params': params} : {};
+      var config = params ? {'params': params} : {};
       return apiService.get('/api/keystone/users/', config)
         .error(function () {
           toastService.add('error', gettext('Unable to retrieve the users.'));
@@ -247,7 +247,7 @@
 
     // Projects
     function getProjects(params) {
-      var config = (params) ? {'params': params} : {};
+      var config = params ? {'params': params} : {};
       return apiService.get('/api/keystone/projects/', config)
         .error(function () {
           toastService.add('error', gettext('Unable to retrieve the projects.'));

@@ -281,8 +281,12 @@
      */
     function getFlavors(isPublic, getExtras) {
       var config = {'params': {}};
-      if (isPublic) { config.params.is_public = 'true'; }
-      if (getExtras) { config.params.get_extras = 'true'; }
+      if (isPublic) {
+        config.params.is_public = 'true';
+      }
+      if (getExtras) {
+        config.params.get_extras = 'true';
+      }
       return apiService.get('/api/nova/flavors/', config)
         .success(function (data) {
           // The colon character ':' in the flavor data causes problems when used
@@ -319,8 +323,12 @@
      */
     function getFlavor(id, getExtras, getAccessList) {
       var config = {'params': {}};
-      if (getExtras) { config.params.get_extras = 'true'; }
-      if (getAccessList) { config.params.get_access_list = 'true'; }
+      if (getExtras) {
+        config.params.get_extras = 'true';
+      }
+      if (getAccessList) {
+        config.params.get_access_list = 'true';
+      }
       return apiService.get('/api/nova/flavors/' + id + '/' , config)
         .error(function () {
           toastService.add('error', gettext('Unable to retrieve the flavor.'));

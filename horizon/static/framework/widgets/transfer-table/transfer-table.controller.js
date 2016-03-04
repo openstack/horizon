@@ -125,9 +125,8 @@
           ctrl.limits.maxAllocation > ctrl.allocated.sourceItems.length) {
         ctrl.allocated.sourceItems.push(item);
         ctrl.allocatedIds[item.id] = true;
-      }
       // Swap out items if only one allocation allowed
-      else if (ctrl.limits.maxAllocation === 1) {
+      } else if (ctrl.limits.maxAllocation === 1) {
         var temp = ctrl.allocated.sourceItems.pop();
         delete ctrl.allocatedIds[temp.id];
         // When swapping out, Smart-Table $watch is

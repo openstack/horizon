@@ -24,7 +24,9 @@
     ctrl.copyFrom = angular.element('#id_image_url').val();
     ctrl.diskFormat = angular.element('#id_disk_format option:selected').val();
     ctrl.selectImageFormat = function (path) {
-      if (!path) { return; }
+      if (!path) {
+        return;
+      }
       var format = path.substr(path.lastIndexOf(".") + 1).toLowerCase().replace(/[^a-z0-9]+/gi, "");
 
       /* eslint-disable angular/ng_angularelement */

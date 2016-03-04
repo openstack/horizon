@@ -102,14 +102,16 @@
       it("returns required", function() {
         var error = {required: true};
         ctrl.text = {required: "texreq"};
-
+        /*eslint-disable no-undefined */
         expect(ctrl.formatErrorMessage(undefined, error)).toBe('texreq');
+        /*eslint-enable no-undefined */
       });
 
       it("returns nothing when nothing for error", function() {
         var error = {};
-
+        /*eslint-disable no-undefined */
         expect(ctrl.formatErrorMessage(undefined, error)).toBeUndefined();
+        /*eslint-enable no-undefined */
       });
 
     });

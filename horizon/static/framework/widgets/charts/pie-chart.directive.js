@@ -150,7 +150,9 @@
 
         var pie = d3.layout.pie()
           .sort(null)
-          .value(function (d) { return d.value; });
+          .value(function (d) {
+            return d.value;
+          });
       }
 
       var unwatch = scope.$watch('chartData', updateChart);
@@ -174,7 +176,9 @@
           scope.model.total = scope.chartData.maxLimit;
           scope.model.totalLabel = gettext('Max');
         } else {
-          scope.model.total = d3.sum(scope.chartData.data, function (d) { return d.value; });
+          scope.model.total = d3.sum(scope.chartData.data, function (d) {
+            return d.value;
+          });
           scope.model.totalLabel = gettext('Total');
         }
         scope.model.tooltipData.enabled = false;
@@ -199,7 +203,9 @@
             }
           });
 
-          chart.on('mouseenter', function (d) { showTooltip(d, this); })
+          chart.on('mouseenter', function (d) {
+            showTooltip(d, this);
+          })
             .on('mouseleave', clearTooltip);
 
           // Animate the slice rendering

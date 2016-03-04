@@ -70,7 +70,9 @@
       var service, modal;
 
       beforeEach(module(function($provide) {
-        modal = { open: function() {return 'val'; } };
+        modal = { open: function() {
+          return 'val';
+        }};
         $provide.value('$modal', modal);
       }));
 
