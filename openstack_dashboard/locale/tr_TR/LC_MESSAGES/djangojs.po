@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2016-02-18 02:36+0000\n"
+"POT-Creation-Date: 2016-03-04 04:22+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -53,16 +53,6 @@ msgstr ""
 "    görünümüne gidin ve sunucunun sağındaki <b>Eylemler</b> menüsüne "
 "tıklayın.\n"
 "    Ardından <b>Değişken IP ata</b> seçin ve gerekli detayları girin."
-
-msgid ""
-"A key pair allows you to SSH into your newly created instance.\n"
-"      You may select an existing key pair, import a key pair, or generate a "
-"new key pair."
-msgstr ""
-"Bir anahtar çifti yeni oluşturduğunuz sunucuda SSH ile oturum açmanıza izin "
-"verir.\n"
-"Mevcut anahtar çiftinizi kullanabilir, bir anahtar çiftini içe aktarabilir "
-"veya yeni bir çift oluşturabilirsiniz."
 
 msgid "A name is required for your instance."
 msgstr "Instance için bir isim gerekiyor."
@@ -150,15 +140,6 @@ msgstr "Daha fazla detay için tıklayın"
 msgid "Configuration"
 msgstr "Yapılandırma"
 
-msgid "Configuration Drive"
-msgstr "Yapılandırma Sürücüsü"
-
-msgid "Configuration Help"
-msgstr "Yapılandırma Yardımı"
-
-msgid "Count"
-msgstr "Sayı"
-
 msgid "Create Key Pair"
 msgstr "Anahtar Çifti Oluştur"
 
@@ -224,9 +205,6 @@ msgstr "Parmak izi"
 
 msgid "Flavor"
 msgstr "Şablon"
-
-msgid "Flavor Help"
-msgstr "Şablon Yardımı"
 
 msgid ""
 "Flavors manage the sizing for the compute, memory and storage capacity of "
@@ -299,17 +277,8 @@ msgstr "Kotanıza etkisi"
 msgid "Import Key Pair"
 msgstr "Anahtar Çiftini İçe Aktar"
 
-msgid "Instance Details"
-msgstr "Instance Ayrıntıları"
-
-msgid "Instance Name"
-msgstr "Instance Adı"
-
 msgid "Instance Snapshot"
 msgstr "Instance Anlık Görüntüsü"
-
-msgid "Instance Source"
-msgstr "Instance Kaynağı"
 
 msgid "Instance count is required and must be an integer of at least 1"
 msgstr "Instance sayısı girilmelidir ve bu tamsayı 1'den büyük olmalıdır."
@@ -319,24 +288,6 @@ msgstr "Kullanıcı bilgisi görüntülemek için yetersiz yetki seviyesi."
 
 msgid "Key Pair"
 msgstr "Anahtar Çifti"
-
-msgid "Key Pair Help"
-msgstr "Anahtar Çifti Yardımı"
-
-msgid "Key Pair Name"
-msgstr "Anahtar Çifti Adı"
-
-msgid ""
-"Key Pairs are how you login to your instance after it is launched.\n"
-"        Choose a key pair name you will recognize and paste your SSH public "
-"key into the\n"
-"        space provided."
-msgstr ""
-"Anahtar Çiftleri instance başlatıldığında nasıl oturum açacağınızı "
-"belirler.\n"
-"Anahtar çiftinize hatırlayabileceğiniz bir isim verin ve SSH açık "
-"anahtarınızı\n"
-"gösterilen alana kopyalayın."
 
 msgid "Killed"
 msgstr "Öldürüldü"
@@ -370,9 +321,6 @@ msgstr "Ad"
 
 msgid "Network"
 msgstr "Ağ"
-
-msgid "Network Help"
-msgstr "Ağ Yardımı"
 
 msgid "Network characteristics"
 msgstr "Ağ Özellikleri"
@@ -454,9 +402,6 @@ msgstr "Sürükle ve bırak kullanarak ögeleri yeniden sırala"
 msgid "Remote"
 msgstr "Uzak"
 
-msgid "Required"
-msgstr "Zorunlu"
-
 msgid "Root Disk"
 msgstr "Root Diski"
 
@@ -468,9 +413,6 @@ msgstr "Kaydediliyor"
 
 msgid "Security Groups"
 msgstr "Güvenlik Grupları"
-
-msgid "Security Groups Help"
-msgstr "Güvenlik Grubu Yardımları"
 
 msgid ""
 "Security groups are project-specific and cannot be shared across projects."
@@ -519,9 +461,6 @@ msgstr "Bir veya daha fazla seçin"
 
 msgid "Select one or more security groups from the available groups below."
 msgstr "Aşağıdaki güvenlik gruplarından bir veya daha fazlasını seçin."
-
-msgid "Select the security groups."
-msgstr "Güvenlik gruplarını seçin."
 
 #, python-format
 msgid "Service type is not enabled: %(desiredType)s"

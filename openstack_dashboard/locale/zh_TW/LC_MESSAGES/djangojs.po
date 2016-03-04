@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2016-02-18 02:36+0000\n"
+"POT-Creation-Date: 2016-03-04 04:22+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -46,14 +46,6 @@ msgstr ""
 "    而是等到雲實例已新增後再分配。欲附加浮動 IP，\n"
 "    請到<b>雲實例</b>下檢視並點擊雲實例右邊的<b>動作</b>選單。\n"
 "    然後選擇<b>聯結浮動 IP</b>選項並輸入所需的詳細資訊。"
-
-msgid ""
-"A key pair allows you to SSH into your newly created instance.\n"
-"      You may select an existing key pair, import a key pair, or generate a "
-"new key pair."
-msgstr ""
-"一組密鑰對允許您以 SSH 的方式進入您新增的新雲實例裡。\n"
-"      您可能要選擇一組已存在的密鑰對、匯入密鑰對或產生全新的密鑰對。"
 
 msgid "A name is required for your instance."
 msgstr "為您的雲實例命名。"
@@ -131,15 +123,6 @@ msgstr "點擊來顯示更多詳細資訊"
 msgid "Configuration"
 msgstr "設置"
 
-msgid "Configuration Drive"
-msgstr "設定檔硬碟"
-
-msgid "Configuration Help"
-msgstr "設置說明"
-
-msgid "Count"
-msgstr "計數"
-
 msgid "Create Key Pair"
 msgstr "新增密鑰對"
 
@@ -204,9 +187,6 @@ msgstr "指紋"
 
 msgid "Flavor"
 msgstr "虛擬硬體樣板"
-
-msgid "Flavor Help"
-msgstr "虛擬硬體樣板說明"
 
 msgid "Flavor Name"
 msgstr "虛擬硬體樣板名稱"
@@ -274,17 +254,8 @@ msgstr "對配額的影響"
 msgid "Import Key Pair"
 msgstr "匯入密鑰對"
 
-msgid "Instance Details"
-msgstr "雲實例詳細資訊"
-
-msgid "Instance Name"
-msgstr "雲實例名稱"
-
 msgid "Instance Snapshot"
 msgstr "雲實例即時存檔"
-
-msgid "Instance Source"
-msgstr "雲實例來源"
 
 msgid "Instance count is required and must be an integer of at least 1"
 msgstr "雲實例計數需要最少為 1 的整數"
@@ -294,22 +265,6 @@ msgstr "權限不足以檢視用戶資訊。"
 
 msgid "Key Pair"
 msgstr "密鑰對"
-
-msgid "Key Pair Help"
-msgstr "密鑰對說明"
-
-msgid "Key Pair Name"
-msgstr "密鑰對名稱"
-
-msgid ""
-"Key Pairs are how you login to your instance after it is launched.\n"
-"        Choose a key pair name you will recognize and paste your SSH public "
-"key into the\n"
-"        space provided."
-msgstr ""
-"密鑰對是提供給您在發動雲實例後登入到您的雲實例的。\n"
-"        選擇您能分辨的密鑰對名稱並將您的 SSH 公鑰貼到\n"
-"        提供的空白處。"
 
 msgid "Killed"
 msgstr "已中斷"
@@ -346,9 +301,6 @@ msgstr "名稱"
 
 msgid "Network"
 msgstr "網路"
-
-msgid "Network Help"
-msgstr "網路說明"
 
 msgid "Network characteristics"
 msgstr "網路特徵"
@@ -430,9 +382,6 @@ msgstr "使用拖拉來重新排列"
 msgid "Remote"
 msgstr "遠端"
 
-msgid "Required"
-msgstr "需要"
-
 msgid "Root Disk"
 msgstr "根硬碟"
 
@@ -444,9 +393,6 @@ msgstr "正在儲存"
 
 msgid "Security Groups"
 msgstr "安全性群組"
-
-msgid "Security Groups Help"
-msgstr "安全性群組說明"
 
 msgid ""
 "Security groups are project-specific and cannot be shared across projects."
@@ -493,9 +439,6 @@ msgstr "選擇一個或多個"
 
 msgid "Select one or more security groups from the available groups below."
 msgstr "從下列可用群組中選擇一個或多個安全性群組。"
-
-msgid "Select the security groups."
-msgstr "選擇安全性群組。"
 
 #, python-format
 msgid "Service type is not enabled: %(desiredType)s"

@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2016-03-02 06:17+0000\n"
+"POT-Creation-Date: 2016-03-04 04:22+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -95,19 +95,6 @@ msgstr ""
 "          <a>this important alert message</a>."
 
 msgid ""
-"<div>\n"
-"                  \n"
-"                    <input> Checkbox\n"
-"                  </input>\n"
-"                </div>"
-msgstr ""
-"<div>\n"
-"                  \n"
-"                    <input> Checkbox\n"
-"                  </input>\n"
-"                </div>"
-
-msgid ""
 "<input>\n"
 "                    Option one is this\n"
 "                  </input>"
@@ -188,15 +175,6 @@ msgstr ""
 "    생성된 후 할당이 가능합니다. 유동 IP 할당은 <b>인스턴스</b> 뷰로 \n"
 "    이동하여, 각 인스턴스의 오른쪽에 있는 <b>작업</b> 메뉴를 클릭합니다. \n"
 "    그런뒤 <b>유동 IP 할당</b> 옵션을 선택하여 필요한 정보를 입력합니다."
-
-msgid ""
-"A key pair allows you to SSH into your newly created instance.\n"
-"      You may select an existing key pair, import a key pair, or generate a "
-"new key pair."
-msgstr ""
-"키 페어를 통해 새로 생성한 인스턴스로 SSH 접속을 할 수 있습니다. \n"
-"     기존 키 페어를 선택하거나, 키 페어를 추가하거나 또는 새로운 키 페어를 생"
-"성할 수 있습니다."
 
 msgid ""
 "A key pair named '{$ctrl.createdKeypair.name$}' was successfully created. "
@@ -374,12 +352,6 @@ msgstr "Column heading"
 msgid "Configuration"
 msgstr "구성"
 
-msgid "Configuration Drive"
-msgstr "드라이브 구성"
-
-msgid "Configuration Help"
-msgstr "구성 도움말"
-
 msgid "Confirm Delete Image"
 msgid_plural "Confirm Delete Images"
 msgstr[0] "삭제 이미지 확인"
@@ -392,9 +364,6 @@ msgstr "Containers"
 
 msgid "Contextual alternatives"
 msgstr "Contextual alternatives"
-
-msgid "Count"
-msgstr "개수"
 
 msgid "Create Key Pair"
 msgstr "캐 페어 생성"
@@ -573,9 +542,6 @@ msgstr "Fingerprint"
 msgid "Flavor"
 msgstr "Flavor"
 
-msgid "Flavor Help"
-msgstr "Flavor 도움말"
-
 msgid "Flavor Name"
 msgstr "Flavor 이름"
 
@@ -659,19 +625,6 @@ msgstr ""
 "니다."
 
 msgid ""
-"If not, you can manually dowload this keypair at the following link:\n"
-"        <a>\n"
-"          <span></span>\n"
-"          {$ctrl.createdKeypair.name$}\n"
-"        </a>"
-msgstr ""
-"만약 자동으로 다운로드가 되지 않는다면 다음 링크에서 내려받습니다:\n"
-"        <a>\n"
-"          <span></span>\n"
-"          {$ctrl.createdKeypair.name$}\n"
-"        </a>"
-
-msgid ""
 "If you select an availability zone and plan to use the 'boot from volume' "
 "option in the Source step, make sure that the availability zone you select "
 "for the instance is the same availability zone where your bootable volume "
@@ -737,23 +690,8 @@ msgstr "Input success"
 msgid "Input warning"
 msgstr "Input warning"
 
-msgid "Instance Details"
-msgstr "인스턴스 세부정보"
-
-msgid "Instance Details Help"
-msgstr "인스턴스 세부정보 도움말"
-
-msgid "Instance Name"
-msgstr "인스턴스 이름"
-
 msgid "Instance Snapshot"
 msgstr "인스턴스 스냅샷"
-
-msgid "Instance Source"
-msgstr "인스턴스 소스"
-
-msgid "Instance Source Help"
-msgstr "인스턴스 소스 도움말"
 
 msgid "Instance count is required and must be an integer of at least 1"
 msgstr "인스턴스 개수는 필수이며 적어도 1 이상의 정수값이어야 합니다"
@@ -776,31 +714,6 @@ msgstr "Jumbotron"
 
 msgid "Key Pair"
 msgstr "키 페어"
-
-msgid "Key Pair Help"
-msgstr "키 페어 도움말"
-
-msgid "Key Pair Name"
-msgstr "키 페어 이름"
-
-msgid ""
-"Key Pairs are how you login to your instance after it is launched.\n"
-"        Choose a key pair name you will recognize and paste your SSH public "
-"key into the\n"
-"        space provided."
-msgstr ""
-"키 페어는 인스턴스가 구동된 후 누군가 로그인하는 방법입니다.\n"
-"        인식시킬 키 페이를 선택하고, SSH 공개 키를 제공된 공간에\n"
-"        붙여넣습니다."
-
-msgid ""
-"Key Pairs are how you login to your instance after it is launched.\n"
-"        Choose a key pair name you will recognize.\n"
-"        Names may only include alphanumeric characters, spaces, or dashes."
-msgstr ""
-"키 페어는 동작한 인스턴스에 로그인 할때 사용됩니다.\n"
-"        인식될 키 페어 이름을 선택합니다.\n"
-"        이름에는 영어, 숫자, 공백, 대시(-)를 포함할 수 있습니다."
 
 msgid "Keypair already exists or name contains bad characters."
 msgstr "키 페어가 이미 있거나 이름에 잘못된 문자가 포함되어 있습니다."
@@ -865,9 +778,6 @@ msgstr "Messages <span>3</span>"
 msgid "Metadata"
 msgstr "메타데이터"
 
-msgid "Metadata Help"
-msgstr "메타데이터 도움말"
-
 msgid "Middle"
 msgstr "Middle"
 
@@ -915,9 +825,6 @@ msgstr "Navs"
 
 msgid "Network"
 msgstr "네트워크"
-
-msgid "Network Help"
-msgstr "네트워크 도움말"
 
 msgid "Network characteristics"
 msgstr "네트워크 특징"
@@ -1009,15 +916,6 @@ msgstr "물리 네트워크"
 msgid "Pills"
 msgstr "Pills"
 
-msgid ""
-"Please provide the initial hostname for the instance, the availability zone "
-"where it will be deployed, and the instance count.\n"
-"      Increase the Count to create multiple instances with the same settings."
-msgstr ""
-"인스턴스에 대한 초기 호스트 이름, 배포할 가용 구역, 인스턴스 수를 입력하십시"
-"오.\n"
-"      동일한 설정으로 설정한 갯수로 인스턴스를 생성합니다."
-
 msgid "Please try again."
 msgstr "다시 시도해주세요."
 
@@ -1104,9 +1002,6 @@ msgstr "레코드 속성"
 msgid "Remote"
 msgstr "원격"
 
-msgid "Required"
-msgstr "필요한"
-
 msgid "Right"
 msgstr "Right"
 
@@ -1130,9 +1025,6 @@ msgstr "보안"
 
 msgid "Security Groups"
 msgstr "시큐리티 그룹"
-
-msgid "Security Groups Help"
-msgstr "시큐리티 그룹 도움말"
 
 msgid ""
 "Security groups are project-specific and cannot be shared across projects."
@@ -1185,9 +1077,6 @@ msgstr "하나 이상 선택"
 
 msgid "Select one or more security groups from the available groups below."
 msgstr "아래 사용가능한 그룹에서 하나 이상의 시큐리티 그룹을 선택합니다."
-
-msgid "Select the security groups."
-msgstr "시큐리티 그룹을 선택합니다."
 
 msgid "Selects"
 msgstr "Selects"

@@ -9,17 +9,17 @@
 # Xu Yang <yizhongchuanqi@163.com>, 2015. #zanata
 # Yu Zhiuguo <yuzg@cn.fujitsu.com>, 2015. #zanata
 # zhangjingwen <zhangjingwen@cn.fujitsu.com>, 2015. #zanata
-# will zhou <zzxwill@gmail.com>, 2016. #zanata
+# Zheng XI Zhou <zzxwill@gmail.com>, 2016. #zanata
 msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2016-02-22 18:18+0000\n"
+"POT-Creation-Date: 2016-03-04 04:22+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "PO-Revision-Date: 2016-02-23 02:27+0000\n"
-"Last-Translator: will zhou <zzxwill@gmail.com>\n"
+"Last-Translator: Zheng XI Zhou <zzxwill@gmail.com>\n"
 "Language: zh-CN\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 "Generated-By: Babel 2.0\n"
@@ -52,14 +52,6 @@ msgstr ""
 "要附加一个浮动IP，在<b>Instances</b>查看并单击一个实例的\n"
 " <b>Actions</b>菜单到右边。\n"
 "然后，选择 <b>Associate Floating IP</b> 并输入必要的描述。"
-
-msgid ""
-"A key pair allows you to SSH into your newly created instance.\n"
-"      You may select an existing key pair, import a key pair, or generate a "
-"new key pair."
-msgstr ""
-"密钥对允许您SSH到您新创建的实例。\n"
-"你可以选择一个已存在的密钥对、导入一个密钥对或生成一个新的密钥对。"
 
 msgid "A name is required for your instance."
 msgstr "您的实例名字是必须的。"
@@ -139,15 +131,6 @@ msgstr "点击查看更多细节"
 msgid "Configuration"
 msgstr "配置"
 
-msgid "Configuration Drive"
-msgstr "配置驱动器"
-
-msgid "Configuration Help"
-msgstr "配置帮助"
-
-msgid "Count"
-msgstr "计数"
-
 msgid "Create Key Pair"
 msgstr "创建秘钥对"
 
@@ -219,9 +202,6 @@ msgstr "指纹"
 msgid "Flavor"
 msgstr "云主机类型"
 
-msgid "Flavor Help"
-msgstr "类型帮助"
-
 msgid ""
 "Flavors manage the sizing for the compute, memory and storage capacity of "
 "the instance."
@@ -288,17 +268,8 @@ msgstr "导入秘钥对"
 msgid "Info"
 msgstr "信息"
 
-msgid "Instance Details"
-msgstr "实例详情"
-
-msgid "Instance Name"
-msgstr "实例名字"
-
 msgid "Instance Snapshot"
 msgstr "云主机快照"
-
-msgid "Instance Source"
-msgstr "云主机源"
 
 msgid "Instance count is required and must be an integer of at least 1"
 msgstr "实例数是必须的而且必须是至少为1的整数。"
@@ -308,22 +279,6 @@ msgstr "查看用户信息权限不足。"
 
 msgid "Key Pair"
 msgstr "密钥对"
-
-msgid "Key Pair Help"
-msgstr "秘钥对帮助"
-
-msgid "Key Pair Name"
-msgstr "密钥对名字"
-
-msgid ""
-"Key Pairs are how you login to your instance after it is launched.\n"
-"        Choose a key pair name you will recognize and paste your SSH public "
-"key into the\n"
-"        space provided."
-msgstr ""
-"密钥对是您在实例启动后登陆进去的一种方式。\n"
-"选择一个您易于识别的密钥对名字，并把您的SSH公钥粘贴到\n"
-"空白处。"
 
 msgid "Killed"
 msgstr "终止"
@@ -372,9 +327,6 @@ msgstr "导航条"
 
 msgid "Network"
 msgstr "网络"
-
-msgid "Network Help"
-msgstr "网络帮助"
 
 msgid "Network characteristics"
 msgstr "网络特性"
@@ -456,9 +408,6 @@ msgstr "使用拖放重新排序"
 msgid "Remote"
 msgstr "远程"
 
-msgid "Required"
-msgstr "必须"
-
 msgid "Root Disk"
 msgstr "根磁盘"
 
@@ -470,9 +419,6 @@ msgstr "保存中"
 
 msgid "Security Groups"
 msgstr "安全组"
-
-msgid "Security Groups Help"
-msgstr "安全组帮助"
 
 msgid ""
 "Security groups are project-specific and cannot be shared across projects."
@@ -519,9 +465,6 @@ msgstr "选择一个或多个"
 
 msgid "Select one or more security groups from the available groups below."
 msgstr "从以下可用的组中选择一个或多个安全组。"
-
-msgid "Select the security groups."
-msgstr "选择安全组。"
 
 #, python-format
 msgid "Service type is not enabled: %(desiredType)s"

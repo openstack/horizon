@@ -14,7 +14,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2016-03-02 17:22+0000\n"
+"POT-Creation-Date: 2016-03-04 04:22+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -97,19 +97,6 @@ msgstr ""
 "          を読むことに成功しました。"
 
 msgid ""
-"<div>\n"
-"                  \n"
-"                    <input> Checkbox\n"
-"                  </input>\n"
-"                </div>"
-msgstr ""
-"<div>\n"
-"                  \n"
-"                    <input> チェックボックス\n"
-"                  </input>\n"
-"                </div>"
-
-msgid ""
 "<input>\n"
 "                    Option one is this\n"
 "                  </input>"
@@ -190,15 +177,6 @@ msgstr ""
 "Floating IP を関連付けるには、<b>インスタンス</b>画面で、\n"
 "インスタンスの右にある<b>アクション</b>メニューをクリックします。\n"
 "<b>Floating IP の関連付け</b>を選択し、必要な情報を入力してください。"
-
-msgid ""
-"A key pair allows you to SSH into your newly created instance.\n"
-"      You may select an existing key pair, import a key pair, or generate a "
-"new key pair."
-msgstr ""
-"キーペアを使って、新しく作成したインスタンスに SSH でログインします。\n"
-"作成済みのキーペアを選択するか、キーペアをインポートまたは新規作成してくださ"
-"い。"
 
 msgid ""
 "A key pair named '{$ctrl.createdKeypair.name$}' was successfully created. "
@@ -383,12 +361,6 @@ msgstr "カラムの見出し"
 msgid "Configuration"
 msgstr "設定"
 
-msgid "Configuration Drive"
-msgstr "コンフィグドライブ"
-
-msgid "Configuration Help"
-msgstr "設定 のヘルプ"
-
 #, fuzzy
 msgid "Confirm Delete Image"
 msgid_plural "Confirm Delete Images"
@@ -399,9 +371,6 @@ msgstr "コンテナー"
 
 msgid "Contextual alternatives"
 msgstr "文脈依存の代替"
-
-msgid "Count"
-msgstr "数"
 
 msgid "Create Key Pair"
 msgstr "キーペアの作成"
@@ -588,9 +557,6 @@ msgstr "フィンガープリント"
 msgid "Flavor"
 msgstr "フレーバー"
 
-msgid "Flavor Help"
-msgstr "フレーバーのヘルプ"
-
 msgid "Flavor Name"
 msgstr "フレーバー名"
 
@@ -678,19 +644,6 @@ msgstr ""
 "のみインスタンスにアクセスできます。"
 
 msgid ""
-"If not, you can manually dowload this keypair at the following link:\n"
-"        <a>\n"
-"          <span></span>\n"
-"          {$ctrl.createdKeypair.name$}\n"
-"        </a>"
-msgstr ""
-"始まらなければ、以下のリンクでこのキーペアを手動でダウンロードできます。\n"
-"        <a>\n"
-"          <span></span>\n"
-"          {$ctrl.createdKeypair.name$}\n"
-"        </a>"
-
-msgid ""
 "If you select an availability zone and plan to use the 'boot from volume' "
 "option in the Source step, make sure that the availability zone you select "
 "for the instance is the same availability zone where your bootable volume "
@@ -758,23 +711,8 @@ msgstr "成功した入力項目"
 msgid "Input warning"
 msgstr "警告のある入力項目"
 
-msgid "Instance Details"
-msgstr "インスタンスの詳細"
-
-msgid "Instance Details Help"
-msgstr "インスタンスの詳細のヘルプ"
-
-msgid "Instance Name"
-msgstr "インスタンス名"
-
 msgid "Instance Snapshot"
 msgstr "インスタンスのスナップショット"
-
-msgid "Instance Source"
-msgstr "インスタンスのソース"
-
-msgid "Instance Source Help"
-msgstr "インスタンスのソースのヘルプ"
 
 msgid "Instance count is required and must be an integer of at least 1"
 msgstr "インスタンス数は必須で、最低でも 1 以上の整数でなければなりません。"
@@ -798,37 +736,8 @@ msgstr "ジャンボトロン"
 msgid "Key Pair"
 msgstr "キーペア"
 
-msgid "Key Pair Help"
-msgstr "キーペアのヘルプ"
-
-msgid "Key Pair Name"
-msgstr "キーペア名"
-
 msgid "Key Pairs"
 msgstr "キーペア"
-
-msgid ""
-"Key Pairs are how you login to your instance after it is launched.\n"
-"        Choose a key pair name you will recognize and paste your SSH public "
-"key into the\n"
-"        space provided."
-msgstr ""
-"キーペアは、インスタンスの起動後にそのインスタンスへのログインに使用しま"
-"す。\n"
-"自分で認識できるキーペア名を付けて、\n"
-"SSH 公開鍵を指定された欄に貼り付けてください。"
-
-msgid ""
-"Key Pairs are how you login to your instance after it is launched.\n"
-"        Choose a key pair name you will recognize.\n"
-"        Names may only include alphanumeric characters, spaces, or dashes."
-msgstr ""
-"キーペアは、インスタンスの起動後にそのインスタンスにログインするために使用し"
-"ます。\n"
-"        分かりやすいキーペア名を付けて、SSH 公開鍵を指定された欄に貼り付けて"
-"ください。\n"
-"        名前には、アルファベット、数字、スペース、およびハイフンが使用できま"
-"す。"
 
 msgid "Keypair already exists or name contains bad characters."
 msgstr "キーペアが既に存在するか、名前に使用できない文字が含まれています。"
@@ -899,9 +808,6 @@ msgstr "メタデータ定義"
 msgid "Metadata Definitions"
 msgstr "メタデータ定義"
 
-msgid "Metadata Help"
-msgstr "メタデータのヘルプ"
-
 msgid "Middle"
 msgstr "中央"
 
@@ -949,9 +855,6 @@ msgstr "ナビゲーション"
 
 msgid "Network"
 msgstr "ネットワーク"
-
-msgid "Network Help"
-msgstr "ネットワークのヘルプ"
 
 msgid "Network characteristics"
 msgstr "ネットワークの詳細"
@@ -1046,16 +949,6 @@ msgstr "物理ネットワーク"
 msgid "Pills"
 msgstr "ピル"
 
-msgid ""
-"Please provide the initial hostname for the instance, the availability zone "
-"where it will be deployed, and the instance count.\n"
-"      Increase the Count to create multiple instances with the same settings."
-msgstr ""
-"インスタンスの最初のホスト名、インスタンスを配置するアベイラビリティーゾー"
-"ン、作成するインスタンス数を指定してください。\n"
-"      同じ設定で複数のインスタンスを作成したい場合はインスタンス数を増やして"
-"ください。"
-
 msgid "Please try again."
 msgstr "もう一度お試しください。"
 
@@ -1141,9 +1034,6 @@ msgstr "順番を並べ替えるには、アイテムをドラッグ＆ドロッ
 msgid "Remote"
 msgstr "接続相手"
 
-msgid "Required"
-msgstr "必須"
-
 msgid "Right"
 msgstr "右端"
 
@@ -1164,9 +1054,6 @@ msgstr "検索"
 
 msgid "Security Groups"
 msgstr "セキュリティーグループ"
-
-msgid "Security Groups Help"
-msgstr "セキュリティーグループのヘルプ"
 
 msgid ""
 "Security groups are project-specific and cannot be shared across projects."
@@ -1220,9 +1107,6 @@ msgid "Select one or more security groups from the available groups below."
 msgstr ""
 "以下の利用可能なグループから、１つ以上のセキュリティーグループを選択してくだ"
 "さい。"
-
-msgid "Select the security groups."
-msgstr "セキュリティーグループを選択してください。"
 
 msgid "Selects"
 msgstr "セレクト"

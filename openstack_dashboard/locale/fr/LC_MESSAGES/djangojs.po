@@ -14,22 +14,26 @@
 # OpenStack Infra <zanata@openstack.org>, 2015. #zanata
 # Romain Chantereau <rchanter@redhat.com>, 2015. #zanata
 # andrew melim <nokostya.translation@gmail.com>, 2015. #zanata
+# Gérald LONLAS <g.lonlas@gmail.com>, 2016. #zanata
 # Marcellin Fom Tchassem <mf6510@att.com>, 2016. #zanata
 msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2016-03-02 06:17+0000\n"
+"POT-Creation-Date: 2016-03-04 04:22+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2016-02-26 08:44+0000\n"
-"Last-Translator: Marcellin Fom Tchassem <mf6510@att.com>\n"
+"PO-Revision-Date: 2016-03-03 10:17+0000\n"
+"Last-Translator: Gérald LONLAS <g.lonlas@gmail.com>\n"
 "Language: fr\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 "Generated-By: Babel 2.0\n"
 "X-Generator: Zanata 3.7.3\n"
 "Language-Team: French\n"
+
+msgid "#"
+msgstr "#"
 
 msgid "(None)"
 msgstr "(Aucun)"
@@ -57,6 +61,27 @@ msgstr "7"
 
 msgid "8"
 msgstr "8"
+
+msgid ""
+"<div>\n"
+"                  \n"
+"                    <input> Checkbox\n"
+"                  </input>\n"
+"                </div>\n"
+"                <div>\n"
+"                  <input>\n"
+"                  Checkbox</input>\n"
+"                </div>"
+msgstr ""
+"<div>\n"
+"                  \n"
+"                    <input> Case &agrave; cocher\n"
+"                  </input>\n"
+"                </div>\n"
+"                <div>\n"
+"                  <input>\n"
+"                  Case &agrave; cocher</input>\n"
+"                </div>"
 
 msgid ""
 "<li><b>Image (with Create New Volume checked)</b>: This options uses an "
@@ -122,16 +147,6 @@ msgstr ""
 "puis cliquez sur le menu <b>Actions</b> sur la droite de l'instance.\n"
 "Puis, sélectionnez l'option <b>IP Flottante Associée</b> et saisissez les "
 "informations nécessaires."
-
-msgid ""
-"A key pair allows you to SSH into your newly created instance.\n"
-"      You may select an existing key pair, import a key pair, or generate a "
-"new key pair."
-msgstr ""
-"Une paire de clés vous permet de vous connecter en SSH à vos instances "
-"nouvellement créées.\n"
-"    Vous pouvez sélectionner une paire de clés existante, en importer une "
-"existente ou en générer une nouvelle."
 
 msgid "A name is required for your instance."
 msgstr "Vous avez besoin d'un nom pour votre instance."
@@ -210,6 +225,12 @@ msgstr "Zone de disponibilité"
 msgid "Block level button"
 msgstr "Bouton block-level"
 
+msgid "Blockquotes"
+msgstr "Citation"
+
+msgid "Bordered Table"
+msgstr "Tableau avec bordure"
+
 msgid "Brand"
 msgstr "Marque"
 
@@ -241,17 +262,17 @@ msgstr ""
 msgid "Click to see more details"
 msgstr "Cliquer pour une vue plus détaillée"
 
+msgid "Color"
+msgstr "Couleur"
+
+msgid "Column content"
+msgstr "Contenu"
+
+msgid "Column heading"
+msgstr "En-tête"
+
 msgid "Configuration"
 msgstr "Configuration"
-
-msgid "Configuration Drive"
-msgstr "Disque de Configuration"
-
-msgid "Configuration Help"
-msgstr "Aide à la configuration"
-
-msgid "Count"
-msgstr "Compteur"
 
 msgid "Create Key Pair"
 msgstr "Créer Paire Clés"
@@ -277,6 +298,12 @@ msgstr ""
 msgid "Danger"
 msgstr "Danger"
 
+msgid "Date"
+msgstr "Date"
+
+msgid "Datetime"
+msgstr "Date et heure"
+
 msgid "Default"
 msgstr "Défaut"
 
@@ -301,6 +328,13 @@ msgstr "Nom du périphérique"
 msgid "Direction"
 msgstr "Direction"
 
+msgid "Disabled"
+msgstr "Désactivée"
+
+#, fuzzy
+msgid "Disabled input"
+msgstr "Champ désactivé"
+
 msgid "Disk Partition"
 msgstr "Partition Disque"
 
@@ -319,6 +353,9 @@ msgstr ""
 
 msgid "Dropdown <b></b>"
 msgstr "Déroulant <b></b>"
+
+msgid "Dropdown <span></span>"
+msgstr "Déroulant <span></span>"
 
 msgid "Dropdown header"
 msgstr "En-tête déroulant"
@@ -354,9 +391,6 @@ msgstr "Empreinte"
 msgid "Flavor"
 msgstr "Gabarit"
 
-msgid "Flavor Help"
-msgstr "Aide Gabarits"
-
 msgid "Flavor Name"
 msgstr "Nom du Gabarit"
 
@@ -369,6 +403,9 @@ msgstr ""
 
 msgid "Format"
 msgstr "Format"
+
+msgid "Forms"
+msgstr "Formulaire"
 
 msgid ""
 "From a Windows system, you can use PuTTYGen to create private/public keys.\n"
@@ -401,6 +438,9 @@ msgstr "Titre 5"
 
 msgid "Heading 6"
 msgstr "Titre 6"
+
+msgid "Home"
+msgstr "Accueil"
 
 msgid "ID"
 msgstr "ID"
@@ -469,23 +509,24 @@ msgstr "Importer une Paire Clés"
 msgid "Info"
 msgstr "Information"
 
-msgid "Instance Details"
-msgstr "Détails de l'instance"
+#, fuzzy
+msgid "Input addons"
+msgstr "Champ addons"
 
-msgid "Instance Details Help"
-msgstr "Aide avec les détails de l'instance"
+#, fuzzy
+msgid "Input error"
+msgstr "Champ erreur"
 
-msgid "Instance Name"
-msgstr "Nom de l'instance"
+#, fuzzy
+msgid "Input success"
+msgstr "Champ succès"
+
+#, fuzzy
+msgid "Input warning"
+msgstr "Champ attention"
 
 msgid "Instance Snapshot"
 msgstr "Instantané d'Instance"
-
-msgid "Instance Source"
-msgstr "Source de l'instance"
-
-msgid "Instance Source Help"
-msgstr "Aide à la source de l'instance"
 
 msgid "Instance count is required and must be an integer of at least 1"
 msgstr ""
@@ -511,24 +552,6 @@ msgstr ""
 msgid "Key Pair"
 msgstr "Paire de clés"
 
-msgid "Key Pair Help"
-msgstr "Aide Paires Clés"
-
-msgid "Key Pair Name"
-msgstr "Nom Paire Clés"
-
-msgid ""
-"Key Pairs are how you login to your instance after it is launched.\n"
-"        Choose a key pair name you will recognize and paste your SSH public "
-"key into the\n"
-"        space provided."
-msgstr ""
-"Les Paires de Clés définissent comment vous vous connectez à votre instance "
-"après l’avoir lancée.\n"
-"    Choisissez un nom représentatif pour votre paire de clés et coller votre "
-"clé publique SSH dans\n"
-"    l’espace prévu à cet effet."
-
 msgid "Killed"
 msgstr "Supprimé par force"
 
@@ -540,6 +563,9 @@ msgstr "Lancer Instance"
 
 msgid "Left"
 msgstr "Gauche"
+
+msgid "Legend"
+msgstr "Légende"
 
 msgid "Link"
 msgstr "Lien"
@@ -574,6 +600,9 @@ msgstr "Ram Mon (Mo)"
 msgid "Mini button"
 msgstr "Mini bouton"
 
+msgid "Month"
+msgstr "Mois"
+
 msgid "Name"
 msgstr "Nom"
 
@@ -582,9 +611,6 @@ msgstr "Navbar"
 
 msgid "Network"
 msgstr "Réseau"
-
-msgid "Network Help"
-msgstr "Aide Réseau"
 
 msgid "Network characteristics"
 msgstr "Caractéristiques de réseau"
@@ -609,21 +635,14 @@ msgstr "Nombre"
 msgid "One more separated link"
 msgstr "Un autre Lien séparé"
 
+msgid "Password"
+msgstr "Mot de passe"
+
 msgid "Pending Delete"
 msgstr "Suppression de Mise en attente"
 
 msgid "Physical Network"
 msgstr "Réseau physique"
-
-msgid ""
-"Please provide the initial hostname for the instance, the availability zone "
-"where it will be deployed, and the instance count.\n"
-"      Increase the Count to create multiple instances with the same settings."
-msgstr ""
-"Veuillez fournir le nom d'hôte initial de l'instance, la zone de "
-"disponibilité où elle sera déployée, et le nombre d'instances au compteur. \n"
-"      Augmenter le nombre pour pouvoir créer plusieurs instances sur les "
-"mêmes bases de configuration."
 
 msgid "Policy check failed."
 msgstr "La vérification de la stratégie a échoué."
@@ -679,15 +698,15 @@ msgstr "En attente"
 msgid "RAM"
 msgstr "RAM"
 
+msgid "Radios"
+msgstr "Boutons radio"
+
 msgid "Re-order items using drag and drop"
 msgstr ""
 "Ordonnancer les éléments à nouveau en utilisant l'opération glisser-déplacer"
 
 msgid "Remote"
 msgstr "Distant"
-
-msgid "Required"
-msgstr "Obligatoire"
 
 msgid "Right"
 msgstr "Droite"
@@ -701,11 +720,11 @@ msgstr "Enregistrer"
 msgid "Saving"
 msgstr "Enregistrement"
 
+msgid "Search"
+msgstr "Recherche"
+
 msgid "Security Groups"
 msgstr "Groupes de sécurité"
-
-msgid "Security Groups Help"
-msgstr "Aide Groupes de sécurité"
 
 msgid ""
 "Security groups are project-specific and cannot be shared across projects."
@@ -761,8 +780,8 @@ msgstr ""
 "Sélectionner un ou plusieurs groupes de sécurité dans les groupes "
 "disponibles ci-dessous."
 
-msgid "Select the security groups."
-msgstr "Sélectionner les groupes de sécurité."
+msgid "Selects"
+msgstr "Liste déroulante"
 
 msgid "Separated link"
 msgstr "Lien séparé"
@@ -796,8 +815,15 @@ msgstr "Autre chose ici"
 msgid "Source"
 msgstr "Source"
 
+msgid "Standard Table"
+msgstr "Tableau classique"
+
 msgid "Status"
 msgstr "Statut"
+
+#, fuzzy
+msgid "Submit"
+msgstr "Soumettre"
 
 msgid "Subnets Associated"
 msgstr "Sous-réseaux associés"
@@ -811,6 +837,18 @@ msgstr "La paire de clés %(name)s a été importée avec succès."
 
 msgid "Swap Disk"
 msgstr "Disque d'échange"
+
+msgid "Tables"
+msgstr "Tableaux"
+
+msgid "Tabs"
+msgstr "Tabulation"
+
+msgid "Tel"
+msgstr "Tél."
+
+msgid "Textarea"
+msgstr "Champ de texte"
 
 msgid ""
 "The flavor you select for an instance determines the amount of compute, "
@@ -891,13 +929,16 @@ msgstr ""
 "votre quota. Veuillez sélectionner un plus petit gabarit ou diminuez le "
 "nombre d'instances."
 
+msgid "Time"
+msgstr "Heure"
+
+#, fuzzy
 msgid ""
 "To view source code, hover over a section, then click the <a><span></span></"
 "a> button in the top right of that section."
 msgstr ""
-"Pour voir le code source, flotter au dessus d'une section, puis cliquer sur "
-"le <a><span></span></a> bouton dans la partie droite en haut de cette "
-"section."
+"Pour voir le code source, survoler une section, puis cliquer sur le "
+"<a><span></span></a> bouton en haut à droite de cette section."
 
 msgid "Total Disk"
 msgstr "Total Disque"
@@ -1137,6 +1178,9 @@ msgstr "Mettre à jour les métadonnées de l'image"
 msgid "Updated"
 msgstr "Mis à jour"
 
+msgid "Url"
+msgstr "Url"
+
 msgid "User ID"
 msgstr "ID Utilisateur"
 
@@ -1172,6 +1216,9 @@ msgstr ""
 
 msgid "Warning"
 msgstr "Avertissement"
+
+msgid "Week"
+msgstr "Semaine"
 
 msgid ""
 "When selecting volume as boot source, please ensure the instance's "

@@ -14,7 +14,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2016-02-27 17:50+0000\n"
+"POT-Creation-Date: 2016-03-04 04:21+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -45,9 +45,6 @@ msgstr "%s TB"
 #, python-format
 msgid "%s bytes"
 msgstr "%s 바이트"
-
-msgid "(Max: 16Kb)"
-msgstr "(최대: 16Kb)"
 
 msgid "(Modified)"
 msgstr "(수정됨)"
@@ -321,9 +318,6 @@ msgstr "역할"
 msgid "STATUS"
 msgstr "STATUS"
 
-msgid "Script size"
-msgstr "스크립트 크기"
-
 msgid "Search in current results"
 msgstr "현재 결과에서 검색"
 
@@ -420,9 +414,6 @@ msgstr ""
 #, python-format
 msgid "You have selected %s. "
 msgstr "%s를 선택하였습니다. "
-
-msgid "bytes"
-msgstr "바이트"
 
 msgid "description"
 msgstr "설명"

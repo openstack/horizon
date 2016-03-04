@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2016-02-18 02:36+0000\n"
+"POT-Creation-Date: 2016-03-04 04:22+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -52,15 +52,6 @@ msgstr ""
 "    view and click the <b>Actions</b> menu to the right of an instance.\n"
 "    Then, select the <b>Associate Floating IP</b> option and enter the "
 "necessary details."
-
-msgid ""
-"A key pair allows you to SSH into your newly created instance.\n"
-"      You may select an existing key pair, import a key pair, or generate a "
-"new key pair."
-msgstr ""
-"A key pair allows you to SSH into your newly created instance.\n"
-"      You may select an existing key pair, import a key pair, or generate a "
-"new key pair."
 
 msgid "A name is required for your instance."
 msgstr "A name is required for your instance."
@@ -149,15 +140,6 @@ msgstr "Click to see more details"
 msgid "Configuration"
 msgstr "Configuration"
 
-msgid "Configuration Drive"
-msgstr "Configuration Drive"
-
-msgid "Configuration Help"
-msgstr "Configuration Help"
-
-msgid "Count"
-msgstr "Count"
-
 msgid "Create Key Pair"
 msgstr "Create Key Pair"
 
@@ -223,9 +205,6 @@ msgstr "Fingerprint"
 
 msgid "Flavor"
 msgstr "Flavour"
-
-msgid "Flavor Help"
-msgstr "Flavour Help"
 
 msgid ""
 "Flavors manage the sizing for the compute, memory and storage capacity of "
@@ -297,17 +276,8 @@ msgstr "Impact on your quota"
 msgid "Import Key Pair"
 msgstr "Import Key Pair"
 
-msgid "Instance Details"
-msgstr "Instance Details"
-
-msgid "Instance Name"
-msgstr "Instance Name"
-
 msgid "Instance Snapshot"
 msgstr "Instance Snapshot"
-
-msgid "Instance Source"
-msgstr "Instance Source"
 
 msgid "Instance count is required and must be an integer of at least 1"
 msgstr "Instance count is required and must be an integer of at least 1"
@@ -317,23 +287,6 @@ msgstr "Insufficient privilege level to view user information."
 
 msgid "Key Pair"
 msgstr "Key Pair"
-
-msgid "Key Pair Help"
-msgstr "Key Pair Help"
-
-msgid "Key Pair Name"
-msgstr "Key Pair Name"
-
-msgid ""
-"Key Pairs are how you login to your instance after it is launched.\n"
-"        Choose a key pair name you will recognize and paste your SSH public "
-"key into the\n"
-"        space provided."
-msgstr ""
-"Key Pairs are how you login to your instance after it is launched.\n"
-"        Choose a key pair name you will recognise and paste your SSH public "
-"key into the\n"
-"        space provided."
 
 msgid "Killed"
 msgstr "Killed"
@@ -367,9 +320,6 @@ msgstr "Name"
 
 msgid "Network"
 msgstr "Network"
-
-msgid "Network Help"
-msgstr "Network Help"
 
 msgid "Network characteristics"
 msgstr "Network characteristics"
@@ -452,9 +402,6 @@ msgstr "Re-order items using drag and drop"
 msgid "Remote"
 msgstr "Remote"
 
-msgid "Required"
-msgstr "Required"
-
 msgid "Root Disk"
 msgstr "Root Disk"
 
@@ -466,9 +413,6 @@ msgstr "Saving"
 
 msgid "Security Groups"
 msgstr "Security Groups"
-
-msgid "Security Groups Help"
-msgstr "Security Groups Help"
 
 msgid ""
 "Security groups are project-specific and cannot be shared across projects."
@@ -519,9 +463,6 @@ msgstr "Select one or more"
 
 msgid "Select one or more security groups from the available groups below."
 msgstr "Select one or more security groups from the available groups below."
-
-msgid "Select the security groups."
-msgstr "Select the security groups."
 
 #, python-format
 msgid "Service type is not enabled: %(desiredType)s"

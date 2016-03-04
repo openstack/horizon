@@ -15,7 +15,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2016-02-18 02:36+0000\n"
+"POT-Creation-Date: 2016-03-04 04:22+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -62,15 +62,6 @@ msgstr ""
 "instancia.\n"
 "Luego, seleccione la opción <b>Asociar IP Flotante</b> e introduzca los "
 "detalles necesarios."
-
-msgid ""
-"A key pair allows you to SSH into your newly created instance.\n"
-"      You may select an existing key pair, import a key pair, or generate a "
-"new key pair."
-msgstr ""
-"Un par de claves le permite utilizar SSH en su instancia recién creada.\n"
-"Puede utilizar un par de claves existente, importar un nuevo par o generar "
-"uno nuevo. "
 
 msgid "A name is required for your instance."
 msgstr "Un nombre es necesario para su instancia. "
@@ -163,15 +154,6 @@ msgstr "Haga click para ver más detalles"
 msgid "Configuration"
 msgstr "Configuración"
 
-msgid "Configuration Drive"
-msgstr "Unidad de Configuración"
-
-msgid "Configuration Help"
-msgstr "Ayuda de Configuración"
-
-msgid "Count"
-msgstr "Número"
-
 msgid "Create Key Pair"
 msgstr "Crear Par de Claves"
 
@@ -238,9 +220,6 @@ msgstr "Fingerprint"
 
 msgid "Flavor"
 msgstr "Sabor"
-
-msgid "Flavor Help"
-msgstr "Ayuda de Sabor"
 
 msgid ""
 "Flavors manage the sizing for the compute, memory and storage capacity of "
@@ -316,17 +295,8 @@ msgstr "Importar Par de Claves"
 msgid "Info"
 msgstr "Info"
 
-msgid "Instance Details"
-msgstr "Detalles de la Instancia"
-
-msgid "Instance Name"
-msgstr "Nombre de la instancia"
-
 msgid "Instance Snapshot"
 msgstr "Instantánea de Instancia"
-
-msgid "Instance Source"
-msgstr "Origen de la Instancia"
 
 msgid "Instance count is required and must be an integer of at least 1"
 msgstr ""
@@ -337,24 +307,6 @@ msgstr "Privilegios insuficientes para consultar la información del usuario."
 
 msgid "Key Pair"
 msgstr "Par de Claves"
-
-msgid "Key Pair Help"
-msgstr "Ayuda de Par de Claves"
-
-msgid "Key Pair Name"
-msgstr "Nombre de Par de Claves"
-
-msgid ""
-"Key Pairs are how you login to your instance after it is launched.\n"
-"        Choose a key pair name you will recognize and paste your SSH public "
-"key into the\n"
-"        space provided."
-msgstr ""
-"Los pares de clave son el método utilizado para ingresar en una instancia "
-"una vez que se ha lanzado. \n"
-"Escoja un nombre de par de claves que pueda reconocer y pegue su clave "
-"pública SSH en el \n"
-"campo proporcionado."
 
 msgid "Killed"
 msgstr "Terminado forzosamente"
@@ -391,9 +343,6 @@ msgstr "Nombre"
 
 msgid "Network"
 msgstr "Red"
-
-msgid "Network Help"
-msgstr "Ayuda de Redes"
 
 msgid "Network characteristics"
 msgstr "Características de Red"
@@ -476,9 +425,6 @@ msgstr "Reordene los ítems arrastrando y soltando."
 msgid "Remote"
 msgstr "Remoto"
 
-msgid "Required"
-msgstr "Obligatorio"
-
 msgid "Root Disk"
 msgstr "Disco raíz"
 
@@ -490,9 +436,6 @@ msgstr "Guardando"
 
 msgid "Security Groups"
 msgstr "Grupos de Seguridad"
-
-msgid "Security Groups Help"
-msgstr "Ayuda de Grupos de Seguridad"
 
 msgid ""
 "Security groups are project-specific and cannot be shared across projects."
@@ -546,9 +489,6 @@ msgstr "Seleccionar uno o más"
 msgid "Select one or more security groups from the available groups below."
 msgstr ""
 "Seleccionar uno o más grupos de seguridad de los grupos disponibles abajo."
-
-msgid "Select the security groups."
-msgstr "Seleccionar los grupos de seguridad."
 
 #, python-format
 msgid "Service type is not enabled: %(desiredType)s"
