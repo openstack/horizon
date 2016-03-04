@@ -22,17 +22,18 @@
 # Olivier Buisson <olivier@openkumo.fr>, 2015. #zanata
 # OpenStack Infra <zanata@openstack.org>, 2015. #zanata
 # Romain Chantereau <rchanter@redhat.com>, 2015. #zanata
+# Gérald LONLAS <g.lonlas@gmail.com>, 2016. #zanata
 # JF Taltavull <jftalta@gmail.com>, 2016. #zanata
 msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2016-02-27 17:50+0000\n"
+"POT-Creation-Date: 2016-03-04 04:21+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2016-01-01 10:23+0000\n"
-"Last-Translator: JF Taltavull <jftalta@gmail.com>\n"
+"PO-Revision-Date: 2016-03-03 10:23+0000\n"
+"Last-Translator: Gérald LONLAS <g.lonlas@gmail.com>\n"
 "Language: fr\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 "Generated-By: Babel 2.0\n"
@@ -58,6 +59,9 @@ msgstr "%s To"
 #, python-format
 msgid "%s bytes"
 msgstr "%s octets"
+
+msgid "(Modified)"
+msgstr "(Modifié)"
 
 msgid "-"
 msgstr "-"
@@ -141,6 +145,9 @@ msgstr "Utilisation actuelle"
 msgid "Custom"
 msgstr "Personnaliser"
 
+msgid "Customization Script"
+msgstr "Script de Personnalisation"
+
 msgid "Danger"
 msgstr "Danger"
 
@@ -194,6 +201,9 @@ msgstr "Erreur"
 msgid "Error: "
 msgstr "Erreur :"
 
+msgid "Example"
+msgstr "Exemple"
+
 msgid "Existing Metadata"
 msgstr "Métadonnées existantes"
 
@@ -212,6 +222,10 @@ msgstr "Terminer"
 msgid "Flavor"
 msgstr "Gabarit"
 
+#, fuzzy
+msgid "Full Text Search"
+msgstr "Recherche plein texte"
+
 msgid "ID"
 msgstr "ID"
 
@@ -226,6 +240,9 @@ msgstr "Entier requis"
 
 msgid "Interfaces"
 msgstr "Interfaces"
+
+msgid "Load script from a file"
+msgstr "Charger un script depuis un fichier"
 
 msgid "Loading"
 msgstr "Chargement..."
@@ -250,6 +267,9 @@ msgstr "Suivant"
 
 msgid "No"
 msgstr "Non"
+
+msgid "No Limit"
+msgstr "Aucune limite"
 
 msgid "No available items"
 msgstr "Pas d'élément disponible"
@@ -318,6 +338,12 @@ msgstr "Rôles"
 msgid "STATUS"
 msgstr "STATUT"
 
+msgid "Script size:"
+msgstr "Taille Script:"
+
+msgid "Search in current results"
+msgstr "Recherche dans les résultats courants"
+
 msgid "Select an item from Available items below"
 msgstr "Sélectionner un élément depuis les éléments disponibles ci-dessous"
 
@@ -359,6 +385,9 @@ msgstr ""
 "Cette action ne peut pas être effectuée. Le contenu de cette ligne contient "
 "des erreurs ou manque d'informations."
 
+msgid "The script is larger than the maximum size"
+msgstr "Le script est plus lourd que la poids maximum"
+
 msgid "There was a problem communicating with the server, please try again."
 msgstr "Problème de communication avec le serveur, veuillez réessayer."
 
@@ -368,12 +397,18 @@ msgstr "Erreur lors de la soumission du formulaire. Veuillez réessayer. "
 msgid "Toggle Dropdown"
 msgstr "Activation du menu déroulant"
 
+msgid "Toggle navigation"
+msgstr "Changer la navigation"
+
 msgid "Total"
 msgstr "Total"
 
 #, python-format
 msgid "Unable to delete: %s."
 msgstr "Impossible de supprimer: %s."
+
+msgid "Unlimited"
+msgstr "Ilimité"
 
 msgid "View Details"
 msgstr "Voir les détails"
@@ -427,3 +462,6 @@ msgstr "pool par défaut"
 #, python-format
 msgid "selected \"%s\""
 msgstr "Vous avez sélectionné \"%s\""
+
+msgid "{$ message || 'No items to display.' $}"
+msgstr "{$ message || 'Aucun &eacute;l&eacute;ment &agrave; afficher.' $}"

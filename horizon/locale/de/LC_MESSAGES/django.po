@@ -8,17 +8,18 @@
 # Carsten Duch <carsten.duch@posteo.de>, 2015. #zanata
 # Robert Simai <robert.simai@suse.com>, 2015. #zanata
 # Eugen Block <eblock@nde.ag>, 2016. #zanata
+# Frank Kloeker <eumel@arcor.de>, 2016. #zanata
 # Robert Simai <robert.simai@suse.com>, 2016. #zanata
 msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2016-02-29 14:51+0000\n"
+"POT-Creation-Date: 2016-03-04 04:21+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2016-02-29 11:28+0000\n"
-"Last-Translator: Robert Simai <robert.simai@suse.com>\n"
+"PO-Revision-Date: 2016-03-03 07:41+0000\n"
+"Last-Translator: Frank Kloeker <eumel@arcor.de>\n"
 "Language: de\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "Generated-By: Babel 2.0\n"
@@ -257,6 +258,11 @@ msgstr "Login"
 
 msgid "Members"
 msgstr "Mitglieder"
+
+#, python-format
+msgid "Message json file '%(path)s' is malformed. %(exception)s"
+msgstr ""
+"Nachrichten JSON Datei '%(path)s' ist im falschen Format. %(exception)s"
 
 msgid "More Actions"
 msgstr "Weitere Aktionen"

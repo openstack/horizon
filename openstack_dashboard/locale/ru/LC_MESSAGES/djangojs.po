@@ -12,16 +12,17 @@
 # OpenStack Infra <zanata@openstack.org>, 2015. #zanata
 # Denis Gubanov <v12aml@gmail.com>, 2016. #zanata
 # Fedor Tarasenko <feodor.tarasenko@gmail.com>, 2016. #zanata
+# Nikolay Milekhin <rusmil01@ru.ibm.com>, 2016. #zanata
 msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2016-03-02 06:17+0000\n"
+"POT-Creation-Date: 2016-03-04 04:22+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2016-02-25 10:04+0000\n"
-"Last-Translator: Antonio Kless <antoniok.spb@gmail.com>\n"
+"PO-Revision-Date: 2016-03-03 09:28+0000\n"
+"Last-Translator: Nikolay Milekhin <rusmil01@ru.ibm.com>\n"
 "Language: ru\n"
 "Plural-Forms: nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
 "%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || (n"
@@ -91,15 +92,6 @@ msgstr ""
 "    и нажмите меню  <b>Действия</b> справа от инстанса.\n"
 "    Затем выберите опцию <b>Привязать Назначаемый IP</b> и введите "
 "необходимые параметры."
-
-msgid ""
-"A key pair allows you to SSH into your newly created instance.\n"
-"      You may select an existing key pair, import a key pair, or generate a "
-"new key pair."
-msgstr ""
-"Связки ключей позволяют подключаться по SSH к инстансу после его запуска.\n"
-"      Вы должны выбрать существующую, импортировать или создать новую связку "
-"ключей."
 
 msgid "A name is required for your instance."
 msgstr "Требуется указать имя инстанса."
@@ -206,17 +198,11 @@ msgstr "Нажмите для подробностей"
 msgid "Close"
 msgstr "Закрыть"
 
+msgid "Color"
+msgstr "Цвет"
+
 msgid "Configuration"
 msgstr "Конфигурация"
-
-msgid "Configuration Drive"
-msgstr "Конфигурационный диск"
-
-msgid "Configuration Help"
-msgstr "Справка по конфигурации"
-
-msgid "Count"
-msgstr "Количество"
 
 msgid "Create Key Pair"
 msgstr "Создать связку ключей"
@@ -244,6 +230,9 @@ msgstr "Опасность"
 
 msgid "Data"
 msgstr "Данные"
+
+msgid "Date"
+msgstr "Дата"
 
 msgid "Default"
 msgstr "Значение по умолчанию"
@@ -321,9 +310,6 @@ msgstr "Отпечаток"
 
 msgid "Flavor"
 msgstr "Тип инстанса"
-
-msgid "Flavor Help"
-msgstr "Помощь"
 
 msgid ""
 "Flavors manage the sizing for the compute, memory and storage capacity of "
@@ -424,20 +410,8 @@ msgstr "Импортировать пару ключей"
 msgid "Info"
 msgstr "Информация"
 
-msgid "Instance Details"
-msgstr "Детали инстанса"
-
-msgid "Instance Name"
-msgstr "Название инстанса"
-
 msgid "Instance Snapshot"
 msgstr "Снимок инстанса"
-
-msgid "Instance Source"
-msgstr "Источник инстанса"
-
-msgid "Instance Source Help"
-msgstr "Помощь - Источник инстанса"
 
 msgid "Instance count is required and must be an integer of at least 1"
 msgstr "Требуется указать количество инстансов (не менее 1)."
@@ -448,23 +422,6 @@ msgstr ""
 
 msgid "Key Pair"
 msgstr "Ключевая пара"
-
-msgid "Key Pair Help"
-msgstr "Помощь по связке ключей"
-
-msgid "Key Pair Name"
-msgstr "Имя связки ключей"
-
-msgid ""
-"Key Pairs are how you login to your instance after it is launched.\n"
-"        Choose a key pair name you will recognize and paste your SSH public "
-"key into the\n"
-"        space provided."
-msgstr ""
-"Связки ключей позволяют подключаться к инстансу после его запуска.\n"
-"        Выберите имя для связки ключей, которое вы сможете запомнить и "
-"вставьте ваш \n"
-"        публичный SSH ключ в поле ниже."
 
 msgid "Killed"
 msgstr "Убито"
@@ -511,6 +468,9 @@ msgstr "Мин. размер ОЗУ (МБ)"
 msgid "Mini button"
 msgstr "Микроскопическая кнопка"
 
+msgid "Month"
+msgstr "Месяц"
+
 msgid "Name"
 msgstr "Название"
 
@@ -519,9 +479,6 @@ msgstr "Панель навигации"
 
 msgid "Network"
 msgstr "Сеть"
-
-msgid "Network Help"
-msgstr "Помощь - сеть"
 
 msgid "Network characteristics"
 msgstr "Характеристики сети"
@@ -615,9 +572,6 @@ msgstr "Переопределите элементы перемещением"
 msgid "Remote"
 msgstr "Удаленный адрес"
 
-msgid "Required"
-msgstr "Требуется"
-
 msgid "Right"
 msgstr "Справа"
 
@@ -633,11 +587,11 @@ msgstr "Сохранить изменения"
 msgid "Saving"
 msgstr "Сохранение"
 
+msgid "Search"
+msgstr "Поиск"
+
 msgid "Security Groups"
 msgstr "Группы безопасности"
-
-msgid "Security Groups Help"
-msgstr "Подсказка по группам безопасности"
 
 msgid ""
 "Security groups are project-specific and cannot be shared across projects."
@@ -689,9 +643,6 @@ msgstr "Выберите одну или несколько"
 msgid "Select one or more security groups from the available groups below."
 msgstr "Выберите одну или более групп безопасности из доступных."
 
-msgid "Select the security groups."
-msgstr "Выберите группы безопасности."
-
 msgid "Separated link"
 msgstr "Отдельная ссылка"
 
@@ -718,6 +669,9 @@ msgstr "Маленька кнопка"
 msgid "Snapshot"
 msgstr "Снимок"
 
+msgid "Something else here"
+msgstr "Какой-то текст"
+
 msgid "Source"
 msgstr "Источник"
 
@@ -743,6 +697,9 @@ msgstr "Успешно импортирована связка ключей %(na
 msgid "Swap Disk"
 msgstr "Диск подкачки"
 
+msgid "Tel"
+msgstr "Тел."
+
 msgid "Textarea"
 msgstr "Поле ввода"
 
@@ -763,6 +720,14 @@ msgstr ""
 "запуска инстанса, который вы пытаетесь создать. Типы инстансов, которые не "
 "предоставляют достаточное количество ресурсов, отображаются в таблице "
 "<b>Доступны</b> с жёлтым предупреждающим значком."
+
+msgid "The following snippet of text is <em>rendered as italicized text</em>."
+msgstr "Следующий фрагмент текста отображается <em>курсивом</em>."
+
+msgid ""
+"The following snippet of text is <strong>rendered as bold text</strong>."
+msgstr ""
+"Следующий фрагмент текста отображается <strong>полужирным шрифтом</strong>."
 
 #, python-format
 msgid ""
@@ -814,6 +779,9 @@ msgstr ""
 "Данный тип инстанса требует больше vCPU, чем позволяет ваша квота. "
 "Пожалуйста, выберите тип инстанса с меньшим количеством vCPU или уменьшите "
 "количество инстансов."
+
+msgid "Time"
+msgstr "Время"
 
 msgid ""
 "To view source code, hover over a section, then click the <a><span></span></"
@@ -1080,6 +1048,9 @@ msgstr "Обновить метаданные образа"
 msgid "Updated"
 msgstr "Обновлено"
 
+msgid "Url"
+msgstr "URL"
+
 msgid "User ID"
 msgstr "ID пользователя"
 
@@ -1116,6 +1087,9 @@ msgstr "Предупреждение"
 
 msgid "Warning!"
 msgstr "Предупреждение!"
+
+msgid "Week"
+msgstr "Неделя"
 
 msgid ""
 "When selecting volume as boot source, please ensure the instance's "

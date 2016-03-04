@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2016-02-18 02:36+0000\n"
+"POT-Creation-Date: 2016-03-04 04:22+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -56,15 +56,6 @@ msgstr ""
 "    e fare clic sul menu <b>Azioni</b> a destra di un'istanza.\n"
 "    Quindi, selezionare l'opzione <b>Associa IP mobile</b> e inserire i "
 "dettagli necessari."
-
-msgid ""
-"A key pair allows you to SSH into your newly created instance.\n"
-"      You may select an existing key pair, import a key pair, or generate a "
-"new key pair."
-msgstr ""
-"Una coppia di chiavi consente di eseguire SSH nell'istanza appena creata.\n"
-"      È possibile selezionare una coppia di chiavi esistente, importare una "
-"coppia di chiavi o generare una nuova coppia di chiavi."
 
 msgid "A name is required for your instance."
 msgstr "Un nome è obbligatorio per l'istanza."
@@ -155,15 +146,6 @@ msgstr "Fare clic per visualizzare ulteriori dettagli"
 msgid "Configuration"
 msgstr "Configurazione"
 
-msgid "Configuration Drive"
-msgstr "Unità di configurazione"
-
-msgid "Configuration Help"
-msgstr "Guida alla configurazione"
-
-msgid "Count"
-msgstr "Numero"
-
 msgid "Create Key Pair"
 msgstr "Crea coppia di chiavi"
 
@@ -230,9 +212,6 @@ msgstr "Impronta digitale"
 
 msgid "Flavor"
 msgstr "Flavor"
-
-msgid "Flavor Help"
-msgstr "Guida sul flavor"
 
 msgid ""
 "Flavors manage the sizing for the compute, memory and storage capacity of "
@@ -305,17 +284,8 @@ msgstr "Impatto sulla quota"
 msgid "Import Key Pair"
 msgstr "Importa coppia di chiavi"
 
-msgid "Instance Details"
-msgstr "Dettagli istanza"
-
-msgid "Instance Name"
-msgstr "Nome istanza"
-
 msgid "Instance Snapshot"
 msgstr "Istantanea dell'istanza"
-
-msgid "Instance Source"
-msgstr "Origine dell'istanza"
 
 msgid "Instance count is required and must be an integer of at least 1"
 msgstr ""
@@ -327,24 +297,6 @@ msgstr "Privilegi insufficienti per visualizzare le informazioni utente"
 
 msgid "Key Pair"
 msgstr "Coppia di chiavi"
-
-msgid "Key Pair Help"
-msgstr "Guida sulla coppia di chiavi"
-
-msgid "Key Pair Name"
-msgstr "Nome coppia di chiavi"
-
-msgid ""
-"Key Pairs are how you login to your instance after it is launched.\n"
-"        Choose a key pair name you will recognize and paste your SSH public "
-"key into the\n"
-"        space provided."
-msgstr ""
-"Le coppie di chiavi indicano la modalità con cui si accede all'istanza dopo "
-"che questa è stata avviata.\n"
-"        Scegliere un nome per la coppia di chiavi che verrà riconosciuto e "
-"incollare la chiave pubblica SSH nello\n"
-"        spazio fornito."
 
 msgid "Killed"
 msgstr "Terminato"
@@ -378,9 +330,6 @@ msgstr "Nome "
 
 msgid "Network"
 msgstr "Rete"
-
-msgid "Network Help"
-msgstr "Guida sulle reti"
 
 msgid "Network characteristics"
 msgstr "Caratteristiche di rete"
@@ -463,9 +412,6 @@ msgstr "Riordina gli elementi utilizzando la funzione di trascinamento"
 msgid "Remote"
 msgstr "Remoto"
 
-msgid "Required"
-msgstr "Richiesto"
-
 msgid "Root Disk"
 msgstr "Disco root"
 
@@ -477,9 +423,6 @@ msgstr "Salvataggio"
 
 msgid "Security Groups"
 msgstr "Gruppi di sicurezza"
-
-msgid "Security Groups Help"
-msgstr "Guida per i gruppi di sicurezza"
 
 msgid ""
 "Security groups are project-specific and cannot be shared across projects."
@@ -534,9 +477,6 @@ msgstr "Seleziona uno o più"
 msgid "Select one or more security groups from the available groups below."
 msgstr ""
 "Selezionare uno o più gruppi di sicurezza dai gruppi disponibili in basso."
-
-msgid "Select the security groups."
-msgstr "Selezionare i gruppi di sicurezza."
 
 #, python-format
 msgid "Service type is not enabled: %(desiredType)s"

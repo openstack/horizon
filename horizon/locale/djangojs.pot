@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2016-03-03 06:16+0000\n"
+"POT-Creation-Date: 2016-03-04 06:17+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -78,7 +78,7 @@ msgid "%s bytes"
 msgstr ""
 
 #: horizon/static/framework/util/filters/filters.js:220
-#: horizon/static/horizon/js/horizon.tables.js:416
+#: horizon/static/horizon/js/horizon.tables.js:432
 #, python-format
 msgid "Displaying %s item"
 msgid_plural "Displaying %s items"
@@ -141,19 +141,19 @@ msgstr ""
 msgid "(Modified)"
 msgstr ""
 
-#: horizon/static/framework/widgets/load-edit/load-edit.html:17
-msgid "Script size"
+#: horizon/static/framework/widgets/load-edit/load-edit.html:9
+msgid "Script size:"
 msgstr ""
 
-#: horizon/static/framework/widgets/load-edit/load-edit.html:19
-msgid "bytes"
+#: horizon/static/framework/widgets/load-edit/load-edit.html:11
+msgid "of"
 msgstr ""
 
-#: horizon/static/framework/widgets/load-edit/load-edit.html:20
-msgid "(Max: 16Kb)"
+#: horizon/static/framework/widgets/load-edit/load-edit.html:21
+msgid "The script is larger than the maximum size"
 msgstr ""
 
-#: horizon/static/framework/widgets/load-edit/load-edit.html:32
+#: horizon/static/framework/widgets/load-edit/load-edit.html:29
 msgid "Load script from a file"
 msgstr ""
 
@@ -402,6 +402,10 @@ msgstr ""
 msgid "Click to see more details"
 msgstr ""
 
+#: horizon/static/framework/widgets/wizard/wizard.html:15
+msgid "Toggle navigation"
+msgstr ""
+
 #: horizon/static/framework/widgets/wizard/wizard.module.js:48
 msgid "Back"
 msgstr ""
@@ -473,7 +477,7 @@ msgid "Error: "
 msgstr ""
 
 #: horizon/static/horizon/js/horizon.modals.js:238
-#: horizon/static/horizon/js/horizon.tables.js:262
+#: horizon/static/horizon/js/horizon.tables.js:278
 msgid "Working"
 msgstr ""
 
@@ -552,26 +556,26 @@ msgid "Create Subnet"
 msgstr ""
 
 #: horizon/static/horizon/js/horizon.tables.js:45
-#: horizon/static/horizon/js/horizon.tables.js:432
+#: horizon/static/horizon/js/horizon.tables.js:448
 msgid "No items to display."
 msgstr ""
 
 #: horizon/static/horizon/js/horizon.tables.js:58
-#: horizon/static/horizon/js/horizon.tables.js:140
+#: horizon/static/horizon/js/horizon.tables.js:143
 msgid "An error occurred while updating."
 msgstr ""
 
-#: horizon/static/horizon/js/horizon.tables.js:241
+#: horizon/static/horizon/js/horizon.tables.js:257
 #, python-format
 msgid "You have selected %s. "
 msgstr ""
 
-#: horizon/static/horizon/js/horizon.tables.js:243
+#: horizon/static/horizon/js/horizon.tables.js:259
 #, python-format
 msgid "Confirm %s"
 msgstr ""
 
-#: horizon/static/horizon/js/horizon.tables.js:244
+#: horizon/static/horizon/js/horizon.tables.js:260
 msgid "Please confirm your selection. "
 msgstr ""
 
