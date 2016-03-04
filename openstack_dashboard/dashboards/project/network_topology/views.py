@@ -212,9 +212,9 @@ class NetworkTopologyView(views.HorizonTemplateView):
         context['console_type'] = getattr(
             settings, 'CONSOLE_TYPE', 'AUTO')
         context['show_ng_launch'] = getattr(
-            settings, 'LAUNCH_INSTANCE_NG_ENABLED', False)
+            settings, 'LAUNCH_INSTANCE_NG_ENABLED', True)
         context['show_legacy_launch'] = getattr(
-            settings, 'LAUNCH_INSTANCE_LEGACY_ENABLED', True)
+            settings, 'LAUNCH_INSTANCE_LEGACY_ENABLED', False)
         return context
 
 

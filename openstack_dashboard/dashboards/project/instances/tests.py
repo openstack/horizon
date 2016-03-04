@@ -3830,12 +3830,11 @@ class InstanceTests(helpers.TestCase):
         res = self.client.get(INDEX_URL)
 
         launch_action = self.getAndAssertTableAction(res, 'instances',
-                                                     'launch')
+                                                     'launch-ng')
 
-        self.assertEqual(set(['ajax-modal', 'ajax-update', 'btn-launch']),
+        self.assertEqual(set(['btn-launch']),
                          set(launch_action.classes))
         self.assertEqual('Launch Instance', launch_action.verbose_name)
-        self.assertEqual('horizon:project:instances:launch', launch_action.url)
         self.assertEqual((('compute', 'compute:create'),),
                          launch_action.policy_rules)
 
@@ -3878,7 +3877,7 @@ class InstanceTests(helpers.TestCase):
         res = self.client.get(INDEX_URL)
 
         launch_action = self.getAndAssertTableAction(
-            res, 'instances', 'launch')
+            res, 'instances', 'launch-ng')
 
         self.assertTrue('disabled' in launch_action.classes,
                         'The launch button should be disabled')
