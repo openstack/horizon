@@ -12,6 +12,7 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
+from django.conf import settings
 from django.core.urlresolvers import NoReverseMatch  # noqa
 from django.core.urlresolvers import reverse
 from django.http import HttpResponse  # noqa
@@ -60,6 +61,30 @@ class LaunchVolume(tables.LinkAction):
         if getattr(volume, 'bootable', '') == 'true':
             return volume.status == "available"
         return False
+
+
+class LaunchVolumeNG(LaunchVolume):
+    name = "launch_volume_ng"
+    verbose_name = _("Launch as Instance")
+    url = "horizon:project:volumes:index"
+    classes = ("btn-launch", )
+    ajax = False
+
+    def __init__(self, attrs=None, **kwargs):
+        kwargs['preempt'] = True
+        super(LaunchVolume, self).__init__(attrs, **kwargs)
+
+    def get_link_url(self, datum):
+        url = reverse(self.url)
+        vol_id = "%s:vol" % self.table.get_object_id(datum)
+        ngclick = "modal.openLaunchInstanceWizard(" \
+            "{successUrl: '%s', volumeId: '%s'})" \
+                  % (url, vol_id.split(":vol")[0])
+        self.attrs.update({
+            "ng-controller": "LaunchInstanceModalController as modal",
+            "ng-click": ngclick
+        })
+        return "javascript:void(0);"
 
 
 class DeleteVolume(VolumePolicyTargetMixin, tables.DeleteAction):
@@ -450,10 +475,18 @@ class VolumesTable(VolumesTableBase):
         row_class = UpdateRow
         table_actions = (CreateVolume, AcceptTransfer, DeleteVolume,
                          VolumesFilterAction)
-        row_actions = (EditVolume, ExtendVolume, LaunchVolume, EditAttachments,
-                       CreateSnapshot, CreateBackup, RetypeVolume,
-                       UploadToImage, CreateTransfer, DeleteTransfer,
-                       DeleteVolume)
+
+        launch_actions = ()
+        if getattr(settings, 'LAUNCH_INSTANCE_LEGACY_ENABLED', False):
+            launch_actions = (LaunchVolume,) + launch_actions
+        if getattr(settings, 'LAUNCH_INSTANCE_NG_ENABLED', True):
+            launch_actions = (LaunchVolumeNG,) + launch_actions
+
+        row_actions = ((EditVolume, ExtendVolume,) +
+                       launch_actions +
+                       (EditAttachments, CreateSnapshot, CreateBackup,
+                        RetypeVolume, UploadToImage, CreateTransfer,
+                        DeleteTransfer, DeleteVolume))
 
 
 class DetachVolume(tables.BatchAction):

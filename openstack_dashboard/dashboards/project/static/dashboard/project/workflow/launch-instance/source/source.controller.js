@@ -328,11 +328,27 @@
       }
     );
 
+    var volumeWatcher = $scope.$watchCollection(
+      function getVolumes() {
+        return $scope.model.volumes;
+      },
+      function onVolumesChange() {
+        $scope.initPromise.then(function onInit() {
+          $scope.$applyAsync(function setDefaultVolume() {
+            if ($scope.launchContext.volumeId) {
+              setSourceVolumeWithId($scope.launchContext.volumeId);
+            }
+          });
+        });
+      }
+    );
+
     // Explicitly remove watchers on desruction of this controller
     $scope.$on('$destroy', function() {
       newSpecWatcher();
       allocatedWatcher();
       imagesWatcher();
+      volumeWatcher();
     });
 
     // Initialize
@@ -458,6 +474,15 @@
         changeBootSource(bootSourceTypes.IMAGE, [pre]);
         $scope.model.newInstanceSpec.source_type = ctrl.bootSourcesOptions[0];
         ctrl.currentBootSource = ctrl.bootSourcesOptions[0].type;
+      }
+    }
+
+    function setSourceVolumeWithId(id) {
+      var pre = findSourceById($scope.model.volumes, id);
+      if (pre) {
+        changeBootSource(bootSourceTypes.VOLUME, [pre]);
+        $scope.model.newInstanceSpec.source_type = ctrl.bootSourcesOptions[2];
+        ctrl.currentBootSource = ctrl.bootSourcesOptions[2].type;
       }
     }
   }

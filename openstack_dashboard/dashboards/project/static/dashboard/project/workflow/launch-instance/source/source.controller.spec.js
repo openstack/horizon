@@ -49,7 +49,7 @@
           newInstanceSpec: { source: [], source_type: '' },
           images: [ { id: 'image-1' }, { id: 'image-2' } ],
           imageSnapshots: [],
-          volumes: [],
+          volumes: [ { id: 'volume-1' }, { id: 'volume-2' } ],
           volumeSnapshots: [],
           novaLimits: {
             maxTotalInstances: 10,
@@ -188,15 +188,26 @@
         });
       });
 
+      it('defaults source to volume-2 if launchContext.volumeId = volume-2', function() {
+        scope.launchContext = { volumeId: 'volume-2' };
+        deferred.resolve();
+
+        $browser.defer.flush();
+
+        expect(ctrl.tableData.allocated[0]).toEqual({ id: 'volume-2' });
+        expect(scope.model.newInstanceSpec.source_type.type).toBe('volume');
+        expect(ctrl.currentBootSource).toBe('volume');
+      });
+
       describe('Scope Functions', function() {
 
         describe('watchers', function () {
           it('establishes three watches', function() {
-            expect(scope.$watch.calls.count()).toBe(3);
+            expect(scope.$watch.calls.count()).toBe(4);
           });
 
           it("establishes one watch collections", function () {
-            expect(scope.$watchCollection.calls.count()).toBe(1);
+            expect(scope.$watchCollection.calls.count()).toBe(2);
           });
         });
 
