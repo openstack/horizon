@@ -414,7 +414,7 @@
         SOURCE_TYPE_VOLUME_SNAPSHOT,
         gettext('Volume Snapshot')
       );
-      volumePromises.push(cinderAPI.getVolumes({ status: 'available',  bootable: 1 })
+      volumePromises.push(cinderAPI.getVolumes({ status: 'available', bootable: true })
                           .then(onGetVolumes));
       volumePromises.push(cinderAPI.getVolumeSnapshots({ status: 'available' })
                           .then(onGetVolumeSnapshots));
