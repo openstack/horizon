@@ -135,6 +135,7 @@ class MyBatchAction(tables.BatchAction):
 
     @staticmethod
     def action_present(count):
+        # Translators: test code, don't really have to translate
         return ungettext_lazy(
             u"Batch Item",
             u"Batch Items",
@@ -143,6 +144,7 @@ class MyBatchAction(tables.BatchAction):
 
     @staticmethod
     def action_past(count):
+        # Translators: test code, don't really have to translate
         return ungettext_lazy(
             u"Batched Item",
             u"Batched Items",
@@ -170,12 +172,14 @@ class MyToggleAction(tables.BatchAction):
 
     def action_present(self, count):
         if self.current_present_action:
+            # Translators: test code, don't really have to translate
             return ungettext_lazy(
                 u"Up Item",
                 u"Up Items",
                 count
             )
         else:
+            # Translators: test code, don't really have to translate
             return ungettext_lazy(
                 u"Down Item",
                 u"Down Items",
@@ -184,12 +188,14 @@ class MyToggleAction(tables.BatchAction):
 
     def action_past(self, count):
         if self.current_past_action:
+            # Translators: test code, don't really have to translate
             return ungettext_lazy(
                 u"Upped Item",
                 u"Upped Items",
                 count
             )
         else:
+            # Translators: test code, don't really have to translate
             return ungettext_lazy(
                 u"Downed Item",
                 u"Downed Items",

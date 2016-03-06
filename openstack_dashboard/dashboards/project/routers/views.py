@@ -93,9 +93,9 @@ class IndexView(tables.DataTableView):
                 messages.error(self.request, msg)
                 # gateway_info['network'] is just the network name, so putting
                 # in a smallish error message in the table is reasonable.
+                # Translators: The usage is "<UUID of ext_net> (Not Found)"
                 gateway_info['network'] = pgettext_lazy(
                     'External network not found',
-                    # Translators: The usage is "<UUID of ext_net> (Not Found)"
                     u'%s (Not Found)') % ext_net_id
 
 

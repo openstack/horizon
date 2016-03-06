@@ -26,8 +26,8 @@ class EagerPuppiesTable(tables.DataTable):
 class SellPuppy(tables.DeleteAction):
     @staticmethod
     def action_present(count):
+        # Translators: test code, don't really have to translate
         return ungettext_lazy(
-            # Translators: test code, don't really have to translate
             u"Sell Puppy",
             u"Sell Puppies",
             count
@@ -35,8 +35,8 @@ class SellPuppy(tables.DeleteAction):
 
     @staticmethod
     def action_past(count):
+        # Translators: test code, don't really have to translate
         return ungettext_lazy(
-            # Translators: test code, don't really have to translate
             u"Sold Puppy",
             u"Sold Puppies",
             count
