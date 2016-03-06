@@ -33,6 +33,10 @@
   & ~ hr {
     margin-bottom: 0;
   }
+
+  & > .nav-pills {
+    padding-bottom: $padding-base-horizontal;
+  }
 }
 
 .modal-footer {
