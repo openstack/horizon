@@ -6,10 +6,9 @@
       (Modified)</span>
   </label>
   <span class="pull-right" ng-class="{ 'text-danger': scriptLength >= config.MAX_SCRIPT_SIZE }">
-    <span translate>Script size:</span>
-    {$ (scriptLength || 0) | bytes $}
-    <span translate>of</span>
-    {$ config.MAX_SCRIPT_SIZE | bytes $}
+    <span translate translate-comment="Strings between {$ and $} should be left untranslated.">
+      Script size: {$ (scriptLength || 0) | bytes $} of {$ config.MAX_SCRIPT_SIZE | bytes $}
+    </span>
   </span>
   <textarea class="form-control"
             rows="8"
