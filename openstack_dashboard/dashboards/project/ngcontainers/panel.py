@@ -18,6 +18,6 @@ import horizon
 
 
 class NGContainers(horizon.Panel):
-    name = _("NGContainers")
+    name = _("Containers")
     slug = 'ngcontainers'
     permissions = ('openstack.services.object-store',)
