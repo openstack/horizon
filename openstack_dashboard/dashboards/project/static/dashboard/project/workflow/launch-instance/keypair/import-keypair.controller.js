@@ -45,7 +45,7 @@
     //////////
 
     function submit() {
-      novaAPI.createKeypair(ctrl.model).success(successCallback);
+      novaAPI.createKeypair(ctrl.model).then(successCallback);
     }
 
     function successCallback(data) {
