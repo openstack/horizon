@@ -59,114 +59,17 @@ $fa-font-path: $static_url + "horizon/lib/font-awesome/fonts";
 
 $overview_chart_height: 81px;
 
-/* Help panel */
-
-// theme
-$helpPanelColor: #333 !default;
-$helpPanelBg: #fff !default;
-$helpPanelBtnBg: #eee !default;
-$helpPanelBtnIconColor: #333 !default;
-$helpPanelBtnIconBg: transparent !default;
-$helpPanelBorderColor: #888 !default;
-
-// layout
-$helpPanelWidthDefault: 300px !default;
-$helpPanelBtnSize: 40px !default;
-$helpPanelBtnIconSize: 28px !default;
-
-/* Wizard */
-
-// theme
-$WizardNavItemColor: #333 !default;
-$WizardNavItemBgColor: #0084d1 !default;
-$WizardNavItemBdColor: #bbb !default;
-$WizardButtonColorHiLight: #fff !default;
-$WizardBtnTextColor: #333;
-$WizardBtnBgColor: #fff !default;
-$WizardBtnBdColor: #ccc !default;
-$WizardNextBtnBgColor: #0084d1 !default;
-$WizardNextBtnBdColor: #0084d1 !default;
-$WizardNextBtnDisabledBgColor: #ccc !default;
-$WizardNextBtnDisabledBdColor: #ccc !default;
-$WizardFinishBtnBgColor: #51b848 !default;
-$WizardFinishBtnBdColor: #51b848 !default;
-$WizardFinishBtnDisabledBgColor: #ccc !default;
-$WizardFinishBtnDisabledBdColor: #ccc !default;
-$WizardToolbarBgColor: #f5f5f5 !default;
-$WizardToolbarVerticalSeparatorBdColor: #e3e3e3 !default;
-$WizardValidationErrorColor: #d43f3a !default;
-
-$wizard-textarea-border-color: #eee;
-
-// layout
-$wizardTopPadding: 40px !default;
-$wizardBottomPadding: $wizardTopPadding !default;
-$wizardLeftPadding: $wizardTopPadding !default;
-$wizardRightPadding: $wizardLeftPadding !default;
-$wizardHeight: 100% !default;
-$wizardWidth: 100% !default;
-$wizardMinHeight: 460px !default;
-$wizardMinWidth: 1024px !default;
-$wizardMaxHeight: 900px !default;
-$wizardMaxWidth: 1440px !default;
-$wizardTitleBarHeight: 70px !default;
-$wizardToolBarHeight: 65px !default;
-$wizardNavWidth: 290px !default;
-$WizardNavItemHeight: 46px !default;
-$WizardNavItemWidth: 190px !default;
-$WizardSidePadding: 35px !default;
-$WizardStatusIndicatorSize: 24px !default;
-$WizardBtnGap: 5px !default;
-$WizardToolbarBtnHeight: 28px !default;
-
 /* Responsive Table */
-$batch-action-width: 10em !default;
-$batch-action-padding: $batch-action-width + 1em !default;
 $detail-row-padding: 1em !default;
 $expander-width: 1.5em !default;
 $reorder-border: 2px solid #1f83c6 !default;
 $table-col-avg-width: 150px !default;
-$table-border-color: #cccccc !default;
 $table-border: 1px solid $table-border-color !default;
 $table-gap-height: 0.5em !default;
 $table-padding: 0.5em !default;
-$table-stripe-bgcolor: #f9f9f9 !default;
 
 /* Tooltip */
-$tooltip-bg-color: #fefefe !default;
-$tooltip-border: solid 1px #bcbcbc !default;
-$tooltip-box-shadow: 1px 1px 8px -3px #cccccc !default;
-$tooltip-key-color: #000000 !default;
-$tooltip-value-color: inherit !default;
-$tooltip-key-padding: 0 0.2em !default;
-$tooltip-key-weight: 600 !default;
 $tooltip-padding: 0.3em 0.8em !default;
-
-/* Transfer Tables */
-$invalid-color: #f0ad4e !default;
-$transfer-btn-width: 3em !default;
-$transfer-help-text-color: #999999 !default;
-$transfer-btn-border-color: #666666 !default;
-$transfer-disabled-btn-color: #cccccc !default;
-$transfer-disabled-btn-border-color: #cecece !default;
-$transfer-header-bottom-border: 1px solid #eeeeee !default;
-$placeholder-text-color: #b8b8b8 !default;
-
-/* Pie/Donut Charts */
-$chart-label-font-size: 16px !default;
-$chart-label-color: #1f83c6 !default;
-$chart-legend-font-size: .9em !default;
-$chart-legend-padding: 0.2em 0.75em !default;
-$chart-quota-usage-color: #1f83c6 !default;
-$chart-quota-added-color: #81c1e7 !default;
-$chart-quota-remaining-color: #d1d3d4 !default;
-$chart-quota-danger-color: $brand-danger !default;
-$chart-slice-legend-padding: 0.2em 0 !default;
-$chart-title-font-color: #555 !default;
-$chart-title-font-size: .9em !default;
-$chart-title-font-size-large: 1.1em !default;
-$chart-title-padding: 0 0 0.5em !default;
-$chart-title-weight: 600 !default;
 
 /* Metadata Display */
 $metadata-display-selector-color: $link-color !default;
