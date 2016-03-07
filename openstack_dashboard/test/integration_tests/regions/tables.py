@@ -56,13 +56,19 @@ class TableRegion(baseregion.BaseRegion):
                              'div.table_search.client > input')
     _search_button_locator = (by.By.CSS_SELECTOR,
                               'div.table_search.client > button')
-    _next_locator = (by.By.CSS_SELECTOR,
-                     'tfoot > tr > td > a[href^="?marker"]')
-    _prev_locator = (by.By.CSS_SELECTOR,
-                     'tfoot > tr > td > a[href*="prev_marker"]')
+    marker_name = 'marker'
+    prev_marker_name = 'prev_marker'
 
     def _table_locator(self, table_name):
         return by.By.CSS_SELECTOR, 'table#%s' % table_name
+
+    @property
+    def _next_locator(self):
+        return by.By.CSS_SELECTOR, 'a[href^="?%s"]' % self.marker_name
+
+    @property
+    def _prev_locator(self):
+        return by.By.CSS_SELECTOR, 'a[href^="?%s"]' % self.prev_marker_name
 
     def __init__(self, driver, conf):
         self._default_src_locator = self._table_locator(self.__class__.name)
