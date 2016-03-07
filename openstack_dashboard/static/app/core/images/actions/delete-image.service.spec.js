@@ -85,7 +85,7 @@
 
       for (var index = 0; index < imageCount; index++) {
         var image = angular.copy(data);
-        image.id = (index + 1);
+        image.id = index + 1;
         image.name = 'image' + (index + 1);
         images.push(image);
       }
@@ -130,7 +130,9 @@
 
         var labels = deleteModalService.open.calls.argsFor(0)[2].labels;
         expect(deleteModalService.open).toHaveBeenCalled();
-        for (var k in labels) { expect(labels[k].toLowerCase()).toContain('image'); }
+        angular.forEach(labels, function eachLabel(label) {
+          expect(label.toLowerCase()).toContain('image');
+        });
       }
 
       function testpluralLabels() {
@@ -140,7 +142,9 @@
 
         var labels = deleteModalService.open.calls.argsFor(0)[2].labels;
         expect(deleteModalService.open).toHaveBeenCalled();
-        for (var k in labels) { expect(labels[k].toLowerCase()).toContain('images'); }
+        angular.forEach(labels, function eachLabel(label) {
+          expect(label.toLowerCase()).toContain('images');
+        });
       }
 
       function testEntities() {

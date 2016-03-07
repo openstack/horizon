@@ -31,8 +31,8 @@
     'horizon.app.core.images.events'
   ];
 
-  /**
-   * @ngDoc factory
+  /*
+   * @ngdoc factory
    * @name horizon.app.core.images.actions.delete-image.service
    *
    * @Description
@@ -88,8 +88,7 @@
           userSessionService.isCurrentProject(image.owner),
           notDeleted(image)
         ]);
-      }
-      else {
+      } else {
         return policy.ifAllowed({ rules: [['image', 'delete_image']] });
       }
     }

@@ -24,14 +24,18 @@
     'horizon.framework.util.i18n.gettext'
   ];
 
-  /**
-   * @ngdoc filter
-   * @name imageTypeFilter
-   * @description
-   * Takes a raw image object from the API and returns the user friendly type.
-   */
   function imageTypeFilter(gettext) {
-    return function (input) {
+    return filter;
+
+    /**
+     * @ngdoc filter
+     * @name imageTypeFilter
+     * @param {Object} input - An image object
+     * @description
+     * Takes a raw image object from the API and returns the user friendly type.
+     * @returns {Function} The filter
+     */
+    function filter(input) {
       if (null !== input &&
         angular.isDefined(input) &&
         angular.isDefined(input.properties) &&
@@ -40,7 +44,7 @@
       } else {
         return gettext('Image');
       }
-    };
+    }
   }
 
 }());
