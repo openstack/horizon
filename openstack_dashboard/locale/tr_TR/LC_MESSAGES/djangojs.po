@@ -6,15 +6,16 @@
 # ADİL REŞİT DURSUN <ardursun@deltanoc.com>, 2015
 # Mücahit Büyükyılmaz <mucahit@konya.edu.tr>, 2015
 # Mücahit Büyükyılmaz <mucahit@deltanoc.com>, 2015. #zanata
+# Mücahit Büyükyılmaz <mucahit@deltanoc.com>, 2016. #zanata
 msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2016-03-04 04:22+0000\n"
+"POT-Creation-Date: 2016-03-04 08:39+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2015-10-06 02:06+0000\n"
+"PO-Revision-Date: 2016-03-04 02:39+0000\n"
 "Last-Translator: Mücahit Büyükyılmaz <mucahit@deltanoc.com>\n"
 "Language: tr-TR\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
@@ -22,8 +23,56 @@ msgstr ""
 "X-Generator: Zanata 3.7.3\n"
 "Language-Team: Turkish (Turkey)\n"
 
+msgid "#"
+msgstr "#"
+
 msgid "(None)"
 msgstr "(Hiçbiri)"
+
+msgid "1"
+msgstr "1"
+
+msgid "2"
+msgstr "2"
+
+msgid "3"
+msgstr "3"
+
+msgid "4"
+msgstr "4"
+
+msgid "5"
+msgstr "5"
+
+msgid "6"
+msgstr "6"
+
+msgid "7"
+msgstr "7"
+
+msgid "8"
+msgstr "8"
+
+msgid ""
+"<div>\n"
+"                  \n"
+"                    <input> Checkbox\n"
+"                  </input>\n"
+"                </div>\n"
+"                <div>\n"
+"                  <input>\n"
+"                  Checkbox</input>\n"
+"                </div>"
+msgstr ""
+"<div>\n"
+"                  \n"
+"                    <input> Checkbox\n"
+"                  </input>\n"
+"                </div>\n"
+"                <div>\n"
+"                  <input>\n"
+"                  Checkbox</input>\n"
+"                </div>"
 
 msgid "<li><b>Image</b>: This option uses an image to boot the instance.</li>"
 msgstr ""
@@ -56,6 +105,9 @@ msgstr ""
 
 msgid "A name is required for your instance."
 msgstr "Instance için bir isim gerekiyor."
+
+msgid "Action"
+msgstr "Eylem"
 
 msgid "Active"
 msgstr "Etkin"
@@ -113,11 +165,29 @@ msgid ""
 msgstr ""
 "Instance adı onu benzersiz bir şekilde tanımlayabilmeniz için gereklidir."
 
+msgid "Another action"
+msgstr "Başka bir eylem"
+
 msgid "Automatic"
 msgstr "Otomatik"
 
 msgid "Availability Zone"
 msgstr "Kullanılabilirlik Bölgesi"
+
+msgid "Block level button"
+msgstr "Blok uzunluğunda buton"
+
+msgid "Bordered Table"
+msgstr "Çerçeveli Tablo"
+
+msgid "Brand"
+msgstr "Marka"
+
+msgid "Button"
+msgstr "Buton"
+
+msgid "Buttons"
+msgstr "Butonlar"
 
 msgid "Cancel"
 msgstr "İptal"
@@ -136,6 +206,12 @@ msgstr ""
 
 msgid "Click to see more details"
 msgstr "Daha fazla detay için tıklayın"
+
+msgid "Color"
+msgstr "Renk"
+
+msgid "Column heading"
+msgstr "Sütun başlığı"
 
 msgid "Configuration"
 msgstr "Yapılandırma"
@@ -160,17 +236,38 @@ msgstr ""
 "<samp>cloud-init</samp> kuramıyorsanız özel bir betik ile bir açık anahtar "
 "alabilir ve onu kullanıcı hesabına ekletebilirsiniz."
 
+msgid "Danger"
+msgstr "Tehlike"
+
+msgid "Data"
+msgstr "Veri"
+
+msgid "Default"
+msgstr "Varsayılan"
+
+msgid "Default button"
+msgstr "Varsayılan buton"
+
+msgid "Default input"
+msgstr "Varsayılan Input"
+
 msgid "Deleted"
 msgstr "Silindi"
 
 msgid "Description"
 msgstr "Açıklama"
 
+msgid "Details"
+msgstr "Detaylar"
+
 msgid "Device Name"
 msgstr "Aygıt Adı"
 
 msgid "Direction"
 msgstr "Yön"
+
+msgid "Disabled"
+msgstr "Devredışı"
 
 msgid "Disk Partition"
 msgstr "Disk Bölümü"
@@ -180,6 +277,25 @@ msgstr "Alan ID"
 
 msgid "Down"
 msgstr "Kapalı"
+
+msgid ""
+"Dropdown\n"
+"                <span></span>"
+msgstr ""
+"Açılır Menü\n"
+"                <span></span>"
+
+msgid "Dropdown <b></b>"
+msgstr "Açılır Menü <b></b>"
+
+msgid "Dropdown <span></span>"
+msgstr "Açılır Menü <span></span>"
+
+msgid "Dropdown header"
+msgstr "Açılır Menü başlığı"
+
+msgid "Dropdown link"
+msgstr "Açılır Menü linki"
 
 msgid "Email"
 msgstr "Eposta"
@@ -216,6 +332,9 @@ msgstr ""
 msgid "Format"
 msgstr "Biçim"
 
+msgid "Forms"
+msgstr "Formlar"
+
 msgid ""
 "From a Windows system, you can use PuTTYGen to create private/public keys.\n"
 "  Use the PuTTY Key Generator to create and save the keys, then copy\n"
@@ -230,6 +349,27 @@ msgstr ""
 "açık anahtarınızı <samp>.ssh/authorized_keys</samp> dosyasında kırmızı "
 "işaretli kutuya\n"
 "kopyalayın."
+
+msgid "Heading 1"
+msgstr "Başlık 1"
+
+msgid "Heading 2"
+msgstr "Başlık 2"
+
+msgid "Heading 3"
+msgstr "Başlık 3"
+
+msgid "Heading 4"
+msgstr "Başlık 4"
+
+msgid "Heading 5"
+msgstr "Başlık 5"
+
+msgid "Heading 6"
+msgstr "Başlık 6"
+
+msgid "Home"
+msgstr "Anasayfa"
 
 msgid "ID"
 msgstr "ID"
@@ -277,6 +417,18 @@ msgstr "Kotanıza etkisi"
 msgid "Import Key Pair"
 msgstr "Anahtar Çiftini İçe Aktar"
 
+msgid "Info"
+msgstr "Bilgi"
+
+msgid "Input error"
+msgstr "Input hatası"
+
+msgid "Input success"
+msgstr "Input başarılı"
+
+msgid "Input warning"
+msgstr "Input uyarısı"
+
 msgid "Instance Snapshot"
 msgstr "Instance Anlık Görüntüsü"
 
@@ -292,14 +444,32 @@ msgstr "Anahtar Çifti"
 msgid "Killed"
 msgstr "Öldürüldü"
 
+msgid "Large button"
+msgstr "Büyük buton"
+
+msgid "Large input"
+msgstr "Büyük Input"
+
 msgid "Launch Instance"
 msgstr "Instance Başlat"
+
+msgid "Left"
+msgstr "Sol"
+
+msgid "Link"
+msgstr "Link"
+
+msgid "List group item heading"
+msgstr "Liste grubu başlığı"
 
 msgid "Manual"
 msgstr "Elle"
 
 msgid "Max Port"
 msgstr "Maksimum Port"
+
+msgid "Middle"
+msgstr "Orta"
 
 msgid "Min Disk"
 msgstr "Minimum Disk"
@@ -316,8 +486,14 @@ msgstr "Minimum RAM"
 msgid "Min RAM (MB)"
 msgstr "Minimum RAM (MB)"
 
+msgid "Mini button"
+msgstr "Mini buton"
+
 msgid "Name"
 msgstr "Ad"
+
+msgid "Navbar"
+msgstr "Navbar"
 
 msgid "Network"
 msgstr "Ağ"
@@ -340,20 +516,42 @@ msgstr "Uygun öğe yok"
 msgid "Number"
 msgstr "Sayı"
 
+msgid "Other Input Types"
+msgstr "Diğer Giriş Türleri"
+
+msgid "Pagination"
+msgstr "Sayfalama"
+
+msgid "Panel heading"
+msgstr "Panel Başlığı"
+
+msgid "Password"
+msgstr "Şifre"
+
 msgid "Pending Delete"
 msgstr "Silme Beklemede"
 
 msgid "Physical Network"
 msgstr "Fiziksel Ağ"
 
+msgid "Please try again."
+msgstr "Lütfen tekrar deneyiniz."
+
 msgid "Policy check failed."
 msgstr "Politika kontrolü yapılamadı."
+
+msgid "Primary"
+msgstr "Birincil"
 
 msgid "Private"
 msgstr "Özel"
 
 msgid "Profile"
 msgstr "Profil"
+
+#, fuzzy
+msgid "Progress bars"
+msgstr "Progress barlar"
 
 msgid "Project"
 msgstr "Proje"
@@ -396,11 +594,17 @@ msgstr "Kuyrukta"
 msgid "RAM"
 msgstr "RAM"
 
+msgid "Radios"
+msgstr "Radios"
+
 msgid "Re-order items using drag and drop"
 msgstr "Sürükle ve bırak kullanarak ögeleri yeniden sırala"
 
 msgid "Remote"
 msgstr "Uzak"
+
+msgid "Right"
+msgstr "Sağ"
 
 msgid "Root Disk"
 msgstr "Root Diski"
@@ -410,6 +614,9 @@ msgstr "Kaydet"
 
 msgid "Saving"
 msgstr "Kaydediliyor"
+
+msgid "Search"
+msgstr "Arama"
 
 msgid "Security Groups"
 msgstr "Güvenlik Grupları"
@@ -479,8 +686,20 @@ msgstr "Boyut"
 msgid "Size (GB)"
 msgstr "Boyut (GB)"
 
+msgid "Small button"
+msgstr "Küçük buton"
+
+msgid "Small input"
+msgstr "Küçük Input"
+
 msgid "Snapshot"
 msgstr "Anlık Görüntü"
+
+msgid "Source"
+msgstr "Kaynak"
+
+msgid "Standard Table"
+msgstr "Standart Tablo"
 
 msgid "Status"
 msgstr "Durum"
@@ -488,9 +707,21 @@ msgstr "Durum"
 msgid "Subnets Associated"
 msgstr "Subnetler İlişkilendirildi"
 
+msgid "Success"
+msgstr "Başarılı"
+
 #, python-format
 msgid "Successfully imported key pair %(name)s."
 msgstr "Anahtar çifti %(name)s başarıyla içe aktarıldı."
+
+msgid "Tables"
+msgstr "Tablolar"
+
+msgid "Tabs"
+msgstr "Tablar"
+
+msgid "Textarea"
+msgstr "Textarea"
 
 msgid ""
 "The flavor you select for an instance determines the amount of compute, "
@@ -770,6 +1001,9 @@ msgstr "İmaj Üstverisini Güncelle"
 msgid "Updated"
 msgstr "Güncellendi"
 
+msgid "Url"
+msgstr "Adres"
+
 msgid "User ID"
 msgstr "Kullanıcı ID"
 
@@ -798,6 +1032,9 @@ msgstr ""
 "Birimler bir defada sadece bir etkin instance'a eklenebilirler. Lütfen ya "
 "instance sayınızı 1 olarak değiştirin ya da başka bir kaynak türü seçin."
 
+msgid "Warning"
+msgstr "Uyarı"
+
 msgid ""
 "When selecting volume as boot source, please ensure the instance's "
 "availability zone is compatible with your volume's availability zone."
@@ -818,6 +1055,9 @@ msgstr ""
 
 msgid "Yes"
 msgstr "Evet"
+
+msgid "image"
+msgstr "imaj"
 
 msgid "{$ row['provider:network_type'] $}"
 msgstr "{$ row['provider:network_type'] $}"

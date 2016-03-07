@@ -11,18 +11,19 @@
 # Andreas Jaeger <jaegerandi@gmail.com>, 2015. #zanata
 # OpenStack Infra <zanata@openstack.org>, 2015. #zanata
 # zhangjingwen <zhangjingwen@cn.fujitsu.com>, 2015. #zanata
-# froms <froms2008@gmail.com>, 2016. #zanata
-# will zhou <zzxwill@gmail.com>, 2016. #zanata
+# Zheng Xi Zhou <zzxwill@gmail.com>, 2016. #zanata
+# liujunpeng <liujunpeng@inspur.com>, 2016. #zanata
+# vuuv <froms2008@gmail.com>, 2016. #zanata
 msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2016-02-22 18:18+0000\n"
+"POT-Creation-Date: 2016-03-04 08:38+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2016-02-23 02:11+0000\n"
-"Last-Translator: will zhou <zzxwill@gmail.com>\n"
+"PO-Revision-Date: 2016-03-04 06:42+0000\n"
+"Last-Translator: liujunpeng <liujunpeng@inspur.com>\n"
 "Language: zh-CN\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 "Generated-By: Babel 2.0\n"
@@ -179,6 +180,14 @@ msgstr "可用配额"
 msgid "Back"
 msgstr "返回"
 
+msgid "Batch Item"
+msgid_plural "Batch Items"
+msgstr[0] "批处理条目"
+
+msgid "Batched Item"
+msgid_plural "Batched Items"
+msgstr[0] "批处理的条目"
+
 msgid "Cancel"
 msgstr "取消"
 
@@ -205,6 +214,14 @@ msgstr[0] "正在显示 %(counter)s 项"
 msgid "Displaying %(nav_items)s item"
 msgid_plural "Displaying %(nav_items)s items"
 msgstr[0] "正在显示 %(nav_items)s 项"
+
+msgid "Down Item"
+msgid_plural "Down Items"
+msgstr[0] "向下条目"
+
+msgid "Downed Item"
+msgid_plural "Downed Items"
+msgstr[0] "向下的条目"
 
 #, python-format
 msgid "Error processing message json file '%(path)s': %(exception)s"
@@ -341,6 +358,15 @@ msgstr "日期应是YYYY-mm-dd格式。"
 msgid "The string may only contain ASCII printable characters."
 msgstr "字符串只能包含ASCII可印刷字符."
 
+#, python-format
+msgid ""
+"The value of %(resource)s is %(name)s inside the template. When launching a "
+"stack from this interface, the value must start with \"http://\" or "
+"\"https://\""
+msgstr ""
+"在模板中，%(resource)s 的值是%(name)s 。当从这个接口启动栈时，值必须以"
+"\"http://\" 或\"https://\"开头。"
+
 msgid "This Period's GB-Hours:"
 msgstr "这一时期的GB-小时数:"
 
@@ -364,6 +390,10 @@ msgstr "未授权。请尝试重新登录。"
 msgid "Unauthorized: %s"
 msgstr "无权: %s"
 
+msgid "Up Item"
+msgid_plural "Up Items"
+msgstr[0] "向上条目"
+
 msgid "Update Item"
 msgid_plural "Update Items"
 msgstr[0] "更新条目"
@@ -371,6 +401,10 @@ msgstr[0] "更新条目"
 msgid "Updated Item"
 msgid_plural "Updated Items"
 msgstr[0] "条目已更新"
+
+msgid "Upped Item"
+msgid_plural "Upped Items"
+msgstr[0] "向上的条目"
 
 msgid "Usage Summary"
 msgstr "使用情况摘要"

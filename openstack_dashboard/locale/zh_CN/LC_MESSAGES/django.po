@@ -21,18 +21,19 @@
 # Yang Hongyang <hongyang.yang@easystack.cn>, 2015. #zanata
 # yan haifeng <yanheven@qq.com>, 2015. #zanata
 # zhangjingwen <zhangjingwen@cn.fujitsu.com>, 2015. #zanata
-# Will Zhou <zzxwill@gmail.com>, 2016. #zanata
+# Zheng Xi Zhou <zzxwill@gmail.com>, 2016. #zanata
+# liujunpeng <liujunpeng@inspur.com>, 2016. #zanata
 # vuuv <froms2008@gmail.com>, 2016. #zanata
 msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2016-03-02 17:22+0000\n"
+"POT-Creation-Date: 2016-03-04 08:39+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2016-03-01 05:24+0000\n"
-"Last-Translator: vuuv <froms2008@gmail.com>\n"
+"PO-Revision-Date: 2016-03-04 11:44+0000\n"
+"Last-Translator: Zheng Xi Zhou <zzxwill@gmail.com>\n"
 "Language: zh-CN\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 "Generated-By: Babel 2.0\n"
@@ -270,6 +271,7 @@ msgstr ""
 "管理员需要手动更新云硬盘状态。这相当于\n"
 "命令<tt>cinder snapshot-reset-state</tt>的操作。"
 
+#, fuzzy
 msgid ""
 "\n"
 "    The status of a volume snapshot is normally managed automatically.  In "
@@ -282,7 +284,7 @@ msgstr ""
 "\n"
 "卷快照状态通常是自动管理的。在某些特定的环境下，\n"
 "管理员需要更新卷快照状态。这相当于\n"
-"的如下命令<tt>cinder snapshot-reset-state</tt> 的操作。"
+"如下命令<tt>cinder snapshot-reset-state</tt> 的操作。\n"
 
 msgid ""
 "\n"
@@ -347,12 +349,23 @@ msgstr "-结束"
 msgid " : Next hop"
 msgstr ":下一跳"
 
+msgid ""
+" A protocol entry contains information that dictates which mapping rules to "
+"use for a given incoming request. An Identity Provider may have multiple "
+"supported protocols."
+msgstr ""
+"协议入点包含信息，这些信息表明对于给定入口请求那个映射规则来使用。一个身份提"
+"供者可以包含多个支持的协议。"
+
 #, python-format
 msgid " Also failed to delete port %s"
 msgstr "删除端口%s 同样失败"
 
 msgid "\"Add Router Route\""
 msgstr "\"添加路由器的路由表\""
+
+msgid "\"Containers\""
+msgstr "“容器”"
 
 msgid ""
 "\"Customization Script\" is analogous to \"User Data\" in other systems."
@@ -461,6 +474,10 @@ msgid "%sGB"
 msgstr "%sGB"
 
 #, python-format
+msgid "%sGiB"
+msgstr "%sGiB"
+
+#, python-format
 msgid "%sMB"
 msgstr "%s MB"
 
@@ -515,6 +532,16 @@ msgid "A local template to upload."
 msgstr "一个待上传的本地模板"
 
 msgid ""
+"A mapping is a set of rules to map federation protocol attributes to "
+"Identity API objects. An identity provider can have a single mapping "
+"specified per protocol. A mapping is simply a list of rules. The only "
+"Identity API objects that will support mapping are: user and group."
+msgstr ""
+"映射是一个规则集合，映射联邦协议属性到认证API对象。一个认证提供者可以每一个协"
+"议有一个指定的映射。一个映射是简单的规则列表。唯一的认证API对象将会支持的映射"
+"是：用户和组。"
+
+msgid ""
 "A more specific rule affects a portion of this traffic so a rule cannot be "
 "automatically generated to control the behavior of the entire source/"
 "destination combination."
@@ -524,6 +551,16 @@ msgstr ""
 
 msgid "A new uploaded file will replace the content of the current object"
 msgstr "新上传的文件会替换当前对象的内容"
+
+msgid ""
+"A port is a connection point for attaching a single device, such as the NIC "
+"of a virtual server, to a virtual network."
+msgstr "端口是绑定当设备到虚拟机网络的接入点，比如虚拟服务器的NIC。"
+
+msgid ""
+"A rule contains a remote attribute description and the destination local "
+"attribute."
+msgstr "规则包含远端属性描述和目的本地属性。"
 
 msgid ""
 "A script or set of commands to be executed after the instance has been built "
@@ -818,7 +855,7 @@ msgid "Add static route to the router."
 msgstr "为路由器添加静态路由表."
 
 msgid "Add, modify or remove the QoS Spec associated with this volume type."
-msgstr "添加、修改、删除该类型的块设备卷对应的 QoS 策略。"
+msgstr "添加、修改、删除该类型的块设备卷关联的 QoS 规格。"
 
 msgid "Add/Remove Hosts to Aggregate"
 msgstr "添加/删除集合中的主机"
@@ -1008,6 +1045,9 @@ msgstr "能源数量"
 msgid "An external (HTTP) URL to load the template from."
 msgstr "一个用于加载模板的外部(HTTP) URL。"
 
+msgid "An external (HTTP/HTTPS) URL to load the image from."
+msgstr "从外部（HTTP/HTTPS）URL加载镜像。"
+
 msgid ""
 "An instance can be launched with varying types of attached storage. You may "
 "select from those options here."
@@ -1028,6 +1068,9 @@ msgid ""
 "An unexpected error has occurred. Try refreshing the page. If that doesn't "
 "help, contact your local administrator."
 msgstr "报错.请刷新,如需帮助请联系管理员."
+
+msgid "Another Plugin-based Panel"
+msgstr "另一个基于插件的面板"
 
 msgid "Any"
 msgstr "任何"
@@ -1120,6 +1163,9 @@ msgstr "正在设备 %(dev)s上为主机 %(inst)s 连接云硬盘%(vol)s"
 msgid "Attachments"
 msgstr "连接的设备"
 
+msgid "Attribute Mappings"
+msgstr "属性映射"
+
 msgid "Attributes"
 msgstr "属性"
 
@@ -1155,6 +1201,9 @@ msgid "Availability Zone Name"
 msgstr "可用域名称"
 
 msgid "Availability Zones"
+msgstr "可用域"
+
+msgid "Availability zone"
 msgstr "可用域"
 
 msgid "Available"
@@ -1480,6 +1529,9 @@ msgstr "编码"
 msgid "Cold Migrate"
 msgstr "冷迁移"
 
+msgid "Comma-delimited list of valid remote IDs from the identity provider."
+msgstr "身份提供者中逗号分隔的有效远程ID的列表。"
+
 msgid "Comma-separated key=value pairs"
 msgstr "用逗号分开 key=value 键值对"
 
@@ -1680,6 +1732,59 @@ msgid "Create Host Aggregate"
 msgstr "创建主机集合"
 
 msgid ""
+"Create IKE Policy for current project.\n"
+"\n"
+"An IKE policy is an association of the following attributes:\n"
+"\n"
+"<li>Authorization algorithm: Auth algorithm limited to SHA1 only.</"
+"li><li>Encryption algorithm: The type of algorithm (3des, aes-128, aes-192, "
+"aes-256) used in the IKE Policy.</li><li>IKE version: The type of version "
+"(v1/v2) that needs to be filtered.</li><li>Lifetime: Life time consists of "
+"units and value. Units in 'seconds' and the default value is 3600.</"
+"li><li>Perfect Forward Secrecy: PFS limited to using Diffie-Hellman groups "
+"2, 5(default) and 14.</li><li>IKE Phase 1 negotiation mode: Limited to "
+"'main' mode only.</li>\n"
+"All fields are optional."
+msgstr ""
+"为当前项目创建IKE策略。\n"
+"\n"
+"IKE策略是以下属性的一个关联：\n"
+"\n"
+"<li>授权算法：授权算法只能使用SHA1</li><li>加密算法：在IKE策略中使用的算法类"
+"型  (3des, aes-128, aes-192, aes-256)</li><li>IKE 版本：版本类型(v1/v2) 必须"
+"过滤。</li><li>生命时间：生命时间由单位和值组成。单位是'seconds' ，缺省值是 "
+"3600。</li><li>精确转发秘密：PFS限制使用 Diffie-Hellman 组 2, 5(缺省)和 14.</"
+"li><li>IKE阶段1协商模式：限制使用'主' 模式。</li>\n"
+"所有属性可选。"
+
+msgid ""
+"Create IPSec Policy for current project.\n"
+"\n"
+"An IPSec policy is an association of the following attributes:\n"
+"\n"
+"<li>Authorization algorithm: Auth_algorithm limited to SHA1 only.</"
+"li><li>Encapsulation mode: The type of IPsec tunnel (tunnel/transport) to be "
+"used.</li><li>Encryption algorithm: The type of algorithm (3des, aes-128, "
+"aes-192, aes-256) used in the IPSec Policy.</li><li>Lifetime: Life time "
+"consists of units and value. Units in 'seconds' and the default value is "
+"3600.</li><li>Perfect Forward Secrecy: PFS limited to using Diffie-Hellman "
+"groups 2, 5(default) and 14.</li><li>Transform Protocol: The type of "
+"protocol (esp, ah, ah-esp) used in IPSec Policy.</li>\n"
+"All fields are optional."
+msgstr ""
+"为当前项目创建IPSec策略。\n"
+"\n"
+"一个IPSec策略是以下属性的联合：\n"
+"\n"
+"<li>认证算法：认证算法只能使用SHA1。</li><li>封装模式：IPsec隧道(隧道/传输)类"
+"型。 </li><li>加密算法：在IPsec策略中使用的算法 (3des, aes-128, aes-192, "
+"aes-256) 类型。</li><li>生命时间：生命时间由单位和值组成。单位是'seconds' ，"
+"缺省值是 3600。</li><li>精确转发秘密：PFS限制使用 Diffie-Hellman 组 2, 5(缺"
+"省)和 14。</li><li>传输协议：在IPSec策略中使用的协议 (esp, ah, ah-esp)类型。"
+"</li>\n"
+"所有字段是可选的。"
+
+msgid ""
 "Create IPSec Site Connection for current project.\n"
 "\n"
 "Assign a name and description for the IPSec Site Connection. All fields in "
@@ -1698,6 +1803,9 @@ msgstr "正在创建"
 
 msgid "Create Key Pair"
 msgstr "创建密钥对"
+
+msgid "Create Mapping"
+msgstr "创建映射"
 
 msgid "Create Network"
 msgstr "创建网络"
@@ -1756,6 +1864,24 @@ msgstr "创建传送"
 msgid "Create User"
 msgstr "创建用户"
 
+msgid ""
+"Create VPN Service for current project.\n"
+"\n"
+"The VPN service is attached to a router and references to a single subnet to "
+"push to a remote site.\n"
+"Specify a name, description, router, and subnet for the VPN Service. Admin "
+"State is UP (True) by default.\n"
+"\n"
+"The router, subnet and admin state fields are required, all others are "
+"optional."
+msgstr ""
+"为当前项目创建VPN服务。\n"
+"\n"
+"VPN服务绑定到路由器，把一个单独的子网推向远端站点。\n"
+"为VPN服务指定名称，描述，路由器和子网。缺省，管理员状态是启用(真)。\n"
+"\n"
+"路由器，子网和管理员字段是必须的，其它是可选的。"
+
 msgid "Create Volume"
 msgstr "创建云硬盘"
 
@@ -1811,6 +1937,47 @@ msgid "Create a Volume Type"
 msgstr "创建云硬盘类型"
 
 msgid ""
+"Create a firewall based on a policy.\n"
+"\n"
+"A firewall represents a logical firewall resource that a tenant can "
+"instantiate and manage. A firewall must be associated with one policy, all "
+"other fields are optional."
+msgstr ""
+"基于策略创建防火墙。\n"
+"\n"
+"防火墙代表逻辑防火墙资源，租户可以初始化和管理。防火墙必须与一个规则绑定，其"
+"它字段是可选的。"
+
+msgid ""
+"Create a firewall policy with an ordered list of firewall rules.\n"
+"\n"
+"A firewall policy is an ordered collection of firewall rules. So if the "
+"traffic matches the first rule, the other rules are not executed. If the "
+"traffic does not match the current rule, then the next rule is executed. A "
+"firewall policy has the following attributes:\n"
+"\n"
+"<li>Shared: A firewall policy can be shared across tenants. Thus it can also "
+"be made part of an audit workflow wherein the firewall policy can be audited "
+"by the relevant entity that is authorized.</li><li>Audited: When audited is "
+"set to True, it indicates that the firewall policy has been audited. Each "
+"time the firewall policy or the associated firewall rules are changed, this "
+"attribute will be set to False and will have to be explicitly set to True "
+"through an update operation.</li>\n"
+"The name field is required, all others are optional."
+msgstr ""
+"以有序的防火墙规则列表创建防火墙策略。\n"
+"\n"
+"防火墙策略是防火墙规则的有序集合。所以，如果流量满足第一个规则，其它规则将不"
+"会执行。如果流量不匹配当前规则，那么下一个规则将会执行。防火墙策略有以下属"
+"性：\n"
+"\n"
+"<li>共享：防火墙规则可以跨租户共享。因此，它可以作为审计工作流的一部分，防火"
+"墙策略可以被授权的实体审计。</li><li>可审计：当审计设置为真true时，表明防火墙"
+"策略已经被审计。每次防火墙策略或相关的防火墙规则变化，这个属性将会设置为假"
+"false，并且属性必须通过更新操作显示设置为真True。</li>\n"
+"名称字段是必须的，其它是可选的。"
+
+msgid ""
 "Create a firewall rule.\n"
 "\n"
 "A Firewall rule is an association of the following attributes:\n"
@@ -1835,6 +2002,12 @@ msgstr ""
 msgid "Create a firewall with selected routers."
 msgstr "为所选择的路由创建一防火墙。"
 
+msgid "Create a identity provider protocol."
+msgstr "创建一个身份提供者协议。"
+
+msgid "Create a mapping."
+msgstr "创建映射"
+
 msgid ""
 "Create a monitor template.\n"
 "\n"
@@ -1856,6 +2029,11 @@ msgstr "为QoS规格\"%(qos_spec_name)s\"创建新\"spec\"（规格）的键-值
 
 msgid "Create a new network for any project as you need."
 msgstr "根据需要创建新网络"
+
+msgid ""
+"Create a new network. In addition, a subnet associated with the network can "
+"be created in the following steps of this wizard."
+msgstr "创建一个新的网络。额外地，网络中的子网可以在向导的下一步中创建。"
 
 msgid "Create a new role."
 msgstr "创建新角色。"
@@ -1888,6 +2066,10 @@ msgstr "在容器 %(container_name)s 里面创建虚拟文件夹"
 
 msgid "Created"
 msgstr "已创建"
+
+msgctxt "Created time"
+msgid "Created"
+msgstr "创建时间"
 
 msgctxt "Current status of a Firewall"
 msgid "Created"
@@ -1942,6 +2124,17 @@ msgstr "所创建的卷传送：\"%s\"。"
 
 msgid "Creates a router with specified parameters."
 msgstr "基于特殊参数创建一路由。"
+
+msgid ""
+"Creates a subnet associated with the network. You need to enter a valid "
+"\"Network Address\" and \"Gateway IP\". If you did not enter the \"Gateway IP"
+"\", the first value of a network will be assigned by default. If you do not "
+"want gateway please check the \"Disable Gateway\" checkbox. Advanced "
+"configuration is available by clicking on the \"Subnet Details\" tab."
+msgstr ""
+"创建网络中相关的子网。你必须输入有效的“网络地址”和“网关IP”。如果你不输入“网关"
+"IP”，网络的第一个值将被缺省分配。如果你不想用网关，请选中“禁用网关”复选框。通"
+"过点击“子网详情”选项也，可以使用高级配置。"
 
 msgid "Creating"
 msgstr "创建中"
@@ -2204,6 +2397,10 @@ msgctxt "current status of stack"
 msgid "Delete In Progress"
 msgstr "正在删除"
 
+msgid "Delete Instance"
+msgid_plural "Delete Instances"
+msgstr[0] "删除实例"
+
 msgid "Delete Interface"
 msgid_plural "Delete Interfaces"
 msgstr[0] "删除接口"
@@ -2211,6 +2408,10 @@ msgstr[0] "删除接口"
 msgid "Delete Key Pair"
 msgid_plural "Delete Key Pairs"
 msgstr[0] "删除密钥对"
+
+msgid "Delete Mapping"
+msgid_plural "Delete Mappings"
+msgstr[0] "删除映射"
 
 msgid "Delete Member"
 msgid_plural "Delete Members"
@@ -2384,6 +2585,10 @@ msgid "Deleted Key Pair"
 msgid_plural "Deleted Key Pairs"
 msgstr[0] "已删除的密钥对"
 
+msgid "Deleted Mapping"
+msgid_plural "Deleted Mappings"
+msgstr[0] "删除映射"
+
 msgid "Deleted Namespace"
 msgid_plural "Deleted Namespaces"
 msgstr[0] "删除命名空间"
@@ -2462,6 +2667,9 @@ msgstr[0] "已删除的云硬盘类型"
 
 msgid "Deleted images are not recoverable."
 msgstr "删除的镜像均无法恢复。"
+
+msgid "Deleted instances are not recoverable."
+msgstr "删除实例是不可恢复的。"
 
 msgid "Deleting"
 msgstr "删除中"
@@ -2781,6 +2989,12 @@ msgstr "下载EC2凭证"
 msgid "Download Key Pair"
 msgstr "下载密钥对"
 
+msgid "Download OpenStack RC File v2.0"
+msgstr "下载OpenStack RC文件v2.0"
+
+msgid "Download OpenStack RC File v3"
+msgstr "下载OpenStack RC 文件v3"
+
 #, python-format
 msgid "Download key pair &quot;%(keypair_name)s&quot;"
 msgstr "下载密钥对&quot;%(keypair_name)s&quot;"
@@ -2925,11 +3139,17 @@ msgstr ""
 "编辑云主机类型的详细信息。云主机类型定义RAM和磁盘的大小、核数，以及其他资源，"
 "在用户部署实例的时候使用。"
 
+msgid "Edit the identity provider's details."
+msgstr "编辑身份提供者详细信息。"
+
 msgid "Edit the image details."
 msgstr "编辑镜像详情"
 
 msgid "Edit the instance details."
 msgstr "编辑实例详细信息"
+
+msgid "Edit the mapping's details."
+msgstr "编辑映射详情。"
 
 msgid "Edit the project details."
 msgstr "编辑项目详情"
@@ -3174,6 +3394,13 @@ msgid "Events"
 msgstr "事件"
 
 msgid ""
+"Example: For <tt>mod_shib</tt> this would be <tt>Shib-Identity-Provider</"
+"tt>, for <tt>mod_auth_openidc</tt>, this could be <tt>HTTP_OIDC_ISS</tt>."
+msgstr ""
+"比如：<tt>mod_shib</tt>将会是<tt>Shib-Identity-Provider</tt>，对于"
+"<tt>mod_auth_openidc</tt>，将可能是<tt>HTTP_OIDC_ISS</tt>。"
+
+msgid ""
 "Example: The prefix 'hw:' is added to OS::Nova::Flavor for the Virtual CPU "
 "Topology namespace so that the properties will be prefixed with 'hw:' when "
 "applied to flavors."
@@ -3356,6 +3583,10 @@ msgid "Failed to evacuate instances: %s"
 msgstr "疏散云主机 %s 失败"
 
 #, python-format
+msgid "Failed to get mapping list %s"
+msgstr "获取映射列表 %s 失败"
+
+#, python-format
 msgid "Failed to get network list %s"
 msgstr "获取网络列表 %s失败"
 
@@ -3530,6 +3761,9 @@ msgstr "风扇转速"
 
 msgid "Fault"
 msgstr "故障"
+
+msgid "Federation"
+msgstr "联邦"
 
 msgid ""
 "Fields in this tab are optional. You can configure the detail of IPSec site "
@@ -3804,9 +4038,21 @@ msgid "Hard Reboot Instance"
 msgid_plural "Hard Reboot Instances"
 msgstr[0] "硬重启实例"
 
+msgctxt "Task status of an Instance"
+msgid "Hard Reboot Pending"
+msgstr "硬重启进行中"
+
+msgctxt "Task status of an Instance"
+msgid "Hard Reboot Started"
+msgstr "硬重启开始"
+
 msgid "Hard Rebooted Instance"
 msgid_plural "Hard Rebooted Instances"
 msgstr[0] "已硬重启的实例"
+
+msgctxt "Task status of an Instance"
+msgid "Hard Rebooting"
+msgstr "硬重启"
 
 msgid "Hash"
 msgstr "散列值"
@@ -4029,6 +4275,18 @@ msgstr "身份管理"
 msgid "Identity Provider ID"
 msgstr "身份提供者（identity provider）ID"
 
+msgid "Identity Providers"
+msgstr "身份提供者"
+
+msgid "Identity provider protocol created successfully."
+msgstr "身份提供者协议创建成功。"
+
+msgid "Identity provider registered successfully."
+msgstr "身份提供者注册成功。"
+
+msgid "Identity provider updated successfully."
+msgstr "身份提供者更新成功。"
+
 msgid "Identity service does not allow editing user data."
 msgstr "认证服务不允许编辑用户数据。"
 
@@ -4052,6 +4310,16 @@ msgid ""
 msgstr ""
 "如果不提供容器名字，默认会使用 volumebackups 来作为名字。备份会跟它们原来的卷"
 "大小一样。"
+
+msgid ""
+"If you select an image via an HTTP/HTTPS URL, the Image Location field MUST "
+"be a valid and direct URL to the image binary; it must also be accessible to "
+"the Image Service. URLs that redirect or serve error pages will result in "
+"unusable images."
+msgstr ""
+"如果你通过HTTP/HTTPS URL选择一个镜像，镜像位置字段必须是一个有效和到镜像文件"
+"的直接URL；它必须可以被镜像服务访问。URL重定向或者服务端错误页面将会导致不可"
+"用的镜像。"
 
 msgid "Image"
 msgstr "镜像"
@@ -4118,6 +4386,11 @@ msgstr "镜像更新成功。"
 msgid "Images"
 msgstr "镜像"
 
+msgid ""
+"Images can be provided via an HTTP/HTTPS URL or be uploaded from your local "
+"file system."
+msgstr "镜像可以通过HTTP/HTTPS URL提供或者从本地文件系统上传。"
+
 msgid "Implementation"
 msgstr "实现"
 
@@ -4153,6 +4426,11 @@ msgstr "非激活"
 msgctxt "Current status of a VPN Service"
 msgid "Inactive"
 msgstr "非激活"
+
+msgid ""
+"Indicates whether this identity provider should accept federated "
+"authentication requests."
+msgstr "表明这个身份提供者是否应该接收联邦认证请求。"
 
 msgid "Info"
 msgstr "信息"
@@ -4255,6 +4533,12 @@ msgstr "查看域信息权限不足。"
 
 msgid "Insufficient privilege level to view group information."
 msgstr "查看组信息权限不足。"
+
+msgid "Insufficient privilege level to view identity provider information."
+msgstr "查看身份提供信息权限不足。"
+
+msgid "Insufficient privilege level to view mapping information."
+msgstr "查看映射信息的权限不足。"
 
 msgid "Insufficient privilege level to view project information."
 msgstr "查看项目信息权限不足。"
@@ -4573,6 +4857,9 @@ msgstr "管理集合内的主机"
 msgid "Manage Members"
 msgstr "管理成员"
 
+msgid "Manage Protocols"
+msgstr "管理协议"
+
 msgid "Manage QoS Spec Association"
 msgstr "管理QoS规格关联"
 
@@ -4605,6 +4892,22 @@ msgstr "手动"
 msgid "Mapped Fixed IP Address"
 msgstr "已映射固定IP地址"
 
+msgid "Mapping ID"
+msgstr "映射ID"
+
+#, python-format
+msgid "Mapping ID \"%s\" is already used."
+msgstr "映射ID \"%s\" 已经存在。"
+
+msgid "Mapping created successfully."
+msgstr "映射创建成功。"
+
+msgid "Mapping updated successfully."
+msgstr "映射更新成功。"
+
+msgid "Mappings"
+msgstr "映射"
+
 msgctxt "Google's Material Design style theme"
 msgid "Material"
 msgstr "Material"
@@ -4633,11 +4936,17 @@ msgstr "VIP的最大允许链接数，如果没有限制则为\"-1\"。"
 msgid "Member %s was successfully updated."
 msgstr "成员 %s 更新成功。"
 
+msgid "Member Address"
+msgstr "成员地址"
+
 msgid "Member Details"
 msgstr "成员详情"
 
 msgid "Member IP address must be specified"
 msgstr "成员IP地址必须被指定"
+
+msgid "Member Instance(s)"
+msgstr "成员实例"
 
 msgid "Member Source"
 msgstr "成员来源"
@@ -4809,6 +5118,13 @@ msgstr "必须指定起始时间段"
 
 msgid "N/A"
 msgstr "无"
+
+msgctxt "current status of port"
+msgid "N/A"
+msgstr "N/A"
+
+msgid "NGContainers"
+msgstr "NG容器"
 
 msgid "Name"
 msgstr "名称"
@@ -5068,6 +5384,9 @@ msgstr "无可用云主机"
 msgid "No key pairs available"
 msgstr "没有有效的密钥对"
 
+msgid "No mappings available"
+msgstr "没有映射可用"
+
 msgid "No networks available"
 msgstr "没有可用的网络"
 
@@ -5148,6 +5467,9 @@ msgstr "未连接云硬盘。"
 msgid "No volumes available"
 msgstr "没有可用云硬盘。"
 
+msgid "Non admin users are not allowed to set shared option."
+msgstr "非管理用户不允许设置共享选项。"
+
 msgid "Non-Members"
 msgstr "非成员"
 
@@ -5219,6 +5541,12 @@ msgstr "流入虚拟机网络接口的包数目"
 
 msgid "Number of instances to launch."
 msgstr "启动云主机的个数"
+
+#, python-format
+msgid ""
+"Number of items to show per page (applies to the pages that have API "
+"supported pagination, Max Value: %s)"
+msgstr "每页显示的条目数（应用到支持API分页的页面，最大值 : %s）"
 
 msgid "Number of log lines to be shown per instance"
 msgstr "每个实例所显示的日志行数"
@@ -5474,9 +5802,8 @@ msgctxt "Current status of a VPN Service"
 msgid "Pending Update"
 msgstr "等待更新成功"
 
-#, fuzzy
 msgid "Per Volume Size (GiB)"
-msgstr "每个云硬盘的大小 (GiB)"
+msgstr "每个硬盘的大小 (GiB)"
 
 msgid "Perfect Forward Secrecy"
 msgstr "完美前传保密"
@@ -5578,6 +5905,11 @@ msgstr "待连接的端口"
 
 msgid "Ports"
 msgstr "端口"
+
+msgid ""
+"Ports are optional and can be used with networks to add extra IP addresses "
+"to your instances or select specific types of ports."
+msgstr "端口是可选的，可用被网络使用添加外部IP地址到实例或者选择指定端口类型。"
 
 msgid "Position in Policy"
 msgstr "在策略中的位置"
@@ -5712,11 +6044,18 @@ msgstr "协议"
 msgid "Protocol ID"
 msgstr "协议编号"
 
+#, python-format
+msgid "Protocol ID \"%s\" is already used."
+msgstr "协议ID  \"%s\" 已经在使用。"
+
 msgid "Protocol Port"
 msgstr "协议端口"
 
 msgid "Protocol for the firewall rule"
 msgstr "防火墙规则的协议"
+
+msgid "Protocols"
+msgstr "协议"
 
 msgid "Provider"
 msgstr "提供者"
@@ -5822,6 +6161,9 @@ msgstr "拒绝"
 msgid "RX/TX Factor"
 msgstr "接收/发送 倍数"
 
+msgid "RX/TX factor"
+msgstr "RX/TX因素"
+
 msgid "Ramdisk"
 msgstr "内存盘"
 
@@ -5895,6 +6237,14 @@ msgstr "重建云主机  %s。"
 msgid "Regions:"
 msgstr "Regions:"
 
+msgid "Register Identity Provider"
+msgstr "注册身份提供者"
+
+msgid ""
+"Register a identity provider that is trusted by the Identity API to "
+"authenticate identities."
+msgstr "注册一个身份提供者，它认证API鉴权实体信任。"
+
 msgid "Relative part of requests this pool member serves compared to others"
 msgstr "这个资源池成员服务的申请的相关部分与其他的相比"
 
@@ -5919,6 +6269,18 @@ msgstr "重新加载"
 
 msgid "Remote"
 msgstr "远程"
+
+msgid "Remote IDs"
+msgstr "远程ID"
+
+msgid ""
+"Remote IDs are associated with the identity provider and are globally "
+"unique. This indicates the header attributes to use for mapping federation "
+"protocol attributes to Identity API objects. If no value is provided, the "
+"list will be set to empty."
+msgstr ""
+"远端ID与身份提供者绑定，并且全局唯一。这表明头属性用例映射联邦协议属性到认证"
+"API对象。如果没有提供值，列表将会被设置为空。"
 
 msgid "Remote IP Prefix"
 msgstr "远端IP前缀"
@@ -5962,6 +6324,16 @@ msgid "Removed User"
 msgid_plural "Removed Users"
 msgstr[0] "已删除的用户"
 
+msgid ""
+"Removing a key pair can leave OpenStack resources orphaned. You should not "
+"remove a key pair unless you are certain it is not being used anywhere."
+msgstr ""
+"移除密钥对将会使OpenStack资源孤立不可用。你不应该移除密钥对，除非你确定它不再"
+"在任何地方使用。"
+
+msgid "Report Bug"
+msgstr "报告问题"
+
 msgid "Request ID"
 msgstr "请求ID"
 
@@ -5979,6 +6351,10 @@ msgstr "需要使用APP_COOKIE持久化;忽略其他"
 msgctxt "Current status of an Instance"
 msgid "Rescue"
 msgstr "恢复"
+
+msgctxt "Current status of an Instance"
+msgid "Rescued"
+msgstr "营救"
 
 msgctxt "Task status of an Instance"
 msgid "Rescuing"
@@ -6180,6 +6556,22 @@ msgid "Router"
 msgstr "路由"
 
 #, python-format
+msgid ""
+"Router %(name)s was created but connecting to an external network failed. "
+"Attempts to delete the new router also failed. Router %(name)s still exists "
+"but is not connect to the desired external network."
+msgstr ""
+"路由 器%(name)s 被创建，但是连接到外部网络失败。尝试删除新路由同样失败。路由"
+"器%(name)s 仍然存在，但是它不能连接到期望的外部网络。"
+
+#, python-format
+msgid ""
+"Router %s was created but connecting to an external network failed. The "
+"created router has been deleted, as the overall operation failed."
+msgstr ""
+"路由%s 被创建，但是连接到外部网络失败。当所有操作失败时，创建的路由器被删除。"
+
+#, python-format
 msgid "Router %s was successfully created."
 msgstr "路由器 %s 创建成功。"
 
@@ -6310,6 +6702,10 @@ msgid "Scheduled deletion of IPSec Site Connection"
 msgid_plural "Scheduled deletion of IPSec Site Connections"
 msgstr[0] "已安排IPSec站点连接的删除"
 
+msgid "Scheduled deletion of Instance"
+msgid_plural "Scheduled deletion of Instances"
+msgstr[0] "删除实例"
+
 msgid "Scheduled deletion of Member"
 msgid_plural "Scheduled deletion of Members"
 msgstr[0] "已安排成员的删除"
@@ -6337,6 +6733,10 @@ msgstr[0] "已安排VPN服务的删除"
 msgid "Scheduled deletion of Volume"
 msgid_plural "Scheduled deletion of Volumes"
 msgstr[0] "已安排云硬盘的删除"
+
+msgid "Scheduled deletion of Volume Backup"
+msgid_plural "Scheduled deletion of Volume Backups"
+msgstr[0] "已安排删除卷备份"
 
 msgid "Scheduled deletion of Volume Snapshot"
 msgid_plural "Scheduled deletion of Volume Snapshots"
@@ -6407,6 +6807,9 @@ msgstr "选择镜像"
 
 msgid "Select Instance Snapshot"
 msgstr "选择云主机快照"
+
+msgid "Select Mapping"
+msgstr "选择映射"
 
 msgid "Select Network"
 msgstr "选择网络"
@@ -6641,6 +7044,10 @@ msgstr "设置为当前项目"
 msgid "Set maximum quotas for the project."
 msgstr "为项目设置最大配额"
 
+msgid ""
+"Set of rules to map federation protocol attributes to Identity API objects."
+msgstr "设定规则来映射联邦协议属性到认证API对象。"
+
 msgid "Settings"
 msgstr "设置"
 
@@ -6715,6 +7122,9 @@ msgstr "退出"
 
 msgid "Size"
 msgstr "配置"
+
+msgid "Size (GiB)"
+msgstr "大小(GiB)"
 
 msgid "Size of ephemeral disk"
 msgstr "临时磁盘大小"
@@ -6860,6 +7270,14 @@ msgstr "指定该存储卷可以用于启动实例"
 
 msgid "Specify \"Network Address\""
 msgstr "指定“网络地址”"
+
+msgid ""
+"Specify \"Network Address\" or clear \"Create Subnet\" checkbox in previous "
+"step."
+msgstr "在前一步骤，指定“网络地址”或不选“创建子网”复选框。"
+
+msgid "Specify IP address of gateway or check \"Disable Gateway\" checkbox."
+msgstr "指定网关IP地址或选中“禁用网关”复选框。"
 
 msgid "Specify VIP"
 msgstr "指定VIP"
@@ -7312,11 +7730,10 @@ msgstr ""
 "<strong>Key Size</strong>是加密密钥的大小，单位为比特(例如, 128, 256). 如果该"
 "字段为空，将会使用缺省值。"
 
-#, fuzzy
 msgid ""
 "The <strong>Provider</strong> is the class providing encryption support (e."
 "g. LuksEncryptor)."
-msgstr "<strong>提供者</strong>是所支持的加密类(例如：Luks加密)。"
+msgstr "<strong>提供者</strong>是支持加密支持的类(例如LuksEncryptor)。"
 
 msgid ""
 "The <strong>Provider</strong> is the class providing encryption support (e."
@@ -7508,6 +7925,14 @@ msgid "The physical mechanism by which the virtual network is implemented."
 msgstr "物理机制的虚拟网络的实现。"
 
 msgid ""
+"The port also describes the associated network configuration, such as the "
+"MAC and IP addresses to be used on that port."
+msgstr "端口同样描述了相关联的网络配置，比如那个端口上可用的MAC和IP地址。"
+
+msgid "The pre-defined key string between the two peers of the VPN connection"
+msgstr "VPN连接的两个端点预定义关键字的字符串"
+
+msgid ""
 "The private key will be only used in your browser and will not be sent to "
 "the server"
 msgstr "私钥只在本地浏览器中使用，必会被传送到服务器"
@@ -7557,6 +7982,16 @@ msgstr "申请的云主机端口已经与其它浮动IP关联。"
 msgid "The specified port is invalid."
 msgstr "指定端口不可用。"
 
+msgid ""
+"The state of IPSec site connection to start in. If DOWN (False), IPSec site "
+"connection does not forward packets."
+msgstr "IPSec连接状态。如果关闭(假)，IPSec站点连接不转发包。"
+
+msgid ""
+"The state of VPN service to start in. If DOWN (False) VPN service does not "
+"forward packets."
+msgstr "VPN服务开始使用的状态。如果关闭(假)，VPN服务不转发包。"
+
 msgid "The state to start the network in."
 msgstr "状态是启动网络"
 
@@ -7585,6 +8020,9 @@ msgstr "云硬盘大小不得小于原始云硬盘大小 (%sGiB)"
 
 msgid "Theme Preview"
 msgstr "主题预览"
+
+msgid "Themes:"
+msgstr "主题"
 
 msgid "There are no meters defined yet."
 msgstr "没有定义任何计量。"
@@ -7634,6 +8072,9 @@ msgstr "为在栈的生命周期中执行操作，这是必须的。"
 
 msgid "This name is already taken."
 msgstr "这个名字已经被使用"
+
+msgid "This panel needs JavaScript support."
+msgstr "该页需要JavaScript支持。"
 
 msgid ""
 "This volume is currently attached to an instance. In some cases, creating a "
@@ -7722,6 +8163,9 @@ msgstr "磁盘总大小(GB)："
 
 msgid "Total Disk Usage (Hours):"
 msgstr "磁盘总用量(小时)："
+
+msgid "Total Gibibytes"
+msgstr "总Gb大小"
 
 msgid "Total Memory Usage (Hours):"
 msgstr "内存总用量(小时)："
@@ -7933,9 +8377,18 @@ msgstr "无法创建主机集合 \"%s\"."
 msgid "Unable to create host aggregate."
 msgstr "无法创建主机集合."
 
+msgid "Unable to create identity provider protocol."
+msgstr "不能创建提供者协议。"
+
 #, python-format
 msgid "Unable to create key pair: %(exc)s"
 msgstr "无法创建密钥对：%(exc)s"
+
+msgid "Unable to create mapping."
+msgstr "不能创建映射。"
+
+msgid "Unable to create mapping. Rules has malformed JSON data."
+msgstr "不能创建映射。规则包含不能使用的JSON数据。"
 
 #, python-format
 msgid "Unable to create network \"%s\"."
@@ -8237,6 +8690,11 @@ msgstr "无法重建云主机。"
 msgid "Unable to register identity provider."
 msgstr "无法注册身份提供者（identity provider）"
 
+msgid ""
+"Unable to register identity provider. Please check that the Identity "
+"Provider ID and Remote IDs provided are not already in use."
+msgstr "无法注册身份提供者。请检查身份提供ID与远端提供的ID是否还在使用。"
+
 #, python-format
 msgid "Unable to resize instance \"%s\"."
 msgstr "无法为云主机 \"%s\" 调整大小。"
@@ -8285,6 +8743,10 @@ msgstr "无法获取IPSec站点连接详情. %s"
 
 msgid "Unable to retrieve IPSec Site Connections list."
 msgstr "无法获取IPSec站点连接列表。"
+
+#, python-format
+msgid "Unable to retrieve Network information for instance \"%s\"."
+msgstr "不能从\"%s\"实例获取网络信息。"
 
 msgid "Unable to retrieve Nova availability zones."
 msgstr "无法获取Nova可用域。"
@@ -8463,6 +8925,12 @@ msgstr "无法获取虚拟机管理器上的云主机列表。"
 msgid "Unable to retrieve hypervisor statistics."
 msgstr "无法获取虚拟机管理器统计信息。"
 
+msgid "Unable to retrieve identity provider information."
+msgstr "不能获取身份提供者信息。"
+
+msgid "Unable to retrieve identity provider list."
+msgstr "不能获取身份提供者列表。"
+
 msgid "Unable to retrieve image details."
 msgstr "无法检索到镜像细节。"
 
@@ -8534,6 +9002,9 @@ msgstr "无法取回云硬盘快照列表。"
 
 msgid "Unable to retrieve list of volumes."
 msgstr "无法取回云硬盘列表。"
+
+msgid "Unable to retrieve mapping list."
+msgstr "不能获取映射列表。"
 
 msgid "Unable to retrieve member details."
 msgstr "无法获取成员详情"
@@ -8635,6 +9106,9 @@ msgstr "无法获取项目信息。"
 
 msgid "Unable to retrieve project list."
 msgstr "无法获取项目列表。"
+
+msgid "Unable to retrieve protocol list."
+msgstr "不能获取协议列表。"
 
 msgid "Unable to retrieve providers list."
 msgstr "无法获取提供者列表。"
@@ -8884,9 +9358,23 @@ msgstr "无法更新加密的卷类型"
 msgid "Unable to update group."
 msgstr "无法更新组。"
 
+msgid "Unable to update identity provider."
+msgstr "无法更新身份提供者。"
+
+msgid ""
+"Unable to update identity provider. Please check that the Remote IDs "
+"provided are not already in use."
+msgstr "不能更新身份提供者。请检查远程IDs提供者是否还在使用。"
+
 #, python-format
 msgid "Unable to update image \"%s\"."
 msgstr "更新镜像 \"%s\"失败。"
+
+msgid "Unable to update mapping."
+msgstr "不能更新映射。"
+
+msgid "Unable to update mapping. Rules has malformed JSON data."
+msgstr "不能更新映射。规则有不规则的JSON数据。"
 
 msgid "Unable to update object."
 msgstr "无法更新对象。"
@@ -8973,6 +9461,14 @@ msgctxt "Action log of an instance"
 msgid "Unpause"
 msgstr "取消挂起"
 
+msgid "Unregister Identity Provider"
+msgid_plural "Unregister Identity Providers"
+msgstr[0] "不能注册身份提供者"
+
+msgid "Unregistered Identity Provider"
+msgid_plural "Unregistered Identity Providers"
+msgstr[0] "不能注册身份提供者"
+
 msgctxt "Task status of an Instance"
 msgid "Unrescuing"
 msgstr "正在取消拯救"
@@ -9031,9 +9527,15 @@ msgstr "更新失败"
 msgid "Update Group"
 msgstr "更新组"
 
+msgid "Update Identity Provider"
+msgstr "更新身份提供者"
+
 msgctxt "current status of stack"
 msgid "Update In Progress"
 msgstr "正在更新"
+
+msgid "Update Mapping"
+msgstr "更新映射"
 
 msgid "Update Metadata"
 msgstr "更新元数据"
@@ -9071,6 +9573,9 @@ msgstr "更新卷快照状态"
 msgid "Update Volume Status"
 msgstr "更新云硬盘状态"
 
+msgid "Update Volume Type Encryption"
+msgstr "更新加密卷类型"
+
 msgid ""
 "Update a stack with the provided values. Please note that any encrypted "
 "parameters, such as passwords, will be reset to default if you do not change "
@@ -9083,6 +9588,9 @@ msgid ""
 "Update a subnet associated with the network. Advanced configuration are "
 "available at \"Subnet Details\" tab."
 msgstr "更新网络关联的子网。点击\"子网详情\"标签可以进行高级配置。"
+
+msgid "Update an Encrypted Volume Type"
+msgstr "更新一个加密卷类型"
 
 msgid "Update requests for this floating ip"
 msgstr "该浮动IP的更新请求"
@@ -9243,6 +9751,12 @@ msgstr "用户名\"%s\"已经被使用。"
 msgid "User password has been updated successfully."
 msgstr "用户密码已经更新成功。"
 
+msgid "User-defined unique id to identify the identity provider."
+msgstr "用户定义的唯一标识来识别身份提供者。"
+
+msgid "User-defined unique id to identify the mapping."
+msgstr "用户定义的唯一标识来识别映射。"
+
 msgid "Users"
 msgstr "用户"
 
@@ -9345,7 +9859,9 @@ msgstr "值："
 msgid ""
 "Version: %(version_info)s\n"
 "      "
-msgstr "版本: %(version_info)s"
+msgstr ""
+"版本: %(version_info)s\n"
+" "
 
 msgid "View Container"
 msgstr "查看容器"
@@ -9509,8 +10025,23 @@ msgid "Volume size in gigabytes (integer value)."
 msgstr "云硬盘大小 (GB, 整数)。"
 
 #, python-format
+msgid ""
+"Volume size must be equal to or greater than the image minimum disk size "
+"(%sGiB)"
+msgstr "卷大小必须等于或大于镜像最小磁盘大小(%sGiB)"
+
+#, python-format
 msgid "Volume size must be equal to or greater than the image size (%s)"
 msgstr "云硬盘大小必须等于或大于镜像大小(%s)"
+
+#, python-format
+msgid ""
+"Volume size must be equal to or greater than the origin volume size (%sGiB)"
+msgstr "卷大小必须等于或大于原始卷大小(%sGiB)"
+
+#, python-format
+msgid "Volume size must be equal to or greater than the snapshot size (%sGiB)"
+msgstr "卷大小必须等于或大于快照大小(%sGiB)"
 
 msgid "Volume size must be greater than 0"
 msgstr "卷大小必须大于0"
@@ -9530,6 +10061,9 @@ msgstr "云硬盘"
 
 msgid "Volumes Attached"
 msgstr "云硬盘已连接"
+
+msgid "Volumes are block devices that can be attached to instances."
+msgstr "卷是块设备，可用被绑定到实例。"
 
 #, python-format
 msgid "Volumes of Type %(type)s"
@@ -9826,3 +10360,6 @@ msgstr "v1"
 
 msgid "v2"
 msgstr "v2"
+
+msgid "yes,no,-"
+msgstr "是，否，-"

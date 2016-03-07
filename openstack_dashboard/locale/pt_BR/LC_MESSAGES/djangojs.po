@@ -15,11 +15,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2016-03-04 04:22+0000\n"
+"POT-Creation-Date: 2016-03-04 08:39+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2016-03-02 01:57+0000\n"
+"PO-Revision-Date: 2016-03-04 07:42+0000\n"
 "Last-Translator: Carlos Marques <marquesc@br.ibm.com>\n"
 "Language: pt-BR\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
@@ -27,8 +27,124 @@ msgstr ""
 "X-Generator: Zanata 3.7.3\n"
 "Language-Team: Portuguese (Brazil)\n"
 
+msgid "#"
+msgstr "#"
+
+#, python-format
+msgid "%s instance launched."
+msgid_plural "%s instances launched."
+msgstr[0] "%s de instância ativada."
+msgstr[1] "%s de instâncias ativadas."
+
 msgid "(None)"
 msgstr "(Nenhum)"
+
+msgid "1"
+msgstr "1"
+
+msgid "2"
+msgstr "2"
+
+msgid "3"
+msgstr "3"
+
+msgid "4"
+msgstr "4"
+
+msgid "5"
+msgstr "5"
+
+msgid "6"
+msgstr "6"
+
+msgid "7"
+msgstr "7"
+
+msgid "8"
+msgstr "8"
+
+msgid ""
+"<button></button>\n"
+"          <strong>Heads up!</strong>\n"
+"           This\n"
+"          <a>alert needs your attention</a>,\n"
+"           but it's not super important."
+msgstr ""
+"<button></button>\n"
+"          <strong>Atenção!</strong>\n"
+"           Esse\n"
+"          <a>alerta precisa de sua atenção</a>,\n"
+"           mas não é tão importante."
+
+msgid ""
+"<button></button>\n"
+"          <strong>Oh snap!</strong>\n"
+"          <a>Change a few things up</a>\n"
+"          and try submitting again."
+msgstr ""
+"<button></button>\n"
+"          <strong>Atenção!</strong>\n"
+"          <a>Faça algumas mudanças</a>\n"
+"          e tente enviar novamente."
+
+msgid ""
+"<button></button>\n"
+"          <strong>Well done!</strong>\n"
+"          You successfully read\n"
+"          <a>this important alert message</a>."
+msgstr ""
+"<button></button>\n"
+"          <strong>Parabéns!</strong>\n"
+"          Você leu com sucesso\n"
+"          <a>essa mensagem de alerta importante</a>."
+
+msgid ""
+"<div>\n"
+"                  \n"
+"                    <input> Checkbox\n"
+"                  </input>\n"
+"                </div>\n"
+"                <div>\n"
+"                  <input>\n"
+"                  Checkbox</input>\n"
+"                </div>"
+msgstr ""
+"<div>\n"
+"                  \n"
+"                    <input> Caixa de seleção\n"
+"                  </input>\n"
+"                </div>\n"
+"                <div>\n"
+"                  <input>\n"
+"                  Caixa de seleção</input>\n"
+"                </div>"
+
+msgid ""
+"<input>\n"
+"                    Option one is this\n"
+"                  </input>"
+msgstr ""
+"<input>\n"
+"                    A opção um é esse\n"
+"                  </input>"
+
+msgid ""
+"<input>\n"
+"                    Option two can be something else\n"
+"                  </input>"
+msgstr ""
+"<input>\n"
+"                    A opção dois pode ser algo mais\n"
+"                  </input>"
+
+msgid ""
+"<input>\n"
+"        Configuration Drive\n"
+"      </input>"
+msgstr ""
+"<input>\n"
+"        Drive de Configuração\n"
+"      </input>"
 
 msgid "<li><b>Image</b>: This option uses an image to boot the instance.</li>"
 msgstr ""
@@ -41,6 +157,9 @@ msgid ""
 msgstr ""
 "<li><b>Instantâneo de Instância</b>: Esta opção utiliza um instantâneo de "
 "instância para inicializar a instância.</li>"
+
+msgid "<small>This line of text is meant to be treated as fine print.</small>"
+msgstr "<small>Essa linha do texto deve ser tratada como um detalhe.</small>"
 
 msgid ""
 "A floating IP allows instances to be addressable from an external network.\n"
@@ -60,6 +179,13 @@ msgstr ""
 "     e clique no botão <b>Ações</b>, no menu à direita de uma instância.\n"
 "     Em seguida, selecione o <b>Associar IP Flutuante</b> e entre com os "
 "detalhes necessários."
+
+msgid ""
+"A longer block of help text that breaks onto a new line and may extend "
+"beyond one line."
+msgstr ""
+"Um bloco de texto de ajuda maior que quebra em uma nova linha e pode se "
+"estender além de uma linha."
 
 msgid "A name is required for your instance."
 msgstr "É preciso um nome para sua instância."
@@ -91,6 +217,9 @@ msgstr ""
 "Os administradores configuraram o pool de IPs flutuantes que estão "
 "disponíveis para anexar às instâncias."
 
+msgid "Alerts"
+msgstr "Alertas"
+
 msgid ""
 "An <b>External</b> network is set up by an administrator.\n"
 "    If you want an instance to communicate outside of the data center,\n"
@@ -105,6 +234,9 @@ msgstr ""
 "<b>Externa</b>.\n"
 "     Você pode usar a opção <b>Topologia de rede</b> para ligar o roteador "
 "para as duas redes."
+
+msgid "An abbreviation of the word attribute is <abbr>attr</abbr>."
+msgstr "Uma abreviação do atributo de palavra é <abbr>attr</abbr>."
 
 msgid ""
 "An advanced option available when launching an instance is disk "
@@ -125,6 +257,9 @@ msgstr ""
 "Um nome de instância é necessário e usado para ajudar a identificar o seu "
 "exemplo, no painel de instrumentos."
 
+msgid "Animated"
+msgstr "Animado"
+
 msgid "Another action"
 msgstr "Outra ação"
 
@@ -134,8 +269,35 @@ msgstr "Automático"
 msgid "Availability Zone"
 msgstr "Zona de Disponibilidade"
 
+msgid "Badges"
+msgstr "Crachás"
+
+msgid "Basic"
+msgstr "Básico"
+
+msgid "Basic panel"
+msgstr "Painel básico"
+
+msgid "Block level button"
+msgstr "Botão Nível de bloco"
+
+msgid "Blockquotes"
+msgstr "Citações"
+
+msgid "Bordered Table"
+msgstr "Tabela com Bordas"
+
+msgid "Bottom"
+msgstr "Inferior"
+
 msgid "Brand"
 msgstr "Brand"
+
+msgid "Breadcrumbs"
+msgstr "Trilhas de navegação"
+
+msgid "Button"
+msgstr "Botão"
 
 msgid "Buttons"
 msgstr "Botões"
@@ -161,8 +323,33 @@ msgstr ""
 msgid "Click to see more details"
 msgstr "Clique para ver mais detalhes."
 
+msgid "Close"
+msgstr "Fechar"
+
+msgid "Color"
+msgstr "Cor"
+
+msgid "Column content"
+msgstr "Conteúdo da coluna"
+
+msgid "Column heading"
+msgstr "Título da coluna"
+
 msgid "Configuration"
 msgstr "Configuração"
+
+msgid "Containers"
+msgstr "Contêineres"
+
+msgid "Contextual alternatives"
+msgstr "Alternativas contextuais"
+
+msgid ""
+"Count\n"
+"          <span></span>"
+msgstr ""
+"Contagem\n"
+"          <span></span>"
 
 msgid "Create Key Pair"
 msgstr "Criar par de chaves"
@@ -188,8 +375,23 @@ msgstr ""
 msgid "Danger"
 msgstr "Perigo"
 
+msgid "Data"
+msgstr "Dados"
+
+msgid "Date"
+msgstr "Data"
+
+msgid "Datetime"
+msgstr "Data e hora"
+
 msgid "Default"
 msgstr "Padrão"
+
+msgid "Default button"
+msgstr "Botão Padrão"
+
+msgid "Default input"
+msgstr "Entrada padrão"
 
 msgid "Deleted"
 msgstr "Excluído"
@@ -197,11 +399,23 @@ msgstr "Excluído"
 msgid "Description"
 msgstr "Descrição"
 
+msgid "Details"
+msgstr "Detalhes"
+
 msgid "Device Name"
 msgstr "Nome do Dispositivo"
 
+msgid "Dialogs"
+msgstr "Diálogos"
+
 msgid "Direction"
 msgstr "Direção"
+
+msgid "Disabled"
+msgstr "Desativado"
+
+msgid "Disabled input"
+msgstr "Entrada desativada"
 
 msgid "Disk Partition"
 msgstr "Partição de Disco"
@@ -212,14 +426,30 @@ msgstr "ID do Domínio"
 msgid "Down"
 msgstr "Inativo"
 
+msgid ""
+"Dropdown\n"
+"                <span></span>"
+msgstr ""
+"Suspenso\n"
+"                <span></span>"
+
 msgid "Dropdown <b></b>"
 msgstr "Dropdown <b></b>"
+
+msgid "Dropdown <span></span>"
+msgstr "Suspenso <span></span>"
 
 msgid "Dropdown header"
 msgstr "Cabeçalho dropdown"
 
+msgid "Dropdown link"
+msgstr "Link suspenso"
+
 msgid "Email"
 msgstr "Email"
+
+msgid "Emphasis classes"
+msgstr "Classes de ênfase"
 
 msgid "Enabled"
 msgstr "Habilitado"
@@ -229,6 +459,9 @@ msgstr "Disco Temporário"
 
 msgid "Ether Type"
 msgstr "Tipo Ether"
+
+msgid "Example body text"
+msgstr "Texto do corpo de exemplo"
 
 #, python-format
 msgid "Extension is not enabled: %(extension)s."
@@ -253,8 +486,14 @@ msgstr ""
 "Flavors gerenciam o dimensionamento para processamento, memória e capacidade "
 "de armazenamento da instância."
 
+msgid "Focused input"
+msgstr "Entrada focada"
+
 msgid "Format"
 msgstr "Formato"
+
+msgid "Forms"
+msgstr "Formas"
 
 msgid ""
 "From a Windows system, you can use PuTTYGen to create private/public keys.\n"
@@ -269,6 +508,30 @@ msgstr ""
 "copie a chave pública na caixa vermelha destacada para seu \n"
 "arquivo \n"
 "<samp>.ssh/authorized_keys</samp>."
+
+msgid "Heading 1"
+msgstr "Título 1"
+
+msgid "Heading 2"
+msgstr "Título 2"
+
+msgid "Heading 3"
+msgstr "Título 3"
+
+msgid "Heading 4"
+msgstr "Título 4"
+
+msgid "Heading 5"
+msgstr "Título 5"
+
+msgid "Heading 6"
+msgstr "Título 6"
+
+msgid "Home"
+msgstr "Início"
+
+msgid "Home <span>42</span>"
+msgstr "Início <span>42</span>"
 
 msgid "ID"
 msgstr "ID"
@@ -288,6 +551,17 @@ msgstr ""
 "iniciado, então você terá um acesso muito limitado à instância após a "
 "implantação. Você só será capaz de acessar a instância a partir de um "
 "console de VNC."
+
+msgid ""
+"If you select an availability zone and plan to use the 'boot from volume' "
+"option in the Source step, make sure that the availability zone you select "
+"for the instance is the same availability zone where your bootable volume "
+"resides."
+msgstr ""
+"Se você usar uma zona de disponibilidade e planeja usar a opção 'inicializr "
+"a partir do volume' na etapa Origem, assegure-se de que a zona de "
+"disponibilidade selecionada para a instância seja a mesma zona de "
+"disponibilidade na qual seu volume reinicializável reside. "
 
 msgid ""
 "If you want to create an instance that uses ephemeral storage, meaning the "
@@ -319,8 +593,36 @@ msgstr "Impacto na sua cota"
 msgid "Import Key Pair"
 msgstr "Importar par de chaves"
 
+msgid "Indicators"
+msgstr "Indicadores"
+
 msgid "Info"
 msgstr "Info"
+
+msgid "Input Sizes"
+msgstr "Tamanhos de entrada"
+
+msgid "Input States"
+msgstr "Estados de Entrada"
+
+msgid "Input addons"
+msgstr "Complementos de entrada"
+
+msgid "Input error"
+msgstr "Erro de entrada"
+
+msgid "Input success"
+msgstr "Sucesso de entrada"
+
+msgid "Input warning"
+msgstr "Aviso de entrada"
+
+msgid ""
+"Instance Name\n"
+"          <span></span>"
+msgstr ""
+"Nome da Instância\n"
+"          <span></span>"
 
 msgid "Instance Snapshot"
 msgstr "Snapshot da Instância"
@@ -332,17 +634,56 @@ msgid "Insufficient privilege level to view user information."
 msgstr ""
 "Nível de privilégios insuficientes para visualizar informações de usuário."
 
+msgid "Jumbotron"
+msgstr "Jumbotron"
+
 msgid "Key Pair"
 msgstr "Par de chaves"
+
+msgid "Keypair already exists or name contains bad characters."
+msgstr "O par de chaves já existe ou o nome contém caracteres inválidos"
 
 msgid "Killed"
 msgstr "Morto"
 
+msgid "Large button"
+msgstr "Botão Grande"
+
+msgid "Large input"
+msgstr "Entrada grande"
+
 msgid "Launch Instance"
 msgstr "Disparar Instância"
 
+msgid "Learn more"
+msgstr "Saiba mais"
+
+msgid "Left"
+msgstr "Esquerda"
+
+msgid "Legend"
+msgstr "Legenda"
+
+msgid "Library"
+msgstr "Biblioteca"
+
 msgid "Link"
 msgstr "Link"
+
+msgid "List group item heading"
+msgstr "Título do item de grupo de lista"
+
+msgid "List groups"
+msgstr "Grupos de lista"
+
+msgid "Look, I'm in a large well!"
+msgstr "Olha, eu estou em um poço!"
+
+msgid "Look, I'm in a small well!"
+msgstr "Olha, eu estou em um poço pequeno!"
+
+msgid "Look, I'm in a well!"
+msgstr "Olha, eu estou em um poço!"
 
 msgid "Manual"
 msgstr "Manual"
@@ -350,8 +691,14 @@ msgstr "Manual"
 msgid "Max Port"
 msgstr "Máx. Porta"
 
+msgid "Messages <span>3</span>"
+msgstr "Mensagens <span>3</span>"
+
 msgid "Metadata"
 msgstr "Metadado"
+
+msgid "Middle"
+msgstr "Centro"
 
 msgid "Min Disk"
 msgstr "Mín. Disco"
@@ -368,11 +715,26 @@ msgstr "Mín. RAM"
 msgid "Min RAM (MB)"
 msgstr "Mín. RAM (MB)"
 
+msgid "Mini button"
+msgstr "Botão Mini"
+
+msgid "Modal title"
+msgstr "Título modal"
+
+msgid "Modals"
+msgstr "Modais"
+
+msgid "Month"
+msgstr "Mês"
+
 msgid "Name"
 msgstr "Nome"
 
 msgid "Navbar"
 msgstr "Barra de navegação"
+
+msgid "Navs"
+msgstr "Navs"
 
 msgid "Network"
 msgstr "Rede"
@@ -386,6 +748,12 @@ msgstr "Redes"
 msgid "Networks provide the communication channels for instances in the cloud."
 msgstr "As redes fornecem os canais de comunicação para instâncias na nuvem."
 
+msgid "Newer"
+msgstr "Mais novo"
+
+msgid "Next"
+msgstr "Avançar"
+
 msgid "No"
 msgstr "Não"
 
@@ -395,14 +763,81 @@ msgstr "Itens indisponíveis"
 msgid "Number"
 msgstr "Número"
 
+msgid "Older"
+msgstr "Mais antigo"
+
+msgid "One fine body…"
+msgstr "Um corpo legal"
+
+msgid "One more separated link"
+msgstr "Mais um link separado"
+
+msgid "Other Input Types"
+msgstr "Outros Tipos de Entrada"
+
+msgid "Pager"
+msgstr "Pager"
+
+msgid "Pagination"
+msgstr "Paginação"
+
+msgid "Panel content"
+msgstr "Conteúdo do painel"
+
+msgid "Panel danger"
+msgstr "Painel de perigo"
+
+msgid "Panel footer"
+msgstr "Rodapé do painel"
+
+msgid "Panel heading"
+msgstr "Título do painel"
+
+msgid "Panel info"
+msgstr "Painel de informações"
+
+msgid "Panel primary"
+msgstr "Painel principal"
+
+msgid "Panel success"
+msgstr "Painel de sucesso"
+
+msgid "Panel warning"
+msgstr "Painel de aviso"
+
+msgid "Panels"
+msgstr "Painéis"
+
+msgid "Password"
+msgstr "Senha"
+
 msgid "Pending Delete"
 msgstr "Aguardando a Exclusão"
 
 msgid "Physical Network"
 msgstr "Rede Física"
 
+msgid "Pills"
+msgstr "Pílulas"
+
+msgid ""
+"Please provide the initial hostname for the instance, the availability zone "
+"where it will be deployed, and the instance count.\n"
+"    Increase the Count to create multiple instances with the same settings."
+msgstr ""
+"Forneça o nome do host inicial para a instância, a zona de disponibilidade "
+"na qual ela será implementada e a contagem de instâncias.\n"
+" Aumente a Contagem para criar diversas instâncias com as mesmas "
+"configurações"
+
 msgid "Policy check failed."
 msgstr "Verificação de política falhou."
+
+msgid "Popovers"
+msgstr "Pop-overs"
+
+msgid "Previous"
+msgstr "Anterior"
 
 msgid "Primary"
 msgstr "Primário"
@@ -412,6 +847,12 @@ msgstr "Privado"
 
 msgid "Profile"
 msgstr "Perfil"
+
+msgid "Profile <span></span>"
+msgstr "Perfil <span></span>"
+
+msgid "Progress bars"
+msgstr "Barras de progresso"
 
 msgid "Project"
 msgstr "Projeto"
@@ -454,11 +895,17 @@ msgstr "Na fila"
 msgid "RAM"
 msgstr "RAM"
 
+msgid "Radios"
+msgstr "Opções"
+
 msgid "Re-order items using drag and drop"
 msgstr "reordene os itens clicando em um deles e arrastando-o"
 
 msgid "Remote"
 msgstr "Remoto"
+
+msgid "Right"
+msgstr "Direita"
 
 msgid "Root Disk"
 msgstr "Disco raiz"
@@ -466,8 +913,14 @@ msgstr "Disco raiz"
 msgid "Save"
 msgstr "Salvar"
 
+msgid "Save changes"
+msgstr "Salvar mudanças"
+
 msgid "Saving"
 msgstr "Salvando"
+
+msgid "Search"
+msgstr "Procurar"
 
 msgid "Security Groups"
 msgstr "Grupos de Segurança"
@@ -524,6 +977,12 @@ msgid "Select one or more security groups from the available groups below."
 msgstr ""
 "Selecione um ou mais grupos de segurança dos grupos disponíveis abaixo."
 
+msgid "Selects"
+msgstr "Seleciona"
+
+msgid "Separated link"
+msgstr "Link Separado"
+
 #, python-format
 msgid "Service type is not enabled: %(desiredType)s"
 msgstr "Tipo de serviço não está habilitado: %(desiredType)s"
@@ -541,11 +1000,41 @@ msgstr "Tamanho"
 msgid "Size (GB)"
 msgstr "Tamanho (GB)"
 
+msgid "Small button"
+msgstr "Botão Pequeno"
+
+msgid "Small input"
+msgstr "Entrada pequena"
+
 msgid "Snapshot"
 msgstr "Snapshot"
 
+msgid "Someone famous in <cite>Source Title</cite>"
+msgstr "Alguém famoso em <cite>Título de Origem</cite>"
+
+msgid "Something else here"
+msgstr "Digite algo aqui"
+
+msgid "Source"
+msgstr "Origem"
+
+msgid "Source Code"
+msgstr "Código-fonte"
+
+msgid "Stacked"
+msgstr "Empilhado"
+
+msgid "Standard Table"
+msgstr "Tabela Padrão"
+
 msgid "Status"
 msgstr "Status"
+
+msgid "Striped"
+msgstr "Dividido"
+
+msgid "Submit"
+msgstr "Enviar"
 
 msgid "Subnets Associated"
 msgstr "Sub-redes Associadas"
@@ -559,6 +1048,18 @@ msgstr "Par de chaves %(name)s importados com sucesso."
 
 msgid "Swap Disk"
 msgstr "Disco de Swap"
+
+msgid "Tables"
+msgstr "Tabelas"
+
+msgid "Tabs"
+msgstr "Tabs"
+
+msgid "Tel"
+msgstr "Tel"
+
+msgid "Textarea"
+msgstr "Área de texto"
 
 msgid ""
 "The flavor you select for an instance determines the amount of compute, "
@@ -579,6 +1080,16 @@ msgstr ""
 "fornecem recursos suficientes para sua instância são identificados na tabela "
 "<b>Disponível</b> com um ícone de aviso amarelo."
 
+msgid "The following snippet of text is <em>rendered as italicized text</em>."
+msgstr ""
+"O fragmento de texto a seguir é <em>renderizado como texto em itálico</em>."
+
+msgid ""
+"The following snippet of text is <strong>rendered as bold text</strong>."
+msgstr ""
+"O fragmento de texto a seguir é <strong>renderizado como texto em negrito</"
+"strong>."
+
 #, python-format
 msgid ""
 "The instance count must not exceed your quota available of "
@@ -586,6 +1097,26 @@ msgid ""
 msgstr ""
 "A quantidade de instâncias não deve exceder sua cota disponível de "
 "%(maxInstanceCount)s instâncias"
+
+#, python-format
+msgid ""
+"The selected %(sourceType)s source requires a flavor with at least "
+"%(minDisk)s GB of root disk. Select a flavor with a larger root disk or use "
+"a different %(sourceType)s source."
+msgstr ""
+"A origem %(sourceType)s selecionada requer um flavor com pelo menos  "
+"%(minDisk)s GB de disco raiz. Selecione um flavor com um disco raiz maior ou "
+"utilize uma origem  %(sourceType)s diferente."
+
+#, python-format
+msgid ""
+"The selected %(sourceType)s source requires a flavor with at least "
+"%(minRam)s MB of RAM. Select a flavor with more RAM or use a different "
+"%(sourceType)s source."
+msgstr ""
+"A origem %(sourceType)s selecionada requer um flavor com pelo menos "
+"%(minRam)s MB de RAM. Selecione um flavor com mais RAM ou utilize uma "
+"origem  %(sourceType)s diferente."
 
 msgid "The status indicates whether the network has an active connection."
 msgstr "O status indica se a rede tem uma conexão ativa."
@@ -633,11 +1164,27 @@ msgstr ""
 "um flavor menor ou diminua a quantidade de instâncias."
 
 msgid ""
+"This is a simple hero unit, a simple jumbotron-style component for calling "
+"extra attention to featured content or information."
+msgstr ""
+"Essa é uma unidade hero simples, um componente de estilo jumbotron simples "
+"para chamar atenção extra para conteúdo e informações apresentados"
+
+msgid "Time"
+msgstr "Hora"
+
+msgid ""
 "To view source code, hover over a section, then click the <a><span></span></"
 "a> button in the top right of that section."
 msgstr ""
 "Para visualizar o código-fonte, passe o mouse sobre uma seção e em seguida "
 "clique no botão <a><span></span></a> na parte superior direita dessa seção"
+
+msgid "Tooltips"
+msgstr "Dicas de ferramentas"
+
+msgid "Top"
+msgstr "Superior"
 
 msgid "Total Disk"
 msgstr "Total de Disco"
@@ -662,6 +1209,9 @@ msgstr ""
 "Entre com o seu script diretamente no campo de Customização de Script. Se o "
 "seu browser suportar a API de Arquivo do HTML5, você pode optar por carregar "
 "seu script de um arquivo. O tamanho do arquivo não deve exceder 16 Kb."
+
+msgid "Typography"
+msgstr "Tipografia"
 
 msgid "Unable to create the domain."
 msgstr "Não foi possível criar o domínio."
@@ -852,6 +1402,9 @@ msgstr "Atualizar metadados de imagem "
 msgid "Updated"
 msgstr "Atualizado"
 
+msgid "Url"
+msgstr "Url"
+
 msgid "User ID"
 msgstr "ID de Usuário"
 
@@ -887,6 +1440,15 @@ msgstr ""
 msgid "Warning"
 msgstr "Aviso"
 
+msgid "Warning!"
+msgstr "Aviso!"
+
+msgid "Week"
+msgstr "Semana"
+
+msgid "Wells"
+msgstr "Poços"
+
 msgid ""
 "When selecting volume as boot source, please ensure the instance's "
 "availability zone is compatible with your volume's availability zone."
@@ -908,6 +1470,22 @@ msgstr ""
 
 msgid "Yes"
 msgstr "Sim"
+
+msgid ""
+"You can customize your instance after it has launched using the options "
+"available here.\n"
+"    \"Customization Script\" is analogous to \"User Data\" in other systems."
+msgstr ""
+"É possível customizar sua instância após ela ser ativada usando as opções "
+"disponíveis aqui.\n"
+"    \"Script de Customização\" é equivalente a \"Dados do Usuário\"em outros "
+"sistemas."
+
+msgid "image"
+msgstr "imagem"
+
+msgid "snapshot"
+msgstr "captura instantânea"
 
 msgid "{$ row['provider:network_type'] $}"
 msgstr "{$ row['provider:network_type'] $}"

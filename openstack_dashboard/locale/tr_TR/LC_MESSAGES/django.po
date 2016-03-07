@@ -11,15 +11,16 @@
 # Doug Fish <drfish@us.ibm.com>, 2015. #zanata
 # Mücahit Büyükyılmaz <mucahit@deltanoc.com>, 2015. #zanata
 # OpenStack Infra <zanata@openstack.org>, 2015. #zanata
+# Mücahit Büyükyılmaz <mucahit@deltanoc.com>, 2016. #zanata
 msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2016-03-02 17:22+0000\n"
+"POT-Creation-Date: 2016-03-04 08:39+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2015-10-06 02:06+0000\n"
+"PO-Revision-Date: 2016-03-04 02:53+0000\n"
 "Last-Translator: Mücahit Büyükyılmaz <mucahit@deltanoc.com>\n"
 "Language: tr-TR\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
@@ -654,6 +655,9 @@ msgctxt "status of a network port"
 msgid "Active"
 msgstr "Etkin"
 
+msgid "Active Instances:"
+msgstr "Aktif Instancelar:"
+
 msgid ""
 "Actual device name may differ due to hypervisor settings. If not specified, "
 "then hypervisor will select a device name."
@@ -740,7 +744,7 @@ msgid "Add Router to Firewall"
 msgstr "Güvenlik Duvarına Router Ekle"
 
 msgid "Add Routers"
-msgstr "Routerler Ekle"
+msgstr "Router Ekle"
 
 msgid "Add Rule"
 msgstr "Kural Ekle"
@@ -774,11 +778,10 @@ msgid ""
 "Add hosts to this aggregate or remove hosts from it. Hosts can be in "
 "multiple aggregates."
 msgstr ""
-"Bu takıma istemci ekle veya çıkar. İstemciler birden fazla takımda "
-"olabilirler."
+"Bu kümeye host ekle veya çıkar. Hostlar birden fazla kümede olabilirler."
 
 msgid "Add hosts to this aggregate. Hosts can be in multiple aggregates."
-msgstr "Bu takıma istemciler ekle. İstemciler birden çok takımda olabilirler."
+msgstr "Bu kümeye host ekle. Hostlar birden çok kümede olabilirler."
 
 msgid "Add interface"
 msgstr "Arayüz ekle"
@@ -814,7 +817,7 @@ msgstr "Routerye sabit rota ekle."
 
 msgid "Add, modify or remove the QoS Spec associated with this volume type."
 msgstr ""
-"Bu mantıksal sürücüyle ilişkilendirilmiş QoS Özelliğini ekle, değiştir ya da "
+"Bu Mantıksal Sürücüyle ilişkilendirilmiş QoS Özelliğini ekle, değiştir ya da "
 "sil."
 
 msgid "Add/Remove Hosts to Aggregate"
@@ -940,7 +943,7 @@ msgid "Agent %s was successfully added."
 msgstr "Ajan %s başarıyla eklendi."
 
 msgid "All Available Hosts"
-msgstr "Tüm Kullanılabilir İstemciler"
+msgstr "Tüm Kullanılabilir Hostlar"
 
 msgid "All Groups"
 msgstr "Tüm Gruplar"
@@ -967,7 +970,7 @@ msgid "All Users"
 msgstr "Tüm Kullanıcılar"
 
 msgid "All available hosts"
-msgstr "Tüm kullanılabilir istemciler"
+msgstr "Tüm kullanılabilir hostlar"
 
 msgid "Allocate Floating IP"
 msgstr "Değişken IP Ayır"
@@ -1026,7 +1029,7 @@ msgid ""
 "An unexpected error has occurred. Try refreshing the page. If that doesn't "
 "help, contact your local administrator."
 msgstr ""
-"Beklenmedik bir hata oluştu. Sayfayı tazelemeyi deneyin. Bu yardımcı "
+"Beklenmedik bir hata oluştu. Sayfayı yenilemeyi deneyin. Bu yardımcı "
 "olmazsa, yerel yöneticinizle iletişime geçin."
 
 msgid "Any"
@@ -1063,7 +1066,7 @@ msgid "Associated Resource Types"
 msgstr "İlişkili Kaynak Türleri"
 
 msgid "Associated Routers"
-msgstr "İlişkili Routerler"
+msgstr "İlişkili Routerlar"
 
 msgid "Associated monitor."
 msgstr "İlişkilendirilmiş izleyici."
@@ -1171,7 +1174,7 @@ msgid "Available"
 msgstr "Uygun"
 
 msgid "Available Routers"
-msgstr "Kullanılabilir Routerler"
+msgstr "Kullanılabilir Routerlar"
 
 msgid "Available Rules"
 msgstr "Kullanılabilir Kurallar"
@@ -1189,10 +1192,10 @@ msgid "Average rate of read requests"
 msgstr "Okuma isteklerinin ortalama oranı"
 
 msgid "Average rate of reads"
-msgstr "Okumaların ortalama değeri"
+msgstr "Okumaların ortalama oranı"
 
 msgid "Average rate of write requests"
-msgstr "Yazma isteklerinin ortalama değeri"
+msgstr "Yazma isteklerinin ortalama oranı"
 
 msgid "Average rate per sec of incoming bytes on a VM network interface"
 msgstr "VM ağ arayüzündeki gelen baytların saniyelik ortalama değeri"
@@ -1207,7 +1210,7 @@ msgid "Average rate per sec of outgoing packets on a VM network interface"
 msgstr "VM ağ arayüzünden giden paketlerin saniyelik ortalama değeri"
 
 msgid "Average volume of writes"
-msgstr "Yazmaların ortalama hacmi"
+msgstr "Ortalama yazma miktarı"
 
 msgid "Avg."
 msgstr "Avr."
@@ -1218,6 +1221,9 @@ msgstr "Yedekleniyor"
 
 msgid "Backup Name"
 msgstr "Yedek İsmi"
+
+msgid "Backup Size (GiB)"
+msgstr "Yedek Boyutu (GiB)"
 
 msgid "Backups"
 msgstr "Yedekler"
@@ -1267,6 +1273,9 @@ msgstr ""
 
 msgid "Bootable"
 msgstr "Başlatılabilir"
+
+msgid "Bootstrap Theme Preview"
+msgstr "Bootstrap Tema Önizlemesi"
 
 msgctxt "Current status of a Network"
 msgid "Build"
@@ -1413,8 +1422,8 @@ msgid ""
 "Choose router(s) from Available Routers to Selected Routers by push button "
 "or drag and drop. "
 msgstr ""
-"Kullanılabilir Routerlerden Seçilen Routerlere düğme veya sürükle bırak "
-"yardımıyla yönlendirici(ler) seçin. "
+"Kullanılabilir Routerlar dan Seçilen Routerlara button veya sürükle bırak "
+"yardımıyla Router(lar) seçin. "
 
 msgid ""
 "Choose rule(s) from Available Rules to Selected Rule by push button or drag "
@@ -1680,7 +1689,7 @@ msgid "Create Group"
 msgstr "Grup Oluştur"
 
 msgid "Create Host Aggregate"
-msgstr "İstemci Takımı Oluştur"
+msgstr "Host Kümesi Oluştur"
 
 msgid ""
 "Create IPSec Site Connection for current project.\n"
@@ -1791,7 +1800,7 @@ msgid "Create a QoS Spec"
 msgstr "QoS Özelliği oluştur"
 
 msgid "Create a Router"
-msgstr "Router Oluştur"
+msgstr "Bir Router Oluştur"
 
 msgid "Create a Snapshot"
 msgstr "Anlık Görüntü Oluştur"
@@ -1989,6 +1998,10 @@ msgstr "Mevcut İstemci"
 msgid "Current password"
 msgstr "Mevcut parola"
 
+msgctxt "Custom style theme"
+msgid "Custom"
+msgstr "Özel"
+
 msgid "Custom ICMP Rule"
 msgstr "Özel ICMP Kuralı"
 
@@ -2086,6 +2099,10 @@ msgstr "Ölü eş algılama zaman aşımı"
 msgid "Decrypt Password"
 msgstr "Parolanın Şifresini Aç"
 
+msgctxt "Default style theme"
+msgid "Default"
+msgstr "Ön tanımlı"
+
 msgid "Default Quotas"
 msgstr "Varsayılan Kotalar"
 
@@ -2146,7 +2163,7 @@ msgstr[0] "Grupları Sil"
 
 msgid "Delete Host Aggregate"
 msgid_plural "Delete Host Aggregates"
-msgstr[0] "İstemci Takımlarını Sil"
+msgstr[0] "Host Kümelerini Sil"
 
 msgid "Delete IKE Policy"
 msgid_plural "Delete IKE Policies"
@@ -2210,7 +2227,7 @@ msgstr[0] "Bağlantı Noktalarını Sil"
 
 msgid "Delete Project"
 msgid_plural "Delete Projects"
-msgstr[0] "Projeleri Sil"
+msgstr[0] "Proje(leri) Sil"
 
 msgid "Delete QoS Spec"
 msgid_plural "Delete QoS Specs"
@@ -2308,7 +2325,7 @@ msgstr[0] "Ek Özellikler Silindi"
 
 msgid "Deleted Flavor"
 msgid_plural "Deleted Flavors"
-msgstr[0] "Nitelikler Silindi"
+msgstr[0] "Silinen Şablonlar"
 
 msgid "Deleted Group"
 msgid_plural "Deleted Groups"
@@ -2316,7 +2333,7 @@ msgstr[0] "Gruplar Silindi"
 
 msgid "Deleted Host Aggregate"
 msgid_plural "Deleted Host Aggregates"
-msgstr[0] "İstemci Takımları Silindi"
+msgstr[0] "Host Kümeleri Silindi"
 
 msgid "Deleted Image"
 msgid_plural "Deleted Images"
@@ -2348,7 +2365,7 @@ msgstr[0] "Bağlantı Noktaları Silindi"
 
 msgid "Deleted Project"
 msgid_plural "Deleted Projects"
-msgstr[0] "Projeler Silindi"
+msgstr[0] "Proje(ler) Silindi"
 
 msgid "Deleted QoS Spec"
 msgid_plural "Deleted QoS Specs"
@@ -2495,6 +2512,9 @@ msgstr[0] "Mantıksal Sürücüler Ayrılıyor"
 
 msgid "Details"
 msgstr "Detaylar"
+
+msgid "Developer"
+msgstr "Geliştirici"
 
 msgid "Device"
 msgstr "Aygıt"
@@ -2754,7 +2774,7 @@ msgid "Edit Group"
 msgstr "Grup Düzenle"
 
 msgid "Edit Host Aggregate"
-msgstr "İstemci Takımı Düzenle"
+msgstr "Host Kümesini Düzenle"
 
 msgid "Edit IKE Policy"
 msgstr "IKE İlkesini Düzenle"
@@ -2850,9 +2870,8 @@ msgid ""
 "Edit the flavor details. Flavors define the sizes for RAM, disk, number of "
 "cores, and other resources. Flavors are selected when users deploy instances."
 msgstr ""
-"Nitelik detaylarını düzenle. Nitelikler RAM, disk boyutu, çekirdek sayısı, "
-"ve diğer kaynakları belirtir. Nitelikler kullanıcılar sunucu açtıklarında "
-"seçilir."
+"Şablonlar RAM, disk, çekirdek sayısı ve diğer kaynakları belirtir. "
+"Kullanıcılar instance oluştururken bu Şablonlardan birini seçilebilirler."
 
 msgid "Edit the image details."
 msgstr "İmaj detaylarını düzenle."
@@ -3096,7 +3115,7 @@ msgid "Existence of instance"
 msgstr "Instance varlığı"
 
 msgid "Existence of instance <type> (openstack types)"
-msgstr "Sunucunun <type> varlığı (openstack türleri)"
+msgstr "Instance <type> varlığı (openstack türleri)"
 
 msgid "Existence of network"
 msgstr "Ağın varlığı"
@@ -3111,7 +3130,7 @@ msgid "Existence of subnet"
 msgstr "Alt ağın varlığı"
 
 msgid "Existence of volume"
-msgstr "Mantıksal sürücü varlığı"
+msgstr "Mantıksal Sürücü varlığı"
 
 msgid "Expected Codes"
 msgstr "Beklenen Kodlar"
@@ -3190,7 +3209,7 @@ msgstr "Router kuralı %s eklenemedi"
 
 #, python-format
 msgid "Failed to add router(s) to firewall %(name)s: %(reason)s"
-msgstr "Routerler %(name)s güvenlik duvarına eklenemedi: %(reason)s"
+msgstr "Routerlar %(name)s güvenlik duvarına eklenemedi: %(reason)s"
 
 #, python-format
 msgid "Failed to add_interface: %s"
@@ -3263,7 +3282,7 @@ msgstr "İstemci tahliye edilemedi: %s."
 
 #, python-format
 msgid "Failed to evacuate instances: %s"
-msgstr "Örnekler tahliye edilemedi: %s"
+msgstr "Instance(lar) tahliye edilemedi: %s"
 
 #, python-format
 msgid "Failed to get network list %s"
@@ -3293,7 +3312,7 @@ msgstr "\"%s\" istemcisinin geçişi başarısız oldu."
 
 #, python-format
 msgid "Failed to migrate instances: %s"
-msgstr "Örneklerin göçü başarısız: %s"
+msgstr "Instance(lar) göçü başarısız: %s"
 
 msgid "Failed to migrate volume."
 msgstr "Mantıksal sürücü göç ettirilemedi."
@@ -3314,7 +3333,7 @@ msgstr ""
 
 #, python-format
 msgid "Failed to modify %d instance security groups"
-msgstr "%d sunucu güvenlik grubu değiştirilemedi"
+msgstr "%d instance güvenlik grubu değiştirilemedi"
 
 #, python-format
 msgid "Failed to modify %s domain groups."
@@ -3524,14 +3543,14 @@ msgid ""
 "Flavor ID should be UUID4 or integer. Leave this field blank or use 'auto' "
 "to set a random UUID4."
 msgstr ""
-"Nitelik ID'si UUID4 veya tamsayı olmalı. Rastgele bir UUID4 ayarlamak için "
-"bu alanı boş bırakın veya 'oto' kullanın."
+"Şablon ID'si UUID4 veya tamsayı olmalı. Rastgele bir UUID4 ayarlamak için bu "
+"alanı boş bırakın veya 'auto' kullanın."
 
 msgid "Flavor Information"
 msgstr "Şablon Bilgisi"
 
 msgid "Flavor Name"
-msgstr "Şablon İsmi"
+msgstr "Şablon Adı"
 
 msgid "Flavors"
 msgstr "Şablonlar"
@@ -3540,8 +3559,8 @@ msgid ""
 "Flavors define the sizes for RAM, disk, number of cores, and other resources "
 "and can be selected when users deploy instances."
 msgstr ""
-"Nitelikler RAM, disk, çekirdek sayısı ve diğer kaynakları belirtir ve "
-"kullanıcılar sunucu açtıklarında seçilebilirler."
+"Şablonlar RAM, disk, çekirdek sayısı ve diğer kaynakları belirtir ve "
+"kullanıcılar instance oluştururken bu Şablonlardan birini seçilebilirler."
 
 msgid "Floating IP"
 msgstr "Değişken IP"
@@ -3756,10 +3775,10 @@ msgid "Host ="
 msgstr "İstemci ="
 
 msgid "Host Aggregate Information"
-msgstr "İstemci Takım Bilgisi"
+msgstr "Host Küme Bilgisi"
 
 msgid "Host Aggregates"
-msgstr "İstemci Takımları"
+msgstr "Host Kümeleri"
 
 msgid "Host Routes"
 msgstr "İstemci Rotaları"
@@ -3777,8 +3796,8 @@ msgid ""
 "together hosts. Create a host aggregate then select the hosts contained in "
 "it."
 msgstr ""
-"İstemci takımları istemcileri gruplayarak kullanılabilir bölgeyi mantıksal "
-"birimlere böler.Bir istemci takımı oluşturun ve içinde bulunacak istemcileri "
+"Host kümeleri, hostları gruplayarak kullanılabilir bölgeyi mantıksal "
+"birimlere böler. Bir host kümesi oluşturun ve içinde bulunacak hostları "
 "seçin."
 
 msgid ""
@@ -3793,7 +3812,7 @@ msgid "Hostname"
 msgstr "Makine adı"
 
 msgid "Hosts"
-msgstr "İstemciler"
+msgstr "Hostlar"
 
 msgid "Hypervisor"
 msgstr "Hipervizör"
@@ -4146,10 +4165,10 @@ msgid "Instance Count"
 msgstr "Sunucu Sayısı"
 
 msgid "Instance ID"
-msgstr "Sunucu ID"
+msgstr "Instance ID"
 
 msgid "Instance Name"
-msgstr "Sunucu Adı"
+msgstr "Instance Adı"
 
 msgid "Instance Overview"
 msgstr "Sunucu Genel Görünümü"
@@ -4387,10 +4406,10 @@ msgid "Live Migrate"
 msgstr "Canlı Göç"
 
 msgid "Live Migrate Instance"
-msgstr "Sunucu Canlı Geçişi"
+msgstr "Canlı Instance Göçü"
 
 msgid "Live migrate an instance to a specific host."
-msgstr "Bir sunucuyu belli bir istemciye canlı aktar."
+msgstr "Bir Instance belli bir sunucuya canlı göç ettir."
 
 msgid "Load Balancer"
 msgstr "Yük Dengeleyici"
@@ -4477,13 +4496,13 @@ msgid "Manage Floating IP Associations"
 msgstr "Değişken IP İlişkilendirilmelerini Yönet"
 
 msgid "Manage Hosts"
-msgstr "İstemcileri Yönet"
+msgstr "Hostları Yönet"
 
 msgid "Manage Hosts Aggregate"
-msgstr "İstemcilerin Takımını Düzenle"
+msgstr "Host Kümelerini Yönet"
 
 msgid "Manage Hosts within Aggregate"
-msgstr "Takım içindeki İstemcileri Yönet"
+msgstr "Küme içindeki Hostları Yönet"
 
 msgid "Manage Members"
 msgstr "Üyeleri Yönet"
@@ -4508,7 +4527,7 @@ msgid "Manage Specs"
 msgstr "Özellikleri Yönet"
 
 msgid "Manage Volume"
-msgstr "Hacmi Yönet"
+msgstr "Mantıksal Sürücüyü Yönet"
 
 msgid "Manage Volume Attachments"
 msgstr "Mantıksal Sürücü Eklentilerini Yönet"
@@ -4522,6 +4541,10 @@ msgstr "Elle"
 msgid "Mapped Fixed IP Address"
 msgstr "Sabit IP Adresi Haritalandı"
 
+msgctxt "Google's Material Design style theme"
+msgid "Material"
+msgstr "Material"
+
 msgid "Max Retries"
 msgstr "Azami Yeniden Deneme"
 
@@ -4530,6 +4553,9 @@ msgstr "Azami Yeniden Deneme (1~10)"
 
 msgid "Max."
 msgstr "Maks."
+
+msgid "Max. Size (MB) ="
+msgstr "Maksimum Boyut (MB) ="
 
 msgid "Maximum Transmission Unit size for the connection"
 msgstr "Bağlantı için Azami Aktarım Birimi boyutu"
@@ -4591,10 +4617,10 @@ msgstr[0] "İstemcileri Göç Ettir"
 
 msgid "Migrate Instance"
 msgid_plural "Migrate Instances"
-msgstr[0] "Sunucuları Göç Ettir"
+msgstr[0] "Instance(ları) Göç Ettir"
 
 msgid "Migrate Volume"
-msgstr "Mantıksal Sürücü Göç Ettir"
+msgstr "Mantıksal Sürücüyü Göç Ettir"
 
 msgid ""
 "Migrate all instances from a host with disabled nova-compute service. "
@@ -4634,6 +4660,9 @@ msgstr "Asgari RAM"
 msgid "Min."
 msgstr "Min."
 
+msgid "Min. Size (MB) ="
+msgstr "Minimum Boyut (MB) ="
+
 msgid "Minimum Disk (GB)"
 msgstr "Minimum Disk (GB)"
 
@@ -4649,10 +4678,10 @@ msgstr "Alan \"%s\" değiştirildi."
 
 #, python-format
 msgid "Modified flavor \"%s\"."
-msgstr "\"%s\" niteliği değiştirildi."
+msgstr "\"%s\" şablonu düzenlendi."
 
 msgid "Modified flavor information, but unable to modify flavor access."
-msgstr "Nitelik bilgisi güncellendi, ama nitelik erişimi değiştirilemiyor."
+msgstr "Şablon bilgisi güncellendi, ama şablon erişimi değiştirilemiyor."
 
 #, python-format
 msgid "Modified instance \"%s\"."
@@ -4693,7 +4722,7 @@ msgid "Modify the name and description of a snapshot."
 msgstr "Anlık görüntünün ismini ve tanımlamasını değiştir."
 
 msgid "Modify volume type name and description."
-msgstr "Mantıksal sürücü türü ismi ve tanımını düzenle."
+msgstr "Mantıksal Sürücü türü ismi ve tanımını düzenle."
 
 msgid "Monitor"
 msgstr "İzleyici"
@@ -4721,6 +4750,9 @@ msgstr "N/A"
 
 msgid "Name"
 msgstr "Ad"
+
+msgid "Name ="
+msgstr "Ad ="
 
 msgid ""
 "Name may only contain letters, numbers, underscores, periods and hyphens."
@@ -4897,10 +4929,10 @@ msgid "No"
 msgstr "Hayır"
 
 msgid "No Host selected."
-msgstr "Hiçbir istemci seçilmedi."
+msgstr "Hiçbir Host seçilmedi."
 
 msgid "No Hosts found."
-msgstr "İstemci bulunamadı."
+msgstr "Host bulunamadı."
 
 msgid "No Ports available"
 msgstr "Kullanılabilir Bağlantı Noktası Yok"
@@ -4946,10 +4978,10 @@ msgid "No groups."
 msgstr "Grup yok."
 
 msgid "No host selected."
-msgstr "Hiçbir istemci seçilmedi."
+msgstr "Hiçbir host seçilmedi."
 
 msgid "No hosts found."
-msgstr "İstemci bulunamadı."
+msgstr "Host bulunamadı."
 
 msgid "No images available"
 msgstr "Kullanılabilir imaj yok"
@@ -4991,7 +5023,7 @@ msgid "No projects found."
 msgstr "Hiç proje bulunamadı."
 
 msgid "No projects selected. All projects can use the flavor."
-msgstr "Hiçbir proje seçilmedi. Tüm projeler niteliği kullanabilir."
+msgstr "Hiçbir proje seçilmedi. Tüm projeler bu şablonu kullanabilir."
 
 msgid "No provider is available"
 msgstr "Kullanılabilir sağlayıcı yok"
@@ -5830,7 +5862,7 @@ msgid "Remove Router"
 msgstr "Router Kaldır"
 
 msgid "Remove Router from Firewall"
-msgstr "Güvenlik Duvarından Routeryi Kaldır"
+msgstr "Güvenlik Duvarından Routerı Kaldır"
 
 msgid "Remove Rule"
 msgstr "Kural Kaldır"
@@ -6093,11 +6125,11 @@ msgstr "Router kuralı eklendi"
 
 #, python-format
 msgid "Router(s)  was successfully removed from firewall %(firewall)s."
-msgstr "Routerler %(firewall)s güvenlik duvarından başarıyla kaldırıldı."
+msgstr "Routerlar %(firewall)s güvenlik duvarından başarıyla kaldırıldı."
 
 #, python-format
 msgid "Router(s) was/were successfully added to firewall %(firewall)s."
-msgstr "Routerler %(firewall)s güvenlik duvarına başarıyla eklendi."
+msgstr "Routerlar %(firewall)s güvenlik duvarına başarıyla eklendi."
 
 msgid "Routers"
 msgstr "Routers"
@@ -6447,23 +6479,23 @@ msgid ""
 "Select the projects where the flavors will be used. If no projects are "
 "selected, then the flavor will be available in all projects."
 msgstr ""
-"Niteliklerin kullanılacağı projeleri seçin. Hiçbir proje seçilmezse, nitelik "
+"Şablonların kullanılacağı projeleri seçin. Hiçbir proje seçilmezse, şablon "
 "tüm projelerde kullanılabilir olur."
 
 msgid "Selected Hosts"
-msgstr "Seçili İstemciler"
+msgstr "Seçili Hostlar"
 
 msgid "Selected Projects"
 msgstr "Seçili Projeler"
 
 msgid "Selected Routers"
-msgstr "Seçili Routerler"
+msgstr "Seçili Routerlar"
 
 msgid "Selected Rules"
 msgstr "Seçili Kurallar"
 
 msgid "Selected hosts"
-msgstr "Seçili istemciler"
+msgstr "Seçili hostlar"
 
 msgid "Selected networks"
 msgstr "Seçili ağlar"
@@ -6485,6 +6517,9 @@ msgstr "Sunucu Grupları"
 
 msgid "Server error"
 msgstr "Sunucu hatası"
+
+msgid "Servers"
+msgstr "Sunucular"
 
 msgid "Service"
 msgstr "Servis"
@@ -6593,7 +6628,7 @@ msgid "Size of root disk"
 msgstr "Root diskin boyutu"
 
 msgid "Size of volume"
-msgstr "Mantıksal sürücü boyutu"
+msgstr "Mantıksal Sürücü boyutu"
 
 msgid "Size: "
 msgstr "Boyut: "
@@ -6930,7 +6965,7 @@ msgstr "%s güvenlik grubu başarıyla oluşturuldu"
 
 #, python-format
 msgid "Successfully created volume type: %s"
-msgstr "%s Mantıksal sürücü türü başarıyla oluşturuldu."
+msgstr "%s Mantıksal Sürücü türü başarıyla oluşturuldu."
 
 msgid "Successfully deleted volume transfer"
 msgstr "Mantıksal sürücü aktarımı başarıyla silindi"
@@ -7209,7 +7244,7 @@ msgstr "ICMP tipi uygun aralıkta değil: (-1, 255)"
 
 #, python-format
 msgid "The ID \"%s\" is already used by another flavor."
-msgstr "\"%s\" ID'si başka bir nitelik tarafından kullanılıyor."
+msgstr "\"%s\" ID'si başka bir şablon tarafından kullanılıyor."
 
 msgid ""
 "The ID of the host where the port is allocated. In some cases, different "
@@ -7341,7 +7376,7 @@ msgstr "\"%s\" adı başka bir şablon tarafından kullanılıyor."
 
 #, python-format
 msgid "The name \"%s\" is already used by another host aggregate."
-msgstr "\"%s\" ismi başka bir istemci takımı tarafından kullanılıyor."
+msgstr "\"%s\" ismi başka bir host kümesi tarafından kullanılıyor."
 
 msgid "The name is already in use."
 msgstr "Bu isim zaten kullanımda."
@@ -7433,6 +7468,9 @@ msgstr "Zaman farkı süreyi gün olarak temsil eden bir sayı olmalıdır"
 #, python-format
 msgid "The volume size cannot be less than the image size (%s)"
 msgstr "Mantıksal sürücü boyutu imaj boyutundan küçük olamaz (%s)"
+
+msgid "Theme Preview"
+msgstr "Tema Önizlemesi"
 
 msgid "There are no meters defined yet."
 msgstr "Henüz tanımlanmış metrik yok."
@@ -7569,6 +7607,9 @@ msgstr "Toplam RAM"
 
 msgid "Total Size of Volumes and Snapshots (GB)"
 msgstr "Mantıksal Sürücü ve Anlık Görüntülerin Toplam Boyutu (GB)"
+
+msgid "Total VCPU Usage (Hours):"
+msgstr "Toplam VCPU Kullanımı (Saat):"
 
 msgid ""
 "Total VCPU usage (Number of VCPU in instance * Hours Used) for the project"
@@ -7883,7 +7924,8 @@ msgstr "Kullanılabilir bölgeler uzantısı destekleniyor mu anlaşılamadı."
 
 msgid "Unable to determine if volume type encryption is supported."
 msgstr ""
-"Mantıksal birim türünün şifrelemeyi destekleyip desteklemediği belirlenemedi."
+"Mantıksal sürücü türünün şifrelemeyi destekleyip desteklemediği "
+"belirlenemedi."
 
 msgid "Unable to disassociate floating IP."
 msgstr "Değişken IP tahsisi kaldırılamadı."
@@ -7943,7 +7985,7 @@ msgid "Unable to get health monitor %(monitor_id)s for pool %(pool)s."
 msgstr "%(pool)s havuzu için %(monitor_id)s sağlık izleyici alınamıyor"
 
 msgid "Unable to get host aggregate list"
-msgstr "İstemci takım listesi alınamadı"
+msgstr "Host küme listesi alınamadı"
 
 #, python-format
 msgid "Unable to get log for instance \"%s\"."
@@ -7984,7 +8026,7 @@ msgid "Unable to get subnet for pool %(pool)s."
 msgstr "%(pool)s havuzu için alt ağ alınamadı."
 
 msgid "Unable to get the available hosts"
-msgstr "Kullanılabilir istemciler alınamadı"
+msgstr "Kullanılabilir hostlar alınamadı"
 
 msgid "Unable to import key pair."
 msgstr "Anahtar çifti içe aktarılamıyor."
@@ -8018,7 +8060,7 @@ msgid "Unable to lookup volume or backup information."
 msgstr "Mantıksal sürücü ya da yedek bilgisi aranamadı."
 
 msgid "Unable to manage volume."
-msgstr "Birim yönetilemiyor."
+msgstr "Mantıksal sürücü yönetilemiyor."
 
 #, python-format
 msgid "Unable to modify domain \"%s\"."
@@ -8026,7 +8068,7 @@ msgstr "Alan \"%s\" değiştirilemedi."
 
 #, python-format
 msgid "Unable to modify flavor \"%s\"."
-msgstr "\"%s\" niteliği değiştirilemedi."
+msgstr "\"%s\" şablonu düzenlenemedi."
 
 #, python-format
 msgid "Unable to modify instance \"%s\"."
@@ -8214,7 +8256,7 @@ msgid "Unable to retrieve firewall list."
 msgstr "Güvenlik duvarı listesi getirilemedi."
 
 msgid "Unable to retrieve flavor access list. Please try again later."
-msgstr "Nitelik erişim listesi alınamıyor. Lütfen daha sonra tekrar deneyin."
+msgstr "Şablon erişim listesi alınamıyor. Lütfen daha sonra tekrar deneyin."
 
 msgid "Unable to retrieve flavor details."
 msgstr "Şablon özellikleri alınamadı."
@@ -8254,7 +8296,7 @@ msgid "Unable to retrieve health monitor details. %s"
 msgstr "Sağlık izleyici detayları alınamadı. %s"
 
 msgid "Unable to retrieve host aggregates list."
-msgstr "İstemci takımı listesi alınamıyor."
+msgstr "Host küme listesi alınamıyor."
 
 msgid "Unable to retrieve host information."
 msgstr "İstemci bilgisi getirilemedi."
@@ -8293,22 +8335,22 @@ msgid "Unable to retrieve instance action list."
 msgstr "Sunucu eylem listesi alınamıyor."
 
 msgid "Unable to retrieve instance details."
-msgstr "Sunucu detayları alınamadı."
+msgstr "Instance detayları alınamadı."
 
 msgid "Unable to retrieve instance flavors."
 msgstr "Sunucu nitelikleri alınamıyor."
 
 msgid "Unable to retrieve instance list."
-msgstr "Sunucu listesi alınamadı."
+msgstr "Instance listesi alınamadı."
 
 msgid "Unable to retrieve instance password."
 msgstr "Sunucu parolası alınamadı."
 
 msgid "Unable to retrieve instance project information."
-msgstr "Sunucu proje bilgisi alınamadı."
+msgstr "Instance proje bilgisi alınamadı."
 
 msgid "Unable to retrieve instance size information."
-msgstr "Sunucu boyut bilgisi alınamadı."
+msgstr "Instance boyut bilgisi alınamadı."
 
 msgid "Unable to retrieve instance."
 msgstr "Sunucu alınamadı."
@@ -8470,7 +8512,7 @@ msgstr "Router alınamadı."
 
 #, python-format
 msgid "Unable to retrieve routers (%(error)s)."
-msgstr "Routerler alınamadı (%(error)s)."
+msgstr "Routerlar alınamadı (%(error)s)."
 
 msgid "Unable to retrieve routers list."
 msgstr "Router listesi alınamıyor."
@@ -8586,7 +8628,7 @@ msgid "Unable to retrieve volume information."
 msgstr "Mantıksal sürücü bilgisi alınamadı."
 
 msgid "Unable to retrieve volume limit information."
-msgstr "Birim limit bilgisi alınamıyor."
+msgstr "Mantıksal sürücü limit bilgisi alınamıyor."
 
 #, python-format
 msgid "Unable to retrieve volume list for instance \"%(name)s\" (%(id)s)."
@@ -8599,10 +8641,10 @@ msgid "Unable to retrieve volume project information."
 msgstr "Mantıksal sürücü proje bilgisi alınamadı."
 
 msgid "Unable to retrieve volume snapshot."
-msgstr "Mantıksal sürücü anlık görüntüsü getirilemedi."
+msgstr "Mantıksal Sürücü Anlık Görüntüsü getirilemedi."
 
 msgid "Unable to retrieve volume snapshots."
-msgstr "Mantıksal sürücü anlık görüntüleri alınamadı."
+msgstr "Mantıksal Sürücü anlık görüntüleri alınamadı."
 
 msgid "Unable to retrieve volume transfer."
 msgstr "Birim aktarımı alınamadı."
@@ -8614,7 +8656,7 @@ msgid "Unable to retrieve volume type encryption details."
 msgstr "Mantıksal sürücü türü şifreleme detayları alınamadı."
 
 msgid "Unable to retrieve volume type encryption information."
-msgstr "Mantıksal sürücü şifreleme bilgisi getirilemedi."
+msgstr "Mantıksal Sürücü şifreleme bilgisi getirilemedi."
 
 msgid "Unable to retrieve volume type extra spec details."
 msgstr "Mantıksal sürücü türü ek özellik ayrıntıları alınamadı."
@@ -8633,7 +8675,7 @@ msgid "Unable to retrieve volume type qos."
 msgstr "Mantıksal sürücü türü qos'u alınamıyor."
 
 msgid "Unable to retrieve volume types"
-msgstr "Mantıksal sürücü türleri alınamadı"
+msgstr "Mantıksal Sürücü türleri alınamadı"
 
 msgid "Unable to retrieve volume."
 msgstr "Mantıksal sürücü alınamadı."
@@ -8652,7 +8694,7 @@ msgstr "Mantıksal sürücü üzerinde ön yüklenebilir bayrağı ayarlanamıyo
 
 #, python-format
 msgid "Unable to set flavor access for project %s."
-msgstr "Nitelik erişimi %s projesi için ayarlanamadı."
+msgstr "Şablon erişimi %s projesi için ayarlanamadı."
 
 msgid "Unable to set gateway."
 msgstr "Geçit ayarlanamadı."
@@ -8740,7 +8782,7 @@ msgid "Unknown"
 msgstr "Bilinmeyen"
 
 msgid "Unknown instance"
-msgstr "Bilinmeyen sunucu"
+msgstr "Bilinmeyen instance"
 
 msgid "Unknown instance (None)"
 msgstr "Bilinmeyen sunucu (None)"
@@ -8757,7 +8799,7 @@ msgid "Unmanage"
 msgstr "Yönetmeyi Durdur"
 
 msgid "Unmanage Volume"
-msgstr "Hacmi Yönetme"
+msgstr "Mantıksal Sürü Yönetme"
 
 msgid "Unmanage a Volume"
 msgstr "Mantıksal Sürücüyü Yönetmeyi Durdur"
@@ -8832,7 +8874,7 @@ msgid "Update Role"
 msgstr "Rol Güncelle"
 
 msgid "Update Router"
-msgstr "Routeryi Güncelle"
+msgstr "Routerı Güncelle"
 
 msgid "Update Stack"
 msgstr "Yığını Güncelle"
@@ -8996,7 +9038,7 @@ msgstr "\"%s\" kullanıcısı başarıyla oluşturuldu."
 
 #, python-format
 msgid "User %s has no role defined for that project."
-msgstr "%s kullanıcısı bu proje için bir rolü yok."
+msgstr "%s kullanıcısının bu proje için tanımlanmış bir rolü yok."
 
 msgid "User Credentials"
 msgstr "Kullanıcı Kimlik Bilgileri"
@@ -9244,7 +9286,7 @@ msgid "Volume Type Name"
 msgstr "Mantıksal Sürücü Türü İsmi"
 
 msgid "Volume Type is Unencrypted."
-msgstr "Birim Türü Şifrelenmemiş"
+msgstr "Mantıksal sürücü Türü Şifrelenmemiş"
 
 #, python-format
 msgid "Volume Type: %(volume_type_name)s"
@@ -9278,10 +9320,10 @@ msgid "Volume of RAM used"
 msgstr "Kullanılan RAM miktarı"
 
 msgid "Volume of reads"
-msgstr "Okumaların miktarı"
+msgstr "Okuma miktarı"
 
 msgid "Volume of writes"
-msgstr "Yazmaların miktarı"
+msgstr "Yazma miktarı"
 
 msgid "Volume size in gigabytes (integer value)."
 msgstr "Gigabyte olarak mantıksal sürücü boyutu (tamsayı değer)."
@@ -9298,10 +9340,10 @@ msgid "Volume source must be specified"
 msgstr "Mantıksal sürücü kaynağı belirtilmelidir"
 
 msgid "Volume type name can not be empty."
-msgstr "Mantıksal sürücü türünün ismi boş olamaz."
+msgstr "Mantıksal sürücü türünün adı boş olamaz."
 
 msgid "Volumes"
-msgstr "Mantıksal sürücüler"
+msgstr "Mantıksal Sürücüler"
 
 msgid "Volumes Attached"
 msgstr "Bağlı Mantıksal Sürücüler"

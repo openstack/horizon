@@ -15,18 +15,19 @@
 # Yu Zhiuguo <yuzg@cn.fujitsu.com>, 2015. #zanata
 # yan haifeng <yanheven@qq.com>, 2015. #zanata
 # zhangjingwen <zhangjingwen@cn.fujitsu.com>, 2015. #zanata
-# Zheng XI Zhou <zzxwill@gmail.com>, 2016. #zanata
+# Zheng Xi Zhou <zzxwill@gmail.com>, 2016. #zanata
+# liujunpeng <liujunpeng@inspur.com>, 2016. #zanata
 # vuuv <froms2008@gmail.com>, 2016. #zanata
 msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2016-03-04 04:21+0000\n"
+"POT-Creation-Date: 2016-03-04 08:38+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2016-02-27 11:24+0000\n"
-"Last-Translator: vuuv <froms2008@gmail.com>\n"
+"PO-Revision-Date: 2016-03-04 06:49+0000\n"
+"Last-Translator: liujunpeng <liujunpeng@inspur.com>\n"
 "Language: zh-CN\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 "Generated-By: Babel 2.0\n"
@@ -193,6 +194,9 @@ msgstr "错误"
 msgid "Error: "
 msgstr "错误："
 
+msgid "Example"
+msgstr "例子"
+
 msgid "Existing Metadata"
 msgstr "已存在的元数据"
 
@@ -325,6 +329,9 @@ msgstr "角色"
 msgid "STATUS"
 msgstr "状态"
 
+msgid "Script size:"
+msgstr "脚本大小"
+
 msgid "Search in current results"
 msgstr "在当前结果中搜索"
 
@@ -367,6 +374,9 @@ msgid ""
 "missing information."
 msgstr "不能执行该操作。该列的内容有错或是缺少信息。"
 
+msgid "The script is larger than the maximum size"
+msgstr "脚本大小超出最大值"
+
 msgid "There was a problem communicating with the server, please try again."
 msgstr "与服务器通信出现问题，请再试一次。"
 
@@ -375,6 +385,9 @@ msgstr "在提交表单的时候出现错误，请再次尝试。"
 
 msgid "Toggle Dropdown"
 msgstr "切换下拉菜单"
+
+msgid "Toggle navigation"
+msgstr "切换导航"
 
 msgid "Total"
 msgstr "总共"
@@ -428,6 +441,9 @@ msgstr "m1.small"
 
 msgid "m1.tiny"
 msgstr "m1.tiny"
+
+msgid "of"
+msgstr "的"
 
 msgid "pool default"
 msgstr "默认资源池"

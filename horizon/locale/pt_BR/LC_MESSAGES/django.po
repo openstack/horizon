@@ -9,21 +9,54 @@
 # Remulo Carvalho <remulo@gmail.com>, 2015
 # Rodrigo Felix de Almeida <rodrigofelixdealmeida@gmail.com>, 2014
 # OpenStack Infra <zanata@openstack.org>, 2015. #zanata
+# Carlos Marques <marquesc@br.ibm.com>, 2016. #zanata
 msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2016-01-31 10:08+0000\n"
+"POT-Creation-Date: 2016-03-04 08:38+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2015-09-21 10:46+0000\n"
-"Last-Translator: Gabriel Wainer <gabrielcw@gmail.com>\n"
+"PO-Revision-Date: 2016-03-04 07:53+0000\n"
+"Last-Translator: Carlos Marques <marquesc@br.ibm.com>\n"
 "Language: pt-BR\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 "Generated-By: Babel 2.0\n"
 "X-Generator: Zanata 3.7.3\n"
 "Language-Team: Portuguese (Brazil)\n"
+
+#, python-format
+msgid ""
+"\n"
+"                Login as different user or go back to <a href=\"%(home_url)s"
+"\">home page</a>\n"
+"              "
+msgstr ""
+"\n"
+"                Efetue login como um usuário diferente ou retorne para <a "
+"href=\"%(home_url)s\">home page</a>\n"
+"              "
+
+#, python-format
+msgid ""
+"\n"
+"                Used <span> %(used)s </span>(No Limit)\n"
+"              "
+msgstr ""
+"\n"
+"                Utilizado <span> %(used)s </span>(No Limit)\n"
+"              "
+
+#, python-format
+msgid ""
+"\n"
+"                Used <span> %(used)s </span>of<span> %(available)s </span>\n"
+"              "
+msgstr ""
+"\n"
+"                Usado <span> %(used)s </span>de<span> %(available)s </span>\n"
+"              "
 
 #, python-format
 msgid ""
@@ -144,6 +177,16 @@ msgstr "Disponível"
 msgid "Back"
 msgstr "Voltar"
 
+msgid "Batch Item"
+msgid_plural "Batch Items"
+msgstr[0] "Item em Lote"
+msgstr[1] "Itens em Lote"
+
+msgid "Batched Item"
+msgid_plural "Batched Items"
+msgstr[0] "Item em Lote"
+msgstr[1] "Itens em Lote"
+
 msgid "Cancel"
 msgstr "Cancelar"
 
@@ -173,6 +216,20 @@ msgid "Displaying %(nav_items)s item"
 msgid_plural "Displaying %(nav_items)s items"
 msgstr[0] "Exibindo %(nav_items)s item"
 msgstr[1] "Exibindo %(nav_items)s itens"
+
+msgid "Down Item"
+msgid_plural "Down Items"
+msgstr[0] "Item Inativo"
+msgstr[1] "Itens Inativos"
+
+msgid "Downed Item"
+msgid_plural "Downed Items"
+msgstr[0] "Item Desativado"
+msgstr[1] "Itens Desativados"
+
+#, python-format
+msgid "Error processing message json file '%(path)s': %(exception)s"
+msgstr "Erro ao processar o arquivo json da mensagem '%(path)s': %(exception)s"
 
 msgid "Error: "
 msgstr "Erro:"
@@ -206,11 +263,18 @@ msgstr "Versão inválida para o endereço IP"
 msgid "Limit Summary"
 msgstr "Resumo de Limites"
 
+msgid "Log in"
+msgstr "Efetuar Log in"
+
 msgid "Login"
 msgstr "Logar"
 
 msgid "Members"
 msgstr "Membros"
+
+#, python-format
+msgid "Message json file '%(path)s' is malformed. %(exception)s"
+msgstr "O arquivo json da mensagem '%(path)s' está malformado. %(exception)s"
 
 msgid "More Actions"
 msgstr "Mais Ações"
@@ -302,6 +366,16 @@ msgstr "A data deve estar no formato YYYY-mm-dd."
 msgid "The string may only contain ASCII printable characters."
 msgstr "A string somente deve conter caracteres ASCII imprimíveis."
 
+#, python-format
+msgid ""
+"The value of %(resource)s is %(name)s inside the template. When launching a "
+"stack from this interface, the value must start with \"http://\" or "
+"\"https://\""
+msgstr ""
+"O valor de %(resource)s é %(name)s dentro do modelo. Ao ativar uma pilha a "
+"partir dessa interface, o valor devera iniciar com \"http://\" ou \"https://"
+"\""
+
 msgid "This Period's GB-Hours:"
 msgstr "GB-Horas desse Período:"
 
@@ -324,6 +398,26 @@ msgstr "Não autorizado. Por favor tente efetuar login novamente."
 #, python-format
 msgid "Unauthorized: %s"
 msgstr "Não autorizado: %s"
+
+msgid "Up Item"
+msgid_plural "Up Items"
+msgstr[0] "Item Ativo"
+msgstr[1] "Itens Ativos"
+
+msgid "Update Item"
+msgid_plural "Update Items"
+msgstr[0] "Atualizar Item"
+msgstr[1] "Atualizar Itens"
+
+msgid "Updated Item"
+msgid_plural "Updated Items"
+msgstr[0] "Item Atualizado"
+msgstr[1] "Itens Atualizados"
+
+msgid "Upped Item"
+msgid_plural "Upped Items"
+msgstr[0] "Item Ativado"
+msgstr[1] "Itens Ativados"
 
 msgid "Usage Summary"
 msgstr "Resumo de Utilização"

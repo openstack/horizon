@@ -10,16 +10,17 @@
 # Yuko Katabami <yukokatabami@gmail.com>, 2015. #zanata
 # Akihiro Motoki <amotoki@gmail.com>, 2016. #zanata
 # Shu Muto <shu-mutou@rf.jp.nec.com>, 2016. #zanata
+# Yuko Katabami <yukokatabami@gmail.com>, 2016. #zanata
 msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2016-03-04 04:22+0000\n"
+"POT-Creation-Date: 2016-03-04 08:39+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2016-03-02 02:07+0000\n"
-"Last-Translator: Akihiro Motoki <amotoki@gmail.com>\n"
+"PO-Revision-Date: 2016-03-06 12:34+0000\n"
+"Last-Translator: Yuko Katabami <yukokatabami@gmail.com>\n"
 "Language: ja\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 "Generated-By: Babel 2.0\n"
@@ -115,6 +116,15 @@ msgstr ""
 "                  </input>"
 
 msgid ""
+"<input>\n"
+"        Configuration Drive\n"
+"      </input>"
+msgstr ""
+"<input>\n"
+"        コンフィグドライブ\n"
+"      </input>"
+
+msgid ""
 "<li><b>Image (with Create New Volume checked)</b>: This options uses an "
 "image to boot the instance, and creates a new volume to persist instance "
 "data. You can specify volume size and whether to delete the volume on "
@@ -177,6 +187,15 @@ msgstr ""
 "Floating IP を関連付けるには、<b>インスタンス</b>画面で、\n"
 "インスタンスの右にある<b>アクション</b>メニューをクリックします。\n"
 "<b>Floating IP の関連付け</b>を選択し、必要な情報を入力してください。"
+
+msgid ""
+"A key pair allows you to SSH into your newly created instance.\n"
+"    You may select an existing key pair, import a key pair, or generate a "
+"new key pair."
+msgstr ""
+"キーペアを使って、新しく作成したインスタンスに SSH でログインします。\n"
+"作成済みのキーペアを選択するか、キーペアをインポートまたは新規作成してくださ"
+"い。"
 
 msgid ""
 "A key pair named '{$ctrl.createdKeypair.name$}' was successfully created. "
@@ -280,6 +299,9 @@ msgstr "アニメーション"
 msgid "Another action"
 msgstr "もうひとつのアクション"
 
+msgid "Architecture"
+msgstr "アーキテクチャー"
+
 msgid "Automatic"
 msgstr "自動"
 
@@ -361,16 +383,25 @@ msgstr "カラムの見出し"
 msgid "Configuration"
 msgstr "設定"
 
-#, fuzzy
 msgid "Confirm Delete Image"
 msgid_plural "Confirm Delete Images"
 msgstr[0] "イメージの削除の確認"
+
+msgid "Container Format"
+msgstr "コンテナーフォーマット"
 
 msgid "Containers"
 msgstr "コンテナー"
 
 msgid "Contextual alternatives"
 msgstr "文脈依存の代替"
+
+msgid ""
+"Count\n"
+"          <span></span>"
+msgstr ""
+"数\n"
+"          <span></span>"
 
 msgid "Create Key Pair"
 msgstr "キーペアの作成"
@@ -380,6 +411,9 @@ msgstr "キーペアの作成"
 
 msgid "Create New Volume"
 msgstr "新規ボリュームの作成"
+
+msgid "Create Volume"
+msgstr "ボリュームの作成"
 
 msgid "Created"
 msgstr "作成時刻"
@@ -392,6 +426,9 @@ msgstr "作成されたキーペア:"
 
 msgid "Creating"
 msgstr "作成中"
+
+msgid "Custom Properties"
+msgstr "カスタム属性"
 
 msgid ""
 "Custom scripts are attached to instances to perform specific actions when "
@@ -437,7 +474,6 @@ msgstr "デフォルトのボタン"
 msgid "Default input"
 msgstr "デフォルトの入力項目"
 
-#, fuzzy
 msgid "Delete Image"
 msgid_plural "Delete Images"
 msgstr[0] "イメージの削除"
@@ -451,7 +487,7 @@ msgstr "インスタンス削除時のボリュームを削除します"
 msgid "Deleted"
 msgstr "削除"
 
-#, fuzzy, python-format
+#, python-format
 msgid "Deleted Image: %s."
 msgid_plural "Deleted Images: %s."
 msgstr[0] "イメージ %s を削除しました。"
@@ -551,6 +587,9 @@ msgstr "拡張機能 %(extension)s が有効ではありません。"
 msgid "External Network"
 msgstr "外部ネットワーク"
 
+msgid "Filename"
+msgstr "ファイル名"
+
 msgid "Fingerprint"
 msgstr "フィンガープリント"
 
@@ -643,6 +682,11 @@ msgstr ""
 "のインスタンスへのアクセスは非常に限定的なものになります。VNC コンソールから"
 "のみインスタンスにアクセスできます。"
 
+msgid "If not, you can manually dowload this keypair at the following link:"
+msgstr ""
+"自動的にダウンロードされない場合には、次のリンクから手動でこのキーペアをダウ"
+"ンロードできます:"
+
 msgid ""
 "If you select an availability zone and plan to use the 'boot from volume' "
 "option in the Source step, make sure that the availability zone you select "
@@ -711,6 +755,13 @@ msgstr "成功した入力項目"
 msgid "Input warning"
 msgstr "警告のある入力項目"
 
+msgid ""
+"Instance Name\n"
+"          <span></span>"
+msgstr ""
+"インスタンス名\n"
+"          <span></span>"
+
 msgid "Instance Snapshot"
 msgstr "インスタンスのスナップショット"
 
@@ -733,14 +784,45 @@ msgstr "ユーザー情報を参照するのに必要な権限がありません
 msgid "Jumbotron"
 msgstr "ジャンボトロン"
 
+msgid "Kernel ID"
+msgstr "カーネル ID"
+
 msgid "Key Pair"
 msgstr "キーペア"
+
+msgid ""
+"Key Pair Name\n"
+"        <span></span>"
+msgstr ""
+"キーペア名\n"
+"        <span></span>"
 
 msgid "Key Pairs"
 msgstr "キーペア"
 
+msgid ""
+"Key Pairs are how you login to your instance after it is launched.\n"
+"      Choose a key pair name you will recognize and paste your SSH public "
+"key into the\n"
+"      space provided."
+msgstr ""
+"キーペアは、インスタンスの起動後にそのインスタンスへのログインに使用しま"
+"す。\n"
+"自分で認識できるキーペア名を付けて、\n"
+"SSH 公開鍵を指定された欄に貼り付けてください。"
+
+msgid ""
+"Key Pairs are how you login to your instance after it is launched.\n"
+"      Choose a key pair name you will recognize.\n"
+"      Names may only include alphanumeric characters, spaces, or dashes."
+msgstr ""
+"キーペアは、インスタンスの起動後にそのインスタンスにログインするために使用し"
+"ます。\n"
+"自分で認識できるキーペア名を付けてください。\n"
+"名前には、英数字、空白文字、ダッシュを使用することができます。"
+
 msgid "Keypair already exists or name contains bad characters."
-msgstr "キーペアが既に存在するか、名前に使用できない文字が含まれています。"
+msgstr "キーペアがすでに存在するか、名前に使用できない文字が含まれています。"
 
 msgid "Killed"
 msgstr "強制終了"
@@ -750,6 +832,9 @@ msgstr "大きいボタン"
 
 msgid "Large input"
 msgstr "大きな入力項目"
+
+msgid "Launch"
+msgstr "起動"
 
 msgid "Launch Instance"
 msgstr "インスタンスの起動"
@@ -774,6 +859,18 @@ msgstr "グループ一覧のアイテムの見出し"
 
 msgid "List groups"
 msgstr "グループの一覧表示"
+
+msgid "Load Balancer Pool"
+msgstr "ロードバランサープール"
+
+msgid "Load Balancer Pool Member"
+msgstr "ロードバランサープールのメンバー"
+
+msgid "Load Balancer Pool Members"
+msgstr "ロードバランサープールのメンバー"
+
+msgid "Load Balancer Pools"
+msgstr "ロードバランサープール"
 
 msgid "Loading"
 msgstr "読み込み中"
@@ -856,6 +953,30 @@ msgstr "ナビゲーション"
 msgid "Network"
 msgstr "ネットワーク"
 
+msgid "Network Health Monitor"
+msgstr "ネットワークのヘルスモニター"
+
+msgid "Network Health Monitors"
+msgstr "ネットワークのヘルスモニター"
+
+msgid "Network Port"
+msgstr "ネットワークのポート"
+
+msgid "Network Ports"
+msgstr "ネットワークのポート"
+
+msgid "Network Router"
+msgstr "ネットワークのルーター"
+
+msgid "Network Routers"
+msgstr "ネットワークのルーター"
+
+msgid "Network Subnet"
+msgstr "ネットワークのサブネット"
+
+msgid "Network Subnets"
+msgstr "ネットワークのサブネット"
+
 msgid "Network characteristics"
 msgstr "ネットワークの詳細"
 
@@ -889,6 +1010,18 @@ msgstr "OVA"
 msgid "Object"
 msgstr "オブジェクト"
 
+msgid "Object Account"
+msgstr "オブジェクトのアカウント"
+
+msgid "Object Accounts"
+msgstr "オブジェクトのアカウント"
+
+msgid "Object Container"
+msgstr "オブジェクトのコンテナー"
+
+msgid "Object Containers"
+msgstr "オブジェクトのコンテナー"
+
 msgid "Objects"
 msgstr "オブジェクト"
 
@@ -903,6 +1036,12 @@ msgstr "もうひとつの分割されたリンク"
 
 msgid "Other Input Types"
 msgstr "他の入力項目"
+
+msgid "Overview"
+msgstr "概要"
+
+msgid "Owner"
+msgstr "オーナー"
 
 msgid "Pager"
 msgstr "ページャー"
@@ -948,6 +1087,16 @@ msgstr "物理ネットワーク"
 
 msgid "Pills"
 msgstr "ピル"
+
+msgid ""
+"Please provide the initial hostname for the instance, the availability zone "
+"where it will be deployed, and the instance count.\n"
+"    Increase the Count to create multiple instances with the same settings."
+msgstr ""
+"インスタンスの最初のホスト名、インスタンスを配置するアベイラビリティーゾー"
+"ン、作成するインスタンス数を指定してください。\n"
+"同じ設定で複数のインスタンスを作成したい場合はインスタンス数を増やしてくださ"
+"い。"
 
 msgid "Please try again."
 msgstr "もう一度お試しください。"
@@ -1013,6 +1162,13 @@ msgstr "パブリック"
 msgid "Public Key"
 msgstr "公開鍵"
 
+msgid ""
+"Public Key\n"
+"        <span></span>"
+msgstr ""
+"公開鍵\n"
+"        <span></span>"
+
 msgid "QCOW2"
 msgstr "QCOW2"
 
@@ -1028,8 +1184,14 @@ msgstr "RAW"
 msgid "Radios"
 msgstr "ラジオボタン"
 
+msgid "Ramdisk ID"
+msgstr "RAM ディスク ID"
+
 msgid "Re-order items using drag and drop"
 msgstr "順番を並べ替えるには、アイテムをドラッグ＆ドロップしてください。"
+
+msgid "Record Properties"
+msgstr "レコードのプロパティー"
 
 msgid "Remote"
 msgstr "接続相手"
@@ -1051,6 +1213,9 @@ msgstr "保存中"
 
 msgid "Search"
 msgstr "検索"
+
+msgid "Security"
+msgstr "セキュリティー"
 
 msgid "Security Groups"
 msgstr "セキュリティーグループ"
@@ -1108,6 +1273,9 @@ msgstr ""
 "以下の利用可能なグループから、１つ以上のセキュリティーグループを選択してくだ"
 "さい。"
 
+msgid "Select the security groups to launch the instance in."
+msgstr "インスタンスを起動するセキュリティーグループを選択します。"
+
 msgid "Selects"
 msgstr "セレクト"
 
@@ -1130,6 +1298,9 @@ msgstr "設定 %(setting)s が有効になっていません。"
 
 msgid "Shared"
 msgstr "共有"
+
+msgid "Shared with Me"
+msgstr "自分と共有"
 
 msgid "Size"
 msgstr "サイズ"
@@ -1192,6 +1363,9 @@ msgstr "テーブル"
 msgid "Tabs"
 msgstr "タブ"
 
+msgid "Tags"
+msgstr "タグ"
+
 msgid "Tel"
 msgstr "電話"
 
@@ -1234,6 +1408,13 @@ msgid ""
 msgstr ""
 "インスタンス数は、クォータ内で利用できる %(maxInstanceCount)s を上回ってはい"
 "けません。"
+
+msgid ""
+"The maximum number of key-value pairs that can be supplied per instance is "
+"determined by the compute provider."
+msgstr ""
+"1 インスタンスあたりで指定可能なキーと値のペアの最大数はコンピュートのプロバ"
+"イダーによって決定されます。"
 
 #, python-format
 msgid ""
@@ -1308,6 +1489,16 @@ msgstr ""
 "これは、シンプルな突出したユニットで、注目のコンテンツや情報に特別な注意を喚"
 "起するためのシンプルなジャンボトロンスタイルのコンポーネントです。"
 
+msgid "This limit is currently not set."
+msgstr "この上限は、現在設定されていません。"
+
+msgid "This limit is currently set to {$ model.novaLimits.maxServerMeta $}."
+msgstr ""
+"この上限は、現在 {$ model.novaLimits.maxServerMeta $} に指定されています。"
+
+msgid "This step allows you to add Metadata items to your instance."
+msgstr "このステップで、インスタンスにメタデータ項目を追加することができます。"
+
 msgid "Time"
 msgstr "時刻"
 
@@ -1352,8 +1543,29 @@ msgstr ""
 msgid "Typography"
 msgstr "タイポグラフィ"
 
+msgid "Unable to allocate new floating IP address."
+msgstr "新しい Floating IP アドレスを確保できません。"
+
+msgid "Unable to associate floating IP address."
+msgstr "Floating IP アドレスを割り当てできません。"
+
+msgid "Unable to change the container access."
+msgstr "コンテナーのアクセス権を変更できません。"
+
+msgid "Unable to copy the object."
+msgstr "オブジェクトをコピーできません。"
+
+msgid "Unable to create the container."
+msgstr "コンテナーを作成できません。"
+
 msgid "Unable to create the domain."
 msgstr "ドメインを作成できません。"
+
+msgid "Unable to create the flavor."
+msgstr "フレーバーを作成できません。"
+
+msgid "Unable to create the folder."
+msgstr "フォルダーを作成できません。"
 
 msgid "Unable to create the image."
 msgstr "イメージを作成できません。"
@@ -1382,16 +1594,32 @@ msgstr "ユーザーを作成できません。"
 msgid "Unable to create the volume."
 msgstr "ボリュームを作成できません。"
 
-#, fuzzy, python-format
+#, python-format
 msgid "Unable to delete Image: %s."
 msgid_plural "Unable to delete Images: %s."
 msgstr[0] "イメージを削除できません: %s"
+
+msgid "Unable to delete the container."
+msgstr "コンテナーを削除できません。"
 
 msgid "Unable to delete the domain."
 msgstr "ドメインを削除できません。"
 
 msgid "Unable to delete the domains."
 msgstr "ドメインを削除できません。"
+
+msgid "Unable to delete the flavor with id: "
+msgstr "次の ID のフレーバーを削除できません: "
+
+msgid "Unable to delete the folder because it is not empty."
+msgstr "空ではないため、フォルダーを削除できません。"
+
+#, python-format
+msgid "Unable to delete the image with id: %(id)s"
+msgstr "次の ID のイメージを削除できません: %(id)s"
+
+msgid "Unable to delete the object."
+msgstr "オブジェクトを削除できません。"
 
 msgid "Unable to delete the project."
 msgstr "プロジェクトを削除できません。"
@@ -1410,6 +1638,9 @@ msgstr "ユーザーを削除できません。"
 
 msgid "Unable to delete the users."
 msgstr "ユーザーを削除できません。"
+
+msgid "Unable to disassociate floating IP address."
+msgstr "Floating IP アドレスの割り当てを解除できません。"
 
 msgid "Unable to edit instance metadata."
 msgstr "インスタンスのメタデータを編集できません。"
@@ -1444,17 +1675,38 @@ msgstr "サービスの一覧を取得できません"
 msgid "Unable to generate"
 msgstr "生成できません"
 
+msgid "Unable to get details of the object."
+msgstr "オブジェクトの詳細を取得できません。"
+
 msgid "Unable to get the Glance service version."
 msgstr "Glance のサービスバージョンを取得できません。"
 
 msgid "Unable to get the Keystone service version."
 msgstr "Keystone のサービスバージョンを取得できません。"
 
+msgid "Unable to get the Swift container listing."
+msgstr "Swift コンテナーの一覧を取得できません。"
+
+msgid "Unable to get the Swift service info."
+msgstr "Swift サービスの情報を取得できません。"
+
+msgid "Unable to get the container details."
+msgstr "コンテナーの詳細を取得できません。"
+
+msgid "Unable to get the objects in container."
+msgstr "コンテナーのオブジェクト一覧を取得できません。"
+
 msgid "Unable to grant the role."
 msgstr "ロールを許可できません。"
 
 msgid "Unable to import the keypair."
 msgstr "キーペアをインポートできません。"
+
+msgid "Unable to retrieve floating IP pools."
+msgstr "Floating IP プールを取得できません。"
+
+msgid "Unable to retrieve floating IPs."
+msgstr "Floating IP を取得できません。"
 
 msgid "Unable to retrieve instance metadata."
 msgstr "インスタンスのメタデータを取得できません。"
@@ -1582,11 +1834,20 @@ msgstr "ボリューム情報を取得できません。"
 msgid "Unable to retrieve the volumes."
 msgstr "ボリュームの一覧を取得できません。"
 
+msgid "Unable to update the flavor."
+msgstr "フレーバーを更新できません。"
+
 msgid "Unable to update the image."
 msgstr "イメージを更新できません。"
 
+msgid "Unable to upload the object."
+msgstr "オブジェクトをアップロードできません。"
+
 msgid "Unable to validate the template."
 msgstr "テンプレートを検証できません。"
+
+msgid "Unknown"
+msgstr "不明"
 
 msgid "Up"
 msgstr "動作中"
@@ -1602,6 +1863,9 @@ msgstr "イメージメタデータの更新"
 
 msgid "Update Instance Metadata"
 msgstr "インスタンスのメタデータの更新"
+
+msgid "Update Metadata"
+msgstr "メタデータの更新"
 
 msgid "Updated"
 msgstr "更新時刻"
@@ -1627,11 +1891,24 @@ msgstr "仮想 CPU"
 msgid "VDI"
 msgstr "VDI"
 
+msgid "VHD"
+msgstr "VHD"
+
+msgid "VMDK"
+msgstr "VMDK"
+
+msgid "Virtual Size"
+msgstr "仮想サイズ"
+
 msgid "Visibility"
 msgstr "公開範囲"
 
 msgid "Volume"
 msgstr "ボリューム"
+
+#, python-format
+msgid "Volume %s was successfully created."
+msgstr "ボリューム %s が正常に作成されました。"
 
 msgid "Volume Backup"
 msgstr "ボリュームバックアップ"
@@ -1642,6 +1919,16 @@ msgstr "ボリュームバックアップ"
 msgid "Volume Details"
 msgstr "ボリュームの詳細"
 
+msgid "Volume Quota"
+msgstr "ボリュームのクォータ"
+
+msgid ""
+"Volume Size (GB)\n"
+"              <span></span>"
+msgstr ""
+"ボリュームサイズ (GB)\n"
+"              <span></span>"
+
 msgid "Volume Snapshot"
 msgstr "ボリュームスナップショット"
 
@@ -1650,6 +1937,9 @@ msgstr "ボリュームスナップショット"
 
 msgid "Volume Type Description:"
 msgstr "ボリューム種別の説明:"
+
+msgid "Volume and Snapshot Quota (GB)"
+msgstr "ボリュームとスナップショットのクォータ (GB)"
 
 msgid "Volume size is required and must be an integer"
 msgstr "ボリュームサイズは必須で、整数でなければなりません。"
@@ -1715,11 +2005,45 @@ msgstr ""
 "リューのペアのコレクションです。メタデータのキーとバリューの最大長は、それぞ"
 "れ 255 文字です。"
 
+msgid ""
+"You can customize your instance after it has launched using the options "
+"available here.\n"
+"    \"Customization Script\" is analogous to \"User Data\" in other systems."
+msgstr ""
+"ここにあるオプションを使って、インスタンス起動後にインスタンスをカスタマイズ"
+"することができます。\n"
+"「カスタマイズスクリプト」は他のシステムの「ユーザーデータ」と同じです。"
+
+#, python-format
+msgid "You have selected \"%s\". Deleted image is not recoverable."
+msgid_plural "You have selected \"%s\". Deleted images are not recoverable."
+msgstr[0] "\"%s\" を選択しました。削除されたイメージは元に戻せません。"
+
+msgid "error"
+msgid_plural "errors"
+msgstr[0] "エラー"
+
 msgid "image"
 msgstr "イメージ"
 
+msgid "message"
+msgid_plural "messages"
+msgstr[0] "メッセージ"
+
 msgid "snapshot"
 msgstr "スナップショット"
+
+msgid "submit"
+msgid_plural "submits"
+msgstr[0] "送信"
+
+msgid "success"
+msgid_plural "successs"
+msgstr[0] "成功"
+
+msgid "title"
+msgid_plural "titles"
+msgstr[0] "タイトル"
 
 msgid "{$ row['provider:network_type'] $}"
 msgstr "{$ row['provider:network_type'] $}"

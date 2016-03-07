@@ -5,21 +5,34 @@
 # Translators:
 # Evelijn Saaltink <evelijnsaaltink@gmail.com>, 2015
 # OpenStack Infra <zanata@openstack.org>, 2015. #zanata
+# Joris S'heeren <joris.sheeren@gmail.com>, 2016. #zanata
 msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2016-01-31 10:08+0000\n"
+"POT-Creation-Date: 2016-03-04 08:38+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2015-08-20 05:13+0000\n"
-"Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
+"PO-Revision-Date: 2016-03-04 12:43+0000\n"
+"Last-Translator: Joris S'heeren <joris.sheeren@gmail.com>\n"
 "Language: nl-NL\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "Generated-By: Babel 2.0\n"
 "X-Generator: Zanata 3.7.3\n"
 "Language-Team: Dutch (Netherlands)\n"
+
+#, python-format
+msgid ""
+"\n"
+"                Login as different user or go back to <a href=\"%(home_url)s"
+"\">home page</a>\n"
+"              "
+msgstr ""
+"\n"
+"                Meldt u zich aan als een andere gebruiker of ga terug naar "
+"<a href=\"%(home_url)s\">thuis</a>\n"
+"              "
 
 #, python-format
 msgid ""
@@ -149,6 +162,9 @@ msgstr "Ongeldige versie voor IP adres"
 msgid "Limit Summary"
 msgstr "Beperk samenvatting"
 
+msgid "Log in"
+msgstr "Aanmelden"
+
 msgid "Login"
 msgstr "Aanmelden"
 
@@ -166,6 +182,9 @@ msgstr "Nooit"
 
 msgid "Next"
 msgstr "Volgende"
+
+msgid "Next&nbsp;&raquo;"
+msgstr "Volgende&nbsp;&raquo;"
 
 msgid "No items to display."
 msgstr "Geen artikelen om weer te geven."
@@ -225,6 +244,9 @@ msgstr "Samenvatting"
 
 msgid "The date should be in YYYY-mm-dd format."
 msgstr "De datum dient in het JJJJ-mm-dd formaat te zijn."
+
+msgid "This action cannot be undone."
+msgstr "Deze actie kan niet ongedaan worden gemaakt."
 
 #, python-format
 msgid "Unable to %(action)s: %(objs)s"

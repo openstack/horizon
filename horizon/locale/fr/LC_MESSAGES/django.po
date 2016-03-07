@@ -18,11 +18,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2016-03-04 04:21+0000\n"
+"POT-Creation-Date: 2016-03-04 08:38+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2016-03-03 10:24+0000\n"
+"PO-Revision-Date: 2016-03-05 02:00+0000\n"
 "Last-Translator: Gérald LONLAS <g.lonlas@gmail.com>\n"
 "Language: fr\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
@@ -40,6 +40,27 @@ msgstr ""
 "\n"
 "                Connectez-vous avec un autre nom d'utilisateur ou revenez à "
 "<a href=\"%(home_url)s\">home page</a>\n"
+"              "
+
+#, python-format
+msgid ""
+"\n"
+"                Used <span> %(used)s </span>(No Limit)\n"
+"              "
+msgstr ""
+"\n"
+"                <span> %(used)s </span>utilisé(es) (Pas de limite)\n"
+"              "
+
+#, python-format
+msgid ""
+"\n"
+"                Used <span> %(used)s </span>of<span> %(available)s </span>\n"
+"              "
+msgstr ""
+"\n"
+"               <span> %(used)s </span>sur<span> %(available)s </span> "
+"utilisé(es)\n"
 "              "
 
 #, python-format
@@ -162,6 +183,18 @@ msgstr "Disponible"
 msgid "Back"
 msgstr "Retour"
 
+#, fuzzy
+msgid "Batch Item"
+msgid_plural "Batch Items"
+msgstr[0] "Batch d'un élément"
+msgstr[1] "Batch d'éléments"
+
+#, fuzzy
+msgid "Batched Item"
+msgid_plural "Batched Items"
+msgstr[0] "Élément mis en batch"
+msgstr[1] "Éléments mis en batch"
+
 msgid "Cancel"
 msgstr "Annuler"
 
@@ -191,6 +224,16 @@ msgid "Displaying %(nav_items)s item"
 msgid_plural "Displaying %(nav_items)s items"
 msgstr[0] "Affichage de l'élément %(nav_items)s"
 msgstr[1] "Affichage des éléments %(nav_items)s"
+
+msgid "Down Item"
+msgid_plural "Down Items"
+msgstr[0] "Descendre l'élément"
+msgstr[1] "Descendre les éléments"
+
+msgid "Downed Item"
+msgid_plural "Downed Items"
+msgstr[0] "Élément descendu"
+msgstr[1] "Éléments descendus"
 
 #, fuzzy, python-format
 msgid "Error processing message json file '%(path)s': %(exception)s"
@@ -236,6 +279,10 @@ msgstr "Identifiant"
 
 msgid "Members"
 msgstr "Membres"
+
+#, fuzzy, python-format
+msgid "Message json file '%(path)s' is malformed. %(exception)s"
+msgstr "Fichier JSON '%(path)s' mal formaté. %(exception)s"
 
 msgid "More Actions"
 msgstr "Plus d'actions"
@@ -327,6 +374,16 @@ msgstr "La date doit être au format AAAA-mm-jj"
 msgid "The string may only contain ASCII printable characters."
 msgstr "La chaîne ne peut contenir que des caractères ASCII imprimables."
 
+#, python-format
+msgid ""
+"The value of %(resource)s is %(name)s inside the template. When launching a "
+"stack from this interface, the value must start with \"http://\" or "
+"\"https://\""
+msgstr ""
+"La valeur de %(resource)s est %(name)s à l'intérieur du template. Quand vous "
+"lancez une stack depuis l'interface, la valeur doit commencer par \"http://"
+"\" ou \"https://\""
+
 msgid "This Period's GB-Hours:"
 msgstr "GB-Heures de cette période :"
 
@@ -349,6 +406,26 @@ msgstr "Accès non autorisé. Merci de vous reconnecter."
 #, python-format
 msgid "Unauthorized: %s"
 msgstr "%s : non autorisé"
+
+msgid "Up Item"
+msgid_plural "Up Items"
+msgstr[0] "Remonter l'élément"
+msgstr[1] "Remonter les éléments"
+
+msgid "Update Item"
+msgid_plural "Update Items"
+msgstr[0] "Mise à jour de l'élément"
+msgstr[1] "Mise à jour des éléments"
+
+msgid "Updated Item"
+msgid_plural "Updated Items"
+msgstr[0] "Élément mis à jour"
+msgstr[1] "Éléments mis à jour"
+
+msgid "Upped Item"
+msgid_plural "Upped Items"
+msgstr[0] "Élément remonté"
+msgstr[1] "Éléments remontés"
 
 msgid "Usage Summary"
 msgstr "Résumé de l'Utilisation"

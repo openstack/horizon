@@ -6,16 +6,17 @@
 # Evelijn Saaltink <evelijnsaaltink@gmail.com>, 2015
 # Roeltje, 2015
 # OpenStack Infra <zanata@openstack.org>, 2015. #zanata
+# Joris S'heeren <joris.sheeren@gmail.com>, 2016. #zanata
 msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-12-02 23:42+0000\n"
+"POT-Creation-Date: 2016-03-04 08:38+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2015-09-02 06:44+0000\n"
-"Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
+"PO-Revision-Date: 2016-03-04 01:06+0000\n"
+"Last-Translator: Joris S'heeren <joris.sheeren@gmail.com>\n"
 "Language: nl-NL\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "Generated-By: Babel 2.0\n"
@@ -41,6 +42,15 @@ msgstr "%s TB"
 #, python-format
 msgid "%s bytes"
 msgstr "%s bytes"
+
+msgid "-"
+msgstr "-"
+
+msgid "0 GB"
+msgstr "0 GB"
+
+msgid "0 MB"
+msgstr "0 MB"
 
 msgid "Active"
 msgstr "Actief"
@@ -136,6 +146,9 @@ msgstr "Fout"
 msgid "Error: "
 msgstr "Fout: "
 
+msgid "Example"
+msgstr "Voorbeeld"
+
 msgid "Existing Metadata"
 msgstr "Bestaande Metadata"
 
@@ -181,6 +194,9 @@ msgstr "Volgende"
 msgid "No"
 msgstr "Nee"
 
+msgid "No Limit"
+msgstr "Geen limiet"
+
 msgid "No available items"
 msgstr "Geen beschikbare items"
 
@@ -219,6 +235,9 @@ msgstr "Wachtwoorden komen niet overeen."
 
 msgid "Please confirm your selection. "
 msgstr "Bevestig uw selectie."
+
+msgid "Remaining"
+msgstr "Overgebleven"
 
 msgid "Remove"
 msgstr "Verwijderen"
@@ -269,6 +288,9 @@ msgstr ""
 
 msgid "Total"
 msgstr "Totaal"
+
+msgid "Unlimited"
+msgstr "Onbeperkt"
 
 msgid "View Details"
 msgstr "Bekijk Details"

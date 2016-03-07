@@ -20,11 +20,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2016-03-02 17:22+0000\n"
+"POT-Creation-Date: 2016-03-04 08:39+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2016-03-02 01:22+0000\n"
+"PO-Revision-Date: 2016-03-06 02:34+0000\n"
 "Last-Translator: Ian Y. Choi <ianyrchoi@gmail.com>\n"
 "Language: ko-KR\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
@@ -348,6 +348,15 @@ msgstr "- 끝"
 msgid " : Next hop"
 msgstr ": 다음 hop"
 
+msgid ""
+" A protocol entry contains information that dictates which mapping rules to "
+"use for a given incoming request. An Identity Provider may have multiple "
+"supported protocols."
+msgstr ""
+"각 프로토콜 항목은 주어진 유입 요청에 대한 사용을 위한 규칙을 맵핑하도록 지시"
+"하는 정보를 포함합니다. Identity 제공자는 여러 지원하는 프로토콜을 가질 수 있"
+"습니다."
+
 #, python-format
 msgid " Also failed to delete port %s"
 msgstr "포트 %s 제거 또한 실패하였습니다"
@@ -525,6 +534,17 @@ msgid "A local template to upload."
 msgstr "업로드할 로컬 템플릿."
 
 msgid ""
+"A mapping is a set of rules to map federation protocol attributes to "
+"Identity API objects. An identity provider can have a single mapping "
+"specified per protocol. A mapping is simply a list of rules. The only "
+"Identity API objects that will support mapping are: user and group."
+msgstr ""
+"맵핑은 페러데이션 프로토콜 속성과 Identity API 개체를 서로 연결하기 위한 규"
+"칙 집합입니다. Identity 제공자는 프로토콜 당 구체화를 한 단일 맵핑을 가질 수 "
+"있습니다. 맵핑은 단순히 규칙에 대한 목록입니다. Identity API 개체에서 지원하"
+"는 맵핑은 user 및 group만 있습니다."
+
+msgid ""
 "A more specific rule affects a portion of this traffic so a rule cannot be "
 "automatically generated to control the behavior of the entire source/"
 "destination combination."
@@ -534,6 +554,11 @@ msgstr ""
 
 msgid "A new uploaded file will replace the content of the current object"
 msgstr "새로 업로드된 파일은 지금 오브젝트 내용을 대체합니다."
+
+msgid ""
+"A rule contains a remote attribute description and the destination local "
+"attribute."
+msgstr "규칙은 원격 속성에 대한 설명과 목적지에 대한 로컬 속성을 포함합니다."
 
 msgid ""
 "A script or set of commands to be executed after the instance has been built "
@@ -1505,11 +1530,8 @@ msgstr ""
 msgid "Cipher"
 msgstr "암호화 방식"
 
-#, fuzzy
 msgid "Classless Inter-Domain Routing (e.g. 192.168.0.0/24, or 2001:db8::/128)"
-msgstr ""
-"내부 도메인 라우팅 클래스가 정해지지 않았습니다. (예. 192.168.0.0/24, or "
-"2001:db8::/128)"
+msgstr "Classless Inter-Domain Routing (예: 192.168.0.0/24 또는2001:db8::/128)"
 
 msgid "Clear Domain Context"
 msgstr "도메인 컨텍스트 삭제"
@@ -1874,15 +1896,82 @@ msgstr "볼륨 이전 생성"
 msgid "Create a Volume Type"
 msgstr "볼륨 유형 생성"
 
+msgid ""
+"Create a firewall based on a policy.\n"
+"\n"
+"A firewall represents a logical firewall resource that a tenant can "
+"instantiate and manage. A firewall must be associated with one policy, all "
+"other fields are optional."
+msgstr ""
+"정책에 기반하여 방화벽을 생성합니다.\n"
+"\n"
+"방화벽은 tenant 단위로 인스턴스로 생성하여 관리할 수 있는 논리적인 방화벽 자"
+"원을 나타냅니다. 방화벽은 정책 하나와 반드시 연관을 지어야 하며, 그 외 다른 "
+"필드들은 선택 사항입니다."
+
+msgid ""
+"Create a firewall policy with an ordered list of firewall rules.\n"
+"\n"
+"A firewall policy is an ordered collection of firewall rules. So if the "
+"traffic matches the first rule, the other rules are not executed. If the "
+"traffic does not match the current rule, then the next rule is executed. A "
+"firewall policy has the following attributes:\n"
+"\n"
+"<li>Shared: A firewall policy can be shared across tenants. Thus it can also "
+"be made part of an audit workflow wherein the firewall policy can be audited "
+"by the relevant entity that is authorized.</li><li>Audited: When audited is "
+"set to True, it indicates that the firewall policy has been audited. Each "
+"time the firewall policy or the associated firewall rules are changed, this "
+"attribute will be set to False and will have to be explicitly set to True "
+"through an update operation.</li>\n"
+"The name field is required, all others are optional."
+msgstr ""
+"방화벽 정책을 방화벽 규칙에 대한 정렬된 목록과 함께 생성합니다.\n"
+"\n"
+"방화벽 정책은 방화벽 규칙을 순서에 맞게 배치한 집합입니다. 따라서 트래픽이 "
+"첫 번째 규칙과 매칭되는 경우, 다른 규칙들은 실행되지 않습니다. 트래픽이 현재 "
+"규칙과 매칭이 되지 않는 경우에는, 다음 규칙이 실행됩니다. 방화벽 정책은 다음 "
+"속성을 가집니다:\n"
+"\n"
+"<li>Shared: 방화벽 정책은 tenant에 걸쳐 공유될 수 있습니다. 따라서 이는 방화"
+"벽 정책이 인증된 적절한 엔티티에 의해 감사가 이루어지는 위치에서 감사 워크플"
+"로우에 대한 특정 부분을 구성할 수 있습니다.</li><li>Audited: 해당 속성이 True"
+"로 설정되면, 해당 방화벽 정책에 대해 감사가 이루어짐을 가리킵니다. 방화벽 정"
+"책 또는 연관된 방화벽 규칙이 변경될 때마다 해당 속성은 False로 설정된 후 갱"
+"신 작업이 이루어진 다음 명확히 True로 설정될 것입니다.</li>\n"
+"name 필드는 필수이며, 그 외는 선택 사항입니다."
+
+msgid ""
+"Create a firewall rule.\n"
+"\n"
+"A Firewall rule is an association of the following attributes:\n"
+"\n"
+"<li>IP Addresses: The addresses from/to which the traffic filtration needs "
+"to be applied.</li><li>IP Version: The type of IP packets (IP V4/V6) that "
+"needs to be filtered.</li><li>Protocol: Type of packets (UDP, ICMP, TCP, "
+"Any) that needs to be checked.</li><li>Action: Action is the type of "
+"filtration required, it can be Reject/Deny/Allow data packets.</li>\n"
+"The protocol and action fields are required, all others are optional."
+msgstr ""
+"방화벽 규칙을 생성합니다.\n"
+"\n"
+"방화벽 규칙은 다음 속성과 연관되어 있습니다:\n"
+"\n"
+"<li>IP 주소: 트래픽 필터링이 적용될 필요가 있는 들어오는/나가는 주소입니다.</"
+"li><li>IP 버전: 필터링을 필요로 하는 IP 패킷에 대한 유형입니다 (IP V4/V6).</"
+"li><li>프로토콜: 확인될 필요가 있는 패킷에 대한 유형입니다 (UDP, ICMP, TCP, "
+"Any).</li><li>액션: 액션은 필요로 하는 필터링에 대한 유형으로, 데이터 패킷에 "
+"대해 Reject/Deny/Allow 가 될 수 있습니다.</li>\n"
+"프로토콜 및 애견 필드는 필수이며, 그 외는 선택 사항입니다."
+
 msgid "Create a firewall with selected routers."
 msgstr "선택된 라우터와 함께 방화벽 생성합니다."
 
 msgid "Create a identity provider protocol."
 msgstr "Identity 제공자 프로토콜을 생성합니다."
 
-#, fuzzy
 msgid "Create a mapping."
-msgstr "맵핑 생성"
+msgstr "맵핑을 생성합니다."
 
 msgid ""
 "Create a monitor template.\n"
@@ -2453,7 +2542,7 @@ msgstr[0] "키 페어 삭제함"
 
 msgid "Deleted Mapping"
 msgid_plural "Deleted Mappings"
-msgstr[0] "맵핑 삭제됨"
+msgstr[0] "삭제된 맵핑"
 
 msgid "Deleted Namespace"
 msgid_plural "Deleted Namespaces"
@@ -3020,7 +3109,6 @@ msgstr "이미지 세부 정보를 수정합니다."
 msgid "Edit the instance details."
 msgstr "인스턴스 상세 정보를 편집할 수 있습니다."
 
-#, fuzzy
 msgid "Edit the mapping's details."
 msgstr "맵핑에 대한 세부 정보를 편집합니다."
 
@@ -3936,15 +4024,27 @@ msgstr "HTTPS"
 
 msgctxt "Current status of an Instance"
 msgid "Hard Reboot"
-msgstr "Hard Reboot"
+msgstr "Hard 리부트"
 
 msgid "Hard Reboot Instance"
 msgid_plural "Hard Reboot Instances"
-msgstr[0] "인스턴스 하드 재시작"
+msgstr[0] "인스턴스 하드 리부트"
+
+msgctxt "Task status of an Instance"
+msgid "Hard Reboot Pending"
+msgstr "Hard 리부트 지연됨"
+
+msgctxt "Task status of an Instance"
+msgid "Hard Reboot Started"
+msgstr "Hard 리부트 시작됨"
 
 msgid "Hard Rebooted Instance"
 msgid_plural "Hard Rebooted Instances"
-msgstr[0] "인스턴스 하드 재시작함"
+msgstr[0] "하드 리부트된 인스턴스"
+
+msgctxt "Task status of an Instance"
+msgid "Hard Rebooting"
+msgstr "Hard 리부팅"
 
 msgid "Hash"
 msgstr "해시"
@@ -4066,9 +4166,8 @@ msgstr "IP 프로토콜"
 msgid "IP Version"
 msgstr "IP 버전"
 
-#, fuzzy
 msgid "IP Version for Firewall Rule"
-msgstr "방화벽 rule에 대한 IP 버전"
+msgstr "방화벽 규칙에 대한 IP 버전"
 
 msgid "IP address"
 msgstr "IP 주소"
@@ -4810,15 +4909,13 @@ msgstr "수동"
 msgid "Mapped Fixed IP Address"
 msgstr "고정 IP 주소 맵핑함"
 
-#, fuzzy
 msgid "Mapping ID"
-msgstr "매핑 ID"
+msgstr "맵핑 ID"
 
 #, python-format
 msgid "Mapping ID \"%s\" is already used."
 msgstr "맵핑 ID \"%s\"는 이미 사용 중입니다."
 
-#, fuzzy
 msgid "Mapping created successfully."
 msgstr "맵핑을 성공적으로 생성하였습니다."
 
@@ -6078,14 +6175,12 @@ msgstr "RAM (사용중)"
 msgid "RAM(Available: %(avail)s, Requested: %(req)s)"
 msgstr "RAM(사용: %(avail)s, 요청: %(req)s)"
 
-#, fuzzy
 msgid "REJECT"
-msgstr "거절"
+msgstr "REJECT"
 
-#, fuzzy
 msgctxt "Action Name of a Firewall Rule"
 msgid "REJECT"
-msgstr "거절"
+msgstr "REJECT"
 
 msgid "RX/TX Factor"
 msgstr "RX/TX 요인"
@@ -6213,7 +6308,7 @@ msgid ""
 "list will be set to empty."
 msgstr ""
 "원격 ID는 Identity 제공자와 연관되어 있으며 전체적으로 유일합니다. 이는 페더"
-"레이션 프로토콜 속성과 Identity API 개체와의 매핑을 위해 사용하는 헤더 속성"
+"레이션 프로토콜 속성과 Identity API 개체와의 맵핑을 위해 사용하는 헤더 속성"
 "을 가리킵니다. 만약 제공되는 값이 없는 경우, 해당 목록은 빈 상태로 설정될 것"
 "입니다."
 
@@ -6258,6 +6353,13 @@ msgstr[0] "유저 삭제"
 msgid "Removed User"
 msgid_plural "Removed Users"
 msgstr[0] "유저 삭제함"
+
+msgid ""
+"Removing a key pair can leave OpenStack resources orphaned. You should not "
+"remove a key pair unless you are certain it is not being used anywhere."
+msgstr ""
+"키 페어를 제거하면 OpenStack 자원이 orphan된 채로 남겨질 수 있습니다. 특정한 "
+"곳에서 사용되고 있는 경우에는 키 페어를 제거해서는 안됩니다."
 
 msgid "Report Bug"
 msgstr "버그 보고"
@@ -6558,7 +6660,7 @@ msgid "Rule:"
 msgstr "규칙:"
 
 msgid "Rules"
-msgstr "Rules"
+msgstr "규칙"
 
 msgid ""
 "Rules define which traffic is allowed to instances assigned to the security "
@@ -6727,9 +6829,8 @@ msgstr "이미지 선택"
 msgid "Select Instance Snapshot"
 msgstr "인스턴스 스냅샷 선택"
 
-#, fuzzy
 msgid "Select Mapping"
-msgstr "매핑 선택"
+msgstr "맵핑 선택"
 
 msgid "Select Network"
 msgstr "네트워크 선택"
@@ -6963,6 +7064,11 @@ msgstr "활성 프로젝트로 설정"
 
 msgid "Set maximum quotas for the project."
 msgstr "프로젝트의 최대 quota를 설정합니다."
+
+msgid ""
+"Set of rules to map federation protocol attributes to Identity API objects."
+msgstr ""
+"페더레이션 프로토콜 속성을 Identity API 개체와 맵핑하기 위한 규칙 집합."
 
 msgid "Settings"
 msgstr "설정"
@@ -8328,10 +8434,10 @@ msgid "Unable to create key pair: %(exc)s"
 msgstr "키 페어를 생성할 수 없습니다: %(exc)s"
 
 msgid "Unable to create mapping."
-msgstr "맵핑을 생성 할 수 없습니다."
+msgstr "맵핑을 생성할 수 없습니다."
 
 msgid "Unable to create mapping. Rules has malformed JSON data."
-msgstr "맵핑을 생성 할 수 없습니다. 잘못된 형식의 JSON 데이터입니다."
+msgstr "맵핑을 생성할 수 없습니다. 잘못된 형식의 JSON 데이터입니다."
 
 #, python-format
 msgid "Unable to create network \"%s\"."
@@ -8939,9 +9045,8 @@ msgstr "키 페어를 찾지 못 했습니다."
 msgid "Unable to retrieve limit information."
 msgstr "최대 사용량 정보를 찾지 못 했습니다."
 
-#, fuzzy
 msgid "Unable to retrieve list of routers."
-msgstr "라우터의 목록을 찾지 못했습니다."
+msgstr "라우터의 목록을 가져올 수 없습니다."
 
 msgid "Unable to retrieve list of security groups"
 msgstr "시큐리티 그룹 목록을 찾지 못 했습니다."
@@ -8953,7 +9058,7 @@ msgid "Unable to retrieve list of volumes."
 msgstr "볼륨 목록을 찾지 못 했습니다."
 
 msgid "Unable to retrieve mapping list."
-msgstr "맵핑 목록을 찾지 못했습니다."
+msgstr "맵핑 목록을 가져올 수 없습니다."
 
 msgid "Unable to retrieve member details."
 msgstr "멤버 세부 정보를 찾지 못 했습니다."
@@ -9718,6 +9823,9 @@ msgstr "사용자 암호를 성공적으로 업데이트 했습니다."
 
 msgid "User-defined unique id to identify the identity provider."
 msgstr "Identity 제공자에 인증하기 위한 사용자 정의 고유 id"
+
+msgid "User-defined unique id to identify the mapping."
+msgstr "맵핑을 식별하기 위한 사용자 정의 고유 id입니다."
 
 msgid "Users"
 msgstr "사용자"

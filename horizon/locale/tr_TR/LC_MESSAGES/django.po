@@ -8,21 +8,55 @@
 # sercanaydogan <sercanaydogan@gmail.com>, 2014
 # Mücahit Büyükyılmaz <mucahit@deltanoc.com>, 2015. #zanata
 # Steve Kowalik <steven@wedontsleep.org>, 2015. #zanata
+# Mücahit Büyükyılmaz <mucahit@deltanoc.com>, 2016. #zanata
 msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2016-01-31 10:08+0000\n"
+"POT-Creation-Date: 2016-03-04 08:38+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2015-10-06 02:02+0000\n"
+"PO-Revision-Date: 2016-03-04 01:36+0000\n"
 "Last-Translator: Mücahit Büyükyılmaz <mucahit@deltanoc.com>\n"
 "Language: tr-TR\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 "Generated-By: Babel 2.0\n"
 "X-Generator: Zanata 3.7.3\n"
 "Language-Team: Turkish (Turkey)\n"
+
+#, python-format
+msgid ""
+"\n"
+"                Login as different user or go back to <a href=\"%(home_url)s"
+"\">home page</a>\n"
+"              "
+msgstr ""
+"\n"
+"                Farklı bir kullanıcı olarak giriş yapın veya <a href="
+"\"%(home_url)s\">Ana Sayfaya</a> dönün\n"
+"              "
+
+#, python-format
+msgid ""
+"\n"
+"                Used <span> %(used)s </span>(No Limit)\n"
+"              "
+msgstr ""
+"\n"
+"                <span> %(used)s </span>(Sınırsız) Kullanımda\n"
+"              "
+
+#, python-format
+msgid ""
+"\n"
+"                Used <span> %(used)s </span>of<span> %(available)s </span>\n"
+"              "
+msgstr ""
+"\n"
+"                <span> %(used)s </span>/<span> %(available)s </"
+"span>kullanımda\n"
+"              "
 
 #, python-format
 msgid ""
@@ -174,6 +208,18 @@ msgid_plural "Displaying %(nav_items)s items"
 msgstr[0] "%(nav_items)s öge görüntüleniyor"
 msgstr[1] "%(nav_items)s öge görüntüleniyor"
 
+msgid "Down Item"
+msgid_plural "Down Items"
+msgstr[0] "Öğeyi Duraklat"
+
+msgid "Downed Item"
+msgid_plural "Downed Items"
+msgstr[0] "Duraklatılan Öğe"
+
+#, python-format
+msgid "Error processing message json file '%(path)s': %(exception)s"
+msgstr "Json mesaj dosyası işlenirken hata oluştu. '%(path)s': %(exception)s "
+
 msgid "Error: "
 msgstr "Hata:"
 
@@ -205,11 +251,18 @@ msgstr "Geçersiz IP adres versiyonu"
 msgid "Limit Summary"
 msgstr "Özeti Sınırla"
 
+msgid "Log in"
+msgstr "Giriş"
+
 msgid "Login"
 msgstr "Giriş"
 
 msgid "Members"
 msgstr "Üyeler"
+
+#, python-format
+msgid "Message json file '%(path)s' is malformed. %(exception)s"
+msgstr "Json mesaj dosyası '%(path)s' hatalı. %(exception)s"
 
 msgid "More Actions"
 msgstr "Diğer İşlemler"
@@ -303,6 +356,15 @@ msgstr "Tarih YYYY-AA-GG formatında olmalı."
 msgid "The string may only contain ASCII printable characters."
 msgstr "Metin sadece yazdırılabilir ASCII karakterleri içerebilir."
 
+#, python-format
+msgid ""
+"The value of %(resource)s is %(name)s inside the template. When launching a "
+"stack from this interface, the value must start with \"http://\" or "
+"\"https://\""
+msgstr ""
+"Bu arayüz üzerinde yeni bir küme başlatırken, template içerisindeki %(name)s "
+"isimli %(resource)s \"http://\" veya \"https://\" ile başlamalıdır."
+
 msgid "This Period's GB-Hours:"
 msgstr "Bu periyodda kullanılan GB-Saat"
 
@@ -325,6 +387,22 @@ msgstr "Yetkisiz Giriş. Lütfen tekrar oturum açınız. "
 #, python-format
 msgid "Unauthorized: %s"
 msgstr "Yetkisiz: %s"
+
+msgid "Up Item"
+msgid_plural "Up Items"
+msgstr[0] "Öğeyi Sürdür"
+
+msgid "Update Item"
+msgid_plural "Update Items"
+msgstr[0] "Öğeyi Güncelle"
+
+msgid "Updated Item"
+msgid_plural "Updated Items"
+msgstr[0] "Güncellenen Öğe"
+
+msgid "Upped Item"
+msgid_plural "Upped Items"
+msgstr[0] "Sürdürülen Öğe"
 
 msgid "Usage Summary"
 msgstr "Kullanım Özeti"

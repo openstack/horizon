@@ -8,15 +8,16 @@
 # sercanaydogan <sercanaydogan@gmail.com>, 2014
 # Mücahit Büyükyılmaz <mucahit@deltanoc.com>, 2015. #zanata
 # Steve Kowalik <steven@wedontsleep.org>, 2015. #zanata
+# Mücahit Büyükyılmaz <mucahit@deltanoc.com>, 2016. #zanata
 msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2016-02-27 17:50+0000\n"
+"POT-Creation-Date: 2016-03-04 08:38+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2015-10-06 02:02+0000\n"
+"PO-Revision-Date: 2016-03-04 01:28+0000\n"
 "Last-Translator: Mücahit Büyükyılmaz <mucahit@deltanoc.com>\n"
 "Language: tr-TR\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
@@ -44,8 +45,17 @@ msgstr "%s TB"
 msgid "%s bytes"
 msgstr "%s byte"
 
+msgid "(Modified)"
+msgstr "(Düzenlendi)"
+
 msgid "-"
 msgstr "-"
+
+msgid "0 GB"
+msgstr "0 GB"
+
+msgid "0 MB"
+msgstr "0 MB"
 
 msgid "Active"
 msgstr "Etkin"
@@ -99,6 +109,9 @@ msgstr "Kapatılıyor"
 msgid "Confirm %s"
 msgstr "%s Onayla"
 
+msgid "Confirm Delete Foobars"
+msgstr "Foobar Silmeyi Onayla"
+
 msgid "Connecting"
 msgstr "Bağlanıyor"
 
@@ -117,6 +130,9 @@ msgstr "Mevcut Kullanım"
 msgid "Custom"
 msgstr "Özel"
 
+msgid "Customization Script"
+msgstr "Özelleştirme Scripti"
+
 msgid "Danger"
 msgstr "Tehlike"
 
@@ -129,6 +145,9 @@ msgstr "Ondalıklı sayı gerekli"
 msgid "Delete"
 msgstr "Sil"
 
+msgid "Delete Instance"
+msgstr "Instance'ı sil"
+
 msgid "Delete Interface"
 msgstr "Arayüzü Sil"
 
@@ -140,6 +159,10 @@ msgstr "Router'ı Sil"
 
 msgid "Delete Subnet"
 msgstr "Subnet Sil"
+
+#, python-format
+msgid "Deleted : %s."
+msgstr "Silindi : %s."
 
 msgid "Detail Information"
 msgstr "Detaylı Bilgi"
@@ -163,6 +186,9 @@ msgstr "Hata"
 msgid "Error: "
 msgstr "Hata:"
 
+msgid "Example"
+msgstr "Örnek"
+
 msgid "Existing Metadata"
 msgstr "Mevcut üstveri"
 
@@ -181,6 +207,9 @@ msgstr "Bitti"
 msgid "Flavor"
 msgstr "Şablon"
 
+msgid "Full Text Search"
+msgstr "Tam Metin Araması"
+
 msgid "ID"
 msgstr "ID"
 
@@ -195,6 +224,9 @@ msgstr "Tamsayı gerekli"
 
 msgid "Interfaces"
 msgstr "Arayüzler"
+
+msgid "Load script from a file"
+msgstr "Scripti dosyadan yükle"
 
 msgid "Loading"
 msgstr "Yükleniyor"
@@ -219,6 +251,9 @@ msgstr "İleri"
 
 msgid "No"
 msgstr "Hayır"
+
+msgid "No Limit"
+msgstr "Sınırsız"
 
 msgid "No available items"
 msgstr "Uygun öğe yok"
@@ -286,6 +321,12 @@ msgstr "Roller"
 msgid "STATUS"
 msgstr "DURUM"
 
+msgid "Script size:"
+msgstr "Script Boyutu"
+
+msgid "Search in current results"
+msgstr "Şu andaki sonuçlar içinde Ara"
+
 msgid "Select an item from Available items below"
 msgstr "Aşağıdaki kullanılabilir öğelerden birini seçin"
 
@@ -327,14 +368,31 @@ msgstr ""
 "Bu işlem yapılamaz. Bu satırın içeriğinde hatalar var veya eksik bilgi "
 "içeriyor."
 
+msgid "The script is larger than the maximum size"
+msgstr "Script maksimum boyuttan büyük"
+
 msgid "There was a problem communicating with the server, please try again."
 msgstr "Sunucu ile iletişimde bir sorun var, lütfen tekrar deneyiniz."
 
 msgid "There was an error submitting the form. Please try again."
 msgstr "Formu gönderirken bir hata oluştu. Lütfen tekrar deneyin."
 
+#, fuzzy
+msgid "Toggle Dropdown"
+msgstr "Açılır Menüyü Değiştir"
+
+msgid "Toggle navigation"
+msgstr "Gezintiyi değiştir"
+
 msgid "Total"
 msgstr "Toplam"
+
+#, python-format
+msgid "Unable to delete: %s."
+msgstr "%s silinemedi."
+
+msgid "Unlimited"
+msgstr "Sınırsız"
 
 msgid "View Details"
 msgstr "Ayrıntıları Göster"
@@ -357,6 +415,17 @@ msgstr "Çalışıyor"
 msgid "Yes"
 msgstr "Evet"
 
+msgid ""
+"You can specify resource metadata by moving items from the left column to "
+"the right column. In the left column there are metadata definitions from the "
+"Glance Metadata Catalog. Use the \"Custom\" option to add metadata with "
+"the key of your choice."
+msgstr ""
+"Kaynak üstveriyi sol sütundaki ögeleri sağ sütuna taşıyarak "
+"belirtebilirsiniz.Sol sütunda Glance Üstveri kataloğu'ndaki üstveri "
+"tanımları mevcuttur. Özel bir üstveri eklemek için \"Diğer\" seçeneğini "
+"kullanınız."
+
 #, python-format
 msgid "You have selected %s. "
 msgstr "%s yi seçtiniz."
@@ -370,5 +439,15 @@ msgstr "m1.küçük"
 msgid "m1.tiny"
 msgstr "m1.minik"
 
+msgid "of"
+msgstr "nın"
+
 msgid "pool default"
 msgstr "Ön tanımlı havuz"
+
+#, python-format
+msgid "selected \"%s\""
+msgstr "seçildi \"%s\""
+
+msgid "{$ message || 'No items to display.' $}"
+msgstr "{$ message || 'Gösterilecek öğe yok.' $}"
