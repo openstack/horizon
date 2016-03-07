@@ -24,3 +24,7 @@ ADD_PANEL = ('openstack_dashboard.dashboards.project.'
              'ngcontainers.panel.NGContainers')
 
 DISABLED = True
+
+ADD_SCSS_FILES = [
+    'dashboard/project/containers/_containers.scss',
+]
