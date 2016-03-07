@@ -81,10 +81,9 @@ def is_deleting(instance):
     return task_state.lower() == "deleting"
 
 
-class DeleteInstance(policy.PolicyTargetMixin, tables.BatchAction):
+class DeleteInstance(policy.PolicyTargetMixin, tables.DeleteAction):
     name = "delete"
     classes = ("btn-danger",)
-    icon = "remove"
     policy_rules = (("compute", "compute:delete"),)
     help_text = _("Deleted instances are not recoverable.")
 

@@ -926,7 +926,7 @@ class DeleteAction(BatchAction):
             self.action_present = kwargs.get('action_present', _("Delete"))
         if not hasattr(self, "action_past"):
             self.action_past = kwargs.get('action_past', _("Deleted"))
-        self.icon = "remove"
+        self.icon = "trash"
 
     def action(self, request, obj_id):
         """Action entry point. Overrides base class' action method.
