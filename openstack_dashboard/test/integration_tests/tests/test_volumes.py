@@ -9,6 +9,7 @@
 #    WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
 #    License for the specific language governing permissions and limitations
 #    under the License.
+import time
 
 from openstack_dashboard.test.integration_tests import helpers
 from openstack_dashboard.test.integration_tests.regions import messages
@@ -64,6 +65,15 @@ class TestVolumes(helpers.TestCase):
         self.assertFalse(
             volumes_page.find_message_and_dismiss(messages.ERROR))
         self.assertTrue(volumes_page.is_volume_deleted(self.VOLUME_NAME))
+        # NOTE(tsufiev): A short regression test on bug 1553314: we try to
+        # re-open 'Create Volume' button after the volume was deleted. If the
+        # regression occurs, the form won't appear (because link is going to be
+        # invalid in this case). Give JavaScript callbacks an additional second
+        # to do all the job and possibly cause the regression.
+        if not isinstance(self, helpers.AdminTestCase):
+            time.sleep(1)
+            form = volumes_page.volumes_table.create_volume()
+            form.cancel()
 
     def test_volumes_pagination(self):
         """This test checks volumes pagination
