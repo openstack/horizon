@@ -29,7 +29,7 @@ class KeypairsTable(tables.TableRegion):
             self.driver, self.conf,
             field_mappings=self.CREATE_KEY_PAIR_FORM_FIELDS)
 
-    @tables.bind_row_action('delete', primary=True)
+    @tables.bind_row_action('delete')
     def delete_keypair(self, delete_button, row):
         delete_button.click()
         return forms.BaseFormRegion(self.driver, self.conf)

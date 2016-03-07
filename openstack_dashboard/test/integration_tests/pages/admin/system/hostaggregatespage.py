@@ -34,7 +34,7 @@ class HostAggregatesTable(tables.TableRegion):
         return forms.BaseFormRegion(self.driver, self.conf, None)
 
     # Examples of how to bind to secondary actions
-    @tables.bind_row_action('update', primary=True)
+    @tables.bind_row_action('update')
     def update_host_aggregate(self, edit_host_aggregate_button, row):
         edit_host_aggregate_button.click()
         pass
