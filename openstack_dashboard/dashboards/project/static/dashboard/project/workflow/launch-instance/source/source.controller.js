@@ -362,6 +362,21 @@
       }
     );
 
+    var snapshotWatcher = $scope.$watchCollection(
+      function getSnapshots() {
+        return $scope.model.volumeSnapshots;
+      },
+      function onSnapshotsChange() {
+        $scope.initPromise.then(function onInit() {
+          $scope.$applyAsync(function setDefaultSnapshot() {
+            if ($scope.launchContext.snapshotId) {
+              setSourceSnapshotWithId($scope.launchContext.snapshotId);
+            }
+          });
+        });
+      }
+    );
+
     // Explicitly remove watchers on desruction of this controller
     $scope.$on('$destroy', function() {
       newSpecWatcher();
@@ -369,6 +384,7 @@
       bootSourceWatcher();
       imagesWatcher();
       volumeWatcher();
+      snapshotWatcher();
     });
 
     // Initialize
@@ -503,6 +519,15 @@
         changeBootSource(bootSourceTypes.VOLUME, [pre]);
         $scope.model.newInstanceSpec.source_type = ctrl.bootSourcesOptions[2];
         ctrl.currentBootSource = ctrl.bootSourcesOptions[2].type;
+      }
+    }
+
+    function setSourceSnapshotWithId(id) {
+      var pre = findSourceById($scope.model.volumeSnapshots, id);
+      if (pre) {
+        changeBootSource(bootSourceTypes.VOLUME_SNAPSHOT, [pre]);
+        $scope.model.newInstanceSpec.source_type = ctrl.bootSourcesOptions[3];
+        ctrl.currentBootSource = ctrl.bootSourcesOptions[3].type;
       }
     }
   }

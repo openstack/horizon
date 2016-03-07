@@ -51,7 +51,7 @@
           images: [ { id: 'image-1' }, { id: 'image-2' } ],
           imageSnapshots: [],
           volumes: [ { id: 'volume-1' }, { id: 'volume-2' } ],
-          volumeSnapshots: [],
+          volumeSnapshots: [ {id: 'snapshot-2'} ],
           novaLimits: {
             maxTotalInstances: 10,
             totalInstancesUsed: 0
@@ -200,15 +200,26 @@
         expect(ctrl.currentBootSource).toBe('volume');
       });
 
+      it('defaults source to snapshot-2 if launchContext.snapshotId = snapshot-2', function() {
+        scope.launchContext = { snapshotId: 'snapshot-2' };
+        deferred.resolve();
+
+        $browser.defer.flush();
+
+        expect(ctrl.tableData.allocated[0]).toEqual({ id: 'snapshot-2' });
+        expect(scope.model.newInstanceSpec.source_type.type).toBe('volume_snapshot');
+        expect(ctrl.currentBootSource).toBe('volume_snapshot');
+      });
+
       describe('Scope Functions', function() {
 
         describe('watchers', function () {
           it('establishes five watches', function() {
-            expect(scope.$watch.calls.count()).toBe(5);
+            expect(scope.$watch.calls.count()).toBe(6);
           });
 
           it("establishes two watch collections", function () {
-            expect(scope.$watchCollection.calls.count()).toBe(2);
+            expect(scope.$watchCollection.calls.count()).toBe(3);
           });
         });
 
