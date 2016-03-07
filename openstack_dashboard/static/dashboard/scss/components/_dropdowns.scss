@@ -34,11 +34,31 @@
     @include box-shadow(none);
   }
 
+  &.btn-primary {
+    color: $brand-primary;
+  }
+  &.btn-danger {
+    color: $brand-danger;
+  }
+  &.btn-warning {
+    color: $brand-warning;
+  }
+  &.btn-info {
+    color: $brand-info;
+  }
+
+
   @include dropdown-button('default', $dropdown-link-color, $dropdown-link-hover-bg);
   @include dropdown-button('primary', $btn-primary-bg, $btn-primary-bg, $btn-primary-color);
   @include dropdown-button('info', $btn-info-bg, $btn-info-bg, $btn-info-color);
   @include dropdown-button('warning', $btn-warning-bg, $btn-warning-bg, $btn-warning-color);
   @include dropdown-button('danger', $btn-danger-bg, $btn-danger-bg, $btn-danger-color);
+}
+
+.table_search .themable-select,
+.table_actions_menu {
+  display: inline-block;
+  position: relative;
 }
 
 .table_actions {

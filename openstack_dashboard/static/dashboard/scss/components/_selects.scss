@@ -1,0 +1,17 @@
+//
+// Themable Selects
+// ---------------------------------
+
+.themable-select {
+    .dropdown-title {
+      text-align: left;
+
+      &:after {
+        content: ' ';
+      }
+    }
+
+  select {
+    display: none;
+  }
+}
