@@ -31,7 +31,7 @@ python-cinderclient>=1.3.1 # Apache-2.0
 python-glanceclient>=2.0.0 # Apache-2.0
 python-heatclient>=0.6.0 # Apache-2.0
 python-keystoneclient!=1.8.0,!=2.1.0,>=1.6.0 # Apache-2.0
-python-neutronclient>=2.6.0 # Apache-2.0
+python-neutronclient!=4.1.0,>=2.6.0 # Apache-2.0
 python-novaclient!=2.33.0,>=2.29.0 # Apache-2.0
 python-swiftclient>=2.2.0 # Apache-2.0
 pytz>=2013.6 # MIT
