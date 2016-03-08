@@ -380,7 +380,8 @@
       var promise = apiService.delete('/api/nova/flavors/' + flavorId + '/');
 
       return suppressError ? promise : promise.error(function() {
-        toastService.add('error', gettext('Unable to delete the flavor with id: ') + flavorId);
+        var msg = gettext('Unable to delete the flavor with id: %(id)s');
+        toastService.add('error', interpolate(msg, { id: flavorId }, true));
       });
 
     }
