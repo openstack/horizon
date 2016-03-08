@@ -8,19 +8,19 @@
 # Frank Kloeker <eumel@arcor.de>, 2015
 # Robert Simai, 2015
 # Carsten Duch <carsten.duch@posteo.de>, 2015. #zanata
-# Robert Simai <robert.simai@suse.com>, 2015. #zanata
 # Andreas Jaeger <jaegerandi@gmail.com>, 2016. #zanata
+# Frank Kloeker <eumel@arcor.de>, 2016. #zanata
 # Monika Wolf <vcomas3@de.ibm.com>, 2016. #zanata
 msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2016-03-04 04:22+0000\n"
+"POT-Creation-Date: 2016-03-07 18:49+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2016-03-03 01:54+0000\n"
-"Last-Translator: Monika Wolf <vcomas3@de.ibm.com>\n"
+"PO-Revision-Date: 2016-03-07 06:32+0000\n"
+"Last-Translator: Andreas Jaeger <jaegerandi@gmail.com>\n"
 "Language: de\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "Generated-By: Babel 2.0\n"
@@ -97,6 +97,27 @@ msgstr ""
 "          <strong>Glückwunsch!</strong>\n"
 "          Sie haben \n"
 "       <a>diese wichtige Warnmeldung</a> erfolgreich gelesen."
+
+msgid ""
+"<div>\n"
+"                  \n"
+"                    <input> Checkbox\n"
+"                  </input>\n"
+"                </div>\n"
+"                <div>\n"
+"                  <input>\n"
+"                  Checkbox</input>\n"
+"                </div>"
+msgstr ""
+"<div>\n"
+"                  \n"
+"                    <input> Checkbox\n"
+"                  </input>\n"
+"                </div>\n"
+"                <div>\n"
+"                  <input>\n"
+"                  Checkbox</input>\n"
+"                </div>"
 
 msgid ""
 "<input>\n"
@@ -319,7 +340,6 @@ msgstr "Verfügbarkeitszone"
 msgid "Available"
 msgstr "Verfügbar"
 
-#, fuzzy
 msgid "Badges"
 msgstr "Ausweis"
 
@@ -552,20 +572,20 @@ msgid ""
 "Dropdown\n"
 "                <span></span>"
 msgstr ""
-"Dropdown\n"
+"Auswahlliste\n"
 "                <span></span>"
 
 msgid "Dropdown <b></b>"
 msgstr "Dropdown <b></b>"
 
 msgid "Dropdown <span></span>"
-msgstr "Dropdown <span></span>"
+msgstr "Auswahlliste <span></span>"
 
 msgid "Dropdown header"
 msgstr "Dropdown-Header"
 
 msgid "Dropdown link"
-msgstr "Dropdown-Link"
+msgstr "Auswahl-Link"
 
 msgid "Email"
 msgstr "E-Mail"
@@ -791,7 +811,7 @@ msgid ""
 "snapshot of an existing instance, an image, or a volume (if enabled).\n"
 "      You can also choose to use persistent storage by creating a new volume."
 msgstr ""
-"Instanzquelle ist die zum erzeugen einer Instanz zu verwendenden Vorlage. "
+"Instanzquelle ist die zum Erzeugen einer Instanz zu verwendenden Vorlage. "
 "Sie können eine Schattenkopie einer vorhandenen Instanz verwenden, ein "
 "Abbild oder einen Datenträger (falls freigeschaltet).\n"
 "Sie können auch die Verwendung von beständigem Storage zur Erstellung eines "
@@ -1131,7 +1151,6 @@ msgstr "Versuchen Sie es erneut."
 msgid "Policy check failed."
 msgstr "Richtlinienüberprüfung fehlgeschlagen."
 
-#, fuzzy
 msgid "Popovers"
 msgstr "Popovers"
 
@@ -1360,7 +1379,7 @@ msgid "Source"
 msgstr "Quelle"
 
 msgid "Source Code"
-msgstr "Source Code"
+msgstr "Quellcode"
 
 msgid "Stacked"
 msgstr "Gestapelt"
@@ -1371,7 +1390,6 @@ msgstr "Standardtabelle"
 msgid "Status"
 msgstr "Status"
 
-#, fuzzy
 msgid "Striped"
 msgstr "Gestreift"
 
@@ -1703,7 +1721,7 @@ msgid "Unable to fetch the service catalog."
 msgstr "Der Dienstkatalog kann nicht abgerufen werden."
 
 msgid "Unable to fetch the services."
-msgstr "Die Services können nicht abgerufen werden."
+msgstr "Die Dienste können nicht abgerufen werden."
 
 msgid "Unable to generate"
 msgstr "Generieren nicht möglich"
@@ -1721,7 +1739,7 @@ msgid "Unable to get the Swift container listing."
 msgstr "Die Swift-Container-Liste konnte nicht abgerufen werden."
 
 msgid "Unable to get the Swift service info."
-msgstr "Die Swift-Service-Informationen konnten nicht abgerufen werden."
+msgstr "Die Swift-Dienstinformationen konnten nicht abgerufen werden."
 
 msgid "Unable to get the container details."
 msgstr "Es konnten keine Containerdetails abgerufen werden."
@@ -1766,7 +1784,7 @@ msgid "Unable to retrieve the availability zones."
 msgstr "Die Verfügbarkeitszonen können nicht abgerufen werden. "
 
 msgid "Unable to retrieve the cinder services."
-msgstr "Die Cinder-Services können nicht abgerufen werden."
+msgstr "Die Cinder-Dienste können nicht abgerufen werden."
 
 msgid "Unable to retrieve the current user session."
 msgstr "Die aktuelle Benutzersitzung kann nicht abgerufen werden."
@@ -1793,7 +1811,7 @@ msgid "Unable to retrieve the flavors."
 msgstr "Die Varianten können nicht abgerufen werden."
 
 msgid "Unable to retrieve the heat services."
-msgstr "Die Heat-Services können nicht abgerufen werden."
+msgstr "Die Heat-Dienste können nicht abgerufen werden."
 
 msgid "Unable to retrieve the image custom properties."
 msgstr "Die Abbildanpassungseigenschaften können nicht abgerufen werden."
@@ -1817,7 +1835,7 @@ msgid "Unable to retrieve the networks."
 msgstr "Die Netzwerke können nicht abgerufen werden."
 
 msgid "Unable to retrieve the nova services."
-msgstr "Die Nova-Services können nicht abgerufen werden."
+msgstr "Die Nova-Dienste können nicht abgerufen werden."
 
 msgid "Unable to retrieve the ports."
 msgstr "Die Ports können nicht abgerufen werden."
@@ -1969,13 +1987,13 @@ msgid "Volume Snapshot"
 msgstr "Datenträger Snapshot"
 
 msgid "Volume Snapshots"
-msgstr "Datenträgersnapshot"
+msgstr "Datenträgerschattenkopie"
 
 msgid "Volume Type Description:"
 msgstr "Beschreibung des Datenträgertyps:"
 
 msgid "Volume and Snapshot Quota (GB)"
-msgstr "Datenträger- und Snapshotkontingent (GB)"
+msgstr "Datenträger- und Schattenkopiekontingent (GB)"
 
 msgid "Volume size is required and must be an integer"
 msgstr "Datenträgergröße ist erforderlich und muss eine Ganzzahl sein"
@@ -2079,7 +2097,7 @@ msgstr[0] "Nachricht"
 msgstr[1] "Nachrichten"
 
 msgid "snapshot"
-msgstr "Momentaufnahme"
+msgstr "Schattenkopie"
 
 msgid "submit"
 msgid_plural "submits"

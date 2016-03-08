@@ -6,20 +6,17 @@
 # Andreas Jaeger <jaegerandi@gmail.com>, 2014
 # Ettore Atalan <atalanttore@googlemail.com>, 2015
 # Carsten Duch <carsten.duch@posteo.de>, 2015. #zanata
-# Robert Simai <robert.simai@suse.com>, 2015. #zanata
-# Eugen Block <eblock@nde.ag>, 2016. #zanata
-# Frank Kloeker <eumel@arcor.de>, 2016. #zanata
-# Robert Simai <robert.simai@suse.com>, 2016. #zanata
+# Carsten Duch <carsten.duch@posteo.de>, 2016. #zanata
 msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2016-03-04 04:21+0000\n"
+"POT-Creation-Date: 2016-03-07 18:49+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2016-03-03 07:41+0000\n"
-"Last-Translator: Frank Kloeker <eumel@arcor.de>\n"
+"PO-Revision-Date: 2016-03-07 02:57+0000\n"
+"Last-Translator: Carsten Duch <carsten.duch@posteo.de>\n"
 "Language: de\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "Generated-By: Babel 2.0\n"
@@ -181,8 +178,13 @@ msgstr "Zurück"
 
 msgid "Batch Item"
 msgid_plural "Batch Items"
-msgstr[0] "Stapel Element"
-msgstr[1] "Stapel Elemente"
+msgstr[0] "Eintrag Stapeln"
+msgstr[1] "Einträge Stapeln"
+
+msgid "Batched Item"
+msgid_plural "Batched Items"
+msgstr[0] "Stapel Eintrag"
+msgstr[1] "Stapel Einträge"
 
 msgid "Cancel"
 msgstr "Abbrechen"
@@ -213,6 +215,16 @@ msgid "Displaying %(nav_items)s item"
 msgid_plural "Displaying %(nav_items)s items"
 msgstr[0] "Zeige %(nav_items)s Eintrag"
 msgstr[1] "Zeige %(nav_items)s Einträge"
+
+msgid "Down Item"
+msgid_plural "Down Items"
+msgstr[0] "Eintrag Heruntersetzen"
+msgstr[1] "Einträge Heruntersetzen"
+
+msgid "Downed Item"
+msgid_plural "Downed Items"
+msgstr[0] "Heruntergesetzter Eintrag"
+msgstr[1] "Heruntergesetzte Einträge"
 
 #, python-format
 msgid "Error processing message json file '%(path)s': %(exception)s"
@@ -361,7 +373,7 @@ msgid ""
 "\"https://\""
 msgstr ""
 "Der Wert von %(resource)s innerhalb der Vorlage ist %(name)s. Der Wert muss "
-"mit \"http://\" or \"https://\" beginnen, wenn ein Stapel von diesem "
+"mit \"http://\" or \"https://\" beginnen, wenn ein Stack von diesem "
 "Interface gestartet wird."
 
 msgid "This Period's GB-Hours:"
@@ -387,6 +399,11 @@ msgstr "Nicht autorisiert. Bitte melden Sie sich erneut an."
 msgid "Unauthorized: %s"
 msgstr "Nicht berechtigt: %s"
 
+msgid "Up Item"
+msgid_plural "Up Items"
+msgstr[0] "Eintrag Hochsetzen"
+msgstr[1] "Einträge Hochsetzen"
+
 msgid "Update Item"
 msgid_plural "Update Items"
 msgstr[0] "Eintrag aktualisieren"
@@ -396,6 +413,11 @@ msgid "Updated Item"
 msgid_plural "Updated Items"
 msgstr[0] "Aktualisierter Eintrag"
 msgstr[1] "Aktualisierter Einträge"
+
+msgid "Upped Item"
+msgid_plural "Upped Items"
+msgstr[0] "Hochgesetzter Eentrag"
+msgstr[1] "Hochgesetzte Einträge"
 
 msgid "Usage Summary"
 msgstr "Nutzungsübersicht"

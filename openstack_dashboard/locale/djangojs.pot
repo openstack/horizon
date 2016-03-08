@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2016-03-04 06:17+0000\n"
+"POT-Creation-Date: 2016-03-08 06:15+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -871,7 +871,7 @@ msgid "Source Code"
 msgstr ""
 
 #: openstack_dashboard/dashboards/admin/static/dashboard/admin/flavors/table/flavors-table.controller.js:60
-#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/flavor/select-flavor-table.directive.js:126
+#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/flavor/select-flavor-table.directive.js:128
 #: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/flavor/select-flavor-table.html:27
 #: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/keypair/keypair.html:41
 #: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/keypair/keypair.html:94
@@ -890,13 +890,13 @@ msgstr ""
 
 #: openstack_dashboard/dashboards/admin/static/dashboard/admin/flavors/table/flavors-table.controller.js:65
 #: openstack_dashboard/dashboards/admin/static/dashboard/admin/flavors/table/flavors-table.html:23
-#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/flavor/select-flavor-table.directive.js:131
+#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/flavor/select-flavor-table.directive.js:133
 msgid "VCPUs"
 msgstr ""
 
 #: openstack_dashboard/dashboards/admin/static/dashboard/admin/flavors/table/flavors-table.controller.js:70
 #: openstack_dashboard/dashboards/admin/static/dashboard/admin/flavors/table/flavors-table.html:24
-#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/flavor/select-flavor-table.directive.js:136
+#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/flavor/select-flavor-table.directive.js:138
 #: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/flavor/select-flavor-table.html:30
 #: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/flavor/select-flavor-table.html:31
 msgid "RAM"
@@ -904,7 +904,8 @@ msgstr ""
 
 #: openstack_dashboard/dashboards/admin/static/dashboard/admin/flavors/table/flavors-table.controller.js:75
 #: openstack_dashboard/dashboards/admin/static/dashboard/admin/flavors/table/flavors-table.html:29
-#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/flavor/select-flavor-table.directive.js:141
+#: openstack_dashboard/dashboards/project/static/dashboard/project/containers/containers.html:18
+#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/flavor/select-flavor-table.directive.js:143
 #: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/flavor/select-flavor-table.html:35
 #: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:165
 #: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:268
@@ -913,7 +914,7 @@ msgid "Public"
 msgstr ""
 
 #: openstack_dashboard/dashboards/admin/static/dashboard/admin/flavors/table/flavors-table.controller.js:79
-#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/flavor/select-flavor-table.directive.js:146
+#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/flavor/select-flavor-table.directive.js:148
 #: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/network/network.controller.js:82
 #: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:64
 #: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:226
@@ -921,7 +922,7 @@ msgid "Yes"
 msgstr ""
 
 #: openstack_dashboard/dashboards/admin/static/dashboard/admin/flavors/table/flavors-table.controller.js:80
-#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/flavor/select-flavor-table.directive.js:145
+#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/flavor/select-flavor-table.directive.js:147
 #: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/network/network.controller.js:81
 #: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:65
 #: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:227
@@ -982,6 +983,46 @@ msgstr ""
 
 #: openstack_dashboard/dashboards/identity/static/dashboard/identity/users/table/table.html:84
 msgid "Project ID"
+msgstr ""
+
+#: openstack_dashboard/dashboards/project/static/dashboard/project/containers/containers.html:14
+msgid "Object Count"
+msgstr ""
+
+#: openstack_dashboard/dashboards/project/static/dashboard/project/containers/containers.html:15
+#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:137
+#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:144
+#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:151
+#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:158
+#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:236
+#: openstack_dashboard/static/app/core/images/images.module.js:79
+#: openstack_dashboard/static/app/core/images/detail/image-detail.html:31
+#: openstack_dashboard/static/app/core/images/table/images-table.html:41
+#: openstack_dashboard/static/app/core/images/table/images-table.html:114
+msgid "Size"
+msgstr ""
+
+#: openstack_dashboard/dashboards/project/static/dashboard/project/containers/containers.html:17
+msgid "Access"
+msgstr ""
+
+#: openstack_dashboard/dashboards/project/static/dashboard/project/containers/containers.html:19
+#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:165
+#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:269
+#: openstack_dashboard/static/app/core/images/filters/image-visibility.filter.js:60
+msgid "Private"
+msgstr ""
+
+#: openstack_dashboard/dashboards/project/static/dashboard/project/containers/containers.html:21
+msgid "Timestamp"
+msgstr ""
+
+#: openstack_dashboard/dashboards/project/static/dashboard/project/containers/objects.html:40
+msgid "folder"
+msgstr ""
+
+#: openstack_dashboard/dashboards/project/static/dashboard/project/containers/select-container.html:4
+msgid "Select a container to browse."
 msgstr ""
 
 #: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/launch-instance-model.service.js:266
@@ -1727,18 +1768,6 @@ msgstr ""
 msgid "Updated"
 msgstr ""
 
-#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:137
-#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:144
-#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:151
-#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:158
-#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:236
-#: openstack_dashboard/static/app/core/images/images.module.js:79
-#: openstack_dashboard/static/app/core/images/detail/image-detail.html:31
-#: openstack_dashboard/static/app/core/images/table/images-table.html:41
-#: openstack_dashboard/static/app/core/images/table/images-table.html:114
-msgid "Size"
-msgstr ""
-
 #: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:139
 #: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:146
 #: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:264
@@ -1753,12 +1782,6 @@ msgstr ""
 #: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:212
 #: openstack_dashboard/static/app/core/images/detail/image-detail.html:61
 msgid "Created"
-msgstr ""
-
-#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:165
-#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:269
-#: openstack_dashboard/static/app/core/images/filters/image-visibility.filter.js:60
-msgid "Private"
 msgstr ""
 
 #: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:222
@@ -1785,21 +1808,21 @@ msgstr ""
 msgid "Error Deleting"
 msgstr ""
 
-#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:375
+#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:391
 msgid "Select a source from those listed below."
 msgstr ""
 
-#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:376
+#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:392
 msgid "Select one"
 msgstr ""
 
-#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:378
+#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:394
 msgid ""
 "When selecting volume as boot source, please ensure the instance's "
 "availability zone is compatible with your volume's availability zone."
 msgstr ""
 
-#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:417
+#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:433
 #, python-format
 msgid "The volume size must be at least %(minVolumeSize)s GB"
 msgstr ""
@@ -2618,47 +2641,47 @@ msgstr ""
 msgid "Unable to retrieve instances."
 msgstr ""
 
-#: openstack_dashboard/static/app/core/openstack-service-api/nova.service.js:307
+#: openstack_dashboard/static/app/core/openstack-service-api/nova.service.js:311
 msgid "Unable to retrieve the flavors."
 msgstr ""
 
-#: openstack_dashboard/static/app/core/openstack-service-api/nova.service.js:326
+#: openstack_dashboard/static/app/core/openstack-service-api/nova.service.js:334
 msgid "Unable to retrieve the flavor."
 msgstr ""
 
-#: openstack_dashboard/static/app/core/openstack-service-api/nova.service.js:340
+#: openstack_dashboard/static/app/core/openstack-service-api/nova.service.js:348
 msgid "Unable to create the flavor."
 msgstr ""
 
-#: openstack_dashboard/static/app/core/openstack-service-api/nova.service.js:354
+#: openstack_dashboard/static/app/core/openstack-service-api/nova.service.js:362
 msgid "Unable to update the flavor."
 msgstr ""
 
-#: openstack_dashboard/static/app/core/openstack-service-api/nova.service.js:375
+#: openstack_dashboard/static/app/core/openstack-service-api/nova.service.js:383
 msgid "Unable to delete the flavor with id: "
 msgstr ""
 
-#: openstack_dashboard/static/app/core/openstack-service-api/nova.service.js:390
+#: openstack_dashboard/static/app/core/openstack-service-api/nova.service.js:398
 msgid "Unable to retrieve the flavor extra specs."
 msgstr ""
 
-#: openstack_dashboard/static/app/core/openstack-service-api/nova.service.js:410
+#: openstack_dashboard/static/app/core/openstack-service-api/nova.service.js:418
 msgid "Unable to edit the flavor extra specs."
 msgstr ""
 
-#: openstack_dashboard/static/app/core/openstack-service-api/nova.service.js:424
+#: openstack_dashboard/static/app/core/openstack-service-api/nova.service.js:432
 msgid "Unable to retrieve the aggregate extra specs."
 msgstr ""
 
-#: openstack_dashboard/static/app/core/openstack-service-api/nova.service.js:444
+#: openstack_dashboard/static/app/core/openstack-service-api/nova.service.js:452
 msgid "Unable to edit the aggregate extra specs."
 msgstr ""
 
-#: openstack_dashboard/static/app/core/openstack-service-api/nova.service.js:458
+#: openstack_dashboard/static/app/core/openstack-service-api/nova.service.js:466
 msgid "Unable to retrieve instance metadata."
 msgstr ""
 
-#: openstack_dashboard/static/app/core/openstack-service-api/nova.service.js:478
+#: openstack_dashboard/static/app/core/openstack-service-api/nova.service.js:486
 msgid "Unable to edit instance metadata."
 msgstr ""
 

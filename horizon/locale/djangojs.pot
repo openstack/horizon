@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2016-03-04 06:17+0000\n"
+"POT-Creation-Date: 2016-03-08 06:14+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -120,16 +120,16 @@ msgstr ""
 msgid "Remaining"
 msgstr ""
 
-#: horizon/static/framework/widgets/charts/pie-chart.directive.js:172
+#: horizon/static/framework/widgets/charts/pie-chart.directive.js:174
 msgid "No Limit"
 msgstr ""
 
-#: horizon/static/framework/widgets/charts/pie-chart.directive.js:175
+#: horizon/static/framework/widgets/charts/pie-chart.directive.js:177
 #: horizon/static/framework/widgets/metadata/tree/tree.module.js:48
 msgid "Max"
 msgstr ""
 
-#: horizon/static/framework/widgets/charts/pie-chart.directive.js:178
+#: horizon/static/framework/widgets/charts/pie-chart.directive.js:182
 msgid "Total"
 msgstr ""
 
@@ -141,19 +141,18 @@ msgstr ""
 msgid "(Modified)"
 msgstr ""
 
+#. Strings between {$ and $} should be left untranslated.
 #: horizon/static/framework/widgets/load-edit/load-edit.html:9
-msgid "Script size:"
+msgid ""
+"Script size: {$ (scriptLength || 0) | bytes $} of {$ "
+"config.MAX_SCRIPT_SIZE | bytes $}"
 msgstr ""
 
-#: horizon/static/framework/widgets/load-edit/load-edit.html:11
-msgid "of"
-msgstr ""
-
-#: horizon/static/framework/widgets/load-edit/load-edit.html:21
+#: horizon/static/framework/widgets/load-edit/load-edit.html:20
 msgid "The script is larger than the maximum size"
 msgstr ""
 
-#: horizon/static/framework/widgets/load-edit/load-edit.html:29
+#: horizon/static/framework/widgets/load-edit/load-edit.html:28
 msgid "Load script from a file"
 msgstr ""
 

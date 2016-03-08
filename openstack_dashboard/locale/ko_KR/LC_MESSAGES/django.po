@@ -20,12 +20,12 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2016-03-04 08:39+0000\n"
+"POT-Creation-Date: 2016-03-07 18:49+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2016-03-06 02:34+0000\n"
-"Last-Translator: Ian Y. Choi <ianyrchoi@gmail.com>\n"
+"PO-Revision-Date: 2016-03-07 01:56+0000\n"
+"Last-Translator: Sungjin Kang <gang.sungjin@gmail.com>\n"
 "Language: ko-KR\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 "Generated-By: Babel 2.0\n"
@@ -75,25 +75,25 @@ msgstr ""
 "\n"
 "%(device)s 에 <a href=\"%(instance_url)s\">%(instance_name)s</a>"
 
-#, fuzzy, python-format
+#, python-format
 msgid ""
 "\n"
 "      <span class=\"pull-right\">%(used)s of %(quota)s MB Used</span>\n"
 "    "
 msgstr ""
 "\n"
-"  <span class=\"pull-right\"> %(quota)s MB에서 %(used)s 사용</span>\n"
+"  <span class=\"pull-right\"> %(quota)s MB에서 %(used)s 사용함</span>\n"
 " "
 
-#, fuzzy, python-format
+#, python-format
 msgid ""
 "\n"
 "      <span class=\"pull-right\">%(used)s of %(quota)s Used</span>\n"
 "    "
 msgstr ""
 "\n"
-"  <span class=\"pull-right\"> %(quota)s에서 %(used)s 사용</span>\n"
-" "
+"      <span class=\"pull-right\"> %(quota)s에서 %(used)s 사용함</span>\n"
+"    "
 
 msgid ""
 "\n"
@@ -364,6 +364,9 @@ msgstr "포트 %s 제거 또한 실패하였습니다"
 msgid "\"Add Router Route\""
 msgstr "\"라우터 경로 추가\""
 
+msgid "\"Containers\""
+msgstr "\"Containers\""
+
 msgid ""
 "\"Customization Script\" is analogous to \"User Data\" in other systems."
 msgstr ""
@@ -412,6 +415,7 @@ msgstr "%(instance_name)s %(fixed_ip)s"
 msgid "%(name)s - %(size)s GB (%(label)s)"
 msgstr "%(name)s - %(size)s GB (%(label)s)"
 
+#. Translators:  UTC offset and timezone label
 #, python-format
 msgid "%(offset)s: %(label)s"
 msgstr "%(offset)s: %(label)s"
@@ -556,6 +560,13 @@ msgid "A new uploaded file will replace the content of the current object"
 msgstr "새로 업로드된 파일은 지금 오브젝트 내용을 대체합니다."
 
 msgid ""
+"A port is a connection point for attaching a single device, such as the NIC "
+"of a virtual server, to a virtual network."
+msgstr ""
+"포트는 가상 서버의 NIC와 같은 가상 네트워크와 하나의 디바이스를 연결하기위한 "
+"하난의 접촉 점입니다."
+
+msgid ""
 "A rule contains a remote attribute description and the destination local "
 "attribute."
 msgstr "규칙은 원격 속성에 대한 설명과 목적지에 대한 로컬 속성을 포함합니다."
@@ -571,7 +582,7 @@ msgid ""
 msgstr ""
 "스냅샷은 실행 중인 인스턴스에 대한 디스크 상태를 보존하는 이미지입니다."
 
-#, fuzzy, python-format
+#, python-format
 msgid ""
 "A volume of %(req)iGiB cannot be created as you only have %(avail)iGiB of "
 "your quota available."
@@ -1058,7 +1069,6 @@ msgstr "전력 합계"
 msgid "An external (HTTP) URL to load the template from."
 msgstr "템플릿을 외부 (HTTP) URL로 불러옵니다."
 
-#, fuzzy
 msgid "An external (HTTP/HTTPS) URL to load the image from."
 msgstr "이미지를 외부(HTTP/HTTPS) URL로 불러옵니다."
 
@@ -1356,7 +1366,6 @@ msgctxt "status of a network port"
 msgid "Build"
 msgstr "Build"
 
-#, fuzzy
 msgctxt "Current status of an Instance"
 msgid "Building"
 msgstr "Building"
@@ -1996,6 +2005,13 @@ msgstr ""
 msgid "Create a new network for any project as you need."
 msgstr "원하는 프로젝트에 새로운 네트워크를 생성합니다."
 
+msgid ""
+"Create a new network. In addition, a subnet associated with the network can "
+"be created in the following steps of this wizard."
+msgstr ""
+"새로운 네트워크를 생성합니다. 또한 네트워크에 연결된 서브넷은 wizard 다음 단"
+"계에서 만들 수 있습니다."
+
 msgid "Create a new role."
 msgstr "새로운 역할을 생성합니다."
 
@@ -2029,6 +2045,10 @@ msgstr "컨테이너 %(container_name)s에서 가상 폴더 만들기"
 
 msgid "Created"
 msgstr "생성"
+
+msgctxt "Created time"
+msgid "Created"
+msgstr "생성됨"
 
 msgctxt "Current status of a Firewall"
 msgid "Created"
@@ -2083,6 +2103,19 @@ msgstr "볼륨 이전 생성 완료: \"%s\"."
 
 msgid "Creates a router with specified parameters."
 msgstr "지정한 매개변수로 라우터를 생성합니다."
+
+msgid ""
+"Creates a subnet associated with the network. You need to enter a valid "
+"\"Network Address\" and \"Gateway IP\". If you did not enter the \"Gateway IP"
+"\", the first value of a network will be assigned by default. If you do not "
+"want gateway please check the \"Disable Gateway\" checkbox. Advanced "
+"configuration is available by clicking on the \"Subnet Details\" tab."
+msgstr ""
+"네트워크에 연결된 서브넷을 생성합니다. 유요한 \"네트워크 주소\"와 \"게이트웨"
+"이 IP\"를 입력해야합니다. \"게이트웨이 IP\"를 입력하지 않은 경우, 네트워크의 "
+"첫번째 값이 기본값으로 할당됩니다. 게이트웨이를 사용하지 않는다면, \"게이트웨"
+"이 비활성화\" 체크박스를 선택하십시오. 고급 구성은 \"서브넷 상세\" 탭을 클릭"
+"하여 사용할 수 있습니다"
 
 msgid "Creating"
 msgstr "생성"
@@ -2350,7 +2383,6 @@ msgctxt "current status of stack"
 msgid "Delete In Progress"
 msgstr "Delete In Progress"
 
-#, fuzzy
 msgid "Delete Instance"
 msgid_plural "Delete Instances"
 msgstr[0] "인스턴스 삭제"
@@ -2481,7 +2513,6 @@ msgstr "인스턴스 삭제시 볼륨 삭제"
 msgid "Delete the created network \"%s\" due to subnet creation failure."
 msgstr "서브넷 생성 실패로 생성한 네트워크 \"%s\" 삭제."
 
-#, fuzzy
 msgid "Delete volume when the instance is deleted"
 msgstr "인스턴스가 삭제 될 때, 볼륨을 삭제"
 
@@ -2623,7 +2654,6 @@ msgstr[0] "볼륨 타입 삭제됨"
 msgid "Deleted images are not recoverable."
 msgstr "삭제된 이미지는 복구 불가능합니다."
 
-#, fuzzy
 msgid "Deleted instances are not recoverable."
 msgstr "삭제된 인스턴스는 복구 불가능합니다."
 
@@ -2948,11 +2978,9 @@ msgstr "EC2 인증서 다운로드"
 msgid "Download Key Pair"
 msgstr "키 페어 다운로드"
 
-#, fuzzy
 msgid "Download OpenStack RC File v2.0"
 msgstr "OpenStack RC File v2.0 다운로드"
 
-#, fuzzy
 msgid "Download OpenStack RC File v3"
 msgstr "OPenStack RC File v3 다운로드"
 
@@ -4007,6 +4035,7 @@ msgstr ""
 "그룹은 한번에 여러 사용자에게 역할을 할당하고 접근을 관리하는데 사용합니다. "
 "사용자를 추가할 그룹을 편집합니다."
 
+#. Translators: High Availability mode of Neutron router
 msgid "HA mode"
 msgstr "HA 모드"
 
@@ -4308,7 +4337,6 @@ msgstr ""
 "어떤 컨테이너 이름을 제공하지 않으면, volumebackups라는 기본 컨테이너 이름으"
 "로 프로비저닝됩니다. 백업은 기존 볼륨과 동일한 크기로 생성됩니다."
 
-#, fuzzy
 msgid ""
 "If you select an image via an HTTP/HTTPS URL, the Image Location field MUST "
 "be a valid and direct URL to the image binary; it must also be accessible to "
@@ -4337,7 +4365,6 @@ msgstr "Image Backup"
 msgid "Image File"
 msgstr "이미지 파일"
 
-#, fuzzy
 msgid "Image ID"
 msgstr "이미지 ID"
 
@@ -4386,12 +4413,11 @@ msgstr "이미지를 성공적으로 업데이트 하였습니다."
 msgid "Images"
 msgstr "이미지"
 
-#, fuzzy
 msgid ""
 "Images can be provided via an HTTP/HTTPS URL or be uploaded from your local "
 "file system."
 msgstr ""
-"이미지를 HTTP/HTTPS URL을 통해서 제공하는 것을 사용하거나 로컬 파일 시스템에"
+"이미지는 HTTP/HTTPS URL을 통해서 제공하는 것을 사용하거나 로컬 파일 시스템에"
 "서 업로드 할 수 있습니다."
 
 msgid "Implementation"
@@ -4543,9 +4569,8 @@ msgstr "불충분한 권한 수준으로 그룹 정보를 볼 수 있습니다."
 msgid "Insufficient privilege level to view identity provider information."
 msgstr "Identity 제공자 정보를 볼 수 있는 권한이 없습니다."
 
-#, fuzzy
 msgid "Insufficient privilege level to view mapping information."
-msgstr "맵핑 정보를 볼 수 있는 권한이 없습니다."
+msgstr "매핑 정보를 표시할 수 있는 충분한 권한 수준이 아닙니다."
 
 msgid "Insufficient privilege level to view project information."
 msgstr "불충분한 권한 수준으로 프로젝트 정보를 볼 수 있습니다."
@@ -4701,7 +4726,6 @@ msgstr "이 시큐리티 그룹에서 인스턴스를 구동하십시오."
 msgid "Launch instance with these networks"
 msgstr "정한 네트워크로 인스턴스 구동"
 
-#, fuzzy
 msgid "Launch instance with these ports"
 msgstr "이 포트로 인스턴스 구동"
 
@@ -4831,7 +4855,6 @@ msgstr "MacVTap"
 msgid "Maintenance"
 msgstr "유지보수"
 
-#, fuzzy
 msgctxt "Current status of a Volume"
 msgid "Maintenance"
 msgstr "유지보수"
@@ -4872,7 +4895,6 @@ msgstr "호스트 집합 내에서 호스트 관리"
 msgid "Manage Members"
 msgstr "멤버 관리"
 
-#, fuzzy
 msgid "Manage Protocols"
 msgstr "프로토콜 관리"
 
@@ -4953,7 +4975,6 @@ msgstr "VIP에 허용된 연결의 최대 갯수나 '-1'로 설정하게 되면 
 msgid "Member %s was successfully updated."
 msgstr "멤버 %s를 성공적으로 업데이트 하였습니다."
 
-#, fuzzy
 msgid "Member Address"
 msgstr "멤버 주소"
 
@@ -4963,7 +4984,6 @@ msgstr "멤버 세부 정보"
 msgid "Member IP address must be specified"
 msgstr "멤버 IP 주소를 지정해야합니다."
 
-#, fuzzy
 msgid "Member Instance(s)"
 msgstr "멤버 인스턴스"
 
@@ -5491,6 +5511,9 @@ msgstr "볼륨을 연결할 수 없습니다."
 msgid "No volumes available"
 msgstr "사용 가능한 볼륨이 없습니다."
 
+msgid "Non admin users are not allowed to set shared option."
+msgstr "Admin 사용자가 아닐 경우, 공용 옵션을 설정할 수 없습니다."
+
 msgid "Non-Members"
 msgstr "맴버 아님"
 
@@ -5935,6 +5958,13 @@ msgstr "연결된 포트"
 msgid "Ports"
 msgstr "포트"
 
+msgid ""
+"Ports are optional and can be used with networks to add extra IP addresses "
+"to your instances or select specific types of ports."
+msgstr ""
+"포트는 옵션이며, 인스턴스에 임시 IP 주소를 추가하거나 포트에 대한 특정 타입"
+"을 선택하여 사용할 수 있습니다."
+
 msgid "Position in Policy"
 msgstr "정책 위치"
 
@@ -6068,9 +6098,9 @@ msgstr "프로토콜"
 msgid "Protocol ID"
 msgstr "프로토콜 ID"
 
-#, fuzzy, python-format
+#, python-format
 msgid "Protocol ID \"%s\" is already used."
-msgstr "프로토콜 ID \"%s\"는 이미 사용 중입니다."
+msgstr "\"%s\" 프로토콜 ID는 이미 사용 중입니다."
 
 msgid "Protocol Port"
 msgstr "프로토콜 포트"
@@ -6384,7 +6414,6 @@ msgctxt "Current status of an Instance"
 msgid "Rescue"
 msgstr "Rescue"
 
-#, fuzzy
 msgctxt "Current status of an Instance"
 msgid "Rescued"
 msgstr "Rescued"
@@ -6410,7 +6439,6 @@ msgctxt "Current status of an Instance"
 msgid "Resize/Migrate"
 msgstr "Resize/Migrate"
 
-#, fuzzy
 msgctxt "Current status of an Instance"
 msgid "Resized"
 msgstr "크기 조정"
@@ -6592,6 +6620,24 @@ msgid "Router"
 msgstr "라우터"
 
 #, python-format
+msgid ""
+"Router %(name)s was created but connecting to an external network failed. "
+"Attempts to delete the new router also failed. Router %(name)s still exists "
+"but is not connect to the desired external network."
+msgstr ""
+"라우터 %(name)s 를 생성하였으나 외부 네트워크와 연결하지 못했습니다. 새로운 "
+"라우터를 삭제하려는 시도도 실패하였습니다. 라우터 %(name)s 는 존재하지만, 외"
+"부 네트워크와는 연결되지 않은 상태입니다."
+
+#, python-format
+msgid ""
+"Router %s was created but connecting to an external network failed. The "
+"created router has been deleted, as the overall operation failed."
+msgstr ""
+"라우터 %s를 생성하였으나 외부 네트워크와 연결하지 못했습니다. 전체 작업 실패"
+"로 생성된 라우터는 삭제되었습니다."
+
+#, python-format
 msgid "Router %s was successfully created."
 msgstr "라우터 %s를 성공적으로 생성하였습니다."
 
@@ -6722,7 +6768,6 @@ msgid "Scheduled deletion of IPSec Site Connection"
 msgid_plural "Scheduled deletion of IPSec Site Connections"
 msgstr[0] "IPSec 사이트 연결 예약 삭제"
 
-#, fuzzy
 msgid "Scheduled deletion of Instance"
 msgid_plural "Scheduled deletion of Instances"
 msgstr[0] "인스턴스 예약 삭제"
@@ -7259,7 +7304,6 @@ msgstr "소스 포트/포트 범위"
 msgid "Source port (integer in [1, 65535] or range in a:b)"
 msgstr "소스 포트 (정수 [1, 65535] 사이 또는 a:b 범위)"
 
-#, fuzzy
 msgid ""
 "Source/Destination Network Address and IP version are inconsistent. Please "
 "make them consistent."
@@ -7296,19 +7340,16 @@ msgstr "인스턴스를 구동하기 위해 사용 가능한 볼륨을 지정합
 msgid "Specify \"Network Address\""
 msgstr "\"네트워크 주소\"를 지정합니다."
 
-#, fuzzy
 msgid ""
 "Specify \"Network Address\" or clear \"Create Subnet\" checkbox in previous "
 "step."
 msgstr ""
-"\"네트워크 주소\"를 지정하거나 이전단계에서 \"서브넷 생성\" 체크박스 선택을 "
-"초기화합니다."
+"이전 단계에서 \"네트워크 주소\"를 선택하거나 \"서브넷 생성\" 체크박스를 해제"
+"합니다."
 
-#, fuzzy
 msgid "Specify IP address of gateway or check \"Disable Gateway\" checkbox."
 msgstr ""
-"게이트웨이 IP주소를 작성하거나 \"게이트웨이 비활성화\" 체크박스를 체크하십시"
-"오."
+"게이트웨이 IP주소를 지정하거나 \"게이트웨이 비활성화\" 체크박스를 체크합니다."
 
 msgid "Specify VIP"
 msgstr "VIP 지정"
@@ -7448,7 +7489,6 @@ msgctxt "Action log of an instance"
 msgid "Stop"
 msgstr "Stop"
 
-#, fuzzy
 msgctxt "Current status of an Instance"
 msgid "Stopped"
 msgstr "중지됨"
@@ -7739,6 +7779,7 @@ msgid ""
 msgstr ""
 "\"to\" 포트의 숫자는 반드시 \"from\" 포트의 숫자보다 크거나 같아야합니다."
 
+#. Translators: Only used inside Horizon code and invisible to users
 #, python-format
 msgid ""
 "The 'operation' parameter for get_feature_permission '%(feature)s' is "
@@ -7859,7 +7900,6 @@ msgid ""
 msgstr ""
 "다음 차트는 이 프로젝트에 관련된 프로젝트 quota에 관한 리소스를 보여줍니다."
 
-#, fuzzy
 msgid ""
 "The color and icon of an intersection indicates whether or not traffic is "
 "permitted from the source (row) to the destination (column).\n"
@@ -7870,13 +7910,14 @@ msgid ""
 "direction is outlined when hovering over an intersection.\n"
 " "
 msgstr ""
-"교차점에서의 색상 및 아이콘은 트래픽이 원본 (행)으로부터 대상 (열)까지 허용되"
-"는지 아닌지를 가리킵니다.\n"
-"     교차점에서 <span class=\"fa fa-random\"></span> 버튼을 클릭하여 트래픽 "
-"상태를 변경하는 규칙을 설치할 수 있습니다.<br/>\n"
+"교차점의 색상과 아이콘은 트래픽이 원본 (행)으로부터 대상 (열)까지 허용 여부"
+"를 나타냅니다.\n"
+"     교차점에 있는 <span class=\"fa fa-random\"></span> 버튼을 클릭하면 트래"
+"픽 상태를 전환하기 위한 규칙을 설정할 수 있습니다.<br/>\n"
 "\n"
-"     <b>참고:</b> 규칙은 트래픽의 한 방향으로만 영향을 미칩니다. 교차점에 마"
-"우스를 가져다 두면 반대 방향이 나타납니다.\n"
+"     <b>참고:</b> 규칙은 트래픽의 한 방향으로만 영향을 미칩니다. 교차점 위에 "
+"마우스를 이동하게 되면, 반대 방향을 보여줍니다.\n"
+" "
 
 msgid "The container cannot be deleted since it is not empty."
 msgstr "컨테이너가 비어있지 않아 삭제할 수 없습니다."
@@ -7980,6 +8021,13 @@ msgid "The physical mechanism by which the virtual network is implemented."
 msgstr "가상 네트워크를 이용하는 물리적 메커니즘을 구현합니다."
 
 msgid ""
+"The port also describes the associated network configuration, such as the "
+"MAC and IP addresses to be used on that port."
+msgstr ""
+"포트는 그 포트에서 사용하는 MAC 주소와 IP 주소등과 관련된 네트워크 구성을 묘"
+"사합니다."
+
+msgid ""
 "The private key will be only used in your browser and will not be sent to "
 "the server"
 msgstr "개인 키는 브라우저에서만 사용되며 서버에 전송되지 않습니다."
@@ -7993,6 +8041,7 @@ msgstr "Environment 파일의 raw 컨텐트."
 msgid "The raw contents of the template."
 msgstr "템플릿의 raw 내용."
 
+#. Translators: Only used inside Horizon code and invisible to users
 #, python-format
 msgid ""
 "The requested feature '%(feature)s' is unknown. Please make sure to specify "
@@ -8035,6 +8084,13 @@ msgstr "요청 인스턴스 포트는 이미 다른 floating IP에 연결되어 
 msgid "The specified port is invalid."
 msgstr "지정된 포트 번호가 올바르지 않습니다."
 
+msgid ""
+"The state of VPN service to start in. If DOWN (False) VPN service does not "
+"forward packets."
+msgstr ""
+"VPN 서비스의 상태가 start in 상태라면, DOWN (False) VPN 서비스는 패킷을 전송"
+"하지 않습니다."
+
 msgid "The state to start the network in."
 msgstr "네트워크에서 상태는 시작입니다."
 
@@ -8045,7 +8101,7 @@ msgstr "네트워크 주소의 서브넷이 너무 적습니다 (/%s)."
 msgid "The time delta must be a number representing the time span in days"
 msgstr "시간 델타값은 일자 단위로 시간 범위를 나타내는 숫자여야 합니다."
 
-#, fuzzy, python-format
+#, python-format
 msgid "The volume size cannot be less than the image minimum disk size (%sGiB)"
 msgstr "볼륨 크기는 이미지 최소 디스크 크기 (%sGiB)보다 작을 수 없습니다."
 
@@ -8053,11 +8109,11 @@ msgstr "볼륨 크기는 이미지 최소 디스크 크기 (%sGiB)보다 작을 
 msgid "The volume size cannot be less than the image size (%s)"
 msgstr "볼륨 크기는 이미지 크기 (%s)보다 작을 수 없습니다."
 
-#, fuzzy, python-format
+#, python-format
 msgid "The volume size cannot be less than the snapshot size (%sGiB)"
 msgstr "볼륨 크기는 스냅샷 크기 (%sGiB)보다 작을 수 없습니다."
 
-#, fuzzy, python-format
+#, python-format
 msgid "The volume size cannot be less than the source volume size (%sGiB)"
 msgstr "볼륨 크기가 소스 볼륨 크기 (%sGiB) 보다 작을 수 없습니다."
 
@@ -8113,7 +8169,6 @@ msgstr "스택의 라이프 사이클 동안 실행하는 작동에 필요로 �
 msgid "This name is already taken."
 msgstr "이 이름은 현재 사용중입니다."
 
-#, fuzzy
 msgid "This panel needs JavaScript support."
 msgstr "이 부분은 자바스크립트 지원이 필요합니다."
 
@@ -8211,9 +8266,8 @@ msgstr "총 디스크 크기 (GB):"
 msgid "Total Disk Usage (Hours):"
 msgstr "총 디스크 사용량 (시간):"
 
-#, fuzzy
 msgid "Total Gibibytes"
-msgstr "Gibibytes 총계"
+msgstr "총 Gibibytes"
 
 msgid "Total Memory Usage (Hours):"
 msgstr "총 메모리 사용량 (시간):"
@@ -8736,9 +8790,8 @@ msgstr "%s IP 주소 구문을 분석할 수 없습니다."
 msgid "Unable to rebuild instance."
 msgstr "인스턴스를 다시 빌드 할 수 없습니다."
 
-#, fuzzy
 msgid "Unable to register identity provider."
-msgstr "ID 제공자를 등록할 수 없습니다."
+msgstr "Identity 제공자를 등록할 수 없습니다."
 
 msgid ""
 "Unable to register identity provider. Please check that the Identity "
@@ -8797,7 +8850,7 @@ msgstr "IPSec 사이트 접속 세부 정보를 찾지 못 했습니다. %s"
 msgid "Unable to retrieve IPSec Site Connections list."
 msgstr "IPSec 사이트 연결 목록을 찾지 못 했습니다."
 
-#, fuzzy, python-format
+#, python-format
 msgid "Unable to retrieve Network information for instance \"%s\"."
 msgstr "인스턴스 \"%s\"에 대한 네트워크 정보 조회 실패"
 
@@ -9161,7 +9214,6 @@ msgstr "프로젝트 정보를 찾지 못 했습니다."
 msgid "Unable to retrieve project list."
 msgstr "프로젝트 리스트를 찾지 못했습니다."
 
-#, fuzzy
 msgid "Unable to retrieve protocol list."
 msgstr "프로토콜 목록을 찾지 못했습니다."
 
@@ -9477,7 +9529,6 @@ msgstr "\"%s\"에 대한 볼륨 상태를 업데이트 할 수 없습니다."
 msgid "Unable to update volume type."
 msgstr "볼륨 타입을 수정할 수 없습니다."
 
-#, fuzzy
 msgid "Unable to update volume."
 msgstr "볼륨을 업데이트 할 수 없습니다."
 
@@ -9594,7 +9645,6 @@ msgctxt "current status of stack"
 msgid "Update In Progress"
 msgstr "Update In Progress"
 
-#, fuzzy
 msgid "Update Mapping"
 msgstr "맵핑 업데이트"
 
@@ -10062,7 +10112,7 @@ msgstr "볼륨 타입: %(volume_type_name)s"
 msgid "Volume Types"
 msgstr "볼륨 타입"
 
-#, fuzzy, python-format
+#, python-format
 msgid ""
 "Volume cannot be extended to %(req)iGiB as you only have %(avail)iGiB of "
 "your quota available."
@@ -10097,24 +10147,24 @@ msgstr "쓰기 용량"
 msgid "Volume size in gigabytes (integer value)."
 msgstr "볼륨 크기 기가 바이트 (정수 값)."
 
-#, fuzzy, python-format
+#, python-format
 msgid ""
 "Volume size must be equal to or greater than the image minimum disk size "
 "(%sGiB)"
-msgstr "볼륨 크기는 이미지의 최소 디스크 크기(%sGiB)이상이어야 합니다."
+msgstr "볼륨 크기는 이미지 최소 디스크 크기 (%sGiB) 이상이거나 같아야 합니다."
 
 #, python-format
 msgid "Volume size must be equal to or greater than the image size (%s)"
 msgstr "볼륨 크기가 이미지 크기 (%s)보다 크거나 같아야 합니다."
 
-#, fuzzy, python-format
+#, python-format
 msgid ""
 "Volume size must be equal to or greater than the origin volume size (%sGiB)"
 msgstr "볼륨크기는 원본 볼륨 크기(%sGiB) 보다 크거나 같아야 합니다."
 
-#, fuzzy, python-format
+#, python-format
 msgid "Volume size must be equal to or greater than the snapshot size (%sGiB)"
-msgstr "볼륨 크기가 같거나 스냅샷 크기 (%sGB)보다 커야 합니다."
+msgstr "볼륨 크기는 스냅샷 크기 (%sGiB)보다 크거나 같아야합니다."
 
 msgid "Volume size must be greater than 0"
 msgstr "볼륨 크기는 0 이상이어야 합니다."
@@ -10135,7 +10185,6 @@ msgstr "볼륨"
 msgid "Volumes Attached"
 msgstr "볼륨 연결"
 
-#, fuzzy
 msgid "Volumes are block devices that can be attached to instances."
 msgstr "볼륨은 인스턴스에 연결할 수 있는 블록 디바이스입니다."
 
@@ -10449,6 +10498,5 @@ msgstr "v1"
 msgid "v2"
 msgstr "v2"
 
-#, fuzzy
 msgid "yes,no,-"
 msgstr "예,아니오,-"
