@@ -98,6 +98,13 @@ horizon.datatables = {
                 $new_row.find('.table-row-multi-select').prop('checked', true);
               }
               $row.replaceWith($new_row);
+
+              // TODO(matt-borland, tsufiev): ideally we should solve the
+              // problem with not-working angular actions in a content added
+              // by jQuery via replacing jQuery insert with Angular insert.
+              // Should address this in Newton release
+              recompileAngularContent();
+
               // Reset tablesorter's data cache.
               $table.trigger("update");
               // Reset decay constant.
