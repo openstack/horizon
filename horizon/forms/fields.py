@@ -12,6 +12,7 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
+import itertools
 import re
 
 import netaddr
@@ -23,9 +24,12 @@ from django.core import urlresolvers
 from django.forms import fields
 from django.forms.utils import flatatt  # noqa
 from django.forms import widgets
+from django.template import Context  # noqa
+from django.template.loader import get_template  # noqa
 from django.utils.encoding import force_text
 from django.utils.functional import Promise  # noqa
 from django.utils import html
+from django.utils.safestring import mark_safe  # noqa
 from django.utils.translation import ugettext_lazy as _
 
 ip_allowed_symbols_re = re.compile(r'^[a-fA-F0-9:/\.]+$')
@@ -164,7 +168,7 @@ class SelectWidget(widgets.Select):
             ....
             ....
 
-            widget=forms.SelectWidget( attrs={'class': 'switchable',
+            widget=forms.ThemableSelect( attrs={'class': 'switchable',
                                              'data-slug': 'source'},
                                     transform_html_attrs=get_title )
 
@@ -187,26 +191,84 @@ class SelectWidget(widgets.Select):
         other_html = (u' selected="selected"'
                       if option_value in selected_choices else '')
 
-        if callable(self.transform_html_attrs):
-            html_attrs = self.transform_html_attrs(option_label)
-            other_html += flatatt(html_attrs)
+        other_html += self.transform_option_html_attrs(option_label)
 
+        data_attr_html = self.get_data_attrs(option_label)
+        if data_attr_html:
+            other_html += ' ' + data_attr_html
+
+        option_label = self.transform_option_label(option_label)
+
+        return u'<option value="%s"%s>%s</option>' % (
+            html.escape(option_value), other_html, option_label)
+
+    def get_data_attrs(self, option_label):
+        other_html = []
         if not isinstance(option_label, (six.string_types, Promise)):
             for data_attr in self.data_attrs:
                 data_value = html.conditional_escape(
                     force_text(getattr(option_label,
                                        data_attr, "")))
-                other_html += ' data-%s="%s"' % (data_attr, data_value)
+                other_html.append('data-%s="%s"' % (data_attr, data_value))
+        return ' '.join(other_html)
 
-            if callable(self.transform):
-                option_label = self.transform(option_label)
+    def transform_option_label(self, option_label):
+        if (not isinstance(option_label, (six.string_types, Promise)) and
+                callable(self.transform)):
+                    option_label = self.transform(option_label)
+        return html.conditional_escape(force_text(option_label))
 
-        return u'<option value="%s"%s>%s</option>' % (
-            html.escape(option_value), other_html,
-            html.conditional_escape(force_text(option_label)))
+    def transform_option_html_attrs(self, option_label):
+        if not callable(self.transform_html_attrs):
+            return ''
+        return flatatt(self.transform_html_attrs(option_label))
 
 
-class DynamicSelectWidget(widgets.Select):
+class ThemableSelectWidget(SelectWidget):
+    """Bootstrap base select field widget."""
+    def render(self, name, value, attrs=None, choices=()):
+        # NOTE(woodnt): Currently the "attrs" contents are being added to the
+        #               select that's hidden.  It's unclear whether this is the
+        #               desired behavior.  In some cases, the attribute should
+        #               remain solely on the now-hidden select.  But in others
+        #               if it should live on the bootstrap button (visible)
+        #               or both.
+
+        new_choices = []
+        for opt_value, opt_label in itertools.chain(self.choices, choices):
+            other_html = self.transform_option_html_attrs(opt_label)
+
+            data_attr_html = self.get_data_attrs(opt_label)
+            if data_attr_html:
+                other_html += ' ' + data_attr_html
+
+            opt_label = self.transform_option_label(opt_label)
+
+            if other_html:
+                new_choices.append((opt_value, opt_label, other_html))
+            else:
+                new_choices.append((opt_value, opt_label))
+
+        initial_value = value
+        if value is None and new_choices:
+            initial_value = new_choices[0][1]
+
+        attrs = self.build_attrs(attrs)
+        id = attrs.pop('id', 'id_%s' % name)
+
+        template = get_template('horizon/common/fields/_themable_select.html')
+        context = Context({
+            'name': name,
+            'options': new_choices,
+            'id': id,
+            'value': value,
+            'initial_value': initial_value,
+            'select_attrs': attrs,
+        })
+        return template.render(context)
+
+
+class DynamicSelectWidget(SelectWidget):
     """A subclass of the ``Select`` widget which renders extra attributes for
     use in callbacks to handle dynamic changes to the available choices.
     """
@@ -231,6 +293,15 @@ class DynamicSelectWidget(widgets.Select):
             return self.add_item_link
 
 
+class ThemableDynamicSelectWidget(ThemableSelectWidget, DynamicSelectWidget):
+    pass
+
+
+class ThemableChoiceField(fields.ChoiceField):
+    """Bootstrap based select field."""
+    widget = ThemableSelectWidget
+
+
 class DynamicChoiceField(fields.ChoiceField):
     """A subclass of ``ChoiceField`` with additional properties that make
     dynamically updating its elements easier.
@@ -249,6 +320,10 @@ class DynamicChoiceField(fields.ChoiceField):
         super(DynamicChoiceField, self).__init__(*args, **kwargs)
         self.widget.add_item_link = add_item_link
         self.widget.add_item_link_args = add_item_link_args
+
+
+class ThemableDynamicChoiceField(DynamicChoiceField):
+    widget = ThemableDynamicSelectWidget
 
 
 class DynamicTypedChoiceField(DynamicChoiceField, fields.TypedChoiceField):

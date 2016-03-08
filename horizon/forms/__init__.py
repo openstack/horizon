@@ -35,6 +35,9 @@ from horizon.forms.fields import MultiIPField  # noqa
 from horizon.forms.fields import SelectWidget  # noqa
 from horizon.forms.fields import ThemableCheckboxInput  # noqa
 from horizon.forms.fields import ThemableCheckboxSelectMultiple  # noqa
+from horizon.forms.fields import ThemableChoiceField  # noqa
+from horizon.forms.fields import ThemableDynamicChoiceField  # noqa
+from horizon.forms.fields import ThemableSelectWidget  # noqa
 from horizon.forms.views import ModalFormMixin  # noqa
 from horizon.forms.views import ModalFormView  # noqa
 
@@ -49,6 +52,9 @@ __all__ = [
     "DynamicChoiceField",
     "ThemableCheckboxInput",
     "ThemableCheckboxSelectMultiple",
+    "ThemableChoiceField",
+    "ThemableDynamicChoiceField",
+    "ThemableSelectWidget",
     "IPField",
     "IPv4",
     "IPv6",

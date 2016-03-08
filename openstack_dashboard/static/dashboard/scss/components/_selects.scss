@@ -3,15 +3,72 @@
 // ---------------------------------
 
 .themable-select {
-    .dropdown-title {
-      text-align: left;
+  position: relative;
 
-      &:after {
-        content: ' ';
-      }
+  .dropdown-title {
+    text-align: left;
+
+    &:after {
+      content: ' ';
     }
+  }
 
   select {
-    display: none;
+    &,
+    &.form-control {
+      display: none;
+    }
+  }
+}
+
+// The dropdowns within forms should look like all other
+// form elements
+.form-group .themable-select {
+  padding: 0;
+
+  &,
+  &.open {
+    .btn {
+      box-shadow: none;
+      border: none;
+      height: 100%;
+    }
+
+    .dropdown-menu {
+      background-color: $input-bg;
+      background-image: none; // Reset unusual Firefox-on-Android default style; see https://github.com/necolas/normalize.css/issues/214
+      border-color: $input-border;
+      width: 100%;
+
+      li > a {
+        @include text-overflow();
+        color: $input-color;
+
+        &:hover {
+          color: $dropdown-link-hover-color;
+          cursor: pointer;
+        }
+      }
+    }
+  }
+}
+
+// For vertical forms, we'll want the button to take on the entire width.
+// think old-school launch-instance.
+form:not(.form-inline) .form-group .themable-select {
+  width: 100%;
+
+  .dropdown-toggle {
+    @extend .btn-block;
+
+    .fa-caret-down {
+      left: 0;
+    }
+  }
+
+  .dropdown-title {
+    @include text-overflow();
+    width: calc(100% - 1em);
+    float: left;
   }
 }

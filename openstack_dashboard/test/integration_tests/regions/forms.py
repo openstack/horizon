@@ -36,7 +36,7 @@ class FieldFactory(baseregion.BaseRegion):
                                   field_cls._element_locator_str_suffix))
             elements = super(FieldFactory, self)._get_elements(*locator)
             for element in elements:
-                yield field_cls(self.driver, self.conf, element)
+                yield field_cls(self.driver, self.conf, src_elem=element)
 
     @classmethod
     def register_field_cls(cls, field_class, base_classes=None):
@@ -174,7 +174,7 @@ class IntegerFormFieldRegion(BaseFormFieldRegion):
 class SelectFormFieldRegion(BaseFormFieldRegion):
     """Select box field."""
 
-    _element_locator_str_suffix = 'div > select'
+    _element_locator_str_suffix = 'div > select.form-control'
 
     def is_displayed(self):
         return self.element._el.is_displayed()
@@ -216,6 +216,67 @@ class SelectFormFieldRegion(BaseFormFieldRegion):
     @value.setter
     def value(self, value):
         self.element.select_by_value(value)
+
+
+class ThemableSelectFormFieldRegion(BaseFormFieldRegion):
+    """Select box field."""
+
+    _element_locator_str_suffix = 'div > .themable-select'
+    _raw_select_locator = (by.By.CSS_SELECTOR, 'select')
+    _selected_label_locator = (by.By.CSS_SELECTOR, '.dropdown-title')
+    _dropdown_menu_locator = (by.By.CSS_SELECTOR, 'ul.dropdown-menu > li > a')
+
+    def __init__(self, driver, conf, strict_options_match=True, **kwargs):
+        super(ThemableSelectFormFieldRegion, self).__init__(
+            driver, conf, **kwargs)
+        self.strict_options_match = strict_options_match
+
+    @property
+    def hidden_element(self):
+        elem = self._get_element(*self._raw_select_locator)
+        return SelectFormFieldRegion(self.driver, self.conf, src_elem=elem)
+
+    @property
+    def name(self):
+        return self.hidden_element.name
+
+    @property
+    def text(self):
+        return self._get_element(*self._selected_label_locator).text.strip()
+
+    @property
+    def value(self):
+        return self.hidden_element.value
+
+    @property
+    def options(self):
+        return self._get_elements(*self._dropdown_menu_locator)
+
+    @text.setter
+    def text(self, text):
+        if text != self.text:
+            self.src_elem.click()
+            for option in self.options:
+                if self.strict_options_match:
+                    match = text == option.text.strip()
+                else:
+                    match = option.text.startswith(text)
+                if match:
+                    option.click()
+                    return
+            raise ValueError('Widget "%s" does have an option with text "%s"'
+                             % (self.name, text))
+
+    @value.setter
+    def value(self, value):
+        if value != self.value:
+            self.src_elem.click()
+            for option in self.options:
+                if value == option.get_attribute('data-select-value'):
+                    option.click()
+                    return
+            raise ValueError('Widget "%s" does have an option with value "%s"'
+                             % (self.name, value))
 
 
 class BaseFormRegion(baseregion.BaseRegion):

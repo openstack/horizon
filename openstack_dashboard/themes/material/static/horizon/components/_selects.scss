@@ -1,0 +1,74 @@
+// The dropdowns within forms should look like all other
+// form elements, so this mimics Bootswatch's Paper's
+// bootswatch.scss form-group styles
+
+.form-group .themable-select {
+  box-shadow: none;
+  border-radius: 0;
+  border: none;
+
+  &,
+  &.open {
+    .btn {
+      &,
+      &:hover,
+      &.active,
+      &:active,
+      &:focus {
+        background: transparent;
+        padding: 0;
+        border: none;
+        border-radius: 0;
+        -webkit-appearance: none;
+        @include box-shadow(inset 0 -1px 0 $table-border-color);
+        font-size: 16px;
+
+        &:focus {
+          @include box-shadow(inset 0 -2px 0 $brand-primary);
+        }
+
+        &[disabled],
+        &[readonly] {
+          @include box-shadow(none);
+          border-bottom: 1px dotted $table-border-color;
+        }
+
+        &.input {
+          &-sm {
+            font-size: $font-size-small;
+          }
+
+          &-lg {
+            font-size: $font-size-large;
+          }
+        }
+      }
+    }
+  }
+
+  &.open .dropdown-menu {
+    background-color: $dropdown-bg;
+  }
+}
+
+@mixin material-select-states($state, $color) {
+  .form-group.#{$state} .themable-select {
+    &,
+    &.open {
+      .btn {
+        &,
+        &:hover,
+        &.active,
+        &:active,
+        &:focus {
+          border-bottom: none;
+          @include box-shadow(inset 0 -2px 0 $color);
+        }
+      }
+    }
+  }
+}
+
+@include material-select-states('has-warning', $brand-warning);
+@include material-select-states('has-error', $brand-danger);
+@include material-select-states('has-success', $brand-success);
