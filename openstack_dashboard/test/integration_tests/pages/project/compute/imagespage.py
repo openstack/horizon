@@ -10,8 +10,6 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
-from selenium.common import exceptions
-
 from openstack_dashboard.test.integration_tests.pages import basepage
 from openstack_dashboard.test.integration_tests.regions import forms
 from openstack_dashboard.test.integration_tests.regions import tables
@@ -129,14 +127,8 @@ class ImagesPage(basepage.BaseNavigationPage):
 
     def is_image_active(self, name):
         row = self._get_row_with_image_name(name)
-
-        def cell_getter():
-            return row.cells[self.IMAGES_TABLE_STATUS_COLUMN]
-        try:
-            self._wait_till_text_present_in_element(cell_getter, 'Active')
-        except exceptions.TimeoutException:
-            return False
-        return True
+        return self.images_table.is_cell_status(
+            lambda: row.cells[self.IMAGES_TABLE_STATUS_COLUMN], 'Active')
 
     def wait_until_image_active(self, name):
         self._wait_until(lambda x: self.is_image_active(name))

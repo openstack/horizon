@@ -10,8 +10,6 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
-from selenium.common import exceptions
-
 from openstack_dashboard.test.integration_tests.pages import basepage
 from openstack_dashboard.test.integration_tests.regions import forms
 from openstack_dashboard.test.integration_tests.regions import tables
@@ -120,23 +118,12 @@ class VolumesPage(basepage.BaseNavigationPage):
 
     def is_volume_status(self, name, status):
         row = self._get_row_with_volume_name(name)
-
-        def cell_getter():
-            return row.cells[self.VOLUMES_TABLE_STATUS_COLUMN]
-
-        try:
-            self._wait_till_text_present_in_element(cell_getter, status)
-        except exceptions.TimeoutException:
-            return False
-        return True
+        return self.volumes_table.is_cell_status(
+            lambda: row.cells[self.VOLUMES_TABLE_STATUS_COLUMN], status)
 
     def is_volume_deleted(self, name):
-        try:
-            getter = lambda: self._get_row_with_volume_name(name)
-            self.wait_till_element_disappears(getter)
-        except exceptions.TimeoutException:
-            return False
-        return True
+        return self.volumes_table.is_row_deleted(
+            lambda: self._get_row_with_volume_name(name))
 
     def _get_source_name(self, volume_form, volume_source_type, conf,
                          volume_source):

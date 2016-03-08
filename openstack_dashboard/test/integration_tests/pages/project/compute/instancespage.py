@@ -9,8 +9,6 @@
 #    WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
 #    License for the specific language governing permissions and limitations
 #    under the License.
-from selenium.common import exceptions
-
 from openstack_dashboard.test.integration_tests.pages import basepage
 from openstack_dashboard.test.integration_tests.regions import forms
 from openstack_dashboard.test.integration_tests.regions import tables
@@ -108,23 +106,13 @@ class InstancesPage(basepage.BaseNavigationPage):
         confirm_delete_instances_form.submit()
 
     def is_instance_deleted(self, name):
-        try:
-            getter = lambda: self._get_row_with_instance_name(name)
-            self.wait_till_element_disappears(getter)
-        except exceptions.TimeoutException:
-            return False
-        return True
+        return self.instances_table.is_row_deleted(
+            lambda: self._get_row_with_instance_name(name))
 
     def is_instance_active(self, name):
         row = self._get_row_with_instance_name(name)
-
-        def cell_getter():
-            return row.cells[self.INSTANCES_TABLE_STATUS_COLUMN]
-        try:
-            self._wait_till_text_present_in_element(cell_getter, 'Active')
-        except exceptions.TimeoutException:
-            return False
-        return True
+        return self.instances_table.is_cell_status(
+            lambda: row.cells[self.INSTANCES_TABLE_STATUS_COLUMN], 'Active')
 
     def _get_source_name(self, instance, boot_source,
                          conf):

@@ -90,7 +90,7 @@ class TestVolumes(helpers.TestCase):
         count = 3
         items_per_page = 1
         volumes_names = ["{0}_{1}".format(self.VOLUME_NAME, i) for i in
-                         xrange(count)]
+                         range(count)]
         for volume_name in volumes_names:
             volumes_page.create_volume(volume_name)
             volumes_page.find_message_and_dismiss(messages.INFO)
