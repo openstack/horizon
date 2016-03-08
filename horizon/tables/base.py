@@ -14,6 +14,7 @@
 
 import collections
 import copy
+import inspect
 import json
 import logging
 from operator import attrgetter
@@ -466,6 +467,8 @@ class Column(html.HTMLElement):
                 return None
         obj_id = self.table.get_object_id(datum)
         if callable(self.link):
+            if 'request' in inspect.getargspec(self.link).args:
+                return self.link(datum, request=self.table.request)
             return self.link(datum)
         try:
             return urlresolvers.reverse(self.link, args=(obj_id,))
@@ -670,11 +673,19 @@ class Row(html.HTMLElement):
 
     def get_ajax_update_url(self):
         table_url = self.table.get_absolute_url()
-        params = urlencode(collections.OrderedDict([
+        marker_name = self.table._meta.pagination_param
+        marker = self.table.request.GET.get(marker_name, None)
+        if not marker:
+            marker_name = self.table._meta.prev_pagination_param
+            marker = self.table.request.GET.get(marker_name, None)
+        request_params = [
             ("action", self.ajax_action_name),
             ("table", self.table.name),
-            ("obj_id", self.table.get_object_id(self.datum))
-        ]))
+            ("obj_id", self.table.get_object_id(self.datum)),
+        ]
+        if marker:
+            request_params.append((marker_name, marker))
+        params = urlencode(collections.OrderedDict(request_params))
         return "%s?%s" % (table_url, params)
 
     def can_be_selected(self, datum):
