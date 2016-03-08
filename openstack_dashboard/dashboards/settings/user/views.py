@@ -32,6 +32,7 @@ class UserSettingsView(forms.ModalFormView):
     template_name = 'settings/user/settings.html'
 
     def get_initial(self):
+        default_tz = getattr(settings, 'TIME_ZONE', 'UTC')
         return {
             'language': self.request.session.get(
                 settings.LANGUAGE_COOKIE_NAME,
@@ -39,7 +40,7 @@ class UserSettingsView(forms.ModalFormView):
                                          self.request.LANGUAGE_CODE)),
             'timezone': self.request.session.get(
                 'django_timezone',
-                self.request.COOKIES.get('django_timezone', 'UTC')),
+                self.request.COOKIES.get('django_timezone', default_tz)),
             'pagesize': utils.get_page_size(self.request),
             'instance_log_length': utils.get_log_length(self.request)}
 
