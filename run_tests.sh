@@ -439,7 +439,8 @@ function babel_extract {
   KEYWORDS+=" -k ugettext_noop -k ugettext_lazy -k ungettext_lazy:1,2"
   KEYWORDS+=" -k npgettext:1c,2,3 -k pgettext_lazy:1c,2 -k npgettext_lazy:1c,2,3"
 
-  ${command_wrapper} pybabel extract -F ../babel-${DOMAIN}.cfg -o locale/${DOMAIN}.pot $KEYWORDS .
+  ${command_wrapper} pybabel extract -F ../babel-${DOMAIN}.cfg \
+      --add-comments Translators: -o locale/${DOMAIN}.pot $KEYWORDS .
 }
 
 function run_makemessages {
