@@ -31,9 +31,15 @@
 
   /**
    * @ngdoc controller
-   * @name horizon.dashboard.project.workflow.launch-instance.LaunchInstanceCreateKeyPairController
+   * @name LaunchInstanceCreateKeyPairController
+   * @param {Object} $modalInstance
+   * @param {Object} existingKeypairs
+   * @param {Object} nova
+   * @param {Object} toastService
+   * @param {Object} keypairDownloadService
    * @description
    * Provide a dialog for creation of a new key pair.
+   * @returns {undefined} Returns nothing
    */
   function LaunchInstanceCreateKeyPairController($modalInstance, existingKeypairs, nova,
   toastService, keypairDownloadService) {

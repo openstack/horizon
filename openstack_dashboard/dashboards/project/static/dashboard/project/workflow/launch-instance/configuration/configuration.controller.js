@@ -31,6 +31,7 @@
    *    The maximum size of user_data is 16 * 1024.
    * @property {string} disk_config, default to `AUTO`.
    * @property {boolean} config_drive, default to false.
+   * @returns {undefined} Returns nothing
    */
   function LaunchInstanceConfigurationController() {
     var ctrl = this;

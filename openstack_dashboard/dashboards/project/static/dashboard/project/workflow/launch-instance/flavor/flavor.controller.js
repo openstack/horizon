@@ -146,7 +146,7 @@
 
     // Convenience function to return a sensible value instead of undefined
     function defaultIfUndefined(value, defaultValue) {
-      return (angular.isUndefined(value)) ? defaultValue : value;
+      return angular.isUndefined(value) ? defaultValue : value;
     }
 
     /*
