@@ -15,16 +15,18 @@
 # Carsten Duch <carsten.duch@posteo.de>, 2015. #zanata
 # OpenStack Infra <zanata@openstack.org>, 2015. #zanata
 # Robert Simai <robert.simai@suse.com>, 2015. #zanata
+# Carsten Duch <carsten.duch@posteo.de>, 2016. #zanata
 # Frank Kloeker <eumel@arcor.de>, 2016. #zanata
+# Robert Simai <robert.simai@suse.com>, 2016. #zanata
 msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2016-03-04 08:39+0000\n"
+"POT-Creation-Date: 2016-03-07 18:49+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2016-03-06 04:46+0000\n"
+"PO-Revision-Date: 2016-03-07 04:21+0000\n"
 "Last-Translator: Frank Kloeker <eumel@arcor.de>\n"
 "Language: de\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
@@ -401,6 +403,9 @@ msgstr "Fehler beim Löschen von Port %s"
 msgid "\"Add Router Route\""
 msgstr "\"Routerroute hinzufügen\""
 
+msgid "\"Containers\""
+msgstr "\"Container\""
+
 msgid ""
 "\"Customization Script\" is analogous to \"User Data\" in other systems."
 msgstr ""
@@ -452,6 +457,7 @@ msgstr "%(instance_name)s %(fixed_ip)s"
 msgid "%(name)s - %(size)s GB (%(label)s)"
 msgstr "%(name)s - %(size)s GB (%(label)s)"
 
+#. Translators:  UTC offset and timezone label
 #, python-format
 msgid "%(offset)s: %(label)s"
 msgstr "%(offset)s: %(label)s"
@@ -580,6 +586,18 @@ msgid "A local template to upload."
 msgstr "Eine lokale Vorlage zum Hochladen."
 
 msgid ""
+"A mapping is a set of rules to map federation protocol attributes to "
+"Identity API objects. An identity provider can have a single mapping "
+"specified per protocol. A mapping is simply a list of rules. The only "
+"Identity API objects that will support mapping are: user and group."
+msgstr ""
+"Eine Zuweisung ist ein Satz von Regeln, um Föderationsprotokollattribute zu "
+"Identitäts API Objekte zuzuweisen. Ein Identitätsanbieter kann eine einfache "
+"Zuweisung per Protokoll haben. Eine Zuweisung ist eine einfache Liste von "
+"Regeln. Identitäts API Objekt, welche Zuweisung unterstützen sind: Benutzer "
+"und Gruppen."
+
+msgid ""
 "A more specific rule affects a portion of this traffic so a rule cannot be "
 "automatically generated to control the behavior of the entire source/"
 "destination combination."
@@ -598,6 +616,13 @@ msgid ""
 msgstr ""
 "Ein Port ist ein Verbindungspunkt zwischen einem einzelnen Gerät und einem "
 "virtuellen Netzwerk, z.B. die Netzwerkkarte eines virtuellen Servers."
+
+msgid ""
+"A rule contains a remote attribute description and the destination local "
+"attribute."
+msgstr ""
+"Eine Regel beinhaltet die Beschreibung des remote Attributs und das local "
+"Attribut des Zielorts."
 
 msgid ""
 "A script or set of commands to be executed after the instance has been built "
@@ -807,6 +832,9 @@ msgstr "Richtlinie hinzufügen"
 
 msgid "Add Pool"
 msgstr "Pool hinzufügen"
+
+msgid "Add Protocol"
+msgstr "Protokoll hinzufügen"
 
 msgid "Add Router"
 msgstr "Router hinzufügen"
@@ -1227,6 +1255,9 @@ msgstr "Datenträger %(vol)s wird Instanz %(inst)s auf %(dev)s zugewiesen."
 
 msgid "Attachments"
 msgstr "Anhänge"
+
+msgid "Attribute Mappings"
+msgstr "Attribut-Zuordnungen"
 
 msgid "Attributes"
 msgstr "Attribute"
@@ -1918,6 +1949,9 @@ msgstr "Port erstellen"
 msgid "Create Project"
 msgstr "Projekt erzeugen"
 
+msgid "Create Protocol"
+msgstr "Protokoll erstellen"
+
 msgid "Create Pseudo-folder"
 msgstr "Pseudo-Ordner erzeugen"
 
@@ -2181,6 +2215,10 @@ msgstr "Einen verschlüsselten Datenträgertyp erstellen"
 msgid "Create pseudo-folder in container %(container_name)s"
 msgstr "Erstelle Pseudo-Ordner in Container %(container_name)s"
 
+msgid "Created"
+msgstr "Erstellt"
+
+msgctxt "Created time"
 msgid "Created"
 msgstr "Erstellt"
 
@@ -2598,6 +2636,11 @@ msgid_plural "Delete Projects"
 msgstr[0] "Projekt löschen"
 msgstr[1] "Projekte löschen"
 
+msgid "Delete Protocol"
+msgid_plural "Delete Protocols"
+msgstr[0] "Protokoll löschen"
+msgstr[1] "Protokolle löschen"
+
 msgid "Delete QoS Spec"
 msgid_plural "Delete QoS Specs"
 msgstr[0] "Lösche QoS Spezifikation"
@@ -2787,6 +2830,11 @@ msgid "Deleted Project"
 msgid_plural "Deleted Projects"
 msgstr[0] "Gelöschtes Projekt"
 msgstr[1] "Gelöschte Projekte"
+
+msgid "Deleted Protocol"
+msgid_plural "Deleted Protocols"
+msgstr[0] "Gelöschtes Protokoll"
+msgstr[1] "Gelöschte Protokolle"
 
 msgid "Deleted QoS Spec"
 msgid_plural "Deleted QoS Specs"
@@ -3340,6 +3388,9 @@ msgstr ""
 "Festplatte, Anzahl der Kerne und andere Ressourcen. Varianten werden "
 "ausgewählt, wenn ein Benutzer Instanzen einsetzt."
 
+msgid "Edit the identity provider's details."
+msgstr "Identitätsanbieter Details bearbeiten"
+
 msgid "Edit the image details."
 msgstr "Abbild-Details bearbeiten."
 
@@ -3606,6 +3657,13 @@ msgstr ""
 
 msgid "Events"
 msgstr "Ereignisse"
+
+msgid ""
+"Example: For <tt>mod_shib</tt> this would be <tt>Shib-Identity-Provider</"
+"tt>, for <tt>mod_auth_openidc</tt>, this could be <tt>HTTP_OIDC_ISS</tt>."
+msgstr ""
+"Beispiel: Für <tt>mod_shib</tt> würde <tt>Shib-Identity-Provider</tt> sein, "
+"für <tt>mod_auth_openidc</tt> würde <tt>HTTP_OIDC_ISS</tt> sein."
 
 msgid ""
 "Example: The prefix 'hw:' is added to OS::Nova::Flavor for the Virtual CPU "
@@ -4265,6 +4323,7 @@ msgstr ""
 "zugleich Rollen zuzuweisen. Bearbeiten Sie die Gruppe, um Benutzer "
 "hinzuzufügen."
 
+#. Translators: High Availability mode of Neutron router
 msgid "HA mode"
 msgstr "HA Modus"
 
@@ -4289,10 +4348,22 @@ msgid_plural "Hard Reboot Instances"
 msgstr[0] "Harter Neustart Instanz"
 msgstr[1] "Harter Neustart Instanzen"
 
+msgctxt "Task status of an Instance"
+msgid "Hard Reboot Pending"
+msgstr "Harter Neustart  steht bevor"
+
+msgctxt "Task status of an Instance"
+msgid "Hard Reboot Started"
+msgstr "Harter Neustart hat begonnen"
+
 msgid "Hard Rebooted Instance"
 msgid_plural "Hard Rebooted Instances"
 msgstr[0] "Hart neu gestartete Instanz"
 msgstr[1] "Hart neu gestartete Instanzen"
+
+msgctxt "Task status of an Instance"
+msgid "Hard Rebooting"
+msgstr "Harter Neustart"
 
 msgid "Hash"
 msgstr "Raute"
@@ -4524,6 +4595,9 @@ msgstr "Identitätsanbieter ID"
 
 msgid "Identity Providers"
 msgstr "Identitätsanbieter"
+
+msgid "Identity provider protocol created successfully."
+msgstr "Identitätsanbieterprotokoll erfolgreich erstellt."
 
 msgid "Identity provider registered successfully."
 msgstr "Identitätsanbieter erfolgreich registriert."
@@ -4793,6 +4867,10 @@ msgstr "Unzureichende Berechtigungsebene um Gruppeninformationen einzusehen."
 msgid "Insufficient privilege level to view identity provider information."
 msgstr ""
 "Unzureichendes Zugriffslevel zur Ansicht der Identitätsproviderinformationen."
+
+msgid "Insufficient privilege level to view mapping information."
+msgstr ""
+"Unzureichende Berechtigungsebene zum einsehen der Zuordnungsinformationen."
 
 msgid "Insufficient privilege level to view project information."
 msgstr "Unzureichende Berechtigungsebene um Projektinformationen einzusehen."
@@ -5165,6 +5243,10 @@ msgstr "Zugewiesene feste IP-Adresse"
 msgid "Mapping ID"
 msgstr "Zuordnungs ID"
 
+#, python-format
+msgid "Mapping ID \"%s\" is already used."
+msgstr "Zuordnungs-ID \"%s\" wird bereits verwendet."
+
 msgid "Mapping created successfully."
 msgstr "Zuordnung erfolgreich erstellt."
 
@@ -5395,6 +5477,10 @@ msgstr "Anfang des Zeitraumes muss angegeben werden"
 
 msgid "N/A"
 msgstr "Nicht verfügbar"
+
+msgctxt "current status of port"
+msgid "N/A"
+msgstr "N/A"
 
 msgid "Name"
 msgstr "Name"
@@ -5744,6 +5830,9 @@ msgstr "Keine Datenträger zugewiesen."
 
 msgid "No volumes available"
 msgstr "Keine Datenträger verfügbar"
+
+msgid "Non admin users are not allowed to set shared option."
+msgstr "Nicht-Administratoren dürfen die Geteilt-Option nicht setzen."
 
 msgid "Non-Members"
 msgstr "Nichtmitglieder"
@@ -6200,6 +6289,14 @@ msgstr "Protokoll wird verknüpft"
 msgid "Ports"
 msgstr "Ports"
 
+msgid ""
+"Ports are optional and can be used with networks to add extra IP addresses "
+"to your instances or select specific types of ports."
+msgstr ""
+"Ports sind optional und können mit Netzwerken verwendet werden, um weitere "
+"IP-Adressen zu Ihren Instanzen hinzuzufügen oder besondere Porttypen "
+"auszuwählen."
+
 msgid "Position in Policy"
 msgstr "Position in Richtlinie"
 
@@ -6334,6 +6431,10 @@ msgstr "Protokoll"
 
 msgid "Protocol ID"
 msgstr "Protokoll ID"
+
+#, python-format
+msgid "Protocol ID \"%s\" is already used."
+msgstr "Protokoll ID \"%s\" wird bereits verwendet."
 
 msgid "Protocol Port"
 msgstr "Protokollport"
@@ -6530,6 +6631,13 @@ msgstr "Regionen:"
 msgid "Register Identity Provider"
 msgstr "Registriere Identitätsanbieter"
 
+msgid ""
+"Register a identity provider that is trusted by the Identity API to "
+"authenticate identities."
+msgstr ""
+"Registrieren Sie einen durch das Identitäts-API als vertrauenswürdig "
+"eingestuften Identitätsanbieter, um Identitäten zu authentifizieren."
+
 msgid "Relative part of requests this pool member serves compared to others"
 msgstr ""
 "Der relative Anteil an Anfragen, den dieses Mitglied bekommt, im Vergleich "
@@ -6563,6 +6671,15 @@ msgstr "Entfernt"
 
 msgid "Remote IDs"
 msgstr "Remote IDs"
+
+msgid ""
+"Remote IDs are associated with the identity provider and are globally "
+"unique. This indicates the header attributes to use for mapping federation "
+"protocol attributes to Identity API objects. If no value is provided, the "
+"list will be set to empty."
+msgstr ""
+"Entfernte IDs sind mit dem Identitätsanbieter verbunden und global einmalig. "
+"<fixme: \"this indicates\" doesn't make sense in the original text>"
 
 msgid "Remote IP Prefix"
 msgstr "Entfernte IP Präfix"
@@ -6607,6 +6724,14 @@ msgid "Removed User"
 msgid_plural "Removed Users"
 msgstr[0] "Entfernter Benutzer"
 msgstr[1] "Entfernte Benutzer"
+
+msgid ""
+"Removing a key pair can leave OpenStack resources orphaned. You should not "
+"remove a key pair unless you are certain it is not being used anywhere."
+msgstr ""
+"Die Entfernung eines Schlüsselpaares kann OpenStack Ressourcen verwaist "
+"zurücklassen. Sie sollten ein Schlüsselpaar nur entfernen wenn Sie sicher "
+"sind, dass es nirgends mehr verwendet wird."
 
 msgid "Report Bug"
 msgstr "Fehler melden"
@@ -6840,6 +6965,26 @@ msgstr "Routingmodus"
 
 msgid "Router"
 msgstr "Router"
+
+#, python-format
+msgid ""
+"Router %(name)s was created but connecting to an external network failed. "
+"Attempts to delete the new router also failed. Router %(name)s still exists "
+"but is not connect to the desired external network."
+msgstr ""
+"Router %(name)s wurde erstellt, aber die Verbindung zu einem externen "
+"Netzwerk schlug fehl. Der Versuch, den Router zu entfernen, schlug ebenfalls "
+"fehl. Router %(name)s existiert noch, ist aber nicht mit dem vorgesehenen "
+"Netzwerk verbunden."
+
+#, python-format
+msgid ""
+"Router %s was created but connecting to an external network failed. The "
+"created router has been deleted, as the overall operation failed."
+msgstr ""
+"Der Router %s wurde erstellt, aber die Verbindung zu einem externen Netzwerk "
+"schlug fehl. Der Router wurde gelöscht, da die Operation insgesamt "
+"fehlgeschlagen ist."
 
 #, python-format
 msgid "Router %s was successfully created."
@@ -7334,6 +7479,12 @@ msgstr "Als aktives Projekt festlegen"
 
 msgid "Set maximum quotas for the project."
 msgstr "Maximale Kontingente für das Projekt setzen."
+
+msgid ""
+"Set of rules to map federation protocol attributes to Identity API objects."
+msgstr ""
+"Ein Satz von Regeln, um Attribute des Föderationsprotokolls zu einem "
+"Identitäts API Objekt zuzuweisen."
 
 msgid "Settings"
 msgstr "Einstellungen"
@@ -8022,6 +8173,7 @@ msgid ""
 msgstr ""
 "Die \"bis\" Portnummer muss gleich oder größer der \"von\" Portnummer sein."
 
+#. Translators: Only used inside Horizon code and invisible to users
 #, python-format
 msgid ""
 "The 'operation' parameter for get_feature_permission '%(feature)s' is "
@@ -8310,6 +8462,7 @@ msgstr "Der rohe Inhalt der Umgebungsdatei."
 msgid "The raw contents of the template."
 msgstr "Der rohe Inhalt der Vorlage"
 
+#. Translators: Only used inside Horizon code and invisible to users
 #, python-format
 msgid ""
 "The requested feature '%(feature)s' is unknown. Please make sure to specify "
@@ -8364,6 +8517,13 @@ msgid ""
 msgstr ""
 "Der Status der IPSec site Verbindung zum Start. Wenn UNTEN(falsch), IPSec "
 "site Verbindung leitet keine Pakete weiter."
+
+msgid ""
+"The state of VPN service to start in. If DOWN (False) VPN service does not "
+"forward packets."
+msgstr ""
+"Der Zustand in dem der VPN Dienst gestartet werden soll. Falls UNTEN(False) "
+"forwardet der VPN Dienst keine Pakete."
 
 msgid "The state to start the network in."
 msgstr "Status, in dem das Netzwerk gestartet werden soll."
@@ -8774,12 +8934,20 @@ msgstr "Hostaggregat \"%s\" kann nicht erstellt werden."
 msgid "Unable to create host aggregate."
 msgstr "Hostaggregat kann nicht erstellt werden."
 
+msgid "Unable to create identity provider protocol."
+msgstr "Erstellen des Identitätsanbieterprotokolls nicht möglich."
+
 #, python-format
 msgid "Unable to create key pair: %(exc)s"
 msgstr "Schlüsselpaar kann nicht erzeugt werden: %(exc)s"
 
 msgid "Unable to create mapping."
 msgstr "Zuordnung kann nicht erstellt werden."
+
+msgid "Unable to create mapping. Rules has malformed JSON data."
+msgstr ""
+"Zuordnung kann nicht erstellt werden. Die Regel enthält falsch formatierte "
+"JSON-Daten."
 
 #, python-format
 msgid "Unable to create network \"%s\"."
@@ -9152,6 +9320,11 @@ msgstr "IPSec Site Verbindungsdetails können nicht abgerufen werden. %s"
 msgid "Unable to retrieve IPSec Site Connections list."
 msgstr "IPSec Site Verbindungsliste kann nicht abgerufen werden."
 
+#, python-format
+msgid "Unable to retrieve Network information for instance \"%s\"."
+msgstr ""
+"Netzwerkinformationen für die Instanz \"%s\" können nicht abgerufen werden."
+
 msgid "Unable to retrieve Nova availability zones."
 msgstr "Nova-Verfügbarkeitszonen können nicht abgerufen werden."
 
@@ -9414,6 +9587,9 @@ msgstr "Liste von Datenträger-Schattenkopien kann nicht abgerufen werden."
 
 msgid "Unable to retrieve list of volumes."
 msgstr "Liste der Datenträger kann nicht abgerufen werden."
+
+msgid "Unable to retrieve mapping list."
+msgstr "Zuordnungsliste kann nicht abgerufen werden."
 
 msgid "Unable to retrieve member details."
 msgstr "Mitglieder-Details können nicht abgerufen werden."
@@ -9797,6 +9973,11 @@ msgstr "Abbild \"%s\" konnte nicht aktualisiert werden."
 
 msgid "Unable to update mapping."
 msgstr "Zuordnung kann nicht aktualisiert werden."
+
+msgid "Unable to update mapping. Rules has malformed JSON data."
+msgstr ""
+"Zuordnung kann nicht aktualisiert werden. Die Regel enthält falsch "
+"formatierte JSON-Daten."
 
 msgid "Unable to update object."
 msgstr "Objekt kann nicht aktualisiert werden."

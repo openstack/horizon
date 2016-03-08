@@ -28,7 +28,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2016-03-04 08:39+0000\n"
+"POT-Creation-Date: 2016-03-07 18:49+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -412,6 +412,7 @@ msgstr "%(instance_name)s %(fixed_ip)s"
 msgid "%(name)s - %(size)s GB (%(label)s)"
 msgstr "%(name)s - %(size)s GB (%(label)s)"
 
+#. Translators:  UTC offset and timezone label
 #, python-format
 msgid "%(offset)s: %(label)s"
 msgstr "%(offset)s: %(label)s"
@@ -4015,6 +4016,7 @@ msgid ""
 "Edit the group to add users."
 msgstr "组被用于管理使用权，同时为多个用于分配角色。编辑组，添加用户."
 
+#. Translators: High Availability mode of Neutron router
 msgid "HA mode"
 msgstr "HA模式"
 
@@ -5122,9 +5124,6 @@ msgstr "无"
 msgctxt "current status of port"
 msgid "N/A"
 msgstr "N/A"
-
-msgid "NGContainers"
-msgstr "NG容器"
 
 msgid "Name"
 msgstr "名称"
@@ -7699,6 +7698,7 @@ msgid ""
 "number."
 msgstr "终止端口号必须大于或者等于起始端口号。"
 
+#. Translators: Only used inside Horizon code and invisible to users
 #, python-format
 msgid ""
 "The 'operation' parameter for get_feature_permission '%(feature)s' is "
@@ -7946,6 +7946,7 @@ msgstr "环境变量文件的原始内容"
 msgid "The raw contents of the template."
 msgstr "模板的原始内容。"
 
+#. Translators: Only used inside Horizon code and invisible to users
 #, python-format
 msgid ""
 "The requested feature '%(feature)s' is unknown. Please make sure to specify "
