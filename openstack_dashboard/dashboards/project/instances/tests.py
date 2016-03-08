@@ -45,6 +45,7 @@ from openstack_dashboard.dashboards.project.instances import tabs
 from openstack_dashboard.dashboards.project.instances import workflows
 from openstack_dashboard.test import helpers
 from openstack_dashboard.usage import quotas
+from openstack_dashboard.views import get_url_with_pagination
 
 
 INDEX_TEMPLATE = 'horizon/common/_data_table_view.html'
@@ -611,11 +612,50 @@ class InstanceTests(helpers.ResetImageAPIVersionMixin, helpers.TestCase):
                                 six.text_type(server.id))
 
         self.mox.ReplayAll()
-
         formData = {'action': 'instances__suspend__%s' % server.id}
-        res = self.client.post(INDEX_URL, formData)
+        url = get_url_with_pagination(
+            self.request, 'next', 'prev', 'horizon:project:instances:index')
+        res = self.client.post(url, formData)
 
         self.assertRedirectsNoFollow(res, INDEX_URL)
+
+    @django.test.utils.override_settings(API_RESULT_PAGE_SIZE=2)
+    @helpers.create_stubs({api.nova: ('server_suspend',
+                                      'server_list',
+                                      'flavor_list',
+                                      'extension_supported',
+                                      'is_feature_available',),
+                           api.glance: ('image_list_detailed',),
+                           api.network: ('servers_update_addresses',)})
+    def test_suspend_instance_if_placed_on_2nd_page(self):
+        page_size = getattr(settings, 'API_RESULT_PAGE_SIZE', 2)
+        servers = self.servers.list()[:3]
+
+        api.nova.extension_supported('AdminActions', IsA(http.HttpRequest)) \
+            .MultipleTimes().AndReturn(True)
+        api.nova.flavor_list(IsA(http.HttpRequest)) \
+            .AndReturn(self.flavors.list())
+        api.glance.image_list_detailed(IgnoreArg()) \
+            .AndReturn((self.images.list(), False, False))
+
+        api.nova.server_list(IsA(http.HttpRequest), search_opts={
+            'marker': servers[page_size - 1].id, 'paginate': True}) \
+            .AndReturn([servers[page_size:], False])
+        api.network.servers_update_addresses(
+            IsA(http.HttpRequest), servers[page_size:])
+        api.nova.server_suspend(IsA(http.HttpRequest),
+                                six.text_type(servers[-1].id))
+
+        self.mox.ReplayAll()
+
+        self.request.GET['marker'] = servers[-2].id
+        params = "=".join([tables.InstancesTable._meta.pagination_param,
+                           servers[page_size - 1].id])
+        url = "?".join([reverse('horizon:project:instances:index'),
+                        params])
+        formData = {'action': 'instances__suspend__%s' % servers[-1].id}
+
+        self.client.post(url, formData)
 
     @helpers.create_stubs({api.nova: ('server_suspend',
                                       'server_list',
