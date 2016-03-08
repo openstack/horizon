@@ -113,17 +113,19 @@ class TestChoiceFieldForm(forms.SelfHandlingForm):
     name = forms.CharField(max_length=255,
                            label="Test Name",
                            help_text="Please enter a name")
-    test_choices = forms.ChoiceField(label="Test Choices",
-                                     required=False,
-                                     help_text="Testing drop down choices",
-                                     widget=forms.fields.SelectWidget(
-                                         attrs={
-                                             'class': 'switchable',
-                                             'data-slug': 'source'},
-                                         transform_html_attrs=title_dic.get))
+    test_choices = forms.ChoiceField(
+        label="Test Choices",
+        required=False,
+        help_text="Testing drop down choices",
+        widget=forms.fields.SelectWidget(
+            attrs={
+                'class': 'switchable',
+                'data-slug': 'source'},
+            transform_html_attrs=title_dic.get))
 
     def __init__(self, request, *args, **kwargs):
-        super(TestChoiceFieldForm, self).__init__(request, *args, **kwargs)
+        super(TestChoiceFieldForm, self).__init__(request, *args,
+                                                  **kwargs)
         choices = ([('choice1', 'label1'),
                     ('choice2', 'label2')])
         self.fields['test_choices'].choices = choices
@@ -144,7 +146,78 @@ class ChoiceFieldTests(test.TestCase):
         return shortcuts.render(self.request, self.template,
                                 {'form': self.form})
 
-    def test_choicefield_title(self):
+    def test_legacychoicefield_title(self):
+        resp = self._render_form()
+        self.assertContains(
+            resp,
+            '<option value="choice1" title="This is choice 1">label1</option>',
+            count=1, html=True)
+        self.assertContains(
+            resp,
+            '<option value="choice2" title="This is choice 2">label2</option>',
+            count=1, html=True)
+
+
+class TestThemableChoiceFieldForm(forms.SelfHandlingForm):
+    # It's POSSIBLE to combine this with the test helper form above, but
+    # I fear we'd run into collisions where one test's desired output is
+    # actually within a separate widget's output.
+
+    title_dic = {"label1": {"title": "This is choice 1"},
+                 "label2": {"title": "This is choice 2"},
+                 "label3": {"title": "This is choice 3"}}
+    name = forms.CharField(max_length=255,
+                           label="Test Name",
+                           help_text="Please enter a name")
+    test_choices = forms.ThemableChoiceField(
+        label="Test Choices",
+        required=False,
+        help_text="Testing drop down choices",
+        widget=forms.fields.ThemableSelectWidget(
+            attrs={
+                'class': 'switchable',
+                'data-slug': 'source'},
+            transform_html_attrs=title_dic.get))
+
+    def __init__(self, request, *args, **kwargs):
+        super(TestThemableChoiceFieldForm, self).__init__(request, *args,
+                                                          **kwargs)
+        choices = ([('choice1', 'label1'),
+                    ('choice2', 'label2')])
+        self.fields['test_choices'].choices = choices
+
+    def handle(self, request, data):
+        return True
+
+
+class ThemableChoiceFieldTests(test.TestCase):
+
+    template = 'horizon/common/_form_fields.html'
+
+    def setUp(self):
+        super(ThemableChoiceFieldTests, self).setUp()
+        self.form = TestThemableChoiceFieldForm(self.request)
+
+    def _render_form(self):
+        return shortcuts.render(self.request, self.template,
+                                {'form': self.form})
+
+    def test_choicefield_labels_and_title_attr(self):
+        resp = self._render_form()
+        self.assertContains(
+            resp,
+            '<a data-select-value="choice1" title="This is choice 1">'
+            'label1</a>',
+            count=1,
+            html=True)
+        self.assertContains(
+            resp,
+            '<a data-select-value="choice2" title="This is choice 2">'
+            'label2</a>',
+            count=1,
+            html=True)
+
+    def test_choicefield_title_select_compatible(self):
         resp = self._render_form()
         self.assertContains(
             resp,

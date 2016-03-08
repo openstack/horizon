@@ -38,7 +38,7 @@ class MinifiedNode(Node):
     def render(self, context):
         return ' '.join(
             force_text(self.nodelist.render(context).strip()).split()
-        )
+        ).replace(' > ', '>').replace(' <', '<')
 
 
 @register.filter
