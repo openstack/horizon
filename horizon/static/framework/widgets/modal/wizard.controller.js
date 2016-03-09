@@ -47,8 +47,8 @@
     $scope.workflow = workflow;
     /* eslint-enable angular/controller-as */
 
-    function close() {
-      $modalInstance.close();
+    function close(args) {
+      $modalInstance.close(args);
     }
 
     function cancel() {

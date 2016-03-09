@@ -61,12 +61,17 @@
     }
 
     function perform(image) {
-      metadataModalService.open('image', image.id)
+      return metadataModalService.open('image', image.id)
         .result
         .then(onSuccess);
 
       function onSuccess() {
         scope.$emit(events.UPDATE_METADATA_SUCCESS, [image.id]);
+        return {
+          // Object intentionally left blank. This data is passed to
+          // code that holds this action's promise. In the future, it may
+          // contain entity IDs and types that were modified by this action.
+        };
       }
     }
 

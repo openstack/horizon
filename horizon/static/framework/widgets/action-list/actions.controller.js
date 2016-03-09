@@ -80,12 +80,23 @@
      *
      * @param {function} service the service to call 'perform' when action is performed
      * @param {integer} index unique index of the action
+     * @param {function} resultHandler - (optional) a handler function that is given
+     *  the return value from the perform function. Ideally the action perform function
+     *  returns a promise that resolves to some data on success, but it may return just
+     *  data, or no return at all, depending on the specific action implementation.
+     *
      * @returns {string} the callback name to use
      *
      */
-    function generateDynamicCallback(service, index) {
+    function generateDynamicCallback(service, index, resultHandler) {
       var dynCallbackName = "callback" + index;
-      ctrl.passThroughCallbacks[dynCallbackName] = service.perform;
+      ctrl.passThroughCallbacks[dynCallbackName] = function genPassThroughCallback(item) {
+        if (resultHandler) {
+          return resultHandler(service.perform(item));
+        } else {
+          return service.perform(item);
+        }
+      };
       return 'actionsCtrl.passThroughCallbacks.' + dynCallbackName;
     }
 

@@ -75,7 +75,7 @@
       var images = angular.isArray(items) ? items : [items];
       context.labels = labelize(images.length);
       context.deleteEntity = deleteImage;
-      $qExtensions.allSettled(images.map(checkPermission)).then(afterCheck);
+      return $qExtensions.allSettled(images.map(checkPermission)).then(afterCheck);
     }
 
     function allowed(image) {
@@ -99,12 +99,15 @@
     }
 
     function afterCheck(result) {
+      var outcome = $q.reject();  // Reject the promise by default
       if (result.fail.length > 0) {
         toast.add('error', getMessage(notAllowedMessage, result.fail));
+        outcome = $q.reject(result.fail);
       }
       if (result.pass.length > 0) {
-        deleteModal.open(scope, result.pass.map(getEntity), context);
+        outcome = deleteModal.open(scope, result.pass.map(getEntity), context);
       }
+      return outcome;
     }
 
     function labelize(count) {

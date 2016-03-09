@@ -52,7 +52,7 @@
     //////////////
 
     function perform(image) {
-      launchInstanceModal.open({
+      return launchInstanceModal.open({
         successUrl: '/project/instances',
         'imageId': image.id
       });
