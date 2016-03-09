@@ -40,7 +40,7 @@ horizon.firewalls = {
    * rule id for rule_id.
    **/
   get_rule_element: function(rule_id) {
-    return $('li > label[for^="id_rule_' + rule_id + '"]');
+    return $('label[for^="id_rule_' + rule_id + '"]');
   },
 
   /*
@@ -51,7 +51,7 @@ horizon.firewalls = {
     horizon.firewalls.rules_selected = [];
     horizon.firewalls.rules_available = [];
     $(this.get_rule_element("")).each(function(){
-      var $this = $(this);
+      var $this = $(this).parent();
       var $input = $this.children("input");
       var rule_property = {
         name:$this.text().replace(/^\s+/,""),
@@ -147,7 +147,7 @@ horizon.firewalls = {
    * router id for router_id.
    **/
   get_router_element: function(router_id) {
-    return $('li > label[for^="id_router_' + router_id + '"]');
+    return $('label[for^="id_router_' + router_id + '"]');
   },
 
   /*
@@ -158,7 +158,7 @@ horizon.firewalls = {
     horizon.firewalls.routers_selected = [];
     horizon.firewalls.routers_available = [];
     $(this.get_router_element("")).each(function(){
-      var $this = $(this);
+      var $this = $(this).parent();
       var $input = $this.children("input");
       var router_property = {
         name:$this.text().replace(/^\s+/,""),
