@@ -5,16 +5,16 @@
 <div class="row">
   <div class="col-lg-3 col-md-3 col-sm-4">
     <div class="list-group">
-      <a class="list-group-item" href="#navbar">Navbar</a>
-      <a class="list-group-item" href="#buttons">Buttons</a>
-      <a class="list-group-item" href="#typography">Typography</a>
-      <a class="list-group-item" href="#tables">Tables</a>
-      <a class="list-group-item" href="#forms">Forms</a>
-      <a class="list-group-item" href="#navs">Navs</a>
-      <a class="list-group-item" href="#indicators">Indicators</a>
-      <a class="list-group-item" href="#progress-bars">Progress bars</a>
-      <a class="list-group-item" href="#containers">Containers</a>
-      <a class="list-group-item" href="#dialogs">Dialogs</a>
+      <a translate class="list-group-item" href="#navbar">Navbar</a>
+      <a translate class="list-group-item" href="#buttons">Buttons</a>
+      <a translate class="list-group-item" href="#typography">Typography</a>
+      <a translate class="list-group-item" href="#tables">Tables</a>
+      <a translate class="list-group-item" href="#forms">Forms</a>
+      <a translate class="list-group-item" href="#navs">Navs</a>
+      <a translate class="list-group-item" href="#indicators">Indicators</a>
+      <a translate class="list-group-item" href="#progress-bars">Progress bars</a>
+      <a translate class="list-group-item" href="#containers">Containers</a>
+      <a translate class="list-group-item" href="#dialogs">Dialogs</a>
     </div>
   </div>
 </div>
@@ -40,9 +40,9 @@
           <div class="navbar-collapse collapse navbar-responsive-collapse">
             <ul class="nav navbar-nav">
               <li class="active"><a translate href="#">Active</a></li>
-              <li><a href="#">Link</a></li>
+              <li><a translate href="#">Link</a></li>
               <li class="dropdown">
-                <a translate href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="fa fa-caret-down"></b></a>
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">{$ 'Dropdown' | translate $} <b class="fa fa-caret-down"></b></a>
                 <ul class="dropdown-menu">
                   <li><a translate href="#">Action</a></li>
                   <li><a translate href="#">Another action</a></li>
@@ -55,12 +55,12 @@
               </li>
             </ul>
             <form class="navbar-form navbar-left">
-              <input type="text" class="form-control col-lg-8" placeholder="Search">
+              <input type="text" class="form-control col-lg-8" placeholder="{$ 'Search' | translate $}">
             </form>
             <ul class="nav navbar-nav navbar-right">
               <li><a translate href="#">Link</a></li>
               <li class="dropdown">
-                <a translate href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="fa fa-caret-down"></b></a>
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">{$ 'Dropdown' | translate $} <b class="fa fa-caret-down"></b></a>
                 <ul class="dropdown-menu">
                   <li><a translate href="#">Action</a></li>
                   <li><a translate href="#">Another action</a></li>
@@ -89,7 +89,7 @@
               <li class="active"><a translate href="#">Active</a></li>
               <li><a translate href="#">Link</a></li>
               <li class="dropdown">
-                <a translate href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="fa fa-caret-down"></b></a>
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">{$ 'Dropdown' | translate $} <b class="fa fa-caret-down"></b></a>
                 <ul class="dropdown-menu">
                   <li><a translate href="#">Action</a></li>
                   <li><a translate href="#">Another action</a></li>
@@ -102,12 +102,12 @@
               </li>
             </ul>
             <form class="navbar-form navbar-left">
-              <input type="text" class="form-control col-lg-8" placeholder="Search">
+              <input type="text" class="form-control col-lg-8" placeholder="{$ 'Search' | translate $}">
             </form>
             <ul class="nav navbar-nav navbar-right">
               <li><a translate href="#">Link</a></li>
               <li class="dropdown">
-                <a translate href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="fa fa-caret-down"></b></a>
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">{$ 'Dropdown' | translate $} <b class="fa fa-caret-down"></b></a>
                 <ul class="dropdown-menu">
                   <li><a translate href="#">Action</a></li>
                   <li><a translate href="#">Another action</a></li>
@@ -297,8 +297,8 @@
           <div class="btn-group">
             <button translate type="button" class="btn btn-default">8</button>
             <div class="btn-group">
-              <button translate type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
-                Dropdown
+              <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                {$ 'Dropdown' | translate $}
                 <span class="fa fa-caret-down"></span>
               </button>
               <ul class="dropdown-menu">
@@ -384,7 +384,7 @@
       <div class="bs-component">
         <blockquote>
           <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
-          <small translate>Someone famous in <cite title="Source Title">Source Title</cite></small>
+          <small>{$ 'Someone famous in' | translate $}<cite title="Source Title" translate>Source Title</cite></small>
         </blockquote>
       </div>
     </div>
@@ -392,7 +392,7 @@
       <div class="bs-component">
         <blockquote class="pull-right">
           <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
-          <small translate>Someone famous in <cite title="Source Title">Source Title</cite></small>
+          <small>{$ 'Someone famous in' | translate $}<cite title="Source Title" translate>Source Title</cite></small>
         </blockquote>
       </div>
     </div>
@@ -515,16 +515,16 @@
             <div class="form-group">
               <label translate for="inputEmail" class="col-lg-2 control-label">Email</label>
               <div class="col-lg-10">
-                <input translate type="email" class="form-control" id="inputEmail" placeholder="Email">
+                <input type="email" class="form-control" id="inputEmail" placeholder="{$ 'Email' | translate $}">
               </div>
             </div>
             <div class="form-group">
               <label translate for="inputPassword" class="col-lg-2 control-label">Password</label>
               <div class="col-lg-10">
-                <input translate type="password" class="form-control" id="inputPassword" placeholder="Password">
+                <input type="password" class="form-control" id="inputPassword" placeholder="{$ 'Password' | translate $}">
                 <div class="checkbox">
-                  <label translate>
-                    <input type="checkbox"> Checkbox
+                  <label>
+                    <input type="checkbox"> {$ 'Checkbox' | translate $}
                   </label>
                 </div>
                 <div class="themable-checkbox">
@@ -544,15 +544,15 @@
               <label translate class="col-lg-2 control-label">Radios</label>
               <div class="col-lg-10">
                 <div class="radio">
-                  <label translate>
+                  <label>
                     <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked="">
-                    Option one is this
+                    {$ 'Option one is this' | translate $}
                   </label>
                 </div>
                 <div class="radio">
-                  <label translate>
+                  <label>
                     <input type="radio" name="optionsRadios" id="optionsRadios2" value="option2">
-                    Option two can be something else
+                    {$ 'Option two can be something else' | translate $}
                   </label>
                 </div>
               </div>
@@ -654,12 +654,12 @@
         <h3 translate>Input States</h3>
         <div class="form-group">
           <label translate class="control-label" for="focusedInput">Focused input</label>
-          <input translate class="form-control" id="focusedInput" type="text" value="This is focused... ">
+          <input class="form-control" id="focusedInput" type="text" value="{$ 'This is focused...' | translate $}">
         </div>
 
         <div class="form-group">
           <label translate class="control-label" for="disabledInput">Disabled input</label>
-          <input translate class="form-control" id="disabledInput" type="text" placeholder="Disabled input here..." disabled="">
+          <input class="form-control" id="disabledInput" type="text" placeholder="{$ 'Disabled input here...' | translate $}" disabled="">
         </div>
 
         <div class="form-group has-warning">
@@ -727,8 +727,8 @@
           <li><a translate href="#profile" data-toggle="tab">Profile</a></li>
           <li class="disabled"><a translate>Disabled</a></li>
           <li class="dropdown">
-            <a translate class="dropdown-toggle" data-toggle="dropdown" href="#">
-              Dropdown <span class="fa fa-caret-down"></span>
+            <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+              {$ 'Dropdown' | translate $} <span class="fa fa-caret-down"></span>
             </a>
             <ul class="dropdown-menu">
               <li><a translate href="#dropdown1" data-toggle="tab">Action</a></li>
@@ -761,8 +761,8 @@
           <li><a translate href="#">Profile</a></li>
           <li class="disabled"><a translate href="#">Disabled</a></li>
           <li class="dropdown">
-            <a translate class="dropdown-toggle" data-toggle="dropdown" href="#">
-              Dropdown <span class="fa fa-caret-down"></span>
+            <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+              {$ 'Dropdown' | translate $} <span class="fa fa-caret-down"></span>
             </a>
             <ul class="dropdown-menu">
               <li><a translate href="#">Action</a></li>
@@ -781,8 +781,8 @@
           <li><a translate href="#">Profile</a></li>
           <li class="disabled"><a translate href="#">Disabled</a></li>
           <li class="dropdown">
-            <a translate class="dropdown-toggle" data-toggle="dropdown" href="#">
-              Dropdown <span class="fa fa-caret-down"></span>
+            <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+              {$ 'Dropdown' | translate $} <span class="fa fa-caret-down"></span>
             </a>
             <ul class="dropdown-menu">
               <li><a translate href="#">Action</a></li>
@@ -822,29 +822,29 @@
       <div class="bs-component">
         <ul class="pagination">
           <li class="disabled"><a href="#">&laquo;</a></li>
-          <li class="active"><a translate href="#">1</a></li>
-          <li><a translate href="#">2</a></li>
-          <li><a translate href="#">3</a></li>
-          <li><a translate href="#">4</a></li>
-          <li><a translate href="#">5</a></li>
+          <li class="active"><a href="#">1</a></li>
+          <li><a href="#">2</a></li>
+          <li><a href="#">3</a></li>
+          <li><a href="#">4</a></li>
+          <li><a href="#">5</a></li>
           <li><a href="#">&raquo;</a></li>
         </ul>
 
         <ul class="pagination pagination-lg">
           <li class="disabled"><a href="#">&laquo;</a></li>
-          <li class="active"><a translate href="#">1</a></li>
-          <li><a translate href="#">2</a></li>
-          <li><a translate href="#">3</a></li>
-          <li><a translate href="#">&raquo;</a></li>
+          <li class="active"><a href="#">1</a></li>
+          <li><a href="#">2</a></li>
+          <li><a href="#">3</a></li>
+          <li><a href="#">&raquo;</a></li>
         </ul>
 
         <ul class="pagination pagination-sm">
           <li class="disabled"><a href="#">&laquo;</a></li>
-          <li class="active"><a translate href="#">1</a></li>
-          <li><a translate href="#">2</a></li>
-          <li><a translate href="#">3</a></li>
-          <li><a translate href="#">4</a></li>
-          <li><a translate href="#">5</a></li>
+          <li class="active"><a href="#">1</a></li>
+          <li><a href="#">2</a></li>
+          <li><a href="#">3</a></li>
+          <li><a href="#">4</a></li>
+          <li><a href="#">5</a></li>
           <li><a href="#">&raquo;</a></li>
         </ul>
       </div>
@@ -858,8 +858,8 @@
         </ul>
 
         <ul class="pager">
-          <li class="previous disabled"><a translate href="#">&larr; Older</a></li>
-          <li class="next"><a translate href="#">Newer &rarr;</a></li>
+          <li class="previous disabled"><a translate href="#">&larr; {$ 'Older' | translate $}</a></li>
+          <li class="next"><a translate href="#">{$ 'Newer' | translate $} &rarr;</a></li>
         </ul>
       </div>
     </div>
@@ -941,9 +941,9 @@
       <h2 translate>Badges</h2>
       <div class="bs-component">
         <ul class="nav nav-pills">
-          <li class="active"><a translate href="#">Home <span class="badge">42</span></a></li>
-          <li><a translate href="#">Profile <span class="badge"></span></a></li>
-          <li><a translate href="#">Messages <span class="badge">3</span></a></li>
+          <li class="active"><a href="#">{$ 'Home' | translate $} <span class="badge">42</span></a></li>
+          <li><a href="#">{$ 'Profile' | translate $} <span class="badge"></span></a></li>
+          <li><a href="#">{$ 'Messages' | translate $} <span class="badge">3</span></a></li>
         </ul>
       </div>
     </div>
