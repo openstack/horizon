@@ -48,3 +48,30 @@ class TestAdminVolumeTypes(helpers.AdminTestCase):
             volume_types_page.find_message_and_dismiss(messages.ERROR))
         self.assertTrue(volume_types_page.is_volume_type_deleted(
             self.VOLUME_TYPE_NAME))
+
+
+class TestQoSSpec(helpers.AdminTestCase):
+    QOS_SPEC_NAME = helpers.gen_random_resource_name("qos_spec")
+
+    def test_qos_spec_create_delete(self):
+        """tests the QoS Spec creation and deletion functionality
+        * creates a new QoS Spec
+        * verifies the QoS Spec appears in the QoS Specs table
+        * deletes the newly created QoS Spec
+        * verifies the QoS Spec does not appear in the table after deletion
+        """
+        qos_spec_page = self.home_pg.go_to_system_volumes_volumetypespage()
+
+        qos_spec_page.create_qos_spec(self.QOS_SPEC_NAME)
+        self.assertTrue(
+            qos_spec_page.find_message_and_dismiss(messages.SUCCESS))
+        self.assertFalse(
+            qos_spec_page.find_message_and_dismiss(messages.ERROR))
+        self.assertTrue(qos_spec_page.is_qos_spec_present(self.QOS_SPEC_NAME))
+
+        qos_spec_page.delete_qos_specs(self.QOS_SPEC_NAME)
+        self.assertTrue(
+            qos_spec_page.find_message_and_dismiss(messages.SUCCESS))
+        self.assertFalse(
+            qos_spec_page.find_message_and_dismiss(messages.ERROR))
+        self.assertFalse(qos_spec_page.is_qos_spec_present(self.QOS_SPEC_NAME))
