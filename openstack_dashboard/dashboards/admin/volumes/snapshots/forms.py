@@ -40,7 +40,7 @@ def populate_status_choices(initial, status_choices):
 
 
 class UpdateStatus(forms.SelfHandlingForm):
-    status = forms.ChoiceField(label=_("Status"))
+    status = forms.ThemableChoiceField(label=_("Status"))
 
     def __init__(self, request, *args, **kwargs):
         super(UpdateStatus, self).__init__(request, *args, **kwargs)

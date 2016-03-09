@@ -93,7 +93,7 @@ class CreateNetwork(forms.SelfHandlingForm):
     name = forms.CharField(max_length=255,
                            label=_("Name"),
                            required=False)
-    tenant_id = forms.ChoiceField(label=_("Project"))
+    tenant_id = forms.ThemableChoiceField(label=_("Project"))
     if api.neutron.is_port_profiles_supported():
         widget = None
     else:
@@ -105,7 +105,7 @@ class CreateNetwork(forms.SelfHandlingForm):
         label=_("Provider Network Type"),
         help_text=_("The physical mechanism by which the virtual "
                     "network is implemented."),
-        widget=forms.Select(attrs={
+        widget=forms.ThemableSelectWidget(attrs={
             'class': 'switchable',
             'data-slug': 'network_type'
         }))
@@ -125,9 +125,10 @@ class CreateNetwork(forms.SelfHandlingForm):
             'class': 'switched',
             'data-switch-on': 'network_type',
         }))
-    admin_state = forms.ChoiceField(choices=[(True, _('UP')),
-                                             (False, _('DOWN'))],
-                                    label=_("Admin State"))
+    admin_state = forms.ThemableChoiceField(
+        choices=[(True, _('UP')),
+                 (False, _('DOWN'))],
+        label=_("Admin State"))
     shared = forms.BooleanField(label=_("Shared"),
                                 initial=False, required=False)
     external = forms.BooleanField(label=_("External Network"),
@@ -304,9 +305,9 @@ class UpdateNetwork(forms.SelfHandlingForm):
     network_id = forms.CharField(label=_("ID"),
                                  widget=forms.TextInput(
                                      attrs={'readonly': 'readonly'}))
-    admin_state = forms.ChoiceField(choices=[(True, _('UP')),
-                                             (False, _('DOWN'))],
-                                    label=_("Admin State"))
+    admin_state = forms.ThemableChoiceField(choices=[(True, _('UP')),
+                                                     (False, _('DOWN'))],
+                                            label=_("Admin State"))
     shared = forms.BooleanField(label=_("Shared"), required=False)
     external = forms.BooleanField(label=_("External Network"), required=False)
     failure_url = 'horizon:admin:networks:index'

@@ -50,7 +50,7 @@ class ManageVolume(forms.SelfHandlingForm):
         max_length=255,
         label=_("Identifier"),
         help_text=_("Name or other identifier for existing volume"))
-    id_type = forms.ChoiceField(
+    id_type = forms.ThemableChoiceField(
         label=_("Identifier Type"),
         help_text=_("Type of backend device identifier provided"))
     host = forms.CharField(
@@ -71,10 +71,10 @@ class ManageVolume(forms.SelfHandlingForm):
         label=_("Metadata"), required=False,
         help_text=_("Comma-separated key=value pairs"),
         validators=[utils_validators.validate_metadata])
-    volume_type = forms.ChoiceField(
+    volume_type = forms.ThemableChoiceField(
         label=_("Volume Type"),
         required=False)
-    availability_zone = forms.ChoiceField(
+    availability_zone = forms.ThemableChoiceField(
         label=_("Availability Zone"),
         required=False)
 
@@ -174,8 +174,9 @@ class MigrateVolume(forms.SelfHandlingForm):
                                    required=False,
                                    widget=forms.TextInput(
                                    attrs={'readonly': 'readonly'}))
-    host = forms.ChoiceField(label=_("Destination Host"),
-                             help_text=_("Choose a Host to migrate to."))
+    host = forms.ThemableChoiceField(
+        label=_("Destination Host"),
+        help_text=_("Choose a Host to migrate to."))
     force_host_copy = forms.BooleanField(label=_("Force Host Copy"),
                                          initial=False, required=False)
 
@@ -215,7 +216,7 @@ class MigrateVolume(forms.SelfHandlingForm):
 
 
 class UpdateStatus(forms.SelfHandlingForm):
-    status = forms.ChoiceField(label=_("Status"))
+    status = forms.ThemableChoiceField(label=_("Status"))
 
     def __init__(self, request, *args, **kwargs):
         super(UpdateStatus, self).__init__(request, *args, **kwargs)
