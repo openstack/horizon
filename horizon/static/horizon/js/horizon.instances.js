@@ -40,7 +40,7 @@ horizon.instances = {
    * network id for network_id.
    **/
   get_network_element: function(network_id) {
-    return $('li > label[for^="id_network_' + network_id + '"]');
+    return $('label[for^="id_network_' + network_id + '"]');
   },
 
   /*
@@ -51,7 +51,7 @@ horizon.instances = {
     horizon.instances.networks_selected = [];
     horizon.instances.networks_available = [];
     $(this.get_network_element("")).each(function () {
-      var $this = $(this);
+      var $this = $(this).parent();
       var $input = $this.children("input");
       var name = horizon.string.escapeHtml($this.text().replace(/^\s+/, ""));
       var network_property = {
