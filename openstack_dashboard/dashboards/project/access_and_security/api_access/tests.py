@@ -22,11 +22,13 @@ from openstack_dashboard import api
 from openstack_dashboard.test import helpers as test
 
 
+INDEX_URL = reverse('horizon:project:access_and_security:index')
 API_URL = "horizon:project:access_and_security:api_access"
 EC2_URL = reverse(API_URL + ":ec2")
 OPENRC_URL = reverse(API_URL + ":openrc")
 OPENRCV2_URL = reverse(API_URL + ":openrcv2")
 CREDS_URL = reverse(API_URL + ":view_credentials")
+RECREATE_CREDS_URL = reverse(API_URL + ":recreate_credentials")
 
 
 class APIAccessTests(test.TestCase):
@@ -96,3 +98,40 @@ class APIAccessTests(test.TestCase):
         self.assertEqual(self.user.id, res.context['openrc_creds']['user'].id)
         self.assertEqual(certs[0].access,
                          res.context['ec2_creds']['ec2_access_key'])
+
+    @test.create_stubs({api.keystone: ("list_ec2_credentials",
+                                       "create_ec2_credentials",
+                                       "delete_user_ec2_credentials",)})
+    def _test_recreate_user_credentials(self, exists_credentials=True):
+        old_creds = self.ec2.list() if exists_credentials else []
+        new_creds = self.ec2.first()
+        api.keystone.list_ec2_credentials(
+            IsA(HttpRequest),
+            self.user.id).AndReturn(old_creds)
+        if exists_credentials:
+            api.keystone.delete_user_ec2_credentials(
+                IsA(HttpRequest),
+                self.user.id,
+                old_creds[0].access).AndReturn([])
+        api.keystone.create_ec2_credentials(
+            IsA(HttpRequest),
+            self.user.id,
+            self.tenant.id).AndReturn(new_creds)
+
+        self.mox.ReplayAll()
+
+        res_get = self.client.get(RECREATE_CREDS_URL)
+        self.assertEqual(res_get.status_code, 200)
+        credentials = \
+            'project/access_and_security/api_access/recreate_credentials.html'
+        self.assertTemplateUsed(res_get, credentials)
+
+        res_post = self.client.post(RECREATE_CREDS_URL)
+        self.assertNoFormErrors(res_post)
+        self.assertRedirectsNoFollow(res_post, INDEX_URL)
+
+    def test_recreate_user_credentials(self):
+        self._test_recreate_user_credentials()
+
+    def test_recreate_user_credentials_with_no_existing_creds(self):
+        self._test_recreate_user_credentials(exists_credentials=False)

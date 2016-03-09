@@ -19,6 +19,9 @@ from openstack_auth import utils
 
 from horizon import tables
 from openstack_dashboard import api
+from openstack_dashboard.dashboards.project.access_and_security.api_access \
+    import forms as project_forms
+from openstack_dashboard import policy
 
 
 def pretty_service_names(name):
@@ -69,6 +72,29 @@ class ViewCredentials(tables.LinkAction):
     url = "horizon:project:access_and_security:api_access:view_credentials"
 
 
+class RecreateCredentials(tables.LinkAction):
+    name = "recreate_credentials"
+    verbose_name = _("Recreate EC2 Credentials")
+    classes = ("ajax-modal", "btn-danger")
+    icon = "refresh"
+    url = \
+        "horizon:project:access_and_security:api_access:recreate_credentials"
+    policy_rules = (("compute", "compute_extension:certificates"))
+
+    def allowed(self, request, datum=None):
+        try:
+            target = {"target.credential.user_id": request.user.id}
+            if (api.base.is_service_enabled(request, 'ec2') and
+                project_forms.get_ec2_credentials(request) and
+                policy.check((("identity", "identity:ec2_create_credential"),
+                              ("identity", "identity:ec2_delete_credential")),
+                             request, target=target)):
+                return True
+        except Exception:
+            pass
+        return False
+
+
 class EndpointsTable(tables.DataTable):
     api_name = tables.Column('type',
                              verbose_name=_("Service"),
@@ -81,4 +107,4 @@ class EndpointsTable(tables.DataTable):
         verbose_name = _("API Endpoints")
         multi_select = False
         table_actions = (DownloadOpenRCv2, DownloadOpenRC, DownloadEC2,
-                         ViewCredentials)
+                         ViewCredentials, RecreateCredentials)

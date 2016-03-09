@@ -715,6 +715,10 @@ def get_user_ec2_credentials(request, user_id, access_token):
     return ec2_manager(request).get(user_id, access_token)
 
 
+def delete_user_ec2_credentials(request, user_id, access_token):
+    return ec2_manager(request).delete(user_id, access_token)
+
+
 def keystone_can_edit_domain():
     backend_settings = getattr(settings, "OPENSTACK_KEYSTONE_BACKEND", {})
     can_edit_domain = backend_settings.get('can_edit_domain', True)
