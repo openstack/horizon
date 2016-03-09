@@ -21,6 +21,7 @@
 # Yang Hongyang <hongyang.yang@easystack.cn>, 2015. #zanata
 # yan haifeng <yanheven@qq.com>, 2015. #zanata
 # zhangjingwen <zhangjingwen@cn.fujitsu.com>, 2015. #zanata
+# Shengjing Zhu <zsj950618@gmail.com>, 2016. #zanata
 # Zheng Xi Zhou <zzxwill@gmail.com>, 2016. #zanata
 # liujunpeng <liujunpeng@inspur.com>, 2016. #zanata
 # vuuv <froms2008@gmail.com>, 2016. #zanata
@@ -28,12 +29,12 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2016-03-07 18:49+0000\n"
+"POT-Creation-Date: 2016-03-09 05:39+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2016-03-04 11:44+0000\n"
-"Last-Translator: Zheng Xi Zhou <zzxwill@gmail.com>\n"
+"PO-Revision-Date: 2016-03-09 02:49+0000\n"
+"Last-Translator: Shengjing Zhu <zsj950618@gmail.com>\n"
 "Language: zh-CN\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 "Generated-By: Babel 2.0\n"
@@ -271,7 +272,6 @@ msgstr ""
 "管理员需要手动更新云硬盘状态。这相当于\n"
 "命令<tt>cinder snapshot-reset-state</tt>的操作。"
 
-#, fuzzy
 msgid ""
 "\n"
 "    The status of a volume snapshot is normally managed automatically.  In "
@@ -282,9 +282,10 @@ msgid ""
 "    "
 msgstr ""
 "\n"
-"卷快照状态通常是自动管理的。在某些特定的环境下，\n"
-"管理员需要更新卷快照状态。这相当于\n"
-"如下命令<tt>cinder snapshot-reset-state</tt> 的操作。\n"
+"卷快照状态通常是自动管理的。在特定的环境下，\n"
+"可能需要管理员更新卷快照状态。等价于如下命令\n"
+"\n"
+"<tt>cinder snapshot-reset-state</tt> 。"
 
 msgid ""
 "\n"
@@ -449,6 +450,7 @@ msgstr "%(used)s %(key)s 已使用"
 msgid "%s (Default)"
 msgstr "%s (缺省)"
 
+#. Translators: The usage is "<UUID of ext_net> (Not Found)"
 #, python-format
 msgctxt "External network not found"
 msgid "%s (Not Found)"
@@ -5729,7 +5731,7 @@ msgstr "暂停"
 
 msgid "Pause Instance"
 msgid_plural "Pause Instances"
-msgstr[0] "中止实例"
+msgstr[0] "暂停实例"
 
 msgctxt "Current status of an Instance"
 msgid "Paused"
@@ -5741,7 +5743,7 @@ msgstr "已暂停"
 
 msgid "Paused Instance"
 msgid_plural "Paused Instances"
-msgstr[0] "已中止的实例"
+msgstr[0] "已暂停的实例"
 
 msgctxt "Task status of an Instance"
 msgid "Pausing"
@@ -9460,7 +9462,7 @@ msgstr "非管理卷"
 
 msgctxt "Action log of an instance"
 msgid "Unpause"
-msgstr "取消挂起"
+msgstr "取消暂停"
 
 msgid "Unregister Identity Provider"
 msgid_plural "Unregister Identity Providers"

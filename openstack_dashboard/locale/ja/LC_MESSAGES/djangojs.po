@@ -15,12 +15,12 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2016-03-04 08:39+0000\n"
+"POT-Creation-Date: 2016-03-09 05:39+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2016-03-06 12:34+0000\n"
-"Last-Translator: Yuko Katabami <yukokatabami@gmail.com>\n"
+"PO-Revision-Date: 2016-03-08 07:09+0000\n"
+"Last-Translator: Akihiro Motoki <amotoki@gmail.com>\n"
 "Language: ja\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 "Generated-By: Babel 2.0\n"
@@ -96,24 +96,6 @@ msgstr ""
 "          <strong>あっぱれ！</strong>\n"
 "          <a>この重要なアラートメッセージ</a>\n"
 "          を読むことに成功しました。"
-
-msgid ""
-"<input>\n"
-"                    Option one is this\n"
-"                  </input>"
-msgstr ""
-"<input>\n"
-"                    オプション１はこれです\n"
-"                  </input>"
-
-msgid ""
-"<input>\n"
-"                    Option two can be something else\n"
-"                  </input>"
-msgstr ""
-"<input>\n"
-"                    オプション２は何か他のものにできます\n"
-"                  </input>"
 
 msgid ""
 "<input>\n"
@@ -222,6 +204,9 @@ msgstr "AMI"
 
 msgid "ARI"
 msgstr "ARI"
+
+msgid "Access"
+msgstr "アクセス"
 
 msgid "Action"
 msgstr "アクション"
@@ -534,19 +519,6 @@ msgstr "ドメイン ID"
 msgid "Down"
 msgstr "停止中"
 
-msgid ""
-"Dropdown\n"
-"                <span></span>"
-msgstr ""
-"ドロップダウン\n"
-"                <span></span>"
-
-msgid "Dropdown <b></b>"
-msgstr "ドロップダウン <b></b>"
-
-msgid "Dropdown <span></span>"
-msgstr "ドロップダウン <span></span>"
-
 msgid "Dropdown header"
 msgstr "ドロップダウンのヘッダー"
 
@@ -650,9 +622,6 @@ msgstr "見出し６"
 
 msgid "Home"
 msgstr "ホーム"
-
-msgid "Home <span>42</span>"
-msgstr "ホーム <span>42</span>"
 
 msgid "ID"
 msgstr "ID"
@@ -893,9 +862,6 @@ msgstr "上限ポート番号"
 msgid "Members"
 msgstr "メンバー"
 
-msgid "Messages <span>3</span>"
-msgstr "メッセージ <span>3</span>"
-
 msgid "Metadata"
 msgstr "メタデータ"
 
@@ -986,9 +952,6 @@ msgstr "ネットワーク"
 msgid "Networks provide the communication channels for instances in the cloud."
 msgstr "ネットワークはクラウド内のインスタンス用の通信経路を提供します。"
 
-msgid "Newer"
-msgstr "新しい"
-
 msgid "Next"
 msgstr "次へ"
 
@@ -1022,11 +985,11 @@ msgstr "オブジェクトのコンテナー"
 msgid "Object Containers"
 msgstr "オブジェクトのコンテナー"
 
+msgid "Object Count"
+msgstr "オブジェクト数"
+
 msgid "Objects"
 msgstr "オブジェクト"
-
-msgid "Older"
-msgstr "古い"
 
 msgid "One fine body…"
 msgstr "一つの本文・・・"
@@ -1118,9 +1081,6 @@ msgstr "プライベート"
 
 msgid "Profile"
 msgstr "プロファイル"
-
-msgid "Profile <span></span>"
-msgstr "プロファイル <span></span>"
 
 msgid "Progress bars"
 msgstr "プログレスバー"
@@ -1247,11 +1207,17 @@ msgstr "セグメント ID"
 msgid "Select Boot Source"
 msgstr "ブートソースを選択してください"
 
+msgid "Select a container to browse."
+msgstr "参照するコンテナーを選択してください。"
+
 msgid "Select a key pair from the available key pairs below."
 msgstr "以下の利用可能なキーペアから、１つのキーペアを選択してください。"
 
 msgid "Select a source from those listed below."
 msgstr "以下のリストからソースを選択してください。"
+
+msgid "Select a zone"
+msgstr "ゾーンの選択"
 
 msgid "Select an item from Available items below"
 msgstr "以下の利用可能なアイテムから 1 つ選択してください。"
@@ -1316,9 +1282,6 @@ msgstr "小さい入力項目"
 
 msgid "Snapshot"
 msgstr "スナップショット"
-
-msgid "Someone famous in <cite>Source Title</cite>"
-msgstr "<cite>ソースのタイトル</cite> で有名な誰か"
 
 msgid "Something else here"
 msgstr "何か他のものはここへ"
@@ -1502,6 +1465,9 @@ msgstr "このステップで、インスタンスにメタデータ項目を追
 msgid "Time"
 msgstr "時刻"
 
+msgid "Timestamp"
+msgstr "タイムスタンプ"
+
 msgid ""
 "To view source code, hover over a section, then click the <a><span></span></"
 "a> button in the top right of that section."
@@ -1608,8 +1574,9 @@ msgstr "ドメインを削除できません。"
 msgid "Unable to delete the domains."
 msgstr "ドメインを削除できません。"
 
-msgid "Unable to delete the flavor with id: "
-msgstr "次の ID のフレーバーを削除できません: "
+#, python-format
+msgid "Unable to delete the flavor with id: %(id)s"
+msgstr "ID が %(id)s のフレーバーを削除できません。"
 
 msgid "Unable to delete the folder because it is not empty."
 msgstr "空ではないため、フォルダーを削除できません。"
@@ -1870,6 +1837,9 @@ msgstr "メタデータの更新"
 msgid "Updated"
 msgstr "更新時刻"
 
+msgid "Updated At"
+msgstr "最終更新"
+
 msgid "Url"
 msgstr "URL"
 
@@ -2022,6 +1992,9 @@ msgstr[0] "\"%s\" を選択しました。削除されたイメージは元に�
 msgid "error"
 msgid_plural "errors"
 msgstr[0] "エラー"
+
+msgid "folder"
+msgstr "フォルダー"
 
 msgid "image"
 msgstr "イメージ"

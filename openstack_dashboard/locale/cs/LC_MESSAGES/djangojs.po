@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2016-03-04 04:22+0000\n"
+"POT-Creation-Date: 2016-03-09 05:39+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -86,24 +86,6 @@ msgstr ""
 "          <strong>Výborně!</strong>\n"
 "          Úspěšně jste přečetli\n"
 "          <a>tuto důležitou výstrahu</a>."
-
-msgid ""
-"<input>\n"
-"                    Option one is this\n"
-"                  </input>"
-msgstr ""
-"<input>\n"
-"                    První volba je toto\n"
-"                  </input>"
-
-msgid ""
-"<input>\n"
-"                    Option two can be something else\n"
-"                  </input>"
-msgstr ""
-"<input>\n"
-"                    Druhá volba může být něco jiného\n"
-"                  </input>"
 
 msgid ""
 "<li><b>Image (with Create New Volume checked)</b>: This options uses an "
@@ -399,19 +381,6 @@ msgstr "ID domény"
 msgid "Down"
 msgstr "Zavřen"
 
-msgid ""
-"Dropdown\n"
-"                <span></span>"
-msgstr ""
-"Rozbalovací seznam\n"
-"                <span></span>"
-
-msgid "Dropdown <b></b>"
-msgstr "Rozbalovací seznam <b></b>"
-
-msgid "Dropdown <span></span>"
-msgstr "Rozbalovací seznam<span></span>"
-
 msgid "Dropdown header"
 msgstr "Hlavička rozbalovacího seznamu "
 
@@ -501,9 +470,6 @@ msgstr "Nadpis 6"
 
 msgid "Home"
 msgstr "Domů"
-
-msgid "Home <span>42</span>"
-msgstr "Domů <span>42</span>"
 
 msgid "ID"
 msgstr "ID"
@@ -656,9 +622,6 @@ msgstr "Ručně"
 msgid "Max Port"
 msgstr "Maximální port"
 
-msgid "Messages <span>3</span>"
-msgstr "Zprávy <span>3</span>"
-
 msgid "Metadata"
 msgstr "Popisná data"
 
@@ -710,9 +673,6 @@ msgstr "Sítě"
 msgid "Networks provide the communication channels for instances in the cloud."
 msgstr "Sítě poskytují komunikační kanály pro instance v cloudu."
 
-msgid "Newer"
-msgstr "Novější"
-
 msgid "Next"
 msgstr "Další"
 
@@ -724,9 +684,6 @@ msgstr "Žádné dostupné položky"
 
 msgid "Number"
 msgstr "Číslo"
-
-msgid "Older"
-msgstr "Starší"
 
 msgid "One fine body…"
 msgstr "Takové hezké tělo..."
@@ -796,9 +753,6 @@ msgstr "Soukromé"
 
 msgid "Profile"
 msgstr "Profil"
-
-msgid "Profile <span></span>"
-msgstr "Profil <span></span>"
 
 msgid "Progress bars"
 msgstr "Ukazatele průběhu"
@@ -954,9 +908,6 @@ msgstr "Malý vstup"
 
 msgid "Snapshot"
 msgstr "Snímek"
-
-msgid "Someone famous in <cite>Source Title</cite>"
-msgstr "Někdo známý v <cite>Názvu zdroje</cite> "
 
 msgid "Something else here"
 msgstr "Zde je něco jiného"

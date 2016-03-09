@@ -14,12 +14,12 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2016-03-04 08:38+0000\n"
+"POT-Creation-Date: 2016-03-09 05:39+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2016-03-05 11:00+0000\n"
-"Last-Translator: Yuko Katabami <yukokatabami@gmail.com>\n"
+"PO-Revision-Date: 2016-03-08 07:08+0000\n"
+"Last-Translator: Akihiro Motoki <amotoki@gmail.com>\n"
 "Language: ja\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 "Generated-By: Babel 2.0\n"
@@ -176,6 +176,16 @@ msgstr "利用可能"
 msgid "Back"
 msgstr "戻る"
 
+#. Translators: test code, don't really have to translate
+msgid "Batch Item"
+msgid_plural "Batch Items"
+msgstr[0] "Batch Item"
+
+#. Translators: test code, don't really have to translate
+msgid "Batched Item"
+msgid_plural "Batched Items"
+msgstr[0] "Batched Item"
+
 msgid "Cancel"
 msgstr "取り消し"
 
@@ -202,6 +212,16 @@ msgstr[0] "%(counter)s件表示"
 msgid "Displaying %(nav_items)s item"
 msgid_plural "Displaying %(nav_items)s items"
 msgstr[0] "%(nav_items)s件表示"
+
+#. Translators: test code, don't really have to translate
+msgid "Down Item"
+msgid_plural "Down Items"
+msgstr[0] "Down Item"
+
+#. Translators: test code, don't really have to translate
+msgid "Downed Item"
+msgid_plural "Downed Items"
+msgstr[0] "Downed Item"
 
 #, python-format
 msgid "Error processing message json file '%(path)s': %(exception)s"
@@ -317,6 +337,7 @@ msgstr "表示する %s を選択してください。"
 msgid "Select a period of time to query its usage:"
 msgstr "使用状況を照会する期間を選択してください:"
 
+#. Translators: test code, don't really have to translate
 msgid "Sell Puppy"
 msgid_plural "Sell Puppies"
 msgstr[0] "子犬を売る"
@@ -324,6 +345,7 @@ msgstr[0] "子犬を売る"
 msgid "Sign In"
 msgstr "ログイン"
 
+#. Translators: test code, don't really have to translate
 msgid "Sold Puppy"
 msgid_plural "Sold Puppies"
 msgstr[0] "子犬を売りました"
@@ -376,6 +398,11 @@ msgstr "認証されていません。もう一度ログインしてください
 msgid "Unauthorized: %s"
 msgstr "権限がありません: %s"
 
+#. Translators: test code, don't really have to translate
+msgid "Up Item"
+msgid_plural "Up Items"
+msgstr[0] "Up Item"
+
 msgid "Update Item"
 msgid_plural "Update Items"
 msgstr[0] "項目の更新"
@@ -383,6 +410,11 @@ msgstr[0] "項目の更新"
 msgid "Updated Item"
 msgid_plural "Updated Items"
 msgstr[0] "項目を更新しました"
+
+#. Translators: test code, don't really have to translate
+msgid "Upped Item"
+msgid_plural "Upped Items"
+msgstr[0] "Upped Item"
 
 msgid "Usage Summary"
 msgstr "使用状況の概要"

@@ -15,7 +15,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2016-03-07 18:49+0000\n"
+"POT-Creation-Date: 2016-03-09 05:39+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -97,45 +97,6 @@ msgstr ""
 "          <strong>Glückwunsch!</strong>\n"
 "          Sie haben \n"
 "       <a>diese wichtige Warnmeldung</a> erfolgreich gelesen."
-
-msgid ""
-"<div>\n"
-"                  \n"
-"                    <input> Checkbox\n"
-"                  </input>\n"
-"                </div>\n"
-"                <div>\n"
-"                  <input>\n"
-"                  Checkbox</input>\n"
-"                </div>"
-msgstr ""
-"<div>\n"
-"                  \n"
-"                    <input> Checkbox\n"
-"                  </input>\n"
-"                </div>\n"
-"                <div>\n"
-"                  <input>\n"
-"                  Checkbox</input>\n"
-"                </div>"
-
-msgid ""
-"<input>\n"
-"                    Option one is this\n"
-"                  </input>"
-msgstr ""
-"<input>\n"
-"                    Dies ist Option 1.\n"
-"                  </input>"
-
-msgid ""
-"<input>\n"
-"                    Option two can be something else\n"
-"                  </input>"
-msgstr ""
-"<input>\n"
-"                    Option 2 ist etwas anderes.\n"
-"                  </input>"
 
 msgid ""
 "<input>\n"
@@ -568,19 +529,6 @@ msgstr "Domänen-ID"
 msgid "Down"
 msgstr "Down"
 
-msgid ""
-"Dropdown\n"
-"                <span></span>"
-msgstr ""
-"Auswahlliste\n"
-"                <span></span>"
-
-msgid "Dropdown <b></b>"
-msgstr "Dropdown <b></b>"
-
-msgid "Dropdown <span></span>"
-msgstr "Auswahlliste <span></span>"
-
 msgid "Dropdown header"
 msgstr "Dropdown-Header"
 
@@ -687,9 +635,6 @@ msgstr "Überschrift 6"
 
 msgid "Home"
 msgstr "Home"
-
-msgid "Home <span>42</span>"
-msgstr "Home <span>42</span>"
 
 msgid "ID"
 msgstr "Kennung"
@@ -936,9 +881,6 @@ msgstr "Max Port"
 msgid "Members"
 msgstr "Mitglieder"
 
-msgid "Messages <span>3</span>"
-msgstr "Nachrichten <span>3</span>"
-
 msgid "Metadata"
 msgstr "Metadaten"
 
@@ -1031,9 +973,6 @@ msgstr ""
 "Netzwerke stellen die Kommunikationskanäle für die Instanzen in der Cloud "
 "zur Verfügung."
 
-msgid "Newer"
-msgstr "Neuer"
-
 msgid "Next"
 msgstr "Weiter"
 
@@ -1071,9 +1010,6 @@ msgstr "Objektcontainer"
 
 msgid "Objects"
 msgstr "Objekte"
-
-msgid "Older"
-msgstr "Älter"
 
 msgid "One fine body…"
 msgstr "Ein Textteil..."
@@ -1165,9 +1101,6 @@ msgstr "Privat"
 
 msgid "Profile"
 msgstr "Profil"
-
-msgid "Profile <span></span>"
-msgstr "Profil <span></span>"
 
 msgid "Progress bars"
 msgstr "Fortschrittsleiste"
@@ -1368,9 +1301,6 @@ msgstr "Wenig umfangreiche Eingabe"
 
 msgid "Snapshot"
 msgstr "Snapshot"
-
-msgid "Someone famous in <cite>Source Title</cite>"
-msgstr "Eine bekannte Person im <cite>Quellentitel</cite>."
 
 msgid "Something else here"
 msgstr "Etwas anderes hier"
@@ -1658,9 +1588,6 @@ msgstr "Die Domäne kann nicht gelöscht werden."
 
 msgid "Unable to delete the domains."
 msgstr "Die Domänen können nicht gelöscht werden."
-
-msgid "Unable to delete the flavor with id: "
-msgstr "Die Variante mit der folgenden ID konnte nicht gelöscht werden:"
 
 msgid "Unable to delete the folder because it is not empty."
 msgstr "Der Ordner konnte nicht gelöscht werden, weil er nicht leer ist."

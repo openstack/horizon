@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2016-03-04 04:22+0000\n"
+"POT-Creation-Date: 2016-03-09 05:39+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -200,9 +200,6 @@ msgstr "Domain ID"
 
 msgid "Down"
 msgstr "Down"
-
-msgid "Dropdown <b></b>"
-msgstr "Dropdown <b></b>"
 
 msgid "Dropdown header"
 msgstr "Dropdown header"
@@ -721,9 +718,6 @@ msgstr "Unable to delete the domain."
 
 msgid "Unable to delete the domains."
 msgstr "Unable to delete the domains."
-
-msgid "Unable to delete the flavor with id: "
-msgstr "Unable to delete the flavour with id: "
 
 msgid "Unable to delete the folder because it is not empty."
 msgstr "Unable to delete the folder because it is not empty."

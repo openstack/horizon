@@ -21,11 +21,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2016-03-07 18:49+0000\n"
+"POT-Creation-Date: 2016-03-09 05:39+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2016-03-07 10:04+0000\n"
+"PO-Revision-Date: 2016-03-08 08:46+0000\n"
 "Last-Translator: Gérald LONLAS <g.lonlas@gmail.com>\n"
 "Language: fr\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
@@ -81,45 +81,6 @@ msgstr ""
 "          <a>cet important message d'alerte</a>."
 
 msgid ""
-"<div>\n"
-"                  \n"
-"                    <input> Checkbox\n"
-"                  </input>\n"
-"                </div>\n"
-"                <div>\n"
-"                  <input>\n"
-"                  Checkbox</input>\n"
-"                </div>"
-msgstr ""
-"<div>\n"
-"                  \n"
-"                    <input> Case &agrave; cocher\n"
-"                  </input>\n"
-"                </div>\n"
-"                <div>\n"
-"                  <input>\n"
-"                  Case &agrave; cocher</input>\n"
-"                </div>"
-
-msgid ""
-"<input>\n"
-"                    Option one is this\n"
-"                  </input>"
-msgstr ""
-"<input>\n"
-"                    La première option est ceci\n"
-"                  </input>"
-
-msgid ""
-"<input>\n"
-"                    Option two can be something else\n"
-"                  </input>"
-msgstr ""
-"<input>\n"
-"                    La seconde option peut être autre chose\n"
-"                  </input>"
-
-msgid ""
 "<input>\n"
 "        Configuration Drive\n"
 "      </input>"
@@ -173,6 +134,9 @@ msgstr ""
 "lorsque l'instance est terminée.<em> Remarque : quand vous sélectionnez un "
 "volume, vous ne pouvez exécuter qu'une instance.</em></li>"
 
+msgid "<small>This line of text is meant to be treated as fine print.</small>"
+msgstr "<small>Cette ligne de texte s'affichera en petits caractères.</small>"
+
 msgid ""
 "A floating IP allows instances to be addressable from an external network.\n"
 "    Floating IPs are not allocated to instances at creation time and may be "
@@ -203,6 +167,21 @@ msgstr ""
 "    Vous pouvez sélectionner une paire de clés existante, en importer une "
 "existante ou en générer une nouvelle."
 
+msgid ""
+"A key pair named '{$ctrl.createdKeypair.name$}' was successfully created. "
+"This key pair should automatically download."
+msgstr ""
+"Création avec succès de la paire de clés nommée '{$ctrl.createdKeypair.name"
+"$}'. Cette paire de clés devrait se télécharger automatiquement."
+
+#, fuzzy
+msgid ""
+"A longer block of help text that breaks onto a new line and may extend "
+"beyond one line."
+msgstr ""
+"Un grand bloque d'aide textuelle qui se découpe en une nouvelle ligne et qui "
+"peut s'étendre au-delà d'une ligne."
+
 msgid "A name is required for your instance."
 msgstr "Vous avez besoin d'un nom pour votre instance."
 
@@ -214,6 +193,9 @@ msgstr "AMI"
 
 msgid "ARI"
 msgstr "ARI"
+
+msgid "Access"
+msgstr "Accès"
 
 msgid "Action"
 msgstr "Action"
@@ -527,19 +509,6 @@ msgstr "ID Domaine"
 msgid "Down"
 msgstr "Bas"
 
-msgid ""
-"Dropdown\n"
-"                <span></span>"
-msgstr ""
-"Déroulant\n"
-"                         <span></span>"
-
-msgid "Dropdown <b></b>"
-msgstr "Déroulant <b></b>"
-
-msgid "Dropdown <span></span>"
-msgstr "Déroulant <span></span>"
-
 msgid "Dropdown header"
 msgstr "En-tête déroulant"
 
@@ -646,9 +615,6 @@ msgstr "Titre 6"
 
 msgid "Home"
 msgstr "Accueil"
-
-msgid "Home <span>42</span>"
-msgstr "Accueil <span>42</span>"
 
 msgid "ID"
 msgstr "ID"
@@ -807,6 +773,18 @@ msgstr ""
 msgid "Key Pairs"
 msgstr "Paires de clés"
 
+msgid ""
+"Key Pairs are how you login to your instance after it is launched.\n"
+"      Choose a key pair name you will recognize and paste your SSH public "
+"key into the\n"
+"      space provided."
+msgstr ""
+"Les Paires de Clés définissent comment vous vous connectez à votre instance "
+"après l’avoir lancée.\n"
+"      Choisissez un nom représentatif pour votre paire de clés et coller "
+"votre clé publique SSH dans\n"
+"      l’espace prévu à cet effet."
+
 msgid "Keypair already exists or name contains bad characters."
 msgstr ""
 "La paire de clés existe déjà ou contient un mauvais caractère dans le nom"
@@ -879,9 +857,6 @@ msgstr "Port Max"
 
 msgid "Members"
 msgstr "Membres"
-
-msgid "Messages <span>3</span>"
-msgstr "Messages <span>3</span>"
 
 msgid "Metadata"
 msgstr "Métadonnées"
@@ -975,9 +950,6 @@ msgstr ""
 "Les réseaux fournissent les canaux de communication des instances dans le "
 "cloud."
 
-msgid "Newer"
-msgstr "Récent"
-
 msgid "Next"
 msgstr "Suivant"
 
@@ -1011,11 +983,14 @@ msgstr "Conteneur d'objet"
 msgid "Object Containers"
 msgstr "Conteneurs d'objet"
 
+msgid "Object Count"
+msgstr "Nombre d'objets"
+
 msgid "Objects"
 msgstr "Objets"
 
-msgid "Older"
-msgstr "Ancien"
+msgid "One fine body…"
+msgstr "Un paragraphe..."
 
 msgid "One more separated link"
 msgstr "Un autre Lien séparé"
@@ -1071,6 +1046,16 @@ msgstr "Réseau physique"
 msgid "Pills"
 msgstr "Menu horizontal"
 
+msgid ""
+"Please provide the initial hostname for the instance, the availability zone "
+"where it will be deployed, and the instance count.\n"
+"    Increase the Count to create multiple instances with the same settings."
+msgstr ""
+"Veuillez fournir le nom d'hôte initial de l'instance, la zone de "
+"disponibilité où elle sera déployée, et le nombre d'instances au compteur.\n"
+"    Augmenter le nombre pour pouvoir créer plusieurs instances sur les mêmes "
+"bases de configuration."
+
 msgid "Please try again."
 msgstr "Veuillez recommencer."
 
@@ -1091,9 +1076,6 @@ msgstr "Privé"
 
 msgid "Profile"
 msgstr "Profil"
-
-msgid "Profile <span></span>"
-msgstr "Profil <span></span>"
 
 msgid "Progress bars"
 msgstr "Barre de progression"
@@ -1163,6 +1145,9 @@ msgid "Re-order items using drag and drop"
 msgstr ""
 "Ordonnancer les éléments à nouveau en utilisant l'opération glisser-déplacer"
 
+msgid "Record Properties"
+msgstr "Propriétés d'enregistrement"
+
 msgid "Remote"
 msgstr "Distant"
 
@@ -1217,6 +1202,9 @@ msgstr "ID de segmentation"
 
 msgid "Select Boot Source"
 msgstr "Sélectionnez la source de démarrage."
+
+msgid "Select a container to browse."
+msgstr "Sélectionner un conteneur à parcourir."
 
 msgid "Select a key pair from the available key pairs below."
 msgstr "Sélectionner une paire de clés parmi les paires de clés ci-dessous."
@@ -1290,9 +1278,6 @@ msgstr "Petit champ"
 
 msgid "Snapshot"
 msgstr "Instantané"
-
-msgid "Someone famous in <cite>Source Title</cite>"
-msgstr "Quelqu'un de célèbre dans <cite>Titre source<\\cite>"
 
 msgid "Something else here"
 msgstr "Autre chose ici"
@@ -1381,6 +1366,13 @@ msgstr ""
 "Le nombre d'instances ne doit pas dépasser votre quota de "
 "%(maxInstanceCount)s  instances"
 
+msgid ""
+"The maximum number of key-value pairs that can be supplied per instance is "
+"determined by the compute provider."
+msgstr ""
+"Le nombre maximal de paires clé-valeur qui peuvent être fournies par "
+"instance est déterminé par le fournisseur de calcul. "
+
 #, python-format
 msgid ""
 "The selected %(sourceType)s source requires a flavor with at least "
@@ -1465,6 +1457,9 @@ msgstr "Cette étape vous autorise à ajouter des métadonnées à votre instanc
 
 msgid "Time"
 msgstr "Heure"
+
+msgid "Timestamp"
+msgstr "Horodatage"
 
 #, fuzzy
 msgid ""
@@ -1574,8 +1569,9 @@ msgstr "Impossible de supprimer le domaine."
 msgid "Unable to delete the domains."
 msgstr "Impossible de supprimer les domaines."
 
-msgid "Unable to delete the flavor with id: "
-msgstr "Impossible de supprimer le gabarit avec l'id:"
+#, python-format
+msgid "Unable to delete the flavor with id: %(id)s"
+msgstr "Impossible de supprimer le gabarit avec l'id : %(id)s"
 
 msgid "Unable to delete the folder because it is not empty."
 msgstr "Impossible de supprimer le dossier parce qu'il n'est pas vide."
@@ -1970,6 +1966,18 @@ msgstr "Oui"
 #, python-format
 msgid "You are not allowed to delete images: %s"
 msgstr "Vous n'êtes pas autorisé à supprimer les images : %s"
+
+msgid ""
+"You can add arbitrary metadata to your instance so that you can more easily "
+"identify it among other running instances. Metadata is a collection of key-"
+"value pairs associated with an instance. The maximum length for each "
+"metadata key and value is 255 characters."
+msgstr ""
+"Vous pouvez ajouter des métadonnées arbitraires à votre instance, cela vous "
+"pourra de les identifier plus facilement parmi les autres instances actives. "
+"Une metadonnée est une collection de paires clés-valeurs associées à votre "
+"instance. La taille maximale pour chaque clé-valeur de métadonnée est de 255 "
+"octets."
 
 msgid ""
 "You can customize your instance after it has launched using the options "
