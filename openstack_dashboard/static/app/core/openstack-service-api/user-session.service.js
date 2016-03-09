@@ -28,7 +28,10 @@
 
   /**
    * @ngdoc service
-   * @name horizon.app.core.openstack-service-api.userSession
+   * @name userSession
+   * @param {Object} $cacheFactory
+   * @param {Object} $q
+   * @param {Object} keystoneAPI
    * @description
    * Provides cached access to the user session. The cache may be reset
    * at any time by accessing the cache and calling removeAll, which means
@@ -46,6 +49,7 @@
    * particular page or modal. Making this a service allows it to be injected
    * and used transparently where needed without making every single use of it
    * pass it through as an argument.
+   * @returns {Object} The service
    */
   function userSession($cacheFactory, $q, keystoneAPI) {
 

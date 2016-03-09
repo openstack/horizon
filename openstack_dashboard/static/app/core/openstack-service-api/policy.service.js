@@ -28,9 +28,13 @@
 
   /**
    * @ngdoc service
-   * @name horizon.app.core.openstack-service-api.policy
+   * @name PolicyService
+   * @param {Object} $q
+   * @param {Object} apiService
+   * @param {Object} toastService
    * @description Provides a direct pass through to the policy engine in
    * Horizon.
+   * @returns {Object} The service
    */
   function PolicyService($cacheFactory, $q, apiService, toastService) {
 
@@ -48,7 +52,8 @@
     //////////////
 
     /**
-     * @name horizon.app.core.openstack-service-api.policy.check
+     * @name check
+     * @param {Object} policyRules
      * @description
      * Check the passed in policy rule list to determine if the user has
      * permission to perform the actions specified by the rules. The service
@@ -83,6 +88,7 @@
      *   {
      *     "allowed": false
      *   }
+     * @returns {Object} The result of the API call
      */
     function check(policyRules) {
       // Return a deferred and map then to success since legacy angular http uses success.
@@ -112,6 +118,7 @@
 
     /**
      * @name ifAllowed
+     * @param {Object} policyRules
      * @description
      * Wrapper function for check that returns a deferred promise.
      * Resolves if the response is allowed, rejects otherwise.
@@ -125,6 +132,7 @@
      ```js
      policyService.ifAllowed(myRules).then(deleteObject, doSomethingElse);
      ```
+     * @returns {promise} A promise resolving if true, rejecting if not
      */
     function ifAllowed(policyRules) {
       var deferred = $q.defer();

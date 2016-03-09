@@ -27,8 +27,11 @@
 
   /**
    * @ngdoc service
-   * @name horizon.app.core.openstack-service-api.security-group
+   * @name securityGroupAPI
+   * @param {Object} apiService
+   * @param {Object} toastService
    * @description Provides access to Security Groups
+   * @returns {Object} The service
    */
   function securityGroupAPI(apiService, toastService) {
     var service = {
@@ -40,7 +43,7 @@
     ///////////////
 
     /**
-     * @name horizon.app.core.openstack-service-api.security-group.list
+     * @name list
      * @description
      * Get a list of security groups.
      *
@@ -73,6 +76,7 @@
      *         }
      *     ]
      * }
+     * @returns {Object} The result of the API call
      */
     function query() {
       return apiService.get('/api/network/securitygroups/')

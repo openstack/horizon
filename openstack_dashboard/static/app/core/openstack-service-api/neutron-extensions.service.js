@@ -27,7 +27,10 @@
 
   /**
    * @ngdoc service
-   * @name horizon.app.core.openstack-service-api.neutronExtensions
+   * @name neutronExtensionsAPI
+   * @param {Object} $cacheFactory
+   * @param {Object} extensions
+   * @param {Object} neutron
    * @description
    * Provides cached access to Neutron Extensions with utilities to help
    * with asynchronous data loading. The cache may be reset at any time
@@ -37,6 +40,7 @@
    * The enabled extensions do not change often, so using cached data will
    * speed up results. Even on a local devstack in informal testing,
    * this saved between 30 - 100 ms per request.
+   * @returns {Object} The service
    */
   function neutronExtensionsAPI($cacheFactory, extensions, neutron) {
     return extensions({

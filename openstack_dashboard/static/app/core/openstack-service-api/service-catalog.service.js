@@ -29,7 +29,11 @@
 
   /**
    * @ngdoc service
-   * @name horizon.app.core.openstack-service-api.serviceCatalog
+   * @name serviceCatalog
+   * @param {Object} $cacheFactory
+   * @param {Object} $q
+   * @param {Object} keystoneAPI
+   * @param {Object} userSession
    * @description
    * Provides cached access to the Service Catalog with utilities to help
    * with asynchronous data loading. The cache may be reset at any time
@@ -46,6 +50,7 @@
    * particular page or modal. Making this a service allows it to be injected
    * and used transparently where needed without making every single use of it
    * pass it through as an argument.
+   * @returns {Object} The service
    */
   function serviceCatalog($cacheFactory, $q, keystoneAPI, userSession) {
 
@@ -63,15 +68,15 @@
     ////////////
 
     /**
-     * @name horizon.app.core.openstack-service-api.serviceCatalog.get
+     * @name get
      * @description
-     * Returns the service catalog. This is cached.
      *
      * @example
      *
      ```js
      serviceCatalog.get().then(doSomething, doSomethingElse);
      ```
+     * @returns {Object} The service catalog. This is cached.
      */
     function get() {
       return keystoneAPI.serviceCatalog({cache: service.cache}).then(onGetCatalog);
@@ -82,7 +87,7 @@
     }
 
     /**
-     * @name horizon.app.core.openstack-service-api.serviceCatalog.ifTypeEnabled
+     * @name ifTypeEnabled
      * @description
      * Checks if the desired service is enabled.  If it is enabled, use the
      * promise returned to execute the desired function.  If it is not enabled,
@@ -100,6 +105,7 @@
      ```js
      serviceCatalog.ifTypeEnabled('network').then(getNetworks, doSomethingElse);
      ```
+     * @returns {promise} A promise that resolves if true, rejects with error
      */
     function ifTypeEnabled(desiredType) {
       var deferred = $q.defer();

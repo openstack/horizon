@@ -27,8 +27,11 @@
 
   /**
    * @ngdoc service
-   * @name horizon.app.core.openstack-service-api.glance
+   * @name glance
+   * @param {Object} apiService
+   * @param {Object} toastService
    * @description Provides direct pass through to Glance with NO abstraction.
+   * @returns {Object} The service
    */
   function glanceAPI(apiService, toastService) {
     var service = {
@@ -51,9 +54,10 @@
     // Version
 
     /**
-     * @name horizon.app.core.openstack-service-api.glance.getVersion
+     * @name getVersion
      * @description
      * Get the version of the Glance API
+     * @returns {Object} The result of the API call
      */
     function getVersion() {
       return apiService.get('/api/glance/version/')
@@ -65,13 +69,14 @@
     // Images
 
     /**
-     * @name horizon.app.core.openstack-service-api.glance.getImage
+     * @name getImage
      * @description
      * Get a single image by ID
      *
      * @param {string} id
      * Specifies the id of the image to request.
      *
+     * @returns {Object} The result of the API call
      */
     function getImage(id) {
       return apiService.get('/api/glance/images/' + id + '/')
@@ -81,7 +86,7 @@
     }
 
     /**
-     * @name horizon.app.core.openstack-service-api.glance.createImage
+     * @name createImage
      * @description
      * Create a new image. This returns the new image object on success.
      *
@@ -127,6 +132,7 @@
      *
      * Any parameters not listed above will be assigned as custom properites.
      *
+     * @returns {Object} The result of the API call
      */
     function createImage(image) {
       return apiService.post('/api/glance/images/', image)
@@ -136,7 +142,7 @@
     }
 
     /**
-     * @name horizon.app.core.openstack-service-api.glance.getImage
+     * @name getImage
      * @description
      * Update an existing image.
      *
@@ -177,6 +183,7 @@
      * True if the image is protected, false otherwise. Required.
      *
      * Any parameters not listed above will be assigned as custom properites.
+     * @returns {Object} The result of the API call
      */
     function updateImage(image) {
       return apiService.patch('/api/glance/images/' + image.id + '/', image)
@@ -186,7 +193,7 @@
     }
 
     /**
-     * @name horizon.app.core.openstack-service-api.glance.deleteImage
+     * @name deleteImage
      * @description
      * Deletes single Image by ID.
      *
@@ -196,6 +203,7 @@
      * @param {boolean} suppressError
      * If passed in, this will not show the default error handling
      *
+     * @returns {Object} The result of the API call
      */
     function deleteImage(imageId, suppressError) {
       var promise = apiService.delete('/api/glance/images/' + imageId + '/');
@@ -207,10 +215,11 @@
     }
 
     /**
-     * @name horizon.app.core.openstack-service-api.glance.getImageProps
+     * @name getImageProps
      * @description
      * Get an image custom properties by image ID
      * @param {string} id Specifies the id of the image to request.
+     * @returns {Object} The result of the API call
      */
     function getImageProps(id) {
       return apiService.get('/api/glance/images/' + id + '/properties/')
@@ -220,12 +229,13 @@
     }
 
     /**
-     * @name horizon.app.core.openstack-service-api.glance.editImageProps
+     * @name editImageProps
      * @description
      * Update an image custom properties by image ID
      * @param {string} id Specifies the id of the image to request.
      * @param {object} updated New metadata definitions.
      * @param {[]} removed Names of removed metadata definitions.
+     * @returns {Object} The result of the API call
      */
     function editImageProps(id, updated, removed) {
       return apiService.patch(
@@ -241,7 +251,7 @@
     }
 
     /**
-     * @name horizon.app.core.openstack-service-api.glance.getImages
+     * @name getImages
      * @description
      * Get a list of images.
      *
@@ -273,6 +283,7 @@
      * @param {string} params.other
      * Any additional request parameters will be passed through the API as
      * filters. For example "name" : "fedora" would filter on the fedora name.
+     * @returns {Object} The result of the API call
      */
     function getImages(params) {
       var config = params ? { 'params' : params} : {};
@@ -285,7 +296,7 @@
     // Metadata Definitions - Namespaces
 
     /**
-     * @name horizon.app.core.openstack-service-api.glance.getNamespaces
+     * @name getNamespaces
      * @description
      * Get a list of metadata definition namespaces.
      *
@@ -338,6 +349,7 @@
      * If passed in, this will not show the default error handling
      * (horizon alert). The glance API may not have metadata definitions
      * enabled.
+     * @returns {Object} The result of the API call
      */
     function getNamespaces(params, suppressError) {
       var config = params ? {'params' : params} : {};
@@ -351,7 +363,7 @@
     }
 
     /**
-     * @name horizon.app.core.openstack-service-api.glance.getResourceTypes
+     * @name getResourceTypes
      * @description
      * Get a list of metadata definition resource types.
      *
@@ -362,6 +374,7 @@
      * correlate to Heat and Searchlight resource types.
      * For example: OS::Glance::Image and OS::Nova::Server.
      *
+     * @returns {Object} The result of the API call
      */
     function getResourceTypes() {
       var config = {

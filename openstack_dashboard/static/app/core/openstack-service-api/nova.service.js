@@ -29,8 +29,12 @@
 
   /**
    * @ngdoc service
-   * @name horizon.app.core.openstack-service-api.nova
+   * @param {Object} apiService
+   * @param {Object} toastService
+   * @param {Object} $window
+   * @name novaApi
    * @description Provides access to Nova APIs.
+   * @returns {Object} The service
    */
   function novaAPI(apiService, toastService, $window) {
 
@@ -66,10 +70,10 @@
     // Nova Services
 
     /**
-     * @name horizon.openstack-service-api.nova.getServices
+     * @name getServices
      * @description Get the list of Nova services.
      *
-     * @returns The listing result is an object with property "services." Each item is
+     * @returns {Object} The listing result is an object with property "services." Each item is
      * a service.
      */
     function getServices() {
@@ -82,12 +86,11 @@
     // Keypairs
 
     /**
-     * @name horizon.app.core.openstack-service-api.nova.getKeypairs
+     * @name getKeypairs
      * @description
      * Get a list of keypairs.
      *
-     * The listing result is an object with property "items". Each item is
-     * a keypair.
+     * @returns {Object} An object with property "items". Each item is a keypair.
      */
     function getKeypairs() {
       return apiService.get('/api/nova/keypairs/')
@@ -97,7 +100,7 @@
     }
 
     /**
-     * @name horizon.app.core.openstack-service-api.nova.createKeypair
+     * @name createKeypair
      * @description
      * Create a new keypair.  This returns the new keypair object on success.
      *
@@ -109,6 +112,7 @@
      *
      * @param {string} newKeypair.public_key
      * The public key.  Optional.
+     * @returns {Object} The result of the API call
      */
     function createKeypair(newKeypair) {
       return apiService.post('/api/nova/keypairs/', newKeypair)
@@ -124,12 +128,13 @@
     // Availability Zones
 
     /**
-     * @name horizon.app.core.openstack-service-api.nova.getAvailabilityZones
+     * @name getAvailabilityZones
      * @description
      * Get a list of Availability Zones.
      *
      * The listing result is an object with property "items". Each item is
      * an availability zone.
+     * @returns {Object} The result of the API call
      */
     function getAvailabilityZones() {
       return apiService.get('/api/nova/availzones/')
@@ -142,7 +147,7 @@
     // Limits
 
     /**
-     * @name horizon.app.core.openstack-service-api.nova.getLimits
+     * @name getLimits
      * @description
      * Returns current limits.
      *
@@ -169,6 +174,7 @@
      *   "totalSecurityGroupsUsed": 1,
      *   "totalServerGroupsUsed": 0
      * }
+     * @returns {Object} The result of the API call
      */
     function getLimits() {
       return apiService.get('/api/nova/limits/')
@@ -180,7 +186,8 @@
     // Servers
 
     /**
-     * @name horizon.app.core.openstack-service-api.nova.createServer
+     * @name createServer
+     * @param {Object} newServer - The new server
      * @description
      * Create a server using the parameters supplied in the
      * newServer. The required parameters:
@@ -195,7 +202,7 @@
      * "availability_zone", "instance_count", "admin_pass", "disk_config",
      * "config_drive"
      *
-     * This returns the new server object on success.
+     * @returns {Object} The result of the API call
      */
     function createServer(newServer) {
       return apiService.post('/api/nova/servers/', newServer)
@@ -205,11 +212,12 @@
     }
 
     /**
-     * @name horizon.app.core.openstack-service-api.nova.getServer
+     * @name getServer
      * @description
      * Get a single server by ID
      * @param {string} id
      * Specifies the id of the server to request.
+     * @returns {Object} The result of the API call
      */
     function getServer(id) {
       return apiService.get('/api/nova/servers/' + id)
@@ -219,12 +227,13 @@
     }
 
     /**
-     * @name horizon.app.core.openstack-service-api.nova.getServers
+     * @name getServers
      * @description
      * Get a list of servers.
      *
      * The listing result is an object with property "items". Each item is
      * a server.
+     * @returns {Object} The result of the API call
      */
     function getServers() {
       return apiService.get('/api/nova/servers/')
@@ -234,7 +243,8 @@
     }
 
     /**
-     * @name horizon.app.core.openstack-service-api.nova.getExtensions
+     * @name getExtensions
+     * @param {Object} config - A configuration object
      * @description
      * Returns a list of enabled extensions.
      *
@@ -255,6 +265,7 @@
      *      }
      *    ]
      *  }
+     * @returns {Object} The list of enable extensions
      */
     function getExtensions(config) {
       return apiService.get('/api/nova/extensions/', config)
@@ -264,7 +275,7 @@
     }
 
     /**
-     * @name horizon.app.core.openstack-service-api.nova.getFlavors
+     * @name getFlavors
      * @description
      * Returns a list of flavors.
      *
@@ -278,6 +289,7 @@
      * @param {boolean} getExtras (optional)
      * Also retrieve the extra specs. This is expensive (one extra underlying
      * call per flavor).
+     * @returns {Object} The result of the API call
      */
     function getFlavors(isPublic, getExtras) {
       var config = {'params': {}};
@@ -313,13 +325,15 @@
     }
 
     /**
-     * @name horizon.app.core.openstack-service-api.nova.getFlavor
+     * @name getFlavor
      * @description
      * Get a single flavor by ID.
      * @param {string} id
      * Specifies the id of the flavor to request.
      * @param {boolean} getExtras (optional)
      * Also retrieve the extra specs for the flavor.
+     * @param {boolean} getAccessList - True if you want get the access list
+     * @returns {Object} The result of the API call
      */
     function getFlavor(id, getExtras, getAccessList) {
       var config = {'params': {}};
@@ -336,11 +350,12 @@
     }
 
     /**
-     * @name horizon.app.core.openstack-service-api.nova.createFlavor
+     * @name createFlavor
      * @description
      * Create a single flavor.
      * @param {flavor} flavor
      * Flavor to create
+     * @returns {Object} The result of the API call
      */
     function createFlavor(flavor) {
       return apiService.post('/api/nova/flavors/', flavor)
@@ -350,11 +365,12 @@
     }
 
     /**
-     * @name horizon.app.core.openstack-service-api.nova.updateFlavor
+     * @name updateFlavor
      * @description
      * Update a single flavor.
      * @param {flavor} flavor
      * Flavor to update
+     * @returns {Object} The result of the API call
      */
     function updateFlavor(flavor) {
       return apiService.patch('/api/nova/flavors/' + flavor.id + '/', flavor)
@@ -364,7 +380,7 @@
     }
 
     /**
-     * @name horizon.app.core.openstack-service-api.nova.deleteFlavor
+     * @name deleteFlavor
      * @description
      * Delete a single flavor by ID.
      *
@@ -375,6 +391,7 @@
      * If passed in, this will not show the default error handling
      * (horizon alert). The glance API may not have metadata definitions
      * enabled.
+     * @returns {Object} The result of the API call
      */
     function deleteFlavor(flavorId, suppressError) {
       var promise = apiService.delete('/api/nova/flavors/' + flavorId + '/');
@@ -387,11 +404,12 @@
     }
 
     /**
-     * @name horizon.app.core.openstack-service-api.nova.getFlavorExtraSpecs
+     * @name getFlavorExtraSpecs
      * @description
      * Get a single flavor's extra specs by ID.
      * @param {string} id
      * Specifies the id of the flavor to request the extra specs.
+     * @returns {Object} The result of the API call
      */
     function getFlavorExtraSpecs(id) {
       return apiService.get('/api/nova/flavors/' + id + '/extra-specs/')
@@ -401,12 +419,13 @@
     }
 
     /**
-     * @name horizon.openstack-service-api.nova.editFlavorExtraSpecs
+     * @name editFlavorExtraSpecs
      * @description
      * Update a single flavor's extra specs by ID.
      * @param {string} id
      * @param {object} updated New extra specs.
      * @param {[]} removed Names of removed extra specs.
+     * @returns {Object} The result of the API call
      */
     function editFlavorExtraSpecs(id, updated, removed) {
       return apiService.patch(
@@ -421,11 +440,12 @@
     }
 
     /**
-     * @name horizon.openstack-service-api.nova.getAggregateExtraSpecs
+     * @name getAggregateExtraSpecs
      * @description
      * Get a single aggregate's extra specs by ID.
      * @param {string} id
      * Specifies the id of the flavor to request the extra specs.
+     * @returns {Object} The result of the API call
      */
     function getAggregateExtraSpecs(id) {
       return apiService.get('/api/nova/aggregates/' + id + '/extra-specs/')
@@ -435,12 +455,13 @@
     }
 
     /**
-     * @name horizon.openstack-service-api.nova.editAggregateExtraSpecs
+     * @name editAggregateExtraSpecs
      * @description
      * Update a single aggregate's extra specs by ID.
      * @param {string} id
      * @param {object} updated New extra specs.
      * @param {[]} removed Names of removed extra specs.
+     * @returns {Object} The result of the API call
      */
     function editAggregateExtraSpecs(id, updated, removed) {
       return apiService.patch(
@@ -455,11 +476,12 @@
     }
 
     /**
-     * @name horizon.app.core.openstack-service-api.nova.getInstanceMetadata
+     * @name getInstanceMetadata
      * @description
      * Get a single instance's metadata by ID.
      * @param {string} id
      * Specifies the id of the instance to request the metadata.
+     * @returns {Object} The result of the API call
      */
     function getInstanceMetadata(id) {
       return apiService.get('/api/nova/servers/' + id + '/metadata')
@@ -469,12 +491,13 @@
     }
 
     /**
-     * @name horizon.openstack-service-api.nova.editInstanceMetadata
+     * @name editInstanceMetadata
      * @description
      * Update a single instance's metadata by ID.
      * @param {string} id
      * @param {object} updated New metadata.
      * @param {[]} removed Names of removed metadata items.
+     * @returns {Object} The result of the API call
      */
     function editInstanceMetadata(id, updated, removed) {
       return apiService.patch(
@@ -500,6 +523,7 @@
      * the key pair download service).
      *
      * @param {string} keyPairName
+     * @returns {Object} The result of the API call
      */
     function getCreateKeypairUrl(keyPairName) {
       // NOTE: WEBROOT by definition must end with a slash (local_settings.py).
@@ -519,6 +543,7 @@
      * (which is further explained in the key pair download service).
      *
      * @param {string} keyPairName
+     * @returns {Object} The result of the API call
      */
     function getRegenerateKeypairUrl(keyPairName) {
       return getCreateKeypairUrl(keyPairName) + "?regenerate=true";

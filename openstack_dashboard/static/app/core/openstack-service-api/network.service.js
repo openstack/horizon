@@ -27,9 +27,12 @@
 
   /**
    * @ngdoc service
-   * @name horizon.app.core.openstack-service-api.network
+   * @name networkAPI
+   * @param {Object} apiService
+   * @param {Object} toastService
    * @description Provides access to APIs that are common to nova network
    * and neutron.
+   * @returns {Object} The service
    */
   function networkAPI(apiService, toastService) {
     var service = {
@@ -47,11 +50,11 @@
     // Floating IPs
 
     /**
-     * @name horizon.app.core.openstack-service-api.networkAPI.getFloatingIps
+     * @name getFloatingIps
      * @description
      * Get a list of floating IP addresses.
      *
-     * The listing result is an object with property "items". Each item is
+     * @returns {Object} An object with property "items". Each item is
      * a floating IP address.
      */
     function getFloatingIps() {
@@ -62,11 +65,11 @@
     }
 
     /**
-     * @name horizon.app.core.openstack-service-api.networkAPI.getFloatingIpPools
+     * @name getFloatingIpPools
      * @description
      * Get a list of floating IP pools.
      *
-     * The listing result is an object with property "items". Each item is
+     * @returns {Object} An object with property "items". Each item is
      * a floating IP address.
      */
     function getFloatingIpPools() {
@@ -77,14 +80,14 @@
     }
 
     /**
-     * @name horizon.app.core.openstack-service-api.networkAPI.allocateFloatingIp
+     * @name allocateFloatingIp
      * @description
      * Allocate a floating IP address within a pool.
      *
      * @param {string} poolId
      * The Id of the pool in which to allocate the new floating IP address.
      *
-     * Returns the new floating IP address on success.
+     * @returns {Object} the new floating IP address on success.
      */
     function allocateFloatingIp(poolId) {
       return apiService.post('/api/network/floatingip/', { pool_id: poolId })
@@ -94,7 +97,7 @@
     }
 
     /**
-     * @name horizon.app.core.openstack-service-api.networkAPI.associateFloatingIp
+     * @name associateFloatingIp
      * @description
      * Associate a floating IP address with a port.
      *
@@ -103,6 +106,7 @@
      *
      * @param {string} portId
      * The Id of the port to associate.
+     * @returns {Object} The result of the API call
      */
     function associateFloatingIp(addressId, portId) {
       var params = { address_id: addressId, port_id: portId };
@@ -113,12 +117,13 @@
     }
 
     /**
-     * @name horizon.app.core.openstack-service-api.networkAPI.disassociateFloatingIp
+     * @name disassociateFloatingIp
      * @description
      * Disassociate a floating IP address.
      *
      * @param {string} addressId
      * The Id of the floating IP address to disassociate.
+     * @returns {Object} The result of the API call
      */
     function disassociateFloatingIp(addressId) {
       return apiService.patch('/api/network/floatingip/', { address_id: addressId })

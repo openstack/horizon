@@ -72,6 +72,7 @@
      * with the class of 'download-iframes' is present.
      *
      * @param {string} name The desired name for the key pair
+     * @returns {promise} A promise resolving if true, rejecting with error
      */
     function createAndDownloadKeypair(name) {
       addDOMResource(name);
@@ -87,6 +88,7 @@
      * the appropriate URL for the API to create/download the new key pair.
      *
      * @param {string} keypairName The desired name for the key pair
+     * @returns {undefined} Returns nothing
      */
     function addDOMResource(keypairName) {
       var url = novaAPI.getCreateKeypairUrl(keypairName);
@@ -113,6 +115,7 @@
      * period, the promise is rejected.
      *
      * @param {string} name The name for the key pair
+     * @returns {promise} A promise resolving if true, rejecting with error
      */
     function verifyCreatedPromise(name) {
       return $q(function doesKeypairExistPromise(resolve, reject) {

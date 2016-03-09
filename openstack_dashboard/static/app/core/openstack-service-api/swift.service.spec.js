@@ -124,7 +124,7 @@
         call_args: [
           '/api/swift/containers/spam/object/ham',
           fakeFormData,
-          {headers: {'Content-Type': undefined}}
+          {headers: {'Content-Type': ''}}
         ],
         error: 'Unable to upload the object.',
         testInput: [ 'spam', 'ham', 'some junk' ]

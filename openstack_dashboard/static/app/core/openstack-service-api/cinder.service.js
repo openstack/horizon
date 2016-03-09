@@ -27,8 +27,11 @@
 
   /**
    * @ngdoc service
-   * @name horizon.app.core.openstack-service-api.cinder
+   * @param {Object} apiService
+   * @param {Object} toastService
+   * @name cinder
    * @description Provides direct access to Cinder APIs.
+   * @returns {Object} The service
    */
   function cinderAPI(apiService, toastService) {
     var service = {
@@ -52,7 +55,7 @@
     // Volumes
 
     /**
-     * @name horizon.app.core.openstack-service-api.cinder.getVolumes
+     * @name getVolumes
      * @description
      * Get a list of volumes.
      *
@@ -80,6 +83,7 @@
      * @param {string} param.search_opts
      * Filters to pass through the API.
      * For example, "status": "available" will show all available volumes.
+     * @returns {Object} The result of the API call
      */
     function getVolumes(params) {
       var config = params ? {'params': params} : {};
@@ -90,13 +94,14 @@
     }
 
     /**
-     * @name horizon.app.core.openstack-service-api.cinder.getVolume
+     * @name getVolume
      * @description
      * Get a single Volume by ID.
      *
      * @param {string} id
      * Specifies the id of the Volume to request.
      *
+     * @returns {Object} The result of the API call
      */
     function getVolume(id) {
       return apiService.get('/api/cinder/volumes/' + id)
@@ -106,9 +111,11 @@
     }
 
     /**
-     * @name horizon.app.core.openstack-service-api.cinder.createVolume
+     * @name createVolume
+     * @param {Object} newVolume - The new volume object
      * @description
      * Create a volume.
+     * @returns {Object} The result of the API call
      */
     function createVolume(newVolume) {
       return apiService.post('/api/cinder/volumes/', newVolume)
@@ -120,13 +127,14 @@
     // Volume Types
 
     /**
-     * @name horizon.app.core.openstack-service-api.cinder.getVolumeTypes
+     * @name getVolumeTypes
      * @description
      * Get a list of volume types.
      *
      * The listing result is an object with property "items." Each item is
      * a volume type.
      *
+     * @returns {Object} The result of the API call
      */
     function getVolumeTypes() {
       return apiService.get('/api/cinder/volumetypes/')
@@ -136,13 +144,14 @@
     }
 
     /**
-     * @name horizon.app.core.openstack-service-api.cinder.getVolumeType
+     * @name getVolumeType
      * @description
      * Get a single Volume Type by ID.
      *
      * @param {string} id
      * Specifies the id of the Volume Type to request.
      *
+     * @returns {Object} The result of the API call
      */
     function getVolumeType(id) {
       return apiService.get('/api/cinder/volumetypes/' + id)
@@ -152,10 +161,11 @@
     }
 
     /**
-     * @name horizon.app.core.openstack-service-api.cinder.getDefaultVolumeType
+     * @name getDefaultVolumeType
      * @description
      * Get the default Volume Type
      *
+     * @returns {Object} The result of the API call
      */
     function getDefaultVolumeType() {
       return apiService.get('/api/cinder/volumetypes/default')
@@ -167,7 +177,7 @@
     // Volume Snapshots
 
     /**
-     * @name horizon.app.core.openstack-service-api.cinder.getVolumeSnapshots
+     * @name getVolumeSnapshots
      * @description
      * Get a list of volume snapshots.
      *
@@ -181,6 +191,7 @@
      * Filters to pass through the API.
      * For example, "status": "available" will show all available volume
      * snapshots.
+     * @returns {Object} The result of the API call
      */
     function getVolumeSnapshots(params) {
       var config = params ? {'params': params} : {};
@@ -194,7 +205,8 @@
     // Cinder Extensions
 
     /**
-     * @name horizon.app.core.openstack-service-api.cinder.getExtensions
+     * @name getExtensions
+     * @param {Object} config - The configuration for retrieving the extensions
      * @description
      * Returns a list of enabled extensions.
      *
@@ -215,6 +227,7 @@
      *      }
      *    ]
      *  }
+     * @returns {Object} The result of the API call
      */
     function getExtensions(config) {
       return apiService.get('/api/cinder/extensions/', config)
@@ -226,10 +239,10 @@
     // Cinder Services
 
     /**
-    * @name horizon.openstack-service-api.cinder.getServices
+    * @name getServices
     * @description Get the list of Cinder services.
     *
-    * @returns The listing result is an object with property "services." Each item is
+    * @returns {Object} An object with property "services." Each item is
     * a service.
     */
     function getServices() {
@@ -240,7 +253,7 @@
     }
 
     /**
-     * @name horizon.app.core.openstack-service-api.cinder.getQoSSpecs
+     * @name getQoSSpecs
      * @description
      * Get a list of Quality of Service.
      *
@@ -249,6 +262,7 @@
      *
      * @param {Object} params
      * Query parameters. Optional.
+     * @returns {Object} The result of the API call
      *
      */
     function getQoSSpecs(params) {
@@ -261,10 +275,11 @@
     }
 
     /**
-     * @name horizon.app.core.openstack-service-api.cinder.getAbsoluteLimits
+     * @name getAbsoluteLimits
      * @description
      * Get the limits for the current tenant.
      *
+     * @returns {Object} The result of the API call
      */
     function getAbsoluteLimits() {
       return apiService.get('/api/cinder/tenantabsolutelimits/')

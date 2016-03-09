@@ -21,9 +21,19 @@
     beforeEach(module('horizon.app.core.openstack-service-api'));
 
     beforeEach(module(function($provide) {
-      neutron = {getExtensions: function() {return {then: angular.noop}; }};
-      q = {defer: function() { return {resolve: angular.noop}; }};
-      $provide.value('$cacheFactory', function() {return "cache"; });
+      neutron = {
+        getExtensions: function() {
+          return {
+            then: angular.noop
+          };
+        }
+      };
+      q = {defer: function() {
+        return {resolve: angular.noop};
+      }};
+      $provide.value('$cacheFactory', function() {
+        return "cache";
+      });
       $provide.value('$q', q);
       $provide.value('horizon.app.core.openstack-service-api.neutron', neutron);
     }));
