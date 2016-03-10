@@ -10,7 +10,6 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
-from selenium.common import exceptions
 from selenium.webdriver.common import by
 
 from openstack_dashboard.test.integration_tests.pages import basepage
@@ -83,24 +82,13 @@ class VolumesnapshotsPage(basepage.BaseNavigationPage):
         confirm_form.submit()
 
     def is_volume_snapshot_deleted(self, name):
-        try:
-            getter = lambda: self._get_row_with_volume_snapshot_name(name)
-            self.wait_till_element_disappears(getter)
-        except exceptions.TimeoutException:
-            return False
-        return True
+        return self.volumesnapshots_table.is_row_deleted(
+            lambda: self._get_row_with_volume_snapshot_name(name))
 
     def is_volume_snapshot_available(self, name):
         row = self._get_row_with_volume_snapshot_name(name)
-
-        def cell_getter():
-            return row.cells[self.SNAPSHOT_TABLE_STATUS_COLUMN]
-
-        try:
-            self._wait_till_text_present_in_element(cell_getter, 'Available')
-        except exceptions.TimeoutException:
-            return False
-        return True
+        return self.volumesnapshots_table.is_cell_status(
+            lambda: row.cells[self.SNAPSHOT_TABLE_STATUS_COLUMN], 'Available')
 
     def get_volume_name(self, snapshot_name):
         row = self._get_row_with_volume_snapshot_name(snapshot_name)

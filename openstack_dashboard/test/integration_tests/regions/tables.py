@@ -137,6 +137,22 @@ class TableRegion(baseregion.BaseRegion):
         return [RowRegion(self.driver, self.conf, elem, self.column_names)
                 for elem in self._get_elements(*self._rows_locator)]
 
+    def is_row_deleted(self, row_getter):
+        try:
+            self.wait_till_element_disappears(row_getter)
+        except exceptions.TimeoutException:
+            return False
+        except IndexError:
+            return True
+        return True
+
+    def is_cell_status(self, cell_getter, status):
+        try:
+            self._wait_till_text_present_in_element(cell_getter, status)
+        except exceptions.TimeoutException:
+            return False
+        return True
+
     def is_next_link_available(self):
         try:
             self._turn_off_implicit_wait()

@@ -10,8 +10,6 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
-from selenium.common import exceptions
-
 from openstack_dashboard.test.integration_tests.pages import basepage
 from openstack_dashboard.test.integration_tests.regions import forms
 from openstack_dashboard.test.integration_tests.regions import tables
@@ -110,17 +108,9 @@ class VolumetypesPage(basepage.BaseNavigationPage):
         return bool(self._get_row_with_volume_type_name(name))
 
     def is_qos_spec_deleted(self, name):
-        try:
-            getter = lambda: self._get_row_with_qos_spec_name(name)
-            self.wait_till_element_disappears(getter)
-        except exceptions.TimeoutException:
-            return False
-        return True
+        return self.qos_specs_table.is_row_deleted(
+            lambda: self._get_row_with_qos_spec_name(name))
 
     def is_volume_type_deleted(self, name):
-        try:
-            getter = lambda: self._get_row_with_volume_type_name(name)
-            self.wait_till_element_disappears(getter)
-        except exceptions.TimeoutException:
-            return False
-        return True
+        return self.volume_types_table.is_row_deleted(
+            lambda: self._get_row_with_volume_type_name(name))
