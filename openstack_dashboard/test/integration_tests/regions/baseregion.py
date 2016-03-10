@@ -30,11 +30,9 @@ class BaseRegion(basewebobject.BaseWebObject):
     # private methods
     def __init__(self, driver, conf, src_elem=None):
         super(BaseRegion, self).__init__(driver, conf)
-        if src_elem is None and self._default_src_locator:
-            # fake self.src_elem must be set up in
-            # order self._get_element work
-            self.src_elem = driver
-            src_elem = self._get_element(*self._default_src_locator)
+        if self._default_src_locator:
+            root = src_elem or driver
+            src_elem = root.find_element(*self._default_src_locator)
 
         self.src_elem = src_elem or driver
 
