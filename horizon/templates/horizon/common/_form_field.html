@@ -8,8 +8,8 @@
   {% elif field|is_radio %}
     {% if field.auto_id %}
       <label class="control-label {{ classes.label }} {% if field.field.required %}{{ form.required_css_class }}{% endif %}">{{ field.label }}</label>
+      {% if field.field.required %}{% include "horizon/common/_form_field_required.html" %}{% endif %}
       {% if field.help_text %}
-        {% if field.field.required %}{% include "horizon/common/_form_field_required.html" %}{% endif %}
         <span class="help-icon" data-toggle="tooltip" data-placement="top" title="{{ field.help_text|safe }}"><span class="fa fa-question-circle"></span></span>
       {% endif %}
     {% endif %}
@@ -31,8 +31,8 @@
   {% else %}
     {% if field.auto_id %}
       <label class="control-label {{ classes.label }} {% if field.field.required %}{{ form.required_css_class }}{% endif %}" for="{{ field.auto_id }}">{{ field.label }}</label>
+      {% if field.field.required %}{% include "horizon/common/_form_field_required.html" %}{% endif %}
       {% if field.help_text %}
-        {% if field.field.required %}{% include "horizon/common/_form_field_required.html" %}{% endif %}
         <span class="help-icon" data-toggle="tooltip" data-placement="top" title="{{ field.help_text|safe }}"><span class="fa fa-question-circle"></span></span>
       {% endif %}
     {% endif %}

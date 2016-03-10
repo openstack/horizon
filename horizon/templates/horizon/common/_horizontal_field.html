@@ -1,7 +1,9 @@
 {% load form_helpers %}
 
 <div class="form-group{% if field.errors %} has-error{% endif %} {{ field.css_classes }}">
-  <label class="control-label col-sm-3 {% if field.field.required %}{{ form.required_css_class }}{% endif %}" for="{{ field.id_for_label }}">{{ field.label }}</label>
+  <label class="control-label col-sm-3" for="{{ field.id_for_label }}">{{ field.label }}
+    {% if field.field.required %}{% include "horizon/common/_form_field_required.html" %}{% endif %}
+  </label>
   <div class="col-sm-9 {{ classes.value }} {{ field|wrapper_classes }}">
     {% if field|is_checkbox %}
       {% with is_vertical=1 %}
