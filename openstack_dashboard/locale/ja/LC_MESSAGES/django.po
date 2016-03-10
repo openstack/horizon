@@ -20,11 +20,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2016-03-04 08:39+0000\n"
+"POT-Creation-Date: 2016-03-10 05:04+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2016-03-05 10:04+0000\n"
+"PO-Revision-Date: 2016-03-10 05:58+0000\n"
 "Last-Translator: Yuko Katabami <yukokatabami@gmail.com>\n"
 "Language: ja\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
@@ -432,6 +432,7 @@ msgstr "%(instance_name)s %(fixed_ip)s"
 msgid "%(name)s - %(size)s GB (%(label)s)"
 msgstr "%(name)s - %(size)s GB (%(label)s)"
 
+#. Translators:  UTC offset and timezone label
 #, python-format
 msgid "%(offset)s: %(label)s"
 msgstr "%(offset)s: %(label)s"
@@ -469,6 +470,7 @@ msgstr "%(key)sは %(used)s 使用中"
 msgid "%s (Default)"
 msgstr "%s (デフォルト)"
 
+#. Translators: The usage is "<UUID of ext_net> (Not Found)"
 #, python-format
 msgctxt "External network not found"
 msgid "%s (Not Found)"
@@ -4163,6 +4165,7 @@ msgstr ""
 "グループを使うと、複数のユーザーに対するアクセス権やロールの割り当てを一度で"
 "行うことができます。グループに追加するユーザーを編集できます。"
 
+#. Translators: High Availability mode of Neutron router
 msgid "HA mode"
 msgstr "HA モード"
 
@@ -6003,7 +6006,7 @@ msgid "Pending Update"
 msgstr "更新待ち"
 
 msgid "Per Volume Size (GiB)"
-msgstr "ボリュームサイズ (GiB) 毎"
+msgstr "1 ボリュームあたりのサイズ (GiB)"
 
 msgid "Perfect Forward Secrecy"
 msgstr "Perfect Forward Secrecy"
@@ -6303,7 +6306,7 @@ msgstr "QCOW2 - QEMU エミュレーター"
 
 #, python-format
 msgid "QoS Spec name \"%s\" already exists."
-msgstr "QoS 仕様 \"%s\" はすでに存在します。"
+msgstr "QoS スペック \"%s\" はすでに存在します。"
 
 msgid "QoS Spec to be associated"
 msgstr "関連付ける QoS スペック"
@@ -6435,6 +6438,9 @@ msgstr "再作成中"
 #, python-format
 msgid "Rebuilding instance %s."
 msgstr "インスタンス %s を再作成中。"
+
+msgid "Recreate EC2 Credentials"
+msgstr "EC2 認証情報の再作成"
 
 msgid "Regions:"
 msgstr "リージョン:"
@@ -6991,7 +6997,7 @@ msgid "Security Groups"
 msgstr "セキュリティーグループ"
 
 msgid "Security group rule already exists."
-msgstr "セキュリティーグループルールはすでに存在します。"
+msgstr "セキュリティーグループルールがすでに存在します。"
 
 msgid ""
 "Security groups are sets of IP filter rules that are applied to the network "
@@ -7749,6 +7755,9 @@ msgstr "公開鍵 %s を正常に取り込みました"
 msgid "Successfully modified QoS Spec consumer."
 msgstr "QoS スペックの使用者を正常に更新しました。"
 
+msgid "Successfully recreated ec2 credentials."
+msgstr "EC2 認証情報の再作成に成功しました。"
+
 #, python-format
 msgid ""
 "Successfully restored backup %(backup_name)s to volume with id: %(volume_id)s"
@@ -7944,6 +7953,7 @@ msgid ""
 "number."
 msgstr "「上限」ポート番号は「下限」ポート番号以上でなければいけません。"
 
+#. Translators: Only used inside Horizon code and invisible to users
 #, python-format
 msgid ""
 "The 'operation' parameter for get_feature_permission '%(feature)s' is "
@@ -8213,6 +8223,7 @@ msgstr "環境設定ファイルの RAW データ"
 msgid "The raw contents of the template."
 msgstr "テンプレートの RAW データ。"
 
+#. Translators: Only used inside Horizon code and invisible to users
 #, python-format
 msgid ""
 "The requested feature '%(feature)s' is unknown. Please make sure to specify "
@@ -8293,7 +8304,7 @@ msgstr "ボリュームサイズはイメージサイズ (%s) 未満にはでき
 
 #, python-format
 msgid "The volume size cannot be less than the snapshot size (%sGiB)"
-msgstr "ボリューム容量はスナップショット容量 (%sGiB) 未満にはできません。"
+msgstr "ボリュームサイズはスナップショットサイズ (%sGiB) 未満にはできません。"
 
 #, python-format
 msgid "The volume size cannot be less than the source volume size (%sGiB)"
@@ -8328,6 +8339,13 @@ msgstr "%(prefix)s の解析中に問題がありました: %(error)s"
 
 msgid "This action cannot be undone."
 msgstr "この操作は取り消せません。"
+
+msgid ""
+"This action cannot be undone. Current EC2 credentials will be deleted and "
+"not recoverable."
+msgstr ""
+"この操作は取り消せません。現在の EC2 認証情報は削除され、元に戻すことはできま"
+"せん。"
 
 msgid "This application requires JavaScript to be enabled in your web browser."
 msgstr ""
@@ -8980,6 +8998,12 @@ msgstr "IPアドレス %s の解析に失敗しました。"
 
 msgid "Unable to rebuild instance."
 msgstr "インスタンスを再作成できません。"
+
+msgid "Unable to recreate ec2 credentials. Failed to create ec2 credentials."
+msgstr "EC2 認証情報を再作成できません。EC2 認証情報の作成に失敗しました。"
+
+msgid "Unable to recreate ec2 credentials. Failed to delete ec2 credentials."
+msgstr "EC2 認証情報を再作成できません。EC2 認証情報の削除に失敗しました。"
 
 msgid "Unable to register identity provider."
 msgstr "認証プロバイダーを登録できません。"
@@ -9655,7 +9679,7 @@ msgid "Unable to update default quotas."
 msgstr "標準のクォータを更新できません。"
 
 msgid "Unable to update encrypted volume type."
-msgstr "暗号化されたボリューム種別を更新できません。"
+msgstr "ボリューム種別の暗号化設定を更新できません。"
 
 msgid "Unable to update group."
 msgstr "グループを更新できません。"
@@ -9942,7 +9966,7 @@ msgid ""
 "Updating encryption is not implemented.  Unable to update  encrypted volume "
 "type."
 msgstr ""
-"暗号化設定の更新は実装されていません。暗号化されたボリューム種別を更新できま"
+"暗号化設定の更新は実装されていません。ボリューム種別の暗号化設定を更新できま"
 "せん。"
 
 #, python-format
@@ -10367,7 +10391,7 @@ msgstr ""
 #, python-format
 msgid "Volume size must be equal to or greater than the snapshot size (%sGiB)"
 msgstr ""
-"ボリューム容量はスナップショット容量 (%sGiB) 以上でなければいけません。"
+"ボリュームサイズはスナップショットサイズ (%sGiB) 以上でなければいけません。"
 
 msgid "Volume size must be greater than 0"
 msgstr "ボリュームサイズは 0 より大きい値でなければなりません。"

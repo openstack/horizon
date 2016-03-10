@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2016-03-08 06:15+0000\n"
+"POT-Creation-Date: 2016-03-10 06:14+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -2187,7 +2187,7 @@ msgstr ""
 #: openstack_dashboard/dashboards/admin/metering/tables.py:43
 #: openstack_dashboard/dashboards/admin/metering/tables.py:64
 #: openstack_dashboard/dashboards/admin/metering/views.py:103
-#: openstack_dashboard/dashboards/project/access_and_security/api_access/tables.py:74
+#: openstack_dashboard/dashboards/project/access_and_security/api_access/tables.py:100
 msgid "Service"
 msgstr ""
 
@@ -6336,56 +6336,75 @@ msgstr ""
 msgid "API Access"
 msgstr ""
 
-#: openstack_dashboard/dashboards/project/access_and_security/api_access/tables.py:35
-#: openstack_dashboard/dashboards/project/access_and_security/api_access/tables.py:36
+#: openstack_dashboard/dashboards/project/access_and_security/api_access/forms.py:52
+msgid "Unable to recreate ec2 credentials. Failed to delete ec2 credentials."
+msgstr ""
+
+#: openstack_dashboard/dashboards/project/access_and_security/api_access/forms.py:61
+msgid "Successfully recreated ec2 credentials."
+msgstr ""
+
+#: openstack_dashboard/dashboards/project/access_and_security/api_access/forms.py:66
+msgid "Unable to recreate ec2 credentials. Failed to create ec2 credentials."
+msgstr ""
+
+#: openstack_dashboard/dashboards/project/access_and_security/api_access/tables.py:38
+#: openstack_dashboard/dashboards/project/access_and_security/api_access/tables.py:39
 msgid "Download EC2 Credentials"
 msgstr ""
 
-#: openstack_dashboard/dashboards/project/access_and_security/api_access/tables.py:47
-#: openstack_dashboard/dashboards/project/access_and_security/api_access/tables.py:48
+#: openstack_dashboard/dashboards/project/access_and_security/api_access/tables.py:50
+#: openstack_dashboard/dashboards/project/access_and_security/api_access/tables.py:51
 msgid "Download OpenStack RC File v3"
 msgstr ""
 
-#: openstack_dashboard/dashboards/project/access_and_security/api_access/tables.py:58
-#: openstack_dashboard/dashboards/project/access_and_security/api_access/tables.py:59
+#: openstack_dashboard/dashboards/project/access_and_security/api_access/tables.py:61
+#: openstack_dashboard/dashboards/project/access_and_security/api_access/tables.py:62
 msgid "Download OpenStack RC File v2.0"
 msgstr ""
 
-#: openstack_dashboard/dashboards/project/access_and_security/api_access/tables.py:66
+#: openstack_dashboard/dashboards/project/access_and_security/api_access/tables.py:69
 msgid "View Credentials"
 msgstr ""
 
 #: openstack_dashboard/dashboards/project/access_and_security/api_access/tables.py:77
+#: openstack_dashboard/dashboards/project/access_and_security/api_access/views.py:177
+#: openstack_dashboard/dashboards/project/access_and_security/api_access/views.py:180
+#: openstack_dashboard/dashboards/project/access_and_security/templates/access_and_security/api_access/recreate_credentials.html:3
+msgid "Recreate EC2 Credentials"
+msgstr ""
+
+#: openstack_dashboard/dashboards/project/access_and_security/api_access/tables.py:103
 msgid "Service Endpoint"
 msgstr ""
 
-#: openstack_dashboard/dashboards/project/access_and_security/api_access/tables.py:81
+#: openstack_dashboard/dashboards/project/access_and_security/api_access/tables.py:107
 msgid "API Endpoints"
 msgstr ""
 
-#: openstack_dashboard/dashboards/project/access_and_security/api_access/views.py:90
+#: openstack_dashboard/dashboards/project/access_and_security/api_access/views.py:92
 msgid "Unable to fetch EC2 credentials."
 msgstr ""
 
-#: openstack_dashboard/dashboards/project/access_and_security/api_access/views.py:104
+#: openstack_dashboard/dashboards/project/access_and_security/api_access/views.py:106
 #, python-format
 msgid "Error writing zipfile: %(exc)s"
 msgstr ""
 
-#: openstack_dashboard/dashboards/project/access_and_security/api_access/views.py:148
+#: openstack_dashboard/dashboards/project/access_and_security/api_access/views.py:150
 #, python-format
 msgid "Error Downloading RC File: %s"
 msgstr ""
 
-#: openstack_dashboard/dashboards/project/access_and_security/api_access/views.py:154
+#: openstack_dashboard/dashboards/project/access_and_security/api_access/views.py:156
 msgid "User Credentials Details"
 msgstr ""
 
-#: openstack_dashboard/dashboards/project/access_and_security/api_access/views.py:162
+#: openstack_dashboard/dashboards/project/access_and_security/api_access/views.py:164
 msgid "Unable to get openrc credentials"
 msgstr ""
 
-#: openstack_dashboard/dashboards/project/access_and_security/api_access/views.py:168
+#: openstack_dashboard/dashboards/project/access_and_security/api_access/views.py:170
 msgid "Unable to get EC2 credentials"
 msgstr ""
 
@@ -7006,6 +7025,12 @@ msgstr ""
 
 #: openstack_dashboard/dashboards/project/access_and_security/templates/access_and_security/api_access/_credentials.html:54
 msgid "EC2 Secret Key"
+msgstr ""
+
+#: openstack_dashboard/dashboards/project/access_and_security/templates/access_and_security/api_access/_recreate_credentials.html:5
+msgid ""
+"This action cannot be undone. Current EC2 credentials will be deleted and"
+" not recoverable."
 msgstr ""
 
 #: openstack_dashboard/dashboards/project/access_and_security/templates/access_and_security/floating_ips/_allocate.html:7
@@ -12095,7 +12120,8 @@ msgid ""
 "\"%(router_id)s\"."
 msgstr ""
 
-#: openstack_dashboard/dashboards/project/routers/views.py:96
+#. Translators: The usage is "<UUID of ext_net> (Not Found)"
+#: openstack_dashboard/dashboards/project/routers/views.py:97
 #, python-format
 msgctxt "External network not found"
 msgid "%s (Not Found)"

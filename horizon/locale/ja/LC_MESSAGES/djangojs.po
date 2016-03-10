@@ -9,19 +9,17 @@
 # Tom Fifield <tom@openstack.org>, 2015
 # Shu Muto <shu-mutou@rf.jp.nec.com>, 2015. #zanata
 # Yuko Katabami <yukokatabami@gmail.com>, 2015. #zanata
-# Akihiro Motoki <amotoki@gmail.com>, 2016. #zanata
-# Shu Muto <shu-mutou@rf.jp.nec.com>, 2016. #zanata
 # Yuko Katabami <yukokatabami@gmail.com>, 2016. #zanata
 msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2016-03-09 05:39+0000\n"
+"POT-Creation-Date: 2016-03-10 05:04+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2016-03-08 01:15+0000\n"
-"Last-Translator: Yuko Katabami <yukokatabami@gmail.com>\n"
+"PO-Revision-Date: 2016-03-10 02:18+0000\n"
+"Last-Translator: Shu Muto <shu-mutou@rf.jp.nec.com>\n"
 "Language: ja\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 "Generated-By: Babel 2.0\n"
@@ -324,13 +322,12 @@ msgid "STATUS"
 msgstr "ステータス"
 
 #. Strings between {$ and $} should be left untranslated.
-#, fuzzy
 msgid ""
 "Script size: {$ (scriptLength || 0) | bytes $} of {$ config.MAX_SCRIPT_SIZE "
 "| bytes $}"
 msgstr ""
-"スクリプトのサイズ: {$ (scriptLength || 0) | bytes $} of {$ config."
-"MAX_SCRIPT_SIZE | bytes $}"
+"スクリプトのサイズ: {$ config.MAX_SCRIPT_SIZE | bytes $} 中 {$ (scriptLength "
+"|| 0) | bytes $}"
 
 msgid "Search in current results"
 msgstr "現在の結果内の検索"

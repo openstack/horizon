@@ -11,24 +11,52 @@
 # OpenStack Infra <zanata@openstack.org>, 2015. #zanata
 # Veruska <reaching.out@gmail.com>, 2015. #zanata
 # Alberto Molina Coballes <alb.molina@gmail.com>, 2016. #zanata
+# Eugènia Torrella <tester03@es.ibm.com>, 2016. #zanata
 msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2016-03-04 04:22+0000\n"
+"POT-Creation-Date: 2016-03-10 05:04+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2016-01-20 08:22+0000\n"
-"Last-Translator: Alberto Molina Coballes <alb.molina@gmail.com>\n"
+"PO-Revision-Date: 2016-03-09 04:40+0000\n"
+"Last-Translator: Eugènia Torrella <tester03@es.ibm.com>\n"
 "Language: es\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "Generated-By: Babel 2.0\n"
 "X-Generator: Zanata 3.7.3\n"
 "Language-Team: Spanish\n"
 
+msgid "#"
+msgstr "#"
+
 msgid "(None)"
 msgstr "(Ninguno)"
+
+msgid "1"
+msgstr "1"
+
+msgid "2"
+msgstr "2"
+
+msgid "3"
+msgstr "3"
+
+msgid "4"
+msgstr "4"
+
+msgid "5"
+msgstr "5"
+
+msgid "6"
+msgstr "6"
+
+msgid "7"
+msgstr "7"
+
+msgid "8"
+msgstr "8"
 
 msgid "<li><b>Image</b>: This option uses an image to boot the instance.</li>"
 msgstr ""
@@ -41,6 +69,9 @@ msgid ""
 msgstr ""
 "<li><b>Instantánea de la  Instancia</b>: Esta opción usa una instantánea de "
 "la instancia para arrancar la instancia.</li>"
+
+msgid "<small>This line of text is meant to be treated as fine print.</small>"
+msgstr "<small>Esta línea de texto se debe tratar como letra chica.</small>"
 
 msgid ""
 "A floating IP allows instances to be addressable from an external network.\n"
@@ -63,8 +94,18 @@ msgstr ""
 "Luego, seleccione la opción <b>Asociar IP Flotante</b> e introduzca los "
 "detalles necesarios."
 
+msgid ""
+"A longer block of help text that breaks onto a new line and may extend "
+"beyond one line."
+msgstr ""
+"Un bloque de texto más largo que empieza en una línea nueva y puede "
+"alargarse más de una línea."
+
 msgid "A name is required for your instance."
 msgstr "Un nombre es necesario para su instancia. "
+
+msgid "Action"
+msgstr "Acción"
 
 msgid "Active"
 msgstr "Activo"
@@ -105,6 +146,9 @@ msgstr ""
 "Puede usar la vista de  <b>Topología de Red</b> para conectar el router a "
 "ambas redes."
 
+msgid "An abbreviation of the word attribute is <abbr>attr</abbr>."
+msgstr "La abreviatura de la palabra atributo es  <abbr>attr</abbr>."
+
 msgid ""
 "An advanced option available when launching an instance is disk "
 "partitioning. There are two disk partition options. Selecting <b>Automatic</"
@@ -124,11 +168,26 @@ msgstr ""
 "Un nombre de instancia es requerido y usado para ayudarle unicamente para "
 "identificar su instancia en el panel. "
 
+msgid "Another action"
+msgstr "Otra acción"
+
 msgid "Automatic"
 msgstr "Automático"
 
 msgid "Availability Zone"
 msgstr "Zona de Disponibilidad"
+
+msgid "Block level button"
+msgstr "Botón de nivel de bloque"
+
+msgid "Blockquotes"
+msgstr "Cita en bloque"
+
+msgid "Bordered Table"
+msgstr "Tabla con bordes"
+
+msgid "Button"
+msgstr "Botón "
 
 msgid "Buttons"
 msgstr "Botones"
@@ -148,11 +207,26 @@ msgstr ""
 "una unidad de configuración especial. Cuando la instancia arranca, se "
 "adjunta a la <b>Configuration Drive</b> y accesa a los metadatos. "
 
+msgid "Checkbox"
+msgstr "Casilla de verificación"
+
 msgid "Click to see more details"
 msgstr "Haga click para ver más detalles"
 
+msgid "Color"
+msgstr "Color"
+
+msgid "Column content"
+msgstr "Contenido de columna"
+
+msgid "Column heading"
+msgstr "Cabecera de columna"
+
 msgid "Configuration"
 msgstr "Configuración"
+
+msgid "Containers"
+msgstr "Contenedores"
 
 msgid "Create Key Pair"
 msgstr "Crear Par de Claves"
@@ -175,6 +249,24 @@ msgstr ""
 "utilizar un script personalizado para obtener una clave pública y añadirla a "
 "la cuenta de usuario."
 
+msgid "Danger"
+msgstr "Peligro"
+
+msgid "Data"
+msgstr "Datos"
+
+msgid "Date"
+msgstr "Fecha"
+
+msgid "Datetime"
+msgstr "Fecha y hora"
+
+msgid "Default"
+msgstr "Predeterminado"
+
+msgid "Default button"
+msgstr "Botón predeterminado"
+
 msgid "Deleted"
 msgstr "Eliminado"
 
@@ -184,8 +276,14 @@ msgstr "Descripción"
 msgid "Device Name"
 msgstr "Nombre del dispositivo"
 
+msgid "Dialogs"
+msgstr "Diálogos"
+
 msgid "Direction"
 msgstr "Dirección"
+
+msgid "Disabled input"
+msgstr "Entrada deshabilitada"
 
 msgid "Disk Partition"
 msgstr "Partición de Disco"
@@ -196,8 +294,20 @@ msgstr "ID de dominio"
 msgid "Down"
 msgstr "Abajo"
 
+msgid "Dropdown"
+msgstr "Desplegable"
+
+msgid "Dropdown header"
+msgstr "Cabecera desplegable"
+
+msgid "Dropdown link"
+msgstr "Enlace desplegable"
+
 msgid "Email"
 msgstr "Correo electrónico"
+
+msgid "Emphasis classes"
+msgstr "Clases de énfasis"
 
 msgid "Enabled"
 msgstr "Habilitado"
@@ -231,6 +341,9 @@ msgstr ""
 msgid "Format"
 msgstr "Formato"
 
+msgid "Forms"
+msgstr "Formularios"
+
 msgid ""
 "From a Windows system, you can use PuTTYGen to create private/public keys.\n"
 "  Use the PuTTY Key Generator to create and save the keys, then copy\n"
@@ -243,6 +356,24 @@ msgstr ""
 "Utilice PuTTY Key Generator para crear y guardar las claves. \n"
 "Luego copie la clave pública en el campo resaltado en rojo en su archivo \n"
 "<samp>.ssh/authorized_keys</samp>."
+
+msgid "Heading 1"
+msgstr "Título 1"
+
+msgid "Heading 2"
+msgstr "Título 2"
+
+msgid "Heading 3"
+msgstr "Título 3"
+
+msgid "Heading 4"
+msgstr "Título 4"
+
+msgid "Heading 5"
+msgstr "Título 5"
+
+msgid "Heading 6"
+msgstr "Título 6"
 
 msgid "ID"
 msgstr "ID"
@@ -292,8 +423,14 @@ msgstr "Impacto en tu capacidad"
 msgid "Import Key Pair"
 msgstr "Importar Par de Claves"
 
+msgid "Indicators"
+msgstr "Indicadores"
+
 msgid "Info"
 msgstr "Info"
+
+msgid "Input States"
+msgstr "Estados de entrada"
 
 msgid "Instance Snapshot"
 msgstr "Instantánea de Instancia"
@@ -311,8 +448,20 @@ msgstr "Par de Claves"
 msgid "Killed"
 msgstr "Terminado forzosamente"
 
+msgid "Large button"
+msgstr "Botón Grande"
+
 msgid "Launch Instance"
 msgstr "Ejecutar Instancia"
+
+msgid "Left"
+msgstr "Izquierda"
+
+msgid "Legend"
+msgstr "Leyenda"
+
+msgid "Library"
+msgstr "Biblioteca"
 
 msgid "Link"
 msgstr "Enlace"
@@ -322,6 +471,9 @@ msgstr "Manual"
 
 msgid "Max Port"
 msgstr "Puerto máximo"
+
+msgid "Middle"
+msgstr "Medio"
 
 msgid "Min Disk"
 msgstr "Disco mínimo"
@@ -338,8 +490,17 @@ msgstr "RAM mínima"
 msgid "Min RAM (MB)"
 msgstr "Memoria RAM mín. (MB)"
 
+msgid "Mini button"
+msgstr "Botón mini"
+
+msgid "Month"
+msgstr "Mes"
+
 msgid "Name"
 msgstr "Nombre"
+
+msgid "Navbar"
+msgstr "Barra de navegación"
 
 msgid "Network"
 msgstr "Red"
@@ -354,6 +515,9 @@ msgid "Networks provide the communication channels for instances in the cloud."
 msgstr ""
 "Las Redes proveen los canales de comunicación para las instancias en la nube."
 
+msgid "Next"
+msgstr "Siguiente"
+
 msgid "No"
 msgstr "No"
 
@@ -362,6 +526,21 @@ msgstr "No hay ítems disponibles"
 
 msgid "Number"
 msgstr "Número"
+
+msgid "Option one is this"
+msgstr "La opción uno es esto"
+
+msgid "Option two can be something else"
+msgstr "La opción dos puede ser algo distinto"
+
+msgid "Other Input Types"
+msgstr "Otros tipos de entrada"
+
+msgid "Pagination"
+msgstr "Paginación"
+
+msgid "Password"
+msgstr "Contraseña"
 
 msgid "Pending Delete"
 msgstr "Pendiente a Eliminar"
@@ -372,11 +551,20 @@ msgstr "Red Física"
 msgid "Policy check failed."
 msgstr "Comprobación de política fallada."
 
+msgid "Previous"
+msgstr "Anterior"
+
+msgid "Primary"
+msgstr "Principal"
+
 msgid "Private"
 msgstr "Privado"
 
 msgid "Profile"
 msgstr "Perfil"
+
+msgid "Progress bars"
+msgstr "Barras de progreso"
 
 msgid "Project"
 msgstr "Proyecto"
@@ -419,11 +607,17 @@ msgstr "Encolado"
 msgid "RAM"
 msgstr "RAM"
 
+msgid "Radios"
+msgstr "Radios"
+
 msgid "Re-order items using drag and drop"
 msgstr "Reordene los ítems arrastrando y soltando."
 
 msgid "Remote"
 msgstr "Remoto"
+
+msgid "Right"
+msgstr "Derecha"
 
 msgid "Root Disk"
 msgstr "Disco raíz"
@@ -433,6 +627,9 @@ msgstr "Guardar"
 
 msgid "Saving"
 msgstr "Guardando"
+
+msgid "Search"
+msgstr "Buscar"
 
 msgid "Security Groups"
 msgstr "Grupos de Seguridad"
@@ -490,6 +687,9 @@ msgid "Select one or more security groups from the available groups below."
 msgstr ""
 "Seleccionar uno o más grupos de seguridad de los grupos disponibles abajo."
 
+msgid "Selects"
+msgstr "Selecciona"
+
 #, python-format
 msgid "Service type is not enabled: %(desiredType)s"
 msgstr "Tipo de servicio no está habilitado: %(desiredType)s"
@@ -507,18 +707,48 @@ msgstr "Tamaño"
 msgid "Size (GB)"
 msgstr "Tamaño (GB)"
 
+msgid "Small button"
+msgstr "Botón pequeño"
+
 msgid "Snapshot"
 msgstr "Instantánea"
+
+msgid "Someone famous in"
+msgstr "Alguien famoso en"
+
+msgid "Something else here"
+msgstr "Otra cosa aquí"
+
+msgid "Source Title"
+msgstr "Título de origen"
+
+msgid "Standard Table"
+msgstr "Tabla estándar"
 
 msgid "Status"
 msgstr "Estado"
 
+msgid "Submit"
+msgstr "Enviar"
+
 msgid "Subnets Associated"
 msgstr "Subredes Asociadas"
+
+msgid "Success"
+msgstr "Resultado satisfactorio"
 
 #, python-format
 msgid "Successfully imported key pair %(name)s."
 msgstr "Se ha importado correctamente el par de claves %(name)s."
+
+msgid "Tables"
+msgstr "Tablas"
+
+msgid "Tel"
+msgstr "Tel."
+
+msgid "Textarea"
+msgstr "Área de texto"
 
 msgid ""
 "The flavor you select for an instance determines the amount of compute, "
@@ -537,6 +767,16 @@ msgstr ""
 "el tipo de instancia que está intentado crear. Los sabores sin recursos "
 "disponibles para su instancia aparecen en la tabla <b>Available</b> con un "
 "icono en amarillo como aviso."
+
+msgid "The following snippet of text is <em>rendered as italicized text</em>."
+msgstr ""
+"El siguiente fragmento de texto se <em>muestra como texto en cursiva</em>."
+
+msgid ""
+"The following snippet of text is <strong>rendered as bold text</strong>."
+msgstr ""
+"El siguiente fragmento de texto se <strong>muestra como texto en negrita</"
+"strong>."
 
 #, python-format
 msgid ""
@@ -590,6 +830,9 @@ msgstr ""
 "Este sabor necesita más CPU's virtuales que las que su quota permite. Por "
 "favor, escoja un sabor más pequeño o reduzca el número de instancias."
 
+msgid "Time"
+msgstr "Hora"
+
 msgid "Total Disk"
 msgstr "Total de Disco"
 
@@ -613,6 +856,9 @@ msgstr ""
 "Escribe tu script directamente en el campo Script Personalizado. Si tu "
 "navegador soporta el archivo API HTML5, puedes elegir cargar tu script desde "
 "un archivo. El tamaño de tu script no debe exceder 16 Kb."
+
+msgid "Typography"
+msgstr "Tipografía"
 
 msgid "Unable to create the domain."
 msgstr "No ha sido posible crear el dominio."
@@ -823,6 +1069,9 @@ msgstr "Actualizar metadatos de imagen"
 msgid "Updated"
 msgstr "Actualizado"
 
+msgid "Url"
+msgstr "URL"
+
 msgid "User ID"
 msgstr "ID de usuario"
 
@@ -851,6 +1100,12 @@ msgstr ""
 "Volúmenes pueden ser adjuntados a una instancia activa a la vez. Por favor "
 "configurar el contador de la instancia a 1 o seleccionar un tipo de origen "
 "diferente. "
+
+msgid "Warning"
+msgstr "Advertencia"
+
+msgid "Week"
+msgstr "Semana"
 
 msgid ""
 "When selecting volume as boot source, please ensure the instance's "

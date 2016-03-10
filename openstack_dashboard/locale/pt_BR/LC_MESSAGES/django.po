@@ -24,11 +24,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2016-03-09 05:39+0000\n"
+"POT-Creation-Date: 2016-03-10 05:04+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2016-03-08 10:24+0000\n"
+"PO-Revision-Date: 2016-03-09 11:22+0000\n"
 "Last-Translator: Carlos Marques <marquesc@br.ibm.com>\n"
 "Language: pt-BR\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
@@ -6584,6 +6584,9 @@ msgstr "Refazendo"
 msgid "Rebuilding instance %s."
 msgstr "Reconstruindo Instância %s."
 
+msgid "Recreate EC2 Credentials"
+msgstr "Recriar Credenciais do EC2"
+
 msgid "Regions:"
 msgstr "Regiões:"
 
@@ -7929,6 +7932,9 @@ msgstr "Importada com sucesso chave pública: %s"
 msgid "Successfully modified QoS Spec consumer."
 msgstr "Consumidor da Especificação de QoS modificado com sucesso."
 
+msgid "Successfully recreated ec2 credentials."
+msgstr "Credenciais do ec2 recriadas com sucesso."
+
 #, python-format
 msgid ""
 "Successfully restored backup %(backup_name)s to volume with id: %(volume_id)s"
@@ -8536,6 +8542,13 @@ msgstr "Houve um problema ao analisar o  %(prefix)s: %(error)s"
 
 msgid "This action cannot be undone."
 msgstr "Esta ação não pode ser desfeita."
+
+msgid ""
+"This action cannot be undone. Current EC2 credentials will be deleted and "
+"not recoverable."
+msgstr ""
+"Esta ação não pode ser desfeita. As credenciais atuais do EC2 serão "
+"excluídas e não serão recuperáveis."
 
 msgid "This application requires JavaScript to be enabled in your web browser."
 msgstr ""
@@ -9190,6 +9203,15 @@ msgstr "Não é possível interpretar o endereço IP %s"
 
 msgid "Unable to rebuild instance."
 msgstr "Não é possível reconstruir instância."
+
+msgid "Unable to recreate ec2 credentials. Failed to create ec2 credentials."
+msgstr ""
+"Não é possível recriar credenciais do ec2. Falha ao criar credenciais do ec2."
+
+msgid "Unable to recreate ec2 credentials. Failed to delete ec2 credentials."
+msgstr ""
+"Não é possível recriar credenciais do ec2. Falha ao excluir credenciais do "
+"ec2."
 
 msgid "Unable to register identity provider."
 msgstr "Não é possível registrar o provedor de identidade."

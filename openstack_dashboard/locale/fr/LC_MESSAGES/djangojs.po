@@ -21,11 +21,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2016-03-09 05:39+0000\n"
+"POT-Creation-Date: 2016-03-10 05:04+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2016-03-08 08:46+0000\n"
+"PO-Revision-Date: 2016-03-09 09:18+0000\n"
 "Last-Translator: Gérald LONLAS <g.lonlas@gmail.com>\n"
 "Language: fr\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
@@ -335,6 +335,9 @@ msgstr ""
 "démarrera, elle s'attachera le <b>Disque de configuration</b> et pourra "
 "accéder aux métadonnées."
 
+msgid "Checkbox"
+msgstr "Case à cocher"
+
 msgid "Checksum"
 msgstr "Somme de contrôle"
 
@@ -494,6 +497,9 @@ msgstr "Désactivée"
 msgid "Disabled input"
 msgstr "Champ désactivé"
 
+msgid "Disabled input here..."
+msgstr "Champ désactivé ici..."
+
 msgid "Disk Format"
 msgstr "Format du Disque"
 
@@ -508,6 +514,9 @@ msgstr "ID Domaine"
 
 msgid "Down"
 msgstr "Bas"
+
+msgid "Dropdown"
+msgstr "Menu déroulant"
 
 msgid "Dropdown header"
 msgstr "En-tête déroulant"
@@ -858,6 +867,9 @@ msgstr "Port Max"
 msgid "Members"
 msgstr "Membres"
 
+msgid "Messages"
+msgstr "Messages"
+
 msgid "Metadata"
 msgstr "Métadonnées"
 
@@ -994,6 +1006,12 @@ msgstr "Un paragraphe..."
 
 msgid "One more separated link"
 msgstr "Un autre Lien séparé"
+
+msgid "Option one is this"
+msgstr "La première option est ceci"
+
+msgid "Option two can be something else"
+msgstr "La seconde option peut être autre chose"
 
 msgid "Other Input Types"
 msgstr "Autre Types d'Entrée"
@@ -1445,6 +1463,10 @@ msgid ""
 msgstr ""
 "C'est une simple unité hero, un simple composant jumbotron-style pour "
 "attirer l'attention sur une fonctionnalité ou une information."
+
+#, fuzzy
+msgid "This is focused..."
+msgstr "C'est sélectionné"
 
 msgid "This limit is currently not set."
 msgstr "Cette limite n'est actuellement pas configuré."
@@ -2031,6 +2053,12 @@ msgid "title"
 msgid_plural "titles"
 msgstr[0] "titre"
 msgstr[1] "titres"
+
+msgid "{$ 'Newer' | translate $}"
+msgstr "{$ 'Newer' | translate $}"
+
+msgid "{$ 'Older' | translate $}"
+msgstr "{$ 'Older' | translate $}"
 
 msgid "{$ row['provider:network_type'] $}"
 msgstr "{$ row['provider:network_type'] $}"
