@@ -2,38 +2,38 @@
 
 <div class="detail">
   <dl class="dl-horizontal">
-    <dt>{% trans "Name" %}</dt>
+    <dt data-toggle="tooltip" title="{% trans 'Name' %}">{% trans "Name" %}</dt>
     <dd>{{ subnet.name|default:_("None") }}</dd>
-    <dt>{% trans "ID" %}</dt>
+    <dt data-toggle="tooltip" title="{% trans 'ID' %}">{% trans "ID" %}</dt>
     <dd>{{ subnet.id|default:_("None") }}</dd>
-    <dt>{% trans "Network Name" %}</dt>
+    <dt data-toggle="tooltip" title="{% trans 'Network Name' %}">{% trans "Network Name" %}</dt>
     <dd>{{ subnet.network_name|default:_("None") }}</dd>
     {% url 'horizon:project:networks:detail' subnet.network_id as network_url %}
-    <dt>{% trans "Network ID" %}</dt>
+    <dt data-toggle="tooltip" title="{% trans 'Network ID' %}">{% trans "Network ID" %}</dt>
     <dd><a href="{{ network_url }}">{{ subnet.network_id|default:_("None") }}</a></dd>
-    <dt>{% trans "Subnetpool" %}</dt>
+    <dt data-toggle="tooltip" title="{% trans 'Subnetpool' %}">{% trans "Subnetpool" %}</dt>
     {% if subnet.subnetpool_id %}
       <dd>{{ subnet.subnetpool_name }} ({{ subnet.subnetpool_id }})</dd>
     {% else %}
       <dd>{% trans "None" %}</dd>
     {% endif %}
-    <dt>{% trans "IP version" %}</dt>
+    <dt data-toggle="tooltip" title="{% trans 'IP version' %}">{% trans "IP version" %}</dt>
     <dd>{{ subnet.ipver_str|default:_("-") }}</dd>
-    <dt>{% trans "CIDR" %}</dt>
+    <dt data-toggle="tooltip" title="{% trans 'CIDR' %}">{% trans "CIDR" %}</dt>
     <dd>{{ subnet.cidr|default:_("None") }}</dd>
-    <dt>{% trans "IP allocation pool" %}</dt>
+    <dt data-toggle="tooltip" title="{% trans 'IP allocation pool' %}">{% trans "IP allocation pool" %}</dt>
     <dd>
       {% for pool in subnet.allocation_pools %}
         {% trans "Start" %}  {{ pool.start }}
         {% trans " - End" %} {{ pool.end   }}<br>
       {% endfor %}
     </dd>
-    <dt>{% trans "Gateway IP" %}</dt>
+    <dt data-toggle="tooltip" title="{% trans 'Gateway IP' %}">{% trans "Gateway IP" %}</dt>
     <dd>{{ subnet.gateway_ip|default:_("-") }}</dd>
-    <dt>{% trans "DHCP Enable" %}<dt>
+    <dt data-toggle="tooltip" title="{% trans 'DHCP Enable' %}">{% trans "DHCP Enable" %}<dt>
     <dd>{{ subnet.enable_dhcp|yesno|capfirst }}</dd>
     {% if subnet.ip_version == 6 %}
-      <dt>{% trans "IPv6 Address Configuration Mode" %}<dt>
+      <dt data-toggle="tooltip" title="{% trans 'IPv6 Address Configuration Mode' %}">{% trans "IPv6 Address Configuration Mode" %}<dt>
       {% if subnet.ipv6_modes_desc %}
         <dd>{{ subnet.ipv6_modes_desc }}</dd>
       {% else %}
@@ -42,7 +42,7 @@
         {% endblocktrans %}</dd>
       {% endif %}
     {% endif %}
-    <dt>{% trans "Additional routes" %}</dt>
+    <dt data-toggle="tooltip" title="{% trans 'Additional routes' %}">{% trans "Additional routes" %}</dt>
     <dd>
       {% for route in subnet.host_routes %}
         {% trans "Destination" %} {{ route.destination }}
@@ -51,7 +51,7 @@
         {% trans "None" %}
       {% endfor %}
     </dd>
-    <dt>{% trans "DNS name server" %}</dt>
+    <dt data-toggle="tooltip" title="{% trans 'DNS name server' %}">{% trans "DNS name server" %}</dt>
     <dd>
       {% for dns in subnet.dns_nameservers %}
         {{ dns }}
