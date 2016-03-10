@@ -1,5 +1,5 @@
 /* Some utility classes useful everywhere */
-@import "/bootstrap/scss/bootstrap/mixins/vendor-prefixes";
+@import "/bootstrap/scss/bootstrap/mixins";
 
 .row .horizontal-center,
 .horizontal-center {
@@ -54,10 +54,8 @@ input::-ms-clear, input::-ms-reveal {
 }
 
 .truncate {
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
   display: block;
+  @include text-overflow();
 }
 
 // Add functionality for a horizontal Bootstrap toggle element
