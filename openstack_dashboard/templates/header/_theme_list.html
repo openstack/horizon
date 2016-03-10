@@ -27,6 +27,10 @@
       $(document).on('click', '.theme-picker-item', function(e) {
         var $this = $(this);
 
+        // prevent the default <a> click handler from firing - on
+        // Chrome it confuses the reload() we do below
+        e.preventDefault();
+
         if($this.hasClass('disabled')) {
           e.stopPropagation();
           return;
