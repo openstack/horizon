@@ -1,0 +1,12 @@
+---
+prelude: >
+    Angular actions now should return a promise
+    that resolves with an object structured in a way
+    to indicate what the action did (or didn't do).
+features:
+  - An action-result service provides convenience methods
+    for construction of the result, and for parsing of
+    a resolved object
+upgrade:
+  - Although it's not required, it's best to make your
+    actions return promises with the expected structure.

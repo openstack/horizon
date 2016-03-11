@@ -24,11 +24,12 @@
     'horizon.app.core.openstack-service-api.glance',
     'horizon.app.core.openstack-service-api.userSession',
     'horizon.app.core.openstack-service-api.policy',
+    'horizon.framework.util.actions.action-result.service',
     'horizon.framework.util.i18n.gettext',
     'horizon.framework.util.q.extensions',
     'horizon.framework.widgets.modal.deleteModalService',
     'horizon.framework.widgets.toast.service',
-    'horizon.app.core.images.events'
+    'horizon.app.core.images.resourceType'
   ];
 
   /**
@@ -46,11 +47,12 @@
     glance,
     userSessionService,
     policy,
+    actionResultService,
     gettext,
     $qExtensions,
     deleteModal,
     toast,
-    events
+    imagesResourceType
   ) {
     var scope, context, deleteImagePromise;
     var notAllowedMessage = gettext("You are not allowed to delete images: %s");
@@ -67,7 +69,7 @@
 
     function initScope(newScope) {
       scope = newScope;
-      context = { successEvent: events.DELETE_SUCCESS };
+      context = { };
       deleteImagePromise = policy.ifAllowed({rules: [['image', 'delete_image']]});
     }
 
@@ -105,9 +107,22 @@
         outcome = $q.reject(result.fail);
       }
       if (result.pass.length > 0) {
-        outcome = deleteModal.open(scope, result.pass.map(getEntity), context);
+        outcome = deleteModal.open(scope, result.pass.map(getEntity), context).then(createResult);
       }
       return outcome;
+    }
+
+    function createResult(deleteModalResult) {
+      // To make the result of this action generically useful, reformat the return
+      // from the deleteModal into a standard form
+      var actionResult = actionResultService.getActionResult();
+      deleteModalResult.pass.forEach(function markDeleted(item) {
+        actionResult.deleted(imagesResourceType, getEntity(item).id);
+      });
+      deleteModalResult.fail.forEach(function markFailed(item) {
+        actionResult.failed(imagesResourceType, getEntity(item).id);
+      });
+      return actionResult.result;
     }
 
     function labelize(count) {

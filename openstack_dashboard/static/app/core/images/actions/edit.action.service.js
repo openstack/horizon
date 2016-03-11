@@ -21,12 +21,14 @@
 
   editService.$inject = [
     '$q',
+    'horizon.app.core.images.resourceType',
     'horizon.app.core.images.events',
     'horizon.app.core.images.actions.editWorkflow',
     'horizon.app.core.metadata.service',
     'horizon.app.core.openstack-service-api.glance',
     'horizon.app.core.openstack-service-api.policy',
     'horizon.app.core.openstack-service-api.userSession',
+    'horizon.framework.util.actions.action-result.service',
     'horizon.framework.util.q.extensions',
     'horizon.framework.widgets.modal.wizard-modal.service',
     'horizon.framework.widgets.toast.service'
@@ -39,12 +41,14 @@
    */
   function editService(
     $q,
+    imageResourceType,
     events,
     editWorkflow,
     metadataService,
     glance,
     policy,
     userSessionService,
+    actionResultService,
     $qExtensions,
     wizardModalService,
     toast
@@ -53,7 +57,7 @@
       success: gettext('Image %s was successfully updated.'),
       successMetadata: gettext('Image metadata %s was successfully updated.')
     };
-    var modifyImagePolicyCheck, scope;
+    var modifyImagePolicyCheck, scope, saveDeferred;
 
     var model = {
       image: {},
@@ -70,31 +74,9 @@
 
     //////////////
 
-    // include this function in your service
-    // if you plan to emit events to the parent controller
     function initScope($scope) {
-      var watchImageChange = $scope.$on(events.IMAGE_CHANGED, onImageChange);
-      var watchMetadataChange = $scope.$on(events.IMAGE_METADATA_CHANGED, onMetadataChange);
-
       scope = $scope;
       modifyImagePolicyCheck = policy.ifAllowed({rules: [['image', 'modify_image']]});
-
-      $scope.$on('$destroy', destroy);
-
-      function destroy() {
-        watchImageChange();
-        watchMetadataChange();
-      }
-    }
-
-    function onImageChange(e, image) {
-      model.image = image;
-      e.stopPropagation();
-    }
-
-    function onMetadataChange(e, metadata) {
-      model.metadata = metadata;
-      e.stopPropagation();
     }
 
     function allowed(image) {
@@ -115,11 +97,14 @@
         model.image = localImage;
       }
 
-      return wizardModalService.modal({
+      wizardModalService.modal({
         scope: scope,
         workflow: editWorkflow,
         submit: submit
-      }).result;
+      });
+
+      saveDeferred = $q.defer();
+      return saveDeferred.promise;
     }
 
     function submit() {
@@ -137,15 +122,15 @@
 
     function onUpdateImageSuccess() {
       toast.add('success', interpolate(message.success, [model.image.name]));
-      scope.$emit(events.UPDATE_SUCCESS, model.image);
-      return {
-        // This will be filled out with useful information as it is
-        // decided upon.
-      };
+      saveDeferred.resolve(actionResultService.getActionResult()
+        .updated(imageResourceType, model.image.id)
+        .result);
     }
 
     function onUpdateImageFail() {
-      scope.$emit(events.UPDATE_SUCCESS, model.image);
+      saveDeferred.reject(actionResultService.getActionResult()
+        .failed(imageResourceType, model.image.id)
+        .result);
     }
 
     function saveMetadata() {

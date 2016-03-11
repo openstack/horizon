@@ -75,7 +75,7 @@
       }
     };
 
-    var service, events, $scope, $q, toast, deferred, testImage, $timeout;
+    var service, $scope, $q, toast, deferred, testImage, $timeout;
 
     ///////////////////////
 
@@ -94,7 +94,6 @@
       $scope = _$rootScope_.$new();
       $q = _$q_;
       service = $injector.get('horizon.app.core.images.actions.edit.service');
-      events = $injector.get('horizon.app.core.images.events');
       toast = $injector.get('horizon.framework.widgets.toast.service');
       service.initScope($scope);
       deferred = $q.defer();
@@ -118,42 +117,8 @@
         expect(modalArgs.workflow).toBeDefined();
       });
 
-      it('should update image in glance, update metadata and raise event', function() {
-        testImage = { name: 'Test', id: '2' };
-        var newImage = { name: 'Test2', id: '2' };
-        var newMetadata = {p1: '11', p3: '3'};
-
-        spyOn($scope, '$emit').and.callThrough();
-        spyOn(glanceAPI, 'updateImage').and.callThrough();
-        spyOn(metadataService, 'editMetadata').and.callThrough();
-        spyOn(toast, 'add').and.callThrough();
-        spyOn(wizardModalService, 'modal').and.callThrough();
-
-        service.initScope($scope);
-        service.perform(testImage);
-        $timeout.flush();
-
-        $scope.$emit(events.IMAGE_CHANGED, newImage);
-        $scope.$emit(events.IMAGE_METADATA_CHANGED, newMetadata);
-
-        var modalArgs = wizardModalService.modal.calls.argsFor(0)[0];
-        modalArgs.submit();
-        $scope.$apply();
-
-        expect(glanceAPI.updateImage).toHaveBeenCalledWith(newImage);
-        expect(metadataService.editMetadata)
-          .toHaveBeenCalledWith('image', '2', newMetadata, ['p2']);
-        expect(toast.add)
-          .toHaveBeenCalledWith('success', 'Image Test2 was successfully updated.');
-        expect(toast.add.calls.count()).toBe(2);
-        expect($scope.$emit)
-          .toHaveBeenCalledWith('horizon.app.core.images.UPDATE_SUCCESS', newImage);
-      });
-
       it('should raise event even if update meta data fails', function() {
         var image = { name: 'Test', id: '2' };
-        var newImage = { name: 'Test2', id: '2' };
-        var newMetadata = {prop1: '11', prop3: '3'};
 
         var failedPromise = function() {
           return {
@@ -166,51 +131,17 @@
         spyOn(wizardModalService, 'modal').and.callThrough();
         spyOn(glanceAPI, 'updateImage').and.callThrough();
         spyOn(metadataService, 'editMetadata').and.callFake(failedPromise);
-        spyOn($scope, '$emit').and.callThrough();
         spyOn(toast, 'add').and.callThrough();
 
         service.initScope($scope);
         service.perform(image);
         $scope.$apply();
 
-        $scope.$emit(events.IMAGE_CHANGED, newImage);
-        $scope.$emit(events.IMAGE_METADATA_CHANGED, newMetadata);
-
         var modalArgs = wizardModalService.modal.calls.argsFor(0)[0];
         modalArgs.submit();
         $scope.$apply();
 
         expect(toast.add.calls.count()).toBe(1);
-        expect($scope.$emit)
-          .toHaveBeenCalledWith('horizon.app.core.images.UPDATE_SUCCESS', newImage);
-      });
-
-      it('should destroy the event watchers', function() {
-        testImage = { name: 'Test', id: '2' };
-        var newImage = { name: 'Test2', id: '2' };
-        var newMetadata = {p1: '11', p3: '3'};
-
-        spyOn(wizardModalService, 'modal').and.callThrough();
-        spyOn(glanceAPI, 'updateImage').and.callThrough();
-        spyOn(metadataService, 'editMetadata').and.callThrough();
-        spyOn(toast, 'add').and.callThrough();
-
-        service.initScope($scope);
-        service.perform(testImage);
-        $scope.$apply();
-
-        $scope.$emit('$destroy');
-        $scope.$emit(events.IMAGE_CHANGED, newImage);
-        $scope.$emit(events.IMAGE_METADATA_CHANGED, newMetadata);
-
-        var modalArgs = wizardModalService.modal.calls.argsFor(0)[0];
-        modalArgs.submit();
-        $scope.$apply();
-
-        expect(glanceAPI.updateImage).toHaveBeenCalledWith(testImage);
-        expect(metadataService.editMetadata)
-          .toHaveBeenCalledWith('image', testImage.id, {}, ['p1', 'p2']);
-        expect(toast.add.calls.count()).toBe(2);
       });
     });
 

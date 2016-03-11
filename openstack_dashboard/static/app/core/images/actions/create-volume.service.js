@@ -27,9 +27,11 @@
     'horizon.app.core.openstack-service-api.serviceCatalog',
     'horizon.app.core.images.workflows.create-volume.service',
     'horizon.app.core.images.events',
+    'horizon.framework.util.actions.action-result.service',
     'horizon.framework.util.q.extensions',
     'horizon.framework.widgets.modal.wizard-modal.service',
-    'horizon.framework.widgets.toast.service'
+    'horizon.framework.widgets.toast.service',
+    'horizon.app.core.volumes.resourceType'
   ];
 
   /**
@@ -46,9 +48,11 @@
     serviceCatalog,
     createVolumeWorkflowService,
     events,
+    actionResultService,
     $qExtensions,
     wizardModalService,
-    toast
+    toast,
+    volumeResourceType
   ) {
     var scope, createVolumePromise, volumeServiceEnabledPromise;
     var NON_BOOTABLE_IMAGE_TYPES = ['aki', 'ari'];
@@ -105,11 +109,12 @@
     function showSuccessMessage(response) {
       var volume = response.data;
       toast.add('success', interpolate(message.success, [volume.name]));
-      return {
-          // Object intentionally left blank. This data is passed to
-          // code that holds this action's promise. In the future, it may
-          // contain entity IDs and types that were modified by this action.
-      };
+
+      // To make the result of this action generically useful, reformat the return
+      // from the deleteModal into a standard form
+      return actionResultService.getActionResult()
+        .created(volumeResourceType, volume.id)
+        .result;
     }
 
     function imageBootable(image) {
