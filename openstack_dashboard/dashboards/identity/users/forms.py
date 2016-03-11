@@ -68,17 +68,26 @@ class BaseUserForm(forms.SelfHandlingForm):
         # the user has access to.
         user_id = kwargs['initial'].get('id', None)
         domain_id = kwargs['initial'].get('domain_id', None)
-        projects, has_more = api.keystone.tenant_list(request,
-                                                      domain=domain_id,
-                                                      user=user_id)
-        for project in projects:
-            if project.enabled:
-                project_choices.append((project.id, project.name))
-        if not project_choices:
-            project_choices.insert(0, ('', _("No available projects")))
-        elif len(project_choices) > 1:
-            project_choices.insert(0, ('', _("Select a project")))
-        self.fields['project'].choices = project_choices
+
+        try:
+            if api.keystone.VERSIONS.active >= 3:
+                projects, has_more = api.keystone.tenant_list(
+                    request, domain=domain_id)
+            else:
+                projects, has_more = api.keystone.tenant_list(
+                    request, user=user_id)
+
+            for project in projects:
+                if project.enabled:
+                    project_choices.append((project.id, project.name))
+            if not project_choices:
+                project_choices.insert(0, ('', _("No available projects")))
+            elif len(project_choices) > 1:
+                project_choices.insert(0, ('', _("Select a project")))
+            self.fields['project'].choices = project_choices
+
+        except Exception:
+            LOG.debug("User: %s has no projects" % user_id)
 
 
 ADD_PROJECT_URL = "horizon:identity:projects:create"
@@ -135,7 +144,7 @@ class CreateUserForm(PasswordMixin, BaseUserForm):
     # password and confirm_password strings.
     @sensitive_variables('data')
     def handle(self, request, data):
-        domain = api.keystone.get_default_domain(self.request)
+        domain = api.keystone.get_default_domain(self.request, False)
         try:
             LOG.info('Creating user with name "%s"' % data['name'])
             desc = data["description"]

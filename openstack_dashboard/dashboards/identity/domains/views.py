@@ -37,13 +37,13 @@ class IndexView(tables.DataTableView):
 
     def get_data(self):
         domains = []
-        domain_context = self.request.session.get('domain_context', None)
+        domain_id = api.keystone.get_effective_domain_id(self.request)
+
         if policy.check((("identity", "identity:list_domains"),),
                         self.request):
             try:
-                if domain_context:
-                    domain = api.keystone.domain_get(self.request,
-                                                     domain_context)
+                if domain_id:
+                    domain = api.keystone.domain_get(self.request, domain_id)
                     domains.append(domain)
                 else:
                     domains = api.keystone.domain_list(self.request)
@@ -53,8 +53,7 @@ class IndexView(tables.DataTableView):
         elif policy.check((("identity", "identity:get_domain"),),
                           self.request):
             try:
-                domain = api.keystone.domain_get(self.request,
-                                                 self.request.user.domain_id)
+                domain = api.keystone.domain_get(self.request, domain_id)
                 domains.append(domain)
             except Exception:
                 exceptions.handle(self.request,

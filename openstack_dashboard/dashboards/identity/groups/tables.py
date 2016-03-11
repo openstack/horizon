@@ -24,6 +24,7 @@ from horizon import tables
 from openstack_dashboard import api
 
 from openstack_dashboard.dashboards.identity.groups import constants
+from openstack_dashboard import policy
 
 
 LOG = logging.getLogger(__name__)
@@ -46,7 +47,7 @@ class CreateGroupLink(tables.LinkAction):
         return api.keystone.keystone_can_edit_group()
 
 
-class EditGroupLink(tables.LinkAction):
+class EditGroupLink(policy.PolicyTargetMixin, tables.LinkAction):
     name = "edit"
     verbose_name = _("Edit Group")
     url = constants.GROUPS_UPDATE_URL
@@ -58,7 +59,7 @@ class EditGroupLink(tables.LinkAction):
         return api.keystone.keystone_can_edit_group()
 
 
-class DeleteGroupsAction(tables.DeleteAction):
+class DeleteGroupsAction(policy.PolicyTargetMixin, tables.DeleteAction):
     @staticmethod
     def action_present(count):
         return ungettext_lazy(

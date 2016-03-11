@@ -21,6 +21,6 @@ class Admin(horizon.Dashboard):
     name = _("Admin")
     slug = "admin"
     permissions = ('openstack.roles.admin',)
-
+    policy_rules = (("identity", "cloud_admin"),)
 
 horizon.register(Admin)

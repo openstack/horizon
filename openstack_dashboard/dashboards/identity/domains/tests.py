@@ -269,7 +269,8 @@ class UpdateDomainWorkflowTests(test.BaseAdminViewTests):
         api.keystone.user_list(IsA(http.HttpRequest), domain=domain.id) \
             .AndReturn(users)
         api.keystone.role_assignments_list(IsA(http.HttpRequest),
-                                           domain=domain.id) \
+                                           domain=domain.id,
+                                           include_subtree=False) \
             .AndReturn(role_assignments)
         api.keystone.group_list(IsA(http.HttpRequest), domain=domain.id) \
             .AndReturn(groups)
@@ -331,7 +332,8 @@ class UpdateDomainWorkflowTests(test.BaseAdminViewTests):
         api.keystone.user_list(IsA(http.HttpRequest), domain=domain.id) \
             .AndReturn(users)
         api.keystone.role_assignments_list(IsA(http.HttpRequest),
-                                           domain=domain.id) \
+                                           domain=domain.id,
+                                           include_subtree=False) \
             .AndReturn(role_assignments)
         api.keystone.group_list(IsA(http.HttpRequest), domain=domain.id) \
             .AndReturn(groups)
@@ -354,14 +356,18 @@ class UpdateDomainWorkflowTests(test.BaseAdminViewTests):
 
         # handle
         api.keystone.domain_update(IsA(http.HttpRequest),
+                                   domain.id,
+                                   name=domain.name,
                                    description=test_description,
-                                   domain_id=domain.id,
-                                   enabled=domain.enabled,
-                                   name=domain.name).AndReturn(None)
+                                   enabled=domain.enabled).AndReturn(None)
 
         api.keystone.role_assignments_list(IsA(http.HttpRequest),
-                                           domain=domain.id) \
+                                           domain=domain.id,
+                                           include_subtree=False) \
             .AndReturn(role_assignments)
+
+        api.keystone.user_list(IsA(http.HttpRequest),
+                               domain=domain.id).AndReturn(users)
 
         # Give user 3 role 1
         api.keystone.add_domain_user_role(IsA(http.HttpRequest),
@@ -468,7 +474,8 @@ class UpdateDomainWorkflowTests(test.BaseAdminViewTests):
         api.keystone.user_list(IsA(http.HttpRequest), domain=domain.id) \
             .AndReturn(users)
         api.keystone.role_assignments_list(IsA(http.HttpRequest),
-                                           domain=domain.id) \
+                                           domain=domain.id,
+                                           include_subtree=False) \
             .AndReturn(role_assignments)
         api.keystone.group_list(IsA(http.HttpRequest), domain=domain.id) \
             .AndReturn(groups)
@@ -492,10 +499,10 @@ class UpdateDomainWorkflowTests(test.BaseAdminViewTests):
 
         # handle
         api.keystone.domain_update(IsA(http.HttpRequest),
+                                   domain.id,
+                                   name=domain.name,
                                    description=test_description,
-                                   domain_id=domain.id,
-                                   enabled=domain.enabled,
-                                   name=domain.name) \
+                                   enabled=domain.enabled) \
             .AndRaise(self.exceptions.keystone)
 
         self.mox.ReplayAll()
