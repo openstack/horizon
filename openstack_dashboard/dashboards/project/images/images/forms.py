@@ -341,7 +341,9 @@ class UpdateImageForm(forms.SelfHandlingForm):
                                               if value]
         if not policy.check((("image", "publicize_image"),), request):
             self.fields['public'].widget = forms.CheckboxInput(
-                attrs={'readonly': 'readonly'})
+                attrs={'readonly': 'readonly', 'disabled': 'disabled'})
+            self.fields['public'].help_text = _(
+                'Non admin users are not allowed to make images public.')
 
     def handle(self, request, data):
         image_id = data['image_id']
