@@ -32,7 +32,7 @@
               <span class="input-group-addon" ng-bind="::ctrl.text.custom"></span>
               <input class="form-control" type="text" name="customItem"
                      ng-model="ctrl.customItem"
-                     metadata-tree-unique/>
+                     validate-unique="ctrl.checkNameUnique"/>
               <span class="input-group-btn">
                 <button type='button' class="btn btn-primary"
                    ng-click="ctrl.tree.addCustom(ctrl.customItem); ctrl.customItem=''"

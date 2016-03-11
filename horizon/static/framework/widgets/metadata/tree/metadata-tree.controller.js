@@ -36,6 +36,7 @@
 
     ctrl.availableFilter = availableFilter;
     ctrl.quickFilter = quickFilter;
+    ctrl.checkNameUnique = checkNameUnique;
     ctrl.text = angular.extend({}, defaults.text, ctrl.text);
     if (!ctrl.tree) {
       ctrl.tree = new metadataTreeService.Tree(ctrl.available, ctrl.existing);
@@ -70,6 +71,16 @@
         return item.children.filter(quickFilter).length > 0;
       }
       return item.label.indexOf(text) > -1 || item.leaf.name.indexOf(text) > -1;
+    }
+
+    /**
+     * Function used by the validateUnique directive to validate that a custom key name
+     * is unique.
+     */
+    function checkNameUnique(name) {
+      return !ctrl.tree.flatTree.some(function (item) {
+        return item.leaf && item.leaf.name === name;
+      });
     }
   }
 
