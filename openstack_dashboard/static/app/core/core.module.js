@@ -16,6 +16,9 @@
 (function () {
   'use strict';
 
+  // Constants used within this file
+  var VOLUME_RESOURCE_TYPE = 'OS::Cinder::Volume';
+
   /**
    * @ngdoc overview
    * @name horizon.app.core
@@ -38,6 +41,7 @@
       'horizon.framework.widgets',
       'horizon.dashboard.project.workflow'
     ], config)
+    .constant('horizon.app.core.volumeResourceType', VOLUME_RESOURCE_TYPE)
     .run([
       'horizon.framework.conf.resource-type-registry.service',
       performRegistrations
@@ -84,7 +88,7 @@
     registry.getResourceType('OS::Cinder::Snapshot', {
       names: [gettext('Volume Snapshot'), gettext('Volume Snapshots')]
     });
-    registry.getResourceType('OS::Cinder::Volume', {
+    registry.getResourceType(VOLUME_RESOURCE_TYPE, {
       names: [gettext('Volume'), gettext('Volumes')]
     });
     registry.getResourceType('OS::Nova::Flavor', {

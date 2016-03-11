@@ -52,8 +52,8 @@
     //////////////
 
     function perform(image) {
+      // Don't redirect to instances page on launch instance
       return launchInstanceModal.open({
-        successUrl: '/project/instances',
         'imageId': image.id
       });
     }

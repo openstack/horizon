@@ -115,12 +115,8 @@
           scope.$emit(context.failedEvent, failEntities.map(getId));
           toast.add('error', getMessage(context.labels.error, failEntities));
         }
-
-        return {
-          // Object intentionally left blank. This data is passed to
-          // code that holds this action's promise. In the future, it may
-          // contain entity IDs and types that were modified by this action.
-        };
+        // Return the passed and failed entities as part of resolving the promise
+        return result;
       }
     }
 

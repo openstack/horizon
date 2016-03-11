@@ -19,7 +19,9 @@
 
     var deleteModalService = {
       open: function () {
-        return;
+        return {
+          then: angular.noop
+        };
       }
     };
 
@@ -95,7 +97,7 @@
     describe('perform method', function() {
 
       beforeEach(function() {
-        spyOn(deleteModalService, 'open');
+        spyOn(deleteModalService, 'open').and.callThrough();
         service.initScope($scope, labelize);
       });
 
@@ -114,7 +116,7 @@
       it('should open the delete modal and show correct labels', testSingleLabels);
       it('should open the delete modal and show correct labels', testpluralLabels);
       it('should open the delete modal with correct entities', testEntities);
-      it('should pass the success and error events to be thrown', testEvents);
+      it('should not pass the success and error events to be thrown', testEvents);
       it('should only delete images that are valid', testValids);
       it('should fail if this project is not owner', testOwner);
       it('should fail if images is protected', testProtected);
@@ -154,6 +156,8 @@
         expect(entities.length).toEqual(imageCount);
       }
 
+      // Use of events in the delete modal service is no longer needed.
+      // Promises are used instead
       function testEvents() {
         var images = generateImage(1);
         service.perform(images);
@@ -161,7 +165,7 @@
 
         var context = deleteModalService.open.calls.argsFor(0)[2];
         expect(deleteModalService.open).toHaveBeenCalled();
-        expect(context.successEvent).toEqual('horizon.app.core.images.DELETE_SUCCESS');
+        expect(context.successEvent).toEqual(undefined);
       }
 
       function testValids() {

@@ -29,7 +29,8 @@
     'horizon.app.core.images.events',
     'horizon.framework.util.q.extensions',
     'horizon.framework.widgets.modal.wizard-modal.service',
-    'horizon.framework.widgets.toast.service'
+    'horizon.framework.widgets.toast.service',
+    'horizon.app.core.volumeResourceType'
   ];
 
   /**
@@ -48,7 +49,8 @@
     events,
     $qExtensions,
     wizardModalService,
-    toast
+    toast,
+    volumeResourceType
   ) {
     var scope, createVolumePromise, volumeServiceEnabledPromise;
     var NON_BOOTABLE_IMAGE_TYPES = ['aki', 'ari'];
@@ -105,10 +107,14 @@
     function showSuccessMessage(response) {
       var volume = response.data;
       toast.add('success', interpolate(message.success, [volume.name]));
+
+      // To make the result of this action generically useful, reformat the return
+      // from the deleteModal into a standard form
       return {
-          // Object intentionally left blank. This data is passed to
-          // code that holds this action's promise. In the future, it may
-          // contain entity IDs and types that were modified by this action.
+        created: [{type: volumeResourceType, id: volume.id}],
+        updated: [],
+        deleted: [],
+        failed: []
       };
     }
 

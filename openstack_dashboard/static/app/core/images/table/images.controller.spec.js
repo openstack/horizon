@@ -52,6 +52,9 @@
             callback(input);
           }
         };
+      },
+      when: function (input, callback) {
+        return callback(input);
       }
     };
 
@@ -60,7 +63,7 @@
       2: {id: '2', is_public: false, owner: 'not_me', filtered_visibility: 'Shared with Me'}
     };
 
-    var $scope, controller, events, detailsRoute;
+    var $scope, controller, detailsRoute;
 
     beforeEach(module('ui.bootstrap'));
     beforeEach(module('horizon.framework'));
@@ -80,7 +83,6 @@
 
     beforeEach(inject(function ($injector, _$rootScope_) {
       $scope = _$rootScope_.$new();
-      events = $injector.get('horizon.app.core.images.events');
       controller = $injector.get('$controller');
       detailsRoute = $injector.get('horizon.app.core.images.detailsRoute');
 
@@ -116,34 +118,39 @@
       expect(glanceAPI.getNamespaces).toHaveBeenCalled();
     });
 
-    it('should refresh images after delete', function() {
+    it('should remove deleted images', function() {
       var ctrl = createController();
       expect(ctrl.imagesSrc).toEqual([
         expectedImages['1'],
         expectedImages['2']
       ]);
 
-      spyOn($scope, '$emit').and.callThrough();
-      $scope.$emit(events.DELETE_SUCCESS, ['1']);
+      var result = {
+        deleted: [ {type: "OS::Glance::Image", id: '1'} ]
+      };
+      ctrl.actionResultHandler(result);
 
       expect(ctrl.imagesSrc).toEqual([
         expectedImages['2']
       ]);
-
-      expect($scope.$emit).toHaveBeenCalledWith('hzTable:clearSelected');
     });
 
-    it('should destroy the event watchers', function() {
+    it('should not remove deleted volumes', function() {
       var ctrl = createController();
+      expect(ctrl.imagesSrc).toEqual([
+        expectedImages['1'],
+        expectedImages['2']
+      ]);
 
-      $scope.$emit('$destroy');
-      $scope.$emit(events.DELETE_SUCCESS, ['1']);
+      var result = {
+        deleted: [ {type: "OS::Cinder::Values", id: '1'} ]
+      };
+      ctrl.actionResultHandler(result);
 
       expect(ctrl.imagesSrc).toEqual([
         expectedImages['1'],
         expectedImages['2']
       ]);
     });
-
   });
 })();
