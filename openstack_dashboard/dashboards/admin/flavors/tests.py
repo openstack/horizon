@@ -31,14 +31,117 @@ class FlavorsViewTests(test.BaseAdminViewTests):
                         flavors.Flavor: ('get_keys',), })
     def test_index(self):
         api.nova.flavor_list_paged(IsA(http.HttpRequest), None,
-                                   marker=None, paginate=True) \
-            .AndReturn((self.flavors.list(), False))
+                                   marker=None, paginate=True,
+                                   sort_dir='asc', sort_key='name',
+                                   reversed_order=False) \
+            .AndReturn((self.flavors.list(), False, False))
         flavors.Flavor.get_keys().MultipleTimes().AndReturn({})
         self.mox.ReplayAll()
 
         res = self.client.get(reverse(constants.FLAVORS_INDEX_URL))
         self.assertTemplateUsed(res, constants.FLAVORS_TEMPLATE_NAME)
         self.assertItemsEqual(res.context['table'].data, self.flavors.list())
+
+    @django.test.utils.override_settings(API_RESULT_PAGE_SIZE=2)
+    @test.create_stubs({api.nova: ('flavor_list_paged',),
+                        flavors.Flavor: ('get_keys',), })
+    def test_index_pagination(self):
+        flavors_list = self.flavors.list()[:4]
+        api.nova.flavor_list_paged(IsA(http.HttpRequest), None,
+                                   marker=None, paginate=True,
+                                   sort_dir='asc', sort_key='name',
+                                   reversed_order=False) \
+            .AndReturn((flavors_list, True, True))
+        api.nova.flavor_list_paged(IsA(http.HttpRequest), None,
+                                   marker=None, paginate=True,
+                                   sort_dir='asc', sort_key='name',
+                                   reversed_order=False) \
+            .AndReturn((flavors_list[:2], True, True))
+        api.nova.flavor_list_paged(IsA(http.HttpRequest), None,
+                                   marker=flavors_list[2].id, paginate=True,
+                                   sort_dir='asc', sort_key='name',
+                                   reversed_order=False) \
+            .AndReturn((flavors_list[2:4], True, True))
+        flavors.Flavor.get_keys().MultipleTimes().AndReturn({})
+        self.mox.ReplayAll()
+
+        # get all
+        res = self.client.get(reverse(constants.FLAVORS_INDEX_URL))
+        self.assertTemplateUsed(res, constants.FLAVORS_TEMPLATE_NAME)
+        self.assertItemsEqual(res.context['table'].data,
+                              self.flavors.list()[:5])
+
+        # get first page with 2 items
+        res = self.client.get(reverse(constants.FLAVORS_INDEX_URL))
+        self.assertTemplateUsed(res, constants.FLAVORS_TEMPLATE_NAME)
+        self.assertItemsEqual(res.context['table'].data,
+                              self.flavors.list()[:2])
+
+        # get second page (items 2-4)
+        params = "=".join([tables.FlavorsTable._meta.pagination_param,
+                           flavors_list[2].id])
+        url = "?".join([reverse(constants.FLAVORS_INDEX_URL), params])
+        res = self.client.get(url)
+        self.assertItemsEqual(res.context['table'].data,
+                              self.flavors.list()[2:4])
+
+    @django.test.utils.override_settings(API_RESULT_PAGE_SIZE=2)
+    @test.create_stubs({api.nova: ('flavor_list_paged',),
+                        flavors.Flavor: ('get_keys',), })
+    def test_index_prev_pagination(self):
+        flavors_list = self.flavors.list()[:3]
+        api.nova.flavor_list_paged(IsA(http.HttpRequest), None,
+                                   marker=None, paginate=True,
+                                   sort_dir='asc', sort_key='name',
+                                   reversed_order=False) \
+            .AndReturn((flavors_list, True, False))
+        api.nova.flavor_list_paged(IsA(http.HttpRequest), None,
+                                   marker=None, paginate=True,
+                                   sort_dir='asc', sort_key='name',
+                                   reversed_order=False) \
+            .AndReturn((flavors_list[:2], True, True))
+        api.nova.flavor_list_paged(IsA(http.HttpRequest), None,
+                                   marker=flavors_list[2].id, paginate=True,
+                                   sort_dir='asc', sort_key='name',
+                                   reversed_order=False) \
+            .AndReturn((flavors_list[2:], True, True))
+        api.nova.flavor_list_paged(IsA(http.HttpRequest), None,
+                                   marker=flavors_list[2].id, paginate=True,
+                                   sort_dir='asc', sort_key='name',
+                                   reversed_order=True) \
+            .AndReturn((flavors_list[:2], True, True))
+        flavors.Flavor.get_keys().MultipleTimes().AndReturn({})
+        self.mox.ReplayAll()
+
+        # get all
+        res = self.client.get(reverse(constants.FLAVORS_INDEX_URL))
+        self.assertTemplateUsed(res, constants.FLAVORS_TEMPLATE_NAME)
+        self.assertItemsEqual(res.context['table'].data,
+                              self.flavors.list()[:3])
+        # get first page with 2 items
+        res = self.client.get(reverse(constants.FLAVORS_INDEX_URL))
+        self.assertEqual(len(res.context['table'].data),
+                         settings.API_RESULT_PAGE_SIZE)
+        self.assertItemsEqual(res.context['table'].data,
+                              self.flavors.list()[:2])
+        params = "=".join([tables.FlavorsTable._meta.pagination_param,
+                           flavors_list[2].id])
+        url = "?".join([reverse(constants.FLAVORS_INDEX_URL), params])
+        res = self.client.get(url)
+        # get second page (item 3)
+        self.assertEqual(len(res.context['table'].data), 1)
+        self.assertItemsEqual(res.context['table'].data,
+                              self.flavors.list()[2:3])
+
+        params = "=".join([tables.FlavorsTable._meta.prev_pagination_param,
+                           flavors_list[2].id])
+        url = "?".join([reverse(constants.FLAVORS_INDEX_URL), params])
+        res = self.client.get(url)
+        # prev back to get first page with 2 items
+        self.assertEqual(len(res.context['table'].data),
+                         settings.API_RESULT_PAGE_SIZE)
+        self.assertItemsEqual(res.context['table'].data,
+                              self.flavors.list()[:2])
 
     @django.test.utils.override_settings(API_RESULT_PAGE_SIZE=1)
     @test.create_stubs({api.nova: ('flavor_list_paged',),
@@ -47,12 +150,16 @@ class FlavorsViewTests(test.BaseAdminViewTests):
         page_size = getattr(settings, 'API_RESULT_PAGE_SIZE', 1)
         flavors_list = self.flavors.list()[:2]
         api.nova.flavor_list_paged(IsA(http.HttpRequest), None,
-                                   marker=None, paginate=True) \
-            .AndReturn((flavors_list[:page_size], False))
+                                   marker=None, paginate=True,
+                                   sort_dir='asc', sort_key='name',
+                                   reversed_order=False) \
+            .AndReturn((flavors_list[:page_size], False, False))
         api.nova.flavor_list_paged(IsA(http.HttpRequest), None,
                                    marker=flavors_list[page_size - 1].id,
-                                   paginate=True) \
-            .AndReturn((flavors_list[page_size:], False))
+                                   paginate=True,
+                                   sort_dir='asc', sort_key='name',
+                                   reversed_order=False) \
+            .AndReturn((flavors_list[page_size:], False, False))
         flavors.Flavor.get_keys().MultipleTimes().AndReturn({})
         self.mox.ReplayAll()
 
