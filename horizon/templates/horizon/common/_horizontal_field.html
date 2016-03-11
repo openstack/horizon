@@ -13,7 +13,7 @@
       {{ field|add_bootstrap_class }}
     {% endif %}
     {% for error in field.errors %}
-      <span class="help-block alert alert-danger {{ form.error_css_class }}">{{ error }}</span>
+      <span class="help-block {{ form.error_css_class }}">{{ error }}</span>
     {% empty %}
       {% comment %}
       Escape help_text a second time here, to avoid an XSS issue in bootstrap.js.
