@@ -85,7 +85,7 @@ def show_project_list(context):
                       key=lambda project: project.name.lower())
     context = {'projects': projects[:max_proj],
                'project_id': request.user.project_id,
-               'request': request}
+               'page_url': request.horizon.get('panel').get_absolute_url()}
     return context
 
 
@@ -98,7 +98,7 @@ def show_region_list(context):
     context = {'region_name': request.user.services_region,
                'regions': sorted(request.user.available_services_regions,
                                  key=lambda x: x.lower()),
-               'request': request}
+               'page_url': request.horizon.get('panel').get_absolute_url()}
     return context
 
 

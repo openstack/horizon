@@ -1,6 +1,5 @@
 {% load i18n %}
 
-{% with page_url=request.horizon.panel.get_absolute_url %}
 <ul class="dropdown-menu">
   <li class="dropdown-header">{% trans "Projects:" %}</li>
   {% for project in projects %}
@@ -16,4 +15,3 @@
   </li>
   {% endfor %}
 </ul>
-{% endwith %}
