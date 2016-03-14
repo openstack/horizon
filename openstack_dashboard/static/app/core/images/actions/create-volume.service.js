@@ -91,11 +91,11 @@
 
     function perform(image) {
       scope.image = image;
-      wizardModalService.modal({
+      return wizardModalService.modal({
         scope: scope,
         workflow: createVolumeWorkflowService,
         submit: submit
-      });
+      }).result;
     }
 
     function submit() {
@@ -105,6 +105,11 @@
     function showSuccessMessage(response) {
       var volume = response.data;
       toast.add('success', interpolate(message.success, [volume.name]));
+      return {
+          // Object intentionally left blank. This data is passed to
+          // code that holds this action's promise. In the future, it may
+          // contain entity IDs and types that were modified by this action.
+      };
     }
 
     function imageBootable(image) {

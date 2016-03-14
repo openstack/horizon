@@ -56,7 +56,7 @@
         };
       };
 
-      launchInstanceModal.result.then(
+      return launchInstanceModal.result.then(
         handleModalClose('successUrl'),
         handleModalClose('dismissUrl')
       );

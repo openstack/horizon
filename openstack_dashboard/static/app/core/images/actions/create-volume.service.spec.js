@@ -20,7 +20,11 @@
 
     var service, $scope, toast, events, workflow;
     var wizardModalService = {
-      modal: function () {}
+      modal: function () {
+        return {
+          result: angular.noop
+        };
+      }
     };
 
     var cinderAPI = {

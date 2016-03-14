@@ -44,12 +44,13 @@
         spec.element,
         spec.ctrl,
         spec.listType,
-        spec.item);
+        spec.item,
+        spec.resultHandler);
     };
 
     ///////////////
 
-    function createService(scope, element, ctrl, listType, item) {
+    function createService(scope, element, ctrl, listType, item, resultHandler) {
       var service = {
         renderActions: renderActions
       };
@@ -188,7 +189,7 @@
         return defered.promise;
 
         function onTemplateGet(response) {
-          var callback = ctrl.generateDynamicCallback(action.service, index);
+          var callback = ctrl.generateDynamicCallback(action.service, index, resultHandler);
           var template = response.data
                 .replace(
                   '$action-classes$', getActionClasses(action, index, permittedActions.length)
