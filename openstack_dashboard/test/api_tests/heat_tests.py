@@ -329,3 +329,30 @@ class HeatApiTests(test.APITestCase):
             api.heat.get_template_files(template_data=tmpl)[0]
         except exceptions.GetFileError:
             self.assertRaises(exceptions.GetFileError)
+
+    def test_template_version_list(self):
+        api_template_versions = self.template_versions.list()
+
+        heatclient = self.stub_heatclient()
+        heatclient.template_versions = self.mox.CreateMockAnything()
+        heatclient.template_versions.list().AndReturn(api_template_versions)
+        self.mox.ReplayAll()
+
+        template_versions = api.heat.template_version_list(self.request)
+
+        self.assertItemsEqual(template_versions, api_template_versions)
+
+    def test_template_function_list(self):
+        template_version = self.template_versions.first().version
+        api_template_functions = self.template_functions.list()
+
+        heatclient = self.stub_heatclient()
+        heatclient.template_versions = self.mox.CreateMockAnything()
+        heatclient.template_versions.get(
+            template_version).AndReturn(api_template_functions)
+        self.mox.ReplayAll()
+
+        template_functions = api.heat.template_function_list(
+            self.request, template_version)
+
+        self.assertItemsEqual(template_functions, api_template_functions)
