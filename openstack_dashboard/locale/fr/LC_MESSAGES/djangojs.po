@@ -21,7 +21,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2016-03-10 05:04+0000\n"
+"POT-Creation-Date: 2016-03-13 13:11+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -962,6 +962,9 @@ msgstr ""
 "Les réseaux fournissent les canaux de communication des instances dans le "
 "cloud."
 
+msgid "Newer"
+msgstr "Récent"
+
 msgid "Next"
 msgstr "Suivant"
 
@@ -1000,6 +1003,9 @@ msgstr "Nombre d'objets"
 
 msgid "Objects"
 msgstr "Objets"
+
+msgid "Older"
+msgstr "Ancien"
 
 msgid "One fine body…"
 msgstr "Un paragraphe..."
@@ -2053,12 +2059,6 @@ msgid "title"
 msgid_plural "titles"
 msgstr[0] "titre"
 msgstr[1] "titres"
-
-msgid "{$ 'Newer' | translate $}"
-msgstr "{$ 'Newer' | translate $}"
-
-msgid "{$ 'Older' | translate $}"
-msgstr "{$ 'Older' | translate $}"
 
 msgid "{$ row['provider:network_type'] $}"
 msgstr "{$ row['provider:network_type'] $}"

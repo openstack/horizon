@@ -16,18 +16,19 @@
 # OpenStack Infra <zanata@openstack.org>, 2015. #zanata
 # Robert Simai <robert.simai@suse.com>, 2015. #zanata
 # Carsten Duch <carsten.duch@posteo.de>, 2016. #zanata
+# Eugen Block <eblock@nde.ag>, 2016. #zanata
 # Frank Kloeker <eumel@arcor.de>, 2016. #zanata
 # Robert Simai <robert.simai@suse.com>, 2016. #zanata
 msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2016-03-07 18:49+0000\n"
+"POT-Creation-Date: 2016-03-13 13:11+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2016-03-07 04:21+0000\n"
-"Last-Translator: Frank Kloeker <eumel@arcor.de>\n"
+"PO-Revision-Date: 2016-03-11 04:16+0000\n"
+"Last-Translator: Eugen Block <eblock@nde.ag>\n"
 "Language: de\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "Generated-By: Babel 2.0\n"
@@ -497,6 +498,7 @@ msgstr "%(used)s %(key)s genutzt"
 msgid "%s (Default)"
 msgstr "%s (Default)"
 
+#. Translators: The usage is "<UUID of ext_net> (Not Found)"
 #, python-format
 msgctxt "External network not found"
 msgid "%s (Not Found)"
@@ -5831,6 +5833,11 @@ msgstr "Keine Datenträger zugewiesen."
 msgid "No volumes available"
 msgstr "Keine Datenträger verfügbar"
 
+msgid "Non admin users are not allowed to make images public."
+msgstr ""
+"Benutzer ohne Administratorrechte dürfen Abbilder nicht für alle zugänglich "
+"machen."
+
 msgid "Non admin users are not allowed to set shared option."
 msgstr "Nicht-Administratoren dürfen die Geteilt-Option nicht setzen."
 
@@ -6624,6 +6631,9 @@ msgstr "Erneuernd"
 #, python-format
 msgid "Rebuilding instance %s."
 msgstr "Instanz erneuern %s."
+
+msgid "Recreate EC2 Credentials"
+msgstr "EC2-Zugangsdaten neu erzeugen"
 
 msgid "Regions:"
 msgstr "Regionen:"
@@ -7970,6 +7980,9 @@ msgstr "Erfolgreich importierter öffentlicher Schlüssel: %s"
 msgid "Successfully modified QoS Spec consumer."
 msgstr "Verbraucher der QoS Spezifikation erfolgreich geändert."
 
+msgid "Successfully recreated ec2 credentials."
+msgstr "EC2-Zugangsdaten erfolgreich neu erzeugt."
+
 #, python-format
 msgid ""
 "Successfully restored backup %(backup_name)s to volume with id: %(volume_id)s"
@@ -8588,6 +8601,13 @@ msgstr "Es gab ein Problem beim Analysieren von %(prefix)s: %(error)s"
 
 msgid "This action cannot be undone."
 msgstr "Diese Aktion kann nicht rückgängig gemacht werden."
+
+msgid ""
+"This action cannot be undone. Current EC2 credentials will be deleted and "
+"not recoverable."
+msgstr ""
+"Diese Aktion kann nicht rückgängig gemacht werden. Aktuelle EC2-Zugangsdaten "
+"werden unwiederbringlich gelöscht."
 
 msgid "This application requires JavaScript to be enabled in your web browser."
 msgstr ""
@@ -9258,6 +9278,16 @@ msgstr "IP-Adresse %s kann nicht analysiert werden."
 
 msgid "Unable to rebuild instance."
 msgstr "Instanz konnte nicht erneuert werden."
+
+msgid "Unable to recreate ec2 credentials. Failed to create ec2 credentials."
+msgstr ""
+"EC2-Zugangsdaten können nicht neu erzeugt werden. Erzeugen der EC2-"
+"Zugangsdaten fehlgeschlagen."
+
+msgid "Unable to recreate ec2 credentials. Failed to delete ec2 credentials."
+msgstr ""
+"EC2-Zugangsdaten können nicht neu erzeugt werden. Löschen der EC2-"
+"Zugangsdaten fehlgeschlagen."
 
 msgid "Unable to register identity provider."
 msgstr "Registrierung des Identitätsanbieters nicht möglich."

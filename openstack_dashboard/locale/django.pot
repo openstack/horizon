@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2016-03-10 06:14+0000\n"
+"POT-Creation-Date: 2016-03-14 06:15+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -397,21 +397,21 @@ msgstr ""
 msgid "This volume type is used by one or more volumes."
 msgstr ""
 
-#: openstack_dashboard/api/keystone.py:99
+#: openstack_dashboard/api/keystone.py:101
 #, python-format
 msgid "%(type)s (%(backend)s backend)"
 msgstr ""
 
-#: openstack_dashboard/api/keystone.py:353
+#: openstack_dashboard/api/keystone.py:408
 msgid "Identity service does not allow editing user data."
 msgstr ""
 
-#: openstack_dashboard/api/keystone.py:380
+#: openstack_dashboard/api/keystone.py:435
 #, python-format
 msgid "User %s has no role defined for that project."
 msgstr ""
 
-#: openstack_dashboard/api/keystone.py:407
+#: openstack_dashboard/api/keystone.py:462
 msgid "Identity service does not allow editing user password."
 msgstr ""
 
@@ -540,17 +540,17 @@ msgstr ""
 msgid "Failed to modify %d instance security groups"
 msgstr ""
 
-#: openstack_dashboard/api/nova.py:861 openstack_dashboard/api/nova.py:897
+#: openstack_dashboard/api/nova.py:883 openstack_dashboard/api/nova.py:919
 #, python-format
 msgid "Name: %(name)s ID: %(uuid)s"
 msgstr ""
 
-#: openstack_dashboard/api/nova.py:866
+#: openstack_dashboard/api/nova.py:888
 #, python-format
 msgid "Failed to evacuate instances: %s"
 msgstr ""
 
-#: openstack_dashboard/api/nova.py:902
+#: openstack_dashboard/api/nova.py:924
 #, python-format
 msgid "Failed to migrate instances: %s"
 msgstr ""
@@ -615,13 +615,13 @@ msgstr ""
 #: openstack_dashboard/dashboards/admin/volumes/volume_types/tables.py:322
 #: openstack_dashboard/dashboards/admin/volumes/volumes/forms.py:89
 #: openstack_dashboard/dashboards/admin/volumes/volumes/tables.py:91
-#: openstack_dashboard/dashboards/identity/domains/tables.py:279
+#: openstack_dashboard/dashboards/identity/domains/tables.py:278
 #: openstack_dashboard/dashboards/identity/domains/workflows.py:35
 #: openstack_dashboard/dashboards/identity/groups/forms.py:30
 #: openstack_dashboard/dashboards/identity/groups/forms.py:56
-#: openstack_dashboard/dashboards/identity/groups/tables.py:115
-#: openstack_dashboard/dashboards/identity/projects/tables.py:223
-#: openstack_dashboard/dashboards/identity/projects/workflows.py:145
+#: openstack_dashboard/dashboards/identity/groups/tables.py:116
+#: openstack_dashboard/dashboards/identity/projects/tables.py:257
+#: openstack_dashboard/dashboards/identity/projects/workflows.py:151
 #: openstack_dashboard/dashboards/project/access_and_security/security_groups/forms.py:52
 #: openstack_dashboard/dashboards/project/access_and_security/security_groups/tables.py:142
 #: openstack_dashboard/dashboards/project/access_and_security/templates/access_and_security/keypairs/detail.html:14
@@ -695,7 +695,7 @@ msgstr ""
 #: openstack_dashboard/dashboards/admin/aggregates/tables.py:140
 #: openstack_dashboard/dashboards/admin/aggregates/workflows.py:27
 #: openstack_dashboard/dashboards/admin/volumes/volumes/forms.py:78
-#: openstack_dashboard/dashboards/project/instances/tables.py:1178
+#: openstack_dashboard/dashboards/project/instances/tables.py:1177
 #: openstack_dashboard/dashboards/project/instances/templates/instances/_detail_overview.html:11
 #: openstack_dashboard/dashboards/project/instances/workflows/create_instance.py:82
 #: openstack_dashboard/dashboards/project/volumes/volumes/forms.py:119
@@ -750,7 +750,7 @@ msgstr ""
 #: openstack_dashboard/dashboards/admin/flavors/tables.py:70
 #: openstack_dashboard/dashboards/admin/images/tables.py:46
 #: openstack_dashboard/dashboards/project/images/images/tables.py:166
-#: openstack_dashboard/dashboards/project/instances/tables.py:724
+#: openstack_dashboard/dashboards/project/instances/tables.py:723
 msgid "Update Metadata"
 msgstr ""
 
@@ -915,8 +915,9 @@ msgstr ""
 #: openstack_dashboard/dashboards/admin/volumes/volume_types/extras/views.py:90
 #: openstack_dashboard/dashboards/admin/volumes/volume_types/qos_specs/views.py:103
 #: openstack_dashboard/dashboards/identity/domains/workflows.py:301
-#: openstack_dashboard/dashboards/identity/projects/workflows.py:578
-#: openstack_dashboard/dashboards/identity/users/views.py:229
+#: openstack_dashboard/dashboards/identity/projects/workflows.py:611
+#: openstack_dashboard/dashboards/identity/projects/workflows.py:919
+#: openstack_dashboard/dashboards/identity/users/views.py:247
 #: openstack_dashboard/dashboards/project/instances/workflows/update_instance.py:133
 #: openstack_dashboard/dashboards/project/networks/subnets/workflows.py:155
 #: openstack_dashboard/dashboards/settings/user/views.py:30
@@ -1096,7 +1097,7 @@ msgstr ""
 
 #: openstack_dashboard/dashboards/admin/defaults/tables.py:44
 #: openstack_dashboard/dashboards/admin/defaults/workflows.py:38
-#: openstack_dashboard/dashboards/identity/projects/workflows.py:48
+#: openstack_dashboard/dashboards/identity/projects/workflows.py:52
 #: openstack_dashboard/usage/quotas.py:63
 msgid "Metadata Items"
 msgstr ""
@@ -1106,7 +1107,7 @@ msgstr ""
 #: openstack_dashboard/dashboards/admin/flavors/tables.py:141
 #: openstack_dashboard/dashboards/admin/flavors/workflows.py:46
 #: openstack_dashboard/dashboards/admin/overview/views.py:33
-#: openstack_dashboard/dashboards/identity/projects/workflows.py:49
+#: openstack_dashboard/dashboards/identity/projects/workflows.py:53
 #: openstack_dashboard/dashboards/project/instances/templates/instances/_detail_overview.html:48
 #: openstack_dashboard/dashboards/project/instances/templates/instances/_flavors_and_quotas.html:10
 #: openstack_dashboard/dashboards/project/instances/templates/instances/_instance_flavor.html:5
@@ -1123,9 +1124,9 @@ msgstr ""
 #: openstack_dashboard/dashboards/admin/instances/tables.py:172
 #: openstack_dashboard/dashboards/admin/instances/views.py:68
 #: openstack_dashboard/dashboards/admin/instances/templates/instances/index.html:3
-#: openstack_dashboard/dashboards/identity/projects/workflows.py:50
+#: openstack_dashboard/dashboards/identity/projects/workflows.py:54
 #: openstack_dashboard/dashboards/project/instances/panel.py:21
-#: openstack_dashboard/dashboards/project/instances/tables.py:1197
+#: openstack_dashboard/dashboards/project/instances/tables.py:1196
 #: openstack_dashboard/dashboards/project/instances/views.py:61
 #: openstack_dashboard/dashboards/project/instances/templates/instances/index.html:3
 #: openstack_dashboard/dashboards/project/network_topology/instances/tables.py:23
@@ -1135,7 +1136,7 @@ msgstr ""
 
 #: openstack_dashboard/dashboards/admin/defaults/tables.py:47
 #: openstack_dashboard/dashboards/admin/defaults/workflows.py:48
-#: openstack_dashboard/dashboards/identity/projects/workflows.py:52
+#: openstack_dashboard/dashboards/identity/projects/workflows.py:56
 #: openstack_dashboard/usage/quotas.py:66
 msgid "Injected Files"
 msgstr ""
@@ -1147,7 +1148,7 @@ msgstr ""
 #: openstack_dashboard/dashboards/admin/volumes/views.py:29
 #: openstack_dashboard/dashboards/admin/volumes/templates/volumes/index.html:3
 #: openstack_dashboard/dashboards/admin/volumes/volumes/tables.py:99
-#: openstack_dashboard/dashboards/identity/projects/workflows.py:55
+#: openstack_dashboard/dashboards/identity/projects/workflows.py:59
 #: openstack_dashboard/dashboards/project/volumes/panel.py:21
 #: openstack_dashboard/dashboards/project/volumes/tabs.py:119
 #: openstack_dashboard/dashboards/project/volumes/views.py:26
@@ -1161,7 +1162,7 @@ msgstr ""
 #: openstack_dashboard/dashboards/admin/defaults/workflows.py:55
 #: openstack_dashboard/dashboards/admin/volumes/tabs.py:115
 #: openstack_dashboard/dashboards/admin/volumes/snapshots/tables.py:69
-#: openstack_dashboard/dashboards/identity/projects/workflows.py:56
+#: openstack_dashboard/dashboards/identity/projects/workflows.py:60
 #: openstack_dashboard/dashboards/project/volumes/tabs.py:135
 #: openstack_dashboard/dashboards/project/volumes/snapshots/tables.py:155
 #: openstack_dashboard/usage/quotas.py:76
@@ -1170,7 +1171,7 @@ msgstr ""
 
 #: openstack_dashboard/dashboards/admin/defaults/tables.py:50
 #: openstack_dashboard/dashboards/admin/defaults/workflows.py:54
-#: openstack_dashboard/dashboards/identity/projects/workflows.py:58
+#: openstack_dashboard/dashboards/identity/projects/workflows.py:62
 msgid "Total Size of Volumes and Snapshots (GiB)"
 msgstr ""
 
@@ -1178,7 +1179,7 @@ msgstr ""
 #: openstack_dashboard/dashboards/admin/defaults/workflows.py:39
 #: openstack_dashboard/dashboards/admin/flavors/workflows.py:48
 #: openstack_dashboard/dashboards/admin/overview/views.py:33
-#: openstack_dashboard/dashboards/identity/projects/workflows.py:59
+#: openstack_dashboard/dashboards/identity/projects/workflows.py:63
 #: openstack_dashboard/dashboards/project/overview/views.py:37
 #: openstack_dashboard/usage/quotas.py:68
 msgid "RAM (MB)"
@@ -1186,8 +1187,8 @@ msgstr ""
 
 #: openstack_dashboard/dashboards/admin/defaults/tables.py:52
 #: openstack_dashboard/dashboards/admin/defaults/workflows.py:40
-#: openstack_dashboard/dashboards/identity/projects/workflows.py:60
-#: openstack_dashboard/dashboards/identity/projects/workflows.py:72
+#: openstack_dashboard/dashboards/identity/projects/workflows.py:64
+#: openstack_dashboard/dashboards/identity/projects/workflows.py:76
 #: openstack_dashboard/dashboards/project/access_and_security/tabs.py:80
 #: openstack_dashboard/dashboards/project/access_and_security/floating_ips/tables.py:222
 #: openstack_dashboard/usage/quotas.py:69
@@ -1197,8 +1198,8 @@ msgstr ""
 
 #: openstack_dashboard/dashboards/admin/defaults/tables.py:53
 #: openstack_dashboard/dashboards/admin/defaults/workflows.py:51
-#: openstack_dashboard/dashboards/identity/projects/workflows.py:63
-#: openstack_dashboard/dashboards/identity/projects/workflows.py:69
+#: openstack_dashboard/dashboards/identity/projects/workflows.py:67
+#: openstack_dashboard/dashboards/identity/projects/workflows.py:73
 #: openstack_dashboard/dashboards/project/access_and_security/tabs.py:43
 #: openstack_dashboard/dashboards/project/access_and_security/security_groups/tables.py:150
 #: openstack_dashboard/dashboards/project/instances/templates/instances/_detail_overview.html:75
@@ -1211,8 +1212,8 @@ msgstr ""
 
 #: openstack_dashboard/dashboards/admin/defaults/tables.py:54
 #: openstack_dashboard/dashboards/admin/defaults/workflows.py:46
-#: openstack_dashboard/dashboards/identity/projects/workflows.py:65
-#: openstack_dashboard/dashboards/identity/projects/workflows.py:71
+#: openstack_dashboard/dashboards/identity/projects/workflows.py:69
+#: openstack_dashboard/dashboards/identity/projects/workflows.py:75
 #: openstack_dashboard/dashboards/project/access_and_security/security_groups/tables.py:288
 #: openstack_dashboard/usage/quotas.py:72
 #: openstack_dashboard/usage/quotas.py:84
@@ -1228,7 +1229,7 @@ msgid "Key Pairs"
 msgstr ""
 
 #: openstack_dashboard/dashboards/admin/defaults/tables.py:56
-#: openstack_dashboard/dashboards/identity/projects/workflows.py:61
+#: openstack_dashboard/dashboards/identity/projects/workflows.py:65
 #: openstack_dashboard/dashboards/project/networks/ports/tables.py:71
 #: openstack_dashboard/dashboards/project/routers/ports/tables.py:111
 #: openstack_dashboard/usage/quotas.py:70
@@ -1296,7 +1297,7 @@ msgid "Unable to get quota info."
 msgstr ""
 
 #: openstack_dashboard/dashboards/admin/defaults/views.py:45
-#: openstack_dashboard/dashboards/identity/projects/views.py:160
+#: openstack_dashboard/dashboards/identity/projects/views.py:175
 msgid "Unable to retrieve default quota values."
 msgstr ""
 
@@ -1354,7 +1355,7 @@ msgstr[0] ""
 msgstr[1] ""
 
 #: openstack_dashboard/dashboards/admin/flavors/tables.py:54
-#: openstack_dashboard/dashboards/admin/flavors/views.py:68
+#: openstack_dashboard/dashboards/admin/flavors/views.py:80
 #: openstack_dashboard/dashboards/admin/flavors/workflows.py:187
 #: openstack_dashboard/dashboards/admin/flavors/workflows.py:188
 #: openstack_dashboard/dashboards/admin/flavors/templates/flavors/create.html:3
@@ -1362,7 +1363,7 @@ msgid "Create Flavor"
 msgstr ""
 
 #: openstack_dashboard/dashboards/admin/flavors/tables.py:62
-#: openstack_dashboard/dashboards/admin/flavors/views.py:74
+#: openstack_dashboard/dashboards/admin/flavors/views.py:86
 #: openstack_dashboard/dashboards/admin/flavors/workflows.py:280
 #: openstack_dashboard/dashboards/admin/flavors/templates/flavors/update.html:3
 msgid "Edit Flavor"
@@ -1425,7 +1426,7 @@ msgstr ""
 #: openstack_dashboard/dashboards/admin/volumes/volumes/forms.py:90
 #: openstack_dashboard/dashboards/admin/volumes/volumes/forms.py:149
 #: openstack_dashboard/dashboards/identity/roles/forms.py:37
-#: openstack_dashboard/dashboards/identity/users/forms.py:188
+#: openstack_dashboard/dashboards/identity/users/forms.py:197
 #: openstack_dashboard/dashboards/identity/users/templates/users/_detail_overview.html:19
 #: openstack_dashboard/dashboards/project/firewalls/templates/firewalls/_firewall_details.html:11
 #: openstack_dashboard/dashboards/project/firewalls/templates/firewalls/_policy_details.html:11
@@ -1479,11 +1480,11 @@ msgstr ""
 msgid "Public"
 msgstr ""
 
-#: openstack_dashboard/dashboards/admin/flavors/views.py:59
+#: openstack_dashboard/dashboards/admin/flavors/views.py:73
 msgid "Unable to retrieve flavor list."
 msgstr ""
 
-#: openstack_dashboard/dashboards/admin/flavors/views.py:84
+#: openstack_dashboard/dashboards/admin/flavors/views.py:96
 msgid "Unable to retrieve flavor details."
 msgstr ""
 
@@ -1665,7 +1666,7 @@ msgid "Local Storage (total)"
 msgstr ""
 
 #: openstack_dashboard/dashboards/admin/hypervisors/tables.py:70
-#: openstack_dashboard/dashboards/project/instances/tables.py:1163
+#: openstack_dashboard/dashboards/project/instances/tables.py:1162
 #: openstack_dashboard/dashboards/project/instances/workflows/create_instance.py:85
 #: openstack_dashboard/dashboards/project/overview/views.py:37
 #: openstack_dashboard/usage/tables.py:83
@@ -1899,7 +1900,7 @@ msgstr ""
 #: openstack_dashboard/dashboards/project/firewalls/templates/firewalls/_firewall_details.html:23
 #: openstack_dashboard/dashboards/project/images/images/tables.py:309
 #: openstack_dashboard/dashboards/project/images/templates/images/images/_detail_overview.html:15
-#: openstack_dashboard/dashboards/project/instances/tables.py:1173
+#: openstack_dashboard/dashboards/project/instances/tables.py:1172
 #: openstack_dashboard/dashboards/project/instances/templates/instances/_detail_overview.html:9
 #: openstack_dashboard/dashboards/project/loadbalancers/tables.py:465
 #: openstack_dashboard/dashboards/project/loadbalancers/tables.py:521
@@ -2026,7 +2027,7 @@ msgstr ""
 
 #: openstack_dashboard/dashboards/admin/images/tables.py:82
 #: openstack_dashboard/dashboards/admin/instances/tables.py:107
-#: openstack_dashboard/dashboards/project/instances/tables.py:1141
+#: openstack_dashboard/dashboards/project/instances/tables.py:1140
 msgid "Status ="
 msgstr ""
 
@@ -2045,7 +2046,7 @@ msgstr ""
 #: openstack_dashboard/dashboards/admin/images/tables.py:92
 #: openstack_dashboard/dashboards/admin/instances/tables.py:140
 #: openstack_dashboard/dashboards/project/images/images/tables.py:304
-#: openstack_dashboard/dashboards/project/instances/tables.py:1165
+#: openstack_dashboard/dashboards/project/instances/tables.py:1164
 #: openstack_dashboard/dashboards/project/instances/templates/instances/_detail_overview.html:103
 #: openstack_dashboard/dashboards/project/instances/workflows/create_instance.py:109
 #: openstack_dashboard/dashboards/project/volumes/volumes/forms.py:646
@@ -2077,7 +2078,7 @@ msgstr ""
 #: openstack_dashboard/dashboards/admin/metering/tabs.py:90
 #: openstack_dashboard/dashboards/admin/metering/views.py:146
 #: openstack_dashboard/dashboards/admin/overview/views.py:65
-#: openstack_dashboard/dashboards/identity/projects/views.py:92
+#: openstack_dashboard/dashboards/identity/projects/views.py:94
 msgid "Unable to retrieve project list."
 msgstr ""
 
@@ -2138,20 +2139,23 @@ msgstr ""
 #: openstack_dashboard/dashboards/admin/info/tables.py:155
 #: openstack_dashboard/dashboards/admin/info/templates/info/_cell_status.html:8
 #: openstack_dashboard/dashboards/admin/networks/agents/tables.py:79
-#: openstack_dashboard/dashboards/identity/domains/tables.py:283
+#: openstack_dashboard/dashboards/identity/domains/tables.py:282
 #: openstack_dashboard/dashboards/identity/domains/workflows.py:40
-#: openstack_dashboard/dashboards/identity/groups/tables.py:195
+#: openstack_dashboard/dashboards/identity/groups/tables.py:196
 #: openstack_dashboard/dashboards/identity/identity_providers/forms.py:40
 #: openstack_dashboard/dashboards/identity/identity_providers/forms.py:87
 #: openstack_dashboard/dashboards/identity/identity_providers/tables.py:86
 #: openstack_dashboard/dashboards/identity/identity_providers/templates/identity_providers/_detail_overview.html:11
-#: openstack_dashboard/dashboards/identity/projects/tables.py:234
-#: openstack_dashboard/dashboards/identity/projects/tables.py:237
-#: openstack_dashboard/dashboards/identity/projects/workflows.py:151
-#: openstack_dashboard/dashboards/identity/projects/workflows.py:536
+#: openstack_dashboard/dashboards/identity/projects/tables.py:268
+#: openstack_dashboard/dashboards/identity/projects/tables.py:271
+#: openstack_dashboard/dashboards/identity/projects/tables.py:278
+#: openstack_dashboard/dashboards/identity/projects/tables.py:282
+#: openstack_dashboard/dashboards/identity/projects/workflows.py:157
+#: openstack_dashboard/dashboards/identity/projects/workflows.py:566
 #: openstack_dashboard/dashboards/identity/projects/templates/projects/_detail_overview.html:9
-#: openstack_dashboard/dashboards/identity/users/forms.py:108
-#: openstack_dashboard/dashboards/identity/users/tables.py:252
+#: openstack_dashboard/dashboards/identity/users/forms.py:117
+#: openstack_dashboard/dashboards/identity/users/tables.py:254
+#: openstack_dashboard/dashboards/identity/users/tables.py:266
 #: openstack_dashboard/dashboards/identity/users/templates/users/_detail_overview.html:23
 #: openstack_dashboard/dashboards/project/firewalls/forms.py:76
 #: openstack_dashboard/dashboards/project/firewalls/tables.py:314
@@ -2334,12 +2338,12 @@ msgid "IPv6 Address ="
 msgstr ""
 
 #: openstack_dashboard/dashboards/admin/instances/tables.py:108
-#: openstack_dashboard/dashboards/project/instances/tables.py:1142
+#: openstack_dashboard/dashboards/project/instances/tables.py:1141
 msgid "Image ID ="
 msgstr ""
 
 #: openstack_dashboard/dashboards/admin/instances/tables.py:109
-#: openstack_dashboard/dashboards/project/instances/tables.py:1143
+#: openstack_dashboard/dashboards/project/instances/tables.py:1142
 msgid "Flavor ID ="
 msgstr ""
 
@@ -2348,7 +2352,7 @@ msgstr ""
 #: openstack_dashboard/dashboards/project/access_and_security/floating_ips/tables.py:194
 #: openstack_dashboard/dashboards/project/access_and_security/floating_ips/workflows.py:33
 #: openstack_dashboard/dashboards/project/access_and_security/floating_ips/workflows.py:40
-#: openstack_dashboard/dashboards/project/instances/tables.py:1167
+#: openstack_dashboard/dashboards/project/instances/tables.py:1166
 #: openstack_dashboard/dashboards/project/loadbalancers/tables.py:511
 #: openstack_dashboard/dashboards/project/networks/templates/networks/ports/_detail_overview.html:33
 #: openstack_dashboard/dashboards/project/routers/templates/routers/_detail_overview.html:39
@@ -2362,7 +2366,7 @@ msgstr ""
 #: openstack_dashboard/dashboards/project/containers/templates/containers/_object_detail.html:17
 #: openstack_dashboard/dashboards/project/images/images/tables.py:325
 #: openstack_dashboard/dashboards/project/images/templates/images/images/_detail_overview.html:40
-#: openstack_dashboard/dashboards/project/instances/tables.py:1169
+#: openstack_dashboard/dashboards/project/instances/tables.py:1168
 #: openstack_dashboard/dashboards/project/instances/templates/instances/_instance_flavor.html:7
 #: openstack_dashboard/dashboards/project/volumes/backups/tables.py:141
 #: openstack_dashboard/dashboards/project/volumes/templates/volumes/backups/_detail_overview.html:28
@@ -2373,17 +2377,17 @@ msgid "Size"
 msgstr ""
 
 #: openstack_dashboard/dashboards/admin/instances/tables.py:155
-#: openstack_dashboard/dashboards/project/instances/tables.py:1180
+#: openstack_dashboard/dashboards/project/instances/tables.py:1179
 msgid "Task"
 msgstr ""
 
 #: openstack_dashboard/dashboards/admin/instances/tables.py:162
-#: openstack_dashboard/dashboards/project/instances/tables.py:1187
+#: openstack_dashboard/dashboards/project/instances/tables.py:1186
 msgid "Power State"
 msgstr ""
 
 #: openstack_dashboard/dashboards/admin/instances/tables.py:165
-#: openstack_dashboard/dashboards/project/instances/tables.py:1190
+#: openstack_dashboard/dashboards/project/instances/tables.py:1189
 #: openstack_dashboard/usage/tables.py:86
 msgid "Time since created"
 msgstr ""
@@ -2532,21 +2536,21 @@ msgstr ""
 #: openstack_dashboard/dashboards/admin/volumes/volume_types/forms.py:263
 #: openstack_dashboard/dashboards/admin/volumes/volume_types/tables.py:230
 #: openstack_dashboard/dashboards/admin/volumes/volumes/forms.py:68
-#: openstack_dashboard/dashboards/identity/domains/tables.py:281
+#: openstack_dashboard/dashboards/identity/domains/tables.py:280
 #: openstack_dashboard/dashboards/identity/domains/workflows.py:38
 #: openstack_dashboard/dashboards/identity/groups/forms.py:33
 #: openstack_dashboard/dashboards/identity/groups/forms.py:59
-#: openstack_dashboard/dashboards/identity/groups/tables.py:117
+#: openstack_dashboard/dashboards/identity/groups/tables.py:118
 #: openstack_dashboard/dashboards/identity/identity_providers/forms.py:36
 #: openstack_dashboard/dashboards/identity/identity_providers/forms.py:83
 #: openstack_dashboard/dashboards/identity/identity_providers/tables.py:85
 #: openstack_dashboard/dashboards/identity/identity_providers/templates/identity_providers/_detail_overview.html:9
-#: openstack_dashboard/dashboards/identity/projects/tables.py:228
-#: openstack_dashboard/dashboards/identity/projects/workflows.py:149
+#: openstack_dashboard/dashboards/identity/projects/tables.py:262
+#: openstack_dashboard/dashboards/identity/projects/workflows.py:155
 #: openstack_dashboard/dashboards/identity/projects/templates/projects/_detail_overview.html:11
-#: openstack_dashboard/dashboards/identity/users/forms.py:98
-#: openstack_dashboard/dashboards/identity/users/forms.py:192
-#: openstack_dashboard/dashboards/identity/users/tables.py:232
+#: openstack_dashboard/dashboards/identity/users/forms.py:107
+#: openstack_dashboard/dashboards/identity/users/forms.py:201
+#: openstack_dashboard/dashboards/identity/users/tables.py:234
 #: openstack_dashboard/dashboards/identity/users/templates/users/_detail_overview.html:16
 #: openstack_dashboard/dashboards/project/access_and_security/security_groups/forms.py:56
 #: openstack_dashboard/dashboards/project/access_and_security/security_groups/tables.py:143
@@ -2683,7 +2687,7 @@ msgstr ""
 #: openstack_dashboard/dashboards/identity/identity_providers/templates/identity_providers/_detail_overview.html:8
 #: openstack_dashboard/dashboards/identity/identity_providers/templates/identity_providers/_detail_overview.html:10
 #: openstack_dashboard/dashboards/identity/projects/templates/projects/_detail_overview.html:12
-#: openstack_dashboard/dashboards/identity/users/views.py:184
+#: openstack_dashboard/dashboards/identity/users/views.py:202
 #: openstack_dashboard/dashboards/identity/users/templates/users/_detail_overview.html:22
 #: openstack_dashboard/dashboards/project/access_and_security/templates/access_and_security/keypairs/detail.html:15
 #: openstack_dashboard/dashboards/project/access_and_security/templates/access_and_security/keypairs/detail.html:17
@@ -2759,7 +2763,7 @@ msgstr ""
 #: openstack_dashboard/dashboards/admin/networks/views.py:61
 #: openstack_dashboard/dashboards/project/images/templates/images/images/_detail_overview.html:16
 #: openstack_dashboard/dashboards/project/images/templates/images/images/_detail_overview.html:27
-#: openstack_dashboard/dashboards/project/instances/tables.py:748
+#: openstack_dashboard/dashboards/project/instances/tables.py:747
 #: openstack_dashboard/dashboards/project/networks/templates/networks/_detail_overview.html:14
 #: openstack_dashboard/dashboards/project/networks/templates/networks/_detail_overview.html:16
 #: openstack_dashboard/dashboards/project/networks/templates/networks/_detail_overview.html:22
@@ -3271,7 +3275,7 @@ msgid "External Network"
 msgstr ""
 
 #: openstack_dashboard/dashboards/admin/networks/forms.py:91
-#: openstack_dashboard/dashboards/identity/users/forms.py:80
+#: openstack_dashboard/dashboards/identity/users/forms.py:86
 msgid "Select a project"
 msgstr ""
 
@@ -3338,7 +3342,7 @@ msgstr ""
 #: openstack_dashboard/dashboards/admin/networks/tables.py:114
 #: openstack_dashboard/dashboards/admin/networks/views.py:44
 #: openstack_dashboard/dashboards/admin/networks/templates/networks/index.html:3
-#: openstack_dashboard/dashboards/identity/projects/workflows.py:73
+#: openstack_dashboard/dashboards/identity/projects/workflows.py:77
 #: openstack_dashboard/dashboards/project/instances/workflows/create_instance.py:706
 #: openstack_dashboard/dashboards/project/network_topology/networks/tables.py:27
 #: openstack_dashboard/dashboards/project/networks/panel.py:21
@@ -3645,7 +3649,7 @@ msgid "Create Port"
 msgstr ""
 
 #: openstack_dashboard/dashboards/admin/networks/ports/tables.py:87
-#: openstack_dashboard/dashboards/identity/projects/workflows.py:74
+#: openstack_dashboard/dashboards/identity/projects/workflows.py:78
 #: openstack_dashboard/dashboards/project/instances/workflows/create_instance.py:783
 #: openstack_dashboard/dashboards/project/networks/ports/tables.py:87
 #: openstack_dashboard/dashboards/project/networks/ports/views.py:91
@@ -3713,7 +3717,7 @@ msgid "Gateway IP"
 msgstr ""
 
 #: openstack_dashboard/dashboards/admin/networks/subnets/tables.py:116
-#: openstack_dashboard/dashboards/identity/projects/workflows.py:76
+#: openstack_dashboard/dashboards/identity/projects/workflows.py:80
 #: openstack_dashboard/dashboards/project/network_topology/subnets/tables.py:28
 #: openstack_dashboard/dashboards/project/networks/subnets/tables.py:150
 #: openstack_dashboard/dashboards/project/networks/subnets/views.py:155
@@ -3765,7 +3769,7 @@ msgid ""
 msgstr ""
 
 #: openstack_dashboard/dashboards/admin/networks/templates/networks/ports/_detail_overview.html:12
-#: openstack_dashboard/dashboards/identity/projects/tables.py:233
+#: openstack_dashboard/dashboards/identity/projects/tables.py:267
 #: openstack_dashboard/dashboards/identity/projects/templates/projects/_detail_overview.html:7
 #: openstack_dashboard/dashboards/identity/users/templates/users/_detail_overview.html:25
 #: openstack_dashboard/dashboards/project/access_and_security/templates/access_and_security/api_access/_credentials.html:27
@@ -3931,7 +3935,7 @@ msgstr ""
 #: openstack_dashboard/dashboards/admin/routers/panel.py:22
 #: openstack_dashboard/dashboards/admin/routers/tables.py:46
 #: openstack_dashboard/dashboards/admin/routers/templates/routers/index.html:3
-#: openstack_dashboard/dashboards/identity/projects/workflows.py:75
+#: openstack_dashboard/dashboards/identity/projects/workflows.py:79
 #: openstack_dashboard/dashboards/project/firewalls/workflows.py:207
 #: openstack_dashboard/dashboards/project/firewalls/workflows.py:213
 #: openstack_dashboard/dashboards/project/firewalls/templates/firewalls/_firewall_details.html:29
@@ -4689,7 +4693,7 @@ msgstr ""
 #: openstack_dashboard/dashboards/admin/volumes/volume_types/views.py:112
 #: openstack_dashboard/dashboards/admin/volumes/volume_types/extras/tables.py:59
 #: openstack_dashboard/dashboards/admin/volumes/volume_types/qos_specs/tables.py:66
-#: openstack_dashboard/dashboards/identity/domains/tables.py:81
+#: openstack_dashboard/dashboards/identity/domains/tables.py:80
 #: openstack_dashboard/dashboards/identity/identity_providers/tables.py:35
 #: openstack_dashboard/dashboards/identity/mappings/tables.py:37
 #: openstack_dashboard/dashboards/identity/roles/tables.py:37
@@ -5050,103 +5054,103 @@ msgid "Identity"
 msgstr ""
 
 #: openstack_dashboard/dashboards/identity/domains/panel.py:23
-#: openstack_dashboard/dashboards/identity/domains/tables.py:288
+#: openstack_dashboard/dashboards/identity/domains/tables.py:287
 #: openstack_dashboard/dashboards/identity/domains/views.py:36
 #: openstack_dashboard/dashboards/identity/domains/templates/domains/index.html:3
 msgid "Domains"
 msgstr ""
 
 #: openstack_dashboard/dashboards/identity/domains/tables.py:39
-#: openstack_dashboard/dashboards/identity/groups/tables.py:91
+#: openstack_dashboard/dashboards/identity/groups/tables.py:92
 #: openstack_dashboard/dashboards/identity/projects/tables.py:52
 msgid "Manage Members"
 msgstr ""
 
-#: openstack_dashboard/dashboards/identity/domains/tables.py:55
-#: openstack_dashboard/dashboards/identity/projects/tables.py:68
+#: openstack_dashboard/dashboards/identity/domains/tables.py:53
+#: openstack_dashboard/dashboards/identity/projects/tables.py:76
 msgid "Modify Groups"
 msgstr ""
 
-#: openstack_dashboard/dashboards/identity/domains/tables.py:69
+#: openstack_dashboard/dashboards/identity/domains/tables.py:68
 #: openstack_dashboard/dashboards/identity/domains/workflows.py:254
 #: openstack_dashboard/dashboards/identity/domains/workflows.py:255
 msgid "Create Domain"
 msgstr ""
 
-#: openstack_dashboard/dashboards/identity/domains/tables.py:94
+#: openstack_dashboard/dashboards/identity/domains/tables.py:93
 msgid "Delete Domain"
 msgid_plural "Delete Domains"
 msgstr[0] ""
 msgstr[1] ""
 
-#: openstack_dashboard/dashboards/identity/domains/tables.py:102
+#: openstack_dashboard/dashboards/identity/domains/tables.py:101
 msgid "Deleted Domain"
 msgid_plural "Deleted Domains"
 msgstr[0] ""
 msgstr[1] ""
 
-#: openstack_dashboard/dashboards/identity/domains/tables.py:117
+#: openstack_dashboard/dashboards/identity/domains/tables.py:116
 #, python-format
 msgid "Domain \"%s\" must be disabled before it can be deleted."
 msgstr ""
 
-#: openstack_dashboard/dashboards/identity/domains/tables.py:129
+#: openstack_dashboard/dashboards/identity/domains/tables.py:128
 msgid "Disable Domain"
 msgid_plural "Disable Domains"
 msgstr[0] ""
 msgstr[1] ""
 
-#: openstack_dashboard/dashboards/identity/domains/tables.py:137
+#: openstack_dashboard/dashboards/identity/domains/tables.py:136
 msgid "Disabled Domain"
 msgid_plural "Disabled Domains"
 msgstr[0] ""
 msgstr[1] ""
 
-#: openstack_dashboard/dashboards/identity/domains/tables.py:145
+#: openstack_dashboard/dashboards/identity/domains/tables.py:144
 msgid "Disable Domains"
 msgstr ""
 
-#: openstack_dashboard/dashboards/identity/domains/tables.py:169
+#: openstack_dashboard/dashboards/identity/domains/tables.py:168
 msgid "Enable Domain"
 msgid_plural "Enable Domains"
 msgstr[0] ""
 msgstr[1] ""
 
-#: openstack_dashboard/dashboards/identity/domains/tables.py:177
+#: openstack_dashboard/dashboards/identity/domains/tables.py:176
 msgid "Enabled Domain"
 msgid_plural "Enabled Domains"
 msgstr[0] ""
 msgstr[1] ""
 
-#: openstack_dashboard/dashboards/identity/domains/tables.py:185
+#: openstack_dashboard/dashboards/identity/domains/tables.py:184
 msgid "Enable Domains"
 msgstr ""
 
-#: openstack_dashboard/dashboards/identity/domains/tables.py:227
+#: openstack_dashboard/dashboards/identity/domains/tables.py:226
 msgid "Set Domain Context"
 msgstr ""
 
-#: openstack_dashboard/dashboards/identity/domains/tables.py:252
+#: openstack_dashboard/dashboards/identity/domains/tables.py:251
 #, python-format
 msgid "Domain Context updated to Domain %s."
 msgstr ""
 
-#: openstack_dashboard/dashboards/identity/domains/tables.py:256
+#: openstack_dashboard/dashboards/identity/domains/tables.py:255
 msgid "Unable to set Domain Context."
 msgstr ""
 
-#: openstack_dashboard/dashboards/identity/domains/tables.py:261
+#: openstack_dashboard/dashboards/identity/domains/tables.py:260
 msgid "Clear Domain Context"
 msgstr ""
 
-#: openstack_dashboard/dashboards/identity/domains/tables.py:275
+#: openstack_dashboard/dashboards/identity/domains/tables.py:274
 msgid "Domain Context cleared."
 msgstr ""
 
-#: openstack_dashboard/dashboards/identity/domains/tables.py:282
-#: openstack_dashboard/dashboards/identity/projects/workflows.py:139
-#: openstack_dashboard/dashboards/identity/users/forms.py:89
-#: openstack_dashboard/dashboards/identity/users/forms.py:182
+#: openstack_dashboard/dashboards/identity/domains/tables.py:281
+#: openstack_dashboard/dashboards/identity/projects/workflows.py:145
+#: openstack_dashboard/dashboards/identity/users/forms.py:98
+#: openstack_dashboard/dashboards/identity/users/forms.py:191
 #: openstack_dashboard/dashboards/identity/users/templates/users/_detail_overview.html:6
 msgid "Domain ID"
 msgstr ""
@@ -5155,15 +5159,15 @@ msgstr ""
 msgid "Unable to retrieve domain list."
 msgstr ""
 
-#: openstack_dashboard/dashboards/identity/domains/views.py:61
+#: openstack_dashboard/dashboards/identity/domains/views.py:60
 msgid "Unable to retrieve domain information."
 msgstr ""
 
-#: openstack_dashboard/dashboards/identity/domains/views.py:63
+#: openstack_dashboard/dashboards/identity/domains/views.py:62
 msgid "Insufficient privilege level to view domain information."
 msgstr ""
 
-#: openstack_dashboard/dashboards/identity/domains/views.py:89
+#: openstack_dashboard/dashboards/identity/domains/views.py:88
 msgid "Unable to retrieve domain details."
 msgstr ""
 
@@ -5180,8 +5184,8 @@ msgstr ""
 
 #: openstack_dashboard/dashboards/identity/domains/workflows.py:73
 #: openstack_dashboard/dashboards/identity/domains/workflows.py:172
-#: openstack_dashboard/dashboards/identity/projects/workflows.py:200
-#: openstack_dashboard/dashboards/identity/projects/workflows.py:298
+#: openstack_dashboard/dashboards/identity/projects/workflows.py:207
+#: openstack_dashboard/dashboards/identity/projects/workflows.py:305
 #, python-format
 msgid "Could not find default role \"%s\" in Keystone"
 msgstr ""
@@ -5191,15 +5195,15 @@ msgid "Unable to find default role."
 msgstr ""
 
 #: openstack_dashboard/dashboards/identity/domains/workflows.py:90
-#: openstack_dashboard/dashboards/identity/projects/workflows.py:270
-#: openstack_dashboard/dashboards/identity/users/views.py:61
+#: openstack_dashboard/dashboards/identity/projects/workflows.py:277
+#: openstack_dashboard/dashboards/identity/users/views.py:62
 msgid "Unable to retrieve user list."
 msgstr ""
 
 #: openstack_dashboard/dashboards/identity/domains/workflows.py:99
 #: openstack_dashboard/dashboards/identity/domains/workflows.py:146
 #: openstack_dashboard/dashboards/identity/domains/workflows.py:243
-#: openstack_dashboard/dashboards/identity/projects/workflows.py:368
+#: openstack_dashboard/dashboards/identity/projects/workflows.py:375
 msgid "Unable to retrieve role list."
 msgstr ""
 
@@ -5213,22 +5217,22 @@ msgid "Domain Members"
 msgstr ""
 
 #: openstack_dashboard/dashboards/identity/domains/workflows.py:134
-#: openstack_dashboard/dashboards/identity/projects/workflows.py:259
+#: openstack_dashboard/dashboards/identity/projects/workflows.py:266
 msgid "All Users"
 msgstr ""
 
 #: openstack_dashboard/dashboards/identity/domains/workflows.py:136
-#: openstack_dashboard/dashboards/identity/projects/workflows.py:261
+#: openstack_dashboard/dashboards/identity/projects/workflows.py:268
 msgid "No users found."
 msgstr ""
 
 #: openstack_dashboard/dashboards/identity/domains/workflows.py:137
-#: openstack_dashboard/dashboards/identity/projects/workflows.py:262
+#: openstack_dashboard/dashboards/identity/projects/workflows.py:269
 msgid "No users."
 msgstr ""
 
 #: openstack_dashboard/dashboards/identity/domains/workflows.py:162
-#: openstack_dashboard/dashboards/identity/projects/workflows.py:284
+#: openstack_dashboard/dashboards/identity/projects/workflows.py:291
 msgid "Unable to retrieve group list. Please try again later."
 msgstr ""
 
@@ -5238,17 +5242,17 @@ msgid "Domain Groups"
 msgstr ""
 
 #: openstack_dashboard/dashboards/identity/domains/workflows.py:231
-#: openstack_dashboard/dashboards/identity/projects/workflows.py:357
+#: openstack_dashboard/dashboards/identity/projects/workflows.py:364
 msgid "All Groups"
 msgstr ""
 
 #: openstack_dashboard/dashboards/identity/domains/workflows.py:233
-#: openstack_dashboard/dashboards/identity/projects/workflows.py:359
+#: openstack_dashboard/dashboards/identity/projects/workflows.py:366
 msgid "No groups found."
 msgstr ""
 
 #: openstack_dashboard/dashboards/identity/domains/workflows.py:234
-#: openstack_dashboard/dashboards/identity/projects/workflows.py:360
+#: openstack_dashboard/dashboards/identity/projects/workflows.py:367
 msgid "No groups."
 msgstr ""
 
@@ -5283,7 +5287,7 @@ msgstr ""
 msgid "Unable to modify domain \"%s\"."
 msgstr ""
 
-#: openstack_dashboard/dashboards/identity/domains/workflows.py:369
+#: openstack_dashboard/dashboards/identity/domains/workflows.py:377
 msgid ""
 "You cannot revoke your administrative privileges from the domain you are "
 "currently logged into. Please switch to another domain with "
@@ -5291,12 +5295,12 @@ msgid ""
 "the CLI."
 msgstr ""
 
-#: openstack_dashboard/dashboards/identity/domains/workflows.py:405
+#: openstack_dashboard/dashboards/identity/domains/workflows.py:413
 #, python-format
 msgid "Failed to modify %s project members and update domain groups."
 msgstr ""
 
-#: openstack_dashboard/dashboards/identity/domains/workflows.py:477
+#: openstack_dashboard/dashboards/identity/domains/workflows.py:485
 #, python-format
 msgid "Failed to modify %s domain groups."
 msgstr ""
@@ -5319,133 +5323,133 @@ msgid "Unable to update the group."
 msgstr ""
 
 #: openstack_dashboard/dashboards/identity/groups/panel.py:23
-#: openstack_dashboard/dashboards/identity/groups/tables.py:122
+#: openstack_dashboard/dashboards/identity/groups/tables.py:123
 #: openstack_dashboard/dashboards/identity/groups/views.py:38
 #: openstack_dashboard/dashboards/identity/groups/templates/groups/index.html:3
 msgid "Groups"
 msgstr ""
 
-#: openstack_dashboard/dashboards/identity/groups/tables.py:39
-#: openstack_dashboard/dashboards/identity/groups/views.py:59
-#: openstack_dashboard/dashboards/identity/groups/views.py:62
-#: openstack_dashboard/dashboards/identity/groups/views.py:65
+#: openstack_dashboard/dashboards/identity/groups/tables.py:40
+#: openstack_dashboard/dashboards/identity/groups/views.py:60
+#: openstack_dashboard/dashboards/identity/groups/views.py:63
+#: openstack_dashboard/dashboards/identity/groups/views.py:66
 #: openstack_dashboard/dashboards/identity/groups/templates/groups/create.html:3
 msgid "Create Group"
 msgstr ""
 
-#: openstack_dashboard/dashboards/identity/groups/tables.py:51
+#: openstack_dashboard/dashboards/identity/groups/tables.py:52
 msgid "Edit Group"
 msgstr ""
 
-#: openstack_dashboard/dashboards/identity/groups/tables.py:64
+#: openstack_dashboard/dashboards/identity/groups/tables.py:65
 msgid "Delete Group"
 msgid_plural "Delete Groups"
 msgstr[0] ""
 msgstr[1] ""
 
-#: openstack_dashboard/dashboards/identity/groups/tables.py:72
+#: openstack_dashboard/dashboards/identity/groups/tables.py:73
 msgid "Deleted Group"
 msgid_plural "Deleted Groups"
 msgstr[0] ""
 msgstr[1] ""
 
-#: openstack_dashboard/dashboards/identity/groups/tables.py:118
+#: openstack_dashboard/dashboards/identity/groups/tables.py:119
 msgid "Group ID"
 msgstr ""
 
-#: openstack_dashboard/dashboards/identity/groups/tables.py:140
+#: openstack_dashboard/dashboards/identity/groups/tables.py:141
 msgid "Remove User"
 msgid_plural "Remove Users"
 msgstr[0] ""
 msgstr[1] ""
 
-#: openstack_dashboard/dashboards/identity/groups/tables.py:148
+#: openstack_dashboard/dashboards/identity/groups/tables.py:149
 msgid "Removed User"
 msgid_plural "Removed Users"
 msgstr[0] ""
 msgstr[1] ""
 
-#: openstack_dashboard/dashboards/identity/groups/tables.py:175
+#: openstack_dashboard/dashboards/identity/groups/tables.py:176
 msgid "Add Users"
 msgstr ""
 
-#: openstack_dashboard/dashboards/identity/groups/tables.py:190
-#: openstack_dashboard/dashboards/identity/users/forms.py:95
-#: openstack_dashboard/dashboards/identity/users/forms.py:189
-#: openstack_dashboard/dashboards/identity/users/forms.py:246
-#: openstack_dashboard/dashboards/identity/users/tables.py:228
+#: openstack_dashboard/dashboards/identity/groups/tables.py:191
+#: openstack_dashboard/dashboards/identity/users/forms.py:104
+#: openstack_dashboard/dashboards/identity/users/forms.py:198
+#: openstack_dashboard/dashboards/identity/users/forms.py:255
+#: openstack_dashboard/dashboards/identity/users/tables.py:230
 #: openstack_dashboard/dashboards/identity/users/templates/users/_detail_overview.html:13
 #: openstack_dashboard/dashboards/project/access_and_security/templates/access_and_security/api_access/_credentials.html:13
 msgid "User Name"
 msgstr ""
 
-#: openstack_dashboard/dashboards/identity/groups/tables.py:191
-#: openstack_dashboard/dashboards/identity/users/forms.py:101
-#: openstack_dashboard/dashboards/identity/users/forms.py:195
-#: openstack_dashboard/dashboards/identity/users/tables.py:239
+#: openstack_dashboard/dashboards/identity/groups/tables.py:192
+#: openstack_dashboard/dashboards/identity/users/forms.py:110
+#: openstack_dashboard/dashboards/identity/users/forms.py:204
+#: openstack_dashboard/dashboards/identity/users/tables.py:241
 #: openstack_dashboard/dashboards/identity/users/templates/users/_detail_overview.html:21
 msgid "Email"
 msgstr ""
 
-#: openstack_dashboard/dashboards/identity/groups/tables.py:194
-#: openstack_dashboard/dashboards/identity/users/tables.py:250
+#: openstack_dashboard/dashboards/identity/groups/tables.py:195
+#: openstack_dashboard/dashboards/identity/users/tables.py:252
 #: openstack_dashboard/dashboards/project/access_and_security/templates/access_and_security/keypairs/detail.html:24
 #: openstack_dashboard/dashboards/project/instances/audit_tables.py:45
 msgid "User ID"
 msgstr ""
 
-#: openstack_dashboard/dashboards/identity/groups/tables.py:200
+#: openstack_dashboard/dashboards/identity/groups/tables.py:201
 msgid "False"
 msgstr ""
 
-#: openstack_dashboard/dashboards/identity/groups/tables.py:206
+#: openstack_dashboard/dashboards/identity/groups/tables.py:207
 msgid "Group Members"
 msgstr ""
 
-#: openstack_dashboard/dashboards/identity/groups/tables.py:213
+#: openstack_dashboard/dashboards/identity/groups/tables.py:214
 msgid "Add User"
 msgid_plural "Add Users"
 msgstr[0] ""
 msgstr[1] ""
 
-#: openstack_dashboard/dashboards/identity/groups/tables.py:221
+#: openstack_dashboard/dashboards/identity/groups/tables.py:222
 msgid "Added User"
 msgid_plural "Added Users"
 msgstr[0] ""
 msgstr[1] ""
 
-#: openstack_dashboard/dashboards/identity/groups/tables.py:256
+#: openstack_dashboard/dashboards/identity/groups/tables.py:257
 msgid "Non-Members"
 msgstr ""
 
-#: openstack_dashboard/dashboards/identity/groups/views.py:50
+#: openstack_dashboard/dashboards/identity/groups/views.py:51
 msgid "Unable to retrieve group list."
 msgstr ""
 
-#: openstack_dashboard/dashboards/identity/groups/views.py:52
+#: openstack_dashboard/dashboards/identity/groups/views.py:53
 msgid "Insufficient privilege level to view group information."
 msgstr ""
 
-#: openstack_dashboard/dashboards/identity/groups/views.py:70
-#: openstack_dashboard/dashboards/identity/groups/views.py:74
-#: openstack_dashboard/dashboards/identity/groups/views.py:76
+#: openstack_dashboard/dashboards/identity/groups/views.py:71
+#: openstack_dashboard/dashboards/identity/groups/views.py:75
+#: openstack_dashboard/dashboards/identity/groups/views.py:77
 #: openstack_dashboard/dashboards/identity/groups/templates/groups/update.html:3
 msgid "Update Group"
 msgstr ""
 
-#: openstack_dashboard/dashboards/identity/groups/views.py:86
+#: openstack_dashboard/dashboards/identity/groups/views.py:87
 msgid "Unable to update group."
 msgstr ""
 
-#: openstack_dashboard/dashboards/identity/groups/views.py:126
+#: openstack_dashboard/dashboards/identity/groups/views.py:129
 msgid "Group Management: {{ group.name }}"
 msgstr ""
 
-#: openstack_dashboard/dashboards/identity/groups/views.py:139
+#: openstack_dashboard/dashboards/identity/groups/views.py:142
 msgid "Unable to retrieve group users."
 msgstr ""
 
-#: openstack_dashboard/dashboards/identity/groups/views.py:160
+#: openstack_dashboard/dashboards/identity/groups/views.py:163
 msgid "Unable to retrieve users."
 msgstr ""
 
@@ -5816,15 +5820,15 @@ msgstr ""
 
 #: openstack_dashboard/dashboards/identity/ngusers/panel.py:23
 #: openstack_dashboard/dashboards/identity/ngusers/templates/ngusers/index.html:3
-#: openstack_dashboard/dashboards/identity/users/panel.py:25
-#: openstack_dashboard/dashboards/identity/users/tables.py:261
+#: openstack_dashboard/dashboards/identity/users/panel.py:27
+#: openstack_dashboard/dashboards/identity/users/tables.py:275
 #: openstack_dashboard/dashboards/identity/users/views.py:49
 #: openstack_dashboard/dashboards/identity/users/templates/users/index.html:3
 msgid "Users"
 msgstr ""
 
 #: openstack_dashboard/dashboards/identity/projects/panel.py:25
-#: openstack_dashboard/dashboards/identity/projects/tables.py:260
+#: openstack_dashboard/dashboards/identity/projects/tables.py:305
 #: openstack_dashboard/dashboards/identity/projects/views.py:71
 #: openstack_dashboard/dashboards/identity/projects/templates/projects/index.html:3
 #: openstack_dashboard/templates/403.html:26
@@ -5836,180 +5840,190 @@ msgstr ""
 msgid "Set as Active Project"
 msgstr ""
 
-#: openstack_dashboard/dashboards/identity/projects/tables.py:86
+#: openstack_dashboard/dashboards/identity/projects/tables.py:99
 msgid "View Usage"
 msgstr ""
 
-#: openstack_dashboard/dashboards/identity/projects/tables.py:97
-#: openstack_dashboard/dashboards/identity/projects/workflows.py:405
-#: openstack_dashboard/dashboards/identity/projects/workflows.py:406
+#: openstack_dashboard/dashboards/identity/projects/tables.py:110
+#: openstack_dashboard/dashboards/identity/projects/workflows.py:412
+#: openstack_dashboard/dashboards/identity/projects/workflows.py:413
+#: openstack_dashboard/dashboards/identity/projects/workflows.py:545
+#: openstack_dashboard/dashboards/identity/projects/workflows.py:546
 msgid "Create Project"
 msgstr ""
 
-#: openstack_dashboard/dashboards/identity/projects/tables.py:109
-#: openstack_dashboard/dashboards/identity/projects/workflows.py:577
+#: openstack_dashboard/dashboards/identity/projects/tables.py:127
+#: openstack_dashboard/dashboards/identity/projects/workflows.py:610
+#: openstack_dashboard/dashboards/identity/projects/workflows.py:918
 msgid "Edit Project"
 msgstr ""
 
-#: openstack_dashboard/dashboards/identity/projects/tables.py:121
+#: openstack_dashboard/dashboards/identity/projects/tables.py:145
 msgid "Modify Quotas"
 msgstr ""
 
-#: openstack_dashboard/dashboards/identity/projects/tables.py:137
+#: openstack_dashboard/dashboards/identity/projects/tables.py:167
 msgid "Delete Project"
 msgid_plural "Delete Projects"
 msgstr[0] ""
 msgstr[1] ""
 
-#: openstack_dashboard/dashboards/identity/projects/tables.py:145
+#: openstack_dashboard/dashboards/identity/projects/tables.py:175
 msgid "Deleted Project"
 msgid_plural "Deleted Projects"
 msgstr[0] ""
 msgstr[1] ""
 
-#: openstack_dashboard/dashboards/identity/projects/tables.py:214
-#: openstack_dashboard/dashboards/identity/users/tables.py:212
+#: openstack_dashboard/dashboards/identity/projects/tables.py:248
+#: openstack_dashboard/dashboards/identity/users/tables.py:214
 msgid "This name is already taken."
 msgstr ""
 
-#: openstack_dashboard/dashboards/identity/projects/views.py:59
-#: openstack_dashboard/dashboards/identity/projects/views.py:104
-msgid "Unable to retrieve project information."
-msgstr ""
-
-#: openstack_dashboard/dashboards/identity/projects/views.py:107
-msgid "Insufficient privilege level to view project information."
-msgstr ""
-
-#: openstack_dashboard/dashboards/identity/projects/views.py:118
-msgid "Project Usage"
-msgstr ""
-
-#: openstack_dashboard/dashboards/identity/projects/views.py:152
-msgid "Unable to retrieve default Neutron quota values."
-msgstr ""
-
-#: openstack_dashboard/dashboards/identity/projects/views.py:190
-#: openstack_dashboard/dashboards/identity/users/views.py:119
-#: openstack_dashboard/dashboards/identity/users/views.py:183
-msgid "Unable to retrieve project domain."
-msgstr ""
-
-#: openstack_dashboard/dashboards/identity/projects/views.py:204
-#: openstack_dashboard/dashboards/identity/projects/views.py:229
-msgid "Unable to retrieve project details."
-msgstr ""
-
-#: openstack_dashboard/dashboards/identity/projects/workflows.py:46
-msgid "Injected File Content (Bytes)"
-msgstr ""
-
-#: openstack_dashboard/dashboards/identity/projects/workflows.py:99
-#, python-format
-msgid "%(used)s %(key)s used"
-msgstr ""
-
-#: openstack_dashboard/dashboards/identity/projects/workflows.py:104
-#, python-format
-msgid "Quota value(s) cannot be less than the current usage value(s): %s."
-msgstr ""
-
-#: openstack_dashboard/dashboards/identity/projects/workflows.py:111
-#: openstack_dashboard/dashboards/identity/projects/workflows.py:118
-msgid "Quota"
-msgstr ""
-
-#: openstack_dashboard/dashboards/identity/projects/workflows.py:113
-#: openstack_dashboard/dashboards/identity/projects/workflows.py:120
-msgid "Set maximum quotas for the project."
-msgstr ""
-
-#: openstack_dashboard/dashboards/identity/projects/workflows.py:142
-#: openstack_dashboard/dashboards/identity/users/forms.py:92
-#: openstack_dashboard/dashboards/identity/users/forms.py:185
+#: openstack_dashboard/dashboards/identity/projects/tables.py:277
+#: openstack_dashboard/dashboards/identity/projects/workflows.py:148
+#: openstack_dashboard/dashboards/identity/projects/workflows.py:567
+#: openstack_dashboard/dashboards/identity/users/forms.py:101
+#: openstack_dashboard/dashboards/identity/users/forms.py:194
+#: openstack_dashboard/dashboards/identity/users/tables.py:264
 #: openstack_dashboard/dashboards/identity/users/templates/users/_detail_overview.html:10
 #: openstack_dashboard/dashboards/project/access_and_security/templates/access_and_security/api_access/_credentials.html:18
 msgid "Domain Name"
 msgstr ""
 
-#: openstack_dashboard/dashboards/identity/projects/workflows.py:166
-#: openstack_dashboard/dashboards/identity/projects/workflows.py:559
+#: openstack_dashboard/dashboards/identity/projects/views.py:59
+#: openstack_dashboard/dashboards/identity/projects/views.py:106
+msgid "Unable to retrieve project information."
+msgstr ""
+
+#: openstack_dashboard/dashboards/identity/projects/views.py:109
+msgid "Insufficient privilege level to view project information."
+msgstr ""
+
+#: openstack_dashboard/dashboards/identity/projects/views.py:125
+msgid "Project Usage"
+msgstr ""
+
+#: openstack_dashboard/dashboards/identity/projects/views.py:167
+msgid "Unable to retrieve default Neutron quota values."
+msgstr ""
+
+#: openstack_dashboard/dashboards/identity/projects/views.py:217
+#: openstack_dashboard/dashboards/identity/users/views.py:131
+#: openstack_dashboard/dashboards/identity/users/views.py:201
+msgid "Unable to retrieve project domain."
+msgstr ""
+
+#: openstack_dashboard/dashboards/identity/projects/views.py:233
+#: openstack_dashboard/dashboards/identity/projects/views.py:258
+msgid "Unable to retrieve project details."
+msgstr ""
+
+#: openstack_dashboard/dashboards/identity/projects/workflows.py:50
+msgid "Injected File Content (Bytes)"
+msgstr ""
+
+#: openstack_dashboard/dashboards/identity/projects/workflows.py:103
+#, python-format
+msgid "%(used)s %(key)s used"
+msgstr ""
+
+#: openstack_dashboard/dashboards/identity/projects/workflows.py:108
+#, python-format
+msgid "Quota value(s) cannot be less than the current usage value(s): %s."
+msgstr ""
+
+#: openstack_dashboard/dashboards/identity/projects/workflows.py:115
+#: openstack_dashboard/dashboards/identity/projects/workflows.py:123
+msgid "Quota"
+msgstr ""
+
+#: openstack_dashboard/dashboards/identity/projects/workflows.py:117
+#: openstack_dashboard/dashboards/identity/projects/workflows.py:125
+msgid "Set maximum quotas for the project."
+msgstr ""
+
+#: openstack_dashboard/dashboards/identity/projects/workflows.py:172
+#: openstack_dashboard/dashboards/identity/projects/workflows.py:592
 msgid "Project Information"
 msgstr ""
 
-#: openstack_dashboard/dashboards/identity/projects/workflows.py:167
+#: openstack_dashboard/dashboards/identity/projects/workflows.py:173
 msgid "Create a project to organize users."
 msgstr ""
 
-#: openstack_dashboard/dashboards/identity/projects/workflows.py:186
+#: openstack_dashboard/dashboards/identity/projects/workflows.py:192
 msgid "Unable to retrieve user list. Please try again later."
 msgstr ""
 
-#: openstack_dashboard/dashboards/identity/projects/workflows.py:253
 #: openstack_dashboard/dashboards/identity/projects/workflows.py:260
+#: openstack_dashboard/dashboards/identity/projects/workflows.py:267
 msgid "Project Members"
 msgstr ""
 
-#: openstack_dashboard/dashboards/identity/projects/workflows.py:351
 #: openstack_dashboard/dashboards/identity/projects/workflows.py:358
+#: openstack_dashboard/dashboards/identity/projects/workflows.py:365
 msgid "Project Groups"
 msgstr ""
 
-#: openstack_dashboard/dashboards/identity/projects/workflows.py:407
+#: openstack_dashboard/dashboards/identity/projects/workflows.py:414
+#: openstack_dashboard/dashboards/identity/projects/workflows.py:547
 #, python-format
 msgid "Created new project \"%s\"."
 msgstr ""
 
-#: openstack_dashboard/dashboards/identity/projects/workflows.py:408
+#: openstack_dashboard/dashboards/identity/projects/workflows.py:415
+#: openstack_dashboard/dashboards/identity/projects/workflows.py:548
 #, python-format
 msgid "Unable to create project \"%s\"."
 msgstr ""
 
-#: openstack_dashboard/dashboards/identity/projects/workflows.py:445
-#: openstack_dashboard/dashboards/identity/projects/workflows.py:621
+#: openstack_dashboard/dashboards/identity/projects/workflows.py:452
+#: openstack_dashboard/dashboards/identity/projects/workflows.py:656
 #, python-format
 msgid "Project name \"%s\" is already used."
 msgstr ""
 
-#: openstack_dashboard/dashboards/identity/projects/workflows.py:477
+#: openstack_dashboard/dashboards/identity/projects/workflows.py:484
 msgid ", add project groups"
 msgstr ""
 
-#: openstack_dashboard/dashboards/identity/projects/workflows.py:481
+#: openstack_dashboard/dashboards/identity/projects/workflows.py:488
 #, python-format
 msgid ""
 "Failed to add %(users_to_add)s project members%(group_msg)s and set "
 "project quotas."
 msgstr ""
 
-#: openstack_dashboard/dashboards/identity/projects/workflows.py:512
+#: openstack_dashboard/dashboards/identity/projects/workflows.py:519
 #, python-format
 msgid "Failed to add %s project groups and update project quotas."
 msgstr ""
 
-#: openstack_dashboard/dashboards/identity/projects/workflows.py:521
+#: openstack_dashboard/dashboards/identity/projects/workflows.py:528
 msgid "Unable to set project quotas."
 msgstr ""
 
-#: openstack_dashboard/dashboards/identity/projects/workflows.py:543
+#: openstack_dashboard/dashboards/identity/projects/workflows.py:576
 msgid "You cannot disable your current project"
 msgstr ""
 
-#: openstack_dashboard/dashboards/identity/projects/workflows.py:561
+#: openstack_dashboard/dashboards/identity/projects/workflows.py:594
 msgid "Edit the project details."
 msgstr ""
 
-#: openstack_dashboard/dashboards/identity/projects/workflows.py:579
+#: openstack_dashboard/dashboards/identity/projects/workflows.py:612
+#: openstack_dashboard/dashboards/identity/projects/workflows.py:920
 #, python-format
 msgid "Modified project \"%s\"."
 msgstr ""
 
-#: openstack_dashboard/dashboards/identity/projects/workflows.py:580
+#: openstack_dashboard/dashboards/identity/projects/workflows.py:613
+#: openstack_dashboard/dashboards/identity/projects/workflows.py:921
 #, python-format
 msgid "Unable to modify project \"%s\"."
 msgstr ""
 
-#: openstack_dashboard/dashboards/identity/projects/workflows.py:678
+#: openstack_dashboard/dashboards/identity/projects/workflows.py:714
 msgid ""
 "You cannot revoke your administrative privileges from the project you are"
 " currently logged into. Please switch to another project with "
@@ -6017,25 +6031,25 @@ msgid ""
 "the CLI."
 msgstr ""
 
-#: openstack_dashboard/dashboards/identity/projects/workflows.py:738
+#: openstack_dashboard/dashboards/identity/projects/workflows.py:789
 msgid ", update project groups"
 msgstr ""
 
-#: openstack_dashboard/dashboards/identity/projects/workflows.py:742
+#: openstack_dashboard/dashboards/identity/projects/workflows.py:793
 #, python-format
 msgid ""
 "Failed to modify %(users_to_modify)s project members%(group_msg)s and "
 "update project quotas."
 msgstr ""
 
-#: openstack_dashboard/dashboards/identity/projects/workflows.py:817
+#: openstack_dashboard/dashboards/identity/projects/workflows.py:868
 #, python-format
 msgid ""
 "Failed to modify %s project members, update project groups and update "
 "project quotas."
 msgstr ""
 
-#: openstack_dashboard/dashboards/identity/projects/workflows.py:829
+#: openstack_dashboard/dashboards/identity/projects/workflows.py:880
 msgid ""
 "Modified project information and members, but unable to modify project "
 "quotas."
@@ -6142,78 +6156,78 @@ msgstr ""
 msgid "Passwords do not match."
 msgstr ""
 
-#: openstack_dashboard/dashboards/identity/users/forms.py:78
+#: openstack_dashboard/dashboards/identity/users/forms.py:84
 msgid "No available projects"
 msgstr ""
 
-#: openstack_dashboard/dashboards/identity/users/forms.py:103
-#: openstack_dashboard/dashboards/identity/users/forms.py:197
+#: openstack_dashboard/dashboards/identity/users/forms.py:112
+#: openstack_dashboard/dashboards/identity/users/forms.py:206
 msgid "Primary Project"
 msgstr ""
 
-#: openstack_dashboard/dashboards/identity/users/forms.py:106
+#: openstack_dashboard/dashboards/identity/users/forms.py:115
 msgid "Role"
 msgstr ""
 
-#: openstack_dashboard/dashboards/identity/users/forms.py:154
+#: openstack_dashboard/dashboards/identity/users/forms.py:163
 #, python-format
 msgid "User \"%s\" was successfully created."
 msgstr ""
 
-#: openstack_dashboard/dashboards/identity/users/forms.py:170
+#: openstack_dashboard/dashboards/identity/users/forms.py:179
 msgid "Unable to add user to primary project."
 msgstr ""
 
-#: openstack_dashboard/dashboards/identity/users/forms.py:174
-#: openstack_dashboard/dashboards/identity/users/forms.py:230
+#: openstack_dashboard/dashboards/identity/users/forms.py:183
+#: openstack_dashboard/dashboards/identity/users/forms.py:239
 #, python-format
 msgid "User name \"%s\" is already used."
 msgstr ""
 
-#: openstack_dashboard/dashboards/identity/users/forms.py:177
+#: openstack_dashboard/dashboards/identity/users/forms.py:186
 msgid "Unable to create user."
 msgstr ""
 
-#: openstack_dashboard/dashboards/identity/users/forms.py:228
+#: openstack_dashboard/dashboards/identity/users/forms.py:237
 msgid "User has been updated successfully."
 msgstr ""
 
-#: openstack_dashboard/dashboards/identity/users/forms.py:235
+#: openstack_dashboard/dashboards/identity/users/forms.py:244
 msgid "Unable to update the user."
 msgstr ""
 
-#: openstack_dashboard/dashboards/identity/users/forms.py:255
+#: openstack_dashboard/dashboards/identity/users/forms.py:264
 #: openstack_dashboard/dashboards/project/instances/workflows/create_instance.py:545
 msgid "Admin Password"
 msgstr ""
 
-#: openstack_dashboard/dashboards/identity/users/forms.py:275
+#: openstack_dashboard/dashboards/identity/users/forms.py:284
 msgid "The admin password is incorrect."
 msgstr ""
 
-#: openstack_dashboard/dashboards/identity/users/forms.py:284
+#: openstack_dashboard/dashboards/identity/users/forms.py:293
 msgid "Password changed. Please log in to continue."
 msgstr ""
 
-#: openstack_dashboard/dashboards/identity/users/forms.py:287
+#: openstack_dashboard/dashboards/identity/users/forms.py:296
 msgid "User password has been updated successfully."
 msgstr ""
 
-#: openstack_dashboard/dashboards/identity/users/forms.py:290
+#: openstack_dashboard/dashboards/identity/users/forms.py:299
 msgid "Unable to update the user password."
 msgstr ""
 
 #: openstack_dashboard/dashboards/identity/users/tables.py:32
-#: openstack_dashboard/dashboards/identity/users/views.py:131
-#: openstack_dashboard/dashboards/identity/users/views.py:134
-#: openstack_dashboard/dashboards/identity/users/views.py:137
+#: openstack_dashboard/dashboards/identity/users/views.py:143
+#: openstack_dashboard/dashboards/identity/users/views.py:146
+#: openstack_dashboard/dashboards/identity/users/views.py:149
 #: openstack_dashboard/dashboards/identity/users/templates/users/create.html:3
 msgid "Create User"
 msgstr ""
 
-#: openstack_dashboard/dashboards/identity/users/tables.py:61
-#: openstack_dashboard/dashboards/identity/users/views.py:225
-#: openstack_dashboard/dashboards/identity/users/views.py:231
+#: openstack_dashboard/dashboards/identity/users/tables.py:62
+#: openstack_dashboard/dashboards/identity/users/views.py:243
+#: openstack_dashboard/dashboards/identity/users/views.py:249
 #: openstack_dashboard/dashboards/identity/users/templates/users/change_password.html:3
 #: openstack_dashboard/dashboards/settings/password/panel.py:23
 #: openstack_dashboard/dashboards/settings/password/views.py:27
@@ -6222,68 +6236,68 @@ msgstr ""
 msgid "Change Password"
 msgstr ""
 
-#: openstack_dashboard/dashboards/identity/users/tables.py:78
+#: openstack_dashboard/dashboards/identity/users/tables.py:79
 msgid "Enable User"
 msgid_plural "Enable Users"
 msgstr[0] ""
 msgstr[1] ""
 
-#: openstack_dashboard/dashboards/identity/users/tables.py:83
+#: openstack_dashboard/dashboards/identity/users/tables.py:84
 msgid "Disable User"
 msgid_plural "Disable Users"
 msgstr[0] ""
 msgstr[1] ""
 
-#: openstack_dashboard/dashboards/identity/users/tables.py:93
+#: openstack_dashboard/dashboards/identity/users/tables.py:94
 msgid "Enabled User"
 msgid_plural "Enabled Users"
 msgstr[0] ""
 msgstr[1] ""
 
-#: openstack_dashboard/dashboards/identity/users/tables.py:98
+#: openstack_dashboard/dashboards/identity/users/tables.py:99
 msgid "Disabled User"
 msgid_plural "Disabled Users"
 msgstr[0] ""
 msgstr[1] ""
 
-#: openstack_dashboard/dashboards/identity/users/tables.py:129
+#: openstack_dashboard/dashboards/identity/users/tables.py:131
 msgid "You cannot disable the user you are currently logged in as."
 msgstr ""
 
-#: openstack_dashboard/dashboards/identity/users/tables.py:143
+#: openstack_dashboard/dashboards/identity/users/tables.py:145
 msgid "Delete User"
 msgid_plural "Delete Users"
 msgstr[0] ""
 msgstr[1] ""
 
-#: openstack_dashboard/dashboards/identity/users/tables.py:151
+#: openstack_dashboard/dashboards/identity/users/tables.py:153
 msgid "Deleted User"
 msgid_plural "Deleted Users"
 msgstr[0] ""
 msgstr[1] ""
 
-#: openstack_dashboard/dashboards/identity/users/views.py:70
-#: openstack_dashboard/dashboards/identity/users/views.py:98
-#: openstack_dashboard/dashboards/identity/users/views.py:246
+#: openstack_dashboard/dashboards/identity/users/views.py:71
+#: openstack_dashboard/dashboards/identity/users/views.py:104
+#: openstack_dashboard/dashboards/identity/users/views.py:264
 msgid "Unable to retrieve user information."
 msgstr ""
 
-#: openstack_dashboard/dashboards/identity/users/views.py:72
+#: openstack_dashboard/dashboards/identity/users/views.py:73
 msgid "Insufficient privilege level to view user information."
 msgstr ""
 
-#: openstack_dashboard/dashboards/identity/users/views.py:79
-#: openstack_dashboard/dashboards/identity/users/views.py:82
 #: openstack_dashboard/dashboards/identity/users/views.py:85
+#: openstack_dashboard/dashboards/identity/users/views.py:88
+#: openstack_dashboard/dashboards/identity/users/views.py:91
 #: openstack_dashboard/dashboards/identity/users/templates/users/update.html:3
 msgid "Update User"
 msgstr ""
 
-#: openstack_dashboard/dashboards/identity/users/views.py:151
+#: openstack_dashboard/dashboards/identity/users/views.py:163
 msgid "Unable to retrieve user roles."
 msgstr ""
 
-#: openstack_dashboard/dashboards/identity/users/views.py:215
+#: openstack_dashboard/dashboards/identity/users/views.py:233
 msgid "Unable to retrieve user details."
 msgstr ""
 
@@ -6439,7 +6453,7 @@ msgstr ""
 
 #: openstack_dashboard/dashboards/project/access_and_security/floating_ips/tables.py:57
 #: openstack_dashboard/dashboards/project/access_and_security/keypairs/tables.py:76
-#: openstack_dashboard/dashboards/project/instances/tables.py:404
+#: openstack_dashboard/dashboards/project/instances/tables.py:403
 #: openstack_dashboard/dashboards/project/volumes/volumes/tables.py:144
 #: openstack_dashboard/dashboards/project/volumes/volumes/tables.py:212
 msgid "(Quota exceeded)"
@@ -6474,7 +6488,7 @@ msgid "Successfully disassociated Floating IP: %s"
 msgstr ""
 
 #: openstack_dashboard/dashboards/project/access_and_security/floating_ips/tables.py:155
-#: openstack_dashboard/dashboards/project/instances/tables.py:718
+#: openstack_dashboard/dashboards/project/instances/tables.py:717
 #: openstack_dashboard/dashboards/project/loadbalancers/tables.py:370
 msgid "Unable to disassociate floating IP."
 msgstr ""
@@ -8461,18 +8475,22 @@ msgstr ""
 msgid "Ramdisk ID"
 msgstr ""
 
-#: openstack_dashboard/dashboards/project/images/images/forms.py:348
+#: openstack_dashboard/dashboards/project/images/images/forms.py:345
+msgid "Non admin users are not allowed to make images public."
+msgstr ""
+
+#: openstack_dashboard/dashboards/project/images/images/forms.py:350
 #, python-format
 msgid "Unable to update image \"%s\"."
 msgstr ""
 
-#: openstack_dashboard/dashboards/project/images/images/forms.py:356
+#: openstack_dashboard/dashboards/project/images/images/forms.py:358
 msgid "Image was successfully updated."
 msgstr ""
 
 #: openstack_dashboard/dashboards/project/images/images/tables.py:35
-#: openstack_dashboard/dashboards/project/instances/tables.py:378
-#: openstack_dashboard/dashboards/project/instances/tables.py:406
+#: openstack_dashboard/dashboards/project/instances/tables.py:377
+#: openstack_dashboard/dashboards/project/instances/tables.py:405
 #: openstack_dashboard/dashboards/project/instances/workflows/create_instance.py:870
 #: openstack_dashboard/dashboards/project/network_topology/templates/network_topology/index.html:33
 #: openstack_dashboard/dashboards/project/network_topology/templates/network_topology/index.html:36
@@ -8601,7 +8619,7 @@ msgstr ""
 #: openstack_dashboard/dashboards/project/images/snapshots/views.py:40
 #: openstack_dashboard/dashboards/project/images/snapshots/views.py:41
 #: openstack_dashboard/dashboards/project/images/templates/images/snapshots/create.html:3
-#: openstack_dashboard/dashboards/project/instances/tables.py:478
+#: openstack_dashboard/dashboards/project/instances/tables.py:477
 #: openstack_dashboard/dashboards/project/volumes/volumes/tables.py:193
 msgid "Create Snapshot"
 msgstr ""
@@ -8850,144 +8868,144 @@ msgstr ""
 msgid "Unable to detach interface."
 msgstr ""
 
-#: openstack_dashboard/dashboards/project/instances/tables.py:89
+#: openstack_dashboard/dashboards/project/instances/tables.py:88
 msgid "Deleted instances are not recoverable."
 msgstr ""
 
-#: openstack_dashboard/dashboards/project/instances/tables.py:93
+#: openstack_dashboard/dashboards/project/instances/tables.py:92
 msgid "Delete Instance"
 msgid_plural "Delete Instances"
 msgstr[0] ""
 msgstr[1] ""
 
-#: openstack_dashboard/dashboards/project/instances/tables.py:101
+#: openstack_dashboard/dashboards/project/instances/tables.py:100
 msgid "Scheduled deletion of Instance"
 msgid_plural "Scheduled deletion of Instances"
 msgstr[0] ""
 msgstr[1] ""
 
-#: openstack_dashboard/dashboards/project/instances/tables.py:119
+#: openstack_dashboard/dashboards/project/instances/tables.py:118
 msgid "Restarted instances will lose any data not saved in persistent storage."
 msgstr ""
 
-#: openstack_dashboard/dashboards/project/instances/tables.py:124
+#: openstack_dashboard/dashboards/project/instances/tables.py:123
 msgid "Hard Reboot Instance"
 msgid_plural "Hard Reboot Instances"
 msgstr[0] ""
 msgstr[1] ""
 
-#: openstack_dashboard/dashboards/project/instances/tables.py:132
+#: openstack_dashboard/dashboards/project/instances/tables.py:131
 msgid "Hard Rebooted Instance"
 msgid_plural "Hard Rebooted Instances"
 msgstr[0] ""
 msgstr[1] ""
 
-#: openstack_dashboard/dashboards/project/instances/tables.py:155
+#: openstack_dashboard/dashboards/project/instances/tables.py:154
 msgid "Soft Reboot Instance"
 msgid_plural "Soft Reboot Instances"
 msgstr[0] ""
 msgstr[1] ""
 
-#: openstack_dashboard/dashboards/project/instances/tables.py:163
+#: openstack_dashboard/dashboards/project/instances/tables.py:162
 msgid "Soft Rebooted Instance"
 msgid_plural "Soft Rebooted Instances"
 msgstr[0] ""
 msgstr[1] ""
 
-#: openstack_dashboard/dashboards/project/instances/tables.py:180
+#: openstack_dashboard/dashboards/project/instances/tables.py:179
 msgid "Pause Instance"
 msgid_plural "Pause Instances"
 msgstr[0] ""
 msgstr[1] ""
 
-#: openstack_dashboard/dashboards/project/instances/tables.py:185
-#: openstack_dashboard/dashboards/project/instances/tables.py:253
+#: openstack_dashboard/dashboards/project/instances/tables.py:184
+#: openstack_dashboard/dashboards/project/instances/tables.py:252
 msgid "Resume Instance"
 msgid_plural "Resume Instances"
 msgstr[0] ""
 msgstr[1] ""
 
-#: openstack_dashboard/dashboards/project/instances/tables.py:195
+#: openstack_dashboard/dashboards/project/instances/tables.py:194
 msgid "Paused Instance"
 msgid_plural "Paused Instances"
 msgstr[0] ""
 msgstr[1] ""
 
-#: openstack_dashboard/dashboards/project/instances/tables.py:200
-#: openstack_dashboard/dashboards/project/instances/tables.py:268
+#: openstack_dashboard/dashboards/project/instances/tables.py:199
+#: openstack_dashboard/dashboards/project/instances/tables.py:267
 msgid "Resumed Instance"
 msgid_plural "Resumed Instances"
 msgstr[0] ""
 msgstr[1] ""
 
-#: openstack_dashboard/dashboards/project/instances/tables.py:248
+#: openstack_dashboard/dashboards/project/instances/tables.py:247
 msgid "Suspend Instance"
 msgid_plural "Suspend Instances"
 msgstr[0] ""
 msgstr[1] ""
 
-#: openstack_dashboard/dashboards/project/instances/tables.py:263
+#: openstack_dashboard/dashboards/project/instances/tables.py:262
 msgid "Suspended Instance"
 msgid_plural "Suspended Instances"
 msgstr[0] ""
 msgstr[1] ""
 
-#: openstack_dashboard/dashboards/project/instances/tables.py:316
+#: openstack_dashboard/dashboards/project/instances/tables.py:315
 msgid "Shelve Instance"
 msgid_plural "Shelve Instances"
 msgstr[0] ""
 msgstr[1] ""
 
-#: openstack_dashboard/dashboards/project/instances/tables.py:321
+#: openstack_dashboard/dashboards/project/instances/tables.py:320
 msgid "Unshelve Instance"
 msgid_plural "Unshelve Instances"
 msgstr[0] ""
 msgstr[1] ""
 
-#: openstack_dashboard/dashboards/project/instances/tables.py:331
+#: openstack_dashboard/dashboards/project/instances/tables.py:330
 msgid "Shelved Instance"
 msgid_plural "Shelved Instances"
 msgstr[0] ""
 msgstr[1] ""
 
-#: openstack_dashboard/dashboards/project/instances/tables.py:336
+#: openstack_dashboard/dashboards/project/instances/tables.py:335
 msgid "Unshelved Instance"
 msgid_plural "Unshelved Instances"
 msgstr[0] ""
 msgstr[1] ""
 
-#: openstack_dashboard/dashboards/project/instances/tables.py:442
+#: openstack_dashboard/dashboards/project/instances/tables.py:441
 #: openstack_dashboard/dashboards/project/instances/workflows/update_instance.py:132
 msgid "Edit Instance"
 msgstr ""
 
-#: openstack_dashboard/dashboards/project/instances/tables.py:465
+#: openstack_dashboard/dashboards/project/instances/tables.py:464
 msgid "Edit Security Groups"
 msgstr ""
 
-#: openstack_dashboard/dashboards/project/instances/tables.py:491
+#: openstack_dashboard/dashboards/project/instances/tables.py:490
 #: openstack_dashboard/dashboards/project/instances/tabs.py:63
 msgid "Console"
 msgstr ""
 
-#: openstack_dashboard/dashboards/project/instances/tables.py:511
+#: openstack_dashboard/dashboards/project/instances/tables.py:510
 msgid "View Log"
 msgstr ""
 
-#: openstack_dashboard/dashboards/project/instances/tables.py:528
+#: openstack_dashboard/dashboards/project/instances/tables.py:527
 #: openstack_dashboard/dashboards/project/instances/workflows/resize_instance.py:84
 msgid "Resize Instance"
 msgstr ""
 
-#: openstack_dashboard/dashboards/project/instances/tables.py:552
+#: openstack_dashboard/dashboards/project/instances/tables.py:551
 msgid "Confirm Resize/Migrate"
 msgstr ""
 
-#: openstack_dashboard/dashboards/project/instances/tables.py:565
+#: openstack_dashboard/dashboards/project/instances/tables.py:564
 msgid "Revert Resize/Migrate"
 msgstr ""
 
-#: openstack_dashboard/dashboards/project/instances/tables.py:578
+#: openstack_dashboard/dashboards/project/instances/tables.py:577
 #: openstack_dashboard/dashboards/project/instances/views.py:265
 #: openstack_dashboard/dashboards/project/instances/templates/instances/_rebuild.html:8
 #: openstack_dashboard/dashboards/project/instances/templates/instances/_rebuild.html:26
@@ -8995,532 +9013,532 @@ msgstr ""
 msgid "Rebuild Instance"
 msgstr ""
 
-#: openstack_dashboard/dashboards/project/instances/tables.py:595
+#: openstack_dashboard/dashboards/project/instances/tables.py:594
 msgid "Retrieve Password"
 msgstr ""
 
-#: openstack_dashboard/dashboards/project/instances/tables.py:618
-#: openstack_dashboard/dashboards/project/instances/tables.py:649
+#: openstack_dashboard/dashboards/project/instances/tables.py:617
+#: openstack_dashboard/dashboards/project/instances/tables.py:648
 #: openstack_dashboard/dashboards/project/loadbalancers/tables.py:300
 msgid "Associate Floating IP"
 msgstr ""
 
-#: openstack_dashboard/dashboards/project/instances/tables.py:670
+#: openstack_dashboard/dashboards/project/instances/tables.py:669
 #, python-format
 msgid "Successfully associated floating IP: %s"
 msgstr ""
 
-#: openstack_dashboard/dashboards/project/instances/tables.py:674
+#: openstack_dashboard/dashboards/project/instances/tables.py:673
 msgid "Unable to associate floating IP."
 msgstr ""
 
-#: openstack_dashboard/dashboards/project/instances/tables.py:680
+#: openstack_dashboard/dashboards/project/instances/tables.py:679
 #: openstack_dashboard/dashboards/project/loadbalancers/tables.py:338
 msgid "Disassociate Floating IP"
 msgstr ""
 
-#: openstack_dashboard/dashboards/project/instances/tables.py:712
+#: openstack_dashboard/dashboards/project/instances/tables.py:711
 #: openstack_dashboard/dashboards/project/loadbalancers/tables.py:366
 #, python-format
 msgid "Successfully disassociated floating IP: %s"
 msgstr ""
 
-#: openstack_dashboard/dashboards/project/instances/tables.py:715
+#: openstack_dashboard/dashboards/project/instances/tables.py:714
 #: openstack_dashboard/dashboards/project/loadbalancers/tables.py:361
 msgid "No floating IPs to disassociate."
 msgstr ""
 
-#: openstack_dashboard/dashboards/project/instances/tables.py:749
+#: openstack_dashboard/dashboards/project/instances/tables.py:748
 #, python-format
 msgid "Please try again later [Error: %s]."
 msgstr ""
 
-#: openstack_dashboard/dashboards/project/instances/tables.py:751
+#: openstack_dashboard/dashboards/project/instances/tables.py:750
 msgid ""
 "There is not enough capacity for this flavor in the selected availability"
 " zone. Try again later or select a different availability zone."
 msgstr ""
 
-#: openstack_dashboard/dashboards/project/instances/tables.py:763
+#: openstack_dashboard/dashboards/project/instances/tables.py:762
 #, python-format
 msgid ""
 "Failed to perform requested operation on instance \"%s\", the instance "
 "has an error status"
 msgstr ""
 
-#: openstack_dashboard/dashboards/project/instances/tables.py:779
+#: openstack_dashboard/dashboards/project/instances/tables.py:778
 #: openstack_dashboard/dashboards/project/instances/views.py:409
 #, python-format
 msgid "Unable to retrieve flavor information for instance \"%s\"."
 msgstr ""
 
-#: openstack_dashboard/dashboards/project/instances/tables.py:786
+#: openstack_dashboard/dashboards/project/instances/tables.py:785
 #, python-format
 msgid "Unable to retrieve Network information for instance \"%s\"."
 msgstr ""
 
-#: openstack_dashboard/dashboards/project/instances/tables.py:802
+#: openstack_dashboard/dashboards/project/instances/tables.py:801
 msgid "Start Instance"
 msgid_plural "Start Instances"
 msgstr[0] ""
 msgstr[1] ""
 
-#: openstack_dashboard/dashboards/project/instances/tables.py:810
+#: openstack_dashboard/dashboards/project/instances/tables.py:809
 msgid "Started Instance"
 msgid_plural "Started Instances"
 msgstr[0] ""
 msgstr[1] ""
 
-#: openstack_dashboard/dashboards/project/instances/tables.py:828
+#: openstack_dashboard/dashboards/project/instances/tables.py:827
 msgid "The instance(s) will be shut off."
 msgstr ""
 
-#: openstack_dashboard/dashboards/project/instances/tables.py:832
+#: openstack_dashboard/dashboards/project/instances/tables.py:831
 msgctxt "Action to perform (the instance is currently running)"
 msgid "Shut Off Instance"
 msgid_plural "Shut Off Instances"
 msgstr[0] ""
 msgstr[1] ""
 
-#: openstack_dashboard/dashboards/project/instances/tables.py:841
+#: openstack_dashboard/dashboards/project/instances/tables.py:840
 msgctxt "Past action (the instance is currently already Shut Off)"
 msgid "Shut Off Instance"
 msgid_plural "Shut Off Instances"
 msgstr[0] ""
 msgstr[1] ""
 
-#: openstack_dashboard/dashboards/project/instances/tables.py:863
+#: openstack_dashboard/dashboards/project/instances/tables.py:862
 msgid "Lock Instance"
 msgid_plural "Lock Instances"
 msgstr[0] ""
 msgstr[1] ""
 
-#: openstack_dashboard/dashboards/project/instances/tables.py:871
+#: openstack_dashboard/dashboards/project/instances/tables.py:870
 msgid "Locked Instance"
 msgid_plural "Locked Instances"
 msgstr[0] ""
 msgstr[1] ""
 
-#: openstack_dashboard/dashboards/project/instances/tables.py:894
+#: openstack_dashboard/dashboards/project/instances/tables.py:893
 msgid "Unlock Instance"
 msgid_plural "Unlock Instances"
 msgstr[0] ""
 msgstr[1] ""
 
-#: openstack_dashboard/dashboards/project/instances/tables.py:902
+#: openstack_dashboard/dashboards/project/instances/tables.py:901
 msgid "Unlocked Instance"
 msgid_plural "Unlocked Instances"
 msgstr[0] ""
 msgstr[1] ""
 
-#: openstack_dashboard/dashboards/project/instances/tables.py:921
+#: openstack_dashboard/dashboards/project/instances/tables.py:920
 #: openstack_dashboard/dashboards/project/instances/views.py:442
 #: openstack_dashboard/dashboards/project/instances/views.py:444
 #: openstack_dashboard/dashboards/project/instances/templates/instances/attach_interface.html:3
 msgid "Attach Interface"
 msgstr ""
 
-#: openstack_dashboard/dashboards/project/instances/tables.py:941
+#: openstack_dashboard/dashboards/project/instances/tables.py:940
 #: openstack_dashboard/dashboards/project/instances/views.py:462
 #: openstack_dashboard/dashboards/project/instances/views.py:464
 #: openstack_dashboard/dashboards/project/instances/templates/instances/detach_interface.html:3
 msgid "Detach Interface"
 msgstr ""
 
-#: openstack_dashboard/dashboards/project/instances/tables.py:985
+#: openstack_dashboard/dashboards/project/instances/tables.py:984
 #, python-format
 msgid "%s GB"
 msgstr ""
 
-#: openstack_dashboard/dashboards/project/instances/tables.py:995
-#: openstack_dashboard/dashboards/project/instances/tables.py:1002
+#: openstack_dashboard/dashboards/project/instances/tables.py:994
+#: openstack_dashboard/dashboards/project/instances/tables.py:1001
 #: openstack_dashboard/dashboards/project/instances/views.py:412
 #: openstack_dashboard/dashboards/project/instances/templates/instances/_detail_overview.html:58
 #: openstack_dashboard/dashboards/project/instances/templates/instances/_detail_overview.html:90
 msgid "Not available"
 msgstr ""
 
-#: openstack_dashboard/dashboards/project/instances/tables.py:1010
+#: openstack_dashboard/dashboards/project/instances/tables.py:1009
 msgctxt "Current status of an Instance"
 msgid "Deleted"
 msgstr ""
 
-#: openstack_dashboard/dashboards/project/instances/tables.py:1011
+#: openstack_dashboard/dashboards/project/instances/tables.py:1010
 msgctxt "Current status of an Instance"
 msgid "Active"
 msgstr ""
 
-#: openstack_dashboard/dashboards/project/instances/tables.py:1012
+#: openstack_dashboard/dashboards/project/instances/tables.py:1011
 msgctxt "Current status of an Instance"
 msgid "Shutoff"
 msgstr ""
 
-#: openstack_dashboard/dashboards/project/instances/tables.py:1013
+#: openstack_dashboard/dashboards/project/instances/tables.py:1012
 msgctxt "Current status of an Instance"
 msgid "Suspended"
+msgstr ""
+
+#: openstack_dashboard/dashboards/project/instances/tables.py:1014
+msgctxt "Current status of an Instance"
+msgid "Paused"
 msgstr ""
 
 #: openstack_dashboard/dashboards/project/instances/tables.py:1015
 msgctxt "Current status of an Instance"
-msgid "Paused"
+msgid "Error"
 msgstr ""
 
 #: openstack_dashboard/dashboards/project/instances/tables.py:1016
 msgctxt "Current status of an Instance"
-msgid "Error"
-msgstr ""
-
-#: openstack_dashboard/dashboards/project/instances/tables.py:1017
-msgctxt "Current status of an Instance"
 msgid "Resize/Migrate"
 msgstr ""
 
-#: openstack_dashboard/dashboards/project/instances/tables.py:1019
+#: openstack_dashboard/dashboards/project/instances/tables.py:1018
 msgctxt "Current status of an Instance"
 msgid "Confirm or Revert Resize/Migrate"
 msgstr ""
 
-#: openstack_dashboard/dashboards/project/instances/tables.py:1021
+#: openstack_dashboard/dashboards/project/instances/tables.py:1020
 msgctxt "Current status of an Instance"
 msgid "Revert Resize/Migrate"
 msgstr ""
 
-#: openstack_dashboard/dashboards/project/instances/tables.py:1023
+#: openstack_dashboard/dashboards/project/instances/tables.py:1022
 msgctxt "Current status of an Instance"
 msgid "Reboot"
 msgstr ""
 
-#: openstack_dashboard/dashboards/project/instances/tables.py:1024
+#: openstack_dashboard/dashboards/project/instances/tables.py:1023
 msgctxt "Current status of an Instance"
 msgid "Hard Reboot"
 msgstr ""
 
-#: openstack_dashboard/dashboards/project/instances/tables.py:1026
+#: openstack_dashboard/dashboards/project/instances/tables.py:1025
 msgctxt "Current status of an Instance"
 msgid "Password"
 msgstr ""
 
-#: openstack_dashboard/dashboards/project/instances/tables.py:1027
+#: openstack_dashboard/dashboards/project/instances/tables.py:1026
 msgctxt "Current status of an Instance"
 msgid "Rebuild"
 msgstr ""
 
-#: openstack_dashboard/dashboards/project/instances/tables.py:1028
+#: openstack_dashboard/dashboards/project/instances/tables.py:1027
 msgctxt "Current status of an Instance"
 msgid "Migrating"
 msgstr ""
 
-#: openstack_dashboard/dashboards/project/instances/tables.py:1030
+#: openstack_dashboard/dashboards/project/instances/tables.py:1029
 msgctxt "Current status of an Instance"
 msgid "Build"
 msgstr ""
 
-#: openstack_dashboard/dashboards/project/instances/tables.py:1031
+#: openstack_dashboard/dashboards/project/instances/tables.py:1030
 msgctxt "Current status of an Instance"
 msgid "Rescue"
 msgstr ""
 
-#: openstack_dashboard/dashboards/project/instances/tables.py:1032
+#: openstack_dashboard/dashboards/project/instances/tables.py:1031
 msgctxt "Current status of an Instance"
 msgid "Soft Deleted"
 msgstr ""
 
-#: openstack_dashboard/dashboards/project/instances/tables.py:1034
+#: openstack_dashboard/dashboards/project/instances/tables.py:1033
 msgctxt "Current status of an Instance"
 msgid "Shelved"
 msgstr ""
 
-#: openstack_dashboard/dashboards/project/instances/tables.py:1035
+#: openstack_dashboard/dashboards/project/instances/tables.py:1034
 msgctxt "Current status of an Instance"
 msgid "Shelved Offloaded"
 msgstr ""
 
-#: openstack_dashboard/dashboards/project/instances/tables.py:1038
+#: openstack_dashboard/dashboards/project/instances/tables.py:1037
 msgctxt "Current status of an Instance"
 msgid "Building"
 msgstr ""
 
-#: openstack_dashboard/dashboards/project/instances/tables.py:1039
+#: openstack_dashboard/dashboards/project/instances/tables.py:1038
 msgctxt "Current status of an Instance"
 msgid "Stopped"
 msgstr ""
 
-#: openstack_dashboard/dashboards/project/instances/tables.py:1040
+#: openstack_dashboard/dashboards/project/instances/tables.py:1039
 msgctxt "Current status of an Instance"
 msgid "Rescued"
 msgstr ""
 
-#: openstack_dashboard/dashboards/project/instances/tables.py:1041
+#: openstack_dashboard/dashboards/project/instances/tables.py:1040
 msgctxt "Current status of an Instance"
 msgid "Resized"
 msgstr ""
 
-#: openstack_dashboard/dashboards/project/instances/tables.py:1044
+#: openstack_dashboard/dashboards/project/instances/tables.py:1043
 msgctxt "Task status of an Instance"
 msgid "None"
 msgstr ""
 
-#: openstack_dashboard/dashboards/project/instances/tables.py:1048
+#: openstack_dashboard/dashboards/project/instances/tables.py:1047
 msgctxt "Task status of an Instance"
 msgid "Scheduling"
 msgstr ""
 
-#: openstack_dashboard/dashboards/project/instances/tables.py:1050
+#: openstack_dashboard/dashboards/project/instances/tables.py:1049
 msgctxt "Task status of an Instance"
 msgid "Block Device Mapping"
 msgstr ""
 
-#: openstack_dashboard/dashboards/project/instances/tables.py:1052
+#: openstack_dashboard/dashboards/project/instances/tables.py:1051
 msgctxt "Task status of an Instance"
 msgid "Networking"
 msgstr ""
 
-#: openstack_dashboard/dashboards/project/instances/tables.py:1054
+#: openstack_dashboard/dashboards/project/instances/tables.py:1053
 msgctxt "Task status of an Instance"
 msgid "Spawning"
 msgstr ""
 
-#: openstack_dashboard/dashboards/project/instances/tables.py:1055
+#: openstack_dashboard/dashboards/project/instances/tables.py:1054
 msgctxt "Task status of an Instance"
 msgid "Snapshotting"
 msgstr ""
 
-#: openstack_dashboard/dashboards/project/instances/tables.py:1057
+#: openstack_dashboard/dashboards/project/instances/tables.py:1056
 msgctxt "Task status of an Instance"
 msgid "Image Snapshot Pending"
 msgstr ""
 
-#: openstack_dashboard/dashboards/project/instances/tables.py:1059
+#: openstack_dashboard/dashboards/project/instances/tables.py:1058
 msgctxt "Task status of an Instance"
 msgid "Image Pending Upload"
 msgstr ""
 
-#: openstack_dashboard/dashboards/project/instances/tables.py:1061
+#: openstack_dashboard/dashboards/project/instances/tables.py:1060
 msgctxt "Task status of an Instance"
 msgid "Image Uploading"
 msgstr ""
 
-#: openstack_dashboard/dashboards/project/instances/tables.py:1063
+#: openstack_dashboard/dashboards/project/instances/tables.py:1062
 msgctxt "Task status of an Instance"
 msgid "Image Backup"
 msgstr ""
 
-#: openstack_dashboard/dashboards/project/instances/tables.py:1065
+#: openstack_dashboard/dashboards/project/instances/tables.py:1064
 msgctxt "Task status of an Instance"
 msgid "Updating Password"
 msgstr ""
 
-#: openstack_dashboard/dashboards/project/instances/tables.py:1067
+#: openstack_dashboard/dashboards/project/instances/tables.py:1066
 msgctxt "Task status of an Instance"
 msgid "Preparing Resize or Migrate"
 msgstr ""
 
-#: openstack_dashboard/dashboards/project/instances/tables.py:1069
+#: openstack_dashboard/dashboards/project/instances/tables.py:1068
 msgctxt "Task status of an Instance"
 msgid "Resizing or Migrating"
 msgstr ""
 
-#: openstack_dashboard/dashboards/project/instances/tables.py:1071
+#: openstack_dashboard/dashboards/project/instances/tables.py:1070
 msgctxt "Task status of an Instance"
 msgid "Resized or Migrated"
 msgstr ""
 
-#: openstack_dashboard/dashboards/project/instances/tables.py:1073
+#: openstack_dashboard/dashboards/project/instances/tables.py:1072
 msgctxt "Task status of an Instance"
 msgid "Finishing Resize or Migrate"
 msgstr ""
 
-#: openstack_dashboard/dashboards/project/instances/tables.py:1075
+#: openstack_dashboard/dashboards/project/instances/tables.py:1074
 msgctxt "Task status of an Instance"
 msgid "Reverting Resize or Migrate"
 msgstr ""
 
-#: openstack_dashboard/dashboards/project/instances/tables.py:1077
+#: openstack_dashboard/dashboards/project/instances/tables.py:1076
 msgctxt "Task status of an Instance"
 msgid "Confirming Resize or Migrate"
 msgstr ""
 
-#: openstack_dashboard/dashboards/project/instances/tables.py:1079
+#: openstack_dashboard/dashboards/project/instances/tables.py:1078
 msgctxt "Task status of an Instance"
 msgid "Rebooting"
 msgstr ""
 
-#: openstack_dashboard/dashboards/project/instances/tables.py:1080
+#: openstack_dashboard/dashboards/project/instances/tables.py:1079
 msgctxt "Task status of an Instance"
 msgid "Reboot Pending"
 msgstr ""
 
-#: openstack_dashboard/dashboards/project/instances/tables.py:1082
+#: openstack_dashboard/dashboards/project/instances/tables.py:1081
 msgctxt "Task status of an Instance"
 msgid "Reboot Started"
 msgstr ""
 
-#: openstack_dashboard/dashboards/project/instances/tables.py:1084
+#: openstack_dashboard/dashboards/project/instances/tables.py:1083
 msgctxt "Task status of an Instance"
 msgid "Hard Rebooting"
 msgstr ""
 
-#: openstack_dashboard/dashboards/project/instances/tables.py:1086
+#: openstack_dashboard/dashboards/project/instances/tables.py:1085
 msgctxt "Task status of an Instance"
 msgid "Hard Reboot Pending"
 msgstr ""
 
-#: openstack_dashboard/dashboards/project/instances/tables.py:1088
+#: openstack_dashboard/dashboards/project/instances/tables.py:1087
 msgctxt "Task status of an Instance"
 msgid "Hard Reboot Started"
 msgstr ""
 
-#: openstack_dashboard/dashboards/project/instances/tables.py:1090
+#: openstack_dashboard/dashboards/project/instances/tables.py:1089
 msgctxt "Task status of an Instance"
 msgid "Pausing"
 msgstr ""
 
-#: openstack_dashboard/dashboards/project/instances/tables.py:1091
-#: openstack_dashboard/dashboards/project/instances/tables.py:1094
+#: openstack_dashboard/dashboards/project/instances/tables.py:1090
+#: openstack_dashboard/dashboards/project/instances/tables.py:1093
 msgctxt "Task status of an Instance"
 msgid "Resuming"
 msgstr ""
 
-#: openstack_dashboard/dashboards/project/instances/tables.py:1092
+#: openstack_dashboard/dashboards/project/instances/tables.py:1091
 msgctxt "Task status of an Instance"
 msgid "Suspending"
 msgstr ""
 
-#: openstack_dashboard/dashboards/project/instances/tables.py:1095
+#: openstack_dashboard/dashboards/project/instances/tables.py:1094
 msgctxt "Task status of an Instance"
 msgid "Powering Off"
 msgstr ""
 
-#: openstack_dashboard/dashboards/project/instances/tables.py:1097
+#: openstack_dashboard/dashboards/project/instances/tables.py:1096
 msgctxt "Task status of an Instance"
 msgid "Powering On"
 msgstr ""
 
-#: openstack_dashboard/dashboards/project/instances/tables.py:1099
+#: openstack_dashboard/dashboards/project/instances/tables.py:1098
 msgctxt "Task status of an Instance"
 msgid "Rescuing"
 msgstr ""
 
-#: openstack_dashboard/dashboards/project/instances/tables.py:1100
+#: openstack_dashboard/dashboards/project/instances/tables.py:1099
 msgctxt "Task status of an Instance"
 msgid "Unrescuing"
 msgstr ""
 
-#: openstack_dashboard/dashboards/project/instances/tables.py:1102
+#: openstack_dashboard/dashboards/project/instances/tables.py:1101
 msgctxt "Task status of an Instance"
 msgid "Rebuilding"
 msgstr ""
 
-#: openstack_dashboard/dashboards/project/instances/tables.py:1104
+#: openstack_dashboard/dashboards/project/instances/tables.py:1103
 msgctxt "Task status of an Instance"
 msgid "Rebuild Block Device Mapping"
 msgstr ""
 
-#: openstack_dashboard/dashboards/project/instances/tables.py:1106
+#: openstack_dashboard/dashboards/project/instances/tables.py:1105
 msgctxt "Task status of an Instance"
 msgid "Rebuild Spawning"
 msgstr ""
 
-#: openstack_dashboard/dashboards/project/instances/tables.py:1108
+#: openstack_dashboard/dashboards/project/instances/tables.py:1107
 msgctxt "Task status of an Instance"
 msgid "Migrating"
 msgstr ""
 
-#: openstack_dashboard/dashboards/project/instances/tables.py:1109
+#: openstack_dashboard/dashboards/project/instances/tables.py:1108
 msgctxt "Task status of an Instance"
 msgid "Deleting"
 msgstr ""
 
-#: openstack_dashboard/dashboards/project/instances/tables.py:1110
+#: openstack_dashboard/dashboards/project/instances/tables.py:1109
 msgctxt "Task status of an Instance"
 msgid "Soft Deleting"
 msgstr ""
 
-#: openstack_dashboard/dashboards/project/instances/tables.py:1112
+#: openstack_dashboard/dashboards/project/instances/tables.py:1111
 msgctxt "Task status of an Instance"
 msgid "Restoring"
 msgstr ""
 
-#: openstack_dashboard/dashboards/project/instances/tables.py:1113
+#: openstack_dashboard/dashboards/project/instances/tables.py:1112
 msgctxt "Task status of an Instance"
 msgid "Shelving"
 msgstr ""
 
-#: openstack_dashboard/dashboards/project/instances/tables.py:1114
+#: openstack_dashboard/dashboards/project/instances/tables.py:1113
 msgctxt "Task status of an Instance"
 msgid "Shelving Image Pending Upload"
 msgstr ""
 
-#: openstack_dashboard/dashboards/project/instances/tables.py:1116
+#: openstack_dashboard/dashboards/project/instances/tables.py:1115
 msgctxt "Task status of an Instance"
 msgid "Shelving Image Uploading"
 msgstr ""
 
-#: openstack_dashboard/dashboards/project/instances/tables.py:1118
+#: openstack_dashboard/dashboards/project/instances/tables.py:1117
 msgctxt "Task status of an Instance"
 msgid "Shelving Offloading"
 msgstr ""
 
-#: openstack_dashboard/dashboards/project/instances/tables.py:1120
+#: openstack_dashboard/dashboards/project/instances/tables.py:1119
 msgctxt "Task status of an Instance"
 msgid "Unshelving"
 msgstr ""
 
-#: openstack_dashboard/dashboards/project/instances/tables.py:1125
+#: openstack_dashboard/dashboards/project/instances/tables.py:1124
 msgctxt "Power state of an Instance"
 msgid "No State"
 msgstr ""
 
-#: openstack_dashboard/dashboards/project/instances/tables.py:1126
+#: openstack_dashboard/dashboards/project/instances/tables.py:1125
 msgctxt "Power state of an Instance"
 msgid "Running"
 msgstr ""
 
-#: openstack_dashboard/dashboards/project/instances/tables.py:1127
+#: openstack_dashboard/dashboards/project/instances/tables.py:1126
 msgctxt "Power state of an Instance"
 msgid "Blocked"
 msgstr ""
 
-#: openstack_dashboard/dashboards/project/instances/tables.py:1128
+#: openstack_dashboard/dashboards/project/instances/tables.py:1127
 msgctxt "Power state of an Instance"
 msgid "Paused"
 msgstr ""
 
-#: openstack_dashboard/dashboards/project/instances/tables.py:1129
+#: openstack_dashboard/dashboards/project/instances/tables.py:1128
 msgctxt "Power state of an Instance"
 msgid "Shut Down"
 msgstr ""
 
-#: openstack_dashboard/dashboards/project/instances/tables.py:1130
+#: openstack_dashboard/dashboards/project/instances/tables.py:1129
 msgctxt "Power state of an Instance"
 msgid "Shut Off"
 msgstr ""
 
-#: openstack_dashboard/dashboards/project/instances/tables.py:1131
+#: openstack_dashboard/dashboards/project/instances/tables.py:1130
 msgctxt "Power state of an Instance"
 msgid "Crashed"
 msgstr ""
 
-#: openstack_dashboard/dashboards/project/instances/tables.py:1132
+#: openstack_dashboard/dashboards/project/instances/tables.py:1131
 msgctxt "Power state of an Instance"
 msgid "Suspended"
 msgstr ""
 
-#: openstack_dashboard/dashboards/project/instances/tables.py:1133
+#: openstack_dashboard/dashboards/project/instances/tables.py:1132
 msgctxt "Power state of an Instance"
 msgid "Failed"
 msgstr ""
 
-#: openstack_dashboard/dashboards/project/instances/tables.py:1134
+#: openstack_dashboard/dashboards/project/instances/tables.py:1133
 msgctxt "Power state of an Instance"
 msgid "Building"
 msgstr ""
 
-#: openstack_dashboard/dashboards/project/instances/tables.py:1140
+#: openstack_dashboard/dashboards/project/instances/tables.py:1139
 msgid "Instance Name ="
 msgstr ""
 
-#: openstack_dashboard/dashboards/project/instances/tables.py:1170
+#: openstack_dashboard/dashboards/project/instances/tables.py:1169
 #: openstack_dashboard/dashboards/project/instances/workflows/create_instance.py:540
 msgid "Key Pair"
 msgstr ""

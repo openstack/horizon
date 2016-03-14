@@ -13,17 +13,18 @@
 # Denis Gubanov <v12aml@gmail.com>, 2016. #zanata
 # Fedor Tarasenko <feodor.tarasenko@gmail.com>, 2016. #zanata
 # Grigory Mokhin <mokhin@gmail.com>, 2016. #zanata
+# Ilya Alekseyev <ilyaalekseyev@acm.org>, 2016. #zanata
 # Nikolay Milekhin <rusmil01@ru.ibm.com>, 2016. #zanata
 msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2016-03-09 05:39+0000\n"
+"POT-Creation-Date: 2016-03-13 13:11+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2016-03-04 02:08+0000\n"
-"Last-Translator: Grigory Mokhin <mokhin@gmail.com>\n"
+"PO-Revision-Date: 2016-03-10 05:59+0000\n"
+"Last-Translator: Ilya Alekseyev <ilyaalekseyev@acm.org>\n"
 "Language: ru\n"
 "Plural-Forms: nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
 "%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || (n"
@@ -96,6 +97,11 @@ msgstr ""
 "<li><b>Снимок инстанса</b>: Данная опция использует снимок инстанса для его "
 "загрузки.</li>"
 
+msgid "<small>This line of text is meant to be treated as fine print.</small>"
+msgstr ""
+"<small>Это строка текста предназначена для демонстрации мелкого шрифта</"
+"small>"
+
 msgid ""
 "A floating IP allows instances to be addressable from an external network.\n"
 "    Floating IPs are not allocated to instances at creation time and may be "
@@ -142,6 +148,9 @@ msgstr ""
 msgid "A name is required for your instance."
 msgstr "Требуется указать имя инстанса."
 
+msgid "Access"
+msgstr "Доступ"
+
 msgid "Action"
 msgstr "Действие"
 
@@ -183,6 +192,11 @@ msgstr ""
 "    Вы можете использовать раздел <b>Сетевая топология</b> чтобы подключить "
 "маршрутизатор к двум сетям."
 
+msgid "An abbreviation of the word attribute is <abbr>attr</abbr>."
+msgstr ""
+"Аббревиатура словосочетания \"теория функций компле́ксной переменной\" это "
+"<abbr>ТФКП</abbr>."
+
 msgid ""
 "An advanced option available when launching an instance is disk "
 "partitioning. There are two disk partition options. Selecting <b>Automatic</"
@@ -212,6 +226,12 @@ msgstr "Зона доступности"
 
 msgid "Basic panel"
 msgstr "Основная панель"
+
+msgid "Block level button"
+msgstr "Кнопка уровня блока"
+
+msgid "Blockquotes"
+msgstr "Цитаты"
 
 msgid "Brand"
 msgstr "Бренд"
@@ -258,6 +278,9 @@ msgstr "Заголовок столбца"
 
 msgid "Configuration"
 msgstr "Конфигурация"
+
+msgid "Containers"
+msgstr "Контейнеры"
 
 msgid ""
 "Count\n"
@@ -323,6 +346,9 @@ msgstr "Подробности"
 msgid "Device Name"
 msgstr "Имя устройства"
 
+msgid "Dialogs"
+msgstr "Диалоги"
+
 msgid "Direction"
 msgstr "Направление"
 
@@ -335,6 +361,9 @@ msgstr "ID домена"
 msgid "Down"
 msgstr "Выключен"
 
+msgid "Dropdown"
+msgstr "Выпадающий список"
+
 msgid "Dropdown header"
 msgstr "Выпадающий заголовок"
 
@@ -343,6 +372,9 @@ msgstr "Выпадающая ссылка"
 
 msgid "Email"
 msgstr "E-mail"
+
+msgid "Emphasis classes"
+msgstr "Выразительные классы"
 
 msgid "Enabled"
 msgstr "Включено"
@@ -381,6 +413,9 @@ msgstr ""
 
 msgid "Format"
 msgstr "Формат"
+
+msgid "Forms"
+msgstr "Формы"
 
 msgid ""
 "From a Windows system, you can use PuTTYGen to create private/public keys.\n"
@@ -471,6 +506,9 @@ msgstr "Влияние на квоту"
 msgid "Import Key Pair"
 msgstr "Импортировать пару ключей"
 
+msgid "Indicators"
+msgstr "Индикаторы"
+
 msgid "Info"
 msgstr "Информация"
 
@@ -529,6 +567,9 @@ msgstr "Узнать больше"
 msgid "Left"
 msgstr "Слева"
 
+msgid "Legend"
+msgstr "Легенда"
+
 msgid "Library"
 msgstr "Библиотека"
 
@@ -574,6 +615,9 @@ msgstr "Название"
 msgid "Navbar"
 msgstr "Панель навигации"
 
+msgid "Navs"
+msgstr "Элементы навигации"
+
 msgid "Network"
 msgstr "Сеть"
 
@@ -597,6 +641,9 @@ msgstr "Внимание: позднее загрузка будет недос�
 
 msgid "Number"
 msgstr "Число"
+
+msgid "Object Count"
+msgstr "Количество объектов"
 
 msgid "One more separated link"
 msgstr "Ещё одна отдельная ссылка"
@@ -636,6 +683,9 @@ msgstr "Частный"
 
 msgid "Profile"
 msgstr "Профиль"
+
+msgid "Progress bars"
+msgstr "Индикаторы прогресса"
 
 msgid "Project"
 msgstr "Проект"
@@ -793,6 +843,9 @@ msgstr "Источник"
 msgid "Source Code"
 msgstr "Исходный код"
 
+msgid "Source Title"
+msgstr "Заголовок источника"
+
 msgid "Standard Table"
 msgstr "Стандартная таблица"
 
@@ -814,6 +867,9 @@ msgstr "Успешно импортирована связка ключей %(na
 
 msgid "Swap Disk"
 msgstr "Диск подкачки"
+
+msgid "Tables"
+msgstr "Таблицы"
 
 msgid "Tel"
 msgstr "Тел."

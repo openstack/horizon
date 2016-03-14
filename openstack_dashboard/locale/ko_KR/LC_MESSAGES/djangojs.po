@@ -6,17 +6,18 @@
 # Ian Y. Choi <ianyrchoi@gmail.com>, 2015
 # Sungjin Kang <potopro@gmail.com>, 2015
 # Sungjin Kang <gang.sungjin@gmail.com>, 2015. #zanata
+# Ian Y. Choi <ianyrchoi@gmail.com>, 2016. #zanata
 # Sungjin Kang <gang.sungjin@gmail.com>, 2016. #zanata
 # Sunhong Kim <intensify7@naver.com>, 2016. #zanata
 msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2016-03-09 05:39+0000\n"
+"POT-Creation-Date: 2016-03-13 13:11+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2016-02-26 08:35+0000\n"
+"PO-Revision-Date: 2016-03-13 03:28+0000\n"
 "Last-Translator: Sungjin Kang <gang.sungjin@gmail.com>\n"
 "Language: ko-KR\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
@@ -94,14 +95,22 @@ msgstr ""
 "          You successfully read\n"
 "          <a>this important alert message</a>."
 
-#, fuzzy
+msgid ""
+"<input>\n"
+"        Configuration Drive\n"
+"      </input>"
+msgstr ""
+"<input>\n"
+"        드라이버 구성\n"
+"      </input>"
+
 msgid ""
 "<li><b>Image (with Create New Volume checked)</b>: This options uses an "
 "image to boot the instance, and creates a new volume to persist instance "
 "data. You can specify volume size and whether to delete the volume on "
 "deletion of the instance.</li>"
 msgstr ""
-"<li><b>이미지 (새 볼륨 생성 체크 포함)</b>: 이 옵션을 인스턴스를 부팅하는데 "
+"<li><b>이미지 (새 볼륨 생성 체크 포함)</b>: 이 옵션은 인스턴스를 부팅하는데 "
 "이미지를 사용하고, 인스턴스 데이터를 영구보존하기 위한 새로운 볼륨을 생성합니"
 "다. 볼륨 크기와 인스턴스 삭제시 해당 볼륨을 삭제할 것인지를 선택할 수 있습니"
 "다.</li>"
@@ -118,26 +127,24 @@ msgstr ""
 "<li><b>인스턴스 스냅샷</b>:이 옵션은 인스턴스를 부팅하기 위해 인스턴스 스냅샷"
 "을 사용합니다.</li>"
 
-#, fuzzy
 msgid ""
 "<li><b>Volume Snapshot</b>: This option uses a volume snapshot to boot the "
 "instance, and creates a new volume to persist instance data. You can choose "
 "to delete the volume on deletion of the instance.</li>"
 msgstr ""
 "<li><b>볼륨 스냅샷</b>: 이 옵션은 인스턴스를 부팅하는데 볼륨 스냅샷을 사용하"
-"고, 인스턴스 데이터를 영구보존하기 위한 새로운 볼륨을 생성합니다. 인스턴스 삭"
+"고, 인스턴스 데이터를 영구 보존하기위한 새로운 볼륨을 생성합니다. 인스턴스 삭"
 "제시 해당 볼륨을 삭제하도록 선택할 수 있습니다.</li>"
 
-#, fuzzy
 msgid ""
 "<li><b>Volume</b>: This option uses a volume that already exists. It does "
 "not create a new volume. You can choose to delete the volume on deletion of "
 "the instance. <em>Note: when selecting Volume, you can only launch one "
 "instance.</em></li>"
 msgstr ""
-"<li><b>볼륨</b>: 이 옵션은 이미 존재하는 볼륨을 사용합니다. 새로운 볼륨을 생"
-"성하지 않습니다. 인스턴스 삭제시 해당 볼륨을 삭제하도록 선택할 수 있습니다. "
-"<em>노트: 볼륨 선택시, 인스턴스 하나에서만 구동할 수 있습니다.</em></li>"
+"<li><b>볼륨</b>: 이 옵션은 이미 존재하는 볼륨을 사용합니다. 새 볼륨을 생성하"
+"지 않습니다. 인스턴스 삭제시 해당 볼륨을 삭제하게 선택할 수 있습니다. <em>노"
+"트: 볼륨 선택시 인스턴스 하나에서만 구동할 수 있습니다.</em></li>"
 
 msgid "<small>This line of text is meant to be treated as fine print.</small>"
 msgstr "<small>This line of text is meant to be treated as fine print.</small>"
@@ -157,6 +164,14 @@ msgstr ""
 "    생성된 후 할당이 가능합니다. 유동 IP 할당은 <b>인스턴스</b> 뷰로 \n"
 "    이동하여, 각 인스턴스의 오른쪽에 있는 <b>작업</b> 메뉴를 클릭합니다. \n"
 "    그런뒤 <b>유동 IP 할당</b> 옵션을 선택하여 필요한 정보를 입력합니다."
+
+msgid ""
+"A key pair allows you to SSH into your newly created instance.\n"
+"    You may select an existing key pair, import a key pair, or generate a "
+"new key pair."
+msgstr ""
+"키 페어는 새롭게 생성한 인스턴스에 SSH를 이용하여 접근할 수 있습니다.\n"
+"    기존 키 페어를 가져오거나 새로운 키 페어를 생성하여 선택할 수 있습니다."
 
 msgid ""
 "A key pair named '{$ctrl.createdKeypair.name$}' was successfully created. "
@@ -184,8 +199,14 @@ msgstr "AMI"
 msgid "ARI"
 msgstr "ARI"
 
+msgid "Access"
+msgstr "액세스"
+
 msgid "Action"
 msgstr "Action"
+
+msgid "Actions"
+msgstr "작업"
 
 msgid "Active"
 msgstr "Active"
@@ -253,6 +274,9 @@ msgstr "Animated"
 msgid "Another action"
 msgstr "Another action"
 
+msgid "Architecture"
+msgstr "아키텍처"
+
 msgid "Automatic"
 msgstr "자동"
 
@@ -313,6 +337,9 @@ msgstr ""
 "크박스를 선택합니다. 인스턴스가 부팅될 때, 선택된 해당  <b>드라이브 구성</b>"
 "에 붙어 메타데이터를 액세스합니다."
 
+msgid "Checkbox"
+msgstr "체크박스"
+
 msgid "Checksum"
 msgstr "Checksum"
 
@@ -347,6 +374,13 @@ msgstr "Containers"
 msgid "Contextual alternatives"
 msgstr "Contextual alternatives"
 
+msgid ""
+"Count\n"
+"          <span></span>"
+msgstr ""
+"개수\n"
+"          <span></span>"
+
 msgid "Create Key Pair"
 msgstr "캐 페어 생성"
 
@@ -361,6 +395,9 @@ msgstr "볼륨 생성"
 
 msgid "Created"
 msgstr "생성 완료"
+
+msgid "Created At"
+msgstr "생성 시점"
 
 msgid "Created keypair: "
 msgstr "키 페어 생성:"
@@ -380,6 +417,18 @@ msgstr ""
 "사용자 스크립트는 인스턴스 구동 시 연결되어 특정 작업을 진행합니다. 예를 들"
 "어, 게스트 OS에 <samp>cloud-init</samp>를 설치하지 않았을 경우, 사용자 스크립"
 "트를 이용하여 공개키를 가져오고, 새로운 사용자를 등록할 수 있습니다."
+
+msgid "DNS Domain"
+msgstr "DNS 도메인"
+
+msgid "DNS Domains"
+msgstr "DNS 도메인"
+
+msgid "DNS Record"
+msgstr "DNS 레코드"
+
+msgid "DNS Records"
+msgstr "DNS 레코드"
 
 msgid "Danger"
 msgstr "Danger"
@@ -447,6 +496,9 @@ msgstr "Disabled"
 msgid "Disabled input"
 msgstr "Disabled input"
 
+msgid "Disabled input here..."
+msgstr "여기 입력을 비활성..."
+
 msgid "Disk Format"
 msgstr "디스크 포멧"
 
@@ -461,6 +513,9 @@ msgstr "도메인 ID"
 
 msgid "Down"
 msgstr "Down"
+
+msgid "Dropdown"
+msgstr "드롭다운"
 
 msgid "Dropdown header"
 msgstr "Dropdown header"
@@ -513,6 +568,9 @@ msgstr "Flavor"
 
 msgid "Flavor Name"
 msgstr "Flavor 이름"
+
+msgid "Flavors"
+msgstr "Flavor"
 
 msgid ""
 "Flavors manage the sizing for the compute, memory and storage capacity of "
@@ -590,6 +648,10 @@ msgstr ""
 "난 뒤 매우 제한적인 접근만 가능합니다. VNC 콘솔을 통한 인스턴스 접근만 허용됩"
 "니다."
 
+msgid "If not, you can manually dowload this keypair at the following link:"
+msgstr ""
+"자동으로 다운로드가 안되면 다음의 링크를 이용하여 키 페어를 다운받으십시오:"
+
 msgid ""
 "If you select an availability zone and plan to use the 'boot from volume' "
 "option in the Source step, make sure that the availability zone you select "
@@ -656,6 +718,13 @@ msgstr "Input success"
 msgid "Input warning"
 msgstr "Input warning"
 
+msgid ""
+"Instance Name\n"
+"          <span></span>"
+msgstr ""
+"인스턴스 이름\n"
+"          <span></span>"
+
 msgid "Instance Snapshot"
 msgstr "인스턴스 스냅샷"
 
@@ -678,8 +747,40 @@ msgstr "사용자 정보를 볼 수 있는 권한이 없습니다."
 msgid "Jumbotron"
 msgstr "Jumbotron"
 
+msgid "Kernel ID"
+msgstr "커널 ID"
+
 msgid "Key Pair"
 msgstr "키 페어"
+
+msgid ""
+"Key Pair Name\n"
+"        <span></span>"
+msgstr ""
+"키 페어 이름\n"
+"        <span></span>"
+
+msgid "Key Pairs"
+msgstr "키 페어"
+
+msgid ""
+"Key Pairs are how you login to your instance after it is launched.\n"
+"      Choose a key pair name you will recognize and paste your SSH public "
+"key into the\n"
+"      space provided."
+msgstr ""
+"키 페어는 인터페이스가 시작한 후 로그인하는데 사용됩니다.\n"
+"      선택한 SSH 공개 키를 붙여넣습니다. 키 페어 이름을 선택하세요.\n"
+"      공백 사용 가능합니다."
+
+msgid ""
+"Key Pairs are how you login to your instance after it is launched.\n"
+"      Choose a key pair name you will recognize.\n"
+"      Names may only include alphanumeric characters, spaces, or dashes."
+msgstr ""
+"키 페어는 인스턴스가 실행되었을때 로그인할 수 있는 방법입니다.\n"
+"      인증에 사용할 키 쌍 이름을 선택합니다.\n"
+"      이름에는 알파벳, 숫자, 공백, 대시를 포함할 수 있습니다."
 
 msgid "Keypair already exists or name contains bad characters."
 msgstr "키 페어가 이미 있거나 이름에 잘못된 문자가 포함되어 있습니다."
@@ -720,6 +821,18 @@ msgstr "List group item heading"
 msgid "List groups"
 msgstr "List groups"
 
+msgid "Load Balancer Pool"
+msgstr "로드 밸런서 풀"
+
+msgid "Load Balancer Pool Member"
+msgstr "로드 밸런서 풀 구성원"
+
+msgid "Load Balancer Pool Members"
+msgstr "로드 밸런서 풀 구성원"
+
+msgid "Load Balancer Pools"
+msgstr "로드 밸런서 풀"
+
 msgid "Loading"
 msgstr "불러 오는 중"
 
@@ -738,8 +851,20 @@ msgstr "수동"
 msgid "Max Port"
 msgstr "최대 포트번호"
 
+msgid "Members"
+msgstr "구성원"
+
+msgid "Messages"
+msgstr "메시지"
+
 msgid "Metadata"
 msgstr "메타데이터"
+
+msgid "Metadata Definition"
+msgstr "메타데이터 정의"
+
+msgid "Metadata Definitions"
+msgstr "메타데이터 정의"
 
 msgid "Middle"
 msgstr "Middle"
@@ -789,6 +914,30 @@ msgstr "Navs"
 msgid "Network"
 msgstr "네트워크"
 
+msgid "Network Health Monitor"
+msgstr "네트워크 상태 모니터"
+
+msgid "Network Health Monitors"
+msgstr "네트워크 상태 모니터"
+
+msgid "Network Port"
+msgstr "네트워크 포트"
+
+msgid "Network Ports"
+msgstr "네트워크 포트"
+
+msgid "Network Router"
+msgstr "네트워크 라우터"
+
+msgid "Network Routers"
+msgstr "네트워크 라우터"
+
+msgid "Network Subnet"
+msgstr "네트워크 서브넷"
+
+msgid "Network Subnets"
+msgstr "네트워크 서브넷"
+
 msgid "Network characteristics"
 msgstr "네트워크 특징"
 
@@ -797,6 +946,9 @@ msgstr "네트워크"
 
 msgid "Networks provide the communication channels for instances in the cloud."
 msgstr "네트워크는 클라우드 내 인스턴스에 대한 통신 채널을 제공합니다."
+
+msgid "Newer"
+msgstr "Newer"
 
 msgid "Next"
 msgstr "Next"
@@ -816,17 +968,50 @@ msgstr "Number"
 msgid "OVA"
 msgstr "OVA"
 
+msgid "Object"
+msgstr "오브젝트"
+
+msgid "Object Account"
+msgstr "오브젝트 Account"
+
+msgid "Object Accounts"
+msgstr "오브젝트 Accounts"
+
+msgid "Object Container"
+msgstr "오브젝트 컨테이너"
+
+msgid "Object Containers"
+msgstr "오브젝트 컨테이너들"
+
+msgid "Object Count"
+msgstr "오브젝트 카운트"
+
+msgid "Objects"
+msgstr "오브젝트들"
+
+msgid "Older"
+msgstr "Older"
+
 msgid "One fine body…"
 msgstr "One fine body…"
 
 msgid "One more separated link"
 msgstr "One more separated link"
 
+msgid "Option one is this"
+msgstr "옵션 1 입니다"
+
+msgid "Option two can be something else"
+msgstr "옵션 2는 다른 것을 할 수 있습니다"
+
 msgid "Other Input Types"
 msgstr "Other Input Types"
 
 msgid "Overview"
 msgstr "개요"
+
+msgid "Owner"
+msgstr "소유자"
 
 msgid "Pager"
 msgstr "Pager"
@@ -872,6 +1057,14 @@ msgstr "물리 네트워크"
 
 msgid "Pills"
 msgstr "Pills"
+
+msgid ""
+"Please provide the initial hostname for the instance, the availability zone "
+"where it will be deployed, and the instance count.\n"
+"    Increase the Count to create multiple instances with the same settings."
+msgstr ""
+"인스턴스 초기 호스트 이름, 배포할 가용 구역, 인스턴스 수를 입력하십시오.\n"
+"    동일한 설정으로 여러 인스턴스를 생성하려는 수를 입력하면 됩니다."
 
 msgid "Please try again."
 msgstr "다시 시도해주세요."
@@ -932,6 +1125,13 @@ msgstr "공용"
 msgid "Public Key"
 msgstr "공개 키"
 
+msgid ""
+"Public Key\n"
+"        <span></span>"
+msgstr ""
+"공개키\n"
+"        <span></span>"
+
 msgid "QCOW2"
 msgstr "QCOW2"
 
@@ -944,8 +1144,14 @@ msgstr "RAM"
 msgid "RAW"
 msgstr "RAW"
 
+msgid "RX/TX factor"
+msgstr "RX/TX 요인"
+
 msgid "Radios"
 msgstr "Radios"
+
+msgid "Ramdisk ID"
+msgstr "램디스크 ID"
 
 msgid "Re-order items using drag and drop"
 msgstr "다시 주문할 아이템은 드래그 앤 드롭으로 가져옵니다."
@@ -1005,6 +1211,9 @@ msgstr "구분 ID"
 msgid "Select Boot Source"
 msgstr "부팅 소스 선택"
 
+msgid "Select a container to browse."
+msgstr "보여줄 컨테이너를 선택합니다."
+
 msgid "Select a key pair from the available key pairs below."
 msgstr "아래에서 사용 가능한 키 페어 중 하나를 선택합니다."
 
@@ -1032,11 +1241,20 @@ msgstr "하나 이상 선택"
 msgid "Select one or more security groups from the available groups below."
 msgstr "아래 사용가능한 그룹에서 하나 이상의 시큐리티 그룹을 선택합니다."
 
+msgid "Select the security groups to launch the instance in."
+msgstr "인스턴스 작동시 시큐리티 그룹을 선택합니다."
+
 msgid "Selects"
 msgstr "Selects"
 
 msgid "Separated link"
 msgstr "Separated link"
+
+msgid "Server"
+msgstr "서버"
+
+msgid "Servers"
+msgstr "서버"
 
 #, python-format
 msgid "Service type is not enabled: %(desiredType)s"
@@ -1067,6 +1285,9 @@ msgstr "Small input"
 msgid "Snapshot"
 msgstr "스냅샷"
 
+msgid "Someone famous in"
+msgstr "어떤 것으로 유명한"
+
 msgid "Something else here"
 msgstr "Something else here"
 
@@ -1075,6 +1296,9 @@ msgstr "소스"
 
 msgid "Source Code"
 msgstr "Source Code"
+
+msgid "Source Title"
+msgstr "소스 제목"
 
 msgid "Stacked"
 msgstr "Stacked"
@@ -1109,6 +1333,9 @@ msgstr "Tables"
 
 msgid "Tabs"
 msgstr "Tabs"
+
+msgid "Tags"
+msgstr "태그"
 
 msgid "Tel"
 msgstr "Tel"
@@ -1227,6 +1454,9 @@ msgstr ""
 "This is a simple hero unit, a simple jumbotron-style component for calling "
 "extra attention to featured content or information."
 
+msgid "This is focused..."
+msgstr "이걸 집중해서..."
+
 msgid "This limit is currently not set."
 msgstr "제한 값이 현재 설정되지 않았습니다."
 
@@ -1234,8 +1464,14 @@ msgid "This limit is currently set to {$ model.novaLimits.maxServerMeta $}."
 msgstr ""
 "이 제한 값은 현재 {$ model.novaLimits.maxServerMeta $} 에 설정되어있습니다."
 
+msgid "This step allows you to add Metadata items to your instance."
+msgstr "이 단계에서 인스턴스에 메타데이터 항목을 추가할 수 있습니다."
+
 msgid "Time"
 msgstr "Time"
+
+msgid "Timestamp"
+msgstr "타임스탬프"
 
 msgid ""
 "To view source code, hover over a section, then click the <a><span></span></"
@@ -1283,11 +1519,23 @@ msgstr "새로운 유동 IP 주소를 할당할 수 없습니다."
 msgid "Unable to associate floating IP address."
 msgstr "유동 IP 주소를 연결 할 수 없습니다."
 
+msgid "Unable to change the container access."
+msgstr "컨테이너 접속을 변경할 수 없습니다."
+
+msgid "Unable to copy the object."
+msgstr "오브젝트를 복사 할 수 없습니다."
+
+msgid "Unable to create the container."
+msgstr "컨테이너를 생성할 수 없습니다."
+
 msgid "Unable to create the domain."
 msgstr "도메인을 생성하지 못했습니다."
 
 msgid "Unable to create the flavor."
 msgstr "Flavor 생성을 할 수 없습니다."
+
+msgid "Unable to create the folder."
+msgstr "폴더를 생성 할 수 없습니다."
 
 msgid "Unable to create the image."
 msgstr "이미지를 생성하지 못했습니다."
@@ -1321,15 +1569,28 @@ msgid "Unable to delete Image: %s."
 msgid_plural "Unable to delete Images: %s."
 msgstr[0] "이미지를 삭제할 수 없습니다: %s."
 
+msgid "Unable to delete the container."
+msgstr "컨테이너를 삭제할 수 없습니다."
+
 msgid "Unable to delete the domain."
 msgstr "도메인을 삭제하지 못했습니다."
 
 msgid "Unable to delete the domains."
 msgstr "도메인을 삭제하지 못했습니다."
 
-#, fuzzy, python-format
+#, python-format
+msgid "Unable to delete the flavor with id: %(id)s"
+msgstr "ID가 %(id)s인 flavor를 삭제할 수 없습니다"
+
+msgid "Unable to delete the folder because it is not empty."
+msgstr "비어있지 않은 폴더는 삭제 할 수 없습니다."
+
+#, python-format
 msgid "Unable to delete the image with id: %(id)s"
-msgstr "ID가 %(id)s인 이미지를 삭제 할 수 없습니다."
+msgstr "ID가 %(id)s인 이미지를 삭제할 수 없습니다"
+
+msgid "Unable to delete the object."
+msgstr "오브젝트를 삭제 할 수 없습니다."
 
 msgid "Unable to delete the project."
 msgstr "프로젝트를 삭제하지 못했습니다."
@@ -1385,11 +1646,26 @@ msgstr "서비스를 가져오지 못했습니다."
 msgid "Unable to generate"
 msgstr "Generate를 사용할 수 없습니다"
 
+msgid "Unable to get details of the object."
+msgstr "오브젝트에 대한 자세한 정보를 가져올 수 없습니다."
+
 msgid "Unable to get the Glance service version."
 msgstr "Glance 서비스 버전을 가져올 수 없습니다."
 
 msgid "Unable to get the Keystone service version."
 msgstr "Keystone 서비스 버전을 가져올 수 없습니다."
+
+msgid "Unable to get the Swift container listing."
+msgstr "Swift 컨테이너 목록을 가져올 수 없습니다."
+
+msgid "Unable to get the Swift service info."
+msgstr "Swift 서버 정보를 가져올 수 없습니다."
+
+msgid "Unable to get the container details."
+msgstr "컨테이너에 대한 자세한 정보를 가져올 수 없습니다."
+
+msgid "Unable to get the objects in container."
+msgstr "컨테이너 내의 오브젝트를 가져올 수 없습니다."
 
 msgid "Unable to grant the role."
 msgstr "역할을 부여하지 못했습니다."
@@ -1535,6 +1811,9 @@ msgstr "Flavor 업데이트를 할 수 없습니다."
 msgid "Unable to update the image."
 msgstr "이미지를 업데이트하지 못했습니다."
 
+msgid "Unable to upload the object."
+msgstr "오브젝트를 업로드 할 수 없습니다."
+
 msgid "Unable to validate the template."
 msgstr "템플릿 유효성을 확인할 수 없습니다."
 
@@ -1561,6 +1840,9 @@ msgstr "메타데이터 업데이트"
 
 msgid "Updated"
 msgstr "업데이트 완료"
+
+msgid "Updated At"
+msgstr "갱신 시점"
 
 msgid "Url"
 msgstr "Url"
@@ -1589,6 +1871,9 @@ msgstr "VHD"
 msgid "VMDK"
 msgstr "VMDK"
 
+msgid "Virtual Size"
+msgstr "가상 크기"
+
 msgid "Visibility"
 msgstr "가시성"
 
@@ -1599,13 +1884,29 @@ msgstr "볼륨"
 msgid "Volume %s was successfully created."
 msgstr "볼륨 %s를 성공적으로 생성하였습니다."
 
+msgid "Volume Backup"
+msgstr "볼륨 백업"
+
+msgid "Volume Backups"
+msgstr "볼륨 백업"
+
 msgid "Volume Details"
 msgstr "볼륨 세부 정보"
 
 msgid "Volume Quota"
 msgstr "볼륨 할당량"
 
+msgid ""
+"Volume Size (GB)\n"
+"              <span></span>"
+msgstr ""
+"볼륨 크기 (GB)\n"
+"              <span></span>"
+
 msgid "Volume Snapshot"
+msgstr "볼륨 스냅샷"
+
+msgid "Volume Snapshots"
 msgstr "볼륨 스냅샷"
 
 msgid "Volume Type Description:"
@@ -1616,6 +1917,9 @@ msgstr "볼륨과 스냅샷 할당량 (GB)"
 
 msgid "Volume size is required and must be an integer"
 msgstr "볼륨 크기가 필요하고 정수값이어야 합니다"
+
+msgid "Volumes"
+msgstr "볼륨"
 
 msgid "Volumes are block devices that can be attached to instances."
 msgstr "볼륨은 인스턴스에 연결 할 수 있는 블록 디바이스입니다."
@@ -1673,9 +1977,25 @@ msgstr ""
 "터를 추가할 수 있습니다. 메타 데이터는 인스턴스에 접근 가능한 키값 쌍의 컬렉"
 "션입니다. 각 메타데이터 키와 값의 최대 길이는 255자입니다."
 
+msgid ""
+"You can customize your instance after it has launched using the options "
+"available here.\n"
+"    \"Customization Script\" is analogous to \"User Data\" in other systems."
+msgstr ""
+"인스턴스를 작동시킨 후 이 옵션을 사용하여 커스텀 할 수 있습니다.\n"
+"    \"커스텀 스크립트\"는 다른 시스템에서 \"사용자 데이터\"와 유사합니다."
+
+#, python-format
+msgid "You have selected \"%s\". Deleted image is not recoverable."
+msgid_plural "You have selected \"%s\". Deleted images are not recoverable."
+msgstr[0] "\"%s\"를 선택했습니다. 삭제된 이미지는 복구 할 수 없습니다."
+
 msgid "error"
 msgid_plural "errors"
 msgstr[0] "error"
+
+msgid "folder"
+msgstr "폴더"
 
 msgid "image"
 msgstr "image"

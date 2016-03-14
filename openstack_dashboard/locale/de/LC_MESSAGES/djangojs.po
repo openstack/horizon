@@ -8,19 +8,17 @@
 # Frank Kloeker <eumel@arcor.de>, 2015
 # Robert Simai, 2015
 # Carsten Duch <carsten.duch@posteo.de>, 2015. #zanata
-# Andreas Jaeger <jaegerandi@gmail.com>, 2016. #zanata
 # Frank Kloeker <eumel@arcor.de>, 2016. #zanata
-# Monika Wolf <vcomas3@de.ibm.com>, 2016. #zanata
 msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2016-03-09 05:39+0000\n"
+"POT-Creation-Date: 2016-03-13 13:11+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2016-03-07 06:32+0000\n"
-"Last-Translator: Andreas Jaeger <jaegerandi@gmail.com>\n"
+"PO-Revision-Date: 2016-03-12 10:55+0000\n"
+"Last-Translator: Eugen Block <eblock@nde.ag>\n"
 "Language: de\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "Generated-By: Babel 2.0\n"
@@ -211,6 +209,9 @@ msgstr "AMI"
 msgid "ARI"
 msgstr "ARI"
 
+msgid "Access"
+msgstr "Zugriff"
+
 msgid "Action"
 msgstr "Aktion"
 
@@ -352,6 +353,9 @@ msgstr ""
 "einem speziellen Konfigurationslaufwerk schreiben möchten. Wenn die Instanz "
 "bootet, wird das <b>Konfigurationslaufwerk</b> hinzugefügt und erlaubt den "
 "Zugriff auf die Metadaten."
+
+msgid "Checkbox"
+msgstr "Kontrollkästchen"
 
 msgid "Checksum"
 msgstr "Prüfsumme"
@@ -514,6 +518,9 @@ msgstr "Inaktiviert"
 msgid "Disabled input"
 msgstr "Inaktivierte Eingabe"
 
+msgid "Disabled input here..."
+msgstr "Eingabe deaktiviert..."
+
 msgid "Disk Format"
 msgstr "Festplattenformat"
 
@@ -528,6 +535,9 @@ msgstr "Domänen-ID"
 
 msgid "Down"
 msgstr "Down"
+
+msgid "Dropdown"
+msgstr "Auswahlmenü"
 
 msgid "Dropdown header"
 msgstr "Dropdown-Header"
@@ -881,6 +891,9 @@ msgstr "Max Port"
 msgid "Members"
 msgstr "Mitglieder"
 
+msgid "Messages"
+msgstr "Nachrichten"
+
 msgid "Metadata"
 msgstr "Metadaten"
 
@@ -973,6 +986,9 @@ msgstr ""
 "Netzwerke stellen die Kommunikationskanäle für die Instanzen in der Cloud "
 "zur Verfügung."
 
+msgid "Newer"
+msgstr "Neuer"
+
 msgid "Next"
 msgstr "Weiter"
 
@@ -1008,14 +1024,26 @@ msgstr "Objektcontainer"
 msgid "Object Containers"
 msgstr "Objektcontainer"
 
+msgid "Object Count"
+msgstr "Objektanzahl"
+
 msgid "Objects"
 msgstr "Objekte"
+
+msgid "Older"
+msgstr "Älter"
 
 msgid "One fine body…"
 msgstr "Ein Textteil..."
 
 msgid "One more separated link"
 msgstr "Weiterer getrennter Link"
+
+msgid "Option one is this"
+msgstr "Das ist Option 1"
+
+msgid "Option two can be something else"
+msgstr "Option 2 kann etwas anderes sein"
 
 msgid "Other Input Types"
 msgstr "Andere Eingabetypen"
@@ -1160,6 +1188,9 @@ msgstr "RAM"
 msgid "RAW"
 msgstr "RAW"
 
+msgid "RX/TX factor"
+msgstr "RX/TX Faktor"
+
 msgid "Radios"
 msgstr "Optionsfelder"
 
@@ -1226,6 +1257,9 @@ msgstr "Segmentierungskennung"
 
 msgid "Select Boot Source"
 msgstr "Bootquelle auswählen"
+
+msgid "Select a container to browse."
+msgstr "Wähle einen Container zum Durchsuchen."
 
 msgid "Select a key pair from the available key pairs below."
 msgstr "Wählen Sie ein Schlüsselpaar aus den verfügbaren Schlüsselpaaren aus."
@@ -1302,6 +1336,9 @@ msgstr "Wenig umfangreiche Eingabe"
 msgid "Snapshot"
 msgstr "Snapshot"
 
+msgid "Someone famous in"
+msgstr "Eine bekannte Person aus"
+
 msgid "Something else here"
 msgstr "Etwas anderes hier"
 
@@ -1310,6 +1347,9 @@ msgstr "Quelle"
 
 msgid "Source Code"
 msgstr "Quellcode"
+
+msgid "Source Title"
+msgstr "Quellenbezeichnung"
 
 msgid "Stacked"
 msgstr "Gestapelt"
@@ -1324,7 +1364,7 @@ msgid "Striped"
 msgstr "Gestreift"
 
 msgid "Submit"
-msgstr "Submit"
+msgstr "Absenden"
 
 msgid "Subnets Associated"
 msgstr "Subnetze zugewiesen"
@@ -1467,6 +1507,9 @@ msgstr ""
 "jumbotron-style, um Aufmerksamkeit auf besondere Featureinhalte oder "
 "Featureinformationen zu lenken."
 
+msgid "This is focused..."
+msgstr "Momentan ausgewählt ist..."
+
 msgid "This limit is currently not set."
 msgstr "Moment ist kein Grenzwert festgelegt."
 
@@ -1481,6 +1524,9 @@ msgstr ""
 
 msgid "Time"
 msgstr "Zeit"
+
+msgid "Timestamp"
+msgstr "Zeitstempel"
 
 msgid ""
 "To view source code, hover over a section, then click the <a><span></span></"
@@ -1588,6 +1634,10 @@ msgstr "Die Domäne kann nicht gelöscht werden."
 
 msgid "Unable to delete the domains."
 msgstr "Die Domänen können nicht gelöscht werden."
+
+#, python-format
+msgid "Unable to delete the flavor with id: %(id)s"
+msgstr "Die Variante mit der folgenden ID kann nicht gelöscht werden: %(id)s"
 
 msgid "Unable to delete the folder because it is not empty."
 msgstr "Der Ordner konnte nicht gelöscht werden, weil er nicht leer ist."
@@ -2014,6 +2064,9 @@ msgid "error"
 msgid_plural "errors"
 msgstr[0] "Fehler"
 msgstr[1] "Fehler"
+
+msgid "folder"
+msgstr "Ordner"
 
 msgid "image"
 msgstr "Abbild"

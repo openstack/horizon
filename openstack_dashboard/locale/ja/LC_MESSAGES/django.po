@@ -13,18 +13,18 @@
 # OpenStack Infra <zanata@openstack.org>, 2015. #zanata
 # Shu Muto <shu-mutou@rf.jp.nec.com>, 2015. #zanata
 # Yuko Katabami <yukokatabami@gmail.com>, 2015. #zanata
-# Mie Yamamoto <myamamot@redhat.com>, 2016. #zanata
+# Akihiro Motoki <amotoki@gmail.com>, 2016. #zanata
 # Shu Muto <shu-mutou@rf.jp.nec.com>, 2016. #zanata
 # Yuko Katabami <yukokatabami@gmail.com>, 2016. #zanata
 msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2016-03-10 05:04+0000\n"
+"POT-Creation-Date: 2016-03-13 13:11+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2016-03-10 05:58+0000\n"
+"PO-Revision-Date: 2016-03-14 04:02+0000\n"
 "Last-Translator: Yuko Katabami <yukokatabami@gmail.com>\n"
 "Language: ja\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
@@ -592,7 +592,7 @@ msgstr ""
 msgid ""
 "A rule contains a remote attribute description and the destination local "
 "attribute."
-msgstr "ルールには、リモート属性の説明と宛先のローカル属性が含まれます。"
+msgstr "ルールには、接続相手の属性の説明と宛先のローカル属性が含まれます。"
 
 msgid ""
 "A script or set of commands to be executed after the instance has been built "
@@ -619,11 +619,11 @@ msgid "AKI - Amazon Kernel Image"
 msgstr "AKI - Amazon カーネルイメージ"
 
 msgid "ALLOW"
-msgstr "許可"
+msgstr "ALLOW"
 
 msgctxt "Action Name of a Firewall Rule"
 msgid "ALLOW"
-msgstr "許可"
+msgstr "ALLOW"
 
 #, python-format
 msgid "ALLOW %(ethertype)s %(proto_port)s %(direction)s %(remote)s"
@@ -1600,7 +1600,7 @@ msgid "Cold Migrate"
 msgstr "コールドマイグレーション"
 
 msgid "Comma-delimited list of valid remote IDs from the identity provider."
-msgstr "認証プロバイダーからの有効な接続相手 ID のコンマ区切りリスト。"
+msgstr "認証プロバイダーからの有効な接続相手の ID のコンマ区切りリスト。"
 
 msgid "Comma-separated key=value pairs"
 msgstr "コンマ区切りの key=value ペア"
@@ -2081,11 +2081,12 @@ msgstr ""
 "\n"
 "ファイアウォールルールは、以下の属性の組み合わせです。\n"
 "\n"
-"<li>IP アドレス : 通信フィルタが適用される必要があるアドレス (送信元/送信先) "
-"です。</li><li>IP バージョン : フィルタリングされる必要がある IP パケットの種"
-"別 (IP V4/V6) です。</li><li>プロトコル: チェックされる必要があるパケットの種"
-"別 (UDP, ICMP, TCP, Any) です。</li><li>アクション: アクションは必要なフィル"
-"ターの種別で、データパケットを拒否/破棄/許可できます。</li>\n"
+"<li>IP アドレス: トラフィックフィルターを適用する必要があるアドレス (送信元/"
+"送信先) です。</li><li>IP バージョン: フィルタリングする必要がある IP パケッ"
+"トの種別 (IP V4/V6) です。</li><li>プロトコル: チェックされる必要があるパケッ"
+"トの種別 (UDP、ICMP、TCP、Any) です。</li><li>アクション: アクションは必要な"
+"フィルターの種別で、データパケットを拒否 (REJECT)/破棄 (DENY)/許可 (ALLOW) で"
+"きます。</li>\n"
 "プロトコルとアクションは必須項目であり、他のフィールドはすべて省略可能です。"
 
 msgid "Create a firewall with selected routers."
@@ -2324,11 +2325,11 @@ msgid "Customization Script Source"
 msgstr "カスタマイズスクリプトの入力方法"
 
 msgid "DENY"
-msgstr "破棄"
+msgstr "DENY"
 
 msgctxt "Action Name of a Firewall Rule"
 msgid "DENY"
-msgstr "破棄"
+msgstr "DENY"
 
 msgid "DHCP Agents"
 msgstr "DHCP エージェント"
@@ -4429,7 +4430,7 @@ msgid "Identity"
 msgstr "ユーザー管理"
 
 msgid "Identity Provider ID"
-msgstr "識別情報プロバイダー ID"
+msgstr "認証プロバイダー ID"
 
 msgid "Identity Providers"
 msgstr "認証プロバイダー"
@@ -5465,7 +5466,7 @@ msgid "New Host"
 msgstr "新規ホスト"
 
 msgid "New QoS Spec Consumer"
-msgstr "新規 QoS スペック使用者の選択"
+msgstr "QoS スペックの新規使用者"
 
 msgid "New Size (GiB)"
 msgstr "新しいサイズ (GiB)"
@@ -5657,6 +5658,9 @@ msgstr "ボリュームが接続されていません。"
 
 msgid "No volumes available"
 msgstr "利用可能なボリュームがありません"
+
+msgid "Non admin users are not allowed to make images public."
+msgstr "管理ユーザー以外はイメージをパブリックに設定できません。"
 
 msgid "Non admin users are not allowed to set shared option."
 msgstr "管理ユーザー以外は、共有オプションの設定はできません。"
@@ -6357,11 +6361,11 @@ msgid "RAM(Available: %(avail)s, Requested: %(req)s)"
 msgstr "メモリー (利用可能: %(avail)s, 要求: %(req)s)"
 
 msgid "REJECT"
-msgstr "拒否"
+msgstr "REJECT"
 
 msgctxt "Action Name of a Firewall Rule"
 msgid "REJECT"
-msgstr "拒否"
+msgstr "REJECT"
 
 msgid "RX/TX Factor"
 msgstr "RX/TX 係数"
@@ -6485,7 +6489,7 @@ msgid "Remote"
 msgstr "接続相手"
 
 msgid "Remote IDs"
-msgstr "接続相手 ID"
+msgstr "接続相手の ID"
 
 msgid ""
 "Remote IDs are associated with the identity provider and are globally "
@@ -6493,10 +6497,10 @@ msgid ""
 "protocol attributes to Identity API objects. If no value is provided, the "
 "list will be set to empty."
 msgstr ""
-"リモート ID は認証プロバイダーに関連付けられており、グローバルで一意です。こ"
-"れは、フェデレーションプロトコルの属性を Identity API オブジェクトにマッピン"
-"グするのに使用するヘッダー属性を示します。値が指定されていない場合には、一覧"
-"は空に設定されます。"
+"接続相手の ID は認証プロバイダーに関連付けられており、グローバルで一意です。"
+"これは、フェデレーションプロトコルの属性を Identity API オブジェクトにマッピ"
+"ングするのに使用するヘッダー属性を示します。値が指定されていない場合には、一"
+"覧は空に設定されます。"
 
 msgid "Remote IP Prefix"
 msgstr "接続相手の IP 範囲"
@@ -8344,8 +8348,8 @@ msgid ""
 "This action cannot be undone. Current EC2 credentials will be deleted and "
 "not recoverable."
 msgstr ""
-"この操作は取り消せません。現在の EC2 認証情報は削除され、元に戻すことはできま"
-"せん。"
+"この操作は取り消せません。現在の EC2 認証情報は削除され、元に戻すことができな"
+"くなります。"
 
 msgid "This application requires JavaScript to be enabled in your web browser."
 msgstr ""
@@ -9012,8 +9016,8 @@ msgid ""
 "Unable to register identity provider. Please check that the Identity "
 "Provider ID and Remote IDs provided are not already in use."
 msgstr ""
-"認証プロバイダーを登録できません。指定した認証プロバイダー ID とリモート ID "
-"がすでに使用されていないかどうかを確認してください。"
+"認証プロバイダーを登録できません。指定した認証プロバイダーの ID と接続相手の "
+"ID がすでに使用されていないかどうかを確認してください。"
 
 #, python-format
 msgid "Unable to resize instance \"%s\"."
@@ -9691,8 +9695,8 @@ msgid ""
 "Unable to update identity provider. Please check that the Remote IDs "
 "provided are not already in use."
 msgstr ""
-"認証プロバイダーを更新できません。指定したリモード ID がすでに使用されていな"
-"いかどうかを確認してください。"
+"認証プロバイダーを更新できません。指定した接続相手の ID がすでに使用されてい"
+"ないかどうかを確認してください。"
 
 #, python-format
 msgid "Unable to update image \"%s\"."

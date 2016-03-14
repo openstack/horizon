@@ -16,12 +16,12 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2016-03-09 05:39+0000\n"
+"POT-Creation-Date: 2016-03-13 13:11+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2016-03-09 03:19+0000\n"
-"Last-Translator: Marcelo Dieder <marcelodieder@gmail.com>\n"
+"PO-Revision-Date: 2016-03-10 03:56+0000\n"
+"Last-Translator: Carlos Marques <marquesc@br.ibm.com>\n"
 "Language: pt-BR\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 "Generated-By: Babel 2.0\n"
@@ -981,6 +981,9 @@ msgstr "Redes"
 msgid "Networks provide the communication channels for instances in the cloud."
 msgstr "As redes fornecem os canais de comunicação para instâncias na nuvem."
 
+msgid "Newer"
+msgstr "Mais novo"
+
 msgid "Next"
 msgstr "Avançar"
 
@@ -1019,6 +1022,9 @@ msgstr "Contagem de Objetos"
 
 msgid "Objects"
 msgstr "Objetos"
+
+msgid "Older"
+msgstr "Mais antigo"
 
 msgid "One fine body…"
 msgstr "Um corpo legal"
@@ -1084,7 +1090,7 @@ msgid "Physical Network"
 msgstr "Rede Física"
 
 msgid "Pills"
-msgstr "Pílulas"
+msgstr "Pills"
 
 msgid ""
 "Please provide the initial hostname for the instance, the availability zone "
@@ -2072,12 +2078,6 @@ msgid "title"
 msgid_plural "titles"
 msgstr[0] "título"
 msgstr[1] "títulos"
-
-msgid "{$ 'Newer' | translate $}"
-msgstr "{$ 'Newer' | translate $}"
-
-msgid "{$ 'Older' | translate $}"
-msgstr "{$ 'Older' | translate $}"
 
 msgid "{$ row['provider:network_type'] $}"
 msgstr "{$ row['provider:network_type'] $}"

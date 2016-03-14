@@ -29,12 +29,12 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2016-03-09 05:39+0000\n"
+"POT-Creation-Date: 2016-03-13 13:11+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2016-03-09 02:49+0000\n"
-"Last-Translator: Shengjing Zhu <zsj950618@gmail.com>\n"
+"PO-Revision-Date: 2016-03-13 08:26+0000\n"
+"Last-Translator: Zheng Xi Zhou <zzxwill@gmail.com>\n"
 "Language: zh-CN\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 "Generated-By: Babel 2.0\n"
@@ -5468,6 +5468,9 @@ msgstr "未连接云硬盘。"
 msgid "No volumes available"
 msgstr "没有可用云硬盘。"
 
+msgid "Non admin users are not allowed to make images public."
+msgstr "非管理员用户无权公开镜像。"
+
 msgid "Non admin users are not allowed to set shared option."
 msgstr "非管理用户不允许设置共享选项。"
 
@@ -6158,9 +6161,8 @@ msgctxt "Action Name of a Firewall Rule"
 msgid "REJECT"
 msgstr "拒绝"
 
-#, fuzzy
 msgid "RX/TX Factor"
-msgstr "接收/发送 倍数"
+msgstr "接收/发送倍数"
 
 msgid "RX/TX factor"
 msgstr "RX/TX因素"
@@ -6234,6 +6236,9 @@ msgstr "正在重建"
 #, python-format
 msgid "Rebuilding instance %s."
 msgstr "重建云主机  %s。"
+
+msgid "Recreate EC2 Credentials"
+msgstr "重新创建EC2凭据"
 
 msgid "Regions:"
 msgstr "Regions:"
@@ -7511,6 +7516,9 @@ msgstr "成功导入公钥：%s"
 msgid "Successfully modified QoS Spec consumer."
 msgstr "成功更改QoS规格消费者。"
 
+msgid "Successfully recreated ec2 credentials."
+msgstr "重新创建EC2凭据成功。"
+
 #, python-format
 msgid ""
 "Successfully restored backup %(backup_name)s to volume with id: %(volume_id)s"
@@ -8050,6 +8058,11 @@ msgstr "解析%(prefix)s遇到问题: %(error)s"
 
 msgid "This action cannot be undone."
 msgstr "这个动作不能撤消。"
+
+msgid ""
+"This action cannot be undone. Current EC2 credentials will be deleted and "
+"not recoverable."
+msgstr "该操作无法撤销（undo），当前EC2凭据将被删除且无法恢复。"
 
 msgid "This application requires JavaScript to be enabled in your web browser."
 msgstr "应用请求在您的浏览器中启用JavaScript。"
@@ -8689,6 +8702,12 @@ msgstr "无法解析IP地址 %s."
 
 msgid "Unable to rebuild instance."
 msgstr "无法重建云主机。"
+
+msgid "Unable to recreate ec2 credentials. Failed to create ec2 credentials."
+msgstr "无法重新创建EC2凭据，创建EC2凭据失败。"
+
+msgid "Unable to recreate ec2 credentials. Failed to delete ec2 credentials."
+msgstr "无法重新创建EC2凭据，删除EC2凭据失败。"
 
 msgid "Unable to register identity provider."
 msgstr "无法注册身份提供者（identity provider）"

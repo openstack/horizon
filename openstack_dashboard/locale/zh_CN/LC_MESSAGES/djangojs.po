@@ -12,16 +12,17 @@
 # Gaoxiao Zhu <zhu.gaoxiao@h3c.com>, 2016. #zanata
 # Linda <duleish@cn.ibm.com>, 2016. #zanata
 # Zheng Xi Zhou <zzxwill@gmail.com>, 2016. #zanata
+# vuuv <froms2008@gmail.com>, 2016. #zanata
 msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2016-03-09 05:39+0000\n"
+"POT-Creation-Date: 2016-03-13 13:11+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2016-03-08 12:40+0000\n"
-"Last-Translator: Gaoxiao Zhu <zhu.gaoxiao@h3c.com>\n"
+"PO-Revision-Date: 2016-03-13 08:32+0000\n"
+"Last-Translator: vuuv <froms2008@gmail.com>\n"
 "Language: zh-CN\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 "Generated-By: Babel 2.0\n"
@@ -30,6 +31,11 @@ msgstr ""
 
 msgid "#"
 msgstr "#"
+
+#, python-format
+msgid "%s instance launched."
+msgid_plural "%s instances launched."
+msgstr[0] "启动了 %s 个实例。"
 
 msgid "(None)"
 msgstr "(无)"
@@ -199,11 +205,22 @@ msgstr "颜色"
 msgid "Configuration"
 msgstr "配置"
 
+msgid "Confirm Delete Image"
+msgid_plural "Confirm Delete Images"
+msgstr[0] "确认删除镜像"
+
 msgid "Container Format"
 msgstr "容器格式"
 
 msgid "Containers"
 msgstr "容器"
+
+msgid ""
+"Count\n"
+"          <span></span>"
+msgstr ""
+"数量\n"
+"          <span></span>"
 
 msgid "Create Key Pair"
 msgstr "创建秘钥对"
@@ -220,6 +237,9 @@ msgstr "创建云硬盘"
 msgid "Created"
 msgstr "已创建"
 
+msgid "Created At"
+msgstr "创建于"
+
 msgid "Creating"
 msgstr "创建中"
 
@@ -232,6 +252,18 @@ msgstr ""
 "当实例启动时，自定义脚本被绑定到实例执行特定的动作。比如，如果你无法在客户机"
 "操作系统内安装<samp>cloud-init</samp>，你可以使用自定义脚本获取一个公钥并把它"
 "添加到用户账户中。"
+
+msgid "DNS Domain"
+msgstr "DNS 域"
+
+msgid "DNS Domains"
+msgstr "DNS 域"
+
+msgid "DNS Record"
+msgstr "DNS 记录"
+
+msgid "DNS Records"
+msgstr "DNS 记录"
 
 msgid "Danger"
 msgstr "危险"
@@ -276,6 +308,9 @@ msgstr "详情"
 msgid "Device Name"
 msgstr "设备名称"
 
+msgid "Dialogs"
+msgstr "会话"
+
 msgid "Direction"
 msgstr "直连"
 
@@ -297,8 +332,14 @@ msgstr "域ID"
 msgid "Down"
 msgstr "停止"
 
+msgid "Dropdown"
+msgstr "下拉菜单"
+
 msgid "Dropdown header"
 msgstr "下拉菜单标题"
+
+msgid "Dropdown link"
+msgstr "下拉列表链接"
 
 msgid "Email"
 msgstr "邮箱"
@@ -314,6 +355,9 @@ msgstr "临时磁盘"
 
 msgid "Error"
 msgstr "错误"
+
+msgid "Error Deleting"
+msgstr "删除时出错"
 
 msgid "Ether Type"
 msgstr "以太网类型"
@@ -348,6 +392,9 @@ msgstr "类型管理实例的计算、内存和存储容量的大小。"
 msgid "Format"
 msgstr "镜像格式"
 
+msgid "Forms"
+msgstr "表单"
+
 msgid ""
 "From a Windows system, you can use PuTTYGen to create private/public keys.\n"
 "  Use the PuTTY Key Generator to create and save the keys, then copy\n"
@@ -359,6 +406,24 @@ msgstr ""
 "使用PuTTY密钥生成器来创建和保存这些密钥，\n"
 "然后复制红色高亮框中的公钥到您的\n"
 "<samp>.ssh/authorized_keys</samp>文件。"
+
+msgid "Heading 1"
+msgstr "一级标题"
+
+msgid "Heading 2"
+msgstr "二级标题"
+
+msgid "Heading 3"
+msgstr "三级标题"
+
+msgid "Heading 4"
+msgstr "四级标题"
+
+msgid "Heading 5"
+msgstr "五级标题"
+
+msgid "Heading 6"
+msgstr "六级标题"
 
 msgid "ID"
 msgstr "ID"
@@ -417,6 +482,13 @@ msgstr "导入秘钥对"
 msgid "Info"
 msgstr "信息"
 
+msgid ""
+"Instance Name\n"
+"          <span></span>"
+msgstr ""
+"实例名称\n"
+"          <span></span>"
+
 msgid "Instance Snapshot"
 msgstr "云主机快照"
 
@@ -431,6 +503,13 @@ msgstr "内核 ID"
 
 msgid "Key Pair"
 msgstr "密钥对"
+
+msgid ""
+"Key Pair Name\n"
+"        <span></span>"
+msgstr ""
+"密钥对名称\n"
+"        <span></span>"
 
 msgid "Key Pairs"
 msgstr "密钥对"
@@ -468,10 +547,16 @@ msgstr "手动"
 msgid "Max Port"
 msgstr "最大端口"
 
+msgid "Members"
+msgstr "成员"
+
 msgid "Metadata"
 msgstr "元数据"
 
 msgid "Metadata Definition"
+msgstr "元数据定义"
+
+msgid "Metadata Definitions"
 msgstr "元数据定义"
 
 msgid "Middle"
@@ -492,6 +577,12 @@ msgstr "最小内存"
 msgid "Min RAM (MB)"
 msgstr "最小内存 (MB)"
 
+msgid "Min. Disk"
+msgstr "最小磁盘大小"
+
+msgid "Min. RAM"
+msgstr "最小内存"
+
 msgid "Mini button"
 msgstr "迷你按钮"
 
@@ -500,6 +591,9 @@ msgstr "名称"
 
 msgid "Navbar"
 msgstr "导航条"
+
+msgid "Navs"
+msgstr "导航"
 
 msgid "Network"
 msgstr "网络"
@@ -549,11 +643,18 @@ msgstr "请重试。"
 msgid "Policy check failed."
 msgstr "策略检查失败。"
 
+#, fuzzy
+msgid "Primary"
+msgstr "主要的"
+
 msgid "Private"
 msgstr "私有"
 
 msgid "Profile"
 msgstr "概要"
+
+msgid "Progress bars"
+msgstr "进度条"
 
 msgid "Project"
 msgstr "项目"
@@ -611,6 +712,10 @@ msgstr "使用拖放重新排序"
 msgid "Remote"
 msgstr "远程"
 
+#, fuzzy
+msgid "Right"
+msgstr "右"
+
 msgid "Root Disk"
 msgstr "根磁盘"
 
@@ -654,6 +759,9 @@ msgstr "段ID"
 msgid "Select Boot Source"
 msgstr "选择源"
 
+msgid "Select a container to browse."
+msgstr "选择要浏览的容器（container）"
+
 msgid "Select a key pair from the available key pairs below."
 msgstr "从以下可用的密钥对选择一个"
 
@@ -680,6 +788,16 @@ msgstr "选择一个或多个"
 
 msgid "Select one or more security groups from the available groups below."
 msgstr "从以下可用的组中选择一个或多个安全组。"
+
+#, fuzzy
+msgid "Separated link"
+msgstr "独立链接"
+
+msgid "Server"
+msgstr "Server"
+
+msgid "Servers"
+msgstr "Servers"
 
 #, python-format
 msgid "Service type is not enabled: %(desiredType)s"
@@ -728,6 +846,9 @@ msgstr "成功导入密钥对%(name)s"
 
 msgid "Swap Disk"
 msgstr "Swap磁盘"
+
+msgid "Tables"
+msgstr "表格"
 
 msgid "Tags"
 msgstr "标签"
@@ -1137,6 +1258,9 @@ msgstr "更新元数据"
 msgid "Updated"
 msgstr "已更新"
 
+msgid "Updated At"
+msgstr "更新于"
+
 msgid "Url"
 msgstr "Url"
 
@@ -1181,6 +1305,13 @@ msgstr "云硬盘详情"
 
 msgid "Volume Quota"
 msgstr "云硬盘配额"
+
+msgid ""
+"Volume Size (GB)\n"
+"              <span></span>"
+msgstr ""
+"卷大小 (GB)\n"
+"              <span></span>"
 
 msgid "Volume Snapshot"
 msgstr "卷快照"

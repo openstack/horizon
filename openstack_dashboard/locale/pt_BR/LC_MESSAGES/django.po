@@ -20,16 +20,17 @@
 # Marcelo Dieder <marcelodieder@gmail.com>, 2015. #zanata
 # OpenStack Infra <zanata@openstack.org>, 2015. #zanata
 # Carlos Marques <marquesc@br.ibm.com>, 2016. #zanata
+# Eric Baum <ecbaum@gmail.com>, 2016. #zanata
 msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2016-03-10 05:04+0000\n"
+"POT-Creation-Date: 2016-03-13 13:11+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2016-03-09 11:22+0000\n"
-"Last-Translator: Carlos Marques <marquesc@br.ibm.com>\n"
+"PO-Revision-Date: 2016-03-11 06:04+0000\n"
+"Last-Translator: Eric Baum <ecbaum@gmail.com>\n"
 "Language: pt-BR\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 "Generated-By: Babel 2.0\n"
@@ -2766,7 +2767,7 @@ msgstr[1] "Agregados de Host Excluídos"
 
 msgid "Deleted Image"
 msgid_plural "Deleted Images"
-msgstr[0] "Imagens Excluída"
+msgstr[0] "Imagem Excluída"
 msgstr[1] "Imagens Excluídas"
 
 msgid "Deleted Interface"
@@ -5791,10 +5792,15 @@ msgstr "Nenhum volume anexado."
 msgid "No volumes available"
 msgstr "Nenhum volume disponível"
 
+msgid "Non admin users are not allowed to make images public."
+msgstr ""
+"Usuários que não são administradores não tem  permissão para configurar "
+"imagens como públicas."
+
 msgid "Non admin users are not allowed to set shared option."
 msgstr ""
-"Nenhum usuário administrador tem permissão para configurar a opção "
-"compartilhada."
+"Usuários que não são administradores não tem permissão para configurar a "
+"opção de compartilhamento."
 
 msgid "Non-Members"
 msgstr "Não-membros"
