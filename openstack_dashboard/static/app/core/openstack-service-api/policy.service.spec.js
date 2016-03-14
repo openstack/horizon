@@ -62,72 +62,124 @@
     });
   });
 
-  describe("Policy API ifAllowed", function() {
+  describe("check function", function() {
 
-    var policy = { rules:[] };
-    var response = {
-      data: { allowed: true }
-    };
-
-    var deferred = {
-      then: function(callback) {
-        callback(response);
-      },
-      reject: angular.noop,
-      resolve: angular.noop
-    };
-
-    var service;
-    var q = { defer: function() {
-      return deferred;
-    }};
+    var $timeout, service, apiService;
 
     ////////////////
 
     beforeEach(module('horizon.framework.conf'));
-    beforeEach(module('horizon.framework.util.http'));
     beforeEach(module('horizon.framework.widgets.toast'));
     beforeEach(module('horizon.app.core.openstack-service-api'));
-    beforeEach(module(function($provide) {
-      $provide.value('$q', q);
-    }));
+    beforeEach(module('horizon.framework.util.http'));
 
-    beforeEach(inject(['horizon.app.core.openstack-service-api.policy', function(policyAPI) {
-      service = policyAPI;
-    }]));
+    beforeEach(inject(['horizon.app.core.openstack-service-api.policy',
+      'horizon.framework.util.http.service', '$timeout',
+      function(policyAPI, _apiService, _$timeout_) {
+        service = policyAPI;
+        apiService = _apiService;
+        $timeout = _$timeout_;
+        service.cache.removeAll();
+      }
+    ]));
 
-    beforeEach(function() {
-      spyOn(service, 'check').and.returnValue(deferred);
-      spyOn(deferred, 'resolve');
-      spyOn(deferred, 'reject');
+    ////////////////
+
+    it('should be defined', function defined() {
+      expect(service.check).toBeDefined();
     });
 
-    ////////////////
+    it("should use the cache if it's populated", function defined() {
+      service.cache.put(angular.toJson('abcdef'), {mission: 'impossible'});
+      var data;
 
-    it('should be defined', defined);
-    it("rejects if response allowed is false", rejects);
-    it("resolves if response allowed is true", resolves);
+      function verifyData(x) {
+        data = x;
+      }
+      service.check('abcdef').then(verifyData);
+      $timeout.flush();
+      expect(data).toEqual({mission: 'impossible'});
+    });
 
-    ////////////////
+    it("returns results from api if no cache", function defined() {
+      var successFunc, gotObject;
+      var retVal = {
+        success: function(x) {
+          successFunc = x; return {error: angular.noop};
+        }
+      };
+      spyOn(apiService, 'post').and.returnValue(retVal);
+      service.check('abcdef').then(function(x) { gotObject = x; });
+      successFunc({hello: 'there'});
+      $timeout.flush();
+      expect(gotObject).toEqual({hello: 'there'});
+    });
 
-    function defined() {
-      expect(service.ifAllowed).toBeDefined();
-    }
-
-    function rejects() {
-      response.data.allowed = false;
-      service.ifAllowed(policy);
-      expect(service.check).toHaveBeenCalledWith(policy);
-      expect(deferred.reject).toHaveBeenCalled();
-    }
-
-    function resolves() {
-      response.data.allowed = true;
-      service.ifAllowed(policy);
-      expect(service.check).toHaveBeenCalledWith(policy);
-      expect(deferred.resolve).toHaveBeenCalled();
-    }
+    it("sets cache with results from apiService if no cache already", function defined() {
+      var successFunc;
+      var retVal = {
+        success: function(x) {
+          successFunc = x;
+          return { error: angular.noop };
+        }
+      };
+      spyOn(apiService, 'post').and.returnValue(retVal);
+      service.check('abcdef').then(angular.noop);
+      successFunc({hello: 'there'});
+      $timeout.flush();
+      expect(service.cache.get(angular.toJson('abcdef'))).toEqual({hello: 'there'});
+    });
 
   });
+
+  describe("Policy API ifAllowed", function() {
+
+    var $timeout, service, $q;
+
+    ////////////////
+
+    beforeEach(module('horizon.framework.conf'));
+    beforeEach(module('horizon.framework.widgets.toast'));
+    beforeEach(module('horizon.app.core.openstack-service-api'));
+    beforeEach(module('horizon.framework.util.http'));
+
+    beforeEach(inject(['horizon.app.core.openstack-service-api.policy',
+      '$q', '$timeout',
+      function(policyAPI, _$q_, _$timeout_) {
+        service = policyAPI;
+        $q = _$q_;
+        $timeout = _$timeout_;
+      }
+    ]));
+
+    ////////////////
+
+    it('should be defined', function defined() {
+      expect(service.ifAllowed).toBeDefined();
+    });
+
+    it("rejects when check() resolves with an object without 'allowed'", function() {
+      var def = $q.defer();
+      def.resolve({allowed: false});
+      spyOn(service, 'check').and.returnValue(def.promise);
+      service.ifAllowed({}).then(failWhenCalled, passWhenCalled);
+      $timeout.flush();
+    });
+
+    it("passes when check() resolves with an object with 'allowed'", function() {
+      var def = $q.defer();
+      def.resolve({allowed: true});
+      spyOn(service, 'check').and.returnValue(def.promise);
+      service.ifAllowed({}).then(passWhenCalled, failWhenCalled);
+      $timeout.flush();
+    });
+  });
+
+  function failWhenCalled() {
+    expect(false).toBe(true);
+  }
+  function passWhenCalled() {
+    expect(true).toBe(true);
+  }
 
 })();

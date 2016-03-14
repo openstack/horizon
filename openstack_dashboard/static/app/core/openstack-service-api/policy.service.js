@@ -20,6 +20,7 @@
     .factory('horizon.app.core.openstack-service-api.policy', PolicyService);
 
   PolicyService.$inject = [
+    '$cacheFactory',
     '$q',
     'horizon.framework.util.http.service',
     'horizon.framework.widgets.toast.service'
@@ -31,9 +32,13 @@
    * @description Provides a direct pass through to the policy engine in
    * Horizon.
    */
-  function PolicyService($q, apiService, toastService) {
+  function PolicyService($cacheFactory, $q, apiService, toastService) {
 
     var service = {
+      cache: $cacheFactory(
+        'horizon.app.core.openstack-service-api.policy',
+        {capacity: 200}
+      ),
       check: check,
       ifAllowed: ifAllowed
     };
@@ -80,10 +85,29 @@
      *   }
      */
     function check(policyRules) {
-      return apiService.post('/api/policy/', policyRules)
-        .error(function() {
-          toastService.add('warning', gettext('Policy check failed.'));
-        });
+      // Return a deferred and map then to success since legacy angular http uses success.
+      // The .error is already overriden in this function to just display toast, so this should
+      // work the same as if only success was returned.
+      var deferred = $q.defer();
+      var cacheId = angular.toJson(policyRules);
+      var cachedData = service.cache.get(cacheId);
+
+      if (cachedData) {
+        deferred.resolve(cachedData);
+      } else {
+        apiService.post('/api/policy/', policyRules)
+          .success(function successPath(result) {
+            service.cache.put(cacheId, result);
+            deferred.resolve(result);
+          })
+          .error(function failurePath(result) {
+            toastService.add('warning', gettext('Policy check failed.'));
+            deferred.reject(result);
+          });
+      }
+
+      deferred.promise.success = deferred.promise.then;
+      return deferred.promise;
     }
 
     /**
@@ -108,10 +132,9 @@
       return deferred.promise;
 
       function success(response) {
-        if (response.data.allowed) {
+        if (response.allowed) {
           deferred.resolve();
-        }
-        else {
+        } else {
           deferred.reject();
         }
       }
