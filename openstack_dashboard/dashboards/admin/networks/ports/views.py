@@ -76,8 +76,19 @@ class DetailView(project_views.DetailView):
     def get_context_data(self, **kwargs):
         context = super(DetailView, self).get_context_data(**kwargs)
         port = context["port"]
+        network_url = "horizon:admin:networks:detail"
+        subnet_url = "horizon:admin:networks:subnets:detail"
+        port.network_url = reverse(network_url, args=[port.network_id])
+        for ip in port.fixed_ips:
+            ip['subnet_url'] = reverse(subnet_url, args=[ip['subnet_id']])
         table = ports_tables.PortsTable(self.request,
                                         network_id=port.network_id)
+        # TODO(robcresswell) Add URL for "Ports" crumb after bug/1416838
+        breadcrumb = [
+            (_("Networks"), self.get_redirect_url()),
+            ((port.network_name or port.network_id), port.network_url),
+            (_("Ports"),), ]
+        context["custom_breadcrumb"] = breadcrumb
         context["url"] = reverse('horizon:admin:networks:index')
         context["actions"] = table.render_row_actions(port)
         return context
