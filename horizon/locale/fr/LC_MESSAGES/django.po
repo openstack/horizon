@@ -1,34 +1,20 @@
-# Translations template for PROJECT.
-# Copyright (C) 2015 ORGANIZATION
-# This file is distributed under the same license as the PROJECT project.
-#
-# Translators:
-# Bruno Cornec <bruno.cornec@hp.com>, 2015
-# zopanix <christophe.vandekerchove-ext@cloudwatt.com>, 2015
-# François Bureau, 2015
-# François Bureau, 2015
-# Frédéric <frosmont@free.fr>, 2014
-# JF Taltavull <jftalta@gmail.com>, 2015
-# Maxime COQUEREL <max.coquerel@gmail.com>, 2015
-# Gael Rehault <gael01@gmail.com>, 2015. #zanata
 # Kevin Tibi <kodokuu@gmail.com>, 2015. #zanata
 # Gérald LONLAS <g.lonlas@gmail.com>, 2016. #zanata
-# JF Taltavull <jftalta@gmail.com>, 2016. #zanata
+# Kevin Tibi <kodokuu@gmail.com>, 2016. #zanata
 msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2016-03-04 08:38+0000\n"
+"POT-Creation-Date: 2016-03-15 01:55+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2016-03-05 02:00+0000\n"
+"PO-Revision-Date: 2016-03-10 12:48+0000\n"
 "Last-Translator: Gérald LONLAS <g.lonlas@gmail.com>\n"
-"Language: fr\n"
-"Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"Generated-By: Babel 2.0\n"
-"X-Generator: Zanata 3.7.3\n"
 "Language-Team: French\n"
+"Language: fr\n"
+"X-Generator: Zanata 3.7.3\n"
+"Plural-Forms: nplurals=2; plural=(n > 1)\n"
 
 #, python-format
 msgid ""
@@ -183,18 +169,6 @@ msgstr "Disponible"
 msgid "Back"
 msgstr "Retour"
 
-#, fuzzy
-msgid "Batch Item"
-msgid_plural "Batch Items"
-msgstr[0] "Batch d'un élément"
-msgstr[1] "Batch d'éléments"
-
-#, fuzzy
-msgid "Batched Item"
-msgid_plural "Batched Items"
-msgstr[0] "Élément mis en batch"
-msgstr[1] "Éléments mis en batch"
-
 msgid "Cancel"
 msgstr "Annuler"
 
@@ -225,17 +199,19 @@ msgid_plural "Displaying %(nav_items)s items"
 msgstr[0] "Affichage de l'élément %(nav_items)s"
 msgstr[1] "Affichage des éléments %(nav_items)s"
 
+#. Translators: test code, don't really have to translate
 msgid "Down Item"
 msgid_plural "Down Items"
 msgstr[0] "Descendre l'élément"
 msgstr[1] "Descendre les éléments"
 
+#. Translators: test code, don't really have to translate
 msgid "Downed Item"
 msgid_plural "Downed Items"
 msgstr[0] "Élément descendu"
 msgstr[1] "Éléments descendus"
 
-#, fuzzy, python-format
+#, python-format
 msgid "Error processing message json file '%(path)s': %(exception)s"
 msgstr "Erreur lors du traitement du fichier json '%(path)s': %(exception)s"
 
@@ -279,10 +255,6 @@ msgstr "Identifiant"
 
 msgid "Members"
 msgstr "Membres"
-
-#, fuzzy, python-format
-msgid "Message json file '%(path)s' is malformed. %(exception)s"
-msgstr "Fichier JSON '%(path)s' mal formaté. %(exception)s"
 
 msgid "More Actions"
 msgstr "Plus d'actions"
@@ -346,6 +318,7 @@ msgstr "Sélectionner un(e) %s à parcourir."
 msgid "Select a period of time to query its usage:"
 msgstr "Sélectionnez une période de temps pour connaitre son utilisation :"
 
+#. Translators: test code, don't really have to translate
 msgid "Sell Puppy"
 msgid_plural "Sell Puppies"
 msgstr[0] "Chiot à vendre"
@@ -354,6 +327,7 @@ msgstr[1] "Chiots à vendre"
 msgid "Sign In"
 msgstr "Se connecter"
 
+#. Translators: test code, don't really have to translate
 msgid "Sold Puppy"
 msgid_plural "Sold Puppies"
 msgstr[0] "Chiot vendu"
@@ -407,6 +381,7 @@ msgstr "Accès non autorisé. Merci de vous reconnecter."
 msgid "Unauthorized: %s"
 msgstr "%s : non autorisé"
 
+#. Translators: test code, don't really have to translate
 msgid "Up Item"
 msgid_plural "Up Items"
 msgstr[0] "Remonter l'élément"
@@ -422,6 +397,7 @@ msgid_plural "Updated Items"
 msgstr[0] "Élément mis à jour"
 msgstr[1] "Éléments mis à jour"
 
+#. Translators: test code, don't really have to translate
 msgid "Upped Item"
 msgid_plural "Upped Items"
 msgstr[0] "Élément remonté"

@@ -1,26 +1,3 @@
-# Translations template for PROJECT.
-# Copyright (C) 2015 ORGANIZATION
-# This file is distributed under the same license as the PROJECT project.
-#
-# Translators:
-# Ambroise Christea <ambroise.christea@cloudwatt.com>, 2014
-# Bruno Cornec <bruno.cornec@hp.com>, 2015
-# zopanix <christophe.vandekerchove-ext@cloudwatt.com>, 2015
-# Combebias <jb.combebias@gmail.com>, 2015
-# Corina Roe <croe@redhat.com>, 2015
-# Corinne Verheyde <cverheyd@hotmail.com>, 2015
-# Damien Grauet, 2015
-# François Bureau, 2015
-# François Bureau, 2015
-# Frédéric <frosmont@free.fr>, 2014
-# Gael Rehault <gael_rehault@dell.com>, 2015
-# Jean Pny, 2015
-# JF Taltavull <jftalta@gmail.com>, 2015
-# Lucas Mascaro <mascaro.lucas@yahoo.fr>, 2015
-# Maxime COQUEREL <max.coquerel@gmail.com>, 2015
-# Orizhial <contact@prunier.es>, 2015
-# Patte D <pattedeph@gmail.com>, 2015
-# Paul Gonin <paul.gonin@gmail.com>, 2015
 # Corinne Verheyde <cverheyd@gmail.com>, 2015. #zanata
 # François Bureau <bureaufrancois@gmail.com>, 2015. #zanata
 # Gael Rehault <gael01@gmail.com>, 2015. #zanata
@@ -37,17 +14,16 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2016-03-13 13:11+0000\n"
+"POT-Creation-Date: 2016-03-15 01:56+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "PO-Revision-Date: 2016-03-10 12:57+0000\n"
 "Last-Translator: SOURDET Henri <hsourdet@gmail.com>\n"
-"Language: fr\n"
-"Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"Generated-By: Babel 2.0\n"
-"X-Generator: Zanata 3.7.3\n"
 "Language-Team: French\n"
+"Language: fr\n"
+"X-Generator: Zanata 3.7.3\n"
+"Plural-Forms: nplurals=2; plural=(n > 1)\n"
 
 #, python-format
 msgid ""
@@ -611,14 +587,6 @@ msgid ""
 msgstr ""
 "Un port est un point de connexion pour connecter un seul système, tel que le "
 "contrôleur NIC d'un serveur virtuel, à un réseau virtuel."
-
-#, fuzzy
-msgid ""
-"A rule contains a remote attribute description and the destination local "
-"attribute."
-msgstr ""
-"Une règle contient un attribut description distant et un attribut "
-"description locale."
 
 msgid ""
 "A script or set of commands to be executed after the instance has been built "
@@ -5273,11 +5241,6 @@ msgstr "Mapping mis à jour avec succès."
 msgid "Mappings"
 msgstr "Mappings"
 
-#, fuzzy
-msgctxt "Google's Material Design style theme"
-msgid "Material"
-msgstr "Material"
-
 msgid "Max Retries"
 msgstr "Max tentatives"
 
@@ -6569,14 +6532,6 @@ msgstr "REJETER"
 msgctxt "Action Name of a Firewall Rule"
 msgid "REJECT"
 msgstr "REJETER"
-
-#, fuzzy
-msgid "RX/TX Factor"
-msgstr "Ratio RX/TX"
-
-#, fuzzy
-msgid "RX/TX factor"
-msgstr "Ratio RX/TX"
 
 msgid "Ramdisk"
 msgstr "Ramdisk"
@@ -8466,10 +8421,6 @@ msgid ""
 msgstr ""
 "Le port décrit aussi la configuration réseau associée, tel que les adresses "
 "MAC et IP qui sont utilisées sur le port."
-
-#, fuzzy
-msgid "The pre-defined key string between the two peers of the VPN connection"
-msgstr "Clé prédéfinie entre les deux peers de la connexion VPN"
 
 msgid ""
 "The private key will be only used in your browser and will not be sent to "

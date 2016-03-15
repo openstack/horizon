@@ -1,27 +1,19 @@
-# Translations template for PROJECT.
-# Copyright (C) 2015 ORGANIZATION
-# This file is distributed under the same license as the PROJECT project.
-#
-# Translators:
-# Andreas Jaeger <jaegerandi@gmail.com>, 2014
-# Ettore Atalan <atalanttore@googlemail.com>, 2015
 # Carsten Duch <carsten.duch@posteo.de>, 2015. #zanata
 # Carsten Duch <carsten.duch@posteo.de>, 2016. #zanata
 msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2016-03-07 18:49+0000\n"
+"POT-Creation-Date: 2016-03-15 01:55+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "PO-Revision-Date: 2016-03-07 02:57+0000\n"
 "Last-Translator: Carsten Duch <carsten.duch@posteo.de>\n"
-"Language: de\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"Generated-By: Babel 2.0\n"
-"X-Generator: Zanata 3.7.3\n"
 "Language-Team: German\n"
+"Language: de\n"
+"X-Generator: Zanata 3.7.3\n"
+"Plural-Forms: nplurals=2; plural=(n != 1)\n"
 
 #, python-format
 msgid ""
@@ -176,11 +168,13 @@ msgstr "Verfügbar"
 msgid "Back"
 msgstr "Zurück"
 
+#. Translators: test code, don't really have to translate
 msgid "Batch Item"
 msgid_plural "Batch Items"
 msgstr[0] "Eintrag Stapeln"
 msgstr[1] "Einträge Stapeln"
 
+#. Translators: test code, don't really have to translate
 msgid "Batched Item"
 msgid_plural "Batched Items"
 msgstr[0] "Stapel Eintrag"
@@ -216,11 +210,13 @@ msgid_plural "Displaying %(nav_items)s items"
 msgstr[0] "Zeige %(nav_items)s Eintrag"
 msgstr[1] "Zeige %(nav_items)s Einträge"
 
+#. Translators: test code, don't really have to translate
 msgid "Down Item"
 msgid_plural "Down Items"
 msgstr[0] "Eintrag Heruntersetzen"
 msgstr[1] "Einträge Heruntersetzen"
 
+#. Translators: test code, don't really have to translate
 msgid "Downed Item"
 msgid_plural "Downed Items"
 msgstr[0] "Heruntergesetzter Eintrag"
@@ -338,6 +334,7 @@ msgstr "Wähle %s zum Durchsuchen."
 msgid "Select a period of time to query its usage:"
 msgstr "Wählen Sie einen Zeitbereich, um die Auslastung abzurufen:"
 
+#. Translators: test code, don't really have to translate
 msgid "Sell Puppy"
 msgid_plural "Sell Puppies"
 msgstr[0] "Sell Puppy"
@@ -346,6 +343,7 @@ msgstr[1] "Sell Puppies"
 msgid "Sign In"
 msgstr "Anmelden"
 
+#. Translators: test code, don't really have to translate
 msgid "Sold Puppy"
 msgid_plural "Sold Puppies"
 msgstr[0] "Sold Puppy"
@@ -399,6 +397,7 @@ msgstr "Nicht autorisiert. Bitte melden Sie sich erneut an."
 msgid "Unauthorized: %s"
 msgstr "Nicht berechtigt: %s"
 
+#. Translators: test code, don't really have to translate
 msgid "Up Item"
 msgid_plural "Up Items"
 msgstr[0] "Eintrag Hochsetzen"
@@ -414,6 +413,7 @@ msgid_plural "Updated Items"
 msgstr[0] "Aktualisierter Eintrag"
 msgstr[1] "Aktualisierter Einträge"
 
+#. Translators: test code, don't really have to translate
 msgid "Upped Item"
 msgid_plural "Upped Items"
 msgstr[0] "Hochgesetzter Eentrag"

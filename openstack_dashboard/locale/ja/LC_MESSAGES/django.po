@@ -1,36 +1,23 @@
-# Translations template for PROJECT.
-# Copyright (C) 2015 ORGANIZATION
-# This file is distributed under the same license as the PROJECT project.
-#
-# Translators:
-# Akihiro Motoki <amotoki@gmail.com>, 2015
-# myamamot <myamamot@redhat.com>, 2015
-# Shu Muto <shu-mutou@rf.jp.nec.com>, 2015
-# Tom Fifield <tom@openstack.org>, 2014
-# Tomoyuki KATO <tomo@dream.daynight.jp>, 2015
-# ykatabam <ykatabam@redhat.com>, 2015
 # Akihiro Motoki <amotoki@gmail.com>, 2015. #zanata
 # OpenStack Infra <zanata@openstack.org>, 2015. #zanata
 # Shu Muto <shu-mutou@rf.jp.nec.com>, 2015. #zanata
 # Yuko Katabami <yukokatabami@gmail.com>, 2015. #zanata
-# Akihiro Motoki <amotoki@gmail.com>, 2016. #zanata
 # Shu Muto <shu-mutou@rf.jp.nec.com>, 2016. #zanata
 # Yuko Katabami <yukokatabami@gmail.com>, 2016. #zanata
 msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2016-03-13 13:11+0000\n"
+"POT-Creation-Date: 2016-03-15 01:56+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2016-03-14 04:02+0000\n"
+"PO-Revision-Date: 2016-03-14 10:44+0000\n"
 "Last-Translator: Yuko Katabami <yukokatabami@gmail.com>\n"
-"Language: ja\n"
-"Plural-Forms: nplurals=1; plural=0;\n"
-"Generated-By: Babel 2.0\n"
-"X-Generator: Zanata 3.7.3\n"
 "Language-Team: Japanese\n"
+"Language: ja\n"
+"X-Generator: Zanata 3.7.3\n"
+"Plural-Forms: nplurals=1; plural=0\n"
 
 #, python-format
 msgid ""
@@ -2025,10 +2012,10 @@ msgid ""
 "instantiate and manage. A firewall must be associated with one policy, all "
 "other fields are optional."
 msgstr ""
-"ポリシーを元にファイアウォールを作成します。\n"
+"ポリシーに基づいてファイアウォールを作成します。\n"
 "\n"
 "ファイアウォールは、テナントがインスタンス化して管理することができる論理的な"
-"ファイアウォールリソースを表します。一つのファイアウォールは一つのポリシーと"
+"ファイアウォールリソースを表します。1 つのファイアウォールは 1 つのポリシーと"
 "関連付けられる必要があり、他のフィールドはすべて省略可能です。"
 
 msgid ""
@@ -2048,22 +2035,23 @@ msgid ""
 "through an update operation.</li>\n"
 "The name field is required, all others are optional."
 msgstr ""
-"ファイアウォールルールの順序付けられた一覧でファイアウォールポリシーを作成し"
-"ます。\n"
+"ファイアウォールルールの順序付きリストでファイアウォールポリシーを作成しま"
+"す。\n"
 "\n"
-"ファイアウォールポリシーは、順序付けられたファイアウォールルールの集合です。"
-"従って、もし通信が最初のルールに合致したら、他のルールは実行されません。もし"
-"通信が現在の合致しなかったら、次のルールが実行されます。ファイアウォールポリ"
-"シーは以下の属性を持ちます。\n"
+"ファイアウォールポリシーは、ファイアウォールルールの順序付きコレクションなの"
+"で、トラフィックが最初のルールに一致した場合には、他のルールは実行されませ"
+"ん。トラフィックが現在のルールに一致しない場合には、次のルールが実行されま"
+"す。ファイアウォールポリシーには、以下の属性があります。\n"
 "\n"
-"<li>共有: ファイアウォールポリシーをテナント間で共有できます。つまり、それを"
-"また、監査ワークフローの一部とすることができ、このファイアウォールポリシーを"
-"関連するエンティティによって監査することができるように許可します。</li><li>監"
-"査: 監査が True に設定されたときは、ファイアウォールポリシーが監査されること"
-"を示します。ファイアウォールポリシーまたは関連付けられたファイアウォールルー"
-"ルが変更されるたびに、この属性は False に設定され、更新操作で明示的に True に"
-"設定する必要があります。</li>\n"
-"名前は必須項目であり、他のフィールドはすべて省略可能です。"
+"<li>共有: ファイアウォールポリシーをテナント間で共有できます。そのため、承認"
+"済みの関連エンティティーによってファイアウォールポリシーを監査することができ"
+"る監査ワークフローの一部にすることも可能です。</li><li>監査: 監査が True に設"
+"定されている場合には、ファイアウォールポリシーが監査されることを意味します。"
+"ファイアウォールポリシーまたは関連付けられたファイアウォールルールが変更され"
+"るたびに、この属性は False に設定され、更新操作で明示的に True に設定する必要"
+"があります。</li>\n"
+"名前のフィールドは入力する必要があり、その他のフィールドはすべて省略可能で"
+"す。"
 
 msgid ""
 "Create a firewall rule.\n"
@@ -2085,8 +2073,7 @@ msgstr ""
 "送信先) です。</li><li>IP バージョン: フィルタリングする必要がある IP パケッ"
 "トの種別 (IP V4/V6) です。</li><li>プロトコル: チェックされる必要があるパケッ"
 "トの種別 (UDP、ICMP、TCP、Any) です。</li><li>アクション: アクションは必要な"
-"フィルターの種別で、データパケットを拒否 (REJECT)/破棄 (DENY)/許可 (ALLOW) で"
-"きます。</li>\n"
+"フィルターの種別で、データパケットを REJECT/DENY/ALLOW できます。</li>\n"
 "プロトコルとアクションは必須項目であり、他のフィールドはすべて省略可能です。"
 
 msgid "Create a firewall with selected routers."

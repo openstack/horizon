@@ -7,25 +7,24 @@
 # Ilya Alekseyev <ilyaalekseyev@acm.org>, 2015
 # Nikita Burtsev, 2015
 # Antonio Kless <antoniok.spb@gmail.com>, 2015. #zanata
-# Daisy <guoyingc@cn.ibm.com>, 2015. #zanata
 # Ilya Alekseyev <ilyaalekseyev@acm.org>, 2015. #zanata
 # OpenStack Infra <zanata@openstack.org>, 2015. #zanata
+# Daisy <guoyingc@cn.ibm.com>, 2016. #zanata
 # Fedor Tarasenko <feodor.tarasenko@gmail.com>, 2016. #zanata
 # Filatov Sergey <filatecs@gmail.com>, 2016. #zanata
 msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2016-02-26 02:04+0000\n"
+"POT-Creation-Date: 2016-03-15 01:55+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "PO-Revision-Date: 2016-02-25 09:22+0000\n"
 "Last-Translator: Fedor Tarasenko <feodor.tarasenko@gmail.com>\n"
 "Language: ru\n"
-"Plural-Forms: nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
-"%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || (n"
-"%100>=11 && n%100<=14)? 2 : 3);\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 "Generated-By: Babel 2.0\n"
 "X-Generator: Zanata 3.7.3\n"
 "Language-Team: Russian\n"
@@ -118,7 +117,6 @@ msgid_plural "%(size)d Bytes"
 msgstr[0] "%(size)d байт"
 msgstr[1] "%(size)d байт"
 msgstr[2] "%(size)d байт"
-msgstr[3] "%(size)d байт"
 
 #, python-format
 msgid "%s GB"
@@ -203,7 +201,6 @@ msgid_plural "Displaying %(content_items)s items"
 msgstr[0] "Отображен %(content_items)s элемент"
 msgstr[1] "Отображено %(content_items)s элементов"
 msgstr[2] "Отображено %(content_items)s элементов"
-msgstr[3] "Отображено %(content_items)s элементов"
 
 #, python-format
 msgid "Displaying %(counter)s item"
@@ -211,7 +208,6 @@ msgid_plural "Displaying %(counter)s items"
 msgstr[0] "Отображен %(counter)s элемент"
 msgstr[1] "Отображено %(counter)s элементов"
 msgstr[2] "Отображено %(counter)s элементов"
-msgstr[3] "Отображено %(counter)s элементов"
 
 #, python-format
 msgid "Displaying %(nav_items)s item"
@@ -219,7 +215,6 @@ msgid_plural "Displaying %(nav_items)s items"
 msgstr[0] "Отображен %(nav_items)s элемент"
 msgstr[1] "Отображено %(nav_items)s элементов"
 msgstr[2] "Отображено %(nav_items)s элементов"
-msgstr[3] "Отображено %(nav_items)s элементов"
 
 #, python-format
 msgid "Error processing message json file '%(path)s': %(exception)s"
@@ -332,22 +327,22 @@ msgstr "Выберите %s для просмотра"
 msgid "Select a period of time to query its usage:"
 msgstr "Выберите временной интервал для запроса использования:"
 
+#. Translators: test code, don't really have to translate
 msgid "Sell Puppy"
 msgid_plural "Sell Puppies"
 msgstr[0] "Продать щенка"
 msgstr[1] "Продать щенков"
 msgstr[2] "Продать щенков"
-msgstr[3] "Продать щенков"
 
 msgid "Sign In"
 msgstr "Вход"
 
+#. Translators: test code, don't really have to translate
 msgid "Sold Puppy"
 msgid_plural "Sold Puppies"
 msgstr[0] "Проданый щенок"
 msgstr[1] "Проданые щенки"
 msgstr[2] "Проданые щенки"
-msgstr[3] "Проданые щенки"
 
 msgid "Submit"
 msgstr "Отправить"

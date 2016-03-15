@@ -1,20 +1,3 @@
-# Translations template for PROJECT.
-# Copyright (C) 2015 ORGANIZATION
-# This file is distributed under the same license as the PROJECT project.
-#
-# Translators:
-# Alfred <alfredhuang211@qq.com>, 2015
-# Allerson Yao, 2015
-# blkart <blkart.org@gmail.com>, 2015
-# ChangBo Guo(gcb) <glongwave@gmail.com>, 2014
-# johnwoo_lee <lijiangsheng1@gmail.com>, 2015
-# LIU Yulong <dragon889@163.com>, 2015
-# Lucas H. Xu <xuh@bu.edu>, 2015
-# Tom Fifield <tom@openstack.org>, 2014
-# Xiao Xi LIU <liuxx@cn.ibm.com>, 2014
-# Ying Chun Guo <daisy.ycguo@gmail.com>, 2015
-# 刘俊朋 <liujunpeng@inspur.com>, 2015
-# 颜海峰 <yanheven@gmail.com>, 2015
 # Daisy <guoyingc@cn.ibm.com>, 2015. #zanata
 # OpenStack Infra <zanata@openstack.org>, 2015. #zanata
 # Xu Yang <yizhongchuanqi@163.com>, 2015. #zanata
@@ -29,17 +12,16 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2016-03-13 13:11+0000\n"
+"POT-Creation-Date: 2016-03-15 01:56+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2016-03-13 08:26+0000\n"
-"Last-Translator: Zheng Xi Zhou <zzxwill@gmail.com>\n"
-"Language: zh-CN\n"
-"Plural-Forms: nplurals=1; plural=0;\n"
-"Generated-By: Babel 2.0\n"
-"X-Generator: Zanata 3.7.3\n"
+"PO-Revision-Date: 2016-03-14 02:24+0000\n"
+"Last-Translator: vuuv <froms2008@gmail.com>\n"
 "Language-Team: Chinese (China)\n"
+"Language: zh-CN\n"
+"X-Generator: Zanata 3.7.3\n"
+"Plural-Forms: nplurals=1; plural=0\n"
 
 #, python-format
 msgid ""
@@ -7822,7 +7804,6 @@ msgid ""
 msgstr ""
 "详细说明启动云主机的情况,下面的图表显示此项目所使用的资源和关联的项目配额。"
 
-#, fuzzy
 msgid ""
 "The color and icon of an intersection indicates whether or not traffic is "
 "permitted from the source (row) to the destination (column).\n"
@@ -7833,12 +7814,12 @@ msgid ""
 "direction is outlined when hovering over an intersection.\n"
 " "
 msgstr ""
-"来源(行)和目的(列)交点处的颜色及图标代表着是否允许流量通过.\n"
-"     点击交点处的 <span class=\"fa fa-random\"></span> 按钮可以添加规则来调整"
-"流量的行为.<br/>\n"
+"交叉点的颜色和图标指示了从来源(行)到目标(列)的流量是否允许。\n"
+"点击交叉点的<span class=\"fa fa-random\"></span>按钮，将安装一个规则，用于改"
+"变流量行为。<br/>\n"
 "\n"
-"     <b>注意:</b> 规则只对单个方向的流量有效. The opposite direction is "
-"outlined when hovering over an intersection.\n"
+"<b>注意：</b>规则只影响一个方向的流量。当鼠标悬停在交叉点上时，反方向的流量行"
+"为将被展示。\n"
 " "
 
 msgid "The container cannot be deleted since it is not empty."

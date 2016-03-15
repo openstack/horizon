@@ -1,24 +1,18 @@
-# Translations template for PROJECT.
-# Copyright (C) 2015 ORGANIZATION
-# This file is distributed under the same license as the PROJECT project.
-#
-# Translators:
 # OpenStack Infra <zanata@openstack.org>, 2015. #zanata
 msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2016-02-18 02:36+0000\n"
+"POT-Creation-Date: 2016-03-15 01:56+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2015-09-08 11:14+0000\n"
-"Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
-"Language: ks\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"Generated-By: Babel 2.0\n"
-"X-Generator: Zanata 3.7.3\n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
 "Language-Team: Kashmiri\n"
+"Language: ks\n"
+"X-Generator: Zanata 3.7.3\n"
+"Plural-Forms: nplurals=1; plural=0\n"
 
 #, python-format
 msgid ""
@@ -143,6 +137,7 @@ msgstr "%(instance_name)s %(fixed_ip)s"
 msgid "%(name)s - %(size)s GB (%(label)s)"
 msgstr "%(name)s - %(size)s GB (%(label)s)"
 
+#. Translators:  UTC offset and timezone label
 #, python-format
 msgid "%(offset)s: %(label)s"
 msgstr "%(offset)s: %(label)s"
@@ -2509,6 +2504,7 @@ msgstr ""
 "گروپس چہ  یوان  اِستعمال  کئرنہ ایکسس مینیج کرنہ خآطرہ تہ رول ایسآین کرنہ "
 "خآطرہ جَلدی ۔ گروپ بَناونہ خآطرہ، شیریو گروپ یوزر جمع کرنہ خآطرہ"
 
+#. Translators: High Availability mode of Neutron router
 msgid "HA mode"
 msgstr "HA موڈ"
 
@@ -4917,6 +4913,7 @@ msgid ""
 "number."
 msgstr "پورٹ نمبر  گژہ آسون زیادہ یا بَرابر  \"to\"  پورٹ نمبر خوتہ\"from\""
 
+#. Translators: Only used inside Horizon code and invisible to users
 #, python-format
 msgid ""
 "The 'operation' parameter for get_feature_permission '%(feature)s' is "
@@ -5086,6 +5083,7 @@ msgstr "را کئنٹینٹ مٲحول فآئل ہِند"
 msgid "The raw contents of the template."
 msgstr "را کئنٹینٹ ٹیمپلیٹ ہِند"
 
+#. Translators: Only used inside Horizon code and invisible to users
 #, python-format
 msgid ""
 "The requested feature '%(feature)s' is unknown. Please make sure to specify "

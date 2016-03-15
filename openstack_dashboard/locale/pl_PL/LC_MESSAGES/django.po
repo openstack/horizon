@@ -1,27 +1,20 @@
-# Translations template for PROJECT.
-# Copyright (C) 2015 ORGANIZATION
-# This file is distributed under the same license as the PROJECT project.
-#
-# Translators:
-# Łukasz Jernaś <deejay1@srem.org>, 2015
 # OpenStack Infra <zanata@openstack.org>, 2015. #zanata
 # Łukasz Jernas <deejay1@srem.org>, 2015. #zanata
 msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2016-03-02 17:22+0000\n"
+"POT-Creation-Date: 2016-03-15 01:56+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "PO-Revision-Date: 2015-10-06 02:06+0000\n"
 "Last-Translator: Łukasz Jernas <deejay1@srem.org>\n"
-"Language: pl-PL\n"
-"Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
-"|| n%100>=20) ? 1 : 2);\n"
-"Generated-By: Babel 2.0\n"
-"X-Generator: Zanata 3.7.3\n"
 "Language-Team: Polish (Poland)\n"
+"Language: pl-PL\n"
+"X-Generator: Zanata 3.7.3\n"
+"Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
+"|| n%100>=20) ? 1 : 2)\n"
 
 #, python-format
 msgid ""
@@ -383,6 +376,7 @@ msgstr "%(instance_name)s %(fixed_ip)s"
 msgid "%(name)s - %(size)s GB (%(label)s)"
 msgstr "%(name)s - %(size)s GB (%(label)s)"
 
+#. Translators:  UTC offset and timezone label
 #, python-format
 msgid "%(offset)s: %(label)s"
 msgstr "%(offset)s: %(label)s"
@@ -421,6 +415,7 @@ msgstr "%(used)s %(key)s użyto"
 msgid "%s (Default)"
 msgstr "%s (Domyślnie)"
 
+#. Translators: The usage is "<UUID of ext_net> (Not Found)"
 #, python-format
 msgctxt "External network not found"
 msgid "%s (Not Found)"
@@ -3910,6 +3905,7 @@ msgstr ""
 "wielu użytkowników równocześnie. Należy edytować grupę, aby dodać "
 "użytkowników."
 
+#. Translators: High Availability mode of Neutron router
 msgid "HA mode"
 msgstr "Tryb wysokiej dostępności (HA)"
 
@@ -7488,6 +7484,7 @@ msgstr ""
 "Numer portu w polu „do portu” musi być większy lub równy numerowi w polu „od "
 "portu”.  "
 
+#. Translators: Only used inside Horizon code and invisible to users
 #, python-format
 msgid ""
 "The 'operation' parameter for get_feature_permission '%(feature)s' is "
@@ -7726,6 +7723,7 @@ msgstr "Zawartość pliku środowiska."
 msgid "The raw contents of the template."
 msgstr "Zawartość szablonu."
 
+#. Translators: Only used inside Horizon code and invisible to users
 #, python-format
 msgid ""
 "The requested feature '%(feature)s' is unknown. Please make sure to specify "

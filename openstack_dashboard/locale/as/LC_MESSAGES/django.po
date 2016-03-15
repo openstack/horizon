@@ -1,24 +1,18 @@
-# Translations template for PROJECT.
-# Copyright (C) 2015 ORGANIZATION
-# This file is distributed under the same license as the PROJECT project.
-#
-# Translators:
 # OpenStack Infra <zanata@openstack.org>, 2015. #zanata
 msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2016-03-02 17:22+0000\n"
+"POT-Creation-Date: 2016-03-15 01:56+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2015-09-08 11:14+0000\n"
-"Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
-"Language: as\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"Generated-By: Babel 2.0\n"
-"X-Generator: Zanata 3.7.3\n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
 "Language-Team: Assamese\n"
+"Language: as\n"
+"X-Generator: Zanata 3.7.3\n"
+"Plural-Forms: nplurals=2; plural=(n != 1)\n"
 
 #, python-format
 msgid ""
@@ -144,6 +138,7 @@ msgstr "%(instance_name)s %(fixed_ip)s"
 msgid "%(name)s - %(size)s GB (%(label)s)"
 msgstr "%(name)s - %(size)s GB (%(label)s)"
 
+#. Translators:  UTC offset and timezone label
 #, python-format
 msgid "%(offset)s: %(label)s"
 msgstr "%(offset)s: %(label)s"
@@ -181,6 +176,7 @@ msgstr "%(used)s %(key)s ব্যৱহাৰ কৰা হল"
 msgid "%s (Default)"
 msgstr "%s (ডিফল্ট)"
 
+#. Translators: The usage is "<UUID of ext_net> (Not Found)"
 #, python-format
 msgctxt "External network not found"
 msgid "%s (Not Found)"
@@ -2578,6 +2574,7 @@ msgstr ""
 "একেসময়তে বিভিন্ন ব্যৱহাৰকৰ্তাই ৰোলবোৰত প্ৰৱেশ আৰু কাৰ্য কৰাটো পৰিচালনা কৰিবলৈ "
 "গোটবোৰ ব্যৱহাৰ কৰা হয়. ব্যৱহাৰকৰ্তাবোৰ যোগ কৰিবলৈলৈ গোটটো সম্পাদনা কৰক."
 
+#. Translators: High Availability mode of Neutron router
 msgid "HA mode"
 msgstr "HA ধৰণ"
 
@@ -5171,6 +5168,7 @@ msgid ""
 msgstr ""
 "\"to\" পোৰ্ট সংখ্যাটো \"from\" পোৰ্ট সংখ্যাটোতকৈ ডাঙৰ বা সমান হোৱাটো অপৰিহাৰ্য."
 
+#. Translators: Only used inside Horizon code and invisible to users
 #, python-format
 msgid ""
 "The 'operation' parameter for get_feature_permission '%(feature)s' is "
@@ -5343,6 +5341,7 @@ msgstr "পৰিৱেশ ফাইলটোৰ শাৰীৰ বিষয়ব
 msgid "The raw contents of the template."
 msgstr "নমুনাটোৰ শাৰীৰ বিষয়বস্তুবোৰ."
 
+#. Translators: Only used inside Horizon code and invisible to users
 #, python-format
 msgid ""
 "The requested feature '%(feature)s' is unknown. Please make sure to specify "

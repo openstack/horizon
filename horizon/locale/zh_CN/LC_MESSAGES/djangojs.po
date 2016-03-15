@@ -1,15 +1,3 @@
-# Translations template for PROJECT.
-# Copyright (C) 2015 ORGANIZATION
-# This file is distributed under the same license as the PROJECT project.
-#
-# Translators:
-# Alfred <alfredhuang211@qq.com>, 2015
-# johnwoo_lee <lijiangsheng1@gmail.com>, 2015
-# Tom Fifield <tom@openstack.org>, 2015
-# Xiao Xi LIU <liuxx@cn.ibm.com>, 2014
-# Ying Chun Guo <daisy.ycguo@gmail.com>, 2015
-# 刘俊朋 <liujunpeng@inspur.com>, 2015
-# 颜海峰 <yanheven@gmail.com>, 2015
 # Daisy <guoyingc@cn.ibm.com>, 2015. #zanata
 # OpenStack Infra <zanata@openstack.org>, 2015. #zanata
 # Yu Zhiuguo <yuzg@cn.fujitsu.com>, 2015. #zanata
@@ -22,17 +10,16 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2016-03-09 05:39+0000\n"
+"POT-Creation-Date: 2016-03-15 01:55+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "PO-Revision-Date: 2016-03-08 09:05+0000\n"
 "Last-Translator: vuuv <froms2008@gmail.com>\n"
-"Language: zh-CN\n"
-"Plural-Forms: nplurals=1; plural=0;\n"
-"Generated-By: Babel 2.0\n"
-"X-Generator: Zanata 3.7.3\n"
 "Language-Team: Chinese (China)\n"
+"Language: zh-CN\n"
+"X-Generator: Zanata 3.7.3\n"
+"Plural-Forms: nplurals=1; plural=0\n"
 
 #, python-format
 msgid "%s GB"

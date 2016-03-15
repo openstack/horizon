@@ -1,20 +1,3 @@
-# Translations template for PROJECT.
-# Copyright (C) 2015 ORGANIZATION
-# This file is distributed under the same license as the PROJECT project.
-#
-# Translators:
-# Andre Campos Bezerra <andrecbezerra@gmail.com>, 2015
-# Dayvidson dos Santos Bezerra <dayvidsonbezerra@gmail.com>, 2015
-# Fernando Pimenta <fernando.c.pimenta@gmail.com>, 2015
-# Gabriel Wainer, 2015
-# Gabriel Wainer, 2015
-# Luís Eduardo Tenório Silva <eduardovansilva@gmail.com>, 2015
-# Marcelo Dieder <marcelodieder@gmail.com>, 2015
-# Natan Teixeira Boanafina Sayão <natantb@hotmail.com>, 2015
-# Remulo Carvalho <remulo@gmail.com>, 2015
-# Rodrigo Felix de Almeida <rodrigofelixdealmeida@gmail.com>, 2014
-# Tiago OR (James) <tiagoor@gmail.com>, 2015
-# Zilmar de Souza Junior <zilmar.jr@gmail.com>, 2015
 # André Campos <andrecbezerra@gmail.com>, 2015. #zanata
 # Gabriel Wainer <gabrielcw@gmail.com>, 2015. #zanata
 # Marcelo Dieder <marcelodieder@gmail.com>, 2015. #zanata
@@ -25,17 +8,16 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2016-03-13 13:11+0000\n"
+"POT-Creation-Date: 2016-03-15 01:56+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "PO-Revision-Date: 2016-03-11 06:04+0000\n"
 "Last-Translator: Eric Baum <ecbaum@gmail.com>\n"
-"Language: pt-BR\n"
-"Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"Generated-By: Babel 2.0\n"
-"X-Generator: Zanata 3.7.3\n"
 "Language-Team: Portuguese (Brazil)\n"
+"Language: pt-BR\n"
+"X-Generator: Zanata 3.7.3\n"
+"Plural-Forms: nplurals=2; plural=(n != 1)\n"
 
 #, python-format
 msgid ""

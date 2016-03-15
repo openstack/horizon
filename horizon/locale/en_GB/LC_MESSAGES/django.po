@@ -1,10 +1,3 @@
-# Translations template for PROJECT.
-# Copyright (C) 2015 ORGANIZATION
-# This file is distributed under the same license as the PROJECT project.
-#
-# Translators:
-# Andi Chandler <andi@gowling.com>, 2014
-# Rob Cresswell <robert.cresswell@outlook.com>, 2015
 # Andi Chandler <andi@gowling.com>, 2015. #zanata
 # OpenStack Infra <zanata@openstack.org>, 2015. #zanata
 # Rob Cresswell <robert.cresswell@outlook.com>, 2016. #zanata
@@ -12,17 +5,16 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2016-02-11 05:31+0000\n"
+"POT-Creation-Date: 2016-03-15 01:55+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "PO-Revision-Date: 2016-02-10 12:12+0000\n"
 "Last-Translator: Rob Cresswell <robert.cresswell@outlook.com>\n"
-"Language: en-GB\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"Generated-By: Babel 2.0\n"
-"X-Generator: Zanata 3.7.3\n"
 "Language-Team: English (United Kingdom)\n"
+"Language: en-GB\n"
+"X-Generator: Zanata 3.7.3\n"
+"Plural-Forms: nplurals=2; plural=(n != 1)\n"
 
 #, python-format
 msgid ""
@@ -176,11 +168,13 @@ msgstr "Available"
 msgid "Back"
 msgstr "Back"
 
+#. Translators: test code, don't really have to translate
 msgid "Batch Item"
 msgid_plural "Batch Items"
 msgstr[0] "Batch Item"
 msgstr[1] "Batch Items"
 
+#. Translators: test code, don't really have to translate
 msgid "Batched Item"
 msgid_plural "Batched Items"
 msgstr[0] "Batched Item"
@@ -216,11 +210,13 @@ msgid_plural "Displaying %(nav_items)s items"
 msgstr[0] "Displaying %(nav_items)s item"
 msgstr[1] "Displaying %(nav_items)s items"
 
+#. Translators: test code, don't really have to translate
 msgid "Down Item"
 msgid_plural "Down Items"
 msgstr[0] "Down Item"
 msgstr[1] "Down Items"
 
+#. Translators: test code, don't really have to translate
 msgid "Downed Item"
 msgid_plural "Downed Items"
 msgstr[0] "Downed Item"
@@ -335,6 +331,7 @@ msgstr "Select a %s to browse."
 msgid "Select a period of time to query its usage:"
 msgstr "Select a period of time to query its usage:"
 
+#. Translators: test code, don't really have to translate
 msgid "Sell Puppy"
 msgid_plural "Sell Puppies"
 msgstr[0] "Sell Puppy"
@@ -343,6 +340,7 @@ msgstr[1] "Sell Puppies"
 msgid "Sign In"
 msgstr "Sign In"
 
+#. Translators: test code, don't really have to translate
 msgid "Sold Puppy"
 msgid_plural "Sold Puppies"
 msgstr[0] "Sold Puppy"
@@ -396,6 +394,7 @@ msgstr "Unauthorised. Please try logging in again."
 msgid "Unauthorized: %s"
 msgstr "Unauthorised: %s"
 
+#. Translators: test code, don't really have to translate
 msgid "Up Item"
 msgid_plural "Up Items"
 msgstr[0] "Up Item"
@@ -411,6 +410,7 @@ msgid_plural "Updated Items"
 msgstr[0] "Updated Item"
 msgstr[1] "Updated Items"
 
+#. Translators: test code, don't really have to translate
 msgid "Upped Item"
 msgid_plural "Upped Items"
 msgstr[0] "Upped Item"

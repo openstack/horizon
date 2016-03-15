@@ -1,27 +1,19 @@
-# Translations template for PROJECT.
-# Copyright (C) 2015 ORGANIZATION
-# This file is distributed under the same license as the PROJECT project.
-#
-# Translators:
-# KARTHIK SURESH HANASOGE <kali.karthik@gmail.com>, 2015
-# Savitha, 2015
 # OpenStack Infra <zanata@openstack.org>, 2015. #zanata
 # sharath rao <sharath.rao@ericsson.com>, 2015. #zanata
 msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2016-03-02 17:22+0000\n"
+"POT-Creation-Date: 2016-03-15 01:56+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "PO-Revision-Date: 2015-10-22 08:52+0000\n"
 "Last-Translator: sharath rao <sharath.rao@ericsson.com>\n"
-"Language: kn\n"
-"Plural-Forms: nplurals=1; plural=0;\n"
-"Generated-By: Babel 2.0\n"
-"X-Generator: Zanata 3.7.3\n"
 "Language-Team: Kannada\n"
+"Language: kn\n"
+"X-Generator: Zanata 3.7.3\n"
+"Plural-Forms: nplurals=2; plural=(n!=1)\n"
 
 #, python-format
 msgid ""
@@ -150,6 +142,7 @@ msgstr "%(instance_name)s %(fixed_ip)s"
 msgid "%(name)s - %(size)s GB (%(label)s)"
 msgstr "%(name)s - %(size)s GB (%(label)s)"
 
+#. Translators:  UTC offset and timezone label
 #, python-format
 msgid "%(offset)s: %(label)s"
 msgstr "%(offset)s: %(label)s"
@@ -188,6 +181,7 @@ msgstr "%(used)s %(key)s ಬಳಸಲಾಗಿದೆ"
 msgid "%s (Default)"
 msgstr "%s (ಪೂರ್ವನಿಯೋಜಿತ)"
 
+#. Translators: The usage is "<UUID of ext_net> (Not Found)"
 #, python-format
 msgctxt "External network not found"
 msgid "%s (Not Found)"
@@ -1515,6 +1509,7 @@ msgstr "ವಿಳಂಬ"
 msgid "Delete Volume"
 msgid_plural "Delete Volumes"
 msgstr[0] "ಪರಿಮಾಣಗಳನ್ನು  ಅಳಿಸಿ "
+msgstr[1] ""
 
 #, python-format
 msgid "Delete the created network \"%s\" due to subnet creation failure."
@@ -2614,6 +2609,7 @@ msgstr ""
 "ನಿಲುಕನ್ನು ನೋಡಿಕೊಳ್ಳಲು ಮತ್ತು ಒಂದೇ ಬಾರಿಗೆ ಅನೇಕ ಬಳಕೆದಾರರಿಗೆ ಪಾತ್ರಗಳನ್ನು ನಿಯೋಜಿಸಲು "
 "ಗುಂಪುಗಳನ್ನು ಬಳಸಲಾಗುತ್ತದೆ. ಬಳಕೆದಾರರನ್ನು ಸೇರಿಸಲು ಗುಂಪನ್ನು ಸಂಪಾದಿಸಿ."
 
+#. Translators: High Availability mode of Neutron router
 msgid "HA mode"
 msgstr "HA ಸ್ಥಿತಿ"
 
@@ -5248,6 +5244,7 @@ msgstr ""
 "\"to\" ಪೋರ್ಟ್‌ ಸಂಖ್ಯೆಯು \"from\" ಪೋರ್ಟ್‌ ಸಂಖ್ಯೆಗೆ ಸಮವಾಗಿರಬೇಕು ಅಥವಾ ಅದಕ್ಕಿಂತ "
 "ದೊಡ್ಡದಾಗಿರಬೇಕು."
 
+#. Translators: Only used inside Horizon code and invisible to users
 #, python-format
 msgid ""
 "The 'operation' parameter for get_feature_permission '%(feature)s' is "
@@ -5426,6 +5423,7 @@ msgstr "ಪರಿಸರ ಕಡತದಲ್ಲಿನ ಕಚ್ಛಾ ವಿಷಯ
 msgid "The raw contents of the template."
 msgstr "ಸಿದ್ಧವಿನ್ಯಾಸದಲ್ಲಿನ ಕಚ್ಛಾ ವಿಷಯಗಳು (ಕಂಟೆಂಟ್ಸ್)."
 
+#. Translators: Only used inside Horizon code and invisible to users
 #, python-format
 msgid ""
 "The requested feature '%(feature)s' is unknown. Please make sure to specify "

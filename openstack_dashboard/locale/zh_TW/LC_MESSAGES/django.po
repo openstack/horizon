@@ -1,33 +1,21 @@
-# Translations template for PROJECT.
-# Copyright (C) 2015 ORGANIZATION
-# This file is distributed under the same license as the PROJECT project.
-#
-# Translators:
-# jessy1092 <jessy1092@gmail.com>, 2015
-# Joanna H. Huang <joanna.huitzu.huang@gmail.com>, 2015
-# rico lin <rico.lin.guanyu@gmail.com>, 2015
-# Shang Wu <wu1982@gmail.com>, 2015
-# Tom Fifield <tom@openstack.org>, 2015
-# Zhang Xiaowei <zero00072@gmail.com>, 2014
-# Zhang Xiaowei <zero00072@gmail.com>, 2014-2015
 # Chester Cheng <ccheng@redhat.com>, 2015. #zanata
 # OpenStack Infra <zanata@openstack.org>, 2015. #zanata
 # Zhang Xiaowei <zero00072@gmail.com>, 2015. #zanata
+# Ching Kuo <igene@igene.tw>, 2016. #zanata
 msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2016-03-02 17:22+0000\n"
+"POT-Creation-Date: 2016-03-15 01:56+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2015-11-02 09:56+0000\n"
-"Last-Translator: Zhang Xiaowei <zero00072@gmail.com>\n"
-"Language: zh-TW\n"
-"Plural-Forms: nplurals=1; plural=0;\n"
-"Generated-By: Babel 2.0\n"
-"X-Generator: Zanata 3.7.3\n"
+"PO-Revision-Date: 2016-03-14 05:53+0000\n"
+"Last-Translator: Ching Kuo <igene@igene.tw>\n"
 "Language-Team: Chinese (Taiwan)\n"
+"Language: zh-TW\n"
+"X-Generator: Zanata 3.7.3\n"
+"Plural-Forms: nplurals=1; plural=0\n"
 
 #, python-format
 msgid ""
@@ -388,6 +376,7 @@ msgstr "%(instance_name)s %(fixed_ip)s"
 msgid "%(name)s - %(size)s GB (%(label)s)"
 msgstr "%(name)s - %(size)s GB（%(label)s）"
 
+#. Translators:  UTC offset and timezone label
 #, python-format
 msgid "%(offset)s: %(label)s"
 msgstr "%(offset)s：%(label)s"
@@ -424,6 +413,7 @@ msgstr "已使用 %(used)s 個 %(key)s"
 msgid "%s (Default)"
 msgstr "%s（預設值）"
 
+#. Translators: The usage is "<UUID of ext_net> (Not Found)"
 #, python-format
 msgctxt "External network not found"
 msgid "%s (Not Found)"
@@ -1197,6 +1187,9 @@ msgstr "正在備份"
 msgid "Backup Name"
 msgstr "備份名稱"
 
+msgid "Backup Size (GiB)"
+msgstr "備份容量 (GiB)"
+
 msgid "Backups"
 msgstr "備份"
 
@@ -1938,6 +1931,17 @@ msgstr "目前的主機"
 msgid "Current password"
 msgstr "目前密碼"
 
+msgid ""
+"Currently only images available via an HTTP/HTTPS URL are supported. The "
+"image location must be accessible to the Image Service."
+msgstr ""
+"目前僅支援從 HTTP/HTTPS 網址得到映像檔。映像檔位置必須是映像檔伺服器上可訪問"
+"的。"
+
+msgctxt "Custom style theme"
+msgid "Custom"
+msgstr "自訂"
+
 msgid "Custom ICMP Rule"
 msgstr "自訂 ICMP 規則"
 
@@ -2033,8 +2037,18 @@ msgstr "死亡節點偵測逾時"
 msgid "Decrypt Password"
 msgstr "解鎖密碼"
 
+msgctxt "Default style theme"
+msgid "Default"
+msgstr "預設"
+
 msgid "Default Quotas"
 msgstr "預設配額"
+
+msgid "Default quotas updated for Cinder."
+msgstr "已更新Cinder預設的配額。"
+
+msgid "Default quotas updated for Nova."
+msgstr "已更新Nova預設的配額。"
 
 msgid "Default quotas updated."
 msgstr "已更新預設配額。"
@@ -2442,6 +2456,9 @@ msgstr[0] "正在卸除雲硬碟"
 
 msgid "Details"
 msgstr "詳細資訊"
+
+msgid "Developer"
+msgstr "開發者"
 
 msgid "Device"
 msgstr "裝置"
@@ -3610,6 +3627,9 @@ msgstr "閘道 IP 和 IP 版本不一致。"
 msgid "Gateway interface is added"
 msgstr "已加入閘道網路卡"
 
+msgid "GiB"
+msgstr "GiB"
+
 msgid "Glance"
 msgstr "Glance"
 
@@ -3653,6 +3673,7 @@ msgid ""
 "Edit the group to add users."
 msgstr "群組是用來管理權限和一次分配角色給多個用戶的。編輯群組來加入用戶。"
 
+#. Translators: High Availability mode of Neutron router
 msgid "HA mode"
 msgstr "高可用性模式"
 
@@ -4472,6 +4493,9 @@ msgstr "最大重試數（1~10）"
 msgid "Max."
 msgstr "最大"
 
+msgid "Max. Size (MB) ="
+msgstr "最大容量（MB）＝"
+
 msgid "Maximum Transmission Unit size for the connection"
 msgstr "連線最大傳輸單位流量"
 
@@ -4574,6 +4598,9 @@ msgstr "最小隨機存取記憶體"
 msgid "Min."
 msgstr "最小"
 
+msgid "Min. Size (MB) ="
+msgstr "最小容量（MB）＝"
+
 msgid "Minimum Disk (GB)"
 msgstr "至少硬碟（GB）"
 
@@ -4660,6 +4687,9 @@ msgstr "N/A"
 
 msgid "Name"
 msgstr "名稱"
+
+msgid "Name ="
+msgstr "名稱 ＝"
 
 msgid ""
 "Name may only contain letters, numbers, underscores, periods and hyphens."
@@ -6187,6 +6217,9 @@ msgstr "安全性群組規則"
 msgid "Security Groups"
 msgstr "安全性群組"
 
+msgid "Security group rule already exists."
+msgstr "安全群組規則已存在"
+
 msgid ""
 "Security groups are sets of IP filter rules that are applied to the network "
 "settings for the VM. After the security group is created, you can add rules "
@@ -6418,6 +6451,9 @@ msgstr "伺服器群組"
 
 msgid "Server error"
 msgstr "伺服器錯誤"
+
+msgid "Servers"
+msgstr "伺服器"
 
 msgid "Service"
 msgstr "伺服器"
@@ -7077,6 +7113,7 @@ msgid ""
 "number."
 msgstr "「到」埠口號必須大於等於「從」埠口號。"
 
+#. Translators: Only used inside Horizon code and invisible to users
 #, python-format
 msgid ""
 "The 'operation' parameter for get_feature_permission '%(feature)s' is "
@@ -7111,6 +7148,11 @@ msgstr ""
 msgid ""
 "The <strong>Provider</strong> is the class providing encryption support (e."
 "g. LuksEncryptor)."
+msgstr "<strong>提供者</strong>是提供加密的類別（例如 LuksEncryptor）。"
+
+msgid ""
+"The <strong>Provider</strong> is the class providing encryption support (e."
+"g., LuksEncryptor)."
 msgstr "<strong>提供者</strong>是提供加密的類別（例如 LuksEncryptor）。"
 
 msgid "The Aggregate was updated."
@@ -7293,6 +7335,7 @@ msgstr "環境檔案的直接內容"
 msgid "The raw contents of the template."
 msgstr "範本的直接內容。"
 
+#. Translators: Only used inside Horizon code and invisible to users
 #, python-format
 msgid ""
 "The requested feature '%(feature)s' is unknown. Please make sure to specify "
@@ -7343,6 +7386,9 @@ msgstr "時間變化量必須是個可以表示多個日子內時間差值的數
 #, python-format
 msgid "The volume size cannot be less than the image size (%s)"
 msgstr "雲硬碟容量不能小於映像檔容量（%s）"
+
+msgid "Theme Preview"
+msgstr "主題預覽"
 
 msgid "There are no meters defined yet."
 msgstr "尚未定義量測器。"
@@ -7486,6 +7532,9 @@ msgstr "隨機存取記憶體總合"
 
 msgid "Total Size of Volumes and Snapshots (GB)"
 msgstr "雲硬碟與即時存檔的總容量（GB）"
+
+msgid "Total Size of Volumes and Snapshots (GiB)"
+msgstr "雲硬碟與即時存檔的總容量（GiB）"
 
 msgid "Total VCPU Usage (Hours):"
 msgstr "虛擬處理器用量（小時）："
@@ -8589,6 +8638,12 @@ msgstr "無法放棄管理雲硬碟。"
 msgid "Unable to update container access."
 msgstr "無法更新容器的存取權。"
 
+msgid "Unable to update default quotas for Cinder."
+msgstr "無法更新Cinder預設的配額"
+
+msgid "Unable to update default quotas for Nova."
+msgstr "無法更新Nova預設的配額。"
+
 msgid "Unable to update default quotas."
 msgstr "無法更新預設的配額。"
 
@@ -8728,6 +8783,9 @@ msgstr "更新預設配額"
 
 msgid "Update Defaults"
 msgstr "更新預設值"
+
+msgid "Update Encrypted Volume Type"
+msgstr "更新已加密的雲硬碟類型"
 
 msgctxt "current status of stack"
 msgid "Update Failed"

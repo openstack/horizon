@@ -1,27 +1,52 @@
-# Translations template for PROJECT.
-# Copyright (C) 2015 ORGANIZATION
-# This file is distributed under the same license as the PROJECT project.
-#
-# Translators:
-# Chen, Shang-Pin <dreamerwolf.tw@gmail.com>, 2015
-# Xiao Xi LIU <liuxx@cn.ibm.com>, 2014
-# Zhang Xiaowei <zero00072@gmail.com>, 2015
 # Zhang Xiaowei <zero00072@gmail.com>, 2015. #zanata
+# Ching Kuo <igene@igene.tw>, 2016. #zanata
 msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2016-01-31 10:08+0000\n"
+"POT-Creation-Date: 2016-03-15 01:55+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2015-10-06 02:02+0000\n"
-"Last-Translator: Liu Chi Han <t09sunny@gmail.com>\n"
-"Language: zh-TW\n"
-"Plural-Forms: nplurals=1; plural=0;\n"
-"Generated-By: Babel 2.0\n"
-"X-Generator: Zanata 3.7.3\n"
+"PO-Revision-Date: 2016-03-14 05:50+0000\n"
+"Last-Translator: Ching Kuo <igene@igene.tw>\n"
 "Language-Team: Chinese (Taiwan)\n"
+"Language: zh-TW\n"
+"X-Generator: Zanata 3.7.3\n"
+"Plural-Forms: nplurals=1; plural=0\n"
+
+#, python-format
+msgid ""
+"\n"
+"                Login as different user or go back to <a href=\"%(home_url)s"
+"\">home page</a>\n"
+"              "
+msgstr ""
+"\n"
+"                以不同的用戶身份登入，或者回到<a href=\"%(home_url)s\">首頁</"
+"a>\n"
+"              "
+
+#, python-format
+msgid ""
+"\n"
+"                Used <span> %(used)s </span>(No Limit)\n"
+"              "
+msgstr ""
+"\n"
+"               已使用 <span> %(used)s </span>（無限制）\n"
+"              "
+
+#, python-format
+msgid ""
+"\n"
+"                Used <span> %(used)s </span>of<span> %(available)s </span>\n"
+"              "
+msgstr ""
+"\n"
+"               已使用 <span>%(available)s</span> 個中的 <span>%(used)s</"
+"span> 個\n"
+"              "
 
 #, python-format
 msgid ""
@@ -198,6 +223,9 @@ msgstr "無效的 IP 位址版本"
 msgid "Limit Summary"
 msgstr "限制摘要"
 
+msgid "Log in"
+msgstr "登入"
+
 msgid "Login"
 msgstr "登入"
 
@@ -266,6 +294,7 @@ msgstr "選擇 %s 來瀏覽。"
 msgid "Select a period of time to query its usage:"
 msgstr "選擇時段查詢使用量："
 
+#. Translators: test code, don't really have to translate
 msgid "Sell Puppy"
 msgid_plural "Sell Puppies"
 msgstr[0] "販賣小狗"
@@ -273,6 +302,7 @@ msgstr[0] "販賣小狗"
 msgid "Sign In"
 msgstr "登入"
 
+#. Translators: test code, don't really have to translate
 msgid "Sold Puppy"
 msgid_plural "Sold Puppies"
 msgstr[0] "已賣出小狗"

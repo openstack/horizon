@@ -1,24 +1,18 @@
-# Translations template for PROJECT.
-# Copyright (C) 2015 ORGANIZATION
-# This file is distributed under the same license as the PROJECT project.
-#
-# Translators:
 # OpenStack Infra <zanata@openstack.org>, 2015. #zanata
 msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2016-02-18 02:36+0000\n"
+"POT-Creation-Date: 2016-03-15 01:56+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2015-09-08 11:14+0000\n"
-"Last-Translator: openstackjenkins <jenkins@openstack.org>\n"
-"Language: mni\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"Generated-By: Babel 2.0\n"
-"X-Generator: Zanata 3.7.3\n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
 "Language-Team: Manipuri\n"
+"Language: mni\n"
+"X-Generator: Zanata 3.7.3\n"
+"Plural-Forms: nplurals=2; plural=(n != 1)\n"
 
 #, python-format
 msgid ""
@@ -144,6 +138,7 @@ msgstr "%(instance_name)s %(fixed_ip)s"
 msgid "%(name)s - %(size)s GB (%(label)s)"
 msgstr "%(name)s - %(size)s GB (%(label)s)"
 
+#. Translators:  UTC offset and timezone label
 #, python-format
 msgid "%(offset)s: %(label)s"
 msgstr "%(offset)s: %(label)s"
@@ -2524,6 +2519,7 @@ msgstr ""
 "গ্রুপশীং অসি এক্সেস মেনেজ তৌবা অমসুং মলতিপল ওইবা য়ুজরশীংদা রোলশীং অমুক্তদা এসাইন "
 "তৌবদা শীজিন্নৈ। য়ুজরশীং হাপচিন্নবা গ্রুপ অদু এদিত তৌ।"
 
+#. Translators: High Availability mode of Neutron router
 msgid "HA mode"
 msgstr "HA মোদ"
 
@@ -4949,6 +4945,7 @@ msgid ""
 msgstr ""
 "\"to\" পোর্ত নম্বর অদু \"from\" পোর্ত নম্বরদগী হেন্না চাউবা নত্ত্রগা মান্নবা ওইগদবনি।"
 
+#. Translators: Only used inside Horizon code and invisible to users
 #, python-format
 msgid ""
 "The 'operation' parameter for get_feature_permission '%(feature)s' is "
@@ -5122,6 +5119,7 @@ msgstr "ইনভাইরোনমেন্ত ফাইল অদুগী র
 msgid "The raw contents of the template."
 msgstr "তেমপ্লেত অদুগী রো ওইবা কন্তেন্তশীং"
 
+#. Translators: Only used inside Horizon code and invisible to users
 #, python-format
 msgid ""
 "The requested feature '%(feature)s' is unknown. Please make sure to specify "

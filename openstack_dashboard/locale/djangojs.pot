@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2016-03-14 06:15+0000\n"
+"POT-Creation-Date: 2016-03-15 06:15+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -1322,6 +1322,12 @@ msgstr ""
 msgid "Successfully imported key pair %(name)s."
 msgstr ""
 
+#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/keypair/import-keypair.html:7
+#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/keypair/import-keypair.html:52
+#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/keypair/keypair.html:27
+msgid "Import Key Pair"
+msgstr ""
+
 #: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/keypair/import-keypair.html:15
 msgid ""
 "Key Pairs are how you login to your instance after it is launched.\n"
@@ -1334,11 +1340,6 @@ msgstr ""
 msgid ""
 "Public Key\n"
 "        <span></span>"
-msgstr ""
-
-#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/keypair/import-keypair.html:52
-#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/keypair/keypair.html:27
-msgid "Import Key Pair"
 msgstr ""
 
 #: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/keypair/keypair-details.html:2
@@ -2117,7 +2118,7 @@ msgid "Update Metadata"
 msgstr ""
 
 #: openstack_dashboard/static/app/core/images/actions/actions.module.js:74
-#: openstack_dashboard/static/app/core/images/actions/delete-image.service.js:121
+#: openstack_dashboard/static/app/core/images/actions/delete-image.service.js:124
 msgid "Delete Image"
 msgid_plural "Delete Images"
 msgstr[0] ""
@@ -2137,27 +2138,27 @@ msgstr ""
 msgid "You are not allowed to delete images: %s"
 msgstr ""
 
-#: openstack_dashboard/static/app/core/images/actions/delete-image.service.js:113
+#: openstack_dashboard/static/app/core/images/actions/delete-image.service.js:116
 msgid "Confirm Delete Image"
 msgid_plural "Confirm Delete Images"
 msgstr[0] ""
 msgstr[1] ""
 
-#: openstack_dashboard/static/app/core/images/actions/delete-image.service.js:117
+#: openstack_dashboard/static/app/core/images/actions/delete-image.service.js:120
 #, python-format
 msgid "You have selected \"%s\". Deleted image is not recoverable."
 msgid_plural "You have selected \"%s\". Deleted images are not recoverable."
 msgstr[0] ""
 msgstr[1] ""
 
-#: openstack_dashboard/static/app/core/images/actions/delete-image.service.js:125
+#: openstack_dashboard/static/app/core/images/actions/delete-image.service.js:128
 #, python-format
 msgid "Deleted Image: %s."
 msgid_plural "Deleted Images: %s."
 msgstr[0] ""
 msgstr[1] ""
 
-#: openstack_dashboard/static/app/core/images/actions/delete-image.service.js:129
+#: openstack_dashboard/static/app/core/images/actions/delete-image.service.js:132
 #, python-format
 msgid "Unable to delete Image: %s."
 msgid_plural "Unable to delete Images: %s."
@@ -2677,7 +2678,7 @@ msgstr ""
 msgid "Unable to edit instance metadata."
 msgstr ""
 
-#: openstack_dashboard/static/app/core/openstack-service-api/policy.service.js:85
+#: openstack_dashboard/static/app/core/openstack-service-api/policy.service.js:104
 msgid "Policy check failed."
 msgstr ""
 

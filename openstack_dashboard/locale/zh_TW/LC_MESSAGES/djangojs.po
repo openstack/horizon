@@ -1,24 +1,19 @@
-# Translations template for PROJECT.
-# Copyright (C) 2015 ORGANIZATION
-# This file is distributed under the same license as the PROJECT project.
-#
-# Translators:
 # Zhang Xiaowei <zero00072@gmail.com>, 2015. #zanata
+# Ching Kuo <igene@igene.tw>, 2016. #zanata
 msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2016-03-04 04:22+0000\n"
+"POT-Creation-Date: 2016-03-15 01:56+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2015-11-02 09:55+0000\n"
-"Last-Translator: Zhang Xiaowei <zero00072@gmail.com>\n"
-"Language: zh-TW\n"
-"Plural-Forms: nplurals=1; plural=0;\n"
-"Generated-By: Babel 2.0\n"
-"X-Generator: Zanata 3.7.3\n"
+"PO-Revision-Date: 2016-03-14 05:58+0000\n"
+"Last-Translator: Ching Kuo <igene@igene.tw>\n"
 "Language-Team: Chinese (Taiwan)\n"
+"Language: zh-TW\n"
+"X-Generator: Zanata 3.7.3\n"
+"Plural-Forms: nplurals=1; plural=0\n"
 
 msgid "(None)"
 msgstr "（無）"
@@ -141,6 +136,9 @@ msgstr ""
 "啟動執行個體時，添加的自定義腳本會執行特定的操作。例如，如果您無法在客戶作業"
 "系統中安裝 <samp>cloud-init</samp> 時，可以使用自定義腳本來獲得公鑰並將其添加"
 "到使用者帳戶。"
+
+msgid "Default"
+msgstr "預設"
 
 msgid "Deleted"
 msgstr "已刪除"
@@ -272,6 +270,9 @@ msgstr "已中斷"
 msgid "Launch Instance"
 msgstr "發動雲實例"
 
+msgid "Link"
+msgstr "鏈結"
+
 msgid "Manual"
 msgstr "手動"
 
@@ -329,11 +330,17 @@ msgstr "實體網路"
 msgid "Policy check failed."
 msgstr "政策檢查失敗。"
 
+msgid "Primary"
+msgstr "主要的"
+
 msgid "Private"
 msgstr "私人"
 
 msgid "Profile"
 msgstr "基本資料"
+
+msgid "Progress bars"
+msgstr "進度條"
 
 msgid "Project"
 msgstr "專案"
@@ -390,6 +397,9 @@ msgstr "儲存"
 
 msgid "Saving"
 msgstr "正在儲存"
+
+msgid "Search"
+msgstr "搜尋"
 
 msgid "Security Groups"
 msgstr "安全性群組"
@@ -465,6 +475,9 @@ msgstr "狀態"
 
 msgid "Subnets Associated"
 msgstr "子網路已聯結"
+
+msgid "Success"
+msgstr "成功"
 
 #, python-format
 msgid "Successfully imported key pair %(name)s."
