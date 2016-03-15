@@ -102,8 +102,13 @@ class DeleteInstance(policy.PolicyTargetMixin, tables.DeleteAction):
         )
 
     def allowed(self, request, instance=None):
-        """Allow delete action if instance not currently being deleted."""
-        return not is_deleting(instance)
+        """Allow delete action if instance is in error state or not currently
+        being deleted.
+        """
+        error_state = False
+        if instance:
+            error_state = (instance.status == 'ERROR')
+        return error_state or not is_deleting(instance)
 
     def action(self, request, obj_id):
         api.nova.server_delete(request, obj_id)
