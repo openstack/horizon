@@ -185,17 +185,21 @@ class TestCase(horizon_helpers.TestCase):
         # For some magical reason we need a copy of this here.
         self.factory = RequestFactoryWithMessages()
 
-    def _setup_user(self):
+    def _setup_user(self, **kwargs):
         self._real_get_user = utils.get_user
         tenants = self.context['authorized_tenants']
-        self.setActiveUser(id=self.user.id,
-                           token=self.token,
-                           username=self.user.name,
-                           domain_id=self.domain.id,
-                           user_domain_name=self.domain.name,
-                           tenant_id=self.tenant.id,
-                           service_catalog=self.service_catalog,
-                           authorized_tenants=tenants)
+        base_kwargs = {
+            'id': self.user.id,
+            'token': self.token,
+            'username': self.user.name,
+            'domain_id': self.domain.id,
+            'user_domain_name': self.domain.name,
+            'tenant_id': self.tenant.id,
+            'service_catalog': self.service_catalog,
+            'authorized_tenants': tenants
+        }
+        base_kwargs.update(kwargs)
+        self.setActiveUser(**base_kwargs)
 
     def _setup_request(self):
         super(TestCase, self)._setup_request()
@@ -231,6 +235,7 @@ class TestCase(horizon_helpers.TestCase):
                              domain_id=domain_id,
                              user_domain_name=user_domain_name,
                              tenant_id=tenant_id,
+                             tenant_name=tenant_name,
                              service_catalog=service_catalog,
                              roles=roles,
                              enabled=enabled,
