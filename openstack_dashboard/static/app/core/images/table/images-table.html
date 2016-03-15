@@ -27,7 +27,10 @@
         Include action-col if you want to perform actions.
       -->
       <th class="multi_select_column">
-        <input type="checkbox" hz-select-all="table.images">
+        <div class="themable-checkbox">
+          <input id="images-multi-select" type="checkbox" hz-select-all="table.images">
+          <label for="images-multi-select"></label>
+        </div>
       </th>
 
       <th class="expander"></th>
@@ -55,9 +58,13 @@
     <tr ng-repeat-start="image in table.images track by image.id">
 
       <td class="multi_select_column">
-        <input type="checkbox"
-               ng-model="tCtrl.selections[image.id].checked"
-               hz-select="image">
+        <div class="themable-checkbox">
+          <input type="checkbox"
+                 id="images-{$ image.id $}"
+                 ng-model="tCtrl.selections[image.id].checked"
+                 hz-select="image">
+          <label for="images-{$ image.id $}"></label>
+        </div>
       </td>
       <td class="expander">
         <span class="fa fa-chevron-right"

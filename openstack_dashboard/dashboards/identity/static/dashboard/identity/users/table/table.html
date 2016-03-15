@@ -25,7 +25,12 @@
       Include action-col if you want to perform actions.
     -->
     <tr>
-      <th class="select-col"><input type="checkbox" hz-select-all="table.iusers"></th>
+      <th class="select-col">
+        <div class="themable-checkbox">
+          <input id="users-select-col" type="checkbox" hz-select-all="table.iusers">
+          <label for="users-select-col"></label>
+        </div>
+      </th>
       <th class="expander"></th>
       <th class="rsp-p1" st-sort="name" st-sort-default="name" translate>User Name</th>
       <th class="rsp-p2" st-sort="email" translate>Email</th>
@@ -47,7 +52,10 @@
         ng-class="{'st-selected': checked[user.id]}">
 
       <td class="select-col">
-        <input type="checkbox" ng-model="tCtrl.selections[user.id].checked" hz-select="user">
+        <div class="themable-checkbox">
+          <input id="user-{$ user.id $}" type="checkbox" ng-model="tCtrl.selections[user.id].checked" hz-select="user">
+          <label for="user-{$ user.id $}"></label>
+        </div>
       </td>
       <td class="expander">
         <span class="fa fa-chevron-right" hz-expand-detail duration="200"></span>
