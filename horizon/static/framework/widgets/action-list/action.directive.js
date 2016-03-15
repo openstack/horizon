@@ -37,7 +37,7 @@
    * Attributes:
    *
    * actionClasses: classes added to button or link
-   * callback: function called when button or link clicked
+   * callback: function called when button clicked or link needed for rendering
    * disabled: disable/enable button dynamically
    * item: object passed to callback function
    *
@@ -56,6 +56,10 @@
    *
    * <action button-type="menu-item" callback="delete" item="row">
    *   Delete
+   * </action>
+   *
+   * <action button-type="link" callback="generateUrl" item="row">
+   *   Download
    * </action>
    * ```
    */

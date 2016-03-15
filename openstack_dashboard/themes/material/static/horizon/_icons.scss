@@ -2,6 +2,7 @@
 
 // This file does a 1-1 mapping of each font-awesome icon in use to
 // a corresponding Material Design Icon.
+// https://materialdesignicons.com
 
 $mdi-font-path: $static_url + "/horizon/lib/mdi/fonts";
 @import "/horizon/lib/mdi/scss/materialdesignicons.scss";
@@ -35,6 +36,8 @@ $icon-swap: (
   exclamation-triangle: 'alert',
   eye: 'eye',
   eye-slash: 'eye-off',
+  folder: 'folder',
+  folder-o: 'folder-outline',
   group: 'account-multiple',
   home: 'home',
   link: 'link-variant',

@@ -1,0 +1,28 @@
+<div class="modal-content ui-draggable">
+  <div class="modal-header ui-draggable-handle">
+    <a href="" class="close" ng-click="$dismiss()">
+      <span class="fa fa-times"></span>
+    </a>
+    <div class="h3 modal-title" translate>Object Details</div>
+  </div>
+  <div class="modal-body">
+    <div class="info detail">
+      <dl class="dl-horizontal">
+        <dt translate>Name</dt>
+        <dd>{$ctrl.context.name$}</dd>
+        <dt translate>Hash</dt>
+        <dd>{$ctrl.context.etag$}</dd>
+        <dt translate>Content Type</dt>
+        <dd>{$ctrl.context.content_type$}</dd>
+        <dt translate>Timestamp</dt>
+        <dd>{$ctrl.context.timestamp | date:'medium'$}</dd>
+        <dt translate>Size</dt>
+        <dd>{$ctrl.context.bytes | bytes$}</dd>
+      </dl>
+    </div>
+  </div>
+  <div class="modal-footer">
+    <a href="" ng-click="$dismiss()"
+       class="btn btn-default secondary cancel close" translate>Close</a>
+  </div>
+</div>

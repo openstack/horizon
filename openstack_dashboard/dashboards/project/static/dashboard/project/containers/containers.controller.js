@@ -46,10 +46,9 @@
   {
     var ctrl = this;
     ctrl.model = containersModel;
-    containersModel.initialize();
+    ctrl.model.initialize();
     ctrl.baseRoute = baseRoute;
     ctrl.containerRoute = containerRoute;
-    ctrl.selectedContainer = '';
 
     ctrl.toggleAccess = toggleAccess;
     ctrl.deleteContainer = deleteContainer;
@@ -61,9 +60,9 @@
     //////////
 
     function selectContainer(container) {
-      ctrl.model.fetchContainerDetail(container);
-      ctrl.selectedContainer = container.name;
+      ctrl.model.container = container;
       $location.path(ctrl.containerRoute + container.name);
+      return ctrl.model.fetchContainerDetail(container);
     }
 
     function toggleAccess(container) {
@@ -118,7 +117,7 @@
           }
 
           // route back to no selected container if we deleted the current one
-          if (ctrl.selectedContainer === container.name) {
+          if (ctrl.model.container.name === container.name) {
             $location.path(ctrl.baseRoute);
           }
         });

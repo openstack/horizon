@@ -2,7 +2,7 @@
 <button type="button" tabindex="0"
   class="single-button dropdown-toggle {$ disabled ? 'disabled' : '' $}"
   ng-class="actionClasses"
-  ng-click="disabled || callback(item)">
+  ng-click="disabled || callback(item); $event.stopPropagation()">
   <ng-transclude></ng-transclude>
   <span class="fa fa-caret-down"></span>
 </button>
