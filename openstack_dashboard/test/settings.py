@@ -91,6 +91,10 @@ settings.update_dashboards(
 )
 INSTALLED_APPS[0:0] = []
 
+# Remove this when the legacy panel is removed, along with its tests and
+# the stacks MappingsTests are updated with the new URL path.
+HORIZON_CONFIG['swift_panel'] = 'legacy'
+
 find_static_files(HORIZON_CONFIG)
 
 # Set to True to allow users to upload images to glance via Horizon server.

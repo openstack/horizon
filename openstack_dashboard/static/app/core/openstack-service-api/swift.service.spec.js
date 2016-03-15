@@ -204,6 +204,12 @@
       );
     });
 
+    it('constructs object URLs without munging any slashes', function test() {
+      expect(service.getObjectURL('spam', 'ham/sam/i/am')).toEqual(
+        '/api/swift/containers/spam/object/ham/sam/i/am'
+      );
+    });
+
     it('constructs object URLs for different functions', function test() {
       expect(service.getObjectURL('spam', 'ham', 'blah')).toEqual(
         '/api/swift/containers/spam/blah/ham'

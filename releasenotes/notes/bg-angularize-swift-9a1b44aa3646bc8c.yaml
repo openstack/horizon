@@ -1,5 +1,0 @@
----
-features:
-  - Move OpenStack Dashboard Swift panel rendering logic to client-side
-    using AngularJS for significant usability improvements. Set ``DISABLED=False`` in
-    ``enabled/_1921_project_ng_containers_panel.py`` to enable.

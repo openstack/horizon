@@ -75,7 +75,9 @@
   function downloadService($qExtensions) {
     return {
       allowed: function allowed(file) { return $qExtensions.booleanAsPromise(file.is_object); },
-      perform: function perform(file) { return file.url; }
+      // remove leading url slash to ensure uses relative link/base path
+      // thus using webroot.
+      perform: function perform(file) { return file.url.replace(/^\//, ''); }
     };
   }
 
