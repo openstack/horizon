@@ -278,11 +278,11 @@
           ctrl.facetSelected = {name: 'waldo=undefined', label: ['a']};
         });
 
-        it("sets menu open if facet is selected", function() {
-          ctrl.isMenuOpen = false;
+        it("hides menu if facet is selected", function() {
+          ctrl.isMenuOpen = true;
           keyUpHandler(evt);
           $timeout.flush();
-          expect(ctrl.isMenuOpen).toBe(true);
+          expect(ctrl.isMenuOpen).toBe(false);
         });
 
         it("sets menu closed if facet is not selected", function() {
@@ -408,13 +408,13 @@
 
     describe("optionClicked", function() {
 
-      it("opens the menu", function() {
-        ctrl.isMenuOpen = false;
+      it("closes the menu", function() {
+        ctrl.isMenuOpen = true;
         ctrl.facetSelected = {name: 'waldo', label: []};
         ctrl.filteredOptions = [{label: 'meow'}];
         ctrl.optionClicked(0);
         $timeout.flush();
-        expect(ctrl.isMenuOpen).toBe(true);
+        expect(ctrl.isMenuOpen).toBe(false);
       });
 
       it("resets state", function() {
