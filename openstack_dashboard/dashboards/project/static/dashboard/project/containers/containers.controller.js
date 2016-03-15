@@ -1,5 +1,5 @@
 /*
- *    (c) Copyright 2015 Rackspace US, Inc
+ *    (c) Copyright 2016 Rackspace US, Inc
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -30,21 +30,121 @@
     .controller('horizon.dashboard.project.containers.ContainersController', ContainersController);
 
   ContainersController.$inject = [
+    'horizon.app.core.openstack-service-api.swift',
     'horizon.dashboard.project.containers.containers-model',
+    'horizon.dashboard.project.containers.basePath',
+    'horizon.dashboard.project.containers.baseRoute',
     'horizon.dashboard.project.containers.containerRoute',
-    '$location'
+    'horizon.framework.widgets.modal.simple-modal.service',
+    'horizon.framework.widgets.toast.service',
+    '$location',
+    '$modal'
   ];
 
-  function ContainersController(containersModel, containerRoute, $location) {
+  function ContainersController(swiftAPI, containersModel, basePath, baseRoute, containerRoute,
+                                simpleModalService, toastService, $location, $modal)
+  {
     var ctrl = this;
     ctrl.model = containersModel;
     containersModel.initialize();
+    ctrl.baseRoute = baseRoute;
     ctrl.containerRoute = containerRoute;
     ctrl.selectedContainer = '';
 
-    ctrl.selectContainer = function (name) {
-      ctrl.selectedContainer = name;
-      $location.path(containerRoute + name);
-    };
+    ctrl.toggleAccess = toggleAccess;
+    ctrl.deleteContainer = deleteContainer;
+    ctrl.deleteContainerAction = deleteContainerAction;
+    ctrl.createContainer = createContainer;
+    ctrl.createContainerAction = createContainerAction;
+    ctrl.selectContainer = selectContainer;
+
+    //////////
+
+    function selectContainer(container) {
+      ctrl.model.fetchContainerDetail(container);
+      ctrl.selectedContainer = container.name;
+      $location.path(ctrl.containerRoute + container.name);
+    }
+
+    function toggleAccess(container) {
+      swiftAPI.setContainerAccess(container.name, container.is_public).then(
+        function updated() {
+          var access = 'private';
+          if (container.is_public) {
+            access = 'public';
+          }
+          toastService.add('success', interpolate(
+            gettext('Container %(name)s is now %(access)s.'),
+            {name: container.name, access: access},
+            true
+          ));
+
+          // re-fetch container details
+          ctrl.model.fetchContainerDetail(container, true);
+        },
+        function failure() {
+          container.is_public = !container.is_public;
+        });
+    }
+
+    function deleteContainer(container) {
+      var options = {
+        title: gettext('Confirm Delete'),
+        body: interpolate(
+          gettext('Are you sure you want to delete container %(name)s?'), container, true
+          ),
+        submit: gettext('Yes'),
+        cancel: gettext('No')
+      };
+
+      simpleModalService.modal(options).result.then(function confirmed() {
+        return ctrl.deleteContainerAction(container);
+      });
+    }
+
+    function deleteContainerAction(container) {
+      swiftAPI.deleteContainer(container.name).then(
+        function deleted() {
+          toastService.add('success', interpolate(
+            gettext('Container %(name)s deleted.'), container, true
+          ));
+
+          // remove the deleted container from the containers list
+          for (var i = ctrl.model.containers.length - 1; i >= 0; i--) {
+            if (ctrl.model.containers[i].name === container.name) {
+              ctrl.model.containers.splice(i, 1);
+              break;
+            }
+          }
+
+          // route back to no selected container if we deleted the current one
+          if (ctrl.selectedContainer === container.name) {
+            $location.path(ctrl.baseRoute);
+          }
+        });
+    }
+
+    function createContainer() {
+      var localSpec = {
+        backdrop: 'static',
+        controller: 'CreateContainerModalController as ctrl',
+        templateUrl: basePath + 'create-container-modal.html'
+      };
+      $modal.open(localSpec).result.then(function create(result) {
+        return ctrl.createContainerAction(result);
+      });
+    }
+
+    function createContainerAction(result) {
+      swiftAPI.createContainer(result.name, result.public).then(
+        function success() {
+          toastService.add('success', interpolate(
+            gettext('Container %(name)s created.'), result, true
+          ));
+          // generate a table row with no contents
+          ctrl.model.containers.push({name: result.name, count: 0, bytes: 0});
+        }
+      );
+    }
   }
 })();

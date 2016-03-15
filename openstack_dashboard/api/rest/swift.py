@@ -18,6 +18,7 @@ from django import forms
 from django.views.decorators.csrf import csrf_exempt
 from django.views import generic
 
+from horizon import exceptions
 from openstack_dashboard import api
 from openstack_dashboard.api.rest import urls
 from openstack_dashboard.api.rest import utils as rest_utils
@@ -74,7 +75,14 @@ class Container(generic.View):
         if 'is_public' in request.DATA:
             metadata['is_public'] = request.DATA['is_public']
 
-        api.swift.swift_create_container(request, container, metadata=metadata)
+        # This will raise an exception if the container already exists
+        try:
+            api.swift.swift_create_container(request, container,
+                                             metadata=metadata)
+        except exceptions.AlreadyExists as e:
+            # 409 Conflict
+            return rest_utils.JSONResponse(str(e), 409)
+
         return rest_utils.CreatedResponse(
             u'/api/swift/containers/%s' % container,
         )

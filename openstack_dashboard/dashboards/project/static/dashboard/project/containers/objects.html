@@ -4,10 +4,10 @@
        hz-table default-sort="name">
   <thead>
     <tr class="page_title table_caption">
-      <th colspan="4">
+      <th class="table_header" colspan="4">
         <ol class="breadcrumb hz-object-path">
           <li class="h4">
-            <a ng-href="{$ oc.containerURL $}">{$ oc.model.containerName $}</a>
+            <a ng-href="{$ oc.containerURL $}">{$ oc.model.container.name $}</a>
           </li>
           <li ng-repeat="pf in oc.model.pseudo_folder_hierarchy track by $index" ng-class="{'active':$last}">
             <span>
@@ -21,7 +21,7 @@
     </tr>
 
     <tr class="table_caption">
-      <th colspan="4" class="search-header">
+      <th colspan="4" class="table_header search-header">
         <hz-search-bar group-classes="input-group-sm"
                        icon-classes="fa-search" input-classes="form-control" placeholder="Filter">
         </hz-search-bar>

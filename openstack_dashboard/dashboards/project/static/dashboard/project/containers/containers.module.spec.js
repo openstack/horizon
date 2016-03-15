@@ -17,14 +17,16 @@
   'use strict';
 
   describe('horizon.dashboard.project.containers.containerRoute constant', function () {
-    var containerRoute;
+    var baseRoute, containerRoute;
 
     beforeEach(module('horizon.dashboard.project.containers'));
     beforeEach(inject(function ($injector) {
+      baseRoute = $injector.get('horizon.dashboard.project.containers.baseRoute');
       containerRoute = $injector.get('horizon.dashboard.project.containers.containerRoute');
     }));
 
-    it('should be defined', function () {
+    it('should define routes', function () {
+      expect(baseRoute).toBeDefined();
       expect(containerRoute).toBeDefined();
     });
   });
