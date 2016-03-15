@@ -28,21 +28,20 @@
    * @name horizon.framework.widgets.action-list.directive:actions
    * @element
    * @description
-   * The `actions` directive represents the actions to be
-   * displayed in a Bootstrap button group or button
-   * dropdown.
+   * The `actions` directive represents the actions to be displayed in a Bootstrap button
+   * group, button dropdown, or bootstrap panels.
    *
    *
    * Attributes:
    *
    * @param {string} type
-   * Type can be only be 'row' or 'batch'.
-   * 'batch' actions are rendered as a button group, 'row' is rendered as a button dropdown menu.
-   * 'batch' actions are typically used for actions across multiple items while
-   * 'row' actions are used per item.
+   * Type can be 'row', 'batch', or 'detail'. 'batch' actions are rendered as a button group,
+   * 'row' actions are rendered as a button dropdown menu, 'detail' actions are rendered as
+   * bootstrap panels. 'batch' actions are typically used for actions across multiple items while
+   * 'row' and 'detail' actions are used per item.
    *
    * @param {string=} item
-   * The item to pass to the 'service' when using 'row' type.
+   * The item to pass to the 'service' when using 'row' or 'detail' type.
    *
    * @param {function} result-handler
    * (Optional) A function that is called with the return value from a clicked actions perform
@@ -77,8 +76,8 @@
    *   2. type: '<action_button_type>'
    *      This creates an action button based off a 'known' button type.
    *      Currently supported values are
-   *      1. 'delete' - Delete a single row. Only for 'row' type.
-   *      2. 'danger' - For marking an Action as dangerous. Only for 'row' type.
+   *      1. 'delete' - Delete a single row. Only for 'row' or 'detail' type.
+   *      2. 'danger' - For marking an Action as dangerous. Only for 'row' or 'detail' type.
    *      3. 'delete-selected' - Delete multiple rows. Only for 'batch' type.
    *      4. 'create' - Create a new entity. Only for 'batch' type.
    *
@@ -90,15 +89,20 @@
    *      For custom styling of the button, `actionClasses` can be optionally included.
    *      The directive will be responsible for binding the correct callback.
    *
+   *   4. title: 'title', description: 'description'
+   *      A title and description must be provided for the 'detail' type. These are used as
+   *      the title and description to display in the bootstrap panel.
+   *
    *   service: is the service expected to have two functions
    *   1. allowed: is expected to return a promise that resolves
    *      if the action is permitted and is rejected if not. If there are multiple promises that
    *      need to be resolved, you can $q.all to combine multiple promises into a single promise.
-   *      When using 'row' type, the current 'item' will be passed to the function.
+   *      When using 'row' or 'detail' type, the current 'item' will be passed to the function.
    *      When using 'batch' type, no arguments are provided.
    *   2. perform: is what gets called when the button is clicked. Also expected to return a
    *      promise that resolves when the action completes.
-   *      When using 'row' type, the current 'item' is evaluated and passed to the function.
+   *      When using 'row' or 'detail' type, the current 'item' is evaluated and passed to the
+   *      function.
    *      When using 'batch' type, 'item' is not passed.
    *      When using 'delete-selected' for 'batch' type, all selected rows are passed.
    *
@@ -222,6 +226,10 @@
    *
    * ```
    *
+   * detail:
+   *
+   * The 'detail' type actions are identical to the 'row' type actions except that the template
+   * property for each action should have a title and description property.
    */
   function actions(
     $parse,

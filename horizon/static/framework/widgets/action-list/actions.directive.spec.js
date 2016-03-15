@@ -317,6 +317,36 @@
       expect(callbacks.first).toHaveBeenCalled();
     });
 
+    it('should render detail actions', function () {
+      var actions = [{
+        template: {
+          text: 'Action 1',
+          title: 'Do something cool',
+          description: 'This describes what that cool thing is you can do.'
+        },
+        service: getService(getPermission(true), callback)
+      },{
+        template: {
+          text: 'Action 2',
+          title: 'Do something dangerous',
+          type: 'danger',
+          description: 'This describes what that dangerous thing is you can do.'
+        },
+        service: getService(getPermission(true), callback)
+      }];
+      var element = rowElementFor(actions, true);
+
+      expect(element.find('.panel').length).toBe(2);
+      expect(element.find('.panel-title').first().text().trim()).toBe('Do something cool');
+      expect(element.find('.panel-title').last().text().trim()).toBe('Do something dangerous');
+      expect(element.find('.panel-body button').first().text().trim()).toBe('Action 1');
+      expect(element.find('.panel-body button').last().text().trim()).toBe('Action 2');
+      expect(element.find('.panel').first().hasClass('panel-info')).toBe(true);
+      expect(element.find('.panel').last().hasClass('panel-danger')).toBe(true);
+      expect(element.find('.panel-body button').first().hasClass('btn-primary')).toBe(true);
+      expect(element.find('.panel-body button').last().hasClass('btn-danger')).toBe(true);
+    });
+
     function permittedActionWithUrl(templateName) {
       return {
         template: {
@@ -392,13 +422,13 @@
       return element;
     }
 
-    function rowElementFor(actions) {
+    function rowElementFor(actions, detail) {
       $scope.rowItem = rowItem;
       $scope.actions = function() {
         return actions;
       };
 
-      var element = angular.element(getTemplate('actions.row'));
+      var element = angular.element(getTemplate(detail ? 'actions.detail' : 'actions.row'));
 
       $compile(element)($scope);
       $scope.$apply();

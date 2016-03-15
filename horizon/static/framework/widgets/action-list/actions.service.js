@@ -15,6 +15,8 @@
 (function() {
   'use strict';
 
+  var dangerTypes = { 'delete': 1, 'danger': 1, 'delete-selected': 1 };
+
   angular
     .module('horizon.framework.widgets.action-list')
     .factory('horizon.framework.widgets.action-list.actions.service', actionsService);
@@ -83,13 +85,25 @@
         if (permittedActions.pass.length > 0) {
           var templateFetch = $q.all(permittedActions.pass.map(getTemplate));
 
-          if (listType === 'batch' || permittedActions.pass.length === 1) {
+          if (listType === 'detail') {
+            templateFetch.then(addDetailActions);
+          } else if (listType === 'batch' || permittedActions.pass.length === 1) {
             element.addClass('btn-addon');
             templateFetch.then(addButtons);
           } else {
             templateFetch.then(addDropdown);
           }
         }
+      }
+
+      function addDetailActions(templates) {
+        var row = angular.element('<div class="row"></div>');
+        element.append(row);
+        templates.forEach(function renderDetailAction(template) {
+          var templateElement = angular.element(template.template);
+          templateElement.find('action').attr('callback', template.callback);
+          row.append($compile(templateElement)(scope));
+        });
       }
 
       /**
@@ -195,6 +209,10 @@
                   '$action-classes$', getActionClasses(action, index, permittedActions.length)
                 )
                 .replace('$text$', action.template.text)
+                .replace('$title$', action.template.title)
+                .replace('$description$', action.template.description)
+                .replace('$panel-classes$',
+                  action.template.type in dangerTypes ? 'panel-danger' : 'panel-info')
                 .replace('$item$', item);
           defered.resolve({
             template: template,
@@ -216,22 +234,29 @@
        */
       function getActionClasses(action, index, numPermittedActions) {
         var actionClassesParam = action.template.actionClasses || "";
+        var actionClasses = 'btn ';
         if (listType === 'row') {
           if (numPermittedActions === 1 || index === 0) {
-            var actionClasses = "btn ";
-            if (action.template.type === "delete" || action.template.type === 'danger') {
-              actionClasses += "btn-danger ";
+            if (action.template.type in dangerTypes) {
+              actionClasses += 'btn-danger ';
             } else {
-              actionClasses += "btn-default ";
+              actionClasses += 'btn-default ';
             }
             return actionClasses + actionClassesParam;
           } else {
-            if (action.template.type === "delete" || action.template.type === 'danger') {
+            if (action.template.type in dangerTypes) {
               return 'text-danger' + actionClassesParam;
             } else {
               return actionClassesParam;
             }
           }
+        } else if (listType === 'detail') {
+          if (action.template.type in dangerTypes) {
+            actionClasses += 'btn-danger';
+          } else {
+            actionClasses += 'btn-primary';
+          }
+          return actionClasses;
         } else {
           return actionClassesParam;
         }
@@ -250,11 +275,11 @@
         if (angular.isDefined(action.template.url)) {
           // use the given URL
           return action.template.url;
-        } else if (angular.isDefined(action.template.type)) {
+        } else if (angular.isDefined(action.template.type) && listType !== 'detail') {
           // determine the template by the given type
           return basePath + 'action-list/actions-' + action.template.type + '.template.html';
         } else {
-          // determine the template by `listType` which can be row or batch
+          // determine the template by `listType` which can be row, batch, or detail
           return basePath + 'action-list/actions-' + listType + '.template.html';
         }
       }

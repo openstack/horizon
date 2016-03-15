@@ -1,0 +1,6 @@
+---
+features:
+  - Added ability to render angular row actions with additional details that
+    explain the purpose of the action. These are rendered as tiles and are
+    meant to depict the next steps a user might want to take for a given
+    resource.
