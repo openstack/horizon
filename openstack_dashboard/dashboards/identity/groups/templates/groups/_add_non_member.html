@@ -4,5 +4,5 @@
 {% block modal-header %}{% trans "Add Group Assignment" %}{% endblock %}
 
 {% block modal-footer %}
-  <a href="{% url 'horizon:identity:groups:manage_members' group.id %}" class="btn btn-default secondary cancel close">{% trans "Cancel" %}</a>
+  <a href="{% url 'horizon:identity:groups:manage_members' group.id %}" class="btn btn-default cancel">{% trans "Cancel" %}</a>
 {% endblock %}

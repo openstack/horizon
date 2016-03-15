@@ -18,8 +18,3 @@
     <p>{% trans "You can connect a specified external network to the router. The external network is regarded as a default route of the router and the router acts as a gateway for external connectivity." %}</p>
 </div>
 {% endblock %}
-
-{% block modal-footer %}
-  <input class="btn btn-primary pull-right" type="submit" value="{% trans "Set Gateway" %}" />
-  <a href="{% url 'horizon:project:routers:index' %}" class="btn btn-default secondary cancel close">{% trans "Cancel" %}</a>
-{% endblock %}

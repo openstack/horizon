@@ -18,8 +18,3 @@
     <p>{% trans "Note: A Public Container will allow anyone with the Public URL to gain access to your objects in the container." %}</p>
 </div>
 {% endblock %}
-
-{% block modal-footer %}
-  <input class="btn btn-primary pull-right" type="submit" value="{% trans "Create Container" %}" />
-  <a href="{% url 'horizon:project:containers:index' %}" class="btn btn-default secondary cancel close">{% trans "Cancel" %}</a>
-{% endblock %}

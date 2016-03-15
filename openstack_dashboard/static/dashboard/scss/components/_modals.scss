@@ -40,24 +40,6 @@
     margin-right: 0;
     margin-left: 0;
   }
-
-  a.close {
-    margin-top: 0;
-    margin-right: 5px;
-    font-size: $font-size-base;
-    line-height: $line-height-base;
-    color: #666;
-    font-weight: normal;
-    filter: alpha(opacity=100);
-    -khtml-opacity: 1;
-    -moz-opacity: 1;
-    opacity: 1;
-  }
-
-  a.close:hover {
-    color: #333;
-    text-decoration: none;
-  }
 }
 
 .modal-body {

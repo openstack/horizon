@@ -17,8 +17,3 @@
     <p>{% trans "Disable the compute service." %}</p>
 </div>
 {% endblock %}
-
-{% block modal-footer %}
-  <input class="btn btn-primary pull-right" type="submit" value="{% trans "Disable Service" %}" />
-  <a href="{% url 'horizon:admin:hypervisors:index' %}" class="btn btn-default secondary cancel close">{% trans "Cancel" %}</a>
-{% endblock %}

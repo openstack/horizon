@@ -16,8 +16,3 @@
         <p>{% trans "Migrate all instances from a host with disabled nova-compute service. Optionally you can choose type of migration. All running instances of the host can be Live Migrated. Cold Migration is trying to use 'nova migrate' on each instance of migrated host." %}</p>
     </div>
 {% endblock %}
-
-{% block modal-footer %}
-    <input class="btn btn-primary pull-right" type="submit" value="{% trans "Migrate Host" %}" />
-    <a href="{% url 'horizon:admin:hypervisors:index' %}" class="btn btn-default cancel close">{% trans "Cancel" %}</a>
-{% endblock %}
