@@ -203,9 +203,10 @@ class RemoveRuleFromPolicyLink(policy.PolicyTargetMixin,
                                tables.LinkAction):
     name = "removerule"
     verbose_name = _("Remove Rule")
-    classes = ("ajax-modal", "btn-danger",)
+    classes = ("ajax-modal",)
     policy_rules = (("network", "get_firewall_policy"),
                     ("network", "remove_rule"),)
+    action_type = "danger"
 
     def get_link_url(self, policy):
         base_url = reverse("horizon:project:firewalls:removerule",

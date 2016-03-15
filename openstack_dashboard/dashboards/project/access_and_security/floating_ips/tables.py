@@ -71,7 +71,7 @@ class AllocateIP(tables.LinkAction):
 
 class ReleaseIPs(tables.BatchAction):
     name = "release"
-    classes = ('btn-danger',)
+    action_type = "danger"
     icon = "unlink"
     help_text = _("Once a floating IP is released, there is"
                   " no guarantee the same IP can be allocated again.")
@@ -130,8 +130,9 @@ class AssociateIP(tables.LinkAction):
 class DisassociateIP(tables.Action):
     name = "disassociate"
     verbose_name = _("Disassociate")
-    classes = ("btn-disassociate", "btn-danger")
+    classes = ("btn-disassociate",)
     icon = "unlink"
+    action_type = "danger"
 
     def allowed(self, request, fip):
         if api.base.is_service_enabled(request, "network"):
