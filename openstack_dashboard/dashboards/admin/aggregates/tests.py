@@ -179,11 +179,26 @@ class AggregatesViewTests(test.BaseAdminViewTests):
     @mock.patch('openstack_dashboard.api.nova.extension_supported',
                 mock.Mock(return_value=False))
     @test.create_stubs({api.nova: ('aggregate_details_list',
-                                   'availability_zone_list',),
-                        api.cinder: ('tenant_absolute_limits',)})
+                                   'availability_zone_list',
+                                   'tenant_absolute_limits',),
+                        api.cinder: ('tenant_absolute_limits',),
+                        api.neutron: ('list_extensions',),
+                        api.network: ('tenant_floating_ip_list',
+                                      'security_group_list'),
+                        api.keystone: ('tenant_list',)})
     def test_panel_not_available(self):
+        api.nova.tenant_absolute_limits(IsA(http.HttpRequest)). \
+            MultipleTimes().AndReturn(self.limits['absolute'])
         api.cinder.tenant_absolute_limits(IsA(http.HttpRequest)). \
             MultipleTimes().AndReturn(self.cinder_limits['absolute'])
+        api.neutron.list_extensions(IsA(http.HttpRequest)). \
+            AndReturn(self.api_extensions.list())
+        api.network.tenant_floating_ip_list(IsA(http.HttpRequest)) \
+            .AndReturn(self.floating_ips.list())
+        api.network.security_group_list(IsA(http.HttpRequest)) \
+            .AndReturn(self.security_groups.list())
+        api.keystone.tenant_list(IsA(http.HttpRequest)) \
+            .AndReturn(self.tenants.list())
         self.mox.ReplayAll()
 
         self.patchers['aggregates'].stop()

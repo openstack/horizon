@@ -39,49 +39,48 @@ class AccessAndSecurityTests(test.TestCase):
 
     @test.create_stubs({api.network: ('floating_ip_supported',
                                       'tenant_floating_ip_list',
+                                      'floating_ip_pools_list',
                                       'security_group_list',),
                         api.nova: ('keypair_list',
                                    'server_list',),
                         api.base: ('is_service_enabled',),
-                        quotas: ('tenant_quota_usages',)})
+                        quotas: ('tenant_quota_usages',),
+                        api.keystone: ('list_ec2_credentials',)})
     def _test_index(self, ec2_enabled=True, instanceless_ips=False):
         keypairs = self.keypairs.list()
         sec_groups = self.security_groups.list()
         floating_ips = self.floating_ips.list()
+        floating_pools = self.pools.list()
         if instanceless_ips:
             for fip in floating_ips:
                 fip.instance_id = None
         quota_data = self.quota_usages.first()
         quota_data['security_groups']['available'] = 10
 
-        if not instanceless_ips:
-            api.nova.server_list(
-                IsA(http.HttpRequest)) \
-                .AndReturn([self.servers.list(), False])
-        api.nova.keypair_list(
-            IsA(http.HttpRequest)) \
-            .AndReturn(keypairs)
-        api.network.floating_ip_supported(
-            IsA(http.HttpRequest)) \
+        api.network.floating_ip_supported(IsA(http.HttpRequest)) \
             .AndReturn(True)
-        api.network.tenant_floating_ip_list(
-            IsA(http.HttpRequest)) \
+        if not instanceless_ips:
+            api.nova.server_list(IsA(http.HttpRequest)) \
+                .AndReturn([self.servers.list(), False])
+        api.nova.keypair_list(IsA(http.HttpRequest)) \
+            .AndReturn(keypairs)
+        api.network.tenant_floating_ip_list(IsA(http.HttpRequest)) \
             .AndReturn(floating_ips)
-        api.network.security_group_list(
-            IsA(http.HttpRequest)) \
+        api.network.floating_ip_pools_list(IsA(http.HttpRequest)) \
+            .AndReturn(floating_pools)
+        api.network.security_group_list(IsA(http.HttpRequest)) \
             .AndReturn(sec_groups)
-        quotas.tenant_quota_usages(
-            IsA(http.HttpRequest)).MultipleTimes() \
+        quotas.tenant_quota_usages(IsA(http.HttpRequest)).MultipleTimes() \
             .AndReturn(quota_data)
 
-        api.base.is_service_enabled(
-            IsA(http.HttpRequest),
-            'network').MultipleTimes() \
-            .AndReturn(True)
-        api.base.is_service_enabled(
-            IsA(http.HttpRequest),
-            'ec2').MultipleTimes() \
-            .AndReturn(ec2_enabled)
+        api.base.is_service_enabled(IsA(http.HttpRequest), 'network') \
+            .MultipleTimes().AndReturn(True)
+        api.base.is_service_enabled(IsA(http.HttpRequest), 'ec2') \
+            .MultipleTimes().AndReturn(ec2_enabled)
+        if ec2_enabled:
+            api.keystone.list_ec2_credentials(IsA(http.HttpRequest),
+                                              self.user.id)\
+                .AndReturn(self.ec2.list())
 
         self.mox.ReplayAll()
 

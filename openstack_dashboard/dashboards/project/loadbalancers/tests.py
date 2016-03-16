@@ -89,10 +89,15 @@ class LoadBalancerTests(test.TestCase):
     @test.create_stubs({api.lbaas: ('pool_list', 'member_list',
                                     'pool_health_monitor_list'),
                         api.network: ('floating_ip_supported',
-                                      'floating_ip_simple_associate_supported')
+                                      'floating_ip_simple_associate_supported',
+                                      'tenant_floating_ip_list')
                         })
     def test_index_pools(self):
+        fips = self.floating_ips.list()
         self.set_up_expect()
+
+        api.network.tenant_floating_ip_list(IsA(http.HttpRequest)).\
+            AndReturn(fips)
 
         self.mox.ReplayAll()
 
@@ -107,10 +112,15 @@ class LoadBalancerTests(test.TestCase):
     @test.create_stubs({api.lbaas: ('pool_list', 'member_list',
                                     'pool_health_monitor_list'),
                         api.network: ('floating_ip_supported',
-                                      'floating_ip_simple_associate_supported')
+                                      'floating_ip_simple_associate_supported',
+                                      'tenant_floating_ip_list')
                         })
     def test_index_members(self):
+        fips = self.floating_ips.list()
         self.set_up_expect()
+
+        api.network.tenant_floating_ip_list(IsA(http.HttpRequest)).\
+            AndReturn(fips)
 
         self.mox.ReplayAll()
 
@@ -125,10 +135,15 @@ class LoadBalancerTests(test.TestCase):
     @test.create_stubs({api.lbaas: ('pool_list', 'member_list',
                                     'pool_health_monitor_list'),
                         api.network: ('floating_ip_supported',
-                                      'floating_ip_simple_associate_supported')
+                                      'floating_ip_simple_associate_supported',
+                                      'tenant_floating_ip_list')
                         })
     def test_index_monitors(self):
+        fips = self.floating_ips.list()
         self.set_up_expect()
+
+        api.network.tenant_floating_ip_list(IsA(http.HttpRequest)).\
+            AndReturn(fips)
 
         self.mox.ReplayAll()
 
@@ -942,16 +957,20 @@ class LoadBalancerTests(test.TestCase):
             '<DeletePMAssociationStep: deletepmassociationaction>', ]
         self.assertQuerysetEqual(workflow.steps, expected_objs)
 
-    @test.create_stubs({api.lbaas: ('pool_list', 'pool_delete')})
+    @test.create_stubs({api.lbaas: ('pool_list', 'pool_delete'),
+                        api.network: ('tenant_floating_ip_list',)})
     def test_delete_pool(self):
         pool_list = self.pools.list()
         pool = pool_list[0]
+        fips = self.floating_ips.list()
         # the test pool needs to have no vip
         # in order to be able to be deleted
         pool.vip_id = None
         api.lbaas.pool_list(
             IsA(http.HttpRequest), tenant_id=self.tenant.id) \
             .AndReturn(pool_list)
+        api.network.tenant_floating_ip_list(IsA(http.HttpRequest)).\
+            AndReturn(fips)
         api.lbaas.pool_delete(IsA(http.HttpRequest), pool.id)
         self.mox.ReplayAll()
 
@@ -961,13 +980,16 @@ class LoadBalancerTests(test.TestCase):
         self.assertNoFormErrors(res)
 
     @test.create_stubs({api.lbaas: ('pool_list', 'pool_get',
-                                    'vip_delete'),
+                                    'member_list', 'vip_delete',
+                                    'pool_health_monitor_list'),
                         api.network: (
+                            'tenant_floating_ip_list',
                             'floating_ip_supported',
                             'floating_ip_simple_associate_supported')})
     def test_delete_vip(self):
         pool = self.pools.first()
         vip = self.vips.first()
+        fips = self.floating_ips.list()
         api.lbaas.pool_list(
             IsA(http.HttpRequest), tenant_id=self.tenant.id) \
             .AndReturn(self.pools.list())
@@ -976,6 +998,8 @@ class LoadBalancerTests(test.TestCase):
             .AndReturn(True)
         api.network.floating_ip_simple_associate_supported(IgnoreArg()) \
             .MultipleTimes().AndReturn(True)
+        api.network.tenant_floating_ip_list(IsA(http.HttpRequest)).\
+            AndReturn(fips)
         api.lbaas.vip_delete(IsA(http.HttpRequest), vip.id)
         self.mox.ReplayAll()
 

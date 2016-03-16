@@ -43,11 +43,14 @@ class GroupsViewTests(test.BaseAdminViewTests):
                       if group.domain_id == domain_id]
         return groups
 
-    @test.create_stubs({api.keystone: ('group_list',)})
+    @test.create_stubs({api.keystone: ('domain_get',
+                                       'group_list',)})
     def test_index(self):
         domain_id = self._get_domain_id()
         groups = self._get_groups(domain_id)
 
+        domain = self.domains.get(id="1")
+        api.keystone.domain_get(IsA(http.HttpRequest), '1').AndReturn(domain)
         api.keystone.group_list(IgnoreArg(), domain=domain_id) \
             .AndReturn(groups)
 
@@ -93,12 +96,14 @@ class GroupsViewTests(test.BaseAdminViewTests):
         self.assertContains(res, 'Edit')
         self.assertContains(res, 'Delete Group')
 
-    @test.create_stubs({api.keystone: ('group_list',
+    @test.create_stubs({api.keystone: ('domain_get',
+                                       'group_list',
                                        'keystone_can_edit_group')})
     def test_index_with_keystone_can_edit_group_false(self):
         domain_id = self._get_domain_id()
         groups = self._get_groups(domain_id)
-
+        domain = self.domains.get(id="1")
+        api.keystone.domain_get(IsA(http.HttpRequest), '1').AndReturn(domain)
         api.keystone.group_list(IgnoreArg(), domain=domain_id) \
             .AndReturn(groups)
         api.keystone.keystone_can_edit_group() \
@@ -115,11 +120,15 @@ class GroupsViewTests(test.BaseAdminViewTests):
         self.assertNotContains(res, 'Edit')
         self.assertNotContains(res, 'Delete Group')
 
-    @test.create_stubs({api.keystone: ('group_create', )})
+    @test.create_stubs({api.keystone: ('group_create',
+                                       'domain_get')})
     def test_create(self):
         domain_id = self._get_domain_id()
+        domain = self.domains.get(id="1")
         group = self.groups.get(id="1")
 
+        api.keystone.domain_get(IsA(http.HttpRequest), '1') \
+            .AndReturn(domain)
         api.keystone.group_create(IsA(http.HttpRequest),
                                   description=group.description,
                                   domain_id=domain_id,
@@ -135,11 +144,28 @@ class GroupsViewTests(test.BaseAdminViewTests):
         self.assertNoFormErrors(res)
         self.assertMessageCount(success=1)
 
+    @test.create_stubs({api.keystone: ('group_create',)})
     def test_create_with_domain(self):
         domain = self.domains.get(id="1")
+        group = self.groups.get(id="1")
+
         self.setSessionValues(domain_context=domain.id,
                               domain_context_name=domain.name)
-        self.test_create()
+
+        api.keystone.group_create(IsA(http.HttpRequest),
+                                  description=group.description,
+                                  domain_id=domain.id,
+                                  name=group.name).AndReturn(group)
+
+        self.mox.ReplayAll()
+
+        formData = {'method': 'CreateGroupForm',
+                    'name': group.name,
+                    'description': group.description}
+        res = self.client.post(GROUP_CREATE_URL, formData)
+
+        self.assertNoFormErrors(res)
+        self.assertMessageCount(success=1)
 
     @test.create_stubs({api.keystone: ('group_get',
                                        'group_update')})
@@ -164,12 +190,15 @@ class GroupsViewTests(test.BaseAdminViewTests):
 
         self.assertNoFormErrors(res)
 
-    @test.create_stubs({api.keystone: ('group_list',
+    @test.create_stubs({api.keystone: ('domain_get',
+                                       'group_list',
                                        'group_delete')})
     def test_delete_group(self):
         domain_id = self._get_domain_id()
         group = self.groups.get(id="2")
 
+        domain = self.domains.get(id="1")
+        api.keystone.domain_get(IsA(http.HttpRequest), '1').AndReturn(domain)
         api.keystone.group_list(IgnoreArg(), domain=domain_id) \
             .AndReturn(self.groups.list())
         api.keystone.group_delete(IgnoreArg(), group.id)
