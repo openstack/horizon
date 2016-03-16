@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2016-03-15 06:15+0000\n"
+"POT-Creation-Date: 2016-03-16 06:15+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -498,6 +498,9 @@ msgid "Selects"
 msgstr ""
 
 #: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:580
+#: openstack_dashboard/dashboards/project/static/dashboard/project/containers/create-container-modal.html:61
+#: openstack_dashboard/dashboards/project/static/dashboard/project/containers/create-folder-modal.html:43
+#: openstack_dashboard/dashboards/project/static/dashboard/project/containers/upload-object-modal.html:51
 #: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/keypair/create-keypair.html:37
 #: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/keypair/import-keypair.html:47
 #: openstack_dashboard/static/app/core/metadata/modal/modal.html:18
@@ -828,6 +831,7 @@ msgid "One fine body…"
 msgstr ""
 
 #: openstack_dashboard/contrib/developer/static/dashboard/developer/theme-preview/theme-preview.html:1223
+#: openstack_dashboard/dashboards/project/static/dashboard/project/containers/object-details-modal.html:25
 msgid "Close"
 msgstr ""
 
@@ -858,6 +862,7 @@ msgid "Source Code"
 msgstr ""
 
 #: openstack_dashboard/dashboards/admin/static/dashboard/admin/flavors/table/flavors-table.controller.js:60
+#: openstack_dashboard/dashboards/project/static/dashboard/project/containers/object-details-modal.html:11
 #: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/flavor/select-flavor-table.directive.js:128
 #: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/flavor/select-flavor-table.html:27
 #: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/keypair/keypair.html:41
@@ -891,7 +896,6 @@ msgstr ""
 
 #: openstack_dashboard/dashboards/admin/static/dashboard/admin/flavors/table/flavors-table.controller.js:75
 #: openstack_dashboard/dashboards/admin/static/dashboard/admin/flavors/table/flavors-table.html:30
-#: openstack_dashboard/dashboards/project/static/dashboard/project/containers/containers.html:18
 #: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/flavor/select-flavor-table.directive.js:143
 #: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/flavor/select-flavor-table.html:35
 #: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:167
@@ -901,6 +905,9 @@ msgid "Public"
 msgstr ""
 
 #: openstack_dashboard/dashboards/admin/static/dashboard/admin/flavors/table/flavors-table.controller.js:79
+#: openstack_dashboard/dashboards/project/static/dashboard/project/containers/containers.controller.js:95
+#: openstack_dashboard/dashboards/project/static/dashboard/project/containers/objects-row-actions.service.js:136
+#: openstack_dashboard/dashboards/project/static/dashboard/project/containers/objects.controller.js:164
 #: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/flavor/select-flavor-table.directive.js:148
 #: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/network/network.controller.js:82
 #: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:66
@@ -909,6 +916,9 @@ msgid "Yes"
 msgstr ""
 
 #: openstack_dashboard/dashboards/admin/static/dashboard/admin/flavors/table/flavors-table.controller.js:80
+#: openstack_dashboard/dashboards/project/static/dashboard/project/containers/containers.controller.js:96
+#: openstack_dashboard/dashboards/project/static/dashboard/project/containers/objects-row-actions.service.js:137
+#: openstack_dashboard/dashboards/project/static/dashboard/project/containers/objects.controller.js:165
 #: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/flavor/select-flavor-table.directive.js:147
 #: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/network/network.controller.js:81
 #: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:67
@@ -976,11 +986,46 @@ msgstr ""
 msgid "Project ID"
 msgstr ""
 
-#: openstack_dashboard/dashboards/project/static/dashboard/project/containers/containers.html:14
+#: openstack_dashboard/dashboards/project/static/dashboard/project/containers/containers.controller.js:76
+#, python-format
+msgid "Container %(name)s is now %(access)s."
+msgstr ""
+
+#: openstack_dashboard/dashboards/project/static/dashboard/project/containers/containers.controller.js:91
+#: openstack_dashboard/dashboards/project/static/dashboard/project/containers/objects-row-actions.service.js:132
+#: openstack_dashboard/dashboards/project/static/dashboard/project/containers/objects.controller.js:159
+msgid "Confirm Delete"
+msgstr ""
+
+#: openstack_dashboard/dashboards/project/static/dashboard/project/containers/containers.controller.js:93
+#, python-format
+msgid "Are you sure you want to delete container %(name)s?"
+msgstr ""
+
+#: openstack_dashboard/dashboards/project/static/dashboard/project/containers/containers.controller.js:108
+#, python-format
+msgid "Container %(name)s deleted."
+msgstr ""
+
+#: openstack_dashboard/dashboards/project/static/dashboard/project/containers/containers.controller.js:141
+#, python-format
+msgid "Container %(name)s created."
+msgstr ""
+
+#: openstack_dashboard/dashboards/project/static/dashboard/project/containers/containers.html:7
+msgid "Container"
+msgstr ""
+
+#: openstack_dashboard/dashboards/project/static/dashboard/project/containers/containers.html:25
+msgid "Delete Container"
+msgstr ""
+
+#: openstack_dashboard/dashboards/project/static/dashboard/project/containers/containers.html:40
 msgid "Object Count"
 msgstr ""
 
-#: openstack_dashboard/dashboards/project/static/dashboard/project/containers/containers.html:15
+#: openstack_dashboard/dashboards/project/static/dashboard/project/containers/containers.html:44
+#: openstack_dashboard/dashboards/project/static/dashboard/project/containers/object-details-modal.html:19
 #: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:139
 #: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:146
 #: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:153
@@ -993,27 +1038,214 @@ msgstr ""
 msgid "Size"
 msgstr ""
 
-#: openstack_dashboard/dashboards/project/static/dashboard/project/containers/containers.html:17
-msgid "Access"
+#: openstack_dashboard/dashboards/project/static/dashboard/project/containers/containers.html:48
+msgid "Date Created"
 msgstr ""
 
-#: openstack_dashboard/dashboards/project/static/dashboard/project/containers/containers.html:19
-#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:167
-#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:271
-#: openstack_dashboard/static/app/core/images/filters/image-visibility.filter.js:60
-msgid "Private"
+#: openstack_dashboard/dashboards/project/static/dashboard/project/containers/containers.html:56
+msgid "Public Access"
 msgstr ""
 
-#: openstack_dashboard/dashboards/project/static/dashboard/project/containers/containers.html:21
+#: openstack_dashboard/dashboards/project/static/dashboard/project/containers/containers.html:59
+msgid "link"
+msgstr ""
+
+#: openstack_dashboard/dashboards/project/static/dashboard/project/containers/containers.html:61
+msgid "disabled"
+msgstr ""
+
+#: openstack_dashboard/dashboards/project/static/dashboard/project/containers/create-container-modal.html:6
+msgid "Create Container"
+msgstr ""
+
+#: openstack_dashboard/dashboards/project/static/dashboard/project/containers/create-container-modal.html:15
+msgid "Container Name"
+msgstr ""
+
+#: openstack_dashboard/dashboards/project/static/dashboard/project/containers/create-container-modal.html:18
+msgid "Required"
+msgstr ""
+
+#: openstack_dashboard/dashboards/project/static/dashboard/project/containers/create-container-modal.html:22
+msgid "Container name must not contain \"/\"."
+msgstr ""
+
+#: openstack_dashboard/dashboards/project/static/dashboard/project/containers/create-container-modal.html:27
+msgid "Container Access"
+msgstr ""
+
+#: openstack_dashboard/dashboards/project/static/dashboard/project/containers/create-container-modal.html:32
+msgid ""
+"<input>\n"
+"                Public</input>"
+msgstr ""
+
+#: openstack_dashboard/dashboards/project/static/dashboard/project/containers/create-container-modal.html:40
+msgid ""
+"A container is a storage compartment for your data and provides a way\n"
+"          for you to organize your data. You can think of a container as "
+"a\n"
+"          folder in Windows or a directory in UNIX. The primary "
+"difference\n"
+"          between a container and these other file system concepts is "
+"that\n"
+"          containers cannot be nested. You can, however, create an "
+"unlimited\n"
+"          number of containers within your account. Data must be stored "
+"in a\n"
+"          container so you must have at least one container defined in "
+"your\n"
+"          account prior to uploading data."
+msgstr ""
+
+#: openstack_dashboard/dashboards/project/static/dashboard/project/containers/create-container-modal.html:50
+msgid ""
+"Note: A Public Container will allow anyone with the Public URL to\n"
+"          gain access to your objects in the container."
+msgstr ""
+
+#: openstack_dashboard/dashboards/project/static/dashboard/project/containers/create-container-modal.html:67
+msgid "Create"
+msgstr ""
+
+#: openstack_dashboard/dashboards/project/static/dashboard/project/containers/create-folder-modal.html:7
+msgid ""
+"Create Folder In: {$ ctrl.model.container.name $}\n"
+"    <span>: {$ ctrl.model.folder $}</span>"
+msgstr ""
+
+#: openstack_dashboard/dashboards/project/static/dashboard/project/containers/create-folder-modal.html:17
+msgid "Folder Name"
+msgstr ""
+
+#: openstack_dashboard/dashboards/project/static/dashboard/project/containers/create-folder-modal.html:31
+msgid ""
+"Note: Delimiters ('{$ ctrl.model.DELIMETER $}') are allowed in the\n"
+"          folder name to create deep folders."
+msgstr ""
+
+#: openstack_dashboard/dashboards/project/static/dashboard/project/containers/create-folder-modal.html:40
+msgid "Create Folder"
+msgstr ""
+
+#: openstack_dashboard/dashboards/project/static/dashboard/project/containers/object-details-modal.html:6
+msgid "Object Details"
+msgstr ""
+
+#: openstack_dashboard/dashboards/project/static/dashboard/project/containers/object-details-modal.html:13
+msgid "Hash"
+msgstr ""
+
+#: openstack_dashboard/dashboards/project/static/dashboard/project/containers/object-details-modal.html:15
+msgid "Content Type"
+msgstr ""
+
+#: openstack_dashboard/dashboards/project/static/dashboard/project/containers/object-details-modal.html:17
 msgid "Timestamp"
 msgstr ""
 
+#: openstack_dashboard/dashboards/project/static/dashboard/project/containers/objects-row-actions.service.js:57
+msgid "Download"
+msgstr ""
+
+#: openstack_dashboard/dashboards/project/static/dashboard/project/containers/objects-row-actions.service.js:61
+msgid "View Details"
+msgstr ""
+
+#: openstack_dashboard/dashboards/project/static/dashboard/project/containers/objects-row-actions.service.js:65
+msgid "Delete"
+msgstr ""
+
+#: openstack_dashboard/dashboards/project/static/dashboard/project/containers/objects-row-actions.service.js:134
+#, python-format
+msgid "Are you sure you want to delete %(name)s?"
+msgstr ""
+
+#: openstack_dashboard/dashboards/project/static/dashboard/project/containers/objects-row-actions.service.js:153
+#, python-format
+msgid "%(name)s deleted."
+msgstr ""
+
+#: openstack_dashboard/dashboards/project/static/dashboard/project/containers/objects.controller.js:161
+#, python-format
+msgid "Are you sure you want to delete %(numSelected)s files?"
+msgstr ""
+
+#: openstack_dashboard/dashboards/project/static/dashboard/project/containers/objects.controller.js:177
+#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:249
+msgid "Deleting"
+msgstr ""
+
+#: openstack_dashboard/dashboards/project/static/dashboard/project/containers/objects.controller.js:185
+msgid "Deleted."
+msgstr ""
+
+#: openstack_dashboard/dashboards/project/static/dashboard/project/containers/objects.controller.js:188
+msgid "Failed to delete."
+msgstr ""
+
+#: openstack_dashboard/dashboards/project/static/dashboard/project/containers/objects.controller.js:214
+#, python-format
+msgid "Folder %(name)s created."
+msgstr ""
+
+#: openstack_dashboard/dashboards/project/static/dashboard/project/containers/objects.controller.js:232
+msgid "Uploading"
+msgstr ""
+
+#: openstack_dashboard/dashboards/project/static/dashboard/project/containers/objects.controller.js:241
+#, python-format
+msgid "File %(name)s uploaded."
+msgstr ""
+
+#: openstack_dashboard/dashboards/project/static/dashboard/project/containers/objects.html:33
+msgid "Select All"
+msgstr ""
+
 #: openstack_dashboard/dashboards/project/static/dashboard/project/containers/objects.html:40
-msgid "folder"
+msgid ""
+"Clear Selection\n"
+"            <span>{$ oc.numSelected $}</span>"
+msgstr ""
+
+#: openstack_dashboard/dashboards/project/static/dashboard/project/containers/objects.html:44
+#: openstack_dashboard/dashboards/project/static/dashboard/project/containers/objects.html:73
+msgid "Folder"
+msgstr ""
+
+#: openstack_dashboard/dashboards/project/static/dashboard/project/containers/objects.html:46
+#: openstack_dashboard/dashboards/project/static/dashboard/project/containers/upload-object-modal.html:48
+msgid "Upload File"
+msgstr ""
+
+#: openstack_dashboard/dashboards/project/static/dashboard/project/containers/objects.html:51
+msgid "Delete Selection"
 msgstr ""
 
 #: openstack_dashboard/dashboards/project/static/dashboard/project/containers/select-container.html:4
 msgid "Select a container to browse."
+msgstr ""
+
+#: openstack_dashboard/dashboards/project/static/dashboard/project/containers/upload-object-modal.html:7
+msgid ""
+"Upload File To: {$ ctrl.model.container.name $}\n"
+"    <span>: {$ ctrl.model.folder $}</span>"
+msgstr ""
+
+#: openstack_dashboard/dashboards/project/static/dashboard/project/containers/upload-object-modal.html:17
+msgid "File"
+msgstr ""
+
+#: openstack_dashboard/dashboards/project/static/dashboard/project/containers/upload-object-modal.html:24
+msgid "File Name"
+msgstr ""
+
+#: openstack_dashboard/dashboards/project/static/dashboard/project/containers/upload-object-modal.html:37
+msgid ""
+"Note: Delimiters ('{$ ctrl.model.DELIMETER $}') are allowed in the\n"
+"          file name to place the new file into a folder that will be "
+"created\n"
+"          when the file is uploaded (to any depth of folders)."
 msgstr ""
 
 #: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/launch-instance-model.service.js:266
@@ -1776,6 +2008,12 @@ msgstr ""
 msgid "Created"
 msgstr ""
 
+#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:167
+#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:271
+#: openstack_dashboard/static/app/core/images/filters/image-visibility.filter.js:60
+msgid "Private"
+msgstr ""
+
 #: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:224
 msgid "Encrypted"
 msgstr ""
@@ -1786,10 +2024,6 @@ msgstr ""
 
 #: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:248
 msgid "Creating"
-msgstr ""
-
-#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:249
-msgid "Deleting"
 msgstr ""
 
 #: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:250
@@ -2717,43 +2951,43 @@ msgstr ""
 msgid "Unable to get the container details."
 msgstr ""
 
-#: openstack_dashboard/static/app/core/openstack-service-api/swift.service.js:136
+#: openstack_dashboard/static/app/core/openstack-service-api/swift.service.js:139
 msgid "Unable to create the container."
 msgstr ""
 
-#: openstack_dashboard/static/app/core/openstack-service-api/swift.service.js:149
+#: openstack_dashboard/static/app/core/openstack-service-api/swift.service.js:153
 msgid "Unable to delete the container."
 msgstr ""
 
-#: openstack_dashboard/static/app/core/openstack-service-api/swift.service.js:164
+#: openstack_dashboard/static/app/core/openstack-service-api/swift.service.js:168
 msgid "Unable to change the container access."
 msgstr ""
 
-#: openstack_dashboard/static/app/core/openstack-service-api/swift.service.js:187
+#: openstack_dashboard/static/app/core/openstack-service-api/swift.service.js:191
 msgid "Unable to get the objects in container."
 msgstr ""
 
-#: openstack_dashboard/static/app/core/openstack-service-api/swift.service.js:211
+#: openstack_dashboard/static/app/core/openstack-service-api/swift.service.js:215
 msgid "Unable to upload the object."
 msgstr ""
 
-#: openstack_dashboard/static/app/core/openstack-service-api/swift.service.js:227
+#: openstack_dashboard/static/app/core/openstack-service-api/swift.service.js:231
 msgid "Unable to delete the folder because it is not empty."
 msgstr ""
 
-#: openstack_dashboard/static/app/core/openstack-service-api/swift.service.js:231
+#: openstack_dashboard/static/app/core/openstack-service-api/swift.service.js:235
 msgid "Unable to delete the object."
 msgstr ""
 
-#: openstack_dashboard/static/app/core/openstack-service-api/swift.service.js:247
+#: openstack_dashboard/static/app/core/openstack-service-api/swift.service.js:251
 msgid "Unable to get details of the object."
 msgstr ""
 
-#: openstack_dashboard/static/app/core/openstack-service-api/swift.service.js:263
+#: openstack_dashboard/static/app/core/openstack-service-api/swift.service.js:267
 msgid "Unable to create the folder."
 msgstr ""
 
-#: openstack_dashboard/static/app/core/openstack-service-api/swift.service.js:279
+#: openstack_dashboard/static/app/core/openstack-service-api/swift.service.js:283
 msgid "Unable to copy the object."
 msgstr ""
 

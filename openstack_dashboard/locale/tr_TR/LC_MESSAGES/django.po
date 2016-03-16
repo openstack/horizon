@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2016-03-15 01:56+0000\n"
+"POT-Creation-Date: 2016-03-16 02:16+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -776,9 +776,6 @@ msgstr ""
 msgid "Add hosts to this aggregate. Hosts can be in multiple aggregates."
 msgstr "Bu kümeye host ekle. Hostlar birden çok kümede olabilirler."
 
-msgid "Add interface"
-msgstr "Arayüz ekle"
-
 msgid ""
 "Add member(s) to the selected pool.\n"
 "\n"
@@ -795,12 +792,6 @@ msgstr ""
 "numarası atayın; örn., 80.\n"
 "\n"
 "Her sunucuyla yalnızca bir bağlantı noktası ilişkilendirilebilir."
-
-msgid "Add route"
-msgstr "Rota ekle"
-
-msgid "Add rule"
-msgstr "Kural ekle"
 
 msgid "Add selected router(s) to the firewall."
 msgstr "Seçili yönlendiricileri güvenlik duvarına ekle."
@@ -3579,9 +3570,6 @@ msgstr "Güvenlik Duvarı Kuralları"
 msgid "Firewalls"
 msgstr "Güvenlik duvarları"
 
-msgid "Fixed IP"
-msgstr "Sabit IP"
-
 msgid "Fixed IPs"
 msgstr "Sabit IP'ler"
 
@@ -5296,9 +5284,6 @@ msgstr "Nesneler"
 
 msgid "Old Flavor"
 msgstr "Eski Şablon"
-
-msgid "On"
-msgstr "Açık"
 
 msgid "On Demand"
 msgstr "İstenildiğinde"

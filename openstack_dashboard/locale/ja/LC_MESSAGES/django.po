@@ -8,11 +8,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2016-03-15 01:56+0000\n"
+"POT-Creation-Date: 2016-03-16 02:16+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2016-03-14 10:44+0000\n"
+"PO-Revision-Date: 2016-03-16 01:01+0000\n"
 "Last-Translator: Yuko Katabami <yukokatabami@gmail.com>\n"
 "Language-Team: Japanese\n"
 "Language: ja\n"
@@ -858,9 +858,6 @@ msgstr ""
 "このアグリゲートにホストを追加します。ホストは複数のアグリゲートに所属させる"
 "ことができます。"
 
-msgid "Add interface"
-msgstr "インターフェースの追加"
-
 msgid ""
 "Add member(s) to the selected pool.\n"
 "\n"
@@ -877,12 +874,6 @@ msgstr ""
 "を指定してください（例: 80）。\n"
 "\n"
 "1 つのインスタンスに関連付けられるポート番号は 1 つだけです。"
-
-msgid "Add route"
-msgstr "ルートの追加"
-
-msgid "Add rule"
-msgstr "ルールの追加"
 
 msgid "Add selected router(s) to the firewall."
 msgstr "選択したルーターをファイアウォールに追加します。"
@@ -2334,6 +2325,12 @@ msgstr ""
 "DHCPv6 stateless: アドレスを OpenStack ルーターから、追加情報を OpenStack "
 "DHCP から取得"
 
+msgid "DNS Assignment"
+msgstr "DNS 割り当て"
+
+msgid "DNS Name"
+msgstr "DNS 名"
+
 msgid "DNS Name Servers"
 msgstr "DNS サーバー"
 
@@ -3585,6 +3582,9 @@ msgstr ""
 msgid "Extra Specs"
 msgstr "追加スペック"
 
+msgid "FQDN"
+msgstr "FQDN"
+
 msgctxt "Power state of an Instance"
 msgid "Failed"
 msgstr "失敗"
@@ -3931,9 +3931,6 @@ msgstr "ファイアウォールルール"
 
 msgid "Firewalls"
 msgstr "ファイアウォール"
-
-msgid "Fixed IP"
-msgstr "Fixed IP"
 
 msgid "Fixed IPs"
 msgstr "Fixed IP"
@@ -5799,9 +5796,6 @@ msgstr "オブジェクト"
 msgid "Old Flavor"
 msgstr "現在のフレーバー"
 
-msgid "On"
-msgstr "オン"
-
 msgid "On Demand"
 msgstr "要求時"
 
@@ -6087,6 +6081,9 @@ msgstr "ポート ID"
 msgid "Port Range"
 msgstr "ポート範囲"
 
+msgid "Port Security Enabled"
+msgstr "ポートセキュリティー有効"
+
 #, python-format
 msgid "Port cleanup failed for these port-ids (%s)."
 msgstr "削除できなかったポートがあります (ポート ID: %s)"
@@ -6294,6 +6291,9 @@ msgstr "公開URL"
 
 msgid "QCOW2 - QEMU Emulator"
 msgstr "QCOW2 - QEMU エミュレーター"
+
+msgid "QOS Policy ID"
+msgstr "QoS ポリシー ID"
 
 #, python-format
 msgid "QoS Spec name \"%s\" already exists."

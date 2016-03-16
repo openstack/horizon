@@ -1,15 +1,16 @@
 # Carsten Duch <carsten.duch@posteo.de>, 2015. #zanata
 # Frank Kloeker <eumel@arcor.de>, 2016. #zanata
+# Lisa Stemmler <lstemmle@redhat.com>, 2016. #zanata
 msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2016-03-15 01:56+0000\n"
+"POT-Creation-Date: 2016-03-16 02:16+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2016-03-14 07:30+0000\n"
-"Last-Translator: Carsten Duch <carsten.duch@posteo.de>\n"
+"PO-Revision-Date: 2016-03-16 01:37+0000\n"
+"Last-Translator: Lisa Stemmler <lstemmle@redhat.com>\n"
 "Language-Team: German\n"
 "Language: de\n"
 "X-Generator: Zanata 3.7.3\n"
@@ -17,6 +18,10 @@ msgstr ""
 
 msgid "#"
 msgstr "#"
+
+#, python-format
+msgid "%(name)s deleted."
+msgstr "%(name)s gelöscht."
 
 #, python-format
 msgid "%s instance launched."
@@ -88,6 +93,13 @@ msgstr ""
 
 msgid ""
 "<input>\n"
+"                Public</input>"
+msgstr ""
+"<input>\n"
+"                Öffentlich</input>"
+
+msgid ""
+"<input>\n"
 "        Configuration Drive\n"
 "      </input>"
 msgstr ""
@@ -144,6 +156,33 @@ msgid "<small>This line of text is meant to be treated as fine print.</small>"
 msgstr "<small>Diese Textzeile soll wie Kleindruck behandelt werden.</small>"
 
 msgid ""
+"A container is a storage compartment for your data and provides a way\n"
+"          for you to organize your data. You can think of a container as a\n"
+"          folder in Windows or a directory in UNIX. The primary difference\n"
+"          between a container and these other file system concepts is that\n"
+"          containers cannot be nested. You can, however, create an "
+"unlimited\n"
+"          number of containers within your account. Data must be stored in "
+"a\n"
+"          container so you must have at least one container defined in your\n"
+"          account prior to uploading data."
+msgstr ""
+"Ein Container ist ein Speicherbehälter für Ihre Daten und bietet Ihnen eine "
+"Möglichkeit,\n"
+"           Ihre Daten zu organisieren. Sie können sich einen Container wie "
+"einen Ordner \n"
+"           unter Windows oder in UNIX  vorstellen. Der Hauptunterschied \n"
+"           zwischen einem Container und anderen Dateisystemkonzepten ist, "
+"dass \n"
+"          Container nicht verschachtelt werden können. Sie können jedoch in "
+"Ihrem Konto \n"
+"          eine unbegrenzte Anzahl an Containern erstellen. Da Daten in einem "
+"Container \n"
+"          gespeichert werden müssen, müssen Sie mindestens einen Container "
+"in Ihrem \n"
+"           Konto angegeben haben, bevor Sie Daten hochladen können."
+
+msgid ""
 "A floating IP allows instances to be addressable from an external network.\n"
 "    Floating IPs are not allocated to instances at creation time and may be "
 "assigned\n"
@@ -198,9 +237,6 @@ msgstr "AMI"
 
 msgid "ARI"
 msgstr "ARI"
-
-msgid "Access"
-msgstr "Zugriff"
 
 msgid "Action"
 msgstr "Aktion"
@@ -283,6 +319,18 @@ msgstr "Weitere Aktion"
 msgid "Architecture"
 msgstr "Architektur"
 
+#, python-format
+msgid "Are you sure you want to delete %(name)s?"
+msgstr "Sind Sie sicher, dass Sie %(name)s löschen möchten?"
+
+#, python-format
+msgid "Are you sure you want to delete %(numSelected)s files?"
+msgstr "Sind Sie sicher, dass Sie %(numSelected)s Dateien löschen möchten?"
+
+#, python-format
+msgid "Are you sure you want to delete container %(name)s?"
+msgstr "Sind Sie sicher, dass Sie Container %(name)s löschen möchten?"
+
 msgid "Automatic"
 msgstr "Automatisch"
 
@@ -350,6 +398,13 @@ msgstr "Kontrollkästchen"
 msgid "Checksum"
 msgstr "Prüfsumme"
 
+msgid ""
+"Clear Selection\n"
+"            <span>{$ oc.numSelected $}</span>"
+msgstr ""
+"Auswahl entfernen\n"
+"            <span>{$ oc.numSelected $}</span>"
+
 msgid "Click to see more details"
 msgstr "Klicken um mehr Details zu sehen"
 
@@ -368,16 +423,46 @@ msgstr "Spaltenüberschrift"
 msgid "Configuration"
 msgstr "Konfiguration"
 
+msgid "Confirm Delete"
+msgstr "Löschvorgang bestätigen"
+
 msgid "Confirm Delete Image"
 msgid_plural "Confirm Delete Images"
 msgstr[0] "Löschen von Abbild bestätigen"
 msgstr[1] "Löschen von Abbildern bestätigen"
 
+msgid "Container"
+msgstr "Container"
+
+#, python-format
+msgid "Container %(name)s created."
+msgstr "Container %(name)s erstellt."
+
+#, python-format
+msgid "Container %(name)s deleted."
+msgstr "Container %(name)s gelöscht."
+
+#, python-format
+msgid "Container %(name)s is now %(access)s."
+msgstr "Container %(name)s ist jetzt %(access)s."
+
+msgid "Container Access"
+msgstr "Container Zugriff"
+
 msgid "Container Format"
 msgstr "Containerformat"
 
+msgid "Container Name"
+msgstr "Containername"
+
+msgid "Container name must not contain \"/\"."
+msgstr "Containername darf nicht \"/\" enthalten."
+
 msgid "Containers"
 msgstr "Container"
+
+msgid "Content Type"
+msgstr "Inhaltstyp"
 
 msgid "Contextual alternatives"
 msgstr "Kontextbezogene Alternativen"
@@ -388,6 +473,22 @@ msgid ""
 msgstr ""
 "Anzahl\n"
 "          <span></span>"
+
+msgid "Create"
+msgstr "Erstellen"
+
+msgid "Create Container"
+msgstr "Container erstellen"
+
+msgid "Create Folder"
+msgstr "Ordner erstellen"
+
+msgid ""
+"Create Folder In: {$ ctrl.model.container.name $}\n"
+"    <span>: {$ ctrl.model.folder $}</span>"
+msgstr ""
+"Ordner erstellen In: {$ ctrl.model.container.name $}\n"
+"    <span>: {$ ctrl.model.folder $}</span>"
 
 msgid "Create Key Pair"
 msgstr "Schlüsselpaar erstellen"
@@ -449,6 +550,9 @@ msgstr "Daten"
 msgid "Date"
 msgstr "Datum"
 
+msgid "Date Created"
+msgstr "Datum erstellt"
+
 msgid "Datetime"
 msgstr "Datum/Uhrzeit"
 
@@ -461,6 +565,12 @@ msgstr "Standardschaltfläche"
 msgid "Default input"
 msgstr "Standardeingabe"
 
+msgid "Delete"
+msgstr "Löschen"
+
+msgid "Delete Container"
+msgstr "Container löschen"
+
 msgid "Delete Image"
 msgid_plural "Delete Images"
 msgstr[0] "Abbild löschen"
@@ -468,6 +578,9 @@ msgstr[1] "Abbilder löschen"
 
 msgid "Delete Images"
 msgstr "Abbilder löschen"
+
+msgid "Delete Selection"
+msgstr "Auswahl löschen"
 
 msgid "Delete Volume on Instance Delete"
 msgstr "Lösche Datenträger beim Löschen der Instanz"
@@ -480,6 +593,9 @@ msgid "Deleted Image: %s."
 msgid_plural "Deleted Images: %s."
 msgstr[0] "Gelöschtes Abbild: %s."
 msgstr[1] "Gelöschte Abbilder: %s."
+
+msgid "Deleted."
+msgstr "Gelöscht."
 
 msgid "Deleting"
 msgstr "Wird gelöscht"
@@ -526,6 +642,9 @@ msgstr "Domänen-ID"
 msgid "Down"
 msgstr "Down"
 
+msgid "Download"
+msgstr "Herunterladen"
+
 msgid "Dropdown"
 msgstr "Auswahlmenü"
 
@@ -569,6 +688,19 @@ msgstr "Erweiterung ist nicht aktiviert: %(extension)s."
 msgid "External Network"
 msgstr "Externes Netzwerk"
 
+msgid "Failed to delete."
+msgstr "Fehler beim Löschvorgang."
+
+msgid "File"
+msgstr "Datei"
+
+#, python-format
+msgid "File %(name)s uploaded."
+msgstr "Datei %(name)s hochgeladen."
+
+msgid "File Name"
+msgstr "Dateiname"
+
 msgid "Filename"
 msgstr "Dateiname"
 
@@ -594,6 +726,16 @@ msgstr ""
 msgid "Focused input"
 msgstr "Gezielte Eingabe"
 
+msgid "Folder"
+msgstr "Ordner"
+
+#, python-format
+msgid "Folder %(name)s created."
+msgstr "Ordner %(name)s erstellt."
+
+msgid "Folder Name"
+msgstr "Ordnername"
+
 msgid "Format"
 msgstr "Abbildformat"
 
@@ -614,6 +756,9 @@ msgstr ""
 " dann den öffentlichen Schlüssel in der rot hervorgehobenen Box in ihre "
 "Datei\n"
 " <samp>.ssh/authorized_keys</samp>"
+
+msgid "Hash"
+msgstr "Raute"
 
 msgid "Heading 1"
 msgstr "Überschrift 1"
@@ -988,6 +1133,31 @@ msgstr "Nein"
 msgid "No available items"
 msgstr "Keine verfügbaren Positionen"
 
+msgid ""
+"Note: A Public Container will allow anyone with the Public URL to\n"
+"          gain access to your objects in the container."
+msgstr ""
+"Anmerkung: Ein öffentlicher Container erlaubt jedem Zugriff auf\n"
+"          Objekte in dem Container, der die öffentliche URL hat."
+
+msgid ""
+"Note: Delimiters ('{$ ctrl.model.DELIMETER $}') are allowed in the\n"
+"          file name to place the new file into a folder that will be "
+"created\n"
+"          when the file is uploaded (to any depth of folders)."
+msgstr ""
+"Anmerkung: Trennzeichen ('{$ ctrl.model.DELIMETER $}') sind im \n"
+"          Dateinamen zugelassen, um die neue Datei einem Ordner zuzuordnen,\n"
+"          der erstellt wird, wenn die Datei hochgeladen ist (bei jeder "
+"Ordnertiefe)."
+
+msgid ""
+"Note: Delimiters ('{$ ctrl.model.DELIMETER $}') are allowed in the\n"
+"          folder name to create deep folders."
+msgstr ""
+"Anmerkung: Trennzeichen ('{$ ctrl.model.DELIMETER $}') sind im Ordnernamen\n"
+"          für die Erstellung von tiefen Ordnern zugelassen."
+
 msgid "Note: you will not be able to download this later."
 msgstr ""
 "Hinweis: Sie können diesen Schritt nicht zu einem späteren Zeitpunkt "
@@ -1016,6 +1186,9 @@ msgstr "Objektcontainer"
 
 msgid "Object Count"
 msgstr "Objektanzahl"
+
+msgid "Object Details"
+msgstr "Objektdetails"
 
 msgid "Objects"
 msgstr "Objekte"
@@ -1156,6 +1329,9 @@ msgstr ""
 msgid "Public"
 msgstr "Öffentlich"
 
+msgid "Public Access"
+msgstr "Öffentlicher Zugriff"
+
 msgid "Public Key"
 msgstr "Öffentlicher Schlüssel"
 
@@ -1195,6 +1371,9 @@ msgstr "Datensatzeigenschaften"
 
 msgid "Remote"
 msgstr "Entfernt"
+
+msgid "Required"
+msgstr "Erforderlich"
 
 msgid "Right"
 msgstr "Rechts"
@@ -1244,6 +1423,9 @@ msgstr ""
 
 msgid "Segmentation ID"
 msgstr "Segmentierungskennung"
+
+msgid "Select All"
+msgstr "Alle auswählen"
 
 msgid "Select Boot Source"
 msgstr "Bootquelle auswählen"
@@ -1891,6 +2073,19 @@ msgstr "Aktualisiert"
 msgid "Updated At"
 msgstr "Aktualisiert am"
 
+msgid "Upload File"
+msgstr "Datei hochladen"
+
+msgid ""
+"Upload File To: {$ ctrl.model.container.name $}\n"
+"    <span>: {$ ctrl.model.folder $}</span>"
+msgstr ""
+"Datei hochladen nach: {$ ctrl.model.container.name $}\n"
+"    <span>: {$ ctrl.model.folder $}</span>"
+
+msgid "Uploading"
+msgstr "Wird hochgeladen"
+
 msgid "Url"
 msgstr "URL"
 
@@ -1917,6 +2112,9 @@ msgstr "VHD"
 
 msgid "VMDK"
 msgstr "VMDK"
+
+msgid "View Details"
+msgstr "Details anzeigen"
 
 msgid "Virtual Size"
 msgstr "Virtuelle Grösse"
@@ -2051,16 +2249,19 @@ msgstr[1] ""
 "Sie haben \"%s\" ausgewählt. Gelöschte Abbilder können nicht "
 "wiederhergestellt werden."
 
+msgid "disabled"
+msgstr "deaktiviert"
+
 msgid "error"
 msgid_plural "errors"
 msgstr[0] "Fehler"
 msgstr[1] "Fehler"
 
-msgid "folder"
-msgstr "Ordner"
-
 msgid "image"
 msgstr "Abbild"
+
+msgid "link"
+msgstr "Link"
 
 msgid "message"
 msgid_plural "messages"

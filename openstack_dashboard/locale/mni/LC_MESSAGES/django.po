@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2016-03-15 01:56+0000\n"
+"POT-Creation-Date: 2016-03-16 02:16+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -468,9 +468,6 @@ msgid "Add hosts to this aggregate. Hosts can be in multiple aggregates."
 msgstr ""
 "এগ্রিগেত অসিদা হোষ্টশীং হাপচিল্লু। হোষ্টশীং অদু মলতিপল ওইবা এগ্রিগেতশীংদা ওইবা য়াই।"
 
-msgid "Add interface"
-msgstr "ইন্তর্ফেস হাপচিল্লু"
-
 msgid ""
 "Add member(s) to the selected pool.\n"
 "\n"
@@ -487,9 +484,6 @@ msgstr ""
 "তৌনবা এসাইন তৌ; খুদম ওইনা, 80. \n"
 "\n"
 "ইন্সতেন্স খুদিংগী পোর্ত অমখক্তং এসোসিএত তৌবা য়াই।"
-
-msgid "Add rule"
-msgstr "রুল হাপচিল্লু"
 
 msgid "Add/Remove Hosts to Aggregate"
 msgstr "এগ্রিগেত্তা হোষ্টশীং হাপচিল্লু/লৌথোকউ"
@@ -2324,9 +2318,6 @@ msgstr "ফায়রৱাল রুলশীং"
 
 msgid "Firewalls"
 msgstr "ফায়রৱালশীং"
-
-msgid "Fixed IP"
-msgstr "ফিক্স তৌরবা IP"
 
 msgid "Fixed IPs"
 msgstr "ফিক্স তৌরবা IPশীং"

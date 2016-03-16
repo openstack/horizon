@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2016-03-15 01:56+0000\n"
+"POT-Creation-Date: 2016-03-16 02:16+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -820,9 +820,6 @@ msgid "Add hosts to this aggregate. Hosts can be in multiple aggregates."
 msgstr ""
 "Přidat hostitele do tohoto agregátu. Hostitelé mohou být ve více agregátech."
 
-msgid "Add interface"
-msgstr "Přidat rozhraní"
-
 msgid ""
 "Add member(s) to the selected pool.\n"
 "\n"
@@ -839,12 +836,6 @@ msgstr ""
 "kterém bude člen(ové) pracovat; např.: 80.\n"
 "\n"
 "Pro každou instanci lze přidružit pouze jeden port."
-
-msgid "Add route"
-msgstr "Přidat cestu"
-
-msgid "Add rule"
-msgstr "Přidat pravidlo"
 
 msgid "Add selected router(s) to the firewall."
 msgstr "Přidat zvolené směrovače do brány firewall."
@@ -3940,9 +3931,6 @@ msgstr "Pravidla brány firewall"
 msgid "Firewalls"
 msgstr "Brány firewall"
 
-msgid "Fixed IP"
-msgstr "Pevná IP"
-
 msgid "Fixed IPs"
 msgstr "Statické IP"
 
@@ -5718,9 +5706,6 @@ msgstr "Objekty"
 
 msgid "Old Flavor"
 msgstr "Stará konfigurace"
-
-msgid "On"
-msgstr "Na"
 
 msgid "On Demand"
 msgstr "Na žádost"

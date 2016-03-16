@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2016-03-15 01:56+0000\n"
+"POT-Creation-Date: 2016-03-16 02:16+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -812,9 +812,6 @@ msgid "Add hosts to this aggregate. Hosts can be in multiple aggregates."
 msgstr ""
 "Aggiungere host a questo aggregato. Gli host possono essere in più aggregati."
 
-msgid "Add interface"
-msgstr "Aggiungi interfaccia"
-
 msgid ""
 "Add member(s) to the selected pool.\n"
 "\n"
@@ -831,12 +828,6 @@ msgstr ""
 "cui agire, ad esempio, 80. \n"
 "\n"
 "Ad ogni istanza può essere associata una sola porta."
-
-msgid "Add route"
-msgstr "Aggiungi instradamento"
-
-msgid "Add rule"
-msgstr "Aggiungi regola"
 
 msgid "Add selected router(s) to the firewall."
 msgstr "Aggiungi router selezionati al firewall."
@@ -3673,9 +3664,6 @@ msgstr "Regole del firewall"
 msgid "Firewalls"
 msgstr "Firewall"
 
-msgid "Fixed IP"
-msgstr "IP fisso"
-
 msgid "Fixed IPs"
 msgstr "IP Fissi"
 
@@ -5417,9 +5405,6 @@ msgstr "Oggetti"
 
 msgid "Old Flavor"
 msgstr "Vecchio flavor"
-
-msgid "On"
-msgstr "Su"
 
 msgid "On Demand"
 msgstr "A richiesta"

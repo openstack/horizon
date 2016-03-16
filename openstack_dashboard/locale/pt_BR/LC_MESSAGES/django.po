@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2016-03-15 01:56+0000\n"
+"POT-Creation-Date: 2016-03-16 02:16+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -860,9 +860,6 @@ msgstr ""
 msgid "Add hosts to this aggregate. Hosts can be in multiple aggregates."
 msgstr "Adiciona hosts ao agregado. Hosts podem estar em multiplos agregados."
 
-msgid "Add interface"
-msgstr "Adicionar Interface"
-
 msgid ""
 "Add member(s) to the selected pool.\n"
 "\n"
@@ -876,12 +873,6 @@ msgstr ""
 "a serem adicionados à piscina como membro (s). Atribua um peso numérico eo "
 "número da porta para o membro (s) selecionado para operar (s) on; por "
 "exemplo, 80Apenas uma porta pode ser associado com cada exemplo."
-
-msgid "Add route"
-msgstr "Adicionar rota"
-
-msgid "Add rule"
-msgstr "Adicionar regra"
 
 msgid "Add selected router(s) to the firewall."
 msgstr "Adicionar roteador(es) selecionado(s) ao firewall."
@@ -4042,9 +4033,6 @@ msgstr "Regras de Firewall"
 msgid "Firewalls"
 msgstr "Firewalls"
 
-msgid "Fixed IP"
-msgstr "IP Fixo"
-
 msgid "Fixed IPs"
 msgstr "IPs Fixos"
 
@@ -5932,9 +5920,6 @@ msgstr "Objetos"
 
 msgid "Old Flavor"
 msgstr "Flavor antigo"
-
-msgid "On"
-msgstr "Ligado"
 
 msgid "On Demand"
 msgstr "Sob Demanda"

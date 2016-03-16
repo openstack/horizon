@@ -12,16 +12,17 @@
 # Daisy <guoyingc@cn.ibm.com>, 2016. #zanata
 # Fedor Tarasenko <feodor.tarasenko@gmail.com>, 2016. #zanata
 # Filatov Sergey <filatecs@gmail.com>, 2016. #zanata
+# Ilya Alekseyev <ilyaalekseyev@acm.org>, 2016. #zanata
 msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2016-03-15 01:55+0000\n"
+"POT-Creation-Date: 2016-03-16 02:15+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2016-02-25 09:22+0000\n"
-"Last-Translator: Fedor Tarasenko <feodor.tarasenko@gmail.com>\n"
+"PO-Revision-Date: 2016-03-15 01:03+0000\n"
+"Last-Translator: Ilya Alekseyev <ilyaalekseyev@acm.org>\n"
 "Language: ru\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
 "%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
@@ -166,7 +167,7 @@ msgid "Actions"
 msgstr "Действия"
 
 msgid "Active Instances:"
-msgstr "Активные машины:"
+msgstr "Активные инстансы:"
 
 msgid "Active RAM:"
 msgstr "Используемая RAM:"
@@ -182,6 +183,20 @@ msgstr "Доступно"
 
 msgid "Back"
 msgstr "Назад"
+
+#. Translators: test code, don't really have to translate
+msgid "Batch Item"
+msgid_plural "Batch Items"
+msgstr[0] "Пакетировать элемент"
+msgstr[1] "Пакетировать элементы"
+msgstr[2] "Пакетировать элементы"
+
+#. Translators: test code, don't really have to translate
+msgid "Batched Item"
+msgid_plural "Batched Items"
+msgstr[0] "Пакетированный элемент"
+msgstr[1] "Пакетированные элементы"
+msgstr[2] "Пакетированные элементы"
 
 msgid "Cancel"
 msgstr "Отмена"
@@ -390,6 +405,18 @@ msgstr "Вы не авторизованы. Попробуйте войти в �
 #, python-format
 msgid "Unauthorized: %s"
 msgstr "Не авторизован: %s"
+
+msgid "Update Item"
+msgid_plural "Update Items"
+msgstr[0] "Обновить элемент"
+msgstr[1] "Обновить элементы"
+msgstr[2] "Обновить элементы"
+
+msgid "Updated Item"
+msgid_plural "Updated Items"
+msgstr[0] "Обновленный элемент"
+msgstr[1] "Обновленные элементы"
+msgstr[2] "Обновленные элементы"
 
 msgid "Usage Summary"
 msgstr "Сводка использования"

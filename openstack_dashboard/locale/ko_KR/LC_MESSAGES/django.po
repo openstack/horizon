@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2016-03-15 01:56+0000\n"
+"POT-Creation-Date: 2016-03-16 02:16+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -832,9 +832,6 @@ msgstr ""
 "해당 집합에 호스트를 추가하십시오. 호스트는 여러 개의 호스트 집합에 포함될 "
 "수 있습니다."
 
-msgid "Add interface"
-msgstr "인터페이스 추가"
-
 msgid ""
 "Add member(s) to the selected pool.\n"
 "\n"
@@ -850,12 +847,6 @@ msgstr ""
 "있도록 선택된 멤버의 숫자로된 용량과 포트 번호를 할당합니다. 예. 80.\n"
 "\n"
 "각 인스턴스당 하나의 포트를 연결할 수 있습니다."
-
-msgid "Add route"
-msgstr "경로 추가"
-
-msgid "Add rule"
-msgstr "규칙 추가"
 
 msgid "Add selected router(s) to the firewall."
 msgstr "방화벽에서 라우터를 선택하여 추가합니다."
@@ -3881,9 +3872,6 @@ msgstr "방화벽 Rule"
 msgid "Firewalls"
 msgstr "방화벽"
 
-msgid "Fixed IP"
-msgstr "고정 IP"
-
 msgid "Fixed IPs"
 msgstr "고정 IP"
 
@@ -5728,9 +5716,6 @@ msgstr "오브젝트"
 
 msgid "Old Flavor"
 msgstr "오래된 Flavor"
-
-msgid "On"
-msgstr "On"
 
 msgid "On Demand"
 msgstr "필요에 따름"

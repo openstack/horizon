@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2016-03-15 01:56+0000\n"
+"POT-Creation-Date: 2016-03-16 02:16+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -808,9 +808,6 @@ msgstr "将主机添加到这个聚合，或者从聚合中删除主机。主机
 msgid "Add hosts to this aggregate. Hosts can be in multiple aggregates."
 msgstr "增加主机到这个集合。主机可以加入多个集合。"
 
-msgid "Add interface"
-msgstr "增加接口"
-
 msgid ""
 "Add member(s) to the selected pool.\n"
 "\n"
@@ -826,12 +823,6 @@ msgstr ""
 "如, 80. \n"
 "\n"
 "每个实例只能关联一个端口."
-
-msgid "Add route"
-msgstr "创建路由器"
-
-msgid "Add rule"
-msgstr "增加规则"
 
 msgid "Add selected router(s) to the firewall."
 msgstr "添加所选择的路由(s)到防火墙。"
@@ -3790,9 +3781,6 @@ msgstr "防火墙规则"
 msgid "Firewalls"
 msgstr "防火墙"
 
-msgid "Fixed IP"
-msgstr "固定IP"
-
 msgid "Fixed IPs"
 msgstr "固定IP"
 
@@ -5598,9 +5586,6 @@ msgstr "对象"
 
 msgid "Old Flavor"
 msgstr "旧的云主机类型"
-
-msgid "On"
-msgstr "On"
 
 msgid "On Demand"
 msgstr "需求"

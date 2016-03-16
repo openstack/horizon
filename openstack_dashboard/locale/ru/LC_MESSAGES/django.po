@@ -20,16 +20,17 @@
 # OpenStack Infra <zanata@openstack.org>, 2015. #zanata
 # Daisy <guoyingc@cn.ibm.com>, 2016. #zanata
 # Fedor Tarasenko <feodor.tarasenko@gmail.com>, 2016. #zanata
+# Ilya Alekseyev <ilyaalekseyev@acm.org>, 2016. #zanata
 msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2016-03-15 01:56+0000\n"
+"POT-Creation-Date: 2016-03-16 02:16+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2016-02-25 09:58+0000\n"
-"Last-Translator: Fedor Tarasenko <feodor.tarasenko@gmail.com>\n"
+"PO-Revision-Date: 2016-03-15 01:14+0000\n"
+"Last-Translator: Ilya Alekseyev <ilyaalekseyev@acm.org>\n"
 "Language: ru\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
 "%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
@@ -800,9 +801,6 @@ msgid "Add hosts to this aggregate. Hosts can be in multiple aggregates."
 msgstr ""
 "Добавьте узлы в этот агрегатор. Узлы могут быть в нескольких агрегаторах."
 
-msgid "Add interface"
-msgstr "Добавить интерфейс"
-
 msgid ""
 "Add member(s) to the selected pool.\n"
 "\n"
@@ -819,12 +817,6 @@ msgstr ""
 "работ(ы); например, 80.\n"
 "\n"
 "Только один порт может быть связан с каждым инстансом."
-
-msgid "Add route"
-msgstr "Добавить маршрут"
-
-msgid "Add rule"
-msgstr "Добавить правило"
 
 msgid "Add selected router(s) to the firewall."
 msgstr "Добавить выбранные маршрутизаторы к межсетевому экрану"
@@ -2111,6 +2103,10 @@ msgstr ""
 "Поддерживаются только образы, доступные через HTTP/HTTPS. Путь к образу "
 "должен быть доступен для службы образов."
 
+msgctxt "Custom style theme"
+msgid "Custom"
+msgstr "Пользовательская тема"
+
 msgid "Custom ICMP Rule"
 msgstr "Настраиваемое правило ICMP"
 
@@ -2211,6 +2207,10 @@ msgstr "Время ожидания для обнаружения недосту
 
 msgid "Decrypt Password"
 msgstr "Расшифровать пароль"
+
+msgctxt "Default style theme"
+msgid "Default"
+msgstr "Тема по умолчанию"
 
 msgid "Default Quotas"
 msgstr "Квоты по умолчанию"
@@ -2428,6 +2428,12 @@ msgstr[0] "Удалить группу безопасности"
 msgstr[1] "Удалить группы безопасности"
 msgstr[2] "Удалить группы безопасности"
 
+msgid "Delete Spec"
+msgid_plural "Delete Specs"
+msgstr[0] "Удалить спецификацию"
+msgstr[1] "Удалить спецификации"
+msgstr[2] "Удалить спецификации"
+
 msgid "Delete Stack"
 msgid_plural "Delete Stacks"
 msgstr[0] "Удалить стек"
@@ -2631,6 +2637,12 @@ msgid_plural "Deleted Security Groups"
 msgstr[0] "Удаленная группа безопасности"
 msgstr[1] "Удаленные группы безопасности"
 msgstr[2] "Группы безопасности удалены"
+
+msgid "Deleted Spec"
+msgid_plural "Deleted Specs"
+msgstr[0] "Удаленная спецификация"
+msgstr[1] "Удаленные спецификации"
+msgstr[2] "Удаленные спецификации"
 
 msgid "Deleted Stack"
 msgid_plural "Deleted Stacks"
@@ -3849,9 +3861,6 @@ msgstr "Правила межсетевого экрана"
 msgid "Firewalls"
 msgstr "Межсетевые экраны"
 
-msgid "Fixed IP"
-msgstr "Фиксированный IP"
-
 msgid "Fixed IPs"
 msgstr "Фиксированные IP-адресы"
 
@@ -4319,7 +4328,7 @@ msgid "Identifier Type"
 msgstr "Тип Идентификатора"
 
 msgid "Identity"
-msgstr "Identity"
+msgstr "Идентификация"
 
 msgid "Identity Provider ID"
 msgstr "Идентификатор провайдера идентификации"
@@ -4955,6 +4964,10 @@ msgstr "Вручную"
 
 msgid "Mapped Fixed IP Address"
 msgstr "Сопоставлен фиксированный IP-адрес"
+
+msgctxt "Google's Material Design style theme"
+msgid "Material"
+msgstr "Тема Material Design"
 
 msgid "Max Retries"
 msgstr "Максимальное количество повторных попыток"
@@ -5649,9 +5662,6 @@ msgstr "Объекты"
 
 msgid "Old Flavor"
 msgstr "Старый тип инстанса"
-
-msgid "On"
-msgstr "On"
 
 msgid "On Demand"
 msgstr "По требованию"
@@ -9530,6 +9540,12 @@ msgstr "Не управлять диском"
 msgctxt "Action log of an instance"
 msgid "Unpause"
 msgstr "Снять с паузы"
+
+msgid "Unregister Identity Provider"
+msgid_plural "Unregister Identity Providers"
+msgstr[0] "Незарегистрированный провайдер идентификации"
+msgstr[1] "Незарегистрированные провайдеры идентификации"
+msgstr[2] "Незарегистрированные провайдеры идентификации"
 
 msgctxt "Task status of an Instance"
 msgid "Unrescuing"

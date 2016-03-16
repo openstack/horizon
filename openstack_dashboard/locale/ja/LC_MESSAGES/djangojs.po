@@ -8,11 +8,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2016-03-15 01:56+0000\n"
+"POT-Creation-Date: 2016-03-16 02:16+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2016-03-14 04:23+0000\n"
+"PO-Revision-Date: 2016-03-16 12:23+0000\n"
 "Last-Translator: Yuko Katabami <yukokatabami@gmail.com>\n"
 "Language-Team: Japanese\n"
 "Language: ja\n"
@@ -21,6 +21,10 @@ msgstr ""
 
 msgid "#"
 msgstr "#"
+
+#, python-format
+msgid "%(name)s deleted."
+msgstr "%(name)s が削除されました。"
 
 #, python-format
 msgid "%s instance launched."
@@ -144,6 +148,29 @@ msgid "<small>This line of text is meant to be treated as fine print.</small>"
 msgstr "<small>この行の文字は、細字として処理されます。</small>"
 
 msgid ""
+"A container is a storage compartment for your data and provides a way\n"
+"          for you to organize your data. You can think of a container as a\n"
+"          folder in Windows or a directory in UNIX. The primary difference\n"
+"          between a container and these other file system concepts is that\n"
+"          containers cannot be nested. You can, however, create an "
+"unlimited\n"
+"          number of containers within your account. Data must be stored in "
+"a\n"
+"          container so you must have at least one container defined in your\n"
+"          account prior to uploading data."
+msgstr ""
+"コンテナーはデータのストレージの区画です。\n"
+"データを整理する手段を提供します。\n"
+"コンテナーは、Windows のフォルダーや UNIX のディレクトリーのように考えること"
+"ができます。\n"
+"コンテナーとこれらのファイルシステムの概念の主な違いは、コンテナーは入れ子に"
+"できないことです。\n"
+"ただし、アカウント内に無制限のコンテナーを作成することが可能です。\n"
+"データはコンテナーに保存する必要があります。\n"
+"そのため、データをアップロードする前に、少なくとも 1 つのコンテナーを\n"
+"アカウントに定義する必要があります。"
+
+msgid ""
 "A floating IP allows instances to be addressable from an external network.\n"
 "    Floating IPs are not allocated to instances at creation time and may be "
 "assigned\n"
@@ -195,9 +222,6 @@ msgstr "AMI"
 
 msgid "ARI"
 msgstr "ARI"
-
-msgid "Access"
-msgstr "アクセス"
 
 msgid "Action"
 msgstr "アクション"
@@ -277,6 +301,18 @@ msgstr "別のアクション"
 
 msgid "Architecture"
 msgstr "アーキテクチャー"
+
+#, python-format
+msgid "Are you sure you want to delete %(name)s?"
+msgstr "%(name)s を削除してよろしいですか?"
+
+#, python-format
+msgid "Are you sure you want to delete %(numSelected)s files?"
+msgstr "%(numSelected)s ファイルを削除してよろしいですか?"
+
+#, python-format
+msgid "Are you sure you want to delete container %(name)s?"
+msgstr "コンテナー %(name)s を削除してよろしいですか?"
 
 msgid "Automatic"
 msgstr "自動"
@@ -362,15 +398,41 @@ msgstr "カラムの見出し"
 msgid "Configuration"
 msgstr "設定"
 
+msgid "Confirm Delete"
+msgstr "削除の確認"
+
 msgid "Confirm Delete Image"
 msgid_plural "Confirm Delete Images"
 msgstr[0] "イメージの削除の確認"
 
+msgid "Container"
+msgstr "コンテナー"
+
+#, python-format
+msgid "Container %(name)s created."
+msgstr "コンテナー %(name)s が作成されました。"
+
+#, python-format
+msgid "Container %(name)s deleted."
+msgstr "コンテナー %(name)s が削除されました。"
+
+msgid "Container Access"
+msgstr "コンテナーアクセス"
+
 msgid "Container Format"
 msgstr "格納形式"
 
+msgid "Container Name"
+msgstr "コンテナー名"
+
+msgid "Container name must not contain \"/\"."
+msgstr "コンテナー名には \"/\" を使用できません"
+
 msgid "Containers"
 msgstr "コンテナー"
+
+msgid "Content Type"
+msgstr "コンテンツ種別"
 
 msgid "Contextual alternatives"
 msgstr "文脈依存の代替"
@@ -381,6 +443,15 @@ msgid ""
 msgstr ""
 "数\n"
 "          <span></span>"
+
+msgid "Create"
+msgstr "作成"
+
+msgid "Create Container"
+msgstr "コンテナーの作成"
+
+msgid "Create Folder"
+msgstr "フォルダーの作成"
 
 msgid "Create Key Pair"
 msgstr "キーペアの作成"
@@ -441,6 +512,9 @@ msgstr "データ"
 msgid "Date"
 msgstr "日"
 
+msgid "Date Created"
+msgstr "作成日"
+
 msgid "Datetime"
 msgstr "日時"
 
@@ -453,12 +527,21 @@ msgstr "デフォルトのボタン"
 msgid "Default input"
 msgstr "デフォルトの入力項目"
 
+msgid "Delete"
+msgstr "削除"
+
+msgid "Delete Container"
+msgstr "コンテナーの削除"
+
 msgid "Delete Image"
 msgid_plural "Delete Images"
 msgstr[0] "イメージの削除"
 
 msgid "Delete Images"
 msgstr "イメージの削除"
+
+msgid "Delete Selection"
+msgstr "選択した項目の削除"
 
 msgid "Delete Volume on Instance Delete"
 msgstr "インスタンスの削除時にボリュームを削除します"
@@ -470,6 +553,9 @@ msgstr "削除"
 msgid "Deleted Image: %s."
 msgid_plural "Deleted Images: %s."
 msgstr[0] "イメージ %s を削除しました。"
+
+msgid "Deleted."
+msgstr "削除しました。"
 
 msgid "Deleting"
 msgstr "削除中"
@@ -516,6 +602,9 @@ msgstr "ドメイン ID"
 msgid "Down"
 msgstr "停止中"
 
+msgid "Download"
+msgstr "ダウンロード"
+
 msgid "Dropdown"
 msgstr "ドロップダウン"
 
@@ -559,6 +648,19 @@ msgstr "拡張機能 %(extension)s が有効ではありません。"
 msgid "External Network"
 msgstr "外部ネットワーク"
 
+msgid "Failed to delete."
+msgstr "削除に失敗しました。"
+
+msgid "File"
+msgstr "ファイル"
+
+#, python-format
+msgid "File %(name)s uploaded."
+msgstr "ファイル %(name)s がアップロードされました。"
+
+msgid "File Name"
+msgstr "ファイル名"
+
 msgid "Filename"
 msgstr "ファイル名"
 
@@ -584,6 +686,16 @@ msgstr ""
 msgid "Focused input"
 msgstr "フォーカスされた入力項目"
 
+msgid "Folder"
+msgstr "フォルダー"
+
+#, python-format
+msgid "Folder %(name)s created."
+msgstr "フォルダー %(name)s が作成されました。"
+
+msgid "Folder Name"
+msgstr "フォルダー名"
+
 msgid "Format"
 msgstr "形式"
 
@@ -601,6 +713,9 @@ msgstr ""
 "PuTTY 鍵ジェネレーターを使って鍵を作成、保存してから、\n"
 "赤い枠に表示された公開鍵を\n"
 "<samp>.ssh/authorized_keys</samp> ファイルにコピーしてください。"
+
+msgid "Hash"
+msgstr "ハッシュ"
 
 msgid "Heading 1"
 msgstr "見出し１"
@@ -967,6 +1082,31 @@ msgstr "いいえ"
 msgid "No available items"
 msgstr "利用できるアイテムがありません。"
 
+msgid ""
+"Note: A Public Container will allow anyone with the Public URL to\n"
+"          gain access to your objects in the container."
+msgstr ""
+"注意: パブリックコンテナーは公開 URL を使って\n"
+"誰でもコンテナー内のオブジェクトへアクセスすることができます。"
+
+msgid ""
+"Note: Delimiters ('{$ ctrl.model.DELIMETER $}') are allowed in the\n"
+"          file name to place the new file into a folder that will be "
+"created\n"
+"          when the file is uploaded (to any depth of folders)."
+msgstr ""
+"注意: ファイル名に区切り記号 ('{$ ctrl.model.DELIMETER $}') を使用して、\n"
+"その新規ファイルを (任意の深さのフォルダーに) アップロードする際に作成され"
+"る \n"
+"フォルダーに配置することができます。"
+
+msgid ""
+"Note: Delimiters ('{$ ctrl.model.DELIMETER $}') are allowed in the\n"
+"          folder name to create deep folders."
+msgstr ""
+"注意: フォルダー名に区切り記号 ('{$ ctrl.model.DELIMETER $}') を使用して、\n"
+"階層の深いフォルダーの作成することができます。"
+
 msgid "Note: you will not be able to download this later."
 msgstr "注意: このダウンロードは後で実施することはできません。"
 
@@ -993,6 +1133,9 @@ msgstr "オブジェクトのコンテナー"
 
 msgid "Object Count"
 msgstr "オブジェクト数"
+
+msgid "Object Details"
+msgstr "オブジェクトの詳細"
 
 msgid "Objects"
 msgstr "オブジェクト"
@@ -1134,6 +1277,9 @@ msgstr ""
 msgid "Public"
 msgstr "パブリック"
 
+msgid "Public Access"
+msgstr "パブリックアクセス"
+
 msgid "Public Key"
 msgstr "公開鍵"
 
@@ -1173,6 +1319,9 @@ msgstr "レコードのプロパティー"
 
 msgid "Remote"
 msgstr "接続相手"
+
+msgid "Required"
+msgstr "必須"
 
 msgid "Right"
 msgstr "右端"
@@ -1221,6 +1370,9 @@ msgstr ""
 
 msgid "Segmentation ID"
 msgstr "セグメント ID"
+
+msgid "Select All"
+msgstr "すべて選択"
 
 msgid "Select Boot Source"
 msgstr "ブートソースを選択してください"
@@ -1866,6 +2018,12 @@ msgstr "更新時刻"
 msgid "Updated At"
 msgstr "最終更新"
 
+msgid "Upload File"
+msgstr "ファイルのアップロード"
+
+msgid "Uploading"
+msgstr "アップロード中"
+
 msgid "Url"
 msgstr "URL"
 
@@ -1892,6 +2050,9 @@ msgstr "VHD"
 
 msgid "VMDK"
 msgstr "VMDK"
+
+msgid "View Details"
+msgstr "詳細の表示"
 
 msgid "Virtual Size"
 msgstr "仮想サイズ"
@@ -2018,11 +2179,11 @@ msgid "error"
 msgid_plural "errors"
 msgstr[0] "エラー"
 
-msgid "folder"
-msgstr "フォルダー"
-
 msgid "image"
 msgstr "イメージ"
+
+msgid "link"
+msgstr "リンク"
 
 msgid "message"
 msgid_plural "messages"

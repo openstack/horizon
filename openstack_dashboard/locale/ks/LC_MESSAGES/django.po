@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2016-03-15 01:56+0000\n"
+"POT-Creation-Date: 2016-03-16 02:16+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -458,9 +458,6 @@ msgstr ""
 msgid "Add hosts to this aggregate. Hosts can be in multiple aggregates."
 msgstr "جمع کئریو ہوسٹ ایگریگیٹ سیتھ ۔ ہوسٹ ہیکہٕ واریاہ ایگریگیٹ آسیتھ"
 
-msgid "Add interface"
-msgstr "جمع کئریو اِنٹر فیس"
-
 msgid ""
 "Add member(s) to the selected pool.\n"
 "\n"
@@ -476,9 +473,6 @@ msgstr ""
 "نیومرِک وَزن تہ پورٹ نمبر ژارمِت میمبر خآطرہ کامہ  خآطرہ; e.g., 80. \n"
 "\n"
 "صِرف اَکھ پورٹ جوڈیتہ ہر اِنسٹنس خآطرہ"
-
-msgid "Add rule"
-msgstr "جمع کئریو رول"
 
 msgid "Add/Remove Hosts to Aggregate"
 msgstr "جغمع کئریو/ کئڈیو ہوسٹ ایگریگیٹ سیتھ"
@@ -2313,9 +2307,6 @@ msgstr "فآئر وال رولز"
 
 msgid "Firewalls"
 msgstr " فٲئر وآلز"
-
-msgid "Fixed IP"
-msgstr "IP  فیکسڈ"
 
 msgid "Fixed IPs"
 msgstr "فِکسڈ IPs"

@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2016-03-15 01:56+0000\n"
+"POT-Creation-Date: 2016-03-16 02:16+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -476,9 +476,6 @@ msgstr ""
 msgid "Add hosts to this aggregate. Hosts can be in multiple aggregates."
 msgstr "இந்த திரளில் புரவலர்களை சேர்க்கவும். புரவலர்கள் பல திரளில் இருக்க முடியும்."
 
-msgid "Add interface"
-msgstr "இடைமுகத்தை சேர்"
-
 msgid ""
 "Add member(s) to the selected pool.\n"
 "\n"
@@ -495,9 +492,6 @@ msgstr ""
 "மற்றும் துறை எண்ணை ஒதுக்கவும்; எ.கா., 80.\n"
 "\n"
 "ஒவ்வொரு நிகழ்வுக்கும் ஒரு துறையை மட்டுமே தொடர்புபடுத்த முடியும்.."
-
-msgid "Add rule"
-msgstr "விதியை சேர்"
 
 msgid "Add/Remove Hosts to Aggregate"
 msgstr "திரளில் புரவலர்களை சேர்/நீக்கு"
@@ -2388,9 +2382,6 @@ msgstr "ஃபயர்வால் விதிகள்"
 
 msgid "Firewalls"
 msgstr "ஃபயர்வால்கள்"
-
-msgid "Fixed IP"
-msgstr "நிலையான ஐபி"
 
 msgid "Fixed IPs"
 msgstr "நிலையான ஐபிகள்"

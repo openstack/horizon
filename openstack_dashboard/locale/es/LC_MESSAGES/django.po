@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2016-03-15 01:56+0000\n"
+"POT-Creation-Date: 2016-03-16 02:16+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -829,9 +829,6 @@ msgstr ""
 "Añade hosts a esta agregación. Un Host puede pertenecer a varias "
 "agregaciones."
 
-msgid "Add interface"
-msgstr "Añadir interfaz"
-
 msgid ""
 "Add member(s) to the selected pool.\n"
 "\n"
@@ -848,12 +845,6 @@ msgstr ""
 "seleccionado para operar sobre el o ellos; ejemplo 80.\n"
 "\n"
 "Solo se puede asociar un puerto con cada instancia."
-
-msgid "Add route"
-msgstr "Añadir ruta"
-
-msgid "Add rule"
-msgstr "Añadir regla"
 
 msgid "Add selected router(s) to the firewall."
 msgstr "Añade el/los router(s) seleccionados al cortafuegos."
@@ -3788,9 +3779,6 @@ msgstr "Reglas de cortafuegos"
 msgid "Firewalls"
 msgstr "Cortafuegos"
 
-msgid "Fixed IP"
-msgstr "IP fija"
-
 msgid "Fixed IPs"
 msgstr "IPs fijas"
 
@@ -5584,9 +5572,6 @@ msgstr "Objetos"
 
 msgid "Old Flavor"
 msgstr "Sabor antiguo"
-
-msgid "On"
-msgstr "Encendido"
 
 msgid "On Demand"
 msgstr "Bajo demanda"

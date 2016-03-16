@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2016-03-15 01:56+0000\n"
+"POT-Creation-Date: 2016-03-16 02:16+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -200,9 +200,6 @@ msgstr "AMI"
 
 msgid "ARI"
 msgstr "ARI"
-
-msgid "Access"
-msgstr "Acesso"
 
 msgid "Action"
 msgstr "Ação"
@@ -2039,9 +2036,6 @@ msgid "error"
 msgid_plural "errors"
 msgstr[0] "erro"
 msgstr[1] "erros"
-
-msgid "folder"
-msgstr "pasta"
 
 msgid "image"
 msgstr "imagem"

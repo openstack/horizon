@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2016-03-15 01:56+0000\n"
+"POT-Creation-Date: 2016-03-16 02:16+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -774,9 +774,6 @@ msgstr ""
 "Dodawanie hostów do agregatu. Jeden host może znajdować się w wielu "
 "agregatach."
 
-msgid "Add interface"
-msgstr "Dodaj interfejs"
-
 msgid ""
 "Add member(s) to the selected pool.\n"
 "\n"
@@ -794,12 +791,6 @@ msgstr ""
 "członkowie, np. 80.\n"
 "\n"
 "Tylko jeden port może być powiązany z każdą instancją."
-
-msgid "Add route"
-msgstr "Dodaj trasę"
-
-msgid "Add rule"
-msgstr "Dodaj regułę"
 
 msgid "Add selected router(s) to the firewall."
 msgstr "Dodaj wybrany router/y do zapory ogniowej."
@@ -3693,9 +3684,6 @@ msgstr "Reguły zapory ogniowej"
 msgid "Firewalls"
 msgstr "Zapory ogniowe"
 
-msgid "Fixed IP"
-msgstr "Stały adres IP"
-
 msgid "Fixed IPs"
 msgstr "Stałe adresy IP"
 
@@ -5423,9 +5411,6 @@ msgstr "Obiekty"
 
 msgid "Old Flavor"
 msgstr "Poprzednia odmiana"
-
-msgid "On"
-msgstr "Włączone"
 
 msgid "On Demand"
 msgstr "Na żądanie"

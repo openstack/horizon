@@ -15,16 +15,17 @@
 # Daisy <guoyingc@cn.ibm.com>, 2016. #zanata
 # Fedor Tarasenko <feodor.tarasenko@gmail.com>, 2016. #zanata
 # Filatov Sergey <filatecs@gmail.com>, 2016. #zanata
+# Ilya Alekseyev <ilyaalekseyev@acm.org>, 2016. #zanata
 msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2016-03-15 01:55+0000\n"
+"POT-Creation-Date: 2016-03-16 02:15+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2016-02-25 09:24+0000\n"
-"Last-Translator: Fedor Tarasenko <feodor.tarasenko@gmail.com>\n"
+"PO-Revision-Date: 2016-03-15 01:07+0000\n"
+"Last-Translator: Ilya Alekseyev <ilyaalekseyev@acm.org>\n"
 "Language: ru\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
 "%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
@@ -194,6 +195,9 @@ msgstr "Ошибка"
 msgid "Error: "
 msgstr "Ошибка:"
 
+msgid "Example"
+msgstr "Пример"
+
 msgid "Existing Metadata"
 msgstr "Имеющиеся метаданные"
 
@@ -211,6 +215,9 @@ msgstr "Закончить"
 
 msgid "Flavor"
 msgstr "Тип инстанса"
+
+msgid "Full Text Search"
+msgstr "Полнотекстовый поиск"
 
 msgid "ID"
 msgstr "ID"
@@ -323,6 +330,17 @@ msgstr "Роли"
 msgid "STATUS"
 msgstr "СОСТОЯНИЕ"
 
+#. Strings between {$ and $} should be left untranslated.
+msgid ""
+"Script size: {$ (scriptLength || 0) | bytes $} of {$ config.MAX_SCRIPT_SIZE "
+"| bytes $}"
+msgstr ""
+"Размер скрипта: {$ (scriptLength || 0) | bytes $} из {$ config."
+"MAX_SCRIPT_SIZE | bytes $}"
+
+msgid "Search in current results"
+msgstr "Поиск в текущих результатах"
+
 msgid "Select an item from Available items below"
 msgstr "Выберите элемент из доступных элементов ниже"
 
@@ -364,6 +382,9 @@ msgstr ""
 "Действие не может быть выполнено. Эта строка содержит ошибки или "
 "недостаточную информацию.  "
 
+msgid "The script is larger than the maximum size"
+msgstr "Размер скрипта больше максимально допустимого размера"
+
 msgid "There was a problem communicating with the server, please try again."
 msgstr "Обнаружена проблема при соединении с сервером. Повторите попытку."
 
@@ -372,6 +393,9 @@ msgstr "При отправке формы произошла ошибка. По
 
 msgid "Toggle Dropdown"
 msgstr "открыть/спрятать выпадающий список"
+
+msgid "Toggle navigation"
+msgstr "Переключить навигацию"
 
 msgid "Total"
 msgstr "Всего"
@@ -434,3 +458,6 @@ msgstr "пул по умолчанию"
 #, python-format
 msgid "selected \"%s\""
 msgstr "выбрано \"%s\""
+
+msgid "{$ message || 'No items to display.' $}"
+msgstr "{$ message || 'Нет элементов для отображения.' $}"

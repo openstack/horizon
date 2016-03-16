@@ -8,12 +8,12 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2016-03-15 01:55+0000\n"
+"POT-Creation-Date: 2016-03-16 02:15+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2016-03-04 06:42+0000\n"
-"Last-Translator: liujunpeng <liujunpeng@inspur.com>\n"
+"PO-Revision-Date: 2016-03-15 06:22+0000\n"
+"Last-Translator: Zheng Xi Zhou <zzxwill@gmail.com>\n"
 "Language-Team: Chinese (China)\n"
 "Language: zh-CN\n"
 "X-Generator: Zanata 3.7.3\n"
@@ -209,12 +209,12 @@ msgstr[0] "正在显示 %(nav_items)s 项"
 #. Translators: test code, don't really have to translate
 msgid "Down Item"
 msgid_plural "Down Items"
-msgstr[0] "向下条目"
+msgstr[0] "Down Item"
 
 #. Translators: test code, don't really have to translate
 msgid "Downed Item"
 msgid_plural "Downed Items"
-msgstr[0] "向下的条目"
+msgstr[0] "Downed Item"
 
 #, python-format
 msgid "Error processing message json file '%(path)s': %(exception)s"
@@ -328,7 +328,7 @@ msgstr "选择一段时间来查询其用量："
 #. Translators: test code, don't really have to translate
 msgid "Sell Puppy"
 msgid_plural "Sell Puppies"
-msgstr[0] "出售小狗"
+msgstr[0] "Sell Puppy"
 
 msgid "Sign In"
 msgstr "登入"
@@ -336,7 +336,7 @@ msgstr "登入"
 #. Translators: test code, don't really have to translate
 msgid "Sold Puppy"
 msgid_plural "Sold Puppies"
-msgstr[0] "已售出的小狗"
+msgstr[0] "Sold Puppy"
 
 msgid "Submit"
 msgstr "提交"
@@ -388,7 +388,7 @@ msgstr "无权: %s"
 #. Translators: test code, don't really have to translate
 msgid "Up Item"
 msgid_plural "Up Items"
-msgstr[0] "向上条目"
+msgstr[0] "Up Item"
 
 msgid "Update Item"
 msgid_plural "Update Items"
@@ -401,7 +401,7 @@ msgstr[0] "条目已更新"
 #. Translators: test code, don't really have to translate
 msgid "Upped Item"
 msgid_plural "Upped Items"
-msgstr[0] "向上的条目"
+msgstr[0] "Upped Item"
 
 msgid "Usage Summary"
 msgstr "使用情况摘要"

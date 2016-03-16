@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2016-03-15 01:56+0000\n"
+"POT-Creation-Date: 2016-03-16 02:16+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -472,9 +472,6 @@ msgstr ""
 msgid "Add hosts to this aggregate. Hosts can be in multiple aggregates."
 msgstr "এই গড়টোলৈ হষ্টবোৰ যোগ কৰক. হষ্টবোৰ বিভিন্ন গড়ত থাকিব পাৰে."
 
-msgid "Add interface"
-msgstr "ইন্টাৰফেছ যোগ কৰক"
-
 msgid ""
 "Add member(s) to the selected pool.\n"
 "\n"
@@ -491,9 +488,6 @@ msgstr ""
 "নিৰ্ধাৰণ কৰক; উদাহৰণ, 80. \n"
 "\n"
 "প্ৰতিটো উদাহৰণৰ সৈতে কেৱল এটা পোৰ্ট জড়িত কৰিব পাৰি."
-
-msgid "Add rule"
-msgstr "ৰেখা যোগ কৰক"
 
 msgid "Add/Remove Hosts to Aggregate"
 msgstr "গড় কৰিবলৈ হষ্টবোৰক যোগ/আতঁৰ কৰক"
@@ -2375,9 +2369,6 @@ msgstr "ফায়াৰৱাল নিয়মবোৰ"
 
 msgid "Firewalls"
 msgstr "ফায়াৰৱালবোৰ"
-
-msgid "Fixed IP"
-msgstr "নিৰ্ধাৰিত IP"
 
 msgid "Fixed IPs"
 msgstr "নিৰ্দিষ্ট কৰা IP বোৰ"

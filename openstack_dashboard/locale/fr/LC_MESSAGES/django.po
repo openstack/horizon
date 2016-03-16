@@ -14,7 +14,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2016-03-15 01:56+0000\n"
+"POT-Creation-Date: 2016-03-16 02:16+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -863,9 +863,6 @@ msgstr ""
 "Ajouter des hôtes à cet agrégat. Les hôtes peuvent appartenir à plusieurs "
 "agrégats."
 
-msgid "Add interface"
-msgstr "Ajouter une interface"
-
 msgid ""
 "Add member(s) to the selected pool.\n"
 "\n"
@@ -880,12 +877,6 @@ msgstr ""
 "Choisir dans la liste une ou plusieurs instances à ajouter au pool en tant "
 "que membre(s). Attribuer un poids et un numéro de port aux membres à opérer; "
 "e.g. 80. Un seul port peut être associé à chaque instance."
-
-msgid "Add route"
-msgstr "Ajout d'une route"
-
-msgid "Add rule"
-msgstr "Ajouter une règle"
 
 msgid "Add selected router(s) to the firewall."
 msgstr "Ajouter le(s) routeur(s) sélectionné(s) au pare-feu."
@@ -4069,9 +4060,6 @@ msgstr "Règles de pare-feu"
 msgid "Firewalls"
 msgstr "Pare-feux"
 
-msgid "Fixed IP"
-msgstr "IP fixe"
-
 msgid "Fixed IPs"
 msgstr "IP fixes"
 
@@ -5967,9 +5955,6 @@ msgstr "Objets"
 
 msgid "Old Flavor"
 msgstr "Ancien gabarit"
-
-msgid "On"
-msgstr "Sur"
 
 msgid "On Demand"
 msgstr "Sur demande"

@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2016-03-15 01:56+0000\n"
+"POT-Creation-Date: 2016-03-16 02:16+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -469,9 +469,6 @@ msgstr ""
 msgid "Add hosts to this aggregate. Hosts can be in multiple aggregates."
 msgstr "ई समुच्चय मे मेजबान केँ जोड़ू. मेजबान कतेक समुच्चय मे भ' सकैत अछि."
 
-msgid "Add interface"
-msgstr "अंतरफलक जोड़ू"
-
 msgid ""
 "Add member(s) to the selected pool.\n"
 "\n"
@@ -487,9 +484,6 @@ msgstr ""
 "करबाक लेल एकटा सांख्यिक भार आओर पोर्ट सँख्या असाइन करू; जहिना, 80. \n"
 "\n"
 "प्रत्येक दृष्टांत क सँग केवल एकटा पोर्ट जोड़ल जाए सकैत अछि."
-
-msgid "Add rule"
-msgstr "नियम जोड़ू"
 
 msgid "Add/Remove Hosts to Aggregate"
 msgstr "सकल सँ मेजबान जोड़ू / हटाउ"
@@ -2362,9 +2356,6 @@ msgstr "फायरवाल नियम"
 
 msgid "Firewalls"
 msgstr "फायरवाल"
-
-msgid "Fixed IP"
-msgstr "निर्धारित आईपी"
 
 msgid "Fixed IPs"
 msgstr "स्थिर IP"

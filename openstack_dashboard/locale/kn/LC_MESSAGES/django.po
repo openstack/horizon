@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2016-03-15 01:56+0000\n"
+"POT-Creation-Date: 2016-03-16 02:16+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -475,9 +475,6 @@ msgid "Add hosts to this aggregate. Hosts can be in multiple aggregates."
 msgstr ""
 "ಈ ಒಟ್ಟುಗೂಡಿಕೆಗೆ ಆತಿಥೇಯಗಳನ್ನು ಸೇರಿಸಿ. ಆತಿಥೇಯಗಳು ಅನೇಕ ಒಟ್ಟುಗೂಡಿಕೆಗಳಾಗಿರಬಹುದು."
 
-msgid "Add interface"
-msgstr "ಇಂಟರ್ಫೇಸ್ ಅನ್ನು ಸೇರಿಸು"
-
 msgid ""
 "Add member(s) to the selected pool.\n"
 "\n"
@@ -494,9 +491,6 @@ msgstr ""
 "ಸಂಖ್ಯೆಯನ್ನು ನಿಯೋಜಿಸಿ; ಉದಾ., 80. \n"
 "\n"
 "ಪ್ರತಿಯೊಂದು ಇನ್‌ಸ್ಟನ್ಸ್‌ನೊಂದಿಗೆ ಕೇವಲ ಒಂದು ಪೋರ್ಟ್ ಅನ್ನು ಜೋಡಿಸಬಹುದು."
-
-msgid "Add rule"
-msgstr "ನಿಯಮವನ್ನು ಸೇರಿಸಿ"
 
 msgid "Add/Remove Hosts to Aggregate"
 msgstr "ಒಟ್ಟುಗೂಡಿಕೆಗೆ ಆತಿಥೇಯಗಳನ್ನು ಸೇರಿಸು/ತೆಗೆದುಹಾಕು"
@@ -2412,9 +2406,6 @@ msgstr "ಫೈರ್‌ವಾಲ್ ನಿಯಮಗಳು"
 
 msgid "Firewalls"
 msgstr "ಫೈರ್‌ವಾಲ್‌ಗಳು"
-
-msgid "Fixed IP"
-msgstr "ನಿಶ್ಚಿತ IP"
 
 msgid "Fixed IPs"
 msgstr "ನಿಶ್ಚಿತ IP ಗಳು"
