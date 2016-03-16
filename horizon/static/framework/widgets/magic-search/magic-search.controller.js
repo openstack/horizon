@@ -125,7 +125,7 @@
         ctrl.currentSearch.push(curr);
         resetState();
         emitQuery();
-        setMenuOpen(true);
+        setMenuOpen(false);
       } else {
         // if text search treat as search
         ctrl.currentSearch = ctrl.currentSearch.filter(notTextSearch);
@@ -263,7 +263,6 @@
       ctrl.currentSearch.push(curr);
       resetState();
       emitQuery();
-      setMenuOpen(true);
     }
 
     function emitTextSearch(val) {
