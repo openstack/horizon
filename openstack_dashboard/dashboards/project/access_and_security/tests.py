@@ -44,16 +44,20 @@ class AccessAndSecurityTests(test.TestCase):
                                    'server_list',),
                         api.base: ('is_service_enabled',),
                         quotas: ('tenant_quota_usages',)})
-    def _test_index(self, ec2_enabled):
+    def _test_index(self, ec2_enabled=True, instanceless_ips=False):
         keypairs = self.keypairs.list()
         sec_groups = self.security_groups.list()
         floating_ips = self.floating_ips.list()
+        if instanceless_ips:
+            for fip in floating_ips:
+                fip.instance_id = None
         quota_data = self.quota_usages.first()
         quota_data['security_groups']['available'] = 10
 
-        api.nova.server_list(
-            IsA(http.HttpRequest)) \
-            .AndReturn([self.servers.list(), False])
+        if not instanceless_ips:
+            api.nova.server_list(
+                IsA(http.HttpRequest)) \
+                .AndReturn([self.servers.list(), False])
         api.nova.keypair_list(
             IsA(http.HttpRequest)) \
             .AndReturn(keypairs)
@@ -117,6 +121,9 @@ class AccessAndSecurityTests(test.TestCase):
 
     def test_index_with_ec2_disabled(self):
         self._test_index(ec2_enabled=False)
+
+    def test_index_with_instanceless_fips(self):
+        self._test_index(instanceless_ips=True)
 
     @test.create_stubs({api.network: ('floating_ip_target_list',
                                       'tenant_floating_ip_list',)})

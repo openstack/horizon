@@ -12,6 +12,8 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
+import copy
+
 from django.conf import settings
 from django.core.urlresolvers import reverse
 from django import http
@@ -44,10 +46,13 @@ class VolumeAndSnapshotsAndBackupsTests(test.TestCase):
                                      'volume_backup_list_paged',
                                      ),
                         api.nova: ('server_list',)})
-    def _test_index(self, backup_supported=True):
+    def _test_index(self, backup_supported=True, instanceless_volumes=False):
         vol_backups = self.cinder_volume_backups.list()
         vol_snaps = self.cinder_volume_snapshots.list()
         volumes = self.cinder_volumes.list()
+        if instanceless_volumes:
+            for volume in volumes:
+                volume.attachments = []
 
         api.cinder.volume_backup_supported(IsA(http.HttpRequest)).\
             MultipleTimes().AndReturn(backup_supported)
@@ -55,8 +60,9 @@ class VolumeAndSnapshotsAndBackupsTests(test.TestCase):
             IsA(http.HttpRequest), marker=None, search_opts=None,
             sort_dir='desc', paginate=True).\
             AndReturn([volumes, False, False])
-        api.nova.server_list(IsA(http.HttpRequest), search_opts=None).\
-            AndReturn([self.servers.list(), False])
+        if not instanceless_volumes:
+            api.nova.server_list(IsA(http.HttpRequest), search_opts=None).\
+                AndReturn([self.servers.list(), False])
         api.cinder.volume_snapshot_list(IsA(http.HttpRequest)).\
             AndReturn(vol_snaps)
 
@@ -93,6 +99,9 @@ class VolumeAndSnapshotsAndBackupsTests(test.TestCase):
     def test_index_backup_not_supported(self):
         self._test_index(backup_supported=False)
 
+    def test_index_no_volume_attachments(self):
+        self._test_index(instanceless_volumes=True)
+
     @test.create_stubs({api.cinder: ('tenant_absolute_limits',
                                      'volume_list_paged',
                                      'volume_backup_supported',
@@ -124,9 +133,17 @@ class VolumeAndSnapshotsAndBackupsTests(test.TestCase):
         self.mox.UnsetStubs()
         return res
 
+    def ensure_attachments_exist(self, volumes):
+        volumes = copy.copy(volumes)
+        for volume in volumes:
+            if not volume.attachments:
+                volume.attachments.append({
+                    "id": "1", "server_id": '1', "device": "/dev/hda"})
+        return volumes
+
     @override_settings(API_RESULT_PAGE_SIZE=2)
     def test_index_paginated(self):
-        mox_volumes = self.cinder_volumes.list()
+        mox_volumes = self.ensure_attachments_exist(self.cinder_volumes.list())
         size = settings.API_RESULT_PAGE_SIZE
 
         # get first page
@@ -162,7 +179,7 @@ class VolumeAndSnapshotsAndBackupsTests(test.TestCase):
 
     @override_settings(API_RESULT_PAGE_SIZE=2)
     def test_index_paginated_prev_page(self):
-        mox_volumes = self.cinder_volumes.list()
+        mox_volumes = self.ensure_attachments_exist(self.cinder_volumes.list())
         size = settings.API_RESULT_PAGE_SIZE
 
         # prev from some page

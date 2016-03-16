@@ -39,7 +39,9 @@ class VolumeTab(volumes_tabs.PagedTableMixin, tabs.TableTab,
 
     def get_volumes_data(self):
         volumes = self._get_volumes(search_opts={'all_tenants': True})
-        instances = self._get_instances(search_opts={'all_tenants': True})
+        attached_instance_ids = self._get_attached_instance_ids(volumes)
+        instances = self._get_instances(search_opts={'all_tenants': True},
+                                        instance_ids=attached_instance_ids)
         volume_ids_with_snapshots = self._get_volumes_ids_with_snapshots(
             search_opts={'all_tenants': True})
         self._set_volume_attributes(

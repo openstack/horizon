@@ -12,6 +12,8 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
+import copy
+
 from django.conf import settings
 from django.core.urlresolvers import reverse
 from django import http
@@ -37,16 +39,22 @@ class VolumeTests(test.BaseAdminViewTests):
                         cinder: ('volume_list_paged',
                                  'volume_snapshot_list'),
                         keystone: ('tenant_list',)})
-    def test_index(self):
+    def _test_index(self, instanceless_volumes=False):
+        volumes = self.cinder_volumes.list()
+        if instanceless_volumes:
+            for volume in volumes:
+                volume.attachments = []
+
         cinder.volume_list_paged(IsA(http.HttpRequest), sort_dir="desc",
                                  marker=None, paginate=True,
                                  search_opts={'all_tenants': True})\
-            .AndReturn([self.cinder_volumes.list(), False, False])
+            .AndReturn([volumes, False, False])
         cinder.volume_snapshot_list(IsA(http.HttpRequest), search_opts={
             'all_tenants': True}).AndReturn([])
-        api.nova.server_list(IsA(http.HttpRequest), search_opts={
-                             'all_tenants': True}) \
-            .AndReturn([self.servers.list(), False])
+        if not instanceless_volumes:
+            api.nova.server_list(IsA(http.HttpRequest), search_opts={
+                                 'all_tenants': True}) \
+                .AndReturn([self.servers.list(), False])
         keystone.tenant_list(IsA(http.HttpRequest)) \
             .AndReturn([self.tenants.list(), False])
 
@@ -56,6 +64,12 @@ class VolumeTests(test.BaseAdminViewTests):
         self.assertTemplateUsed(res, 'admin/volumes/index.html')
         volumes = res.context['volumes_table'].data
         self.assertItemsEqual(volumes, self.cinder_volumes.list())
+
+    def test_index_without_attachments(self):
+        self._test_index(instanceless_volumes=True)
+
+    def test_index_with_attachments(self):
+        self._test_index(instanceless_volumes=False)
 
     @test.create_stubs({api.nova: ('server_list',),
                         cinder: ('volume_list_paged',
@@ -86,10 +100,18 @@ class VolumeTests(test.BaseAdminViewTests):
         self.mox.UnsetStubs()
         return res
 
+    def ensure_attachments_exist(self, volumes):
+        volumes = copy.copy(volumes)
+        for volume in volumes:
+            if not volume.attachments:
+                volume.attachments.append({
+                    "id": "1", "server_id": '1', "device": "/dev/hda"})
+        return volumes
+
     @override_settings(API_RESULT_PAGE_SIZE=2)
     def test_index_paginated(self):
         size = settings.API_RESULT_PAGE_SIZE
-        mox_volumes = self.cinder_volumes.list()
+        mox_volumes = self.ensure_attachments_exist(self.cinder_volumes.list())
 
         # get first page
         expected_volumes = mox_volumes[:size]
@@ -125,7 +147,7 @@ class VolumeTests(test.BaseAdminViewTests):
     @override_settings(API_RESULT_PAGE_SIZE=2)
     def test_index_paginated_prev(self):
         size = settings.API_RESULT_PAGE_SIZE
-        mox_volumes = self.cinder_volumes.list()
+        mox_volumes = self.ensure_attachments_exist(self.cinder_volumes.list())
 
         # prev from some page
         expected_volumes = mox_volumes[size:2 * size]
