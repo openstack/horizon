@@ -613,7 +613,8 @@ def network_list(request, **params):
     return [Network(n) for n in networks]
 
 
-def network_list_for_tenant(request, tenant_id, **params):
+def network_list_for_tenant(request, tenant_id, include_external=False,
+                            **params):
     """Return a network list available for the tenant.
 
     The list contains networks owned by the tenant and public networks.
@@ -631,6 +632,11 @@ def network_list_for_tenant(request, tenant_id, **params):
     # In the current Neutron API, there is no way to retrieve
     # both owner networks and public networks in a single API call.
     networks += network_list(request, shared=True, **params)
+
+    if include_external:
+        fetched_net_ids = [n.id for n in networks]
+        ext_nets = network_list(request, **{'router:external': True})
+        networks += [n for n in ext_nets if n.id not in fetched_net_ids]
 
     return networks
 
