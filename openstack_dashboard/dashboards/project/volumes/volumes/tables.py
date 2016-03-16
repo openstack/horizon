@@ -386,6 +386,12 @@ def get_encrypted_value(volume):
         return _("Yes")
 
 
+def get_encrypted_link(volume):
+    if hasattr(volume, 'encrypted') and volume.encrypted:
+        return reverse("horizon:project:volumes:volumes:encryption_detail",
+                       kwargs={'volume_id': volume.id})
+
+
 class VolumesTableBase(tables.DataTable):
     STATUS_CHOICES = (
         ("in-use", True),
@@ -466,8 +472,7 @@ class VolumesTable(VolumesTableBase):
                              filters=(filters.yesno, filters.capfirst))
     encryption = tables.Column(get_encrypted_value,
                                verbose_name=_("Encrypted"),
-                               link="horizon:project:volumes:"
-                                    "volumes:encryption_detail")
+                               link=get_encrypted_link)
 
     class Meta(object):
         name = "volumes"

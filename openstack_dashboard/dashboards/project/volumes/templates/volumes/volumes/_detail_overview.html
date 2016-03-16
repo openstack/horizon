@@ -30,7 +30,11 @@
     <dt>{% trans "Bootable" %}</dt>
     <dd>{{ volume.is_bootable|yesno|capfirst }}</dd>
     <dt>{% trans "Encrypted" %}</dt>
-    <dd><a href="{% url 'horizon:project:volumes:volumes:encryption_detail' volume.id %}">{{ volume.encrypted|yesno:_("yes,no,-")|capfirst }}</a></dd>
+    {% if volume.encrypted %}
+    <dd><a href="{% url 'horizon:project:volumes:volumes:encryption_detail' volume.id %}">{% trans "Yes" %}</a></dd>
+    {% else %}
+    <dd>{% trans "No" %}</dd>
+    {% endif %}
     <dt>{% trans "Created" context "Created time" %}</dt>
     <dd>{{ volume.created_at|parse_date }}</dd>
   </dl>
