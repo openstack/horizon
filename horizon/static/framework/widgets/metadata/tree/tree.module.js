@@ -31,7 +31,6 @@
    * |--------------------------------------------------------------------------------------------|
    * | {@link horizon.framework.widgets.metadata.tree.directive:metadataTree `metadataTree`}      |
    * | {@link horizon.framework.widgets.metadata.tree.directive:metadataTreeItem `metadataTreeItem`} |
-   * | {@link horizon.framework.widgets.metadata.tree.directive:metadataTreeUnique `metadataTreeUnique`} |
    * | {@link horizon.framework.widgets.metadata.tree.controller:MetadataTreeController `MetadataTreeController`} |
    * | {@link horizon.framework.widgets.metadata.tree.controller:MetadataTreeItemController `MetadataTreeItemController`} |
    *
