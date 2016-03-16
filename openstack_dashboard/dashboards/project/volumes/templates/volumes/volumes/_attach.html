@@ -1,8 +1,6 @@
 {% extends "horizon/common/_modal_form.html" %}
 {% load i18n %}
 
-{% block form_class %}{{ block.super }} horizontal {% if show_attach %}split_half{% else %} no_split{% endif %}{% endblock %}
-
 {% block modal-body %}
   {% if show_attach %}
     <h3>{% trans "Attach To Instance" %}</h3>
