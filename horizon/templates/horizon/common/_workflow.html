@@ -19,7 +19,7 @@
         </div>
         <div class="modal-body">
         {% block modal-body %}
-        <ul class="nav nav-tabs{% if workflow.wizard %} wizard-tabs{% endif %}" role="tablist">
+        <ul class="nav nav-pills selenium-nav-region{% if workflow.wizard %} wizard-tabs{% endif %}" role="tablist">
             {% for step in workflow.steps %}
             <li class="{% if entry_point == step.slug %}active{% endif %}{% if step.has_errors %} error{% endif %}{% if step.has_required_fields %} required{% endif %}">
               <a href="#{{ step.get_id }}" data-toggle="tab" data-target="#{{ step.get_id }}">

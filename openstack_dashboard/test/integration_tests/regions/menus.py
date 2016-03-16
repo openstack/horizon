@@ -239,7 +239,7 @@ class UserDropDownMenuRegion(DropDownMenuRegion):
 class TabbedMenuRegion(baseregion.BaseRegion):
 
     _tab_locator = (by.By.CSS_SELECTOR, 'a')
-    _default_src_locator = (by.By.CSS_SELECTOR, 'ul.nav.nav-tabs')
+    _default_src_locator = (by.By.CSS_SELECTOR, '.selenium-nav-region')
 
     def switch_to(self, index=0):
         self._get_elements(*self._tab_locator)[index].click()

@@ -314,7 +314,7 @@ horizon.addInitFunction(horizon.forms.init = function () {
 
     $switchables.each(function (index, switchable) {
       var $switchable = $(switchable),
-        visible = $switchable.is(':visible'),
+        visible = $switchable.parent().hasClass('themable-checkbox') ? $switchable.siblings('label').is(':visible') : $switchable.is(':visible'),
         slug = $switchable.data('slug'),
         checked = $switchable.prop('checked'),
         hide_tab = String($switchable.data('hide-tab')).split(','),
