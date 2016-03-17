@@ -22,9 +22,6 @@
           </div>
           <div class="form-group required">
             <label class="control-label required" for="id_name" translate>File Name</label>
-            <span class="help-icon" data-toggle="tooltip" data-placement="top">
-              <span class="fa fa-question-circle"></span>
-            </span>
             <div>
               <input class="form-control" type="text" id="id_name" maxlength="255"
                      ng-model="ctrl.model.name" required>
@@ -45,9 +42,13 @@
   </div>
 
   <div class="modal-footer">
-    <input class="btn btn-primary pull-right" type="button"
-           ng-disabled="uploadForm.$invalid"
-           value="{$'Upload File'|translate$}" ng-click="$close(ctrl.model)">
-    <a href="" ng-click="$dismiss()" class="btn btn-default secondary close" translate>Cancel</a>
+    <button class="btn btn-default" ng-click="$dismiss()">
+      <span class="fa fa-close"></span>
+      <translate>Cancel</translate>
+    </button>
+    <button class="btn btn-primary" ng-click="$close(ctrl.model)"
+           ng-disabled="uploadForm.$invalid">
+      <translate>Upload File</translate>
+    </button>
   </div>
 </div>
