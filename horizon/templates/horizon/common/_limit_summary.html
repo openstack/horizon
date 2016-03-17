@@ -1,16 +1,13 @@
 {% load i18n horizon humanize sizeformat %}
 
 {% spaceless %}
-  <div class="quota-dynamic">
+  <div class="quota-dynamic limit-summary">
     <h3 class="quota-heading">{% trans "Limit Summary" %}</h3>
      {% for quota in charts %}
-       {% if forloop.last or forloop.counter0|divisibleby:6 %}
-         </div>
-       {% endif %}
        {% if forloop.first or forloop.counter0|divisibleby:6 %}
          <div class="row">
        {% endif %}
-        <div class="d3_quota_bar col-lg-2 col-md-3 col-sm-4 col-xs-6 fix-it">
+        <div class="d3_quota_bar col-lg-2 col-md-4 col-sm-4 col-xs-6">
           <div class="pie-chart-usage" data-used="{% quotapercent quota.used quota.max %}"></div>
           <div class="quota_title" title="{{ quota.name }}" data-toggle="tooltip"> {{ quota.name }}</div>
           <div class="quota_subtitle">
@@ -25,6 +22,11 @@
             {% endif %}
           </div>
         </div>
+       {% if forloop.last or forloop.counter|divisibleby:6 %}
+         {% if not forloop.first %}
+           </div>
+         {% endif %}
+       {% endif %}
      {% endfor %}
   </div>
 {% endspaceless %}
