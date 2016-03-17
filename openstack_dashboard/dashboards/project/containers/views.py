@@ -43,6 +43,10 @@ from openstack_dashboard.dashboards.project.containers \
 from openstack_dashboard.dashboards.project.containers import utils
 
 
+class NgIndexView(generic.TemplateView):
+    template_name = 'project/containers/ngindex.html'
+
+
 class ContainerView(browsers.ResourceBrowserView):
     browser_class = project_browsers.ContainerBrowser
     template_name = "project/containers/index.html"

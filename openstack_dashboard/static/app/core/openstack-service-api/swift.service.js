@@ -69,7 +69,7 @@
      */
     function getObjectURL(container, object, type) {
       var urlType = type || 'object';
-      var objectUrl = encodeURIComponent(object).replace('%2F', '/');
+      var objectUrl = encodeURIComponent(object).replace(/%2F/g, '/');
       return getContainerURL(container) + '/' + urlType + '/' + objectUrl;
     }
 

@@ -43,20 +43,20 @@
     var path = $windowProvider.$get().STATIC_URL + 'dashboard/project/containers/';
     $provide.constant('horizon.dashboard.project.containers.basePath', path);
 
-    var baseRoute = $windowProvider.$get().WEBROOT + 'project/ngcontainers/';
+    var baseRoute = 'project/containers/';
     $provide.constant('horizon.dashboard.project.containers.baseRoute', baseRoute);
 
     var containerRoute = baseRoute + 'container/';
     $provide.constant('horizon.dashboard.project.containers.containerRoute', containerRoute);
 
     $routeProvider
-      .when(baseRoute, {
+      .when('/' + baseRoute, {
         templateUrl: path + 'select-container.html'
       })
-      .when(containerRoute + ':container', {
+      .when('/' + containerRoute + ':container', {
         templateUrl: path + 'objects.html'
       })
-      .when(containerRoute + ':container/:folder*', {
+      .when('/' + containerRoute + ':container/:folder*', {
         templateUrl: path + 'objects.html'
       });
   }
