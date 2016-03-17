@@ -6,6 +6,7 @@
 # Romain Chantereau <rchanter@redhat.com>, 2015. #zanata
 # andrew melim <nokostya.translation@gmail.com>, 2015. #zanata
 # Corinne Verheyde <cverheyd@gmail.com>, 2016. #zanata
+# Gael Rehault <gael_rehault@dell.com>, 2016. #zanata
 # Gérald LONLAS <g.lonlas@gmail.com>, 2016. #zanata
 # Marcellin Fom Tchassem <mf6510@att.com>, 2016. #zanata
 msgid ""
@@ -16,8 +17,8 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2016-03-09 09:18+0000\n"
-"Last-Translator: Gérald LONLAS <g.lonlas@gmail.com>\n"
+"PO-Revision-Date: 2016-03-16 11:19+0000\n"
+"Last-Translator: Gael Rehault <gael_rehault@dell.com>\n"
 "Language-Team: French\n"
 "Language: fr\n"
 "X-Generator: Zanata 3.7.3\n"
@@ -25,6 +26,10 @@ msgstr ""
 
 msgid "#"
 msgstr "#"
+
+#, python-format
+msgid "%(name)s deleted."
+msgstr "%(name)s supprimé."
 
 #, python-format
 msgid "%s instance launched."
@@ -69,6 +74,13 @@ msgstr ""
 "          <strong>Félicitation!</strong>\n"
 "          Vous avez bien lu\n"
 "          <a>cet important message d'alerte</a>."
+
+msgid ""
+"<input>\n"
+"                Public</input>"
+msgstr ""
+"<input>\n"
+"                Publique</input>"
 
 msgid ""
 "<input>\n"
@@ -253,6 +265,14 @@ msgstr "Autre action"
 msgid "Architecture"
 msgstr "Architecture"
 
+#, python-format
+msgid "Are you sure you want to delete %(name)s?"
+msgstr "Êtes-vous certain de vouloir supprimer %(name)s?"
+
+#, python-format
+msgid "Are you sure you want to delete %(numSelected)s files?"
+msgstr "Êtes-vous certain de vouloir supprimer les fichiers %(numSelected)s ?"
+
 msgid "Automatic"
 msgstr "Automatique"
 
@@ -338,16 +358,42 @@ msgstr "En-tête"
 msgid "Configuration"
 msgstr "Configuration"
 
+msgid "Confirm Delete"
+msgstr "Confirmer la suppression"
+
 msgid "Confirm Delete Image"
 msgid_plural "Confirm Delete Images"
 msgstr[0] "Confirmer la suppression de l'image"
 msgstr[1] "Confirmer la suppression des images"
 
+msgid "Container"
+msgstr "Conteneur"
+
+#, python-format
+msgid "Container %(name)s created."
+msgstr "Conteneur %(name)s créé"
+
+#, python-format
+msgid "Container %(name)s deleted."
+msgstr "Conteneur %(name)s supprimé"
+
+msgid "Container Access"
+msgstr "Accès du conteneur"
+
 msgid "Container Format"
 msgstr "Format du Conteneur"
 
+msgid "Container Name"
+msgstr "Nom du conteneur"
+
+msgid "Container name must not contain \"/\"."
+msgstr "Le nom du conteneur ne peut pas contenir \"/\""
+
 msgid "Containers"
 msgstr "Conteneurs"
+
+msgid "Content Type"
+msgstr "Type de Contenu"
 
 msgid ""
 "Count\n"
@@ -355,6 +401,15 @@ msgid ""
 msgstr ""
 "Compteur\n"
 "          <span></span>"
+
+msgid "Create"
+msgstr "Créer"
+
+msgid "Create Container"
+msgstr "Créer un conteneur"
+
+msgid "Create Folder"
+msgstr "Créer un dossier"
 
 msgid "Create Key Pair"
 msgstr "Créer Paire Clés"
@@ -416,6 +471,9 @@ msgstr "Données"
 msgid "Date"
 msgstr "Date"
 
+msgid "Date Created"
+msgstr "Date de création"
+
 msgid "Datetime"
 msgstr "Date et heure"
 
@@ -428,6 +486,12 @@ msgstr "Bouton par défaut"
 msgid "Default input"
 msgstr "Champ par défaut"
 
+msgid "Delete"
+msgstr "Supprimer"
+
+msgid "Delete Container"
+msgstr "Supprimer le conteneur"
+
 msgid "Delete Image"
 msgid_plural "Delete Images"
 msgstr[0] "Supprimer l'image"
@@ -435,6 +499,9 @@ msgstr[1] "Supprimer les images"
 
 msgid "Delete Images"
 msgstr "Supprimer les images"
+
+msgid "Delete Selection"
+msgstr "Supprimer la sélection"
 
 msgid "Delete Volume on Instance Delete"
 msgstr "Supprimer le volume après terminaison de l'instance"
@@ -447,6 +514,9 @@ msgid "Deleted Image: %s."
 msgid_plural "Deleted Images: %s."
 msgstr[0] "Image supprimée : %s."
 msgstr[1] "Images supprimées : %s."
+
+msgid "Deleted."
+msgstr "Supprimé"
 
 msgid "Deleting"
 msgstr "Suppression"
@@ -489,6 +559,9 @@ msgstr "ID Domaine"
 
 msgid "Down"
 msgstr "Bas"
+
+msgid "Download"
+msgstr "Télécharger"
 
 msgid "Dropdown"
 msgstr "Menu déroulant"
@@ -533,6 +606,19 @@ msgstr "L'extension n'est pas activée : %(extension)s"
 msgid "External Network"
 msgstr "Réseau externe"
 
+msgid "Failed to delete."
+msgstr "Echec de la suppression."
+
+msgid "File"
+msgstr "Fichier"
+
+#, python-format
+msgid "File %(name)s uploaded."
+msgstr "Fichier %(name)s transféré."
+
+msgid "File Name"
+msgstr "Nom du fichier"
+
 msgid "Filename"
 msgstr "Nom du fichier"
 
@@ -555,6 +641,16 @@ msgstr ""
 "Les gabarits sont en place pour gérer la taille de la capacité de stockage, "
 "de mémoire et de calcul d'une instance."
 
+msgid "Folder"
+msgstr "Dossier"
+
+#, python-format
+msgid "Folder %(name)s created."
+msgstr "Dossier %(name)s créé."
+
+msgid "Folder Name"
+msgstr "Nom du dossier"
+
 msgid "Format"
 msgstr "Format"
 
@@ -574,6 +670,9 @@ msgstr ""
 "clés, puis copiez\n"
 "  la clé publique dans la boite surlignée en rouge dans votre fichier\n"
 "  <samp>.ssh/authorized_keys</samp>."
+
+msgid "Hash"
+msgstr "Hash"
 
 msgid "Heading 1"
 msgstr "Titre 1"
@@ -956,6 +1055,9 @@ msgstr "Conteneurs d'objet"
 msgid "Object Count"
 msgstr "Nombre d'objets"
 
+msgid "Object Details"
+msgstr "Détails de l'Objet"
+
 msgid "Objects"
 msgstr "Objets"
 
@@ -1092,6 +1194,9 @@ msgstr ""
 msgid "Public"
 msgstr "Publique"
 
+msgid "Public Access"
+msgstr "Accès publique"
+
 msgid "Public Key"
 msgstr "Clé publique"
 
@@ -1129,6 +1234,9 @@ msgstr "Propriétés d'enregistrement"
 
 msgid "Remote"
 msgstr "Distant"
+
+msgid "Required"
+msgstr "Requis"
 
 msgid "Right"
 msgstr "Droite"
@@ -1178,6 +1286,9 @@ msgstr ""
 
 msgid "Segmentation ID"
 msgstr "ID de segmentation"
+
+msgid "Select All"
+msgstr "Tout sélectionner"
 
 msgid "Select Boot Source"
 msgstr "Sélectionnez la source de démarrage."
@@ -1258,6 +1369,9 @@ msgstr "Petit champ"
 msgid "Snapshot"
 msgstr "Instantané"
 
+msgid "Someone famous in"
+msgstr "Quelqu'un de célèbre dans "
+
 msgid "Something else here"
 msgstr "Autre chose ici"
 
@@ -1267,6 +1381,9 @@ msgstr "Source"
 msgid "Source Code"
 msgstr "Code source"
 
+msgid "Source Title"
+msgstr "Source"
+
 msgid "Stacked"
 msgstr "Empilé"
 
@@ -1275,6 +1392,9 @@ msgstr "Tableau classique"
 
 msgid "Status"
 msgstr "Statut"
+
+msgid "Submit"
+msgstr "Envoyer"
 
 msgid "Subnets Associated"
 msgstr "Sous-réseaux associés"
@@ -1801,6 +1921,12 @@ msgstr "Mis à jour"
 msgid "Updated At"
 msgstr "Mis à jour le"
 
+msgid "Upload File"
+msgstr "Charger un fichier"
+
+msgid "Uploading"
+msgstr "Chargement"
+
 msgid "Url"
 msgstr "Url"
 
@@ -1827,6 +1953,9 @@ msgstr "VHD"
 
 msgid "VMDK"
 msgstr "VMDK"
+
+msgid "View Details"
+msgstr "Voir les détails"
 
 msgid "Virtual Size"
 msgstr "Taille virtuelle"
@@ -1961,6 +2090,9 @@ msgstr[1] ""
 "Vous avez sélectionné \"%s\". Les images supprimées ne seront pas "
 "récupérables."
 
+msgid "disabled"
+msgstr "désactivé"
+
 msgid "error"
 msgid_plural "errors"
 msgstr[0] "erreur"
@@ -1968,6 +2100,9 @@ msgstr[1] "erreurs"
 
 msgid "image"
 msgstr "image"
+
+msgid "link"
+msgstr "lien"
 
 msgid "message"
 msgid_plural "messages"

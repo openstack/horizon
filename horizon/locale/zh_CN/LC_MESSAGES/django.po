@@ -12,8 +12,8 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2016-03-15 06:22+0000\n"
-"Last-Translator: Zheng Xi Zhou <zzxwill@gmail.com>\n"
+"PO-Revision-Date: 2016-03-16 12:11+0000\n"
+"Last-Translator: vuuv <froms2008@gmail.com>\n"
 "Language-Team: Chinese (China)\n"
 "Language: zh-CN\n"
 "X-Generator: Zanata 3.7.3\n"
@@ -346,6 +346,10 @@ msgstr "成功："
 
 msgid "Summary"
 msgstr "概要"
+
+#, python-format
+msgid "The attribute %(attr)s doesn't exist on %(obj)s."
+msgstr "对象 %(obj)s 不存在 %(attr)s 属性。"
 
 msgid "The date should be in YYYY-mm-dd format."
 msgstr "日期应是YYYY-mm-dd格式。"
