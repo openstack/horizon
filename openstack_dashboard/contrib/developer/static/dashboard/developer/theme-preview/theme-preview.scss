@@ -56,4 +56,14 @@ themepreview {
       margin: 0;
     }
   }
+
+  .page-header {
+
+    h1:before {
+      content: '';
+      height: $navbar-height;
+      margin: -$navbar-height 0 0;
+      display: block;
+    }
+  }
 }
