@@ -7,7 +7,8 @@
       'horizon.framework.util',
       'horizon.framework.widgets'
     ])
-    .config(config);
+    .config(config)
+    .run(run);
 
   config.$inject = [
     '$injector',
@@ -68,6 +69,22 @@
           return $q.reject(error);
         }
       };
+    }
+  }
+
+  run.$inject = ['$window', '$rootScope'];
+
+  function run($window, $rootScope) {
+    $window.recompileAngularContent = recompileAngularContent;
+
+    function recompileAngularContent() {
+      var body = angular.element('body');
+
+      function explicit($compile) {
+        $compile(body)($rootScope);
+      }
+      explicit.$inject = ['$compile'];
+      body.injector().invoke(explicit);
     }
   }
 
