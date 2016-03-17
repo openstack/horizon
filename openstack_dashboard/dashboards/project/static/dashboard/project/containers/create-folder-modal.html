@@ -15,10 +15,6 @@
         <fieldset>
           <div class="form-group required">
             <label class="control-label required" for="id_name" translate>Folder Name</label>
-            <span class="help-icon" data-toggle="tooltip" data-placement="top"
-                  title=".">
-              <span class="fa fa-question-circle"></span>
-            </span>
             <div>
               <input class="form-control" id="id_name" maxlength="255" autofocus required
                      name="name" ng-model="ctrl.model.name" type="text">
@@ -37,11 +33,14 @@
   </div>
 
   <div class="modal-footer">
-    <input class="btn btn-primary pull-right" type="button"
+    <button class="btn btn-default" ng-click="$dismiss()">
+      <span class="fa fa-close"></span>
+      <translate>Cancel</translate>
+    </button>
+    <button class="btn btn-primary"
            ng-disabled="uploadForm.$invalid || uploadForm.$pristine"
-           value="{$'Create Folder'|translate$}" ng-click="$close(ctrl.model.name)">
-    <a href="" ng-click="$dismiss()" class="btn btn-default secondary close" translate>
-      Cancel
-    </a>
+           ng-click="$close(ctrl.model.name)">
+      <translate>Create Folder</translate>
+    </button>
   </div>
 </div>
