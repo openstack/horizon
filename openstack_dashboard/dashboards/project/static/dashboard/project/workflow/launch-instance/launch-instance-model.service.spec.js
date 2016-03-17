@@ -23,6 +23,53 @@
       var cinderEnabled = false;
       var neutronEnabled = false;
       var novaExtensionsEnabled = false;
+      var novaApi = {
+        createServer: function(finalSpec) {
+            return {
+              then: function () {
+                return finalSpec;
+              }
+            };
+          },
+        getAvailabilityZones: function() {
+            var zones = [
+              { zoneName: 'zone-1', zoneState: { available: true } },
+              { zoneName: 'zone-2', zoneState: { available: true } },
+              { zoneName: 'invalid-zone-1' },
+              { zoneName: 'invalid-zone-2' }
+            ];
+
+            var deferred = $q.defer();
+            deferred.resolve({ data: { items: zones } });
+
+            return deferred.promise;
+          },
+        getFlavors: function() {
+            var flavors = [ 'flavor-1', 'flavor-2' ];
+
+            var deferred = $q.defer();
+            deferred.resolve({ data: { items: flavors } });
+
+            return deferred.promise;
+          },
+        getKeypairs: function() {
+            var keypairs = [ { keypair: { name: 'key-1' } },
+                             { keypair: { name: 'key-2' } } ];
+
+            var deferred = $q.defer();
+            deferred.resolve({ data: { items: keypairs } });
+
+            return deferred.promise;
+          },
+        getLimits: function() {
+            var limits = { maxTotalInstances: 10, totalInstancesUsed: 0 };
+
+            var deferred = $q.defer();
+            deferred.resolve({ data: limits });
+
+            return deferred.promise;
+          }
+      };
 
       beforeEach(module('horizon.dashboard.project.workflow.launch-instance'));
 
@@ -61,53 +108,7 @@
           };
         });
 
-        $provide.value('horizon.app.core.openstack-service-api.nova', {
-          createServer: function(finalSpec) {
-            return {
-              then: function () {
-                return finalSpec;
-              }
-            };
-          },
-          getAvailabilityZones: function() {
-            var zones = [
-              { zoneName: 'zone-1', zoneState: { available: true } },
-              { zoneName: 'zone-2', zoneState: { available: true } },
-              { zoneName: 'invalid-zone-1' },
-              { zoneName: 'invalid-zone-2' }
-            ];
-
-            var deferred = $q.defer();
-            deferred.resolve({ data: { items: zones } });
-
-            return deferred.promise;
-          },
-          getFlavors: function() {
-            var flavors = [ 'flavor-1', 'flavor-2' ];
-
-            var deferred = $q.defer();
-            deferred.resolve({ data: { items: flavors } });
-
-            return deferred.promise;
-          },
-          getKeypairs: function() {
-            var keypairs = [ { keypair: { name: 'key-1' } },
-                             { keypair: { name: 'key-2' } } ];
-
-            var deferred = $q.defer();
-            deferred.resolve({ data: { items: keypairs } });
-
-            return deferred.promise;
-          },
-          getLimits: function() {
-            var limits = { maxTotalInstances: 10, totalInstancesUsed: 0 };
-
-            var deferred = $q.defer();
-            deferred.resolve({ data: limits });
-
-            return deferred.promise;
-          }
-        });
+        $provide.value('horizon.app.core.openstack-service-api.nova', novaApi);
 
         $provide.value('horizon.app.core.openstack-service-api.security-group', {
           query: function() {
@@ -129,6 +130,23 @@
 
             var deferred = $q.defer();
             deferred.resolve({ data: { items: networks } });
+
+            return deferred.promise;
+          },
+          getPorts: function(network) {
+            var ports = {
+              'net-1': [
+                { name: 'port-1', device_owner: '', fixed_ips: [], admin_state: 'UP' },
+                { name: 'port-2', device_owner: '', fixed_ips: [], admin_state: 'DOWN' }
+              ],
+              'net-2': [
+                { name: 'port-3', device_owner: 'owner', fixed_ips: [], admin_state: 'DOWN' },
+                { name: 'port-4', device_owner: '', fixed_ips: [], admin_state: 'DOWN' }
+              ]
+            };
+
+            var deferred = $q.defer();
+            deferred.resolve({ data: { items: ports[network.network_id] } });
 
             return deferred.promise;
           }
@@ -351,6 +369,24 @@
 
           expect(model.newInstanceSpec.config_drive).toBe(true);
         });
+
+        it('should not set availability zone if the zone list is empty', function () {
+          spyOn(novaApi, 'getAvailabilityZones').and.callFake(function () {
+            var deferred = $q.defer();
+            deferred.resolve({ data: { items: [] } });
+            return deferred.promise;
+          });
+          model.initialize(true);
+          scope.$apply();
+          expect(model.availabilityZones.length).toBe(0);
+          expect(model.newInstanceSpec.availability_zone).toBe(null);
+        });
+
+        it('sets the ports properly based on device_owner', function () {
+          model.initialize(true);
+          scope.$apply();
+          expect(model.ports.length).toBe(1);
+        });
       });
 
       describe('Post Initialization Model - Initializing', function() {
@@ -363,7 +399,7 @@
         // This is here to ensure that as people add/change items, they
         // don't forget to implement tests for them.
         it('has the right number of properties', function() {
-          expect(Object.keys(model.newInstanceSpec).length).toBe(18);
+          expect(Object.keys(model.newInstanceSpec).length).toBe(19);
         });
 
         it('sets availability zone to null', function() {
@@ -406,6 +442,10 @@
           expect(model.newInstanceSpec.networks).toEqual([]);
         });
 
+        it('sets ports to an empty array', function() {
+          expect(model.newInstanceSpec.ports).toEqual([]);
+        });
+
         it('sets profile to an empty object', function() {
           expect(model.newInstanceSpec.profile).toEqual({});
         });
@@ -440,6 +480,7 @@
           model.newInstanceSpec.source = [ { id: 'cirros' } ];
           model.newInstanceSpec.flavor = { id: 'm1.tiny' };
           model.newInstanceSpec.networks = [ { id: 'public' }, { id: 'private' } ];
+          model.newInstanceSpec.ports = [ ];
           model.newInstanceSpec.key_pair = [ { name: 'keypair1' } ];
           model.newInstanceSpec.security_groups = [ { id: 'adminId', name: 'admin' },
                                                     { id: 'demoId', name: 'demo' } ];
@@ -567,6 +608,19 @@
 
           var finalSpec = model.createInstance();
           expect(finalSpec.useless).toBeUndefined();
+        });
+
+        it('should set final spec in format required if ports are used', function() {
+          model.newInstanceSpec.ports = [{id: 'port1'}];
+
+          var finalSpec = model.createInstance();
+          var finalNetworks = [
+            { 'net-id': 'public', 'v4-fixed-ip': '' },
+            { 'net-id': 'private', 'v4-fixed-ip': '' },
+            { 'port-id': 'port1' }
+          ];
+
+          expect(finalSpec.nics).toEqual(finalNetworks);
         });
 
         it('provides null for device_name when falsy', function() {

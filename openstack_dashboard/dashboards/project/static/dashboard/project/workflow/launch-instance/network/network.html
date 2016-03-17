@@ -11,7 +11,7 @@
   </div>
 
   <transfer-table tr-model="ctrl.tableDataMulti" help-text="ctrl.tableHelpText" limits="ctrl.tableLimits">
-    <allocated validate-number-min="1" ng-model="ctrl.tableDataMulti.allocated.length">
+    <allocated validate-number-min="{$ ctrl.tableDataMulti.minItems $}" ng-model="ctrl.tableDataMulti.allocated.length">
       <table st-table="ctrl.tableDataMulti.displayedAllocated" st-safe-src="ctrl.tableDataMulti.allocated" hz-table
         class="table table-striped table-rsp table-detail">
         <thead>

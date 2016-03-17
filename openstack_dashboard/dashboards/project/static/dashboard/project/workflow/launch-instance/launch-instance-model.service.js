@@ -119,6 +119,7 @@
         instance: null
       },
       networks: [],
+      ports: [],
       neutronEnabled: false,
       novaLimits: {},
       profiles: [],
@@ -154,6 +155,7 @@
         // REQUIRED
         name: null,
         networks: [],
+        ports: [],
         profile: {},
         // REQUIRED Server Key. May be empty.
         security_groups: [],
@@ -254,6 +256,7 @@
       setFinalSpecBootsource(finalSpec);
       setFinalSpecFlavor(finalSpec);
       setFinalSpecNetworks(finalSpec);
+      setFinalSpecPorts(finalSpec);
       setFinalSpecKeyPairs(finalSpec);
       setFinalSpecSecurityGroups(finalSpec);
       setFinalSpecMetadata(finalSpec);
@@ -359,13 +362,14 @@
     // Networks
 
     function getNetworks() {
-      return neutronAPI.getNetworks().then(onGetNetworks, noop);
+      return neutronAPI.getNetworks().then(onGetNetworks, noop).then(getPorts, noop);
     }
 
     function onGetNetworks(data) {
       model.neutronEnabled = true;
       model.networks.length = 0;
       push.apply(model.networks, data.data.items);
+      return data;
     }
 
     function setFinalSpecNetworks(finalSpec) {
@@ -378,6 +382,55 @@
           });
       });
       delete finalSpec.networks;
+    }
+
+    function getPorts(networks) {
+      model.ports.length = 0;
+      networks.data.items.forEach(function(network) {
+        return neutronAPI.getPorts({network_id: network.id}).then(
+          function(ports) {
+            onGetPorts(ports, network);
+          }, noop
+        );
+      });
+    }
+
+    function onGetPorts(networkPorts, network) {
+      var ports = [];
+      networkPorts.data.items.forEach(function(port) {
+        // no device_owner means that the port can be attached
+        if (port.device_owner === "" && port.admin_state === "UP") {
+          port.subnet_names = getPortSubnets(port, network.subnets);
+          port.network_name = network.name;
+          ports.push(port);
+        }
+      });
+      push.apply(model.ports, ports);
+    }
+
+    // helper function to return an object of IP:NAME pairs for subnet mapping
+    function getPortSubnets(port, subnets) {
+      var subnetNames = {};
+      port.fixed_ips.forEach(function (ip) {
+        subnets.forEach(function (subnet) {
+          if (ip.subnet_id === subnet.id) {
+            subnetNames[ip.ip_address] = subnet.name;
+          }
+        });
+      });
+
+      return subnetNames;
+    }
+
+    function setFinalSpecPorts(finalSpec) {
+      // nics should already be filled so we only append to it
+      finalSpec.ports.forEach(function (port) {
+        finalSpec.nics.push(
+          {
+            "port-id": port.id
+          });
+      });
+      delete finalSpec.ports;
     }
 
     // Boot Source
