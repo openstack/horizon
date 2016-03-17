@@ -1,0 +1,5 @@
+---
+features:
+  - >
+    [`blueprint pagination-for-flavor <https://blueprints.launchpad.net/horizon/+spec/pagination-for-flavor>`_]
+    Added forward and backward pagination to the Flavors panel
