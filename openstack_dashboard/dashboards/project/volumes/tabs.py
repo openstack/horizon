@@ -20,9 +20,12 @@ from horizon import exceptions
 from horizon import tabs
 
 from openstack_dashboard import api
+from openstack_dashboard import policy
 
 from openstack_dashboard.dashboards.project.volumes.backups \
     import tables as backups_tables
+from openstack_dashboard.dashboards.project.volumes.cgroups \
+    import tables as vol_cgroup_tables
 from openstack_dashboard.dashboards.project.volumes.snapshots \
     import tables as vol_snapshot_tables
 from openstack_dashboard.dashboards.project.volumes.volumes \
@@ -203,7 +206,33 @@ class BackupsTab(PagedTableMixin, tabs.TableTab, VolumeTableMixIn):
         return backups
 
 
+class CGroupsTab(tabs.TableTab, VolumeTableMixIn):
+    table_classes = (vol_cgroup_tables.VolumeCGroupsTable,)
+    name = _("Volume Consistency Groups")
+    slug = "cgroups_tab"
+    template_name = ("horizon/common/_detail_table.html")
+    preload = False
+
+    def allowed(self, request):
+        return policy.check(
+            (("volume", "consistencygroup:get_all"),),
+            request
+        )
+
+    def get_volume_cgroups_data(self):
+        try:
+            cgroups = api.cinder.volume_cgroup_list_with_vol_type_names(
+                self.request)
+            for cgroup in cgroups:
+                setattr(cgroup, '_volume_tab', self.tab_group.tabs[0])
+        except Exception:
+            cgroups = []
+            exceptions.handle(self.request, _("Unable to retrieve "
+                                              "volume consistency groups."))
+        return cgroups
+
+
 class VolumeAndSnapshotTabs(tabs.TabGroup):
     slug = "volumes_and_snapshots"
-    tabs = (VolumeTab, SnapshotTab, BackupsTab)
+    tabs = (VolumeTab, SnapshotTab, BackupsTab, CGroupsTab)
     sticky = True

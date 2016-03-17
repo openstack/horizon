@@ -80,8 +80,9 @@ class Volume(BaseCinderAPIResourceWrapper):
     _attrs = ['id', 'name', 'description', 'size', 'status', 'created_at',
               'volume_type', 'availability_zone', 'imageRef', 'bootable',
               'snapshot_id', 'source_volid', 'attachments', 'tenant_name',
-              'os-vol-host-attr:host', 'os-vol-tenant-attr:tenant_id',
-              'metadata', 'volume_image_metadata', 'encrypted', 'transfer']
+              'consistencygroup_id', 'os-vol-host-attr:host',
+              'os-vol-tenant-attr:tenant_id', 'metadata',
+              'volume_image_metadata', 'encrypted', 'transfer']
 
     @property
     def is_bootable(self):
@@ -100,6 +101,12 @@ class VolumeType(BaseCinderAPIResourceWrapper):
     _attrs = ['id', 'name', 'extra_specs', 'created_at', 'encryption',
               'associated_qos_spec', 'description',
               'os-extended-snapshot-attributes:project_id']
+
+
+class VolumeConsistencyGroup(BaseCinderAPIResourceWrapper):
+
+    _attrs = ['id', 'name', 'description', 'status', 'availability_zone',
+              'created_at', 'volume_types']
 
 
 class VolumeBackup(BaseCinderAPIResourceWrapper):
@@ -418,6 +425,59 @@ def volume_snapshot_update(request, snapshot_id, name, description):
 def volume_snapshot_reset_state(request, snapshot_id, state):
     return cinderclient(request).volume_snapshots.reset_state(
         snapshot_id, state)
+
+
+def volume_cgroup_get(request, cgroup_id):
+    cgroup = cinderclient(request).consistencygroups.get(cgroup_id)
+    return VolumeConsistencyGroup(cgroup)
+
+
+def volume_cgroup_list(request, search_opts=None):
+    c_client = cinderclient(request)
+    if c_client is None:
+        return []
+    return [VolumeConsistencyGroup(s) for s in c_client.consistencygroups.list(
+        search_opts=search_opts)]
+
+
+def volume_cgroup_list_with_vol_type_names(request, search_opts=None):
+    cgroups = volume_cgroup_list(request, search_opts)
+    for cgroup in cgroups:
+        cgroup.volume_type_names = []
+        for vol_type_id in cgroup.volume_types:
+            vol_type = volume_type_get(request, vol_type_id)
+            cgroup.volume_type_names.append(vol_type.name)
+
+    return cgroups
+
+
+def volume_cgroup_create(request, volume_types, name,
+                         description=None, availability_zone=None):
+    return VolumeConsistencyGroup(
+        cinderclient(request).consistencygroups.create(
+            volume_types,
+            name,
+            description,
+            availability_zone=availability_zone))
+
+
+def volume_cgroup_delete(request, cgroup_id, force=False):
+    return cinderclient(request).consistencygroups.delete(cgroup_id, force)
+
+
+def volume_cgroup_update(request, cgroup_id, name=None, description=None,
+                         add_vols=None, remove_vols=None):
+    cgroup_data = {}
+    if name:
+        cgroup_data['name'] = name
+    if description:
+        cgroup_data['description'] = description
+    if add_vols:
+        cgroup_data['add_volumes'] = add_vols
+    if remove_vols:
+        cgroup_data['remove_volumes'] = remove_vols
+    return cinderclient(request).consistencygroups.update(cgroup_id,
+                                                          **cgroup_data)
 
 
 @memoized
