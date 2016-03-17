@@ -102,7 +102,7 @@
   }
   100% {
     @include rotate(45deg);
-    margin: 3% 37%;
+    margin: 6% 37%;
     width: 75%;
   }
 }
@@ -112,7 +112,7 @@
   }
   100% {
     @include rotate(-45deg);
-    margin: 3% 37%;
+    margin: 6% 37%;
     width: 75%;
   }
 }
@@ -128,7 +128,7 @@
 @include keyframes(md-hamburger-icon--slide-before-from) {
   0% {
     @include rotate(45deg);
-    margin: 3% 37%;
+    margin: 6% 37%;
     width: 75%;
   }
   100% {
@@ -138,7 +138,7 @@
 @include keyframes(md-hamburger-icon--slide-after-from) {
   0% {
     @include rotate(-45deg);
-    margin: 3% 37%;
+    margin: 6% 37%;
     width: 75%;
   }
   100% {
