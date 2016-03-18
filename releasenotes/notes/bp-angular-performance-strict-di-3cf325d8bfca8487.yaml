@@ -1,0 +1,10 @@
+---
+features:
+  - >
+    [`blueprint angular-performance-strict-di <https://blueprints.launchpad.net/horizon/+spec/angular-performance-strict-di>`_]
+    This blueprint enforces strict dependency injection in AngularJS code, for
+    improvements to minification and thus performance.
+
+upgrade:
+  - All AngularJS code must use explicit dependency injection. See
+    https://docs.angularjs.org/guide/di#using-strict-dependency-injection
