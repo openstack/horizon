@@ -64,7 +64,8 @@
       return {
         responseError: function (error) {
           if (error.status === 401) {
-            $windowProvider.$get().location.replace('/auth/logout');
+            var $window = $windowProvider.$get();
+            $window.location.replace($window.WEBROOT + 'auth/logout');
           }
           return $q.reject(error);
         }

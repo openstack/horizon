@@ -36,11 +36,11 @@
 
     describe('when unauthorized', function() {
       it('should redirect to /auth/logout', inject(function($http, $httpBackend, $window) {
-
+        $window.WEBROOT = '/dashboard/';
         $httpBackend.when('GET', '/api').respond(401, '');
 
         $http.get('/api').error(function() {
-          expect($window.location.replace).toHaveBeenCalledWith('/auth/logout');
+          expect($window.location.replace).toHaveBeenCalledWith('/dashboard/auth/logout');
         });
         $httpBackend.flush();
       }));
