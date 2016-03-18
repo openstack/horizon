@@ -30,7 +30,14 @@ class VolumesnapshotsTable(tables.TableRegion):
         "name", "description", "snapshot_source", "type", "size")
 
     @tables.bind_table_action('delete')
-    def delete_volume_snapshot(self, delete_button):
+    def delete_volume_snapshots(self, delete_button):
+        """Batch Delete table action."""
+        delete_button.click()
+        return forms.BaseFormRegion(self.driver, self.conf)
+
+    @tables.bind_row_action('delete')
+    def delete_volume_snapshot(self, delete_button, row):
+        """Per-entity delete row action."""
         delete_button.click()
         return forms.BaseFormRegion(self.driver, self.conf)
 
@@ -77,8 +84,14 @@ class VolumesnapshotsPage(basepage.BaseNavigationPage):
 
     def delete_volume_snapshot(self, name):
         row = self._get_row_with_volume_snapshot_name(name)
-        row.mark()
-        confirm_form = self.volumesnapshots_table.delete_volume_snapshot()
+        confirm_form = self.volumesnapshots_table.delete_volume_snapshot(row)
+        confirm_form.submit()
+
+    def delete_volume_snapshots(self, names):
+        for name in names:
+            row = self._get_row_with_volume_snapshot_name(name)
+            row.mark()
+        confirm_form = self.volumesnapshots_table.delete_volume_snapshots()
         confirm_form.submit()
 
     def is_volume_snapshot_deleted(self, name):

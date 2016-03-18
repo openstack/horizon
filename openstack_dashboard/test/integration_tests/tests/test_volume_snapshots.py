@@ -104,13 +104,14 @@ class TestVolumeSnapshotsBasic(helpers.TestCase):
         items_per_page = 1
         snapshot_names = ["{0}_{1}".format(self.VOLUME_SNAPSHOT_NAME, i) for i
                           in range(count)]
-        for name in snapshot_names:
+        for i, name in enumerate(snapshot_names):
             volumes_snapshot_page = volumes_page.create_volume_snapshot(
                 self.VOLUME_NAME, name)
             volumes_page.find_message_and_dismiss(messages.INFO)
             self.assertTrue(
                 volumes_snapshot_page.is_volume_snapshot_available(name))
-            volumes_snapshot_page.switch_to_volumes_tab()
+            if i < count - 1:
+                volumes_snapshot_page.switch_to_volumes_tab()
 
         first_page_definition = {'Next': True, 'Prev': False,
                                  'Count': items_per_page,
@@ -151,9 +152,10 @@ class TestVolumeSnapshotsBasic(helpers.TestCase):
         settings_page.find_message_and_dismiss(messages.SUCCESS)
 
         volumes_snapshot_page = self.volumes_snapshot_page
+        volumes_snapshot_page.delete_volume_snapshots(snapshot_names)
+        volumes_snapshot_page.find_message_and_dismiss(messages.SUCCESS)
         for name in snapshot_names:
-            volumes_snapshot_page.delete_volume_snapshot(name)
-            volumes_snapshot_page.find_message_and_dismiss(messages.SUCCESS)
+            volumes_snapshot_page.is_volume_snapshot_deleted(name)
 
     def tearDown(self):
         """Clean up: delete volume"""
