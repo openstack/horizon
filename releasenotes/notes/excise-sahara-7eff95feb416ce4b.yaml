@@ -1,0 +1,6 @@
+---
+upgrade:
+  - The Sahara based content has been removed from the Horizon source tree
+    and is now a separate plugin. To continue managing Sahara in Horizon,
+    installing the sahara-dashboard plugin on the Horizon server is required.
+

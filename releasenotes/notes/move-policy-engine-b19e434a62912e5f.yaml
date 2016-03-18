@@ -1,0 +1,9 @@
+---
+upgrade:
+  - The main engine managing integration with oslo.policy has been moved
+    to django_openstack_auth. The configuration is still managed in
+    Horizon, but the setting for ``POLICY_CHECK_FUNCTION`` now uses
+    ``openstack_auth.policy.check`` rather than
+    ``openstack_dashboard.policy.check``. Current behavior will
+    remain consistent.
+
