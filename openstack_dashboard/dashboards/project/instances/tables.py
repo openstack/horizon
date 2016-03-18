@@ -413,7 +413,7 @@ class LaunchLink(tables.LinkAction):
 
     def single(self, table, request, object_id=None):
         self.allowed(request, None)
-        return HttpResponse(self.render())
+        return HttpResponse(self.render(is_table_action=True))
 
 
 class LaunchLinkNG(LaunchLink):

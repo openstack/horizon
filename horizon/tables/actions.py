@@ -14,6 +14,7 @@
 
 from collections import defaultdict
 from collections import OrderedDict
+import copy
 import logging
 import types
 import warnings
@@ -367,9 +368,11 @@ class LinkAction(BaseAction):
         )
         return "%s?%s" % (table_url, params)
 
-    def render(self):
+    def render(self, **kwargs):
+        action_dict = copy.copy(kwargs)
+        action_dict.update({"action": self, "is_single": True})
         return render_to_string("horizon/common/_data_table_action.html",
-                                {"action": self, "is_single": True})
+                                action_dict)
 
     def associate_with_table(self, table):
         super(LinkAction, self).associate_with_table(table)
