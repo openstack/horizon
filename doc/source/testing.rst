@@ -32,25 +32,26 @@ By default running the Selenium tests will open your Firefox browser (you have
 to install it first, else an error is raised), and you will be able to see the
 tests actions.
 If you want to run the suite headless, without being able to see them (as they
-are ran on Jenkins), you can run the tests:
+are ran on Jenkins), you can run the tests::
 
     $ ./run_tests.sh --with-selenium --selenium-headless
 
 Selenium will use a virtual display in this case, instead of your own. In order
-to run the tests this way you have to install the dependency `xvfb`, like this:
+to run the tests this way you have to install the dependency `xvfb`, like 
+this::
 
     $ sudo apt-get install xvfb
 
-for a Debian OS flavour, or for Fedora/Red Hat flavours:
+for a Debian OS flavour, or for Fedora/Red Hat flavours::
 
     $ sudo yum install xorg-x11-server-Xvfb
 
 If you can't run a virtual display, or would prefer not to, you can use the
-PhantomJS web driver instead:
+PhantomJS web driver instead::
 
     $ ./run_tests.sh --with-selenium --selenium-phantomjs
 
-If you need to install PhantomJS, you may do so with `npm` like this:
+If you need to install PhantomJS, you may do so with `npm` like this::
 
     $ npm -g install phantomjs
 
