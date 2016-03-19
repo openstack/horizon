@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2016-03-16 06:15+0000\n"
+"POT-Creation-Date: 2016-03-19 06:17+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -389,11 +389,11 @@ msgctxt "Both of front-end and back-end"
 msgid "both"
 msgstr ""
 
-#: openstack_dashboard/api/cinder.py:272
+#: openstack_dashboard/api/cinder.py:279
 msgid "Unknown instance"
 msgstr ""
 
-#: openstack_dashboard/api/cinder.py:605
+#: openstack_dashboard/api/cinder.py:665
 msgid "This volume type is used by one or more volumes."
 msgstr ""
 
@@ -448,17 +448,17 @@ msgstr ""
 msgid "Security group rule already exists."
 msgstr ""
 
-#: openstack_dashboard/api/neutron.py:1071
+#: openstack_dashboard/api/neutron.py:1077
 msgid "Unable to connect to Neutron."
 msgstr ""
 
-#: openstack_dashboard/api/neutron.py:1108
+#: openstack_dashboard/api/neutron.py:1114
 #, python-format
 msgid "Unable to parse IP address %s."
 msgstr ""
 
 #. Translators: Only used inside Horizon code and invisible to users
-#: openstack_dashboard/api/neutron.py:1237
+#: openstack_dashboard/api/neutron.py:1243
 #, python-format
 msgid ""
 "The requested feature '%(feature)s' is unknown. Please make sure to "
@@ -466,14 +466,14 @@ msgid ""
 msgstr ""
 
 #. Translators: Only used inside Horizon code and invisible to users
-#: openstack_dashboard/api/neutron.py:1255
+#: openstack_dashboard/api/neutron.py:1261
 #, python-format
 msgid ""
 "The 'operation' parameter for get_feature_permission '%(feature)s' is "
 "invalid. It should be one of %(allowed)s"
 msgstr ""
 
-#: openstack_dashboard/api/neutron.py:1270
+#: openstack_dashboard/api/neutron.py:1276
 #, python-format
 msgid "Failed to check Neutron '%s' extension is not supported"
 msgstr ""
@@ -662,8 +662,12 @@ msgstr ""
 #: openstack_dashboard/dashboards/project/routers/templates/routers/_detail_overview.html:5
 #: openstack_dashboard/dashboards/project/stacks/templates/stacks/_detail_overview.html:5
 #: openstack_dashboard/dashboards/project/volumes/backups/tables.py:135
-#: openstack_dashboard/dashboards/project/volumes/snapshots/tables.py:146
+#: openstack_dashboard/dashboards/project/volumes/cgroups/forms.py:25
+#: openstack_dashboard/dashboards/project/volumes/cgroups/tables.py:121
+#: openstack_dashboard/dashboards/project/volumes/cgroups/workflows.py:57
+#: openstack_dashboard/dashboards/project/volumes/snapshots/tables.py:170
 #: openstack_dashboard/dashboards/project/volumes/templates/volumes/backups/_detail_overview.html:5
+#: openstack_dashboard/dashboards/project/volumes/templates/volumes/cgroups/_detail_overview.html:5
 #: openstack_dashboard/dashboards/project/volumes/templates/volumes/snapshots/_detail_overview.html:5
 #: openstack_dashboard/dashboards/project/volumes/templates/volumes/volumes/_detail_overview.html:5
 #: openstack_dashboard/dashboards/project/volumes/templates/volumes/volumes/_detail_overview.html:88
@@ -695,6 +699,10 @@ msgstr ""
 #: openstack_dashboard/dashboards/project/instances/tables.py:1177
 #: openstack_dashboard/dashboards/project/instances/templates/instances/_detail_overview.html:11
 #: openstack_dashboard/dashboards/project/instances/workflows/create_instance.py:82
+#: openstack_dashboard/dashboards/project/volumes/cgroups/tables.py:132
+#: openstack_dashboard/dashboards/project/volumes/cgroups/workflows.py:64
+#: openstack_dashboard/dashboards/project/volumes/cgroups/workflows.py:69
+#: openstack_dashboard/dashboards/project/volumes/cgroups/workflows.py:70
 #: openstack_dashboard/dashboards/project/volumes/volumes/forms.py:119
 #: openstack_dashboard/dashboards/project/volumes/volumes/forms.py:124
 #: openstack_dashboard/dashboards/project/volumes/volumes/forms.py:125
@@ -1116,9 +1124,10 @@ msgstr ""
 #: openstack_dashboard/dashboards/admin/volumes/volumes/tables.py:99
 #: openstack_dashboard/dashboards/identity/projects/workflows.py:59
 #: openstack_dashboard/dashboards/project/volumes/panel.py:21
-#: openstack_dashboard/dashboards/project/volumes/tabs.py:119
+#: openstack_dashboard/dashboards/project/volumes/tabs.py:136
 #: openstack_dashboard/dashboards/project/volumes/views.py:26
 #: openstack_dashboard/dashboards/project/volumes/templates/volumes/index.html:3
+#: openstack_dashboard/dashboards/project/volumes/templates/volumes/cgroups/_detail_overview.html:23
 #: openstack_dashboard/dashboards/project/volumes/volumes/tables.py:473
 #: openstack_dashboard/usage/quotas.py:75 openstack_dashboard/usage/views.py:78
 msgid "Volumes"
@@ -1126,11 +1135,11 @@ msgstr ""
 
 #: openstack_dashboard/dashboards/admin/defaults/tables.py:49
 #: openstack_dashboard/dashboards/admin/defaults/workflows.py:55
-#: openstack_dashboard/dashboards/admin/volumes/tabs.py:115
+#: openstack_dashboard/dashboards/admin/volumes/tabs.py:117
 #: openstack_dashboard/dashboards/admin/volumes/snapshots/tables.py:69
 #: openstack_dashboard/dashboards/identity/projects/workflows.py:60
-#: openstack_dashboard/dashboards/project/volumes/tabs.py:135
-#: openstack_dashboard/dashboards/project/volumes/snapshots/tables.py:155
+#: openstack_dashboard/dashboards/project/volumes/tabs.py:153
+#: openstack_dashboard/dashboards/project/volumes/snapshots/tables.py:179
 #: openstack_dashboard/usage/quotas.py:76
 msgid "Volume Snapshots"
 msgstr ""
@@ -1417,6 +1426,7 @@ msgstr ""
 #: openstack_dashboard/dashboards/project/routers/templates/routers/_detail_overview.html:7
 #: openstack_dashboard/dashboards/project/stacks/templates/stacks/_detail_overview.html:7
 #: openstack_dashboard/dashboards/project/volumes/templates/volumes/backups/_detail_overview.html:7
+#: openstack_dashboard/dashboards/project/volumes/templates/volumes/cgroups/_detail_overview.html:7
 #: openstack_dashboard/dashboards/project/volumes/templates/volumes/snapshots/_detail_overview.html:7
 #: openstack_dashboard/dashboards/project/volumes/templates/volumes/volumes/_detail_overview.html:7
 #: openstack_dashboard/dashboards/project/volumes/templates/volumes/volumes/_detail_overview.html:84
@@ -1885,7 +1895,9 @@ msgstr ""
 #: openstack_dashboard/dashboards/project/stacks/templates/stacks/_resource_overview.html:23
 #: openstack_dashboard/dashboards/project/stacks/templates/stacks/_resource_overview.html:28
 #: openstack_dashboard/dashboards/project/volumes/backups/tables.py:144
+#: openstack_dashboard/dashboards/project/volumes/cgroups/tables.py:127
 #: openstack_dashboard/dashboards/project/volumes/templates/volumes/backups/_detail_overview.html:13
+#: openstack_dashboard/dashboards/project/volumes/templates/volumes/cgroups/_detail_overview.html:11
 #: openstack_dashboard/dashboards/project/volumes/templates/volumes/snapshots/_detail_overview.html:13
 #: openstack_dashboard/dashboards/project/volumes/templates/volumes/volumes/_detail_overview.html:13
 #: openstack_dashboard/dashboards/project/volumes/volumes/tables.py:435
@@ -2359,7 +2371,7 @@ msgid "Unable to retrieve instance project information."
 msgstr ""
 
 #: openstack_dashboard/dashboards/admin/instances/views.py:104
-#: openstack_dashboard/dashboards/project/access_and_security/tabs.py:112
+#: openstack_dashboard/dashboards/project/access_and_security/tabs.py:117
 #: openstack_dashboard/dashboards/project/access_and_security/floating_ips/workflows.py:99
 msgid "Unable to retrieve instance list."
 msgstr ""
@@ -2543,8 +2555,12 @@ msgstr ""
 #: openstack_dashboard/dashboards/project/stacks/templates/stacks/_resource_overview.html:19
 #: openstack_dashboard/dashboards/project/volumes/backups/forms.py:35
 #: openstack_dashboard/dashboards/project/volumes/backups/tables.py:138
+#: openstack_dashboard/dashboards/project/volumes/cgroups/forms.py:28
+#: openstack_dashboard/dashboards/project/volumes/cgroups/tables.py:124
+#: openstack_dashboard/dashboards/project/volumes/cgroups/workflows.py:61
 #: openstack_dashboard/dashboards/project/volumes/snapshots/forms.py:28
 #: openstack_dashboard/dashboards/project/volumes/templates/volumes/backups/_detail_overview.html:10
+#: openstack_dashboard/dashboards/project/volumes/templates/volumes/cgroups/_detail_overview.html:9
 #: openstack_dashboard/dashboards/project/volumes/templates/volumes/snapshots/_detail_overview.html:10
 #: openstack_dashboard/dashboards/project/volumes/templates/volumes/volumes/_detail_overview.html:10
 #: openstack_dashboard/dashboards/project/volumes/volumes/forms.py:82
@@ -2727,7 +2743,7 @@ msgstr ""
 #: openstack_dashboard/dashboards/project/routers/templates/routers/_detail_overview.html:32
 #: openstack_dashboard/dashboards/project/routers/templates/routers/_detail_overview.html:38
 #: openstack_dashboard/dashboards/project/volumes/backups/tables.py:38
-#: openstack_dashboard/dashboards/project/volumes/snapshots/tables.py:125
+#: openstack_dashboard/dashboards/project/volumes/snapshots/tables.py:149
 msgid "Unknown"
 msgstr ""
 
@@ -2816,7 +2832,7 @@ msgstr ""
 #: openstack_dashboard/dashboards/project/instances/templates/instances/_decryptpassword.html:33
 #: openstack_dashboard/dashboards/project/networks/templates/networks/create.html:7
 #: openstack_dashboard/dashboards/project/networks/templates/networks/create.html:13
-#: openstack_dashboard/dashboards/project/volumes/templates/volumes/volumes/_attach.html:16
+#: openstack_dashboard/dashboards/project/volumes/templates/volumes/volumes/_attach.html:14
 #: openstack_dashboard/dashboards/project/volumes/templates/volumes/volumes/_create_snapshot.html:11
 msgid "Cancel"
 msgstr ""
@@ -3358,7 +3374,7 @@ msgstr ""
 
 #: openstack_dashboard/dashboards/admin/networks/tables.py:74
 #: openstack_dashboard/dashboards/project/networks/tables.py:111
-#: openstack_dashboard/dashboards/project/networks/views.py:76
+#: openstack_dashboard/dashboards/project/networks/views.py:69
 msgid "Edit Network"
 msgstr ""
 
@@ -3404,7 +3420,7 @@ msgid "Unable to retrieve information about the networks' projects."
 msgstr ""
 
 #: openstack_dashboard/dashboards/admin/networks/views.py:80
-#: openstack_dashboard/dashboards/project/networks/views.py:62
+#: openstack_dashboard/dashboards/project/networks/views.py:55
 msgid "Network list can not be retrieved."
 msgstr ""
 
@@ -3415,18 +3431,18 @@ msgid "Unable to list dhcp agents hosting network."
 msgstr ""
 
 #: openstack_dashboard/dashboards/admin/networks/views.py:118
-#: openstack_dashboard/dashboards/project/networks/views.py:121
+#: openstack_dashboard/dashboards/project/networks/views.py:114
 msgid "Subnet list can not be retrieved."
 msgstr ""
 
 #: openstack_dashboard/dashboards/admin/networks/views.py:128
-#: openstack_dashboard/dashboards/project/networks/views.py:131
+#: openstack_dashboard/dashboards/project/networks/views.py:124
 msgid "Port list can not be retrieved."
 msgstr ""
 
 #: openstack_dashboard/dashboards/admin/networks/views.py:151
 #: openstack_dashboard/dashboards/admin/networks/subnets/tables.py:109
-#: openstack_dashboard/dashboards/project/networks/views.py:142
+#: openstack_dashboard/dashboards/project/networks/views.py:135
 #: openstack_dashboard/dashboards/project/networks/subnets/tables.py:143
 #, python-format
 msgid "Unable to retrieve details for network \"%s\"."
@@ -3717,7 +3733,7 @@ msgid "You may update the editable properties of your network here."
 msgstr ""
 
 #: openstack_dashboard/dashboards/admin/networks/templates/networks/update.html:3
-#: openstack_dashboard/dashboards/project/networks/views.py:81
+#: openstack_dashboard/dashboards/project/networks/views.py:74
 #: openstack_dashboard/dashboards/project/networks/templates/networks/update.html:3
 msgid "Update Network"
 msgstr ""
@@ -3757,6 +3773,7 @@ msgstr ""
 #: openstack_dashboard/dashboards/project/stacks/tabs.py:67
 #: openstack_dashboard/dashboards/project/stacks/resource_types/tabs.py:21
 #: openstack_dashboard/dashboards/project/volumes/backups/tabs.py:24
+#: openstack_dashboard/dashboards/project/volumes/cgroups/tabs.py:20
 #: openstack_dashboard/dashboards/project/volumes/snapshots/tabs.py:25
 #: openstack_dashboard/dashboards/project/volumes/volumes/tabs.py:21
 #: openstack_dashboard/usage/views.py:25
@@ -3860,31 +3877,32 @@ msgstr ""
 msgid "Update Router"
 msgstr ""
 
-#: openstack_dashboard/dashboards/admin/volumes/tabs.py:53
-#: openstack_dashboard/dashboards/admin/volumes/tabs.py:143
+#: openstack_dashboard/dashboards/admin/volumes/tabs.py:55
+#: openstack_dashboard/dashboards/admin/volumes/tabs.py:145
 #: openstack_dashboard/dashboards/admin/volumes/snapshots/tables.py:52
 msgid "Unable to retrieve volume project information."
 msgstr ""
 
-#: openstack_dashboard/dashboards/admin/volumes/tabs.py:68
+#: openstack_dashboard/dashboards/admin/volumes/tabs.py:70
 #: openstack_dashboard/dashboards/admin/volumes/volume_types/tables.py:252
+#: openstack_dashboard/dashboards/project/volumes/templates/volumes/cgroups/_detail_overview.html:15
 msgid "Volume Types"
 msgstr ""
 
-#: openstack_dashboard/dashboards/admin/volumes/tabs.py:80
+#: openstack_dashboard/dashboards/admin/volumes/tabs.py:82
 msgid "Unable to retrieve volume types"
 msgstr ""
 
-#: openstack_dashboard/dashboards/admin/volumes/tabs.py:88
+#: openstack_dashboard/dashboards/admin/volumes/tabs.py:90
 msgid "Unable to retrieve volume type encryption information."
 msgstr ""
 
-#: openstack_dashboard/dashboards/admin/volumes/tabs.py:109
+#: openstack_dashboard/dashboards/admin/volumes/tabs.py:111
 msgid "Unable to retrieve QoS specs"
 msgstr ""
 
-#: openstack_dashboard/dashboards/admin/volumes/tabs.py:135
-#: openstack_dashboard/dashboards/project/volumes/tabs.py:153
+#: openstack_dashboard/dashboards/admin/volumes/tabs.py:137
+#: openstack_dashboard/dashboards/project/volumes/tabs.py:171
 #: openstack_dashboard/dashboards/project/volumes/volumes/forms.py:229
 msgid "Unable to retrieve volume snapshots."
 msgstr ""
@@ -3933,7 +3951,7 @@ msgstr ""
 #: openstack_dashboard/dashboards/admin/volumes/volumes/forms.py:141
 #: openstack_dashboard/dashboards/admin/volumes/volumes/forms.py:169
 #: openstack_dashboard/dashboards/project/volumes/backups/tables.py:149
-#: openstack_dashboard/dashboards/project/volumes/snapshots/tables.py:150
+#: openstack_dashboard/dashboards/project/volumes/snapshots/tables.py:174
 #: openstack_dashboard/dashboards/project/volumes/volumes/forms.py:78
 #: openstack_dashboard/dashboards/project/volumes/volumes/forms.py:604
 #: openstack_dashboard/dashboards/project/volumes/volumes/forms.py:643
@@ -6255,7 +6273,7 @@ msgstr ""
 msgid "Unable to retrieve floating IP pools."
 msgstr ""
 
-#: openstack_dashboard/dashboards/project/access_and_security/tabs.py:128
+#: openstack_dashboard/dashboards/project/access_and_security/tabs.py:133
 msgid "API Access"
 msgstr ""
 
@@ -7194,10 +7212,9 @@ msgstr ""
 
 #: openstack_dashboard/dashboards/project/containers/panel.py:25
 #: openstack_dashboard/dashboards/project/containers/tables.py:270
-#: openstack_dashboard/dashboards/project/containers/views.py:49
+#: openstack_dashboard/dashboards/project/containers/views.py:53
 #: openstack_dashboard/dashboards/project/containers/templates/containers/index.html:4
-#: openstack_dashboard/dashboards/project/ngcontainers/panel.py:21
-#: openstack_dashboard/dashboards/project/ngcontainers/templates/ngcontainers/index.html:3
+#: openstack_dashboard/dashboards/project/containers/templates/containers/ngindex.html:3
 msgid "Containers"
 msgstr ""
 
@@ -7244,7 +7261,7 @@ msgid "Unable to delete container."
 msgstr ""
 
 #: openstack_dashboard/dashboards/project/containers/tables.py:141
-#: openstack_dashboard/dashboards/project/containers/views.py:131
+#: openstack_dashboard/dashboards/project/containers/views.py:135
 #: openstack_dashboard/dashboards/project/containers/templates/containers/_create.html:7
 #: openstack_dashboard/dashboards/project/containers/templates/containers/create.html:3
 msgid "Create Container"
@@ -7255,7 +7272,7 @@ msgid "View Container"
 msgstr ""
 
 #: openstack_dashboard/dashboards/project/containers/tables.py:161
-#: openstack_dashboard/dashboards/project/containers/views.py:155
+#: openstack_dashboard/dashboards/project/containers/views.py:159
 #: openstack_dashboard/dashboards/project/containers/templates/containers/create_pseudo_folder.html:3
 msgid "Create Pseudo-folder"
 msgstr ""
@@ -7267,7 +7284,7 @@ msgid "Upload Object"
 msgstr ""
 
 #: openstack_dashboard/dashboards/project/containers/tables.py:261
-#: openstack_dashboard/dashboards/project/containers/views.py:271
+#: openstack_dashboard/dashboards/project/containers/views.py:275
 #: openstack_dashboard/dashboards/project/containers/templates/containers/_container_detail.html:4
 #: openstack_dashboard/dashboards/project/containers/templates/containers/container_detail.html:3
 msgid "Container Details"
@@ -7301,44 +7318,44 @@ msgstr ""
 msgid "Objects"
 msgstr ""
 
-#: openstack_dashboard/dashboards/project/containers/views.py:59
+#: openstack_dashboard/dashboards/project/containers/views.py:63
 msgid "Unable to retrieve container list."
 msgstr ""
 
-#: openstack_dashboard/dashboards/project/containers/views.py:88
+#: openstack_dashboard/dashboards/project/containers/views.py:92
 msgid "Unable to retrieve object list."
 msgstr ""
 
-#: openstack_dashboard/dashboards/project/containers/views.py:178
+#: openstack_dashboard/dashboards/project/containers/views.py:182
 msgid "Upload Objects"
 msgstr ""
 
-#: openstack_dashboard/dashboards/project/containers/views.py:203
+#: openstack_dashboard/dashboards/project/containers/views.py:207
 msgid "Unable to retrieve object."
 msgstr ""
 
-#: openstack_dashboard/dashboards/project/containers/views.py:225
+#: openstack_dashboard/dashboards/project/containers/views.py:229
 #: openstack_dashboard/dashboards/project/containers/templates/containers/_copy.html:22
 #: openstack_dashboard/dashboards/project/containers/templates/containers/copy.html:3
 msgid "Copy Object"
 msgstr ""
 
-#: openstack_dashboard/dashboards/project/containers/views.py:241
+#: openstack_dashboard/dashboards/project/containers/views.py:245
 msgid "Unable to list containers."
 msgstr ""
 
-#: openstack_dashboard/dashboards/project/containers/views.py:283
-#: openstack_dashboard/dashboards/project/containers/views.py:307
+#: openstack_dashboard/dashboards/project/containers/views.py:287
+#: openstack_dashboard/dashboards/project/containers/views.py:311
 msgid "Unable to retrieve details."
 msgstr ""
 
-#: openstack_dashboard/dashboards/project/containers/views.py:294
+#: openstack_dashboard/dashboards/project/containers/views.py:298
 #: openstack_dashboard/dashboards/project/containers/templates/containers/_object_detail.html:4
 #: openstack_dashboard/dashboards/project/containers/templates/containers/object_detail.html:3
 msgid "Object Details"
 msgstr ""
 
-#: openstack_dashboard/dashboards/project/containers/views.py:320
+#: openstack_dashboard/dashboards/project/containers/views.py:324
 #: openstack_dashboard/dashboards/project/containers/templates/containers/_update.html:27
 #: openstack_dashboard/dashboards/project/containers/templates/containers/update.html:3
 msgid "Update Object"
@@ -7456,6 +7473,10 @@ msgstr ""
 #: openstack_dashboard/dashboards/project/containers/templates/containers/_upload.html:10
 #, python-format
 msgid "Upload Object To Container: %(container_name)s"
+msgstr ""
+
+#: openstack_dashboard/dashboards/project/containers/templates/containers/ngindex.html:10
+msgid "\"Containers\""
 msgstr ""
 
 #: openstack_dashboard/dashboards/project/firewalls/forms.py:39
@@ -7974,7 +7995,7 @@ msgstr ""
 #: openstack_dashboard/dashboards/project/loadbalancers/views.py:277
 #: openstack_dashboard/dashboards/project/loadbalancers/views.py:328
 #: openstack_dashboard/dashboards/project/loadbalancers/views.py:364
-#: openstack_dashboard/dashboards/project/networks/views.py:77
+#: openstack_dashboard/dashboards/project/networks/views.py:70
 #: openstack_dashboard/dashboards/project/networks/ports/views.py:116
 #: openstack_dashboard/dashboards/project/routers/views.py:190
 #: openstack_dashboard/dashboards/project/volumes/snapshots/views.py:37
@@ -8433,7 +8454,7 @@ msgid "Create Image"
 msgstr ""
 
 #: openstack_dashboard/dashboards/project/images/images/tables.py:146
-#: openstack_dashboard/dashboards/project/volumes/snapshots/tables.py:92
+#: openstack_dashboard/dashboards/project/volumes/snapshots/tables.py:116
 #: openstack_dashboard/dashboards/project/volumes/templates/volumes/volumes/create.html:3
 #: openstack_dashboard/dashboards/project/volumes/volumes/tables.py:121
 #: openstack_dashboard/dashboards/project/volumes/volumes/tables.py:146
@@ -10047,16 +10068,19 @@ msgid ""
 msgstr ""
 
 #: openstack_dashboard/dashboards/project/instances/workflows/create_instance.py:382
+#: openstack_dashboard/dashboards/project/volumes/cgroups/workflows.py:46
 #: openstack_dashboard/dashboards/project/volumes/volumes/forms.py:67
 msgid "Unable to retrieve availability zones."
 msgstr ""
 
 #: openstack_dashboard/dashboards/project/instances/workflows/create_instance.py:388
+#: openstack_dashboard/dashboards/project/volumes/cgroups/workflows.py:49
 #: openstack_dashboard/dashboards/project/volumes/volumes/forms.py:70
 msgid "No availability zones found"
 msgstr ""
 
 #: openstack_dashboard/dashboards/project/instances/workflows/create_instance.py:390
+#: openstack_dashboard/dashboards/project/volumes/cgroups/workflows.py:51
 #: openstack_dashboard/dashboards/project/volumes/volumes/forms.py:72
 msgid "Any Availability Zone"
 msgstr ""
@@ -11384,7 +11408,7 @@ msgctxt "Current status of a Network"
 msgid "Error"
 msgstr ""
 
-#: openstack_dashboard/dashboards/project/networks/views.py:97
+#: openstack_dashboard/dashboards/project/networks/views.py:90
 #: openstack_dashboard/dashboards/project/networks/ports/views.py:73
 #: openstack_dashboard/dashboards/project/networks/subnets/views.py:137
 msgid "Unable to retrieve network details."
@@ -11903,10 +11927,6 @@ msgstr ""
 
 #: openstack_dashboard/dashboards/project/networks/templates/networks/subnets/_detail_overview.html:54
 msgid "DNS name server"
-msgstr ""
-
-#: openstack_dashboard/dashboards/project/ngcontainers/templates/ngcontainers/index.html:10
-msgid "\"Containers\""
 msgstr ""
 
 #: openstack_dashboard/dashboards/project/overview/views.py:39
@@ -13115,25 +13135,34 @@ msgid ""
 "change them here."
 msgstr ""
 
-#: openstack_dashboard/dashboards/project/volumes/tabs.py:50
+#: openstack_dashboard/dashboards/project/volumes/tabs.py:53
 msgid "Unable to retrieve volume list."
 msgstr ""
 
-#: openstack_dashboard/dashboards/project/volumes/tabs.py:60
+#: openstack_dashboard/dashboards/project/volumes/tabs.py:67
 msgid "Unable to retrieve volume/instance attachment information"
 msgstr ""
 
-#: openstack_dashboard/dashboards/project/volumes/tabs.py:74
+#: openstack_dashboard/dashboards/project/volumes/tabs.py:81
 msgid "Unable to retrieve snapshot list."
 msgstr ""
 
-#: openstack_dashboard/dashboards/project/volumes/tabs.py:165
+#: openstack_dashboard/dashboards/project/volumes/tabs.py:183
 #: openstack_dashboard/dashboards/project/volumes/backups/tables.py:155
 msgid "Volume Backups"
 msgstr ""
 
-#: openstack_dashboard/dashboards/project/volumes/tabs.py:186
+#: openstack_dashboard/dashboards/project/volumes/tabs.py:204
 msgid "Unable to retrieve volume backups."
+msgstr ""
+
+#: openstack_dashboard/dashboards/project/volumes/tabs.py:211
+#: openstack_dashboard/dashboards/project/volumes/cgroups/tables.py:141
+msgid "Volume Consistency Groups"
+msgstr ""
+
+#: openstack_dashboard/dashboards/project/volumes/tabs.py:230
+msgid "Unable to retrieve volume consistency groups."
 msgstr ""
 
 #: openstack_dashboard/dashboards/project/volumes/utils.py:28
@@ -13246,6 +13275,199 @@ msgstr ""
 msgid "Restore a Volume Backup"
 msgstr ""
 
+#: openstack_dashboard/dashboards/project/volumes/cgroups/forms.py:39
+#: openstack_dashboard/dashboards/project/volumes/cgroups/workflows.py:397
+#, python-format
+msgid "Updating volume consistency group \"%s\""
+msgstr ""
+
+#: openstack_dashboard/dashboards/project/volumes/cgroups/forms.py:46
+msgid "Unable to update volume consistency group."
+msgstr ""
+
+#: openstack_dashboard/dashboards/project/volumes/cgroups/tables.py:27
+#: openstack_dashboard/dashboards/project/volumes/cgroups/workflows.py:269
+#: openstack_dashboard/dashboards/project/volumes/cgroups/workflows.py:270
+msgid "Create Consistency Group"
+msgstr ""
+
+#: openstack_dashboard/dashboards/project/volumes/cgroups/tables.py:40
+msgid "Delete Consistency Group"
+msgid_plural "Delete Consistency Groups"
+msgstr[0] ""
+msgstr[1] ""
+
+#: openstack_dashboard/dashboards/project/volumes/cgroups/tables.py:48
+msgid "Scheduled deletion of Consistency Group"
+msgid_plural "Scheduled deletion of Consistency Groups"
+msgstr[0] ""
+msgstr[1] ""
+
+#: openstack_dashboard/dashboards/project/volumes/cgroups/tables.py:62
+msgid "Unable to delete consistency group."
+msgstr ""
+
+#: openstack_dashboard/dashboards/project/volumes/cgroups/tables.py:68
+#: openstack_dashboard/dashboards/project/volumes/cgroups/views.py:49
+#: openstack_dashboard/dashboards/project/volumes/cgroups/workflows.py:336
+msgid "Edit Consistency Group"
+msgstr ""
+
+#: openstack_dashboard/dashboards/project/volumes/cgroups/tables.py:76
+#: openstack_dashboard/dashboards/project/volumes/cgroups/workflows.py:243
+msgid "Manage Volumes"
+msgstr ""
+
+#: openstack_dashboard/dashboards/project/volumes/cgroups/tables.py:113
+msgctxt "Current status of Consistency Group"
+msgid "Available"
+msgstr ""
+
+#: openstack_dashboard/dashboards/project/volumes/cgroups/tables.py:115
+msgctxt "Current status of Consistency Group"
+msgid "In-use"
+msgstr ""
+
+#: openstack_dashboard/dashboards/project/volumes/cgroups/tables.py:117
+msgctxt "Current status of Consistency Group"
+msgid "Error"
+msgstr ""
+
+#: openstack_dashboard/dashboards/project/volumes/cgroups/tables.py:134
+msgid "Volume Type(s)"
+msgstr ""
+
+#: openstack_dashboard/dashboards/project/volumes/cgroups/views.py:44
+msgid "Create Volume Consistency Group"
+msgstr ""
+
+#: openstack_dashboard/dashboards/project/volumes/cgroups/views.py:75
+#: openstack_dashboard/dashboards/project/volumes/cgroups/views.py:95
+#: openstack_dashboard/dashboards/project/volumes/cgroups/views.py:144
+msgid "Unable to retrieve consistency group details."
+msgstr ""
+
+#: openstack_dashboard/dashboards/project/volumes/cgroups/workflows.py:32
+#: openstack_dashboard/dashboards/project/volumes/volumes/forms.py:53
+msgid "Unable to determine if availability zones extension is supported."
+msgstr ""
+
+#: openstack_dashboard/dashboards/project/volumes/cgroups/workflows.py:80
+msgid "Consistency Group Information"
+msgstr ""
+
+#: openstack_dashboard/dashboards/project/volumes/cgroups/workflows.py:81
+msgid ""
+"Volume consistency groups provide a mechanism for creating snapshots of "
+"multiple volumes at the same point-in-time to ensure data consistency\n"
+"\n"
+"A consistency group can support more than one volume type, but it can "
+"only contain volumes hosted by the same back end."
+msgstr ""
+
+#: openstack_dashboard/dashboards/project/volumes/cgroups/workflows.py:96
+msgid "Unable to get consistency group list"
+msgstr ""
+
+#: openstack_dashboard/dashboards/project/volumes/cgroups/workflows.py:104
+#, python-format
+msgid "The name \"%s\" is already used by another consistency group."
+msgstr ""
+
+#: openstack_dashboard/dashboards/project/volumes/cgroups/workflows.py:124
+msgid "Unable to get the available volume types"
+msgstr ""
+
+#: openstack_dashboard/dashboards/project/volumes/cgroups/workflows.py:149
+msgid "Manage Volume Types"
+msgstr ""
+
+#: openstack_dashboard/dashboards/project/volumes/cgroups/workflows.py:155
+msgid ""
+"Add volume types to this consistency group. Multiple volume types can be "
+"added to the same consistency group only if they are associated with same"
+" back end."
+msgstr ""
+
+#: openstack_dashboard/dashboards/project/volumes/cgroups/workflows.py:159
+msgid "All available volume types"
+msgstr ""
+
+#: openstack_dashboard/dashboards/project/volumes/cgroups/workflows.py:160
+msgid "Selected volume types"
+msgstr ""
+
+#: openstack_dashboard/dashboards/project/volumes/cgroups/workflows.py:161
+msgid "No volume types found."
+msgstr ""
+
+#: openstack_dashboard/dashboards/project/volumes/cgroups/workflows.py:162
+msgid "No volume types selected."
+msgstr ""
+
+#: openstack_dashboard/dashboards/project/volumes/cgroups/workflows.py:178
+msgid "Unable to get the available volumes"
+msgstr ""
+
+#: openstack_dashboard/dashboards/project/volumes/cgroups/workflows.py:249
+msgid ""
+"Add/remove volumes to/from this consistency group. Only volumes "
+"associated with the volume type(s) assigned to this consistency group "
+"will be available for selection."
+msgstr ""
+
+#: openstack_dashboard/dashboards/project/volumes/cgroups/workflows.py:252
+msgid "All available volumes"
+msgstr ""
+
+#: openstack_dashboard/dashboards/project/volumes/cgroups/workflows.py:253
+msgid "Selected volumes"
+msgstr ""
+
+#: openstack_dashboard/dashboards/project/volumes/cgroups/workflows.py:254
+msgid "No volumes found."
+msgstr ""
+
+#: openstack_dashboard/dashboards/project/volumes/cgroups/workflows.py:255
+msgid "No volumes selected."
+msgstr ""
+
+#: openstack_dashboard/dashboards/project/volumes/cgroups/workflows.py:271
+#: openstack_dashboard/dashboards/project/volumes/cgroups/workflows.py:326
+msgid "Unable to create consistency group."
+msgstr ""
+
+#: openstack_dashboard/dashboards/project/volumes/cgroups/workflows.py:272
+msgid "Created new volume consistency group"
+msgstr ""
+
+#: openstack_dashboard/dashboards/project/volumes/cgroups/workflows.py:284
+msgid "Unable to get volume type list"
+msgstr ""
+
+#: openstack_dashboard/dashboards/project/volumes/cgroups/workflows.py:311
+msgid ""
+"All selected volume types must be associated with the same volume backend"
+" name."
+msgstr ""
+
+#: openstack_dashboard/dashboards/project/volumes/cgroups/workflows.py:335
+msgid "Add/Remove Consistency Group Volumes"
+msgstr ""
+
+#: openstack_dashboard/dashboards/project/volumes/cgroups/workflows.py:337
+#, python-format
+msgid "Edit consistency group \"%s\"."
+msgstr ""
+
+#: openstack_dashboard/dashboards/project/volumes/cgroups/workflows.py:338
+msgid "Unable to edit consistency group"
+msgstr ""
+
+#: openstack_dashboard/dashboards/project/volumes/cgroups/workflows.py:401
+msgid "Unable to edit consistency group."
+msgstr ""
+
 #: openstack_dashboard/dashboards/project/volumes/snapshots/forms.py:39
 #, python-format
 msgid "Updating volume snapshot \"%s\""
@@ -13256,18 +13478,24 @@ msgid "Unable to update volume snapshot."
 msgstr ""
 
 #: openstack_dashboard/dashboards/project/volumes/snapshots/tables.py:54
+#: openstack_dashboard/dashboards/project/volumes/volumes/tables.py:46
+#: openstack_dashboard/dashboards/project/volumes/volumes/tables.py:68
+msgid "Launch as Instance"
+msgstr ""
+
+#: openstack_dashboard/dashboards/project/volumes/snapshots/tables.py:78
 msgid "Delete Volume Snapshot"
 msgid_plural "Delete Volume Snapshots"
 msgstr[0] ""
 msgstr[1] ""
 
-#: openstack_dashboard/dashboards/project/volumes/snapshots/tables.py:62
+#: openstack_dashboard/dashboards/project/volumes/snapshots/tables.py:86
 msgid "Scheduled deletion of Volume Snapshot"
 msgid_plural "Scheduled deletion of Volume Snapshots"
 msgstr[0] ""
 msgstr[1] ""
 
-#: openstack_dashboard/dashboards/project/volumes/snapshots/tables.py:78
+#: openstack_dashboard/dashboards/project/volumes/snapshots/tables.py:102
 #: openstack_dashboard/dashboards/project/volumes/snapshots/views.py:35
 #: openstack_dashboard/dashboards/project/volumes/snapshots/views.py:40
 #: openstack_dashboard/dashboards/project/volumes/templates/volumes/snapshots/update.html:3
@@ -13308,6 +13536,38 @@ msgstr ""
 msgid "Optionally, you may choose to create a new volume."
 msgstr ""
 
+#: openstack_dashboard/dashboards/project/volumes/templates/volumes/cgroups/_delete.html:6
+msgid ""
+"Volume consistency groups can only be deleted after all the volumes they "
+"contain are either deleted or unassigned."
+msgstr ""
+
+#: openstack_dashboard/dashboards/project/volumes/templates/volumes/cgroups/_delete.html:7
+msgid ""
+"The default action for deleting a consistency group is to first "
+"disassociate all associated volumes."
+msgstr ""
+
+#: openstack_dashboard/dashboards/project/volumes/templates/volumes/cgroups/_delete.html:8
+msgid ""
+"Check the &quot;Delete Volumes&quot; box to also delete the volumes "
+"associated with this consistency group."
+msgstr ""
+
+#: openstack_dashboard/dashboards/project/volumes/templates/volumes/cgroups/_delete.html:9
+msgid ""
+"Note that a volume can not be deleted if it is &quot;attached&quot; or "
+"has any dependent snapshots."
+msgstr ""
+
+#: openstack_dashboard/dashboards/project/volumes/templates/volumes/cgroups/_detail_overview.html:30
+msgid "No assigned volumes"
+msgstr ""
+
+#: openstack_dashboard/dashboards/project/volumes/templates/volumes/cgroups/_update.html:6
+msgid "Modify the name and description of a volume consistency group."
+msgstr ""
+
 #: openstack_dashboard/dashboards/project/volumes/templates/volumes/snapshots/_update.html:6
 msgid "Modify the name and description of a snapshot."
 msgstr ""
@@ -13320,11 +13580,11 @@ msgid ""
 "accept</tt> command."
 msgstr ""
 
-#: openstack_dashboard/dashboards/project/volumes/templates/volumes/volumes/_attach.html:8
+#: openstack_dashboard/dashboards/project/volumes/templates/volumes/volumes/_attach.html:6
 msgid "Attach To Instance"
 msgstr ""
 
-#: openstack_dashboard/dashboards/project/volumes/templates/volumes/volumes/_attach.html:18
+#: openstack_dashboard/dashboards/project/volumes/templates/volumes/volumes/_attach.html:16
 msgid "Attach Volume"
 msgstr ""
 
@@ -13575,10 +13835,6 @@ msgstr ""
 #: openstack_dashboard/dashboards/project/volumes/volumes/views.py:221
 #: openstack_dashboard/dashboards/project/volumes/volumes/views.py:226
 msgid "Upload Volume to Image"
-msgstr ""
-
-#: openstack_dashboard/dashboards/project/volumes/volumes/forms.py:53
-msgid "Unable to determine if availability zones extension is supported."
 msgstr ""
 
 #: openstack_dashboard/dashboards/project/volumes/volumes/forms.py:89
@@ -13875,11 +14131,6 @@ msgstr ""
 #: openstack_dashboard/dashboards/project/volumes/volumes/forms.py:803
 #, python-format
 msgid "Unable to change the volume type for volume: \"%s\""
-msgstr ""
-
-#: openstack_dashboard/dashboards/project/volumes/volumes/tables.py:46
-#: openstack_dashboard/dashboards/project/volumes/volumes/tables.py:68
-msgid "Launch as Instance"
 msgstr ""
 
 #: openstack_dashboard/dashboards/project/volumes/volumes/tables.py:93

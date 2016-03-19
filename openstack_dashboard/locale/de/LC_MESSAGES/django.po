@@ -10,12 +10,12 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2016-03-16 02:16+0000\n"
+"POT-Creation-Date: 2016-03-18 12:48+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2016-03-16 07:25+0000\n"
-"Last-Translator: Robert Simai <robert.simai@suse.com>\n"
+"PO-Revision-Date: 2016-03-18 09:13+0000\n"
+"Last-Translator: Eugen Block <eblock@nde.ag>\n"
 "Language-Team: German\n"
 "Language: de\n"
 "X-Generator: Zanata 3.7.3\n"
@@ -910,13 +910,37 @@ msgstr "Ausgewählte Router zur Firewall hinzufügen."
 msgid "Add static route to the router."
 msgstr "Statische Route zum Router hinzufügen."
 
+#, fuzzy
+msgid ""
+"Add volume types to this consistency group. Multiple volume types can be "
+"added to the same consistency group only if they are associated with same "
+"back end."
+msgstr ""
+"Weisen Sie dieser Konsistenzgruppe Datenträgertypen zu. Mehrere "
+"Datenträgertypen können nur einer Konsistenzgruppe zugewiesen werden, wenn "
+"sie dasselbe Backend verwenden."
+
 msgid "Add, modify or remove the QoS Spec associated with this volume type."
 msgstr ""
 "Hinzufügen, verändern und entfernen der QoS Spezifikationen für diesen "
 "Datenträgertyp."
 
+#, fuzzy
+msgid "Add/Remove Consistency Group Volumes"
+msgstr "Konsistenzgruppen-Datenträger hinzufügen/entfernen"
+
 msgid "Add/Remove Hosts to Aggregate"
 msgstr "Hinzufügen/Entfernen von Hosts zum/vom Aggregat"
+
+#, fuzzy
+msgid ""
+"Add/remove volumes to/from this consistency group. Only volumes associated "
+"with the volume type(s) assigned to this consistency group will be available "
+"for selection."
+msgstr ""
+"Hinzufügen/Entfernen von Datenträgern zu dieser Konsistenzgruppe. Es stehen "
+"nur Datenträger zur Auswahl, deren Datenträgertyp(en) dieser "
+"Konsistenzgruppe zugewiesen sind."
 
 #, python-format
 msgid "Added Firewall \"%s\"."
@@ -1071,6 +1095,20 @@ msgstr "Alle Benutzer"
 
 msgid "All available hosts"
 msgstr "Alle verfügbaren Hosts"
+
+msgid "All available volume types"
+msgstr "Alle verfügbaren Datenträgertypen"
+
+msgid "All available volumes"
+msgstr "Alle verfügbaren Datenträger"
+
+#, fuzzy
+msgid ""
+"All selected volume types must be associated with the same volume backend "
+"name."
+msgstr ""
+"Alle ausgewählten Datenträgertypen müssen dem selben Datenträger-Backend "
+"zugeordnet sein."
 
 msgid "Allocate Floating IP"
 msgstr "Floating IP belegen"
@@ -1279,6 +1317,10 @@ msgstr "Verfügbarkeitszonen"
 msgid "Availability zone"
 msgstr "Verfügbarkeitszone"
 
+msgid "Available"
+msgstr "Verfügbar"
+
+msgctxt "Current status of Consistency Group"
 msgid "Available"
 msgstr "Verfügbar"
 
@@ -1499,6 +1541,14 @@ msgid_plural "Check Stacks"
 msgstr[0] "Stack überprüfen"
 msgstr[1] "Stacks überprüfen"
 
+#, fuzzy
+msgid ""
+"Check the &quot;Delete Volumes&quot; box to also delete the volumes "
+"associated with this consistency group."
+msgstr ""
+"Setzen Sie das Kontrollkästchen &quot;Datenträger löschen&quot;, um auch die "
+"dieser Konsistenzgruppe zugeordneten Datenträger zu löschen."
+
 msgid "Checked Stack"
 msgid_plural "Checked Stacks"
 msgstr[0] "Geprüfter Stack"
@@ -1695,6 +1745,10 @@ msgstr "Regel für Konflikte"
 msgid "Connection Limit"
 msgstr "Verbindungsgrenze"
 
+#, fuzzy
+msgid "Consistency Group Information"
+msgstr "Konsistenzgruppeninformation"
+
 msgid "Console"
 msgstr "Konsole"
 
@@ -1805,6 +1859,10 @@ msgstr "Sicherungskopie erstellen"
 msgctxt "current status of stack"
 msgid "Create Complete"
 msgstr "Erstellen abgeschlossen"
+
+#, fuzzy
+msgid "Create Consistency Group"
+msgstr "Konsistenzgruppe erstellen"
 
 msgid "Create Container"
 msgstr "Container erstellen"
@@ -2000,6 +2058,10 @@ msgstr "Datenträger erstellen"
 
 msgid "Create Volume Backup"
 msgstr "Datenträger-Sicherungskopie erzeugen"
+
+#, fuzzy
+msgid "Create Volume Consistency Group"
+msgstr "Datenträger-Konsistenzgruppe erstellen"
 
 msgid "Create Volume Snapshot"
 msgstr "Erzeuge Schattenkopie"
@@ -2237,6 +2299,10 @@ msgstr "Neues Hostaggregat \"%s\" erstellt."
 #, python-format
 msgid "Created new project \"%s\"."
 msgstr "Neues Projekt \"%s\" erstellt."
+
+#, fuzzy
+msgid "Created new volume consistency group"
+msgstr "Neue Datenträger-Konsistenzgruppe wurde erstellt"
 
 #, python-format
 msgid "Created spec \"%s\"."
@@ -2483,6 +2549,12 @@ msgstr "Verzögerung muss größer oder gleich der Zeitüberschreitung sein"
 msgctxt "current status of stack"
 msgid "Delete Complete"
 msgstr "Löschen abgeschlossen"
+
+#, fuzzy
+msgid "Delete Consistency Group"
+msgid_plural "Delete Consistency Groups"
+msgstr[0] "Konsistenzgruppe löschen"
+msgstr[1] "Konsistenzgruppen löschen"
 
 msgid "Delete Container"
 msgid_plural "Delete Containers"
@@ -3248,6 +3320,10 @@ msgstr "Bearbeiten"
 msgid "Edit Connection"
 msgstr "Verbindung bearbeiten"
 
+#, fuzzy
+msgid "Edit Consistency Group"
+msgstr "Konsistenzgruppe bearbeiten"
+
 msgid "Edit Consumer"
 msgstr "Benutzer bearbeiten"
 
@@ -3365,6 +3441,10 @@ msgstr "Datenträgertyp bearbeiten"
 
 msgid "Edit Volume Type Extra Spec"
 msgstr "Extra Spezifikation für Datenträgertyp bearbeiten"
+
+#, fuzzy, python-format
+msgid "Edit consistency group \"%s\"."
+msgstr "Konsistenzgruppe \"%s\" bearbeiten."
 
 msgid ""
 "Edit the flavor details. Flavors define the sizes for RAM, disk, number of "
@@ -3529,6 +3609,10 @@ msgstr ""
 "Größer oder gleich 68 falls das lokale Subnetz IPv4 ist. Größer oder gleich "
 "1280 falls das lokale Subnetz IPv6 ist."
 
+msgid "Error"
+msgstr "Fehler"
+
+msgctxt "Current status of Consistency Group"
 msgid "Error"
 msgstr "Fehler"
 
@@ -4725,6 +4809,10 @@ msgstr ""
 "Sie können zusätzlich ein externes Netzwerk oder ein geteiltes Netzwerk "
 "erstellen, in dem Sie das entsprechende Kontrollkästchen markieren."
 
+msgctxt "Current status of Consistency Group"
+msgid "In-use"
+msgstr "In Verwendung"
+
 msgctxt "Current status of a Volume"
 msgid "In-use"
 msgstr "In Verwendung"
@@ -5217,6 +5305,12 @@ msgstr "Datenträger verwalten"
 msgid "Manage Volume Attachments"
 msgstr "Datenträgerverbindungen Verwalten"
 
+msgid "Manage Volume Types"
+msgstr "Datenträgertypen verwalten"
+
+msgid "Manage Volumes"
+msgstr "Datenträger verwalten"
+
 msgid "Manage a Volume"
 msgstr "Einen Datenträger verwalten"
 
@@ -5436,6 +5530,10 @@ msgstr "Namen und Beschreibung eines Datenträgers ändern."
 
 msgid "Modify the name and description of a snapshot."
 msgstr "Name und Beschreibung einer Schattenkopie ändern."
+
+#, fuzzy
+msgid "Modify the name and description of a volume consistency group."
+msgstr "Name und Beschreibung einer Datenträger-Konsistenzgruppe ändern."
 
 msgid "Modify volume type name and description."
 msgstr "Modifiziere Name und Beschreibung des Datenträgertyps."
@@ -5681,6 +5779,9 @@ msgctxt "Power state of an Instance"
 msgid "No State"
 msgstr "Kein Zustand"
 
+msgid "No assigned volumes"
+msgstr "Keine zugeordneten Datenträger"
+
 msgid "No associations defined."
 msgstr "Keine Zuweisungen festgelegt."
 
@@ -5811,11 +5912,23 @@ msgstr "Keine Schattenkopien verfügbar"
 msgid "No volume type"
 msgstr "Kein Datenträgertyp"
 
+msgid "No volume types found."
+msgstr "Keine Datenträgertypen gefunden."
+
+msgid "No volume types selected."
+msgstr "Keine Datenträgertypen ausgewählt."
+
 msgid "No volumes attached."
 msgstr "Keine Datenträger zugewiesen."
 
 msgid "No volumes available"
 msgstr "Keine Datenträger verfügbar"
+
+msgid "No volumes found."
+msgstr "Keine Datenträger gefunden."
+
+msgid "No volumes selected."
+msgstr "Keine Datenträger ausgewählt."
 
 msgid "Non admin users are not allowed to make images public."
 msgstr ""
@@ -7100,6 +7213,12 @@ msgctxt "Current status of an Image"
 msgid "Saving"
 msgstr "Speichern"
 
+#, fuzzy
+msgid "Scheduled deletion of Consistency Group"
+msgid_plural "Scheduled deletion of Consistency Groups"
+msgstr[0] "Geplante Löschung der Konsistenzgruppe"
+msgstr[1] "Geplante Löschung der Konsistenzgruppen"
+
 msgid "Scheduled deletion of Firewall"
 msgid_plural "Scheduled deletion of Firewalls"
 msgstr[0] "Geplante Löschung der Firewall"
@@ -7425,6 +7544,12 @@ msgstr "Ausgewählte Hosts"
 
 msgid "Selected networks"
 msgstr "Ausgewählte Netzwerke"
+
+msgid "Selected volume types"
+msgstr "Ausgewälte Datenträgertypen"
+
+msgid "Selected volumes"
+msgstr "Ausgewählte Datenträger"
 
 msgid "Sensor Current Reading"
 msgstr "Sensor aktuelle Ablesung"
@@ -8402,6 +8527,11 @@ msgstr ""
 "Mitglieds vergeht. Diese muss länger als oder gleich wie die Timeout-Zeit "
 "sein."
 
+#, fuzzy, python-format
+msgid "The name \"%s\" is already used by another consistency group."
+msgstr ""
+"Der Name \"%s\" wird bereits von einer anderen Konsistenzgruppe verwendet."
+
 #, python-format
 msgid "The name \"%s\" is already used by another flavor."
 msgstr "Der Name \"%s\" wird bereits von einer anderen Variante verwendet."
@@ -8914,6 +9044,9 @@ msgstr "Objekt konnte nicht kopiert werden. "
 msgid "Unable to create QoS Spec."
 msgstr "QoS Spezifikationen können nicht erzeugt werden."
 
+msgid "Unable to create consistency group."
+msgstr "Konsistenzgruppe kann nicht erstellt werden."
+
 msgid "Unable to create container."
 msgstr "Container konnte nicht erstellt werden. "
 
@@ -9051,6 +9184,10 @@ msgstr "VIP %s kann nicht gelöscht werden."
 msgid "Unable to delete VPN Service. %s"
 msgstr "VPN Dienst %s konnte nicht gelöscht werden."
 
+#, fuzzy
+msgid "Unable to delete consistency group."
+msgstr "Konsistenzgruppe kann nicht gelöscht werden."
+
 msgid "Unable to delete container."
 msgstr "Container kann nicht gelöscht werden."
 
@@ -9107,6 +9244,14 @@ msgstr "Floating IP kann nicht getrennt werden."
 msgid "Unable to disassociate monitor."
 msgstr "Monitor kann nicht getrennt werden."
 
+#, fuzzy
+msgid "Unable to edit consistency group"
+msgstr "Konsistenzgruppe kann nicht bearbeitet werden"
+
+#, fuzzy
+msgid "Unable to edit consistency group."
+msgstr "Konsistenzgruppe kann nicht bearbeitet werden."
+
 msgid "Unable to edit spec."
 msgstr "Die Spezifikation kann nicht bearbeitet werden."
 
@@ -9146,6 +9291,10 @@ msgstr "VNC-Konsole für die Instanz \"%s\" konnte nicht aufgerufen werden."
 
 msgid "Unable to get cinder services list."
 msgstr "Cinder-Dienstliste kann nicht abgerufen werden."
+
+#, fuzzy
+msgid "Unable to get consistency group list"
+msgstr "Liste der Konsistenzgruppen kann nicht abgerufen werden"
 
 #, python-format
 msgid "Unable to get events for stack \"%s\"."
@@ -9203,6 +9352,15 @@ msgstr "Subnetz für den Pool %(pool)s kann nicht abgerufen werden."
 
 msgid "Unable to get the available hosts"
 msgstr "Verfügbare Hosts können nicht abgerufen werden"
+
+msgid "Unable to get the available volume types"
+msgstr "Verfügbare Datenträgertypen können nicht abgerufen werden"
+
+msgid "Unable to get the available volumes"
+msgstr "Verfügbare Datenträgertypen können nicht abgerufen werden"
+
+msgid "Unable to get volume type list"
+msgstr "Liste der Datenträgertypen kann nicht abgerufen werden"
 
 msgid "Unable to import key pair."
 msgstr "Schlüsselpaar kann nicht importiert werden."
@@ -9408,6 +9566,10 @@ msgstr "Compute Host Informationen können nicht abgerufen werden."
 
 msgid "Unable to retrieve compute limit information."
 msgstr "Compute-Begrenzungsinformationen können nicht abgerufen werden."
+
+#, fuzzy
+msgid "Unable to retrieve consistency group details."
+msgstr "Konsistenzgruppendetails können nicht abgerufen werden."
 
 msgid "Unable to retrieve container list."
 msgstr "Containerliste kann nicht abgerufen werden."
@@ -9856,6 +10018,10 @@ msgstr "Versionsinformationen können nicht abgerufen werden."
 msgid "Unable to retrieve volume backups."
 msgstr "Datenträger-Sicherungskopien können nicht abgerufen werden."
 
+#, fuzzy
+msgid "Unable to retrieve volume consistency groups."
+msgstr "Datenträger-Konsistenzgruppen können nicht abgerufen werden."
+
 msgid "Unable to retrieve volume details."
 msgstr "Datenträger Details können nicht abgerufen werden."
 
@@ -10024,6 +10190,10 @@ msgstr "Benutzer kann nicht aktualisiert werden."
 
 msgid "Unable to update the volume type."
 msgstr "Konnte Datenträgertyp nicht aktualisieren."
+
+#, fuzzy
+msgid "Unable to update volume consistency group."
+msgstr "Datenträger-Konsistenzgruppe kann nicht aktualisiert werden."
 
 msgid "Unable to update volume snapshot status."
 msgstr "Status der Datenträger-Schattenkopie kann nicht aktualisiert werden."
@@ -10271,6 +10441,10 @@ msgstr ""
 #, python-format
 msgid "Updating volume \"%s\""
 msgstr "Aktualisiere Datenträger \"%s\""
+
+#, fuzzy, python-format
+msgid "Updating volume consistency group \"%s\""
+msgstr "Datenträger-Konsistenzgruppe \"%s\" wird aktualisiert"
 
 #, python-format
 msgid "Updating volume snapshot \"%s\""
@@ -10559,6 +10733,10 @@ msgstr ""
 "gespeichert.  Dieser Dienst muss aktiviert sein, um Sicherungen "
 "durchzuführen."
 
+#, fuzzy
+msgid "Volume Consistency Groups"
+msgstr "Datenträger-Konsistenzgruppe"
+
 msgid "Volume Encryption Details"
 msgstr "Details Datenträger-Verschlüsselung"
 
@@ -10624,6 +10802,9 @@ msgstr "Datenträger Typenname"
 msgid "Volume Type is Unencrypted."
 msgstr "Datenträgertyp ist nicht verschlüsselt."
 
+msgid "Volume Type(s)"
+msgstr "Datenträgertyp(en)"
+
 #, python-format
 msgid "Volume Type: %(volume_type_name)s"
 msgstr "Datenträgertyp: %(volume_type_name)s"
@@ -10642,6 +10823,26 @@ msgid ""
 msgstr ""
 "Der Datenträger kann nicht auf %(req)iGiB erweitert werden. Es ist nur "
 "%(avail)iGiB Ihres Kontingentes verfügbar."
+
+#, fuzzy
+msgid ""
+"Volume consistency groups can only be deleted after all the volumes they "
+"contain are either deleted or unassigned."
+msgstr ""
+"Datenträger-Konsistenzgruppen können nur gelöscht werden, wenn alle darin "
+"enthaltenen Datenträger entweder gelöscht wurden oder nicht zugeordnet sind."
+
+#, fuzzy
+msgid ""
+"Volume consistency groups provide a mechanism for creating snapshots of "
+"multiple volumes at the same point-in-time to ensure data consistency\n"
+"\n"
+"A consistency group can support more than one volume type, but it can only "
+"contain volumes hosted by the same back end."
+msgstr ""
+"Datenträger-Konsistenzgruppen bieten die Möglichkeit, Schattenkopien von "
+"mehreren Datenträgern zum selben Zeitpunkt zu erstellen, um Datenkonsistenz "
+"sicherzustellen."
 
 msgid "Volume is Unencrypted"
 msgstr "Datenträger ist unverschlüsselt"

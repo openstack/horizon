@@ -10,12 +10,12 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2016-03-16 02:16+0000\n"
+"POT-Creation-Date: 2016-03-18 12:48+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2016-03-12 08:45+0000\n"
-"Last-Translator: Sungjin Kang <gang.sungjin@gmail.com>\n"
+"PO-Revision-Date: 2016-03-17 03:24+0000\n"
+"Last-Translator: Ian Y. Choi <ianyrchoi@gmail.com>\n"
 "Language-Team: Korean (South Korea)\n"
 "Language: ko-KR\n"
 "X-Generator: Zanata 3.7.3\n"
@@ -2284,6 +2284,12 @@ msgstr ""
 "DHCPv6 비상태: OpenStack 라우터 및 OpenStack DHCP로부터 얻은 부가 정보로부터 "
 "찾은 주소"
 
+msgid "DNS Assignment"
+msgstr "DNS 할당"
+
+msgid "DNS Name"
+msgstr "DNS 이름"
+
 msgid "DNS Name Servers"
 msgstr "DNS 네임 서버"
 
@@ -3531,6 +3537,9 @@ msgstr ""
 
 msgid "Extra Specs"
 msgstr "추가 사양"
+
+msgid "FQDN"
+msgstr "FQDN"
 
 msgctxt "Power state of an Instance"
 msgid "Failed"
@@ -5998,6 +6007,9 @@ msgstr "포트 ID"
 msgid "Port Range"
 msgstr "포트 범위"
 
+msgid "Port Security Enabled"
+msgstr "포트 보안 활성화됨"
+
 #, python-format
 msgid "Port cleanup failed for these port-ids (%s)."
 msgstr "해당 port-id (%s)에 대한 포트 클린업이 실패했습니다."
@@ -6205,6 +6217,9 @@ msgstr "공개 URL"
 
 msgid "QCOW2 - QEMU Emulator"
 msgstr "QCOW2 - QEMU Emulator"
+
+msgid "QOS Policy ID"
+msgstr "QOS 정책 ID"
 
 #, python-format
 msgid "QoS Spec name \"%s\" already exists."

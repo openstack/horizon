@@ -8,12 +8,12 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2016-03-16 02:16+0000\n"
+"POT-Creation-Date: 2016-03-18 12:48+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2016-03-16 09:53+0000\n"
-"Last-Translator: Yuko Katabami <yukokatabami@gmail.com>\n"
+"PO-Revision-Date: 2016-03-18 05:22+0000\n"
+"Last-Translator: Mie Yamamoto <myamamot@redhat.com>\n"
 "Language-Team: Japanese\n"
 "Language: ja\n"
 "X-Generator: Zanata 3.7.3\n"
@@ -221,6 +221,10 @@ msgstr ""
 msgid "A name is required for your instance."
 msgstr "インスタンス名は必須です。"
 
+msgid "A port represents a virtual switch port on a logical network switch."
+msgstr ""
+"ポートとは、論理ネットワークスイッチ上にある仮想スイッチポートのことです。"
+
 msgid "AKI"
 msgstr "AKI"
 
@@ -387,6 +391,13 @@ msgstr "チェックボックス"
 msgid "Checksum"
 msgstr "チェックサム"
 
+msgid ""
+"Clear Selection\n"
+"            <span>{$ oc.numSelected $}</span>"
+msgstr ""
+"選択項目のクリア\n"
+"            <span>{$ oc.numSelected $}</span>"
+
 msgid "Click to see more details"
 msgstr "クリックすると詳しい情報が表示されます。"
 
@@ -463,6 +474,13 @@ msgstr "コンテナーの作成"
 
 msgid "Create Folder"
 msgstr "フォルダーの作成"
+
+msgid ""
+"Create Folder In: {$ ctrl.model.container.name $}\n"
+"    <span>: {$ ctrl.model.folder $}</span>"
+msgstr ""
+"フォルダーの作成先: {$ ctrl.model.container.name $}\n"
+"    <span>: {$ ctrl.model.folder $}</span>"
 
 msgid "Create Key Pair"
 msgstr "キーペアの作成"
@@ -749,8 +767,14 @@ msgstr "見出し６"
 msgid "Home"
 msgstr "ホーム"
 
+msgid "Host ID"
+msgstr "ホスト ID"
+
 msgid "ID"
 msgstr "ID"
+
+msgid "IP"
+msgstr "IP"
 
 msgid "ISO"
 msgstr "ISO"
@@ -979,6 +1003,9 @@ msgstr "見て、私は小さいウェルの中にいるよ！"
 msgid "Look, I'm in a well!"
 msgstr "見て、私はウェルの中にいるよ！"
 
+msgid "MacVTap"
+msgstr "MacVTap"
+
 msgid "Manual"
 msgstr "手動"
 
@@ -1054,6 +1081,9 @@ msgstr "ネットワークのヘルスモニター"
 msgid "Network Health Monitors"
 msgstr "ネットワークのヘルスモニター"
 
+msgid "Network ID"
+msgstr "ネットワーク ID"
+
 msgid "Network Port"
 msgstr "ネットワークのポート"
 
@@ -1092,6 +1122,9 @@ msgstr "いいえ"
 
 msgid "No available items"
 msgstr "利用できるアイテムがありません。"
+
+msgid "Normal"
+msgstr "標準"
 
 msgid ""
 "Note: A Public Container will allow anyone with the Public URL to\n"
@@ -1238,6 +1271,9 @@ msgstr "ポリシーチェックに失敗しました。"
 
 msgid "Popovers"
 msgstr "ポップオーバー"
+
+msgid "Ports can be created under a network by administrators."
+msgstr "ポートは、管理者によりネットワークに作成することができます。"
 
 msgid "Previous"
 msgstr "前へ"
@@ -1420,6 +1456,9 @@ msgstr ""
 "以下の利用可能なグループから、１つ以上のセキュリティーグループを選択してくだ"
 "さい。"
 
+msgid "Select ports from those listed below."
+msgstr "以下のリストからポートを選択してください。"
+
 msgid "Select the security groups to launch the instance in."
 msgstr "インスタンスを起動するセキュリティーグループを選択します。"
 
@@ -1587,6 +1626,9 @@ msgstr ""
 
 msgid "The status indicates whether the network has an active connection."
 msgstr "ステータスは、ネットワークにアクティブな接続があるかを示します。"
+
+msgid "The status indicates whether the port has an active connection."
+msgstr "ステータスは、ポートにアクティブな接続があるかを示します。"
 
 msgid ""
 "The subnet identifies a sub-section of a network. A subnet is specified in "
@@ -2032,6 +2074,13 @@ msgstr "最終更新"
 msgid "Upload File"
 msgstr "ファイルのアップロード"
 
+msgid ""
+"Upload File To: {$ ctrl.model.container.name $}\n"
+"    <span>: {$ ctrl.model.folder $}</span>"
+msgstr ""
+"ファイルのアップロード先: {$ ctrl.model.container.name $}\n"
+"    <span>: {$ ctrl.model.folder $}</span>"
+
 msgid "Uploading"
 msgstr "アップロード中"
 
@@ -2062,11 +2111,17 @@ msgstr "VHD"
 msgid "VMDK"
 msgstr "VMDK"
 
+msgid "VNIC type"
+msgstr "VNIC の種別"
+
 msgid "View Details"
 msgstr "詳細の表示"
 
 msgid "Virtual Size"
 msgstr "仮想サイズ"
+
+msgid "Virtual instances attach their interfaces to ports."
+msgstr "仮想インスタンスによりインターフェースがポートに接続されます。"
 
 msgid "Visibility"
 msgstr "公開範囲"
