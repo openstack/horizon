@@ -6,12 +6,12 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2016-03-16 02:16+0000\n"
+"POT-Creation-Date: 2016-03-18 12:48+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2016-03-13 03:28+0000\n"
-"Last-Translator: Sungjin Kang <gang.sungjin@gmail.com>\n"
+"PO-Revision-Date: 2016-03-18 02:51+0000\n"
+"Last-Translator: Ian Y. Choi <ianyrchoi@gmail.com>\n"
 "Language-Team: Korean (South Korea)\n"
 "Language: ko-KR\n"
 "X-Generator: Zanata 3.7.3\n"
@@ -266,6 +266,10 @@ msgstr "Another action"
 msgid "Architecture"
 msgstr "아키텍처"
 
+#, python-format
+msgid "Are you sure you want to delete %(name)s?"
+msgstr "%(name)s 를 정말 삭제하시겠습니까?"
+
 msgid "Automatic"
 msgstr "자동"
 
@@ -360,6 +364,9 @@ msgstr "컨테이너 포멧"
 msgid "Containers"
 msgstr "Containers"
 
+msgid "Content Type"
+msgstr "Content 유형"
+
 msgid "Contextual alternatives"
 msgstr "Contextual alternatives"
 
@@ -369,6 +376,19 @@ msgid ""
 msgstr ""
 "개수\n"
 "          <span></span>"
+
+msgid "Create"
+msgstr "생성"
+
+msgid "Create Folder"
+msgstr "폴더 생성"
+
+msgid ""
+"Create Folder In: {$ ctrl.model.container.name $}\n"
+"    <span>: {$ ctrl.model.folder $}</span>"
+msgstr ""
+"{$ ctrl.model.container.name $} 에서 폴더 생성\n"
+"    <span>: {$ ctrl.model.folder $}</span>"
 
 msgid "Create Key Pair"
 msgstr "캐 페어 생성"
@@ -440,6 +460,9 @@ msgstr "Default button"
 msgid "Default input"
 msgstr "Default input"
 
+msgid "Delete"
+msgstr "삭제"
+
 msgid "Delete Image"
 msgid_plural "Delete Images"
 msgstr[0] "이미지 삭제"
@@ -502,6 +525,9 @@ msgstr "도메인 ID"
 
 msgid "Down"
 msgstr "Down"
+
+msgid "Download"
+msgstr "다운로드"
 
 msgid "Dropdown"
 msgstr "드롭다운"
@@ -570,6 +596,9 @@ msgstr ""
 msgid "Focused input"
 msgstr "Focused input"
 
+msgid "Folder Name"
+msgstr "폴더 이름"
+
 msgid "Format"
 msgstr "포멧"
 
@@ -588,6 +617,9 @@ msgstr ""
 "력\n"
 "  상자에 <samp>.ssh/authorized_keys</samp> 파일의 공개키를\n"
 "  복사합니다."
+
+msgid "Hash"
+msgstr "해시"
 
 msgid "Heading 1"
 msgstr "Heading 1"
@@ -974,6 +1006,9 @@ msgstr "오브젝트 컨테이너들"
 
 msgid "Object Count"
 msgstr "오브젝트 카운트"
+
+msgid "Object Details"
+msgstr "오브젝트 세부 정보"
 
 msgid "Objects"
 msgstr "오브젝트들"
@@ -1859,6 +1894,9 @@ msgstr "VHD"
 
 msgid "VMDK"
 msgstr "VMDK"
+
+msgid "View Details"
+msgstr "세부 정보 보기"
 
 msgid "Virtual Size"
 msgstr "가상 크기"

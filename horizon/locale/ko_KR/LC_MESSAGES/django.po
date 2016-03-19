@@ -1,15 +1,14 @@
 # Sungjin Kang <gang.sungjin@gmail.com>, 2015. #zanata
-# Ian Y. Choi <ianyrchoi@gmail.com>, 2016. #zanata
 # Sungjin Kang <gang.sungjin@gmail.com>, 2016. #zanata
 msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2016-03-15 01:55+0000\n"
+"POT-Creation-Date: 2016-03-18 12:48+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2016-02-23 03:51+0000\n"
+"PO-Revision-Date: 2016-03-18 02:20+0000\n"
 "Last-Translator: Ian Y. Choi <ianyrchoi@gmail.com>\n"
 "Language-Team: Korean (South Korea)\n"
 "Language: ko-KR\n"
@@ -45,7 +44,7 @@ msgid ""
 "              "
 msgstr ""
 "\n"
-"                <span> %(available)s </span>의 <span> %(used)s </span> 사용"
+"                <span> %(available)s </span>에서 <span> %(used)s </span> 사용"
 "됨\n"
 "              "
 
@@ -170,12 +169,12 @@ msgstr "뒤로"
 #. Translators: test code, don't really have to translate
 msgid "Batch Item"
 msgid_plural "Batch Items"
-msgstr[0] "일괄 항목"
+msgstr[0] "항목 일괄 처리"
 
 #. Translators: test code, don't really have to translate
 msgid "Batched Item"
 msgid_plural "Batched Items"
-msgstr[0] "일괄로 둔 항목"
+msgstr[0] "항목 일괄 처리함"
 
 msgid "Cancel"
 msgstr "취소"
@@ -187,7 +186,7 @@ msgid "Delete"
 msgstr "삭제"
 
 msgid "Deleted"
-msgstr "삭제 완료"
+msgstr "삭제됨"
 
 #, python-format
 msgid "Displaying %(content_items)s item"
@@ -207,12 +206,12 @@ msgstr[0] "%(nav_items)s 항목 표시"
 #. Translators: test code, don't really have to translate
 msgid "Down Item"
 msgid_plural "Down Items"
-msgstr[0] "아래 항목"
+msgstr[0] "항목 아래로"
 
 #. Translators: test code, don't really have to translate
 msgid "Downed Item"
 msgid_plural "Downed Items"
-msgstr[0] "아래로 둔 항목"
+msgstr[0] "항목 아래로 옮김"
 
 #, python-format
 msgid "Error processing message json file '%(path)s': %(exception)s"
@@ -346,6 +345,10 @@ msgstr "완료:"
 msgid "Summary"
 msgstr "요약"
 
+#, python-format
+msgid "The attribute %(attr)s doesn't exist on %(obj)s."
+msgstr "%(attr)s 속성이 %(obj)s 에 존재하지 않습니다."
+
 msgid "The date should be in YYYY-mm-dd format."
 msgstr "날짜는 YYYY-mm-dd 형식이어야 합니다."
 
@@ -387,20 +390,20 @@ msgstr "권한이 없습니다: %s"
 #. Translators: test code, don't really have to translate
 msgid "Up Item"
 msgid_plural "Up Items"
-msgstr[0] "위 항목"
+msgstr[0] "항목 위로"
 
 msgid "Update Item"
 msgid_plural "Update Items"
-msgstr[0] "갱신 항목"
+msgstr[0] "항목 업데이트"
 
 msgid "Updated Item"
 msgid_plural "Updated Items"
-msgstr[0] "갱신된 항목"
+msgstr[0] "항목 업데이트됨"
 
 #. Translators: test code, don't really have to translate
 msgid "Upped Item"
 msgid_plural "Upped Items"
-msgstr[0] "위로 둔 항목"
+msgstr[0] "항목 위로 옮김"
 
 msgid "Usage Summary"
 msgstr "사용량 요약"
