@@ -8,11 +8,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2016-03-16 02:16+0000\n"
+"POT-Creation-Date: 2016-03-18 21:42+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2016-03-16 09:53+0000\n"
+"PO-Revision-Date: 2016-03-20 12:21+0000\n"
 "Last-Translator: Yuko Katabami <yukokatabami@gmail.com>\n"
 "Language-Team: Japanese\n"
 "Language: ja\n"
@@ -221,6 +221,10 @@ msgstr ""
 msgid "A name is required for your instance."
 msgstr "インスタンス名は必須です。"
 
+msgid "A port represents a virtual switch port on a logical network switch."
+msgstr ""
+"ポートとは、論理ネットワークスイッチ上にある仮想スイッチポートのことです。"
+
 msgid "AKI"
 msgstr "AKI"
 
@@ -387,6 +391,13 @@ msgstr "チェックボックス"
 msgid "Checksum"
 msgstr "チェックサム"
 
+msgid ""
+"Clear Selection\n"
+"            <span>{$ oc.numSelected $}</span>"
+msgstr ""
+"選択項目のクリア\n"
+"            <span>{$ oc.numSelected $}</span>"
+
 msgid "Click to see more details"
 msgstr "クリックすると詳しい情報が表示されます。"
 
@@ -463,6 +474,13 @@ msgstr "コンテナーの作成"
 
 msgid "Create Folder"
 msgstr "フォルダーの作成"
+
+msgid ""
+"Create Folder In: {$ ctrl.model.container.name $}\n"
+"    <span>: {$ ctrl.model.folder $}</span>"
+msgstr ""
+"フォルダーの作成先: {$ ctrl.model.container.name $}\n"
+"    <span>: {$ ctrl.model.folder $}</span>"
 
 msgid "Create Key Pair"
 msgstr "キーペアの作成"
@@ -749,8 +767,14 @@ msgstr "見出し６"
 msgid "Home"
 msgstr "ホーム"
 
+msgid "Host ID"
+msgstr "ホスト ID"
+
 msgid "ID"
 msgstr "ID"
+
+msgid "IP"
+msgstr "IP"
 
 msgid "ISO"
 msgstr "ISO"
@@ -979,6 +1003,9 @@ msgstr "見て、私は小さいウェルの中にいるよ！"
 msgid "Look, I'm in a well!"
 msgstr "見て、私はウェルの中にいるよ！"
 
+msgid "MacVTap"
+msgstr "MacVTap"
+
 msgid "Manual"
 msgstr "手動"
 
@@ -1054,6 +1081,9 @@ msgstr "ネットワークのヘルスモニター"
 msgid "Network Health Monitors"
 msgstr "ネットワークのヘルスモニター"
 
+msgid "Network ID"
+msgstr "ネットワーク ID"
+
 msgid "Network Port"
 msgstr "ネットワークのポート"
 
@@ -1092,6 +1122,9 @@ msgstr "いいえ"
 
 msgid "No available items"
 msgstr "利用できるアイテムがありません。"
+
+msgid "Normal"
+msgstr "標準"
 
 msgid ""
 "Note: A Public Container will allow anyone with the Public URL to\n"
@@ -1238,6 +1271,16 @@ msgstr "ポリシーチェックに失敗しました。"
 
 msgid "Popovers"
 msgstr "ポップオーバー"
+
+msgid "Ports can be created under a network by administrators."
+msgstr "ポートは、管理者によりネットワークに作成することができます。"
+
+msgid ""
+"Ports provide extra communication channels to your instances. You can select "
+"ports instead of networks or a mix of both."
+msgstr ""
+"ポートは、インスタンスに追加の通信経路を提供します。ネットワークの代わりに選"
+"択したり、両方を併せて選択したりすることができます。"
 
 msgid "Previous"
 msgstr "前へ"
@@ -1420,6 +1463,9 @@ msgstr ""
 "以下の利用可能なグループから、１つ以上のセキュリティーグループを選択してくだ"
 "さい。"
 
+msgid "Select ports from those listed below."
+msgstr "以下のリストからポートを選択してください。"
+
 msgid "Select the security groups to launch the instance in."
 msgstr "インスタンスを起動するセキュリティーグループを選択します。"
 
@@ -1559,6 +1605,13 @@ msgstr ""
 "けません。"
 
 msgid ""
+"The logical port also defines the MAC address and the IP address(es) to be "
+"assigned to the interfaces plugged into them."
+msgstr ""
+"論理ポートは、それらに結線されるインターフェースに割り当てられる MAC アドレス"
+"と IP アドレスも定義します。"
+
+msgid ""
 "The maximum number of key-value pairs that can be supplied per instance is "
 "determined by the compute provider."
 msgstr ""
@@ -1587,6 +1640,9 @@ msgstr ""
 
 msgid "The status indicates whether the network has an active connection."
 msgstr "ステータスは、ネットワークにアクティブな接続があるかを示します。"
+
+msgid "The status indicates whether the port has an active connection."
+msgstr "ステータスは、ポートにアクティブな接続があるかを示します。"
 
 msgid ""
 "The subnet identifies a sub-section of a network. A subnet is specified in "
@@ -2032,6 +2088,13 @@ msgstr "最終更新"
 msgid "Upload File"
 msgstr "ファイルのアップロード"
 
+msgid ""
+"Upload File To: {$ ctrl.model.container.name $}\n"
+"    <span>: {$ ctrl.model.folder $}</span>"
+msgstr ""
+"ファイルのアップロード先: {$ ctrl.model.container.name $}\n"
+"    <span>: {$ ctrl.model.folder $}</span>"
+
 msgid "Uploading"
 msgstr "アップロード中"
 
@@ -2062,11 +2125,17 @@ msgstr "VHD"
 msgid "VMDK"
 msgstr "VMDK"
 
+msgid "VNIC type"
+msgstr "VNIC の種別"
+
 msgid "View Details"
 msgstr "詳細の表示"
 
 msgid "Virtual Size"
 msgstr "仮想サイズ"
+
+msgid "Virtual instances attach their interfaces to ports."
+msgstr "仮想インスタンスによりインターフェースがポートに接続されます。"
 
 msgid "Visibility"
 msgstr "公開範囲"
@@ -2138,6 +2207,15 @@ msgid "Wells"
 msgstr "ウェル"
 
 msgid ""
+"When IP addresses are associated to a port, this also implies the port is "
+"associated with a subnet, as the IP address was taken from the allocation "
+"pool for a specific subnet."
+msgstr ""
+"IP アドレスがポートに割り当てられる場合には、特定のサブネットの割り当てプール"
+"から IP アドレスが割り当てられるので、そのポートにサブネットが割り当てられる"
+"ことにもなります。"
+
+msgid ""
 "When selecting volume as boot source, please ensure the instance's "
 "availability zone is compatible with your volume's availability zone."
 msgstr ""
@@ -2154,6 +2232,19 @@ msgstr ""
 "用可能となります。\n"
 "そのネットワークをまだ他のユーザーに利用させたくない場合には、\n"
 "<b>管理状態</b>を <b>DOWN</b> に設定することができます。"
+
+msgid ""
+"When the <b>Admin State</b> for a port is set to <b>Up</b> and it has no "
+"<b>Device Owner</b>,\n"
+"    then the port is available for use. You can set the <b>Admin State</b> "
+"to <b>Down</b>\n"
+"    if you are not ready for other users to use the port."
+msgstr ""
+"ポートの<b>管理状態</b>が <b>Up</b> に設定されていて、<b>デバイス所有者</b>が"
+"指定されていない場合には、\n"
+"そのポートは使用可能です。他のユーザーがそのポートを使用するための準備が整っ"
+"ていない場合には、<b>管理状態</b>を <b>Down</b> に\n"
+"設定することができます。"
 
 msgid "Yes"
 msgstr "はい"
@@ -2185,6 +2276,9 @@ msgstr ""
 msgid "You have selected \"%s\". Deleted image is not recoverable."
 msgid_plural "You have selected \"%s\". Deleted images are not recoverable."
 msgstr[0] "\"%s\" を選択しました。削除されたイメージは元に戻せません。"
+
+msgid "disabled"
+msgstr "無効"
 
 msgid "error"
 msgid_plural "errors"
