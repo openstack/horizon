@@ -25,6 +25,7 @@ from django.test.utils import override_settings
 
 from mox3.mox import IsA  # noqa
 from novaclient import exceptions as nova_exceptions
+from novaclient.v2 import flavor_access as nova_flavor_access
 from novaclient.v2 import servers
 import six
 
@@ -387,3 +388,203 @@ class ComputeApiTests(test.APITestCase):
         ret_val = api.nova.migrate_host(self.request, "host", True, True,
                                         True)
         self.assertTrue(ret_val)
+
+    """Flavor Tests"""
+
+    def test_flavor_list_no_extras(self):
+        flavors = self.flavors.list()
+        novaclient = self.stub_novaclient()
+
+        novaclient.flavors = self.mox.CreateMockAnything()
+        novaclient.flavors.list(is_public=True).AndReturn(flavors)
+        self.mox.ReplayAll()
+        api_flavors = api.nova.flavor_list(self.request)
+        self.assertEqual(len(flavors), len(api_flavors))
+
+    def test_flavor_get_no_extras(self):
+        flavor = self.flavors.list()[1]
+        novaclient = self.stub_novaclient()
+
+        novaclient.flavors = self.mox.CreateMockAnything()
+        novaclient.flavors.get(flavor.id).AndReturn(flavor)
+
+        self.mox.ReplayAll()
+        api_flavor = api.nova.flavor_get(self.request, flavor.id)
+        self.assertEqual(api_flavor.id, flavor.id)
+
+    def _test_flavor_list_paged(self, reversed_order=False, paginate=True):
+        page_size = getattr(settings, 'API_RESULT_PAGE_SIZE', 20)
+        flavors = self.flavors.list()
+        order = 'asc' if reversed_order else 'desc'
+        novaclient = self.stub_novaclient()
+        novaclient.flavors = self.mox.CreateMockAnything()
+        if paginate:
+            novaclient.flavors.list(is_public=True,
+                                    marker=None,
+                                    limit=page_size + 1,
+                                    sort_key='name',
+                                    sort_dir=order).AndReturn(flavors)
+        else:
+            novaclient.flavors.list(is_public=True).AndReturn(flavors)
+
+        self.mox.ReplayAll()
+        api_flavors, has_more, has_prev = api.nova\
+                                             .flavor_list_paged(
+                                                 self.request,
+                                                 True,
+                                                 False,
+                                                 None,
+                                                 paginate=paginate,
+                                                 reversed_order=reversed_order)
+        for flavor in api_flavors:
+            self.assertIsInstance(flavor, type(flavors[0]))
+        self.assertFalse(has_more)
+        self.assertFalse(has_prev)
+
+    @override_settings(API_RESULT_PAGE_SIZE=1)
+    def test_flavor_list_pagination_more_and_prev(self):
+        page_size = getattr(settings, 'API_RESULT_PAGE_SIZE', 1)
+        flavors = self.flavors.list()
+        marker = flavors[0].id
+        novaclient = self.stub_novaclient()
+        novaclient.flavors = self.mox.CreateMockAnything()
+        novaclient.flavors.list(is_public=True,
+                                marker=marker,
+                                limit=page_size + 1,
+                                sort_key='name',
+                                sort_dir='desc')\
+            .AndReturn(flavors[1:page_size + 2])
+
+        self.mox.ReplayAll()
+        api_flavors, has_more, has_prev = api.nova\
+                                             .flavor_list_paged(
+                                                 self.request,
+                                                 True,
+                                                 False,
+                                                 marker,
+                                                 paginate=True)
+        for flavor in api_flavors:
+            self.assertIsInstance(flavor, type(flavors[0]))
+        self.assertEqual(page_size, len(api_flavors))
+        self.assertTrue(has_more)
+        self.assertTrue(has_prev)
+
+    def test_flavor_list_paged_default_order(self):
+        self._test_flavor_list_paged()
+
+    def test_flavor_list_paged_reversed_order(self):
+        self._test_flavor_list_paged(reversed_order=True)
+
+    def test_flavor_list_paged_paginate_false(self):
+        self._test_flavor_list_paged(paginate=False)
+
+    def test_flavor_create(self):
+        flavor = self.flavors.first()
+
+        novaclient = self.stub_novaclient()
+        novaclient.flavors = self.mox.CreateMockAnything()
+        novaclient.flavors.create(flavor.name, flavor.ram,
+                                  flavor.vcpus, flavor.disk,
+                                  flavorid='auto',
+                                  ephemeral=0,
+                                  swap=0,
+                                  is_public=True,
+                                  rxtx_factor=1).AndReturn(flavor)
+
+        self.mox.ReplayAll()
+
+        api_flavor = api.nova.flavor_create(self.request,
+                                            flavor.name,
+                                            flavor.ram,
+                                            flavor.vcpus,
+                                            flavor.disk)
+
+        self.assertIsInstance(api_flavor, type(flavor))
+        self.assertEqual(api_flavor.name, flavor.name)
+        self.assertEqual(api_flavor.ram, flavor.ram)
+        self.assertEqual(api_flavor.vcpus, flavor.vcpus)
+        self.assertEqual(api_flavor.disk, flavor.disk)
+        self.assertEqual(api_flavor.ephemeral, 0)
+        self.assertEqual(api_flavor.swap, 0)
+        self.assertEqual(api_flavor.is_public, True)
+        self.assertEqual(api_flavor.rxtx_factor, 1)
+
+    def test_flavor_delete(self):
+        flavor = self.flavors.first()
+        novaclient = self.stub_novaclient()
+        novaclient.flavors = self.mox.CreateMockAnything()
+        novaclient.flavors.delete(flavor.id)
+
+        self.mox.ReplayAll()
+
+        api_val = api.nova.flavor_delete(self.request, flavor.id)
+
+        self.assertIsNone(api_val)
+
+    def test_flavor_access_list(self):
+        flavor_access = self.flavor_access.list()
+        flavor = [f for f in self.flavors.list() if f.id ==
+                  flavor_access[0].flavor_id][0]
+
+        novaclient = self.stub_novaclient()
+        novaclient.flavors = self.mox.CreateMockAnything()
+        novaclient.flavor_access = self.mox.CreateMockAnything()
+        novaclient.flavor_access.list(flavor=flavor).AndReturn(flavor_access)
+
+        self.mox.ReplayAll()
+
+        api_flavor_access = api.nova.flavor_access_list(self.request, flavor)
+
+        self.assertEqual(len(flavor_access), len(api_flavor_access))
+        for access in api_flavor_access:
+            self.assertIsInstance(access, nova_flavor_access.FlavorAccess)
+            self.assertEqual(access.flavor_id, flavor.id)
+
+    def test_add_tenant_to_flavor(self):
+        flavor_access = [self.flavor_access.first()]
+        flavor = [f for f in self.flavors.list() if f.id ==
+                  flavor_access[0].flavor_id][0]
+        tenant = [t for t in self.tenants.list() if t.id ==
+                  flavor_access[0].tenant_id][0]
+        novaclient = self.stub_novaclient()
+        novaclient.flavors = self.mox.CreateMockAnything()
+        novaclient.flavor_access = self.mox.CreateMockAnything()
+
+        novaclient.flavor_access\
+                  .add_tenant_access(flavor=flavor,
+                                     tenant=tenant)\
+                  .AndReturn(flavor_access)
+
+        self.mox.ReplayAll()
+        api_flavor_access = api.nova.add_tenant_to_flavor(self.request,
+                                                          flavor,
+                                                          tenant)
+        self.assertIsInstance(api_flavor_access, list)
+        self.assertEqual(len(flavor_access), len(api_flavor_access))
+
+        for access in api_flavor_access:
+            self.assertEqual(access.flavor_id, flavor.id)
+            self.assertEqual(access.tenant_id, tenant.id)
+
+    def test_remove_tenant_from_flavor(self):
+        flavor_access = [self.flavor_access.first()]
+        flavor = [f for f in self.flavors.list() if f.id ==
+                  flavor_access[0].flavor_id][0]
+        tenant = [t for t in self.tenants.list() if t.id ==
+                  flavor_access[0].tenant_id][0]
+
+        novaclient = self.stub_novaclient()
+        novaclient.flavors = self.mox.CreateMockAnything()
+        novaclient.flavor_access = self.mox.CreateMockAnything()
+
+        novaclient.flavor_access\
+                  .remove_tenant_access(flavor=flavor,
+                                        tenant=tenant)\
+                  .AndReturn([])
+
+        self.mox.ReplayAll()
+        api_val = api.nova.remove_tenant_from_flavor(self.request,
+                                                     flavor,
+                                                     tenant)
+        self.assertEqual(len(api_val), len([]))
+        self.assertIsInstance(api_val, list)
