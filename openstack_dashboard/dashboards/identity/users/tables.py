@@ -248,7 +248,7 @@ class UsersTable(tables.DataTable):
                           )
     # Default tenant is not returned from Keystone currently.
     # default_tenant = tables.Column('default_tenant',
-    #                               verbose_name=_('Default Project'))
+    #                                verbose_name=_('Default Project'))
     id = tables.Column('id', verbose_name=_('User ID'),
                        attrs={'data-type': 'uuid'})
     enabled = tables.Column('enabled', verbose_name=_('Enabled'),
@@ -259,16 +259,9 @@ class UsersTable(tables.DataTable):
                             empty_value="False")
 
     if api.keystone.VERSIONS.active >= 3:
-        domain_name = tables.Column(
-            'domain_name',
-            verbose_name=_('Domain Name'),
-            attrs={'data-type': 'uuid'})
-        enabled = tables.Column('enabled', verbose_name=_('Enabled'),
-                                status=True,
-                                status_choices=STATUS_CHOICES,
-                                filters=(defaultfilters.yesno,
-                                         defaultfilters.capfirst),
-                                empty_value="False")
+        domain_name = tables.Column('domain_name',
+                                    verbose_name=_('Domain Name'),
+                                    attrs={'data-type': 'uuid'})
 
     class Meta(object):
         name = "users"
