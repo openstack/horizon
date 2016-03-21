@@ -280,6 +280,43 @@
       expect(actionList.find('button.btn-custom').text().trim()).toEqual('Single Action');
     });
 
+    it('should disable actions while an action is performed', function() {
+      var def = $q.defer();
+      var callbacks = {
+        first: function() {
+          return def.promise;
+        }
+      };
+      spyOn(callbacks, 'first').and.callThrough();
+      var element = rowElementFor([
+        permittedActionWithText('Action 1', 'btn-1', callbacks.first)
+      ]);
+      var ctrl = element.scope().actionsCtrl;
+
+      // Initially actions should not be disabled
+      expect(ctrl.disabled).toBe(false);
+
+      // Perform the action
+      element.find('.btn-1').click();
+      expect(callbacks.first).toHaveBeenCalled();
+
+      // Actions should be disabled
+      expect(ctrl.disabled).toBe(true);
+      callbacks.first.calls.reset();
+      element.find('.btn-1').click();
+      expect(callbacks.first).not.toHaveBeenCalled();
+
+      // Resolve the action
+      def.resolve();
+      $scope.$apply();
+
+      // Actions should be enabled again
+      expect(ctrl.disabled).toBe(false);
+      callbacks.first.calls.reset();
+      element.find('.btn-1').click();
+      expect(callbacks.first).toHaveBeenCalled();
+    });
+
     function permittedActionWithUrl(templateName) {
       return {
         template: {
@@ -325,7 +362,7 @@
           return permissions;
         },
         perform: function(args) {
-          callback(args);
+          return callback(args);
         }
       };
     }
