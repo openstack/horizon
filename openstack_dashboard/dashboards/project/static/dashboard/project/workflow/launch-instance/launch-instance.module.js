@@ -36,6 +36,8 @@
       VOLUME: 'volume',
       VOLUME_SNAPSHOT: 'volume_snapshot'
     })
+    .constant('horizon.dashboard.project.workflow.launch-instance.non_bootable_image_types',
+      ['aki', 'ari'])
 
     .filter('diskFormat', diskFormat);
 
