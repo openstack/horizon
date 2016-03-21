@@ -44,7 +44,7 @@ class VolumesTable(tables.TableRegion):
         delete_button.click()
         return forms.BaseFormRegion(self.driver, self.conf)
 
-    @tables.bind_row_action('edit', primary=True)
+    @tables.bind_row_action('edit')
     def edit_volume(self, edit_button, row):
         edit_button.click()
         return forms.FormRegion(self.driver, self.conf,

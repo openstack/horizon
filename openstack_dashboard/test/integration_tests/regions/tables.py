@@ -231,7 +231,7 @@ def bind_table_action(action_name):
     return decorator
 
 
-def bind_row_action(action_name, primary=False):
+def bind_row_action(action_name):
     """A decorator to bind table region method to an actual row action button.
 
     Many table actions when started (by clicking a corresponding button
@@ -250,12 +250,6 @@ def bind_row_action(action_name, primary=False):
         Part of the action button id which is specific to action itself. It
         is safe to use action `name` attribute from the dashboard tables.py
         code.
-
-    .. param:: primary
-
-        Whether an action being bound is primary or secondary. In latter case
-        a button drop-down needs to be clicked prior to clicking a button.
-        Defaults to `False`.
     """
     # NOTE(tsufiev): button tag could be either <a> or <button> - target
     # both with *. Also primary action could be single as well, do not use
@@ -272,15 +266,17 @@ def bind_row_action(action_name, primary=False):
     def decorator(method):
         @functools.wraps(method)
         def wrapper(table, row):
-            action_element = None
-            if primary:
-                action_element = row._get_element(*primary_action_locator)
-            else:
+            def find_action(element):
+                pattern = "__action_%s" % action_name
+                return element.get_attribute('id').endswith(pattern)
+
+            action_element = row._get_element(*primary_action_locator)
+            if not find_action(action_element):
+                action_element = None
                 row._get_element(*secondary_actions_opener_locator).click()
-                for action in row._get_elements(*secondary_actions_locator):
-                    pattern = "__action_%s" % action_name
-                    if action.get_attribute('id').endswith(pattern):
-                        action_element = action
+                for element in row._get_elements(*secondary_actions_locator):
+                    if find_action(element):
+                        action_element = element
                         break
 
             if action_element is None:

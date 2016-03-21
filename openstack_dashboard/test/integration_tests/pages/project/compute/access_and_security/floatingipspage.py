@@ -37,13 +37,13 @@ class FloatingIPTable(tables.TableRegion):
         release_button.click()
         return forms.BaseFormRegion(self.driver, self.conf)
 
-    @tables.bind_row_action('associate', primary=True)
+    @tables.bind_row_action('associate')
     def associate_ip(self, associate_button, row):
         associate_button.click()
         return forms.FormRegion(self.driver, self.conf,
                                 field_mappings=self.FLOATING_IP_ASSOCIATIONS)
 
-    @tables.bind_row_action('disassociate', primary=True)
+    @tables.bind_row_action('disassociate')
     def disassociate_ip(self, disassociate_button, row):
         disassociate_button.click()
         return forms.BaseFormRegion(self.driver, self.conf)

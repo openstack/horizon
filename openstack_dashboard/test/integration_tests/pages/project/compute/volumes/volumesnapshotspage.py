@@ -47,7 +47,7 @@ class VolumesnapshotsTable(tables.TableRegion):
         return forms.FormRegion(self.driver, self.conf,
                                 field_mappings=self.EDIT_SNAPSHOT_FORM_FIELDS)
 
-    @tables.bind_row_action('create_from_snapshot', primary=True)
+    @tables.bind_row_action('create_from_snapshot')
     def create_volume(self, create_volume_button, row):
         create_volume_button.click()
         return forms.FormRegion(self.driver, self.conf,
