@@ -290,7 +290,10 @@ horizon.addInitFunction(horizon.forms.init = function () {
         if (typeof data === "undefined" || !visible) {
           $input.closest('.form-group').hide();
         } else {
-          $('label[for=' + $input.attr('id') + ']').html(data);
+          //If the input is a checkbox no need to replace html for label since it has another structure
+          if($input.attr('type') !== "checkbox"){
+            $('label[for=' + $input.attr('id') + ']').html(data);
+          }
           $input.closest('.form-group').show();
         }
       }
