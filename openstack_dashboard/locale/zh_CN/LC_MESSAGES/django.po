@@ -4,6 +4,7 @@
 # Yang Hongyang <hongyang.yang@easystack.cn>, 2015. #zanata
 # yan haifeng <yanheven@qq.com>, 2015. #zanata
 # zhangjingwen <zhangjingwen@cn.fujitsu.com>, 2015. #zanata
+# Gaoxiao Zhu <zhu.gaoxiao@h3c.com>, 2016. #zanata
 # Shengjing Zhu <zsj950618@gmail.com>, 2016. #zanata
 # Zheng Xi Zhou <zzxwill@gmail.com>, 2016. #zanata
 # liujunpeng <liujunpeng@inspur.com>, 2016. #zanata
@@ -12,12 +13,12 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2016-03-16 02:16+0000\n"
+"POT-Creation-Date: 2016-03-18 21:42+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2016-03-16 12:15+0000\n"
-"Last-Translator: vuuv <froms2008@gmail.com>\n"
+"PO-Revision-Date: 2016-03-21 02:26+0000\n"
+"Last-Translator: Gaoxiao Zhu <zhu.gaoxiao@h3c.com>\n"
 "Language-Team: Chinese (China)\n"
 "Language: zh-CN\n"
 "X-Generator: Zanata 3.7.3\n"
@@ -833,6 +834,9 @@ msgstr "为路由器添加静态路由表."
 msgid "Add, modify or remove the QoS Spec associated with this volume type."
 msgstr "添加、修改、删除该类型的块设备卷关联的 QoS 规格。"
 
+msgid "Add/Remove Consistency Group Volumes"
+msgstr "添加/删除一致性组卷"
+
 msgid "Add/Remove Hosts to Aggregate"
 msgstr "添加/删除集合中的主机"
 
@@ -984,6 +988,12 @@ msgstr "全部用户"
 
 msgid "All available hosts"
 msgstr "所有可用主机"
+
+msgid "All available volume types"
+msgstr "所有可用云硬盘类型"
+
+msgid "All available volumes"
+msgstr "所有可用卷"
 
 msgid "Allocate Floating IP"
 msgstr "分配浮动IP"
@@ -1184,6 +1194,10 @@ msgstr "可用域"
 
 msgid "Available"
 msgstr "可用配额"
+
+msgctxt "Current status of Consistency Group"
+msgid "Available"
+msgstr "可用"
 
 msgctxt "Current status of a Volume"
 msgid "Available"
@@ -1571,6 +1585,9 @@ msgstr "冲突规则"
 msgid "Connection Limit"
 msgstr "连接限制"
 
+msgid "Consistency Group Information"
+msgstr "一致性组信息"
+
 msgid "Console"
 msgstr "控制台"
 
@@ -1678,6 +1695,9 @@ msgstr "创建备份"
 msgctxt "current status of stack"
 msgid "Create Complete"
 msgstr "创建完成"
+
+msgid "Create Consistency Group"
+msgstr "创建一致性组"
 
 msgid "Create Container"
 msgstr "创建容器"
@@ -1863,6 +1883,9 @@ msgstr "创建云硬盘"
 
 msgid "Create Volume Backup"
 msgstr "创建一个卷备份"
+
+msgid "Create Volume Consistency Group"
+msgstr "创建卷一致性组"
 
 msgid "Create Volume Snapshot"
 msgstr "创建云硬盘快照"
@@ -2082,6 +2105,9 @@ msgstr "已创建新的主机集合 \"%s\"."
 #, python-format
 msgid "Created new project \"%s\"."
 msgstr "创建项目\"%s\""
+
+msgid "Created new volume consistency group"
+msgstr "创建新的卷一致性组"
 
 #, python-format
 msgid "Created spec \"%s\"."
@@ -2318,6 +2344,10 @@ msgstr "延迟必须大于或者等于超时"
 msgctxt "current status of stack"
 msgid "Delete Complete"
 msgstr "删除完成"
+
+msgid "Delete Consistency Group"
+msgid_plural "Delete Consistency Groups"
+msgstr[0] "删除一致性组"
 
 msgid "Delete Container"
 msgid_plural "Delete Containers"
@@ -2996,6 +3026,9 @@ msgstr "编辑"
 msgid "Edit Connection"
 msgstr "编辑连接"
 
+msgid "Edit Consistency Group"
+msgstr "编辑一致性组"
+
 msgid "Edit Consumer"
 msgstr "编辑消费者"
 
@@ -3113,6 +3146,10 @@ msgstr "编辑卷"
 
 msgid "Edit Volume Type Extra Spec"
 msgstr "编辑云硬盘类型扩展规格"
+
+#, python-format
+msgid "Edit consistency group \"%s\"."
+msgstr "编辑一致性组 \"%s\"。"
 
 msgid ""
 "Edit the flavor details. Flavors define the sizes for RAM, disk, number of "
@@ -3262,6 +3299,10 @@ msgid ""
 msgstr ""
 "如果本地子网是IPv4，则等于或者大于68。如果本地子网是IPv6，则等于或大于1280。"
 
+msgid "Error"
+msgstr "错误"
+
+msgctxt "Current status of Consistency Group"
 msgid "Error"
 msgstr "错误"
 
@@ -4394,6 +4435,10 @@ msgid ""
 "checking the corresponding checkbox."
 msgstr "此外，你可以通过勾选相应的复选框来创建外部网络或者共享网络。"
 
+msgctxt "Current status of Consistency Group"
+msgid "In-use"
+msgstr "正在使用"
+
 msgctxt "Current status of a Volume"
 msgid "In-use"
 msgstr "正在使用"
@@ -4866,6 +4911,12 @@ msgstr "管理卷"
 msgid "Manage Volume Attachments"
 msgstr "管理已连接云硬盘"
 
+msgid "Manage Volume Types"
+msgstr "管理云硬盘类型"
+
+msgid "Manage Volumes"
+msgstr "管理卷"
+
 msgid "Manage a Volume"
 msgstr "管理一个卷"
 
@@ -5074,6 +5125,9 @@ msgstr "修改卷的名称和描述"
 
 msgid "Modify the name and description of a snapshot."
 msgstr "编辑快照的名称和描述"
+
+msgid "Modify the name and description of a volume consistency group."
+msgstr "修改卷一致性组名称和描述"
 
 msgid "Modify volume type name and description."
 msgstr "更改卷名和描述"
@@ -5313,6 +5367,9 @@ msgctxt "Power state of an Instance"
 msgid "No State"
 msgstr "无状态"
 
+msgid "No assigned volumes"
+msgstr "没有分配卷"
+
 msgid "No associations defined."
 msgstr "没有定义关联。"
 
@@ -5441,11 +5498,23 @@ msgstr "没有可用的云硬盘快照。"
 msgid "No volume type"
 msgstr "未设置卷类型"
 
+msgid "No volume types found."
+msgstr "找不到云硬盘类型"
+
+msgid "No volume types selected."
+msgstr "没有选择云硬盘类型"
+
 msgid "No volumes attached."
 msgstr "未连接云硬盘。"
 
 msgid "No volumes available"
 msgstr "没有可用云硬盘。"
+
+msgid "No volumes found."
+msgstr "找不到卷"
+
+msgid "No volumes selected."
+msgstr "没有选择卷"
 
 msgid "Non admin users are not allowed to make images public."
 msgstr "非管理员用户无权公开镜像。"
@@ -6674,6 +6743,10 @@ msgctxt "Current status of an Image"
 msgid "Saving"
 msgstr "保存中"
 
+msgid "Scheduled deletion of Consistency Group"
+msgid_plural "Scheduled deletion of Consistency Groups"
+msgstr[0] "定时删除一致性组"
+
 msgid "Scheduled deletion of Firewall"
 msgid_plural "Scheduled deletion of Firewalls"
 msgstr[0] "已安排防火墙的删除"
@@ -6980,6 +7053,12 @@ msgstr "选中的主机"
 
 msgid "Selected networks"
 msgstr "已选择的网络"
+
+msgid "Selected volume types"
+msgstr "选择的云硬盘类型"
+
+msgid "Selected volumes"
+msgstr "选择卷"
 
 msgid "Sensor Current Reading"
 msgstr "传感器电流值"
@@ -7890,6 +7969,10 @@ msgstr ""
 "两次常规成员检查之间的最小时间间隔，以秒为单位；必须大于或等于超时时间。"
 
 #, python-format
+msgid "The name \"%s\" is already used by another consistency group."
+msgstr "该名称\"%s\"已经被其他一致性组使用。"
+
+#, python-format
 msgid "The name \"%s\" is already used by another flavor."
 msgstr "名称\"%s\"已经被其他模板占用"
 
@@ -8347,6 +8430,9 @@ msgstr "无法复制对象。"
 msgid "Unable to create QoS Spec."
 msgstr "无法创建QoS规格。"
 
+msgid "Unable to create consistency group."
+msgstr "无法创建一致性组"
+
 msgid "Unable to create container."
 msgstr "无法创建容器。"
 
@@ -8477,6 +8563,9 @@ msgstr "无法删除VIP %s"
 msgid "Unable to delete VPN Service. %s"
 msgstr "无法删除VPN服务 %s"
 
+msgid "Unable to delete consistency group."
+msgstr "无法删除一致性组"
+
 msgid "Unable to delete container."
 msgstr "无法删除容器。"
 
@@ -8529,6 +8618,12 @@ msgstr "无法将浮动IP解除绑定"
 msgid "Unable to disassociate monitor."
 msgstr "无法解除监控关联。"
 
+msgid "Unable to edit consistency group"
+msgstr "无法编辑一致性组"
+
+msgid "Unable to edit consistency group."
+msgstr "无法编辑一致性组"
+
 msgid "Unable to edit spec."
 msgstr "无法编辑规格"
 
@@ -8568,6 +8663,9 @@ msgstr "无法获得云主机 \"%s\" 的VNC控制台"
 
 msgid "Unable to get cinder services list."
 msgstr "无法获取Cinder服务列表"
+
+msgid "Unable to get consistency group list"
+msgstr "无法获取一致性组列表"
 
 #, python-format
 msgid "Unable to get events for stack \"%s\"."
@@ -8623,6 +8721,15 @@ msgstr "无法获取资源池 %(pool)s 的子网 。"
 
 msgid "Unable to get the available hosts"
 msgstr "无法获取可用的主机"
+
+msgid "Unable to get the available volume types"
+msgstr "无法获取可用云硬盘类型"
+
+msgid "Unable to get the available volumes"
+msgstr "无法获取可用云硬盘"
+
+msgid "Unable to get volume type list"
+msgstr "无法获取卷类型列表"
 
 msgid "Unable to import key pair."
 msgstr "无法导入密钥对。"
@@ -8817,6 +8924,9 @@ msgstr "无法获取计算节点信息。"
 
 msgid "Unable to retrieve compute limit information."
 msgstr "无法获取计算限制信息。"
+
+msgid "Unable to retrieve consistency group details."
+msgstr "无法获取一致性组详情。"
 
 msgid "Unable to retrieve container list."
 msgstr "无法检索容器列表。"
@@ -9249,6 +9359,9 @@ msgstr "无法获取版本信息"
 msgid "Unable to retrieve volume backups."
 msgstr "无法获取卷备份。"
 
+msgid "Unable to retrieve volume consistency groups."
+msgstr "无法获取卷一致性组。"
+
 msgid "Unable to retrieve volume details."
 msgstr "无法获取云硬盘详情"
 
@@ -9407,6 +9520,9 @@ msgstr "无法更新此用户。"
 
 msgid "Unable to update the volume type."
 msgstr "无法更新卷类型"
+
+msgid "Unable to update volume consistency group."
+msgstr "无法更新卷一致性组。"
 
 msgid "Unable to update volume snapshot status."
 msgstr "不能更新卷快照状态。"
@@ -9640,6 +9756,10 @@ msgstr "无法更新加密的卷类型: 还未实现此功能."
 #, python-format
 msgid "Updating volume \"%s\""
 msgstr "正在更新卷\"%s\""
+
+#, python-format
+msgid "Updating volume consistency group \"%s\""
+msgstr "正在更新卷一致性组\"%s\""
 
 #, python-format
 msgid "Updating volume snapshot \"%s\""
@@ -9917,6 +10037,9 @@ msgid ""
 "this service activated in order to create a backup."
 msgstr "卷备份使用的是对象存储服务。你必须激活这个对象存储服务才能创建备份。"
 
+msgid "Volume Consistency Groups"
+msgstr "卷一致性组"
+
 msgid "Volume Encryption Details"
 msgstr "存储卷加密详情"
 
@@ -9981,6 +10104,9 @@ msgstr "卷类型名称"
 
 msgid "Volume Type is Unencrypted."
 msgstr "卷类型没有加密。"
+
+msgid "Volume Type(s)"
+msgstr "卷类型（s）"
 
 #, python-format
 msgid "Volume Type: %(volume_type_name)s"
