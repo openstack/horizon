@@ -74,7 +74,7 @@
      *
      */
     function getImage(id) {
-      return apiService.get('/api/glance/images/' + id)
+      return apiService.get('/api/glance/images/' + id + '/')
         .error(function () {
           toastService.add('error', gettext('Unable to retrieve the image.'));
         });

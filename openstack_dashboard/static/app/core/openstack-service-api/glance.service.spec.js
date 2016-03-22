@@ -48,7 +48,7 @@
       {
         "func": "getImage",
         "method": "get",
-        "path": "/api/glance/images/42",
+        "path": "/api/glance/images/42/",
         "error": "Unable to retrieve the image.",
         "testInput": [
           42
