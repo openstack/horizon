@@ -579,8 +579,11 @@ class Row(html.HTMLElement):
 
         # Add the row's display name if available
         display_name = table.get_object_display(datum)
+        display_name_key = table.get_object_display_key(datum)
+
         if display_name:
             self.attrs['data-display'] = escape(display_name)
+            self.attrs['data-display-key'] = escape(display_name_key)
 
     def __repr__(self):
         return '<%s: %s>' % (self.__class__.__name__, self.id)
@@ -1678,13 +1681,17 @@ class DataTable(object):
         """
         return datum.id
 
+    def get_object_display_key(self, datum):
+        return 'name'
+
     def get_object_display(self, datum):
         """Returns a display name that identifies this object.
 
         By default, this returns a ``name`` attribute from the given object,
         but this can be overridden to return other values.
         """
-        return getattr(datum, 'name', None)
+        display_key = self.get_object_display_key(datum)
+        return getattr(datum, display_key, None)
 
     def has_prev_data(self):
         """Returns a boolean value indicating whether there is previous data
