@@ -27,6 +27,8 @@
     'horizon.app.core.openstack-service-api.security-group',
     'horizon.app.core.openstack-service-api.serviceCatalog',
     'horizon.app.core.openstack-service-api.settings',
+    'horizon.dashboard.project.workflow.launch-instance.boot-source-types',
+    'horizon.dashboard.project.workflow.launch-instance.non_bootable_image_types',
     'horizon.framework.widgets.toast.service'
   ];
 
@@ -53,17 +55,12 @@
     securityGroup,
     serviceCatalog,
     settings,
+    bootSourceTypes,
+    nonBootableImageTypes,
     toast
   ) {
 
     var initPromise;
-
-    // Constants (const in ES6)
-    var NON_BOOTABLE_IMAGE_TYPES = ['aki', 'ari'];
-    var SOURCE_TYPE_IMAGE = 'image';
-    var SOURCE_TYPE_SNAPSHOT = 'snapshot';
-    var SOURCE_TYPE_VOLUME = 'volume';
-    var SOURCE_TYPE_VOLUME_SNAPSHOT = 'volume_snapshot';
 
     /**
      * @ngdoc model api object
@@ -443,7 +440,7 @@
       // This is a blacklist of images that can not be booted.
       // If the image container type is in the blacklist
       // The evaluation will result in a 0 or greater index.
-      return NON_BOOTABLE_IMAGE_TYPES.indexOf(image.container_format) < 0;
+      return nonBootableImageTypes.indexOf(image.container_format) < 0;
     }
 
     function onGetImages(data) {
@@ -452,7 +449,7 @@
         return isBootableImageType(image) &&
           (!image.properties || image.properties.image_type !== 'snapshot');
       }));
-      addAllowedBootSource(model.images, SOURCE_TYPE_IMAGE, gettext('Image'));
+      addAllowedBootSource(model.images, bootSourceTypes.IMAGE, gettext('Image'));
 
       model.imageSnapshots.length = 0;
       push.apply(model.imageSnapshots, data.data.items.filter(function (image) {
@@ -462,7 +459,7 @@
 
       addAllowedBootSource(
         model.imageSnapshots,
-        SOURCE_TYPE_SNAPSHOT,
+        bootSourceTypes.INSTANCE_SNAPSHOT,
         gettext('Instance Snapshot')
       );
     }
@@ -471,10 +468,10 @@
       var volumePromises = [];
       // Need to check if Volume service is enabled before getting volumes
       model.volumeBootable = true;
-      addAllowedBootSource(model.volumes, SOURCE_TYPE_VOLUME, gettext('Volume'));
+      addAllowedBootSource(model.volumes, bootSourceTypes.VOLUME, gettext('Volume'));
       addAllowedBootSource(
         model.volumeSnapshots,
-        SOURCE_TYPE_VOLUME_SNAPSHOT,
+        bootSourceTypes.VOLUME_SNAPSHOT,
         gettext('Volume Snapshot')
       );
       volumePromises.push(cinderAPI.getVolumes({ status: 'available', bootable: true })
@@ -515,15 +512,15 @@
       delete finalSpec.source;
 
       switch (finalSpec.source_type.type) {
-        case SOURCE_TYPE_IMAGE:
+        case bootSourceTypes.IMAGE:
           setFinalSpecBootImageToVolume(finalSpec);
           break;
-        case SOURCE_TYPE_SNAPSHOT:
+        case bootSourceTypes.INSTANCE_SNAPSHOT:
           break;
-        case SOURCE_TYPE_VOLUME:
+        case bootSourceTypes.VOLUME:
           setFinalSpecBootFromVolumeDevice(finalSpec, 'vol');
           break;
-        case SOURCE_TYPE_VOLUME_SNAPSHOT:
+        case bootSourceTypes.VOLUME_SNAPSHOT:
           setFinalSpecBootFromVolumeDevice(finalSpec, 'snap');
           break;
         default:
@@ -549,8 +546,8 @@
         finalSpec.block_device_mapping_v2.push(
           {
             'device_name': deviceName,
-            'source_type': SOURCE_TYPE_IMAGE,
-            'destination_type': SOURCE_TYPE_VOLUME,
+            'source_type': bootSourceTypes.IMAGE,
+            'destination_type': bootSourceTypes.VOLUME,
             'delete_on_termination': finalSpec.vol_delete_on_instance_delete,
             'uuid': finalSpec.source_id,
             'boot_index': '0',
