@@ -466,3 +466,236 @@ may also want to increase the webdriver's timeout so it will not close browser
 windows forcefully. Finally, sometimes it may make sense to examine the
 contents of `logs` directory, especially apache logs - but that is mostly the
 case for the "good" failures.
+
+Writing your first integration test
+===================================
+
+So, you are going to write your first integration test and looking for some
+guidelines on how to do it. The first and the most comprehensive source of
+knowledge is the existing codebase of integration tests. Look how other tests
+are written, which Page Objects they use and learn by copying. Accurate imitation
+will eventually lead to a solid understanding. Yet there are few things that may
+save you some time when you know them in advance.
+
+File and directory layout and go_to_*page() methods
+---------------------------------------------------
+Below is the filesystem structure that test helpers rely on.::
+
+  horizon/
+  └─ openstack_dashboard/
+     └─ test/
+        └─ integration_tests/
+           ├─ pages/
+           │  ├─ admin/
+           │  │  ├─ __init__.py
+           │  │  └─ system/
+           │  │     ├─ __init__.py
+           │  │     └─ flavorspage.py
+           │  ├─ project/
+           │  │  └─ compute/
+           │  │     ├─ __init__.py
+           │  │     ├─ access_and_security/
+           │  │     │  ├─ __init__.py
+           │  │     │  └─ keypairspage.py
+           │  │     └─ imagespage.py
+           │  └─ navigation.py
+           ├─ regions/
+           ├─ tests/
+           ├─ config.py
+           └─ horizon.conf
+
+New tests are put into integration_tests/tests, where they are grouped
+by the kind of entities being tested (test_instances.py, test_networks.py, etc).
+All Page Objects to be used by tests are inside pages/directory, the nested
+directory structure you see within it obeys the value of `Navigation.CORE_PAGE_STRUCTURE`
+you can find at pages/navigation.py module. The contents of the `CORE_PAGE_STRUCTURE`
+variable should in turn mirror the structure of standard dashboard sidebar menu.
+If this condition is not met, the go_to_<pagename>page() methods which are generated
+automatically at runtime will have problems matching the real sidebar items. How are
+these go_to_*page() methods are generated? From the sidebar's point of view, dashboard
+content could be at most four levels deep: Dashboard, Panel Group, Panel and Tab.
+Given the mixture of these entities in existing dashboards, it was decided that:
+
+* When panels need to be addressed with go_to_<pagename>page() methods, two components in
+  the method's name are enough for distinguishing the right path to go along, namely a Panel
+  name and a Panel Group name (or a Dashboard name, if no Panel Group exists above Panel).
+  For example,
+
+  * `go_to_system_flavorspage()` method to go to Admin->System->Flavors and
+
+  * `go_to_identity_projectspage()` method to go to Identity->Projects panel.
+
+* When we need to go one level deeper, i.e. go to the specific TableTab on any panel that
+  has several tabs, three components are enough - Panel Group, Panel and Tab names. For
+  example, `go_to_compute_accessandsecurity_floatingipspage()` for navigating to
+  Project->Compute->Access & Security->Floating IPs tab. Note that one cannot navigate
+  to a Panel level if that Panel has several tabs (i.e., only terminal levels could be
+  navigated to).
+
+As you might have noticed, method name components are choosen from normalized items of
+the `CORE_PAGE_STRUCTURE` dictionary, where normalization means replacing spaces with `_`
+symbol and `&` symbol with `and`, then downcasing all symbols.
+
+Once the `go_to_*page()` method's name is parsed and the proper menu item is matched in
+a dashboard, it should return the proper Page Object. For that to happen a properly
+named class should reside in a properly named module located in the right place of the
+filesystem. More specifically and top down:
+
+#. Page Object class is located in:
+
+   * <dashboard>/<panel_group>/<panel>page.py file for non-tabbed pages
+
+   * <dashboard>/<panel_group>/<panel>/<tab>page.py file for tabbed pages
+     Values <dashboard>, <panel_group>, <panel> and <tab> are the normalized versions of
+     the items from the `CORE_PAGE_STRUCTURE` dictionary.
+
+#. Within the above module a descendant of `basepage.BaseNavigationPage` should be
+   defined, its name should have the form <Panel>Page or <Tab>Page, where <Panel> and <Tab>
+   are capitalized versions of normalized <panel> and <tab> items respectively.
+
+Reusable regions
+----------------
+
+* `TableRegion` binds to the HTML Horizon table using the `TableRegion`'s `name`
+  attribute. To bind to the proper table this attribute has to be the same as
+  the `name` attribute of a `Meta` subclass of a corresponding `tables.DataTable`
+  descendant in the Python code. `TableRegion` provides all the needed facilities for
+  solving the following table-related tasks.
+
+  * Getting a specific row from a table matched by the column name and a target
+    text within that column (use `get_row()` method) or taking all the existing
+    rows on a current table page with `rows` property.
+  * Once you have a reference to a specific row, it can either be marked with
+    `mark()` for further batch actions or split to cells (using `cells` property
+    which is dictionary representing column name as a key to cell wrapper as a
+    value).
+
+  * For interacting with actions `TableRegion` provides 2 decorators, namely
+    `@bind_table_action()` and `@bind_row_action()` which bind to the actual HTML
+    button widget and decorate the specific table methods. These methods in turn
+    should click a bound button (comes as these methods' second argument after `self`)
+    and usually return a new region which is most often bound to a modal form
+    being shown after clicking that button in real Horizon.
+
+  * Another important part of `TableRegion` are the facilities for checking the
+    properties of a paged table - `assert_definition()`, `is_next_link_available()`
+    and `is_prev_link_available()` helpers and `turn_next_page()` / `turn_prev_page()`
+    which obviously cause the next / prev table page to be shown.
+
+* when interacting with modal and non-modal forms three flavors of form wrappers
+  can be used.
+
+  * `BaseFormRegion` is used for simplest forms which are usually 'Submit' /
+    'Cancel' dialogs with no fields to be filled.
+
+  * `FormRegion` is the most used wrapper which provides interaction with the
+    fields within that form. Every field is backed by its own wrapper class, while
+    the `FormRegion` acts as a container which initializes all the field wrappers in
+    its `__init__()` method. Field mappings passed to `__init__()` could be
+
+     * either a tuple of string labels, in that case the same label is used for
+       referencing the field in test code and for binding to the HTML input (should be
+       the same as `name` attribute of that widget, could be seen in Django code defining
+       that form in Horizon)
+
+     * or a dictionary, where the key will be used for referencing the test field
+       and the value will be used for binding to the HTML input. Also it is feasible
+       to provide values other than strings in that dictionary - in this case they are
+       meant to be a Python class. This Python class will be initialized as any
+       BaseRegion is usually initialized and then the value's key will be used for
+       referencing this object. This is useful when dealing with non-standard widgets
+       in forms (like Membership widget in Create/​Edit Project form or Networks widget
+       in Launch Instance form).
+
+  * `TabbedFormRegion` is a slight variation of `FormRegion`, it has several tabs
+    and thus can accept a tuple of tuples / dictionaries of field mappings, where
+    every tuple corresponds to a tab of a real form, binding order is that first
+    tuple binds to leftmost tab, which has index 0. Passing `default_tab` other than
+    0 to `TabbedFormRegion.__init__` we can make the test form to be created with
+    the tab other than the leftmost being shown immediately. Finally the method `switch_to`
+    allows us to switch to any existing form's tab.
+
+* `MessageRegion` is a small region, but is very important for asserting that
+  everything goes well in Horizon under test. Technically, the `find_message_and_dismiss`
+  method belongs to `BasePage` class, but whenever it is called, `regions.messages`
+  module is imported as well to pass a `messages.SUCCESS` / `messages.ERROR`
+  argument into. The method returns `True` / `False` depending on if the specified
+  message was found and dismissed (which could be then asserted for).
+
+Customizing tests to a specific gate environment
+------------------------------------------------
+
+* Upstream gate environment is not the only possible environment where Horizon
+  integration tests can be run. Various downstream distributions may also
+  want to run them. To ease the adoption of upstream tests to possibly
+  different conditions of a downstream gate environment, integration tests use
+  a configuration machinery backed by oslo.config library. It includes the
+  following pieces of knowledge:
+
+  * integration_tests/config.py file where all possible setting groups and
+    settings are defined along with their descriptions and defaults. If you are
+    going to add a new setting to Horizon integration tests, you should add it
+    first to this file.
+
+  * integration_tests/horizon.conf file - where all the overrides are
+    actually located. For clarity its contents mirrors the default values
+    in config.py (although technically they could be completely commented out
+    with the same result).
+
+  * To make developers' lives easier a local-only (not tracked by git)
+    counterpart of horizon.conf could exist at the same directory, named
+    'local-horizon.conf'. It is meant solely for overriding values from
+    horizon.conf that a developer's environment might differ from the gate
+    environment (like Horizon url or admin user password).
+
+* When integration tests are run by openstack-infra/devstack-gate scripts they
+  use 2 hooks to alter the devstack gate environment, namely pre_test_hook and
+  post_test_hook. Contents of both hooks are defined inside the corresponding
+  shell scripts located at 'tools/gate/integration' at the top-level of horizon
+  repo. If you find yourself asking which of the hooks you need to modify - pre
+  or post, keep the following things in mind.
+
+  * Pre hook is executed before the Devstack is deployed, that essentially
+    means that almost none of packages that are installed as OpenStack services
+    dependencies during Devstack deployment are going to be present in the
+    system. Yet all the repositories contained with `PROJECTS` variable defined
+    in `devstack-vm-gate-wrap.sh`_ script will be already cloned by the moment
+    pre hook is executed. So the natural use for it is to customize some Horizon
+    settings before they are used in operations like compressing statics etc.
+
+  * Post hook is executed after Devstack is deployed, so integration tests
+    themselves are run inside that hook, as well as various test artifacts
+    collection. When you modify it, do not forget to save the exit code of
+    a tox integration tests run and emit at the end of the script - or you may
+    lose the SUCCESS/FAILURE status of the whole tests suite and tamper with the
+    job results!
+
+.. _devstack-vm-gate-wrap.sh: https://github.com/openstack-infra/devstack-gate/blob/master/devstack-vm-gate-wrap.sh
+
+
+Writing integration tests for Horizon plugins
+---------------------------------------------
+
+There are 2 possible setups when running integration tests for Horizon plugins.
+
+The first setup, which is suggested to be used in gate of *-dashboard plugins
+is to get horizon as a dependency of a plugin and then run integration tests
+using horizon.conf config file inside the plugin repo. This way the plugin augments
+the location of Horizon built-in Page Objects with the location of its own
+Page Objects, contained within the `plugin_page_path` option and the Horizon
+built-in nav structure with its own nav structure contained within
+`plugin_page_structure`. Then the plugin integration tests are run against core
+Horizon augmented with just this particular plugin content.
+
+The second setup may be used when it is needed to run integration tests for
+Horizon + several plugins. In other words, content from several plugins is
+merged into core Horizon content, then the combined integration tests from core
+Horizon and all the involved plugins are run against the resulting dashboards.
+To make this possible both options `plugin_page_path` and
+`plugin_page_structure` have MultiStrOpt type. This means that they may be
+defined several times and all the specified values will be gathered in a list,
+which is iterated over when running integration tests. In this setup it's easier to
+run the tests from Horizon repo, using the horizon.conf file within it.
+
+Also keep in mind that `plugin_page_structure` needs to be a strict JSON
+string, w/o trailing commas etc.
