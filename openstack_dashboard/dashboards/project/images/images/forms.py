@@ -142,8 +142,11 @@ class CreateImageForm(forms.SelfHandlingForm):
                                     widget=forms.Select(attrs={
                                         'class': 'switchable',
                                         'ng-model': 'ctrl.diskFormat'}))
-    architecture = forms.CharField(max_length=255, label=_("Architecture"),
-                                   required=False)
+    architecture = forms.CharField(
+        max_length=255,
+        label=_("Architecture"),
+        help_text=_('CPU architecture of the image.'),
+        required=False)
     minimum_disk = forms.IntegerField(
         label=_("Minimum Disk (GB)"),
         min_value=0,
@@ -165,8 +168,14 @@ class CreateImageForm(forms.SelfHandlingForm):
             'class': 'switched',
             'data-source-url': _('Image Location'),
             'data-switch-on': 'source'}))
-    is_public = forms.BooleanField(label=_("Public"), required=False)
-    protected = forms.BooleanField(label=_("Protected"), required=False)
+    is_public = forms.BooleanField(
+        label=_("Public"),
+        help_text=_('Make the image visible across projects.'),
+        required=False)
+    protected = forms.BooleanField(
+        label=_("Protected"),
+        help_text=_('Prevent the deletion of the image.'),
+        required=False)
 
     def __init__(self, request, *args, **kwargs):
         super(CreateImageForm, self).__init__(request, *args, **kwargs)
