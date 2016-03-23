@@ -56,7 +56,7 @@
     var path = $windowProvider.$get().STATIC_URL + 'app/core/';
     $provide.constant('horizon.app.core.basePath', path);
     $routeProvider
-      .when('/details/:type/:path', {
+      .when('/project/ngdetails/:type/:path', {
         templateUrl: $windowProvider.$get().STATIC_URL +
           'framework/widgets/details/routed-details-view.html'
       })
