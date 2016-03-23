@@ -32,6 +32,7 @@
 
   ContainersModel.$inject = [
     'horizon.app.core.openstack-service-api.swift',
+    'horizon.framework.util.http.service',
     '$q'
   ];
 
@@ -44,7 +45,7 @@
    * interface. It is also the center point of communication
    * between the UI and services API.
    */
-  function ContainersModel(swiftAPI, $q) {
+  function ContainersModel(swiftAPI, apiService, $q) {
     var model = {
       info: {},           // swift installation information
       containers: [],     // all containers for this account
@@ -59,7 +60,12 @@
       fullPath: fullPath,
       fetchContainerDetail: fetchContainerDetail,
       deleteObject: deleteObject,
-      updateContainer: updateContainer
+      updateContainer: updateContainer,
+      recursiveCollect: recursiveCollect,
+      recursiveDelete: recursiveDelete,
+
+      _recursiveDeleteFiles: recursiveDeleteFiles,
+      _recursiveDeleteFolders: recursiveDeleteFolders
     };
 
     // keep a handle on this promise so that controllers can resolve on the
@@ -218,6 +224,151 @@
             }
           }
         });
+    }
+
+    /**
+     * @ngdoc method
+     * @name ContainersModel.recursiveCollect
+     * @returns {promise}
+     *
+     * @description
+     * Recursively collect the names of files and folders under a
+     * folder listing. Each item in the listing will be an object
+     * retrieved from swift's getObjects() call.
+     *
+     * The promise will resolve once the recursion is complete.
+     *
+     * The result array will be populated with file path strings
+     * or objects with folder name and another array of contents:
+     *
+     *     [
+     *       'file name',
+     *       'another file',
+     *       {
+     *         folder: 'path/of/folder',
+     *         tree: [
+     *           {
+     *             folder: 'path/of/folder/empty',
+     *             tree: []
+     *           },
+     *           'more files'
+     *         ]
+     *       }
+     *     ]
+     *
+     * The state object holds a count that should be updated for
+     * each file found, and a cancel sentinel that can be used to
+     * stop recursion.
+     *
+     * This is invoked by the DeleteObjectsModalController.
+     *
+     * This is intended to be a first step in recursive deletion.
+     */
+    function recursiveCollect(state, items, result) {
+      return $q.all(items.map(function each(item) {
+        if (item.is_object) {
+          state.counted.files++;
+          result.push(item.path);
+          return null;
+        } else {
+          var folder = {folder: item.path, tree: []};
+          if (state.cancel) {
+            return null;
+          }
+          result.push(folder);
+          state.counted.folders++;
+          var spec = {
+            delimiter: model.DELIMETER,
+            path: item.path + model.DELIMETER
+          };
+          return swiftAPI.getObjects(model.container.name, spec)
+            .then(function objects(response) {
+              return recursiveCollect(state, response.data.items, folder.tree);
+            });
+        }
+      }));
+    }
+
+    /**
+     * @ngdoc method
+     * @name ContainersModel.recursiveDelete
+     * @returns {promise}
+     *
+     * @description
+     * Recursively delete a tree of swift files, with "node" being
+     * the tree specification from recursiveCollect.
+     *
+     * The state object holds a delete counts that should be updated
+     * for each file/folder/failure deleted.
+     *
+     * We first delete all files and then delete the folders in a
+     * structured manner to avoid the "not empty" error.
+     *
+     * Note that we fire off all the deletes here; browsers automatically
+     * throttle HTTP calls for us.
+     */
+    function recursiveDelete(state, node) {
+      return model._recursiveDeleteFiles(state, node).then(function () {
+        return model._recursiveDeleteFolders(state, node);
+      });
+    }
+
+    // Just delete the files
+    function recursiveDeleteFiles(state, node) {
+      if (angular.isObject(node)) {
+        return $q.all(node.tree.map(function each(subnode) {
+          return recursiveDeleteFiles(state, subnode);
+        }));
+      } else {
+        return swiftAPI.deleteObject(model.container.name, node).then(
+          function done() { state.deleted.files++; });
+      }
+    }
+
+    // Just delete the folders, but do so "serially" so there's no chance
+    // of "not empty" conflict
+    // Note that we call through to the delete without the usual toast-on-error
+    function recursiveDeleteFolders(state, node) {
+      if (!angular.isObject(node)) {
+        return null;
+      }
+      if (!node.tree.length) {
+        return deleteFolder(node.folder);
+      }
+
+      function deleteFolder(folderName) {
+        if (angular.isUndefined(folderName)) {
+          return null;
+        }
+        var path = folderName + model.DELIMETER;
+        var url = swiftAPI.getObjectURL(model.container.name, path);
+        return apiService.delete(url).then(done, fail);
+
+        function done() {
+          state.deleted.folders++;
+        }
+
+        // custom error handling to ignore 404 for pseudo-folders that have been deleted
+        // because pseudo-folders gonna pseudo folder (in short, deleting a pseudo-folder
+        // a/b/c will *most likely* remove the pseudo-folders a and b from existence
+        // also).
+        function fail(response) {
+          if (response.status === 404) {
+            // the pseudo-folder this path belongs to has already been deleted
+            done();
+          } else {
+            // some other failure
+            state.deleted.failures++;
+          }
+        }
+      }
+
+      return $q.all(node.tree.map(function each(subnode) {
+        // first recurse so we do the leaves first
+        return recursiveDeleteFolders(state, subnode);
+      })).then(function then() {
+        return deleteFolder(node.folder);
+      });
     }
   }
 })();

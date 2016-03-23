@@ -121,43 +121,40 @@
   }
 
   deleteService.$inject = [
+    'horizon.dashboard.project.containers.basePath',
+    '$modal',
     'horizon.dashboard.project.containers.containers-model',
-    'horizon.framework.util.q.extensions',
-    'horizon.framework.widgets.modal.simple-modal.service',
-    'horizon.framework.widgets.toast.service'
+    'horizon.framework.util.q.extensions'
   ];
 
-  function deleteService(model, $qExtensions, simpleModalService, toastService) {
-    var service = {
+  function deleteService(basePath, $modal, model, $qExtensions) {
+    return {
       allowed: function allowed() {
         return $qExtensions.booleanAsPromise(true);
       },
       perform: function perform(file) {
-        var options = {
-          title: gettext('Confirm Delete'),
-          body: interpolate(
-            gettext('Are you sure you want to delete %(name)s?'), file, true
-          ),
-          submit: gettext('Yes'),
-          cancel: gettext('No')
+        var localSpec = {
+          backdrop: 'static',
+          controller: 'DeleteObjectsModalController as ctrl',
+          templateUrl: basePath + 'delete-objects-modal.html',
+          resolve: {
+            selected: function () {
+              return [{checked: true, file: file}];
+            }
+          }
         };
 
-        simpleModalService.modal(options).result.then(function confirmed() {
-          return service.deleteServiceAction(file);
+        return $modal.open(localSpec).result.then(function finished() {
+          // remove the deleted file/folder from display
+          for (var i = model.objects.length - 1; i >= 0; i--) {
+            if (model.objects[i].name === file.name) {
+              model.objects.splice(i, 1);
+              break;
+            }
+          }
+          model.updateContainer();
         });
-      },
-      deleteServiceAction: deleteServiceAction
+      }
     };
-
-    return service;
-
-    function deleteServiceAction(file) {
-      return model.deleteObject(file).then(function success() {
-        model.updateContainer();
-        return toastService.add('success', interpolate(
-          gettext('%(name)s deleted.'), {name: file.name}, true
-        ));
-      });
-    }
   }
 })();

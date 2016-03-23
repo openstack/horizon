@@ -142,8 +142,8 @@
         data.is_public = true;
       }
       return apiService.post(service.getContainerURL(container) + '/metadata/', data)
-        .error(function (response, status) {
-          if (status === 409) {
+        .error(function (response) {
+          if (response.status === 409) {
             toastService.add('error', response);
           } else {
             toastService.add('error', gettext('Unable to create the container.'));
@@ -264,8 +264,8 @@
       return apiService.delete(
         service.getObjectURL(container, objectName)
       )
-        .error(function (response, status) {
-          if (status === 409) {
+        .error(function (response) {
+          if (response.status === 409) {
             toastService.add('error', gettext(
               'Unable to delete the folder because it is not empty.'
             ));

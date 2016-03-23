@@ -36,7 +36,6 @@
     'horizon.dashboard.project.containers.basePath',
     'horizon.dashboard.project.containers.objects-row-actions',
     'horizon.framework.widgets.modal-wait-spinner.service',
-    'horizon.framework.widgets.modal.simple-modal.service',
     'horizon.framework.widgets.toast.service',
     '$modal',
     '$q',
@@ -44,7 +43,7 @@
   ];
 
   function ObjectsController(swiftAPI, containersModel, containerRoute, basePath, rowActions,
-                             modalWaitSpinnerService, simpleModalService, toastService,
+                             modalWaitSpinnerService, toastService,
                              $modal, $q, $routeParams)
   {
     var ctrl = this;
@@ -80,7 +79,6 @@
     ctrl.clearSelected = clearSelected;
     ctrl.toggleSelect = toggleSelect;
     ctrl.deleteSelected = deleteSelected;
-    ctrl.deleteSelectedAction = deleteSelectedAction;
     ctrl.createFolder = createFolder;
     ctrl.createFolderCallback = createFolderCallback;
     ctrl.getBreadcrumbs = getBreadcrumbs;
@@ -91,18 +89,10 @@
     //////////
 
     function anySelectable() {
-      for (var i = 0; i < ctrl.model.objects.length; i++) {
-        if (ctrl.model.objects[i].is_object) {
-          return true;
-        }
-      }
-      return false;
+      return ctrl.model.objects.length > 0;
     }
 
     function isSelected(file) {
-      if (!file.is_object) {
-        return false;
-      }
       var state = ctrl.selected[file.name];
       return angular.isDefined(state) && state.checked;
     }
@@ -110,10 +100,8 @@
     function selectAll() {
       ctrl.clearSelected();
       angular.forEach(ctrl.model.objects, function each(file) {
-        if (file.is_object) {
-          ctrl.selected[file.name] = {checked: true, file: file};
-          ctrl.numSelected++;
-        }
+        ctrl.selected[file.name] = {checked: true, file: file};
+        ctrl.numSelected++;
       });
     }
 
@@ -123,9 +111,6 @@
     }
 
     function toggleSelect(file) {
-      if (!file.is_object) {
-        return;
-      }
       var checkedState = !ctrl.isSelected(file);
       ctrl.selected[file.name] = {
         checked: checkedState,
@@ -155,37 +140,27 @@
     }
 
     function deleteSelected() {
-      var options = {
-        title: gettext('Confirm Delete'),
-        body: interpolate(
-          gettext('Are you sure you want to delete %(numSelected)s files?'),
-          ctrl, true
-        ),
-        submit: gettext('Yes'),
-        cancel: gettext('No')
+      var localSpec = {
+        backdrop: 'static',
+        controller: 'DeleteObjectsModalController as ctrl',
+        templateUrl: basePath + 'delete-objects-modal.html',
+        resolve: {
+          selected: function () {
+            return ctrl.selected;
+          }
+        }
       };
-      simpleModalService.modal(options).result.then(function confirmed() {
-        return ctrl.deleteSelectedAction();
-      });
-    }
 
-    function deleteSelectedAction() {
-      var promises = [];
-      angular.forEach(ctrl.selected, function deleteObject(item) {
-        promises.push(ctrl.model.deleteObject(item.file));
-      });
-      modalWaitSpinnerService.showModalSpinner(gettext("Deleting"));
-      function clean() {
-        modalWaitSpinnerService.hideModalSpinner();
+      // do the follow-up regardless of success or error
+      return $modal.open(localSpec).result.finally(function finished() {
+        // remove the checked files/folders from display
+        for (var i = ctrl.model.objects.length - 1; i >= 0; i--) {
+          if (ctrl.isSelected(ctrl.model.objects[i])) {
+            ctrl.model.objects.splice(i, 1);
+          }
+        }
         ctrl.clearSelected();
         ctrl.model.updateContainer();
-      }
-      $q.all(promises).then(function success() {
-        clean();
-        toastService.add('success', gettext('Deleted.'));
-      }, function fail() {
-        clean();
-        toastService.add('error', gettext('Failed to delete.'));
       });
     }
 
