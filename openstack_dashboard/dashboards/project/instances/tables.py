@@ -82,8 +82,6 @@ def is_deleting(instance):
 
 
 class DeleteInstance(policy.PolicyTargetMixin, tables.DeleteAction):
-    name = "delete"
-    classes = ("btn-danger",)
     policy_rules = (("compute", "compute:delete"),)
     help_text = _("Deleted instances are not recoverable.")
 
