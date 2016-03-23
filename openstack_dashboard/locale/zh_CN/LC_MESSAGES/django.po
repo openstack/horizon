@@ -12,11 +12,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2016-03-16 02:16+0000\n"
+"POT-Creation-Date: 2016-03-18 12:48+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2016-03-16 12:15+0000\n"
+"PO-Revision-Date: 2016-03-22 01:20+0000\n"
 "Last-Translator: vuuv <froms2008@gmail.com>\n"
 "Language-Team: Chinese (China)\n"
 "Language: zh-CN\n"
@@ -1185,6 +1185,10 @@ msgstr "可用域"
 msgid "Available"
 msgstr "可用配额"
 
+msgctxt "Current status of Consistency Group"
+msgid "Available"
+msgstr "可用"
+
 msgctxt "Current status of a Volume"
 msgid "Available"
 msgstr "可用配额"
@@ -1571,6 +1575,9 @@ msgstr "冲突规则"
 msgid "Connection Limit"
 msgstr "连接限制"
 
+msgid "Consistency Group Information"
+msgstr "一致性组信息"
+
 msgid "Console"
 msgstr "控制台"
 
@@ -1678,6 +1685,9 @@ msgstr "创建备份"
 msgctxt "current status of stack"
 msgid "Create Complete"
 msgstr "创建完成"
+
+msgid "Create Consistency Group"
+msgstr "创建一致性组"
 
 msgid "Create Container"
 msgstr "创建容器"
@@ -1863,6 +1873,9 @@ msgstr "创建云硬盘"
 
 msgid "Create Volume Backup"
 msgstr "创建一个卷备份"
+
+msgid "Create Volume Consistency Group"
+msgstr "创建卷一致性组"
 
 msgid "Create Volume Snapshot"
 msgstr "创建云硬盘快照"
@@ -2996,6 +3009,9 @@ msgstr "编辑"
 msgid "Edit Connection"
 msgstr "编辑连接"
 
+msgid "Edit Consistency Group"
+msgstr "编辑一致性组"
+
 msgid "Edit Consumer"
 msgstr "编辑消费者"
 
@@ -3262,6 +3278,10 @@ msgid ""
 msgstr ""
 "如果本地子网是IPv4，则等于或者大于68。如果本地子网是IPv6，则等于或大于1280。"
 
+msgid "Error"
+msgstr "错误"
+
+msgctxt "Current status of Consistency Group"
 msgid "Error"
 msgstr "错误"
 
@@ -4394,6 +4414,10 @@ msgid ""
 "checking the corresponding checkbox."
 msgstr "此外，你可以通过勾选相应的复选框来创建外部网络或者共享网络。"
 
+msgctxt "Current status of Consistency Group"
+msgid "In-use"
+msgstr "正在使用"
+
 msgctxt "Current status of a Volume"
 msgid "In-use"
 msgstr "正在使用"
@@ -4865,6 +4889,9 @@ msgstr "管理卷"
 
 msgid "Manage Volume Attachments"
 msgstr "管理已连接云硬盘"
+
+msgid "Manage Volumes"
+msgstr "管理卷"
 
 msgid "Manage a Volume"
 msgstr "管理一个卷"
@@ -8477,6 +8504,9 @@ msgstr "无法删除VIP %s"
 msgid "Unable to delete VPN Service. %s"
 msgstr "无法删除VPN服务 %s"
 
+msgid "Unable to delete consistency group."
+msgstr "无法删除一致性组"
+
 msgid "Unable to delete container."
 msgstr "无法删除容器。"
 
@@ -8568,6 +8598,9 @@ msgstr "无法获得云主机 \"%s\" 的VNC控制台"
 
 msgid "Unable to get cinder services list."
 msgstr "无法获取Cinder服务列表"
+
+msgid "Unable to get consistency group list"
+msgstr "无法获取一致性组列表"
 
 #, python-format
 msgid "Unable to get events for stack \"%s\"."
@@ -8817,6 +8850,9 @@ msgstr "无法获取计算节点信息。"
 
 msgid "Unable to retrieve compute limit information."
 msgstr "无法获取计算限制信息。"
+
+msgid "Unable to retrieve consistency group details."
+msgstr "无法获取一致性组详情。"
 
 msgid "Unable to retrieve container list."
 msgstr "无法检索容器列表。"
@@ -9249,6 +9285,9 @@ msgstr "无法获取版本信息"
 msgid "Unable to retrieve volume backups."
 msgstr "无法获取卷备份。"
 
+msgid "Unable to retrieve volume consistency groups."
+msgstr "无法获取卷一致性组。"
+
 msgid "Unable to retrieve volume details."
 msgstr "无法获取云硬盘详情"
 
@@ -9407,6 +9446,9 @@ msgstr "无法更新此用户。"
 
 msgid "Unable to update the volume type."
 msgstr "无法更新卷类型"
+
+msgid "Unable to update volume consistency group."
+msgstr "无法更新卷一致性组。"
 
 msgid "Unable to update volume snapshot status."
 msgstr "不能更新卷快照状态。"
@@ -9640,6 +9682,10 @@ msgstr "无法更新加密的卷类型: 还未实现此功能."
 #, python-format
 msgid "Updating volume \"%s\""
 msgstr "正在更新卷\"%s\""
+
+#, python-format
+msgid "Updating volume consistency group \"%s\""
+msgstr "正在更新卷一致性组\"%s\""
 
 #, python-format
 msgid "Updating volume snapshot \"%s\""
@@ -9917,6 +9963,9 @@ msgid ""
 "this service activated in order to create a backup."
 msgstr "卷备份使用的是对象存储服务。你必须激活这个对象存储服务才能创建备份。"
 
+msgid "Volume Consistency Groups"
+msgstr "卷一致性组"
+
 msgid "Volume Encryption Details"
 msgstr "存储卷加密详情"
 
@@ -9981,6 +10030,9 @@ msgstr "卷类型名称"
 
 msgid "Volume Type is Unencrypted."
 msgstr "卷类型没有加密。"
+
+msgid "Volume Type(s)"
+msgstr "卷类型（s）型（s）"
 
 #, python-format
 msgid "Volume Type: %(volume_type_name)s"
