@@ -13,7 +13,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2016-03-21 05:09+0000\n"
+"PO-Revision-Date: 2016-03-23 03:14+0000\n"
 "Last-Translator: Eric Baum <ecbaum@gmail.com>\n"
 "Language-Team: Portuguese (Brazil)\n"
 "Language: pt-BR\n"
@@ -377,6 +377,14 @@ msgstr[1] "Confirmar Exclusão de Imagens"
 msgid "Container"
 msgstr "Contêiner"
 
+#, python-format
+msgid "Container %(name)s created."
+msgstr "Contêiner %(name)s criado."
+
+#, python-format
+msgid "Container %(name)s deleted."
+msgstr "Contêiner %(name)s removido."
+
 msgid "Container Access"
 msgstr "Acesso ao Contêiner"
 
@@ -386,8 +394,14 @@ msgstr "Formato do Contêiner"
 msgid "Container Name"
 msgstr "Nome do Contêiner "
 
+msgid "Container name must not contain \"/\"."
+msgstr "O nome do contêiner não deve conter \"/\"."
+
 msgid "Containers"
 msgstr "Contêineres"
+
+msgid "Content Type"
+msgstr "Tipo de Conteúdo"
 
 msgid "Contextual alternatives"
 msgstr "Alternativas contextuais"
@@ -404,6 +418,9 @@ msgstr "Criar"
 
 msgid "Create Container"
 msgstr "Criar Contêiner "
+
+msgid "Create Folder"
+msgstr "Criar Pasta"
 
 msgid "Create Key Pair"
 msgstr "Criar par de chaves"
@@ -465,6 +482,9 @@ msgstr "Dados"
 msgid "Date"
 msgstr "Data"
 
+msgid "Date Created"
+msgstr "Data Criada"
+
 msgid "Datetime"
 msgstr "Data e hora"
 
@@ -477,6 +497,9 @@ msgstr "Botão Padrão"
 msgid "Default input"
 msgstr "Entrada padrão"
 
+msgid "Delete"
+msgstr "Remover"
+
 msgid "Delete Container"
 msgstr "Remover Contêiner"
 
@@ -487,6 +510,9 @@ msgstr[1] "Excluir Imagens"
 
 msgid "Delete Images"
 msgstr "Excluir Imagens"
+
+msgid "Delete Selection"
+msgstr "Remover Seleção"
 
 msgid "Delete Volume on Instance Delete"
 msgstr "Excluir Volume na Exclusão da Instância"
@@ -499,6 +525,9 @@ msgid "Deleted Image: %s."
 msgid_plural "Deleted Images: %s."
 msgstr[0] "Imagem Excluída: %s."
 msgstr[1] "Imagens Excluídas: %s."
+
+msgid "Deleted."
+msgstr "Removido."
 
 msgid "Deleting"
 msgstr "Deletando"
@@ -517,6 +546,9 @@ msgstr "Nome do Dispositivo"
 
 msgid "Dialogs"
 msgstr "Diálogos"
+
+msgid "Direct"
+msgstr "Direto"
 
 msgid "Direction"
 msgstr "Direção"
@@ -544,6 +576,9 @@ msgstr "ID do Domínio"
 
 msgid "Down"
 msgstr "Inativo"
+
+msgid "Download"
+msgstr "Baixar"
 
 msgid "Dropdown"
 msgstr "Dropdown"
@@ -588,6 +623,15 @@ msgstr "Extensão não está habilitada: %(extension)s"
 msgid "External Network"
 msgstr "Rede Externa"
 
+msgid "Failed to delete."
+msgstr "Falha ao Remover."
+
+msgid "File"
+msgstr "Arquivo"
+
+msgid "File Name"
+msgstr "Nome do Arquivo"
+
 msgid "Filename"
 msgstr "Nome do arquivo"
 
@@ -612,6 +656,9 @@ msgstr ""
 
 msgid "Focused input"
 msgstr "Entrada focada"
+
+msgid "Folder"
+msgstr "Pasta"
 
 msgid "Folder Name"
 msgstr "Nome da Pasta"
@@ -659,6 +706,9 @@ msgstr "Início"
 
 msgid "ID"
 msgstr "ID"
+
+msgid "IP"
+msgstr "IP"
 
 msgid "ISO"
 msgstr "ISO"
@@ -892,6 +942,9 @@ msgstr "Olha, eu estou em um poço pequeno!"
 msgid "Look, I'm in a well!"
 msgstr "Olha, eu estou em um poço!"
 
+msgid "MacVTap"
+msgstr "MacVTap"
+
 msgid "Manual"
 msgstr "Manual"
 
@@ -967,6 +1020,9 @@ msgstr "Monitor de Funcionamento de Rede"
 msgid "Network Health Monitors"
 msgstr "Monitores de Funcionamento de Rede"
 
+msgid "Network ID"
+msgstr "ID da Rede"
+
 msgid "Network Port"
 msgstr "Porta de Rede"
 
@@ -1006,6 +1062,9 @@ msgstr "Não"
 msgid "No available items"
 msgstr "Itens indisponíveis"
 
+msgid "Normal"
+msgstr "Normal"
+
 msgid "Note: you will not be able to download this later."
 msgstr "Nota: não será possível fazer download disso posteriormente."
 
@@ -1032,6 +1091,9 @@ msgstr "Contêineres de Objetos"
 
 msgid "Object Count"
 msgstr "Contagem de Objetos"
+
+msgid "Object Details"
+msgstr "Detalhes do Objeto"
 
 msgid "Objects"
 msgstr "Objetos"
@@ -1171,6 +1233,9 @@ msgstr ""
 msgid "Public"
 msgstr "Público"
 
+msgid "Public Access"
+msgstr "Acesso Público"
+
 msgid "Public Key"
 msgstr "Chave Pública"
 
@@ -1262,6 +1327,9 @@ msgstr ""
 msgid "Segmentation ID"
 msgstr "ID de Segmentação"
 
+msgid "Select All"
+msgstr "Selecione Todos"
+
 msgid "Select Boot Source"
 msgstr "Selecionar origem da Inicialização da Instância"
 
@@ -1295,6 +1363,9 @@ msgstr "Selecione um ou mais"
 msgid "Select one or more security groups from the available groups below."
 msgstr ""
 "Selecione um ou mais grupos de segurança dos grupos disponíveis abaixo."
+
+msgid "Select ports from those listed below."
+msgstr "Selecione portas dentre as listadas abaixo"
 
 msgid "Select the security groups to launch the instance in."
 msgstr "Selecione os grupos de segurança nos quais ativar a instância."
@@ -1906,6 +1977,12 @@ msgstr "Atualizado"
 msgid "Updated At"
 msgstr "Atualizado Em"
 
+msgid "Upload File"
+msgstr "Enviar Arquivo"
+
+msgid "Uploading"
+msgstr "Enviando"
+
 msgid "Url"
 msgstr "Url"
 
@@ -1932,6 +2009,12 @@ msgstr "VHD"
 
 msgid "VMDK"
 msgstr "VMDK"
+
+msgid "VNIC type"
+msgstr "Tipo de VNIC"
+
+msgid "View Details"
+msgstr "Ver Detalhes"
 
 msgid "Virtual Size"
 msgstr "Tamanho Virtual"
@@ -2071,6 +2154,9 @@ msgstr[1] "erros"
 
 msgid "image"
 msgstr "imagem"
+
+msgid "link"
+msgstr "caminho"
 
 msgid "message"
 msgid_plural "messages"

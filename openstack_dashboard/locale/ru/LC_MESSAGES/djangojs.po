@@ -15,8 +15,8 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2016-03-21 07:04+0000\n"
-"Last-Translator: Grigory Mokhin <mokhin@gmail.com>\n"
+"PO-Revision-Date: 2016-03-23 05:27+0000\n"
+"Last-Translator: Ilya Alekseyev <ilyaalekseyev@acm.org>\n"
 "Language-Team: Russian\n"
 "Language: ru\n"
 "X-Generator: Zanata 3.7.3\n"
@@ -29,6 +29,13 @@ msgstr "#"
 #, python-format
 msgid "%(name)s deleted."
 msgstr "%(name)s удален."
+
+#, python-format
+msgid "%s instance launched."
+msgid_plural "%s instances launched."
+msgstr[0] "%s экземпляр запущен."
+msgstr[1] "%s экземпляра запущено."
+msgstr[2] "%s экземпляров запущено."
 
 msgid "(None)"
 msgstr "(нет)"
@@ -56,6 +63,30 @@ msgstr "7"
 
 msgid "8"
 msgstr "8"
+
+msgid ""
+"<button></button>\n"
+"          <strong>Heads up!</strong>\n"
+"           This\n"
+"          <a>alert needs your attention</a>,\n"
+"           but it's not super important."
+msgstr ""
+"<button></button>\n"
+"          <strong>Внимание!</strong>\n"
+"           Это\n"
+"          <a>уведомление требует вмешательства</a>,\n"
+"           но в целом оно не является слишком важным."
+
+msgid ""
+"<button></button>\n"
+"          <strong>Oh snap!</strong>\n"
+"          <a>Change a few things up</a>\n"
+"          and try submitting again."
+msgstr ""
+"<button></button>\n"
+"          <strong>Ошибка!</strong>\n"
+"          <a>Исправьте ошибку</a>\n"
+"          и повторите попытку."
 
 msgid ""
 "<button></button>\n"
@@ -108,6 +139,16 @@ msgstr ""
 "загрузки.</li>"
 
 msgid ""
+"<li><b>Volume Snapshot</b>: This option uses a volume snapshot to boot the "
+"instance, and creates a new volume to persist instance data. You can choose "
+"to delete the volume on deletion of the instance.</li>"
+msgstr ""
+"<li><b>Моментальная копия тома</b>: для загрузки экземпляра используется "
+"моментальная копия тома, при этом создаётся новый том для хранения данных "
+"экземпляра. Можно указать, что том должен быть удален при удалении "
+"экземпляра.</li>"
+
+msgid ""
 "<li><b>Volume</b>: This option uses a volume that already exists. It does "
 "not create a new volume. You can choose to delete the volume on deletion of "
 "the instance. <em>Note: when selecting Volume, you can only launch one "
@@ -122,6 +163,29 @@ msgid "<small>This line of text is meant to be treated as fine print.</small>"
 msgstr ""
 "<small>Это строка текста предназначена для демонстрации мелкого шрифта</"
 "small>"
+
+msgid ""
+"A container is a storage compartment for your data and provides a way\n"
+"          for you to organize your data. You can think of a container as a\n"
+"          folder in Windows or a directory in UNIX. The primary difference\n"
+"          between a container and these other file system concepts is that\n"
+"          containers cannot be nested. You can, however, create an "
+"unlimited\n"
+"          number of containers within your account. Data must be stored in "
+"a\n"
+"          container so you must have at least one container defined in your\n"
+"          account prior to uploading data."
+msgstr ""
+"Контейнер - это способ хранения и организации данных. r\n"
+"         Контейнеры аналогичны папкам в Windows или каталогам в UNIX. r\n"
+"         Основное отличие между контейнером и указанными объектами r\n"
+"         файловых систем заключается в том, что контейнеры не могут быть r\n"
+"         вложенными. Можно создать неограниченное количество контейнеров r\n"
+"         для учётной записи. Данные сохраняются внутри контейнера, поэтому "
+"r\n"
+"         необходимо создать хотя бы один контейнер перед тем, как загружать "
+"r\n"
+"         данные."
 
 msgid ""
 "A floating IP allows instances to be addressable from an external network.\n"
@@ -168,6 +232,11 @@ msgstr ""
 
 msgid "A name is required for your instance."
 msgstr "Требуется указать имя инстанса."
+
+msgid "A port represents a virtual switch port on a logical network switch."
+msgstr ""
+"Порт представляет собой порт виртуального коммутатора на коммутаторе "
+"логической сети."
 
 msgid "AKI"
 msgstr "AKI"
@@ -278,8 +347,14 @@ msgstr "Кнопка уровня блока"
 msgid "Blockquotes"
 msgstr "Цитаты"
 
+msgid "Bordered Table"
+msgstr "Таблица с рамкой"
+
 msgid "Brand"
 msgstr "Бренд"
+
+msgid "Breadcrumbs"
+msgstr "Строки навигации"
 
 msgid "Button"
 msgstr "Кнопка"
@@ -305,6 +380,9 @@ msgstr ""
 "метаданные на специальный конфигурационный диск. При загрузке инстанса, к "
 "нему подключается <b>Конфигурационный диск</b> и предоставляется доступ к "
 "метаданным."
+
+msgid "Checkbox"
+msgstr "Флажок"
 
 msgid "Checksum"
 msgstr "Контрольная сумма"
@@ -336,6 +414,12 @@ msgstr "Конфигурация"
 
 msgid "Confirm Delete"
 msgstr "Подтвердите удаление"
+
+msgid "Confirm Delete Image"
+msgid_plural "Confirm Delete Images"
+msgstr[0] "Подтвердите удаление образа"
+msgstr[1] "Подтвердите удаление образов"
+msgstr[2] "Подтвердите удаление образов"
 
 msgid "Container"
 msgstr "Контейнер"
@@ -414,6 +498,9 @@ msgstr "Создано"
 msgid "Created keypair: "
 msgstr "Созданная пара ключей: "
 
+msgid "Creating"
+msgstr "Создание "
+
 msgid "Custom Properties"
 msgstr "Настраиваемые свойства"
 
@@ -462,11 +549,20 @@ msgstr "Значение по умолчанию"
 msgid "Default button"
 msgstr "Кнопка по умолчанию"
 
+msgid "Default input"
+msgstr "Ввод по умолчанию"
+
 msgid "Delete"
 msgstr "Удалить"
 
 msgid "Delete Container"
 msgstr "Удалить контейнер"
+
+msgid "Delete Image"
+msgid_plural "Delete Images"
+msgstr[0] "Удалить образ"
+msgstr[1] "Удалить образы"
+msgstr[2] "Удалить образы"
 
 msgid "Delete Images"
 msgstr "Удалить образы"
@@ -479,6 +575,13 @@ msgstr "Удалить диск при удалении инстанса"
 
 msgid "Deleted"
 msgstr "Удалено"
+
+#, python-format
+msgid "Deleted Image: %s."
+msgid_plural "Deleted Images: %s."
+msgstr[0] "Удалено образов: %s."
+msgstr[1] "Удалено образов: %s."
+msgstr[2] "Удалено образов: %s."
 
 msgid "Deleted."
 msgstr "Удалено."
@@ -504,6 +607,12 @@ msgstr "Диалоги"
 msgid "Direction"
 msgstr "Направление"
 
+msgid "Disabled input"
+msgstr "Неактивный элемент ввода"
+
+msgid "Disabled input here..."
+msgstr "Этот элемент деактивирован..."
+
 msgid "Disk Format"
 msgstr "Формат диска"
 
@@ -518,6 +627,9 @@ msgstr "ID домена"
 
 msgid "Down"
 msgstr "Выключен"
+
+msgid "Download"
+msgstr "Загрузить"
 
 msgid "Dropdown"
 msgstr "Выпадающий список"
@@ -568,6 +680,10 @@ msgstr "Ошибка удаления."
 msgid "File"
 msgstr "Файл"
 
+#, python-format
+msgid "File %(name)s uploaded."
+msgstr "Передан файл %(name)s."
+
 msgid "File Name"
 msgstr "Имя файла"
 
@@ -593,8 +709,15 @@ msgstr ""
 "Типы инстансов отвечают за количество выделяемой памяти, дисков и "
 "процессорной мощности для создаваемых инстансов."
 
+msgid "Focused input"
+msgstr "Активный элемент ввода"
+
 msgid "Folder"
 msgstr "Папка"
+
+#, python-format
+msgid "Folder %(name)s created."
+msgstr "Создана папка %(name)s."
 
 msgid "Folder Name"
 msgstr "Имя папки"
@@ -729,6 +852,21 @@ msgstr "Индикаторы"
 msgid "Info"
 msgstr "Информация"
 
+msgid "Input Sizes"
+msgstr "Размеры ввода"
+
+msgid "Input States"
+msgstr "Состояние элементов ввода"
+
+msgid "Input error"
+msgstr "Ошибка при вводе"
+
+msgid "Input success"
+msgstr "Успешный ввод"
+
+msgid "Input warning"
+msgstr "Предупреждение при вводе"
+
 msgid ""
 "Instance Name\n"
 "          <span></span>"
@@ -741,6 +879,16 @@ msgstr "Снимок инстанса"
 
 msgid "Instance count is required and must be an integer of at least 1"
 msgstr "Требуется указать количество инстансов (не менее 1)."
+
+msgid ""
+"Instance source is the template used to create an instance. You can use a "
+"snapshot of an existing instance, an image, or a volume (if enabled).\n"
+"      You can also choose to use persistent storage by creating a new volume."
+msgstr ""
+"Источник экземпляра - это шаблон, используемый при создании экземпляра. "
+"Можно использовать моментальную копию существующего экземпляра, образ или "
+"том (если это разрешено).\n"
+"      Также можно выбрать постоянный тип хранения, создав новый том."
 
 msgid "Insufficient privilege level to view user information."
 msgstr ""
@@ -764,6 +912,16 @@ msgstr "Пары ключей"
 
 msgid ""
 "Key Pairs are how you login to your instance after it is launched.\n"
+"      Choose a key pair name you will recognize and paste your SSH public "
+"key into the\n"
+"      space provided."
+msgstr ""
+"Пары ключей позволяют подключаться к экземпляру после его запуска.\n"
+"        Выберите легко узнаваемое имя для пары ключей и вставьте ваш \n"
+"        открытый ключ SSH в поле ниже."
+
+msgid ""
+"Key Pairs are how you login to your instance after it is launched.\n"
 "      Choose a key pair name you will recognize.\n"
 "      Names may only include alphanumeric characters, spaces, or dashes."
 msgstr ""
@@ -780,6 +938,9 @@ msgstr "Убито"
 
 msgid "Large button"
 msgstr "Большая кнопка"
+
+msgid "Large input"
+msgstr "Большой ввод"
 
 msgid "Launch"
 msgstr "Запустить"
@@ -829,6 +990,9 @@ msgstr "По порт"
 msgid "Members"
 msgstr "Участники"
 
+msgid "Messages"
+msgstr "Сообщения"
+
 msgid "Metadata"
 msgstr "Метаданные"
 
@@ -855,6 +1019,12 @@ msgstr "Мин. RAM"
 
 msgid "Min RAM (MB)"
 msgstr "Мин. размер ОЗУ (МБ)"
+
+msgid "Min. Disk"
+msgstr "Минимальный размер диска"
+
+msgid "Min. RAM"
+msgstr "Минимальный объем памяти"
 
 msgid "Mini button"
 msgstr "Микроскопическая кнопка"
@@ -916,6 +1086,30 @@ msgstr "Нет"
 msgid "No available items"
 msgstr "Нет доступных элементов"
 
+msgid ""
+"Note: A Public Container will allow anyone with the Public URL to\n"
+"          gain access to your objects in the container."
+msgstr ""
+"Примечание: общедоступный контейнер открывает доступ к объектам в r\n"
+"         контейнере любому пользователю, которому известен общедоступный URL."
+
+msgid ""
+"Note: Delimiters ('{$ ctrl.model.DELIMETER $}') are allowed in the\n"
+"          file name to place the new file into a folder that will be "
+"created\n"
+"          when the file is uploaded (to any depth of folders)."
+msgstr ""
+"Примечание: символы разделителя ('{$ ctrl.model.DELIMETER $}') в имени \n"
+"          файла позволяют размещать файлы в папке, которая будет создана r\n"
+"         после передачи файла на любом уровне структуры папок."
+
+msgid ""
+"Note: Delimiters ('{$ ctrl.model.DELIMETER $}') are allowed in the\n"
+"          folder name to create deep folders."
+msgstr ""
+"Примечание: символы разделителя ('{$ ctrl.model.DELIMETER $}') в имени \n"
+"          папки позволяют создавать многоуровневую структуру папок."
+
 msgid "Note: you will not be able to download this later."
 msgstr "Внимание: позднее загрузка будет недоступна."
 
@@ -927,6 +1121,12 @@ msgstr "OVA"
 
 msgid "Object"
 msgstr "Объект"
+
+msgid "Object Account"
+msgstr "Учетная запись объекта"
+
+msgid "Object Accounts"
+msgstr "Учетные записи объекта"
 
 msgid "Object Container"
 msgstr "Контейнер объекта"
@@ -945,6 +1145,15 @@ msgstr "Объекты"
 
 msgid "One more separated link"
 msgstr "Ещё одна отдельная ссылка"
+
+msgid "Option one is this"
+msgstr "Первый вариант"
+
+msgid "Option two can be something else"
+msgstr "Второй вариант, что-то другое"
+
+msgid "Other Input Types"
+msgstr "Другие типы элементов ввода"
 
 msgid "Overview"
 msgstr "Обзор"
@@ -987,6 +1196,16 @@ msgstr "Повторите попытку."
 
 msgid "Policy check failed."
 msgstr "Проверка политики не удалась."
+
+msgid "Ports can be created under a network by administrators."
+msgstr "Порты создаются в сети администраторами."
+
+msgid ""
+"Ports provide extra communication channels to your instances. You can select "
+"ports instead of networks or a mix of both."
+msgstr ""
+"Порты обеспечивают дополнительные каналы связи для экземпляров. Можно "
+"выбирать порты и (или) сети в любом сочетании."
 
 msgid "Primary"
 msgstr "Основной"
@@ -1056,6 +1275,9 @@ msgstr "RAW"
 
 msgid "RX/TX factor"
 msgstr "Фактор RX/TX"
+
+msgid "Radios"
+msgstr "Переключатель"
 
 msgid "Ramdisk ID"
 msgstr "ИД RAM-диска"
@@ -1152,6 +1374,9 @@ msgstr "Выберите одну или несколько"
 msgid "Select one or more security groups from the available groups below."
 msgstr "Выберите одну или более групп безопасности из доступных."
 
+msgid "Select ports from those listed below."
+msgstr "Выберите порты из списка."
+
 msgid "Select the security groups to launch the instance in."
 msgstr "Выберите группы защиты, в которых будет запущен экземпляр."
 
@@ -1175,6 +1400,9 @@ msgstr "Настройка не включена: %(setting)s"
 msgid "Shared"
 msgstr "Общая"
 
+msgid "Shared with Me"
+msgstr "Общие для меня"
+
 msgid "Size"
 msgstr "Размер"
 
@@ -1184,8 +1412,14 @@ msgstr "Размер (Гб)"
 msgid "Small button"
 msgstr "Маленькая кнопка"
 
+msgid "Small input"
+msgstr "Маленький ввод"
+
 msgid "Snapshot"
 msgstr "Снимок"
+
+msgid "Someone famous in"
+msgstr "Кто-то известный в"
 
 msgid "Something else here"
 msgstr "Какой-то текст"
@@ -1223,6 +1457,9 @@ msgstr "Диск подкачки"
 
 msgid "Tables"
 msgstr "Таблицы"
+
+msgid "Tabs"
+msgstr "Вкладки"
 
 msgid "Tags"
 msgstr "Теги"
@@ -1265,8 +1502,45 @@ msgid ""
 "%(maxInstanceCount)s instances"
 msgstr "Количество инстансов не должно превышать %(maxInstanceCount)s "
 
+msgid ""
+"The logical port also defines the MAC address and the IP address(es) to be "
+"assigned to the interfaces plugged into them."
+msgstr ""
+"Для логического порта также определены MAC-адрес и IP-адреса, присваиваемые "
+"связанным с ним интерфейсам."
+
+msgid ""
+"The maximum number of key-value pairs that can be supplied per instance is "
+"determined by the compute provider."
+msgstr ""
+"Максимальное количество пар ключ-значение для экземпляра зависит от "
+"поставщика модуля compute."
+
+#, python-format
+msgid ""
+"The selected %(sourceType)s source requires a flavor with at least "
+"%(minDisk)s GB of root disk. Select a flavor with a larger root disk or use "
+"a different %(sourceType)s source."
+msgstr ""
+"Для выбранного источника %(sourceType)s требуется разновидность с корневым "
+"диском размером не менее %(minDisk)s ГБ. Выберите разновидность с большим "
+"размером корневого диска или используйте другой источник %(sourceType)s."
+
+#, python-format
+msgid ""
+"The selected %(sourceType)s source requires a flavor with at least "
+"%(minRam)s MB of RAM. Select a flavor with more RAM or use a different "
+"%(sourceType)s source."
+msgstr ""
+"Для выбранного источника %(sourceType)s требуется разновидность с объемом "
+"памяти не менее %(minRam)s МБ. Выберите разновидность с большим объемом "
+"памяти или используйте другой источник %(sourceType)s."
+
 msgid "The status indicates whether the network has an active connection."
 msgstr "Статус показывает, есть ли активные подключения в данной сети."
+
+msgid "The status indicates whether the port has an active connection."
+msgstr "Состояние указывает, есть ли активные подключения у данного порта."
 
 msgid ""
 "The subnet identifies a sub-section of a network. A subnet is specified in "
@@ -1309,6 +1583,19 @@ msgstr ""
 "Данный тип инстанса требует больше vCPU, чем позволяет ваша квота. "
 "Пожалуйста, выберите тип инстанса с меньшим количеством vCPU или уменьшите "
 "количество инстансов."
+
+msgid "This is focused..."
+msgstr "Этот элемент активен..."
+
+msgid "This limit is currently not set."
+msgstr "Это предел пока не задан."
+
+msgid "This limit is currently set to {$ model.novaLimits.maxServerMeta $}."
+msgstr ""
+"В данной системе этот предел равен {$ model.novaLimits.maxServerMeta $}."
+
+msgid "This step allows you to add Metadata items to your instance."
+msgstr "На этом шаге в экземпляр можно добавить метаданные."
 
 msgid "Time"
 msgstr "Время"
@@ -1404,6 +1691,13 @@ msgstr "Не удалось создать пользователя."
 msgid "Unable to create the volume."
 msgstr "Не удалось создать диск."
 
+#, python-format
+msgid "Unable to delete Image: %s."
+msgid_plural "Unable to delete Images: %s."
+msgstr[0] "Не удалось удалить образ: %s."
+msgstr[1] "Не удалось удалить образы: %s."
+msgstr[2] "Не удалось удалить образы: %s."
+
 msgid "Unable to delete the container."
 msgstr "Не удаётся удалить контейнер."
 
@@ -1477,6 +1771,9 @@ msgstr "Не удалось получить каталог служб."
 
 msgid "Unable to fetch the services."
 msgstr "Не удалось получить сервисы."
+
+msgid "Unable to generate"
+msgstr "Не удалось создать"
 
 msgid "Unable to get details of the object."
 msgstr "Не удаётся получить сведения об объекте."
@@ -1686,6 +1983,9 @@ msgstr ""
 "Передать файл в: {$ ctrl.model.container.name $}\n"
 "    <span>: {$ ctrl.model.folder $}</span>"
 
+msgid "Uploading"
+msgstr "Передача данных"
+
 msgid "Url"
 msgstr "URL"
 
@@ -1716,8 +2016,14 @@ msgstr "VMDK"
 msgid "VNIC type"
 msgstr "Тип VNIC"
 
+msgid "View Details"
+msgstr "Показать сведения"
+
 msgid "Virtual Size"
 msgstr "Виртуальный размер"
+
+msgid "Virtual instances attach their interfaces to ports."
+msgstr "Виртуальные экземпляры связывают свои интерфейсы с портами."
 
 msgid "Visibility"
 msgstr "Видимость"
@@ -1787,6 +2093,14 @@ msgid "Week"
 msgstr "Неделя"
 
 msgid ""
+"When IP addresses are associated to a port, this also implies the port is "
+"associated with a subnet, as the IP address was taken from the allocation "
+"pool for a specific subnet."
+msgstr ""
+"Если порту присвоен IP-адрес, то порт также связан с подсетью, так как IP-"
+"адреса выделяются из пула адресов для подсети."
+
+msgid ""
 "When selecting volume as boot source, please ensure the instance's "
 "availability zone is compatible with your volume's availability zone."
 msgstr ""
@@ -1804,12 +2118,36 @@ msgstr ""
 "в <b>Выключено</b>\n"
 "    если вы не хотите, чтобы другие пользователи имели к ней доступ."
 
+msgid ""
+"When the <b>Admin State</b> for a port is set to <b>Up</b> and it has no "
+"<b>Device Owner</b>,\n"
+"    then the port is available for use. You can set the <b>Admin State</b> "
+"to <b>Down</b>\n"
+"    if you are not ready for other users to use the port."
+msgstr ""
+"Если <b>Адм. состояние</b> порта - <b>Включен</b> и для него не задан "
+"<b>Владелец устройства</b>,\n"
+"    то порт доступен для использования. Если <b>Адм. состояние</b> задано "
+"как <b>Выключен</b>,\n"
+"    то другим пользователям не разрешено использовать порт."
+
 msgid "Yes"
 msgstr "Да"
 
 #, python-format
 msgid "You are not allowed to delete images: %s"
 msgstr "Вам не разрешено удалять образы: %s"
+
+msgid ""
+"You can add arbitrary metadata to your instance so that you can more easily "
+"identify it among other running instances. Metadata is a collection of key-"
+"value pairs associated with an instance. The maximum length for each "
+"metadata key and value is 255 characters."
+msgstr ""
+"В экземпляр можно добавлять метаданные, чтобы отличать его от других "
+"работающих экземпляров. Метаданные указыватся в формате пар ключ-значение и "
+"связываются с экзмепляром. Максимальная длина для каждой пары ключ-значение "
+"составляет 255 символов."
 
 msgid ""
 "You can customize your instance after it has launched using the options "
@@ -1820,8 +2158,27 @@ msgstr ""
 "    \"Сценарий настройки\" - это аналог \"пользовательских данных\" в других "
 "системах."
 
+#, python-format
+msgid "You have selected \"%s\". Deleted image is not recoverable."
+msgid_plural "You have selected \"%s\". Deleted images are not recoverable."
+msgstr[0] "Выбрано образов: \"%s\". Восстановить удаленные образы невозможно."
+msgstr[1] "Выбрано образов: \"%s\". Восстановить удаленные образы невозможно."
+msgstr[2] "Выбрано образов: \"%s\". Восстановить удаленные образы невозможно."
+
+msgid "error"
+msgid_plural "errors"
+msgstr[0] "ошибка"
+msgstr[1] "ошибки"
+msgstr[2] "ошибок"
+
 msgid "image"
 msgstr "изображение"
+
+msgid "message"
+msgid_plural "messages"
+msgstr[0] "сообщение"
+msgstr[1] "сообщения"
+msgstr[2] "сообщений"
 
 msgid "snapshot"
 msgstr "моментальная копия"
