@@ -1,5 +1,6 @@
-<table ng-controller="horizon.app.core.images.table.ImagesController as table"
-       hz-table ng-cloak
+<div ng-controller="horizon.app.core.images.table.ImagesController as table">
+<hz-page-header header="{$ 'Images' | translate $}"></hz-page-header>
+<table hz-table ng-cloak
        st-table="table.images"
        st-safe-src="table.imagesSrc"
        default-sort="name"
@@ -73,7 +74,7 @@
            duration="200">
         </span>
       </td>
-      <td class="rsp-p1"><a ng-href="{$ table.detailsRoute + image.id $}">{$ image.name $}</a></td>
+      <td class="rsp-p1"><a ng-href="{$ 'project/ngdetails/' + table.imageResourceType.type + '/' + table.imageResourceType.pathGenerator(image.id) $}">{$ image.name $}</a></td>
       <td class="rsp-p1">{$ image | imageType $}</td>
       <td class="rsp-p1">{$ image.status | imageStatus $}</td>
       <td class="rsp-p2">{$ image.filtered_visibility $}</td>
@@ -159,3 +160,4 @@
   <tfoot hz-table-footer items="table.images"></tfoot>
 
 </table>
+</div>

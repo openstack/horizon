@@ -22,12 +22,18 @@
 
   controller.$inject = [
     'horizon.framework.conf.resource-type-registry.service',
+    'horizon.framework.util.actions.action-result.service',
+    'horizon.framework.widgets.modal-wait-spinner.service',
+    '$q',
     '$routeParams',
     '$rootScope'
   ];
 
   function controller(
     registry,
+    resultService,
+    spinnerService,
+    $q,
     $routeParams,
     $rootScope
   ) {
@@ -36,12 +42,36 @@
     ctrl.resourceType = registry.getResourceType($routeParams.type);
     ctrl.context = ctrl.resourceType.parsePath($routeParams.path);
     ctrl.context.loadPromise = ctrl.resourceType.load(ctrl.context.identifier);
-    ctrl.context.loadPromise.then(function loadData(response) {
+    ctrl.context.loadPromise.then(loadData);
+    ctrl.defaultTemplateUrl = registry.getDefaultDetailsTemplateUrl();
+    ctrl.resultHandler = actionResultHandler;
+
+    function actionResultHandler(returnValue) {
+      return $q.when(returnValue, actionSuccessHandler);
+    }
+
+    function loadData(response) {
+      spinnerService.hideModalSpinner();
+      ctrl.showDetails = true;
       registry.initActions($routeParams.type, $rootScope.$new());
       ctrl.itemData = response.data;
       ctrl.itemName = ctrl.resourceType.itemName(response.data);
-    });
-    ctrl.defaultTemplateUrl = registry.getDefaultDetailsTemplateUrl();
+    }
+
+    function actionSuccessHandler(result) {
+      // The action has completed (for whatever "complete" means to that
+      // action. Notice the view doesn't really need to know the semantics of the
+      // particular action because the actions return data in a standard form.
+      // That return includes the id and type of each created, updated, deleted
+      // and failed item.
+      // Currently just refreshes the display each time.
+      if (result) {
+        spinnerService.showModalSpinner(gettext('Please Wait'));
+        ctrl.showDetails = false;
+        ctrl.context.loadPromise = ctrl.resourceType.load(ctrl.context.identifier);
+        ctrl.context.loadPromise.then(loadData);
+      }
+    }
   }
 
 })();

@@ -1,4 +1,5 @@
 /*
+ * (c) Copyright 2016 Hewlett Packard Enterprise Development Company LP
  *
  * Licensed under the Apache License, Version 2.0 (the 'License');
  * you may not use this file except in compliance with the License.
@@ -17,48 +18,28 @@
 
   angular
     .module('horizon.app.core.images')
-    .controller('ImageDetailController', ImageDetailController);
+    .controller('ImageOverviewController', ImageOverviewController);
 
-  ImageDetailController.$inject = [
-    'horizon.app.core.images.tableRoute',
+  ImageOverviewController.$inject = [
     'horizon.app.core.images.resourceType',
-    'horizon.app.core.openstack-service-api.glance',
-    'horizon.app.core.openstack-service-api.keystone',
     'horizon.framework.conf.resource-type-registry.service',
-    '$routeParams'
+    '$scope'
   ];
 
-  function ImageDetailController(
-    tableRoute,
+  function ImageOverviewController(
     imageResourceTypeCode,
-    glanceAPI,
-    keystoneAPI,
     registry,
-    $routeParams
+    $scope
   ) {
     var ctrl = this;
 
     ctrl.image = {};
-    ctrl.project = {};
-    ctrl.hasCustomProperties = false;
-    ctrl.tableRoute = tableRoute;
     ctrl.resourceType = registry.getResourceType(imageResourceTypeCode);
 
-    var imageId = $routeParams.imageId;
-
-    init();
-
-    function init() {
-      // Load the elements that are used in the overview.
-      glanceAPI.getImage(imageId).success(onGetImage);
-
-      ctrl.hasCustomProperties =
-        angular.isDefined(ctrl.image) &&
-        angular.isDefined(ctrl.image.properties);
-    }
+    $scope.context.loadPromise.then(onGetImage);
 
     function onGetImage(image) {
-      ctrl.image = image;
+      ctrl.image = image.data;
 
       ctrl.image.properties = Object.keys(ctrl.image.properties).map(function mapProps(prop) {
         return {name: prop, value: ctrl.image.properties[prop]};

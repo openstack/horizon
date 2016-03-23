@@ -18,10 +18,11 @@
   'use strict';
 
   describe('RoutedDetailsViewController', function() {
-    var ctrl, deferred, $timeout;
+    var ctrl, deferred, $timeout, $q, actionResultService;
 
     beforeEach(module('horizon.framework.widgets.details'));
-    beforeEach(inject(function($injector, $controller, $q, _$timeout_) {
+    beforeEach(inject(function($injector, $controller, _$q_, _$timeout_) {
+      $q = _$q_;
       deferred = $q.defer();
       $timeout = _$timeout_;
 
@@ -35,8 +36,17 @@
         initActions: angular.noop
       };
 
+      actionResultService = {
+        getIdsOfType: function() { return []; }
+      };
+
       ctrl = $controller("RoutedDetailsViewController", {
         'horizon.framework.conf.resource-type-registry.service': service,
+        'horizon.framework.util.actions.action-result.service': actionResultService,
+        'horizon.framework.widgets.modal-wait-spinner.service': {
+          showModalSpinner: angular.noop,
+          hideModalSpinner: angular.noop
+        },
         '$routeParams': {
           type: 'OS::Glance::Image',
           path: '1234'
@@ -64,6 +74,36 @@
       expect(ctrl.itemData).toBeUndefined();
       $timeout.flush();
       expect(ctrl.itemName).toEqual('A name');
+    });
+
+    describe('resultHandler', function() {
+
+      it('handles empty results', function() {
+        var result = $q.defer();
+        result.resolve({});
+        ctrl.resultHandler(result.promise);
+        $timeout.flush();
+        expect(ctrl.showDetails).not.toBe(true);
+      });
+
+      it('handles falsy results', function() {
+        var result = $q.defer();
+        result.resolve(false);
+        ctrl.resultHandler(result.promise);
+        $timeout.flush();
+        expect(ctrl.showDetails).not.toBe(true);
+      });
+
+      it('handles matched results', function() {
+        spyOn(actionResultService, 'getIdsOfType').and.returnValue([1, 2, 3]);
+        var result = $q.defer();
+        result.resolve({some: 'thing'});
+        ctrl.resultHandler(result.promise);
+        deferred.resolve({data: {some: 'data'}});
+        $timeout.flush();
+        expect(ctrl.showDetails).toBe(true);
+      });
+
     });
   });
 

@@ -16,4 +16,4 @@ from django.views import generic
 
 
 class IndexView(generic.TemplateView):
-    template_name = 'project/ngimages/index.html'
+    template_name = 'angular.html'

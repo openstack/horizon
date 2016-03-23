@@ -26,7 +26,11 @@
    * to support and display images related content.
    */
   angular
-    .module('horizon.app.core.images', ['ngRoute', 'horizon.app.core.images.actions'])
+    .module('horizon.app.core.images', [
+      'ngRoute',
+      'horizon.app.core.images.actions',
+      'horizon.app.core.images.details'
+    ])
     .constant('horizon.app.core.images.events', events())
     .constant('horizon.app.core.images.non_bootable_image_types', ['aki', 'ari'])
     .constant('horizon.app.core.images.validationRules', validationRules())

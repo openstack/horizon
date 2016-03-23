@@ -1,0 +1,62 @@
+<div ng-controller="ImageOverviewController as ctrl">
+  <div class="row">
+    <div class="col-md-6 detail">
+      <h3 translate>Image</h3>
+      <hr>
+      <dl class="dl-horizontal">
+        <dt translate>Type</dt>
+        <dd>{$ ctrl.image | imageType $}</dd>
+        <dt translate>Filename</dt>
+        <dd>{$ ctrl.image.properties.filename $}</dd>
+        <dt translate>Status</dt>
+        <dd>{$ ctrl.image.status $}</dd>
+        <dt translate>Size</dt>
+        <dd>{$ ctrl.image.size | bytes $}</dd>
+        <dt translate>Min. Disk</dt>
+        <dd>{$ ctrl.image.min_disk | gb $}</dd>
+        <dt translate>Min. RAM</dt>
+        <dd>{$ ctrl.image.min_ram | mb $}</dd>
+        <dt translate>Disk Format</dt>
+        <dd>{$ ctrl.image.disk_format | uppercase $}</dd>
+        <dt translate>Container Format</dt>
+        <dd>{$ ctrl.image.container_format | uppercase $}</dd>
+      </dl>
+    </div>
+    <div class="col-md-6 detail">
+      <h3>{$ 'Security' | translate $}</h3>
+      <hr>
+      <dl class="dl-horizontal">
+        <dt translate>Visibility</dt>
+        <dd>{$ ctrl.image | imageVisibility $}</dd>
+        <dt translate>Protected</dt>
+        <dd>{$ ctrl.image.protected | yesno $}</dd>
+        <dt translate>Checksum</dt>
+        <dd>{$ ctrl.image.checksum $}</dd>
+      </dl>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-6 detail">
+      <h3 translate>Record Properties</h3>
+      <hr>
+      <dl class="dl-horizontal">
+        <dt translate>Created</dt>
+        <dd>{$ ctrl.image.created_at | date:'short' $}</dd>
+        <dt translate>Updated</dt>
+        <dd>{$ ctrl.image.updated_at | date:'short' $}</dd>
+        <dt translate>ID</dt>
+        <dd>{$ ctrl.image.id $}</dd>
+      </dl>
+    </div>
+    <div class="col-md-6 detail">
+      <h3 translate>Custom Properties</h3>
+      <hr>
+      <dl class="dl-horizontal">
+        <div ng-repeat="prop in ctrl.image.properties">
+          <dt data-toggle="tooltip" title="{$ prop.name $}">{$ ctrl.resourceType.label(prop.name) $}</dt>
+          <dd>{$ ctrl.resourceType.format(prop.name, prop.value) $}</dd>
+        </div>
+      </dl>
+    </div>
+  </div>
+</div>
