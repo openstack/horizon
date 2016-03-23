@@ -1,7 +1,7 @@
 <div class="modal-header">
-  <a href="" class="close" ng-click="$dismiss()">
-    <span class="fa fa-times"></span>
-  </a>
+  <button type="button" class="close" ng-click="$dismiss()" aria-hidden="true" aria-label="Close">
+    <span aria-hidden="true" class="fa fa-times"></span>
+  </button>
   <div class="h3 modal-title" translate>
     Upload File To: {$ ctrl.model.container.name $}
     <span ng-if="ctrl.model.folder">: {$ ctrl.model.folder $}</span>
