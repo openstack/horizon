@@ -77,7 +77,6 @@
     });
 
     it('should set table and detail path', function() {
-      expect($routeProvider.when.calls.count()).toEqual(2);
       var imagesRouteCallArgs = $routeProvider.when.calls.argsFor(0);
       expect(imagesRouteCallArgs).toEqual([
         '/project/ngimages/', {templateUrl: staticUrl + 'app/core/images/table/images-table.html'}
@@ -102,5 +101,4 @@
       expect(Object.keys(imageFormats).length).toEqual(11);
     });
   });
-
 })();

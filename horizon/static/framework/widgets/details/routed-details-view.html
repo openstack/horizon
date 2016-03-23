@@ -1,0 +1,23 @@
+<div ng-controller="RoutedDetailsViewController as ctrl">
+
+  <div class="page-header">
+    <ol class="breadcrumb">
+      <li><a href="javascript:history.back()">Back</a></li>
+    </ol>
+    <div class="row">
+      <div class="col-xs-12 col-sm-9 text-left">
+        <span class="h1">{$ ctrl.itemName $}</span>
+      </div>
+
+      <div class="col-xs-12 col-sm-3 text-right details-item-actions" ng-if="ctrl.itemData">
+        <actions allowed="ctrl.resourceType.itemActions" type="row" item="ctrl.itemData"></actions>
+      </div>
+    </div>
+  </div>
+  <hz-details
+     views="ctrl.resourceType.detailsViews"
+     context="ctrl.context"
+     default-template-url="ctrl.defaultTemplateUrl"
+  ></hz-details>
+</div>
+

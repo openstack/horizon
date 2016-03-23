@@ -1,0 +1,13 @@
+<div ng-if="views.length > 1">
+  <tabset class="tabset-details">
+    <tab class="tab-details" ng-repeat="view in views" heading="{$ view.name $}">
+      <ng-include src="view.template"></ng-include>
+    </tab>
+  </tabset>
+</div>
+<div ng-if="views.length === 1">
+  <ng-include src="views[0].template"></ng-include>
+</div>
+<div ng-if="views.length === 0">
+  <ng-include src="defaultTemplateUrl"></ng-include>
+</div>

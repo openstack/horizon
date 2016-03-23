@@ -1,0 +1,26 @@
+---
+prelude: >
+    A Details page for a resource type (e.g. Images)
+    may now use the Angular application-level registry
+    to register views so developers may easily create
+    or extend details views. In this implementation
+    these views are presented as tabs within the
+    Details page.
+features:
+  - A directive (hz-details) provides the ability to
+    intelligently display a set of views (typically for
+    a Details context).
+  - A generic Details display parses the location to
+    determine the resource type, and displays relevant
+    details views for that type.
+  - A Descriptor concept allows convenient passing of
+    information that can globally identify an object,
+    for use in generic views and actions.
+  - Horizon now has a (non-navigational) route in Django
+    so generic details pages are deep-linked.
+  - A shared Django template is now available for use by
+    any Angular page.
+upgrade:
+  - (optional) Use the common Angular template as the
+    basis of any Angular pages to minimize boilerplate code
+    and to ensure that we use similar features/framing.
