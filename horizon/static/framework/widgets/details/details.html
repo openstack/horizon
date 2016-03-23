@@ -1,0 +1,10 @@
+<div ng-if="detailsViews.length > 1">
+  <tabset class="tabset-details">
+    <tab class="tab-details" ng-repeat="detailsView in detailsViews" heading="{$ detailsView.name $}">
+      <ng-include src="detailsView.template"></ng-include>
+    </tab>
+  </tabset>
+</div>
+<div ng-if="detailsViews.length === 1">
+  <ng-include src="detailsViews[0].template"></ng-include>
+</div>
