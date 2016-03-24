@@ -103,7 +103,7 @@ horizon.datatables = {
               // problem with not-working angular actions in a content added
               // by jQuery via replacing jQuery insert with Angular insert.
               // Should address this in Newton release
-              recompileAngularContent();
+              recompileAngularContent($table);
 
               // Reset tablesorter's data cache.
               $table.trigger("update");
@@ -450,7 +450,7 @@ horizon.datatables.add_no_results_row = function (table) {
   // Add a "no results" row if there are no results.
   var template = horizon.templates.compiled_templates["#empty_row_template"];
   if (!table.find("tbody tr:visible").length && typeof(template) !== "undefined") {
-    var colspan = $table.find('.table_column_header th').length;
+    var colspan = table.find('.table_column_header th').length;
     var params = {
         "colspan": colspan,
         no_items_label: gettext("No items to display.")

@@ -77,14 +77,16 @@
   function run($window, $rootScope) {
     $window.recompileAngularContent = recompileAngularContent;
 
-    function recompileAngularContent() {
-      var body = angular.element('body');
-
+    function recompileAngularContent($element) {
       function explicit($compile) {
-        $compile(body)($rootScope);
+        // NOTE(tsufiev): recompiling elements with ng-click directive spawns
+        // a new 'click' handler even if there were some, so we need to cleanup
+        // existing handlers before doing this.
+        $element.find('[ng-click]').off('click');
+        $compile($element)($rootScope);
       }
       explicit.$inject = ['$compile'];
-      body.injector().invoke(explicit);
+      $element.injector().invoke(explicit);
     }
   }
 
