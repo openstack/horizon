@@ -18,8 +18,8 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2016-03-23 01:55+0000\n"
-"Last-Translator: qingszhao <zdqyuqing@163.com>\n"
+"PO-Revision-Date: 2016-03-23 04:01+0000\n"
+"Last-Translator: vuuv <froms2008@gmail.com>\n"
 "Language-Team: Chinese (China)\n"
 "Language: zh-CN\n"
 "X-Generator: Zanata 3.7.3\n"
@@ -458,7 +458,7 @@ msgstr "%s 云主机"
 
 #, python-format
 msgid "%sGB"
-msgstr "%sGB"
+msgstr "%s GB"
 
 #, python-format
 msgid "%sGiB"
@@ -580,11 +580,11 @@ msgstr "允许 %(ethertype)s %(proto_port)s %(direction)s %(remote)s"
 
 #, python-format
 msgid "ALLOW %(from)s:%(to)s/%(ip_protocol)s from %(cidr)s"
-msgstr "允许 %(from)s:%(to)s/%(ip_protocol)s 访问 %(cidr)s"
+msgstr "允许 %(cidr)s 访问 %(from)s:%(to)s/%(ip_protocol)s"
 
 #, python-format
 msgid "ALLOW %(from)s:%(to)s/%(ip_protocol)s from %(group)s"
-msgstr "允许%(group)s访问%(from)s:%(to)s/%(ip_protocol)s"
+msgstr "允许 %(group)s 访问 %(from)s:%(to)s/%(ip_protocol)s"
 
 msgid "AMI - Amazon Machine Image"
 msgstr "AMI - Amazon  Machine 镜像"
@@ -682,8 +682,8 @@ msgid ""
 "Actual device name may differ due to hypervisor settings. If not specified, "
 "then hypervisor will select a device name."
 msgstr ""
-"由于管理程序配置，实际设备名称可能不同。如果没有指定，那么管理程序会选择一个"
-"设备名称。"
+"实际设备名称受虚拟机管理器配置的影响可能不同。如果没有指定，那么管理程序会选"
+"择一个设备名称。"
 
 msgid "Add"
 msgstr "添加"
@@ -805,10 +805,10 @@ msgstr "从可用的安全组中增加和删除"
 msgid ""
 "Add hosts to this aggregate or remove hosts from it. Hosts can be in "
 "multiple aggregates."
-msgstr "将主机添加到这个聚合，或者从聚合中删除主机。主机可以存在于多个聚合中。"
+msgstr "将主机添加到这个聚合，或者从聚合中删除。主机可以存在于多个聚合中。"
 
 msgid "Add hosts to this aggregate. Hosts can be in multiple aggregates."
-msgstr "增加主机到这个集合。主机可以加入多个集合。"
+msgstr "增加主机到这个聚合。主机可以加入多个聚合。"
 
 msgid ""
 "Add member(s) to the selected pool.\n"
@@ -847,7 +847,7 @@ msgid "Add/Remove Consistency Group Volumes"
 msgstr "添加/删除一致性组云硬盘"
 
 msgid "Add/Remove Hosts to Aggregate"
-msgstr "添加/删除集合中的主机"
+msgstr "添加/删除聚合中的主机"
 
 msgid ""
 "Add/remove volumes to/from this consistency group. Only volumes associated "
@@ -983,7 +983,7 @@ msgid "All Groups"
 msgstr "全部组"
 
 msgid "All Hypervisors"
-msgstr "所有云主机管理器"
+msgstr "全部的虚拟机管理器"
 
 msgid "All ICMP"
 msgstr "所有ICMP协议"
@@ -1042,7 +1042,9 @@ msgstr "分配到的浮动IP %(ip)s。"
 msgid ""
 "Allocates requests to the instance with the least number of\n"
 "          active connections."
-msgstr "分发请求给最小活跃连接的实例"
+msgstr ""
+"分发请求给活跃连接最少的\n"
+"实例"
 
 msgid "Allocation Pools"
 msgstr "分配地址池"
@@ -1700,10 +1702,10 @@ msgstr "在keystone中无法找到默认角色\"%s\""
 
 #, python-format
 msgid "Couldn't get current security group list for instance %s."
-msgstr "无法为云主机%s获得当前安全组列表"
+msgstr "无法获取云主机 %s 当前的安全组列表"
 
 msgid "Couldn't get security group list."
-msgstr "无法获得安全组列表。"
+msgstr "无法获取安全组列表。"
 
 msgctxt "Power state of an Instance"
 msgid "Crashed"
@@ -1755,7 +1757,7 @@ msgid "Create Group"
 msgstr "创建组"
 
 msgid "Create Host Aggregate"
-msgstr "创建主机集合"
+msgstr "创建主机聚合"
 
 msgid ""
 "Create IKE Policy for current project.\n"
@@ -2130,7 +2132,7 @@ msgstr "云主机类型 \"%s\" 创建完毕。"
 
 #, python-format
 msgid "Created new host aggregate \"%s\"."
-msgstr "已创建新的主机集合 \"%s\"."
+msgstr "已创建新的主机聚合 \"%s\"."
 
 #, python-format
 msgid "Created new project \"%s\"."
@@ -2881,7 +2883,7 @@ msgstr[0] "已禁用的用户"
 
 #, python-format
 msgid "Disabled compute service for host: %s."
-msgstr "关闭主机：%s 上的计算服务。"
+msgstr "关闭主机 %s 上的计算服务。"
 
 msgid "Disassociate"
 msgstr "解除绑定"
@@ -3085,7 +3087,7 @@ msgid "Edit Group"
 msgstr "编辑组"
 
 msgid "Edit Host Aggregate"
-msgstr "编辑主机集合"
+msgstr "编辑主机聚合"
 
 msgid "Edit IKE Policy"
 msgstr "编辑IKE策略"
@@ -3185,8 +3187,8 @@ msgid ""
 "Edit the flavor details. Flavors define the sizes for RAM, disk, number of "
 "cores, and other resources. Flavors are selected when users deploy instances."
 msgstr ""
-"编辑云主机类型的详细信息。云主机类型定义RAM和磁盘的大小、核数，以及其他资源，"
-"在用户部署云主机的时候使用。"
+"编辑云主机类型详情。云主机类型定义了RAM和磁盘的大小、CPU数，以及其他资源，用"
+"户在部署云主机的时候可选用。"
 
 msgid "Edit the identity provider's details."
 msgstr "编辑身份提供者详细信息。"
@@ -3404,7 +3406,7 @@ msgid "Error Restoring"
 msgstr "错误修复中..."
 
 msgid "Error adding Hosts to the aggregate."
-msgstr "向集合中添加主机出现错误."
+msgstr "向聚合中添加主机时出错."
 
 msgctxt "Current status of a Volume"
 msgid "Error deleting"
@@ -3427,7 +3429,7 @@ msgid "Error updating resource types for namespace %s."
 msgstr "更新命名空间%s的资源类型出错。"
 
 msgid "Error when adding or removing hosts."
-msgstr "增加或删除主机时错误"
+msgstr "增加或删除主机时出错"
 
 #, python-format
 msgid "Error writing zipfile: %(exc)s"
@@ -3572,7 +3574,7 @@ msgstr "无法添加接口：%s"
 
 #, python-format
 msgid "Failed to check Neutron '%s' extension is not supported"
-msgstr "检查Neutron '%s'失败，扩展不被支持。"
+msgstr "无法检查不支持的Neutron扩展 ‘%s’。"
 
 msgid "Failed to check if Neutron extraroute extension is supported"
 msgstr "检查失败如果Neutron支持额外路由扩展"
@@ -3628,7 +3630,7 @@ msgstr "删除子网%s失败"
 
 #, python-format
 msgid "Failed to disable compute service for host: %s."
-msgstr "关闭主机：%s 上的计算服务失败。"
+msgstr "关闭主机 %s 上的计算服务失败。"
 
 #, python-format
 msgid "Failed to evacuate host: %s."
@@ -3636,7 +3638,7 @@ msgstr "无法疏散主机: %s."
 
 #, python-format
 msgid "Failed to evacuate instances: %s"
-msgstr "疏散云主机 %s 失败"
+msgstr "云主机疏散失败： %s"
 
 #, python-format
 msgid "Failed to get mapping list %s"
@@ -3670,7 +3672,7 @@ msgstr "迁移主机 \"%s\" 失败。"
 
 #, python-format
 msgid "Failed to migrate instances: %s"
-msgstr "迁移云主机 %s 失败"
+msgstr "云主机冷迁移失败： %s"
 
 msgid "Failed to migrate volume."
 msgstr "迁移云硬盘失败"
@@ -3678,7 +3680,7 @@ msgstr "迁移云硬盘失败"
 #, python-format
 msgid ""
 "Failed to modify %(num_groups_to_modify)d instance security groups: %(err)s"
-msgstr "修改 %(num_groups_to_modify)d 云主机安全组失败: %(err)s"
+msgstr "修改 %(num_groups_to_modify)d 个云主机安全组失败: %(err)s"
 
 #, python-format
 msgid ""
@@ -3688,7 +3690,7 @@ msgstr "无法修改 %(users_to_modify)s 项目成员%(group_msg)s 并更新项�
 
 #, python-format
 msgid "Failed to modify %d instance security groups"
-msgstr "修改 %d 云主机安全组失败"
+msgstr "修改 %d 个云主机安全组失败"
 
 #, python-format
 msgid "Failed to modify %s domain groups."
@@ -3813,7 +3815,7 @@ msgid "False"
 msgstr "False"
 
 msgid "Fan RPM"
-msgstr "风扇转速"
+msgstr "风扇转速（RPM）"
 
 msgid "Fault"
 msgstr "故障"
@@ -3871,7 +3873,7 @@ msgid "Flavor"
 msgstr "云主机类型"
 
 msgid "Flavor Access"
-msgstr "云主机类型访问"
+msgstr "云主机类型使用权"
 
 msgid "Flavor Choice"
 msgstr "云主机类型选择"
@@ -3893,11 +3895,11 @@ msgid ""
 "Flavor ID should be UUID4 or integer. Leave this field blank or use 'auto' "
 "to set a random UUID4."
 msgstr ""
-"云主机模板ID应当为UUID4或者整数值。不要填写这一部分，或者使用'auto'来设置一个"
-"随机的UUID4值。"
+"云主机类型ID应当为UUID4或者整数值。留空或者使用'auto'来设置一个随机的UUID4"
+"值。"
 
 msgid "Flavor Information"
-msgstr "主机类型信息"
+msgstr "云主机类型信息"
 
 msgid "Flavor Name"
 msgstr "云主机类型名称"
@@ -3909,8 +3911,8 @@ msgid ""
 "Flavors define the sizes for RAM, disk, number of cores, and other resources "
 "and can be selected when users deploy instances."
 msgstr ""
-"云主机类型定义RAM和磁盘的大小、核数，以及其他资源，在用户部署云主机的时候使"
-"用。"
+"云主机类型定义了RAM和磁盘的大小、CPU数，以及其他资源，用户在部署云主机的时候"
+"可选用。"
 
 msgid "Floating IP"
 msgstr "浮动IP"
@@ -3998,7 +4000,7 @@ msgid "From here you can create a snapshot of a volume."
 msgstr "为一个云硬盘创建一个快照"
 
 msgid "From here you can update the default quotas (max limits)."
-msgstr "在这里你可以更新默认配额(最大值)。"
+msgstr "在这里你可以更新默认配额(上限)。"
 
 msgid "From:"
 msgstr "从："
@@ -4135,10 +4137,10 @@ msgid "Host ="
 msgstr "主机 ="
 
 msgid "Host Aggregate Information"
-msgstr "宿主机集合信息"
+msgstr "主机聚合信息"
 
 msgid "Host Aggregates"
-msgstr "主机集合"
+msgstr "主机聚合"
 
 msgid "Host Routes"
 msgstr "主机路由"
@@ -4154,15 +4156,15 @@ msgid ""
 "together hosts. Create a host aggregate then select the hosts contained in "
 "it."
 msgstr ""
-"主机聚合通过将主机组合来把可用区域划分成逻辑单元。创建一个主机聚合，然后选择"
-"它里面的主机。"
+"主机聚合通过将主机组合到一起来把可用区域划分成逻辑单元。创建一个主机聚合，然"
+"后选择要放里面的主机。"
 
 msgid ""
 "Host aggregates divide an availability zone into logical units by grouping "
 "together hosts. Edit the aggregate host to select hosts contained in it."
 msgstr ""
-"主机聚合通过将主机组合来把可用区域划分成逻辑单元。编辑主机聚合，选择它里面的"
-"主机。"
+"主机聚合通过将主机组合到一起来把可用区域划分成逻辑单元。编辑主机聚合，然后选"
+"择里面的主机。"
 
 msgid "Hostname"
 msgstr "主机名字"
@@ -4171,13 +4173,13 @@ msgid "Hosts"
 msgstr "主机"
 
 msgid "Hypervisor"
-msgstr "云主机管理程序"
+msgstr "虚拟机管理器"
 
 msgid "Hypervisor Instances"
-msgstr "云主机管理程序实例"
+msgstr "虚拟机管理器上的云主机"
 
 msgid "Hypervisor Servers"
-msgstr "虚拟机管理程序服务器"
+msgstr "虚拟机管理器上的云主机"
 
 msgid "Hypervisor Summary"
 msgstr "虚拟机管理器概述"
@@ -4834,10 +4836,10 @@ msgid "Local Side Public IPs"
 msgstr "本地端公共IP"
 
 msgid "Local Storage (total)"
-msgstr "本地存储(总共）"
+msgstr "本地存储(总计）"
 
 msgid "Local Storage (used)"
-msgstr "本地存储(已使用)"
+msgstr "本地存储(已用)"
 
 msgid "Lock Instance"
 msgid_plural "Lock Instances"
@@ -4908,10 +4910,10 @@ msgid "Manage Hosts"
 msgstr "管理主机"
 
 msgid "Manage Hosts Aggregate"
-msgstr "管理主机集合"
+msgstr "管理主机聚合"
 
 msgid "Manage Hosts within Aggregate"
-msgstr "管理集合内的主机"
+msgstr "管理聚合内的主机"
 
 msgid "Manage Members"
 msgstr "管理成员"
@@ -5115,10 +5117,10 @@ msgstr "已修改域 \"%s\"。"
 
 #, python-format
 msgid "Modified flavor \"%s\"."
-msgstr "已修改云主机类型\"%s\""
+msgstr "已修改云主机类型 \"%s\""
 
 msgid "Modified flavor information, but unable to modify flavor access."
-msgstr "已修改云主机类型信息，但是无法修改云主机类型的访问。"
+msgstr "已修改云主机类型信息，但是无法修改云主机类型的使用权。"
 
 #, python-format
 msgid "Modified instance \"%s\"."
@@ -5199,7 +5201,7 @@ msgstr "名称 ="
 
 msgid ""
 "Name may only contain letters, numbers, underscores, periods and hyphens."
-msgstr "名字只能包含字母、数字、下划线、点号（.）和连字符。"
+msgstr "名字只能包含半角的字母、数字、下划线（_）、点号（.）和连字符（-）。"
 
 msgid ""
 "Name must start with a letter and may only contain letters, numbers, "
@@ -5383,7 +5385,7 @@ msgid "No"
 msgstr "不"
 
 msgid "No Host selected."
-msgstr "没有选中的主机。"
+msgstr "没有选择主机。"
 
 msgid "No Hosts found."
 msgstr "没有找到主机。"
@@ -5435,7 +5437,7 @@ msgid "No groups."
 msgstr "没有组。"
 
 msgid "No host selected."
-msgstr "没有选中的主机。"
+msgstr "没有选择主机。"
 
 msgid "No hosts found."
 msgstr "没有找到主机。"
@@ -5746,7 +5748,7 @@ msgstr "其他协议"
 
 #, python-format
 msgid "Out of range float values are not JSON compliant: %r"
-msgstr "超出范围的浮点值不符合JSON类型：%r"
+msgstr "超出范围（Nan）的浮点值不符合JSON类型：%r"
 
 msgid "Outputs"
 msgstr "输出"
@@ -5891,7 +5893,7 @@ msgid "Pending Update"
 msgstr "等待更新成功"
 
 msgid "Per Volume Size (GiB)"
-msgstr "每个硬盘的大小 (GiB)"
+msgstr "每个卷的大小 (GiB)"
 
 msgid "Perfect Forward Secrecy"
 msgstr "完美前传保密"
@@ -6013,7 +6015,7 @@ msgid "Power State"
 msgstr "电源状态"
 
 msgid "Power consumption"
-msgstr "电力消耗"
+msgstr "电能消耗"
 
 msgctxt "Task status of an Instance"
 msgid "Powering Off"
@@ -6239,7 +6241,7 @@ msgid "RAM (total)"
 msgstr "内存(总计)"
 
 msgid "RAM (used)"
-msgstr "内存(已使用)"
+msgstr "内存(已用)"
 
 #, python-format
 msgid "RAM(Available: %(avail)s, Requested: %(req)s)"
@@ -6253,10 +6255,10 @@ msgid "REJECT"
 msgstr "拒绝"
 
 msgid "RX/TX Factor"
-msgstr "接收/发送倍数"
+msgstr "RX/TX 因子"
 
 msgid "RX/TX factor"
-msgstr "RX/TX因素"
+msgstr "RX/TX 因子"
 
 msgid "Ramdisk"
 msgstr "内存盘"
@@ -6440,7 +6442,9 @@ msgstr "请求的快照会超过配额的限制。"
 msgid ""
 "Requests from a unique source IP address are consistently\n"
 "          directed to the same instance."
-msgstr "来自同一个源IP地址的请求将会从始至终都会分发给同一实例."
+msgstr ""
+"来自同一个源IP地址的请求从始至终都将会\n"
+"分发给同一实例."
 
 msgid "Required for APP_COOKIE persistence; Ignored otherwise."
 msgstr "需要使用APP_COOKIE持久化;忽略其他"
@@ -7031,9 +7035,8 @@ msgstr "请选择一个云主机"
 msgid "Select an instance to attach to."
 msgstr "选择要连接到的云主机。"
 
-#, fuzzy
 msgid "Select format"
-msgstr "选择镜像格式"
+msgstr "选择格式"
 
 msgid "Select from active instances"
 msgstr "从可用云主机选择"
@@ -7074,8 +7077,7 @@ msgid ""
 "Select the projects where the flavors will be used. If no projects are "
 "selected, then the flavor will be available in all projects."
 msgstr ""
-"选择云主机类型可以使用的项目。如果没有选择任何项目，云主机类型可以在所有项目"
-"中使用。"
+"选择该云主机类型适用的项目。如果不选择任何项目，则可以在所有项目中使用。"
 
 msgid "Selected Hosts"
 msgstr "选中的主机"
@@ -7102,13 +7104,13 @@ msgid "Selected volumes"
 msgstr "选择云硬盘"
 
 msgid "Sensor Current Reading"
-msgstr "传感器电流值读取中"
+msgstr "读取当前功耗传感器"
 
 msgid "Sensor Temperature Reading"
-msgstr "传感器温度值读取中"
+msgstr "读取温度传感器"
 
 msgid "Sensor Voltage Reading"
-msgstr "传感器电压值"
+msgstr "读取电压传感器"
 
 msgid "Server Group Members"
 msgstr "主机组成员"
@@ -7654,7 +7656,7 @@ msgstr "成功更新QoS规格关联。"
 
 #, python-format
 msgid "Successfully updated aggregate: \"%s.\""
-msgstr "成功更新主机集合：\"%s.\""
+msgstr "成功更新主机聚合：\"%s.\""
 
 msgid "Successfully updated container access to private."
 msgstr "成功更新容器为私有访问类型"
@@ -7729,7 +7731,7 @@ msgid "Suspending"
 msgstr "正在挂起"
 
 msgid "Swap Disk"
-msgstr "交换盘空间"
+msgstr "Swap磁盘"
 
 msgid "Swap Disk (MB)"
 msgstr "Swap磁盘(MB)"
@@ -7744,17 +7746,16 @@ msgid "System"
 msgstr "系统"
 
 msgid "System Airflow Reading"
-msgstr "系统气流数值"
+msgstr "读取空气流速（CFM）"
 
 msgid "System CPU Utility Reading"
 msgstr "系统CPU利用率"
 
-#, fuzzy
 msgid "System CUPS Reading"
-msgstr "系统CPU数值"
+msgstr "读取系统利用率（CUPS）"
 
 msgid "System Current Power"
-msgstr "系统当前电量"
+msgstr "系统当前功耗"
 
 msgid "System IO Utility Reading"
 msgstr "系统IO利用率"
@@ -7765,12 +7766,11 @@ msgstr "系统信息"
 msgid "System Memory Utility Reading"
 msgstr "系统内存利用率"
 
-#, fuzzy
 msgid "System Outlet Temperature Reading"
-msgstr "系统出口温度值"
+msgstr "读取出风口温度"
 
 msgid "System Temperature Reading"
-msgstr "系统温度读取中"
+msgstr "读取系统温度"
 
 msgid "TCP"
 msgstr "TCP"
@@ -7855,7 +7855,7 @@ msgid ""
 msgstr "<strong>提供者</strong>是提供加密功能的方式(例如：LuksEncryptor)。"
 
 msgid "The Aggregate was updated."
-msgstr "集合已更新."
+msgstr "聚合已更新."
 
 msgid ""
 "The Authorization Key will not be available after closing this page, so you "
@@ -7876,7 +7876,7 @@ msgstr "ICMP类型不在(-1, 255)范围内"
 
 #, python-format
 msgid "The ID \"%s\" is already used by another flavor."
-msgstr "此ID \"%s\" 已经被其他云主机类型采用。"
+msgstr "此ID \"%s\" 已经被其他云主机类型占用。"
 
 msgid ""
 "The ID of the host where the port is allocated. In some cases, different "
@@ -7945,7 +7945,7 @@ msgstr ""
 " "
 
 msgid "The container cannot be deleted since it is not empty."
-msgstr "由于此容器非空，因此不能被删除。"
+msgstr "容器非空，不能删除。"
 
 msgid ""
 "The data will remain in the volume and another instance will be able to "
@@ -8026,11 +8026,11 @@ msgstr "该名称\"%s\"已经被其他一致性组使用。"
 
 #, python-format
 msgid "The name \"%s\" is already used by another flavor."
-msgstr "名称\"%s\"已经被其他模板占用"
+msgstr "名称 \"%s\" 已经被其他云主机类型占用。"
 
 #, python-format
 msgid "The name \"%s\" is already used by another host aggregate."
-msgstr "该名称\"%s\"已经被其他主机集合使用。"
+msgstr "该名称\"%s\"已经被其他主机聚合使用。"
 
 msgid "The name is already in use."
 msgstr "这个名字已经被使用"
@@ -8064,7 +8064,7 @@ msgid ""
 msgstr "私钥只在本地浏览器中使用，必会被传送到服务器"
 
 msgid "The pseudo folder cannot be deleted since it is not empty."
-msgstr "由于此虚拟文件夹非空，因此不能被删除。"
+msgstr "虚拟文件夹非空，不能删除。"
 
 msgid "The raw contents of the environment file."
 msgstr "环境变量文件的原始内容"
@@ -8077,7 +8077,7 @@ msgstr "模板的原始内容。"
 msgid ""
 "The requested feature '%(feature)s' is unknown. Please make sure to specify "
 "a feature defined in FEATURE_MAP."
-msgstr "请求特性'%(feature)s'未知。确保指定FEATURE_MAP定义的特性。"
+msgstr "请求的特性 '%(feature)s' 未知。确保指定 FEATURE_MAP 里定义过的特性。"
 
 #, python-format
 msgid ""
@@ -8216,7 +8216,7 @@ msgstr ""
 "创建快照可能会导致快照失败"
 
 msgid "This volume type is used by one or more volumes."
-msgstr "该云硬盘类型还有云硬盘在使用."
+msgstr "该卷类型还有卷在使用."
 
 msgid "Time"
 msgstr "时间"
@@ -8309,11 +8309,11 @@ msgid "Total Size of Volumes and Snapshots (GB)"
 msgstr "云硬盘和快照的总大小(GB)"
 
 msgid "Total Size of Volumes and Snapshots (GiB)"
-msgstr "云硬盘及快照总大小 (GiB)"
+msgstr "卷及快照总大小 (GiB)"
 
 #, python-format
 msgid "Total Size of Volumes and Snapshots (GiB) of Type %(type)s"
-msgstr "%(type)s 类型的云硬盘和快照总大小 (GiB)"
+msgstr "%(type)s 类型的卷和快照总大小 (GiB)"
 
 msgid "Total VCPU Usage (Hours):"
 msgstr "VCPU总用量(小时):"
@@ -8507,10 +8507,10 @@ msgstr "无法创建组。"
 
 #, python-format
 msgid "Unable to create host aggregate \"%s\"."
-msgstr "无法创建主机集合 \"%s\"."
+msgstr "无法创建主机聚合 \"%s\"."
 
 msgid "Unable to create host aggregate."
-msgstr "无法创建主机集合."
+msgstr "无法创建主机聚合."
 
 msgid "Unable to create identity provider protocol."
 msgstr "不能创建提供者协议。"
@@ -8707,7 +8707,7 @@ msgstr "无法获得云主机 \"%s\"SPICE控制台"
 
 #, python-format
 msgid "Unable to get VIP for pool %(pool)s."
-msgstr "无法获取资源池 %(pool)s 的VIP。"
+msgstr "无法从资源池 %(pool)s 获取VIP。"
 
 #, python-format
 msgid "Unable to get VNC console for instance \"%s\"."
@@ -8724,14 +8724,14 @@ msgid "Unable to get events for stack \"%s\"."
 msgstr "无法获取栈 \"%s\" 的事件。"
 
 msgid "Unable to get flavor list"
-msgstr "无法查询云主机类型列表。"
+msgstr "无法获取云主机类型列表。"
 
 #, python-format
 msgid "Unable to get health monitor %(monitor_id)s for pool %(pool)s."
-msgstr "无法获得资源池 %(pool)s 的健康监控%(monitor_id)s."
+msgstr "无法获得资源池 %(pool)s 的健康监控 %(monitor_id)s."
 
 msgid "Unable to get host aggregate list"
-msgstr "无法获取主机集合列表"
+msgstr "无法获取主机聚合列表"
 
 #, python-format
 msgid "Unable to get log for instance \"%s\"."
@@ -9036,10 +9036,10 @@ msgid "Unable to retrieve firewall list."
 msgstr "无法获取防火墙列表。"
 
 msgid "Unable to retrieve flavor access list. Please try again later."
-msgstr "无法获取云主机类型的访问列表，请稍后重试。"
+msgstr "无法获取云主机类型的使用权列表，请稍后重试。"
 
 msgid "Unable to retrieve flavor details."
-msgstr "无法获取云主机类型详细信息"
+msgstr "无法获取云主机类型详情。"
 
 #, python-format
 msgid ""
@@ -9051,7 +9051,7 @@ msgid "Unable to retrieve flavor information for instance \"%s\"."
 msgstr "无法获取云主机 \"%s\" 的类型信息。"
 
 msgid "Unable to retrieve flavor list."
-msgstr "无法查询云主机类型列表。"
+msgstr "无法获取云主机类型列表。"
 
 msgid "Unable to retrieve flavors."
 msgstr "无法获取云主机类型列表。"
@@ -9076,7 +9076,7 @@ msgid "Unable to retrieve health monitor details. %s"
 msgstr "无法获取健康监控程序 %s 详细信息"
 
 msgid "Unable to retrieve host aggregates list."
-msgstr "无法获取主机集合列表。"
+msgstr "无法获取主机聚合列表。"
 
 msgid "Unable to retrieve host information."
 msgstr "无法获取主机信息。"
@@ -9085,10 +9085,10 @@ msgid "Unable to retrieve hypervisor information."
 msgstr "无法获取虚拟机管理器信息。"
 
 msgid "Unable to retrieve hypervisor instances list."
-msgstr "无法获取云主机管理器上的云主机列表。"
+msgstr "无法获取虚拟机管理器上的云主机列表。"
 
 msgid "Unable to retrieve hypervisor statistics."
-msgstr "无法获取云主机管理器统计信息。"
+msgstr "无法获取虚拟机管理器统计信息。"
 
 msgid "Unable to retrieve identity provider information."
 msgstr "不能获取身份提供者信息。"
@@ -9366,7 +9366,7 @@ msgid "Unable to retrieve tenant limits."
 msgstr "无法获取租户范围"
 
 msgid "Unable to retrieve the aggregate to be updated"
-msgstr "无法获取要更新的集合"
+msgstr "无法获取要更新的主机聚合"
 
 msgid "Unable to retrieve the project information of the image."
 msgstr "无法获取镜像的项目信息。"
@@ -9494,7 +9494,7 @@ msgstr "无法设存储云硬盘的可启动标记。"
 
 #, python-format
 msgid "Unable to set flavor access for project %s."
-msgstr "无法设置项目%s访问云主机类型。"
+msgstr "无法设置项目 %s 使用云主机类型。"
 
 msgid "Unable to set gateway."
 msgstr "无法设置网关"
@@ -9559,7 +9559,7 @@ msgid "Unable to update subnet \"%s\"."
 msgstr "无法更新子网\"%s\""
 
 msgid "Unable to update the aggregate."
-msgstr "无法更新主机集合。"
+msgstr "无法更新主机聚合。"
 
 msgid "Unable to update the group."
 msgstr "无法更新组。"
@@ -9945,13 +9945,13 @@ msgid "VCPU Usage"
 msgstr "虚拟内核使用情况"
 
 msgid "VCPUs"
-msgstr "虚拟内核"
+msgstr "VCPU数量"
 
 msgid "VCPUs (total)"
-msgstr "虚拟内核(总计)"
+msgstr "VCPU（总计）"
 
 msgid "VCPUs (used)"
-msgstr "虚拟内核(已使用)"
+msgstr "VCPU(已用)"
 
 msgid "VDI - Virtual Disk Image"
 msgstr "VDI - VirtualBox 虚拟磁盘镜像"
@@ -10119,11 +10119,11 @@ msgid "Volume Snapshot Overview"
 msgstr "云硬盘快照概览"
 
 msgid "Volume Snapshots"
-msgstr "云硬盘快照"
+msgstr "卷快照"
 
 #, python-format
 msgid "Volume Snapshots of Type %(type)s"
-msgstr "云硬盘快照的类型 %(type)s"
+msgstr "卷快照的类型 %(type)s"
 
 msgid "Volume Source"
 msgstr "云硬盘源自"
@@ -10255,7 +10255,7 @@ msgid "Volume type name can not be empty."
 msgstr "云硬盘类型名称不能为 空."
 
 msgid "Volumes"
-msgstr "云硬盘"
+msgstr "卷"
 
 msgid "Volumes Attached"
 msgstr "云硬盘已连接"
@@ -10265,7 +10265,7 @@ msgstr "云硬盘是块设备，可用被绑定到云主机。"
 
 #, python-format
 msgid "Volumes of Type %(type)s"
-msgstr " 云硬盘的类型 %(type)s"
+msgstr "卷类型 %(type)s"
 
 msgid "Weight"
 msgstr "重量"
@@ -10494,7 +10494,7 @@ msgid "disabled"
 msgstr "禁用"
 
 msgid "dm-crypt"
-msgstr "dm加密模块"
+msgstr "dm-crypt 磁盘加密"
 
 msgid "environment"
 msgstr "环境"

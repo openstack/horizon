@@ -30,8 +30,8 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2016-03-22 11:39+0000\n"
-"Last-Translator: Grigory Mokhin <mokhin@gmail.com>\n"
+"PO-Revision-Date: 2016-03-24 02:02+0000\n"
+"Last-Translator: Ilya Alekseyev <ilyaalekseyev@acm.org>\n"
 "Language: ru\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
 "%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
@@ -151,7 +151,7 @@ msgstr ""
 "<br>\n"
 " У каждого объекта спецификация QoS есть значение \"Потребитель\", \n"
 "которое показывает где политика должна применяться. Это значение \n"
-"может быть \"front-end\" (Nova Compute), \"back-end\" (Cinder back-end) или "
+"может быть \"фронтэнд\" (Nova Compute), \"бакэнд\" (Cinder back-end) или "
 "\"both\"."
 
 msgid ""
@@ -242,10 +242,12 @@ msgid ""
 "    "
 msgstr ""
 "\n"
-"У каждого объекта спецификация QoS есть значение \"Потребитель\", \n"
-"которое показывает где политика должна применяться. Это значение \n"
-"может быть \"front-end\" (Nova Compute), \"back-end\" (Cinder back-end) или "
-"\"both\"."
+"    У каждого объекта спецификации QoS есть значение \"Потребитель\" которая "
+"показывает где\n"
+"    администратор хотел бы чтобы эта политика QoS применялась. Это значение "
+"может быть can be \"фронтэнд\"\n"
+"    (Nova Compute), \"бакэнд\" (Cinder back-end), или \"оба\".\n"
+"    "
 
 msgid ""
 "\n"
@@ -1662,16 +1664,16 @@ msgid "Component"
 msgstr "Компонент"
 
 msgid "Compute"
-msgstr "Compute"
+msgstr "Вычислительные ресурсы"
 
 msgid "Compute (Nova)"
 msgstr "Вычислительные ресурсы (Nova)"
 
 msgid "Compute Host"
-msgstr "Вычислительный узел"
+msgstr "Узел вычислительных ресурсов"
 
 msgid "Compute Services"
-msgstr "Службы вычислений"
+msgstr "Службы вычислительных ресурсов"
 
 msgid "Configuration Drive"
 msgstr "Конфигурация накопителя"
@@ -3179,7 +3181,7 @@ msgstr[2] "Пользователи отключены"
 
 #, python-format
 msgid "Disabled compute service for host: %s."
-msgstr "Служба вычислений запрещена для узла: %s."
+msgstr "Служба вычислительных ресурсов запрещена для узла: %s."
 
 msgid "Disassociate"
 msgstr "Снять назначение"
@@ -3957,7 +3959,7 @@ msgstr "Не удалось удалить подсеть %s"
 
 #, python-format
 msgid "Failed to disable compute service for host: %s."
-msgstr "Не удалось отключить службу вычислений для узла: %s."
+msgstr "Не удалось отключить службу вычислительных ресурсов для узла: %s."
 
 #, python-format
 msgid "Failed to evacuate host: %s."
@@ -9574,10 +9576,10 @@ msgid "Unable to retrieve backup details."
 msgstr "Не удалось получить подробную информацию о резервной копии."
 
 msgid "Unable to retrieve compute host information."
-msgstr "Не удалось получить информацию о вычислительном узле"
+msgstr "Не удалось получить информацию об узле вычислительных ресурсов"
 
 msgid "Unable to retrieve compute limit information."
-msgstr "Не удалось получить информацию о лимите вычислителя"
+msgstr "Не удалось получить информацию о лимите вычислительных ресурсов"
 
 msgid "Unable to retrieve consistency group details."
 msgstr "Не удалось получить сведения о группе согласования."

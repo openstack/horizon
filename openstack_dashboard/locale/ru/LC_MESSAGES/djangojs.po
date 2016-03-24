@@ -15,7 +15,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2016-03-23 05:27+0000\n"
+"PO-Revision-Date: 2016-03-24 01:53+0000\n"
 "Last-Translator: Ilya Alekseyev <ilyaalekseyev@acm.org>\n"
 "Language-Team: Russian\n"
 "Language: ru\n"
@@ -276,6 +276,9 @@ msgid ""
 msgstr ""
 "Администраторы задают пул Назначаемых IP адресов, доступных для подключения."
 
+msgid "Alerts"
+msgstr "Классы сообщений"
+
 msgid ""
 "An <b>External</b> network is set up by an administrator.\n"
 "    If you want an instance to communicate outside of the data center,\n"
@@ -314,6 +317,9 @@ msgstr ""
 "Обязательно указание имя инстанса, которое используется для идентификации "
 "его на дашборде."
 
+msgid "Animated"
+msgstr "Анимированный"
+
 msgid "Another action"
 msgstr "Другое действие"
 
@@ -338,6 +344,15 @@ msgstr "Автоматически"
 msgid "Availability Zone"
 msgstr "Зона доступности"
 
+msgid "Available"
+msgstr "Доступно"
+
+msgid "Badges"
+msgstr "Бейджи"
+
+msgid "Basic"
+msgstr "Базовый"
+
 msgid "Basic panel"
 msgstr "Основная панель"
 
@@ -349,6 +364,9 @@ msgstr "Цитаты"
 
 msgid "Bordered Table"
 msgstr "Таблица с рамкой"
+
+msgid "Bottom"
+msgstr "Снизу"
 
 msgid "Brand"
 msgstr "Бренд"
@@ -453,6 +471,9 @@ msgstr "Контейнеры"
 
 msgid "Content Type"
 msgstr "Тип содержимого"
+
+msgid "Contextual alternatives"
+msgstr "Контекстные альтернативы"
 
 msgid ""
 "Count\n"
@@ -604,8 +625,14 @@ msgstr "Имя устройства"
 msgid "Dialogs"
 msgstr "Диалоги"
 
+msgid "Direct"
+msgstr "Непосредственно"
+
 msgid "Direction"
 msgstr "Направление"
+
+msgid "Disabled"
+msgstr "Запрещено"
 
 msgid "Disabled input"
 msgstr "Неактивный элемент ввода"
@@ -858,6 +885,9 @@ msgstr "Размеры ввода"
 msgid "Input States"
 msgstr "Состояние элементов ввода"
 
+msgid "Input addons"
+msgstr "Дополнения ввода"
+
 msgid "Input error"
 msgstr "Ошибка при вводе"
 
@@ -893,6 +923,9 @@ msgstr ""
 msgid "Insufficient privilege level to view user information."
 msgstr ""
 "Недостаточный уровень полномочий для просмотра информации о пользователе"
+
+msgid "Jumbotron"
+msgstr "Да будет свет!"
 
 msgid "Kernel ID"
 msgstr "ИД ядра"
@@ -963,6 +996,12 @@ msgstr "Библиотека"
 msgid "Link"
 msgstr "Ссылка"
 
+msgid "List group item heading"
+msgstr "Заголовок группы списков"
+
+msgid "List groups"
+msgstr "Группы списков"
+
 msgid "Load Balancer Pool"
 msgstr "Пул балансировщика нагрузки"
 
@@ -977,6 +1016,15 @@ msgstr "Пулы балансировщика нагрузки"
 
 msgid "Loading"
 msgstr "Загрузка"
+
+msgid "Look, I'm in a large well!"
+msgstr "Смотрите, я в большом элементе well!"
+
+msgid "Look, I'm in a small well!"
+msgstr "Смотрите, я в маленьком элементе well!"
+
+msgid "Look, I'm in a well!"
+msgstr "Сморите, я в элементе well!"
 
 msgid "MacVTap"
 msgstr "MacVTap"
@@ -1029,6 +1077,12 @@ msgstr "Минимальный объем памяти"
 msgid "Mini button"
 msgstr "Микроскопическая кнопка"
 
+msgid "Modal title"
+msgstr "Заголовок модального диалога"
+
+msgid "Modals"
+msgstr "Модальные диалоги"
+
 msgid "Month"
 msgstr "Месяц"
 
@@ -1080,11 +1134,20 @@ msgstr "Сети"
 msgid "Networks provide the communication channels for instances in the cloud."
 msgstr "Сеть предоставляет канал связи между инстансами в облаке."
 
+msgid "Newer"
+msgstr "Вперед"
+
+msgid "Next"
+msgstr "Следующая"
+
 msgid "No"
 msgstr "Нет"
 
 msgid "No available items"
 msgstr "Нет доступных элементов"
+
+msgid "Normal"
+msgstr "Нормально"
 
 msgid ""
 "Note: A Public Container will allow anyone with the Public URL to\n"
@@ -1143,6 +1206,12 @@ msgstr "Сведения об объекте"
 msgid "Objects"
 msgstr "Объекты"
 
+msgid "Older"
+msgstr "Назад"
+
+msgid "One fine body…"
+msgstr "Содержимое диалога..."
+
 msgid "One more separated link"
 msgstr "Ещё одна отдельная ссылка"
 
@@ -1161,14 +1230,35 @@ msgstr "Обзор"
 msgid "Owner"
 msgstr "Владелец"
 
+msgid "Pager"
+msgstr "Постраничная навигация"
+
 msgid "Pagination"
 msgstr "Пагинация"
 
 msgid "Panel content"
 msgstr "Содержимое панели"
 
+msgid "Panel danger"
+msgstr "Панель опасности"
+
+msgid "Panel footer"
+msgstr "Подвал панели"
+
 msgid "Panel heading"
 msgstr "Заголовок панели"
+
+msgid "Panel info"
+msgstr "Панель информации"
+
+msgid "Panel primary"
+msgstr "Основная панель"
+
+msgid "Panel success"
+msgstr "Успешная панель"
+
+msgid "Panel warning"
+msgstr "Панель ожидания"
 
 msgid "Panels"
 msgstr "Панели"
@@ -1181,6 +1271,9 @@ msgstr "Ожидает удаления"
 
 msgid "Physical Network"
 msgstr "Физическая сеть"
+
+msgid "Pills"
+msgstr "Навигационные кнопки"
 
 msgid ""
 "Please provide the initial hostname for the instance, the availability zone "
@@ -1197,6 +1290,9 @@ msgstr "Повторите попытку."
 msgid "Policy check failed."
 msgstr "Проверка политики не удалась."
 
+msgid "Popovers"
+msgstr "Всплывающий контент"
+
 msgid "Ports can be created under a network by administrators."
 msgstr "Порты создаются в сети администраторами."
 
@@ -1206,6 +1302,9 @@ msgid ""
 msgstr ""
 "Порты обеспечивают дополнительные каналы связи для экземпляров. Можно "
 "выбирать порты и (или) сети в любом сочетании."
+
+msgid "Previous"
+msgstr "Предыдущая"
 
 msgid "Primary"
 msgstr "Основной"
@@ -1251,6 +1350,9 @@ msgstr ""
 msgid "Public"
 msgstr "Публичный"
 
+msgid "Public Access"
+msgstr "Открытый доступ"
+
 msgid "Public Key"
 msgstr "Открытый ключ"
 
@@ -1290,6 +1392,9 @@ msgstr "Свойства записи"
 
 msgid "Remote"
 msgstr "Удаленный адрес"
+
+msgid "Required"
+msgstr "Необходимо"
 
 msgid "Right"
 msgstr "Справа"
@@ -1380,6 +1485,9 @@ msgstr "Выберите порты из списка."
 msgid "Select the security groups to launch the instance in."
 msgstr "Выберите группы защиты, в которых будет запущен экземпляр."
 
+msgid "Selects"
+msgstr "Поле выбора"
+
 msgid "Separated link"
 msgstr "Отдельная ссылка"
 
@@ -1433,11 +1541,17 @@ msgstr "Исходный код"
 msgid "Source Title"
 msgstr "Заголовок источника"
 
+msgid "Stacked"
+msgstr "Стекированный"
+
 msgid "Standard Table"
 msgstr "Стандартная таблица"
 
 msgid "Status"
 msgstr "Статус"
+
+msgid "Striped"
+msgstr "Полосатый"
 
 msgid "Submit"
 msgstr "Отправить"
@@ -1513,8 +1627,8 @@ msgid ""
 "The maximum number of key-value pairs that can be supplied per instance is "
 "determined by the compute provider."
 msgstr ""
-"Максимальное количество пар ключ-значение для экземпляра зависит от "
-"поставщика модуля compute."
+"Максимальное количество пар ключ-значение для инстанса зависит от поставщика "
+"модуля вычислительных ресурсов."
 
 #, python-format
 msgid ""
@@ -1584,6 +1698,13 @@ msgstr ""
 "Пожалуйста, выберите тип инстанса с меньшим количеством vCPU или уменьшите "
 "количество инстансов."
 
+msgid ""
+"This is a simple hero unit, a simple jumbotron-style component for calling "
+"extra attention to featured content or information."
+msgstr ""
+"Это простой элемент hero, простой компонент для привлечения особого внимания "
+"к содержимому или информации."
+
 msgid "This is focused..."
 msgstr "Этот элемент активен..."
 
@@ -1612,6 +1733,9 @@ msgstr ""
 
 msgid "Tooltips"
 msgstr "Всплывающие подсказки"
+
+msgid "Top"
+msgstr "Сверху"
 
 msgid "Total Disk"
 msgstr "Объем диска"
@@ -2092,6 +2216,9 @@ msgstr "Предупреждение!"
 msgid "Week"
 msgstr "Неделя"
 
+msgid "Wells"
+msgstr "Элементы Well"
+
 msgid ""
 "When IP addresses are associated to a port, this also implies the port is "
 "associated with a subnet, as the IP address was taken from the allocation "
@@ -2165,6 +2292,9 @@ msgstr[0] "Выбрано образов: \"%s\". Восстановить уд�
 msgstr[1] "Выбрано образов: \"%s\". Восстановить удаленные образы невозможно."
 msgstr[2] "Выбрано образов: \"%s\". Восстановить удаленные образы невозможно."
 
+msgid "disabled"
+msgstr "запрещено"
+
 msgid "error"
 msgid_plural "errors"
 msgstr[0] "ошибка"
@@ -2174,6 +2304,9 @@ msgstr[2] "ошибок"
 msgid "image"
 msgstr "изображение"
 
+msgid "link"
+msgstr "ссылка"
+
 msgid "message"
 msgid_plural "messages"
 msgstr[0] "сообщение"
@@ -2182,6 +2315,24 @@ msgstr[2] "сообщений"
 
 msgid "snapshot"
 msgstr "моментальная копия"
+
+msgid "submit"
+msgid_plural "submits"
+msgstr[0] "отправка"
+msgstr[1] "отправки"
+msgstr[2] "отправки"
+
+msgid "success"
+msgid_plural "successs"
+msgstr[0] "успешный"
+msgstr[1] "успешные"
+msgstr[2] "успешные"
+
+msgid "title"
+msgid_plural "titles"
+msgstr[0] "заголовок"
+msgstr[1] "заголовки"
+msgstr[2] "заголовки"
 
 msgid "{$ row['provider:network_type'] $}"
 msgstr "{$ row['provider:network_type'] $}"
