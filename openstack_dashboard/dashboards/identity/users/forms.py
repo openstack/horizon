@@ -68,6 +68,7 @@ class BaseUserForm(forms.SelfHandlingForm):
         # the user has access to.
         user_id = kwargs['initial'].get('id', None)
         domain_id = kwargs['initial'].get('domain_id', None)
+        default_project_id = kwargs['initial'].get('project', None)
 
         try:
             if api.keystone.VERSIONS.active >= 3:
@@ -82,7 +83,9 @@ class BaseUserForm(forms.SelfHandlingForm):
                     project_choices.append((project.id, project.name))
             if not project_choices:
                 project_choices.insert(0, ('', _("No available projects")))
-            elif len(project_choices) > 1:
+            # TODO(david-lyle): if keystoneclient is fixed to allow unsetting
+            # the default project, then this condition should be removed.
+            elif len(project_choices) > 1 and default_project_id is None:
                 project_choices.insert(0, ('', _("Select a project")))
             self.fields['project'].choices = project_choices
 
@@ -226,6 +229,9 @@ class UpdateUserForm(BaseUserForm):
 
         data.pop('domain_id')
         data.pop('domain_name')
+
+        if not PROJECT_REQUIRED and 'project' not in self.changed_data:
+            data.pop('project')
 
         if 'description' not in self.changed_data:
             data.pop('description')
