@@ -1,7 +1,3 @@
-hz-magic-search-bar {
-  .input-group {
-    & > st-magic-search.form-control {
-      box-shadow: none;
-    }
-  }
+.magic-search.form-control {
+  box-shadow: none;
 }

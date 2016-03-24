@@ -1,64 +1,65 @@
-<table ng-controller="FlavorsTableController as table"
-       hz-table ng-cloak
-       st-table="table.iflavors"
-       st-safe-src="table.flavors"
-       default-sort="ram"
-       default-sort-reverse="false"
-       class="table table-striped table-rsp table-detail">
+<div ng-controller="FlavorsTableController as table">
 
-  <thead>
+  <hz-magic-search-context filter-facets="table.searchFacets">
+    <hz-magic-search-bar>
+    </hz-magic-search-bar>
 
-    <tr>
-      <th colspan="100" class="search-header">
-        <hz-magic-search-bar filter-facets="table.searchFacets">
-        </hz-magic-search-bar>
-      </th>
-    </tr>
+    <table st-magic-search
+           hz-table ng-cloak
+           st-table="table.iflavors"
+           st-safe-src="table.flavors"
+           default-sort="ram"
+           default-sort-reverse="false"
+           class="table table-striped table-rsp table-detail">
 
-    <tr>
-      <th class="select-col">
-        <input type="checkbox" hz-select-all="table.iflavors">
-      </th>
-      <th class="rsp-p1" st-sort="name" translate>Flavor Name</th>
-      <th class="rsp-p1" st-sort="vcpus" translate>VCPUs</th>
-      <th class="rsp-p1" st-sort="ram" st-sort-default="ram" translate>RAM</th>
-      <th class="rsp-p2" st-sort="disk" translate>Root Disk</th>
-      <th class="rsp-p2" st-sort="ephermal" translate>Ephemeral Disk</th>
-      <th class="rsp-p2" st-sort="swap" translate>Swap Disk</th>
-      <th class="rsp-p2" st-sort="rxtx_factor" translate>RX/TX factor</th>
-      <th class="rsp-p2" st-sort="id" translate>ID</th>
-      <th class="rsp-p2" st-sort="is_public" translate>Public</th>
-      <th class="rsp-p2" st-sort="metadata" translate>Metadata</th>
-      <th class="rsp-p2"></th>
-    </tr>
+      <thead>
 
-  </thead>
+        <tr>
+          <th class="select-col">
+            <input type="checkbox" hz-select-all="table.iflavors">
+          </th>
+          <th class="rsp-p1" st-sort="name" translate>Flavor Name</th>
+          <th class="rsp-p1" st-sort="vcpus" translate>VCPUs</th>
+          <th class="rsp-p1" st-sort="ram" st-sort-default="ram" translate>RAM</th>
+          <th class="rsp-p2" st-sort="disk" translate>Root Disk</th>
+          <th class="rsp-p2" st-sort="ephermal" translate>Ephemeral Disk</th>
+          <th class="rsp-p2" st-sort="swap" translate>Swap Disk</th>
+          <th class="rsp-p2" st-sort="rxtx_factor" translate>RX/TX factor</th>
+          <th class="rsp-p2" st-sort="id" translate>ID</th>
+          <th class="rsp-p2" st-sort="is_public" translate>Public</th>
+          <th class="rsp-p2" st-sort="metadata" translate>Metadata</th>
+          <th class="rsp-p2"></th>
+        </tr>
 
-  <tbody>
-    <tr ng-repeat="flavor in table.iflavors track by flavor.id">
-      <td class="select-col">
-        <input type="checkbox"
-               ng-model="tCtrl.selections[flavor.id].checked"
-               hz-select="flavor">
-      </td>
-      <td class="rsp-p1">{$ flavor.name $}</td>
-      <td class="rsp-p1">{$ flavor.vcpus $}</td>
-      <td class="rsp-p1">{$ flavor.ram | mb $}</td>
-      <td class="rsp-p2">{$ flavor.disk | gb $}</td>
-      <td class="rsp-p2">{$ flavor.ephemeral | gb $}</td>
-      <td class="rsp-p2">{$ flavor.swap | mb $}</td>
-      <td class="rsp-p2">{$ flavor.rxtx_factor $}</td>
-      <td class="rsp-p2">{$ flavor.id $}</td>
-      <td class="rsp-p2">{$ flavor.is_public | yesno $}</td>
-      <td class="rsp-p2">{$ flavor.extras | hasExtras | yesno $}</td>
-      <td class="rsp-p2">
-      </td>
-    </tr>
+      </thead>
 
-    <tr hz-no-items items="table.iflavors"></tr>
+      <tbody>
+        <tr ng-repeat="flavor in table.iflavors track by flavor.id">
+          <td class="select-col">
+            <input type="checkbox"
+                   ng-model="tCtrl.selections[flavor.id].checked"
+                   hz-select="flavor">
+          </td>
+          <td class="rsp-p1">{$ flavor.name $}</td>
+          <td class="rsp-p1">{$ flavor.vcpus $}</td>
+          <td class="rsp-p1">{$ flavor.ram | mb $}</td>
+          <td class="rsp-p2">{$ flavor.disk | gb $}</td>
+          <td class="rsp-p2">{$ flavor.ephemeral | gb $}</td>
+          <td class="rsp-p2">{$ flavor.swap | mb $}</td>
+          <td class="rsp-p2">{$ flavor.rxtx_factor $}</td>
+          <td class="rsp-p2">{$ flavor.id $}</td>
+          <td class="rsp-p2">{$ flavor.is_public | yesno $}</td>
+          <td class="rsp-p2">{$ flavor.extras | hasExtras | yesno $}</td>
+          <td class="rsp-p2">
+          </td>
+        </tr>
 
-  </tbody>
+        <tr hz-no-items items="table.iflavors"></tr>
 
-  <tfoot hz-table-footer items="table.iflavors"></tfoot>
+      </tbody>
 
-</table>
+      <tfoot hz-table-footer items="table.iflavors"></tfoot>
+
+    </table>
+  </hz-magic-search-context>
+</div>

@@ -24,61 +24,20 @@
    * @ngdoc directive
    * @name MagicSearch.directive:hzMagicSearchBar
    * @element
-   * @param {object} filterFacets Facets allowed for searching
-   * @param {object=} filterStrings Help content shown in search bar
-   * @param {object=} clientFullTextSearch if full text search is to be done on the client
    * @description
    * The `magicSearchBar` directive provides a template for a
    * client side faceted search that utilizes Smart-Table's
-   * filtering capabilities as well.
-   *
-   * Facets:
-   * ```
-   * var nameFacet = {
-   *   label: gettext('Name'),
-   *   name: 'name',
-   *   singleton: true
-   * };
-   *
-   * var sizeFacet = {
-   *   label: gettext('Size'),
-   *   name: 'size',
-   *   singleton: false,
-   *   options: [
-   *     { label: gettext('Small'), key: 'small' },
-   *     { label: gettext('Medium'), key: 'medium' },
-   *     { label: gettext('Large'), key: 'large' },
-   *   ]
-   * };
-   *
-   * label - this is the text shown in top level facet dropdown menu
-   * name - this is the column key provided to Smart-Table
-   * singleton - 'true' if free text can be used as search term
-   * options - list of options shown in selected facet dropdown menu
-   * ```
+   * filtering capabilities as well.  It needs to be placed within
+   * an hz-magic-search-context to be effective.
    *
    * @restrict E
    * @scope
    *
    * @example
    * ```
-   * <hz-magic-search-bar
-   *   filter-facets="filterFacets"
-   *   filter-strings="filterStrings">
-   * </hz-magic-search-bar>
-   *
-   * or
-   *
-   * <hz-magic-search-bar
-   *   filter-facets="filterFacets">
-   * </hz-magic-search-bar>
-   *
-   * or
-   *
-   * <hz-magic-search-bar
-   *   client-full-text-search="false"
-   *   filter-strings="filterStrings">
-   * </hz-magic-search-bar>
+   * <hz-magic-search-context>
+   *   <hz-magic-search-bar></hz-magic-search-bar>
+   * </hz-magic-search-context>
    * ```
    */
   function hzMagicSearchBar(basePath) {
@@ -86,12 +45,7 @@
     var directive = {
       compile: compile,
       restrict: 'E',
-      scope: {
-        filterStrings: '=?',
-        filterFacets: '=',
-        clientFullTextSearch: '=?',
-        searchSettingsCallback: '=?'
-      },
+      scope: true,
       templateUrl: basePath + 'magic-search/hz-magic-search-bar.html'
     };
 
@@ -99,26 +53,7 @@
 
     //////////
 
-    function link(scope) {
-      scope.clientFullTextSearch = angular.isDefined(scope.clientFullTextSearch)
-        ? scope.clientFullTextSearch
-        : true;
-      // if filterStrings is not defined, set defaults
-      var defaultFilterStrings = {
-        cancel: gettext('Cancel'),
-        prompt: gettext('Click here for filters.'),
-        remove: gettext('Remove'),
-        text: (scope.clientFullTextSearch
-            ? gettext('Search in current results')
-            : gettext('Full Text Search'))
-      };
-      scope.filterStrings = scope.filterStrings || defaultFilterStrings;
-
-      if (angular.isDefined(scope.searchSettingsCallback)) {
-        scope.showSettings = true;
-      } else {
-        scope.showSettings = false;
-      }
+    function link() {
     }
 
     function compile(element) {

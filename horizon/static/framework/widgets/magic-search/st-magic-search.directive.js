@@ -1,4 +1,5 @@
 /*
+ * (c) Copyright 2016 Hewlett Packard Enterprise Development Company LP
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -26,8 +27,9 @@
    * @element
    * @description
    * A directive to make Magic Search be a replacement for st-search.
-   * This directive must be outside of a magic-search and inside a
-   * smart-table. This lets MS drive the same filtering capabilities
+   * This directive must be a peer to st-table and contained within an
+   * hz-magic-search-context in order to receive broadcasts.
+   * This lets MS drive the same filtering capabilities
    * in smart-table that st-search does, including filtering on all
    * columns or a specific column (e.g. a facet filters a column).
    *
@@ -36,29 +38,23 @@
    *
    * @example
    * ```
-   * <st-magic-search>
-   *   <magic-search
-   *     template="/static/framework/widgets/magic-search/magic-search.html"
-   *     strings="filterStrings"
-   *     facets="{{ filterFacets }}">
-   *   </magic-search>
-   * </st-magic-search>
+   * <hz-magic-search-context>
+   *   <hz-magic-search-bar></hz-magic-search-bar>
+   *   <table st-table st-magic-search>
+   *   </table>
+   * </hz-magic-search-context>
    * ```
    */
   function stMagicSearch($timeout) {
     var directive = {
       link: link,
-      require: '^stTable',
-      restrict: 'E',
+      require: 'stTable',
+      restrict: 'A',
       scope: true
     };
     return directive;
 
     function link(scope, element, attr, tableCtrl) {
-      var clientFullTextSearch = (angular.isDefined(scope.clientFullTextSearch)
-                                  ? scope.clientFullTextSearch
-                                  : true);
-
       scope.currentServerSearchParams = {};
 
       // Generate predicate object from dot notation string
@@ -103,11 +99,11 @@
       }
 
       // When user types a character, search the table
-      var textSearchWatcher = scope.$on('textSearch', function(event, text) {
+      var textSearchWatcher = scope.$on('textSearch-ms-context', function(event, text) {
         // Timeout needed to prevent
         // $apply already in progress error
         $timeout(function() {
-          if (clientFullTextSearch) {
+          if (scope.clientFullTextSearch) {
             tableCtrl.search(text);
           } else {
             setServerTextSearch(scope, text);
@@ -116,7 +112,7 @@
       });
 
       // When user changes a facet, use API filter
-      var searchUpdatedWatcher = scope.$on('searchUpdated', function(event, query) {
+      var searchUpdatedWatcher = scope.$on('searchUpdated-ms-context', function(event, query) {
         setServerFacetSearch(scope, query);
 
         // clear each time since Smart-Table

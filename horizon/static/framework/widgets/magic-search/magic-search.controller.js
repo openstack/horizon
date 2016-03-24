@@ -353,7 +353,7 @@
       ctrl.filteredObj = ctrl.unusedFacetChoices =
         service.getUnusedFacetChoices(tmpFacetChoices, searchTerms);
 
-      // broadcast to check facets for server-side
+      // emit to check facets for server-side
       $scope.$emit('checkFacets', ctrl.currentSearch);
     }
 

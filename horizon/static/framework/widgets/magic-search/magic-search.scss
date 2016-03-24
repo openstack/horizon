@@ -12,7 +12,7 @@ hz-magic-search-bar {
   .input-group {
     width: 100%;
 
-    & > st-magic-search.form-control {
+    .magic-search.form-control {
       padding: 0 $padding-xs-horizontal 0 0;
       min-height: $input-height-base + 2;
       height: 100%;

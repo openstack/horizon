@@ -64,14 +64,15 @@
         }
       ];
 
-      var markup = '<table st-table="rows">' +
-                   '<thead>' +
-                   ' <tr>' +
-                   '   <th>' +
+      var searchBar =
                    '     <hz-magic-search-bar ' +
                    '       filter-facets="filterFacets" ' +
                    '       filter-strings="filterStrings">' +
-                   '     </hz-magic-search-bar>' +
+                   '     </hz-magic-search-bar>';
+      var markup = searchBar + '<table st-table="rows" st-magic-search>' +
+                   '<thead>' +
+                   ' <tr>' +
+                   '   <th>' +
                    '   </th>' +
                    ' </tr>' +
                    '</thead>' +
@@ -83,55 +84,9 @@
       $scope.$apply();
     }));
 
-    it('st-magic-search should be defined', function () {
-      var stSearchBar = $element.find('st-magic-search');
-      expect(stSearchBar.length).toBe(1);
-    });
-
     it('magic-search should be defined', function () {
       var searchBar = $element.find('magic-search');
       expect(searchBar.length).toBe(1);
-    });
-
-    it('sets the clientFullTextSearch to false', function () {
-      var markup = '<table st-table="rows">' +
-            '<thead>' +
-            ' <tr>' +
-            '   <th>' +
-            '     <hz-magic-search-bar ' +
-            '       client-full-text-search="false"' +
-            '       filter-facets="filterFacets">' +
-            '     </hz-magic-search-bar>' +
-            '   </th>' +
-            ' </tr>' +
-            '</thead>' +
-            '<tbody></tbody>' +
-            '</table>';
-
-      var $element = $compile(angular.element(markup))($scope);
-      $scope.$apply();
-
-      expect($element.find('magic-search').scope().clientFullTextSearch).toEqual(false);
-    });
-
-    it('sets the clientFullTextSearch to true', function () {
-      var markup = '<table st-table="rows">' +
-            '<thead>' +
-            ' <tr>' +
-            '   <th>' +
-            '     <hz-magic-search-bar ' +
-            '       filter-facets="filterFacets">' +
-            '     </hz-magic-search-bar>' +
-            '   </th>' +
-            ' </tr>' +
-            '</thead>' +
-            '<tbody></tbody>' +
-            '</table>';
-
-      var $element = $compile(angular.element(markup))($scope);
-      $scope.$apply();
-
-      expect($element.find('magic-search').scope().clientFullTextSearch).toEqual(true);
     });
 
     it('use filterStrings defaults if not provided as attribute', function () {

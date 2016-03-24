@@ -93,89 +93,87 @@
       </table>
     </allocated>
     <available>
-      <table st-table="ctrl.tableDataMulti.displayedAvailable" st-safe-src="ctrl.tableDataMulti.available"
-        hz-table class="table table-striped table-rsp table-detail">
-        <thead>
-          <tr>
-            <th class="search-header" colspan="8">
-              <hz-magic-search-bar filter-facets="ctrl.networkFacets">
-              </hz-magic-search-bar>
-            </th>
-          </tr>
-          <tr>
-            <th class="expander"></th>
-            <th st-sort="name" st-sort-default class="rsp-p1" translate>Network</th>
-            <th class="rsp-p2" translate>Subnets Associated</th>
-            <th st-sort="shared" class="rsp-p1" translate>Shared</th>
-            <th st-sort="admin_state" class="rsp-p1" translate>Admin State</th>
-            <th st-sort="status" class="rsp-p1" translate>Status</th>
-            <th></th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr ng-if="trCtrl.numAvailable() === 0">
-            <td colspan="7">
-              <div class="no-rows-help" translate>
-                No available items
-              </div>
-            </td>
-          </tr>
-          <tr ng-repeat-start="row in ctrl.tableDataMulti.displayedAvailable track by row.id" ng-if="!trCtrl.allocatedIds[row.id]">
-            <td class="expander">
-              <span class="fa fa-chevron-right" hz-expand-detail
-                title="{$ 'Click to see more details'|translate $}"></span>
-            </td>
-            <td class="rsp-p1">{$ row.name$}</td>
-            <td class="rsp-p2">
-              <div ng-repeat="subnet in row.subnets">{$ subnet.name $}</div>
-            </td>
-            <td class="rsp-p1">{$ row.shared | yesno $}</td>
-            <td class="rsp-p1">{$ row.admin_state | decode:ctrl.networkAdminStates $}</td>
-            <td class="rsp-p1">{$ row.status | decode:ctrl.networkStatuses $}</td>
-            <td class="action-col">
-              <action-list button-tooltip="row.warningMessage"
-                bt-model="ctrl.tooltipModel" bt-disabled="!row.disabled"
-                warning-classes="'invalid'">
-                <notifications>
-                  <span class="fa fa-exclamation-circle invalid" ng-show="row.disabled"></span>
-                </notifications>
-                <action action-classes="'btn btn-sm btn-default'"
-                  callback="trCtrl.allocate" item="row" disabled="row.disabled">
-                  <span class="fa fa-plus"></span>
-                </action>
-              </action-list>
-            </td>
-          </tr>
-          <tr ng-repeat-end class="detail-row" ng-if="!trCtrl.allocatedIds[row.id]">
-            <td></td>
-            <td colspan="7" class="detail">
-              <dl class="dl-horizontal">
-                <dt translate>ID</dt>
-                <dd>{$ row.id $}</dd>
-                <dt translate>Project</dt>
-                <dd>{$ row.tenant_id $}</dd>
-                <dt translate>External Network</dt>
-                <dd>{$ row['router:external'] | yesno $}</dd>
-              </dl>
-              <div><b translate>Provider Network</b></div>
-              <div class="row">
-                <dl class="col-sm-3">
-                  <dt translate>Type</dt>
-                  <dd>{$ row['provider:network_type'] $}</dd>
+      <hz-magic-search-context filter-facets="ctrl.networkFacets">
+        <hz-magic-search-bar>
+        </hz-magic-search-bar>
+        <table st-magic-search st-table="ctrl.tableDataMulti.displayedAvailable" st-safe-src="ctrl.tableDataMulti.available"
+          hz-table class="table table-striped table-rsp table-detail">
+          <thead>
+            <tr>
+              <th class="expander"></th>
+              <th st-sort="name" st-sort-default class="rsp-p1" translate>Network</th>
+              <th class="rsp-p2" translate>Subnets Associated</th>
+              <th st-sort="shared" class="rsp-p1" translate>Shared</th>
+              <th st-sort="admin_state" class="rsp-p1" translate>Admin State</th>
+              <th st-sort="status" class="rsp-p1" translate>Status</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr ng-if="trCtrl.numAvailable() === 0">
+              <td colspan="7">
+                <div class="no-rows-help" translate>
+                  No available items
+                </div>
+              </td>
+            </tr>
+            <tr ng-repeat-start="row in ctrl.tableDataMulti.displayedAvailable track by row.id" ng-if="!trCtrl.allocatedIds[row.id]">
+              <td class="expander">
+                <span class="fa fa-chevron-right" hz-expand-detail
+                  title="{$ 'Click to see more details'|translate $}"></span>
+              </td>
+              <td class="rsp-p1">{$ row.name$}</td>
+              <td class="rsp-p2">
+                <div ng-repeat="subnet in row.subnets">{$ subnet.name $}</div>
+              </td>
+              <td class="rsp-p1">{$ row.shared | yesno $}</td>
+              <td class="rsp-p1">{$ row.admin_state | decode:ctrl.networkAdminStates $}</td>
+              <td class="rsp-p1">{$ row.status | decode:ctrl.networkStatuses $}</td>
+              <td class="action-col">
+                <action-list button-tooltip="row.warningMessage"
+                  bt-model="ctrl.tooltipModel" bt-disabled="!row.disabled"
+                  warning-classes="'invalid'">
+                  <notifications>
+                    <span class="fa fa-exclamation-circle invalid" ng-show="row.disabled"></span>
+                  </notifications>
+                  <action action-classes="'btn btn-sm btn-default'"
+                    callback="trCtrl.allocate" item="row" disabled="row.disabled">
+                    <span class="fa fa-plus"></span>
+                  </action>
+                </action-list>
+              </td>
+            </tr>
+            <tr ng-repeat-end class="detail-row" ng-if="!trCtrl.allocatedIds[row.id]">
+              <td></td>
+              <td colspan="7" class="detail">
+                <dl class="dl-horizontal">
+                  <dt translate>ID</dt>
+                  <dd>{$ row.id $}</dd>
+                  <dt translate>Project</dt>
+                  <dd>{$ row.tenant_id $}</dd>
+                  <dt translate>External Network</dt>
+                  <dd>{$ row['router:external'] | yesno $}</dd>
                 </dl>
-                <dl class="col-sm-3">
-                  <dt translate>Segmentation ID</dt>
-                  <dd>{$ row['provider:segmentation_id'] $}</dd>
-                </dl>
-                <dl class="col-sm-3">
-                  <dt translate>Physical Network</dt>
-                  <dd>{$ row['provider:physical_network'] $}</dd>
-                </dl>
-              </div>
-            </td>
-          </tr>
-        </tbody>
-      </table>
+                <div><b translate>Provider Network</b></div>
+                <div class="row">
+                  <dl class="col-sm-3">
+                    <dt translate>Type</dt>
+                    <dd>{$ row['provider:network_type'] $}</dd>
+                  </dl>
+                  <dl class="col-sm-3">
+                    <dt translate>Segmentation ID</dt>
+                    <dd>{$ row['provider:segmentation_id'] $}</dd>
+                  </dl>
+                  <dl class="col-sm-3">
+                    <dt translate>Physical Network</dt>
+                    <dd>{$ row['provider:physical_network'] $}</dd>
+                  </dl>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </hz-magic-search-context>
     </available>
   </transfer-table>
 </div>
