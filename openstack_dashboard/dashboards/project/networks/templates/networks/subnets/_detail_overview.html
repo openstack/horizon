@@ -8,9 +8,8 @@
     <dd>{{ subnet.id|default:_("None") }}</dd>
     <dt title="{% trans 'Network Name' %}">{% trans "Network Name" %}</dt>
     <dd>{{ subnet.network_name|default:_("None") }}</dd>
-    {% url 'horizon:project:networks:detail' subnet.network_id as network_url %}
     <dt title="{% trans 'Network ID' %}">{% trans "Network ID" %}</dt>
-    <dd><a href="{{ network_url }}">{{ subnet.network_id|default:_("None") }}</a></dd>
+    <dd><a href="{{ subnet.network_url }}">{{ subnet.network_id|default:_("None") }}</a></dd>
     <dt title="{% trans 'Subnetpool' %}">{% trans "Subnetpool" %}</dt>
     {% if subnet.subnetpool_id %}
       <dd>{{ subnet.subnetpool_name }} ({{ subnet.subnetpool_id }})</dd>
