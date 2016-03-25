@@ -4,24 +4,24 @@
 
 <div class="info detail">
   <dl class="dl-horizontal">
-    <dt data-toggle="tooltip" title="{% trans 'Name' %}">{% trans "Name" %}</dt>
+    <dt title="{% trans 'Name' %}">{% trans "Name" %}</dt>
     <dd>{{ network.name|default:_("None") }}</dd>
-    <dt data-toggle="tooltip" title="{% trans 'ID' %}">{% trans "ID" %}</dt>
+    <dt title="{% trans 'ID' %}">{% trans "ID" %}</dt>
     <dd>{{ network.id|default:_("None") }}</dd>
-    <dt data-toggle="tooltip" title="{% trans 'Project ID' %}">{% trans "Project ID" %}</dt>
+    <dt title="{% trans 'Project ID' %}">{% trans "Project ID" %}</dt>
     <dd>{{ network.tenant_id|default:_("-") }}</dd>
-    <dt data-toggle="tooltip" title="{% trans 'Status' %}">{% trans "Status" %}</dt>
+    <dt title="{% trans 'Status' %}">{% trans "Status" %}</dt>
     <dd>{{ network.status_label|default:_("Unknown") }}</dd>
-    <dt data-toggle="tooltip" title="{% trans 'Admin State' %}">{% trans "Admin State" %}</dt>
+    <dt title="{% trans 'Admin State' %}">{% trans "Admin State" %}</dt>
     <dd>{{ network.admin_state_label|default:_("Unknown") }}</dd>
-    <dt data-toggle="tooltip" title="{% trans 'Shared' %}">{% trans "Shared" %}</dt>
+    <dt title="{% trans 'Shared' %}">{% trans "Shared" %}</dt>
     <dd>{{ network.shared|yesno|capfirst }}</dd>
-    <dt data-toggle="tooltip" title="{% trans 'External Network' %}">{% trans "External Network" %}</dt>
+    <dt title="{% trans 'External Network' %}">{% trans "External Network" %}</dt>
     <dd>{{ network.router__external|yesno|capfirst }}</dd>
-    <dt data-toggle="tooltip" title="{% trans 'MTU' %}">{% trans "MTU" %}</dt>
+    <dt title="{% trans 'MTU' %}">{% trans "MTU" %}</dt>
     <dd>{{ network.mtu|default:_("Unknown") }}</dd>
     {% if network.provider__network_type %}
-    <dt data-toggle="tooltip" title="{% trans 'Provider Network' %}">{% trans "Provider Network" %}</dt>
+    <dt title="{% trans 'Provider Network' %}">{% trans "Provider Network" %}</dt>
     <dd>{% trans "Network Type:" %} {{ network.provider__network_type|default:_("Unknown") }}</dd>
     <dd>{% trans "Physical Network:" %} {{ network.provider__physical_network|default:_("-") }}</dd>
     <dd>{% trans "Segmentation ID:" %} {{ network.provider__segmentation_id|default:_("-") }}</dd>
