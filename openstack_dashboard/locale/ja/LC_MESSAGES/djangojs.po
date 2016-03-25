@@ -1,9 +1,7 @@
 # Akihiro Motoki <amotoki@gmail.com>, 2015. #zanata
 # Shu Muto <shu-mutou@rf.jp.nec.com>, 2015. #zanata
 # Yuko Katabami <yukokatabami@gmail.com>, 2015. #zanata
-# Akihiro Motoki <amotoki@gmail.com>, 2016. #zanata
 # Mie Yamamoto <myamamot@redhat.com>, 2016. #zanata
-# Shu Muto <shu-mutou@rf.jp.nec.com>, 2016. #zanata
 # Yuko Katabami <yukokatabami@gmail.com>, 2016. #zanata
 msgid ""
 msgstr ""
@@ -13,7 +11,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2016-03-23 11:52+0000\n"
+"PO-Revision-Date: 2016-03-24 11:13+0000\n"
 "Last-Translator: Yuko Katabami <yukokatabami@gmail.com>\n"
 "Language-Team: Japanese\n"
 "Language: ja\n"
@@ -223,8 +221,7 @@ msgid "A name is required for your instance."
 msgstr "インスタンス名は必須です。"
 
 msgid "A port represents a virtual switch port on a logical network switch."
-msgstr ""
-"ポートとは、論理ネットワークスイッチ上にある仮想スイッチポートのことです。"
+msgstr "ポート、論理ネットワークスイッチ上にある仮想スイッチポートを表します。"
 
 msgid "AKI"
 msgstr "AKI"
@@ -978,7 +975,7 @@ msgid "Link"
 msgstr "リンク"
 
 msgid "List group item heading"
-msgstr "グループ一覧のアイテムの見出し"
+msgstr "グループ一覧の項目の見出し"
 
 msgid "List groups"
 msgstr "グループの一覧表示"
@@ -1156,7 +1153,7 @@ msgstr ""
 "階層の深いフォルダーの作成することができます。"
 
 msgid "Note: you will not be able to download this later."
-msgstr "注意: このダウンロードは後で実施することはできません。"
+msgstr "注意: このダウンロードは後で実行することはできません。"
 
 msgid "Number"
 msgstr "数字"
@@ -1192,7 +1189,7 @@ msgid "Older"
 msgstr "古い"
 
 msgid "One fine body…"
-msgstr "一つの本文・・・"
+msgstr "1 つの本文…"
 
 msgid "One more separated link"
 msgstr "もうひとつの分割されたリンク"
@@ -1201,7 +1198,7 @@ msgid "Option one is this"
 msgstr "オプション１はこれです"
 
 msgid "Option two can be something else"
-msgstr "オプション２は何か他のものにできます"
+msgstr "オプション２は何か別の項目です"
 
 msgid "Other Input Types"
 msgstr "他の入力項目"
@@ -1210,7 +1207,7 @@ msgid "Overview"
 msgstr "概要"
 
 msgid "Owner"
-msgstr "オーナー"
+msgstr "所有者"
 
 msgid "Pager"
 msgstr "ページャー"
@@ -1234,7 +1231,7 @@ msgid "Panel info"
 msgstr "情報のパネル"
 
 msgid "Panel primary"
-msgstr "主要なパネル"
+msgstr "基本パネル"
 
 msgid "Panel success"
 msgstr "成功のパネル"
@@ -1277,7 +1274,7 @@ msgid "Popovers"
 msgstr "ポップオーバー"
 
 msgid "Ports can be created under a network by administrators."
-msgstr "ポートは、管理者によりネットワークに作成することができます。"
+msgstr "管理者はネットワークにポートを作成することができます。"
 
 msgid ""
 "Ports provide extra communication channels to your instances. You can select "
@@ -1290,7 +1287,7 @@ msgid "Previous"
 msgstr "前へ"
 
 msgid "Primary"
-msgstr "主要"
+msgstr "基本"
 
 msgid "Private"
 msgstr "プライベート"
@@ -1515,10 +1512,10 @@ msgid "Snapshot"
 msgstr "スナップショット"
 
 msgid "Someone famous in"
-msgstr "有名な誰か"
+msgstr "誰か有名な人の名前"
 
 msgid "Something else here"
-msgstr "何か他のものはここへ"
+msgstr "その他の項目"
 
 msgid "Source"
 msgstr "ソース"
@@ -1646,7 +1643,7 @@ msgid "The status indicates whether the network has an active connection."
 msgstr "ステータスは、ネットワークにアクティブな接続があるかを示します。"
 
 msgid "The status indicates whether the port has an active connection."
-msgstr "ステータスは、ポートにアクティブな接続があるかを示します。"
+msgstr "ステータスは、ポートにアクティブな接続があるかどうかを示します。"
 
 msgid ""
 "The subnet identifies a sub-section of a network. A subnet is specified in "
@@ -1695,8 +1692,8 @@ msgid ""
 "This is a simple hero unit, a simple jumbotron-style component for calling "
 "extra attention to featured content or information."
 msgstr ""
-"これは、シンプルな突出したユニットで、注目のコンテンツや情報に特別な注意を喚"
-"起するためのシンプルなジャンボトロンスタイルのコンポーネントです。"
+"これは、シンプルなヒーローユニットで、お勧めのコンテンツや情報に特別な注意を"
+"喚起するためのシンプルなジャンボトロンスタイルのコンポーネントです。"
 
 msgid "This is focused..."
 msgstr "フォーカスが当たっています。"
@@ -1756,7 +1753,7 @@ msgstr ""
 "必要があります。"
 
 msgid "Typography"
-msgstr "タイポグラフィ"
+msgstr "タイポグラフィー"
 
 msgid "Unable to allocate new floating IP address."
 msgstr "新しい Floating IP アドレスを確保できません。"
@@ -1832,7 +1829,7 @@ msgstr "フォルダーは空ではないため削除できません。"
 
 #, python-format
 msgid "Unable to delete the image with id: %(id)s"
-msgstr "次の ID のイメージを削除できません: %(id)s"
+msgstr "ID が  %(id)s のイメージを削除できません。"
 
 msgid "Unable to delete the object."
 msgstr "オブジェクトを削除できません。"

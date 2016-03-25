@@ -18,7 +18,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2016-03-23 04:01+0000\n"
+"PO-Revision-Date: 2016-03-24 04:10+0000\n"
 "Last-Translator: vuuv <froms2008@gmail.com>\n"
 "Language-Team: Chinese (China)\n"
 "Language: zh-CN\n"
@@ -160,7 +160,8 @@ msgid ""
 "     "
 msgstr ""
 "\n"
-"选定的\"卷类型\"必须与当前的卷类型不同。"
+"选定的\"卷类型\"必须与当前的卷类型不同。\n"
+" "
 
 msgid ""
 "\n"
@@ -236,10 +237,10 @@ msgid ""
 "    "
 msgstr ""
 "\n"
-"    动态迁移一个云主机到特定的主机\n"
+"    热迁移一个云主机到指定主机。\n"
 "    <br>\n"
 "    <br>\n"
-"    强制主机拷贝：启用或禁用通用的基于主机的绕过驱动优化的强制迁移。\n"
+"    强制主机拷贝：启用或禁用通用的基于主机的强制迁移，跳过驱动器优化。\n"
 "    "
 
 msgid ""
@@ -297,9 +298,10 @@ msgid ""
 "  "
 msgstr ""
 "\n"
-"为负载均衡池定义名称和描述.选择负载均衡池的子网.\n"
-"选择负载均衡池的网络协议和均衡方法.管理员状态默\n"
-"认是启用(已确定)的."
+"为负载均衡池定义名称和描述。选择负载均衡池成员均已接入的子网。\n"
+"选择协议和均衡方法.\n"
+"管理状态默认为 UP.\n"
+" "
 
 msgid ""
 "\n"
@@ -310,9 +312,9 @@ msgid ""
 " "
 msgstr ""
 "\n"
-"为这个资源池创建一个VIP。指定名称，描述，IP地址，端口，\n"
-"和允许的最大VIP连接数。为VIP选择协议和会话持久化的方法。\n"
-"默认情况下，Admin State是UP（选中的状态）。\n"
+"为这个资源池创建一个 VIP。指定名称，描述，IP地址，端口，\n"
+"及其允许的最大连接数。为 VIP 选择协议和会话持久化的方法。\n"
+"默认情况下，管理状态是UP。\n"
 " "
 
 msgid ""
@@ -363,7 +365,7 @@ msgid "\"N/A\""
 msgstr "\"N/A\""
 
 msgid "\"Namespace Resource Type Associations\""
-msgstr "命名空间资源类型"
+msgstr "\"命名空间资源类型关联\""
 
 msgid "\"No flavors meet minimum criteria for selected image.\""
 msgstr "\"没有特性符合已选定image的最低标准\""
@@ -792,7 +794,7 @@ msgid "Add Users"
 msgstr "添加用户"
 
 msgid "Add VIP"
-msgstr "添加VIP"
+msgstr "添加 VIP"
 
 msgid "Add VPN Service"
 msgstr "添加VPN服务"
@@ -887,7 +889,7 @@ msgstr[0] "已添加的用户"
 
 #, python-format
 msgid "Added VIP \"%s\"."
-msgstr "已添加VIP \"%s\"。"
+msgstr "已添加 VIP \"%s\"。"
 
 #, python-format
 msgid "Added VPN Service \"%s\"."
@@ -918,8 +920,8 @@ msgid ""
 "applying the metadata. In certain cases, the prefix may differ between the "
 "resource type (for example, flavor vs image)."
 msgstr ""
-"而某些类型的资源在更新元数据时可能需要添加一个前缀，不同的资源类型也会使用不"
-"同的前缀（比如，云主机类型和镜像）。"
+"另外，某些类型的资源在应用元数据时可能需要添加一个前缀，不同的资源类型也会使"
+"用不同的前缀（比如，云主机类型和镜像）。"
 
 msgid "Address"
 msgstr "地址"
@@ -937,7 +939,7 @@ msgid "Admin Password"
 msgstr "管理员密码"
 
 msgid "Admin State"
-msgstr "管理员状态"
+msgstr "管理状态"
 
 msgid "Admin State Up"
 msgstr "管理员状态中"
@@ -1044,7 +1046,7 @@ msgid ""
 "          active connections."
 msgstr ""
 "分发请求给活跃连接最少的\n"
-"实例"
+"云主机"
 
 msgid "Allocation Pools"
 msgstr "分配地址池"
@@ -1113,7 +1115,7 @@ msgid "Associated QoS Spec"
 msgstr "已关联的QoS规格"
 
 msgid "Associated Resource Types"
-msgstr "关联资源类型"
+msgstr "关联的资源类型"
 
 msgid "Associated Routers"
 msgstr "关联路由"
@@ -1303,7 +1305,7 @@ msgid "Block Device Mapping"
 msgstr "块设备映射"
 
 msgid "Block Migration"
-msgstr "块迁移"
+msgstr "块设备迁移"
 
 msgid "Block Storage Services"
 msgstr "块存储服务"
@@ -1384,7 +1386,7 @@ msgid "Cannot get console for instance %s."
 msgstr "无法获取云主机%s的终端。"
 
 msgid "Cannot specify both file and direct input."
-msgstr "无法同时指定文件和直接输入。"
+msgstr "不能同时指定文件上传和直接输入。"
 
 msgid "Centralized"
 msgstr "集中"
@@ -1595,7 +1597,7 @@ msgid "Confirm Resize"
 msgstr "确认重建"
 
 msgid "Confirm Resize/Migrate"
-msgstr "确认修改尺寸/移植"
+msgstr "确认 调整大小/迁移"
 
 msgid "Confirm Unmanage Volume"
 msgstr "确认非管理云硬盘"
@@ -1605,11 +1607,11 @@ msgstr "确认新密码"
 
 msgctxt "Current status of an Instance"
 msgid "Confirm or Revert Resize/Migrate"
-msgstr "确认或者回退 重建/迁移"
+msgstr "确认或放弃 调整大小/迁移"
 
 msgctxt "Task status of an Instance"
 msgid "Confirming Resize or Migrate"
-msgstr "正在确认 重建/迁移"
+msgstr "正在确认 调整大小/迁移"
 
 msgid "Conflicting Rule"
 msgstr "冲突规则"
@@ -1719,7 +1721,7 @@ msgid "Create"
 msgstr "已创建"
 
 msgid "Create An Image"
-msgstr "创建一个镜像"
+msgstr "创建镜像"
 
 msgid "Create Backup"
 msgstr "创建备份"
@@ -1938,7 +1940,7 @@ msgid "Create Volume Type Extra Spec"
 msgstr "创建云硬盘类型扩展规格"
 
 msgid "Create a Metadata Namespace"
-msgstr "创建一元数据命名空间"
+msgstr "创建元数据命名空间"
 
 msgid "Create a New Volume"
 msgstr "创建一个新云硬盘"
@@ -2048,8 +2050,8 @@ msgid ""
 msgstr ""
 "创建一个监控模板。\n"
 "\n"
-"选择一个监控类型。指定监控需要的延迟、超时和重试次数限制。 指定成功时的方法、"
-"URL路径和预期HTTP代码。"
+"选择一个监控类型。指定监控需要的延迟、超时和重试次数限制。 指定方法、URL路径"
+"和预期成功时的HTTP代码。"
 
 msgid "Create a new \"extra spec\" key-value pair for a volume type."
 msgstr "为云硬盘类型创建新的\"扩展规格\"键值对。"
@@ -2086,7 +2088,7 @@ msgstr "为组织用户创建一个项目"
 msgid ""
 "Create a subnet associated with the network. Advanced configuration is "
 "available by clicking on the \"Subnet Details\" tab."
-msgstr "创建网络关联的子网。点击\"子网详情\"标签可以进行高级配置。"
+msgstr "创建关联到这个网络的子网。点击“子网详情”标签可进行高级配置。"
 
 msgid "Create an Encrypted Volume Type"
 msgstr "创建一加密的云硬盘类型"
@@ -2166,9 +2168,9 @@ msgid ""
 "want gateway please check the \"Disable Gateway\" checkbox. Advanced "
 "configuration is available by clicking on the \"Subnet Details\" tab."
 msgstr ""
-"创建网络中相关的子网。你必须输入有效的“网络地址”和“网关IP”。如果你不输入“网关"
-"IP”，网络的第一个值将被缺省分配。如果你不想用网关，请选中“禁用网关”复选框。通"
-"过点击“子网详情”选项也，可以使用高级配置。"
+"创建关联到这个网络的子网。您必须输入有效的“网络地址”和“网关IP”。如果你不输"
+"入“网关IP”，将默认使用该网络的第一个IP地址。如果你不想使用网关，请勾选“禁用网"
+"关”复选框。点击“子网详情”标签可进行高级配置。"
 
 msgid "Creating"
 msgstr "创建中"
@@ -2234,7 +2236,7 @@ msgstr "当前密码"
 msgid ""
 "Currently only images available via an HTTP/HTTPS URL are supported. The "
 "image location must be accessible to the Image Service."
-msgstr "目前镜像URL只支持HTTP/HTTPS。镜像服务必须能够访问到镜像地址。"
+msgstr "目前镜像URL只支持HTTP/HTTPS，且要求镜像服务能够访问到镜像地址。"
 
 msgctxt "Custom style theme"
 msgid "Custom"
@@ -2289,7 +2291,7 @@ msgid "DNS name server"
 msgstr "DNS域名服务器"
 
 msgid "DOWN"
-msgstr "下"
+msgstr "DOWN"
 
 msgctxt "Admin state of a Firewall"
 msgid "DOWN"
@@ -2315,7 +2317,7 @@ msgid "DPD Timeout must be greater than DPD Interval"
 msgstr "DPD超时大小必须大于DPD间隔"
 
 msgid "Daily Usage Report"
-msgstr "每日使用报告"
+msgstr "每日使用情况报表"
 
 msgid "Date Updated"
 msgstr "日期已更新"
@@ -2463,7 +2465,7 @@ msgstr[0] "删除成员"
 
 msgid "Delete Monitor"
 msgid_plural "Delete Monitors"
-msgstr[0] "删除监控程序"
+msgstr[0] "删除监控"
 
 msgid "Delete Namespace"
 msgid_plural "Delete Namespaces"
@@ -2542,7 +2544,7 @@ msgid_plural "Delete Users"
 msgstr[0] "删除用户"
 
 msgid "Delete VIP"
-msgstr "删除VIP"
+msgstr "删除 VIP"
 
 msgid "Delete VPN Service"
 msgid_plural "Delete VPN Services"
@@ -2703,7 +2705,7 @@ msgstr[0] "已删除的用户"
 
 #, python-format
 msgid "Deleted VIP %s"
-msgstr "已删除VIP %s"
+msgstr "已删除 VIP %s"
 
 msgid "Deleted Volume Type"
 msgid_plural "Deleted Volume Types"
@@ -2732,7 +2734,7 @@ msgstr "删除中"
 
 #, python-format
 msgid "Deleting VIP %s from this pool cannot be undone."
-msgstr "从这个池删除VIP %s不能撤销"
+msgstr "从这个池删除 VIP %s 后无法撤销"
 
 msgid "Deny"
 msgstr "拒绝"
@@ -2919,7 +2921,7 @@ msgid "Disk Partition"
 msgstr "磁盘分区"
 
 msgid "Display Name"
-msgstr "现实名称"
+msgstr "显示名称"
 
 msgid "Distributed"
 msgstr "分布式的"
@@ -2927,8 +2929,7 @@ msgstr "分布式的"
 msgid ""
 "Do not use a colon ':' with OS::Glance::Images. This resource type does not "
 "support the use of colons."
-msgstr ""
-"不要在 “OS::Glance::Images” 之前使用 “:” ，因为这种资源类型不支持前缀。"
+msgstr "不要在 OS::Glance::Images 里使用 “:” ，因为这种资源类型不支持前缀。"
 
 msgid "Docker"
 msgstr "Docker"
@@ -2976,18 +2977,17 @@ msgid ""
 "different organizations. Edit the domain details to add or remove groups in "
 "the domain."
 msgstr ""
-"域提供了不同组织使用的用户和基础设施之间的分离. 编辑域的详细信息，添加或删除"
-"域中的组."
+"域将用户和其他组织使用的基础设施相隔离. 编辑域详情以添加或删除域中的组."
 
 msgid "Domains:"
 msgstr "域："
 
 msgid "Down"
-msgstr "向下"
+msgstr "Down"
 
 msgctxt "Current state of a Hypervisor"
 msgid "Down"
-msgstr "向下"
+msgstr "Down"
 
 msgctxt "Current status of a Firewall"
 msgid "Down"
@@ -3165,7 +3165,7 @@ msgid "Edit Template"
 msgstr "编辑模板"
 
 msgid "Edit VIP"
-msgstr "编辑VIP"
+msgstr "编辑 VIP"
 
 msgid "Edit VPN Service"
 msgstr "编辑VPN服务"
@@ -3191,13 +3191,13 @@ msgstr ""
 "户在部署云主机的时候可选用。"
 
 msgid "Edit the identity provider's details."
-msgstr "编辑身份提供者详细信息。"
+msgstr "编辑身份提供者详情。"
 
 msgid "Edit the image details."
 msgstr "编辑镜像详情"
 
 msgid "Edit the instance details."
-msgstr "编辑云主机详细信息"
+msgstr "编辑云主机详情"
 
 msgid "Edit the mapping's details."
 msgstr "编辑映射详情。"
@@ -3416,10 +3416,10 @@ msgid "Error editing QoS Spec consumer."
 msgstr "编辑QoS规格消费者时出错。"
 
 msgid "Error getting metadata definitions."
-msgstr "获取元数据定义错误。"
+msgstr "获取元数据定义时出错。"
 
 msgid "Error getting resource type associations."
-msgstr "获取资源类型关联错误。"
+msgstr "获取资源类型关联时出错。"
 
 msgid "Error updating QoS Spec association."
 msgstr "更新QoS规格关联失败。"
@@ -3668,14 +3668,14 @@ msgstr "云主机热迁移到主机\"%s\"失败"
 
 #, python-format
 msgid "Failed to migrate host \"%s\"."
-msgstr "迁移主机 \"%s\" 失败。"
+msgstr "迁移主机失败： \"%s\" "
 
 #, python-format
 msgid "Failed to migrate instances: %s"
-msgstr "云主机冷迁移失败： %s"
+msgstr "云主机迁移失败： %s"
 
 msgid "Failed to migrate volume."
-msgstr "迁移云硬盘失败"
+msgstr "迁移卷失败"
 
 #, python-format
 msgid ""
@@ -3761,7 +3761,7 @@ msgstr "更新IPSec站点连接%s失败"
 
 #, python-format
 msgid "Failed to update VIP %s"
-msgstr "无法更新VIP %s。"
+msgstr "无法更新 VIP %s。"
 
 #, python-format
 msgid "Failed to update VPN Service %s"
@@ -3826,7 +3826,7 @@ msgstr "联邦"
 msgid ""
 "Fields in this tab are optional. You can configure the detail of IPSec site "
 "connection created."
-msgstr "本选项卡中的域为可选。你可以配置已创建IPSec站点连接的详情。"
+msgstr "本标签中的字段都是可选的。你可以配置已创建的IPSec站点连接的详情。"
 
 msgid "File"
 msgstr "文件"
@@ -3845,7 +3845,7 @@ msgstr "指纹"
 
 msgctxt "Task status of an Instance"
 msgid "Finishing Resize or Migrate"
-msgstr "正在完成重建或者迁移"
+msgstr "即将完成 调整大小/迁移"
 
 msgid "Firewall"
 msgstr "防火墙"
@@ -3879,11 +3879,11 @@ msgid "Flavor Choice"
 msgstr "云主机类型选择"
 
 msgid "Flavor Details"
-msgstr "方案详情"
+msgstr "云主机类型详情"
 
 #, python-format
 msgid "Flavor Details: %(name)s\">%(name)s"
-msgstr "云主机类型详细信息：%(name)s\">%(name)s"
+msgstr "云主机类型详情：%(name)s\">%(name)s"
 
 msgid "Flavor ID"
 msgstr "云主机类型ID"
@@ -3919,7 +3919,7 @@ msgstr "浮动IP"
 
 #, python-format
 msgid "Floating IP will be removed from VIP \"%s\"."
-msgstr "浮动IP 将被从 VIP \"%s\" 上移除."
+msgstr "浮动 IP 将从 VIP \"%s\" 里移除."
 
 msgid "Floating IP:"
 msgstr "浮动IP:"
@@ -3954,9 +3954,9 @@ msgid ""
 "%(gre_min)s through %(gre_max)s. For VXLAN networks, %(vxlan_min)s through "
 "%(vxlan_max)s."
 msgstr ""
-"对于VLAN网络，VLAN VID是虚拟网络在物理网络上的实现。有效的VLAN VID范围是"
-"从%(vlan_min)s 到 %(vlan_max)s。对于GRE 或者VXLAN网络，GRE的隧道ID有效范围"
-"从%(gre_min)s 到 %(gre_max)s；而对于VXLAN网络，这个范围是从%(vxlan_min)s 到 "
+"对于VLAN网络，物理网络上 VLAN 的 VID用来实现虚拟网络，有效的VLAN VID范围是从 "
+"%(vlan_min)s 到 %(vlan_max)s。对于GRE 或者VXLAN网络，则是隧道ID，GRE的隧道ID"
+"有效范围从%(gre_min)s 到 %(gre_max)s；VXLAN则是从%(vxlan_min)s 到 "
 "%(vxlan_max)s"
 
 #, python-format
@@ -4015,7 +4015,7 @@ msgid "GMT"
 msgstr "GMT"
 
 msgid "GRE"
-msgstr "GRE（通用路由封装）"
+msgstr "GRE"
 
 msgid "Gateway IP"
 msgstr "网关IP"
@@ -4657,7 +4657,7 @@ msgid "Key Pair"
 msgstr "值对"
 
 msgid "Key Pair Details"
-msgstr "密钥对详细信息"
+msgstr "密钥对详情"
 
 msgid "Key Pair Name"
 msgstr "密钥对名称"
@@ -4772,7 +4772,7 @@ msgid "Least Connections"
 msgstr "最少连接"
 
 msgid "Least connections"
-msgstr "至少连接"
+msgstr "最少连接"
 
 msgid "Length of Injected File Path"
 msgstr "注入文件路径的长度"
@@ -4811,14 +4811,14 @@ msgid "Live Migrate Instance"
 msgstr "云主机热迁移"
 
 msgid "Live migrate an instance to a specific host."
-msgstr "动态迁移一个云主机到特定的主机"
+msgstr "热迁移一个云主机到指定主机"
 
 msgid "Load Balancer"
 msgstr "负载均衡器"
 
 #, python-format
 msgid "Load Balancer VIP %s"
-msgstr "负载均衡VIP %s"
+msgstr "负载均衡 VIP %s"
 
 msgid "Load Balancers"
 msgstr "负载均衡"
@@ -4997,7 +4997,7 @@ msgstr "这个连接的最大传输单元大小"
 msgid ""
 "Maximum number of connections allowed for the VIP or '-1' if the limit is "
 "not set"
-msgstr "VIP的最大允许链接数，如果没有限制则为\"-1\"。"
+msgstr "VIP 允许的最大连接数，如果没有限制则为\"-1\"。"
 
 #, python-format
 msgid "Member %s was successfully updated."
@@ -5049,7 +5049,7 @@ msgid "Metric:"
 msgstr "度量："
 
 msgid "Migrate"
-msgstr "移植"
+msgstr "迁移"
 
 msgid "Migrate Host"
 msgid_plural "Migrate Hosts"
@@ -5060,7 +5060,7 @@ msgid_plural "Migrate Instances"
 msgstr[0] "迁移云主机"
 
 msgid "Migrate Volume"
-msgstr "迁移云硬盘"
+msgstr "迁移卷"
 
 msgid ""
 "Migrate all instances from a host with disabled nova-compute service. "
@@ -5068,9 +5068,9 @@ msgid ""
 "host can be Live Migrated. Cold Migration is trying to use 'nova migrate' on "
 "each instance of migrated host."
 msgstr ""
-"迁移一个主机上的所有云主机将会关闭nova-compute服务。您可以选择迁移类型。所有"
-"主机上运行中的云主机会是热迁移。冷迁移将会在迁移主机上的每个云主机上尝试使"
-"用'nova migrate'。"
+"迁移一个nova-compute服务已被关闭的主机上的所有云主机，您可以选择迁移类型。所"
+"有正在运行的云主机都可以进行热迁移（Live Migration）。冷迁移（Cold "
+"Migration）会尝试在被迁移主机上使用 'nova migrate’ 迁移每个云主机。"
 
 msgid "Migrated Host"
 msgid_plural "Migrated Hosts"
@@ -5148,7 +5148,7 @@ msgid "Modify Quotas"
 msgstr "修改配额"
 
 msgid "Modify Usage Report Parameters"
-msgstr "修改使用报告参数"
+msgstr "修改使用情况报表参数"
 
 msgid "Modify dashboard settings for your user."
 msgstr "修改当前用户的界面设置"
@@ -5227,7 +5227,7 @@ msgid "Namespace %s has been created."
 msgstr "命名空间 %s 已经被创建。"
 
 msgid "Namespace Definition Source"
-msgstr "命名空间定义源"
+msgstr "命名空间定义数据源"
 
 msgid "Namespace JSON"
 msgstr "命名空间JSON"
@@ -5277,7 +5277,7 @@ msgid "Network Address and IP version are inconsistent."
 msgstr "网络地址和IP版本是可变的"
 
 msgid "Network Agents"
-msgstr "网络代理"
+msgstr "网络 Agents"
 
 msgid "Network Details"
 msgstr "网络详情"
@@ -5899,7 +5899,7 @@ msgid "Perfect Forward Secrecy"
 msgstr "完美前传保密"
 
 msgid "Period"
-msgstr "时期"
+msgstr "周期"
 
 msgid "Period:"
 msgstr "周期："
@@ -5961,7 +5961,7 @@ msgid "Pool %s was successfully updated."
 msgstr "池 %s 更新成功。"
 
 msgid "Pool Details"
-msgstr "端口详情"
+msgstr "资源池详情"
 
 msgid "Pools"
 msgstr "资源池"
@@ -6036,7 +6036,7 @@ msgstr "前缀:"
 
 msgctxt "Task status of an Instance"
 msgid "Preparing Resize or Migrate"
-msgstr "准备重建或者迁移"
+msgstr "准备 调整大小/迁移"
 
 msgid "Preview"
 msgstr "预览"
@@ -6444,7 +6444,7 @@ msgid ""
 "          directed to the same instance."
 msgstr ""
 "来自同一个源IP地址的请求从始至终都将会\n"
-"分发给同一实例."
+"分发给同一云主机."
 
 msgid "Required for APP_COOKIE persistence; Ignored otherwise."
 msgstr "需要使用APP_COOKIE持久化;忽略其他"
@@ -6476,7 +6476,7 @@ msgstr "调整云主机大小"
 
 msgctxt "Current status of an Instance"
 msgid "Resize/Migrate"
-msgstr "重建/迁移"
+msgstr "调整大小/迁移"
 
 msgctxt "Current status of an Instance"
 msgid "Resized"
@@ -6484,11 +6484,11 @@ msgstr "已调整大小"
 
 msgctxt "Task status of an Instance"
 msgid "Resized or Migrated"
-msgstr "已经重建或者迁移"
+msgstr "已经 调整大小/迁移"
 
 msgctxt "Task status of an Instance"
 msgid "Resizing or Migrating"
-msgstr "正在重建或者迁移中"
+msgstr "正在 调整大小/迁移"
 
 msgid "Resource"
 msgstr "资源"
@@ -6588,15 +6588,15 @@ msgid "Retrieve Password"
 msgstr "取回密码"
 
 msgid "Revert Resize/Migrate"
-msgstr "恢复修改尺寸/移植"
+msgstr "放弃 调整大小/迁移"
 
 msgctxt "Current status of an Instance"
 msgid "Revert Resize/Migrate"
-msgstr "恢复修改尺寸/移植"
+msgstr "放弃 调整大小/迁移"
 
 msgctxt "Task status of an Instance"
 msgid "Reverting Resize or Migrate"
-msgstr "正在回退重建或者迁移"
+msgstr "正在放弃 调整大小/迁移"
 
 msgid "Role"
 msgstr "角色"
@@ -6789,71 +6789,71 @@ msgstr "保存中"
 
 msgid "Scheduled deletion of Consistency Group"
 msgid_plural "Scheduled deletion of Consistency Groups"
-msgstr[0] "定时删除一致性组"
+msgstr[0] "已调度删除一致性组"
 
 msgid "Scheduled deletion of Firewall"
 msgid_plural "Scheduled deletion of Firewalls"
-msgstr[0] "已安排防火墙的删除"
+msgstr[0] "已调度删除防火墙"
 
 msgid "Scheduled deletion of IKE Policy"
 msgid_plural "Scheduled deletion of IKE Policies"
-msgstr[0] "已安排IKE策略的删除"
+msgstr[0] "已调度删除IKE策略"
 
 msgid "Scheduled deletion of IPSec Policy"
 msgid_plural "Scheduled deletion of IPSec Policies"
-msgstr[0] "已安排IPSec策略的删除"
+msgstr[0] "已调度删除IPSec策略"
 
 msgid "Scheduled deletion of IPSec Site Connection"
 msgid_plural "Scheduled deletion of IPSec Site Connections"
-msgstr[0] "已安排IPSec站点连接的删除"
+msgstr[0] "已调度删除IPSec站点连接"
 
 msgid "Scheduled deletion of Instance"
 msgid_plural "Scheduled deletion of Instances"
-msgstr[0] "删除云主机"
+msgstr[0] "已调度删除云主机"
 
 msgid "Scheduled deletion of Member"
 msgid_plural "Scheduled deletion of Members"
-msgstr[0] "已安排成员的删除"
+msgstr[0] "已调度删除成员"
 
 msgid "Scheduled deletion of Monitor"
 msgid_plural "Scheduled deletion of Monitors"
-msgstr[0] "已安排监控的删除"
+msgstr[0] "已调度删除监控"
 
 msgid "Scheduled deletion of Policy"
 msgid_plural "Scheduled deletion of Policies"
-msgstr[0] "已安排策略的删除"
+msgstr[0] "已调度删除策略"
 
 msgid "Scheduled deletion of Pool"
 msgid_plural "Scheduled deletion of Pools"
-msgstr[0] "已安排资源池的删除"
+msgstr[0] "已调度删除资源池"
 
 msgid "Scheduled deletion of Rule"
 msgid_plural "Scheduled deletion of Rules"
-msgstr[0] "已安排规则的删除"
+msgstr[0] "已调度删除规则"
 
 msgid "Scheduled deletion of VPN Service"
 msgid_plural "Scheduled deletion of VPN Services"
-msgstr[0] "已安排VPN服务的删除"
+msgstr[0] "已调度删除VPN服务"
 
 msgid "Scheduled deletion of Volume"
 msgid_plural "Scheduled deletion of Volumes"
-msgstr[0] "已安排云硬盘的删除"
+msgstr[0] "已调度删除卷"
 
 msgid "Scheduled deletion of Volume Backup"
 msgid_plural "Scheduled deletion of Volume Backups"
-msgstr[0] "已安排删除云硬盘备份"
+msgstr[0] "已调度删除卷备份"
 
 msgid "Scheduled deletion of Volume Snapshot"
 msgid_plural "Scheduled deletion of Volume Snapshots"
-msgstr[0] "已安排删除云硬盘快照"
+msgstr[0] "已调度删除卷快照"
 
 msgid "Scheduled migration (pending confirmation) of Instance"
 msgid_plural "Scheduled migration (pending confirmation) of Instances"
-msgstr[0] "已安排的云主机迁移(待确认)"
+msgstr[0] "已调度迁移（待确认）云主机"
 
 #, python-format
 msgid "Scheduled resize of instance \"%s\"."
-msgstr "定期调整云主机\"%s\"."
+msgstr "已调度调整云主机 \"%s\" 的大小。"
 
 msgctxt "Task status of an Instance"
 msgid "Scheduling"
@@ -7231,7 +7231,7 @@ msgid "Sign Out"
 msgstr "退出"
 
 msgid "Size"
-msgstr "配置"
+msgstr "大小"
 
 msgid "Size (GiB)"
 msgstr "大小(GiB)"
@@ -7390,10 +7390,10 @@ msgid "Specify IP address of gateway or check \"Disable Gateway\" checkbox."
 msgstr "指定网关IP地址或选中“禁用网关”复选框。"
 
 msgid "Specify VIP"
-msgstr "指定VIP"
+msgstr "指定 VIP"
 
 msgid "Specify a metadata definition namespace to import."
-msgstr "指定一元数据定义命名空间来导入。"
+msgstr "指定元数据定义命名空间来导入。"
 
 msgid "Specify additional attributes for the subnet."
 msgstr "为子网指定扩展属性"
@@ -7411,7 +7411,7 @@ msgid "Specify member IP address"
 msgstr "指定成员的IP地址"
 
 msgid "Specify the details for launching an instance."
-msgstr "指定创建云主机的详细信息"
+msgstr "指定启动云主机的详情"
 
 msgid ""
 "Specify this option to copy image data to the image service. If unspecified, "
@@ -7640,7 +7640,7 @@ msgstr "成功发送管理云硬盘: %s 的请求"
 
 #, python-format
 msgid "Successfully sent the request to migrate volume: %s"
-msgstr "成功发送不管理云硬盘: %s 的请求"
+msgstr "成功发送迁移卷: %s 的请求"
 
 #, python-format
 msgid "Successfully sent the request to unmanage volume: %s"
@@ -7889,11 +7889,11 @@ msgid ""
 "The Image Location field MUST be a valid and direct URL to the image binary. "
 "URLs that redirect or serve error pages will result in unusable images."
 msgstr ""
-"镜像地址必须是有效的直接定位到镜像二进制文件的URL。URL被重定向或者服务器返回"
-"错误页面将导致镜像不可用。"
+"镜像地址必须是有效的直接指向镜像二进制文件的URL。URL被重定向或者服务器返回错"
+"误页面将导致镜像不可用。"
 
 msgid "The JSON formatted contents of a namespace."
-msgstr "命名空间的JSON格式内容"
+msgstr "内容为JSON格式的命名空间定义"
 
 msgid "The Key Pair name that was associated with the instance"
 msgstr "关联到该云主机上的密钥对名称"
@@ -8002,7 +8002,7 @@ msgstr ""
 msgid ""
 "The maximum time in seconds for a monitor to wait for a reply. It must be "
 "less than or equal to delay"
-msgstr "监控等待回复的最长等待时间，以秒为单位；必须小于或者等于超时时间。"
+msgstr "监控等待回复的最长等待时间，以秒为单位；必须小于或者等于延迟时间。"
 
 msgid ""
 "The minimum disk size required to boot the image. If unspecified, this value "
@@ -8038,7 +8038,7 @@ msgstr "这个名字已经被使用"
 msgid ""
 "The name of the physical network over which the virtual network is "
 "implemented."
-msgstr "物理网络上的虚拟网络的实现的名称。"
+msgstr "实现虚拟网络的物理网络名称。"
 
 msgid ""
 "The next hop addresses can be used to override the router used by the client."
@@ -8048,7 +8048,7 @@ msgid "The page you were looking for doesn't exist"
 msgstr "你要找的页面不存在"
 
 msgid "The physical mechanism by which the virtual network is implemented."
-msgstr "物理机制的虚拟网络的实现。"
+msgstr "实现虚拟网络的物理机制。"
 
 msgid ""
 "The port also describes the associated network configuration, such as the "
@@ -8354,7 +8354,7 @@ msgid "UDP"
 msgstr "UDP"
 
 msgid "UP"
-msgstr "上"
+msgstr "UP"
 
 msgctxt "Admin state of a Firewall"
 msgid "UP"
@@ -8418,7 +8418,7 @@ msgstr "无法添加规则 \"%s\"。"
 
 #, python-format
 msgid "Unable to add VIP \"%s\"."
-msgstr "无法添加VIP  \"%s\"。"
+msgstr "无法添加 VIP  \"%s\"。"
 
 #, python-format
 msgid "Unable to add VPN Service \"%s\"."
@@ -8609,7 +8609,7 @@ msgstr "无法删除IPSec 对点链接. %s"
 
 #, python-format
 msgid "Unable to delete VIP. %s"
-msgstr "无法删除VIP %s"
+msgstr "无法删除 VIP %s"
 
 #, python-format
 msgid "Unable to delete VPN Service. %s"
@@ -8631,7 +8631,7 @@ msgstr "无法删除成员%s"
 
 #, python-format
 msgid "Unable to delete monitor. %s"
-msgstr "无法删除监控程序%s"
+msgstr "无法删除监控。%s"
 
 #, python-format
 msgid "Unable to delete policy. %s"
@@ -8707,7 +8707,7 @@ msgstr "无法获得云主机 \"%s\"SPICE控制台"
 
 #, python-format
 msgid "Unable to get VIP for pool %(pool)s."
-msgstr "无法从资源池 %(pool)s 获取VIP。"
+msgstr "无法从资源池 %(pool)s 获取 VIP。"
 
 #, python-format
 msgid "Unable to get VNC console for instance \"%s\"."
@@ -8742,10 +8742,10 @@ msgid "Unable to get members for pool %(pool)s."
 msgstr "无法获得资源池 %(pool)s 的成员。"
 
 msgid "Unable to get network agents info."
-msgstr "无法获取网络agents信息。"
+msgstr "无法获取网络 Agents 信息。"
 
 msgid "Unable to get network agents list."
-msgstr "无法获取网络代理列表。"
+msgstr "无法获取网络 Agents 列表。"
 
 msgid "Unable to get nova services list."
 msgstr "无法查询nova服务列表。"
@@ -8812,7 +8812,7 @@ msgstr "无法加载指定云硬盘. %s"
 
 #, python-format
 msgid "Unable to locate VIP to delete. %s"
-msgstr "无法找到要删除的VIP %s"
+msgstr "无法找到要删除的 VIP %s"
 
 msgid "Unable to lookup volume or backup information."
 msgstr "无法查找云硬盘或备份的信息。"
@@ -8917,13 +8917,13 @@ msgid "Unable to retrieve QoS Spec association."
 msgstr "无法获取QoS规格关联。"
 
 msgid "Unable to retrieve QoS Spec details."
-msgstr "无法获取QoS规格的详细信息。"
+msgstr "无法获取QoS规格详情。"
 
 msgid "Unable to retrieve QoS Specs."
 msgstr "无法获取QoS规格。"
 
 msgid "Unable to retrieve QoS spec details."
-msgstr "无法获取QoS规格详细信息。"
+msgstr "无法获取QoS规格详情。"
 
 msgid "Unable to retrieve QoS spec list."
 msgstr "无法获取QoS规格列表。"
@@ -8932,11 +8932,11 @@ msgid "Unable to retrieve QoS specs"
 msgstr "无法获取QoS规格"
 
 msgid "Unable to retrieve VIP details."
-msgstr "无法获取VIP详情。"
+msgstr "无法获取 VIP 详情。"
 
 #, python-format
 msgid "Unable to retrieve VIP details. %s"
-msgstr "无法获取VIP %s 详细信息"
+msgstr "无法获取 VIP %s 的详情"
 
 msgid "Unable to retrieve VPN Service details."
 msgstr "无法获取VPN服务详情。"
@@ -8969,7 +8969,7 @@ msgid "Unable to retrieve availability zones."
 msgstr "无法获取可用域。"
 
 msgid "Unable to retrieve backup details."
-msgstr "无法获取云硬盘备份详细信息。"
+msgstr "无法获取备份详情。"
 
 msgid "Unable to retrieve compute host information."
 msgstr "无法获取计算节点信息。"
@@ -8995,7 +8995,7 @@ msgstr "无法获取云主机 \"%s\" 的详情。"
 
 #, python-format
 msgid "Unable to retrieve details for keypair \"%s\"."
-msgstr "无法获取密钥对 \"%s\" 详情。"
+msgstr "无法获取密钥对 \"%s\" 的详情。"
 
 #, python-format
 msgid "Unable to retrieve details for network \"%s\"."
@@ -9003,7 +9003,7 @@ msgstr "无法获取网络\"%s\"的详情."
 
 #, python-format
 msgid "Unable to retrieve details for router \"%s\"."
-msgstr "无法获取路由\"%s\"详情"
+msgstr "无法获取路由 \"%s\" 的详情"
 
 msgid "Unable to retrieve details."
 msgstr "无法获取详情。"
@@ -9073,7 +9073,7 @@ msgstr "无法获取组成员。"
 
 #, python-format
 msgid "Unable to retrieve health monitor details. %s"
-msgstr "无法获取健康监控程序 %s 详细信息"
+msgstr "无法获取健康监控程 %s 的详情"
 
 msgid "Unable to retrieve host aggregates list."
 msgstr "无法获取主机聚合列表。"
@@ -9097,10 +9097,10 @@ msgid "Unable to retrieve identity provider list."
 msgstr "不能获取身份提供者列表。"
 
 msgid "Unable to retrieve image details."
-msgstr "无法检索到镜像细节。"
+msgstr "无法获取镜像细节。"
 
 msgid "Unable to retrieve image list."
-msgstr "无法查询镜像列表。"
+msgstr "无法获取镜像列表。"
 
 msgid "Unable to retrieve image."
 msgstr "无法检索到镜像。"
@@ -9127,7 +9127,7 @@ msgid "Unable to retrieve instance flavors."
 msgstr "无法检索云主机类型。"
 
 msgid "Unable to retrieve instance list."
-msgstr "无法查询云主机列表。"
+msgstr "无法获取云主机列表。"
 
 msgid "Unable to retrieve instance password."
 msgstr "无法获取云主机密码。"
@@ -9136,7 +9136,7 @@ msgid "Unable to retrieve instance project information."
 msgstr "无法获取云主机项目信息。"
 
 msgid "Unable to retrieve instance size information."
-msgstr "无法查询云主机配置信息。"
+msgstr "无法获取云主机配置信息。"
 
 msgid "Unable to retrieve instance."
 msgstr "无法获取云主机。"
@@ -9176,7 +9176,7 @@ msgstr "无法获取成员详情"
 
 #, python-format
 msgid "Unable to retrieve member details. %s"
-msgstr "无法获取成员 %s 详细信息"
+msgstr "无法获取成员 %s 的详情"
 
 msgid "Unable to retrieve member list."
 msgstr "无法获取成员列表"
@@ -9197,10 +9197,10 @@ msgid "Unable to retrieve namespace contents."
 msgstr "无法获取命名空间内容。"
 
 msgid "Unable to retrieve namespace details."
-msgstr "无法检索到命名空间细节。"
+msgstr "无法获取命名空间详情。"
 
 msgid "Unable to retrieve network details."
-msgstr "无法获取wangluo详情"
+msgstr "无法获取网络详情"
 
 msgid "Unable to retrieve network quota information."
 msgstr "无法获取网络配额信息。"
@@ -9231,11 +9231,11 @@ msgid "Unable to retrieve policy list."
 msgstr "无法获取策略列表。"
 
 msgid "Unable to retrieve pool details."
-msgstr "无法获得资源池详情"
+msgstr "无法获取资源池详情"
 
 #, python-format
 msgid "Unable to retrieve pool details. %s"
-msgstr "无法获取资源池 %s 详细信息"
+msgstr "无法获取资源池 %s 的详情"
 
 #, python-format
 msgid "Unable to retrieve pool subnet. %s"
@@ -9376,7 +9376,7 @@ msgstr "无法检索指定池。"
 
 #, python-format
 msgid "Unable to retrieve the specified pool. Unable to add VIP \"%s\"."
-msgstr "无法获取指定的资源池。无法添加VIP \"%s\"。"
+msgstr "无法获取指定的资源池。无法添加 VIP \"%s\"。"
 
 msgid "Unable to retrieve the volume type list."
 msgstr "无法获取云硬盘类型列表"
@@ -9415,10 +9415,10 @@ msgid "Unable to retrieve volume consistency groups."
 msgstr "无法获取云硬盘一致性组。"
 
 msgid "Unable to retrieve volume details."
-msgstr "无法获取云硬盘详情"
+msgstr "无法获取卷详情"
 
 msgid "Unable to retrieve volume encryption details."
-msgstr "无法获取云硬盘加密详情。"
+msgstr "无法获卷加密详情。"
 
 #, python-format
 msgid "Unable to retrieve volume information for volume: \"%s\""
@@ -9450,16 +9450,16 @@ msgid "Unable to retrieve volume transfer."
 msgstr "无法获取云硬盘传输。"
 
 msgid "Unable to retrieve volume type details."
-msgstr "无法获取云硬盘类型的详细信息。"
+msgstr "无法获取卷类型详情。"
 
 msgid "Unable to retrieve volume type encryption details."
-msgstr "无法获取加密云硬盘类型详情。"
+msgstr "无法获取卷类型加密详情"
 
 msgid "Unable to retrieve volume type encryption information."
 msgstr "无法获取云硬盘类型的加密信息。"
 
 msgid "Unable to retrieve volume type extra spec details."
-msgstr "无法获取云硬盘类型扩展规格的详细信息。"
+msgstr "无法获取卷类型扩展规格详情。"
 
 #, python-format
 msgid "Unable to retrieve volume type for: \"%s\""
@@ -9600,7 +9600,7 @@ msgid "Unable to upload volume to image for volume: \"%s\""
 msgstr "无法为云硬盘: \"%s\"上传云硬盘到镜像"
 
 msgid "Unit"
-msgstr "单元"
+msgstr "单位"
 
 msgid "Unknown"
 msgstr "未知"
@@ -9663,11 +9663,11 @@ msgid "Unshelving"
 msgstr "取消搁置中"
 
 msgid "Up"
-msgstr "向上"
+msgstr "Up"
 
 msgctxt "Current state of a Hypervisor"
 msgid "Up"
-msgstr "向上"
+msgstr "Up"
 
 msgid "Update"
 msgstr "更新"
@@ -9758,7 +9758,7 @@ msgstr ""
 msgid ""
 "Update a subnet associated with the network. Advanced configuration are "
 "available at \"Subnet Details\" tab."
-msgstr "更新网络关联的子网。点击\"子网详情\"标签可以进行高级配置。"
+msgstr "更新关联到这个网络的子网。点击“子网详情”标签可进行高级配置。"
 
 msgid "Update an Encrypted Volume Type"
 msgstr "更新一个加密云硬盘类型"
@@ -9849,7 +9849,7 @@ msgid "Usage Overview"
 msgstr "使用概况"
 
 msgid "Usage Report"
-msgstr "使用报告"
+msgstr "使用情况报表"
 
 msgid "Usage Report For Period:"
 msgstr "周期使用报告："
@@ -9902,7 +9902,7 @@ msgid "User Credentials"
 msgstr "用户凭证"
 
 msgid "User Credentials Details"
-msgstr "用户凭证详细信息"
+msgstr "用户凭据详情"
 
 msgid "User Details"
 msgstr "用户详情"
@@ -9942,7 +9942,7 @@ msgid "VCPU Hours"
 msgstr "虚拟内核小时数"
 
 msgid "VCPU Usage"
-msgstr "虚拟内核使用情况"
+msgstr "VCPU使用情况"
 
 msgid "VCPUs"
 msgstr "VCPU数量"
@@ -9973,10 +9973,10 @@ msgid "VIP %s was successfully updated."
 msgstr "VIP %s 更新成功。"
 
 msgid "VIP Details"
-msgstr "VIP详情"
+msgstr "VIP 详情"
 
 msgid "VIP Subnet"
-msgstr "VIP子网"
+msgstr "VIP 子网"
 
 msgid "VLAN"
 msgstr "VLAN"
@@ -10025,7 +10025,7 @@ msgid "Value"
 msgstr "值"
 
 msgid "Value (Avg)"
-msgstr "值(平均)"
+msgstr "平均值"
 
 msgid "Value:"
 msgstr "值："
@@ -10060,7 +10060,7 @@ msgid "View Usage"
 msgstr "查看使用情况"
 
 msgid "View Usage Report"
-msgstr "查看使用报告"
+msgstr "查看使用情况报表"
 
 msgid "Virtual Private Network"
 msgstr "虚拟专用网络"
@@ -10076,7 +10076,7 @@ msgid "Volume %(volume_name)s on instance %(instance_name)s"
 msgstr "云主机%(instance_name)s的附加云硬盘%(volume_name)s"
 
 msgid "Volume (Cinder)"
-msgstr "云硬盘 (Cinder)"
+msgstr "卷 (Cinder)"
 
 msgid "Volume Backup:"
 msgstr "云硬盘备份:"
@@ -10094,14 +10094,14 @@ msgid "Volume Consistency Groups"
 msgstr "云硬盘一致性组"
 
 msgid "Volume Encryption Details"
-msgstr "存储云硬盘加密详情"
+msgstr "卷加密详情"
 
 #, python-format
 msgid "Volume Encryption Details: %(volume_name)s"
-msgstr "存储云硬盘加密详情：%(volume_name)s"
+msgstr "卷加密详情：%(volume_name)s"
 
 msgid "Volume Encryption Details: {{ volume.name }}"
-msgstr "云硬盘加密详情:{{ volume.name }}"
+msgstr "卷加密详情: {{ volume.name }}"
 
 msgid "Volume Encryption Overview"
 msgstr "存储云硬盘加密概览"
@@ -10135,7 +10135,7 @@ msgid "Volume Transfer"
 msgstr "存储云硬盘迁移"
 
 msgid "Volume Transfer Details"
-msgstr "存储云硬盘迁移详情"
+msgstr "卷转让详情"
 
 msgid "Volume Type"
 msgstr "云硬盘类型"
@@ -10144,7 +10144,7 @@ msgid "Volume Type Description:"
 msgstr "云硬盘类型描述:"
 
 msgid "Volume Type Encryption Details"
-msgstr "加密云硬盘类型详情"
+msgstr "卷类型加密详情"
 
 msgid "Volume Type Encryption Overview"
 msgstr "云硬盘类型加密概览"
@@ -10277,9 +10277,10 @@ msgid ""
 "  must also be an address within the selected subnet.\n"
 "  "
 msgstr ""
-"当没有IP地址提供时，VIP将获得一个来自子网的选定地址。\n"
-"如果需要一个特定的IP地址，那地址是需要可提供的并且\n"
-"必须是选定的子网内的地址。"
+"当未提供IP地址时，VIP 将从选择的子网里获取一个地址。\n"
+"如果需要一个特定的IP地址，也必须位于选择的子网\n"
+"且可供使用。\n"
+" "
 
 msgid ""
 "Within a container you can group your objects into pseudo-folders, which "
@@ -10385,7 +10386,7 @@ msgid ""
 "You may update VIP attributes here: edit name, description, pool, session "
 "persistence, connection limit  or admin state."
 msgstr ""
-"你可以在此更新VIP属性：编辑名称、描述、资源池、会话持久性、链接限制或管理员状"
+"你可以在此更新VIP属性：编辑名称、描述、资源池、会话持久化、连接限制或管理状"
 "态。"
 
 msgid "You may update VPN Service details here."
@@ -10457,7 +10458,7 @@ msgid "Your image %s has been queued for creation."
 msgstr "镜像%s创建排队中"
 
 msgid "Zone"
-msgstr "域"
+msgstr "可用区域"
 
 msgid "aes-128"
 msgstr "aes-128"

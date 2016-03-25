@@ -7,6 +7,7 @@
 # OpenStack Infra <zanata@openstack.org>, 2015. #zanata
 # Romain Chantereau <rchanter@redhat.com>, 2015. #zanata
 # SOURDET Henri <hsourdet@gmail.com>, 2015. #zanata
+# Corinne Verheyde <cverheyd@gmail.com>, 2016. #zanata
 # Gael Rehault <gael_rehault@dell.com>, 2016. #zanata
 # Gérald LONLAS <g.lonlas@gmail.com>, 2016. #zanata
 # Kevin Tibi <kodokuu@gmail.com>, 2016. #zanata
@@ -15,12 +16,12 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2016-03-16 02:16+0000\n"
+"POT-Creation-Date: 2016-03-18 21:42+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2016-03-16 11:22+0000\n"
-"Last-Translator: Gael Rehault <gael_rehault@dell.com>\n"
+"PO-Revision-Date: 2016-03-24 01:35+0000\n"
+"Last-Translator: Corinne Verheyde <cverheyd@gmail.com>\n"
 "Language-Team: French\n"
 "Language: fr\n"
 "X-Generator: Zanata 3.7.3\n"
@@ -3512,6 +3513,10 @@ msgstr ""
 msgid "Error"
 msgstr "Erreur"
 
+msgctxt "Current status of Consistency Group"
+msgid "Error"
+msgstr "Erreur"
+
 msgctxt "Current status of a Firewall"
 msgid "Error"
 msgstr "Erreur"
@@ -6463,6 +6468,9 @@ msgstr "URL publique"
 
 msgid "QCOW2 - QEMU Emulator"
 msgstr "QCOW2 - Emulateur QEMU"
+
+msgid "QOS Policy ID"
+msgstr "ID Police QOS"
 
 #, python-format
 msgid "QoS Spec name \"%s\" already exists."
@@ -10572,6 +10580,9 @@ msgstr "Nom du type de volume"
 
 msgid "Volume Type is Unencrypted."
 msgstr "Le type de volume n'est pas chiffré."
+
+msgid "Volume Type(s)"
+msgstr "Type(s) de Volume"
 
 #, python-format
 msgid "Volume Type: %(volume_type_name)s"

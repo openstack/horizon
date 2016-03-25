@@ -19,6 +19,7 @@
 # Nikita Burtsev <nikita.burtsev@gmail.com>, 2015. #zanata
 # OpenStack Infra <zanata@openstack.org>, 2015. #zanata
 # Daisy <guoyingc@cn.ibm.com>, 2016. #zanata
+# Denis Gubanov <v12aml@gmail.com>, 2016. #zanata
 # Fedor Tarasenko <feodor.tarasenko@gmail.com>, 2016. #zanata
 # Grigory Mokhin <mokhin@gmail.com>, 2016. #zanata
 # Ilya Alekseyev <ilyaalekseyev@acm.org>, 2016. #zanata
@@ -30,8 +31,8 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2016-03-24 02:02+0000\n"
-"Last-Translator: Ilya Alekseyev <ilyaalekseyev@acm.org>\n"
+"PO-Revision-Date: 2016-03-24 09:55+0000\n"
+"Last-Translator: Denis Gubanov <v12aml@gmail.com>\n"
 "Language: ru\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
 "%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
@@ -390,7 +391,8 @@ msgstr "\"Контейнеры\""
 msgid ""
 "\"Customization Script\" is analogous to \"User Data\" in other systems."
 msgstr ""
-"\"Настройка скрипта\" - это аналог \"Данных пользователя\" в других системах."
+"\"Скрипт настройки\" - это аналог \"Пользовательских данных\" в других "
+"системах."
 
 msgid "\"Edit Volume Type\""
 msgstr "\"Редактировать тип диска\""
@@ -2389,7 +2391,7 @@ msgid "Custom UDP Rule"
 msgstr "Настраиваемое правило UDP"
 
 msgid "Customization Script Source"
-msgstr "Настройка источника скрипта"
+msgstr "Источник скрипта настройки"
 
 msgid "DENY"
 msgstr "DENY"
@@ -3128,7 +3130,7 @@ msgid "Direct"
 msgstr "Напрямую"
 
 msgid "Direct Input"
-msgstr "Непосредственный вход"
+msgstr "Непосредственный ввод"
 
 msgid "Direction"
 msgstr "Направление"
