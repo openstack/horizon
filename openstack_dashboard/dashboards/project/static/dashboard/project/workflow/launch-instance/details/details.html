@@ -4,7 +4,7 @@
 
   <div class="row">
     <div class="col-xs-12 col-sm-8">
-      <div class="form-group required"
+      <div class="form-group"
          ng-class="{ 'has-error': launchInstanceDetailsForm.name.$invalid && launchInstanceDetailsForm.name.$dirty }">
         <label translate for="name" class="control-label">
           Instance Name
@@ -32,7 +32,7 @@
           Count
           <span class="hz-icon-required fa fa-asterisk"></span>
         </label>
-        <input id="count" name="count" type="number" class="form-control" min="1"
+        <input id="instance-count" name="count" type="number" class="form-control" min="1"
                ng-model="model.newInstanceSpec.instance_count"
                ng-required="true" ng-pattern="/^[0-9]+$/"
                validate-number-min="1"

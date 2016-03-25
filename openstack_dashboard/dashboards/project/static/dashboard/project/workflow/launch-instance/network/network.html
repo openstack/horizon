@@ -4,7 +4,7 @@
   </p>
 
   <div class="form-group" ng-if="model.arePortProfilesSupported">
-    <label class="control-label required" for="profile" translate>Profile</label>
+    <label class="control-label" for="profile" translate>Profile</label>
     <select class="form-control" id="profile" ng-model="model.newInstanceSpec.profile" ng-options="profile.name for profile in model.profiles">
       <option value="" translate>(None)</option>
     </select>
