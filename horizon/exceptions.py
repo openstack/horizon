@@ -223,7 +223,7 @@ def handle_unauthorized(request, message, redirect, ignore, escalate, handled,
     if escalate:
         # Prevents creation of circular import. django.contrib.auth
         # requires openstack_dashboard.settings to be loaded (by trying to
-        # access settings.CACHES in in django.core.caches) while
+        # access settings.CACHES in django.core.caches) while
         # openstack_dashboard.settings requires django.contrib.auth to be
         # loaded while importing openstack_auth.utils
         from django.contrib.auth import logout  # noqa
