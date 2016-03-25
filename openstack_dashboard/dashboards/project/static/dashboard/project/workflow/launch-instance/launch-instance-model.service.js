@@ -36,6 +36,17 @@
    * @ngdoc service
    * @name launchInstanceModel
    *
+   * @param {Object} $q
+   * @param {Object} $log
+   * @param {Object} cinderAPI
+   * @param {Object} glanceAPI
+   * @param {Object} neutronAPI
+   * @param {Object} novaAPI
+   * @param {Object} novaExtensions
+   * @param {Object} securityGroup
+   * @param {Object} serviceCatalog
+   * @param {Object} settings
+   * @param {Object} toast
    * @description
    * This is the M part in MVC design pattern for launch instance
    * wizard workflow. It is responsible for providing data to the
@@ -43,6 +54,7 @@
    * user's input from view for  creation of new instance.  It is
    * also the center point of communication between launch instance
    * UI and services API.
+   * @returns {Object} The model
    */
   function launchInstanceModel(
     $q,
@@ -230,7 +242,9 @@
     }
 
     function setDefaultValues(defaults) {
-      if (!defaults) { return; }
+      if (!defaults) {
+        return;
+      }
       if ('config_drive' in defaults) {
         model.newInstanceSpec.config_drive = defaults.config_drive;
       }
@@ -594,9 +608,10 @@
 
     // Metadata Definitions
 
-    /**
-     * Metadata definitions provide supplemental information in source image detail
-     * rows and are used on the metadata tab for adding metadata to the instance.
+    /*
+     * Metadata definitions provide supplemental information in source image
+     * detail rows and are used on the metadata tab for adding metadata to the
+     * instance.
      */
     function getMetadataDefinitions() {
       // Metadata definitions often apply to multiple resource types. It is optimal to make a

@@ -31,9 +31,14 @@
 
   /**
    * @ngdoc controller
-   * @name horizon.dashboard.project.workflow.launch-instance.LaunchInstanceKeypairController
+   * @name LaunchInstanceKeypairController
+   * @param {string} basePath
+   * @param {Object} launchInstanceModel
+   * @param {Object} $modal
+   * @param {Object} toastService
    * @description
    * Allows selection of key pairs.
+   * @returns {undefined} No return value
    */
   function LaunchInstanceKeypairController(
     basePath,
@@ -83,6 +88,7 @@
      * Allocate the new key pair (after import or create) if nothing is
      * already allocated.
      * @param {Object} newKeyPair The new key pair object to add
+     * @returns {undefined} No return value
      */
     function allocateNewKeyPair(newKeyPair) {
       if (ctrl.tableData.allocated.length === 0) {
@@ -95,6 +101,7 @@
      * @name createKeyPair
      * @description
      * Launches the modal to create a key pair.
+     * @returns {undefined} No return value
      */
     function createKeyPair() {
       $modal.open({
@@ -113,7 +120,8 @@
      * @description
      * Informs the user about the created key pair and sets controller
      * values accordingly.
-     * @param {Object} newKeyPair The new key pair object
+     * @param {Object} newKeypair The new key pair object
+     * @returns {undefined} No return value
      */
     function notifyUserAndAssign(newKeypair) {
       toastService.add('success', gettext('Created keypair: ' + newKeypair.name));
@@ -127,6 +135,7 @@
      * @name importKeyPair
      * @description
      * Launches the modal to import a key pair.
+     * @returns {undefined} No return value
      */
     function importKeyPair() {
       $modal.open({

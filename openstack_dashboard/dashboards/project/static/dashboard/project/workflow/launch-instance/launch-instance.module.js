@@ -47,8 +47,11 @@
   ];
 
   /**
-   * @name horizon.dashboard.project.workflow.launch-instance.basePath
+   * @name config
+   * @param {Object} $provide
+   * @param {Object} $windowProvider
    * @description Base path for the launch-instance code
+   * @returns {undefined} No return value
    */
   function config($provide, $windowProvider) {
     var path = $windowProvider.$get().STATIC_URL + 'dashboard/project/workflow/launch-instance/';
@@ -62,6 +65,7 @@
    * Expects object and returns the image type value.
    * Returns empty string if input is null or not an object.
    * Uniquely required for the source step implementation of transfer tables
+   * @returns {function} The filter
    */
   function diskFormat() {
     return filter;

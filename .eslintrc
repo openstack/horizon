@@ -25,7 +25,9 @@ rules:
   #############################################################################
   # Disabled Rules from eslint-config-openstack
   #############################################################################
-  valid-jsdoc: 1
+  valid-jsdoc: [1, {
+    requireParamDescription: false
+  }]
   no-undefined: 1
   brace-style: 1
   no-extra-parens: 1

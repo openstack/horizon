@@ -29,14 +29,19 @@
 
   /**
    * @ngdoc directive
-   * @name horizon.dashboard.project.workflow.launch-instance:selectFlavorTable
+   * @name selectFlavorTable
    * @scope true
    * @element
-   * @param {boolean} isAvailableTable If true, the table is used as the
+   * @param {string} basePath
+   * @param {Object} transferTableHelpText
+   * @param {Object} donutChartSettings
+   * @param {Object} tooltipService
+   * @description
+   * {boolean} isAvailableTable If true, the table is used as the
    *    "available" portion of the transfer table.
-   * @param {object} items An array of flavor "facade" objects that include the data
+   * {object} items An array of flavor "facade" objects that include the data
    *    needed by each column, as well as chart data for each flavor.
-   * @param {object} displayed-items Same as items, but filtered by the directives smart
+   * {object} displayed-items Same as items, but filtered by the directives smart
    *    table to only show relevant items when search is used
    *
    * The transfer table provides a constant containing default labels when no
@@ -52,6 +57,7 @@
    *    displayed-items="selectFlavorCtrl.displayedAvailableFlavorFacades">
    * </select-flavor-table>
    * '''
+   * @returns {undefined} Returns nothing
    */
   function selectFlavorTable(basePath, transferTableHelpText, donutChartSettings, tooltipService) {
 
