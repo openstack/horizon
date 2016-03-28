@@ -4,9 +4,6 @@
   <div class="quota-dynamic">
     <h3 class="quota-heading">{% trans "Limit Summary" %}</h3>
      {% for quota in charts %}
-       {% if forloop.last or forloop.counter0|divisibleby:6 %}
-         </div>
-       {% endif %}
        {% if forloop.first or forloop.counter0|divisibleby:6 %}
          <div class="row">
        {% endif %}
@@ -25,6 +22,9 @@
             {% endif %}
           </div>
         </div>
+       {% if forloop.last or forloop.counter|divisibleby:6 %}
+         </div>
+       {% endif %}
      {% endfor %}
   </div>
 {% endspaceless %}
