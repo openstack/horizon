@@ -22,6 +22,27 @@ class TestImagesBasic(helpers.TestCase):
     def images_page(self):
         return self.home_pg.go_to_compute_imagespage()
 
+    def image_create(self, local_file=None):
+        images_page = self.images_page
+        if local_file:
+            images_page.create_image(IMAGE_NAME,
+                                     image_source_type='file',
+                                     image_file=local_file)
+        else:
+            images_page.create_image(IMAGE_NAME)
+        self.assertTrue(images_page.find_message_and_dismiss(messages.SUCCESS))
+        self.assertFalse(images_page.find_message_and_dismiss(messages.ERROR))
+        self.assertTrue(images_page.is_image_present(IMAGE_NAME))
+        self.assertTrue(images_page.is_image_active(IMAGE_NAME))
+        return images_page
+
+    def image_delete(self):
+        images_page = self.images_page
+        images_page.delete_image(IMAGE_NAME)
+        self.assertTrue(images_page.find_message_and_dismiss(messages.SUCCESS))
+        self.assertFalse(images_page.find_message_and_dismiss(messages.ERROR))
+        self.assertFalse(images_page.is_image_present(IMAGE_NAME))
+
     def test_image_create_delete(self):
         """tests the image creation and deletion functionalities:
         * creates a new image from horizon.conf http_image
@@ -29,18 +50,20 @@ class TestImagesBasic(helpers.TestCase):
         * deletes the newly created image
         * verifies the image does not appear in the table after deletion
         """
-        images_page = self.images_page
+        self.image_create()
+        self.image_delete()
 
-        images_page.create_image(IMAGE_NAME)
-        self.assertTrue(images_page.find_message_and_dismiss(messages.SUCCESS))
-        self.assertFalse(images_page.find_message_and_dismiss(messages.ERROR))
-        self.assertTrue(images_page.is_image_present(IMAGE_NAME))
-        self.assertTrue(images_page.is_image_active(IMAGE_NAME))
-
-        images_page.delete_image(IMAGE_NAME)
-        self.assertTrue(images_page.find_message_and_dismiss(messages.SUCCESS))
-        self.assertFalse(images_page.find_message_and_dismiss(messages.ERROR))
-        self.assertFalse(images_page.is_image_present(IMAGE_NAME))
+    def test_image_create_delete_from_local_file(self):
+        """tests the image creation and deletion functionalities:
+        * downloads image from horizon.conf stated in http_image
+        * creates the image from the downloaded file
+        * verifies the image appears in the images table as active
+        * deletes the newly created image
+        * verifies the image does not appear in the table after deletion
+        """
+        with helpers.gen_temporary_file() as file_name:
+            self.image_create(local_file=file_name)
+            self.image_delete()
 
     def test_images_pagination(self):
         """This test checks images pagination
