@@ -219,7 +219,7 @@ def domain_lookup(request):
             domains = domain_list(request)
             return dict((d.id, d.name) for d in domains)
         except Exception:
-            LOG.warn("Pure project admin doesn't have a domain token")
+            LOG.warning("Pure project admin doesn't have a domain token")
             return None
     else:
         domain = get_default_domain(request)
