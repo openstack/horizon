@@ -16,6 +16,7 @@ from heatclient.v1 import resource_types
 from heatclient.v1 import resources
 from heatclient.v1 import services
 from heatclient.v1 import stacks
+from heatclient.v1 import template_versions
 
 from openstack_dashboard.test.test_data import utils
 
@@ -363,6 +364,8 @@ def data(TEST):
     TEST.resource_types = utils.TestDataContainer()
     TEST.heat_resources = utils.TestDataContainer()
     TEST.heat_services = utils.TestDataContainer()
+    TEST.template_versions = utils.TestDataContainer()
+    TEST.template_functions = utils.TestDataContainer()
 
     # Services
     service_1 = services.Service(services.ServiceManager(None), {
@@ -586,3 +589,35 @@ def data(TEST):
     })
 
     TEST.heat_resources.add(resource_1)
+
+    # Template versions
+    template_version_1 = template_versions.TemplateVersion(
+        template_versions.TemplateVersionManager(None), {
+            "version": "HeatTemplateFormatVersion.2012-12-12",
+            "type": "cfn"
+        })
+
+    template_version_2 = template_versions.TemplateVersion(
+        template_versions.TemplateVersionManager(None), {
+            "version": "heat_template_version.2013-05-23",
+            "type": "hot"
+        })
+
+    TEST.template_versions.add(template_version_1)
+    TEST.template_versions.add(template_version_2)
+
+    # Template functions
+    template_function_1 = template_versions.TemplateVersion(
+        template_versions.TemplateVersionManager(None), {
+            "functions": "Fn::GetAZs",
+            "description": "A function for retrieving the availability zones."
+        })
+
+    template_function_2 = template_versions.TemplateVersion(
+        template_versions.TemplateVersionManager(None), {
+            "functions": "Fn::Join",
+            "description": "A function for joining strings."
+        })
+
+    TEST.template_functions.add(template_function_1)
+    TEST.template_functions.add(template_function_2)

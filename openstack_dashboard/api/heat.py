@@ -232,3 +232,11 @@ def resource_type_get(request, resource_type):
 
 def service_list(request):
     return heatclient(request).services.list()
+
+
+def template_version_list(request):
+    return heatclient(request).template_versions.list()
+
+
+def template_function_list(request, template_version):
+    return heatclient(request).template_versions.get(template_version)
