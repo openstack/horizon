@@ -10,7 +10,7 @@ horizon.tabs.initTabLoad = function (tab) {
   $(horizon.tabs._init_load_functions).each(function (index, f) {
     f(tab);
   });
-  recompileAngularContent();
+  recompileAngularContent($(tab));
 };
 
 horizon.tabs.load_tab = function () {
