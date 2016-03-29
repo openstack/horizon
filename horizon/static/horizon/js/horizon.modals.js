@@ -113,7 +113,7 @@ horizon.modals.init_wizard = function () {
             // Add global errors.
             $.each(errors, function (index, error) {
               $fieldset.find('div.row').prepend(
-                '<div class="alert alert-message alert-danger">' +
+                '<div class="alert alert-danger">' +
                 error + '</div>');
             });
             $fieldset.find('input,  select, textarea').first().focus();
@@ -124,7 +124,7 @@ horizon.modals.init_wizard = function () {
           $field.closest('.form-group').addClass('has-error');
           $.each(errors, function (index, error) {
             $field.after(
-              '<span class="help-block alert alert-danger">' +
+              '<span class="help-block">' +
               error + '</span>');
           });
           // Focus the first invalid field.
