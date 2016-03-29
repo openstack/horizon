@@ -435,27 +435,31 @@ class AddMember(workflows.Workflow):
                 # Sort port list for each member. This is needed to avoid
                 # attachment of random ports in case of creation of several
                 # members attached to several networks.
-                plist = sorted(plist, key=lambda port: port.network_id)
-                psubnet = [p for p in plist for ips in p.fixed_ips
-                           if ips['subnet_id'] == subnet_id]
+                if plist:
+                    plist = sorted(plist, key=lambda port: port.network_id)
+                    psubnet = [p for p in plist for ips in p.fixed_ips
+                               if ips['subnet_id'] == subnet_id]
 
-                # If possible, select a port on pool subnet.
-                if psubnet:
-                    selected_port = psubnet[0]
-                elif plist:
-                    selected_port = plist[0]
+                    # If possible, select a port on pool subnet.
+                    if psubnet:
+                        selected_port = psubnet[0]
+                    elif plist:
+                        selected_port = plist[0]
+                    else:
+                        selected_port = None
+
+                    if selected_port:
+                        context['address'] = \
+                            selected_port.fixed_ips[0]['ip_address']
+                        try:
+                            api.lbaas.member_create(request, **context).id
+                        except Exception as e:
+                            msg = self.failure_message
+                            LOG.info('%s: %s' % (msg, e))
+                            return False
                 else:
-                    selected_port = None
-
-                if selected_port:
-                    context['address'] = \
-                        selected_port.fixed_ips[0]['ip_address']
-                    try:
-                        api.lbaas.member_create(request, **context).id
-                    except Exception as e:
-                        msg = self.failure_message
-                        LOG.info('%s: %s' % (msg, e))
-                        return False
+                    self.failure_message = _('No ports available.')
+                    return False
             return True
         else:
             try:

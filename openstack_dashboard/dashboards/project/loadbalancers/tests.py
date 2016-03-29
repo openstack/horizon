@@ -584,6 +584,37 @@ class LoadBalancerTests(test.TestCase):
         self.assertNoFormErrors(res)
         self.assertRedirectsNoFollow(res, str(self.INDEX_URL))
 
+    @test.create_stubs({api.lbaas: ('pool_list', 'pool_get', 'member_create'),
+                        api.neutron: ('port_list',),
+                        api.nova: ('server_list',)})
+    def test_add_member_no_ports(self):
+        member = self.members.first()
+        pools = self.pools.list()
+        server1 = self.AttributeDict({'id':
+                                      '12381d38-c3eb-4fee-9763-12de3338042e',
+                                      'name': 'vm1'})
+        api.lbaas.pool_list(
+            IsA(http.HttpRequest), tenant_id=self.tenant.id).AndReturn(pools)
+        api.nova.server_list(
+            IsA(http.HttpRequest)).AndReturn([[server1, ], False])
+        api.lbaas.pool_get(
+            IsA(http.HttpRequest), pools[1].id).AndReturn(pools[1])
+        api.neutron.port_list(
+            IsA(http.HttpRequest), device_id=server1.id).AndReturn([])
+
+        form_data = {'pool_id': member.pool_id,
+                     'protocol_port': member.protocol_port,
+                     'members': [server1.id],
+                     'admin_state_up': member.admin_state_up,
+                     'member_type': 'server_list'}
+
+        self.mox.ReplayAll()
+
+        res = self.client.post(reverse(self.ADDMEMBER_PATH), form_data)
+
+        self.assertNoFormErrors(res)
+        self.assertRedirectsNoFollow(res, str(self.INDEX_URL))
+
     @test.create_stubs({api.lbaas: ('pool_list',),
                         api.nova: ('server_list',)})
     def test_add_member_post_with_error(self):
