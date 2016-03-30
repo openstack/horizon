@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2016-03-19 06:17+0000\n"
+"POT-Creation-Date: 2016-03-30 06:51+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -864,7 +864,7 @@ msgstr ""
 
 #: openstack_dashboard/dashboards/admin/static/dashboard/admin/flavors/table/flavors-table.controller.js:60
 #: openstack_dashboard/dashboards/project/static/dashboard/project/containers/object-details-modal.html:11
-#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/flavor/select-flavor-table.directive.js:128
+#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/flavor/select-flavor-table.directive.js:134
 #: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/flavor/select-flavor-table.html:27
 #: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/keypair/keypair.html:41
 #: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/keypair/keypair.html:94
@@ -885,13 +885,13 @@ msgstr ""
 
 #: openstack_dashboard/dashboards/admin/static/dashboard/admin/flavors/table/flavors-table.controller.js:65
 #: openstack_dashboard/dashboards/admin/static/dashboard/admin/flavors/table/flavors-table.html:23
-#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/flavor/select-flavor-table.directive.js:133
+#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/flavor/select-flavor-table.directive.js:139
 msgid "VCPUs"
 msgstr ""
 
 #: openstack_dashboard/dashboards/admin/static/dashboard/admin/flavors/table/flavors-table.controller.js:70
 #: openstack_dashboard/dashboards/admin/static/dashboard/admin/flavors/table/flavors-table.html:24
-#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/flavor/select-flavor-table.directive.js:138
+#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/flavor/select-flavor-table.directive.js:144
 #: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/flavor/select-flavor-table.html:30
 #: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/flavor/select-flavor-table.html:31
 msgid "RAM"
@@ -899,7 +899,7 @@ msgstr ""
 
 #: openstack_dashboard/dashboards/admin/static/dashboard/admin/flavors/table/flavors-table.controller.js:75
 #: openstack_dashboard/dashboards/admin/static/dashboard/admin/flavors/table/flavors-table.html:30
-#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/flavor/select-flavor-table.directive.js:143
+#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/flavor/select-flavor-table.directive.js:149
 #: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/flavor/select-flavor-table.html:35
 #: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:167
 #: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:270
@@ -911,7 +911,7 @@ msgstr ""
 #: openstack_dashboard/dashboards/project/static/dashboard/project/containers/containers.controller.js:95
 #: openstack_dashboard/dashboards/project/static/dashboard/project/containers/objects-row-actions.service.js:138
 #: openstack_dashboard/dashboards/project/static/dashboard/project/containers/objects.controller.js:164
-#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/flavor/select-flavor-table.directive.js:148
+#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/flavor/select-flavor-table.directive.js:154
 #: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/network/network.controller.js:84
 #: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:66
 #: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:228
@@ -922,7 +922,7 @@ msgstr ""
 #: openstack_dashboard/dashboards/project/static/dashboard/project/containers/containers.controller.js:96
 #: openstack_dashboard/dashboards/project/static/dashboard/project/containers/objects-row-actions.service.js:139
 #: openstack_dashboard/dashboards/project/static/dashboard/project/containers/objects.controller.js:165
-#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/flavor/select-flavor-table.directive.js:147
+#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/flavor/select-flavor-table.directive.js:153
 #: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/network/network.controller.js:83
 #: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:67
 #: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:229
@@ -1209,10 +1209,8 @@ msgstr ""
 msgid "Select All"
 msgstr ""
 
-#: openstack_dashboard/dashboards/project/static/dashboard/project/containers/objects.html:40
-msgid ""
-"Clear Selection\n"
-"            <span>{$ oc.numSelected $}</span>"
+#: openstack_dashboard/dashboards/project/static/dashboard/project/containers/objects.html:39
+msgid "Clear Selection"
 msgstr ""
 
 #: openstack_dashboard/dashboards/project/static/dashboard/project/containers/objects.html:44
@@ -1255,14 +1253,14 @@ msgid ""
 "          when the file is uploaded (to any depth of folders)."
 msgstr ""
 
-#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/launch-instance-model.service.js:269
+#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/launch-instance-model.service.js:280
 #, python-format
 msgid "%s instance launched."
 msgid_plural "%s instances launched."
 msgstr[0] ""
 msgstr[1] ""
 
-#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/launch-instance-model.service.js:455
+#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/launch-instance-model.service.js:466
 #: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:74
 #: openstack_dashboard/static/app/core/images/images.module.js:43
 #: openstack_dashboard/static/app/core/images/detail/image-detail.html:28
@@ -1270,18 +1268,18 @@ msgstr[1] ""
 msgid "Image"
 msgstr ""
 
-#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/launch-instance-model.service.js:466
+#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/launch-instance-model.service.js:477
 #: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:75
 msgid "Instance Snapshot"
 msgstr ""
 
-#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/launch-instance-model.service.js:474
+#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/launch-instance-model.service.js:485
 #: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:76
 #: openstack_dashboard/static/app/core/core.module.js:83
 msgid "Volume"
 msgstr ""
 
-#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/launch-instance-model.service.js:478
+#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/launch-instance-model.service.js:489
 #: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/source/source.controller.js:77
 #: openstack_dashboard/static/app/core/core.module.js:80
 msgid "Volume Snapshot"
@@ -1329,11 +1327,11 @@ msgstr ""
 msgid "Configuration"
 msgstr ""
 
-#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/configuration/configuration.controller.js:41
+#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/configuration/configuration.controller.js:42
 msgid "Automatic"
 msgstr ""
 
-#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/configuration/configuration.controller.js:42
+#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/configuration/configuration.controller.js:43
 msgid "Manual"
 msgstr ""
 
@@ -1531,16 +1529,21 @@ msgstr ""
 msgid "Impact on your quota"
 msgstr ""
 
-#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/keypair/create-keypair.controller.js:47
+#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/keypair/create-keypair.controller.js:53
 msgid "Keypair already exists or name contains bad characters."
 msgstr ""
 
-#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/keypair/create-keypair.controller.js:87
+#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/keypair/create-keypair.controller.js:93
 msgid "Unable to generate"
 msgstr ""
 
-#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/keypair/create-keypair.controller.js:88
+#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/keypair/create-keypair.controller.js:94
 msgid "Please try again."
+msgstr ""
+
+#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/keypair/create-keypair.html:7
+#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/keypair/keypair.html:22
+msgid "Create Key Pair"
 msgstr ""
 
 #: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/keypair/create-keypair.html:11
@@ -1561,7 +1564,7 @@ msgstr ""
 msgid "Create Keypair"
 msgstr ""
 
-#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/keypair/import-keypair.controller.js:54
+#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/keypair/import-keypair.controller.js:59
 #, python-format
 msgid "Successfully imported key pair %(name)s."
 msgstr ""
@@ -1590,7 +1593,7 @@ msgstr ""
 msgid "Public Key"
 msgstr ""
 
-#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/keypair/keypair.controller.js:119
+#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/keypair/keypair.controller.js:127
 msgid "Created keypair: "
 msgstr ""
 
@@ -1635,10 +1638,6 @@ msgstr ""
 
 #: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/keypair/keypair.html:14
 msgid "Note: you will not be able to download this later."
-msgstr ""
-
-#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/keypair/keypair.html:22
-msgid "Create Key Pair"
 msgstr ""
 
 #: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/keypair/keypair.html:42
@@ -1985,11 +1984,11 @@ msgstr ""
 msgid "Remote"
 msgstr ""
 
-#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/security-groups/security-groups.controller.js:46
+#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/security-groups/security-groups.controller.js:49
 msgid "Select one or more security groups from the available groups below."
 msgstr ""
 
-#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/security-groups/security-groups.controller.js:48
+#: openstack_dashboard/dashboards/project/static/dashboard/project/workflow/launch-instance/security-groups/security-groups.controller.js:51
 msgid "Select one or more"
 msgstr ""
 
@@ -2669,107 +2668,107 @@ msgstr ""
 msgid "Save"
 msgstr ""
 
-#: openstack_dashboard/static/app/core/openstack-service-api/cinder.service.js:88
+#: openstack_dashboard/static/app/core/openstack-service-api/cinder.service.js:92
 msgid "Unable to retrieve the volumes."
 msgstr ""
 
-#: openstack_dashboard/static/app/core/openstack-service-api/cinder.service.js:104
+#: openstack_dashboard/static/app/core/openstack-service-api/cinder.service.js:109
 msgid "Unable to retrieve the volume."
 msgstr ""
 
-#: openstack_dashboard/static/app/core/openstack-service-api/cinder.service.js:116
+#: openstack_dashboard/static/app/core/openstack-service-api/cinder.service.js:123
 msgid "Unable to create the volume."
 msgstr ""
 
-#: openstack_dashboard/static/app/core/openstack-service-api/cinder.service.js:134
+#: openstack_dashboard/static/app/core/openstack-service-api/cinder.service.js:142
 msgid "Unable to retrieve the volume types."
 msgstr ""
 
-#: openstack_dashboard/static/app/core/openstack-service-api/cinder.service.js:150
+#: openstack_dashboard/static/app/core/openstack-service-api/cinder.service.js:159
 msgid "Unable to retrieve the volume type."
 msgstr ""
 
-#: openstack_dashboard/static/app/core/openstack-service-api/cinder.service.js:163
+#: openstack_dashboard/static/app/core/openstack-service-api/cinder.service.js:173
 msgid "Unable to retrieve the default volume type."
 msgstr ""
 
-#: openstack_dashboard/static/app/core/openstack-service-api/cinder.service.js:190
+#: openstack_dashboard/static/app/core/openstack-service-api/cinder.service.js:201
 msgid "Unable to retrieve the volume snapshots."
 msgstr ""
 
-#: openstack_dashboard/static/app/core/openstack-service-api/cinder.service.js:222
-#: openstack_dashboard/static/app/core/openstack-service-api/neutron.service.js:292
-#: openstack_dashboard/static/app/core/openstack-service-api/nova.service.js:262
+#: openstack_dashboard/static/app/core/openstack-service-api/cinder.service.js:235
+#: openstack_dashboard/static/app/core/openstack-service-api/neutron.service.js:297
+#: openstack_dashboard/static/app/core/openstack-service-api/nova.service.js:273
 msgid "Unable to retrieve the extensions."
 msgstr ""
 
-#: openstack_dashboard/static/app/core/openstack-service-api/cinder.service.js:238
+#: openstack_dashboard/static/app/core/openstack-service-api/cinder.service.js:251
 msgid "Unable to retrieve the cinder services."
 msgstr ""
 
-#: openstack_dashboard/static/app/core/openstack-service-api/cinder.service.js:259
+#: openstack_dashboard/static/app/core/openstack-service-api/cinder.service.js:273
 msgid "Unable to retrieve the QoS Specs."
 msgstr ""
 
-#: openstack_dashboard/static/app/core/openstack-service-api/cinder.service.js:273
+#: openstack_dashboard/static/app/core/openstack-service-api/cinder.service.js:288
 msgid "Unable to retrieve the Absolute Limits."
 msgstr ""
 
-#: openstack_dashboard/static/app/core/openstack-service-api/extensions.service.js:77
+#: openstack_dashboard/static/app/core/openstack-service-api/extensions.service.js:79
 #, python-format
 msgid "Extension is not enabled: %(extension)s."
 msgstr ""
 
-#: openstack_dashboard/static/app/core/openstack-service-api/extensions.service.js:84
+#: openstack_dashboard/static/app/core/openstack-service-api/extensions.service.js:86
 msgid "Cannot get the extension list."
 msgstr ""
 
-#: openstack_dashboard/static/app/core/openstack-service-api/glance.service.js:61
+#: openstack_dashboard/static/app/core/openstack-service-api/glance.service.js:65
 msgid "Unable to get the Glance service version."
 msgstr ""
 
-#: openstack_dashboard/static/app/core/openstack-service-api/glance.service.js:79
+#: openstack_dashboard/static/app/core/openstack-service-api/glance.service.js:84
 msgid "Unable to retrieve the image."
 msgstr ""
 
-#: openstack_dashboard/static/app/core/openstack-service-api/glance.service.js:134
+#: openstack_dashboard/static/app/core/openstack-service-api/glance.service.js:140
 msgid "Unable to create the image."
 msgstr ""
 
-#: openstack_dashboard/static/app/core/openstack-service-api/glance.service.js:184
+#: openstack_dashboard/static/app/core/openstack-service-api/glance.service.js:191
 msgid "Unable to update the image."
 msgstr ""
 
-#: openstack_dashboard/static/app/core/openstack-service-api/glance.service.js:204
+#: openstack_dashboard/static/app/core/openstack-service-api/glance.service.js:212
 #, python-format
 msgid "Unable to delete the image with id: %(id)s"
 msgstr ""
 
-#: openstack_dashboard/static/app/core/openstack-service-api/glance.service.js:218
+#: openstack_dashboard/static/app/core/openstack-service-api/glance.service.js:227
 msgid "Unable to retrieve the image custom properties."
 msgstr ""
 
-#: openstack_dashboard/static/app/core/openstack-service-api/glance.service.js:239
+#: openstack_dashboard/static/app/core/openstack-service-api/glance.service.js:249
 msgid "Unable to edit the image custom properties."
 msgstr ""
 
-#: openstack_dashboard/static/app/core/openstack-service-api/glance.service.js:281
+#: openstack_dashboard/static/app/core/openstack-service-api/glance.service.js:292
 msgid "Unable to retrieve the images."
 msgstr ""
 
-#: openstack_dashboard/static/app/core/openstack-service-api/glance.service.js:349
+#: openstack_dashboard/static/app/core/openstack-service-api/glance.service.js:361
 msgid "Unable to retrieve the namespaces."
 msgstr ""
 
-#: openstack_dashboard/static/app/core/openstack-service-api/glance.service.js:374
+#: openstack_dashboard/static/app/core/openstack-service-api/glance.service.js:387
 msgid "Unable to retrieve the resource types."
 msgstr ""
 
-#: openstack_dashboard/static/app/core/openstack-service-api/heat.service.js:58
+#: openstack_dashboard/static/app/core/openstack-service-api/heat.service.js:61
 msgid "Unable to validate the template."
 msgstr ""
 
-#: openstack_dashboard/static/app/core/openstack-service-api/heat.service.js:72
+#: openstack_dashboard/static/app/core/openstack-service-api/heat.service.js:75
 msgid "Unable to retrieve the heat services."
 msgstr ""
 
@@ -2793,303 +2792,303 @@ msgstr ""
 msgid "Unable to fetch the services."
 msgstr ""
 
-#: openstack_dashboard/static/app/core/openstack-service-api/keystone.service.js:134
+#: openstack_dashboard/static/app/core/openstack-service-api/keystone.service.js:136
 msgid "Unable to retrieve the current user session."
 msgstr ""
 
-#: openstack_dashboard/static/app/core/openstack-service-api/keystone.service.js:141
+#: openstack_dashboard/static/app/core/openstack-service-api/keystone.service.js:143
 msgid "Unable to retrieve the user."
 msgstr ""
 
-#: openstack_dashboard/static/app/core/openstack-service-api/keystone.service.js:149
+#: openstack_dashboard/static/app/core/openstack-service-api/keystone.service.js:151
 msgid "Unable to edit the user."
 msgstr ""
 
-#: openstack_dashboard/static/app/core/openstack-service-api/keystone.service.js:156
+#: openstack_dashboard/static/app/core/openstack-service-api/keystone.service.js:158
 msgid "Unable to delete the user."
 msgstr ""
 
-#: openstack_dashboard/static/app/core/openstack-service-api/keystone.service.js:164
+#: openstack_dashboard/static/app/core/openstack-service-api/keystone.service.js:166
 msgid "Unable to retrieve the roles."
 msgstr ""
 
-#: openstack_dashboard/static/app/core/openstack-service-api/keystone.service.js:171
+#: openstack_dashboard/static/app/core/openstack-service-api/keystone.service.js:173
 msgid "Unable to create the role."
 msgstr ""
 
-#: openstack_dashboard/static/app/core/openstack-service-api/keystone.service.js:178
+#: openstack_dashboard/static/app/core/openstack-service-api/keystone.service.js:180
 msgid "Unable to delete the roles."
 msgstr ""
 
-#: openstack_dashboard/static/app/core/openstack-service-api/keystone.service.js:185
+#: openstack_dashboard/static/app/core/openstack-service-api/keystone.service.js:187
 msgid "Unable to retrieve the role."
 msgstr ""
 
-#: openstack_dashboard/static/app/core/openstack-service-api/keystone.service.js:193
+#: openstack_dashboard/static/app/core/openstack-service-api/keystone.service.js:195
 msgid "Unable to edit the role."
 msgstr ""
 
-#: openstack_dashboard/static/app/core/openstack-service-api/keystone.service.js:200
+#: openstack_dashboard/static/app/core/openstack-service-api/keystone.service.js:202
 msgid "Unable to delete the role."
 msgstr ""
 
-#: openstack_dashboard/static/app/core/openstack-service-api/keystone.service.js:208
+#: openstack_dashboard/static/app/core/openstack-service-api/keystone.service.js:210
 msgid "Unable to retrieve the domains."
 msgstr ""
 
-#: openstack_dashboard/static/app/core/openstack-service-api/keystone.service.js:215
+#: openstack_dashboard/static/app/core/openstack-service-api/keystone.service.js:217
 msgid "Unable to create the domain."
 msgstr ""
 
-#: openstack_dashboard/static/app/core/openstack-service-api/keystone.service.js:222
+#: openstack_dashboard/static/app/core/openstack-service-api/keystone.service.js:224
 msgid "Unable to delete the domains."
 msgstr ""
 
-#: openstack_dashboard/static/app/core/openstack-service-api/keystone.service.js:229
+#: openstack_dashboard/static/app/core/openstack-service-api/keystone.service.js:231
 msgid "Unable to retrieve the domain."
 msgstr ""
 
-#: openstack_dashboard/static/app/core/openstack-service-api/keystone.service.js:237
+#: openstack_dashboard/static/app/core/openstack-service-api/keystone.service.js:239
 msgid "Unable to edit the domain."
 msgstr ""
 
-#: openstack_dashboard/static/app/core/openstack-service-api/keystone.service.js:244
+#: openstack_dashboard/static/app/core/openstack-service-api/keystone.service.js:246
 msgid "Unable to delete the domain."
 msgstr ""
 
-#: openstack_dashboard/static/app/core/openstack-service-api/keystone.service.js:253
+#: openstack_dashboard/static/app/core/openstack-service-api/keystone.service.js:255
 msgid "Unable to retrieve the projects."
 msgstr ""
 
-#: openstack_dashboard/static/app/core/openstack-service-api/keystone.service.js:260
+#: openstack_dashboard/static/app/core/openstack-service-api/keystone.service.js:262
 msgid "Unable to create the project."
 msgstr ""
 
-#: openstack_dashboard/static/app/core/openstack-service-api/keystone.service.js:267
+#: openstack_dashboard/static/app/core/openstack-service-api/keystone.service.js:269
 msgid "Unable to delete the projects."
 msgstr ""
 
-#: openstack_dashboard/static/app/core/openstack-service-api/keystone.service.js:274
+#: openstack_dashboard/static/app/core/openstack-service-api/keystone.service.js:276
 msgid "Unable to retrieve the project."
 msgstr ""
 
-#: openstack_dashboard/static/app/core/openstack-service-api/keystone.service.js:282
+#: openstack_dashboard/static/app/core/openstack-service-api/keystone.service.js:284
 msgid "Unable to edit the project."
 msgstr ""
 
-#: openstack_dashboard/static/app/core/openstack-service-api/keystone.service.js:289
+#: openstack_dashboard/static/app/core/openstack-service-api/keystone.service.js:291
 msgid "Unable to delete the project."
 msgstr ""
 
-#: openstack_dashboard/static/app/core/openstack-service-api/keystone.service.js:297
+#: openstack_dashboard/static/app/core/openstack-service-api/keystone.service.js:299
 msgid "Unable to grant the role."
 msgstr ""
 
-#: openstack_dashboard/static/app/core/openstack-service-api/keystone.service.js:311
+#: openstack_dashboard/static/app/core/openstack-service-api/keystone.service.js:314
 msgid "Unable to fetch the service catalog."
 msgstr ""
 
-#: openstack_dashboard/static/app/core/openstack-service-api/network.service.js:60
+#: openstack_dashboard/static/app/core/openstack-service-api/network.service.js:63
 msgid "Unable to retrieve floating IPs."
 msgstr ""
 
-#: openstack_dashboard/static/app/core/openstack-service-api/network.service.js:75
+#: openstack_dashboard/static/app/core/openstack-service-api/network.service.js:78
 msgid "Unable to retrieve floating IP pools."
 msgstr ""
 
-#: openstack_dashboard/static/app/core/openstack-service-api/network.service.js:92
+#: openstack_dashboard/static/app/core/openstack-service-api/network.service.js:95
 msgid "Unable to allocate new floating IP address."
 msgstr ""
 
-#: openstack_dashboard/static/app/core/openstack-service-api/network.service.js:111
+#: openstack_dashboard/static/app/core/openstack-service-api/network.service.js:115
 msgid "Unable to associate floating IP address."
 msgstr ""
 
-#: openstack_dashboard/static/app/core/openstack-service-api/network.service.js:126
+#: openstack_dashboard/static/app/core/openstack-service-api/network.service.js:131
 msgid "Unable to disassociate floating IP address."
 msgstr ""
 
-#: openstack_dashboard/static/app/core/openstack-service-api/neutron.service.js:60
+#: openstack_dashboard/static/app/core/openstack-service-api/neutron.service.js:62
 msgid "Unable to retrieve the agents."
 msgstr ""
 
-#: openstack_dashboard/static/app/core/openstack-service-api/neutron.service.js:77
+#: openstack_dashboard/static/app/core/openstack-service-api/neutron.service.js:78
 msgid "Unable to retrieve the networks."
 msgstr ""
 
-#: openstack_dashboard/static/app/core/openstack-service-api/neutron.service.js:126
+#: openstack_dashboard/static/app/core/openstack-service-api/neutron.service.js:127
 msgid "Unable to create the network."
 msgstr ""
 
-#: openstack_dashboard/static/app/core/openstack-service-api/neutron.service.js:146
+#: openstack_dashboard/static/app/core/openstack-service-api/neutron.service.js:148
 msgid "Unable to retrieve the subnets."
 msgstr ""
 
-#: openstack_dashboard/static/app/core/openstack-service-api/neutron.service.js:210
+#: openstack_dashboard/static/app/core/openstack-service-api/neutron.service.js:212
 msgid "Unable to create the subnet."
 msgstr ""
 
-#: openstack_dashboard/static/app/core/openstack-service-api/neutron.service.js:261
+#: openstack_dashboard/static/app/core/openstack-service-api/neutron.service.js:265
 msgid "Unable to retrieve the ports."
 msgstr ""
 
-#: openstack_dashboard/static/app/core/openstack-service-api/nova.service.js:78
+#: openstack_dashboard/static/app/core/openstack-service-api/nova.service.js:82
 msgid "Unable to retrieve the nova services."
 msgstr ""
 
-#: openstack_dashboard/static/app/core/openstack-service-api/nova.service.js:95
+#: openstack_dashboard/static/app/core/openstack-service-api/nova.service.js:98
 msgid "Unable to retrieve the keypairs."
 msgstr ""
 
-#: openstack_dashboard/static/app/core/openstack-service-api/nova.service.js:117
+#: openstack_dashboard/static/app/core/openstack-service-api/nova.service.js:121
 msgid "Unable to import the keypair."
 msgstr ""
 
-#: openstack_dashboard/static/app/core/openstack-service-api/nova.service.js:119
+#: openstack_dashboard/static/app/core/openstack-service-api/nova.service.js:123
 msgid "Unable to create the keypair."
 msgstr ""
 
-#: openstack_dashboard/static/app/core/openstack-service-api/nova.service.js:138
+#: openstack_dashboard/static/app/core/openstack-service-api/nova.service.js:143
 msgid "Unable to retrieve the availability zones."
 msgstr ""
 
-#: openstack_dashboard/static/app/core/openstack-service-api/nova.service.js:176
+#: openstack_dashboard/static/app/core/openstack-service-api/nova.service.js:182
 msgid "Unable to retrieve the limits."
 msgstr ""
 
-#: openstack_dashboard/static/app/core/openstack-service-api/nova.service.js:203
+#: openstack_dashboard/static/app/core/openstack-service-api/nova.service.js:210
 msgid "Unable to create the server."
 msgstr ""
 
-#: openstack_dashboard/static/app/core/openstack-service-api/nova.service.js:217
+#: openstack_dashboard/static/app/core/openstack-service-api/nova.service.js:225
 msgid "Unable to retrieve the server."
 msgstr ""
 
-#: openstack_dashboard/static/app/core/openstack-service-api/nova.service.js:232
+#: openstack_dashboard/static/app/core/openstack-service-api/nova.service.js:241
 msgid "Unable to retrieve instances."
 msgstr ""
 
-#: openstack_dashboard/static/app/core/openstack-service-api/nova.service.js:311
+#: openstack_dashboard/static/app/core/openstack-service-api/nova.service.js:323
 msgid "Unable to retrieve the flavors."
 msgstr ""
 
-#: openstack_dashboard/static/app/core/openstack-service-api/nova.service.js:334
+#: openstack_dashboard/static/app/core/openstack-service-api/nova.service.js:348
 msgid "Unable to retrieve the flavor."
 msgstr ""
 
-#: openstack_dashboard/static/app/core/openstack-service-api/nova.service.js:348
+#: openstack_dashboard/static/app/core/openstack-service-api/nova.service.js:363
 msgid "Unable to create the flavor."
 msgstr ""
 
-#: openstack_dashboard/static/app/core/openstack-service-api/nova.service.js:362
+#: openstack_dashboard/static/app/core/openstack-service-api/nova.service.js:378
 msgid "Unable to update the flavor."
 msgstr ""
 
-#: openstack_dashboard/static/app/core/openstack-service-api/nova.service.js:383
+#: openstack_dashboard/static/app/core/openstack-service-api/nova.service.js:400
 #, python-format
 msgid "Unable to delete the flavor with id: %(id)s"
 msgstr ""
 
-#: openstack_dashboard/static/app/core/openstack-service-api/nova.service.js:399
+#: openstack_dashboard/static/app/core/openstack-service-api/nova.service.js:417
 msgid "Unable to retrieve the flavor extra specs."
 msgstr ""
 
-#: openstack_dashboard/static/app/core/openstack-service-api/nova.service.js:419
+#: openstack_dashboard/static/app/core/openstack-service-api/nova.service.js:438
 msgid "Unable to edit the flavor extra specs."
 msgstr ""
 
-#: openstack_dashboard/static/app/core/openstack-service-api/nova.service.js:433
+#: openstack_dashboard/static/app/core/openstack-service-api/nova.service.js:453
 msgid "Unable to retrieve the aggregate extra specs."
 msgstr ""
 
-#: openstack_dashboard/static/app/core/openstack-service-api/nova.service.js:453
+#: openstack_dashboard/static/app/core/openstack-service-api/nova.service.js:474
 msgid "Unable to edit the aggregate extra specs."
 msgstr ""
 
-#: openstack_dashboard/static/app/core/openstack-service-api/nova.service.js:467
+#: openstack_dashboard/static/app/core/openstack-service-api/nova.service.js:489
 msgid "Unable to retrieve instance metadata."
 msgstr ""
 
-#: openstack_dashboard/static/app/core/openstack-service-api/nova.service.js:487
+#: openstack_dashboard/static/app/core/openstack-service-api/nova.service.js:510
 msgid "Unable to edit instance metadata."
 msgstr ""
 
-#: openstack_dashboard/static/app/core/openstack-service-api/policy.service.js:104
+#: openstack_dashboard/static/app/core/openstack-service-api/policy.service.js:110
 msgid "Policy check failed."
 msgstr ""
 
-#: openstack_dashboard/static/app/core/openstack-service-api/security-group.service.js:80
+#: openstack_dashboard/static/app/core/openstack-service-api/security-group.service.js:84
 msgid "Unable to retrieve the security groups."
 msgstr ""
 
-#: openstack_dashboard/static/app/core/openstack-service-api/service-catalog.service.js:125
+#: openstack_dashboard/static/app/core/openstack-service-api/service-catalog.service.js:131
 #, python-format
 msgid "Service type is not enabled: %(desiredType)s"
 msgstr ""
 
-#: openstack_dashboard/static/app/core/openstack-service-api/service-catalog.service.js:133
+#: openstack_dashboard/static/app/core/openstack-service-api/service-catalog.service.js:139
 msgid "Cannot get service catalog from keystone."
 msgstr ""
 
-#: openstack_dashboard/static/app/core/openstack-service-api/settings.service.js:69
+#: openstack_dashboard/static/app/core/openstack-service-api/settings.service.js:73
 #: openstack_dashboard/static/app/core/openstack-service-api/settings.service.spec.js:79
 msgid "Unable to retrieve settings."
 msgstr ""
 
-#: openstack_dashboard/static/app/core/openstack-service-api/settings.service.js:252
+#: openstack_dashboard/static/app/core/openstack-service-api/settings.service.js:258
 #, python-format
 msgid "Setting is not enabled: %(setting)s"
 msgstr ""
 
-#: openstack_dashboard/static/app/core/openstack-service-api/swift.service.js:88
+#: openstack_dashboard/static/app/core/openstack-service-api/swift.service.js:94
 msgid "Unable to get the Swift service info."
 msgstr ""
 
-#: openstack_dashboard/static/app/core/openstack-service-api/swift.service.js:103
+#: openstack_dashboard/static/app/core/openstack-service-api/swift.service.js:109
 msgid "Unable to get the Swift container listing."
 msgstr ""
 
-#: openstack_dashboard/static/app/core/openstack-service-api/swift.service.js:118
+#: openstack_dashboard/static/app/core/openstack-service-api/swift.service.js:125
 msgid "Unable to get the container details."
 msgstr ""
 
-#: openstack_dashboard/static/app/core/openstack-service-api/swift.service.js:139
+#: openstack_dashboard/static/app/core/openstack-service-api/swift.service.js:149
 msgid "Unable to create the container."
 msgstr ""
 
-#: openstack_dashboard/static/app/core/openstack-service-api/swift.service.js:153
+#: openstack_dashboard/static/app/core/openstack-service-api/swift.service.js:165
 msgid "Unable to delete the container."
 msgstr ""
 
-#: openstack_dashboard/static/app/core/openstack-service-api/swift.service.js:168
+#: openstack_dashboard/static/app/core/openstack-service-api/swift.service.js:183
 msgid "Unable to change the container access."
 msgstr ""
 
-#: openstack_dashboard/static/app/core/openstack-service-api/swift.service.js:191
+#: openstack_dashboard/static/app/core/openstack-service-api/swift.service.js:209
 msgid "Unable to get the objects in container."
 msgstr ""
 
-#: openstack_dashboard/static/app/core/openstack-service-api/swift.service.js:215
+#: openstack_dashboard/static/app/core/openstack-service-api/swift.service.js:237
 msgid "Unable to upload the object."
 msgstr ""
 
-#: openstack_dashboard/static/app/core/openstack-service-api/swift.service.js:231
+#: openstack_dashboard/static/app/core/openstack-service-api/swift.service.js:256
 msgid "Unable to delete the folder because it is not empty."
 msgstr ""
 
-#: openstack_dashboard/static/app/core/openstack-service-api/swift.service.js:235
+#: openstack_dashboard/static/app/core/openstack-service-api/swift.service.js:260
 msgid "Unable to delete the object."
 msgstr ""
 
-#: openstack_dashboard/static/app/core/openstack-service-api/swift.service.js:251
+#: openstack_dashboard/static/app/core/openstack-service-api/swift.service.js:279
 msgid "Unable to get details of the object."
 msgstr ""
 
-#: openstack_dashboard/static/app/core/openstack-service-api/swift.service.js:267
+#: openstack_dashboard/static/app/core/openstack-service-api/swift.service.js:298
 msgid "Unable to create the folder."
 msgstr ""
 
-#: openstack_dashboard/static/app/core/openstack-service-api/swift.service.js:283
+#: openstack_dashboard/static/app/core/openstack-service-api/swift.service.js:319
 msgid "Unable to copy the object."
 msgstr ""
 

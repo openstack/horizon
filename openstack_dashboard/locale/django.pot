@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2016-03-19 06:17+0000\n"
+"POT-Creation-Date: 2016-03-30 06:51+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -1401,7 +1401,7 @@ msgstr ""
 #: openstack_dashboard/dashboards/admin/volumes/volumes/forms.py:90
 #: openstack_dashboard/dashboards/admin/volumes/volumes/forms.py:149
 #: openstack_dashboard/dashboards/identity/roles/forms.py:37
-#: openstack_dashboard/dashboards/identity/users/forms.py:197
+#: openstack_dashboard/dashboards/identity/users/forms.py:200
 #: openstack_dashboard/dashboards/identity/users/templates/users/_detail_overview.html:19
 #: openstack_dashboard/dashboards/project/firewalls/templates/firewalls/_firewall_details.html:11
 #: openstack_dashboard/dashboards/project/firewalls/templates/firewalls/_policy_details.html:11
@@ -1605,7 +1605,7 @@ msgstr ""
 #: openstack_dashboard/dashboards/project/access_and_security/security_groups/forms.py:180
 #: openstack_dashboard/dashboards/project/access_and_security/security_groups/forms.py:187
 #: openstack_dashboard/dashboards/project/images/images/tables.py:306
-#: openstack_dashboard/dashboards/project/loadbalancers/workflows.py:473
+#: openstack_dashboard/dashboards/project/loadbalancers/workflows.py:477
 #: openstack_dashboard/dashboards/project/loadbalancers/templates/loadbalancers/_monitor_details.html:11
 #: openstack_dashboard/dashboards/project/routers/ports/tables.py:116
 #: openstack_dashboard/dashboards/project/stacks/resource_types/tables.py:31
@@ -2128,9 +2128,8 @@ msgstr ""
 #: openstack_dashboard/dashboards/identity/projects/workflows.py:157
 #: openstack_dashboard/dashboards/identity/projects/workflows.py:566
 #: openstack_dashboard/dashboards/identity/projects/templates/projects/_detail_overview.html:9
-#: openstack_dashboard/dashboards/identity/users/forms.py:117
+#: openstack_dashboard/dashboards/identity/users/forms.py:120
 #: openstack_dashboard/dashboards/identity/users/tables.py:254
-#: openstack_dashboard/dashboards/identity/users/tables.py:266
 #: openstack_dashboard/dashboards/identity/users/templates/users/_detail_overview.html:23
 #: openstack_dashboard/dashboards/project/firewalls/forms.py:76
 #: openstack_dashboard/dashboards/project/firewalls/tables.py:314
@@ -2522,8 +2521,8 @@ msgstr ""
 #: openstack_dashboard/dashboards/identity/projects/tables.py:262
 #: openstack_dashboard/dashboards/identity/projects/workflows.py:155
 #: openstack_dashboard/dashboards/identity/projects/templates/projects/_detail_overview.html:11
-#: openstack_dashboard/dashboards/identity/users/forms.py:107
-#: openstack_dashboard/dashboards/identity/users/forms.py:201
+#: openstack_dashboard/dashboards/identity/users/forms.py:110
+#: openstack_dashboard/dashboards/identity/users/forms.py:204
 #: openstack_dashboard/dashboards/identity/users/tables.py:234
 #: openstack_dashboard/dashboards/identity/users/templates/users/_detail_overview.html:16
 #: openstack_dashboard/dashboards/project/access_and_security/security_groups/forms.py:56
@@ -3153,7 +3152,7 @@ msgstr ""
 #: openstack_dashboard/dashboards/project/loadbalancers/workflows.py:46
 #: openstack_dashboard/dashboards/project/loadbalancers/workflows.py:187
 #: openstack_dashboard/dashboards/project/loadbalancers/workflows.py:333
-#: openstack_dashboard/dashboards/project/loadbalancers/workflows.py:536
+#: openstack_dashboard/dashboards/project/loadbalancers/workflows.py:540
 #: openstack_dashboard/dashboards/project/networks/forms.py:41
 #: openstack_dashboard/dashboards/project/networks/workflows.py:48
 #: openstack_dashboard/dashboards/project/networks/ports/forms.py:41
@@ -3178,7 +3177,7 @@ msgstr ""
 #: openstack_dashboard/dashboards/project/loadbalancers/workflows.py:47
 #: openstack_dashboard/dashboards/project/loadbalancers/workflows.py:188
 #: openstack_dashboard/dashboards/project/loadbalancers/workflows.py:334
-#: openstack_dashboard/dashboards/project/loadbalancers/workflows.py:537
+#: openstack_dashboard/dashboards/project/loadbalancers/workflows.py:541
 #: openstack_dashboard/dashboards/project/networks/forms.py:42
 #: openstack_dashboard/dashboards/project/networks/workflows.py:49
 #: openstack_dashboard/dashboards/project/networks/ports/forms.py:42
@@ -3209,7 +3208,7 @@ msgstr ""
 #: openstack_dashboard/dashboards/project/loadbalancers/workflows.py:48
 #: openstack_dashboard/dashboards/project/loadbalancers/workflows.py:189
 #: openstack_dashboard/dashboards/project/loadbalancers/workflows.py:335
-#: openstack_dashboard/dashboards/project/loadbalancers/workflows.py:538
+#: openstack_dashboard/dashboards/project/loadbalancers/workflows.py:542
 #: openstack_dashboard/dashboards/project/networks/forms.py:44
 #: openstack_dashboard/dashboards/project/networks/tables.py:183
 #: openstack_dashboard/dashboards/project/networks/workflows.py:50
@@ -3259,7 +3258,7 @@ msgid "External Network"
 msgstr ""
 
 #: openstack_dashboard/dashboards/admin/networks/forms.py:91
-#: openstack_dashboard/dashboards/identity/users/forms.py:86
+#: openstack_dashboard/dashboards/identity/users/forms.py:89
 msgid "Select a project"
 msgstr ""
 
@@ -4665,7 +4664,7 @@ msgstr ""
 #: openstack_dashboard/dashboards/admin/volumes/volume_types/views.py:257
 #: openstack_dashboard/dashboards/project/access_and_security/floating_ips/tables.py:110
 #: openstack_dashboard/dashboards/project/access_and_security/floating_ips/workflows.py:145
-#: openstack_dashboard/dashboards/project/loadbalancers/workflows.py:661
+#: openstack_dashboard/dashboards/project/loadbalancers/workflows.py:665
 msgid "Associate"
 msgstr ""
 
@@ -5055,8 +5054,8 @@ msgstr ""
 
 #: openstack_dashboard/dashboards/identity/domains/tables.py:281
 #: openstack_dashboard/dashboards/identity/projects/workflows.py:145
-#: openstack_dashboard/dashboards/identity/users/forms.py:98
-#: openstack_dashboard/dashboards/identity/users/forms.py:191
+#: openstack_dashboard/dashboards/identity/users/forms.py:101
+#: openstack_dashboard/dashboards/identity/users/forms.py:194
 #: openstack_dashboard/dashboards/identity/users/templates/users/_detail_overview.html:6
 msgid "Domain ID"
 msgstr ""
@@ -5280,9 +5279,9 @@ msgid "Add Users"
 msgstr ""
 
 #: openstack_dashboard/dashboards/identity/groups/tables.py:191
-#: openstack_dashboard/dashboards/identity/users/forms.py:104
-#: openstack_dashboard/dashboards/identity/users/forms.py:198
-#: openstack_dashboard/dashboards/identity/users/forms.py:255
+#: openstack_dashboard/dashboards/identity/users/forms.py:107
+#: openstack_dashboard/dashboards/identity/users/forms.py:201
+#: openstack_dashboard/dashboards/identity/users/forms.py:261
 #: openstack_dashboard/dashboards/identity/users/tables.py:230
 #: openstack_dashboard/dashboards/identity/users/templates/users/_detail_overview.html:13
 #: openstack_dashboard/dashboards/project/access_and_security/templates/access_and_security/api_access/_credentials.html:13
@@ -5290,8 +5289,8 @@ msgid "User Name"
 msgstr ""
 
 #: openstack_dashboard/dashboards/identity/groups/tables.py:192
-#: openstack_dashboard/dashboards/identity/users/forms.py:110
-#: openstack_dashboard/dashboards/identity/users/forms.py:204
+#: openstack_dashboard/dashboards/identity/users/forms.py:113
+#: openstack_dashboard/dashboards/identity/users/forms.py:207
 #: openstack_dashboard/dashboards/identity/users/tables.py:241
 #: openstack_dashboard/dashboards/identity/users/templates/users/_detail_overview.html:21
 msgid "Email"
@@ -5727,7 +5726,7 @@ msgstr ""
 #: openstack_dashboard/dashboards/identity/ngusers/panel.py:23
 #: openstack_dashboard/dashboards/identity/ngusers/templates/ngusers/index.html:3
 #: openstack_dashboard/dashboards/identity/users/panel.py:27
-#: openstack_dashboard/dashboards/identity/users/tables.py:275
+#: openstack_dashboard/dashboards/identity/users/tables.py:268
 #: openstack_dashboard/dashboards/identity/users/views.py:49
 #: openstack_dashboard/dashboards/identity/users/templates/users/index.html:3
 msgid "Users"
@@ -5809,9 +5808,9 @@ msgstr ""
 #: openstack_dashboard/dashboards/identity/projects/tables.py:277
 #: openstack_dashboard/dashboards/identity/projects/workflows.py:148
 #: openstack_dashboard/dashboards/identity/projects/workflows.py:567
-#: openstack_dashboard/dashboards/identity/users/forms.py:101
-#: openstack_dashboard/dashboards/identity/users/forms.py:194
-#: openstack_dashboard/dashboards/identity/users/tables.py:264
+#: openstack_dashboard/dashboards/identity/users/forms.py:104
+#: openstack_dashboard/dashboards/identity/users/forms.py:197
+#: openstack_dashboard/dashboards/identity/users/tables.py:263
 #: openstack_dashboard/dashboards/identity/users/templates/users/_detail_overview.html:10
 #: openstack_dashboard/dashboards/project/access_and_security/templates/access_and_security/api_access/_credentials.html:18
 msgid "Domain Name"
@@ -6083,64 +6082,64 @@ msgstr ""
 msgid "Passwords do not match."
 msgstr ""
 
-#: openstack_dashboard/dashboards/identity/users/forms.py:84
+#: openstack_dashboard/dashboards/identity/users/forms.py:85
 msgid "No available projects"
 msgstr ""
 
-#: openstack_dashboard/dashboards/identity/users/forms.py:112
-#: openstack_dashboard/dashboards/identity/users/forms.py:206
+#: openstack_dashboard/dashboards/identity/users/forms.py:115
+#: openstack_dashboard/dashboards/identity/users/forms.py:209
 msgid "Primary Project"
 msgstr ""
 
-#: openstack_dashboard/dashboards/identity/users/forms.py:115
+#: openstack_dashboard/dashboards/identity/users/forms.py:118
 msgid "Role"
 msgstr ""
 
-#: openstack_dashboard/dashboards/identity/users/forms.py:163
+#: openstack_dashboard/dashboards/identity/users/forms.py:166
 #, python-format
 msgid "User \"%s\" was successfully created."
 msgstr ""
 
-#: openstack_dashboard/dashboards/identity/users/forms.py:179
+#: openstack_dashboard/dashboards/identity/users/forms.py:182
 msgid "Unable to add user to primary project."
 msgstr ""
 
-#: openstack_dashboard/dashboards/identity/users/forms.py:183
-#: openstack_dashboard/dashboards/identity/users/forms.py:239
+#: openstack_dashboard/dashboards/identity/users/forms.py:186
+#: openstack_dashboard/dashboards/identity/users/forms.py:245
 #, python-format
 msgid "User name \"%s\" is already used."
 msgstr ""
 
-#: openstack_dashboard/dashboards/identity/users/forms.py:186
+#: openstack_dashboard/dashboards/identity/users/forms.py:189
 msgid "Unable to create user."
 msgstr ""
 
-#: openstack_dashboard/dashboards/identity/users/forms.py:237
+#: openstack_dashboard/dashboards/identity/users/forms.py:243
 msgid "User has been updated successfully."
 msgstr ""
 
-#: openstack_dashboard/dashboards/identity/users/forms.py:244
+#: openstack_dashboard/dashboards/identity/users/forms.py:250
 msgid "Unable to update the user."
 msgstr ""
 
-#: openstack_dashboard/dashboards/identity/users/forms.py:264
+#: openstack_dashboard/dashboards/identity/users/forms.py:270
 #: openstack_dashboard/dashboards/project/instances/workflows/create_instance.py:545
 msgid "Admin Password"
 msgstr ""
 
-#: openstack_dashboard/dashboards/identity/users/forms.py:284
+#: openstack_dashboard/dashboards/identity/users/forms.py:290
 msgid "The admin password is incorrect."
 msgstr ""
 
-#: openstack_dashboard/dashboards/identity/users/forms.py:293
+#: openstack_dashboard/dashboards/identity/users/forms.py:299
 msgid "Password changed. Please log in to continue."
 msgstr ""
 
-#: openstack_dashboard/dashboards/identity/users/forms.py:296
+#: openstack_dashboard/dashboards/identity/users/forms.py:302
 msgid "User password has been updated successfully."
 msgstr ""
 
-#: openstack_dashboard/dashboards/identity/users/forms.py:299
+#: openstack_dashboard/dashboards/identity/users/forms.py:305
 msgid "Unable to update the user password."
 msgstr ""
 
@@ -6405,7 +6404,7 @@ msgstr[0] ""
 msgstr[1] ""
 
 #: openstack_dashboard/dashboards/project/access_and_security/floating_ips/tables.py:132
-#: openstack_dashboard/dashboards/project/loadbalancers/workflows.py:724
+#: openstack_dashboard/dashboards/project/loadbalancers/workflows.py:728
 msgid "Disassociate"
 msgstr ""
 
@@ -6926,7 +6925,7 @@ msgstr ""
 #: openstack_dashboard/dashboards/project/loadbalancers/workflows.py:131
 #: openstack_dashboard/dashboards/project/loadbalancers/workflows.py:250
 #: openstack_dashboard/dashboards/project/loadbalancers/workflows.py:413
-#: openstack_dashboard/dashboards/project/loadbalancers/workflows.py:598
+#: openstack_dashboard/dashboards/project/loadbalancers/workflows.py:602
 #: openstack_dashboard/dashboards/project/vpn/workflows.py:100
 #: openstack_dashboard/dashboards/project/vpn/workflows.py:221
 #: openstack_dashboard/dashboards/project/vpn/workflows.py:344
@@ -7493,7 +7492,7 @@ msgstr ""
 
 #: openstack_dashboard/dashboards/project/firewalls/forms.py:40
 #: openstack_dashboard/dashboards/project/firewalls/workflows.py:39
-#: openstack_dashboard/dashboards/project/loadbalancers/workflows.py:475
+#: openstack_dashboard/dashboards/project/loadbalancers/workflows.py:479
 msgid "TCP"
 msgstr ""
 
@@ -10455,13 +10454,13 @@ msgstr ""
 
 #: openstack_dashboard/dashboards/project/loadbalancers/forms.py:225
 #: openstack_dashboard/dashboards/project/loadbalancers/tables.py:552
-#: openstack_dashboard/dashboards/project/loadbalancers/workflows.py:484
+#: openstack_dashboard/dashboards/project/loadbalancers/workflows.py:488
 #: openstack_dashboard/dashboards/project/loadbalancers/templates/loadbalancers/_monitor_details.html:14
 msgid "Delay"
 msgstr ""
 
 #: openstack_dashboard/dashboards/project/loadbalancers/forms.py:226
-#: openstack_dashboard/dashboards/project/loadbalancers/workflows.py:485
+#: openstack_dashboard/dashboards/project/loadbalancers/workflows.py:489
 msgid ""
 "The minimum time in seconds between regular checks of a member. It must "
 "be greater than or equal to timeout"
@@ -10469,26 +10468,26 @@ msgstr ""
 
 #: openstack_dashboard/dashboards/project/loadbalancers/forms.py:231
 #: openstack_dashboard/dashboards/project/loadbalancers/tables.py:553
-#: openstack_dashboard/dashboards/project/loadbalancers/workflows.py:490
+#: openstack_dashboard/dashboards/project/loadbalancers/workflows.py:494
 #: openstack_dashboard/dashboards/project/loadbalancers/templates/loadbalancers/_monitor_details.html:17
 #: openstack_dashboard/dashboards/project/stacks/templates/stacks/_detail_overview.html:50
 msgid "Timeout"
 msgstr ""
 
 #: openstack_dashboard/dashboards/project/loadbalancers/forms.py:232
-#: openstack_dashboard/dashboards/project/loadbalancers/workflows.py:491
+#: openstack_dashboard/dashboards/project/loadbalancers/workflows.py:495
 msgid ""
 "The maximum time in seconds for a monitor to wait for a reply. It must be"
 " less than or equal to delay"
 msgstr ""
 
 #: openstack_dashboard/dashboards/project/loadbalancers/forms.py:236
-#: openstack_dashboard/dashboards/project/loadbalancers/workflows.py:495
+#: openstack_dashboard/dashboards/project/loadbalancers/workflows.py:499
 msgid "Max Retries (1~10)"
 msgstr ""
 
 #: openstack_dashboard/dashboards/project/loadbalancers/forms.py:237
-#: openstack_dashboard/dashboards/project/loadbalancers/workflows.py:496
+#: openstack_dashboard/dashboards/project/loadbalancers/workflows.py:500
 msgid ""
 "Number of permissible failures before changing the status of member to "
 "inactive"
@@ -10531,7 +10530,7 @@ msgid "Add Member"
 msgstr ""
 
 #: openstack_dashboard/dashboards/project/loadbalancers/tables.py:75
-#: openstack_dashboard/dashboards/project/loadbalancers/workflows.py:597
+#: openstack_dashboard/dashboards/project/loadbalancers/workflows.py:601
 msgid "Add Monitor"
 msgstr ""
 
@@ -10639,7 +10638,7 @@ msgid "Edit Monitor"
 msgstr ""
 
 #: openstack_dashboard/dashboards/project/loadbalancers/tables.py:258
-#: openstack_dashboard/dashboards/project/loadbalancers/workflows.py:660
+#: openstack_dashboard/dashboards/project/loadbalancers/workflows.py:664
 msgid "Associate Monitor"
 msgstr ""
 
@@ -10648,7 +10647,7 @@ msgid "Failed to retrieve health monitors."
 msgstr ""
 
 #: openstack_dashboard/dashboards/project/loadbalancers/tables.py:281
-#: openstack_dashboard/dashboards/project/loadbalancers/workflows.py:723
+#: openstack_dashboard/dashboards/project/loadbalancers/workflows.py:727
 msgid "Disassociate Monitor"
 msgstr ""
 
@@ -11046,75 +11045,79 @@ msgstr ""
 msgid "Unable to retrieve the specified pool."
 msgstr ""
 
-#: openstack_dashboard/dashboards/project/loadbalancers/workflows.py:474
+#: openstack_dashboard/dashboards/project/loadbalancers/workflows.py:461
+msgid "No ports available."
+msgstr ""
+
+#: openstack_dashboard/dashboards/project/loadbalancers/workflows.py:478
 msgid "PING"
 msgstr ""
 
-#: openstack_dashboard/dashboards/project/loadbalancers/workflows.py:476
+#: openstack_dashboard/dashboards/project/loadbalancers/workflows.py:480
 msgid "HTTP"
 msgstr ""
 
-#: openstack_dashboard/dashboards/project/loadbalancers/workflows.py:477
+#: openstack_dashboard/dashboards/project/loadbalancers/workflows.py:481
 msgid "HTTPS"
 msgstr ""
 
-#: openstack_dashboard/dashboards/project/loadbalancers/workflows.py:501
+#: openstack_dashboard/dashboards/project/loadbalancers/workflows.py:505
 msgid "GET"
 msgstr ""
 
-#: openstack_dashboard/dashboards/project/loadbalancers/workflows.py:502
-#: openstack_dashboard/dashboards/project/loadbalancers/workflows.py:507
-#: openstack_dashboard/dashboards/project/loadbalancers/workflows.py:508
+#: openstack_dashboard/dashboards/project/loadbalancers/workflows.py:506
+#: openstack_dashboard/dashboards/project/loadbalancers/workflows.py:511
+#: openstack_dashboard/dashboards/project/loadbalancers/workflows.py:512
 #: openstack_dashboard/dashboards/project/loadbalancers/templates/loadbalancers/_monitor_details.html:24
 msgid "HTTP Method"
 msgstr ""
 
-#: openstack_dashboard/dashboards/project/loadbalancers/workflows.py:503
+#: openstack_dashboard/dashboards/project/loadbalancers/workflows.py:507
 msgid "HTTP method used to check health status of a member"
 msgstr ""
 
-#: openstack_dashboard/dashboards/project/loadbalancers/workflows.py:514
 #: openstack_dashboard/dashboards/project/loadbalancers/workflows.py:518
-#: openstack_dashboard/dashboards/project/loadbalancers/workflows.py:519
+#: openstack_dashboard/dashboards/project/loadbalancers/workflows.py:522
+#: openstack_dashboard/dashboards/project/loadbalancers/workflows.py:523
 #: openstack_dashboard/dashboards/project/stacks/forms.py:65
 msgid "URL"
 msgstr ""
 
-#: openstack_dashboard/dashboards/project/loadbalancers/workflows.py:526
-#: openstack_dashboard/dashboards/project/loadbalancers/workflows.py:533
-#: openstack_dashboard/dashboards/project/loadbalancers/workflows.py:534
+#: openstack_dashboard/dashboards/project/loadbalancers/workflows.py:530
+#: openstack_dashboard/dashboards/project/loadbalancers/workflows.py:537
+#: openstack_dashboard/dashboards/project/loadbalancers/workflows.py:538
 msgid "Expected HTTP Status Codes"
 msgstr ""
 
-#: openstack_dashboard/dashboards/project/loadbalancers/workflows.py:527
+#: openstack_dashboard/dashboards/project/loadbalancers/workflows.py:531
 msgid ""
 "Expected code may be a single value (e.g. 200), a list of values (e.g. "
 "200, 202), or range of values (e.g. 200-204)"
 msgstr ""
 
-#: openstack_dashboard/dashboards/project/loadbalancers/workflows.py:550
+#: openstack_dashboard/dashboards/project/loadbalancers/workflows.py:554
 msgid "Delay must be greater than or equal to Timeout"
 msgstr ""
 
-#: openstack_dashboard/dashboards/project/loadbalancers/workflows.py:559
+#: openstack_dashboard/dashboards/project/loadbalancers/workflows.py:563
 msgid "Please choose a HTTP method"
 msgstr ""
 
-#: openstack_dashboard/dashboards/project/loadbalancers/workflows.py:562
+#: openstack_dashboard/dashboards/project/loadbalancers/workflows.py:566
 msgid "Please specify an URL"
 msgstr ""
 
-#: openstack_dashboard/dashboards/project/loadbalancers/workflows.py:565
+#: openstack_dashboard/dashboards/project/loadbalancers/workflows.py:569
 msgid ""
 "Please enter a single value (e.g. 200), a list of values (e.g. 200, 202),"
 " or range of values (e.g. 200-204)"
 msgstr ""
 
-#: openstack_dashboard/dashboards/project/loadbalancers/workflows.py:572
+#: openstack_dashboard/dashboards/project/loadbalancers/workflows.py:576
 msgid "Add New Monitor"
 msgstr ""
 
-#: openstack_dashboard/dashboards/project/loadbalancers/workflows.py:574
+#: openstack_dashboard/dashboards/project/loadbalancers/workflows.py:578
 msgid ""
 "Create a monitor template.\n"
 "\n"
@@ -11123,71 +11126,71 @@ msgid ""
 "codes upon success."
 msgstr ""
 
-#: openstack_dashboard/dashboards/project/loadbalancers/workflows.py:599
+#: openstack_dashboard/dashboards/project/loadbalancers/workflows.py:603
 msgid "Added monitor"
 msgstr ""
 
-#: openstack_dashboard/dashboards/project/loadbalancers/workflows.py:600
+#: openstack_dashboard/dashboards/project/loadbalancers/workflows.py:604
 msgid "Unable to add monitor"
 msgstr ""
 
-#: openstack_dashboard/dashboards/project/loadbalancers/workflows.py:610
+#: openstack_dashboard/dashboards/project/loadbalancers/workflows.py:614
 msgid "Unable to add monitor."
 msgstr ""
 
-#: openstack_dashboard/dashboards/project/loadbalancers/workflows.py:615
-#: openstack_dashboard/dashboards/project/loadbalancers/workflows.py:678
+#: openstack_dashboard/dashboards/project/loadbalancers/workflows.py:619
+#: openstack_dashboard/dashboards/project/loadbalancers/workflows.py:682
 msgid "Monitor"
 msgstr ""
 
-#: openstack_dashboard/dashboards/project/loadbalancers/workflows.py:621
+#: openstack_dashboard/dashboards/project/loadbalancers/workflows.py:625
 #, python-format
 msgid "Select a monitor template for %s"
 msgstr ""
 
-#: openstack_dashboard/dashboards/project/loadbalancers/workflows.py:624
-#: openstack_dashboard/dashboards/project/loadbalancers/workflows.py:688
+#: openstack_dashboard/dashboards/project/loadbalancers/workflows.py:628
+#: openstack_dashboard/dashboards/project/loadbalancers/workflows.py:692
 msgid "Select a Monitor"
 msgstr ""
 
-#: openstack_dashboard/dashboards/project/loadbalancers/workflows.py:636
-#: openstack_dashboard/dashboards/project/loadbalancers/workflows.py:698
+#: openstack_dashboard/dashboards/project/loadbalancers/workflows.py:640
+#: openstack_dashboard/dashboards/project/loadbalancers/workflows.py:702
 msgid "Unable to retrieve monitors list."
 msgstr ""
 
-#: openstack_dashboard/dashboards/project/loadbalancers/workflows.py:642
-#: openstack_dashboard/dashboards/project/loadbalancers/workflows.py:704
+#: openstack_dashboard/dashboards/project/loadbalancers/workflows.py:646
+#: openstack_dashboard/dashboards/project/loadbalancers/workflows.py:708
 msgid "Association Details"
 msgstr ""
 
-#: openstack_dashboard/dashboards/project/loadbalancers/workflows.py:644
+#: openstack_dashboard/dashboards/project/loadbalancers/workflows.py:648
 msgid "Associate a health monitor with target pool."
 msgstr ""
 
-#: openstack_dashboard/dashboards/project/loadbalancers/workflows.py:662
+#: openstack_dashboard/dashboards/project/loadbalancers/workflows.py:666
 msgid "Associated monitor."
 msgstr ""
 
-#: openstack_dashboard/dashboards/project/loadbalancers/workflows.py:663
-#: openstack_dashboard/dashboards/project/loadbalancers/workflows.py:673
+#: openstack_dashboard/dashboards/project/loadbalancers/workflows.py:667
+#: openstack_dashboard/dashboards/project/loadbalancers/workflows.py:677
 msgid "Unable to associate monitor."
 msgstr ""
 
-#: openstack_dashboard/dashboards/project/loadbalancers/workflows.py:685
+#: openstack_dashboard/dashboards/project/loadbalancers/workflows.py:689
 #, python-format
 msgid "Select a health monitor of %s"
 msgstr ""
 
-#: openstack_dashboard/dashboards/project/loadbalancers/workflows.py:706
+#: openstack_dashboard/dashboards/project/loadbalancers/workflows.py:710
 msgid "Disassociate a health monitor from target pool. "
 msgstr ""
 
-#: openstack_dashboard/dashboards/project/loadbalancers/workflows.py:725
+#: openstack_dashboard/dashboards/project/loadbalancers/workflows.py:729
 msgid "Disassociated monitor."
 msgstr ""
 
-#: openstack_dashboard/dashboards/project/loadbalancers/workflows.py:726
-#: openstack_dashboard/dashboards/project/loadbalancers/workflows.py:736
+#: openstack_dashboard/dashboards/project/loadbalancers/workflows.py:730
+#: openstack_dashboard/dashboards/project/loadbalancers/workflows.py:740
 msgid "Unable to disassociate monitor."
 msgstr ""
 
