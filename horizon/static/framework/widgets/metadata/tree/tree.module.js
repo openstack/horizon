@@ -43,6 +43,7 @@
         /*eslint-disable max-len */
         help: gettext('You can specify resource metadata by moving items from the left column to the right column. In the left column there are metadata definitions from the Glance Metadata Catalog. Use the "Custom" option to add metadata with the key of your choice.'),
         /*eslint-enable max-len */
+        item_help: gettext('Click each item to get its description here.'),
         min: gettext('Min'),
         max: gettext('Max'),
         minLength: gettext('Min length'),
