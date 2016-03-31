@@ -7,4 +7,4 @@ fixes:
   - The property `selections` tracks the checkbox selection state of each row.
   - The property `selected` is now a list of selected rows.
   - The property `numSelected` has been removed, use `selected.length` instead.
-  - The `select` method has been renamed to to `toggleSelect`.
+  - The `select` method has been renamed to `toggleSelect`.
