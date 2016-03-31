@@ -164,5 +164,5 @@ class VolumeBackupsViewTests(test.TestCase):
         res = self.client.post(url, formData)
 
         self.assertNoFormErrors(res)
-        self.assertMessageCount(success=1)
+        self.assertMessageCount(info=1)
         self.assertRedirectsNoFollow(res, INDEX_URL)

@@ -69,7 +69,7 @@ class LiveMigrateForm(forms.SelfHandlingForm):
                                          disk_over_commit=disk_over_commit)
             msg = _('The instance is preparing the live migration '
                     'to host "%s".') % data['host']
-            messages.success(request, msg)
+            messages.info(request, msg)
             return True
         except Exception:
             msg = _('Failed to live migrate instance to '

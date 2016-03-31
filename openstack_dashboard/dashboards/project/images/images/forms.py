@@ -265,9 +265,9 @@ class CreateImageForm(forms.SelfHandlingForm):
 
         try:
             image = api.glance.image_create(request, **meta)
-            messages.success(request,
-                             _('Your image %s has been queued for creation.') %
-                             meta['name'])
+            messages.info(request,
+                          _('Your image %s has been queued for creation.') %
+                          meta['name'])
             return image
         except Exception as e:
             msg = _('Unable to create new image')
