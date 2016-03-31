@@ -12,7 +12,7 @@ There are multiple components in our JavaScript testing framework:
   * `PhantomJS`_ provides a headless WebKit (the browser engine). This gives us
     native support for many web features without relying on specific browsers
     being installed.
-  * `ESLint`_ is a pluggable code linting utilty. This will catch small errors
+  * `ESLint`_ is a pluggable code linting utility. This will catch small errors
     and inconsistencies in your JS, which may lead to bigger issues later on.
     See :ref:`js_code_style` for more detail.
 
