@@ -8,6 +8,7 @@
 # Corinne Verheyde <cverheyd@gmail.com>, 2016. #zanata
 # Gael Rehault <gael_rehault@dell.com>, 2016. #zanata
 # Gérald LONLAS <g.lonlas@gmail.com>, 2016. #zanata
+# JF Taltavull <jftalta@gmail.com>, 2016. #zanata
 # Marcellin Fom Tchassem <mf6510@att.com>, 2016. #zanata
 msgid ""
 msgstr ""
@@ -17,8 +18,8 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2016-03-28 10:59+0000\n"
-"Last-Translator: Marcellin Fom Tchassem <mf6510@att.com>\n"
+"PO-Revision-Date: 2016-03-30 09:25+0000\n"
+"Last-Translator: JF Taltavull <jftalta@gmail.com>\n"
 "Language-Team: French\n"
 "Language: fr\n"
 "X-Generator: Zanata 3.7.3\n"
@@ -280,6 +281,10 @@ msgstr "Êtes-vous certain de vouloir supprimer %(name)s?"
 msgid "Are you sure you want to delete %(numSelected)s files?"
 msgstr "Êtes-vous certain de vouloir supprimer les fichiers %(numSelected)s ?"
 
+#, python-format
+msgid "Are you sure you want to delete container %(name)s?"
+msgstr "Etes-vous certain de vouloir supprimer le conteneur %(name)s ?"
+
 msgid "Automatic"
 msgstr "Automatique"
 
@@ -383,6 +388,10 @@ msgstr "Conteneur %(name)s créé"
 #, python-format
 msgid "Container %(name)s deleted."
 msgstr "Conteneur %(name)s supprimé"
+
+#, python-format
+msgid "Container %(name)s is now %(access)s."
+msgstr "Le conteneur %(name)s est maintenant %(access)s."
 
 msgid "Container Access"
 msgstr "Accès du conteneur"
@@ -665,7 +674,7 @@ msgid "Format"
 msgstr "Format"
 
 msgid "Forms"
-msgstr "Formulaire"
+msgstr "Formulaires"
 
 msgid ""
 "From a Windows system, you can use PuTTYGen to create private/public keys.\n"
@@ -707,6 +716,9 @@ msgstr "Accueil"
 
 msgid "ID"
 msgstr "ID"
+
+msgid "IP"
+msgstr "IP"
 
 msgid "ISO"
 msgstr "ISO"
@@ -997,6 +1009,9 @@ msgstr "Réseau du moniteur de santé"
 msgid "Network Health Monitors"
 msgstr "Réseau des moniteurs de santé"
 
+msgid "Network ID"
+msgstr "ID Réseau"
+
 msgid "Network Port"
 msgstr "Port réseaux"
 
@@ -1037,6 +1052,13 @@ msgstr "Non"
 
 msgid "No available items"
 msgstr "Pas d'élément disponible"
+
+msgid ""
+"Note: A Public Container will allow anyone with the Public URL to\n"
+"          gain access to your objects in the container."
+msgstr ""
+"Note : un conteneur public autorisera toute personne ayant l'URL publique\n"
+"à accéder à vos objets du conteneur."
 
 msgid "Note: you will not be able to download this later."
 msgstr "Note : Vous ne serez pas autorisé à télécharger ultérieurement"
@@ -1156,6 +1178,14 @@ msgstr "La vérification de la stratégie a échoué."
 msgid "Popovers"
 msgstr "Pop-up"
 
+msgid ""
+"Ports provide extra communication channels to your instances. You can select "
+"ports instead of networks or a mix of both."
+msgstr ""
+"Les ports fournissent des canaux de communication supplémentaires vers vos "
+"instances. Vous pouvez sélectionner des ports et non des réseaux, ou bien "
+"des ports et des réseaux."
+
 msgid "Previous"
 msgstr "Précédent"
 
@@ -1169,7 +1199,7 @@ msgid "Profile"
 msgstr "Profil"
 
 msgid "Progress bars"
-msgstr "Barre de progression"
+msgstr "Barres de progression"
 
 msgid "Project"
 msgstr "Projet"
@@ -1468,6 +1498,13 @@ msgstr ""
 "%(maxInstanceCount)s  instances"
 
 msgid ""
+"The logical port also defines the MAC address and the IP address(es) to be "
+"assigned to the interfaces plugged into them."
+msgstr ""
+"Le port logique définit également l'adresse MAC ainsi que la ou les adresses "
+"IP à attribuer aux interfaces qui y sont connectées."
+
+msgid ""
 "The maximum number of key-value pairs that can be supplied per instance is "
 "determined by the compute provider."
 msgstr ""
@@ -1496,6 +1533,9 @@ msgstr ""
 
 msgid "The status indicates whether the network has an active connection."
 msgstr "Le statut indique si le réseau a une connexion active."
+
+msgid "The status indicates whether the port has an active connection."
+msgstr "Le status indique si il existe une connexion active sur le port."
 
 msgid ""
 "The subnet identifies a sub-section of a network. A subnet is specified in "
@@ -1561,6 +1601,13 @@ msgstr "Heure"
 
 msgid "Timestamp"
 msgstr "Horodatage"
+
+msgid ""
+"To view source code, hover over a section, then click the <a><span></span></"
+"a> button in the top right of that section."
+msgstr ""
+"Pour voir le code source, déplacez le pointeur au-dessus d'une section puis "
+"cliquez sur le <a><span></span></a>bouton en haut à droite de la section."
 
 msgid "Tooltips"
 msgstr "Tooltips"
@@ -1964,11 +2011,17 @@ msgstr "VHD"
 msgid "VMDK"
 msgstr "VMDK"
 
+msgid "VNIC type"
+msgstr "Type de VNIC"
+
 msgid "View Details"
 msgstr "Voir les détails"
 
 msgid "Virtual Size"
 msgstr "Taille virtuelle"
+
+msgid "Virtual instances attach their interfaces to ports."
+msgstr "Les instances virtuelles attachent leurs interfaces à des ports."
 
 msgid "Visibility"
 msgstr "Visibilité"
@@ -2042,6 +2095,14 @@ msgstr "Semaine"
 
 msgid "Wells"
 msgstr "Wells"
+
+msgid ""
+"When IP addresses are associated to a port, this also implies the port is "
+"associated with a subnet, as the IP address was taken from the allocation "
+"pool for a specific subnet."
+msgstr ""
+"Associer des adresses IP à un port implique que le port est lui-même associé "
+"à un sous-réseau dans le pool duquel sont prises lesdites adresses."
 
 msgid ""
 "When selecting volume as boot source, please ensure the instance's "
