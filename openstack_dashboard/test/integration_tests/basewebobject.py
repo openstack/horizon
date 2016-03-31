@@ -9,10 +9,12 @@
 #    WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
 #    License for the specific language governing permissions and limitations
 #    under the License.
+import contextlib
 import unittest
 
 import selenium.common.exceptions as Exceptions
 from selenium.webdriver.common import by
+from selenium.webdriver.remote import webelement
 import selenium.webdriver.support.ui as Support
 from selenium.webdriver.support import wait
 
@@ -27,14 +29,12 @@ class BaseWebObject(unittest.TestCase):
         self.explicit_wait = self.conf.selenium.explicit_wait
 
     def _is_element_present(self, *locator):
-        try:
-            self._turn_off_implicit_wait()
-            self._get_element(*locator)
-            return True
-        except Exceptions.NoSuchElementException:
-            return False
-        finally:
-            self._turn_on_implicit_wait()
+        with self.waits_disabled():
+            try:
+                self._get_element(*locator)
+                return True
+            except Exceptions.NoSuchElementException:
+                return False
 
     def _is_element_visible(self, *locator):
         try:
@@ -44,9 +44,15 @@ class BaseWebObject(unittest.TestCase):
             return False
 
     def _is_element_displayed(self, element):
+        if element is None:
+            return False
         try:
-            return element.is_displayed()
-        except Exception:
+            if isinstance(element, webelement.WebElement):
+                return element.is_displayed()
+            else:
+                return element.src_elem.is_displayed()
+        except (Exceptions.ElementNotVisibleException,
+                Exceptions.StaleElementReferenceException):
             return False
 
     def _is_text_visible(self, element, text, strict=True):
@@ -117,17 +123,23 @@ class BaseWebObject(unittest.TestCase):
         self._wait_until(lambda x: not self._is_element_displayed(element),
                          timeout)
 
-    def wait_till_element_disappears(self, element_getter):
+    @contextlib.contextmanager
+    def waits_disabled(self):
         try:
             self._turn_off_implicit_wait()
-            self._wait_till_element_disappears(element_getter())
-        except Exceptions.NoSuchElementException:
-            # NOTE(mpavlase): This is valid state. When request completes
-            # even before Selenium get a chance to get the spinner element,
-            # it will raise the NoSuchElementException exception.
-            pass
+            yield
         finally:
             self._turn_on_implicit_wait()
+
+    def wait_till_element_disappears(self, element_getter):
+        with self.waits_disabled():
+            try:
+                self._wait_till_element_disappears(element_getter())
+            except Exceptions.NoSuchElementException:
+                # NOTE(mpavlase): This is valid state. When request completes
+                # even before Selenium get a chance to get the spinner element,
+                # it will raise the NoSuchElementException exception.
+                pass
 
     def wait_till_spinner_disappears(self):
         getter = lambda: self.driver.find_element(*self._spinner_locator)
