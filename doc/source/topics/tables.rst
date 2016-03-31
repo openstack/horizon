@@ -378,7 +378,7 @@ Example::
                                     required=False),
                                 update_action=UpdateCell)
 
-        class Meta:
+        class Meta(object):
             name = "tenants"
             verbose_name = _("Projects")
             # Connection to UpdateRow, so table can fetch row data based on
