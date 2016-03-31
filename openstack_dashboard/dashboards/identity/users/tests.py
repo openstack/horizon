@@ -359,8 +359,7 @@ class UsersViewTests(test.BaseAdminViewTests):
         api.keystone.user_update(IsA(http.HttpRequest),
                                  user.id,
                                  email=user.email,
-                                 name=user.name,
-                                 project=self.tenant.id).AndReturn(None)
+                                 name=user.name).AndReturn(None)
 
         self.mox.ReplayAll()
 
@@ -370,6 +369,52 @@ class UsersViewTests(test.BaseAdminViewTests):
                     'description': user.description,
                     'email': user.email,
                     'project': self.tenant.id}
+
+        res = self.client.post(USER_UPDATE_URL, formData)
+
+        self.assertNoFormErrors(res)
+
+    @test.create_stubs({api.keystone: ('user_get',
+                                       'domain_get',
+                                       'tenant_list',
+                                       'user_update_tenant',
+                                       'user_update_password',
+                                       'user_update',
+                                       'roles_for_user', )})
+    def test_update_default_project(self):
+        user = self.users.get(id="1")
+        domain_id = user.domain_id
+        domain = self.domains.get(id=domain_id)
+        new_project_id = self.tenants.get(id="3").id
+
+        api.keystone.user_get(IsA(http.HttpRequest), '1',
+                              admin=True).AndReturn(user)
+        api.keystone.domain_get(IsA(http.HttpRequest),
+                                domain_id).AndReturn(domain)
+
+        if api.keystone.VERSIONS.active >= 3:
+            api.keystone.tenant_list(
+                IgnoreArg(), domain=domain.id).AndReturn(
+                [self.tenants.list(), False])
+        else:
+            api.keystone.tenant_list(
+                IgnoreArg(), user=user.id).AndReturn(
+                [self.tenants.list(), False])
+
+        api.keystone.user_update(IsA(http.HttpRequest),
+                                 user.id,
+                                 email=user.email,
+                                 name=user.name,
+                                 project=new_project_id).AndReturn(None)
+
+        self.mox.ReplayAll()
+
+        formData = {'method': 'UpdateUserForm',
+                    'id': user.id,
+                    'name': user.name,
+                    'description': user.description,
+                    'email': user.email,
+                    'project': new_project_id}
 
         res = self.client.post(USER_UPDATE_URL, formData)
 
@@ -808,7 +853,6 @@ class UsersViewTests(test.BaseAdminViewTests):
                                  user.id,
                                  email=user.email,
                                  name=user.name,
-                                 project=self.tenant.id,
                                  description='changed').AndReturn(None)
 
         self.mox.ReplayAll()
