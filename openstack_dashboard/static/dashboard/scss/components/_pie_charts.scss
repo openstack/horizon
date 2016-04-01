@@ -5,26 +5,44 @@
 // toggle between an incrementing percentage ($increment)
 // from the theme's primary brand color.  This should
 // adapt nicely to most themes.
-@mixin make_pie_chart_distribution($num, $increment) {
+
+// Distribution Chart Mixins
+@mixin make_pie_chart_distribution($color: $brand-primary, $num: 8, $increment: 8) {
+
+  // Set the arc stroke
+  .arc {
+    stroke: $color;
+  }
+
   @for $ii from 1 through $num {
     $color_increment: $increment * ($ii/2);
 
     // Set the arc color
     .arc:nth-child(#{$ii}n) {
       @if $ii % 2 == 0 {
-        fill: lighten($brand-primary, $color_increment * 1%);
+        fill: lighten($color, $color_increment * 1%);
       } @else {
-        fill: darken($brand-primary, $color_increment * 1%);
+        fill: darken($color, $color_increment * 1%);
       }
     }
 
     // Set the corresponding legend symbol
     .legend-group:nth-child(#{$ii}n) .legend-symbol {
       @if $ii % 2 == 0 {
-        color: lighten($brand-primary, $color_increment * 1%);
+        color: lighten($color, $color_increment * 1%);
       } @else {
-        color: darken($brand-primary, $color_increment * 1%);
+        color: darken($color, $color_increment * 1%);
       }
+    }
+  }
+}
+
+@mixin make_pie_chart_type($type: '', $color: $brand-primary) {
+  @if $type == '' {
+    @include make_pie_chart_distribution($color);
+  } @else {
+    &.chart-#{$type} {
+      @include make_pie_chart_distribution($color);
     }
   }
 }
@@ -40,7 +58,7 @@
 }
 
 // Chart Usage Specifics
-.d3_pie_chart_usage {
+.pie-chart-usage {
 
   .arc {
     stroke: $table-border-color;
@@ -64,15 +82,15 @@
 }
 
 // Chart Distribution Specifics
-.d3_pie_chart_distribution {
+// The container arc's color and stroke
 
-  // The container arc's color and stroke
-  .arc {
-    stroke: $brand-primary;
-  }
+.pie-chart-distribution {
 
-  // Set the colors!
-  @include make_pie_chart_distribution(8, 8);
+  @include make_pie_chart_type();
+  @include make_pie_chart_type('danger', $brand-danger);
+  @include make_pie_chart_type('success', $brand-success);
+  @include make_pie_chart_type('info', $brand-info);
+  @include make_pie_chart_type('warning', $brand-warning);
 
   .legend {
     padding: $padding-base-horizontal $padding-base-vertical;

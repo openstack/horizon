@@ -53,6 +53,7 @@
       var $button = $('<div id="source-button" class="btn btn-primary btn-xs"><span class="fa fa-code"></span></div>')
         .click(function(){
           var $fragment = stripAngular($(this).parent().clone());
+          $fragment = stripChart($fragment);
           var html = cleanSource($fragment.html());
           $pre.text(html);
           $modal.modal();
@@ -66,6 +67,9 @@
         $(this).append($button);
         $button.show();
       });
+
+      horizon.d3_pie_chart_distribution.init();
+      horizon.d3_pie_chart_usage.init();
     }
 
   // Utility function to clean up the source code before displaying
@@ -77,6 +81,14 @@
     $frag.find('.ng-pristine').removeClass('ng-pristine');
     $frag.find('.ng-valid').removeClass('ng-valid');
     $frag.find('input').removeAttr('style');
+    return $frag;
+  }
+
+  // Utility function to clean up the source code before displaying
+  function stripChart($frag) {
+    $frag.find('.pie-chart-usage').find('svg').remove();
+    $frag.find('.pie-chart-distribution').find('svg').remove();
+    $frag.find('.pie-chart-distribution').find('.legend').remove();
     return $frag;
   }
 
