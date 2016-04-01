@@ -135,7 +135,7 @@ class IndexView(tables.DataTableView):
         if filter_action:
             filter_field = self.table.get_filter_field()
             if filter_action.is_api_filter(filter_field):
-                filter_string = self.table.get_filter_string()
+                filter_string = self.table.get_filter_string().strip()
                 if filter_field and filter_string:
                     filters[filter_field] = filter_string
         return filters
