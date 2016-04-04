@@ -9,8 +9,6 @@
 #    WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
 #    License for the specific language governing permissions and limitations
 #    under the License.
-import re
-
 import six
 
 from selenium.webdriver.common import by
@@ -85,42 +83,29 @@ class BaseFormFieldRegion(baseregion.BaseRegion):
 
 
 class CheckBoxMixin(object):
+
+    @property
+    def label(self):
+        id_attribute = self.element.get_attribute('id')
+        return self.element.find_element(
+            by.By.XPATH, '../..//label[@for="{}"]'.format(id_attribute))
+
     def is_marked(self):
         return self.element.is_selected()
 
     def mark(self):
         if not self.is_marked():
-            self.element.click()
+            self.label.click()
 
     def unmark(self):
         if self.is_marked():
-            self.element.click()
-
-    @property
-    def name(self):
-        """Themable checkboxes use a <label> with font-awesome icon as a
-        control element while the <input> widget is hidden. Still the name
-        needs to be extracted from <label>. Attribute "for" is used for that,
-        since it mirrors <input> "id" which in turn is derived from <input>'s
-        name.
-        """
-        for_attribute = self.element.get_attribute('for')
-        indirect_name = re.search(r'id_(.*)', for_attribute)
-        return (indirect_name and indirect_name.group(1)) or None
+            self.label.click()
 
 
 class CheckBoxFormFieldRegion(CheckBoxMixin, BaseFormFieldRegion):
     """Checkbox field."""
 
-    _element_locator_str_suffix = \
-        '.themable-checkbox input[type=checkbox] + label'
-
-
-class ProjectPageCheckBoxFormFieldRegion(CheckBoxMixin, BaseFormFieldRegion):
-    """Checkbox field for Project-page."""
-
-    _element_locator_str_suffix = \
-        'div > .themable-checkbox input[type=checkbox] + label'
+    _element_locator_str_suffix = 'input[type=checkbox]'
 
 
 class ChooseFileFormFieldRegion(BaseFormFieldRegion):
