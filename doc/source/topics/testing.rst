@@ -532,7 +532,7 @@ Given the mixture of these entities in existing dashboards, it was decided that:
   to a Panel level if that Panel has several tabs (i.e., only terminal levels could be
   navigated to).
 
-As you might have noticed, method name components are choosen from normalized items of
+As you might have noticed, method name components are chosen from normalized items of
 the `CORE_PAGE_STRUCTURE` dictionary, where normalization means replacing spaces with `_`
 symbol and `&` symbol with `and`, then downcasing all symbols.
 

@@ -488,7 +488,7 @@ Default: ``"themes"``
 
 This setting tells Horizon which static directory to collect the
 available themes into, and therefore which URL points to the theme
-colleciton root.  For example, the default theme would be accessible
+collection root.  For example, the default theme would be accessible
 via ``/{{ STATIC_URL }}/themes/default``.
 
 ``THEME_COOKIE_NAME``
