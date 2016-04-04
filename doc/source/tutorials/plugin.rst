@@ -124,8 +124,16 @@ _31000_myplugin.py::
     # Automatically discover static resources in installed apps
     AUTO_DISCOVER_STATIC_FILES = True
 
+    # A list of js files to be included in the compressed set of files
+    ADD_JS_FILES = []
+
     # A list of scss files to be included in the compressed set of files
     ADD_SCSS_FILES = ['dashboard/identity/myplugin/myplugin.scss']
+
+..  Note ::
+
+  Currently, AUTO_DISCOVER_STATIC_FILES = True will only discover JavaScript files,
+  not SCSS files.
 
 my_rest_api.py
 --------------
@@ -396,12 +404,6 @@ mypanel.scss
 
 You can choose to customize your panel by providing your own scss.
 Be sure to include it in your enabled file via the ``ADD_SCSS_FILES`` setting.
-
-::
-
-    div[ng-controller="horizon.dashboard.identity.myPluginController as ctrl"] {
-      /* your custom style here */
-    }
 
 Installing Your Plugin
 ======================
