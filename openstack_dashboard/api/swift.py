@@ -359,4 +359,9 @@ def swift_get_object(request, container_name, object_name, with_data=True,
 
 
 def swift_get_capabilities(request):
-    return swift_api(request).get_capabilities()
+    try:
+        return swift_api(request).get_capabilities()
+    # NOTE(tsufiev): Ceph backend currently does not support '/info', even
+    # some Swift installations do not support it (see `expose_info` docs).
+    except swiftclient.exceptions.ClientException:
+        return {}
