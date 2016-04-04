@@ -15,4 +15,10 @@
   .magic-search-bar, .basic-search-bar {
     margin: $padding-small-vertical 0;
   }
+
+  // Make sure long UUIDs don't force the table outside the modal
+  // See https://bugs.launchpad.net/horizon/+bug/1565724
+  td {
+    word-break: break-all;
+  }
 }
