@@ -537,18 +537,22 @@ class CreateSnapshotForm(forms.SelfHandlingForm):
 
 
 class CreateTransferForm(forms.SelfHandlingForm):
-    name = forms.CharField(max_length=255, label=_("Transfer Name"),
-                           required=False)
+    name = forms.CharField(max_length=255, label=_("Transfer Name"))
+
+    def clean_name(self):
+        cleaned_name = self.cleaned_data['name']
+        if len(cleaned_name.strip()) == 0:
+            msg = _('Volume transfer name cannot be empty.')
+            self._errors['name'] = self.error_class([msg])
+
+        return cleaned_name
 
     def handle(self, request, data):
         try:
             volume_id = self.initial['volume_id']
             transfer = cinder.transfer_create(request, volume_id, data['name'])
 
-            if data['name']:
-                msg = _('Created volume transfer: "%s".') % data['name']
-            else:
-                msg = _('Created volume transfer.')
+            msg = _('Created volume transfer: "%s".') % data['name']
             messages.success(request, msg)
             response = http.HttpResponseRedirect(
                 reverse("horizon:project:volumes:volumes:show_transfer",
