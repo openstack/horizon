@@ -1,0 +1,6 @@
+{
+    "context_is_admin": [["role:admin"]],
+
+    "search:user_polling:allow": [["rule:context_is_admin"]],
+    "search:all_projects:allow": [["rule:context_is_admin"]]
+}
