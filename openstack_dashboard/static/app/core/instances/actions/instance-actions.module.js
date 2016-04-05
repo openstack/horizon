@@ -48,7 +48,6 @@
           text: gettext('Launch')
         }
       });
-    console.log('appended');
   }
 
 })();
