@@ -45,7 +45,7 @@
         id: 'launchInstanceService',
         service: launchInstanceService,
         template: {
-          text: gettext('Launch')
+          text: gettext('Create Instance')
         }
       });
   }

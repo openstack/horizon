@@ -40,6 +40,7 @@
       restrict: 'E',
       scope: {
         item: '=item',
+        hit: '=hit',
         templateUrl: '=templateUrl'
       },
       templateUrl: $window.STATIC_URL + 'framework/widgets/details/drawer.html'
