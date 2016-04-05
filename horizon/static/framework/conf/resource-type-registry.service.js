@@ -77,6 +77,12 @@
       this.setItemNameFunction = setItemNameFunction;
       this.itemName = itemName;
 
+      // These members support 'global actions' which are actions associated
+      // with a resource type, but don't need an existing resource in order
+      // to be run.
+      this.globalActions = [];
+      extensibleService(this.globalActions, this.globalActions);
+
       function defaultItemNameFunction(item) {
         return item.name;
       }
@@ -410,8 +416,19 @@
     var resourceTypes = {};
     var registry = {
       getResourceType: getResourceType,
-      initActions: initActions
+      initActions: initActions,
+      getGlobalActions: getGlobalActions
     };
+
+    function getGlobalActions() {
+      var actions = [];
+      angular.forEach(resourceTypes, appendActions);
+      return actions;
+
+      function appendActions(type) {
+        actions = actions.concat(type.globalActions);
+      }
+    }
 
     /*
      * @ngdoc function

@@ -52,14 +52,22 @@
     //////////////
 
     function perform(image) {
-      // Don't redirect to instances page on launch instance
-      return launchInstanceModal.open({
+      if (image) {
+      launchInstanceModal.open({
+        successUrl: '/project/instances',
         'imageId': image.id
       });
+      } else {
+        launchInstanceModal.open({});
+      }
     }
 
     function allowed(image) {
-      return $q.all([isBootable(image), isActive(image)]);
+      if (image) {
+        return $q.all([isBootable(image), isActive(image)]);
+      } else {
+        return $q.when(true);
+      }
     }
 
     function isActive(image) {
