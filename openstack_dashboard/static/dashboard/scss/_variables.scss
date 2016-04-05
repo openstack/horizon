@@ -79,3 +79,7 @@ $dropdown-item-padding-horizontal: 20px;
 
 // This defines the max-width for a breadcrumb item before it will be truncated
 $breadcrumb-item-width: 15em !default;
+
+// This is the max height for the domain/project selector in the top nav. After
+// this point, it will scroll.
+$context-selector-max-height: calc(99vh - #{$navbar-height}) !default;

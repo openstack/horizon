@@ -43,3 +43,13 @@
   padding-right: $padding-small-vertical;
   padding-left: $padding-small-vertical;
 }
+
+// Scrollbar for the project menu on larger screens
+// Not needed for smaller screens, as it is already scrollable
+// and can be collapsed to access the settings menu etc.
+@media(min-width: $screen-sm-min) {
+  .context-selection {
+    max-height: $context-selector-max-height;
+    overflow-y: scroll;
+  }
+}
