@@ -76,3 +76,7 @@ $members-list-roles-width: 125px !default;
 // https://github.com/twbs/bootstrap/issues/13443
 $dropdown-item-padding-vertical:   3px;
 $dropdown-item-padding-horizontal: 20px;
+
+// This is the max height for the domain/project selector in the top nav. After
+// this point, it will scroll.
+$context-selector-max-height: calc(99vh - #{$navbar-height}) !default;
