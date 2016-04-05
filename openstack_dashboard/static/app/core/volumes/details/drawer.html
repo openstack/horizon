@@ -1,19 +1,18 @@
 <div class="row">
   <div class="col-md-6">
     <dl class="dl-horizontal">
-      <dt translate>Image Name</dt><dd>{$ item.image.id $}</dd>
-      <dt translate>IP Address</dt><dd>{$ item.ip_address $}</dd>
-      <dt translate>Size</dt><dd>--</dd>
-      <dt translate>Key Pair</dt><dd>--</dd>
+      <dt translate>Description</dt><dd>{$ item.description $}</dd>
+      <dt translate>Size</dt><dd>{$ item.size $}</dd>
       <dt translate>Status</dt><dd>{$ item.status $}</dd>
+      <dt translate>Type</dt><dd>{$ item.volume_type $}</dd>
     </dl>
   </div>
   <div class="col-md-6">
     <dl class="dl-horizontal">
-      <dt translate>Availability Zone</dt><dd>{$ item['OS-EXT-AZ:availability_zone'] $}</dd>
-      <dt translate>Task</dt><dd>--</dd>
-      <dt translate>Power State</dt><dd>{$ item['OS-EXT-STS:power_state'] $}</dd>
-      <dt translate>Time Since Created</dt><dd>--</dd>
+      <dt translate>Attached To</dt><dd>{$ item.attachments $}</dd>
+      <dt translate>Availability Zone</dt><dd>{$ item.availability_zone $}</dd>
+      <dt translate>Bootable</dt><dd>{$ item.bootable $}</dd>
+      <dt translate>Encrypted</dt><dd>{$ item.encrypted $}</dd>
     </dl>
   </div>
 </div>
