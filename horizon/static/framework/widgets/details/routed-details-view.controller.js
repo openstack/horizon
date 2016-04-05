@@ -37,6 +37,7 @@
       ctrl.itemData = response.data;
       ctrl.itemName = ctrl.resourceType.itemName(response.data);
     });
+    ctrl.defaultTemplateUrl = registry.getDefaultDetailsTemplateUrl();
   }
 
 })();

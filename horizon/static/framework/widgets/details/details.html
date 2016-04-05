@@ -8,3 +8,6 @@
 <div ng-if="detailsViews.length === 1">
   <ng-include src="detailsViews[0].template"></ng-include>
 </div>
+<div ng-if="detailsViews.length === 0">
+  <ng-include src="defaultTemplateUrl"></ng-include>
+</div>

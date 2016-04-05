@@ -44,7 +44,8 @@
       restrict: 'E',
       scope: {
         detailsViews: '=detailsViews',
-        descriptor: '=descriptor'
+        descriptor: '=descriptor',
+        defaultTemplateUrl: '=defaultTemplateUrl'
       },
       templateUrl: $window.STATIC_URL + 'framework/widgets/details/details.html'
     };

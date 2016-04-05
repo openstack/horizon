@@ -425,12 +425,15 @@
 
     var resourceTypes = {};
     var defaultDrawerTemplateUrl = false;
+    var defaultDetailsTemplateUrl = false;
     var registry = {
       getResourceType: getResourceType,
       initActions: initActions,
       getGlobalActions: getGlobalActions,
       setDefaultDrawerTemplateUrl: setDefaultDrawerTemplateUrl,
-      getDefaultDrawerTemplateUrl: getDefaultDrawerTemplateUrl
+      getDefaultDrawerTemplateUrl: getDefaultDrawerTemplateUrl,
+      setDefaultDetailsTemplateUrl: setDefaultDetailsTemplateUrl,
+      getDefaultDetailsTemplateUrl: getDefaultDetailsTemplateUrl
     };
 
     function getDefaultDrawerTemplateUrl() {
@@ -439,6 +442,15 @@
 
     function setDefaultDrawerTemplateUrl(url) {
       defaultDrawerTemplateUrl = url;
+      return this;
+    }
+
+    function getDefaultDetailsTemplateUrl() {
+      return defaultDetailsTemplateUrl;
+    }
+
+    function setDefaultDetailsTemplateUrl(url) {
+      defaultDetailsTemplateUrl = url;
       return this;
     }
 
