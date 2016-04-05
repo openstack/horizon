@@ -69,6 +69,7 @@
       this.type = type;
       this.setLoadFunction = setLoadFunction;
       this.load = load;
+      this.loadFunction = function def() { return Promise.resolve({data: {}}); };
 
       // These members support the ability of a type to provide a function
       // that, given an object in the structure presented by the
