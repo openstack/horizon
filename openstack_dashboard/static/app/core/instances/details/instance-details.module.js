@@ -36,14 +36,14 @@
 
   function registerInstanceActions(
     instanceResourceType,
-    glanceApi,
+    novaApi,
     registry
   ) {
     registry.getResourceType(instanceResourceType)
       .setLoadFunction(loadFunction);
 
     function loadFunction(identifier) {
-      return novaApi.getInstance(identifier);
+      return novaApi.getServer(identifier);
     }
   }
 

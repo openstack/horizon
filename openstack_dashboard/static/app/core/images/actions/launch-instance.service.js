@@ -53,10 +53,10 @@
 
     function perform(image) {
       if (image) {
-      launchInstanceModal.open({
-        successUrl: '/project/instances',
-        'imageId': image.id
-      });
+        launchInstanceModal.open({
+          successUrl: '/project/instances',
+          'imageId': image.id
+        });
       } else {
         launchInstanceModal.open({});
       }

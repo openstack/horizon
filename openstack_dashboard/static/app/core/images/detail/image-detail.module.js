@@ -50,7 +50,7 @@
       .setPathParser(parsePath)
       .setPathGenerator(pathGenerator)
       .setLoadFunction(loadFunction)
-      .setDrawerView(basePath + 'detail/drawer.html');
+      .setDrawerTemplateUrl(basePath + 'detail/drawer.html');
 
     function pathGenerator(id) {
       return id;

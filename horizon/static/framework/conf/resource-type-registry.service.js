@@ -83,10 +83,10 @@
       this.globalActions = [];
       extensibleService(this.globalActions, this.globalActions);
 
-      // These members support 'drawer views' which are views that are meant
+      // These members support drawer templates which are views that are meant
       // to exist in a confined area, such as a pullout from a table.
-      this.drawerView = false; // TODO: determine default method
-      this.setDrawerView = setDrawerView;
+      this.drawerTemplateUrl = false;
+      this.setDrawerTemplateUrl = setDrawerTemplateUrl;
 
       function defaultItemNameFunction(item) {
         return item.name;
@@ -101,8 +101,8 @@
         return this.itemNameFunction(item);
       }
 
-      function setDrawerView(view) {
-        this.drawerView = view;
+      function setDrawerTemplateUrl(url) {
+        this.drawerTemplateUrl= url;
         return this;
       }
 
@@ -424,21 +424,21 @@
     }
 
     var resourceTypes = {};
-    var defaultDrawerView = false;
+    var defaultDrawerTemplateUrl = false;
     var registry = {
       getResourceType: getResourceType,
       initActions: initActions,
       getGlobalActions: getGlobalActions,
-      setDefaultDrawerView: setDefaultDrawerView,
-      getDefaultDrawerView: getDefaultDrawerView
+      setDefaultDrawerTemplateUrl: setDefaultDrawerTemplateUrl,
+      getDefaultDrawerTemplateUrl: getDefaultDrawerTemplateUrl
     };
 
-    function getDefaultDrawerView() {
-      return defaultDrawerView;
+    function getDefaultDrawerTemplateUrl() {
+      return defaultDrawerTemplateUrl;
     }
 
-    function setDefaultDrawerView(view) {
-      defaultDrawerView = view;
+    function setDefaultDrawerTemplateUrl(url) {
+      defaultDrawerTemplateUrl = url;
       return this;
     }
 
