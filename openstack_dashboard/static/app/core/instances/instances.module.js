@@ -29,7 +29,15 @@
     .module('horizon.app.core.instances', ['ngRoute',
       'horizon.app.core.instances.actions', 'horizon.app.core.instances.details'])
     .constant('horizon.app.core.instances.resourceType', 'OS::Nova::Server')
+    .config(config)
     .run(registerInstanceType);
+
+  config.$inject = [ '$provide', '$windowProvider' ];
+
+  function config($provide, $windowProvider) {
+    var path = $windowProvider.$get().STATIC_URL + 'app/core/instances/';
+    $provide.constant('horizon.app.core.instances.basePath', path);
+  }
 
   registerInstanceType.$inject = [
     'horizon.framework.conf.resource-type-registry.service',

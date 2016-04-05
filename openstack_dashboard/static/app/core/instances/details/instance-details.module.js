@@ -31,16 +31,19 @@
   registerInstanceActions.$inject = [
     'horizon.app.core.instances.resourceType',
     'horizon.app.core.openstack-service-api.nova',
+    'horizon.app.core.instances.basePath',
     'horizon.framework.conf.resource-type-registry.service'
   ];
 
   function registerInstanceActions(
     instanceResourceType,
     novaApi,
+    basePath,
     registry
   ) {
     registry.getResourceType(instanceResourceType)
-      .setLoadFunction(loadFunction);
+      .setLoadFunction(loadFunction)
+      .setDrawerTemplateUrl(basePath + 'details/drawer.html');
 
     function loadFunction(identifier) {
       return novaApi.getServer(identifier);
