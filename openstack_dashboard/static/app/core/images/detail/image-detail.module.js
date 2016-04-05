@@ -49,7 +49,8 @@
     registry.getResourceType(imageResourceType)
       .setPathParser(parsePath)
       .setPathGenerator(pathGenerator)
-      .setLoadFunction(loadFunction);
+      .setLoadFunction(loadFunction)
+      .setDrawerView(basePath + 'detail/drawer.html');
 
     function pathGenerator(id) {
       return id;

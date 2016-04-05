@@ -83,6 +83,11 @@
       this.globalActions = [];
       extensibleService(this.globalActions, this.globalActions);
 
+      // These members support 'drawer views' which are views that are meant
+      // to exist in a confined area, such as a pullout from a table.
+      this.drawerView = false; // TODO: determine default method
+      this.setDrawerView = setDrawerView;
+
       function defaultItemNameFunction(item) {
         return item.name;
       }
@@ -94,6 +99,11 @@
 
       function itemName(item) {
         return this.itemNameFunction(item);
+      }
+
+      function setDrawerView(view) {
+        this.drawerView = view;
+        return this;
       }
 
       // The purpose of these members is to allow details to be retrieved
@@ -414,11 +424,23 @@
     }
 
     var resourceTypes = {};
+    var defaultDrawerView = false;
     var registry = {
       getResourceType: getResourceType,
       initActions: initActions,
-      getGlobalActions: getGlobalActions
+      getGlobalActions: getGlobalActions,
+      setDefaultDrawerView: setDefaultDrawerView,
+      getDefaultDrawerView: getDefaultDrawerView
     };
+
+    function getDefaultDrawerView() {
+      return defaultDrawerView;
+    }
+
+    function setDefaultDrawerView(view) {
+      defaultDrawerView = view;
+      return this;
+    }
 
     function getGlobalActions() {
       var actions = [];
