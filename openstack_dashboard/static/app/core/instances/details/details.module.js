@@ -41,9 +41,17 @@
     basePath,
     registry
   ) {
-    registry.getResourceType(instanceResourceType)
+    var resourceType = registry.getResourceType(instanceResourceType);
+    resourceType
       .setLoadFunction(loadFunction)
       .setDrawerTemplateUrl(basePath + 'details/drawer.html');
+
+    resourceType.detailsViews
+      .append({
+        id: 'instanceDetailsOverview',
+        name: gettext('Overview'),
+        template: basePath + 'details/overview.html'
+      });
 
     function loadFunction(identifier) {
       return novaApi.getServer(identifier);

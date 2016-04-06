@@ -1,0 +1,60 @@
+<div ng-controller="ServerOverviewController as ctrl">
+  <div class="row">
+    <div class="col-md-6 detail">
+      <h3 translate>Instance</h3>
+      <hr>
+      <dl class="dl-horizontal">
+        <dt translate>Name</dt><dd>{$ ctrl.server.name $}</dd>
+        <dt translate>ID</dt><dd>{$ ctrl.server.id $}</dd>
+        <dt translate>Status</dt><dd>{$ ctrl.server.status $}</dd>
+        <dt translate>Availability Zone</dt><dd>{$ ctrl.server.availability_zone $}</dd>
+        <dt translate>Created</dt><dd>{$ ctrl.server.created $}</dd>
+        <dt translate>Time Since Created</dt><dd>{$ ctrl.server $}</dd>
+        <dt translate>Host</dt><dd>{$ ctrl.server.host $}</dd>
+      </dl>
+    </div>
+    <div class="col-md-6 detail">
+      <h3 translate>Specs</h3>
+      <hr>
+        <dt translate>Flavor Name</dt><dd>{$ ctrl.server.flavor.name $}</dd>
+        <dt translate>Flavor ID</dt><dd>{$ ctrl.server.flavor_id $}</dd>
+        <dt translate>RAM</dt><dd>{$ ctrl.server.ram $}</dd>
+        <dt translate>VCPUs</dt><dd>{$ ctrl.server.vcpus $}</dd>
+        <dt translate>Disk</dt><dd>{$ ctrl.server.disk $}</dd>
+      <dl class="dl-horizontal">
+      </dl>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-6 detail">
+      <h3 translate>IP Addresses</h3>
+      <hr>
+      <dl class="dl-horizontal">
+      </dl>
+    </div>
+    <div class="col-md-6 detail">
+      <h3 translate>Security Groups</h3>
+      <hr>
+      <dl class="dl-horizontal">
+      </dl>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-6 detail">
+      <h3 translate>Metadata</h3>
+      <hr>
+      <dl class="dl-horizontal">
+        <div ng-repeat="prop in ctrl.server.properties">
+          <dt data-toggle="tooltip" title="{$ prop.name $}">{$ ctrl.resourceType.label(prop.name) $}</dt>
+          <dd>{$ ctrl.resourceType.format(prop.name, prop.value) $}</dd>
+        </div>
+      </dl>
+    </div>
+    <div class="col-md-6 detail">
+      <h3 translate>Volumes Attached</h3>
+      <hr>
+      <dl class="dl-horizontal">
+      </dl>
+    </div>
+  </div>
+</div>
