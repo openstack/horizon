@@ -19,7 +19,7 @@
     .module('horizon.framework.widgets.action-list')
     .controller('horizon.framework.widgets.action-list.ActionsController', ActionsController);
 
-  ActionsController.$inject = [];
+  ActionsController.$inject = ['$q'];
 
   /**
    * @ngdoc controller
@@ -30,10 +30,10 @@
    * functions and variables within this controller.
    *
    */
-  function ActionsController() {
+  function ActionsController($q) {
     var ctrl = this;
+    ctrl.disabled = false;
     ctrl.passThroughCallbacks = {};
-
     ctrl.generateDynamicCallback = generateDynamicCallback;
 
     /**
@@ -91,13 +91,23 @@
     function generateDynamicCallback(service, index, resultHandler) {
       var dynCallbackName = "callback" + index;
       ctrl.passThroughCallbacks[dynCallbackName] = function genPassThroughCallback(item) {
-        if (resultHandler) {
-          return resultHandler(service.perform(item));
-        } else {
-          return service.perform(item);
-        }
+        if (ctrl.disabled) { return undefined; }
+        preAction();
+        var result = service.perform(item);
+        $q.when(result).then(postAction, postAction);
+        return resultHandler ? resultHandler(result) : result;
       };
       return 'actionsCtrl.passThroughCallbacks.' + dynCallbackName;
+    }
+
+    function preAction() {
+      // Disable actions while another action is being performed
+      ctrl.disabled = true;
+    }
+
+    function postAction() {
+      // Re-enable actions after the action is complete
+      ctrl.disabled = false;
     }
 
   }
