@@ -15,7 +15,7 @@
             <th class="rsp-p2" translate>IP</th>
             <th st-sort="admin_state" class="rsp-p1" translate>Admin State</th>
             <th st-sort="status" class="rsp-p1" translate>Status</th>
-            <th class="action-col"></th>
+            <th class="actions_column"></th>
           </tr>
         </thead>
         <tbody>
@@ -45,9 +45,9 @@
             </td>
             <td class="rsp-p1">{$ item.admin_state | decode:ctrl.portAdminStates $}</td>
             <td class="rsp-p1">{$ item.status | decode:ctrl.portStatuses $}</td>
-            <td class="action-col">
+            <td class="actions_column">
               <action-list>
-                <action action-classes="'btn btn-sm btn-default'"
+                <action action-classes="'btn btn-default'"
                         callback="trCtrl.deallocate" item="item">
                   <span class="fa fa-minus"></span>
                 </action>
@@ -93,7 +93,7 @@
             <th class="rsp-p2" translate>IP</th>
             <th st-sort="admin_state" class="rsp-p1" translate>Admin State</th>
             <th st-sort="status" class="rsp-p1" translate>Status</th>
-            <th class="action-col"></th>
+            <th class="actions_column"></th>
           </tr>
         </thead>
         <tbody>
@@ -118,9 +118,9 @@
             </td>
             <td class="rsp-p1">{$ item.admin_state | decode:ctrl.portAdminStates $}</td>
             <td class="rsp-p1">{$ item.status | decode:ctrl.portStatuses $}</td>
-            <td class="action-col">
+            <td class="actions_column">
               <action-list>
-                <action action-classes="'btn btn-sm btn-default'"
+                <action action-classes="'btn btn-default'"
                         callback="trCtrl.allocate" item="item">
                   <span class="fa fa-plus"></span>
                 </action>

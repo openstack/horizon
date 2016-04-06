@@ -33,9 +33,9 @@
           </td>
           <td class="rsp-p1">{$ row.name $}</td>
           <td class="rsp-p2">{$ row.description $}</td>
-          <td class="action-col">
+          <td class="actions_column">
             <action-list>
-              <action action-classes="'btn btn-sm btn-default'"
+              <action action-classes="'btn btn-default'"
                       callback="trCtrl.deallocate" item="row">
                 <span class="fa fa-minus"></span>
               </action>
@@ -85,9 +85,9 @@
           </td>
           <td class="rsp-p1">{$ row.name$}</td>
           <td class="rsp-p1">{$ row.description $}</td>
-          <td class="action-col">
+          <td class="actions_column">
             <action-list>
-              <action action-classes="'btn btn-sm btn-default'"
+              <action action-classes="'btn btn-default'"
                                       callback="trCtrl.allocate" item="row">
                 <span class="fa fa-plus"></span>
               </action>
@@ -95,8 +95,7 @@
           </td>
         </tr>
         <tr ng-repeat-end class="detail-row" ng-if="!trCtrl.allocatedIds[row.id]">
-          <td></td>
-          <td class="detail" colspan="3" ng-include="ctrl.tableDetails">
+          <td class="detail" colspan="4" ng-include="ctrl.tableDetails">
           </td>
         </tr>
         </tbody>

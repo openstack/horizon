@@ -115,14 +115,6 @@ $em-per-priority: floor($table-col-avg-width / $font-size-base) * 3;
         border-bottom: $table-border;
       }
 
-      tr.expanded td {
-        border-bottom: $table-border;
-
-        &[rowspan='2'].action-col {
-          border-bottom: none;
-        }
-      }
-
       tr.expanded:nth-last-child(-n+3) [rowspan='2'].action-col {
         border-bottom: $table-border;
       }
@@ -138,21 +130,6 @@ $em-per-priority: floor($table-col-avg-width / $font-size-base) * 3;
       tr + .detail-row + tr.spacer-row td {
         border-top: $table-border;
       }
-    }
-
-    .detail-row td {
-      padding: 0;
-
-      &.detail .detail-expanded {
-        border-top: none;
-        padding: $detail-row-padding $table-padding;
-        white-space: normal;
-        word-wrap: break-word;
-      }
-    }
-
-    .expanded + tr td {
-      border-top: none;
     }
 
     .expander {

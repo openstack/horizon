@@ -23,13 +23,15 @@
   </div>
 
   <div hz-if-nova-extensions='["ConfigDrive"]'>
-    <div class="checkbox">
-      <label for="config-drive" translate>
+    <div class="form-group">
+      <div class="themable-checkbox">
         <input type="checkbox"
                id="config-drive"
                ng-model="model.newInstanceSpec.config_drive">
-        Configuration Drive
-      </label>
+        <label for="config-drive">
+          <span translate>Configuration Drive</span>
+        </label>
+      </div>
     </div>
   </div>
 </div>
