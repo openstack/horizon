@@ -73,7 +73,7 @@
            duration="200">
         </span>
       </td>
-      <td class="rsp-p1"><a ng-href="{$ table.imageResourceType.detailsPath(image.id) $}">{$ image.name $}</a></td>
+      <td class="rsp-p1"><a ng-href="{$ 'details/OS::Glance::Image/' + table.imageResourceType.pathGenerator(image.id) $}">{$ image.name $}</a></td>
       <td class="rsp-p1">{$ image | imageType $}</td>
       <td class="rsp-p1">{$ image.status | imageStatus $}</td>
       <td class="rsp-p2">{$ image.filtered_visibility $}</td>

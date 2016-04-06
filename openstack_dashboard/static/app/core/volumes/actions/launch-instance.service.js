@@ -17,12 +17,11 @@
   'use strict';
 
   angular
-    .module('horizon.app.core.images.actions')
-    .factory('horizon.app.core.images.actions.launch-instance.service', launchInstanceService);
+    .module('horizon.app.core.volumes.actions')
+    .factory('horizon.app.core.volumes.actions.launch-instance.service', launchInstanceService);
 
   launchInstanceService.$inject = [
     '$q',
-    'horizon.app.core.images.non_bootable_image_types',
     'horizon.dashboard.project.workflow.launch-instance.modal.service',
     'horizon.framework.util.q.extensions'
   ];
@@ -38,7 +37,6 @@
    */
   function launchInstanceService(
     $q,
-    nonBootableImageTypes,
     launchInstanceModal,
     $qExtensions
   ) {
@@ -51,43 +49,25 @@
 
     //////////////
 
-    function perform(image) {
-      if (image) {
-        return launchInstanceModal.open({
-          successUrl: '/project/instances',
-          'imageId': image.id
-        }).then(onSuccess);
+    function perform(volume) {
+      return launchInstanceModal.open({
+        successUrl: '/project/instances',
+        'volumeId': volume.id
+      }).then(onSuccess);
 
-        function onSuccess() {
-          return {
-            created: [], // ideally have the instance type/id
-            updated: [],
-            deleted: [],
-            failed: []
-          };
-        }
-      } else {
-        launchInstanceModal.open({});
+      function onSuccess() {
+        return {
+          created: [], // ideally have the instance type/id
+          updated: [],
+          deleted: [],
+          failed: []
+        };
       }
     }
 
-    function allowed(image) {
-      if (image) {
-        return $q.all([isBootable(image), isActive(image)]);
-      } else {
-        return $q.when(true);
-      }
-    }
 
-    function isActive(image) {
-      return $qExtensions.booleanAsPromise(image.status === 'active');
+    function allowed(volume) {
+      return $qExtensions.booleanAsPromise(volume.bootable === "true");
     }
-
-    function isBootable(image) {
-      return $qExtensions.booleanAsPromise(
-        nonBootableImageTypes.indexOf(image.container_format) < 0
-      );
-    }
-
   } // end of launchInstanceService
 })(); // end of IIFE

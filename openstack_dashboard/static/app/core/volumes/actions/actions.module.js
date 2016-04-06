@@ -30,8 +30,8 @@
 
   run.$inject = [
     'horizon.framework.conf.resource-type-registry.service',
-    'horizon.app.core.images.actions.launch-instance.service',
-    'horizon.app.core.instances.resourceType'
+    'horizon.app.core.volumes.actions.launch-instance.service',
+    'horizon.app.core.volumes.resourceType'
   ];
 
   function run(
@@ -45,7 +45,7 @@
         id: 'launchInstanceService',
         service: launchInstanceService,
         template: {
-          text: gettext('Create Instance')
+          text: gettext('Launch as Instance')
         }
       });
   }

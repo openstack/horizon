@@ -4,8 +4,8 @@
       <dt translate>Type</dt><dd>{$ item | imageType $}</dd>
       <dt translate>Status</dt><dd>{$ item.status | imageStatus $}</dd>
       <dt translate>Size</dt><dd>{$ item.size | bytes $}</dd>
-      <dt translate>Min. Disk</dt><dd>{$ item.min_disk | noValue $}</dd>
-      <dt translate>Min. RAM</dt><dd>{$ item.min_ram | noValue $}</dd>
+      <dt translate>Min. Disk</dt><dd>{$ item.min_disk | gb $}</dd>
+      <dt translate>Min. RAM</dt><dd>{$ item.min_ram | mb $}</dd>
     </dl>
   </div>
   <div class="col-md-6">
@@ -13,7 +13,7 @@
       <dt translate>Disk Format</dt><dd>{$ item.disk_format | noValue | uppercase $}</dd>
       <dt translate>Container Format</dt><dd>{$ item.container_format | noValue | uppercase $}</dd>
       <dt translate>Protected</dt><dd>{$ item.protected | yesno $}</dd>
-      <dt translate>Visibility</dt><dd>{$ item.visibility $}</dd>
+      <dt translate>Visibility</dt><dd>{$ item | imageVisibility $}</dd>
     </dl>
   </div>
 </div>
