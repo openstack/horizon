@@ -149,7 +149,7 @@ make calls into ``myservice.py``.
 This file is unnecessary in a purely Django based plugin, or if your Angular
 based plugin is relying on CORS support in the desired service. For more
 information on CORS, see
-`http://docs.openstack.org/admin-guide-cloud/cross_project_cors.html`
+`http://docs.openstack.org/admin-guide/cross_project_cors.html`
 
 myservice.py
 ------------
