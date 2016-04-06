@@ -120,7 +120,6 @@
       this.setPathParser = setPathParser;
       this.parsePath = parsePath;
       this.setPathGenerator = setPathGenerator;
-      this.detailsPath = detailsPath;
       this.pathGenerator = defaultPathGenerator;
 
       function defaultPathParser(path) {
@@ -314,21 +313,6 @@
       function setPathGenerator(func) {
         this.pathGenerator = func;
         return this;
-      }
-
-      /**
-       * @ngdoc function
-       * @name detailsPath
-       * @description
-       * Returns a path (regardless of webroot) that leads to the detail
-       * view for this resource type, given an identifier descriptor.
-       * @example
-       ```
-       var path = resourceType.detailsPath({id: 12, balancerId: 'abasefasdf');
-       ```
-       */
-      function detailsPath(descriptor) {
-        return '/details/' + this.type + '/' + this.pathGenerator(descriptor);
       }
 
       /**
