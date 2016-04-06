@@ -26,16 +26,16 @@
    */
   angular.module('horizon.app.core.instances.details',
     ['horizon.framework.conf', 'horizon.app.core'])
-    .run(registerInstanceActions);
+    .run(run);
 
-  registerInstanceActions.$inject = [
+  run.$inject = [
     'horizon.app.core.instances.resourceType',
     'horizon.app.core.openstack-service-api.nova',
     'horizon.app.core.instances.basePath',
     'horizon.framework.conf.resource-type-registry.service'
   ];
 
-  function registerInstanceActions(
+  function run(
     instanceResourceType,
     novaApi,
     basePath,

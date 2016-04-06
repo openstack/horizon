@@ -26,15 +26,15 @@
    */
   angular.module('horizon.app.core.instances.actions',
     ['horizon.framework.conf', 'horizon.app.core'])
-    .run(registerInstanceActions);
+    .run(run);
 
-  registerInstanceActions.$inject = [
+  run.$inject = [
     'horizon.framework.conf.resource-type-registry.service',
     'horizon.app.core.images.actions.launch-instance.service',
     'horizon.app.core.instances.resourceType'
   ];
 
-  function registerInstanceActions(
+  function run(
     registry,
     launchInstanceService,
     instanceResourceTypeCode)

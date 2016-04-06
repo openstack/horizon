@@ -30,7 +30,7 @@
       'horizon.app.core.instances.actions', 'horizon.app.core.instances.details'])
     .constant('horizon.app.core.instances.resourceType', 'OS::Nova::Server')
     .config(config)
-    .run(registerInstanceType);
+    .run(run);
 
   config.$inject = [ '$provide', '$windowProvider' ];
 
@@ -39,12 +39,12 @@
     $provide.constant('horizon.app.core.instances.basePath', path);
   }
 
-  registerInstanceType.$inject = [
+  run.$inject = [
     'horizon.framework.conf.resource-type-registry.service',
     'horizon.app.core.instances.resourceType'
   ];
 
-  function registerInstanceType(registry, instanceResourceType) {
+  function run(registry, instanceResourceType) {
     registry.getResourceType(instanceResourceType, {
       names: [gettext('Server'), gettext('Servers')]
     });
