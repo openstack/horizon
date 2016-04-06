@@ -25,9 +25,9 @@
    * Provides all of the actions for images.
    */
   angular.module('horizon.app.core.images.actions', ['horizon.framework.conf', 'horizon.app.core'])
-   .run(registerImageActions);
+   .run(run);
 
-  registerImageActions.$inject = [
+  run.$inject = [
     'horizon.framework.conf.resource-type-registry.service',
     'horizon.app.core.images.actions.create-volume.service',
     'horizon.app.core.images.actions.delete-image.service',
@@ -36,7 +36,7 @@
     'horizon.app.core.images.resourceType'
   ];
 
-  function registerImageActions(
+  function run(
     registry,
     createVolumeService,
     deleteImageService,

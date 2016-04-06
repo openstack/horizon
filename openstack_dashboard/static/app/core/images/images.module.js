@@ -31,15 +31,15 @@
     .constant('horizon.app.core.images.events', events())
     .constant('horizon.app.core.images.non_bootable_image_types', ['aki', 'ari'])
     .constant('horizon.app.core.images.resourceType', 'OS::Glance::Image')
-    .run(registerImageType)
+    .run(run)
     .config(config);
 
-  registerImageType.$inject = [
+  run.$inject = [
     'horizon.framework.conf.resource-type-registry.service',
     'horizon.app.core.images.resourceType'
   ];
 
-  function registerImageType(registry, imageResourceType) {
+  function run(registry, imageResourceType) {
     registry.getResourceType(imageResourceType, {
       names: [gettext('Image'), gettext('Images')]
     })

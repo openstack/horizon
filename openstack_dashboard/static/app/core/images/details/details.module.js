@@ -25,16 +25,16 @@
    * Provides details features for images.
    */
   angular.module('horizon.app.core.images.details', ['horizon.framework.conf', 'horizon.app.core'])
-   .run(registerImageActions);
+   .run(run);
 
-  registerImageActions.$inject = [
+  run.$inject = [
     'horizon.app.core.images.basePath',
     'horizon.app.core.images.resourceType',
     'horizon.app.core.openstack-service-api.glance',
     'horizon.framework.conf.resource-type-registry.service'
   ];
 
-  function registerImageActions(
+  function run(
     basePath,
     imageResourceType,
     glanceApi,
@@ -44,13 +44,13 @@
       .append({
         id: 'imageDetailsOverview',
         name: gettext('Overview'),
-        template: basePath + 'detail/overview.html'
+        template: basePath + 'details/overview.html'
       });
     registry.getResourceType(imageResourceType)
       .setPathParser(parsePath)
       .setPathGenerator(pathGenerator)
       .setLoadFunction(loadFunction)
-      .setDrawerTemplateUrl(basePath + 'detail/drawer.html');
+      .setDrawerTemplateUrl(basePath + 'details/drawer.html');
 
     function pathGenerator(id) {
       return id;
