@@ -54,7 +54,7 @@ def import_dashboard_config(modules):
                                 ", PANEL, PANEL_GROUP, or FEATURE defined.",
                                 submodule.__name__)
     return sorted(six.iteritems(config),
-                  key=lambda c: c[1]['__name__'].rsplit('.', 1))
+                  key=lambda c: c[1]['__name__'].rsplit('.', 1)[1])
 
 
 def update_dashboards(modules, horizon_config, installed_apps):
