@@ -218,17 +218,13 @@
         expect(type.parsePath('12/42')).toEqual(expected);
       });
 
-      it('detailsPath uses the default path generator', function() {
-        expect(type.detailsPath('abcd')).toBe('/details/something/abcd');
-      });
-
       it('setPathGenerator sets the path identifier generator', function() {
         var func = function(x) {
           return x.poolId + '/' + x.memberId;
         };
         type.setPathGenerator(func);
         var identifier = {poolId: '12', memberId: '42'};
-        expect(type.detailsPath(identifier)).toBe('/details/something/12/42');
+        expect(type.pathGenerator(identifier)).toBe('12/42');
       });
 
       it('setLoadFunction sets the function used by "load"', function() {
