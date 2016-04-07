@@ -56,6 +56,16 @@
         id: 'instanceDetailsLog',
         name: gettext('Log'),
         template: basePath + 'details/log.html'
+      })
+      .append({
+        id: 'instanceDetailsConsole',
+        name: gettext('Console'),
+        template: basePath + 'details/console.html'
+      })
+      .append({
+        id: 'instanceDetailsActionLog',
+        name: gettext('Action Log'),
+        template: basePath + 'details/action-log.html'
       });
 
     function loadFunction(identifier) {
