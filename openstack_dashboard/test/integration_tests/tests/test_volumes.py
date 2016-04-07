@@ -151,3 +151,81 @@ class TestAdminVolumes(helpers.AdminTestCase, TestVolumes):
     @property
     def volumes_page(self):
         return self.home_pg.go_to_system_volumes_volumespage()
+
+
+class TestVolumesActions(helpers.TestCase):
+    VOLUME_NAME = helpers.gen_random_resource_name("volume")
+    IMAGE_NAME = helpers.gen_random_resource_name("image")
+
+    def setUp(self):
+        super(TestVolumesActions, self).setUp()
+        self.volumes_page = self.home_pg.go_to_compute_volumes_volumespage()
+        self.volumes_page.create_volume(self.VOLUME_NAME)
+        self.assertTrue(
+            self.volumes_page.find_message_and_dismiss(messages.INFO))
+        self.assertFalse(
+            self.volumes_page.find_message_and_dismiss(messages.ERROR))
+        self.assertTrue(self.volumes_page.is_volume_present(self.VOLUME_NAME))
+        self.assertTrue(self.volumes_page.is_volume_status(self.VOLUME_NAME,
+                                                           'Available'))
+
+    def test_volume_extend(self):
+        """This test case checks extend volume functionality:
+            Steps:
+            1. Check current volume size
+            2. Extend volume
+            3. Check that no Error messages present
+            4. Check that the volume is still in the list
+            5. Check that the volume size is changed
+        """
+        orig_size = self.volumes_page.get_size(self.VOLUME_NAME)
+        self.volumes_page.extend_volume(self.VOLUME_NAME, orig_size + 1)
+        self.assertTrue(
+            self.volumes_page.find_message_and_dismiss(messages.INFO))
+        self.assertFalse(
+            self.volumes_page.find_message_and_dismiss(messages.ERROR))
+        new_size = self.volumes_page.get_size(self.VOLUME_NAME)
+        self.assertFalse(orig_size >= new_size)
+
+    def test_volume_upload_to_image(self):
+        """This test case checks upload volume to image functionality:
+            Steps:
+            1. Upload volume to image with some disk format
+            2. Check that image is created
+            3. Check that no Error messages present
+            4. Delete the image
+            5. Repeat actions for all disk formats
+        """
+        self.volumes_page = self.home_pg.go_to_compute_volumes_volumespage()
+        all_formats = {"qcow2": u'QCOW2', "raw": u'Raw', "vdi": u'VDI',
+                       "vmdk": u'VMDK'}
+        for disk_format in all_formats:
+            self.volumes_page.upload_volume_to_image(self.VOLUME_NAME,
+                                                     self.IMAGE_NAME,
+                                                     disk_format)
+            self.assertFalse(
+                self.volumes_page.find_message_and_dismiss(messages.ERROR))
+            self.assertTrue(self.volumes_page.is_volume_status(
+                self.VOLUME_NAME, 'Available'))
+            images_page = self.home_pg.go_to_compute_imagespage()
+            self.assertTrue(images_page.is_image_present(self.IMAGE_NAME))
+            self.assertTrue(images_page.is_image_active(self.IMAGE_NAME))
+            self.assertEqual(images_page.get_image_format(self.IMAGE_NAME),
+                             all_formats[disk_format])
+            images_page.delete_image(self.IMAGE_NAME)
+            self.assertTrue(images_page.find_message_and_dismiss(
+                messages.SUCCESS))
+            self.assertFalse(images_page.find_message_and_dismiss(
+                messages.ERROR))
+            self.assertFalse(images_page.is_image_present(self.IMAGE_NAME))
+            self.volumes_page = \
+                self.home_pg.go_to_compute_volumes_volumespage()
+
+    def tearDown(self):
+        self.volumes_page.delete_volume(self.VOLUME_NAME)
+        self.assertTrue(
+            self.volumes_page.find_message_and_dismiss(messages.SUCCESS))
+        self.assertFalse(
+            self.volumes_page.find_message_and_dismiss(messages.ERROR))
+        self.assertTrue(self.volumes_page.is_volume_deleted(self.VOLUME_NAME))
+        super(TestVolumesActions, self).tearDown()
