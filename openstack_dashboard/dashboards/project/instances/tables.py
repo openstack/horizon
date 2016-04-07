@@ -942,10 +942,18 @@ class DetachInterface(policy.PolicyTargetMixin, tables.LinkAction):
     url = "horizon:project:instances:detach_interface"
 
     def allowed(self, request, instance):
-        return ((instance.status in ACTIVE_STATES
-                 or instance.status == 'SHUTOFF')
-                and not is_deleting(instance)
-                and api.base.is_service_enabled(request, 'network'))
+        if not api.base.is_service_enabled(request, 'network'):
+            return False
+        if is_deleting(instance):
+            return False
+        if (instance.status not in ACTIVE_STATES and
+                instance.status != 'SHUTOFF'):
+            return False
+        for addresses in instance.addresses.values():
+            for address in addresses:
+                if address.get('OS-EXT-IPS:type') == "fixed":
+                    return True
+        return False
 
     def get_link_url(self, datum):
         instance_id = self.table.get_object_id(datum)
