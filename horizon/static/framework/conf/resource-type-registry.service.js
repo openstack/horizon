@@ -103,7 +103,7 @@
       }
 
       function setDrawerTemplateUrl(url) {
-        this.drawerTemplateUrl= url;
+        this.drawerTemplateUrl = url;
         return this;
       }
 

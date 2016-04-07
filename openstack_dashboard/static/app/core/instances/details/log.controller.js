@@ -32,13 +32,13 @@
   ) {
     var ctrl = this;
 
-    ctrl.server= {};
+    ctrl.server = {};
     ctrl.resourceType = registry.getResourceType(resourceTypeCode);
 
     $scope.descriptor.loadPromise.then(onGetResponse);
 
     function onGetResponse(response) {
-      ctrl.server= response.data;
+      ctrl.server = response.data;
     }
   }
 

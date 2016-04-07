@@ -57,17 +57,17 @@
           successUrl: '/project/instances',
           'imageId': image.id
         }).then(onSuccess);
-
-        function onSuccess() {
-          return {
-            created: [], // ideally have the instance type/id
-            updated: [],
-            deleted: [],
-            failed: []
-          };
-        }
       } else {
         launchInstanceModal.open({});
+      }
+
+      function onSuccess() {
+        return {
+          created: [], // ideally have the instance type/id
+          updated: [],
+          deleted: [],
+          failed: []
+        };
       }
     }
 

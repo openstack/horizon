@@ -65,7 +65,6 @@
       }
     }
 
-
     function allowed(volume) {
       return $qExtensions.booleanAsPromise(volume.bootable === "true");
     }
