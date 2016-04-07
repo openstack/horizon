@@ -59,6 +59,10 @@
       .when('/details/:type/:path', {
         templateUrl: $windowProvider.$get().STATIC_URL +
           'framework/widgets/details/routed-details-view.html'
+      })
+      .when('/project/ng:type/', {
+        templateUrl: $windowProvider.$get().STATIC_URL +
+          'framework/widgets/table/generic-table.html'
       });
   }
 
