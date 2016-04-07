@@ -1,0 +1,147 @@
+<div ng-controller="horizon.app.core.images.steps.EditImageController as ctrl">
+
+  <div class="content">
+
+    <h3 translate>Image Detail</h3>
+
+    <div class="selected-source">
+      <div class="row form-group">
+        <div class="col-xs-6 col-sm-6">
+          <div class="form-group required"
+               ng-class="{'has-error':imageForm.name.$invalid && imageForm.name.$dirty}">
+            <label class="control-label required" for="imageForm-name" translate>Image Name</label>
+            <input required
+                   id="imageForm-name" name="name"
+                   type="text" class="form-control"
+                   ng-model="ctrl.image.name"
+                   ng-maxlength="ctrl.validationRules.fieldMaxLength"
+                   placeholder="{$ 'Enter an Image name'|translate $}">
+            <p class="help-block"
+               ng-show="imageForm.name.$invalid && imageForm.name.$dirty">
+              <translate>An image name less than 256 characters is required.</translate>
+            </p>
+          </div>
+        </div>
+        <div class="col-xs-6 col-sm-6">
+          <div class="form-group"
+               ng-class="{'has-error':imageForm.description.$invalid && imageForm.description.$dirty}">
+            <label class="control-label" for="imageForm-description" translate>Image Description</label>
+            <input id="imageForm-description" name="description"
+                   type="text" class="form-control"
+                   ng-model="ctrl.image.properties.description"
+                   ng-maxlength="ctrl.validationRules.fieldMaxLength"
+                   placeholder="{$ 'Enter an Image Description'|translate $}">
+            <p class="help-block alert alert-danger"
+               ng-show="imageForm.description.$invalid && imageForm.description.$dirty">
+              <translate>An image description less than 256 characters is required.</translate>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="selected-source clearfix">
+      <div class="row form-group">
+        <div class="col-xs-6 col-sm-6">
+          <div class="form-group required">
+            <label class="control-label required" for="imageForm-format" translate>Format</label>
+            <select class="form-control switchable ng-pristine ng-untouched ng-valid" ng-required="true" id="imageForm-format" name="format" ng-model="ctrl.image_format" ng-options="key as label for (key, label) in ctrl.imageFormats" ng-change="ctrl.setFormats()">
+            </select>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <h3 translate>Image Requirements</h3>
+    <div class="subtitle"></div>
+
+    <div class="selected-source clearfix">
+      <div class="row form-group">
+        <div class="col-xs-6 col-sm-6">
+          <div class="form-group" for="imageForm-kernel">
+            <label class="control-label" translate>Kernel ID</label>
+            <input id="imageForm-kernel" name="kernel"
+                   type="text" class="form-control"
+                   readonly="readonly"
+                   ng-model="ctrl.image.kernel">
+          </div>
+        </div>
+        <div class="col-xs-6 col-sm-6">
+          <div class="form-group">
+            <label class="control-label" for="imageForm-ramdisk" translate>Ramdisk ID</label>
+            <input id="imageForm-ramdisk" name="ramdisk"
+                   type="text" class="form-control"
+                   readonly="readonly"
+                   ng-model="ctrl.image.ramdisk">
+          </div>
+        </div>
+        <div class="col-xs-6 col-sm-6">
+          <div class="form-group">
+            <label class="control-label" for="imageForm-architecture" translate>Architecture</label>
+            <input id="imageForm-architecture" name="architecture"
+                   type="text" class="form-control"
+                   ng-model="ctrl.image.architecture"
+                   readonly="readonly">
+          </div>
+        </div>
+        <div class="col-xs-6 col-sm-3">
+          <div class="form-group required"
+               ng-class="{'has-error':imageForm.min_disk.$invalid && imageForm.min_disk.$dirty}">
+            <label class="control-label" for="imageForm-min_disk" translate>Minimum Disk (GB)</label>
+            <input id="imageForm-min_disk" name="min_disk"
+                   type="number" class="form-control"
+                   ng-pattern="ctrl.validationRules.integer" ng-model="ctrl.image.min_disk"
+                   placeholder="{$ 'The minimum disk size required to boot the image. If unspecified, this value defaults to 0 (no minimum).'|translate $}">
+          </div>
+        </div>
+        <div class="col-xs-6 col-sm-3">
+          <div class="form-group required"
+               ng-class="{'has-error':imageForm.min_ram.$invalid && imageForm.min_ram.$dirty}">
+            <label class="control-label required" translate>Minimum RAM (MB)</label>
+            <input id="imageForm-min_ram" name="min_ram"
+                   type="number" class="form-control"
+                   ng-pattern="ctrl.validationRules.integer" ng-model="ctrl.image.min_ram"
+                   placeholder="{$ 'The minimum memory size required to boot the image. If unspecified, this value defaults to 0 (no minimum).'|translate $}">
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <h3 translate>Image Sharing</h3>
+    <div class="subtitle"></div>
+
+    <div class="selected-source clearfix">
+      <div class="row">
+        <div class="col-xs-6 col-sm-6">
+          <div class="form-group">
+            <label class="control-label required" translate>Visibility</label>
+            <div class="form-field">
+              <div class="btn-group">
+                <button class="btn btn-toggle"
+                       ng-repeat="option in ctrl.imageVisibilityOptions"
+                       ng-model="ctrl.image.visibility"
+                       btn-radio="option.value">{$ ::option.label $}</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-xs-6 col-sm-6">
+          <div class="form-group">
+            <label class="control-label required" translate>Protected</label>
+            <div class="form-field">
+              <div class="btn-group">
+                <button class="btn btn-toggle"
+                       ng-repeat="option in ctrl.imageProtectedOptions"
+                       ng-model="ctrl.image.protected"
+                       btn-radio="option.value">{$ ::option.label $}</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+
+</div>

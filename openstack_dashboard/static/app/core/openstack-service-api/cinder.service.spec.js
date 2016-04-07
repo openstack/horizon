@@ -58,7 +58,7 @@
       {
         func: 'getVolume',
         method: 'get',
-        path: '/api/cinder/volumes/1',
+        path: '/api/cinder/volumes/1/',
         error: 'Unable to retrieve the volume.',
         testInput: [1]
       },

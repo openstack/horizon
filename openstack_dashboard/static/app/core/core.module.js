@@ -16,6 +16,9 @@
 (function () {
   'use strict';
 
+  // Constants used within this file
+  var VOLUME_RESOURCE_TYPE = 'OS::Cinder::Volume';
+
   /**
    * @ngdoc overview
    * @name horizon.app.core
@@ -30,24 +33,32 @@
     .module('horizon.app.core', [
       'horizon.app.core.cloud-services',
       'horizon.app.core.images',
+      'horizon.app.core.instances',
       'horizon.app.core.metadata',
       'horizon.app.core.openstack-service-api',
+      'horizon.app.core.volumes',
       'horizon.app.core.workflow',
       'horizon.framework.conf',
       'horizon.framework.util',
       'horizon.framework.widgets',
       'horizon.dashboard.project.workflow'
     ], config)
+    .constant('horizon.app.core.volumeResourceType', VOLUME_RESOURCE_TYPE)
     .run([
       'horizon.framework.conf.resource-type-registry.service',
       performRegistrations
     ]);
 
-  config.$inject = ['$provide', '$windowProvider'];
+  config.$inject = ['$provide', '$windowProvider', '$routeProvider'];
 
-  function config($provide, $windowProvider) {
+  function config($provide, $windowProvider, $routeProvider) {
     var path = $windowProvider.$get().STATIC_URL + 'app/core/';
     $provide.constant('horizon.app.core.basePath', path);
+    $routeProvider
+      .when('/details/:type/:path', {
+        templateUrl: $windowProvider.$get().STATIC_URL +
+          'framework/widgets/details/routed-details-view.html'
+      });
   }
 
   function performRegistrations(registry) {
@@ -79,7 +90,7 @@
     registry.getResourceType('OS::Cinder::Snapshot', {
       names: [gettext('Volume Snapshot'), gettext('Volume Snapshots')]
     });
-    registry.getResourceType('OS::Cinder::Volume', {
+    registry.getResourceType(VOLUME_RESOURCE_TYPE, {
       names: [gettext('Volume'), gettext('Volumes')]
     });
     registry.getResourceType('OS::Nova::Flavor', {

@@ -297,10 +297,13 @@ def create_image_metadata(data):
                 'container_format': data.get('container_format'),
                 'properties': {}}
 
-        # 'description' and 'architecture' will be directly mapped
+        # 'architecture' will be directly mapped
         # into the .properties by the handle_unknown_properties function.
         # 'kernel' and 'ramdisk' need to get specifically mapped for backwards
         # compatibility.
+        props = data.get('properties')
+        if props and props.get('description'):
+            meta['properties']['description'] = props.get('description')
         if data.get('kernel'):
             meta['properties']['kernel_id'] = data.get('kernel')
         if data.get('ramdisk'):
@@ -320,9 +323,13 @@ def handle_unknown_properties(data, meta):
     # existing horizon api wrapper, we need this function.  This way, the
     # client REST mirrors the Glance API.
     known_props = ['visibility', 'protected', 'disk_format',
-                   'container_format', 'min_disk', 'min_ram',
-                   'name', 'properties', 'kernel', 'ramdisk',
-                   'tags', 'import_data', 'source', 'image_url', 'source_type']
+                   'container_format', 'min_disk', 'min_ram', 'name',
+                   'properties', 'kernel', 'ramdisk',
+                   'tags', 'import_data', 'source',
+                   'image_url', 'source_type',
+                   'checksum', 'created_at', 'deleted', 'is_copying',
+                   'deleted_at', 'is_public', 'virtual_size',
+                   'status', 'size', 'owner', 'id', 'updated_at']
     other_props = {k: v for (k, v) in data.items() if k not in known_props}
     meta['properties'].update(other_props)
 

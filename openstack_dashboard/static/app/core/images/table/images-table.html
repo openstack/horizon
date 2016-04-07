@@ -13,7 +13,8 @@
       -->
       <th colspan="100" class="search-header">
         <hz-search-bar group-classes="input-group" icon-classes="fa-search">
-          <actions allowed="table.imageResourceType.batchActions" type="batch"></actions>
+          <actions allowed="table.imageResourceType.batchActions" type="batch"
+              result-handler="table.actionResultHandler"></actions>
         </hz-search-bar>
       </th>
     </tr>
@@ -72,7 +73,7 @@
            duration="200">
         </span>
       </td>
-      <td class="rsp-p1"><a ng-href="{$ table.detailsRoute + image.id $}">{$ image.name $}</a></td>
+      <td class="rsp-p1"><a ng-href="{$ 'details/OS::Glance::Image/' + table.imageResourceType.pathGenerator(image.id) $}">{$ image.name $}</a></td>
       <td class="rsp-p1">{$ image | imageType $}</td>
       <td class="rsp-p1">{$ image.status | imageStatus $}</td>
       <td class="rsp-p2">{$ image.filtered_visibility $}</td>
@@ -85,7 +86,8 @@
         Table-row-action-column:
         Actions taken here applies to a single item/row.
         -->
-        <actions allowed="table.imageResourceType.itemActions" type="row" item="image">
+        <actions allowed="table.imageResourceType.itemActions" type="row" item="image"
+            result-handler="table.actionResultHandler">
         </actions>
       </td>
     </tr>

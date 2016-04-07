@@ -25,7 +25,6 @@
   describe('horizon.app.core.images.tableRoute constant', function () {
     var tableRoute;
 
-    beforeEach(module('horizon.app.core'));
     beforeEach(module('horizon.app.core.images'));
     beforeEach(inject(function ($injector) {
       tableRoute = $injector.get('horizon.app.core.images.tableRoute');
@@ -56,40 +55,6 @@
     it('should equal to "project/ngimages/details/"', function () {
       expect(detailsRoute).toEqual('project/ngimages/details/');
     });
-  });
-
-  describe('$routeProvider should be configured for images', function() {
-    var staticUrl, $routeProvider;
-
-    beforeEach(function() {
-      module('ngRoute');
-      angular.module('routeProviderConfig', [])
-        .config(function(_$routeProvider_) {
-          $routeProvider = _$routeProvider_;
-          spyOn($routeProvider, 'when').and.callThrough();
-        });
-
-      module('routeProviderConfig');
-      module('horizon.app.core');
-
-      inject(function ($injector) {
-        staticUrl = $injector.get('$window').STATIC_URL;
-      });
-    });
-
-    it('should set table and detail path', function() {
-      expect($routeProvider.when.calls.count()).toEqual(2);
-      var imagesRouteCallArgs = $routeProvider.when.calls.argsFor(0);
-      expect(imagesRouteCallArgs).toEqual([
-        '/project/ngimages/', {templateUrl: staticUrl + 'app/core/images/table/images-table.html'}
-      ]);
-      var imagesDetailsCallArgs = $routeProvider.when.calls.argsFor(1);
-      expect(imagesDetailsCallArgs).toEqual([
-        '/project/ngimages/details/:imageId',
-        { templateUrl: staticUrl + 'app/core/images/detail/image-detail.html'}
-      ]);
-    });
-
   });
 
 })();

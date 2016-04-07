@@ -31,7 +31,7 @@
   function magicSearchController($scope, $element, $timeout, $window, service) {
     var ctrl = this;
     var searchInput = $element.find('.search-input');
-    ctrl.mainPromptString = $scope.strings.prompt;
+    ctrl.mainPromptString = $scope.strings ? $scope.strings.prompt : '';
 
     // currentSearch is the list of facets representing the current search
     ctrl.currentSearch = [];
@@ -129,7 +129,8 @@
       } else {
         // if text search treat as search
         ctrl.currentSearch = ctrl.currentSearch.filter(notTextSearch);
-        ctrl.currentSearch.push(service.getTextFacet(searchVal, $scope.strings.text));
+        ctrl.currentSearch.push(service.getTextFacet(searchVal,
+          $scope.strings ? $scope.strings.text : ''));
         $scope.$apply();
         setMenuOpen(false);
         setSearchInput('');
@@ -349,7 +350,7 @@
         setPrompt('');
       }
       ctrl.currentSearch = service.getFacetsFromSearchTerms(searchTerms,
-        ctrl.textSearch, $scope.strings.text, tmpFacetChoices);
+        ctrl.textSearch, $scope.strings ? $scope.strings.text : '', tmpFacetChoices);
       ctrl.filteredObj = ctrl.unusedFacetChoices =
         service.getUnusedFacetChoices(tmpFacetChoices, searchTerms);
 

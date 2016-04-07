@@ -25,7 +25,8 @@
     'horizon.app.core.images.events',
     'horizon.app.core.metadata.modal.service',
     'horizon.app.core.openstack-service-api.userSession',
-    'horizon.framework.util.q.extensions'
+    'horizon.framework.util.q.extensions',
+    'horizon.app.core.images.resourceType'
   ];
 
   /**
@@ -42,7 +43,8 @@
     events,
     metadataModalService,
     userSessionService,
-    $qExtensions
+    $qExtensions,
+    imageResourceType
   ) {
     var scope;
 
@@ -67,10 +69,14 @@
 
       function onSuccess() {
         scope.$emit(events.UPDATE_METADATA_SUCCESS, [image.id]);
+
+        // To make the result of this action generically useful, reformat the return
+        // from the deleteModal into a standard form
         return {
-          // Object intentionally left blank. This data is passed to
-          // code that holds this action's promise. In the future, it may
-          // contain entity IDs and types that were modified by this action.
+          created: [],
+          updated: [{type: imageResourceType, id: image.id}],
+          deleted: [],
+          failed: []
         };
       }
     }

@@ -104,7 +104,7 @@
      * @returns {Object} The result of the API call
      */
     function getVolume(id) {
-      return apiService.get('/api/cinder/volumes/' + id)
+      return apiService.get('/api/cinder/volumes/' + id + '/')
         .error(function () {
           toastService.add('error', gettext('Unable to retrieve the volume.'));
         });
