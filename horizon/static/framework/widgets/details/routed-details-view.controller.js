@@ -17,14 +17,14 @@
 
   angular
     .module('horizon.framework.widgets.details')
-    .controller('RoutedDetailsViewController', RoutedDetailsViewController);
+    .controller('RoutedDetailsViewController', controller);
 
-  RoutedDetailsViewController.$inject = [
+  controller.$inject = [
     'horizon.framework.conf.resource-type-registry.service',
     '$routeParams'
   ];
 
-  function RoutedDetailsViewController (
+  function controller(
     registry,
     $routeParams
   ) {

@@ -30,7 +30,8 @@
           load: function() { return deferred.promise; },
           parsePath: function() { return {a: 'descriptor'}; },
           itemName: function() { return 'A name'; }
-        }; }
+        }; },
+        getDefaultDetailsTemplateUrl: angular.noop
       };
 
       ctrl = $controller("RoutedDetailsViewController", {
