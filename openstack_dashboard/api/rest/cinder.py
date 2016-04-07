@@ -158,6 +158,24 @@ class VolumeType(generic.View):
 
 
 @urls.register
+class VolumeSnapshot(generic.View):
+    """API for cinder volume.
+    """
+    url_regex = r'cinder/volumesnapshots/(?P<snapshot_id>[^/]+)/$'
+
+    @rest_utils.ajax()
+    def get(self, request, snapshot_id):
+        """Get a single volume's details with the volume id.
+
+        The following get parameters may be passed in the GET
+
+        :param volume_id: the id of the volume
+
+        The result is a volume object.
+        """
+        return api.cinder.volume_snapshot_get(request, snapshot_id).to_dict()
+
+@urls.register
 class VolumeSnapshots(generic.View):
     """API for cinder volume snapshots.
     """

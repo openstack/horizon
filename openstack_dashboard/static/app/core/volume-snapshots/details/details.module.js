@@ -19,57 +19,34 @@
 
   /**
    * @ngdoc overview
-   * @ngname horizon.app.core.instances.details
+   * @ngname horizon.app.core.volume-snapshots.details
    *
    * @description
    * Provides details features for instances.
    */
-  angular.module('horizon.app.core.instances.details',
+  angular.module('horizon.app.core.volume-snapshots.details',
     ['horizon.framework.conf', 'horizon.app.core'])
     .run(run);
 
   run.$inject = [
-    'horizon.app.core.instances.resourceType',
-    'horizon.app.core.openstack-service-api.nova',
-    'horizon.app.core.instances.basePath',
+    'horizon.app.core.volume-snapshots.resourceType',
+    'horizon.app.core.openstack-service-api.cinder',
+    'horizon.app.core.volume-snapshots.basePath',
     'horizon.framework.conf.resource-type-registry.service'
   ];
 
   function run(
-    instanceResourceType,
-    novaApi,
+    resourceType,
+    cinderApi,
     basePath,
     registry
   ) {
-    var resourceType = registry.getResourceType(instanceResourceType);
-    resourceType
+    registry.getResourceType(resourceType)
       .setLoadFunction(loadFunction)
       .setDrawerTemplateUrl(basePath + 'details/drawer.html');
 
-    resourceType.detailsViews
-      .append({
-        id: 'instanceDetailsOverview',
-        name: gettext('Overview'),
-        template: basePath + 'details/overview.html'
-      })
-      .append({
-        id: 'instanceDetailsLog',
-        name: gettext('Log'),
-        template: basePath + 'details/log.html'
-      })
-      .append({
-        id: 'instanceDetailsConsole',
-        name: gettext('Console'),
-        template: basePath + 'details/console.html'
-      })
-      .append({
-        id: 'instanceDetailsActionLog',
-        name: gettext('Action Log'),
-        template: basePath + 'details/action-log.html'
-      });
-
     function loadFunction(identifier) {
-      return novaApi.getServer(identifier);
+      return cinderApi.getVolumeSnapshot(identifier);
     }
   }
 

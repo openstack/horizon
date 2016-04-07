@@ -37,6 +37,7 @@
       'horizon.app.core.metadata',
       'horizon.app.core.openstack-service-api',
       'horizon.app.core.volumes',
+      'horizon.app.core.volume-snapshots',
       'horizon.app.core.workflow',
       'horizon.framework.conf',
       'horizon.framework.util',
