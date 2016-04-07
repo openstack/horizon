@@ -36,7 +36,8 @@ class RescopeTokenToProject(tables.LinkAction):
         # authorized_tenants, and that they are not currently scoped to
         return next((True for proj in request.user.authorized_tenants
                      if proj.id == project.id and
-                     project.id != request.user.project_id), False)
+                     project.id != request.user.project_id and
+                     project.enabled), False)
 
     def get_link_url(self, project):
         # redirects to the switch_tenants url which then will redirect
