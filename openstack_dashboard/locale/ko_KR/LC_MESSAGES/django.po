@@ -13,7 +13,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2016-03-20 02:33+0000\n"
+"PO-Revision-Date: 2016-04-05 12:07+0000\n"
 "Last-Translator: Ian Y. Choi <ianyrchoi@gmail.com>\n"
 "Language-Team: Korean (South Korea)\n"
 "Language: ko-KR\n"
@@ -209,11 +209,12 @@ msgid ""
 "    "
 msgstr ""
 "\n"
-"Cinder 호스트에서 기본 볼륨을 \"관리\"합니다. OpenStack의 볼륨을 볼 수 있도"
-"록 해줍니다.\n"
-"<br>\n"
-"<br>\n"
-"이 명령은 <tt>cinder manage</tt> 명령어와 동일합니다."
+"    Cinder 호스트에서 기본 볼륨을 \"관리\"합니다. OpenStack의 볼륨을 볼 수 \n"
+"    있도록 해줍니다.\n"
+"    <br>\n"
+"    <br>\n"
+"    이 명령은 <tt>cinder manage</tt> 명령어와 동일합니다.\n"
+"    "
 
 msgid ""
 "\n"
@@ -258,9 +259,10 @@ msgid ""
 "    "
 msgstr ""
 "\n"
-"볼륨 상태는 기본적으론 자동으로 관리됩니다. 어떤 경우에는\n"
-"관리자가 직접 상태값을 업데이트할 필요가 있을 수 있습니다.\n"
-"이것은 <tt>cinder reset-state</tt> 명령과 같습니다."
+"    볼륨 상태는 기본적으론 자동으로 관리됩니다. 어떤 경우에는\n"
+"    관리자가 직접 상태값을 업데이트할 필요가 있을 수 있습니다.\n"
+"    이것은 <tt>cinder reset-state</tt> 명령과 같습니다.\n"
+"    "
 
 msgid ""
 "\n"
@@ -288,12 +290,13 @@ msgid ""
 "    "
 msgstr ""
 "\n"
-"볼륨이 \"미관리\" 상태일 때, 해당 볼륨은 OpenStack에서 더 이상 나타나지 않을 "
-"것입니다. 참고로,\n"
-"해당 볼륨이 Cinder 호스트에서 삭제된 것은 아닙니다.\n"
-"<br>\n"
-"<br>\n"
-"이는 <tt>cinder unmanage</tt> 명령어와 동일합니다."
+"    볼륨이 \"미관리\" 상태일 때, 해당 볼륨은 OpenStack에서 더 이상 나타나지 "
+"않을 것입니다. 참고로,\n"
+"    해당 볼륨이 Cinder 호스트에서 삭제된 것은 아닙니다.\n"
+"    <br>\n"
+"    <br>\n"
+"    이는 <tt>cinder unmanage</tt> 명령어와 동일합니다.\n"
+"    "
 
 msgid ""
 "\n"
@@ -1139,7 +1142,7 @@ msgid "Associate QoS Spec"
 msgstr "연결된 QoS 스펙"
 
 msgid "Associate QoS Spec with Volume Type"
-msgstr "볼륨 타입별 연결 QOS 사양"
+msgstr "볼륨 타입별 연결 QOS 스펙"
 
 msgid "Associate a health monitor with target pool."
 msgstr "상태 모니터는 대상 pool에 연결합니다"
@@ -1901,7 +1904,7 @@ msgid "Create Pseudo-folder"
 msgstr "가상 폴더 만들기"
 
 msgid "Create QoS Spec"
-msgstr "QOS 사양 생성:"
+msgstr "QOS 스펙 생성:"
 
 msgid "Create Role"
 msgstr "역할 생성"
@@ -2106,7 +2109,7 @@ msgstr ""
 "수를 지정하세요. 방식, URL 경로, 성공 시 예상된 HTTP 코드를 지정하세요. "
 
 msgid "Create a new \"extra spec\" key-value pair for a volume type."
-msgstr "볼륨 타입에대한 새로운 \"추가 사양\" 키-값을 생성합니다."
+msgstr "볼륨 타입에대한 새로운 \"추가 사양\" 키-값 페어를 생성합니다."
 
 #, python-format
 msgid "Create a new \"spec\" key-value pair for QoS Spec \"%(qos_spec_name)s\""
@@ -2565,7 +2568,7 @@ msgstr[0] "프로토콜 삭제"
 
 msgid "Delete QoS Spec"
 msgid_plural "Delete QoS Specs"
-msgstr[0] "QOS 사양 삭제"
+msgstr[0] "QOS 스펙 삭제"
 
 msgid "Delete Role"
 msgid_plural "Delete Roles"
@@ -2725,7 +2728,7 @@ msgstr[0] "삭제된 프로토콜"
 
 msgid "Deleted QoS Spec"
 msgid_plural "Deleted QoS Specs"
-msgstr[0] "삭제된 QOS 사양"
+msgstr[0] "삭제된 QOS 스펙"
 
 msgid "Deleted Role"
 msgid_plural "Deleted Roles"
@@ -3495,7 +3498,7 @@ msgid "Error getting resource type associations."
 msgstr "리소스 타입과 관련된 것을 얻는 중에 오류가 발생했습니다."
 
 msgid "Error updating QoS Spec association."
-msgstr "QoS 스펙 업데이트하는데 오류가 발생했습니다."
+msgstr "QoS 스펙을 업데이트하는데 오류가 발생했습니다."
 
 #, python-format
 msgid "Error updating resource types for namespace %s."
@@ -5468,7 +5471,7 @@ msgid "New Host"
 msgstr "새로운 호스트"
 
 msgid "New QoS Spec Consumer"
-msgstr "새로운 QoS 스펙 고객"
+msgstr "새로운 QoS 스펙 소비자"
 
 msgid "New Size (GiB)"
 msgstr "새로운 크기 (GiB)"
@@ -5583,7 +5586,7 @@ msgid "No networks available"
 msgstr "사용 가능한 네트워크가 없습니다"
 
 msgid "No new QoS spec available"
-msgstr "사용 가능한 새로운 QoS 스펙 없음"
+msgstr "사용 가능한 새로운 QoS 스펙이 없습니다"
 
 msgid "No options specified"
 msgstr "지정된 옵션 없음"
@@ -6338,13 +6341,13 @@ msgid "QoS Spec to be associated"
 msgstr "연결할 QoS 스펙"
 
 msgid "QoS Spec: "
-msgstr "QOS 사양:"
+msgstr "QOS 스펙:"
 
 msgid "QoS Spec: {{ qos_spec_name }}"
 msgstr "QoS 스펙: {{ qos_spec_name }}"
 
 msgid "QoS Specs"
-msgstr "QOS 사양"
+msgstr "QOS 스펙"
 
 msgctxt "Current status of an Image"
 msgid "Queued"
@@ -7737,7 +7740,7 @@ msgstr "Floating IP를 성공적으로 연결: %s"
 
 #, python-format
 msgid "Successfully created QoS Spec: %s"
-msgstr "QOS 사양을 성공적으로 생성했습니다: %s"
+msgstr "QOS 스펙을 성공적으로 생성했습니다: %s"
 
 #, python-format
 msgid "Successfully created encryption for volume type: %s"
@@ -7809,7 +7812,7 @@ msgstr ""
 "볼륨에대한 이미지에서 볼륨을 업로드 요청을 성공적으로 전송했습니다: \"%s\""
 
 msgid "Successfully updated QoS Spec association."
-msgstr "QoS 스펙 업데이를 완료했습니다."
+msgstr "QoS 스펙 업데이트를 완료했습니다."
 
 #, python-format
 msgid "Successfully updated aggregate: \"%s.\""
@@ -8382,8 +8385,8 @@ msgid ""
 "This is equivalent to the <tt>cinder qos-associate</tt> and <tt>cinder qos-"
 "disassociate</tt> commands."
 msgstr ""
-"<tt>cinder qos-associate</tt>와 <tt>cinder qos-disassociate</tt> 명령과 동일"
-"합니다."
+"<tt>cinder qos-associate</tt> 및 <tt>cinder qos-disassociate</tt> 명령어와 동"
+"일합니다."
 
 msgid ""
 "This is required for operations to be performed throughout the lifecycle of "
@@ -8675,7 +8678,7 @@ msgid "Unable to copy object."
 msgstr "오브젝트를 복사할 수 없습니다."
 
 msgid "Unable to create QoS Spec."
-msgstr "QOS 사양을 생성할 수 없습니다. "
+msgstr "QOS 스펙을 생성할 수 없습니다. "
 
 msgid "Unable to create consistency group."
 msgstr "일관성 그룹을 생성할 수 없습니다."
@@ -8688,7 +8691,7 @@ msgid "Unable to create domain \"%s\"."
 msgstr "도메인 \"%s\" 을 만들 수 없습니다."
 
 msgid "Unable to create encrypted volume type."
-msgstr "볼륨 타입 암호화 생성 실패."
+msgstr "암호화된 볼륨 타입 생성 실패하였습니다."
 
 #, python-format
 msgid "Unable to create flavor \"%s\"."
@@ -9120,13 +9123,13 @@ msgid "Unable to retrieve QoS Spec details."
 msgstr "QoS 사양의 세부 정보를 찾지 못했습니다."
 
 msgid "Unable to retrieve QoS Specs."
-msgstr "QOS 사양의 정보을 찾지 못 했습니다."
+msgstr "QOS 스펙의 정보을 찾지 못했습니다."
 
 msgid "Unable to retrieve QoS spec details."
 msgstr "QoS 사양의 세부 정보를 찾지 못 했습니다."
 
 msgid "Unable to retrieve QoS spec list."
-msgstr "QOS 사양 목록을 찾지 못 했습니다."
+msgstr "QOS 스펙 목록을 찾지 못 했습니다."
 
 msgid "Unable to retrieve QoS specs"
 msgstr "QOS 사양을 검색할 수 없습니다."
@@ -9947,7 +9950,7 @@ msgid "Update Volume Snapshot Status"
 msgstr "볼륨 스냅샷 상태 업데이트"
 
 msgid "Update Volume Status"
-msgstr "볼륨 스냅샷 업데이트"
+msgstr "볼륨 상태 업데이트"
 
 msgid "Update Volume Type Encryption"
 msgstr "볼륨 타입 암호화 업데이트"
@@ -9991,7 +9994,7 @@ msgstr "\"%(key)s\"에 대한 \"extra spec\" 값을 업데이트 하였습니다
 
 #, python-format
 msgid "Update the spec value for \"%(key)s\""
-msgstr " \"%(key)s\" 스펙 값을 갱신합니다. "
+msgstr " \"%(key)s\" 스펙 값을 업데이트합니다. "
 
 msgid "Updated"
 msgstr "업데이트 완료"
