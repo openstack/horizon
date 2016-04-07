@@ -75,3 +75,57 @@ class TestQoSSpec(helpers.AdminTestCase):
         self.assertFalse(
             qos_spec_page.find_message_and_dismiss(messages.ERROR))
         self.assertFalse(qos_spec_page.is_qos_spec_present(self.QOS_SPEC_NAME))
+
+    def test_qos_spec_edit_consumer(self):
+        """tests Edit Consumer of QoS Spec functionality
+        * creates a new QoS Spec
+        * verifies the QoS Spec appears in the QoS Specs table
+        * edit consumer of created QoS Spec (check all options - front-end,
+        both, back-end)
+        * verifies current consumer of the QoS Spec in the QoS Specs table
+        * deletes the newly created QoS Spec
+        * verifies the QoS Spec does not appear in the table after deletion
+        """
+        qos_spec_name = helpers.gen_random_resource_name("qos_spec")
+        qos_spec_page = self.home_pg.go_to_system_volumes_volumetypespage()
+        nova_compute_consumer = 'front-end'
+        both_consumers = 'both'
+        cinder_consumer = 'back-end'
+
+        qos_spec_page.create_qos_spec(qos_spec_name)
+        self.assertTrue(
+            qos_spec_page.find_message_and_dismiss(messages.SUCCESS))
+        self.assertFalse(
+            qos_spec_page.find_message_and_dismiss(messages.ERROR))
+        self.assertTrue(qos_spec_page.is_qos_spec_present(qos_spec_name))
+
+        qos_spec_page.edit_consumer(qos_spec_name, nova_compute_consumer)
+        self.assertTrue(
+            qos_spec_page.find_message_and_dismiss(messages.SUCCESS))
+        self.assertFalse(
+            qos_spec_page.find_message_and_dismiss(messages.ERROR))
+        self.assertEqual(
+            qos_spec_page.get_consumer(qos_spec_name), nova_compute_consumer)
+
+        qos_spec_page.edit_consumer(qos_spec_name, both_consumers)
+        self.assertTrue(
+            qos_spec_page.find_message_and_dismiss(messages.SUCCESS))
+        self.assertFalse(
+            qos_spec_page.find_message_and_dismiss(messages.ERROR))
+        self.assertEqual(
+            qos_spec_page.get_consumer(qos_spec_name), both_consumers)
+
+        qos_spec_page.edit_consumer(qos_spec_name, cinder_consumer)
+        self.assertTrue(
+            qos_spec_page.find_message_and_dismiss(messages.SUCCESS))
+        self.assertFalse(
+            qos_spec_page.find_message_and_dismiss(messages.ERROR))
+        self.assertEqual(
+            qos_spec_page.get_consumer(qos_spec_name), cinder_consumer)
+
+        qos_spec_page.delete_qos_specs(qos_spec_name)
+        self.assertTrue(
+            qos_spec_page.find_message_and_dismiss(messages.SUCCESS))
+        self.assertFalse(
+            qos_spec_page.find_message_and_dismiss(messages.ERROR))
+        self.assertFalse(qos_spec_page.is_qos_spec_present(qos_spec_name))
