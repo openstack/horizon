@@ -53,9 +53,11 @@ class TableRegion(baseregion.BaseRegion):
     _rows_locator = (by.By.CSS_SELECTOR, 'tbody > tr')
     _empty_table_locator = (by.By.CSS_SELECTOR, 'tbody > tr.empty')
     _search_field_locator = (by.By.CSS_SELECTOR,
-                             'div.table_search.client > input')
+                             'div.table_search input.form-control')
     _search_button_locator = (by.By.CSS_SELECTOR,
-                              'div.table_search.client > button')
+                              'div.table_search > button')
+    _search_option_locator = (by.By.CSS_SELECTOR,
+                              'div.table_search select.form-control')
     marker_name = 'marker'
     prev_marker_name = 'prev_marker'
 
@@ -102,6 +104,10 @@ class TableRegion(baseregion.BaseRegion):
         self._set_search_field(value)
         self._click_search_btn()
 
+    def set_filter_value(self, value):
+        srch_option = self._get_element(*self._search_option_locator)
+        return self._select_dropdown_by_value(value, srch_option)
+
     def get_row(self, column_name, text, exact_match=True):
         """Get row that contains specified text in specified column.
 
@@ -127,6 +133,7 @@ class TableRegion(baseregion.BaseRegion):
 
     def _set_search_field(self, value):
         srch_field = self._get_element(*self._search_field_locator)
+        srch_field.clear()
         srch_field.send_keys(value)
 
     def _click_search_btn(self):
@@ -177,14 +184,17 @@ class TableRegion(baseregion.BaseRegion):
             lnk = self._get_element(*self._prev_locator)
             lnk.click()
 
-    def assert_definition(self, expected_table_definition):
-        """Checks that actual image table is expected one.
+    def assert_definition(self, expected_table_definition, sorting=False):
+        """Checks that actual table is expected one.
         Items to compare: 'next' and 'prev' links, count of rows and names of
-        images in list
+        elements in list
         :param expected_table_definition: expected values (dictionary)
+        :param sorting: boolean arg specifying whether to sort actual names
         :return:
         """
         names = [row.cells['name'].text for row in self.rows]
+        if sorting:
+            names.sort()
         actual_table = {'Next': self.is_next_link_available(),
                         'Prev': self.is_prev_link_available(),
                         'Count': len(self.rows),
