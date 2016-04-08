@@ -1,0 +1,6 @@
+OPENSTACK_PROFILER.update({
+    'enabled': True,
+    'keys': ['SECRET_KEY'],
+    'notifier_connection_string': 'mongodb://%s' % OPENSTACK_HOST,
+    'receiver_connection_string': 'mongodb://%s' % OPENSTACK_HOST
+})
