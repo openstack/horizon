@@ -19,11 +19,32 @@
     .module('horizon.framework.widgets.table')
     .controller('GenericTableController', controller);
 
-  controller.$inject = ['$routeParams'];
+  controller.$inject = [
+    '$routeParams',
+    'horizon.framework.conf.resource-type-registry.service'
+  ];
 
-  function controller($routeParams) {
+  function controller($routeParams, registry) {
     var ctrl = this;
 
-    ctrl.params = $routeParams;
+    //ctrl.params = $routeParams;
+    var hack = {
+      'instance': 'OS::Nova::Server'
+    }; 
+    var resourceTypeName = hack[$routeParams.type];
+    ctrl.resourceType = registry.getResourceType(resourceTypeName);
+    ctrl.resourceType.listFunction().then(onLoad);
+    ctrl.items = [];
+    ctrl.itemsSrc = [];
+    function onLoad(response) {
+      ctrl.itemsSrc = response.data.items;
+    }
+    ctrl.config = {
+        //detailsTemplateUrl: rowDetailsTemplate,
+        selectAll: true,
+        expand: true,
+        trackId: 'id',
+        columns: registry.getResourceType(resourceTypeName).getTableColumns()
+      };
   }
 })();

@@ -1,6 +1,11 @@
 <div ng-controller="GenericTableController as ctrl">
-  Hello there!
 
-
-  {$ ctrl.params $}
+ <hz-dynamic-table
+    table="ctrl"
+    config="ctrl.config"
+    items="ctrl.items"
+    safe-src-items="ctrl.itemsSrc"
+    batch-actions="ctrl.resourceType.batchActions"
+    item-actions="ctrl.resourceType.itemActions"
+  ></hz-dynamic-table>
 </div>

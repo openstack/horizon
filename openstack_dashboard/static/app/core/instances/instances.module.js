@@ -41,13 +41,32 @@
 
   run.$inject = [
     'horizon.framework.conf.resource-type-registry.service',
+    'horizon.app.core.openstack-service-api.nova',
     'horizon.app.core.instances.resourceType'
   ];
 
-  function run(registry, instanceResourceType) {
+  function run(registry, nova, instanceResourceType) {
     registry.getResourceType(instanceResourceType, {
       names: [gettext('Server'), gettext('Servers')]
-    });
+    })
+      .setListFunction(listFunction)
+      .tableColumns
+      .append({
+            id: 'name',
+            priority: 1,
+            sortDefault: true//,
+            //template: '<a ng-href="{$ \'details/OS::Nova::Server/\' + item.id $}">{$ item.name $}</a>'
+      })
+      .append(
+          {
+            id: 'created',
+            title: gettext('Created'),
+            priority: 1
+          });
+
+    function listFunction() {
+      return nova.getServers();
+    }
   }
 
 })();
