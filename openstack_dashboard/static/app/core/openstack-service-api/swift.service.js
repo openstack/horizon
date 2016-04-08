@@ -161,8 +161,12 @@
      */
     function deleteContainer(container) {
       return apiService.delete(service.getContainerURL(container) + '/metadata/')
-        .error(function () {
-          toastService.add('error', gettext('Unable to delete the container.'));
+        .error(function (response, status) {
+          if (status === 409) {
+            toastService.add('error', response);
+          } else {
+            toastService.add('error', gettext('Unable to delete the container.'));
+          }
         });
     }
 
@@ -233,8 +237,12 @@
           }
         }
       )
-        .error(function () {
-          toastService.add('error', gettext('Unable to upload the object.'));
+        .error(function (response, status) {
+          if (status === 409) {
+            toastService.add('error', response);
+          } else {
+            toastService.add('error', gettext('Unable to upload the object.'));
+          }
         });
     }
 
@@ -294,8 +302,12 @@
         service.getObjectURL(container, folderName) + '/',
         {}
       )
-        .error(function () {
-          toastService.add('error', gettext('Unable to create the folder.'));
+        .error(function (response, status) {
+          if (status === 409) {
+            toastService.add('error', response);
+          } else {
+            toastService.add('error', gettext('Unable to create the folder.'));
+          }
         });
     }
 
@@ -315,8 +327,12 @@
         service.getObjectURL(container, objectName, 'copy'),
         {dest_container: destContainer, dest_name: destName}
       )
-        .error(function () {
-          toastService.add('error', gettext('Unable to copy the object.'));
+        .error(function (response, status) {
+          if (status === 409) {
+            toastService.add('error', response);
+          } else {
+            toastService.add('error', gettext('Unable to copy the object.'));
+          }
         });
     }
   }
