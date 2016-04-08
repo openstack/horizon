@@ -37,6 +37,7 @@
     ctrl.resourceType.listFunction().then(onLoad);
     ctrl.items = [];
     ctrl.itemsSrc = [];
+    ctrl.searchFacets = [];
     function onLoad(response) {
       ctrl.itemsSrc = response.data.items;
     }

@@ -1,5 +1,13 @@
 <div ng-controller="GenericTableController as ctrl">
  <hz-page-header header="{$ ctrl.resourceType.getName() $}">
+
+<hz-magic-search-context>
+ <div class="row">
+ <hz-magic-search-bar class="col-md-10" filter-facets="ctrl.searchFacets">
+ </hz-magic-search-bar>
+ <actions class="col-md-2" allowed="ctrl.resourceType.batchActions" type="row">
+ </actions>
+ </div>
  <hz-dynamic-table
     table="ctrl"
     config="ctrl.config"
@@ -8,4 +16,5 @@
     batch-actions="ctrl.resourceType.batchActions"
     item-actions="ctrl.resourceType.itemActions"
   ></hz-dynamic-table>
+</hz-magic-search-context>
 </div>
