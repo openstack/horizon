@@ -168,8 +168,8 @@ horizon.datatables = {
     $form.each(function () {
       var $this = $(this);
       var $action_buttons = $this.find('.table_actions button[data-batch-action="true"]');
-      if (typeof disable_button == undefined) {
-        disable_button = $this.find(".table-row-multi-select").filter(":checked").length > 0;
+      if (disable_button === undefined) {
+        disable_button = $this.find(".table-row-multi-select").filter(":checked").length == 0;
       }
       $action_buttons.toggleClass("disabled", disable_button);
     });
