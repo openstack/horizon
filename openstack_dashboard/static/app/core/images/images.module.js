@@ -38,10 +38,11 @@
 
   run.$inject = [
     'horizon.framework.conf.resource-type-registry.service',
+    'horizon.app.core.openstack-service-api.glance',
     'horizon.app.core.images.resourceType'
   ];
 
-  function run(registry, imageResourceType) {
+  function run(registry, glance, imageResourceType) {
     registry.getResourceType(imageResourceType, {
       names: [gettext('Image'), gettext('Images')]
     })
@@ -59,6 +60,9 @@
       })
       .setProperty('id', {
         label: gettext('ID')
+      })
+      .setProperty('type', {
+        label: gettext('Type')
       })
       .setProperty('members', {
         label: gettext('Members')
@@ -107,7 +111,49 @@
       })
       .setProperty('ramdisk_id', {
         label: gettext('Ramdisk ID')
-      });
+      })
+      .setListFunction(listFunction)
+      .tableColumns
+      .append({
+            id: 'name',
+            priority: 1,
+            sortDefault: true,
+            template: '<a ng-href="{$ \'details/OS::Glance::Image/\' + item.id $}">{$ item.name $}</a>'
+      })
+      .append({
+            id: 'type',
+            priority: 1,
+            filters: ['imageType']
+          })
+      .append({
+            id: 'status',
+            priority: 1,
+            filters: ['imageStatus']
+          })
+      .append({
+            id: 'filtered_visibility',
+            title: gettext('Visibility'),
+            priority: 2
+          })
+      .append({
+            id: 'protected',
+            priority: 1,
+            filters: ['yesno']
+          })
+      .append({
+            id: 'disk_format',
+            priority: 2,
+            filters: ['noValue', 'uppercase']
+          })
+      .append({
+            id: 'size',
+            priority: 2,
+            filters: ['bytes']
+          });
+
+    function listFunction() {
+      return glance.getImages();
+    }
   }
 
   /**

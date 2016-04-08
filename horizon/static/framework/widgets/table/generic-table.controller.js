@@ -29,7 +29,8 @@
 
     //ctrl.params = $routeParams;
     var hack = {
-      'instance': 'OS::Nova::Server'
+      'instance': 'OS::Nova::Server',
+      'image': 'OS::Glance::Image'
     }; 
     var resourceTypeName = hack[$routeParams.type];
     ctrl.resourceType = registry.getResourceType(resourceTypeName);
