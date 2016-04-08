@@ -77,6 +77,23 @@
       textarea.on('input propertychange', onTextareaChange);
       fileInput.on('change', onFileLoad);
 
+      /* onchange event occurs when a control loses the input focus and
+       * its value has been modified since gaining focus so we need to clear
+       * up the fileInput.val() when the textContent field is modified as to
+       * allow reloading the same script.
+       */
+      var textContentWatcher = $scope.$watch(function () {
+        return $scope.textContent;
+      }, function () {
+        if (fileInput.val() !== "") {
+          fileInput.val(null);
+        }
+      }, true);
+
+      $scope.$on('$destroy', function() {
+        textContentWatcher();
+      });
+
       function onTextareaChange() {
         $scope.$applyAsync(function () {
           /* Angular model won't provide the value of the <textarea> when it is in
