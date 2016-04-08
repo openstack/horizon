@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2016-03-16 02:16+0000\n"
+"POT-Creation-Date: 2016-04-07 12:25+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -2362,10 +2362,6 @@ msgstr "Pokretanje instance sa ovim mrežama"
 msgid "Launch instance with this policy profile"
 msgstr "pokrenite računarsku jedinicu sa ovim profilom politika"
 
-#, python-format
-msgid "Launched %(count)s named \"%(name)s\"."
-msgstr "Pokrenute %(count)s po imenu \"%(name)s\"."
-
 msgid ""
 "Launching multiple instances is only supported for images and instance "
 "snapshots."
@@ -3487,10 +3483,6 @@ msgstr "Sačuvaj izmene"
 #, python-format
 msgid "Saved extra spec \"%s\"."
 msgstr "Sačuvana dodatna specifikacija ta \"%s\"."
-
-#, python-format
-msgid "Scheduled resize of instance \"%s\"."
-msgstr "Planirana promena veličine instance \"%s\"."
 
 msgid "Security Group"
 msgstr "Sigurnosna grupa"

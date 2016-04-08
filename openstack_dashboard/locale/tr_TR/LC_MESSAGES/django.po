@@ -2,12 +2,13 @@
 # Doug Fish <drfish@us.ibm.com>, 2015. #zanata
 # Mücahit Büyükyılmaz <mucahit@deltanoc.com>, 2015. #zanata
 # OpenStack Infra <zanata@openstack.org>, 2015. #zanata
+# Andreas Jaeger <jaegerandi@gmail.com>, 2016. #zanata
 # Mücahit Büyükyılmaz <mucahit@deltanoc.com>, 2016. #zanata
 msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2016-03-16 02:16+0000\n"
+"POT-Creation-Date: 2016-04-07 12:25+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -340,29 +341,11 @@ msgstr " : Sonraki nokta"
 msgid " Also failed to delete port %s"
 msgstr " Bağlantı noktası %s silinemedi de"
 
-msgid "\"Add Router Route\""
-msgstr "\"Router Rotası Ekle\""
-
 msgid ""
 "\"Customization Script\" is analogous to \"User Data\" in other systems."
 msgstr ""
 "\"Özelleştirme Betiği\" diğer sistemlerdeki \"Kullanıcı Verisi\" ile "
 "benzeşir."
-
-msgid "\"Edit Volume Type\""
-msgstr "\"Mantıksal Sürücü Türünü Düzenle\""
-
-msgid "\"N/A\""
-msgstr "\"N/A\""
-
-msgid "\"Namespace Resource Type Associations\""
-msgstr "\"İsim Uzayı Kaynak Türü İlişkilendirmeleri\""
-
-msgid "\"No flavors meet minimum criteria for selected image.\""
-msgstr "\"Seçili imaj için asgari gereklilikleri karşılayan nitelik yok.\""
-
-msgid "\"None\""
-msgstr "\"Hiçbiri\""
 
 msgid ""
 "\"None\" indicates that no QoS Spec is currently associated. Conversely, "
@@ -371,10 +354,6 @@ msgstr ""
 "\"Hiçbiri\" şu anda hiçbir QoS Özelliğinin ilişkili olmadığını gösterir. "
 "Aynı şekilde, QoS Özelliğini \"None\" olarak ayarlamak mevcut ilişkiyi "
 "kaldıracaktır."
-
-msgid ""
-"\"Some flavors not meeting minimum image requirements have been disabled.\""
-msgstr "Asgari imaj gerekliliklerini karşılamayan bazı nitelikler kapatıldı.\""
 
 #, python-format
 msgid "%(field_name)s: Invalid IP address (value=%(ip)s)"
@@ -4416,10 +4395,6 @@ msgstr "Bu ağlarla sunucu başlat"
 msgid "Launch instance with this policy profile"
 msgstr "Bu ilke profilinde sunucu başlat"
 
-#, python-format
-msgid "Launched %(count)s named \"%(name)s\"."
-msgstr "\"%(name)s\" isimli %(count)s başlatıldı."
-
 msgid ""
 "Launching multiple instances is only supported for images and instance "
 "snapshots."
@@ -6348,10 +6323,6 @@ msgid_plural "Scheduled migration (pending confirmation) of Instances"
 msgstr[0] "Sunucuların göçü (doğrulama bekleniyor) zamanlandı"
 msgstr[1] ""
 
-#, python-format
-msgid "Scheduled resize of instance \"%s\"."
-msgstr "\"%s\" sunucusunun yeniden boyutlandırılması zamanlandı."
-
 msgctxt "Task status of an Instance"
 msgid "Scheduling"
 msgstr "Zamanlanıyor"
@@ -7081,13 +7052,6 @@ msgstr "%s public key başarıyla getirildi"
 
 msgid "Successfully modified QoS Spec consumer."
 msgstr "QoS Özelliği tüketicisi başarıyla değiştirildi."
-
-#, python-format
-msgid ""
-"Successfully restored backup %(backup_name)s to volume with id: %(volume_id)s"
-msgstr ""
-"Yedek %(backup_name)s başarıyla mantıksal sürücüye geri yüklendi: "
-"%(volume_id)s"
 
 #, python-format
 msgid ""

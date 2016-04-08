@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2016-03-16 02:16+0000\n"
+"POT-Creation-Date: 2016-04-07 12:25+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -322,30 +322,11 @@ msgstr ": następny przeskok"
 msgid " Also failed to delete port %s"
 msgstr "Nie można również usunąc portu %s"
 
-msgid "\"Add Router Route\""
-msgstr "„Dodanie trasy routera”"
-
 msgid ""
 "\"Customization Script\" is analogous to \"User Data\" in other systems."
 msgstr ""
 "„Skrypt dostosowujący” jest odpowiednikiem „danych użytkownika” w innych "
 "systemach."
-
-msgid "\"Edit Volume Type\""
-msgstr "„Edycja typu wolumenu”"
-
-msgid "\"N/A\""
-msgstr "„B/D”"
-
-msgid "\"Namespace Resource Type Associations\""
-msgstr "„Powiązania typów zasobów przestrzeni nazw”"
-
-msgid "\"No flavors meet minimum criteria for selected image.\""
-msgstr ""
-"„Żadna z odmian nie spełnia minimalnych kryteriów dla wybranego obrazu.”"
-
-msgid "\"None\""
-msgstr "„Brak”"
 
 msgid ""
 "\"None\" indicates that no QoS Spec is currently associated. Conversely, "
@@ -354,11 +335,6 @@ msgstr ""
 "„Brak” oznacza, że nie przypisano żadnej specyfikacji QoS. Podobnie "
 "ustawienie specyfikacji QoS na „Brak” spowoduje usunięcie obecnego "
 "powiązania."
-
-msgid ""
-"\"Some flavors not meeting minimum image requirements have been disabled.\""
-msgstr ""
-"„Część odmian niespełniających minimalnych wymagań obrazu zostało wyłączone.”"
 
 #, python-format
 msgid "%(field_name)s: Invalid IP address (value=%(ip)s)"
@@ -4536,10 +4512,6 @@ msgstr "Uruchom instancję z tymi sieciami"
 msgid "Launch instance with this policy profile"
 msgstr "Uruchom instancję z tym profilem zasad"
 
-#, python-format
-msgid "Launched %(count)s named \"%(name)s\"."
-msgstr "Uruchomiono %(count)s nazwanych „%(name)s”."
-
 msgid ""
 "Launching multiple instances is only supported for images and instance "
 "snapshots."
@@ -6512,10 +6484,6 @@ msgstr[0] "Zaplanowano migrację instancji (oczekuje na potwierdzenie)"
 msgstr[1] "Zaplanowano migrację instancji (oczekuje na potwierdzenie)"
 msgstr[2] "Zaplanowano migrację instancji (oczekuje na potwierdzenie)"
 
-#, python-format
-msgid "Scheduled resize of instance \"%s\"."
-msgstr "Dodano do kolejki zmianę rozmiaru instancji „%s”."
-
 msgctxt "Task status of an Instance"
 msgid "Scheduling"
 msgstr "Kolejkowanie"
@@ -7268,12 +7236,6 @@ msgstr "Poprawnie zaimportowano klucz publiczny: %s"
 
 msgid "Successfully modified QoS Spec consumer."
 msgstr "Zmodyfikowano konsumenta specyfikacji QoS."
-
-#, python-format
-msgid ""
-"Successfully restored backup %(backup_name)s to volume with id: %(volume_id)s"
-msgstr ""
-"Przywrócono kopię zapasową %(backup_name)s na wolumen o nazwie: %(volume_id)s"
 
 #, python-format
 msgid ""

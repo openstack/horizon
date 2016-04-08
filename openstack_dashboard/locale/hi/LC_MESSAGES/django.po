@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2016-03-16 02:16+0000\n"
+"POT-Creation-Date: 2016-04-07 12:25+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -2895,10 +2895,6 @@ msgstr "इन नेटवर्कों के साथ इंस्टे�
 msgid "Launch instance with this policy profile"
 msgstr "इस नीति प्रोफाइल के साथ इंस्टेंस लॉन्च करें"
 
-#, python-format
-msgid "Launched %(count)s named \"%(name)s\"."
-msgstr " %(count)s \"%(name)s\" नामित शुभारंभ किया."
-
 msgid ""
 "Launching multiple instances is only supported for images and instance "
 "snapshots."
@@ -4129,10 +4125,6 @@ msgid "Scheduled migration (pending confirmation) of Instance"
 msgid_plural "Scheduled migration (pending confirmation) of Instances"
 msgstr[0] "इंस्टैंस का अनुसूचित माइग्रेशन (पुष्टि लंबित)"
 msgstr[1] "इंस्टैंस का अनुसूचित माइग्रेशन (पुष्टि लंबित)"
-
-#, python-format
-msgid "Scheduled resize of instance \"%s\"."
-msgstr "इंस्टेंस \"%s\" के अनुसूचित आकार परिवर्तन."
 
 msgctxt "Task status of an Instance"
 msgid "Scheduling"

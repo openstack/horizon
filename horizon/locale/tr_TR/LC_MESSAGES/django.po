@@ -1,15 +1,16 @@
 # Mücahit Büyükyılmaz <mucahit@deltanoc.com>, 2015. #zanata
 # Steve Kowalik <steven@wedontsleep.org>, 2015. #zanata
+# Andreas Jaeger <jaegerandi@gmail.com>, 2016. #zanata
 # Mücahit Büyükyılmaz <mucahit@deltanoc.com>, 2016. #zanata
 msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2016-03-15 01:55+0000\n"
+"POT-Creation-Date: 2016-04-07 12:24+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2016-03-04 01:36+0000\n"
+"PO-Revision-Date: 2016-03-25 08:57+0000\n"
 "Last-Translator: Mücahit Büyükyılmaz <mucahit@deltanoc.com>\n"
 "Language-Team: Turkish (Turkey)\n"
 "Language: tr-TR\n"
@@ -168,6 +169,18 @@ msgstr "Uygun"
 
 msgid "Back"
 msgstr "Geri"
+
+#. Translators: test code, don't really have to translate
+msgid "Batch Item"
+msgid_plural "Batch Items"
+msgstr[0] "Toplu Öğe"
+msgstr[1] "Toplu Öğeler"
+
+#. Translators: test code, don't really have to translate
+msgid "Batched Item"
+msgid_plural "Batched Items"
+msgstr[0] "İzlenen Öğe"
+msgstr[1] "İzlenen Öğeler"
 
 msgid "Cancel"
 msgstr "İptal"
@@ -344,6 +357,10 @@ msgstr "Başarılı:"
 
 msgid "Summary"
 msgstr "Özet"
+
+#, python-format
+msgid "The attribute %(attr)s doesn't exist on %(obj)s."
+msgstr "%(attr)s özelliği %(obj)s üzerinde bulunamadı ."
 
 msgid "The date should be in YYYY-mm-dd format."
 msgstr "Tarih YYYY-AA-GG formatında olmalı."

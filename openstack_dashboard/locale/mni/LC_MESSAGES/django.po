@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2016-03-16 02:16+0000\n"
+"POT-Creation-Date: 2016-04-07 12:25+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -3030,10 +3030,6 @@ msgstr "নেতৱার্কশীং অসিনা ইন্সতেন�
 msgid "Launch instance with this policy profile"
 msgstr "পোলিসি প্রোফাইল অসিনা ইন্সতেন্স শেমগৎলু"
 
-#, python-format
-msgid "Launched %(count)s named \"%(name)s\"."
-msgstr "\"%(name)s\" হায়না মমীং থোনবা %(count)s শেমগৎলে।"
-
 msgid ""
 "Launching multiple instances is only supported for images and instance "
 "snapshots."
@@ -4315,10 +4311,6 @@ msgstr "অহেনবা স্পেক \"%s\" সেভ তৌরে।"
 msgid "Saved spec \"%s\"."
 msgstr "স্পেক \"%s\" সেভ তৌরে।"
 
-#, python-format
-msgid "Scheduled resize of instance \"%s\"."
-msgstr "সেদ্যুল শেম্লবা ইন্সতেন্স \"%s\"গী রিসাইজ তৌবা"
-
 msgid "Script Data"
 msgstr "স্ক্রিপ্ত দেতা"
 
@@ -4824,13 +4816,6 @@ msgstr "পব্লিক কী: %s মায়পাক্না ইম্প�
 
 msgid "Successfully modified QoS Spec consumer."
 msgstr "QoS স্পেক কঞ্জ্যুমর মায় পাক্না শেমদোক-শেমজিন তৌখ্রে।"
-
-#, python-format
-msgid ""
-"Successfully restored backup %(backup_name)s to volume with id: %(volume_id)s"
-msgstr ""
-"id: %(volume_id)sগা লোয়নবা ভোল্যুমদা বেকঅপ %(backup_name)s অসি মায় পাক্না "
-"রেষ্টোর তৌরে"
 
 #, python-format
 msgid ""

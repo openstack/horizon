@@ -2,6 +2,7 @@
 # OpenStack Infra <zanata@openstack.org>, 2015. #zanata
 # Shu Muto <shu-mutou@rf.jp.nec.com>, 2015. #zanata
 # Yuko Katabami <yukokatabami@gmail.com>, 2015. #zanata
+# Andreas Jaeger <jaegerandi@gmail.com>, 2016. #zanata
 # Mie Yamamoto <myamamot@redhat.com>, 2016. #zanata
 # Shu Muto <shu-mutou@rf.jp.nec.com>, 2016. #zanata
 # Yuko Katabami <yukokatabami@gmail.com>, 2016. #zanata
@@ -9,11 +10,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2016-03-18 12:48+0000\n"
+"POT-Creation-Date: 2016-04-07 12:25+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2016-03-18 11:12+0000\n"
+"PO-Revision-Date: 2016-03-28 12:54+0000\n"
 "Last-Translator: Yuko Katabami <yukokatabami@gmail.com>\n"
 "Language-Team: Japanese\n"
 "Language: ja\n"
@@ -367,31 +368,10 @@ msgstr ""
 msgid " Also failed to delete port %s"
 msgstr "ポート %s の削除にも失敗しました。"
 
-msgid "\"Add Router Route\""
-msgstr "ルータールートの追加"
-
-msgid "\"Containers\""
-msgstr "\"コンテナー\""
-
 msgid ""
 "\"Customization Script\" is analogous to \"User Data\" in other systems."
 msgstr ""
 "「カスタマイズスクリプト」は他のシステムの「ユーザーデータ」と同じです。"
-
-msgid "\"Edit Volume Type\""
-msgstr "ボリューム種別の編集"
-
-msgid "\"N/A\""
-msgstr "なし"
-
-msgid "\"Namespace Resource Type Associations\""
-msgstr "名前空間とリソース種別の関連付け"
-
-msgid "\"No flavors meet minimum criteria for selected image.\""
-msgstr "選択したイメージの最小限の要件を満たすフレーバーがありません。"
-
-msgid "\"None\""
-msgstr "なし"
 
 msgid ""
 "\"None\" indicates that no QoS Spec is currently associated. Conversely, "
@@ -399,10 +379,6 @@ msgid ""
 msgstr ""
 "「なし」は QoS スペックが現在関連付けられていないことを示します。また、QoS ス"
 "ペックを「なし」に設定すると、現在の関連付けが削除されます。 "
-
-msgid ""
-"\"Some flavors not meeting minimum image requirements have been disabled.\""
-msgstr "イメージの最小限の要件を満たしていないフレーバーが無効になっています。"
 
 #, python-format
 msgid "%(field_name)s: Invalid IP address (value=%(ip)s)"
@@ -887,8 +863,9 @@ msgid ""
 "added to the same consistency group only if they are associated with same "
 "back end."
 msgstr ""
-"ボリューム種別をこの整合性に追加します。同じバックエンドに関連付けられている"
-"場合には、複数のボリューム種別を同じ整合性グループに追加することができます。"
+"ボリューム種別をこの整合性グループに追加します。同じバックエンドに関連付けら"
+"れている場合には、複数のボリューム種別を同じ整合性グループに追加することがで"
+"きます。"
 
 msgid "Add, modify or remove the QoS Spec associated with this volume type."
 msgstr ""
@@ -1143,7 +1120,7 @@ msgstr ""
 "ければ、管理者に連絡してください。"
 
 msgid "Another Plugin-based Panel"
-msgstr "他のプラグインによるパネル"
+msgstr "他のプラグインベースのパネル"
 
 msgid "Any"
 msgstr "ANY"
@@ -1360,7 +1337,7 @@ msgid "Binding: Host"
 msgstr "バインド: ホスト"
 
 msgid "Binding: VNIC Type"
-msgstr "バインド: VNIC の種別"
+msgstr "バインド: 仮想 NIC の種別"
 
 msgctxt "Task status of an Instance"
 msgid "Block Device Mapping"
@@ -1431,7 +1408,7 @@ msgid "CPU time used"
 msgstr "使用 CPU 時間"
 
 msgid "Can not specify both image and external image location."
-msgstr "イメージと外部イメージを同時に指定できません。"
+msgstr "イメージと外部のイメージの場所を同時に指定できません。"
 
 msgid "Cancel"
 msgstr "取り消し"
@@ -1724,7 +1701,7 @@ msgid "Containers"
 msgstr "コンテナー"
 
 msgid "Content Type"
-msgstr "コンテンツ種別"
+msgstr "コンテンツタイプ"
 
 msgid "Contents"
 msgstr "内容"
@@ -1853,12 +1830,12 @@ msgstr ""
 "IKE ポリシーには、以下の属性を関連付けできます。\n"
 "\n"
 "<li>認証アルゴリズム: 指定できる認証アルゴリズムは SHA1 のみです。</li><li>暗"
-"号アルゴリズム: この IKE ポリシーで使用するアルゴリズム種別です。 3des, "
-"aes-128, aes-192, aes-256 が指定できます。</li><li>IKE バージョン: 使用する"
-"バージョン種別です。 v1, v2 が指定できます</li><li>ライフタイム: 単位と値で構"
+"号アルゴリズム: この IKE ポリシーで使用するアルゴリズム種別です。3des、"
+"aes-128、aes-192、aes-256 を指定できます。</li><li>IKE バージョン: 使用する"
+"バージョン種別です。v1、v2 を指定できます</li><li>ライフタイム: 単位と値で構"
 "成されます。単位は「秒」で、デフォルト値は 3600 です。</li><li>Perfect "
-"Forward Secrecy: PFS に指定できるのは Diffie-Hellman グループ 2, 5(デフォル"
-"ト), 14 です。</li><li>IKE フェーズ 1 のメッセージ交換モード: 指定できるのは "
+"Forward Secrecy: PFS に指定できるのは Diffie-Hellman グループ 2、5(デフォル"
+"ト)、14 です。</li><li>IKE フェーズ 1 のメッセージ交換モード: 指定できるのは "
 "'main' モードのみです。</li>\n"
 "すべての属性は任意です。"
 
@@ -1882,14 +1859,13 @@ msgstr ""
 "IPSec ポリシーには、以下の属性を関連付けできます。\n"
 "\n"
 "<li>認証アルゴリズム: 指定できる認証アルゴリズムは SHA1 のみです。</li><li>カ"
-"プセル化モード: 使用する IPSec トンネル種別です。トンネルとトランスポートが指"
+"プセル化モード: 使用する IPSec トンネル種別です。トンネル、トランスポートを指"
 "定できます。</li><li>暗号アルゴリズム: この IPSec ポリシーで使用するアルゴリ"
-"ズム種別です。 3des, aes-128, aes-192, aes-256 が指定できます。</li><li>ライ"
-"フタイム: 単位と値で構成されます。単位は「秒」で、デフォルト値は 3600 です。"
-"</li><li>Perfect Forward Secrecy: PFS に指定できるのは Diffie-Hellman グルー"
-"プ 2, 5(デフォルト), 14 です。</li><li>トランスフォームプロトコル: この "
-"IPSec ポリシーで使用するプロトコル種別です。 esp, ah, ah-esp を指定できます。"
-"</li>\n"
+"ズム種別です。3des、aes-128、aes-192、aes-256 を指定できます。</li><li>ライフ"
+"タイム: 単位と値で構成されます。単位は「秒」で、デフォルト値は 3600 です。</"
+"li><li>Perfect Forward Secrecy: PFS に指定できるのは Diffie-Hellman グループ "
+"2、5(デフォルト)、14 です。</li><li>トランスフォームプロトコル: この IPSec ポ"
+"リシーで使用するプロトコル種別です。esp、ah、ah-esp を指定できます。</li>\n"
 "すべての属性は任意です。"
 
 msgid ""
@@ -2159,8 +2135,8 @@ msgid ""
 "Create a new network. In addition, a subnet associated with the network can "
 "be created in the following steps of this wizard."
 msgstr ""
-"新しいネットワークを作成できます。合わせて、このネットワークに割り当てるサブ"
-"ネットをこのウィザードの次のステップで作成できます。"
+"新しいネットワークを作成します。このウィザードの次のステップでは、そのネット"
+"ワークに割り当てるサブネットを作成できます。"
 
 msgid "Create a new role."
 msgstr "新しいロールを作成します。"
@@ -2265,11 +2241,11 @@ msgid ""
 "want gateway please check the \"Disable Gateway\" checkbox. Advanced "
 "configuration is available by clicking on the \"Subnet Details\" tab."
 msgstr ""
-"ネットワークに割り当てられたサブネットを作成できます。有効な「ネットワークア"
-"ドレス」と「ゲートウェイ IP」を入力する必要があります。「ゲートウェイ IP」を"
-"入力しなかった場合、デフォルトでネットワークの最初の値が設定されます。ゲート"
-"ウェイが不要な場合は、「ゲートウェイなし」チェックボックスをチェックしてくだ"
-"さい。「サブネットの詳細」タブで高度な設定ができます。"
+"ネットワークに割り当てられたサブネットを作成します。有効な「ネットワークアド"
+"レス」と「ゲートウェイ IP」を入力する必要があります。「ゲートウェイ IP」を入"
+"力しなかった場合、デフォルトでネットワークの最初の値が割り当てられます。ゲー"
+"トウェイが不要な場合は、「ゲートウェイなし」チェックボックスをチェックしてく"
+"ださい。「サブネットの詳細」タブで高度な設定ができます。"
 
 msgid "Creating"
 msgstr "作成中"
@@ -2338,7 +2314,7 @@ msgid ""
 "image location must be accessible to the Image Service."
 msgstr ""
 "現在、HTTP/HTTPS URLから取得できるイメージのみがサポートされています。イメー"
-"ジの場所から Image Service へアクセスできるようにしてください。"
+"ジの場所から Image サービスへアクセスできるようにしてください。"
 
 msgctxt "Custom style theme"
 msgid "Custom"
@@ -2672,7 +2648,7 @@ msgid_plural "Delete Volume Types"
 msgstr[0] "ボリューム種別の削除"
 
 msgid "Delete Volume on Instance Delete"
-msgstr "インスタンス削除時のボリュームを削除します"
+msgstr "インスタンス削除時にボリュームを削除"
 
 #, python-format
 msgid "Delete the created network \"%s\" due to subnet creation failure."
@@ -2680,7 +2656,7 @@ msgstr ""
 "サブネット作成に失敗したため、作成したネットワーク \"%s\" を削除しました。"
 
 msgid "Delete volume when the instance is deleted"
-msgstr "インスタンスが削除された時にボリュームを削除します"
+msgstr "インスタンスの削除時にボリュームを削除します"
 
 msgid "Deleted"
 msgstr "削除"
@@ -2843,7 +2819,7 @@ msgid "Deleting VIP %s from this pool cannot be undone."
 msgstr "プールからの仮想 IP %s の削除は元に戻すことはできません。"
 
 msgid "Deny"
-msgstr "破棄"
+msgstr "拒否"
 
 msgid "Description"
 msgstr "説明"
@@ -4501,10 +4477,10 @@ msgid "Identity provider updated successfully."
 msgstr "認証プロバイダーが正常に更新されました。"
 
 msgid "Identity service does not allow editing user data."
-msgstr "Identity Service ではユーザーデータの編集が許可されていません。"
+msgstr "Identity サービスではユーザーデータの編集が許可されていません。"
 
 msgid "Identity service does not allow editing user password."
-msgstr "Identity Service ではユーザーパスワードの編集ができません。"
+msgstr "Identity サービスではユーザーパスワードの編集ができません。"
 
 msgid ""
 "If \"No volume type\" is selected, the volume will be created without a "
@@ -4537,7 +4513,7 @@ msgid ""
 msgstr ""
 "HTTP/HTTPS URL で指定する場合、イメージの場所のフィールドには、イメージ（バイ"
 "ナリー）への有効な直接の URL を入力する必要があります。イメージの場所へ "
-"Image Service がアクセスできるようにしてください。URL がリダイレクトのページ"
+"Image サービスがアクセスできるようにしてください。URL がリダイレクトのページ"
 "の場合や、エラーページが返ってきた場合には、登録されたイメージは使用できない"
 "可能性があります。"
 
@@ -4930,10 +4906,6 @@ msgstr "これらのポートでインスタンスを起動します。"
 
 msgid "Launch instance with this policy profile"
 msgstr "このポリシープロファイルでインスタンスを起動します。"
-
-#, python-format
-msgid "Launched %(count)s named \"%(name)s\"."
-msgstr "名前が \"%(name)s\" の %(count)s を起動しました。"
 
 msgid ""
 "Launching multiple instances is only supported for images and instance "
@@ -6886,7 +6858,7 @@ msgid ""
 msgstr ""
 "ルーター %(name)s が作成されましたが、外部ネットワークへの接続に失敗しまし"
 "た。新規ルーターを削除する試みも失敗しました。ルーター %(name)s はまだ存在し"
-"ていますが、希望の外部ネットワークには接続されていません。"
+"ていますが、指定した外部ネットワークには接続されていません。"
 
 #, python-format
 msgid ""
@@ -7074,10 +7046,6 @@ msgstr[0] "ボリュームスナップショットの削除を予約しました
 msgid "Scheduled migration (pending confirmation) of Instance"
 msgid_plural "Scheduled migration (pending confirmation) of Instances"
 msgstr[0] "(確認待ちでの) インスタンスのマイグレーションを予約しました"
-
-#, python-format
-msgid "Scheduled resize of instance \"%s\"."
-msgstr "インスタンス \"%s\" のリサイズを予約しました。"
 
 msgctxt "Task status of an Instance"
 msgid "Scheduling"
@@ -7868,13 +7836,6 @@ msgstr "EC2 認証情報の再作成に成功しました。"
 
 #, python-format
 msgid ""
-"Successfully restored backup %(backup_name)s to volume with id: %(volume_id)s"
-msgstr ""
-"バックアップ %(backup_name)s がボリューム %(volume_id)s に正常にリストアされ"
-"ました。"
-
-#, python-format
-msgid ""
 "Successfully sent the request to change the volume type to \"%(vtype)s\" for "
 "volume: \"%(name)s\""
 msgstr ""
@@ -8164,7 +8125,7 @@ msgstr ""
 "を記録し、譲渡を受ける人に伝えてください。"
 
 msgid "The VNIC type that is bound to the neutron port"
-msgstr "neutron ポートにバインドする VNIC の種別"
+msgstr "neutron ポートにバインドする仮想 NIC の種別"
 
 #, python-format
 msgid ""
@@ -9046,7 +9007,7 @@ msgid "Unable to get network agents list."
 msgstr "ネットワークエージェントの一覧を取得できません。"
 
 msgid "Unable to get nova services list."
-msgstr "nova サービスの一覧を取得できません。"
+msgstr "nova のサービス一覧を取得できません。"
 
 msgid "Unable to get openrc credentials"
 msgstr "openrc 認証情報を取得できません"
@@ -9920,7 +9881,7 @@ msgid "Unknown instance"
 msgstr "不明なインスタンス"
 
 msgid "Unknown instance (None)"
-msgstr "未知のインスタンス (None)"
+msgstr "不明なインスタンス (None)"
 
 msgid "Unlock Instance"
 msgid_plural "Unlock Instances"
@@ -10307,7 +10268,7 @@ msgid "VMDK - Virtual Machine Disk"
 msgstr "VMDK - 仮想マシンディスク"
 
 msgid "VNIC Type"
-msgstr "VNIC の種別"
+msgstr "仮想 NIC の種別"
 
 msgid "VPN"
 msgstr "VPN"
@@ -10508,8 +10469,8 @@ msgid ""
 "Volume consistency groups can only be deleted after all the volumes they "
 "contain are either deleted or unassigned."
 msgstr ""
-"ボリュームの整合性グループは、含まれる全ボリュームが削除または割り当て解除さ"
-"れた後にのみ削除が可能です。"
+"ボリュームの整合性グループの削除は、そのグループに含まれる全ボリュームが削除"
+"または割り当て解除された後にのみ実行可能です。"
 
 msgid ""
 "Volume consistency groups provide a mechanism for creating snapshots of "

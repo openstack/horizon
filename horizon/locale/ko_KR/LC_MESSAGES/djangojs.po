@@ -1,16 +1,17 @@
 # Sungjin Kang <gang.sungjin@gmail.com>, 2015. #zanata
+# Andreas Jaeger <jaegerandi@gmail.com>, 2016. #zanata
 # Ian Y. Choi <ianyrchoi@gmail.com>, 2016. #zanata
 # Sungjin Kang <gang.sungjin@gmail.com>, 2016. #zanata
 msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2016-03-18 12:48+0000\n"
+"POT-Creation-Date: 2016-04-07 12:24+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2016-03-18 02:51+0000\n"
-"Last-Translator: Sungjin Kang <gang.sungjin@gmail.com>\n"
+"PO-Revision-Date: 2016-03-20 02:32+0000\n"
+"Last-Translator: Ian Y. Choi <ianyrchoi@gmail.com>\n"
 "Language-Team: Korean (South Korea)\n"
 "Language: ko-KR\n"
 "X-Generator: Zanata 3.7.3\n"
@@ -101,7 +102,7 @@ msgid "Confirm %s"
 msgstr "%s를 확인하세요."
 
 msgid "Confirm Delete Foobars"
-msgstr "풋바 삭제 검증"
+msgstr "Foobar 삭제 확인"
 
 msgid "Connecting"
 msgstr "연결중"
@@ -414,9 +415,9 @@ msgid ""
 "Glance Metadata Catalog. Use the \"Custom\" option to add metadata with "
 "the key of your choice."
 msgstr ""
-"오른쪽 열에서 왼쪽 열로 이동하여 리소스 메타 데이터를 지정할 수 있습니다. 왼"
-"쪽 열에는 Glance 메타 데이터 카탈로그로부터 메타 데이터 정의가 존재합니다. "
-"\"사용자 정의\" 옵션을 사용하여 선택한 키에 메타 데이터를 추가할 수 있습니다."
+"오른쪽 열에서 왼쪽 열로 이동하여 리소스 메타데이터를 지정할 수 있습니다. 왼"
+"쪽 열에는 Glance 메타데이터 카탈로그로부터의 메타데이터 정의가 존재합니다. "
+"\"사용자 정의\" 옵션을 사용하여 선택한 키에 메타데이터를 추가할 수 있습니다."
 
 #, python-format
 msgid "You have selected %s. "

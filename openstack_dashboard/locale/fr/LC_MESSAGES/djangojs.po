@@ -5,6 +5,7 @@
 # OpenStack Infra <zanata@openstack.org>, 2015. #zanata
 # Romain Chantereau <rchanter@redhat.com>, 2015. #zanata
 # andrew melim <nokostya.translation@gmail.com>, 2015. #zanata
+# Andreas Jaeger <jaegerandi@gmail.com>, 2016. #zanata
 # Corinne Verheyde <cverheyd@gmail.com>, 2016. #zanata
 # Gael Rehault <gael_rehault@dell.com>, 2016. #zanata
 # Gérald LONLAS <g.lonlas@gmail.com>, 2016. #zanata
@@ -13,12 +14,12 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2016-03-18 12:48+0000\n"
+"POT-Creation-Date: 2016-04-07 12:25+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2016-03-29 09:22+0000\n"
-"Last-Translator: Marcellin Fom Tchassem <mf6510@att.com>\n"
+"PO-Revision-Date: 2016-03-31 05:39+0000\n"
+"Last-Translator: Angelique Pillal <pillal@fr.ibm.com>\n"
 "Language-Team: French\n"
 "Language: fr\n"
 "X-Generator: Zanata 3.7.3\n"
@@ -63,6 +64,30 @@ msgstr "7"
 
 msgid "8"
 msgstr "8"
+
+msgid ""
+"<button></button>\n"
+"          <strong>Heads up!</strong>\n"
+"           This\n"
+"          <a>alert needs your attention</a>,\n"
+"           but it's not super important."
+msgstr ""
+"<button></button>\n"
+"          <strong>Attention !</strong>\n"
+"           Cette\n"
+"          <a>alerte requiert votre attention</a>,\n"
+"           mais elle n'est pas très importante."
+
+msgid ""
+"<button></button>\n"
+"          <strong>Oh snap!</strong>\n"
+"          <a>Change a few things up</a>\n"
+"          and try submitting again."
+msgstr ""
+"<button></button>\n"
+"          <strong>Oh mince !</strong>\n"
+"          <a>Modifiez quelques éléments</a>\n"
+"          et relancez la demande."
 
 msgid ""
 "<button></button>\n"
@@ -140,6 +165,33 @@ msgid "<small>This line of text is meant to be treated as fine print.</small>"
 msgstr "<small>Cette ligne de texte s'affichera en petits caractères.</small>"
 
 msgid ""
+"A container is a storage compartment for your data and provides a way\n"
+"          for you to organize your data. You can think of a container as a\n"
+"          folder in Windows or a directory in UNIX. The primary difference\n"
+"          between a container and these other file system concepts is that\n"
+"          containers cannot be nested. You can, however, create an "
+"unlimited\n"
+"          number of containers within your account. Data must be stored in "
+"a\n"
+"          container so you must have at least one container defined in your\n"
+"          account prior to uploading data."
+msgstr ""
+"Un conteneur est un compartiment de stockage pour vos données et représente\n"
+"         pour vous un moyen d'organiser vos données. Vous pouvez considérer "
+"qu'il \n"
+"         s'agit d'un dossier dans Windows ou d'un répertoire dans UNIX. La "
+"principale \n"
+"         différence entre un conteneur et ces autres concepts de systèmes de "
+"fichiers est \n"
+"         que les conteneurs ne peuvent pas être imbriqués. Vous pouvez, "
+"cependant, créer \n"
+"         un nombre illimité de conteneurs au sein de votre compte. Les "
+"données doivent être \n"
+"         stockées dans un conteneur de sorte qu'au moins un conteneur doit "
+"être défini dans \n"
+"         votre compte avant le téléchargement de données."
+
+msgid ""
 "A floating IP allows instances to be addressable from an external network.\n"
 "    Floating IPs are not allocated to instances at creation time and may be "
 "assigned\n"
@@ -176,8 +228,20 @@ msgstr ""
 "Création avec succès de la paire de clés nommée '{$ctrl.createdKeypair.name"
 "$}'. Cette paire de clés devrait se télécharger automatiquement."
 
+msgid ""
+"A longer block of help text that breaks onto a new line and may extend "
+"beyond one line."
+msgstr ""
+"Un plus long block d'aide qui retourne sur une nouvelle ligne et peut "
+"s'étendre au delà d'une ligne"
+
 msgid "A name is required for your instance."
 msgstr "Vous avez besoin d'un nom pour votre instance."
+
+msgid "A port represents a virtual switch port on a logical network switch."
+msgstr ""
+"Un port représente un port de commutation virtuel sur un commutateur de "
+"réseau logique."
 
 msgid "AKI"
 msgstr "AKI"
@@ -272,6 +336,10 @@ msgstr "Êtes-vous certain de vouloir supprimer %(name)s?"
 #, python-format
 msgid "Are you sure you want to delete %(numSelected)s files?"
 msgstr "Êtes-vous certain de vouloir supprimer les fichiers %(numSelected)s ?"
+
+#, python-format
+msgid "Are you sure you want to delete container %(name)s?"
+msgstr "Etes-vous certain de vouloir supprimer le conteneur %(name)s ?"
 
 msgid "Automatic"
 msgstr "Automatique"
@@ -377,6 +445,10 @@ msgstr "Conteneur %(name)s créé"
 msgid "Container %(name)s deleted."
 msgstr "Conteneur %(name)s supprimé"
 
+#, python-format
+msgid "Container %(name)s is now %(access)s."
+msgstr "Le conteneur %(name)s est maintenant %(access)s."
+
 msgid "Container Access"
 msgstr "Accès du conteneur"
 
@@ -395,6 +467,9 @@ msgstr "Conteneurs"
 msgid "Content Type"
 msgstr "Type de Contenu"
 
+msgid "Contextual alternatives"
+msgstr "Alternatives contextuelles"
+
 msgid ""
 "Count\n"
 "          <span></span>"
@@ -410,6 +485,13 @@ msgstr "Créer un conteneur"
 
 msgid "Create Folder"
 msgstr "Créer un dossier"
+
+msgid ""
+"Create Folder In: {$ ctrl.model.container.name $}\n"
+"    <span>: {$ ctrl.model.folder $}</span>"
+msgstr ""
+"Créez le dossier dans : {$ ctrl.model.container.name $}\n"
+"    <span>: {$ ctrl.model.folder $}</span>"
 
 msgid "Create Key Pair"
 msgstr "Créer Paire Clés"
@@ -536,11 +618,17 @@ msgstr "Nom du périphérique"
 msgid "Dialogs"
 msgstr "Fenêtre"
 
+msgid "Direct"
+msgstr "Direct"
+
 msgid "Direction"
 msgstr "Direction"
 
 msgid "Disabled"
 msgstr "Désactivée"
+
+msgid "Disabled input"
+msgstr "Champ désactivé"
 
 msgid "Disabled input here..."
 msgstr "Champ désactivé ici..."
@@ -641,6 +729,9 @@ msgstr ""
 "Les gabarits sont en place pour gérer la taille de la capacité de stockage, "
 "de mémoire et de calcul d'une instance."
 
+msgid "Focused input"
+msgstr "Saisie mise en évidence"
+
 msgid "Folder"
 msgstr "Dossier"
 
@@ -655,7 +746,7 @@ msgid "Format"
 msgstr "Format"
 
 msgid "Forms"
-msgstr "Formulaire"
+msgstr "Formulaires"
 
 msgid ""
 "From a Windows system, you can use PuTTYGen to create private/public keys.\n"
@@ -695,8 +786,14 @@ msgstr "Titre 6"
 msgid "Home"
 msgstr "Accueil"
 
+msgid "Host ID"
+msgstr "ID hôte"
+
 msgid "ID"
 msgstr "ID"
+
+msgid "IP"
+msgstr "IP"
 
 msgid "ISO"
 msgstr "ISO"
@@ -786,6 +883,18 @@ msgstr "Taille du champ"
 msgid "Input States"
 msgstr "État des champs"
 
+msgid "Input addons"
+msgstr "Additifs de saisie"
+
+msgid "Input error"
+msgstr "Erreur de saisie"
+
+msgid "Input success"
+msgstr "Réussite saisie"
+
+msgid "Input warning"
+msgstr "Avertissement de saisie"
+
 msgid ""
 "Instance Name\n"
 "          <span></span>"
@@ -847,6 +956,17 @@ msgstr ""
 "      Choisissez un nom représentatif pour votre paire de clés et coller "
 "votre clé publique SSH dans\n"
 "      l’espace prévu à cet effet."
+
+msgid ""
+"Key Pairs are how you login to your instance after it is launched.\n"
+"      Choose a key pair name you will recognize.\n"
+"      Names may only include alphanumeric characters, spaces, or dashes."
+msgstr ""
+"Les paires de clés indiquent le mode de connexion à votre instance une fois "
+"celle-ci lancée.\n"
+"      Choisissez un nom de paire de clés que vous reconnaîtrez.\n"
+"      Les noms peuvent uniquement inclure des caractères alphanumériques, "
+"des espaces ou des tirets."
 
 msgid "Keypair already exists or name contains bad characters."
 msgstr ""
@@ -911,6 +1031,9 @@ msgstr "Regarde, je suis dans un petit well !"
 
 msgid "Look, I'm in a well!"
 msgstr "Regarde, je suis dans un well !"
+
+msgid "MacVTap"
+msgstr "MacVTap"
 
 msgid "Manual"
 msgstr "Manuelle"
@@ -987,6 +1110,9 @@ msgstr "Réseau du moniteur de santé"
 msgid "Network Health Monitors"
 msgstr "Réseau des moniteurs de santé"
 
+msgid "Network ID"
+msgstr "ID Réseau"
+
 msgid "Network Port"
 msgstr "Port réseaux"
 
@@ -1027,6 +1153,38 @@ msgstr "Non"
 
 msgid "No available items"
 msgstr "Pas d'élément disponible"
+
+msgid "Normal"
+msgstr "Normal"
+
+msgid ""
+"Note: A Public Container will allow anyone with the Public URL to\n"
+"          gain access to your objects in the container."
+msgstr ""
+"Remarque : Un conteneur public autorisera toute personne ayant l'URL "
+"publique\n"
+"à accéder à vos objets du conteneur."
+
+msgid ""
+"Note: Delimiters ('{$ ctrl.model.DELIMETER $}') are allowed in the\n"
+"          file name to place the new file into a folder that will be "
+"created\n"
+"          when the file is uploaded (to any depth of folders)."
+msgstr ""
+"Remarque : Les délimiteurs ('{$ ctrl.model.DELIMETER $}') sont autorisés "
+"dans \n"
+"          le nom de fichier afin de placer le nouveau fichier dans un "
+"dossier qui sera \n"
+"          créé lors du chargement du fichier (dans un des dossiers en "
+"profondeur)."
+
+msgid ""
+"Note: Delimiters ('{$ ctrl.model.DELIMETER $}') are allowed in the\n"
+"          folder name to create deep folders."
+msgstr ""
+"Remarque : Les délimiteurs ('{$ ctrl.model.DELIMETER $}') sont autorisés "
+"dans le \n"
+"          nom de dossier pour créer des dossiers en profondeur."
 
 msgid "Note: you will not be able to download this later."
 msgstr "Note : Vous ne serez pas autorisé à télécharger ultérieurement"
@@ -1084,6 +1242,9 @@ msgstr "Vue d'ensemble"
 
 msgid "Owner"
 msgstr "Propriétaire"
+
+msgid "Pager"
+msgstr "Messager"
 
 msgid "Pagination"
 msgstr "Pagination"
@@ -1146,6 +1307,17 @@ msgstr "La vérification de la stratégie a échoué."
 msgid "Popovers"
 msgstr "Pop-up"
 
+msgid "Ports can be created under a network by administrators."
+msgstr "Des ports peuvent être créés sous un réseau par les administrateurs."
+
+msgid ""
+"Ports provide extra communication channels to your instances. You can select "
+"ports instead of networks or a mix of both."
+msgstr ""
+"Les ports fournissent des canaux de communication supplémentaires vers vos "
+"instances. Vous pouvez sélectionner des ports et non des réseaux, ou bien "
+"des ports et des réseaux."
+
 msgid "Previous"
 msgstr "Précédent"
 
@@ -1159,7 +1331,7 @@ msgid "Profile"
 msgstr "Profil"
 
 msgid "Progress bars"
-msgstr "Barre de progression"
+msgstr "Barres de progression"
 
 msgid "Project"
 msgstr "Projet"
@@ -1218,6 +1390,9 @@ msgstr "RAM"
 
 msgid "RAW"
 msgstr "RAW"
+
+msgid "RX/TX factor"
+msgstr "Facteur RX/TX "
 
 msgid "Radios"
 msgstr "Boutons radio"
@@ -1325,6 +1500,9 @@ msgstr ""
 "Sélectionner un ou plusieurs groupes de sécurité dans les groupes "
 "disponibles ci-dessous."
 
+msgid "Select ports from those listed below."
+msgstr "Sélectionnez des ports dans la liste ci-dessous."
+
 msgid "Select the security groups to launch the instance in."
 msgstr "Sélectionner les groupes de sécurité pour lancer l'instance."
 
@@ -1393,6 +1571,9 @@ msgstr "Tableau classique"
 msgid "Status"
 msgstr "Statut"
 
+msgid "Striped"
+msgstr "Segmenté"
+
 msgid "Submit"
 msgstr "Envoyer"
 
@@ -1458,6 +1639,13 @@ msgstr ""
 "%(maxInstanceCount)s  instances"
 
 msgid ""
+"The logical port also defines the MAC address and the IP address(es) to be "
+"assigned to the interfaces plugged into them."
+msgstr ""
+"Le port logique définit également l'adresse MAC ainsi que la ou les adresses "
+"IP à attribuer aux interfaces qui y sont connectées."
+
+msgid ""
 "The maximum number of key-value pairs that can be supplied per instance is "
 "determined by the compute provider."
 msgstr ""
@@ -1486,6 +1674,9 @@ msgstr ""
 
 msgid "The status indicates whether the network has an active connection."
 msgstr "Le statut indique si le réseau a une connexion active."
+
+msgid "The status indicates whether the port has an active connection."
+msgstr "Le status indique si il existe une connexion active sur le port."
 
 msgid ""
 "The subnet identifies a sub-section of a network. A subnet is specified in "
@@ -1537,6 +1728,9 @@ msgstr ""
 "C'est une simple unité hero, un simple composant jumbotron-style pour "
 "attirer l'attention sur une fonctionnalité ou une information."
 
+msgid "This is focused..."
+msgstr "Ceci est mis en évidence..."
+
 msgid "This limit is currently not set."
 msgstr "Cette limite n'est actuellement pas configuré."
 
@@ -1556,9 +1750,8 @@ msgid ""
 "To view source code, hover over a section, then click the <a><span></span></"
 "a> button in the top right of that section."
 msgstr ""
-"Pour voir le code source, déplacer le curseur au-dessus d'une section, "
-"ensuite cliquer le <a><span></span></a> bouton à droite en haut de cette "
-"section."
+"Pour voir le code source, déplacez le pointeur au-dessus d'une section puis "
+"cliquez sur le <a><span></span></a>bouton en haut à droite de la section."
 
 msgid "Tooltips"
 msgstr "Tooltips"
@@ -1932,6 +2125,13 @@ msgstr "Mis à jour le"
 msgid "Upload File"
 msgstr "Charger un fichier"
 
+msgid ""
+"Upload File To: {$ ctrl.model.container.name $}\n"
+"    <span>: {$ ctrl.model.folder $}</span>"
+msgstr ""
+"Charger le fichier dans : {$ ctrl.model.container.name $}\n"
+"    <span>: {$ ctrl.model.folder $}</span>"
+
 msgid "Uploading"
 msgstr "Chargement"
 
@@ -1962,11 +2162,17 @@ msgstr "VHD"
 msgid "VMDK"
 msgstr "VMDK"
 
+msgid "VNIC type"
+msgstr "Type de VNIC"
+
 msgid "View Details"
 msgstr "Voir les détails"
 
 msgid "Virtual Size"
 msgstr "Taille virtuelle"
+
+msgid "Virtual instances attach their interfaces to ports."
+msgstr "Les instances virtuelles attachent leurs interfaces à des ports."
 
 msgid "Visibility"
 msgstr "Visibilité"
@@ -2042,6 +2248,14 @@ msgid "Wells"
 msgstr "Wells"
 
 msgid ""
+"When IP addresses are associated to a port, this also implies the port is "
+"associated with a subnet, as the IP address was taken from the allocation "
+"pool for a specific subnet."
+msgstr ""
+"Associer des adresses IP à un port implique que le port est lui-même associé "
+"à un sous-réseau dans le pool duquel sont prises lesdites adresses."
+
+msgid ""
 "When selecting volume as boot source, please ensure the instance's "
 "availability zone is compatible with your volume's availability zone."
 msgstr ""
@@ -2059,6 +2273,20 @@ msgstr ""
 "alors le réseau est utilisable. Vous pouvez définir le <b>Admin State</b> "
 "sur <b>Inactif</b>\n"
 "si vous souhaitez que les autres utilisateurs n'accèdent pas au réseau."
+
+msgid ""
+"When the <b>Admin State</b> for a port is set to <b>Up</b> and it has no "
+"<b>Device Owner</b>,\n"
+"    then the port is available for use. You can set the <b>Admin State</b> "
+"to <b>Down</b>\n"
+"    if you are not ready for other users to use the port."
+msgstr ""
+"Lorsque la valeur <b>Admin State</b> d'un port est défini sur <b>Up</b>  et "
+"si elle n'a pas de \n"
+"<b>Device Owner</b>, le port est disponible pour utilisation. Vous pouvez "
+"définir <b>Admin State</b> \n"
+"sur <b>Down</b> si le port n'est pas prêt pour utilisation par d'autres "
+"utilisateurs."
 
 msgid "Yes"
 msgstr "Oui"

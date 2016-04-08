@@ -1,4 +1,5 @@
 # Sungjin Kang <gang.sungjin@gmail.com>, 2015. #zanata
+# Andreas Jaeger <jaegerandi@gmail.com>, 2016. #zanata
 # Ian Y. Choi <ianyrchoi@gmail.com>, 2016. #zanata
 # Sungjin Kang <gang.sungjin@gmail.com>, 2016. #zanata
 # Sunhong Kim <intensify7@naver.com>, 2016. #zanata
@@ -6,11 +7,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2016-03-18 12:48+0000\n"
+"POT-Creation-Date: 2016-04-07 12:25+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2016-03-18 02:51+0000\n"
+"PO-Revision-Date: 2016-03-23 03:09+0000\n"
 "Last-Translator: Ian Y. Choi <ianyrchoi@gmail.com>\n"
 "Language-Team: Korean (South Korea)\n"
 "Language: ko-KR\n"
@@ -19,6 +20,10 @@ msgstr ""
 
 msgid "#"
 msgstr "#"
+
+#, python-format
+msgid "%(name)s deleted."
+msgstr "%(name)s 삭제되었습니다."
 
 #, python-format
 msgid "%s instance launched."
@@ -89,6 +94,13 @@ msgstr ""
 
 msgid ""
 "<input>\n"
+"                Public</input>"
+msgstr ""
+"<input>\n"
+"                공개</input>"
+
+msgid ""
+"<input>\n"
 "        Configuration Drive\n"
 "      </input>"
 msgstr ""
@@ -142,6 +154,27 @@ msgid "<small>This line of text is meant to be treated as fine print.</small>"
 msgstr "<small>This line of text is meant to be treated as fine print.</small>"
 
 msgid ""
+"A container is a storage compartment for your data and provides a way\n"
+"          for you to organize your data. You can think of a container as a\n"
+"          folder in Windows or a directory in UNIX. The primary difference\n"
+"          between a container and these other file system concepts is that\n"
+"          containers cannot be nested. You can, however, create an "
+"unlimited\n"
+"          number of containers within your account. Data must be stored in "
+"a\n"
+"          container so you must have at least one container defined in your\n"
+"          account prior to uploading data."
+msgstr ""
+"컨테이너는 데이터에 대한 스토리지 구역을 나누고 데이터를 \n"
+"          정리하는 방법을 제공합니다. Windows 폴더나 Unix의 \n"
+"          디렉토리와 동일하게 컨테이너를 사용할 수 있습니다. \n"
+"          컨테이너와 다른 파일 시스템 컨셉과의 가장 큰 차이점은 \n"
+"          컨테이너를 중첩하여 사용할 수 없습니다. 그러나 계정에서는 \n"
+"          무한대로 컨터이너를 만들 수 있습니다. 데이터를 업로드하기 \n"
+"          전에 계정에 적어도 하나의 컨테이너가 존재하여야 데이터를 \n"
+"          저장할 수 있습니다."
+
+msgid ""
 "A floating IP allows instances to be addressable from an external network.\n"
 "    Floating IPs are not allocated to instances at creation time and may be "
 "assigned\n"
@@ -151,11 +184,11 @@ msgid ""
 "    Then, select the <b>Associate Floating IP</b> option and enter the "
 "necessary details."
 msgstr ""
-"유동 IP는 외부 네트워크에서 주소를 이용하여 인스턴스에 접근할 \n"
-"    수 있게 합니다. 유동 IP는 인스턴스가 생성 중에는 할당할 수 없으며, \n"
-"    생성된 후 할당이 가능합니다. 유동 IP 할당은 <b>인스턴스</b> 뷰로 \n"
+"Floating IP는 외부 네트워크에서 주소를 이용하여 인스턴스에 접근할 \n"
+"    수 있게 합니다. Floating IP는 인스턴스가 생성 중에는 할당할 수 없으며, \n"
+"    생성된 후 할당이 가능합니다. Floating IP 할당은 <b>인스턴스</b> 뷰로 \n"
 "    이동하여, 각 인스턴스의 오른쪽에 있는 <b>작업</b> 메뉴를 클릭합니다. \n"
-"    그런뒤 <b>유동 IP 할당</b> 옵션을 선택하여 필요한 정보를 입력합니다."
+"    그런뒤 <b>Floating IP 할당</b> 옵션을 선택하여 필요한 정보를 입력합니다."
 
 msgid ""
 "A key pair allows you to SSH into your newly created instance.\n"
@@ -181,6 +214,9 @@ msgstr ""
 
 msgid "A name is required for your instance."
 msgstr "인스턴스 이름이 필요합니다."
+
+msgid "A port represents a virtual switch port on a logical network switch."
+msgstr "포트는 논리 네트워크 스위치 상의 가상 스위치 포트를 나타냅니다."
 
 msgid "AKI"
 msgstr "AKI"
@@ -216,7 +252,7 @@ msgstr ""
 msgid ""
 "Administrators set up the pool of floating IPs that are available to attach "
 "to instances."
-msgstr "관리자는 인스턴스에 연결하여 사용할 플로팅 IP 풀을 설정합니다."
+msgstr "관리자는 인스턴스에 연결하여 사용할 floating IP 풀을 설정합니다."
 
 msgid "Alerts"
 msgstr "Alerts"
@@ -269,6 +305,14 @@ msgstr "아키텍처"
 #, python-format
 msgid "Are you sure you want to delete %(name)s?"
 msgstr "%(name)s 를 정말 삭제하시겠습니까?"
+
+#, python-format
+msgid "Are you sure you want to delete %(numSelected)s files?"
+msgstr "%(numSelected)s 파일을 삭제하시겠습니까?"
+
+#, python-format
+msgid "Are you sure you want to delete container %(name)s?"
+msgstr "%(name)s 컨테이너를 삭제하시겠습니까?"
 
 msgid "Automatic"
 msgstr "자동"
@@ -354,12 +398,39 @@ msgstr "Column heading"
 msgid "Configuration"
 msgstr "구성"
 
+msgid "Confirm Delete"
+msgstr "삭제 확인"
+
 msgid "Confirm Delete Image"
 msgid_plural "Confirm Delete Images"
 msgstr[0] "삭제 이미지 확인"
 
+msgid "Container"
+msgstr "컨테이너"
+
+#, python-format
+msgid "Container %(name)s created."
+msgstr "%(name)s 컨테이너가 생성되었습니다."
+
+#, python-format
+msgid "Container %(name)s deleted."
+msgstr "%(name)s 컨테이너가 삭제되었습니다."
+
+#, python-format
+msgid "Container %(name)s is now %(access)s."
+msgstr "%(name)s 컨테이너에 지금 %(access)s 합니다."
+
+msgid "Container Access"
+msgstr "컨테이너 접근"
+
 msgid "Container Format"
 msgstr "컨테이너 포멧"
+
+msgid "Container Name"
+msgstr "컨테이너 이름"
+
+msgid "Container name must not contain \"/\"."
+msgstr "컨테이너 이름에 \"/\"를 포함되지 않아야 합니다."
 
 msgid "Containers"
 msgstr "Containers"
@@ -379,6 +450,9 @@ msgstr ""
 
 msgid "Create"
 msgstr "생성"
+
+msgid "Create Container"
+msgstr "컨테이너 생성"
 
 msgid "Create Folder"
 msgstr "폴더 생성"
@@ -448,6 +522,9 @@ msgstr "Data"
 msgid "Date"
 msgstr "Date"
 
+msgid "Date Created"
+msgstr "생성된 날짜"
+
 msgid "Datetime"
 msgstr "Datetime"
 
@@ -463,12 +540,18 @@ msgstr "Default input"
 msgid "Delete"
 msgstr "삭제"
 
+msgid "Delete Container"
+msgstr "컨테이너 삭제"
+
 msgid "Delete Image"
 msgid_plural "Delete Images"
 msgstr[0] "이미지 삭제"
 
 msgid "Delete Images"
 msgstr "이미지 삭제"
+
+msgid "Delete Selection"
+msgstr "선택 항목 삭제"
 
 msgid "Delete Volume on Instance Delete"
 msgstr "인스턴스 삭제시 볼륨 삭제"
@@ -480,6 +563,9 @@ msgstr "삭제 완료"
 msgid "Deleted Image: %s."
 msgid_plural "Deleted Images: %s."
 msgstr[0] "이미지 삭제됨: %s"
+
+msgid "Deleted."
+msgstr "삭제되었습니다."
 
 msgid "Deleting"
 msgstr "삭제 중"
@@ -498,6 +584,9 @@ msgstr "장치 이름"
 
 msgid "Dialogs"
 msgstr "Dialogs"
+
+msgid "Direct"
+msgstr "Direct"
 
 msgid "Direction"
 msgstr "방향"
@@ -572,6 +661,19 @@ msgstr "확장을 활성화하지 못했습니다: %(extension)s"
 msgid "External Network"
 msgstr "외부 네트워크"
 
+msgid "Failed to delete."
+msgstr "삭제에 실패했습니다."
+
+msgid "File"
+msgstr "파일"
+
+#, python-format
+msgid "File %(name)s uploaded."
+msgstr "%(name)s 파일 업로드하였습니다."
+
+msgid "File Name"
+msgstr "파일 이름"
+
 msgid "Filename"
 msgstr "파일 이름"
 
@@ -595,6 +697,13 @@ msgstr ""
 
 msgid "Focused input"
 msgstr "Focused input"
+
+msgid "Folder"
+msgstr "폴더"
+
+#, python-format
+msgid "Folder %(name)s created."
+msgstr "%(name)s 폴더가 생성디었습니다."
 
 msgid "Folder Name"
 msgstr "폴더 이름"
@@ -642,8 +751,14 @@ msgstr "Heading 6"
 msgid "Home"
 msgstr "Home"
 
+msgid "Host ID"
+msgstr "호스트 ID"
+
 msgid "ID"
 msgstr "ID"
+
+msgid "IP"
+msgstr "IP"
 
 msgid "ISO"
 msgstr "ISO"
@@ -866,6 +981,9 @@ msgstr "Look, I'm in a small well!"
 msgid "Look, I'm in a well!"
 msgstr "Look, I'm in a well!"
 
+msgid "MacVTap"
+msgstr "MacVTap"
+
 msgid "Manual"
 msgstr "수동"
 
@@ -941,6 +1059,9 @@ msgstr "네트워크 상태 모니터"
 msgid "Network Health Monitors"
 msgstr "네트워크 상태 모니터"
 
+msgid "Network ID"
+msgstr "Network ID"
+
 msgid "Network Port"
 msgstr "네트워크 포트"
 
@@ -979,6 +1100,33 @@ msgstr "아니오"
 
 msgid "No available items"
 msgstr "사용 가능한 항목 없음"
+
+msgid "Normal"
+msgstr "Normal"
+
+msgid ""
+"Note: A Public Container will allow anyone with the Public URL to\n"
+"          gain access to your objects in the container."
+msgstr ""
+"참고: 공개 컨테이너는 공개 URL을 이용하여 누구나 컨테이너 내에 있는 \n"
+"          오브젝트에 접근 할 수 있습니다."
+
+msgid ""
+"Note: Delimiters ('{$ ctrl.model.DELIMETER $}') are allowed in the\n"
+"          file name to place the new file into a folder that will be "
+"created\n"
+"          when the file is uploaded (to any depth of folders)."
+msgstr ""
+"참고: 구분자 ('{$ ctrl.model.DELIMETER $}') 는 파일 이름이 \n"
+"          (임의의 폴더 위치로) 업로드 될 때 생성되는 폴더 안에서\n"
+"          새로운 파일로 위치시킬 수 있도록 해 줍니다."
+
+msgid ""
+"Note: Delimiters ('{$ ctrl.model.DELIMETER $}') are allowed in the\n"
+"          folder name to create deep folders."
+msgstr ""
+"참고: 구분자 ('{$ ctrl.model.DELIMETER $}')는 해당 폴더 이름 안에\n"
+"          폴더를 만들 수 있습니다."
 
 msgid "Note: you will not be able to download this later."
 msgstr "주의: 나중에 다시 받을 수 없습니다."
@@ -1099,6 +1247,16 @@ msgstr "정책 확인을 하지 못했습니다."
 msgid "Popovers"
 msgstr "Popovers"
 
+msgid "Ports can be created under a network by administrators."
+msgstr "포트는 관리자가 네트워크에서 만들 수 있습니다."
+
+msgid ""
+"Ports provide extra communication channels to your instances. You can select "
+"ports instead of networks or a mix of both."
+msgstr ""
+"포트는 인스턴스에 부가적인 통신 채널을 제공합니다. 네트워크 대신 포트를 선택 "
+"또는 둘 다 선택할 수 있습니다."
+
 msgid "Previous"
 msgstr "Previous"
 
@@ -1146,6 +1304,9 @@ msgstr ""
 msgid "Public"
 msgstr "공용"
 
+msgid "Public Access"
+msgstr "Public Access"
+
 msgid "Public Key"
 msgstr "공개 키"
 
@@ -1185,6 +1346,9 @@ msgstr "레코드 속성"
 
 msgid "Remote"
 msgstr "원격"
+
+msgid "Required"
+msgstr "필수"
 
 msgid "Right"
 msgstr "Right"
@@ -1232,6 +1396,9 @@ msgstr ""
 msgid "Segmentation ID"
 msgstr "구분 ID"
 
+msgid "Select All"
+msgstr "전제 선택"
+
 msgid "Select Boot Source"
 msgstr "부팅 소스 선택"
 
@@ -1264,6 +1431,9 @@ msgstr "하나 이상 선택"
 
 msgid "Select one or more security groups from the available groups below."
 msgstr "아래 사용가능한 그룹에서 하나 이상의 시큐리티 그룹을 선택합니다."
+
+msgid "Select ports from those listed below."
+msgstr "아래 목록에서 포트를 선택합니다."
 
 msgid "Select the security groups to launch the instance in."
 msgstr "인스턴스 작동시 시큐리티 그룹을 선택합니다."
@@ -1401,6 +1571,13 @@ msgstr ""
 "하지 않아야 합니다"
 
 msgid ""
+"The logical port also defines the MAC address and the IP address(es) to be "
+"assigned to the interfaces plugged into them."
+msgstr ""
+"논리 포트는 연결되는 인터페이스에 할당이 이루어질 MAC 주소와 IP 주소 또한 정"
+"의합니다."
+
+msgid ""
 "The maximum number of key-value pairs that can be supplied per instance is "
 "determined by the compute provider."
 msgstr ""
@@ -1429,6 +1606,9 @@ msgstr ""
 
 msgid "The status indicates whether the network has an active connection."
 msgstr "해당 상태는 네트워크가 활성화된 연결을 이루고 있는지를 가리킵니다."
+
+msgid "The status indicates whether the port has an active connection."
+msgstr "이 상태는 해당 포트가 활성 연결이 있는지 여부를 가리킵니다."
 
 msgid ""
 "The subnet identifies a sub-section of a network. A subnet is specified in "
@@ -1538,10 +1718,10 @@ msgid "Typography"
 msgstr "Typography"
 
 msgid "Unable to allocate new floating IP address."
-msgstr "새로운 유동 IP 주소를 할당할 수 없습니다."
+msgstr "새로운 floating IP 주소를 할당할 수 없습니다."
 
 msgid "Unable to associate floating IP address."
-msgstr "유동 IP 주소를 연결 할 수 없습니다."
+msgstr "Floating IP 주소를 연결 할 수 없습니다."
 
 msgid "Unable to change the container access."
 msgstr "컨테이너 접속을 변경할 수 없습니다."
@@ -1635,7 +1815,7 @@ msgid "Unable to delete the users."
 msgstr "사용자를 삭제하지 못했습니다."
 
 msgid "Unable to disassociate floating IP address."
-msgstr "유동 IP 주소 연결을 끊을 수 없습니다."
+msgstr "Floating IP 주소 연결을 끊을 수 없습니다."
 
 msgid "Unable to edit instance metadata."
 msgstr "인스턴스 메타데이터를 수정할 수 없습니다."
@@ -1698,10 +1878,10 @@ msgid "Unable to import the keypair."
 msgstr "키 페어를 가져오지 못했습니다."
 
 msgid "Unable to retrieve floating IP pools."
-msgstr "유동 IP pool을 찾지 못했습니다."
+msgstr "Floating IP pool을 찾지 못했습니다."
 
 msgid "Unable to retrieve floating IPs."
-msgstr "유동 IP를 찾지 못했습니다."
+msgstr "Floating IP를 찾지 못했습니다."
 
 msgid "Unable to retrieve instance metadata."
 msgstr "인스턴스 메타데이터를 찾지 못했습니다."
@@ -1868,6 +2048,19 @@ msgstr "업데이트 완료"
 msgid "Updated At"
 msgstr "갱신 시점"
 
+msgid "Upload File"
+msgstr "파일 업로드"
+
+msgid ""
+"Upload File To: {$ ctrl.model.container.name $}\n"
+"    <span>: {$ ctrl.model.folder $}</span>"
+msgstr ""
+"파일 업로드:  {$ ctrl.model.container.name $}\n"
+"    <span>: {$ ctrl.model.folder $}</span>"
+
+msgid "Uploading"
+msgstr "Uploading"
+
 msgid "Url"
 msgstr "Url"
 
@@ -1895,11 +2088,17 @@ msgstr "VHD"
 msgid "VMDK"
 msgstr "VMDK"
 
+msgid "VNIC type"
+msgstr "VNIC 타입"
+
 msgid "View Details"
 msgstr "세부 정보 보기"
 
 msgid "Virtual Size"
 msgstr "가상 크기"
+
+msgid "Virtual instances attach their interfaces to ports."
+msgstr "가상 인스턴스는 인터페이스를 포트에 연결합니다."
 
 msgid "Visibility"
 msgstr "가시성"
@@ -1971,6 +2170,14 @@ msgid "Wells"
 msgstr "Wells"
 
 msgid ""
+"When IP addresses are associated to a port, this also implies the port is "
+"associated with a subnet, as the IP address was taken from the allocation "
+"pool for a specific subnet."
+msgstr ""
+"IP 주소가 포트와 연결을 맺고 있을 때, 이는 IP 주소가 임의의 서브넷에 대한 할"
+"당 풀에서 선택됨에 따라 해당 포트가 서브넷 또한 연결되어 있음을 암시합니다."
+
+msgid ""
 "When selecting volume as boot source, please ensure the instance's "
 "availability zone is compatible with your volume's availability zone."
 msgstr ""
@@ -1986,6 +2193,19 @@ msgstr ""
 "네트워크의 <b>관리 상태</b>가 <b>UP</b>으로 설정되어 있을 경우, \n"
 "    네트워크를 사용할 수 있습니다. <b>관리 상태</b>를 <b>Down</b>로 \n"
 "    설정한다면 다른 사용자들이 네트워크에 접근할 수 없습니다."
+
+msgid ""
+"When the <b>Admin State</b> for a port is set to <b>Up</b> and it has no "
+"<b>Device Owner</b>,\n"
+"    then the port is available for use. You can set the <b>Admin State</b> "
+"to <b>Down</b>\n"
+"    if you are not ready for other users to use the port."
+msgstr ""
+"포트에 대한 <b>관리 상태</b>가 <b>Up</b>으로 설정되어 있고 <b>장치 소유자</"
+"b> 가 없는 경우,\n"
+"    해당 포트는 사용할 수 있는 상태입니다. <b>관리 상태</b>를 <b>Down</b>"
+"로 \n"
+"    설정한다면 다른 사용자들이 해당 포트에 접근할 수 없습니다."
 
 msgid "Yes"
 msgstr "예"
@@ -2017,12 +2237,18 @@ msgid "You have selected \"%s\". Deleted image is not recoverable."
 msgid_plural "You have selected \"%s\". Deleted images are not recoverable."
 msgstr[0] "\"%s\"를 선택했습니다. 삭제된 이미지는 복구 할 수 없습니다."
 
+msgid "disabled"
+msgstr "disabled"
+
 msgid "error"
 msgid_plural "errors"
 msgstr[0] "error"
 
 msgid "image"
 msgstr "image"
+
+msgid "link"
+msgstr "link"
 
 msgid "message"
 msgid_plural "messages"

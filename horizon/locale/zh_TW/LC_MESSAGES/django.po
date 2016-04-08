@@ -1,15 +1,16 @@
 # Zhang Xiaowei <zero00072@gmail.com>, 2015. #zanata
+# Andreas Jaeger <jaegerandi@gmail.com>, 2016. #zanata
 # Ching Kuo <igene@igene.tw>, 2016. #zanata
 msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2016-03-15 01:55+0000\n"
+"POT-Creation-Date: 2016-04-07 12:24+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2016-03-14 05:50+0000\n"
-"Last-Translator: Ching Kuo <igene@igene.tw>\n"
+"PO-Revision-Date: 2016-03-22 09:40+0000\n"
+"Last-Translator: Jennifer <cristxu@tw.ibm.com>\n"
 "Language-Team: Chinese (Taiwan)\n"
 "Language: zh-TW\n"
 "X-Generator: Zanata 3.7.3\n"
@@ -166,6 +167,16 @@ msgstr "可用"
 msgid "Back"
 msgstr "上一頁"
 
+#. Translators: test code, don't really have to translate
+msgid "Batch Item"
+msgid_plural "Batch Items"
+msgstr[0] "Batch Item"
+
+#. Translators: test code, don't really have to translate
+msgid "Batched Item"
+msgid_plural "Batched Items"
+msgstr[0] "Batched Item"
+
 msgid "Cancel"
 msgstr "取消"
 
@@ -192,6 +203,20 @@ msgstr[0] "顯示 %(counter)s 項"
 msgid "Displaying %(nav_items)s item"
 msgid_plural "Displaying %(nav_items)s items"
 msgstr[0] "顯示 %(nav_items)s 項"
+
+#. Translators: test code, don't really have to translate
+msgid "Down Item"
+msgid_plural "Down Items"
+msgstr[0] "Down Item"
+
+#. Translators: test code, don't really have to translate
+msgid "Downed Item"
+msgid_plural "Downed Items"
+msgstr[0] "Downed Item"
+
+#, python-format
+msgid "Error processing message json file '%(path)s': %(exception)s"
+msgstr "處理訊息 JSON 檔 '%(path)s' 時發生錯誤：%(exception)s"
 
 msgid "Error: "
 msgstr "錯誤："
@@ -231,6 +256,10 @@ msgstr "登入"
 
 msgid "Members"
 msgstr "成員"
+
+#, python-format
+msgid "Message json file '%(path)s' is malformed. %(exception)s"
+msgstr "訊息 JSON 檔 '%(path)s' 的格式不正確。%(exception)s"
 
 msgid "More Actions"
 msgstr "更多動作"
@@ -316,11 +345,24 @@ msgstr "成功："
 msgid "Summary"
 msgstr "摘要"
 
+#, python-format
+msgid "The attribute %(attr)s doesn't exist on %(obj)s."
+msgstr "%(obj)s 上不存在 %(attr)s 屬性。"
+
 msgid "The date should be in YYYY-mm-dd format."
 msgstr "日期的格式應該為 YY-mm-dd。"
 
 msgid "The string may only contain ASCII printable characters."
 msgstr "字串只能包含 ASCII 可印出的字元。"
+
+#, python-format
+msgid ""
+"The value of %(resource)s is %(name)s inside the template. When launching a "
+"stack from this interface, the value must start with \"http://\" or "
+"\"https://\""
+msgstr ""
+"%(resource)s 的值是範本內的 %(name)s。從此介面啟動堆疊時，該值的開頭必須是 "
+"\"http://\" 或 \"https://\""
 
 msgid "This Period's GB-Hours:"
 msgstr "此時段的硬碟 GB 時數："
@@ -344,6 +386,24 @@ msgstr "未授權。請試著重新登入。"
 #, python-format
 msgid "Unauthorized: %s"
 msgstr "未授權：%s"
+
+#. Translators: test code, don't really have to translate
+msgid "Up Item"
+msgid_plural "Up Items"
+msgstr[0] "Up Item"
+
+msgid "Update Item"
+msgid_plural "Update Items"
+msgstr[0] "更新項目"
+
+msgid "Updated Item"
+msgid_plural "Updated Items"
+msgstr[0] "已更新的項目"
+
+#. Translators: test code, don't really have to translate
+msgid "Upped Item"
+msgid_plural "Upped Items"
+msgstr[0] "Upped Item"
 
 msgid "Usage Summary"
 msgstr "使用量摘要"

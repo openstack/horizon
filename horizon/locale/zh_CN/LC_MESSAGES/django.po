@@ -1,6 +1,6 @@
-# Andreas Jaeger <jaegerandi@gmail.com>, 2015. #zanata
 # OpenStack Infra <zanata@openstack.org>, 2015. #zanata
 # zhangjingwen <zhangjingwen@cn.fujitsu.com>, 2015. #zanata
+# Andreas Jaeger <jaegerandi@gmail.com>, 2016. #zanata
 # Zheng Xi Zhou <zzxwill@gmail.com>, 2016. #zanata
 # liujunpeng <liujunpeng@inspur.com>, 2016. #zanata
 # vuuv <froms2008@gmail.com>, 2016. #zanata
@@ -8,11 +8,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2016-03-16 02:15+0000\n"
+"POT-Creation-Date: 2016-04-07 12:24+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2016-03-16 12:11+0000\n"
+"PO-Revision-Date: 2016-03-23 12:46+0000\n"
 "Last-Translator: vuuv <froms2008@gmail.com>\n"
 "Language-Team: Chinese (China)\n"
 "Language: zh-CN\n"
@@ -27,7 +27,7 @@ msgid ""
 "              "
 msgstr ""
 "\n"
-"                使用其他用户登录或返回<a href=\"%(home_url)s\">首页</a>\n"
+"                使用其他用户登录或返回 <a href=\"%(home_url)s\">首页</a>\n"
 "              "
 
 #, python-format
@@ -75,7 +75,7 @@ msgid ""
 msgstr ""
 "\n"
 "如果你不确定使用哪种认证方式，请联系管理员。\n"
-"    "
+" "
 
 #, python-format
 msgctxt "past"
@@ -142,11 +142,11 @@ msgid "-"
 msgstr "-"
 
 msgid "0 Bytes"
-msgstr "0字节"
+msgstr "0 字节"
 
 #, python-format
 msgid "A %(resource)s with the name \"%(name)s\" already exists."
-msgstr "已经存在一个资源%(resource)s名称为\"%(name)s\"。"
+msgstr "已经存在名为 \"%(name)s\" 的 %(resource)s。"
 
 msgid "Actions"
 msgstr "动作"
@@ -155,7 +155,7 @@ msgid "Active Instances:"
 msgstr "运行的云主机："
 
 msgid "Active RAM:"
-msgstr "活跃的内存："
+msgstr "启用的内存："
 
 msgid "Add a row"
 msgstr "增加一行"
@@ -172,12 +172,12 @@ msgstr "返回"
 #. Translators: test code, don't really have to translate
 msgid "Batch Item"
 msgid_plural "Batch Items"
-msgstr[0] "批处理条目"
+msgstr[0] "Batch Item"
 
 #. Translators: test code, don't really have to translate
 msgid "Batched Item"
 msgid_plural "Batched Items"
-msgstr[0] "批处理的条目"
+msgstr[0] "Batched Item"
 
 msgid "Cancel"
 msgstr "取消"
@@ -218,34 +218,34 @@ msgstr[0] "Downed Item"
 
 #, python-format
 msgid "Error processing message json file '%(path)s': %(exception)s"
-msgstr "处理消息json文件 '%(path)s' 出错: %(exception)s"
+msgstr "处理json消息文件 '%(path)s' 时出错: %(exception)s"
 
 msgid "Error: "
 msgstr "错误："
 
 msgid "Fake"
-msgstr "伪"
+msgstr "Fake"
 
 msgid "Filter"
 msgstr "筛选"
 
 msgid "Horizon"
-msgstr "控制面板"
+msgstr "Horizon"
 
 msgid "Incorrect format for IP address"
-msgstr "不正确的IP地址格式"
+msgstr "IP地址格式不对"
 
 msgid "Info: "
 msgstr "信息："
 
 msgid "Invalid metadata entry. Use comma-separated key=value pairs"
-msgstr "无效的元数据实体，使用键=值"
+msgstr "无效的元数据条目，请使用逗号分隔的 key=value 组合"
 
 msgid "Invalid subnet mask"
 msgstr "无效的子网掩码"
 
 msgid "Invalid version for IP address"
-msgstr "IP 地址版本无效"
+msgstr "无效的 IP 地址版本"
 
 msgid "Limit Summary"
 msgstr "上限摘要"
@@ -261,7 +261,7 @@ msgstr "成员"
 
 #, python-format
 msgid "Message json file '%(path)s' is malformed. %(exception)s"
-msgstr "消息 json 文件 '%(path)s' 内容格式不对: %(exception)s"
+msgstr "json 消息文件 '%(path)s' 内容格式不对: %(exception)s"
 
 msgid "More Actions"
 msgstr "更多操作"
@@ -283,7 +283,7 @@ msgstr "没有要显示的条目。"
 
 #, python-format
 msgid "No match returned for the id \"%s\"."
-msgstr "id \"%s\" 没有匹配的返回顶。"
+msgstr "id为 \"%s\" 的对象没有匹配项。"
 
 msgid "No members."
 msgstr "没有成员。"
@@ -298,7 +298,7 @@ msgid "Not a valid port number"
 msgstr "不是一个有效的端口号"
 
 msgid "One colon allowed in port range"
-msgstr "用冒号分隔端口区间"
+msgstr "端口范围只能使用一个冒号"
 
 msgid "Other"
 msgstr "其它"
@@ -313,14 +313,14 @@ msgid "Please select a row before taking that action."
 msgstr "请在执行前选择一行。"
 
 msgid "Processing..."
-msgstr "正在处理中, 请稍候..."
+msgstr "正在处理..."
 
 msgid "Save"
 msgstr "保存"
 
 #, python-format
 msgid "Select a %s to browse."
-msgstr "选择一个%s 浏览。"
+msgstr "请选择要浏览的 %s 。"
 
 msgid "Select a period of time to query its usage:"
 msgstr "选择一段时间来查询其用量："
@@ -349,13 +349,13 @@ msgstr "概要"
 
 #, python-format
 msgid "The attribute %(attr)s doesn't exist on %(obj)s."
-msgstr "对象 %(obj)s 不存在 %(attr)s 属性。"
+msgstr "%(obj)s 不存在 %(attr)s 属性。"
 
 msgid "The date should be in YYYY-mm-dd format."
 msgstr "日期应是YYYY-mm-dd格式。"
 
 msgid "The string may only contain ASCII printable characters."
-msgstr "字符串只能包含ASCII可印刷字符."
+msgstr "字符串只能包含 ASCII 可显示（printable）字符."
 
 #, python-format
 msgid ""
@@ -367,13 +367,13 @@ msgstr ""
 "\"http://\" 或\"https://\"开头。"
 
 msgid "This Period's GB-Hours:"
-msgstr "这一时期的GB-小时数:"
+msgstr "周期内磁盘GB-小时数:"
 
 msgid "This Period's RAM-Hours:"
-msgstr "这一时期的内存-小时数"
+msgstr "周期内内存-小时数"
 
 msgid "This Period's VCPU-Hours:"
-msgstr "这一时期的VCPU-小时数:"
+msgstr "周期内VCPU-小时数:"
 
 msgid "This action cannot be undone."
 msgstr "这个动作不能撤消。"
@@ -387,7 +387,7 @@ msgstr "未授权。请尝试重新登录。"
 
 #, python-format
 msgid "Unauthorized: %s"
-msgstr "无权: %s"
+msgstr "未授权：%s"
 
 #. Translators: test code, don't really have to translate
 msgid "Up Item"
@@ -419,7 +419,7 @@ msgstr "您被禁止执行 %(action)s: %(objs)s"
 
 #, python-format
 msgid "You are not authorized to access %s"
-msgstr "您无权访问%s"
+msgstr "您无权访问 %s"
 
 msgid "You do not have permission to access the resource:"
 msgstr "你没有被授权访问这些资源："

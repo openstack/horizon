@@ -1,10 +1,11 @@
 # OpenStack Infra <zanata@openstack.org>, 2015. #zanata
 # sharath rao <sharath.rao@ericsson.com>, 2015. #zanata
+# Andreas Jaeger <jaegerandi@gmail.com>, 2016. #zanata
 msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2016-03-16 02:16+0000\n"
+"POT-Creation-Date: 2016-04-07 12:25+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -3160,10 +3161,6 @@ msgstr "ಈ ಜಾಲಬಂಧದೊಂದಿಗೆ ಇನ್‌ಸ್ಟೆನ�
 msgid "Launch instance with this policy profile"
 msgstr "ಈ ಪ್ರೊಫೈಲ್ ಪಾಲಿಸಿಯೊಂದಿಗೆ ಇನ್‌ಸ್ಟೆನ್ಸ್ ಅನ್ನು ಆರಂಭಿಸಿ"
 
-#, python-format
-msgid "Launched %(count)s named \"%(name)s\"."
-msgstr "\"%(name)s\" ಹೆಸರಿನ %(count)s ಆರಂಭಿಸಲಾಗಿದೆ."
-
 msgid ""
 "Launching multiple instances is only supported for images and instance "
 "snapshots."
@@ -4543,10 +4540,6 @@ msgstr "ಹೆಚ್ಚುವರಿ ಸ್ಪೆಕ್‌ \"%s\" ಅನ್ನು
 msgid "Saved spec \"%s\"."
 msgstr "ಸ್ಪೆಕ್‌ \"%s\" ಅನ್ನು ಉಳಿಸಲಾಗಿದೆ."
 
-#, python-format
-msgid "Scheduled resize of instance \"%s\"."
-msgstr "\"%s\" ಇನ್‌ಸ್ಟನ್ಸ್‌ನ ಅನುಸೂಚಿತ ಮರುಗಾತ್ರಿಸುವಿಕೆ."
-
 msgctxt "Task status of an Instance"
 msgid "Scheduling"
 msgstr "ಅನುಸೂಚಿತಗೊಳಿಕೆ"
@@ -5117,13 +5110,6 @@ msgstr "ಸಾರ್ವಜನಿಕ ಕೀಲಿಯನ್ನು ಯಶಸ್ವ�
 
 msgid "Successfully modified QoS Spec consumer."
 msgstr "QoS ಸ್ಪೆಕ್‌ ಗ್ರಾಹಕವನ್ನು ಯಶಸ್ವಿಯಾಗಿ ಮಾರ್ಪಡಿಸಲಾಗಿದೆ."
-
-#, python-format
-msgid ""
-"Successfully restored backup %(backup_name)s to volume with id: %(volume_id)s"
-msgstr ""
-"%(backup_name)s ಬ್ಯಾಕ್‌ಅಪ್‌ ಅನ್ನು ಈ id ಯನ್ನು ಹೊಂದಿರುವ ಪರಿಮಾಣಕ್ಕೆ ಮರಳಿ ಸ್ಥಾಪಿಸಲಾಗಿದೆ: "
-"%(volume_id)s"
 
 #, python-format
 msgid ""

@@ -1,15 +1,16 @@
 # Zhang Xiaowei <zero00072@gmail.com>, 2015. #zanata
+# Andreas Jaeger <jaegerandi@gmail.com>, 2016. #zanata
 # Ching Kuo <igene@igene.tw>, 2016. #zanata
 msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2016-03-15 01:55+0000\n"
+"POT-Creation-Date: 2016-04-07 12:24+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2016-03-14 05:50+0000\n"
-"Last-Translator: Ching Kuo <igene@igene.tw>\n"
+"PO-Revision-Date: 2016-03-22 09:59+0000\n"
+"Last-Translator: Jennifer <cristxu@tw.ibm.com>\n"
 "Language-Team: Chinese (Taiwan)\n"
 "Language: zh-TW\n"
 "X-Generator: Zanata 3.7.3\n"
@@ -99,6 +100,9 @@ msgstr "關閉中"
 msgid "Confirm %s"
 msgstr "確認 %s"
 
+msgid "Confirm Delete Foobars"
+msgstr "確認刪除 Foobar"
+
 msgid "Connecting"
 msgstr "連線中"
 
@@ -146,6 +150,10 @@ msgstr "刪除路由器"
 
 msgid "Delete Subnet"
 msgstr "刪除子網路"
+
+#, python-format
+msgid "Deleted : %s."
+msgstr "已刪除：%s。"
 
 msgid "Detail Information"
 msgstr "詳細的資訊"
@@ -303,6 +311,14 @@ msgstr "角色"
 msgid "STATUS"
 msgstr "狀態"
 
+#. Strings between {$ and $} should be left untranslated.
+msgid ""
+"Script size: {$ (scriptLength || 0) | bytes $} of {$ config.MAX_SCRIPT_SIZE "
+"| bytes $}"
+msgstr ""
+"Script 大小：{$ (scriptLength || 0) | bytes $}，共 {$ config.MAX_SCRIPT_SIZE "
+"| bytes $}"
+
 msgid "Search in current results"
 msgstr "在目前結果中搜尋"
 
@@ -345,6 +361,9 @@ msgid ""
 "missing information."
 msgstr "無法執行動作。這行的內容有錯或者缺少資訊。"
 
+msgid "The script is larger than the maximum size"
+msgstr "該 Script 的大小大於大小上限"
+
 msgid "There was a problem communicating with the server, please try again."
 msgstr "與伺服器間的通訊有問題，請再試一次。"
 
@@ -359,6 +378,10 @@ msgstr "切換導覽"
 
 msgid "Total"
 msgstr "總共"
+
+#, python-format
+msgid "Unable to delete: %s."
+msgstr "無法刪除：%s。"
 
 msgid "Unlimited"
 msgstr "無限"
@@ -384,6 +407,16 @@ msgstr "運作中"
 msgid "Yes"
 msgstr "是"
 
+msgid ""
+"You can specify resource metadata by moving items from the left column to "
+"the right column. In the left column there are metadata definitions from the "
+"Glance Metadata Catalog. Use the \"Custom\" option to add metadata with "
+"the key of your choice."
+msgstr ""
+"您可以透過將項目從左欄移動到右欄來指定資源 meta 資料。左欄包含來自 Glance "
+"meta 資料類別的 meta 資料定義。使用「自訂」選項來新增包含所選索引鍵的 meta 資"
+"料。"
+
 #, python-format
 msgid "You have selected %s. "
 msgstr "您選擇了 %s。"
@@ -399,3 +432,10 @@ msgstr "m1.tiny"
 
 msgid "pool default"
 msgstr "倉庫的預設值"
+
+#, python-format
+msgid "selected \"%s\""
+msgstr "已選取 \"%s\""
+
+msgid "{$ message || 'No items to display.' $}"
+msgstr "{$ message || 'No items to display.' $}"

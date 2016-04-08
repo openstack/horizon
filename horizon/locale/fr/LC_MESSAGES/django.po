@@ -1,17 +1,17 @@
 # Kevin Tibi <kodokuu@gmail.com>, 2015. #zanata
-# Gael Rehault <gael_rehault@dell.com>, 2016. #zanata
+# Andreas Jaeger <jaegerandi@gmail.com>, 2016. #zanata
 # Gérald LONLAS <g.lonlas@gmail.com>, 2016. #zanata
 # Kevin Tibi <kodokuu@gmail.com>, 2016. #zanata
 msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2016-03-16 02:15+0000\n"
+"POT-Creation-Date: 2016-04-07 12:24+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2016-03-16 11:06+0000\n"
-"Last-Translator: Gael Rehault <gael_rehault@dell.com>\n"
+"PO-Revision-Date: 2016-03-28 06:42+0000\n"
+"Last-Translator: JF Taltavull <jftalta@gmail.com>\n"
 "Language-Team: French\n"
 "Language: fr\n"
 "X-Generator: Zanata 3.7.3\n"
@@ -170,6 +170,18 @@ msgstr "Disponible"
 msgid "Back"
 msgstr "Retour"
 
+#. Translators: test code, don't really have to translate
+msgid "Batch Item"
+msgid_plural "Batch Items"
+msgstr[0] "Batch Item"
+msgstr[1] "Batch Items"
+
+#. Translators: test code, don't really have to translate
+msgid "Batched Item"
+msgid_plural "Batched Items"
+msgstr[0] "Batched Item"
+msgstr[1] "Batched Items"
+
 msgid "Cancel"
 msgstr "Annuler"
 
@@ -256,6 +268,11 @@ msgstr "Identifiant"
 
 msgid "Members"
 msgstr "Membres"
+
+#, python-format
+msgid "Message json file '%(path)s' is malformed. %(exception)s"
+msgstr ""
+"Le format du fichier de message json '%(path)s'  est incorrect. %(exception)s"
 
 msgid "More Actions"
 msgstr "Plus d'actions"
@@ -345,7 +362,7 @@ msgstr "Résumé"
 
 #, python-format
 msgid "The attribute %(attr)s doesn't exist on %(obj)s."
-msgstr "L'attribut %(attr)s n'existe pas sur %(obj)s."
+msgstr "L'attribut %(attr)s  de l'objet %(obj)s n'existe pas."
 
 msgid "The date should be in YYYY-mm-dd format."
 msgstr "La date doit être au format AAAA-mm-jj"

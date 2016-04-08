@@ -1,17 +1,18 @@
 # Chester Cheng <ccheng@redhat.com>, 2015. #zanata
 # OpenStack Infra <zanata@openstack.org>, 2015. #zanata
 # Zhang Xiaowei <zero00072@gmail.com>, 2015. #zanata
+# Andreas Jaeger <jaegerandi@gmail.com>, 2016. #zanata
 # Ching Kuo <igene@igene.tw>, 2016. #zanata
 msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2016-03-16 02:16+0000\n"
+"POT-Creation-Date: 2016-04-07 12:25+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2016-03-14 05:53+0000\n"
-"Last-Translator: Ching Kuo <igene@igene.tw>\n"
+"PO-Revision-Date: 2016-03-24 03:32+0000\n"
+"Last-Translator: Jennifer <cristxu@tw.ibm.com>\n"
 "Language-Team: Chinese (Taiwan)\n"
 "Language: zh-TW\n"
 "X-Generator: Zanata 3.7.3\n"
@@ -62,6 +63,26 @@ msgstr ""
 "\n"
 "      在 %(device)s 上的 <a href=\"%(instance_url)s\">%(instance_name)s</a>\n"
 "      "
+
+#, python-format
+msgid ""
+"\n"
+"      <span class=\"pull-right\">%(used)s of %(quota)s MB Used</span>\n"
+"    "
+msgstr ""
+"\n"
+"      <span class=\"pull-right\">已使用 %(quota)s MB 中的 %(used)s</span>\n"
+"    "
+
+#, python-format
+msgid ""
+"\n"
+"      <span class=\"pull-right\">%(used)s of %(quota)s Used</span>\n"
+"    "
+msgstr ""
+"\n"
+"      <span class=\"pull-right\">已使用 %(quota)s 中的 %(used)s</span>\n"
+"    "
 
 msgid ""
 "\n"
@@ -323,31 +344,21 @@ msgstr "- 結束"
 msgid " : Next hop"
 msgstr "：下一跳點"
 
+msgid ""
+" A protocol entry contains information that dictates which mapping rules to "
+"use for a given incoming request. An Identity Provider may have multiple "
+"supported protocols."
+msgstr ""
+"通訊協定項目包含指示將哪些對映規則用於給定送入要求的資訊。身分提供者可能具有"
+"多個支援的通訊協定。"
+
 #, python-format
 msgid " Also failed to delete port %s"
 msgstr "並且刪除接口 %s 時失敗"
 
-msgid "\"Add Router Route\""
-msgstr "「加入路由器路由」"
-
 msgid ""
 "\"Customization Script\" is analogous to \"User Data\" in other systems."
 msgstr "「客製化腳本」類比於其他系統的「用戶資料」。"
-
-msgid "\"Edit Volume Type\""
-msgstr "「編輯雲硬碟類型」"
-
-msgid "\"N/A\""
-msgstr "「N/A」"
-
-msgid "\"Namespace Resource Type Associations\""
-msgstr "「命名空間資源類型聯結」"
-
-msgid "\"No flavors meet minimum criteria for selected image.\""
-msgstr "「無虛擬硬體樣板滿足選擇的映像檔最低標準。」"
-
-msgid "\"None\""
-msgstr "「無」"
 
 msgid ""
 "\"None\" indicates that no QoS Spec is currently associated. Conversely, "
@@ -355,10 +366,6 @@ msgid ""
 msgstr ""
 "「無」表示目前未聯結 QoS 規格。反過來說，將 QoS 規格設為「無」會移除掉目前的"
 "結構。"
-
-msgid ""
-"\"Some flavors not meeting minimum image requirements have been disabled.\""
-msgstr "「已關閉不滿足映像檔最低需求的虛擬硬體樣板。」"
 
 #, python-format
 msgid "%(field_name)s: Invalid IP address (value=%(ip)s)"
@@ -440,6 +447,10 @@ msgid "%sGB"
 msgstr "%sGB"
 
 #, python-format
+msgid "%sGiB"
+msgstr "%sGiB"
+
+#, python-format
 msgid "%sMB"
 msgstr "%sMB"
 
@@ -494,6 +505,16 @@ msgid "A local template to upload."
 msgstr "上傳本地的範本。"
 
 msgid ""
+"A mapping is a set of rules to map federation protocol attributes to "
+"Identity API objects. An identity provider can have a single mapping "
+"specified per protocol. A mapping is simply a list of rules. The only "
+"Identity API objects that will support mapping are: user and group."
+msgstr ""
+"對映是用來將聯合通訊協定屬性對映至「身分 API」物件的規則集。身分提供者可以具"
+"有每個通訊協定專屬的單一對映。對映僅僅是規則的清單。將支援對映的唯一「身分 "
+"API」物件是：使用者及群組。"
+
+msgid ""
 "A more specific rule affects a portion of this traffic so a rule cannot be "
 "automatically generated to control the behavior of the entire source/"
 "destination combination."
@@ -503,6 +524,18 @@ msgid "A new uploaded file will replace the content of the current object"
 msgstr "新上傳的檔案即將替換目前物件的內容"
 
 msgid ""
+"A port is a connection point for attaching a single device, such as the NIC "
+"of a virtual server, to a virtual network."
+msgstr ""
+"埠是一個連接點，用於將單個設備（例如，虛擬伺服器的網路卡）連接到一個虛擬網"
+"路。"
+
+msgid ""
+"A rule contains a remote attribute description and the destination local "
+"attribute."
+msgstr "規則包含遠端屬性說明及目的地本端屬性。"
+
+msgid ""
 "A script or set of commands to be executed after the instance has been built "
 "(max 16kb)."
 msgstr "會在建立雲實例後執行的腳本或一組指令（最大 16kb）。"
@@ -510,6 +543,12 @@ msgstr "會在建立雲實例後執行的腳本或一組指令（最大 16kb）�
 msgid ""
 "A snapshot is an image which preserves the disk state of a running instance."
 msgstr "即時存檔是將執行中的雲實例所有硬碟狀態儲存下來的映像檔。"
+
+#, python-format
+msgid ""
+"A volume of %(req)iGiB cannot be created as you only have %(avail)iGiB of "
+"your quota available."
+msgstr "您只擁有 %(avail)iGiB 配額可用，所以您不能新增 %(req)iGiB 的雲硬碟。"
 
 msgid "AKI - Amazon Kernel Image"
 msgstr "AKI - Amazon 核心映像檔"
@@ -698,6 +737,9 @@ msgstr "加入政策"
 msgid "Add Pool"
 msgstr "加入倉庫"
 
+msgid "Add Protocol"
+msgstr "新增通訊協定"
+
 msgid "Add Router"
 msgstr "加入路由器"
 
@@ -776,11 +818,30 @@ msgstr "加入選擇的路由器到防火牆。"
 msgid "Add static route to the router."
 msgstr "加入靜態路由到路由器。"
 
+msgid ""
+"Add volume types to this consistency group. Multiple volume types can be "
+"added to the same consistency group only if they are associated with same "
+"back end."
+msgstr ""
+"將雲硬碟類型新增至此一致性群組。僅當多種雲硬碟類型與同一後端相關聯時，才可以"
+"將這些雲硬碟類型新增至同一個一致性群組。"
+
 msgid "Add, modify or remove the QoS Spec associated with this volume type."
 msgstr "加入、更改或移除已聯結到此雲硬碟類型的 QoS 規格。"
 
+msgid "Add/Remove Consistency Group Volumes"
+msgstr "新增/移除一致性群組雲硬碟"
+
 msgid "Add/Remove Hosts to Aggregate"
 msgstr "加入/移除主機到聚合中"
+
+msgid ""
+"Add/remove volumes to/from this consistency group. Only volumes associated "
+"with the volume type(s) assigned to this consistency group will be available "
+"for selection."
+msgstr ""
+"向此一致性群組新增雲硬碟，或者從其中移除雲硬碟。只有與指派給此一致性群組之雲"
+"硬碟類型相關聯的雲硬碟，才將可供進行選取。"
 
 #, python-format
 msgid "Added Firewall \"%s\"."
@@ -931,6 +992,17 @@ msgstr "所有的用戶"
 msgid "All available hosts"
 msgstr "所有可用主機"
 
+msgid "All available volume types"
+msgstr "所有可用的雲硬碟類型"
+
+msgid "All available volumes"
+msgstr "所有可用雲硬碟"
+
+msgid ""
+"All selected volume types must be associated with the same volume backend "
+"name."
+msgstr "所有選定的雲硬碟類型都必須與同一雲硬碟後端名稱相關聯。"
+
 msgid "Allocate Floating IP"
 msgstr "分配浮動 IP"
 
@@ -969,6 +1041,9 @@ msgstr "能量"
 msgid "An external (HTTP) URL to load the template from."
 msgstr "可讀取範本的外部（HTTP）網址。"
 
+msgid "An external (HTTP/HTTPS) URL to load the image from."
+msgstr "用來載入映像檔的外部 (HTTP/HTTPS) URL。"
+
 msgid ""
 "An instance can be launched with varying types of attached storage. You may "
 "select from those options here."
@@ -989,6 +1064,9 @@ msgid ""
 "An unexpected error has occurred. Try refreshing the page. If that doesn't "
 "help, contact your local administrator."
 msgstr "發生了意外錯誤。試著重整頁面。若這沒有幫助，請聯絡您的在地管理員。"
+
+msgid "Another Plugin-based Panel"
+msgstr "另一個外掛程式型畫面"
 
 msgid "Any"
 msgstr "任意"
@@ -1081,6 +1159,9 @@ msgstr "附加雲硬碟 %(vol)s 到雲實例 %(inst)s 上的 %(dev)s。"
 msgid "Attachments"
 msgstr "附件"
 
+msgid "Attribute Mappings"
+msgstr "屬性對映"
+
 msgid "Attributes"
 msgstr "屬性"
 
@@ -1118,6 +1199,13 @@ msgstr "可用區域名稱"
 msgid "Availability Zones"
 msgstr "可用區域"
 
+msgid "Availability zone"
+msgstr "可用區域"
+
+msgid "Available"
+msgstr "可用"
+
+msgctxt "Current status of Consistency Group"
 msgid "Available"
 msgstr "可用"
 
@@ -1228,6 +1316,9 @@ msgstr "從雲硬碟的即時存檔開機（新增新的雲硬碟）"
 msgid "Bootable"
 msgstr "可用於開機"
 
+msgid "Bootstrap Theme Preview"
+msgstr "引導主題預覽"
+
 msgctxt "Current status of a Network"
 msgid "Build"
 msgstr "建立中"
@@ -1243,6 +1334,10 @@ msgstr "建立中"
 msgctxt "status of a network port"
 msgid "Build"
 msgstr "建立中"
+
+msgctxt "Current status of an Instance"
+msgid "Building"
+msgstr "正在建立"
 
 msgctxt "Power state of an Instance"
 msgid "Building"
@@ -1319,6 +1414,11 @@ msgstr "正在檢查"
 msgid "Check Stack"
 msgid_plural "Check Stacks"
 msgstr[0] "檢查機櫃"
+
+msgid ""
+"Check the &quot;Delete Volumes&quot; box to also delete the volumes "
+"associated with this consistency group."
+msgstr "勾選「刪除雲硬碟」方框，以同時刪除與此一致性群組相關聯的雲硬碟。"
 
 msgid "Checked Stack"
 msgid_plural "Checked Stacks"
@@ -1407,6 +1507,9 @@ msgstr "雲硬碟存放在哪個 Cinder 主機；使用這個格式：host@backe
 msgid "Cipher"
 msgstr "加密協定"
 
+msgid "Classless Inter-Domain Routing (e.g. 192.168.0.0/24, or 2001:db8::/128)"
+msgstr "無類別域間路由（如 192.168.0.0/24 或 2001:db8::/128）"
+
 msgid "Clear Domain Context"
 msgstr "清除地域環境"
 
@@ -1429,6 +1532,9 @@ msgstr "代碼"
 
 msgid "Cold Migrate"
 msgstr "關機轉移"
+
+msgid "Comma-delimited list of valid remote IDs from the identity provider."
+msgstr "來自身分提供者的有效遠端 ID 清單（以逗點定界）。"
 
 msgid "Comma-separated key=value pairs"
 msgstr "以逗號分隔的 鍵=值 對"
@@ -1491,6 +1597,9 @@ msgstr "相衝的規則"
 
 msgid "Connection Limit"
 msgstr "連線數限制"
+
+msgid "Consistency Group Information"
+msgstr "一致性群組資訊"
 
 msgid "Console"
 msgstr "主控臺"
@@ -1600,6 +1709,9 @@ msgctxt "current status of stack"
 msgid "Create Complete"
 msgstr "新增完成"
 
+msgid "Create Consistency Group"
+msgstr "新增一致性群組"
+
 msgid "Create Container"
 msgstr "新增容器"
 
@@ -1629,6 +1741,60 @@ msgid "Create Host Aggregate"
 msgstr "新增主機聚合"
 
 msgid ""
+"Create IKE Policy for current project.\n"
+"\n"
+"An IKE policy is an association of the following attributes:\n"
+"\n"
+"<li>Authorization algorithm: Auth algorithm limited to SHA1 only.</"
+"li><li>Encryption algorithm: The type of algorithm (3des, aes-128, aes-192, "
+"aes-256) used in the IKE Policy.</li><li>IKE version: The type of version "
+"(v1/v2) that needs to be filtered.</li><li>Lifetime: Life time consists of "
+"units and value. Units in 'seconds' and the default value is 3600.</"
+"li><li>Perfect Forward Secrecy: PFS limited to using Diffie-Hellman groups "
+"2, 5(default) and 14.</li><li>IKE Phase 1 negotiation mode: Limited to "
+"'main' mode only.</li>\n"
+"All fields are optional."
+msgstr ""
+"為現行專案新增網際網路密鑰原則。\n"
+"\n"
+"網際網路密鑰原則是下列屬性的關聯：\n"
+"\n"
+"<li>認證演算法：認證演算法限定為僅 SHA1。</li><li>加密演算法：網際網路密鑰原"
+"則中使用的演算法類型（3des、aes-128、aes-192、aes-256）。</li><li>網際網路密"
+"鑰版本：需要過濾的版本類型（第 1 版/第 2 版）。</li><li>有效期：有效期包含單"
+"位和值。單位是「秒」，預設值為 3600。</li><li>Perfect Forward Secrecy：PFS 限"
+"定為使用 Diffie-Hellman 群組 2、5（預設值）和 14。</li><li>網際網路密鑰交換第"
+"一階段轉交模式：限定為僅「主要」模式。</li>\n"
+"所有欄位都是選用項目。"
+
+msgid ""
+"Create IPSec Policy for current project.\n"
+"\n"
+"An IPSec policy is an association of the following attributes:\n"
+"\n"
+"<li>Authorization algorithm: Auth_algorithm limited to SHA1 only.</"
+"li><li>Encapsulation mode: The type of IPsec tunnel (tunnel/transport) to be "
+"used.</li><li>Encryption algorithm: The type of algorithm (3des, aes-128, "
+"aes-192, aes-256) used in the IPSec Policy.</li><li>Lifetime: Life time "
+"consists of units and value. Units in 'seconds' and the default value is "
+"3600.</li><li>Perfect Forward Secrecy: PFS limited to using Diffie-Hellman "
+"groups 2, 5(default) and 14.</li><li>Transform Protocol: The type of "
+"protocol (esp, ah, ah-esp) used in IPSec Policy.</li>\n"
+"All fields are optional."
+msgstr ""
+"為現行專案新增 IPSec 原則。\n"
+"\n"
+"IPSec 原則是下列屬性的關聯：\n"
+"\n"
+"<li>認證演算法：Auth_algorithm 限定為僅 SHA1。</li><li>封裝模式：要使用之 "
+"IPsec 通道（通道/傳輸）的類型。</li><li>加密演算法：IPSec 原則中使用的演算法"
+"類型（3des、aes-128、aes-192、aes-256）。</li><li>有效期：有效期包含單位和"
+"值。單位是「秒」，預設值為 3600。</li><li>Perfect Forward Secrecy：PFS 限定為"
+"使用 Diffie-Hellman 群組 2、5（預設值）和 14。</li><li>傳輸協定：IPSec 原則中"
+"使用的協定類型（esp、ah、ah-esp）。</li>\n"
+"所有欄位都是選用項目。"
+
+msgid ""
 "Create IPSec Site Connection for current project.\n"
 "\n"
 "Assign a name and description for the IPSec Site Connection. All fields in "
@@ -1648,6 +1814,9 @@ msgstr "正在新增"
 msgid "Create Key Pair"
 msgstr "新增密鑰對"
 
+msgid "Create Mapping"
+msgstr "建立對映"
+
 msgid "Create Network"
 msgstr "新增網路"
 
@@ -1659,6 +1828,9 @@ msgstr "新增接口"
 
 msgid "Create Project"
 msgstr "新增專案"
+
+msgid "Create Protocol"
+msgstr "建立通訊協定"
 
 msgid "Create Pseudo-folder"
 msgstr "新增虛擬資料夾"
@@ -1702,11 +1874,33 @@ msgstr "新增轉移"
 msgid "Create User"
 msgstr "新增用戶"
 
+msgid ""
+"Create VPN Service for current project.\n"
+"\n"
+"The VPN service is attached to a router and references to a single subnet to "
+"push to a remote site.\n"
+"Specify a name, description, router, and subnet for the VPN Service. Admin "
+"State is UP (True) by default.\n"
+"\n"
+"The router, subnet and admin state fields are required, all others are "
+"optional."
+msgstr ""
+"為現行專案新增虛擬私人網路伺服器。\n"
+"\n"
+"虛擬私人網路伺服器已連接至路由器，並且參照了單個子網路，以推送至遠端網站。\n"
+"為虛擬私人網路伺服器指定名稱、說明、路由器和子網路。依預設，管理狀態是「上"
+"線」(True)。\n"
+"\n"
+"路由器、子網路及管理狀態欄位是必要欄位，所有其他欄位都是選用項目。"
+
 msgid "Create Volume"
 msgstr "新增雲硬碟"
 
 msgid "Create Volume Backup"
 msgstr "新增雲硬碟備份"
+
+msgid "Create Volume Consistency Group"
+msgstr "新增雲硬碟一致性群組"
 
 msgid "Create Volume Snapshot"
 msgstr "新增雲硬碟即時存檔"
@@ -1756,8 +1950,78 @@ msgstr "新增雲硬碟轉移"
 msgid "Create a Volume Type"
 msgstr "新增新的雲硬碟類型"
 
+msgid ""
+"Create a firewall based on a policy.\n"
+"\n"
+"A firewall represents a logical firewall resource that a tenant can "
+"instantiate and manage. A firewall must be associated with one policy, all "
+"other fields are optional."
+msgstr ""
+"新增基於原則的防火牆。\n"
+"\n"
+"防火牆代表租戶可以實例化和管理的邏輯防火牆資源。防火牆必須與一個原則建立關"
+"聯，所有其他欄位都是選用項目。"
+
+msgid ""
+"Create a firewall policy with an ordered list of firewall rules.\n"
+"\n"
+"A firewall policy is an ordered collection of firewall rules. So if the "
+"traffic matches the first rule, the other rules are not executed. If the "
+"traffic does not match the current rule, then the next rule is executed. A "
+"firewall policy has the following attributes:\n"
+"\n"
+"<li>Shared: A firewall policy can be shared across tenants. Thus it can also "
+"be made part of an audit workflow wherein the firewall policy can be audited "
+"by the relevant entity that is authorized.</li><li>Audited: When audited is "
+"set to True, it indicates that the firewall policy has been audited. Each "
+"time the firewall policy or the associated firewall rules are changed, this "
+"attribute will be set to False and will have to be explicitly set to True "
+"through an update operation.</li>\n"
+"The name field is required, all others are optional."
+msgstr ""
+"新增含有防火牆規則排序列表的防火牆原則。\n"
+"\n"
+"防火牆原則是防火牆規則排序集合。所以，如果資料流量與第一個規則相符，則將不執"
+"行其他規則。如果資料流量與現行規則不符，則將執行下一個規則。防火牆原則具有下"
+"列屬性：\n"
+"\n"
+"<li>已共用：防火牆原則可以在租戶之間共用。因此，可以將其設為審核工作流程的一"
+"部分，防火牆原則在其中可由已獲授權的相關實體進行審核。</li><li>已審核：將「已"
+"審核」設為 True 時，它指示已審核防火牆原則。每次變更防火牆原則或相關聯的防火"
+"牆規則時，此屬性都將設為 False，並且必須透過更新作業來明確地設為 True。</"
+"li>\n"
+"名稱欄位是必要的，所有其他欄位都是選用項目。"
+
+msgid ""
+"Create a firewall rule.\n"
+"\n"
+"A Firewall rule is an association of the following attributes:\n"
+"\n"
+"<li>IP Addresses: The addresses from/to which the traffic filtration needs "
+"to be applied.</li><li>IP Version: The type of IP packets (IP V4/V6) that "
+"needs to be filtered.</li><li>Protocol: Type of packets (UDP, ICMP, TCP, "
+"Any) that needs to be checked.</li><li>Action: Action is the type of "
+"filtration required, it can be Reject/Deny/Allow data packets.</li>\n"
+"The protocol and action fields are required, all others are optional."
+msgstr ""
+"新增防火牆規則。\n"
+"\n"
+"防火牆規則是下列屬性的關聯：\n"
+"\n"
+"<li>IP 位址：需要從其套用或向其套用資料流量過濾的位址。</li><li>IP 版本：需要"
+"過濾之 IP 封包 (IP V4/V6) 的類型。</li><li>通訊協定：需要檢查之封包（UDP、"
+"ICMP、TCP、任意）的類型。</li><li>動作：動作是所需的過濾類型，它可以是「拒"
+"絕」/「否定」/「容許」資料封包。</li>\n"
+"通訊協定及動作欄位是必要的，所有其他欄位都是選用項目。"
+
 msgid "Create a firewall with selected routers."
 msgstr "以選擇的路由器新增防火牆"
+
+msgid "Create a identity provider protocol."
+msgstr "建立身分提供者通訊協定。"
+
+msgid "Create a mapping."
+msgstr "建立對映。"
 
 msgid ""
 "Create a monitor template.\n"
@@ -1780,6 +2044,11 @@ msgstr "為 QoS 規格「%(qos_spec_name)s」新增新的「規格」鍵值對"
 
 msgid "Create a new network for any project as you need."
 msgstr "給所有您所需要的專案新增新的網路。"
+
+msgid ""
+"Create a new network. In addition, a subnet associated with the network can "
+"be created in the following steps of this wizard."
+msgstr "新增新的網路。另外，可以在此精靈的後續步驟中建立與網路相關聯的子網路。"
 
 msgid "Create a new role."
 msgstr "新增新的角色。"
@@ -1810,6 +2079,10 @@ msgstr "新增已加密的雲硬碟類型"
 msgid "Create pseudo-folder in container %(container_name)s"
 msgstr "在容器 %(container_name)s 裡新增虛擬資料夾"
 
+msgid "Created"
+msgstr "已新增"
+
+msgctxt "Created time"
 msgid "Created"
 msgstr "已新增"
 
@@ -1849,6 +2122,9 @@ msgstr "已新增新的主機聚合「%s」。"
 msgid "Created new project \"%s\"."
 msgstr "已新增新的專案「%s」。"
 
+msgid "Created new volume consistency group"
+msgstr "已新增新的雲硬碟一致性群組"
+
 #, python-format
 msgid "Created spec \"%s\"."
 msgstr "已新增額外的規格「%s」。"
@@ -1866,6 +2142,17 @@ msgstr "已新增雲硬碟轉移：「%s」。"
 
 msgid "Creates a router with specified parameters."
 msgstr "以指定的參數新增路由器。"
+
+msgid ""
+"Creates a subnet associated with the network. You need to enter a valid "
+"\"Network Address\" and \"Gateway IP\". If you did not enter the \"Gateway IP"
+"\", the first value of a network will be assigned by default. If you do not "
+"want gateway please check the \"Disable Gateway\" checkbox. Advanced "
+"configuration is available by clicking on the \"Subnet Details\" tab."
+msgstr ""
+"新增與網路相關聯的子網路。您需要輸入有效的「網路位址」及「閘道 IP」。如果未輸"
+"入「閘道 IP」，則依預設將指派網路的第一個值。如果不需要閘道，請勾選「停用閘"
+"道」勾選框。透過按一下「子網路詳細資訊」標籤，可以使用進階配置。"
 
 msgid "Creating"
 msgstr "正在新增"
@@ -1919,6 +2206,12 @@ msgstr "此子網路的建立請求數"
 msgid "Current Host"
 msgstr "目前的主機"
 
+msgid "Current Size (GiB)"
+msgstr "目前容量 (GiB)"
+
+msgid "Current consumer"
+msgstr "當前規範用戶"
+
 msgid "Current password"
 msgstr "目前密碼"
 
@@ -1969,6 +2262,12 @@ msgid ""
 "information from OpenStack DHCP"
 msgstr "DHCPv6 無態：從 OpenStack 路由器探索位址並且從 OpenStack DHCP 獲得資訊"
 
+msgid "DNS Assignment"
+msgstr "DNS 指派"
+
+msgid "DNS Name"
+msgstr "DNS 名稱"
+
 msgid "DNS Name Servers"
 msgstr "DNS 名稱伺服器"
 
@@ -2012,6 +2311,10 @@ msgstr "不能辨識日期。"
 
 msgid "Day"
 msgstr "日期"
+
+msgctxt "Current status of an Image"
+msgid "Deactivated"
+msgstr "已取消啟動"
 
 msgid "Dead peer detection action"
 msgstr "死亡節點偵測行為"
@@ -2059,6 +2362,10 @@ msgstr "延遲必須大於等於逾時"
 msgctxt "current status of stack"
 msgid "Delete Complete"
 msgstr "刪除完成"
+
+msgid "Delete Consistency Group"
+msgid_plural "Delete Consistency Groups"
+msgstr[0] "刪除一致性群組"
 
 msgid "Delete Container"
 msgid_plural "Delete Containers"
@@ -2120,6 +2427,10 @@ msgctxt "current status of stack"
 msgid "Delete In Progress"
 msgstr "正在刪除"
 
+msgid "Delete Instance"
+msgid_plural "Delete Instances"
+msgstr[0] "刪除實例"
+
 msgid "Delete Interface"
 msgid_plural "Delete Interfaces"
 msgstr[0] "刪除網路卡"
@@ -2127,6 +2438,10 @@ msgstr[0] "刪除網路卡"
 msgid "Delete Key Pair"
 msgid_plural "Delete Key Pairs"
 msgstr[0] "刪除密鑰對"
+
+msgid "Delete Mapping"
+msgid_plural "Delete Mappings"
+msgstr[0] "刪除對映"
 
 msgid "Delete Member"
 msgid_plural "Delete Members"
@@ -2164,6 +2479,10 @@ msgid "Delete Project"
 msgid_plural "Delete Projects"
 msgstr[0] "刪除專案"
 
+msgid "Delete Protocol"
+msgid_plural "Delete Protocols"
+msgstr[0] "刪除通訊協定"
+
 msgid "Delete QoS Spec"
 msgid_plural "Delete QoS Specs"
 msgstr[0] "刪除 QoS 規格"
@@ -2187,6 +2506,10 @@ msgstr[0] "刪除規則"
 msgid "Delete Security Group"
 msgid_plural "Delete Security Groups"
 msgstr[0] "刪除安全性群組"
+
+msgid "Delete Spec"
+msgid_plural "Delete Specs"
+msgstr[0] "刪除規格"
 
 msgid "Delete Stack"
 msgid_plural "Delete Stacks"
@@ -2215,6 +2538,10 @@ msgid "Delete Volume"
 msgid_plural "Delete Volumes"
 msgstr[0] "刪除雲硬碟"
 
+msgid "Delete Volume Backup"
+msgid_plural "Delete Volume Backups"
+msgstr[0] "刪除雲硬碟備份"
+
 msgid "Delete Volume Snapshot"
 msgid_plural "Delete Volume Snapshots"
 msgstr[0] "刪除雲硬碟的即時存檔"
@@ -2223,9 +2550,15 @@ msgid "Delete Volume Type"
 msgid_plural "Delete Volume Types"
 msgstr[0] "刪除雲硬碟類型"
 
+msgid "Delete Volume on Instance Delete"
+msgstr "在雲實例刪除時刪除雲硬碟"
+
 #, python-format
 msgid "Delete the created network \"%s\" due to subnet creation failure."
 msgstr "刪除已新增的網路「%s」直到子網路建立失敗。"
+
+msgid "Delete volume when the instance is deleted"
+msgstr "在刪除雲實例時刪除雲硬碟"
 
 msgid "Deleted"
 msgstr "已刪除"
@@ -2282,6 +2615,10 @@ msgid "Deleted Key Pair"
 msgid_plural "Deleted Key Pairs"
 msgstr[0] "已刪除密鑰對"
 
+msgid "Deleted Mapping"
+msgid_plural "Deleted Mappings"
+msgstr[0] "已刪除對映"
+
 msgid "Deleted Namespace"
 msgid_plural "Deleted Namespaces"
 msgstr[0] "已刪除命名空間"
@@ -2301,6 +2638,10 @@ msgstr[0] "已刪除接口"
 msgid "Deleted Project"
 msgid_plural "Deleted Projects"
 msgstr[0] "已刪除專案"
+
+msgid "Deleted Protocol"
+msgid_plural "Deleted Protocols"
+msgstr[0] "已刪除通訊協定"
 
 msgid "Deleted QoS Spec"
 msgid_plural "Deleted QoS Specs"
@@ -2325,6 +2666,10 @@ msgstr[0] "已刪除規則"
 msgid "Deleted Security Group"
 msgid_plural "Deleted Security Groups"
 msgstr[0] "已刪除安全性群組"
+
+msgid "Deleted Spec"
+msgid_plural "Deleted Specs"
+msgstr[0] "已刪除規格"
 
 msgid "Deleted Stack"
 msgid_plural "Deleted Stacks"
@@ -2352,6 +2697,9 @@ msgstr[0] "已刪除雲硬碟類型"
 
 msgid "Deleted images are not recoverable."
 msgstr "已刪除的映像檔將無法恢復。"
+
+msgid "Deleted instances are not recoverable."
+msgstr "已刪除的雲實例將不可恢復。"
 
 msgid "Deleting"
 msgstr "正在刪除"
@@ -2671,6 +3019,12 @@ msgstr "下載 EC2 格式的憑證"
 msgid "Download Key Pair"
 msgstr "下載密鑰對"
 
+msgid "Download OpenStack RC File v2.0"
+msgstr "下載 OpenStack RC 檔 2.0 版"
+
+msgid "Download OpenStack RC File v3"
+msgstr "下載 OpenStack RC 檔第 3 版"
+
 #, python-format
 msgid "Download key pair &quot;%(keypair_name)s&quot;"
 msgstr "下載密鑰對「%(keypair_name)s」"
@@ -2689,6 +3043,9 @@ msgstr "編輯"
 
 msgid "Edit Connection"
 msgstr "編輯連線"
+
+msgid "Edit Consistency Group"
+msgstr "編輯一致性群組"
 
 msgid "Edit Consumer"
 msgstr "編輯規範用戶"
@@ -2808,6 +3165,10 @@ msgstr "編輯雲硬碟類型"
 msgid "Edit Volume Type Extra Spec"
 msgstr "編輯雲硬碟類型的額外規格"
 
+#, python-format
+msgid "Edit consistency group \"%s\"."
+msgstr "編輯一致性群組「%s」。"
+
 msgid ""
 "Edit the flavor details. Flavors define the sizes for RAM, disk, number of "
 "cores, and other resources. Flavors are selected when users deploy instances."
@@ -2815,11 +3176,17 @@ msgstr ""
 "編輯虛擬硬體樣板詳細資訊。虛擬硬體樣板定義隨機存取記憶體容量、硬碟容量、核心"
 "數和其他資源。用戶布署雲實例時要用到虛擬硬體樣板。"
 
+msgid "Edit the identity provider's details."
+msgstr "編輯身分提供者的詳細資訊。"
+
 msgid "Edit the image details."
 msgstr "編輯映像檔詳細資訊。"
 
 msgid "Edit the instance details."
 msgstr "編輯雲實例的詳細資訊。"
+
+msgid "Edit the mapping's details."
+msgstr "編輯對映的詳細資訊。"
 
 msgid "Edit the project details."
 msgstr "編輯專案的詳細資訊。"
@@ -2894,6 +3261,12 @@ msgstr "加密"
 msgid "Encryption algorithm"
 msgstr "加密演算法"
 
+msgid ""
+"Encryption information cannot be updated for a volume type if volumes are "
+"currently in use with the volume type."
+msgstr ""
+"如果某些雲硬碟目前在使用某種雲硬碟類型，則無法更新該雲硬碟類型的加密資訊。"
+
 msgid "Energy (Kwapi)"
 msgstr "能源（Kwapi）"
 
@@ -2946,6 +3319,10 @@ msgid ""
 msgstr ""
 "若目前的子網路是 IPv4，大於等於 68。若目前的子網路是 IPv6，大於等於 1280。"
 
+msgid "Error"
+msgstr "錯誤"
+
+msgctxt "Current status of Consistency Group"
 msgid "Error"
 msgstr "錯誤"
 
@@ -3060,6 +3437,13 @@ msgid "Events"
 msgstr "事件"
 
 msgid ""
+"Example: For <tt>mod_shib</tt> this would be <tt>Shib-Identity-Provider</"
+"tt>, for <tt>mod_auth_openidc</tt>, this could be <tt>HTTP_OIDC_ISS</tt>."
+msgstr ""
+"範例：對於 <tt>mod_shib</tt>，這將是 <tt>Shib-Identity-Provider</tt>；對於 "
+"<tt>mod_auth_openidc</tt>，這將是 <tt>HTTP_OIDC_ISS</tt>。"
+
+msgid ""
 "Example: The prefix 'hw:' is added to OS::Nova::Flavor for the Virtual CPU "
 "Topology namespace so that the properties will be prefixed with 'hw:' when "
 "applied to flavors."
@@ -3138,6 +3522,9 @@ msgstr "預計但是不能為路由器「%(router_id)s」找到對外網路「%(
 
 msgid "Extra Specs"
 msgstr "額外規格"
+
+msgid "FQDN"
+msgstr "FQDN"
 
 msgctxt "Power state of an Instance"
 msgid "Failed"
@@ -3240,6 +3627,10 @@ msgstr "撤離主機時失敗：%s。"
 #, python-format
 msgid "Failed to evacuate instances: %s"
 msgstr "撤離雲實例時失敗：%s"
+
+#, python-format
+msgid "Failed to get mapping list %s"
+msgstr "無法取得對映清單 %s"
 
 #, python-format
 msgid "Failed to get network list %s"
@@ -3417,6 +3808,9 @@ msgstr "風扇每分鐘轉速"
 msgid "Fault"
 msgstr "故障"
 
+msgid "Federation"
+msgstr "聯合"
+
 msgid ""
 "Fields in this tab are optional. You can configure the detail of IPSec site "
 "connection created."
@@ -3441,6 +3835,9 @@ msgstr "特徵"
 msgctxt "Task status of an Instance"
 msgid "Finishing Resize or Migrate"
 msgstr "正在完成調整容量或轉移"
+
+msgid "Firewall"
+msgstr "防火牆"
 
 #, python-format
 msgid "Firewall %s was successfully updated."
@@ -3508,6 +3905,10 @@ msgstr ""
 
 msgid "Floating IP"
 msgstr "浮動 IP"
+
+#, python-format
+msgid "Floating IP will be removed from VIP \"%s\"."
+msgstr "浮動 IP 將從 VIP \"%s\" 中予以移除。"
 
 msgid "Floating IP:"
 msgstr "浮動 IP："
@@ -3685,9 +4086,21 @@ msgid "Hard Reboot Instance"
 msgid_plural "Hard Reboot Instances"
 msgstr[0] "強制重開雲實例"
 
+msgctxt "Task status of an Instance"
+msgid "Hard Reboot Pending"
+msgstr "等候強迫重新啟動"
+
+msgctxt "Task status of an Instance"
+msgid "Hard Reboot Started"
+msgstr "已開始強迫重新啟動"
+
 msgid "Hard Rebooted Instance"
 msgid_plural "Hard Rebooted Instances"
 msgstr[0] "已強制重開雲實例"
+
+msgctxt "Task status of an Instance"
+msgid "Hard Rebooting"
+msgstr "強迫重新啟動中"
 
 msgid "Hash"
 msgstr "雜湊值"
@@ -3808,6 +4221,9 @@ msgstr "IP 協定"
 msgid "IP Version"
 msgstr "IP 版本"
 
+msgid "IP Version for Firewall Rule"
+msgstr "防火牆規則的 IP 版本"
+
 msgid "IP address"
 msgstr "IP 位址"
 
@@ -3904,6 +4320,21 @@ msgstr "認證者類型"
 msgid "Identity"
 msgstr "身份"
 
+msgid "Identity Provider ID"
+msgstr "身分提供者 ID"
+
+msgid "Identity Providers"
+msgstr "身分提供者"
+
+msgid "Identity provider protocol created successfully."
+msgstr "已順利建立身分提供者通訊協定。"
+
+msgid "Identity provider registered successfully."
+msgstr "已順利註冊身分提供者。"
+
+msgid "Identity provider updated successfully."
+msgstr "已順利更新身分提供者。"
+
 msgid "Identity service does not allow editing user data."
 msgstr "身份伺服器不允許編輯用戶資料。"
 
@@ -3928,6 +4359,16 @@ msgstr ""
 "若不提供容器名稱，將提供您預設的容器命名 volumebackups。備份將擁有與雲硬碟原"
 "本容量相同的容量。"
 
+msgid ""
+"If you select an image via an HTTP/HTTPS URL, the Image Location field MUST "
+"be a valid and direct URL to the image binary; it must also be accessible to "
+"the Image Service. URLs that redirect or serve error pages will result in "
+"unusable images."
+msgstr ""
+"如果您透過 HTTP/HTTPS URL 選取映像檔，則「映像檔位置」欄位必須是映像檔的有效"
+"且直接 URL；它還必須可供映像檔伺服器存取。指到重定向或者伺服器錯誤頁的 URL 將"
+"導致無法使用映像檔。"
+
 msgid "Image"
 msgstr "映像檔"
 
@@ -3944,6 +4385,9 @@ msgstr "映像檔備份"
 
 msgid "Image File"
 msgstr "映像檔"
+
+msgid "Image ID"
+msgstr "映像檔 ID"
 
 msgid "Image ID ="
 msgstr "映像檔識別號 ="
@@ -3990,6 +4434,11 @@ msgstr "已成功更新映像檔。"
 msgid "Images"
 msgstr "映像檔"
 
+msgid ""
+"Images can be provided via an HTTP/HTTPS URL or be uploaded from your local "
+"file system."
+msgstr "可以透過 HTTP/HTTPS URL 提供映像檔，也可以從本端檔案系統上傳映像檔。"
+
 msgid "Implementation"
 msgstr "實作"
 
@@ -4010,6 +4459,10 @@ msgid ""
 "checking the corresponding checkbox."
 msgstr "另外，您可以勾選對應的空格以新增對外網路或分享的網路。"
 
+msgctxt "Current status of Consistency Group"
+msgid "In-use"
+msgstr "使用中"
+
 msgctxt "Current status of a Volume"
 msgid "In-use"
 msgstr "使用中"
@@ -4025,6 +4478,11 @@ msgstr "未使用"
 msgctxt "Current status of a VPN Service"
 msgid "Inactive"
 msgstr "未使用"
+
+msgid ""
+"Indicates whether this identity provider should accept federated "
+"authentication requests."
+msgstr "指示此身分提供者是否應該接受聯合鑑別要求。"
 
 msgid "Info"
 msgstr "資訊"
@@ -4101,6 +4559,9 @@ msgstr "雲實例識別號"
 msgid "Instance Name"
 msgstr "雲實例名稱"
 
+msgid "Instance Name ="
+msgstr "雲實例名稱 ="
+
 msgid "Instance Overview"
 msgstr "雲實例概觀"
 
@@ -4124,6 +4585,12 @@ msgstr "權限的等級不足以檢視地域資訊。"
 
 msgid "Insufficient privilege level to view group information."
 msgstr "權限的等級不足以檢視群組資訊。"
+
+msgid "Insufficient privilege level to view identity provider information."
+msgstr "權限的等級不足，無法檢視身分提供者資訊。"
+
+msgid "Insufficient privilege level to view mapping information."
+msgstr "權限的等級不足，無法檢視對映資訊。"
 
 msgid "Insufficient privilege level to view project information."
 msgstr "權限的等級不足以檢視專案資訊。"
@@ -4276,12 +4743,11 @@ msgstr "在這些安全性群組中發動雲實例。"
 msgid "Launch instance with these networks"
 msgstr "以這些網路發動雲實例"
 
+msgid "Launch instance with these ports"
+msgstr "以這些埠發動雲實例"
+
 msgid "Launch instance with this policy profile"
 msgstr "以這個政策基本資料發動雲實例"
-
-#, python-format
-msgid "Launched %(count)s named \"%(name)s\"."
-msgstr "已發動名為「%(name)s」%(count)s 個。"
 
 msgid ""
 "Launching multiple instances is only supported for images and instance "
@@ -4439,6 +4905,9 @@ msgstr "管理聚合內的主機"
 msgid "Manage Members"
 msgstr "管理成員"
 
+msgid "Manage Protocols"
+msgstr "管理通訊協定"
+
 msgid "Manage QoS Spec Association"
 msgstr "管理 QoS 規格的聯結"
 
@@ -4463,6 +4932,12 @@ msgstr "管理雲硬碟"
 msgid "Manage Volume Attachments"
 msgstr "管理雲硬碟附件"
 
+msgid "Manage Volume Types"
+msgstr "管理雲硬碟類型"
+
+msgid "Manage Volumes"
+msgstr "管理雲硬碟"
+
 msgid "Manage a Volume"
 msgstr "管理雲硬碟"
 
@@ -4471,6 +4946,26 @@ msgstr "手動"
 
 msgid "Mapped Fixed IP Address"
 msgstr "已映射的固字 IP 位址"
+
+msgid "Mapping ID"
+msgstr "對映 ID"
+
+#, python-format
+msgid "Mapping ID \"%s\" is already used."
+msgstr "已經使用了對映 ID \"%s\"。"
+
+msgid "Mapping created successfully."
+msgstr "已順利建立對映。"
+
+msgid "Mapping updated successfully."
+msgstr "已順利更新對映。"
+
+msgid "Mappings"
+msgstr "對映"
+
+msgctxt "Google's Material Design style theme"
+msgid "Material"
+msgstr "Material"
 
 msgid "Max Retries"
 msgstr "最大重試數"
@@ -4496,11 +4991,17 @@ msgstr "允許虛擬 IP 的最大連線數或者以「-1」來代表不設限制
 msgid "Member %s was successfully updated."
 msgstr "已成功更新成員 %s。"
 
+msgid "Member Address"
+msgstr "成員位址"
+
 msgid "Member Details"
 msgstr "成員詳細資訊"
 
 msgid "Member IP address must be specified"
 msgstr "必須指定成員的 IP 位址"
+
+msgid "Member Instance(s)"
+msgstr "成員雲實例"
 
 msgid "Member Source"
 msgstr "成員來源"
@@ -4646,6 +5147,9 @@ msgstr "更改雲硬碟的名稱及描述。"
 msgid "Modify the name and description of a snapshot."
 msgstr "更改即時存檔的名稱和描述。"
 
+msgid "Modify the name and description of a volume consistency group."
+msgstr "修改雲硬碟一致性群組的名稱及說明。"
+
 msgid "Modify volume type name and description."
 msgstr "更改雲碟碟類型名稱及描述。"
 
@@ -4670,6 +5174,10 @@ msgstr "當月"
 msgid "Must specify start of period"
 msgstr "必須指定時段的啟始點"
 
+msgid "N/A"
+msgstr "N/A"
+
+msgctxt "current status of port"
 msgid "N/A"
 msgstr "N/A"
 
@@ -4773,6 +5281,9 @@ msgstr "網路名稱"
 msgid "Network Overview"
 msgstr "網路概觀"
 
+msgid "Network Ports"
+msgstr "網路埠"
+
 msgid "Network Profile"
 msgstr "網路基本資料"
 
@@ -4822,6 +5333,12 @@ msgstr "新虛擬硬體樣板"
 msgid "New Host"
 msgstr "新的主機"
 
+msgid "New QoS Spec Consumer"
+msgstr "新建 QoS 規格規範用戶"
+
+msgid "New Size (GiB)"
+msgstr "新容量 (GiB)"
+
 msgid "New name cannot be empty."
 msgstr "新名稱不能是空的。"
 
@@ -4869,6 +5386,9 @@ msgstr "沒有維持連線階段"
 msgctxt "Power state of an Instance"
 msgid "No State"
 msgstr "沒有狀態"
+
+msgid "No assigned volumes"
+msgstr "沒有已指派的雲硬碟"
 
 msgid "No associations defined."
 msgstr "無已定義的聯結。"
@@ -4920,6 +5440,9 @@ msgstr "無可用的雲實例"
 
 msgid "No key pairs available"
 msgstr "無可用的密鑰對"
+
+msgid "No mappings available"
+msgstr "沒有可用的對映"
 
 msgid "No networks available"
 msgstr "無可用的網路"
@@ -4995,11 +5518,29 @@ msgstr "無可用的雲硬碟的即時存檔"
 msgid "No volume type"
 msgstr "無雲硬碟類型"
 
+msgid "No volume types found."
+msgstr "找不到雲硬碟類型。"
+
+msgid "No volume types selected."
+msgstr "未選取任何雲硬碟類型。"
+
 msgid "No volumes attached."
 msgstr "無已附加的雲硬碟。"
 
 msgid "No volumes available"
 msgstr "無可用的雲硬碟"
+
+msgid "No volumes found."
+msgstr "找不到雲硬碟。"
+
+msgid "No volumes selected."
+msgstr "未選取任何雲硬碟。"
+
+msgid "Non admin users are not allowed to make images public."
+msgstr "不容許非管理使用者將映像檔設為公用。"
+
+msgid "Non admin users are not allowed to set shared option."
+msgstr "不容許非管理使用者設定共用選項。"
 
 msgid "Non-Members"
 msgstr "非成員"
@@ -5022,6 +5563,13 @@ msgstr "未附加"
 
 msgid "Not available"
 msgstr "不可用"
+
+msgid ""
+"Note that a volume can not be deleted if it is &quot;attached&quot; or has "
+"any dependent snapshots."
+msgstr ""
+"請注意，如果雲硬碟處於「已連接」狀態或具有任何相依即時存檔，則無法刪除該雲硬"
+"碟。"
 
 msgid "Note: "
 msgstr "留意："
@@ -5073,6 +5621,12 @@ msgstr "虛擬機器網路卡在網路上的流入封包數量"
 
 msgid "Number of instances to launch."
 msgstr "要發動的雲實例數量。"
+
+#, python-format
+msgid ""
+"Number of items to show per page (applies to the pages that have API "
+"supported pagination, Max Value: %s)"
+msgstr "每一頁要顯示的項目數（套用到有支援分頁功能 API 的頁面，最大值：%s）"
 
 msgid "Number of log lines to be shown per instance"
 msgstr "要為每個雲實例顯示多少行數的記錄"
@@ -5328,6 +5882,9 @@ msgctxt "Current status of a VPN Service"
 msgid "Pending Update"
 msgstr "等候更新"
 
+msgid "Per Volume Size (GiB)"
+msgstr "每個雲硬碟大小 (GiB)"
+
 msgid "Perfect Forward Secrecy"
 msgstr "Perfect Forward Secrecy"
 
@@ -5416,6 +5973,9 @@ msgstr "接口識別號"
 msgid "Port Range"
 msgstr "埠口範圍"
 
+msgid "Port Security Enabled"
+msgstr "已啟用埠安全"
+
 #, python-format
 msgid "Port cleanup failed for these port-ids (%s)."
 msgstr "為這些接口識別號（%s）清除接口時失敗。"
@@ -5428,6 +5988,13 @@ msgstr "欲聯結的接口"
 
 msgid "Ports"
 msgstr "接口"
+
+msgid ""
+"Ports are optional and can be used with networks to add extra IP addresses "
+"to your instances or select specific types of ports."
+msgstr ""
+"埠是選用項目，可與網路搭配使用，以將額外的 IP 位址新增至實例或者選取特定類型"
+"的埠。"
 
 msgid "Position in Policy"
 msgstr "政策中的定位"
@@ -5559,11 +6126,21 @@ msgstr "保護"
 msgid "Protocol"
 msgstr "協定"
 
+msgid "Protocol ID"
+msgstr "通訊協定 ID"
+
+#, python-format
+msgid "Protocol ID \"%s\" is already used."
+msgstr "已經使用了通訊協定 ID \"%s\"。"
+
 msgid "Protocol Port"
 msgstr "協定埠口"
 
 msgid "Protocol for the firewall rule"
 msgstr "為防火牆規則設定的協定"
+
+msgid "Protocols"
+msgstr "通訊協定"
 
 msgid "Provider"
 msgstr "提供者"
@@ -5605,6 +6182,13 @@ msgstr "公開網址"
 
 msgid "QCOW2 - QEMU Emulator"
 msgstr "QCOW2 - QEMU 模擬器"
+
+msgid "QOS Policy ID"
+msgstr "QOS 原則 ID"
+
+#, python-format
+msgid "QoS Spec name \"%s\" already exists."
+msgstr "QoS 規格名稱 \"%s\" 已經存在。"
 
 msgid "QoS Spec to be associated"
 msgstr "欲聯結的 QoS 規格"
@@ -5653,6 +6237,19 @@ msgstr "隨機存取記憶體（使用中）"
 #, python-format
 msgid "RAM(Available: %(avail)s, Requested: %(req)s)"
 msgstr "隨機存取記憶體（可用：%(avail)s、已請求：%(req)s）"
+
+msgid "REJECT"
+msgstr "拒絕"
+
+msgctxt "Action Name of a Firewall Rule"
+msgid "REJECT"
+msgstr "拒絕"
+
+msgid "RX/TX Factor"
+msgstr "RX/TX 因數"
+
+msgid "RX/TX factor"
+msgstr "RX/TX 因數"
 
 msgid "Ramdisk"
 msgstr "Ramdisk"
@@ -5724,8 +6321,19 @@ msgstr "正在重建"
 msgid "Rebuilding instance %s."
 msgstr "正在重建雲實例 %s。"
 
+msgid "Recreate EC2 Credentials"
+msgstr "重建 EC2 格式的憑證"
+
 msgid "Regions:"
 msgstr "地區："
+
+msgid "Register Identity Provider"
+msgstr "註冊身分提供者"
+
+msgid ""
+"Register a identity provider that is trusted by the Identity API to "
+"authenticate identities."
+msgstr "註冊「身分 API」所信任的身分提供者，以鑑別身分。"
 
 msgid "Relative part of requests this pool member serves compared to others"
 msgstr "有關此倉庫成員與其他相比的服務請求數"
@@ -5752,6 +6360,19 @@ msgstr "重新讀取"
 
 msgid "Remote"
 msgstr "遙控"
+
+msgid "Remote IDs"
+msgstr "遠端 ID"
+
+msgid ""
+"Remote IDs are associated with the identity provider and are globally "
+"unique. This indicates the header attributes to use for mapping federation "
+"protocol attributes to Identity API objects. If no value is provided, the "
+"list will be set to empty."
+msgstr ""
+"「遠端 ID」與身分提供者相關聯，並且在廣域範圍內是唯一的。這指示標頭屬性用於將"
+"聯合通訊協定屬性對映至「身分 API」物件。如果未提供任何值，則該清單將設為空"
+"白。"
 
 msgid "Remote IP Prefix"
 msgstr "遙控 IP 前綴"
@@ -5794,6 +6415,13 @@ msgid "Removed User"
 msgid_plural "Removed Users"
 msgstr[0] "已移除用戶"
 
+msgid ""
+"Removing a key pair can leave OpenStack resources orphaned. You should not "
+"remove a key pair unless you are certain it is not being used anywhere."
+msgstr ""
+"移除金鑰對可孤立 OpenStack 資源。除非您確定某個金鑰對在所有位置均未使用，否則"
+"不應移除該金鑰對。"
+
 msgid "Report Bug"
 msgstr "回報錯誤"
 
@@ -5817,6 +6445,10 @@ msgctxt "Current status of an Instance"
 msgid "Rescue"
 msgstr "救援中"
 
+msgctxt "Current status of an Instance"
+msgid "Rescued"
+msgstr "已救援"
+
 msgctxt "Task status of an Instance"
 msgid "Rescuing"
 msgstr "正在救援"
@@ -5837,6 +6469,10 @@ msgstr "調整雲實例容量"
 msgctxt "Current status of an Instance"
 msgid "Resize/Migrate"
 msgstr "調整容量中/轉移中"
+
+msgctxt "Current status of an Instance"
+msgid "Resized"
+msgstr "已調整大小"
 
 msgctxt "Task status of an Instance"
 msgid "Resized or Migrated"
@@ -6013,6 +6649,23 @@ msgid "Router"
 msgstr "路由器"
 
 #, python-format
+msgid ""
+"Router %(name)s was created but connecting to an external network failed. "
+"Attempts to delete the new router also failed. Router %(name)s still exists "
+"but is not connect to the desired external network."
+msgstr ""
+"已新增路由器 %(name)s，但卻無法連接至外部網路。嘗試刪除新路由器也失敗。路由"
+"器 %(name)s 仍然存在，但未連接至所需的外部網路。"
+
+#, python-format
+msgid ""
+"Router %s was created but connecting to an external network failed. The "
+"created router has been deleted, as the overall operation failed."
+msgstr ""
+"已新增路由器 %s，但卻無法連接至外部網路。已刪除新增的路由器，因為整體作業失"
+"敗。"
+
+#, python-format
 msgid "Router %s was successfully created."
 msgstr "已成功新增路由器 %s。"
 
@@ -6127,6 +6780,10 @@ msgctxt "Current status of an Image"
 msgid "Saving"
 msgstr "正在儲存"
 
+msgid "Scheduled deletion of Consistency Group"
+msgid_plural "Scheduled deletion of Consistency Groups"
+msgstr[0] "已排程一致性群組的刪除"
+
 msgid "Scheduled deletion of Firewall"
 msgid_plural "Scheduled deletion of Firewalls"
 msgstr[0] "已排程防火牆的刪除"
@@ -6142,6 +6799,10 @@ msgstr[0] "已排程 IPSec 政策的刪除"
 msgid "Scheduled deletion of IPSec Site Connection"
 msgid_plural "Scheduled deletion of IPSec Site Connections"
 msgstr[0] "已排程 IPSec 網站連線的刪除"
+
+msgid "Scheduled deletion of Instance"
+msgid_plural "Scheduled deletion of Instances"
+msgstr[0] "已排程雲實例的刪除"
 
 msgid "Scheduled deletion of Member"
 msgid_plural "Scheduled deletion of Members"
@@ -6171,6 +6832,10 @@ msgid "Scheduled deletion of Volume"
 msgid_plural "Scheduled deletion of Volumes"
 msgstr[0] "已排程雲硬碟的刪除"
 
+msgid "Scheduled deletion of Volume Backup"
+msgid_plural "Scheduled deletion of Volume Backups"
+msgstr[0] "已排程雲硬碟備份的刪除"
+
 msgid "Scheduled deletion of Volume Snapshot"
 msgid_plural "Scheduled deletion of Volume Snapshots"
 msgstr[0] "已排程雲硬碟即時存檔的刪除"
@@ -6178,10 +6843,6 @@ msgstr[0] "已排程雲硬碟即時存檔的刪除"
 msgid "Scheduled migration (pending confirmation) of Instance"
 msgid_plural "Scheduled migration (pending confirmation) of Instances"
 msgstr[0] "已排程雲實例的轉移（有待確認）"
-
-#, python-format
-msgid "Scheduled resize of instance \"%s\"."
-msgstr "已為雲實例「%s」排程調整容量。"
 
 msgctxt "Task status of an Instance"
 msgid "Scheduling"
@@ -6240,6 +6901,9 @@ msgstr "選擇映像檔"
 
 msgid "Select Instance Snapshot"
 msgstr "選擇雲實例即時存檔"
+
+msgid "Select Mapping"
+msgstr "選取對映"
 
 msgid "Select Network"
 msgstr "選擇網路"
@@ -6308,6 +6972,9 @@ msgstr "選擇新的 QoS 規格"
 
 msgid "Select a new agent"
 msgstr "選擇新的媒介"
+
+msgid "Select a new consumer"
+msgstr "選擇新的規範用戶"
 
 msgid "Select a new host"
 msgstr "選擇新的主機"
@@ -6419,6 +7086,12 @@ msgstr "已選擇的主機"
 msgid "Selected networks"
 msgstr "已選擇的網路"
 
+msgid "Selected volume types"
+msgstr "所選雲硬碟類型"
+
+msgid "Selected volumes"
+msgstr "已選取雲硬碟"
+
 msgid "Sensor Current Reading"
 msgstr "測量器目前讀數"
 
@@ -6469,6 +7142,10 @@ msgstr "設為使用中的專案"
 
 msgid "Set maximum quotas for the project."
 msgstr "為專案設定最大配額。"
+
+msgid ""
+"Set of rules to map federation protocol attributes to Identity API objects."
+msgstr "用來將聯合通訊協定屬性對映至「身分 API」物件的規則集。"
 
 msgid "Settings"
 msgstr "設定"
@@ -6544,6 +7221,9 @@ msgstr "登出"
 
 msgid "Size"
 msgstr "容量"
+
+msgid "Size (GiB)"
+msgstr "容量 (GiB)"
 
 msgid "Size of ephemeral disk"
 msgstr "暫時性硬碟容量"
@@ -6656,6 +7336,11 @@ msgstr "來源埠口/埠口範圍"
 msgid "Source port (integer in [1, 65535] or range in a:b)"
 msgstr "來源埠口（[1, 65535] 的整數或範圍 a:b）"
 
+msgid ""
+"Source/Destination Network Address and IP version are inconsistent. Please "
+"make them consistent."
+msgstr "來源/目的地網路位址及 IP 版本不一致。請將它們設為一致。"
+
 msgid "Source:"
 msgstr "來源："
 
@@ -6684,6 +7369,14 @@ msgstr "指定可用於發動雲實例的雲硬碟。"
 
 msgid "Specify \"Network Address\""
 msgstr "指定「網路位址」"
+
+msgid ""
+"Specify \"Network Address\" or clear \"Create Subnet\" checkbox in previous "
+"step."
+msgstr "指定「網路位址」，或者在上一步中清除「新增子網路」勾選框。"
+
+msgid "Specify IP address of gateway or check \"Disable Gateway\" checkbox."
+msgstr "指定閘道的 IP 位址，或者勾選「停用閘道」勾選框。"
 
 msgid "Specify VIP"
 msgstr "指定虛擬 IP"
@@ -6823,6 +7516,10 @@ msgctxt "Action log of an instance"
 msgid "Stop"
 msgstr "停止"
 
+msgctxt "Current status of an Instance"
+msgid "Stopped"
+msgstr "已停止"
+
 msgid "Subnet"
 msgstr "子網域"
 
@@ -6913,10 +7610,8 @@ msgstr "已成功匯入公鑰：%s"
 msgid "Successfully modified QoS Spec consumer."
 msgstr "已成功更改 QoS 規格規範用戶。"
 
-#, python-format
-msgid ""
-"Successfully restored backup %(backup_name)s to volume with id: %(volume_id)s"
-msgstr "已成功還原雲硬碟的備份 %(backup_name)s，雲硬碟識別號：%(volume_id)s"
+msgid "Successfully recreated ec2 credentials."
+msgstr "已順利建立 EC2 格式的憑證。"
 
 #, python-format
 msgid ""
@@ -6953,6 +7648,10 @@ msgstr "已成功更新容器的存取權為私人。"
 
 msgid "Successfully updated container access to public."
 msgstr "已成功更新容器的存取權為公開。"
+
+#, python-format
+msgid "Successfully updated encryption for volume type: %s"
+msgstr "已成功為雲硬碟類型更新加密：%s"
 
 #, python-format
 msgid "Successfully updated security group: %s"
@@ -7210,6 +7909,24 @@ msgid ""
 "project's quotas."
 msgstr "下列的圖表顯示此專案的專案配額中資源的使用情形。"
 
+msgid ""
+"The color and icon of an intersection indicates whether or not traffic is "
+"permitted from the source (row) to the destination (column).\n"
+"     Clicking the <span class=\"fa fa-random\"></span> button in the "
+"intersection will install a rule to switch the traffic behavior.<br/>\n"
+"\n"
+"     <b>Note:</b> Rules only affect one direction of traffic. The opposite "
+"direction is outlined when hovering over an intersection.\n"
+" "
+msgstr ""
+"交集的顏色及圖示表示是否允許從來源（列）到目標（欄）的傳輸。\n"
+"     在交集處按一下<span class=\"fa fa-random\"></span>按鈕將會套用規則來切換"
+"傳輸行為。<br/>\n"
+"\n"
+"     <b>附註：</b>規則只會影響單向的傳輸。將滑鼠移到交集上方會列出相反方向的"
+"概要。\n"
+" "
+
 msgid "The container cannot be deleted since it is not empty."
 msgstr "容器仍然不是空的，不能刪除。"
 
@@ -7230,6 +7947,11 @@ msgid ""
 msgstr ""
 "新增網路卡時預設的 IP 位址是已選擇子網路的閘道。您可以在此指定另外的網路卡介"
 "面 IP 位址。您必須選擇上列清單上有包含指定 IP 的子網路。"
+
+msgid ""
+"The default action for deleting a consistency group is to first disassociate "
+"all associated volumes."
+msgstr "刪除一致性群組的預設動作，是先與所有相關聯的雲硬盤斷開關聯。"
 
 #, python-format
 msgid ""
@@ -7281,6 +8003,10 @@ msgid ""
 msgstr "兩成員間定期確認的最短秒數。必須大於等於逾時"
 
 #, python-format
+msgid "The name \"%s\" is already used by another consistency group."
+msgstr "名稱「%s」已被另一個一致性群組使用。"
+
+#, python-format
 msgid "The name \"%s\" is already used by another flavor."
 msgstr "「%s」這個名稱已經使用在其他的虛擬硬體樣板。"
 
@@ -7305,6 +8031,14 @@ msgstr "您所查看的頁面並不存在"
 
 msgid "The physical mechanism by which the virtual network is implemented."
 msgstr "來自已實作的虛擬網路的實體機制。"
+
+msgid ""
+"The port also describes the associated network configuration, such as the "
+"MAC and IP addresses to be used on that port."
+msgstr "埠還說明了相關的網路配置（例如，要在該埠上使用的 MAC 和 IP 位址）。"
+
+msgid "The pre-defined key string between the two peers of the VPN connection"
+msgstr "虛擬私人網路連線的兩個節點之間的預先定義金鑰字串"
 
 msgid ""
 "The private key will be only used in your browser and will not be sent to "
@@ -7358,6 +8092,20 @@ msgstr "所要求的雲實例接口已與其他浮動 IP 聯結。"
 msgid "The specified port is invalid."
 msgstr "指定的埠口是無效的。"
 
+msgid ""
+"The state of IPSec site connection to start in. If DOWN (False), IPSec site "
+"connection does not forward packets."
+msgstr ""
+"要在其中開始之 IPSec 網站連線的狀態。如果值為 DOWN (False)，則 IPSec 網站連線"
+"將不轉遞封包。"
+
+msgid ""
+"The state of VPN service to start in. If DOWN (False) VPN service does not "
+"forward packets."
+msgstr ""
+"要在其中開始之虛擬私人網路伺服器的狀態。如果值為 DOWN (False)，則虛擬私人網路"
+"伺服器將不轉遞封包。"
+
 msgid "The state to start the network in."
 msgstr "網路一開始的狀態。"
 
@@ -7369,11 +8117,26 @@ msgid "The time delta must be a number representing the time span in days"
 msgstr "時間變化量必須是個可以表示多個日子內時間差值的數字"
 
 #, python-format
+msgid "The volume size cannot be less than the image minimum disk size (%sGiB)"
+msgstr "雲硬碟容量不能小於映像檔最小硬碟容量 (%sGiB)"
+
+#, python-format
 msgid "The volume size cannot be less than the image size (%s)"
 msgstr "雲硬碟容量不能小於映像檔容量（%s）"
 
+#, python-format
+msgid "The volume size cannot be less than the snapshot size (%sGiB)"
+msgstr "雲硬碟容量不能小於即時存檔容量 (%sGiB)"
+
+#, python-format
+msgid "The volume size cannot be less than the source volume size (%sGiB)"
+msgstr "雲硬碟容量不能小於來源雲硬碟容量 (%sGiB)"
+
 msgid "Theme Preview"
 msgstr "主題預覽"
+
+msgid "Themes:"
+msgstr "佈景主題："
 
 msgid "There are no meters defined yet."
 msgstr "尚未定義量測器。"
@@ -7398,6 +8161,11 @@ msgstr "解析 %(prefix)s 時出了問題：%(error)s"
 
 msgid "This action cannot be undone."
 msgstr "不能反悔這個動作。"
+
+msgid ""
+"This action cannot be undone. Current EC2 credentials will be deleted and "
+"not recoverable."
+msgstr "這個動作將無法回復。現行 EC2 憑證將予以刪除且不可回復。"
 
 msgid "This application requires JavaScript to be enabled in your web browser."
 msgstr "這個應用程式需要您啟用您網頁瀏覽器裡的 JavaScript。"
@@ -7424,12 +8192,18 @@ msgstr "這是機櫃終生履行作業所需要的"
 msgid "This name is already taken."
 msgstr "此名稱已被取走。"
 
+msgid "This panel needs JavaScript support."
+msgstr "此畫面需要 JavaScript 支援。"
+
 msgid ""
 "This volume is currently attached to an instance. In some cases, creating a "
 "snapshot from an attached volume can result in a corrupted snapshot."
 msgstr ""
 "此雲硬碟目前正附加到雲實例。某些狀況下，從附加的雲硬碟新增即時存檔會損毀即時"
 "存檔。"
+
+msgid "This volume type is used by one or more volumes."
+msgstr "此雲硬碟類型由一個以上的雲硬碟使用。"
 
 msgid "Time"
 msgstr "時間"
@@ -7509,6 +8283,9 @@ msgstr "硬碟總容量（GB）："
 msgid "Total Disk Usage (Hours):"
 msgstr "硬碟總用量（小時）："
 
+msgid "Total Gibibytes"
+msgstr "GB 數總計"
+
 msgid "Total Memory Usage (Hours):"
 msgstr "隨機存取記憶體用量（小時）："
 
@@ -7520,6 +8297,10 @@ msgstr "雲硬碟與即時存檔的總容量（GB）"
 
 msgid "Total Size of Volumes and Snapshots (GiB)"
 msgstr "雲硬碟與即時存檔的總容量（GiB）"
+
+#, python-format
+msgid "Total Size of Volumes and Snapshots (GiB) of Type %(type)s"
+msgstr "%(type)s 類型之雲硬碟及即時存檔容量總計 (GiB)"
 
 msgid "Total VCPU Usage (Hours):"
 msgstr "虛擬處理器用量（小時）："
@@ -7688,6 +8469,9 @@ msgstr "無法複製物件。"
 msgid "Unable to create QoS Spec."
 msgstr "無法新增 QoS 規格。"
 
+msgid "Unable to create consistency group."
+msgstr "無法新增一致性群組。"
+
 msgid "Unable to create container."
 msgstr "無法新增容器。"
 
@@ -7715,9 +8499,18 @@ msgstr "無法新增主機聚合「%s」。"
 msgid "Unable to create host aggregate."
 msgstr "無法新增主機聚合。"
 
+msgid "Unable to create identity provider protocol."
+msgstr "無法建立身分提供者通訊協定。"
+
 #, python-format
 msgid "Unable to create key pair: %(exc)s"
 msgstr "無法新增密鑰對：%(exc)s"
+
+msgid "Unable to create mapping."
+msgstr "無法建立對映。"
+
+msgid "Unable to create mapping. Rules has malformed JSON data."
+msgstr "無法建立對映。規則所具有的 JSON 資料格式不正確。"
 
 #, python-format
 msgid "Unable to create network \"%s\"."
@@ -7790,8 +8583,27 @@ msgid "Unable to create volume."
 msgstr "無法新增雲硬碟。"
 
 #, python-format
+msgid "Unable to delete IKE Policy. %s"
+msgstr "無法刪除網際網路密鑰原則。%s"
+
+#, python-format
+msgid "Unable to delete IPSec Policy. %s"
+msgstr "無法刪除 IPSec 原則。%s"
+
+#, python-format
+msgid "Unable to delete IPSec Site Connection. %s"
+msgstr "無法刪除 IPSec 網站連線。%s"
+
+#, python-format
 msgid "Unable to delete VIP. %s"
 msgstr "無法刪除虛擬 IP。%s"
+
+#, python-format
+msgid "Unable to delete VPN Service. %s"
+msgstr "無法刪除虛擬私人網路伺服器。%s"
+
+msgid "Unable to delete consistency group."
+msgstr "無法刪除一致性群組。"
 
 msgid "Unable to delete container."
 msgstr "無法刪除容器。"
@@ -7845,6 +8657,12 @@ msgstr "無法解除浮動 IP 的連結。"
 msgid "Unable to disassociate monitor."
 msgstr "無法解除監視器的聯結。"
 
+msgid "Unable to edit consistency group"
+msgstr "無法編輯一致性群組"
+
+msgid "Unable to edit consistency group."
+msgstr "無法編輯一致性群組。"
+
 msgid "Unable to edit spec."
 msgstr "無法編輯規格。"
 
@@ -7884,6 +8702,9 @@ msgstr "無法獲得雲實例「%s」的 VNC 主控臺。"
 
 msgid "Unable to get cinder services list."
 msgstr "無法獲得 Cinder 伺服器列表。"
+
+msgid "Unable to get consistency group list"
+msgstr "無法獲得一致性群組清單"
 
 #, python-format
 msgid "Unable to get events for stack \"%s\"."
@@ -7939,6 +8760,15 @@ msgstr "無法為倉庫 %(pool)s 獲得子網路。"
 
 msgid "Unable to get the available hosts"
 msgstr "無法獲得可用的主機"
+
+msgid "Unable to get the available volume types"
+msgstr "無法獲得可用的雲硬碟類型"
+
+msgid "Unable to get the available volumes"
+msgstr "無法獲得可用的雲硬碟"
+
+msgid "Unable to get volume type list"
+msgstr "無法獲得雲硬碟類型清單"
 
 msgid "Unable to import key pair."
 msgstr "無法匯入密鑰對。"
@@ -8000,6 +8830,21 @@ msgstr "無法分析 IP 位址 %s。"
 msgid "Unable to rebuild instance."
 msgstr "無法重建雲實例。"
 
+msgid "Unable to recreate ec2 credentials. Failed to create ec2 credentials."
+msgstr "無法重建 EC2 格式的憑證。無法建立 EC2 格式的憑證。"
+
+msgid "Unable to recreate ec2 credentials. Failed to delete ec2 credentials."
+msgstr "無法重建 EC2 格式的憑證。無法刪除 EC2 格式的憑證。"
+
+msgid "Unable to register identity provider."
+msgstr "無法註冊身分提供者。"
+
+msgid ""
+"Unable to register identity provider. Please check that the Identity "
+"Provider ID and Remote IDs provided are not already in use."
+msgstr ""
+"無法註冊身分提供者。請確認所提供的「身分提供者 ID」及「遠端 ID」未在使用中。"
+
 #, python-format
 msgid "Unable to resize instance \"%s\"."
 msgstr "無法調整雲實例「%s」的容量。"
@@ -8048,6 +8893,10 @@ msgstr "無法獲得 IPSec 網站連線詳細資訊。%s"
 
 msgid "Unable to retrieve IPSec Site Connections list."
 msgstr "無法獲得 IPSec 網站連線列表。"
+
+#, python-format
+msgid "Unable to retrieve Network information for instance \"%s\"."
+msgstr "無法為雲實例「%s」獲得網路資訊。"
 
 msgid "Unable to retrieve Nova availability zones."
 msgstr "無法獲得 Nova 可用區域。"
@@ -8116,6 +8965,9 @@ msgstr "無法獲得運算主機資訊。"
 msgid "Unable to retrieve compute limit information."
 msgstr "無法獲得運算限制資訊。"
 
+msgid "Unable to retrieve consistency group details."
+msgstr "無法獲得一致性群組詳細資訊。"
+
 msgid "Unable to retrieve container list."
 msgstr "無法獲得容器列表。"
 
@@ -8152,6 +9004,9 @@ msgstr "無法獲得地域資訊。"
 
 msgid "Unable to retrieve domain list."
 msgstr "無法獲得地域列表。"
+
+msgid "Unable to retrieve encryption type."
+msgstr "無法獲得加密類型。"
 
 msgid "Unable to retrieve extensions information"
 msgstr "無法獲得擴充套件資訊"
@@ -8223,6 +9078,12 @@ msgstr "無法獲得虛擬機器管理程式的雲實例列表。"
 msgid "Unable to retrieve hypervisor statistics."
 msgstr "無法獲得虛擬機器管理程式的統計資料。"
 
+msgid "Unable to retrieve identity provider information."
+msgstr "無法獲得身分提供者資訊。"
+
+msgid "Unable to retrieve identity provider list."
+msgstr "無法獲得身分提供者清單。"
+
 msgid "Unable to retrieve image details."
 msgstr "無法獲得映像檔詳細資訊。"
 
@@ -8283,6 +9144,9 @@ msgstr "無法獲得密鑰對。"
 msgid "Unable to retrieve limit information."
 msgstr "無法獲得限制資訊。"
 
+msgid "Unable to retrieve list of routers."
+msgstr "無法獲得路由器列表。"
+
 msgid "Unable to retrieve list of security groups"
 msgstr "無法獲得安全性群組列表"
 
@@ -8291,6 +9155,9 @@ msgstr "無法獲得雲硬碟的即時存檔列表。"
 
 msgid "Unable to retrieve list of volumes."
 msgstr "無法獲得雲硬碟列表。"
+
+msgid "Unable to retrieve mapping list."
+msgstr "無法獲得對映清單。"
 
 msgid "Unable to retrieve member details."
 msgstr "無法獲得成員詳細資訊。"
@@ -8393,6 +9260,9 @@ msgstr "無法獲得專案資訊。"
 msgid "Unable to retrieve project list."
 msgstr "無法獲得專案列表。"
 
+msgid "Unable to retrieve protocol list."
+msgstr "無法獲得通訊協定清單。"
+
 msgid "Unable to retrieve providers list."
 msgstr "無法獲得提供者列表。"
 
@@ -8486,6 +9356,9 @@ msgstr "無法獲得租用人限制。"
 msgid "Unable to retrieve the aggregate to be updated"
 msgstr "無法獲得聚合來更新"
 
+msgid "Unable to retrieve the project information of the image."
+msgstr "無法獲得映像檔的專案資訊。"
+
 msgid "Unable to retrieve the specified pool."
 msgstr "無法獲得指定的倉庫。"
 
@@ -8525,6 +9398,9 @@ msgstr "無法獲得版本資訊。"
 
 msgid "Unable to retrieve volume backups."
 msgstr "無法獲得雲硬碟備份。"
+
+msgid "Unable to retrieve volume consistency groups."
+msgstr "無法獲得雲硬碟一致性群組。"
 
 msgid "Unable to retrieve volume details."
 msgstr "無法獲得雲硬碟詳細資訊。"
@@ -8632,12 +9508,29 @@ msgstr "無法更新Nova預設的配額。"
 msgid "Unable to update default quotas."
 msgstr "無法更新預設的配額。"
 
+msgid "Unable to update encrypted volume type."
+msgstr "無法更新已加密的雲硬碟類型。"
+
 msgid "Unable to update group."
 msgstr "無法更新群組。"
+
+msgid "Unable to update identity provider."
+msgstr "無法更新身分提供者。"
+
+msgid ""
+"Unable to update identity provider. Please check that the Remote IDs "
+"provided are not already in use."
+msgstr "無法更新身分提供者。請確認所提供的「遠端 ID」未在使用中。"
 
 #, python-format
 msgid "Unable to update image \"%s\"."
 msgstr "無法更新映像檔「%s」。"
+
+msgid "Unable to update mapping."
+msgstr "無法更新對映。"
+
+msgid "Unable to update mapping. Rules has malformed JSON data."
+msgstr "無法更新對映。規則所具有的 JSON 資料格式不正確。"
 
 msgid "Unable to update object."
 msgstr "無法更新物件。"
@@ -8667,6 +9560,9 @@ msgstr "無法更新用戶。"
 
 msgid "Unable to update the volume type."
 msgstr "無法更新雲碟碟類型。"
+
+msgid "Unable to update volume consistency group."
+msgstr "無法更新雲硬碟一致性群組。"
 
 msgid "Unable to update volume snapshot status."
 msgstr "無法更新雲硬碟即時存檔狀態。"
@@ -8724,6 +9620,14 @@ msgctxt "Action log of an instance"
 msgid "Unpause"
 msgstr "取消暫停"
 
+msgid "Unregister Identity Provider"
+msgid_plural "Unregister Identity Providers"
+msgstr[0] "註銷身分提供者"
+
+msgid "Unregistered Identity Provider"
+msgid_plural "Unregistered Identity Providers"
+msgstr[0] "已註銷身分提供者"
+
 msgctxt "Task status of an Instance"
 msgid "Unrescuing"
 msgstr "正在取消救援"
@@ -8772,6 +9676,9 @@ msgstr "更新預設值"
 msgid "Update Encrypted Volume Type"
 msgstr "更新已加密的雲硬碟類型"
 
+msgid "Update Encryption"
+msgstr "更新加密"
+
 msgctxt "current status of stack"
 msgid "Update Failed"
 msgstr "更新失敗"
@@ -8779,9 +9686,15 @@ msgstr "更新失敗"
 msgid "Update Group"
 msgstr "更新群組"
 
+msgid "Update Identity Provider"
+msgstr "更新身分提供者"
+
 msgctxt "current status of stack"
 msgid "Update In Progress"
 msgstr "正在更新"
+
+msgid "Update Mapping"
+msgstr "更新對映"
 
 msgid "Update Metadata"
 msgstr "更新詮釋資料"
@@ -8819,6 +9732,9 @@ msgstr "更新雲硬碟即時存檔狀態"
 msgid "Update Volume Status"
 msgstr "更新雲硬碟狀態"
 
+msgid "Update Volume Type Encryption"
+msgstr "更新雲硬碟類型加密"
+
 msgid ""
 "Update a stack with the provided values. Please note that any encrypted "
 "parameters, such as passwords, will be reset to default if you do not change "
@@ -8831,6 +9747,9 @@ msgid ""
 "Update a subnet associated with the network. Advanced configuration are "
 "available at \"Subnet Details\" tab."
 msgstr "更新子網路與此網路聯結。進階的設置會在「子網路詳細資訊」標籤裡。"
+
+msgid "Update an Encrypted Volume Type"
+msgstr "更新已加密的雲硬碟類型"
 
 msgid "Update requests for this floating ip"
 msgstr "此浮動 IP 的更新請求數"
@@ -8869,9 +9788,18 @@ msgctxt "Task status of an Instance"
 msgid "Updating Password"
 msgstr "正在更新密碼"
 
+msgid ""
+"Updating encryption is not implemented.  Unable to update  encrypted volume "
+"type."
+msgstr "未實作更新加密。無法更新已加密的雲硬碟類型。"
+
 #, python-format
 msgid "Updating volume \"%s\""
 msgstr "正在更新雲硬碟「%s」"
+
+#, python-format
+msgid "Updating volume consistency group \"%s\""
+msgstr "正在更新雲硬碟一致性群組「%s」"
 
 #, python-format
 msgid "Updating volume snapshot \"%s\""
@@ -8985,6 +9913,12 @@ msgstr "已經有其他人用了用戶名稱「%s」。"
 
 msgid "User password has been updated successfully."
 msgstr "已成功更新用戶密碼。"
+
+msgid "User-defined unique id to identify the identity provider."
+msgstr "用來識別身分提供者的使用者定義唯一 ID。"
+
+msgid "User-defined unique id to identify the mapping."
+msgstr "用來識別對映的使用者定義的唯一 ID。"
 
 msgid "Users"
 msgstr "用戶"
@@ -9145,6 +10079,9 @@ msgstr ""
 "雲硬碟備份使用了物件式儲存空間伺服器來儲存。您必須已啟動此伺服器才能新增備"
 "份。"
 
+msgid "Volume Consistency Groups"
+msgstr "雲硬碟一致性群組"
+
 msgid "Volume Encryption Details"
 msgstr "雲硬碟加密詳細資訊"
 
@@ -9172,6 +10109,10 @@ msgstr "雲硬碟即時存檔概觀"
 
 msgid "Volume Snapshots"
 msgstr "雲硬碟即時存檔"
+
+#, python-format
+msgid "Volume Snapshots of Type %(type)s"
+msgstr "%(type)s 類型的雲硬碟即時存檔"
 
 msgid "Volume Source"
 msgstr "雲硬碟來源"
@@ -9206,6 +10147,9 @@ msgstr "雲硬碟類型名稱"
 msgid "Volume Type is Unencrypted."
 msgstr "雲硬碟類型未加密。"
 
+msgid "Volume Type(s)"
+msgstr "雲硬碟類型"
+
 #, python-format
 msgid "Volume Type: %(volume_type_name)s"
 msgstr "雲硬碟類型：%(volume_type_name)s"
@@ -9216,6 +10160,31 @@ msgstr "雲硬碟類型：%(volume_type_name)s "
 
 msgid "Volume Types"
 msgstr "雲硬碟類型"
+
+#, python-format
+msgid ""
+"Volume cannot be extended to %(req)iGiB as you only have %(avail)iGiB of "
+"your quota available."
+msgstr "您只擁有 %(avail)iGiB 配額可用，所以您不能擴充雲硬碟到 %(req)iGiB。"
+
+msgid ""
+"Volume consistency groups can only be deleted after all the volumes they "
+"contain are either deleted or unassigned."
+msgstr ""
+"僅當已刪除或取消指派雲硬碟一致性群組包含的所有雲硬碟之後，才可以刪除雲硬碟一"
+"致性群組。"
+
+msgid ""
+"Volume consistency groups provide a mechanism for creating snapshots of "
+"multiple volumes at the same point-in-time to ensure data consistency\n"
+"\n"
+"A consistency group can support more than one volume type, but it can only "
+"contain volumes hosted by the same back end."
+msgstr ""
+"雲硬碟一致性群組提供了一種機制，用來同時新增多個雲硬碟的即時存檔，以確保資料"
+"的一致性\n"
+"\n"
+"一致性群組可以支援多種雲硬碟類型，但它只能包含由同一後端進行管理的雲硬碟。"
 
 msgid "Volume is Unencrypted"
 msgstr "雲硬碟未加密"
@@ -9246,8 +10215,23 @@ msgid "Volume size in gigabytes (integer value)."
 msgstr "雲硬碟的 GB 容量（整數值）。"
 
 #, python-format
+msgid ""
+"Volume size must be equal to or greater than the image minimum disk size "
+"(%sGiB)"
+msgstr "雲硬碟容量必須大於等於映像檔最小硬碟容量 (%sGiB)"
+
+#, python-format
 msgid "Volume size must be equal to or greater than the image size (%s)"
 msgstr "雲硬碟容量必須大於等於映像檔容量（%s）"
+
+#, python-format
+msgid ""
+"Volume size must be equal to or greater than the origin volume size (%sGiB)"
+msgstr "雲硬碟容量必須大於等於原始的雲硬碟容量 (%sGiB)"
+
+#, python-format
+msgid "Volume size must be equal to or greater than the snapshot size (%sGiB)"
+msgstr "雲硬碟容量必須大於或等於即時存檔容量 (%sGiB)"
 
 msgid "Volume size must be greater than 0"
 msgstr "雲硬碟容量必須大於 0。"
@@ -9267,6 +10251,13 @@ msgstr "雲硬碟"
 
 msgid "Volumes Attached"
 msgstr "已附加雲硬碟"
+
+msgid "Volumes are block devices that can be attached to instances."
+msgstr "雲硬碟是可以被附加到雲實例的區塊裝置。"
+
+#, python-format
+msgid "Volumes of Type %(type)s"
+msgstr "%(type)s 類型的雲硬碟"
 
 msgid "Weight"
 msgstr "權重"
@@ -9563,3 +10554,6 @@ msgstr "第一版"
 
 msgid "v2"
 msgstr "第二版"
+
+msgid "yes,no,-"
+msgstr "是，否，-"

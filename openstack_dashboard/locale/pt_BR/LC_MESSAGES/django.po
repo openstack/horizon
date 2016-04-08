@@ -2,18 +2,19 @@
 # Gabriel Wainer <gabrielcw@gmail.com>, 2015. #zanata
 # Marcelo Dieder <marcelodieder@gmail.com>, 2015. #zanata
 # OpenStack Infra <zanata@openstack.org>, 2015. #zanata
+# Andreas Jaeger <jaegerandi@gmail.com>, 2016. #zanata
 # Carlos Marques <marquesc@br.ibm.com>, 2016. #zanata
 # Eric Baum <ecbaum@gmail.com>, 2016. #zanata
 msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2016-03-16 02:16+0000\n"
+"POT-Creation-Date: 2016-04-07 12:25+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2016-03-11 06:04+0000\n"
-"Last-Translator: Eric Baum <ecbaum@gmail.com>\n"
+"PO-Revision-Date: 2016-03-24 03:20+0000\n"
+"Last-Translator: Marcelo Dieder <marcelodieder@gmail.com>\n"
 "Language-Team: Portuguese (Brazil)\n"
 "Language: pt-BR\n"
 "X-Generator: Zanata 3.7.3\n"
@@ -366,33 +367,10 @@ msgstr ""
 msgid " Also failed to delete port %s"
 msgstr "Também não consegui excluir a porta %s"
 
-msgid "\"Add Router Route\""
-msgstr "Adicionar Rota para o Roteador"
-
-msgid "\"Containers\""
-msgstr "\"Contêineres\""
-
 msgid ""
 "\"Customization Script\" is analogous to \"User Data\" in other systems."
 msgstr ""
 "\"Customization Script\" é análogo ao \"User Data\" em outros sistemas."
-
-msgid "\"Edit Volume Type\""
-msgstr "\"Editar Tipo de Volume\""
-
-msgid "\"N/A\""
-msgstr "\"N/A\""
-
-msgid "\"Namespace Resource Type Associations\""
-msgstr "Associações de Tipos de Recursos de Namespace"
-
-msgid "\"No flavors meet minimum criteria for selected image.\""
-msgstr ""
-"\"Nenhum dos sabores cumprem os critérios mínimos para a imagem selecionada."
-"\""
-
-msgid "\"None\""
-msgstr "\"Nenhum\""
 
 msgid ""
 "\"None\" indicates that no QoS Spec is currently associated. Conversely, "
@@ -401,12 +379,6 @@ msgstr ""
 "\"None\" indica que nenhuma especificação QoS está atualmente associada. "
 "reciprocamente, configurando a especificação QoS para \"None\" irá remover a "
 "associação atual."
-
-msgid ""
-"\"Some flavors not meeting minimum image requirements have been disabled.\""
-msgstr ""
-"\"Alguns sabores que não satisfazem os requisitos mínimos de imagem foram "
-"desativados.\""
 
 #, python-format
 msgid "%(field_name)s: Invalid IP address (value=%(ip)s)"
@@ -880,12 +852,33 @@ msgstr "Adicionar roteador(es) selecionado(s) ao firewall."
 msgid "Add static route to the router."
 msgstr "Adicionar rota estática no roteador"
 
+msgid ""
+"Add volume types to this consistency group. Multiple volume types can be "
+"added to the same consistency group only if they are associated with same "
+"back end."
+msgstr ""
+"Adicionar tipos de volume para este grupo de consistência. Vários tipos de "
+"volume podem ser adicionados ao mesmo grupo de consistência, apenas se eles "
+"estão associados ao mesmo \"back end\"."
+
 msgid "Add, modify or remove the QoS Spec associated with this volume type."
 msgstr ""
 "Adicionar, Modificar ou remover o QoS associado com este tipo de volume."
 
+msgid "Add/Remove Consistency Group Volumes"
+msgstr "Adicionar/Remover Grupo de Consistência de Volumes"
+
 msgid "Add/Remove Hosts to Aggregate"
 msgstr "Adicionar/Remover Hosts do Agregado"
+
+msgid ""
+"Add/remove volumes to/from this consistency group. Only volumes associated "
+"with the volume type(s) assigned to this consistency group will be available "
+"for selection."
+msgstr ""
+"Adicionar/remover volumes de/para este grupo de consistência. Somente "
+"volumes associados com o(s) tipo(s) de volume(s) atribuído a este grupo "
+"consistência estará disponível para a seleção."
 
 #, python-format
 msgid "Added Firewall \"%s\"."
@@ -1039,6 +1032,19 @@ msgstr "Todos Usuários"
 
 msgid "All available hosts"
 msgstr "Hosts disponíveis"
+
+msgid "All available volume types"
+msgstr "Todos os tipos de volumes disponíveis"
+
+msgid "All available volumes"
+msgstr "Todos os volumes disponíveis"
+
+msgid ""
+"All selected volume types must be associated with the same volume backend "
+"name."
+msgstr ""
+"Todos os tipos de volume selecionados devem ser associados com o mesmo nome "
+"de volume \"back end\"."
 
 msgid "Allocate Floating IP"
 msgstr "Alocar IP Flutuante"
@@ -1247,6 +1253,10 @@ msgstr "Zonas de Disponibilidade"
 msgid "Availability zone"
 msgstr "Zona de disponibilidade"
 
+msgid "Available"
+msgstr "Disponível"
+
+msgctxt "Current status of Consistency Group"
 msgid "Available"
 msgstr "Disponível"
 
@@ -1469,6 +1479,13 @@ msgid_plural "Check Stacks"
 msgstr[0] "Checar Pilha"
 msgstr[1] "Checar Pilhas"
 
+msgid ""
+"Check the &quot;Delete Volumes&quot; box to also delete the volumes "
+"associated with this consistency group."
+msgstr ""
+"Verifique a &quot; Excluir Volumes&quot; caixa para também excluir os "
+"volumes associados a este grupo de consistência."
+
 msgid "Checked Stack"
 msgid_plural "Checked Stacks"
 msgstr[0] "Pilha Checada"
@@ -1663,6 +1680,9 @@ msgstr "Regra conflitante"
 msgid "Connection Limit"
 msgstr "Limite de conexão"
 
+msgid "Consistency Group Information"
+msgstr "Informação do Grupo de Consistência"
+
 msgid "Console"
 msgstr "Console"
 
@@ -1775,6 +1795,9 @@ msgctxt "current status of stack"
 msgid "Create Complete"
 msgstr "Criação Completa"
 
+msgid "Create Consistency Group"
+msgstr "Criar Grupo de Consistência"
+
 msgid "Create Container"
 msgstr "Criar Contêiner "
 
@@ -1795,7 +1818,7 @@ msgid "Create Firewall"
 msgstr "Criar Firewall"
 
 msgid "Create Flavor"
-msgstr "Criar Flavor"
+msgstr "Criar Sabor"
 
 msgid "Create Group"
 msgstr "Criar Grupo"
@@ -1970,6 +1993,9 @@ msgstr "Criar Volume"
 
 msgid "Create Volume Backup"
 msgstr "Criar Backup do Volume"
+
+msgid "Create Volume Consistency Group"
+msgstr "Criar Grupo de Consistência de Volumes"
 
 msgid "Create Volume Snapshot"
 msgstr "Criar Snapshot de Volume"
@@ -2202,7 +2228,7 @@ msgstr "Criado novo domínio \"%s\"."
 
 #, python-format
 msgid "Created new flavor \"%s\"."
-msgstr "Criado novo flavor \"%s\"."
+msgstr "Criado novo sabor \"%s\"."
 
 #, python-format
 msgid "Created new host aggregate \"%s\"."
@@ -2211,6 +2237,9 @@ msgstr "Criado um novo Agregado de Host \"%s\"."
 #, python-format
 msgid "Created new project \"%s\"."
 msgstr "Criado novo projeto \"%s\"."
+
+msgid "Created new volume consistency group"
+msgstr "Criar um novo grupo de consistência de volume"
 
 #, python-format
 msgid "Created spec \"%s\"."
@@ -2356,6 +2385,12 @@ msgstr ""
 "DHCPv6 stateless: Endereço descoberto a partir de um Roteador do OpenStack e "
 "informações adicionais a partir do DHCP do OpenStack"
 
+msgid "DNS Assignment"
+msgstr "Atribuição de DNS"
+
+msgid "DNS Name"
+msgstr "Nome do DNS"
+
 msgid "DNS Name Servers"
 msgstr "Servidores de nome DNS"
 
@@ -2451,6 +2486,11 @@ msgctxt "current status of stack"
 msgid "Delete Complete"
 msgstr "Exclusão Concluída"
 
+msgid "Delete Consistency Group"
+msgid_plural "Delete Consistency Groups"
+msgstr[0] "Remover Grupo de Consistência"
+msgstr[1] "Remover Grupos de Consistência"
+
 msgid "Delete Container"
 msgid_plural "Delete Containers"
 msgstr[0] "Excluir Contêiner"
@@ -2487,8 +2527,8 @@ msgstr[1] "Excluir Firewalls"
 
 msgid "Delete Flavor"
 msgid_plural "Delete Flavors"
-msgstr[0] "Excluir Flavor"
-msgstr[1] "Excluir Flavors"
+msgstr[0] "Excluir Sabor"
+msgstr[1] "Excluir Sabores"
 
 msgid "Delete Group"
 msgid_plural "Delete Groups"
@@ -2725,8 +2765,8 @@ msgstr[1] "Especificações Extras Excluídas"
 
 msgid "Deleted Flavor"
 msgid_plural "Deleted Flavors"
-msgstr[0] "Flavor Excluído"
-msgstr[1] "Flavors Excluídos"
+msgstr[0] "Sabor Excluído"
+msgstr[1] "Sabores Excluídos"
 
 msgid "Deleted Group"
 msgid_plural "Deleted Groups"
@@ -3211,6 +3251,9 @@ msgstr "Editar"
 msgid "Edit Connection"
 msgstr "Editar conexão"
 
+msgid "Edit Consistency Group"
+msgstr "Editar Grupo de Consistência"
+
 msgid "Edit Consumer"
 msgstr "Editar Consumidor"
 
@@ -3231,7 +3274,7 @@ msgid "Edit Firewall {{ name }}"
 msgstr "Editar Firewall {{name}}"
 
 msgid "Edit Flavor"
-msgstr "Editar Flavor"
+msgstr "Editar Sabor"
 
 msgid "Edit Group"
 msgstr "Editar Grupo"
@@ -3329,12 +3372,16 @@ msgstr "Editar o Tipo de Volume"
 msgid "Edit Volume Type Extra Spec"
 msgstr "Edita Especificações Extra de Tipo de Volume"
 
+#, python-format
+msgid "Edit consistency group \"%s\"."
+msgstr "Editar grupo \"%s\" de consistência."
+
 msgid ""
 "Edit the flavor details. Flavors define the sizes for RAM, disk, number of "
 "cores, and other resources. Flavors are selected when users deploy instances."
 msgstr ""
-"Edita os detalhes do flavor. Flavors definem os tamanhos de RAM, disco, "
-"número de nícleos, e outros recursos. Flavors são selecionados quando "
+"Edita os detalhes do sabor. Sabores definem os tamanhos de RAM, disco, "
+"número de nícleos, e outros recursos. Sabores são selecionados quando "
 "usuários criam instâncias."
 
 msgid "Edit the identity provider's details."
@@ -3490,6 +3537,10 @@ msgstr ""
 "Igual ou superior a 68 se a sub-rede local é IPv4. Igual ou maior que 1280 "
 "se a sub-rede local é IPv6."
 
+msgid "Error"
+msgstr "Erro"
+
+msgctxt "Current status of Consistency Group"
 msgid "Error"
 msgstr "Erro"
 
@@ -3693,6 +3744,9 @@ msgstr ""
 
 msgid "Extra Specs"
 msgstr "Especificações extras"
+
+msgid "FQDN"
+msgstr "FQDN"
 
 msgctxt "Power state of an Instance"
 msgid "Failed"
@@ -4043,7 +4097,7 @@ msgid "Flavor"
 msgstr "Flavor"
 
 msgid "Flavor Access"
-msgstr "Acesso ao Flavor"
+msgstr "Acesso ao Sabor"
 
 msgid "Flavor Choice"
 msgstr "Escolha de Flavor"
@@ -4065,23 +4119,23 @@ msgid ""
 "Flavor ID should be UUID4 or integer. Leave this field blank or use 'auto' "
 "to set a random UUID4."
 msgstr ""
-"ID de flavor deve ser UUID4 ou inteiro. Deixe este campo em branco ou "
-"utilize 'auto' para setar um UUID4 aleatório."
+"ID do sabor deve ser UUID4 ou inteiro. Deixe este campo em branco ou utilize "
+"'auto' para setar um UUID4 aleatório."
 
 msgid "Flavor Information"
-msgstr "Informação do Flavor"
+msgstr "Informação do Sabor"
 
 msgid "Flavor Name"
-msgstr "Nome do Flavor"
+msgstr "Nome do Sabor"
 
 msgid "Flavors"
-msgstr "Flavors"
+msgstr "Sabores"
 
 msgid ""
 "Flavors define the sizes for RAM, disk, number of cores, and other resources "
 "and can be selected when users deploy instances."
 msgstr ""
-"Flavors definem os tamanhos para memória, disco, números de núcleos, e "
+"Sabores definem os tamanhos para memória, disco, números de núcleos, e "
 "outros recursos e podem ser selecionados quando usuários criam instâncias."
 
 msgid "Floating IP"
@@ -4666,6 +4720,10 @@ msgstr ""
 "Além disso, você pode criar uma rede externa ou uma rede compartilhada "
 "marcando a opção correspondente."
 
+msgctxt "Current status of Consistency Group"
+msgid "In-use"
+msgstr "Em uso"
+
 msgctxt "Current status of a Volume"
 msgid "In-use"
 msgstr "Em uso"
@@ -4970,10 +5028,6 @@ msgstr "Ativar instância com essas portas"
 msgid "Launch instance with this policy profile"
 msgstr "Dispare instância com este perfil de política"
 
-#, python-format
-msgid "Launched %(count)s named \"%(name)s\"."
-msgstr "Disparadas %(count)s chamadas \"%(name)s\"."
-
 msgid ""
 "Launching multiple instances is only supported for images and instance "
 "snapshots."
@@ -5163,6 +5217,12 @@ msgstr "Gerenciar Volume"
 msgid "Manage Volume Attachments"
 msgstr "Gerenciar Anexos de Volume"
 
+msgid "Manage Volume Types"
+msgstr "Gerenciar Tipos de Volumes"
+
+msgid "Manage Volumes"
+msgstr "Gerenciar Volumes"
+
 msgid "Manage a Volume"
 msgstr "Gerenciar um Volume"
 
@@ -5336,7 +5396,7 @@ msgstr "Domínio \"%s\" modificado."
 
 #, python-format
 msgid "Modified flavor \"%s\"."
-msgstr "Flavor \"%s\" modificado."
+msgstr "Sabor \"%s\" modificado."
 
 msgid "Modified flavor information, but unable to modify flavor access."
 msgstr ""
@@ -5381,6 +5441,9 @@ msgstr "Modifica o nome e descrição de um volume."
 
 msgid "Modify the name and description of a snapshot."
 msgstr "Modificar o nome e a descrição de um snapshot."
+
+msgid "Modify the name and description of a volume consistency group."
+msgstr "Modificar o nome e a descrição de um grupo de consistência de volume."
 
 msgid "Modify volume type name and description."
 msgstr "Modificar o nome e descrição do tipo de volume."
@@ -5626,6 +5689,9 @@ msgctxt "Power state of an Instance"
 msgid "No State"
 msgstr "Sem Estado"
 
+msgid "No assigned volumes"
+msgstr "Nenhum volume especificado."
+
 msgid "No associations defined."
 msgstr "Nenhuma associação definida."
 
@@ -5708,7 +5774,7 @@ msgid "No projects found."
 msgstr "Nenhum projeto encontrado."
 
 msgid "No projects selected. All projects can use the flavor."
-msgstr "Nenhum projeto selecionado. Todos projetos podem utilizar o flavor."
+msgstr "Nenhum projeto selecionado. Todos projetos podem utilizar o sabor."
 
 msgid "No provider is available"
 msgstr "Nenhum provedor está disponível"
@@ -5756,11 +5822,23 @@ msgstr "Nenhum snapshot de volume disponível"
 msgid "No volume type"
 msgstr "Sem tipo de volume"
 
+msgid "No volume types found."
+msgstr "Nenhum tipo de volume encontrado."
+
+msgid "No volume types selected."
+msgstr "Nenhum tipo de volume selecionado."
+
 msgid "No volumes attached."
 msgstr "Nenhum volume anexado."
 
 msgid "No volumes available"
 msgstr "Nenhum volume disponível"
+
+msgid "No volumes found."
+msgstr "Nenhum volume foi encontrado."
+
+msgid "No volumes selected."
+msgstr "Nenhum volume selecionado."
 
 msgid "Non admin users are not allowed to make images public."
 msgstr ""
@@ -5793,6 +5871,13 @@ msgstr "Não anexado"
 
 msgid "Not available"
 msgstr "Não disponível"
+
+msgid ""
+"Note that a volume can not be deleted if it is &quot;attached&quot; or has "
+"any dependent snapshots."
+msgstr ""
+"Perceba que um volume não pode ser eliminado se for &quot;anexado&quot; ou "
+"tem quaisquer snapshots dependentes."
 
 msgid "Note: "
 msgstr "Nota:"
@@ -6209,6 +6294,9 @@ msgstr "Porta ID"
 msgid "Port Range"
 msgstr "Faixa de Portas"
 
+msgid "Port Security Enabled"
+msgstr "Segurança da Porta Ativada"
+
 #, python-format
 msgid "Port cleanup failed for these port-ids (%s)."
 msgstr "Limpeza de porta falhou para estes port-ids (%s)."
@@ -6419,6 +6507,9 @@ msgstr "URL Pública"
 
 msgid "QCOW2 - QEMU Emulator"
 msgstr "QCOW2 - Emulador QEMU"
+
+msgid "QOS Policy ID"
+msgstr "ID da Política de QOS"
 
 #, python-format
 msgid "QoS Spec name \"%s\" already exists."
@@ -7036,6 +7127,11 @@ msgctxt "Current status of an Image"
 msgid "Saving"
 msgstr "Salvando"
 
+msgid "Scheduled deletion of Consistency Group"
+msgid_plural "Scheduled deletion of Consistency Groups"
+msgstr[0] "Remoção de Grupo de Consistência Agendada"
+msgstr[1] "Remoção de Grupos de Consistência Agendadas"
+
 msgid "Scheduled deletion of Firewall"
 msgid_plural "Scheduled deletion of Firewalls"
 msgstr[0] "Exclusão agendada de Firewall"
@@ -7110,10 +7206,6 @@ msgid "Scheduled migration (pending confirmation) of Instance"
 msgid_plural "Scheduled migration (pending confirmation) of Instances"
 msgstr[0] "Migração de Instância Agendada (pendente confirmação)"
 msgstr[1] "Migração de Instâncias Agendada (pendente confirmação)"
-
-#, python-format
-msgid "Scheduled resize of instance \"%s\"."
-msgstr "Agendado o redimensionamento da instância \"%s\"."
 
 msgctxt "Task status of an Instance"
 msgid "Scheduling"
@@ -7341,8 +7433,8 @@ msgid ""
 "Select the projects where the flavors will be used. If no projects are "
 "selected, then the flavor will be available in all projects."
 msgstr ""
-"Selecione o projeto onde os flavors serão usados. Se nenhum projeto estiver "
-"selecionado, então o flavor estará disponível em todos os projetos."
+"Selecione o projeto onde os sabores serão usados. Se nenhum projeto estiver "
+"selecionado, então o sabor estará disponível em todos os projetos."
 
 msgid "Selected Hosts"
 msgstr "Hosts selecionados"
@@ -7361,6 +7453,12 @@ msgstr "Hosts selecionados"
 
 msgid "Selected networks"
 msgstr "Redes Selecionadas"
+
+msgid "Selected volume types"
+msgstr "Tipos de volumes selecionados"
+
+msgid "Selected volumes"
+msgstr "Volumes selecionados"
 
 msgid "Sensor Current Reading"
 msgstr "Leitura atual do sensor"
@@ -7910,12 +8008,6 @@ msgstr "Credenciais do ec2 recriadas com sucesso."
 
 #, python-format
 msgid ""
-"Successfully restored backup %(backup_name)s to volume with id: %(volume_id)s"
-msgstr ""
-"Restaurados com êxito backup %(backup_name)s volume com id:%(volume_id)s"
-
-#, python-format
-msgid ""
 "Successfully sent the request to change the volume type to \"%(vtype)s\" for "
 "volume: \"%(name)s\""
 msgstr ""
@@ -8183,7 +8275,7 @@ msgstr "O tipo ICMP não está na faixa (-1,255)"
 
 #, python-format
 msgid "The ID \"%s\" is already used by another flavor."
-msgstr "O ID \"%s\" já está sendo utilizado por outro flavor."
+msgstr "O ID \"%s\" já está sendo utilizado por outro sabor."
 
 msgid ""
 "The ID of the host where the port is allocated. In some cases, different "
@@ -8280,6 +8372,13 @@ msgstr ""
 "deve selecionar uma sub-rede da lista acima a qual o endereço IP "
 "especificado pertença."
 
+msgid ""
+"The default action for deleting a consistency group is to first disassociate "
+"all associated volumes."
+msgstr ""
+"A ação padrão para a exclusão de um grupo de consistência é a primeira a "
+"dissociar todos os volumes associados."
+
 #, python-format
 msgid ""
 "The flavor '%(flavor)s' is too small for requested image.\n"
@@ -8337,8 +8436,12 @@ msgstr ""
 "ser maior ou igual ao tempo limite"
 
 #, python-format
+msgid "The name \"%s\" is already used by another consistency group."
+msgstr "O nome \"%s\" já é utilizado por outro grupo de consistência."
+
+#, python-format
 msgid "The name \"%s\" is already used by another flavor."
-msgstr "O nome \"%s\" já está sendo utilizado por outro flavor."
+msgstr "O nome \"%s\" já está sendo utilizado por outro sabor."
 
 #, python-format
 msgid "The name \"%s\" is already used by another host aggregate."
@@ -8835,6 +8938,9 @@ msgstr "Não é possível copiar objeto."
 msgid "Unable to create QoS Spec."
 msgstr "Não foi possível criar Especificação de QoS."
 
+msgid "Unable to create consistency group."
+msgstr "Não foi possível criar grupo de consistência."
+
 msgid "Unable to create container."
 msgstr "Não é possível criar contêiner."
 
@@ -8847,10 +8953,10 @@ msgstr "Não é possível criar o tipo de volume criptografado."
 
 #, python-format
 msgid "Unable to create flavor \"%s\"."
-msgstr "Não foi possível criar flavor \"%s\"."
+msgstr "Não foi possível criar sabor \"%s\"."
 
 msgid "Unable to create flavor."
-msgstr "Não foi possível criar o flavor."
+msgstr "Não foi possível criar o sabor."
 
 msgid "Unable to create group."
 msgstr "Não é possível criar grupo."
@@ -8967,6 +9073,9 @@ msgstr "Não é possível excluir vIP. %s"
 msgid "Unable to delete VPN Service. %s"
 msgstr "Não foi possível deletar o serviço de VPN. %s"
 
+msgid "Unable to delete consistency group."
+msgstr "Não foi possível remover grupos de consistência."
+
 msgid "Unable to delete container."
 msgstr "Não foi possível excluír container."
 
@@ -9020,6 +9129,12 @@ msgstr "Não é possível desassociar IP flutuante."
 msgid "Unable to disassociate monitor."
 msgstr "Não é possível associar monitor."
 
+msgid "Unable to edit consistency group"
+msgstr "Não é possível editar o grupo de consistência"
+
+msgid "Unable to edit consistency group."
+msgstr "Não é possível editar o grupo de consistência."
+
 msgid "Unable to edit spec."
 msgstr "Não é possível editar especificação."
 
@@ -9060,12 +9175,15 @@ msgstr "Não foi possível acessar o console VNC da instância \"%s\"."
 msgid "Unable to get cinder services list."
 msgstr "Não foi possível ler a lista de serviços do Cinder"
 
+msgid "Unable to get consistency group list"
+msgstr "Não foi possível obter a lista de grupos de consistência"
+
 #, python-format
 msgid "Unable to get events for stack \"%s\"."
 msgstr "Não é possível buscar eventos para o stack \"%s\"."
 
 msgid "Unable to get flavor list"
-msgstr "Não foi possível buscar a lista de flavors"
+msgstr "Não foi possível buscar a lista de sabores"
 
 #, python-format
 msgid "Unable to get health monitor %(monitor_id)s for pool %(pool)s."
@@ -9117,6 +9235,15 @@ msgstr "Não é possível obter a sub-net do pool %(pool)s."
 msgid "Unable to get the available hosts"
 msgstr "Não foi possível obter hosts disponíveis."
 
+msgid "Unable to get the available volume types"
+msgstr "Não foi possível obter os tipos disponíveis de volumes"
+
+msgid "Unable to get the available volumes"
+msgstr "Não foi possível obter os volumes disponíveis."
+
+msgid "Unable to get volume type list"
+msgstr "Não foi possível obter lista de tipos de volume."
+
 msgid "Unable to import key pair."
 msgstr "Não foi possível importar o par de chaves."
 
@@ -9160,7 +9287,7 @@ msgstr "Não é possível modificar domínio \"%s\"."
 
 #, python-format
 msgid "Unable to modify flavor \"%s\"."
-msgstr "Não foi possível modificar flavor \"%s\"."
+msgstr "Não foi possível modificar o sabor \"%s\"."
 
 #, python-format
 msgid "Unable to modify instance \"%s\"."
@@ -9318,6 +9445,9 @@ msgstr "Não é possível recuperar informações do host de Compute."
 msgid "Unable to retrieve compute limit information."
 msgstr "Não foi possível obter informações de limites de computação."
 
+msgid "Unable to retrieve consistency group details."
+msgstr "Não foi possível obter detalhes sobre o grupo de consistência"
+
 msgid "Unable to retrieve container list."
 msgstr "Não foi possível recuperar a lista de contêineres."
 
@@ -9375,8 +9505,8 @@ msgstr "Não é possível recuperar a lista do firewall."
 
 msgid "Unable to retrieve flavor access list. Please try again later."
 msgstr ""
-"Não é possível recuperar lista de acesso de flavor. Por favor tente "
-"novamente mais tarde."
+"Não é possível recuperar lista de acesso do sabor. Por favor tente novamente "
+"mais tarde."
 
 msgid "Unable to retrieve flavor details."
 msgstr "Não foi possível obter a lista de sabores."
@@ -9393,7 +9523,7 @@ msgid "Unable to retrieve flavor information for instance \"%s\"."
 msgstr "Não foi possível obter informação de flavor para instância \"%s\"."
 
 msgid "Unable to retrieve flavor list."
-msgstr "Não foi possível obter a lista de flavors."
+msgstr "Não foi possível obter a lista de sabores."
 
 msgid "Unable to retrieve flavors."
 msgstr "Não foi possível recuperar flavors."
@@ -9764,6 +9894,9 @@ msgstr "Não foi possível ler as informações da versão."
 msgid "Unable to retrieve volume backups."
 msgstr "Não é possível recuperar backups de volume."
 
+msgid "Unable to retrieve volume consistency groups."
+msgstr "Não foi possível obter os grupos de consistência de volume."
+
 msgid "Unable to retrieve volume details."
 msgstr "Não foi possível recuperar detalhes do volume."
 
@@ -9837,7 +9970,7 @@ msgstr ""
 "Não foi possível obter informações sobre a anexação de volume/instância"
 
 msgid "Unable to retrieve volumes availability zones."
-msgstr "Não é possível recuperar as zonas de disponibilidades do volume."
+msgstr "Não é possível obter as zonas de disponibilidades do volume."
 
 msgid "Unable to set Domain Context."
 msgstr "Não é possível setar Contexto de Domínio."
@@ -9847,7 +9980,7 @@ msgstr "Incapaz de setar a flag de iniciável no volume."
 
 #, python-format
 msgid "Unable to set flavor access for project %s."
-msgstr "Não foi possível setar acesso de flavor para o projeto %s."
+msgstr "Não foi possível setar acesso de sabor para o projeto %s."
 
 msgid "Unable to set gateway."
 msgstr "Não foi possível setar o gateway."
@@ -9929,6 +10062,9 @@ msgstr "Não é possível atualizar o usuário."
 
 msgid "Unable to update the volume type."
 msgstr "Não é possível atualizar o tipo de volume."
+
+msgid "Unable to update volume consistency group."
+msgstr "Não foi possível atualizar o grupo de consistência do volume."
 
 msgid "Unable to update volume snapshot status."
 msgstr "Não é possível atualizar o status do snapshot do volume."
@@ -10173,6 +10309,10 @@ msgstr ""
 #, python-format
 msgid "Updating volume \"%s\""
 msgstr "Atualizando volume \"%s\""
+
+#, python-format
+msgid "Updating volume consistency group \"%s\""
+msgstr "Atualizando o grupo de consistência \"%s\" do volume"
 
 #, python-format
 msgid "Updating volume snapshot \"%s\""
@@ -10459,6 +10599,9 @@ msgstr ""
 "Volume backups são armazenados usando o serviço de armazenamento de objetos. "
 "Você deve ter este serviço ativado, a fim de criar um backup."
 
+msgid "Volume Consistency Groups"
+msgstr "Grupos de Consistência de Volumes"
+
 msgid "Volume Encryption Details"
 msgstr "Detalhes do Volume Criptografado"
 
@@ -10524,6 +10667,9 @@ msgstr "Nome do Tipo de Volume"
 msgid "Volume Type is Unencrypted."
 msgstr "Volume do tipo não Encriptado."
 
+msgid "Volume Type(s)"
+msgstr "Tipo(s) de Volume(s)"
+
 #, python-format
 msgid "Volume Type: %(volume_type_name)s"
 msgstr "Tipo de Volume: %(volume_type_name)s"
@@ -10542,6 +10688,27 @@ msgid ""
 msgstr ""
 "O volume não pode ser estendido a %(req)iGiB porque você tem apenas "
 "%(avail)iGiB da sua quota disponível."
+
+msgid ""
+"Volume consistency groups can only be deleted after all the volumes they "
+"contain are either deleted or unassigned."
+msgstr ""
+"Grupos de consistência de volume só podem ser excluídos após todos os seus "
+"volumes serem excluídos ou não estiverem mais atribuídos."
+
+msgid ""
+"Volume consistency groups provide a mechanism for creating snapshots of "
+"multiple volumes at the same point-in-time to ensure data consistency\n"
+"\n"
+"A consistency group can support more than one volume type, but it can only "
+"contain volumes hosted by the same back end."
+msgstr ""
+"Grupos de consistência de volume fornecem um mecanismo para a criação de "
+"snapshots de vários volumes ao mesmo \"ponto do tempo\" para garantir a "
+"consistência dos dados\n"
+"\n"
+"Um grupo de consistência pode suportar mais de um tipo de volume, mas ele só "
+"pode conter volumes hospedados pelo mesmo \"back end\"."
 
 msgid "Volume is Unencrypted"
 msgstr "Volume não é Criptografado"

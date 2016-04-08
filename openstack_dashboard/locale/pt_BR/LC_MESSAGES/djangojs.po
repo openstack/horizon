@@ -1,18 +1,19 @@
 # André Campos <andrecbezerra@gmail.com>, 2015. #zanata
 # Marcelo Dieder <marcelodieder@gmail.com>, 2015. #zanata
 # OpenStack Infra <zanata@openstack.org>, 2015. #zanata
+# Andreas Jaeger <jaegerandi@gmail.com>, 2016. #zanata
 # Carlos Marques <marquesc@br.ibm.com>, 2016. #zanata
 # Marcelo Dieder <marcelodieder@gmail.com>, 2016. #zanata
 msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2016-03-16 02:16+0000\n"
+"POT-Creation-Date: 2016-04-07 12:25+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2016-03-10 03:56+0000\n"
-"Last-Translator: Carlos Marques <marquesc@br.ibm.com>\n"
+"PO-Revision-Date: 2016-03-24 03:53+0000\n"
+"Last-Translator: Marcelo Dieder <marcelodieder@gmail.com>\n"
 "Language-Team: Portuguese (Brazil)\n"
 "Language: pt-BR\n"
 "X-Generator: Zanata 3.7.3\n"
@@ -20,6 +21,10 @@ msgstr ""
 
 msgid "#"
 msgstr "#"
+
+#, python-format
+msgid "%(name)s deleted."
+msgstr "%(name)s excluídos."
 
 #, python-format
 msgid "%s instance launched."
@@ -91,6 +96,13 @@ msgstr ""
 
 msgid ""
 "<input>\n"
+"                Public</input>"
+msgstr ""
+"<input>\n"
+"                Público</input>"
+
+msgid ""
+"<input>\n"
 "        Configuration Drive\n"
 "      </input>"
 msgstr ""
@@ -146,6 +158,33 @@ msgid "<small>This line of text is meant to be treated as fine print.</small>"
 msgstr "<small>Essa linha do texto deve ser tratada como um detalhe.</small>"
 
 msgid ""
+"A container is a storage compartment for your data and provides a way\n"
+"          for you to organize your data. You can think of a container as a\n"
+"          folder in Windows or a directory in UNIX. The primary difference\n"
+"          between a container and these other file system concepts is that\n"
+"          containers cannot be nested. You can, however, create an "
+"unlimited\n"
+"          number of containers within your account. Data must be stored in "
+"a\n"
+"          container so you must have at least one container defined in your\n"
+"          account prior to uploading data."
+msgstr ""
+"Um contêiner é um compartimento de armazenamento para os seus dados e "
+"fornece \n"
+" uma maneira de organizar seus dados. Você pode pensar em um contêiner "
+"como \n"
+" uma pasta no windows ou um diretório no UNIX. A diferença primária entre "
+"um \n"
+" contêiner e estes outros conceitos de sistema de arquivos é que contêineres "
+"não \n"
+" podem ser aninhados. Você pode, entretanto, criar um número ilimitado de "
+"contêineres\n"
+"  dentro de sua conta. Os dados devem ser armazenados em um contêiner, então "
+"você\n"
+"  deve ter ao menos um contêiner na sua \n"
+" conta antes de enviar dados."
+
+msgid ""
 "A floating IP allows instances to be addressable from an external network.\n"
 "    Floating IPs are not allocated to instances at creation time and may be "
 "assigned\n"
@@ -191,6 +230,10 @@ msgstr ""
 
 msgid "A name is required for your instance."
 msgstr "É preciso um nome para sua instância."
+
+msgid "A port represents a virtual switch port on a logical network switch."
+msgstr ""
+"A porta representa uma porta do switch virtual em um switch de rede lógica."
 
 msgid "AKI"
 msgstr "AKI"
@@ -280,6 +323,18 @@ msgstr "Outra ação"
 msgid "Architecture"
 msgstr "Arquitetura"
 
+#, python-format
+msgid "Are you sure you want to delete %(name)s?"
+msgstr "Você tem certeza de que deseja excluir %(name)s?"
+
+#, python-format
+msgid "Are you sure you want to delete %(numSelected)s files?"
+msgstr "Você tem certeza de que deseja excluir os arquivos %(numSelected)s ?"
+
+#, python-format
+msgid "Are you sure you want to delete container %(name)s?"
+msgstr "Tem certeza de que deseja excluir o container %(name)s?"
+
 msgid "Automatic"
 msgstr "Automático"
 
@@ -364,16 +419,46 @@ msgstr "Título da coluna"
 msgid "Configuration"
 msgstr "Configuração"
 
+msgid "Confirm Delete"
+msgstr "Confirma Exclusão"
+
 msgid "Confirm Delete Image"
 msgid_plural "Confirm Delete Images"
 msgstr[0] "Confirmar Exclusão de Imagem"
 msgstr[1] "Confirmar Exclusão de Imagens"
 
+msgid "Container"
+msgstr "Contêiner"
+
+#, python-format
+msgid "Container %(name)s created."
+msgstr "Contêiner %(name)s criado."
+
+#, python-format
+msgid "Container %(name)s deleted."
+msgstr "Contêiner %(name)s removido."
+
+#, python-format
+msgid "Container %(name)s is now %(access)s."
+msgstr "Container %(name)s está agora %(access)s."
+
+msgid "Container Access"
+msgstr "Acesso ao Contêiner"
+
 msgid "Container Format"
 msgstr "Formato do Contêiner"
 
+msgid "Container Name"
+msgstr "Nome do Contêiner "
+
+msgid "Container name must not contain \"/\"."
+msgstr "O nome do contêiner não deve conter \"/\"."
+
 msgid "Containers"
 msgstr "Contêineres"
+
+msgid "Content Type"
+msgstr "Tipo de Conteúdo"
 
 msgid "Contextual alternatives"
 msgstr "Alternativas contextuais"
@@ -384,6 +469,22 @@ msgid ""
 msgstr ""
 "Contagem\n"
 "          <span></span>"
+
+msgid "Create"
+msgstr "Criar"
+
+msgid "Create Container"
+msgstr "Criar Contêiner "
+
+msgid "Create Folder"
+msgstr "Criar Pasta"
+
+msgid ""
+"Create Folder In: {$ ctrl.model.container.name $}\n"
+"    <span>: {$ ctrl.model.folder $}</span>"
+msgstr ""
+"Criar Pasta em: {$ ctrl.model.container.name $}\n"
+"    <span>: {$ ctrl.model.folder $}</span>"
 
 msgid "Create Key Pair"
 msgstr "Criar par de chaves"
@@ -445,6 +546,9 @@ msgstr "Dados"
 msgid "Date"
 msgstr "Data"
 
+msgid "Date Created"
+msgstr "Data Criada"
+
 msgid "Datetime"
 msgstr "Data e hora"
 
@@ -457,6 +561,12 @@ msgstr "Botão Padrão"
 msgid "Default input"
 msgstr "Entrada padrão"
 
+msgid "Delete"
+msgstr "Remover"
+
+msgid "Delete Container"
+msgstr "Remover Contêiner"
+
 msgid "Delete Image"
 msgid_plural "Delete Images"
 msgstr[0] "Excluir Imagem"
@@ -464,6 +574,9 @@ msgstr[1] "Excluir Imagens"
 
 msgid "Delete Images"
 msgstr "Excluir Imagens"
+
+msgid "Delete Selection"
+msgstr "Remover Seleção"
 
 msgid "Delete Volume on Instance Delete"
 msgstr "Excluir Volume na Exclusão da Instância"
@@ -476,6 +589,9 @@ msgid "Deleted Image: %s."
 msgid_plural "Deleted Images: %s."
 msgstr[0] "Imagem Excluída: %s."
 msgstr[1] "Imagens Excluídas: %s."
+
+msgid "Deleted."
+msgstr "Removido."
 
 msgid "Deleting"
 msgstr "Deletando"
@@ -494,6 +610,9 @@ msgstr "Nome do Dispositivo"
 
 msgid "Dialogs"
 msgstr "Diálogos"
+
+msgid "Direct"
+msgstr "Direto"
 
 msgid "Direction"
 msgstr "Direção"
@@ -521,6 +640,9 @@ msgstr "ID do Domínio"
 
 msgid "Down"
 msgstr "Inativo"
+
+msgid "Download"
+msgstr "Baixar"
 
 msgid "Dropdown"
 msgstr "Dropdown"
@@ -565,6 +687,19 @@ msgstr "Extensão não está habilitada: %(extension)s"
 msgid "External Network"
 msgstr "Rede Externa"
 
+msgid "Failed to delete."
+msgstr "Falha ao Remover."
+
+msgid "File"
+msgstr "Arquivo"
+
+#, python-format
+msgid "File %(name)s uploaded."
+msgstr "Arquivo %(name)s enviado."
+
+msgid "File Name"
+msgstr "Nome do Arquivo"
+
 msgid "Filename"
 msgstr "Nome do arquivo"
 
@@ -590,6 +725,16 @@ msgstr ""
 msgid "Focused input"
 msgstr "Entrada focada"
 
+msgid "Folder"
+msgstr "Pasta"
+
+#, python-format
+msgid "Folder %(name)s created."
+msgstr "Pasta %(name)s criada."
+
+msgid "Folder Name"
+msgstr "Nome da Pasta"
+
 msgid "Format"
 msgstr "Formato"
 
@@ -609,6 +754,9 @@ msgstr ""
 "copie a chave pública na caixa vermelha destacada para seu \n"
 "arquivo \n"
 "<samp>.ssh/authorized_keys</samp>."
+
+msgid "Hash"
+msgstr "Hash"
 
 msgid "Heading 1"
 msgstr "Título 1"
@@ -631,8 +779,14 @@ msgstr "Título 6"
 msgid "Home"
 msgstr "Início"
 
+msgid "Host ID"
+msgstr "Host ID"
+
 msgid "ID"
 msgstr "ID"
+
+msgid "IP"
+msgstr "IP"
 
 msgid "ISO"
 msgstr "ISO"
@@ -866,6 +1020,9 @@ msgstr "Olha, eu estou em um poço pequeno!"
 msgid "Look, I'm in a well!"
 msgstr "Olha, eu estou em um poço!"
 
+msgid "MacVTap"
+msgstr "MacVTap"
+
 msgid "Manual"
 msgstr "Manual"
 
@@ -941,6 +1098,9 @@ msgstr "Monitor de Funcionamento de Rede"
 msgid "Network Health Monitors"
 msgstr "Monitores de Funcionamento de Rede"
 
+msgid "Network ID"
+msgstr "ID da Rede"
+
 msgid "Network Port"
 msgstr "Porta de Rede"
 
@@ -980,6 +1140,35 @@ msgstr "Não"
 msgid "No available items"
 msgstr "Itens indisponíveis"
 
+msgid "Normal"
+msgstr "Normal"
+
+msgid ""
+"Note: A Public Container will allow anyone with the Public URL to\n"
+"          gain access to your objects in the container."
+msgstr ""
+"Nota: Um recipiente público permitirá que qualquer pessoa com a URL "
+"pública \n"
+" tenha acesso aos seus objetos no recipiente."
+
+msgid ""
+"Note: Delimiters ('{$ ctrl.model.DELIMETER $}') are allowed in the\n"
+"          file name to place the new file into a folder that will be "
+"created\n"
+"          when the file is uploaded (to any depth of folders)."
+msgstr ""
+"Nota: Delimitadores ('{$ ctrl.model.DELIMETER $}') são permitidos no\n"
+"           nome do arquivo para colocar o novo arquivo em uma pasta que será "
+"criada\n"
+"           quando o arquivo é carregado (a qualquer profundidade de pastas)."
+
+msgid ""
+"Note: Delimiters ('{$ ctrl.model.DELIMETER $}') are allowed in the\n"
+"          folder name to create deep folders."
+msgstr ""
+"Nota: Delimitadores ('{$ ctrl.model.DELIMETER $}') são permitidos no\n"
+"           nome da pasta para criar pastas de profundidade."
+
 msgid "Note: you will not be able to download this later."
 msgstr "Nota: não será possível fazer download disso posteriormente."
 
@@ -1006,6 +1195,9 @@ msgstr "Contêineres de Objetos"
 
 msgid "Object Count"
 msgstr "Contagem de Objetos"
+
+msgid "Object Details"
+msgstr "Detalhes do Objeto"
 
 msgid "Objects"
 msgstr "Objetos"
@@ -1098,6 +1290,16 @@ msgstr "Verificação de política falhou."
 msgid "Popovers"
 msgstr "Pop-overs"
 
+msgid "Ports can be created under a network by administrators."
+msgstr "As portas podem ser criadas sob uma rede pelos administradores."
+
+msgid ""
+"Ports provide extra communication channels to your instances. You can select "
+"ports instead of networks or a mix of both."
+msgstr ""
+"Portas fornecem canais de comunicação extra para suas instâncias. Você pode "
+"selecionar as portas em vez de redes ou uma mistura de ambos."
+
 msgid "Previous"
 msgstr "Anterior"
 
@@ -1145,6 +1347,9 @@ msgstr ""
 msgid "Public"
 msgstr "Público"
 
+msgid "Public Access"
+msgstr "Acesso Público"
+
 msgid "Public Key"
 msgstr "Chave Pública"
 
@@ -1184,6 +1389,9 @@ msgstr "Propriedades do Registro"
 
 msgid "Remote"
 msgstr "Remoto"
+
+msgid "Required"
+msgstr "Requerido"
 
 msgid "Right"
 msgstr "Direita"
@@ -1233,6 +1441,9 @@ msgstr ""
 msgid "Segmentation ID"
 msgstr "ID de Segmentação"
 
+msgid "Select All"
+msgstr "Selecione Todos"
+
 msgid "Select Boot Source"
 msgstr "Selecionar origem da Inicialização da Instância"
 
@@ -1266,6 +1477,9 @@ msgstr "Selecione um ou mais"
 msgid "Select one or more security groups from the available groups below."
 msgstr ""
 "Selecione um ou mais grupos de segurança dos grupos disponíveis abaixo."
+
+msgid "Select ports from those listed below."
+msgstr "Selecione portas dentre as listadas abaixo"
 
 msgid "Select the security groups to launch the instance in."
 msgstr "Selecione os grupos de segurança nos quais ativar a instância."
@@ -1407,6 +1621,13 @@ msgstr ""
 "%(maxInstanceCount)s instâncias"
 
 msgid ""
+"The logical port also defines the MAC address and the IP address(es) to be "
+"assigned to the interfaces plugged into them."
+msgstr ""
+"A porta lógica também define o endereço MAC e o(s) endereço(s) IP a serem "
+"atribuído(s) às interfaces conectadas a eles."
+
+msgid ""
 "The maximum number of key-value pairs that can be supplied per instance is "
 "determined by the compute provider."
 msgstr ""
@@ -1435,6 +1656,9 @@ msgstr ""
 
 msgid "The status indicates whether the network has an active connection."
 msgstr "O status indica se a rede tem uma conexão ativa."
+
+msgid "The status indicates whether the port has an active connection."
+msgstr "O status indica se a porta tem uma conexão ativa."
 
 msgid ""
 "The subnet identifies a sub-section of a network. A subnet is specified in "
@@ -1877,6 +2101,19 @@ msgstr "Atualizado"
 msgid "Updated At"
 msgstr "Atualizado Em"
 
+msgid "Upload File"
+msgstr "Enviar Arquivo"
+
+msgid ""
+"Upload File To: {$ ctrl.model.container.name $}\n"
+"    <span>: {$ ctrl.model.folder $}</span>"
+msgstr ""
+"Enviar Arquivo para: {$ ctrl.model.container.name $}\n"
+"    <span>: {$ ctrl.model.folder $}</span>"
+
+msgid "Uploading"
+msgstr "Enviando"
+
 msgid "Url"
 msgstr "Url"
 
@@ -1904,8 +2141,17 @@ msgstr "VHD"
 msgid "VMDK"
 msgstr "VMDK"
 
+msgid "VNIC type"
+msgstr "Tipo de VNIC"
+
+msgid "View Details"
+msgstr "Ver Detalhes"
+
 msgid "Virtual Size"
 msgstr "Tamanho Virtual"
+
+msgid "Virtual instances attach their interfaces to ports."
+msgstr "Instâncias Virtuais anexaram suas interfaces para as portas."
 
 msgid "Visibility"
 msgstr "Visibilidade"
@@ -1979,6 +2225,16 @@ msgid "Wells"
 msgstr "Poços"
 
 msgid ""
+"When IP addresses are associated to a port, this also implies the port is "
+"associated with a subnet, as the IP address was taken from the allocation "
+"pool for a specific subnet."
+msgstr ""
+"Quando os endereços IP estão associados a uma porta, isto implica também "
+"sobre a porta que está associada com uma sub-rede, assim como o endereço de "
+"IP que foi definido a partir do pool de alocação para uma sub-rede "
+"específica."
+
+msgid ""
 "When selecting volume as boot source, please ensure the instance's "
 "availability zone is compatible with your volume's availability zone."
 msgstr ""
@@ -1996,6 +2252,19 @@ msgstr ""
 "     então a rede está disponível para uso. Você pode configurar o <b>Estado "
 "de Admin</b> para <b>Baixo</b>\n"
 "     se você não está pronto outros usuários acessarem a rede."
+
+msgid ""
+"When the <b>Admin State</b> for a port is set to <b>Up</b> and it has no "
+"<b>Device Owner</b>,\n"
+"    then the port is available for use. You can set the <b>Admin State</b> "
+"to <b>Down</b>\n"
+"    if you are not ready for other users to use the port."
+msgstr ""
+"Quando o <b>Estado Administrador</b> para uma porta é definido como "
+"<b>acima</b> e não tem <b>Dispositivo Proprietário</b>,\n"
+"     então a porta está disponível para uso. É possível definir o <b>Estado "
+"Administrador</b> <b>Para baixo</b>\n"
+"     se você não está pronto para outros usuários para usar a porta."
 
 msgid "Yes"
 msgstr "Sim"
@@ -2032,6 +2301,9 @@ msgid_plural "You have selected \"%s\". Deleted images are not recoverable."
 msgstr[0] "Você selecionou \"%s\". Imagem excluída não é recuperável."
 msgstr[1] "Você selecionou \"%s\". Imagens excluídas não  são recuperáveis."
 
+msgid "disabled"
+msgstr "desabilitado"
+
 msgid "error"
 msgid_plural "errors"
 msgstr[0] "erro"
@@ -2039,6 +2311,9 @@ msgstr[1] "erros"
 
 msgid "image"
 msgstr "imagem"
+
+msgid "link"
+msgstr "caminho"
 
 msgid "message"
 msgid_plural "messages"

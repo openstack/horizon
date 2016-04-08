@@ -1,6 +1,7 @@
 # Carsten Duch <carsten.duch@posteo.de>, 2015. #zanata
 # OpenStack Infra <zanata@openstack.org>, 2015. #zanata
 # Robert Simai <robert.simai@suse.com>, 2015. #zanata
+# Andreas Jaeger <jaegerandi@gmail.com>, 2016. #zanata
 # Carsten Duch <carsten.duch@posteo.de>, 2016. #zanata
 # Eugen Block <eblock@nde.ag>, 2016. #zanata
 # Frank Kloeker <eumel@arcor.de>, 2016. #zanata
@@ -10,12 +11,12 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2016-03-18 12:48+0000\n"
+"POT-Creation-Date: 2016-04-07 12:25+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2016-03-18 09:13+0000\n"
-"Last-Translator: Eugen Block <eblock@nde.ag>\n"
+"PO-Revision-Date: 2016-03-27 07:48+0000\n"
+"Last-Translator: Andreas Jaeger <jaegerandi@gmail.com>\n"
 "Language-Team: German\n"
 "Language: de\n"
 "X-Generator: Zanata 3.7.3\n"
@@ -387,32 +388,10 @@ msgstr ""
 msgid " Also failed to delete port %s"
 msgstr "Fehler beim Löschen von Port %s"
 
-msgid "\"Add Router Route\""
-msgstr "\"Routerroute hinzufügen\""
-
-msgid "\"Containers\""
-msgstr "\"Container\""
-
 msgid ""
 "\"Customization Script\" is analogous to \"User Data\" in other systems."
 msgstr ""
 "\"Anpassungsskript\" entspricht \"Benutzer Daten\" in anderen Systemen."
-
-msgid "\"Edit Volume Type\""
-msgstr "\"Editiere Datenträgertyp\""
-
-msgid "\"N/A\""
-msgstr "\"N/V\""
-
-msgid "\"Namespace Resource Type Associations\""
-msgstr "\"Namensraum Resourcentypzuordnung\""
-
-msgid "\"No flavors meet minimum criteria for selected image.\""
-msgstr ""
-"\"Keine Variante erfüllt die Mindestanforderungen an das ausgewählte Image.\""
-
-msgid "\"None\""
-msgstr "\"Kein\""
 
 msgid ""
 "\"None\" indicates that no QoS Spec is currently associated. Conversely, "
@@ -421,12 +400,6 @@ msgstr ""
 "\"Keine\" gibt an, dass gegenwärtig keine QoS Spezifikationen zugewiesen "
 "sind. Im Gegenzug, das Setzen der QoS Spezifikationen auf \"keine\" entfernt "
 "die aktuellen Zuweisungen."
-
-msgid ""
-"\"Some flavors not meeting minimum image requirements have been disabled.\""
-msgstr ""
-"\"Einige Varianten erfüllen nicht die Mindestanforderungen des Abbildes und "
-"sind deaktiviert worden.\""
 
 #, python-format
 msgid "%(field_name)s: Invalid IP address (value=%(ip)s)"
@@ -565,7 +538,7 @@ msgid "A local environment to upload."
 msgstr "Eine lokale Umgebung zum Hochladen."
 
 msgid "A local image to upload."
-msgstr "Ein lokales Abbild zum Hochladen."
+msgstr "Lokales Abbild hochladen."
 
 msgid "A local metadata definition file to upload."
 msgstr "Eine lokale Metadaten-Definitionsdatei zum Hochladen."
@@ -1249,7 +1222,7 @@ msgid "Attached Device"
 msgstr "Zugewiesenes Gerät"
 
 msgid "Attached To"
-msgstr "Zugewiesen zu"
+msgstr "Zugeordnet"
 
 #, python-format
 msgid "Attached to %(instance)s on %(dev)s"
@@ -1641,9 +1614,7 @@ msgid ""
 "Cinder host on which the existing volume resides; takes the form: "
 "host@backend-name#pool"
 msgstr ""
-"CinCinder-Host, auf welchem der vorhandene Datenträger liegt; in der Form: "
-"host@backend-name#poolder-Host, auf welchem der vorhandene Datenträger "
-"liegt; in der Form: host@backend-name#pool"
+"Cinder-Host mit vorhandenem Datenträger in der Form: host@backend-name#pool"
 
 msgid "Cipher"
 msgstr "Chiffre"
@@ -3434,7 +3405,7 @@ msgid "Edit VPN Service"
 msgstr "VPN Dienst bearbeiten"
 
 msgid "Edit Volume"
-msgstr "Bearbeite Volume"
+msgstr "Datenträger bearbeiten"
 
 msgid "Edit Volume Type"
 msgstr "Datenträgertyp bearbeiten"
@@ -5112,10 +5083,6 @@ msgstr "Starte Instanzen mit diesen Ports"
 msgid "Launch instance with this policy profile"
 msgstr "Instanz mit diesen Datenschutz Profilen starten"
 
-#, python-format
-msgid "Launched %(count)s named \"%(name)s\"."
-msgstr "%(count)s mal \"%(name)s\" gestartet."
-
 msgid ""
 "Launching multiple instances is only supported for images and instance "
 "snapshots."
@@ -5959,6 +5926,14 @@ msgstr "Nicht zugewiesen"
 
 msgid "Not available"
 msgstr "Nicht verfügbar"
+
+msgid ""
+"Note that a volume can not be deleted if it is &quot;attached&quot; or has "
+"any dependent snapshots."
+msgstr ""
+"Zu beachten: ein Datenträger kann nicht gelöscht werden, wenn er sich im "
+"Status &quot;zugewiesen&quot; befindet oder wenn Schattenkopien in "
+"Abhängigkeit dazu stehen."
 
 msgid "Note: "
 msgstr "Anmerkung:"
@@ -7294,10 +7269,6 @@ msgid_plural "Scheduled migration (pending confirmation) of Instances"
 msgstr[0] "Geplante Migration der Instanz (wartet auf Bestätigung)"
 msgstr[1] "Geplante Migration von Instanzen (wartet auf Bestätigung)"
 
-#, python-format
-msgid "Scheduled resize of instance \"%s\"."
-msgstr "Geplante Größenänderung der Instanz \"%s\"."
-
 msgctxt "Task status of an Instance"
 msgid "Scheduling"
 msgstr "Geplant"
@@ -8097,13 +8068,6 @@ msgstr "EC2-Zugangsdaten erfolgreich neu erzeugt."
 
 #, python-format
 msgid ""
-"Successfully restored backup %(backup_name)s to volume with id: %(volume_id)s"
-msgstr ""
-"Sicherung %(backup_name)s auf dem Datenträger id %(volume_id)s erfolgreich "
-"wiederhergestellt."
-
-#, python-format
-msgid ""
 "Successfully sent the request to change the volume type to \"%(vtype)s\" for "
 "volume: \"%(name)s\""
 msgstr ""
@@ -8469,6 +8433,13 @@ msgstr ""
 "des ausgewählten Subnetzes. Sie können eine andere IP-Adresse für die "
 "Schnittstelle angeben. Wählen Sie ein Subnetz aus der Liste aus, zu dem die "
 "angegebene IP-Adresse gehört."
+
+msgid ""
+"The default action for deleting a consistency group is to first disassociate "
+"all associated volumes."
+msgstr ""
+"Das übliche Vorgehen zum Löschen einer Konsistenzgruppe ist zunächst das "
+"Entfernen der Zuordnungen aller Datenträger."
 
 #, python-format
 msgid ""
@@ -10567,7 +10538,7 @@ msgstr "Das Benutzerpasswort wurde erfolgreich aktualisiert."
 
 msgid "User-defined unique id to identify the identity provider."
 msgstr ""
-"Benutzerdefinierte eindeutige id zur Identifizierung des Identitätsanbieters."
+"Benutzerdefinierte eindeutige ID zur Identifizierung des Identitätsanbieters."
 
 msgid "User-defined unique id to identify the mapping."
 msgstr ""
@@ -10832,7 +10803,6 @@ msgstr ""
 "Datenträger-Konsistenzgruppen können nur gelöscht werden, wenn alle darin "
 "enthaltenen Datenträger entweder gelöscht wurden oder nicht zugeordnet sind."
 
-#, fuzzy
 msgid ""
 "Volume consistency groups provide a mechanism for creating snapshots of "
 "multiple volumes at the same point-in-time to ensure data consistency\n"
@@ -10842,7 +10812,10 @@ msgid ""
 msgstr ""
 "Datenträger-Konsistenzgruppen bieten die Möglichkeit, Schattenkopien von "
 "mehreren Datenträgern zum selben Zeitpunkt zu erstellen, um Datenkonsistenz "
-"sicherzustellen."
+"sicherzustellen.\n"
+"\n"
+"Eine Konsistenzgruppe kann mehr als einen Datenträgertypen unterstützen, "
+"aber sie darf nur Datenträger auf demselben Backend-Host enthalten."
 
 msgid "Volume is Unencrypted"
 msgstr "Datenträger ist unverschlüsselt"

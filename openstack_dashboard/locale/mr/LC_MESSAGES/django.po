@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2016-03-16 02:16+0000\n"
+"POT-Creation-Date: 2016-04-07 12:25+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -3086,10 +3086,6 @@ msgstr "या नेटवर्कवर घटक सुरु करा"
 msgid "Launch instance with this policy profile"
 msgstr "या धोरण स्वरुपाद्वारे घटक सुरु करा"
 
-#, python-format
-msgid "Launched %(count)s named \"%(name)s\"."
-msgstr "सुरुवात केली %(count)s नावाचे \"%(name)s\"."
-
 msgid ""
 "Launching multiple instances is only supported for images and instance "
 "snapshots."
@@ -4456,10 +4452,6 @@ msgstr "सुरक्षित केलेले अतिरिक्त न
 msgid "Saved spec \"%s\"."
 msgstr "साठवलेले निर्देश \"%s\"."
 
-#, python-format
-msgid "Scheduled resize of instance \"%s\"."
-msgstr "घटकाचा नियोजित आकार बदलणे \"%s\"."
-
 msgctxt "Task status of an Instance"
 msgid "Scheduling"
 msgstr "नियोजन"
@@ -5022,13 +5014,6 @@ msgstr "यशस्वीपणे सार्वजनिक कळ आया
 
 msgid "Successfully modified QoS Spec consumer."
 msgstr "क्यूओएस निर्देश ग्राहक यशस्वीपणे सुधारित केला."
-
-#, python-format
-msgid ""
-"Successfully restored backup %(backup_name)s to volume with id: %(volume_id)s"
-msgstr ""
-"राखीव साठा यशस्वीपणे %(backup_name)s खंडामध्ये पुनर्स्थापित केला ओळखक्रमांकासह: "
-"%(volume_id)s"
 
 #, python-format
 msgid ""

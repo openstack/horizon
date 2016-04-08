@@ -1,20 +1,54 @@
 # Alessandra <alessandra@translated.net>, 2015. #zanata
 # Mattia Gandolfi <mgandolf@redhat.com>, 2015. #zanata
 # OpenStack Infra <zanata@openstack.org>, 2015. #zanata
+# Andreas Jaeger <jaegerandi@gmail.com>, 2016. #zanata
 msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2016-03-15 01:55+0000\n"
+"POT-Creation-Date: 2016-04-07 12:24+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2015-10-10 04:17+0000\n"
+"PO-Revision-Date: 2016-03-28 03:42+0000\n"
 "Last-Translator: Alessandra <alessandra@translated.net>\n"
 "Language-Team: Italian\n"
 "Language: it\n"
 "X-Generator: Zanata 3.7.3\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
+
+#, python-format
+msgid ""
+"\n"
+"                Login as different user or go back to <a href=\"%(home_url)s"
+"\">home page</a>\n"
+"              "
+msgstr ""
+"\n"
+"                Login con un utente diverso oppure ritorna indietro a  <a "
+"href=\"%(home_url)s\">home</a>\n"
+"              "
+
+#, python-format
+msgid ""
+"\n"
+"                Used <span> %(used)s </span>(No Limit)\n"
+"              "
+msgstr ""
+"\n"
+"                In uso <span> %(used)s </span>(No Limit)\n"
+"              "
+
+#, python-format
+msgid ""
+"\n"
+"                Used <span> %(used)s </span>of<span> %(available)s </span>\n"
+"              "
+msgstr ""
+"\n"
+"                In uso <span> %(used)s </span>of<span> %(available)s </"
+"span>\n"
+"              "
 
 #, python-format
 msgid ""
@@ -136,6 +170,18 @@ msgstr "Disponibile"
 msgid "Back"
 msgstr "Indietro"
 
+#. Translators: test code, don't really have to translate
+msgid "Batch Item"
+msgid_plural "Batch Items"
+msgstr[0] "Elemento raggruppato"
+msgstr[1] "Elementi raggruppati "
+
+#. Translators: test code, don't really have to translate
+msgid "Batched Item"
+msgid_plural "Batched Items"
+msgstr[0] "Elemento è stato raggruppato "
+msgstr[1] "Elementi sono stati raggruppati "
+
 msgid "Cancel"
 msgstr "Annulla"
 
@@ -165,6 +211,22 @@ msgid "Displaying %(nav_items)s item"
 msgid_plural "Displaying %(nav_items)s items"
 msgstr[0] "Visualizzazione dell'elemento %(nav_items)s"
 msgstr[1] "Visualizzazione degli elementi %(nav_items)s"
+
+#. Translators: test code, don't really have to translate
+msgid "Down Item"
+msgid_plural "Down Items"
+msgstr[0] "Elemento sottostante"
+msgstr[1] "Elementi sottostanti "
+
+#. Translators: test code, don't really have to translate
+msgid "Downed Item"
+msgid_plural "Downed Items"
+msgstr[0] "Elemento sotto"
+msgstr[1] "Elementi sotto"
+
+#, python-format
+msgid "Error processing message json file '%(path)s': %(exception)s"
+msgstr "Errore nel processare il messaggio json file '%(path)s': %(exception)s"
 
 msgid "Error: "
 msgstr "Errore:"
@@ -198,11 +260,18 @@ msgstr "Versione dell'indirizzo IP non valida"
 msgid "Limit Summary"
 msgstr "Riepilogo dei Limiti"
 
+msgid "Log in"
+msgstr "Log in"
+
 msgid "Login"
 msgstr "Login"
 
 msgid "Members"
 msgstr "Membri"
+
+#, python-format
+msgid "Message json file '%(path)s' is malformed. %(exception)s"
+msgstr "Il messaggio del file json '%(path)s' è malformato. %(exception)s"
 
 msgid "More Actions"
 msgstr "Altre azioni"
@@ -291,11 +360,25 @@ msgstr "Successo:"
 msgid "Summary"
 msgstr "Riepilogo"
 
+#, python-format
+msgid "The attribute %(attr)s doesn't exist on %(obj)s."
+msgstr "Questo attributo %(attr)s non esiste su questo %(obj)s. "
+
 msgid "The date should be in YYYY-mm-dd format."
 msgstr "La data deve essere nel formato YYYY-mm-dd."
 
 msgid "The string may only contain ASCII printable characters."
 msgstr "La stringa può contenere solo caratteri stampabili ASCII."
+
+#, python-format
+msgid ""
+"The value of %(resource)s is %(name)s inside the template. When launching a "
+"stack from this interface, the value must start with \"http://\" or "
+"\"https://\""
+msgstr ""
+"Il valore di %(resource)s è %(name)s all'interno del template. Quando si "
+"avvia uno stack da questa interfaccia, il valore deve iniziare con \"http://"
+"\" o \"https://\""
 
 msgid "This Period's GB-Hours:"
 msgstr "Ore-GB di questo periodo:"
@@ -319,6 +402,28 @@ msgstr "Non autorizzato. Ritentare il login."
 #, python-format
 msgid "Unauthorized: %s"
 msgstr "Non autorizzato: %s"
+
+#. Translators: test code, don't really have to translate
+msgid "Up Item"
+msgid_plural "Up Items"
+msgstr[0] "Elemento soprastante "
+msgstr[1] "Elementi soprastanti "
+
+msgid "Update Item"
+msgid_plural "Update Items"
+msgstr[0] "Aggiorna l'elemento"
+msgstr[1] "Aggiorna gl' elementi "
+
+msgid "Updated Item"
+msgid_plural "Updated Items"
+msgstr[0] "Elemento Aggiornato"
+msgstr[1] "Elementi Aggiornati "
+
+#. Translators: test code, don't really have to translate
+msgid "Upped Item"
+msgid_plural "Upped Items"
+msgstr[0] "Elemento sopra"
+msgstr[1] "Elementi sopra "
 
 msgid "Usage Summary"
 msgstr "Riepilogo dell'Utilizzo"

@@ -8,14 +8,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2016-03-08 06:14+0000\n"
+"POT-Creation-Date: 2016-04-08 07:05+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Generated-By: Babel 2.2.0\n"
+"Generated-By: Babel 2.3.1\n"
 
 #: horizon/static/framework/conf/resource-type-registry.service.spec.js:86
 msgid "Example"
@@ -78,7 +78,7 @@ msgid "%s bytes"
 msgstr ""
 
 #: horizon/static/framework/util/filters/filters.js:220
-#: horizon/static/horizon/js/horizon.tables.js:432
+#: horizon/static/horizon/js/horizon.tables.js:440
 #, python-format
 msgid "Displaying %s item"
 msgid_plural "Displaying %s items"
@@ -105,6 +105,7 @@ msgid "Click here to expand the row and view the errors."
 msgstr ""
 
 #: horizon/static/framework/widgets/action-list/split-button.html:13
+#: horizon/static/framework/widgets/action-list/split-link.html:11
 msgid "Toggle Dropdown"
 msgstr ""
 
@@ -243,12 +244,16 @@ msgstr ""
 msgid "Detail Information"
 msgstr ""
 
-#: horizon/static/framework/widgets/metadata/tree/tree.module.js:45
+#: horizon/static/framework/widgets/metadata/tree/tree.module.js:44
 msgid ""
 "You can specify resource metadata by moving items from the left column to"
 " the right column. In the left column there are metadata definitions from"
 " the Glance Metadata Catalog. Use the \"Custom\" option to add metadata "
 "with the key of your choice."
+msgstr ""
+
+#: horizon/static/framework/widgets/metadata/tree/tree.module.js:46
+msgid "Click each item to get its description here."
 msgstr ""
 
 #: horizon/static/framework/widgets/metadata/tree/tree.module.js:47
@@ -402,6 +407,7 @@ msgid "Click to see more details"
 msgstr ""
 
 #: horizon/static/framework/widgets/wizard/wizard.html:15
+#: horizon/static/framework/widgets/wizard/wizard.html:17
 msgid "Toggle navigation"
 msgstr ""
 
@@ -425,7 +431,7 @@ msgstr ""
 #: horizon/static/horizon/js/horizon.d3linechart.js:411
 #: horizon/static/horizon/js/horizon.modals.js:348
 #: horizon/static/horizon/js/horizon.tables_inline_edit.js:92
-#: horizon/static/horizon/js/horizon.tables_inline_edit.js:155
+#: horizon/static/horizon/js/horizon.tables_inline_edit.js:167
 msgid "An error occurred. Please try again later."
 msgstr ""
 
@@ -476,7 +482,7 @@ msgid "Error: "
 msgstr ""
 
 #: horizon/static/horizon/js/horizon.modals.js:238
-#: horizon/static/horizon/js/horizon.tables.js:278
+#: horizon/static/horizon/js/horizon.tables.js:286
 msgid "Working"
 msgstr ""
 
@@ -486,7 +492,7 @@ msgstr ""
 
 #: horizon/static/horizon/js/horizon.modals.js:329
 #: horizon/static/horizon/js/horizon.modals.js:412
-#: horizon/static/horizon/js/horizon.tabs.js:21
+#: horizon/static/horizon/js/horizon.tabs.js:22
 msgid "Loading"
 msgstr ""
 
@@ -555,31 +561,31 @@ msgid "Create Subnet"
 msgstr ""
 
 #: horizon/static/horizon/js/horizon.tables.js:45
-#: horizon/static/horizon/js/horizon.tables.js:448
+#: horizon/static/horizon/js/horizon.tables.js:456
 msgid "No items to display."
 msgstr ""
 
 #: horizon/static/horizon/js/horizon.tables.js:58
-#: horizon/static/horizon/js/horizon.tables.js:143
+#: horizon/static/horizon/js/horizon.tables.js:151
 msgid "An error occurred while updating."
 msgstr ""
 
-#: horizon/static/horizon/js/horizon.tables.js:257
+#: horizon/static/horizon/js/horizon.tables.js:265
 #, python-format
 msgid "You have selected %s. "
 msgstr ""
 
-#: horizon/static/horizon/js/horizon.tables.js:259
+#: horizon/static/horizon/js/horizon.tables.js:267
 #, python-format
 msgid "Confirm %s"
 msgstr ""
 
-#: horizon/static/horizon/js/horizon.tables.js:260
+#: horizon/static/horizon/js/horizon.tables.js:268
 msgid "Please confirm your selection. "
 msgstr ""
 
 #: horizon/static/horizon/js/horizon.tables_inline_edit.js:86
-#: horizon/static/horizon/js/horizon.tables_inline_edit.js:149
+#: horizon/static/horizon/js/horizon.tables_inline_edit.js:161
 msgid "Not authorized to do this operation."
 msgstr ""
 

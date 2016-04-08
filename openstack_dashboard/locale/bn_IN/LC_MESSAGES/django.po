@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2016-03-16 02:16+0000\n"
+"POT-Creation-Date: 2016-04-07 12:25+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -3009,10 +3009,6 @@ msgstr "এই নেটওয়ার্কগুলি সহ উদাহরণ
 msgid "Launch instance with this policy profile"
 msgstr "এই নীতি প্রোফাইল সহ উদাহরণ শুরু করুন"
 
-#, python-format
-msgid "Launched %(count)s named \"%(name)s\"."
-msgstr "%(count)s শুরু করা \"%(name)s\" নামে."
-
 msgid ""
 "Launching multiple instances is only supported for images and instance "
 "snapshots."
@@ -4279,10 +4275,6 @@ msgstr "বাঁচানো অতিরিক্ত স্পেক \"%s\"."
 msgid "Saved spec \"%s\"."
 msgstr "বাঁচানো স্পেক \"%s\"."
 
-#, python-format
-msgid "Scheduled resize of instance \"%s\"."
-msgstr "\"%s\" উদাহরণের পুনঃআয়তন তালিকাভুক্ত."
-
 msgid "Script Data"
 msgstr "স্ক্রিপ্ট ডেটা"
 
@@ -4788,13 +4780,6 @@ msgstr "সফলভাবে আমদানি করা পাবলিক �
 
 msgid "Successfully modified QoS Spec consumer."
 msgstr "QoS স্পেক ক্রেতা সফলভাবে সংশোধিত."
-
-#, python-format
-msgid ""
-"Successfully restored backup %(backup_name)s to volume with id: %(volume_id)s"
-msgstr ""
-"ভলিয়্যুম করতে ব্যাকআপ  %(backup_name)s সফলভাবে পুনরায় সঞ্চয় হয়েছে সঙ্গে id: "
-"%(volume_id)s"
 
 #, python-format
 msgid ""

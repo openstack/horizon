@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2016-03-16 02:16+0000\n"
+"POT-Creation-Date: 2016-04-07 12:25+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -3088,10 +3088,6 @@ msgstr "ان نیٹ ورکس کے ساتھ انسٹانس لانچ کریں"
 msgid "Launch instance with this policy profile"
 msgstr "اس پالیسی کی پروفائل کے ساتھ انسٹانس لانچ کریں"
 
-#, python-format
-msgid "Launched %(count)s named \"%(name)s\"."
-msgstr "%(count)s named \"%(name)s\" نامزد آغاز کیا."
-
 msgid ""
 "Launching multiple instances is only supported for images and instance "
 "snapshots."
@@ -4385,10 +4381,6 @@ msgstr "اضافی تصریح \"%s\" محفوظ كیا"
 msgid "Saved spec \"%s\"."
 msgstr "تصریح \"%s\" محفوظ كیا ۔"
 
-#, python-format
-msgid "Scheduled resize of instance \"%s\"."
-msgstr "انسٹانس \"%s\" کے شیڈول سائز تبدیل كریں."
-
 msgid "Script Data"
 msgstr "اسكرپٹ ڈیٹا"
 
@@ -4915,13 +4907,6 @@ msgstr "کامیابی عوامی کلید درآمد :  %s"
 
 msgid "Successfully modified QoS Spec consumer."
 msgstr "QoS تصریح صارفین کو کامیابی سے نظر ثانی کی گئی."
-
-#, python-format
-msgid ""
-"Successfully restored backup %(backup_name)s to volume with id: %(volume_id)s"
-msgstr ""
-"بیک اپ %(backup_name)s کو شناخت کے ساتھ ولیوم میں کامیابی بحال کیا گیا : "
-"%(volume_id)s"
 
 #, python-format
 msgid ""

@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2016-03-16 02:16+0000\n"
+"POT-Creation-Date: 2016-04-07 12:25+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -2997,10 +2997,6 @@ msgstr "यी नेटवर्कहरूसहित इन्सटेन�
 msgid "Launch instance with this policy profile"
 msgstr "यो सर्त प्रोफाइलसित इन्सटेन्स आरम्भ गर्नुहोस्"
 
-#, python-format
-msgid "Launched %(count)s named \"%(name)s\"."
-msgstr "आरम्भ गरिएको %(count)s named \"%(name)s\"."
-
 msgid ""
 "Launching multiple instances is only supported for images and instance "
 "snapshots."
@@ -4268,10 +4264,6 @@ msgstr "सेभ गरिएको अतिरिक्त स्पेक \"
 msgid "Saved spec \"%s\"."
 msgstr "सेभ गरिएको स्पेक \"%s\"."
 
-#, python-format
-msgid "Scheduled resize of instance \"%s\"."
-msgstr "इन्सटेन्स \"%s\" को अनुसूचित  रिसाइज"
-
 msgid "Script Data"
 msgstr "स्क्रिप्ट डाटा"
 
@@ -4776,12 +4768,6 @@ msgstr "Public Key : %s सफलतापूर्वक आयात गरि
 
 msgid "Successfully modified QoS Spec consumer."
 msgstr "QoS स्पेक उपभोक्ता सफलतापूर्वक बदलाइयो।"
-
-#, python-format
-msgid ""
-"Successfully restored backup %(backup_name)s to volume with id: %(volume_id)s"
-msgstr ""
-"भोल्युममा id: %(volume_id)s सहित  %(backup_name)s बेकअप सफलतापूर्वक रिसोर्टर गरियो"
 
 #, python-format
 msgid ""

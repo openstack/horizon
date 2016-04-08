@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2016-03-16 02:16+0000\n"
+"POT-Creation-Date: 2016-04-07 12:25+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -360,30 +360,11 @@ msgstr ": Další skok"
 msgid " Also failed to delete port %s"
 msgstr "Také nelze smazat port %s"
 
-msgid "\"Add Router Route\""
-msgstr "\"Přidat cestu směrovače\""
-
 msgid ""
 "\"Customization Script\" is analogous to \"User Data\" in other systems."
 msgstr ""
 "\"Skript přizpůsobení\" je podobné jako \"Uživatelská data\" v ostatních "
 "systémech."
-
-msgid "\"Edit Volume Type\""
-msgstr "\"Upravit typ svazku\""
-
-msgid "\"N/A\""
-msgstr "\"Nedostupné\""
-
-msgid "\"Namespace Resource Type Associations\""
-msgstr "\"Přidružení typu zdroje jmenného prostoru\""
-
-msgid "\"No flavors meet minimum criteria for selected image.\""
-msgstr ""
-"\"Žádné konfigurace neodpovídají minimálním kritériím zvoleného obrazu.\""
-
-msgid "\"None\""
-msgstr "\"Žádný\""
 
 msgid ""
 "\"None\" indicates that no QoS Spec is currently associated. Conversely, "
@@ -391,12 +372,6 @@ msgid ""
 msgstr ""
 "\"Žádné\" znamená, že není přidružena žádná specifikace QoS. Naopak, "
 "nastavením specifikace na \"Žádné\" odstraní současné přidružení."
-
-msgid ""
-"\"Some flavors not meeting minimum image requirements have been disabled.\""
-msgstr ""
-"\"Některé konfigurace neodpovídající minimálním požadavkům obrazu byly "
-"zakázány.\""
 
 #, python-format
 msgid "%(field_name)s: Invalid IP address (value=%(ip)s)"
@@ -4811,10 +4786,6 @@ msgstr "Spustit instanci s těmito sítěmi"
 msgid "Launch instance with this policy profile"
 msgstr "Spustit instanci s tímto profilem zásad"
 
-#, python-format
-msgid "Launched %(count)s named \"%(name)s\"."
-msgstr "Spuštěno %(count)s pojmenovaných \"%(name)s\"."
-
 msgid ""
 "Launching multiple instances is only supported for images and instance "
 "snapshots."
@@ -6834,10 +6805,6 @@ msgstr[0] "Naplánován přesun (čeká se na potvrzení) instance"
 msgstr[1] "Naplánován přesun (čeká se na potvrzení) instancí"
 msgstr[2] "Naplánován přesun (čeká se na potvrzení) instancí"
 
-#, python-format
-msgid "Scheduled resize of instance \"%s\"."
-msgstr "Naplánovaná změna velikosti instance \"%s\"."
-
 msgctxt "Task status of an Instance"
 msgid "Scheduling"
 msgstr "Plánování"
@@ -7599,11 +7566,6 @@ msgstr "Úspěšně importován veřejný klíč: %s"
 
 msgid "Successfully modified QoS Spec consumer."
 msgstr "Spotřebitel specifikace QoS úspěšně změněn."
-
-#, python-format
-msgid ""
-"Successfully restored backup %(backup_name)s to volume with id: %(volume_id)s"
-msgstr "Záloha %(backup_name)s úspěšně obnovena ve svazku s id: %(volume_id)s"
 
 #, python-format
 msgid ""

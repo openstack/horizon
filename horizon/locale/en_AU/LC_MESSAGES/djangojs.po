@@ -1,14 +1,15 @@
 # OpenStack Infra <zanata@openstack.org>, 2015. #zanata
 # Tom Fifield <tom@openstack.org>, 2015. #zanata
+# Andreas Jaeger <jaegerandi@gmail.com>, 2016. #zanata
 msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2016-03-15 01:55+0000\n"
+"POT-Creation-Date: 2016-04-07 12:24+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2015-09-24 06:17+0000\n"
+"PO-Revision-Date: 2016-03-22 09:13+0000\n"
 "Last-Translator: Tom Fifield <tom@openstack.org>\n"
 "Language-Team: English (Australia)\n"
 "Language: en-AU\n"
@@ -35,8 +36,17 @@ msgstr "%s TB"
 msgid "%s bytes"
 msgstr "%s bytes"
 
+msgid "(Modified)"
+msgstr "(Modified)"
+
 msgid "-"
 msgstr "-"
+
+msgid "0 GB"
+msgstr "0 GB"
+
+msgid "0 MB"
+msgstr "0 MB"
 
 msgid "Active"
 msgstr "Active"
@@ -90,6 +100,9 @@ msgstr "Closing"
 msgid "Confirm %s"
 msgstr "Confirm %s"
 
+msgid "Confirm Delete Foobars"
+msgstr "Confirm Delete Foobars"
+
 msgid "Connecting"
 msgstr "Connecting"
 
@@ -108,6 +121,9 @@ msgstr "Current Usage"
 msgid "Custom"
 msgstr "Custom"
 
+msgid "Customization Script"
+msgstr "Customisation Script"
+
 msgid "Danger"
 msgstr "Danger"
 
@@ -120,6 +136,9 @@ msgstr "Decimal required"
 msgid "Delete"
 msgstr "Delete"
 
+msgid "Delete Instance"
+msgstr "Delete Instance"
+
 msgid "Delete Interface"
 msgstr "Delete Interface"
 
@@ -131,6 +150,10 @@ msgstr "Delete Router"
 
 msgid "Delete Subnet"
 msgstr "Delete Subnet"
+
+#, python-format
+msgid "Deleted : %s."
+msgstr "Deleted : %s."
 
 msgid "Detail Information"
 msgstr "Detail Information"
@@ -154,6 +177,9 @@ msgstr "Error"
 msgid "Error: "
 msgstr "Error: "
 
+msgid "Example"
+msgstr "Example"
+
 msgid "Existing Metadata"
 msgstr "Existing Metadata"
 
@@ -172,6 +198,9 @@ msgstr "Finish"
 msgid "Flavor"
 msgstr "Flavour"
 
+msgid "Full Text Search"
+msgstr "Full Text Search"
+
 msgid "ID"
 msgstr "ID"
 
@@ -186,6 +215,9 @@ msgstr "Integer required"
 
 msgid "Interfaces"
 msgstr "Interfaces"
+
+msgid "Load script from a file"
+msgstr "Load script from a file"
 
 msgid "Loading"
 msgstr "Loading"
@@ -210,6 +242,9 @@ msgstr "Next"
 
 msgid "No"
 msgstr "No"
+
+msgid "No Limit"
+msgstr "No Limit"
 
 msgid "No available items"
 msgstr "No available items"
@@ -277,6 +312,17 @@ msgstr "Roles"
 msgid "STATUS"
 msgstr "STATUS"
 
+#. Strings between {$ and $} should be left untranslated.
+msgid ""
+"Script size: {$ (scriptLength || 0) | bytes $} of {$ config.MAX_SCRIPT_SIZE "
+"| bytes $}"
+msgstr ""
+"Script size: {$ (scriptLength || 0) | bytes $} of {$ config.MAX_SCRIPT_SIZE "
+"| bytes $}"
+
+msgid "Search in current results"
+msgstr "Search in current results"
+
 msgid "Select an item from Available items below"
 msgstr "Select an item from Available items below"
 
@@ -318,14 +364,30 @@ msgstr ""
 "The action cannot be performed. The contents of this row have errors or are "
 "missing information."
 
+msgid "The script is larger than the maximum size"
+msgstr "The script is larger than the maximum size"
+
 msgid "There was a problem communicating with the server, please try again."
 msgstr "There was a problem communicating with the server, please try again."
 
 msgid "There was an error submitting the form. Please try again."
 msgstr "There was an error submitting the form. Please try again."
 
+msgid "Toggle Dropdown"
+msgstr "Toggle Dropdown"
+
+msgid "Toggle navigation"
+msgstr "Toggle navigation"
+
 msgid "Total"
 msgstr "Total"
+
+#, python-format
+msgid "Unable to delete: %s."
+msgstr "Unable to delete: %s."
+
+msgid "Unlimited"
+msgstr "Unlimited"
 
 msgid "View Details"
 msgstr "View Details"
@@ -348,6 +410,17 @@ msgstr "Working"
 msgid "Yes"
 msgstr "Yes"
 
+msgid ""
+"You can specify resource metadata by moving items from the left column to "
+"the right column. In the left column there are metadata definitions from the "
+"Glance Metadata Catalog. Use the \"Custom\" option to add metadata with "
+"the key of your choice."
+msgstr ""
+"You can specify resource metadata by moving items from the left column to "
+"the right column. In the left column there are metadata definitions from the "
+"Glance Metadata Catalog. Use the \"Custom\" option to add metadata with "
+"the key of your choice."
+
 #, python-format
 msgid "You have selected %s. "
 msgstr "You have selected %s. "
@@ -363,3 +436,10 @@ msgstr "m1.tiny"
 
 msgid "pool default"
 msgstr "pool default"
+
+#, python-format
+msgid "selected \"%s\""
+msgstr "selected \"%s\""
+
+msgid "{$ message || 'No items to display.' $}"
+msgstr "{$ message || 'No items to display.' $}"

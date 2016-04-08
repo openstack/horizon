@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2016-03-16 02:16+0000\n"
+"POT-Creation-Date: 2016-04-07 12:25+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -362,31 +362,11 @@ msgstr ": Siguiente salto"
 msgid " Also failed to delete port %s"
 msgstr "También falló eliminar el puerto %s"
 
-msgid "\"Add Router Route\""
-msgstr "\"Añadir ruta al Router\""
-
 msgid ""
 "\"Customization Script\" is analogous to \"User Data\" in other systems."
 msgstr ""
 "El \"Guión de personalización\" es análogo a \"Datos de usuario\" en otros "
 "sistemas."
-
-msgid "\"Edit Volume Type\""
-msgstr "\"Editar Tipo de Volumen\""
-
-msgid "\"N/A\""
-msgstr "\"N/A\""
-
-msgid "\"Namespace Resource Type Associations\""
-msgstr "\" Tipo Asociaciones de  Recursos de Namespace\""
-
-msgid "\"No flavors meet minimum criteria for selected image.\""
-msgstr ""
-"\"No hay sabores/flavors que cumplan con los criterios mínimos para la "
-"imagen seleccionada.\""
-
-msgid "\"None\""
-msgstr "None"
 
 msgid ""
 "\"None\" indicates that no QoS Spec is currently associated. Conversely, "
@@ -395,12 +375,6 @@ msgstr ""
 "\"Ninguna\" indica que no existen actualmente especificaciones QoS "
 "asociadas. Por el contrario, establecer las especificaciones QoS a \"Ninguna"
 "\" borrara las asociaciones actuales."
-
-msgid ""
-"\"Some flavors not meeting minimum image requirements have been disabled.\""
-msgstr ""
-"\"Algunos sabores/flavors que no cumplen con los requisitos mínimos de "
-"imagen se han desactivado.\""
 
 #, python-format
 msgid "%(field_name)s: Invalid IP address (value=%(ip)s)"
@@ -4674,10 +4648,6 @@ msgstr "Lanzar instancia con estas redes"
 msgid "Launch instance with this policy profile"
 msgstr "Lanzar instancia con este perfil de política"
 
-#, python-format
-msgid "Launched %(count)s named \"%(name)s\"."
-msgstr "Lanzadas %(count)s de nombre \"%(name)s\"."
-
 msgid ""
 "Launching multiple instances is only supported for images and instance "
 "snapshots."
@@ -6687,10 +6657,6 @@ msgid_plural "Scheduled migration (pending confirmation) of Instances"
 msgstr[0] "Cronograma de migración de instancia (pendiente de confirmación)"
 msgstr[1] "Cronograma de migración de instancias (pendientes de confirmación)"
 
-#, python-format
-msgid "Scheduled resize of instance \"%s\"."
-msgstr "Programado el redimensionado de la instancia \"%s\"."
-
 msgctxt "Task status of an Instance"
 msgid "Scheduling"
 msgstr "Programando"
@@ -7459,13 +7425,6 @@ msgstr "La clave: %s fue importada correctamente"
 msgid "Successfully modified QoS Spec consumer."
 msgstr ""
 "Modificación de la especificación QoS Consumidor realizada exitosamente."
-
-#, python-format
-msgid ""
-"Successfully restored backup %(backup_name)s to volume with id: %(volume_id)s"
-msgstr ""
-"Se ha restaurado con éxito la copia de seguridad %(backup_name)s al volumen "
-"con ID: %(volume_id)s"
 
 #, python-format
 msgid ""

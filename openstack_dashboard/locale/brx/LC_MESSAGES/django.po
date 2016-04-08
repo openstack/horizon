@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2016-03-16 02:16+0000\n"
+"POT-Creation-Date: 2016-04-07 12:25+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -3091,10 +3091,6 @@ msgstr "बेफोर नेटवार्कजों बिदिन्थ�
 msgid "Launch instance with this policy profile"
 msgstr "बे पलिसि प्रफाइलजों बिदिन्थिखौ जागाय"
 
-#, python-format
-msgid "Launched %(count)s named \"%(name)s\"."
-msgstr "जागायबाय %(count)s मुं होबाय \"%(name)s\""
-
 msgid ""
 "Launching multiple instances is only supported for images and instance "
 "snapshots."
@@ -4465,10 +4461,6 @@ msgstr "थिना दोनखानाय बांद्राय spec \"%s
 msgid "Saved spec \"%s\"."
 msgstr "spec \"%s\" खौ थिना दोनबाय।"
 
-#, python-format
-msgid "Scheduled resize of instance \"%s\"."
-msgstr "बिदिन्थि \"%s\" नि थि फिन महर"
-
 msgctxt "Task status of an Instance"
 msgid "Scheduling"
 msgstr "फारिलाइ खालामगासिनो दं"
@@ -5030,11 +5022,6 @@ msgstr "राइजो-राजा साबिखौ जाफुंसार
 
 msgid "Successfully modified QoS Spec consumer."
 msgstr "QoS Spec ग्राहकखौ जाफुंसारै सुद्रायबाय"
-
-#, python-format
-msgid ""
-"Successfully restored backup %(backup_name)s to volume with id: %(volume_id)s"
-msgstr "बेकआप %(backup_name)s खौ id: %(volume_id)s आव जाफुंसारै लाबोफिनबाय"
 
 #, python-format
 msgid ""

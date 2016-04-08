@@ -1,17 +1,18 @@
 # Marian Tort <marian.tort@gmail.com>, 2015. #zanata
 # OpenStack Infra <zanata@openstack.org>, 2015. #zanata
 # Alberto Molina Coballes <alb.molina@gmail.com>, 2016. #zanata
+# Andreas Jaeger <jaegerandi@gmail.com>, 2016. #zanata
 # Pablo Iranzo Gómez <Pablo.Iranzo@gmail.com>, 2016. #zanata
 msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2016-03-15 01:55+0000\n"
+"POT-Creation-Date: 2016-04-07 12:24+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2016-02-19 12:25+0000\n"
-"Last-Translator: Pablo Iranzo Gómez <Pablo.Iranzo@gmail.com>\n"
+"PO-Revision-Date: 2016-03-31 08:03+0000\n"
+"Last-Translator: Eugènia Torrella <tester03@es.ibm.com>\n"
 "Language-Team: Spanish\n"
 "Language: es\n"
 "X-Generator: Zanata 3.7.3\n"
@@ -332,6 +333,10 @@ msgstr "Correcto:"
 
 msgid "Summary"
 msgstr "Resumen"
+
+#, python-format
+msgid "The attribute %(attr)s doesn't exist on %(obj)s."
+msgstr "El atributo %(attr)s no existe en %(obj)s."
 
 msgid "The date should be in YYYY-mm-dd format."
 msgstr "La fecha debe estar en formato AAAA-MM-DD."

@@ -1,23 +1,123 @@
 # Alessandra <alessandra@translated.net>, 2015. #zanata
 # Mattia Gandolfi <mgandolf@redhat.com>, 2015. #zanata
 # OpenStack Infra <zanata@openstack.org>, 2015. #zanata
+# Andreas Jaeger <jaegerandi@gmail.com>, 2016. #zanata
 msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2016-03-15 01:56+0000\n"
+"POT-Creation-Date: 2016-04-07 12:25+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2015-10-19 02:33+0000\n"
+"PO-Revision-Date: 2016-03-28 06:03+0000\n"
 "Last-Translator: Alessandra <alessandra@translated.net>\n"
 "Language-Team: Italian\n"
 "Language: it\n"
 "X-Generator: Zanata 3.7.3\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
 
+msgid "#"
+msgstr "#"
+
+#, python-format
+msgid "%(name)s deleted."
+msgstr "%(name)s eliminato."
+
+#, python-format
+msgid "%s instance launched."
+msgid_plural "%s instances launched."
+msgstr[0] "%s istanza avviata."
+msgstr[1] "%s istanze avviate."
+
 msgid "(None)"
 msgstr "(None)"
+
+msgid "1"
+msgstr "1"
+
+msgid "2"
+msgstr "2"
+
+msgid "3"
+msgstr "3"
+
+msgid "4"
+msgstr "4"
+
+msgid "5"
+msgstr "5"
+
+msgid "6"
+msgstr "6"
+
+msgid "7"
+msgstr "7"
+
+msgid "8"
+msgstr "8"
+
+msgid ""
+"<button></button>\n"
+"          <strong>Heads up!</strong>\n"
+"           This\n"
+"          <a>alert needs your attention</a>,\n"
+"           but it's not super important."
+msgstr ""
+"<button></button>\n"
+"          <strong>Attenzione!</strong>\n"
+"           Questo\n"
+"          <a>avviso richiede attenzione</a>,\n"
+"           ma non è eccessivamente importante."
+
+msgid ""
+"<button></button>\n"
+"          <strong>Oh snap!</strong>\n"
+"          <a>Change a few things up</a>\n"
+"          and try submitting again."
+msgstr ""
+"<button></button>\n"
+"          <strong>Istantanea!</strong>\n"
+"          <a>Modificare alcuni elementi</a>\n"
+"          e provare a inserirli di nuovo."
+
+msgid ""
+"<button></button>\n"
+"          <strong>Well done!</strong>\n"
+"          You successfully read\n"
+"          <a>this important alert message</a>."
+msgstr ""
+"<button></button>\n"
+"          <strong>Ben fatto!</strong>\n"
+"          Questo importante messaggio di avviso\n"
+"          <a>è stato letto correttamente</a>."
+
+msgid ""
+"<input>\n"
+"                Public</input>"
+msgstr ""
+"<input>\n"
+"                Pubblico</input>"
+
+msgid ""
+"<input>\n"
+"        Configuration Drive\n"
+"      </input>"
+msgstr ""
+"<input>\n"
+"        Unità di configurazione\n"
+"      </input>"
+
+msgid ""
+"<li><b>Image (with Create New Volume checked)</b>: This options uses an "
+"image to boot the instance, and creates a new volume to persist instance "
+"data. You can specify volume size and whether to delete the volume on "
+"deletion of the instance.</li>"
+msgstr ""
+"<li><b>Immagine (con l'opzione Crea nuovo volume selezionata)</b>: questa "
+"opzione utilizza un'immagine per avviare l'istanza e crea un nuovo volume "
+"per mantenere i dati dell'istanza. È possibile specificare la dimensione del "
+"volume e se eliminare il volume con l'eliminazione dell'istanza.</li>"
 
 msgid "<li><b>Image</b>: This option uses an image to boot the instance.</li>"
 msgstr ""
@@ -30,6 +130,54 @@ msgid ""
 msgstr ""
 "<li><b>Istantanea istanza</b>: questa opzione utilizza un'istantanea "
 "dell'istanza per avviare l'istanza.</li>"
+
+msgid ""
+"<li><b>Volume Snapshot</b>: This option uses a volume snapshot to boot the "
+"instance, and creates a new volume to persist instance data. You can choose "
+"to delete the volume on deletion of the instance.</li>"
+msgstr ""
+"<li><b>Istantanea volume</b>: questa opzione utilizza un'istantanea del "
+"volume per avviare l'istanza e crea un nuovo volume per mantenere i dati "
+"dell'istanza. È possibile scegliere di eliminare il volume con "
+"l'eliminazione dell'istanza.</li>"
+
+msgid ""
+"<li><b>Volume</b>: This option uses a volume that already exists. It does "
+"not create a new volume. You can choose to delete the volume on deletion of "
+"the instance. <em>Note: when selecting Volume, you can only launch one "
+"instance.</em></li>"
+msgstr ""
+"<li><b>Volume</b>: questa opzione utilizza un volume che esiste già. Non "
+"crea un nuovo volume. È possibile scegliere di eliminare il volume con "
+"l'eliminazione dell'istanza. <em>Nota: se si seleziona Volume, è possibile "
+"avviare una sola istanza.</em></li>"
+
+msgid "<small>This line of text is meant to be treated as fine print.</small>"
+msgstr ""
+"<small>Questa riga di testo deve essere considerata come stampa.</small>"
+
+msgid ""
+"A container is a storage compartment for your data and provides a way\n"
+"          for you to organize your data. You can think of a container as a\n"
+"          folder in Windows or a directory in UNIX. The primary difference\n"
+"          between a container and these other file system concepts is that\n"
+"          containers cannot be nested. You can, however, create an "
+"unlimited\n"
+"          number of containers within your account. Data must be stored in "
+"a\n"
+"          container so you must have at least one container defined in your\n"
+"          account prior to uploading data."
+msgstr ""
+"Un contenitore è una parte di archivio per i propri dati e fornisce\n"
+"un modo per organizzare i dati. È possibile considerare un\n"
+"contenitore come una cartella in Windows o una directory in UNIX.\n"
+"La differenza principale tra un contenitore e questi altri concetti\n"
+"di file system è che i contenitori non possono essere\n"
+"concatenati. È possibile, tuttavia, creare un numero illimitato di "
+"contenitori nel\n"
+"proprio account. I dati devono essere archiviati in un contenitore in modo "
+"da\n"
+"avere almeno un contenitore definito nell'account prima di caricare i dati."
 
 msgid ""
 "A floating IP allows instances to be addressable from an external network.\n"
@@ -51,8 +199,52 @@ msgstr ""
 "    Quindi, selezionare l'opzione <b>Associa IP mobile</b> e inserire i "
 "dettagli necessari."
 
+msgid ""
+"A key pair allows you to SSH into your newly created instance.\n"
+"    You may select an existing key pair, import a key pair, or generate a "
+"new key pair."
+msgstr ""
+"Una coppia di chiavi consente di eseguire SSH nell'istanza appena creata.\n"
+"      È possibile selezionare una coppia di chiavi esistente, importare una "
+"coppia di chiavi o generare una nuova coppia di chiavi."
+
+msgid ""
+"A key pair named '{$ctrl.createdKeypair.name$}' was successfully created. "
+"This key pair should automatically download."
+msgstr ""
+"Una coppia di chiavi denominata '{$ctrl.createdKeypair.name$}' è stata "
+"creata correttamente. Questa coppia di chiavi deve essere scaricata "
+"automaticamente."
+
+msgid ""
+"A longer block of help text that breaks onto a new line and may extend "
+"beyond one line."
+msgstr ""
+"Un blocco più lungo di testo della guida che si interrompe in una nuova riga "
+"e può estendersi oltra una riga."
+
 msgid "A name is required for your instance."
 msgstr "Un nome è obbligatorio per l'istanza."
+
+msgid "A port represents a virtual switch port on a logical network switch."
+msgstr ""
+"Una porta rappresenta una porta di switch virtuale su uno switch di rete "
+"logico."
+
+msgid "AKI"
+msgstr "AKI"
+
+msgid "AMI"
+msgstr "AMI"
+
+msgid "ARI"
+msgstr "ARI"
+
+msgid "Action"
+msgstr "Azione"
+
+msgid "Actions"
+msgstr "Azioni"
 
 msgid "Active"
 msgstr "Attivo"
@@ -69,7 +261,7 @@ msgstr ""
 "Gli amministratori sono responsabili della creazione e della gestione dei "
 "flavor. Un flavor personalizzato può essere creato per l'utente o per uno "
 "specifico progetto in cui viene condiviso con gli utenti assegnati a quel "
-"progetto . Se è necessario un flavor personalizzato, contattare "
+"progetto. Se è necessario un flavor personalizzato, contattare "
 "l'amministratore."
 
 msgid ""
@@ -78,6 +270,9 @@ msgid ""
 msgstr ""
 "Gli amministratori configurano il pool di IP mobili che sono disponibili per "
 "essere allegati alle istanze."
+
+msgid "Alerts"
+msgstr "Avvisi"
 
 msgid ""
 "An <b>External</b> network is set up by an administrator.\n"
@@ -93,6 +288,9 @@ msgstr ""
 "b>.\n"
 "    È possibile utilizzare la <b>Topologia di rete</b> per collegare il "
 "router alle due reti."
+
+msgid "An abbreviation of the word attribute is <abbr>attr</abbr>."
+msgstr "Un'abbreviazione della parola attributo è  <abbr>attr</abbr>."
 
 msgid ""
 "An advanced option available when launching an instance is disk "
@@ -113,17 +311,77 @@ msgstr ""
 "Un nome istanza è obbligatorio e viene utilizzato per identificare in modo "
 "univoco l'istanza nel dashboard."
 
+msgid "Animated"
+msgstr "Animato"
+
+msgid "Another action"
+msgstr "Un'altra azione"
+
+msgid "Architecture"
+msgstr "Architettura"
+
+#, python-format
+msgid "Are you sure you want to delete %(name)s?"
+msgstr "Eliminare %(name)s?"
+
+#, python-format
+msgid "Are you sure you want to delete %(numSelected)s files?"
+msgstr "Eliminare %(numSelected)s file?"
+
+#, python-format
+msgid "Are you sure you want to delete container %(name)s?"
+msgstr "Si è sicuri di voler eliminare il contenitore %(name)s?"
+
 msgid "Automatic"
 msgstr "Automatico"
 
 msgid "Availability Zone"
 msgstr "Zona di disponibilità"
 
+msgid "Available"
+msgstr "Disponibile"
+
+msgid "Badges"
+msgstr "Badge"
+
+msgid "Basic"
+msgstr "Base"
+
+msgid "Basic panel"
+msgstr "Pannello di base"
+
+msgid "Block level button"
+msgstr "Pulsante di livello blocco"
+
+msgid "Blockquotes"
+msgstr "Blockquote"
+
+msgid "Bordered Table"
+msgstr "Tabella con bordo"
+
+msgid "Bottom"
+msgstr "Sotto"
+
+msgid "Brand"
+msgstr "Marchio"
+
+msgid "Breadcrumbs"
+msgstr "Spostamenti"
+
+msgid "Button"
+msgstr "Pulsante"
+
+msgid "Buttons"
+msgstr "Pulsanti"
+
 msgid "Cancel"
 msgstr "Annulla"
 
 msgid "Cannot get service catalog from keystone."
 msgstr "Impossibile ottenere il catalogo del servizio dal keystone."
+
+msgid "Cannot get the extension list."
+msgstr "Impossibile ottenere l'elenco di estensioni."
 
 msgid ""
 "Check the <b>Configuration Drive</b> box if you want to write metadata to a "
@@ -134,20 +392,123 @@ msgstr ""
 "una particolare unità di configurazione. Quando l'istanza viene avviata, "
 "viene allegata all'<b>Unità di configurazione</b> e accede ai metadati."
 
+msgid "Checkbox"
+msgstr "Casella di spunta"
+
+msgid "Checksum"
+msgstr "Checksum"
+
 msgid "Click to see more details"
 msgstr "Fare clic per visualizzare ulteriori dettagli"
+
+msgid "Close"
+msgstr "Chiudi"
+
+msgid "Color"
+msgstr "Colore"
+
+msgid "Column content"
+msgstr "Contenuto colonna"
+
+msgid "Column heading"
+msgstr "Intestazione colonna"
 
 msgid "Configuration"
 msgstr "Configurazione"
 
+msgid "Confirm Delete"
+msgstr "Conferma eliminazione"
+
+msgid "Confirm Delete Image"
+msgid_plural "Confirm Delete Images"
+msgstr[0] "Conferma eliminazione immagine"
+msgstr[1] "Conferma eliminazione immagini"
+
+msgid "Container"
+msgstr "Contenitore"
+
+#, python-format
+msgid "Container %(name)s created."
+msgstr "Contenitore %(name)s creato."
+
+#, python-format
+msgid "Container %(name)s deleted."
+msgstr "Contenitore %(name)s eliminato."
+
+#, python-format
+msgid "Container %(name)s is now %(access)s."
+msgstr "Il contenitore %(name)s è ora %(access)s."
+
+msgid "Container Access"
+msgstr "Accesso contenitore"
+
+msgid "Container Format"
+msgstr "Formato contenitore"
+
+msgid "Container Name"
+msgstr "Nome contenitore"
+
+msgid "Container name must not contain \"/\"."
+msgstr "Il nome del contenitore non deve contenere \"\"."
+
+msgid "Containers"
+msgstr "Contenitori"
+
+msgid "Content Type"
+msgstr "Tipo di contenuto"
+
+msgid "Contextual alternatives"
+msgstr "Alternative contestuali"
+
+msgid ""
+"Count\n"
+"          <span></span>"
+msgstr ""
+"Conteggio\n"
+"          <span></span>"
+
+msgid "Create"
+msgstr "Crea"
+
+msgid "Create Container"
+msgstr "Crea contenitore"
+
+msgid "Create Folder"
+msgstr "Crea cartella"
+
+msgid ""
+"Create Folder In: {$ ctrl.model.container.name $}\n"
+"    <span>: {$ ctrl.model.folder $}</span>"
+msgstr ""
+"Crea cartella in: {$ ctrl.model.container.name $}\n"
+"    <span>: {$ ctrl.model.folder $}</span>"
+
 msgid "Create Key Pair"
+msgstr "Crea coppia di chiavi"
+
+msgid "Create Keypair"
 msgstr "Crea coppia di chiavi"
 
 msgid "Create New Volume"
 msgstr "Crea nuovo volume"
 
+msgid "Create Volume"
+msgstr "Crea volume"
+
 msgid "Created"
 msgstr "Creato"
+
+msgid "Created At"
+msgstr "Data creazione"
+
+msgid "Created keypair: "
+msgstr "Coppia di chiavi creata:"
+
+msgid "Creating"
+msgstr "Creazione"
+
+msgid "Custom Properties"
+msgstr "Proprietà personalizzate"
 
 msgid ""
 "Custom scripts are attached to instances to perform specific actions when "
@@ -161,20 +522,115 @@ msgstr ""
 "guest, è possibile utilizzare uno script personalizzato per visualizzare una "
 "chiave pubblica e aggiungerla all'account utente."
 
+msgid "DNS Domain"
+msgstr "Dominio DNS"
+
+msgid "DNS Domains"
+msgstr "Domini DNS"
+
+msgid "DNS Record"
+msgstr "Record DNS"
+
+msgid "DNS Records"
+msgstr "Record DNS"
+
+msgid "Danger"
+msgstr "Pericolo"
+
+msgid "Data"
+msgstr "Dati"
+
+msgid "Date"
+msgstr "Data"
+
+msgid "Date Created"
+msgstr "Data di creazione"
+
+msgid "Datetime"
+msgstr "Data/ora"
+
+msgid "Default"
+msgstr "Default "
+
+msgid "Default button"
+msgstr "Pulsante predefinito"
+
+msgid "Default input"
+msgstr "Input predefinito"
+
+msgid "Delete"
+msgstr "Elimina"
+
+msgid "Delete Container"
+msgstr "Elimina contenitore"
+
+msgid "Delete Image"
+msgid_plural "Delete Images"
+msgstr[0] "Elimina immagine"
+msgstr[1] "Elimina immagini"
+
+msgid "Delete Images"
+msgstr "Elimina immagini"
+
+msgid "Delete Selection"
+msgstr "Elimina selezione"
+
+msgid "Delete Volume on Instance Delete"
+msgstr "Elimina il volume con l'eliminazione dell'istanza"
+
 msgid "Deleted"
 msgstr "Eliminato"
+
+#, python-format
+msgid "Deleted Image: %s."
+msgid_plural "Deleted Images: %s."
+msgstr[0] "Immagine eliminata: %s."
+msgstr[1] "Immagini eliminate: %s."
+
+msgid "Deleted."
+msgstr "Eliminato."
+
+msgid "Deleting"
+msgstr "Eliminazione"
 
 msgid "Description"
 msgstr "Descrizione"
 
+msgid "Description:"
+msgstr "Descrizione:"
+
+msgid "Details"
+msgstr "Dettagli"
+
 msgid "Device Name"
 msgstr "Nome dispositivo"
+
+msgid "Dialogs"
+msgstr "Finestre di dialogo "
+
+msgid "Direct"
+msgstr "Diretto"
 
 msgid "Direction"
 msgstr "Direzione"
 
+msgid "Disabled"
+msgstr "Disbailitato"
+
+msgid "Disabled input"
+msgstr "Input disabilitato"
+
+msgid "Disabled input here..."
+msgstr "Input disabilitato qui..."
+
+msgid "Disk Format"
+msgstr "Formato disco"
+
 msgid "Disk Partition"
 msgstr "Partizione disco"
+
+msgid "Docker"
+msgstr "Docker"
 
 msgid "Domain ID"
 msgstr "Identificativo di Dominio"
@@ -182,17 +638,44 @@ msgstr "Identificativo di Dominio"
 msgid "Down"
 msgstr "Disattivo"
 
+msgid "Download"
+msgstr "Download"
+
+msgid "Dropdown"
+msgstr "Elenco a discesa"
+
+msgid "Dropdown header"
+msgstr "Intestazione elenco a discesa"
+
+msgid "Dropdown link"
+msgstr "Link elenco a discesa"
+
 msgid "Email"
 msgstr "Email"
+
+msgid "Emphasis classes"
+msgstr "Classi di enfasi"
 
 msgid "Enabled"
 msgstr "Abilitato"
 
+msgid "Encrypted"
+msgstr "Codificato"
+
 msgid "Ephemeral Disk"
 msgstr "Disco temporaneo"
 
+msgid "Error"
+msgstr "Errore"
+
+msgid "Error Deleting"
+msgstr "Errore durante l'eliminazione"
+
 msgid "Ether Type"
 msgstr "Tipo Ether"
+
+msgid "Example body text"
+msgstr "Testo del corpo di esempio"
 
 #, python-format
 msgid "Extension is not enabled: %(extension)s."
@@ -201,10 +684,32 @@ msgstr "Estensione non abilitata: %(extension)s."
 msgid "External Network"
 msgstr "Rete esterna"
 
+msgid "Failed to delete."
+msgstr "Impossibile eliminare."
+
+msgid "File"
+msgstr "File"
+
+#, python-format
+msgid "File %(name)s uploaded."
+msgstr "File %(name)s caricato."
+
+msgid "File Name"
+msgstr "Nome file"
+
+msgid "Filename"
+msgstr "Nome file"
+
 msgid "Fingerprint"
 msgstr "Impronta digitale"
 
 msgid "Flavor"
+msgstr "Flavor"
+
+msgid "Flavor Name"
+msgstr "Nome flavor"
+
+msgid "Flavors"
 msgstr "Flavor"
 
 msgid ""
@@ -214,8 +719,24 @@ msgstr ""
 "I flavor gestiscono la dimensione della capacità di calcolo, memoria e "
 "archiviazione dell'istanza."
 
+msgid "Focused input"
+msgstr "Input focalizzato"
+
+msgid "Folder"
+msgstr "Cartella"
+
+#, python-format
+msgid "Folder %(name)s created."
+msgstr "Cartella %(name)s creata."
+
+msgid "Folder Name"
+msgstr "Nome cartella"
+
 msgid "Format"
 msgstr "Formato"
+
+msgid "Forms"
+msgstr "Moduli"
 
 msgid ""
 "From a Windows system, you can use PuTTYGen to create private/public keys.\n"
@@ -231,8 +752,48 @@ msgstr ""
 "file\n"
 " <samp>.ssh/authorized_keys</samp>."
 
+msgid "Hash"
+msgstr "Hash"
+
+msgid "Heading 1"
+msgstr "Intestazione 1"
+
+msgid "Heading 2"
+msgstr "Intestazione 2"
+
+msgid "Heading 3"
+msgstr "Intestazione 3"
+
+msgid "Heading 4"
+msgstr "Intestazione 4"
+
+msgid "Heading 5"
+msgstr "Intestazione 5"
+
+msgid "Heading 6"
+msgstr "Intestazione 6"
+
+msgid "Home"
+msgstr "Home"
+
+msgid "Host ID"
+msgstr "ID host"
+
 msgid "ID"
 msgstr "Identificativo"
+
+msgid "IP"
+msgstr "IP"
+
+msgid "ISO"
+msgstr "ISO"
+
+msgid ""
+"If \"No volume type\" is selected, the volume will be created without a "
+"volume type."
+msgstr ""
+"Se è selezionato \"Nessun tipo di volume\", il volume verrà creato senza un "
+"tipo di volume."
 
 msgid ""
 "If a network is shared, then all users in the project can access the network."
@@ -247,6 +808,22 @@ msgstr ""
 "Se un gruppo di sicurezza non viene associato a un'istanza prima di essere "
 "avviato, dopo la distribuzione dell'istanza l'accesso sarà molto limitato. "
 "L'utente sarà in grado di accedere all'istanza solo da una console VNC.  "
+
+msgid "If not, you can manually dowload this keypair at the following link:"
+msgstr ""
+"In caso contrario, è possibile scaricare manualmente questa coppia di chiavi "
+"al seguente link:"
+
+msgid ""
+"If you select an availability zone and plan to use the 'boot from volume' "
+"option in the Source step, make sure that the availability zone you select "
+"for the instance is the same availability zone where your bootable volume "
+"resides."
+msgstr ""
+"Se si seleziona una zona di disponibilità e si prevede di utilizzare "
+"l'opzione di avvio nel passaggio Origine, verificare che la zona di "
+"disponibilità selezionata per l'istanza sia la stessa zona di disponibilità "
+"in cui risiede il volume avviabile."
 
 msgid ""
 "If you want to create an instance that uses ephemeral storage, meaning the "
@@ -272,11 +849,45 @@ msgstr "Immagine"
 msgid "Image Name"
 msgstr "Nome dell'Immagine"
 
+msgid "Images"
+msgstr "Immagini"
+
 msgid "Impact on your quota"
 msgstr "Impatto sulla quota"
 
 msgid "Import Key Pair"
 msgstr "Importa coppia di chiavi"
+
+msgid "Indicators"
+msgstr "Indicatori"
+
+msgid "Info"
+msgstr "Informazioni"
+
+msgid "Input Sizes"
+msgstr "Dimensioni input"
+
+msgid "Input States"
+msgstr "Stati input"
+
+msgid "Input addons"
+msgstr "Componenti aggiuntivi input"
+
+msgid "Input error"
+msgstr "Errore input"
+
+msgid "Input success"
+msgstr "Input riuscito"
+
+msgid "Input warning"
+msgstr "Avvertenza input"
+
+msgid ""
+"Instance Name\n"
+"          <span></span>"
+msgstr ""
+"Nome istanza\n"
+"          <span></span>"
 
 msgid "Instance Snapshot"
 msgstr "Istantanea dell'istanza"
@@ -286,23 +897,150 @@ msgstr ""
 "Il numero di istanze è obbligatorio e deve essere un numero intero superiore "
 "a 1"
 
+msgid ""
+"Instance source is the template used to create an instance. You can use a "
+"snapshot of an existing instance, an image, or a volume (if enabled).\n"
+"      You can also choose to use persistent storage by creating a new volume."
+msgstr ""
+"L'origine dell'istanza è il template utilizzato per creare un'istanza. È "
+"possibile utilizzare un'istantanea di un'istanza esistente, un'immagine o un "
+"volume (se abilitato). \n"
+"È inoltre possibile scegliere di utilizzare la memoria persistente creando "
+"un nuovo volume."
+
 msgid "Insufficient privilege level to view user information."
 msgstr "Privilegi insufficienti per visualizzare le informazioni utente"
+
+msgid "Jumbotron"
+msgstr "Jumbotron"
+
+msgid "Kernel ID"
+msgstr "ID kernel"
 
 msgid "Key Pair"
 msgstr "Coppia di chiavi"
 
+msgid ""
+"Key Pair Name\n"
+"        <span></span>"
+msgstr ""
+"Nome coppia di chiavi\n"
+"        <span></span>"
+
+msgid "Key Pairs"
+msgstr "Coppie di chiavi"
+
+msgid ""
+"Key Pairs are how you login to your instance after it is launched.\n"
+"      Choose a key pair name you will recognize and paste your SSH public "
+"key into the\n"
+"      space provided."
+msgstr ""
+"Le coppie di chiavi indicano la modalità con cui si accede all'istanza dopo "
+"che questa è stata avviata.\n"
+"        Scegliere un nome per la coppia di chiavi che verrà riconosciuto e "
+"incollare la chiave pubblica SSH nello\n"
+"        spazio fornito."
+
+msgid ""
+"Key Pairs are how you login to your instance after it is launched.\n"
+"      Choose a key pair name you will recognize.\n"
+"      Names may only include alphanumeric characters, spaces, or dashes."
+msgstr ""
+"Le coppie di chiavi indicano la modalità con cui si accede all'istanza dopo "
+"che questa è stata avviata.\n"
+"Scegliere un nome per la coppia di chiavi che verrà riconosciuto.\n"
+"I nomi possono includere solo caratteri alfanumerico, spazi o barre."
+
+msgid "Keypair already exists or name contains bad characters."
+msgstr "La coppia di chiavi già esiste o il nome contiene caratteri errati."
+
 msgid "Killed"
 msgstr "Terminato"
 
+msgid "Large button"
+msgstr "Pulsante grande"
+
+msgid "Large input"
+msgstr "Input grande"
+
+msgid "Launch"
+msgstr "Avvia"
+
 msgid "Launch Instance"
 msgstr "Esegui instanza"
+
+msgid "Learn more"
+msgstr "Altre informazioni"
+
+msgid "Left"
+msgstr "Sinistra"
+
+msgid "Legend"
+msgstr "Legenda"
+
+msgid "Library"
+msgstr "Libreria"
+
+msgid "Link"
+msgstr "Link"
+
+msgid "List group item heading"
+msgstr "Elenca intestazioni elementi di gruppi"
+
+msgid "List groups"
+msgstr "Elenca gruppi"
+
+msgid "Load Balancer Pool"
+msgstr "Pool di bilanciatori di carico"
+
+msgid "Load Balancer Pool Member"
+msgstr "Membro del pool di bilanciatori di carico"
+
+msgid "Load Balancer Pool Members"
+msgstr "Membri del pool di bilanciatori di carico"
+
+msgid "Load Balancer Pools"
+msgstr "Pool di bilanciatori di carico"
+
+msgid "Loading"
+msgstr "Caricamento"
+
+msgid "Look, I'm in a large well!"
+msgstr "Guarda, sono in un grande pozzo!"
+
+msgid "Look, I'm in a small well!"
+msgstr "Guarda, sono in un piccolo pozzo!"
+
+msgid "Look, I'm in a well!"
+msgstr "Guarda, sono in un pozzo!"
+
+msgid "MacVTap"
+msgstr "MacVTap"
 
 msgid "Manual"
 msgstr "Manuale"
 
 msgid "Max Port"
 msgstr "Porta max"
+
+msgid "Members"
+msgstr "Membri"
+
+msgid "Messages"
+msgstr "Messaggi"
+
+msgid "Metadata"
+msgstr "Metadati"
+
+msgid "Metadata Definition"
+msgstr "Definizione di metadati"
+
+msgid "Metadata Definitions"
+msgstr "Definizioni di metadati"
+
+msgid "Middle"
+msgstr "Centro"
 
 msgid "Min Disk"
 msgstr "Disco min"
@@ -319,11 +1057,62 @@ msgstr "RAM min"
 msgid "Min RAM (MB)"
 msgstr "RAM min (MB)"
 
+msgid "Min. Disk"
+msgstr "Disco min."
+
+msgid "Min. RAM"
+msgstr "RAM min."
+
+msgid "Mini button"
+msgstr "Pulsante mini"
+
+msgid "Modal title"
+msgstr "Titolo modale"
+
+msgid "Modals"
+msgstr "Modali"
+
+msgid "Month"
+msgstr "Mese"
+
 msgid "Name"
 msgstr "Nome "
 
+msgid "Navbar"
+msgstr "Barra di navigazione"
+
+msgid "Navs"
+msgstr "Navs"
+
 msgid "Network"
 msgstr "Rete"
+
+msgid "Network Health Monitor"
+msgstr "Monitor di integrità di rete"
+
+msgid "Network Health Monitors"
+msgstr "Monitor di integrità di rete"
+
+msgid "Network ID"
+msgstr "ID rete"
+
+msgid "Network Port"
+msgstr "Porta di rete"
+
+msgid "Network Ports"
+msgstr "Porte di rete"
+
+msgid "Network Router"
+msgstr "Router di rete"
+
+msgid "Network Routers"
+msgstr "Router di rete"
+
+msgid "Network Subnet"
+msgstr "Sottorete di rete"
+
+msgid "Network Subnets"
+msgstr "Sottoreti di rete"
 
 msgid "Network characteristics"
 msgstr "Caratteristiche di rete"
@@ -334,14 +1123,139 @@ msgstr "Reti"
 msgid "Networks provide the communication channels for instances in the cloud."
 msgstr "Le reti forniscono i canali di comunicazione per le istanze nel cloud."
 
+msgid "Newer"
+msgstr "Più nuovo"
+
+msgid "Next"
+msgstr "Successivo"
+
 msgid "No"
 msgstr "No"
 
 msgid "No available items"
 msgstr "Nessun elemento disponibile"
 
+msgid "Normal"
+msgstr "Normale"
+
+msgid ""
+"Note: A Public Container will allow anyone with the Public URL to\n"
+"          gain access to your objects in the container."
+msgstr ""
+"Nota: un contenitore pubblico consentirà a chiunque con l'URL pubblico\n"
+"di accedere agli oggetti in esso presenti."
+
+msgid ""
+"Note: Delimiters ('{$ ctrl.model.DELIMETER $}') are allowed in the\n"
+"          file name to place the new file into a folder that will be "
+"created\n"
+"          when the file is uploaded (to any depth of folders)."
+msgstr ""
+"Nota: i delimitatori ('{$ ctrl.model.DELIMETER $}') sono consentiti nel nome "
+"file\n"
+"          per inserire il nuovo file in una cartella che verrà creata\n"
+"          quando il file viene caricato (a qualsiasi profondità di cartelle)."
+
+msgid ""
+"Note: Delimiters ('{$ ctrl.model.DELIMETER $}') are allowed in the\n"
+"          folder name to create deep folders."
+msgstr ""
+"Nota: i delimitatori ('{$ ctrl.model.DELIMETER $}') sono consentiti nel "
+"nome\n"
+"cartella per creare cartelle profonde."
+
+msgid "Note: you will not be able to download this later."
+msgstr "Nota: non sarà possibile scaricare questo elemento successivamente."
+
 msgid "Number"
 msgstr "Numero"
+
+msgid "OVA"
+msgstr "OVA"
+
+msgid "Object"
+msgstr "Oggetto"
+
+msgid "Object Account"
+msgstr "Account oggetto"
+
+msgid "Object Accounts"
+msgstr "Account oggetti"
+
+msgid "Object Container"
+msgstr "Contenitore oggetto"
+
+msgid "Object Containers"
+msgstr "Contenitori oggetto"
+
+msgid "Object Count"
+msgstr "Conteggio oggetti"
+
+msgid "Object Details"
+msgstr "Dettagli oggetto"
+
+msgid "Objects"
+msgstr "Oggetti"
+
+msgid "Older"
+msgstr "Più vecchio"
+
+msgid "One fine body…"
+msgstr "Un bel corpo..."
+
+msgid "One more separated link"
+msgstr "Un altro link separato"
+
+msgid "Option one is this"
+msgstr "L'opzione uno è questa"
+
+msgid "Option two can be something else"
+msgstr "L'opzione due può essere diversa"
+
+msgid "Other Input Types"
+msgstr "Altri tipi di input"
+
+msgid "Overview"
+msgstr "Panoramica"
+
+msgid "Owner"
+msgstr "Proprietario"
+
+msgid "Pager"
+msgstr "Cercapersone"
+
+msgid "Pagination"
+msgstr "Paginazione"
+
+msgid "Panel content"
+msgstr "Contenuto pannello"
+
+msgid "Panel danger"
+msgstr "Pericolo pannello"
+
+msgid "Panel footer"
+msgstr "Piè di pagina pannello"
+
+msgid "Panel heading"
+msgstr "Intestazione pannello"
+
+msgid "Panel info"
+msgstr "Informazioni pannello"
+
+msgid "Panel primary"
+msgstr "Pannello primario"
+
+msgid "Panel success"
+msgstr "Operazione completata pannello"
+
+msgid "Panel warning"
+msgstr "Avvertenza pannello"
+
+msgid "Panels"
+msgstr "Pannelli"
+
+msgid "Password"
+msgstr "Password"
 
 msgid "Pending Delete"
 msgstr "Eliminazione in sospeso"
@@ -349,14 +1263,52 @@ msgstr "Eliminazione in sospeso"
 msgid "Physical Network"
 msgstr "Rete fisica"
 
+msgid "Pills"
+msgstr "Pillole"
+
+msgid ""
+"Please provide the initial hostname for the instance, the availability zone "
+"where it will be deployed, and the instance count.\n"
+"    Increase the Count to create multiple instances with the same settings."
+msgstr ""
+"Fornire il nome host iniziale per l'istanza, la zona di disponibilità in cui "
+"sarà distribuita e il numero di istanze. \n"
+"Aumentare il numero per creare più istanze con le stesse impostazioni."
+
+msgid "Please try again."
+msgstr "Riprovare."
+
 msgid "Policy check failed."
 msgstr "Controllo della politica non riuscito."
+
+msgid "Popovers"
+msgstr "Popover"
+
+msgid "Ports can be created under a network by administrators."
+msgstr "Le porte possono essere create in una rete dagli amministratori."
+
+msgid ""
+"Ports provide extra communication channels to your instances. You can select "
+"ports instead of networks or a mix of both."
+msgstr ""
+"Le porte forniscono i canali di comunicazione supplementari per le istanze. "
+"È possibile selezionare le porte anziché le reti oppure una combinazione di "
+"entrambe."
+
+msgid "Previous"
+msgstr "Precedente"
+
+msgid "Primary"
+msgstr "Primario"
 
 msgid "Private"
 msgstr "Privato"
 
 msgid "Profile"
 msgstr "Profilo"
+
+msgid "Progress bars"
+msgstr "Barre di avanzamento"
 
 msgid "Project"
 msgstr "Progetto"
@@ -391,8 +1343,21 @@ msgstr ""
 msgid "Public"
 msgstr "Pubblico"
 
+msgid "Public Access"
+msgstr "Accesso pubblico"
+
 msgid "Public Key"
 msgstr "Chiave pubblica"
+
+msgid ""
+"Public Key\n"
+"        <span></span>"
+msgstr ""
+"Chiave pubblica\n"
+"        <span></span>"
+
+msgid "QCOW2"
+msgstr "QCOW2"
 
 msgid "Queued"
 msgstr "In coda"
@@ -400,11 +1365,32 @@ msgstr "In coda"
 msgid "RAM"
 msgstr "RAM"
 
+msgid "RAW"
+msgstr "RAW"
+
+msgid "RX/TX factor"
+msgstr "Fattore RX/TX"
+
+msgid "Radios"
+msgstr "Pulsanti di opzione"
+
+msgid "Ramdisk ID"
+msgstr "ID ramdisk"
+
 msgid "Re-order items using drag and drop"
 msgstr "Riordina gli elementi utilizzando la funzione di trascinamento"
 
+msgid "Record Properties"
+msgstr "Proprietà record"
+
 msgid "Remote"
 msgstr "Remoto"
+
+msgid "Required"
+msgstr "Richiesto"
+
+msgid "Right"
+msgstr "Destra"
 
 msgid "Root Disk"
 msgstr "Disco root"
@@ -412,8 +1398,17 @@ msgstr "Disco root"
 msgid "Save"
 msgstr "Salva"
 
+msgid "Save changes"
+msgstr "Salva modifiche"
+
 msgid "Saving"
 msgstr "Salvataggio"
+
+msgid "Search"
+msgstr "Ricerca"
+
+msgid "Security"
+msgstr "Sicurezza"
 
 msgid "Security Groups"
 msgstr "Gruppi di sicurezza"
@@ -442,8 +1437,14 @@ msgstr ""
 msgid "Segmentation ID"
 msgstr "ID segmentazione"
 
+msgid "Select All"
+msgstr "Seleziona tutto"
+
 msgid "Select Boot Source"
 msgstr "Seleziona origine di avvio"
+
+msgid "Select a container to browse."
+msgstr "Selezionare un contenitore da esaminare."
 
 msgid "Select a key pair from the available key pairs below."
 msgstr ""
@@ -452,6 +1453,9 @@ msgstr ""
 
 msgid "Select a source from those listed below."
 msgstr "Selezionare un'origine dall'elenco in basso."
+
+msgid "Select a zone"
+msgstr "Seleziona una zona"
 
 msgid "Select an item from Available items below"
 msgstr "Seleziona un elemento dagli elementi disponibili in basso"
@@ -472,6 +1476,24 @@ msgid "Select one or more security groups from the available groups below."
 msgstr ""
 "Selezionare uno o più gruppi di sicurezza dai gruppi disponibili in basso."
 
+msgid "Select ports from those listed below."
+msgstr "Selezionare le porte dall'elenco in basso."
+
+msgid "Select the security groups to launch the instance in."
+msgstr "Selezionare i gruppi di sicurezza in cui avviare l'istanza."
+
+msgid "Selects"
+msgstr "Seleziona"
+
+msgid "Separated link"
+msgstr "Link separato"
+
+msgid "Server"
+msgstr "Server"
+
+msgid "Servers"
+msgstr "Server"
+
 #, python-format
 msgid "Service type is not enabled: %(desiredType)s"
 msgstr "Il tipo di servizio non è abilitato: %(desiredType)s"
@@ -483,24 +1505,81 @@ msgstr "Impostazione non abilitata: %(setting)s"
 msgid "Shared"
 msgstr "Condiviso"
 
+msgid "Shared with Me"
+msgstr "Condiviso con l'utente"
+
 msgid "Size"
 msgstr "Dimensione"
 
 msgid "Size (GB)"
 msgstr "Dimensione (GB)"
 
+msgid "Small button"
+msgstr "Pulsante piccolo"
+
+msgid "Small input"
+msgstr "Input piccolo"
+
 msgid "Snapshot"
 msgstr "Istantanea"
+
+msgid "Someone famous in"
+msgstr "Qualcuno famoso in"
+
+msgid "Something else here"
+msgstr "Qualcos'altro qui"
+
+msgid "Source"
+msgstr "Origine"
+
+msgid "Source Code"
+msgstr "Codice di origine"
+
+msgid "Source Title"
+msgstr "Titolo origine"
+
+msgid "Stacked"
+msgstr "Con stack"
+
+msgid "Standard Table"
+msgstr "Tabella standard"
 
 msgid "Status"
 msgstr "Stato"
 
+msgid "Striped"
+msgstr "Con striping"
+
+msgid "Submit"
+msgstr "Invia"
+
 msgid "Subnets Associated"
 msgstr "Sottoreti associate"
+
+msgid "Success"
+msgstr "Operazione completata"
 
 #, python-format
 msgid "Successfully imported key pair %(name)s."
 msgstr "Coppia di chiavi %(name)s importata correttamente."
+
+msgid "Swap Disk"
+msgstr "Disco swap"
+
+msgid "Tables"
+msgstr "Tabelle"
+
+msgid "Tabs"
+msgstr "Schede"
+
+msgid "Tags"
+msgstr "Tag"
+
+msgid "Tel"
+msgstr "Tel"
+
+msgid "Textarea"
+msgstr "Area di testo"
 
 msgid ""
 "The flavor you select for an instance determines the amount of compute, "
@@ -521,6 +1600,17 @@ msgstr ""
 "identificati nella tabella <b>Disponibile</b> con un'icona di avvertenza "
 "gialla."
 
+msgid "The following snippet of text is <em>rendered as italicized text</em>."
+msgstr ""
+"Il seguente frammento di testo viene <strong>rappresentato come testo in "
+"corsivo</strong>."
+
+msgid ""
+"The following snippet of text is <strong>rendered as bold text</strong>."
+msgstr ""
+"Il seguente frammento di testo viene <strong>rappresentato come testo in "
+"grassetto</strong>."
+
 #, python-format
 msgid ""
 "The instance count must not exceed your quota available of "
@@ -529,8 +1619,45 @@ msgstr ""
 "Il numero di istanze non deve superare la quota disponibile di "
 "%(maxInstanceCount)s istanze"
 
+msgid ""
+"The logical port also defines the MAC address and the IP address(es) to be "
+"assigned to the interfaces plugged into them."
+msgstr ""
+"La porta logica definisce anche l'indirizzo MAC e gli indirizzi IP da "
+"assegnare alle interfacce collegate."
+
+msgid ""
+"The maximum number of key-value pairs that can be supplied per instance is "
+"determined by the compute provider."
+msgstr ""
+"Il numero massimo di coppie chiave-valore che può essere fornito per "
+"ciascuna istanza è determinato dal provider di calcolo."
+
+#, python-format
+msgid ""
+"The selected %(sourceType)s source requires a flavor with at least "
+"%(minDisk)s GB of root disk. Select a flavor with a larger root disk or use "
+"a different %(sourceType)s source."
+msgstr ""
+"L'origine %(sourceType)s selezionata richiede un flavor con almeno "
+"%(minDisk)s GB di disco root. Selezionare un flavor con un disco root più "
+"grande o utilizzare un'origine %(sourceType)s diversa."
+
+#, python-format
+msgid ""
+"The selected %(sourceType)s source requires a flavor with at least "
+"%(minRam)s MB of RAM. Select a flavor with more RAM or use a different "
+"%(sourceType)s source."
+msgstr ""
+"L'origine %(sourceType)s selezionata richiede un flavor con almeno "
+"%(minRam)s MB di RAM. Selezionare un flavor con più RAM o utilizzare "
+"un'origine %(sourceType)s diversa."
+
 msgid "The status indicates whether the network has an active connection."
 msgstr "Lo stato indica se la rete presenta una connessione attiva."
+
+msgid "The status indicates whether the port has an active connection."
+msgstr "Lo stato indica se la porta presenta una connessione attiva."
 
 msgid ""
 "The subnet identifies a sub-section of a network. A subnet is specified in "
@@ -575,6 +1702,48 @@ msgstr ""
 "consentita dalla quota. Selezionare un flavor più piccolo o ridurre il "
 "numero di istanze."
 
+msgid ""
+"This is a simple hero unit, a simple jumbotron-style component for calling "
+"extra attention to featured content or information."
+msgstr ""
+"Questa è un'unità hero semplice, un componente in stile jumbotron semplice "
+"per richiamare ulteriore attenzione su contenuto o informazioni di rilievo."
+
+msgid "This is focused..."
+msgstr "Questo è focalizzato..."
+
+msgid "This limit is currently not set."
+msgstr "Questo limite non è attualmente impostato."
+
+msgid "This limit is currently set to {$ model.novaLimits.maxServerMeta $}."
+msgstr ""
+"Questo limite è attualmente impostato su {$ model.novaLimits.maxServerMeta "
+"$}."
+
+msgid "This step allows you to add Metadata items to your instance."
+msgstr ""
+"Questo passaggio consente di aggiungere gli elementi Metadati all'istanza."
+
+msgid "Time"
+msgstr "Ora"
+
+msgid "Timestamp"
+msgstr "Data/ora"
+
+msgid ""
+"To view source code, hover over a section, then click the <a><span></span></"
+"a> button in the top right of that section."
+msgstr ""
+"Per visualizzare il codice di origine, posizionare il puntatore del mouse su "
+"una sezione e quindi fare clic sul pulsante <a><span></span></a> in alto a "
+"destra in quella sezione."
+
+msgid "Tooltips"
+msgstr "Suggerimenti"
+
+msgid "Top"
+msgstr "Sopra"
+
 msgid "Total Disk"
 msgstr "Disco totale"
 
@@ -599,8 +1768,35 @@ msgstr ""
 "browser supporta l'API File HTML5, è possibile scegliere di caricare lo "
 "script da un file. La dimensione dello script non deve superare 16 Kb."
 
+msgid "Typography"
+msgstr "Tipografia"
+
+msgid "Unable to allocate new floating IP address."
+msgstr "Impossibile allocare un nuovo indirizzo IP mobile."
+
+msgid "Unable to associate floating IP address."
+msgstr "Impossibile associare l'indirizzo IP mobile."
+
+msgid "Unable to change the container access."
+msgstr "Impossibile modificare l'accesso al contenitore."
+
+msgid "Unable to copy the object."
+msgstr "Impossibile copiare l'oggetto."
+
+msgid "Unable to create the container."
+msgstr "Impossibile creare il contenitore."
+
 msgid "Unable to create the domain."
 msgstr "Impossibile creare il dominio."
+
+msgid "Unable to create the flavor."
+msgstr "Impossibile creare il flavor."
+
+msgid "Unable to create the folder."
+msgstr "Impossibile creare la cartella."
+
+msgid "Unable to create the image."
+msgstr "Impossibile creare l'immagine."
 
 msgid "Unable to create the keypair."
 msgstr "Impossibile creare la coppia di chiavi."
@@ -623,11 +1819,37 @@ msgstr "Impossibile creare la sottorete."
 msgid "Unable to create the user."
 msgstr "Impossibile creare l'utente."
 
+msgid "Unable to create the volume."
+msgstr "Impossibile creare il volume."
+
+#, python-format
+msgid "Unable to delete Image: %s."
+msgid_plural "Unable to delete Images: %s."
+msgstr[0] "Impossibile eliminare l'immagine: %s."
+msgstr[1] "Impossibile eliminare le immagini: %s."
+
+msgid "Unable to delete the container."
+msgstr "Impossibile eliminare il contenitore."
+
 msgid "Unable to delete the domain."
 msgstr "Impossibile eliminare il dominio."
 
 msgid "Unable to delete the domains."
 msgstr "Impossibile eliminare i domini."
+
+#, python-format
+msgid "Unable to delete the flavor with id: %(id)s"
+msgstr "Impossibile eliminare il flavor con id: %(id)s"
+
+msgid "Unable to delete the folder because it is not empty."
+msgstr "Impossibile eliminare la cartella perché non è vuota."
+
+#, python-format
+msgid "Unable to delete the image with id: %(id)s"
+msgstr "Impossibile eliminare l'immagine con id: %(id)s"
+
+msgid "Unable to delete the object."
+msgstr "Impossibile eliminare l'oggetto."
 
 msgid "Unable to delete the project."
 msgstr "Impossibile eliminare il progetto."
@@ -646,6 +1868,12 @@ msgstr "Impossibile eliminare l'utente."
 
 msgid "Unable to delete the users."
 msgstr "Impossibile eliminare gli utenti."
+
+msgid "Unable to disassociate floating IP address."
+msgstr "Impossibile disassociare l'indirizzo IP mobile."
+
+msgid "Unable to edit instance metadata."
+msgstr "Impossibile modificare i metadati dell'istanza."
 
 msgid "Unable to edit the aggregate extra specs."
 msgstr "Impossibile modificare le specifiche supplementari dell'aggregato."
@@ -671,8 +1899,32 @@ msgstr "Impossibile modificare l'utente."
 msgid "Unable to fetch the service catalog."
 msgstr "Impossibile recuperare il catalogo del servizio."
 
+msgid "Unable to fetch the services."
+msgstr "Impossibile recuperare i servizi."
+
+msgid "Unable to generate"
+msgstr "Impossibile generare"
+
+msgid "Unable to get details of the object."
+msgstr "Impossibile ottenere dettagli dell'oggetto."
+
+msgid "Unable to get the Glance service version."
+msgstr "Impossibile ottenere la versione del servizio Keystone."
+
 msgid "Unable to get the Keystone service version."
 msgstr "Impossibile ottenere la versione del servizio Keystone."
+
+msgid "Unable to get the Swift container listing."
+msgstr "Impossibile ottenere l'elenco di contenitori Swift."
+
+msgid "Unable to get the Swift service info."
+msgstr "Impossibile ottenere le informazioni del servizio Swift."
+
+msgid "Unable to get the container details."
+msgstr "Impossibile ottenere i dettagli sul contenitore."
+
+msgid "Unable to get the objects in container."
+msgstr "Impossibile ottenere gli oggetti nel contenitore."
 
 msgid "Unable to grant the role."
 msgstr "Impossibile concedere il ruolo."
@@ -680,8 +1932,29 @@ msgstr "Impossibile concedere il ruolo."
 msgid "Unable to import the keypair."
 msgstr "Impossibile importare la coppia di chiavi."
 
+msgid "Unable to retrieve floating IP pools."
+msgstr "Impossibile richiamare i pool IP mobili."
+
+msgid "Unable to retrieve floating IPs."
+msgstr "Impossibile richiamare gli IP mobili."
+
+msgid "Unable to retrieve instance metadata."
+msgstr "Impossibile richiamare i metadati dell'istanza."
+
+msgid "Unable to retrieve instances."
+msgstr "Impossibile richiamare le istanze."
+
 msgid "Unable to retrieve settings."
 msgstr "Impossibile richiamare le impostazioni. "
+
+msgid "Unable to retrieve the Absolute Limits."
+msgstr "Impossibile richiamare i limiti assoluti."
+
+msgid "Unable to retrieve the QoS Specs."
+msgstr "Impossibile richiamare le specifiche QoS."
+
+msgid "Unable to retrieve the agents."
+msgstr "Impossibile richiamare gli agenti."
 
 msgid "Unable to retrieve the aggregate extra specs."
 msgstr "Impossibile richiamare le specifiche supplementari dell'aggregato."
@@ -689,8 +1962,14 @@ msgstr "Impossibile richiamare le specifiche supplementari dell'aggregato."
 msgid "Unable to retrieve the availability zones."
 msgstr "Impossibile richiamare le zone di disponibilità."
 
+msgid "Unable to retrieve the cinder services."
+msgstr "Impossibile richiamare i servizi cinder."
+
 msgid "Unable to retrieve the current user session."
 msgstr "Impossibile richiamare la sessione utente corrente."
+
+msgid "Unable to retrieve the default volume type."
+msgstr "Impossibile richiamare il tipo di volume predefinito."
 
 msgid "Unable to retrieve the domain."
 msgstr "Impossibile richiamare il dominio."
@@ -709,6 +1988,9 @@ msgstr "Impossibile richiamare il flavor."
 
 msgid "Unable to retrieve the flavors."
 msgstr "Impossibile richiamare i flavor."
+
+msgid "Unable to retrieve the heat services."
+msgstr "Impossibile richiamare i servizi heat."
 
 msgid "Unable to retrieve the image custom properties."
 msgstr "Impossibile richiamare le proprietà personalizzate dell'immagine."
@@ -731,6 +2013,9 @@ msgstr "Impossibile richiamare gli spazi dei nomi."
 msgid "Unable to retrieve the networks."
 msgstr "Impossibile richiamare le reti."
 
+msgid "Unable to retrieve the nova services."
+msgstr "Impossibile richiamare i servizi nova."
+
 msgid "Unable to retrieve the ports."
 msgstr "Impossibile richiamare le porte."
 
@@ -739,6 +2024,9 @@ msgstr "Impossibile richiamare il progetto."
 
 msgid "Unable to retrieve the projects."
 msgstr "Impossibile richiamare i progetti."
+
+msgid "Unable to retrieve the resource types."
+msgstr "Impossibile richiamare i tipi di risorsa."
 
 msgid "Unable to retrieve the role."
 msgstr "Impossibile richiamare il ruolo."
@@ -764,11 +2052,32 @@ msgstr "Impossibile richiamare gli utenti."
 msgid "Unable to retrieve the volume snapshots."
 msgstr "Impossibile richiamare le istantanee dei volumi."
 
+msgid "Unable to retrieve the volume type."
+msgstr "Impossibile richiamare il tipo di volume."
+
+msgid "Unable to retrieve the volume types."
+msgstr "Impossibile richiamare i tipi di volume."
+
+msgid "Unable to retrieve the volume."
+msgstr "Impossibile richiamare il volume."
+
 msgid "Unable to retrieve the volumes."
 msgstr "Impossibile richiamare i volumi."
 
+msgid "Unable to update the flavor."
+msgstr "Impossibile aggiornare il flavor."
+
+msgid "Unable to update the image."
+msgstr "Impossibile aggiornare l'immagine."
+
+msgid "Unable to upload the object."
+msgstr "Impossibile caricare l'oggetto."
+
 msgid "Unable to validate the template."
 msgstr "Impossibile convalidare il template."
+
+msgid "Unknown"
+msgstr "Sconosciuto"
 
 msgid "Up"
 msgstr "Attivo"
@@ -782,8 +2091,36 @@ msgstr "Aggiorna metadati flavor"
 msgid "Update Image Metadata"
 msgstr "Aggiorna metadati immagine"
 
+msgid "Update Instance Metadata"
+msgstr "Aggiorna metadati istanza"
+
+msgid "Update Metadata"
+msgstr "Aggiorna metadati"
+
 msgid "Updated"
 msgstr "Aggiornato"
+
+msgid "Updated At"
+msgstr "Data aggiornamento"
+
+msgid "Upload File"
+msgstr "Carica file"
+
+msgid ""
+"Upload File To: {$ ctrl.model.container.name $}\n"
+"    <span>: {$ ctrl.model.folder $}</span>"
+msgstr ""
+"Carica file in: {$ ctrl.model.container.name $}\n"
+"    <span>: {$ ctrl.model.folder $}</span>"
+
+msgid "Uploading"
+msgstr "Caricamento"
+
+msgid "Url"
+msgstr "Url"
+
+msgid "Use image as a source"
+msgstr "Utilizza immagine come origine"
 
 msgid "User ID"
 msgstr "Identificativo Utente"
@@ -794,17 +2131,81 @@ msgstr "Nome Utente"
 msgid "VCPUS"
 msgstr "VCPU"
 
+msgid "VCPUs"
+msgstr "VCPU"
+
+msgid "VDI"
+msgstr "VDI"
+
+msgid "VHD"
+msgstr "VHD"
+
+msgid "VMDK"
+msgstr "VMDK"
+
+msgid "VNIC type"
+msgstr "Tipo VNIC"
+
+msgid "View Details"
+msgstr "Visualizza dettagli"
+
+msgid "Virtual Size"
+msgstr "Dimensione virtuale"
+
+msgid "Virtual instances attach their interfaces to ports."
+msgstr "Le istanze virtuali collegano le interfacce alle porte."
+
 msgid "Visibility"
 msgstr "Visibilità"
 
 msgid "Volume"
 msgstr "Volume"
 
+#, python-format
+msgid "Volume %s was successfully created."
+msgstr "Il volume %s è stato creato correttamente."
+
+msgid "Volume Backup"
+msgstr "Backup volume"
+
+msgid "Volume Backups"
+msgstr "Backup volume"
+
+msgid "Volume Details"
+msgstr "Dettagli del volume"
+
+msgid "Volume Quota"
+msgstr "Quota volume"
+
+msgid ""
+"Volume Size (GB)\n"
+"              <span></span>"
+msgstr ""
+"Dimensione volume (GB)\n"
+"              <span></span>"
+
 msgid "Volume Snapshot"
 msgstr "Istantanea del volume"
 
+msgid "Volume Snapshots"
+msgstr "Istantanee volume"
+
+msgid "Volume Type Description:"
+msgstr "Descrizione del tipo di volume:"
+
+msgid "Volume and Snapshot Quota (GB)"
+msgstr "Quota volume e istantanea (GB)"
+
 msgid "Volume size is required and must be an integer"
 msgstr "La dimensione del volume è obbligatoria e deve essere un numero intero"
+
+msgid "Volumes"
+msgstr "Volumi"
+
+msgid "Volumes are block devices that can be attached to instances."
+msgstr ""
+"I volumi sono dispositivi a blocchi che è possibile collegare alle "
+"istanze.   "
 
 msgid ""
 "Volumes can only be attached to 1 active instance at a time. Please either "
@@ -812,6 +2213,27 @@ msgid ""
 msgstr ""
 "I volumi possono essere collegati a un'istanza attiva alla volta. Impostare "
 "il numero di istanze su 1 o selezionare un tipo di origine diverso."
+
+msgid "Warning"
+msgstr "Avvertenza"
+
+msgid "Warning!"
+msgstr "Avvertenza"
+
+msgid "Week"
+msgstr "Settimana"
+
+msgid "Wells"
+msgstr "Pozzi"
+
+msgid ""
+"When IP addresses are associated to a port, this also implies the port is "
+"associated with a subnet, as the IP address was taken from the allocation "
+"pool for a specific subnet."
+msgstr ""
+"Quando gli indirizzi IP sono associati ad una porta, ciò implica anche che "
+"la porta è associata ad una sottorete, in quanto l'indirizzo IP è stato "
+"preso dal pool di allocazione per una sottorete specifica."
 
 msgid ""
 "When selecting volume as boot source, please ensure the instance's "
@@ -832,8 +2254,92 @@ msgstr ""
 "Admin</b> su <b>Disattivo</b>\n"
 "    se non si è pronti a consentire l'accesso alla rete ad altri utenti."
 
+msgid ""
+"When the <b>Admin State</b> for a port is set to <b>Up</b> and it has no "
+"<b>Device Owner</b>,\n"
+"    then the port is available for use. You can set the <b>Admin State</b> "
+"to <b>Down</b>\n"
+"    if you are not ready for other users to use the port."
+msgstr ""
+"Quando lo <b>Stato Admin</b> per una porta è impostato su <b>Attivo</b> e "
+"non esiste un <b>Proprietario del dispositivo</b>,¶\n"
+"la porta è disponibile per l'utilizzo. È possibile impostare lo <b>Stato "
+"Admin</b> su <b>Disattivo</b>\n"
+"    se non si è pronti a consentire l'accesso alla porta ad altri utenti."
+
 msgid "Yes"
 msgstr "Si"
+
+#, python-format
+msgid "You are not allowed to delete images: %s"
+msgstr "Non è consentito eliminare le immagini: %s"
+
+msgid ""
+"You can add arbitrary metadata to your instance so that you can more easily "
+"identify it among other running instances. Metadata is a collection of key-"
+"value pairs associated with an instance. The maximum length for each "
+"metadata key and value is 255 characters."
+msgstr ""
+"È possibile aggiungere metadati arbitrari all'istanza in modo che sia "
+"possibile identificarla più facilmente tra le istanze in esecuzione. I "
+"metadati sono una raccolta di coppie chiave-valore associati all'istanza. La "
+"lunghezza massima per ciascuna chiave di metadati e il relativo valore è 255 "
+"caratteri."
+
+msgid ""
+"You can customize your instance after it has launched using the options "
+"available here.\n"
+"    \"Customization Script\" is analogous to \"User Data\" in other systems."
+msgstr ""
+"È possibile personalizzare l'istanza dopo l'avvio utilizzando le opzioni "
+"disponibili qui.\n"
+"   \"Script di personalizzazione\" è analogo a \"Dati utente\" in altri "
+"sistemi."
+
+#, python-format
+msgid "You have selected \"%s\". Deleted image is not recoverable."
+msgid_plural "You have selected \"%s\". Deleted images are not recoverable."
+msgstr[0] ""
+"È stato selezionato \"%s\". L'immagine eliminata non è ripristinabile."
+msgstr[1] ""
+"È stato selezionato \"%s\". Le immagini eliminate non sono ripristinabili."
+
+msgid "disabled"
+msgstr "disabilitato"
+
+msgid "error"
+msgid_plural "errors"
+msgstr[0] "errore"
+msgstr[1] "errori"
+
+msgid "image"
+msgstr "immagine"
+
+msgid "link"
+msgstr "link"
+
+msgid "message"
+msgid_plural "messages"
+msgstr[0] "messaggio"
+msgstr[1] "messaggi"
+
+msgid "snapshot"
+msgstr "istantanea"
+
+msgid "submit"
+msgid_plural "submits"
+msgstr[0] "inoltro"
+msgstr[1] "inoltri"
+
+msgid "success"
+msgid_plural "successs"
+msgstr[0] "operazione completata"
+msgstr[1] " operazioni completate"
+
+msgid "title"
+msgid_plural "titles"
+msgstr[0] "titolo"
+msgstr[1] "titoli"
 
 msgid "{$ row['provider:network_type'] $}"
 msgstr "{$ row['provider:network_type'] $}"

@@ -1,14 +1,15 @@
 # Yuko Katabami <yukokatabami@gmail.com>, 2015. #zanata
+# Andreas Jaeger <jaegerandi@gmail.com>, 2016. #zanata
 # Yuko Katabami <yukokatabami@gmail.com>, 2016. #zanata
 msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2016-03-16 02:15+0000\n"
+"POT-Creation-Date: 2016-04-07 12:24+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2016-03-16 11:18+0000\n"
+"PO-Revision-Date: 2016-03-21 10:33+0000\n"
 "Last-Translator: Yuko Katabami <yukokatabami@gmail.com>\n"
 "Language-Team: Japanese\n"
 "Language: ja\n"
@@ -54,7 +55,7 @@ msgid "Add Interface"
 msgstr "インターフェースの追加"
 
 msgid "Added"
-msgstr "追加しました"
+msgstr "追加済み"
 
 msgid "Allocated"
 msgstr "割り当て済み"
@@ -115,7 +116,7 @@ msgid "Create Subnet"
 msgstr "サブネットの作成"
 
 msgid "Current Usage"
-msgstr "現在の使用状況"
+msgstr "現在使用中"
 
 msgid "Custom"
 msgstr "カスタム"

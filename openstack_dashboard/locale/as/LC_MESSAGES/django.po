@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2016-03-16 02:16+0000\n"
+"POT-Creation-Date: 2016-04-07 12:25+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -3105,10 +3105,6 @@ msgstr "এই নেটৱৰ্কবোৰৰ সৈতে উদাহৰণ
 msgid "Launch instance with this policy profile"
 msgstr "এই নীতি প্ৰফাইলটোৰ সৈতে উদাহৰণ আৰম্ভ কৰক"
 
-#, python-format
-msgid "Launched %(count)s named \"%(name)s\"."
-msgstr "\"%(name)s\" নামৰ %(count)s টো আৰম্ভ কৰা হল."
-
 msgid ""
 "Launching multiple instances is only supported for images and instance "
 "snapshots."
@@ -4479,10 +4475,6 @@ msgstr "অতিৰিক্ত স্পেক \"%s\" ছেভ কৰা হ�
 msgid "Saved spec \"%s\"."
 msgstr "স্পেক \"%s\" ছেভ কৰা হল."
 
-#, python-format
-msgid "Scheduled resize of instance \"%s\"."
-msgstr " \"%s\" উদাহৰণৰ পুনৰ আকাৰ কৰাটো নিৰ্ধাৰণ কৰা হল."
-
 msgctxt "Task status of an Instance"
 msgid "Scheduling"
 msgstr "কাৰ্যসূচী নিৰ্ধাৰণ কৰিছে"
@@ -5045,12 +5037,6 @@ msgstr "ৰাজহুৱা কী সফলতাৰে আমদানি �
 
 msgid "Successfully modified QoS Spec consumer."
 msgstr "QoS স্পেক উপভোক্তা সফলতাৰে পৰিৱৰ্তন কৰা হল."
-
-#, python-format
-msgid ""
-"Successfully restored backup %(backup_name)s to volume with id: %(volume_id)s"
-msgstr ""
-"id ৰ সৈতে আয়তনলৈ সফলতাৰে %(backup_name)s বেকআপ পুনৰ জমা কৰা হল: %(volume_id)s"
 
 #, python-format
 msgid ""

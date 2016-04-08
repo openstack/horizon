@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2016-03-16 02:16+0000\n"
+"POT-Creation-Date: 2016-04-07 12:25+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -3083,10 +3083,6 @@ msgstr "ई संजाल क सँग इंस्टेंस लान्�
 msgid "Launch instance with this policy profile"
 msgstr "ई नीति प्रोफाइल क सँग इंस्टेंस लान्च करू"
 
-#, python-format
-msgid "Launched %(count)s named \"%(name)s\"."
-msgstr " %(count)s \"%(name)s\" नामित शुभारंभ कएल."
-
 msgid ""
 "Launching multiple instances is only supported for images and instance "
 "snapshots."
@@ -4453,10 +4449,6 @@ msgstr " \"%s\" बाइली विनिर्देश सहेजलक."
 msgid "Saved spec \"%s\"."
 msgstr "स्पेक \"%s\" सहेजलक."
 
-#, python-format
-msgid "Scheduled resize of instance \"%s\"."
-msgstr "इंस्टेंस \"%s\" क अनुसूचित आकार परिवर्तन."
-
 msgctxt "Task status of an Instance"
 msgid "Scheduling"
 msgstr "समय-सारणी"
@@ -5020,13 +5012,6 @@ msgstr "सफलतापूर्वक सार्वजनिक कुँ�
 
 msgid "Successfully modified QoS Spec consumer."
 msgstr "QoS विनिर्देश उपभोक्ता केँ सफलतापूर्वक संशोधित कएल गेल."
-
-#, python-format
-msgid ""
-"Successfully restored backup %(backup_name)s to volume with id: %(volume_id)s"
-msgstr ""
-"बैकअप %(backup_name)s केँ आईडी क सँग वाल्यूम मे सफलतापूर्वक पुनर्स्थापित कएल गेल: "
-"%(volume_id)s"
 
 #, python-format
 msgid ""
