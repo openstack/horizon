@@ -113,7 +113,7 @@
       return $q.when(returnValue, actionSuccessHandler, actionErrorHandler);
     }
 
-    function actionSuccessHandler(result) { // eslint-disable-line no-unused-vars
+    function actionSuccessHandler(result) {
 
       // The action has completed (for whatever "complete" means to that
       // action. Notice the view doesn't really need to know the semantics of the
