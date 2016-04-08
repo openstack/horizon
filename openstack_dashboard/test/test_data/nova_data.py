@@ -125,8 +125,8 @@ USAGE_DATA = """
     "total_hours": 125.48222222222223,
     "total_local_gb_usage": 0,
     "tenant_id": "%(tenant_id)s",
-    "stop": "2012-01-31 23:59:59",
-    "start": "2012-01-01 00:00:00",
+    "stop": "2012-01-31T23:59:59.000000",
+    "start": "2012-01-01T00:00:00.000000",
     "server_usages": [
         {
             "memory_mb": %(flavor_ram)s,
