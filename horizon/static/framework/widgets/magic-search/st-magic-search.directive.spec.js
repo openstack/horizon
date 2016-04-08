@@ -92,27 +92,27 @@
       /* eslint-disable angular/window-service */
       var msTemplate = window.STATIC_URL + 'framework/widgets/magic-search/magic-search.html';
       /* eslint-enable angular/window-service */
-      var stMagicSearch =
-        '<st-magic-search>' +
+      var markup =
+        '<hz-magic-search-context>' +
         '  <magic-search ' +
         '    template="' + msTemplate + '"' +
         '    strings="filterStrings" ' +
         '    facets="{{ filterFacets }}">' +
         '  </magic-search>' +
-        '</st-magic-search>';
-      var markup = '<table st-table="rows">' +
-                   '<thead>' +
-                   ' <tr>' +
-                   '   <th>' + stMagicSearch + '</th>' +
-                   ' </tr>' +
-                   '</thead>' +
-                   '<tbody>' +
-                   '  <tr ng-repeat="row in rows">' +
-                   '    <td>{{ row.name }}</td>' +
-                   '    <td>{{ row.status }}</td>' +
-                   '  </tr>' +
-                   '</tbody>' +
-                   '</table>';
+        '<table st-magic-search st-table="rows">' +
+        '<thead>' +
+        ' <tr>' +
+        '   <th></th>' +
+        ' </tr>' +
+        '</thead>' +
+        '<tbody>' +
+        '  <tr ng-repeat="row in rows">' +
+        '    <td>{{ row.name }}</td>' +
+        '    <td>{{ row.status }}</td>' +
+        '  </tr>' +
+        '</tbody>' +
+        '</table>' +
+        '</hz-magic-search-context>';
 
       $element = $compile(angular.element(markup));
 
@@ -139,15 +139,8 @@
       $timeout.flush();
 
       expect(element.find('tbody tr').length).toBe(6);
-      expect($scope.$emit).toHaveBeenCalledWith(
-        'serverSearchUpdated',
-        {
-          //magicSearchQuery: '',
-          magicSearchQueryChanged: false,
-          queryString: 'active',
-          queryStringChanged: true
-        }
-      );
+      expect($scope.$emit).toHaveBeenCalledWith('serverSearchUpdated',
+        { queryString: 'active', magicSearchQueryChanged: false, queryStringChanged: true });
     });
 
     it('should not raise serverSearchUpdated event if nothing has changed', function () {

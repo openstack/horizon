@@ -1,0 +1,18 @@
+<!--
+  Default detail row template
+
+  May be overridden.
+
+  The responsive columns that disappear typically should reappear here
+  with the same responsive priority that they disappear.
+  E.g. table header with rsp-p2 should be here with rsp-alt-p2
+  The layout should minimize vertical space to reduce scrolling.
+-->
+<div class="row">
+  <span class="rsp-alt-p2">
+    <dl class="col-sm-2" ng-repeat="column in config.columns">
+      <dt translate>{$ column.title $}</dt>
+      <dd translate><hz-cell></hz-cell></dd>
+    </dl>
+  </span>
+</div>

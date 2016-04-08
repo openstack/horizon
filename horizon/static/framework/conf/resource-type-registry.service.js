@@ -107,6 +107,25 @@
         return this;
       }
 
+      this.listFunction = angular.noop;
+      this.setListFunction = setListFunction;
+      function setListFunction(func) {
+        this.listFunction = func;
+        return this;
+      }
+
+      this.tableColumns = [];
+      extensibleService(this.tableColumns, this.tableColumns);
+      this.getTableColumns = function() {
+        return this.tableColumns.map(mapTableInfo);
+
+        function mapTableInfo(x) {
+          var tableInfo = x;
+          tableInfo.title = x.title || label(x.id) || x.id;
+          return tableInfo;
+        }
+      };
+
       // The purpose of these members is to allow details to be retrieved
       // automatically from such a path, or similarly to create a path
       // to such a route from any reference.  This establishes a two-way
