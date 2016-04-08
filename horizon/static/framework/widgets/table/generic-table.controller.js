@@ -21,10 +21,11 @@
 
   controller.$inject = [
     '$routeParams',
+    '$scope',
     'horizon.framework.conf.resource-type-registry.service'
   ];
 
-  function controller($routeParams, registry) {
+  function controller($routeParams, $scope, registry) {
     var ctrl = this;
 
     //ctrl.params = $routeParams;
@@ -38,6 +39,7 @@
     ctrl.items = [];
     ctrl.itemsSrc = [];
     ctrl.searchFacets = [];
+    registry.initActions(resourceTypeName, $scope);
     function onLoad(response) {
       ctrl.itemsSrc = response.data.items;
     }

@@ -3,9 +3,9 @@
 
 <hz-magic-search-context>
  <div class="row">
- <hz-magic-search-bar class="col-md-10" filter-facets="ctrl.searchFacets">
+ <hz-magic-search-bar class="col-md-8" filter-facets="ctrl.searchFacets">
  </hz-magic-search-bar>
- <actions class="col-md-2" allowed="ctrl.resourceType.batchActions" type="row">
+ <actions class="col-md-4" allowed="ctrl.resourceType.batchActions" type="batch">
  </actions>
  </div>
  <hz-dynamic-table
@@ -13,7 +13,6 @@
     config="ctrl.config"
     items="ctrl.items"
     safe-src-items="ctrl.itemsSrc"
-    batch-actions="ctrl.resourceType.batchActions"
     item-actions="ctrl.resourceType.itemActions"
   ></hz-dynamic-table>
 </hz-magic-search-context>
