@@ -50,19 +50,44 @@
       names: [gettext('Server'), gettext('Servers')]
     })
       .setListFunction(listFunction)
+      .setProperty('name', {
+        label: gettext('Name')
+      })
+      .setProperty('created', {
+        label: gettext('Created')
+      })
+      .setProperty('image_name', {
+        label: gettext('Image Name')
+      })
+      .setProperty('status', {
+        label: gettext('Status')
+      })
+//      .setProperty('OS-EXT-AZ:availability_zone', {
+//        label: gettext('Availability Zone')
+//      })
       .tableColumns
       .append({
-            id: 'name',
-            priority: 1,
-            sortDefault: true//,
-            //template: '<a ng-href="{$ \'details/OS::Nova::Server/\' + item.id $}">{$ item.name $}</a>'
+        id: 'name',
+        priority: 1,
+        sortDefault: true,
+        template: '<a ng-href="{$ \'details/OS::Nova::Server/\' + item.id $}">{$ item.name $}</a>'
       })
-      .append(
-          {
-            id: 'created',
-            title: gettext('Created'),
-            priority: 1
-          });
+      .append({
+        id: 'image_name',
+        priority: 1
+      })
+      .append({
+        id: 'status',
+        priority: 1
+      })
+//      .append({
+//        id: 'OS-EXT-AZ:availability_zone',
+//        priority: 1
+//      })
+      .append({
+        id: 'created',
+        priority: 1
+      });
 
     function listFunction() {
       return nova.getServers();
