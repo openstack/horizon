@@ -11,14 +11,12 @@
     "eslint-plugin-angular": "0.15.0",
     "jasmine-core": "2.2.0",
     "karma": "0.12.31",
-    "karma-chrome-launcher": "0.1.8",
+    "karma-chrome-launcher": "^0.1.8",
     "karma-cli": "0.0.4",
     "karma-coverage": "0.3.1",
     "karma-jasmine": "0.3.5",
     "karma-ng-html2js-preprocessor": "0.1.2",
-    "karma-phantomjs-launcher": "0.2.0",
-    "karma-threshold-reporter": "0.1.15",
-    "phantomjs": "1.9.17"
+    "karma-threshold-reporter": "0.1.15"
   },
   "scripts": {
     "postinstall": "if [ ! -d .venv ]; then tox -epy27 --notest; fi",
