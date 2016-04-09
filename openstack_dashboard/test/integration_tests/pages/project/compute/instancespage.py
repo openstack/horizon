@@ -110,9 +110,10 @@ class InstancesPage(basepage.BaseNavigationPage):
             lambda: self._get_row_with_instance_name(name))
 
     def is_instance_active(self, name):
-        row = self._get_row_with_instance_name(name)
-        return self.instances_table.is_cell_status(
-            lambda: row.cells[self.INSTANCES_TABLE_STATUS_COLUMN], 'Active')
+        def cell_getter():
+            row = self._get_row_with_instance_name(name)
+            return row and row.cells[self.INSTANCES_TABLE_STATUS_COLUMN]
+        return self.instances_table.is_cell_status(cell_getter, 'Active')
 
     def _get_source_name(self, instance, boot_source,
                          conf):

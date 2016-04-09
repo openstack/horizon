@@ -50,13 +50,12 @@ class BaseWebObject(unittest.TestCase):
             return False
 
     def _is_text_visible(self, element, text, strict=True):
-        try:
-            if strict:
-                return element.text == text
-            else:
-                return text in element.text
-        except Exception:
+        if not hasattr(element, 'text'):
             return False
+        if strict:
+            return element.text == text
+        else:
+            return text in element.text
 
     def _get_element(self, *locator):
         return self.driver.find_element(*locator)
