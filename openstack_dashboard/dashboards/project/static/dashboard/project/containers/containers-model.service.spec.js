@@ -63,10 +63,13 @@
       expect(service.container.name).toEqual('spam');
       expect(swiftAPI.getObjects).toHaveBeenCalledWith('spam', {delimiter: '/'});
 
-      deferred.resolve({data: {items: ['two', 'items']}});
+      deferred.resolve({data: {items: [{name:'two'}, {name:'items'}]}});
       $rootScope.$apply();
 
-      expect(service.objects).toEqual(['two', 'items']);
+      expect(service.objects).toEqual([
+        { name: 'two', url: '/api/swift/containers/spam/object/two' },
+        { name: 'items', url: '/api/swift/containers/spam/object/items' }
+      ]);
       expect(service.pseudo_folder_hierarchy).toEqual([]);
     });
 
@@ -81,9 +84,12 @@
       expect(service.folder).toEqual('ham');
       expect(swiftAPI.getObjects).toHaveBeenCalledWith('spam', {path: 'ham/', delimiter: '/'});
 
-      deferred.resolve({data: {items: ['two', 'items']}});
+      deferred.resolve({data: {items: [{name:'two'}, {name:'items'}]}});
       $rootScope.$apply();
-      expect(service.objects).toEqual(['two', 'items']);
+      expect(service.objects).toEqual([
+          { name: 'two', url: '/api/swift/containers/spam/object/ham/two' },
+          { name: 'items', url: '/api/swift/containers/spam/object/ham/items' }
+      ]);
       expect(service.pseudo_folder_hierarchy).toEqual(['ham']);
     });
 
