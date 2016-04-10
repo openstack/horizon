@@ -442,6 +442,9 @@ class EditStackForm(CreateStackForm):
         if data.get('password'):
             fields['password'] = data.get('password')
 
+        if data.get('environment_data'):
+            fields['environment'] = data.get('environment_data')
+
         try:
             api.heat.stack_update(self.request, stack_id=stack_id, **fields)
             messages.info(request, _("Stack update started."))
