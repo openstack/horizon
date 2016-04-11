@@ -25,18 +25,20 @@
    * Provides all of the actions for instances.
    */
   angular.module('horizon.app.core.volumes.actions',
-    ['horizon.framework.conf', 'horizon.app.core'])
+    ['horizon.framework.conf', 'horizon.app.core', 'horizon.framework.util.actions'])
     .run(run);
 
   run.$inject = [
     'horizon.framework.conf.resource-type-registry.service',
     'horizon.app.core.volumes.actions.launch-instance.service',
+    'horizon.framework.util.actions.redirect-action.service',
     'horizon.app.core.volumes.resourceType'
   ];
 
   function run(
     registry,
     launchInstanceService,
+    redirectService,
     resourceType)
   {
     var instanceResourceType = registry.getResourceType(resourceType);
@@ -47,7 +49,18 @@
         template: {
           text: gettext('Launch as Instance')
         }
+      })
+      .append({
+        id: 'legacyService',
+        service: redirectService(legacyPath),
+        template: {
+          text: gettext('Legacy Details...')
+        }
       });
+
+    function legacyPath(volume) {
+     return 'project/volumes/' + volume.id + '/';
+    }
   }
 
 })();
