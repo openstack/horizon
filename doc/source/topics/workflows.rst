@@ -28,9 +28,9 @@ urls, views, workflows and templates:
 
     RESOURCE_CLASS = r'^(?P<resource_class_id>[^/]+)/%s$'
 
-    urlpatterns = patterns(
-    '',
-    url(RESOURCE_CLASS % 'update', UpdateView.as_view(), name='update'))
+    urlpatterns = [
+        url(RESOURCE_CLASS % 'update', UpdateView.as_view(), name='update')
+    ]
 
 #. In ``views.py``, we pass data to the template and to the action(form)
    (action can also pass data to the ``get_context_data`` method and to the

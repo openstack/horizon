@@ -10,22 +10,16 @@
 # License for the specific language governing permissions and limitations
 # under the License.
 
-from django.conf.urls import patterns
 from django.conf.urls import url
 
 from openstack_dashboard.dashboards.project.volumes.backups import views
 
 
-VIEWS_MOD = ('openstack_dashboard.dashboards.project'
-             '.volumes.backups.views')
-
-
-urlpatterns = patterns(
-    VIEWS_MOD,
+urlpatterns = [
     url(r'^(?P<backup_id>[^/]+)/$',
         views.BackupDetailView.as_view(),
         name='detail'),
     url(r'^(?P<backup_id>[^/]+)/restore/$',
         views.RestoreBackupView.as_view(),
         name='restore'),
-)
+]

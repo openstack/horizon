@@ -17,7 +17,6 @@
 #    under the License.
 
 from django.conf.urls import include
-from django.conf.urls import patterns
 from django.conf.urls import url
 
 from openstack_dashboard.dashboards.project.images.images \
@@ -27,9 +26,8 @@ from openstack_dashboard.dashboards.project.images.snapshots \
 from openstack_dashboard.dashboards.project.images import views
 
 
-urlpatterns = patterns(
-    '',
+urlpatterns = [
     url(r'^$', views.IndexView.as_view(), name='index'),
     url(r'', include(image_urls, namespace='images')),
     url(r'', include(snapshot_urls, namespace='snapshots')),
-)
+]

@@ -28,6 +28,5 @@ def register(view):
     Django URL regex pattern.
     '''
     p = urls.url(view.url_regex, view.as_view())
-    p.add_prefix('openstack_dashboard.rest_api')
     urlpatterns.append(p)
     return view

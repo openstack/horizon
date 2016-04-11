@@ -12,7 +12,6 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
-from django.conf.urls import patterns
 from django.conf.urls import url
 
 from openstack_dashboard.dashboards.project.routers.extensions.extraroutes\
@@ -27,8 +26,7 @@ from openstack_dashboard.dashboards.project.routers import views
 ROUTER_URL = r'^(?P<router_id>[^/]+)/%s'
 
 
-urlpatterns = patterns(
-    'horizon.dashboards.project.routers.views',
+urlpatterns = [
     url(r'^$', views.IndexView.as_view(), name='index'),
     url(r'^create/$', views.CreateView.as_view(), name='create'),
     url(ROUTER_URL % '$',
@@ -49,4 +47,4 @@ urlpatterns = patterns(
     url(ROUTER_URL % 'setgateway',
         port_views.SetGatewayView.as_view(),
         name='setgateway'),
-)
+]

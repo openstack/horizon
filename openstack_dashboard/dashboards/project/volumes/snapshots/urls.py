@@ -10,18 +10,16 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
-from django.conf.urls import patterns
 from django.conf.urls import url
 
 from openstack_dashboard.dashboards.project.volumes.snapshots import views
 
 
-urlpatterns = patterns(
-    '',
+urlpatterns = [
     url(r'^(?P<snapshot_id>[^/]+)$',
         views.DetailView.as_view(),
         name='detail'),
     url(r'^(?P<snapshot_id>[^/]+)/update/$',
         views.UpdateView.as_view(),
         name='update'),
-)
+]

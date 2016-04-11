@@ -12,7 +12,6 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
-from django.conf.urls import patterns
 from django.conf.urls import url
 
 from openstack_dashboard.dashboards.project.volumes \
@@ -21,10 +20,7 @@ from openstack_dashboard.dashboards.project.volumes.backups \
     import views as backup_views
 
 
-VIEWS_MOD = ('openstack_dashboard.dashboards.project.volumes.volumes.views')
-
-urlpatterns = patterns(
-    VIEWS_MOD,
+urlpatterns = [
     url(r'^create/$', views.CreateView.as_view(), name='create'),
     url(r'^(?P<volume_id>[^/]+)/extend/$',
         views.ExtendView.as_view(),
@@ -62,4 +58,4 @@ urlpatterns = patterns(
     url(r'^(?P<volume_id>[^/]+)/encryption_detail/$',
         views.EncryptionDetailView.as_view(),
         name='encryption_detail'),
-)
+]

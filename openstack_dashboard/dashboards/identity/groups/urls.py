@@ -12,14 +12,12 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
-from django.conf.urls import patterns
 from django.conf.urls import url
 
 from openstack_dashboard.dashboards.identity.groups import views
 
 
-urlpatterns = patterns(
-    '',
+urlpatterns = [
     url(r'^$', views.IndexView.as_view(), name='index'),
     url(r'^create$', views.CreateView.as_view(), name='create'),
     url(r'^(?P<group_id>[^/]+)/update/$',
@@ -28,4 +26,4 @@ urlpatterns = patterns(
         views.ManageMembersView.as_view(), name='manage_members'),
     url(r'^(?P<group_id>[^/]+)/add_members/$',
         views.NonMembersView.as_view(), name='add_members'),
-)
+]

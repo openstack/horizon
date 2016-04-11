@@ -13,7 +13,6 @@
 #    under the License.
 
 from django.conf.urls import include
-from django.conf.urls import patterns
 from django.conf.urls import url
 
 from openstack_dashboard.dashboards.project.volumes.backups \
@@ -26,8 +25,7 @@ from openstack_dashboard.dashboards.project.volumes import views
 from openstack_dashboard.dashboards.project.volumes.volumes \
     import urls as volume_urls
 
-urlpatterns = patterns(
-    '',
+urlpatterns = [
     url(r'^$', views.IndexView.as_view(), name='index'),
     url(r'^\?tab=volumes_and_snapshots__snapshots_tab$',
         views.IndexView.as_view(), name='snapshots_tab'),
@@ -41,4 +39,4 @@ urlpatterns = patterns(
     url(r'backups/', include(backups_urls, namespace='backups')),
     url(r'snapshots/', include(snapshot_urls, namespace='snapshots')),
     url(r'cgroups/', include(cgroup_urls, namespace='cgroups')),
-)
+]

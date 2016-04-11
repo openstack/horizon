@@ -10,17 +10,15 @@
 # License for the specific language governing permissions and limitations
 # under the License.
 
-from django.conf.urls import patterns
 from django.conf.urls import url
 
 from openstack_dashboard.dashboards.admin.volumes.volume_types.qos_specs \
     import views
 
-urlpatterns = patterns(
-    '',
+urlpatterns = [
     url(r'^(?P<qos_spec_id>[^/]+)/create/$',
         views.CreateKeyValuePairView.as_view(), name='create'),
     url(r'^(?P<qos_spec_id>[^/]+)/$', views.IndexView.as_view(), name='index'),
     url(r'^(?P<qos_spec_id>[^/]+)/key/(?P<key>[^/]+)/edit/$',
-        views.EditKeyValuePairView.as_view(), name='edit')
-)
+        views.EditKeyValuePairView.as_view(), name='edit'),
+]

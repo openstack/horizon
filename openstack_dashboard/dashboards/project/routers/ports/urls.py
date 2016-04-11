@@ -12,13 +12,12 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
-from django.conf.urls import patterns
 from django.conf.urls import url
 
 from openstack_dashboard.dashboards.project.routers.ports import views
 
 PORTS = r'^(?P<port_id>[^/]+)/%s$'
 
-urlpatterns = patterns(
-    'horizon.dashboards.project.networks.ports.views',
-    url(PORTS % 'detail', views.DetailView.as_view(), name='detail'))
+urlpatterns = [
+    url(PORTS % 'detail', views.DetailView.as_view(), name='detail'),
+]

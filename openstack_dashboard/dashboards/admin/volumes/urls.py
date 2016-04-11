@@ -11,7 +11,6 @@
 # under the License.
 
 from django.conf.urls import include
-from django.conf.urls import patterns
 from django.conf.urls import url
 
 from openstack_dashboard.dashboards.admin.volumes.snapshots \
@@ -22,8 +21,7 @@ from openstack_dashboard.dashboards.admin.volumes.volume_types \
 from openstack_dashboard.dashboards.admin.volumes.volumes \
     import urls as volumes_urls
 
-urlpatterns = patterns(
-    '',
+urlpatterns = [
     url(r'^$',
         views.IndexView.as_view(),
         name='index'),
@@ -42,4 +40,4 @@ urlpatterns = patterns(
         include(volume_types_urls, namespace='volume_types')),
     url(r'snapshots/',
         include(snapshot_urls, namespace='snapshots')),
-)
+]

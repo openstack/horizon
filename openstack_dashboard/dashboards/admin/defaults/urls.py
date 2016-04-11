@@ -12,14 +12,13 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
-from django.conf.urls import patterns
 from django.conf.urls import url
 
 from openstack_dashboard.dashboards.admin.defaults import views
 
 
-urlpatterns = patterns(
-    'openstack_dashboard.dashboards.admin.defaults.views',
+urlpatterns = [
     url(r'^$', views.IndexView.as_view(), name='index'),
     url(r'^update_defaults$',
-        views.UpdateDefaultQuotasView.as_view(), name='update_defaults'))
+        views.UpdateDefaultQuotasView.as_view(), name='update_defaults'),
+]

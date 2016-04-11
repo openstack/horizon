@@ -10,13 +10,11 @@
 # License for the specific language governing permissions and limitations
 # under the License.
 
-from django.conf.urls import patterns
 from django.conf.urls import url
 
 from openstack_dashboard.dashboards.project.stacks import views
 
-urlpatterns = patterns(
-    '',
+urlpatterns = [
     url(r'^$', views.IndexView.as_view(), name='index'),
     url(r'^select_template$',
         views.SelectTemplateView.as_view(),
@@ -37,4 +35,4 @@ urlpatterns = patterns(
         views.ResourceView.as_view(), name='resource'),
     url(r'^get_d3_data/(?P<stack_id>[^/]+)/$',
         views.JSONView.as_view(), name='d3_data'),
-)
+]

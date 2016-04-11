@@ -16,7 +16,6 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
-from django.conf.urls import patterns
 from django.conf.urls import url
 
 from openstack_dashboard.dashboards.admin.instances import views
@@ -25,15 +24,14 @@ from openstack_dashboard.dashboards.admin.instances import views
 INSTANCES = r'^(?P<instance_id>[^/]+)/%s$'
 
 
-urlpatterns = patterns(
-    'openstack_dashboard.dashboards.admin.instances.views',
+urlpatterns = [
     url(r'^$', views.AdminIndexView.as_view(), name='index'),
     url(INSTANCES % 'update', views.AdminUpdateView.as_view(), name='update'),
     url(INSTANCES % 'detail', views.DetailView.as_view(), name='detail'),
-    url(INSTANCES % 'console', 'console', name='console'),
-    url(INSTANCES % 'vnc', 'vnc', name='vnc'),
-    url(INSTANCES % 'spice', 'spice', name='spice'),
-    url(INSTANCES % 'rdp', 'rdp', name='rdp'),
+    url(INSTANCES % 'console', views.console, name='console'),
+    url(INSTANCES % 'vnc', views.vnc, name='vnc'),
+    url(INSTANCES % 'spice', views.spice, name='spice'),
+    url(INSTANCES % 'rdp', views.rdp, name='rdp'),
     url(INSTANCES % 'live_migrate', views.LiveMigrateView.as_view(),
         name='live_migrate'),
-)
+]

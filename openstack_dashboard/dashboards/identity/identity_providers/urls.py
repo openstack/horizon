@@ -13,7 +13,6 @@
 # under the License.
 
 from django.conf.urls import include
-from django.conf.urls import patterns
 from django.conf.urls import url
 
 from openstack_dashboard.dashboards.identity.identity_providers.protocols \
@@ -21,9 +20,7 @@ from openstack_dashboard.dashboards.identity.identity_providers.protocols \
 from openstack_dashboard.dashboards.identity.identity_providers \
     import views
 
-
-urlpatterns = patterns(
-    'openstack_dashboard.dashboards.identity.identity_providers.views',
+urlpatterns = [
     url(r'^$', views.IndexView.as_view(), name='index'),
     url(r'^(?P<identity_provider_id>[^/]+)/detail/$',
         views.DetailView.as_view(), name='detail'),
@@ -36,4 +33,4 @@ urlpatterns = patterns(
     url(r'^register/$', views.RegisterView.as_view(), name='register'),
     url(r'(?P<identity_provider_id>[^/]+)/protocols/',
         include(protocol_urls, namespace='protocols')),
-)
+]
