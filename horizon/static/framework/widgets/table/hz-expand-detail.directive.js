@@ -34,10 +34,11 @@
    * specified, the default 'fa-chevron-right fa-chevron-down' is used. A
    * duration for the slide animation can be specified as well (default: 400).
    * The detail drawer row and cell also needs to be implemented and include
-   * the classes 'detail-row' and 'detail', respectively.
+   * the classes 'detail-row' and 'detail', respectively. On expansion,
+   * the directive will broadcast the optionally supplied item from the template.
    *
    * @restrict A
-   * @scope icons: '@hzExpandDetail', duration: '@'
+   * @scope icons: '@hzExpandDetail', duration: '@', item: '=?'
    * @example
    *
    * ```
@@ -45,7 +46,8 @@
    *  <td>
    *    <i class='fa fa-chevron-right'
    *       hz-expand-detail='fa-chevron-right fa-chevron-down'
-   *       duration='200'></i>
+   *       duration='200'
+   *       item="someObject"></i>
    *  </td>
    * </tr>
    * <tr class='detail-row'>
@@ -57,9 +59,11 @@
   function hzExpandDetail(settings) {
     var directive = {
       restrict: 'A',
+      require: '^hzTable',
       scope: {
         icons: '@hzExpandDetail',
-        duration: '@'
+        duration: '@',
+        item: '=?'
       },
       link: link
     };
@@ -67,7 +71,7 @@
 
     ////////////////////
 
-    function link(scope, element) {
+    function link(scope, element, attrs, hzTableCtrl) {
       element.on('click', onClick);
 
       function onClick() {
@@ -95,6 +99,10 @@
             // Slide down animation doesn't work on table cells
             // so a <div> wrapper needs to be added
             detailCell.wrapInner('<div class="detail-expanded"></div>');
+          }
+
+          if (scope.item) {
+            hzTableCtrl.broadcastExpansion(scope.item);
           }
 
           detailCell.find('.detail-expanded').slideDown(duration);

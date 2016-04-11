@@ -9,7 +9,7 @@
   <tbody>
     <tr ng-repeat-start="row in fakeData">
       <td><input type="checkbox" hz-select="row" ng-model="tCtrl.selections[row.id].checked"></td>
-      <td><span class="fa fa-chevron-right" hz-expand-detail></span></td>
+      <td><span class="fa fa-chevron-right" hz-expand-detail item="row.animal"></span></td>
       <td>{{ row.animal }}</td>
     </tr>
     <tr class="detail-row" ng-repeat-end>

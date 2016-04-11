@@ -248,6 +248,13 @@
         }, 2000);
         /*eslint-enable angular/timeout-service */
       });
+
+      it('should broadcast event when row is expanded', function() {
+        spyOn($scope, '$broadcast');
+        var expandIcon = $element.find('.fa').first();
+        expandIcon.click();
+        expect($scope.$broadcast).toHaveBeenCalled();
+      });
     });
 
   });
