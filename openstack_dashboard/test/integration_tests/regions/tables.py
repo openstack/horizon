@@ -145,8 +145,13 @@ class TableRegion(baseregion.BaseRegion):
                 for elem in self._get_elements(*self._rows_locator)]
 
     def is_row_deleted(self, row_getter):
+        def predicate(driver):
+            if self._is_element_present(*self._empty_table_locator):
+                return True
+            with self.waits_disabled():
+                return not self._is_element_displayed(row_getter())
         try:
-            self.wait_till_element_disappears(row_getter)
+            self._wait_until(predicate)
         except exceptions.TimeoutException:
             return False
         except IndexError:
